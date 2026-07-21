@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Femio — Personalized Screen Mockups (P0.20b)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600;700&family=IBM+Plex+Sans+Arabic:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --femio-primary:#7C3AED; --femio-primary-soft:#EDE9FE; --femio-accent:#E11D74;
+  --femio-teal:#0D9488; --femio-amber:#D97706; --femio-ink:#1E1B2E; --femio-surface:#FAFAF9;
+  --femio-radius:16px; --femio-radius-sm:10px;
+  --menstrual:#E11D74; --follicular:#0D9488; --ovulatory:#F59E0B; --luteal:#7C3AED;
+  --card-shadow:0 1px 3px rgb(0 0 0 / .08); --line:#ECEAF1;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#F4F2F7;color:var(--femio-ink);font-family:'Inter',sans-serif;line-height:1.5;padding:32px 20px 80px}
+.wrap{max-width:1280px;margin:0 auto}
+h1{font-family:'Fraunces',serif;font-weight:600;font-size:34px;letter-spacing:-.5px}
+.sub{color:#6B6577;margin:8px 0 4px;max-width:760px}
+.legend{font-size:13px;color:#8A8397;margin-bottom:28px}
+h2{font-family:'Fraunces',serif;font-weight:600;font-size:22px;margin:40px 0 4px}
+.sec-note{color:#6B6577;font-size:14px;margin-bottom:20px;max-width:820px}
+.gallery{display:flex;flex-wrap:wrap;gap:26px;align-items:flex-start}
+.stage{display:flex;flex-direction:column;align-items:center;gap:10px}
+.caption{font-size:13px;font-weight:600;color:#514B60;text-align:center;max-width:300px}
+.caption span{display:block;font-weight:400;color:#8A8397;font-size:12px;margin-top:2px}
+/* phone */
+.phone{width:300px;height:620px;background:#fff;border-radius:34px;padding:10px;box-shadow:0 12px 40px rgb(30 27 46 / .16);border:1px solid #E7E4EE}
+.screen{width:100%;height:100%;background:var(--femio-surface);border-radius:26px;overflow:hidden;display:flex;flex-direction:column;position:relative}
+.statusbar{height:26px;display:flex;justify-content:space-between;align-items:center;padding:0 18px;font-size:11px;font-weight:600;color:var(--femio-ink);flex:none}
+.appbar{padding:8px 18px 12px;display:flex;justify-content:space-between;align-items:center;flex:none}
+.brand{font-family:'Fraunces',serif;font-weight:600;font-size:18px;color:var(--femio-primary)}
+.avatar{width:30px;height:30px;border-radius:50%;background:var(--femio-primary-soft);display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:600;color:var(--femio-primary)}
+.body{flex:1;overflow:hidden;padding:2px 16px 12px;display:flex;flex-direction:column;gap:12px}
+.card{background:#fff;border-radius:var(--femio-radius);padding:14px;box-shadow:var(--card-shadow)}
+.hero{background:linear-gradient(135deg,var(--femio-primary),#9B5DE5);color:#fff}
+.hero.teal{background:linear-gradient(135deg,var(--femio-teal),#14B8A6)}
+.hero.rasp{background:linear-gradient(135deg,var(--femio-accent),#F0559A)}
+.hero.amber{background:linear-gradient(135deg,#B45309,var(--femio-amber))}
+.hero .eyebrow{font-size:11px;text-transform:uppercase;letter-spacing:.5px;opacity:.85;font-weight:600}
+.hero .big{font-family:'Fraunces',serif;font-size:22px;font-weight:600;margin:4px 0}
+.hero .small{font-size:12.5px;opacity:.92}
+.band{height:8px;border-radius:6px;margin:10px 0 6px;background:linear-gradient(90deg,rgba(255,255,255,.25) 0 30%,rgba(255,255,255,.9) 30% 62%,rgba(255,255,255,.25) 62% 100%)}
+.band-dotted{height:8px;border-radius:6px;background:repeating-linear-gradient(90deg,rgba(255,255,255,.85) 0 6px,transparent 6px 12px)}
+.uncert{font-size:11px;opacity:.9;display:flex;gap:5px;align-items:center}
+.ctitle{font-size:13.5px;font-weight:600;margin-bottom:6px;display:flex;align-items:center;gap:6px}
+.crow{display:flex;justify-content:space-between;align-items:center;font-size:12.5px;color:#514B60;padding:5px 0;border-bottom:1px solid var(--line)}
+.crow:last-child{border-bottom:none}
+.pill{display:inline-block;font-size:10.5px;font-weight:600;padding:3px 9px;border-radius:20px}
+.pill.teen{background:#E0F2F1;color:#0F766E}
+.pill.privacy{background:var(--femio-primary-soft);color:var(--femio-primary)}
+.pill.soft{background:#F3F0FA;color:#6D28D9}
+.pill.warn{background:#FEF3E2;color:#B45309}
+.metric{font-family:'Fraunces',serif;font-size:20px;font-weight:600}
+.quick{display:flex;gap:8px}
+.qbtn{flex:1;background:var(--femio-primary-soft);color:var(--femio-primary);border-radius:12px;padding:9px 4px;text-align:center;font-size:11px;font-weight:600}
+.qbtn.teal{background:#D5F1EE;color:#0F766E}
+.redflag{background:#FEF2F2;border:1px solid #FBD5D5;border-radius:12px;padding:11px}
+.redflag .ctitle{color:#B42318}
+.redflag p{font-size:11.5px;color:#7A271A}
+.tabbar{height:52px;background:#fff;border-top:1px solid var(--line);display:flex;justify-content:space-around;align-items:center;flex:none}
+.tab{display:flex;flex-direction:column;align-items:center;gap:2px;font-size:9.5px;color:#B7B2C2}
+.tab .ic{width:20px;height:20px;border-radius:6px;background:#E7E3EF}
+.tab.on{color:var(--femio-primary)} .tab.on .ic{background:var(--femio-primary)}
+.wiz-opt{border:1.5px solid var(--line);border-radius:12px;padding:12px;font-size:13px;font-weight:500;display:flex;align-items:center;gap:10px}
+.wiz-opt.sel{border-color:var(--femio-primary);background:var(--femio-primary-soft);color:var(--femio-primary)}
+.wiz-opt .dot{width:16px;height:16px;border-radius:50%;border:2px solid #C9C3D6;flex:none}
+.wiz-opt.sel .dot{border-color:var(--femio-primary);background:var(--femio-primary);box-shadow:inset 0 0 0 3px #fff}
+.skip{text-align:center;font-size:12px;color:#8A8397;text-decoration:underline;margin-top:4px}
+.progress{height:5px;background:#E7E3EF;border-radius:3px;overflow:hidden}
+.progress i{display:block;height:100%;width:28%;background:var(--femio-primary)}
+.arrow-col{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;align-self:center}
+.arrow{font-size:30px;color:var(--femio-primary)}
+.event-chip{background:var(--femio-ink);color:#fff;font-size:11px;font-weight:600;padding:7px 12px;border-radius:20px;text-align:center;max-width:150px}
+.keep-chip{background:#E0F2F1;color:#0F766E;font-size:10.5px;font-weight:600;padding:6px 10px;border-radius:10px;text-align:center;max-width:160px}
+.rtl{direction:rtl;font-family:'IBM Plex Sans Arabic',sans-serif}
+.rtl .body{line-height:1.7}
+.footer-note{margin-top:48px;padding:18px 20px;background:#fff;border-radius:14px;box-shadow:var(--card-shadow);font-size:13px;color:#6B6577;max-width:900px}
+.footer-note b{color:var(--femio-ink)}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>Femio — Personalized Screens</h1>
+  <p class="sub">Mockups on the Femio design system (violet #7C3AED, Inter + Fraunces, cards, uncertainty-honest predictions, RTL). Each home is the same app, re-layered by the adaptation model — never a different app, never restricted.</p>
+  <p class="legend">Phase 0.5 · P0.20b · light theme · built from docs/09_MASTER_ADAPTATION_MODEL.md</p>
+
+  <!-- WELCOME WIZARD -->
+  <h2>1 · Welcome wizard</h2>
+  <p class="sec-note">Resolves the starting persona. Editable/resettable anytime from Settings. Always offers “Skip / not sure” → Z1 generic experience.</p>
+  <div class="gallery">
+    <div class="stage">
+      <div class="phone"><div class="screen">
+        <div class="statusbar"><span>9:41</span><span>✦ ▮▮▮</span></div>
+        <div class="appbar"><span class="brand">Femio</span><span class="pill soft">Step 1 of 4</span></div>
+        <div class="body">
+          <div class="progress"><i></i></div>
+          <div class="ctitle" style="font-family:Fraunces;font-size:16px">What brings you to Femio?</div>
+          <div class="wiz-opt"><span class="dot"></span>Learning about my body</div>
+          <div class="wiz-opt sel"><span class="dot"></span>Recently started my periods</div>
+          <div class="wiz-opt"><span class="dot"></span>Tracking my cycle</div>
+          <div class="wiz-opt"><span class="dot"></span>Trying to conceive</div>
+          <div class="wiz-opt"><span class="dot"></span>I’m pregnant</div>
+          <div class="wiz-opt"><span class="dot"></span>My cycles are changing (40s+)</div>
+          <div class="skip">Skip / I’m not sure →</div>
+        </div>
+        <div class="tabbar"><div class="tab on"><span class="ic"></span>Setup</div><div class="tab"><span class="ic"></span>Learn</div><div class="tab"><span class="ic"></span>Me</div></div>
+      </div></div>
+      <div class="caption">Q1 — life stage<span>drives persona + tone + privacy tier</span></div>
+    </div>
+
+    <div class="stage">
+      <div class="phone"><div class="screen">
+        <div class="statusbar"><span>9:41</span><span>✦ ▮▮▮</span></div>
+        <div class="appbar"><span class="brand">Femio</span><span class="pill privacy">🔒 Private</span></div>
+        <div class="body">
+          <div class="progress"><i style="width:70%"></i></div>
+          <div class="ctitle" style="font-family:Fraunces;font-size:16px">A few things your clinician is watching?</div>
+          <p style="font-size:12px;color:#8A8397;margin-top:-4px">Pick any — we tailor, never restrict.</p>
+          <div class="wiz-opt sel"><span class="dot"></span>Thyroid condition</div>
+          <div class="wiz-opt"><span class="dot"></span>Diabetes (before pregnancy)</div>
+          <div class="wiz-opt"><span class="dot"></span>High blood pressure</div>
+          <div class="wiz-opt"><span class="dot"></span>None of these</div>
+          <div class="card" style="background:var(--femio-primary-soft);padding:10px"><p style="font-size:11.5px;color:#5B21B6">You can <b>edit or reset</b> all of this later in Settings → My experience.</p></div>
+        </div>
+        <div class="tabbar"><div class="tab on"><span class="ic"></span>Setup</div><div class="tab"><span class="ic"></span>Learn</div><div class="tab"><span class="ic"></span>Me</div></div>
+      </div></div>
+      <div class="caption">Refinement — stackable modifiers<span>editable / resettable panel</span></div>
+    </div>
+  </div>
+
+  <!-- PERSONALIZED HOMES -->
+  <h2>2 · Personalized home — same app, re-layered per persona</h2>
+  <p class="sec-note">Hero, tools, content and alerts change with the resolved state. Everything else stays reachable via search/library.</p>
+  <div class="gallery">
+
+    <!-- A2 teen -->
+    <div class="stage">
+      <div class="phone"><div class="screen">
+        <div class="statusbar"><span>9:41</span><span>✦ ▮▮▮</span></div>
+        <div class="appbar"><span class="brand">Femio</span><span class="pill teen">Teen mode · no ads</span></div>
+        <div class="body">
+          <div class="card hero rasp">
+            <div class="eyebrow">You’re normal 💛</div>
+            <div class="big">Your period is due in about a week</div>
+            <div class="band-dotted"></div>
+            <div class="uncert">◔ Irregular is expected right now — this is a rough window</div>
+          </div>
+          <div class="quick"><div class="qbtn">＋ Log period</div><div class="qbtn">Mood</div><div class="qbtn">Hide 🔒</div></div>
+          <div class="card"><div class="ctitle">Start here</div>
+            <div class="crow">What’s normal in the first years? <span>›</span></div>
+            <div class="crow">Cramps &amp; what helps <span>›</span></div>
+          </div>
+        </div>
+        <div class="tabbar"><div class="tab on"><span class="ic"></span>Home</div><div class="tab"><span class="ic"></span>Track</div><div class="tab"><span class="ic"></span>Learn</div><div class="tab"><span class="ic"></span>Me</div></div>
+      </div></div>
+      <div class="caption">A2 · newly menstruating<span>reassurance-first, teen privacy, no fertility framing</span></div>
+    </div>
+
+    <!-- B6 PCOS -->
+    <div class="stage">
+      <div class="phone"><div class="screen">
+        <div class="statusbar"><span>9:41</span><span>✦ ▮▮▮</span></div>
+        <div class="appbar"><span class="brand">Femio</span><span class="avatar">L</span></div>
+        <div class="body">
+          <div class="card hero">
+            <div class="eyebrow">Cycle range</div>
+            <div class="big">Day 34 · your cycles run 24–90 days</div>
+            <div class="uncert">◔ No “late” here — we show your range, not a false date</div>
+          </div>
+          <div class="quick"><div class="qbtn">＋ Log</div><div class="qbtn">Symptoms</div><div class="qbtn">Labs</div></div>
+          <div class="card"><div class="ctitle">Your focus <span class="pill soft">PCOS</span></div>
+            <div class="crow">Skin &amp; hair this month <span>›</span></div>
+            <div class="crow">Prep for your endocrinologist <span>›</span></div>
+            <div class="crow">Mood check-in <span>›</span></div>
+          </div>
+        </div>
+        <div class="tabbar"><div class="tab on"><span class="ic"></span>Home</div><div class="tab"><span class="ic"></span>Track</div><div class="tab"><span class="ic"></span>Learn</div><div class="tab"><span class="ic"></span>Me</div></div>
+      </div></div>
+      <div class="caption">B6 · PCOS (not TTC)<span>range not date · no pregnancy nudges · visit-prep</span></div>
+    </div>
+
+    <!-- C1 TTC -->
+    <div class="stage">
+      <div class="phone"><div class="screen">
+        <div class="statusbar"><span>9:41</span><span>✦ ▮▮▮</span></div>
+        <div class="appbar"><span class="brand">Femio</span><span class="avatar">N</span></div>
+        <div class="body">
+          <div class="card hero teal">
+            <div class="eyebrow">Fertile window</div>
+            <div class="big">Likely fertile in 2–4 days</div>
+            <div class="band"></div>
+            <div class="uncert">◔ Estimate, not a guarantee · not birth control</div>
+          </div>
+          <div class="quick"><div class="qbtn teal">BBT</div><div class="qbtn teal">OPK</div><div class="qbtn teal">＋ Log</div></div>
+          <div class="card"><div class="ctitle">Two-week wait</div>
+            <div class="crow">Day 3 past ovulation <span class="pill soft">DPO 3</span></div>
+            <div class="crow">Preconception checklist <span>2 left ›</span></div>
+          </div>
+        </div>
+        <div class="tabbar"><div class="tab on"><span class="ic"></span>Home</div><div class="tab"><span class="ic"></span>Track</div><div class="tab"><span class="ic"></span>Learn</div><div class="tab"><span class="ic"></span>Me</div></div>
+      </div></div>
+      <div class="caption">C1 · trying to conceive<span>BBT/OPK/CM · honest window · partner-ready</span></div>
+    </div>
+
+    <!-- D1 pregnancy -->
+    <div class="stage">
+      <div class="phone"><div class="screen">
+        <div class="statusbar"><span>9:41</span><span>✦ ▮▮▮</span></div>
+        <div class="appbar"><span class="brand">Femio</span><span class="avatar">M</span></div>
+        <div class="body">
+          <div class="card hero">
+            <div class="eyebrow">Week 22 · 2nd trimester</div>
+            <div class="big">About 27.8 cm · 430 g</div>
+            <div class="small">Real measurements — not fruit sizes.</div>
+          </div>
+          <div class="quick"><div class="qbtn">Kicks</div><div class="qbtn">Weight</div><div class="qbtn">Visits</div></div>
+          <div class="card"><div class="ctitle">This week</div>
+            <div class="crow">What’s developing now <span>›</span></div>
+            <div class="crow">Next appointment · Jul 24 <span>›</span></div>
+          </div>
+          <div class="redflag"><div class="ctitle">⚠ Seek care now if…</div><p>severe headache, vision changes, bleeding, or reduced movement.</p></div>
+        </div>
+        <div class="tabbar"><div class="tab on"><span class="ic"></span>Home</div><div class="tab"><span class="ic"></span>Track</div><div class="tab"><span class="ic"></span>Learn</div><div class="tab"><span class="ic"></span>Me</div></div>
+      </div></div>
+      <div class="caption">D1 · uncomplicated pregnancy<span>week-by-week · red-flag box · privacy-first</span></div>
+    </div>
+
+    <!-- F1 perimenopause -->
+    <div class="stage">
+      <div class="phone"><div class="screen">
+        <div class="statusbar"><span>9:41</span><span>✦ ▮▮▮</span></div>
+        <div class="appbar"><span class="brand">Femio</span><span class="avatar">S</span></div>
+        <div class="body">
+          <div class="card hero amber">
+            <div class="eyebrow">Perimenopause</div>
+            <div class="big">Your cycles are lengthening</div>
+            <div class="uncert">◔ Predictions ease off here — we track trends, not dates</div>
+          </div>
+          <div class="quick"><div class="qbtn">Symptoms</div><div class="qbtn">MRS</div><div class="qbtn">HRT log</div></div>
+          <div class="card"><div class="ctitle">Tracking 34 symptoms</div>
+            <div class="crow">Hot flashes · sleep · mood <span>this week ›</span></div>
+            <div class="crow">Your options, explained (incl. MHT) <span>›</span></div>
+          </div>
+        </div>
+        <div class="tabbar"><div class="tab on"><span class="ic"></span>Home</div><div class="tab"><span class="ic"></span>Track</div><div class="tab"><span class="ic"></span>Learn</div><div class="tab"><span class="ic"></span>Me</div></div>
+      </div></div>
+      <div class="caption">F1 · perimenopause<span>trend not prediction · MRS · balanced HRT education</span></div>
+    </div>
+  </div>
+
+  <!-- FLAGSHIP TRANSITION -->
+  <h2>3 · Flagship dynamic transition — C8 → D7</h2>
+  <p class="sec-note">A thyroid TTC user logs a positive test. The app re-layers to thyroid-aware pregnancy: EMR constant, lab/med logs continue, home/tools/content/alerts change — never a dose, never a verdict.</p>
+  <div class="gallery" style="align-items:center">
+    <!-- C8 before -->
+    <div class="stage">
+      <div class="phone"><div class="screen">
+        <div class="statusbar"><span>9:41</span><span>✦ ▮▮▮</span></div>
+        <div class="appbar"><span class="brand">Femio</span><span class="pill soft">Thyroid · TTC</span></div>
+        <div class="body">
+          <div class="card hero teal">
+            <div class="eyebrow">Fertile window</div>
+            <div class="big">Likely fertile in 3 days</div>
+            <div class="band"></div>
+            <div class="uncert">◔ Estimate · not birth control</div>
+          </div>
+          <div class="quick"><div class="qbtn teal">BBT</div><div class="qbtn teal">OPK</div><div class="qbtn teal">TSH</div></div>
+          <div class="card"><div class="ctitle">Thyroid strip</div>
+            <div class="crow">Latest TSH · 2.1 mIU/L <span>logged</span></div>
+            <div class="crow">Levothyroxine · daily <span>✓</span></div>
+          </div>
+        </div>
+        <div class="tabbar"><div class="tab on"><span class="ic"></span>Home</div><div class="tab"><span class="ic"></span>Track</div><div class="tab"><span class="ic"></span>Learn</div><div class="tab"><span class="ic"></span>Me</div></div>
+      </div></div>
+      <div class="caption">C8 · before<span>fertile-window + thyroid strip + med log</span></div>
+    </div>
+
+    <div class="arrow-col">
+      <div class="event-chip">＋ Positive pregnancy test</div>
+      <div class="arrow">→</div>
+      <div class="keep-chip">EMR constant · lab + med log continue · cycle history kept</div>
+    </div>
+
+    <!-- D7 after -->
+    <div class="stage">
+      <div class="phone"><div class="screen">
+        <div class="statusbar"><span>9:41</span><span>✦ ▮▮▮</span></div>
+        <div class="appbar"><span class="brand">Femio</span><span class="pill soft">Thyroid · Pregnant</span></div>
+        <div class="body">
+          <div class="card hero">
+            <div class="eyebrow">Week 5 · congratulations 💛</div>
+            <div class="big">Thyroid-aware pregnancy</div>
+            <div class="small">Fertile-window &amp; OPK tools tucked away — still reachable.</div>
+          </div>
+          <div class="card" style="background:#FEF3E2;border:1px solid #FADFB4"><div class="ctitle" style="color:#B45309">🔔 Time-sensitive</div>
+            <p style="font-size:11.5px;color:#7A4A10">Many people on thyroid medicine need a lab check &amp; medication review early in pregnancy — <b>contact your clinician soon.</b></p></div>
+          <div class="card"><div class="ctitle">Thyroid strip</div>
+            <div class="crow">Latest TSH · 2.1 <span class="pill warn">re-check due</span></div>
+            <div class="crow">Next lab reminder · ~4 weeks <span>›</span></div>
+            <div class="crow">Why levo needs often rise <span>›</span></div>
+          </div>
+        </div>
+        <div class="tabbar"><div class="tab on"><span class="ic"></span>Home</div><div class="tab"><span class="ic"></span>Track</div><div class="tab"><span class="ic"></span>Learn</div><div class="tab"><span class="ic"></span>Me</div></div>
+      </div></div>
+      <div class="caption">D7 · after<span>pregnancy timeline + tightened TSH alerts + thyroid-in-pregnancy content</span></div>
+    </div>
+  </div>
+
+  <!-- RTL -->
+  <h2>4 · Arabic RTL (first-class, not an afterthought)</h2>
+  <p class="sec-note">Same D7 state, Arabic-first, right-to-left, IBM Plex Sans Arabic. Layout mirrors via logical properties.</p>
+  <div class="gallery">
+    <div class="stage">
+      <div class="phone"><div class="screen rtl">
+        <div class="statusbar" style="direction:ltr"><span>9:41</span><span>✦ ▮▮▮</span></div>
+        <div class="appbar"><span class="brand">فيميو</span><span class="pill soft">الغدة · حامل</span></div>
+        <div class="body">
+          <div class="card hero">
+            <div class="eyebrow">الأسبوع 5 · مبروك 💛</div>
+            <div class="big">حمل مع متابعة الغدة الدرقية</div>
+            <div class="small">أدوات التبويض مخفية الآن — وتبقى في متناولك.</div>
+          </div>
+          <div class="card" style="background:#FEF3E2;border:1px solid #FADFB4"><div class="ctitle" style="color:#B45309">🔔 مهم في وقته</div>
+            <p style="font-size:12px;color:#7A4A10">كثيرون ممن يتناولون دواء الغدة يحتاجون فحصًا ومراجعة للدواء مبكرًا في الحمل — <b>تواصلي مع طبيبك قريبًا.</b></p></div>
+          <div class="card"><div class="ctitle">ملخص الغدة</div>
+            <div class="crow"><span>›</span> آخر قراءة TSH · 2.1</div>
+            <div class="crow"><span>›</span> تذكير الفحص القادم · ~4 أسابيع</div>
+          </div>
+        </div>
+        <div class="tabbar"><div class="tab on"><span class="ic"></span>الرئيسية</div><div class="tab"><span class="ic"></span>تتبّع</div><div class="tab"><span class="ic"></span>تعلّم</div><div class="tab"><span class="ic"></span>حسابي</div></div>
+      </div></div>
+      <div class="caption">D7 · Arabic RTL<span>same state, mirrored — the MENA wedge</span></div>
+    </div>
+  </div>
+
+  <div class="footer-note">
+    <b>How to read these:</b> every screen is the <b>same Femio app</b> with the same underlying record — only the emphasis (hero, tools, content, alerts, tone) changes per the adaptation model. Predictions are shown as <b>ranges/trends, never certain dates</b>; condition screens carry <b>“seek care now” red-flag</b> framing; nothing is diagnosed. These HTML mockups map ~1:1 onto Tailwind/shadcn components for the Next.js build (P1.5), and port into Figma once a Full seat is added. <b>[NEEDS SOURCE]</b> numeric values (TSH targets, fetal measurements, weeks) are placeholders pending medical-reviewer sign-off (P0.22).
+  </div>
+</div>
+</body>
+</html>

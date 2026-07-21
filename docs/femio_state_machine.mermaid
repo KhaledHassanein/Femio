@@ -1,0 +1,55 @@
+stateDiagram-v2
+    [*] --> Wizard
+    Wizard --> Z1: skip / unsure
+    Z1 --> Personas: nearest-persona match (offered)
+
+    Wizard --> A1: pre-menarche
+    A1 --> A2: first period
+    A2 --> B1: cycles regularize / turns 16
+    A2 --> A3: heavy / painful
+    A2 --> A4: PCOS-adjacent
+    A2 --> A5: >90d gaps
+
+    Wizard --> B1: cycle tracking
+    B1 --> B6: irregular + PCOS
+    B6 --> C6: sets TTC intent
+    B1 --> C1: sets TTC intent
+
+    Wizard --> C1: trying to conceive
+    C1 --> C2: 12mo(<35), never pregnant
+    C1 --> C4: prior child
+    C1 --> C5: 2+ losses
+    C1 --> C8: thyroid
+    C2 --> C10: starts IUI/IVF
+    C4 --> C10: starts IUI/IVF
+
+    C1 --> D1: positive test
+    C2 --> D1: positive test (PAI)
+    C5 --> D2: positive test (PAL)
+    C8 --> D7: positive test [FLAGSHIP]
+
+    Wizard --> D1: pregnant
+    D1 --> D3: gestational diabetes
+    D1 --> D4: pre-existing diabetes
+    D1 --> D5: chronic HTN
+    D1 --> D6: pre-eclampsia
+    D1 --> D7: thyroid
+    D5 --> D6: superimposed PE (blend)
+
+    D1 --> E1: delivery
+    D3 --> E4: delivery (T2DM screen)
+    D4 --> E4: delivery (ongoing DM)
+    D5 --> E4: delivery (BP follow-up)
+    D6 --> E4: delivery (BP follow-up)
+    D7 --> E7: delivery (PPT watch)
+    D1 --> E6: loss
+
+    E1 --> E3: EPDS elevated
+    E1 --> B1: return of cycle
+    E1 --> C1: return of cycle + TTC
+
+    Wizard --> F1: perimenopause
+    F1 --> F2: 12mo amenorrhea
+    F1 --> F3: comorbidity
+    F1 --> F4: surgical / induced
+    B6 --> F1: perimenopause overlap
