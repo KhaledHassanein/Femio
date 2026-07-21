@@ -17,7 +17,9 @@
 - [x] P0.7 Tech stack + accounts checklist (→ 06_TECH_STACK_SKILLS_CHECKLIST.md) — 2026-07-16
 - [x] P0.8 Khaled review & sign-off on strategy/stack (GATE) — approved 2026-07-16
 - [x] P0.9 Create the 7 Femio Claude skills — .skill packages delivered 2026-07-16 (install pending Khaled)
-- [ ] P0.10 Open Phase-0/1 accounts (GitHub, Vercel, Supabase EU, domain, PostHog, Sentry, Resend, DeepL, Search Console)
+- [~] P0.10 Open Phase-0/1 accounts (GitHub, Vercel, Supabase EU, domain, PostHog, Sentry, Resend, DeepL, Search Console)
+  - [x] P0.10.1 Local git repo initialized at E:\Femio (main; first commit f2b52fa, 130 files) — 2026-07-16
+  - [ ] P0.10.2 GitHub account + remote + first push (needs Khaled's GitHub auth/token) — then `git remote add origin` + push
 - [ ] P0.11 Brand identity: name check/trademark, logo, palette, typography (incl. Arabic font), design tokens
 - [ ] P0.12 Legal: entity decision, privacy policy (health-specific), terms, DPIA, cookie consent plan
 - [x] P0.13 Decision log started (docs/DECISIONS.md) + documentation standard adopted — 2026-07-16

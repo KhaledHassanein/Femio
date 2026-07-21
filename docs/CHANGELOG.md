@@ -11,3 +11,4 @@ All notable changes to Femio V2.
 - Wave 3 cont. — cycle & gynae cohort complete (Track B: B1–B5, B7–B19). 56 persona specs now in docs/personas/ (Track B 19/19, C 16/16, D 17/17); all pass integrity validation (11/11 sections + Sources, no truncation/dupes).
 - Wave 3 COMPLETE — adolescent (A3–A6), postpartum (E2–E7), menopause (F2–F6), and cross-cutting modes (X1 parent/guardian, X2 partner) delivered. **All 73 personas specced** (23,602 lines, 73/73 pass final validation, 454 [NEEDS SOURCE] flags pending P0.22 reviewer checklist).
 - [NEEDS SOURCE] reviewer checklist (doc 11): 454 flags consolidated into 6 cross-cutting review groups (crisis directories, FTC/privacy, guideline permalinks, clinical stats, competitor claims, region/units) + per-persona appendix, priority-tiered for medical/compliance sign-off.
+- Version control: local git repository initialized (main, commit f2b52fa, 130 files) + .gitignore. Remote/push pending GitHub account (P0.10.2).
