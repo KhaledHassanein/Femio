@@ -69,6 +69,11 @@ export interface Config {
   collections: {
     users: User;
     media: Media;
+    articles: Article;
+    conditions: Condition;
+    faqs: Faq;
+    tips: Tip;
+    glossary: Glossary;
     'payload-kv': PayloadKv;
     'payload-locked-documents': PayloadLockedDocument;
     'payload-preferences': PayloadPreference;
@@ -78,6 +83,11 @@ export interface Config {
   collectionsSelect: {
     users: UsersSelect<false> | UsersSelect<true>;
     media: MediaSelect<false> | MediaSelect<true>;
+    articles: ArticlesSelect<false> | ArticlesSelect<true>;
+    conditions: ConditionsSelect<false> | ConditionsSelect<true>;
+    faqs: FaqsSelect<false> | FaqsSelect<true>;
+    tips: TipsSelect<false> | TipsSelect<true>;
+    glossary: GlossarySelect<false> | GlossarySelect<true>;
     'payload-kv': PayloadKvSelect<false> | PayloadKvSelect<true>;
     'payload-locked-documents': PayloadLockedDocumentsSelect<false> | PayloadLockedDocumentsSelect<true>;
     'payload-preferences': PayloadPreferencesSelect<false> | PayloadPreferencesSelect<true>;
@@ -166,6 +176,229 @@ export interface Media {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "articles".
+ */
+export interface Article {
+  id: number;
+  title: string;
+  slug: string;
+  excerpt?: string | null;
+  body?: {
+    root: {
+      type: string;
+      children: {
+        type: any;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  reviewStatus?: ('draft' | 'in_review' | 'changes_requested' | 'approved') | null;
+  /**
+   * Reviewer who approved this content.
+   */
+  medicalReviewer?: (number | null) | User;
+  lastReviewed?: string | null;
+  nextReviewDue?: string | null;
+  readingLevelOk?: boolean | null;
+  disclaimerType?: ('general' | 'screening' | 'emergency' | 'none') | null;
+  /**
+   * Tier-1/2 citations (femio-medical-content). Not localized.
+   */
+  sources?:
+    | {
+        title: string;
+        url?: string | null;
+        tier?: ('1' | '2' | '3') | null;
+        id?: string | null;
+      }[]
+    | null;
+  updatedAt: string;
+  createdAt: string;
+  _status?: ('draft' | 'published') | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "conditions".
+ */
+export interface Condition {
+  id: number;
+  title: string;
+  slug: string;
+  summary?: string | null;
+  body?: {
+    root: {
+      type: string;
+      children: {
+        type: any;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  reviewStatus?: ('draft' | 'in_review' | 'changes_requested' | 'approved') | null;
+  /**
+   * Reviewer who approved this content.
+   */
+  medicalReviewer?: (number | null) | User;
+  lastReviewed?: string | null;
+  nextReviewDue?: string | null;
+  readingLevelOk?: boolean | null;
+  disclaimerType?: ('general' | 'screening' | 'emergency' | 'none') | null;
+  /**
+   * Tier-1/2 citations (femio-medical-content). Not localized.
+   */
+  sources?:
+    | {
+        title: string;
+        url?: string | null;
+        tier?: ('1' | '2' | '3') | null;
+        id?: string | null;
+      }[]
+    | null;
+  updatedAt: string;
+  createdAt: string;
+  _status?: ('draft' | 'published') | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "faqs".
+ */
+export interface Faq {
+  id: number;
+  question: string;
+  slug: string;
+  answer?: {
+    root: {
+      type: string;
+      children: {
+        type: any;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  reviewStatus?: ('draft' | 'in_review' | 'changes_requested' | 'approved') | null;
+  /**
+   * Reviewer who approved this content.
+   */
+  medicalReviewer?: (number | null) | User;
+  lastReviewed?: string | null;
+  nextReviewDue?: string | null;
+  readingLevelOk?: boolean | null;
+  disclaimerType?: ('general' | 'screening' | 'emergency' | 'none') | null;
+  /**
+   * Tier-1/2 citations (femio-medical-content). Not localized.
+   */
+  sources?:
+    | {
+        title: string;
+        url?: string | null;
+        tier?: ('1' | '2' | '3') | null;
+        id?: string | null;
+      }[]
+    | null;
+  updatedAt: string;
+  createdAt: string;
+  _status?: ('draft' | 'published') | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "tips".
+ */
+export interface Tip {
+  id: number;
+  title: string;
+  slug: string;
+  body?: string | null;
+  reviewStatus?: ('draft' | 'in_review' | 'changes_requested' | 'approved') | null;
+  /**
+   * Reviewer who approved this content.
+   */
+  medicalReviewer?: (number | null) | User;
+  lastReviewed?: string | null;
+  nextReviewDue?: string | null;
+  readingLevelOk?: boolean | null;
+  disclaimerType?: ('general' | 'screening' | 'emergency' | 'none') | null;
+  /**
+   * Tier-1/2 citations (femio-medical-content). Not localized.
+   */
+  sources?:
+    | {
+        title: string;
+        url?: string | null;
+        tier?: ('1' | '2' | '3') | null;
+        id?: string | null;
+      }[]
+    | null;
+  updatedAt: string;
+  createdAt: string;
+  _status?: ('draft' | 'published') | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "glossary".
+ */
+export interface Glossary {
+  id: number;
+  term: string;
+  slug: string;
+  definition?: {
+    root: {
+      type: string;
+      children: {
+        type: any;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  reviewStatus?: ('draft' | 'in_review' | 'changes_requested' | 'approved') | null;
+  /**
+   * Reviewer who approved this content.
+   */
+  medicalReviewer?: (number | null) | User;
+  lastReviewed?: string | null;
+  nextReviewDue?: string | null;
+  readingLevelOk?: boolean | null;
+  disclaimerType?: ('general' | 'screening' | 'emergency' | 'none') | null;
+  /**
+   * Tier-1/2 citations (femio-medical-content). Not localized.
+   */
+  sources?:
+    | {
+        title: string;
+        url?: string | null;
+        tier?: ('1' | '2' | '3') | null;
+        id?: string | null;
+      }[]
+    | null;
+  updatedAt: string;
+  createdAt: string;
+  _status?: ('draft' | 'published') | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "payload-kv".
  */
 export interface PayloadKv {
@@ -195,6 +428,26 @@ export interface PayloadLockedDocument {
     | ({
         relationTo: 'media';
         value: number | Media;
+      } | null)
+    | ({
+        relationTo: 'articles';
+        value: number | Article;
+      } | null)
+    | ({
+        relationTo: 'conditions';
+        value: number | Condition;
+      } | null)
+    | ({
+        relationTo: 'faqs';
+        value: number | Faq;
+      } | null)
+    | ({
+        relationTo: 'tips';
+        value: number | Tip;
+      } | null)
+    | ({
+        relationTo: 'glossary';
+        value: number | Glossary;
       } | null);
   globalSlug?: string | null;
   user: {
@@ -279,6 +532,138 @@ export interface MediaSelect<T extends boolean = true> {
   height?: T;
   focalX?: T;
   focalY?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "articles_select".
+ */
+export interface ArticlesSelect<T extends boolean = true> {
+  title?: T;
+  slug?: T;
+  excerpt?: T;
+  body?: T;
+  reviewStatus?: T;
+  medicalReviewer?: T;
+  lastReviewed?: T;
+  nextReviewDue?: T;
+  readingLevelOk?: T;
+  disclaimerType?: T;
+  sources?:
+    | T
+    | {
+        title?: T;
+        url?: T;
+        tier?: T;
+        id?: T;
+      };
+  updatedAt?: T;
+  createdAt?: T;
+  _status?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "conditions_select".
+ */
+export interface ConditionsSelect<T extends boolean = true> {
+  title?: T;
+  slug?: T;
+  summary?: T;
+  body?: T;
+  reviewStatus?: T;
+  medicalReviewer?: T;
+  lastReviewed?: T;
+  nextReviewDue?: T;
+  readingLevelOk?: T;
+  disclaimerType?: T;
+  sources?:
+    | T
+    | {
+        title?: T;
+        url?: T;
+        tier?: T;
+        id?: T;
+      };
+  updatedAt?: T;
+  createdAt?: T;
+  _status?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "faqs_select".
+ */
+export interface FaqsSelect<T extends boolean = true> {
+  question?: T;
+  slug?: T;
+  answer?: T;
+  reviewStatus?: T;
+  medicalReviewer?: T;
+  lastReviewed?: T;
+  nextReviewDue?: T;
+  readingLevelOk?: T;
+  disclaimerType?: T;
+  sources?:
+    | T
+    | {
+        title?: T;
+        url?: T;
+        tier?: T;
+        id?: T;
+      };
+  updatedAt?: T;
+  createdAt?: T;
+  _status?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "tips_select".
+ */
+export interface TipsSelect<T extends boolean = true> {
+  title?: T;
+  slug?: T;
+  body?: T;
+  reviewStatus?: T;
+  medicalReviewer?: T;
+  lastReviewed?: T;
+  nextReviewDue?: T;
+  readingLevelOk?: T;
+  disclaimerType?: T;
+  sources?:
+    | T
+    | {
+        title?: T;
+        url?: T;
+        tier?: T;
+        id?: T;
+      };
+  updatedAt?: T;
+  createdAt?: T;
+  _status?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "glossary_select".
+ */
+export interface GlossarySelect<T extends boolean = true> {
+  term?: T;
+  slug?: T;
+  definition?: T;
+  reviewStatus?: T;
+  medicalReviewer?: T;
+  lastReviewed?: T;
+  nextReviewDue?: T;
+  readingLevelOk?: T;
+  disclaimerType?: T;
+  sources?:
+    | T
+    | {
+        title?: T;
+        url?: T;
+        tier?: T;
+        id?: T;
+      };
+  updatedAt?: T;
+  createdAt?: T;
+  _status?: T;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema

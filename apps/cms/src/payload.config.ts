@@ -6,6 +6,11 @@ import { buildConfig } from "payload";
 import sharp from "sharp";
 import { Users } from "./collections/Users";
 import { Media } from "./collections/Media";
+import { Articles } from "./collections/Articles";
+import { Conditions } from "./collections/Conditions";
+import { FAQs } from "./collections/FAQs";
+import { Tips } from "./collections/Tips";
+import { Glossary } from "./collections/Glossary";
 
 const filename = fileURLToPath(import.meta.url);
 const dirname = path.dirname(filename);
@@ -19,7 +24,7 @@ export default buildConfig({
     meta: { titleSuffix: " — Femio CMS" },
   },
   editor: lexicalEditor(),
-  collections: [Users, Media],
+  collections: [Users, Media, Articles, Conditions, FAQs, Tips, Glossary],
   localization: {
     locales: [
       { label: "English", code: "en" },
