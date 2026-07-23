@@ -19,5 +19,30 @@
     "label": "Toggle theme",
     "toDark": "Switch to dark mode",
     "toLight": "Switch to light mode"
+  },
+  "gallery": {
+    "title": "Component gallery",
+    "subtitle": "Femio design system — tokens, both themes, RTL-native.",
+    "sections": {
+      "buttons": "Buttons",
+      "badges": "Badges",
+      "forms": "Forms",
+      "feedback": "Alerts",
+      "states": "Empty, loading, and error",
+      "phases": "Cycle phases"
+    },
+    "buttons": { "primary": "Primary", "accent": "Get started", "outline": "Outline", "ghost": "Ghost" },
+    "form": { "label": "Your note", "placeholder": "How are you feeling today?" },
+    "feedback": {
+      "info": "Predictions show a range, never a single certain date.",
+      "success": "Entry saved.",
+      "warning": "Your cycle looks irregular — this is expected in some phases.",
+      "redFlagTitle": "Seek care now",
+      "redFlagBody": "If symptoms feel severe, contact your clinician or local emergency services."
+    },
+    "empty": { "title": "Nothing logged yet", "body": "Your entries will appear here." },
+    "error": { "title": "Something went wrong", "body": "We could not load this just now.", "retry": "Try again" },
+    "loading": "Loading",
+    "phases": { "menstrual": "Menstrual", "follicular": "Follicular", "ovulatory": "Ovulatory", "luteal": "Luteal" }
   }
 }

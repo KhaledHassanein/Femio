@@ -19,5 +19,30 @@
     "label": "Cambiar tema",
     "toDark": "Cambiar a modo oscuro",
     "toLight": "Cambiar a modo claro"
+  },
+  "gallery": {
+    "title": "Galería de componentes",
+    "subtitle": "Sistema de diseño de Femio — tokens, dos temas, RTL nativo.",
+    "sections": {
+      "buttons": "Botones",
+      "badges": "Insignias",
+      "forms": "Formularios",
+      "feedback": "Alertas",
+      "states": "Vacío, carga y error",
+      "phases": "Fases del ciclo"
+    },
+    "buttons": { "primary": "Principal", "accent": "Empezar", "outline": "Contorno", "ghost": "Discreto" },
+    "form": { "label": "Tu nota", "placeholder": "¿Cómo te sientes hoy?" },
+    "feedback": {
+      "info": "Las predicciones muestran un rango, nunca una única fecha certera.",
+      "success": "Entrada guardada.",
+      "warning": "Tu ciclo parece irregular — es normal en algunas fases.",
+      "redFlagTitle": "Busca atención ahora",
+      "redFlagBody": "Si los síntomas se sienten graves, contacta a tu profesional de salud o a los servicios de emergencia locales."
+    },
+    "empty": { "title": "Aún no hay registros", "body": "Tus entradas aparecerán aquí." },
+    "error": { "title": "Algo salió mal", "body": "No pudimos cargar esto ahora mismo.", "retry": "Reintentar" },
+    "loading": "Cargando",
+    "phases": { "menstrual": "Menstrual", "follicular": "Folicular", "ovulatory": "Ovulatoria", "luteal": "Lútea" }
   }
 }

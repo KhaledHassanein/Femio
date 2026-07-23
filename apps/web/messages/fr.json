@@ -19,5 +19,30 @@
     "label": "Changer de thème",
     "toDark": "Passer en mode sombre",
     "toLight": "Passer en mode clair"
+  },
+  "gallery": {
+    "title": "Galerie de composants",
+    "subtitle": "Système de design Femio — tokens, deux thèmes, RTL natif.",
+    "sections": {
+      "buttons": "Boutons",
+      "badges": "Badges",
+      "forms": "Formulaires",
+      "feedback": "Alertes",
+      "states": "Vide, chargement et erreur",
+      "phases": "Phases du cycle"
+    },
+    "buttons": { "primary": "Principal", "accent": "Commencer", "outline": "Contour", "ghost": "Discret" },
+    "form": { "label": "Ta note", "placeholder": "Comment te sens-tu aujourd'hui ?" },
+    "feedback": {
+      "info": "Les prévisions indiquent une plage, jamais une seule date certaine.",
+      "success": "Entrée enregistrée.",
+      "warning": "Ton cycle semble irrégulier — c'est normal à certaines phases.",
+      "redFlagTitle": "Consulte sans attendre",
+      "redFlagBody": "Si les symptômes semblent graves, contacte ta clinicienne ou les services d'urgence locaux."
+    },
+    "empty": { "title": "Rien d'enregistré pour l'instant", "body": "Tes entrées apparaîtront ici." },
+    "error": { "title": "Une erreur est survenue", "body": "Impossible de charger ceci pour le moment.", "retry": "Réessayer" },
+    "loading": "Chargement",
+    "phases": { "menstrual": "Menstruelle", "follicular": "Folliculaire", "ovulatory": "Ovulatoire", "luteal": "Lutéale" }
   }
 }
