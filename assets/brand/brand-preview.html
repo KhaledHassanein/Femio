@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Femio — Brand & Design System</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Sans+Arabic:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+/* ==== Femio tokens (mirror of assets/brand/tokens/femio.tokens.css) ==== */
+:root{
+ --violet-50:#F5F3FF;--violet-100:#EDE9FE;--violet-200:#DDD6FE;--violet-300:#C4B5FD;--violet-400:#A78BFA;--violet-500:#8B5CF6;--violet-600:#7C3AED;--violet-700:#6D28D9;--violet-800:#5B21B6;--violet-900:#4C1D95;--violet-950:#2E1065;
+ --rasp-50:#FFF1F7;--rasp-100:#FFE4EF;--rasp-200:#FECCE0;--rasp-300:#FBA3C7;--rasp-400:#F76BA6;--rasp-500:#EF3D88;--rasp-600:#E11D74;--rasp-700:#BE1260;--rasp-800:#9D1350;--rasp-900:#831343;--rasp-950:#500320;
+ --teal-50:#EFFCF9;--teal-100:#CCFBF1;--teal-200:#99F6E4;--teal-300:#5EEAD4;--teal-400:#2DD4BF;--teal-500:#14B8A6;--teal-600:#0D9488;--teal-700:#0F766E;--teal-800:#115E59;--teal-900:#134E4A;--teal-950:#042F2E;
+ --amber-50:#FFFBEB;--amber-100:#FEF3C7;--amber-200:#FDE68A;--amber-300:#FCD34D;--amber-400:#FBBF24;--amber-500:#F59E0B;--amber-600:#D97706;--amber-700:#B45309;--amber-800:#92400E;--amber-900:#78350F;--amber-950:#451A03;
+ --red-50:#FEF2F2;--red-100:#FEE2E2;--red-200:#FBD5D5;--red-300:#FCA5A5;--red-400:#F87171;--red-500:#EF4444;--red-600:#DC2626;--red-700:#B42318;--red-800:#991B1B;--red-900:#7A271A;--red-950:#450A0A;
+ --neutral-0:#FFFFFF;--neutral-50:#FAFAF9;--neutral-100:#F3F1F4;--neutral-200:#E7E4EC;--neutral-300:#D5D1DC;--neutral-400:#B8B2C4;--neutral-500:#928BA3;--neutral-550:#787189;--neutral-600:#6E6880;--neutral-700:#524D61;--neutral-800:#322E40;--neutral-900:#1E1B2E;--neutral-950:#141221;
+ --font-ui:'Inter',system-ui,sans-serif;--font-display:'Fraunces',Georgia,serif;--font-ar:'IBM Plex Sans Arabic','Inter',sans-serif;
+ --space-2:8px;--space-3:12px;--space-4:16px;--space-6:24px;--space-8:32px;
+ --radius-sm:10px;--radius-md:16px;--radius-lg:24px;--radius-pill:999px;
+ --shadow-sm:0 1px 3px rgb(30 27 46/.08),0 1px 2px rgb(30 27 46/.04);
+ --shadow-md:0 4px 12px rgb(30 27 46/.08),0 2px 4px rgb(30 27 46/.04);
+ --shadow-lg:0 12px 28px rgb(30 27 46/.12),0 6px 12px rgb(30 27 46/.06);
+ --shadow-primary-glow:0 8px 24px rgb(124 58 237/.28);
+ --gradient-brand:linear-gradient(135deg,var(--violet-600),#9B5DE5);
+ --gradient-fertile:linear-gradient(135deg,var(--teal-600),var(--teal-400));
+ --gradient-warm:linear-gradient(135deg,var(--rasp-600),var(--rasp-400));
+ --gradient-dawn:linear-gradient(135deg,#7C3AED 0%,#E11D74 55%,#F59E0B 100%);
+}
+:root{ --bg:var(--neutral-50);--surface:var(--neutral-0);--surface-sunken:var(--neutral-100);
+ --text:var(--neutral-900);--text-muted:var(--neutral-600);--text-subtle:var(--neutral-550);--text-link:var(--violet-700);
+ --border:var(--neutral-200);--divider:var(--neutral-100);
+ --primary:var(--violet-600);--primary-soft:var(--violet-100);--primary-soft-text:var(--violet-700);
+ --primary-solid:var(--violet-600);--on-primary-solid:#fff;--accent-solid:var(--rasp-600);--on-accent-solid:#fff;--success-solid:var(--teal-700);--on-success:#fff;
+ --success:var(--teal-600);--success-soft:var(--teal-100);--success-text:var(--teal-800);
+ --warning:var(--amber-600);--warning-soft:var(--amber-100);--warning-text:var(--amber-800);
+ --danger:var(--red-600);--danger-soft:var(--red-50);--danger-text:var(--red-700);--danger-border:var(--red-200);
+ --phase-menstrual:var(--rasp-600);--phase-follicular:var(--teal-600);--phase-ovulatory:#F59E0B;--phase-luteal:var(--violet-600);--prediction-band:var(--amber-400);
+ --card-shadow:var(--shadow-sm);}
+[data-theme="dark"]{ --bg:#17151F;--surface:#211E2E;--surface-sunken:#1B1826;
+ --text:#F3F1F7;--text-muted:#B7B1C6;--text-subtle:#8E88A0;--text-link:var(--violet-300);
+ --border:#332F42;--divider:#282435;
+ --primary:var(--violet-500);--primary-soft:rgb(124 58 237/.18);--primary-soft-text:var(--violet-300);
+ --primary-solid:var(--violet-600);--success-solid:var(--teal-700);--accent-solid:var(--rasp-600);
+ --success:var(--teal-400);--success-soft:rgb(13 148 136/.18);--success-text:var(--teal-200);
+ --warning:var(--amber-400);--warning-soft:rgb(217 119 6/.18);--warning-text:var(--amber-200);
+ --danger:var(--red-400);--danger-soft:rgb(220 38 38/.16);--danger-text:var(--red-300);--danger-border:rgb(220 38 38/.38);
+ --card-shadow:0 2px 8px rgb(0 0 0/.4);}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--text);font-family:var(--font-ui);line-height:1.5;padding:40px 24px 100px;transition:background .25s,color .25s}
+.wrap{max-width:1080px;margin:0 auto}
+.top{display:flex;justify-content:space-between;align-items:flex-start;gap:20px;flex-wrap:wrap;margin-bottom:8px}
+h1{font-family:var(--font-display);font-weight:600;font-size:44px;letter-spacing:-.02em;line-height:1.05}
+.tag{color:var(--text-muted);margin-top:6px;font-size:15px}
+.toggle{border:1px solid var(--border);background:var(--surface);color:var(--text);border-radius:var(--radius-pill);padding:9px 18px;font:600 14px var(--font-ui);cursor:pointer;box-shadow:var(--card-shadow)}
+h2{font-family:var(--font-display);font-weight:600;font-size:24px;margin:44px 0 4px;letter-spacing:-.01em}
+.hint{color:var(--text-subtle);font-size:13px;margin-bottom:18px}
+.card{background:var(--surface);border-radius:var(--radius-md);box-shadow:var(--card-shadow);padding:22px}
+.grid{display:grid;gap:16px}
+.ramp{display:flex;border-radius:var(--radius-sm);overflow:hidden;box-shadow:var(--card-shadow)}
+.ramp>div{flex:1;height:56px;display:flex;align-items:flex-end;justify-content:center;padding-bottom:5px;font-size:10px;font-weight:600}
+.ramp .lab{width:78px;flex:none;background:var(--surface);color:var(--text-muted);display:flex;align-items:center;justify-content:flex-start;padding:0 0 0 12px;font-size:12px;height:56px}
+.sw-row{display:flex;flex-wrap:wrap;gap:12px}
+.sw{border-radius:var(--radius-sm);box-shadow:var(--card-shadow);overflow:hidden;width:150px;background:var(--surface)}
+.sw .chip{height:52px}
+.sw .meta{padding:8px 10px;font-size:11px;color:var(--text-muted)}
+.sw .meta b{display:block;color:var(--text);font-size:12px;margin-bottom:1px}
+.type-row{display:flex;align-items:baseline;gap:16px;padding:10px 0;border-bottom:1px solid var(--divider)}
+.type-row .sz{width:70px;flex:none;color:var(--text-subtle);font-size:12px}
+.btn{border:none;border-radius:var(--radius-pill);padding:12px 22px;font:600 15px var(--font-ui);cursor:pointer}
+.btn-primary{background:var(--primary-solid);color:var(--on-primary-solid);box-shadow:var(--shadow-primary-glow)}
+.btn-accent{background:var(--accent-solid);color:var(--on-accent-solid)}
+.btn-success{background:var(--success-solid);color:var(--on-success)}
+.btn-soft{background:var(--primary-soft);color:var(--primary-soft-text)}
+.btn-ghost{background:transparent;color:var(--text);border:1px solid var(--border)}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.pchip{border-radius:var(--radius-pill);padding:6px 14px;font-size:12.5px;font-weight:600;color:#fff;display:flex;align-items:center;gap:6px}
+.dot{width:8px;height:8px;border-radius:50%;background:#fff}
+.gradbar{height:64px;border-radius:var(--radius-md);box-shadow:var(--card-shadow);display:flex;align-items:flex-end;color:#fff;font-size:12px;font-weight:600;padding:8px 12px}
+.elev{display:flex;gap:18px;flex-wrap:wrap}
+.elev .box{background:var(--surface);border-radius:var(--radius-md);padding:16px 20px;font-size:12px;color:var(--text-muted)}
+.pred{background:var(--surface);border-radius:var(--radius-md);box-shadow:var(--card-shadow);padding:16px}
+.predband{height:12px;border-radius:6px;margin:10px 0 6px;background:repeating-linear-gradient(90deg,var(--prediction-band) 0 7px,transparent 7px 13px)}
+.redflag{background:var(--danger-soft);border:1px solid var(--danger-border);border-radius:var(--radius-md);padding:14px 16px}
+.redflag b{color:var(--danger-text)}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.rtl{direction:rtl;font-family:var(--font-ar)}
+@media(max-width:640px){.two{grid-template-columns:1fr}}
+.footer{margin-top:48px;color:var(--text-subtle);font-size:12.5px;border-top:1px solid var(--divider);padding-top:16px}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="top">
+    <div>
+      <h1>Femio Design System</h1>
+      <div class="tag">Calm · premium · medically trustworthy — Clue's clarity + Stardust's polish. Every token AA-verified.</div>
+    </div>
+    <button class="toggle" onclick="document.documentElement.dataset.theme=document.documentElement.dataset.theme==='dark'?'':'dark';this.textContent=document.documentElement.dataset.theme==='dark'?'☀ Light':'🌙 Dark'">🌙 Dark</button>
+  </div>
+
+  <h2>Brand ramps</h2>
+  <div class="hint">Full 50–950 tonal ranges (primitives). Components never touch these directly — they use semantic tokens.</div>
+  <div class="grid" id="ramps"></div>
+
+  <h2>Semantic swatches</h2>
+  <div class="hint">Role-based tokens — the only layer components use. Dark mode remaps these automatically.</div>
+  <div class="sw-row">
+    <div class="sw"><div class="chip" style="background:var(--primary)"></div><div class="meta"><b>--primary</b>violet-600</div></div>
+    <div class="sw"><div class="chip" style="background:var(--accent-solid)"></div><div class="meta"><b>--accent</b>raspberry · CTAs only</div></div>
+    <div class="sw"><div class="chip" style="background:var(--success)"></div><div class="meta"><b>--success</b>teal · fertile</div></div>
+    <div class="sw"><div class="chip" style="background:var(--warning)"></div><div class="meta"><b>--warning</b>amber · uncertainty</div></div>
+    <div class="sw"><div class="chip" style="background:var(--danger)"></div><div class="meta"><b>--danger</b>red · red-flags</div></div>
+    <div class="sw"><div class="chip" style="background:var(--surface);border:1px solid var(--border)"></div><div class="meta"><b>--surface</b>warm off-white</div></div>
+  </div>
+
+  <h2>Typography</h2>
+  <div class="hint">Fraunces (display) · Inter (UI, 16px min) · IBM Plex Sans Arabic (first-class, line-height 1.7).</div>
+  <div class="card">
+    <div class="type-row"><span class="sz">72 / display</span><span style="font-family:var(--font-display);font-size:48px;font-weight:600;letter-spacing:-.02em">Your whole health life, one place</span></div>
+    <div class="type-row"><span class="sz">28 / h2</span><span style="font-family:var(--font-display);font-size:26px;font-weight:600">Honest predictions, always</span></div>
+    <div class="type-row"><span class="sz">16 / body</span><span style="font-size:16px">Track your cycle with predictions that admit uncertainty — a range, never a false certain date.</span></div>
+    <div class="type-row"><span class="sz">14 / muted</span><span style="font-size:14px;color:var(--text-muted)">Based on your last 6 cycles · updated today</span></div>
+    <div class="type-row rtl"><span class="sz" style="direction:ltr">AR / body</span><span style="font-size:17px">حياتكِ الصحية بالكامل في مكان واحد — تتبّع دورتكِ بتوقّعات صادقة تعترف بعدم اليقين.</span></div>
+  </div>
+
+  <h2>Buttons & controls</h2>
+  <div class="hint">CTAs use the AA-safe <code>*-solid</code> fills (white text passes AA in both themes).</div>
+  <div class="card"><div class="chips" style="gap:12px">
+    <button class="btn btn-primary">Start tracking</button>
+    <button class="btn btn-accent">Go Pro</button>
+    <button class="btn btn-success">Log fertile day</button>
+    <button class="btn btn-soft">Learn more</button>
+    <button class="btn btn-ghost">Skip</button>
+  </div></div>
+
+  <h2>Cycle phases &amp; uncertainty-honest prediction</h2>
+  <div class="hint">A Femio signature. Predicted days are never solid — the amber band is always soft/dotted (brand rule + regulatory guardrail).</div>
+  <div class="two">
+    <div class="card">
+      <div class="chips">
+        <span class="pchip" style="background:var(--phase-menstrual)"><span class="dot"></span>Menstrual</span>
+        <span class="pchip" style="background:var(--phase-follicular)"><span class="dot"></span>Follicular</span>
+        <span class="pchip" style="background:var(--phase-ovulatory)"><span class="dot"></span>Ovulatory</span>
+        <span class="pchip" style="background:var(--phase-luteal)"><span class="dot"></span>Luteal</span>
+      </div>
+    </div>
+    <div class="pred">
+      <div style="font-size:13px;font-weight:600">Next period — estimated window</div>
+      <div class="predband"></div>
+      <div style="font-size:12px;color:var(--text-muted)">◔ Jul 24–28 · estimate, not a guarantee · no "late" counter</div>
+    </div>
+  </div>
+
+  <h2>Elevation, radius &amp; gradients</h2>
+  <div class="elev" style="margin-bottom:16px">
+    <div class="box" style="box-shadow:var(--shadow-sm)">shadow-sm</div>
+    <div class="box" style="box-shadow:var(--shadow-md)">shadow-md</div>
+    <div class="box" style="box-shadow:var(--shadow-lg)">shadow-lg</div>
+    <div class="box" style="box-shadow:var(--shadow-primary-glow)">primary-glow</div>
+  </div>
+  <div class="grid" style="grid-template-columns:repeat(4,1fr)">
+    <div class="gradbar" style="background:var(--gradient-brand)">brand</div>
+    <div class="gradbar" style="background:var(--gradient-fertile)">fertile</div>
+    <div class="gradbar" style="background:var(--gradient-warm)">warm</div>
+    <div class="gradbar" style="background:var(--gradient-dawn)">dawn</div>
+  </div>
+
+  <h2>Status &amp; safety</h2>
+  <div class="two">
+    <div class="card" style="background:var(--warning-soft)"><b style="color:var(--warning-text)">⚠ Heads up</b><div style="font-size:13px;color:var(--warning-text);margin-top:4px">Predictions are less certain in irregular cycles — we widen the range.</div></div>
+    <div class="redflag"><b>⚠ Seek care now if…</b><div style="font-size:13px;color:var(--danger-text);margin-top:4px">severe headache, vision changes, bleeding, or reduced movement.</div></div>
+  </div>
+
+  <div class="footer">Source of truth: <code>assets/brand/tokens/femio.tokens.css</code> · mirror <code>.json</code> · Tailwind <code>.preset.js</code> · spec <code>docs/12_BRAND_DESIGN_TOKENS.md</code>. Contrast verified 2026-07-16.</div>
+</div>
+<script>
+const ramps=[["Violet (primary)","violet"],["Raspberry (accent)","rasp"],["Teal (health)","teal"],["Amber (signal)","amber"],["Neutral (warm)","neutral"]];
+const steps={violet:[50,100,200,300,400,500,600,700,800,900,950],rasp:[50,100,200,300,400,500,600,700,800,900,950],teal:[50,100,200,300,400,500,600,700,800,900,950],amber:[50,100,200,300,400,500,600,700,800,900,950],neutral:[0,50,100,200,300,400,500,600,700,800,900,950]};
+document.getElementById('ramps').innerHTML=ramps.map(([name,key])=>{
+ const cells=steps[key].map(s=>{const v=`var(--${key}-${s})`;const dark=key==='neutral'?s>=400:s>=400;return `<div style="background:${v};color:${dark?'#fff':'#1E1B2E'}">${s}</div>`}).join('');
+ return `<div class="ramp"><div class="lab">${name}</div>${cells}</div>`}).join('');
+</script>
+</body>
+</html>

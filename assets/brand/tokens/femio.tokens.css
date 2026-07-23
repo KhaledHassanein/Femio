@@ -1,0 +1,231 @@
+/* =============================================================================
+   Femio V2 — Design Tokens (canonical source of truth)
+   Two tiers: (1) PRIMITIVES — raw scales, never used directly in components.
+              (2) SEMANTIC  — role-based tokens that reference primitives.
+   Components consume ONLY semantic tokens. Change a brand color in one primitive
+   and it cascades everywhere. Light is default; [data-theme="dark"] remaps semantics.
+   Ref: femio-design-system skill · docs/12_BRAND_DESIGN_TOKENS.md
+   ========================================================================== */
+
+/* ----------------------------------------------------------------------------
+   1 · PRIMITIVES
+   ------------------------------------------------------------------------- */
+:root {
+  /* Brand — Violet (primary: authority + warmth, never stereotype pink) */
+  --violet-50:#F5F3FF;  --violet-100:#EDE9FE; --violet-200:#DDD6FE;
+  --violet-300:#C4B5FD; --violet-400:#A78BFA; --violet-500:#8B5CF6;
+  --violet-600:#7C3AED; --violet-700:#6D28D9; --violet-800:#5B21B6;
+  --violet-900:#4C1D95; --violet-950:#2E1065;
+
+  /* Brand — Raspberry (accent: energy, CTAs only) */
+  --rasp-50:#FFF1F7;  --rasp-100:#FFE4EF; --rasp-200:#FECCE0;
+  --rasp-300:#FBA3C7; --rasp-400:#F76BA6; --rasp-500:#EF3D88;
+  --rasp-600:#E11D74; --rasp-700:#BE1260; --rasp-800:#9D1350;
+  --rasp-900:#831343; --rasp-950:#500320;
+
+  /* Health — Teal (success, fertile-window, follicular) */
+  --teal-50:#EFFCF9;  --teal-100:#CCFBF1; --teal-200:#99F6E4;
+  --teal-300:#5EEAD4; --teal-400:#2DD4BF; --teal-500:#14B8A6;
+  --teal-600:#0D9488; --teal-700:#0F766E; --teal-800:#115E59;
+  --teal-900:#134E4A; --teal-950:#042F2E;
+
+  /* Signal — Amber (warnings, prediction uncertainty) */
+  --amber-50:#FFFBEB;  --amber-100:#FEF3C7; --amber-200:#FDE68A;
+  --amber-300:#FCD34D; --amber-400:#FBBF24; --amber-500:#F59E0B;
+  --amber-600:#D97706; --amber-700:#B45309; --amber-800:#92400E;
+  --amber-900:#78350F; --amber-950:#451A03;
+
+  /* Signal — Red (danger, emergency red-flag boxes) */
+  --red-50:#FEF2F2;  --red-100:#FEE2E2; --red-200:#FBD5D5;
+  --red-300:#FCA5A5; --red-400:#F87171; --red-500:#EF4444;
+  --red-600:#DC2626; --red-700:#B42318; --red-800:#991B1B;
+  --red-900:#7A271A; --red-950:#450A0A;
+
+  /* Neutral — warm, faint-violet tinted (cohesive with brand, never clinical-cold) */
+  --neutral-0:#FFFFFF;   --neutral-50:#FAFAF9;  --neutral-100:#F3F1F4;
+  --neutral-200:#E7E4EC; --neutral-300:#D5D1DC; --neutral-400:#B8B2C4;
+  --neutral-500:#928BA3; --neutral-550:#787189; --neutral-600:#6E6880; --neutral-700:#524D61;
+  --neutral-800:#322E40; --neutral-900:#1E1B2E; --neutral-950:#141221;
+
+  /* Dark-mode raw surfaces (never pure black except OLED user setting) */
+  --dark-surface:#17151F; --dark-card:#211E2E; --dark-raised:#2A2637; --dark-oled:#000000;
+
+  /* ---- Typography primitives ---- */
+  --font-ui:'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-display:'Fraunces', 'Georgia', serif;              /* opsz-aware headlines */
+  --font-ar:'IBM Plex Sans Arabic', 'Inter', sans-serif;     /* Arabic UI + body */
+  --font-mono:'JetBrains Mono', ui-monospace, 'SF Mono', monospace;
+
+  --fs-2xs:12px; --fs-xs:14px; --fs-sm:16px; --fs-md:18px; --fs-lg:22px;
+  --fs-xl:28px;  --fs-2xl:36px; --fs-3xl:48px; --fs-4xl:60px; --fs-5xl:72px;
+
+  --fw-regular:400; --fw-medium:500; --fw-semibold:600; --fw-bold:700;
+
+  --lh-tight:1.1; --lh-snug:1.25; --lh-normal:1.5; --lh-relaxed:1.625; --lh-arabic:1.7;
+  --ls-tighter:-0.02em; --ls-tight:-0.01em; --ls-normal:0; --ls-wide:0.02em; --ls-wider:0.06em;
+
+  /* ---- Spacing (4px grid) ---- */
+  --space-0:0; --space-1:4px; --space-2:8px; --space-3:12px; --space-4:16px;
+  --space-5:20px; --space-6:24px; --space-8:32px; --space-10:40px; --space-12:48px;
+  --space-16:64px; --space-20:80px; --space-24:96px; --space-32:128px;
+
+  /* ---- Radii ---- */
+  --radius-xs:6px; --radius-sm:10px; --radius-md:16px; --radius-lg:24px;
+  --radius-xl:32px; --radius-pill:999px; --radius-round:50%;
+
+  /* ---- Elevation (soft, layered, faint-violet ambient — premium, never harsh) ---- */
+  --shadow-xs:0 1px 2px rgb(30 27 46 / .06);
+  --shadow-sm:0 1px 3px rgb(30 27 46 / .08), 0 1px 2px rgb(30 27 46 / .04);
+  --shadow-md:0 4px 12px rgb(30 27 46 / .08), 0 2px 4px rgb(30 27 46 / .04);
+  --shadow-lg:0 12px 28px rgb(30 27 46 / .12), 0 6px 12px rgb(30 27 46 / .06);
+  --shadow-xl:0 24px 48px rgb(30 27 46 / .16), 0 12px 20px rgb(30 27 46 / .08);
+  --shadow-focus:0 0 0 3px var(--violet-200);
+  --shadow-primary-glow:0 8px 24px rgb(124 58 237 / .28);   /* CTA lift */
+
+  /* ---- Motion ---- */
+  --dur-instant:80ms; --dur-fast:150ms; --dur-base:250ms; --dur-slow:400ms; --dur-slower:600ms;
+  --ease-standard:cubic-bezier(.2,0,0,1);
+  --ease-out:cubic-bezier(0,0,.2,1);
+  --ease-in:cubic-bezier(.4,0,1,1);
+  --ease-spring:cubic-bezier(.34,1.56,.64,1);              /* micro-interaction pop */
+
+  /* ---- Z-index scale ---- */
+  --z-base:0; --z-raised:10; --z-dropdown:1000; --z-sticky:1100;
+  --z-overlay:1200; --z-modal:1300; --z-toast:1400; --z-tooltip:1500;
+
+  /* ---- Breakpoints (reference; used in build config) ---- */
+  --bp-xs:360px; --bp-sm:480px; --bp-md:768px; --bp-lg:1024px; --bp-xl:1440px;
+
+  /* ---- Brand gradients & effects (premium accents) ---- */
+  --gradient-brand:linear-gradient(135deg, var(--violet-600) 0%, #9B5DE5 100%);
+  --gradient-fertile:linear-gradient(135deg, var(--teal-600) 0%, var(--teal-400) 100%);
+  --gradient-warm:linear-gradient(135deg, var(--rasp-600) 0%, var(--rasp-400) 100%);
+  --gradient-dawn:linear-gradient(135deg, #7C3AED 0%, #E11D74 55%, #F59E0B 100%);
+  --frost-blur:saturate(180%) blur(20px);
+}
+
+/* ----------------------------------------------------------------------------
+   2 · SEMANTIC — LIGHT (default). Components use these only.
+   ------------------------------------------------------------------------- */
+:root {
+  /* Surfaces */
+  --bg:var(--neutral-50);
+  --surface:var(--neutral-0);
+  --surface-sunken:var(--neutral-100);
+  --surface-raised:var(--neutral-0);
+  --overlay-scrim:rgb(30 27 46 / .48);
+  --frost:rgb(255 255 255 / .72);
+
+  /* Text */
+  --text:var(--neutral-900);
+  --text-muted:var(--neutral-600);
+  --text-subtle:var(--neutral-550);  /* AA-fixed: 4.64:1 on surface (was neutral-500 = 3.26, fail) */
+  --text-on-brand:var(--neutral-0);
+  --text-link:var(--violet-700);
+
+  /* Borders / dividers (soft — no hard lines) */
+  --border:var(--neutral-200);
+  --border-strong:var(--neutral-300);
+  --divider:var(--neutral-100);
+
+  /* Primary (violet) */
+  --primary:var(--violet-600);
+  --primary-hover:var(--violet-700);
+  --primary-active:var(--violet-800);
+  --primary-soft:var(--violet-100);
+  --primary-soft-text:var(--violet-700);
+  --on-primary:var(--neutral-0);
+
+  /* Accent (raspberry — CTAs/energy only) */
+  --accent:var(--rasp-600);
+  --accent-hover:var(--rasp-700);
+  --accent-soft:var(--rasp-100);
+  --on-accent:var(--neutral-0);
+
+  /* Status */
+  --success:var(--teal-600);   --success-soft:var(--teal-100);  --success-text:var(--teal-800);
+  --warning:var(--amber-600);  --warning-soft:var(--amber-100); --warning-text:var(--amber-800);
+  --danger:var(--red-600);     --danger-soft:var(--red-50);     --danger-text:var(--red-700); --danger-border:var(--red-200);
+  --info:var(--violet-600);    --info-soft:var(--violet-100);
+
+  /* Cycle phases (semantic health language) */
+  --phase-menstrual:var(--rasp-600);
+  --phase-follicular:var(--teal-600);
+  --phase-ovulatory:#F59E0B;
+  --phase-luteal:var(--violet-600);
+  /* Prediction uncertainty is ALWAYS visually soft/dotted — see docs */
+  --prediction-band:var(--amber-400);
+
+  /* Interaction */
+  /* Solid fills that carry white text — AA-verified with white in BOTH themes.
+     Use these for buttons/labels; the raw --primary/--success (and teal-600) are for
+     large hero fills, icons, and graphics where AA-large (3:1) applies. */
+  --primary-solid:var(--violet-600);  --on-primary-solid:var(--neutral-0);  /* white 5.70:1 */
+  --success-solid:var(--teal-700);    --on-success:var(--neutral-0);        /* white 5.47:1 */
+  --accent-solid:var(--rasp-600);     --on-accent-solid:var(--neutral-0);   /* white 4.54:1 */
+
+  --focus-ring:var(--shadow-focus);
+  --state-hover:rgb(30 27 46 / .04);
+  --state-press:rgb(30 27 46 / .08);
+  --card-shadow:var(--shadow-sm);
+}
+
+/* ----------------------------------------------------------------------------
+   3 · SEMANTIC — DARK. Surface #17151F, cards #211E2E; never pure black (except OLED).
+   ------------------------------------------------------------------------- */
+[data-theme="dark"] {
+  --bg:var(--dark-surface);
+  --surface:var(--dark-card);
+  --surface-sunken:#1B1826;
+  --surface-raised:var(--dark-raised);
+  --overlay-scrim:rgb(0 0 0 / .64);
+  --frost:rgb(33 30 46 / .72);
+
+  --text:#F3F1F7;
+  --text-muted:#B7B1C6;
+  --text-subtle:#8E88A0;
+  --text-on-brand:#FFFFFF;
+  --text-link:var(--violet-300);
+
+  --border:#332F42;
+  --border-strong:#413B54;
+  --divider:#282435;
+
+  --primary:var(--violet-500);
+  --primary-hover:var(--violet-400);
+  --primary-active:var(--violet-300);
+  --primary-soft:rgb(124 58 237 / .18);
+  --primary-soft-text:var(--violet-300);
+  --on-primary:#FFFFFF;
+
+  --accent:var(--rasp-500);
+  --accent-hover:var(--rasp-400);
+  --accent-soft:rgb(225 29 116 / .18);
+  --on-accent:#FFFFFF;
+
+  --success:var(--teal-400); --success-soft:rgb(13 148 136 / .18); --success-text:var(--teal-200);
+  --warning:var(--amber-400);--warning-soft:rgb(217 119 6 / .18); --warning-text:var(--amber-200);
+  --danger:var(--red-400);   --danger-soft:rgb(220 38 38 / .16);  --danger-text:var(--red-300); --danger-border:rgb(220 38 38 / .38);
+  --info:var(--violet-400);  --info-soft:rgb(124 58 237 / .18);
+
+  --phase-ovulatory:#FBBF24;
+  --prediction-band:var(--amber-300);
+
+  /* Solid CTA fills — keep violet-600/teal-700 for white-text AA-safety on dark too.
+     (--primary stays violet-500 for legible on-dark text/icons/borders.) */
+  --primary-solid:var(--violet-600);  --on-primary-solid:#FFFFFF;  /* white 5.70:1 */
+  --success-solid:var(--teal-700);    --on-success:#FFFFFF;        /* white 5.47:1 */
+  --accent-solid:var(--rasp-600);     --on-accent-solid:#FFFFFF;   /* white 4.54:1 */
+
+  --focus-ring:0 0 0 3px rgb(139 92 246 / .5);
+  --state-hover:rgb(255 255 255 / .06);
+  --state-press:rgb(255 255 255 / .10);
+  --card-shadow:0 2px 8px rgb(0 0 0 / .40);
+}
+
+[data-theme="dark"][data-oled="true"] { --bg:var(--dark-oled); }
+
+/* Accessibility: honor reduced motion globally */
+@media (prefers-reduced-motion: reduce) {
+  :root { --dur-instant:0ms; --dur-fast:0ms; --dur-base:0ms; --dur-slow:0ms; --dur-slower:0ms; }
+}

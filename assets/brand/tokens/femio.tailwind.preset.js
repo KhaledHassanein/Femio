@@ -1,0 +1,71 @@
+/**
+ * Femio V2 — Tailwind preset
+ * Maps semantic design tokens (femio.tokens.css) into Tailwind's theme.
+ * Colors reference CSS variables so light/dark switch automatically via
+ * [data-theme]. Import in tailwind.config.js: `presets: [require('./femio.tailwind.preset')]`
+ * and import femio.tokens.css once in the global stylesheet.
+ */
+module.exports = {
+  darkMode: ['class', '[data-theme="dark"]'],
+  theme: {
+    extend: {
+      colors: {
+        bg: 'var(--bg)',
+        surface: { DEFAULT: 'var(--surface)', sunken: 'var(--surface-sunken)', raised: 'var(--surface-raised)' },
+        text: { DEFAULT: 'var(--text)', muted: 'var(--text-muted)', subtle: 'var(--text-subtle)', 'on-brand': 'var(--text-on-brand)', link: 'var(--text-link)' },
+        border: { DEFAULT: 'var(--border)', strong: 'var(--border-strong)' },
+        primary: { DEFAULT: 'var(--primary)', hover: 'var(--primary-hover)', active: 'var(--primary-active)', soft: 'var(--primary-soft)', 'soft-text': 'var(--primary-soft-text)', fg: 'var(--on-primary)', solid: 'var(--primary-solid)', 'fg-solid': 'var(--on-primary-solid)' },
+        accent: { DEFAULT: 'var(--accent)', hover: 'var(--accent-hover)', soft: 'var(--accent-soft)', fg: 'var(--on-accent)', solid: 'var(--accent-solid)', 'fg-solid': 'var(--on-accent-solid)' },
+        success: { DEFAULT: 'var(--success)', soft: 'var(--success-soft)', text: 'var(--success-text)', solid: 'var(--success-solid)', fg: 'var(--on-success)' },
+        warning: { DEFAULT: 'var(--warning)', soft: 'var(--warning-soft)', text: 'var(--warning-text)' },
+        danger: { DEFAULT: 'var(--danger)', soft: 'var(--danger-soft)', text: 'var(--danger-text)', border: 'var(--danger-border)' },
+        info: { DEFAULT: 'var(--info)', soft: 'var(--info-soft)' },
+        phase: { menstrual: 'var(--phase-menstrual)', follicular: 'var(--phase-follicular)', ovulatory: 'var(--phase-ovulatory)', luteal: 'var(--phase-luteal)' },
+      },
+      fontFamily: {
+        sans: ['Inter', 'system-ui', 'sans-serif'],
+        display: ['Fraunces', 'Georgia', 'serif'],
+        arabic: ['IBM Plex Sans Arabic', 'Inter', 'sans-serif'],
+        mono: ['JetBrains Mono', 'ui-monospace', 'monospace'],
+      },
+      fontSize: {
+        '2xs': ['12px', { lineHeight: '1.5' }],
+        xs: ['14px', { lineHeight: '1.5' }],
+        sm: ['16px', { lineHeight: '1.5' }],
+        md: ['18px', { lineHeight: '1.5' }],
+        lg: ['22px', { lineHeight: '1.4' }],
+        xl: ['28px', { lineHeight: '1.25' }],
+        '2xl': ['36px', { lineHeight: '1.2', letterSpacing: '-0.01em' }],
+        '3xl': ['48px', { lineHeight: '1.1', letterSpacing: '-0.02em' }],
+        '4xl': ['60px', { lineHeight: '1.05', letterSpacing: '-0.02em' }],
+        '5xl': ['72px', { lineHeight: '1', letterSpacing: '-0.02em' }],
+      },
+      spacing: {
+        1: '4px', 2: '8px', 3: '12px', 4: '16px', 5: '20px', 6: '24px',
+        8: '32px', 10: '40px', 12: '48px', 16: '64px', 20: '80px', 24: '96px', 32: '128px',
+      },
+      borderRadius: {
+        xs: '6px', sm: '10px', md: '16px', lg: '24px', xl: '32px', pill: '999px',
+      },
+      boxShadow: {
+        xs: 'var(--shadow-xs)', sm: 'var(--shadow-sm)', md: 'var(--shadow-md)',
+        lg: 'var(--shadow-lg)', xl: 'var(--shadow-xl)', focus: 'var(--shadow-focus)',
+        'primary-glow': 'var(--shadow-primary-glow)',
+      },
+      backgroundImage: {
+        'gradient-brand': 'var(--gradient-brand)',
+        'gradient-fertile': 'var(--gradient-fertile)',
+        'gradient-warm': 'var(--gradient-warm)',
+        'gradient-dawn': 'var(--gradient-dawn)',
+      },
+      transitionTimingFunction: {
+        standard: 'cubic-bezier(.2,0,0,1)', spring: 'cubic-bezier(.34,1.56,.64,1)',
+      },
+      transitionDuration: { fast: '150ms', base: '250ms', slow: '400ms' },
+      screens: { xs: '360px', sm: '480px', md: '768px', lg: '1024px', xl: '1440px' },
+      zIndex: {
+        dropdown: '1000', sticky: '1100', overlay: '1200', modal: '1300', toast: '1400', tooltip: '1500',
+      },
+    },
+  },
+};

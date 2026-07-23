@@ -20,7 +20,10 @@
 - [~] P0.10 Open Phase-0/1 accounts (GitHub, Vercel, Supabase EU, domain, PostHog, Sentry, Resend, DeepL, Search Console)
   - [x] P0.10.1 Local git repo initialized at E:\Femio (main; first commit f2b52fa, 130 files) — 2026-07-16
   - [ ] P0.10.2 GitHub account + remote + first push (needs Khaled's GitHub auth/token) — then `git remote add origin` + push
-- [ ] P0.11 Brand identity: name check/trademark, logo, palette, typography (incl. Arabic font), design tokens
+- [x] P0.11 Brand identity & design tokens — 2026-07-16: premium two-tier token system (CSS canonical + JSON + Tailwind preset), palette/typography (incl. Arabic), logo concept, AA-verified (contrast audit + fixes), visual showcase (→ 12_BRAND_DESIGN_TOKENS.md, assets/brand/, ADR-006)
+  - [ ] P0.11.1 Logo: outline to paths + full lockup set (horizontal/stacked/mark-only/mono/RTL) + favicon/app-icon + clearspace spec — brand handoff
+  - [ ] P0.11.2 Trademark clearance for "Femio" with counsel — preliminary web scan found no direct femtech "Femio" collision; formal USPTO/EUIPO/WIPO search → P0.12 legal
+  - [ ] P0.11.3 Automated both-theme contrast sign-off across all semantic pairs → P1.5 DoD
 - [ ] P0.12 Legal: entity decision, privacy policy (health-specific), terms, DPIA, cookie consent plan
 - [x] P0.13 Decision log started (docs/DECISIONS.md) + documentation standard adopted — 2026-07-16
 - [x] P0.14 Main project folder established at E:\Femio (docs/, references/, skills/, app/, assets/) — 2026-07-16
@@ -41,6 +44,8 @@
   - [x] P0.21c Cycle & gynae (Track B) — B1, B2, B3, B4, B5, B7, B8, B9, B10, B11, B12, B13, B14, B15, B16, B17, B18, B19 — 2026-07-16 (Track B now 19/19 complete; ran in 4 verified batches; B12–B16 re-run after a session-limit loss with no files created — no overwrites; all 56 specs pass integrity)
   - [x] P0.21d Adolescent / postpartum / menopause / cross-cutting — A3, A4, A5, A6, E2, E3, E4, E5, E6, E7, F2, F3, F4, F5, F6, X1, X2 — 2026-07-16 (all verified; Tracks A/E/F/X now complete)
 - [x] P0.22 Consolidated [NEEDS SOURCE] reviewer checklist — 2026-07-16: 454 flags across 73 specs organized into 6 cross-cutting review groups + per-persona appendix, priority-tiered (safety-critical → accuracy → integrity/legal) (→ 11_NEEDS_SOURCE_CHECKLIST.md). Ready for medical reviewer + compliance sign-off; gate before Phase-1 content freeze.
+  - [ ] P0.22.1 Clear the 454 [NEEDS SOURCE] flags — checklist HANDED to medical reviewer/compliance 2026-07-16; **Khaled to return to this later**. Priority order per doc 11 (safety-critical → accuracy → integrity/legal). Blocks Phase-1 content freeze (P1.9). [DEFERRED — revisit]
+- [ ] P0.22a **RETURN-TO-LATER (Khaled):** work the [NEEDS SOURCE] checklist (doc 11) — route to medical reviewer + compliance; clear the SAFETY-CRITICAL group (crisis directories, dose/threshold wording, claims language) first; then accuracy + integrity/legal. Hard gate before ANY persona content becomes user-facing (blocks P1.9 content freeze). Handed off 2026-07-16.
 - [ ] P0.23 Machine-readable persona spec export (YAML/JSON per persona) — DEFERRED per Khaled 2026-07-16 (markdown-first for now); revisit before engineering handoff
 - [x] P0.24 Khaled review & sign-off on persona set + adaptation model (GATE) — approved 2026-07-16 (proceed to Wave 3)
 
