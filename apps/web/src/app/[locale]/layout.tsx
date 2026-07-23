@@ -4,6 +4,7 @@ import { Inter, Fraunces, IBM_Plex_Sans_Arabic } from "next/font/google";
 import { NextIntlClientProvider } from "next-intl";
 import { getMessages, getTranslations, setRequestLocale } from "next-intl/server";
 import { getDir, isLocale, routing } from "@/i18n/routing";
+import { ThemeProvider } from "@/components/theme-provider";
 import "@femio/tokens/tokens.css";
 import "../globals.css";
 
@@ -44,9 +45,13 @@ export default async function LocaleLayout({ children, params }: LayoutProps) {
   const fontVars = `${inter.variable} ${fraunces.variable} ${plexArabic.variable}`;
 
   return (
-    <html lang={locale} dir={getDir(locale)} className={fontVars}>
+    <html lang={locale} dir={getDir(locale)} className={fontVars} suppressHydrationWarning>
       <body className={locale === "ar" ? "font-arabic" : "font-sans"}>
-        <NextIntlClientProvider messages={messages}>{children}</NextIntlClientProvider>
+        <NextIntlClientProvider messages={messages}>
+          <ThemeProvider attribute="data-theme" defaultTheme="system" enableSystem disableTransitionOnChange>
+            {children}
+          </ThemeProvider>
+        </NextIntlClientProvider>
       </body>
     </html>
   );

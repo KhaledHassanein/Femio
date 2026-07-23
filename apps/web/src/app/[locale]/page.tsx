@@ -1,5 +1,6 @@
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { Button } from "@/components/ui/button";
+import { ThemeToggle } from "@/components/theme-toggle";
 
 type PageProps = {
   params: Promise<{ locale: string }>;
@@ -11,7 +12,11 @@ export default async function HomePage({ params }: PageProps) {
   const t = await getTranslations("home");
 
   return (
-    <main className="mx-auto flex min-h-dvh max-w-3xl flex-col justify-center gap-6 px-6 py-16">
+    <div className="flex min-h-dvh flex-col">
+      <header className="flex justify-end p-4">
+        <ThemeToggle />
+      </header>
+      <main className="mx-auto flex w-full max-w-3xl flex-1 flex-col justify-center gap-6 px-6 pb-16">
       <p className="text-sm font-semibold uppercase tracking-widest text-primary">
         {t("eyebrow")}
       </p>
@@ -36,6 +41,7 @@ export default async function HomePage({ params }: PageProps) {
           {t("chips.uncertainty")}
         </span>
       </div>
-    </main>
+      </main>
+    </div>
   );
 }

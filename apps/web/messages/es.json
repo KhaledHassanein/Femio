@@ -14,5 +14,10 @@
       "fertile": "Fértil",
       "uncertainty": "Incertidumbre"
     }
+  },
+  "theme": {
+    "label": "Cambiar tema",
+    "toDark": "Cambiar a modo oscuro",
+    "toLight": "Cambiar a modo claro"
   }
 }

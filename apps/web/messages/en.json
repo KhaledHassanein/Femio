@@ -14,5 +14,10 @@
       "fertile": "Fertile",
       "uncertainty": "Uncertainty"
     }
+  },
+  "theme": {
+    "label": "Toggle theme",
+    "toDark": "Switch to dark mode",
+    "toLight": "Switch to light mode"
   }
 }
