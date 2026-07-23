@@ -26,7 +26,7 @@
   - [ ] P0.11.3 Automated both-theme contrast sign-off across all semantic pairs → P1.5 DoD
 - [~] P0.12 Legal: entity decision, privacy policy (health-specific), terms, DPIA, cookie consent plan — foundation + drafts done 2026-07-16 (→ 13_LEGAL_COMPLIANCE.md); finalization needs counsel/DPO
   - [ ] P0.12.1 → COUNSEL: entity + DPO + EU/local representatives + registrations; finalize Privacy Policy, ToS, DPIA; per-jurisdiction minor-consent ages + verifiable parental consent; international-transfer mechanism; liability/governing-law
-  - [ ] P0.12.2 Create compliance skeletons: docs/compliance/DATA_MAP.md, DPIA.md, PROCESSOR_REGISTER.md, BREACH_RUNBOOK.md (with P1.3 schema)
+  - [x] P0.12.2 Create compliance skeletons: docs/compliance/DATA_MAP.md, DPIA.md, PROCESSOR_REGISTER.md, BREACH_RUNBOOK.md — 2026-07-23 (with P1.3 schema): DATA_MAP populated per-field from schema v1; DPIA/processor-register/breach-runbook skeletons flagged for DPO/counsel to finalize.
 - [x] P0.13 Decision log started (docs/DECISIONS.md) + documentation standard adopted — 2026-07-16
 - [x] P0.14 Main project folder established at E:\Femio (docs/, references/, skills/, app/, assets/) — 2026-07-16
 
@@ -59,7 +59,11 @@
   - [ ] P1.2.1 PWA icons are SVG-only for now; add PNG 192/512 + maskable + iOS apple-touch-icon — folds into P0.11.1 brand handoff (favicon/app-icon exports).
   - [ ] P1.2.2 Localized `not-found` + `global-error` (app/[locale]/not-found.tsx) — the scaffold uses `[locale]` as the root layout; add friendly localized error/404 surfaces at P1.5.
   - [ ] P1.2.3 Component testing stack (jsdom + Testing-Library) for React components — util tests run in node now; add at P1.5. Playwright e2e (incl. RTL snapshots) stays at P1.4/P1.22.
-- [~] P1.3 Supabase: schema v1 (users, profiles, cycles, symptoms, vitals, content, translations), RLS, auth (email/OAuth/anonymous mode) — started 2026-07-23 (Claude Code): project wnthtqtcajkhskdygbgo; SSR clients + env, versioned SQL migrations (schema + owner-only RLS + consent gate), native anonymous auth, compliance skeletons (P0.12.2). Apply to remote pending Khaled's DB credentials.
+- [~] P1.3 Supabase: schema v1 (users, profiles, cycles, symptoms, vitals, content, translations), RLS, auth (email/OAuth/anonymous mode) — code complete 2026-07-23 (Claude Code, project wnthtqtcajkhskdygbgo; ADR-010, ADR-011). Remaining: Khaled applies migrations to remote + enables anonymous auth.
+  - [x] P1.3a SSR Supabase clients + auth-session middleware + typed env (publishable key in gitignored .env.local) — credentials verified vs live project (auth/settings 200) — 2026-07-23
+  - [x] P1.3b Schema v1 migration — 23 tables, constant core + persona layers + adaptation + content/i18n + roles (→ supabase/migrations/0001_schema_v1.sql) — 2026-07-23
+  - [x] P1.3c RLS migration — owner-only + consent gate + staff/content policies + auth triggers + native anonymous mode (→ supabase/migrations/0002_rls_policies.sql) — 2026-07-23
+  - [ ] P1.3.APPLY (Khaled): apply 0001+0002 to remote (dashboard SQL Editor or `npx supabase db push`) + enable Anonymous sign-ins + smoke-test (→ docs/runbooks/supabase_apply_migrations.md). Then P1.3 → [x].
 - [ ] P1.4 CI/CD: GitHub Actions (lint, typecheck, test, preview), Sentry, envs (dev/stage/prod)
   - [ ] P1.4.1 Migrate lint off `next lint` (deprecated, removed in Next 16) → ESLint flat-config CLI (`npx @next/codemod next-lint-to-eslint-cli .`) as part of CI setup.
 - [ ] P1.5 Design system implementation (tokens, components, empty/loading/error patterns, WCAG 2.2 AA, RTL-verified)
