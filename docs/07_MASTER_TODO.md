@@ -21,7 +21,7 @@
   - [x] P0.10.1 Local git repo initialized at E:\Femio (main; first commit f2b52fa, 130 files) — 2026-07-16
   - [ ] P0.10.2 GitHub account + remote + first push (needs Khaled's GitHub auth/token) — then `git remote add origin` + push
 - [x] P0.11 Brand identity & design tokens — 2026-07-16: premium two-tier token system (CSS canonical + JSON + Tailwind preset), palette/typography (incl. Arabic), logo concept, AA-verified (contrast audit + fixes), visual showcase (→ 12_BRAND_DESIGN_TOKENS.md, assets/brand/, ADR-006)
-  - [~] P0.11.1 Logo: "Bloom" direction chosen; full lockup set produced (horizontal/stacked/mark-only/mono/RTL/app-icon + clearspace/min-size board). Remaining: outline text→paths, favicon .ico/.png exports, i-dot-as-petal wordmark refinement, deep-violet icon variant — final brand handoff
+  - [~] P0.11.1 Logo: "Bloom" direction chosen; full lockup set produced (horizontal/stacked/mark-only/mono/app-icon + clearspace/min-size board). Wordmark is **always English "femio"** (no Arabic transliteration — decided 2026-07-16). Remaining: outline text→paths, favicon .ico/.png exports, i-dot-as-petal refinement, deep-violet icon variant — final brand handoff
   - [ ] P0.11.2 Trademark clearance for "Femio" with counsel — preliminary web scan found no direct femtech "Femio" collision; formal USPTO/EUIPO/WIPO search → P0.12 legal
   - [ ] P0.11.3 Automated both-theme contrast sign-off across all semantic pairs → P1.5 DoD
 - [ ] P0.12 Legal: entity decision, privacy policy (health-specific), terms, DPIA, cookie consent plan

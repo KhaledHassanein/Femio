@@ -59,7 +59,9 @@ Predictions are **uncertainty-honest by design**: ranges/bands + confidence, nev
 ## Logo — "Bloom" (chosen direction, 2026-07-16)
 The mark is a six-petal **Bloom**: a blossom that is also the **cycle turning** — life blooming, phases, continuity — with a soft center **today/"you" dot** echoing the app's cycle-ring UI. Feminine through floral form (not pink cliché); the shared "dawn" gradient (violet→raspberry→amber) makes each petal catch a different hue. Wordmark is lowercase **femio** in Fraunces (softer, contemporary). Chosen from three explored directions (Bloom / Venus continuum / Lune — see `logo/femio-logo-concepts.html`).
 
-**Produced set** (`assets/brand/logo/`): `femio-logo.svg` (primary horizontal) · `femio-logomark.svg` (mark only) · `femio-logo-stacked.svg` · `femio-logo-mono.svg` (single-ink + reversed) · `femio-logo-rtl.svg` (Arabic فيميو, mark right) · `femio-app-icon.svg` (512, warm squircle) · `femio-logo-lockups.html` (full board + clearspace + min-size). Clearspace = center-dot diameter all sides; min mark 20px digital / 8mm print; below that, mark alone. Never recolor petals, stretch, add effects, or place the gradient mark on busy/low-contrast backgrounds (use mono/reversed).
+**The logo wordmark is always English "femio"** — never transliterated to Arabic. In RTL layouts the English lockup is used as-is; the app's UI and content stay fully Arabic/RTL (that's an i18n concern, not a brand one), but the brand mark is fixed Latin.
+
+**Produced set** (`assets/brand/logo/`): `femio-logo.svg` (primary horizontal) · `femio-logomark.svg` (mark only) · `femio-logo-stacked.svg` · `femio-logo-mono.svg` (single-ink + reversed) · `femio-app-icon.svg` (512, warm squircle) · `femio-logo-lockups.html` (full board + clearspace + min-size). Clearspace = center-dot diameter all sides; min mark 20px digital / 8mm print; below that, mark alone. Never recolor petals, stretch, add effects, translate the wordmark, or place the gradient mark on busy/low-contrast backgrounds (use mono/reversed).
 
 ## Do / Don't
 - **Do** use semantic tokens; **don't** hardcode hex/px in components (CI should flag raw values — P1.5 DoD).
