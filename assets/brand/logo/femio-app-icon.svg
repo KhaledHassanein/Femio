@@ -1,0 +1,22 @@
+<svg width="512" height="512" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Femio app icon">
+  <title>Femio — app icon (Bloom on warm surface)</title>
+  <defs>
+    <linearGradient id="fbloomIcon" x1="150" y1="380" x2="362" y2="150" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#7C3AED"/><stop offset=".5" stop-color="#E11D74"/><stop offset="1" stop-color="#F59E0B"/>
+    </linearGradient>
+  </defs>
+  <!-- squircle background: warm off-white (premium, iOS-friendly); use gradient bloom -->
+  <rect x="0" y="0" width="512" height="512" rx="118" fill="#FAFAF9"/>
+  <rect x="0.5" y="0.5" width="511" height="511" rx="117.5" fill="none" stroke="#EDEAF2" stroke-width="1"/>
+  <g transform="translate(256,246)" fill="url(#fbloomIcon)">
+    <path d="M0,20 C40,-48 40,-144 0,-212 C-40,-144 -40,-48 0,20 Z" opacity=".94" transform="rotate(0)"/>
+    <path d="M0,20 C40,-48 40,-144 0,-212 C-40,-144 -40,-48 0,20 Z" opacity=".86" transform="rotate(60)"/>
+    <path d="M0,20 C40,-48 40,-144 0,-212 C-40,-144 -40,-48 0,20 Z" opacity=".94" transform="rotate(120)"/>
+    <path d="M0,20 C40,-48 40,-144 0,-212 C-40,-144 -40,-48 0,20 Z" opacity=".86" transform="rotate(180)"/>
+    <path d="M0,20 C40,-48 40,-144 0,-212 C-40,-144 -40,-48 0,20 Z" opacity=".94" transform="rotate(240)"/>
+    <path d="M0,20 C40,-48 40,-144 0,-212 C-40,-144 -40,-48 0,20 Z" opacity=".86" transform="rotate(300)"/>
+  </g>
+  <circle cx="256" cy="246" r="40" fill="#FFFFFF"/>
+  <circle cx="256" cy="246" r="29" fill="#6D28D9"/>
+  <circle cx="256" cy="246" r="11.5" fill="#FFFFFF"/>
+</svg>

@@ -1,27 +1,23 @@
-<svg width="360" height="96" viewBox="0 0 360 96" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Femio">
-  <title>Femio — logo (concept, v1)</title>
+<svg width="300" height="96" viewBox="0 0 300 96" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Femio">
+  <title>Femio — primary logo (horizontal, Bloom lockup)</title>
   <defs>
-    <linearGradient id="femioDawn" x1="10" y1="72" x2="66" y2="20" gradientUnits="userSpaceOnUse">
-      <stop offset="0" stop-color="#7C3AED"/>
-      <stop offset="0.55" stop-color="#E11D74"/>
-      <stop offset="1" stop-color="#F59E0B"/>
+    <linearGradient id="fbloomH" x1="14" y1="82" x2="82" y2="14" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#7C3AED"/><stop offset=".5" stop-color="#E11D74"/><stop offset="1" stop-color="#F59E0B"/>
     </linearGradient>
   </defs>
-
-  <!-- MARK: "the continuum" — an open cycle ring (life is continuous, never closed/fixed),
-       with a today-marker dot echoing the app's cycle-ring UI. -->
-  <g transform="translate(20,20)">
-    <!-- full soft cycle ring -->
-    <circle cx="28" cy="28" r="20" fill="none" stroke="#E7E4EC" stroke-width="6"/>
-    <!-- tracked arc: gradient, round caps, deliberately NOT a full circle (uncertainty-honest, open, non-restrictive) -->
-    <circle cx="28" cy="28" r="20" fill="none" stroke="url(#femioDawn)" stroke-width="6"
-            stroke-linecap="round" stroke-dasharray="79 47" transform="rotate(-96 28 28)"/>
-    <!-- today / "you" marker at 12 o'clock -->
-    <circle cx="28" cy="8" r="5.5" fill="#7C3AED"/>
-    <circle cx="28" cy="8" r="2.2" fill="#FFFFFF"/>
+  <!-- mark -->
+  <g transform="translate(48,48)" fill="url(#fbloomH)">
+    <path d="M0,4 C7.5,-9 7.5,-27 0,-40 C-7.5,-27 -7.5,-9 0,4 Z" opacity=".94" transform="rotate(0)"/>
+    <path d="M0,4 C7.5,-9 7.5,-27 0,-40 C-7.5,-27 -7.5,-9 0,4 Z" opacity=".86" transform="rotate(60)"/>
+    <path d="M0,4 C7.5,-9 7.5,-27 0,-40 C-7.5,-27 -7.5,-9 0,4 Z" opacity=".94" transform="rotate(120)"/>
+    <path d="M0,4 C7.5,-9 7.5,-27 0,-40 C-7.5,-27 -7.5,-9 0,4 Z" opacity=".86" transform="rotate(180)"/>
+    <path d="M0,4 C7.5,-9 7.5,-27 0,-40 C-7.5,-27 -7.5,-9 0,4 Z" opacity=".94" transform="rotate(240)"/>
+    <path d="M0,4 C7.5,-9 7.5,-27 0,-40 C-7.5,-27 -7.5,-9 0,4 Z" opacity=".86" transform="rotate(300)"/>
   </g>
-
-  <!-- WORDMARK: Fraunces (editorial warmth + authority). Concept lockup — outline before handoff. -->
-  <text x="96" y="60" font-family="Fraunces, Georgia, serif" font-size="46" font-weight="600"
-        letter-spacing="-0.5" fill="#1E1B2E">Femio</text>
+  <circle cx="48" cy="48" r="7.5" fill="#FFFFFF"/>
+  <circle cx="48" cy="48" r="5.5" fill="#6D28D9"/>
+  <circle cx="48" cy="48" r="2.2" fill="#FFFFFF"/>
+  <!-- wordmark (lowercase, Fraunces) -->
+  <text x="104" y="62" font-family="Fraunces, Georgia, serif" font-size="46" font-weight="600"
+        letter-spacing="-0.5" fill="#1E1B2E">femio</text>
 </svg>

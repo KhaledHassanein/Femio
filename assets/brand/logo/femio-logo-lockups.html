@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Femio — Logo Lockups (Bloom)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600&family=IBM+Plex+Sans+Arabic:wght@600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#1E1B2E;--muted:#6E6880;--sub:#787189;--bg:#FAFAF9;--surface:#fff;--border:#E7E4EC}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--ink);font-family:Inter,sans-serif;padding:40px 24px 90px}
+.wrap{max-width:1040px;margin:0 auto}
+h1{font-family:Fraunces,serif;font-weight:600;font-size:38px;letter-spacing:-.02em}
+.sub{color:var(--muted);margin:6px 0 28px;font-size:15px}
+h2{font-family:Fraunces,serif;font-weight:600;font-size:20px;margin:32px 0 12px}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:18px;padding:26px;margin-bottom:18px;box-shadow:0 1px 3px rgb(30 27 46/.06)}
+.dark{background:#17151F;border-color:#332F42}
+.dark .wm{color:#F3F1F7}
+.row{display:flex;align-items:center;gap:40px;flex-wrap:wrap}
+.lock{display:flex;align-items:center;gap:15px}
+.wm{font-family:Fraunces,serif;font-weight:600;font-size:42px;letter-spacing:-.5px;color:var(--ink)}
+.wm.sm{font-size:30px}.wm.ar{font-family:'IBM Plex Sans Arabic',sans-serif;direction:rtl}
+.stack{display:flex;flex-direction:column;align-items:center;gap:12px}
+.cap{font-size:12px;color:var(--sub);margin-top:10px}
+.sizes{display:flex;align-items:flex-end;gap:26px}
+.icons{display:flex;align-items:center;gap:20px}
+.icon{border-radius:22%;overflow:hidden;box-shadow:0 6px 18px rgb(30 27 46/.14)}
+.clear{position:relative;display:inline-block;padding:0}
+.guide{position:absolute;inset:0;border:1px dashed #C4B5FD;border-radius:8px}
+.note{color:var(--muted);font-size:13.5px;max-width:760px}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+@media(max-width:640px){.grid2{grid-template-columns:1fr}}
+</style></head><body><div class="wrap">
+<h1>femio — logo system</h1>
+<div class="sub">Bloom mark + lowercase Fraunces wordmark. Full lockups on light &amp; dark, with clearspace and minimum sizes.</div>
+
+<h2>Primary — horizontal</h2>
+<div class="grid2">
+  <div class="card"><div class="lock"><span data-mark="52"></span><span class="wm">femio</span></div></div>
+  <div class="card dark"><div class="lock"><span data-mark="52" data-dark="1"></span><span class="wm">femio</span></div></div>
+</div>
+
+<h2>Stacked &amp; mark-only</h2>
+<div class="row">
+  <div class="card"><div class="stack"><span data-mark="72"></span><span class="wm sm">femio</span></div></div>
+  <div class="card"><div class="sizes"><span data-mark="64"></span><span data-mark="40"></span><span data-mark="24"></span></div><div class="cap">64 · 40 · 24 px — mark holds at small sizes</div></div>
+</div>
+
+<h2>Monochrome &amp; reversed</h2>
+<div class="grid2">
+  <div class="card"><div class="lock"><span data-mark="52" data-mono="#1E1B2E"></span><span class="wm">femio</span></div><div class="cap">Single-ink (stamp, emboss, one-color print)</div></div>
+  <div class="card dark"><div class="lock"><span data-mark="52" data-mono="#FFFFFF"></span><span class="wm">femio</span></div><div class="cap">Reversed white</div></div>
+</div>
+
+<h2>Arabic — RTL</h2>
+<div class="card"><div class="lock" style="flex-direction:row-reverse;justify-content:flex-end"><span data-mark="52"></span><span class="wm ar">فيميو</span></div><div class="cap">Mark sits to the right; wordmark reads right-to-left.</div></div>
+
+<h2>App icon</h2>
+<div class="card"><div class="icons">
+  <img class="icon" width="96" height="96" src="femio-app-icon.svg" alt="icon 96">
+  <img class="icon" width="56" height="56" src="femio-app-icon.svg" alt="icon 56">
+  <div class="note">Bloom on a warm off-white squircle — legible on any home screen. A deep-violet variant can be produced for dark contexts.</div>
+</div></div>
+
+<h2>Clearspace &amp; minimum size</h2>
+<div class="row">
+  <div class="card"><div class="clear" style="padding:24px"><div class="guide"></div><span data-mark="56"></span></div><div class="cap">Clearspace = the mark's center-dot diameter on all sides (≈¼ mark height).</div></div>
+  <div class="card"><div class="note"><b>Minimum sizes.</b> Mark: 20px (digital), 8mm (print). Horizontal lockup: 96px wide. Below that, use the mark alone. Never recolor petals, stretch, add effects, or place the gradient mark on a busy/low-contrast background — use the mono/reversed versions instead.</div></div>
+</div>
+
+<script>
+let gid=0;
+function bloom(size, dark, mono){
+  gid++; const id='g'+gid;
+  const P='M0,4 C7.5,-9 7.5,-27 0,-40 C-7.5,-27 -7.5,-9 0,4 Z';
+  let petals='';
+  for(let i=0;i<6;i++) petals+=`<path d="${P}" opacity="${i%2?'.86':'.94'}" transform="rotate(${i*60})"/>`;
+  const centerOuter = dark? '#211E2E' : '#FFFFFF';
+  const centerCore  = dark? '#A78BFA' : '#6D28D9';
+  const centerDot   = dark? '#211E2E' : '#FFFFFF';
+  if(mono){
+    return `<svg width="${size}" height="${size}" viewBox="0 0 96 96">
+      <defs><mask id="m${id}"><rect width="96" height="96" fill="#fff"/><circle cx="48" cy="48" r="6.5" fill="#000"/><circle cx="48" cy="48" r="2.2" fill="#fff"/></mask></defs>
+      <g fill="${mono}" mask="url(#m${id})"><g transform="translate(48,48)">${petals}</g><circle cx="48" cy="48" r="7.5"/></g></svg>`;
+  }
+  return `<svg width="${size}" height="${size}" viewBox="0 0 96 96">
+    <defs><linearGradient id="${id}" x1="14" y1="82" x2="82" y2="14" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#7C3AED"/><stop offset=".5" stop-color="#E11D74"/><stop offset="1" stop-color="#F59E0B"/></linearGradient></defs>
+    <g transform="translate(48,48)" fill="url(#${id})">${petals}</g>
+    <circle cx="48" cy="48" r="7.5" fill="${centerOuter}"/><circle cx="48" cy="48" r="5.5" fill="${centerCore}"/><circle cx="48" cy="48" r="2.2" fill="${centerDot}"/></svg>`;
+}
+document.querySelectorAll('[data-mark]').forEach(el=>{
+  el.innerHTML=bloom(+el.dataset.mark, el.dataset.dark, el.dataset.mono);
+});
+</script>
+</div></body></html>

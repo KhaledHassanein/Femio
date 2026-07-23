@@ -56,8 +56,10 @@ Two audit findings were **fixed in tokens**: `--text-subtle` darkened to `#78718
 ## Predictions (compliance-linked visual rule)
 Predictions are **uncertainty-honest by design**: ranges/bands + confidence, never a single certain date, never a "late" counter in irregular modes. The token system encodes this — predicted days use the soft `--prediction-band`, rendered dotted/gradient, visually distinct from logged/certain data. This is a brand rule *and* a regulatory guardrail (avoids medical-device-style certainty claims).
 
-## Logo (concept — v1)
-`logo/femio-logo.svg`: an **open cycle ring** (life is continuous and open — never closed or fixed, echoing "personalize, never restrict") with a **today-marker dot** that mirrors the app's cycle-ring UI, paired with the Fraunces "Femio" wordmark. The tracked arc is deliberately **not a full circle** — visual honesty about uncertainty. Gradient "dawn" (violet→raspberry→amber) for the hero mark; solid violet for small/mono use. *Concept for direction; outline text to paths and produce full lockup set (horizontal, stacked, mark-only, mono, RTL) at brand handoff.*
+## Logo — "Bloom" (chosen direction, 2026-07-16)
+The mark is a six-petal **Bloom**: a blossom that is also the **cycle turning** — life blooming, phases, continuity — with a soft center **today/"you" dot** echoing the app's cycle-ring UI. Feminine through floral form (not pink cliché); the shared "dawn" gradient (violet→raspberry→amber) makes each petal catch a different hue. Wordmark is lowercase **femio** in Fraunces (softer, contemporary). Chosen from three explored directions (Bloom / Venus continuum / Lune — see `logo/femio-logo-concepts.html`).
+
+**Produced set** (`assets/brand/logo/`): `femio-logo.svg` (primary horizontal) · `femio-logomark.svg` (mark only) · `femio-logo-stacked.svg` · `femio-logo-mono.svg` (single-ink + reversed) · `femio-logo-rtl.svg` (Arabic فيميو, mark right) · `femio-app-icon.svg` (512, warm squircle) · `femio-logo-lockups.html` (full board + clearspace + min-size). Clearspace = center-dot diameter all sides; min mark 20px digital / 8mm print; below that, mark alone. Never recolor petals, stretch, add effects, or place the gradient mark on busy/low-contrast backgrounds (use mono/reversed).
 
 ## Do / Don't
 - **Do** use semantic tokens; **don't** hardcode hex/px in components (CI should flag raw values — P1.5 DoD).

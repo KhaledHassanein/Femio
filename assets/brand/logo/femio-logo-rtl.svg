@@ -1,0 +1,24 @@
+<svg width="300" height="96" viewBox="0 0 300 96" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="فيميو Femio">
+  <title>Femio — RTL Arabic lockup (mark on the right)</title>
+  <defs>
+    <linearGradient id="fbloomR" x1="218" y1="82" x2="286" y2="14" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#7C3AED"/><stop offset=".5" stop-color="#E11D74"/><stop offset="1" stop-color="#F59E0B"/>
+    </linearGradient>
+  </defs>
+  <!-- mark on the RIGHT for right-to-left reading -->
+  <g transform="translate(252,48)" fill="url(#fbloomR)">
+    <path d="M0,4 C7.5,-9 7.5,-27 0,-40 C-7.5,-27 -7.5,-9 0,4 Z" opacity=".94" transform="rotate(0)"/>
+    <path d="M0,4 C7.5,-9 7.5,-27 0,-40 C-7.5,-27 -7.5,-9 0,4 Z" opacity=".86" transform="rotate(60)"/>
+    <path d="M0,4 C7.5,-9 7.5,-27 0,-40 C-7.5,-27 -7.5,-9 0,4 Z" opacity=".94" transform="rotate(120)"/>
+    <path d="M0,4 C7.5,-9 7.5,-27 0,-40 C-7.5,-27 -7.5,-9 0,4 Z" opacity=".86" transform="rotate(180)"/>
+    <path d="M0,4 C7.5,-9 7.5,-27 0,-40 C-7.5,-27 -7.5,-9 0,4 Z" opacity=".94" transform="rotate(240)"/>
+    <path d="M0,4 C7.5,-9 7.5,-27 0,-40 C-7.5,-27 -7.5,-9 0,4 Z" opacity=".86" transform="rotate(300)"/>
+  </g>
+  <circle cx="252" cy="48" r="7.5" fill="#FFFFFF"/>
+  <circle cx="252" cy="48" r="5.5" fill="#6D28D9"/>
+  <circle cx="252" cy="48" r="2.2" fill="#FFFFFF"/>
+  <!-- Arabic wordmark, right-anchored beside the mark -->
+  <text x="196" y="62" text-anchor="end" direction="rtl"
+        font-family="'IBM Plex Sans Arabic', 'Inter', sans-serif" font-size="44" font-weight="600"
+        fill="#1E1B2E">فيميو</text>
+</svg>
