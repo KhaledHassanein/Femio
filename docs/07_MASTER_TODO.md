@@ -72,7 +72,10 @@
   - [ ] P1.5.1 Common controls built per-feature at P1.12+ (Select, Dialog/Sheet, Tabs, Checkbox, Switch, RadioGroup, Tooltip, Toast, date/calendar) — not speculative now.
   - [ ] P1.5.2 Automated both-theme contrast sign-off across all semantic pairs (folds in P0.11.3) + axe-core a11y checks in CI (with P1.22).
 ### 1B Content & SEO engine
-- [~] P1.6 Payload CMS installed; content models (article, condition, FAQ, tip, glossary) with per-locale fields + review workflow (draft→medical review→publish) — started 2026-07-23 (Claude Code): separate apps/cms Payload 3 app on the shared Supabase Postgres; Payload = content source of truth (supersedes 0001 content/content_i18n). Live run/migrate pending Khaled's DATABASE_URL.
+- [x] P1.6 Payload CMS installed; content models (article, condition, FAQ, tip, glossary) with per-locale fields + review workflow (draft→medical review→publish) — code complete 2026-07-23 (Claude Code, → apps/cms/, ADR-012). Payload 3.86 separate app on shared Supabase Postgres; 5 content collections + Users/Media via a shared factory; localization EN/AR/FR/ES (AR RTL); data-layer review gate; E-E-A-T fields; CI builds the CMS. Verified: types + typecheck + build pass. Live run pending Khaled (below).
+  - [ ] P1.6.APPLY (Khaled): set apps/cms DATABASE_URL (Supabase session pooler) + PAYLOAD_SECRET → create schema (dev auto-push or `payload migrate`) → create first admin user → deploy as a second Vercel project (Root = apps/cms, EU) (→ docs/runbooks/cms_setup.md).
+  - [ ] P1.6.1 Drop the superseded `content`/`content_i18n` tables from schema v1 in a later migration (Payload is now the content source of truth; keep `ui_strings`).
+  - [ ] P1.6.2 Wire apps/web to read published content from the Payload REST/GraphQL API (lands with P1.8 IA / P1.9 articles).
 - [ ] P1.7 Editorial policy + medical review process published (E-E-A-T)
 - [ ] P1.8 Condition library IA (A–Z taxonomy: cycles, PCOS, endo, PMDD, fibroids, AUB, infections, contraception, TTC, IVF, pregnancy, postpartum, perimenopause, menopause, teens)
 - [ ] P1.9 First 60 EN articles written from Tier-1/2 sources (cited, reviewed) + priority-30 AR + hreflang
