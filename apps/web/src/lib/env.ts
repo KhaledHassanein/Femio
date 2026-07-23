@@ -8,6 +8,11 @@ import { z } from "zod";
 const envSchema = z.object({
   NODE_ENV: z.enum(["development", "test", "production"]).default("development"),
   NEXT_PUBLIC_APP_URL: z.string().url().default("http://localhost:3000"),
+  // Supabase — publishable key is client-safe (RLS-protected). A server-only
+  // secret key (sb_secret_…) will be added later for trusted admin RPCs and must
+  // never carry the NEXT_PUBLIC_ prefix.
+  NEXT_PUBLIC_SUPABASE_URL: z.string().url(),
+  NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY: z.string().min(1),
 });
 
 const parsed = envSchema.safeParse(process.env);
