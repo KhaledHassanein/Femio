@@ -7,6 +7,7 @@
     "eyebrow": "femio",
     "title": "Structure en ligne.",
     "body": "Next.js 15 + TypeScript + Tailwind, connecté aux tokens de design Femio. L'internationalisation (EN/AR/FR/ES, RTL), les composants d'interface et le shell PWA arrivent ensuite.",
+    "cta": "Commencer",
     "chips": {
       "primary": "Primaire",
       "accent": "Accent",

@@ -7,6 +7,7 @@
     "eyebrow": "femio",
     "title": "Scaffold online.",
     "body": "Next.js 15 + TypeScript + Tailwind, wired to the Femio design tokens. Internationalization (EN/AR/FR/ES, RTL), UI components, and the PWA shell land next.",
+    "cta": "Get started",
     "chips": {
       "primary": "Primary",
       "accent": "Accent",

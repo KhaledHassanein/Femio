@@ -7,6 +7,7 @@
     "eyebrow": "femio",
     "title": "الهيكل جاهز.",
     "body": "‏Next.js 15 وTypeScript وTailwind، موصولة بعناصر تصميم Femio. تأتي لاحقًا الترجمة (EN/AR/FR/ES وواجهات RTL) ومكوّنات الواجهة وغلاف تطبيق الويب التقدّمي.",
+    "cta": "ابدئي الآن",
     "chips": {
       "primary": "أساسي",
       "accent": "لون مميّز",

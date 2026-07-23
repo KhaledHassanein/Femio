@@ -1,4 +1,5 @@
 import { getTranslations, setRequestLocale } from "next-intl/server";
+import { Button } from "@/components/ui/button";
 
 type PageProps = {
   params: Promise<{ locale: string }>;
@@ -16,6 +17,11 @@ export default async function HomePage({ params }: PageProps) {
       </p>
       <h1 className="font-display text-3xl text-text">{t("title")}</h1>
       <p className="max-w-prose text-md text-text-muted">{t("body")}</p>
+      <div>
+        <Button variant="accent" size="lg">
+          {t("cta")}
+        </Button>
+      </div>
       <div className="flex flex-wrap gap-3">
         <span className="rounded-pill bg-primary-soft px-4 py-2 text-sm text-primary-soft-text">
           {t("chips.primary")}
