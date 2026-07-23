@@ -1,0 +1,17 @@
+{
+  "meta": {
+    "title": "Femio",
+    "description": "Una sola cuenta para toda tu vida de salud."
+  },
+  "home": {
+    "eyebrow": "femio",
+    "title": "Estructura en línea.",
+    "body": "Next.js 15 + TypeScript + Tailwind, conectado a los tokens de diseño de Femio. La internacionalización (EN/AR/FR/ES, RTL), los componentes de interfaz y el shell PWA llegan después.",
+    "chips": {
+      "primary": "Primario",
+      "accent": "Acento",
+      "fertile": "Fértil",
+      "uncertainty": "Incertidumbre"
+    }
+  }
+}

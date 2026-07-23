@@ -1,0 +1,17 @@
+{
+  "meta": {
+    "title": "Femio",
+    "description": "One account for a woman's whole health life."
+  },
+  "home": {
+    "eyebrow": "femio",
+    "title": "Scaffold online.",
+    "body": "Next.js 15 + TypeScript + Tailwind, wired to the Femio design tokens. Internationalization (EN/AR/FR/ES, RTL), UI components, and the PWA shell land next.",
+    "chips": {
+      "primary": "Primary",
+      "accent": "Accent",
+      "fertile": "Fertile",
+      "uncertainty": "Uncertainty"
+    }
+  }
+}

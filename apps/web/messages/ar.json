@@ -1,0 +1,17 @@
+{
+  "meta": {
+    "title": "Femio",
+    "description": "حسابٌ واحد لرحلتكِ الصحية بالكامل."
+  },
+  "home": {
+    "eyebrow": "femio",
+    "title": "الهيكل جاهز.",
+    "body": "‏Next.js 15 وTypeScript وTailwind، موصولة بعناصر تصميم Femio. تأتي لاحقًا الترجمة (EN/AR/FR/ES وواجهات RTL) ومكوّنات الواجهة وغلاف تطبيق الويب التقدّمي.",
+    "chips": {
+      "primary": "أساسي",
+      "accent": "لون مميّز",
+      "fertile": "الخصوبة",
+      "uncertainty": "عدم اليقين"
+    }
+  }
+}

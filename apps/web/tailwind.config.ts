@@ -10,6 +10,17 @@ const config: Config = {
   presets: [femioPreset as unknown as Config],
   darkMode: ["class", '[data-theme="dark"]'],
   content: ["./src/**/*.{ts,tsx}"],
+  theme: {
+    extend: {
+      // Point the preset's font families at the self-hosted next/font variables
+      // (loaded in the locale layout) while keeping named fallbacks.
+      fontFamily: {
+        sans: ["var(--font-inter)", "Inter", "system-ui", "sans-serif"],
+        display: ["var(--font-fraunces)", "Fraunces", "Georgia", "serif"],
+        arabic: ["var(--font-plex-arabic)", "IBM Plex Sans Arabic", "sans-serif"],
+      },
+    },
+  },
   plugins: [animate],
 };
 
