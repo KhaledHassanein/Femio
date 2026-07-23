@@ -1,0 +1,4 @@
+# Femio Supabase project config. Used by the Supabase CLI for linking + migrations.
+# Remote auth settings (e.g. enabling anonymous sign-ins) are managed in the
+# dashboard for the linked project, not from this file.
+project_id = "wnthtqtcajkhskdygbgo"
