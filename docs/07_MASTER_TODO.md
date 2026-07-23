@@ -65,8 +65,9 @@
   - [x] P1.3c RLS migration — owner-only + consent gate + staff/content policies + auth triggers + native anonymous mode (→ supabase/migrations/0002_rls_policies.sql) — 2026-07-23
   - [x] P1.3.APPLY.migrations — 0001+0002 applied to remote by Khaled; **verified 2026-07-23** (Claude Code): all 23 tables present (REST 200 for content/ui_strings/cycles/profiles/persona_state/consent_records), RLS active.
   - [ ] P1.3.APPLY.anon (Khaled): Anonymous sign-ins **still disabled** (auth/settings `anonymous_users=false`, checked 2026-07-23). Re-toggle: dashboard → Authentication → Sign In / Providers → Anonymous → Enable + Save. Blocks P1.3 → [x] (product rule 4).
-- [ ] P1.4 CI/CD: GitHub Actions (lint, typecheck, test, preview), Sentry, envs (dev/stage/prod)
+- [~] P1.4 CI/CD: GitHub Actions (lint, typecheck, test, preview), Sentry, envs (dev/stage/prod) — 2026-07-23 (Claude Code): CI workflow live (→ .github/workflows/ci.yml — install/claims-lint/lint/typecheck/test/build, all steps verified locally) + claims-language guard (→ scripts/claims-lint.mjs). Remaining: Sentry + Vercel previews (P1.4.2, Khaled's accounts).
   - [ ] P1.4.1 Migrate lint off `next lint` (deprecated, removed in Next 16) → ESLint flat-config CLI (`npx @next/codemod next-lint-to-eslint-cli .`) as part of CI setup.
+  - [ ] P1.4.2 (Khaled): connect repo to Vercel (EU region) for PR preview deploys + set env vars (dev/stage/prod); add Sentry project + DSN (then wire the SDK, health-field scrubbed).
 - [ ] P1.5 Design system implementation (tokens, components, empty/loading/error patterns, WCAG 2.2 AA, RTL-verified)
 ### 1B Content & SEO engine
 - [ ] P1.6 Payload CMS installed; content models (article, condition, FAQ, tip, glossary) with per-locale fields + review workflow (draft→medical review→publish)

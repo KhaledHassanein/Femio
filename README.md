@@ -1,8 +1,24 @@
-# Femio — Main Project Folder
+# Femio
 
-- docs/        Numbered strategy docs (00–07), DECISIONS.md, CHANGELOG.md, phases/, runbooks/, compliance/
-- docs/07_MASTER_TODO.md  ← single source of truth (no-skip governance)
-- references/  Archived V1 Flutter docs (learning only — do not build on)
-- skills/      Installable .skill packages + src/
-- app/         V2 codebase (Next.js + Supabase) — starts at P1.2
-- assets/      Brand & design assets
+[![CI](https://github.com/KhaledHassanein/Femio/actions/workflows/ci.yml/badge.svg)](https://github.com/KhaledHassanein/Femio/actions/workflows/ci.yml)
+
+Web-first women's-health platform — one account for a woman's whole health life
+(EN/AR/FR/ES, RTL-native). Wellness / education / tracking only. See `CLAUDE.md`.
+
+## Repo map
+- `docs/` — numbered strategy docs, `07_MASTER_TODO.md` (single source of truth),
+  `DECISIONS.md`, `CHANGELOG.md`, `runbooks/`, `compliance/`, `personas/`
+- `apps/web/` — Next.js 15 PWA (TS, Tailwind, next-intl, shadcn/ui, Serwist)
+- `supabase/` — versioned SQL migrations (schema + RLS)
+- `assets/brand/` — design tokens (`@femio/tokens`) + Bloom logo
+- `skills/` — installable Femio `.skill` packages
+- `references/` — archived V1 Flutter (learning only)
+
+## Develop
+Prerequisite: Node ≥ 20, pnpm. From the repo root:
+```bash
+pnpm install
+pnpm dev         # http://localhost:3000 → /en
+pnpm lint && pnpm typecheck && pnpm test && pnpm build && pnpm claims-lint
+```
+Applying database migrations: `docs/runbooks/supabase_apply_migrations.md`.
