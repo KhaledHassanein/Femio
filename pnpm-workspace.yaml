@@ -1,0 +1,11 @@
+packages:
+  - "apps/*"
+  - "packages/*"
+  - "assets/brand/tokens"
+# Trusted native build scripts (pnpm blocks postinstall by default).
+# esbuild — bundler binary (tsx/tailwind config); sharp — Next image optimization;
+# unrs-resolver — ESLint module resolver.
+onlyBuiltDependencies:
+  - esbuild
+  - sharp
+  - unrs-resolver

@@ -54,7 +54,7 @@
 ## PHASE 1 — Public site + Core cycle web app (MVP)
 ### 1A Architecture & scaffolding
 - [x] P1.1 System architecture doc (ERD, RLS policy map, API surface, i18n schema) — 2026-07-16 (→ 14_SYSTEM_ARCHITECTURE.md, ADR-007): constant-core + additive-layer schema from the 73 specs' EMR fields, owner-only RLS, server-side adaptation resolver + predictions, i18n schema. Gateway to P1.2 (best first Claude Code task).
-- [ ] P1.2 Monorepo scaffold: Next.js 15 + TS + Tailwind + shadcn/ui + next-intl (EN/AR/FR/ES, RTL) + PWA manifest/service worker
+- [~] P1.2 Monorepo scaffold: Next.js 15 + TS + Tailwind + shadcn/ui + next-intl (EN/AR/FR/ES, RTL) + PWA manifest/service worker — started 2026-07-23 (Claude Code): pnpm workspace, Tailwind v3 pinned to consume `femio.tailwind.preset.js`, tokens canonical in assets/
 - [ ] P1.3 Supabase: schema v1 (users, profiles, cycles, symptoms, vitals, content, translations), RLS, auth (email/OAuth/anonymous mode)
 - [ ] P1.4 CI/CD: GitHub Actions (lint, typecheck, test, preview), Sentry, envs (dev/stage/prod)
 - [ ] P1.5 Design system implementation (tokens, components, empty/loading/error patterns, WCAG 2.2 AA, RTL-verified)

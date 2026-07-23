@@ -1,0 +1,28 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/*
+ * Femio design tokens (femio.tokens.css) are imported in the root layout, so the
+ * semantic CSS custom properties exist on :root before these rules apply.
+ * Components must consume tokens (via Tailwind's token-mapped utilities), never
+ * raw hex/px — femio-engineering-standards §5.
+ */
+@layer base {
+  html {
+    background-color: var(--bg);
+    color: var(--text);
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    min-height: 100dvh;
+    font-family: var(--font-inter), Inter, system-ui, sans-serif;
+  }
+
+  /* Never remove focus affordance — a visible ring is a token (docs/12). */
+  :focus-visible {
+    outline: none;
+    box-shadow: var(--shadow-focus);
+  }
+}

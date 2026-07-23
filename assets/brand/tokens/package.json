@@ -1,0 +1,11 @@
+{
+  "name": "@femio/tokens",
+  "version": "0.0.0",
+  "private": true,
+  "description": "Femio design tokens — canonical source (docs/12). CSS custom properties, W3C JSON mirror, and Tailwind preset. See ADR-006.",
+  "exports": {
+    "./tokens.css": "./femio.tokens.css",
+    "./tokens.json": "./femio.tokens.json",
+    "./tailwind-preset": "./femio.tailwind.preset.js"
+  }
+}
