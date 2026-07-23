@@ -31,6 +31,11 @@ pnpm-debug.log*
 *.tsbuildinfo
 next-env.d.ts
 
+# Serwist / PWA service worker build output
+**/public/sw.js
+**/public/sw.js.map
+**/public/swe-worker*.js
+
 # Supabase / local tooling
 .supabase/
 .vercel/
