@@ -19,7 +19,7 @@
 - [x] P0.9 Create the 7 Femio Claude skills — .skill packages delivered 2026-07-16 (install pending Khaled)
 - [~] P0.10 Open Phase-0/1 accounts (GitHub, Vercel, Supabase EU, domain, PostHog, Sentry, Resend, DeepL, Search Console)
   - [x] P0.10.1 Local git repo initialized at E:\Femio (main; first commit f2b52fa, 130 files) — 2026-07-16
-  - [ ] P0.10.2 GitHub account + remote + first push (needs Khaled's GitHub auth/token) — then `git remote add origin` + push
+  - [x] P0.10.2 GitHub account + remote + first push — 2026-07-23: remote `origin` → github.com/KhaledHassanein/Femio, `main` pushed + upstream tracking set. Pre-push safety: no secrets tracked, `.gitignore` covers env/keys/Office-lock/build artifacts. (Repo should be kept **private** — legal/compliance drafts + product IP.)
 - [x] P0.11 Brand identity & design tokens — 2026-07-16: premium two-tier token system (CSS canonical + JSON + Tailwind preset), palette/typography (incl. Arabic), logo concept, AA-verified (contrast audit + fixes), visual showcase (→ 12_BRAND_DESIGN_TOKENS.md, assets/brand/, ADR-006)
   - [~] P0.11.1 Logo: "Bloom" direction chosen; full lockup set produced (horizontal/stacked/mark-only/mono/app-icon + clearspace/min-size board). Wordmark is **always English "femio"** (no Arabic transliteration — decided 2026-07-16). Remaining: outline text→paths, favicon .ico/.png exports, i-dot-as-petal refinement, deep-violet icon variant — final brand handoff
   - [ ] P0.11.2 Trademark clearance for "Femio" with counsel — preliminary web scan found no direct femtech "Femio" collision; formal USPTO/EUIPO/WIPO search → P0.12 legal
@@ -54,9 +54,13 @@
 ## PHASE 1 — Public site + Core cycle web app (MVP)
 ### 1A Architecture & scaffolding
 - [x] P1.1 System architecture doc (ERD, RLS policy map, API surface, i18n schema) — 2026-07-16 (→ 14_SYSTEM_ARCHITECTURE.md, ADR-007): constant-core + additive-layer schema from the 73 specs' EMR fields, owner-only RLS, server-side adaptation resolver + predictions, i18n schema. Gateway to P1.2 (best first Claude Code task).
-- [~] P1.2 Monorepo scaffold: Next.js 15 + TS + Tailwind + shadcn/ui + next-intl (EN/AR/FR/ES, RTL) + PWA manifest/service worker — started 2026-07-23 (Claude Code): pnpm workspace, Tailwind v3 pinned to consume `femio.tailwind.preset.js`, tokens canonical in assets/
+- [x] P1.2 Monorepo scaffold: Next.js 15 + TS + Tailwind + shadcn/ui + next-intl (EN/AR/FR/ES, RTL) + PWA manifest/service worker — 2026-07-23 (Claude Code, → apps/web/, ADR-008, ADR-009). pnpm-workspace monorepo (`apps/web`, `@femio/tokens` package keeps `assets/` canonical); Next.js 15 App Router + TS strict (`noUncheckedIndexedAccess`); Tailwind **v3** pinned to consume `femio.tailwind.preset.js`; next-intl locale-prefixed routes (/en /ar /fr /es) with RTL verified (`<html dir="rtl">` for ar); shadcn/ui set up + token-wired `Button`; PWA manifest + Serwist service worker; typed env (zod); Vitest + first util tests. Verified: lint + typecheck + build + test all pass; all 4 locales prerender.
+  - [ ] P1.2.1 PWA icons are SVG-only for now; add PNG 192/512 + maskable + iOS apple-touch-icon — folds into P0.11.1 brand handoff (favicon/app-icon exports).
+  - [ ] P1.2.2 Localized `not-found` + `global-error` (app/[locale]/not-found.tsx) — the scaffold uses `[locale]` as the root layout; add friendly localized error/404 surfaces at P1.5.
+  - [ ] P1.2.3 Component testing stack (jsdom + Testing-Library) for React components — util tests run in node now; add at P1.5. Playwright e2e (incl. RTL snapshots) stays at P1.4/P1.22.
 - [ ] P1.3 Supabase: schema v1 (users, profiles, cycles, symptoms, vitals, content, translations), RLS, auth (email/OAuth/anonymous mode)
 - [ ] P1.4 CI/CD: GitHub Actions (lint, typecheck, test, preview), Sentry, envs (dev/stage/prod)
+  - [ ] P1.4.1 Migrate lint off `next lint` (deprecated, removed in Next 16) → ESLint flat-config CLI (`npx @next/codemod next-lint-to-eslint-cli .`) as part of CI setup.
 - [ ] P1.5 Design system implementation (tokens, components, empty/loading/error patterns, WCAG 2.2 AA, RTL-verified)
 ### 1B Content & SEO engine
 - [ ] P1.6 Payload CMS installed; content models (article, condition, FAQ, tip, glossary) with per-locale fields + review workflow (draft→medical review→publish)
