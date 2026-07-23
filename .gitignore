@@ -27,6 +27,10 @@ coverage/
 npm-debug.log*
 pnpm-debug.log*
 
+# TypeScript / Next generated
+*.tsbuildinfo
+next-env.d.ts
+
 # Supabase / local tooling
 .supabase/
 .vercel/
