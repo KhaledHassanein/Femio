@@ -72,7 +72,7 @@
   - [ ] P1.5.1 Common controls built per-feature at P1.12+ (Select, Dialog/Sheet, Tabs, Checkbox, Switch, RadioGroup, Tooltip, Toast, date/calendar) — not speculative now.
   - [ ] P1.5.2 Automated both-theme contrast sign-off across all semantic pairs (folds in P0.11.3) + axe-core a11y checks in CI (with P1.22).
 ### 1B Content & SEO engine
-- [ ] P1.6 Payload CMS installed; content models (article, condition, FAQ, tip, glossary) with per-locale fields + review workflow (draft→medical review→publish)
+- [~] P1.6 Payload CMS installed; content models (article, condition, FAQ, tip, glossary) with per-locale fields + review workflow (draft→medical review→publish) — started 2026-07-23 (Claude Code): separate apps/cms Payload 3 app on the shared Supabase Postgres; Payload = content source of truth (supersedes 0001 content/content_i18n). Live run/migrate pending Khaled's DATABASE_URL.
 - [ ] P1.7 Editorial policy + medical review process published (E-E-A-T)
 - [ ] P1.8 Condition library IA (A–Z taxonomy: cycles, PCOS, endo, PMDD, fibroids, AUB, infections, contraception, TTC, IVF, pregnancy, postpartum, perimenopause, menopause, teens)
 - [ ] P1.9 First 60 EN articles written from Tier-1/2 sources (cited, reviewed) + priority-30 AR + hreflang
