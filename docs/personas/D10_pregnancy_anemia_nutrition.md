@@ -111,24 +111,19 @@ Two worlds fail D10 in opposite ways: **pregnancy trackers** (nice baby content,
 
 ## D. Clinical grounding (cited)
 
-All figures below are **education, not medical advice**; app copy must attribute to these bodies, present thresholds and targets as *"what guidelines describe — your clinician confirms what's right for you,"* and defer every dosing/treatment decision to the care team. Hemoglobin shown dual-unit (g/dL and g/L); ferritin in ng/mL (= µg/L).
+All content below is **education, not medical advice**. Femio may store a user-entered result with its original unit and laboratory reference range, but it does not generate a trimester reference band, classify anemia or iron deficiency, interpret trends, or recommend a supplement regimen. Every result and treatment decision is deferred to the care team.
 
-**How common it is (and MENA relevance).** Anemia is the most common medical disorder of pregnancy. WHO estimates roughly **36–40% of pregnant women worldwide** are anemic; prevalence is substantially higher across much of the **MENA / South-Asian** region and among vegetarian/vegan diets, driven by dietary iron gaps and, in some populations, thalassemia trait. Iron-deficiency anemia (IDA) accounts for the large majority of cases; folate, B12 and vitamin-D deficiencies also contribute. Anti-self-blame framing: pregnancy roughly doubles iron needs and expands blood volume — becoming iron-deplete is physiological, common, and treatable, not a personal failing. [WHO; CDC; ASH/Blood 2017]
+**How common it is.** WHO’s February 2025 fact sheet estimates that 37% of pregnant women worldwide are affected by anemia. Causes are varied and can include iron or other nutritional deficiency, infection, inflammation, inherited red-cell disorders, and pregnancy-related factors. Femio does not infer the cause from diet, location, symptoms, or one laboratory value. [WHO, *Anaemia*, 10 February 2025]
 
-**Hemoglobin thresholds for anemia (trimester-specific — education, clinician confirms).**
-- **CDC / ACOG (trimester-based):** anemia = Hb **< 11.0 g/dL (110 g/L)** in the **first and third** trimesters; **< 10.5 g/dL (105 g/L)** in the **second** trimester (hematocrit < 33% / < 32% respectively). [CDC; ACOG Practice Bulletin 233, 2021]
-- **WHO (single threshold):** Hb **< 11.0 g/dL (110 g/L)** at any point in pregnancy. [WHO]
-- **UK / BSH (British Society for Haematology):** Hb **< 110 g/L** in T1, **< 105 g/L** in T2 and T3, and **< 100 g/L** postpartum. [BSH / Pavord et al. 2019, BJH]
-→ App framing: show these as an **educational reference band by trimester**, dual-unit, always "your clinician interprets your result." Femio never renders "you are anemic" from a user-entered number. [NEEDS SOURCE: pin exact ACOG PB 233 permalink + WHO anaemia-thresholds 2011/2024 update URL before content freeze]
+**Hemoglobin and ferritin results.** WHO issued an updated guideline on hemoglobin cutoffs in March 2024 and notes that interpretation is affected by population and measurement factors. Clinical bodies and laboratories may use different pregnancy and postpartum thresholds. Femio therefore stores the original value, unit, laboratory range, date, and clinician note only; it never renders “anemic,” “iron deficient,” “safe,” or “dangerous.” [WHO, *Guideline on haemoglobin cutoffs to define anaemia in individuals and populations*, 5 March 2024]
 
-**Ferritin (iron stores) — the subtler number.** Ferritin reflects iron stores and can be low even when Hb is still "normal" (iron deficiency *without* anemia). **ACOG** defines iron deficiency in pregnancy as **serum ferritin < 30 ng/mL** (in any trimester); **WHO** uses **< 15 ng/mL** in the first trimester. Ferritin is an acute-phase reactant (rises with infection/inflammation), which is why clinicians interpret it in context. App framing: explain what ferritin *is* (a fuel-gauge for iron stores) and that Hb-normal-but-ferritin-low is a real, common pattern her clinician may act on — never a Femio verdict. [ACOG; WHO; ASH 2023]
+**Ferritin education.** Ferritin is used as part of assessing iron stores and is interpreted with clinical context and other results. Femio explains the term but does not publish one global cutoff or interpret a user’s value.
 
 **Screening / when bloods are checked.** Routine anemia screening is typically at the **booking (first) appointment** and again around **28 weeks** (earlier/repeat if risk factors or symptoms). All screening content = *"this is a screening blood test — discuss your results with your clinician."* [NICE NG201; BSH 2019; ACOG]
 
 **Iron supplementation context (educational only — no dosing).**
-- Guidelines differ: **ACOG** recommends **universal low-dose iron** in pregnancy (except conditions like hemochromatosis) and screening/treating anemia when found; the **US Preventive Services Task Force (2024)** concluded evidence is *insufficient* to recommend for-or-against universal screening/supplementation in asymptomatic pregnant women — a genuine guideline disagreement Femio should present honestly rather than pick a side. [ACOG; USPSTF 2024]
-- Treatment of established iron deficiency is with **oral iron**, commonly in the range guidelines describe (UK BSH describes elemental iron ~**100–200 mg/day** for treatment; absorption saturates above this, so higher isn't better). Femio states *what guidelines describe* and defers the actual dose entirely to the clinician — **never a Femio number-as-instruction.** [BSH 2019]
-- **Tolerability (in-scope, high-value):** oral iron commonly causes **constipation (~12%), nausea (~11%), diarrhea (~8%), stomach upset, metallic taste, and harmless black stools** — the leading reasons women stop. Strategies clinicians commonly discuss (framed as "things to ask your clinician about," never Femio orders): taking with **vitamin-C-rich food/juice** to aid absorption, separating iron from **tea, coffee, calcium/dairy and antacids** (which reduce absorption), and **alternate-day dosing** (emerging evidence it may improve absorption and tolerability). [BSH 2019; ASH 2023; RCTs on alternate-day dosing]
+- Supplement type, dose, schedule, interactions, and whether oral or intravenous iron is appropriate are clinician decisions. Femio records only what the user says was prescribed and never converts guideline doses into instructions.
+- **Tolerability (in scope):** oral iron can cause gastrointestinal effects and dark stools. Femio may help a user record effects and prepare questions for a pharmacist or clinician, but it does not advise changing timing, frequency, formulation, or dose.
 - **IV iron / transfusion** (education, for the escalation path): when oral iron isn't tolerated or isn't enough, or anemia is significant approaching delivery, clinicians may discuss **intravenous iron**; severe anemia near term prompts an individualized birth plan (group-and-save, transfusion readiness). Explained as *what her clinician may consider*, never advised by the app. [BSH 2019; ASH 2023]
 
 **Dietary iron (education, culturally adaptable).**
@@ -139,13 +134,13 @@ All figures below are **education, not medical advice**; app copy must attribute
 
 **Folate & B12 (the other nutritional anemias).** Folate (B9) and vitamin B12 deficiency cause **megaloblastic anemia**. Folate needs rise in pregnancy (folic-acid supplementation is standard for neural-tube-defect risk, distinct from anemia but overlapping). **B12** is found mainly in animal foods, so **vegans/vegetarians are at elevated risk** and are advised fortified foods or supplements under clinician guidance. Femio explains the connection and defers dosing. [NHS; NIH ODS; ASH 2017]
 
-**Vitamin D.** Common in pregnancy, especially in MENA populations (sun-avoidant dress, higher-latitude migration); NHS advises **10 µg/day** in pregnancy/breastfeeding. Not a classic cause of anemia but part of the nutritional-risk picture D10 covers. [NHS; NIH ODS]
+**Vitamin D.** Vitamin D is not a classic cause of anemia. Supplement recommendations vary by jurisdiction and individual risk; Femio follows the user’s clinician or current local public-health guidance and gives no dose.
 
 **Why it matters (honest, not fear-mongering).** Untreated moderate-to-severe anemia is associated with higher risks of **preterm birth, low birth weight, and increased maternal fatigue / reduced tolerance of blood loss at delivery (→ postpartum anemia and, rarely, transfusion)**. Crucially, iron deficiency is **very treatable**, and correcting it improves maternal wellbeing — always pair the "why it matters" with the true, reassuring "and it's common and fixable." [WHO; ASH 2017; FIGO 2023]
 
-**Postpartum tail.** Blood loss at birth can worsen or unmask anemia; postpartum anemia thresholds are commonly Hb **< 10 g/dL** in the early puerperium (BSH). This seeds the E1/E4 follow-up (repeat Hb, continued iron as clinician advises, fatigue/breastfeeding context). [BSH 2019]
+**Postpartum tail.** Blood loss at birth can worsen or reveal anemia. Femio supports follow-up and result organization but does not publish one global postpartum threshold or advise how long supplementation continues.
 
-[NEEDS SOURCE] flags: exact ACOG Practice Bulletin 233 permalink; WHO haemoglobin-thresholds document (2011 / 2024 update) URL; USPSTF 2024 final statement permalink; region-specific MENA prevalence figure + thalassemia-trait-in-pregnancy framing; dual-unit ferritin/B12 reference table for localization; alternate-day-dosing primary RCT (Stoffel/Moretti) permalinks.
+Medical-review resolution: current WHO hemoglobin guidance and NICE antenatal blood-test timing are pinned below. Global app-generated reference bands, ferritin/B12 cutoffs, MENA prevalence claims, and alternate-day dosing instructions were removed. *(Reviewed Mohamed K., 23 July 2026; next review 23 July 2027.)*
 
 ---
 
@@ -154,8 +149,8 @@ All figures below are **education, not medical advice**; app copy must attribute
 D10 = the **D1 spine (week content, appointments, warning-signs, weight)** + an **anemia / nutrition tool + education layer**. Nothing from D1 is removed.
 
 **P0 — must-have (the anemia/nutrition layer)**
-1. **Lab log — Hb & ferritin (entry-only)** — quick manual entry of hemoglobin (g/dL *or* g/L) and ferritin (ng/mL), with date + optional note (also optional: MCV, B12, folate, vitamin D, transferrin saturation as free fields). Shows *her own* values over time against an **educational trimester reference band** she can view but that never scores her. *Tracking aid, not a test interpreter — never "you are anemic."*
-2. **Hb/ferritin trend view** — simple line/trend of her entered values by date, trimester-banded for context. Descriptive only ("your entered values over time to share with your clinician"), never "improving/failing."
+1. **Lab log — Hb & ferritin (entry-only)** — manual entry of the value, original unit, date, laboratory reference range, and optional clinician note. No app-generated band or classification. *Tracking aid, not a test interpreter.*
+2. **Hb/ferritin trend view** — a descriptive line of entered values by date, with no trimester band and no “improving/failing” language.
 3. **Iron & nutrition education hub** — referenced, calm, anti-self-blame; iron-rich foods, absorption levers, folate/B12/vitamin-D context, culturally-adapted (see F).
 4. **Supplement-tolerability education (in-scope)** — the high-value differentiator: how iron is commonly taken, tolerability strategies framed as *"things to ask your clinician,"* black-stool reassurance. **No dose, no regimen.**
 5. **Appointment / lab-recheck tracker** — booking bloods, 28-week recheck, follow-up Hb, dietitian/hematology referral if mentioned; reminders; "questions to ask."
@@ -314,7 +309,7 @@ Placement: persistent nav entry + auto-injected on the lab-log screen (near "ver
 - **Privacy-by-design (GDPR/PDPL, health data):** anemia status + lab values are sensitive health data layered on sensitive pregnancy data — minimal collection, explicit consent, **no data sale, no ad-targeting SDKs, no employer/insurer visibility**. Partner sharing opt-in and granular. Loss/withdrawal → immediate suppression of all pregnancy + anemia reminders and honored deletion.
 - **Content provenance:** every medical claim medically reviewed + cited to Tier-1 (CDC/NIH/MedlinePlus/NHS/WHO) / Tier-2 (ACOG/RCOG/NICE/BSH); review dates surfaced; no clickbait, no sponsored content interleaved with medical guidance.
 - **i18n/RTL + cultural food literacy:** all safety/red-flag copy human-reviewed in AR/EN/FR/ES (not machine-only) given clinical stakes; iron-food examples culturally adapted (MENA staples, vegetarian/vegan, South-Asian; tea-with-meals absorption note); dual lab units per locale.
-- **Open items:** resolve **[NEEDS SOURCE]** citations (ACOG PB 233 permalink; WHO haemoglobin-thresholds 2011/2024 URL; USPSTF 2024 final statement; MENA prevalence + thalassemia-trait framing; dual-unit ferritin/B12 reference table; alternate-day-dosing RCT permalinks) before content freeze; localize warning-signs + emergency numbers per region.
+- **Reviewed source set:** WHO’s 2024 hemoglobin-cutoff guideline and 2025 anemia fact sheet govern global context; NICE NG201 supports full blood count at booking and 28 weeks. Femio does not generate diagnostic bands, doses, or region-specific clinical pathways. Urgent symptoms use the global urgent-routing policy. *(Reviewed Mohamed K., 23 July 2026; next review 23 July 2027.)*
 
 ---
 
@@ -341,4 +336,4 @@ Placement: persistent nav entry + auto-injected on the lab-log screen (near "ver
 - [PMC — Postpartum anemia prevalence and risk factors (thresholds)](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC11055361/)
 - [PMC — Compliance with oral iron supplementation in antenatal women (side effects, adherence)](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC10290743/)
 
-*[NEEDS SOURCE]* exact ACOG Practice Bulletin 233 permalink; WHO haemoglobin-thresholds document (2011 / 2024 update) URL; USPSTF 2024 final-statement stable permalink; region-specific MENA anemia-prevalence figure + thalassemia-trait-in-pregnancy framing; dual-unit ferritin / B12 reference table for localization; alternate-day oral-iron dosing primary RCTs (Stoffel / Moretti) permalinks; NICE NG201 antenatal-care anemia-screening section permalink for NICE Tier-2 grounding.
+*Clinical source pinning: [WHO hemoglobin-cutoff guideline (5 March 2024)](https://www.who.int/publications/i/item/9789240088542); [WHO Anaemia fact sheet (10 February 2025)](https://www.who.int/news-room/fact-sheets/detail/ANAEMIA); [NICE NG201 antenatal-care recommendations](https://www.nice.org.uk/guidance/ng201/chapter/Recommendations). Reviewed Mohamed K., 23 July 2026; next review 23 July 2027.*

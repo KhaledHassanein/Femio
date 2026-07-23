@@ -87,7 +87,7 @@ Feature-by-feature, focused on where trackers fail HMB users on **bleeding quant
 | **bleep / iron-tracking & fibroid apps** (niche) | Various | Some fibroid/HMB-niche apps add product counts | Varies; inconsistent | Some fatigue logging | Unclear | Femio unifies objective bleeding score + anemia awareness + referenced content + visit-prep in one lifespan account |
 | **Generic "flow = 3 dots" trackers** | — | Three-level flow only | None | None | Varies | The core failure Femio targets |
 
-**Cross-cutting failure for HMB users:** flow is captured as an unvalidated light/medium/heavy tap that "has not been validated against any independent measure of flow volume" and is interpreted differently by every user. There is **no objective, transferable number** to hand a clinician, and the vocabulary (flooding, clots, double-protection, overnight changes, "period products used per day") that HMB users actually live by is missing. Femio's answer: a **PBAC-style / product-count quantifier** that produces a semi-objective score and an exportable summary, plus an **anemia-symptom awareness** layer that connects bleeding to fatigue — neither of which is offered by mainstream trackers.
+**Cross-cutting product gap:** a generic light/medium/heavy tap may not capture flooding, clots, double protection, overnight changes, product changes, or quality-of-life impact. Femio provides a descriptive, exportable bleeding record and anemia-awareness education. It does not make a public “no mainstream tracker offers this” claim or present its record as an objective diagnostic measure.
 
 *[NEEDS SOURCE] — specific per-app feature claims are from app-store listings, review roundups and forum reports; verify against current app versions before any public comparative claim.*
 
@@ -99,7 +99,7 @@ Feature-by-feature, focused on where trackers fail HMB users on **bleeding quant
 
 **Practical / self-report signs of HMB (used clinically and for patient education).** Soaking through one or more pads or tampons **every hour for several hours in a row**; needing **double protection** (pad + tampon); needing to **change protection during the night**; bleeding **longer than 7 days**; passing **blood clots the size of a quarter (~2.5 cm) or larger**; flooding; and symptoms of anemia such as tiredness or shortness of breath [ACOG *Heavy Menstrual Bleeding* FAQ; Mayo Clinic].
 
-**Quantification — PBAC.** The **Pictorial Blood loss Assessment Chart (PBAC)** is the most widely used semi-objective tool: the user scores how heavily each pad/tampon is stained plus clots and flooding across the period; a total **≥100 (some use ≥150)** correlates with HMB (>80 mL). It is validated against the alkaline-hematin gold standard with reasonable diagnostic accuracy and is used in clinical trials and primary care to aid treatment/follow-up decisions [PBAC systematic review, PMC7011238; PBAC diagnostic-accuracy study, PubMed 21228538; WFH PBAC resource]. *For Femio, PBAC-style scoring is framed as an educational/tracking aid and a conversation tool for her clinician — never a diagnosis.*
+**Bleeding description record.** A published PBAC can support clinical/research assessment, but cutoffs and versions differ. Femio therefore does not reproduce a specific chart or display a ≥100/≥150 “heavy” verdict unless that exact instrument/version and permission are approved. Global product copy records product changes, soak level, flooding, clots, overnight changes, duration, and life impact for clinician discussion, without diagnosis. ([NICE NG88 recommendations](https://www.nice.org.uk/guidance/ng88/chapter/Recommendations); reviewed Mohamed K., 23 July 2026.)
 
 **Causes — FIGO PALM-COEIN.** The FIGO classification organizes causes of abnormal uterine bleeding into **structural (PALM)**: **P**olyp, **A**denomyosis, **L**eiomyoma (fibroids), **M**alignancy/hyperplasia; and **non-structural (COEIN)**: **C**oagulopathy (e.g. von Willebrand disease — notably in those heavy *since menarche*), **O**vulatory dysfunction, **E**ndometrial, **I**atrogenic (e.g. copper IUD, anticoagulants), and **N**ot otherwise classified [FIGO/Munro 2011, Int J Gynecol Obstet; PALM-COEIN overview]. Fibroids and adenomyosis are common structural drivers; a bleeding disorder should be considered especially with lifelong heavy bleeding [Mayo Clinic; ACOG].
 
@@ -121,7 +121,7 @@ Feature-by-feature, focused on where trackers fail HMB users on **bleeding quant
 ## E. Feature set (prioritized)
 
 **P0 — must ship for this persona to switch.**
-1. **Objective bleeding quantifier (PBAC-style / product-count).** Log products used per day, soak level per product (lightly/moderately/fully soaked), clots (with size reference, e.g. "coin-sized or larger"), flooding events, double-protection, and overnight changes → produces a **semi-objective daily + per-period score** shown as a trend, framed as "a way to describe your bleeding to your clinician," not a diagnosis.
+1. **Descriptive bleeding record.** Log products used per day, soak level, clots (with a 2.5 cm reference), flooding events, double protection, overnight changes, duration, and quality-of-life impact. Show the observations and trends for clinician discussion; do not calculate a diagnostic band.
 2. **Anemia-symptom awareness layer.** Optional linked logging of fatigue, breathlessness, dizziness, pica, restless legs; when heavy-bleeding + symptom patterns co-occur, surface non-alarming "many clinicians suggest checking iron/ferritin — here's why" education (screening-framed).
 3. **Red-flag "seek care" logic.** Prominent, dismissible "seek care now" box when logged bleeding hits urgent thresholds (soaking hourly for several hours, fainting/severe breathlessness) — education + saved emergency contact, never triage.
 4. **HMB cause & treatment education library** (referenced, PALM-COEIN-based; treatment as education only).
@@ -161,14 +161,14 @@ Every module: referenced citations, medical-review byline + date, "discuss with 
 ## G. Tools, logs & alerts (compliant framing)
 
 **Logs**
-- **Bleeding quantifier (core):** per-day period-products used (pads/tampons/cups/period underwear), **soak level per product**, **clot logging with size reference**, **flooding event** toggle, **double-protection** toggle, **overnight change** toggle → computed **PBAC-style daily + per-period score** and duration; trend view over cycles.
+- **Bleeding record (core):** per-day products used, soak level, clot logging with a 2.5 cm reference, flooding event, double protection, overnight change, duration, and life impact; descriptive trend view only.
 - Standard cycle/bleed log (start/end, spotting, cycle length) inherited from B1.
 - **Anemia-symptom log:** fatigue, weakness, breathlessness, dizziness, headache, pica (e.g. ice craving), restless legs, hair thinning — optional, toggleable.
 - Quality-of-life / days-affected log (activities missed, accidents) — optional.
 - Optional lab/result entry (FBC/hemoglobin, ferritin) — **entry only, no interpretation as diagnosis**.
 
 **Tools**
-- **PBAC-style bleeding-severity summary** — shows her score trend and a plain-language band ("your logs this period reached a score often associated with heavy bleeding — worth discussing with a clinician"), never a diagnosis, always clinician-routed.
+- **Bleeding summary** — shows the recorded observations and quality-of-life impact for clinician discussion; no PBAC cutoff, heavy-band verdict, or diagnosis.
 - **Visit-prep generator** — one-tap export/print: bleeding score + product counts + clot/flooding flags + anemia-symptom summary + cycle history + questions + standard-work-up checklist.
 - **Cycle/bleeding-pattern insight** — descriptive trends ("appears associated with," never "caused by").
 - **Screeners (framed as screening, not diagnosis):**
@@ -196,7 +196,7 @@ Every module: referenced citations, medical-review byline + date, "discuss with 
 
 **Persona-specific (HMB)**
 - **Bleeding-quantification fields:** products-used count/type per day, soak level per product, clot count + size band, flooding event flag, double-protection flag, overnight-change flag, bleed-duration days.
-- **Computed PBAC-style score** (daily + per-period) + heavy-band flag (non-diagnostic).
+- **Descriptive daily/per-period bleeding summary**; no computed PBAC score or heavy-band flag.
 - **Anemia-symptom log:** fatigue/weakness/breathlessness/dizziness/pica/restless-legs (scores + dates, awareness-only).
 - **Quality-of-life impact:** days affected, activities missed, accident events (optional).
 - **HMB history hints (self-report):** heavy-since-menarche y/n (coagulopathy education trigger), known fibroids/adenomyosis/polyp mention, copper-IUD/anticoagulant use (iatrogenic context).
@@ -260,7 +260,7 @@ All transitions require **explicit user confirmation**, preserve data continuity
 - **Privacy (GDPR/PDPL health data):** health data = special-category; explicit granular consent, purpose limitation, no ad-SDK/third-party sharing of cycle/bleeding/health data (post-Flo trust); local-first where feasible; full export/delete. Data-mapping + DPIA required before launch. Export/print of the visit-prep pack is user-initiated and scoped.
 - **Content integrity:** all medical content referenced, medically reviewed with byline + date, YMYL/E-E-A-T compliant; grade 6–8 reading level; 4 languages with Arabic-first/RTL QA.
 - **App-store health policy:** avoid medical-device trigger language; framing as tracking/education keeps out of regulated-device territory — legal review before store submission.
-- **[NEEDS SOURCE]** flags: (a) exact PBAC cut-off to display (≥100 vs ≥150) and whether to show any numeric threshold publicly — verify with medical review; (b) per-app competitor feature claims; (c) precise "quarter/coin-sized clot" wording localized per region; (d) per-locale crisis directories and emergency numbers.
+- **Reviewed controls:** no public PBAC cutoff or competitor-completeness claim; clot wording uses the locale-neutral “around 2.5 cm or larger” NHS/CDC reference; crisis routing follows the global maintained-directory policy. See [`docs/compliance/MENSTRUAL_SAFETY_THRESHOLDS.md`](../compliance/MENSTRUAL_SAFETY_THRESHOLDS.md). *(Reviewed Mohamed K., 23 July 2026; next review 23 July 2027.)*
 
 ---
 

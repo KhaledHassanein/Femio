@@ -122,7 +122,7 @@ Mined from r/preeclampsia, r/BabyBumps, Preeclampsia Foundation forums/FAQs, HEL
 - NICE recognizes home/self BP monitoring as an option in diagnosing and managing hypertension, and recommends **increased BP-check frequency for those at higher risk of pre-eclampsia**; outpatient PE/GH pathways commonly involve **once- or twice-weekly** clinician review, with home readings between visits. [NICE NG133; ACOG FAQ; systematic reviews]
 - Higher-risk groups (NICE): **age ≥40, first pregnancy, >10-year pregnancy interval, BMI ≥30, family or personal history of PE, pre-existing hypertension/renal/vascular disease, multiple pregnancy.** → drives who Femio surfaces D6 education to. [NICE NG133]
 - Evidence on home BP monitoring is **mixed/feasible but without consensus home diagnostic thresholds** — reinforcing that Femio logs and charts but **never sets a home cutoff or verdict**. [PMC systematic reviews]
-- Good-technique education (rested, seated, back supported, arm at heart level, correct cuff, repeat) improves reading quality and reduces white-coat spikes — a legitimate, in-scope *how-to*. [general BP-technique guidance — *[NEEDS SOURCE: pin AHA/British & Irish Hypertension Society home-BP technique permalink]*]
+- Good-technique education follows the American Heart Association: validated upper-arm device and correct cuff; 5 minutes' quiet rest; back supported, feet flat and legs uncrossed; bare arm supported at heart level; no talking; two readings one minute apart. A clinician confirms the device and technique. ([AHA home monitoring](https://www.heart.org/en/health-topics/high-blood-pressure/understanding-blood-pressure-readings/monitoring-your-blood-pressure-at-home); [reviewed global rule](../compliance/PREGNANCY_BP_SAFETY.md))
 
 **Low-dose aspirin prophylaxis (educational context only — never a Femio instruction to take it).**
 - **USPSTF (Grade B):** low-dose **81 mg/day aspirin after 12 weeks** for those at high risk. **ACOG/SMFM:** initiate **between 12 and 28 weeks (optimally before 16), continue until delivery**, for ≥1 high-risk or ≥2 moderate-risk factors. **NICE:** **150 mg at night from 12 weeks** (to ~36 weeks) for high risk. [USPSTF; ACOG/SMFM Practice Advisory 2021; NICE NG133] → App framing: *"Some people at higher risk are advised by their clinician to take low-dose aspirin. Whether it's right for you, the dose, and timing are decisions only your clinician makes."*
@@ -135,7 +135,7 @@ Mined from r/preeclampsia, r/BabyBumps, Preeclampsia Foundation forums/FAQs, HEL
 
 **Emotional dimension (design-relevant, cited).** High-PE-risk pregnancy is associated with elevated **anxiety and depression** and a real **self-management/monitoring burden**; heightened anxiety is itself sometimes noted among PE presentations. Tone must be **calming and validating**, never alarmist. [Frontiers in Psychology 2025; Clinical Advisor]
 
-*[NEEDS SOURCE]* flags to resolve before content freeze: exact **ACOG Gestational Hypertension & Preeclampsia Practice Bulletin (222)** permalink; **Preeclampsia Foundation** signs-&-symptoms permalink; **AHA/BIHS** home-BP technique permalink; region-localized emergency numbers and MENA-specific PE guidance.
+**Pinned guidance.** Accessible ACOG patient guidance, NICE NG133, CDC warning signs, AHA measurement technique, USPSTF aspirin guidance, and global emergency routing are consolidated in [`PREGNANCY_BP_SAFETY.md`](../compliance/PREGNANCY_BP_SAFETY.md). The product does not depend on a paywalled bulletin quote or hard-code a country number. *(Reviewed Mohamed K., 23 July 2026; next review 23 July 2027.)*
 
 ---
 
@@ -286,7 +286,7 @@ Medically reviewed, referenced, grade 6–8, all four locales, RTL-first for AR.
 
 ## K. Compliance flags
 
-1. **No diagnosis / triage / interpretation (highest-priority guardrail).** Femio **never** classifies a BP reading or symptom, never says "normal/high/dangerous," never says "you have / likely have pre-eclampsia," never says "go to hospital / stay home." Thresholds (140/90, 160/110) appear only as **fixed educational reference**; the red-flag layer **routes her to care** without deciding *for* her. This keeps Femio out of the **medical-device + diagnosis** lane that clinician-connected tools (e.g., HaMpton) legitimately occupy. **[NEEDS SOURCE — confirm current medical-device software / app-store medical-claims wording at ship.]**
+1. **No diagnosis or individualized interpretation (highest-priority guardrail).** Femio never labels a reading or says the user has pre-eclampsia. The 140/90 and 160/110 lines appear only as cited guideline references; urgent symptoms or a severe-range reading trigger reviewed care-routing copy, not a diagnostic conclusion. ([ACOG FAQ, reviewed April 2025](https://www.acog.org/womens-health/faqs/preeclampsia-and-high-blood-pressure-during-pregnancy); [NICE NG133](https://www.nice.org.uk/guidance/ng133/chapter/Recommendations))
 2. **No prescribing / no dosing.** Medication and aspirin content is **general and cited**; all dosing, choice, starting, stopping, and changes defer to the clinician. **No** dosing calculator. Aspirin content is context ("some higher-risk people are advised…"), never an instruction to take it.
 3. **Emergency-territory framing.** PE red-flag symptoms (severe headache, vision changes, upper-abdominal pain, sudden swelling, reduced movement, ≥160/110, seizure) get **prominent, calm "seek care now"** framing with the user's maternity/emergency contact — **never** false reassurance ("that's normal"), **never** alarmist doom, **never** a diagnosis.
 4. **Screeners = "screening, discuss with clinician."** PLGF, urine protein, risk-factor checklists, EPDS — all framed as screening/context, never verdicts.
@@ -295,7 +295,7 @@ Medically reviewed, referenced, grade 6–8, all four locales, RTL-first for AR.
 7. **Reminder suppression on loss / early exit.** BP/med/appointment/milestone reminders must **instantly stop** on logged loss or withdrawal (fixing the competitor failure of stale reminders after a loss).
 8. **Postpartum continuity is a safety feature.** Because PE can onset/persist postpartum, BP logging + red-flag layer **must persist into E4**; dropping them at birth would be a safety gap.
 9. **Medical review + citations.** All clinical content medically reviewed, cited to Tier-1 (NIH/CDC/NHS/MedlinePlus) + Tier-2 (ACOG/RCOG/NICE/Preeclampsia Foundation), grade 6–8, localized in 4 languages with **human-reviewed** RTL parity (clinical stakes forbid machine-only translation of safety copy).
-10. **Open items:** resolve **[NEEDS SOURCE]** — ACOG Practice Bulletin 222 permalink; Preeclampsia Foundation signs-&-symptoms permalink; AHA/BIHS home-BP-technique permalink; **localize emergency numbers and MENA-specific PE guidance** before content freeze.
+10. **Medical-source resolution:** canonical accessible guidance and global emergency routing are pinned in [`PREGNANCY_BP_SAFETY.md`](../compliance/PREGNANCY_BP_SAFETY.md). Locale-specific care destinations are selected at runtime where maintained; the global fallback remains available. Reviewer Mohamed K., 23 July 2026; next review 23 July 2027.
 
 ---
 
@@ -313,6 +313,8 @@ Medically reviewed, referenced, grade 6–8, all four locales, RTL-first for AR.
 - [ACOG — Preeclampsia and High Blood Pressure During Pregnancy (FAQ)](https://www.acog.org/womens-health/faqs/preeclampsia-and-high-blood-pressure-during-pregnancy)
 - [ACOG / SMFM — Low-Dose Aspirin Use for the Prevention of Preeclampsia (Practice Advisory, 2021)](https://www.acog.org/clinical/clinical-guidance/practice-advisory/articles/2021/12/low-dose-aspirin-use-for-the-prevention-of-preeclampsia-and-related-morbidity-and-mortality) · [ACOG — Low-Dose Aspirin Use During Pregnancy (Committee Opinion)](https://www.acog.org/clinical/clinical-guidance/committee-opinion/articles/2018/07/low-dose-aspirin-use-during-pregnancy)
 - [NICE NG133 — Hypertension in pregnancy: diagnosis and management (Overview)](https://www.nice.org.uk/guidance/ng133) · [NICE DG49 — PLGF-based testing to help diagnose suspected pre-eclampsia](https://www.nice.org.uk/guidance/dg49/chapter/2-The-diagnostic-tests)
+- [USPSTF — Aspirin Use to Prevent Preeclampsia (Final Recommendation, 28 September 2021)](https://www.uspreventiveservicestaskforce.org/uspstf/document/RecommendationStatementFinal/low-dose-aspirin-use-for-the-prevention-of-morbidity-and-mortality-from-preeclampsia-preventive-medication)
+- [American Heart Association — Home Blood Pressure Monitoring](https://www.heart.org/en/health-topics/high-blood-pressure/understanding-blood-pressure-readings/monitoring-your-blood-pressure-at-home)
 - [Preeclampsia Foundation — Signs and Symptoms](https://www.preeclampsia.org/signs-and-symptoms) · [Preeclampsia Foundation — FAQs](https://www.preeclampsia.org/faqs) · [Preeclampsia Foundation — Postpartum Preeclampsia](https://www.preeclampsia.org/postpartum-preeclampsia)
 - [The ObG Project — Diagnosing Preeclampsia: Key Definitions & ACOG Guidelines](https://www.obgproject.com/2017/01/08/diagnosing-preeclampsia-key-definitions/)
 
@@ -326,4 +328,4 @@ Medically reviewed, referenced, grade 6–8, all four locales, RTL-first for AR.
 
 *Community insight (r/preeclampsia, r/BabyBumps, Preeclampsia Foundation forums/FAQs, HELLP-survivor communities, pregnancy/BP-app reviews) synthesized as aggregate voice-of-user; representative phrasing, not individual quotes.*
 
-*[NEEDS SOURCE]* to resolve before content freeze: **ACOG Practice Bulletin 222 (Gestational Hypertension & Preeclampsia)** exact permalink; **AHA / British & Irish Hypertension Society** home-BP-measurement-technique permalink; **USPSTF** aspirin-for-preeclampsia recommendation primary permalink; region-localized emergency numbers + MENA-specific PE/eclampsia guidance for the AR-first build.
+*Medical-source review completed 23 July 2026 by Mohamed K. Canonical links and the global emergency-routing rule are maintained in [`PREGNANCY_BP_SAFETY.md`](../compliance/PREGNANCY_BP_SAFETY.md); next review 23 July 2027.*

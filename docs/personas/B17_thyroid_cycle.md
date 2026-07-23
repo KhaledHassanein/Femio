@@ -118,7 +118,7 @@ The decisive finding (identical to C8's, minus the fertility layer): **no mainst
 - TPO/TG antibodies define Hashimoto's and can be present in Graves'; antibody status is something a clinician interprets. Antibody-and-pregnancy risk material is **downstream** (C8/D7) and is *not* pushed to a non-TTC, non-pregnant user — it stays reachable, never foregrounded. [NIDDK; ATA]
 
 **Medication mechanics (adherence education, not prescription):**
-- Levothyroxine is typically taken on an **empty stomach**, separated from food and from **iron, calcium, and coffee** that impair absorption. Femio can *remind and educate* on timing/spacing; it never sets or changes the dose. [ATA patient materials; NHS] *[NEEDS SOURCE — cite exact spacing intervals from a Tier-1 patient source at publish.]*
+- **Levothyroxine administration education:** follow the prescription label. Current MedlinePlus drug guidance describes taking levothyroxine on an empty stomach **30–60 minutes before breakfast** and separating **calcium carbonate or ferrous sulfate by at least 4 hours before or after** levothyroxine; NHS guidance likewise advises 30–60 minutes before the first meal or a caffeinated drink. Femio may mirror a user-entered regimen and remind; it never sets or changes the dose. ([MedlinePlus Drug Information](https://medlineplus.gov/druginfo/meds/a682461.html); [NHS, reviewed 6 July 2026](https://www.nhs.uk/medicines/levothyroxine/); reviewed Mohamed K., 23 July 2026.)
 
 **Guideline-version integrity.** TSH reference bands, monitoring intervals, and symptom associations vary by guideline edition, lab, and region; cite live primary text at publish. *[NEEDS SOURCE VERIFICATION AT PUBLISH — reconcile current AACE/ATA + ETA numbers.]*
 

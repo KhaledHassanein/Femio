@@ -128,7 +128,7 @@ Mined from r/hypertension, r/BabyBumps, r/pregnant, chronic-HTN + pregnancy thre
 
 **Home BP monitoring (guidance context — supports self-tracking, not self-diagnosis).**
 - NICE recognizes home/self BP monitoring as an option in diagnosing and managing hypertension, with **increased BP-check frequency** for those at higher risk of pre-eclampsia; chronic-HTN pregnancies are typically seen by an obstetrician (± obstetric-medicine/MFM specialist) with home readings between visits. Evidence on home BP in pregnancy is **feasible but without consensus home diagnostic thresholds** — reinforcing that Femio logs and charts but **never sets a home cutoff or verdict**. [NICE NG133; PMC systematic reviews]
-- Good-technique education (rested, seated, back supported, arm at heart level, correct cuff, repeat; beware "selfie/camera BP" apps that are unvalidated) improves reading quality — a legitimate, in-scope *how-to*. [general BP-technique guidance — *[NEEDS SOURCE: pin AHA / British & Irish Hypertension Society home-BP technique permalink]*]
+- Good-technique education follows the American Heart Association: validated upper-arm device and correct cuff; 5 minutes' quiet rest; back supported, feet flat and legs uncrossed; bare arm supported at heart level; no talking; two readings one minute apart. A clinician confirms the device and technique. ([AHA home monitoring](https://www.heart.org/en/health-topics/high-blood-pressure/understanding-blood-pressure-readings/monitoring-your-blood-pressure-at-home); [reviewed global rule](../compliance/PREGNANCY_BP_SAFETY.md))
 
 **Fetal growth surveillance (educational).** Because chronic HTN raises the risk of **fetal growth restriction**, **third-trimester (and often serial) ultrasound growth scans** are commonly recommended, sometimes with Doppler and increased antenatal fetal surveillance. Frame supportively as "extra check-ups your team arranges," never as prediction. [ACOG PB 203; AJOG; NICE NG133]
 
@@ -140,7 +140,7 @@ Mined from r/hypertension, r/BabyBumps, r/pregnant, chronic-HTN + pregnancy thre
 
 **Emotional dimension (design-relevant, cited).** Anxiety and depression are elevated in hypertensive disorders of pregnancy, with a documented bidirectional link between anxiety and BP; there is a real chronic self-management/monitoring burden. Tone must be **calming and validating**, never alarmist (and never frighten her *off* a prescribed medicine). [Anxiety & hypertensive disorders of pregnancy review, PMC 2024/25; Frontiers 2025]
 
-*[NEEDS SOURCE]* flags to resolve before content freeze: exact **ACOG Practice Bulletin 203 (Chronic Hypertension in Pregnancy)** permalink; **ACOG CHAP Practice Advisory (2022)** permalink; **USPSTF** aspirin recommendation primary permalink; **AHA/BIHS** home-BP technique permalink; region-localized emergency numbers and MENA-specific HTN-in-pregnancy guidance.
+**Pinned guidance.** ACOG Practice Bulletin 203, the CHAP Practice Advisory, NICE NG133, the USPSTF aspirin recommendation, AHA measurement technique, CDC warning signs, and the global emergency fallback are consolidated in [`PREGNANCY_BP_SAFETY.md`](../compliance/PREGNANCY_BP_SAFETY.md). No one country's emergency number or aspirin dose is hard-coded into global user copy. *(Reviewed Mohamed K., 23 July 2026; next review 23 July 2027.)*
 
 ---
 
@@ -296,7 +296,7 @@ Medically reviewed, referenced, grade 6–8, all four locales, RTL-first for AR.
 
 ## K. Compliance flags
 
-1. **No diagnosis / triage / interpretation (highest-priority guardrail).** Femio **never** classifies a BP reading or symptom, never says "normal/high/dangerous," never says "you have / likely have (superimposed) pre-eclampsia," never says "go to hospital / stay home." Targets/thresholds (140/90, 135/85, 160/110) appear only as **fixed educational reference**; the shared red-flag layer **routes her to care** without deciding *for* her. Keeps Femio out of the **medical-device + diagnosis** lane. **[NEEDS SOURCE — confirm current medical-device software / app-store medical-claims wording at ship.]**
+1. **No diagnosis or individualized interpretation (highest-priority guardrail).** Femio never labels a BP reading or says a user has pre-eclampsia. The 140/90 treatment threshold, 135/85 NICE target, and 160/110 severe-hypertension line appear only as fixed cited references. Urgent symptoms or severe-range readings trigger the reviewed care-routing message, not a diagnostic conclusion. ([ACOG CHAP advisory](https://www.acog.org/clinical/clinical-guidance/practice-advisory/articles/2022/04/clinical-guidance-for-the-integration-of-the-findings-of-the-chronic-hypertension-and-pregnancy-chap-study); [NICE NG133](https://www.nice.org.uk/guidance/ng133/chapter/Recommendations))
 2. **No prescribing / no dosing / no start-stop-switch (D5-critical, second guardrail).** Medication and aspirin content is **general class education**, cited; all dosing, choice, starting, stopping, and switching defer to the clinician. **No** dosing calculator. Contraindicated-drug content (ACEi/ARB) is framed as *"usually reviewed in pregnancy — never stop on your own; your clinician decides,"* **never** "stop taking X." Never frighten her off a prescribed medicine.
 3. **Emergency-territory framing (shared with D6).** Superimposed-pre-eclampsia red-flag symptoms (severe headache, vision changes, upper-abdominal pain, sudden swelling, reduced movement, ≥160/110, seizure) get **prominent, calm "seek care now"** framing with the user's contacts — **never** false reassurance, **never** alarmist doom, **never** a diagnosis. Framing must stay **identical in spirit to D6**.
 4. **Screeners = "screening, discuss with clinician."** PLGF, urine protein, growth scans, risk-factor checklists, EPDS — all framed as screening/context, never verdicts.
@@ -305,7 +305,7 @@ Medically reviewed, referenced, grade 6–8, all four locales, RTL-first for AR.
 7. **Reminder suppression on loss / early exit.** BP/med/appointment/growth-scan reminders must **instantly stop** on logged loss or withdrawal.
 8. **Postpartum continuity is a safety feature.** Chronic HTN persists and PE can onset/persist postpartum; BP + medication logging + red-flag layer **must persist into E4**, including breastfeeding-medicine education. Dropping them at birth would be a safety gap.
 9. **Medical review + citations.** All clinical content medically reviewed, cited to Tier-1 (NIH/CDC/NHS/MedlinePlus) + Tier-2 (ACOG/RCOG/NICE), grade 6–8, localized in 4 languages with **human-reviewed** RTL parity (clinical stakes forbid machine-only translation of safety/medication copy).
-10. **Open items:** resolve **[NEEDS SOURCE]** — ACOG Practice Bulletin 203 permalink; ACOG CHAP Practice Advisory (2022) permalink; USPSTF aspirin permalink; AHA/BIHS home-BP-technique permalink; **localize emergency numbers and MENA-specific HTN-in-pregnancy guidance** before content freeze.
+10. **Medical-source resolution:** canonical guidance and global emergency routing are pinned in [`PREGNANCY_BP_SAFETY.md`](../compliance/PREGNANCY_BP_SAFETY.md). Locale-specific care destinations are selected at runtime where maintained; the global fallback remains available. Reviewer Mohamed K., 23 July 2026; next review 23 July 2027.
 
 ---
 
@@ -321,6 +321,7 @@ Medically reviewed, referenced, grade 6–8, all four locales, RTL-first for AR.
 - [PMC — Home blood pressure monitoring in pregnancy: systematic review & meta-analysis](https://pmc.ncbi.nlm.nih.gov/articles/PMC8248564/)
 
 **Tier-2 (ACOG / RCOG / NICE):**
+- [ACOG — Chronic Hypertension in Pregnancy, Practice Bulletin 203 (January 2019; reaffirmed 2024)](https://www.acog.org/clinical/clinical-guidance/practice-bulletin/articles/2019/01/chronic-hypertension-in-pregnancy)
 - [ACOG — Clinical Guidance for the Integration of the Findings of the CHAP Study (Practice Advisory, 2022)](https://www.acog.org/clinical/clinical-guidance/practice-advisory/articles/2022/04/clinical-guidance-for-the-integration-of-the-findings-of-the-chronic-hypertension-and-pregnancy-chap-study)
 - [AAFP — Managing Chronic Hypertension in Pregnant Women: ACOG Updated Practice Bulletin (203)](https://www.aafp.org/pubs/afp/issues/2019/1215/p782.html)
 - [SMFM Statement — Antihypertensive therapy for mild chronic hypertension in pregnancy (CHAP), AJOG](https://www.ajog.org/article/S0002-9378(22)00283-6/fulltext)
@@ -328,6 +329,8 @@ Medically reviewed, referenced, grade 6–8, all four locales, RTL-first for AR.
 - [Frontiers in Cardiovascular Medicine (2025) — A prediction model of superimposed preeclampsia in women with chronic hypertension](https://www.frontiersin.org/journals/cardiovascular-medicine/articles/10.3389/fcvm.2025.1641662/full)
 - [ACOG / SMFM — Low-Dose Aspirin Use for the Prevention of Preeclampsia (Practice Advisory, 2021)](https://www.acog.org/clinical/clinical-guidance/practice-advisory/articles/2021/12/low-dose-aspirin-use-for-the-prevention-of-preeclampsia-and-related-morbidity-and-mortality)
 - [NICE NG133 — Hypertension in pregnancy: diagnosis and management (Overview)](https://www.nice.org.uk/guidance/ng133) · [NICE NG133 — Recommendations](https://www.nice.org.uk/guidance/ng133/chapter/recommendations)
+- [USPSTF — Aspirin Use to Prevent Preeclampsia (Final Recommendation, 28 September 2021)](https://www.uspreventiveservicestaskforce.org/uspstf/document/RecommendationStatementFinal/low-dose-aspirin-use-for-the-prevention-of-morbidity-and-mortality-from-preeclampsia-preventive-medication)
+- [American Heart Association — Home Blood Pressure Monitoring](https://www.heart.org/en/health-topics/high-blood-pressure/understanding-blood-pressure-readings/monitoring-your-blood-pressure-at-home)
 - [GPnotebook — Antihypertensives during pregnancy (safe vs contraindicated classes)](https://gpnotebook.com/pages/obstetrics/pregnancy-antihypertensives-during)
 
 **Competitor / market (BP-app & privacy landscape):**
@@ -340,4 +343,4 @@ Medically reviewed, referenced, grade 6–8, all four locales, RTL-first for AR.
 
 *Community insight (r/hypertension, r/BabyBumps, r/pregnant, chronic-HTN + pregnancy threads, ACOG/AAFP patient FAQs, pregnancy/BP-app reviews) synthesized as aggregate voice-of-user; representative phrasing, not individual quotes.*
 
-*[NEEDS SOURCE]* to resolve before content freeze: **ACOG Practice Bulletin 203 (Chronic Hypertension in Pregnancy)** exact permalink; **ACOG CHAP Practice Advisory (2022)** direct permalink; **USPSTF** aspirin-for-preeclampsia recommendation primary permalink; **AHA / British & Irish Hypertension Society** home-BP-measurement-technique permalink; region-localized emergency numbers + MENA-specific chronic-HTN-in-pregnancy guidance for the AR-first build.
+*Medical-source review completed 23 July 2026 by Mohamed K. Canonical links and the global emergency-routing rule are maintained in [`PREGNANCY_BP_SAFETY.md`](../compliance/PREGNANCY_BP_SAFETY.md); next review 23 July 2027.*

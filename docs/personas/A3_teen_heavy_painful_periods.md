@@ -88,8 +88,8 @@ Tier-1 (NIH/NHS/MedlinePlus/KidsHealth/CDC) + Tier-2 (ACOG/AAP/children's-hospit
 - HMB is commonly defined as bleeding lasting **>7 days** or **>80 mL blood loss per cycle** (CHOP; NICE-aligned UK sources). Since mL can't be self-measured, the practical proxies are:
   - **Soaking through a pad/tampon every 1–2 hours or more often** (ACOG; CHLA; UT Southwestern).
   - **Needing to double up** protection or **change overnight**.
-  - **Flooding / bleeding through clothes**; **clots about the size of a quarter/grape (~2.5 cm) or larger** (ACOG; UT Southwestern). `[NEEDS SOURCE — confirm exact clot-size wording per ACOG vs NHS before publishing copy]`
-- **PBAC (Pictorial Blood Loss Assessment Chart):** validated pictorial scoring of pads/tampons (light 1 / medium 5 / heavy 10 points, + clots and flooding); a score **>100 ≈ >80 mL/cycle**, with self-assessed sensitivity ~86% and specificity ~89% for HMB. This is the evidence base for Femio's bleeding tracker design — Femio computes a *pattern indicator for discussion*, never a diagnosis.
+  - **Flooding / bleeding through clothes**; **clots around 2.5 cm or larger** as one reason to discuss bleeding with a clinician. This is not a diagnostic threshold. ([NHS — Heavy periods](https://www.nhs.uk/conditions/heavy-periods/); [CDC — Heavy Menstrual Bleeding, 15 May 2024](https://www.cdc.gov/female-blood-disorders/about/heavy-menstrual-bleeding.html); reviewed Mohamed K., 23 July 2026.)
+- **Bleeding description record:** record product changes, soak level, flooding, clots, overnight changes, duration, and life impact for clinician discussion. Femio does not display a PBAC diagnostic cutoff or convert the record into a verdict. A specific published PBAC may be reproduced only after its version and permission are confirmed. ([NICE NG88](https://www.nice.org.uk/guidance/ng88/chapter/Recommendations); reviewed Mohamed K., 23 July 2026.)
 - HMB is common: reported by roughly **20–40% of adolescent females** depending on population and definition (Brazilian multicenter study ~20.5%; reviews up to ~40%) — common ≠ normal-to-ignore.
 
 **Bleeding disorders (screening awareness only — the core "since menarche" signal)**
@@ -111,7 +111,7 @@ Tier-1 (NIH/NHS/MedlinePlus/KidsHealth/CDC) + Tier-2 (ACOG/AAP/children's-hospit
 **Iron deficiency & anemia (awareness + describable signs)**
 - Every ~1 mL of blood lost costs ~0.4–0.5 mg iron; adolescents with HMB are at high risk: iron deficiency is near-universal in teens presenting to emergency care with HMB, and in general adolescent populations iron deficiency affects on the order of **up to ~40% of adolescent females** (US/Swedish data), with IDA in ~7%.
 - Describable signs to log + mention to a clinician: fatigue, paleness, dizziness/light-headedness, headaches, poor concentration, shortness of breath on exertion (CHLA; KidsHealth-level framing). Confirmed only by a **blood test a clinician orders** — Femio never infers anemia from logs.
-- Emerging clinical discussion supports ferritin/Hb screening for menstruating adolescents `[NEEDS SOURCE — cite the specific guideline if/when one is issued; currently review-level]`.
+- ACOG recommends that evaluation of adolescents who present with heavy menstrual bleeding include assessment for anemia from blood loss, including **serum ferritin**. Femio may explain this as something a clinician may assess; it does not order or interpret the test. [ACOG Committee Opinion 785, September 2019]
 
 **Dismissal is measurable (grounds the validation tone)**
 - UK research: heavy/prolonged bleeding → **48% higher odds of persistent school absence** and measurable exam-result harm; ~9 in 10 women can't name the signs of heavy bleeding; half report having period symptoms dismissed. Intergenerational normalization ("runs in the family — it's fine") is documented — and ironically, familial heavy bleeding can be a bleeding-disorder clue (ACOG 785).
@@ -255,7 +255,7 @@ All of A2 §K inherited (scope, not-contraception, uncertainty-honest prediction
 - **Parent-share integrity:** every share is teen-initiated, previewed, scoped, revocable; the parent explainer contains education, not her raw diary unless she includes it. No covert parent visibility even when a trusted-adult link exists.
 - **Doctor-summary honesty:** the export must state it is self-reported tracking data from a wellness app, not a medical record or diagnosis.
 - **Acute-symptom messaging:** the "seek care now" education box follows the universal handler — content only, no triage claims, localized emergency framing per market.
-- **`[NEEDS SOURCE]` register:** exact clot-size threshold wording (ACOG vs NHS "quarter/2.5 cm/grape" variants); formal guideline citation for adolescent ferritin/Hb screening if adopted; NHS page URL for HMB definition to pair with CHOP for UK-market copy; per-locale school-rights content sourcing; medical-review sign-off on all §D numbers before content freeze (add to master reviewer checklist, model §11).
+- **Reviewed source set:** clot-size and practical signs use NHS/CDC wording; ACOG Committee Opinion 785 supports anemia assessment including serum ferritin in adolescents presenting with HMB; HMB definition and product design use NICE NG88. Global copy makes no school-rights claim. See [`docs/compliance/MENSTRUAL_SAFETY_THRESHOLDS.md`](../compliance/MENSTRUAL_SAFETY_THRESHOLDS.md). *(Reviewed Mohamed K., 23 July 2026; next review 23 July 2027.)*
 
 ---
 

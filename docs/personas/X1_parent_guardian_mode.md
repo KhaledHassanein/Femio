@@ -137,7 +137,7 @@ All framed *"worth discussing with a clinician — usually reassuring,"* never a
 16. Multi-child support (one X1 mode per linked child, scopes independent).
 17. Second-guardian support (e.g., father or grandmother; each link separately consented by the teen-side flow, each scope independent, teen sees the full list).
 18. Printable/exportable conversation cards for offline talks.
-19. Localized directory-style education on school policies / period products availability per market. `[NEEDS SOURCE per launch market]`
+19. Global copy does not claim that a school must provide products or follow a particular policy. It prompts the user to check the current policy with the school or local education authority; verified country modules may add sourced information later. *(Scope rephrased for global release; reviewed Mohamed K., 23 July 2026.)*
 
 ---
 
@@ -253,7 +253,7 @@ X1 is the only Femio surface **designed for planned obsolescence** — success =
 - **Not a parental-control product:** marketing and store listings must never use "monitor," "track your teen," "keep an eye on"; category positioning is parent *education* + consent-based sharing. (Also keeps Femio clear of parental-control app-store policy regimes.)
 - **Not contraception / not fertility:** no fertile-window or pregnancy framing anywhere near the daughter context; shared cycle cards show period/expected-window education only (A2 §K inherited).
 - **Predictions uncertainty-honest on shared cards too:** any shared window renders as a range + "teen cycles vary — this is normal," so the parent never treats a date as a fact or a "late" signal.
-- **Cultural sensitivity (Arabic-first/RTL):** de-shaming must target the taboo, never the family or faith; religious-practice content is educational information, not rulings; conversation scripts localized (not translated) for MENA registers. Crisis/clinician-directory localization: `[NEEDS SOURCE per locale — inherited from Master Model §11]`.
+- **Cultural sensitivity (Arabic-first/RTL):** de-shaming must target the taboo, never the family or faith; religious-practice content is educational information, not rulings; conversation scripts require human linguistic review rather than literal translation. Crisis routing uses explicit country selection—not language inference—under [`docs/compliance/CRISIS_RESOURCES.md`](../compliance/CRISIS_RESOURCES.md). Clinician access is described generically unless a country module is separately verified. *(Reviewed Mohamed K., 23 July 2026.)*
 - **Referenced content:** every clinical/communication claim in §D/§F medically reviewed + cited; `[NEEDS SOURCE]` items resolved before publish.
 - **`[NEEDS SOURCE]` register:** MagicGirl parent-visibility mechanics (§C); per-market verifiable-consent methods (§K); COPPA parental-review-right reconciliation (§K); age-of-consent numbers + lapse grace period per jurisdiction (§J); mandatory-reporting posture per market (§J); delivered-card purge enforceability (§H); per-market school/period-product info (§E.19).
 

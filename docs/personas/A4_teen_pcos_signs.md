@@ -4,7 +4,7 @@ Persona ID: **A4** · Track A (Puberty / Adolescent) · Mode: **Teen mode** (no 
 Prepared: 2026-07-21 · Status: research + spec · Wave 3
 Inherits Femio scope guardrail: **wellness / education / tracking only. Never diagnose, treat, prevent disease, or act as contraception. Screeners = "screening — discuss with a clinician."**
 
-> **CRITICAL CLINICAL CAUTION (governs everything below):** PCOS must **not** be diagnosed within ~2–3 years of menarche — irregular cycles are developmentally normal in that window, and ultrasound/AMH are unreliable in adolescence (2023 international guideline: no pelvic ultrasound for PCOS diagnosis until **8 years post-menarche**). Femio's role for A4 is **screening-awareness + clinician routing with a trusted adult — never a label.** The word "PCOS" appears in her experience only as *education about a condition clinicians check for*, never as "you have / probably have."
+> **CRITICAL CLINICAL CAUTION (governs everything below):** Irregular cycles are normal in the first year after menarche. The 2023 international guideline allows an adolescent diagnosis only when **both** time-defined irregular cycles and clinical/biochemical hyperandrogenism are present after mimicking conditions are excluded; pelvic ultrasound and AMH must not be used to diagnose PCOS in adolescence. Femio’s role is **screening awareness and clinician routing—never a label.**
 
 ---
 
@@ -46,7 +46,7 @@ Mined from teen threads on r/PCOS ("am I too young?" posts), r/Periods, teen hea
 **"What do I actually do?" (agency)**
 - "What do I even say to a doctor? Last time they said 'it's just puberty.'" → *Visit-prep: her tracked pattern as a printable one-pager + question list — the evidence that gets a teen taken seriously (adapted from B6's visit-prep, teen edition).*
 - "How do I tell my mum without it being a whole thing?" → *Conversation-starter scripts + optional trusted-adult sharing of exactly and only what she chooses (§E, §G).*
-- "Which doctor is it even? A gynecologist?? I'm 15." → *Education: usually starts with a GP/pediatrician; what an appointment actually involves at her age (talking + maybe blood tests — not scary exams by default).* `[NEEDS SOURCE — verify per-market norms for adolescent first-line consult, esp. MENA, before publishing]`
+- "Which doctor is it even? A gynecologist?? I'm 15." → *Education: start with a qualified local primary-care, adolescent-health, pediatric, or gynecology clinician, depending on the health system. The clinician chooses whether an examination or tests are needed; Femio does not promise a universal visit sequence.*
 - "Can I fix this myself with supplements TikTok showed me?" → *Myth-busting: no teen should self-treat off social media; what "lifestyle helps" actually means (sleep, movement, eating patterns — framed as health, never thinness); anything more is a clinician topic.*
 
 **"Don't tell anyone." (privacy)**
@@ -86,7 +86,7 @@ Tier-1 and Tier-2 sources; URLs in **Sources**. Everything below is surfaced in-
 
 **Why a teen must not be labeled (the load-bearing facts)**
 - Irregular cycles are **developmentally normal for ~1–3 years post-menarche** (many cycles anovulatory) — inherited grounding from A2 (ACOG vital-sign opinion; KidsHealth; Johns Hopkins).
-- **PCOS is generally not diagnosable within ~2–3 years of menarche**; symptoms overlap normal puberty (KidsHealth; PMC adolescent-PCOS reviews; NYU Langone).
+- **Do not diagnose from irregularity alone.** Irregular cycles are normal in the first post-menarcheal year, and adolescent diagnosis requires both guideline-defined irregular cycles and hyperandrogenism after excluding mimics. [2023 International Evidence-based PCOS Guideline]
 - **2023 International Evidence-based PCOS Guideline — adolescent-specific criteria:** diagnosis in adolescents requires **both** (1) irregular menstrual cycles *defined by time post-menarche* and (2) clinical or biochemical **hyperandrogenism**, after excluding mimics. **Pelvic ultrasound and AMH must NOT be used for diagnosis in adolescents** — polycystic ovarian morphology is unreliable until ~**8 years post-menarche** (Human Reproduction / JCEM 2023; BMC Medicine 2025 adolescent recommendations; ASRM summary).
 - **The "at risk" designation (Femio's A4 backbone):** an adolescent with only **one** feature (irregular cycles *or* hyperandrogenism) — or with features inside the ambiguous window — can be considered "**at risk of PCOS**": manage the symptoms, follow up over time, and **reassess at or before ~8 years post-menarche** when diagnostic clarity improves. This is an internationally sanctioned "watch and support, don't label" pathway (2023 Guideline; BMC Medicine 2025).
 
@@ -96,7 +96,7 @@ Tier-1 and Tier-2 sources; URLs in **Sources**. Everything below is surfaced in-
 - >3 years post-menarche: adult criteria begin to apply (**<21 or >35 days**, or **<8 cycles/year**).
 - Any stage: **>90 days for any single cycle** (after year one) is a "raise with a clinician" flag (shared with A2/A5).
 - Primary amenorrhea by 15 / >3 years post-thelarche routes to A5 pathway.
-`[NEEDS SOURCE — confirm exact per-year band wording against the 2023 guideline full text before user-facing copy; bands above compiled from guideline summaries]`
+These bands reproduce recommendation 1.1.1 of the 2023 International Evidence-based PCOS Guideline. Femio uses them only to support a clinician conversation, never to diagnose. *(Reviewed Mohamed K., 23 July 2026; next review 23 July 2027.)*
 
 **Hyperandrogenic signs (education, described neutrally)**
 - **Hirsutism** (coarse dark hair in a male-type pattern: face, chest, abdomen, back), **moderate–severe or persistent acne** (especially jawline/trunk), and in some, **acanthosis nigricans** (dark velvety skin at neck/armpits — an insulin-resistance sign) (Office on Women's Health; KidsHealth; Nemours; PMC adolescent reviews).
@@ -248,10 +248,10 @@ All transitions: offered, confirmed, reversible, never phrased as diagnosis (inv
 - **Minor privacy (inherited, full A2 stack):** teen mode default — no ads, minimal data, no community DMs, trusted-adult **opt-in + transparent + scoped**, GDPR age-of-consent handling, shared-device safety, neutral notifications. Additionally for A4: the strings "PCOS"/hirsutism/body-sign words never appear in notifications, share-sheets, or page titles visible in browser history where avoidable.
 - **Body image & eating-disorder safety:** weight optional and never prompted; no weight-loss messaging, calorie framing, or before/after imagery; restriction-pattern signals route to support, never to diet content; copy weight-stigma-reviewed (2023 guideline).
 - **Not contraception / no fertility framing:** no fertile-window, "safe day," or fertility-risk messaging in the A4 experience; infertility myths addressed only reactively in myth-busting content, reassurance-framed.
-- **Mental health:** mood screeners screening-framed; localized crisis resources on any high screen; adolescent-appropriate instruments only. `[NEEDS SOURCE — confirm which validated adolescent mood-screening instrument is licensable/appropriate per market before build]`
+- **Mental health:** until an exact validated adolescent instrument, production-language version, clinical follow-up pathway, and self-harm response are approved, use non-instrument wellbeing check-ins plus clinician/support routing. Any later PHQ-9 adolescent workflow must follow [`docs/compliance/MENTAL_HEALTH_SCREENERS.md`](../compliance/MENTAL_HEALTH_SCREENERS.md); urgent routing follows the global crisis policy. *(ACOG 2017; AAP GLAD-PC reaffirmed June 2025; reviewed Mohamed K., 23 July 2026.)*
 - **Safeguarding vs. surveillance:** parent-bridge features empower *her* to involve an adult; nothing is disclosed to a parent without her explicit scoped opt-in (per-jurisdiction guardian-consent law may add requirements — legal review per launch market).
 - **Referenced content:** every clinical claim cited + medically reviewed; grade 6–8; 4 languages; Arabic hirsutism/weight content gets dedicated cultural review.
-- **`[NEEDS SOURCE]` register:** exact 2023-guideline per-year irregularity band wording (§D); per-market first-line-clinician norms for adolescents (§B); adolescent mood-screening instrument selection (above); any public claim about competitor quiz false-positive rates should cite the primary reporting before external use.
+- **Verification register:** cycle bands are pinned to the 2023 International Guideline; mental-health instruments follow [`MENTAL_HEALTH_SCREENERS.md`](../compliance/MENTAL_HEALTH_SCREENERS.md). Local provider pathways and competitor claims remain separate operational/research tasks and must not be presented as universal facts.
 
 ---
 

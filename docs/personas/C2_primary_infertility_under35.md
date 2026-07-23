@@ -97,15 +97,13 @@ Feature-by-feature, focused on **where each app fails at the diagnostic/evaluati
 - **< 35 y (C2):** evaluate after **12 months.** [ACOG; NICE; ASRM]
 - Evaluate **without delay**, regardless of duration, with a known risk factor (irregular/absent cycles, known male-factor, prior pelvic infection/surgery, endometriosis, suspected tubal or uterine disease). [ASRM Fertility Evaluation of Infertile Women, 2021; ACOG]
 
-**Causes / distribution (why *both* partners are worked up):**
-- The most common causes are **ovulatory dysfunction, male-factor, and tubal disease.** [Diagnosis and Management of Infertility review, JAMA/PubMed]
-- Roughly: **female factors ~50%** (ovulatory, tubal, uterine, peritoneal/endometriosis), **male factor ~30%**, and a **combination ~20%**; about **15% of couples are "unexplained."** [NICHD; UF Health] Ovulatory disorders account for ~25% of infertility diagnoses, and ~70% of anovulation is PCOS-related. [review, PubMed]
-- *Design implication:* male-factor is not a footnote — **semen analysis is a first-line test.**
+**Why both partners are evaluated:**
+- Causes may involve ovulation, the uterus or fallopian tubes, the male partner, more than one factor, or remain unexplained after evaluation. The evaluation therefore includes ovulatory status, female reproductive-tract structure and patency, and semen evaluation where applicable. Femio does not publish a universal cause-distribution percentage. [ASRM *Fertility Evaluation of Infertile Women* (2021)]
 
 **The standard female workup (education only — a clinician directs it):**
-The ASRM initial evaluation comprises **history & physical, assessment of ovulation, ovarian-reserve testing, tubal patency, and semen analysis for the partner.** [ASRM 2021; ACOG Infertility Workup for the Women's Health Specialist, 2019]
-- **Ovulation confirmation:** regular monthly cycles usually indicate ovulation; a **mid-luteal serum progesterone** (classically "day 21" of a 28-day cycle, i.e., ~7 days before the expected period) confirms it. [NICE NG257]
-- **Ovarian-reserve testing (AMH and/or antral follicle count):** predicts **response to ovarian stimulation** and informs assisted-conception planning — it is **NOT a good predictor of natural conception** in a woman with regular cycles, and a "low" value does **not** mean she cannot conceive naturally. This is one of the most misunderstood and emotionally loaded results, and Femio content must state the caveat explicitly. [NICE NG257; PMC — ovarian reserve does not influence natural conception]
+The ASRM evaluation includes assessment of **ovulatory status, reproductive-tract structure and patency, and semen evaluation of the male partner** where applicable. [ASRM *Fertility Evaluation of Infertile Women* (2021)]
+- **Ovulation:** in people with regular 21–35-day cycles, added testing to confirm ovulation is generally not required unless another clinical indication is present. If a clinician orders mid-luteal progesterone, the clinician sets timing relative to the expected next period; Femio does not hard-code “day 21.” [ASRM (2021)]
+- **Ovarian-reserve testing (such as AMH or antral follicle count):** is an adjunct in an infertility evaluation and helps predict **response to ovarian stimulation**. It is not a screening test for people who do not meet infertility criteria, and a poor result does not necessarily imply inability to conceive naturally. Femio never interprets an individual value. [ASRM (2021)]
 - **Tubal patency:** **hysterosalpingography (HSG)** assesses uterine cavity morphology and fallopian-tube patency; alternatives include HyCoSy/sono-HSG or laparoscopy in selected cases. [ASRM 2021; ACOG 2019]
 - **Thyroid/prolactin and other hormones** (TSH, prolactin, and day-3 FSH/estradiol/LH in some circumstances) as clinically indicated. [ACOG 2019]
 
@@ -120,7 +118,7 @@ The ASRM initial evaluation comprises **history & physical, assessment of ovulat
 
 *Femio applies these as **educational routing and organization**, always ending "discuss with your clinician" — never as a diagnosis, test order, or result interpretation.*
 
-**[NEEDS SOURCE VERIFICATION AT PUBLISH]** — exact numeric wording (cause-distribution percentages, the "day 21"/mid-luteal timing, semen-analysis reference thresholds, AMH-and-natural-conception caveat phrasing) must be re-verified against the **live primary text** per locale at publish time, with medical-review sign-off.
+Medical-review resolution: cause framing, workup scope, ovulation-test timing, and ovarian-reserve caveats follow [`FERTILITY_AWARENESS_SAFETY.md`](../compliance/FERTILITY_AWARENESS_SAFETY.md). No public lab cutoffs or individual result interpretation. *(Reviewed Mohamed K., 23 July 2026; next review 23 July 2027.)*
 
 ---
 
@@ -272,13 +270,13 @@ Medically reviewed, referenced, grade 6–8 reading level, all four locales, RTL
 
 ## K. Compliance flags
 
-1. **No diagnosis / treatment / prevention; no test ordering or interpretation (highest-priority guardrail for C2).** Femio helps a user *organize and understand* a **clinician-directed** workup. It never says "you need test X," never interprets *her* lab value, never diagnoses infertility or its cause (incl. "unexplained infertility"). The 12-mo threshold is **educational routing**. Lab/results fields are **entry-only** with category-level education, explicitly not interpretation. **[NEEDS SOURCE — confirm current app-store medical-claims + medical-device scope wording at ship.]**
+1. **No diagnosis / treatment / prevention; no test ordering or interpretation (highest-priority guardrail for C2).** Femio helps a user *organize and understand* a **clinician-directed** workup. It never says “you need test X,” interprets an individual lab value, or diagnoses infertility or its cause. The 12-month threshold is educational routing; results fields are entry-only with category-level education. This clinical scope follows [ASRM’s 2021 evaluation framework](https://www.asrm.org/practice-guidance/practice-committee-documents/fertility-evaluation-of-infertile-women-a-committee-opinion-2021/); app-store and device-classification review remains a separate pre-submission legal task.
 2. **Not contraception.** Any retained fertile-window/ovulation surface is conception-awareness only, carries *"not a method of birth control,"* and never uses "safe/infertile day" language — keeping Femio out of the regulated contraceptive-device lane.
 3. **Uncertainty honesty / no false hope or false doom.** Especially the **AMH ≠ inability to conceive naturally** message [NICE; PMC]. Predictions display confidence; no false precision; no "you can't conceive" and no "you're totally fine" absolutes.
 4. **Clinical-data privacy (elevated sensitivity).** Lab results + a partner's semen analysis are special-category health data with acute stigma risk (esp. AR/MENA). Learn from **Flo (FTC 2021)** and **Premom (FTC 2023)**: no sharing of reproductive/clinical data with ad networks or third-party analytics; data minimization; explicit, granular, revocable consent; strict retention & user-deletion for uploaded lab PDFs/photos. **[NEEDS SOURCE — FTC primary docs.]**
 5. **GDPR / PDPL — special-category health data.** Lawful basis + explicit consent; DSAR/export/delete; regional data-residency (esp. AR/MENA); DPIA before launch. **[NEEDS SOURCE — align to Femio privacy skill / DPA at implementation.]**
 6. **Partner mode consent + male-factor equality.** Partner sees only granted scope; consent logged, scope-limited, instantly revocable. Male-factor testing framed as equal and routine, never as blame.
-7. **Medical review + citations.** All clinical content medically reviewed, cited to Tier-1/Tier-2 primary sources, grade 6–8, localized in 4 languages with RTL parity. Numeric claims (cause distribution, mid-luteal timing, semen-analysis references, AMH caveat) re-verified against live primary text at publish. **[NEEDS SOURCE VERIFICATION AT PUBLISH]**
+7. **Medical review + citations.** Cause framing, workup scope, ovulation-test timing, and ovarian-reserve caveats are pinned in [`FERTILITY_AWARENESS_SAFETY.md`](../compliance/FERTILITY_AWARENESS_SAFETY.md). Translation must preserve the meaning and be locale-QA’d before publication. *(Reviewed Mohamed K., 23 July 2026; next review 23 July 2027.)*
 8. **Emotional safety.** The evaluation phase carries clinically significant distress (30–40% anxiety/depression; comparable to serious illness). Tone must avoid both doom and toxic positivity; crisis resources on any low mood screen; loss handled with grief-aware UX.
 9. **Stigma-aware localization.** AR/MENA-first framing treats infertility as a shared medical matter, not a woman's failing; maximum privacy/dignity by default.
 10. **App-store health-app policy.** Meet Apple/Google health-app & medical-disclaimer requirements; no over-claiming; legal review before store submission. **[NEEDS SOURCE — map to current store policies at submission.]**

@@ -95,28 +95,26 @@ Feature-by-feature. Key insight for Femio: **the category is fragmented** — no
 **Fertile window (the biology):**
 - The fertile window is the **~6-day interval ending on the day of ovulation** (5 days pre-ovulation + ovulation day), because sperm can survive ~5 days and the egg ~12–24 h. [ASRM *Optimizing Natural Fertility*; NHS; MedlinePlus]
 - Cervical mucus volume/character correlates with the fertile window and CM monitoring is among the most reliable self-detection methods; CM typically peaks 1–2 days before ovulation. [ASRM; NHS]
-- BBT rises ~0.5–1 °F **after** ovulation (confirms it retrospectively; does **not** predict it forward). Chart daily from cycle day 1. [MedlinePlus; StatPearls]
+- BBT tracking is mainly **retrospective**: a sustained temperature pattern may support that ovulation has already occurred, but it does **not** predict ovulation forward or guarantee it. [ASRM *Optimizing Natural Fertility* (2022)]
 - Combining methods (CM + BBT + urinary LH/OPK) improves ovulation detection accuracy. [ASRM; MedlinePlus]
 
 **Conception timing & frequency:**
 - Highest pregnancy rates: intercourse **every 1–2 days** during the fertile window; **2–3×/week** is nearly equivalent and less pressured. [ASRM; ACOG]
 - The 3–4 days **before** ovulation are the highest-yield days. [ACOG]
-- Coital position and lying supine afterward have **no proven effect**. Some **water-based lubricants impair sperm motility in vitro** (60–100% within 60 min); consider sperm-friendly alternatives. [ASRM]
+- Coital position and lying supine afterward have **no proven effect**. Some lubricants affect sperm in laboratory testing, but prospective studies have not shown lower cycle fecundability among lubricant users. If lubricant is wanted, discuss or select a product specifically labelled for use while trying to conceive; Femio does not endorse a brand. [ASRM *Optimizing Natural Fertility* (2022)]
 
 **Preconception health (optimize naturally — in scope):**
-- **Folic acid 400 mcg/day**, starting **≥1 month before conception** through the first trimester, for all who could become pregnant (reduces neural-tube-defect risk). Higher dose only on clinician advice (e.g., prior NTD-affected pregnancy → up to 4,000 mcg). [CDC; ASRM Prepregnancy Counseling]
-- Moderate/high **alcohol** (>2 drinks/day) discouraged; high **caffeine** may adversely affect fertility. Aim for a healthy weight, balanced diet, and stop smoking. [ASRM; CDC preconception]
+- **Folic acid 400 micrograms (0.4 mg) daily** from when a person begins trying to conceive through 12 weeks of pregnancy. Higher-dose regimens require an individualized clinician recommendation. [WHO, updated 9 August 2023]
+- Moderate caffeine intake—about one or two cups of coffee per day—has no apparent adverse effect on fertility or pregnancy outcomes in the ASRM review; Femio does not impose one global milligram cutoff. Avoid alcohol during pregnancy, and discuss alcohol, smoking, medicines, and other preconception risks with a clinician. [ASRM *Optimizing Natural Fertility* (2022); WHO]
 - General preconception care (chronic-condition review, medication review, vaccination, dental) belongs with a clinician. [ACOG Prepregnancy Counseling; NICHD]
 
 **WHEN to seek help (the routing rule — critical for §J):**
-- **< 35 y:** evaluate after **12 months** of regular unprotected intercourse without conception. [ACOG; NHS; ASRM]
-- **≥ 35 y (ACOG: 35+; some guidance 36+):** evaluate after **6 months**. [ACOG]
-- **≥ 40 y:** consider evaluation **without delay**. [ACOG]
-- Seek help **sooner, regardless of duration**, with known risk factors: irregular/absent cycles, known/suspected uterine-tubal-peritoneal disease, endometriosis, or a partner with known subfertility. [ASRM; ACOG]
+- **Under 35:** begin evaluation after **12 months** of regular unprotected intercourse without conception. **Age 35 or older:** begin after **6 months**. **Over 40:** more immediate evaluation may be warranted. [ASRM *Fertility Evaluation of Infertile Women* (2021)]
+- Seek help **without delay, regardless of duration**, with known risk factors such as irregular/absent cycles, known or suspected uterine-tubal-peritoneal disease or endometriosis, or known/suspected male subfertility. Local referral pathways may differ. [ASRM (2021)]
 
 *Femio applies these thresholds as **educational routing**, always ending "discuss with your clinician" — never as a diagnosis.*
 
-Flagged for medical-review sign-off before ship: exact numeric wording of BBT shift, caffeine thresholds, and lube guidance — cite the live primary text at publish time. **[NEEDS SOURCE VERIFICATION AT PUBLISH]** for any figure stated without a per-locale reviewed citation.
+Medical-review resolution: BBT, lubricant, caffeine, folic-acid, and evaluation wording follows [`FERTILITY_AWARENESS_SAFETY.md`](../compliance/FERTILITY_AWARENESS_SAFETY.md). *(Reviewed Mohamed K., 23 July 2026; next review 23 July 2027.)*
 
 ---
 
@@ -260,7 +258,7 @@ Medically reviewed, referenced, grade 6–8 reading level, all four locales, RTL
 4. **Privacy-by-design / reproductive-data sensitivity.** Learn from category history: **Flo (FTC 2021, data to Facebook/Google)** and **Premom (FTC 2023, data to analytics firms).** No sharing of cycle/fertility data with ad networks or third-party analytics. Data minimization; explicit, granular, revocable consent; local/anonymized options; strict retention & user-deletion for OPK photos.
 5. **GDPR / PDPL — special-category health data.** Lawful basis + explicit consent for processing; DSAR/export/delete; regional data-residency considerations (esp. AR/MENA markets). **[NEEDS SOURCE — align to Femio privacy skill / DPA at implementation.]**
 6. **Partner mode consent.** Partner sees only what the user grants; consent logged, scope-limited, instantly revocable; no partner access to non-shared history.
-7. **Medical review + citations.** All clinical content medically reviewed, cited to primary sources, grade 6–8, localized in 4 languages with RTL parity. Numeric claims (BBT shift, caffeine/alcohol thresholds, folic dose) re-verified against live primary text at publish. **[NEEDS SOURCE VERIFICATION AT PUBLISH]**
+7. **Medical review + citations.** Clinical content is reviewed and cited to primary sources, with the approved BBT, lubricant, caffeine, folic-acid, and fertility-evaluation wording pinned in [`FERTILITY_AWARENESS_SAFETY.md`](../compliance/FERTILITY_AWARENESS_SAFETY.md). Translation must preserve the meaning and be locale-QA’d before publication. *(Reviewed Mohamed K., 23 July 2026; next review 23 July 2027.)*
 8. **Non-alarming emotional safety.** TTC/TWW is emotionally loaded (ASRM: stress comparable to serious diagnoses). Tone must avoid both doom-framing and toxic positivity; loss handled with grief-aware UX.
 9. **App-store health-app policy.** Meet Apple/Google health-app & medical-disclaimer requirements; no over-claiming. **[NEEDS SOURCE — map to current store policies at submission.]**
 

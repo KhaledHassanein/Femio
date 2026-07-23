@@ -95,8 +95,8 @@ All framed as **education**. Femio never prescribes, doses, computes contracepti
 - **Combined pill (estrogen + progestogen):** daily; a pill-free/placebo break pattern; missed-pill rules depend on the product [NHS; ACOG].
 - **Progestogen-only pill (mini-pill):** daily, with a **tighter same-time window** for some formulations — adherence precision matters more [NHS; FSRH].
 - **Patch:** changed **weekly**; **Ring:** typically **monthly** [ACOG; NHS].
-- **Injection (DMPA):** every **~12–13 weeks**; per FSRH it can be given up to ~1 week late (up to 14 weeks) without extra precautions, and clinics advise a pregnancy test / back-up if significantly late — Femio's role is only the **book-ahead reminder**, not the clinical decision [FSRH CEU Injectables; MSD Manual].
-- **Implant:** multi-year (licensed duration varies by product); **IUD (hormonal or copper):** multi-year licensed duration (copper up to ~10 years) — Femio surfaces a **check/expiry-window reminder**, not a re-insertion decision [CDC; NHS; FSRH].
+- **Injection (DMPA):** given on a product- and jurisdiction-specific schedule. Femio uses the recorded clinic due date for a book-ahead reminder and never supplies a universal late window; current instructions and a pharmacist/clinician control. ([CDC U.S. SPR 2024](https://www.cdc.gov/contraception/hcp/usspr/injectables.html); [global rule](../compliance/CONTRACEPTION_SAFETY.md))
+- **Implant and IUD/IUS:** licensed duration varies by product and country. Femio stores the clinician/product due date and surfaces a check/expiry reminder, not a universal duration or reinsertion decision. ([global rule](../compliance/CONTRACEPTION_SAFETY.md))
 
 **Common side effects (what to normalize, per method).**
 - **Combined pill / patch / ring:** breakthrough bleeding/spotting (common in the first ~3 months), headache, nausea, breast tenderness, bloating, mood changes; most settle as the body adjusts [NHS combined pill/patch; ACOG].
@@ -104,14 +104,14 @@ All framed as **education**. Femio never prescribes, doses, computes contracepti
 - **Injection (DMPA):** irregular bleeding then often amenorrhea; delayed return of fertility after stopping; bone-density considerations are a clinician discussion [CDC; MSD Manual].
 - **Hormonal IUD/IUS:** irregular bleeding early, then lighter or absent periods; headache, breast tenderness, mood changes, ovarian cysts possible [NHS IUS; CDC].
 - **Copper IUD:** heavier, longer, or crampier periods, especially early [CDC; NHS].
-- **Mood:** individual and variable — a minority (~4–10% on the combined pill in some data) report negative mood changes; some improve; hormone-sensitive individuals may react more. Femio presents this as *variable and worth tracking + discussing*, never as a claim that her method "causes depression" or a diagnosis [Healthline citing research; PMC]. *[NEEDS SOURCE] — pin exact mood-effect prevalence to a Tier-1/Tier-2 primary source before publishing a number.*
+- **Mood:** experiences are individual and the evidence does not support a single prevalence figure suitable for global product copy. Femio lets users track changes and discuss bothersome symptoms with a clinician; it does not claim that a method caused depression. ([FSRH — Contraception for Young People, 2019](https://www.fsrh.org/Common/Uploaded%20files/documents/fsrh-guideline-contraception-young-people-may-2019.pdf))
 
 **What's usually normal vs worth checking (educational routing, not triage).**
 - **Usually settles:** spotting/irregular bleeding and mild systemic side effects in the **first ~3 months** of a new method [NHS; ACOG].
 - **Worth a (non-urgent) clinician/pharmacist chat:** side effects persisting or bothersome **beyond ~3–4 months**; bleeding that continues to be a problem (e.g., NHS notes seeing a clinician if irregular/heavy bleeding on the IUS lasts **>6 months**) — Femio surfaces these as *awareness prompts*, not verdicts [NHS combined pill; NHS IUS].
 - **Emergency red flags (combined hormonal methods) — "ACHES," seek urgent care:** **A**bdominal severe pain; **C**hest pain/shortness of breath; **H**eadache that is sudden/severe; **E**ye — vision loss/blurring; **S**evere leg pain/swelling. These can signal blood clot (VTE/PE), stroke, or cardiovascular events. Absolute risk is low (and lower than in pregnancy) but the boxes are non-negotiable [ACOG; ASRM VTE guideline; nursing ACHES references]. Femio presents ACHES as **education + "seek care now,"** never as triage or diagnosis.
 
-**Missed dose / late appointment (hard scope line).** Femio must route "I missed a pill / I'm late for my patch/ring/injection" to **the method's own patient instructions + a pharmacist/clinician**, and — where relevant — to emergency-contraception *education* (what it is, that it's time-sensitive, see a pharmacist/clinician). Femio must **never** compute the user's residual pregnancy risk or tell her she is/ isn't protected [NHS missed-pill guidance; ACOG]. *[NEEDS SOURCE] — mirror the exact NHS/CDC missed-pill decision text per method rather than paraphrasing, and keep it as linked education.*
+**Missed dose / late appointment (hard scope line).** Femio routes "I missed a pill / I'm late for my patch/ring/injection" to the **current instructions supplied with the exact product + a pharmacist/clinician**. If unprotected sex may have occurred, it states that emergency contraception is time-sensitive and routes promptly; it never computes residual pregnancy risk or says whether the user is protected. Regional rules differ, so the global product does not mirror one static decision tree. ([CDC U.S. SPR 2024](https://www.cdc.gov/mmwr/volumes/73/rr/rr7303a1.htm); [reviewed global rule](../compliance/CONTRACEPTION_SAFETY.md); reviewed Mohamed K., 23 July 2026.)
 
 **Femio scope guardrail restated:** everything above is **wellness education + adherence support + side-effect awareness**, with consistent "discuss with your clinician / pharmacist" routing. Femio is **not** contraception, does not prevent pregnancy, and does not provide "safe days."
 
@@ -265,7 +265,7 @@ All transitions require **explicit user confirmation**, preserve data continuity
 - **Privacy (GDPR/PDPL health data):** health data = special-category; explicit granular consent, purpose limitation, **no ad-SDK/third-party sharing** of method/adherence/side-effect data (post-Flo trust); discreet notifications; full export/delete. Femio stores no "protection status" field by design. Data-mapping + DPIA required before launch.
 - **Content integrity:** all medical content referenced, medically reviewed with byline + date, YMYL/E-E-A-T compliant; grade 6–8 reading level; 4 languages with Arabic-first/RTL QA.
 - **App-store health policy:** avoid medical-device and contraception-claim trigger language; framing as reminders/tracking/education keeps out of regulated-device territory — legal review before store submission.
-- **[NEEDS SOURCE]** flags: exact per-method missed-dose text (mirror NHS/CDC verbatim as linked education); mood-effect prevalence figures; per-method licensed durations and injection late-window specifics (confirm against current FSRH/CDC before publishing numbers); competitor feature/privacy parity.
+- **Medical-source resolution (23 July 2026):** missed/late actions, licensed durations, mood prevalence, and injection windows follow the reviewed global rule in [`CONTRACEPTION_SAFETY.md`](../compliance/CONTRACEPTION_SAFETY.md). No global numeric mood prevalence or universal product window is published. Competitor/privacy claims remain a separate research/compliance review item. *(Reviewed Mohamed K.; next review 23 July 2027.)*
 
 ---
 
@@ -282,7 +282,7 @@ All transitions require **explicit user confirmation**, preserve data continuity
 
 **Clinical — Tier 2 (ACOG / FSRH / society / peer-reviewed):**
 - [Combined Hormonal Birth Control: Pill, Patch, and Ring — ACOG](https://www.acog.org/womens-health/faqs/combined-hormonal-birth-control-pill-patch-ring)
-- [FSRH CEU — Injectable contraception (DMPA timing/late-window)](https://thinkhauorawebsite.blob.core.windows.net/websitepublished/CCP/Resources/Sexual%20Health/FSRH%20CEU%20Injectables.pdf)
+- [CDC — Injectables, U.S. SPR 2024](https://www.cdc.gov/contraception/hcp/usspr/injectables.html)
 - [FSRH Guideline — Quick Starting Contraception (2017)](https://www.cosrh.org/Common/Uploaded%20files/documents/1fsrh-guideline-quick-starting-contraception-april-2017.pdf)
 - [Combined hormonal contraception and the risk of VTE: a guideline — ASRM (2016)](https://www.asrm.org/practice-guidance/practice-committee-documents/combined-hormonal-contraception-and-the-risk-of-venous-thromboembolism-a-guideline-2016/)
 - [Progestin Contraceptive Injections — MSD Manual (Professional)](https://www.msdmanuals.com/professional/gynecology-and-obstetrics/family-planning/progestin-contraceptive-injections)

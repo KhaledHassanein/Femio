@@ -122,7 +122,7 @@ All framed as **education and screening awareness**. Femio never diagnoses an ST
 
 **Femio scope guardrail restated:** everything above is **wellness education + screening awareness + clinician routing**. Femio does not diagnose an STI, does not treat, does not prevent disease, and is not contraception.
 
-*[NEEDS SOURCE] — region-specific STI prevalence and testing-access pathways for individual MENA markets (e.g. where/how a woman can test discreetly in KSA/UAE/Egypt) must be verified per-locale before any market-specific in-product routing claim. Localised crisis/IPV directories and clinic-finder data are per-market [NEEDS SOURCE].*
+*Global-market rule:* Femio does not display country-specific STI prevalence, promise discreet access, or name a testing clinic unless that market module has been separately verified. Global copy says that STI testing access and cost vary and routes the user to a licensed local clinician or sexual-health service. IPV support uses the explicit country selector and abuse/domestic-violence topic route in [`docs/compliance/CRISIS_RESOURCES.md`](../compliance/CRISIS_RESOURCES.md), with the urgent fallback for immediate danger. ([WHO STI fact sheet, 21 May 2025](https://www.who.int/en/news-room/fact-sheets/detail/sexually-transmitted-infections-%28stis%29); reviewed Mohamed K., 23 July 2026.)
 
 ---
 
@@ -267,7 +267,7 @@ All transitions require **explicit user confirmation**, preserve data continuity
 - **Minors (A-track):** age-appropriate SRH education; knowledge never gated but framing/depth/routing age-adapted; community/DMs/UGC safeguarding-gated; trusted-adult scope + local age-of-consent respected.
 - **Content integrity:** all medical content referenced, medically reviewed with byline + date, YMYL/E-E-A-T compliant; grade 6–8; 4 languages with Arabic-first/RTL QA.
 - **App-store health policy:** framing as education/tracking (not diagnosis/treatment/device) keeps out of regulated-device territory; sexual-content and health-claims store policies reviewed before submission.
-- **[NEEDS SOURCE]** flags: per-locale STI prevalence + discreet testing-access pathways; per-market crisis/IPV directories and clinic-finder data; any market-specific routing claim — verify before public/user-facing use.
+- **Global routing constraint:** no market-specific prevalence, discretion, clinic-availability, or access claim is published from this global persona. Any future market module requires separate verification. Global STI and IPV routing follows the WHO and crisis-resource policy cited above. *(Reviewed Mohamed K., 23 July 2026; next review 23 July 2027.)*
 
 ---
 

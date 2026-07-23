@@ -23,7 +23,7 @@
 | **Primary devices for signals** | Often starting from zero on tracking hardware. Will adopt OPK/LH strips, BBT thermometer, CM observation as Femio teaches them. |
 | **Success = leaves us because…** | Her cycle returned and she flowed into C1 (general TTC), OR she conceived (→ Pregnancy), OR the method-specific window elapsed with no cycle return and we routed her, calmly, to a clinician. |
 
-**Persona thesis.** C11 is the **on-ramp to the entire conception cohort** — the moment a contraception-mindset user becomes a conception-mindset user. Her defining problem is not "which days are fertile" (that's C1); it is **"what happens to my body now that the hormones are gone, and is it normal?"** She needs (1) myth-correction ("post-pill infertility" is not real; no detox needed), (2) honest, **method-specific** expectations for cycle/fertility return (immediate for pill/IUD/implant; **up to ~12 months, occasionally 18, for the injection**), and (3) a gentle handoff into real tracking. Get the *recovery-is-normal* framing right and she trusts Femio for the whole journey. Get it wrong — show a "your period is late" counter to a woman 4 months off Depo — and you manufacture panic and churn. **Once her cycle resumes and she's in a normal TTC rhythm, C11 dissolves into C1.**
+**Persona thesis.** C11 is the **on-ramp to the entire conception cohort** — the moment a contraception-mindset user becomes a conception-mindset user. Her defining problem is not "which days are fertile" (that's C1); it is **"what happens to my body now that the hormones are gone, and is it normal?"** She needs (1) myth-correction ("post-pill infertility" is not real; no detox needed), (2) honest, **method-specific** expectations (no clinically important delay described after pill/IUD/implant use; DMPA can delay return for up to about one year), and (3) a gentle handoff into real tracking. Get the *recovery-is-normal* framing right and she trusts Femio for the whole journey. Get it wrong — show a "your period is late" counter to a woman 4 months off DMPA — and you manufacture panic and churn. **Once her cycle resumes and she's in a normal TTC rhythm, C11 dissolves into C1.**
 
 ---
 
@@ -97,36 +97,34 @@ The key gap: most competitors treat "TTC" as beginning at a *regular cycle*. Alm
 - Prior duration of use is **not** a predictor of future infertility. [Girum & Wasie 2018; general clinical consensus]
 
 **Return of cycles/fertility BY METHOD (the routing backbone — critical for §J):**
-- **Combined/progestogen pill:** fertility returns quickly; ovulation can resume within the **first weeks**, periods usually within about **1 month**. You can get pregnant immediately — ovulation may occur *before* the first period. [NHS — "When will my periods come back after I stop taking the pill?"; MedlinePlus]
-- **IUD (hormonal or copper):** fertility returns to previous levels **immediately on removal**; most conceptions occur in the first few months. [NHS; PMID 4085244; Girum & Wasie 2018]
-- **Implant (Nexplanon):** fertility returns to baseline **straight away** after removal. [NHS]
-- **Injection (Depo-Provera / DMPA):** the **one method with a materially delayed return.** It can take **up to ~1 year** (occasionally **up to 18 months / rarely ~2 years**) for fertility to return after the last injection, even though the injection itself only "lasts" ~13 weeks. Illustrative data: ~**68%** conceive within 12 months, ~**83%** within 15 months, ~**93%** within 18 months of the last injection; median return to ovulation ≈ **6 months** (IM) after the last dose. This is a **delay, not damage** — Depo does not cause permanent infertility. [NHS — contraceptive injection; ACOG/ASRM patient education; DMPA prescribing data]
+- **Combined/progestogen pill, IUD/IUS, and implant:** FSRH guidance does not describe a clinically important delay in return of fertility after stopping or removal. Ovulation can occur before the first period, so Femio does not make the first bleed a prerequisite for trying. ([FSRH — Contraception for Young People, 2019](https://www.fsrh.org/Common/Uploaded%20files/documents/fsrh-guideline-contraception-young-people-may-2019.pdf))
+- **Injection (DMPA):** return of fertility can be delayed and may take up to about one year after discontinuation. Timing varies, and this delay is not evidence of permanent infertility. Femio does not publish the unsupported 18-month/2-year extension, conception percentages, or a median ovulation date. ([FSRH injectable guideline, amended July 2023](https://www.fsrh.org/Common/Uploaded%20files/documents/progestogen-only-injectable-december-2014-amended-11july2023.pdf); [NHS](https://www.nhs.uk/contraception/methods-of-contraception/contraceptive-injection/what-is-it/))
 
 **Starting to try — what to do NOW (in scope):**
-- **Start folic acid 400 mcg/day immediately** when you decide to try (ideally ≥1 month / ideally 3 months before conception), through the first 12 weeks — do **not** wait for the first period. Higher dose only on clinician advice. [NHS — folic acid; CDC — About Folic Acid]
+- **Start folic acid 400 micrograms daily when you begin trying**, through 12 weeks of gestation; do not wait for the first period. Higher-dose regimens are clinician-directed. ([WHO](https://www.who.int/tools/elena/interventions/folate-periconceptional))
 - Because **ovulation precedes the first bleed**, begin conception-awareness tracking (CM ± OPK/LH ± BBT) **now**, not after the period returns. [MedlinePlus; ASRM — Optimizing Natural Fertility]
 - Cervical mucus is especially useful when cycles have not yet regularized (no calendar history to anchor a prediction). [ASRM; NHS]
 
 **WHEN to seek help (method-aware routing — critical for §J):**
 - Standard TTC thresholds still apply once cycles have returned: evaluate after **12 months** (<35 y) or **6 months** (≥35 y) of regular unprotected intercourse; **≥40 y** consider evaluation without delay. [ACOG; ASRM; NHS]
-- **Method-specific "no cycle return" watch:** if **no period has returned** by the expected window for the method — **~3 months** after stopping pill/IUD/implant, or **beyond ~12 months** after the last **Depo** injection — that is the cue to *discuss with a clinician* (educational routing, **not** a diagnosis of infertility). [NHS; ACOG]
+- **No-cycle-return watch:** Femio does not create a method-specific diagnostic deadline. It routes persistent absent bleeding or concern to a clinician and applies the general amenorrhea criteria in [`MENSTRUAL_SAFETY_THRESHOLDS.md`](../compliance/MENSTRUAL_SAFETY_THRESHOLDS.md), while explaining that DMPA can delay return for up to about one year.
 
 *Femio applies all thresholds as **educational routing**, always ending "discuss with your clinician" — never as a diagnosis.*
 
-Flagged for medical-review sign-off before ship: exact Depo percentage/median figures and the "up to 18 months / 2 years" phrasing; pill "within a month" wording; folic-acid dose/timing per locale. **[NEEDS SOURCE VERIFICATION AT PUBLISH]** for any figure stated without a per-locale reviewed citation. **[NEEDS SOURCE — FSRH primary guidance on return of fertility by method]** (FSRH CEU statements to be cited directly at publish).
+**Medical-source resolution.** Unsupported DMPA percentages/median and 18-month/2-year wording are excluded; pill timing is qualitative; the folic-acid recommendation matches WHO. See [`CONTRACEPTION_SAFETY.md`](../compliance/CONTRACEPTION_SAFETY.md). *(Reviewed Mohamed K., 23 July 2026; next review 23 July 2027.)*
 
 ---
 
 ## E. Feature set (prioritized)
 
 **P0 — Must-have (defines the persona; ship first):**
-1. **Method-anchored "what to expect" recovery timeline** — user enters *which method* and *stop/removal/last-injection date*; Femio shows an **honest, cited range** for cycle/fertility return specific to that method (immediate for pill/IUD/implant; up-to-~12-mo band for Depo), with confidence, never a single promised date.
+1. **Method-anchored "what to expect" recovery timeline** — user enters *which method* and *stop/removal/last-injection date*; Femio gives the cited qualitative guidance for that method, never a promised bleed, ovulation, or conception date.
 2. **Myth-correction module, front and center** — "post-pill infertility isn't real," "no detox/wait needed," "you can conceive before your first period," cited and calm. This is the persona's signature content and must be unmissable in onboarding.
 3. **"Recovery-is-expected" cycle UI** — when no cycle has returned yet, prediction UI **degrades gracefully to trend + "this is expected for your method"**; **never** shows a "period late / X days late" counter (per adaptation-model invariant #5).
 4. **"Preventing → trying" switch flow** — one guided step that turns **off** any contraception/pill-reminder framing and turns **on** conception-awareness tracking + folic-acid reminder; re-confirms privacy scope for the new (conception) data class.
 5. **"Start tracking from zero" onboarding** — for users who never charted (because they were on contraception): teaches CM first (works without cycle history), then OPK/LH and BBT; light and non-intimidating.
 6. **Immediate preconception starter** — folic-acid 400 mcg reminder begins at "we're trying," not at first period.
-7. **Method-aware "when to talk to a clinician" routing card** — surfaces at the method-specific window (≈3 mo pill/IUD/implant; >12 mo Depo), calm and non-diagnostic.
+7. **"When to talk to a clinician" routing card** — uses the general amenorrhea criteria, symptoms, and user concern rather than an unsupported method-specific countdown.
 
 **P1 — Strong differentiators (fast follow):**
 8. **Depo-specific companion track** — because Depo is the hard case: a longer, reassurance-forward timeline, "no period yet is normal here," and *no* premature infertility framing before ~12 months.
@@ -153,7 +151,7 @@ Medically reviewed, referenced, grade 6–8 reading level, all four locales, RTL
 
 - **"Does birth control cause infertility?"** — the myth-buster: reversible contraception has **no long-term effect** on fertility; no detox/wait needed. (Anchor card.)
 - **"When will my cycle come back?" — by method** — one card per method (pill, IUD, implant, injection) with the honest return range. Depo card is the longest and most reassuring.
-- **"The Depo timeline, honestly"** — dedicated: why the injection is different, the up-to-~12-month (occasionally 18) range, "no period yet is expected," when to talk to a clinician.
+- **"The DMPA timeline, honestly"** — dedicated: why the injection is different, that return can be delayed for up to about one year, and that individual timing varies.
 - **"You can get pregnant before your first period"** — why ovulation comes first, so start folic acid + tracking now.
 - **"Starting to track from scratch"** — CM-first primer for never-tracked users, then OPK and BBT (links to C1's CM-101/OPK-101/BBT-101).
 - **"Preconception starter"** — folic acid 400 mcg now, lifestyle, caffeine/alcohol (shared with C1, cited).
@@ -240,8 +238,8 @@ Medically reviewed, referenced, grade 6–8 reading level, all four locales, RTL
 |---|---|---|---|
 | **First cycle returns / regular TTC rhythm reached** | `first_cycle_returned = true` (or several logged ovulatory cycles) | Celebrate the milestone calmly; **offer switch to C1** with full fertile-window + BBT/OPK/CM + TWW stack; start/continue the standard `ttc_start_date` clock. | **C1 (TTC general)** — the primary handoff |
 | **Positive pregnancy test** | `hpt_results` = positive (or user confirms) | Universal positive-test handler: celebrate; suppress fertile-window/TWW; continue folic acid; carry all data; re-confirm privacy; offer Pregnancy mode. | **Pregnancy (D)** |
-| **No cycle return within method window** | `now − stop_date` > method threshold (≈3 mo pill/IUD/implant; **>12 mo Depo**) & no period | Calm, non-diagnostic card: "your period hasn't returned in the usual window for this method — it can be worth talking to a clinician." Offer eval-prep content + timeline export. **No infertility label.** | **Screening → clinician**; if cycles then appear irregular/absent long-term → C6 (PCOS-adjacent) / relevant condition content |
-| **Depo user, still no period at <12 mo** | Depo + `now − stop_date` < 12 mo & no period | **Reassurance, NOT routing** — "this is expected for the injection; it can take up to a year." Suppress any clinician-worry framing until the window elapses. | Stay in C11 (Depo companion track) |
+| **No cycle return** | General amenorrhea criterion, associated symptom, or user concern | Calm, non-diagnostic card: "periods can take time to re-establish; it is reasonable to discuss this with a clinician." Offer eval-prep content + timeline export. **No infertility label.** | **Screening → clinician**; if cycles then appear irregular/absent long-term → C6 (PCOS-adjacent) / relevant condition content |
+| **DMPA user, no period yet** | DMPA + no bleed | Explain that return can be delayed and may take up to about one year; keep clinician contact available and do not infer protection. | Stay in C11 (DMPA companion track) |
 | **Pre-existing irregularity re-emerges** | `pre_contraception_cycle_regularity = irregular` & logged cycles vary widely / anovulatory | Non-diagnostic: "your cycles look irregular, as they may have been before — a screener/clinician can help." | Screener → clinician; C6/condition content |
 | **≥35 and post-stop** | age ≥ 35 & stopped | Gentler urgency: emphasize starting tracking now + the 6-mo threshold once cycles return; do **not** rush her while still in the method-return window. | Stays C11 → C1, tighter clock |
 | **Pregnancy loss reported** | user reports loss | Universal loss handler: Gentle Mode; suppress celebratory/timeline nudges; grief resources; retain data. | E6 grief → later C5/PAL |
@@ -254,12 +252,12 @@ Medically reviewed, referenced, grade 6–8 reading level, all four locales, RTL
 
 1. **Not contraception (highest-priority guardrail).** Fertile-window features are conception-awareness only. Femio gives **no advice to stop/continue/switch a method** and offers **no "safe/infertile day"** framing — doubly important for a user leaving actual contraception. Every predictive/timeline surface carries *"not a method of birth control."* Keeps Femio out of the regulated contraceptive-device lane. **[NEEDS SOURCE — confirm app-store medical-claims + health-claims wording at ship.]**
 2. **No diagnosis / treatment / prevention.** The recovery timeline and method thresholds are **educational routing/awareness**, not verdicts. "No cycle return in window" routes to a clinician; it never diagnoses infertility. Depo delay is framed as **expected recovery, not damage.**
-3. **Myth-correction must be accurate + cited.** "Post-pill infertility isn't real" and "no detox needed" are strong claims — cite Tier-1 (NHS/MedlinePlus/CDC) + peer-reviewed meta-analysis, medically reviewed, per locale. **[NEEDS SOURCE VERIFICATION AT PUBLISH]** for all method-specific figures (esp. Depo percentages/median).
+3. **Myth-correction must be accurate + cited.** Reversible contraception is not presented as causing permanent infertility; DMPA's possible delay is stated separately. No detox claim is used as treatment advice. Unsupported method-specific figures are excluded. *(Reviewed Mohamed K., 23 July 2026.)*
 4. **Uncertainty honesty + no "late" counter.** Post-stop recovery UI must display ranges + confidence and **must not** show "period late / overdue" during the expected window (Master invariant #5). No false-precise return date.
 5. **Privacy-by-design / reproductive-data sensitivity.** Contraception history is special-category and socially sensitive (esp. AR/MENA). No sharing of cycle/fertility/contraception data with ad networks or third-party analytics (cf. FTC actions vs Flo 2021, Premom 2023). Data minimization; explicit, granular, revocable consent; strict retention; user-deletion. The "preventing→trying" switch **re-confirms** the new data-sharing scope. **[NEEDS SOURCE — FTC primary docs; align to Femio privacy skill / DPA.]**
 6. **GDPR / PDPL — special-category health data.** Lawful basis + explicit consent; DSAR/export/delete; regional data-residency. **[NEEDS SOURCE — align to Femio privacy skill / DPA at implementation.]**
 7. **Partner mode consent.** Partner sees only what the user grants; consent logged, scope-limited, instantly revocable.
-8. **Medical review + citations.** All clinical content medically reviewed, cited to primary sources, grade 6–8, 4 locales with RTL parity. Numeric claims (Depo timeline, pill "within a month," folic dose) re-verified against live primary text at publish. **[NEEDS SOURCE VERIFICATION AT PUBLISH]**
+8. **Medical review + citations.** Return-of-fertility and folic-acid wording is pinned in [`CONTRACEPTION_SAFETY.md`](../compliance/CONTRACEPTION_SAFETY.md); reviewer Mohamed K., 23 July 2026; next review 23 July 2027.
 9. **Non-alarming emotional safety.** The post-stop limbo (esp. Depo amenorrhea) is anxiety-loaded; tone must reassure without toxic positivity, and never imply a failing body. Loss handled with grief-aware UX.
 10. **App-store health-app policy.** Meet Apple/Google health-app & medical-disclaimer requirements; no over-claiming. **[NEEDS SOURCE — map to store policies at submission.]**
 
@@ -283,7 +281,8 @@ Medically reviewed, referenced, grade 6–8 reading level, all four locales, RTL
 **Tier-2 (ACOG / ASRM / FSRH) — for publish-time citation:**
 - [ASRM — Optimizing Natural Fertility: A Committee Opinion](https://www.asrm.org/practice-guidance/practice-committee-documents/optimizing-natural-fertility-a-committee-opinion-2021/)
 - [ACOG — Prepregnancy Counseling](https://www.acog.org/clinical/clinical-guidance/committee-opinion/articles/2019/01/prepregnancy-counseling) · [ACOG — Trying to Get Pregnant? Here's When to Have Sex](https://www.acog.org/womens-health/experts-and-stories/the-latest/trying-to-get-pregnant-heres-when-to-have-sex)
-- **[NEEDS SOURCE — FSRH CEU: return of fertility by contraceptive method — cite primary FSRH statement at publish]**
+- [FSRH — Contraception for Young People, May 2019 (§5.4)](https://www.fsrh.org/Common/Uploaded%20files/documents/fsrh-guideline-contraception-young-people-may-2019.pdf)
+- [FSRH — Progestogen-only Injectable Contraception, amended July 2023 (§11.3)](https://www.fsrh.org/Common/Uploaded%20files/documents/progestogen-only-injectable-december-2014-amended-11july2023.pdf)
 
 **Competitor / community context (voice-of-user, secondary):**
 - [Flo — Understanding ovulation when you stop birth control](https://flo.health/getting-pregnant/trying-to-conceive/tracking-ovulation/signs-of-ovulation-after-stopping-the-pill) · [Flo — What to expect when going off birth control](https://flo.health/menstrual-cycle/sex/birth-control/what-happens-after-stopping-birth-control)

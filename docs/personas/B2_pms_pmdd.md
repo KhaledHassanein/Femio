@@ -19,7 +19,7 @@
 
 **Jobs-to-be-done.**
 1. Log mood + physical symptoms *daily* and see them plotted against her cycle phase, so the luteal pattern becomes visible.
-2. Complete a proper **prospective 2-cycle record (DRSP-style)** she can take to a clinician — the only validated route to a PMDD diagnosis.
+2. Complete a **generic prospective 2-cycle daily symptom record** she can take to a clinician — useful evidence for discussion, never a diagnostic instrument.
 3. Understand PMS vs PMDD vs premenstrual exacerbation (PME) of another condition — in plain language, without self-diagnosing.
 4. Learn what actually helps (coping skills, lifestyle, and *what treatments a clinician might discuss* — education only).
 5. Feel safe: know that on a bad luteal day there is a crisis resource one tap away, framed with care, never alarm.
@@ -71,7 +71,7 @@ Mined from r/PMDD and PMDD/PME communities, IAPMD resources, app-store reviews o
 
 ## C. Competitor teardown
 
-Focused on where trackers fail PMDD users on **daily mood-symptom-to-cycle correlation**, **prospective DRSP-style charting**, and **crisis safety**.
+Focused on where trackers fail PMDD users on **daily mood-symptom-to-cycle correlation**, **prospective daily charting**, and **crisis safety**.
 
 | App | Model | Cyclical-mood handling | Prospective/DRSP charting | Symptom-cluster depth | Safety/crisis | Privacy | Gap Femio exploits |
 |---|---|---|---|---|---|---|---|
@@ -80,9 +80,9 @@ Focused on where trackers fail PMDD users on **daily mood-symptom-to-cycle corre
 | **Clue** | Freemium, science-forward | Good neutral symptom taxonomy; clear cross-cycle graphs users bring to appointments | No dedicated DRSP/PMDD 2-cycle instrument | Strong, neutral | Not PMDD/crisis-specific | Strong GDPR posture, doesn't sell data | PMDD-specific DRSP layer + referenced PMS/PMDD content + Arabic-first + crisis design |
 | **Bearable** | Symptom/mood tracker (chronic-illness lean) | Flexible mood + factor correlations | Correlation-focused, not a validated PMD instrument | Very customizable | General | Reasonable | Cycle-phase-anchored PMDD framing, referenced content, screening + crisis routing |
 | **HealCycle / newer PMDD apps** | PMDD management | Emphasize evidence-based support + coping | Varies; some symptom charting | Moderate–good | Varies | Varies | Referenced medical content, multilingual/RTL, one-account lifespan model, compliant screening framing |
-| **IAPMD Symptom Tracker (free PDF/self-screen)** | Nonprofit tool, not an app | Gold-standard framing (DRSP-aligned, PME-aware) | **The reference standard** — but paper/manual, not integrated tracking | N/A | Excellent safety framing + resources | N/A (download) | Femio operationalizes the IAPMD/DRSP standard as resilient in-app daily tracking, with education, screening, and crisis routing around it |
+| **IAPMD Symptom Tracker (free PDF/self-screen)** | Nonprofit tool, not an app | DRSP-based, PME-aware framing | Published external instrument; not integrated tracking | N/A | Safety framing + resources | N/A (download) | Femio links to external education but keeps its own record generic unless DRSP permission is documented |
 
-**Cross-cutting failure:** consumer trackers optimize for *prediction of the next period*, not for **prospective daily symptom severity charted against cycle phase over 2 full cycles** — which is the *only validated basis for a PMDD diagnosis* (ISPMD; DSM-5). The apps closest to PMDD needs either lose data on a missed day, aren't referenced/clinical-grade, aren't multilingual, and rarely treat **cyclical suicidality** as a first-class safety design problem. That is the exact intersection Femio targets: a resilient DRSP-style prospective record + referenced PMS/PMDD/PME education + crisis-safe mental-health UX, all inside one privacy-first lifespan account.
+**Cross-cutting failure:** consumer trackers optimize for *prediction of the next period*, not for prospective daily symptoms recorded across cycles for clinician review. Femio targets resilient generic daily records, referenced PMS/PMDD/PME education, and crisis-safe mental-health UX. It does not claim that its record is DRSP, clinically equivalent to DRSP, or capable of diagnosis.
 
 ---
 
@@ -94,7 +94,7 @@ Focused on where trackers fail PMDD users on **daily mood-symptom-to-cycle corre
 
 **DSM-5 diagnostic picture (educational framing only — Femio does not diagnose).** DSM-5 lists PMDD with a requirement of **≥5 symptoms** in the final week of the luteal phase, improving within a few days of menses onset and minimal/absent in the week post-menses, with at least one being a core affective symptom (marked affective lability, irritability/anger, depressed mood/hopelessness, or anxiety/tension). Crucially, **the diagnosis requires prospective daily symptom ratings across ≥2 symptomatic cycles** — it cannot be made from memory alone [DSM-5; American Journal of Psychiatry: PMDD as a new DSM-5 category].
 
-**DRSP — the prospective instrument.** The **Daily Record of Severity of Problems (DRSP)** is the validated, most widely endorsed tool for this: **21 items across 11 domains** (depression, anxiety/tension, affective lability, anger/irritability, decreased interest, difficulty concentrating, lethargy/fatigue, appetite change, sleep change, feeling overwhelmed/out of control, and physical symptoms), each rated **1 ("not at all") to 6 ("extreme")**, completed **daily and prospectively** (on the day, not backfilled) across at least two cycles. It has high test-retest reliability and internal consistency [Endicott et al., DRSP reliability & validity, Arch Womens Ment Health 2006; IAPMD].
+**DRSP — a published prospective instrument.** The Daily Record of Severity of Problems is a validated instrument described in the clinical literature for prospective daily recording. Femio may explain why prospective records help a clinician, but it does **not** reproduce the DRSP items, scale anchors, domain structure, or a close adaptation without documented permission. [Endicott et al., DRSP reliability & validity, Arch Womens Ment Health 2006; instrument policy in [`docs/compliance/MENTAL_HEALTH_SCREENERS.md`](../compliance/MENTAL_HEALTH_SCREENERS.md).]
 
 **ISPMD consensus.** The International Society for Premenstrual Disorders holds that **prospective daily symptom rating is the only reliable, validated method** to diagnose and quantify premenstrual disorders, with ~90% of the group favoring the DRSP; a symptom diary should be kept for **~2 months prior to diagnosis**, showing symptoms in the premenstrual phase that are **relieved by menstruation**. ISPMD classifies **Core premenstrual disorder** vs **Variant premenstrual disorders** [ISPMD Montreal consensus; ISPMD 4th consensus / auditable standards].
 
@@ -114,7 +114,7 @@ Focused on where trackers fail PMDD users on **daily mood-symptom-to-cycle corre
 
 **Femio scope guardrail restated:** everything above is **wellness education, tracking, and screening**, with consistent "discuss with your clinician" routing and crisis resources on any high/self-harm signal. Femio is not a diagnosis, not treatment, and not contraception.
 
-*[NEEDS SOURCE] — exact DSM-5 criterion wording and the precise DRSP item list should be verified against the primary DSM-5 text and the licensed DRSP instrument before any user-facing copy; PMDD suicidality percentages vary by sample and should be cited to the specific peer-reviewed source used, not aggregated, in public claims.*
+*Instrument/content decision:* Femio does not reproduce exact DSM criteria, the DRSP item list, or a “DRSP-style” adaptation, and it makes no public PMDD-suicidality percentage claim. It may offer independently written education and a generic prospective daily symptom record for clinician discussion, without presenting it as DRSP or a diagnostic tool. Any later DRSP implementation requires documented commercial reuse and translation permission under [`docs/compliance/MENTAL_HEALTH_SCREENERS.md`](../compliance/MENTAL_HEALTH_SCREENERS.md). *(Reviewed Mohamed K., 23 July 2026.)*
 
 ---
 
@@ -123,7 +123,7 @@ Focused on where trackers fail PMDD users on **daily mood-symptom-to-cycle corre
 **P0 — must ship for this persona to switch.**
 1. **Daily mood + symptom log with cycle-phase anchoring** — separate items for irritability/anger, depressed mood/hopelessness, anxiety/tension, affective lability, feeling overwhelmed/out of control, plus core physical symptoms; each on a severity scale; every entry auto-tagged to cycle day/phase.
 2. **Cycle-symptom correlation view** — symptom severity plotted against cycle phase across months, making a luteal-clustering pattern visible ("your irritability logs cluster in the ~10 days before your period"). Descriptive, never diagnostic.
-3. **Prospective DRSP-style 2-cycle record** — a guided, *prospective, same-day* daily-severity tracker aligned to the DRSP domains, explicitly framed as **"a record to complete over 2 cycles and share with your clinician — a screening/record tool, not a diagnosis."** Resilient logging (see #4).
+3. **Generic prospective 2-cycle record** — a guided, same-day symptom tracker written independently for Femio and explicitly framed as **“a record to share with your clinician—not a validated questionnaire or diagnosis.”** It must not reproduce or closely adapt DRSP items, anchors, or domain structure. Resilient logging (see #4).
 4. **Resilient, low-pressure daily logging** — gentle same-day reminders; a clearly-labeled short grace window for late entry that **flags backfilled days as non-prospective** so the record's integrity is preserved; robust local persistence so **data never silently disappears** (directly answering the top Me v PMDD complaint). Missing a day is never punished.
 5. **PMS vs PMDD vs PME education** — plain-language explainer of the three, why prospective charting distinguishes them, and why "before-only + relief at menses" is the key pattern.
 6. **Mental-health screening + crisis safety** — validated-style mood/anxiety screen framed as screening; **any high score or self-harm item immediately surfaces localized crisis resources**; a persistent, easy-to-reach "**Need help now?**" entry available from the mental-health module at all times.
@@ -163,12 +163,12 @@ Every module: referenced citations, medical-review byline + date, "discuss with 
 
 **Logs**
 - Cycle/bleed log (period start/end, flow) — anchors phase tagging.
-- **Daily mood + symptom severity log** — DRSP-aligned domains: depressed mood/hopelessness, anxiety/tension, affective lability, anger/irritability, decreased interest, poor concentration, lethargy/fatigue, appetite/cravings, sleep change, feeling overwhelmed/out of control, physical symptoms (breast tenderness, bloating, aches, headache). Severity-rated.
+- **Daily symptom notes** — user-authored mood, physical-symptom, and daily-impact notes with a simple user-selected intensity marker. This is independent product copy, not a reconstruction of DRSP items or domains.
 - Optional free-text daily note; optional treatment/med note (user-entered, no interpretation).
 
 **Tools**
 - **Cycle-symptom correlation view** — severity vs cycle phase over time; descriptive language ("appears to cluster in your luteal phase," never "this proves PMDD").
-- **DRSP-style prospective 2-cycle record** — guided daily, same-day entry; progress indicator across the 2 cycles; export/print. **Framed on entry and on export as: "This is a screening/record tool to share with a clinician — not a diagnosis. Only a clinician can diagnose PMDD."** Backfilled days are visibly flagged as non-prospective so the record's clinical validity is transparent.
+- **Generic prospective 2-cycle record** — guided daily, same-day entry; progress indicator; export/print. **Framed on entry and export as: “This is a personal symptom record to share with a clinician—not a validated questionnaire or diagnosis.”** Backfilled days are visibly identified.
 - **Visit-prep generator** — one-tap export: 2-cycle chart + trends + cycle-relief pattern + screening results (as screening) + suggested questions.
 - **Screeners (framed as screening, not diagnosis):**
   - Premenstrual-symptoms awareness checklist (PSST-style) → "These can be signs to discuss and chart prospectively; only a clinician can diagnose."
@@ -199,7 +199,7 @@ Every module: referenced citations, medical-review byline + date, "discuss with 
 
 **Persona-specific (PMS/PMDD)**
 - PMD status (self-reported: exploring / suspected / clinician-confirmed) + notes; PME-consideration flag if she reports symptoms that don't fully clear at menses (surfaces "discuss whole-cycle patterns with a clinician" — never a diagnosis).
-- **Daily DRSP-aligned symptom severity array** (11 domains, per-day, severity-scored) with **prospective-vs-backfilled marker per entry**.
+- **Independent daily symptom-note array** (user-selected symptom, impact/intensity marker, optional note) with a **same-day-vs-backfilled marker per entry**; it must not encode DRSP item/domain wording.
 - 2-cycle prospective-record state (start date, days completed, cycle count, completeness).
 - Luteal-phase symptom-clustering summary (descriptive analytic output, non-diagnostic).
 - Mental-health screen history (scores + dates, screening-only) and **self-harm/crisis-flag events** (timestamped; drive crisis-resource surfacing; retained with heightened privacy).
@@ -229,7 +229,7 @@ Every module: referenced citations, medical-review byline + date, "discuss with 
 **Hidden-but-reachable principle:** Femio never removes knowledge. TTC, pregnancy, contraception education, and perimenopause content stay discoverable via search — just not pushed.
 
 **Adaptive tuning:**
-- If daily logs show consistent **luteal clustering with post-menstrual relief**, raise the DRSP prospective-record and visit-prep prominence and the "you may want to chart 2 cycles for your clinician" education (screening-framed).
+- If daily logs show a repeated user-visible pattern, raise generic prospective-record and visit-prep education: “You may want to share this record with your clinician.” Do not interpret the pattern as PMDD or compare the record with DRSP.
 - If she reports/records symptoms **that don't clear at menses**, raise PME/comorbidity education and "discuss whole-cycle patterns with a clinician" (never a diagnosis).
 - If mood screens trend high or any self-harm item fires, surface the mental-health module + **localized crisis resources immediately**, and keep safety content reachable through subsequent luteal windows.
 
@@ -256,16 +256,16 @@ All transitions require **explicit user confirmation**, preserve data continuity
 
 ## K. Compliance flags
 
-- **Scope:** wellness / education / tracking ONLY. No diagnosis, no treatment, no disease-prevention claim, not contraception. The DRSP-style tool is a **record/screening aid to share with a clinician**, never a diagnostic verdict. (Aligns with Femio compliance-privacy skill + medical-device scope avoidance.)
+- **Scope:** wellness / education / tracking only. No diagnosis, treatment, disease-prevention, or contraception claim. The generic record is personal documentation to share with a clinician; it is not DRSP, a validated screener, or a diagnostic verdict.
 - **Screeners:** every screener returns "This is a screening tool, not a diagnosis — discuss with a clinician." Never outputs "You have PMDD/PMS/depression/bipolar."
-- **Mental-health safety (central to B2):** **any high mood-screen score or any non-zero self-harm/suicidal-ideation item triggers immediate localized crisis resources**, regardless of total. A "Need help now?" affordance is persistently reachable. Because PMDD suicidality is cyclical, safety design must assume recurrence, not a one-off. Crisis content is signposting/support only — never triage, diagnosis, or emergency dispatch. Crisis directories must be **localized per region/language** (esp. Arabic/MENA) — see [NEEDS SOURCE].
+- **Mental-health safety (central to B2):** any affirmative self-harm/suicidal-ideation item triggers the urgent route independently of the total; high scores without a self-harm item trigger prompt clinical/support routing, not an inferred suicide-risk result. A "Need help now?" affordance is persistently reachable. Crisis content is signposting/support only — never triage, diagnosis, or emergency dispatch. Follow [`docs/compliance/CRISIS_RESOURCES.md`](../compliance/CRISIS_RESOURCES.md), using an explicit country selector and WHO-aligned emergency fallback rather than language- or region-inferred numbers. *(WHO, 18 September 2024; reviewed Mohamed K., 23 July 2026.)*
 - **Predictions:** any "your harder window" heads-up must be descriptive, opt-in, non-deterministic, and non-alarming; never a certain date; never a contraceptive/"safe day" claim.
 - **Medication content (SSRIs, luteal-phase dosing, hormonal options):** educational context only; no recommendation, dosing, or "take/stop this." Clear non-prescription disclaimer + clinician routing. No contraceptive-efficacy claim.
 - **Tone / non-stigmatizing:** cyclical mood and intrusive thoughts normalized without sensationalism; avoid both doom and toxic positivity; never imply a character flaw. Silence-over-risk on sensitive content.
 - **Privacy (GDPR/PDPL health data):** menstrual + mental-health data = special-category; explicit granular consent; purpose limitation; **no ad-SDK / third-party sharing** of cycle/mood/self-harm data (post-Flo trust); local-first where feasible; full export/delete. Self-harm/crisis flags get the strictest handling and are never used for ads/analytics/employer/insurer visibility. Data-mapping + DPIA required before launch.
 - **Content integrity:** all medical content referenced, medically reviewed with byline + date, YMYL/E-E-A-T compliant; grade 6–8 reading level; 4 languages with Arabic-first/RTL QA.
-- **App-store health policy:** framing as tracking/education/screening keeps out of regulated-medical-device territory; DRSP tool must be positioned as a shareable record, not a diagnostic device — legal review before store submission.
-- **[NEEDS SOURCE]** on: exact DSM-5 criterion wording; licensed DRSP item wording/usage terms; specific peer-reviewed citations for any public suicidality statistic; and per-locale crisis-line directories (esp. Arabic/MENA) before any content is user-facing.
+- **App-store health policy:** the independent tracker is positioned as a shareable personal record, not a diagnostic instrument or medical device; legal review remains required before store submission.
+- **Controlled exclusions:** exact DSM wording, DRSP items/adaptations, and unsourced public suicidality percentages are excluded. Generic symptom tracking is not labelled DRSP and is not diagnostic. Crisis routing follows the reviewed global policy. *(Instrument governance reviewed Mohamed K., 23 July 2026; next review 23 July 2027.)*
 
 ---
 

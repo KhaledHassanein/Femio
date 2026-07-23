@@ -112,7 +112,7 @@ All figures below are **education, not medical advice**; app copy must attribute
 
 **What HG is / how it differs from morning sickness.** Nausea and vomiting affect up to ~70–80% of pregnancies (normal NVP). **Hyperemesis gravidarum is the severe end**: persistent, severe nausea and vomiting with **weight loss of >5% of pre-pregnancy weight**, **dehydration**, **ketosis**, and electrolyte/acid–base disturbance; it affects roughly **~0.3–3% of pregnancies**, is a leading cause of hospital admission in early pregnancy, and — untreated — can cause serious complications. It is **not** caused by anything the woman did, is not "in her head," and is not weakness (crucial anti-dismissal framing). [MedlinePlus; NIH/StatPearls; RCOG Green-top 69]
 
-**Typical timing.** Usually begins in the first trimester (often ~wk 4–9, peaking ~wk 9–13); for many it eases by ~**wk 16–20 (second trimester)**, but a substantial minority experience it until delivery. → App framing: never promise it will end at a fixed week; "for many it eases in the second trimester, but everyone is different." [RCOG GTG 69; NHS] *[NEEDS SOURCE: pin exact NHS "sickness in pregnancy / HG" page for timing wording]*
+**Typical timing.** Nausea and vomiting often starts early. NHS patient guidance says common pregnancy sickness usually improves by weeks 16–20, while HG may not improve then and can persist until birth. Femio never promises an end date. [NHS, *Severe vomiting in pregnancy*; RCOG Green-top 69, second edition 2024]
 
 **Severity scoring — PUQE (screening framing).** The **PUQE / PUQE-24 (Pregnancy-Unique Quantification of Emesis and Nausea)** score quantifies severity from three questions (hours of nausea, number of vomiting episodes, number of retching episodes over 24h): **Mild ≤6 · Moderate 7–12 · Severe ≥13** (max 15). A validated tool used to gauge severity and nutritional impact. → In Femio it is a **screening aid** she can complete and share, framed *"this is a severity screen, not a diagnosis — discuss your score with your clinician."* Never an app verdict, never auto-escalation. [RCOG GTG 69; Norwegian PUQE validation study, PMC4382206]
 
@@ -130,7 +130,7 @@ All figures below are **education, not medical advice**; app copy must attribute
 
 **Recurrence & reassurance.** HG has a high recurrence rate in later pregnancies (a common, honest concern) — but it is **manageable**, most babies do well when the mother is supported and treated, and early treatment of NVP may reduce progression. Always paired with validation and the true, reassuring message that she will get through it with care. [HER Foundation; ACOG; RCOG GTG 69]
 
-*[NEEDS SOURCE]* flags: exact ACOG Practice Bulletin 189 permalink; exact NHS HG page permalink; region-specific antiemetic availability/naming for MENA localization; localized crisis directories + maternity day-unit pathways per region.
+Medical-review resolution: NHS and RCOG permalinks are pinned below. Femio does not claim that a named antiemetic is available or preferred in a region and does not generate a local day-unit destination; it instructs the user to contact her maternity clinician, local urgent service, or emergency service as appropriate. Mental-health crisis routing follows the global policy. *(Reviewed Mohamed K., 23 July 2026; next review 23 July 2027.)*
 
 ---
 
@@ -290,8 +290,8 @@ D15 **inherits all universal events** from the Master Adaptation Model §6 (posi
 - **Anti-dismissal, validating, non-judgmental tone (sensitive topic):** the defining tone requirement — copy explicitly affirms HG is real and not "just morning sickness," not weakness, and not her fault; no toxic positivity ("just think of the baby!"), no minimising, no cheery milestone content forced during survival mode.
 - **Privacy-by-design (GDPR/PDPL, health data):** HG status, **hospital admissions**, and **mental-health data** are highly sensitive, layered on sensitive pregnancy data — minimal collection, explicit consent, **no data sale, no ad-targeting SDKs, no employer/insurer visibility** (she may already face workplace penalty for sickness). Partner sharing opt-in and granular. Loss/withdrawal → immediate suppression of all pregnancy + HG reminders and honored deletion.
 - **Content provenance:** every medical claim medically reviewed + cited to Tier-1 (MedlinePlus/NIH/NHS) / Tier-2 (ACOG/RCOG, HER Foundation); review dates surfaced; no clickbait, no sponsored content interleaved with medical guidance.
-- **i18n/RTL:** all safety/red-flag and validation copy human-reviewed in AR/EN/FR/ES (not machine-only) given clinical + emotional stakes; antiemetic names and maternity-day-unit pathways localized per region.
-- **Open items:** resolve **[NEEDS SOURCE]** citations (ACOG PB 189 permalink; NHS HG page permalink; region antiemetic naming/availability; localized crisis directories + day-unit pathways) before content freeze.
+- **i18n/RTL:** safety and validation copy requires human locale QA. Medication names remain descriptive only and never imply local availability; service routing says maternity clinician/local urgent or emergency service rather than inventing a destination.
+- **Reviewed source set:** NHS *Severe vomiting in pregnancy* and RCOG Green-top 69 (second edition, published February 2024) are pinned below. Urgent and mental-health routing follows [`CRISIS_RESOURCES.md`](../compliance/CRISIS_RESOURCES.md). *(Reviewed Mohamed K., 23 July 2026; next review 23 July 2027.)*
 
 ---
 
@@ -317,4 +317,4 @@ D15 **inherits all universal events** from the Master Adaptation Model §6 (posi
 - [CDC — Urgent Maternal Warning Signs (HEAR HER Campaign)](https://www.cdc.gov/hearher/maternal-warning-signs/index.html)
 - [MSD Manual (Professional) — Hyperemesis Gravidarum](https://www.msdmanuals.com/professional/gynecology-and-obstetrics/antenatal-complications/hyperemesis-gravidarum)
 
-*[NEEDS SOURCE]* ACOG Practice Bulletin 189 (Nausea and Vomiting of Pregnancy) exact permalink; NHS "severe sickness in pregnancy / hyperemesis gravidarum" page permalink; region-specific antiemetic naming/availability for MENA localization; localized crisis directories + maternity day-unit pathways per region; exact prevalence range primary source (WHO/large cohort) for the ~0.3–3% figure.
+*Primary links: [NHS—Severe vomiting in pregnancy](https://www.nhs.uk/pregnancy/complications/severe-vomiting/); [RCOG—Green-top Guideline 69](https://www.rcog.org.uk/guidance/browse-all-guidance/green-top-guidelines/the-management-of-nausea-and-vomiting-of-pregnancy-and-hyperemesis-gravidarum-green-top-guideline-no-69/) (second edition published February 2024). Femio uses RCOG’s 0.3–3.6% range only as population context, never as a diagnostic probability. Reviewed Mohamed K., 23 July 2026; next review 23 July 2027.*

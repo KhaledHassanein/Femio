@@ -11,7 +11,7 @@
 
 **What she's navigating.**
 - **The invisibility of returning fertility.** Ovulation comes back **before** the first period, so the usual signal ("my period's back") arrives *after* she's already been fertile. Non/partially-breastfeeding mothers can ovulate as early as ~week 3–4. She has no idea where she is on that curve.
-- **The LAM half-truth.** Breastfeeding *can* suppress ovulation — but only under three strict, simultaneous criteria that most real-world mothers (pumping at work, sleep-training, an evening bottle) quietly stop meeting without noticing.
+- **The LAM half-truth.** Breastfeeding *can* suppress ovulation — but only while three criteria hold simultaneously. Long feeding intervals, supplementation, return of menses, or reaching 6 months can mean they no longer all hold.
 - **A method decision under time pressure and fog.** Her six-week visit included a 90-second contraception question she wasn't ready for. She's heard the mini-pill is "the breastfeeding one," that estrogen is "not allowed yet," that IUDs can go in "right away or later" — fragments without a map.
 - **Spacing questions she's embarrassed to ask.** "If I *do* want another, how soon is too soon?" She's heard everything from 6 months to 2 years.
 
@@ -42,7 +42,7 @@ Mined from postpartum/breastfeeding communities (r/beyondthebump, r/breastfeedin
 - "What actually counts as 'exclusive'? We do one formula bottle at night."
 - "Baby started sleeping 8 hours — does the night gap break the rules?" (Yes — the described criterion is feeds no more than ~6h apart at night.)
 - "Baby turns 6 months next week and started solids. So… now what?"
-- "I pump at work — does pumping count the same as nursing?" (Guidelines treat expressing as potentially reducing suppression — a clinician question; Femio flags it, doesn't rule.)
+- "I pump at work — does pumping count the same as nursing?" (Femio asks about actual feeding intervals and supplementation; it does not invent a pumping-specific protection rule.)
 
 **On method timing / choice:**
 - "My OB offered the mini-pill at 2 weeks. Isn't it too early for hormones?"
@@ -105,7 +105,7 @@ All framed as **education**. Femio never computes protection, never issues safe 
 
 **LAM — the three criteria, all simultaneously, and what breaks them.**
 - ≥98% described effectiveness **only while all three hold**: (1) **amenorrhea** (no period since ~day 56 postpartum), (2) **fully or nearly-fully breastfeeding** — day feeds no more than ~4h apart, night feeds no more than ~6h apart, minimal supplementation, and (3) **infant under 6 months**. ([CDC US-MEC — LAM appendix](https://www.cdc.gov/contraception/hcp/usmec/lactational-amenorrhea-method.html); [LAM review, PMC](https://pmc.ncbi.nlm.nih.gov/articles/PMC6823189/))
-- Common real-world criterion breakers: return of any bleeding, baby sleeping long stretches, introduction of solids/formula, baby turning 6 months, reduced suckling; **expressing/pumping** may reduce suppression — a clinician question. ([CDC US-MEC LAM appendix](https://www.cdc.gov/contraception/hcp/usmec/lactational-amenorrhea-method.html)) *[NEEDS SOURCE: pin the exact pumping-vs-nursing wording to CDC/WHO text before publishing.]*
+- Criterion breakers include return of menses, feeding intervals beyond the stated day/night limits, moving away from fully/nearly-fully breastfeeding, or reaching 6 months postpartum. CDC does not give pumping a separate protection rule in this appendix, so Femio asks about actual feeding intervals and supplementation and does not claim that pumping itself preserves or reduces effectiveness. ([CDC LAM appendix, updated September 2025](https://www.cdc.gov/contraception/hcp/usmec/lactational-amenorrhea-method.html); [reviewed global rule](../compliance/CONTRACEPTION_SAFETY.md); reviewed Mohamed K., 23 July 2026.)
 - US survey data show widespread **misunderstanding** of LAM among pregnant women — the myth is documented, not anecdotal. ([Understanding of LAM among U.S. pregnant women, PMC](https://pmc.ncbi.nlm.nih.gov/articles/PMC10460681/))
 
 **Method timing postpartum (educational landscape — the clinician decides).**
@@ -150,7 +150,7 @@ All framed as **education**. Femio never computes protection, never issues safe 
 ## F. Content modules (referenced, medically-reviewed, grade 6–8, EN/AR/FR/ES, Arabic-first/RTL)
 
 1. **When fertility comes back** — ovulation-before-period; day-21 possibility; how feeding changes the curve; why nobody can give you a date.
-2. **Breastfeeding and pregnancy: the truth about LAM** — three criteria, all at once; what quietly breaks them (night sleep, solids, pumping, 6 months); what ≥98% does and doesn't mean; "Femio can't verify these — your clinician can help you decide."
+2. **Breastfeeding and pregnancy: the truth about LAM** — three criteria, all at once; what can mean they no longer hold (long intervals, supplementation, return of menses, 6 months); no protection verdict; "your clinician can help you choose contraception."
 3. **Your method options after birth** — per-method education cards with postpartum timing windows (progestin ≈ immediate; IUD 48h-or-~4wk; combined ≥21/42 days per risk profile) and breastfeeding notes.
 4. **Hormones and your milk** — balanced evidence framing; clinician-routed; no verdicts.
 5. **Spacing your pregnancies** — ACOG + WHO intervals, why they exist, and why your personal answer is a clinician conversation (age, cesarean, health history). Tone-neutral to her choice.
@@ -259,7 +259,7 @@ All transitions explicitly confirmed, reversible, data-continuous.
 - **Privacy (GDPR/PDPL):** sexual-activity, intent, feeding and bleeding fields = special-category; granular consent; no ad-SDK/third-party sharing; partner-sharing scoped + revocable; export/delete. DPIA covers the E5 layer explicitly.
 - **Content integrity:** every clinical statement referenced + medically reviewed with byline/date; grade 6–8; EN/AR/FR/ES with Arabic-first RTL QA — the nursing myth is especially prevalent where Arabic-language referenced content is scarce; this module is a flagship AR-first asset.
 - **App-store / device-regulation posture:** no contraception-claim trigger language anywhere in E5 strings; legal review of the LAM surface specifically before store submission.
-- **[NEEDS SOURCE] consolidated:** pumping-vs-nursing LAM wording (CDC/WHO verbatim); EC-while-breastfeeding specifics (FSRH/NHS); post-cesarean IPI/VBAC wording (ACOG); postpartum time-to-cycle-regularity heuristic; per-locale method availability; competitor live-feature parity; WHO 2022 postnatal-care recommendations cross-check.
+- **Medical-source resolution (23 July 2026):** LAM pumping wording follows [`CONTRACEPTION_SAFETY.md`](../compliance/CONTRACEPTION_SAFETY.md), and no pumping-specific efficacy claim is made. EC while breastfeeding, post-cesarean/VBAC wording, the cycle-regularity heuristic, local method availability, competitor parity, and WHO postnatal cross-check remain separately tracked research items. *(Reviewed Mohamed K.; next review 23 July 2027.)*
 
 ---
 

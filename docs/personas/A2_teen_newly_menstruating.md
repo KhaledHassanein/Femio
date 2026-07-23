@@ -88,13 +88,13 @@ How the major apps serve — or fail — a 12–15-year-old, feature by feature.
 
 ## D. Clinical grounding (cited)
 
-All numbers below are from Tier-1 (NIH/MedlinePlus/CDC/WHO/NHS) and Tier-2 (ACOG/AAP/RCOG/NICE) sources; URLs in **Sources**. Femio surfaces these as *education*, never as diagnosis. Where a stat could not be firmly sourced, it is flagged `[NEEDS SOURCE]`.
+The reviewed thresholds below are patient education, not diagnosis. Femio uses the signed adolescent section of [`MENSTRUAL_SAFETY_THRESHOLDS.md`](../compliance/MENSTRUAL_SAFETY_THRESHOLDS.md) and routes concerns to a qualified clinician. *(Reviewed Mohamed K., 23 July 2026; next review 23 July 2027.)*
 
 **What's normal in the first years after menarche**
 - **Average age at menarche ≈ 12**, with a normal range roughly **8–16** (Mayo/KidsHealth/UChicago).
 - **Irregular cycles are normal for the first ~1–3 years** because many early cycles are **anovulatory** (KidsHealth, Johns Hopkins, ACOG).
 - **Cycle length** in adolescents is *wider* than adults: roughly **~20/21–45 days** is common (adult norm is ~21–34/35). Mean ~32 days in the first two gynecologic years (ACOG "Menstrual cycle as a vital sign"; Johns Hopkins).
-- **Period (bleed) duration** typically **≤ 7 days** (ACOG). `[NEEDS SOURCE — exact "2–7 day" lower bound to confirm to ACOG/NHS wording before publishing content]`
+- **Period (bleed) duration:** ACOG’s patient guidance describes **2–7 days** as typical; more than 7 days is a reason to discuss bleeding with a clinician. [ACOG, *Heavy and Abnormal Periods*]
 - It can be normal to **skip months** in the first year or two (KidsHealth, UChicago).
 
 **Evidence-based "raise it with a clinician" thresholds (screening language, NOT diagnosis)**
@@ -247,9 +247,9 @@ Events that move her **into** or **out of** A2, or branch to an adjacent persona
 - **Shared-device safety:** per-profile isolation, quick-hide, no sensitive lock-screen/notification content.
 - **Safeguarding vs. surveillance:** trusted-adult involvement is **opt-in and transparent**, never covert monitoring of the teen.
 - **Non-restriction principle:** teen mode governs data/ads/social — it must **not** be used to block knowledge; every topic stays reachable via library/search (prevents pushing her to unsafe sources).
-- **Referenced content:** every clinical claim medically reviewed + cited (§D). No invented stats; open items flagged `[NEEDS SOURCE]` before publish.
+- **Referenced content:** adolescent cycle and bleeding thresholds follow [`MENSTRUAL_SAFETY_THRESHOLDS.md`](../compliance/MENSTRUAL_SAFETY_THRESHOLDS.md). *(Reviewed Mohamed K., 23 July 2026; next review 23 July 2027.)*
 - **Cultural sensitivity (Arabic-first/RTL):** menstruation is high-shame in some target markets — tone must reduce, not amplify, stigma; keep education accessible without exposing the user.
-- **`[NEEDS SOURCE]` register:** confirm exact ACOG/NHS wording for bleed-duration lower bound; confirm any market-specific age-of-consent numbers per launch jurisdiction before shipping copy.
+- **Launch-law separation:** the 2–7-day wording is pinned to ACOG. Age-of-consent mechanics are not medical content and remain a per-jurisdiction legal launch task.
 
 ---
 

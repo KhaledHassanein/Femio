@@ -106,7 +106,7 @@ Feature-by-feature, focused on where general trackers fail the *undiagnosed irre
 
 **Why tracking matters even without a diagnosis.** A documented pattern (cycle lengths, gaps, symptom co-occurrence, weight/exercise/stress context) is precisely what shortens and sharpens an evaluation and helps a clinician tell "normal-for-her" from a change worth investigating [ACOG vital-sign framing].
 
-*[NEEDS SOURCE] — exact quantitative tracker-accuracy figures on irregular cohorts are from survey/secondary sources; treat as directional and verify against peer-reviewed data before any public claim. [NEEDS SOURCE] — confirm current ACOG/ASRM 2024 wording of the 3-month vs 6-month amenorrhea-evaluation thresholds for user-facing copy.*
+*Public-copy decision:* Femio publishes no numerical competitor/tracker-accuracy claim. The clinician-review prompt follows ASRM 2024: more than 3 months without menses after previously regular cycles, or 6 months after previously irregular cycles, requires investigation; pregnancy should be considered sooner where possible. This is a conversation prompt, not a diagnosis. ([ASRM 2024](https://www.asrm.org/practice-guidance/practice-committee-documents/current-evaluation-of-amenorrhea/); reviewed Mohamed K., 23 July 2026.)
 
 ---
 
@@ -258,7 +258,7 @@ The through-line: **B5 is a waypoint, not a destination.** Its whole job is to h
 - **Privacy (GDPR/PDPL health data):** health data = special-category; explicit granular consent, purpose limitation, no ad-SDK/third-party sharing of cycle/health data (post-Flo trust); local-first where feasible; full export/delete. Data-mapping + DPIA required before launch.
 - **Content integrity:** all medical content referenced, medically reviewed with byline + date, YMYL/E-E-A-T compliant; grade 6–8 reading level; 4 languages with Arabic-first/RTL QA.
 - **App-store health policy:** avoid medical-device trigger language; framing as tracking/education keeps out of regulated-device territory — legal review before store submission.
-- **[NEEDS SOURCE]** flags: public tracker-accuracy stats until peer-reviewed; exact ACOG/ASRM 2024 amenorrhea-evaluation threshold wording; per-locale (esp. Arabic/MENA) crisis directories and emergency numbers.
+- **Reviewed controls:** no public tracker-accuracy statistic; amenorrhea wording follows ASRM 2024; crisis routing follows the global maintained-directory policy. See [`docs/compliance/MENSTRUAL_SAFETY_THRESHOLDS.md`](../compliance/MENSTRUAL_SAFETY_THRESHOLDS.md). *(Reviewed Mohamed K., 23 July 2026; next review 23 July 2027.)*
 
 ---
 

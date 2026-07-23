@@ -30,7 +30,7 @@ Mined from parent/pediatric puberty guides (KidsHealth, HealthyChildren/AAP, CHO
 
 **The girl — "Is this normal?" (dominant emotion: reassurance + curiosity + a little fear)**
 - "There's a hard, sore lump under one nipple — is something wrong?" → *Normalize: breast buds (thelarche) are usually the **first** sign of puberty; often one side first; tenderness fades (§D).*
-- "I have white/clear stuff in my underwear — is that a period? Am I sick?" → *Normal discharge starts ~6–12 months before the first period; it's the body getting ready, not an illness (§D).*
+- "I have white/clear stuff in my underwear — is that a period? Am I sick?" → *Thin clear/white discharge can be a normal puberty change; it does not predict the exact date of a first period (§D).*
 - "I'm growing hair / I smell different / I got taller / I'm moody — what's happening to me?" → *All expected puberty changes; sequence and reassurance (§D, §F).*
 - "When will I get my period? Will it hurt? How much blood? Will everyone see?" → *Plain "what to expect," a simple range, and a calm "here's your plan" (§D, §F).*
 - "Does my period mean I'm grown up / that something embarrassing is true about me now?" → *Gently de-shame; it's a normal healthy body milestone, not an adult/sexual statement (§K).*
@@ -78,14 +78,14 @@ How existing products serve — or fail — a **pre-menarche 9–12-year-old and
 
 ## D. Clinical grounding (cited)
 
-All numbers below are Tier-1 (NIH/MedlinePlus/CDC/WHO/NHS/KidsHealth) and Tier-2 (ACOG/AAP + pediatric-endocrine society) sourced; URLs in **Sources**. Femio surfaces these as *education*, never diagnosis. Unconfirmed items flagged `[NEEDS SOURCE]`.
+The reviewed thresholds below are patient education, not diagnosis. Femio uses the signed adolescent section of [`MENSTRUAL_SAFETY_THRESHOLDS.md`](../compliance/MENSTRUAL_SAFETY_THRESHOLDS.md) and routes concerns to a qualified clinician. *(Reviewed Mohamed K., 23 July 2026; next review 23 July 2027.)*
 
 **Normal puberty sequence and timing (girls)**
 - **Puberty normally begins ~8–13** in girls (average onset ~10–11). Onset before 8 or absence of any breast development by ~13 falls outside the typical window (KidsHealth, HealthyChildren/AAP, Cleveland Clinic).
 - **Thelarche (breast buds) is usually the first sign** — a firm, sometimes tender lump under the areola, often **one side before the other**; this is Tanner **stage 2** and is normal (StatPearls Tanner; Healthgrades; HealthyChildren).
 - **Typical sequence:** breast buds → pubic/underarm hair (pubarche) + body odor/skin changes → **growth spurt / peak height velocity** → **menarche** (Johns Hopkins; Merck; pediatric-medicine physiology review).
 - **Peak height velocity occurs ~1 year *before* menarche** (~Tanner 3, avg peak ~8 cm/yr, mean age ~12); most growth happens before the first period, with ~2–3 inches (5–7.5 cm) typical *after* menarche (Johns Hopkins; UTHSC; Merck).
-- **Physiologic discharge** (thin, clear/white, mild/no odor, no itch) commonly begins **~6–12 months before menarche** as the vagina self-cleans in preparation — a normal sign, not infection (KidsHealth; Cleveland Clinic "Menarche"; Knix/Luna parent guides `[secondary]`).
+- **Physiologic discharge** can be thin and clear/white during puberty. Femio describes it as a possible normal change but does not use discharge to predict an exact menarche date. New odor, itching, pain, or other concerning symptoms should be discussed with a clinician.
 - **Menarche averages ~12–12.5**, typically **~2–2.5 years after breast buds** (range ~0.5–3 yr), normal window roughly **8–15/16** (KidsHealth; Cleveland Clinic; Tanner reviews).
 - **Mood swings, acne, body odor, growth** are expected hormonal changes of this stage (HealthyChildren/AAP; CHOC).
 
@@ -135,7 +135,7 @@ Sequenced reassurance → what's changing → what a period is → readiness →
 
 1. **"You're normal, and this is exciting not scary" (start here)** — bodies change on their own schedule; you're not sick, not broken, not "grown up in a scary way." *(Reassurance-first, per preparedness research.)*
 2. **What's changing in my body?** — breast buds (often one side first, tender = normal), hair, body odor + hygiene, skin/acne, growth spurt, moods; the usual *order* of changes.
-3. **The white stuff in my underwear (discharge)** — what it is, why it shows up ~6–12 months before a period, when it's just normal.
+3. **The white stuff in my underwear (discharge)** — what physiologic discharge can look like, why it does not predict an exact first-period date, and which accompanying symptoms merit a clinician conversation.
 4. **What is a period? (plain words)** — what it is, that it comes and goes monthly (not every day), how much blood (less than it looks), that it's a healthy normal body thing.
 5. **Getting ready: your first-period plan** — your period kit for your bag, using pads, what to do if it starts at school, who you can tell.
 6. **"Am I early / late / different from my friends?"** — wide-normal reassurance; the calm "some things are worth asking a doctor about — let's do it together" note (early <8 / no signs by 13), never scary.
@@ -233,9 +233,9 @@ Events that move her **into** or **out of** A1, or branch to an adjacent persona
 - **Parent-awareness vs. surveillance:** A1 assumes a parent is aware and often co-using — but the trusted-adult layer must be **transparent, scoped, and consent-based shared learning**, **not** covert monitoring of everything the child reads. State plainly what is/ isn't shared.
 - **Shared-device safety:** per-profile isolation, quick-hide, neutral naming, no sensitive lock-screen/notification content (family tablet is the norm).
 - **Non-restriction principle:** minor tier governs data/ads/social — it must **not** block knowledge; every topic stays reachable via library/search so a curious child never goes to a scary/adult source.
-- **Referenced content:** every clinical claim medically reviewed + cited (§D). No invented stats; open items flagged `[NEEDS SOURCE]` before publish.
+- **Referenced content:** adolescent thresholds and non-diagnostic wording follow [`MENSTRUAL_SAFETY_THRESHOLDS.md`](../compliance/MENSTRUAL_SAFETY_THRESHOLDS.md). *(Reviewed Mohamed K., 23 July 2026; next review 23 July 2027.)*
 - **Cultural sensitivity (Arabic-first/RTL):** pre-menarche talk is high-shame ("aib") in target markets and mothers are often late sources — tone must reduce stigma and lower the barrier for both girl and parent, without exposing the child.
-- **`[NEEDS SOURCE]` register:** confirm exact "6–12 months" discharge-before-menarche wording against a Tier-1 source (currently KidsHealth/Cleveland + secondary Knix/Luna) before publishing child copy; confirm market-specific age-of-consent + parental-consent mechanics per launch jurisdiction before shipping.
+- **Launch-law separation:** the unsupported “6–12 months” discharge prediction was removed. Age-of-consent and parental-consent mechanics are not medical content and remain a per-jurisdiction legal launch task.
 
 ---
 
