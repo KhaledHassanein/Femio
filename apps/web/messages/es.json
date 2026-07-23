@@ -44,5 +44,76 @@
     "error": { "title": "Algo salió mal", "body": "No pudimos cargar esto ahora mismo.", "retry": "Reintentar" },
     "loading": "Cargando",
     "phases": { "menstrual": "Menstrual", "follicular": "Folicular", "ovulatory": "Ovulatoria", "luteal": "Lútea" }
+  },
+  "calculators": {
+    "title": "Calculadoras",
+    "subtitle": "Herramientas gratuitas para el ciclo, la fertilidad y el embarazo. Sin cuenta.",
+    "disclaimer": "Estas calculadoras dan estimaciones generales para informarte y planificar, no consejo médico. Habla con tu profesional de salud sobre tu salud.",
+    "common": {
+      "back": "Todas las calculadoras",
+      "estimateNote": "Es una estimación basada en las fechas que ingresaste — cada cuerpo es diferente.",
+      "cycleLabel": "Duración media del ciclo (días)",
+      "lmpLabel": "Primer día de tu última menstruación"
+    },
+    "list": {
+      "dueDate": { "name": "Fecha de parto", "desc": "Estima tu fecha a partir de tu última menstruación." },
+      "ovulation": { "name": "Ventana fértil", "desc": "Ve tus días fértiles y tu ovulación estimados." },
+      "gestationalAge": { "name": "Edad gestacional", "desc": "Ve de cuántas semanas estás." },
+      "bmi": { "name": "IMC", "desc": "Una estimación general de la masa corporal." },
+      "cycleLength": { "name": "Duración del ciclo", "desc": "Tu duración media de ciclo y su variabilidad." }
+    },
+    "dueDate": {
+      "title": "Estimador de fecha de parto",
+      "intro": "Estima tu fecha a partir del primer día de tu última menstruación.",
+      "eddLabel": "Fecha de parto estimada",
+      "termWindowLabel": "La mayoría de los bebés llega entre el {start} y el {end}."
+    },
+    "ovulation": {
+      "title": "Estimador de ventana fértil",
+      "intro": "Estima tus días fértiles a partir de tu última menstruación y la duración del ciclo.",
+      "ovulationLabel": "Ovulación estimada",
+      "windowLabel": "Ventana fértil",
+      "nextPeriodLabel": "Próxima menstruación alrededor del",
+      "rangeValue": "{start} – {end}",
+      "awarenessNote": "Estas fechas apoyan la planificación del embarazo y el conocimiento de tu ciclo. Son estimaciones, no un método fiable para evitar el embarazo — habla con tu profesional de salud sobre tus opciones."
+    },
+    "gestationalAge": {
+      "title": "Edad gestacional",
+      "intro": "Ve de cuántas semanas estás, contando desde tu última menstruación.",
+      "asOfLabel": "A fecha de",
+      "resultLabel": "{weeks} semanas y {days} días"
+    },
+    "bmi": {
+      "title": "Calculadora de IMC",
+      "intro": "Una estimación general de la masa corporal a partir de la altura y el peso.",
+      "unitMetric": "Métrico",
+      "unitImperial": "Imperial",
+      "weightMetric": "Peso (kg)",
+      "heightMetric": "Altura (cm)",
+      "weightImperial": "Peso (lb)",
+      "heightImperial": "Altura (in)",
+      "resultLabel": "Tu IMC",
+      "categoryLabel": "Categoría: {category}",
+      "categories": {
+        "underweight": "Bajo peso",
+        "normal": "Rango saludable",
+        "overweight": "Sobrepeso",
+        "obese": "Obesidad"
+      },
+      "note": "El IMC es un indicador general con límites — no refleja músculo, complexión ni composición corporal. Habla con tu profesional de salud sobre lo que es saludable para ti."
+    },
+    "cycleLength": {
+      "title": "Duración del ciclo",
+      "intro": "Ingresa algunas fechas de inicio de tu menstruación para ver tu duración media de ciclo.",
+      "datesLabel": "Fechas de inicio de la menstruación",
+      "addDate": "Añadir otra fecha",
+      "removeDate": "Quitar",
+      "averageLabel": "Duración media del ciclo",
+      "daysValue": "{days} días",
+      "rangeLabel": "Rango",
+      "regular": "Tus ciclos parecen regulares.",
+      "irregular": "Tus ciclos varían — es común, y Femio adapta sus predicciones cuando ocurre.",
+      "needTwo": "Añade al menos dos fechas de inicio de la menstruación."
+    }
   }
 }

@@ -44,5 +44,76 @@
     "error": { "title": "Une erreur est survenue", "body": "Impossible de charger ceci pour le moment.", "retry": "Réessayer" },
     "loading": "Chargement",
     "phases": { "menstrual": "Menstruelle", "follicular": "Folliculaire", "ovulatory": "Ovulatoire", "luteal": "Lutéale" }
+  },
+  "calculators": {
+    "title": "Calculateurs",
+    "subtitle": "Des outils gratuits pour le cycle, la fertilité et la grossesse. Sans compte.",
+    "disclaimer": "Ces calculateurs donnent des estimations générales pour t'informer et planifier, pas un avis médical. Parle de ta santé avec ta clinicienne.",
+    "common": {
+      "back": "Tous les calculateurs",
+      "estimateNote": "C'est une estimation basée sur les dates saisies — chaque corps est différent.",
+      "cycleLabel": "Durée moyenne du cycle (jours)",
+      "lmpLabel": "Premier jour de tes dernières règles"
+    },
+    "list": {
+      "dueDate": { "name": "Date d'accouchement", "desc": "Estime ta date à partir de tes dernières règles." },
+      "ovulation": { "name": "Fenêtre de fertilité", "desc": "Vois tes jours fertiles et ton ovulation estimés." },
+      "gestationalAge": { "name": "Âge gestationnel", "desc": "Vois à combien de semaines tu en es." },
+      "bmi": { "name": "IMC", "desc": "Une estimation générale de la masse corporelle." },
+      "cycleLength": { "name": "Durée du cycle", "desc": "Ta durée moyenne de cycle et sa variabilité." }
+    },
+    "dueDate": {
+      "title": "Estimation de la date d'accouchement",
+      "intro": "Estime ta date à partir du premier jour de tes dernières règles.",
+      "eddLabel": "Date d'accouchement estimée",
+      "termWindowLabel": "La plupart des bébés arrivent entre le {start} et le {end}."
+    },
+    "ovulation": {
+      "title": "Estimation de la fenêtre de fertilité",
+      "intro": "Estime tes jours fertiles à partir de tes dernières règles et de la durée du cycle.",
+      "ovulationLabel": "Ovulation estimée",
+      "windowLabel": "Fenêtre de fertilité",
+      "nextPeriodLabel": "Prochaines règles autour du",
+      "rangeValue": "{start} – {end}",
+      "awarenessNote": "Ces dates aident à planifier une grossesse et à la connaissance de ton cycle. Ce sont des estimations, pas un moyen fiable d'éviter une grossesse — parle de tes options avec ta clinicienne."
+    },
+    "gestationalAge": {
+      "title": "Âge gestationnel",
+      "intro": "Vois à combien de semaines tu en es, à partir de tes dernières règles.",
+      "asOfLabel": "À la date du",
+      "resultLabel": "{weeks} semaines et {days} jours"
+    },
+    "bmi": {
+      "title": "Calculateur d'IMC",
+      "intro": "Une estimation générale de la masse corporelle à partir de la taille et du poids.",
+      "unitMetric": "Métrique",
+      "unitImperial": "Impérial",
+      "weightMetric": "Poids (kg)",
+      "heightMetric": "Taille (cm)",
+      "weightImperial": "Poids (lb)",
+      "heightImperial": "Taille (po)",
+      "resultLabel": "Ton IMC",
+      "categoryLabel": "Catégorie : {category}",
+      "categories": {
+        "underweight": "Insuffisance pondérale",
+        "normal": "Plage saine",
+        "overweight": "Surpoids",
+        "obese": "Obésité"
+      },
+      "note": "L'IMC est un indicateur général avec des limites — il ne reflète ni les muscles, ni la morphologie, ni la composition corporelle. Discute de ce qui est sain pour toi avec ta clinicienne."
+    },
+    "cycleLength": {
+      "title": "Durée du cycle",
+      "intro": "Saisis quelques dates de début de règles pour voir ta durée moyenne de cycle.",
+      "datesLabel": "Dates de début de règles",
+      "addDate": "Ajouter une date",
+      "removeDate": "Retirer",
+      "averageLabel": "Durée moyenne du cycle",
+      "daysValue": "{days} jours",
+      "rangeLabel": "Écart",
+      "regular": "Tes cycles semblent réguliers.",
+      "irregular": "Tes cycles varient — c'est courant, et Femio adapte ses prévisions en conséquence.",
+      "needTwo": "Ajoute au moins deux dates de début de règles."
+    }
   }
 }

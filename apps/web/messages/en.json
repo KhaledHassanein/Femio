@@ -44,5 +44,76 @@
     "error": { "title": "Something went wrong", "body": "We could not load this just now.", "retry": "Try again" },
     "loading": "Loading",
     "phases": { "menstrual": "Menstrual", "follicular": "Follicular", "ovulatory": "Ovulatory", "luteal": "Luteal" }
+  },
+  "calculators": {
+    "title": "Calculators",
+    "subtitle": "Free tools for cycle, fertility, and pregnancy planning. No account needed.",
+    "disclaimer": "These calculators give general estimates for learning and planning, not medical advice. Talk to your clinician about your health.",
+    "common": {
+      "back": "All calculators",
+      "estimateNote": "This is an estimate based on the dates you entered — every body is different.",
+      "cycleLabel": "Average cycle length (days)",
+      "lmpLabel": "First day of your last period"
+    },
+    "list": {
+      "dueDate": { "name": "Due date", "desc": "Estimate your due date from your last period." },
+      "ovulation": { "name": "Fertile window", "desc": "See your estimated fertile days and ovulation." },
+      "gestationalAge": { "name": "Gestational age", "desc": "See how many weeks along you are." },
+      "bmi": { "name": "BMI", "desc": "A general body-mass estimate." },
+      "cycleLength": { "name": "Cycle length", "desc": "Your average cycle length and variability." }
+    },
+    "dueDate": {
+      "title": "Due date estimator",
+      "intro": "Estimate your due date from the first day of your last period.",
+      "eddLabel": "Estimated due date",
+      "termWindowLabel": "Most babies arrive between {start} and {end}."
+    },
+    "ovulation": {
+      "title": "Fertile window estimator",
+      "intro": "Estimate your fertile days from your last period and cycle length.",
+      "ovulationLabel": "Estimated ovulation",
+      "windowLabel": "Fertile window",
+      "nextPeriodLabel": "Next period around",
+      "rangeValue": "{start} – {end}",
+      "awarenessNote": "These dates support conception planning and awareness. They're estimates, not a reliable way to avoid pregnancy — talk to your clinician about your options."
+    },
+    "gestationalAge": {
+      "title": "Gestational age",
+      "intro": "See how many weeks along you are, counting from your last period.",
+      "asOfLabel": "As of",
+      "resultLabel": "{weeks} weeks and {days} days"
+    },
+    "bmi": {
+      "title": "BMI calculator",
+      "intro": "A general estimate of body mass from height and weight.",
+      "unitMetric": "Metric",
+      "unitImperial": "Imperial",
+      "weightMetric": "Weight (kg)",
+      "heightMetric": "Height (cm)",
+      "weightImperial": "Weight (lb)",
+      "heightImperial": "Height (in)",
+      "resultLabel": "Your BMI",
+      "categoryLabel": "Category: {category}",
+      "categories": {
+        "underweight": "Underweight",
+        "normal": "Healthy range",
+        "overweight": "Overweight",
+        "obese": "Obese"
+      },
+      "note": "BMI is a general screen with limits — it doesn't reflect muscle, build, or body composition. Discuss what's healthy for you with your clinician."
+    },
+    "cycleLength": {
+      "title": "Cycle length",
+      "intro": "Enter a few period start dates to see your average cycle length.",
+      "datesLabel": "Period start dates",
+      "addDate": "Add another date",
+      "removeDate": "Remove",
+      "averageLabel": "Average cycle length",
+      "daysValue": "{days} days",
+      "rangeLabel": "Range",
+      "regular": "Your cycles look regular.",
+      "irregular": "Your cycles vary — that's common, and Femio adapts predictions when they do.",
+      "needTwo": "Add at least two period start dates."
+    }
   }
 }
