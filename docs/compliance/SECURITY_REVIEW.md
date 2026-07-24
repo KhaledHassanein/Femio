@@ -18,14 +18,15 @@ Femio has an unusually small server-side attack surface: the browser talks **dir
 
 ## 2. Automated access-control audit
 
-`scripts/security/rls-audit.mjs` (`pnpm rls-audit`) proves the data-layer guarantees against the **live** project using only the publishable key. Latest run (2026-07-24): **10/10 pass**.
+`scripts/security/rls-audit.mjs` (`pnpm rls-audit`) proves the data-layer guarantees against the **live** project using only the publishable key. Latest run (2026-07-24): **12/12 pass**.
 
 | # | Property | Result |
 |---|----------|--------|
 | 1 | Health write **rejected before** core consent; **accepted after** | ✓ |
 | 2 | User B cannot **SELECT / UPDATE / DELETE** user A's rows; A's row survives | ✓ |
 | 3 | Unauthenticated **anon role** reads **no** health rows; can read published content | ✓ |
-| 4 | **GDPR cascade** — deleting A's profile removes A's health data | ✓ |
+| 4 | **No privilege escalation** — non-admin can't grant self a role; can't read another's roles (P1.18) | ✓ |
+| 5 | **GDPR cascade** — deleting A's profile removes A's health data | ✓ |
 
 This is a manual pre-release gate (it creates throwaway anonymous users against the real DB), not a CI step. Re-run before each release and after any migration touching RLS, consent, or the table list.
 

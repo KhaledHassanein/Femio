@@ -133,8 +133,27 @@ async function run() {
     check("anon role may query published content", cErr == null, cErr?.message);
   }
 
-  // 4. GDPR cascade — deleting A's profile removes A's health data.
-  console.log("\n4. GDPR delete cascade");
+  // 4. Privilege escalation — a non-admin cannot grant themselves a staff role,
+  //    nor read another user's roles (RBAC / A01, P1.18).
+  console.log("\n4. Role privilege escalation");
+  {
+    const { data, error } = await b.client
+      .from("staff_roles")
+      .insert({ user_id: b.uid, role: "admin" })
+      .select("role");
+    check(
+      "non-admin cannot grant self a staff role",
+      error != null || !Array.isArray(data) || data.length === 0,
+      error ? "" : `inserted ${data?.length} role(s)`,
+    );
+  }
+  {
+    const { data } = await b.client.from("staff_roles").select("role").eq("user_id", a.uid);
+    check("user cannot read another user's roles", Array.isArray(data) && data.length === 0, `saw ${data?.length ?? "?"} rows`);
+  }
+
+  // 5. GDPR cascade — deleting A's profile removes A's health data.
+  console.log("\n5. GDPR delete cascade");
   {
     await a.client.from("profiles").delete().eq("id", a.uid);
     const { data } = await a.client.from("cycles").select("id").eq("profile_id", a.uid);
