@@ -94,7 +94,9 @@
 - [x] P1.14 Symptom/mood logging (100+ symptoms, severity, custom) — 2026-07-23 (Claude Code, → apps/web/src/components/cycle/log-symptoms.tsx): curated symptom/mood taxonomy (mood/body/other) with multi-select chips, optional intensity (mild→severe), and a note → symptom_logs (owner-scoped, consent-gated); recent symptoms shown on /track. Full i18n. Verified live (consent gate + RLS). 
   - [ ] P1.14.1 Expand to the full 100+ symptom taxonomy (DB/CMS-driven) + per-symptom severity + custom user-defined symptoms (schema already accepts any type; note field carries custom text).
 - [x] P1.15 Dashboard per mode; insights v1 — 2026-07-23 (Claude Code, → apps/web/src/app/[locale]/dashboard/, lib/cycle/insights.ts): auth-gated dashboard adapted by persona_state.track (cycle/ttc/pregnancy/menopause) — current cycle day, next-period window + average, top symptoms, TTC fertile window. Pure tested insights (6 tests). Onboarding lands here; Log-today CTA → /track. Full i18n.
-- [ ] P1.16 Data export (JSON/PDF) + delete-account (GDPR)
+- [x] P1.16 Data export (JSON/PDF) + delete-account (GDPR) — 2026-07-23 (Claude Code, → apps/web/src/app/[locale]/settings/, supabase/migrations/0003): settings page exports the user's full owner-scoped record as JSON and deletes the account (migration 0003 delete_account() RPC removes the auth user → cascades; client falls back to profile-delete which also cascades). **Verified live**: profile delete cascaded away all health data. Full i18n.
+  - [ ] P1.16.1 PDF export (JSON done) + doctor-visit summary (ties to P2.6).
+  - [ ] P1.16.APPLY (Khaled): apply supabase/migrations/0003_delete_account.sql to remote (dashboard SQL Editor or `supabase db push`) so delete also removes the auth.users row (client cascades health data regardless).
 - [ ] P1.17 Offline-capable logging (PWA IndexedDB sync queue)
 ### 1D Admin portal v1
 - [ ] P1.18 Roles/permissions (admin, editor, medical reviewer, translator, support)

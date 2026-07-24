@@ -59,3 +59,4 @@ Then, from the app (`pnpm dev`), a signed-in test:
   (`sb_secret_…`) will be needed later for trusted admin RPCs (P1.18+) — add it to `.env.local`
   as `SUPABASE_SECRET_KEY` (no `NEXT_PUBLIC_` prefix), never commit it.
 - New schema changes = **new** numbered migration files (never edit an applied one).
+- **0003_delete_account.sql** (GDPR delete RPC) is pending apply — run it the same way (dashboard SQL Editor or `supabase db push`). Until applied, account deletion still erases all health data via the client's profile-delete fallback; 0003 additionally removes the `auth.users` row.
