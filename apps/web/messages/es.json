@@ -192,5 +192,21 @@
     },
     "recentHeading": "Registrados recientemente",
     "recentEmpty": "Aún no hay síntomas registrados."
+  },
+  "dashboard": {
+    "title": "Tu panel",
+    "modeLabel": { "cycle": "Ciclo", "ttc": "Buscando embarazo", "pregnancy": "Embarazo", "menopause": "Menopausia" },
+    "cycleDay": "Día {day} de tu ciclo",
+    "cycleDayUnknown": "Registra una menstruación para ver tu día de ciclo.",
+    "nextPeriod": "Próxima menstruación",
+    "window": "Prevista entre el {start} y el {end}",
+    "avgLength": "Ciclo medio: {days} días",
+    "irregularNote": "Tus ciclos varían, así que las predicciones se mantienen en un rango más amplio — es normal.",
+    "fertileHeading": "Ventana fértil estimada",
+    "fertileWindow": "Alrededor del {start} – {end}",
+    "topSymptomsHeading": "Los más registrados",
+    "logCta": "Registrar hoy",
+    "needData": "Registra dos ciclos para desbloquear los análisis.",
+    "modeSoon": "Pronto llega un seguimiento de {mode} más completo. Tus herramientas de ciclo están aquí mientras tanto."
   }
 }

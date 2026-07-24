@@ -192,5 +192,21 @@
     },
     "recentHeading": "Recently logged",
     "recentEmpty": "No symptoms logged yet."
+  },
+  "dashboard": {
+    "title": "Your dashboard",
+    "modeLabel": { "cycle": "Cycle", "ttc": "Trying to conceive", "pregnancy": "Pregnancy", "menopause": "Menopause" },
+    "cycleDay": "Day {day} of your cycle",
+    "cycleDayUnknown": "Log a period to see your cycle day.",
+    "nextPeriod": "Next period",
+    "window": "Expected between {start} and {end}",
+    "avgLength": "Average cycle: {days} days",
+    "irregularNote": "Your cycles vary, so predictions stay a wider range — that's expected.",
+    "fertileHeading": "Estimated fertile window",
+    "fertileWindow": "Around {start} – {end}",
+    "topSymptomsHeading": "Most logged",
+    "logCta": "Log today",
+    "needData": "Log a couple of periods to unlock insights.",
+    "modeSoon": "Fuller {mode} tracking is coming soon. Your cycle tools are here in the meantime."
   }
 }

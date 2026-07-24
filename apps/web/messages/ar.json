@@ -192,5 +192,21 @@
     },
     "recentHeading": "المُسجّلة مؤخرًا",
     "recentEmpty": "لا توجد أعراض مُسجّلة بعد."
+  },
+  "dashboard": {
+    "title": "لوحتكِ",
+    "modeLabel": { "cycle": "الدورة", "ttc": "محاولة الحمل", "pregnancy": "الحمل", "menopause": "انقطاع الطمث" },
+    "cycleDay": "اليوم {day} من دورتكِ",
+    "cycleDayUnknown": "سجّلي دورة لرؤية يوم دورتكِ.",
+    "nextPeriod": "الدورة القادمة",
+    "window": "متوقّعة بين {start} و{end}",
+    "avgLength": "متوسط الدورة: {days} يومًا",
+    "irregularNote": "تتفاوت دوراتكِ، لذا تبقى التوقعات نطاقًا أوسع — وهذا متوقّع.",
+    "fertileHeading": "نافذة الخصوبة المُقدَّرة",
+    "fertileWindow": "نحو {start} – {end}",
+    "topSymptomsHeading": "الأكثر تسجيلًا",
+    "logCta": "سجّلي اليوم",
+    "needData": "سجّلي دورتين لفتح الرؤى.",
+    "modeSoon": "يأتي قريبًا تتبّع {mode} بشكل أوسع. أدوات دورتكِ متاحة الآن في هذه الأثناء."
   }
 }
