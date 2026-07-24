@@ -15,7 +15,7 @@ module.exports = {
         text: { DEFAULT: 'var(--text)', muted: 'var(--text-muted)', subtle: 'var(--text-subtle)', 'on-brand': 'var(--text-on-brand)', link: 'var(--text-link)' },
         border: { DEFAULT: 'var(--border)', strong: 'var(--border-strong)' },
         primary: { DEFAULT: 'var(--primary)', hover: 'var(--primary-hover)', active: 'var(--primary-active)', soft: 'var(--primary-soft)', 'soft-text': 'var(--primary-soft-text)', fg: 'var(--on-primary)', solid: 'var(--primary-solid)', 'fg-solid': 'var(--on-primary-solid)' },
-        accent: { DEFAULT: 'var(--accent)', hover: 'var(--accent-hover)', soft: 'var(--accent-soft)', fg: 'var(--on-accent)', solid: 'var(--accent-solid)', 'fg-solid': 'var(--on-accent-solid)' },
+        accent: { DEFAULT: 'var(--accent)', hover: 'var(--accent-hover)', soft: 'var(--accent-soft)', 'soft-text': 'var(--accent-soft-text)', fg: 'var(--on-accent)', solid: 'var(--accent-solid)', 'fg-solid': 'var(--on-accent-solid)' },
         success: { DEFAULT: 'var(--success)', soft: 'var(--success-soft)', text: 'var(--success-text)', solid: 'var(--success-solid)', fg: 'var(--on-success)' },
         warning: { DEFAULT: 'var(--warning)', soft: 'var(--warning-soft)', text: 'var(--warning-text)' },
         danger: { DEFAULT: 'var(--danger)', soft: 'var(--danger-soft)', text: 'var(--danger-text)', border: 'var(--danger-border)' },

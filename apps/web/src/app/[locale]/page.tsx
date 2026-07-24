@@ -36,7 +36,7 @@ export default async function HomePage({ params }: PageProps) {
         <span className="rounded-pill bg-primary-soft px-4 py-2 text-sm text-primary-soft-text">
           {t("chips.primary")}
         </span>
-        <span className="rounded-pill bg-accent-soft px-4 py-2 text-sm text-accent">
+        <span className="rounded-pill bg-accent-soft px-4 py-2 text-sm text-accent-soft-text">
           {t("chips.accent")}
         </span>
         <span className="rounded-pill bg-success-soft px-4 py-2 text-sm text-success-text">

@@ -2,7 +2,8 @@ import { expect, test } from "@playwright/test";
 
 // Verifies the offline queue: a period logged while offline is saved locally and
 // synced to Supabase when connectivity returns.
-test("a period logged offline syncs when back online", async ({ page, context }) => {
+// @live — onboards + syncs to live Supabase; excluded from the DB-free CI e2e run.
+test("a period logged offline syncs when back online @live", async ({ page, context }) => {
   // Onboard to get a session, then open the tracker.
   await page.goto("/en/welcome");
   await page.getByRole("button", { name: /tracking my cycle/i }).click();

@@ -17,7 +17,9 @@ export default defineConfig({
   },
   projects: [{ name: "chromium", use: { ...devices["Desktop Chrome"] } }],
   webServer: {
-    command: "pnpm dev",
+    // Local dev lazy-compiles routes; CI serves the already-built app (`next start`,
+    // faster + closer to prod). The CI e2e step runs after `pnpm build`, so `.next` exists.
+    command: process.env.CI ? "pnpm start" : "pnpm dev",
     url: "http://localhost:3000/en",
     timeout: 120_000,
     reuseExistingServer: !process.env.CI,

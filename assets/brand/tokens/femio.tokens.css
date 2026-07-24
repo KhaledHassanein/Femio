@@ -44,7 +44,7 @@
   /* Neutral — warm, faint-violet tinted (cohesive with brand, never clinical-cold) */
   --neutral-0:#FFFFFF;   --neutral-50:#FAFAF9;  --neutral-100:#F3F1F4;
   --neutral-200:#E7E4EC; --neutral-300:#D5D1DC; --neutral-400:#B8B2C4;
-  --neutral-500:#928BA3; --neutral-550:#787189; --neutral-600:#6E6880; --neutral-700:#524D61;
+  --neutral-500:#928BA3; --neutral-550:#726C82; --neutral-600:#6E6880; --neutral-700:#524D61;
   --neutral-800:#322E40; --neutral-900:#1E1B2E; --neutral-950:#141221;
 
   /* Dark-mode raw surfaces (never pure black except OLED user setting) */
@@ -119,7 +119,7 @@
   /* Text */
   --text:var(--neutral-900);
   --text-muted:var(--neutral-600);
-  --text-subtle:var(--neutral-550);  /* AA-fixed: 4.64:1 on surface (was neutral-500 = 3.26, fail) */
+  --text-subtle:var(--neutral-550);  /* AA-fixed: 4.81:1 on --bg #FAFAF9 (neutral-550 darkened #787189→#726C82; axe found 4.45 on the off-white bg) */
   --text-on-brand:var(--neutral-0);
   --text-link:var(--violet-700);
 
@@ -140,6 +140,7 @@
   --accent:var(--rasp-600);
   --accent-hover:var(--rasp-700);
   --accent-soft:var(--rasp-100);
+  --accent-soft-text:var(--rasp-700);  /* text on --accent-soft: 5.11:1 (was text-accent=3.80, fail) */
   --on-accent:var(--neutral-0);
 
   /* Status */
@@ -201,6 +202,7 @@
   --accent:var(--rasp-500);
   --accent-hover:var(--rasp-400);
   --accent-soft:rgb(225 29 116 / .18);
+  --accent-soft-text:var(--rasp-300);  /* text on dark --accent-soft: ~8.3:1 */
   --on-accent:#FFFFFF;
 
   --success:var(--teal-400); --success-soft:rgb(13 148 136 / .18); --success-text:var(--teal-200);

@@ -2,7 +2,9 @@ import { expect, test } from "@playwright/test";
 
 // Drives the real flow: onboarding → native anonymous sign-in (live Supabase) →
 // consent + persona_state written → dashboard. Creates a throwaway anonymous user.
-test("onboarding reaches the dashboard with app nav", async ({ page }) => {
+// @live — drives real anonymous auth against live Supabase; excluded from the
+// DB-free CI e2e run (see playwright.config.ts / test:e2e:ci).
+test("onboarding reaches the dashboard with app nav @live", async ({ page }) => {
   await page.goto("/en/welcome");
 
   await page.getByRole("button", { name: /tracking my cycle/i }).click();

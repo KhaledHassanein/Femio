@@ -46,7 +46,7 @@
       "0": { "$type": "color", "$value": "#FFFFFF" }, "50": { "$type": "color", "$value": "#FAFAF9" },
       "100": { "$type": "color", "$value": "#F3F1F4" }, "200": { "$type": "color", "$value": "#E7E4EC" },
       "300": { "$type": "color", "$value": "#D5D1DC" }, "400": { "$type": "color", "$value": "#B8B2C4" },
-      "500": { "$type": "color", "$value": "#928BA3" }, "550": { "$type": "color", "$value": "#787189" }, "600": { "$type": "color", "$value": "#6E6880" },
+      "500": { "$type": "color", "$value": "#928BA3" }, "550": { "$type": "color", "$value": "#726C82" }, "600": { "$type": "color", "$value": "#6E6880" },
       "700": { "$type": "color", "$value": "#524D61" }, "800": { "$type": "color", "$value": "#322E40" },
       "900": { "$type": "color", "$value": "#1E1B2E" }, "950": { "$type": "color", "$value": "#141221" }
     }
@@ -63,6 +63,7 @@
       "primary-soft": { "$type": "color", "$value": "{color.violet.100}" },
       "primary-solid": { "$type": "color", "$value": "{color.violet.600}", "$description": "CTA fill; white text AA 5.70:1" },
       "accent": { "$type": "color", "$value": "{color.raspberry.600}" },
+      "accent-soft-text": { "$type": "color", "$value": "{color.raspberry.700}", "$description": "text on accent-soft; AA 5.11:1" },
       "accent-solid": { "$type": "color", "$value": "{color.raspberry.600}", "$description": "CTA fill; white text AA 4.54:1" },
       "success": { "$type": "color", "$value": "{color.teal.600}" },
       "success-solid": { "$type": "color", "$value": "{color.teal.700}", "$description": "text-bearing fill; white text AA 5.47:1 (teal-600 is large/graphics only)" },

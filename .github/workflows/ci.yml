@@ -50,6 +50,14 @@ jobs:
       - name: Build
         run: pnpm build
 
+      # DB-free e2e (home, crisis, axe a11y) against the built app via `next start`.
+      # @live specs (real Supabase auth/sync) stay a local gate — see playwright.config.ts.
+      - name: Install Playwright browser
+        run: pnpm --filter web exec playwright install --with-deps chromium
+
+      - name: E2E (DB-free) + accessibility
+        run: pnpm --filter web test:e2e:ci
+
   verify-cms:
     runs-on: ubuntu-latest
     env:
