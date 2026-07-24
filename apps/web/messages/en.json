@@ -147,5 +147,22 @@
       "start": "Start using Femio"
     },
     "nav": { "next": "Continue", "back": "Back" }
+  },
+  "track": {
+    "title": "Your cycle",
+    "logHeading": "Log a period",
+    "logDateLabel": "First day of your period",
+    "logButton": "Save",
+    "prediction": {
+      "heading": "Next period",
+      "window": "Expected between {start} and {end}",
+      "averageLength": "Average cycle: {days} days",
+      "confidenceHigh": "Based on {count} cycles.",
+      "confidenceMedium": "Based on {count} cycles — this will sharpen with more.",
+      "confidenceLow": "Early estimate — keep logging to improve it.",
+      "irregularNote": "Your cycles vary, so this is a wider window — that's expected, and there's no “late” count.",
+      "needMore": "Log at least two periods to see a prediction."
+    },
+    "history": { "heading": "Logged periods", "empty": "No periods logged yet." }
   }
 }

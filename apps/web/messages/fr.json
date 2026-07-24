@@ -147,5 +147,22 @@
       "start": "Commencer à utiliser Femio"
     },
     "nav": { "next": "Continuer", "back": "Retour" }
+  },
+  "track": {
+    "title": "Ton cycle",
+    "logHeading": "Enregistrer des règles",
+    "logDateLabel": "Premier jour de tes règles",
+    "logButton": "Enregistrer",
+    "prediction": {
+      "heading": "Prochaines règles",
+      "window": "Attendues entre le {start} et le {end}",
+      "averageLength": "Cycle moyen : {days} jours",
+      "confidenceHigh": "D'après {count} cycles.",
+      "confidenceMedium": "D'après {count} cycles — cela s'affinera avec le temps.",
+      "confidenceLow": "Estimation précoce — continue à enregistrer pour l'améliorer.",
+      "irregularNote": "Tes cycles varient, donc c'est une fourchette plus large — c'est normal, et il n'y a pas de compteur de « retard ».",
+      "needMore": "Enregistre au moins deux règles pour voir une prévision."
+    },
+    "history": { "heading": "Règles enregistrées", "empty": "Aucune règle enregistrée." }
   }
 }

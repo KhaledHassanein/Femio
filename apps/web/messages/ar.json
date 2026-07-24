@@ -147,5 +147,22 @@
       "start": "ابدئي استخدام Femio"
     },
     "nav": { "next": "متابعة", "back": "رجوع" }
+  },
+  "track": {
+    "title": "دورتكِ",
+    "logHeading": "سجّلي دورة",
+    "logDateLabel": "أول يوم في دورتكِ",
+    "logButton": "حفظ",
+    "prediction": {
+      "heading": "الدورة القادمة",
+      "window": "متوقّعة بين {start} و{end}",
+      "averageLength": "متوسط الدورة: {days} يومًا",
+      "confidenceHigh": "بناءً على {count} دورات.",
+      "confidenceMedium": "بناءً على {count} دورات — وستزداد دقّةً مع المزيد.",
+      "confidenceLow": "تقدير مبكر — واصلي التسجيل لتحسينه.",
+      "irregularNote": "تتفاوت دوراتكِ، لذا هذه نافذة أوسع — وهذا متوقّع، ولا يوجد عدّ للتأخير.",
+      "needMore": "سجّلي دورتين على الأقل لرؤية التوقّع."
+    },
+    "history": { "heading": "الدورات المُسجّلة", "empty": "لا توجد دورات مُسجّلة بعد." }
   }
 }

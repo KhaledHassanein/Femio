@@ -147,5 +147,22 @@
       "start": "Empezar a usar Femio"
     },
     "nav": { "next": "Continuar", "back": "Atrás" }
+  },
+  "track": {
+    "title": "Tu ciclo",
+    "logHeading": "Registrar menstruación",
+    "logDateLabel": "Primer día de tu menstruación",
+    "logButton": "Guardar",
+    "prediction": {
+      "heading": "Próxima menstruación",
+      "window": "Prevista entre el {start} y el {end}",
+      "averageLength": "Ciclo medio: {days} días",
+      "confidenceHigh": "Según {count} ciclos.",
+      "confidenceMedium": "Según {count} ciclos — se afinará con más datos.",
+      "confidenceLow": "Estimación temprana — sigue registrando para mejorarla.",
+      "irregularNote": "Tus ciclos varían, así que es una ventana más amplia — es normal, y no hay contador de «retraso».",
+      "needMore": "Registra al menos dos menstruaciones para ver una predicción."
+    },
+    "history": { "heading": "Menstruaciones registradas", "empty": "Aún no hay registros." }
   }
 }

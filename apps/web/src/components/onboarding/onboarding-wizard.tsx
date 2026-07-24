@@ -70,7 +70,7 @@ export function OnboardingWizard() {
       locale,
     });
     if (res.ok) {
-      router.push("/");
+      router.push("/track");
     } else {
       setError(res.error);
       setSubmitting(false);
