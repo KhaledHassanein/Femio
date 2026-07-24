@@ -4,6 +4,7 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { useTranslations } from "next-intl";
 import { createClient } from "@/lib/supabase/client";
+import { saveOrQueue } from "@/lib/offline/sync";
 import { SEVERITY_LEVELS, SYMPTOM_GROUPS, type Severity } from "@/lib/cycle/symptoms";
 import { Alert, AlertDescription } from "@/components/ui/alert";
 import { Button } from "@/components/ui/button";
@@ -27,6 +28,7 @@ export function LogSymptoms() {
   const [note, setNote] = useState("");
   const [saving, setSaving] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [queued, setQueued] = useState(false);
 
   const toggle = (key: string) =>
     setSelected((s) => {
@@ -40,31 +42,36 @@ export function LogSymptoms() {
     if (selected.size === 0) return;
     setSaving(true);
     setError(null);
+    setQueued(false);
     const supabase = createClient();
     const {
-      data: { user },
-    } = await supabase.auth.getUser();
-    if (!user) {
+      data: { session },
+    } = await supabase.auth.getSession();
+    if (!session) {
       router.push("/welcome");
       return;
     }
     const rows = [...selected].map((type) => ({
-      profile_id: user.id,
+      profile_id: session.user.id,
       type,
       severity,
       note: note || null,
     }));
-    const { error: insertError } = await supabase.from("symptom_logs").insert(rows);
-    if (insertError) {
-      setError(insertError.message);
-      setSaving(false);
-      return;
-    }
-    setSelected(new Set());
-    setSeverity(null);
-    setNote("");
+    const res = await saveOrQueue("symptom_logs", rows);
     setSaving(false);
-    router.refresh();
+    if (res === "synced") {
+      setSelected(new Set());
+      setSeverity(null);
+      setNote("");
+      router.refresh();
+    } else if (res === "queued") {
+      setSelected(new Set());
+      setSeverity(null);
+      setNote("");
+      setQueued(true);
+    } else {
+      setError(res.error);
+    }
   };
 
   return (
@@ -118,6 +125,11 @@ export function LogSymptoms() {
         {error ? (
           <Alert variant="danger">
             <AlertDescription>{error}</AlertDescription>
+          </Alert>
+        ) : null}
+        {queued ? (
+          <Alert variant="info">
+            <AlertDescription>{t("savedOffline")}</AlertDescription>
           </Alert>
         ) : null}
 

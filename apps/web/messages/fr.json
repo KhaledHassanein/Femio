@@ -153,6 +153,7 @@
     "logHeading": "Enregistrer des règles",
     "logDateLabel": "Premier jour de tes règles",
     "logButton": "Enregistrer",
+    "savedOffline": "Enregistré hors ligne — la synchronisation se fera au retour de la connexion.",
     "prediction": {
       "heading": "Prochaines règles",
       "window": "Attendues entre le {start} et le {end}",
@@ -171,6 +172,7 @@
     "severity": { "1": "Légère", "2": "Modérée", "3": "Forte", "4": "Sévère" },
     "noteLabel": "Note (facultatif)",
     "save": "Enregistrer les symptômes",
+    "savedOffline": "Enregistré hors ligne — la synchronisation se fera au retour de la connexion.",
     "groups": { "mood": "Humeur", "body": "Corps", "other": "Autre" },
     "items": {
       "happy": "Heureuse",

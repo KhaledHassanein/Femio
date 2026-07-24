@@ -153,6 +153,7 @@
     "logHeading": "Registrar menstruación",
     "logDateLabel": "Primer día de tu menstruación",
     "logButton": "Guardar",
+    "savedOffline": "Guardado sin conexión — se sincronizará cuando vuelvas a estar en línea.",
     "prediction": {
       "heading": "Próxima menstruación",
       "window": "Prevista entre el {start} y el {end}",
@@ -171,6 +172,7 @@
     "severity": { "1": "Leve", "2": "Moderada", "3": "Fuerte", "4": "Severa" },
     "noteLabel": "Nota (opcional)",
     "save": "Registrar síntomas",
+    "savedOffline": "Guardado sin conexión — se sincronizará cuando vuelvas a estar en línea.",
     "groups": { "mood": "Estado de ánimo", "body": "Cuerpo", "other": "Otro" },
     "items": {
       "happy": "Feliz",

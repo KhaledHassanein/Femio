@@ -4,6 +4,7 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { useTranslations } from "next-intl";
 import { createClient } from "@/lib/supabase/client";
+import { saveOrQueue } from "@/lib/offline/sync";
 import { todayISO } from "@/lib/calculators/dates";
 import { Alert, AlertDescription } from "@/components/ui/alert";
 import { Button } from "@/components/ui/button";
@@ -17,29 +18,31 @@ export function LogPeriod() {
   const [date, setDate] = useState(todayISO());
   const [saving, setSaving] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [queued, setQueued] = useState(false);
 
   const save = async () => {
     setSaving(true);
     setError(null);
+    setQueued(false);
     const supabase = createClient();
+    // getSession reads the cached session without a network call, so this works
+    // offline (unlike getUser).
     const {
-      data: { user },
-    } = await supabase.auth.getUser();
-    if (!user) {
+      data: { session },
+    } = await supabase.auth.getSession();
+    if (!session) {
       router.push("/welcome");
       return;
     }
-    const { error: insertError } = await supabase
-      .from("cycles")
-      .insert({ profile_id: user.id, period_start: date });
-    if (insertError) {
-      setError(insertError.message);
-      setSaving(false);
-      return;
-    }
+    const res = await saveOrQueue("cycles", { profile_id: session.user.id, period_start: date });
     setSaving(false);
-    // Re-run the server component so the new period + prediction show.
-    router.refresh();
+    if (res === "synced") {
+      router.refresh(); // re-run the server component so the new period + prediction show
+    } else if (res === "queued") {
+      setQueued(true);
+    } else {
+      setError(res.error);
+    }
   };
 
   return (
@@ -59,6 +62,11 @@ export function LogPeriod() {
         {error ? (
           <Alert variant="danger">
             <AlertDescription>{error}</AlertDescription>
+          </Alert>
+        ) : null}
+        {queued ? (
+          <Alert variant="info">
+            <AlertDescription>{t("savedOffline")}</AlertDescription>
           </Alert>
         ) : null}
         <Button onClick={save} disabled={saving || !date} className="self-start">
