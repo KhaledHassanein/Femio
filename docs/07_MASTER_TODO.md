@@ -26,6 +26,7 @@
   - [ ] P0.11.3 Automated both-theme contrast sign-off across all semantic pairs → now tracked as P1.5.2 (with axe-core in CI, P1.22)
 - [~] P0.12 Legal: entity decision, privacy policy (health-specific), terms, DPIA, cookie consent plan — foundation + drafts done 2026-07-16 (→ 13_LEGAL_COMPLIANCE.md); finalization needs counsel/DPO
   - [ ] P0.12.1 → COUNSEL: entity + DPO + EU/local representatives + registrations; finalize Privacy Policy, ToS, DPIA; per-jurisdiction minor-consent ages + verifiable parental consent; international-transfer mechanism; liability/governing-law
+  - [ ] P0.12.3 → DPO/MEDICAL (bundle with this gate): sign off the crisis-safety **global-only posture** — see **P1.26.1** (DPIA §5, CRISIS_RESOURCES). The feature ships production-safe on the EN fallback without it; this is the pre-launch sign-off, not open build work.
   - [x] P0.12.2 Create compliance skeletons: docs/compliance/DATA_MAP.md, DPIA.md, PROCESSOR_REGISTER.md, BREACH_RUNBOOK.md — 2026-07-23 (with P1.3 schema): DATA_MAP populated per-field from schema v1; DPIA/processor-register/breach-runbook skeletons flagged for DPO/counsel to finalize.
 - [x] P0.13 Decision log started (docs/DECISIONS.md) + documentation standard adopted — 2026-07-16
 - [x] P0.14 Main project folder established at E:\Femio (docs/, references/, skills/, app/, assets/) — 2026-07-16
