@@ -88,7 +88,9 @@
   - [ ] P1.12.1 Full email/OAuth sign-in + return flow (magic-link callback route, session on return) — v1 links email to the anon account via updateUser (confirmation email); dedicated auth pages land with P1.18 (roles) or a focused auth pass.
   - [ ] P1.12.2 Finalize consent wording with counsel (P0.12) — current copy is a faithful placeholder of the doc-13 granular-consent structure.
   - [ ] P1.12.3 Post-onboarding home/dashboard (currently redirects to the placeholder home) — lands with P1.13–P1.15.
-- [ ] P1.13 Cycle tracking: calendar, flow, predictions v1 **with uncertainty ranges + irregular-cycle mode**
+- [x] P1.13 Cycle tracking: calendar, flow, predictions v1 **with uncertainty ranges + irregular-cycle mode** — 2026-07-23 (Claude Code, → apps/web/src/lib/cycle/, /[locale]/track). Auth-gated tracker: log period starts (RLS-owned, consent-gated), history list, and **predictions v1** — a soft dashed WINDOW + confidence, widening + no "late" counter in irregular mode (docs/09 invariant 5). 8 table-driven prediction tests. Full i18n. Prediction logic verified; DB read/write path verified live (P1.12b script).
+  - [ ] P1.13.1 Visual month calendar grid (v1 is a date picker + history list) + flow intensity (light/medium/heavy) on log — cycles.flow column exists; add the UI.
+  - [ ] P1.13.2 Predicted fertile/ovulation window on the tracker (calculators cover the standalone tool) + phase colouring.
 - [ ] P1.14 Symptom/mood logging (100+ symptoms, severity, custom)
 - [ ] P1.15 Dashboard per mode; insights v1
 - [ ] P1.16 Data export (JSON/PDF) + delete-account (GDPR)
