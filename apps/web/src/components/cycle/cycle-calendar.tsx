@@ -21,11 +21,17 @@ export function CycleCalendar({
   periods,
   windowStart,
   windowEnd,
+  fertileStart,
+  fertileEnd,
+  ovulation,
   today,
 }: {
   periods: PeriodDay[];
   windowStart: string | null;
   windowEnd: string | null;
+  fertileStart: string | null;
+  fertileEnd: string | null;
+  ovulation: string | null;
   today: string;
 }) {
   const locale = useLocale();
@@ -43,8 +49,18 @@ export function CycleCalendar({
     [periods],
   );
   const grid = useMemo(
-    () => buildMonthGrid(year, month, { periods: periodMap, windowStart, windowEnd, today, weekStartsOn }),
-    [year, month, periodMap, windowStart, windowEnd, today, weekStartsOn],
+    () =>
+      buildMonthGrid(year, month, {
+        periods: periodMap,
+        windowStart,
+        windowEnd,
+        fertileStart,
+        fertileEnd,
+        ovulation,
+        today,
+        weekStartsOn,
+      }),
+    [year, month, periodMap, windowStart, windowEnd, fertileStart, fertileEnd, ovulation, today, weekStartsOn],
   );
 
   // Locale-aware labels.
@@ -72,10 +88,19 @@ export function CycleCalendar({
     setYm({ year: year + Math.floor(m / 12), month: ((m % 12) + 12) % 12 });
   };
 
-  const cellLabel = (iso: string, isPeriod: boolean, flow: Flow | null, isPredicted: boolean) => {
-    const parts = [dayLabel(iso)];
-    if (isPeriod) parts.push(flow ? `${t("logHeading")} — ${tf(flow)}` : t("logHeading"));
-    if (isPredicted) parts.push(t("calendar.legendPredicted"));
+  const cellLabel = (c: {
+    iso: string;
+    isPeriod: boolean;
+    flow: Flow | null;
+    isPredicted: boolean;
+    isFertile: boolean;
+    isOvulation: boolean;
+  }) => {
+    const parts = [dayLabel(c.iso)];
+    if (c.isPeriod) parts.push(c.flow ? `${t("logHeading")} — ${tf(c.flow)}` : t("logHeading"));
+    if (c.isOvulation) parts.push(t("calendar.legendOvulation"));
+    else if (c.isFertile) parts.push(t("calendar.legendFertile"));
+    if (c.isPredicted) parts.push(t("calendar.legendPredicted"));
     return parts.join(", ");
   };
 
@@ -123,15 +148,18 @@ export function CycleCalendar({
           {grid.weeks.map((week, wi) => (
             <tr key={wi}>
               {week.map((c) => {
-                const marked = c.isPeriod || c.isPredicted;
+                const marked = c.isPeriod || c.isPredicted || c.isFertile || c.isOvulation;
                 return (
                   <td key={c.iso} className="p-0">
                     <div
-                      aria-label={marked ? cellLabel(c.iso, c.isPeriod, c.flow, c.isPredicted) : undefined}
+                      aria-label={marked ? cellLabel(c) : undefined}
                       className={cn(
                         "relative mx-auto flex aspect-square w-full max-w-10 flex-col items-center justify-center rounded-md text-sm",
                         c.inMonth ? "text-text" : "text-text-subtle",
+                        // Background bands: predicted period (amber) and fertile window (teal).
                         c.isPredicted && "bg-prediction-band/25",
+                        c.isFertile && !c.isPredicted && "bg-phase-follicular/15",
+                        c.isOvulation && "ring-1 ring-phase-ovulatory",
                         c.isToday && "ring-2 ring-primary",
                       )}
                     >
@@ -144,6 +172,10 @@ export function CycleCalendar({
                             c.flow ? FLOW_OPACITY[c.flow] : "opacity-70",
                           )}
                         />
+                      ) : c.isOvulation ? (
+                        <span aria-hidden className="absolute bottom-1 size-1.5 rounded-full bg-phase-ovulatory" />
+                      ) : c.isFertile ? (
+                        <span aria-hidden className="absolute bottom-1 size-1.5 rounded-full bg-phase-follicular/70" />
                       ) : null}
                     </div>
                   </td>
@@ -163,11 +195,27 @@ export function CycleCalendar({
           <span aria-hidden className="size-3 rounded-sm bg-prediction-band/25" />
           {t("calendar.legendPredicted")}
         </span>
+        {fertileStart ? (
+          <>
+            <span className="inline-flex items-center gap-1.5">
+              <span aria-hidden className="size-3 rounded-sm bg-phase-follicular/15" />
+              {t("calendar.legendFertile")}
+            </span>
+            <span className="inline-flex items-center gap-1.5">
+              <span aria-hidden className="size-1.5 rounded-full bg-phase-ovulatory ring-1 ring-phase-ovulatory" />
+              {t("calendar.legendOvulation")}
+            </span>
+          </>
+        ) : null}
         <span className="inline-flex items-center gap-1.5">
           <span aria-hidden className="size-3 rounded-sm ring-2 ring-primary" />
           {t("calendar.legendToday")}
         </span>
       </div>
+
+      {fertileStart ? (
+        <p className="text-2xs text-text-subtle">{t("calendar.awarenessNote")}</p>
+      ) : null}
     </section>
   );
 }

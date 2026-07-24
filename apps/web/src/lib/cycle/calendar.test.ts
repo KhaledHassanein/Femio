@@ -37,6 +37,22 @@ describe("buildMonthGrid", () => {
     expect(flat.find((c) => c.iso === "2026-07-27")!.isPredicted).toBe(false);
   });
 
+  it("marks the fertile window and ovulation day", () => {
+    const grid = buildMonthGrid(2026, 6, {
+      fertileStart: "2026-07-10",
+      fertileEnd: "2026-07-16",
+      ovulation: "2026-07-15",
+    });
+    const flat = grid.weeks.flat();
+    expect(flat.find((c) => c.iso === "2026-07-10")!.isFertile).toBe(true);
+    expect(flat.find((c) => c.iso === "2026-07-16")!.isFertile).toBe(true);
+    expect(flat.find((c) => c.iso === "2026-07-09")!.isFertile).toBe(false);
+    const ov = flat.find((c) => c.iso === "2026-07-15")!;
+    expect(ov.isOvulation).toBe(true);
+    expect(ov.isFertile).toBe(true);
+    expect(flat.find((c) => c.iso === "2026-07-14")!.isOvulation).toBe(false);
+  });
+
   it("honours weekStartsOn (Saturday for Arabic)", () => {
     const mon = buildMonthGrid(2026, 6, { weekStartsOn: 1 });
     const sat = buildMonthGrid(2026, 6, { weekStartsOn: 6 });

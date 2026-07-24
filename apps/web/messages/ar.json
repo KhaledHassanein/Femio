@@ -150,7 +150,7 @@
   },
   "track": {
     "flow": { "label": "الغزارة", "spotting": "تنقيط", "light": "خفيف", "medium": "متوسط", "heavy": "غزير" },
-    "calendar": { "heading": "التقويم", "prevMonth": "الشهر السابق", "nextMonth": "الشهر التالي", "legendPeriod": "الدورة", "legendPredicted": "متوقع", "legendToday": "اليوم" },
+    "calendar": { "heading": "التقويم", "prevMonth": "الشهر السابق", "nextMonth": "الشهر التالي", "legendPeriod": "الدورة", "legendPredicted": "متوقع", "legendFertile": "نافذة الخصوبة", "legendOvulation": "الإباضة المُقدَّرة", "legendToday": "اليوم", "awarenessNote": "تواريخ نافذة الخصوبة للمساعدة في التخطيط للحمل والوعي فقط — فهي تقديرات وليست وسيلة موثوقة لتجنّب الحمل." },
     "title": "دورتكِ",
     "logHeading": "سجّلي دورة",
     "logDateLabel": "أول يوم في دورتكِ",

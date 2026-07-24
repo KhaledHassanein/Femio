@@ -150,7 +150,7 @@
   },
   "track": {
     "flow": { "label": "Flux", "spotting": "Léger (spotting)", "light": "Faible", "medium": "Moyen", "heavy": "Abondant" },
-    "calendar": { "heading": "Calendrier", "prevMonth": "Mois précédent", "nextMonth": "Mois suivant", "legendPeriod": "Règles", "legendPredicted": "Prévu", "legendToday": "Aujourd’hui" },
+    "calendar": { "heading": "Calendrier", "prevMonth": "Mois précédent", "nextMonth": "Mois suivant", "legendPeriod": "Règles", "legendPredicted": "Prévu", "legendFertile": "Fenêtre de fertilité", "legendOvulation": "Ovulation estimée", "legendToday": "Aujourd’hui", "awarenessNote": "Les dates de la fenêtre de fertilité servent uniquement à la planification et à la sensibilisation à la conception — ce sont des estimations, pas un moyen fiable d’éviter une grossesse." },
     "title": "Ton cycle",
     "logHeading": "Enregistrer des règles",
     "logDateLabel": "Premier jour de tes règles",

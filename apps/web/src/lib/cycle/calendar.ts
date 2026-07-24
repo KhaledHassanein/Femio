@@ -15,6 +15,8 @@ export type DayCell = {
   isPeriod: boolean;
   flow: Flow | null;
   isPredicted: boolean;
+  isFertile: boolean;
+  isOvulation: boolean;
 };
 
 export type MonthGrid = {
@@ -43,6 +45,9 @@ export function buildMonthGrid(
     periods?: Map<string, Flow | null>;
     windowStart?: string | null;
     windowEnd?: string | null;
+    fertileStart?: string | null;
+    fertileEnd?: string | null;
+    ovulation?: string | null;
     today?: string | null;
     weekStartsOn?: number;
   } = {},
@@ -57,10 +62,10 @@ export function buildMonthGrid(
   const total = lead + daysInMonth(year, month);
   const weekCount = Math.ceil(total / 7);
 
-  const inWindow = (iso: string): boolean =>
-    opts.windowStart != null && opts.windowEnd != null
-      ? diffDays(opts.windowStart, iso) >= 0 && diffDays(iso, opts.windowEnd) >= 0
-      : false;
+  const between = (iso: string, start?: string | null, end?: string | null): boolean =>
+    start != null && end != null ? diffDays(start, iso) >= 0 && diffDays(iso, end) >= 0 : false;
+  const inWindow = (iso: string) => between(iso, opts.windowStart, opts.windowEnd);
+  const inFertile = (iso: string) => between(iso, opts.fertileStart, opts.fertileEnd);
 
   let cursor = addDays(firstIso, -lead);
   const weeks: DayCell[][] = [];
@@ -76,6 +81,8 @@ export function buildMonthGrid(
         isPeriod: periods.has(cursor),
         flow: periods.get(cursor) ?? null,
         isPredicted: inWindow(cursor),
+        isFertile: inFertile(cursor),
+        isOvulation: opts.ovulation != null && cursor === opts.ovulation,
       });
       cursor = addDays(cursor, 1);
     }

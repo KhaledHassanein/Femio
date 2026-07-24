@@ -150,7 +150,7 @@
   },
   "track": {
     "flow": { "label": "Flow", "spotting": "Spotting", "light": "Light", "medium": "Medium", "heavy": "Heavy" },
-    "calendar": { "heading": "Calendar", "prevMonth": "Previous month", "nextMonth": "Next month", "legendPeriod": "Period", "legendPredicted": "Predicted", "legendToday": "Today" },
+    "calendar": { "heading": "Calendar", "prevMonth": "Previous month", "nextMonth": "Next month", "legendPeriod": "Period", "legendPredicted": "Predicted", "legendFertile": "Fertile window", "legendOvulation": "Estimated ovulation", "legendToday": "Today", "awarenessNote": "Fertile-window dates support conception planning and awareness only — they're estimates, not a reliable way to avoid pregnancy." },
     "title": "Your cycle",
     "logHeading": "Log a period",
     "logDateLabel": "First day of your period",

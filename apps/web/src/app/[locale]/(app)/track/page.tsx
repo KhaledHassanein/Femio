@@ -3,6 +3,7 @@ import { redirect } from "next/navigation";
 import { getFormatter, getTranslations, setRequestLocale } from "next-intl/server";
 import { createClient } from "@/lib/supabase/server";
 import { predictNextPeriod } from "@/lib/cycle/predict";
+import { fertileWindow } from "@/lib/calculators";
 import { SYMPTOM_GROUPS } from "@/lib/cycle/symptoms";
 import type { Flow } from "@/lib/cycle/calendar";
 import { todayISO } from "@/lib/calculators/dates";
@@ -62,6 +63,9 @@ export default async function TrackPage({ params }: PageProps) {
     flow: (c.flow as Flow | null) ?? null,
   }));
   const prediction = predictNextPeriod(starts);
+  // Fertile-window awareness (conception planning only — never contraception).
+  const lastStart = starts[0] ?? null;
+  const fertile = lastStart ? fertileWindow(lastStart, prediction?.averageLength ?? 28) : null;
 
   const confidenceText = prediction
     ? prediction.confidence === "high"
@@ -119,6 +123,9 @@ export default async function TrackPage({ params }: PageProps) {
           periods={periodDays}
           windowStart={prediction?.windowStart ?? null}
           windowEnd={prediction?.windowEnd ?? null}
+          fertileStart={fertile?.windowStart ?? null}
+          fertileEnd={fertile?.windowEnd ?? null}
+          ovulation={fertile?.ovulation ?? null}
           today={todayISO()}
         />
       ) : (

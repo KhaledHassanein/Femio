@@ -21,4 +21,8 @@ test("logging a period with flow shows it on the calendar @live", async ({ page 
   // The calendar appears with today marked as a period day + heavy flow.
   await expect(page.getByRole("heading", { name: /^calendar$/i })).toBeVisible({ timeout: 25_000 });
   await expect(page.getByLabel(/log a period — heavy/i)).toBeVisible();
+
+  // Fertile-window awareness renders (with its compliance note, never contraception).
+  await expect(page.getByText(/fertile window/i)).toBeVisible();
+  await expect(page.getByText(/not a reliable way to avoid pregnancy/i)).toBeVisible();
 });
