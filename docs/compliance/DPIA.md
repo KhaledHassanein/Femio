@@ -28,6 +28,7 @@ category** (CI checklist item). This skeleton is engineering input, not the form
 
 ## 4. Mitigations (state — verify at review)
 - [x] No health data to analytics/ad SDKs (health-field-free event schema) — enforced by policy + review gate.
+- [x] **Crisis-safety routing collects nothing** (ADR-013): the global "Need help now?" interface and `/help-now` page take no reason/score/country/health-data input, carry **no analytics** (opening it could reveal mental-health intent), and store/transmit nothing; the single outbound directory link is env-gated to a canonical host with `referrerPolicy="no-referrer"`. **Global-only posture (no country phone packs) awaits DPO + medical sign-off** — see §5.
 - [x] Owner-only RLS on every health table; consent-gated inserts (0002).
 - [x] Anonymous mode; export/delete pipelines planned (P1.16); EU region.
 - [ ] Encryption at rest/in transit — confirm Supabase config + document.

@@ -35,6 +35,9 @@ jobs:
       - name: Claims-language guard
         run: pnpm claims-lint
 
+      - name: Crisis-safety compliance guard
+        run: pnpm crisis-lint
+
       - name: Lint
         run: pnpm lint
 

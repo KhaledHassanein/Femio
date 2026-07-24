@@ -5,6 +5,7 @@ import { NextIntlClientProvider } from "next-intl";
 import { getMessages, getTranslations, setRequestLocale } from "next-intl/server";
 import { getDir, isLocale, routing } from "@/i18n/routing";
 import { ThemeProvider } from "@/components/theme-provider";
+import { CrisisHelpProvider } from "@/components/crisis/crisis-help-provider";
 import { ogLocale, siteConfig } from "@/lib/seo/config";
 import { localizedAlternates } from "@/lib/seo/metadata";
 import { env } from "@/lib/env";
@@ -75,7 +76,7 @@ export default async function LocaleLayout({ children, params }: LayoutProps) {
       <body className={locale === "ar" ? "font-arabic" : "font-sans"}>
         <NextIntlClientProvider messages={messages}>
           <ThemeProvider attribute="data-theme" defaultTheme="system" enableSystem disableTransitionOnChange>
-            {children}
+            <CrisisHelpProvider>{children}</CrisisHelpProvider>
           </ThemeProvider>
         </NextIntlClientProvider>
       </body>

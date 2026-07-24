@@ -1,0 +1,38 @@
+{
+  "$comment": "SINGLE SOURCE for the Femio crisis-safety interface. The substantive guidance sentences (immediateLead, directorySentence, stayWithSomeone, worriedBody) are copied VERBATIM from the medically-reviewed docs/compliance/CRISIS_RESOURCES.md (reviewer Mohamed K., 2026-07-23). Do not paraphrase them, add promises about cost/confidentiality/hours/language/dispatch, or introduce country-specific phone numbers. Only 'en' is human-approved; ar/fr/es are 'pending' and render the English fallback (lang=en dir=ltr) until a human linguistic reviewer signs off, sets strings with full key parity, and records a new 12-month nextReview date. The CI guard (scripts/crisis-compliance.mjs) enforces expiry, approved-locale metadata, and key parity.",
+  "directoryName": "Find A Helpline",
+  "locales": {
+    "en": {
+      "review": {
+        "status": "approved",
+        "reviewer": "Mohamed K.",
+        "reviewDate": "2026-07-23",
+        "nextReview": "2027-07-23"
+      },
+      "strings": {
+        "launcher": "Need help now?",
+        "dialogTitle": "Need help now?",
+        "close": "Close",
+        "immediateHeading": "If you may be in danger",
+        "immediateLead": "If you may act on thoughts of harming yourself or someone else, or you are in immediate danger, contact the emergency services available where you are now or go to the nearest emergency department.",
+        "stayWithSomeone": "If you can, stay with someone you trust while you get help.",
+        "directoryHeading": "Find a crisis service for your country",
+        "directorySentence": "You can also use {directory} to find a crisis service for your country.",
+        "worriedHeading": "If you are worried about someone else",
+        "worriedBody": "If you think the person is in immediate danger, do not leave them alone if it is safe for you to stay. Contact the emergency services available where they are, a crisis service, a health worker, or a trusted family member."
+      }
+    },
+    "ar": {
+      "review": { "status": "pending", "reviewer": null, "reviewDate": null, "nextReview": null },
+      "strings": null
+    },
+    "fr": {
+      "review": { "status": "pending", "reviewer": null, "reviewDate": null, "nextReview": null },
+      "strings": null
+    },
+    "es": {
+      "review": { "status": "pending", "reviewer": null, "reviewDate": null, "nextReview": null },
+      "strings": null
+    }
+  }
+}
