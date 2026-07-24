@@ -208,5 +208,23 @@
     "logCta": "Enregistrer aujourd'hui",
     "needData": "Enregistre deux cycles pour débloquer les analyses.",
     "modeSoon": "Un suivi {mode} plus complet arrive bientôt. Tes outils de cycle sont là en attendant."
+  },
+  "settings": {
+    "title": "Confidentialité et données",
+    "exporting": "Préparation…",
+    "deleting": "Suppression…",
+    "export": {
+      "heading": "Exporter tes données",
+      "desc": "Télécharge dans un fichier tout ce que Femio a enregistré pour toi.",
+      "button": "Télécharger mes données (JSON)"
+    },
+    "delete": {
+      "heading": "Supprimer ton compte",
+      "desc": "Supprime définitivement ton compte et toutes tes données. C'est irréversible.",
+      "button": "Supprimer mon compte",
+      "confirm": "Cela supprime définitivement ton compte et toutes tes données. C'est irréversible.",
+      "confirmButton": "Oui, tout supprimer",
+      "cancel": "Annuler"
+    }
   }
 }

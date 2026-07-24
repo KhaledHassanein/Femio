@@ -208,5 +208,23 @@
     "logCta": "Log today",
     "needData": "Log a couple of periods to unlock insights.",
     "modeSoon": "Fuller {mode} tracking is coming soon. Your cycle tools are here in the meantime."
+  },
+  "settings": {
+    "title": "Privacy & data",
+    "exporting": "Preparing…",
+    "deleting": "Deleting…",
+    "export": {
+      "heading": "Export your data",
+      "desc": "Download everything Femio has stored for you as a file.",
+      "button": "Download my data (JSON)"
+    },
+    "delete": {
+      "heading": "Delete your account",
+      "desc": "Permanently delete your account and all your data. This can't be undone.",
+      "button": "Delete my account",
+      "confirm": "This permanently deletes your account and all your data. This can't be undone.",
+      "confirmButton": "Yes, delete everything",
+      "cancel": "Cancel"
+    }
   }
 }

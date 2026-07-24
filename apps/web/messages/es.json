@@ -208,5 +208,23 @@
     "logCta": "Registrar hoy",
     "needData": "Registra dos ciclos para desbloquear los análisis.",
     "modeSoon": "Pronto llega un seguimiento de {mode} más completo. Tus herramientas de ciclo están aquí mientras tanto."
+  },
+  "settings": {
+    "title": "Privacidad y datos",
+    "exporting": "Preparando…",
+    "deleting": "Eliminando…",
+    "export": {
+      "heading": "Exporta tus datos",
+      "desc": "Descarga en un archivo todo lo que Femio ha guardado sobre ti.",
+      "button": "Descargar mis datos (JSON)"
+    },
+    "delete": {
+      "heading": "Eliminar tu cuenta",
+      "desc": "Elimina permanentemente tu cuenta y todos tus datos. No se puede deshacer.",
+      "button": "Eliminar mi cuenta",
+      "confirm": "Esto elimina permanentemente tu cuenta y todos tus datos. No se puede deshacer.",
+      "confirmButton": "Sí, eliminar todo",
+      "cancel": "Cancelar"
+    }
   }
 }
