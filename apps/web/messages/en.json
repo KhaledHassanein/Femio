@@ -226,5 +226,11 @@
       "confirmButton": "Yes, delete everything",
       "cancel": "Cancel"
     }
+  },
+  "appNav": {
+    "dashboard": "Dashboard",
+    "track": "Track",
+    "settings": "Settings",
+    "signOut": "Sign out"
   }
 }

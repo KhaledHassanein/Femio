@@ -5,7 +5,6 @@ import { createClient } from "@/lib/supabase/server";
 import { predictNextPeriod } from "@/lib/cycle/predict";
 import { SYMPTOM_GROUPS } from "@/lib/cycle/symptoms";
 import { Badge } from "@/components/ui/badge";
-import { Card, CardContent } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
 import { LogPeriod } from "@/components/cycle/log-period";
 import { LogSymptoms } from "@/components/cycle/log-symptoms";

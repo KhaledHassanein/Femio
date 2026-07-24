@@ -226,5 +226,11 @@
       "confirmButton": "Sí, eliminar todo",
       "cancel": "Cancelar"
     }
+  },
+  "appNav": {
+    "dashboard": "Panel",
+    "track": "Seguimiento",
+    "settings": "Ajustes",
+    "signOut": "Cerrar sesión"
   }
 }

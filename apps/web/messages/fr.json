@@ -226,5 +226,11 @@
       "confirmButton": "Oui, tout supprimer",
       "cancel": "Annuler"
     }
+  },
+  "appNav": {
+    "dashboard": "Tableau de bord",
+    "track": "Suivi",
+    "settings": "Réglages",
+    "signOut": "Se déconnecter"
   }
 }

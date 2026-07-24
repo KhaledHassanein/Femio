@@ -226,5 +226,11 @@
       "confirmButton": "نعم، احذفي كل شيء",
       "cancel": "إلغاء"
     }
+  },
+  "appNav": {
+    "dashboard": "اللوحة",
+    "track": "التتبّع",
+    "settings": "الإعدادات",
+    "signOut": "تسجيل الخروج"
   }
 }
