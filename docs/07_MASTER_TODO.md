@@ -91,7 +91,8 @@
 - [x] P1.13 Cycle tracking: calendar, flow, predictions v1 **with uncertainty ranges + irregular-cycle mode** — 2026-07-23 (Claude Code, → apps/web/src/lib/cycle/, /[locale]/track). Auth-gated tracker: log period starts (RLS-owned, consent-gated), history list, and **predictions v1** — a soft dashed WINDOW + confidence, widening + no "late" counter in irregular mode (docs/09 invariant 5). 8 table-driven prediction tests. Full i18n. Prediction logic verified; DB read/write path verified live (P1.12b script).
   - [ ] P1.13.1 Visual month calendar grid (v1 is a date picker + history list) + flow intensity (light/medium/heavy) on log — cycles.flow column exists; add the UI.
   - [ ] P1.13.2 Predicted fertile/ovulation window on the tracker (calculators cover the standalone tool) + phase colouring.
-- [ ] P1.14 Symptom/mood logging (100+ symptoms, severity, custom)
+- [x] P1.14 Symptom/mood logging (100+ symptoms, severity, custom) — 2026-07-23 (Claude Code, → apps/web/src/components/cycle/log-symptoms.tsx): curated symptom/mood taxonomy (mood/body/other) with multi-select chips, optional intensity (mild→severe), and a note → symptom_logs (owner-scoped, consent-gated); recent symptoms shown on /track. Full i18n. Verified live (consent gate + RLS). 
+  - [ ] P1.14.1 Expand to the full 100+ symptom taxonomy (DB/CMS-driven) + per-symptom severity + custom user-defined symptoms (schema already accepts any type; note field carries custom text).
 - [ ] P1.15 Dashboard per mode; insights v1
 - [ ] P1.16 Data export (JSON/PDF) + delete-account (GDPR)
 - [ ] P1.17 Offline-capable logging (PWA IndexedDB sync queue)
