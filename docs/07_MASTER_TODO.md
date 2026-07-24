@@ -97,7 +97,7 @@
 - [x] P1.16 Data export (JSON/PDF) + delete-account (GDPR) — 2026-07-23 (Claude Code, → apps/web/src/app/[locale]/settings/, supabase/migrations/0003): settings page exports the user's full owner-scoped record as JSON and deletes the account (migration 0003 delete_account() RPC removes the auth user → cascades; client falls back to profile-delete which also cascades). **Verified live**: profile delete cascaded away all health data. Full i18n.
   - [ ] P1.16.1 PDF export (JSON done) + doctor-visit summary (ties to P2.6).
   - [ ] P1.16.APPLY (Khaled): apply supabase/migrations/0003_delete_account.sql to remote (dashboard SQL Editor or `supabase db push`) so delete also removes the auth.users row (client cascades health data regardless).
-- [ ] P1.17 Offline-capable logging (PWA IndexedDB sync queue)
+- [x] P1.17 Offline-capable logging (PWA IndexedDB sync queue) — 2026-07-23 (Claude Code, → apps/web/src/lib/offline/): period + symptom logs made offline are queued in IndexedDB (raw, no dep) and flushed to Supabase on reconnect (saveOrQueue + flushQueue + OfflineSync on the 'online' event). Real errors are shown, not queued. Full i18n. **Verified in a headless browser with offline emulation** (Playwright e2e): log offline → queued → reconnect → synced.
 ### 1D Admin portal v1
 - [ ] P1.18 Roles/permissions (admin, editor, medical reviewer, translator, support)
 - [ ] P1.19 Translation portal: all UI strings in DB, per-locale status board, DeepL draft + human approve, in-context preview
