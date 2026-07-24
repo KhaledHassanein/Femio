@@ -2,13 +2,19 @@ import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { CalculatorLayout } from "@/components/calculators/calculator-layout";
 import { BmiCalculator } from "@/components/calculators/bmi-calculator";
+import { localizedAlternates } from "@/lib/seo/metadata";
 
 type PageProps = { params: Promise<{ locale: string }> };
+const PATH = "/calculators/bmi";
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "calculators" });
-  return { title: `${t("bmi.title")} — Femio`, description: t("bmi.intro") };
+  return {
+    title: t("bmi.title"),
+    description: t("bmi.intro"),
+    alternates: localizedAlternates(locale, PATH),
+  };
 }
 
 export default async function Page({ params }: PageProps) {
@@ -21,6 +27,8 @@ export default async function Page({ params }: PageProps) {
       intro={t("bmi.intro")}
       disclaimer={t("disclaimer")}
       backLabel={t("common.back")}
+      locale={locale}
+      path={PATH}
     >
       <BmiCalculator />
     </CalculatorLayout>

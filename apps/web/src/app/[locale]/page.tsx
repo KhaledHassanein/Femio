@@ -1,6 +1,8 @@
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { Button } from "@/components/ui/button";
 import { ThemeToggle } from "@/components/theme-toggle";
+import { JsonLd } from "@/components/seo/json-ld";
+import { organizationJsonLd, websiteJsonLd } from "@/lib/seo/jsonld";
 
 type PageProps = {
   params: Promise<{ locale: string }>;
@@ -13,6 +15,8 @@ export default async function HomePage({ params }: PageProps) {
 
   return (
     <div className="flex min-h-dvh flex-col">
+      <JsonLd data={websiteJsonLd(locale)} />
+      <JsonLd data={organizationJsonLd()} />
       <header className="flex justify-end p-4">
         <ThemeToggle />
       </header>

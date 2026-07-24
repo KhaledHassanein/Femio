@@ -13,6 +13,8 @@ const envSchema = z.object({
   // never carry the NEXT_PUBLIC_ prefix.
   NEXT_PUBLIC_SUPABASE_URL: z.string().url(),
   NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY: z.string().min(1),
+  // Google Search Console verification token (set in Vercel when verifying).
+  NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION: z.string().optional(),
 });
 
 const parsed = envSchema.safeParse(process.env);

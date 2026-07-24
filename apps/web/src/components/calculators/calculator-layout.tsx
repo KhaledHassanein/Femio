@@ -2,6 +2,9 @@ import type { ReactNode } from "react";
 import { ArrowLeft, Info } from "lucide-react";
 import { Alert, AlertDescription } from "@/components/ui/alert";
 import { Link } from "@/i18n/navigation";
+import { JsonLd } from "@/components/seo/json-ld";
+import { siteConfig } from "@/lib/seo/config";
+import { webApplicationJsonLd } from "@/lib/seo/jsonld";
 
 // Shared chrome for every calculator page: back link, heading, the interactive
 // tool (children), and the standard disclaimer. Server component (no hooks).
@@ -10,16 +13,22 @@ export function CalculatorLayout({
   intro,
   disclaimer,
   backLabel,
+  locale,
+  path,
   children,
 }: {
   title: string;
   intro: string;
   disclaimer: string;
   backLabel: string;
+  locale: string;
+  path: string;
   children: ReactNode;
 }) {
+  const url = `${siteConfig.baseUrl}/${locale}${path}`;
   return (
     <main className="mx-auto flex w-full max-w-2xl flex-col gap-6 px-6 py-12">
+      <JsonLd data={webApplicationJsonLd({ name: title, description: intro, url, locale })} />
       <Link
         href="/calculators"
         className="inline-flex items-center gap-1 text-sm text-text-link rtl:flex-row-reverse"

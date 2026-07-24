@@ -5,6 +5,9 @@ import { NextIntlClientProvider } from "next-intl";
 import { getMessages, getTranslations, setRequestLocale } from "next-intl/server";
 import { getDir, isLocale, routing } from "@/i18n/routing";
 import { ThemeProvider } from "@/components/theme-provider";
+import { ogLocale, siteConfig } from "@/lib/seo/config";
+import { localizedAlternates } from "@/lib/seo/metadata";
+import { env } from "@/lib/env";
 import "@femio/tokens/tokens.css";
 import "../globals.css";
 
@@ -33,7 +36,30 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "meta" });
-  return { title: t("title"), description: t("description") };
+  const title = t("title");
+  const description = t("description");
+
+  return {
+    metadataBase: new URL(siteConfig.baseUrl),
+    title: { default: title, template: `%s — ${siteConfig.name}` },
+    description,
+    applicationName: siteConfig.name,
+    alternates: localizedAlternates(locale, "/"),
+    openGraph: {
+      type: "website",
+      siteName: siteConfig.name,
+      title,
+      description,
+      url: `${siteConfig.baseUrl}/${locale}`,
+      locale: ogLocale[locale] ?? locale,
+    },
+    twitter: { card: "summary_large_image", title, description },
+    robots: { index: true, follow: true },
+    icons: { icon: "/icon.svg" },
+    ...(env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION
+      ? { verification: { google: env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION } }
+      : {}),
+  };
 }
 
 export default async function LocaleLayout({ children, params }: LayoutProps) {
