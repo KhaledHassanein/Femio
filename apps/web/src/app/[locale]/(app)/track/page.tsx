@@ -4,10 +4,12 @@ import { getFormatter, getTranslations, setRequestLocale } from "next-intl/serve
 import { createClient } from "@/lib/supabase/server";
 import { predictNextPeriod } from "@/lib/cycle/predict";
 import { SYMPTOM_GROUPS } from "@/lib/cycle/symptoms";
+import type { Flow } from "@/lib/cycle/calendar";
+import { todayISO } from "@/lib/calculators/dates";
 import { Badge } from "@/components/ui/badge";
-import { Separator } from "@/components/ui/separator";
 import { LogPeriod } from "@/components/cycle/log-period";
 import { LogSymptoms } from "@/components/cycle/log-symptoms";
+import { CycleCalendar } from "@/components/cycle/cycle-calendar";
 
 const KNOWN_SYMPTOMS = new Set<string>(SYMPTOM_GROUPS.flatMap((g) => g.symptoms));
 
@@ -34,7 +36,7 @@ export default async function TrackPage({ params }: PageProps) {
 
   const { data: cycles } = await supabase
     .from("cycles")
-    .select("id, period_start")
+    .select("id, period_start, flow")
     .order("period_start", { ascending: false });
 
   const { data: symptoms } = await supabase
@@ -55,6 +57,10 @@ export default async function TrackPage({ params }: PageProps) {
     format.dateTime(new Date(`${iso}T00:00:00Z`), { dateStyle: "medium", timeZone: "UTC" });
 
   const starts = (cycles ?? []).map((c) => c.period_start as string);
+  const periodDays = (cycles ?? []).map((c) => ({
+    date: c.period_start as string,
+    flow: (c.flow as Flow | null) ?? null,
+  }));
   const prediction = predictNextPeriod(starts);
 
   const confidenceText = prediction
@@ -108,21 +114,19 @@ export default async function TrackPage({ params }: PageProps) {
         )}
       </section>
 
-      <section className="flex flex-col gap-3">
-        <h2 className="text-md font-semibold text-text">{t("history.heading")}</h2>
-        {starts.length > 0 ? (
-          <ul className="flex flex-col">
-            {starts.map((iso, i) => (
-              <li key={`${iso}-${i}`} className="flex flex-col">
-                <span className="py-2 text-sm text-text">{fmt(iso)}</span>
-                {i < starts.length - 1 ? <Separator /> : null}
-              </li>
-            ))}
-          </ul>
-        ) : (
+      {starts.length > 0 ? (
+        <CycleCalendar
+          periods={periodDays}
+          windowStart={prediction?.windowStart ?? null}
+          windowEnd={prediction?.windowEnd ?? null}
+          today={todayISO()}
+        />
+      ) : (
+        <section className="flex flex-col gap-3">
+          <h2 className="text-md font-semibold text-text">{t("history.heading")}</h2>
           <p className="text-sm text-text-muted">{t("history.empty")}</p>
-        )}
-      </section>
+        </section>
+      )}
     </main>
   );
 }

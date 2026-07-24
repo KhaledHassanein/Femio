@@ -21,6 +21,7 @@ module.exports = {
         danger: { DEFAULT: 'var(--danger)', soft: 'var(--danger-soft)', text: 'var(--danger-text)', border: 'var(--danger-border)' },
         info: { DEFAULT: 'var(--info)', soft: 'var(--info-soft)' },
         phase: { menstrual: 'var(--phase-menstrual)', follicular: 'var(--phase-follicular)', ovulatory: 'var(--phase-ovulatory)', luteal: 'var(--phase-luteal)' },
+        prediction: { band: 'var(--prediction-band)' },
       },
       fontFamily: {
         sans: ['Inter', 'system-ui', 'sans-serif'],

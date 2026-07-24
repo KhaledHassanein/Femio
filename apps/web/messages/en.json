@@ -149,6 +149,8 @@
     "nav": { "next": "Continue", "back": "Back" }
   },
   "track": {
+    "flow": { "label": "Flow", "spotting": "Spotting", "light": "Light", "medium": "Medium", "heavy": "Heavy" },
+    "calendar": { "heading": "Calendar", "prevMonth": "Previous month", "nextMonth": "Next month", "legendPeriod": "Period", "legendPredicted": "Predicted", "legendToday": "Today" },
     "title": "Your cycle",
     "logHeading": "Log a period",
     "logDateLabel": "First day of your period",

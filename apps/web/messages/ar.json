@@ -149,6 +149,8 @@
     "nav": { "next": "متابعة", "back": "رجوع" }
   },
   "track": {
+    "flow": { "label": "الغزارة", "spotting": "تنقيط", "light": "خفيف", "medium": "متوسط", "heavy": "غزير" },
+    "calendar": { "heading": "التقويم", "prevMonth": "الشهر السابق", "nextMonth": "الشهر التالي", "legendPeriod": "الدورة", "legendPredicted": "متوقع", "legendToday": "اليوم" },
     "title": "دورتكِ",
     "logHeading": "سجّلي دورة",
     "logDateLabel": "أول يوم في دورتكِ",

@@ -149,6 +149,8 @@
     "nav": { "next": "Continuer", "back": "Retour" }
   },
   "track": {
+    "flow": { "label": "Flux", "spotting": "Léger (spotting)", "light": "Faible", "medium": "Moyen", "heavy": "Abondant" },
+    "calendar": { "heading": "Calendrier", "prevMonth": "Mois précédent", "nextMonth": "Mois suivant", "legendPeriod": "Règles", "legendPredicted": "Prévu", "legendToday": "Aujourd’hui" },
     "title": "Ton cycle",
     "logHeading": "Enregistrer des règles",
     "logDateLabel": "Premier jour de tes règles",

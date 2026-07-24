@@ -149,6 +149,8 @@
     "nav": { "next": "Continuar", "back": "Atrás" }
   },
   "track": {
+    "flow": { "label": "Flujo", "spotting": "Manchado", "light": "Ligero", "medium": "Medio", "heavy": "Abundante" },
+    "calendar": { "heading": "Calendario", "prevMonth": "Mes anterior", "nextMonth": "Mes siguiente", "legendPeriod": "Periodo", "legendPredicted": "Previsto", "legendToday": "Hoy" },
     "title": "Tu ciclo",
     "logHeading": "Registrar menstruación",
     "logDateLabel": "Primer día de tu menstruación",
