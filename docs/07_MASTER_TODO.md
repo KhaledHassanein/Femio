@@ -84,7 +84,7 @@
   - [ ] P1.11.GSC (Khaled): verify domain in Google Search Console (set NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION in Vercel or DNS) + submit /sitemap.xml; point a custom domain at Vercel and update NEXT_PUBLIC_APP_URL (currently femio-web.vercel.app).
   - [ ] P1.11.1 Content-page schema (MedicalWebPage/FAQ/Article/DefinedTerm) + dynamic sitemap from CMS — with P1.9. CWV/Lighthouse budget + axe in CI — with P1.5.2/P1.22.
 ### 1C Tracker web app (PWA)
-- [ ] P1.12 Onboarding: 4 life-stage modes + privacy-first account options
+- [~] P1.12 Onboarding: 4 life-stage modes + privacy-first account options — started 2026-07-23 (Claude Code): welcome wizard UI (mode → privacy/consent → confirm) on the design system; Supabase wiring (anonymous sign-in + granular consent + persona_state) next. Consent copy is placeholder pending counsel (P0.12).
 - [ ] P1.13 Cycle tracking: calendar, flow, predictions v1 **with uncertainty ranges + irregular-cycle mode**
 - [ ] P1.14 Symptom/mood logging (100+ symptoms, severity, custom)
 - [ ] P1.15 Dashboard per mode; insights v1

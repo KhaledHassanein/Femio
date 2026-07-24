@@ -115,5 +115,37 @@
       "irregular": "Your cycles vary — that's common, and Femio adapts predictions when they do.",
       "needTwo": "Add at least two period start dates."
     }
+  },
+  "onboarding": {
+    "title": "Welcome to Femio",
+    "stepOf": "Step {current} of {total}",
+    "mode": {
+      "heading": "Where are you in your health journey?",
+      "subheading": "You can change this anytime — nothing here is locked.",
+      "cycle": { "name": "Tracking my cycle", "desc": "Periods, symptoms, and patterns." },
+      "ttc": { "name": "Trying to conceive", "desc": "Fertile window and TTC tools." },
+      "pregnancy": { "name": "I'm pregnant", "desc": "Week-by-week and what to watch for." },
+      "menopause": { "name": "Perimenopause or menopause", "desc": "Changing cycles and symptoms." },
+      "notSure": "Not sure yet — just exploring"
+    },
+    "privacy": {
+      "heading": "Your privacy comes first",
+      "intro": "Femio works without an account. Your health data is yours — never sold, never shared with advertisers.",
+      "anonymous": { "name": "Start privately", "desc": "No email, no account. You can add one later without losing anything." },
+      "account": { "name": "Create an account", "desc": "Sync across devices with an email. Same privacy." },
+      "emailLabel": "Email",
+      "consentHeading": "What you're okay with",
+      "consentCore": "Store my health entries so I can track them (required to use Femio).",
+      "consentInsights": "Use my entries to show me patterns and insights.",
+      "consentResearch": "Use my anonymized data to improve women's health research.",
+      "consentNote": "You can change these anytime in Settings."
+    },
+    "confirm": {
+      "heading": "You're all set",
+      "modeLabel": "Focus",
+      "accountLabel": "Account",
+      "start": "Start using Femio"
+    },
+    "nav": { "next": "Continue", "back": "Back" }
   }
 }

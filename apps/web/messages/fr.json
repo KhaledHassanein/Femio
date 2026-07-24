@@ -115,5 +115,37 @@
       "irregular": "Tes cycles varient — c'est courant, et Femio adapte ses prévisions en conséquence.",
       "needTwo": "Ajoute au moins deux dates de début de règles."
     }
+  },
+  "onboarding": {
+    "title": "Bienvenue sur Femio",
+    "stepOf": "Étape {current} sur {total}",
+    "mode": {
+      "heading": "Où en es-tu dans ton parcours de santé ?",
+      "subheading": "Tu peux changer cela à tout moment — rien n'est verrouillé.",
+      "cycle": { "name": "Suivre mon cycle", "desc": "Règles, symptômes et tendances." },
+      "ttc": { "name": "Essayer de concevoir", "desc": "Fenêtre de fertilité et outils." },
+      "pregnancy": { "name": "Je suis enceinte", "desc": "Semaine par semaine et signes à surveiller." },
+      "menopause": { "name": "Périménopause ou ménopause", "desc": "Cycles et symptômes qui changent." },
+      "notSure": "Pas encore sûre — j'explore"
+    },
+    "privacy": {
+      "heading": "Ta vie privée d'abord",
+      "intro": "Femio fonctionne sans compte. Tes données de santé t'appartiennent — jamais vendues, jamais partagées avec des annonceurs.",
+      "anonymous": { "name": "Commencer en privé", "desc": "Sans e-mail ni compte. Tu pourras en ajouter un plus tard sans rien perdre." },
+      "account": { "name": "Créer un compte", "desc": "Synchronise entre appareils avec un e-mail. Même confidentialité." },
+      "emailLabel": "E-mail",
+      "consentHeading": "Ce que tu acceptes",
+      "consentCore": "Enregistrer mes données de santé pour que je puisse les suivre (requis pour utiliser Femio).",
+      "consentInsights": "Utiliser mes données pour me montrer des tendances et des analyses.",
+      "consentResearch": "Utiliser mes données anonymisées pour améliorer la recherche en santé féminine.",
+      "consentNote": "Tu peux modifier ces choix à tout moment dans les Réglages."
+    },
+    "confirm": {
+      "heading": "Tout est prêt",
+      "modeLabel": "Objectif",
+      "accountLabel": "Compte",
+      "start": "Commencer à utiliser Femio"
+    },
+    "nav": { "next": "Continuer", "back": "Retour" }
   }
 }

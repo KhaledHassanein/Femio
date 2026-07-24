@@ -115,5 +115,37 @@
       "irregular": "Tus ciclos varían — es común, y Femio adapta sus predicciones cuando ocurre.",
       "needTwo": "Añade al menos dos fechas de inicio de la menstruación."
     }
+  },
+  "onboarding": {
+    "title": "Bienvenida a Femio",
+    "stepOf": "Paso {current} de {total}",
+    "mode": {
+      "heading": "¿En qué punto de tu salud estás?",
+      "subheading": "Puedes cambiar esto cuando quieras — nada queda bloqueado.",
+      "cycle": { "name": "Seguir mi ciclo", "desc": "Menstruación, síntomas y patrones." },
+      "ttc": { "name": "Buscando embarazo", "desc": "Ventana fértil y herramientas." },
+      "pregnancy": { "name": "Estoy embarazada", "desc": "Semana a semana y señales a vigilar." },
+      "menopause": { "name": "Perimenopausia o menopausia", "desc": "Ciclos y síntomas que cambian." },
+      "notSure": "Aún no estoy segura — solo explorando"
+    },
+    "privacy": {
+      "heading": "Tu privacidad es lo primero",
+      "intro": "Femio funciona sin cuenta. Tus datos de salud son tuyos — nunca se venden ni se comparten con anunciantes.",
+      "anonymous": { "name": "Empezar en privado", "desc": "Sin correo ni cuenta. Puedes añadir una después sin perder nada." },
+      "account": { "name": "Crear una cuenta", "desc": "Sincroniza entre dispositivos con un correo. La misma privacidad." },
+      "emailLabel": "Correo electrónico",
+      "consentHeading": "Con qué estás de acuerdo",
+      "consentCore": "Guardar mis datos de salud para poder seguirlos (necesario para usar Femio).",
+      "consentInsights": "Usar mis datos para mostrarme patrones e ideas.",
+      "consentResearch": "Usar mis datos anonimizados para mejorar la investigación en salud de la mujer.",
+      "consentNote": "Puedes cambiar estas opciones cuando quieras en Ajustes."
+    },
+    "confirm": {
+      "heading": "Todo listo",
+      "modeLabel": "Enfoque",
+      "accountLabel": "Cuenta",
+      "start": "Empezar a usar Femio"
+    },
+    "nav": { "next": "Continuar", "back": "Atrás" }
   }
 }
