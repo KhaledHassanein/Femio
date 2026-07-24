@@ -164,5 +164,33 @@
       "needMore": "Log at least two periods to see a prediction."
     },
     "history": { "heading": "Logged periods", "empty": "No periods logged yet." }
+  },
+  "symptoms": {
+    "heading": "How do you feel today?",
+    "severityLabel": "Intensity",
+    "severity": { "1": "Mild", "2": "Moderate", "3": "Strong", "4": "Severe" },
+    "noteLabel": "Note (optional)",
+    "save": "Log symptoms",
+    "groups": { "mood": "Mood", "body": "Body", "other": "Other" },
+    "items": {
+      "happy": "Happy",
+      "calm": "Calm",
+      "anxious": "Anxious",
+      "irritable": "Irritable",
+      "sad": "Sad",
+      "cramps": "Cramps",
+      "headache": "Headache",
+      "bloating": "Bloating",
+      "breastTenderness": "Breast tenderness",
+      "backache": "Backache",
+      "nausea": "Nausea",
+      "fatigue": "Fatigue",
+      "acne": "Acne",
+      "cravings": "Cravings",
+      "insomnia": "Trouble sleeping",
+      "dizziness": "Dizziness"
+    },
+    "recentHeading": "Recently logged",
+    "recentEmpty": "No symptoms logged yet."
   }
 }

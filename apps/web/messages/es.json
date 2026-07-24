@@ -164,5 +164,33 @@
       "needMore": "Registra al menos dos menstruaciones para ver una predicción."
     },
     "history": { "heading": "Menstruaciones registradas", "empty": "Aún no hay registros." }
+  },
+  "symptoms": {
+    "heading": "¿Cómo te sientes hoy?",
+    "severityLabel": "Intensidad",
+    "severity": { "1": "Leve", "2": "Moderada", "3": "Fuerte", "4": "Severa" },
+    "noteLabel": "Nota (opcional)",
+    "save": "Registrar síntomas",
+    "groups": { "mood": "Estado de ánimo", "body": "Cuerpo", "other": "Otro" },
+    "items": {
+      "happy": "Feliz",
+      "calm": "Tranquila",
+      "anxious": "Ansiosa",
+      "irritable": "Irritable",
+      "sad": "Triste",
+      "cramps": "Cólicos",
+      "headache": "Dolor de cabeza",
+      "bloating": "Hinchazón",
+      "breastTenderness": "Sensibilidad en los senos",
+      "backache": "Dolor de espalda",
+      "nausea": "Náuseas",
+      "fatigue": "Fatiga",
+      "acne": "Acné",
+      "cravings": "Antojos",
+      "insomnia": "Dificultad para dormir",
+      "dizziness": "Mareos"
+    },
+    "recentHeading": "Registrados recientemente",
+    "recentEmpty": "Aún no hay síntomas registrados."
   }
 }

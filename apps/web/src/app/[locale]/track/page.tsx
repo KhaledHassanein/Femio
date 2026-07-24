@@ -3,9 +3,14 @@ import { redirect } from "next/navigation";
 import { getFormatter, getTranslations, setRequestLocale } from "next-intl/server";
 import { createClient } from "@/lib/supabase/server";
 import { predictNextPeriod } from "@/lib/cycle/predict";
+import { SYMPTOM_GROUPS } from "@/lib/cycle/symptoms";
+import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
 import { LogPeriod } from "@/components/cycle/log-period";
+import { LogSymptoms } from "@/components/cycle/log-symptoms";
+
+const KNOWN_SYMPTOMS = new Set<string>(SYMPTOM_GROUPS.flatMap((g) => g.symptoms));
 
 type PageProps = { params: Promise<{ locale: string }> };
 
@@ -33,7 +38,19 @@ export default async function TrackPage({ params }: PageProps) {
     .select("id, period_start")
     .order("period_start", { ascending: false });
 
+  const { data: symptoms } = await supabase
+    .from("symptom_logs")
+    .select("id, type, logged_at")
+    .order("logged_at", { ascending: false })
+    .limit(24);
+
   const t = await getTranslations("track");
+  const st = await getTranslations("symptoms");
+  // type comes from the DB (string); membership is validated at runtime, so the
+  // key cast is safe. Cast st to a plain string lookup for the dynamic key.
+  const stItem = st as unknown as (key: string) => string;
+  const symptomLabel = (type: string) =>
+    KNOWN_SYMPTOMS.has(type) ? stItem(`items.${type}`) : type;
   const format = await getFormatter();
   const fmt = (iso: string) =>
     format.dateTime(new Date(`${iso}T00:00:00Z`), { dateStyle: "medium", timeZone: "UTC" });
@@ -74,6 +91,23 @@ export default async function TrackPage({ params }: PageProps) {
       </section>
 
       <LogPeriod />
+
+      <LogSymptoms />
+
+      <section className="flex flex-col gap-3">
+        <h2 className="text-md font-semibold text-text">{st("recentHeading")}</h2>
+        {symptoms && symptoms.length > 0 ? (
+          <div className="flex flex-wrap gap-2">
+            {symptoms.map((s) => (
+              <Badge key={s.id as string} variant="primary">
+                {symptomLabel(s.type as string)}
+              </Badge>
+            ))}
+          </div>
+        ) : (
+          <p className="text-sm text-text-muted">{st("recentEmpty")}</p>
+        )}
+      </section>
 
       <section className="flex flex-col gap-3">
         <h2 className="text-md font-semibold text-text">{t("history.heading")}</h2>

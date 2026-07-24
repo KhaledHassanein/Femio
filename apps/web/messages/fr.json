@@ -164,5 +164,33 @@
       "needMore": "Enregistre au moins deux règles pour voir une prévision."
     },
     "history": { "heading": "Règles enregistrées", "empty": "Aucune règle enregistrée." }
+  },
+  "symptoms": {
+    "heading": "Comment te sens-tu aujourd'hui ?",
+    "severityLabel": "Intensité",
+    "severity": { "1": "Légère", "2": "Modérée", "3": "Forte", "4": "Sévère" },
+    "noteLabel": "Note (facultatif)",
+    "save": "Enregistrer les symptômes",
+    "groups": { "mood": "Humeur", "body": "Corps", "other": "Autre" },
+    "items": {
+      "happy": "Heureuse",
+      "calm": "Calme",
+      "anxious": "Anxieuse",
+      "irritable": "Irritable",
+      "sad": "Triste",
+      "cramps": "Crampes",
+      "headache": "Mal de tête",
+      "bloating": "Ballonnements",
+      "breastTenderness": "Seins sensibles",
+      "backache": "Mal de dos",
+      "nausea": "Nausées",
+      "fatigue": "Fatigue",
+      "acne": "Acné",
+      "cravings": "Fringales",
+      "insomnia": "Sommeil difficile",
+      "dizziness": "Vertiges"
+    },
+    "recentHeading": "Enregistrés récemment",
+    "recentEmpty": "Aucun symptôme enregistré."
   }
 }
