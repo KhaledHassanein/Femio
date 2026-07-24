@@ -84,7 +84,10 @@
   - [ ] P1.11.GSC (Khaled): verify domain in Google Search Console (set NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION in Vercel or DNS) + submit /sitemap.xml; point a custom domain at Vercel and update NEXT_PUBLIC_APP_URL (currently femio-web.vercel.app).
   - [ ] P1.11.1 Content-page schema (MedicalWebPage/FAQ/Article/DefinedTerm) + dynamic sitemap from CMS — with P1.9. CWV/Lighthouse budget + axe in CI — with P1.5.2/P1.22.
 ### 1C Tracker web app (PWA)
-- [~] P1.12 Onboarding: 4 life-stage modes + privacy-first account options — started 2026-07-23 (Claude Code): welcome wizard UI (mode → privacy/consent → confirm) on the design system; Supabase wiring (anonymous sign-in + granular consent + persona_state) next. Consent copy is placeholder pending counsel (P0.12).
+- [x] P1.12 Onboarding: 4 life-stage modes + privacy-first account options — 2026-07-23 (Claude Code, → apps/web/src/components/onboarding/, lib/onboarding/). Welcome wizard at /[locale]/welcome (mode → privacy/consent → confirm), home CTA links to it; native anonymous sign-in + granular consent (core required + optional insights/research) written BEFORE persona_state, initial persona_state per mode, optional email linked to anon account. **Verified end-to-end on the live DB**: consent gate blocks health writes pre-consent, owner-only RLS holds. Full i18n EN/AR/FR/ES.
+  - [ ] P1.12.1 Full email/OAuth sign-in + return flow (magic-link callback route, session on return) — v1 links email to the anon account via updateUser (confirmation email); dedicated auth pages land with P1.18 (roles) or a focused auth pass.
+  - [ ] P1.12.2 Finalize consent wording with counsel (P0.12) — current copy is a faithful placeholder of the doc-13 granular-consent structure.
+  - [ ] P1.12.3 Post-onboarding home/dashboard (currently redirects to the placeholder home) — lands with P1.13–P1.15.
 - [ ] P1.13 Cycle tracking: calendar, flow, predictions v1 **with uncertainty ranges + irregular-cycle mode**
 - [ ] P1.14 Symptom/mood logging (100+ symptoms, severity, custom)
 - [ ] P1.15 Dashboard per mode; insights v1

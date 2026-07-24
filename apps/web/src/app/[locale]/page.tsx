@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import { ThemeToggle } from "@/components/theme-toggle";
 import { JsonLd } from "@/components/seo/json-ld";
 import { organizationJsonLd, websiteJsonLd } from "@/lib/seo/jsonld";
+import { Link } from "@/i18n/navigation";
 
 type PageProps = {
   params: Promise<{ locale: string }>;
@@ -27,8 +28,8 @@ export default async function HomePage({ params }: PageProps) {
       <h1 className="font-display text-3xl text-text">{t("title")}</h1>
       <p className="max-w-prose text-md text-text-muted">{t("body")}</p>
       <div>
-        <Button variant="accent" size="lg">
-          {t("cta")}
+        <Button asChild variant="accent" size="lg">
+          <Link href="/welcome">{t("cta")}</Link>
         </Button>
       </div>
       <div className="flex flex-wrap gap-3">
