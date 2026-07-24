@@ -17,7 +17,17 @@ const envSchema = z.object({
   NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION: z.string().optional(),
 });
 
-const parsed = envSchema.safeParse(process.env);
+// Reference each var explicitly. Next.js inlines `process.env.NEXT_PUBLIC_*` only
+// where written out literally — the whole `process.env` object is empty in the
+// client bundle, so passing it wholesale would fail validation and crash on the
+// client. (Caught by the Playwright hydration test.)
+const parsed = envSchema.safeParse({
+  NODE_ENV: process.env.NODE_ENV,
+  NEXT_PUBLIC_APP_URL: process.env.NEXT_PUBLIC_APP_URL,
+  NEXT_PUBLIC_SUPABASE_URL: process.env.NEXT_PUBLIC_SUPABASE_URL,
+  NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY: process.env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY,
+  NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION,
+});
 
 if (!parsed.success) {
   // Fail fast at boot rather than surfacing undefined config deep in a request.

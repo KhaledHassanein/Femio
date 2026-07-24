@@ -38,6 +38,12 @@ next-env.d.ts
 **/public/sw.js.map
 **/public/swe-worker*.js
 
+# Playwright
+**/test-results/
+**/playwright-report/
+**/blob-report/
+**/.last-run.json
+
 # Supabase / local tooling
 .supabase/
 .vercel/
