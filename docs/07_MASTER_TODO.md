@@ -104,7 +104,7 @@
 - [ ] P1.20 Anonymized analytics dashboard (PostHog embed: age bands, mode, condition tags, retention, funnels)
 - [ ] P1.21 Comment/moderation queue + customer-service inbox v1
 ### 1E QA & launch
-- [ ] P1.22 Test suite (unit + Playwright e2e incl. RTL snapshots); accessibility audit
+- [~] P1.22 Test suite (unit + Playwright e2e incl. RTL snapshots); accessibility audit — partial 2026-07-23 (Claude Code): Vitest unit suite (34 tests: calculators, predictions, insights, i18n) + **Playwright e2e harness** (→ apps/web/e2e/) with home/RTL smoke + full onboarding→dashboard flow (live Supabase). Remaining: broaden e2e coverage, RTL visual snapshots, axe a11y (with P1.5.2), wire e2e into CI.
 - [ ] P1.23 Security review (RLS audit, OWASP top-10 pass), rate limiting
 - [ ] P1.24 Beta with 20–50 real users incl. Arabic speakers; feedback log
 - [ ] P1.25 Public launch + launch documentation pack

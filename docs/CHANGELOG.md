@@ -2,7 +2,11 @@
 All notable changes to Femio V2.
 
 ## [Unreleased]
+### Fixed
+- Critical client-side hydration crash (all signed-in pages): `env.ts` validated the whole `process.env`, which Next.js leaves empty in the client bundle, so validation threw and `/welcome`, `/track`, `/dashboard`, and `/settings` crashed on hydration in production (SSR/curl couldn't detect it). Now references each `NEXT_PUBLIC_*` var explicitly. Caught by the new Playwright e2e harness and verified fixed on live prod.
+
 ### Added
+- Playwright e2e harness (partial P1.22, → apps/web/e2e/, playwright.config.ts): headless-Chromium end-to-end tests — home + Arabic-RTL smoke and a full onboarding → anonymous sign-in → dashboard flow against live Supabase. Enables offline testing (P1.17) and RTL snapshots.
 - GDPR data export + delete-account (P1.16, → apps/web/src/app/[locale]/settings/, supabase/migrations/0003): a privacy/data settings page that downloads the user's full owner-scoped record as JSON and permanently deletes the account. A `delete_account()` RPC removes the auth user and cascades all health data; the client falls back to deleting the profile row (also cascades) if the RPC isn't deployed. Verified live that deletion erases all health data. PDF export tracked as a follow-up.
 - Dashboard + insights v1 (P1.15, → apps/web/src/app/[locale]/dashboard/): a mode-adapted overview (current cycle day, next-period window, average length, top logged symptoms, and the TTC fertile window) driven by the user's persona_state and logged data. Pure, tested insight helpers. Onboarding now lands on the dashboard.
 - Symptom & mood logging (P1.14, → apps/web/src/components/cycle/log-symptoms.tsx): a curated mood/body/other taxonomy with multi-select chips, optional intensity, and a note, saved to `symptom_logs` (owner-scoped + consent-gated), with recently-logged symptoms shown on the tracker. Full i18n. Extensible to the full 100+ taxonomy (P1.14.1).
