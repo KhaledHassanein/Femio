@@ -93,7 +93,7 @@
   - [ ] P1.13.2 Predicted fertile/ovulation window on the tracker (calculators cover the standalone tool) + phase colouring.
 - [x] P1.14 Symptom/mood logging (100+ symptoms, severity, custom) — 2026-07-23 (Claude Code, → apps/web/src/components/cycle/log-symptoms.tsx): curated symptom/mood taxonomy (mood/body/other) with multi-select chips, optional intensity (mild→severe), and a note → symptom_logs (owner-scoped, consent-gated); recent symptoms shown on /track. Full i18n. Verified live (consent gate + RLS). 
   - [ ] P1.14.1 Expand to the full 100+ symptom taxonomy (DB/CMS-driven) + per-symptom severity + custom user-defined symptoms (schema already accepts any type; note field carries custom text).
-- [ ] P1.15 Dashboard per mode; insights v1
+- [x] P1.15 Dashboard per mode; insights v1 — 2026-07-23 (Claude Code, → apps/web/src/app/[locale]/dashboard/, lib/cycle/insights.ts): auth-gated dashboard adapted by persona_state.track (cycle/ttc/pregnancy/menopause) — current cycle day, next-period window + average, top symptoms, TTC fertile window. Pure tested insights (6 tests). Onboarding lands here; Log-today CTA → /track. Full i18n.
 - [ ] P1.16 Data export (JSON/PDF) + delete-account (GDPR)
 - [ ] P1.17 Offline-capable logging (PWA IndexedDB sync queue)
 ### 1D Admin portal v1
