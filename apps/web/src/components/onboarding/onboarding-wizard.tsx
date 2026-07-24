@@ -1,8 +1,11 @@
 "use client";
 
 import { useState } from "react";
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import { useRouter } from "@/i18n/navigation";
+import type { Locale } from "@/i18n/routing";
+import { completeOnboarding } from "@/lib/onboarding/complete";
+import { Alert, AlertDescription } from "@/components/ui/alert";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -41,6 +44,7 @@ function ConsentRow({
 
 export function OnboardingWizard() {
   const t = useTranslations("onboarding");
+  const locale = useLocale() as Locale;
   const router = useRouter();
   const [step, setStep] = useState(1);
   const [mode, setMode] = useState<Mode | null>(null);
@@ -48,15 +52,29 @@ export function OnboardingWizard() {
   const [email, setEmail] = useState("");
   const [insights, setInsights] = useState(false);
   const [research, setResearch] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
   const canAdvance =
     step === 1 ? mode !== null : step === 2 ? account === "anonymous" || email.length > 3 : true;
 
-  const finish = () => {
-    // P1.12b wires this: anonymous sign-in (or email account), write the granted
-    // `core` consent (+ insights/research), upsert persona_state { track }, then
-    // redirect to the dashboard. For now it returns to the home surface.
-    router.push("/");
+  const finish = async () => {
+    if (!mode) return;
+    setSubmitting(true);
+    setError(null);
+    const res = await completeOnboarding({
+      mode,
+      email: account === "email" ? email : undefined,
+      insights,
+      research,
+      locale,
+    });
+    if (res.ok) {
+      router.push("/");
+    } else {
+      setError(res.error);
+      setSubmitting(false);
+    }
   };
 
   return (
@@ -160,9 +178,15 @@ export function OnboardingWizard() {
         </section>
       ) : null}
 
+      {error ? (
+        <Alert variant="danger">
+          <AlertDescription>{error}</AlertDescription>
+        </Alert>
+      ) : null}
+
       <div className="flex items-center justify-between">
         {step > 1 ? (
-          <Button variant="ghost" onClick={() => setStep((s) => s - 1)}>
+          <Button variant="ghost" onClick={() => setStep((s) => s - 1)} disabled={submitting}>
             {t("nav.back")}
           </Button>
         ) : (
@@ -173,7 +197,7 @@ export function OnboardingWizard() {
             {t("nav.next")}
           </Button>
         ) : (
-          <Button variant="accent" onClick={finish}>
+          <Button variant="accent" onClick={finish} disabled={submitting}>
             {t("confirm.start")}
           </Button>
         )}
