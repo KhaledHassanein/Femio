@@ -27,10 +27,13 @@ export default async function HomePage({ params }: PageProps) {
       </p>
       <h1 className="font-display text-3xl text-text">{t("title")}</h1>
       <p className="max-w-prose text-md text-text-muted">{t("body")}</p>
-      <div>
+      <div className="flex flex-wrap items-center gap-4">
         <Button asChild variant="accent" size="lg">
           <Link href="/welcome">{t("cta")}</Link>
         </Button>
+        <Link href="/sign-in" className="text-sm text-text-link underline">
+          {t("signIn")}
+        </Link>
       </div>
       <div className="flex flex-wrap gap-3">
         <span className="rounded-pill bg-primary-soft px-4 py-2 text-sm text-primary-soft-text">

@@ -4,6 +4,7 @@
     "description": "One account for a woman's whole health life."
   },
   "home": {
+    "signIn": "Sign in",
     "eyebrow": "femio",
     "title": "Scaffold online.",
     "body": "Next.js 15 + TypeScript + Tailwind, wired to the Femio design tokens. Internationalization (EN/AR/FR/ES, RTL), UI components, and the PWA shell land next.",
@@ -274,6 +275,18 @@
     "draft": "Draft",
     "missing": "Missing",
     "reviewedCount": "{reviewed} of {total} approved"
+  },
+  "signIn": {
+    "title": "Sign in",
+    "subtitle": "We’ll email you a secure link to sign in — no password needed.",
+    "emailLabel": "Email",
+    "submit": "Email me a link",
+    "sending": "Sending…",
+    "sentHeading": "Check your email",
+    "sentBody": "We sent a sign-in link to {email}. Open it on this device to continue.",
+    "error": "That link didn’t work or expired. Enter your email to get a new one.",
+    "noAccount": "New to Femio?",
+    "createAccount": "Create an account"
   },
   "settings": {
     "summary": {"heading":"Doctor-visit summary","desc":"A printable snapshot of your cycle, symptoms and notes to share with a clinician.","link":"Open summary"},

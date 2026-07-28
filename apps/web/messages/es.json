@@ -4,6 +4,7 @@
     "description": "Una sola cuenta para toda tu vida de salud."
   },
   "home": {
+    "signIn": "Iniciar sesión",
     "eyebrow": "femio",
     "title": "Estructura en línea.",
     "body": "Next.js 15 + TypeScript + Tailwind, conectado a los tokens de diseño de Femio. La internacionalización (EN/AR/FR/ES, RTL), los componentes de interfaz y el shell PWA llegan después.",
@@ -274,6 +275,18 @@
     "draft": "Borrador",
     "missing": "Faltante",
     "reviewedCount": "{reviewed} de {total} aprobadas"
+  },
+  "signIn": {
+    "title": "Iniciar sesión",
+    "subtitle": "Te enviaremos un enlace seguro por correo — sin contraseña.",
+    "emailLabel": "Correo electrónico",
+    "submit": "Enviarme un enlace",
+    "sending": "Enviando…",
+    "sentHeading": "Revisa tu correo",
+    "sentBody": "Enviamos un enlace de acceso a {email}. Ábrelo en este dispositivo para continuar.",
+    "error": "Ese enlace no funcionó o caducó. Escribe tu correo para recibir uno nuevo.",
+    "noAccount": "¿Nueva en Femio?",
+    "createAccount": "Crear una cuenta"
   },
   "settings": {
     "summary": {"heading":"Resumen para la consulta","desc":"Una instantánea imprimible de tu ciclo, síntomas y notas para compartir con un profesional.","link":"Abrir resumen"},
