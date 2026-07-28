@@ -9,7 +9,10 @@ export default defineConfig({
   // Generous: Next dev lazy-compiles a route on first hit.
   expect: { timeout: 25_000 },
   fullyParallel: false,
-  retries: 0,
+  // One worker: the whole suite shares a single dev/prod server and hits live
+  // Supabase, so parallel files contend (first-compile timeouts, auth races).
+  workers: 1,
+  retries: process.env.CI ? 1 : 0,
   reporter: "list",
   use: {
     baseURL: "http://localhost:3000",
