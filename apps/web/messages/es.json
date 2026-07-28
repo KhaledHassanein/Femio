@@ -259,6 +259,22 @@
     "print": "Imprimir / Guardar como PDF",
     "backToSettings": "Volver a ajustes"
   },
+  "admin": {
+    "title": "Traducciones",
+    "desc": "Revisa y aprueba las cadenas de interfaz por idioma. El inglés es la referencia; aprobar una cadena la publica.",
+    "localeLabel": "Idioma objetivo",
+    "filterPlaceholder": "Filtrar por clave o texto…",
+    "keyCol": "Clave",
+    "master": "Inglés (referencia)",
+    "translation": "Traducción",
+    "statusCol": "Estado",
+    "save": "Guardar y aprobar",
+    "saved": "Guardado",
+    "approved": "Aprobado",
+    "draft": "Borrador",
+    "missing": "Faltante",
+    "reviewedCount": "{reviewed} de {total} aprobadas"
+  },
   "settings": {
     "summary": {"heading":"Resumen para la consulta","desc":"Una instantánea imprimible de tu ciclo, síntomas y notas para compartir con un profesional.","link":"Abrir resumen"},
     "title": "Privacidad y datos",

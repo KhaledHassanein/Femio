@@ -259,6 +259,22 @@
     "print": "Print / Save as PDF",
     "backToSettings": "Back to settings"
   },
+  "admin": {
+    "title": "Translations",
+    "desc": "Review and approve UI strings per locale. English is the master; approving a string publishes it.",
+    "localeLabel": "Target language",
+    "filterPlaceholder": "Filter by key or text…",
+    "keyCol": "Key",
+    "master": "English (master)",
+    "translation": "Translation",
+    "statusCol": "Status",
+    "save": "Save & approve",
+    "saved": "Saved",
+    "approved": "Approved",
+    "draft": "Draft",
+    "missing": "Missing",
+    "reviewedCount": "{reviewed} of {total} approved"
+  },
   "settings": {
     "summary": {"heading":"Doctor-visit summary","desc":"A printable snapshot of your cycle, symptoms and notes to share with a clinician.","link":"Open summary"},
     "title": "Privacy & data",

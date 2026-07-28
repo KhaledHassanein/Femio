@@ -259,6 +259,22 @@
     "print": "Imprimer / Enregistrer en PDF",
     "backToSettings": "Retour aux réglages"
   },
+  "admin": {
+    "title": "Traductions",
+    "desc": "Relire et approuver les chaînes d’interface par langue. L’anglais est la référence ; approuver une chaîne la publie.",
+    "localeLabel": "Langue cible",
+    "filterPlaceholder": "Filtrer par clé ou texte…",
+    "keyCol": "Clé",
+    "master": "Anglais (référence)",
+    "translation": "Traduction",
+    "statusCol": "Statut",
+    "save": "Enregistrer et approuver",
+    "saved": "Enregistré",
+    "approved": "Approuvé",
+    "draft": "Brouillon",
+    "missing": "Manquant",
+    "reviewedCount": "{reviewed} sur {total} approuvés"
+  },
   "settings": {
     "summary": {"heading":"Résumé pour la consultation","desc":"Un aperçu imprimable de votre cycle, vos symptômes et vos notes à partager avec un professionnel de santé.","link":"Ouvrir le résumé"},
     "title": "Confidentialité et données",
