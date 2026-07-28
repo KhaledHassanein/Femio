@@ -169,6 +169,9 @@
     "history": { "heading": "Règles enregistrées", "empty": "Aucune règle enregistrée." }
   },
   "symptoms": {
+    "selectedHeading": "Sélectionnés",
+    "custom": { "label": "Ajouter le vôtre", "placeholder": "Saisir un symptôme…", "add": "Ajouter" },
+    "remove": "Retirer {symptom}",
     "heading": "Comment te sens-tu aujourd'hui ?",
     "severityLabel": "Intensité",
     "severity": { "1": "Légère", "2": "Modérée", "3": "Forte", "4": "Sévère" },
@@ -177,6 +180,16 @@
     "savedOffline": "Enregistré hors ligne — la synchronisation se fera au retour de la connexion.",
     "groups": { "mood": "Humeur", "body": "Corps", "other": "Autre" },
     "items": {
+      "moodSwings": "Sautes d’humeur",
+      "lowMotivation": "Manque de motivation",
+      "jointPain": "Douleurs articulaires",
+      "constipation": "Constipation",
+      "diarrhea": "Diarrhée",
+      "hotFlashes": "Bouffées de chaleur",
+      "spotting": "Spotting",
+      "brainFog": "Brouillard mental",
+      "libidoUp": "Libido élevée",
+      "libidoDown": "Libido basse",
       "happy": "Heureuse",
       "calm": "Calme",
       "anxious": "Anxieuse",

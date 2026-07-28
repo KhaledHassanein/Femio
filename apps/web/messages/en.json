@@ -169,6 +169,9 @@
     "history": { "heading": "Logged periods", "empty": "No periods logged yet." }
   },
   "symptoms": {
+    "selectedHeading": "Selected",
+    "custom": { "label": "Add your own", "placeholder": "Type a symptom…", "add": "Add" },
+    "remove": "Remove {symptom}",
     "heading": "How do you feel today?",
     "severityLabel": "Intensity",
     "severity": { "1": "Mild", "2": "Moderate", "3": "Strong", "4": "Severe" },
@@ -177,6 +180,16 @@
     "savedOffline": "Saved offline — it'll sync when you're back online.",
     "groups": { "mood": "Mood", "body": "Body", "other": "Other" },
     "items": {
+      "moodSwings": "Mood swings",
+      "lowMotivation": "Low motivation",
+      "jointPain": "Joint pain",
+      "constipation": "Constipation",
+      "diarrhea": "Diarrhoea",
+      "hotFlashes": "Hot flushes",
+      "spotting": "Spotting",
+      "brainFog": "Brain fog",
+      "libidoUp": "Higher sex drive",
+      "libidoDown": "Lower sex drive",
       "happy": "Happy",
       "calm": "Calm",
       "anxious": "Anxious",

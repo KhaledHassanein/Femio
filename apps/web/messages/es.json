@@ -169,6 +169,9 @@
     "history": { "heading": "Menstruaciones registradas", "empty": "Aún no hay registros." }
   },
   "symptoms": {
+    "selectedHeading": "Seleccionados",
+    "custom": { "label": "Añade el tuyo", "placeholder": "Escribe un síntoma…", "add": "Añadir" },
+    "remove": "Quitar {symptom}",
     "heading": "¿Cómo te sientes hoy?",
     "severityLabel": "Intensidad",
     "severity": { "1": "Leve", "2": "Moderada", "3": "Fuerte", "4": "Severa" },
@@ -177,6 +180,16 @@
     "savedOffline": "Guardado sin conexión — se sincronizará cuando vuelvas a estar en línea.",
     "groups": { "mood": "Estado de ánimo", "body": "Cuerpo", "other": "Otro" },
     "items": {
+      "moodSwings": "Cambios de humor",
+      "lowMotivation": "Poca motivación",
+      "jointPain": "Dolor articular",
+      "constipation": "Estreñimiento",
+      "diarrhea": "Diarrea",
+      "hotFlashes": "Sofocos",
+      "spotting": "Manchado",
+      "brainFog": "Niebla mental",
+      "libidoUp": "Mayor deseo sexual",
+      "libidoDown": "Menor deseo sexual",
       "happy": "Feliz",
       "calm": "Tranquila",
       "anxious": "Ansiosa",

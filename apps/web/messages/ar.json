@@ -169,6 +169,9 @@
     "history": { "heading": "الدورات المُسجّلة", "empty": "لا توجد دورات مُسجّلة بعد." }
   },
   "symptoms": {
+    "selectedHeading": "المُحدَّد",
+    "custom": { "label": "أضيفي عرضًا خاصًا", "placeholder": "اكتبي عرضًا…", "add": "إضافة" },
+    "remove": "إزالة {symptom}",
     "heading": "كيف تشعرين اليوم؟",
     "severityLabel": "الشدّة",
     "severity": { "1": "خفيفة", "2": "متوسطة", "3": "قوية", "4": "شديدة" },
@@ -177,6 +180,16 @@
     "savedOffline": "تم الحفظ دون اتصال — وستتم المزامنة عند عودة الاتصال.",
     "groups": { "mood": "المزاج", "body": "الجسم", "other": "أخرى" },
     "items": {
+      "moodSwings": "تقلّب المزاج",
+      "lowMotivation": "قلة الدافع",
+      "jointPain": "ألم المفاصل",
+      "constipation": "إمساك",
+      "diarrhea": "إسهال",
+      "hotFlashes": "هبّات ساخنة",
+      "spotting": "تنقيط",
+      "brainFog": "تشوّش ذهني",
+      "libidoUp": "ارتفاع الرغبة الجنسية",
+      "libidoDown": "انخفاض الرغبة الجنسية",
       "happy": "سعيدة",
       "calm": "هادئة",
       "anxious": "قلقة",
