@@ -226,7 +226,41 @@
     "needData": "Log a couple of periods to unlock insights.",
     "modeSoon": "Fuller {mode} tracking is coming soon. Your cycle tools are here in the meantime."
   },
+  "visitSummary": {
+    "title": "Doctor-visit summary",
+    "generatedOn": "Generated {date}",
+    "modes": {
+      "cycle": "Cycle tracking",
+      "ttc": "Trying to conceive",
+      "pregnancy": "Pregnancy",
+      "menopause": "Menopause"
+    },
+    "cycleHeading": "Cycle",
+    "cycleLogged": "{count} periods logged",
+    "lastPeriod": "last on {date}",
+    "averageLength": "Average cycle {days} days",
+    "range": "range {low}–{high} days",
+    "colDate": "Date",
+    "colFlow": "Flow",
+    "colSymptom": "Symptom",
+    "colIntensity": "Intensity",
+    "noneLogged": "No periods logged yet.",
+    "symptomsHeading": "Recent symptoms",
+    "medsHeading": "Medications & supplements",
+    "inactive": "inactive",
+    "conditionsHeading": "Flagged topics",
+    "conditionSource": {
+      "self": "self-reported",
+      "screener": "from a screener"
+    },
+    "conditionsNote": "Self-reported for tracking only — not a medical assessment.",
+    "keyDatesHeading": "Key dates",
+    "disclaimer": "This is a personal tracking summary you chose to share — not a medical record or clinical advice. Estimates are based on the data you logged.",
+    "print": "Print / Save as PDF",
+    "backToSettings": "Back to settings"
+  },
   "settings": {
+    "summary": {"heading":"Doctor-visit summary","desc":"A printable snapshot of your cycle, symptoms and notes to share with a clinician.","link":"Open summary"},
     "title": "Privacy & data",
     "exporting": "Preparing…",
     "deleting": "Deleting…",

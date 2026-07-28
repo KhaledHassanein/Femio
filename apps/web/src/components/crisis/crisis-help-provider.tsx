@@ -78,7 +78,7 @@ export function CrisisHelpProvider({ children }: { children: ReactNode }) {
         className={cn(
           "fixed bottom-4 end-4 z-50 inline-flex h-11 items-center gap-2 rounded-full px-4",
           "bg-primary-solid text-sm font-semibold text-primary-fg-solid shadow-md",
-          "hover:bg-primary-hover focus-visible:outline-none",
+          "hover:bg-primary-hover focus-visible:outline-none print:hidden",
         )}
       >
         <span

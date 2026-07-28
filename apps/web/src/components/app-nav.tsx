@@ -25,7 +25,7 @@ export function AppNav() {
   };
 
   return (
-    <header className="border-b border-border bg-surface">
+    <header className="border-b border-border bg-surface print:hidden">
       <nav className="mx-auto flex max-w-2xl items-center justify-between gap-4 px-6 py-3">
         <div className="flex items-center gap-1">
           {LINKS.map((l) => (

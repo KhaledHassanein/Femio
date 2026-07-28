@@ -226,7 +226,41 @@
     "needData": "Registra dos ciclos para desbloquear los análisis.",
     "modeSoon": "Pronto llega un seguimiento de {mode} más completo. Tus herramientas de ciclo están aquí mientras tanto."
   },
+  "visitSummary": {
+    "title": "Resumen para la consulta",
+    "generatedOn": "Generado el {date}",
+    "modes": {
+      "cycle": "Seguimiento del ciclo",
+      "ttc": "Buscando embarazo",
+      "pregnancy": "Embarazo",
+      "menopause": "Menopausia"
+    },
+    "cycleHeading": "Ciclo",
+    "cycleLogged": "{count} periodos registrados",
+    "lastPeriod": "último el {date}",
+    "averageLength": "Ciclo medio {days} días",
+    "range": "rango {low}–{high} días",
+    "colDate": "Fecha",
+    "colFlow": "Flujo",
+    "colSymptom": "Síntoma",
+    "colIntensity": "Intensidad",
+    "noneLogged": "Aún no hay periodos registrados.",
+    "symptomsHeading": "Síntomas recientes",
+    "medsHeading": "Medicamentos y suplementos",
+    "inactive": "inactivo",
+    "conditionsHeading": "Temas marcados",
+    "conditionSource": {
+      "self": "autoinformado",
+      "screener": "de un cuestionario"
+    },
+    "conditionsNote": "Autoinformado solo para seguimiento — no es una valoración médica.",
+    "keyDatesHeading": "Fechas clave",
+    "disclaimer": "Este es un resumen de seguimiento personal que has decidido compartir — no es un historial médico ni un consejo clínico. Las estimaciones se basan en los datos que registraste.",
+    "print": "Imprimir / Guardar como PDF",
+    "backToSettings": "Volver a ajustes"
+  },
   "settings": {
+    "summary": {"heading":"Resumen para la consulta","desc":"Una instantánea imprimible de tu ciclo, síntomas y notas para compartir con un profesional.","link":"Abrir resumen"},
     "title": "Privacidad y datos",
     "exporting": "Preparando…",
     "deleting": "Eliminando…",

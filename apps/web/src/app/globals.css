@@ -26,3 +26,15 @@
     box-shadow: var(--shadow-focus);
   }
 }
+
+/* Print: force a clean light page for the doctor-visit summary (P1.16.1). App
+   chrome is hidden with the Tailwind `print:hidden` variant on those elements. */
+@media print {
+  :root {
+    color-scheme: light;
+  }
+  body {
+    background: #fff !important;
+    color: #000 !important;
+  }
+}

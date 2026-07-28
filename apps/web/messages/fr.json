@@ -226,7 +226,41 @@
     "needData": "Enregistre deux cycles pour débloquer les analyses.",
     "modeSoon": "Un suivi {mode} plus complet arrive bientôt. Tes outils de cycle sont là en attendant."
   },
+  "visitSummary": {
+    "title": "Résumé pour la consultation",
+    "generatedOn": "Généré le {date}",
+    "modes": {
+      "cycle": "Suivi du cycle",
+      "ttc": "Essai de conception",
+      "pregnancy": "Grossesse",
+      "menopause": "Ménopause"
+    },
+    "cycleHeading": "Cycle",
+    "cycleLogged": "{count} règles enregistrées",
+    "lastPeriod": "dernières le {date}",
+    "averageLength": "Cycle moyen {days} jours",
+    "range": "amplitude {low}–{high} jours",
+    "colDate": "Date",
+    "colFlow": "Flux",
+    "colSymptom": "Symptôme",
+    "colIntensity": "Intensité",
+    "noneLogged": "Aucune règle enregistrée pour l’instant.",
+    "symptomsHeading": "Symptômes récents",
+    "medsHeading": "Médicaments et compléments",
+    "inactive": "inactif",
+    "conditionsHeading": "Sujets signalés",
+    "conditionSource": {
+      "self": "auto-déclaré",
+      "screener": "d’un questionnaire"
+    },
+    "conditionsNote": "Auto-déclaré à titre de suivi uniquement — pas une évaluation médicale.",
+    "keyDatesHeading": "Dates clés",
+    "disclaimer": "Ceci est un résumé de suivi personnel que vous avez choisi de partager — pas un dossier médical ni un avis clinique. Les estimations reposent sur les données que vous avez saisies.",
+    "print": "Imprimer / Enregistrer en PDF",
+    "backToSettings": "Retour aux réglages"
+  },
   "settings": {
+    "summary": {"heading":"Résumé pour la consultation","desc":"Un aperçu imprimable de votre cycle, vos symptômes et vos notes à partager avec un professionnel de santé.","link":"Ouvrir le résumé"},
     "title": "Confidentialité et données",
     "exporting": "Préparation…",
     "deleting": "Suppression…",
