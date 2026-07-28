@@ -1,0 +1,277 @@
+# Runbook — Owner (Khaled) manual tasks
+
+Audience: **you, Khaled.** These are the tasks that only you can do because they need a
+password, a service-role key, a paid account, DDL rights, or a human sign-off — Claude
+Code holds only the **client-safe publishable key** and can't do them.
+
+This is written to **teach while you do**: each task says *why it matters*, then gives
+*exact A–Z steps*, *how to verify it worked*, and *common gotchas*. Do them in the
+priority order below; later tasks assume earlier ones are done.
+
+Key facts you'll reuse:
+- **Supabase project ref:** `wnthtqtcajkhskdygbgo` (EU region).
+- **Dashboard:** https://supabase.com/dashboard/project/wnthtqtcajkhskdygbgo
+- **Never commit or paste secrets into chat.** Service-role keys and DB passwords stay
+  on your machine / in Vercel env only.
+
+---
+
+## Priority checklist
+
+- [ ] **A.** Apply migration `0003` (delete-account RPC) — 5 min
+- [ ] **B.** Activate the translation portal (P1.19): grant a staff role + seed strings — 15 min
+- [ ] **C.** Bring the CMS online (unblocks content, P1.11.1) — 20 min
+- [ ] **D.** Choose + set up an analytics vendor (unblocks P1.20) — 20 min
+- [ ] **E.** Vercel env hygiene + optional crisis directory link — 10 min
+- [ ] **F.** Google Search Console + custom domain (SEO) — 20 min
+- [ ] **G.** Sentry error monitoring (optional) — 10 min
+- [ ] **H.** Human sign-offs: crisis posture + translations (P1.26) — ongoing
+- [ ] **I.** Legal + DPO launch gate (P0.12) — the big one before real users
+
+---
+
+## Concepts you'll want to understand (read once)
+
+- **RLS (Row-Level Security):** Postgres rule that every query is filtered to the rows the
+  logged-in user is allowed to see. Femio relies on it so the browser can talk straight to
+  the database safely. It's why "just the publishable key" is enough for the app but *not*
+  enough for admin/DDL work.
+- **publishable key vs service-role key:** the *publishable* key is public and always
+  obeys RLS. The *service-role* key **bypasses RLS** — it's a master key. Use it only in
+  trusted scripts on your machine, never in the browser, never in git.
+- **DDL vs DML:** DDL = changing the shape of the database (create table, add column) via
+  migration files. DML = reading/writing rows. Claude authors DDL as migration files; you
+  apply them.
+- **`NEXT_PUBLIC_*` env vars bake in at build time.** Changing one in Vercel requires a
+  **fresh deploy** to take effect — editing the value alone does nothing to the running site.
+
+---
+
+## A. Apply migration `0003` (delete-account RPC)
+
+**Why:** GDPR "delete my account" must remove the *auth* user too, not just the health
+rows. `0003` adds a `delete_account()` function that does the full cascade. Until applied,
+the app falls back to deleting the profile row (which still cascades health data), but the
+auth login lingers. See also `docs/runbooks/supabase_apply_migrations.md`.
+
+**Steps:**
+1. Open the dashboard → **SQL Editor** (left sidebar) → **New query**.
+2. In your editor, open `supabase/migrations/0003_delete_account.sql`, copy its entire contents.
+3. Paste into the SQL Editor and click **Run** (bottom-right).
+4. You should see "Success. No rows returned."
+
+**Verify:** In SQL Editor run:
+```sql
+select proname from pg_proc where proname = 'delete_account';
+```
+It should return one row.
+
+**Gotcha:** If it errors "function already exists", it's already applied — safe to ignore.
+
+---
+
+## B. Activate the translation portal (P1.19)
+
+**Why:** Femio's UI text lives in the database so non-engineers can translate/approve it.
+The portal at `/admin/translations` lets staff edit AR/FR/ES and approve strings; approving
+one publishes it live. Two one-time steps switch it on: give yourself a **staff role**, then
+**seed** the current English/Arabic/French/Spanish text into the DB.
+
+**Prerequisite:** you need to be able to **sign in** to Femio with your own email account
+(the sign-in page is task-linked below). If you onboarded anonymously, first create/link an
+email in the app so you have a login.
+
+### B1 — Find your auth user id
+1. Dashboard → **Authentication** → **Users**.
+2. Find your email, click the row, copy the **UID** (a uuid like `a1b2c3d4-…`).
+
+### B2 — Grant yourself the `admin` role
+1. Dashboard → **SQL Editor** → New query. Run (paste your UID):
+```sql
+insert into public.staff_roles (user_id, role)
+values ('PASTE-YOUR-UID-HERE', 'admin');
+```
+2. "Success. No rows returned" = done. (Only an existing admin can grant roles via the app;
+   this SQL bootstraps the very first one.)
+
+**Verify:** 
+```sql
+select role from public.staff_roles where user_id = 'PASTE-YOUR-UID-HERE';
+```
+should return `admin`.
+
+### B3 — Get the service-role key
+1. Dashboard → **Project Settings** → **API** → **Project API keys** → copy the
+   **`service_role`** key (marked *secret*). **Do not** paste it anywhere public.
+
+### B4 — Seed the strings
+From the repo root, in a terminal (Git Bash / PowerShell):
+```bash
+# Bash:
+SUPABASE_SERVICE_KEY="paste-service-role-key" node scripts/i18n/seed-ui-strings.mjs
+```
+```powershell
+# PowerShell:
+$env:SUPABASE_SERVICE_KEY="paste-service-role-key"; node scripts/i18n/seed-ui-strings.mjs
+```
+You should see `✓ Seeded ui_strings…`. English is stored as **approved**, AR/FR/ES as
+**drafts**.
+
+**Verify:** sign in to Femio, go to `https://<your-site>/en/admin/translations`. You should
+see the status board and a table. Edit an Arabic string, click **Save & approve**, then open
+an Arabic page — the new text should appear (within ~60s, or immediately since approving
+busts the cache).
+
+**Gotchas:**
+- "Not authorized" in the portal → the staff role (B2) isn't on the account you're signed in
+  as. Re-check the UID matches your logged-in user.
+- Seed script "Need … SERVICE_KEY" → the env var wasn't set in the same command.
+- After seeding, **English looks unchanged** — correct: EN is the master and overlays
+  identically. Only AR/FR/ES change as you approve them.
+
+---
+
+## C. Bring the CMS online (unblocks content, P1.11.1)
+
+**Why:** the Payload CMS (`apps/cms`) is where medical articles/conditions are authored and
+run through the draft→medical-review→publish gate. It builds in CI but needs two secrets +
+a first admin to actually run. Full detail: `docs/runbooks/cms_setup.md`.
+
+**Steps:**
+1. Copy `apps/cms/.env.example` → `apps/cms/.env.local`.
+2. Fill `DATABASE_URL` — Dashboard → **Project Settings → Database → Connection string →
+   "Session pooler" (URI)**. Use the **session** pooler (port **5432**), not transaction
+   (6543). It looks like:
+   `postgresql://postgres.wnthtqtcajkhskdygbgo:<db-password>@aws-0-<region>.pooler.supabase.com:5432/postgres`
+3. Fill `PAYLOAD_SECRET` — generate one:
+   ```bash
+   openssl rand -base64 32
+   ```
+4. Start it: `pnpm --filter cms dev` — on first boot it creates its own tables.
+5. Open `http://localhost:3000/admin` (or the CMS port it prints) and create the first admin
+   user when prompted.
+
+**Verify:** you can log into the CMS admin and see the Article/Condition/FAQ collections.
+
+**Gotcha:** wrong pooler (6543) causes prepared-statement errors — use 5432.
+
+---
+
+## D. Choose + set up an analytics vendor (unblocks P1.20)
+
+**Why:** we want product analytics (funnels, retention) **without any health data** ever
+reaching a third-party SDK (product rule 4 + the DPIA). That means an **EU-hosted,
+consent-respecting** tool. Recommended: **PostHog EU Cloud** (or self-host). Once you give
+me the key, Claude wires a health-field-free event layer that only fires with consent.
+
+**Steps (PostHog EU):**
+1. Go to https://eu.posthog.com and sign up (choose the **EU** region — important for GDPR).
+2. Create a project "Femio".
+3. Project Settings → copy the **Project API key** (starts `phc_…`) and the **host**
+   (`https://eu.i.posthog.com`).
+4. Add them to Vercel (see task E) as `NEXT_PUBLIC_POSTHOG_KEY` and
+   `NEXT_PUBLIC_POSTHOG_HOST`. Tell Claude the values are set (not the key itself).
+
+**What Claude will build once set:** a typed event allowlist (page/feature/funnel events
+only — never symptoms, dates, conditions), gated on analytics consent, no-op when the key is
+absent; plus the dashboard embed.
+
+**Gotcha:** never put health context (persona mode, symptom names, cycle dates) into an
+event — that's the whole point. If unsure whether an event is safe, ask.
+
+---
+
+## E. Vercel env hygiene + optional crisis directory link
+
+**Why:** the site reads its config from `NEXT_PUBLIC_*` env vars **baked in at build**.
+Changing them needs a redeploy.
+
+**Steps:**
+1. Vercel → your project → **Settings → Environment Variables**.
+2. Confirm these exist (Production + Preview):
+   - `NEXT_PUBLIC_APP_URL` (your live URL)
+   - `NEXT_PUBLIC_SUPABASE_URL`
+   - `NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY`
+3. **Optional — turn on the crisis helpline directory link:** add
+   `NEXT_PUBLIC_CRISIS_DIRECTORY_URL=https://findahelpline.com/` **only after** confirming
+   ThroughLine's linking terms (see `docs/compliance/CRISIS_RESOURCES.md`). Any other host or
+   a URL with a query string **fails the build on purpose** — that's the safety guard.
+4. After any change, **redeploy** (Deployments → ⋯ → Redeploy, or push a commit).
+
+**Verify:** open the site, hard-refresh; the "Need help now?" dialog shows the Find A Helpline
+link once the var is set.
+
+---
+
+## F. Google Search Console + custom domain (SEO, P1.11.GSC)
+
+**Why:** to appear in Google and control indexing. Femio is SEO-first, so this matters for
+growth.
+
+**Steps:**
+1. **Custom domain:** Vercel → Settings → Domains → add your domain, follow the DNS records
+   it shows at your registrar. Then update `NEXT_PUBLIC_APP_URL` (task E) to the new domain and
+   redeploy.
+2. **Search Console:** https://search.google.com/search-console → add a property (Domain
+   type). Verify via the DNS TXT record it gives you.
+3. Grab the verification token; set `NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION` in Vercel (task E)
+   and redeploy (Femio injects it into the page head automatically).
+4. In Search Console → **Sitemaps** → submit `https://<your-domain>/sitemap.xml`.
+
+**Verify:** Search Console shows the property "Verified" and the sitemap "Success".
+
+**Gotcha:** `/help-now` is intentionally excluded from the sitemap and marked noindex — that's
+correct, don't add it.
+
+---
+
+## G. Sentry error monitoring (optional)
+
+**Why:** catch runtime errors in production (like the hydration crash we hit once) before
+users report them.
+
+**Steps:**
+1. Create a Sentry project (Next.js). Copy the **DSN**.
+2. Add `SENTRY_DSN` (and any `NEXT_PUBLIC_SENTRY_DSN`) in Vercel; redeploy.
+3. Tell Claude it's set and to wire the SDK (kept out of health-data paths).
+
+---
+
+## H. Human sign-offs — crisis safety (P1.26)
+
+**Why:** safety-critical copy needs a human, not code, to bless it.
+
+- **P1.26.1 — global-only crisis posture:** your DPO + a medical reviewer confirm that
+  showing a global "emergency services / nearest ED" route (instead of per-country phone
+  numbers) is acceptable, and record it in `docs/compliance/DPIA.md §5`. This rides along with
+  the P0.12 legal gate (task I).
+- **P1.26.2 — translate the crisis copy:** a human linguistic reviewer translates the
+  Arabic/French/Spanish crisis wording, then Claude sets it in `crisis.json` with a new
+  12-month review date. Until then those locales safely show the approved **English** text.
+
+**Verify:** the CI "crisis-safety compliance guard" stays green (it fails if approved copy is
+expired or missing reviewer metadata).
+
+---
+
+## I. Legal + DPO launch gate (P0.12) — before any real user health data
+
+**Why:** Femio processes special-category health data across the EU, Gulf, and Egypt. Real
+users cannot onboard for real until counsel + a DPO finalize the foundations.
+
+**Checklist (hand to counsel/DPO):**
+- Entity + Data Protection Officer appointed; EU representative if required.
+- Privacy Policy + Terms finalized (drafts in `docs/13_LEGAL_COMPLIANCE.md`).
+- **DPIA** completed and signed (`docs/compliance/DPIA.md` — includes the crisis posture,
+  task H, and the security review `docs/compliance/SECURITY_REVIEW.md`).
+- Per-jurisdiction minor-consent ages + verifiable parental consent.
+- International-transfer mechanism; processor register up to date.
+- Consent wording reviewed (the app's current copy is a faithful placeholder).
+
+**Verify:** all items signed; DPIA §5 has a residual-risk assessment + sign-off.
+
+---
+
+*Maintained alongside `docs/07_MASTER_TODO.md`. When you finish a task, tick its box here and
+tell Claude — several unlock further automated work (e.g., B lets Claude verify the portal
+end-to-end; D lets Claude wire analytics).*
