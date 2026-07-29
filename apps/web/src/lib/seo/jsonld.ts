@@ -45,6 +45,27 @@ export function webApplicationJsonLd(args: {
   };
 }
 
+// Content article page (P1.6.2/P1.11.1). MedicalWebPage carries the E-E-A-T
+// signals (last reviewed, description); the medical-review sign-off happens in the CMS.
+export function medicalWebPageJsonLd(args: {
+  title: string;
+  description: string;
+  url: string;
+  locale: string;
+  lastReviewed?: string | null;
+}) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "MedicalWebPage",
+    name: args.title,
+    description: args.description,
+    url: args.url,
+    inLanguage: args.locale,
+    isPartOf: { "@type": "WebSite", name: siteConfig.name, url: siteConfig.baseUrl },
+    ...(args.lastReviewed ? { lastReviewed: args.lastReviewed.slice(0, 10) } : {}),
+  };
+}
+
 export function breadcrumbJsonLd(items: { name: string; url: string }[]) {
   return {
     "@context": "https://schema.org",

@@ -4,6 +4,7 @@
     "description": "One account for a woman's whole health life."
   },
   "home": {
+    "learn": "Learn",
     "signIn": "Sign in",
     "eyebrow": "femio",
     "title": "Scaffold online.",
@@ -318,6 +319,21 @@
     "backToSignIn": "Back to sign in",
     "tooShort": "Use at least {min} characters.",
     "mismatch": "Those passwords don’t match."
+  },
+  "learn": {
+    "title": "Learn",
+    "subtitle": "Referenced, medically-reviewed guides on your cycle, conditions, fertility, pregnancy and menopause.",
+    "empty": "New guides are on the way — check back soon.",
+    "reviewed": "Medically reviewed",
+    "lastReviewed": "Last reviewed {date}",
+    "sources": "Sources",
+    "tier": "Tier {tier}",
+    "footerNote": "This is general wellness information, not a substitute for professional medical advice.",
+    "disclaimer": {
+      "general": "General wellness information — not a substitute for professional medical care.",
+      "screening": "Screening information only. Discuss any concerns and next steps with your clinician.",
+      "emergency": "If you notice severe or sudden warning signs, seek urgent medical care."
+    }
   },
   "settings": {
     "password": {

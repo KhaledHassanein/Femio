@@ -31,6 +31,9 @@ export default async function HomePage({ params }: PageProps) {
         <Button asChild variant="accent" size="lg">
           <Link href="/welcome">{t("cta")}</Link>
         </Button>
+        <Link href="/learn" className="text-sm text-text-link underline">
+          {t("learn")}
+        </Link>
         <Link href="/sign-in" className="text-sm text-text-link underline">
           {t("signIn")}
         </Link>

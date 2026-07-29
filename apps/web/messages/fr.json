@@ -4,6 +4,7 @@
     "description": "Un seul compte pour toute ta vie de santé."
   },
   "home": {
+    "learn": "Apprendre",
     "signIn": "Se connecter",
     "eyebrow": "femio",
     "title": "Structure en ligne.",
@@ -318,6 +319,21 @@
     "backToSignIn": "Retour à la connexion",
     "tooShort": "Utilisez au moins {min} caractères.",
     "mismatch": "Les mots de passe ne correspondent pas."
+  },
+  "learn": {
+    "title": "Apprendre",
+    "subtitle": "Des guides référencés et relus médicalement sur votre cycle, vos affections, la fertilité, la grossesse et la ménopause.",
+    "empty": "De nouveaux guides arrivent — revenez bientôt.",
+    "reviewed": "Relu médicalement",
+    "lastReviewed": "Dernière relecture {date}",
+    "sources": "Sources",
+    "tier": "Niveau {tier}",
+    "footerNote": "Ceci est une information de bien-être générale, pas un substitut à un avis médical professionnel.",
+    "disclaimer": {
+      "general": "Information de bien-être générale — pas un substitut aux soins médicaux professionnels.",
+      "screening": "Information de dépistage uniquement. Discutez de toute préoccupation et des prochaines étapes avec votre clinicien.",
+      "emergency": "En cas de signes d’alerte sévères ou soudains, consultez en urgence."
+    }
   },
   "settings": {
     "password": {

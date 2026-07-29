@@ -260,6 +260,15 @@ which the deployed CMS works permanently.
 2. Log in with the admin you created in C2.5 (or, if the schema existed but no user yet, the
    "create first user" screen appears — set email + password).
 
+### C3.5 — Connect the website to the CMS (show content on the site)
+So published articles appear on the public site (`/learn`):
+1. Vercel → the **web app** project (femio-web) → Settings → Environment Variables → add
+   `NEXT_PUBLIC_CMS_URL` = your CMS URL (e.g. `https://femio-cms.vercel.app`).
+2. **Redeploy** the web app (NEXT_PUBLIC_* bake in at build).
+3. In the CMS, create an Article, run it through review to **Published** → it shows at
+   `https://<web>/en/learn` (and the article page) within ~5 min (ISR). Until then `/learn`
+   shows a friendly "new guides on the way" empty state.
+
 ### C4 — Harden (after it works)
 - Once you can log in and see the collections, remove `PAYLOAD_DB_PUSH` from Vercel (and
   redeploy) so production no longer auto-syncs schema; schema changes then go through migrations

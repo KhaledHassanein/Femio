@@ -20,6 +20,10 @@ const envSchema = z.object({
   // Google OAuth provider is configured in Supabase (docs/runbooks). Unset/anything
   // else → the button is hidden so users never hit an unconfigured provider.
   NEXT_PUBLIC_ENABLE_GOOGLE_AUTH: z.string().optional(),
+  // Base URL of the Payload CMS deployment (e.g. https://femio-cms.vercel.app).
+  // The web app reads PUBLISHED content from its REST API. Unset → content pages
+  // render an empty state and the site still builds (graceful).
+  NEXT_PUBLIC_CMS_URL: z.string().url().optional(),
   // Optional outbound link to the maintained crisis-helpline directory. Unset →
   // the directory action is hidden and the emergency-services / nearest-ED
   // fallback still works. When set it must be the canonical Find A Helpline host
@@ -46,6 +50,7 @@ const parsed = envSchema.safeParse({
   NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY: process.env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY,
   NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION,
   NEXT_PUBLIC_ENABLE_GOOGLE_AUTH: process.env.NEXT_PUBLIC_ENABLE_GOOGLE_AUTH,
+  NEXT_PUBLIC_CMS_URL: process.env.NEXT_PUBLIC_CMS_URL,
   NEXT_PUBLIC_CRISIS_DIRECTORY_URL: process.env.NEXT_PUBLIC_CRISIS_DIRECTORY_URL,
 });
 

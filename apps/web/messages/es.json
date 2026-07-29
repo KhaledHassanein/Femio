@@ -4,6 +4,7 @@
     "description": "Una sola cuenta para toda tu vida de salud."
   },
   "home": {
+    "learn": "Aprender",
     "signIn": "Iniciar sesión",
     "eyebrow": "femio",
     "title": "Estructura en línea.",
@@ -318,6 +319,21 @@
     "backToSignIn": "Volver a iniciar sesión",
     "tooShort": "Usa al menos {min} caracteres.",
     "mismatch": "Las contraseñas no coinciden."
+  },
+  "learn": {
+    "title": "Aprender",
+    "subtitle": "Guías referenciadas y revisadas médicamente sobre tu ciclo, afecciones, fertilidad, embarazo y menopausia.",
+    "empty": "Pronto habrá nuevas guías — vuelve pronto.",
+    "reviewed": "Revisado médicamente",
+    "lastReviewed": "Última revisión {date}",
+    "sources": "Fuentes",
+    "tier": "Nivel {tier}",
+    "footerNote": "Esta es información general de bienestar, no un sustituto del consejo médico profesional.",
+    "disclaimer": {
+      "general": "Información general de bienestar — no sustituye la atención médica profesional.",
+      "screening": "Solo información de cribado. Habla de cualquier inquietud y de los próximos pasos con tu profesional clínico.",
+      "emergency": "Si notas señales de alarma graves o repentinas, busca atención médica urgente."
+    }
   },
   "settings": {
     "password": {
