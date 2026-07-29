@@ -3,6 +3,9 @@ import config from "@payload-config";
 import { RootLayout, handleServerFunctions } from "@payloadcms/next/layouts";
 import React from "react";
 import { importMap } from "./admin/importMap.js";
+// Payload's compiled admin styles. Without this the admin panel renders unstyled
+// (giant logo, plain links) both locally and on Vercel. Must come before custom.css.
+import "@payloadcms/next/css";
 import "./custom.css";
 
 type Args = { children: React.ReactNode };
