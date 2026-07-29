@@ -277,6 +277,16 @@
     "reviewedCount": "{reviewed} sur {total} approuvés"
   },
   "signIn": {
+    "subtitlePassword": "Saisissez votre e-mail et votre mot de passe.",
+    "passwordLabel": "Mot de passe",
+    "submitPassword": "Se connecter",
+    "forgotPassword": "Mot de passe oublié ?",
+    "useMagicLink": "Se connecter avec un lien e-mail à la place",
+    "usePassword": "Se connecter avec un mot de passe à la place",
+    "google": "Continuer avec Google",
+    "or": "ou",
+    "enterEmailFirst": "Saisissez d’abord votre e-mail.",
+    "resetSentBody": "Si un compte existe pour {email}, nous avons envoyé un lien pour réinitialiser le mot de passe.",
     "title": "Se connecter",
     "subtitle": "Nous vous enverrons un lien sécurisé par e-mail — sans mot de passe.",
     "emailLabel": "E-mail",
@@ -288,7 +298,32 @@
     "noAccount": "Nouvelle sur Femio ?",
     "createAccount": "Créer un compte"
   },
+  "resetPassword": {
+    "title": "Définir un nouveau mot de passe",
+    "subtitle": "Choisissez un mot de passe pour votre compte.",
+    "newPassword": "Nouveau mot de passe",
+    "confirmPassword": "Confirmer le mot de passe",
+    "save": "Enregistrer",
+    "saving": "Enregistrement…",
+    "checking": "Vérification du lien…",
+    "expiredHeading": "Lien expiré",
+    "expiredBody": "Ce lien de réinitialisation est invalide ou a expiré. Demandez-en un nouveau depuis la page de connexion.",
+    "backToSignIn": "Retour à la connexion",
+    "tooShort": "Utilisez au moins {min} caractères.",
+    "mismatch": "Les mots de passe ne correspondent pas."
+  },
   "settings": {
+    "password": {
+      "heading": "Mot de passe",
+      "desc": "Définissez ou modifiez un mot de passe pour vous connecter sans lien e-mail.",
+      "newPassword": "Nouveau mot de passe",
+      "confirmPassword": "Confirmer le mot de passe",
+      "save": "Enregistrer",
+      "saving": "Enregistrement…",
+      "saved": "Mot de passe mis à jour.",
+      "tooShort": "Utilisez au moins {min} caractères.",
+      "mismatch": "Les mots de passe ne correspondent pas."
+    },
     "summary": {"heading":"Résumé pour la consultation","desc":"Un aperçu imprimable de votre cycle, vos symptômes et vos notes à partager avec un professionnel de santé.","link":"Ouvrir le résumé"},
     "title": "Confidentialité et données",
     "exporting": "Préparation…",

@@ -277,6 +277,16 @@
     "reviewedCount": "{reviewed} de {total} aprobadas"
   },
   "signIn": {
+    "subtitlePassword": "Introduce tu correo y contraseña.",
+    "passwordLabel": "Contraseña",
+    "submitPassword": "Iniciar sesión",
+    "forgotPassword": "¿Olvidaste tu contraseña?",
+    "useMagicLink": "Iniciar sesión con un enlace por correo",
+    "usePassword": "Iniciar sesión con contraseña",
+    "google": "Continuar con Google",
+    "or": "o",
+    "enterEmailFirst": "Introduce primero tu correo.",
+    "resetSentBody": "Si existe una cuenta para {email}, enviamos un enlace para restablecer la contraseña.",
     "title": "Iniciar sesión",
     "subtitle": "Te enviaremos un enlace seguro por correo — sin contraseña.",
     "emailLabel": "Correo electrónico",
@@ -288,7 +298,32 @@
     "noAccount": "¿Nueva en Femio?",
     "createAccount": "Crear una cuenta"
   },
+  "resetPassword": {
+    "title": "Establecer una nueva contraseña",
+    "subtitle": "Elige una contraseña para tu cuenta.",
+    "newPassword": "Nueva contraseña",
+    "confirmPassword": "Confirmar contraseña",
+    "save": "Guardar contraseña",
+    "saving": "Guardando…",
+    "checking": "Comprobando tu enlace…",
+    "expiredHeading": "Enlace caducado",
+    "expiredBody": "Este enlace no es válido o ha caducado. Solicita uno nuevo desde la página de inicio de sesión.",
+    "backToSignIn": "Volver a iniciar sesión",
+    "tooShort": "Usa al menos {min} caracteres.",
+    "mismatch": "Las contraseñas no coinciden."
+  },
   "settings": {
+    "password": {
+      "heading": "Contraseña",
+      "desc": "Establece o cambia una contraseña para iniciar sesión sin enlace por correo.",
+      "newPassword": "Nueva contraseña",
+      "confirmPassword": "Confirmar contraseña",
+      "save": "Guardar contraseña",
+      "saving": "Guardando…",
+      "saved": "Contraseña actualizada.",
+      "tooShort": "Usa al menos {min} caracteres.",
+      "mismatch": "Las contraseñas no coinciden."
+    },
     "summary": {"heading":"Resumen para la consulta","desc":"Una instantánea imprimible de tu ciclo, síntomas y notas para compartir con un profesional.","link":"Abrir resumen"},
     "title": "Privacidad y datos",
     "exporting": "Preparando…",

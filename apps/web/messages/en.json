@@ -277,6 +277,16 @@
     "reviewedCount": "{reviewed} of {total} approved"
   },
   "signIn": {
+    "subtitlePassword": "Enter your email and password.",
+    "passwordLabel": "Password",
+    "submitPassword": "Sign in",
+    "forgotPassword": "Forgot password?",
+    "useMagicLink": "Sign in with an email link instead",
+    "usePassword": "Sign in with a password instead",
+    "google": "Continue with Google",
+    "or": "or",
+    "enterEmailFirst": "Enter your email first.",
+    "resetSentBody": "If an account exists for {email}, we sent a link to reset your password.",
     "title": "Sign in",
     "subtitle": "We’ll email you a secure link to sign in — no password needed.",
     "emailLabel": "Email",
@@ -288,7 +298,32 @@
     "noAccount": "New to Femio?",
     "createAccount": "Create an account"
   },
+  "resetPassword": {
+    "title": "Set a new password",
+    "subtitle": "Choose a password for your account.",
+    "newPassword": "New password",
+    "confirmPassword": "Confirm password",
+    "save": "Save password",
+    "saving": "Saving…",
+    "checking": "Checking your link…",
+    "expiredHeading": "Link expired",
+    "expiredBody": "This reset link is invalid or has expired. Request a new one from the sign-in page.",
+    "backToSignIn": "Back to sign in",
+    "tooShort": "Use at least {min} characters.",
+    "mismatch": "Those passwords don’t match."
+  },
   "settings": {
+    "password": {
+      "heading": "Password",
+      "desc": "Set or change a password so you can sign in without an email link.",
+      "newPassword": "New password",
+      "confirmPassword": "Confirm password",
+      "save": "Save password",
+      "saving": "Saving…",
+      "saved": "Password updated.",
+      "tooShort": "Use at least {min} characters.",
+      "mismatch": "Those passwords don’t match."
+    },
     "summary": {"heading":"Doctor-visit summary","desc":"A printable snapshot of your cycle, symptoms and notes to share with a clinician.","link":"Open summary"},
     "title": "Privacy & data",
     "exporting": "Preparing…",

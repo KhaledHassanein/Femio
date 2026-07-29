@@ -165,6 +165,31 @@ email is heavily rate-limited (a few/hour) and often spam-filtered — fine for 
 
 ---
 
+## B★★. Enable "Continue with Google" sign-in (optional, staff-friendly)
+
+**Why:** magic link + password already work. Google sign-in is fast and
+phishing-resistant — nice for staff. The code is built; the button stays hidden
+until you (1) configure the Google provider in Supabase and (2) flip an env flag,
+so users never hit an unconfigured provider.
+
+**Steps:**
+1. **Google Cloud** → create an OAuth 2.0 Client ID (type: *Web application*).
+   - Authorized redirect URI: `https://wnthtqtcajkhskdygbgo.supabase.co/auth/v1/callback`
+     (Supabase shows the exact URL in the next step). Copy the **Client ID** + **Client secret**.
+2. **Supabase** → Authentication → **Providers → Google** → enable, paste the Client ID +
+   secret, save.
+3. **Vercel** → add env var `NEXT_PUBLIC_ENABLE_GOOGLE_AUTH=true` (Production + Preview) and
+   **redeploy** (NEXT_PUBLIC_* bake in at build). For local dev, add it to `apps/web/.env.local`.
+4. Confirm your app callback URLs are still allow-listed (task B★).
+
+**Verify:** the sign-in page now shows "Continue with Google"; clicking it completes Google
+sign-in and lands on the dashboard.
+
+**Gotcha:** if the button doesn't appear, the env flag isn't set/deployed. If clicking errors
+"provider is not enabled", finish step 2.
+
+---
+
 ## C. Bring the CMS online (unblocks content, P1.11.1)
 
 **Why:** the Payload CMS (`apps/cms`) is where medical articles/conditions are authored and

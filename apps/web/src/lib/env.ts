@@ -16,6 +16,10 @@ const envSchema = z.object({
   NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY: z.string().min(1),
   // Google Search Console verification token (set in Vercel when verifying).
   NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION: z.string().optional(),
+  // Show the "Continue with Google" sign-in button. Set to "true" only after the
+  // Google OAuth provider is configured in Supabase (docs/runbooks). Unset/anything
+  // else → the button is hidden so users never hit an unconfigured provider.
+  NEXT_PUBLIC_ENABLE_GOOGLE_AUTH: z.string().optional(),
   // Optional outbound link to the maintained crisis-helpline directory. Unset →
   // the directory action is hidden and the emergency-services / nearest-ED
   // fallback still works. When set it must be the canonical Find A Helpline host
@@ -41,6 +45,7 @@ const parsed = envSchema.safeParse({
   NEXT_PUBLIC_SUPABASE_URL: process.env.NEXT_PUBLIC_SUPABASE_URL,
   NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY: process.env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY,
   NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION,
+  NEXT_PUBLIC_ENABLE_GOOGLE_AUTH: process.env.NEXT_PUBLIC_ENABLE_GOOGLE_AUTH,
   NEXT_PUBLIC_CRISIS_DIRECTORY_URL: process.env.NEXT_PUBLIC_CRISIS_DIRECTORY_URL,
 });
 
