@@ -221,14 +221,6 @@ to your Vercel/Supabase accounts or the DB password.**
    node -e "console.log(require('crypto').randomBytes(32).toString('base64'))"
    ```
 
-### C1.5 — Create the `payload` schema (one line)
-Payload puts its tables in an isolated `payload` schema but doesn't always create the schema
-itself. Create it first: Supabase → **SQL Editor** → run:
-```sql
-create schema if not exists payload;
-```
-"Success. No rows returned." = done.
-
 ### C2 — Create the CMS Vercel project (from the same repo)
 1. Vercel → **Add New… → Project** → import the **same GitHub repo** (KhaledHassanein/Femio).
 2. In the configure screen, set **Root Directory = `apps/cms`** (click *Edit* next to Root
@@ -259,10 +251,11 @@ its tables (your app's `public` tables are untouched).
 - **"Application error: a server-side exception (Digest …)"** at `/admin` → read the real error:
   Vercel → the `femio-cms` project → **Deployments → (latest) → Runtime Logs** (or the *Functions*
   tab), reload `/admin`, and find the logged stack. Most common causes:
-  1. **`payload` schema missing** → run C1.5, then redeploy.
-  2. **Bad `DATABASE_URL`** (wrong password, or transaction pooler 6543) → fix the env var, redeploy.
-  3. **`PAYLOAD_SECRET` empty** → set it, redeploy.
-  Env-var changes only take effect after a **redeploy**.
+  1. **Bad `DATABASE_URL`** (wrong password, or transaction pooler 6543 instead of session 5432) → fix, redeploy.
+  2. **`PAYLOAD_SECRET` empty** → set it, redeploy.
+  3. **`PAYLOAD_DB_PUSH` not `true`** on the first deploy → tables never created; set it, redeploy.
+  Env-var changes only take effect after a **redeploy**. Quick check without the logs UI: open
+  `https://<cms>.vercel.app/api/users` — a DB problem often returns a JSON error with the real message.
 - If the first admin screen doesn't load, the schema didn't create → confirm `PAYLOAD_DB_PUSH=true`
   is set and redeploy; check the deploy logs for a DB connection error (usually a bad password in
   DATABASE_URL).
