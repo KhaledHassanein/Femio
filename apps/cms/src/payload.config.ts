@@ -37,7 +37,12 @@ export default buildConfig({
   },
   secret: process.env.PAYLOAD_SECRET || "",
   db: postgresAdapter({
-    pool: { connectionString: process.env.DATABASE_URL || "" },
+    pool: {
+      connectionString: process.env.DATABASE_URL || "",
+      // Supabase requires TLS; node-postgres doesn't enable it from a plain
+      // connection string, so set it explicitly (accept Supabase's cert).
+      ssl: { rejectUnauthorized: false },
+    },
     // Payload creates its own tables (users, media, articles, conditions, faqs,
     // tips, glossary, payload_*) in the default `public` schema. None collide with
     // the app's schema-v1 tables (the app has no public.users; it uses auth.users
