@@ -221,6 +221,14 @@ to your Vercel/Supabase accounts or the DB password.**
    node -e "console.log(require('crypto').randomBytes(32).toString('base64'))"
    ```
 
+### C1.5 — Create the isolated `payload` schema (one line, required)
+Payload's tables live in a dedicated `payload` schema so they never collide with the app's
+`public` tables. Create it: Supabase → **SQL Editor** → run:
+```sql
+create schema if not exists payload;
+```
+Idempotent — safe to re-run.
+
 ### C2 — Create the CMS Vercel project (from the same repo)
 1. Vercel → **Add New… → Project** → import the **same GitHub repo** (KhaledHassanein/Femio).
 2. In the configure screen, set **Root Directory = `apps/cms`** (click *Edit* next to Root
