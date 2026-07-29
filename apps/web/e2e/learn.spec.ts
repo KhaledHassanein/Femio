@@ -29,3 +29,11 @@ test("faq and glossary pages render", async ({ page }) => {
   await page.goto("/en/glossary");
   await expect(page.getByRole("heading", { name: /^glossary$/i })).toBeVisible();
 });
+
+test("persistent header nav lets you move between content pages", async ({ page }) => {
+  await page.goto("/en/learn");
+  await page.getByRole("banner").getByRole("link", { name: /^conditions$/i }).click();
+  await expect(page).toHaveURL(/\/en\/conditions$/);
+  // Footer is present on content pages too.
+  await expect(page.getByRole("contentinfo")).toBeVisible();
+});

@@ -375,6 +375,20 @@
     "subtitle": "Plain-language definitions of women’s-health terms.",
     "empty": "Terms are on the way — check back soon."
   },
+  "nav": {
+    "home": "Home",
+    "learn": "Learn",
+    "conditions": "Conditions",
+    "calculators": "Calculators",
+    "faq": "FAQ",
+    "glossary": "Glossary",
+    "signIn": "Sign in"
+  },
+  "footer": {
+    "tagline": "One account for your whole health life.",
+    "rights": "© {year} Femio",
+    "helpNow": "Need help now?"
+  },
   "settings": {
     "password": {
       "heading": "Password",

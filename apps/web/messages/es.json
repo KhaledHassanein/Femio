@@ -375,6 +375,20 @@
     "subtitle": "Definiciones en lenguaje sencillo de términos de salud femenina.",
     "empty": "Pronto habrá términos — vuelve pronto."
   },
+  "nav": {
+    "home": "Inicio",
+    "learn": "Aprender",
+    "conditions": "Afecciones",
+    "calculators": "Calculadoras",
+    "faq": "Preguntas",
+    "glossary": "Glosario",
+    "signIn": "Iniciar sesión"
+  },
+  "footer": {
+    "tagline": "Una sola cuenta para toda tu vida de salud.",
+    "rights": "© {year} Femio",
+    "helpNow": "¿Necesitas ayuda ahora?"
+  },
   "settings": {
     "password": {
       "heading": "Contraseña",
