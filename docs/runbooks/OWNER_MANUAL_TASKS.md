@@ -163,6 +163,15 @@ email is heavily rate-limited (a few/hour) and often spam-filtered — fine for 
 
 **Gotcha:** the link is single-use and short-lived — if it expires, just request a new one.
 
+**"Invalid login credentials" on password sign-in?** Your account was created passwordless
+(onboarding links an email but sets no password), so there's nothing to match yet. Set one of
+these ways: (a) fastest, no email — run the admin script with your service key:
+```powershell
+$env:SUPABASE_SERVICE_KEY="…"; $env:EMAIL="dr.khaled.hassanein@gmail.com"; $env:NEW_PASSWORD="a-strong-password"; node scripts/auth/set-password.mjs
+```
+then sign in with email + password; or (b) use **Forgot password?** / magic link (needs the
+redirect URLs above), then set a password in **Settings → Password**.
+
 ---
 
 ## B★★. Enable "Continue with Google" sign-in (optional, staff-friendly)
