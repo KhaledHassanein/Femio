@@ -341,6 +341,16 @@
     "subtitle": "Referenced, medically-reviewed guides to conditions and topics across your health life.",
     "empty": "New topics are on the way — check back soon."
   },
+  "faq": {
+    "title": "Frequently asked questions",
+    "subtitle": "Clear, referenced answers to common questions about your cycle and health.",
+    "empty": "Questions are on the way — check back soon."
+  },
+  "glossary": {
+    "title": "Glossary",
+    "subtitle": "Plain-language definitions of women’s-health terms.",
+    "empty": "Terms are on the way — check back soon."
+  },
   "settings": {
     "password": {
       "heading": "Password",

@@ -27,6 +27,12 @@ export type ContentDoc = {
   excerpt?: string | null;
   summary?: string | null;
   body?: RichTextValue;
+  // FAQ (question/answer) and Glossary (term/definition) collections use their own
+  // field names instead of title/body.
+  question?: string | null;
+  answer?: RichTextValue;
+  term?: string | null;
+  definition?: RichTextValue;
   disclaimerType?: DisclaimerType | null;
   sources?: Source[] | null;
   lastReviewed?: string | null;

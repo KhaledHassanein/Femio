@@ -341,6 +341,16 @@
     "subtitle": "Guías referenciadas y revisadas médicamente sobre afecciones y temas a lo largo de tu vida de salud.",
     "empty": "Pronto habrá nuevos temas — vuelve pronto."
   },
+  "faq": {
+    "title": "Preguntas frecuentes",
+    "subtitle": "Respuestas claras y referenciadas a preguntas comunes sobre tu ciclo y tu salud.",
+    "empty": "Pronto habrá preguntas — vuelve pronto."
+  },
+  "glossary": {
+    "title": "Glosario",
+    "subtitle": "Definiciones en lenguaje sencillo de términos de salud femenina.",
+    "empty": "Pronto habrá términos — vuelve pronto."
+  },
   "settings": {
     "password": {
       "heading": "Contraseña",

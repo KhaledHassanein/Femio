@@ -341,6 +341,16 @@
     "subtitle": "Des guides référencés et relus médicalement sur les affections et sujets tout au long de votre vie de santé.",
     "empty": "De nouveaux sujets arrivent — revenez bientôt."
   },
+  "faq": {
+    "title": "Questions fréquentes",
+    "subtitle": "Des réponses claires et référencées aux questions courantes sur votre cycle et votre santé.",
+    "empty": "Des questions arrivent — revenez bientôt."
+  },
+  "glossary": {
+    "title": "Glossaire",
+    "subtitle": "Des définitions en langage clair des termes de santé féminine.",
+    "empty": "Des termes arrivent — revenez bientôt."
+  },
   "settings": {
     "password": {
       "heading": "Mot de passe",

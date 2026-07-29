@@ -20,3 +20,10 @@ test("conditions hub renders (empty state when no CMS content)", async ({ page }
   await expect(page.getByRole("heading", { name: /conditions & topics/i })).toBeVisible();
   await expect(page.getByText(/new topics are on the way|guides to conditions/i).first()).toBeVisible();
 });
+
+test("faq and glossary pages render", async ({ page }) => {
+  await page.goto("/en/faq");
+  await expect(page.getByRole("heading", { name: /frequently asked questions/i })).toBeVisible();
+  await page.goto("/en/glossary");
+  await expect(page.getByRole("heading", { name: /^glossary$/i })).toBeVisible();
+});

@@ -10,6 +10,8 @@ const STATIC_PATHS = [
   "",
   "/learn",
   "/conditions",
+  "/faq",
+  "/glossary",
   "/calculators",
   "/calculators/due-date",
   "/calculators/fertile-window",
