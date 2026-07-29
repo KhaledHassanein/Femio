@@ -4,6 +4,30 @@
     "description": "One account for a woman's whole health life."
   },
   "home": {
+    "heroTitle": "One account for your whole health life.",
+    "heroBody": "Referenced, judgment-free guidance and honest tracking — from puberty and cycles through trying to conceive, pregnancy, and menopause.",
+    "sections": {
+      "learn": {
+        "name": "Learn",
+        "desc": "Medically-reviewed guides on your cycle, body, and health."
+      },
+      "conditions": {
+        "name": "Conditions & topics",
+        "desc": "Understand conditions across every life stage."
+      },
+      "calculators": {
+        "name": "Calculators",
+        "desc": "Due date, fertile window, cycle length and more — free, no login."
+      },
+      "faq": {
+        "name": "FAQ",
+        "desc": "Clear, referenced answers to common questions."
+      },
+      "glossary": {
+        "name": "Glossary",
+        "desc": "Plain-language definitions of health terms."
+      }
+    },
     "conditions": "Conditions",
     "learn": "Learn",
     "signIn": "Sign in",

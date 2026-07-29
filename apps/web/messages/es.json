@@ -4,6 +4,30 @@
     "description": "Una sola cuenta para toda tu vida de salud."
   },
   "home": {
+    "heroTitle": "Una sola cuenta para toda tu vida de salud.",
+    "heroBody": "Orientación referenciada y sin juicios y un seguimiento honesto — desde la pubertad y los ciclos hasta la búsqueda de embarazo, el embarazo y la menopausia.",
+    "sections": {
+      "learn": {
+        "name": "Aprender",
+        "desc": "Guías revisadas médicamente sobre tu ciclo, tu cuerpo y tu salud."
+      },
+      "conditions": {
+        "name": "Afecciones y temas",
+        "desc": "Comprende las afecciones en cada etapa de la vida."
+      },
+      "calculators": {
+        "name": "Calculadoras",
+        "desc": "Fecha de parto, ventana fértil, duración del ciclo y más — gratis, sin cuenta."
+      },
+      "faq": {
+        "name": "Preguntas frecuentes",
+        "desc": "Respuestas claras y referenciadas a preguntas comunes."
+      },
+      "glossary": {
+        "name": "Glosario",
+        "desc": "Definiciones en lenguaje sencillo de términos de salud."
+      }
+    },
     "conditions": "Afecciones",
     "learn": "Aprender",
     "signIn": "Iniciar sesión",

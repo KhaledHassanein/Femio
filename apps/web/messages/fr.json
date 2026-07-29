@@ -4,6 +4,30 @@
     "description": "Un seul compte pour toute ta vie de santé."
   },
   "home": {
+    "heroTitle": "Un seul compte pour toute votre vie de santé.",
+    "heroBody": "Des conseils référencés et sans jugement et un suivi honnête — de la puberté et des cycles à la conception, la grossesse et la ménopause.",
+    "sections": {
+      "learn": {
+        "name": "Apprendre",
+        "desc": "Des guides relus médicalement sur votre cycle, votre corps et votre santé."
+      },
+      "conditions": {
+        "name": "Affections et sujets",
+        "desc": "Comprendre les affections à chaque étape de la vie."
+      },
+      "calculators": {
+        "name": "Calculatrices",
+        "desc": "Date d’accouchement, fenêtre de fertilité, longueur du cycle et plus — gratuit, sans compte."
+      },
+      "faq": {
+        "name": "FAQ",
+        "desc": "Des réponses claires et référencées aux questions courantes."
+      },
+      "glossary": {
+        "name": "Glossaire",
+        "desc": "Des définitions en langage clair des termes de santé."
+      }
+    },
     "conditions": "Affections",
     "learn": "Apprendre",
     "signIn": "Se connecter",
