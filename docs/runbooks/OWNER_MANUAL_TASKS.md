@@ -232,10 +232,25 @@ to your Vercel/Supabase accounts or the DB password.**
    - `PAYLOAD_DB_PUSH` = `true`  ← makes the first deploy create Payload's tables automatically
 4. Click **Deploy**. Give the project a name like `femio-cms`.
 
-### C3 — Create the first admin
-1. When the deploy is **Ready**, open `https://<your-cms-project>.vercel.app/admin`.
-2. Payload shows a "create first user" screen → set your email + a password. That's your CMS
-   admin login.
+### C2.5 — Create the database schema once (required)
+Payload's auto-create (`push`) does **not** run on Vercel's serverless environment (it's
+non-interactive), so the tables must be created once from a machine that can connect. Easiest:
+run the CMS locally a single time against the shared Supabase DB — this creates every table, after
+which the deployed CMS works permanently.
+1. In `apps/cms/.env.local` set `DATABASE_URL` (session pooler + real password) and
+   `PAYLOAD_SECRET` (same as Vercel).
+2. From the repo root: `pnpm --filter cms dev`. If prompted "Accept schema changes?", press **y**.
+3. Open `http://localhost:3001/admin`, create the first admin, then stop the server (Ctrl+C).
+4. (Confirm in Supabase → Table Editor that `users`, `articles`, … now exist.)
+
+*(Proper alternative for repeatable deploys: generate migrations once with
+`pnpm --filter cms exec payload migrate:create`, commit them, and set the Vercel build command to
+`pnpm --filter cms exec payload migrate && next build`. Claude can wire this later.)*
+
+### C3 — Log in to the deployed admin
+1. Open `https://<your-cms-project>.vercel.app/admin`.
+2. Log in with the admin you created in C2.5 (or, if the schema existed but no user yet, the
+   "create first user" screen appears — set email + password).
 
 ### C4 — Harden (after it works)
 - Once you can log in and see the collections, remove `PAYLOAD_DB_PUSH` from Vercel (and
