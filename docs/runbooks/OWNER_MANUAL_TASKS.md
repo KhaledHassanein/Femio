@@ -20,6 +20,7 @@ Key facts you'll reuse:
 
 - [ ] **A.** Apply migration `0003` (delete-account RPC) — 5 min
 - [ ] **B.** Activate the translation portal (P1.19): grant a staff role + seed strings — 15 min
+- [ ] **B★.** Configure auth email (redirect URLs) so sign-in works — 5 min
 - [ ] **C.** Bring the CMS online (unblocks content, P1.11.1) — 20 min
 - [ ] **D.** Choose + set up an analytics vendor (unblocks P1.20) — 20 min
 - [ ] **E.** Vercel env hygiene + optional crisis directory link — 10 min
@@ -133,6 +134,34 @@ busts the cache).
 - Seed script "Need … SERVICE_KEY" → the env var wasn't set in the same command.
 - After seeding, **English looks unchanged** — correct: EN is the master and overlays
   identically. Only AR/FR/ES change as you approve them.
+
+---
+
+## B★. Configure auth email (redirect URLs + sender) — required for sign-in
+
+**Why:** sign-in uses a **magic link** (passwordless). Supabase only redirects a magic link to
+a URL on its **allow-list**; if the callback URL isn't listed, it silently falls back to the
+**Site URL** — so you land on the home page, never signed in. Separately, Supabase's built-in
+email is heavily rate-limited (a few/hour) and often spam-filtered — fine for testing, not launch.
+
+**Steps — URL configuration (do this before trying sign-in):**
+1. Dashboard → **Authentication → URL Configuration**.
+2. **Site URL:** `https://femio-web.vercel.app` (or your custom domain when you add one).
+3. **Redirect URLs** → add:
+   - `https://femio-web.vercel.app/**`
+   - `http://localhost:3000/**` (for local dev)
+4. Save. Now request a link at `/en/sign-in`, open it (same browser, check spam) → it should land
+   on `/api/auth/callback` and sign you in to the dashboard.
+
+**Steps — real email sender (before launch):**
+1. Dashboard → **Authentication → Emails / SMTP** → enable **Custom SMTP**.
+2. Use a transactional provider (Resend, Postmark, SES, etc.): host, port, user, password, and a
+   verified **from** address on your domain.
+3. Optionally customize the magic-link email template.
+
+**Verify:** you receive the link within seconds and clicking it signs you in.
+
+**Gotcha:** the link is single-use and short-lived — if it expires, just request a new one.
 
 ---
 
