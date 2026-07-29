@@ -14,3 +14,9 @@ test("home links to the learn hub", async ({ page }) => {
   await page.getByRole("link", { name: /^learn$/i }).click();
   await expect(page).toHaveURL(/\/en\/learn$/);
 });
+
+test("conditions hub renders (empty state when no CMS content)", async ({ page }) => {
+  await page.goto("/en/conditions");
+  await expect(page.getByRole("heading", { name: /conditions & topics/i })).toBeVisible();
+  await expect(page.getByText(/new topics are on the way|guides to conditions/i).first()).toBeVisible();
+});

@@ -4,6 +4,7 @@
     "description": "Una sola cuenta para toda tu vida de salud."
   },
   "home": {
+    "conditions": "Afecciones",
     "learn": "Aprender",
     "signIn": "Iniciar sesión",
     "eyebrow": "femio",
@@ -334,6 +335,11 @@
       "screening": "Solo información de cribado. Habla de cualquier inquietud y de los próximos pasos con tu profesional clínico.",
       "emergency": "Si notas señales de alarma graves o repentinas, busca atención médica urgente."
     }
+  },
+  "conditions": {
+    "title": "Afecciones y temas",
+    "subtitle": "Guías referenciadas y revisadas médicamente sobre afecciones y temas a lo largo de tu vida de salud.",
+    "empty": "Pronto habrá nuevos temas — vuelve pronto."
   },
   "settings": {
     "password": {

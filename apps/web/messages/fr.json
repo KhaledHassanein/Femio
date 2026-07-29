@@ -4,6 +4,7 @@
     "description": "Un seul compte pour toute ta vie de santé."
   },
   "home": {
+    "conditions": "Affections",
     "learn": "Apprendre",
     "signIn": "Se connecter",
     "eyebrow": "femio",
@@ -334,6 +335,11 @@
       "screening": "Information de dépistage uniquement. Discutez de toute préoccupation et des prochaines étapes avec votre clinicien.",
       "emergency": "En cas de signes d’alerte sévères ou soudains, consultez en urgence."
     }
+  },
+  "conditions": {
+    "title": "Affections et sujets",
+    "subtitle": "Des guides référencés et relus médicalement sur les affections et sujets tout au long de votre vie de santé.",
+    "empty": "De nouveaux sujets arrivent — revenez bientôt."
   },
   "settings": {
     "password": {

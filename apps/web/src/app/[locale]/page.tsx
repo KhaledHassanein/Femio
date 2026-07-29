@@ -34,6 +34,9 @@ export default async function HomePage({ params }: PageProps) {
         <Link href="/learn" className="text-sm text-text-link underline">
           {t("learn")}
         </Link>
+        <Link href="/conditions" className="text-sm text-text-link underline">
+          {t("conditions")}
+        </Link>
         <Link href="/sign-in" className="text-sm text-text-link underline">
           {t("signIn")}
         </Link>

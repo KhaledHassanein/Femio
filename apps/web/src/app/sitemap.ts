@@ -9,6 +9,7 @@ import { listContent } from "@/lib/cms/client";
 const STATIC_PATHS = [
   "",
   "/learn",
+  "/conditions",
   "/calculators",
   "/calculators/due-date",
   "/calculators/fertile-window",
@@ -33,10 +34,13 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
   for (const path of STATIC_PATHS) add(path, now);
 
-  // Published articles (slugs are shared across locales). Graceful if CMS is unset.
-  const articles = await listContent("articles", routing.defaultLocale);
-  for (const a of articles) {
-    add(`/learn/${a.slug}`, a.updatedAt ? new Date(a.updatedAt) : now);
+  // Published content (slugs shared across locales). Graceful if the CMS is unset.
+  for (const { collection, base } of [
+    { collection: "articles", base: "/learn" },
+    { collection: "conditions", base: "/conditions" },
+  ]) {
+    const docs = await listContent(collection, routing.defaultLocale);
+    for (const d of docs) add(`${base}/${d.slug}`, d.updatedAt ? new Date(d.updatedAt) : now);
   }
 
   return entries;

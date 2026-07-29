@@ -4,6 +4,7 @@
     "description": "One account for a woman's whole health life."
   },
   "home": {
+    "conditions": "Conditions",
     "learn": "Learn",
     "signIn": "Sign in",
     "eyebrow": "femio",
@@ -334,6 +335,11 @@
       "screening": "Screening information only. Discuss any concerns and next steps with your clinician.",
       "emergency": "If you notice severe or sudden warning signs, seek urgent medical care."
     }
+  },
+  "conditions": {
+    "title": "Conditions & topics",
+    "subtitle": "Referenced, medically-reviewed guides to conditions and topics across your health life.",
+    "empty": "New topics are on the way — check back soon."
   },
   "settings": {
     "password": {
