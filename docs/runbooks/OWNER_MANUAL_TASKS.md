@@ -199,29 +199,63 @@ sign-in and lands on the dashboard.
 
 ---
 
-## C. Bring the CMS online (unblocks content, P1.11.1)
+## C. Bring the CMS online — deploy on Vercel (no local setup)
 
 **Why:** the Payload CMS (`apps/cms`) is where medical articles/conditions are authored and
-run through the draft→medical-review→publish gate. It builds in CI but needs two secrets +
-a first admin to actually run. Full detail: `docs/runbooks/cms_setup.md`.
+run through the draft→medical-review→publish gate. It's designed to run as its **own Vercel
+project** on the **shared Supabase database** (ADR-012) — you don't need to run anything
+locally. Claude prepared it so this is turnkey: Payload's tables live in an isolated `payload`
+schema (they can't touch the app's tables), and a one-time env flag makes the first deploy
+create the schema automatically.
 
-**Steps:**
-1. Copy `apps/cms/.env.example` → `apps/cms/.env.local`.
-2. Fill `DATABASE_URL` — Dashboard → **Project Settings → Database → Connection string →
-   "Session pooler" (URI)**. Use the **session** pooler (port **5432**), not transaction
-   (6543). It looks like:
+**You need two secrets + a few dashboard clicks. Claude can't do this part — it has no access
+to your Vercel/Supabase accounts or the DB password.**
+
+### C1 — Gather the two secrets
+1. **DATABASE_URL** — Supabase dashboard → **Project Settings → Database → Connection string →
+   "Session pooler" (URI)**. Copy it and put your DB password in place of `[YOUR-PASSWORD]`.
+   Must be the **session** pooler (port **5432**), not transaction (6543). Looks like:
    `postgresql://postgres.wnthtqtcajkhskdygbgo:<db-password>@aws-0-<region>.pooler.supabase.com:5432/postgres`
-3. Fill `PAYLOAD_SECRET` — generate one:
-   ```bash
-   openssl rand -base64 32
+2. **PAYLOAD_SECRET** — a long random string. On Windows (no `openssl`), generate with Node:
+   ```powershell
+   node -e "console.log(require('crypto').randomBytes(32).toString('base64'))"
    ```
-4. Start it: `pnpm --filter cms dev` — on first boot it creates its own tables.
-5. Open `http://localhost:3000/admin` (or the CMS port it prints) and create the first admin
-   user when prompted.
 
-**Verify:** you can log into the CMS admin and see the Article/Condition/FAQ collections.
+### C2 — Create the CMS Vercel project (from the same repo)
+1. Vercel → **Add New… → Project** → import the **same GitHub repo** (KhaledHassanein/Femio).
+2. In the configure screen, set **Root Directory = `apps/cms`** (click *Edit* next to Root
+   Directory and pick it). Framework preset auto-detects **Next.js**; leave build/install commands
+   as default (Vercel runs the pnpm workspace install automatically).
+3. **Environment Variables** (add for Production **and** Preview):
+   - `DATABASE_URL` = the session-pooler URI from C1
+   - `PAYLOAD_SECRET` = the random string from C1
+   - `PAYLOAD_DB_PUSH` = `true`  ← makes the first deploy create Payload's tables automatically
+4. Click **Deploy**. Give the project a name like `femio-cms`.
 
-**Gotcha:** wrong pooler (6543) causes prepared-statement errors — use 5432.
+### C3 — Create the first admin
+1. When the deploy is **Ready**, open `https://<your-cms-project>.vercel.app/admin`.
+2. Payload shows a "create first user" screen → set your email + a password. That's your CMS
+   admin login.
+
+### C4 — Harden (after it works)
+- Once you can log in and see the collections, remove `PAYLOAD_DB_PUSH` from Vercel (and
+  redeploy) so production no longer auto-syncs schema; schema changes then go through migrations
+  (Claude can add these later).
+
+**Verify:** you can log into `/admin`, and Articles / Conditions / FAQs / Tips / Glossary
+collections appear. In Supabase → Database → Schemas you'll see a new **`payload`** schema with
+its tables (your app's `public` tables are untouched).
+
+**Gotchas:**
+- Wrong pooler (6543) → prepared-statement errors. Use **5432** (session pooler).
+- If the first admin screen doesn't load, the schema didn't create → confirm `PAYLOAD_DB_PUSH=true`
+  is set and redeploy; check the deploy logs for a DB connection error (usually a bad password in
+  DATABASE_URL).
+- This is a **second** Vercel project (separate from the web app) sharing one database — that's
+  intended.
+
+*(Local alternative, if you ever want it: fill `apps/cms/.env.local` from `.env.example` and run
+`pnpm --filter cms dev` → `http://localhost:3001/admin`. Not needed for production.)*
 
 ---
 
