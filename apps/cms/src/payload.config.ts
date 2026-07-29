@@ -43,13 +43,18 @@ export default buildConfig({
       // connection string, so set it explicitly (accept Supabase's cert).
       ssl: { rejectUnauthorized: false },
     },
-    // Payload creates its own tables (users, media, articles, conditions, faqs,
-    // tips, glossary, payload_*) in the default `public` schema. None collide with
-    // the app's schema-v1 tables (the app has no public.users; it uses auth.users
-    // + profiles), so they coexist safely on the shared DB. (A dedicated schema was
-    // tried but non-public schemas need extra privileges on Supabase — not worth it.)
+    // Isolate ALL Payload tables in a dedicated `payload` schema. This is REQUIRED
+    // on the shared DB: without it, Payload's schema push sees the app's public
+    // schema-v1 tables (labs, vitals, pregnancy, …) and tries to "rename" them into
+    // Payload tables — data-loss risk. With isolation, push only ever manages the
+    // (initially empty) payload schema, so it cleanly creates its own tables and
+    // can never touch the app's. Create the schema once: `create schema if not
+    // exists payload;` (runbook C1.5).
+    schemaName: "payload",
     // Auto-create/sync schema on boot: on in dev; in production opt-in via
-    // PAYLOAD_DB_PUSH=true for the first deploy (no local migration step), remove after.
+    // PAYLOAD_DB_PUSH=true. NOTE: push is interactive, so it only truly runs from a
+    // local/interactive `pnpm --filter cms dev` — create the schema there once, then
+    // the serverless deploy just uses it.
     push: process.env.PAYLOAD_DB_PUSH === "true" || process.env.NODE_ENV !== "production",
   }),
   sharp,
