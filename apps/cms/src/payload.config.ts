@@ -38,13 +38,13 @@ export default buildConfig({
   secret: process.env.PAYLOAD_SECRET || "",
   db: postgresAdapter({
     pool: { connectionString: process.env.DATABASE_URL || "" },
-    // Isolate all Payload tables in their own `payload` schema so they never
-    // collide with the app's `public` schema-v1 tables on the shared DB (ADR-012).
-    schemaName: "payload",
-    // Auto-create/sync the schema on boot. On in dev; in production it's opt-in via
-    // PAYLOAD_DB_PUSH=true — set that for the first online deploy so Payload creates
-    // its tables automatically (no local migration step), then remove it once you
-    // adopt migrations.
+    // Payload creates its own tables (users, media, articles, conditions, faqs,
+    // tips, glossary, payload_*) in the default `public` schema. None collide with
+    // the app's schema-v1 tables (the app has no public.users; it uses auth.users
+    // + profiles), so they coexist safely on the shared DB. (A dedicated schema was
+    // tried but non-public schemas need extra privileges on Supabase — not worth it.)
+    // Auto-create/sync schema on boot: on in dev; in production opt-in via
+    // PAYLOAD_DB_PUSH=true for the first deploy (no local migration step), remove after.
     push: process.env.PAYLOAD_DB_PUSH === "true" || process.env.NODE_ENV !== "production",
   }),
   sharp,
