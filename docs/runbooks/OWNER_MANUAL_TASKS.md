@@ -123,6 +123,11 @@ an Arabic page — the new text should appear (within ~60s, or immediately since
 busts the cache).
 
 **Gotchas:**
+- **"permission denied for table ui_strings"** when seeding → the `service_role` was missing
+  base table grants (migration 0002 granted only `anon`/`authenticated`). Fix once by applying
+  **`supabase/migrations/0004_grant_service_role.sql`** — paste its contents into the SQL Editor
+  and Run, then re-run the seed. (The `Assertion failed … UV_HANDLE_CLOSING` line after the error
+  is harmless Node-on-Windows exit noise.)
 - "Not authorized" in the portal → the staff role (B2) isn't on the account you're signed in
   as. Re-check the UID matches your logged-in user.
 - Seed script "Need … SERVICE_KEY" → the env var wasn't set in the same command.
