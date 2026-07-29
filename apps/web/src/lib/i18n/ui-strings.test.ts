@@ -25,4 +25,13 @@ describe("overlay", () => {
     const base = { a: "1", b: { c: "2" } };
     expect(overlay(base, {})).toEqual(base);
   });
+
+  it("preserves array-valued messages through the round-trip (e.g. page points)", () => {
+    const base = { about: { points: [{ heading: "H1", body: "B1" }, { heading: "H2", body: "B2" }] } };
+    const merged = overlay(base as unknown as Parameters<typeof overlay>[0], {}) as unknown as {
+      about: { points: { heading: string; body: string }[] };
+    };
+    expect(Array.isArray(merged.about.points)).toBe(true);
+    expect(merged.about.points[1]!.heading).toBe("H2");
+  });
 });

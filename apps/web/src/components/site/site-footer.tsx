@@ -28,6 +28,15 @@ export async function SiteFooter() {
               {nav(l.key)}
             </Link>
           ))}
+          <Link href="/about" className="text-text-muted hover:text-text">
+            {nav("about")}
+          </Link>
+          <Link href="/editorial-policy" className="text-text-muted hover:text-text">
+            {nav("editorial")}
+          </Link>
+          <Link href="/medical-review" className="text-text-muted hover:text-text">
+            {nav("medicalReview")}
+          </Link>
           <Link href="/help-now" className="text-text-muted hover:text-text">
             {t("helpNow")}
           </Link>

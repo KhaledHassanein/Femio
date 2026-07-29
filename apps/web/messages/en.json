@@ -376,6 +376,10 @@
     "empty": "Terms are on the way — check back soon."
   },
   "nav": {
+    "about": "About",
+    "editorial": "Editorial policy",
+    "medicalReview": "Medical review",
+    "related": "Related",
     "home": "Home",
     "learn": "Learn",
     "conditions": "Conditions",
@@ -388,6 +392,88 @@
     "tagline": "One account for your whole health life.",
     "rights": "© {year} Femio",
     "helpNow": "Need help now?"
+  },
+  "about": {
+    "title": "About Femio",
+    "intro": "Femio is one account for a woman’s whole health life — from puberty and cycles through trying to conceive, pregnancy, postpartum, and menopause.",
+    "points": [
+      {
+        "heading": "Our mission",
+        "body": "Give every woman referenced, judgment-free health knowledge and honest tracking she can trust — in her language, on her terms."
+      },
+      {
+        "heading": "Learning & tracking",
+        "body": "Femio helps you understand and track your health. It is a wellness and education tool, not a medical device, and it never replaces your clinician’s care."
+      },
+      {
+        "heading": "Referenced, reviewed content",
+        "body": "Every guide is sourced from reputable medical bodies and checked by a qualified clinician before it goes live."
+      },
+      {
+        "heading": "Honest predictions",
+        "body": "We show ranges and a confidence level, never a single false-certain date."
+      },
+      {
+        "heading": "Privacy by design",
+        "body": "Your health data is yours — never sold, never shared with advertisers. You can export or delete it anytime."
+      },
+      {
+        "heading": "Arabic & RTL first-class",
+        "body": "Femio is built for English, Arabic, French, and Spanish, with right-to-left support native throughout."
+      }
+    ]
+  },
+  "editorialPolicy": {
+    "title": "Editorial policy",
+    "intro": "Every health claim on Femio is traceable to a reputable source, every page is reviewed by a qualified clinician before it goes live, and every language is medically correct — not merely translated.",
+    "points": [
+      {
+        "heading": "Evidence over opinion",
+        "body": "Every fact traces to a top-tier source such as WHO, CDC, NHS, or ACOG. We never invent statistics or guideline positions; a claim we cannot source is cut."
+      },
+      {
+        "heading": "At least two sources per page",
+        "body": "Each guide cites at least two independent sources — at least one from a leading medical body — stored and shown so you can check them yourself."
+      },
+      {
+        "heading": "Plain language",
+        "body": "English guides are written at about a grade 6–8 reading level; other languages target the same clarity, with any jargon defined on first use."
+      },
+      {
+        "heading": "Safety foregrounded",
+        "body": "Guides include a specific when-to-see-a-doctor section, and a clear seek-care-now box wherever a symptom can be an emergency."
+      },
+      {
+        "heading": "Independent of advertising",
+        "body": "Medical content is editorially independent. Advertisers never influence what we publish, and ads are never targeted using your health data."
+      },
+      {
+        "heading": "Kept current",
+        "body": "Every page is re-reviewed at least every 12 months, and sooner whenever guidance changes."
+      }
+    ]
+  },
+  "medicalReview": {
+    "title": "How we review content",
+    "intro": "No health content goes live on Femio until a qualified clinician has reviewed and approved it — our system refuses to publish anything unreviewed.",
+    "points": [
+      {
+        "heading": "Draft, review, approve, publish",
+        "body": "An editor writes to our page standard and adds sources; a medical reviewer checks accuracy, source fidelity, and safety framing; only a reviewer can approve, and only approved content can be published."
+      },
+      {
+        "heading": "Qualified reviewers",
+        "body": "Reviewers are licensed clinicians appropriate to the topic, such as OB-GYN or family medicine. Their name, credentials, and the last-reviewed date appear on every page they approve."
+      },
+      {
+        "heading": "Every language reviewed",
+        "body": "A translated page cannot go live without that language’s own medical-reviewer sign-off. Good translation is never a substitute for medical review in that language."
+      },
+      {
+        "heading": "Enforced, not aspirational",
+        "body": "These gates are built into our system: reviewer-only approval, approval before publishing, per-language sign-off, and 12-month re-review dates."
+      }
+    ]
   },
   "settings": {
     "password": {

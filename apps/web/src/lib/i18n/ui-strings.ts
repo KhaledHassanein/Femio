@@ -21,7 +21,20 @@ export function flatten(obj: Nested, prefix = ""): FlatStrings {
   return out;
 }
 
-/** Flat dotted keys → nested object. */
+// Turn objects whose keys are exactly 0..n-1 back into arrays, so array-valued
+// messages (e.g. a page's `points` list) survive the flatten→unflatten round-trip.
+function arrayify(node: unknown): unknown {
+  if (node == null || typeof node !== "object") return node;
+  const obj = node as Record<string, unknown>;
+  for (const k of Object.keys(obj)) obj[k] = arrayify(obj[k]);
+  const keys = Object.keys(obj);
+  if (keys.length > 0 && keys.every((k, i) => k === String(i))) {
+    return keys.map((k) => obj[k]);
+  }
+  return obj;
+}
+
+/** Flat dotted keys → nested object (reconstructing arrays). */
 export function unflatten(flat: FlatStrings): Nested {
   const root: Nested = {};
   for (const [key, value] of Object.entries(flat)) {
@@ -34,7 +47,7 @@ export function unflatten(flat: FlatStrings): Nested {
     }
     node[parts.at(-1)!] = value;
   }
-  return root;
+  return arrayify(root) as Nested;
 }
 
 /** JSON base overlaid with DB values (empty DB values are ignored). */

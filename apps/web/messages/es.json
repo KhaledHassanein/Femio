@@ -376,6 +376,10 @@
     "empty": "Pronto habrá términos — vuelve pronto."
   },
   "nav": {
+    "about": "Acerca de",
+    "editorial": "Política editorial",
+    "medicalReview": "Revisión médica",
+    "related": "Relacionado",
     "home": "Inicio",
     "learn": "Aprender",
     "conditions": "Afecciones",
@@ -388,6 +392,88 @@
     "tagline": "Una sola cuenta para toda tu vida de salud.",
     "rights": "© {year} Femio",
     "helpNow": "¿Necesitas ayuda ahora?"
+  },
+  "about": {
+    "title": "Acerca de Femio",
+    "intro": "Femio es una sola cuenta para toda la vida de salud de una mujer — desde la pubertad y los ciclos hasta la búsqueda de embarazo, el embarazo, el posparto y la menopausia.",
+    "points": [
+      {
+        "heading": "Nuestra misión",
+        "body": "Dar a cada mujer un conocimiento de salud referenciado y sin juicios y un seguimiento honesto en el que pueda confiar — en su idioma y en sus términos."
+      },
+      {
+        "heading": "Aprender y hacer seguimiento",
+        "body": "Femio te ayuda a entender y seguir tu salud. Es una herramienta de bienestar e información, no un producto sanitario, y nunca sustituye la atención de tu profesional clínico."
+      },
+      {
+        "heading": "Contenido referenciado y revisado",
+        "body": "Cada guía se basa en organismos médicos de prestigio y la revisa un profesional clínico cualificado antes de publicarse."
+      },
+      {
+        "heading": "Predicciones honestas",
+        "body": "Mostramos rangos y un nivel de confianza, nunca una única fecha falsamente segura."
+      },
+      {
+        "heading": "Privacidad por diseño",
+        "body": "Tus datos de salud son tuyos — nunca se venden ni se comparten con anunciantes. Puedes exportarlos o eliminarlos cuando quieras."
+      },
+      {
+        "heading": "Árabe y RTL de primer nivel",
+        "body": "Femio está hecho para inglés, árabe, francés y español, con soporte nativo de derecha a izquierda."
+      }
+    ]
+  },
+  "editorialPolicy": {
+    "title": "Política editorial",
+    "intro": "Cada afirmación de salud en Femio es rastreable hasta una fuente fiable, cada página la revisa un profesional clínico cualificado antes de publicarse, y cada idioma es médicamente correcto — no solo traducido.",
+    "points": [
+      {
+        "heading": "La evidencia por encima de la opinión",
+        "body": "Cada dato remite a una fuente de primer nivel como la OMS, los CDC, el NHS o la ACOG. No inventamos estadísticas ni posiciones de guías; una afirmación que no podemos fundamentar se elimina."
+      },
+      {
+        "heading": "Al menos dos fuentes por página",
+        "body": "Cada guía cita al menos dos fuentes independientes — al menos una de un organismo médico de referencia — almacenadas y mostradas para que puedas comprobarlas."
+      },
+      {
+        "heading": "Lenguaje sencillo",
+        "body": "Las guías en inglés se escriben a un nivel de lectura de 6.º–8.º grado aproximadamente; los demás idiomas buscan la misma claridad, definiendo cualquier tecnicismo la primera vez."
+      },
+      {
+        "heading": "La seguridad en primer plano",
+        "body": "Las guías incluyen una sección concreta de cuándo acudir al médico y un aviso claro busca atención ahora cuando un síntoma puede ser una urgencia."
+      },
+      {
+        "heading": "Independencia de la publicidad",
+        "body": "El contenido médico es editorialmente independiente. Los anunciantes nunca influyen en lo que publicamos, y los anuncios nunca se segmentan con tus datos de salud."
+      },
+      {
+        "heading": "Siempre al día",
+        "body": "Cada página se vuelve a revisar al menos cada 12 meses, y antes cuando cambian las recomendaciones."
+      }
+    ]
+  },
+  "medicalReview": {
+    "title": "Cómo revisamos el contenido",
+    "intro": "Ningún contenido de salud se publica en Femio hasta que un profesional clínico cualificado lo ha revisado y aprobado — nuestro sistema se niega a publicar nada sin revisar.",
+    "points": [
+      {
+        "heading": "Borrador, revisión, aprobación, publicación",
+        "body": "Un editor escribe según nuestro estándar de página y añade fuentes; un revisor médico comprueba la exactitud, la fidelidad a las fuentes y el enfoque de seguridad; solo un revisor puede aprobar, y solo el contenido aprobado puede publicarse."
+      },
+      {
+        "heading": "Revisores cualificados",
+        "body": "Los revisores son profesionales clínicos con licencia adecuados al tema, como ginecología-obstetricia o medicina de familia. Su nombre, sus credenciales y la fecha de última revisión aparecen en cada página que aprueban."
+      },
+      {
+        "heading": "Cada idioma revisado",
+        "body": "Una página traducida no puede publicarse sin la validación de un revisor médico en ese idioma. Una buena traducción nunca sustituye la revisión médica en ese idioma."
+      },
+      {
+        "heading": "Se aplica, no es un ideal",
+        "body": "Estas garantías están integradas en nuestro sistema: aprobación solo por revisores, aprobación antes de publicar, validación por idioma y fechas de re-revisión cada 12 meses."
+      }
+    ]
   },
   "settings": {
     "password": {

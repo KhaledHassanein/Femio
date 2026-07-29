@@ -30,6 +30,16 @@ test("faq and glossary pages render", async ({ page }) => {
   await expect(page.getByRole("heading", { name: /^glossary$/i })).toBeVisible();
 });
 
+test("trust pages render and are linked from the footer", async ({ page }) => {
+  await page.goto("/en/about");
+  await expect(page.getByRole("heading", { name: /about femio/i })).toBeVisible();
+  await page.getByRole("contentinfo").getByRole("link", { name: /editorial policy/i }).click();
+  await expect(page).toHaveURL(/\/en\/editorial-policy$/);
+  await expect(page.getByRole("heading", { name: /editorial policy/i })).toBeVisible();
+  await page.goto("/en/medical-review");
+  await expect(page.getByRole("heading", { name: /how we review content/i })).toBeVisible();
+});
+
 test("persistent header nav lets you move between content pages", async ({ page }) => {
   await page.goto("/en/learn");
   await page.getByRole("banner").getByRole("link", { name: /^conditions$/i }).click();

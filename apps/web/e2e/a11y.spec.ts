@@ -20,6 +20,8 @@ const PAGES = [
   "/en/calculators/due-date",
   "/en/help-now",
   "/en/welcome",
+  "/en/about",
+  "/en/editorial-policy",
   "/ar",
   "/ar/help-now",
 ];

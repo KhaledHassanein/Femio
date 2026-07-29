@@ -6,7 +6,7 @@ import { getMyRoles, hasRole } from "@/lib/auth/roles";
 import { flatten, UI_STRINGS_TAG, type Nested } from "./ui-strings";
 import enMessages from "../../../messages/en.json";
 
-const KNOWN_KEYS = new Set(Object.keys(flatten(enMessages as Nested)));
+const KNOWN_KEYS = new Set(Object.keys(flatten(enMessages as unknown as Nested)));
 
 export type SaveResult = { ok: true } | { ok: false; error: string };
 

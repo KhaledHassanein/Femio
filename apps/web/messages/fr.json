@@ -376,6 +376,10 @@
     "empty": "Des termes arrivent — revenez bientôt."
   },
   "nav": {
+    "about": "À propos",
+    "editorial": "Politique éditoriale",
+    "medicalReview": "Relecture médicale",
+    "related": "À voir aussi",
     "home": "Accueil",
     "learn": "Apprendre",
     "conditions": "Affections",
@@ -388,6 +392,88 @@
     "tagline": "Un seul compte pour toute votre vie de santé.",
     "rights": "© {year} Femio",
     "helpNow": "Besoin d’aide maintenant ?"
+  },
+  "about": {
+    "title": "À propos de Femio",
+    "intro": "Femio, c’est un seul compte pour toute la vie de santé d’une femme — de la puberté et des cycles à la conception, la grossesse, le post-partum et la ménopause.",
+    "points": [
+      {
+        "heading": "Notre mission",
+        "body": "Offrir à chaque femme un savoir santé référencé et sans jugement et un suivi honnête, digne de confiance — dans sa langue, selon ses conditions."
+      },
+      {
+        "heading": "Apprendre et suivre",
+        "body": "Femio vous aide à comprendre et à suivre votre santé. C’est un outil de bien-être et d’information, pas un dispositif médical, et il ne remplace jamais les soins de votre clinicien."
+      },
+      {
+        "heading": "Contenu référencé et relu",
+        "body": "Chaque guide s’appuie sur des organismes médicaux reconnus et est vérifié par un clinicien qualifié avant sa mise en ligne."
+      },
+      {
+        "heading": "Des prévisions honnêtes",
+        "body": "Nous affichons des fourchettes et un niveau de confiance, jamais une date unique faussement certaine."
+      },
+      {
+        "heading": "Confidentialité par conception",
+        "body": "Vos données de santé vous appartiennent — jamais vendues, jamais partagées avec des annonceurs. Vous pouvez les exporter ou les supprimer à tout moment."
+      },
+      {
+        "heading": "Arabe et RTL de premier plan",
+        "body": "Femio est conçu pour l’anglais, l’arabe, le français et l’espagnol, avec une prise en charge native de la lecture de droite à gauche."
+      }
+    ]
+  },
+  "editorialPolicy": {
+    "title": "Politique éditoriale",
+    "intro": "Chaque affirmation santé sur Femio est traçable jusqu’à une source fiable, chaque page est relue par un clinicien qualifié avant sa mise en ligne, et chaque langue est médicalement correcte — pas seulement traduite.",
+    "points": [
+      {
+        "heading": "La preuve avant l’opinion",
+        "body": "Chaque fait renvoie à une source de premier plan comme l’OMS, les CDC, le NHS ou l’ACOG. Nous n’inventons ni statistiques ni positions de recommandations ; une affirmation non sourçable est supprimée."
+      },
+      {
+        "heading": "Au moins deux sources par page",
+        "body": "Chaque guide cite au moins deux sources indépendantes — dont au moins une d’un organisme médical de référence — stockées et affichées pour que vous puissiez les vérifier."
+      },
+      {
+        "heading": "Langage clair",
+        "body": "Les guides en anglais visent un niveau de lecture d’environ la 6e–8e année ; les autres langues visent la même clarté, tout jargon étant défini dès sa première apparition."
+      },
+      {
+        "heading": "La sécurité d’abord",
+        "body": "Les guides comportent une section précise quand consulter un médecin, et un encadré clair consulter en urgence lorsqu’un symptôme peut être une urgence."
+      },
+      {
+        "heading": "Indépendance vis-à-vis de la publicité",
+        "body": "Le contenu médical est indépendant sur le plan éditorial. Les annonceurs n’influencent jamais ce que nous publions, et les publicités ne ciblent jamais vos données de santé."
+      },
+      {
+        "heading": "Tenu à jour",
+        "body": "Chaque page est réexaminée au moins tous les 12 mois, et plus tôt dès que les recommandations changent."
+      }
+    ]
+  },
+  "medicalReview": {
+    "title": "Comment nous relisons le contenu",
+    "intro": "Aucun contenu santé n’est mis en ligne sur Femio tant qu’un clinicien qualifié ne l’a pas relu et approuvé — notre système refuse de publier tout contenu non relu.",
+    "points": [
+      {
+        "heading": "Brouillon, relecture, approbation, publication",
+        "body": "Un éditeur rédige selon notre standard de page et ajoute les sources ; un relecteur médical vérifie l’exactitude, la fidélité aux sources et le cadrage sécurité ; seul un relecteur peut approuver, et seul le contenu approuvé peut être publié."
+      },
+      {
+        "heading": "Des relecteurs qualifiés",
+        "body": "Les relecteurs sont des cliniciens agréés adaptés au sujet, comme en gynécologie-obstétrique ou en médecine générale. Leur nom, leurs titres et la date de dernière relecture figurent sur chaque page qu’ils approuvent."
+      },
+      {
+        "heading": "Chaque langue relue",
+        "body": "Une page traduite ne peut être mise en ligne sans la validation d’un relecteur médical dans cette langue. Une bonne traduction ne remplace jamais la relecture médicale dans cette langue."
+      },
+      {
+        "heading": "Appliqué, pas déclaratif",
+        "body": "Ces garde-fous sont intégrés à notre système : approbation réservée aux relecteurs, approbation avant publication, validation par langue et réexamen tous les 12 mois."
+      }
+    ]
   },
   "settings": {
     "password": {
