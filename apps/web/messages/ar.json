@@ -261,6 +261,13 @@
     "backToSettings": "العودة إلى الإعدادات"
   },
   "admin": {
+    "exportCsv": "تصدير CSV",
+    "importCsv": "استيراد CSV",
+    "importing": "جارٍ الاستيراد…",
+    "approveOnImport": "اعتماد الصفوف المستوردة",
+    "importDone": "تم استيراد {updated}، وتخطّي {skipped}.",
+    "importUnknown": "تم تجاهل {count} مفاتيح غير معروفة.",
+    "importBadFormat": "يحتاج ملف CSV إلى عمودَي ‘key’ و‘translation’.",
     "title": "الترجمات",
     "desc": "راجعي واعتمدي نصوص الواجهة لكل لغة. الإنجليزية هي المرجع؛ اعتماد النص ينشره.",
     "localeLabel": "اللغة الهدف",

@@ -261,6 +261,13 @@
     "backToSettings": "Retour aux réglages"
   },
   "admin": {
+    "exportCsv": "Exporter CSV",
+    "importCsv": "Importer CSV",
+    "importing": "Importation…",
+    "approveOnImport": "Approuver les lignes importées",
+    "importDone": "{updated} importées, {skipped} ignorées.",
+    "importUnknown": "{count} clés inconnues ignorées.",
+    "importBadFormat": "Le CSV doit avoir les colonnes « key » et « translation ».",
     "title": "Traductions",
     "desc": "Relire et approuver les chaînes d’interface par langue. L’anglais est la référence ; approuver une chaîne la publie.",
     "localeLabel": "Langue cible",

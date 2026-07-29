@@ -1,8 +1,10 @@
 "use client";
 
-import { useMemo, useState, useTransition } from "react";
+import { useMemo, useRef, useState, useTransition } from "react";
+import { useRouter } from "next/navigation";
 import { useTranslations } from "next-intl";
-import { saveUiString } from "@/lib/i18n/translation-actions";
+import { importUiStrings, saveUiString } from "@/lib/i18n/translation-actions";
+import { parseCsvRecords, toCsv } from "@/lib/i18n/csv";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -23,6 +25,7 @@ export function TranslationEditor({
   existing: Record<string, Existing>; // locale → (key → row)
 }) {
   const t = useTranslations("admin");
+  const router = useRouter();
   const [locale, setLocale] = useState<(typeof TARGETS)[number]>("ar");
   const [filter, setFilter] = useState("");
   const [drafts, setDrafts] = useState<Record<string, string>>({});
@@ -30,6 +33,10 @@ export function TranslationEditor({
   const [savedKey, setSavedKey] = useState<string | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [pending, startTransition] = useTransition();
+  const fileRef = useRef<HTMLInputElement>(null);
+  const [approveOnImport, setApproveOnImport] = useState(true);
+  const [importMsg, setImportMsg] = useState<string | null>(null);
+  const [importing, setImporting] = useState(false);
 
   const rows = existing[locale] ?? {};
 
@@ -67,6 +74,44 @@ export function TranslationEditor({
     });
   };
 
+  const exportCsv = () => {
+    const rows = masters.map((m) => ({ key: m.key, english: m.en, translation: valueOf(m.key) }));
+    const csv = toCsv(["key", "english", "translation"], rows);
+    const url = URL.createObjectURL(new Blob([csv], { type: "text/csv;charset=utf-8" }));
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = `femio-translations-${locale}.csv`;
+    a.click();
+    URL.revokeObjectURL(url);
+  };
+
+  const onImportFile = async (file: File) => {
+    setImporting(true);
+    setImportMsg(null);
+    setError(null);
+    try {
+      const { headers, records } = parseCsvRecords(await file.text());
+      if (!headers.includes("key") || !headers.includes("translation")) {
+        setError(t("importBadFormat"));
+        return;
+      }
+      const rows = records.map((r) => ({ key: r.key ?? "", value: r.translation ?? "" }));
+      const res = await importUiStrings(locale, rows, approveOnImport);
+      if (!res.ok) {
+        setError(res.error);
+      } else {
+        setImportMsg(
+          t("importDone", { updated: res.updated, skipped: res.skipped }) +
+            (res.unknownKeys.length ? ` ${t("importUnknown", { count: res.unknownKeys.length })}` : ""),
+        );
+        router.refresh();
+      }
+    } finally {
+      setImporting(false);
+      if (fileRef.current) fileRef.current.value = "";
+    }
+  };
+
   const badge = (status: Status) =>
     status === "human_reviewed" ? (
       <Badge variant="success">{t("approved")}</Badge>
@@ -98,6 +143,35 @@ export function TranslationEditor({
         <span className="text-sm text-text-muted">
           {t("reviewedCount", { reviewed, total: masters.length })}
         </span>
+      </div>
+
+      {/* Bulk Excel/CSV round-trip. */}
+      <div className="flex flex-wrap items-center gap-3 rounded-md border border-border bg-surface-sunken p-3">
+        <Button variant="outline" size="sm" onClick={exportCsv}>
+          {t("exportCsv")}
+        </Button>
+        <Button variant="outline" size="sm" disabled={importing} onClick={() => fileRef.current?.click()}>
+          {importing ? t("importing") : t("importCsv")}
+        </Button>
+        <input
+          ref={fileRef}
+          type="file"
+          accept=".csv,text/csv"
+          className="hidden"
+          onChange={(e) => {
+            const f = e.target.files?.[0];
+            if (f) void onImportFile(f);
+          }}
+        />
+        <label className="flex items-center gap-2 text-sm text-text-muted">
+          <input
+            type="checkbox"
+            checked={approveOnImport}
+            onChange={(e) => setApproveOnImport(e.target.checked)}
+          />
+          {t("approveOnImport")}
+        </label>
+        {importMsg ? <span className="text-sm text-success-text">{importMsg}</span> : null}
       </div>
 
       <Input

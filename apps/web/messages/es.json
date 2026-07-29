@@ -261,6 +261,13 @@
     "backToSettings": "Volver a ajustes"
   },
   "admin": {
+    "exportCsv": "Exportar CSV",
+    "importCsv": "Importar CSV",
+    "importing": "Importando…",
+    "approveOnImport": "Aprobar filas importadas",
+    "importDone": "{updated} importadas, {skipped} omitidas.",
+    "importUnknown": "{count} claves desconocidas ignoradas.",
+    "importBadFormat": "El CSV necesita las columnas «key» y «translation».",
     "title": "Traducciones",
     "desc": "Revisa y aprueba las cadenas de interfaz por idioma. El inglés es la referencia; aprobar una cadena la publica.",
     "localeLabel": "Idioma objetivo",

@@ -261,6 +261,13 @@
     "backToSettings": "Back to settings"
   },
   "admin": {
+    "exportCsv": "Export CSV",
+    "importCsv": "Import CSV",
+    "importing": "Importing…",
+    "approveOnImport": "Approve imported rows",
+    "importDone": "Imported {updated}, skipped {skipped}.",
+    "importUnknown": "{count} unknown keys ignored.",
+    "importBadFormat": "CSV needs ‘key’ and ‘translation’ columns.",
     "title": "Translations",
     "desc": "Review and approve UI strings per locale. English is the master; approving a string publishes it.",
     "localeLabel": "Target language",
