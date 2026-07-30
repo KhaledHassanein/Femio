@@ -165,6 +165,7 @@
       "consentCore": "Enregistrer mes données de santé pour que je puisse les suivre (requis pour utiliser Femio).",
       "consentInsights": "Utiliser mes données pour me montrer des tendances et des analyses.",
       "consentResearch": "Utiliser mes données anonymisées pour améliorer la recherche en santé féminine.",
+      "consentAnalytics": "Autoriser des statistiques d’usage anonymes — quelles pages et fonctions servent, jamais ce que vous notez.",
       "consentNote": "Tu peux modifier ces choix à tout moment dans les Réglages."
     },
     "confirm": {
@@ -615,6 +616,27 @@
       "mismatch": "Les mots de passe ne correspondent pas."
     },
     "summary": {"heading":"Résumé pour la consultation","desc":"Un aperçu imprimable de votre cycle, vos symptômes et vos notes à partager avec un professionnel de santé.","link":"Ouvrir le résumé"},
+      "consent": {
+        "heading": "Vos choix de confidentialité",
+        "desc": "Changez ce que Femio peut faire de vos données. Désactivez ce que vous voulez, quand vous voulez — l’effet est immédiat.",
+        "error": "Nous n’avons pas pu enregistrer ce changement. Réessayez.",
+        "insights": {
+          "label": "Utiliser mes saisies pour me montrer des tendances.",
+          "note": "Reste dans Femio — vos saisies ne sont envoyées nulle part pour cela."
+        },
+        "research": {
+          "label": "Utiliser mes données anonymisées pour la recherche en santé des femmes.",
+          "note": "Uniquement de façon agrégée, sans rien qui vous identifie."
+        },
+        "analytics": {
+          "label": "Autoriser des statistiques d’usage anonymes.",
+          "note": "Quelles pages et fonctions sont utilisées, pour les améliorer. N’inclut jamais ce que vous notez — ni symptômes, ni dates, ni cycles, ni pathologies — ni l’écran d’aide d’urgence."
+        },
+        "core": {
+          "label": "Enregistrer mes saisies de santé pour pouvoir les suivre.",
+          "note": "Indispensable au fonctionnement de Femio — sans cela, il n’y a rien à enregistrer ni à vous montrer. Pour le retirer, supprimez votre compte ci-dessous : tout est effacé."
+        }
+      },
     "title": "Confidentialité et données",
     "exporting": "Préparation…",
     "deleting": "Suppression…",

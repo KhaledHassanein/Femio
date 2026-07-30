@@ -165,6 +165,7 @@
       "consentCore": "Guardar mis datos de salud para poder seguirlos (necesario para usar Femio).",
       "consentInsights": "Usar mis datos para mostrarme patrones e ideas.",
       "consentResearch": "Usar mis datos anonimizados para mejorar la investigación en salud de la mujer.",
+      "consentAnalytics": "Permitir analítica de uso anónima: qué páginas y funciones se usan, nunca lo que registras.",
       "consentNote": "Puedes cambiar estas opciones cuando quieras en Ajustes."
     },
     "confirm": {
@@ -615,6 +616,27 @@
       "mismatch": "Las contraseñas no coinciden."
     },
     "summary": {"heading":"Resumen para la consulta","desc":"Una instantánea imprimible de tu ciclo, síntomas y notas para compartir con un profesional.","link":"Abrir resumen"},
+      "consent": {
+        "heading": "Tus opciones de privacidad",
+        "desc": "Cambia lo que Femio puede hacer con tus datos. Desactiva lo que quieras cuando quieras: tiene efecto inmediato.",
+        "error": "No pudimos guardar ese cambio. Inténtalo de nuevo.",
+        "insights": {
+          "label": "Usar mis registros para mostrarme patrones.",
+          "note": "Se queda dentro de Femio: tus registros no se envían a ningún sitio para esto."
+        },
+        "research": {
+          "label": "Usar mis datos anonimizados para mejorar la investigación en salud de la mujer.",
+          "note": "Siempre de forma agregada y sin nada que te identifique."
+        },
+        "analytics": {
+          "label": "Permitir analítica de uso anónima.",
+          "note": "Qué páginas y funciones se usan, para mejorarlas. Nunca incluye lo que registras —ni síntomas, ni fechas, ni ciclos, ni afecciones— ni la pantalla de ayuda urgente."
+        },
+        "core": {
+          "label": "Guardar mis registros de salud para poder seguirlos.",
+          "note": "Imprescindible para que Femio funcione: sin esto no hay nada que guardar ni que mostrarte. Para retirarlo, borra tu cuenta abajo; eso lo elimina todo."
+        }
+      },
     "title": "Privacidad y datos",
     "exporting": "Preparando…",
     "deleting": "Eliminando…",

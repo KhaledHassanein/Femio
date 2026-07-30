@@ -38,10 +38,12 @@ function walk(obj, prefix, out) {
 }
 
 const findings = [];
+let scanned = 0;
 for (const locale of SCAN_LOCALES) {
   let raw;
   try {
     raw = readFileSync(join(MESSAGES_DIR, `${locale}.json`), "utf8");
+    scanned++;
   } catch {
     continue;
   }
@@ -53,6 +55,18 @@ for (const locale of SCAN_LOCALES) {
       if (m) findings.push({ locale, path, term: m[0], value });
     }
   }
+}
+
+// A guard that finds nothing to scan must fail, not pass. `MESSAGES_DIR` is
+// repo-root-relative, so running this from a package directory used to read no
+// catalogs at all and still print the reassuring ✓ — a false clean bill of
+// health on the check that keeps Femio out of medical-device scope.
+if (scanned === 0) {
+  console.error(
+    `✗ Claims-language guard: no message catalog found in "${MESSAGES_DIR}".\n` +
+      "Run it from the repo root (`pnpm claims-lint`). Refusing to report a pass on nothing.",
+  );
+  process.exit(1);
 }
 
 if (findings.length > 0) {

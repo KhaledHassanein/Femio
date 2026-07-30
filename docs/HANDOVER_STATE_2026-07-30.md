@@ -36,6 +36,7 @@ All changes are on `main`; pushing auto-deploys both Vercel projects (web + cms)
 - **P1.9b** content-first homepage · **P1.9b.1** persistent header/footer via `[locale]/(public)/` route group · **P1.9b.2** About/Editorial/Medical-review trust pages (+ fixed a latent unflatten array bug in the i18n overlay).
 - **P1.9b.3a** `/privacy` + `/terms` as clearly-marked **drafts** (ADR-015): "Draft — not yet in force" banner, written from docs/13 §3–§4, stating only what engineering can evidence; both `noindex` **and excluded from the sitemap** until counsel finalizes (the flip is **P0.12.4**).
 - **P1.9b.3b** author/reviewer **bio scaffolding** (ADR-016): new CMS **`people`** collection + `/authors` + `/authors/[slug]` with **Person** + Breadcrumb JSON-LD, footer link, sitemapped, i18n ×4. Needs a one-time CMS schema push (**runbook C3.6**); real bios + article bylines ride with P1.9. Unit tests no longer need a real `.env.local` (vitest `test.env`).
+- **P1.20.2** consent UI (ADR-019) — Settings **Your privacy choices** (insights/research/analytics, core read-only with delete as the honest withdrawal) + analytics in onboarding, off by default. Closed a real gap: no optional consent was withdrawable anywhere (GDPR Art. 7(3)). Also hardened `claims-lint`, which could report a false pass when run outside the repo root (P1.4.3).
 
 ## Architecture notes (current)
 - Route groups: `[locale]/(public)/` (home + library + trust pages, has SiteHeader/SiteFooter);
@@ -61,7 +62,7 @@ All changes are on `main`; pushing auto-deploys both Vercel projects (web + cms)
 - Apply migrations **0003** (delete_account) and **0005** (analytics consent purpose) if not yet; `0004` (service_role) already applied for CMS.
 
 ## Next tasks (in order)
-1. **P1.20 remainder** — foundation done 2026-07-30 (ADR-017: closed enum catalog + runtime guard + `analytics-lint` in CI + `analytics` consent purpose + EU-host build guard). Open: **P1.20.2** consent toggle (nothing is collected without it), **P1.20.1** real `posthog-js` transport behind the existing seam (autocapture + session recording OFF), **P1.20.3** first-party dashboard for the dimensions PostHog must never hold (life-stage mode, condition tags, age bands, cohort retention) with k-anonymity thresholds.
+1. **P1.20 remainder** — foundation done 2026-07-30 (ADR-017: closed enum catalog + runtime guard + `analytics-lint` in CI + `analytics` consent purpose + EU-host build guard) and **P1.20.2 consent UI done 2026-07-30** (ADR-019: Settings "Your privacy choices" covering every optional purpose + analytics in onboarding; ledger-reduction semantics shared with the analytics gate; live e2e proves grant/withdraw persist). Open: **P1.20.3** first-party dashboard for the dimensions PostHog must never hold (life-stage mode, condition tags, age bands, cohort retention) with k-anonymity thresholds, and **P1.20.1** the real `posthog-js` transport behind the existing seam (autocapture + session recording OFF) once Khaled supplies an EU key.
 2. **P1.23 remaining** — `pnpm audit`/Dependabot in CI, CSP/security headers, staff MFA, Sentry + breach alerting, independent pen-test.
 3. **P1.21 moderation/CS** — premature until there's user-generated content.
 4. **P1.24 beta → P1.25 launch** — gated by P0.12.

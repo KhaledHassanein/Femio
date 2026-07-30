@@ -11,12 +11,14 @@
  * exactly the purpose-creep the FTC pursued Flo for. Hence a distinct
  * `analytics` purpose (migration 0005).
  *
- * Consent is *opt-in*: absent a granted, unrevoked record, the answer is no. No
- * consent record exists for anyone until the P1.20.2 toggle ships, so `track()`
- * is off for every user today by design.
+ * Consent is *opt-in*: absent a granted, unrevoked record, the answer is no —
+ * which is the state for everyone who onboarded before the purpose existed.
+ * Onboarding and Settings can now grant or withdraw it (P1.20.2), and `track()`
+ * still needs a configured EU key on top of consent before anything is sent.
  */
 
 import { createClient } from "@/lib/supabase/client";
+import { isLiveGrant } from "@/lib/consent/purposes";
 
 export const ANALYTICS_CONSENT_PURPOSE = "analytics";
 
@@ -41,6 +43,7 @@ export async function hasAnalyticsConsent(): Promise<boolean> {
 
   if (error || !data || data.length === 0) return false;
 
-  const latest = data[0];
-  return latest?.granted === true && latest.revoked_at === null;
+  // One definition of "live grant", shared with the Settings toggle (P1.20.2),
+  // so the gate and the UI can never drift apart.
+  return isLiveGrant(data[0]);
 }

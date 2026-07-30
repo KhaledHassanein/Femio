@@ -6,6 +6,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { ExportButton } from "@/components/account/export-button";
 import { DeleteButton } from "@/components/account/delete-button";
 import { SetPassword } from "@/components/account/set-password";
+import { ConsentSettings } from "@/components/account/consent-settings";
 import { Button } from "@/components/ui/button";
 import { Link } from "@/i18n/navigation";
 
@@ -44,6 +45,16 @@ export default async function SettingsPage({ params }: PageProps) {
           <Button asChild variant="outline" className="self-start">
             <Link href="/summary">{t("summary.link")}</Link>
           </Button>
+        </CardContent>
+      </Card>
+
+      <Card>
+        <CardContent className="flex flex-col gap-4 p-6">
+          <div className="flex flex-col gap-1">
+            <h2 className="text-md font-semibold text-text">{t("consent.heading")}</h2>
+            <p className="text-sm text-text-muted">{t("consent.desc")}</p>
+          </div>
+          <ConsentSettings />
         </CardContent>
       </Card>
 

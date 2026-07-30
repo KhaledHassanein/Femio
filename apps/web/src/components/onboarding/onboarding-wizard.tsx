@@ -52,6 +52,7 @@ export function OnboardingWizard() {
   const [email, setEmail] = useState("");
   const [insights, setInsights] = useState(false);
   const [research, setResearch] = useState(false);
+  const [analytics, setAnalytics] = useState(false);
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
@@ -67,6 +68,7 @@ export function OnboardingWizard() {
       email: account === "email" ? email : undefined,
       insights,
       research,
+      analytics,
       locale,
     });
     if (res.ok) {
@@ -157,6 +159,7 @@ export function OnboardingWizard() {
             <ConsentRow checked disabled label={t("privacy.consentCore")} />
             <ConsentRow checked={insights} onChange={setInsights} label={t("privacy.consentInsights")} />
             <ConsentRow checked={research} onChange={setResearch} label={t("privacy.consentResearch")} />
+            <ConsentRow checked={analytics} onChange={setAnalytics} label={t("privacy.consentAnalytics")} />
             <p className="text-xs text-text-muted">{t("privacy.consentNote")}</p>
           </div>
         </section>

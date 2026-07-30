@@ -165,6 +165,7 @@
       "consentCore": "Store my health entries so I can track them (required to use Femio).",
       "consentInsights": "Use my entries to show me patterns and insights.",
       "consentResearch": "Use my anonymized data to improve women's health research.",
+      "consentAnalytics": "Allow anonymous product analytics — which pages and features get used, never what you log.",
       "consentNote": "You can change these anytime in Settings."
     },
     "confirm": {
@@ -615,6 +616,27 @@
       "mismatch": "Those passwords don’t match."
     },
     "summary": {"heading":"Doctor-visit summary","desc":"A printable snapshot of your cycle, symptoms and notes to share with a clinician.","link":"Open summary"},
+      "consent": {
+        "heading": "Your privacy choices",
+        "desc": "Change what Femio may do with your data. Turn any of these off whenever you like — it takes effect immediately.",
+        "error": "We couldn’t save that change. Please try again.",
+        "insights": {
+          "label": "Use my entries to show me patterns and insights.",
+          "note": "Stays inside Femio — your entries are never sent anywhere else for this."
+        },
+        "research": {
+          "label": "Use my anonymized data to improve women’s health research.",
+          "note": "Only ever in aggregate, with nothing that identifies you."
+        },
+        "analytics": {
+          "label": "Allow anonymous product analytics.",
+          "note": "Which pages and features get used, so we can improve them. Never includes what you log — no symptoms, dates, cycles or conditions — and never the crisis-help screen."
+        },
+        "core": {
+          "label": "Store my health entries so I can track them.",
+          "note": "Required for Femio to work at all — without it there is nothing to save or show you. To withdraw it, delete your account below; that removes everything."
+        }
+      },
     "title": "Privacy & data",
     "exporting": "Preparing…",
     "deleting": "Deleting…",
