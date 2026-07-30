@@ -376,6 +376,7 @@
     "empty": "Des termes arrivent — revenez bientôt."
   },
   "nav": {
+    "authors": "Auteurs et relecteurs",
     "privacy": "Confidentialité",
     "terms": "Conditions",
     "about": "À propos",
@@ -590,6 +591,16 @@
       }
     ],
     "footnote": "Femio est un service de bien-être, d’information et de suivi. Ce n’est pas un dispositif médical et il ne remplace jamais les soins de votre clinicien."
+  },
+  "authors": {
+    "title": "Auteurs et relecteurs",
+    "subtitle": "Les personnes qui rédigent les contenus santé de Femio et les cliniciens qui les valident : qui elles sont, leurs qualifications, et ce qu’elles ont approuvé.",
+    "empty": "Les biographies des auteurs et des relecteurs apparaîtront ici à mesure que nos premiers guides seront publiés.",
+    "roles": {
+      "author": "Auteur",
+      "medical_reviewer": "Relecteur médical"
+    },
+    "profiles": "Profils professionnels"
   },
   "settings": {
     "password": {

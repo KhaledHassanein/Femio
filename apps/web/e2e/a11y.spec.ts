@@ -24,6 +24,7 @@ const PAGES = [
   "/en/editorial-policy",
   "/en/privacy",
   "/en/terms",
+  "/en/authors",
   "/ar",
   "/ar/help-now",
 ];

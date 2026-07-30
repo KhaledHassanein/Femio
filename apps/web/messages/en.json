@@ -376,6 +376,7 @@
     "empty": "Terms are on the way — check back soon."
   },
   "nav": {
+    "authors": "Authors & reviewers",
     "privacy": "Privacy",
     "terms": "Terms",
     "about": "About",
@@ -590,6 +591,16 @@
       }
     ],
     "footnote": "Femio is a wellness, education and tracking service. It is not a medical device and never replaces your clinician’s care."
+  },
+  "authors": {
+    "title": "Authors & reviewers",
+    "subtitle": "The writers and the clinicians behind Femio’s health content — who they are, what they are qualified in, and what they signed off.",
+    "empty": "Author and reviewer bios appear here as our first guides are published.",
+    "roles": {
+      "author": "Author",
+      "medical_reviewer": "Medical reviewer"
+    },
+    "profiles": "Professional profiles"
   },
   "settings": {
     "password": {

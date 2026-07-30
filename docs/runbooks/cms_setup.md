@@ -48,6 +48,22 @@ Create a **second Vercel project** pointing at this repo with **Root Directory =
 `DATABASE_URL` + `PAYLOAD_SECRET` in its env (EU region), and deploy. The web app (`apps/web`) will
 read published content from this CMS's REST/GraphQL API (wired in P1.8/P1.9).
 
+## Step 6 — Re-push the schema when a collection is added
+Payload's auto-push is **interactive**, so it never runs on Vercel: whenever a new collection or
+field lands in `apps/cms`, its tables must be created once from this machine, exactly as in Step 2.
+This is needed **now** for the new **People** collection (author / medical-reviewer bios, added
+2026-07-30 with P1.9b.3b):
+
+```bash
+pnpm --filter cms dev     # answer "y" if it asks to accept schema changes
+```
+Open `http://localhost:3001/admin`, confirm **People** opens without an error, then stop the server.
+Existing collections are untouched by this change (no new columns on Articles/Conditions/…), so the
+live CMS keeps working meanwhile — only the People screen errors until the push is done.
+
+**Verify:** in Supabase → Table Editor → schema `payload`, a `people` table exists (plus its
+locales/versions siblings). On the website, `/{locale}/authors` then lists any **published** bio.
+
 ## Notes
 - Locales: EN/AR/FR/ES (AR is RTL). Fetch a locale with `/api/articles?locale=ar`.
 - The sketch `content`/`content_i18n` tables from migration 0001 are **superseded** by Payload and

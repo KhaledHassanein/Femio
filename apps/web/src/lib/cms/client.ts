@@ -39,6 +39,21 @@ export type ContentDoc = {
   updatedAt?: string | null;
 };
 
+// Author / medical-reviewer bio (P1.9b.3b — doc 15 §7/§8). `sameAs` links feed the
+// Person schema's professional-profile signals.
+export type PersonDoc = {
+  id: string;
+  name: string;
+  slug: string;
+  roles?: ("author" | "medical_reviewer")[] | null;
+  credentials?: string | null;
+  jobTitle?: string | null;
+  affiliation?: string | null;
+  bio?: RichTextValue;
+  sameAs?: { label: string; url: string }[] | null;
+  updatedAt?: string | null;
+};
+
 const REVALIDATE_SECONDS = 300; // ISR: refresh published content every 5 min.
 
 function baseUrl(): string | null {
@@ -67,6 +82,22 @@ export async function listContent(collection: string, locale: string): Promise<C
     `/api/${collection}?locale=${encodeURIComponent(locale)}&depth=0&limit=100&sort=-updatedAt`,
   );
   return data?.docs ?? [];
+}
+
+/** All published author/reviewer bios for the given locale. */
+export async function listPeople(locale: string): Promise<PersonDoc[]> {
+  const data = await query<{ docs: PersonDoc[] }>(
+    `/api/people?locale=${encodeURIComponent(locale)}&depth=0&limit=100&sort=name`,
+  );
+  return data?.docs ?? [];
+}
+
+/** A single published bio by slug (null if not found). */
+export async function getPersonBySlug(locale: string, slug: string): Promise<PersonDoc | null> {
+  const data = await query<{ docs: PersonDoc[] }>(
+    `/api/people?locale=${encodeURIComponent(locale)}&depth=0&limit=1&where[slug][equals]=${encodeURIComponent(slug)}`,
+  );
+  return data?.docs?.[0] ?? null;
 }
 
 /** A single published doc by slug (null if not found). */

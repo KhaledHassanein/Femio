@@ -37,6 +37,9 @@ export async function SiteFooter() {
           <Link href="/medical-review" className="text-text-muted hover:text-text">
             {nav("medicalReview")}
           </Link>
+          <Link href="/authors" className="text-text-muted hover:text-text">
+            {nav("authors")}
+          </Link>
           <Link href="/privacy" className="text-text-muted hover:text-text">
             {nav("privacy")}
           </Link>

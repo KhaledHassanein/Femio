@@ -74,6 +74,7 @@ export interface Config {
     faqs: Faq;
     tips: Tip;
     glossary: Glossary;
+    people: Person;
     'payload-kv': PayloadKv;
     'payload-locked-documents': PayloadLockedDocument;
     'payload-preferences': PayloadPreference;
@@ -88,6 +89,7 @@ export interface Config {
     faqs: FaqsSelect<false> | FaqsSelect<true>;
     tips: TipsSelect<false> | TipsSelect<true>;
     glossary: GlossarySelect<false> | GlossarySelect<true>;
+    people: PeopleSelect<false> | PeopleSelect<true>;
     'payload-kv': PayloadKvSelect<false> | PayloadKvSelect<true>;
     'payload-locked-documents': PayloadLockedDocumentsSelect<false> | PayloadLockedDocumentsSelect<true>;
     'payload-preferences': PayloadPreferencesSelect<false> | PayloadPreferencesSelect<true>;
@@ -398,6 +400,59 @@ export interface Glossary {
   _status?: ('draft' | 'published') | null;
 }
 /**
+ * Author / medical-reviewer bios shown on public bio pages.
+ *
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "people".
+ */
+export interface Person {
+  id: number;
+  name: string;
+  slug: string;
+  /**
+   * How this person appears on content (doc 15 §8).
+   */
+  roles?: ('author' | 'medical_reviewer')[] | null;
+  /**
+   * Post-nominals as they should be printed, e.g. “MD, MRCOG”.
+   */
+  credentials?: string | null;
+  jobTitle?: string | null;
+  affiliation?: string | null;
+  /**
+   * Short professional biography (expertise, experience).
+   */
+  bio?: {
+    root: {
+      type: string;
+      children: {
+        type: any;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  photo?: (number | null) | Media;
+  /**
+   * Professional profiles used as `sameAs` in Person schema (registry entry, PubMed, LinkedIn, ORCID). Not localized.
+   */
+  sameAs?:
+    | {
+        label: string;
+        url: string;
+        id?: string | null;
+      }[]
+    | null;
+  updatedAt: string;
+  createdAt: string;
+  _status?: ('draft' | 'published') | null;
+}
+/**
  * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "payload-kv".
  */
@@ -448,6 +503,10 @@ export interface PayloadLockedDocument {
     | ({
         relationTo: 'glossary';
         value: number | Glossary;
+      } | null)
+    | ({
+        relationTo: 'people';
+        value: number | Person;
       } | null);
   globalSlug?: string | null;
   user: {
@@ -659,6 +718,30 @@ export interface GlossarySelect<T extends boolean = true> {
         title?: T;
         url?: T;
         tier?: T;
+        id?: T;
+      };
+  updatedAt?: T;
+  createdAt?: T;
+  _status?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "people_select".
+ */
+export interface PeopleSelect<T extends boolean = true> {
+  name?: T;
+  slug?: T;
+  roles?: T;
+  credentials?: T;
+  jobTitle?: T;
+  affiliation?: T;
+  bio?: T;
+  photo?: T;
+  sameAs?:
+    | T
+    | {
+        label?: T;
+        url?: T;
         id?: T;
       };
   updatedAt?: T;

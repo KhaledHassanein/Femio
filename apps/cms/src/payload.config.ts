@@ -11,6 +11,7 @@ import { Conditions } from "./collections/Conditions";
 import { FAQs } from "./collections/FAQs";
 import { Tips } from "./collections/Tips";
 import { Glossary } from "./collections/Glossary";
+import { People } from "./collections/People";
 
 const filename = fileURLToPath(import.meta.url);
 const dirname = path.dirname(filename);
@@ -24,7 +25,7 @@ export default buildConfig({
     meta: { titleSuffix: " — Femio CMS" },
   },
   editor: lexicalEditor(),
-  collections: [Users, Media, Articles, Conditions, FAQs, Tips, Glossary],
+  collections: [Users, Media, Articles, Conditions, FAQs, Tips, Glossary, People],
   localization: {
     locales: [
       { label: "English", code: "en" },

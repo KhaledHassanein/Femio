@@ -96,6 +96,34 @@ export function definedTermSetJsonLd(args: {
   };
 }
 
+// Author / medical-reviewer bio page (P1.9b.3b). E-E-A-T: who wrote or approved
+// Femio's health content, with their credentials and verifiable professional
+// profiles (`sameAs`). Empty fields are omitted rather than emitted blank.
+export function personJsonLd(args: {
+  name: string;
+  url: string;
+  description?: string | null;
+  credentials?: string | null;
+  jobTitle?: string | null;
+  affiliation?: string | null;
+  sameAs?: string[];
+}) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    name: args.name,
+    url: args.url,
+    ...(args.description ? { description: args.description } : {}),
+    ...(args.credentials ? { honorificSuffix: args.credentials } : {}),
+    ...(args.jobTitle ? { jobTitle: args.jobTitle } : {}),
+    ...(args.affiliation
+      ? { affiliation: { "@type": "Organization", name: args.affiliation } }
+      : {}),
+    ...(args.sameAs && args.sameAs.length > 0 ? { sameAs: args.sameAs } : {}),
+    worksFor: { "@type": "Organization", name: siteConfig.name, url: siteConfig.baseUrl },
+  };
+}
+
 export function breadcrumbJsonLd(items: { name: string; url: string }[]) {
   return {
     "@context": "https://schema.org",

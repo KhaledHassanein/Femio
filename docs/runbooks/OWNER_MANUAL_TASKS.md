@@ -22,6 +22,7 @@ Key facts you'll reuse:
 - [ ] **B.** Activate the translation portal (P1.19): grant a staff role + seed strings — 15 min
 - [ ] **B★.** Configure auth email (redirect URLs) so sign-in works — 5 min
 - [ ] **C.** Bring the CMS online (unblocks content, P1.11.1) — 20 min
+  - [ ] **C3.6.** Re-push the CMS schema for the new **People** (bios) collection — 5 min
 - [ ] **D.** Choose + set up an analytics vendor (unblocks P1.20) — 20 min
 - [ ] **E.** Vercel env hygiene + optional crisis directory link — 10 min
 - [ ] **F.** Google Search Console + custom domain (SEO) — 20 min
@@ -268,6 +269,19 @@ So published articles appear on the public site (`/learn`):
 3. In the CMS, create an Article, run it through review to **Published** → it shows at
    `https://<web>/en/learn` (and the article page) within ~5 min (ISR). Until then `/learn`
    shows a friendly "new guides on the way" empty state.
+
+### C3.6 — Re-push the schema after a new collection (needed now: **People**)
+Payload's auto-create is interactive, so it never runs on Vercel — every new collection needs the
+same one-time local push as C2.5. A **People** collection (author / medical-reviewer bios, added
+2026-07-30) is waiting for it:
+1. With `apps/cms/.env.local` still filled in (C2.5), run `pnpm --filter cms dev` from the repo root
+   and press **y** if asked to accept schema changes.
+2. Open `http://localhost:3001/admin` → click **People** → it should open (not error). Stop the server.
+3. Add a bio (name, slug, credentials, job title, affiliation, short biography, profile links), set it
+   **Published** → it appears at `https://<web>/en/authors` within ~5 min.
+
+Nothing else is affected while you wait: no existing collection changed, so only the People screen
+errors until the push runs. (→ `docs/runbooks/cms_setup.md` Step 6.)
 
 ### C4 — Harden (after it works)
 - Once you can log in and see the collections, remove `PAYLOAD_DB_PUSH` from Vercel (and

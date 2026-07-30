@@ -376,6 +376,7 @@
     "empty": "Pronto habrá términos — vuelve pronto."
   },
   "nav": {
+    "authors": "Autoras y revisores",
     "privacy": "Privacidad",
     "terms": "Términos",
     "about": "Acerca de",
@@ -590,6 +591,16 @@
       }
     ],
     "footnote": "Femio es un servicio de bienestar, información y seguimiento. No es un producto sanitario y nunca sustituye la atención de tu profesional clínico."
+  },
+  "authors": {
+    "title": "Autoras y revisores",
+    "subtitle": "Quién escribe el contenido de salud de Femio y qué profesionales clínicos lo revisan: quiénes son, qué acreditan y qué han aprobado.",
+    "empty": "Las biografías de autoras y revisores aparecerán aquí cuando publiquemos nuestras primeras guías.",
+    "roles": {
+      "author": "Autora",
+      "medical_reviewer": "Revisor médico"
+    },
+    "profiles": "Perfiles profesionales"
   },
   "settings": {
     "password": {
