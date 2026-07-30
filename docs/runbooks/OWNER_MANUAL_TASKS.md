@@ -23,7 +23,8 @@ Key facts you'll reuse:
 - [ ] **B.** Activate the translation portal (P1.19): grant a staff role + seed strings — 15 min
 - [ ] **B★.** Configure auth email (redirect URLs) so sign-in works — 5 min
 - [ ] **C.** Bring the CMS online (unblocks content, P1.11.1) — 20 min
-  - [ ] **C3.6.** Re-push the CMS schema for the new **People** (bios) collection — 5 min
+  - [x] **C3.6.** CMS schema for the **People** (bios) collection — done automatically, verified 2026-07-30
+  - [ ] **C3.7.** Make your CMS account an **admin** (1 command) — without it you cannot publish — 1 min
 - [ ] **D.** Choose + set up an analytics vendor (unblocks P1.20) — 20 min
 - [ ] **E.** Vercel env hygiene + optional crisis directory link — 10 min
 - [ ] **F.** Google Search Console + custom domain (SEO) — 20 min
@@ -299,18 +300,52 @@ So published articles appear on the public site (`/learn`):
    `https://<web>/en/learn` (and the article page) within ~5 min (ISR). Until then `/learn`
    shows a friendly "new guides on the way" empty state.
 
-### C3.6 — Re-push the schema after a new collection (needed now: **People**)
-Payload's auto-create is interactive, so it never runs on Vercel — every new collection needs the
-same one-time local push as C2.5. A **People** collection (author / medical-reviewer bios, added
-2026-07-30) is waiting for it:
-1. With `apps/cms/.env.local` still filled in (C2.5), run `pnpm --filter cms dev` from the repo root
-   and press **y** if asked to accept schema changes.
-2. Open `http://localhost:3001/admin` → click **People** → it should open (not error). Stop the server.
-3. Add a bio (name, slug, credentials, job title, affiliation, short biography, profile links), set it
-   **Published** → it appears at `https://<web>/en/authors` within ~5 min.
+### C3.6 — Schema for a new collection (**People** — already done, nothing for you)
+**Status: done automatically, verified 2026-07-30.** The `people` tables (author / medical-reviewer
+bios) exist in the `payload` schema and the live CMS serves `/api/people` (HTTP 200), so
+`https://<web>/en/authors` will list bios as soon as you publish one.
 
-Nothing else is affected while you wait: no existing collection changed, so only the People screen
-errors until the push runs. (→ `docs/runbooks/cms_setup.md` Step 6.)
+Why it needed no local run: **`PAYLOAD_DB_PUSH=true` is still set on the `femio-cms` Vercel
+project**, so the deploy that shipped the collection created the tables itself (purely additive
+changes don't hit Payload's interactive prompt). Useful now — but it means **production still
+auto-syncs its schema on every deploy**, which is exactly what C4 says to turn off. Recommended:
+leave it while the content model is still moving (P1.9 will add fields), then do C4 before real
+content exists, because a *destructive* change (a removed field) could otherwise drop a column of
+published content without asking. Claude will wire `payload migrate` when you're ready.
+
+### C3.7 — Make yourself a CMS **admin** (1 command, 1 minute) — do this to publish anything
+**Why:** Payload's "create first user" screen skips the admin-only rule but still applies the role
+default, so your CMS account (`dr.khaled.hassanein@gmail.com`) is **`editor`** — and the `roles`
+field can only be changed *by an admin*, of which there are currently **none**. That's a bootstrap
+deadlock: as an editor you can write drafts but **cannot approve, cannot publish, and cannot manage
+users**. It's the CMS twin of the `staff_roles` bootstrap in task B2.
+
+Claude wrote the fix but is not permitted to run privilege changes against your database, so this
+one is yours. Nothing to paste — the script reads `apps/cms/.env.local`, which already has your
+`DATABASE_URL` + `PAYLOAD_SECRET`. From the repo root:
+
+```powershell
+# PowerShell
+$env:EMAIL="dr.khaled.hassanein@gmail.com"; $env:ROLES="admin,editor"; pnpm --filter cms set-roles
+```
+```bash
+# Bash
+EMAIL=dr.khaled.hassanein@gmail.com ROLES=admin,editor pnpm --filter cms set-roles
+```
+It prints `roles before` / `roles after`. Valid roles: `admin`, `editor`, `medical_reviewer`,
+`translator`. If you've also **lost the CMS password**, add `NEW_PASSWORD=…` to the same command
+(Payload has no email sender configured, so its forgot-password link can't reach you).
+
+**Verify:** sign in at `https://femio-cms.vercel.app/admin` → **Users** is now editable, and an
+Article can go **Approved → Published** (as `admin` you pass the review gate).
+
+**Then:** add a bio under **People** (name, slug, credentials, job title, affiliation, short
+biography, profile links) and **Publish** it → it appears at `https://<web>/en/authors` within ~5 min.
+
+**Governance note:** approving your own content satisfies the software gate but not the *spirit* of
+doc 15 (independent medical review). Before the first public article, create a **separate
+`medical_reviewer` account** for the reviewing clinician (as admin you can, in *Users*) and let that
+account do the approving. (Tracked in the TODO under P1.9.)
 
 ### C4 — Harden (after it works)
 - Once you can log in and see the collections, remove `PAYLOAD_DB_PUSH` from Vercel (and

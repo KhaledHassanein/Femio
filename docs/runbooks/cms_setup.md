@@ -48,21 +48,40 @@ Create a **second Vercel project** pointing at this repo with **Root Directory =
 `DATABASE_URL` + `PAYLOAD_SECRET` in its env (EU region), and deploy. The web app (`apps/web`) will
 read published content from this CMS's REST/GraphQL API (wired in P1.8/P1.9).
 
-## Step 6 — Re-push the schema when a collection is added
-Payload's auto-push is **interactive**, so it never runs on Vercel: whenever a new collection or
-field lands in `apps/cms`, its tables must be created once from this machine, exactly as in Step 2.
-This is needed **now** for the new **People** collection (author / medical-reviewer bios, added
-2026-07-30 with P1.9b.3b):
+## Step 6 — Schema changes when a collection is added
+`PAYLOAD_DB_PUSH=true` is currently still set on the deployed CMS, so **additive** schema changes
+(a new collection or field) are created by the deploy itself — verified 2026-07-30 with the
+**People** collection (author / medical-reviewer bios, P1.9b.3b): the tables appeared in the
+`payload` schema and `/api/people` returns 200 with no local run at all.
+
+Two caveats worth keeping in mind:
+- Payload's push is **interactive** whenever a change is *ambiguous or destructive*, and a
+  non-interactive deploy cannot answer that prompt — so a removed/renamed field is the case that
+  fails (or worse, drops a column). Prefer explicit migrations before real content exists:
+  ```bash
+  pnpm --filter cms exec payload migrate:create   # generate SQL from the schema diff
+  pnpm --filter cms exec payload migrate          # apply it
+  ```
+  then remove `PAYLOAD_DB_PUSH` from Vercel and set the build command to run `payload migrate`.
+- To apply a change from this machine instead, `pnpm --filter cms dev` still pushes on boot
+  (answer **y** if prompted), exactly as in Step 2.
+
+**Verify a collection landed:** Supabase → Table Editor → schema `payload` shows the table (plus its
+`_locales` / `_v` siblings), and `https://<cms>/api/<collection>` returns JSON. On the website,
+`/{locale}/authors` lists any **published** bio.
+
+## Step 7 — Fix the first-user role deadlock (needed once)
+Payload's "create first user" screen bypasses the admin-only `create` rule but still applies the
+`roles` default (`editor`), and `roles` is admin-only editable — so the first account can be an
+editor with **no admin in the system**, unable to approve, publish, or manage users. Repair it
+out-of-band with the bundled script (Local API, so hashing/hooks/validation behave normally):
 
 ```bash
-pnpm --filter cms dev     # answer "y" if it asks to accept schema changes
+EMAIL=you@example.com ROLES=admin,editor pnpm --filter cms set-roles
 ```
-Open `http://localhost:3001/admin`, confirm **People** opens without an error, then stop the server.
-Existing collections are untouched by this change (no new columns on Articles/Conditions/…), so the
-live CMS keeps working meanwhile — only the People screen errors until the push is done.
-
-**Verify:** in Supabase → Table Editor → schema `payload`, a `people` table exists (plus its
-locales/versions siblings). On the website, `/{locale}/authors` then lists any **published** bio.
+Add `NEW_PASSWORD=…` to the same command to reset a lost CMS password (there is no email sender
+configured, so Payload's forgot-password flow can't deliver a link). See
+`apps/cms/scripts/set-user-roles.mjs`.
 
 ## Notes
 - Locales: EN/AR/FR/ES (AR is RTL). Fetch a locale with `/api/articles?locale=ar`.

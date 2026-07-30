@@ -10,6 +10,7 @@
     "start": "next start -p 3001",
     "typecheck": "tsc --noEmit",
     "generate:types": "payload generate:types",
+    "set-roles": "payload run ./scripts/set-user-roles.mjs",
     "generate:importmap": "payload generate:importmap",
     "payload": "payload"
   },
