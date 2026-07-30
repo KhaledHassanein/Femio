@@ -135,7 +135,7 @@ Focused on the exact gap F3 exposes: **menopause apps assume a healthy user with
 
 **Polypharmacy & multi-specialist coordination.** Managing **five-plus medicines** across multiple specialists is associated with interaction risk, adverse events, and menopause "falling through the cracks"; a coordinating clinician and periodic **medication review/reconciliation** are the recommended answer. Femio supports this with **educational interaction *awareness*** and **per-visit prep** — it is **not** a medication-management, reconciliation, or drug-interaction-checking device [StatPearls — Reducing Polypharmacy in Older Adults; medication-management-in-multimorbidity review, PMC].
 
-*[NEEDS SOURCE] — (a) Any per-condition MHT-eligibility percentages or "how many survivors are told X" figures are directional from secondary/commentary sources; verify against primary data before public use. (b) The exact ordering/first-line status of individual non-hormonal agents varies by guideline and region (SOGC vs NAMS vs NICE) — confirm the specific claim per locale before publishing. (c) Diabetes-medication-and-menopause interplay specifics beyond the sleep/glucose loop are largely secondary sources — verify before public claims.*
+*Publication exclusion after medical review:* Femio publishes no per-condition MHT-eligibility percentage, survivor-experience percentage, universal ordering of individual non-hormonal medicines, or diabetes-medication interaction claim. [NICE NG23, updated 15 April 2026](https://www.nice.org.uk/guidance/ng23/chapter/Recommendations) supports individualized care, specialist referral when contraindications or uncertainty exist, and consideration of comorbidities for people with type 2 diabetes. The product tracks user-entered symptoms and medicines for clinician discussion; it does not determine eligibility, first-line treatment, or interactions. *(Reviewed Mohamed K., 24 July 2026; next review 24 July 2027.)*
 
 ---
 
@@ -300,7 +300,7 @@ All transitions require **explicit user confirmation**, preserve data continuity
 - **Privacy (GDPR/PDPL health data):** menopause symptoms, MRS, MHT/med log **and condition flags (esp. breast-cancer history)** = special-category with extra sensitivity; explicit granular consent, purpose limitation, **no ad-SDK/third-party sharing** (post-Flo trust), no employer/insurer visibility; local-first where feasible; full export/delete; DPIA + data-mapping before launch.
 - **Content integrity:** all medical content referenced, medically reviewed with byline + date, YMYL/E-E-A-T compliant; grade 6–8; 4 languages with Arabic-first/RTL QA.
 - **App-store health policy:** avoid medical-device trigger language; tracking/education framing keeps out of regulated-device territory — legal review before store submission.
-- **[NEEDS SOURCE]** flags retained (see Section D) on per-condition eligibility figures, region-specific non-hormonal first-line ordering, and diabetes-medication interplay specifics until primary sources confirmed.
+- **Claims boundary resolved:** per-condition eligibility figures, universal medicine ordering, and diabetes-drug interaction specifics are excluded. Country clinical content may reproduce only its current guideline; the global product routes uncertainty and comorbidity decisions to the clinician under [NICE NG23](https://www.nice.org.uk/guidance/ng23/chapter/Recommendations). *(Reviewed Mohamed K., 24 July 2026; next review 24 July 2027.)*
 
 ---
 

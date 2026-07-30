@@ -87,8 +87,8 @@ All figures are **education, not medical advice**; app copy must attribute to th
 
 **Definition & the "35" line.** Advanced maternal age = **35 or older at delivery**; **≥40 = "very advanced maternal age."** 35 is largely an arbitrary/administrative threshold — risk rises gradually and continuously with age, with several risks not climbing steeply until the 40s. → Femio frames 35 as "a line clinicians use to offer extra options, not a cliff." [ACOG OCC 2022; Cleveland Clinic; Evidence Based Birth]
 
-**Chromosomal / Down syndrome risk (present as absolute odds + "most babies are healthy").**
-- Down syndrome (trisomy 21) live-birth/estimated risk rises with age: roughly **~1 in 1,480 at age 20**, **~1 in 353 at age 35**, **~1 in ~85–100 at age 40**, **~1 in 35 at age 45**. (Exact figures vary by source and by gestational age at testing.) → Always paired with the reciprocal ("~99%+ of babies at 35 do *not* have Down syndrome"). [ACOG; Cleveland Clinic; Johns Hopkins] — *[NEEDS SOURCE: pin one canonical age→risk table, ideally MedlinePlus/NICHD, for exact age-40 figure — sources range ~1/85–1/100]*
+**Chromosomal-condition risk (present without a generic table).**
+- Aneuploidy risk increases along a continuum with maternal age, but exact estimates differ by condition, gestational age, population, and whether the denominator is pregnancies or live births. Femio therefore publishes no age-to-Down-syndrome table or reciprocal percentage. It offers neutral screening/diagnostic-test education and individualized clinician/genetic-counselor discussion. [ACOG/SMFM Obstetric Care Consensus No. 11, August 2022, reaffirmed 2025](https://www.acog.org/clinical/clinical-guidance/obstetric-care-consensus/articles/2022/08/pregnancy-at-age-35-years-or-older). *(Reviewed Mohamed K., 24 July 2026; next review 24 July 2027.)*
 
 **Screening options — the core D13 education.**
 - **ACOG now recommends that prenatal screening (serum ± NT ultrasound, or cell-free DNA/NIPT) *and* diagnostic testing (CVS or amniocentesis) be discussed and offered to *all* pregnant patients regardless of age or risk** — the old "only offer to 35+" rule is retired. → For D13 this is a *reassurance*: her options are the same menu everyone gets, just chosen with age-informed context. [ACOG "Screening for Fetal Chromosomal Abnormalities" 2026; ACOG NIPT current guidance]
@@ -106,9 +106,9 @@ All figures are **education, not medical advice**; app copy must attribute to th
 **Monitoring & interventions her clinician may discuss (education, never a Femio instruction).**
 - **Low-dose aspirin** (commonly 150 mg from ~12 wk to birth, per NICE) when age ≥40 combines with **one additional** pre-eclampsia risk factor — **her clinician decides and doses**; Femio never doses. [NICE; RCOG]
 - **Serial growth ultrasounds** for fetal growth/wellbeing (esp. ≥40). [RCOG/TOG]
-- **Induction discussion from ~39 weeks** given the term-stillbirth signal — presented as a **shared decision to discuss**, explicitly *not* "you must be induced." [RCOG; ACOG; Wickham review]
+- Delivery timing is individualized. *Clinician-facing guideline context, not user-facing copy:* ACOG/SMFM recommends delivery at 39+0 to 39+6 weeks for a well-dated pregnancy when anticipated delivery age is 40 years or older. Femio does not surface that window as a schedule, generalize it to everyone aged 35+ or to other countries, or ever schedule delivery; the user-facing surface says delivery timing is a conversation with her maternity team. [ACOG/SMFM OCC No. 11, reaffirmed 2025](https://www.acog.org/clinical/clinical-guidance/obstetric-care-consensus/articles/2022/08/pregnancy-at-age-35-years-or-older).
 
-*[NEEDS SOURCE]* flags: canonical age→Down-syndrome absolute-risk table (exact age-40 value); ACOG NIPT/cfDNA committee-opinion permalink; NICE NG133 (hypertension in pregnancy) aspirin permalink; RCOG/TOG "advanced maternal age" management statement for serial-scan + 39-wk induction wording; WHO/MENA-region framing for Arabic users.
+*Source register resolved:* use [ACOG/SMFM OCC No. 11 (2022; reaffirmed 2025)](https://www.acog.org/clinical/clinical-guidance/obstetric-care-consensus/articles/2022/08/pregnancy-at-age-35-years-or-older) for age-related counseling and screening options, and [NICE NG133](https://www.nice.org.uk/guidance/ng133/chapter/recommendations) within the UK hypertension/pre-eclampsia module. No global aneuploidy table, aspirin instruction, serial-scan schedule, delivery schedule, or MENA pathway is published. *(Reviewed Mohamed K., 24 July 2026; next review 24 July 2027.)*
 
 ---
 
@@ -239,7 +239,7 @@ All entry-only; surfaced-or-hidden, never destroyed (adaptation-model rule §3).
 - **Privacy-by-design (GDPR/PDPL):** age, screening results, and genetic-testing data are special-category and often emotionally sensitive; minimal collection, explicit granular consent, **no data sale, no ad-targeting SDKs, no employer/insurer visibility**. Screening-results and genetic data are entry-only and never shared without scoped, revocable consent (partner sharing opt-in). Loss/withdrawal → immediate reminder suppression + data-deletion honoring.
 - **Content provenance:** every claim medically reviewed + cited Tier-1 (NIH/CDC/NHS/MedlinePlus) / Tier-2 (ACOG/RCOG/NICE); review dates surfaced; no clickbait, no sponsored content near screening/loss content.
 - **i18n/RTL:** all age-risk, screening, and red-flag copy human-reviewed in AR/EN/FR/ES (not machine-only); ensure the "geriatric" prohibition holds across translations and that absolute-risk phrasing survives localization.
-- **Open items:** resolve the **[NEEDS SOURCE]** flags in D (canonical age→risk table; ACOG cfDNA permalink; NICE NG133 aspirin; RCOG/TOG AMA management for serial-scan + 39-wk induction; MENA/WHO framing) before content freeze; localize warning-signs + emergency numbers per region.
+- **Medical-review boundary:** primary ACOG/SMFM and NICE sources are pinned in §D. Screening, aspirin, surveillance, and delivery decisions remain clinician/country-module content; urgent routing uses the country selector and local maternity/emergency destination. *(Reviewed Mohamed K., 24 July 2026; next review 24 July 2027.)*
 
 ---
 
@@ -248,15 +248,15 @@ All entry-only; surfaced-or-hidden, never destroyed (adaptation-model rule §3).
 **Tier-1 (NIH / CDC / NHS / MedlinePlus)**
 - [MedlinePlus — Amniocentesis (Amniotic Fluid Test)](https://medlineplus.gov/lab-tests/amniocentesis-amniotic-fluid-test/)
 - [CDC — Urgent Maternal Warning Signs (HEAR HER)](https://www.cdc.gov/hearher/maternal-warning-signs/index.html) (inherited red-flag list)
-- [NHS — Amniocentesis (risks)](https://www.nhs.uk/conditions/amniocentesis/) *[NEEDS SOURCE: confirm exact current NHS miscarriage-risk wording/permalink]*
-- [NICHD — What are some factors that make a pregnancy high risk? (maternal age)](https://www.nichd.nih.gov/health/topics/high-risk/conditioninfo/factors) *[NEEDS SOURCE: pin canonical age→Down-syndrome absolute-risk table]*
+- [NHS — Amniocentesis (current test information; accessed 24 July 2026)](https://www.nhs.uk/tests-and-treatments/amniocentesis/) — Femio does not reproduce a universal procedure-related miscarriage percentage.
+- [ACOG/SMFM — Pregnancy at Age 35 Years or Older, OCC No. 11 (August 2022; reaffirmed 2025)](https://www.acog.org/clinical/clinical-guidance/obstetric-care-consensus/articles/2022/08/pregnancy-at-age-35-years-or-older)
 
 **Tier-2 (ACOG / RCOG / NICE)**
 - [ACOG — Pregnancy at Age 35 Years or Older (Obstetric Care Consensus, 2022)](https://www.acog.org/clinical/clinical-guidance/obstetric-care-consensus/articles/2022/08/pregnancy-at-age-35-years-or-older)
 - [ACOG — Screening for Fetal Chromosomal Abnormalities (Practice Advisory, 2026)](https://www.acog.org/clinical/clinical-guidance/practice-advisory/articles/2026/01/screening-for-fetal-chromosomal-abnormalities)
 - [ACOG — Current ACOG Guidance on Non-Invasive Prenatal Testing](https://www.acog.org/advocacy/policy-priorities/non-invasive-prenatal-testing/current-acog-guidance)
 - [ACOG — Management of Stillbirth (Obstetric Care Consensus)](https://www.acog.org/clinical/clinical-guidance/obstetric-care-consensus/articles/2020/03/management-of-stillbirth)
-- [NICE — Hypertension in pregnancy (NG133): aspirin for pre-eclampsia risk](https://www.nice.org.uk/guidance/ng133) *[NEEDS SOURCE: confirm 150 mg / ≥40-as-moderate-risk permalink]*
+- [NICE — Hypertension in pregnancy, NG133 recommendations](https://www.nice.org.uk/guidance/ng133/chapter/recommendations) — UK clinician guidance; Femio does not prescribe aspirin.
 - [RCOG / TOG — Very advanced maternal age (Howell, 2021)](https://obgyn.onlinelibrary.wiley.com/doi/abs/10.1111/tog.12710) (serial scans, 39-wk induction discussion)
 
 **Clinical education & literacy**

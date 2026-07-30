@@ -46,7 +46,7 @@ Synthesized from breastfeeding/pumping communities (r/breastfeeding, r/Exclusive
 - "I got my period back at 5 months — does that mean my milk is ruined / I can get pregnant now?"
 
 **Winding down (any time).**
-- "How do I wean without getting mastitis or crying for a week?" (Abrupt weaning risks engorgement/mastitis; hormonal mood dips with weaning are real and rarely warned about.)
+- "How do I wean gradually and look after both my breasts and my wellbeing?" (The product validates mixed emotions without attributing them to an unverified hormonal mechanism.)
 - "I stopped and I feel weirdly grief-stricken / relieved / both. Is that normal?"
 - "Exclusively pumping: when is my freezer stash big enough to stop?"
 
@@ -87,9 +87,9 @@ Synthesized from breastfeeding/pumping communities (r/breastfeeding, r/Exclusive
 
 **Mastitis spectrum (ABM Clinical Protocol #36, 2022).** Reframes engorgement → ductal narrowing ("blocked duct") → inflammatory mastitis → bacterial mastitis → phlegmon/abscess as one inflammation spectrum. Key education points Femio must reflect: continue feeding on demand; **avoid aggressive massage, excessive pumping "to empty," and deep heat** (old folklore that can worsen inflammation); use cold, rest, and normal feeding patterns; seek care when systemic symptoms persist or worsen. ([ABM Protocol #36, PubMed](https://pubmed.ncbi.nlm.nih.gov/35576513/)) NHS: see a GP if a red/hot/painful area plus flu-like symptoms don't improve within 12–24 hours of continued feeding + home measures, or if worsening; feeling seriously unwell/dizzy/confused with mastitis symptoms → urgent care (possible sepsis). ([NHS — Mastitis](https://www.nhs.uk/conditions/mastitis/); [NHS Best Start — Mastitis while breastfeeding](https://www.nhs.uk/best-start-in-life/baby/feeding-your-baby/breastfeeding/breastfeeding-challenges/mastitis/)) *Note: a 2023 commentary debates parts of ABM #36 ([Int Breastfeed J commentary](https://pmc.ncbi.nlm.nih.gov/articles/PMC10481477/)) — content must stick to consensus basics and route management to clinicians.*
 
-**Pumping & milk storage.** CDC covers pump hygiene and session guidance; storage rules (room temp ≤4h, fridge ≤4 days, freezer best within 6 months, acceptable to 12) are the canonical back-to-work reference. ([CDC — Pumping breast milk](https://www.cdc.gov/infant-toddler-nutrition/breastfeeding/pumping-breast-milk.html)) *[NEEDS SOURCE: confirm exact current CDC storage-duration table URL (Human Milk Storage Guidelines) at content-writing time.]*
+**Pumping & milk storage.** CDC’s current table states that freshly expressed milk can be stored at room temperature (77°F/25°C or colder) for up to **4 hours**, refrigerated for up to **4 days**, and frozen for about **6 months for best quality** or up to **12 months as acceptable**. The card also includes CDC handling qualifications; it is not reduced to durations alone. ([CDC — Breast Milk Storage and Preparation, 25 March 2026](https://www.cdc.gov/breastfeeding/breast-milk-preparation-and-storage/handling-breastmilk.html); [CDC — Pumping breast milk](https://www.cdc.gov/infant-toddler-nutrition/breastfeeding/pumping-breast-milk.html)) *(Reviewed Mohamed K., 24 July 2026; next review 24 July 2027.)*
 
-**Weaning.** Gradual weaning (dropping one feed/session at a time over days–weeks) reduces engorgement, blocked-duct and mastitis risk versus abrupt stopping; mood shifts with weaning-related hormonal change are commonly reported and worth normalizing with a mood check-in. ([CDC — Weaning](https://www.cdc.gov/infant-toddler-nutrition/breastfeeding/weaning.html) *[NEEDS SOURCE: verify URL live + exact wording]*; [AAP/HealthyChildren — breastfeeding policy explained](https://www.healthychildren.org/English/ages-stages/baby/breastfeeding/Pages/Where-We-Stand-Breastfeeding.aspx)) *[NEEDS SOURCE: Tier-1 citation for post-weaning mood changes — candidate: NIH/PMC literature on weaning and maternal mood.]*
+**Weaning.** CDC recommends weaning over several weeks or more and starting by replacing one breast-milk feeding a day, then replacing additional feeds over time. Femio presents this as general pacing education, not a medical guarantee against engorgement or mastitis. A neutral wellbeing check-in remains available during any feeding transition, but global copy makes no claim that weaning hormones cause a mood change. ([CDC — Weaning From Breastfeeding, 16 April 2026](https://www.cdc.gov/infant-toddler-nutrition/breastfeeding/weaning.html)) *(Reviewed Mohamed K., 24 July 2026; next review 24 July 2027.)*
 
 **Lactational amenorrhea & return of fertility (education, not contraception advice).** LAM is ≥98% effective only while **all three** criteria hold: amenorrhea + fully/nearly-fully breastfeeding (day feeds ≤4h apart, night ≤6h) + <6 months postpartum. Ovulation can precede the first postpartum period, so fertility may return silently; any criterion breaking = LAM no longer applies → "discuss contraception options with your clinician." ([CDC US-MEC — LAM](https://www.cdc.gov/contraception/hcp/usmec/lactational-amenorrhea-method.html); [LAM review, PMC](https://pmc.ncbi.nlm.nih.gov/articles/PMC6823189/))
 
@@ -133,7 +133,7 @@ Synthesized from breastfeeding/pumping communities (r/breastfeeding, r/Exclusive
 7. **The emotional side** — feeding pressure, guilt, triple feeding, identity; combination and formula feeding without shame; when feeding struggle + low mood means a mood check-in (→ E3).
 8. **Family, culture & your feeding choices** — navigating grandmother/mother-in-law advice, "weak milk" myths, involving your support circle; Arabic-first cultural adaptation with religious-cultural sensitivity (e.g., breastfeeding norms in Islam) reviewed by local advisors.
 9. **Your cycle & fertility while breastfeeding** — LAM's three criteria; ovulation-before-first-period; what changing feeding patterns do to cycle return; contraception = clinician conversation.
-10. **Weaning, your way** — gradual approaches at any age; night-weaning; engorgement management; mood dips after weaning; weaning grief/relief normalization.
+10. **Weaning, your way** — CDC-aligned gradual pacing, night-weaning questions, breast-comfort education, and a neutral wellbeing check-in; no claimed hormonal cause for mood.
 
 *Every module: medically-reviewed, cited, dated, reviewer + review-date shown; localized EN/AR/FR/ES with Arabic-first/RTL layout.*
 
@@ -226,14 +226,14 @@ Universal events (positive test, loss, mood-crisis, red-flag, disengagement, tog
 
 - **Scope guardrail:** wellness/education/tracking only. No diagnosis (esp. mastitis), no treatment advice (no antibiotic/antifungal guidance, no galactagogues), no prevention claims, no medical-device-triggering language (no "monitors supply," no adequacy algorithms).
 - **Meds content is the highest-risk surface:** every medication card must be educational, cite LactMed/Tier-1, carry the clinician/pharmacist routing close, and never render a compatibility verdict or icon. Legal review of this surface before launch.
-- **No infant-feeding adequacy judgments:** Femio must never state or imply the baby is/isn't getting enough — WHO Code sensitivity also applies: no formula marketing, no formula-shaming; combination/formula content stays neutral and supportive. *[NEEDS SOURCE: WHO International Code of Marketing of Breast-milk Substitutes — confirm content-policy implications for app copy.]*
+- **No infant-feeding adequacy judgments or commercial promotion:** Femio never states or implies that the baby is or is not getting enough. It accepts no manufacturer sponsorship, targeted promotion, samples, coupons, lead-generation, or product-placement for breast-milk substitutes or other products within the Code’s scope. Neutral feeding education must not be formula-shaming and must not be presented as personalized adequacy assessment. The [WHO 2023 digital-marketing guidance](https://www.who.int/publications/i/item/9789240084490) informs this product rule; launch counsel must separately map the stricter or different national implementation in each market. *(Reviewed Mohamed K., 24 July 2026; next review 24 July 2027.)*
 - **LAM = education, never contraception advice:** criteria display is awareness-only with mandatory clinician routing; no efficacy promises tied to her data.
 - **Mastitis red-flag prominence:** §G box mandatory in all mastitis-spectrum content and after qualifying logs; sepsis-warning line included; locale emergency numbers.
 - **Mood coupling:** feeding-struggle + low-mood pathway inherits all E1/E3 EPDS rules including the mandatory Q10 crisis rule.
 - **Sensitive data:** feeding intent, meds questions, mood, and breast-symptom logs = special-category handling; explicit consent for storage/sharing; support-circle share cards are scoped + revocable; no ad/analytics SDK exposure (GDPR/PDPL; see femio-compliance-privacy).
 - **Cultural review:** Arabic family-pressure and religious-context content reviewed by regional advisors alongside medical review.
 - **Content integrity:** every clinical statement medically-reviewed, cited, dated, reviewer visible; EN/AR/FR/ES with Arabic-first/RTL QA.
-- **Open sourcing gaps to close before build:** CDC milk-storage table URL, CDC weaning page verification, Tier-1 post-weaning mood citation, WHO Code implications, ABM #36 vs. 2023 commentary editorial stance, per-locale IBCLC-finder resources — all flagged **[NEEDS SOURCE]** above.
+- **Publication controls:** current CDC storage and weaning pages and WHO digital-marketing guidance are pinned above. The unsupported post-weaning hormonal-mood claim is excluded. Mastitis copy stays with consensus basics and clinician routing; any named lactation-consultant directory or national Code implementation must be verified in a dated country module before display. *(Reviewed Mohamed K., 24 July 2026; next review 24 July 2027.)*
 
 ---
 
@@ -249,7 +249,9 @@ Universal events (positive test, loss, mood-crisis, red-flag, disengagement, tog
 - [USDA WIC Breastfeeding Support — Common breastfeeding challenges](https://wicbreastfeeding.fns.usda.gov/common-breastfeeding-challenges)
 - [CDC — How much and how often to breastfeed](https://www.cdc.gov/infant-toddler-nutrition/breastfeeding/how-much-and-how-often.html)
 - [CDC — Pumping breast milk](https://www.cdc.gov/infant-toddler-nutrition/breastfeeding/pumping-breast-milk.html)
+- [CDC — Breast Milk Storage and Preparation (25 March 2026)](https://www.cdc.gov/breastfeeding/breast-milk-preparation-and-storage/handling-breastmilk.html)
 - [CDC — Weaning](https://www.cdc.gov/infant-toddler-nutrition/breastfeeding/weaning.html)
+- [WHO — Guidance on regulatory measures aimed at restricting digital marketing of breast-milk substitutes (2023)](https://www.who.int/publications/i/item/9789240084490)
 - [CDC US-MEC — Lactational Amenorrhea Method](https://www.cdc.gov/contraception/hcp/usmec/lactational-amenorrhea-method.html)
 - [Lactational amenorrhoea method — review (PMC)](https://pmc.ncbi.nlm.nih.gov/articles/PMC6823189/)
 - [ACOG — Breastfeeding Challenges (Committee Opinion 820, 2021)](https://www.acog.org/clinical/clinical-guidance/committee-opinion/articles/2021/02/breastfeeding-challenges)

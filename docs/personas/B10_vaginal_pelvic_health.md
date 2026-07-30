@@ -114,7 +114,7 @@ Sources: [CDC BV STI Treatment Guidelines](https://www.cdc.gov/std/treatment-gui
 - **Probiotics / boric acid / vaginal lactobacillus** for recurrent BV: promising but still-limited evidence; a preference-sensitive option to **discuss with a clinician**, not a Femio recommendation [PMC narrative review; LACTIN-V trials].
 - Condoms may reduce BV recurrence; routine treatment of male partners is **not** currently CDC-recommended for BV [CDC].
 
-**Pregnancy interplay (matters MORE — see §J).** BV in pregnancy is associated with elevated risk of **preterm birth, PROM, and pregnancy loss** (untreated BV linked to several-fold higher risk of these outcomes in cohort/meta-analyses); UTIs in pregnancy also carry higher stakes. In pregnancy, self-treating is discouraged: **see a clinician before treating**, and oral fluconazole for yeast is generally avoided [Contemporary OB/GYN; PMC; OWH; ACOG]. *[NEEDS SOURCE] — exact preterm-birth odds vary by study/trimester; verify a Tier-1/Tier-2 figure before any public claim.*
+**Pregnancy interplay (matters more — see §J).** The [CDC STI Treatment Guidelines, 2021](https://www.cdc.gov/mmwr/volumes/70/rr/RR7004a1.htm) state that symptomatic BV in pregnancy is associated with adverse outcomes including premature rupture of membranes, preterm birth, intra-amniotic infection, and postpartum endometritis, and recommend evaluation and treatment of symptomatic pregnant patients. Routine screening of asymptomatic pregnant people to prevent preterm birth is not recommended. Femio gives no odds ratio, trimester-specific risk, diagnosis, or regimen and routes pregnancy symptoms to a clinician before self-treatment. *(Reviewed Mohamed K., 24 July 2026; next review 24 July 2027.)*
 
 **Menopause interplay — GSM overlap (see §J).** After menopause, falling estrogen thins genitourinary tissue (**genitourinary syndrome of menopause, GSM**), causing dryness, irritation, and **recurrent UTIs**; symptoms can mimic or coexist with infection. Local vaginal estrogen is a clinician-managed option. This is the bridge to persona **F6** (menopause / GSM) [Johns Hopkins; StatPearls; Cleveland Clinic].
 
@@ -264,7 +264,7 @@ All transitions require **explicit, reversible confirmation**, preserve data con
 - **Privacy (GDPR/PDPL health data):** intimate/sexual-health data = special-category and among the most sensitive; explicit granular consent, purpose limitation, **no ad-SDK/third-party sharing** (post-Flo distrust); local-first where feasible; full export/delete; no partner/employer/insurer visibility. DPIA required before launch.
 - **Content integrity:** all medical content referenced, medically reviewed with byline + date, YMYL/E-E-A-T compliant; grade 6–8; 4 languages with Arabic-first/RTL QA.
 - **App-store health policy:** framing as tracking/education (not diagnosis/device); legal review before store submission.
-- **[NEEDS SOURCE]** flags: exact BV-in-pregnancy preterm-birth odds by trimester; any public "prediction/accuracy" or recurrence-rate stat for named competitor products (directional from secondary sources) — verify against Tier-1/Tier-2 before any public claim.
+- **Claims boundary resolved:** no trimester-specific BV odds, competitor prediction/accuracy statistic, or competitor recurrence-rate statistic is public. Pregnancy wording is limited to the [CDC STI Treatment Guidelines, 2021](https://www.cdc.gov/mmwr/volumes/70/rr/RR7004a1.htm) association and clinician-routing scope above. *(Reviewed Mohamed K., 24 July 2026; next review 24 July 2027.)*
 
 ---
 

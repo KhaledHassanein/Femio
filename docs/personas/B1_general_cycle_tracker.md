@@ -91,7 +91,7 @@ Focused on the general-cycle-tracking job (not PCOS/TTC): prediction honesty, lo
 3. **Paywall ambush.** Users churn when free features are clawed back. Femio's core logging + honest prediction + phase education must stay in the free tier; any paid tier adds depth, never removes the basics.
 4. **Trust damage.** The Flo FTC/class-action saga is the category's reputational wound. Privacy-by-design (no ad-SDK, export/delete, granular consent) is a *primary acquisition argument* for B1, not a footnote.
 
-*[NEEDS SOURCE] — exact quantitative prediction-accuracy figures per named app on regular vs irregular cohorts are directional from secondary review/blog sources; verify against a peer-reviewed source before any public claim.*
+*Claims boundary:* Femio does not publish a prediction-accuracy percentage for any named app or imply comparative performance without a peer-reviewed, population-matched validation study. Product design is described directly: predictions are estimates, widen with variability, and are never contraception. *(Claim cut; reviewed Mohamed K., 24 July 2026; next review 24 July 2027.)*
 
 ---
 
@@ -270,7 +270,7 @@ B1 is **the hub**: it inherits every universal event from `09_MASTER_ADAPTATION_
 - **Paywall integrity (product-compliance):** core logging + honest prediction + phase education stay free; paid tier adds depth only, never claws back basics (explicit anti-"bait-and-switch" stance vs. competitor pattern).
 - **Content integrity:** all medical content referenced, medically reviewed with byline + date, YMYL/E-E-A-T compliant; grade 6–8 reading level; 4 languages with Arabic-first/RTL QA.
 - **App-store health policy:** avoid medical-device trigger language; tracking/education framing keeps out of regulated-device territory (esp. important given Natural Cycles-style contraception apps ARE regulated devices — Femio must never drift toward that claim); legal review before store submission.
-- **[NEEDS SOURCE]** flags: (a) public prediction-accuracy stats for any named app until peer-reviewed source confirmed; (b) exact PMS/PMDD prevalence figures cited for public copy; (c) confirm ACOG/NHS exact bleed-duration and cycle-range wording against primary docs before content freeze (shared with master model §11).
+- **Medical-review boundary resolved:** named-app prediction accuracy and PMS/PMDD prevalence figures are excluded from public copy. Cycle and bleeding safety education uses [`MENSTRUAL_SAFETY_THRESHOLDS.md`](../compliance/MENSTRUAL_SAFETY_THRESHOLDS.md); B1 does not duplicate or silently alter its reviewed wording. *(Reviewed Mohamed K., 24 July 2026; next review 24 July 2027.)*
 
 ---
 

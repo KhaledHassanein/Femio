@@ -125,9 +125,9 @@ All figures below are **education, not medical advice**; app copy must attribute
 
 **Nutrition & supplements.** **Folic acid 400 mcg/day** (higher 5 mg only if a clinician prescribes for elevated risk) to reduce neural-tube-defect risk; **vitamin D 10 mcg/day** in pregnancy/breastfeeding (per NHS). Avoid high-dose vitamin A / retinol / liver / cod-liver-oil supplements. General "foods to be cautious with" education (certain cheeses, undercooked meats, high-mercury fish, unpasteurized products, limiting caffeine) framed as general guidance, deferring specifics to clinician/local guidance. [NHS; NIH ODS; RCOG]
 
-**Screening vs diagnostic.** First-trimester combined screening and cell-free DNA (NIPT) are **screening tests that estimate chance, not diagnoses**; the anatomy scan (~18–22 wk) and glucose screening (~24–28 wk) are routine. All screener content must say **"this is a screening — discuss results with your clinician."** [ACOG; MedlinePlus] — *[NEEDS SOURCE: pin exact ACOG NIPT committee-opinion URL before content freeze]*
+**Screening vs diagnostic.** Serum/ultrasound screening and cell-free DNA estimate chance and are not equivalent to diagnostic testing; a positive screen requires clinician-led counseling and an offer of diagnostic testing. ACOG recommends offering a second-trimester ultrasound for structural defects, ideally at **18–22 weeks**. Glucose-screen timing is shown only from the user’s clinician or an approved country guideline, not as a universal app order. Every result surface says “screening, not a diagnosis—discuss the result with your clinician.” ([ACOG current NIPT guidance](https://www.acog.org/advocacy/policy-priorities/non-invasive-prenatal-testing/current-acog-guidance), accessed 24 July 2026) *(Reviewed Mohamed K., 24 July 2026; next review 24 July 2027.)*
 
-*[NEEDS SOURCE]* flags: exact ACOG gestational-weight-gain committee-opinion permalink; WHO 2016 ANC "8 contacts" model URL for the international/Arabic-region framing (relevant to MENA users).
+**Resolved source set.** Gestational-weight-gain education uses ACOG’s [Weight Gain During Pregnancy](https://www.acog.org/clinical/clinical-guidance/committee-opinion/articles/2013/01/weight-gain-during-pregnancy) and the National Academies’ [2009 report brief](https://nap.nationalacademies.org/resource/12584/Report-Brief---Weight-Gain-During-Pregnancy.pdf). International antenatal-care framing uses the [WHO 2016 ANC guideline](https://www.who.int/publications/i/item/9789241549912), which recommends a minimum of eight contacts. This is a care-model reference, not a schedule Femio imposes: the user follows her maternity team’s locally applicable plan. *(Reviewed Mohamed K., 24 July 2026; next review 24 July 2027.)*
 
 ---
 
@@ -279,7 +279,7 @@ Placement: persistent entry in nav + auto-injected at the bottom of every sympto
 - **Privacy-by-design (GDPR/PDPL, health data):** minimal collection, explicit consent, **no data sale, no ad-targeting SDKs, no employer/insurer visibility**; pregnancy status is sensitive data. Partner sharing is opt-in and granular. Loss/withdrawal must be handled with immediate reminder suppression and data-deletion honoring.
 - **Content provenance:** every medical claim medically reviewed + cited to Tier-1/Tier-2; review dates surfaced; no clickbait, no sponsored content interleaved with medical guidance.
 - **i18n/RTL:** all safety and red-flag copy must be human-reviewed in AR/EN/FR/ES (not machine-only) given clinical stakes.
-- **Open items:** resolve the two **[NEEDS SOURCE]** citations (ACOG weight-gain permalink; WHO 2016 ANC 8-contacts model) before content freeze; localize the warning-signs list to region-appropriate emergency guidance (MENA vs US/UK/EU numbers).
+- **Publication control:** ACOG/NAM weight-gain and WHO ANC sources are pinned above. Warning-sign routing never embeds a language-derived or global emergency number; it uses the maintained country selector and fallback in [`CRISIS_RESOURCES.md`](../compliance/CRISIS_RESOURCES.md). Country-specific care schedules or destinations require separate local approval. *(Reviewed Mohamed K., 24 July 2026; next review 24 July 2027.)*
 
 ---
 
@@ -302,4 +302,4 @@ Placement: persistent entry in nav + auto-injected at the bottom of every sympto
 - [Ovia Cycle & Pregnancy Tracker — App Store listing (features)](https://apps.apple.com/us/app/ovia-cycle-pregnancy-tracker/id570244389)
 - [Flo (app) — Wikipedia (FTC settlement, Anonymous Mode, privacy history)](https://en.wikipedia.org/wiki/Flo_(app))
 
-*[NEEDS SOURCE]* ACOG NIPT/cell-free DNA committee opinion (exact permalink); ACOG gestational-weight-gain permalink; WHO 2016 Antenatal Care "8 contacts" model (for MENA/international framing); IOM/NAM 2009 primary weight-gain report.
+*Source resolution: [ACOG current NIPT guidance](https://www.acog.org/advocacy/policy-priorities/non-invasive-prenatal-testing/current-acog-guidance), [ACOG Weight Gain During Pregnancy](https://www.acog.org/clinical/clinical-guidance/committee-opinion/articles/2013/01/weight-gain-during-pregnancy), [WHO 2016 ANC guideline](https://www.who.int/publications/i/item/9789241549912), and the [National Academies 2009 report brief](https://nap.nationalacademies.org/resource/12584/Report-Brief---Weight-Gain-During-Pregnancy.pdf). Reviewed Mohamed K., 24 July 2026; next review 24 July 2027.*

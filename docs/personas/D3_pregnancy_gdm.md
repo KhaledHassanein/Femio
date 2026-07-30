@@ -53,7 +53,7 @@ Mined from r/GestationalDiabetes, GDM support communities, diabetes-app reviews,
 - "How many carbs per meal / per snack?"
 - "Why does my sugar spike after breakfast specifically?"
 - "How do I eat rice / bread / dates / knafeh with GD?" (cultural-food conflict — strong MENA signal)
-- "What do I do about fasting for Ramadan with gestational diabetes?" *[NEEDS SOURCE: region-specific Ramadan-in-GDM guidance for MENA framing]*
+- “What do I do about fasting for Ramadan with gestational diabetes?” → Femio gives no fast/don’t-fast decision and no medication or meal-timing change; it prompts advance discussion with the maternity/diabetes team and offers neutral question-preparation.
 
 **Medication (educational anxiety)**
 - "My diet numbers are fine but fasting won't budge — will they put me on insulin?"
@@ -132,7 +132,7 @@ All figures below are **education, not medical advice**; app copy must attribute
 
 **Postpartum → lifelong.** ADA/ACOG recommend a **75-g OGTT at 4–12 weeks postpartum** to check whether diabetes/prediabetes persists (~30%+ have prediabetes/IGT, ~4% T2DM at that test), then **lifelong screening every 1–3 years**; lifetime T2DM progression risk is high (~40–70%) but reducible with lifestyle/medication. This seeds the E4 handoff. [ADA 2026 §15; ACOG; SMFM]
 
-*[NEEDS SOURCE]* flags: exact ACOG Practice Bulletin 190 permalink; region-specific mmol/L targets and Ramadan-in-GDM guidance for MENA localization; WHO/IADPSG diagnostic-threshold table for international framing.
+**Resolved source set.** Global education cites [WHO recommendations on care for women with diabetes during pregnancy (2025)](https://www.who.int/publications/b/81691), [NICE NG3](https://www.nice.org.uk/guidance/ng3), and ACOG’s [Gestational Diabetes guidance hub](https://www.acog.org/topics/gestational-diabetes). Femio does not diagnose GDM, reproduce a diagnostic table, set a glucose target, or advise Ramadan fasting/medication changes. Targets, test method, and fasting decisions come from the user’s maternity/diabetes team or an approved country module. *(Reviewed Mohamed K., 24 July 2026; next review 24 July 2027.)*
 
 ---
 
@@ -290,7 +290,7 @@ Placement: persistent nav entry + auto-injected on the glucose-log screen (near 
 - **Privacy-by-design (GDPR/PDPL, health data):** GDM status is sensitive health data layered on sensitive pregnancy data — minimal collection, explicit consent, **no data sale, no ad-targeting SDKs, no employer/insurer visibility**. Partner sharing opt-in and granular. Loss/withdrawal → immediate suppression of all pregnancy + GDM reminders and honored deletion.
 - **Content provenance:** every medical claim medically reviewed + cited to Tier-1 (CDC/NIH/MedlinePlus/NHS) / Tier-2 (ACOG/ADA/NICE); review dates surfaced; no clickbait, no sponsored content interleaved with medical guidance.
 - **i18n/RTL + cultural food literacy:** all safety/red-flag copy human-reviewed in AR/EN/FR/ES (not machine-only) given clinical stakes; carb/meal examples culturally adapted (MENA staples, Ramadan "discuss with clinician first").
-- **Open items:** resolve **[NEEDS SOURCE]** citations (ACOG PB 190 permalink; region mmol/L targets; Ramadan-in-GDM MENA guidance; WHO/IADPSG thresholds) before content freeze; localize warning-signs + emergency numbers per region.
+- **Publication control:** source anchors are pinned above. Region-specific mmol/L targets, diagnostic thresholds, and Ramadan instructions are excluded from global copy; warning-sign destinations use the maintained local-provider/emergency fallback and a country module only when approved. *(Reviewed Mohamed K., 24 July 2026; next review 24 July 2027.)*
 
 ---
 
@@ -319,4 +319,4 @@ Placement: persistent nav entry + auto-injected on the glucose-log screen (near 
 - [SNAQ — Best Gestational Diabetes Apps 2025](https://www.snaq.ai/blog/best-gestational-diabetes-apps-2025)
 - [Ovia Health — Gestational Diabetes During Pregnancy (content-level, not a glucose tool)](https://www.oviahealth.com/guide/10071/gestational-diabetes-during-pregnancy/)
 
-*[NEEDS SOURCE]* ACOG Practice Bulletin 190 (Gestational Diabetes) exact permalink; region-specific mmol/L target table + Ramadan-in-GDM guidance for MENA localization; WHO/IADPSG diagnostic-threshold reference; UK NICE NG3 (Diabetes in pregnancy) permalink for NICE Tier-2 grounding.
+*Medical-source resolution: [WHO 2025](https://www.who.int/publications/b/81691), [NICE NG3](https://www.nice.org.uk/guidance/ng3), and the [ACOG Gestational Diabetes hub](https://www.acog.org/topics/gestational-diabetes) are pinned. Global copy contains no diagnostic/target table or Ramadan treatment instruction. Reviewed Mohamed K., 24 July 2026; next review 24 July 2027.*

@@ -101,8 +101,8 @@ Feature-by-feature, focused on how period-pain and pain-pattern tracking is (und
 Femio surfaces these as **educational awareness prompts that route to a clinician** — never as a diagnosis. Pelvic ultrasound and specialist evaluation are clinician decisions [ACOG CO 760].
 
 **Management (EDUCATIONAL framing only — Femio does not treat or dose).**
-- **NSAIDs are first-line** (e.g. ibuprofen, naproxen) — they block prostaglandin production and relieve pain in roughly 7 of 10 people; guidance describes starting them at or just before pain onset for best effect [NHS/patient.info; Cleveland Clinic; AFP 2021]. *Educational context only; Femio never recommends a specific drug or dose.*
-- **Heat therapy** (heat patch / hot-water bottle to the lower abdomen) provides relief **comparable to — and in some studies slightly better than — NSAIDs**, and can be combined with them [PMC heat-therapy meta-analysis; medscape].
+- **Pain-relief medicines:** clinicians commonly discuss NSAIDs for dysmenorrhea, but suitability, timing, contraindications, and dosing are individual. Femio gives no response percentage, drug choice, or dose and routes medicine questions to a clinician/pharmacist.
+- **Heat therapy** may provide comfort for some people. Femio presents it as optional self-care without claiming equivalence or superiority to medicine.
 - **Exercise and lifestyle** — regular physical activity and several self-care measures are associated with reduced menstrual-pain severity in systematic reviews [PMC self-care/lifestyle reviews].
 - **TENS** (transcutaneous electrical nerve stimulation) — reduces pain more than placebo, sometimes comparable to medication, with minimal side effects [AHRQ EHC; medscape].
 - **Hormonal options** (e.g. combined hormonal contraceptives, progestogens) reduce menstrual pain and are a clinician-discussed option; Femio explains what they are and why a clinician might raise them — **never prescribes, doses, or frames them as contraception advice** [ACOG; AFP 2021].
@@ -110,7 +110,7 @@ Femio surfaces these as **educational awareness prompts that route to a clinicia
 
 **Femio scope guardrail restated:** all of the above is presented as **wellness education, tracking, and screening/awareness**, with consistent "discuss with your clinician" routing. Femio does not diagnose primary vs secondary dysmenorrhea, does not treat, does not prevent disease, and is not contraception.
 
-*[NEEDS SOURCE] — the "~7/10 respond to NSAIDs" and "heat comparable to NSAIDs" figures are from secondary/aggregate sources; verify exact wording against a primary peer-reviewed source or the current NICE CKS "Dysmenorrhoea" topic before any public-facing claim. Confirm the current UK NICE CKS and RCOG chronic-pelvic-pain wording directly (search returned ACOG/AFP as the strongest retrievable guideline sources).*
+*Claims boundary:* NSAID response percentages and heat-versus-NSAID comparative efficacy are excluded. Persistent or function-limiting pain and features suggesting a secondary cause route to evaluation; [ACOG Clinical Practice Guideline No. 11, March 2026](https://www.acog.org/clinical/clinical-guidance/clinical-practice-guideline/articles/2026/03/diagnosis-of-endometriosis) supplies the current endometriosis diagnostic context. *(Reviewed Mohamed K., 24 July 2026; next review 24 July 2027.)*
 
 ---
 
@@ -257,7 +257,7 @@ All transitions require **explicit user confirmation**, preserve data continuity
 - **Privacy (GDPR/PDPL health data):** health data = special-category; explicit granular consent, purpose limitation, no ad-SDK/third-party sharing of cycle/pain/health data (post-Flo trust); local-first where feasible; full export/delete. Pain-body-map and functional-impact data treated as sensitive. Data-mapping + DPIA before launch; export re-confirms sharing scope.
 - **Content integrity:** all medical content referenced, medically reviewed with byline + date, YMYL/E-E-A-T compliant; grade 6–8 reading level; 4 languages with Arabic-first/RTL QA.
 - **App-store health policy:** avoid medical-device trigger language; framing as tracking/education/awareness keeps out of regulated-device territory — legal review before store submission.
-- **[NEEDS SOURCE]** flags: exact NSAID-response and heat-vs-NSAID efficacy wording; current **NICE CKS "Dysmenorrhoea"** and **RCOG chronic-pelvic-pain** guideline wording (verify directly before public claims); any public efficacy stat until primary peer-reviewed source confirmed.
+- **Source boundary resolved:** no treatment-response or comparative-efficacy statistic is public. Endometriosis-awareness and referral framing use [ACOG CPG No. 11, March 2026](https://www.acog.org/clinical/clinical-guidance/clinical-practice-guideline/articles/2026/03/diagnosis-of-endometriosis); medicine and treatment choices remain clinician-led. *(Reviewed Mohamed K., 24 July 2026; next review 24 July 2027.)*
 
 ---
 

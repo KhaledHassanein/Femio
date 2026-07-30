@@ -117,7 +117,7 @@ Feature-by-feature, focused on where apps fail a perimenopausal user on **predic
 
 **Antidepressants-instead-of-menopause gap.** Widely documented that women presenting with perimenopausal mood symptoms are frequently offered **antidepressants first**, partly because only a minority of OB-GYN residencies include formal menopause training. This validates F1's lived experience and Femio's **visit-prep + validation** value [secondary/clinical commentary — see note].
 
-*[NEEDS SOURCE] — (a) the "20% OB-GYN residencies with menopause training" stat and the "years to diagnosis" figures come from secondary/commentary sources; verify against a primary study before any public claim. (b) Exact per-app prediction-accuracy figures on perimenopausal cohorts are directional (secondary review/blog), not peer-reviewed — verify before public use.*
+*Publication exclusion (medical review): the residency-training percentage, “years to diagnosis” figures, and named-app prediction-accuracy figures are removed from public copy because the cited material does not establish them with suitable primary evidence. Femio may describe the user-reported care gap and its own uncertainty-first design without quantifying competitors or clinicians. *(Reviewed Mohamed K., 24 July 2026; next review 24 July 2027.)*
 
 ---
 
@@ -270,7 +270,7 @@ All transitions require **explicit user confirmation**, preserve data continuity
 - **Privacy (GDPR/PDPL health data):** symptom, MRS, and HRT data = special-category; explicit consent, purpose limitation, **no ad-SDK/third-party sharing** (post-Flo trust); local-first where feasible; full export/delete; DPIA + data-mapping before launch.
 - **Content integrity:** all medical content referenced, medically reviewed with byline + date, YMYL/E-E-A-T compliant; grade 6–8 reading level; 4 languages with Arabic-first/RTL QA.
 - **App-store health policy:** avoid medical-device trigger language; tracking/education framing keeps out of regulated-device territory — legal review before store submission.
-- **[NEEDS SOURCE]** flags retained (see Section D) on residency-training/time-to-diagnosis stats and any public prediction-accuracy figures until primary sources confirmed.
+- **Claims boundary:** no public residency-training percentage, diagnosis-delay duration, or competitor prediction-accuracy figure is permitted without a dated primary study that directly measures the stated population and outcome. The unsupported figures in Section D are cut. *(Reviewed Mohamed K., 24 July 2026; next review 24 July 2027.)*
 
 ---
 

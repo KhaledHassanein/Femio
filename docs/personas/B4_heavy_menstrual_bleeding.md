@@ -89,7 +89,7 @@ Feature-by-feature, focused on where trackers fail HMB users on **bleeding quant
 
 **Cross-cutting product gap:** a generic light/medium/heavy tap may not capture flooding, clots, double protection, overnight changes, product changes, or quality-of-life impact. Femio provides a descriptive, exportable bleeding record and anemia-awareness education. It does not make a public “no mainstream tracker offers this” claim or present its record as an objective diagnostic measure.
 
-*[NEEDS SOURCE] — specific per-app feature claims are from app-store listings, review roundups and forum reports; verify against current app versions before any public comparative claim.*
+*Publication rule: competitor details in §C are internal discovery notes and are not approved for public comparison. Any future named-app claim requires a dated official listing/product capture and compliance review; otherwise omit it. Femio’s descriptive bleeding-record design does not depend on a claim that another product lacks a feature. *(Approved Mohamed K., 24 July 2026; next review 24 July 2027.)*
 
 ---
 

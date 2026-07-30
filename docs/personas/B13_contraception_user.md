@@ -83,7 +83,7 @@ Focused on method reminders + side-effect tracking, and on the scope line most c
 2. **"Normal for my method vs worth checking" framing.** Competitors log side effects but rarely contextualize them per method with a settling timeline and a red-flag boundary. This is Femio's differentiator, done with referenced content.
 3. **Explicit scope discipline.** No competitor foregrounds the *"we are not your contraception, we don't do safe days"* line. For a women's-health app under health-data and medical-device scrutiny, making that boundary a feature (not a buried disclaimer) is both compliant and trust-building post-Flo.
 
-*[NEEDS SOURCE] — exact current feature parity and privacy postures of named apps drawn from app-store listings and secondary reviews; verify against each app's live listing + policy before any public comparison.*
+*Publication rule: the table is internal product-discovery material, not an approved public comparison. No named-app feature, price, privacy, or scope claim may be copied into user-facing or marketing content without a dated capture of the official listing and privacy policy plus compliance approval. Femio’s own controls stand independently of competitor behavior. *(Approved Mohamed K., 24 July 2026; next review 24 July 2027.)*
 
 ---
 

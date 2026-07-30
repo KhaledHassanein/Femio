@@ -102,7 +102,7 @@ Sexual wellbeing for women is a **structural gap**: the market splits into (1) *
 4. **No Arabic-first, culturally-sensitive option** for a problem (vaginismus/unconsummated marriage) that is disproportionately prevalent and silenced in MENA.
 5. **Trust.** Post-Flo, a user will not hand *this* data to an ad-funded app.
 
-*[NEEDS SOURCE] — precise user counts, subscription prices, and shutdown dates for named apps are from secondary/marketing sources; verify before any public claim. Rosy shutdown (Nov 2025) per app-review coverage — confirm.*
+*Competitive-claims boundary:* user counts, prices, ratings, and shutdown dates are volatile and are excluded from public copy unless captured from a dated primary product notice. The product requirements do not depend on those claims. *(Reviewed Mohamed K., 24 July 2026; next review 24 July 2027.)*
 
 ---
 
@@ -120,11 +120,11 @@ Sexual wellbeing for women is a **structural gap**: the market splits into (1) *
 
 **Pelvic-floor physiotherapy.** A specialist can teach exercises to **relax and coordinate** (not just strengthen) pelvic-floor muscles and reduce pain; it is a first-line, evidence-supported route for sexual pain, vaginismus, and many pelvic-floor concerns [Cleveland Clinic; Physiopedia; ACOG general management]. **Key safety nuance Femio must teach: for tight/hypertonic pelvic floors, generic Kegel *strengthening* can worsen symptoms — "down-training"/relaxation is often what's needed. Only a clinician can tell which.**
 
-**Genitourinary Syndrome of Menopause (GSM).** 2014 consensus term (replacing "vulvovaginal atrophy/atrophic vaginitis") for genital, sexual, and urinary changes from low estrogen — vaginal **dryness, burning, irritation, painful sex, and urinary symptoms**; affects **>50% of postmenopausal women** and is under-recognized. First-line = **non-hormonal lubricants and moisturizers**; **local vaginal estrogen** is a mainstay for those who need more; managed with a clinician [NCBI StatPearls; Cleveland Clinic J Med; AUA/SUFU/AUGS 2025 Guideline]. *Femio: education + "discuss with clinician," never a prescription.*
+**Genitourinary Syndrome of Menopause (GSM).** GSM describes genital, sexual, and urinary symptoms associated with menopause, including dryness, burning, irritation, pain during sex, and urinary symptoms. Prevalence varies by study and is not quantified here. Femio provides education and clinician-routing, never a diagnosis or treatment recommendation. [NICE NG23, updated 15 April 2026](https://www.nice.org.uk/guidance/ng23/chapter/Recommendations).
 
-**Postpartum sexual pain / low desire.** Common in the months after birth (tissue healing/scar, pelvic-floor changes, hormonal shifts incl. lactational low estrogen causing dryness, fatigue, mood) — **often improves, but persistent pain warrants clinician review** rather than being dismissed as "just normal." *Femio frames as expected-but-checkable; routes from the E-track.* [ACOG; general clinical consensus — [NEEDS SOURCE] for a single Tier-1 postpartum-specific citation.]
+**Postpartum sexual pain / low desire.** Pain can follow childbirth, including after a perineal tear or episiotomy, and may persist for months. Frequent or severe pain warrants assessment rather than dismissal; evaluation may include gynecologic and pelvic-floor causes. Femio routes from the E-track without predicting duration or cause. [ACOG, “When Sex Is Painful,” accessed 24 July 2026](https://www.acog.org/womens-health/faqs/when-sex-is-painful). *(Reviewed Mohamed K., 24 July 2026; next review 24 July 2027.)*
 
-**Cultural / MENA context (clinically documented).** Vaginismus is a **leading cause of unconsummated marriage** across Arab/Muslim countries (reported in ~**20–67%** of unconsummated-marriage couples in various studies); **insufficient sexual knowledge** and **cultural taboo about pain/bleeding at first intercourse** are documented risk/aggravating factors; culturally-adapted therapy improves outcomes [Ann Saudi Med, vaginal penetration phobia in Arab women; Cambridge, *Cultural aspects of vaginismus therapy: Arab-Muslim case series*].
+**Cultural / MENA context.** Some regional studies and case series describe sexual-knowledge gaps, taboo, and fear around penetration among people seeking care, but estimates are not population prevalence and vary widely. Femio therefore publishes no MENA prevalence range or causal cultural generalization; localized language is dignity-preserving and reviewed with local clinicians/community reviewers.
 
 **Femio scope guardrail restated:** everything above is **education, screening, and tracking**, with consistent "discuss with your clinician" routing. Femio is **not contraception**, does not diagnose sexual dysfunction, does not prescribe dilator protocols or medications, and **never frames normal desire variation as disease**.
 
@@ -278,7 +278,7 @@ Every module: referenced citations, medical-review byline + date, "discuss with 
 - **Mental health:** crisis resources on any low screen; localized per region/language; EPDS/PHQ crisis-item logic inherited.
 - **Content integrity:** all medical content referenced, medically reviewed with byline + date, YMYL/E-E-A-T compliant; grade 6–8; 4 languages with Arabic-first/RTL QA.
 - **App-store health policy:** framing as tracking/education (not device/diagnosis) keeps out of regulated-device territory; discreet-mode app-naming must still comply with store policies — legal review before store submission.
-- **[NEEDS SOURCE]** flags: (a) competitor user counts / prices / Rosy shutdown date; (b) a single Tier-1 postpartum-sexual-pain citation; (c) exact vaginismus PT success-rate figure (systematic-review number is secondary — verify before public use); (d) precise MENA unconsummated-marriage prevalence range (studies vary widely — cite specific study).
+- **Claims boundary resolved:** volatile competitor facts, vaginismus-therapy success rates, and MENA prevalence ranges are excluded from public copy. Postpartum sexual-pain education is pinned to [ACOG](https://www.acog.org/womens-health/faqs/when-sex-is-painful); persistent/frequent or severe pain routes to a clinician without a diagnosis or treatment promise. *(Reviewed Mohamed K., 24 July 2026; next review 24 July 2027.)*
 
 ---
 

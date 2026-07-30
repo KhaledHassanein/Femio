@@ -120,13 +120,13 @@ All figures are **education, not medical advice**; app copy attributes to these 
 - Normal (BMI 18.5–24.9): **16.8–24.5 kg (37–54 lb)**
 - Overweight (25–29.9): **14.1–22.7 kg (31–50 lb)**
 - Obese (≥30): **11.3–19.1 kg (25–42 lb)**
-- Underweight (<18.5): IOM gives **no separate twin range** (insufficient data) → present as "discuss an individualized target with your clinician." → Femio shows the **twin** band (never the singleton band) whenever multiples is set; same non-judgmental, no pass/fail framing as D1. [IOM 2009; Brigham & Women's twin nutrition; perinatology.com] — *[NEEDS SOURCE: pin IOM/NAM 2009 twin-table primary permalink before content freeze]*
+- Underweight (<18.5): the 2009 IOM/National Academies report did not provide a separate twin range because evidence was insufficient; route to an individualized clinician-set target. The source for the twin table is [*Weight Gain During Pregnancy: Reexamining the Guidelines* (National Academies/IOM, 2009)](https://nap.nationalacademies.org/catalog/12584/weight-gain-during-pregnancy-reexamining-the-guidelines). Femio uses non-judgmental, no-pass/fail framing. *(Reviewed Mohamed K., 24 July 2026; next review 24 July 2027.)*
 
-**Twin nutrition / supplements.** Education (not prescription): twin pregnancies are described as needing **more energy** (commonly cited ~+300 kcal/baby T1 rising to ~+450 kcal/baby by T3; ~40% higher-calorie diet), **higher iron** (twin requirement ~1.8× singleton; ~30 mg/day T1, ~60 mg/day T2–T3 discussed to prevent anemia), and **higher folate** (1 mg/day discussed for twins vs 400 mcg singleton), plus attention to calcium, magnesium, zinc. All framed as "commonly discussed for twin pregnancies — your clinician sets your actual supplements and doses." **Never a dose instruction.** [Brigham & Women's; perinatology.com twin nutrition; PMC twin dietary-recommendation review] — *[NEEDS SOURCE: prefer an NIH/CDC/ACOG primary for twin iron/folate figures over secondary reviews before content freeze]*
+**Twin nutrition / supplements.** [NICE NG137, updated 9 April 2024](https://www.nice.org.uk/guidance/ng137/chapter/Recommendations) says to give the same diet, lifestyle, and nutritional-supplement advice as routine antenatal care, while recognizing a higher incidence of anemia and adding a full blood count at 20–24 weeks (plus the routine 28-week test). Femio gives no extra-calorie or iron/folate dose for twins; the maternity team uses results and local guidance to prescribe supplementation. *(Reviewed Mohamed K., 24 July 2026; next review 24 July 2027.)*
 
 **Mode & place of birth.** Determined by chorionicity, presentation, growth, and complications; delivery is planned at units able to care for premature/multiple babies (NICU/level-appropriate). → Femio educates on the *factors* and "questions to ask," framed as "discuss with your clinician/MFM team," never a recommendation. [NICE NG137; ACOG PB231]
 
-*[NEEDS SOURCE]* flags: IOM/NAM 2009 twin weight-gain primary permalink; a Tier-1 (NIH/CDC/NHS) primary for twin iron/folate/calorie figures (currently leaning on Tier-2/secondary); WHO/MENA-region framing for multiple-pregnancy antenatal contacts (Arabic-region users).
+*Source register resolved:* twin weight education uses the [National Academies/IOM 2009 report](https://nap.nationalacademies.org/catalog/12584/weight-gain-during-pregnancy-reexamining-the-guidelines); diet/supplement and anemia-monitoring education uses [NICE NG137, updated 9 April 2024](https://www.nice.org.uk/guidance/ng137/chapter/Recommendations). Antenatal contacts and destinations are country-module content; no generic MENA schedule or supplement dose is published. *(Reviewed Mohamed K., 24 July 2026; next review 24 July 2027.)*
 
 ---
 
@@ -285,7 +285,7 @@ Rule (inherited from master model §3): every field is **surfaced or hidden, nev
 - **Privacy-by-design (GDPR/PDPL, health data):** minimal collection, explicit granular consent, **no data sale, no ad-targeting SDKs, no employer/insurer visibility**; pregnancy + multiples status is sensitive data. Partner sharing opt-in and scoped.
 - **Content provenance:** every twin medical claim medically reviewed + cited Tier-1/Tier-2; review dates surfaced; no clickbait, no sponsored content.
 - **i18n/RTL:** all twin safety/red-flag copy human-reviewed in AR/EN/FR/ES (clinical stakes; no twin competitor does true Arabic-first — a differentiator *and* a QA obligation).
-- **Open items:** resolve **[NEEDS SOURCE]** citations — IOM/NAM 2009 twin weight-gain primary permalink; a Tier-1 (NIH/CDC/NHS) primary for twin iron/folate/calorie figures (currently secondary); WHO/MENA multiple-pregnancy antenatal-contact framing; localize warning-signs + emergency numbers per region (MENA vs US/UK/EU).
+- **Source/country boundary:** National Academies 2009 and NICE NG137 are pinned in §D. Global copy has no twin-specific calorie/supplement dose, antenatal schedule, or static emergency number; local maternity and emergency routing requires a verified country module. *(Reviewed Mohamed K., 24 July 2026; next review 24 July 2027.)*
 
 ---
 
@@ -320,4 +320,4 @@ Rule (inherited from master model §3): every field is **surfaced or hidden, nev
 - [Le Baby — baby tracker designed for multiples (per-baby switching)](https://www.lebaby.app/a-recommended-baby-tracker-app-for-multiple-babies)
 - (D1-inherited privacy sources: Consumer Reports pregnancy-app privacy analysis; Flo FTC settlement — see D1 §Sources)
 
-*[NEEDS SOURCE]* IOM/NAM 2009 twin weight-gain primary permalink · Tier-1 primary (NIH/CDC/NHS) for twin iron/folate/calorie figures (currently Tier-2/secondary) · WHO/MENA multiple-pregnancy antenatal-contact model for Arabic-region framing · r/parentsofmultiples direct thread citations (paraphrased from community summaries; pull verbatim permalinks before content freeze).
+*Medical-review note:* public clinical content uses the National Academies/IOM 2009 and NICE NG137 sources above. Community material is internal aggregate design input, not attributable quotation or clinical evidence. Country schedules/destinations require local review. *(Reviewed Mohamed K., 24 July 2026; next review 24 July 2027.)*

@@ -108,7 +108,7 @@ Feature-by-feature, focused on where general trackers fail PCOS users on predict
 
 **Femio scope guardrail restated:** all of the above is presented as **wellness education and screening**, with consistent "discuss with your clinician" routing. Femio is not contraception and does not claim to prevent disease.
 
-*[NEEDS SOURCE] — exact quantitative prediction-accuracy figures for named apps on PCOS cohorts are from secondary review/blog sources; treat as directional, verify against a peer-reviewed source before any public claim.*
+*Competitive-claims boundary:* no named-app prediction-accuracy figure for PCOS or irregular-cycle cohorts is public without a peer-reviewed, population-matched validation study. Femio describes only its own uncertainty behavior: wide ranges, no “late” verdict, and no contraceptive claim. *(Claim cut; reviewed Mohamed K., 24 July 2026; next review 24 July 2027.)*
 
 ---
 
@@ -244,7 +244,7 @@ All transitions require **explicit user confirmation**, preserve data continuity
 - **Privacy (GDPR/PDPL health data):** health data = special-category; explicit consent, purpose limitation, no ad-SDK/third-party sharing of cycle/health data (post-Flo trust); local-first where feasible; full export/delete. Data-mapping + DPIA required before launch.
 - **Content integrity:** all medical content referenced, medically reviewed with byline + date, YMYL/E-E-A-T compliant; grade 6–8 reading level; 4 languages with Arabic-first/RTL QA.
 - **App-store health policy:** avoid medical-device trigger language; framing as tracking/education keeps out of regulated-device territory — legal review before store submission.
-- **[NEEDS SOURCE]** flag on any public prediction-accuracy stat until peer-reviewed source confirmed.
+- **Claims boundary resolved:** named-app prediction-accuracy statistics are excluded from public copy. *(Reviewed Mohamed K., 24 July 2026; next review 24 July 2027.)*
 
 ---
 

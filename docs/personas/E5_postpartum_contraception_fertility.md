@@ -89,7 +89,7 @@ Focused on the postpartum fertility-return + contraception-education seam — a 
 2. **The honest-uncertainty position is defensible and differentiating.** Natural Cycles took the regulated-device path; Flo risks over-confident prediction. Femio's "we will not show you a fertile window right now, and here is why" is both safer and more trustworthy.
 3. **Awareness prompts from feeding data are the ethical unlock** — but only as "criteria described by guidelines no longer all hold → clinician conversation," never as protection status.
 
-*[NEEDS SOURCE] — competitor feature claims from listings/reviews; verify against live products before public comparison.*
+*Publication rule: competitor details in §C are internal discovery notes and are not approved for public comparison. Any future named-app feature, regulatory-status, price, or privacy claim requires a dated official listing/regulator/policy capture and compliance review; otherwise omit it. Femio’s contraception-safety boundary stands independently. *(Approved Mohamed K., 24 July 2026; next review 24 July 2027.)*
 
 ---
 
@@ -118,9 +118,9 @@ All framed as **education**. Femio never computes protection, never issues safe 
 **Birth spacing / interpregnancy interval (IPI) — awareness, not gatekeeping.**
 - **ACOG/SMFM Obstetric Care Consensus No. 8 (Interpregnancy Care):** advises **avoiding IPI < 6 months** and counseling on risks/benefits of conceiving **< 18 months** after a birth; short IPI is associated with preterm birth, low birth weight, SGA and maternal risks. ([ACOG — Interpregnancy Care, OCC #8](https://www.acog.org/clinical/clinical-guidance/obstetric-care-consensus/articles/2019/01/interpregnancy-care); [PubMed](https://pubmed.ncbi.nlm.nih.gov/30575677/))
 - **WHO (2005 technical consultation):** recommends waiting **at least 24 months** after a live birth before the next pregnancy (~33-month birth interval); ≥6 months after miscarriage. ([WHO — Report of a technical consultation on birth spacing](https://www.who.int/publications/i/item/WHO-RHR-07.1))
-- Framing rule: spacing content is **information for her plan**, tone-neutral toward whatever she chooses (including trying sooner — e.g., age-related fertility pressure is real and is a clinician conversation). Femio informs; it never scolds. Post-cesarean spacing/VBAC timing → explicitly flagged as a clinician question. *[NEEDS SOURCE: ACOG VBAC/IPI wording if surfaced.]*
+- Framing rule: spacing content is **information for her plan**, tone-neutral toward whatever she chooses (including trying sooner—age, fertility history, and priorities belong in the clinician conversation). Femio informs; it never scolds. For a prior cesarean, the [ACOG/SMFM Interpregnancy Care consensus](https://www.acog.org/clinical/clinical-guidance/obstetric-care-consensus/articles/2019/01/interpregnancy-care) says shorter intervals are associated with increased uterine-rupture, maternal-morbidity, and transfusion risks among people considering labour after cesarean. Femio does not calculate individual VBAC eligibility or prescribe a waiting period. *(Reviewed Mohamed K., 24 July 2026; next review 24 July 2027.)*
 
-**Emergency contraception (education only).** What it is, that it is time-sensitive, that some options exist postpartum — routed to pharmacist/clinician immediately; no eligibility or risk computation. ([NHS](https://www.nhs.uk/baby/support-and-services/sex-and-contraception-after-birth/)) *[NEEDS SOURCE: EC-while-breastfeeding specifics — mirror FSRH/NHS text.]*
+**Emergency contraception (education and rapid routing only).** If a postpartum user asks about emergency contraception, Femio says that options are time-sensitive and immediately routes her to a pharmacist or clinician. It does not decide eligibility, choose a method, calculate pregnancy risk, or advise interruption of breastfeeding. NHS states that the emergency contraceptive pill can be used while breastfeeding; method and postpartum-timing details remain clinician/pharmacist decisions. ([NHS, *Who can take the emergency contraceptive pill*](https://www.nhs.uk/contraception/methods-of-contraception/emergency-contraceptive-pill-morning-after-pill/who-can-take-it/); [NHS SPS, *Using emergency contraception during breastfeeding*](https://www.sps.nhs.uk/articles/using-emergency-contraception-during-breastfeeding/), accessed 24 July 2026) *(Reviewed Mohamed K., 24 July 2026; next review 24 July 2027.)*
 
 ---
 
@@ -141,7 +141,7 @@ All framed as **education**. Femio never computes protection, never issues safe 
 10. **Bleeding-vs-lochia-vs-period log clarity** — helps her (and her clinician) distinguish tail-end lochia from a true first period (which matters for the LAM amenorrhea criterion) — logged raw, interpreted only as education.
 
 **P2 — depth.**
-11. Partner-share of the method-prep pack (consent-gated, revocable). 12. "What changes at 6 months" pre-brief (solids + LAM expiry + method conversation, one card). 13. Localized method-availability notes (what's typically accessible per region) — *[NEEDS SOURCE: per-locale method availability]*.
+11. Partner-share of the method-prep pack (consent-gated, revocable). 12. "What changes at 6 months" pre-brief (solids + LAM expiry + method conversation, one card). 13. **No global method-availability claim:** a method may be shown as locally available only when a dated country module names the regulator or public-health/formulary source, access route, and review date; otherwise the app says availability varies and routes to a local clinician or pharmacist. *(Reviewed Mohamed K., 24 July 2026; next review 24 July 2027.)*
 
 **Explicitly out of scope.** Any protection/safe-day computation; LAM as an offered method; fertile-window UI in E5; method recommendation or eligibility scoring; EC risk assessment; dosing.
 
@@ -216,7 +216,7 @@ Every module: citations, medical-review byline + date, clinician-routing footer.
 - Not/partially breastfeeding: earlier-return-of-fertility framing leads; LAM card demoted (criteria can't hold) but reachable.
 - `pregnancy_intent = another-soon`: spacing explainer promoted, contraception cards de-emphasized (never removed); tone stays neutral.
 - Month ~5: "what changes at 6 months" pre-brief (LAM expiry + solids + method conversation).
-- Cycle returned: offer B1 transition; **prediction UI stays degraded** (trend-only, "postpartum cycles are often irregular at first — this is expected," no "late" counter) until N (~3) cycles logged. *[NEEDS SOURCE: typical time-to-regularity postpartum for the N-cycle heuristic.]*
+- Cycle returned: offer B1 transition; **prediction UI stays degraded** (trend-only, “postpartum cycles can be irregular,” no “late” counter). There is no fixed three-cycle unlock. Any future prediction feature must meet its validated data-sufficiency and uncertainty criteria for postpartum users; otherwise it remains unavailable. *(Internal safety default approved Mohamed K., 24 July 2026; next review 24 July 2027.)*
 - **Suppressed in E5:** fertile-window/ovulation prediction, conception-probability, any "safe day" adjacent widget.
 
 **Hidden-but-reachable:** TTC content, general cycle tools, and fertility-awareness *education* (labelled "not offered by Femio as contraception; described as unreliable postpartum — FSRH") remain searchable. Nothing amputated.
@@ -259,7 +259,7 @@ All transitions explicitly confirmed, reversible, data-continuous.
 - **Privacy (GDPR/PDPL):** sexual-activity, intent, feeding and bleeding fields = special-category; granular consent; no ad-SDK/third-party sharing; partner-sharing scoped + revocable; export/delete. DPIA covers the E5 layer explicitly.
 - **Content integrity:** every clinical statement referenced + medically reviewed with byline/date; grade 6–8; EN/AR/FR/ES with Arabic-first RTL QA — the nursing myth is especially prevalent where Arabic-language referenced content is scarce; this module is a flagship AR-first asset.
 - **App-store / device-regulation posture:** no contraception-claim trigger language anywhere in E5 strings; legal review of the LAM surface specifically before store submission.
-- **Medical-source resolution (23 July 2026):** LAM pumping wording follows [`CONTRACEPTION_SAFETY.md`](../compliance/CONTRACEPTION_SAFETY.md), and no pumping-specific efficacy claim is made. EC while breastfeeding, post-cesarean/VBAC wording, the cycle-regularity heuristic, local method availability, competitor parity, and WHO postnatal cross-check remain separately tracked research items. *(Reviewed Mohamed K.; next review 23 July 2027.)*
+- **Medical/source resolution:** LAM wording follows [`CONTRACEPTION_SAFETY.md`](../compliance/CONTRACEPTION_SAFETY.md), with no pumping-specific efficacy claim. Emergency-contraception routing is pinned to the NHS sources in §D; post-cesarean interval wording to ACOG/SMFM; the fixed cycle-regularity heuristic was removed; method availability requires a dated country module; competitor claims are internal-only under the rule above; and global postnatal context uses the [WHO 2022 recommendations](https://www.who.int/publications/i/item/9789240045989). *(Reviewed Mohamed K., 24 July 2026; next review 24 July 2027.)*
 
 ---
 

@@ -84,9 +84,9 @@ Feature-by-feature, focused on the **headache-cycle correlation gap**: migraine 
 | **Stardust** | Privacy-forward, local-first cycle app | Symptom tags only | Cycle tracking | Low prediction emphasis; no migraine specialisation | None | **Strong: local-first** | Clinical credibility + migraine depth + aura safety education |
 | **Nettle / hormone-tracking apps** | Niche hormonal-symptom trackers | Varies | Varies | Some hormone-symptom correlation; not migraine-grade, not referenced-content led | Rarely | Unclear | Referenced content + compliant screener + full-lifespan account |
 
-**Cross-cutting failure — the integration gap:** the market is split. Migraine apps (Migraine Buddy, N1-Headache) give migraine-grade logging but bolt the menstrual cycle on as an imported afterthought; cycle apps (Flo, Clue) model the cycle richly but flatten headache into a single tag with no aura, intensity, or medication-response detail. **No mainstream product makes the headache-cycle overlay the hero, and none surfaces the aura + estrogen-contraception safety conversation at all.** That double gap — overlay + safety education — is precisely what Femio's menstrual-migraine mode targets, inside a one-account, full-lifespan record that also carries her forward into perimenopause and pregnancy.
+**Product rationale:** Femio combines cycle timing with user-entered headache, aura, intensity, and response detail and surfaces a clinician conversation about aura and estrogen-containing contraception. This is a direct description of Femio’s intended design, not a claim that no current competitor offers equivalent features.
 
-*[NEEDS SOURCE] — exact current feature parity (which apps natively model the cycle vs import it) shifts with releases; verify against live app documentation before any public competitive claim.*
+*Competitive-claims boundary:* named-app feature parity changes with releases and is not used in public copy. Any future comparison requires a dated capture from the product’s own documentation and compliance review. *(Claim cut; reviewed Mohamed K., 24 July 2026; next review 24 July 2027.)*
 
 ---
 
