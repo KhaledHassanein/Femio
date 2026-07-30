@@ -201,13 +201,14 @@ Synthesized from postpartum communities (r/beyondthebump and similar), app-store
 - **Red-flag prominence:** hemorrhage, pre-eclampsia signs, infection, and severe mood/self-harm get high-visibility seek-care framing; can occur up to 12 months postpartum (CDC).
 - **Sensitive data:** EPDS, mood, Q10, and reproductive fields = elevated privacy handling; explicit consent for any storage/sharing; privacy-by-design and data-minimization (GDPR/PDPL). No third-party ad/data leakage — a deliberate contrast with competitors' privacy histories.
 - **Content integrity:** every clinical statement medically-reviewed, cited, dated, with reviewer + review-date visible; localized EN/AR/FR/ES with Arabic-first/RTL QA.
-- **Pinned source set:** [NHS Caesarean recovery](https://www.nhs.uk/tests-and-treatments/caesarean-section/recovery/), [NIMH Perinatal Depression](https://www.nimh.nih.gov/health/publications/perinatal-depression), [NICE CG192](https://www.nice.org.uk/guidance/cg192), and [WHO postnatal-care recommendations (2022)](https://www.who.int/publications/i/item/9789240045989). Crisis routing is governed by [`docs/compliance/CRISIS_RESOURCES.md`](../compliance/CRISIS_RESOURCES.md). *(Reviewed Mohamed K., 23 July 2026; next review 23 July 2027.)*
+- **Pinned source set:** [NHS Caesarean recovery](https://www.nhs.uk/tests-and-treatments/caesarean-section/recovery/), [NIMH Perinatal Depression](https://www.nimh.nih.gov/health/publications/perinatal-depression), [NICE CG192](https://www.nice.org.uk/guidance/cg192), and [WHO postnatal-care recommendations (2022)](https://www.who.int/publications/i/item/9789240045989). Postpartum sexual-pain education is pinned to [ACOG, "When Sex Is Painful"](https://www.acog.org/womens-health/faqs/when-sex-is-painful) and routes to B12 rather than being restated here. Crisis routing is governed by [`docs/compliance/CRISIS_RESOURCES.md`](../compliance/CRISIS_RESOURCES.md). *(Reviewed Mohamed K., 23 July 2026; sexual-pain source added 24 July 2026; next review 24 July 2027.)*
 
 ---
 
 ## Sources
 
 - [ACOG — Optimizing Postpartum Care (Committee Opinion 736)](https://www.acog.org/clinical/clinical-guidance/committee-opinion/articles/2018/05/optimizing-postpartum-care)
+- [ACOG — When Sex Is Painful](https://www.acog.org/womens-health/faqs/when-sex-is-painful) (postpartum sexual pain; detailed handling in B12)
 - [ACOG Committee Opinion No. 736 — full text (Green Journal)](https://journals.lww.com/greenjournal/fulltext/10.1097/aog.0000000000002633~acog-committee-opinion-no-736-optimizing-postpartum-care)
 - [CDC Hear Her — Urgent Maternal Warning Signs and Symptoms](https://www.cdc.gov/hearher/maternal-warning-signs/index.html)
 - [CDC Hear Her — Campaign overview](https://www.cdc.gov/hearher/index.html)
