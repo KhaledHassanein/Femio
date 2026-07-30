@@ -22,6 +22,8 @@ const PAGES = [
   "/en/welcome",
   "/en/about",
   "/en/editorial-policy",
+  "/en/privacy",
+  "/en/terms",
   "/ar",
   "/ar/help-now",
 ];

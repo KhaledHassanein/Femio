@@ -376,6 +376,8 @@
     "empty": "Pronto habrá términos — vuelve pronto."
   },
   "nav": {
+    "privacy": "Privacidad",
+    "terms": "Términos",
     "about": "Acerca de",
     "editorial": "Política editorial",
     "medicalReview": "Revisión médica",
@@ -474,6 +476,120 @@
         "body": "Estas garantías están integradas en nuestro sistema: aprobación solo por revisores, aprobación antes de publicar, validación por idioma y fechas de re-revisión cada 12 meses."
       }
     ]
+  },
+  "privacy": {
+    "title": "Política de privacidad",
+    "intro": "Tus datos de salud son tuyos. Esta página explica en lenguaje sencillo qué recoge Femio, para qué, quién más puede verlo y cómo recuperarlo o borrarlo.",
+    "draft": {
+      "title": "Borrador — todavía no está en vigor",
+      "body": "Lo publicamos pronto para que puedas ver nuestras intenciones antes de confiarnos nada. Nuestros abogados y la delegada de protección de datos están cerrando la versión vinculante, y el nombre de la empresa y los datos de contacto de abajo están pendientes de confirmar. Femio aún no está abierto al público."
+    },
+    "points": [
+      {
+        "heading": "Quiénes somos",
+        "body": "Femio es la responsable de los datos que se describen aquí. La sociedad, nuestra delegada de protección de datos y nuestro representante en la UE se están designando ahora; sus nombres y datos de contacto aparecerán aquí antes del lanzamiento."
+      },
+      {
+        "heading": "Qué recogemos",
+        "body": "Lo básico de la cuenta (un identificador seudónimo, tu correo si creas una cuenta, tu franja de edad, tu idioma) y la información de salud que decides introducir: fechas de ciclo y regla, síntomas, ánimo, constantes, medicamentos, resultados de analíticas que anotes, respuestas a cuestionarios de cribado y tu etapa de vida. También guardamos los datos técnicos mínimos para que el sitio funcione de forma segura. No recogemos nada que no necesite una función que uses."
+      },
+      {
+        "heading": "Por qué podemos guardar datos de salud",
+        "body": "Los datos de salud tienen la protección más alta de la ley, así que pedimos tu consentimiento explícito antes de guardar el primer dato de salud, y lo pedimos por separado para cada finalidad: seguimiento básico, patrones e investigación (totalmente opcional). Puedes retirar cualquiera cuando quieras sin perder tu cuenta."
+      },
+      {
+        "heading": "Cómo funcionan nuestras estimaciones",
+        "body": "Nuestras estimaciones salen de tus propios registros y de los patrones generales del ciclo. Se muestran como rangos con un nivel de confianza porque son realmente inciertas; sirven para informarte y planificar, y no son consejo médico ni una forma fiable de evitar un embarazo."
+      },
+      {
+        "heading": "Quién más lo ve",
+        "body": "Solo los proveedores que necesitamos para que Femio funcione, cada uno con un contrato escrito de protección de datos y solo con el mínimo que necesitan. Únicamente nuestro proveedor de base de datos y alojamiento guarda datos de salud. Nunca vendemos tus datos y nunca entregamos datos de salud a anunciantes ni a herramientas de análisis de terceros. Cualquier publicidad futura se basará en la página que estés leyendo, nunca en lo que hayas registrado."
+      },
+      {
+        "heading": "Dónde están",
+        "body": "La base de datos de Femio se aloja en la Unión Europea. Si algún proveedor está fuera de la UE, primero establecemos una garantía de transferencia válida y la anotamos en nuestro registro de encargados."
+      },
+      {
+        "heading": "Cuánto tiempo los guardamos",
+        "body": "Tus registros permanecen mientras exista tu cuenta, para que tu historial acompañe toda tu vida de salud: ese es el sentido de Femio. Borra una parte o todo cuando quieras; el borrado se propaga por nuestros sistemas, incluidas las copias de seguridad según su rotación habitual."
+      },
+      {
+        "heading": "Tus derechos",
+        "body": "Puedes consultar tus datos, exportar una copia completa en un archivo, corregirlos, borrar tu cuenta por completo, retirar un consentimiento u oponerte a un uso. Exportar y borrar son botones en la aplicación, no una solicitud a soporte, y buscamos resolver cualquier petición en menos de 72 horas."
+      },
+      {
+        "heading": "Modo anónimo",
+        "body": "Puedes registrarlo todo sin darnos ningún correo. Si más adelante añades uno, no se pierde nada de lo que hayas guardado."
+      },
+      {
+        "heading": "Adolescentes y tutores",
+        "body": "El modo adolescente no tiene publicidad ni mensajes privados y recoge los datos mínimos. Cuando una chica no llega a la edad de consentimiento de su país, pedimos el consentimiento de su madre, su padre o su tutor; las edades exactas y las comprobaciones que usamos se están confirmando con abogados en cada mercado."
+      },
+      {
+        "heading": "Seguridad",
+        "body": "Los datos van cifrados en tránsito y en reposo. Cada fila de la base de datos queda restringida a su propietaria por la propia base de datos, el acceso del equipo sigue el mínimo privilegio y mantenemos un procedimiento escrito ante brechas con un plazo de aviso de 72 horas."
+      },
+      {
+        "heading": "Cambios y reclamaciones",
+        "body": "Versionamos esta página y te avisaremos de los cambios importantes en lugar de editarla en silencio. Puedes escribir a nuestro equipo de privacidad sobre cualquier punto de aquí, y siempre conservas el derecho a reclamar ante tu autoridad de protección de datos."
+      }
+    ],
+    "footnote": "Femio es un servicio de bienestar, información y seguimiento. No es un producto sanitario y nunca sustituye la atención de tu profesional clínico."
+  },
+  "terms": {
+    "title": "Condiciones de uso",
+    "intro": "El acuerdo entre tú y Femio: qué prometemos, qué te pedimos y hasta dónde llega un servicio de seguimiento e información.",
+    "draft": {
+      "title": "Borrador — todavía no está en vigor",
+      "body": "Este es nuestro borrador en lenguaje claro, publicado por transparencia mientras nuestros abogados cierran la versión vinculante. Todavía no es un acuerdo entre nosotros: los datos de la empresa, la ley aplicable y la redacción sobre responsabilidad están pendientes."
+    },
+    "points": [
+      {
+        "heading": "Qué es Femio y qué no es",
+        "body": "Femio ofrece contenido informativo y herramientas para registrar y entender tu salud. No da consejo médico, no te dice qué te ocurre y no sustituye a tu profesional clínico. Usarlo no crea una relación clínica. Las estimaciones de ventana fértil sirven solo para planificar y conocer la concepción: no son una forma fiable de evitar un embarazo. Si crees que estás ante una urgencia, llama a los servicios de emergencia locales o acude al servicio de urgencias más cercano."
+      },
+      {
+        "heading": "Quién puede usarlo",
+        "body": "Necesitas tener la edad para consentir el tratamiento de datos de salud donde vives, o el consentimiento de tu madre, tu padre o tu tutor. Las cuentas adolescentes empiezan con una configuración más protectora. Las edades exactas por país se están confirmando con abogados."
+      },
+      {
+        "heading": "Tu cuenta",
+        "body": "Guarda tus credenciales, danos información veraz y avísanos si alguien más entra en tu cuenta. Eres responsable de lo que ocurra con ella."
+      },
+      {
+        "heading": "Uso razonable",
+        "body": "Usa Femio para tu propia salud. Nada de extracción automatizada, de intentar romperlo, de revenderlo, de sobrecargar nuestros sistemas ni de usarlo para dañar a nadie. Podemos suspender las cuentas que lo hagan."
+      },
+      {
+        "heading": "El dinero",
+        "body": "El núcleo de Femio —registro, estimaciones honestas y biblioteca de salud— es gratuito y seguirá siéndolo. Si añadimos un plan de pago, sumará profundidad sin quitar lo básico, y mostraremos el precio, la renovación y las reglas de reembolso antes de que pagues nada."
+      },
+      {
+        "heading": "Lo que publicas",
+        "body": "Todo lo que publiques en un espacio comunitario debe ser lícito y respetuoso; dar consejo médico a otras usuarias no está permitido. Sigues siendo dueña de tu contenido y solo nos das el permiso necesario para mostrarlo. Podemos retirar contenido que incumpla estas reglas."
+      },
+      {
+        "heading": "Lo que es nuestro",
+        "body": "El software, la marca y el contenido original de Femio son nuestros. Las guías que citamos pertenecen a los organismos médicos correspondientes, y se acreditan y enlazan."
+      },
+      {
+        "heading": "Límites",
+        "body": "Trabajamos mucho la exactitud, pero Femio se ofrece tal cual, y ninguna información de salud puede tener en cuenta tu situación individual: las decisiones sobre tu salud son tuyas y de tu profesional clínico. Los descargos y los límites de responsabilidad los están redactando abogados, y nada de esto eliminará los derechos que te da la ley de consumo."
+      },
+      {
+        "heading": "Terminar",
+        "body": "Puedes borrar tu cuenta cuando quieras desde la aplicación, y tus datos se van con ella. Podemos limitar o cerrar el acceso si se incumplen estas condiciones o si tenemos que dejar de ofrecer el servicio."
+      },
+      {
+        "heading": "Ley y conflictos",
+        "body": "La ley aplicable y la forma de resolver conflictos seguirán a la sociedad que registremos, y se indicarán aquí antes del lanzamiento."
+      },
+      {
+        "heading": "Cambios",
+        "body": "Si cambiamos estas condiciones de forma relevante, te lo diremos y te daremos la opción de dejar de usar Femio."
+      }
+    ],
+    "footnote": "Femio es un servicio de bienestar, información y seguimiento. No es un producto sanitario y nunca sustituye la atención de tu profesional clínico."
   },
   "settings": {
     "password": {
