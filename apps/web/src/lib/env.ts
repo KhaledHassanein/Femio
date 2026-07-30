@@ -1,5 +1,6 @@
 import { z } from "zod";
 import { isApprovedDirectoryUrl } from "@/lib/crisis/directory";
+import { isApprovedPostHogHost } from "@/lib/analytics/host";
 
 /**
  * Typed, validated environment (femio-engineering-standards §2).
@@ -37,7 +38,28 @@ const envSchema = z.object({
       message: "must be an https://findahelpline.com URL with no query string or fragment",
     })
     .optional(),
-});
+  // Product analytics (PostHog). Unset → the whole event layer is a verified
+  // no-op and no vendor script loads, which is the correct state until the EU
+  // project + DPA exist (P1.20.APPLY). Only ever pseudonymous, health-field-free
+  // events from the closed catalog in lib/analytics/events.ts.
+  NEXT_PUBLIC_POSTHOG_KEY: z.string().min(1).optional(),
+  // Must be the PostHog **EU** cloud: the SDK defaults to the US host, so an
+  // unset or copy-pasted value would silently ship an international transfer of
+  // health-adjacent product data. Anything else FAILS THE BUILD.
+  NEXT_PUBLIC_POSTHOG_HOST: z
+    .string()
+    .refine(isApprovedPostHogHost, {
+      message: "must be an https:// PostHog EU host (eu.i.posthog.com) with no query string",
+    })
+    .optional(),
+})
+  // A key without a host would fall back to the SDK's US default, so require the
+  // pair. Enforced here rather than at call time: a misconfiguration must fail at
+  // boot, not on the first event.
+  .refine((cfg) => !cfg.NEXT_PUBLIC_POSTHOG_KEY || Boolean(cfg.NEXT_PUBLIC_POSTHOG_HOST), {
+    message: "NEXT_PUBLIC_POSTHOG_HOST is required whenever NEXT_PUBLIC_POSTHOG_KEY is set",
+    path: ["NEXT_PUBLIC_POSTHOG_HOST"],
+  });
 
 // Reference each var explicitly. Next.js inlines `process.env.NEXT_PUBLIC_*` only
 // where written out literally — the whole `process.env` object is empty in the
@@ -52,6 +74,8 @@ const parsed = envSchema.safeParse({
   NEXT_PUBLIC_ENABLE_GOOGLE_AUTH: process.env.NEXT_PUBLIC_ENABLE_GOOGLE_AUTH,
   NEXT_PUBLIC_CMS_URL: process.env.NEXT_PUBLIC_CMS_URL,
   NEXT_PUBLIC_CRISIS_DIRECTORY_URL: process.env.NEXT_PUBLIC_CRISIS_DIRECTORY_URL,
+  NEXT_PUBLIC_POSTHOG_KEY: process.env.NEXT_PUBLIC_POSTHOG_KEY,
+  NEXT_PUBLIC_POSTHOG_HOST: process.env.NEXT_PUBLIC_POSTHOG_HOST,
 });
 
 if (!parsed.success) {

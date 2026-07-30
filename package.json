@@ -16,6 +16,7 @@
     "test": "pnpm --filter web test",
     "claims-lint": "node scripts/claims-lint.mjs",
     "crisis-lint": "node scripts/crisis-compliance.mjs",
+    "analytics-lint": "node scripts/analytics-lint.mjs",
     "rls-audit": "node scripts/security/rls-audit.mjs"
   }
 }

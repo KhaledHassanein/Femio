@@ -38,6 +38,9 @@ jobs:
       - name: Crisis-safety compliance guard
         run: pnpm crisis-lint
 
+      - name: Analytics privacy guard
+        run: pnpm analytics-lint
+
       - name: Lint
         run: pnpm lint
 
