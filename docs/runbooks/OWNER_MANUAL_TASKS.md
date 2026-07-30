@@ -18,9 +18,10 @@ Key facts you'll reuse:
 
 ## Priority checklist
 
-- [ ] **A.** Apply migration `0003` (delete-account RPC) — 5 min
-- [ ] **A2.** Apply migration `0005` (analytics consent purpose, P1.20) — 3 min
-- [ ] **B.** Activate the translation portal (P1.19): grant a staff role + seed strings — 15 min
+- [x] **A.** Apply migration `0003` (delete-account RPC) — **done**, verified against the live DB 2026-07-30 (`delete_account()` present).
+- [x] **A2.** Apply migration `0005` (analytics consent purpose, P1.20) — **done**, verified 2026-07-30 (the `consent_records` purpose check now includes `analytics`).
+- [x] **B.** Activate the translation portal (P1.19): grant a staff role + seed strings — **done**, verified 2026-07-30 (`staff_roles` = `admin`; `ui_strings` = 293 keys x 4 locales, EN approved / AR-FR-ES machine drafts).
+  - [ ] **B5.** **Re-seed now that new screens shipped** — the catalogs hold 482 strings vs 293 in the database, so privacy/terms/authors and other recent text aren't in the portal for Arabic/French/Spanish review yet — 2 min
 - [ ] **B★.** Configure auth email (redirect URLs) so sign-in works — 5 min
 - [ ] **C.** Bring the CMS online (unblocks content, P1.11.1) — 20 min
   - [x] **C3.6.** CMS schema for the **People** (bios) collection — done automatically, verified 2026-07-30
@@ -165,6 +166,28 @@ busts the cache).
 - Seed script "Need … SERVICE_KEY" → the env var wasn't set in the same command.
 - After seeding, **English looks unchanged** — correct: EN is the master and overlays
   identically. Only AR/FR/ES change as you approve them.
+
+---
+
+### B5 — Re-seed after new UI text ships (do this now)
+Seeding is not one-and-done: the script imports whatever is in the JSON catalogs *today*. Since
+the last seed, several screens shipped (privacy, terms, authors & reviewers, analytics consent, …),
+so the database holds **293** strings per locale while the catalogs hold **482** — the new text is
+live in English but invisible in the portal, so nobody can review the Arabic/French/Spanish drafts
+Claude wrote for it.
+
+Re-run exactly the B4 command. It **upserts**: existing rows keep their status (your approved
+Arabic stays approved), new keys arrive as EN-approved / AR-FR-ES machine drafts.
+
+```powershell
+$env:SUPABASE_SERVICE_KEY="paste-service-role-key"; node scripts/i18n/seed-ui-strings.mjs
+```
+
+**Verify:** `/en/admin/translations` shows a higher total per locale (≈482), and searching for
+`privacy.` or `authors.` finds the new keys.
+
+**Rule of thumb:** re-seed whenever Claude says "added N new UI strings" — or just before a
+translation review session.
 
 ---
 
