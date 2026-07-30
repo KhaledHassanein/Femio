@@ -55,11 +55,11 @@ All changes are on `main`; pushing auto-deploys both Vercel projects (web + cms)
 - **Auth email:** Supabase Auth redirect URLs must include the web origins (B★); custom SMTP for launch. Optional: Google provider + `NEXT_PUBLIC_ENABLE_GOOGLE_AUTH=true` (B★★).
 - **CMS schema push for the new `people` (bios) collection:** one local `pnpm --filter cms dev` (C3.6) — Payload's push is interactive so it never runs on Vercel. Nothing else is affected until then; `/authors` shows its empty state.
 - **P0.12 legal/DPO launch gate:** entity/DPO, privacy+terms finalized (then **P0.12.4**: drop the draft banner, un-noindex `/privacy` + `/terms`, add them to the sitemap, update `e2e/legal.spec.ts`), DPIA signed (incl. crisis global-only posture P1.26.1), consent wording. Blocks real-user launch.
-- **P1.20 analytics:** needs a PostHog (EU) account/key.
-- Apply migration **0003** (delete_account) if not yet; `0004` (service_role) already applied for CMS.
+- **P1.20 analytics:** event layer **built** (no-op until configured). To switch it on: sign the PostHog DPA, apply migration **0005** (runbook A2), set `NEXT_PUBLIC_POSTHOG_KEY` + `NEXT_PUBLIC_POSTHOG_HOST` (**EU host — a non-EU value fails the build**), and ship the consent toggle (P1.20.2). Review `docs/19_ANALYTICS_EVENT_SCHEMA.md` first — check the deliberate exclusions.
+- Apply migrations **0003** (delete_account) and **0005** (analytics consent purpose) if not yet; `0004` (service_role) already applied for CMS.
 
 ## Next tasks (in order)
-1. **P1.20 analytics** — with a PostHog key; else build a no-op, **health-field-free** analytics guardrail (consent-gated) as foundation.
+1. **P1.20 remainder** — foundation done 2026-07-30 (ADR-017: closed enum catalog + runtime guard + `analytics-lint` in CI + `analytics` consent purpose + EU-host build guard). Open: **P1.20.2** consent toggle (nothing is collected without it), **P1.20.1** real `posthog-js` transport behind the existing seam (autocapture + session recording OFF), **P1.20.3** first-party dashboard for the dimensions PostHog must never hold (life-stage mode, condition tags, age bands, cohort retention) with k-anonymity thresholds.
 2. **P1.23 remaining** — `pnpm audit`/Dependabot in CI, CSP/security headers, staff MFA, Sentry + breach alerting, independent pen-test.
 3. **P1.21 moderation/CS** — premature until there's user-generated content.
 4. **P1.24 beta → P1.25 launch** — gated by P0.12.
@@ -68,8 +68,8 @@ All changes are on `main`; pushing auto-deploys both Vercel projects (web + cms)
 ## Environment gotchas (this machine)
 - pnpm on PATH (npm-global); run scripts from repo root. Commit to `main`; Vercel auto-deploys web + cms.
 - Playwright: `cd apps/web && npx playwright test`. DB-free subset (CI): `pnpm --filter web test:e2e:ci` (= `--grep-invert @live`). **Kill port 3000 between back-to-back local runs** (`Get-NetTCPConnection -LocalPort 3000` → Stop-Process) or the next run cascade-fails on a webServer timeout. Config runs `workers:1`.
-- CI (ci.yml): claims-lint, crisis-lint, lint, typecheck, unit, build, then DB-free e2e + axe; CMS build in a second job.
-- Guards: `pnpm claims-lint` (no clinical claim verbs in EN UI copy), `pnpm crisis-lint`, `pnpm rls-audit` (live), crisis-compliance.
+- CI (ci.yml): claims-lint, crisis-lint, **analytics-lint**, lint, typecheck, unit, build, then DB-free e2e + axe; CMS build in a second job.
+- Guards: `pnpm claims-lint` (no clinical claim verbs in EN UI copy), `pnpm crisis-lint`, **`pnpm analytics-lint`** (event catalog stays closed/health-free/consent-gated), `pnpm rls-audit` (live).
 - **i18n edits:** message files are **CRLF**; use CRLF-aware targeted string inserts (anchor on `  "settings": {` / `  "home": {` etc.). **Never** rewrite whole JSON with `JSON.stringify` (reformats inline objects → huge diffs).
 - Never `safeParse(process.env)` wholesale in client-reachable code (crashes hydration).
 - Supabase project ref `wnthtqtcajkhskdygbgo` (EU). LF→CRLF git warnings are benign.
@@ -78,6 +78,6 @@ All changes are on `main`; pushing auto-deploys both Vercel projects (web + cms)
 Open `E:\Femio` and say:
 *"Read CLAUDE.md, docs/07_MASTER_TODO.md, docs/HANDOVER_STATE_2026-07-30.md, and
 docs/runbooks/OWNER_MANUAL_TASKS.md. Continue the Femio Phase-1 build in order — next is
-P1.20 analytics (build the consent-gated, health-field-free event layer; no-op without a
-PostHog key). Work in small commits, verify (build/typecheck/lint/claims-lint/e2e), update
+the P1.20 remainder — P1.20.2 the analytics consent toggle, then P1.20.3 the first-party
+aggregate dashboard (the event layer itself is done, ADR-017). Work in small commits, verify (build/typecheck/lint/claims-lint/e2e), update
 DECISIONS/CHANGELOG/TODO, and push to main."*
