@@ -9,7 +9,9 @@
  *   2. Owner-only isolation: user B cannot SELECT / UPDATE / DELETE user A's rows.
  *   3. Anonymous (no-JWT) role: cannot read health tables (RLS → 0 rows), but can
  *      read published content.
- *   4. GDPR cascade: deleting A's profile row removes A's health data.
+ *   4. Aggregate insights RPCs (0006) refuse a non-staff caller — they are
+ *      `security definer`, so their in-function is_staff() check is the boundary.
+ *   5. GDPR cascade: deleting A's profile row removes A's health data.
  *
  * This is a manual/pre-release security gate (it creates throwaway anonymous
  * users and hits the real DB), not a CI step. Run:  node scripts/security/rls-audit.mjs
@@ -150,6 +152,29 @@ async function run() {
   {
     const { data } = await b.client.from("staff_roles").select("role").eq("user_id", a.uid);
     check("user cannot read another user's roles", Array.isArray(data) && data.length === 0, `saw ${data?.length ?? "?"} rows`);
+  }
+
+  // 4b. Aggregate insights RPCs (P1.20.3) must refuse a non-staff caller. These
+  // are `security definer` — they read past RLS by design — so their own
+  // is_staff() check is the whole boundary. If the migration isn't applied yet
+  // the RPC is simply missing, which is reported rather than silently passed.
+  console.log("\n4b. First-party insights RPCs (aggregate-only, staff-gated)");
+  for (const [rpc, args] of [
+    ["insights_overview", {}],
+    ["insights_by_dimension", { p_dimension: "mode" }],
+    ["insights_retention", { p_months: 6 }],
+  ]) {
+    const { data, error } = await b.client.rpc(rpc, args);
+    // A missing function is NOT a pass — say so in the label, or an unapplied
+    // migration would read as a green access-control check.
+    const missing = error?.code === "PGRST202" || error?.code === "42883";
+    check(
+      missing
+        ? `non-staff cannot call ${rpc}() [SKIPPED — migration 0006 not applied]`
+        : `non-staff cannot call ${rpc}()`,
+      missing ? true : error != null && Array.isArray(data) === false,
+      error ? "" : `returned ${JSON.stringify(data)?.slice(0, 80)}`,
+    );
   }
 
   // 5. GDPR cascade — deleting A's profile removes A's health data.

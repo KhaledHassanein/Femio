@@ -16,7 +16,7 @@ Key facts you'll reuse:
 
 ---
 
-## ▶ Do these four things next (everything else can wait)
+## ▶ Do these next (everything else can wait)
 
 Audited against the live database and the deployed site on **2026-07-30** — most of the old
 checklist turned out to be already done (see the checklist below for the evidence). What's left:
@@ -26,7 +26,8 @@ checklist turned out to be already done (see the checklist below for the evidenc
 | **1** | **[C3.7] Make your CMS account an admin** | 1 min | **Blocks all publishing.** Your only CMS user holds `editor`, and roles are admin-only editable with no admin in the system. You can write drafts but cannot approve or publish anything, or add users. |
 | **2** | **[C3.5] Point the website at the CMS** | 5 min | Without `NEXT_PUBLIC_CMS_URL` on the **web** project, published articles never appear on the site. (I can't check this one from outside — see C3.5.) |
 | **3** | **[B5] Re-seed the translation portal** | 2 min | The database has 293 strings; the app now has **482**. The newest screens (privacy, terms, authors, analytics consent) are live in English but invisible to Arabic/French/Spanish reviewers. |
-| **4** | **[D] PostHog EU key (when you want analytics on)** | 20 min | The event layer is built and fails closed; it stays a no-op until a key exists. Not blocking any other work. |
+| **4** | **[A3] Apply migration `0006`** | 3 min | Turns on the first-party insights dashboard (`/admin/insights`). Read-only, aggregate-only, k-anonymous — it creates functions and touches no data. |
+| **5** | **[D] PostHog EU key (when you want analytics on)** | 20 min | The event layer is built and fails closed; it stays a no-op until a key exists. Not blocking any other work. |
 
 Task 1, verbatim — run it from the repo root, nothing to paste (it reads `apps/cms/.env.local`):
 
@@ -48,6 +49,7 @@ Statuses marked **verified** were checked directly against the live database / d
 - [x] **A2.** Apply migration `0005` (analytics consent purpose, P1.20) — **verified**: the `consent_records` purpose check now includes `analytics`.
 - [x] **B.** Activate the translation portal (P1.19) — **verified**: `staff_roles` = `admin`; `ui_strings` = 293 keys x 4 locales (EN approved, AR/FR/ES machine drafts).
   - [ ] **B5.** ▶ **Re-seed now that new screens shipped** — 482 strings in the app vs 293 in the database — 2 min
+- [ ] **A3.** ▶ Apply migration `0006` (first-party insights aggregates, P1.20.3) — unlocks the staff dashboard — 3 min
 - [~] **B★.** Auth email: redirect URLs + real sender — redirect URLs look configured (Google sign-in is live, which needs them); **custom SMTP is still required before launch** (Supabase's built-in sender is rate-limited and spam-prone).
 - [x] **B★★.** "Continue with Google" sign-in — **verified**: the provider is enabled in Supabase *and* the button is live on `/en/sign-in`.
 - [~] **C.** CMS online — **verified live** (`femio-cms` answers, collections exist), but two pieces remain:
@@ -133,6 +135,41 @@ The returned definition should include `'analytics'`.
 
 **Gotcha:** apply this before, or together with, task D — otherwise the analytics consent
 toggle (P1.20.2) will have nothing valid to write.
+
+---
+
+## A3. Apply migration `0006` (first-party insights) — 3 min
+
+> [TODO] New 2026-07-30 with the insights dashboard (P1.20.3).
+
+**Why:** the product questions worth asking — which life stage people are in, which conditions
+they follow, which age bands, whether they come back — are, about a real person, **health
+inferences**. Sending those to an outside analytics vendor is exactly what Femio promises never to
+do (docs/13 §5), so they are computed **inside our own database** instead, and only ever as counts.
+
+`0006` adds three read-only functions (`insights_overview`, `insights_by_dimension`,
+`insights_retention`). They are `security definer` — they can read past row-level security — so
+each one checks that you are an **admin** before returning anything, and every function returns
+only `(label, count)`: no ids, no dates, no symptoms, no notes ever leave the database.
+
+They are also **k-anonymous**: any group smaller than **10 people** is withheld and — because
+hiding a cell does not hide it if you can subtract the rest from a total — small groups are merged
+together until what is left to infer is itself anonymous. On today's data that means most
+breakdowns will say "not enough people yet". That is the guard working, not a bug.
+
+**Steps:** SQL Editor → New query → paste all of
+`supabase/migrations/0006_insights_aggregates.sql` → **Run**. It creates functions only: no table
+is touched and no row is changed.
+
+**Verify:** open `https://femio-web.vercel.app/en/admin/insights` signed in as an app admin (the
+`staff_roles` admin you already have — this is separate from the CMS admin in C3.7). You should see
+the dashboard, with most groups withheld while the user base is small. Then run
+`node scripts/security/rls-audit.mjs`: the three `non-staff cannot call insights_*()` checks should
+appear **without** the `[SKIPPED — migration 0006 not applied]` label.
+
+**Gotcha:** the file was validated against your live schema inside a transaction that was rolled
+back, so it applies cleanly — but it does nothing for non-admins by design. If the page says "not
+set up yet", the migration has not been run.
 
 ---
 

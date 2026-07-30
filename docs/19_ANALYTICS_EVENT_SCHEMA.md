@@ -123,6 +123,18 @@ Unset key → the whole layer is a verified no-op and **no vendor script loads a
 all**. That is the correct state, not a placeholder: loading an analytics SDK
 before a signed DPA and a consent toggle exist would itself be the violation.
 
+## Where the health-shaped questions get answered instead
+
+The dimensions this catalog refuses to carry — life-stage mode, condition/persona tag, age band,
+cohort retention — are still real product questions. They are answered **first-party**, over
+Femio's own Postgres, by the aggregate-only functions in migration `0006` behind
+`/{locale}/admin/insights` (ADR-020): `security definer` so they can read past RLS, staff-gated
+inside that boundary, returning nothing but `(label, count)`, and k-anonymous at k = 10 with
+secondary suppression so a hidden cell cannot be recovered by subtracting the visible ones from a
+total. Nothing there is ever sent to PostHog; that is the whole point of the split. If a new
+question looks like it needs a health-shaped property in an event, it belongs in that dashboard
+instead.
+
 ## Changing this schema
 
 A schema change is a compliance change. In the same PR: update

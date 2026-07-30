@@ -4,6 +4,7 @@ import { createClient } from "@/lib/supabase/server";
 import { requireStaff } from "@/lib/auth/require-staff";
 import { flatten } from "@/lib/i18n/ui-strings";
 import { TranslationEditor } from "@/components/admin/translation-editor";
+import { Link } from "@/i18n/navigation";
 import enMessages from "../../../../../../messages/en.json";
 
 type PageProps = { params: Promise<{ locale: string }> };
@@ -45,9 +46,14 @@ export default async function TranslationsPage({ params }: PageProps) {
 
   return (
     <main className="mx-auto flex w-full max-w-4xl flex-col gap-6 px-6 py-12">
-      <div className="flex flex-col gap-1">
+      <div className="flex flex-col gap-2">
         <h1 className="font-display text-2xl text-text">{t("title")}</h1>
         <p className="text-sm text-text-muted">{t("desc")}</p>
+        <nav className="flex gap-4 text-sm">
+          <Link href="/admin/insights" className="text-text-link underline">
+            {t("insightsLink")}
+          </Link>
+        </nav>
       </div>
       <TranslationEditor masters={masters} existing={existing} />
     </main>

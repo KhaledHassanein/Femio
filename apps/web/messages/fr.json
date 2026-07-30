@@ -288,6 +288,7 @@
     "backToSettings": "Retour aux réglages"
   },
   "admin": {
+    "insightsLink": "Statistiques produit",
     "exportCsv": "Exporter CSV",
     "importCsv": "Importer CSV",
     "importing": "Importation…",
@@ -603,6 +604,73 @@
     },
     "profiles": "Profils professionnels"
   },
+    "insights": {
+      "title": "Statistiques produit",
+      "desc": "Comment Femio est utilisé, calculé depuis notre propre base de données — jamais via un prestataire d’analyse externe.",
+      "translationsLink": "Traductions",
+      "privacy": {
+        "title": "Pourquoi ces chiffres restent ici",
+        "body": "L’étape de vie, la pathologie, la tranche d’âge et la rétention sont des inférences de santé sur des femmes réelles : elles ne sont jamais envoyées à un outil d’analyse tiers. Elles sont agrégées dans notre base, et tout groupe de moins de {k} personnes est masqué, afin qu’aucun chiffre ici ne puisse désigner quelqu’un."
+      },
+      "notInstalled": {
+        "title": "Pas encore configuré",
+        "body": "Les fonctions d’agrégation ne sont pas appliquées à la base. Appliquez la migration 0006 (tâche A3 du runbook), puis rechargez cette page."
+      },
+      "notAuthorized": "Votre compte n’est pas autorisé à lire ces agrégats.",
+      "error": "Impossible de charger les chiffres pour le moment.",
+      "tooFew": "Pas encore assez de personnes pour l’afficher sans identifier quelqu’un.",
+      "withheldHint": "Masqué — en dessous de la taille de groupe minimale.",
+      "withheldGroup": "Petits groupes (cumulés)",
+      "unset": "Non renseigné",
+      "group": "Groupe",
+      "people": "Personnes",
+      "overview": {
+        "total_users": "Comptes au total",
+        "onboarded_users": "Inscription terminée",
+        "active_28d": "Ont noté quelque chose (28 jours)",
+        "registered_users": "Avec un e-mail",
+        "anonymous_users": "Anonymes"
+      },
+      "modes": {
+        "A": "Adolescence",
+        "B": "Cycle et gynécologie",
+        "C": "Essai de conception",
+        "D": "Grossesse",
+        "E": "Post-partum",
+        "F": "Périménopause et ménopause",
+        "Z": "Autre / personnalisé"
+      },
+      "dimensions": {
+        "mode": {
+          "title": "Étape de vie",
+          "note": "Le parcours choisi à l’inscription, ou celui rejoint depuis."
+        },
+        "persona": {
+          "title": "Persona",
+          "note": "Le persona résolu derrière l’accueil personnalisé."
+        },
+        "age_band": {
+          "title": "Tranche d’âge",
+          "note": "Des tranches uniquement — pas de date de naissance sauf nécessité."
+        },
+        "locale": {
+          "title": "Langue",
+          "note": "La langue configurée sur le compte."
+        },
+        "account_type": {
+          "title": "Type de compte",
+          "note": "Un compte anonyme peut ajouter un e-mail plus tard sans rien perdre."
+        }
+      },
+      "retention": {
+        "title": "Rétention par mois d’inscription",
+        "note": "Combien de personnes de chaque mois notaient encore les mois suivants. Un mois n’est compté que s’il dépasse la taille de groupe minimale.",
+        "cohort": "Inscription",
+        "size": "Personnes",
+        "month1": "Mois 1",
+        "month2": "Mois 2"
+      }
+    },
   "settings": {
     "password": {
       "heading": "Mot de passe",

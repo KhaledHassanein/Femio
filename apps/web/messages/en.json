@@ -288,6 +288,7 @@
     "backToSettings": "Back to settings"
   },
   "admin": {
+    "insightsLink": "Product insights",
     "exportCsv": "Export CSV",
     "importCsv": "Import CSV",
     "importing": "Importing…",
@@ -603,6 +604,73 @@
     },
     "profiles": "Professional profiles"
   },
+    "insights": {
+      "title": "Product insights",
+      "desc": "How Femio is being used, computed from our own database — never from an outside analytics vendor.",
+      "translationsLink": "Translations",
+      "privacy": {
+        "title": "Why these numbers live here",
+        "body": "Life stage, condition tag, age band and retention are health inferences about real women, so they are never sent to a third-party analytics tool. They are aggregated inside our database and any group smaller than {k} people is withheld, so no number here can point at an individual."
+      },
+      "notInstalled": {
+        "title": "Not set up yet",
+        "body": "The aggregate functions haven’t been applied to the database. Apply migration 0006 (runbook task A3), then reload this page."
+      },
+      "notAuthorized": "Your account isn’t allowed to read these aggregates.",
+      "error": "We couldn’t load the numbers just now.",
+      "tooFew": "Not enough people yet to show this without identifying someone.",
+      "withheldHint": "Withheld — fewer than the minimum group size.",
+      "withheldGroup": "Small groups (combined)",
+      "unset": "Not set",
+      "group": "Group",
+      "people": "People",
+      "overview": {
+        "total_users": "Total accounts",
+        "onboarded_users": "Completed onboarding",
+        "active_28d": "Logged something (28 days)",
+        "registered_users": "With an email",
+        "anonymous_users": "Anonymous"
+      },
+      "modes": {
+        "A": "Adolescent",
+        "B": "Cycle & gynae",
+        "C": "Trying to conceive",
+        "D": "Pregnancy",
+        "E": "Postpartum",
+        "F": "Perimenopause & menopause",
+        "Z": "Other / custom"
+      },
+      "dimensions": {
+        "mode": {
+          "title": "Life-stage focus",
+          "note": "The track chosen at onboarding, or moved to since."
+        },
+        "persona": {
+          "title": "Persona",
+          "note": "The resolved persona behind the adapted home screen."
+        },
+        "age_band": {
+          "title": "Age band",
+          "note": "Bands only — we don’t store a date of birth unless it’s needed."
+        },
+        "locale": {
+          "title": "Language",
+          "note": "The language the account is set to."
+        },
+        "account_type": {
+          "title": "Account type",
+          "note": "Anonymous accounts can add an email later without losing anything."
+        }
+      },
+      "retention": {
+        "title": "Retention by signup month",
+        "note": "How many people from each month were still logging in the months after. A month is counted only if it clears the minimum group size.",
+        "cohort": "Signed up",
+        "size": "People",
+        "month1": "Month 1",
+        "month2": "Month 2"
+      }
+    },
   "settings": {
     "password": {
       "heading": "Password",

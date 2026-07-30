@@ -288,6 +288,7 @@
     "backToSettings": "Volver a ajustes"
   },
   "admin": {
+    "insightsLink": "Estadísticas de producto",
     "exportCsv": "Exportar CSV",
     "importCsv": "Importar CSV",
     "importing": "Importando…",
@@ -603,6 +604,73 @@
     },
     "profiles": "Perfiles profesionales"
   },
+    "insights": {
+      "title": "Estadísticas de producto",
+      "desc": "Cómo se usa Femio, calculado desde nuestra propia base de datos, nunca desde un proveedor de analítica externo.",
+      "translationsLink": "Traducciones",
+      "privacy": {
+        "title": "Por qué estos números se quedan aquí",
+        "body": "La etapa de vida, la afección, la franja de edad y la retención son inferencias de salud sobre mujeres reales, así que nunca se envían a una herramienta de analítica de terceros. Se agregan dentro de nuestra base de datos y se oculta cualquier grupo de menos de {k} personas, para que ningún número de aquí pueda señalar a alguien."
+      },
+      "notInstalled": {
+        "title": "Todavía sin configurar",
+        "body": "Las funciones de agregación no están aplicadas en la base de datos. Aplica la migración 0006 (tarea A3 del runbook) y recarga esta página."
+      },
+      "notAuthorized": "Tu cuenta no puede leer estos agregados.",
+      "error": "No pudimos cargar los números ahora mismo.",
+      "tooFew": "Todavía no hay suficientes personas para mostrarlo sin identificar a alguien.",
+      "withheldHint": "Oculto: por debajo del tamaño mínimo de grupo.",
+      "withheldGroup": "Grupos pequeños (combinados)",
+      "unset": "Sin definir",
+      "group": "Grupo",
+      "people": "Personas",
+      "overview": {
+        "total_users": "Cuentas totales",
+        "onboarded_users": "Registro completado",
+        "active_28d": "Han registrado algo (28 días)",
+        "registered_users": "Con correo",
+        "anonymous_users": "Anónimas"
+      },
+      "modes": {
+        "A": "Adolescencia",
+        "B": "Ciclo y ginecología",
+        "C": "Buscando embarazo",
+        "D": "Embarazo",
+        "E": "Posparto",
+        "F": "Perimenopausia y menopausia",
+        "Z": "Otro / personalizado"
+      },
+      "dimensions": {
+        "mode": {
+          "title": "Etapa de vida",
+          "note": "El itinerario elegido al registrarse, o al que ha pasado después."
+        },
+        "persona": {
+          "title": "Persona",
+          "note": "La persona resuelta detrás de la pantalla de inicio adaptada."
+        },
+        "age_band": {
+          "title": "Franja de edad",
+          "note": "Solo franjas: no guardamos fecha de nacimiento salvo que haga falta."
+        },
+        "locale": {
+          "title": "Idioma",
+          "note": "El idioma configurado en la cuenta."
+        },
+        "account_type": {
+          "title": "Tipo de cuenta",
+          "note": "Las cuentas anónimas pueden añadir un correo después sin perder nada."
+        }
+      },
+      "retention": {
+        "title": "Retención por mes de registro",
+        "note": "Cuántas personas de cada mes seguían registrando en los meses siguientes. Un mes solo se cuenta si supera el tamaño mínimo de grupo.",
+        "cohort": "Se registró",
+        "size": "Personas",
+        "month1": "Mes 1",
+        "month2": "Mes 2"
+      }
+    },
   "settings": {
     "password": {
       "heading": "Contraseña",
