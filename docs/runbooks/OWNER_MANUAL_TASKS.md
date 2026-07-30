@@ -16,22 +16,51 @@ Key facts you'll reuse:
 
 ---
 
+## ▶ Do these four things next (everything else can wait)
+
+Audited against the live database and the deployed site on **2026-07-30** — most of the old
+checklist turned out to be already done (see the checklist below for the evidence). What's left:
+
+| # | Task | Time | Why it matters |
+|---|---|---|---|
+| **1** | **[C3.7] Make your CMS account an admin** | 1 min | **Blocks all publishing.** Your only CMS user holds `editor`, and roles are admin-only editable with no admin in the system. You can write drafts but cannot approve or publish anything, or add users. |
+| **2** | **[C3.5] Point the website at the CMS** | 5 min | Without `NEXT_PUBLIC_CMS_URL` on the **web** project, published articles never appear on the site. (I can't check this one from outside — see C3.5.) |
+| **3** | **[B5] Re-seed the translation portal** | 2 min | The database has 293 strings; the app now has **482**. The newest screens (privacy, terms, authors, analytics consent) are live in English but invisible to Arabic/French/Spanish reviewers. |
+| **4** | **[D] PostHog EU key (when you want analytics on)** | 20 min | The event layer is built and fails closed; it stays a no-op until a key exists. Not blocking any other work. |
+
+Task 1, verbatim — run it from the repo root, nothing to paste (it reads `apps/cms/.env.local`):
+
+```powershell
+$env:EMAIL="dr.khaled.hassanein@gmail.com"; $env:ROLES="admin,editor"; pnpm --filter cms set-roles
+```
+
+Add `NEW_PASSWORD="…"` to that same command if the CMS password is lost — Payload has no email
+sender configured, so its forgot-password link cannot reach you.
+
+---
+
 ## Priority checklist
 
-- [x] **A.** Apply migration `0003` (delete-account RPC) — **done**, verified against the live DB 2026-07-30 (`delete_account()` present).
-- [x] **A2.** Apply migration `0005` (analytics consent purpose, P1.20) — **done**, verified 2026-07-30 (the `consent_records` purpose check now includes `analytics`).
-- [x] **B.** Activate the translation portal (P1.19): grant a staff role + seed strings — **done**, verified 2026-07-30 (`staff_roles` = `admin`; `ui_strings` = 293 keys x 4 locales, EN approved / AR-FR-ES machine drafts).
-  - [ ] **B5.** **Re-seed now that new screens shipped** — the catalogs hold 482 strings vs 293 in the database, so privacy/terms/authors and other recent text aren't in the portal for Arabic/French/Spanish review yet — 2 min
-- [ ] **B★.** Configure auth email (redirect URLs) so sign-in works — 5 min
-- [ ] **C.** Bring the CMS online (unblocks content, P1.11.1) — 20 min
-  - [x] **C3.6.** CMS schema for the **People** (bios) collection — done automatically, verified 2026-07-30
-  - [ ] **C3.7.** Make your CMS account an **admin** (1 command) — without it you cannot publish — 1 min
-- [ ] **D.** Choose + set up an analytics vendor (unblocks P1.20) — 20 min
-- [ ] **E.** Vercel env hygiene + optional crisis directory link — 10 min
-- [ ] **F.** Google Search Console + custom domain (SEO) — 20 min
+Statuses marked **verified** were checked directly against the live database / deployed site on
+2026-07-30, not just remembered.
+
+- [x] **A.** Apply migration `0003` (delete-account RPC) — **verified**: `delete_account()` exists.
+- [x] **A2.** Apply migration `0005` (analytics consent purpose, P1.20) — **verified**: the `consent_records` purpose check now includes `analytics`.
+- [x] **B.** Activate the translation portal (P1.19) — **verified**: `staff_roles` = `admin`; `ui_strings` = 293 keys x 4 locales (EN approved, AR/FR/ES machine drafts).
+  - [ ] **B5.** ▶ **Re-seed now that new screens shipped** — 482 strings in the app vs 293 in the database — 2 min
+- [~] **B★.** Auth email: redirect URLs + real sender — redirect URLs look configured (Google sign-in is live, which needs them); **custom SMTP is still required before launch** (Supabase's built-in sender is rate-limited and spam-prone).
+- [x] **B★★.** "Continue with Google" sign-in — **verified**: the provider is enabled in Supabase *and* the button is live on `/en/sign-in`.
+- [~] **C.** CMS online — **verified live** (`femio-cms` answers, collections exist), but two pieces remain:
+  - [x] **C3.6.** Schema for the **People** (bios) collection — **verified**: tables exist, `/api/people` → 200.
+  - [ ] **C3.7.** ▶ **Make your CMS account an `admin`** — without it you cannot publish — 1 min
+  - [ ] **C3.5.** ▶ **Set `NEXT_PUBLIC_CMS_URL` on the web project** + redeploy — 5 min
+  - [ ] **C4.** Remove `PAYLOAD_DB_PUSH` (production currently auto-syncs its schema on every deploy) — do it before real articles exist, with Claude's `payload migrate` switch (P1.6.5)
+- [ ] **D.** ▶ Choose + set up an analytics vendor (PostHog EU) — **verified not configured**: no key in the live bundle — 20 min
+- [~] **E.** Vercel env hygiene — **verified**: `NEXT_PUBLIC_APP_URL` is correct (canonical URLs resolve to `femio-web.vercel.app`) and the **crisis directory link is live** (`https://findahelpline.com` renders on `/help-now`). ⚠ That link is only meant to be on once ThroughLine's linking terms are confirmed — close that question in `docs/compliance/CRISIS_RESOURCES.md` (task H).
+- [ ] **F.** Google Search Console + custom domain (SEO) — **verified not done**: no verification token in the live pages, still on the `vercel.app` domain — 20 min
 - [ ] **G.** Sentry error monitoring (optional) — 10 min
-- [ ] **H.** Human sign-offs: crisis posture + translations (P1.26) — ongoing
-- [ ] **I.** Legal + DPO launch gate (P0.12) — the big one before real users
+- [ ] **H.** Human sign-offs: crisis posture, ThroughLine link terms, AR/FR/ES crisis copy (P1.26) — ongoing
+- [ ] **I.** Legal + DPO launch gate (P0.12) — the big one before real users. Now includes **P0.12.4**: replace the draft text on `/privacy` + `/terms`, then remove the draft banner and let them be indexed.
 
 ---
 
@@ -53,6 +82,8 @@ Key facts you'll reuse:
 ---
 
 ## A. Apply migration `0003` (delete-account RPC)
+
+> [DONE] **Verified 2026-07-30** — the live DB has `delete_account()` in `pg_proc`. Kept for reference.
 
 **Why:** GDPR "delete my account" must remove the *auth* user too, not just the health
 rows. `0003` adds a `delete_account()` function that does the full cascade. Until applied,
@@ -76,6 +107,8 @@ It should return one row.
 ---
 
 ## A2. Apply migration `0005` (analytics consent purpose) — 3 min
+
+> [DONE] **Verified 2026-07-30** — `consent_records_purpose_check` now lists `analytics`. Kept for reference.
 
 **Why:** the consent ledger currently only accepts the purposes `core`, `insights`,
 `research` and `ads_contextual`. Product analytics needs its **own** opt-in purpose —
@@ -104,6 +137,8 @@ toggle (P1.20.2) will have nothing valid to write.
 ---
 
 ## B. Activate the translation portal (P1.19)
+
+> [DONE] **B1–B4 verified 2026-07-30** — `public.staff_roles` = `admin`; `public.ui_strings` holds 1,172 rows (293 keys x 4 locales; EN `human_reviewed`, AR/FR/ES `machine`). **B5 below is still open**: the app has grown to 482 strings, so re-seed to make the newest screens reviewable.
 
 **Why:** Femio's UI text lives in the database so non-engineers can translate/approve it.
 The portal at `/admin/translations` lets staff edit AR/FR/ES and approve strings; approving
@@ -230,6 +265,8 @@ redirect URLs above), then set a password in **Settings → Password**.
 
 ## B★★. Enable "Continue with Google" sign-in (optional, staff-friendly)
 
+> [DONE] **Verified 2026-07-30** — Supabase reports the Google provider enabled, and the live `/en/sign-in` renders the "Continue with Google" button, so `NEXT_PUBLIC_ENABLE_GOOGLE_AUTH` is set *and* deployed.
+
 **Why:** magic link + password already work. Google sign-in is fast and
 phishing-resistant — nice for staff. The code is built; the button stays hidden
 until you (1) configure the Google provider in Supabase and (2) flip an env flag,
@@ -315,6 +352,10 @@ which the deployed CMS works permanently.
    "create first user" screen appears — set email + password).
 
 ### C3.5 — Connect the website to the CMS (show content on the site)
+
+> [TODO] **The one thing Claude cannot check from outside.** `NEXT_PUBLIC_CMS_URL` is read server-side only, so it leaves no trace in the public HTML — and with zero published articles the page looks identical either way.
+>
+> **How to tell in 30 seconds:** publish one Article in the CMS, wait ~5 min (ISR), open `https://femio-web.vercel.app/en/learn`. Article visible → the variable is set. Still "new guides on the way" → it is missing, or the running deploy predates it (`NEXT_PUBLIC_*` bakes in at build — redeploy after adding it).
 So published articles appear on the public site (`/learn`):
 1. Vercel → the **web app** project (femio-web) → Settings → Environment Variables → add
    `NEXT_PUBLIC_CMS_URL` = your CMS URL (e.g. `https://femio-cms.vercel.app`).
@@ -402,6 +443,8 @@ its tables (your app's `public` tables are untouched).
 
 ## D. Choose + set up an analytics vendor (unblocks P1.20)
 
+> [TODO] **Verified not configured 2026-07-30** (no PostHog key in the live bundle). The ground has moved since this section was written: migration `0005` is applied and **the event layer is already built** (P1.20, ADR-017) — typed allow-list, health-field-free, consent-gated, and a no-op while no key exists. Read `docs/19_ANALYTICS_EVENT_SCHEMA.md` (especially the deliberate exclusions) before signing the DPA, then set `NEXT_PUBLIC_POSTHOG_KEY` + `NEXT_PUBLIC_POSTHOG_HOST` (**EU host — a non-EU value fails the build on purpose**) and redeploy.
+
 **Why:** we want product analytics (funnels, retention) **without any health data** ever
 reaching a third-party SDK (product rule 4 + the DPIA). That means an **EU-hosted,
 consent-respecting** tool. Recommended: **PostHog EU Cloud** (or self-host). Once you give
@@ -446,6 +489,10 @@ data — so they become a first-party dashboard over our own database (P1.20.3).
 
 ## E. Vercel env hygiene + optional crisis directory link
 
+> [MOSTLY DONE] **Verified 2026-07-30** — canonical URLs resolve to `https://femio-web.vercel.app` (so `NEXT_PUBLIC_APP_URL` is right), and the **crisis directory link is live**: `/en/help-now` renders `https://findahelpline.com`.
+>
+> **One thing to close:** that link was meant to go on *only after* ThroughLine's linking/commercial terms were confirmed. If you have confirmed them, record it in `docs/compliance/CRISIS_RESOURCES.md § Directory policy` (task H) so the decision is evidenced. If not, either confirm them or unset `NEXT_PUBLIC_CRISIS_DIRECTORY_URL` and redeploy — the crisis screen works fine without it.
+
 **Why:** the site reads its config from `NEXT_PUBLIC_*` env vars **baked in at build**.
 Changing them needs a redeploy.
 
@@ -467,6 +514,8 @@ link once the var is set.
 ---
 
 ## F. Google Search Console + custom domain (SEO, P1.11.GSC)
+
+> [TODO] **Verified not done 2026-07-30** — no `google-site-verification` tag in the live pages, and canonicals still point at `femio-web.vercel.app`. Worth doing before content lands so indexing starts early; nothing in the build depends on it.
 
 **Why:** to appear in Google and control indexing. Femio is SEO-first, so this matters for
 growth.
