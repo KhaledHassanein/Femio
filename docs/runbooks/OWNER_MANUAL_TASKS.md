@@ -19,6 +19,7 @@ Key facts you'll reuse:
 ## Priority checklist
 
 - [ ] **A.** Apply migration `0003` (delete-account RPC) — 5 min
+- [ ] **A2.** Apply migration `0005` (analytics consent purpose, P1.20) — 3 min
 - [ ] **B.** Activate the translation portal (P1.19): grant a staff role + seed strings — 15 min
 - [ ] **B★.** Configure auth email (redirect URLs) so sign-in works — 5 min
 - [ ] **C.** Bring the CMS online (unblocks content, P1.11.1) — 20 min
@@ -69,6 +70,34 @@ select proname from pg_proc where proname = 'delete_account';
 It should return one row.
 
 **Gotcha:** If it errors "function already exists", it's already applied — safe to ignore.
+
+---
+
+## A2. Apply migration `0005` (analytics consent purpose) — 3 min
+
+**Why:** the consent ledger currently only accepts the purposes `core`, `insights`,
+`research` and `ads_contextual`. Product analytics needs its **own** opt-in purpose —
+reusing `insights` ("use my entries to show me patterns", which is about showing *you* your
+own data) as permission to send events to an outside company would be exactly the kind of
+purpose creep the FTC fined other cycle apps for. `0005` widens the allowed list to include
+`analytics`.
+
+**This grants nothing to anyone.** It only makes a future consent grant recordable. Widening
+a CHECK constraint accepts every existing row unchanged, so there's no backfill and no risk
+to live data.
+
+**Steps:** same as task A — SQL Editor → New query → paste all of
+`supabase/migrations/0005_analytics_consent_purpose.sql` → **Run**.
+
+**Verify:** In SQL Editor run:
+```sql
+select pg_get_constraintdef(oid) from pg_constraint
+where conname = 'consent_records_purpose_check';
+```
+The returned definition should include `'analytics'`.
+
+**Gotcha:** apply this before, or together with, task D — otherwise the analytics consent
+toggle (P1.20.2) will have nothing valid to write.
 
 ---
 
@@ -328,12 +357,32 @@ me the key, Claude wires a health-field-free event layer that only fires with co
 4. Add them to Vercel (see task E) as `NEXT_PUBLIC_POSTHOG_KEY` and
    `NEXT_PUBLIC_POSTHOG_HOST`. Tell Claude the values are set (not the key itself).
 
-**What Claude will build once set:** a typed event allowlist (page/feature/funnel events
-only — never symptoms, dates, conditions), gated on analytics consent, no-op when the key is
-absent; plus the dashboard embed.
+**Already built (2026-07-30, P1.20):** the event layer exists and is a **verified no-op**
+until you set the key — no third-party script loads at all today. The event catalog is a
+*closed* list (fixed events, fixed properties, every value from a short fixed set, no
+free-form text/numbers/dates), a runtime guard drops anything else, and `pnpm analytics-lint`
+in CI blocks any future drift. Read `docs/19_ANALYTICS_EVENT_SCHEMA.md` before approving —
+the part to check is the **deliberate exclusions**, because a few things you might expect to
+see are excluded on purpose (article slugs, *which* calculator was used, life-stage mode,
+condition tags, age bands, and anything about the crisis-help surface).
 
-**Gotcha:** never put health context (persona mode, symptom names, cycle dates) into an
-event — that's the whole point. If unsure whether an event is safe, ask.
+**Two things must happen before analytics actually collects anything:**
+1. **Sign the PostHog DPA** and mark the row signed in `docs/compliance/PROCESSOR_REGISTER.md`.
+   Setting the key without a signed DPA is the violation, not a shortcut.
+2. **The consent toggle must ship (P1.20.2).** Analytics has its own opt-in consent purpose,
+   and nothing asks for it yet — so even with the key set, `track()` stays off for every user
+   until that UI lands. Also apply migration **`0005`** (task A2 below) so the purpose is
+   recordable.
+
+**Gotcha (now enforced, not just advised):** the host must be the PostHog **EU** cloud. Their
+SDK defaults to the **US** host, so a wrong or missing host would quietly ship data abroad —
+`NEXT_PUBLIC_POSTHOG_HOST` is therefore validated and a non-EU value (or a key with no host)
+**fails the build** rather than deploying. If a deploy fails with `Invalid environment
+variables: NEXT_PUBLIC_POSTHOG_HOST`, that guard is doing its job.
+
+**Still to ask for:** the dashboard itself. The dimensions the original plan wanted (retention
+by life-stage, condition tags, age bands) can't come from PostHog — they're special-category
+data — so they become a first-party dashboard over our own database (P1.20.3).
 
 ---
 

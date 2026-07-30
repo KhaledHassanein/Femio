@@ -60,6 +60,15 @@ until account deletion unless stated; deletion cascades (FK `on delete cascade`)
 See `PROCESSOR_REGISTER.md`. **No health data to PostHog or any ad/analytics SDK** —
 product events are pseudonymous and health-field-free (doc 13 §6, §9).
 
+That prohibition is now **enforced in code**, not just stated: the event catalog in
+`apps/web/src/lib/analytics/events.ts` is a closed enum schema with no free-form string,
+number or date, a runtime guard drops any payload that deviates, and `pnpm analytics-lint`
+fails CI if the schema drifts. The full catalog and the deliberate exclusions (article
+slugs, calculator identity, life-stage mode, condition/persona tags, age bands, the crisis
+surface) are documented in `docs/19_ANALYTICS_EVENT_SCHEMA.md`. Analytics consent is a
+distinct opt-in purpose (`consent_records.purpose = 'analytics'`, migration 0005) — **not**
+`insights`, which is first-party pattern processing of the user's own data.
+
 ## Open items → DPO/counsel
 - Confirm retention windows per field (defaults: until deletion; screeners/logs configurable).
 - Confirm lawful-basis wording for `content_history` (insights vs core).
