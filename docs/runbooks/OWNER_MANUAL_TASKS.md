@@ -353,8 +353,16 @@ for one code.
 
 **Gotchas:**
 - **Save the setup key** (the text under the QR) somewhere safe, or add the account to an
-  authenticator that syncs. There is no self-service recovery yet: losing the app means an admin —
-  or a service-key script — has to clear the factor (tracked as P1.23.3b).
+  authenticator that syncs.
+- **If you lose the authenticator**, recovery is a service-key script (there is no self-service
+  reset in Supabase). From the repo root, look first, then clear:
+  ```powershell
+  $env:SUPABASE_SERVICE_KEY="…"; $env:EMAIL="you@example.com"; $env:DRY_RUN="1"; node scripts/auth/reset-mfa.mjs
+  # happy with what it lists? run it again without DRY_RUN
+  ```
+  It deletes factors only — your password, roles and data are untouched — and you can sign in with
+  the password alone until you re-enrol, which you should do straight away (staff pages stay closed
+  until you do).
 - Enrolling on the account you use daily is fine; you are asked for a code once per session, not on
   every page.
 - If codes keep failing, check the phone clock is set automatically — TOTP is time-based.
