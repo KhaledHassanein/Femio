@@ -3,9 +3,18 @@ packages:
   - "packages/*"
   - "assets/brand/tokens"
 
-# Approve trusted native build scripts (pnpm 11 blocks postinstall by default).
-# esbuild — bundler binary; sharp — Next image optimization; unrs-resolver — ESLint resolver.
+# Native build scripts, triaged one by one (pnpm 11 blocks postinstall by default
+# and fails the install on anything un-triaged — so every entry here is a decision
+# on record, not a rubber stamp).
+#   esbuild / sharp / unrs-resolver — needed: bundler binary, Next image
+#     optimization, ESLint resolver.
+#   @swc/core / @parcel/watcher — arrived with next-intl v4; deliberately NOT
+#     built. Both ship prebuilt platform binaries as optional dependencies, so
+#     compiling from source buys nothing, and a skipped postinstall is one less
+#     piece of arbitrary code running at install time.
 allowBuilds:
+  '@parcel/watcher': false
+  '@swc/core': false
   esbuild: true
   sharp: true
   unrs-resolver: true

@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { Inter, Fraunces, IBM_Plex_Sans_Arabic } from "next/font/google";
 import { NextIntlClientProvider } from "next-intl";
-import { getMessages, getTranslations, setRequestLocale } from "next-intl/server";
+import { getTranslations, setRequestLocale } from "next-intl/server";
 import { getDir, isLocale, routing } from "@/i18n/routing";
 import { ThemeProvider } from "@/components/theme-provider";
 import { CrisisHelpProvider } from "@/components/crisis/crisis-help-provider";
@@ -68,16 +68,12 @@ export default async function LocaleLayout({ children, params }: LayoutProps) {
   if (!isLocale(locale)) notFound();
   setRequestLocale(locale);
 
-  // Resolve messages from the segment's own locale rather than letting next-intl
-  // infer it from `headers()` (a dynamic API) when `setRequestLocale` hasn't been
-  // primed for this render — e.g. the not-found pass.
-  const messages = await getMessages({ locale });
   const fontVars = `${inter.variable} ${fraunces.variable} ${plexArabic.variable}`;
 
   return (
     <html lang={locale} dir={getDir(locale)} className={fontVars} suppressHydrationWarning>
       <body className={locale === "ar" ? "font-arabic" : "font-sans"}>
-        <NextIntlClientProvider messages={messages}>
+        <NextIntlClientProvider>
           <ThemeProvider attribute="data-theme" defaultTheme="system" enableSystem disableTransitionOnChange>
             <CrisisHelpProvider>{children}</CrisisHelpProvider>
           </ThemeProvider>
