@@ -678,7 +678,34 @@
     "home": "Aller à l’accueil",
     "learn": "Parcourir la bibliothèque"
   },
+    "mfa": {
+      "title": "Confirmez que c'est bien vous",
+      "intro": "Saisissez le code à 6 chiffres de votre application d'authentification pour accéder au back-office.",
+      "codeLabel": "Code à 6 chiffres",
+      "verify": "Confirmer",
+      "verifying": "Vérification…",
+      "wrongCode": "Ce code n'a pas fonctionné. Les codes changent toutes les 30 secondes — essayez le code actuel.",
+      "error": "Impossible de vérifier ce code pour le moment."
+    },
   "settings": {
+      "mfa": {
+        "heading": "Connexion en deux étapes",
+        "desc": "Ajoutez un code d'application d'authentification en plus de votre mot de passe. Obligatoire pour les comptes de l'équipe.",
+        "requiredNotice": "Les pages de l'équipe exigent la connexion en deux étapes. Activez-la ci-dessous, puis réessayez.",
+        "enable": "Activer la connexion en deux étapes",
+        "enabled": "La connexion en deux étapes est active.",
+        "disable": "Désactiver la connexion en deux étapes",
+        "scan": "Scannez ceci avec votre application d'authentification (Google Authenticator, 1Password, Aegis…).",
+        "qrAlt": "QR code pour votre application d'authentification",
+        "manualEntry": "Impossible de scanner ? Saisissez cette clé :",
+        "codeLabel": "Code à 6 chiffres de l'application",
+        "verify": "Activer",
+        "verifying": "Vérification…",
+        "cancel": "Annuler",
+        "saved": "La connexion en deux étapes est active.",
+        "wrongCode": "Ce code n'a pas fonctionné. Les codes changent toutes les 30 secondes — essayez le code actuel.",
+        "error": "Un problème est survenu lors de la configuration."
+      },
     "password": {
       "heading": "Mot de passe",
       "desc": "Définissez ou modifiez un mot de passe pour vous connecter sans lien e-mail.",

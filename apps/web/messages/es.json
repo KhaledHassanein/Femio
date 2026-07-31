@@ -678,7 +678,34 @@
     "home": "Ir al inicio",
     "learn": "Ver la biblioteca"
   },
+    "mfa": {
+      "title": "Confirma que eres tú",
+      "intro": "Introduce el código de 6 dígitos de tu app de autenticación para entrar en la administración.",
+      "codeLabel": "Código de 6 dígitos",
+      "verify": "Confirmar",
+      "verifying": "Comprobando…",
+      "wrongCode": "Ese código no ha funcionado. Los códigos cambian cada 30 segundos: prueba con el actual.",
+      "error": "No pudimos comprobar el código ahora mismo."
+    },
   "settings": {
+      "mfa": {
+        "heading": "Acceso en dos pasos",
+        "desc": "Añade un código de una app de autenticación además de tu contraseña. Obligatorio para las cuentas del equipo.",
+        "requiredNotice": "Las páginas del equipo requieren acceso en dos pasos. Actívalo aquí abajo y vuelve a intentarlo.",
+        "enable": "Activar el acceso en dos pasos",
+        "enabled": "El acceso en dos pasos está activado.",
+        "disable": "Desactivar el acceso en dos pasos",
+        "scan": "Escanea esto con tu app de autenticación (Google Authenticator, 1Password, Aegis…).",
+        "qrAlt": "Código QR para tu app de autenticación",
+        "manualEntry": "¿No puedes escanear? Introduce esta clave:",
+        "codeLabel": "Código de 6 dígitos de la app",
+        "verify": "Activar",
+        "verifying": "Comprobando…",
+        "cancel": "Cancelar",
+        "saved": "El acceso en dos pasos está activado.",
+        "wrongCode": "Ese código no ha funcionado. Los códigos cambian cada 30 segundos: prueba con el actual.",
+        "error": "Algo salió mal en la configuración."
+      },
     "password": {
       "heading": "Contraseña",
       "desc": "Establece o cambia una contraseña para iniciar sesión sin enlace por correo.",

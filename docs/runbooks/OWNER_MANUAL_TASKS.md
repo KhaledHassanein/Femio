@@ -26,8 +26,9 @@ checklist turned out to be already done (see the checklist below for the evidenc
 | **1** | **[C3.7] Make your CMS account an admin** | 1 min | **Blocks all publishing.** Your only CMS user holds `editor`, and roles are admin-only editable with no admin in the system. You can write drafts but cannot approve or publish anything, or add users. |
 | **2** | **[C3.5] Point the website at the CMS** | 5 min | Without `NEXT_PUBLIC_CMS_URL` on the **web** project, published articles never appear on the site. (I can't check this one from outside — see C3.5.) |
 | **3** | **[B5] Re-seed the translation portal** | 2 min | The database has 293 strings; the app now has **482**. The newest screens (privacy, terms, authors, analytics consent) are live in English but invisible to Arabic/French/Spanish reviewers. |
-| **4** | **[A3] Apply migration `0006`** | 3 min | Turns on the first-party insights dashboard (`/admin/insights`). Read-only, aggregate-only, k-anonymous — it creates functions and touches no data. |
-| **5** | **[D] PostHog EU key (when you want analytics on)** | 20 min | The event layer is built and fails closed; it stays a no-op until a key exists. Not blocking any other work. |
+| **4** | **[B★★★] Turn on two-step sign-in** | 3 min | **`/admin/*` now requires it.** Staff pages check for a second factor; until you enrol, they redirect you to Settings. Nothing else is affected — the tracker, the site and the CMS are untouched. |
+| **5** | **[A3] Apply migration `0006`** | 3 min | Turns on the first-party insights dashboard (`/admin/insights`). Read-only, aggregate-only, k-anonymous — it creates functions and touches no data. |
+| **6** | **[D] PostHog EU key (when you want analytics on)** | 20 min | The event layer is built and fails closed; it stays a no-op until a key exists. Not blocking any other work. |
 
 Task 1, verbatim — run it from the repo root, nothing to paste (it reads `apps/cms/.env.local`):
 
@@ -51,6 +52,7 @@ Statuses marked **verified** were checked directly against the live database / d
   - [ ] **B5.** ▶ **Re-seed now that new screens shipped** — 482 strings in the app vs 293 in the database — 2 min
 - [ ] **A3.** ▶ Apply migration `0006` (first-party insights aggregates, P1.20.3) — unlocks the staff dashboard — 3 min
 - [~] **B★.** Auth email: redirect URLs + real sender — redirect URLs look configured (Google sign-in is live, which needs them); **custom SMTP is still required before launch** (Supabase's built-in sender is rate-limited and spam-prone).
+- [ ] **B★★★.** ▶ **Enrol two-step sign-in** — required to open `/admin/*` (translation portal, insights) — 3 min
 - [x] **B★★.** "Continue with Google" sign-in — **verified**: the provider is enabled in Supabase *and* the button is live on `/en/sign-in`.
 - [~] **C.** CMS online — **verified live** (`femio-cms` answers, collections exist), but two pieces remain:
   - [x] **C3.6.** Schema for the **People** (bios) collection — **verified**: tables exist, `/api/people` → 200.
@@ -324,6 +326,38 @@ sign-in and lands on the dashboard.
 
 **Gotcha:** if the button doesn't appear, the env flag isn't set/deployed. If clicking errors
 "provider is not enabled", finish step 2.
+
+---
+
+## B★★★. Enrol two-step sign-in (required for the back office) — 3 min
+
+> [TODO] New 2026-07-31 with P1.23.3. **This changes something you'll notice:** staff pages now
+> check for a second factor, so `/en/admin/translations` and `/en/admin/insights` will bounce you
+> to Settings until you finish the steps below. That is the feature working, not a fault.
+
+**Why:** a back-office session can read the translation portal and the aggregate insights — and an
+admin can grant roles to other accounts. A stolen or reused password should not be enough for any
+of that. The rest of Femio is unchanged: the tracker, the public site and the CMS don't ask for it
+(the CMS is a separate app with its own login).
+
+**Steps:**
+1. Sign in at `https://femio-web.vercel.app/en/sign-in`.
+2. Go to **Settings** -> **Two-step sign-in** -> **Set up two-step sign-in**.
+3. Scan the QR code with an authenticator app — Google Authenticator, 1Password, Aegis, Apple
+   Passwords, whichever you already use. (Can't scan? The key is printed underneath; type it in.)
+4. Enter the 6-digit code the app shows and confirm. Codes rotate every 30 seconds — if one is
+   rejected, use the current one.
+
+**Verify:** Settings shows "Two-step sign-in is on", and `/en/admin/insights` opens after asking
+for one code.
+
+**Gotchas:**
+- **Save the setup key** (the text under the QR) somewhere safe, or add the account to an
+  authenticator that syncs. There is no self-service recovery yet: losing the app means an admin —
+  or a service-key script — has to clear the factor (tracked as P1.23.3b).
+- Enrolling on the account you use daily is fine; you are asked for a code once per session, not on
+  every page.
+- If codes keep failing, check the phone clock is set automatically — TOTP is time-based.
 
 ---
 

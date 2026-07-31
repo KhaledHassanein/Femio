@@ -678,7 +678,34 @@
     "home": "Go to the homepage",
     "learn": "Browse the library"
   },
+    "mfa": {
+      "title": "Confirm it's you",
+      "intro": "Enter the 6-digit code from your authenticator app to continue to the back office.",
+      "codeLabel": "6-digit code",
+      "verify": "Confirm",
+      "verifying": "Checking…",
+      "wrongCode": "That code didn't work. Codes change every 30 seconds — try the current one.",
+      "error": "We couldn't check that code just now."
+    },
   "settings": {
+      "mfa": {
+        "heading": "Two-step sign-in",
+        "desc": "Add a code from an authenticator app on top of your password. Required for staff accounts.",
+        "requiredNotice": "Staff pages need two-step sign-in. Set it up below, then try again.",
+        "enable": "Set up two-step sign-in",
+        "enabled": "Two-step sign-in is on.",
+        "disable": "Turn off two-step sign-in",
+        "scan": "Scan this with your authenticator app (Google Authenticator, 1Password, Aegis…).",
+        "qrAlt": "QR code for your authenticator app",
+        "manualEntry": "Can't scan? Enter this key instead:",
+        "codeLabel": "6-digit code from the app",
+        "verify": "Turn on",
+        "verifying": "Checking…",
+        "cancel": "Cancel",
+        "saved": "Two-step sign-in is on.",
+        "wrongCode": "That code didn't work. Codes change every 30 seconds — try the current one.",
+        "error": "Something went wrong setting that up."
+      },
     "password": {
       "heading": "Password",
       "desc": "Set or change a password so you can sign in without an email link.",

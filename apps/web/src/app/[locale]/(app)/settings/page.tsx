@@ -7,10 +7,15 @@ import { ExportButton } from "@/components/account/export-button";
 import { DeleteButton } from "@/components/account/delete-button";
 import { SetPassword } from "@/components/account/set-password";
 import { ConsentSettings } from "@/components/account/consent-settings";
+import { MfaSettings } from "@/components/account/mfa-settings";
+import { Alert, AlertDescription } from "@/components/ui/alert";
 import { Button } from "@/components/ui/button";
 import { Link } from "@/i18n/navigation";
 
-type PageProps = { params: Promise<{ locale: string }> };
+type PageProps = {
+  params: Promise<{ locale: string }>;
+  searchParams: Promise<{ mfa?: string }>;
+};
 
 export const dynamic = "force-dynamic";
 
@@ -20,8 +25,9 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   return { title: t("title"), robots: { index: false, follow: false } };
 }
 
-export default async function SettingsPage({ params }: PageProps) {
+export default async function SettingsPage({ params, searchParams }: PageProps) {
   const { locale } = await params;
+  const { mfa } = await searchParams;
   setRequestLocale(locale);
 
   const supabase = await createClient();
@@ -45,6 +51,22 @@ export default async function SettingsPage({ params }: PageProps) {
           <Button asChild variant="outline" className="self-start">
             <Link href="/summary">{t("summary.link")}</Link>
           </Button>
+        </CardContent>
+      </Card>
+
+      {mfa === "required" ? (
+        <Alert variant="warning">
+          <AlertDescription>{t("mfa.requiredNotice")}</AlertDescription>
+        </Alert>
+      ) : null}
+
+      <Card>
+        <CardContent className="flex flex-col gap-4 p-6">
+          <div className="flex flex-col gap-1">
+            <h2 className="text-md font-semibold text-text">{t("mfa.heading")}</h2>
+            <p className="text-sm text-text-muted">{t("mfa.desc")}</p>
+          </div>
+          <MfaSettings />
         </CardContent>
       </Card>
 
