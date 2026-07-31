@@ -671,6 +671,13 @@
         "month2": "Mois 2"
       }
     },
+  "notFound": {
+    "code": "404",
+    "title": "Page introuvable",
+    "body": "Le lien est peut-être ancien, ou la page a été déplacée. La bibliothèque santé et votre suivi sont toujours là.",
+    "home": "Aller à l’accueil",
+    "learn": "Parcourir la bibliothèque"
+  },
   "settings": {
     "password": {
       "heading": "Mot de passe",

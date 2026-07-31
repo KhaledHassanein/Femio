@@ -1,0 +1,42 @@
+version: 2
+
+# Dependency updates (P1.23 / SECURITY_REVIEW A06). Femio processes special-category
+# health data, so a stale transitive dependency is a real risk, not housekeeping —
+# but a flood of PRs is how update fatigue starts, so this is deliberately narrow:
+# security fixes arrive as they land, everything else is grouped into one weekly PR.
+updates:
+  # One entry covers the whole pnpm workspace (root + apps/*).
+  - package-ecosystem: npm
+    directory: "/"
+    schedule:
+      interval: weekly
+      day: monday
+    open-pull-requests-limit: 5
+    versioning-strategy: increase-if-necessary
+    groups:
+      # Framework moves that need the full suite run against them anyway.
+      next-and-react:
+        patterns: ["next", "next-*", "react", "react-dom", "@types/react*", "eslint-config-next"]
+      payload:
+        patterns: ["payload", "@payloadcms/*"]
+      supabase:
+        patterns: ["@supabase/*"]
+      dev-tooling:
+        dependency-type: development
+        patterns: ["*"]
+      # Everything else, so a single PR carries the long tail.
+      production-minor-patch:
+        dependency-type: production
+        update-types: ["minor", "patch"]
+    ignore:
+      # Majors are a deliberate, verified migration (see the next-intl v4 work),
+      # never an automated PR — Dependabot still raises security majors.
+      - dependency-name: "*"
+        update-types: ["version-update:semver-major"]
+
+  # The workflows themselves pin third-party actions; those need patching too.
+  - package-ecosystem: github-actions
+    directory: "/"
+    schedule:
+      interval: monthly
+    open-pull-requests-limit: 3

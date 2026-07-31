@@ -9,3 +9,32 @@ allowBuilds:
   esbuild: true
   sharp: true
   unrs-resolver: true
+
+# Security overrides (P1.23). These packages arrive only as transitive
+# dependencies — of Payload's bundled Next/monaco and drizzle-kit — so they
+# cannot be fixed by bumping anything we depend on directly. Each pins a patched
+# version for a published advisory; drop an entry once the parent ships the fix.
+#   sharp     GHSA-f88m-g3jw-g9cj   (via @payloadcms/ui > next)
+#   postcss   GHSA-r28c-9q8g-f849   (via @payloadcms/ui > next)
+#   dompurify GHSA-cmwh-pvxp-8882   (via @payloadcms/ui > monaco-editor)
+#   esbuild   GHSA-67mh-4wv8-2f99   (via @payloadcms/db-postgres > drizzle-kit)
+overrides:
+  sharp: ">=0.35.3"
+  postcss: ">=8.5.18"
+  dompurify: ">=3.4.12"
+  esbuild: ">=0.25.12"
+  # Scoped to the 5.x instance (minimatch@10 chain) on purpose: the other copy is
+  # brace-expansion@1 under minimatch@3, where forcing 5.x would be a four-major
+  # jump into a CJS caller. See auditConfig below for how that residual is handled.
+  "brace-expansion@5": ">=5.0.8"
+
+# Advisories we have consciously accepted, with the reason and a review date.
+# Anything NOT listed here fails `pnpm audit --audit-level high` in CI, so this
+# list is the only way a known issue stays green — and it is reviewable in a diff.
+# Reviewed 2026-07-31; re-check by 2026-10-31 (docs/compliance/SECURITY_REVIEW.md §6).
+auditConfig:
+  ignoreGhsas:
+    # brace-expansion@1.1.16 (unbounded expansion DoS). Reaches us only through
+    # ESLint tooling and the Serwist build, expanding glob patterns we author
+    # ourselves — never user input, never at runtime. No 1.x patch exists.
+    - GHSA-mh99-v99m-4gvg

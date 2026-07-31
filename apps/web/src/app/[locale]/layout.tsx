@@ -68,7 +68,10 @@ export default async function LocaleLayout({ children, params }: LayoutProps) {
   if (!isLocale(locale)) notFound();
   setRequestLocale(locale);
 
-  const messages = await getMessages();
+  // Resolve messages from the segment's own locale rather than letting next-intl
+  // infer it from `headers()` (a dynamic API) when `setRequestLocale` hasn't been
+  // primed for this render — e.g. the not-found pass.
+  const messages = await getMessages({ locale });
   const fontVars = `${inter.variable} ${fraunces.variable} ${plexArabic.variable}`;
 
   return (

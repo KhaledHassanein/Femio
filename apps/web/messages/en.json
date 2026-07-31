@@ -671,6 +671,13 @@
         "month2": "Month 2"
       }
     },
+  "notFound": {
+    "code": "404",
+    "title": "We couldn’t find that page",
+    "body": "The link may be old, or the page may have moved. The health library and your tracker are both still here.",
+    "home": "Go to the homepage",
+    "learn": "Browse the library"
+  },
   "settings": {
     "password": {
       "heading": "Password",

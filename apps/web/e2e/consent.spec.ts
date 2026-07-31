@@ -21,15 +21,27 @@ test("analytics consent is off by default, and can be granted then withdrawn @li
   await expect(toggle).toBeVisible({ timeout: 25_000 });
   await expect(toggle).not.toBeChecked(); // never assumed from onboarding
 
+  // The switch updates optimistically, so reloading straight after the click can
+  // outrun the insert (it did, against the production build). Wait for the write
+  // itself — that is what "persisted" means here.
+  const consentWrite = () =>
+    page.waitForResponse(
+      (r) => r.url().includes("consent_records") && r.request().method() === "POST",
+      { timeout: 25_000 },
+    );
+
   // Grant, and prove it persisted rather than living in React state.
-  await toggle.check();
+  await Promise.all([consentWrite(), toggle.check()]);
   await page.reload();
   await expect(page.getByLabel(/allow anonymous product analytics/i)).toBeChecked({
     timeout: 25_000,
   });
 
   // Withdraw must be exactly as easy (GDPR Art. 7(3)) and equally durable.
-  await page.getByLabel(/allow anonymous product analytics/i).uncheck();
+  await Promise.all([
+    consentWrite(),
+    page.getByLabel(/allow anonymous product analytics/i).uncheck(),
+  ]);
   await page.reload();
   await expect(page.getByLabel(/allow anonymous product analytics/i)).not.toBeChecked({
     timeout: 25_000,

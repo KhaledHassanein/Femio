@@ -671,6 +671,13 @@
         "month2": "Mes 2"
       }
     },
+  "notFound": {
+    "code": "404",
+    "title": "No encontramos esa página",
+    "body": "Puede que el enlace sea antiguo o que la página se haya movido. La biblioteca de salud y tu seguimiento siguen aquí.",
+    "home": "Ir al inicio",
+    "learn": "Ver la biblioteca"
+  },
   "settings": {
     "password": {
       "heading": "Contraseña",

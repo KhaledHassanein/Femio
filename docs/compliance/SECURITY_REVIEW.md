@@ -52,12 +52,27 @@ This is a manual pre-release gate (it creates throwaway anonymous users against 
 - **CAPTCHA / attestation** on anonymous sign-in is a candidate mitigation if throwaway-account creation becomes a problem (weigh against the privacy-first, no-friction goal).
 - **App-level:** no custom API routes hold secrets or bypass RLS today, so there is no hand-rolled endpoint to rate-limit yet. Re-evaluate when server actions/RPCs are added.
 
+## 6. Accepted dependency advisories
+
+`pnpm audit --audit-level high` gates CI. Anything not listed here fails the build; an entry
+below is a conscious acceptance, recorded in `pnpm-workspace.yaml` (`auditConfig.ignoreGhsas`)
+so it shows up in a diff rather than in someone's memory.
+
+| Advisory | Package | Why accepted | Review by |
+|---|---|---|---|
+| GHSA-mh99-v99m-4gvg | `brace-expansion@1.1.16` | Unbounded-expansion DoS. Reaches us only through ESLint tooling and the Serwist build, expanding glob patterns we author ourselves — never user input, never at runtime. No patch exists for the 1.x line, and forcing 5.x into a CJS caller (minimatch@3) is a four-major jump. | 2026-10-31 |
+
+Two moderate `next-intl` advisories (GHSA-8f24-v5vv-gm5j open redirect, GHSA-4c35-wcg5-mm9h
+prototype pollution) are **not** ignored — they sit below the `high` gate and are cleared by the
+v4 upgrade tracked as **P1.23.2**. The open redirect is the one that matters for us: it is
+user-facing, and phishing through a health-app domain is a real risk.
+
 ## 5. Open items (launch gate)
 
 - [ ] Independent penetration test + security reviewer sign-off (P1.23 / P0.12).
 - [ ] Confirm + document Supabase at-rest encryption & key management (DPIA §4).
-- [ ] Add `pnpm audit` / Dependabot to CI (A06).
-- [ ] Security headers / CSP review; verify Supabase project settings (JWT expiry, storage bucket visibility).
-- [ ] MFA for staff/admin accounts (with P1.18 roles).
+- [x] Add `pnpm audit` / Dependabot to CI (A06) — **done 2026-07-31** (ADR-021): `pnpm audit --audit-level high` is a CI step; fixes + `overrides` in `pnpm-workspace.yaml` took the report from 15 advisories (1 critical, 5 high) to 3; grouped weekly Dependabot PRs with majors excluded.
+- [x] Security headers / CSP — **done 2026-07-31** (ADR-021, `apps/web/next.config.mjs`): CSP with an env-derived `connect-src` allow-list, `frame-ancestors 'none'`, HSTS, Referrer-Policy, Permissions-Policy, no `x-powered-by`; asserted by `e2e/security-headers.spec.ts`. **Still open:** verify Supabase project settings (JWT expiry, storage bucket visibility) — dashboard-only, Khaled.
+- [ ] MFA for staff/admin accounts (with P1.18 roles) — next in P1.23.
 - [ ] Wire Sentry + define breach detection/alerting and the 72h runbook.
 - [ ] Rate-limit / abuse posture for anonymous sign-in confirmed with a WAF rule if needed.

@@ -32,6 +32,13 @@ jobs:
       - name: Install
         run: pnpm install --frozen-lockfile
 
+      # Fails on a high/critical advisory in any workspace package. Accepted
+      # residuals live in pnpm-workspace.yaml `auditConfig.ignoreGhsas`, each with
+      # a written reason + review date — so a known issue can only stay green by
+      # being declared in a diff (P1.23 / SECURITY_REVIEW A06).
+      - name: Dependency audit
+        run: pnpm audit --audit-level high
+
       - name: Claims-language guard
         run: pnpm claims-lint
 

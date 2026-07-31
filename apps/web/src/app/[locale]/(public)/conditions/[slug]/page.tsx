@@ -8,7 +8,13 @@ import { localizedAlternates } from "@/lib/seo/metadata";
 
 type PageProps = { params: Promise<{ locale: string; slug: string }> };
 
-export const revalidate = 300;
+// Rendered per-request, not ISR. `notFound()` thrown during a static/ISR render
+// makes next-intl resolve the locale from `headers()` in the not-found pass — a
+// dynamic API, illegal there — so every unknown slug returned **500 instead of
+// 404** in production (dev renders dynamically, which is why it looked fine).
+// The CMS fetch keeps its own 5-minute cache, so this costs HTML assembly, not
+// round-trips. Revisit when next-intl v4 lands (P1.23.2).
+export const dynamic = "force-dynamic";
 export const dynamicParams = true;
 export function generateStaticParams() {
   return [];

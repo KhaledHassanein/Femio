@@ -5,6 +5,12 @@ export default defineConfig({
   resolve: {
     alias: { "@": fileURLToPath(new URL("./src", import.meta.url)) },
   },
+  // Next's tsconfig sets `jsx: "preserve"` (the compiler is Next's, not tsc's),
+  // so Vitest 4 / Vite 8 can't parse a .tsx module a test imports — the Lexical
+  // renderer's tests do. Transform JSX in the runner rather than weakening the
+  // app's tsconfig for the test suite's benefit. (Vite 8 transforms with oxc, so
+  // this is `oxc:`, not the `esbuild:` option older guides show.)
+  oxc: { jsx: { runtime: "automatic" } },
   test: {
     environment: "node",
     include: ["src/**/*.test.ts"],

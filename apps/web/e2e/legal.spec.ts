@@ -6,14 +6,18 @@ import { expect, test } from "@playwright/test";
 test("privacy page renders, is marked a draft, and is noindex", async ({ page }) => {
   await page.goto("/en/privacy");
   await expect(page.getByRole("heading", { name: /privacy policy/i })).toBeVisible();
-  await expect(page.getByRole("alert")).toContainText(/draft — not yet in force/i);
+  // Scope to the page: production also renders Next's route announcer, which
+  // carries role="alert" and would make a bare getByRole("alert") ambiguous.
+  await expect(page.getByRole("main").getByRole("alert")).toContainText(/draft — not yet in force/i);
   await expect(page.locator('meta[name="robots"]')).toHaveAttribute("content", /noindex/);
 });
 
 test("terms page renders, is marked a draft, and is noindex", async ({ page }) => {
   await page.goto("/en/terms");
   await expect(page.getByRole("heading", { name: /terms of use/i })).toBeVisible();
-  await expect(page.getByRole("alert")).toContainText(/draft — not yet in force/i);
+  // Scope to the page: production also renders Next's route announcer, which
+  // carries role="alert" and would make a bare getByRole("alert") ambiguous.
+  await expect(page.getByRole("main").getByRole("alert")).toContainText(/draft — not yet in force/i);
   await expect(page.locator('meta[name="robots"]')).toHaveAttribute("content", /noindex/);
   // The wellness boundary must be stated on the terms page itself.
   await expect(page.getByText(/not a reliable way to avoid pregnancy/i)).toBeVisible();

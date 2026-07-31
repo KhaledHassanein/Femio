@@ -38,6 +38,7 @@ All changes are on `main`; pushing auto-deploys both Vercel projects (web + cms)
 - **P1.9b.3b** author/reviewer **bio scaffolding** (ADR-016): new CMS **`people`** collection + `/authors` + `/authors/[slug]` with **Person** + Breadcrumb JSON-LD, footer link, sitemapped, i18n ×4. Needs a one-time CMS schema push (**runbook C3.6**); real bios + article bylines ride with P1.9. Unit tests no longer need a real `.env.local` (vitest `test.env`).
 - **P1.20.2** consent UI (ADR-019) — Settings **Your privacy choices** (insights/research/analytics, core read-only with delete as the honest withdrawal) + analytics in onboarding, off by default. Closed a real gap: no optional consent was withdrawable anywhere (GDPR Art. 7(3)). Also hardened `claims-lint`, which could report a false pass when run outside the repo root (P1.4.3).
 - **P1.20.3** first-party insights dashboard (ADR-020) — `/admin/insights` + migration 0006: aggregate-only `security definer` RPCs (label+count only), k=10 with **secondary suppression** (primary alone leaked by differencing — caught by executing the migration against the live schema in a rolled-back transaction), TS re-check, 3 new rls-audit checks. **Khaled must apply 0006** (runbook A3).
+- **P1.23.1** dependency ratchet + security headers (ADR-021) — `pnpm audit --audit-level high` in CI (15 advisories → 3; overrides live in **pnpm-workspace.yaml**, not package.json), Dependabot, CSP/HSTS/Referrer/Permissions headers. **Found and fixed a live 500**: unknown slugs under `/learn`, `/conditions`, `/authors` returned 500 not 404 (`notFound()` + static render + next-intl `headers()`), plus the localized 404 page (P1.2.2).
 
 ## Architecture notes (current)
 - Route groups: `[locale]/(public)/` (home + library + trust pages, has SiteHeader/SiteFooter);
@@ -64,13 +65,16 @@ All changes are on `main`; pushing auto-deploys both Vercel projects (web + cms)
 
 ## Next tasks (in order)
 1. **P1.20 remainder** — foundation done 2026-07-30 (ADR-017: closed enum catalog + runtime guard + `analytics-lint` in CI + `analytics` consent purpose + EU-host build guard) and **P1.20.2 consent UI done 2026-07-30** (ADR-019: Settings "Your privacy choices" covering every optional purpose + analytics in onboarding; ledger-reduction semantics shared with the analytics gate; live e2e proves grant/withdraw persist). **P1.20.3 done 2026-07-30** (ADR-020): first-party `/admin/insights` over aggregate-only, k-anonymous SQL (migration **0006**, awaiting apply — runbook A3). Open: **P1.20.1** the real `posthog-js` transport behind the existing seam (autocapture + session recording OFF) once Khaled supplies an EU key.
-2. **P1.23 remaining** — `pnpm audit`/Dependabot in CI, CSP/security headers, staff MFA, Sentry + breach alerting, independent pen-test.
+2. **P1.23 remaining** — **P1.23.2** next-intl v3→v4 (clears a user-facing open-redirect advisory; should also let the CMS detail routes go back to ISR), **P1.23.3** staff MFA, then Sentry + breach alerting and the independent pen-test (owner-gated).
 3. **P1.21 moderation/CS** — premature until there's user-generated content.
 4. **P1.24 beta → P1.25 launch** — gated by P0.12.
    (Consumer follow-ups available anytime: P1.13.1 visual calendar polish, P1.14.1 full 100+ taxonomy via portal, P1.16.1 PDF doctor-summary polish.)
 
 ## Environment gotchas (this machine)
 - pnpm on PATH (npm-global); run scripts from repo root. Commit to `main`; Vercel auto-deploys web + cms.
+- **Run e2e in CI mode before pushing: `CI=1 pnpm --filter web test:e2e:ci`.** `next dev` renders everything dynamically, so dev-mode runs are not evidence about production — that gap hid a 500-instead-of-404 bug for weeks (ADR-021). CI mode needs a fresh `pnpm build` first.
+- **`pkill -f "next start"` does NOT kill the server on Windows** — node keeps serving an old build and every result you then measure is a lie (it cost an hour here). Kill by port: `Get-NetTCPConnection -LocalPort 3000 -State Listen | %{ Stop-Process -Id $_.OwningProcess -Force }`.
+- **Underscore-prefixed folders (`__foo/`) are private in the App Router** — a scratch route named that way never registers, so it 404s and looks like a passing test.
 - Playwright: `cd apps/web && npx playwright test`. DB-free subset (CI): `pnpm --filter web test:e2e:ci` (= `--grep-invert @live`). **Kill port 3000 between back-to-back local runs** (`Get-NetTCPConnection -LocalPort 3000` → Stop-Process) or the next run cascade-fails on a webServer timeout. Config runs `workers:1`.
 - CI (ci.yml): claims-lint, crisis-lint, **analytics-lint**, lint, typecheck, unit, build, then DB-free e2e + axe; CMS build in a second job.
 - Guards: `pnpm claims-lint` (no clinical claim verbs in EN UI copy), `pnpm crisis-lint`, **`pnpm analytics-lint`** (event catalog stays closed/health-free/consent-gated), `pnpm rls-audit` (live).
