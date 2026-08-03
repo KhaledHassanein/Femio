@@ -6,13 +6,16 @@
   "description": "Femio content CMS — Payload 3 on the shared Supabase Postgres.",
   "scripts": {
     "dev": "next dev -p 3001",
-    "build": "next build",
+    "build": "node ./scripts/migrate-on-deploy.mjs && next build",
     "start": "next start -p 3001",
     "typecheck": "tsc --noEmit",
     "generate:types": "payload generate:types",
     "set-roles": "payload run ./scripts/set-user-roles.mjs",
     "generate:importmap": "payload generate:importmap",
-    "payload": "payload"
+    "payload": "payload",
+    "migrate": "payload migrate",
+    "migrate:create": "payload migrate:create",
+    "migrate:status": "payload migrate:status"
   },
   "dependencies": {
     "@payloadcms/db-postgres": "^3.11.0",

@@ -52,11 +52,17 @@ export default buildConfig({
     // can never touch the app's. Create the schema once: `create schema if not
     // exists payload;` (runbook C1.5).
     schemaName: "payload",
-    // Auto-create/sync schema on boot: on in dev; in production opt-in via
-    // PAYLOAD_DB_PUSH=true. NOTE: push is interactive, so it only truly runs from a
-    // local/interactive `pnpm --filter cms dev` — create the schema there once, then
-    // the serverless deploy just uses it.
-    push: process.env.PAYLOAD_DB_PUSH === "true" || process.env.NODE_ENV !== "production",
+    // Schema changes ship as MIGRATIONS, never as deploy-time push (ADR-029).
+    // Push took production down once: the deployed code expected columns the
+    // database never got, because a `hasMany` relationship needs a new table and
+    // that does not apply non-interactively. `pnpm --filter cms build` now runs
+    // `payload migrate` first, so a schema change either lands with the deploy or
+    // fails the deploy — never silently half-applies.
+    //
+    // Push stays available in local development only, where it is genuinely
+    // useful and a mistake costs nothing. `PAYLOAD_DB_PUSH` is deliberately no
+    // longer consulted: an env var is not a safe place for this decision.
+    push: process.env.NODE_ENV !== "production",
   }),
   sharp,
   typescript: {
