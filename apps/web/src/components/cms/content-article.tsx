@@ -2,10 +2,11 @@ import { getFormatter, getTranslations } from "next-intl/server";
 import type { ContentDoc } from "@/lib/cms/client";
 import { RichText } from "@/lib/cms/lexical";
 import { Link } from "@/i18n/navigation";
+import type { Byline } from "@/lib/cms/client";
 import { JsonLd } from "@/components/seo/json-ld";
 import { Alert, AlertDescription } from "@/components/ui/alert";
 import { Badge } from "@/components/ui/badge";
-import { breadcrumbJsonLd, medicalWebPageJsonLd } from "@/lib/seo/jsonld";
+import { articleJsonLd, breadcrumbJsonLd, medicalWebPageJsonLd } from "@/lib/seo/jsonld";
 import { siteConfig } from "@/lib/seo/config";
 import { PageView } from "@/components/analytics/page-view";
 
@@ -39,6 +40,28 @@ export async function ContentArticle({
         data={medicalWebPageJsonLd({ title: doc.title, description, url, locale, lastReviewed: doc.lastReviewed })}
       />
       <JsonLd
+        data={articleJsonLd({
+          headline: doc.title,
+          description,
+          url,
+          locale,
+          authors: (doc.authors ?? []).map((a) => ({
+            name: a.name,
+            credentials: a.credentials,
+            url: `${siteConfig.baseUrl}/${locale}/authors/${a.slug}`,
+          })),
+          reviewer: doc.medicalReviewerProfile
+            ? {
+                name: doc.medicalReviewerProfile.name,
+                credentials: doc.medicalReviewerProfile.credentials,
+                url: `${siteConfig.baseUrl}/${locale}/authors/${doc.medicalReviewerProfile.slug}`,
+              }
+            : null,
+          datePublished: doc.firstPublishedAt,
+          dateModified: doc.updatedAt,
+        })}
+      />
+      <JsonLd
         data={breadcrumbJsonLd([
           { name: sectionTitle, url: `${siteConfig.baseUrl}/${locale}${sectionHref}` },
           { name: doc.title, url },
@@ -53,6 +76,7 @@ export async function ContentArticle({
 
       <div className="flex flex-col gap-2">
         <h1 className="font-display text-3xl text-text">{doc.title}</h1>
+        <Byline authors={doc.authors ?? []} reviewer={doc.medicalReviewerProfile ?? null} />
         <div className="flex flex-wrap items-center gap-2 text-sm text-text-muted">
           <Badge variant="success">{t("reviewed")}</Badge>
           {doc.lastReviewed ? (
@@ -97,5 +121,43 @@ export async function ContentArticle({
 
       <p className="text-2xs text-text-subtle">{t("footerNote")}</p>
     </main>
+  );
+}
+
+/**
+ * Named author + named clinician reviewer, each linked to their bio (doc 15 §8).
+ * Renders nothing until the CMS has people attached, so an article published
+ * before its bios exist degrades to the reviewed badge rather than to "By ,".
+ */
+async function Byline({ authors, reviewer }: { authors: Byline[]; reviewer: Byline | null }) {
+  const t = await getTranslations("learn");
+  if (authors.length === 0 && !reviewer) return null;
+
+  const name = (p: Byline) => (p.credentials ? `${p.name}, ${p.credentials}` : p.name);
+
+  return (
+    <p className="flex flex-wrap items-center gap-x-2 gap-y-1 text-sm text-text-muted">
+      {authors.length > 0 ? (
+        <span>
+          {t("byline")}{" "}
+          {authors.map((a, i) => (
+            <span key={a.slug}>
+              {i > 0 ? ", " : ""}
+              <Link href={`/authors/${a.slug}`} className="text-text-link underline">
+                {name(a)}
+              </Link>
+            </span>
+          ))}
+        </span>
+      ) : null}
+      {reviewer ? (
+        <span>
+          {t("reviewedBy")}{" "}
+          <Link href={`/authors/${reviewer.slug}`} className="text-text-link underline">
+            {name(reviewer)}
+          </Link>
+        </span>
+      ) : null}
+    </p>
   );
 }

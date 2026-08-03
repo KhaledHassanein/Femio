@@ -20,10 +20,33 @@ export type RichTextValue = { root?: LexicalNode } | null;
 export type Source = { title: string; url?: string | null; tier?: string | null };
 export type DisclaimerType = "general" | "screening" | "emergency" | "none";
 
+/** A public byline: the person shown as author or reviewer (P1.6.6). */
+export type Byline = {
+  slug: string;
+  name: string;
+  credentials?: string | null;
+  jobTitle?: string | null;
+};
+
+/** Search + social overrides authored in the CMS. All optional — the page's own
+ *  copy is the fallback, so an unfilled field never produces an empty tag. */
+export type SeoFields = {
+  seoTitle?: string | null;
+  metaDescription?: string | null;
+  canonicalOverride?: string | null;
+  noIndex?: boolean | null;
+  socialTitle?: string | null;
+  socialDescription?: string | null;
+};
+
 export type ContentDoc = {
   id: string;
   title: string;
   slug: string;
+  authors?: Byline[] | null;
+  medicalReviewerProfile?: Byline | null;
+  firstPublishedAt?: string | null;
+  seo?: SeoFields | null;
   excerpt?: string | null;
   summary?: string | null;
   body?: RichTextValue;
@@ -106,8 +129,10 @@ export async function getContentBySlug(
   locale: string,
   slug: string,
 ): Promise<ContentDoc | null> {
+  // depth=1 so `authors` / `medicalReviewerProfile` come back as people rather
+  // than ids — a byline is the whole point of fetching a single document.
   const data = await query<{ docs: ContentDoc[] }>(
-    `/api/${collection}?locale=${encodeURIComponent(locale)}&depth=0&limit=1&where[slug][equals]=${encodeURIComponent(slug)}`,
+    `/api/${collection}?locale=${encodeURIComponent(locale)}&depth=1&limit=1&where[slug][equals]=${encodeURIComponent(slug)}`,
   );
   return data?.docs?.[0] ?? null;
 }

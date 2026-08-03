@@ -8,6 +8,8 @@
     "heroBody": "Referenced, judgment-free guidance and honest tracking — from puberty and cycles through trying to conceive, pregnancy, and menopause.",
     "sections": {
       "learn": {
+    "byline": "By",
+    "reviewedBy": "Medically reviewed by",
         "name": "Learn",
         "desc": "Medically-reviewed guides on your cycle, body, and health."
       },

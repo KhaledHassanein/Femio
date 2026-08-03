@@ -8,6 +8,8 @@
     "heroBody": "Des conseils référencés et sans jugement et un suivi honnête — de la puberté et des cycles à la conception, la grossesse et la ménopause.",
     "sections": {
       "learn": {
+    "byline": "Par",
+    "reviewedBy": "Relu médicalement par",
         "name": "Apprendre",
         "desc": "Des guides relus médicalement sur votre cycle, votre corps et votre santé."
       },

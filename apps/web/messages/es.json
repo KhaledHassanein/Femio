@@ -8,6 +8,8 @@
     "heroBody": "Orientación referenciada y sin juicios y un seguimiento honesto — desde la pubertad y los ciclos hasta la búsqueda de embarazo, el embarazo y la menopausia.",
     "sections": {
       "learn": {
+    "byline": "Por",
+    "reviewedBy": "Revisado médicamente por",
         "name": "Aprender",
         "desc": "Guías revisadas médicamente sobre tu ciclo, tu cuerpo y tu salud."
       },

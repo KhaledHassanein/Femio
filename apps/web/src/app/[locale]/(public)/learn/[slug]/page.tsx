@@ -24,10 +24,20 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const { locale, slug } = await params;
   const doc = await getContentBySlug("articles", locale, slug);
   if (!doc) return { title: "Not found", robots: { index: false, follow: false } };
+  // CMS overrides win where an editor filled them; the page's own copy is the
+  // fallback, so an unfilled field never yields an empty tag (P1.6.6).
+  const seo = doc.seo ?? {};
   return {
-    title: doc.title,
-    description: metaDescription(doc),
-    alternates: localizedAlternates(locale, `/learn/${slug}`),
+    title: seo.seoTitle || doc.title,
+    description: seo.metaDescription || metaDescription(doc),
+    alternates: seo.canonicalOverride
+      ? { canonical: seo.canonicalOverride }
+      : localizedAlternates(locale, `/learn/${slug}`),
+    ...(seo.noIndex ? { robots: { index: false, follow: true } } : {}),
+    openGraph: {
+      title: seo.socialTitle || seo.seoTitle || doc.title,
+      description: seo.socialDescription || seo.metaDescription || metaDescription(doc),
+    },
   };
 }
 

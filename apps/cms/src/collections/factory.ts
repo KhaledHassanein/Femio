@@ -2,6 +2,7 @@ import type { CollectionConfig, Field } from "payload";
 import { readPublishedOrStaff } from "../access/content";
 import { isEditor, isStaff } from "../access/roles";
 import { editorialFields } from "../fields/editorial";
+import { publishingFields } from "../fields/publishing";
 import { enforceReviewGate } from "../hooks/review-gate";
 
 // All content collections share the same shape: a localized title, a shared
@@ -14,6 +15,11 @@ export function contentCollection(args: {
   titleLabel?: string;
   labels?: { singular: string; plural: string };
   bodyFields: Field[];
+  /**
+   * Public authorship + SEO fields (P1.6.6). Opt-in: they belong on long-form
+   * health pages that carry a byline, not on a glossary term or a one-line tip.
+   */
+  publishing?: boolean;
 }): CollectionConfig {
   const titleName = args.titleName ?? "title";
 
@@ -36,6 +42,7 @@ export function contentCollection(args: {
       { name: titleName, label: args.titleLabel, type: "text", required: true, localized: true },
       { name: "slug", type: "text", required: true, unique: true, index: true },
       ...args.bodyFields,
+      ...(args.publishing ? publishingFields : []),
       ...editorialFields,
     ],
   };
