@@ -74,4 +74,14 @@ variable unset).
 
 ## Outcome
 
-_Not yet sent._
+**2026-08-03 — Khaled approved keeping the link**, on the strength of the terms analysis in
+`CRISIS_RESOURCES.md` (no restriction on inbound links; permission attaches to API/widgets/
+partner subdomains/scraping/commercial exploitation *of the Services*, none of which Femio does).
+
+⚠ **This is the owner accepting the residual risk, not ThroughLine's written confirmation.** The
+email above has not been sent, so the "commercial purpose" clause remains closed by interpretation
+rather than in writing. That is a defensible position — but if the DPO wants the file complete
+before launch (P0.12), send it then; it costs one email and upgrades this record from a judgement
+to a fact.
+
+_Status: link stays live. Written confirmation optional, still recommended for the DPO file._

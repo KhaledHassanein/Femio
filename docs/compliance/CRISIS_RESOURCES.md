@@ -62,6 +62,9 @@ fallback even when location is unavailable.
     a draft is in `docs/compliance/THROUGHLINE_LINK_CONFIRMATION.md`. Until it is
     answered, the assessment above is the record, and the link may stay: it is a
     safety feature, and removing it would leave people with fewer routes to help.
+    **2026-08-03: Khaled reviewed this analysis and approved keeping the link.**
+    That is owner acceptance of the residual risk, not ThroughLine's written
+    confirmation — the distinction matters if the DPO audits this file.
   - Re-check on the 12-month cadence below, or sooner if ThroughLine changes terms.
 - A failed lookup must fall back to local emergency services or the nearest
   emergency department; it must never return an empty crisis screen.

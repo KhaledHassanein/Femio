@@ -606,6 +606,31 @@ link once the var is set.
 
 ## F. Google Search Console + custom domain (SEO, P1.11.GSC)
 
+> **Domain purchased 2026-08-03: `femioapp.com`.** Do this **before** the P1.9 content push —
+> every article's canonical URL, sitemap entry, hreflang tag and social preview is built from
+> `NEXT_PUBLIC_APP_URL`, so publishing sixty articles first means sixty redirects and a
+> re-indexing cycle afterwards. The four steps, in order:
+>
+> 1. **Vercel → femio-web → Settings → Domains** → add `femioapp.com` (and `www.femioapp.com`,
+>    redirecting to the apex). Add the DNS records it shows at your registrar; wait for it to go
+>    green.
+> 2. **Vercel → femio-web → Settings → Environment Variables** → set
+>    `NEXT_PUBLIC_APP_URL=https://femioapp.com` (Production **and** Preview) → **redeploy**. This
+>    is the one that matters for SEO; it bakes in at build time.
+> 3. **Supabase → Authentication → URL Configuration** → Site URL `https://femioapp.com`, and add
+>    `https://femioapp.com/**` to Redirect URLs (keep `http://localhost:3000/**` for local work).
+>    Without this, magic links and Google sign-in land on the old origin.
+> 4. **Search Console** → add a **Domain** property for `femioapp.com`, verify by DNS TXT, then
+>    submit `https://femioapp.com/sitemap.xml`. Set `NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION` in
+>    Vercel if you use the meta-tag method instead.
+>
+> Leave the CMS on `femio-cms.vercel.app` — it is back-office and its address is never seen by a
+> visitor. `NEXT_PUBLIC_CMS_URL` does **not** change.
+>
+> **Verify:** `curl -sI https://femioapp.com/en | grep -i location` returns nothing (no redirect
+> loop), and the page source shows `<link rel="canonical" href="https://femioapp.com/en"/>`.
+> Tell Claude when it's live — a few docs still name the vercel.app host.
+
 > [TODO] **Verified not done 2026-07-30** — no `google-site-verification` tag in the live pages, and canonicals still point at `femio-web.vercel.app`. Worth doing before content lands so indexing starts early; nothing in the build depends on it.
 
 **Why:** to appear in Google and control indexing. Femio is SEO-first, so this matters for
