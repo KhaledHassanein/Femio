@@ -200,45 +200,6 @@ export interface Article {
     };
     [k: string]: unknown;
   } | null;
-  /**
-   * Public byline(s). Shown on the page and in Article schema.
-   */
-  authors?: (number | Person)[] | null;
-  /**
-   * The clinician shown publicly as reviewer. Separate from the workflow reviewer above, which is the account that approved it.
-   */
-  medicalReviewerProfile?: (number | null) | Person;
-  /**
-   * Set automatically on first publish.
-   */
-  firstPublishedAt?: string | null;
-  /**
-   * Search + social. Leave blank to fall back to the page's own copy.
-   */
-  seo?: {
-    /**
-     * ~30–60 characters. Editable separately from the H1.
-     */
-    seoTitle?: string | null;
-    /**
-     * ~120–160 characters, unique per page, written for a human.
-     */
-    metaDescription?: string | null;
-    /**
-     * Exceptional cases only — the canonical is generated from locale + slug by default.
-     */
-    canonicalOverride?: string | null;
-    /**
-     * Keep this page out of search results.
-     */
-    noIndex?: boolean | null;
-    socialTitle?: string | null;
-    socialDescription?: string | null;
-    /**
-     * 1200×630. The Media record needs localized alt text.
-     */
-    socialImage?: (number | null) | Media;
-  };
   reviewStatus?: ('draft' | 'in_review' | 'changes_requested' | 'approved') | null;
   /**
    * Reviewer who approved this content.
@@ -256,59 +217,6 @@ export interface Article {
         title: string;
         url?: string | null;
         tier?: ('1' | '2' | '3') | null;
-        id?: string | null;
-      }[]
-    | null;
-  updatedAt: string;
-  createdAt: string;
-  _status?: ('draft' | 'published') | null;
-}
-/**
- * Author / medical-reviewer bios shown on public bio pages.
- *
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "people".
- */
-export interface Person {
-  id: number;
-  name: string;
-  slug: string;
-  /**
-   * How this person appears on content (doc 15 §8).
-   */
-  roles?: ('author' | 'medical_reviewer')[] | null;
-  /**
-   * Post-nominals as they should be printed, e.g. “MD, MRCOG”.
-   */
-  credentials?: string | null;
-  jobTitle?: string | null;
-  affiliation?: string | null;
-  /**
-   * Short professional biography (expertise, experience).
-   */
-  bio?: {
-    root: {
-      type: string;
-      children: {
-        type: any;
-        version: number;
-        [k: string]: unknown;
-      }[];
-      direction: ('ltr' | 'rtl') | null;
-      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
-      indent: number;
-      version: number;
-    };
-    [k: string]: unknown;
-  } | null;
-  photo?: (number | null) | Media;
-  /**
-   * Professional profiles used as `sameAs` in Person schema (registry entry, PubMed, LinkedIn, ORCID). Not localized.
-   */
-  sameAs?:
-    | {
-        label: string;
-        url: string;
         id?: string | null;
       }[]
     | null;
@@ -340,45 +248,6 @@ export interface Condition {
     };
     [k: string]: unknown;
   } | null;
-  /**
-   * Public byline(s). Shown on the page and in Article schema.
-   */
-  authors?: (number | Person)[] | null;
-  /**
-   * The clinician shown publicly as reviewer. Separate from the workflow reviewer above, which is the account that approved it.
-   */
-  medicalReviewerProfile?: (number | null) | Person;
-  /**
-   * Set automatically on first publish.
-   */
-  firstPublishedAt?: string | null;
-  /**
-   * Search + social. Leave blank to fall back to the page's own copy.
-   */
-  seo?: {
-    /**
-     * ~30–60 characters. Editable separately from the H1.
-     */
-    seoTitle?: string | null;
-    /**
-     * ~120–160 characters, unique per page, written for a human.
-     */
-    metaDescription?: string | null;
-    /**
-     * Exceptional cases only — the canonical is generated from locale + slug by default.
-     */
-    canonicalOverride?: string | null;
-    /**
-     * Keep this page out of search results.
-     */
-    noIndex?: boolean | null;
-    socialTitle?: string | null;
-    socialDescription?: string | null;
-    /**
-     * 1200×630. The Media record needs localized alt text.
-     */
-    socialImage?: (number | null) | Media;
-  };
   reviewStatus?: ('draft' | 'in_review' | 'changes_requested' | 'approved') | null;
   /**
    * Reviewer who approved this content.
@@ -523,6 +392,59 @@ export interface Glossary {
         title: string;
         url?: string | null;
         tier?: ('1' | '2' | '3') | null;
+        id?: string | null;
+      }[]
+    | null;
+  updatedAt: string;
+  createdAt: string;
+  _status?: ('draft' | 'published') | null;
+}
+/**
+ * Author / medical-reviewer bios shown on public bio pages.
+ *
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "people".
+ */
+export interface Person {
+  id: number;
+  name: string;
+  slug: string;
+  /**
+   * How this person appears on content (doc 15 §8).
+   */
+  roles?: ('author' | 'medical_reviewer')[] | null;
+  /**
+   * Post-nominals as they should be printed, e.g. “MD, MRCOG”.
+   */
+  credentials?: string | null;
+  jobTitle?: string | null;
+  affiliation?: string | null;
+  /**
+   * Short professional biography (expertise, experience).
+   */
+  bio?: {
+    root: {
+      type: string;
+      children: {
+        type: any;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  photo?: (number | null) | Media;
+  /**
+   * Professional profiles used as `sameAs` in Person schema (registry entry, PubMed, LinkedIn, ORCID). Not localized.
+   */
+  sameAs?:
+    | {
+        label: string;
+        url: string;
         id?: string | null;
       }[]
     | null;
@@ -679,20 +601,6 @@ export interface ArticlesSelect<T extends boolean = true> {
   slug?: T;
   excerpt?: T;
   body?: T;
-  authors?: T;
-  medicalReviewerProfile?: T;
-  firstPublishedAt?: T;
-  seo?:
-    | T
-    | {
-        seoTitle?: T;
-        metaDescription?: T;
-        canonicalOverride?: T;
-        noIndex?: T;
-        socialTitle?: T;
-        socialDescription?: T;
-        socialImage?: T;
-      };
   reviewStatus?: T;
   medicalReviewer?: T;
   lastReviewed?: T;
@@ -720,20 +628,6 @@ export interface ConditionsSelect<T extends boolean = true> {
   slug?: T;
   summary?: T;
   body?: T;
-  authors?: T;
-  medicalReviewerProfile?: T;
-  firstPublishedAt?: T;
-  seo?:
-    | T
-    | {
-        seoTitle?: T;
-        metaDescription?: T;
-        canonicalOverride?: T;
-        noIndex?: T;
-        socialTitle?: T;
-        socialDescription?: T;
-        socialImage?: T;
-      };
   reviewStatus?: T;
   medicalReviewer?: T;
   lastReviewed?: T;
