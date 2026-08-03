@@ -21,7 +21,7 @@ open_graph_title: "Meet Femio: Private, Practical Women's Health Tracking"
 open_graph_description: "Track cycles and symptoms, use free health tools, and prepare for clinician visits with honest estimates and privacy controls."
 open_graph_image: "PENDING — upload a crawlable 1200 x 630 px image"
 open_graph_image_alt: "Femio dashboard showing private cycle and symptom tracking tools"
-written_by: "PENDING — named author and public bio required"
+written_by: "PENDING"
 medically_reviewed_by: "PENDING"
 date_published: null
 date_modified: null
@@ -35,13 +35,19 @@ structured_data_required:
   - "MedicalWebPage"
   - "BreadcrumbList"
   - "FAQPage"
-internal_sources:
-  - "docs/05_PRODUCT_STRATEGY_PLAN.md"
-  - "docs/HANDOVER_STATE_2026-07-30.md"
-  - "docs/13_LEGAL_COMPLIANCE.md"
-  - "docs/15_EDITORIAL_MEDICAL_REVIEW_POLICY.md"
-  - "docs/compliance/HEALTH_APP_CLAIMS_AND_DATA_SAFETY.md"
-  - "apps/web/messages/en.json"
+sources:
+  - title: "NHS: Periods and fertility in the menstrual cycle"
+    url: "https://www.nhs.uk/conditions/periods/fertility-in-the-menstrual-cycle/"
+    tier: "1"
+  - title: "ACOG: The Menstrual Cycle: Menstruation, Ovulation, and How Pregnancy Occurs"
+    url: "https://www.acog.org/womens-health/infographics/the-menstrual-cycle"
+    tier: "1"
+internal_links:
+  - "/en/learn"
+  - "/en/calculators"
+  - "/en/about"
+  - "/en/editorial-policy"
+  - "/en/medical-review"
 ---
 
 <!--
@@ -59,7 +65,7 @@ Suggested social description: Meet Femio, a private and practical way to track c
 
 # Meet Femio: Your Women's Health Tracking Companion
 
-The Femio women's health app brings cycle and symptom tracking, free health calculators, clear guides, and visit planning into one private, easy-to-use place. It helps you record what is happening, spot patterns over time, and have more useful talks with your care team. Femio is for wellness and education. It does not diagnose or treat health conditions.
+The Femio women's health app brings cycle and symptom tracking, free health calculators, clear guides, and visit planning into one private, easy-to-use place. It helps you record what is happening, spot patterns over time, and have more useful talks with your care team. Femio is for wellness and education. A qualified clinician can assess health concerns and discuss care options.
 
 ## What is Femio?
 
@@ -81,13 +87,13 @@ If your cycles vary, Femio uses a wider range instead of forcing your experience
 
 Record symptoms, their severity, and any notes that matter to you. You can also add a custom symptom if the standard options do not fit. Regular logging may help you remember when something happened and see how often it returns.
 
-A pattern in your log is not a diagnosis. If a symptom worries you, becomes severe, or affects daily life, talk with a qualified clinician.
+A pattern in your log cannot confirm a health condition. If a symptom worries you, becomes severe, or affects daily life, talk with a qualified clinician.
 
 ### View honest cycle and fertile-window estimates
 
-Femio may show an estimated fertile window and ovulation range based on the cycle dates you record. These dates are estimates, not guarantees. Bodies and cycles change, and an app cannot confirm ovulation from calendar dates alone.
+Femio may show an estimated fertile window and ovulation range based on the cycle dates you record. These dates are estimates, not guarantees. Guidance from the [NHS](https://www.nhs.uk/conditions/periods/fertility-in-the-menstrual-cycle/) and [ACOG](https://www.acog.org/womens-health/infographics/the-menstrual-cycle) explains how cycle timing and ovulation can vary.
 
-**Predictions are estimates, not guarantees, and are not a method of birth control.** Do not use Femio to decide when pregnancy cannot happen.
+**These dates support conception planning and awareness. They are estimates, not a reliable way to avoid pregnancy.**
 
 ### Prepare for a clinician visit
 
@@ -111,11 +117,11 @@ No account is needed to use these tools. Their results are general estimates for
 
 You can begin without an email or create an account to sync across devices. In settings, you can review optional data choices, export your data, or delete your account and data.
 
-Femio’s product policy is that health data is never sold or shared with advertisers. Read the current Privacy Policy before entering health information. It explains what Femio collects, why it is used, which service providers are involved, and which controls are available to you.
+Femio’s product policy is that health data is never sold or shared with advertisers. Read the current Privacy Policy before entering health information. It explains what Femio collects, why it is used, which service providers are involved, and which controls are available to you. You can also [learn more about Femio](/en/about).
 
 ### Use Femio in your language
 
-Femio supports English, Arabic, French, and Spanish. Arabic includes right-to-left layouts. Health content in each language must complete its own review before publication, so translated wording stays accurate and clear.
+Femio supports English, Arabic, French, and Spanish. Arabic includes right-to-left layouts. Health content in each language must complete its own review before publication, so translated wording stays accurate and clear. Read about Femio's [editorial standards](/en/editorial-policy) and [medical review process](/en/medical-review).
 
 ## How to get the most benefit from Femio
 
@@ -133,7 +139,7 @@ For symptoms you want to discuss, note their severity, timing, and effect on dai
 
 ### 4. Read dates as ranges
 
-Treat predicted dates as a planning aid. Check the range and confidence level instead of expecting one exact day. Estimates can change as you add new cycle information.
+Use predicted dates as a planning aid. Check the range and confidence level instead of expecting one exact day. Estimates can change as you add new cycle information.
 
 ### 5. Review your history before an appointment
 
@@ -145,7 +151,7 @@ Review your choices when your needs change. Export a copy if you want one, and d
 
 ### 7. Use the learning tools to prepare questions
 
-Use Femio’s articles, glossary, and calculators to understand common terms and prepare questions. They are a starting point for a health conversation, not a way to decide what condition you have or which treatment you need.
+Use Femio's [learning library](/en/learn) and calculators to understand common terms and prepare questions. They are a starting point for a health conversation, not a way to decide what condition you have or which care option you need.
 
 ## What is coming later?
 
@@ -156,9 +162,9 @@ Product plans can change. Check the app and official Femio updates for the lates
 ## Important safety limits
 
 - Femio supports wellness tracking, education, and organization of information you enter.
-- It does not diagnose, stage, predict, rule out, treat, cure, or prevent a medical condition.
-- It does not interpret an individual result or tell you which treatment or dose to use.
-- Cycle and fertile-window predictions are estimates. They are not contraception and must not be used to identify a “safe” day to avoid pregnancy.
+- Femio cannot confirm, stage, or rule out a medical condition.
+- It does not interpret an individual result or select clinical care or a medicine dose.
+- Fertile-window dates support conception planning and awareness. They are estimates, not a reliable way to avoid pregnancy.
 - Calculator results are general estimates and may not fit your personal situation.
 - A Femio visit summary is not a medical record and does not create a clinician–patient relationship.
 - Femio is not an emergency service. If you may be in immediate danger or have severe or sudden symptoms, contact local emergency services or go to the nearest emergency department.
@@ -167,7 +173,7 @@ Product plans can change. Check the app and official Femio updates for the lates
 
 ### Is Femio a medical app?
 
-Femio is a wellness, education, and tracking service. It is not a medical device and does not provide medical advice, diagnosis, or treatment.
+Femio is a wellness, education, and tracking service. It is not a medical device. A qualified clinician can assess health concerns and discuss clinical care.
 
 ### Do I need an account?
 
@@ -179,7 +185,7 @@ No. Femio shows an estimated range based on the dates you enter. Your cycle may 
 
 ### Can I use Femio’s fertile-window estimate to avoid pregnancy?
 
-No. The fertile window is an estimate for awareness and conception planning. It is not a reliable method of birth control and cannot identify a day when pregnancy is impossible.
+No. These dates support conception planning and awareness. They are estimates, not a reliable way to avoid pregnancy.
 
 ### Does Femio work for irregular cycles?
 
@@ -195,6 +201,4 @@ Yes. You can choose to print or save a visit summary as a PDF. Review it first a
 
 ## Start with Femio
 
-Explore the [free calculators](/en/calculators), or [start Femio](/en/welcome) and create your first private health log.
-
-> **General disclaimer:** Femio provides educational and tracking information, not medical advice, diagnosis, or treatment. Talk to your clinician about your situation.
+Explore the [free calculators](/en/calculators), or visit the [learning library](/en/learn) to read more from Femio.

@@ -77,6 +77,9 @@ export async function ContentArticle({
       <div className="flex flex-col gap-2">
         <h1 className="font-display text-3xl text-text">{doc.title}</h1>
         <Byline authors={doc.authors ?? []} reviewer={doc.medicalReviewerProfile ?? null} />
+        {/* Boundary first, guidance second: a reader should know what this is
+            before she acts on it, not after (health product, not a medical one). */}
+        <p className="text-sm text-text-subtle">{t("boundaryNote")}</p>
         <div className="flex flex-wrap items-center gap-2 text-sm text-text-muted">
           <Badge variant="success">{t("reviewed")}</Badge>
           {doc.lastReviewed ? (

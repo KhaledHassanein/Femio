@@ -8,10 +8,8 @@
     "heroBody": "Referenced, judgment-free guidance and honest tracking — from puberty and cycles through trying to conceive, pregnancy, and menopause.",
     "sections": {
       "learn": {
-    "byline": "By",
-    "reviewedBy": "Medically reviewed by",
         "name": "Learn",
-        "desc": "Medically-reviewed guides on your cycle, body, and health."
+        "desc": "Clinician-reviewed guides on your cycle, body, and health."
       },
       "conditions": {
         "name": "Conditions & topics",
@@ -350,10 +348,13 @@
     "mismatch": "Those passwords don’t match."
   },
   "learn": {
+    "boundaryNote": "Health information for learning and planning — not medical advice, and not a substitute for your own clinician.",
+    "byline": "By",
+    "reviewedBy": "Reviewed by",
     "title": "Learn",
-    "subtitle": "Referenced, medically-reviewed guides on your cycle, conditions, fertility, pregnancy and menopause.",
+    "subtitle": "Referenced guides on your cycle, conditions, fertility, pregnancy and menopause — each reviewed by a clinician.",
     "empty": "New guides are on the way — check back soon.",
-    "reviewed": "Medically reviewed",
+    "reviewed": "Clinician reviewed",
     "lastReviewed": "Last reviewed {date}",
     "sources": "Sources",
     "tier": "Tier {tier}",
@@ -366,7 +367,7 @@
   },
   "conditions": {
     "title": "Conditions & topics",
-    "subtitle": "Referenced, medically-reviewed guides to conditions and topics across your health life.",
+    "subtitle": "Referenced guides to conditions and topics across your health life, each reviewed by a clinician.",
     "empty": "New topics are on the way — check back soon."
   },
   "faq": {
@@ -385,7 +386,7 @@
     "terms": "Terms",
     "about": "About",
     "editorial": "Editorial policy",
-    "medicalReview": "Medical review",
+    "medicalReview": "How we review",
     "related": "Related",
     "home": "Home",
     "learn": "Learn",
@@ -602,7 +603,7 @@
     "empty": "Author and reviewer bios appear here as our first guides are published.",
     "roles": {
       "author": "Author",
-      "medical_reviewer": "Medical reviewer"
+      "medical_reviewer": "Clinician reviewer"
     },
     "profiles": "Professional profiles"
   },

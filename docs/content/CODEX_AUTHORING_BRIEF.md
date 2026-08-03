@@ -45,6 +45,25 @@ Its differentiator is **trustworthiness**, in a category with a reputational wou
 Flo FTC settlement, the Premom action, the Glow breach). Referenced content and verifiable
 privacy are the product, not the marketing. Write like that is true, because it is.
 
+**Positioning — read this twice (owner direction, 2026-08-03).** Femio is a **health**
+product, not a **medical** one. That is a deliberate choice, and it cuts two ways in your
+writing:
+
+- **Sound like a trusted health guide, not a clinic.** Prefer "health", "wellbeing",
+  "your body", "care", "clinician" over "medical", "medicine", "clinical", "patient".
+  Don't write "medical information", write "health information". Don't call the reader a
+  patient — she is a person reading about her own body.
+- **But never soften the boundary.** The disclaimers keep the word *medical* on purpose:
+  "not medical advice", "not a substitute for your clinician", "seek urgent medical care".
+  Those sentences are what keep Femio outside medical-device regulation, and they must
+  stay exact. Reducing medical *framing* while keeping the medical *boundary* is the whole
+  point — one is decoration, the other is protection.
+- **Make the boundary visible early.** Every article states, in its own words and within
+  the first screen, that this is health information for learning and planning and not a
+  substitute for the reader's own clinician. Do not bury it at the bottom.
+- Describing clinical care remains fine and necessary (§2). "A clinician may suggest…" is
+  health writing; "we recommend…" is not.
+
 **Tone:** warm, plain, judgment-free, specific. Never coy about anatomy. Never
 patronising. Never breathless. A reader in pain at 2am should find the answer in the first
 two sentences, and a reader browsing should find it worth reading.
@@ -248,6 +267,8 @@ For every article:
 - [ ] Red-flag box present wherever a symptom can be an emergency.
 - [ ] ≥2 sources, ≥1 Tier 1, each with a working URL, cited at the claim.
 - [ ] Zero forbidden words per §2; the fertile-window sentence used verbatim if relevant.
+- [ ] Health framing, not clinical framing (§1) — and the boundary stated within the first
+      screen, in the article's own words.
 - [ ] No statistic without a citation; no invented anything.
 - [ ] Front matter complete, keys unchanged, `status: draft`, author/reviewer `PENDING`.
 - [ ] `meta_title` and `meta_description` unique across the whole set.

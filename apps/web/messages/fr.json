@@ -8,8 +8,6 @@
     "heroBody": "Des conseils référencés et sans jugement et un suivi honnête — de la puberté et des cycles à la conception, la grossesse et la ménopause.",
     "sections": {
       "learn": {
-    "byline": "Par",
-    "reviewedBy": "Relu médicalement par",
         "name": "Apprendre",
         "desc": "Des guides relus médicalement sur votre cycle, votre corps et votre santé."
       },
@@ -350,10 +348,13 @@
     "mismatch": "Les mots de passe ne correspondent pas."
   },
   "learn": {
+    "boundaryNote": "Information santé pour s'informer et planifier — pas un avis médical, et pas un substitut à votre clinicien.",
+    "byline": "Par",
+    "reviewedBy": "Relu par",
     "title": "Apprendre",
     "subtitle": "Des guides référencés et relus médicalement sur votre cycle, vos affections, la fertilité, la grossesse et la ménopause.",
     "empty": "De nouveaux guides arrivent — revenez bientôt.",
-    "reviewed": "Relu médicalement",
+    "reviewed": "Relu par un clinicien",
     "lastReviewed": "Dernière relecture {date}",
     "sources": "Sources",
     "tier": "Niveau {tier}",
@@ -385,7 +386,7 @@
     "terms": "Conditions",
     "about": "À propos",
     "editorial": "Politique éditoriale",
-    "medicalReview": "Relecture médicale",
+    "medicalReview": "Notre relecture",
     "related": "À voir aussi",
     "home": "Accueil",
     "learn": "Apprendre",
@@ -602,7 +603,7 @@
     "empty": "Les biographies des auteurs et des relecteurs apparaîtront ici à mesure que nos premiers guides seront publiés.",
     "roles": {
       "author": "Auteur",
-      "medical_reviewer": "Relecteur médical"
+      "medical_reviewer": "Relecteur clinicien"
     },
     "profiles": "Profils professionnels"
   },

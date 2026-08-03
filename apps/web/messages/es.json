@@ -8,8 +8,6 @@
     "heroBody": "Orientación referenciada y sin juicios y un seguimiento honesto — desde la pubertad y los ciclos hasta la búsqueda de embarazo, el embarazo y la menopausia.",
     "sections": {
       "learn": {
-    "byline": "Por",
-    "reviewedBy": "Revisado médicamente por",
         "name": "Aprender",
         "desc": "Guías revisadas médicamente sobre tu ciclo, tu cuerpo y tu salud."
       },
@@ -350,10 +348,13 @@
     "mismatch": "Las contraseñas no coinciden."
   },
   "learn": {
+    "boundaryNote": "Información de salud para informarte y planificar: no es consejo médico ni sustituye a tu profesional clínico.",
+    "byline": "Por",
+    "reviewedBy": "Revisado por",
     "title": "Aprender",
     "subtitle": "Guías referenciadas y revisadas médicamente sobre tu ciclo, afecciones, fertilidad, embarazo y menopausia.",
     "empty": "Pronto habrá nuevas guías — vuelve pronto.",
-    "reviewed": "Revisado médicamente",
+    "reviewed": "Revisado por un profesional clínico",
     "lastReviewed": "Última revisión {date}",
     "sources": "Fuentes",
     "tier": "Nivel {tier}",
@@ -385,7 +386,7 @@
     "terms": "Términos",
     "about": "Acerca de",
     "editorial": "Política editorial",
-    "medicalReview": "Revisión médica",
+    "medicalReview": "Cómo revisamos",
     "related": "Relacionado",
     "home": "Inicio",
     "learn": "Aprender",
@@ -602,7 +603,7 @@
     "empty": "Las biografías de autoras y revisores aparecerán aquí cuando publiquemos nuestras primeras guías.",
     "roles": {
       "author": "Autora",
-      "medical_reviewer": "Revisor médico"
+      "medical_reviewer": "Revisor clínico"
     },
     "profiles": "Perfiles profesionales"
   },
