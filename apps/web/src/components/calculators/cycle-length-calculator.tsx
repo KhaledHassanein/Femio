@@ -8,6 +8,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
+import { useCalculatorUsed } from "@/lib/analytics/use-calculator-used";
 
 export function CycleLengthCalculator() {
   const t = useTranslations("calculators");
@@ -19,6 +20,8 @@ export function CycleLengthCalculator() {
   const remove = (i: number) => setDates((d) => d.filter((_, idx) => idx !== i));
 
   const result = cycleStats(dates);
+
+  useCalculatorUsed(result != null);
   const days = (n: number) => t("cycleLength.daysValue", { days: n });
 
   return (

@@ -9,6 +9,7 @@ import { Badge } from "@/components/ui/badge";
 import { breadcrumbJsonLd, personJsonLd } from "@/lib/seo/jsonld";
 import { siteConfig } from "@/lib/seo/config";
 import { localizedAlternates } from "@/lib/seo/metadata";
+import { PageView } from "@/components/analytics/page-view";
 
 type PageProps = { params: Promise<{ locale: string; slug: string }> };
 
@@ -55,6 +56,7 @@ export default async function AuthorPage({ params }: PageProps) {
 
   return (
     <main className="mx-auto flex w-full max-w-3xl flex-1 flex-col gap-6 px-6 py-12">
+      <PageView area="library" />
       <JsonLd
         data={personJsonLd({
           name: person.name,

@@ -1,5 +1,6 @@
 import type { ContentDoc } from "@/lib/cms/client";
 import { Link } from "@/i18n/navigation";
+import { PageView } from "@/components/analytics/page-view";
 
 // Shared list view for a content collection hub (articles, conditions, …).
 export function ContentHub({
@@ -19,6 +20,7 @@ export function ContentHub({
 }) {
   return (
     <main className="mx-auto flex w-full max-w-3xl flex-col gap-6 px-6 py-12">
+      <PageView area="library" />
       <div className="flex flex-col gap-1">
         <h1 className="font-display text-3xl text-text">{title}</h1>
         <p className="text-sm text-text-muted">{subtitle}</p>

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { SignInForm } from "@/components/auth/sign-in-form";
 import { localizedAlternates } from "@/lib/seo/metadata";
+import { PageView } from "@/components/analytics/page-view";
 
 type PageProps = {
   params: Promise<{ locale: string }>;
@@ -24,6 +25,7 @@ export default async function SignInPage({ params, searchParams }: PageProps) {
   setRequestLocale(locale);
   return (
     <main className="mx-auto flex w-full max-w-md flex-col gap-6 px-6 py-16">
+      <PageView area="auth" />
       <SignInForm hadError={error === "1"} />
     </main>
   );

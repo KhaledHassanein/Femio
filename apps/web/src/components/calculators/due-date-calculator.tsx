@@ -6,6 +6,7 @@ import { estimateDueDate, MAX_CYCLE, MIN_CYCLE } from "@/lib/calculators";
 import { Card, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
+import { useCalculatorUsed } from "@/lib/analytics/use-calculator-used";
 
 export function DueDateCalculator() {
   const t = useTranslations("calculators");
@@ -14,6 +15,8 @@ export function DueDateCalculator() {
   const [cycle, setCycle] = useState("28");
 
   const result = lmp ? estimateDueDate(lmp, Number(cycle) || 28) : null;
+
+  useCalculatorUsed(result != null);
   const fmt = (iso: string) =>
     format.dateTime(new Date(`${iso}T00:00:00Z`), { dateStyle: "long", timeZone: "UTC" });
 

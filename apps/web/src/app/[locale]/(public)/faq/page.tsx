@@ -5,6 +5,7 @@ import { RichText, lexicalToPlainText } from "@/lib/cms/lexical";
 import { JsonLd } from "@/components/seo/json-ld";
 import { faqPageJsonLd } from "@/lib/seo/jsonld";
 import { localizedAlternates } from "@/lib/seo/metadata";
+import { PageView } from "@/components/analytics/page-view";
 
 type PageProps = { params: Promise<{ locale: string }> };
 
@@ -24,6 +25,7 @@ export default async function FaqPage({ params }: PageProps) {
 
   return (
     <main className="mx-auto flex w-full max-w-3xl flex-col gap-6 px-6 py-12">
+      <PageView area="library" />
       {faqs.length > 0 ? (
         <JsonLd
           data={faqPageJsonLd(

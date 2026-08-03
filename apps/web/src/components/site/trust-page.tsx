@@ -1,5 +1,6 @@
 import { Link } from "@/i18n/navigation";
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
+import { PageView } from "@/components/analytics/page-view";
 
 // Shared layout for static trust pages (about, editorial policy, medical review,
 // privacy, terms): a title, intro, an optional status notice, a list of
@@ -23,6 +24,7 @@ export function TrustPage({
 }) {
   return (
     <main className="mx-auto flex w-full max-w-3xl flex-1 flex-col gap-6 px-6 py-12">
+      <PageView area="trust" />
       <div className="flex flex-col gap-2">
         <h1 className="font-display text-3xl text-text">{title}</h1>
         <p className="text-md text-text-muted">{intro}</p>

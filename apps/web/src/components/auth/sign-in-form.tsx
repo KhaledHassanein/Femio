@@ -9,6 +9,8 @@ import { Alert, AlertDescription } from "@/components/ui/alert";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
+import { track } from "@/lib/analytics/track";
+import type { Locale } from "@/i18n/routing";
 
 type Method = "password" | "magic";
 
@@ -17,7 +19,8 @@ type Method = "password" | "magic";
 // magic link / OAuth / recovery all land on /api/auth/callback.
 export function SignInForm({ hadError = false }: { hadError?: boolean }) {
   const t = useTranslations("signIn");
-  const locale = useLocale();
+  // Typed to the app's locales so analytics props satisfy the closed catalog.
+  const locale = useLocale() as Locale;
   const [method, setMethod] = useState<Method>("password");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -36,6 +39,13 @@ export function SignInForm({ hadError = false }: { hadError?: boolean }) {
     setError(null);
     const { error } = await createClient().auth.signInWithPassword({ email, password });
     setBusy(false);
+    // Method + outcome only. No email, no user id — the catalog has no field for
+    // either, and the sign-in funnel doesn't need to know who.
+    void track("signin_completed", {
+      locale,
+      auth_method: "email_password",
+      outcome: error ? "error" : "success",
+    });
     if (error) setError(error.message);
     else window.location.assign(`/${locale}/dashboard`); // full reload so SSR sees the session
   };
@@ -49,6 +59,11 @@ export function SignInForm({ hadError = false }: { hadError?: boolean }) {
       options: { emailRedirectTo: callback(`/${locale}/dashboard`) },
     });
     setBusy(false);
+    void track("signin_completed", {
+      locale,
+      auth_method: "magic_link",
+      outcome: error ? "error" : "success",
+    });
     if (error) setError(error.message);
     else setSentMagic(true);
   };
@@ -78,8 +93,11 @@ export function SignInForm({ hadError = false }: { hadError?: boolean }) {
     if (error) {
       setBusy(false);
       setError(error.message);
+      void track("signin_completed", { locale, auth_method: "google", outcome: "error" });
     }
-    // On success the browser is redirected to Google.
+    // On success the browser leaves for Google, so there is no success event to
+    // send from here — the redirect back lands on the dashboard, which counts as
+    // an `app` area view. Deliberately not tracked twice.
   };
 
   if (sentMagic || sentReset) {

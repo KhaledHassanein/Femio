@@ -5,6 +5,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { JsonLd } from "@/components/seo/json-ld";
 import { organizationJsonLd, websiteJsonLd } from "@/lib/seo/jsonld";
 import { Link } from "@/i18n/navigation";
+import { PageView } from "@/components/analytics/page-view";
 
 type PageProps = { params: Promise<{ locale: string }> };
 
@@ -24,6 +25,7 @@ export default async function HomePage({ params }: PageProps) {
 
   return (
     <main className="mx-auto flex w-full max-w-5xl flex-1 flex-col gap-12 px-6 pb-20 pt-10">
+      <PageView area="home" />
       <JsonLd data={websiteJsonLd(locale)} />
       <JsonLd data={organizationJsonLd()} />
 

@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useLocale, useTranslations } from "next-intl";
 import { useRouter } from "@/i18n/navigation";
 import type { Locale } from "@/i18n/routing";
@@ -10,6 +10,8 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { cn } from "@/lib/utils";
+import { track } from "@/lib/analytics/track";
+import { PageView } from "@/components/analytics/page-view";
 
 type Mode = "cycle" | "ttc" | "pregnancy" | "menopause";
 type Account = "anonymous" | "email";
@@ -56,6 +58,10 @@ export function OnboardingWizard() {
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
+  useEffect(() => {
+    void track("signup_started", { locale });
+  }, [locale]);
+
   const canAdvance =
     step === 1 ? mode !== null : step === 2 ? account === "anonymous" || email.length > 3 : true;
 
@@ -71,6 +77,13 @@ export function OnboardingWizard() {
       analytics,
       locale,
     });
+    // Funnel only: `mode` is deliberately NOT sent — life stage is health data
+    // (it is answered first-party instead, ADR-020).
+    void track("signup_completed", {
+      locale,
+      auth_method: account === "email" ? "email_password" : "anonymous",
+      outcome: res.ok ? "success" : "error",
+    });
     if (res.ok) {
       router.push("/dashboard");
     } else {
@@ -81,6 +94,7 @@ export function OnboardingWizard() {
 
   return (
     <div className="mx-auto flex w-full max-w-xl flex-col gap-6 px-6 py-12">
+      <PageView area="onboarding" />
       <div className="flex flex-col gap-1">
         <p className="text-sm text-text-subtle">{t("stepOf", { current: step, total: TOTAL_STEPS })}</p>
         <h1 className="font-display text-2xl text-text">{t("title")}</h1>
