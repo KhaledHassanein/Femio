@@ -38,6 +38,31 @@ fallback even when location is unavailable.
 - Femio must confirm commercial-use/linking or integration terms with
   ThroughLine before production release. Until then, this is an external-link
   specification, not authorization to ingest, reproduce, or embed its dataset.
+  **Terms reviewed 2026-08-03 (Claude Code — engineering analysis, not legal
+  advice; DPO to countersign).** ThroughLine's Terms of Service
+  (<https://www.throughlinecare.com/terms-of-service>) were read against what
+  Femio actually does. Findings:
+  - The terms **place no restriction on third parties linking in**. They address
+    ThroughLine's own outbound links ("we do not control… not responsible nor
+    liable") and say nothing about inbound hyperlinks, which is the ordinary
+    position for a public website.
+  - What *does* need prior written permission is using **the Services** for a
+    commercial purpose, commercially exploiting/selling/licensing/distributing
+    them, scraping, reverse engineering, the **API or widgets**, and
+    **partner-branded** subdomains (`[company].findahelpline.com`).
+  - Femio does none of those. The implementation is a single plain outbound
+    `<a href="https://findahelpline.com">`: canonical host only, **no query
+    string or fragment** (build-fails otherwise — `lib/crisis/directory.ts`), no
+    embedding, no API call, no copy of their dataset, `referrerPolicy="no-referrer"`.
+    The user's own visit to a free public service is theirs, not a Femio
+    integration.
+  - **Residual question for the DPO:** the "commercial purpose" clause is written
+    around use *of the Services*, not around being linked to. A one-line written
+    confirmation from ThroughLine removes the ambiguity for the cost of an email;
+    a draft is in `docs/compliance/THROUGHLINE_LINK_CONFIRMATION.md`. Until it is
+    answered, the assessment above is the record, and the link may stay: it is a
+    safety feature, and removing it would leave people with fewer routes to help.
+  - Re-check on the 12-month cadence below, or sooner if ThroughLine changes terms.
 - A failed lookup must fall back to local emergency services or the nearest
   emergency department; it must never return an empty crisis screen.
 - Numbers for named national services may appear only in country-specific

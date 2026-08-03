@@ -215,14 +215,26 @@ should return `admin`.
 From the repo root, in a terminal (Git Bash / PowerShell):
 ```bash
 # Bash:
-SUPABASE_SERVICE_KEY="paste-service-role-key" node scripts/i18n/seed-ui-strings.mjs
+SUPABASE_SERVICE_KEY="<PASTE-YOUR-REAL-KEY-HERE>" node scripts/i18n/seed-ui-strings.mjs
 ```
 ```powershell
 # PowerShell:
-$env:SUPABASE_SERVICE_KEY="paste-service-role-key"; node scripts/i18n/seed-ui-strings.mjs
+$env:SUPABASE_SERVICE_KEY="<PASTE-YOUR-REAL-KEY-HERE>"; node scripts/i18n/seed-ui-strings.mjs
 ```
 You should see `✓ Seeded ui_strings…`. English is stored as **approved**, AR/FR/ES as
 **drafts**.
+
+> **`Invalid API key`?** The placeholder above is not a value — replace the whole
+> `<PASTE-YOUR-REAL-KEY-HERE>` including the angle brackets with the actual secret from
+> Supabase → **Project Settings → API Keys** → the **`service_role`** / secret key (starts
+> `sb_secret_…` or `eyJ…`), *not* the publishable one. Running the line as printed sends the
+> literal placeholder text as your key, which is exactly what the error is telling you.
+>
+> Afterwards, clear it from the shell so the secret isn't left in your session:
+> `$env:SUPABASE_SERVICE_KEY=""` (or just close the terminal).
+>
+> The `Assertion failed … UV_HANDLE_CLOSING` line after an error is harmless Node-on-Windows
+> exit noise — ignore it.
 
 **Verify:** sign in to Femio, go to `https://<your-site>/en/admin/translations`. You should
 see the status board and a table. Edit an Arabic string, click **Save & approve**, then open
@@ -254,7 +266,7 @@ Re-run exactly the B4 command. It **upserts**: existing rows keep their status (
 Arabic stays approved), new keys arrive as EN-approved / AR-FR-ES machine drafts.
 
 ```powershell
-$env:SUPABASE_SERVICE_KEY="paste-service-role-key"; node scripts/i18n/seed-ui-strings.mjs
+$env:SUPABASE_SERVICE_KEY="<PASTE-YOUR-REAL-KEY-HERE>"; node scripts/i18n/seed-ui-strings.mjs
 ```
 
 **Verify:** `/en/admin/translations` shows a higher total per locale (≈482), and searching for
