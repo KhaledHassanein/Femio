@@ -126,10 +126,39 @@ for (const file of appFiles) {
   if (/disable_session_recording\s*:\s*false/.test(code) || /session_recording\s*:\s*\{/.test(code)) {
     fail(rel, "session recording enabled — would capture health fields on screen");
   }
+  // A pageview carries the URL, and a Femio URL (/learn/<condition>) is itself a
+  // health inference. We send a coarse `area` from the catalog instead.
+  if (/capture_pageview\s*:\s*true/.test(code)) {
+    fail(rel, "capture_pageview: true — a Femio URL is a health inference (docs/13 §5)");
+  }
   // 4. The crisis surface must never be measured.
   if (/\btrack\s*\(\s*["'`][^"'`]*crisis/i.test(code) || /\bcapture\s*\(\s*["'`][^"'`]*crisis/i.test(code)) {
     fail(rel, "tracks the crisis surface — forbidden by ADR-013 / CRISIS_RESOURCES");
   }
+}
+
+// ---------------------------------------------------------------------------
+// The vendor's own automatic properties must stay filtered. The event catalog
+// only governs what *we* attach; posthog-js appends $current_url, $referrer and
+// UTM values to every capture unless a sanitizer strips them — so an init that
+// loses `sanitize_properties` leaks article slugs while every test still passes.
+// ---------------------------------------------------------------------------
+try {
+  const transport = readFileSync(join(ANALYTICS_DIR, "transport.ts"), "utf8");
+  if (/posthog\.init\s*\(/.test(transport) && !/sanitize_properties\s*:/.test(transport)) {
+    fail(
+      "apps/web/src/lib/analytics/transport.ts",
+      "posthog.init without sanitize_properties — $current_url/$referrer would ride along",
+    );
+  }
+  if (/posthog\.init\s*\(/.test(transport) && !/import\(["']posthog-js["']\)/.test(transport)) {
+    fail(
+      "apps/web/src/lib/analytics/transport.ts",
+      "posthog-js must be imported dynamically inside capture, so it never loads before consent",
+    );
+  }
+} catch {
+  fail("apps/web/src/lib/analytics/transport.ts", "missing — the transport seam must exist");
 }
 
 // ---------------------------------------------------------------------------

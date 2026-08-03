@@ -19,7 +19,7 @@ import { env } from "@/lib/env";
 import type { EventName, EventProps } from "./events";
 import { guardEvent } from "./guard";
 import { hasAnalyticsConsent } from "./consent";
-import { noopTransport, type Transport } from "./transport";
+import { createPostHogTransport, noopTransport, type Transport } from "./transport";
 
 export type TrackDeps = {
   /** Overridden in tests; production resolves from the configured key. */
@@ -36,6 +36,21 @@ export type TrackOutcome =
 
 export function isAnalyticsConfigured(): boolean {
   return Boolean(env.NEXT_PUBLIC_POSTHOG_KEY);
+}
+
+/**
+ * Resolved once, and only ever reached after the consent gate above — so the
+ * PostHog module is not imported for a visitor who hasn't opted in. Falls back to
+ * the no-op if either half of the config is missing, which keeps the failure mode
+ * "send nothing" rather than "send somewhere unvalidated".
+ */
+let resolved: Transport | null = null;
+function defaultTransport(): Transport {
+  if (resolved) return resolved;
+  const key = env.NEXT_PUBLIC_POSTHOG_KEY;
+  const host = env.NEXT_PUBLIC_POSTHOG_HOST;
+  resolved = key && host ? createPostHogTransport(key, host) : noopTransport;
+  return resolved;
 }
 
 /**
@@ -66,7 +81,7 @@ export async function track<E extends EventName>(
     return { sent: false, reason: "rejected", detail: guarded.reason };
   }
 
-  const transport = deps.transport ?? noopTransport;
+  const transport = deps.transport ?? defaultTransport();
   transport.capture(guarded.name, guarded.props);
   return { sent: true };
 }

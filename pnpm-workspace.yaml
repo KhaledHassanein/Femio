@@ -12,9 +12,12 @@ packages:
 #     built. Both ship prebuilt platform binaries as optional dependencies, so
 #     compiling from source buys nothing, and a skipped postinstall is one less
 #     piece of arbitrary code running at install time.
+#   core-js — arrived with posthog-js; its postinstall only prints a funding
+#     banner, so there is nothing to gain by running it.
 allowBuilds:
   '@parcel/watcher': false
   '@swc/core': false
+  core-js: false
   esbuild: true
   sharp: true
   unrs-resolver: true
