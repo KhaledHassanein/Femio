@@ -13,6 +13,21 @@ const withSerwist = withSerwistInit({
 const isDev = process.env.NODE_ENV === "development";
 
 /**
+ * Origin a Sentry DSN sends to. Duplicated from `lib/observability/dsn.ts`
+ * because next.config.mjs is plain ESM loaded before the TS build exists — the
+ * unit-tested copy is the reference; this is four lines that must not import.
+ */
+function sentryOrigin(dsn) {
+  if (!dsn) return null;
+  try {
+    const parsed = new URL(dsn);
+    return `${parsed.protocol}//${parsed.hostname}`;
+  } catch {
+    return null;
+  }
+}
+
+/**
  * Origins the browser is allowed to talk to. Built from the same public env the
  * app reads, so the policy can never drift from the services actually in use —
  * and an unlisted origin (an injected tracker, an exfiltration endpoint) simply
@@ -30,6 +45,12 @@ function connectSources() {
   // Analytics is EU-hosted and opt-in (ADR-017); listed only once configured.
   const posthog = process.env.NEXT_PUBLIC_POSTHOG_HOST;
   if (posthog) sources.add(posthog);
+
+  // Sentry's EU ingest endpoint. Derived from the DSN rather than hardcoded, so
+  // the policy can't drift from the project actually in use — and if the DSN is
+  // unparseable we add nothing rather than widening the policy on a guess.
+  const sentry = sentryOrigin(process.env.NEXT_PUBLIC_SENTRY_DSN);
+  if (sentry) sources.add(sentry);
 
   return [...sources].join(" ");
 }

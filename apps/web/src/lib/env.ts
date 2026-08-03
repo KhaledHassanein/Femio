@@ -1,5 +1,6 @@
 import { z } from "zod";
 import { isApprovedDirectoryUrl } from "@/lib/crisis/directory";
+import { isApprovedSentryDsn } from "@/lib/observability/dsn";
 import { isApprovedPostHogHost } from "@/lib/analytics/host";
 
 /**
@@ -38,6 +39,17 @@ const envSchema = z.object({
       message: "must be an https://findahelpline.com URL with no query string or fragment",
     })
     .optional(),
+  // Sentry error monitoring. Unset → the SDK never initialises and nothing is
+  // sent. When set it must be an **EU ingest** DSN: error reports carry request
+  // context, so they follow the same residency rule as everything else, and
+  // Sentry's US cluster is the default a copied DSN lands on. A non-EU value
+  // FAILS THE BUILD rather than shipping an unmechanised transfer.
+  NEXT_PUBLIC_SENTRY_DSN: z
+    .string()
+    .refine(isApprovedSentryDsn, {
+      message: "must be an https://…ingest.de.sentry.io DSN (EU region)",
+    })
+    .optional(),
   // Product analytics (PostHog). Unset → the whole event layer is a verified
   // no-op and no vendor script loads, which is the correct state until the EU
   // project + DPA exist (P1.20.APPLY). Only ever pseudonymous, health-field-free
@@ -74,6 +86,7 @@ const parsed = envSchema.safeParse({
   NEXT_PUBLIC_ENABLE_GOOGLE_AUTH: process.env.NEXT_PUBLIC_ENABLE_GOOGLE_AUTH,
   NEXT_PUBLIC_CMS_URL: process.env.NEXT_PUBLIC_CMS_URL,
   NEXT_PUBLIC_CRISIS_DIRECTORY_URL: process.env.NEXT_PUBLIC_CRISIS_DIRECTORY_URL,
+  NEXT_PUBLIC_SENTRY_DSN: process.env.NEXT_PUBLIC_SENTRY_DSN,
   NEXT_PUBLIC_POSTHOG_KEY: process.env.NEXT_PUBLIC_POSTHOG_KEY,
   NEXT_PUBLIC_POSTHOG_HOST: process.env.NEXT_PUBLIC_POSTHOG_HOST,
 });

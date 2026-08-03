@@ -14,8 +14,12 @@ packages:
 #     piece of arbitrary code running at install time.
 #   core-js — arrived with posthog-js; its postinstall only prints a funding
 #     banner, so there is nothing to gain by running it.
+#   @sentry/cli — its postinstall downloads a release binary used only for
+#     uploading source maps at build time. We don't upload source maps yet
+#     (that needs an auth token, P1.4.3b), so there is nothing for it to do.
 allowBuilds:
   '@parcel/watcher': false
+  '@sentry/cli': false
   '@swc/core': false
   core-js: false
   esbuild: true

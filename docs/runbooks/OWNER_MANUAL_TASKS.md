@@ -56,10 +56,10 @@ Statuses marked **verified** were checked directly against the live database / d
 - [x] **B★★.** "Continue with Google" sign-in — **verified**: the provider is enabled in Supabase *and* the button is live on `/en/sign-in`.
 - [~] **C.** CMS online — **verified live** (`femio-cms` answers, collections exist), but two pieces remain:
   - [x] **C3.6.** Schema for the **People** (bios) collection — **verified**: tables exist, `/api/people` → 200.
-  - [ ] **C3.7.** ▶ **Make your CMS account an `admin`** — without it you cannot publish — 1 min
-  - [ ] **C3.5.** ▶ **Set `NEXT_PUBLIC_CMS_URL` on the web project** + redeploy — 5 min
-  - [ ] **C4.** Remove `PAYLOAD_DB_PUSH` (production currently auto-syncs its schema on every deploy) — do it before real articles exist, with Claude's `payload migrate` switch (P1.6.5)
-- [ ] **D.** ▶ Choose + set up an analytics vendor (PostHog EU) — **verified not configured**: no key in the live bundle — 20 min
+  - [x]C3.7.** ▶ **Make your CMS account an `admin`** — without it you cannot publish — 1 min
+  - [x] **C3.5.** ▶ **Set `NEXT_PUBLIC_CMS_URL` on the web project** + redeploy — 5 min
+  - [x] **C4.** Remove `PAYLOAD_DB_PUSH` (production currently auto-syncs its schema on every deploy) — do it before real articles exist, with Claude's `payload migrate` switch (P1.6.5)
+- [x] **D.** ▶ Choose + set up an analytics vendor (PostHog EU) — **verified not configured**: no key in the live bundle — 20 min
 - [~] **E.** Vercel env hygiene — **verified**: `NEXT_PUBLIC_APP_URL` is correct (canonical URLs resolve to `femio-web.vercel.app`) and the **crisis directory link is live** (`https://findahelpline.com` renders on `/help-now`). ⚠ That link is only meant to be on once ThroughLine's linking terms are confirmed — close that question in `docs/compliance/CRISIS_RESOURCES.md` (task H).
 - [ ] **F.** Google Search Console + custom domain (SEO) — **verified not done**: no verification token in the live pages, still on the `vercel.app` domain — 20 min
 - [ ] **G.** Sentry error monitoring (optional) — 10 min
@@ -653,7 +653,27 @@ correct, don't add it.
 
 ---
 
-## G. Sentry error monitoring (optional)
+## G. Sentry error monitoring — 5 min
+
+> **The code is wired (2026-08-03, ADR-026); only the DSN is missing.** Set it and errors start
+> arriving. It is no longer optional in spirit: the 500-instead-of-404 bug lived in production for
+> weeks precisely because nothing was watching.
+>
+> 1. Sentry → create the project with **region: EU** (the DSN must read `…ingest.de.sentry.io`).
+>    A US DSN **fails the Femio build on purpose** — error reports carry request context, so they
+>    follow the same EU-residency rule as everything else.
+> 2. Copy the **DSN**.
+> 3. Vercel → **femio-web** → Settings → Environment Variables → `NEXT_PUBLIC_SENTRY_DSN`
+>    (Production + Preview) → **redeploy**.
+> 4. Verify: Sentry → your project → *Issues*. Nothing should appear (that's good). To prove the
+>    pipe works, visit a page and trigger any client error, or tell Claude and it can add a
+>    throwaway route for one deploy.
+>
+> **What Sentry will and won't see.** It gets the route *pattern* (`/[locale]/learn/[slug]`), the
+> error and the stack. It does **not** get the URL you were on, anything you typed, your cookies,
+> your user id, or a session recording — all stripped before sending. Stack traces are minified
+> until source-map upload is set up (P1.4.3b, needs an auth token).
+
 
 **Why:** catch runtime errors in production (like the hydration crash we hit once) before
 users report them.

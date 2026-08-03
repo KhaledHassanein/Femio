@@ -17,6 +17,7 @@
   "dependencies": {
     "@femio/tokens": "workspace:*",
     "@radix-ui/react-slot": "^1.1.1",
+    "@sentry/nextjs": "^10.69.0",
     "@supabase/ssr": "^0.5.2",
     "@supabase/supabase-js": "^2.47.10",
     "class-variance-authority": "^0.7.1",

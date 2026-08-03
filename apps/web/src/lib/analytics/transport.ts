@@ -69,7 +69,7 @@ export function createPostHogTransport(key: string, host: string): Transport {
         advanced_disable_decide: true,
         persistence: "localStorage",
         person_profiles: "identified_only",
-        sanitize_properties: (properties, _event) =>
+        sanitize_properties: (properties) =>
           sanitizeProperties(properties as Record<string, unknown>, Object.keys(properties ?? {}).filter(
             (k) => !k.startsWith("$"),
           )) as typeof properties,
