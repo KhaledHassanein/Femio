@@ -1,7 +1,7 @@
 import type { MetadataRoute } from "next";
 import { routing } from "@/i18n/routing";
 import { siteConfig } from "@/lib/seo/config";
-import { availableLocales, listContent, listPeople } from "@/lib/cms/client";
+import { listContent, listPeople, translatedSlugs } from "@/lib/cms/client";
 
 // Static routes + published CMS content (P1.11.1). Deliberate exclusions:
 //  - /help-now (crisis-safety routing) is `noindex` and must never surface in search;
@@ -55,9 +55,11 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     { collection: "conditions", base: "/conditions" },
   ]) {
     const docs = await listContent(collection, routing.defaultLocale);
-    const localesPerDoc = await Promise.all(docs.map((d) => availableLocales(collection, d.slug)));
-    for (const [i, d] of docs.entries()) {
-      add(`${base}/${d.slug}`, d.updatedAt ? new Date(d.updatedAt) : now, localesPerDoc[i]);
+    // One lookup for the whole collection, not one per document — see translatedSlugs.
+    const byLocale = await translatedSlugs(collection);
+    for (const d of docs) {
+      const locales = routing.locales.filter((l) => byLocale[l]?.has(d.slug));
+      add(`${base}/${d.slug}`, d.updatedAt ? new Date(d.updatedAt) : now, locales);
     }
   }
 

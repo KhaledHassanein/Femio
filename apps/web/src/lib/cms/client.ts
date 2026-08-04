@@ -88,14 +88,33 @@ export function cmsEnabled(): boolean {
   return baseUrl() !== null;
 }
 
-async function query<T>(path: string): Promise<T | null> {
+/**
+ * The CMS was unreachable or errored — as distinct from "it answered, and there is no
+ * such document". Conflating the two is how a transient outage turns a live article
+ * into a 404, which is the one failure mode search engines punish: a 404 invites
+ * deindexing, a 5xx is understood as temporary and retried (P1.6.16).
+ */
+export class CmsUnavailableError extends Error {
+  constructor(path: string, cause?: unknown) {
+    super(`CMS unavailable for ${path}`);
+    this.name = "CmsUnavailableError";
+    this.cause = cause;
+  }
+}
+
+async function query<T>(path: string, opts?: { throwOnFailure?: boolean }): Promise<T | null> {
   const b = baseUrl();
   if (!b) return null;
   try {
     const res = await fetch(`${b}${path}`, { next: { revalidate: REVALIDATE_SECONDS } });
-    if (!res.ok) return null;
+    if (!res.ok) {
+      if (opts?.throwOnFailure) throw new CmsUnavailableError(path, `HTTP ${res.status}`);
+      return null;
+    }
     return (await res.json()) as T;
-  } catch {
+  } catch (err) {
+    if (err instanceof CmsUnavailableError) throw err;
+    if (opts?.throwOnFailure) throw new CmsUnavailableError(path, err);
     return null;
   }
 }
@@ -138,17 +157,33 @@ export async function getPersonBySlug(locale: string, slug: string): Promise<Per
  * other CMS read, and only the sitemap and a page's metadata ask.
  */
 export async function availableLocales(collection: string, slug: string): Promise<string[]> {
-  const results = await Promise.all(
+  const byLocale = await translatedSlugs(collection);
+  return routing.locales.filter((l) => byLocale[l]?.has(slug));
+}
+
+/**
+ * Which slugs exist in which locale, one request per locale for the whole collection.
+ *
+ * The first version asked per document, which read cleanly and was wrong at scale: the
+ * sitemap covers every published doc, so 30 articles became ~120 CMS requests per
+ * regeneration. Each is a serverless invocation holding a Postgres connection from a
+ * **session-mode** pool capped at 15, and it took the CMS API down with
+ * `EMAXCONNSESSION` — a self-inflicted outage from a change whose whole purpose was
+ * a cleaner sitemap. Asking per *locale* instead answers the same question in four
+ * requests regardless of how many articles exist.
+ */
+export async function translatedSlugs(collection: string): Promise<Record<string, Set<string>>> {
+  const pairs = await Promise.all(
     routing.locales.map(async (locale) => {
-      const data = await query<{ docs: { title?: string | null }[] }>(
-        `/api/${collection}?locale=${encodeURIComponent(locale)}&fallback-locale=none&depth=0&limit=1` +
-          `&where[slug][equals]=${encodeURIComponent(slug)}`,
+      const data = await query<{ docs: { slug?: string; title?: string | null }[] }>(
+        `/api/${collection}?locale=${encodeURIComponent(locale)}&fallback-locale=none&depth=0&limit=200`,
       );
-      // A doc that exists but has no title in this locale is untranslated, not missing.
-      return data?.docs?.[0]?.title ? locale : null;
+      // A doc that comes back with no title in this locale exists but is untranslated.
+      const slugs = new Set((data?.docs ?? []).filter((d) => d.title && d.slug).map((d) => d.slug!));
+      return [locale, slugs] as const;
     }),
   );
-  return results.filter((l) => l !== null);
+  return Object.fromEntries(pairs);
 }
 
 /** A single published doc by slug (null if not found). */
@@ -159,8 +194,12 @@ export async function getContentBySlug(
 ): Promise<ContentDoc | null> {
   // depth=1 so `authors` / `medicalReviewerProfile` come back as people rather
   // than ids — a byline is the whole point of fetching a single document.
+  // Throws rather than returning null when the CMS is down, so the page can answer 503
+  // instead of 404. A published article that 404s during an outage can be dropped from
+  // the index; the same request answered 5xx is simply retried.
   const data = await query<{ docs: ContentDoc[] }>(
     `/api/${collection}?locale=${encodeURIComponent(locale)}&depth=1&limit=1&where[slug][equals]=${encodeURIComponent(slug)}`,
+    { throwOnFailure: true },
   );
   return data?.docs?.[0] ?? null;
 }
