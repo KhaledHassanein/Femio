@@ -44,7 +44,7 @@ sources:
     tier: "1"
   - title: "ASRM: 2023 International Evidence-based Guideline for PCOS"
     url: "https://integration.asrm.org/globalassets/_asrm/practice-guidance/practice-guidelines/pdf/recommendations_from_the_2023_int_evidence-based_guideline_on_pcos.pdf"
-    tier: "2"
+    tier: "1"
 internal_links:
   - "/en/conditions/pcos"
   - "/en/learn/pcos-signs"

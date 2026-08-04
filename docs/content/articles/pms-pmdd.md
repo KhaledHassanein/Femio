@@ -42,6 +42,9 @@ sources:
   - title: "RCOG: Managing premenstrual syndrome (PMS)"
     url: "https://www.rcog.org.uk/for-the-public/browse-our-patient-information/managing-premenstrual-syndrome-pms/"
     tier: "1"
+  - title: "NHS: Premenstrual syndrome (PMS), including PMDD"
+    url: "https://www.nhs.uk/conditions/pre-menstrual-syndrome/"
+    tier: "1"
 internal_links:
   - "/en/help-now"
   - "/en/learn/menstrual-cycle-basics"
@@ -91,6 +94,8 @@ Physical changes may include:
 - Joint or muscle aches.
 - Skin changes.
 - Abdominal discomfort.
+
+With PMDD, low mood can go further. The [NHS](https://www.nhs.uk/conditions/pre-menstrual-syndrome/) lists feeling very anxious, angry, depressed or suicidal among PMDD symptoms, and says that thoughts of suicide alongside PMDD need urgent care the same day. Thoughts like these are a recognised part of the condition for some people. They are not a character flaw, and they are a reason to ask for help early rather than to wait for the next cycle. If you are having them now, the red-flag box further down this page tells you what to do.
 
 One list cannot tell you whether you have PMS or PMDD. The same symptoms can occur with depression, anxiety, thyroid conditions, migraine, perimenopause, and other health concerns. Some conditions are present all month but become worse before a period.
 
