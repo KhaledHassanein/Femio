@@ -165,7 +165,7 @@ Log symptoms every day, not only before a period. Add severity and a short note 
 
 Femio cannot confirm PMS or PMDD from a pattern. A qualified clinician reviews timing, severity, other possible causes, and your wider health.
 
-Use the guide to [tracking PMS and PMDD symptoms](/en/learn/track-pms-pmdd-symptoms), or read about [painful periods](/en/conditions/painful-periods). You can also read how Femio's [medical review process](/en/medical-review) works.
+Use the guide to [tracking PMS and PMDD symptoms](/en/learn/track-pms-pmdd-symptoms), or read about [painful periods](/en/conditions/painful-periods). You can also read how Femio's [clinician review process](/en/medical-review) works.
 
 ## Frequently asked questions
 

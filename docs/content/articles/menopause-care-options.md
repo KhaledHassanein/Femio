@@ -131,7 +131,7 @@ Bring a short symptom record and medicine list. Ask:
 - What alternatives are reasonable?
 - When will we review the plan?
 
-Femio's [medical review process](/en/medical-review) explains how this health content is checked.
+Femio's [clinician review process](/en/medical-review) explains how this health content is checked.
 
 ## When to see a doctor
 

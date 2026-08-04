@@ -121,7 +121,7 @@ Femio’s product policy is that health data is never sold or shared with advert
 
 ### Use Femio in your language
 
-Femio supports English, Arabic, French, and Spanish. Arabic includes right-to-left layouts. Health content in each language must complete its own review before publication, so translated wording stays accurate and clear. Read about Femio's [editorial standards](/en/editorial-policy) and [medical review process](/en/medical-review).
+Femio supports English, Arabic, French, and Spanish. Arabic includes right-to-left layouts. Health content in each language must complete its own review before publication, so translated wording stays accurate and clear. Read about Femio's [editorial standards](/en/editorial-policy) and [clinician review process](/en/medical-review).
 
 ## How to get the most benefit from Femio
 

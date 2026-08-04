@@ -132,7 +132,7 @@ Useful questions include:
 - How do my fertility goals affect the plan?
 - When should we review progress?
 
-Is pregnancy a goal? Read [endometriosis and fertility](/en/learn/endometriosis-and-fertility). The main [endometriosis guide](/en/conditions/endometriosis) covers care choices. How is this content checked? See Femio's [medical review page](/en/medical-review).
+Is pregnancy a goal? Read [endometriosis and fertility](/en/learn/endometriosis-and-fertility). The main [endometriosis guide](/en/conditions/endometriosis) covers care choices. How is this content checked? See Femio's [clinician review page](/en/medical-review).
 
 ## When to see a doctor
 

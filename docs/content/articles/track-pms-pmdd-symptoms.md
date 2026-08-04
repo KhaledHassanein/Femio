@@ -134,7 +134,7 @@ Bring the daily record and a one-page summary. Include:
 
 Ask which patterns fit PMS or PMDD and what else may need assessment. Ask how each care option could help, what risks apply, and when to review progress. The main [PMS and PMDD guide](/en/conditions/pms-pmdd) explains common care options.
 
-Femio's [medical review page](/en/medical-review) explains how our health content is checked.
+Femio's [clinician review page](/en/medical-review) explains how our health content is checked.
 
 ## Build a safety plan for severe mood symptoms
 

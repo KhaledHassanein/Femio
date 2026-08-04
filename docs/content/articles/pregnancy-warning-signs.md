@@ -127,7 +127,7 @@ Bring your pregnancy notes and medicine list if they are easy to reach. Do not d
 
 [ACOG](https://www.acog.org/womens-health/faqs/prenatal-care) explains why care should fit your health and pregnancy risk. After urgent care, read [pregnancy basics](/en/learn/pregnancy-basics). The [first pregnancy appointment guide](/en/learn/first-pregnancy-appointment) explains routine care.
 
-How is this safety content checked? See Femio's [medical review page](/en/medical-review). Femio cannot assess an emergency.
+How is this safety content checked? See Femio's [clinician review page](/en/medical-review). Femio cannot assess an emergency.
 
 ## When to see a doctor
 

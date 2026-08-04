@@ -138,7 +138,7 @@ Useful questions include:
 - How will we know whether iron stores recover?
 - Which bleeding changes need urgent care?
 
-Femio's [medical review page](/en/medical-review) explains how our health content is checked. Femio cannot measure blood loss or iron levels.
+Femio's [clinician review page](/en/medical-review) explains how our health content is checked. Femio cannot measure blood loss or iron levels.
 
 ## When to see a doctor
 

@@ -141,7 +141,7 @@ Useful questions include:
 - Which long-term health checks are relevant to me?
 - When will we review the findings?
 
-If fertility is a goal, read [PCOS and fertility](/en/learn/pcos-and-fertility) and mention your timeline. Femio's [medical review process](/en/medical-review) explains how our health content is checked.
+If fertility is a goal, read [PCOS and fertility](/en/learn/pcos-and-fertility) and mention your timeline. Femio's [clinician review process](/en/medical-review) explains how our health content is checked.
 
 ## When to see a doctor
 

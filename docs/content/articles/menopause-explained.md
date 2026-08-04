@@ -146,7 +146,7 @@ Useful notes can include:
 - Any bleeding or spotting.
 - How symptoms affect work, home, or relationships.
 
-Ask what else could explain the changes. Ask what each option may help, what risks apply to you, and when the plan should be reviewed. Femio explains how health content is checked on the [medical review page](/en/medical-review).
+Ask what else could explain the changes. Ask what each option may help, what risks apply to you, and when the plan should be reviewed. Femio explains how health content is checked on the [clinician review page](/en/medical-review).
 
 ## Living with menopause day to day
 

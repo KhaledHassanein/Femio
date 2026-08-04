@@ -20,23 +20,34 @@ from the content assistant.
    `20260803_123841_baseline_existing_schema` and `20260803_123901_p1_6_6_publishing_fields`;
    `payload.articles_rels` and `articles.first_published_at` exist; `/api/articles` and
    `/api/conditions` both return 200. Nothing to repair.
-2. **`payload migrate` completes its work but never exits.** This is the refined diagnosis,
-   and it matters: every CMS build from `33ec508` onward hit Vercel's **45-minute timeout**
-   (three Dependabot previews and two production builds), and a local
-   `pnpm --filter cms migrate` behaved identically — it applied the migrations successfully
-   and then sat there. So the migration *worked*; the process just never returned, which is
-   what burned the builds and, because Vercel's concurrent-build limit is per **account**,
-   queued `femio-web`'s deploys behind it too.
-   → The CMS build is back to plain `next build` (`685d25f`). `migrate-on-deploy.mjs` stays
-   in the tree, **unreferenced**, until someone works out the non-exit (suspect the same
-   Node-on-Windows/undici handle issue that prints `UV_HANDLE_CLOSING` after other scripts).
-   Until then: apply migrations deliberately, verify with the rolled-back-transaction
-   technique in `docs/DECISIONS.md` ADR-029, and expect the CLI to need killing after it
-   finishes.
-3. **Confirm one clean CMS deploy** (~60s, not 45 minutes) now that the build is fixed. The
-   deployed code carries `publishing: true` and the schema is ready for it, so code and
-   schema come into alignment on that deploy. If `/api/articles` 500s afterwards, something
-   else is wrong — but the schema is no longer the suspect.
+2. **`payload migrate` blocks on an interactive prompt — solved (ADR-030).** Two earlier
+   readings of this were wrong and are superseded: it is neither "does not complete in this
+   setup" (`685d25f`) nor "completes its work but never exits" (the first version of this
+   section). It waits for someone to type `y`. `@payloadcms/drizzle`'s `migrate()` calls
+   `prompts()` unconditionally whenever `payload.payload_migrations` holds a row with
+   `batch = -1` — the `dev` row left from the push-mode era (ADR-018) — and asks *"It looks
+   like you've run Payload in dev mode… data loss will occur. Would you like to proceed?"*
+   A build has no one to answer, so it waits; **45 minutes was Vercel's timeout, not
+   Payload's runtime.**
+   The evidence, in order: `migrate:status` at 08:52 showed both migrations **`No`**; a plain
+   `migrate` at 08:53 printed the prompt, emitted no migration output, and was still blocked
+   at 300s; with `y` piped in at 09:13 both applied in **under two seconds and the process
+   exited 0**; `migrate:status` at 09:14 showed both `Yes`, batch 1. So the migrations had
+   *not* applied before the prompt was answered, and the process *did* exit once it was —
+   which is what rules out the non-exit theory. (The schema looked applied to a session
+   checking at 09:14 because it had been written at 09:13.)
+   → Use **`pnpm --filter cms migrate:apply`** (`apps/cms/scripts/migrate-apply.mjs`), which
+   answers the prompt and explains why that is safe here. Read the migration's `up()` first,
+   per ADR-029 — both current ones are purely additive, every `DROP` is in `down()`.
+   → **Trap:** `--force-accept-warning` looks like the fix and is not. Payload's CLI forwards
+   it only to `migrate:create` and `migrate:fresh`, never to plain `migrate`.
+   → **Permanent fix, needs an owner decision** (it writes to production): delete the
+   `batch = -1` row. After that plain `payload migrate` is non-interactive and
+   `migrate-on-deploy.mjs` could safely go back into the deploy. Until then the CMS build
+   stays plain `next build` (`685d25f` — the right call, for a reason it didn't have yet).
+3. **Confirm one clean CMS deploy** (~60s, not 45 minutes). The deployed code carries
+   `publishing: true` and the schema now matches it. If `/api/articles` 500s afterwards,
+   something else is wrong — the schema is no longer the suspect.
 4. **`NEXT_PUBLIC_APP_URL` may still be queued.** At handover the live site still advertised
    `https://femio-web.vercel.app` as canonical/og:url/sitemap host while serving on
    `femioapp.com` (the old host does 308-redirect correctly). Check after the queue drains:
@@ -45,7 +56,7 @@ from the content assistant.
    ```
    Want `https://femioapp.com/en`. Then Google Search Console: Domain property, DNS TXT,
    submit `sitemap.xml`.
-5. Then the two owner-approved tasks: **P1.9.1 content-lint**, then **P1.9.2 the importer**.
+5. **P1.9.1 and P1.9.2 are done** (ADR-031) — see "Open" below for what is next.
 
 ## Done since 2026-07-30 (lead commits)
 
@@ -75,27 +86,71 @@ from the content assistant.
 
 ## Open, in recommended order
 
-1. **P1.9.1 content-lint** (approved, not started). A `scripts/content-lint.mjs` in the
-   same ratchet pattern as claims/crisis/analytics-lint, checking the brief mechanically:
-   front-matter key parity + required keys, `status: draft`, forbidden claim verbs, source
-   count ≥2 with ≥1 Tier-1 and resolvable URLs, `meta_title`/`meta_description` uniqueness
-   **across the set**, slug ↔ `canonical_url` agreement, internal links resolving to routes
-   that exist, structural requirements (answer-first opening, "When to see a doctor",
-   red-flag box), and health-not-medical framing per ADR-028. Judgement stays human.
-   Known signals already: **7 files** use medical framing that post-dates ADR-028; one file
-   (`how-endometriosis-is-assessed.md`) mentions "diagnos" — inspect in context, describing
-   clinical assessment is allowed.
-2. **P1.9.2 Markdown → Payload importer** (approved, not started). There is currently **no
-   way to get the drafts into the CMS**; the path is a human pasting 60 articles by hand,
-   which would silently drop the front-matter fields P1.6.6 just added columns for. The
-   importer should refuse malformed input, so the brief's schema becomes a specification
-   rather than an aspiration. Publication still goes through the review gate.
-3. **P1.9 review** of batches 1–3, using (1). The owner will ask for it.
-4. **P1.11.1 CWV/Lighthouse budget in CI** and **P1.11.2** trimming the i18n payload (every
+1. **Run the import** (`pnpm content-import -- --apply`). Everything is built and the guard
+   is green; nobody has written the 31 drafts into the CMS yet. Dry run first — it is the
+   default. Then create the `medical_reviewer` account (**P1.9.0**), because an `admin`
+   self-approving satisfies the software gate but not doc 15's independent-review intent.
+2. **The remaining 29 articles** from the content assistant (31 of 60 delivered). The guard
+   now runs on delivery, so a correction round is a command rather than a reading session.
+3. **P1.11.1 CWV/Lighthouse budget in CI** and **P1.11.2** trimming the i18n payload (every
    page ships the whole locale catalog; `/en/learn` was ~56 KB and embedded privacy/terms
    copy it never renders).
-5. **P1.6.7–P1.6.13** — the CMS/SEO recommendations, incl. publication-gate hardening
+4. **P1.6.7–P1.6.13** — the CMS/SEO recommendations, incl. publication-gate hardening
    (needs a health/marketing content split first) and review-expiry surfacing.
+5. Optional follow-ups the content work surfaced: wire `content-lint` into CI beside the
+   other three guards, and consider whether the **PMDD pillar** should name premenstrual
+   suicidal ideation explicitly — see "For the clinician" below.
+
+## Batch 1–3 review (31 drafts, 2026-08-04)
+
+**Mechanically clean.** `pnpm content-lint` is green across all 31, and
+`pnpm content-lint:urls` resolved **all 75 source URLs** (0 dead links). Front-matter key
+parity is exact (30/30 keys, no extras, no omissions); every file is `status: draft` with
+`written_by`/`medically_reviewed_by` = `PENDING` and all four date fields `null` — nothing
+invented. Sourcing is strong: ≥2 sources each, 73 of 75 Tier-1, no forbidden hosts. No
+`meta_title`, `meta_description`, `slug` or `primary_query` collides across the set, so
+there is no keyword cannibalisation. Every internal link resolves against the real App
+Router, and every prose link is declared in `internal_links`. Lengths conform (pillars
+1,245–1,400 words, clusters 746–1,111); reading level is grade **5.9–8.0**, consistent with
+the brief's 6–8 claim. **Zero uncited statistics** — every block containing a number carries
+an inline citation or names its guideline body.
+
+**One correction round, applied here.** Nine files used "medical review process/page" as the
+link label for `/en/medical-review` — decorative framing that post-dates ADR-028. Renamed to
+"clinician review process/page", matching the site's own vocabulary ("How we review",
+"Clinician reviewed"). This is a label rename with no medical content implication, so it did
+not need to go back to the assistant. The URL is deliberately unchanged (ADR-028).
+
+**The `how-endometriosis-is-assessed.md` "diagnos" flag is a false alarm — no action.** The
+only occurrence of `diagnos*` in all 31 files is inside a *source title*: "NICE:
+Endometriosis: diagnosis and management", the actual name of guideline NG73. Changing it
+would misrepresent the citation.
+
+**Safety routing is correct.** Four articles touch self-harm or staying safe
+(`pms-pmdd`, `track-pms-pmdd-symptoms`, `pregnancy-warning-signs`, `pregnancy-basics`); all
+four link `/en/help-now` and **none** contains a phone number, per §8. All 18
+`disclaimer_type: emergency` articles carry a `**Seek care now:**` red-flag box.
+
+### For the clinician (judgement, not mechanics)
+
+The guard checks nothing about whether the medicine is *right*. Three things to put in front
+of the reviewer:
+
+- **PMDD and suicidality.** `pms-pmdd.md` handles safety well at the red-flag level ("if you
+  may harm yourself… contact local emergency services"), but never states that PMDD carries
+  elevated risk of suicidal ideation, which major guidance treats as a defining severity
+  signal. Omitting it may be the right call for a general-audience page, or a gap. A
+  clinician should decide — this is exactly the kind of question mechanical checks cannot ask.
+- **Scope of "care options" pages.** `menopause-care-options.md` and
+  `period-pain-care-options.md` describe drug *classes* without dosages, as the brief
+  requires. Whether the balance of options shown matches current guidance needs a clinician.
+- **The two Tier-2 citations are the same document, and may be mis-tiered.** Both
+  `how-pcos-is-assessed.md` and `pcos-and-fertility.md` cite "ASRM: 2023 International
+  Evidence-based Guideline for PCOS" as Tier 2. That guideline is co-published with **ESHRE**,
+  which the brief names explicitly as Tier 1. If it should be Tier 1, the tier is wrong in
+  two files; if the assistant downgraded it deliberately (it linked the ASRM-hosted PDF
+  rather than the ESHRE copy), that reasoning is worth recording. Either way both articles
+  independently satisfy the ≥1 Tier-1 rule, so nothing is blocked on it.
 
 ## Owner tasks outstanding (`docs/runbooks/OWNER_MANUAL_TASKS.md`)
 
