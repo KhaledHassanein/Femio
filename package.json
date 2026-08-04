@@ -17,6 +17,7 @@
     "claims-lint": "node scripts/claims-lint.mjs",
     "crisis-lint": "node scripts/crisis-compliance.mjs",
     "analytics-lint": "node scripts/analytics-lint.mjs",
+    "i18n-client-lint": "node scripts/i18n/client-namespaces-lint.mjs",
     "content-lint": "node scripts/content-lint.mjs",
     "content-lint:urls": "node scripts/content-lint.mjs --check-urls",
     "content-lint:test": "node scripts/content-lint.test.mjs",

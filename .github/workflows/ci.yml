@@ -56,6 +56,11 @@ jobs:
       # (P1.9.1, ADR-031). Offline by default — source URLs are resolved by the
       # scheduled `content-urls` job below, so a guideline body's WAF or a slow
       # response can never fail an unrelated PR.
+      # A namespace used by a client component but missing from CLIENT_NAMESPACES is not
+      # a build error — it is a runtime error in someone's browser (P1.11.2).
+      - name: Client i18n payload guard
+        run: pnpm i18n-client-lint
+
       - name: Content guard
         run: pnpm content-lint
 

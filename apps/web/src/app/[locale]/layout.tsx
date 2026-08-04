@@ -2,8 +2,9 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { Inter, Fraunces, IBM_Plex_Sans_Arabic } from "next/font/google";
 import { NextIntlClientProvider } from "next-intl";
-import { getTranslations, setRequestLocale } from "next-intl/server";
+import { getMessages, getTranslations, setRequestLocale } from "next-intl/server";
 import { getDir, isLocale, routing } from "@/i18n/routing";
+import { pickClientMessages } from "@/i18n/client-namespaces";
 import { ThemeProvider } from "@/components/theme-provider";
 import { CrisisHelpProvider } from "@/components/crisis/crisis-help-provider";
 import { ogLocale, siteConfig } from "@/lib/seo/config";
@@ -70,10 +71,14 @@ export default async function LocaleLayout({ children, params }: LayoutProps) {
 
   const fontVars = `${inter.variable} ${fraunces.variable} ${plexArabic.variable}`;
 
+  // Send only the namespaces client components actually use (P1.11.2). Without this
+  // the whole catalog is serialised into every page — see i18n/client-namespaces.ts.
+  const clientMessages = pickClientMessages(await getMessages());
+
   return (
     <html lang={locale} dir={getDir(locale)} className={fontVars} suppressHydrationWarning>
       <body className={locale === "ar" ? "font-arabic" : "font-sans"}>
-        <NextIntlClientProvider>
+        <NextIntlClientProvider messages={clientMessages}>
           <ThemeProvider attribute="data-theme" defaultTheme="system" enableSystem disableTransitionOnChange>
             <CrisisHelpProvider>{children}</CrisisHelpProvider>
           </ThemeProvider>

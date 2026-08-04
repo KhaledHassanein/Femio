@@ -2,6 +2,9 @@
 All notable changes to Femio V2.
 
 ## [Unreleased]
+### Changed
+- **Every page got about a third lighter** (P1.11.2, ADR-037): Femio was sending the *entire* set of translations to your browser on every page — the privacy policy, the terms, the two-step-sign-in copy and the staff dashboard, on a page showing none of them. Now only the text a page can actually use is sent. A guide page dropped from 62 KB to 40 KB, and Arabic — which costs more bytes per character — from a larger figure to 46 KB. That is a real difference on a slow phone or a metered connection, and pages that load faster also rank better, which matters for a site people find through search. A check now runs on every change so it cannot quietly creep back.
+
 ### Added
 - **The first 30 health guides are in the CMS, waiting for a clinician** (P1.9.4): 25 articles and 5 condition pages were imported from the drafts, each carrying its sources, its search title and description, and the disclaimer type the page needs. Every one arrived as a **draft** — nothing is public, and nothing can be until a clinician reviews and approves it. The one article that was already live was left untouched, deliberately: once a reviewer owns a page, an automated import does not get to overwrite it.
 - **A PMDD guide that names the risk it should** (P1.9.3): the premenstrual guide now says plainly that low mood in PMDD can include thoughts of suicide, citing the NHS, and points to the urgent-help box on the same page. It was already safe — it had the red-flag box and a link to the crisis page — but it had not said the thing itself, and for a condition where this is a defining feature, not saying it is its own kind of omission. As everywhere in Femio, there is no phone number: the crisis routing is global, because a wrong or out-of-date number is a safety failure.
