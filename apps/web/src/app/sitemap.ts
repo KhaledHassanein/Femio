@@ -1,7 +1,7 @@
 import type { MetadataRoute } from "next";
 import { routing } from "@/i18n/routing";
 import { siteConfig } from "@/lib/seo/config";
-import { listContent, listPeople } from "@/lib/cms/client";
+import { availableLocales, listContent, listPeople } from "@/lib/cms/client";
 
 // Static routes + published CMS content (P1.11.1). Deliberate exclusions:
 //  - /help-now (crisis-safety routing) is `noindex` and must never surface in search;
@@ -31,10 +31,18 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const now = new Date();
   const entries: MetadataRoute.Sitemap = [];
 
-  const add = (path: string, lastModified: Date) => {
+  /**
+   * `locales` defaults to every locale, which is right for UI pages — they are fully
+   * translated. Authored content is not: an English-only article served at `/ar/...`
+   * returns English via Payload's fallback, so listing all four locales advertised
+   * three duplicate English pages per article and claimed hreflang alternates that do
+   * not exist (P1.6.15). Content passes the locales it is actually written in.
+   */
+  const add = (path: string, lastModified: Date, locales: readonly string[] = routing.locales) => {
+    if (locales.length === 0) return;
     const languages: Record<string, string> = {};
-    for (const l of routing.locales) languages[l] = `${siteConfig.baseUrl}/${l}${path}`;
-    for (const locale of routing.locales) {
+    for (const l of locales) languages[l] = `${siteConfig.baseUrl}/${l}${path}`;
+    for (const locale of locales) {
       entries.push({ url: `${siteConfig.baseUrl}/${locale}${path}`, lastModified, alternates: { languages } });
     }
   };
@@ -47,7 +55,10 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     { collection: "conditions", base: "/conditions" },
   ]) {
     const docs = await listContent(collection, routing.defaultLocale);
-    for (const d of docs) add(`${base}/${d.slug}`, d.updatedAt ? new Date(d.updatedAt) : now);
+    const localesPerDoc = await Promise.all(docs.map((d) => availableLocales(collection, d.slug)));
+    for (const [i, d] of docs.entries()) {
+      add(`${base}/${d.slug}`, d.updatedAt ? new Date(d.updatedAt) : now, localesPerDoc[i]);
+    }
   }
 
   // Published author/reviewer bios (E-E-A-T surfaces, so they should be indexed).

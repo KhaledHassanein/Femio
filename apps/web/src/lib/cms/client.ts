@@ -1,4 +1,5 @@
 import { env } from "@/lib/env";
+import { routing } from "@/i18n/routing";
 
 // Read PUBLISHED content from the Payload CMS REST API (P1.6.2). The CMS access
 // rules already restrict unauthenticated callers to published docs, so no auth is
@@ -121,6 +122,33 @@ export async function getPersonBySlug(locale: string, slug: string): Promise<Per
     `/api/people?locale=${encodeURIComponent(locale)}&depth=0&limit=1&where[slug][equals]=${encodeURIComponent(slug)}`,
   );
   return data?.docs?.[0] ?? null;
+}
+
+/**
+ * Which locales a document is genuinely written in (P1.6.15).
+ *
+ * Payload is configured with `fallback: true`, so asking for `locale=ar` on an
+ * English-only article returns the **English** text with no indication that it did.
+ * That is right for a reader — better to show her something than nothing — and wrong
+ * for a search engine: it made `/ar`, `/fr` and `/es` serve identical English copy at
+ * indexable URLs that the sitemap advertised. `fallback-locale=none` is the honest
+ * question: it returns a null title where no translation exists.
+ *
+ * Cheap in practice — one request per locale, on the same 5-minute cache as every
+ * other CMS read, and only the sitemap and a page's metadata ask.
+ */
+export async function availableLocales(collection: string, slug: string): Promise<string[]> {
+  const results = await Promise.all(
+    routing.locales.map(async (locale) => {
+      const data = await query<{ docs: { title?: string | null }[] }>(
+        `/api/${collection}?locale=${encodeURIComponent(locale)}&fallback-locale=none&depth=0&limit=1` +
+          `&where[slug][equals]=${encodeURIComponent(slug)}`,
+      );
+      // A doc that exists but has no title in this locale is untranslated, not missing.
+      return data?.docs?.[0]?.title ? locale : null;
+    }),
+  );
+  return results.filter((l) => l !== null);
 }
 
 /** A single published doc by slug (null if not found). */

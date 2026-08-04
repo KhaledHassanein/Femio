@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { getTranslations, setRequestLocale } from "next-intl/server";
-import { getContentBySlug } from "@/lib/cms/client";
+import { availableLocales, getContentBySlug } from "@/lib/cms/client";
 import { metaDescription } from "@/lib/cms/format";
 import { ContentArticle } from "@/components/cms/content-article";
 import { localizedAlternates } from "@/lib/seo/metadata";
@@ -27,13 +27,18 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   // CMS overrides win where an editor filled them; the page's own copy is the
   // fallback, so an unfilled field never yields an empty tag (P1.6.6).
   const seo = doc.seo ?? {};
+  // Payload falls back to English for an untranslated locale, so /ar/… renders English.
+  // Good for a reader who lands there, bad for search: indexing it would publish the
+  // same article three more times as "Arabic", "French" and "Spanish" (P1.6.15).
+  const available = await availableLocales("articles", slug);
+  const translated = available.includes(locale);
   return {
     title: seo.seoTitle || doc.title,
     description: seo.metaDescription || metaDescription(doc),
     alternates: seo.canonicalOverride
       ? { canonical: seo.canonicalOverride }
-      : localizedAlternates(locale, `/learn/${slug}`),
-    ...(seo.noIndex ? { robots: { index: false, follow: true } } : {}),
+      : localizedAlternates(locale, `/learn/${slug}`, available),
+    ...(seo.noIndex || !translated ? { robots: { index: false, follow: true } } : {}),
     openGraph: {
       title: seo.socialTitle || seo.seoTitle || doc.title,
       description: seo.socialDescription || seo.metaDescription || metaDescription(doc),
