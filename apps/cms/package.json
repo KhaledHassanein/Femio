@@ -6,7 +6,7 @@
   "description": "Femio content CMS — Payload 3 on the shared Supabase Postgres.",
   "scripts": {
     "dev": "next dev -p 3001",
-    "build": "node ./scripts/migrate-on-deploy.mjs && next build",
+    "build": "next build",
     "start": "next start -p 3001",
     "typecheck": "tsc --noEmit",
     "generate:types": "payload generate:types",
