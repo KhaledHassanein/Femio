@@ -38,5 +38,23 @@ if (!process.env.DATABASE_URL) {
 }
 
 console.log("[migrate-on-deploy] applying pending migrations…");
-const result = spawnSync("payload", ["migrate"], { stdio: "inherit", shell: true });
+
+// Hard timeout. A migration that hangs — waiting on a prompt, or on a database
+// connection that never resolves — would otherwise hold the build slot until
+// Vercel's own limit, and on a shared account that queues every other project's
+// deploys behind it. Failing fast is recoverable; an occupied build queue is not
+// obviously anything, which is worse.
+const result = spawnSync("payload", ["migrate"], {
+  stdio: "inherit",
+  shell: true,
+  timeout: 5 * 60 * 1000,
+});
+
+if (result.error?.code === "ETIMEDOUT" || result.signal) {
+  console.error(
+    "[migrate-on-deploy] migration timed out or was killed — failing the build rather than " +
+      "shipping code without its schema. Run `pnpm --filter cms migrate` locally to see why.",
+  );
+  process.exit(1);
+}
 process.exit(result.status ?? 1);
