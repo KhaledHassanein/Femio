@@ -48,14 +48,11 @@ from the content assistant.
 3. **Confirm one clean CMS deploy** (~60s, not 45 minutes). The deployed code carries
    `publishing: true` and the schema now matches it. If `/api/articles` 500s afterwards,
    something else is wrong — the schema is no longer the suspect.
-4. **`NEXT_PUBLIC_APP_URL` may still be queued.** At handover the live site still advertised
-   `https://femio-web.vercel.app` as canonical/og:url/sitemap host while serving on
-   `femioapp.com` (the old host does 308-redirect correctly). Check after the queue drains:
-   ```bash
-   curl -s https://femioapp.com/en | grep -o 'rel="canonical" href="[^"]*"'
-   ```
-   Want `https://femioapp.com/en`. Then Google Search Console: Domain property, DNS TXT,
-   submit `sitemap.xml`.
+4. **`NEXT_PUBLIC_APP_URL` has propagated — done, verified 2026-08-04.** `femioapp.com/en`
+   serves 200 and advertises `rel="canonical" href="https://femioapp.com/en"`, so the
+   canonical/og:url/sitemap host is the custom domain and article URLs will be built from it.
+   **Remaining owner step:** Google Search Console — Domain property, DNS TXT, submit
+   `sitemap.xml`.
 5. **P1.9.1 and P1.9.2 are done** (ADR-031) — see "Open" below for what is next.
 
 ## Done since 2026-07-30 (lead commits)
