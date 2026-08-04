@@ -17,16 +17,23 @@
  */
 import { spawnSync } from "node:child_process";
 
-if (!process.env.VERCEL) {
+// PRODUCTION deployments only. Two reasons, and the second matters more:
+//   1. Preview builds may have no DATABASE_URL, and failing them helps nobody —
+//      that is what broke the femio-cms preview deploys on 2026-08-03.
+//   2. Preview and production share ONE database. A preview build running
+//      migrations would mutate the live schema from a branch that may never
+//      merge — a worse outage than the one this script exists to prevent. So
+//      `VERCEL_ENV === "production"` is a safety boundary, not a convenience.
+if (process.env.VERCEL_ENV !== "production") {
   console.log(
-    "[migrate-on-deploy] not a Vercel deployment — skipping migrations.\n" +
-      "  Run them deliberately with:  pnpm --filter cms migrate",
+    `[migrate-on-deploy] VERCEL_ENV=${process.env.VERCEL_ENV ?? "(unset)"} — skipping migrations.` +
+      "\n  They run on production deploys only. Locally:  pnpm --filter cms migrate",
   );
   process.exit(0);
 }
 
 if (!process.env.DATABASE_URL) {
-  console.error("[migrate-on-deploy] DATABASE_URL is missing on the deployment — refusing to build.");
+  console.error("[migrate-on-deploy] production deploy without DATABASE_URL — refusing to build.");
   process.exit(1);
 }
 
