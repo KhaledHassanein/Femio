@@ -16,22 +16,36 @@ from the content assistant.
 
 ## Start here (in this order)
 
-1. **Verify the CMS deploy actually landed.** Production API was healthy at handover time
-   but the migration had *not* applied (`payload_migrations` = `dev` only, `articles_rels`
-   absent), which means the deploy of `33ec508` (publishing fields + migrations) had
-   failed rather than shipped. Commit `31644cf` fixes the likely cause. Check:
+1. **Schema is APPLIED — verified 2026-08-04.** `payload.payload_migrations` contains both
+   `20260803_123841_baseline_existing_schema` and `20260803_123901_p1_6_6_publishing_fields`;
+   `payload.articles_rels` and `articles.first_published_at` exist; `/api/articles` and
+   `/api/conditions` both return 200. Nothing to repair.
+2. **`payload migrate` completes its work but never exits.** This is the refined diagnosis,
+   and it matters: every CMS build from `33ec508` onward hit Vercel's **45-minute timeout**
+   (three Dependabot previews and two production builds), and a local
+   `pnpm --filter cms migrate` behaved identically — it applied the migrations successfully
+   and then sat there. So the migration *worked*; the process just never returned, which is
+   what burned the builds and, because Vercel's concurrent-build limit is per **account**,
+   queued `femio-web`'s deploys behind it too.
+   → The CMS build is back to plain `next build` (`685d25f`). `migrate-on-deploy.mjs` stays
+   in the tree, **unreferenced**, until someone works out the non-exit (suspect the same
+   Node-on-Windows/undici handle issue that prints `UV_HANDLE_CLOSING` after other scripts).
+   Until then: apply migrations deliberately, verify with the rolled-back-transaction
+   technique in `docs/DECISIONS.md` ADR-029, and expect the CLI to need killing after it
+   finishes.
+3. **Confirm one clean CMS deploy** (~60s, not 45 minutes) now that the build is fixed. The
+   deployed code carries `publishing: true` and the schema is ready for it, so code and
+   schema come into alignment on that deploy. If `/api/articles` 500s afterwards, something
+   else is wrong — but the schema is no longer the suspect.
+4. **`NEXT_PUBLIC_APP_URL` may still be queued.** At handover the live site still advertised
+   `https://femio-web.vercel.app` as canonical/og:url/sitemap host while serving on
+   `femioapp.com` (the old host does 308-redirect correctly). Check after the queue drains:
    ```bash
-   curl -s -o /dev/null -w "%{http_code}\n" https://femio-cms.vercel.app/api/articles?limit=1   # want 200
-   # and confirm the schema arrived:
-   #   payload.payload_migrations should contain the two migration names
-   #   payload.articles_rels should exist
+   curl -s https://femioapp.com/en | grep -o 'rel="canonical" href="[^"]*"'
    ```
-   If the API 500s → the code deployed without its schema again; run
-   `pnpm --filter cms migrate` locally (`.env.local` has the production DATABASE_URL) and
-   it recovers. If the API is 200 but the migration is missing → the deploy hasn't run;
-   check Vercel's build logs for `femio-cms`.
-2. **Content-lint, then the importer** (P1.9.1 / P1.9.2 below). This is the recommended
-   next work and the owner has approved it.
+   Want `https://femioapp.com/en`. Then Google Search Console: Domain property, DNS TXT,
+   submit `sitemap.xml`.
+5. Then the two owner-approved tasks: **P1.9.1 content-lint**, then **P1.9.2 the importer**.
 
 ## Done since 2026-07-30 (lead commits)
 
