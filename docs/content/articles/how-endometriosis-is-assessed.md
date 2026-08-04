@@ -29,7 +29,7 @@ last_reviewed: null
 next_review_due: null
 reading_level_ok: true
 reading_level_method: "Approximate Flesch-Kincaid grade 7.52 checked 2026-08-03"
-disclaimer_type: "general wellness"
+disclaimer_type: "general"
 structured_data_required:
   - "Article"
   - "MedicalWebPage"

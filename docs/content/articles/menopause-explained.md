@@ -50,10 +50,10 @@ sources:
     tier: "1"
 internal_links:
   - "/en/learn/perimenopause-explained"
-  - "/en/learn/menstrual-cycle-basics"
   - "/en/conditions/heavy-periods"
-  - "/en/glossary"
   - "/en/medical-review"
+  - "/en/learn/track-perimenopause-symptoms"
+  - "/en/learn/menopause-care-options"
 ---
 
 # What Is Menopause and What Can Change?
@@ -97,7 +97,7 @@ These symptoms can overlap with thyroid problems, anaemia, medicine effects, dep
 
 Periods often become less regular during perimenopause. Menopause is then reached after 12 months with no period when no other cause explains the gap.
 
-Learn [how the menstrual cycle is counted](/en/learn/menstrual-cycle-basics) if you want to understand dates in an earlier record. Do not assume every new bleeding pattern is part of menopause.
+Review earlier period dates if they help explain the change. Do not assume every new bleeding pattern is part of menopause.
 
 Bleeding after menopause is not considered a period. It should be assessed even if it is light or happens once. The [ACOG bleeding guide](https://www.acog.org/womens-health/faqs/perimenopausal-bleeding-and-bleeding-after-menopause) explains why new bleeding after menopause needs clinical review.
 
@@ -162,7 +162,9 @@ Mood changes can affect confidence and relationships. Ask for help when low mood
 
 Track only details that are useful to you. You might record sleep, hot flushes, mood, headaches, vaginal or bladder symptoms, and the effect on daily tasks.
 
-If bleeding occurs, record the date, amount, clots, pain, and any dizziness or breathlessness. The [heavy-period guide](/en/conditions/heavy-periods) explains useful flow details. Use the [glossary](/en/glossary) for plain meanings of unfamiliar terms.
+If bleeding occurs, record the date, amount, clots, pain, and any dizziness or breathlessness. The [heavy-period guide](/en/conditions/heavy-periods) explains useful flow details. The guide to [tracking perimenopause symptoms](/en/learn/track-perimenopause-symptoms) can help you prepare a summary.
+
+Read about [menopause care options](/en/learn/menopause-care-options) before an appointment if you want to prepare shared-decision questions.
 
 Tracking cannot confirm menopause or rule out another cause. It can make patterns easier to explain at an appointment. A record is a conversation aid, not a medical verdict.
 

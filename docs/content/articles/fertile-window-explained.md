@@ -46,8 +46,8 @@ internal_links:
   - "/en/learn/trying-to-conceive-guide"
   - "/en/calculators/fertile-window"
   - "/en/learn/menstrual-cycle-basics"
-  - "/en/conditions/pcos"
-  - "/en/conditions/endometriosis"
+  - "/en/learn/when-to-seek-fertility-help"
+  - "/en/learn/when-to-take-pregnancy-test"
 ---
 
 # What Is the Fertile Window?
@@ -114,13 +114,13 @@ Irregular cycles can make a calendar estimate less precise. A wider range is mor
 
 Irregular bleeding does not always mean ovulation is absent, and regular bleeding does not prove ovulation happens every time. A clinician may assess cycle history and other signs when pregnancy is taking longer than expected.
 
-The Femio guides to [PCOS](/en/conditions/pcos) and [endometriosis](/en/conditions/endometriosis) explain two conditions that may be relevant to fertility questions, but many other causes are possible.
+PCOS and endometriosis are two conditions that may be relevant to fertility questions, but many other causes are possible.
 
 ## When to see a doctor
 
 Speak with a clinician if periods are often absent or very irregular, if ovulation timing is unclear and causing concern, or if you have a known health condition that may affect fertility. You can also ask for prepregnancy care before trying.
 
-Seek fertility support based on your age, health history, and how long you have been trying. The [trying-to-conceive guide](/en/learn/trying-to-conceive-guide) explains common referral time points and reasons to ask sooner.
+Seek fertility support based on your age, health history, and how long you have been trying. The [trying-to-conceive guide](/en/learn/trying-to-conceive-guide) covers practical steps, and [when to seek fertility help](/en/learn/when-to-seek-fertility-help) explains common review points and reasons to ask sooner. If a period does not come, read [when to take a pregnancy test](/en/learn/when-to-take-pregnancy-test).
 
 Tell a clinician about pelvic pain, pain during sex, past pelvic infection or surgery, medicines, and any sperm concerns that may be relevant. Fertility involves more than cycle timing.
 

@@ -49,8 +49,8 @@ internal_links:
   - "/en/learn/fertile-window-explained"
   - "/en/calculators/fertile-window"
   - "/en/learn/menstrual-cycle-basics"
-  - "/en/conditions/pcos"
-  - "/en/conditions/endometriosis"
+  - "/en/learn/when-to-seek-fertility-help"
+  - "/en/learn/preconception-appointment"
 ---
 
 # Trying to Conceive: Where Should You Start?
@@ -141,7 +141,7 @@ Seek medical advice for a positive test with one-sided pelvic pain, shoulder-tip
 
 ## When to see a doctor
 
-You can ask for prepregnancy care before you start trying. Speak with a clinician earlier if you have irregular or absent periods, [PCOS](/en/conditions/pcos), [endometriosis](/en/conditions/endometriosis), past pelvic surgery, a known sperm concern, repeated pregnancy loss, a long-term condition, or medicines that need review.
+You can ask for care before you start trying. The [preconception appointment guide](/en/learn/preconception-appointment) explains what may be discussed. Speak with a clinician earlier if you have irregular or absent periods, PCOS, endometriosis, past pelvic surgery, a known sperm concern, repeated pregnancy loss, a long-term condition, or medicines that need review. Read [when to seek fertility help](/en/learn/when-to-seek-fertility-help) for more detail.
 
 Guidance on the timing of a fertility assessment varies by age and health history. [ACOG](https://www.acog.org/womens-health/faqs/evaluating-infertility) recommends an assessment after 12 months of regular sex without pregnancy for people younger than 35, after 6 months for ages 35 to 40, and a conversation now for people older than 40. Local guidance and individual circumstances may differ.
 

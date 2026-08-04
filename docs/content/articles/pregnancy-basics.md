@@ -46,11 +46,12 @@ sources:
     url: "https://www.cdc.gov/hearher/maternal-warning-signs/index.html"
     tier: "1"
 internal_links:
-  - "/en/learn/trying-to-conceive-guide"
   - "/en/calculators/due-date"
-  - "/en/calculators/gestational-age"
   - "/en/help-now"
-  - "/en/medical-review"
+  - "/en/learn/when-to-take-pregnancy-test"
+  - "/en/learn/early-pregnancy-changes"
+  - "/en/learn/first-pregnancy-appointment"
+  - "/en/learn/pregnancy-warning-signs"
 ---
 
 # What Can You Expect During a Typical Pregnancy?
@@ -63,7 +64,7 @@ Pregnancy begins when a fertilised egg implants in the lining of the womb (uteru
 
 Gestational age is the way clinicians date a pregnancy. It is usually counted from the first day of the last menstrual period, so the count begins before conception. This is an estimate, and an ultrasound may adjust the date.
 
-You can use Femio's [gestational-age calculator](/en/calculators/gestational-age) or [due-date calculator](/en/calculators/due-date) for a general estimate. A clinician or maternity team confirms which date to use for care.
+You can use Femio's [due-date calculator](/en/calculators/due-date) for a general estimate. A clinician or maternity team confirms which date to use for care.
 
 ## What may happen in the first trimester?
 
@@ -166,7 +167,7 @@ Femio's current public calculators can estimate due date and gestational age. Th
 
 The fuller pregnancy-tracking experience is planned for a later release. Do not rely on an app in place of maternity care, fetal-movement advice, or urgent assessment.
 
-If you are preparing for pregnancy, start with the [trying-to-conceive guide](/en/learn/trying-to-conceive-guide). Read about Femio's [medical review process](/en/medical-review) for health content.
+Related guides explain [when to take a pregnancy test](/en/learn/when-to-take-pregnancy-test), [common early pregnancy changes](/en/learn/early-pregnancy-changes), the [first pregnancy appointment](/en/learn/first-pregnancy-appointment), and [pregnancy warning signs](/en/learn/pregnancy-warning-signs).
 
 ## Frequently asked questions
 

@@ -48,9 +48,9 @@ sources:
 internal_links:
   - "/en/learn/menstrual-cycle-basics"
   - "/en/conditions/heavy-periods"
-  - "/en/conditions/pms-pmdd"
-  - "/en/calculators/cycle-length"
-  - "/en/glossary"
+  - "/en/learn/menopause-explained"
+  - "/en/learn/track-perimenopause-symptoms"
+  - "/en/learn/menopause-care-options"
 ---
 
 # What Is Perimenopause and What Can Change?
@@ -79,7 +79,7 @@ Ovulation can still happen. Pregnancy may still be possible until menopause is r
 
 Do not assume every bleeding change is due to perimenopause. Bleeding between periods, after sex, or after menopause needs clinical assessment. Very heavy bleeding also deserves care.
 
-Use the [cycle-length calculator](/en/calculators/cycle-length) if you want to summarise several cycle lengths, and read [how cycle days are counted](/en/learn/menstrual-cycle-basics).
+Read [how cycle days are counted](/en/learn/menstrual-cycle-basics) if you want to summarise several cycle lengths.
 
 ## What symptoms can happen?
 
@@ -162,7 +162,7 @@ For hot flushes, notice personal triggers without blaming yourself. Layers of cl
 
 Mood or concentration changes can affect confidence at work and home. Ask for practical changes such as breaks, ventilation, flexible hours, or written follow-up after meetings if they would help.
 
-If premenstrual mood changes are still part of the picture, read the guide to [PMS and PMDD](/en/conditions/pms-pmdd).
+If mood changes are part of the picture, include their timing and daily impact in your notes.
 
 ## How to track perimenopause in Femio
 
@@ -170,7 +170,7 @@ Record period dates, flow, hot flushes, night sweats, sleep, mood, headaches, va
 
 Cycle estimates become less certain when periods vary. Femio should show wider ranges rather than an exact predicted day or a “late” counter.
 
-Tracking cannot confirm perimenopause or rule out another cause. Use a summary to support a clinician conversation. Read the [heavy-period guide](/en/conditions/heavy-periods) when bleeding is the main concern, and use the [glossary](/en/glossary) for plain definitions.
+Tracking cannot confirm perimenopause or rule out another cause. The guide to [tracking perimenopause symptoms](/en/learn/track-perimenopause-symptoms) shows how to make a useful summary. Read the [heavy-period guide](/en/conditions/heavy-periods) when bleeding is the main concern. You can also learn [what menopause means](/en/learn/menopause-explained) and which [menopause care options](/en/learn/menopause-care-options) may be discussed.
 
 ## Frequently asked questions
 

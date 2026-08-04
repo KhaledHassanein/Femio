@@ -45,9 +45,9 @@ sources:
 internal_links:
   - "/en/conditions/endometriosis"
   - "/en/conditions/heavy-periods"
-  - "/en/conditions/pcos"
   - "/en/learn/menstrual-cycle-basics"
-  - "/en/glossary"
+  - "/en/learn/how-painful-periods-are-assessed"
+  - "/en/learn/period-pain-care-options"
 ---
 
 # Why Are My Periods So Painful?
@@ -163,7 +163,7 @@ Log when pain begins, where it occurs, severity, other symptoms, and its effect 
 
 Femio can place symptoms beside cycle dates and create a summary. It cannot confirm the cause or decide whether pain is safe to manage at home.
 
-Related guides cover [heavy periods](/en/conditions/heavy-periods), [PCOS](/en/conditions/pcos), and [menstrual-cycle basics](/en/learn/menstrual-cycle-basics). Plain definitions are available in the [glossary](/en/glossary).
+Related guides cover [heavy periods](/en/conditions/heavy-periods) and [menstrual-cycle basics](/en/learn/menstrual-cycle-basics). You can also read [how painful periods are assessed](/en/learn/how-painful-periods-are-assessed) and which [period-pain care options](/en/learn/period-pain-care-options) a clinician may discuss.
 
 ## Frequently asked questions
 
