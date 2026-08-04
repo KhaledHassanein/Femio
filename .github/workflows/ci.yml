@@ -4,6 +4,10 @@ on:
   push:
     branches: [main]
   pull_request:
+  # Weekly, for the source-URL check only (see the `content-urls` job).
+  schedule:
+    - cron: "0 6 * * 1"
+  workflow_dispatch:
 
 # Cancel superseded runs on the same ref.
 concurrency:
@@ -48,6 +52,18 @@ jobs:
       - name: Analytics privacy guard
         run: pnpm analytics-lint
 
+      # The authoring brief, enforced mechanically over docs/content/articles
+      # (P1.9.1, ADR-031). Offline by default — source URLs are resolved by the
+      # scheduled `content-urls` job below, so a guideline body's WAF or a slow
+      # response can never fail an unrelated PR.
+      - name: Content guard
+        run: pnpm content-lint
+
+      # A guard nobody has watched fail is indistinguishable from no guard, so the
+      # guard's own rules are tested: each is handed an article built to violate it.
+      - name: Content guard self-test
+        run: pnpm content-lint:test
+
       - name: Lint
         run: pnpm lint
 
@@ -85,5 +101,30 @@ jobs:
         run: pnpm install --frozen-lockfile
       - name: Typecheck (cms)
         run: pnpm --filter cms typecheck
+      # Covers the Markdown → Lexical converter and the importer's refusal paths
+      # (P1.9.2). Runs in dry-run mode, which returns before Payload is imported,
+      # so it never touches a database — the placeholder env above is enough.
+      - name: Importer self-test
+        run: pnpm content-import:test
       - name: Build (cms)
         run: pnpm --filter cms build
+
+  # Citation link rot is a slow, silent failure on health content: a source that
+  # 404s undermines the page it supports, and nobody notices by reading. This
+  # resolves every source URL in every draft, weekly and on demand — kept out of
+  # the PR path on purpose, so an unrelated change is never blocked by a guideline
+  # body's WAF, a timeout, or a rate limit.
+  content-urls:
+    if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: pnpm
+      - name: Install
+        run: pnpm install --frozen-lockfile
+      - name: Resolve every source URL
+        run: pnpm content-lint:urls
