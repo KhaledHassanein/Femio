@@ -34,23 +34,35 @@ allowBuilds:
 #   postcss   GHSA-r28c-9q8g-f849   (via @payloadcms/ui > next)
 #   dompurify GHSA-cmwh-pvxp-8882   (via @payloadcms/ui > monaco-editor)
 #   esbuild   GHSA-67mh-4wv8-2f99   (via @payloadcms/db-postgres > drizzle-kit)
+#   undici    GHSA-4cwx-7wf7-3272   (via payload)
+#   fast-uri  GHSA-7p8r-x3mc-p8w7   (via ajv)
 overrides:
   sharp: ">=0.35.3"
   postcss: ">=8.5.18"
   dompurify: ">=3.4.12"
   esbuild: ">=0.25.12"
-  # Scoped to the 5.x instance (minimatch@10 chain) on purpose: the other copy is
-  # brace-expansion@1 under minimatch@3, where forcing 5.x would be a four-major
-  # jump into a CJS caller. See auditConfig below for how that residual is handled.
-  "brace-expansion@5": ">=5.0.8"
+  undici: ">=7.29.0 <8"
+  fast-uri: ">=3.1.5 <4"
+  # GHSA-rgw5-rvv9-x895 affects both major lines, so both are pinned — each
+  # inside its own major, which matters more than it looks. An override target
+  # is a range resolved against the whole registry, so a bare `>=1.1.18` has no
+  # upper bound and resolves to the newest version overall: it silently dragged
+  # minimatch@3 from brace-expansion@1.1.16 to 5.0.8 — the four-major jump into
+  # a CJS caller this scoping exists to avoid, and still vulnerable. Always
+  # bound the major here.
+  # The 1.x pin also closes GHSA-mh99-v99m-4gvg, which is why the accepted
+  # residual that used to sit below could be dropped rather than renewed.
+  "brace-expansion@5": ">=5.0.9 <6"
+  "brace-expansion@1": ">=1.1.18 <2"
 
 # Advisories we have consciously accepted, with the reason and a review date.
 # Anything NOT listed here fails `pnpm audit --audit-level high` in CI, so this
 # list is the only way a known issue stays green — and it is reviewable in a diff.
-# Reviewed 2026-07-31; re-check by 2026-10-31 (docs/compliance/SECURITY_REVIEW.md §6).
+# Reviewed 2026-08-04; re-check by 2026-11-04 (docs/compliance/SECURITY_REVIEW.md §6).
 auditConfig:
-  ignoreGhsas:
-    # brace-expansion@1.1.16 (unbounded expansion DoS). Reaches us only through
-    # ESLint tooling and the Serwist build, expanding glob patterns we author
-    # ourselves — never user input, never at runtime. No 1.x patch exists.
-    - GHSA-mh99-v99m-4gvg
+  ignoreGhsas: []
+    # Empty, and worth keeping that way. GHSA-mh99-v99m-4gvg (brace-expansion 1.x
+    # unbounded expansion) was accepted on 2026-07-31 because no 1.x patch existed;
+    # 1.1.18 shipped one, so it is now fixed by the override above rather than
+    # tolerated. An accepted advisory should always be re-checked for a patch
+    # before it is renewed — this one had been fixable.
