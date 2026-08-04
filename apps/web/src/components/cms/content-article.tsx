@@ -6,7 +6,8 @@ import type { Byline } from "@/lib/cms/client";
 import { JsonLd } from "@/components/seo/json-ld";
 import { Alert, AlertDescription } from "@/components/ui/alert";
 import { Badge } from "@/components/ui/badge";
-import { articleJsonLd, breadcrumbJsonLd, medicalWebPageJsonLd } from "@/lib/seo/jsonld";
+import { articleJsonLd, breadcrumbJsonLd, faqPageJsonLd, medicalWebPageJsonLd } from "@/lib/seo/jsonld";
+import { extractFaqs } from "@/lib/cms/faq";
 import { siteConfig } from "@/lib/seo/config";
 import { PageView } from "@/components/analytics/page-view";
 
@@ -32,6 +33,7 @@ export async function ContentArticle({
   const disclaimer =
     doc.disclaimerType && doc.disclaimerType !== "none" ? t(`disclaimer.${doc.disclaimerType}`) : null;
   const url = `${siteConfig.baseUrl}/${locale}${sectionHref}/${doc.slug}`;
+  const faqs = extractFaqs(doc.body);
 
   return (
     <main className="mx-auto flex w-full max-w-3xl flex-col gap-6 px-6 py-12">
@@ -67,6 +69,10 @@ export async function ContentArticle({
           { name: doc.title, url },
         ])}
       />
+      {/* FAQPage is what earns the expandable FAQ result in search. Every authored
+          article carries a Q&A section and none of it was reaching Google. Emitted only
+          when the body actually contains pairs, so a page without an FAQ never claims one. */}
+      {faqs.length > 0 ? <JsonLd data={faqPageJsonLd(faqs)} /> : null}
 
       <nav className="text-sm text-text-muted">
         <Link href={sectionHref} className="text-text-link underline">
