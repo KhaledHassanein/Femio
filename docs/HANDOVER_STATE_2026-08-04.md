@@ -85,8 +85,10 @@ from the content assistant.
 
 1. **Run the import** (`pnpm content-import -- --apply`). Everything is built and the guard
    is green; nobody has written the 31 drafts into the CMS yet. Dry run first — it is the
-   default. Then create the `medical_reviewer` account (**P1.9.0**), because an `admin`
-   self-approving satisfies the software gate but not doc 15's independent-review intent.
+   default. **P1.9.0 is done** (ADR-032): the owner account holds `medical_reviewer`, so
+   approvals now read as a clinician's sign-off. The one thing still blocking a *public*
+   article is a `people` record for him — doc 15 §8 needs a named reviewer with credentials
+   and a bio link, and a CMS login is not a public identity (P1.9b.3b remainder).
 2. **The remaining 29 articles** from the content assistant (31 of 60 delivered). The guard
    now runs on delivery, so a correction round is a command rather than a reading session.
 3. **P1.11.1 CWV/Lighthouse budget in CI** and **P1.11.2** trimming the i18n payload (every
@@ -167,6 +169,21 @@ of the reviewer:
 - **`pkill -f "next start"` does NOT kill the server on Windows.** Kill by port:
   `Get-NetTCPConnection -LocalPort 3000 -State Listen | %{ Stop-Process -Id $_.OwningProcess -Force }`.
   A stale server serving an old build invalidates every measurement taken after it.
+- **Killing a `payload` command's shell leaves the node child alive, and it holds a database
+  connection.** Same family as the `next start` gotcha above. The DB is Supabase's **session-mode**
+  pooler (`...pooler.supabase.com:5432`), which dedicates one Postgres connection per client for
+  the connection's whole life, capped at **pool_size 15** and shared with the deployed CMS's
+  Vercel functions. Two abandoned `payload migrate` processes sitting at the unanswered prompt
+  (see ADR-030) were enough to exhaust it, and the next CLI script failed with a *schema
+  introspection* stack trace whose real cause was buried:
+  `(EMAXCONNSESSION) max clients reached in session mode`. If a `payload run` script suddenly
+  fails on a query that has nothing to do with what it does, check for orphans first:
+  ```powershell
+  Get-CimInstance Win32_Process -Filter "Name='node.exe'" |
+    Where-Object { $_.CommandLine -like '*payload*' } |
+    Select-Object ProcessId, CreationDate, CommandLine
+  ```
+  Kill them by PID, then retry — the pool takes a little while to drain.
 - **Underscore-prefixed folders (`__foo/`) are private in the App Router** — a scratch route
   named that way never registers and 404s, which looks like a passing test.
 - **i18n catalogs are CRLF.** Use start-of-line regex anchors, never substring anchors: a
