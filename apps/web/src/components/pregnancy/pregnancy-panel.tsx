@@ -4,6 +4,7 @@ import { Alert, AlertDescription } from "@/components/ui/alert";
 import { Card, CardContent } from "@/components/ui/card";
 import { Link } from "@/i18n/navigation";
 import { SetDueDate } from "./set-due-date";
+import { EndPregnancy } from "./end-pregnancy";
 
 /**
  * The pregnancy dashboard (P1.13b).
@@ -22,14 +23,31 @@ import { SetDueDate } from "./set-due-date";
  * where surfacing information late is the harmful choice (brief §8).
  */
 export async function PregnancyPanel({
-  edd,
+  pregnancy,
   today,
 }: {
-  edd: string | null;
+  pregnancy: { id: string; edd: string | null; status: string } | null;
   today: string;
 }) {
   const t = await getTranslations("pregnancy");
   const format = await getFormatter();
+
+  // A pregnancy that has ended must not be met with "Set up your pregnancy". Showing a
+  // fresh form to someone who has just recorded a loss is the kind of default that reads
+  // as indifference, and the cost of getting it wrong is entirely hers (P1.13d).
+  if (pregnancy && pregnancy.status !== "active") {
+    return (
+      <Card>
+        <CardContent className="flex flex-col gap-3 p-6">
+          <h2 className="font-display text-lg text-text">{t(`ended.${pregnancy.status}.heading`)}</h2>
+          <p className="text-sm text-text-muted">{t(`ended.${pregnancy.status}.body`)}</p>
+          <p className="text-sm text-text-subtle">{t("ended.changeFocus")}</p>
+        </CardContent>
+      </Card>
+    );
+  }
+
+  const edd = pregnancy?.edd ?? null;
   const progress = edd ? pregnancyProgress(edd, today) : null;
 
   // No due date yet, or one that no longer describes a pregnancy — ask, don't guess.
@@ -81,6 +99,9 @@ export async function PregnancyPanel({
 
           {/* Every estimate in Femio says it is one (product rule 3). */}
           <p className="text-sm text-text-subtle">{t("estimateNote")}</p>
+
+          {/* Quiet on purpose: this control should be findable, not prominent. */}
+          <EndPregnancy pregnancyId={pregnancy!.id} />
         </CardContent>
       </Card>
 

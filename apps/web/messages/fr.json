@@ -794,7 +794,35 @@
       "invalid": "That date does not look like a current pregnancy. Please check it.",
       "saveFailed": "Could not save. Please try again.",
       "privacyNote": "Only you can see this. You can change or delete it at any time in Settings."
-    }
+    },
+    "end": {
+        "trigger": "This pregnancy has ended",
+        "prompt": "What happened? This only changes what Femio shows you.",
+        "outcome": {
+              "completed": "My baby arrived",
+              "loss": "I lost my pregnancy",
+              "ended": "My pregnancy ended another way"
+        },
+        "saving": "Saving…",
+        "cancel": "Go back",
+        "failed": "Could not save. Please try again.",
+        "privacyNote": "Your record is kept, not deleted, so your history stays intact. You can export or delete it at any time in Settings."
+  },
+    "ended": {
+        "completed": {
+              "heading": "Congratulations",
+              "body": "Your pregnancy record is closed. Tools for the weeks after birth are not built yet — for now you can keep logging symptoms, and your history is all still here."
+        },
+        "loss": {
+              "heading": "Your pregnancy record is closed",
+              "body": "We are very sorry. Nothing has been deleted, and Femio will not show you week counts or reminders about it. Take whatever time you need."
+        },
+        "ended": {
+              "heading": "Your pregnancy record is closed",
+              "body": "Nothing has been deleted, and Femio will not show you week counts about it any more."
+        },
+        "changeFocus": "You can change what Femio focuses on at any time in Settings."
+  }
   },
   "menopause": {
     "sinceDays": "{days} days since your last period",

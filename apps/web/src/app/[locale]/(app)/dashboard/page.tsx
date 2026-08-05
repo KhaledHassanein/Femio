@@ -47,7 +47,14 @@ export default async function DashboardPage({ params }: PageProps) {
   // Only the pregnancy dashboard needs this, and only one pregnancy is active at a time.
   const { data: pregnancy } =
     TRACK_TO_MODE[(state?.track as string) ?? "B"] === "pregnancy"
-      ? await supabase.from("pregnancy").select("edd").eq("status", "active").maybeSingle()
+      ? await supabase
+          .from("pregnancy")
+          .select("id, edd, status")
+          // Most recent regardless of status: an ended pregnancy still decides what the
+          // panel should say, and "no active row" must not silently mean "start again".
+          .order("updated_at", { ascending: false })
+          .limit(1)
+          .maybeSingle()
       : { data: null };
 
   const mode = TRACK_TO_MODE[(state?.track as string) ?? "B"] ?? "cycle";
@@ -84,7 +91,7 @@ export default async function DashboardPage({ params }: PageProps) {
       {/* Pregnancy gets its own dashboard rather than cycle tools plus an apology.
           A cycle-day counter and a next-period prediction are meaningless to someone
           who is pregnant, and the second one is alarming (P1.13b). */}
-      {mode === "pregnancy" ? <PregnancyPanel edd={pregnancy?.edd ?? null} today={today} /> : null}
+      {mode === "pregnancy" ? <PregnancyPanel pregnancy={pregnancy ?? null} today={today} /> : null}
 
       {/* Perimenopause/menopause gets its own view too: a next-period prediction is
           the least useful thing to show someone whose cycles are stopping (P1.13c). */}
