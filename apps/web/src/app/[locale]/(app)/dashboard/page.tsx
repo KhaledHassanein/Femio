@@ -12,6 +12,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Link } from "@/i18n/navigation";
 import { PregnancyPanel } from "@/components/pregnancy/pregnancy-panel";
+import { MenopausePanel } from "@/components/menopause/menopause-panel";
 
 type PageProps = { params: Promise<{ locale: string }> };
 
@@ -85,15 +86,13 @@ export default async function DashboardPage({ params }: PageProps) {
           who is pregnant, and the second one is alarming (P1.13b). */}
       {mode === "pregnancy" ? <PregnancyPanel edd={pregnancy?.edd ?? null} today={today} /> : null}
 
+      {/* Perimenopause/menopause gets its own view too: a next-period prediction is
+          the least useful thing to show someone whose cycles are stopping (P1.13c). */}
       {mode === "menopause" ? (
-        <Card>
-          <CardContent className="p-6 text-sm text-text-muted">
-            {t("modeSoon", { mode: t(`modeLabel.${mode}`) })}
-          </CardContent>
-        </Card>
+        <MenopausePanel starts={starts} symptomCounts={top} today={today} />
       ) : null}
 
-      {mode === "pregnancy" ? null : (
+      {mode === "pregnancy" || mode === "menopause" ? null : (
       <div className="grid gap-4 sm:grid-cols-2">
         <Card>
           <CardContent className="flex min-h-24 flex-col justify-center p-6">
@@ -139,7 +138,7 @@ export default async function DashboardPage({ params }: PageProps) {
         </Card>
       ) : null}
 
-      {top.length > 0 ? (
+      {top.length > 0 && mode !== "menopause" ? (
         <section className="flex flex-col gap-2">
           <h2 className="text-md font-semibold text-text">{t("topSymptomsHeading")}</h2>
           <div className="flex flex-wrap gap-2">

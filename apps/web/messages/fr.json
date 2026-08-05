@@ -795,5 +795,34 @@
       "saveFailed": "Could not save. Please try again.",
       "privacyNote": "Only you can see this. You can change or delete it at any time in Settings."
     }
+  },
+  "menopause": {
+    "sinceDays": "{days} days since your last period",
+    "sinceMonths": "{months} months since your last period",
+    "lastLogged": "Last logged: {date}",
+    "markerAhead": "Clinicians often describe menopause as 12 months in a row without a period, once other causes have been ruled out.",
+    "markerPassed": "That is past the 12 months in a row that clinicians often use to describe menopause \u2014 once other causes have been ruled out.",
+    "notDiagnosis": "This is a count of the dates you logged, not an assessment. Periods can also stop for other reasons, including pregnancy, thyroid changes and some medicines. A clinician can look at the whole picture with you.",
+    "variability": {
+      "heading": "Your recent cycle lengths",
+      "range": "Between {shortest} and {longest} days",
+      "irregular": "Your cycles are varying quite a bit. That is common in the years before periods stop, and it is worth mentioning at your next appointment.",
+      "steady": "Your recent cycles have been fairly close in length."
+    },
+    "symptoms": {
+      "heading": "What you have been logging",
+      "note": "Logging over several months gives a clinician far more to work with than memory alone."
+    },
+    "empty": {
+      "heading": "Start with what you notice",
+      "body": "Log a period if you still have them, and log symptoms as they come up. Patterns over months are what make this useful \u2014 there is nothing to work out from a single day."
+    },
+    "reading": {
+      "heading": "Guides for this stage",
+      "perimenopause": "Perimenopause explained",
+      "menopause": "Menopause explained",
+      "care": "Menopause care options",
+      "tracking": "How to track perimenopause symptoms"
+    }
   }
 }
