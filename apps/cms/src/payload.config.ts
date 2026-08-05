@@ -61,6 +61,28 @@ export default buildConfig({
       // Supabase requires TLS; node-postgres doesn't enable it from a plain
       // connection string, so set it explicitly (accept Supabase's cert).
       ssl: { rejectUnauthorized: false },
+
+      // ONE connection per instance (ADR-044). node-postgres defaults to `max: 10`,
+      // which is a sensible default for a long-lived server and badly wrong here: this
+      // runs as serverless functions against Supabase's **session-mode** pooler, where
+      // each client holds a dedicated Postgres connection for its whole life and the
+      // cap is 15 — shared with the web app and any local script. Two warm CMS instances
+      // could therefore claim 20 on their own, which is exactly how the API hit
+      // `EMAXCONNSESSION` twice while publishing (ADR-040).
+      //
+      // One is the right number rather than a cautious guess: a Node serverless function
+      // handles a single request at a time, so a second connection per instance can only
+      // ever sit idle holding a slot someone else needs.
+      //
+      // Note for anyone tempted by the transaction pooler (port 6543), which would raise
+      // the ceiling: it breaks Payload with prepared-statement errors and is already
+      // recorded as a failed attempt in the owner runbook. Fix the demand, not the cap.
+      max: 1,
+      // Hand the slot back quickly — an idle connection on a 15-slot pool is a slot the
+      // next function cannot have.
+      idleTimeoutMillis: 10_000,
+      // Fail fast instead of hanging the whole function on an exhausted pool.
+      connectionTimeoutMillis: 10_000,
     },
     // Isolate ALL Payload tables in a dedicated `payload` schema. This is REQUIRED
     // on the shared DB: without it, Payload's schema push sees the app's public

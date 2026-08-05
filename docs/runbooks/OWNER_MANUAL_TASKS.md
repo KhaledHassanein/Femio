@@ -513,6 +513,11 @@ its tables (your app's `public` tables are untouched).
 
 **Gotchas:**
 - Wrong pooler (6543) → prepared-statement errors. Use **5432** (session pooler).
+  Note (2026-08-05, ADR-044): the 5432 session pooler holds one Postgres connection per
+  client for its whole life and caps at 15. That is fine now — the CMS pins `max: 1` per
+  instance — but it is why `EMAXCONNSESSION` appeared twice while publishing. If it ever
+  returns, look for orphaned local `payload` processes and per-document query loops before
+  touching the pooler mode.
 - **"Application error: a server-side exception (Digest …)"** at `/admin` → read the real error:
   Vercel → the `femio-cms` project → **Deployments → (latest) → Runtime Logs** (or the *Functions*
   tab), reload `/admin`, and find the logged stack. Most common causes:
