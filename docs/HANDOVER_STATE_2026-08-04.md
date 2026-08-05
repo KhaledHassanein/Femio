@@ -158,8 +158,12 @@ of the reviewer:
 - **Remove `PAYLOAD_DB_PUSH`** from the femio-cms Vercel env (now ignored by code, but tidy).
 - **PostHog DPA** + "Discard client IP data"; **ThroughLine** confirmation email (drafted at
   `docs/compliance/THROUGHLINE_LINK_CONFIRMATION.md`).
-- **P0.12 legal/DPO gate** — the long-lead item; blocks real users. Includes **P0.12.4**
-  (replace the draft privacy/terms text, then un-noindex and add to the sitemap).
+- **P0.12 legal/DPO — DEFERRED by owner direction (2026-08-05), blocks nothing.** The company
+  comes after a product worth incorporating for; build/test/deploy is the priority. Everything
+  needed is pre-gathered in `docs/compliance/P0_12_LEGAL_INTAKE_FORM.md` for whenever it resumes.
+  The trigger is not the company, it is the **first real user** — `femioapp.com` has live signup,
+  and GDPR applies from the first real person's health data regardless of incorporation. Fine
+  while it is only the owner and testers; before outside testers, do P0.12 or gate signup (P0.12.5).
 
 ## Environment gotchas (hard-won)
 
