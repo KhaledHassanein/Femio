@@ -11,6 +11,7 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Link } from "@/i18n/navigation";
+import { PregnancyPanel } from "@/components/pregnancy/pregnancy-panel";
 
 type PageProps = { params: Promise<{ locale: string }> };
 
@@ -41,6 +42,12 @@ export default async function DashboardPage({ params }: PageProps) {
     supabase.from("cycles").select("period_start").order("period_start", { ascending: false }),
     supabase.from("symptom_logs").select("type").order("logged_at", { ascending: false }).limit(200),
   ]);
+
+  // Only the pregnancy dashboard needs this, and only one pregnancy is active at a time.
+  const { data: pregnancy } =
+    TRACK_TO_MODE[(state?.track as string) ?? "B"] === "pregnancy"
+      ? await supabase.from("pregnancy").select("edd").eq("status", "active").maybeSingle()
+      : { data: null };
 
   const mode = TRACK_TO_MODE[(state?.track as string) ?? "B"] ?? "cycle";
   const starts = (cycles ?? []).map((c) => c.period_start as string);
@@ -73,7 +80,12 @@ export default async function DashboardPage({ params }: PageProps) {
         </Button>
       </div>
 
-      {mode === "pregnancy" || mode === "menopause" ? (
+      {/* Pregnancy gets its own dashboard rather than cycle tools plus an apology.
+          A cycle-day counter and a next-period prediction are meaningless to someone
+          who is pregnant, and the second one is alarming (P1.13b). */}
+      {mode === "pregnancy" ? <PregnancyPanel edd={pregnancy?.edd ?? null} today={today} /> : null}
+
+      {mode === "menopause" ? (
         <Card>
           <CardContent className="p-6 text-sm text-text-muted">
             {t("modeSoon", { mode: t(`modeLabel.${mode}`) })}
@@ -81,6 +93,7 @@ export default async function DashboardPage({ params }: PageProps) {
         </Card>
       ) : null}
 
+      {mode === "pregnancy" ? null : (
       <div className="grid gap-4 sm:grid-cols-2">
         <Card>
           <CardContent className="flex min-h-24 flex-col justify-center p-6">
@@ -113,6 +126,7 @@ export default async function DashboardPage({ params }: PageProps) {
           </CardContent>
         </Card>
       </div>
+      )}
 
       {fertile ? (
         <Card>

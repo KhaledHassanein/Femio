@@ -764,5 +764,36 @@
     "track": "التتبّع",
     "settings": "الإعدادات",
     "signOut": "تسجيل الخروج"
+  },
+  "pregnancy": {
+    "weeksDays": "{weeks} weeks, {days} days",
+    "trimester": { "1": "First trimester", "2": "Second trimester", "3": "Third trimester" },
+    "due": "Due date: {date}",
+    "daysToGo": "{days} days to go",
+    "overdue": "{days} days past your due date",
+    "termFrom": "Full term from {date}",
+    "estimateNote": "These dates are estimates based on the due date you entered. Your clinician may adjust it after a scan.",
+    "redFlags": {
+      "heading": "Some symptoms need urgent care",
+      "body": "Bleeding, severe headache, vision changes, severe abdominal pain, or reduced movements need to be checked straight away. Contact your maternity unit or local emergency services \u2014 do not wait.",
+      "link": "Read the pregnancy warning signs"
+    },
+    "reading": {
+      "heading": "Guides for this stage",
+      "basics": "Pregnancy basics",
+      "changes": "Early pregnancy changes",
+      "appointment": "Your first pregnancy appointment"
+    },
+    "setup": {
+      "heading": "Set up your pregnancy",
+      "body": "Enter your due date to see how far along you are. If you do not have one yet, we can estimate it from your last period.",
+      "mode": { "edd": "I know my due date", "lmp": "Estimate from my last period" },
+      "label": { "edd": "Due date", "lmp": "First day of your last period" },
+      "save": "Save",
+      "saving": "Saving\u2026",
+      "invalid": "That date does not look like a current pregnancy. Please check it.",
+      "saveFailed": "Could not save. Please try again.",
+      "privacyNote": "Only you can see this. You can change or delete it at any time in Settings."
+    }
   }
 }
