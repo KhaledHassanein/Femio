@@ -28,7 +28,8 @@ checklist turned out to be already done (see the checklist below for the evidenc
 | **3** | **[B5] Re-seed the translation portal** | 2 min | The database has 293 strings; the app now has **482**. The newest screens (privacy, terms, authors, analytics consent) are live in English but invisible to Arabic/French/Spanish reviewers. |
 | **4** | **[B★★★] Turn on two-step sign-in** | 3 min | **`/admin/*` now requires it.** Staff pages check for a second factor; until you enrol, they redirect you to Settings. Nothing else is affected — the tracker, the site and the CMS are untouched. |
 | **5** | **[A3] Apply migration `0006`** | 3 min | Turns on the first-party insights dashboard (`/admin/insights`). Read-only, aggregate-only, k-anonymous — it creates functions and touches no data. |
-| **6** | **[D] PostHog EU key (when you want analytics on)** | 20 min | The event layer is built and fails closed; it stays a no-op until a key exists. Not blocking any other work. |
+| **6** | **[A4] Apply migration `0007`** | 3 min | **The pregnancy movement log cannot save anything until this runs.** Creates one new table (`fetal_movement_sessions`) with owner-only RLS, exactly like every other health table. Creates nothing else and touches no existing data. |
+| **7** | **[D] PostHog EU key (when you want analytics on)** | 20 min | The event layer is built and fails closed; it stays a no-op until a key exists. Not blocking any other work. |
 
 Task 1, verbatim — run it from the repo root, nothing to paste (it reads `apps/cms/.env.local`):
 
@@ -51,6 +52,7 @@ Statuses marked **verified** were checked directly against the live database / d
 - [x] **B.** Activate the translation portal (P1.19) — **verified**: `staff_roles` = `admin`; `ui_strings` = 293 keys x 4 locales (EN approved, AR/FR/ES machine drafts).
   - [ ] **B5.** ▶ **Re-seed now that new screens shipped** — 482 strings in the app vs 293 in the database — 2 min
 - [ ] **A3.** ▶ Apply migration `0006` (first-party insights aggregates, P1.20.3) — unlocks the staff dashboard — 3 min
+- [ ] **A4.** ▶ Apply migration `0007` (`fetal_movement_sessions`, P2.2) — **the pregnancy movement log is inert until this runs**; the UI ships but every save fails — 3 min
 - [~] **B★.** Auth email: redirect URLs + real sender — redirect URLs look configured (Google sign-in is live, which needs them); **custom SMTP is still required before launch** (Supabase's built-in sender is rate-limited and spam-prone).
 - [ ] **B★★★.** ▶ **Enrol two-step sign-in** — required to open `/admin/*` (translation portal, insights) — 3 min
 - [x] **B★★.** "Continue with Google" sign-in — **verified**: the provider is enabled in Supabase *and* the button is live on `/en/sign-in`.

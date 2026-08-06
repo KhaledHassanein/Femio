@@ -859,6 +859,31 @@
       "tracking": "How to track perimenopause symptoms"
     }
   },
+  "pregnancyMovements": {
+    "heading": "Registro de movimientos",
+    "intro": "No existe un número normal de movimientos. Lo que importa es un cambio respecto al patrón habitual de tu bebé: por eso esto registra lo que sientes y te muestra tu propio patrón con el tiempo.",
+    "urgent": {
+      "heading": "Si los movimientos son menos de lo habitual",
+      "body": "Contacta ahora con tu equipo de maternidad. No esperes a terminar esta sesión ni esperes a mañana.",
+      "link": "Leer las señales de alarma del embarazo"
+    },
+    "start": "Iniciar una sesión",
+    "startBody": "Ponte cómoda y empieza. Toca cada vez que sientas un movimiento.",
+    "tap": "Sentí un movimiento",
+    "counted": "{count} registrados",
+    "finish": "Terminar y guardar",
+    "finishNote": "Puedes parar cuando quieras. La sesión se guarda igualmente.",
+    "saving": "Guardando…",
+    "queued": "Guardado en este dispositivo. Se sincronizará cuando vuelvas a tener conexión.",
+    "recentHeading": "Tus sesiones recientes",
+    "sessionSummary": "{count} movimientos · unos {minutes} min de diferencia",
+    "unfinished": "Sin terminar",
+    "pattern": {
+      "slowerHeading": "Los movimientos estuvieron más separados de lo habitual para ti",
+      "slowerBody": "Es un cambio respecto a tus sesiones recientes. Lo que significa lo dice tu equipo de maternidad: contacta con ellos para que lo revisen.",
+      "needMore": "Después de {count} sesiones podrás comparar con tu propio patrón."
+    }
+  },
   "pregnancySymptoms": {
     "heading": "How are you feeling?",
     "intro": "Log anything you notice. Some symptoms need care rather than a log entry — those are grouped separately below.",

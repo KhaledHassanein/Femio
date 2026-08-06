@@ -859,6 +859,31 @@
       "tracking": "How to track perimenopause symptoms"
     }
   },
+  "pregnancyMovements": {
+    "heading": "Movement log",
+    "intro": "There is no normal number of movements. What matters is a change from your baby's usual pattern, so this records what you feel and shows you your own pattern over time.",
+    "urgent": {
+      "heading": "If movements are less than usual",
+      "body": "Contact your maternity team now. Do not wait for this session to finish, and do not wait until tomorrow.",
+      "link": "Read the pregnancy warning signs"
+    },
+    "start": "Start a session",
+    "startBody": "Get comfortable, then start. Tap each time you feel a movement.",
+    "tap": "I felt a movement",
+    "counted": "{count} recorded",
+    "finish": "Finish and save",
+    "finishNote": "You can stop any time. The session saves either way.",
+    "saving": "Saving…",
+    "queued": "Saved on this device. It will sync when you are back online.",
+    "recentHeading": "Your recent sessions",
+    "sessionSummary": "{count} movements · about {minutes} min apart",
+    "unfinished": "Not finished",
+    "pattern": {
+      "slowerHeading": "Movements were further apart than usual for you",
+      "slowerBody": "This is a change from your own recent sessions. What it means is for your maternity team to say, so contact them and let someone check.",
+      "needMore": "After {count} sessions you will be able to compare with your own pattern."
+    }
+  },
   "pregnancySymptoms": {
     "heading": "How are you feeling?",
     "intro": "Log anything you notice. Some symptoms need care rather than a log entry — those are grouped separately below.",

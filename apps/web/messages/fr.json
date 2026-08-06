@@ -859,6 +859,31 @@
       "tracking": "How to track perimenopause symptoms"
     }
   },
+  "pregnancyMovements": {
+    "heading": "Journal des mouvements",
+    "intro": "Il n'existe pas de nombre normal de mouvements. Ce qui compte, c'est un changement par rapport aux habitudes de ton bébé : ce journal enregistre ce que tu ressens et te montre ton propre rythme au fil du temps.",
+    "urgent": {
+      "heading": "Si les mouvements sont moins fréquents que d'habitude",
+      "body": "Contacte ton équipe de maternité maintenant. N'attends pas la fin de cette séance, et n'attends pas demain.",
+      "link": "Lire les signes d'alerte de la grossesse"
+    },
+    "start": "Commencer une séance",
+    "startBody": "Installe-toi confortablement, puis commence. Appuie chaque fois que tu sens un mouvement.",
+    "tap": "J'ai senti un mouvement",
+    "counted": "{count} enregistrés",
+    "finish": "Terminer et enregistrer",
+    "finishNote": "Tu peux arrêter à tout moment. La séance est enregistrée dans tous les cas.",
+    "saving": "Enregistrement…",
+    "queued": "Enregistré sur cet appareil. La synchronisation se fera au retour du réseau.",
+    "recentHeading": "Tes séances récentes",
+    "sessionSummary": "{count} mouvements · environ {minutes} min d'intervalle",
+    "unfinished": "Non terminée",
+    "pattern": {
+      "slowerHeading": "Les mouvements étaient plus espacés que d'habitude pour toi",
+      "slowerBody": "C'est un changement par rapport à tes séances récentes. Ce que cela signifie, c'est à ton équipe de maternité de le dire : contacte-la pour qu'on vérifie.",
+      "needMore": "Après {count} séances, tu pourras comparer avec ton propre rythme."
+    }
+  },
   "pregnancySymptoms": {
     "heading": "How are you feeling?",
     "intro": "Log anything you notice. Some symptoms need care rather than a log entry — those are grouped separately below.",

@@ -14,6 +14,7 @@ const EXPORT_TABLES = [
   "vitals",
   "fertility_logs",
   "pregnancy",
+  "fetal_movement_sessions",
   "appointments",
   "key_dates",
   "persona_state",

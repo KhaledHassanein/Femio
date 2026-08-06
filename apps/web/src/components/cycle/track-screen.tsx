@@ -14,6 +14,7 @@ import { LogPeriod } from "@/components/cycle/log-period";
 import { LogSymptoms } from "@/components/cycle/log-symptoms";
 import { CycleCalendar } from "@/components/cycle/cycle-calendar";
 import { LogPregnancySymptoms } from "@/components/pregnancy/log-pregnancy-symptoms";
+import { MovementCounter } from "@/components/pregnancy/movement-counter";
 
 const KNOWN_SYMPTOMS = new Set<string>(SYMPTOM_GROUPS.flatMap((g) => g.symptoms));
 
@@ -48,11 +49,30 @@ export function TrackScreen() {
       ),
     ]);
 
+    const isPregnancy = (personaState?.track as string | undefined) === "D";
+
+    // Only needed to stamp movement sessions with the pregnancy they belong to,
+    // so a later pregnancy never inherits an earlier one's pattern.
+    const pregnancyId = isPregnancy
+      ? ((
+          await unwrap(
+            supabase
+              .from("pregnancy")
+              .select("id")
+              .eq("status", "active")
+              .order("updated_at", { ascending: false })
+              .limit(1)
+              .maybeSingle(),
+          )
+        )?.id as string | undefined) ?? null
+      : null;
+
     return {
       // Pregnancy mode gets a different symptom vocabulary and its own urgency
       // handling — asking someone who is pregnant about period cramps is the least
       // of it (P1.13d).
-      isPregnancy: (personaState?.track as string | undefined) === "D",
+      isPregnancy,
+      pregnancyId,
       cycles: (cycles ?? []) as { id: string; period_start: string; flow: Flow | null }[],
       symptoms: (symptoms ?? []) as { id: string; type: string; logged_at: string }[],
     };
@@ -88,7 +108,7 @@ export function TrackScreen() {
     );
   }
 
-  const { isPregnancy, cycles, symptoms } = query.data;
+  const { isPregnancy, pregnancyId, cycles, symptoms } = query.data;
   const stItem = st as unknown as (key: string) => string;
   const symptomLabel = (type: string) =>
     KNOWN_SYMPTOMS.has(type) ? stItem(`items.${type}`) : type;
@@ -140,6 +160,8 @@ export function TrackScreen() {
           )}
         </section>
       )}
+
+      {isPregnancy ? <MovementCounter pregnancyId={pregnancyId} /> : null}
 
       {isPregnancy ? <LogPregnancySymptoms /> : <LogSymptoms />}
 

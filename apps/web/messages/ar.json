@@ -859,6 +859,31 @@
       "tracking": "How to track perimenopause symptoms"
     }
   },
+  "pregnancyMovements": {
+    "heading": "سجل الحركة",
+    "intro": "لا يوجد عدد طبيعي محدد للحركات. المهم هو التغيّر عن النمط المعتاد لطفلك، لذلك يسجّل هذا ما تشعرين به ويُظهر لك نمطك مع الوقت.",
+    "urgent": {
+      "heading": "إذا كانت الحركة أقل من المعتاد",
+      "body": "تواصلي مع فريق رعاية الحمل الآن. لا تنتظري انتهاء هذه الجلسة، ولا تنتظري حتى الغد.",
+      "link": "اقرئي علامات التحذير في الحمل"
+    },
+    "start": "ابدئي جلسة",
+    "startBody": "استرخي ثم ابدئي. انقري في كل مرة تشعرين فيها بحركة.",
+    "tap": "شعرتُ بحركة",
+    "counted": "{count} مسجّلة",
+    "finish": "إنهاء وحفظ",
+    "finishNote": "يمكنك التوقف في أي وقت. تُحفظ الجلسة في الحالتين.",
+    "saving": "جارٍ الحفظ…",
+    "queued": "حُفظت على هذا الجهاز. ستتم المزامنة عند عودة الاتصال.",
+    "recentHeading": "جلساتك الأخيرة",
+    "sessionSummary": "{count} حركة · نحو {minutes} دقيقة بين كل حركة",
+    "unfinished": "غير مكتملة",
+    "pattern": {
+      "slowerHeading": "كانت الحركات متباعدة أكثر من المعتاد لديك",
+      "slowerBody": "هذا تغيّر عن جلساتك الأخيرة. تفسير ذلك يعود إلى فريق رعاية الحمل، فتواصلي معهم ليطمئن أحدهم عليك.",
+      "needMore": "بعد {count} جلسات ستتمكنين من المقارنة مع نمطك الخاص."
+    }
+  },
   "pregnancySymptoms": {
     "heading": "How are you feeling?",
     "intro": "Log anything you notice. Some symptoms need care rather than a log entry — those are grouped separately below.",

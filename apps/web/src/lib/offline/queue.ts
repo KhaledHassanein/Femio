@@ -10,7 +10,10 @@ export type QueuePayload = Record<string, unknown> | Record<string, unknown>[];
 
 export type QueueItem = {
   id?: number;
-  table: "cycles" | "symptom_logs";
+  // A movement session is queued like any other log. It matters more than most that
+  // this works offline: a hospital or clinic corridor is exactly where signal drops
+  // and exactly where someone may be counting (P2.2).
+  table: "cycles" | "symptom_logs" | "fetal_movement_sessions";
   payload: QueuePayload;
   createdAt: string;
 };

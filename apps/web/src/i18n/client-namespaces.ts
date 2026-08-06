@@ -33,6 +33,7 @@ export const CLIENT_NAMESPACES = [
   "notFound",
   "onboarding",
   "pregnancy",
+  "pregnancyMovements",
   "pregnancySymptoms",
   "resetPassword",
   "settings",

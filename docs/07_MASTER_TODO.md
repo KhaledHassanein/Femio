@@ -189,7 +189,10 @@
 
 ## PHASE 2 — Life-stage expansion & revenue
 - [ ] P2.1 TTC toolkit (BBT chart, OPK log, CM, fertile insights)
-- [ ] P2.2 Pregnancy mode (week-by-week from CMS, kick counter, contraction timer, checklists, weight chart)
+- [~] P2.2 Pregnancy mode (week-by-week from CMS, kick counter, contraction timer, checklists, weight chart)
+  - [x] **P2.2.1 Movement log ("kick counter") — shipped 2026-08-06, ADR-049.** Deliberately **not** a count-to-ten counter: Femio's own reviewed article says there is no normal number and that reduced movement must not wait, so a target would give false reassurance in the dangerous direction. Instead: a session timer + tap counter storing raw count and duration, compared against the **median** of her own previous sessions (median so one long outlier cannot mask a later slowdown). No verdict exists anywhere in the stack — no `result`/`normal`/`target` column in the schema, and a test asserts the comparison exposes no such field. The maternity-contact panel renders above the counter and is never gated on finishing. Unfinished sessions always save (`movement_count` nullable). 12 unit tests; joins the GDPR export and the offline queue. **⚠ Inert until migration `0007` is applied — owner task A4.**
+  - [ ] P2.2.2 Week-by-week content. **Blocked on reviewed medical content, not on code** — week-by-week text is medical and needs citations plus the P0.22 reviewer gate. Build the surface only once the CMS has approved week entries; do not hand-write it.
+  - [ ] P2.2.3 Contraction timer, weight chart, appointment tracking (the unused `appointments` table, P1.13d remainder), checklists.
 - [ ] P2.3 Postpartum mode (recovery tracker, EPDS screener, feeding/sleep logs)
 - [ ] P2.4 Menopause mode (34-symptom tracker, MRS score, HRT log, CBT-informed program v1)
 - [ ] P2.5 Pattern engine (timing/severity/co-occurrence, confidence-scored)
