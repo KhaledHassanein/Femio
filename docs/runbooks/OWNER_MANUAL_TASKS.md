@@ -177,6 +177,55 @@ set up yet", the migration has not been run.
 
 ---
 
+## A4. Apply migration `0007` (pregnancy movement log) — 3 min
+
+> [TODO] New 2026-08-06 with the pregnancy movement log (P2.2.1, ADR-049).
+
+**Why:** the movement log is built and deployed, but it has nowhere to write. Until this runs,
+starting a session works and pressing **Finish and save** fails. Nothing else in the app is
+affected.
+
+`0007` creates **one new table**, `fetal_movement_sessions`, holding a start time, an end time, a
+count and an optional note. It creates nothing else, changes no existing table, and touches no
+existing row.
+
+It carries the same four owner-only row-level-security policies as every other health table: you
+can only ever read, write, change or delete your **own** rows, and inserting requires core consent.
+It is foreign-keyed to your profile with `on delete cascade`, so "delete my account" removes it
+along with everything else — the GDPR delete needed no change.
+
+Two columns are deliberately absent, and it matters that they stay absent: there is **no**
+`result`, `normal`, `passed` or `target` column. Femio's reviewed guidance is that there is no
+normal number of movements — what matters is a change from your baby's usual pattern — so the app
+must never be able to store or show a verdict (ADR-049).
+
+**Steps:** Supabase → **SQL Editor** → **New query** → paste all of
+`supabase/migrations/0007_fetal_movement_sessions.sql` → **Run**.
+
+**Verify — two checks, both quick:**
+
+1. In the SQL Editor, run:
+
+   ```sql
+   select count(*) as policies
+   from pg_policies
+   where tablename = 'fetal_movement_sessions';
+   ```
+
+   Expect **4**. If the table were created without its policies, row-level security would block
+   every write and the log would still not save — so this is the check that matters, not merely
+   that the table exists.
+
+2. In the app, sign in, make sure your mode is pregnancy, open **Track**, press **Start a
+   session**, tap **I felt a movement** once, then **Finish and save**. It should save without an
+   error and the session should appear under "Your recent sessions".
+
+**Gotcha:** if the save reports an error mentioning `row-level security`, you are signed in but
+have not granted core consent on that account — the insert policy requires it, exactly as it does
+for periods and symptoms. Granting consent in Settings clears it.
+
+---
+
 ## B. Activate the translation portal (P1.19)
 
 > [DONE] **B1–B4 verified 2026-07-30** — `public.staff_roles` = `admin`; `public.ui_strings` holds 1,172 rows (293 keys x 4 locales; EN `human_reviewed`, AR/FR/ES `machine`). **B5 below is still open**: the app has grown to 482 strings, so re-seed to make the newest screens reviewable.
