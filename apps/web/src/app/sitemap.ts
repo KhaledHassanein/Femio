@@ -54,9 +54,13 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     { collection: "articles", base: "/learn" },
     { collection: "conditions", base: "/conditions" },
   ]) {
-    const docs = await listContent(collection, routing.defaultLocale);
+    // `throwOnFailure` matters more here than anywhere else. A CMS blip used to make
+    // this silently emit static pages only — a 200 sitemap with every article missing,
+    // cached for an hour and handed to Google, which reads absence as "these pages are
+    // gone". A 5xx on /sitemap.xml is simply retried. Loud beats quietly wrong.
+    const docs = await listContent(collection, routing.defaultLocale, { throwOnFailure: true });
     // One lookup for the whole collection, not one per document — see translatedSlugs.
-    const byLocale = await translatedSlugs(collection);
+    const byLocale = await translatedSlugs(collection, { throwOnFailure: true });
     for (const d of docs) {
       const locales = routing.locales.filter((l) => byLocale[l]?.has(d.slug));
       add(`${base}/${d.slug}`, d.updatedAt ? new Date(d.updatedAt) : now, locales);
@@ -64,7 +68,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   }
 
   // Published author/reviewer bios (E-E-A-T surfaces, so they should be indexed).
-  for (const p of await listPeople(routing.defaultLocale)) {
+  for (const p of await listPeople(routing.defaultLocale, { throwOnFailure: true })) {
     add(`/authors/${p.slug}`, p.updatedAt ? new Date(p.updatedAt) : now);
   }
 

@@ -52,15 +52,15 @@ jobs:
       - name: Analytics privacy guard
         run: pnpm analytics-lint
 
-      # The authoring brief, enforced mechanically over docs/content/articles
-      # (P1.9.1, ADR-031). Offline by default — source URLs are resolved by the
-      # scheduled `content-urls` job below, so a guideline body's WAF or a slow
-      # response can never fail an unrelated PR.
       # A namespace used by a client component but missing from CLIENT_NAMESPACES is not
       # a build error — it is a runtime error in someone's browser (P1.11.2).
       - name: Client i18n payload guard
         run: pnpm i18n-client-lint
 
+      # The authoring brief, enforced mechanically over docs/content/articles
+      # (P1.9.1, ADR-031). Offline by default — source URLs are resolved by the
+      # scheduled `content-urls` job below, so a guideline body's WAF or a slow
+      # response can never fail an unrelated PR.
       - name: Content guard
         run: pnpm content-lint
 
@@ -133,3 +133,9 @@ jobs:
         run: pnpm install --frozen-lockfile
       - name: Resolve every source URL
         run: pnpm content-lint:urls
+      # Looks at the DEPLOYED sitemap, because that is the only place the failure it
+      # guards against is visible: NEXT_PUBLIC_CMS_URL is unset in CI, so CI's own
+      # sitemap correctly contains no articles. Production once served a 200 sitemap
+      # with every article missing, cached for an hour (P1.6.18).
+      - name: Production sitemap check
+        run: pnpm sitemap-check

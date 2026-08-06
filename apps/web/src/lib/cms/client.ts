@@ -120,17 +120,26 @@ async function query<T>(path: string, opts?: { throwOnFailure?: boolean }): Prom
 }
 
 /** All published docs in a content collection, for the given locale. */
-export async function listContent(collection: string, locale: string): Promise<ContentDoc[]> {
+export async function listContent(
+  collection: string,
+  locale: string,
+  opts?: { throwOnFailure?: boolean },
+): Promise<ContentDoc[]> {
   const data = await query<{ docs: ContentDoc[] }>(
     `/api/${collection}?locale=${encodeURIComponent(locale)}&depth=0&limit=100&sort=-updatedAt`,
+    opts,
   );
   return data?.docs ?? [];
 }
 
 /** All published author/reviewer bios for the given locale. */
-export async function listPeople(locale: string): Promise<PersonDoc[]> {
+export async function listPeople(
+  locale: string,
+  opts?: { throwOnFailure?: boolean },
+): Promise<PersonDoc[]> {
   const data = await query<{ docs: PersonDoc[] }>(
     `/api/people?locale=${encodeURIComponent(locale)}&depth=0&limit=100&sort=name`,
+    opts,
   );
   return data?.docs ?? [];
 }
@@ -172,11 +181,15 @@ export async function availableLocales(collection: string, slug: string): Promis
  * a cleaner sitemap. Asking per *locale* instead answers the same question in four
  * requests regardless of how many articles exist.
  */
-export async function translatedSlugs(collection: string): Promise<Record<string, Set<string>>> {
+export async function translatedSlugs(
+  collection: string,
+  opts?: { throwOnFailure?: boolean },
+): Promise<Record<string, Set<string>>> {
   const pairs = await Promise.all(
     routing.locales.map(async (locale) => {
       const data = await query<{ docs: { slug?: string; title?: string | null }[] }>(
         `/api/${collection}?locale=${encodeURIComponent(locale)}&fallback-locale=none&depth=0&limit=200`,
+        opts,
       );
       // A doc that comes back with no title in this locale exists but is untranslated.
       const slugs = new Set((data?.docs ?? []).filter((d) => d.title && d.slug).map((d) => d.slug!));
