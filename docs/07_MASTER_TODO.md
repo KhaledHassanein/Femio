@@ -210,6 +210,8 @@
 - [ ] P3.6 Partner mode (shared views with consent)
 
 ## PHASE 4 — Mobile apps (Android + iOS)
+
+- [ ] **P4.0 [DO THIS BEFORE PHASE 2] Prove the mobile path.** The audit (`docs/19_PROJECT_AUDIT_2026-08-06.md` §2) found that **every tracker screen is a `force-dynamic` server component reading Supabase server-side** (`/dashboard`, `/track`, `/settings`, `/summary`). **Capacitor has no server** — it ships a static bundle to the device — so P4.1 as written cannot run. Never surfaced because nothing has built for mobile yet. Options: (a) webview onto the live URL — cheap, no offline, real Apple 4.2 "minimum functionality" rejection risk; (b) `output: "export"` — incompatible with force-dynamic, server-side Supabase reads, middleware and next-intl server config, so effectively a rewrite; (c) **client-rendered app shell** with the public content site staying server-rendered — the honest middle path, and the offline sync layer already talks to Supabase from the browser. **Experiment:** convert `/track` + `/dashboard` to client-side fetching, confirm offline sync still works. Small and reversible. Every server component added to the tracker first makes it more expensive — which is why this precedes Phase 2, where most of the app gets written.
 - [ ] P4.1 Capacitor wrap, native shell (splash, icons, push via FCM/APNs, biometric app-lock)
 - [ ] P4.2 RevenueCat IAP parity with web billing
 - [ ] P4.3 Store compliance (Apple 5.1.3 health, Play health declaration, privacy nutrition labels)
