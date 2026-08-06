@@ -259,6 +259,8 @@
     "modeSoon": "Un suivi {mode} plus complet arrive bientôt. Tes outils de cycle sont là en attendant."
   },
   "visitSummary": {
+    "loadError": "Impossible de charger ton résumé. Rien ne manque dans ton dossier — il s'agit d'un problème de connexion.",
+    "retry": "Réessayer",
     "title": "Résumé pour la consultation",
     "generatedOn": "Généré le {date}",
     "modes": {

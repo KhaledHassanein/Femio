@@ -1,46 +1,25 @@
 import type { Metadata } from "next";
-import { redirect } from "next/navigation";
 import { getTranslations, setRequestLocale } from "next-intl/server";
-import { createClient } from "@/lib/supabase/server";
-import { MfaChallenge } from "@/components/auth/mfa-challenge";
-import { safeNextPath } from "@/lib/auth/mfa";
+import { AuthGate } from "@/components/auth/auth-gate";
+import { MfaScreen } from "@/components/auth/mfa-screen";
 
-type PageProps = {
-  params: Promise<{ locale: string }>;
-  searchParams: Promise<{ next?: string }>;
-};
+type PageProps = { params: Promise<{ locale: string }> };
 
-export const dynamic = "force-dynamic";
-
+// Client-rendered screen so the tracker can run without a server (P4.0, ADR-048).
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "mfa" });
   return { title: t("title"), robots: { index: false, follow: false } };
 }
 
-// Step-up page for a signed-in session that hasn't satisfied its second factor
-// (P1.23.3). Reached by redirect from `requireStaff`, never linked.
-export default async function MfaPage({ params, searchParams }: PageProps) {
+export default async function MfaPage({ params }: PageProps) {
   const { locale } = await params;
-  const { next } = await searchParams;
   setRequestLocale(locale);
-
-  const supabase = await createClient();
-  const {
-    data: { user },
-  } = await supabase.auth.getUser();
-  if (!user) redirect(`/${locale}/sign-in`);
-
-  const t = await getTranslations("mfa");
-
+  // A signed-out visitor belongs at sign-in, not welcome: reaching this page at all
+  // means something tried to step up an existing session.
   return (
-    <main className="mx-auto flex w-full max-w-md flex-col gap-6 px-6 py-16">
-      <div className="flex flex-col gap-2">
-        <h1 className="font-display text-2xl text-text">{t("title")}</h1>
-        <p className="text-sm text-text-muted">{t("intro")}</p>
-      </div>
-      {/* Locale-less: the challenge navigates with the i18n router. */}
-      <MfaChallenge next={safeNextPath(next, "/dashboard")} />
-    </main>
+    <AuthGate redirectTo="/sign-in">
+      <MfaScreen />
+    </AuthGate>
   );
 }

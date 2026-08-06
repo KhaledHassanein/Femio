@@ -1,14 +1,4 @@
 {
-  "_comment": "Known server-only code in the tracker path, recorded by P4.0 Step 2 (2026-08-06) and cleared by P4.0.3. This list may only shrink \u2014 see scripts/native-readiness-lint.mjs. Never add an entry to make the build pass.",
-  "violations": [
-    "apps/web/src/app/[locale]/(app)/mfa/page.tsx::force-dynamic",
-    "apps/web/src/app/[locale]/(app)/mfa/page.tsx::search-params",
-    "apps/web/src/app/[locale]/(app)/mfa/page.tsx::server-supabase",
-    "apps/web/src/app/[locale]/(app)/settings/page.tsx::force-dynamic",
-    "apps/web/src/app/[locale]/(app)/settings/page.tsx::search-params",
-    "apps/web/src/app/[locale]/(app)/settings/page.tsx::server-supabase",
-    "apps/web/src/app/[locale]/(app)/summary/page.tsx::force-dynamic",
-    "apps/web/src/app/[locale]/(app)/summary/page.tsx::server-supabase",
-    "apps/web/src/app/[locale]/sign-in/page.tsx::search-params"
-  ]
+  "_comment": "Accepted exceptions to the native-readiness rules (P4.0). Empty since 2026-08-06, when P4.0.3 cleared the original 13 — so the guard is currently a plain gate. Adding an entry is a deliberate, reviewable decision that some route will never ship to iOS/Android; it is not a way to make the build pass.",
+  "violations": []
 }

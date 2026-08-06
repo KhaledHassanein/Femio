@@ -9,8 +9,11 @@
  * So "the native build still works" is exactly the kind of property that rots
  * without anyone noticing, and Phase 2 is about to add most of the app.
  *
- * This is a **ratchet, not a gate**. The tracker today violates all four rules —
- * that is the known state, recorded in the baseline, and it is what P4.0.3 clears.
+ * Written as a **ratchet** over a baseline of known violations, because when it was
+ * added the tracker broke all four rules. P4.0.3 cleared them all, so the baseline is
+ * now empty and it behaves as a plain gate — any violation fails. The ratchet
+ * machinery stays: it costs nothing while the list is empty, and it is what lets a
+ * future exception be recorded deliberately rather than by deleting a rule.
  * The guard fails on:
  *   - a NEW violation (drift — Phase 2 code that would have to be rewritten), and
  *   - a STALE baseline entry (a file that no longer violates but is still listed),
@@ -127,6 +130,8 @@ if (stale.length > 0) {
 if (added.length > 0 || stale.length > 0) process.exit(1);
 
 console.log(
-  `native-readiness OK — ${files.length} files scanned, ` +
-    `${found.size} known violation(s) awaiting P4.0.3, no drift.`,
+  found.size === 0
+    ? `native-readiness OK — ${files.length} files scanned, the tracker path is server-free.`
+    : `native-readiness OK — ${files.length} files scanned, ` +
+      `${found.size} baselined violation(s), no drift.`,
 );

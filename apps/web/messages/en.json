@@ -259,6 +259,8 @@
     "modeSoon": "Fuller {mode} tracking is coming soon. Your cycle tools are here in the meantime."
   },
   "visitSummary": {
+    "loadError": "We couldn't load your summary. Nothing is missing from your record — this is a connection problem.",
+    "retry": "Try again",
     "title": "Doctor-visit summary",
     "generatedOn": "Generated {date}",
     "modes": {

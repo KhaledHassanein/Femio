@@ -259,6 +259,8 @@
     "modeSoon": "Pronto llega un seguimiento de {mode} más completo. Tus herramientas de ciclo están aquí mientras tanto."
   },
   "visitSummary": {
+    "loadError": "No pudimos cargar tu resumen. No falta nada en tu registro: es un problema de conexión.",
+    "retry": "Reintentar",
     "title": "Resumen para la consulta",
     "generatedOn": "Generado el {date}",
     "modes": {

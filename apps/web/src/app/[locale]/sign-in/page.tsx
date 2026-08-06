@@ -1,13 +1,9 @@
 import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
-import { SignInForm } from "@/components/auth/sign-in-form";
+import { SignInScreen } from "@/components/auth/sign-in-screen";
 import { localizedAlternates } from "@/lib/seo/metadata";
-import { PageView } from "@/components/analytics/page-view";
 
-type PageProps = {
-  params: Promise<{ locale: string }>;
-  searchParams: Promise<{ error?: string }>;
-};
+type PageProps = { params: Promise<{ locale: string }> };
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { locale } = await params;
@@ -19,14 +15,10 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   };
 }
 
-export default async function SignInPage({ params, searchParams }: PageProps) {
+// `?error=1` is read in the browser now, so this page no longer needs a server
+// (P4.0, ADR-048).
+export default async function SignInPage({ params }: PageProps) {
   const { locale } = await params;
-  const { error } = await searchParams;
   setRequestLocale(locale);
-  return (
-    <main className="mx-auto flex w-full max-w-md flex-col gap-6 px-6 py-16">
-      <PageView area="auth" />
-      <SignInForm hadError={error === "1"} />
-    </main>
-  );
+  return <SignInScreen />;
 }
