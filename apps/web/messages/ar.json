@@ -177,6 +177,8 @@
     "nav": { "next": "متابعة", "back": "رجوع" }
   },
   "track": {
+    "loadError": "تعذّر تحميل سجلك. لا يزال بإمكانك التسجيل أدناه.",
+    "retry": "أعيدي المحاولة",
     "flow": { "label": "الغزارة", "spotting": "تنقيط", "light": "خفيف", "medium": "متوسط", "heavy": "غزير" },
     "calendar": { "heading": "التقويم", "prevMonth": "الشهر السابق", "nextMonth": "الشهر التالي", "legendPeriod": "الدورة", "legendPredicted": "متوقع", "legendFertile": "نافذة الخصوبة", "legendOvulation": "الإباضة المُقدَّرة", "legendToday": "اليوم", "awarenessNote": "تواريخ نافذة الخصوبة للمساعدة في التخطيط للحمل والوعي فقط — فهي تقديرات وليست وسيلة موثوقة لتجنّب الحمل." },
     "title": "دورتكِ",

@@ -9,8 +9,6 @@
     "apps/web/src/app/[locale]/(app)/settings/page.tsx::server-supabase",
     "apps/web/src/app/[locale]/(app)/summary/page.tsx::force-dynamic",
     "apps/web/src/app/[locale]/(app)/summary/page.tsx::server-supabase",
-    "apps/web/src/app/[locale]/(app)/track/page.tsx::force-dynamic",
-    "apps/web/src/app/[locale]/(app)/track/page.tsx::server-supabase",
     "apps/web/src/app/[locale]/sign-in/page.tsx::search-params"
   ]
 }

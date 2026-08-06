@@ -177,6 +177,8 @@
     "nav": { "next": "Continuar", "back": "Atrás" }
   },
   "track": {
+    "loadError": "No pudimos cargar tu historial. Puedes registrar abajo de todos modos.",
+    "retry": "Reintentar",
     "flow": { "label": "Flujo", "spotting": "Manchado", "light": "Ligero", "medium": "Medio", "heavy": "Abundante" },
     "calendar": { "heading": "Calendario", "prevMonth": "Mes anterior", "nextMonth": "Mes siguiente", "legendPeriod": "Periodo", "legendPredicted": "Previsto", "legendFertile": "Ventana fértil", "legendOvulation": "Ovulación estimada", "legendToday": "Hoy", "awarenessNote": "Las fechas de la ventana fértil sirven solo para la planificación y concienciación de la concepción — son estimaciones, no un método fiable para evitar el embarazo." },
     "title": "Tu ciclo",
