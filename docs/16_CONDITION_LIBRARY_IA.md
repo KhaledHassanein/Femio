@@ -85,7 +85,7 @@ Life-stage **category hubs** (§2) are lightweight index pages (can be `conditio
   - Category hub: `/{locale}/learn/{category}` (e.g., `/en/learn/cycles-and-periods`)
   - Glossary: `/{locale}/glossary/{term}` · FAQ: usually embedded; standalone at `/{locale}/faq/{slug}`
   - Calculators: `/{locale}/calculators/{tool}`
-- **Localized slugs** — translated, never transliterated (Arabic slugs in Arabic). Complete `hreflang` cluster per page + `x-default` → language selector. Metadata written natively per locale, not literally translated. AR pages render RTL; AR keyword research done separately (MSA target, dialect synonyms noted in body).
+- **Localized slugs** — ~~translated, never transliterated (Arabic slugs in Arabic)~~ **SUPERSEDED 2026-08-06 by ADR-045: slugs stay English in all four locales.** The rest of this bullet stands. Reopen only on Search Console evidence after translations ship. Complete `hreflang` cluster per page + `x-default` → language selector. Metadata written natively per locale, not literally translated. AR pages render RTL; AR keyword research done separately (MSA target, dialect synonyms noted in body).
 
 ## 6. Cross-linking model
 - Every **condition pillar** links to: its **tracker/calculator**, **3–5 sibling conditions**, and its **cluster** articles.
