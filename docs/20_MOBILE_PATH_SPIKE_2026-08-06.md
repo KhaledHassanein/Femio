@@ -24,7 +24,7 @@ from a device build, or a contained code change.
 | 3 | `dynamicParams: true` on `learn/[slug]`, `conditions/[slug]`, `authors/[slug]` | The content site. Should not be in a device bundle. | None — excluded by build target |
 | 4 | Server Action in `src/lib/i18n/translation-actions.ts` (`/admin/translations`) | Staff-only tool | None — excluded by build target |
 | 5 | `force-dynamic` + server Supabase reads on `/dashboard`, `/track`, `/settings`, `/summary`, `/mfa` | The known conversion | **The actual Step 3 work** |
-| 6 | `await searchParams` in `/sign-in` | Not previously identified | Small — `useSearchParams` + a `Suspense` boundary |
+| 6 | `await searchParams` in `/sign-in`, `/mfa`, `/settings` | Not previously identified | Small — `useSearchParams` + a `Suspense` boundary, ×3 |
 | 7 | `dashboard` namespace absent from `CLIENT_NAMESPACES` | Follows from #5 | One line, and `i18n-client-lint` enforces it |
 
 Item 5 was stubbed with client-rendered placeholders, two of them realistic —
@@ -66,6 +66,12 @@ right, 2 misses, and the two misses were the interesting ones.**
   failure and I had filed them as "watch for", not blockers.
 - **Miss:** `await searchParams` in `/sign-in`. I had scanned for `force-dynamic` and
   not for dynamic APIs generally.
+  - **Corrected 2026-08-06 (P4.0.2):** this write-up originally said "one file, and
+    the fix is contained". Wrong — it is **three** (`/sign-in`, `/mfa`, `/settings`).
+    The grep I based that on was run *after* I had already stubbed `/mfa` and
+    `/settings`, so it searched the stubs and found nothing. The Step 2 guard found
+    the other two. A search over a tree you have already modified is not evidence
+    about the tree you started with.
 - Also missed pre-build, caught on reading the config: `async headers()` — the entire
   CSP is delivered that way and has no equivalent on device.
 

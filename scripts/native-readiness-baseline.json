@@ -1,0 +1,18 @@
+{
+  "_comment": "Known server-only code in the tracker path, recorded by P4.0 Step 2 (2026-08-06) and cleared by P4.0.3. This list may only shrink — see scripts/native-readiness-lint.mjs. Never add an entry to make the build pass.",
+  "violations": [
+    "apps/web/src/app/[locale]/(app)/dashboard/page.tsx::force-dynamic",
+    "apps/web/src/app/[locale]/(app)/dashboard/page.tsx::server-supabase",
+    "apps/web/src/app/[locale]/(app)/mfa/page.tsx::force-dynamic",
+    "apps/web/src/app/[locale]/(app)/mfa/page.tsx::search-params",
+    "apps/web/src/app/[locale]/(app)/mfa/page.tsx::server-supabase",
+    "apps/web/src/app/[locale]/(app)/settings/page.tsx::force-dynamic",
+    "apps/web/src/app/[locale]/(app)/settings/page.tsx::search-params",
+    "apps/web/src/app/[locale]/(app)/settings/page.tsx::server-supabase",
+    "apps/web/src/app/[locale]/(app)/summary/page.tsx::force-dynamic",
+    "apps/web/src/app/[locale]/(app)/summary/page.tsx::server-supabase",
+    "apps/web/src/app/[locale]/(app)/track/page.tsx::force-dynamic",
+    "apps/web/src/app/[locale]/(app)/track/page.tsx::server-supabase",
+    "apps/web/src/app/[locale]/sign-in/page.tsx::search-params"
+  ]
+}
