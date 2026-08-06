@@ -72,8 +72,8 @@ browser Supabase client. No server-side reads, no `force-dynamic`, no Server Act
 no `searchParams` page props, and no reliance on middleware for auth or locale.
 
 `pnpm native-readiness-lint` (`scripts/native-readiness-lint.mjs`, wired into CI)
-enforces it as a **ratchet, not a gate**: the tracker violates all four rules today —
-13 violations across 6 files — and that is recorded in
+enforces it. It was written as a **ratchet** because at the time the tracker violated
+all four rules — 13 violations across 6 files — recorded in
 `scripts/native-readiness-baseline.json`. The guard fails on a **new** violation
 (Phase 2 drift) and equally on a **stale** baseline entry (a file that no longer
 violates but is still listed), so the list can only shrink and can never over-claim.
@@ -81,6 +81,9 @@ violates but is still listed), so the list can only shrink and can never over-cl
 Watched failing before being trusted, in all three states: passing at baseline, failing
 on an injected violation, failing on a stale entry. It also immediately earned its keep
 by catching an error in `docs/20` — see §3 there.
+
+**Superseded by §6:** P4.0.3 cleared all 13, so the baseline is empty and the guard is
+now a plain gate. The ratchet machinery stays for future deliberate exceptions.
 
 The middleware finding from Step 1 is why this exists at all: the native build fails
 *quietly*, so nothing else would have told us.
@@ -95,3 +98,68 @@ not block Phase 2.
 **The `ui_strings` overlay is a non-problem.** It is a staff translation portal; on
 device, ship the JSON catalogs and let translations ride a normal app release. Recorded
 so it does not get designed.
+
+---
+
+## 6. Steps 3 and 4 — executed and verified (2026-08-06)
+
+**Step 3 is done: the tracker path is server-free.** All 13 baselined violations
+cleared across 6 files. `pnpm native-readiness-lint` now reports
+*"the tracker path is server-free"* and, with an empty baseline, has become a plain
+gate rather than a ratchet.
+
+The pattern each screen follows:
+
+- `page.tsx` stays a **server** component but does only `generateMetadata` +
+  `setRequestLocale`. Metadata resolves at build time and exports fine, so keeping it
+  server-side costs nothing and preserves titles and `robots` directives.
+- The screen itself is a client component reading through `useSupabaseQuery` /
+  `unwrap` (`src/lib/supabase/use-query.ts`).
+- `AuthGate` replaces the server `redirect()`. It renders nothing while checking,
+  because flashing an app shell at a signed-out visitor is a privacy tell. **RLS
+  remains the security boundary**; the gate only decides what to show.
+
+**A side effect worth having on the web, not just on device:** all six tracker routes
+now prerender as static HTML instead of rendering per request.
+
+**Accepted cost:** the `dashboard` and `menopause` namespaces now ship in the client
+i18n payload. These are `robots: noindex` pages that never carried SEO weight, so the
+P1.11.2 argument for keeping them server-side does not apply here.
+
+### Step 4 — it runs, not just builds
+
+The Step 1 write-up deliberately refused to claim runtime. It can now. The export was
+rebuilt from the **real converted code** (no stubs; only the routes excluded by build
+target were removed), served as **plain files with no Next runtime**, and driven with
+Playwright:
+
+| Check | Result |
+|---|---|
+| Dashboard bundle boots; `AuthGate` withholds content when signed out | pass |
+| Arabic export is RTL (`dir=rtl lang=ar`) | pass |
+| Sign-in form renders from the static bundle | pass |
+| `?error=1` read client-side with no server to parse it | pass |
+| `AuthGate` redirects a signed-out visitor to `/en/welcome` | pass |
+| The redirect target resolves as a static file | **failed, then fixed** |
+
+**The one real finding, and it would have cost a session in P4.1.** A default static
+export emits `welcome.html`, so the client router's push to `/en/welcome` **404s** when
+served from the filesystem — exactly what a Capacitor WebView does. `trailingSlash: true`
+makes Next emit `welcome/index.html` instead; rebuilt with it, all six checks pass.
+
+This must be **native-build-only**. Turning it on for the web would change every public
+URL, which is an SEO change, not a build detail.
+
+### Two smoke-test failures that were the test's fault
+
+Recorded because both are the "a test that tells you what you expected" shape:
+
+1. The first content check used Playwright's `textContent("body")`, which **includes
+   `<script>` contents** — so it matched the serialized i18n catalog and reported the
+   dashboard as leaking to signed-out visitors. `innerText` reflects what is rendered.
+2. A check asserted the bundle makes a Supabase network call. It never could: with no
+   stored session, `supabase-js` resolves `getUser()` locally and never hits the
+   network. The assertion was wrong, not the app.
+
+Neither was a product defect, and in both cases the failing check was investigated
+rather than relaxed.
