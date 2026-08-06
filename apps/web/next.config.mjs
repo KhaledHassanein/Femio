@@ -114,14 +114,28 @@ const securityHeaders = [
   { key: "Strict-Transport-Security", value: "max-age=63072000; includeSubDomains" },
 ];
 
+// SPIKE (P4.0 Step 1) — throwaway. `FEMIO_NATIVE=1` switches the build to the
+// static export Capacitor would need. Not merged; this branch exists to produce
+// a failure inventory, not a shippable config.
+const isNative = process.env.FEMIO_NATIVE === "1";
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
   // Don't advertise the framework version to a scanner.
   poweredByHeader: false,
-  async headers() {
-    return [{ source: "/:path*", headers: securityHeaders }];
-  },
+  ...(isNative
+    ? {
+        output: "export",
+        // No server to send headers; a device build would need these as
+        // Capacitor config / meta tags instead.
+        images: { unoptimized: true },
+      }
+    : {
+        async headers() {
+          return [{ source: "/:path*", headers: securityHeaders }];
+        },
+      }),
 };
 
 export default withSerwist(withNextIntl(nextConfig));

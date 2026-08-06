@@ -1,32 +1,23 @@
-import type { Metadata } from "next";
-import { getTranslations, setRequestLocale } from "next-intl/server";
-import { SignInForm } from "@/components/auth/sign-in-form";
-import { localizedAlternates } from "@/lib/seo/metadata";
-import { PageView } from "@/components/analytics/page-view";
+"use client";
 
-type PageProps = {
-  params: Promise<{ locale: string }>;
-  searchParams: Promise<{ error?: string }>;
-};
+// SPIKE STUB (P4.0 Step 1) — original at .spike-stash/original-pages/sign-in.page.tsx.
+// The original read `await searchParams` for an error code; on a static export that
+// becomes `useSearchParams()`. Small, contained fix.
 
-export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
-  const { locale } = await params;
-  const t = await getTranslations({ locale, namespace: "signIn" });
-  return {
-    title: t("title"),
-    alternates: localizedAlternates(locale, "/sign-in"),
-    robots: { index: false, follow: true },
-  };
+import { Suspense } from "react";
+import { useSearchParams } from "next/navigation";
+
+function SignInInner() {
+  const error = useSearchParams().get("error");
+  return <main className="p-12">sign-in (spike stub){error ? ` — ${error}` : ""}</main>;
 }
 
-export default async function SignInPage({ params, searchParams }: PageProps) {
-  const { locale } = await params;
-  const { error } = await searchParams;
-  setRequestLocale(locale);
+export default function SignInPage() {
+  // `useSearchParams` forces a CSR bailout, which the export build requires to be
+  // wrapped. Worth carrying into the real conversion.
   return (
-    <main className="mx-auto flex w-full max-w-md flex-col gap-6 px-6 py-16">
-      <PageView area="auth" />
-      <SignInForm hadError={error === "1"} />
-    </main>
+    <Suspense fallback={<main className="p-12">…</main>}>
+      <SignInInner />
+    </Suspense>
   );
 }

@@ -1,151 +1,18 @@
-import type { Metadata } from "next";
-import { redirect } from "next/navigation";
-import { getFormatter, getTranslations, setRequestLocale } from "next-intl/server";
-import { createClient } from "@/lib/supabase/server";
-import { predictNextPeriod } from "@/lib/cycle/predict";
-import { fertileWindow } from "@/lib/calculators";
-import { SYMPTOM_GROUPS } from "@/lib/cycle/symptoms";
-import type { Flow } from "@/lib/cycle/calendar";
-import { todayISO } from "@/lib/calculators/dates";
-import { Badge } from "@/components/ui/badge";
-import { LogPeriod } from "@/components/cycle/log-period";
+"use client";
+
+// SPIKE STUB (P4.0 Step 1) — original at .spike-stash/original-pages/track.page.tsx.
+// Keeps the real LogSymptoms child, which is already a client component and is the
+// path offline sync actually runs through.
+
+import { useTranslations } from "next-intl";
 import { LogSymptoms } from "@/components/cycle/log-symptoms";
-import { CycleCalendar } from "@/components/cycle/cycle-calendar";
-import { LogPregnancySymptoms } from "@/components/pregnancy/log-pregnancy-symptoms";
 
-const KNOWN_SYMPTOMS = new Set<string>(SYMPTOM_GROUPS.flatMap((g) => g.symptoms));
-
-type PageProps = { params: Promise<{ locale: string }> };
-
-// Auth-gated + personal data → never cached/prerendered.
-export const dynamic = "force-dynamic";
-
-export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
-  const { locale } = await params;
-  const t = await getTranslations({ locale, namespace: "track" });
-  return { title: t("title"), robots: { index: false, follow: false } };
-}
-
-export default async function TrackPage({ params }: PageProps) {
-  const { locale } = await params;
-  setRequestLocale(locale);
-
-  const supabase = await createClient();
-  const {
-    data: { user },
-  } = await supabase.auth.getUser();
-  if (!user) redirect(`/${locale}/welcome`);
-
-  // Pregnancy mode gets a different symptom vocabulary and its own urgency handling —
-  // asking someone who is pregnant about period cramps is the least of it (P1.13d).
-  const { data: personaState } = await supabase.from("persona_state").select("track").maybeSingle();
-  const isPregnancy = (personaState?.track as string | undefined) === "D";
-
-  const { data: cycles } = await supabase
-    .from("cycles")
-    .select("id, period_start, flow")
-    .order("period_start", { ascending: false });
-
-  const { data: symptoms } = await supabase
-    .from("symptom_logs")
-    .select("id, type, logged_at")
-    .order("logged_at", { ascending: false })
-    .limit(24);
-
-  const t = await getTranslations("track");
-  const st = await getTranslations("symptoms");
-  // type comes from the DB (string); membership is validated at runtime, so the
-  // key cast is safe. Cast st to a plain string lookup for the dynamic key.
-  const stItem = st as unknown as (key: string) => string;
-  const symptomLabel = (type: string) =>
-    KNOWN_SYMPTOMS.has(type) ? stItem(`items.${type}`) : type;
-  const format = await getFormatter();
-  const fmt = (iso: string) =>
-    format.dateTime(new Date(`${iso}T00:00:00Z`), { dateStyle: "medium", timeZone: "UTC" });
-
-  const starts = (cycles ?? []).map((c) => c.period_start as string);
-  const periodDays = (cycles ?? []).map((c) => ({
-    date: c.period_start as string,
-    flow: (c.flow as Flow | null) ?? null,
-  }));
-  const prediction = predictNextPeriod(starts);
-  // Fertile-window awareness (conception planning only — never contraception).
-  const lastStart = starts[0] ?? null;
-  const fertile = lastStart ? fertileWindow(lastStart, prediction?.averageLength ?? 28) : null;
-
-  const confidenceText = prediction
-    ? prediction.confidence === "high"
-      ? t("prediction.confidenceHigh", { count: prediction.cyclesAnalyzed })
-      : prediction.confidence === "medium"
-        ? t("prediction.confidenceMedium", { count: prediction.cyclesAnalyzed })
-        : t("prediction.confidenceLow")
-    : null;
-
+export default function TrackPage() {
+  const t = useTranslations("track");
   return (
     <main className="mx-auto flex w-full max-w-2xl flex-col gap-6 px-6 py-12">
       <h1 className="font-display text-2xl text-text">{t("title")}</h1>
-
-      {/* A next-period prediction is meaningless to someone who is pregnant, and
-          alarming besides — the same reason the dashboard hides it (P1.13b). */}
-      {isPregnancy ? null : (
-      <section>
-        <h2 className="mb-2 text-md font-semibold text-text">{t("prediction.heading")}</h2>
-        {prediction ? (
-          <div className="flex flex-col gap-2 rounded-md border border-dashed border-border bg-surface-sunken p-4">
-            <p className="font-display text-lg text-text">
-              {t("prediction.window", { start: fmt(prediction.windowStart), end: fmt(prediction.windowEnd) })}
-            </p>
-            <p className="text-sm text-text-muted">
-              {t("prediction.averageLength", { days: prediction.averageLength })}
-            </p>
-            <p className="text-sm text-text-muted">{confidenceText}</p>
-            {prediction.irregular ? (
-              <p className="text-sm text-warning-text">{t("prediction.irregularNote")}</p>
-            ) : null}
-          </div>
-        ) : (
-          <p className="text-sm text-text-muted">{t("prediction.needMore")}</p>
-        )}
-      </section>
-      )}
-
-      {isPregnancy ? <LogPregnancySymptoms /> : <LogSymptoms />}
-
-      {isPregnancy ? null : <LogPeriod />}
-
-      <section className="flex flex-col gap-3">
-        <h2 className="text-md font-semibold text-text">{st("recentHeading")}</h2>
-        {symptoms && symptoms.length > 0 ? (
-          <div className="flex flex-wrap gap-2">
-            {symptoms.map((s) => (
-              <Badge key={s.id as string} variant="primary">
-                {symptomLabel(s.type as string)}
-              </Badge>
-            ))}
-          </div>
-        ) : (
-          <p className="text-sm text-text-muted">{st("recentEmpty")}</p>
-        )}
-      </section>
-
-      {/* The cycle calendar overlays predicted-period and fertile-window bands, both of
-          which are wrong for a pregnancy. Past periods stay visible in history. */}
-      {isPregnancy ? null : starts.length > 0 ? (
-        <CycleCalendar
-          periods={periodDays}
-          windowStart={prediction?.windowStart ?? null}
-          windowEnd={prediction?.windowEnd ?? null}
-          fertileStart={fertile?.windowStart ?? null}
-          fertileEnd={fertile?.windowEnd ?? null}
-          ovulation={fertile?.ovulation ?? null}
-          today={todayISO()}
-        />
-      ) : (
-        <section className="flex flex-col gap-3">
-          <h2 className="text-md font-semibold text-text">{t("history.heading")}</h2>
-          <p className="text-sm text-text-muted">{t("history.empty")}</p>
-        </section>
-      )}
+      <LogSymptoms />
     </main>
   );
 }

@@ -23,6 +23,9 @@ export const CLIENT_NAMESPACES = [
   "admin",
   "appNav",
   "calculators",
+  // SPIKE (P4.0): the dashboard becomes a client component, so its namespace has
+  // to ship to the browser. This is a real cost of the conversion, not a stub.
+  "dashboard",
   "mfa",
   "notFound",
   "onboarding",
