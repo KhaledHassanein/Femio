@@ -852,5 +852,77 @@
       "care": "Menopause care options",
       "tracking": "How to track perimenopause symptoms"
     }
+  },
+  "pregnancySymptoms": {
+    "heading": "How are you feeling?",
+    "intro": "Log anything you notice. Some symptoms need care rather than a log entry — those are grouped separately below.",
+    "groups": {
+      "common": "Common in pregnancy",
+      "body": "Body",
+      "mood": "Mood and thinking",
+      "sameDay": "Contact your maternity team today",
+      "emergency": "Get emergency help now"
+    },
+    "items": {
+      "nausea": "Nausea",
+      "vomiting": "Vomiting",
+      "fatigue": "Tiredness",
+      "heartburn": "Heartburn",
+      "constipation": "Constipation",
+      "backache": "Back pain",
+      "breastTenderness": "Breast tenderness",
+      "insomnia": "Trouble sleeping",
+      "cravings": "Cravings",
+      "dizziness": "Dizziness",
+      "swelling": "Swelling",
+      "pelvicPain": "Pelvic pain",
+      "cramps": "Cramping",
+      "shortnessOfBreath": "Short of breath",
+      "braxtonHicks": "Practice contractions",
+      "itching": "Itching",
+      "anxious": "Anxious",
+      "moodSwings": "Mood swings",
+      "sad": "Low mood",
+      "irritable": "Irritable",
+      "lowMotivation": "Low motivation",
+      "brainFog": "Brain fog",
+      "anyBleeding": "Bleeding",
+      "fluidLeaking": "Fluid leaking",
+      "fever": "Fever or feeling very unwell",
+      "repeatedVomiting": "Cannot keep fluids down",
+      "painPassingUrine": "Pain passing urine",
+      "faceHandSwelling": "New face or hand swelling",
+      "persistentHeadache": "Headache that will not go",
+      "visionChanges": "Vision changes",
+      "severeItching": "Severe itching",
+      "reducedMovements": "Baby moving less than usual",
+      "heavyBleeding": "Heavy bleeding",
+      "severeAbdominalPain": "Severe abdominal pain",
+      "severeHeadacheWithVision": "Severe headache with vision changes",
+      "troubleBreathing": "Trouble breathing",
+      "chestPain": "Chest pain",
+      "fainting": "Fainting or confusion",
+      "seizure": "A seizure",
+      "legPainSwelling": "Severe one-sided leg pain or swelling",
+      "thoughtsOfHarm": "Thoughts of harming yourself or the baby"
+    },
+    "urgent": {
+      "emergency": {
+        "heading": "Please get help now — do not wait",
+        "body": "Contact your local emergency services or go to your nearest emergency department. Do not wait for Femio or any online service to respond."
+      },
+      "sameDay": {
+        "heading": "Contact your maternity team today",
+        "body": "Call your pregnancy-care team, urgent clinic, or local maternity service. They may direct you to emergency care — follow their advice."
+      },
+      "link": "What the warning signs mean",
+      "helpNow": "Need help now"
+    },
+    "save": "Save",
+    "saveAnyway": "Save and get help",
+    "saveAnywayNote": "Saving keeps it in your history — it does not contact anyone.",
+    "saving": "Saving…",
+    "saveFailed": "Could not save. Please try again.",
+    "queued": "Saved offline — it will sync when you are back online."
   }
 }

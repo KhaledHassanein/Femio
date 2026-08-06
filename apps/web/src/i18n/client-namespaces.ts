@@ -29,6 +29,7 @@ export const CLIENT_NAMESPACES = [
   // Only `pregnancy.setup` is client-side (the dashboard panel is a server component),
   // but the payload is narrowed per top-level namespace, and ~1 KB is not worth splitting.
   "pregnancy",
+  "pregnancySymptoms",
   "resetPassword",
   "settings",
   "signIn",

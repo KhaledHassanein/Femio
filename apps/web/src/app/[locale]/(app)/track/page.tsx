@@ -11,6 +11,7 @@ import { Badge } from "@/components/ui/badge";
 import { LogPeriod } from "@/components/cycle/log-period";
 import { LogSymptoms } from "@/components/cycle/log-symptoms";
 import { CycleCalendar } from "@/components/cycle/cycle-calendar";
+import { LogPregnancySymptoms } from "@/components/pregnancy/log-pregnancy-symptoms";
 
 const KNOWN_SYMPTOMS = new Set<string>(SYMPTOM_GROUPS.flatMap((g) => g.symptoms));
 
@@ -34,6 +35,11 @@ export default async function TrackPage({ params }: PageProps) {
     data: { user },
   } = await supabase.auth.getUser();
   if (!user) redirect(`/${locale}/welcome`);
+
+  // Pregnancy mode gets a different symptom vocabulary and its own urgency handling —
+  // asking someone who is pregnant about period cramps is the least of it (P1.13d).
+  const { data: personaState } = await supabase.from("persona_state").select("track").maybeSingle();
+  const isPregnancy = (personaState?.track as string | undefined) === "D";
 
   const { data: cycles } = await supabase
     .from("cycles")
@@ -79,6 +85,9 @@ export default async function TrackPage({ params }: PageProps) {
     <main className="mx-auto flex w-full max-w-2xl flex-col gap-6 px-6 py-12">
       <h1 className="font-display text-2xl text-text">{t("title")}</h1>
 
+      {/* A next-period prediction is meaningless to someone who is pregnant, and
+          alarming besides — the same reason the dashboard hides it (P1.13b). */}
+      {isPregnancy ? null : (
       <section>
         <h2 className="mb-2 text-md font-semibold text-text">{t("prediction.heading")}</h2>
         {prediction ? (
@@ -98,10 +107,11 @@ export default async function TrackPage({ params }: PageProps) {
           <p className="text-sm text-text-muted">{t("prediction.needMore")}</p>
         )}
       </section>
+      )}
 
-      <LogPeriod />
+      {isPregnancy ? <LogPregnancySymptoms /> : <LogSymptoms />}
 
-      <LogSymptoms />
+      {isPregnancy ? null : <LogPeriod />}
 
       <section className="flex flex-col gap-3">
         <h2 className="text-md font-semibold text-text">{st("recentHeading")}</h2>
@@ -118,7 +128,9 @@ export default async function TrackPage({ params }: PageProps) {
         )}
       </section>
 
-      {starts.length > 0 ? (
+      {/* The cycle calendar overlays predicted-period and fertile-window bands, both of
+          which are wrong for a pregnancy. Past periods stay visible in history. */}
+      {isPregnancy ? null : starts.length > 0 ? (
         <CycleCalendar
           periods={periodDays}
           windowStart={prediction?.windowStart ?? null}
