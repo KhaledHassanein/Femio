@@ -252,6 +252,8 @@
     "topSymptomsHeading": "Les plus enregistrés",
     "logCta": "Enregistrer aujourd'hui",
     "needData": "Enregistre deux cycles pour débloquer les analyses.",
+    "loadError": "Impossible de charger ton tableau de bord. Tes informations sont intactes — il s'agit d'un problème de connexion.",
+    "retry": "Réessayer",
     "modeSoon": "Un suivi {mode} plus complet arrive bientôt. Tes outils de cycle sont là en attendant."
   },
   "visitSummary": {

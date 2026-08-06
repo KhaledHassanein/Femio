@@ -1,4 +1,6 @@
-import { getFormatter, getTranslations } from "next-intl/server";
+"use client";
+
+import { useFormatter, useTranslations } from "next-intl";
 import { cycleVariability, sinceLastPeriod, MENOPAUSE_SYMPTOMS } from "@/lib/menopause";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
@@ -19,10 +21,11 @@ import { Link } from "@/i18n/navigation";
  * shown plainly, the convention is named as a convention, and the next step offered is a
  * conversation rather than a verdict.
  *
- * A server component — it renders text from dates, so there is nothing for the browser
- * to do.
+ * Was a server component — it renders text from dates, so there was nothing for the
+ * browser to do. Now a client component, because a server one cannot run in a Capacitor
+ * bundle and this screen has to ship to iOS/Android (P4.0, ADR-048).
  */
-export async function MenopausePanel({
+export function MenopausePanel({
   starts,
   symptomCounts,
   today,
@@ -31,10 +34,10 @@ export async function MenopausePanel({
   symptomCounts: { type: string; count: number }[];
   today: string;
 }) {
-  const t = await getTranslations("menopause");
-  const st = await getTranslations("symptoms");
+  const t = useTranslations("menopause");
+  const st = useTranslations("symptoms");
   const stItem = st as unknown as (key: string) => string;
-  const format = await getFormatter();
+  const format = useFormatter();
 
   const lastStart = starts.length > 0 ? [...starts].sort().at(-1)! : null;
   const since = sinceLastPeriod(lastStart, today);

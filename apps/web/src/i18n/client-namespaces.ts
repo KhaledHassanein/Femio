@@ -23,11 +23,15 @@ export const CLIENT_NAMESPACES = [
   "admin",
   "appNav",
   "calculators",
+  // The tracker screens became client components so they can run without a server
+  // (P4.0, ADR-048) — which means their namespaces have to reach the browser. This is
+  // the real, accepted cost of the mobile path: a little more client payload on
+  // `robots: noindex` pages that were never carrying SEO weight anyway.
+  "dashboard",
+  "menopause",
   "mfa",
   "notFound",
   "onboarding",
-  // Only `pregnancy.setup` is client-side (the dashboard panel is a server component),
-  // but the payload is narrowed per top-level namespace, and ~1 KB is not worth splitting.
   "pregnancy",
   "pregnancySymptoms",
   "resetPassword",

@@ -252,6 +252,8 @@
     "topSymptomsHeading": "Los más registrados",
     "logCta": "Registrar hoy",
     "needData": "Registra dos ciclos para desbloquear los análisis.",
+    "loadError": "No pudimos cargar tu panel. Tu información está a salvo: es un problema de conexión.",
+    "retry": "Reintentar",
     "modeSoon": "Pronto llega un seguimiento de {mode} más completo. Tus herramientas de ciclo están aquí mientras tanto."
   },
   "visitSummary": {

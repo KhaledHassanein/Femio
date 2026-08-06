@@ -1,4 +1,6 @@
-import { getFormatter, getTranslations } from "next-intl/server";
+"use client";
+
+import { useFormatter, useTranslations } from "next-intl";
 import { pregnancyProgress } from "@/lib/pregnancy";
 import { Alert, AlertDescription } from "@/components/ui/alert";
 import { Card, CardContent } from "@/components/ui/card";
@@ -13,8 +15,12 @@ import { EndPregnancy } from "./end-pregnancy";
  * modes landed on — which also showed a cycle-day counter and a next-period prediction,
  * both of which are meaningless to someone who is pregnant and one of which is alarming.
  *
- * A server component on purpose: it renders text from a date, so there is nothing for the
- * browser to do and no reason to add to the client bundle we just spent P1.11.2 shrinking.
+ * Was a server component on purpose — it renders text from a date, so there was nothing
+ * for the browser to do and no reason to grow the bundle P1.11.2 shrank. That reasoning
+ * was right and is now outranked: a server component cannot run in a Capacitor bundle,
+ * so keeping it server-side meant this screen could never ship to iOS/Android
+ * (P4.0, ADR-048). The cost is the `pregnancy` namespace in the client payload, which
+ * it already paid for `setup`.
  *
  * What it deliberately does NOT do: interpret. It counts days against a due date she was
  * given and names the trimester, which is arithmetic. It does not say whether anything is
@@ -22,15 +28,15 @@ import { EndPregnancy } from "./end-pregnancy";
  * her rather than waiting to be asked — pregnancy red flags are the one place in Femio
  * where surfacing information late is the harmful choice (brief §8).
  */
-export async function PregnancyPanel({
+export function PregnancyPanel({
   pregnancy,
   today,
 }: {
   pregnancy: { id: string; edd: string | null; status: string } | null;
   today: string;
 }) {
-  const t = await getTranslations("pregnancy");
-  const format = await getFormatter();
+  const t = useTranslations("pregnancy");
+  const format = useFormatter();
 
   // A pregnancy that has ended must not be met with "Set up your pregnancy". Showing a
   // fresh form to someone who has just recorded a loss is the kind of default that reads

@@ -252,6 +252,8 @@
     "topSymptomsHeading": "Most logged",
     "logCta": "Log today",
     "needData": "Log a couple of periods to unlock insights.",
+    "loadError": "We couldn't load your dashboard. Your information is safe — this is a connection problem.",
+    "retry": "Try again",
     "modeSoon": "Fuller {mode} tracking is coming soon. Your cycle tools are here in the meantime."
   },
   "visitSummary": {
