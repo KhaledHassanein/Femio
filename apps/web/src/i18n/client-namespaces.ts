@@ -1,5 +1,5 @@
 /**
- * Which message namespaces are sent to the browser (P1.11.2).
+ * Which message namespaces are sent to the browser (P1.11.2), and **where**.
  *
  * `NextIntlClientProvider` with no `messages` prop hands the **entire** catalog to the
  * client, and next-intl serialises it into every page's HTML. That was ~32 KB of English
@@ -9,48 +9,90 @@
  * organic search that is not a rounding error.
  *
  * Only **client** components need messages in the browser: anything rendered on the server
- * with `getTranslations` has already become text by the time the HTML is sent. So this list
- * is the namespaces reached by `useTranslations` — and nothing else.
+ * with `getTranslations` has already become text by the time the HTML is sent.
+ *
+ * ## Two lists, because one list was quietly undoing the saving
+ *
+ * Converting the tracker to client rendering (P4.0, ADR-048) moved several namespaces into
+ * the client payload — `dashboard`, `menopause`, then `experience` and `pregnancyMovements`.
+ * They are needed, but only inside the signed-in app, and shipping them from the root layout
+ * put them on `/learn` too. The page-weight e2e budget caught it: `/en/learn` went 39 → 51 KB
+ * and `/ar/learn` 45 → 58 KB, both over budget, on the pages the entire SEO strategy rests on.
+ * Raising the budget would have hidden a real regression on the most important public page.
+ *
+ * So the payload is scoped:
+ *
+ * - `PUBLIC_CLIENT_NAMESPACES` — provided by the root locale layout, so every page has them.
+ * - `APP_CLIENT_NAMESPACES` — provided **additionally** by the `(app)` route-group layout,
+ *   so the tracker's strings never reach a content page.
+ *
+ * Adding a namespace to the app list now costs a public content page nothing. That is the point,
+ * and it matters going into Phase 2, which adds most of the app's screens and therefore most
+ * of its strings.
  *
  * KEEPING IT CORRECT: a missing namespace is not a build error, it is a runtime error in
- * somebody's browser, which is the worst place to find out. So `pnpm i18n-client-lint`
- * (scripts/i18n/client-namespaces-lint.mjs) cross-checks this list against every
- * `useTranslations("…")` in the source and fails CI on a namespace that is used but not
- * listed — or listed but no longer used. Add the namespace here when you add the hook; the
- * guard will tell you if you forget.
+ * somebody's browser, which is the worst place to find out. `pnpm i18n-client-lint`
+ * cross-checks these lists against every `useTranslations("…")` in the source and fails CI on
+ * a namespace that is used but not listed, or listed but no longer used.
  */
-export const CLIENT_NAMESPACES = [
-  "admin",
+
+/** Sent on every page, public and signed-in alike. */
+export const PUBLIC_CLIENT_NAMESPACES = [
   "appNav",
   "calculators",
-  // The tracker screens became client components so they can run without a server
-  // (P4.0, ADR-048) — which means their namespaces have to reach the browser. This is
-  // the real, accepted cost of the mobile path: a little more client payload on
-  // `robots: noindex` pages that were never carrying SEO weight anyway.
-  "dashboard",
-  "menopause",
-  "mfa",
   "notFound",
   "onboarding",
+  "resetPassword",
+  "signIn",
+  "theme",
+] as const;
+
+/**
+ * Sent only under `/[locale]/(app)/*` — the signed-in tracker. Every one of these is on a
+ * `robots: noindex` page, so the SEO-weight argument that motivated P1.11.2 does not apply
+ * to them; the cost is paid only by someone actually using the app.
+ */
+export const APP_CLIENT_NAMESPACES = [
+  "admin",
+  "dashboard",
+  "experience",
+  "menopause",
+  "mfa",
   "pregnancy",
   "pregnancyMovements",
   "pregnancySymptoms",
-  "resetPassword",
   "settings",
-  "signIn",
   "symptoms",
-  "theme",
   "track",
   "visitSummary",
 ] as const;
 
+/** Union — every namespace that reaches a browser anywhere. */
+export const CLIENT_NAMESPACES = [
+  ...PUBLIC_CLIENT_NAMESPACES,
+  ...APP_CLIENT_NAMESPACES,
+] as const;
+
 type Messages = Record<string, unknown>;
 
-/** Narrow a full catalog to the namespaces the browser actually needs. */
-export function pickClientMessages(messages: Messages): Messages {
+function pick(messages: Messages, namespaces: readonly string[]): Messages {
   const picked: Messages = {};
-  for (const namespace of CLIENT_NAMESPACES) {
+  for (const namespace of namespaces) {
     if (namespace in messages) picked[namespace] = messages[namespace];
   }
   return picked;
+}
+
+/** Narrow a full catalog to what every page needs (root locale layout). */
+export function pickClientMessages(messages: Messages): Messages {
+  return pick(messages, PUBLIC_CLIENT_NAMESPACES);
+}
+
+/**
+ * Narrow to what the signed-in app needs. Returns the **union** with the public set, because
+ * a nested `NextIntlClientProvider` replaces the context rather than extending it — returning
+ * only the app namespaces would break `appNav` inside the app shell.
+ */
+export function pickAppClientMessages(messages: Messages): Messages {
+  return pick(messages, CLIENT_NAMESPACES);
 }

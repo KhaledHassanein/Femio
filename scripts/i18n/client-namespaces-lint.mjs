@@ -47,13 +47,29 @@ if (files.length === 0) {
   process.exit(1);
 }
 
-// The declared list.
+// The declared lists. Since P2.3 the payload is split in two — a public set shipped
+// by the root layout and an app set added by the `(app)` route-group layout — so the
+// guard reads both and checks usage against their union. Reading only the first
+// match would silently under-report and let a missing namespace reach a browser.
 let declared;
 try {
   const source = readFileSync(LIST_FILE, "utf8");
-  const block = source.match(/CLIENT_NAMESPACES\s*=\s*\[([\s\S]*?)\]/);
-  if (!block) throw new Error("could not find CLIENT_NAMESPACES");
-  declared = new Set([...block[1].matchAll(/"([^"]+)"/g)].map((m) => m[1]));
+  const names = new Set();
+  let found = 0;
+  for (const listName of ["PUBLIC_CLIENT_NAMESPACES", "APP_CLIENT_NAMESPACES"]) {
+    const block = source.match(new RegExp(`${listName}\\s*=\\s*\\[([\\s\\S]*?)\\]`));
+    if (!block) continue;
+    found += 1;
+    for (const m of block[1].matchAll(/"([^"]+)"/g)) names.add(m[1]);
+  }
+  if (found !== 2) {
+    throw new Error(
+      "expected both PUBLIC_CLIENT_NAMESPACES and APP_CLIENT_NAMESPACES — " +
+        `found ${found}. If the lists were renamed or merged, update this guard in the ` +
+        "same change rather than letting it check a subset.",
+    );
+  }
+  declared = names;
 } catch (err) {
   console.error(`✗ Client-i18n guard: cannot read ${LIST_FILE} — ${err.message}`);
   process.exit(1);

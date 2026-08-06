@@ -4,17 +4,11 @@ import { useFormatter, useTranslations } from "next-intl";
 import { buildVisitSummary } from "@/lib/account/visit-summary";
 import { KNOWN_SYMPTOMS } from "@/lib/cycle/symptoms";
 import { useSupabaseQuery, unwrap } from "@/lib/supabase/use-query";
+import { modeFromTrack } from "@/lib/persona/state";
 import { Alert, AlertDescription } from "@/components/ui/alert";
 import { Button } from "@/components/ui/button";
 import { PrintButton } from "@/components/account/print-button";
 import { Link } from "@/i18n/navigation";
-
-const TRACK_TO_MODE: Record<string, string> = {
-  B: "cycle",
-  C: "ttc",
-  D: "pregnancy",
-  F: "menopause",
-};
 
 /**
  * The visit summary, client-rendered so it can run without a server (P4.0, ADR-048).
@@ -109,7 +103,7 @@ export function SummaryScreen() {
       return flow;
     }
   };
-  const mode = summary.track ? (TRACK_TO_MODE[summary.track] ?? null) : null;
+  const mode = summary.track ? modeFromTrack(summary.track) : null;
 
   return (
     <main className="mx-auto flex w-full max-w-2xl flex-col gap-6 px-6 py-12 print:py-4">

@@ -242,7 +242,7 @@
   },
   "dashboard": {
     "title": "Ton tableau de bord",
-    "modeLabel": { "cycle": "Cycle", "ttc": "Essai de conception", "pregnancy": "Grossesse", "menopause": "Ménopause" },
+    "modeLabel": { "cycle": "Cycle", "ttc": "Essai de conception", "pregnancy": "Grossesse", "menopause": "Ménopause", "general": "Général" },
     "cycleDay": "Jour {day} de ton cycle",
     "cycleDayUnknown": "Enregistre des règles pour voir ton jour de cycle.",
     "nextPeriod": "Prochaines règles",
@@ -267,7 +267,8 @@
       "cycle": "Suivi du cycle",
       "ttc": "Essai de conception",
       "pregnancy": "Grossesse",
-      "menopause": "Ménopause"
+      "menopause": "Ménopause",
+      "general": "Suivi général"
     },
     "cycleHeading": "Cycle",
     "cycleLogged": "{count} règles enregistrées",
@@ -375,6 +376,37 @@
     "title": "Affections et sujets",
     "subtitle": "Des guides référencés et relus médicalement sur les affections et sujets tout au long de votre vie de santé.",
     "empty": "De nouveaux sujets arrivent — revenez bientôt."
+  },
+  "experience": {
+    "heading": "Ton expérience Femio",
+    "desc": "Femio s'adapte à l'étape où tu te trouves. Tu peux changer cela quand ta situation change — ou le désactiver et tout voir.",
+    "modes": {
+      "cycle": {
+        "label": "Cycle",
+        "desc": "Règles, symptômes et prévisions avec des fourchettes honnêtes."
+      },
+      "ttc": {
+        "label": "Essai de conception",
+        "desc": "Ajoute la fenêtre de fertilité au suivi du cycle."
+      },
+      "pregnancy": {
+        "label": "Grossesse",
+        "desc": "Semaines et terme, journal des mouvements, et symptômes de grossesse avec repères d'urgence."
+      },
+      "menopause": {
+        "label": "Préménopause ou ménopause",
+        "desc": "Mois depuis tes dernières règles et les symptômes qui comptent à cette étape."
+      },
+      "general": {
+        "label": "Général — ne rien adapter",
+        "desc": "Tous les outils, sans rien supposer de ton étape. Choisis ceci si rien ci-dessus ne correspond, ou si tu préfères décider toi-même."
+      }
+    },
+    "currentBadge": "Actuel",
+    "nothingLost": "Ce changement n'efface jamais rien. Ton dossier reste entier, tous les outils restent disponibles, et tu peux revenir à tout moment et le retrouver tel quel.",
+    "apply": "Enregistrer ce changement",
+    "saving": "Enregistrement…",
+    "saved": "Mis à jour. Ton tableau de bord et ton écran de suivi correspondent désormais."
   },
   "faq": {
     "title": "Questions fréquentes",

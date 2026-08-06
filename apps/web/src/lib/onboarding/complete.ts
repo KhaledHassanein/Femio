@@ -10,7 +10,13 @@ export { CONSENT_VERSION };
 export type OnboardingMode = "cycle" | "ttc" | "pregnancy" | "menopause";
 
 // Life-stage mode → initial resolved state (docs/09). Emphasis only; access is
-// never restricted. Everything stays editable via the wizard later.
+// never restricted.
+//
+// This comment used to end "Everything stays editable via the wizard later", which
+// was false for months: nothing could change `persona_state` after onboarding.
+// Settings → "Your Femio experience" makes it true for the mode (P1.27.1, ADR-050).
+// Re-running the wizard itself is still open (P1.27.3), and the ~73-persona resolver
+// these four hardcoded ids stand in for is P1.27.4.
 const MODE_TO_STATE: Record<
   OnboardingMode,
   { track: string; persona_id: string; flags: Record<string, boolean> }

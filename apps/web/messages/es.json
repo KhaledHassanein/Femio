@@ -242,7 +242,7 @@
   },
   "dashboard": {
     "title": "Tu panel",
-    "modeLabel": { "cycle": "Ciclo", "ttc": "Buscando embarazo", "pregnancy": "Embarazo", "menopause": "Menopausia" },
+    "modeLabel": { "cycle": "Ciclo", "ttc": "Buscando embarazo", "pregnancy": "Embarazo", "menopause": "Menopausia", "general": "General" },
     "cycleDay": "Día {day} de tu ciclo",
     "cycleDayUnknown": "Registra una menstruación para ver tu día de ciclo.",
     "nextPeriod": "Próxima menstruación",
@@ -267,7 +267,8 @@
       "cycle": "Seguimiento del ciclo",
       "ttc": "Buscando embarazo",
       "pregnancy": "Embarazo",
-      "menopause": "Menopausia"
+      "menopause": "Menopausia",
+      "general": "Seguimiento general"
     },
     "cycleHeading": "Ciclo",
     "cycleLogged": "{count} periodos registrados",
@@ -375,6 +376,37 @@
     "title": "Afecciones y temas",
     "subtitle": "Guías referenciadas y revisadas médicamente sobre afecciones y temas a lo largo de tu vida de salud.",
     "empty": "Pronto habrá nuevos temas — vuelve pronto."
+  },
+  "experience": {
+    "heading": "Tu experiencia en Femio",
+    "desc": "Femio se adapta al momento en el que estás. Puedes cambiarlo cuando cambie tu situación, o desactivarlo y verlo todo.",
+    "modes": {
+      "cycle": {
+        "label": "Ciclo",
+        "desc": "Reglas, síntomas y predicciones con rangos honestos."
+      },
+      "ttc": {
+        "label": "Buscando embarazo",
+        "desc": "Añade la ventana fértil al seguimiento del ciclo."
+      },
+      "pregnancy": {
+        "label": "Embarazo",
+        "desc": "Semanas y fecha probable, registro de movimientos y síntomas del embarazo con guía de urgencia."
+      },
+      "menopause": {
+        "label": "Perimenopausia o menopausia",
+        "desc": "Meses desde tu última regla y los síntomas que importan en esta etapa."
+      },
+      "general": {
+        "label": "General: sin personalizar",
+        "desc": "Todas las herramientas, sin suponer nada sobre tu etapa. Elige esto si nada de lo anterior encaja o si prefieres decidir tú."
+      }
+    },
+    "currentBadge": "Actual",
+    "nothingLost": "Cambiar esto nunca borra nada. Tu registro sigue completo, todas las herramientas siguen disponibles y puedes volver cuando quieras y encontrarlo tal como lo dejaste.",
+    "apply": "Guardar el cambio",
+    "saving": "Guardando…",
+    "saved": "Actualizado. Tu panel y tu pantalla de registro ya coinciden."
   },
   "faq": {
     "title": "Preguntas frecuentes",

@@ -242,7 +242,7 @@
   },
   "dashboard": {
     "title": "Your dashboard",
-    "modeLabel": { "cycle": "Cycle", "ttc": "Trying to conceive", "pregnancy": "Pregnancy", "menopause": "Menopause" },
+    "modeLabel": { "cycle": "Cycle", "ttc": "Trying to conceive", "pregnancy": "Pregnancy", "menopause": "Menopause", "general": "General" },
     "cycleDay": "Day {day} of your cycle",
     "cycleDayUnknown": "Log a period to see your cycle day.",
     "nextPeriod": "Next period",
@@ -267,7 +267,8 @@
       "cycle": "Cycle tracking",
       "ttc": "Trying to conceive",
       "pregnancy": "Pregnancy",
-      "menopause": "Menopause"
+      "menopause": "Menopause",
+      "general": "General tracking"
     },
     "cycleHeading": "Cycle",
     "cycleLogged": "{count} periods logged",
@@ -375,6 +376,37 @@
     "title": "Conditions & topics",
     "subtitle": "Referenced guides to conditions and topics across your health life, each reviewed by a clinician.",
     "empty": "New topics are on the way — check back soon."
+  },
+  "experience": {
+    "heading": "Your Femio experience",
+    "desc": "Femio adapts to where you are in life. You can change this whenever it changes — or turn it off and see everything.",
+    "modes": {
+      "cycle": {
+        "label": "Cycle",
+        "desc": "Periods, symptoms and predictions with honest ranges."
+      },
+      "ttc": {
+        "label": "Trying to conceive",
+        "desc": "Adds fertile-window awareness to cycle tracking."
+      },
+      "pregnancy": {
+        "label": "Pregnancy",
+        "desc": "Weeks and due date, movement log, and pregnancy symptoms with urgency guidance."
+      },
+      "menopause": {
+        "label": "Perimenopause or menopause",
+        "desc": "Months since your last period and the symptoms that matter in this stage."
+      },
+      "general": {
+        "label": "General — don't tailor it",
+        "desc": "Every tool, nothing assumed about your stage. Choose this if none of the above fits, or you would rather decide for yourself."
+      }
+    },
+    "currentBadge": "Current",
+    "nothingLost": "Changing this never deletes anything. Your record stays whole, every tool stays available, and you can switch back at any time and find it exactly as you left it.",
+    "apply": "Save this change",
+    "saving": "Saving…",
+    "saved": "Updated. Your dashboard and logging screen now match."
   },
   "faq": {
     "title": "Frequently asked questions",

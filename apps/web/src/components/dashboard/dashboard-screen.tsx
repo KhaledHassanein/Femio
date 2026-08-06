@@ -7,6 +7,7 @@ import { predictNextPeriod } from "@/lib/cycle/predict";
 import { currentCycleDay, topSymptoms } from "@/lib/cycle/insights";
 import { SYMPTOM_GROUPS } from "@/lib/cycle/symptoms";
 import { useSupabaseQuery, unwrap } from "@/lib/supabase/use-query";
+import { modeFromTrack, showsCyclePredictions, type PersonaMode } from "@/lib/persona/state";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
@@ -16,8 +17,6 @@ import { PregnancyPanel } from "@/components/pregnancy/pregnancy-panel";
 import { MenopausePanel } from "@/components/menopause/menopause-panel";
 
 const KNOWN_SYMPTOMS = new Set<string>(SYMPTOM_GROUPS.flatMap((g) => g.symptoms));
-type Mode = "cycle" | "ttc" | "pregnancy" | "menopause";
-const TRACK_TO_MODE: Record<string, Mode> = { B: "cycle", C: "ttc", D: "pregnancy", F: "menopause" };
 
 type Pregnancy = { id: string; edd: string | null; status: string } | null;
 
@@ -50,7 +49,7 @@ export function DashboardScreen() {
       ),
     ]);
 
-    const mode = TRACK_TO_MODE[(state?.track as string) ?? "B"] ?? "cycle";
+    const mode: PersonaMode = modeFromTrack(state?.track as string | null);
 
     // Only the pregnancy dashboard needs this, and only one pregnancy is active at a time.
     const pregnancy: Pregnancy =
@@ -143,7 +142,7 @@ export function DashboardScreen() {
         <MenopausePanel starts={starts} symptomCounts={top} today={today} />
       ) : null}
 
-      {mode === "pregnancy" || mode === "menopause" ? null : (
+      {showsCyclePredictions(mode) ? (
         <div className="grid gap-4 sm:grid-cols-2">
           <Card>
             <CardContent className="flex min-h-24 flex-col justify-center p-6">
@@ -179,7 +178,7 @@ export function DashboardScreen() {
             </CardContent>
           </Card>
         </div>
-      )}
+      ) : null}
 
       {fertile ? (
         <Card>

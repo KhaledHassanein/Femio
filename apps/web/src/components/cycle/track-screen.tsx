@@ -7,6 +7,7 @@ import { SYMPTOM_GROUPS } from "@/lib/cycle/symptoms";
 import type { Flow } from "@/lib/cycle/calendar";
 import { todayISO } from "@/lib/calculators/dates";
 import { useSupabaseQuery, unwrap } from "@/lib/supabase/use-query";
+import { modeFromTrack } from "@/lib/persona/state";
 import { Alert, AlertDescription } from "@/components/ui/alert";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -49,7 +50,7 @@ export function TrackScreen() {
       ),
     ]);
 
-    const isPregnancy = (personaState?.track as string | undefined) === "D";
+    const isPregnancy = modeFromTrack(personaState?.track as string | null) === "pregnancy";
 
     // Only needed to stamp movement sessions with the pregnancy they belong to,
     // so a later pregnancy never inherits an earlier one's pattern.

@@ -9,6 +9,7 @@ import { DeleteButton } from "@/components/account/delete-button";
 import { SetPassword } from "@/components/account/set-password";
 import { ConsentSettings } from "@/components/account/consent-settings";
 import { MfaSettings } from "@/components/account/mfa-settings";
+import { ExperienceSettings } from "@/components/account/experience-settings";
 import { Alert, AlertDescription } from "@/components/ui/alert";
 import { Button } from "@/components/ui/button";
 import { Link } from "@/i18n/navigation";
@@ -35,10 +36,21 @@ function MfaRequiredNotice() {
 
 export function SettingsScreen() {
   const t = useTranslations("settings");
+  const te = useTranslations("experience");
 
   return (
     <main className="mx-auto flex w-full max-w-2xl flex-col gap-6 px-6 py-12">
       <h1 className="font-display text-2xl text-text">{t("title")}</h1>
+
+      <Card>
+        <CardContent className="flex flex-col gap-4 p-6">
+          <div className="flex flex-col gap-1">
+            <h2 className="text-md font-semibold text-text">{te("heading")}</h2>
+            <p className="text-sm text-text-muted">{te("desc")}</p>
+          </div>
+          <ExperienceSettings />
+        </CardContent>
+      </Card>
 
       <Card>
         <CardContent className="flex flex-col gap-3 p-6">
