@@ -60,7 +60,15 @@ so it shows up in a diff rather than in someone's memory.
 
 | Advisory | Package | Why accepted | Review by |
 |---|---|---|---|
+| GHSA-w3rx-r6r6-pgpr · GHSA-5p2g-fcmc-qvqq | `image-size@2.0.2` (via Payload) | DoS: ICNS and JXL/HEIF parsers loop forever on crafted input. **No patch exists to take** — both advisories name `>=2.0.3` and the maintainer has published only to 2.0.2 (checked 2026-08-07), so an override cannot resolve. Reachable only from the CMS `media` upload, which is `create: isStaff`; impact is a hung CMS process, never the user-facing app. Mitigated by an explicit `mimeTypes` allowlist on the Media collection — defence-in-depth, not a fix, since image-size sniffs magic bytes and a file declared `image/png` could still carry ICNS data. | 2026-09-07 |
 | GHSA-mh99-v99m-4gvg | `brace-expansion@1.1.16` | Unbounded-expansion DoS. Reaches us only through ESLint tooling and the Serwist build, expanding glob patterns we author ourselves — never user input, never at runtime. No patch exists for the 1.x line, and forcing 5.x into a CJS caller (minimatch@3) is a four-major jump. | 2026-10-31 |
+
+**Advisory churn note (2026-08-07/08).** Five advisories landed against Payload's transitive
+dependencies across two days — `js-yaml`, `postcss`, `dompurify`, and two against `image-size`.
+None came from a change of ours; all surfaced on the next CI run. Four had patches and were
+pinned; the two `image-size` ones did not and are accepted above with a mitigation and a
+one-month review. Worth watching as a pattern rather than five incidents: the CMS's dependency
+surface is churning, and `pnpm audit` in CI is the only thing catching it.
 
 **Fixed rather than accepted, 2026-08-07.** Two advisories were published against existing
 transitive dependencies and surfaced on the next push, not by a code change of ours:

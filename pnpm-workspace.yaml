@@ -37,14 +37,17 @@ allowBuilds:
 #   js-yaml   GHSA-5p4m-2wfm-xmqj   (via @payloadcms/db-postgres > payload >
 #             json-schema-to-typescript) — quadratic CPU on `!!omap`, 70 paths, all
 #             transitive through Payload. Bounded inside 4.x per the note below.
-#   dompurify GHSA-cmwh-pvxp-8882   (via @payloadcms/ui > monaco-editor)
+#   dompurify GHSA-cmwh-pvxp-8882 + GHSA-55q2-fjhq-7xh7 (via @payloadcms/ui >
+#             monaco-editor) — pin raised in place for the second.
+#   (image-size is NOT here: the advisories name a 2.0.3 that the maintainer has
+#    not published. Accepted below with a mitigation — see auditConfig.)
 #   esbuild   GHSA-67mh-4wv8-2f99   (via @payloadcms/db-postgres > drizzle-kit)
 #   undici    GHSA-4cwx-7wf7-3272   (via payload)
 #   fast-uri  GHSA-7p8r-x3mc-p8w7   (via ajv)
 overrides:
   sharp: ">=0.35.3"
   postcss: ">=8.5.23 <9"
-  dompurify: ">=3.4.12"
+  dompurify: ">=3.4.13 <4"
   esbuild: ">=0.25.12"
   undici: ">=7.29.0 <8"
   fast-uri: ">=3.1.5 <4"
@@ -66,7 +69,20 @@ overrides:
 # list is the only way a known issue stays green — and it is reviewable in a diff.
 # Reviewed 2026-08-04; re-check by 2026-11-04 (docs/compliance/SECURITY_REVIEW.md §6).
 auditConfig:
-  ignoreGhsas: []
+  ignoreGhsas:
+    # image-size ICNS (GHSA-w3rx-r6r6-pgpr) and JXL/HEIF (GHSA-5p2g-fcmc-qvqq)
+    # parsers loop forever on crafted input. **There is no patch to take**: both
+    # advisories name `>=2.0.3` and the maintainer has published only up to 2.0.2
+    # (checked 2026-08-07), so an override cannot resolve. Reachability: 12 paths,
+    # all transitive through Payload, and only from the CMS `media` upload — which
+    # is `create: isStaff`, so it needs staff credentials, and the impact is a hung
+    # CMS process, not the user-facing app. Mitigated by an explicit `mimeTypes`
+    # allowlist on the Media collection, which blocks the declared-type path;
+    # note this is defence-in-depth rather than a fix, because image-size sniffs
+    # magic bytes and a file declared image/png could still carry ICNS data.
+    # Re-check for 2.0.3 by 2026-09-07 — this is a short date on purpose.
+    - GHSA-w3rx-r6r6-pgpr
+    - GHSA-5p2g-fcmc-qvqq
     # Empty, and worth keeping that way. GHSA-mh99-v99m-4gvg (brace-expansion 1.x
     # unbounded expansion) was accepted on 2026-07-31 because no 1.x patch existed;
     # 1.1.18 shipped one, so it is now fixed by the override above rather than
