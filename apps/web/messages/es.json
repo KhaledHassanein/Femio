@@ -179,6 +179,7 @@
   "track": {
     "loadError": "No pudimos cargar tu historial. Puedes registrar abajo de todos modos.",
     "retry": "Reintentar",
+    "loading": "Cargando tu historial",
     "flow": { "label": "Flujo", "spotting": "Manchado", "light": "Ligero", "medium": "Medio", "heavy": "Abundante" },
     "calendar": { "heading": "Calendario", "prevMonth": "Mes anterior", "nextMonth": "Mes siguiente", "legendPeriod": "Periodo", "legendPredicted": "Previsto", "legendFertile": "Ventana fértil", "legendOvulation": "Ovulación estimada", "legendToday": "Hoy", "awarenessNote": "Las fechas de la ventana fértil sirven solo para la planificación y concienciación de la concepción — son estimaciones, no un método fiable para evitar el embarazo." },
     "title": "Tu ciclo",
@@ -235,6 +236,7 @@
   },
   "dashboard": {
     "title": "Tu panel",
+    "loading": "Cargando tu panel",
     "modeLabel": { "cycle": "Ciclo", "ttc": "Buscando embarazo", "pregnancy": "Embarazo", "menopause": "Menopausia", "general": "General" },
     "cycleDay": "Día {day} de tu ciclo",
     "nextPeriod": "Próxima menstruación",
@@ -993,6 +995,7 @@
       "helpNow": "Necesito ayuda ahora"
     },
     "save": "Guardar",
+    "saved": "Guardado en tu registro.",
     "saveAnyway": "Guardar y buscar ayuda",
     "saveAnywayNote": "Guardarlo lo deja en tu historial — no contacta con nadie.",
     "saving": "Guardando…",

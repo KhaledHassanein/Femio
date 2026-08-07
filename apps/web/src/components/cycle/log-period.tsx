@@ -12,7 +12,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { cn } from "@/lib/utils";
+import { chipVariants } from "@/components/ui/chip";
 
 /**
  * The date is owned by the Track screen so the day strip and this field are the
@@ -94,14 +94,7 @@ export function LogPeriod({
                 type="button"
                 aria-pressed={flow === f}
                 onClick={() => setFlow((prev) => (prev === f ? null : f))}
-                className={cn(
-                  "inline-flex min-h-11 items-center rounded-pill border px-4 text-sm",
-                  "transition-[background-color,border-color,transform] duration-fast",
-                  "motion-safe:ease-spring motion-safe:active:scale-95",
-                  flow === f
-                    ? "border-primary bg-primary-soft font-medium text-primary-soft-text"
-                    : "border-border text-text-muted hover:bg-surface-sunken",
-                )}
+                className={chipVariants({ selected: flow === f })}
               >
                 {tf(f)}
               </button>

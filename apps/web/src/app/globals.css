@@ -62,22 +62,32 @@
   .pt-safe {
     padding-top: env(safe-area-inset-top, 0px);
   }
-  /* Scroll clearance for a fixed bottom bar: its height, the device inset, and a
-     gap. Without the gap the last line of a scrolled page ends 3px from the bar —
-     measured, not guessed — which reads as content trapped under it. */
-  .pb-tabbar {
-    padding-bottom: calc(72px + env(safe-area-inset-bottom, 0px) + 16px);
+  /* Scroll clearance for a fixed bottom bar. Reads the single definition below so
+     the height lives in exactly one place. */
+  .pb-bottom-bar {
+    padding-bottom: var(--bottom-bar-clearance, 0px);
   }
 }
 
-/* The crisis launcher is mounted globally (P1.26); anything fixed to the bottom of
-   a screen collides with it and wins, because it paints later. `app-bottom-bar` is
-   the shared hook every such bar carries — the signed-in tab bar and the onboarding
-   action bar so far — and this lifts the launcher clear of all of them. `:has()`
-   keeps it declarative: no effect, no cleanup, nothing to leak on unmount. A
-   safety affordance must never be the thing that gets covered. */
+/* One definition of "how much room a fixed bottom bar needs", scoped to pages that
+   actually have one — so `.pb-bottom-bar` adds nothing on a page without a bar.
+   72px covers the tallest of them (the tab bar's icon pill + label + padding); the
+   16px is a gap, because without it the last line of a scrolled page ended 3px
+   above the bar, measured, which reads as content trapped underneath.
+   `app-bottom-bar` is the shared hook every such bar carries — the signed-in tab
+   bar and the onboarding action bar so far.
+
+   The crisis launcher (P1.26) is mounted globally and fixed to the same corner, so
+   it collides with all of them and loses, because they paint later. It reads the
+   same variable rather than repeating the arithmetic: the two must never disagree,
+   and a safety affordance must never be the thing that gets covered. `:has()`
+   keeps this declarative — no effect, no cleanup, nothing to leak on unmount. */
+body:has(.app-bottom-bar) {
+  --bottom-bar-clearance: calc(72px + env(safe-area-inset-bottom, 0px) + 16px);
+}
+
 body:has(.app-bottom-bar) .crisis-launcher {
-  bottom: calc(72px + env(safe-area-inset-bottom, 0px) + 16px);
+  bottom: var(--bottom-bar-clearance);
 }
 
 /* Print: force a clean light page for the doctor-visit summary (P1.16.1). App

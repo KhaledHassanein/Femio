@@ -1,11 +1,18 @@
 import { addDays, diffDays, isValidISODate } from "@/lib/calculators/dates";
 
 /**
- * Geometry for the prediction band on the dashboard hero (P1.28.2).
+ * Geometry for a "you are here, the window is there" bar (P1.28.2).
  *
- * A range is what `predictNextPeriod` actually returns (product rule 3), and a bar
- * is a more honest picture of a range than a sentence with two dates in it — the
- * width *is* the uncertainty, so a wide irregular-mode window looks wide.
+ * A range is what every prediction in Femio actually returns (product rule 3), and
+ * a bar is a more honest picture of a range than a sentence with two dates in it —
+ * the width *is* the uncertainty, so a wide irregular-mode window looks wide.
+ *
+ * Domain-free by design: it takes four dates and returns four percentages. Three
+ * callers already use it for three different things — the next-period window, the
+ * fertile window, and a pregnancy's 37w–42w term range — which is why it lives in
+ * `lib/ui/` rather than under `cycle/`, and why the axis start is `axisStart`
+ * rather than `axisStart` (the pregnancy caller passes a computed LMP, which is
+ * not a cycle start by any reading).
  *
  * Pure and unit-tested on purpose: a band that quietly mispositions "today" would
  * misinform without ever throwing.
@@ -36,7 +43,7 @@ const clamp = (n: number) => Math.min(100, Math.max(0, n));
  * that ends before it starts), so the caller renders the sentence alone.
  */
 export function predictionBand(args: {
-  cycleStart: string;
+  axisStart: string;
   windowStart: string;
   windowEnd: string;
   today: string;
@@ -48,11 +55,11 @@ export function predictionBand(args: {
    */
   pad?: number;
 }): BandGeometry | null {
-  const { cycleStart, windowStart, windowEnd, today } = args;
-  if (![cycleStart, windowStart, windowEnd, today].every(isValidISODate)) return null;
+  const { axisStart, windowStart, windowEnd, today } = args;
+  if (![axisStart, windowStart, windowEnd, today].every(isValidISODate)) return null;
   if (diffDays(windowStart, windowEnd) < 0) return null;
-  if (diffDays(cycleStart, windowStart) < 0) return null;
-  if (diffDays(cycleStart, today) < 0) return null;
+  if (diffDays(axisStart, windowStart) < 0) return null;
+  if (diffDays(axisStart, today) < 0) return null;
 
   const pad = args.pad ?? Math.max(2, Math.ceil(diffDays(windowStart, windowEnd) / 2));
   const paddedEnd = addDays(windowEnd, pad);
@@ -61,10 +68,10 @@ export function predictionBand(args: {
   // The default pad cannot produce a zero span, but a caller-supplied one can:
   // pad 0 on a window that starts on day 1 collapses the axis to nothing and every
   // percentage becomes NaN. Refuse rather than render a band of NaN%.
-  const span = diffDays(cycleStart, axisEnd);
+  const span = diffDays(axisStart, axisEnd);
   if (span <= 0) return null;
 
-  const pct = (iso: string) => clamp((diffDays(cycleStart, iso) / span) * 100);
+  const pct = (iso: string) => clamp((diffDays(axisStart, iso) / span) * 100);
 
   return {
     windowStartPct: pct(windowStart),

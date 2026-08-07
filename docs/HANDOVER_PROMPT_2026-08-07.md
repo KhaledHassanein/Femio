@@ -1,6 +1,8 @@
 # Femio — handover (2026-08-07)
 
-Read this, then `CLAUDE.md`, then `docs/07_MASTER_TODO.md`. Read
+Read this, then `CLAUDE.md`, then `docs/07_MASTER_TODO.md`. Before writing any app UI,
+read `docs/22_APP_UI_ARCHITECTURE.md` — it is the conventions doc for the tracker
+screens and it exists so the next session does not re-derive them. Read
 `docs/19_PROJECT_AUDIT_2026-08-06.md` for how the current priorities were set and
 `docs/21_MOBILE_BUILD_TARGET_2026-08-06.md` for the architecture decision that governs
 all tracker code.
@@ -190,7 +192,7 @@ pattern engine (P2.5, the stated differentiator, not built).
 pnpm build && pnpm typecheck && pnpm lint
 pnpm claims-lint && pnpm crisis-lint && pnpm analytics-lint
 pnpm i18n-client-lint && pnpm content-lint && pnpm native-readiness-lint
-pnpm i18n-untranslated-lint
+pnpm i18n-untranslated-lint && pnpm tokens-parity-lint
 pnpm test
 CI=1 pnpm --filter web test:e2e:ci     # after a fresh build
 ```

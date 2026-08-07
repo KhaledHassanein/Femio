@@ -179,6 +179,7 @@
   "track": {
     "loadError": "We couldn't load your history. You can still log below.",
     "retry": "Try again",
+    "loading": "Loading your history",
     "flow": { "label": "Flow", "spotting": "Spotting", "light": "Light", "medium": "Medium", "heavy": "Heavy" },
     "calendar": { "heading": "Calendar", "prevMonth": "Previous month", "nextMonth": "Next month", "legendPeriod": "Period", "legendPredicted": "Predicted", "legendFertile": "Fertile window", "legendOvulation": "Estimated ovulation", "legendToday": "Today", "awarenessNote": "Fertile-window dates support conception planning and awareness only — they're estimates, not a reliable way to avoid pregnancy." },
     "title": "Your cycle",
@@ -235,6 +236,7 @@
   },
   "dashboard": {
     "title": "Your dashboard",
+    "loading": "Loading your dashboard",
     "modeLabel": { "cycle": "Cycle", "ttc": "Trying to conceive", "pregnancy": "Pregnancy", "menopause": "Menopause", "general": "General" },
     "cycleDay": "Day {day} of your cycle",
     "nextPeriod": "Next period",
@@ -983,6 +985,7 @@
       "helpNow": "Need help now"
     },
     "save": "Save",
+    "saved": "Saved to your record.",
     "saveAnyway": "Save and get help",
     "saveAnywayNote": "Saving keeps it in your history — it does not contact anyone.",
     "saving": "Saving…",

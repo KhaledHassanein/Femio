@@ -4,7 +4,7 @@ import { useFormatter, useTranslations } from "next-intl";
 import { fertileWindow } from "@/lib/calculators";
 import { todayISO } from "@/lib/calculators/dates";
 import { predictNextPeriod } from "@/lib/cycle/predict";
-import { predictionBand } from "@/lib/cycle/band";
+import { predictionBand } from "@/lib/ui/range-band";
 import { currentCycleDay, topSymptoms } from "@/lib/cycle/insights";
 import { SYMPTOM_GROUPS } from "@/lib/cycle/symptoms";
 import { useSupabaseQuery, unwrap } from "@/lib/supabase/use-query";
@@ -12,11 +12,12 @@ import { modeFromTrack, showsCyclePredictions, type PersonaMode } from "@/lib/pe
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { Alert, AlertDescription } from "@/components/ui/alert";
 import { Link } from "@/i18n/navigation";
 import { PregnancyPanel } from "@/components/pregnancy/pregnancy-panel";
 import { MenopausePanel } from "@/components/menopause/menopause-panel";
-import { HeroCard } from "@/components/dashboard/hero-card";
+import { HeroCard } from "@/components/ui/hero-card";
+import { AppScreen, ScreenError } from "@/components/patterns/app-screen";
+import { LoadingState } from "@/components/patterns/loading-state";
 
 const KNOWN_SYMPTOMS = new Set<string>(SYMPTOM_GROUPS.flatMap((g) => g.symptoms));
 
@@ -79,32 +80,23 @@ export function DashboardScreen() {
 
   if (query.status === "loading") {
     return (
-      <main className="mx-auto flex w-full max-w-2xl flex-col gap-6 px-6 py-12" aria-busy="true">
-        <div className="h-8 w-40 animate-pulse rounded-md bg-surface-sunken" />
-        <div className="grid gap-4 sm:grid-cols-2">
-          <div className="h-24 animate-pulse rounded-md bg-surface-sunken" />
-          <div className="h-24 animate-pulse rounded-md bg-surface-sunken" />
-        </div>
-      </main>
+      <AppScreen busy>
+        <LoadingState label={t("loading")} />
+      </AppScreen>
     );
   }
 
   if (query.status === "error") {
+    // Never an empty dashboard on a failed read — see `ScreenError` (ADR-046).
     return (
-      <main className="mx-auto flex w-full max-w-2xl flex-col gap-6 px-6 py-12">
-        <h1 className="font-display text-2xl text-text">{t("title")}</h1>
-        {/* Never render an empty dashboard on a failed read: to someone looking at her
-            own health record, "nothing here" and "we could not load it" are very
-            different statements (ADR-046). */}
-        <Alert variant="danger">
-          <AlertDescription className="flex flex-col items-start gap-3">
-            <span>{t("loadError")}</span>
-            <Button variant="outline" onClick={query.refresh}>
-              {t("retry")}
-            </Button>
-          </AlertDescription>
-        </Alert>
-      </main>
+      <AppScreen>
+        <ScreenError
+          title={t("title")}
+          message={t("loadError")}
+          retryLabel={t("retry")}
+          onRetry={query.refresh}
+        />
+      </AppScreen>
     );
   }
 
@@ -133,11 +125,11 @@ export function DashboardScreen() {
     mode === "ttc" && lastStart ? fertileWindow(lastStart, prediction?.averageLength ?? 28) : null;
 
   // The band draws the range the prediction already returns; when the geometry
-  // can't be computed the sentence stands on its own (lib/cycle/band.ts).
+  // can't be computed the sentence stands on its own (lib/ui/range-band.ts).
   const periodBand =
     lastStart && prediction
       ? predictionBand({
-          cycleStart: lastStart,
+          axisStart: lastStart,
           windowStart: prediction.windowStart,
           windowEnd: prediction.windowEnd,
           today,
@@ -146,7 +138,7 @@ export function DashboardScreen() {
   const fertileBand =
     lastStart && fertile
       ? predictionBand({
-          cycleStart: lastStart,
+          axisStart: lastStart,
           windowStart: fertile.windowStart,
           windowEnd: fertile.windowEnd,
           today,
@@ -166,7 +158,7 @@ export function DashboardScreen() {
   };
 
   return (
-    <main className="mx-auto flex w-full max-w-2xl flex-col gap-5 px-5 py-6">
+    <AppScreen>
       {/* A compact title row, not a masthead. At 36px display type "Your dashboard"
           wrapped to two lines on a 390px screen and pushed the answer below it —
           the brand bar above already says where you are, so the heading's job here
@@ -180,7 +172,7 @@ export function DashboardScreen() {
           with — and keeps the next-period estimate as a secondary card below. */}
       {mode === "ttc" ? (
         <HeroCard
-          tone="ttc"
+          tone="fertile"
           eyebrow={t("fertileHeading")}
           headline={
             fertile
@@ -197,7 +189,7 @@ export function DashboardScreen() {
 
       {showsCyclePredictions(mode) && mode !== "ttc" ? (
         <HeroCard
-          tone="cycle"
+          tone="brand"
           eyebrow={cycleDay ? t("cycleDay", { day: cycleDay }) : t(`modeLabel.${mode}`)}
           headline={
             prediction
@@ -281,6 +273,6 @@ export function DashboardScreen() {
           </div>
         </section>
       ) : null}
-    </main>
+    </AppScreen>
   );
 }

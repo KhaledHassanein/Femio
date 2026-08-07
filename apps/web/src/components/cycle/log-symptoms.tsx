@@ -21,20 +21,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { cn } from "@/lib/utils";
-
-// 44px minimum height and a press response, because this is the control the whole
-// app is used through and it was a 30px chip that did nothing when touched
-// (P1.28.3). `motion-safe:` keeps the scale off for reduced-motion users.
-const chip = (active: boolean) =>
-  cn(
-    "inline-flex min-h-11 items-center rounded-pill border px-4 text-sm",
-    "transition-[background-color,border-color,transform] duration-fast",
-    "motion-safe:ease-spring motion-safe:active:scale-95",
-    active
-      ? "border-primary bg-primary-soft text-primary-soft-text"
-      : "border-border bg-surface text-text hover:bg-surface-sunken",
-  );
+import { chipVariants } from "@/components/ui/chip";
 
 /**
  * `date`/`today` come from the Track screen's day strip; `onSaved` lets the screen
@@ -141,7 +128,7 @@ export function LogSymptoms({
                   type="button"
                   onClick={() => toggle(key)}
                   aria-pressed={selected.has(key)}
-                  className={chip(selected.has(key))}
+                  className={chipVariants({ selected: selected.has(key) })}
                 >
                   {t(`items.${key}`)}
                 </button>
@@ -203,14 +190,7 @@ export function LogSymptoms({
                       type="button"
                       onClick={() => setSeverity(key, lvl)}
                       aria-pressed={sev === lvl}
-                      className={cn(
-                        "inline-flex min-h-9 min-w-9 items-center justify-center rounded-pill border px-3 text-2xs",
-                        "transition-[background-color,border-color,transform] duration-fast",
-                        "motion-safe:ease-spring motion-safe:active:scale-95",
-                        sev === lvl
-                          ? "border-primary bg-primary-soft text-primary-soft-text"
-                          : "border-border text-text-muted hover:bg-surface",
-                      )}
+                      className={chipVariants({ size: "sm", selected: sev === lvl })}
                     >
                       {t(`severity.${lvl}`)}
                     </button>

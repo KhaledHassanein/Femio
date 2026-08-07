@@ -51,7 +51,7 @@ export function DateStrip({
 
   return (
     <div
-      role="group"
+      role="radiogroup"
       aria-label={label}
       className="-mx-5 flex snap-x snap-mandatory scroll-px-5 gap-2 overflow-x-auto px-5 pb-1"
     >
@@ -64,7 +64,8 @@ export function DateStrip({
             ref={isToday ? todayRef : undefined}
             type="button"
             onClick={() => onSelect(iso)}
-            aria-pressed={isSelected}
+            role="radio"
+            aria-checked={isSelected}
             aria-label={format.dateTime(utc(iso), { dateStyle: "full", timeZone: "UTC" })}
             className={cn(
               // 48×64 keeps every day comfortably over the 44px touch minimum.

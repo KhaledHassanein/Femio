@@ -57,6 +57,17 @@ jobs:
       - name: Client i18n payload guard
         run: pnpm i18n-client-lint
 
+      # A whole namespace left in English renders fine and passes key-parity, so
+      # only a value comparison catches it — three of them shipped that way for
+      # months (P1.29, ADR-053).
+      - name: Untranslated-copy guard
+        run: pnpm i18n-untranslated-lint
+
+      # A Tailwind utility with no theme entry emits nothing — no error, just the
+      # wrong result on screen. `rounded-round` did exactly that (ADR-054).
+      - name: Token/preset parity guard
+        run: pnpm tokens-parity-lint
+
       # The tracker has to stay buildable without a server or Phase 4 cannot ship
       # (P4.0). A ratchet over known violations, not a gate — see docs/21.
       - name: Native readiness guard

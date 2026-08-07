@@ -9,7 +9,7 @@ import { Alert, AlertDescription } from "@/components/ui/alert";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { cn } from "@/lib/utils";
+import { ChoiceGroup } from "@/components/ui/choice-row";
 import { track } from "@/lib/analytics/track";
 import { PageView } from "@/components/analytics/page-view";
 
@@ -17,59 +17,18 @@ type Mode = "cycle" | "ttc" | "pregnancy" | "menopause";
 type Account = "anonymous" | "email";
 
 const MODES: readonly Mode[] = ["cycle", "ttc", "pregnancy", "menopause"];
+const ACCOUNTS: readonly Account[] = ["anonymous", "email"];
 const TOTAL_STEPS = 3;
 
-/**
- * A single-choice row (P1.28.5).
- *
- * `role="radio"` rather than `aria-pressed`: these options are mutually exclusive,
- * and a toggle role tells a screen-reader user the wrong thing and gives her no
- * "2 of 4" position. The visible dot is the same promise in the other direction —
- * before this the only signal that a card was selectable was that selecting it
- * changed the background, which you cannot see until after you have guessed.
- */
-function ChoiceRow({
-  selected,
-  onSelect,
-  name,
-  desc,
-}: {
-  selected: boolean;
-  onSelect: () => void;
-  name: string;
-  desc: string;
-}) {
-  return (
-    <button
-      type="button"
-      role="radio"
-      aria-checked={selected}
-      onClick={onSelect}
-      className={cn(
-        "flex w-full items-start gap-3 rounded-md border p-4 text-start",
-        "transition-[background-color,border-color,transform] duration-fast",
-        "motion-safe:ease-spring motion-safe:active:scale-[0.99]",
-        selected
-          ? "border-primary bg-primary-soft"
-          : "border-border bg-surface hover:bg-surface-sunken",
-      )}
-    >
-      <span
-        aria-hidden
-        className={cn(
-          "mt-0.5 size-5 shrink-0 rounded-round border-2 transition-colors duration-fast",
-          selected ? "border-primary bg-primary shadow-[inset_0_0_0_3px_var(--surface)]" : "border-border-strong",
-        )}
-      />
-      <span className="flex flex-col gap-0.5">
-        <span className={cn("font-semibold", selected ? "text-primary-soft-text" : "text-text")}>
-          {name}
-        </span>
-        <span className="text-sm text-text-muted">{desc}</span>
-      </span>
-    </button>
-  );
-}
+// The message keys predate the `Account` union and do not match it, so the mapping
+// lives here rather than as the same ternary written out at three call sites.
+const ACCOUNT_KEY: Record<Account, string> = {
+  anonymous: "privacy.anonymous",
+  email: "privacy.account",
+};
+
+// One h1 per step, indexed rather than chained.
+const STEP_HEADING = ["title", "privacy.heading", "confirm.heading"] as const;
 
 function ConsentRow({
   checked,
@@ -145,7 +104,7 @@ export function OnboardingWizard() {
   };
 
   return (
-    <div className="pb-tabbar mx-auto flex w-full max-w-xl flex-col gap-5 px-5 pt-6">
+    <div className="pb-bottom-bar mx-auto flex w-full max-w-xl flex-col gap-5 px-5 pt-6">
       <PageView area="onboarding" />
 
       {/* The wordmark, because this is the first screen a new user sees and it did
@@ -169,9 +128,7 @@ export function OnboardingWizard() {
 
       {/* One h1 per view. It used to repeat "Welcome to Femio" on all three steps,
           which cost the top third of a 390px screen to say nothing new. */}
-      <h1 className="font-display text-xl text-text">
-        {step === 1 ? t("title") : step === 2 ? t("privacy.heading") : t("confirm.heading")}
-      </h1>
+      <h1 className="font-display text-xl text-text">{t(STEP_HEADING[step - 1]!)}</h1>
 
       {step === 1 ? (
         <section className="flex flex-col gap-4">
@@ -179,38 +136,32 @@ export function OnboardingWizard() {
             <h2 className="text-md font-semibold text-text">{t("mode.heading")}</h2>
             <p className="text-sm text-text-muted">{t("mode.subheading")}</p>
           </div>
-          <div className="flex flex-col gap-3" role="radiogroup" aria-label={t("mode.heading")}>
-            {MODES.map((m) => (
-              <ChoiceRow
-                key={m}
-                selected={mode === m}
-                onSelect={() => setMode(m)}
-                name={t(`mode.${m}.name`)}
-                desc={t(`mode.${m}.desc`)}
-              />
-            ))}
-          </div>
+          <ChoiceGroup
+            label={t("mode.heading")}
+            value={mode}
+            onChange={setMode}
+            options={MODES.map((m) => ({
+              value: m,
+              name: t(`mode.${m}.name`),
+              desc: t(`mode.${m}.desc`),
+            }))}
+          />
         </section>
       ) : null}
 
       {step === 2 ? (
         <section className="flex flex-col gap-5">
           <p className="text-sm text-text-muted">{t("privacy.intro")}</p>
-          <div
-            className="flex flex-col gap-3"
-            role="radiogroup"
-            aria-label={t("privacy.heading")}
-          >
-            {(["anonymous", "email"] as const).map((a) => (
-              <ChoiceRow
-                key={a}
-                selected={account === a}
-                onSelect={() => setAccount(a)}
-                name={t(a === "anonymous" ? "privacy.anonymous.name" : "privacy.account.name")}
-                desc={t(a === "anonymous" ? "privacy.anonymous.desc" : "privacy.account.desc")}
-              />
-            ))}
-          </div>
+          <ChoiceGroup
+            label={t("privacy.heading")}
+            value={account}
+            onChange={setAccount}
+            options={ACCOUNTS.map((a) => ({
+              value: a,
+              name: t(`${ACCOUNT_KEY[a]}.name`),
+              desc: t(`${ACCOUNT_KEY[a]}.desc`),
+            }))}
+          />
           {account === "email" ? (
             <div className="flex flex-col gap-2">
               <Label htmlFor="email">{t("privacy.emailLabel")}</Label>
@@ -246,9 +197,7 @@ export function OnboardingWizard() {
               <dt className="text-2xs uppercase tracking-wider text-text-subtle">
                 {t("confirm.accountLabel")}
               </dt>
-              <dd className="font-semibold text-text">
-                {t(account === "anonymous" ? "privacy.anonymous.name" : "privacy.account.name")}
-              </dd>
+              <dd className="font-semibold text-text">{t(`${ACCOUNT_KEY[account]}.name`)}</dd>
             </div>
           </dl>
         </section>

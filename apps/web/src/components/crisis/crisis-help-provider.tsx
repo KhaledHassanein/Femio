@@ -80,14 +80,14 @@ export function CrisisHelpProvider({ children }: { children: ReactNode }) {
           // the launcher clear of the signed-in tab bar, which would otherwise sit
           // on top of it (P1.28.1). A safety affordance must never be the thing
           // that gets covered.
-          "crisis-launcher fixed bottom-4 end-4 z-sticky inline-flex h-11 items-center gap-2 rounded-full px-4",
+          "crisis-launcher fixed bottom-4 end-4 z-sticky inline-flex h-11 items-center gap-2 rounded-pill px-4",
           "bg-primary-solid text-sm font-semibold text-primary-fg-solid shadow-md",
           "hover:bg-primary-hover focus-visible:outline-none print:hidden",
         )}
       >
         <span
           aria-hidden
-          className="inline-block size-2 rounded-full bg-primary-fg-solid/90"
+          className="inline-block size-2 rounded-pill bg-primary-fg-solid/90"
         />
         <span lang={content.isFallback ? content.lang : undefined}>
           {content.strings.launcher}

@@ -19,6 +19,7 @@
     "analytics-lint": "node scripts/analytics-lint.mjs",
     "i18n-client-lint": "node scripts/i18n/client-namespaces-lint.mjs",
     "i18n-untranslated-lint": "node scripts/i18n/untranslated-lint.mjs",
+    "tokens-parity-lint": "node scripts/design/tokens-parity-lint.mjs",
     "native-readiness-lint": "node scripts/native-readiness-lint.mjs",
     "content-lint": "node scripts/content-lint.mjs",
     "content-lint:urls": "node scripts/content-lint.mjs --check-urls",

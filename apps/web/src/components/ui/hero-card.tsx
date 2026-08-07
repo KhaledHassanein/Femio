@@ -1,11 +1,11 @@
 "use client";
 
 import type { ReactNode } from "react";
-import type { BandGeometry } from "@/lib/cycle/band";
+import type { BandGeometry } from "@/lib/ui/range-band";
 import { cn } from "@/lib/utils";
 
 /**
- * The dashboard hero (P1.28.2).
+ * The hero card (P1.28.2) — the one thing a screen leads with.
  *
  * One card carrying the answer she opened the app for, in the shape the mockups
  * specified in Phase 0.5 and nobody built: eyebrow → statement → prediction band
@@ -16,11 +16,18 @@ import { cn } from "@/lib/utils";
  * `--gradient-brand`/`--gradient-fertile` pair: every stop in a hero gradient is
  * AA-safe under white text, because this card carries small body copy.
  */
-export type HeroTone = "cycle" | "ttc" | "warm";
+/**
+ * A palette choice, not a life stage. The first version used `cycle | ttc | warm`
+ * and menopause had to pass `tone="brand"` — a menopause hero labelled "cycle" in
+ * the source, and a type that would need a new member for every one of the ~73
+ * personas in docs/08. These name the gradient family instead, so the caller picks
+ * a colour and the component stays out of the taxonomy.
+ */
+export type HeroTone = "brand" | "fertile" | "warm";
 
 const TONE_CLASS: Record<HeroTone, string> = {
-  cycle: "bg-gradient-hero-cycle",
-  ttc: "bg-gradient-hero-ttc",
+  brand: "bg-gradient-hero-cycle",
+  fertile: "bg-gradient-hero-ttc",
   warm: "bg-gradient-hero-warm",
 };
 

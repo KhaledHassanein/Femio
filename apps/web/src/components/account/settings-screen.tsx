@@ -14,6 +14,7 @@ import { SignOutButton } from "@/components/account/sign-out-button";
 import { Alert, AlertDescription } from "@/components/ui/alert";
 import { Button } from "@/components/ui/button";
 import { Link } from "@/i18n/navigation";
+import { AppScreen } from "@/components/patterns/app-screen";
 
 /**
  * Settings, client-rendered so it can run without a server (P4.0, ADR-048).
@@ -40,8 +41,8 @@ export function SettingsScreen() {
   const te = useTranslations("experience");
 
   return (
-    <main className="mx-auto flex w-full max-w-2xl flex-col gap-6 px-6 py-12">
-      <h1 className="font-display text-2xl text-text">{t("title")}</h1>
+    <AppScreen>
+      <h1 className="font-display text-lg text-text">{t("title")}</h1>
 
       <Card>
         <CardContent className="flex flex-col gap-4 p-6">
@@ -133,6 +134,6 @@ export function SettingsScreen() {
           <DeleteButton />
         </CardContent>
       </Card>
-    </main>
+    </AppScreen>
   );
 }

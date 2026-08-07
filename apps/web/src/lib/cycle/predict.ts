@@ -9,7 +9,6 @@ export type Confidence = "high" | "medium" | "low";
 
 export type CyclePrediction = {
   averageLength: number;
-  cyclesAnalyzed: number;
   /** Point estimate — always rendered soft/uncertain, never as a guarantee. */
   predictedStart: string;
   windowStart: string;
@@ -57,7 +56,6 @@ export function predictNextPeriod(starts: string[]): CyclePrediction | null {
 
   return {
     averageLength,
-    cyclesAnalyzed: lengths.length,
     predictedStart,
     windowStart: addDays(predictedStart, -margin),
     windowEnd: addDays(predictedStart, margin),

@@ -3,7 +3,7 @@
 import { useFormatter, useTranslations } from "next-intl";
 import { cycleVariability, sinceLastPeriod, MENOPAUSE_SYMPTOMS } from "@/lib/menopause";
 import { Badge } from "@/components/ui/badge";
-import { HeroCard } from "@/components/dashboard/hero-card";
+import { HeroCard } from "@/components/ui/hero-card";
 import { Card, CardContent } from "@/components/ui/card";
 import { Link } from "@/i18n/navigation";
 
@@ -63,7 +63,7 @@ export function MenopausePanel({
           number; the marker is named as a convention and nothing points at it. */}
       {since ? (
         <HeroCard
-          tone="cycle"
+          tone="brand"
           eyebrow={t("lastLogged", { date: fmt(lastStart!) })}
           headline={
             since.months < 1

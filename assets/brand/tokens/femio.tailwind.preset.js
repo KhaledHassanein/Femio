@@ -73,6 +73,9 @@ module.exports = {
       transitionDuration: { fast: '150ms', base: '250ms', slow: '400ms' },
       screens: { xs: '360px', sm: '480px', md: '768px', lg: '1024px', xl: '1440px' },
       zIndex: {
+        // base/raised mirror --z-base and --z-raised, which were in the token file
+        // and unmapped here — the same gap that made `rounded-round` a no-op.
+        base: '0', raised: '10',
         dropdown: '1000', sticky: '1100', overlay: '1200', modal: '1300', toast: '1400', tooltip: '1500',
       },
     },

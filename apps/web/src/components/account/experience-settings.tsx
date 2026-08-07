@@ -11,7 +11,7 @@ import {
 } from "@/lib/persona/state";
 import { Alert, AlertDescription } from "@/components/ui/alert";
 import { Button } from "@/components/ui/button";
-import { cn } from "@/lib/utils";
+import { ChoiceGroup } from "@/components/ui/choice-row";
 
 /**
  * "Your Femio experience" — change life-stage mode, or switch to general
@@ -70,41 +70,28 @@ export function ExperienceSettings() {
 
   return (
     <div className="flex flex-col gap-4">
-      <div className="flex flex-col gap-2" role="radiogroup" aria-label={t("heading")}>
-        {PERSONA_MODES.map((mode) => {
-          const active = selected === mode;
-          return (
-            <button
-              key={mode}
-              type="button"
-              onClick={() => {
-                setPending(mode);
-                setSaved(false);
-              }}
-              // Radio, not a toggle: exactly one life stage applies, and this is the
-              // same control the wizard uses (P1.28.5/.6). `aria-pressed` announced
-              // "pressed" instead of "3 of 5 selected", and the two screens have to
-              // behave identically — Settings is where a wrong answer gets corrected.
-              role="radio"
-              aria-checked={active}
-              className={cn(
-                "flex flex-col items-start gap-1 rounded-md border p-4 text-start",
-                "transition-[background-color,border-color,transform] duration-fast",
-                "motion-safe:ease-spring motion-safe:active:scale-[0.99]",
-                active
-                  ? "border-primary bg-primary-soft text-primary-soft-text"
-                  : "border-border bg-surface text-text hover:bg-surface-sunken",
-              )}
-            >
-              <span className="font-medium">{t(`modes.${mode}.label`)}</span>
-              <span className="text-sm text-text-muted">{t(`modes.${mode}.desc`)}</span>
-              {mode === current ? (
-                <span className="text-2xs text-text-subtle">{t("currentBadge")}</span>
-              ) : null}
-            </button>
-          );
-        })}
-      </div>
+      {/* The same component the wizard uses. This screen had its own copy, and it
+          had already lost the radio dot and the arrow-key handling — Settings is
+          where a wrong onboarding answer gets corrected, so it is the last place
+          that should be the weaker version of the control. */}
+      <ChoiceGroup
+        label={t("heading")}
+        value={selected}
+        onChange={(mode) => {
+          setPending(mode);
+          setSaved(false);
+        }}
+        className="gap-2"
+        options={PERSONA_MODES.map((mode: PersonaMode) => ({
+          value: mode,
+          name: t(`modes.${mode}.label`),
+          desc: t(`modes.${mode}.desc`),
+          note:
+            mode === current ? (
+              <span className="text-2xs text-text-subtle">{t("currentBadge")}</span>
+            ) : undefined,
+        }))}
+      />
 
       {/* The reassurance is the feature. See the component note. */}
       <p className="text-sm text-text-muted">{t("nothingLost")}</p>

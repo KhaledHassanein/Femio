@@ -78,10 +78,14 @@ export function CycleCalendar({
       fmt.format(new Date(Date.UTC(2024, 0, 7 + ((weekStartsOn + i) % 7)))),
     );
   }, [locale, weekStartsOn]);
-  const dayLabel = (iso: string) =>
-    new Intl.DateTimeFormat(locale, { dateStyle: "long", timeZone: "UTC" }).format(
-      new Date(`${iso}T00:00:00Z`),
-    );
+  // Built once per locale, not once per cell. This ran for every marked day on
+  // every render, and `new Intl.DateTimeFormat` is ~40x the cost of reusing one —
+  // it dominated the re-render that the Track day strip now triggers on each tap.
+  const dayFormat = useMemo(
+    () => new Intl.DateTimeFormat(locale, { dateStyle: "long", timeZone: "UTC" }),
+    [locale],
+  );
+  const dayLabel = (iso: string) => dayFormat.format(new Date(`${iso}T00:00:00Z`));
 
   const shift = (delta: number) => {
     const m = month + delta;

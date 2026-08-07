@@ -27,8 +27,6 @@ export type PregnancyProgress = {
   trimester: Trimester;
   /** Days until the due date. Negative once past it — which happens, and is normal. */
   daysUntilDue: number;
-  /** 0–1, for a progress indicator. Clamped, so being overdue does not overflow the bar. */
-  fraction: number;
   /** True once past the due date: most pregnancies are not born on it. */
   overdue: boolean;
   /** 37w0d — the point from which a birth is "term" rather than preterm. */
@@ -56,7 +54,6 @@ export function pregnancyProgress(eddISO: string, todayISO: string): PregnancyPr
     totalDays,
     trimester: trimesterFor(totalDays),
     daysUntilDue,
-    fraction: Math.min(1, Math.max(0, totalDays / GESTATION_DAYS)),
     overdue: daysUntilDue < 0,
     termStart: addDays(eddISO, -21), // 40w0d − 3w = 37w0d
   };

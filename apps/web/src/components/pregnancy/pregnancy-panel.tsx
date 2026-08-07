@@ -3,8 +3,8 @@
 import { useFormatter, useTranslations } from "next-intl";
 import { GESTATION_DAYS, pregnancyProgress } from "@/lib/pregnancy";
 import { addDays } from "@/lib/calculators/dates";
-import { predictionBand } from "@/lib/cycle/band";
-import { HeroCard } from "@/components/dashboard/hero-card";
+import { predictionBand } from "@/lib/ui/range-band";
+import { HeroCard } from "@/components/ui/hero-card";
 import { Alert, AlertDescription } from "@/components/ui/alert";
 import { Card, CardContent } from "@/components/ui/card";
 import { Link } from "@/i18n/navigation";
@@ -88,7 +88,7 @@ export function PregnancyPanel({
    * of the axis, because 42w is a real outer bound rather than an arbitrary edge.
    */
   const band = predictionBand({
-    cycleStart: addDays(edd!, -GESTATION_DAYS),
+    axisStart: addDays(edd!, -GESTATION_DAYS),
     windowStart: progress.termStart,
     windowEnd: addDays(edd!, 14), // 42w0d
     today,

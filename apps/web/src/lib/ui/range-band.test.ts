@@ -1,11 +1,11 @@
 import { describe, expect, it } from "vitest";
-import { predictionBand } from "@/lib/cycle/band";
+import { predictionBand } from "@/lib/ui/range-band";
 
 // A 28-day cycle started 2026-08-01, window 2026-08-27…2026-08-31 (predicted
 // 2026-08-29 ± 2). The window is 4 days wide, so the pad is 2 days and the axis
 // runs day 1 → 2026-09-02 = 32 days.
 const base = {
-  cycleStart: "2026-08-01",
+  axisStart: "2026-08-01",
   windowStart: "2026-08-27",
   windowEnd: "2026-08-31",
 };
@@ -27,7 +27,7 @@ describe("predictionBand", () => {
       ["2026-08-15", "2026-08-15"],
     ]) {
       const band = predictionBand({
-        cycleStart: "2026-08-01",
+        axisStart: "2026-08-01",
         windowStart: windowStart!,
         windowEnd: windowEnd!,
         today: "2026-08-10",
@@ -62,7 +62,7 @@ describe("predictionBand", () => {
   it("a wider window is drawn wider — the uncertainty is the width", () => {
     const tight = predictionBand({ ...base, today: "2026-08-16" })!;
     const wide = predictionBand({
-      cycleStart: "2026-08-01",
+      axisStart: "2026-08-01",
       windowStart: "2026-08-22",
       windowEnd: "2026-09-05",
       today: "2026-08-16",
@@ -78,7 +78,7 @@ describe("predictionBand", () => {
     // Window ends before it starts.
     expect(
       predictionBand({
-        cycleStart: "2026-08-01",
+        axisStart: "2026-08-01",
         windowStart: "2026-08-31",
         windowEnd: "2026-08-27",
         today: "2026-08-16",
@@ -89,7 +89,7 @@ describe("predictionBand", () => {
     // Window starts before day 1 of the cycle.
     expect(
       predictionBand({
-        cycleStart: "2026-08-01",
+        axisStart: "2026-08-01",
         windowStart: "2026-07-28",
         windowEnd: "2026-08-31",
         today: "2026-08-16",
@@ -100,7 +100,7 @@ describe("predictionBand", () => {
   it("honours a caller-supplied pad, and refuses one that collapses the axis", () => {
     // Pregnancy's shape: day 0 → 37w → 42w, with a short pad so 42w stays near the end.
     const band = predictionBand({
-      cycleStart: "2026-01-01",
+      axisStart: "2026-01-01",
       windowStart: "2026-09-15", // 37w0d
       windowEnd: "2026-10-20", // 42w0d
       today: "2026-06-01",
@@ -110,7 +110,7 @@ describe("predictionBand", () => {
     expect(band.windowEndPct).toBeLessThan(100);
     // The default pad would have pushed the same window well short of the end.
     const wide = predictionBand({
-      cycleStart: "2026-01-01",
+      axisStart: "2026-01-01",
       windowStart: "2026-09-15",
       windowEnd: "2026-10-20",
       today: "2026-06-01",
@@ -119,7 +119,7 @@ describe("predictionBand", () => {
 
     expect(
       predictionBand({
-        cycleStart: "2026-08-01",
+        axisStart: "2026-08-01",
         windowStart: "2026-08-01",
         windowEnd: "2026-08-01",
         today: "2026-08-01",
@@ -130,7 +130,7 @@ describe("predictionBand", () => {
 
   it("still draws a degenerate single-day window, because the pad gives it an axis", () => {
     const band = predictionBand({
-      cycleStart: "2026-08-01",
+      axisStart: "2026-08-01",
       windowStart: "2026-08-01",
       windowEnd: "2026-08-01",
       today: "2026-08-01",

@@ -9,13 +9,13 @@ import type { Flow } from "@/lib/cycle/calendar";
 import { todayISO } from "@/lib/calculators/dates";
 import { useSupabaseQuery, unwrap } from "@/lib/supabase/use-query";
 import { modeFromTrack } from "@/lib/persona/state";
-import { Alert, AlertDescription } from "@/components/ui/alert";
 import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
 import { DateStrip } from "@/components/cycle/date-strip";
 import { LogPeriod } from "@/components/cycle/log-period";
 import { LogSymptoms } from "@/components/cycle/log-symptoms";
 import { CycleCalendar } from "@/components/cycle/cycle-calendar";
+import { AppScreen, ScreenError } from "@/components/patterns/app-screen";
+import { LoadingState } from "@/components/patterns/loading-state";
 import { LogPregnancySymptoms } from "@/components/pregnancy/log-pregnancy-symptoms";
 import { MovementCounter } from "@/components/pregnancy/movement-counter";
 
@@ -86,31 +86,27 @@ export function TrackScreen() {
 
   if (query.status === "loading") {
     return (
-      <main className="mx-auto flex w-full max-w-2xl flex-col gap-6 px-6 py-12" aria-busy="true">
-        <div className="h-8 w-32 animate-pulse rounded-md bg-surface-sunken" />
-        <div className="h-28 animate-pulse rounded-md bg-surface-sunken" />
-        <div className="h-40 animate-pulse rounded-md bg-surface-sunken" />
-      </main>
+      <AppScreen busy>
+        <LoadingState label={t("loading")} rows={4} />
+      </AppScreen>
     );
   }
 
   if (query.status === "error") {
     return (
-      <main className="mx-auto flex w-full max-w-2xl flex-col gap-6 px-6 py-12">
-        <h1 className="font-display text-2xl text-text">{t("title")}</h1>
+      <AppScreen>
         {/* History failed to load — but logging must not be blocked by that. Someone
             with a symptom to record should be able to record it now; the queue will
             carry it either way (P1.14). */}
-        <Alert variant="danger">
-          <AlertDescription className="flex flex-col items-start gap-3">
-            <span>{t("loadError")}</span>
-            <Button variant="outline" onClick={query.refresh}>
-              {t("retry")}
-            </Button>
-          </AlertDescription>
-        </Alert>
-        <LogSymptoms date={date} today={today} />
-      </main>
+        <ScreenError
+          title={t("title")}
+          message={t("loadError")}
+          retryLabel={t("retry")}
+          onRetry={query.refresh}
+        >
+          <LogSymptoms date={date} today={today} />
+        </ScreenError>
+      </AppScreen>
     );
   }
 
@@ -126,7 +122,7 @@ export function TrackScreen() {
   const fertile = lastStart ? fertileWindow(lastStart, prediction?.averageLength ?? 28) : null;
 
   return (
-    <main className="mx-auto flex w-full max-w-2xl flex-col gap-5 px-5 py-6">
+    <AppScreen>
       <h1 className="font-display text-lg text-text">{t("title")}</h1>
 
       {/* The day strip is above every logging control, because picking the day is
@@ -144,7 +140,7 @@ export function TrackScreen() {
       {isPregnancy ? <MovementCounter pregnancyId={pregnancyId} /> : null}
 
       {isPregnancy ? (
-        <LogPregnancySymptoms />
+        <LogPregnancySymptoms date={date} today={today} onSaved={query.refresh} />
       ) : (
         <LogSymptoms date={date} today={today} onSaved={query.refresh} />
       )}
@@ -178,7 +174,7 @@ export function TrackScreen() {
           fertileStart={fertile?.windowStart ?? null}
           fertileEnd={fertile?.windowEnd ?? null}
           ovulation={fertile?.ovulation ?? null}
-          today={todayISO()}
+          today={today}
         />
       ) : (
         <section className="flex flex-col gap-3">
@@ -186,6 +182,6 @@ export function TrackScreen() {
           <p className="text-sm text-text-muted">{t("history.empty")}</p>
         </section>
       )}
-    </main>
+    </AppScreen>
   );
 }

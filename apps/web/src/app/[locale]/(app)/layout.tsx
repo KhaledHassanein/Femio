@@ -23,7 +23,7 @@ export default async function AppLayout({ children }: { children: ReactNode }) {
       <OfflineSync />
       {/* Clears the fixed tab bar. Without it the last card on every screen sits
           under the bar and looks like the page is cut off. */}
-      <div className="pb-tabbar print:pb-0">{children}</div>
+      <div className="pb-bottom-bar print:pb-0">{children}</div>
     </NextIntlClientProvider>
   );
 }

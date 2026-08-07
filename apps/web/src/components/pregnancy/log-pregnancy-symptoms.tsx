@@ -5,7 +5,7 @@ import { useRouter } from "next/navigation";
 import { useTranslations } from "next-intl";
 import { createClient } from "@/lib/supabase/client";
 import { saveOrQueue } from "@/lib/offline/sync";
-import { todayISO } from "@/lib/calculators/dates";
+import { loggedAtForDate } from "@/lib/cycle/symptoms";
 import {
   EMERGENCY_SYMPTOMS,
   PREGNANCY_SYMPTOM_GROUPS,
@@ -16,7 +16,7 @@ import { Alert, AlertDescription } from "@/components/ui/alert";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Link } from "@/i18n/navigation";
-import { cn } from "@/lib/utils";
+import { chipVariants } from "@/components/ui/chip";
 
 /**
  * Symptom logging for pregnancy mode (P1.13d).
@@ -37,13 +37,22 @@ import { cn } from "@/lib/utils";
  * The entry is still saved. Someone who logs bleeding and then calls her midwife should
  * find it in her history, and a record she can show is often the useful thing.
  */
-export function LogPregnancySymptoms() {
+export function LogPregnancySymptoms({
+  date,
+  today,
+  onSaved,
+}: {
+  date: string;
+  today: string;
+  onSaved?: () => void;
+}) {
   const t = useTranslations("pregnancySymptoms");
   const router = useRouter();
   const [selected, setSelected] = useState<Set<string>>(new Set());
   const [saving, setSaving] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [queued, setQueued] = useState(false);
+  const [saved, setSaved] = useState(false);
 
   const urgency = useMemo(() => urgencyOf(selected), [selected]);
 
@@ -59,6 +68,7 @@ export function LogPregnancySymptoms() {
     setSaving(true);
     setError(null);
     setQueued(false);
+    setSaved(false);
 
     const supabase = createClient();
     // getSession reads the cached session without a network call, so this works offline.
@@ -70,11 +80,15 @@ export function LogPregnancySymptoms() {
       return;
     }
 
-    const loggedAt = todayISO();
+    // Same rule as the cycle logger: today keeps the column's `now()` default, an
+    // earlier day is pinned to local noon (`loggedAtForDate`). This used to write a
+    // bare `todayISO()` date, so the day strip above it moved and the entry still
+    // landed on today — in pregnancy mode the strip was decoration (P1.28.6).
+    const loggedAt = loggedAtForDate(date, today);
     const rows = [...selected].map((type) => ({
       profile_id: session.user.id,
       type,
-      logged_at: loggedAt,
+      ...(loggedAt ? { logged_at: loggedAt } : {}),
     }));
 
     const result = await saveOrQueue("symptom_logs", rows);
@@ -84,36 +98,28 @@ export function LogPregnancySymptoms() {
       setError(t("saveFailed"));
       return;
     }
-    if (result === "queued") setQueued(true);
 
     setSelected(new Set());
-    router.refresh();
+    if (result === "queued") {
+      setQueued(true);
+      return;
+    }
+    // Not `router.refresh()`: no server components on this path, so it did nothing
+    // and the history below stayed stale until a full reload (ADR-052).
+    setSaved(true);
+    onSaved?.();
   };
 
-  const chip = (key: string, tone: "normal" | "sameDay" | "emergency") => (
+  const chip = (key: string, tone: "default" | "sameDay" | "emergency") => (
     <button
       key={key}
       type="button"
       onClick={() => toggle(key)}
       aria-pressed={selected.has(key)}
-      // Selected state matches the cycle logger exactly (`primary-soft`), so the two
-      // screens do not look like different products. Unselected urgent chips carry their
-      // tier's colour, which is the only visual difference that earns its place here.
-      className={cn(
-        // 44px and a press response, matching the cycle logger (P1.28.3/.6). These
-        // were left at 30px when the cycle chips were fixed, so pregnancy mode —
-        // the one where someone may be tapping in a hurry — had the worse control.
-        "inline-flex min-h-11 items-center rounded-pill border px-4 text-sm",
-        "transition-[background-color,border-color,transform] duration-fast",
-        "motion-safe:ease-spring motion-safe:active:scale-95",
-        selected.has(key)
-          ? "border-primary bg-primary-soft text-primary-soft-text"
-          : tone === "emergency"
-            ? "border-danger-border bg-danger-soft text-danger-text"
-            : tone === "sameDay"
-              ? "border-warning bg-warning-soft text-warning-text"
-              : "border-border bg-surface text-text hover:bg-surface-sunken",
-      )}
+      // One chip component for every logger, so the two screens cannot look like
+      // different products again. The urgency tiers are the `tone` variant — the
+      // only visual difference between loggers that earns its place.
+      className={chipVariants({ selected: selected.has(key), tone })}
     >
       {t(`items.${key}`)}
     </button>
@@ -131,7 +137,7 @@ export function LogPregnancySymptoms() {
           <fieldset key={group.group} className="flex flex-col gap-2">
             <legend className="text-sm font-medium text-text">{t(`groups.${group.group}`)}</legend>
             <div className="flex flex-wrap gap-2">
-              {group.symptoms.map((s) => chip(s, "normal"))}
+              {group.symptoms.map((s) => chip(s, "default"))}
             </div>
           </fieldset>
         ))}
@@ -178,6 +184,11 @@ export function LogPregnancySymptoms() {
         {queued ? (
           <Alert variant="info">
             <AlertDescription>{t("queued")}</AlertDescription>
+          </Alert>
+        ) : null}
+        {saved ? (
+          <Alert variant="success">
+            <AlertDescription>{t("saved")}</AlertDescription>
           </Alert>
         ) : null}
 

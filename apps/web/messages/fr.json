@@ -179,6 +179,7 @@
   "track": {
     "loadError": "Impossible de charger ton historique. Tu peux quand même enregistrer ci-dessous.",
     "retry": "Réessayer",
+    "loading": "Chargement de votre historique",
     "flow": { "label": "Flux", "spotting": "Léger (spotting)", "light": "Faible", "medium": "Moyen", "heavy": "Abondant" },
     "calendar": { "heading": "Calendrier", "prevMonth": "Mois précédent", "nextMonth": "Mois suivant", "legendPeriod": "Règles", "legendPredicted": "Prévu", "legendFertile": "Fenêtre de fertilité", "legendOvulation": "Ovulation estimée", "legendToday": "Aujourd’hui", "awarenessNote": "Les dates de la fenêtre de fertilité servent uniquement à la planification et à la sensibilisation à la conception — ce sont des estimations, pas un moyen fiable d’éviter une grossesse." },
     "title": "Ton cycle",
@@ -235,6 +236,7 @@
   },
   "dashboard": {
     "title": "Ton tableau de bord",
+    "loading": "Chargement de votre tableau de bord",
     "modeLabel": { "cycle": "Cycle", "ttc": "Essai de conception", "pregnancy": "Grossesse", "menopause": "Ménopause", "general": "Général" },
     "cycleDay": "Jour {day} de ton cycle",
     "nextPeriod": "Prochaines règles",
@@ -993,6 +995,7 @@
       "helpNow": "Besoin d'aide maintenant"
     },
     "save": "Enregistrer",
+    "saved": "Enregistré dans votre dossier.",
     "saveAnyway": "Enregistrer et demander de l'aide",
     "saveAnywayNote": "L'enregistrement le garde dans votre historique — il ne contacte personne.",
     "saving": "Enregistrement…",

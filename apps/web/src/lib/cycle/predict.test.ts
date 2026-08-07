@@ -9,7 +9,6 @@ describe("predictNextPeriod", () => {
   it("predicts one average length past the last start", () => {
     const p = predictNextPeriod(regular)!;
     expect(p.averageLength).toBe(28);
-    expect(p.cyclesAnalyzed).toBe(6);
     expect(diffDays(regular.at(-1)!, p.predictedStart)).toBe(28);
   });
 
@@ -32,7 +31,6 @@ describe("predictNextPeriod", () => {
 
   it("works with a single cycle but low confidence", () => {
     const p = predictNextPeriod(["2026-01-01", "2026-01-29"])!;
-    expect(p.cyclesAnalyzed).toBe(1);
     expect(p.confidence).toBe("low");
     expect(p.averageLength).toBe(28);
   });
@@ -45,7 +43,6 @@ describe("predictNextPeriod", () => {
   it("sorts, de-dupes, and ignores invalid dates", () => {
     const p = predictNextPeriod(["2026-01-29", "2026-01-01", "2026-01-01", "bad-date"])!;
     expect(p.averageLength).toBe(28);
-    expect(p.cyclesAnalyzed).toBe(1);
   });
 });
 

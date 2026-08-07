@@ -25,7 +25,6 @@ describe("pregnancyProgress", () => {
     expect(p?.daysUntilDue).toBe(-7);
     expect(p?.weeks).toBe(41);
     // The progress bar must not overflow once past term.
-    expect(p?.fraction).toBe(1);
   });
 
   it("is exactly 40w0d on the due date, and not overdue", () => {
