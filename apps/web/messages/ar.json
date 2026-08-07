@@ -805,91 +805,101 @@
     "signOut": "تسجيل الخروج"
   },
   "pregnancy": {
-    "weeksDays": "{weeks} weeks, {days} days",
-    "trimester": { "1": "First trimester", "2": "Second trimester", "3": "Third trimester" },
-    "due": "Due date: {date}",
-    "daysToGo": "{days} days to go",
-    "overdue": "{days} days past your due date",
-    "termFrom": "Full term from {date}",
-    "estimateNote": "These dates are estimates based on the due date you entered. Your clinician may adjust it after a scan.",
+    "weeksDays": "{weeks} أسبوعًا و{days} يومًا",
+    "trimester": {
+      "1": "الثلث الأول",
+      "2": "الثلث الثاني",
+      "3": "الثلث الثالث"
+    },
+    "due": "تاريخ الولادة المتوقّع: {date}",
+    "daysToGo": "بقي {days} يومًا",
+    "overdue": "مضى {days} يومًا على تاريخ الولادة المتوقّع",
+    "termFrom": "تمام الحمل اعتبارًا من {date}",
+    "estimateNote": "هذه التواريخ تقديرات مبنية على تاريخ الولادة الذي أدخلتِه. قد يعدّله طبيبكِ بعد فحص السونار.",
     "redFlags": {
-      "heading": "Some symptoms need urgent care",
-      "body": "Bleeding, severe headache, vision changes, severe abdominal pain, or reduced movements need to be checked straight away. Contact your maternity unit or local emergency services \u2014 do not wait.",
-      "link": "Read the pregnancy warning signs"
+      "heading": "بعض الأعراض تحتاج رعاية عاجلة",
+      "body": "النزيف، أو الصداع الشديد، أو تغيّر الرؤية، أو ألم البطن الشديد، أو قلّة حركة الجنين — كلها تحتاج فحصًا فوريًا. اتّصلي بوحدة الولادة أو بخدمات الطوارئ المحلية، ولا تنتظري.",
+      "link": "اقرئي علامات التحذير في الحمل"
     },
     "reading": {
-      "heading": "Guides for this stage",
-      "basics": "Pregnancy basics",
-      "changes": "Early pregnancy changes",
-      "appointment": "Your first pregnancy appointment"
+      "heading": "أدلّة لهذه المرحلة",
+      "basics": "أساسيات الحمل",
+      "changes": "تغيّرات بداية الحمل",
+      "appointment": "أول موعد لمتابعة الحمل"
     },
     "setup": {
-      "heading": "Set up your pregnancy",
-      "body": "Enter your due date to see how far along you are. If you do not have one yet, we can estimate it from your last period.",
-      "mode": { "edd": "I know my due date", "lmp": "Estimate from my last period" },
-      "label": { "edd": "Due date", "lmp": "First day of your last period" },
-      "save": "Save",
-      "saving": "Saving\u2026",
-      "invalid": "That date does not look like a current pregnancy. Please check it.",
-      "saveFailed": "Could not save. Please try again.",
-      "privacyNote": "Only you can see this. You can change or delete it at any time in Settings."
+      "heading": "إعداد حملكِ",
+      "body": "أدخلي تاريخ الولادة المتوقّع لرؤية المرحلة التي وصلتِ إليها. وإن لم يكن لديكِ تاريخ بعد، يمكننا تقديره من آخر دورة.",
+      "mode": {
+        "edd": "أعرف تاريخ ولادتي المتوقّع",
+        "lmp": "قدّريه من آخر دورة"
+      },
+      "label": {
+        "edd": "تاريخ الولادة المتوقّع",
+        "lmp": "أول يوم في آخر دورة"
+      },
+      "save": "حفظ",
+      "saving": "جارٍ الحفظ…",
+      "invalid": "هذا التاريخ لا يبدو حملًا حاليًا. من فضلكِ تحقّقي منه.",
+      "saveFailed": "تعذّر الحفظ. حاولي مرة أخرى.",
+      "privacyNote": "لا يراه أحد غيركِ. يمكنكِ تغييره أو حذفه في أي وقت من الإعدادات."
     },
     "end": {
-        "trigger": "This pregnancy has ended",
-        "prompt": "What happened? This only changes what Femio shows you.",
-        "outcome": {
-              "completed": "My baby arrived",
-              "loss": "I lost my pregnancy",
-              "ended": "My pregnancy ended another way"
-        },
-        "saving": "Saving…",
-        "cancel": "Go back",
-        "failed": "Could not save. Please try again.",
-        "privacyNote": "Your record is kept, not deleted, so your history stays intact. You can export or delete it at any time in Settings."
-  },
+      "trigger": "انتهى هذا الحمل",
+      "prompt": "ماذا حدث؟ هذا يغيّر ما يعرضه Femio فقط.",
+      "outcome": {
+        "completed": "وُلد طفلي",
+        "loss": "فقدتُ حملي",
+        "ended": "انتهى حملي بطريقة أخرى"
+      },
+      "saving": "جارٍ الحفظ…",
+      "cancel": "رجوع",
+      "failed": "تعذّر الحفظ. حاولي مرة أخرى.",
+      "privacyNote": "يُحفَظ سجلّكِ ولا يُحذف، فيبقى تاريخكِ كاملًا. يمكنكِ تصديره أو حذفه في أي وقت من الإعدادات."
+    },
     "ended": {
-        "completed": {
-              "heading": "Congratulations",
-              "body": "Your pregnancy record is closed. Tools for the weeks after birth are not built yet — for now you can keep logging symptoms, and your history is all still here."
-        },
-        "loss": {
-              "heading": "Your pregnancy record is closed",
-              "body": "We are very sorry. Nothing has been deleted, and Femio will not show you week counts or reminders about it. Take whatever time you need."
-        },
-        "ended": {
-              "heading": "Your pregnancy record is closed",
-              "body": "Nothing has been deleted, and Femio will not show you week counts about it any more."
-        },
-        "changeFocus": "You can change what Femio focuses on at any time in Settings."
-  }
+      "completed": {
+        "heading": "مبارك",
+        "body": "أُغلق سجلّ حملكِ. أدوات ما بعد الولادة لم تُبنَ بعد — يمكنكِ في الوقت الحالي مواصلة تسجيل الأعراض، وتاريخكِ كله ما زال هنا."
+      },
+      "loss": {
+        "heading": "أُغلق سجلّ حملكِ",
+        "body": "نأسف بشدّة. لم يُحذف أي شيء، ولن يعرض Femio عدّ الأسابيع أو تذكيرات عنه. خذي ما تحتاجينه من وقت."
+      },
+      "ended": {
+        "heading": "أُغلق سجلّ حملكِ",
+        "body": "لم يُحذف أي شيء، ولن يعرض Femio عدّ الأسابيع عنه بعد الآن."
+      },
+      "changeFocus": "يمكنكِ تغيير ما يركّز عليه Femio في أي وقت من الإعدادات."
+    }
   },
   "menopause": {
-    "sinceDays": "{days} days since your last period",
-    "sinceMonths": "{months} months since your last period",
-    "lastLogged": "Last logged: {date}",
-    "markerAhead": "Clinicians often describe menopause as 12 months in a row without a period, once other causes have been ruled out.",
-    "markerPassed": "That is past the 12 months in a row that clinicians often use to describe menopause \u2014 once other causes have been ruled out.",
-    "notDiagnosis": "This is a count of the dates you logged, not an assessment. Periods can also stop for other reasons, including pregnancy, thyroid changes and some medicines. A clinician can look at the whole picture with you.",
+    "sinceDays": "{days} يومًا منذ آخر دورة",
+    "sinceMonths": "{months} أشهر منذ آخر دورة",
+    "lastLogged": "آخر تسجيل: {date}",
+    "markerAhead": "يصف الأطباء انقطاع الطمث عادةً بمرور 12 شهرًا متتاليًا دون دورة، بعد استبعاد الأسباب الأخرى.",
+    "markerPassed": "هذا يتجاوز الاثني عشر شهرًا المتتالية التي يستخدمها الأطباء عادةً لوصف انقطاع الطمث — بعد استبعاد الأسباب الأخرى.",
+    "notDiagnosis": "هذا عدٌّ للتواريخ التي سجّلتِها، وليس تقييمًا. قد تتوقّف الدورة لأسباب أخرى، منها الحمل وتغيّرات الغدة الدرقية وبعض الأدوية. يمكن لطبيبكِ النظر في الصورة كاملةً معكِ.",
     "variability": {
-      "heading": "Your recent cycle lengths",
-      "range": "Between {shortest} and {longest} days",
-      "irregular": "Your cycles are varying quite a bit. That is common in the years before periods stop, and it is worth mentioning at your next appointment.",
-      "steady": "Your recent cycles have been fairly close in length."
+      "heading": "أطوال دوراتكِ الأخيرة",
+      "range": "بين {shortest} و{longest} يومًا",
+      "irregular": "تتفاوت دوراتكِ كثيرًا. هذا شائع في السنوات التي تسبق توقّف الدورة، ويستحق الذكر في موعدكِ القادم.",
+      "steady": "كانت دوراتكِ الأخيرة متقاربة الطول إلى حدٍّ كبير."
     },
     "symptoms": {
-      "heading": "What you have been logging",
-      "note": "Logging over several months gives a clinician far more to work with than memory alone."
+      "heading": "ما تسجّلينه",
+      "note": "التسجيل على مدى عدّة أشهر يمنح الطبيب معلومات أكثر بكثير مما تمنحه الذاكرة وحدها."
     },
     "empty": {
-      "heading": "Start with what you notice",
-      "body": "Log a period if you still have them, and log symptoms as they come up. Patterns over months are what make this useful \u2014 there is nothing to work out from a single day."
+      "heading": "ابدئي بما تلاحظينه",
+      "body": "سجّلي الدورة إن كانت ما تزال تأتيكِ، وسجّلي الأعراض حين تظهر. الأنماط عبر الأشهر هي ما يجعل هذا مفيدًا — لا يمكن استخلاص شيء من يوم واحد."
     },
     "reading": {
-      "heading": "Guides for this stage",
-      "perimenopause": "Perimenopause explained",
-      "menopause": "Menopause explained",
-      "care": "Menopause care options",
-      "tracking": "How to track perimenopause symptoms"
+      "heading": "أدلّة لهذه المرحلة",
+      "perimenopause": "شرح ما قبل انقطاع الطمث",
+      "menopause": "شرح انقطاع الطمث",
+      "care": "خيارات الرعاية في انقطاع الطمث",
+      "tracking": "كيف تتابعين أعراض ما قبل انقطاع الطمث"
     }
   },
   "pregnancyMovements": {
@@ -918,75 +928,75 @@
     }
   },
   "pregnancySymptoms": {
-    "heading": "How are you feeling?",
-    "intro": "Log anything you notice. Some symptoms need care rather than a log entry — those are grouped separately below.",
+    "heading": "كيف تشعرين؟",
+    "intro": "سجّلي أي شيء تلاحظينه. بعض الأعراض تحتاج رعاية لا مجرد تسجيل — وهي مجمّعة على حدة في الأسفل.",
     "groups": {
-      "common": "Common in pregnancy",
-      "body": "Body",
-      "mood": "Mood and thinking",
-      "sameDay": "Contact your maternity team today",
-      "emergency": "Get emergency help now"
+      "common": "شائع في الحمل",
+      "body": "الجسم",
+      "mood": "المزاج والتفكير",
+      "sameDay": "اتّصلي بفريق الولادة اليوم",
+      "emergency": "اطلبي مساعدة طارئة الآن"
     },
     "items": {
-      "nausea": "Nausea",
-      "vomiting": "Vomiting",
-      "fatigue": "Tiredness",
-      "heartburn": "Heartburn",
-      "constipation": "Constipation",
-      "backache": "Back pain",
-      "breastTenderness": "Breast tenderness",
-      "insomnia": "Trouble sleeping",
-      "cravings": "Cravings",
-      "dizziness": "Dizziness",
-      "swelling": "Swelling",
-      "pelvicPain": "Pelvic pain",
-      "cramps": "Cramping",
-      "shortnessOfBreath": "Short of breath",
-      "braxtonHicks": "Practice contractions",
-      "itching": "Itching",
-      "anxious": "Anxious",
-      "moodSwings": "Mood swings",
-      "sad": "Low mood",
-      "irritable": "Irritable",
-      "lowMotivation": "Low motivation",
-      "brainFog": "Brain fog",
-      "anyBleeding": "Bleeding",
-      "fluidLeaking": "Fluid leaking",
-      "fever": "Fever or feeling very unwell",
-      "repeatedVomiting": "Cannot keep fluids down",
-      "painPassingUrine": "Pain passing urine",
-      "faceHandSwelling": "New face or hand swelling",
-      "persistentHeadache": "Headache that will not go",
-      "visionChanges": "Vision changes",
-      "severeItching": "Severe itching",
-      "reducedMovements": "Baby moving less than usual",
-      "heavyBleeding": "Heavy bleeding",
-      "severeAbdominalPain": "Severe abdominal pain",
-      "severeHeadacheWithVision": "Severe headache with vision changes",
-      "troubleBreathing": "Trouble breathing",
-      "chestPain": "Chest pain",
-      "fainting": "Fainting or confusion",
-      "seizure": "A seizure",
-      "legPainSwelling": "Severe one-sided leg pain or swelling",
-      "thoughtsOfHarm": "Thoughts of harming yourself or the baby"
+      "nausea": "غثيان",
+      "vomiting": "قيء",
+      "fatigue": "إرهاق",
+      "heartburn": "حرقة المعدة",
+      "constipation": "إمساك",
+      "backache": "ألم الظهر",
+      "breastTenderness": "ألم الثدي",
+      "insomnia": "صعوبة في النوم",
+      "cravings": "اشتهاء طعام",
+      "dizziness": "دوخة",
+      "swelling": "تورّم",
+      "pelvicPain": "ألم الحوض",
+      "cramps": "تقلّصات",
+      "shortnessOfBreath": "ضيق في التنفّس",
+      "braxtonHicks": "تقلّصات تدريبية",
+      "itching": "حكّة",
+      "anxious": "قلق",
+      "moodSwings": "تقلّب المزاج",
+      "sad": "مزاج منخفض",
+      "irritable": "سرعة انفعال",
+      "lowMotivation": "قلّة الدافع",
+      "brainFog": "تشوّش ذهني",
+      "anyBleeding": "نزيف",
+      "fluidLeaking": "تسرّب سائل",
+      "fever": "حمّى أو شعور بتوعّك شديد",
+      "repeatedVomiting": "عدم القدرة على إبقاء السوائل",
+      "painPassingUrine": "ألم عند التبوّل",
+      "faceHandSwelling": "تورّم جديد في الوجه أو اليدين",
+      "persistentHeadache": "صداع لا يزول",
+      "visionChanges": "تغيّر في الرؤية",
+      "severeItching": "حكّة شديدة",
+      "reducedMovements": "حركة الجنين أقل من المعتاد",
+      "heavyBleeding": "نزيف غزير",
+      "severeAbdominalPain": "ألم شديد في البطن",
+      "severeHeadacheWithVision": "صداع شديد مع تغيّر في الرؤية",
+      "troubleBreathing": "صعوبة في التنفّس",
+      "chestPain": "ألم في الصدر",
+      "fainting": "إغماء أو تشوّش",
+      "seizure": "نوبة تشنّج",
+      "legPainSwelling": "ألم أو تورّم شديد في ساق واحدة",
+      "thoughtsOfHarm": "أفكار بإيذاء نفسكِ أو الجنين"
     },
     "urgent": {
       "emergency": {
-        "heading": "Please get help now — do not wait",
-        "body": "Contact your local emergency services or go to your nearest emergency department. Do not wait for Femio or any online service to respond."
+        "heading": "اطلبي المساعدة الآن — لا تنتظري",
+        "body": "اتّصلي بخدمات الطوارئ المحلية أو اذهبي إلى أقرب قسم طوارئ. لا تنتظري ردًّا من Femio أو من أي خدمة على الإنترنت."
       },
       "sameDay": {
-        "heading": "Contact your maternity team today",
-        "body": "Call your pregnancy-care team, urgent clinic, or local maternity service. They may direct you to emergency care — follow their advice."
+        "heading": "اتّصلي بفريق الولادة اليوم",
+        "body": "اتّصلي بفريق رعاية الحمل، أو العيادة العاجلة، أو خدمة الولادة المحلية. قد يوجّهونكِ إلى رعاية طارئة — اتّبعي إرشادهم."
       },
-      "link": "What the warning signs mean",
-      "helpNow": "Need help now"
+      "link": "ماذا تعني علامات التحذير",
+      "helpNow": "أحتاج مساعدة الآن"
     },
-    "save": "Save",
-    "saveAnyway": "Save and get help",
-    "saveAnywayNote": "Saving keeps it in your history — it does not contact anyone.",
-    "saving": "Saving…",
-    "saveFailed": "Could not save. Please try again.",
-    "queued": "Saved offline — it will sync when you are back online."
+    "save": "حفظ",
+    "saveAnyway": "احفظي واطلبي المساعدة",
+    "saveAnywayNote": "الحفظ يبقيه في سجلّكِ — ولا يتّصل بأحد.",
+    "saving": "جارٍ الحفظ…",
+    "saveFailed": "تعذّر الحفظ. حاولي مرة أخرى.",
+    "queued": "حُفظ دون اتصال — وسيُزامَن عند عودة الاتصال."
   }
 }

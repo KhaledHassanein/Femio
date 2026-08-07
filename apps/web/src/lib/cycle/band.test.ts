@@ -97,6 +97,37 @@ describe("predictionBand", () => {
     ).toBeNull();
   });
 
+  it("honours a caller-supplied pad, and refuses one that collapses the axis", () => {
+    // Pregnancy's shape: day 0 → 37w → 42w, with a short pad so 42w stays near the end.
+    const band = predictionBand({
+      cycleStart: "2026-01-01",
+      windowStart: "2026-09-15", // 37w0d
+      windowEnd: "2026-10-20", // 42w0d
+      today: "2026-06-01",
+      pad: 7,
+    })!;
+    expect(band.windowEndPct).toBeGreaterThan(95);
+    expect(band.windowEndPct).toBeLessThan(100);
+    // The default pad would have pushed the same window well short of the end.
+    const wide = predictionBand({
+      cycleStart: "2026-01-01",
+      windowStart: "2026-09-15",
+      windowEnd: "2026-10-20",
+      today: "2026-06-01",
+    })!;
+    expect(wide.windowEndPct).toBeLessThan(band.windowEndPct);
+
+    expect(
+      predictionBand({
+        cycleStart: "2026-08-01",
+        windowStart: "2026-08-01",
+        windowEnd: "2026-08-01",
+        today: "2026-08-01",
+        pad: 0,
+      }),
+    ).toBeNull();
+  });
+
   it("still draws a degenerate single-day window, because the pad gives it an axis", () => {
     const band = predictionBand({
       cycleStart: "2026-08-01",

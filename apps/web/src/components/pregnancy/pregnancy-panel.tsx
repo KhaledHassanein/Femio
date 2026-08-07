@@ -1,7 +1,10 @@
 "use client";
 
 import { useFormatter, useTranslations } from "next-intl";
-import { pregnancyProgress } from "@/lib/pregnancy";
+import { GESTATION_DAYS, pregnancyProgress } from "@/lib/pregnancy";
+import { addDays } from "@/lib/calculators/dates";
+import { predictionBand } from "@/lib/cycle/band";
+import { HeroCard } from "@/components/dashboard/hero-card";
 import { Alert, AlertDescription } from "@/components/ui/alert";
 import { Card, CardContent } from "@/components/ui/card";
 import { Link } from "@/i18n/navigation";
@@ -74,42 +77,43 @@ export function PregnancyPanel({
   const fmt = (iso: string) =>
     format.dateTime(new Date(`${iso}T00:00:00Z`), { dateStyle: "medium", timeZone: "UTC" });
 
+  /**
+   * The bar now draws **37w–42w**, not progress toward the due date (P1.28.4).
+   *
+   * The old one filled toward the EDD, which drew the due date as a finish line —
+   * the single-certain-date framing product rule 3 exists to prevent, and the thing
+   * `estimateNote` right underneath had to keep apologising for. Term is a five-week
+   * range and most births land inside it rather than on the date, so the range is
+   * both the honest picture and the reassuring one. `pad: 7` keeps 42w near the end
+   * of the axis, because 42w is a real outer bound rather than an arbitrary edge.
+   */
+  const band = predictionBand({
+    cycleStart: addDays(edd!, -GESTATION_DAYS),
+    windowStart: progress.termStart,
+    windowEnd: addDays(edd!, 14), // 42w0d
+    today,
+    pad: 7,
+  });
+
   return (
     <div className="flex flex-col gap-4">
-      <Card>
-        <CardContent className="flex flex-col gap-4 p-6">
-          <div className="flex flex-wrap items-baseline justify-between gap-2">
-            <p className="font-display text-2xl text-text">
-              {t("weeksDays", { weeks: progress.weeks, days: progress.days })}
-            </p>
-            <p className="text-sm text-text-muted">{t(`trimester.${progress.trimester}`)}</p>
-          </div>
-
-          {/* Presentational only — the numbers above carry the meaning for a screen reader. */}
-          <div className="h-2 w-full overflow-hidden rounded-full bg-surface-sunken" aria-hidden="true">
-            <div
-              className="h-full rounded-full bg-accent"
-              style={{ width: `${Math.round(progress.fraction * 100)}%` }}
-            />
-          </div>
-
-          <div className="flex flex-col gap-1 text-sm text-text-muted">
-            <p>{t("due", { date: fmt(edd!) })}</p>
-            <p>
-              {progress.overdue
-                ? t("overdue", { days: Math.abs(progress.daysUntilDue) })
-                : t("daysToGo", { days: progress.daysUntilDue })}
-            </p>
-            <p>{t("termFrom", { date: fmt(progress.termStart) })}</p>
-          </div>
-
-          {/* Every estimate in Femio says it is one (product rule 3). */}
-          <p className="text-sm text-text-subtle">{t("estimateNote")}</p>
-
-          {/* Quiet on purpose: this control should be findable, not prominent. */}
-          <EndPregnancy pregnancyId={pregnancy!.id} />
-        </CardContent>
-      </Card>
+      <HeroCard
+        tone="warm"
+        eyebrow={t(`trimester.${progress.trimester}`)}
+        headline={t("weeksDays", { weeks: progress.weeks, days: progress.days })}
+        band={band}
+        footnote={t("estimateNote")}
+      >
+        <div className="flex flex-col gap-0.5 text-2xs opacity-90">
+          <p>{t("due", { date: fmt(edd!) })}</p>
+          <p>
+            {progress.overdue
+              ? t("overdue", { days: Math.abs(progress.daysUntilDue) })
+              : t("daysToGo", { days: progress.daysUntilDue })}
+          </p>
+          <p>{t("termFrom", { date: fmt(progress.termStart) })}</p>
+        </div>
+      </HeroCard>
 
       {/* Not tucked at the bottom: in pregnancy, late is the harmful direction. */}
       <Alert variant="danger">
@@ -140,6 +144,11 @@ export function PregnancyPanel({
           </ul>
         </CardContent>
       </Card>
+
+      {/* Quiet on purpose: findable, never prominent. It moved out of the summary
+          card only because that card is now a gradient hero, and a control that
+          records a loss has no business competing with it. */}
+      <EndPregnancy pregnancyId={pregnancy!.id} />
     </div>
   );
 }

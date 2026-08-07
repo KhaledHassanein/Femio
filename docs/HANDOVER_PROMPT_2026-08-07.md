@@ -190,6 +190,7 @@ pattern engine (P2.5, the stated differentiator, not built).
 pnpm build && pnpm typecheck && pnpm lint
 pnpm claims-lint && pnpm crisis-lint && pnpm analytics-lint
 pnpm i18n-client-lint && pnpm content-lint && pnpm native-readiness-lint
+pnpm i18n-untranslated-lint
 pnpm test
 CI=1 pnpm --filter web test:e2e:ci     # after a fresh build
 ```

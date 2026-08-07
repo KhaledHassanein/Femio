@@ -805,91 +805,101 @@
     "signOut": "Cerrar sesión"
   },
   "pregnancy": {
-    "weeksDays": "{weeks} weeks, {days} days",
-    "trimester": { "1": "First trimester", "2": "Second trimester", "3": "Third trimester" },
-    "due": "Due date: {date}",
-    "daysToGo": "{days} days to go",
-    "overdue": "{days} days past your due date",
-    "termFrom": "Full term from {date}",
-    "estimateNote": "These dates are estimates based on the due date you entered. Your clinician may adjust it after a scan.",
+    "weeksDays": "{weeks} semanas y {days} días",
+    "trimester": {
+      "1": "Primer trimestre",
+      "2": "Segundo trimestre",
+      "3": "Tercer trimestre"
+    },
+    "due": "Fecha prevista: {date}",
+    "daysToGo": "Quedan {days} días",
+    "overdue": "{days} días después de la fecha prevista",
+    "termFrom": "A término desde el {date}",
+    "estimateNote": "Estas fechas son estimaciones basadas en la fecha prevista que introdujiste. Tu profesional sanitario puede ajustarla tras una ecografía.",
     "redFlags": {
-      "heading": "Some symptoms need urgent care",
-      "body": "Bleeding, severe headache, vision changes, severe abdominal pain, or reduced movements need to be checked straight away. Contact your maternity unit or local emergency services \u2014 do not wait.",
-      "link": "Read the pregnancy warning signs"
+      "heading": "Algunos síntomas necesitan atención urgente",
+      "body": "El sangrado, el dolor de cabeza intenso, los cambios en la visión, el dolor abdominal fuerte o los movimientos reducidos deben revisarse de inmediato. Contacta con tu unidad de maternidad o con los servicios de emergencia locales — no esperes.",
+      "link": "Lee las señales de alarma del embarazo"
     },
     "reading": {
-      "heading": "Guides for this stage",
-      "basics": "Pregnancy basics",
-      "changes": "Early pregnancy changes",
-      "appointment": "Your first pregnancy appointment"
+      "heading": "Guías para esta etapa",
+      "basics": "Lo básico del embarazo",
+      "changes": "Cambios del embarazo temprano",
+      "appointment": "Tu primera cita de embarazo"
     },
     "setup": {
-      "heading": "Set up your pregnancy",
-      "body": "Enter your due date to see how far along you are. If you do not have one yet, we can estimate it from your last period.",
-      "mode": { "edd": "I know my due date", "lmp": "Estimate from my last period" },
-      "label": { "edd": "Due date", "lmp": "First day of your last period" },
-      "save": "Save",
-      "saving": "Saving\u2026",
-      "invalid": "That date does not look like a current pregnancy. Please check it.",
-      "saveFailed": "Could not save. Please try again.",
-      "privacyNote": "Only you can see this. You can change or delete it at any time in Settings."
+      "heading": "Configura tu embarazo",
+      "body": "Introduce tu fecha prevista para ver en qué semana estás. Si aún no la tienes, podemos estimarla a partir de tu última menstruación.",
+      "mode": {
+        "edd": "Sé mi fecha prevista",
+        "lmp": "Estimarla desde mi última menstruación"
+      },
+      "label": {
+        "edd": "Fecha prevista",
+        "lmp": "Primer día de tu última menstruación"
+      },
+      "save": "Guardar",
+      "saving": "Guardando…",
+      "invalid": "Esa fecha no parece corresponder a un embarazo actual. Revísala, por favor.",
+      "saveFailed": "No se pudo guardar. Inténtalo de nuevo.",
+      "privacyNote": "Solo tú puedes verlo. Puedes cambiarlo o borrarlo cuando quieras en Ajustes."
     },
     "end": {
-        "trigger": "This pregnancy has ended",
-        "prompt": "What happened? This only changes what Femio shows you.",
-        "outcome": {
-              "completed": "My baby arrived",
-              "loss": "I lost my pregnancy",
-              "ended": "My pregnancy ended another way"
-        },
-        "saving": "Saving…",
-        "cancel": "Go back",
-        "failed": "Could not save. Please try again.",
-        "privacyNote": "Your record is kept, not deleted, so your history stays intact. You can export or delete it at any time in Settings."
-  },
+      "trigger": "Este embarazo ha terminado",
+      "prompt": "¿Qué ha pasado? Esto solo cambia lo que Femio te muestra.",
+      "outcome": {
+        "completed": "Mi bebé ha nacido",
+        "loss": "He perdido el embarazo",
+        "ended": "Mi embarazo terminó de otra manera"
+      },
+      "saving": "Guardando…",
+      "cancel": "Volver",
+      "failed": "No se pudo guardar. Inténtalo de nuevo.",
+      "privacyNote": "Tu registro se conserva, no se borra, así que tu historial queda intacto. Puedes exportarlo o borrarlo cuando quieras en Ajustes."
+    },
     "ended": {
-        "completed": {
-              "heading": "Congratulations",
-              "body": "Your pregnancy record is closed. Tools for the weeks after birth are not built yet — for now you can keep logging symptoms, and your history is all still here."
-        },
-        "loss": {
-              "heading": "Your pregnancy record is closed",
-              "body": "We are very sorry. Nothing has been deleted, and Femio will not show you week counts or reminders about it. Take whatever time you need."
-        },
-        "ended": {
-              "heading": "Your pregnancy record is closed",
-              "body": "Nothing has been deleted, and Femio will not show you week counts about it any more."
-        },
-        "changeFocus": "You can change what Femio focuses on at any time in Settings."
-  }
+      "completed": {
+        "heading": "Enhorabuena",
+        "body": "Tu registro de embarazo se ha cerrado. Las herramientas para las semanas tras el parto aún no existen — por ahora puedes seguir registrando síntomas, y todo tu historial sigue aquí."
+      },
+      "loss": {
+        "heading": "Tu registro de embarazo se ha cerrado",
+        "body": "Lo sentimos mucho. No se ha borrado nada, y Femio no te mostrará cuentas de semanas ni recordatorios al respecto. Tómate el tiempo que necesites."
+      },
+      "ended": {
+        "heading": "Tu registro de embarazo se ha cerrado",
+        "body": "No se ha borrado nada, y Femio ya no te mostrará cuentas de semanas al respecto."
+      },
+      "changeFocus": "Puedes cambiar en qué se centra Femio cuando quieras en Ajustes."
+    }
   },
   "menopause": {
-    "sinceDays": "{days} days since your last period",
-    "sinceMonths": "{months} months since your last period",
-    "lastLogged": "Last logged: {date}",
-    "markerAhead": "Clinicians often describe menopause as 12 months in a row without a period, once other causes have been ruled out.",
-    "markerPassed": "That is past the 12 months in a row that clinicians often use to describe menopause \u2014 once other causes have been ruled out.",
-    "notDiagnosis": "This is a count of the dates you logged, not an assessment. Periods can also stop for other reasons, including pregnancy, thyroid changes and some medicines. A clinician can look at the whole picture with you.",
+    "sinceDays": "{days} días desde tu última menstruación",
+    "sinceMonths": "{months} meses desde tu última menstruación",
+    "lastLogged": "Último registro: {date}",
+    "markerAhead": "Los profesionales suelen describir la menopausia como 12 meses seguidos sin menstruación, una vez descartadas otras causas.",
+    "markerPassed": "Eso supera los 12 meses seguidos que los profesionales suelen usar para describir la menopausia — una vez descartadas otras causas.",
+    "notDiagnosis": "Esto es un recuento de las fechas que has registrado, no una valoración. La menstruación también puede detenerse por otros motivos, como el embarazo, cambios de tiroides y algunos medicamentos. Un profesional puede ver el cuadro completo contigo.",
     "variability": {
-      "heading": "Your recent cycle lengths",
-      "range": "Between {shortest} and {longest} days",
-      "irregular": "Your cycles are varying quite a bit. That is common in the years before periods stop, and it is worth mentioning at your next appointment.",
-      "steady": "Your recent cycles have been fairly close in length."
+      "heading": "La duración de tus ciclos recientes",
+      "range": "Entre {shortest} y {longest} días",
+      "irregular": "Tus ciclos varían bastante. Es habitual en los años previos a que cese la menstruación, y merece la pena comentarlo en tu próxima cita.",
+      "steady": "Tus ciclos recientes han tenido una duración bastante parecida."
     },
     "symptoms": {
-      "heading": "What you have been logging",
-      "note": "Logging over several months gives a clinician far more to work with than memory alone."
+      "heading": "Lo que has ido registrando",
+      "note": "Registrar durante varios meses le da a un profesional mucho más con lo que trabajar que la memoria sola."
     },
     "empty": {
-      "heading": "Start with what you notice",
-      "body": "Log a period if you still have them, and log symptoms as they come up. Patterns over months are what make this useful \u2014 there is nothing to work out from a single day."
+      "heading": "Empieza por lo que notas",
+      "body": "Registra la menstruación si todavía la tienes, y los síntomas según aparezcan. Son los patrones a lo largo de los meses los que hacen esto útil — de un solo día no se deduce nada."
     },
     "reading": {
-      "heading": "Guides for this stage",
-      "perimenopause": "Perimenopause explained",
-      "menopause": "Menopause explained",
-      "care": "Menopause care options",
-      "tracking": "How to track perimenopause symptoms"
+      "heading": "Guías para esta etapa",
+      "perimenopause": "La perimenopausia explicada",
+      "menopause": "La menopausia explicada",
+      "care": "Opciones de atención en la menopausia",
+      "tracking": "Cómo seguir los síntomas de la perimenopausia"
     }
   },
   "pregnancyMovements": {
@@ -918,75 +928,75 @@
     }
   },
   "pregnancySymptoms": {
-    "heading": "How are you feeling?",
-    "intro": "Log anything you notice. Some symptoms need care rather than a log entry — those are grouped separately below.",
+    "heading": "¿Cómo te encuentras?",
+    "intro": "Registra lo que notes. Algunos síntomas necesitan atención más que una anotación — están agrupados aparte más abajo.",
     "groups": {
-      "common": "Common in pregnancy",
-      "body": "Body",
-      "mood": "Mood and thinking",
-      "sameDay": "Contact your maternity team today",
-      "emergency": "Get emergency help now"
+      "common": "Frecuente en el embarazo",
+      "body": "Cuerpo",
+      "mood": "Ánimo y pensamiento",
+      "sameDay": "Contacta hoy con tu equipo de maternidad",
+      "emergency": "Busca ayuda urgente ahora"
     },
     "items": {
-      "nausea": "Nausea",
-      "vomiting": "Vomiting",
-      "fatigue": "Tiredness",
-      "heartburn": "Heartburn",
-      "constipation": "Constipation",
-      "backache": "Back pain",
-      "breastTenderness": "Breast tenderness",
-      "insomnia": "Trouble sleeping",
-      "cravings": "Cravings",
-      "dizziness": "Dizziness",
-      "swelling": "Swelling",
-      "pelvicPain": "Pelvic pain",
-      "cramps": "Cramping",
-      "shortnessOfBreath": "Short of breath",
-      "braxtonHicks": "Practice contractions",
-      "itching": "Itching",
-      "anxious": "Anxious",
-      "moodSwings": "Mood swings",
-      "sad": "Low mood",
-      "irritable": "Irritable",
-      "lowMotivation": "Low motivation",
-      "brainFog": "Brain fog",
-      "anyBleeding": "Bleeding",
-      "fluidLeaking": "Fluid leaking",
-      "fever": "Fever or feeling very unwell",
-      "repeatedVomiting": "Cannot keep fluids down",
-      "painPassingUrine": "Pain passing urine",
-      "faceHandSwelling": "New face or hand swelling",
-      "persistentHeadache": "Headache that will not go",
-      "visionChanges": "Vision changes",
-      "severeItching": "Severe itching",
-      "reducedMovements": "Baby moving less than usual",
-      "heavyBleeding": "Heavy bleeding",
-      "severeAbdominalPain": "Severe abdominal pain",
-      "severeHeadacheWithVision": "Severe headache with vision changes",
-      "troubleBreathing": "Trouble breathing",
-      "chestPain": "Chest pain",
-      "fainting": "Fainting or confusion",
-      "seizure": "A seizure",
-      "legPainSwelling": "Severe one-sided leg pain or swelling",
-      "thoughtsOfHarm": "Thoughts of harming yourself or the baby"
+      "nausea": "Náuseas",
+      "vomiting": "Vómitos",
+      "fatigue": "Cansancio",
+      "heartburn": "Ardor de estómago",
+      "constipation": "Estreñimiento",
+      "backache": "Dolor de espalda",
+      "breastTenderness": "Sensibilidad en los pechos",
+      "insomnia": "Dificultad para dormir",
+      "cravings": "Antojos",
+      "dizziness": "Mareo",
+      "swelling": "Hinchazón",
+      "pelvicPain": "Dolor pélvico",
+      "cramps": "Retortijones",
+      "shortnessOfBreath": "Falta de aire",
+      "braxtonHicks": "Contracciones de práctica",
+      "itching": "Picor",
+      "anxious": "Ansiedad",
+      "moodSwings": "Cambios de ánimo",
+      "sad": "Ánimo bajo",
+      "irritable": "Irritabilidad",
+      "lowMotivation": "Poca motivación",
+      "brainFog": "Niebla mental",
+      "anyBleeding": "Sangrado",
+      "fluidLeaking": "Pérdida de líquido",
+      "fever": "Fiebre o sensación de estar muy mal",
+      "repeatedVomiting": "No puedes retener líquidos",
+      "painPassingUrine": "Dolor al orinar",
+      "faceHandSwelling": "Hinchazón nueva en cara o manos",
+      "persistentHeadache": "Dolor de cabeza que no se va",
+      "visionChanges": "Cambios en la visión",
+      "severeItching": "Picor intenso",
+      "reducedMovements": "El bebé se mueve menos de lo habitual",
+      "heavyBleeding": "Sangrado abundante",
+      "severeAbdominalPain": "Dolor abdominal fuerte",
+      "severeHeadacheWithVision": "Dolor de cabeza fuerte con cambios en la visión",
+      "troubleBreathing": "Dificultad para respirar",
+      "chestPain": "Dolor en el pecho",
+      "fainting": "Desmayo o confusión",
+      "seizure": "Una convulsión",
+      "legPainSwelling": "Dolor o hinchazón fuerte en una sola pierna",
+      "thoughtsOfHarm": "Pensamientos de hacerte daño o hacérselo al bebé"
     },
     "urgent": {
       "emergency": {
-        "heading": "Please get help now — do not wait",
-        "body": "Contact your local emergency services or go to your nearest emergency department. Do not wait for Femio or any online service to respond."
+        "heading": "Busca ayuda ahora — no esperes",
+        "body": "Contacta con los servicios de emergencia locales o acude al servicio de urgencias más cercano. No esperes respuesta de Femio ni de ningún servicio en línea."
       },
       "sameDay": {
-        "heading": "Contact your maternity team today",
-        "body": "Call your pregnancy-care team, urgent clinic, or local maternity service. They may direct you to emergency care — follow their advice."
+        "heading": "Contacta hoy con tu equipo de maternidad",
+        "body": "Llama a tu equipo de atención al embarazo, a la consulta de urgencias o al servicio de maternidad local. Puede que te deriven a urgencias — sigue su indicación."
       },
-      "link": "What the warning signs mean",
-      "helpNow": "Need help now"
+      "link": "Qué significan las señales de alarma",
+      "helpNow": "Necesito ayuda ahora"
     },
-    "save": "Save",
-    "saveAnyway": "Save and get help",
-    "saveAnywayNote": "Saving keeps it in your history — it does not contact anyone.",
-    "saving": "Saving…",
-    "saveFailed": "Could not save. Please try again.",
-    "queued": "Saved offline — it will sync when you are back online."
+    "save": "Guardar",
+    "saveAnyway": "Guardar y buscar ayuda",
+    "saveAnywayNote": "Guardarlo lo deja en tu historial — no contacta con nadie.",
+    "saving": "Guardando…",
+    "saveFailed": "No se pudo guardar. Inténtalo de nuevo.",
+    "queued": "Guardado sin conexión — se sincronizará cuando vuelvas a tener conexión."
   }
 }

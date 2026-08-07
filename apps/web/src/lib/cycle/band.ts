@@ -40,6 +40,13 @@ export function predictionBand(args: {
   windowStart: string;
   windowEnd: string;
   today: string;
+  /**
+   * Days of axis past the window end. Defaults to half the window width (floor 2),
+   * which suits a cycle. Pregnancy overrides it: its window is 37w–42w and 42w is a
+   * real outer bound, so a proportional pad would push it into the middle of the bar
+   * and make the end of a pregnancy look like the middle of one.
+   */
+  pad?: number;
 }): BandGeometry | null {
   const { cycleStart, windowStart, windowEnd, today } = args;
   if (![cycleStart, windowStart, windowEnd, today].every(isValidISODate)) return null;
@@ -47,13 +54,15 @@ export function predictionBand(args: {
   if (diffDays(cycleStart, windowStart) < 0) return null;
   if (diffDays(cycleStart, today) < 0) return null;
 
-  const pad = Math.max(2, Math.ceil(diffDays(windowStart, windowEnd) / 2));
+  const pad = args.pad ?? Math.max(2, Math.ceil(diffDays(windowStart, windowEnd) / 2));
   const paddedEnd = addDays(windowEnd, pad);
   const pastWindow = diffDays(windowEnd, today) > 0;
   const axisEnd = diffDays(paddedEnd, today) > 0 ? today : paddedEnd;
-  // Always ≥ 2: the guards above put `windowStart` on or after `cycleStart`, and
-  // the pad has a floor of two days.
+  // The default pad cannot produce a zero span, but a caller-supplied one can:
+  // pad 0 on a window that starts on day 1 collapses the axis to nothing and every
+  // percentage becomes NaN. Refuse rather than render a band of NaN%.
   const span = diffDays(cycleStart, axisEnd);
+  if (span <= 0) return null;
 
   const pct = (iso: string) => clamp((diffDays(cycleStart, iso) / span) * 100);
 

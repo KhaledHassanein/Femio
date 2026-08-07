@@ -3,6 +3,7 @@
 import { useFormatter, useTranslations } from "next-intl";
 import { cycleVariability, sinceLastPeriod, MENOPAUSE_SYMPTOMS } from "@/lib/menopause";
 import { Badge } from "@/components/ui/badge";
+import { HeroCard } from "@/components/dashboard/hero-card";
 import { Card, CardContent } from "@/components/ui/card";
 import { Link } from "@/i18n/navigation";
 
@@ -52,31 +53,43 @@ export function MenopausePanel({
 
   return (
     <div className="flex flex-col gap-4">
-      <Card>
-        <CardContent className="flex flex-col gap-3 p-6">
-          {since ? (
-            <>
-              <p className="font-display text-2xl text-text">
-                {since.months < 1
-                  ? t("sinceDays", { days: since.days })
-                  : t("sinceMonths", { months: since.months })}
-              </p>
-              <p className="text-sm text-text-muted">{t("lastLogged", { date: fmt(lastStart!) })}</p>
+      {/* Deliberately **no band here**, and this is the one place in the app where
+          leaving the visual out is the decision rather than the omission. A bar
+          filling toward the twelve-month mark would read as a countdown to
+          menopause, and the convention includes "with no other cause" — periods
+          also stop for pregnancy, thyroid changes and some medicines. Drawing
+          progress toward a conclusion Femio is not allowed to reach would turn
+          arithmetic into a diagnosis (product rule 1, ADR-043). The number is the
+          number; the marker is named as a convention and nothing points at it. */}
+      {since ? (
+        <HeroCard
+          tone="cycle"
+          eyebrow={t("lastLogged", { date: fmt(lastStart!) })}
+          headline={
+            since.months < 1
+              ? t("sinceDays", { days: since.days })
+              : t("sinceMonths", { months: since.months })
+          }
+          footnote={since.pastConventionalMarker ? t("markerPassed") : t("markerAhead")}
+        />
+      ) : (
+        <Card>
+          <CardContent className="flex flex-col gap-3 p-6">
+            <h2 className="font-display text-lg text-text">{t("empty.heading")}</h2>
+            <p className="text-sm text-text-muted">{t("empty.body")}</p>
+          </CardContent>
+        </Card>
+      )}
 
-              {/* The convention, named as a convention — never as a conclusion about her. */}
-              <p className="text-sm text-text-muted">
-                {since.pastConventionalMarker ? t("markerPassed") : t("markerAhead")}
-              </p>
-              <p className="text-sm text-text-subtle">{t("notDiagnosis")}</p>
-            </>
-          ) : (
-            <>
-              <h2 className="font-display text-lg text-text">{t("empty.heading")}</h2>
-              <p className="text-sm text-text-muted">{t("empty.body")}</p>
-            </>
-          )}
-        </CardContent>
-      </Card>
+      {/* Below the hero rather than inside it: four lines of white-on-violet is not
+          how you present the most important qualification on the screen. */}
+      {since ? (
+        <Card>
+          <CardContent className="p-6">
+            <p className="text-sm text-text-muted">{t("notDiagnosis")}</p>
+          </CardContent>
+        </Card>
+      ) : null}
 
       {variability ? (
         <Card>

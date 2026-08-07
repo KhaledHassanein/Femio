@@ -212,13 +212,6 @@ export function DashboardScreen() {
         />
       ) : null}
 
-      {/* The primary action, full width and inside thumb reach. It used to be a
-          small button beside the title, in the hardest corner of the screen to
-          hit one-handed — and logging is the whole daily interaction. */}
-      <Button asChild variant="accent" className="w-full">
-        <Link href="/track">{t("logCta")}</Link>
-      </Button>
-
       {/* Pregnancy gets its own dashboard rather than cycle tools plus an apology.
           A cycle-day counter and a next-period prediction are meaningless to someone
           who is pregnant, and the second one is alarming (P1.13b). */}
@@ -229,6 +222,15 @@ export function DashboardScreen() {
       {mode === "menopause" ? (
         <MenopausePanel starts={starts} symptomCounts={top} today={today} />
       ) : null}
+
+      {/* The primary action, full width and inside thumb reach. It used to be a
+          small button beside the title, in the hardest corner of the screen to
+          hit one-handed — and logging is the whole daily interaction. It sits
+          *after* the panels so every mode leads with its answer rather than with
+          a button (P1.28.4). */}
+      <Button asChild variant="accent" className="w-full">
+        <Link href="/track">{t("logCta")}</Link>
+      </Button>
 
       {/* Secondary detail. In cycle/general mode the hero already carries the cycle
           day (eyebrow) and the window (headline), so repeating them in cards below

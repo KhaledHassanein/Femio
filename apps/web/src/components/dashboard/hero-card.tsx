@@ -50,8 +50,9 @@ export function HeroCard({
       <p className="text-2xs font-semibold uppercase tracking-wider opacity-90">{eyebrow}</p>
       <h2 className="font-display text-lg leading-snug">{headline}</h2>
       {band ? <PredictionBand band={band} /> : null}
-      {footnote ? <p className="text-2xs opacity-90">{footnote}</p> : null}
       {children}
+      {/* Last, always: the uncertainty line qualifies everything above it. */}
+      {footnote ? <p className="text-2xs opacity-90">{footnote}</p> : null}
     </section>
   );
 }
