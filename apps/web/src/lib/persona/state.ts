@@ -25,6 +25,23 @@ export const PERSONA_MODES = ["cycle", "ttc", "pregnancy", "menopause", "general
 export type PersonaMode = (typeof PERSONA_MODES)[number];
 
 /**
+ * Mirrors the `profiles.age_band` check constraint. Age is stored as a band rather
+ * than a date wherever possible — data minimisation, and the resolver never needs
+ * more precision than this (docs/14).
+ */
+export const AGE_BANDS = [
+  "under_13",
+  "13_15",
+  "16_17",
+  "18_24",
+  "25_34",
+  "35_44",
+  "45_54",
+  "55_plus",
+] as const;
+export type AgeBand = (typeof AGE_BANDS)[number];
+
+/**
  * Track letters come from the taxonomy in docs/08. `Z` is the Z1 fallback —
  * "general", the mode for someone who does not fit a life-stage bucket or does
  * not want one. It has always been permitted by the `persona_state.track` check
