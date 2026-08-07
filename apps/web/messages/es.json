@@ -244,10 +244,17 @@
     "title": "Tu panel",
     "modeLabel": { "cycle": "Ciclo", "ttc": "Buscando embarazo", "pregnancy": "Embarazo", "menopause": "Menopausia", "general": "General" },
     "cycleDay": "Día {day} de tu ciclo",
-    "cycleDayUnknown": "Registra una menstruación para ver tu día de ciclo.",
     "nextPeriod": "Próxima menstruación",
     "window": "Prevista entre el {start} y el {end}",
-    "avgLength": "Ciclo medio: {days} días",
+    "avgLengthHeading": "Tu ciclo medio",
+    "avgLengthDays": "{days} días",
+    "confidence": {
+      "high": "Tus últimos ciclos han sido regulares, así que esta ventana es ajustada.",
+      "medium": "Una estimación razonable con los ciclos que has registrado hasta ahora.",
+      "low": "Todavía es una guía aproximada: unos ciclos más la afinarán."
+    },
+    "windowPassed": "Esta ventana ya ha pasado. Los ciclos varían, y eso por sí solo no indica nada. Registra tu regla cuando empiece y la siguiente estimación mejorará.",
+    "fertileNote": "Estimación a partir de tu propio historial de ciclos. El momento de la ovulación cambia entre ciclos, así que es una guía, no una prueba.",
     "irregularNote": "Tus ciclos varían, así que las predicciones se mantienen en un rango más amplio — es normal.",
     "fertileHeading": "Ventana fértil estimada",
     "fertileWindow": "Alrededor del {start} – {end}",
@@ -255,8 +262,7 @@
     "logCta": "Registrar hoy",
     "needData": "Registra dos ciclos para desbloquear los análisis.",
     "loadError": "No pudimos cargar tu panel. Tu información está a salvo: es un problema de conexión.",
-    "retry": "Reintentar",
-    "modeSoon": "Pronto llega un seguimiento de {mode} más completo. Tus herramientas de ciclo están aquí mientras tanto."
+    "retry": "Reintentar"
   },
   "visitSummary": {
     "loadError": "No pudimos cargar tu resumen. No falta nada en tu registro: es un problema de conexión.",
@@ -759,6 +765,7 @@
       "mismatch": "Las contraseñas no coinciden."
     },
     "summary": {"heading":"Resumen para la consulta","desc":"Una instantánea imprimible de tu ciclo, síntomas y notas para compartir con un profesional.","link":"Abrir resumen"},
+    "signOut": {"heading":"Cerrar sesión","desc":"Cierra la sesión en este dispositivo. Tu registro permanece igual."},
       "consent": {
         "heading": "Tus opciones de privacidad",
         "desc": "Cambia lo que Femio puede hacer con tus datos. Desactiva lo que quieras cuando quieras: tiene efecto inmediato.",
@@ -798,7 +805,8 @@
     }
   },
   "appNav": {
-    "dashboard": "Panel",
+    "primary": "Secciones principales",
+    "home": "Inicio",
     "track": "Seguimiento",
     "settings": "Ajustes",
     "signOut": "Cerrar sesión"

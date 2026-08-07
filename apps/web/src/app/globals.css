@@ -27,6 +27,32 @@
   }
 }
 
+@layer utilities {
+  /* Safe-area insets. On the web these resolve to 0; inside the Capacitor wrap
+     (P4.0) they are the difference between a tab bar and a tab bar under the
+     iOS home indicator. Raw `env()` rather than a token because the value is
+     supplied by the device, not by the design system. */
+  .pb-safe {
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+  }
+  .pt-safe {
+    padding-top: env(safe-area-inset-top, 0px);
+  }
+  /* Scroll clearance for the fixed tab bar: its own height plus the inset. */
+  .pb-tabbar {
+    padding-bottom: calc(72px + env(safe-area-inset-bottom, 0px));
+  }
+}
+
+/* The crisis launcher is mounted globally (P1.26) and the tab bar only exists on
+   the signed-in screens, so the two collide exactly there — and the tab bar wins,
+   because it paints later. Lift the launcher whenever a tab bar is on the page.
+   `:has()` keeps this declarative: no effect, no cleanup, nothing to leak when
+   the app layout unmounts. */
+body:has(.app-tabbar) .crisis-launcher {
+  bottom: calc(72px + env(safe-area-inset-bottom, 0px) + 16px);
+}
+
 /* Print: force a clean light page for the doctor-visit summary (P1.16.1). App
    chrome is hidden with the Tailwind `print:hidden` variant on those elements. */
 @media print {

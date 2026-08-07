@@ -101,6 +101,16 @@
   --gradient-fertile:linear-gradient(135deg, var(--teal-600) 0%, var(--teal-400) 100%);
   --gradient-warm:linear-gradient(135deg, var(--rasp-600) 0%, var(--rasp-400) 100%);
   --gradient-dawn:linear-gradient(135deg, #7C3AED 0%, #E11D74 55%, #F59E0B 100%);
+
+  /* Hero gradients (P1.28.2). Distinct from the accent gradients above because a
+     hero carries BODY COPY: every stop here is AA-safe under white text
+     (violet-600 5.70:1, teal-700 5.47:1, rasp-600 4.54:1), so the small
+     uncertainty line stays readable at the light end. The accent gradients run
+     out to 300/400 tints and are for decoration only — never put text on them. */
+  --gradient-hero-cycle:linear-gradient(135deg, var(--violet-700) 0%, var(--violet-600) 100%);
+  --gradient-hero-ttc:linear-gradient(135deg, var(--teal-800) 0%, var(--teal-700) 100%);
+  --gradient-hero-warm:linear-gradient(135deg, var(--rasp-700) 0%, var(--rasp-600) 100%);
+
   --frost-blur:saturate(180%) blur(20px);
 }
 

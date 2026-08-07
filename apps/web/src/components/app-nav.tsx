@@ -1,58 +1,87 @@
 "use client";
 
-import { LogOut } from "lucide-react";
-import { useRouter } from "next/navigation";
+import { CalendarHeart, House, Settings2 } from "lucide-react";
 import { useTranslations } from "next-intl";
-import { createClient } from "@/lib/supabase/client";
 import { Link, usePathname } from "@/i18n/navigation";
+import { ThemeToggle } from "@/components/theme-toggle";
 import { cn } from "@/lib/utils";
 
-const LINKS = [
-  { href: "/dashboard", key: "dashboard" },
-  { href: "/track", key: "track" },
-  { href: "/settings", key: "settings" },
+/**
+ * The signed-in shell (P1.28.1).
+ *
+ * Two pieces: a slim brand bar at the top and a **bottom tab bar** — the tabs are
+ * the navigation, the top bar is only identity. Three text links in a header is
+ * website chrome; on a 390px screen the reachable half is the bottom third, and
+ * mobile is where this product ships (ADR-048).
+ *
+ * Sign-out deliberately left the nav for Settings. It sat one mis-tap from "Track"
+ * and it is not a place you navigate to — it is an account action.
+ */
+const TABS = [
+  // "Home", not "Dashboard": a tab label has ~110px on a 390px screen, and
+  // "Tableau de bord" does not fit in it.
+  { href: "/dashboard", key: "home", Icon: House },
+  { href: "/track", key: "track", Icon: CalendarHeart },
+  { href: "/settings", key: "settings", Icon: Settings2 },
 ] as const;
 
 export function AppNav() {
   const t = useTranslations("appNav");
   const pathname = usePathname();
-  const router = useRouter();
-
-  const signOut = async () => {
-    const supabase = createClient();
-    await supabase.auth.signOut();
-    router.push("/");
-  };
 
   return (
-    <header className="border-b border-border bg-surface print:hidden">
-      <nav className="mx-auto flex max-w-2xl items-center justify-between gap-4 px-6 py-3">
-        <div className="flex items-center gap-1">
-          {LINKS.map((l) => (
-            <Link
-              key={l.href}
-              href={l.href}
-              aria-current={pathname === l.href ? "page" : undefined}
-              className={cn(
-                "rounded-sm px-3 py-1.5 text-sm",
-                pathname === l.href
-                  ? "bg-primary-soft font-medium text-primary-soft-text"
-                  : "text-text-muted hover:bg-surface-sunken",
-              )}
-            >
-              {t(l.key)}
-            </Link>
-          ))}
+    <>
+      <header className="pt-safe sticky top-0 z-sticky border-b border-border bg-surface/80 backdrop-blur print:hidden">
+        <div className="mx-auto flex max-w-2xl items-center justify-between gap-4 px-6 py-3">
+          {/* The wordmark is always English "femio", in every locale (product rule 6). */}
+          <Link
+            href="/dashboard"
+            className="font-display text-lg lowercase tracking-tight text-primary"
+          >
+            femio
+          </Link>
+          <ThemeToggle />
         </div>
-        <button
-          type="button"
-          onClick={signOut}
-          className="inline-flex items-center gap-1 text-sm text-text-muted hover:text-text"
-        >
-          <LogOut className="size-4 rtl:-scale-x-100" aria-hidden />
-          {t("signOut")}
-        </button>
+      </header>
+
+      <nav
+        aria-label={t("primary")}
+        // `app-tabbar` is the hook globals.css uses to lift the crisis launcher.
+        className="app-tabbar pb-safe fixed inset-x-0 bottom-0 z-sticky border-t border-border bg-surface/95 backdrop-blur print:hidden"
+      >
+        <ul className="mx-auto flex max-w-2xl items-stretch justify-around px-2">
+          {TABS.map(({ href, key, Icon }) => {
+            const active = pathname === href;
+            return (
+              <li key={href} className="flex-1">
+                <Link
+                  href={href}
+                  aria-current={active ? "page" : undefined}
+                  className={cn(
+                    // 56px of height plus the icon padding clears the 44px touch
+                    // target minimum on every tab, label included.
+                    "flex min-h-14 flex-col items-center justify-center gap-1 rounded-sm py-2 text-2xs font-medium transition-colors duration-fast",
+                    active ? "text-primary" : "text-text-subtle hover:text-text",
+                  )}
+                >
+                  <span
+                    className={cn(
+                      "flex items-center justify-center rounded-pill px-4 py-1 transition-colors duration-fast",
+                      active ? "bg-primary-soft" : "bg-transparent",
+                    )}
+                  >
+                    <Icon
+                      className={cn("size-5", active && "text-primary-soft-text")}
+                      aria-hidden
+                    />
+                  </span>
+                  {t(key)}
+                </Link>
+              </li>
+            );
+          })}
+        </ul>
       </nav>
-    </header>
+    </>
   );
 }

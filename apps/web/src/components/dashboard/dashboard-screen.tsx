@@ -4,6 +4,7 @@ import { useFormatter, useTranslations } from "next-intl";
 import { fertileWindow } from "@/lib/calculators";
 import { todayISO } from "@/lib/calculators/dates";
 import { predictNextPeriod } from "@/lib/cycle/predict";
+import { predictionBand } from "@/lib/cycle/band";
 import { currentCycleDay, topSymptoms } from "@/lib/cycle/insights";
 import { SYMPTOM_GROUPS } from "@/lib/cycle/symptoms";
 import { useSupabaseQuery, unwrap } from "@/lib/supabase/use-query";
@@ -15,6 +16,7 @@ import { Alert, AlertDescription } from "@/components/ui/alert";
 import { Link } from "@/i18n/navigation";
 import { PregnancyPanel } from "@/components/pregnancy/pregnancy-panel";
 import { MenopausePanel } from "@/components/menopause/menopause-panel";
+import { HeroCard } from "@/components/dashboard/hero-card";
 
 const KNOWN_SYMPTOMS = new Set<string>(SYMPTOM_GROUPS.flatMap((g) => g.symptoms));
 
@@ -112,6 +114,17 @@ export function DashboardScreen() {
     KNOWN_SYMPTOMS.has(type) ? stItem(`items.${type}`) : type;
   const fmt = (iso: string) =>
     format.dateTime(new Date(`${iso}T00:00:00Z`), { dateStyle: "medium", timeZone: "UTC" });
+  /**
+   * Day and month only, for the hero. A prediction is never more than a couple of
+   * months out, so the year is noise — and it is expensive noise: "Aug 28, 2026 and
+   * Sep 1, 2026" wraps the headline onto three lines on a 390px screen.
+   */
+  const fmtShort = (iso: string) =>
+    format.dateTime(new Date(`${iso}T00:00:00Z`), {
+      day: "numeric",
+      month: "short",
+      timeZone: "UTC",
+    });
 
   const prediction = predictNextPeriod(starts);
   const cycleDay = currentCycleDay(starts, today);
@@ -119,17 +132,92 @@ export function DashboardScreen() {
   const fertile =
     mode === "ttc" && lastStart ? fertileWindow(lastStart, prediction?.averageLength ?? 28) : null;
 
+  // The band draws the range the prediction already returns; when the geometry
+  // can't be computed the sentence stands on its own (lib/cycle/band.ts).
+  const periodBand =
+    lastStart && prediction
+      ? predictionBand({
+          cycleStart: lastStart,
+          windowStart: prediction.windowStart,
+          windowEnd: prediction.windowEnd,
+          today,
+        })
+      : null;
+  const fertileBand =
+    lastStart && fertile
+      ? predictionBand({
+          cycleStart: lastStart,
+          windowStart: fertile.windowStart,
+          windowEnd: fertile.windowEnd,
+          today,
+        })
+      : null;
+
+  /**
+   * The one line under the band. Order matters: a window that has already passed
+   * is the most useful thing to say, and a confidence grade would be beside the
+   * point once it has. Never a day count — no "late" counter (product rule 3).
+   */
+  const periodFootnote = () => {
+    if (!prediction) return undefined;
+    if (periodBand?.pastWindow) return t("windowPassed");
+    if (prediction.irregular) return t("irregularNote");
+    return t(`confidence.${prediction.confidence}`);
+  };
+
   return (
-    <main className="mx-auto flex w-full max-w-2xl flex-col gap-6 px-6 py-12">
-      <div className="flex items-center justify-between gap-3">
-        <div className="flex flex-col gap-1">
-          <h1 className="font-display text-2xl text-text">{t("title")}</h1>
-          <p className="text-sm text-text-muted">{t(`modeLabel.${mode}`)}</p>
-        </div>
-        <Button asChild variant="accent">
-          <Link href="/track">{t("logCta")}</Link>
-        </Button>
+    <main className="mx-auto flex w-full max-w-2xl flex-col gap-5 px-5 py-6">
+      {/* A compact title row, not a masthead. At 36px display type "Your dashboard"
+          wrapped to two lines on a 390px screen and pushed the answer below it —
+          the brand bar above already says where you are, so the heading's job here
+          is orientation and an h1, nothing more. */}
+      <div className="flex flex-wrap items-center gap-x-3 gap-y-1">
+        <h1 className="font-display text-lg text-text">{t("title")}</h1>
+        <Badge variant="primary">{t(`modeLabel.${mode}`)}</Badge>
       </div>
+
+      {/* TTC leads with the fertile window — it is the question she opened the app
+          with — and keeps the next-period estimate as a secondary card below. */}
+      {mode === "ttc" ? (
+        <HeroCard
+          tone="ttc"
+          eyebrow={t("fertileHeading")}
+          headline={
+            fertile
+              ? t("fertileWindow", {
+                  start: fmtShort(fertile.windowStart),
+                  end: fmtShort(fertile.windowEnd),
+                })
+              : t("needData")
+          }
+          footnote={fertile ? t("fertileNote") : undefined}
+          band={fertileBand}
+        />
+      ) : null}
+
+      {showsCyclePredictions(mode) && mode !== "ttc" ? (
+        <HeroCard
+          tone="cycle"
+          eyebrow={cycleDay ? t("cycleDay", { day: cycleDay }) : t(`modeLabel.${mode}`)}
+          headline={
+            prediction
+              ? t("window", {
+                  start: fmtShort(prediction.windowStart),
+                  end: fmtShort(prediction.windowEnd),
+                })
+              : t("needData")
+          }
+          footnote={periodFootnote()}
+          band={periodBand}
+        />
+      ) : null}
+
+      {/* The primary action, full width and inside thumb reach. It used to be a
+          small button beside the title, in the hardest corner of the screen to
+          hit one-handed — and logging is the whole daily interaction. */}
+      <Button asChild variant="accent" className="w-full">
+        <Link href="/track">{t("logCta")}</Link>
+      </Button>
 
       {/* Pregnancy gets its own dashboard rather than cycle tools plus an apology.
           A cycle-day counter and a next-period prediction are meaningless to someone
@@ -142,56 +230,41 @@ export function DashboardScreen() {
         <MenopausePanel starts={starts} symptomCounts={top} today={today} />
       ) : null}
 
-      {showsCyclePredictions(mode) ? (
+      {/* Secondary detail. In cycle/general mode the hero already carries the cycle
+          day (eyebrow) and the window (headline), so repeating them in cards below
+          it was the flatness the redesign is fixing (P1.28.2). What is left is the
+          supporting number — and, in TTC, the next-period estimate the hero gave up
+          its place to. Gated on `prediction`: with no history these cards had
+          nothing to say and said it in a fallback sentence about a different
+          number. */}
+      {showsCyclePredictions(mode) && prediction ? (
         <div className="grid gap-4 sm:grid-cols-2">
-          <Card>
-            <CardContent className="flex min-h-24 flex-col justify-center p-6">
-              {cycleDay ? (
-                <p className="font-display text-xl text-text">{t("cycleDay", { day: cycleDay })}</p>
-              ) : (
-                <p className="text-sm text-text-muted">{t("cycleDayUnknown")}</p>
-              )}
-            </CardContent>
-          </Card>
+          {mode === "ttc" ? (
+            <Card>
+              <CardContent className="flex min-h-24 flex-col gap-1 p-6">
+                <p className="text-sm text-text-muted">{t("nextPeriod")}</p>
+                <p className="font-display text-md text-text">
+                  {t("window", {
+                    start: fmt(prediction.windowStart),
+                    end: fmt(prediction.windowEnd),
+                  })}
+                </p>
+                {prediction.irregular ? (
+                  <p className="text-sm text-warning-text">{t("irregularNote")}</p>
+                ) : null}
+              </CardContent>
+            </Card>
+          ) : null}
 
           <Card>
-            <CardContent className="flex min-h-24 flex-col gap-1 p-6">
-              <p className="text-sm text-text-muted">{t("nextPeriod")}</p>
-              {prediction ? (
-                <>
-                  <p className="font-display text-lg text-text">
-                    {t("window", {
-                      start: fmt(prediction.windowStart),
-                      end: fmt(prediction.windowEnd),
-                    })}
-                  </p>
-                  <p className="text-sm text-text-muted">
-                    {t("avgLength", { days: prediction.averageLength })}
-                  </p>
-                  {prediction.irregular ? (
-                    <p className="text-sm text-warning-text">{t("irregularNote")}</p>
-                  ) : null}
-                </>
-              ) : (
-                <p className="text-sm text-text-muted">{t("needData")}</p>
-              )}
+            <CardContent className="flex min-h-24 flex-col justify-center gap-1 p-6">
+              <p className="text-sm text-text-muted">{t("avgLengthHeading")}</p>
+              <p className="font-display text-lg text-text">
+                {t("avgLengthDays", { days: prediction.averageLength })}
+              </p>
             </CardContent>
           </Card>
         </div>
-      ) : null}
-
-      {fertile ? (
-        <Card>
-          <CardContent className="flex flex-col gap-1 p-6">
-            <p className="text-sm text-text-muted">{t("fertileHeading")}</p>
-            <p className="font-display text-lg text-text">
-              {t("fertileWindow", {
-                start: fmt(fertile.windowStart),
-                end: fmt(fertile.windowEnd),
-              })}
-            </p>
-          </CardContent>
-        </Card>
       ) : null}
 
       {top.length > 0 && mode !== "menopause" ? (

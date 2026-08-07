@@ -10,6 +10,7 @@ import { SetPassword } from "@/components/account/set-password";
 import { ConsentSettings } from "@/components/account/consent-settings";
 import { MfaSettings } from "@/components/account/mfa-settings";
 import { ExperienceSettings } from "@/components/account/experience-settings";
+import { SignOutButton } from "@/components/account/sign-out-button";
 import { Alert, AlertDescription } from "@/components/ui/alert";
 import { Button } from "@/components/ui/button";
 import { Link } from "@/i18n/navigation";
@@ -108,6 +109,18 @@ export function SettingsScreen() {
             <p className="text-sm text-text-muted">{t("export.desc")}</p>
           </div>
           <ExportButton />
+        </CardContent>
+      </Card>
+
+      {/* Sign-out lives here rather than in the nav (P1.28.1): it is an account
+          action, not a destination, and it was one mis-tap from "Track". */}
+      <Card>
+        <CardContent className="flex flex-col gap-3 p-6">
+          <div className="flex flex-col gap-1">
+            <h2 className="text-md font-semibold text-text">{t("signOut.heading")}</h2>
+            <p className="text-sm text-text-muted">{t("signOut.desc")}</p>
+          </div>
+          <SignOutButton />
         </CardContent>
       </Card>
 

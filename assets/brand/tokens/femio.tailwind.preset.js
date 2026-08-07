@@ -58,6 +58,10 @@ module.exports = {
         'gradient-fertile': 'var(--gradient-fertile)',
         'gradient-warm': 'var(--gradient-warm)',
         'gradient-dawn': 'var(--gradient-dawn)',
+        // Text-safe hero gradients — see the token file for the contrast note.
+        'gradient-hero-cycle': 'var(--gradient-hero-cycle)',
+        'gradient-hero-ttc': 'var(--gradient-hero-ttc)',
+        'gradient-hero-warm': 'var(--gradient-hero-warm)',
       },
       transitionTimingFunction: {
         standard: 'cubic-bezier(.2,0,0,1)', spring: 'cubic-bezier(.34,1.56,.64,1)',

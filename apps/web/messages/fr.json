@@ -244,10 +244,17 @@
     "title": "Ton tableau de bord",
     "modeLabel": { "cycle": "Cycle", "ttc": "Essai de conception", "pregnancy": "Grossesse", "menopause": "Ménopause", "general": "Général" },
     "cycleDay": "Jour {day} de ton cycle",
-    "cycleDayUnknown": "Enregistre des règles pour voir ton jour de cycle.",
     "nextPeriod": "Prochaines règles",
     "window": "Attendues entre le {start} et le {end}",
-    "avgLength": "Cycle moyen : {days} jours",
+    "avgLengthHeading": "Votre cycle moyen",
+    "avgLengthDays": "{days} jours",
+    "confidence": {
+      "high": "Vos derniers cycles ont été réguliers, cette fenêtre est donc resserrée.",
+      "medium": "Une estimation raisonnable d’après les cycles enregistrés jusqu’ici.",
+      "low": "Encore une estimation approximative — quelques cycles de plus l’affineront."
+    },
+    "windowPassed": "Cette fenêtre est passée. Les cycles varient, et cela seul n’indique rien. Enregistrez vos règles à leur début et la prochaine estimation s’améliorera.",
+    "fertileNote": "Estimation d’après votre propre historique de cycles. Le moment de l’ovulation varie d’un cycle à l’autre : c’est un repère, pas un test.",
     "irregularNote": "Tes cycles varient, donc les prévisions restent une fourchette plus large — c'est normal.",
     "fertileHeading": "Fenêtre de fertilité estimée",
     "fertileWindow": "Autour du {start} – {end}",
@@ -255,8 +262,7 @@
     "logCta": "Enregistrer aujourd'hui",
     "needData": "Enregistre deux cycles pour débloquer les analyses.",
     "loadError": "Impossible de charger ton tableau de bord. Tes informations sont intactes — il s'agit d'un problème de connexion.",
-    "retry": "Réessayer",
-    "modeSoon": "Un suivi {mode} plus complet arrive bientôt. Tes outils de cycle sont là en attendant."
+    "retry": "Réessayer"
   },
   "visitSummary": {
     "loadError": "Impossible de charger ton résumé. Rien ne manque dans ton dossier — il s'agit d'un problème de connexion.",
@@ -759,6 +765,7 @@
       "mismatch": "Les mots de passe ne correspondent pas."
     },
     "summary": {"heading":"Résumé pour la consultation","desc":"Un aperçu imprimable de votre cycle, vos symptômes et vos notes à partager avec un professionnel de santé.","link":"Ouvrir le résumé"},
+    "signOut": {"heading":"Se déconnecter","desc":"Se déconnecter sur cet appareil. Votre dossier reste inchangé."},
       "consent": {
         "heading": "Vos choix de confidentialité",
         "desc": "Changez ce que Femio peut faire de vos données. Désactivez ce que vous voulez, quand vous voulez — l’effet est immédiat.",
@@ -798,7 +805,8 @@
     }
   },
   "appNav": {
-    "dashboard": "Tableau de bord",
+    "primary": "Sections principales",
+    "home": "Accueil",
     "track": "Suivi",
     "settings": "Réglages",
     "signOut": "Se déconnecter"
