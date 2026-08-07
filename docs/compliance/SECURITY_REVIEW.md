@@ -62,6 +62,18 @@ so it shows up in a diff rather than in someone's memory.
 |---|---|---|---|
 | GHSA-mh99-v99m-4gvg | `brace-expansion@1.1.16` | Unbounded-expansion DoS. Reaches us only through ESLint tooling and the Serwist build, expanding glob patterns we author ourselves — never user input, never at runtime. No patch exists for the 1.x line, and forcing 5.x into a CJS caller (minimatch@3) is a four-major jump. | 2026-10-31 |
 
+**Fixed rather than accepted, 2026-08-07.** Two advisories were published against existing
+transitive dependencies and surfaced on the next push, not by a code change of ours:
+**GHSA-5p4m-2wfm-xmqj** (`js-yaml` <4.3.1, high — quadratic CPU on `!!omap`, 70 paths, all
+through `@payloadcms/db-postgres > payload > json-schema-to-typescript`) and
+**GHSA-fxqj-rqcc-2cmp** (`postcss` ≤8.5.22, moderate — the incomplete-fix follow-up to
+GHSA-6g55-p6wh-862q). Both had patches, so both were pinned in `overrides` rather than added
+to the table above: `js-yaml@4: ">=4.3.1 <5"` (bounded inside its major, per the minimatch
+lesson recorded in `pnpm-workspace.yaml`) and the existing `postcss` pin raised to
+`">=8.5.23 <9"`. The postcss entry was raised in place instead of gaining a second row,
+because one package should have one pin. `ignoreGhsas` stays **empty**, and `pnpm audit` is
+clean at `--audit-level moderate` — a stricter bar than the `high` gate CI enforces.
+
 Two moderate `next-intl` advisories (GHSA-8f24-v5vv-gm5j open redirect, GHSA-4c35-wcg5-mm9h
 prototype pollution) are **not** ignored — they sit below the `high` gate and are cleared by the
 v4 upgrade tracked as **P1.23.2**. The open redirect is the one that matters for us: it is

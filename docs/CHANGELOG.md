@@ -14,6 +14,8 @@ All notable changes to Femio V2.
 - **Signing up looks and works like the first screen of a real app** (P1.28.5, ADR-054): the Femio name is on it now — it wasn't — along with a progress bar showing how short it is, proper radio buttons so you can see which choices are choices before you tap one, and a Continue button pinned to the bottom of the screen at full width instead of tucked in the corner after a long scroll. Screen readers now hear "option 2 of 4" instead of "button, pressed", which is what these controls actually are.
 
 ### Fixed
+- **Two newly-published security advisories closed the day they appeared**: a high-severity flaw in a YAML parser and a follow-up fix in a CSS tool, both reaching Femio only through the content-management system's own dependencies. Neither was ever exploitable in the app you use, and both are now on patched versions. Femio's dependency report is back to **zero known issues** — checked at a stricter level than the build requires.
+
 - **In pregnancy mode, the day you picked was ignored** (ADR-056): the Track screen shows a row of days at the top, but the pregnancy symptom list was not listening to it — choose "two days ago", log nausea, and it was filed under today. That screen also kept showing stale entries after saving. Both are fixed, and pregnancy logging now behaves exactly like cycle logging, which is what it always looked like it was already doing.
 - **Screens shifted slightly as they finished loading** (ADR-056): the page margins were set in one place for the loaded view and a different place for the loading view, so everything nudged the moment your data arrived. One definition now, so it cannot drift again.
 

@@ -31,14 +31,19 @@ allowBuilds:
 # cannot be fixed by bumping anything we depend on directly. Each pins a patched
 # version for a published advisory; drop an entry once the parent ships the fix.
 #   sharp     GHSA-f88m-g3jw-g9cj   (via @payloadcms/ui > next)
-#   postcss   GHSA-r28c-9q8g-f849   (via @payloadcms/ui > next)
+#   postcss   GHSA-r28c-9q8g-f849 + GHSA-fxqj-rqcc-2cmp (via @payloadcms/ui > next)
+#             — the second is the incomplete-fix follow-up to GHSA-6g55-p6wh-862q,
+#             so the existing pin was raised rather than a second entry added.
+#   js-yaml   GHSA-5p4m-2wfm-xmqj   (via @payloadcms/db-postgres > payload >
+#             json-schema-to-typescript) — quadratic CPU on `!!omap`, 70 paths, all
+#             transitive through Payload. Bounded inside 4.x per the note below.
 #   dompurify GHSA-cmwh-pvxp-8882   (via @payloadcms/ui > monaco-editor)
 #   esbuild   GHSA-67mh-4wv8-2f99   (via @payloadcms/db-postgres > drizzle-kit)
 #   undici    GHSA-4cwx-7wf7-3272   (via payload)
 #   fast-uri  GHSA-7p8r-x3mc-p8w7   (via ajv)
 overrides:
   sharp: ">=0.35.3"
-  postcss: ">=8.5.18"
+  postcss: ">=8.5.23 <9"
   dompurify: ">=3.4.12"
   esbuild: ">=0.25.12"
   undici: ">=7.29.0 <8"
@@ -54,6 +59,7 @@ overrides:
   # residual that used to sit below could be dropped rather than renewed.
   "brace-expansion@5": ">=5.0.9 <6"
   "brace-expansion@1": ">=1.1.18 <2"
+  "js-yaml@4": ">=4.3.1 <5"
 
 # Advisories we have consciously accepted, with the reason and a review date.
 # Anything NOT listed here fails `pnpm audit --audit-level high` in CI, so this
