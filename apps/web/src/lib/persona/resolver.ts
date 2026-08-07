@@ -84,14 +84,27 @@ const pregnant: Predicate = (s) => s.pregnancyStatus === "active";
 const notPregnant: Predicate = (s) => s.pregnancyStatus !== "active";
 
 /**
- * The rules. **This is not all ~73 personas and does not pretend to be.**
+ * The rules. **This is not all ~73 personas — and the reason is the wizard, not
+ * the data model.**
  *
- * A persona is only listed once Femio records the signals it keys on. The rest of
- * the taxonomy keys on labs, BBT/OPK series, partner results and validated
- * screeners that no screen collects yet (P2.1, P2.7); adding rules for those would
- * create branches that can never fire and a resolver that looks finished. Each
- * missing group is noted where it belongs so the next session extends rather than
- * rediscovers.
+ * An earlier version of this comment said the taxonomy keys on labs, BBT/OPK and
+ * screeners we do not collect. That was asserted without checking and it is wrong.
+ * Reading all 73 specs (2026-08-07): **72 of 73 are keyed by a wizard question**,
+ * **53 of 73 by a self-reported condition**, and only 5 mention labs. Counting
+ * personas whose §I needs *no* collection surface beyond wizard answers:
+ * **57 of 73 are resolvable today** if the wizard asks for the answers.
+ *
+ * What actually blocks them is two things, both application-layer:
+ *   1. The wizard implements Q1 of the six branches docs/09 §4 specifies, with
+ *      four of its eight options.
+ *   2. **Nothing writes `conditions_flagged`.** The table exists and is read by
+ *      the visit summary and the GDPR export, but no code path inserts into it —
+ *      so the single highest-value signal in the taxonomy is unreachable.
+ *
+ * So the rules below are thin because their *input* is thin, not because the
+ * scoring cannot express them. Adding a persona here is cheap once its signal
+ * arrives; see P1.27.4a. The genuinely blocked ones are the 16 that need labs,
+ * validated screeners or partner data (P2.1, P2.7, P3).
  */
 export const PERSONA_RULES: readonly PersonaRule[] = [
   // ---- Track A — adolescent. Age band is the only signal we hold; A3–A6 need
