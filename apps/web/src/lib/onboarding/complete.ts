@@ -1,13 +1,16 @@
 import { createClient } from "@/lib/supabase/client";
 import type { Locale } from "@/i18n/routing";
 import { CONSENT_VERSION } from "@/lib/consent/purposes";
+import { buildConditionRows, type ConditionCode } from "@/lib/persona/conditions";
+import { resolvePersona } from "@/lib/persona/resolver";
+import { EMPTY_SIGNALS, type PersonaSignals } from "@/lib/persona/signals";
 
 // Consent policy version now lives with the purposes it describes (lib/consent),
 // so onboarding and Settings can never record different versions of the same
 // wording. Re-exported because it was published from here first.
 export { CONSENT_VERSION };
 
-export type OnboardingMode = "cycle" | "ttc" | "pregnancy" | "menopause";
+export type OnboardingMode = "cycle" | "ttc" | "pregnancy" | "menopause" | "general";
 
 // Life-stage mode → initial resolved state (docs/09). Emphasis only; access is
 // never restricted.
@@ -17,18 +20,43 @@ export type OnboardingMode = "cycle" | "ttc" | "pregnancy" | "menopause";
 // Settings → "Your Femio experience" makes it true for the mode (P1.27.1, ADR-050).
 // Re-running the wizard itself is still open (P1.27.3), and the ~73-persona resolver
 // these four hardcoded ids stand in for is P1.27.4.
-const MODE_TO_STATE: Record<
-  OnboardingMode,
-  { track: string; persona_id: string; flags: Record<string, boolean> }
-> = {
-  cycle: { track: "B", persona_id: "B1", flags: {} },
-  ttc: { track: "C", persona_id: "C1", flags: { ttc_intent: true } },
-  pregnancy: { track: "D", persona_id: "D1", flags: { pregnant: true } },
-  menopause: { track: "F", persona_id: "F1", flags: {} },
+const MODE_TO_STATE: Record<OnboardingMode, { flags: Record<string, boolean> }> = {
+  cycle: { flags: {} },
+  ttc: { flags: { ttc_intent: true } },
+  pregnancy: { flags: { pregnant: true } },
+  menopause: { flags: {} },
+  // "Skip / I'm not sure" (docs/09 §4). Z1 is a first-class state, not a failure:
+  // the full generic experience, progressively personalised as she logs (P1.27.5).
+  general: { flags: {} },
 };
+
+/**
+ * The stage answer maps to the signals the resolver reads, so the persona comes
+ * out of **triage** rather than a lookup table (P1.27.8).
+ *
+ * This is the whole point of the questionnaire: which conditions her clinician is
+ * watching decides what Femio emphasises, exactly as a clinician would triage. It
+ * is deliberately not driven by mood — mood belongs to contextual tips, not to
+ * which version of the app she gets.
+ */
+function signalsFromWizard(choice: OnboardingChoice): PersonaSignals {
+  return {
+    ...EMPTY_SIGNALS,
+    ttcIntent: choice.mode === "ttc",
+    pregnancyStatus: choice.mode === "pregnancy" ? ("active" as const) : null,
+    conditions: choice.conditions ?? [],
+    priorLoss: (choice.conditions ?? []).includes("prior_loss"),
+    // She ticked "gestational diabetes" rather than "diabetes", which is the only
+    // thing that separates D3 from D4 (docs/09 §8 rule 3).
+    diabetesRecordedBeforePregnancy: (choice.conditions ?? []).includes("diabetes"),
+    cycleRegularity: choice.mode === "menopause" ? "irregular" : "unknown",
+  };
+}
 
 export type OnboardingChoice = {
   mode: OnboardingMode;
+  /** Triage answers — "conditions your clinician is watching". Always self-reported. */
+  conditions?: ConditionCode[];
   email?: string;
   insights: boolean;
   research: boolean;
@@ -63,11 +91,28 @@ export async function completeOnboarding(choice: OnboardingChoice): Promise<Resu
   ]);
   if (consentError) return { ok: false, error: consentError.message };
 
+  // Conditions before persona_state: the resolver reads them, and a failure here
+  // must not leave her with a persona resolved from answers we did not keep.
+  const conditionRows = buildConditionRows(profileId, choice.conditions ?? []);
+  if (conditionRows.length > 0) {
+    const { error: conditionError } = await supabase
+      .from("conditions_flagged")
+      .insert(conditionRows);
+    if (conditionError) return { ok: false, error: conditionError.message };
+  }
+
+  const resolved = resolvePersona(signalsFromWizard(choice));
   const state = MODE_TO_STATE[choice.mode];
   const { error: stateError } = await supabase.from("persona_state").upsert({
     profile_id: profileId,
-    track: state.track,
-    persona_id: state.persona_id,
+    // The resolver decides the persona now, not a four-entry lookup table. It
+    // answers Z1 whenever the triage answers do not justify more, which is the
+    // honest result for someone who ticked nothing (docs/09 §5).
+    track: resolved.track,
+    persona_id: resolved.personaId,
+    modifiers: resolved.modifiers,
+    emotional_context: resolved.emotionalContext,
+    confidence: resolved.confidence,
     flags_json: state.flags,
   });
   if (stateError) return { ok: false, error: stateError.message };

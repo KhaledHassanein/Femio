@@ -350,7 +350,18 @@ export function resolvePersona(signals: PersonaSignals): Resolution {
   const offer = { personaId: top.rule.id, confidence };
 
   if (confidence < CONFIDENCE_THRESHOLD) return fallback(offer, confidence);
-  if (second && top.value - second.value < AMBIGUITY_MARGIN) return fallback(offer, confidence);
+
+  // Ambiguity only means Z1 when the candidates disagree about the **track**, i.e.
+  // about which experience she needs. Two personas on the same track are not
+  // competing — they are one experience with different modifier emphasis, and
+  // docs/09 §8 rule 2 says the most-acute emphasis wins the hero rather than the
+  // tie collapsing to generic. The worked example is exactly this: pregnancy +
+  // thyroid + prior loss is a pregnancy hero with thyroid and PAL strips, not a
+  // shrug. Before this check, that combination scored 1.0 and resolved to Z1 —
+  // maximum confidence and no persona, which is incoherent on its face.
+  const crossTrackTie =
+    second && second.rule.track !== top.rule.track && top.value - second.value < AMBIGUITY_MARGIN;
+  if (crossTrackTie) return fallback(offer, confidence);
 
   return {
     personaId: top.rule.id,

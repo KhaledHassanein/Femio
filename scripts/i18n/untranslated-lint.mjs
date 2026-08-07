@@ -47,6 +47,8 @@ const ALLOWED = {
     "pregnancySymptoms.items.constipation",
   ],
   es: [
+    // Spelled identically in Spanish.
+    "onboarding.triage.conditions.endometriosis",
     "gallery.phases.menstrual",
     "calculators.bmi.unitImperial",
     "symptoms.items.irritable",

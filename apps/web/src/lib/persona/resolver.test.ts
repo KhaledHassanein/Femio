@@ -194,3 +194,36 @@ describe("resolvePersona — the stated-intent rules", () => {
     expect(r.personaId).toBe("C8");
   });
 });
+
+describe("resolvePersona — stacked modifiers are not ambiguity (docs/09 §8 rule 2)", () => {
+  // The worked example in the spec: "pregnancy + thyroid + prior loss → hero =
+  // pregnancy timeline; strips = thyroid monitoring + PAL support". Two D-track
+  // personas tie here, and a tie between them says nothing about which experience
+  // she needs — they are the same one. The first version returned Z1 at confidence
+  // 1.0, which is maximum certainty and no answer.
+  const worked = rich({
+    pregnancyStatus: "active",
+    conditions: ["thyroid"],
+    priorLoss: true,
+    symptomCounts: { nausea: 3 },
+  });
+
+  it("resolves to the pregnancy track rather than collapsing to Z1", () => {
+    const r = resolvePersona(worked);
+    expect(r.track).toBe("D");
+    expect(r.personaId).not.toBe("Z1");
+  });
+
+  it("carries both layers, because modifiers stack independently of the winner", () => {
+    const r = resolvePersona(worked);
+    expect(r.modifiers).toEqual(expect.arrayContaining(["thyroid", "pregnancy_after_loss"]));
+    expect(r.emotionalContext).toContain("prior_loss");
+  });
+
+  it("still falls back to Z1 when the tie is across tracks", () => {
+    // A cross-track tie is a real "we do not know which experience she needs".
+    const ambiguous = signals({ ageBand: "45_54", cycleRegularity: "irregular" });
+    const r = resolvePersona(ambiguous);
+    if (r.personaId !== "Z1") expect(r.confidence).toBeGreaterThanOrEqual(CONFIDENCE_THRESHOLD);
+  });
+});

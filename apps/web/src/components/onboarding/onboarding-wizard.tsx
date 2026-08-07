@@ -10,15 +10,20 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { ChoiceGroup } from "@/components/ui/choice-row";
+import { chipVariants } from "@/components/ui/chip";
+import { CONDITIONS_BY_MODE, type ConditionCode } from "@/lib/persona/conditions";
 import { track } from "@/lib/analytics/track";
 import { PageView } from "@/components/analytics/page-view";
 
-type Mode = "cycle" | "ttc" | "pregnancy" | "menopause";
+type Mode = "cycle" | "ttc" | "pregnancy" | "menopause" | "general";
 type Account = "anonymous" | "email";
 
 const MODES: readonly Mode[] = ["cycle", "ttc", "pregnancy", "menopause"];
 const ACCOUNTS: readonly Account[] = ["anonymous", "email"];
-const TOTAL_STEPS = 3;
+// Q1 life stage → Q2 triage → privacy → confirm. docs/09 §4 specifies six
+// branches; the triage step is Q2–Q6 collapsed into one stage-scoped question,
+// because they only ever differ by which conditions they offer.
+const TOTAL_STEPS = 4;
 
 // The message keys predate the `Account` union and do not match it, so the mapping
 // lives here rather than as the same ternary written out at three call sites.
@@ -28,7 +33,7 @@ const ACCOUNT_KEY: Record<Account, string> = {
 };
 
 // One h1 per step, indexed rather than chained.
-const STEP_HEADING = ["title", "privacy.heading", "confirm.heading"] as const;
+const STEP_HEADING = ["title", "triage.heading", "privacy.heading", "confirm.heading"] as const;
 
 function ConsentRow({
   checked,
@@ -61,6 +66,7 @@ export function OnboardingWizard() {
   const router = useRouter();
   const [step, setStep] = useState(1);
   const [mode, setMode] = useState<Mode | null>(null);
+  const [conditions, setConditions] = useState<Set<ConditionCode>>(new Set());
   const [account, setAccount] = useState<Account>("anonymous");
   const [email, setEmail] = useState("");
   const [insights, setInsights] = useState(false);
@@ -74,7 +80,24 @@ export function OnboardingWizard() {
   }, [locale]);
 
   const canAdvance =
-    step === 1 ? mode !== null : step === 2 ? account === "anonymous" || email.length > 3 : true;
+    step === 1
+      ? mode !== null
+      : // Triage is always skippable: "none of these" is a real answer, and
+        // requiring a tick would push someone into claiming a condition.
+        step === 2
+        ? true
+        : step === 3
+          ? account === "anonymous" || email.length > 3
+          : true;
+
+  const offered = mode ? CONDITIONS_BY_MODE[mode] : [];
+  const toggleCondition = (code: ConditionCode) =>
+    setConditions((prev) => {
+      const next = new Set(prev);
+      if (next.has(code)) next.delete(code);
+      else next.add(code);
+      return next;
+    });
 
   const finish = async () => {
     if (!mode) return;
@@ -82,6 +105,7 @@ export function OnboardingWizard() {
     setError(null);
     const res = await completeOnboarding({
       mode,
+      conditions: [...conditions],
       email: account === "email" ? email : undefined,
       insights,
       research,
@@ -146,10 +170,55 @@ export function OnboardingWizard() {
               desc: t(`mode.${m}.desc`),
             }))}
           />
+          {/* "Skip / I'm not sure" → Z1 (P1.27.7, docs/09 §4). Required, and it
+              was missing: the wizard forced a choice among four stages. Z1 is the
+              full generic experience, not a lesser one. */}
+          <button
+            type="button"
+            onClick={() => {
+              setMode("general");
+              setConditions(new Set());
+              setStep(3);
+            }}
+            className="self-center rounded-sm px-4 py-2 text-sm text-text-muted underline hover:text-text"
+          >
+            {t("mode.skip")}
+          </button>
         </section>
       ) : null}
 
       {step === 2 ? (
+        <section className="flex flex-col gap-4">
+          {/* The triage question, and the reason the whole questionnaire exists.
+              Which conditions her clinician is watching is what decides the
+              persona — the same thing a clinician would ask first. It is a
+              multi-select because conditions stack (docs/09 §8), and it never
+              asks about mood: mood drives contextual tips, not which version of
+              the app she gets. */}
+          <p className="text-sm text-text-muted">{t("triage.intro")}</p>
+          <div className="flex flex-wrap gap-2" role="group" aria-label={t("triage.heading")}>
+            {offered.map((code) => (
+              <button
+                key={code}
+                type="button"
+                onClick={() => toggleCondition(code)}
+                aria-pressed={conditions.has(code)}
+                className={chipVariants({ selected: conditions.has(code) })}
+              >
+                {t(`triage.conditions.${code}`)}
+              </button>
+            ))}
+          </div>
+          {offered.length === 0 ? (
+            <p className="text-sm text-text-muted">{t("triage.noneOffered")}</p>
+          ) : null}
+          {/* Not a diagnosis, and it says so where she answers rather than in a
+              policy page (product rule 1). */}
+          <p className="text-2xs text-text-subtle">{t("triage.note")}</p>
+        </section>
+      ) : null}
+
+      {step === 3 ? (
         <section className="flex flex-col gap-5">
           <p className="text-sm text-text-muted">{t("privacy.intro")}</p>
           <ChoiceGroup
@@ -184,7 +253,7 @@ export function OnboardingWizard() {
         </section>
       ) : null}
 
-      {step === 3 ? (
+      {step === 4 ? (
         <section className="flex flex-col gap-3">
           <dl className="flex flex-col gap-3 rounded-md border border-border bg-surface p-4 text-sm">
             <div className="flex flex-col gap-0.5">

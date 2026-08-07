@@ -147,6 +147,11 @@
     "title": "Welcome to Femio",
     "stepOf": "Step {current} of {total}",
     "mode": {
+      "skip": "Skip — I'm not sure",
+      "general": {
+        "name": "Not sure yet",
+        "desc": "Everything, with nothing assumed about your stage."
+      },
       "heading": "Where are you in your health journey?",
       "subheading": "You can change this anytime — nothing here is locked.",
       "cycle": { "name": "Tracking my cycle", "desc": "Periods, symptoms, and patterns." },
@@ -154,6 +159,38 @@
       "pregnancy": { "name": "I'm pregnant", "desc": "Week-by-week and what to watch for." },
       "menopause": { "name": "Perimenopause or menopause", "desc": "Changing cycles and symptoms." },
       "notSure": "Not sure yet — just exploring"
+    },
+    "triage": {
+      "heading": "Anything your clinician is watching?",
+      "intro": "Pick any that apply. This is what shapes what Femio shows you — the same thing a clinician would ask first. Skip it if none apply.",
+      "note": "This is what you have been told, not an assessment. Femio records it — it never decides it.",
+      "noneOffered": "Nothing to add here — Femio will tailor itself as you log.",
+      "conditions": {
+        "pcos": "PCOS",
+        "endometriosis": "Endometriosis",
+        "fibroids": "Fibroids",
+        "adenomyosis": "Adenomyosis",
+        "heavy_bleeding": "Heavy periods",
+        "pmdd": "PMDD",
+        "dysmenorrhea": "Very painful periods",
+        "menstrual_migraine": "Menstrual migraine",
+        "thyroid": "Thyroid condition",
+        "poi": "Early menopause or low ovarian reserve",
+        "gestational_diabetes": "Gestational diabetes (found in this pregnancy)",
+        "diabetes": "Diabetes (before this pregnancy)",
+        "hypertension": "High blood pressure",
+        "pre_eclampsia": "Pre-eclampsia",
+        "prior_preterm": "A previous preterm birth",
+        "multiple_gestation": "Twins or more",
+        "anemia": "Anaemia",
+        "high_bmi": "Weight my team is watching",
+        "prior_csection": "A previous caesarean",
+        "hyperemesis": "Severe sickness (hyperemesis)",
+        "cholestasis": "Cholestasis",
+        "rh_negative": "Rh negative",
+        "depression_anxiety": "Depression or anxiety",
+        "prior_loss": "A previous loss"
+      }
     },
     "privacy": {
       "heading": "Your privacy comes first",

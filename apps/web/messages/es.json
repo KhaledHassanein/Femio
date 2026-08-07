@@ -147,6 +147,11 @@
     "title": "Bienvenida a Femio",
     "stepOf": "Paso {current} de {total}",
     "mode": {
+      "skip": "Saltar: no estoy segura",
+      "general": {
+        "name": "Aún no lo sé",
+        "desc": "Todo, sin dar por hecha ninguna etapa."
+      },
       "heading": "¿En qué punto de tu salud estás?",
       "subheading": "Puedes cambiar esto cuando quieras — nada queda bloqueado.",
       "cycle": { "name": "Seguir mi ciclo", "desc": "Menstruación, síntomas y patrones." },
@@ -154,6 +159,38 @@
       "pregnancy": { "name": "Estoy embarazada", "desc": "Semana a semana y señales a vigilar." },
       "menopause": { "name": "Perimenopausia o menopausia", "desc": "Ciclos y síntomas que cambian." },
       "notSure": "Aún no estoy segura — solo explorando"
+    },
+    "triage": {
+      "heading": "¿Algo que tu profesional esté vigilando?",
+      "intro": "Marca lo que corresponda. Esto es lo que decide qué te muestra Femio: lo primero que preguntaría un profesional. Sáltalo si no aplica nada.",
+      "note": "Esto es lo que te han dicho, no una valoración. Femio lo registra; nunca lo decide.",
+      "noneOffered": "Nada que añadir aquí: Femio se adaptará según vayas registrando.",
+      "conditions": {
+        "pcos": "SOP",
+        "endometriosis": "Endometriosis",
+        "fibroids": "Miomas",
+        "adenomyosis": "Adenomiosis",
+        "heavy_bleeding": "Reglas abundantes",
+        "pmdd": "TDPM",
+        "dysmenorrhea": "Reglas muy dolorosas",
+        "menstrual_migraine": "Migraña menstrual",
+        "thyroid": "Problema de tiroides",
+        "poi": "Menopausia precoz o baja reserva ovárica",
+        "gestational_diabetes": "Diabetes gestacional (detectada en este embarazo)",
+        "diabetes": "Diabetes (antes de este embarazo)",
+        "hypertension": "Tensión alta",
+        "pre_eclampsia": "Preeclampsia",
+        "prior_preterm": "Un parto prematuro anterior",
+        "multiple_gestation": "Gemelos o más",
+        "anemia": "Anemia",
+        "high_bmi": "Un peso que vigila mi equipo",
+        "prior_csection": "Una cesárea anterior",
+        "hyperemesis": "Vómitos intensos (hiperémesis)",
+        "cholestasis": "Colestasis",
+        "rh_negative": "Rh negativo",
+        "depression_anxiety": "Depresión o ansiedad",
+        "prior_loss": "Una pérdida anterior"
+      }
     },
     "privacy": {
       "heading": "Tu privacidad es lo primero",

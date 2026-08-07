@@ -147,6 +147,11 @@
     "title": "Bienvenue sur Femio",
     "stepOf": "Étape {current} sur {total}",
     "mode": {
+      "skip": "Passer — je ne suis pas sûre",
+      "general": {
+        "name": "Pas encore sûre",
+        "desc": "Tout, sans rien présumer de votre étape."
+      },
       "heading": "Où en es-tu dans ton parcours de santé ?",
       "subheading": "Tu peux changer cela à tout moment — rien n'est verrouillé.",
       "cycle": { "name": "Suivre mon cycle", "desc": "Règles, symptômes et tendances." },
@@ -154,6 +159,38 @@
       "pregnancy": { "name": "Je suis enceinte", "desc": "Semaine par semaine et signes à surveiller." },
       "menopause": { "name": "Périménopause ou ménopause", "desc": "Cycles et symptômes qui changent." },
       "notSure": "Pas encore sûre — j'explore"
+    },
+    "triage": {
+      "heading": "Quelque chose que votre professionnel de santé surveille ?",
+      "intro": "Cochez ce qui s'applique. C'est ce qui détermine ce que Femio vous montre — la première chose qu'un clinicien demanderait. Passez si rien ne s'applique.",
+      "note": "Il s'agit de ce qu'on vous a dit, pas d'une évaluation. Femio l'enregistre, il ne le décide jamais.",
+      "noneOffered": "Rien à ajouter ici — Femio s'adaptera au fil de vos enregistrements.",
+      "conditions": {
+        "pcos": "SOPK",
+        "endometriosis": "Endométriose",
+        "fibroids": "Fibromes",
+        "adenomyosis": "Adénomyose",
+        "heavy_bleeding": "Règles abondantes",
+        "pmdd": "TDPM",
+        "dysmenorrhea": "Règles très douloureuses",
+        "menstrual_migraine": "Migraine menstruelle",
+        "thyroid": "Trouble thyroïdien",
+        "poi": "Ménopause précoce ou réserve ovarienne basse",
+        "gestational_diabetes": "Diabète gestationnel (découvert pendant cette grossesse)",
+        "diabetes": "Diabète (avant cette grossesse)",
+        "hypertension": "Hypertension",
+        "pre_eclampsia": "Pré-éclampsie",
+        "prior_preterm": "Un accouchement prématuré antérieur",
+        "multiple_gestation": "Jumeaux ou plus",
+        "anemia": "Anémie",
+        "high_bmi": "Un poids suivi par mon équipe",
+        "prior_csection": "Une césarienne antérieure",
+        "hyperemesis": "Vomissements sévères (hyperémèse)",
+        "cholestasis": "Cholestase",
+        "rh_negative": "Rhésus négatif",
+        "depression_anxiety": "Dépression ou anxiété",
+        "prior_loss": "Une perte antérieure"
+      }
     },
     "privacy": {
       "heading": "Ta vie privée d'abord",
