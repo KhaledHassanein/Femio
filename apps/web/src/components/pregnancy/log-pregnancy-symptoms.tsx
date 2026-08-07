@@ -100,7 +100,12 @@ export function LogPregnancySymptoms() {
       // screens do not look like different products. Unselected urgent chips carry their
       // tier's colour, which is the only visual difference that earns its place here.
       className={cn(
-        "rounded-pill border px-3 py-1.5 text-sm transition-colors",
+        // 44px and a press response, matching the cycle logger (P1.28.3/.6). These
+        // were left at 30px when the cycle chips were fixed, so pregnancy mode —
+        // the one where someone may be tapping in a hurry — had the worse control.
+        "inline-flex min-h-11 items-center rounded-pill border px-4 text-sm",
+        "transition-[background-color,border-color,transform] duration-fast",
+        "motion-safe:ease-spring motion-safe:active:scale-95",
         selected.has(key)
           ? "border-primary bg-primary-soft text-primary-soft-text"
           : tone === "emergency"

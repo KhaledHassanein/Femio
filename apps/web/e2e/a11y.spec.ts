@@ -45,3 +45,44 @@ test("a11y: the crisis dialog (open state) has no serious/critical violations", 
   const violations = await auditSerious(page);
   expect(violations, JSON.stringify(violations, null, 2)).toEqual([]);
 });
+
+/**
+ * Reduced motion (WCAG 2.3.3, P1.28.6).
+ *
+ * The global rule in `globals.css` is the backstop for every animation in the app,
+ * including ones a component author forgot to wrap in `motion-safe:` and ones that
+ * arrive with a dependency. It is also invisible: nothing on screen looks different
+ * unless you are the person who asked for it. So it gets an assertion in both
+ * directions — a rule that never applies and a rule that always applies both look
+ * like "no animation" from the outside, and only one of them is correct.
+ *
+ * `/en/welcome` is DB-free and carries a Button, which is the widest-used
+ * transition in the app.
+ */
+function longestDurationMs(value: string): number {
+  return Math.max(
+    ...value.split(",").map((part) => {
+      const trimmed = part.trim();
+      const n = Number.parseFloat(trimmed);
+      return Number.isNaN(n) ? 0 : trimmed.endsWith("ms") ? n : n * 1000;
+    }),
+  );
+}
+
+const durationOfContinue = (page: Page) =>
+  page
+    .getByRole("button", { name: /^continue$/i })
+    .first()
+    .evaluate((el) => getComputedStyle(el).transitionDuration);
+
+test("a11y: reduced motion is honoured, and motion exists when it is not asked for", async ({
+  page,
+}) => {
+  await page.goto("/en/welcome");
+
+  await page.emulateMedia({ reducedMotion: "no-preference" });
+  expect(longestDurationMs(await durationOfContinue(page))).toBeGreaterThanOrEqual(100);
+
+  await page.emulateMedia({ reducedMotion: "reduce" });
+  expect(longestDurationMs(await durationOfContinue(page))).toBeLessThan(1);
+});

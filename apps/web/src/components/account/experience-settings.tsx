@@ -70,7 +70,7 @@ export function ExperienceSettings() {
 
   return (
     <div className="flex flex-col gap-4">
-      <div className="flex flex-col gap-2">
+      <div className="flex flex-col gap-2" role="radiogroup" aria-label={t("heading")}>
         {PERSONA_MODES.map((mode) => {
           const active = selected === mode;
           return (
@@ -81,9 +81,16 @@ export function ExperienceSettings() {
                 setPending(mode);
                 setSaved(false);
               }}
-              aria-pressed={active}
+              // Radio, not a toggle: exactly one life stage applies, and this is the
+              // same control the wizard uses (P1.28.5/.6). `aria-pressed` announced
+              // "pressed" instead of "3 of 5 selected", and the two screens have to
+              // behave identically — Settings is where a wrong answer gets corrected.
+              role="radio"
+              aria-checked={active}
               className={cn(
-                "flex flex-col items-start gap-1 rounded-md border p-4 text-start transition-colors",
+                "flex flex-col items-start gap-1 rounded-md border p-4 text-start",
+                "transition-[background-color,border-color,transform] duration-fast",
+                "motion-safe:ease-spring motion-safe:active:scale-[0.99]",
                 active
                   ? "border-primary bg-primary-soft text-primary-soft-text"
                   : "border-border bg-surface text-text hover:bg-surface-sunken",

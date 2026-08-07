@@ -25,6 +25,30 @@
     outline: none;
     box-shadow: var(--shadow-focus);
   }
+
+  /**
+   * Reduced motion, enforced globally (P1.28.6, WCAG 2.3.3).
+   *
+   * Tailwind's `motion-safe:` variant works, but it only protects the places
+   * someone remembered to type it — and the twelve `animate-pulse` skeletons
+   * predate the convention entirely. This is the backstop: a component author
+   * cannot forget it, and a new dependency's animation is covered too.
+   *
+   * The blanket form is deliberate. A narrower rule would have to know which
+   * properties each `transition` covers, which is not knowable from CSS, and the
+   * cost of over-reach here is only that colour fades become instant — which is
+   * exactly what someone asking for less motion is asking for.
+   */
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
 }
 
 @layer utilities {

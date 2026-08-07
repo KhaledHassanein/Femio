@@ -45,7 +45,7 @@ export default async function HomePage({ params }: PageProps) {
       <section className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
         {SECTIONS.map((s) => (
           <Link key={s.key} href={s.href} className="group rounded-lg">
-            <Card className="h-full transition-colors hover:bg-surface-sunken">
+            <Card className="h-full transition-colors duration-fast hover:bg-surface-sunken">
               <CardContent className="flex flex-col gap-2 p-6">
                 <div className="flex items-center justify-between gap-2">
                   <h2 className="font-display text-lg text-text">{t(`sections.${s.key}.name`)}</h2>
