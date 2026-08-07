@@ -182,20 +182,12 @@
     "flow": { "label": "الغزارة", "spotting": "تنقيط", "light": "خفيف", "medium": "متوسط", "heavy": "غزير" },
     "calendar": { "heading": "التقويم", "prevMonth": "الشهر السابق", "nextMonth": "الشهر التالي", "legendPeriod": "الدورة", "legendPredicted": "متوقع", "legendFertile": "نافذة الخصوبة", "legendOvulation": "الإباضة المُقدَّرة", "legendToday": "اليوم", "awarenessNote": "تواريخ نافذة الخصوبة للمساعدة في التخطيط للحمل والوعي فقط — فهي تقديرات وليست وسيلة موثوقة لتجنّب الحمل." },
     "title": "دورتكِ",
+    "dateStripLabel": "اختاري يومًا للتسجيل",
+    "periodSaved": "تم حفظ الدورة.",
     "logHeading": "سجّلي دورة",
     "logDateLabel": "أول يوم في دورتكِ",
     "logButton": "حفظ",
     "savedOffline": "تم الحفظ دون اتصال — وستتم المزامنة عند عودة الاتصال.",
-    "prediction": {
-      "heading": "الدورة القادمة",
-      "window": "متوقّعة بين {start} و{end}",
-      "averageLength": "متوسط الدورة: {days} يومًا",
-      "confidenceHigh": "بناءً على {count} دورات.",
-      "confidenceMedium": "بناءً على {count} دورات — وستزداد دقّةً مع المزيد.",
-      "confidenceLow": "تقدير مبكر — واصلي التسجيل لتحسينه.",
-      "irregularNote": "تتفاوت دوراتكِ، لذا هذه نافذة أوسع — وهذا متوقّع، ولا يوجد عدّ للتأخير.",
-      "needMore": "سجّلي دورتين على الأقل لرؤية التوقّع."
-    },
     "history": { "heading": "الدورات المُسجّلة", "empty": "لا توجد دورات مُسجّلة بعد." }
   },
   "symptoms": {
@@ -208,6 +200,7 @@
     "noteLabel": "ملاحظة (اختياري)",
     "save": "تسجيل الأعراض",
     "savedOffline": "تم الحفظ دون اتصال — وستتم المزامنة عند عودة الاتصال.",
+    "saved": "تم الحفظ في سجلّك.",
     "groups": { "mood": "المزاج", "body": "الجسم", "other": "أخرى" },
     "items": {
       "moodSwings": "تقلّب المزاج",

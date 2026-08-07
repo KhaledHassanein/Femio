@@ -182,20 +182,12 @@
     "flow": { "label": "Flow", "spotting": "Spotting", "light": "Light", "medium": "Medium", "heavy": "Heavy" },
     "calendar": { "heading": "Calendar", "prevMonth": "Previous month", "nextMonth": "Next month", "legendPeriod": "Period", "legendPredicted": "Predicted", "legendFertile": "Fertile window", "legendOvulation": "Estimated ovulation", "legendToday": "Today", "awarenessNote": "Fertile-window dates support conception planning and awareness only — they're estimates, not a reliable way to avoid pregnancy." },
     "title": "Your cycle",
+    "dateStripLabel": "Choose a day to log",
+    "periodSaved": "Period saved.",
     "logHeading": "Log a period",
     "logDateLabel": "First day of your period",
     "logButton": "Save",
     "savedOffline": "Saved offline — it'll sync when you're back online.",
-    "prediction": {
-      "heading": "Next period",
-      "window": "Expected between {start} and {end}",
-      "averageLength": "Average cycle: {days} days",
-      "confidenceHigh": "Based on {count} cycles.",
-      "confidenceMedium": "Based on {count} cycles — this will sharpen with more.",
-      "confidenceLow": "Early estimate — keep logging to improve it.",
-      "irregularNote": "Your cycles vary, so this is a wider window — that's expected, and there's no “late” count.",
-      "needMore": "Log at least two periods to see a prediction."
-    },
     "history": { "heading": "Logged periods", "empty": "No periods logged yet." }
   },
   "symptoms": {
@@ -208,6 +200,7 @@
     "noteLabel": "Note (optional)",
     "save": "Log symptoms",
     "savedOffline": "Saved offline — it'll sync when you're back online.",
+    "saved": "Saved to your record.",
     "groups": { "mood": "Mood", "body": "Body", "other": "Other" },
     "items": {
       "moodSwings": "Mood swings",

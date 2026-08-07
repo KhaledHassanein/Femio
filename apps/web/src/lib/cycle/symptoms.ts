@@ -49,16 +49,44 @@ export function normalizeCustomSymptom(
   return value;
 }
 
+/**
+ * Timestamp for a symptom logged against a past day (P1.28.3).
+ *
+ * Returns null for today, so the row keeps the column's `now()` default and the
+ * real time of day survives. For an earlier day it returns the instant of **local
+ * noon** on that day.
+ *
+ * Two things this gets right that the obvious versions do not. It is *local*,
+ * because the day she tapped is a day in her calendar, not in UTC — a fixed
+ * `T12:00:00Z` lands on the following day for UTC+13/+14 and the entry appears
+ * under the wrong date, which a first version of this did and a test caught. And
+ * it is *noon*, because midnight does not exist on every local date: zones that
+ * spring forward at 00:00 (Santiago, Beirut, Havana) skip it, and the timestamp
+ * would silently roll into the next day there.
+ */
+export function loggedAtForDate(date: string, today: string): string | null {
+  // No `Z`: parsed in the runtime's zone, which in the browser is hers.
+  return date === today ? null : new Date(`${date}T12:00:00`).toISOString();
+}
+
 /** Build one insertable row per selected symptom, each carrying its own severity. */
 export function buildSymptomRows(
   profileId: string,
   selected: Iterable<[string, Severity | null]>,
   note: string,
-): Array<{ profile_id: string; type: string; severity: Severity | null; note: string | null }> {
+  loggedAt: string | null = null,
+): Array<{
+  profile_id: string;
+  type: string;
+  severity: Severity | null;
+  note: string | null;
+  logged_at?: string;
+}> {
   return [...selected].map(([type, severity]) => ({
     profile_id: profileId,
     type,
     severity,
     note: note.trim() || null,
+    ...(loggedAt ? { logged_at: loggedAt } : {}),
   }));
 }

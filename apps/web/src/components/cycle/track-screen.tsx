@@ -1,6 +1,7 @@
 "use client";
 
-import { useFormatter, useTranslations } from "next-intl";
+import { useState } from "react";
+import { useTranslations } from "next-intl";
 import { predictNextPeriod } from "@/lib/cycle/predict";
 import { fertileWindow } from "@/lib/calculators";
 import { SYMPTOM_GROUPS } from "@/lib/cycle/symptoms";
@@ -11,6 +12,7 @@ import { modeFromTrack } from "@/lib/persona/state";
 import { Alert, AlertDescription } from "@/components/ui/alert";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
+import { DateStrip } from "@/components/cycle/date-strip";
 import { LogPeriod } from "@/components/cycle/log-period";
 import { LogSymptoms } from "@/components/cycle/log-symptoms";
 import { CycleCalendar } from "@/components/cycle/cycle-calendar";
@@ -30,7 +32,10 @@ const KNOWN_SYMPTOMS = new Set<string>(SYMPTOM_GROUPS.flatMap((g) => g.symptoms)
 export function TrackScreen() {
   const t = useTranslations("track");
   const st = useTranslations("symptoms");
-  const format = useFormatter();
+  const today = todayISO();
+  // One date for the whole screen: the strip sets it, the period field sets it,
+  // and both loggers write against it (P1.28.3).
+  const [date, setDate] = useState(today);
 
   const query = useSupabaseQuery(async (supabase) => {
     const [personaState, cycles, symptoms] = await Promise.all([
@@ -104,7 +109,7 @@ export function TrackScreen() {
             </Button>
           </AlertDescription>
         </Alert>
-        <LogSymptoms />
+        <LogSymptoms date={date} today={today} />
       </main>
     );
   }
@@ -113,9 +118,6 @@ export function TrackScreen() {
   const stItem = st as unknown as (key: string) => string;
   const symptomLabel = (type: string) =>
     KNOWN_SYMPTOMS.has(type) ? stItem(`items.${type}`) : type;
-  const fmt = (iso: string) =>
-    format.dateTime(new Date(`${iso}T00:00:00Z`), { dateStyle: "medium", timeZone: "UTC" });
-
   const starts = cycles.map((c) => c.period_start);
   const periodDays = cycles.map((c) => ({ date: c.period_start, flow: c.flow ?? null }));
   const prediction = predictNextPeriod(starts);
@@ -123,50 +125,33 @@ export function TrackScreen() {
   const lastStart = starts[0] ?? null;
   const fertile = lastStart ? fertileWindow(lastStart, prediction?.averageLength ?? 28) : null;
 
-  const confidenceText = prediction
-    ? prediction.confidence === "high"
-      ? t("prediction.confidenceHigh", { count: prediction.cyclesAnalyzed })
-      : prediction.confidence === "medium"
-        ? t("prediction.confidenceMedium", { count: prediction.cyclesAnalyzed })
-        : t("prediction.confidenceLow")
-    : null;
-
   return (
-    <main className="mx-auto flex w-full max-w-2xl flex-col gap-6 px-6 py-12">
-      <h1 className="font-display text-2xl text-text">{t("title")}</h1>
+    <main className="mx-auto flex w-full max-w-2xl flex-col gap-5 px-5 py-6">
+      <h1 className="font-display text-lg text-text">{t("title")}</h1>
 
-      {/* A next-period prediction is meaningless to someone who is pregnant, and
-          alarming besides — the same reason the dashboard hides it (P1.13b). */}
-      {isPregnancy ? null : (
-        <section>
-          <h2 className="mb-2 text-md font-semibold text-text">{t("prediction.heading")}</h2>
-          {prediction ? (
-            <div className="flex flex-col gap-2 rounded-md border border-dashed border-border bg-surface-sunken p-4">
-              <p className="font-display text-lg text-text">
-                {t("prediction.window", {
-                  start: fmt(prediction.windowStart),
-                  end: fmt(prediction.windowEnd),
-                })}
-              </p>
-              <p className="text-sm text-text-muted">
-                {t("prediction.averageLength", { days: prediction.averageLength })}
-              </p>
-              <p className="text-sm text-text-muted">{confidenceText}</p>
-              {prediction.irregular ? (
-                <p className="text-sm text-warning-text">{t("prediction.irregularNote")}</p>
-              ) : null}
-            </div>
-          ) : (
-            <p className="text-sm text-text-muted">{t("prediction.needMore")}</p>
-          )}
-        </section>
-      )}
+      {/* The day strip is above every logging control, because picking the day is
+          the first thing you do and it used to be a date field buried mid-form.
+          Pregnancy mode has its own date handling inside the movement counter and
+          keeps the strip for symptoms. */}
+      <DateStrip
+        selected={date}
+        today={today}
+        markedDays={new Set(starts)}
+        onSelect={setDate}
+        label={t("dateStripLabel")}
+      />
 
       {isPregnancy ? <MovementCounter pregnancyId={pregnancyId} /> : null}
 
-      {isPregnancy ? <LogPregnancySymptoms /> : <LogSymptoms />}
+      {isPregnancy ? (
+        <LogPregnancySymptoms />
+      ) : (
+        <LogSymptoms date={date} today={today} onSaved={query.refresh} />
+      )}
 
-      {isPregnancy ? null : <LogPeriod />}
+      {isPregnancy ? null : (
+        <LogPeriod date={date} onDateChange={setDate} onSaved={query.refresh} />
+      )}
 
       <section className="flex flex-col gap-3">
         <h2 className="text-md font-semibold text-text">{st("recentHeading")}</h2>

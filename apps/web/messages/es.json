@@ -182,20 +182,12 @@
     "flow": { "label": "Flujo", "spotting": "Manchado", "light": "Ligero", "medium": "Medio", "heavy": "Abundante" },
     "calendar": { "heading": "Calendario", "prevMonth": "Mes anterior", "nextMonth": "Mes siguiente", "legendPeriod": "Periodo", "legendPredicted": "Previsto", "legendFertile": "Ventana fértil", "legendOvulation": "Ovulación estimada", "legendToday": "Hoy", "awarenessNote": "Las fechas de la ventana fértil sirven solo para la planificación y concienciación de la concepción — son estimaciones, no un método fiable para evitar el embarazo." },
     "title": "Tu ciclo",
+    "dateStripLabel": "Elige un día para registrar",
+    "periodSaved": "Menstruación guardada.",
     "logHeading": "Registrar menstruación",
     "logDateLabel": "Primer día de tu menstruación",
     "logButton": "Guardar",
     "savedOffline": "Guardado sin conexión — se sincronizará cuando vuelvas a estar en línea.",
-    "prediction": {
-      "heading": "Próxima menstruación",
-      "window": "Prevista entre el {start} y el {end}",
-      "averageLength": "Ciclo medio: {days} días",
-      "confidenceHigh": "Según {count} ciclos.",
-      "confidenceMedium": "Según {count} ciclos — se afinará con más datos.",
-      "confidenceLow": "Estimación temprana — sigue registrando para mejorarla.",
-      "irregularNote": "Tus ciclos varían, así que es una ventana más amplia — es normal, y no hay contador de «retraso».",
-      "needMore": "Registra al menos dos menstruaciones para ver una predicción."
-    },
     "history": { "heading": "Menstruaciones registradas", "empty": "Aún no hay registros." }
   },
   "symptoms": {
@@ -208,6 +200,7 @@
     "noteLabel": "Nota (opcional)",
     "save": "Registrar síntomas",
     "savedOffline": "Guardado sin conexión — se sincronizará cuando vuelvas a estar en línea.",
+    "saved": "Guardado en tu registro.",
     "groups": { "mood": "Estado de ánimo", "body": "Cuerpo", "other": "Otro" },
     "items": {
       "moodSwings": "Cambios de humor",

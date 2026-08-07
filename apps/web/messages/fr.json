@@ -182,20 +182,12 @@
     "flow": { "label": "Flux", "spotting": "Léger (spotting)", "light": "Faible", "medium": "Moyen", "heavy": "Abondant" },
     "calendar": { "heading": "Calendrier", "prevMonth": "Mois précédent", "nextMonth": "Mois suivant", "legendPeriod": "Règles", "legendPredicted": "Prévu", "legendFertile": "Fenêtre de fertilité", "legendOvulation": "Ovulation estimée", "legendToday": "Aujourd’hui", "awarenessNote": "Les dates de la fenêtre de fertilité servent uniquement à la planification et à la sensibilisation à la conception — ce sont des estimations, pas un moyen fiable d’éviter une grossesse." },
     "title": "Ton cycle",
+    "dateStripLabel": "Choisissez un jour à enregistrer",
+    "periodSaved": "Règles enregistrées.",
     "logHeading": "Enregistrer des règles",
     "logDateLabel": "Premier jour de tes règles",
     "logButton": "Enregistrer",
     "savedOffline": "Enregistré hors ligne — la synchronisation se fera au retour de la connexion.",
-    "prediction": {
-      "heading": "Prochaines règles",
-      "window": "Attendues entre le {start} et le {end}",
-      "averageLength": "Cycle moyen : {days} jours",
-      "confidenceHigh": "D'après {count} cycles.",
-      "confidenceMedium": "D'après {count} cycles — cela s'affinera avec le temps.",
-      "confidenceLow": "Estimation précoce — continue à enregistrer pour l'améliorer.",
-      "irregularNote": "Tes cycles varient, donc c'est une fourchette plus large — c'est normal, et il n'y a pas de compteur de « retard ».",
-      "needMore": "Enregistre au moins deux règles pour voir une prévision."
-    },
     "history": { "heading": "Règles enregistrées", "empty": "Aucune règle enregistrée." }
   },
   "symptoms": {
@@ -208,6 +200,7 @@
     "noteLabel": "Note (facultatif)",
     "save": "Enregistrer les symptômes",
     "savedOffline": "Enregistré hors ligne — la synchronisation se fera au retour de la connexion.",
+    "saved": "Enregistré dans votre dossier.",
     "groups": { "mood": "Humeur", "body": "Corps", "other": "Autre" },
     "items": {
       "moodSwings": "Sautes d’humeur",

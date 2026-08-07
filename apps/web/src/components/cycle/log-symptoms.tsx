@@ -9,6 +9,7 @@ import { saveOrQueue } from "@/lib/offline/sync";
 import {
   buildSymptomRows,
   KNOWN_SYMPTOMS,
+  loggedAtForDate,
   MAX_CUSTOM_SYMPTOM_LENGTH,
   normalizeCustomSymptom,
   SEVERITY_LEVELS,
@@ -22,15 +23,34 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { cn } from "@/lib/utils";
 
+// 44px minimum height and a press response, because this is the control the whole
+// app is used through and it was a 30px chip that did nothing when touched
+// (P1.28.3). `motion-safe:` keeps the scale off for reduced-motion users.
 const chip = (active: boolean) =>
   cn(
-    "rounded-pill border px-3 py-1.5 text-sm transition-colors",
+    "inline-flex min-h-11 items-center rounded-pill border px-4 text-sm",
+    "transition-[background-color,border-color,transform] duration-fast",
+    "motion-safe:ease-spring motion-safe:active:scale-95",
     active
       ? "border-primary bg-primary-soft text-primary-soft-text"
       : "border-border bg-surface text-text hover:bg-surface-sunken",
   );
 
-export function LogSymptoms() {
+/**
+ * `date`/`today` come from the Track screen's day strip; `onSaved` lets the screen
+ * re-read its own data. It used to call `router.refresh()`, which re-runs server
+ * components — and since P4.0 there are none on this path, so "Recently logged"
+ * silently stayed empty until a full page reload (ADR-052).
+ */
+export function LogSymptoms({
+  date,
+  today,
+  onSaved,
+}: {
+  date?: string;
+  today?: string;
+  onSaved?: () => void;
+} = {}) {
   const t = useTranslations("symptoms");
   const router = useRouter();
   // Insertion-ordered: symptom key → its own severity (null = not set).
@@ -40,6 +60,7 @@ export function LogSymptoms() {
   const [saving, setSaving] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [queued, setQueued] = useState(false);
+  const [saved, setSaved] = useState(false);
 
   const label = (key: string) => (KNOWN_SYMPTOMS.has(key) ? t(`items.${key}`) : key);
 
@@ -76,6 +97,7 @@ export function LogSymptoms() {
     setSaving(true);
     setError(null);
     setQueued(false);
+    setSaved(false);
     const supabase = createClient();
     const {
       data: { session },
@@ -84,12 +106,18 @@ export function LogSymptoms() {
       router.push("/welcome");
       return;
     }
-    const rows = buildSymptomRows(session.user.id, selected, note);
+    const rows = buildSymptomRows(
+      session.user.id,
+      selected,
+      note,
+      date && today ? loggedAtForDate(date, today) : null,
+    );
     const res = await saveOrQueue("symptom_logs", rows);
     setSaving(false);
     if (res === "synced") {
       reset();
-      router.refresh();
+      setSaved(true);
+      onSaved?.();
     } else if (res === "queued") {
       reset();
       setQueued(true);
@@ -159,7 +187,7 @@ export function LogSymptoms() {
                     type="button"
                     onClick={() => toggle(key)}
                     aria-label={t("remove", { symptom: label(key) })}
-                    className="rounded-sm p-1 text-text-muted hover:bg-surface focus-visible:outline-none"
+                    className="inline-flex size-9 items-center justify-center rounded-sm text-text-muted hover:bg-surface focus-visible:outline-none"
                   >
                     <X className="size-4" aria-hidden />
                   </button>
@@ -176,7 +204,9 @@ export function LogSymptoms() {
                       onClick={() => setSeverity(key, lvl)}
                       aria-pressed={sev === lvl}
                       className={cn(
-                        "rounded-pill border px-2.5 py-1 text-2xs transition-colors",
+                        "inline-flex min-h-9 min-w-9 items-center justify-center rounded-pill border px-3 text-2xs",
+                        "transition-[background-color,border-color,transform] duration-fast",
+                        "motion-safe:ease-spring motion-safe:active:scale-95",
                         sev === lvl
                           ? "border-primary bg-primary-soft text-primary-soft-text"
                           : "border-border text-text-muted hover:bg-surface",
@@ -208,8 +238,13 @@ export function LogSymptoms() {
             <AlertDescription>{t("savedOffline")}</AlertDescription>
           </Alert>
         ) : null}
+        {saved ? (
+          <Alert variant="success">
+            <AlertDescription>{t("saved")}</AlertDescription>
+          </Alert>
+        ) : null}
 
-        <Button onClick={save} disabled={saving || selected.size === 0} className="self-start">
+        <Button onClick={save} disabled={saving || selected.size === 0} className="w-full">
           {t("save")}
         </Button>
       </CardContent>

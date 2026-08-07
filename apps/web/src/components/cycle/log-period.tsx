@@ -14,20 +14,35 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { cn } from "@/lib/utils";
 
-export function LogPeriod() {
+/**
+ * The date is owned by the Track screen so the day strip and this field are the
+ * same choice (P1.28.3) — the strip covers the last two weeks, the field covers
+ * anything older, and neither can disagree with the other. `onSaved` re-reads the
+ * screen; `router.refresh()` did nothing here after P4.0 (ADR-052).
+ */
+export function LogPeriod({
+  date,
+  onDateChange,
+  onSaved,
+}: {
+  date: string;
+  onDateChange: (iso: string) => void;
+  onSaved?: () => void;
+}) {
   const t = useTranslations("track");
   const tf = useTranslations("track.flow");
   const router = useRouter();
-  const [date, setDate] = useState(todayISO());
   const [flow, setFlow] = useState<Flow | null>(null);
   const [saving, setSaving] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [queued, setQueued] = useState(false);
+  const [saved, setSaved] = useState(false);
 
   const save = async () => {
     setSaving(true);
     setError(null);
     setQueued(false);
+    setSaved(false);
     const supabase = createClient();
     // getSession reads the cached session without a network call, so this works
     // offline (unlike getUser).
@@ -45,8 +60,11 @@ export function LogPeriod() {
     });
     setSaving(false);
     if (res === "synced") {
-      router.refresh(); // re-run the server component so the new period + prediction show
+      setFlow(null);
+      setSaved(true);
+      onSaved?.();
     } else if (res === "queued") {
+      setFlow(null);
       setQueued(true);
     } else {
       setError(res.error);
@@ -64,7 +82,7 @@ export function LogPeriod() {
             type="date"
             max={todayISO()}
             value={date}
-            onChange={(e) => setDate(e.target.value)}
+            onChange={(e) => onDateChange(e.target.value)}
           />
         </div>
         <div className="flex flex-col gap-2">
@@ -77,7 +95,9 @@ export function LogPeriod() {
                 aria-pressed={flow === f}
                 onClick={() => setFlow((prev) => (prev === f ? null : f))}
                 className={cn(
-                  "rounded-pill border px-3 py-1.5 text-sm transition-colors",
+                  "inline-flex min-h-11 items-center rounded-pill border px-4 text-sm",
+                  "transition-[background-color,border-color,transform] duration-fast",
+                  "motion-safe:ease-spring motion-safe:active:scale-95",
                   flow === f
                     ? "border-primary bg-primary-soft font-medium text-primary-soft-text"
                     : "border-border text-text-muted hover:bg-surface-sunken",
@@ -98,7 +118,12 @@ export function LogPeriod() {
             <AlertDescription>{t("savedOffline")}</AlertDescription>
           </Alert>
         ) : null}
-        <Button onClick={save} disabled={saving || !date} className="self-start">
+        {saved ? (
+          <Alert variant="success">
+            <AlertDescription>{t("periodSaved")}</AlertDescription>
+          </Alert>
+        ) : null}
+        <Button onClick={save} disabled={saving || !date} className="w-full">
           {t("logButton")}
         </Button>
       </CardContent>
