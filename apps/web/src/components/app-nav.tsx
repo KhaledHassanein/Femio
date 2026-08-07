@@ -46,8 +46,9 @@ export function AppNav() {
 
       <nav
         aria-label={t("primary")}
-        // `app-tabbar` is the hook globals.css uses to lift the crisis launcher.
-        className="app-tabbar pb-safe fixed inset-x-0 bottom-0 z-sticky border-t border-border bg-surface/95 backdrop-blur print:hidden"
+        // `app-bottom-bar` is the shared hook globals.css uses to lift the crisis
+        // launcher clear of anything fixed to the bottom of the screen.
+        className="app-bottom-bar pb-safe fixed inset-x-0 bottom-0 z-sticky border-t border-border bg-surface/95 backdrop-blur print:hidden"
       >
         <ul className="mx-auto flex max-w-2xl items-stretch justify-around px-2">
           {TABS.map(({ href, key, Icon }) => {

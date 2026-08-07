@@ -7,7 +7,7 @@ test("analytics consent is off by default, and can be granted then withdrawn @li
   page,
 }) => {
   await page.goto("/en/welcome");
-  await page.getByRole("button", { name: /tracking my cycle/i }).click();
+  await page.getByRole("radio", { name: /tracking my cycle/i }).click();
   await page.getByRole("button", { name: /^continue$/i }).click();
   // Step 2 shows the consent rows; leave every optional one unticked.
   const analyticsRow = page.getByLabel(/allow anonymous product analytics/i);
@@ -50,7 +50,7 @@ test("analytics consent is off by default, and can be granted then withdrawn @li
 
 test("core consent is explained but not switchable @live", async ({ page }) => {
   await page.goto("/en/welcome");
-  await page.getByRole("button", { name: /tracking my cycle/i }).click();
+  await page.getByRole("radio", { name: /tracking my cycle/i }).click();
   await page.getByRole("button", { name: /^continue$/i }).click();
   await page.getByRole("button", { name: /^continue$/i }).click();
   await page.getByRole("button", { name: /start using femio/i }).click();

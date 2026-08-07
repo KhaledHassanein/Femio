@@ -204,6 +204,15 @@ CI=1 pnpm --filter web test:e2e:ci     # after a fresh build
   sitemap that silently emptied, articles 404ing during a CMS outage.
 - **A loop that makes one network call per document** is an outage waiting for the
   collection to grow. It took the CMS down at 30 articles.
+- **Editing the Tailwind preset alone does not invalidate Next's PostCSS cache.**
+  `assets/brand/tokens/femio.tailwind.preset.js` is a workspace package, but the cache
+  is keyed on the CSS entrypoint — change only the preset and `pnpm build` reports
+  success while shipping the previous stylesheet. `rm -rf apps/web/.next/cache` first,
+  then grep `.next/static/css` for the class you expect (ADR-054).
+- **A Tailwind utility with no theme entry emits nothing — silently.** `rounded-round`
+  looked fine in the source and produced square radio dots, because `--radius-round`
+  was a token but was never mapped in the preset. If a token "doesn't work", check the
+  preset's map before anything else.
 - **The i18n catalogs are Prettier-formatted**, and some maps are on a single line.
   Insert keys as text; never re-serialise with `json.dumps` — it produces a 400-line
   reformat diff. Verify the file still parses after every edit.

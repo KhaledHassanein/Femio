@@ -46,7 +46,11 @@ module.exports = {
         8: '32px', 10: '40px', 12: '48px', 16: '64px', 20: '80px', 24: '96px', 32: '128px',
       },
       borderRadius: {
-        xs: '6px', sm: '10px', md: '16px', lg: '24px', xl: '32px', pill: '999px',
+        // `round` mirrors --radius-round in femio.tokens.css. It was in the token
+        // file and missing here, so `rounded-round` silently produced no radius at
+        // all — a radio dot rendered as a square (P1.28.5). Tailwind emits nothing
+        // for an unmapped utility, so the only symptom is the wrong shape.
+        xs: '6px', sm: '10px', md: '16px', lg: '24px', xl: '32px', pill: '999px', round: '50%',
       },
       boxShadow: {
         xs: 'var(--shadow-xs)', sm: 'var(--shadow-sm)', md: 'var(--shadow-md)',
