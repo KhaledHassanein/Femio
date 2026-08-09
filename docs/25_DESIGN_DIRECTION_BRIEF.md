@@ -137,6 +137,75 @@ learn that in a reference than in React.
 
 ---
 
+## 5a. The visual language (R1.2 — decided 2026-08-09)
+
+Decided from the token file, the persona specs' §C teardowns, and the shipped app. **R1.1 is
+still owed** and may revise any of this — but the workstream cannot wait on a task only the
+owner can do, and every decision below is testable against a rendered screen.
+
+**Type — Fraunces is loaded and barely used.** `next/font` ships Fraunces (an optical-size
+serif) and the app uses it at three sizes for headings that could as easily be Inter.
+
+- **Fraunces states things; Inter explains them.** The one sentence that answers the question
+  she opened the screen with is Fraunces. Everything else — labels, body, controls, numbers —
+  is Inter.
+- **Never Fraunces below `--fs-lg` (22px).** An optical-size serif at 16px reads as a styling
+  accident. Above it, it is the only thing on the screen that does not look like every other
+  health app.
+- **Arabic pairs by weight, not by family.** IBM Plex Sans Arabic has no serif counterpart and
+  a transliterated substitute would be worse than none, so Arabic display type is Plex Sans
+  Arabic at `--fw-semibold`, `--lh-arabic`, one step larger than its Latin equivalent. The
+  contrast a reader perceives is the same; the mechanism differs. (The wordmark stays English
+  "femio" in every locale — product rule 6.)
+
+**Elevation — three levels, and one raised element per screen.** Everything is `shadow-sm`
+today, which is exactly the flatness the owner is reacting to.
+
+| Level | Tokens | Use |
+|---|---|---|
+| Sunken | `--surface-sunken`, no shadow | grouped or inert content: lists, secondary panels |
+| Resting | `--surface` + `--shadow-sm` | ordinary cards |
+| Raised | gradient + `--shadow-md` | **the hero — at most one per screen** |
+
+`--shadow-lg`/`--shadow-xl` are for overlays and sheets only. **The one-raised-element rule is
+the fix for "cards of equal weight"** and it is checkable in a screenshot.
+
+**Colour — gradients carry meaning, never decoration.** `--gradient-hero-*` marks the answer
+card and its stop is chosen by life stage. **`--gradient-dawn` (violet → raspberry → amber) is
+unused today and becomes the marketing signature** — homepage hero, app icon, store assets —
+and is **never used inside the signed-in app**, which stays calm. Raspberry (`--accent`) means
+*act*: one accent element per view, and it is the primary action.
+
+**Data visualisation — the language, because there isn't one.** A cycle, a pregnancy and a
+menopause transition are all shapes over time, and Femio draws a 2px bar.
+
+- **The band** (exists, `lib/ui/range-band.ts`): a horizontal range with **fading edges** and a
+  today marker. Any predicted window. **Hard edges are forbidden** — a crisp boundary claims a
+  precision the prediction does not have (product rule 3).
+- **The strip** (new): 30/60/90 days of one variable as a row of marks — flow intensity,
+  symptom frequency, medication adherence. Legible at 390px, mirrors cleanly in RTL, and
+  encodes with size *and* opacity so colour is never the only channel.
+- **The stack** (new, for R4): co-occurrence over a cycle, for the pattern engine.
+- **Rings and circular progress are rejected**, explicitly. A ring implies a target and a
+  completion. A cycle is not a task you finish, a pregnancy has no pass mark (ADR-049), and
+  menopause is not a countdown to a diagnosis (ADR-042). Every competitor draws one; Femio
+  should not, and should be able to say why.
+- **Uncertainty is always drawn soft** — fade, dotted, reduced opacity — never stated in
+  numbers alone.
+
+**Illustration — no photographs of women.** Every competitor uses stock portraiture; it dates
+in two years, and it forces a body, an age and an ethnicity that will alienate someone in at
+least one of four markets. Instead: **single-weight botanical line-work derived from the Bloom
+mark**, one accent colour, no fills. Used only in empty states, onboarding and the marketing
+hero — never behind data. It scales, mirrors, costs nothing to produce, and needs no model
+release.
+
+**Motion — one signature, and it is honest.** `--ease-spring` for things that *appear*,
+`--ease-standard` for things that *move*, `--dur-fast` for feedback, `--dur-base` for entrance.
+The signature: **the prediction band draws in from the axis on first paint** at `--dur-slow`,
+so the range is seen widening rather than arriving finished. It is the one memorable moment in
+the product and it says the true thing. `prefers-reduced-motion` already zeroes it globally.
+
 ## 6. Sequence and tracking
 
 Tracked as R1 in `07_MASTER_TODO.md`. Expect several sessions; the teardown alone is one.

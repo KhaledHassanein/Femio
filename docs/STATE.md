@@ -112,8 +112,32 @@ handover doc based on a grep over an already-modified tree. **Watch a new guard 
 trusting it.** Prefer assertions that break loudly over ones that can silently pass. When a
 guard fails, fix the code — do not narrow the rule.
 
+## Where R1 stands (2026-08-09)
+
+**R1.2 is decided** — the visual language is in `docs/25` §5a and is now binding on every
+screen: Fraunces states and Inter explains, never Fraunces below 22px; Arabic pairs by weight
+because no serif counterpart exists; three elevation levels with **one raised element per
+screen**; `--gradient-dawn` is the marketing signature and never appears inside the app; the
+data-visualisation language is band · strip · stack, with **rings explicitly rejected**.
+
+**R1.3 is built and awaiting the owner's verdict** —
+`assets/mockups/R1.3_homepage_reference.html`, four states, importing the real token file so
+it cannot specify anything the product cannot build. Two defects surfaced by rendering it that
+a diff would not have shown: the Arabic headline fell back to Georgia, and white copy on the
+dawn gradient measured 2.15:1 at the amber stop. Both fixed and re-measured (violet stops are
+8.98:1 and 5.70:1).
+
+**R1.1, the competitor teardown, is still owed and is owner-led.** It needs a week of actually
+using Flo, Clue, Stardust, Ovia and Balance on a phone. Everything in R1.2 was decided without
+it and may be revised by it — that is expected, not a failure.
+
 ## First action for the next session
 
-`docs/07_MASTER_TODO.md` → **▶ NOW** → **R1.1**, the competitor teardown, which is owner-led —
-so if it is not done, start on **R1.2** (visual language) and **R1.3** (the homepage
-reference), which do not depend on it. Report in a few lines when there is something to see.
+If R1.3 is approved: implement it at `apps/web/src/app/[locale]/(public)/page.tsx`, keeping the
+page server-rendered (it is the SEO landing page), with new i18n keys in all four locales, and
+run axe on the result. Note the stale `home.title` / `home.body` placeholder keys ("Scaffold
+online.") still sitting in all four catalogs — delete them in the same change.
+
+If it is rejected, the notes at the bottom of the reference file say what each decision was
+for, so the argument can be had against a specific choice rather than a vibe. Then move to
+**R1.4** (onboarding reference) while R1.3 is reworked.

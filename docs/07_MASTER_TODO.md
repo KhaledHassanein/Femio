@@ -28,8 +28,8 @@ and why) → `docs/24_REVAMP_PLAN.md` (the architecture) → `docs/25_DESIGN_DIR
 ## R1 — Design & UX direction (`docs/25`) — supersedes the P1.28 workstream's open half
 
 - [ ] **R1.1** Competitor teardown at 390px: Flo · Clue · Stardust · Ovia · Balance — craft, not features; screenshots per claim; appended to `docs/03`. *(absorbs **P1.28.7**, owner-led)*
-- [ ] **R1.2** Visual language decided once on the existing tokens: type in use, elevation, illustration direction, **data-visualisation language**, motion identity → recorded in `docs/25`.
-- [ ] **R1.3** Reference: public homepage *(absorbs **P1.28.8**)* — today a hero over five identical link cards.
+- [x] **R1.2** Visual language decided 2026-08-09 → `docs/25` §5a. Fraunces states, Inter explains, never below 22px; Arabic pairs by **weight** (no serif counterpart exists); three elevation levels with **one raised element per screen**; `--gradient-dawn` becomes the marketing signature and never appears in-app; a data-visualisation language (band · strip · stack) with **rings explicitly rejected**; botanical line-work instead of stock portraiture; the band draws in from the axis as the one motion signature.
+- [~] **R1.3** Homepage reference built 2026-08-09 → `assets/mockups/R1.3_homepage_reference.html` (4 states, imports the real token file). Leads with a **life-stage rail** — the one claim no competitor can make — then shows honesty rather than claiming it, and five verifiable trust facts. Rendering it caught two defects a diff could not: the Arabic headline fell back to Georgia (Fraunces has no Arabic glyphs), and white copy on `--gradient-dawn` measured **2.15:1** at the amber stop. **Awaiting owner approval** *(absorbs **P1.28.8**)*.
 - [ ] **R1.4** Reference: onboarding / welcome wizard.
 - [ ] **R1.5** Reference: cycle dashboard.
 - [ ] **R1.6** Reference: pregnancy dashboard — **drawn as modules, not one fixed layout** (`docs/25` §5).
