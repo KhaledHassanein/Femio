@@ -38,10 +38,43 @@ the real tokens buys the same fidelity and is directly comparable to the running
 what the owner's verdict is about. This step fills that gap and must be done first, because
 "make it look better" is not a brief.
 
-**Method.** Install the apps on a phone, use them as a user for a week of logging, and capture
-screens. Not marketing pages — the actual daily surfaces.
+### 2.1 Method — split it, because most of it does not need a human
 
-**Who, and what to look for:**
+The original instruction here was "use the apps for a week". That is the wrong shape of ask:
+roughly **80% of this is desk research an agent can do**, and the part that genuinely needs a
+person is about an hour, not a week (owner question, 2026-08-09).
+
+**Decompiling the APKs is rejected.** It is legally grey — permissible-ish for research in the
+EU, but it violates essentially every one of these apps' terms — Flo ships much of its UI
+cross-platform so the yield is low, and, decisively, **it answers none of the questions we
+have.** A decompiler tells you the hex of a button. It cannot tell you why their home screen
+feels finished and ours does not. Recorded here so it is not proposed again.
+
+**R1.1a — desk research (agent).** All of this is clean, and none of it needs a device:
+
+| Source | What it yields |
+|---|---|
+| Play / App Store listings | 5–10 curated screens **per locale, including Arabic** — their own marketing showing their best work |
+| Their web surfaces (`flo.health`, `helloclue.com`, `balance-menopause.com`) | live DOM and computed CSS: real type scale, spacing rhythm, colour ramps, motion — their design system, measured rather than guessed |
+| Store reviews at scale | **the whitespace map** — what users hate, which is where Femio's openings are ("won't let me log an irregular cycle", "paywalled my own history") |
+| Published design/engineering writing | Clue in particular has written about their algorithm and design system |
+| Walkthrough video | real footage of daily flows, including motion and transitions |
+
+**R1.1b — the hands-on hour (owner).** Craft lives in things no scrape captures: how it feels
+to log a period one-handed at 2am, how fast it is on a real connection, what the haptics do,
+how the notification reads on a lock screen. **The ask is three screen recordings per app —
+sign up, log a period, open the app cold on day three** — not a week of use. Recordings go in
+`assets/research/` and the teardown is written against them.
+
+**Optional shortcut:** Mobbin (~$15/month) carries tagged, screen-by-screen flows for Flo and
+Clue already captured. If bought, it substitutes for most of R1.1b.
+
+**Two standing constraints.** Learn from, never clone — copying a distinctive layout wholesale
+is trade-dress exposure, and it would defeat the point anyway, since Femio's differentiator is
+continuity across life stages and none of these apps are built for it. And review text is other
+people's writing: use it as evidence, quote it sparingly, never bulk-paste it.
+
+### 2.2 Who, and what to look for
 
 | App | The specific question |
 |---|---|
@@ -210,7 +243,8 @@ the product and it says the true thing. `prefers-reduced-motion` already zeroes 
 
 Tracked as R1 in `07_MASTER_TODO.md`. Expect several sessions; the teardown alone is one.
 
-1. R1.1 Competitor teardown → appended to `docs/03`.
+1. R1.1a Desk research (agent) → appended to `docs/03`. · R1.1b Three screen recordings per app
+   (owner) → `assets/research/`, then the teardown is written against them.
 2. R1.2 Visual language: type scale in use, elevation, illustration direction, data-visualisation
    language, motion identity — decided once, on the existing tokens, and recorded here.
 3. R1.3–R1.8 The six references, designed and approved one at a time.

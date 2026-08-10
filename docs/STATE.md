@@ -127,17 +127,28 @@ a diff would not have shown: the Arabic headline fell back to Georgia, and white
 dawn gradient measured 2.15:1 at the amber stop. Both fixed and re-measured (violet stops are
 8.98:1 and 5.70:1).
 
-**R1.1, the competitor teardown, is still owed and is owner-led.** It needs a week of actually
-using Flo, Clue, Stardust, Ovia and Balance on a phone. Everything in R1.2 was decided without
-it and may be revised by it — that is expected, not a failure.
+**R1.1, the competitor teardown, is still owed — and it is now split** (`docs/25` §2.1,
+decided 2026-08-09). **R1.1a is desk research an agent can start immediately** and needs no
+device: store screenshots per locale including Arabic, their web surfaces measured with the
+browser tools, and reviews mined for the whitespace map. **R1.1b is the owner's ~1 hour** —
+three screen recordings per app (sign up · log a period · open cold on day 3) into
+`assets/research/`, because craft lives in things no scrape captures. **Decompiling the APKs
+is rejected** and should not be proposed again; the reasoning is in `docs/25` §2.1.
+
+Everything in R1.2 was decided without R1.1 and may be revised by it — expected, not a failure.
 
 ## First action for the next session
 
-If R1.3 is approved: implement it at `apps/web/src/app/[locale]/(public)/page.tsx`, keeping the
-page server-rendered (it is the SEO landing page), with new i18n keys in all four locales, and
-run axe on the result. Note the stale `home.title` / `home.body` placeholder keys ("Scaffold
-online.") still sitting in all four catalogs — delete them in the same change.
+**Start R1.1a.** It is unblocked, needs nothing from the owner, and it is what turns R1.2 from
+defensible taste into a target. Write it into `docs/03` as a craft section, flagged as desk
+research pending R1.1b.
 
-If it is rejected, the notes at the bottom of the reference file say what each decision was
-for, so the argument can be had against a specific choice rather than a vibe. Then move to
-**R1.4** (onboarding reference) while R1.3 is reworked.
+**Then, on the owner's verdict on R1.3:**
+
+- *Approved* → implement at `apps/web/src/app/[locale]/(public)/page.tsx`, keeping the page
+  server-rendered (it is the SEO landing page), with new i18n keys in all four locales, and run
+  axe on the result. Delete the stale `home.title` / `home.body` placeholders ("Scaffold
+  online.") still sitting in all four catalogs in the same change.
+- *Rejected* → the notes at the bottom of the reference say what each decision was for, so the
+  argument can be had against a specific choice rather than a vibe. Move to **R1.4** (onboarding
+  reference) while R1.3 is reworked.
