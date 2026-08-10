@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Femio — R1.4 onboarding reference (390×844, light/dark, EN/AR)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600;700&family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../brand/tokens/femio.tokens.css">
+<style>
+/* ── review chrome ──────────────────────────────────────────────────────── */
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#EDEBF2;color:#1E1B2E;font-family:'Inter',sans-serif;line-height:1.5;
+  padding:32px 20px 96px}
+.wrap{max-width:1760px;margin:0 auto}
+.doc-h1{font-family:'Fraunces',serif;font-weight:600;font-size:32px;letter-spacing:-.02em}
+.doc-p{color:#514B60;max-width:78ch;margin-top:10px;font-size:15px}
+.doc-p code{background:#DFDBE8;padding:1px 5px;border-radius:4px;font-size:13px}
+.doc-h2{font-family:'Fraunces',serif;font-size:22px;font-weight:600;margin:38px 0 4px}
+.doc-note{color:#514B60;font-size:14px;max-width:82ch;margin-bottom:18px}
+.gallery{display:flex;flex-wrap:wrap;gap:26px;align-items:flex-start}
+.stage{display:flex;flex-direction:column;gap:10px;align-items:center}
+.stage-cap{font-size:13px;font-weight:600;color:#514B60;text-align:center}
+.stage-cap span{display:block;font-weight:400;color:#857E94;font-size:12px}
+.phone{width:390px;height:844px;overflow:hidden;position:relative;
+  border-radius:38px;border:9px solid #221F2E;box-shadow:0 22px 48px rgb(30 27 46 / .28);
+  background:var(--bg);color:var(--text);display:flex;flex-direction:column}
+.notes{margin-top:44px;background:#fff;border-radius:16px;padding:24px 28px;max-width:1100px}
+.notes h2{font-family:'Fraunces',serif;font-size:22px;font-weight:600;margin-bottom:6px}
+.notes h3{font-size:15px;margin:20px 0 6px}
+.notes p,.notes li{font-size:14.5px;color:#3F3A4D;max-width:82ch}
+.notes ul{padding-inline-start:20px;display:flex;flex-direction:column;gap:6px;margin-top:6px}
+
+/* ── the design — SEMANTIC TOKENS ONLY ──────────────────────────────────── */
+.phone *{font-family:var(--font-ui)}
+.phone[dir="rtl"] *{font-family:var(--font-ar)}
+
+/* Top bar: the wordmark and a QUIET progress indicator. No "Step 1 of 4" text and
+   no filling bar — a progress bar makes a conversation look like a form. */
+.top{display:flex;align-items:center;justify-content:space-between;
+  padding:var(--space-5) var(--space-5) 0}
+.mark{font-family:var(--font-display)!important;font-size:var(--fs-md);
+  font-weight:var(--fw-semibold);color:var(--primary);line-height:1}
+.dots{display:flex;gap:6px}
+.dots i{width:6px;height:6px;border-radius:var(--radius-round);background:var(--border-strong)}
+.dots i.on{background:var(--primary);width:20px;border-radius:var(--radius-pill)}
+.back{font-size:var(--fs-xs);color:var(--text-subtle);text-decoration:none}
+
+.body{flex:1;overflow-y:auto;padding:var(--space-8) var(--space-5) var(--space-6);
+  display:flex;flex-direction:column;gap:var(--space-5)}
+
+/* One question per screen, and it is the biggest thing on it. */
+.q{font-family:var(--font-display)!important;font-weight:var(--fw-semibold);
+  font-size:var(--fs-xl);line-height:var(--lh-tight);letter-spacing:var(--ls-tight);
+  color:var(--text)}
+.phone[dir="rtl"] .q{font-family:var(--font-ar)!important;font-weight:var(--fw-bold);
+  font-size:var(--fs-lg);line-height:var(--lh-arabic);letter-spacing:var(--ls-normal)}
+.qsub{font-size:var(--fs-xs);color:var(--text-muted);line-height:var(--lh-relaxed);
+  margin-top:calc(var(--space-3) * -1)}
+
+/* Choice rows — real radio semantics; ChoiceGroup owns roving tabindex (ADR-054). */
+.choices{display:flex;flex-direction:column;gap:var(--space-3)}
+.choice{display:flex;gap:var(--space-4);align-items:flex-start;min-height:56px;
+  padding:var(--space-4);border-radius:var(--radius-md);border:1px solid var(--border);
+  background:var(--surface);cursor:pointer}
+.choice.on{border-color:var(--primary);background:var(--primary-soft);
+  box-shadow:var(--shadow-sm)}
+.radio{flex:none;width:20px;height:20px;border-radius:var(--radius-round);
+  border:2px solid var(--border-strong);margin-top:1px;display:grid;place-items:center}
+.choice.on .radio{border-color:var(--primary)}
+.choice.on .radio::after{content:"";width:10px;height:10px;border-radius:var(--radius-round);
+  background:var(--primary)}
+.choice b{display:block;font-size:var(--fs-sm);font-weight:var(--fw-semibold);color:var(--text)}
+.choice span{display:block;font-size:var(--fs-2xs);color:var(--text-muted);margin-top:2px}
+
+/* Triage: chips grouped under quiet labels, because 15 conditions in one flat list
+   is a wall on a 390px screen. Multi-select, so aria-pressed — not radio (docs/22 §3). */
+.group{margin-top:var(--space-2)}
+.group-label{font-size:var(--fs-2xs);font-weight:var(--fw-semibold);
+  letter-spacing:var(--ls-wide);text-transform:uppercase;color:var(--text-subtle)}
+.phone[dir="rtl"] .group-label{text-transform:none;letter-spacing:var(--ls-normal)}
+.chips{display:flex;flex-wrap:wrap;gap:var(--space-2);margin-top:var(--space-3)}
+.chip{min-height:44px;display:inline-flex;align-items:center;padding:0 var(--space-4);
+  border-radius:var(--radius-pill);border:1px solid var(--border);background:var(--surface);
+  font-size:var(--fs-xs);color:var(--text)}
+.chip.on{background:var(--primary-soft);border-color:var(--primary);
+  color:var(--primary-soft-text);font-weight:var(--fw-semibold)}
+.note{font-size:var(--fs-2xs);color:var(--text-muted);line-height:var(--lh-relaxed);
+  background:var(--surface-sunken);padding:var(--space-3) var(--space-4);
+  border-radius:var(--radius-md)}
+
+/* The payoff step: show her the experience she just described, not a summary of
+   her answers. This is the ExperienceConfig document rendered (docs/24 §2). */
+.preview{border-radius:var(--radius-md);overflow:hidden;box-shadow:var(--shadow-md);
+  border:1px solid var(--border)}
+.pv-hero{background:var(--gradient-hero-cycle);color:var(--text-on-brand);
+  padding:var(--space-4) var(--space-5);display:flex;flex-direction:column;gap:var(--space-2)}
+.pv-eyebrow{font-size:var(--fs-2xs);font-weight:var(--fw-semibold);
+  letter-spacing:var(--ls-wider);text-transform:uppercase;opacity:.9}
+.phone[dir="rtl"] .pv-eyebrow{text-transform:none;letter-spacing:var(--ls-normal)}
+.pv-head{font-family:var(--font-display)!important;font-size:var(--fs-md);line-height:1.2}
+.phone[dir="rtl"] .pv-head{font-family:var(--font-ar)!important;font-weight:var(--fw-bold)}
+.pv-list{background:var(--surface);padding:var(--space-4) var(--space-5);
+  display:flex;flex-direction:column;gap:var(--space-3)}
+.pv-row{display:flex;gap:var(--space-3);align-items:center;font-size:var(--fs-xs);
+  color:var(--text)}
+.pv-tick{flex:none;width:18px;height:18px;border-radius:var(--radius-round);
+  background:var(--success-soft);color:var(--success-text);display:grid;place-items:center;
+  font-size:11px;font-weight:var(--fw-bold)}
+.pv-foot{font-size:var(--fs-2xs);color:var(--text-muted);background:var(--surface-sunken);
+  padding:var(--space-3) var(--space-5);line-height:var(--lh-relaxed)}
+
+/* Botanical line-work — the only illustration the design system allows, and the
+   first time it has been drawn (docs/25 §5a). Single weight, no fill, one colour. */
+.bloom{display:block;margin:var(--space-2) auto var(--space-1);opacity:.9}
+.bloom path,.bloom circle{fill:none;stroke:var(--primary);stroke-width:1.5;
+  stroke-linecap:round}
+
+/* Sticky action bar — full width, inside thumb reach. */
+.actions{padding:var(--space-4) var(--space-5) var(--space-6);
+  border-top:1px solid var(--border);background:var(--surface);
+  display:flex;flex-direction:column;gap:var(--space-3)}
+.btn{display:flex;align-items:center;justify-content:center;min-height:48px;
+  border-radius:var(--radius-pill);font-size:var(--fs-sm);font-weight:var(--fw-semibold);
+  border:1px solid transparent;text-decoration:none}
+.btn-accent{background:var(--accent-solid);color:var(--on-accent-solid);
+  box-shadow:var(--shadow-primary-glow)}
+.btn-quiet{background:transparent;color:var(--text-muted);min-height:40px;
+  font-weight:var(--fw-medium);font-size:var(--fs-xs)}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1 class="doc-h1">R1.4 — onboarding reference</h1>
+  <p class="doc-p">
+    The moment Femio's whole promise is made. Today it is a title, a heading, a subheading,
+    options, a labelled progress bar and a button — six levels of hierarchy on step one, which
+    reads as a form. It should read as <b>being asked about</b>. Built on
+    <code>assets/brand/tokens/femio.tokens.css</code>, imported. Approve or reject before
+    implementation (<code>docs/25</code> §1).
+  </p>
+
+  <h2 class="doc-h2">The flow — EN, light</h2>
+  <p class="doc-note">Four steps. One question each.</p>
+  <div class="gallery" id="flow"></div>
+
+  <h2 class="doc-h2">The hardest step, in the other three states</h2>
+  <p class="doc-note">
+    Triage is where this screen can fail: up to fifteen conditions, special-category data, and
+    the one question a woman might close the app rather than answer. Shown in dark, and in
+    Arabic RTL in both themes.
+  </p>
+  <div class="gallery" id="hard"></div>
+
+  <div class="notes">
+    <h2>What changed, and why</h2>
+
+    <h3>1 · "Welcome to Femio" is gone</h3>
+    <p>It was the app talking about itself on the one screen that should be about her. The
+      wordmark stays in the top bar — she knows whose app it is — and the space goes to the
+      question.</p>
+
+    <h3>2 · One question per screen, and it is the biggest thing on it</h3>
+    <p>Step one currently carries a title, a heading, a subheading, four options, "Step 1 of 4",
+      a progress bar and a button. Here the question is Fraunces at <code>--fs-xl</code> with
+      one supporting line, and everything else is subordinate. Same information, one hierarchy.</p>
+
+    <h3>3 · Progress is four dots, not a labelled bar</h3>
+    <p>A filling bar with "Step 1 of 4" is the visual grammar of a form — a tax you are being
+      asked to complete. Dots say the same thing quietly. The active dot elongates rather than
+      changing colour alone, so it is not a colour-only signal.</p>
+
+    <h3>4 · Triage is grouped, and the escape is visible</h3>
+    <p>Fifteen chips in a flat list is a wall, and this is the question most likely to make
+      someone close the app — it is special-category data about conditions she may not have told
+      anyone. So: quiet group labels, 44px chips, the non-diagnostic note kept directly under
+      them, and <b>"None of these apply" as a visible button rather than a link she has to
+      find.</b> Skipping must look as legitimate as answering, because under product rule 2 it
+      genuinely is.</p>
+
+    <h3>5 · The last step shows the experience, not a summary</h3>
+    <p>This is the most important change. The confirm step currently recaps what she typed.
+      Instead it renders <b>what Femio will actually lead with</b> — her hero card, the modules
+      that will be surfaced, and the promise that nothing is hidden. It is the payoff for having
+      answered, and it is the first thing a competitor's onboarding does not do.</p>
+    <p>It is also an architectural marker: that preview is
+      <code>ExperienceConfig.home</code> rendered (<code>docs/24</code> §2). When R2 lands, this
+      screen should be reading the real document rather than a mock — which makes onboarding the
+      natural first consumer of the engine.</p>
+
+    <h3>6 · The first botanical line-work</h3>
+    <p><code>docs/25</code> §5a committed to single-weight botanical line-work from the Bloom
+      mark instead of stock portraiture, and nothing had drawn any. The bloom on the final
+      screen is the first. Single stroke weight, no fill, one colour, inherits
+      <code>--primary</code> so it themes for free and mirrors in RTL without a second asset.</p>
+
+    <h3>Known gaps</h3>
+    <ul>
+      <li><b>Not verified in a real browser.</b> The template was executed in node — no
+        undefined output, correct state count — but the pane would not composite, so the visual
+        judgement is the owner's. Before implementing, run axe and check the AR bidi at 390px:
+        chips mixing Arabic labels with Latin abbreviations are where bidi mangling shows up.</li>
+      <li><b>The preview is a mock.</b> It hardcodes a cycle-mode result. Wiring it to the real
+        resolver is R2 work, not R1.</li>
+      <li><b>Copy is a draft</b> and reuses the shipped strings where they were already good —
+        the triage intro and non-diagnostic note are unchanged, because they are the best copy
+        in the product.</li>
+      <li><b>Account step not redesigned here.</b> It is step 3 and mostly fine; it inherits the
+        one-question-per-screen frame.</li>
+    </ul>
+  </div>
+</div>
+
+<script>
+const C = {
+  en: { dir:"ltr", back:"Back", next:"Continue", skip:"None of these apply",
+    q1:"Where are you in your health journey?",
+    q1s:"You can change this anytime, and nothing is ever locked away.",
+    opts:[["Tracking my cycle","Periods, symptoms, and patterns."],
+          ["Trying to conceive","Fertile window and TTC tools."],
+          ["I'm pregnant","Week-by-week and what to watch for."],
+          ["Perimenopause or menopause","Changing cycles and symptoms."],
+          ["Not sure yet","Everything, with nothing assumed about your stage."]],
+    q2:"Anything your clinician is watching?",
+    q2s:"Pick any that apply — it is what a clinician would ask first. Skip it if none do.",
+    groups:[["Cycle & hormones",["PCOS","Endometriosis","Fibroids","Heavy periods","PMDD","Very painful periods"]],
+            ["Other conditions",["Thyroid condition","Depression or anxiety","Menstrual migraine"]]],
+    note:"This is what you have been told, not an assessment. Femio records it — it never decides it.",
+    q3:"Your privacy comes first",
+    q3s:"Femio works without an account. Your health data is yours — never sold, never shared with advertisers.",
+    opts3:[["Start privately","No email, no account. You can add one later without losing anything."],
+           ["Create an account","Sync across devices with an email. Same privacy."]],
+    q4:"Here is what Femio will lead with.",
+    q4s:"Everything else is still one tap away — nothing is hidden.",
+    pvEyebrow:"Your home", pvHead:"Your next period, as a window",
+    pv:["Cycle calendar and symptom logging","PCOS-aware guides, kept in front",
+        "Predictions that widen when your cycles do"],
+    pvFoot:"Change your stage, re-answer these questions, or switch to General any time from Settings. Nothing you record is ever deleted.",
+    done:"Start using Femio" },
+  ar: { dir:"rtl", back:"رجوع", next:"متابعة", skip:"لا ينطبق أيٌّ منها",
+    q1:"أين أنتِ من رحلتكِ الصحية؟",
+    q1s:"يمكنكِ تغيير هذا في أي وقت، ولا يُغلق شيءٌ أبدًا.",
+    opts:[["أتابع دورتي","الدورات والأعراض والأنماط."],
+          ["أحاول الحمل","نافذة الخصوبة وأدوات المحاولة."],
+          ["أنا حامل","أسبوعًا بأسبوع وما ينبغي الانتباه له."],
+          ["ما قبل سنّ اليأس أو سنّ اليأس","تغيّر الدورات والأعراض."],
+          ["لستُ متأكدة بعد","كل شيء، دون افتراض مرحلتكِ."]],
+    q2:"هل هناك ما يتابعه طبيبكِ؟",
+    q2s:"اختاري ما ينطبق — هذا ما يسأل عنه الطبيب أولًا. تخطّيه إن لم ينطبق شيء.",
+    groups:[["الدورة والهرمونات",["تكيّس المبايض","بطانة الرحم المهاجرة","الأورام الليفية","دورات غزيرة","اضطراب ما قبل الطمث","آلام شديدة"]],
+            ["حالات أخرى",["اضطراب الغدة الدرقية","اكتئاب أو قلق","صداع الدورة"]]],
+    note:"هذا ما قيل لكِ، وليس تقييمًا. فيميو تُسجّله — ولا تقرّره أبدًا.",
+    q3:"خصوصيتكِ أولًا",
+    q3s:"تعمل فيميو دون حساب. بياناتكِ الصحية ملكُكِ — لا تُباع ولا تُشارَك مع المُعلنين.",
+    opts3:[["ابدئي بخصوصية","بلا بريد ولا حساب. يمكنكِ إضافته لاحقًا دون فقدان شيء."],
+           ["أنشئي حسابًا","مزامنة بين أجهزتكِ ببريد إلكتروني. الخصوصية نفسها."]],
+    q4:"إليكِ ما ستبدأ به فيميو.",
+    q4s:"كل ما عداه على بعد نقرة — لا شيء مخفيّ.",
+    pvEyebrow:"صفحتكِ الرئيسية", pvHead:"دورتكِ القادمة، كنافذة",
+    pv:["تقويم الدورة وتسجيل الأعراض","أدلة تراعي تكيّس المبايض، في المقدّمة",
+        "تنبؤات تتّسع حين تتغيّر دوراتكِ"],
+    pvFoot:"غيّري مرحلتكِ، أو أعيدي الإجابة عن هذه الأسئلة، أو انتقلي إلى الوضع العام في أي وقت من الإعدادات. لا يُحذف شيءٌ مما تسجّلينه.",
+    done:"ابدئي استخدام فيميو" }
+};
+
+const BLOOM = `<svg class="bloom" width="56" height="56" viewBox="0 0 56 56" aria-hidden="true">
+  <circle cx="28" cy="28" r="4.5"/>
+  <path d="M28 23.5c0-7 3-12 3-12s3 5 3 12"/>
+  <path d="M28 23.5c0-7-3-12-3-12s-3 5-3 12"/>
+  <path d="M32.5 28c7 0 12 3 12 3s-5 3-12 3"/>
+  <path d="M23.5 28c-7 0-12 3-12 3s5 3 12 3"/>
+  <path d="M28 32.5v12"/>
+</svg>`;
+
+const dots = n => `<span class="dots">${[1,2,3,4].map(i =>
+  `<i class="${i === n ? "on" : ""}"></i>`).join("")}</span>`;
+
+function frame(c, theme, n, inner, actions) {
+  const t = theme === "dark" ? ' data-theme="dark"' : "";
+  return `<div class="phone" lang="${c === C.en ? "en" : "ar"}" dir="${c.dir}"${t}>
+  <div class="top">
+    ${n > 1 ? `<a class="back" href="#">‹ ${c.back}</a>` : `<span class="mark">femio</span>`}
+    ${dots(n)}
+  </div>
+  <div class="body">${inner}</div>
+  <div class="actions">${actions}</div>
+</div>`;
+}
+
+const step1 = (c, th) => frame(c, th, 1, `
+  <h1 class="q">${c.q1}</h1><p class="qsub">${c.q1s}</p>
+  <div class="choices">${c.opts.map(([b, s], i) =>
+    `<div class="choice${i === 0 ? " on" : ""}"><span class="radio"></span><span><b>${b}</b><span>${s}</span></span></div>`).join("")}
+  </div>`, `<a class="btn btn-accent" href="#">${c.next}</a>`);
+
+const step2 = (c, th) => frame(c, th, 2, `
+  <h1 class="q">${c.q2}</h1><p class="qsub">${c.q2s}</p>
+  ${c.groups.map(([g, items], gi) => `<div class="group">
+    <span class="group-label">${g}</span>
+    <div class="chips">${items.map((x, i) =>
+      `<span class="chip${gi === 0 && i === 0 ? " on" : ""}">${x}</span>`).join("")}</div>
+  </div>`).join("")}
+  <p class="note">${c.note}</p>`,
+  `<a class="btn btn-accent" href="#">${c.next}</a>
+   <a class="btn btn-quiet" href="#">${c.skip}</a>`);
+
+const step3 = (c, th) => frame(c, th, 3, `
+  <h1 class="q">${c.q3}</h1><p class="qsub">${c.q3s}</p>
+  <div class="choices">${c.opts3.map(([b, s], i) =>
+    `<div class="choice${i === 0 ? " on" : ""}"><span class="radio"></span><span><b>${b}</b><span>${s}</span></span></div>`).join("")}
+  </div>`, `<a class="btn btn-accent" href="#">${c.next}</a>`);
+
+const step4 = (c, th) => frame(c, th, 4, `
+  ${BLOOM}
+  <h1 class="q">${c.q4}</h1><p class="qsub">${c.q4s}</p>
+  <div class="preview">
+    <div class="pv-hero">
+      <span class="pv-eyebrow">${c.pvEyebrow}</span>
+      <span class="pv-head">${c.pvHead}</span>
+    </div>
+    <div class="pv-list">${c.pv.map(x =>
+      `<span class="pv-row"><span class="pv-tick">✓</span>${x}</span>`).join("")}</div>
+    <p class="pv-foot">${c.pvFoot}</p>
+  </div>`, `<a class="btn btn-accent" href="#">${c.done}</a>`);
+
+const cap = (a, b) => `<div class="stage-cap">${a}<span>${b}</span></div>`;
+const wrapStage = (html, a, b) => `<div class="stage">${html}${cap(a, b)}</div>`;
+
+document.getElementById("flow").innerHTML = [
+  wrapStage(step1(C.en, "light"), "1 · Life stage", "one question, biggest thing on the screen"),
+  wrapStage(step2(C.en, "light"), "2 · Triage", "grouped chips; skipping looks legitimate"),
+  wrapStage(step3(C.en, "light"), "3 · Privacy", "account is a choice, not a gate"),
+  wrapStage(step4(C.en, "light"), "4 · The payoff", "shows the experience, not a summary"),
+].join("");
+
+document.getElementById("hard").innerHTML = [
+  wrapStage(step2(C.en, "dark"), "Triage · EN dark", "same tokens, remapped"),
+  wrapStage(step2(C.ar, "light"), "Triage · AR RTL", "chips mirror; check bidi here"),
+  wrapStage(step2(C.ar, "dark"), "Triage · AR dark", "the hardest state"),
+].join("");
+</script>
+</body>
+</html>
