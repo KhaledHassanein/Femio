@@ -9,17 +9,15 @@
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600;700&family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
 
 <!-- THE POINT OF THIS FILE: it imports the real token file. A reference that hardcodes
-     hex values can specify something the product cannot build — which is exactly what
+     hex values can specify something the product cannot build — which is what
      assets/mockups/femio_personalized_screens.html did. Change a token, reload this. -->
 <link rel="stylesheet" href="../brand/tokens/femio.tokens.css">
 
 <style>
 /* ── review chrome (not part of the design) ─────────────────────────────── */
 *{box-sizing:border-box;margin:0;padding:0}
-body{
-  background:#EDEBF2;color:#1E1B2E;font-family:'Inter',sans-serif;line-height:1.5;
-  padding:32px 20px 96px;
-}
+body{background:#EDEBF2;color:#1E1B2E;font-family:'Inter',sans-serif;line-height:1.5;
+  padding:32px 20px 96px}
 .wrap{max-width:1760px;margin:0 auto}
 .doc-h1{font-family:'Fraunces',serif;font-weight:600;font-size:32px;letter-spacing:-.02em}
 .doc-p{color:#514B60;max-width:78ch;margin-top:10px;font-size:15px}
@@ -28,13 +26,9 @@ body{
 .stage{display:flex;flex-direction:column;gap:10px;align-items:center}
 .stage-cap{font-size:13px;font-weight:600;color:#514B60;text-align:center}
 .stage-cap span{display:block;font-weight:400;color:#857E94;font-size:12px}
-.phone{
-  width:390px;height:844px;overflow-y:auto;overflow-x:hidden;
-  border-radius:38px;border:9px solid #221F2E;
-  box-shadow:0 22px 48px rgb(30 27 46 / .28);
-  background:var(--bg);color:var(--text);
-  scrollbar-width:thin;
-}
+.phone{width:390px;height:844px;overflow-y:auto;overflow-x:hidden;
+  border-radius:38px;border:9px solid #221F2E;box-shadow:0 22px 48px rgb(30 27 46 / .28);
+  background:var(--bg);color:var(--text);scrollbar-width:thin}
 .notes{margin-top:44px;background:#fff;border-radius:16px;padding:24px 28px;max-width:1100px}
 .notes h2{font-family:'Fraunces',serif;font-size:22px;font-weight:600;margin-bottom:6px}
 .notes h3{font-size:15px;margin:20px 0 6px}
@@ -45,122 +39,151 @@ body{
 .phone *{font-family:var(--font-ui)}
 .phone[dir="rtl"] *{font-family:var(--font-ar)}
 
-.hdr{
-  position:sticky;top:0;z-index:var(--z-sticky);
+.hdr{position:sticky;top:0;z-index:var(--z-sticky);
   display:flex;align-items:center;justify-content:space-between;
   padding:var(--space-3) var(--space-5);
   background:var(--frost);backdrop-filter:var(--frost-blur);
-  border-bottom:1px solid var(--border);
-}
+  border-bottom:1px solid var(--border)}
 /* Wordmark is ALWAYS English "femio", in every locale — product rule 6. */
-.mark{font-family:var(--font-display)!important;font-size:var(--fs-lg);font-weight:var(--fw-semibold);
-  color:var(--primary);letter-spacing:var(--ls-tight);line-height:1}
-.hdr-link{font-size:var(--fs-xs);font-weight:var(--fw-medium);color:var(--text-muted);text-decoration:none}
+.mark{font-family:var(--font-display)!important;font-size:var(--fs-lg);
+  font-weight:var(--fw-semibold);color:var(--primary);letter-spacing:var(--ls-tight);line-height:1}
+.hdr-link{font-size:var(--fs-xs);font-weight:var(--fw-medium);color:var(--text-muted);
+  text-decoration:none}
 
 section{padding:var(--space-8) var(--space-5)}
 
 /* ── HERO — the one raised element on the screen ────────────────────────── */
-/* --gradient-dawn runs out to amber-500, where white body copy is ~2.1:1. So dawn
-   is the SIGNATURE, not the backdrop: it appears as a bounded bar carrying no text,
-   over an AA-safe violet field. docs/25 §5a — every stop under text must be AA. */
-.hero{
-  position:relative;
+/* --gradient-dawn runs out to amber-500, where white body copy measures 2.15:1.
+   So dawn is the SIGNATURE, not the backdrop: a bounded bar carrying no text over
+   an AA-safe violet field (stops measure 8.98:1 and 5.70:1). docs/25 §5a. */
+.hero{position:relative;
   background:linear-gradient(160deg,var(--violet-800) 0%,var(--violet-600) 100%);
   color:var(--text-on-brand);
-  padding:var(--space-10) var(--space-5) var(--space-12);
-  box-shadow:var(--shadow-md);
-}
-.hero::before{
-  content:"";position:absolute;inset-block-start:0;inset-inline:0;height:5px;
-  background:var(--gradient-dawn);
-}
-.hero h1{
-  font-family:var(--font-display)!important;font-weight:var(--fw-semibold);
-  font-size:var(--fs-2xl);line-height:var(--lh-tight);letter-spacing:var(--ls-tighter);
-}
+  padding:var(--space-10) var(--space-5) var(--space-12);box-shadow:var(--shadow-md)}
+.hero::before{content:"";position:absolute;inset-block-start:0;inset-inline:0;height:5px;
+  background:var(--gradient-dawn)}
+.hero h1{font-family:var(--font-display)!important;font-weight:var(--fw-semibold);
+  font-size:var(--fs-2xl);line-height:var(--lh-tight);letter-spacing:var(--ls-tighter)}
 /* Arabic pairs by WEIGHT, not family: Fraunces carries no Arabic glyphs, so without
    this the headline silently falls back to Georgia. docs/25 §5a. */
-.phone[dir="rtl"] .hero h1,
-.phone[dir="rtl"] h2,
-.phone[dir="rtl"] .mark:not(.mark){font-family:var(--font-ar)!important}
+.phone[dir="rtl"] .hero h1,.phone[dir="rtl"] h2{font-family:var(--font-ar)!important;
+  font-weight:var(--fw-bold)}
 .phone[dir="rtl"] .hero h1{font-size:var(--fs-xl);line-height:var(--lh-arabic);
-  letter-spacing:var(--ls-normal);font-weight:var(--fw-bold)}
-.phone[dir="rtl"] h2{font-weight:var(--fw-bold)}
-.hero p{margin-top:var(--space-4);font-size:var(--fs-sm);line-height:var(--lh-relaxed);opacity:.95}
+  letter-spacing:var(--ls-normal)}
+.hero p{margin-top:var(--space-4);font-size:var(--fs-sm);line-height:var(--lh-relaxed);
+  opacity:.95}
 .cta-row{display:flex;flex-direction:column;gap:var(--space-3);margin-top:var(--space-6)}
-.btn{
-  display:flex;align-items:center;justify-content:center;min-height:48px;
+.btn{display:flex;align-items:center;justify-content:center;min-height:48px;
   border-radius:var(--radius-pill);font-size:var(--fs-sm);font-weight:var(--fw-semibold);
   text-decoration:none;border:1px solid transparent;
-  transition:transform var(--dur-fast) var(--ease-spring);
-}
+  transition:transform var(--dur-fast) var(--ease-spring)}
 .btn-primary{background:var(--neutral-0);color:var(--violet-700);box-shadow:var(--shadow-md)}
 .btn-ghost{background:transparent;color:var(--text-on-brand);border-color:rgb(255 255 255 / .55)}
-.anti{
-  margin-top:var(--space-6);padding-top:var(--space-4);
+.anti{margin-top:var(--space-6);padding-top:var(--space-4);
   border-top:1px solid rgb(255 255 255 / .28);
-  font-size:var(--fs-2xs);line-height:var(--lh-relaxed);opacity:.92;
-}
+  font-size:var(--fs-2xs);line-height:var(--lh-relaxed);opacity:.92}
 
-/* ── LIFE-STAGE RAIL — the thing no competitor can show ─────────────────── */
+/* ── PRODUCT SHOT (R1.3a) — Clue and Balance both lead with one; docs/03 §H.1 ── */
+.shot-sec{background:var(--surface-sunken)}
+.device{margin:var(--space-6) auto 0;width:232px;border-radius:26px;
+  border:7px solid var(--neutral-900);background:var(--bg);overflow:hidden;
+  box-shadow:var(--shadow-lg)}
+[data-theme="dark"] .device{border-color:#3A3550}
+.d-bar{display:flex;align-items:center;justify-content:space-between;
+  padding:8px 12px;border-bottom:1px solid var(--border);background:var(--surface)}
+.d-mark{font-family:var(--font-display)!important;font-size:13px;
+  font-weight:var(--fw-semibold);color:var(--primary)}
+.d-dot{width:14px;height:14px;border-radius:var(--radius-round);background:var(--surface-sunken)}
+.d-body{padding:10px 12px 0;display:flex;flex-direction:column;gap:8px}
+.d-title{display:flex;align-items:center;gap:6px}
+.d-title b{font-size:11px;font-weight:var(--fw-semibold);color:var(--text)}
+.d-pill{font-size:8.5px;font-weight:var(--fw-semibold);padding:2px 7px;
+  border-radius:var(--radius-pill);background:var(--primary-soft);color:var(--primary-soft-text)}
+/* The in-app hero: gradient + eyebrow → statement → band → uncertainty line. */
+.d-hero{background:var(--gradient-hero-cycle);color:var(--text-on-brand);
+  border-radius:12px;padding:11px 12px;box-shadow:var(--shadow-sm);
+  display:flex;flex-direction:column;gap:6px}
+.d-eyebrow{font-size:7.5px;font-weight:var(--fw-semibold);letter-spacing:var(--ls-wider);
+  text-transform:uppercase;opacity:.9}
+.phone[dir="rtl"] .d-eyebrow{text-transform:none;letter-spacing:var(--ls-normal)}
+.d-headline{font-family:var(--font-display)!important;font-size:14px;line-height:1.2}
+.phone[dir="rtl"] .d-headline{font-family:var(--font-ar)!important;font-size:12.5px;
+  font-weight:var(--fw-bold)}
+.d-foot{font-size:7.5px;opacity:.9}
+.d-band{position:relative;height:5px;border-radius:var(--radius-pill);
+  background:rgb(255 255 255 / .25)}
+.d-band i{position:absolute;inset-block:0;inset-inline-start:32%;width:40%;
+  border-radius:var(--radius-pill);
+  background:linear-gradient(90deg,transparent,currentColor 35%,currentColor 65%,transparent)}
+.d-band b{position:absolute;inset-block:-2px;inset-inline-start:52%;width:2px;
+  background:currentColor;border-radius:var(--radius-pill)}
+.d-cta{min-height:26px;border-radius:var(--radius-pill);background:var(--accent-solid);
+  color:var(--on-accent-solid);font-size:9.5px;font-weight:var(--fw-semibold);
+  display:grid;place-items:center}
+.d-card{background:var(--surface);border-radius:10px;padding:9px 11px;
+  box-shadow:var(--shadow-xs)}
+.d-card span{font-size:8px;color:var(--text-muted);display:block}
+.d-card b{font-family:var(--font-display)!important;font-size:13px;color:var(--text)}
+.phone[dir="rtl"] .d-card b{font-family:var(--font-ar)!important}
+.d-tabs{display:flex;justify-content:space-around;margin-top:8px;padding:7px 0 9px;
+  border-top:1px solid var(--border);background:var(--surface)}
+.d-tab{display:flex;flex-direction:column;align-items:center;gap:3px;font-size:7px;
+  color:var(--text-subtle)}
+.d-tab.on{color:var(--primary)}
+.d-glyph{width:22px;height:13px;border-radius:var(--radius-pill);background:transparent}
+.d-tab.on .d-glyph{background:var(--primary-soft)}
+.shot-cap{margin-top:var(--space-4);font-size:var(--fs-2xs);color:var(--text-subtle);
+  text-align:center;line-height:var(--lh-relaxed)}
+
+/* ── LIFE-STAGE RAIL — the thing no competitor can show (docs/03 §H.4) ──── */
 .eyebrow{font-size:var(--fs-2xs);font-weight:var(--fw-semibold);letter-spacing:var(--ls-wider);
   text-transform:uppercase;color:var(--primary)}
 .phone[dir="rtl"] .eyebrow{text-transform:none;letter-spacing:var(--ls-normal)}
 h2{font-family:var(--font-display)!important;font-weight:var(--fw-semibold);
   font-size:var(--fs-lg);line-height:var(--lh-snug);margin-top:var(--space-2);color:var(--text)}
 .phone[dir="rtl"] h2{line-height:var(--lh-arabic)}
-.sec-sub{margin-top:var(--space-2);font-size:var(--fs-xs);color:var(--text-muted);line-height:var(--lh-relaxed)}
-
+.sec-sub{margin-top:var(--space-2);font-size:var(--fs-xs);color:var(--text-muted);
+  line-height:var(--lh-relaxed)}
 .rail{margin-top:var(--space-6);position:relative;padding-inline-start:var(--space-4)}
-.rail::before{
-  content:"";position:absolute;inset-block:6px;inset-inline-start:3px;width:2px;
+.rail::before{content:"";position:absolute;inset-block:6px;inset-inline-start:3px;width:2px;
   background:linear-gradient(180deg,var(--phase-menstrual),var(--phase-follicular),
-    var(--phase-ovulatory),var(--phase-luteal));
-  border-radius:var(--radius-pill);opacity:.55;
-}
-.rail li{list-style:none;position:relative;padding:var(--space-2) 0 var(--space-2) 0;
+    var(--phase-ovulatory),var(--phase-luteal));border-radius:var(--radius-pill);opacity:.55}
+.rail li{list-style:none;position:relative;padding:var(--space-2) 0;
   display:flex;align-items:baseline;gap:var(--space-3)}
-.rail li::before{
-  content:"";position:absolute;inset-inline-start:-17px;top:14px;
+.rail li::before{content:"";position:absolute;inset-inline-start:-17px;top:14px;
   width:9px;height:9px;border-radius:var(--radius-round);
-  background:var(--surface);border:2px solid var(--primary);
-}
+  background:var(--surface);border:2px solid var(--primary)}
 .rail .stage-name{font-size:var(--fs-sm);font-weight:var(--fw-semibold);color:var(--text)}
 .rail .stage-note{font-size:var(--fs-2xs);color:var(--text-subtle)}
-.rail-foot{margin-top:var(--space-4);font-size:var(--fs-2xs);color:var(--text-muted);
+.rail-foot{margin-top:var(--space-4);font-size:var(--fs-2xs);
   background:var(--primary-soft);color:var(--primary-soft-text);
-  padding:var(--space-3) var(--space-4);border-radius:var(--radius-md);line-height:var(--lh-relaxed)}
+  padding:var(--space-3) var(--space-4);border-radius:var(--radius-md);
+  line-height:var(--lh-relaxed)}
 
-/* ── HONESTY PROOF — concrete behaviours, each with its own drawing ─────── */
-.proof{background:var(--surface-sunken)}
-.proof-card{
-  background:var(--surface);border-radius:var(--radius-md);box-shadow:var(--shadow-sm);
-  padding:var(--space-5);margin-top:var(--space-4);
-}
+/* ── HONESTY PROOF ──────────────────────────────────────────────────────── */
+.proof-card{background:var(--surface);border-radius:var(--radius-md);
+  box-shadow:var(--shadow-sm);padding:var(--space-5);margin-top:var(--space-4)}
 .proof-card h3{font-size:var(--fs-sm);font-weight:var(--fw-semibold);color:var(--text)}
 .proof-card p{margin-top:var(--space-2);font-size:var(--fs-2xs);color:var(--text-muted);
   line-height:var(--lh-relaxed)}
-
-/* The band: fading edges, because the window has soft boundaries (product rule 3). */
 .band{position:relative;height:8px;margin-top:var(--space-4);border-radius:var(--radius-pill);
   background:var(--surface-sunken)}
-.band-fill{position:absolute;inset-block:0;inset-inline-start:34%;width:38%;border-radius:var(--radius-pill);
+.band-fill{position:absolute;inset-block:0;inset-inline-start:34%;width:38%;
+  border-radius:var(--radius-pill);
   background:linear-gradient(90deg,transparent 0%,var(--prediction-band) 35%,
     var(--prediction-band) 65%,transparent 100%)}
-.band-today{position:absolute;inset-block:-4px;inset-inline-start:52%;width:3px;margin-inline-start:-1.5px;
-  border-radius:var(--radius-pill);background:var(--text)}
+.band-today{position:absolute;inset-block:-4px;inset-inline-start:52%;width:3px;
+  margin-inline-start:-1.5px;border-radius:var(--radius-pill);background:var(--text)}
 .band-legend{display:flex;justify-content:space-between;margin-top:var(--space-2);
   font-size:var(--fs-2xs);color:var(--text-subtle)}
-
 /* The strip: 30 days of one variable, encoded by size AND opacity — never colour alone. */
 .strip{display:flex;gap:3px;align-items:flex-end;height:34px;margin-top:var(--space-4)}
 .strip i{flex:1;border-radius:var(--radius-xs);background:var(--phase-menstrual);display:block}
-
 .nocount{margin-top:var(--space-4);padding:var(--space-3) var(--space-4);
   border-radius:var(--radius-md);background:var(--warning-soft);color:var(--warning-text);
   font-size:var(--fs-2xs);line-height:var(--lh-relaxed)}
 
-/* ── TRUST — five verifiable claims, not adjectives ─────────────────────── */
+/* ── TRUST ──────────────────────────────────────────────────────────────── */
 .trust li{list-style:none;display:flex;gap:var(--space-3);align-items:flex-start;
   padding:var(--space-3) 0;border-bottom:1px solid var(--divider);font-size:var(--fs-xs);
   color:var(--text);line-height:var(--lh-relaxed)}
@@ -171,7 +194,7 @@ h2{font-family:var(--font-display)!important;font-weight:var(--fw-semibold);
 .trust b{font-weight:var(--fw-semibold)}
 .trust span{color:var(--text-muted)}
 
-/* ── LIBRARY — demoted to a list, with real titles instead of descriptions ─ */
+/* ── LIBRARY ────────────────────────────────────────────────────────────── */
 .lib{background:var(--surface-sunken)}
 .lib a{display:flex;align-items:center;justify-content:space-between;gap:var(--space-3);
   text-decoration:none;padding:var(--space-4);background:var(--surface);
@@ -180,13 +203,10 @@ h2{font-family:var(--font-display)!important;font-weight:var(--fw-semibold);
 .lib .d{font-size:var(--fs-2xs);color:var(--text-subtle);margin-top:2px}
 .chev{color:var(--text-subtle);font-size:var(--fs-sm)}
 .phone[dir="rtl"] .chev{transform:scaleX(-1)}
-
-/* ── LANGUAGE — Arabic is a differentiator, so it is on the homepage ─────── */
 .lang{display:flex;gap:var(--space-2);flex-wrap:wrap;margin-top:var(--space-4)}
-.lang b{font-size:var(--fs-2xs);font-weight:var(--fw-medium);padding:var(--space-2) var(--space-4);
-  border-radius:var(--radius-pill);background:var(--primary-soft);color:var(--primary-soft-text)}
-
-/* ── CLOSE ──────────────────────────────────────────────────────────────── */
+.lang b{font-size:var(--fs-2xs);font-weight:var(--fw-medium);
+  padding:var(--space-2) var(--space-4);border-radius:var(--radius-pill);
+  background:var(--primary-soft);color:var(--primary-soft-text)}
 .close{text-align:center;padding-bottom:var(--space-16)}
 .close .btn{background:var(--accent-solid);color:var(--on-accent-solid);
   box-shadow:var(--shadow-primary-glow);margin-top:var(--space-5)}
@@ -200,565 +220,286 @@ h2{font-family:var(--font-display)!important;font-weight:var(--fw-semibold);
   <p class="doc-p">
     Four states, judged at <b>390×844</b>. Built on <code>assets/brand/tokens/femio.tokens.css</code>
     — imported, not copied — so nothing here can specify a colour, radius or shadow the product
-    cannot build. Scroll each phone. Approve or reject before any of it is implemented
+    cannot build. Scroll each phone. Notes below explain every decision, so the argument can be
+    against a specific choice. Approve or reject before any of it is implemented
     (<code>docs/25</code> §1).
   </p>
+  <div class="gallery" id="gallery"></div>
 
-  <div class="gallery">
-    <!-- ══════════════════ EN · LIGHT ══════════════════ -->
-    <div class="stage">
-      <div class="phone" lang="en" dir="ltr">
-        <header class="hdr"><span class="mark">femio</span><a class="hdr-link" href="#">Sign in</a></header>
-
-        <section class="hero">
-          <h1>Your health has one story. Femio keeps all of it.</h1>
-          <p>From your first period to your last — cycles, conditions, trying to conceive,
-             pregnancy, after birth, menopause. One account that changes with you.</p>
-          <div class="cta-row">
-            <a class="btn btn-primary" href="#">Start free — no email needed</a>
-            <a class="btn btn-ghost" href="#">Read the guides first</a>
-          </div>
-          <p class="anti">Femio does not diagnose, and it never sells your health data.
-             Both of those are things you can check, not things we ask you to believe.</p>
-        </section>
-
-        <section>
-          <p class="eyebrow">One account</p>
-          <h2>Most apps cover one chapter. This one follows the whole book.</h2>
-          <p class="sec-sub">When your life changes, Femio re-arranges around it — it never
-             starts you over and it never deletes what came before.</p>
-          <ul class="rail">
-            <li><span><span class="stage-name">First periods</span><br>
-              <span class="stage-note">What is normal, in plain language</span></span></li>
-            <li><span><span class="stage-name">Cycles &amp; conditions</span><br>
-              <span class="stage-note">PCOS, endometriosis, heavy or absent periods</span></span></li>
-            <li><span><span class="stage-name">Trying to conceive</span><br>
-              <span class="stage-note">Fertile window, and when to ask for help</span></span></li>
-            <li><span><span class="stage-name">Pregnancy</span><br>
-              <span class="stage-note">Week by week, with warning signs kept in front</span></span></li>
-            <li><span><span class="stage-name">After birth</span><br>
-              <span class="stage-note">Recovery and mood — the part apps forget</span></span></li>
-            <li><span><span class="stage-name">Perimenopause &amp; menopause</span><br>
-              <span class="stage-note">Symptoms tracked, without a countdown</span></span></li>
-          </ul>
-          <p class="rail-foot">Your record is one record. Switching stage re-layers what you see
-             over it — nothing is archived away from you, and you can switch back.</p>
-        </section>
-
-        <section class="proof">
-          <p class="eyebrow">Honest by design</p>
-          <h2>We would rather be useful than certain.</h2>
-
-          <div class="proof-card">
-            <h3>A window, not a date</h3>
-            <p>Your next period is a range with a confidence, because that is what the data
-               supports. The softer the edges, the less sure we are — and you can see it.</p>
-            <div class="band"><div class="band-fill"></div><div class="band-today"></div></div>
-            <div class="band-legend"><span>Last period</span><span>Expected 14–18 Sep</span></div>
-          </div>
-
-          <div class="proof-card">
-            <h3>No “you are 4 days late”</h3>
-            <p>Cycles shift for dozens of ordinary reasons. If the window passes, Femio says so
-               and stops — it does not run a counter at you.</p>
-            <div class="nocount">Your window has passed. Cycles shift — this is common and
-               usually not a problem.</div>
-          </div>
-
-          <div class="proof-card">
-            <h3>Your own pattern, not an average</h3>
-            <p>Everything is compared against <em>your</em> history. Thirty days of your flow,
-               at a glance.</p>
-            <div class="strip">
-              <i style="height:20%;opacity:.30"></i><i style="height:12%;opacity:.22"></i>
-              <i style="height:12%;opacity:.22"></i><i style="height:70%;opacity:.90"></i>
-              <i style="height:100%;opacity:1"></i><i style="height:80%;opacity:.92"></i>
-              <i style="height:45%;opacity:.60"></i><i style="height:25%;opacity:.34"></i>
-              <i style="height:12%;opacity:.22"></i><i style="height:12%;opacity:.22"></i>
-              <i style="height:18%;opacity:.28"></i><i style="height:12%;opacity:.22"></i>
-              <i style="height:30%;opacity:.40"></i><i style="height:12%;opacity:.22"></i>
-              <i style="height:12%;opacity:.22"></i><i style="height:22%;opacity:.32"></i>
-              <i style="height:12%;opacity:.22"></i><i style="height:12%;opacity:.22"></i>
-              <i style="height:40%;opacity:.52"></i><i style="height:12%;opacity:.22"></i>
-              <i style="height:12%;opacity:.22"></i><i style="height:12%;opacity:.22"></i>
-              <i style="height:28%;opacity:.38"></i><i style="height:12%;opacity:.22"></i>
-              <i style="height:12%;opacity:.22"></i><i style="height:65%;opacity:.86"></i>
-              <i style="height:95%;opacity:.98"></i><i style="height:72%;opacity:.90"></i>
-              <i style="height:38%;opacity:.50"></i><i style="height:18%;opacity:.28"></i>
-            </div>
-          </div>
-        </section>
-
-        <section>
-          <p class="eyebrow">Why trust it</p>
-          <h2>Five things you can verify.</h2>
-          <ul class="trust">
-            <li><span class="tick">✓</span><span><b>Every guide is reviewed by a clinician</b>
-              <span>— named, with credentials, on the page.</span></span></li>
-            <li><span class="tick">✓</span><span><b>Every claim is cited</b>
-              <span>— NICE, ACOG, WHO, ESHRE. Linked, not name-dropped.</span></span></li>
-            <li><span class="tick">✓</span><span><b>Your data lives in the EU</b>
-              <span>— and only you can read it.</span></span></li>
-            <li><span class="tick">✓</span><span><b>Export or delete it, in the app</b>
-              <span>— no email, no waiting.</span></span></li>
-            <li><span class="tick">✓</span><span><b>No health data reaches an advertiser</b>
-              <span>— ever. It is not a setting; there is no channel.</span></span></li>
-          </ul>
-        </section>
-
-        <section class="lib">
-          <p class="eyebrow">Free, no account</p>
-          <h2>Start reading now.</h2>
-          <a href="#"><span><span class="t">Why are my periods irregular?</span>
-            <span class="d">Guides · 31 clinician-reviewed articles</span></span><span class="chev">›</span></a>
-          <a href="#"><span><span class="t">PCOS, endometriosis, PMDD</span>
-            <span class="d">Conditions &amp; topics</span></span><span class="chev">›</span></a>
-          <a href="#"><span><span class="t">Due date &amp; fertile window</span>
-            <span class="d">Calculators · no login</span></span><span class="chev">›</span></a>
-        </section>
-
-        <section>
-          <p class="eyebrow">Built for more than English</p>
-          <h2>Arabic is not an afterthought here.</h2>
-          <p class="sec-sub">Right-to-left from the first line of code, not a translation layer
-             bolted on later.</p>
-          <div class="lang"><b>English</b><b>العربية</b><b>Français</b><b>Español</b></div>
-        </section>
-
-        <section class="close">
-          <h2>One account. Your whole health life.</h2>
-          <a class="btn" href="#">Start free — no email needed</a>
-        </section>
-
-        <footer class="foot">Femio is for education and tracking. It does not diagnose or treat,
-          and it is not a contraceptive. Always speak to your clinician about your care.</footer>
-      </div>
-      <div class="stage-cap">EN · light<span>390×844</span></div>
-    </div>
-
-    <!-- ══════════════════ EN · DARK ══════════════════ -->
-    <div class="stage">
-      <div class="phone" lang="en" dir="ltr" data-theme="dark">
-        <header class="hdr"><span class="mark">femio</span><a class="hdr-link" href="#">Sign in</a></header>
-        <section class="hero">
-          <h1>Your health has one story. Femio keeps all of it.</h1>
-          <p>From your first period to your last — cycles, conditions, trying to conceive,
-             pregnancy, after birth, menopause. One account that changes with you.</p>
-          <div class="cta-row">
-            <a class="btn btn-primary" href="#">Start free — no email needed</a>
-            <a class="btn btn-ghost" href="#">Read the guides first</a>
-          </div>
-          <p class="anti">Femio does not diagnose, and it never sells your health data.
-             Both of those are things you can check, not things we ask you to believe.</p>
-        </section>
-        <section>
-          <p class="eyebrow">One account</p>
-          <h2>Most apps cover one chapter. This one follows the whole book.</h2>
-          <p class="sec-sub">When your life changes, Femio re-arranges around it — it never
-             starts you over and it never deletes what came before.</p>
-          <ul class="rail">
-            <li><span><span class="stage-name">First periods</span><br>
-              <span class="stage-note">What is normal, in plain language</span></span></li>
-            <li><span><span class="stage-name">Cycles &amp; conditions</span><br>
-              <span class="stage-note">PCOS, endometriosis, heavy or absent periods</span></span></li>
-            <li><span><span class="stage-name">Trying to conceive</span><br>
-              <span class="stage-note">Fertile window, and when to ask for help</span></span></li>
-            <li><span><span class="stage-name">Pregnancy</span><br>
-              <span class="stage-note">Week by week, with warning signs kept in front</span></span></li>
-            <li><span><span class="stage-name">After birth</span><br>
-              <span class="stage-note">Recovery and mood — the part apps forget</span></span></li>
-            <li><span><span class="stage-name">Perimenopause &amp; menopause</span><br>
-              <span class="stage-note">Symptoms tracked, without a countdown</span></span></li>
-          </ul>
-          <p class="rail-foot">Your record is one record. Switching stage re-layers what you see
-             over it — nothing is archived away from you, and you can switch back.</p>
-        </section>
-        <section class="proof">
-          <p class="eyebrow">Honest by design</p>
-          <h2>We would rather be useful than certain.</h2>
-          <div class="proof-card">
-            <h3>A window, not a date</h3>
-            <p>Your next period is a range with a confidence, because that is what the data
-               supports. The softer the edges, the less sure we are — and you can see it.</p>
-            <div class="band"><div class="band-fill"></div><div class="band-today"></div></div>
-            <div class="band-legend"><span>Last period</span><span>Expected 14–18 Sep</span></div>
-          </div>
-          <div class="proof-card">
-            <h3>No “you are 4 days late”</h3>
-            <p>Cycles shift for dozens of ordinary reasons. If the window passes, Femio says so
-               and stops — it does not run a counter at you.</p>
-            <div class="nocount">Your window has passed. Cycles shift — this is common and
-               usually not a problem.</div>
-          </div>
-          <div class="proof-card">
-            <h3>Your own pattern, not an average</h3>
-            <p>Everything is compared against <em>your</em> history. Thirty days of your flow,
-               at a glance.</p>
-            <div class="strip">
-              <i style="height:20%;opacity:.30"></i><i style="height:12%;opacity:.22"></i>
-              <i style="height:12%;opacity:.22"></i><i style="height:70%;opacity:.90"></i>
-              <i style="height:100%;opacity:1"></i><i style="height:80%;opacity:.92"></i>
-              <i style="height:45%;opacity:.60"></i><i style="height:25%;opacity:.34"></i>
-              <i style="height:12%;opacity:.22"></i><i style="height:12%;opacity:.22"></i>
-              <i style="height:18%;opacity:.28"></i><i style="height:12%;opacity:.22"></i>
-              <i style="height:30%;opacity:.40"></i><i style="height:12%;opacity:.22"></i>
-              <i style="height:12%;opacity:.22"></i><i style="height:22%;opacity:.32"></i>
-              <i style="height:12%;opacity:.22"></i><i style="height:12%;opacity:.22"></i>
-              <i style="height:40%;opacity:.52"></i><i style="height:12%;opacity:.22"></i>
-              <i style="height:12%;opacity:.22"></i><i style="height:12%;opacity:.22"></i>
-              <i style="height:28%;opacity:.38"></i><i style="height:12%;opacity:.22"></i>
-              <i style="height:12%;opacity:.22"></i><i style="height:65%;opacity:.86"></i>
-              <i style="height:95%;opacity:.98"></i><i style="height:72%;opacity:.90"></i>
-              <i style="height:38%;opacity:.50"></i><i style="height:18%;opacity:.28"></i>
-            </div>
-          </div>
-        </section>
-        <section>
-          <p class="eyebrow">Why trust it</p>
-          <h2>Five things you can verify.</h2>
-          <ul class="trust">
-            <li><span class="tick">✓</span><span><b>Every guide is reviewed by a clinician</b>
-              <span>— named, with credentials, on the page.</span></span></li>
-            <li><span class="tick">✓</span><span><b>Every claim is cited</b>
-              <span>— NICE, ACOG, WHO, ESHRE. Linked, not name-dropped.</span></span></li>
-            <li><span class="tick">✓</span><span><b>Your data lives in the EU</b>
-              <span>— and only you can read it.</span></span></li>
-            <li><span class="tick">✓</span><span><b>Export or delete it, in the app</b>
-              <span>— no email, no waiting.</span></span></li>
-            <li><span class="tick">✓</span><span><b>No health data reaches an advertiser</b>
-              <span>— ever. It is not a setting; there is no channel.</span></span></li>
-          </ul>
-        </section>
-        <section class="lib">
-          <p class="eyebrow">Free, no account</p>
-          <h2>Start reading now.</h2>
-          <a href="#"><span><span class="t">Why are my periods irregular?</span>
-            <span class="d">Guides · 31 clinician-reviewed articles</span></span><span class="chev">›</span></a>
-          <a href="#"><span><span class="t">PCOS, endometriosis, PMDD</span>
-            <span class="d">Conditions &amp; topics</span></span><span class="chev">›</span></a>
-          <a href="#"><span><span class="t">Due date &amp; fertile window</span>
-            <span class="d">Calculators · no login</span></span><span class="chev">›</span></a>
-        </section>
-        <section class="close">
-          <h2>One account. Your whole health life.</h2>
-          <a class="btn" href="#">Start free — no email needed</a>
-        </section>
-        <footer class="foot">Femio is for education and tracking. It does not diagnose or treat,
-          and it is not a contraceptive. Always speak to your clinician about your care.</footer>
-      </div>
-      <div class="stage-cap">EN · dark<span>same tokens, remapped</span></div>
-    </div>
-
-    <!-- ══════════════════ AR · LIGHT · RTL ══════════════════ -->
-    <div class="stage">
-      <div class="phone" lang="ar" dir="rtl">
-        <header class="hdr"><span class="mark">femio</span><a class="hdr-link" href="#">تسجيل الدخول</a></header>
-
-        <section class="hero">
-          <h1>لصحّتكِ حكايةٌ واحدة، وفيميو تحفظها كاملةً.</h1>
-          <p>من أول دورة إلى آخرها — الدورات والحالات ومحاولة الحمل والحمل وما بعد الولادة
-             وسنّ اليأس. حسابٌ واحد يتغيّر معكِ.</p>
-          <div class="cta-row">
-            <a class="btn btn-primary" href="#">ابدئي مجانًا — بلا بريد إلكتروني</a>
-            <a class="btn btn-ghost" href="#">اقرئي الأدلة أولًا</a>
-          </div>
-          <p class="anti">‏Femio لا تُشخّص، ولا تبيع بياناتكِ الصحية أبدًا. والأمران يمكنكِ
-             التحقّق منهما، لا مجرّد تصديقهما.</p>
-        </section>
-
-        <section>
-          <p class="eyebrow">حسابٌ واحد</p>
-          <h2>معظم التطبيقات تغطّي فصلًا واحدًا. هذا يتابع الكتاب كلّه.</h2>
-          <p class="sec-sub">حين تتغيّر حياتكِ، تُعيد فيميو ترتيب نفسها حولكِ — لا تبدأ بكِ من
-             جديد، ولا تحذف ما مضى.</p>
-          <ul class="rail">
-            <li><span><span class="stage-name">الدورات الأولى</span><br>
-              <span class="stage-note">ما هو الطبيعي، بلغةٍ واضحة</span></span></li>
-            <li><span><span class="stage-name">الدورة والحالات</span><br>
-              <span class="stage-note">تكيّس المبايض، بطانة الرحم المهاجرة، الدورات الغزيرة أو الغائبة</span></span></li>
-            <li><span><span class="stage-name">محاولة الحمل</span><br>
-              <span class="stage-note">نافذة الخصوبة، ومتى تطلبين المساعدة</span></span></li>
-            <li><span><span class="stage-name">الحمل</span><br>
-              <span class="stage-note">أسبوعًا بأسبوع، وعلامات الخطر في المقدّمة دائمًا</span></span></li>
-            <li><span><span class="stage-name">ما بعد الولادة</span><br>
-              <span class="stage-note">التعافي والحالة النفسية — ما تنساه التطبيقات</span></span></li>
-            <li><span><span class="stage-name">ما قبل سنّ اليأس وسنّ اليأس</span><br>
-              <span class="stage-note">تتبّع الأعراض، بلا عدٍّ تنازلي</span></span></li>
-          </ul>
-          <p class="rail-foot">سجلّكِ سجلٌّ واحد. تغيير المرحلة يُعيد ترتيب ما تَرَينه فوقه —
-             لا شيء يُخفى عنكِ، ويمكنكِ الرجوع في أي وقت.</p>
-        </section>
-
-        <section class="proof">
-          <p class="eyebrow">الصدق أولًا</p>
-          <h2>أن نكون مفيدين أهمّ من أن نبدو واثقين.</h2>
-
-          <div class="proof-card">
-            <h3>نافذة، لا تاريخٌ واحد</h3>
-            <p>دورتكِ القادمة نطاقٌ مع درجة ثقة، لأن هذا ما تسمح به بياناتكِ. كلّما نعمت
-               الحواف قلّ يقيننا — وأنتِ تَرَين ذلك.</p>
-            <div class="band"><div class="band-fill"></div><div class="band-today"></div></div>
-            <div class="band-legend"><span>آخر دورة</span><span>متوقّعة ١٤–١٨ سبتمبر</span></div>
-          </div>
-
-          <div class="proof-card">
-            <h3>لا «تأخّرتِ ٤ أيام»</h3>
-            <p>الدورات تتغيّر لأسبابٍ عادية كثيرة. إذا مرّت النافذة تقول فيميو ذلك وتتوقّف —
-               ولا تُشغّل عدّادًا في وجهكِ.</p>
-            <div class="nocount">مرّت نافذتكِ المتوقّعة. تغيّر مواعيد الدورة أمرٌ شائع وغالبًا
-               لا يدعو للقلق.</div>
-          </div>
-
-          <div class="proof-card">
-            <h3>نمطُكِ أنتِ، لا متوسّط الناس</h3>
-            <p>كلّ شيء يُقارَن بتاريخكِ أنتِ. ثلاثون يومًا من تدفّقكِ في نظرة.</p>
-            <div class="strip">
-              <i style="height:20%;opacity:.30"></i><i style="height:12%;opacity:.22"></i>
-              <i style="height:12%;opacity:.22"></i><i style="height:70%;opacity:.90"></i>
-              <i style="height:100%;opacity:1"></i><i style="height:80%;opacity:.92"></i>
-              <i style="height:45%;opacity:.60"></i><i style="height:25%;opacity:.34"></i>
-              <i style="height:12%;opacity:.22"></i><i style="height:12%;opacity:.22"></i>
-              <i style="height:18%;opacity:.28"></i><i style="height:12%;opacity:.22"></i>
-              <i style="height:30%;opacity:.40"></i><i style="height:12%;opacity:.22"></i>
-              <i style="height:12%;opacity:.22"></i><i style="height:22%;opacity:.32"></i>
-              <i style="height:12%;opacity:.22"></i><i style="height:12%;opacity:.22"></i>
-              <i style="height:40%;opacity:.52"></i><i style="height:12%;opacity:.22"></i>
-              <i style="height:12%;opacity:.22"></i><i style="height:12%;opacity:.22"></i>
-              <i style="height:28%;opacity:.38"></i><i style="height:12%;opacity:.22"></i>
-              <i style="height:12%;opacity:.22"></i><i style="height:65%;opacity:.86"></i>
-              <i style="height:95%;opacity:.98"></i><i style="height:72%;opacity:.90"></i>
-              <i style="height:38%;opacity:.50"></i><i style="height:18%;opacity:.28"></i>
-            </div>
-          </div>
-        </section>
-
-        <section>
-          <p class="eyebrow">لماذا تثقين بها</p>
-          <h2>خمسة أمور يمكنكِ التحقّق منها.</h2>
-          <ul class="trust">
-            <li><span class="tick">✓</span><span><b>كلّ دليل يراجعه طبيب</b>
-              <span>— باسمه ومؤهّلاته، على الصفحة نفسها.</span></span></li>
-            <li><span class="tick">✓</span><span><b>كلّ معلومة لها مصدر</b>
-              <span>— ‏NICE و‏ACOG ومنظمة الصحة العالمية و‏ESHRE. بروابط، لا بأسماء فقط.</span></span></li>
-            <li><span class="tick">✓</span><span><b>بياناتكِ محفوظة في أوروبا</b>
-              <span>— ولا يقرؤها أحدٌ سواكِ.</span></span></li>
-            <li><span class="tick">✓</span><span><b>صدّريها أو احذفيها من داخل التطبيق</b>
-              <span>— بلا رسائل ولا انتظار.</span></span></li>
-            <li><span class="tick">✓</span><span><b>لا تصل بياناتكِ الصحية إلى أي مُعلن</b>
-              <span>— أبدًا. ليست إعدادًا يُغلق؛ لا توجد قناة أصلًا.</span></span></li>
-          </ul>
-        </section>
-
-        <section class="lib">
-          <p class="eyebrow">مجانًا وبلا حساب</p>
-          <h2>ابدئي القراءة الآن.</h2>
-          <a href="#"><span><span class="t">لماذا دورتي غير منتظمة؟</span>
-            <span class="d">الأدلة · ٣١ مقالًا مراجَعًا طبيًا</span></span><span class="chev">›</span></a>
-          <a href="#"><span><span class="t">تكيّس المبايض وبطانة الرحم المهاجرة</span>
-            <span class="d">الحالات والمواضيع</span></span><span class="chev">›</span></a>
-          <a href="#"><span><span class="t">موعد الولادة ونافذة الخصوبة</span>
-            <span class="d">الحاسبات · بلا تسجيل</span></span><span class="chev">›</span></a>
-        </section>
-
-        <section>
-          <p class="eyebrow">مبنيّة لأكثر من لغة</p>
-          <h2>العربية هنا ليست إضافةً لاحقة.</h2>
-          <p class="sec-sub">من اليمين إلى اليسار منذ أول سطر برمجي، لا طبقة ترجمة أُلحقت
-             بعد ذلك.</p>
-          <div class="lang"><b>العربية</b><b>English</b><b>Français</b><b>Español</b></div>
-        </section>
-
-        <section class="close">
-          <h2>حسابٌ واحد. رحلتكِ الصحية بالكامل.</h2>
-          <a class="btn" href="#">ابدئي مجانًا — بلا بريد إلكتروني</a>
-        </section>
-
-        <footer class="foot">فيميو للتثقيف والتتبّع. لا تُشخّص ولا تعالج، وليست وسيلة لمنع
-          الحمل. تحدّثي دائمًا إلى طبيبكِ بشأن رعايتكِ.</footer>
-      </div>
-      <div class="stage-cap">AR · light · RTL<span>mirrored by logical properties</span></div>
-    </div>
-
-    <!-- ══════════════════ AR · DARK · RTL ══════════════════ -->
-    <div class="stage">
-      <div class="phone" lang="ar" dir="rtl" data-theme="dark">
-        <header class="hdr"><span class="mark">femio</span><a class="hdr-link" href="#">تسجيل الدخول</a></header>
-        <section class="hero">
-          <h1>لصحّتكِ حكايةٌ واحدة، وفيميو تحفظها كاملةً.</h1>
-          <p>من أول دورة إلى آخرها — الدورات والحالات ومحاولة الحمل والحمل وما بعد الولادة
-             وسنّ اليأس. حسابٌ واحد يتغيّر معكِ.</p>
-          <div class="cta-row">
-            <a class="btn btn-primary" href="#">ابدئي مجانًا — بلا بريد إلكتروني</a>
-            <a class="btn btn-ghost" href="#">اقرئي الأدلة أولًا</a>
-          </div>
-          <p class="anti">‏Femio لا تُشخّص، ولا تبيع بياناتكِ الصحية أبدًا. والأمران يمكنكِ
-             التحقّق منهما، لا مجرّد تصديقهما.</p>
-        </section>
-        <section>
-          <p class="eyebrow">حسابٌ واحد</p>
-          <h2>معظم التطبيقات تغطّي فصلًا واحدًا. هذا يتابع الكتاب كلّه.</h2>
-          <p class="sec-sub">حين تتغيّر حياتكِ، تُعيد فيميو ترتيب نفسها حولكِ — لا تبدأ بكِ من
-             جديد، ولا تحذف ما مضى.</p>
-          <ul class="rail">
-            <li><span><span class="stage-name">الدورات الأولى</span><br>
-              <span class="stage-note">ما هو الطبيعي، بلغةٍ واضحة</span></span></li>
-            <li><span><span class="stage-name">الدورة والحالات</span><br>
-              <span class="stage-note">تكيّس المبايض، بطانة الرحم المهاجرة، الدورات الغزيرة أو الغائبة</span></span></li>
-            <li><span><span class="stage-name">محاولة الحمل</span><br>
-              <span class="stage-note">نافذة الخصوبة، ومتى تطلبين المساعدة</span></span></li>
-            <li><span><span class="stage-name">الحمل</span><br>
-              <span class="stage-note">أسبوعًا بأسبوع، وعلامات الخطر في المقدّمة دائمًا</span></span></li>
-            <li><span><span class="stage-name">ما بعد الولادة</span><br>
-              <span class="stage-note">التعافي والحالة النفسية — ما تنساه التطبيقات</span></span></li>
-            <li><span><span class="stage-name">ما قبل سنّ اليأس وسنّ اليأس</span><br>
-              <span class="stage-note">تتبّع الأعراض، بلا عدٍّ تنازلي</span></span></li>
-          </ul>
-          <p class="rail-foot">سجلّكِ سجلٌّ واحد. تغيير المرحلة يُعيد ترتيب ما تَرَينه فوقه —
-             لا شيء يُخفى عنكِ، ويمكنكِ الرجوع في أي وقت.</p>
-        </section>
-        <section class="proof">
-          <p class="eyebrow">الصدق أولًا</p>
-          <h2>أن نكون مفيدين أهمّ من أن نبدو واثقين.</h2>
-          <div class="proof-card">
-            <h3>نافذة، لا تاريخٌ واحد</h3>
-            <p>دورتكِ القادمة نطاقٌ مع درجة ثقة، لأن هذا ما تسمح به بياناتكِ. كلّما نعمت
-               الحواف قلّ يقيننا — وأنتِ تَرَين ذلك.</p>
-            <div class="band"><div class="band-fill"></div><div class="band-today"></div></div>
-            <div class="band-legend"><span>آخر دورة</span><span>متوقّعة ١٤–١٨ سبتمبر</span></div>
-          </div>
-          <div class="proof-card">
-            <h3>لا «تأخّرتِ ٤ أيام»</h3>
-            <p>الدورات تتغيّر لأسبابٍ عادية كثيرة. إذا مرّت النافذة تقول فيميو ذلك وتتوقّف —
-               ولا تُشغّل عدّادًا في وجهكِ.</p>
-            <div class="nocount">مرّت نافذتكِ المتوقّعة. تغيّر مواعيد الدورة أمرٌ شائع وغالبًا
-               لا يدعو للقلق.</div>
-          </div>
-          <div class="proof-card">
-            <h3>نمطُكِ أنتِ، لا متوسّط الناس</h3>
-            <p>كلّ شيء يُقارَن بتاريخكِ أنتِ. ثلاثون يومًا من تدفّقكِ في نظرة.</p>
-            <div class="strip">
-              <i style="height:20%;opacity:.30"></i><i style="height:12%;opacity:.22"></i>
-              <i style="height:12%;opacity:.22"></i><i style="height:70%;opacity:.90"></i>
-              <i style="height:100%;opacity:1"></i><i style="height:80%;opacity:.92"></i>
-              <i style="height:45%;opacity:.60"></i><i style="height:25%;opacity:.34"></i>
-              <i style="height:12%;opacity:.22"></i><i style="height:12%;opacity:.22"></i>
-              <i style="height:18%;opacity:.28"></i><i style="height:12%;opacity:.22"></i>
-              <i style="height:30%;opacity:.40"></i><i style="height:12%;opacity:.22"></i>
-              <i style="height:12%;opacity:.22"></i><i style="height:22%;opacity:.32"></i>
-              <i style="height:12%;opacity:.22"></i><i style="height:12%;opacity:.22"></i>
-              <i style="height:40%;opacity:.52"></i><i style="height:12%;opacity:.22"></i>
-              <i style="height:12%;opacity:.22"></i><i style="height:12%;opacity:.22"></i>
-              <i style="height:28%;opacity:.38"></i><i style="height:12%;opacity:.22"></i>
-              <i style="height:12%;opacity:.22"></i><i style="height:65%;opacity:.86"></i>
-              <i style="height:95%;opacity:.98"></i><i style="height:72%;opacity:.90"></i>
-              <i style="height:38%;opacity:.50"></i><i style="height:18%;opacity:.28"></i>
-            </div>
-          </div>
-        </section>
-        <section>
-          <p class="eyebrow">لماذا تثقين بها</p>
-          <h2>خمسة أمور يمكنكِ التحقّق منها.</h2>
-          <ul class="trust">
-            <li><span class="tick">✓</span><span><b>كلّ دليل يراجعه طبيب</b>
-              <span>— باسمه ومؤهّلاته، على الصفحة نفسها.</span></span></li>
-            <li><span class="tick">✓</span><span><b>كلّ معلومة لها مصدر</b>
-              <span>— ‏NICE و‏ACOG ومنظمة الصحة العالمية و‏ESHRE. بروابط، لا بأسماء فقط.</span></span></li>
-            <li><span class="tick">✓</span><span><b>بياناتكِ محفوظة في أوروبا</b>
-              <span>— ولا يقرؤها أحدٌ سواكِ.</span></span></li>
-            <li><span class="tick">✓</span><span><b>صدّريها أو احذفيها من داخل التطبيق</b>
-              <span>— بلا رسائل ولا انتظار.</span></span></li>
-            <li><span class="tick">✓</span><span><b>لا تصل بياناتكِ الصحية إلى أي مُعلن</b>
-              <span>— أبدًا. ليست إعدادًا يُغلق؛ لا توجد قناة أصلًا.</span></span></li>
-          </ul>
-        </section>
-        <section class="lib">
-          <p class="eyebrow">مجانًا وبلا حساب</p>
-          <h2>ابدئي القراءة الآن.</h2>
-          <a href="#"><span><span class="t">لماذا دورتي غير منتظمة؟</span>
-            <span class="d">الأدلة · ٣١ مقالًا مراجَعًا طبيًا</span></span><span class="chev">›</span></a>
-          <a href="#"><span><span class="t">تكيّس المبايض وبطانة الرحم المهاجرة</span>
-            <span class="d">الحالات والمواضيع</span></span><span class="chev">›</span></a>
-          <a href="#"><span><span class="t">موعد الولادة ونافذة الخصوبة</span>
-            <span class="d">الحاسبات · بلا تسجيل</span></span><span class="chev">›</span></a>
-        </section>
-        <section class="close">
-          <h2>حسابٌ واحد. رحلتكِ الصحية بالكامل.</h2>
-          <a class="btn" href="#">ابدئي مجانًا — بلا بريد إلكتروني</a>
-        </section>
-        <footer class="foot">فيميو للتثقيف والتتبّع. لا تُشخّص ولا تعالج، وليست وسيلة لمنع
-          الحمل. تحدّثي دائمًا إلى طبيبكِ بشأن رعايتكِ.</footer>
-      </div>
-      <div class="stage-cap">AR · dark · RTL<span>the hardest state, shown</span></div>
-    </div>
-  </div>
-
-  <!-- ── what changed and why ─────────────────────────────────────────────── -->
   <div class="notes">
     <h2>What changed, and why</h2>
     <p>The shipped homepage is a hero sentence over five visually identical link cards — a
-      sitemap with a headline. It shows no product, gives no reason to trust, and says nothing
-      a competitor could not say. Seven changes, each with a reason you can argue with.</p>
+      sitemap with a headline. It shows no product, gives no reason to trust, and says nothing a
+      competitor could not say. Each change below has a reason you can argue with, and several
+      are now backed by the competitor teardown in <code>docs/03</code> §H.</p>
 
     <h3>1 · The life-stage rail is the page</h3>
-    <p>The one claim no competitor can make is <em>continuity</em> — Flo covers cycles, Ovia
-      hands you between three apps, Balance starts at 45. The rail states all six stages in one
-      glance, with the phase-colour spine running through it, and the line under it answers the
-      question that actually stops people signing up: <em>what happens to my data when my life
-      changes?</em> It re-layers; it never deletes (product rule 5).</p>
+    <p>The teardown found that <b>not one of Flo, Clue or Balance markets continuity</b> — Flo
+      sells scale, Clue sells science, Balance sells a clinician, and Ovia splits its lifecycle
+      across three apps. The rail states all six stages in one glance, and the line under it
+      answers what actually stops people signing up: <em>what happens to my data when my life
+      changes?</em> It re-layers; it never deletes (product rule 5). This is the one claim a
+      competitor cannot answer by copying a screen.</p>
 
-    <h3>2 · Honesty is shown, not claimed</h3>
+    <h3>2 · A product screenshot, because the market says so (R1.3a)</h3>
+    <p>Clue leads with a phone mockup of its own UI; Balance does the same with abstract
+      geometry. Neither uses a mood image. The first draft of this reference had no product in
+      it at all — the teardown called that its biggest weakness, so the real dashboard now sits
+      directly under the hero: gradient hero card, eyebrow → statement → band → uncertainty
+      line, one accent action, bottom tab bar. It is drawn from the same tokens as the app, so
+      it cannot drift from what ships.</p>
+
+    <h3>3 · Honesty is shown, not claimed</h3>
     <p>"Honest predictions" is an adjective anyone can type. So the page draws the band with its
       fading edges, prints the real no-late-counter copy, and shows thirty days of one woman's
-      flow. Three product behaviours a competitor would have to change their product to copy.</p>
+      flow. The teardown makes this sharper than expected: the top reported complaint against
+      the market leaders is that <b>predictions degrade badly for PCOS and perimenopause</b>,
+      and one is reported to assume day-14 ovulation regardless of logged data. Femio's rule 3
+      was written before we knew that. It is the strongest product answer on the page.</p>
 
-    <h3>3 · The anti-claim sits in the hero</h3>
-    <p>Flo carries an FTC settlement, Premom carries another, and What to Expect was flagged by
-      Mozilla. "Does not diagnose, never sells your data, and both are checkable" is the
-      strongest sentence Femio owns — and it is also the regulatory boundary, so it earns its
-      place twice.</p>
+    <h3>4 · The anti-claim sits in the hero</h3>
+    <p>Flo's own App Store description answers privacy with a <em>certification</em> — the 2025
+      PICCASO ISO 27001 award, in paragraph two. Femio's answer is structural: there is no
+      channel from health data to an advertiser, by construction. A structural claim beats a
+      badge, and it is also the regulatory boundary, so it earns its place twice.</p>
 
-    <h3>4 · Trust is five verifiable facts, not badges</h3>
-    <p>Named clinician with credentials · linked guideline citations · EU residency ·
-      in-app export and delete · no channel to an advertiser. Every one is already true and
-      already implemented, which is why none of them needed softening.</p>
+    <h3>5 · Trust is five verifiable facts, not badges</h3>
+    <p>Named clinician with credentials · linked guideline citations · EU residency · in-app
+      export and delete · no channel to an advertiser. Balance puts its clinician's
+      post-nominals on the page and it is the most credible thing on their site — Femio can do
+      the same the moment <b>P1.9.7</b> is unblocked.</p>
 
-    <h3>5 · Type finally does its job</h3>
-    <p>Fraunces is loaded and was being spent on card titles. Here it carries only the
-      statements. In Arabic the pairing is by <em>weight</em> — IBM Plex Sans Arabic at semibold,
-      one step larger, with <code>--lh-arabic</code> — because there is no serif counterpart and
-      faking one would be worse than not pairing.</p>
-
-    <h3>6 · One raised element</h3>
-    <p>The hero is the only thing carrying a gradient and <code>--shadow-md</code>. Everything
-      else is resting or sunken. That is the whole fix for "cards of equal weight", and you can
-      check it in a screenshot.</p>
+    <h3>6 · Type finally does its job, and one raised element</h3>
+    <p>Fraunces was being spent on card titles; here it carries only the statements. In Arabic
+      the pairing is by <em>weight</em> — Plex Sans Arabic at bold, with <code>--lh-arabic</code>
+      — because there is no serif counterpart and faking one would be worse. The hero is the
+      only thing carrying a gradient and <code>--shadow-md</code>; everything else is resting or
+      sunken. That is the whole fix for "cards of equal weight", checkable in a screenshot.</p>
 
     <h3>7 · <code>--gradient-dawn</code> finally gets a job</h3>
     <p>Violet → raspberry → amber has been in the token file since day one, unused. It becomes
-      the marketing signature — homepage, app icon, store assets — and is never used inside the
+      the marketing signature — homepage, app icon, store assets — and never appears inside the
       signed-in app, which stays calm.</p>
 
-    <h3>Known gaps in this reference, stated rather than hidden</h3>
+    <h3>Known gaps, stated rather than hidden</h3>
     <ul>
-      <li><b>No illustration yet.</b> <code>docs/25</code> §5a commits to botanical line-work
-        from the Bloom mark. None is drawn here — the layout is designed to survive without it,
-        so it is an upgrade rather than a dependency.</li>
       <li><b>Two defects were found by rendering this, not by writing it.</b> (a) The Arabic
-        headline silently fell back to Georgia — Fraunces carries no Arabic glyphs, and the
+        headline silently fell back to Georgia — Fraunces carries no Arabic glyphs and the
         <code>!important</code> on the display rule beat the RTL font rule. (b) The first draft
         put white body copy on <code>--gradient-dawn</code>, which ends at amber-500 —
-        <b>white there is ~2.1:1, a clear AA failure.</b> Dawn is now a 5px signature bar
-        carrying no text, over an AA-safe violet field. Both are exactly the class of bug
-        <code>docs/22</code> §10 says a diff cannot show you.</li>
-      <li><b>The rail's phase-colour spine is decorative.</b> Colour is not the only channel —
-        every stage is named in text — but it must not gain meaning later without a legend.</li>
-      <li><b>Copy is a draft.</b> The English needs a claims-lint pass and the Arabic needs the
+        <b>~2.15:1, a clear AA failure.</b> Dawn is now a 5px bar carrying no text over an
+        AA-safe violet field (8.98:1 and 5.70:1). Exactly the class of bug <code>docs/22</code>
+        §10 says a diff cannot show you.</li>
+      <li><b>No illustration yet.</b> <code>docs/25</code> §5a commits to botanical line-work
+        from the Bloom mark. The layout is designed to survive without it, so it is an upgrade
+        rather than a dependency — and the teardown confirmed none of the three competitors uses
+        stock portraiture either.</li>
+      <li><b>Copy is a draft.</b> The English needs a claims-lint pass; the Arabic needs the
         P1.29 human reviewer before it ships.</li>
-      <li><b>R1.1 is still owed.</b> This was designed from the token file, the persona specs'
-        §C teardowns and the shipped app — not from a week of using Flo, Clue and Ovia on a
-        phone. Expect it to revise some of this.</li>
+      <li><b>R1.1b is still owed.</b> The teardown's desk half is done; the in-app craft
+        questions — one-handed logging, speed, haptics — need the owner's screen recordings.</li>
     </ul>
   </div>
 </div>
+
+<script>
+/* One template, four mounts. The previous version duplicated the markup 4× and the
+   two font/contrast defects had to be fixed in every copy. Five more references are
+   coming (R1.4–R1.8), so this is authored once. */
+const C = {
+  en: {
+    dir:"ltr", signIn:"Sign in",
+    h1:"Your health has one story. Femio keeps all of it.",
+    sub:"From your first period to your last — cycles, conditions, trying to conceive, pregnancy, after birth, menopause. One account that changes with you.",
+    cta:"Start free — no email needed", cta2:"Read the guides first",
+    anti:"Femio does not diagnose, and it never sells your health data. Both of those are things you can check, not things we ask you to believe.",
+    shotEyebrow:"This is the app", shotH:"Open it and it already knows where you are.",
+    shotCap:"Your dashboard in cycle mode. Every stage gets its own — pregnancy counts weeks, menopause counts months and refuses the conclusion.",
+    dTitle:"Your dashboard", dPill:"Cycle", dEyebrow:"Cycle day 17",
+    dHead:"Next period 14–18 Sep", dFoot:"Fairly confident · based on your last 6 cycles",
+    dCta:"Log today", dCardLabel:"Average cycle", dCardValue:"29 days",
+    tabs:["Home","Track","Settings"],
+    railEyebrow:"One account",
+    railH:"Most apps cover one chapter. This one follows the whole book.",
+    railSub:"When your life changes, Femio re-arranges around it — it never starts you over and it never deletes what came before.",
+    rail:[["First periods","What is normal, in plain language"],
+          ["Cycles & conditions","PCOS, endometriosis, heavy or absent periods"],
+          ["Trying to conceive","Fertile window, and when to ask for help"],
+          ["Pregnancy","Week by week, with warning signs kept in front"],
+          ["After birth","Recovery and mood — the part apps forget"],
+          ["Perimenopause & menopause","Symptoms tracked, without a countdown"]],
+    railFoot:"Your record is one record. Switching stage re-layers what you see over it — nothing is archived away from you, and you can switch back.",
+    proofEyebrow:"Honest by design", proofH:"We would rather be useful than certain.",
+    p1H:"A window, not a date",
+    p1P:"Your next period is a range with a confidence, because that is what the data supports. The softer the edges, the less sure we are — and you can see it.",
+    p1L:"Last period", p1R:"Expected 14–18 Sep",
+    p2H:"No “you are 4 days late”",
+    p2P:"Cycles shift for dozens of ordinary reasons. If the window passes, Femio says so and stops — it does not run a counter at you.",
+    p2N:"Your window has passed. Cycles shift — this is common and usually not a problem.",
+    p3H:"Your own pattern, not an average",
+    p3P:"Everything is compared against your history — including when your cycles are irregular, which is exactly where other apps give up.",
+    trustEyebrow:"Why trust it", trustH:"Five things you can verify.",
+    trust:[["Every guide is reviewed by a clinician","— named, with credentials, on the page."],
+           ["Every claim is cited","— NICE, ACOG, WHO, ESHRE. Linked, not name-dropped."],
+           ["Your data lives in the EU","— and only you can read it."],
+           ["Export or delete it, in the app","— no email, no waiting."],
+           ["No health data reaches an advertiser","— ever. It is not a setting; there is no channel."]],
+    libEyebrow:"Free, no account", libH:"Start reading now.",
+    lib:[["Why are my periods irregular?","Guides · 31 clinician-reviewed articles"],
+         ["PCOS, endometriosis, PMDD","Conditions & topics"],
+         ["Due date & fertile window","Calculators · no login"]],
+    langEyebrow:"Built for more than English", langH:"Arabic is not an afterthought here.",
+    langSub:"Right-to-left from the first line of code, not a translation layer bolted on later.",
+    langs:["English","العربية","Français","Español"],
+    closeH:"One account. Your whole health life.",
+    foot:"Femio is for education and tracking. It does not diagnose or treat, and it is not a contraceptive. Always speak to your clinician about your care."
+  },
+  ar: {
+    dir:"rtl", signIn:"تسجيل الدخول",
+    h1:"لصحّتكِ حكايةٌ واحدة، وفيميو تحفظها كاملةً.",
+    sub:"من أول دورة إلى آخرها — الدورات والحالات ومحاولة الحمل والحمل وما بعد الولادة وسنّ اليأس. حسابٌ واحد يتغيّر معكِ.",
+    cta:"ابدئي مجانًا — بلا بريد إلكتروني", cta2:"اقرئي الأدلة أولًا",
+    anti:"‏Femio لا تُشخّص، ولا تبيع بياناتكِ الصحية أبدًا. والأمران يمكنكِ التحقّق منهما، لا مجرّد تصديقهما.",
+    shotEyebrow:"هذا هو التطبيق", shotH:"تفتحينه فيعرف أين أنتِ من رحلتكِ.",
+    shotCap:"لوحتكِ في وضع الدورة. لكل مرحلة لوحتها — الحمل يَعُدّ الأسابيع، وسنّ اليأس يَعُدّ الشهور ولا يُصدر حكمًا.",
+    dTitle:"لوحتكِ", dPill:"الدورة", dEyebrow:"اليوم ١٧ من الدورة",
+    dHead:"الدورة القادمة ١٤–١٨ سبتمبر", dFoot:"ثقة جيدة · بناءً على آخر ٦ دورات",
+    dCta:"سجّلي اليوم", dCardLabel:"متوسط الدورة", dCardValue:"٢٩ يومًا",
+    tabs:["الرئيسية","التتبّع","الإعدادات"],
+    railEyebrow:"حسابٌ واحد",
+    railH:"معظم التطبيقات تغطّي فصلًا واحدًا. هذا يتابع الكتاب كلّه.",
+    railSub:"حين تتغيّر حياتكِ، تُعيد فيميو ترتيب نفسها حولكِ — لا تبدأ بكِ من جديد، ولا تحذف ما مضى.",
+    rail:[["الدورات الأولى","ما هو الطبيعي، بلغةٍ واضحة"],
+          ["الدورة والحالات","تكيّس المبايض، بطانة الرحم المهاجرة، الدورات الغزيرة أو الغائبة"],
+          ["محاولة الحمل","نافذة الخصوبة، ومتى تطلبين المساعدة"],
+          ["الحمل","أسبوعًا بأسبوع، وعلامات الخطر في المقدّمة دائمًا"],
+          ["ما بعد الولادة","التعافي والحالة النفسية — ما تنساه التطبيقات"],
+          ["ما قبل سنّ اليأس وسنّ اليأس","تتبّع الأعراض، بلا عدٍّ تنازلي"]],
+    railFoot:"سجلّكِ سجلٌّ واحد. تغيير المرحلة يُعيد ترتيب ما تَرَينه فوقه — لا شيء يُخفى عنكِ، ويمكنكِ الرجوع في أي وقت.",
+    proofEyebrow:"الصدق أولًا", proofH:"أن نكون مفيدين أهمّ من أن نبدو واثقين.",
+    p1H:"نافذة، لا تاريخٌ واحد",
+    p1P:"دورتكِ القادمة نطاقٌ مع درجة ثقة، لأن هذا ما تسمح به بياناتكِ. كلّما نعمت الحواف قلّ يقيننا — وأنتِ تَرَين ذلك.",
+    p1L:"آخر دورة", p1R:"متوقّعة ١٤–١٨ سبتمبر",
+    p2H:"لا «تأخّرتِ ٤ أيام»",
+    p2P:"الدورات تتغيّر لأسبابٍ عادية كثيرة. إذا مرّت النافذة تقول فيميو ذلك وتتوقّف — ولا تُشغّل عدّادًا في وجهكِ.",
+    p2N:"مرّت نافذتكِ المتوقّعة. تغيّر مواعيد الدورة أمرٌ شائع وغالبًا لا يدعو للقلق.",
+    p3H:"نمطُكِ أنتِ، لا متوسّط الناس",
+    p3P:"كلّ شيء يُقارَن بتاريخكِ أنتِ — حتى حين تكون دورتكِ غير منتظمة، وهو بالضبط ما تعجز عنه التطبيقات الأخرى.",
+    trustEyebrow:"لماذا تثقين بها", trustH:"خمسة أمور يمكنكِ التحقّق منها.",
+    trust:[["كلّ دليل يراجعه طبيب","— باسمه ومؤهّلاته، على الصفحة نفسها."],
+           ["كلّ معلومة لها مصدر","— ‏NICE و‏ACOG ومنظمة الصحة العالمية و‏ESHRE. بروابط، لا بأسماء فقط."],
+           ["بياناتكِ محفوظة في أوروبا","— ولا يقرؤها أحدٌ سواكِ."],
+           ["صدّريها أو احذفيها من داخل التطبيق","— بلا رسائل ولا انتظار."],
+           ["لا تصل بياناتكِ الصحية إلى أي مُعلن","— أبدًا. ليست إعدادًا يُغلق؛ لا توجد قناة أصلًا."]],
+    libEyebrow:"مجانًا وبلا حساب", libH:"ابدئي القراءة الآن.",
+    lib:[["لماذا دورتي غير منتظمة؟","الأدلة · ٣١ مقالًا مراجَعًا طبيًا"],
+         ["تكيّس المبايض وبطانة الرحم المهاجرة","الحالات والمواضيع"],
+         ["موعد الولادة ونافذة الخصوبة","الحاسبات · بلا تسجيل"]],
+    langEyebrow:"مبنيّة لأكثر من لغة", langH:"العربية هنا ليست إضافةً لاحقة.",
+    langSub:"من اليمين إلى اليسار منذ أول سطر برمجي، لا طبقة ترجمة أُلحقت بعد ذلك.",
+    langs:["العربية","English","Français","Español"],
+    closeH:"حسابٌ واحد. رحلتكِ الصحية بالكامل.",
+    foot:"فيميو للتثقيف والتتبّع. لا تُشخّص ولا تعالج، وليست وسيلة لمنع الحمل. تحدّثي دائمًا إلى طبيبكِ بشأن رعايتكِ."
+  }
+};
+
+const STRIP = [20,12,12,70,100,80,45,25,12,12,18,12,30,12,12,22,12,12,40,12,12,12,28,12,12,65,95,72,38,18];
+const strip = () => STRIP.map(h =>
+  `<i style="height:${h}%;opacity:${(0.20 + (h/100) * 0.80).toFixed(2)}"></i>`).join("");
+
+function phone(locale, theme) {
+  const c = C[locale];
+  const t = theme === "dark" ? ' data-theme="dark"' : "";
+  return `<div class="phone" lang="${locale}" dir="${c.dir}"${t}>
+  <header class="hdr"><span class="mark">femio</span><a class="hdr-link" href="#">${c.signIn}</a></header>
+
+  <section class="hero">
+    <h1>${c.h1}</h1><p>${c.sub}</p>
+    <div class="cta-row">
+      <a class="btn btn-primary" href="#">${c.cta}</a>
+      <a class="btn btn-ghost" href="#">${c.cta2}</a>
+    </div>
+    <p class="anti">${c.anti}</p>
+  </section>
+
+  <section class="shot-sec">
+    <p class="eyebrow">${c.shotEyebrow}</p><h2>${c.shotH}</h2>
+    <div class="device">
+      <div class="d-bar"><span class="d-mark">femio</span><span class="d-dot"></span></div>
+      <div class="d-body">
+        <div class="d-title"><b>${c.dTitle}</b><span class="d-pill">${c.dPill}</span></div>
+        <div class="d-hero">
+          <span class="d-eyebrow">${c.dEyebrow}</span>
+          <span class="d-headline">${c.dHead}</span>
+          <span class="d-band"><i></i><b></b></span>
+          <span class="d-foot">${c.dFoot}</span>
+        </div>
+        <div class="d-cta">${c.dCta}</div>
+        <div class="d-card"><span>${c.dCardLabel}</span><b>${c.dCardValue}</b></div>
+      </div>
+      <div class="d-tabs">${c.tabs.map((x,i) =>
+        `<span class="d-tab${i === 0 ? " on" : ""}"><span class="d-glyph"></span>${x}</span>`).join("")}
+      </div>
+    </div>
+    <p class="shot-cap">${c.shotCap}</p>
+  </section>
+
+  <section>
+    <p class="eyebrow">${c.railEyebrow}</p><h2>${c.railH}</h2>
+    <p class="sec-sub">${c.railSub}</p>
+    <ul class="rail">${c.rail.map(([n, d]) =>
+      `<li><span><span class="stage-name">${n}</span><br><span class="stage-note">${d}</span></span></li>`).join("")}
+    </ul>
+    <p class="rail-foot">${c.railFoot}</p>
+  </section>
+
+  <section class="shot-sec">
+    <p class="eyebrow">${c.proofEyebrow}</p><h2>${c.proofH}</h2>
+    <div class="proof-card">
+      <h3>${c.p1H}</h3><p>${c.p1P}</p>
+      <div class="band"><div class="band-fill"></div><div class="band-today"></div></div>
+      <div class="band-legend"><span>${c.p1L}</span><span>${c.p1R}</span></div>
+    </div>
+    <div class="proof-card">
+      <h3>${c.p2H}</h3><p>${c.p2P}</p><div class="nocount">${c.p2N}</div>
+    </div>
+    <div class="proof-card">
+      <h3>${c.p3H}</h3><p>${c.p3P}</p><div class="strip">${strip()}</div>
+    </div>
+  </section>
+
+  <section>
+    <p class="eyebrow">${c.trustEyebrow}</p><h2>${c.trustH}</h2>
+    <ul class="trust">${c.trust.map(([b, s]) =>
+      `<li><span class="tick">✓</span><span><b>${b}</b> <span>${s}</span></span></li>`).join("")}
+    </ul>
+  </section>
+
+  <section class="lib">
+    <p class="eyebrow">${c.libEyebrow}</p><h2>${c.libH}</h2>
+    ${c.lib.map(([t2, d]) =>
+      `<a href="#"><span><span class="t">${t2}</span><span class="d">${d}</span></span><span class="chev">›</span></a>`).join("")}
+  </section>
+
+  <section>
+    <p class="eyebrow">${c.langEyebrow}</p><h2>${c.langH}</h2>
+    <p class="sec-sub">${c.langSub}</p>
+    <div class="lang">${c.langs.map(l => `<b>${l}</b>`).join("")}</div>
+  </section>
+
+  <section class="close"><h2>${c.closeH}</h2><a class="btn" href="#">${c.cta}</a></section>
+  <footer class="foot">${c.foot}</footer>
+</div>`;
+}
+
+const CAPS = [
+  ["en", "light", "EN · light", "390×844"],
+  ["en", "dark",  "EN · dark",  "same tokens, remapped"],
+  ["ar", "light", "AR · light · RTL", "mirrored by logical properties"],
+  ["ar", "dark",  "AR · dark · RTL",  "the hardest state, shown"],
+];
+document.getElementById("gallery").innerHTML = CAPS.map(([l, th, a, b]) =>
+  `<div class="stage">${phone(l, th)}<div class="stage-cap">${a}<span>${b}</span></div></div>`).join("");
+</script>
 </body>
 </html>
