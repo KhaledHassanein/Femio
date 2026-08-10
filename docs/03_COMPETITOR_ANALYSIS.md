@@ -68,7 +68,7 @@ Store listings, and aggregated review reporting. **R1.1b — the owner's hour of
 recordings — is still owed**, and the in-app craft questions (one-handed logging, speed on a
 real connection, haptics, how a notification reads on a lock screen) are unanswerable without
 it. Claims here are quoted or attributed; where a source only supported a generalisation, it
-says so rather than inventing detail. Ovia and Stardust are **not yet done** — see §H.5.
+says so rather than inventing detail. Stardust is **not yet done** — see §H.6.
 
 ## H.1 What each one leads with, and what carries it
 
@@ -88,7 +88,8 @@ says so rather than inventing detail. Ovia and Stardust are **not yet done** —
   name and post-nominals on the page. Femio already has the reviewer, the credentials field and
   the `people` collection — it is blocked only on P1.9.7, an owner task worth ten minutes.
 - **Clue proves a product screenshot outperforms a mood image** in this category. The R1.3
-  reference currently has none. **That is its biggest weakness** and the first thing to add.
+  reference had none, which was its biggest weakness — **closed 2026-08-11 by R1.3a**, which
+  put the real cycle dashboard under the hero, drawn from the same tokens as the app.
 - **Refuse Flo's answer to privacy.** Their reply to a documented FTC action is a *certification
   won in 2025*. Femio's is structural — there is no channel from health data to an advertiser,
   by construction (ADR-017/025), owner-only RLS proven by an automated audit, and export/delete
@@ -126,26 +127,59 @@ not built it. Two consequences:
    leaders are being punished for in their own reviews. Feed this into P2.10 before any paywall
    is designed.
 
-## H.4 Where Femio genuinely stands apart
+## H.4 Ovia — the only lifecycle attempt, and why it does not close the gap
 
-Not one of the three markets **continuity**. Flo sells scale, Clue sells science, Balance sells
-a clinician. Ovia is the only one attempting a lifecycle and it splits across three apps. So
-the life-stage rail at the top of the R1.3 homepage reference is not a stylistic choice — it is
-**the only claim in this category that a competitor cannot answer by copying a screen.**
+Ovia is the competitor whose *concept* is closest to Femio's, so it deserves its own reading.
+Two structural facts decide it, and neither is a design problem they can fix with a redesign.
 
-## H.5 What is still owed
+**It is three apps, not one account.** Ovia ships Fertility, Pregnancy and Parenting as separate
+products. A woman moving from trying-to-conceive into pregnancy changes app. Whatever
+continuity exists is a hand-off between installs, not a record that re-layers — which is
+precisely the thing `docs/09` invariant 2 (constant EMR, additive layers) was written to
+guarantee.
+
+**Its business model routes health data toward employers.** The apps are free, and the premium
+tier unlocks through an employer or health-plan sponsorship. Reporting from 2019 onward
+(Washington Post, and Mozilla's *Privacy Not Included* entries for both Ovia Fertility and Ovia
+Pregnancy) describes employers who buy the benefit being able to see **aggregated, de-identified**
+data about their workforce — how many faced high-risk pregnancies, the top medical questions
+asked, how soon new mothers planned to return. Users of the sponsored version opt in.
+
+Whatever one thinks of the aggregation, note what it means competitively:
+
+> **The only company attempting Femio's product is funded by pointing women's reproductive data
+> at their employers.** Femio's `docs/09` invariant 6 already says "no employer/insurer
+> visibility" — written in July 2026, before this was looked up. It now has a named competitor
+> standing against it, which turns a principle into a positioning line.
+
+## H.5 Where Femio genuinely stands apart
+
+Not one of them markets **continuity**. Flo sells scale, Clue sells science, Balance sells a
+clinician, and Ovia — the only lifecycle attempt — splits it across three apps and monetises
+through the employer. So the life-stage rail at the top of the R1.3 homepage reference is not a
+stylistic choice: it is **the only claim in this category that a competitor cannot answer by
+copying a screen**, because answering it would require Flo to build five more products and Ovia
+to change how it makes money.
+
+## H.6 What is still owed
 
 - **R1.1b (owner, ~1 hour):** three screen recordings per app — sign up · log a period · open
   cold on day 3. Every in-app craft question above is blocked on it.
-- **Ovia and Stardust are not covered here.** Ovia matters most (the only lifecycle attempt);
-  its App Store URL 404'd on this pass. Stardust matters for one narrow question — why a
-  shallow product feels premium — which is the purest craft question in the set.
+- **Stardust is not covered.** Its site returned 403 and its App Store URL 404'd on this pass.
+  It matters for one narrow question — *why does a shallow product feel premium?* — which is the
+  purest craft question in the set, and the one Femio most needs answered. Retry from the Play
+  Store listing or fold it into R1.1b.
+- **Ovia is covered structurally (§H.4) but not visually.** Its store listing 404'd, so how the
+  three apps actually look and hand off is unread.
 - **Localized store screenshots, including Arabic**, were not pulled. Arabic-first is a stated
   differentiator and how the leaders handle RTL is directly relevant.
 - **No motion or transition evidence.** That needs video, which lands with R1.1b.
 
 ## Sources
 - App Store — Flo (listing text, ratings, IAP tiers), retrieved 2026-08-11
+- Mozilla Foundation, *Privacy Not Included* — Ovia Fertility and Ovia Pregnancy entries;
+  Washington Post (2019) reporting on employer-visible aggregate data, retrieved 2026-08-11
+- oviahealth.com/apps and /employer-family-benefits (three-app structure, sponsorship model)
 - helloclue.com homepage, retrieved 2026-08-11
 - balance-app.com, retrieved 2026-08-11
 - Aggregated review reporting on Flo and Clue, retrieved 2026-08-11 (see H.2 — reported, not
