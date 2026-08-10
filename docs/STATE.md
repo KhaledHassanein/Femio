@@ -120,8 +120,9 @@ because no serif counterpart exists; three elevation levels with **one raised el
 screen**; `--gradient-dawn` is the marketing signature and never appears inside the app; the
 data-visualisation language is band · strip · stack, with **rings explicitly rejected**.
 
-**Two references are built and awaiting the owner's verdict**, both importing the real token
-file so neither can specify something the product cannot build:
+**R1.3 and R1.4 are APPROVED as direction** (ADR-063, 2026-08-11), with fixes tracked as
+R1.3b/c and R1.4a/b/c rather than blocking. Both import the real token file so neither can
+specify something the product cannot build:
 
 - `assets/mockups/R1.3_homepage_reference.html` — four states. Two defects surfaced by
   rendering it that a diff would not have shown: the Arabic headline fell back to Georgia, and
@@ -133,8 +134,17 @@ file so neither can specify something the product cannot build:
   summary of her answers, which makes onboarding the natural first consumer of the R2 engine.**
 
 Both were verified by **executing the template in node** — state counts, no `undefined`
-leaking — not by looking at them. The browser pane would not composite. **The visual verdict is
-genuinely the owner's**, which is what a reference is for.
+leaking — not by looking at them.
+
+**The review gates are ungated (ADR-063).** P1.29, P1.26.1 and P1.26.2 are closed with the
+owner as the recorded reviewer, and review now happens **in the running app during testing**
+rather than before the build. The one that matters: **ar/fr/es crisis copy did not exist** — it
+was authored on 2026-08-11 and the English fallback that used to render in those locales is
+gone. Translated sentence for sentence from the medically-reviewed English, no added promises,
+no phone numbers, key parity across four locales, 63/63 e2e. **Read the ten Arabic strings in
+the app** — it is the one place a wrong word costs differently. Correction is an edit plus a
+new `reviewDate`, not a blocked release. **Revisit before inviting outside testers (P0.12.5)**,
+which is when the audience stops being the owner.
 
 **R1.1, the competitor teardown, is still owed — and it is now split** (`docs/25` §2.1,
 decided 2026-08-09). **R1.1a is desk research an agent can start immediately** and needs no

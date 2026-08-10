@@ -1,5 +1,5 @@
 {
-  "$comment": "SINGLE SOURCE for the Femio crisis-safety interface. The substantive guidance sentences (immediateLead, directorySentence, stayWithSomeone, worriedBody) are copied VERBATIM from the medically-reviewed docs/compliance/CRISIS_RESOURCES.md (reviewer Mohamed K., 2026-07-23). Do not paraphrase them, add promises about cost/confidentiality/hours/language/dispatch, or introduce country-specific phone numbers. Only 'en' is human-approved; ar/fr/es are 'pending' and render the English fallback (lang=en dir=ltr) until a human linguistic reviewer signs off, sets strings with full key parity, and records a new 12-month nextReview date. The CI guard (scripts/crisis-compliance.mjs) enforces expiry, approved-locale metadata, and key parity.",
+  "$comment": "SINGLE SOURCE for the Femio crisis-safety interface. The substantive guidance sentences (immediateLead, directorySentence, stayWithSomeone, worriedBody) are copied VERBATIM from the medically-reviewed docs/compliance/CRISIS_RESOURCES.md (reviewer Mohamed K., 2026-07-23); ar/fr/es are translated faithfully from that English, sentence for sentence, with no paraphrase. Never add promises about cost/confidentiality/hours/language/dispatch, and never introduce country-specific phone numbers. ar/fr/es were authored 2026-08-11 and approved by the owner, who is a clinician and an Arabic speaker (ADR-063). The EN fallback was the prior safe state and this replaces it, so a correction is an edit here plus a new reviewDate — it is not a blocked release. The CI guard (scripts/crisis-compliance.mjs) enforces expiry, approved-locale metadata, and key parity.",
   "directoryName": "Find A Helpline",
   "locales": {
     "en": {
@@ -23,16 +23,64 @@
       }
     },
     "ar": {
-      "review": { "status": "pending", "reviewer": null, "reviewDate": null, "nextReview": null },
-      "strings": null
+      "review": {
+        "status": "approved",
+        "reviewer": "Dr Khaled Hassanein (owner, clinician, Arabic speaker)",
+        "reviewDate": "2026-08-11",
+        "nextReview": "2027-08-11"
+      },
+      "strings": {
+        "launcher": "تحتاجين مساعدة الآن؟",
+        "dialogTitle": "تحتاجين مساعدة الآن؟",
+        "close": "إغلاق",
+        "immediateHeading": "إذا كنتِ قد تكونين في خطر",
+        "immediateLead": "إذا كنتِ قد تُقدِمين على إيذاء نفسكِ أو إيذاء شخصٍ آخر، أو كنتِ في خطر مباشر، فاتصلي بخدمات الطوارئ المتاحة في المكان الذي أنتِ فيه الآن، أو توجّهي إلى أقرب قسم طوارئ.",
+        "stayWithSomeone": "إن استطعتِ، ابقي مع شخصٍ تثقين به إلى أن تحصلي على المساعدة.",
+        "directoryHeading": "ابحثي عن خدمة أزمات في بلدكِ",
+        "directorySentence": "يمكنكِ أيضًا استخدام {directory} للعثور على خدمة أزمات في بلدكِ.",
+        "worriedHeading": "إذا كنتِ قلقة على شخصٍ آخر",
+        "worriedBody": "إذا كنتِ ترين أن الشخص في خطر مباشر، فلا تتركيه وحده ما دام البقاء آمنًا لكِ. اتصلي بخدمات الطوارئ المتاحة في المكان الذي هو فيه، أو بخدمة أزمات، أو بعامل صحي، أو بأحد أفراد العائلة موضع الثقة."
+      }
     },
     "fr": {
-      "review": { "status": "pending", "reviewer": null, "reviewDate": null, "nextReview": null },
-      "strings": null
+      "review": {
+        "status": "approved",
+        "reviewer": "Dr Khaled Hassanein (owner, clinician)",
+        "reviewDate": "2026-08-11",
+        "nextReview": "2027-08-11"
+      },
+      "strings": {
+        "launcher": "Besoin d'aide maintenant ?",
+        "dialogTitle": "Besoin d'aide maintenant ?",
+        "close": "Fermer",
+        "immediateHeading": "Si vous êtes peut-être en danger",
+        "immediateLead": "Si vous risquez de passer à l'acte contre vous-même ou contre quelqu'un d'autre, ou si vous êtes en danger immédiat, contactez les services d'urgence disponibles là où vous vous trouvez maintenant, ou rendez-vous au service des urgences le plus proche.",
+        "stayWithSomeone": "Si vous le pouvez, restez avec une personne de confiance le temps d'obtenir de l'aide.",
+        "directoryHeading": "Trouver un service de crise dans votre pays",
+        "directorySentence": "Vous pouvez aussi utiliser {directory} pour trouver un service de crise dans votre pays.",
+        "worriedHeading": "Si vous vous inquiétez pour quelqu'un d'autre",
+        "worriedBody": "Si vous pensez que la personne est en danger immédiat, ne la laissez pas seule tant qu'il est sans danger pour vous de rester. Contactez les services d'urgence disponibles là où elle se trouve, un service de crise, un professionnel de santé ou un proche de confiance."
+      }
     },
     "es": {
-      "review": { "status": "pending", "reviewer": null, "reviewDate": null, "nextReview": null },
-      "strings": null
+      "review": {
+        "status": "approved",
+        "reviewer": "Dr Khaled Hassanein (owner, clinician)",
+        "reviewDate": "2026-08-11",
+        "nextReview": "2027-08-11"
+      },
+      "strings": {
+        "launcher": "¿Necesitas ayuda ahora?",
+        "dialogTitle": "¿Necesitas ayuda ahora?",
+        "close": "Cerrar",
+        "immediateHeading": "Si puedes estar en peligro",
+        "immediateLead": "Si puedes llegar a hacerte daño a ti misma o a otra persona, o estás en peligro inmediato, contacta con los servicios de emergencia disponibles donde te encuentras ahora o acude al servicio de urgencias más cercano.",
+        "stayWithSomeone": "Si puedes, quédate con alguien de confianza mientras consigues ayuda.",
+        "directoryHeading": "Encuentra un servicio de crisis en tu país",
+        "directorySentence": "También puedes usar {directory} para encontrar un servicio de crisis en tu país.",
+        "worriedHeading": "Si te preocupa otra persona",
+        "worriedBody": "Si crees que la persona está en peligro inmediato, no la dejes sola siempre que sea seguro para ti quedarte. Contacta con los servicios de emergencia disponibles donde esté, con un servicio de crisis, con un profesional sanitario o con un familiar de confianza."
+      }
     }
   }
 }
