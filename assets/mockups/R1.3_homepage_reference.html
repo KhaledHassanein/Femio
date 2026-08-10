@@ -203,10 +203,6 @@ h2{font-family:var(--font-display)!important;font-weight:var(--fw-semibold);
 .lib .d{font-size:var(--fs-2xs);color:var(--text-subtle);margin-top:2px}
 .chev{color:var(--text-subtle);font-size:var(--fs-sm)}
 .phone[dir="rtl"] .chev{transform:scaleX(-1)}
-.lang{display:flex;gap:var(--space-2);flex-wrap:wrap;margin-top:var(--space-4)}
-.lang b{font-size:var(--fs-2xs);font-weight:var(--fw-medium);
-  padding:var(--space-2) var(--space-4);border-radius:var(--radius-pill);
-  background:var(--primary-soft);color:var(--primary-soft-text)}
 .close{text-align:center;padding-bottom:var(--space-16)}
 .close .btn{background:var(--accent-solid);color:var(--on-accent-solid);
   box-shadow:var(--shadow-primary-glow);margin-top:var(--space-5)}
@@ -281,6 +277,24 @@ h2{font-family:var(--font-display)!important;font-weight:var(--fw-semibold);
       the marketing signature — homepage, app icon, store assets — and never appears inside the
       signed-in app, which stays calm.</p>
 
+    <h3>8 · Applied after review (R1.3b, 2026-08-11)</h3>
+    <p><b>The clinician-review trust line is gone.</b> It read "Every guide is reviewed by a
+      clinician — named, with credentials, on the page", and that is <em>not true today</em>:
+      bylines are <code>PENDING</code> on all 30 imported drafts (P1.9.8) and the reviewer bio is
+      blocked on P1.9.7. On a YMYL homepage that is a false medical-review claim, which is
+      precisely what <code>claims-lint</code> exists to catch. It is replaced by what is
+      verifiable right now — cited, dated sources — and can be restored the moment P1.9.7 lands.</p>
+    <p><b>The hero now says what the app is.</b> "Your health has one story" is good prose and
+      poor comprehension; someone arriving from a search for "period tracker" needs the noun.
+      This is also the SEO landing page.</p>
+    <p><b>The language section was folded into trust</b>, taking the page from eight sections to
+      seven. <b>I also reversed my own recommendation to cut the 30-day strip card</b> — I had
+      called it a weaker restatement of the band, but it is not: the band is about
+      <em>uncertainty</em> and the strip is about <em>your pattern versus a population average</em>,
+      which is exactly the opening <code>docs/03</code> §H.2 found (predictions collapsing for
+      PCOS and perimenopause). Cutting it would have removed the strongest competitive point on
+      the page.</p>
+
     <h3>Known gaps, stated rather than hidden</h3>
     <ul>
       <li><b>Two defects were found by rendering this, not by writing it.</b> (a) The Arabic
@@ -310,7 +324,7 @@ const C = {
   en: {
     dir:"ltr", signIn:"Sign in",
     h1:"Your health has one story. Femio keeps all of it.",
-    sub:"From your first period to your last — cycles, conditions, trying to conceive, pregnancy, after birth, menopause. One account that changes with you.",
+    sub:"A period, cycle and pregnancy tracker that does not stop there — it carries on through conditions, trying to conceive, after birth and menopause, with referenced guides for every stage.",
     cta:"Start free — no email needed", cta2:"Read the guides first",
     anti:"Femio does not diagnose, and it never sells your health data. Both of those are things you can check, not things we ask you to believe.",
     shotEyebrow:"This is the app", shotH:"Open it and it already knows where you are.",
@@ -339,25 +353,22 @@ const C = {
     p3H:"Your own pattern, not an average",
     p3P:"Everything is compared against your history — including when your cycles are irregular, which is exactly where other apps give up.",
     trustEyebrow:"Why trust it", trustH:"Five things you can verify.",
-    trust:[["Every guide is reviewed by a clinician","— named, with credentials, on the page."],
-           ["Every claim is cited","— NICE, ACOG, WHO, ESHRE. Linked, not name-dropped."],
+    trust:[["Every claim is cited, and dated","— NICE, ACOG, WHO, ESHRE, linked, with the date the page was last reviewed."],
            ["Your data lives in the EU","— and only you can read it."],
            ["Export or delete it, in the app","— no email, no waiting."],
-           ["No health data reaches an advertiser","— ever. It is not a setting; there is no channel."]],
+           ["No health data reaches an advertiser","— ever. It is not a setting; there is no channel."],
+           ["English, Arabic, French and Spanish","— Arabic right-to-left from the first line of code, not a layer added later."]],
     libEyebrow:"Free, no account", libH:"Start reading now.",
     lib:[["Why are my periods irregular?","Guides · 31 clinician-reviewed articles"],
          ["PCOS, endometriosis, PMDD","Conditions & topics"],
          ["Due date & fertile window","Calculators · no login"]],
-    langEyebrow:"Built for more than English", langH:"Arabic is not an afterthought here.",
-    langSub:"Right-to-left from the first line of code, not a translation layer bolted on later.",
-    langs:["English","العربية","Français","Español"],
     closeH:"One account. Your whole health life.",
     foot:"Femio is for education and tracking. It does not diagnose or treat, and it is not a contraceptive. Always speak to your clinician about your care."
   },
   ar: {
     dir:"rtl", signIn:"تسجيل الدخول",
     h1:"لصحّتكِ حكايةٌ واحدة، وفيميو تحفظها كاملةً.",
-    sub:"من أول دورة إلى آخرها — الدورات والحالات ومحاولة الحمل والحمل وما بعد الولادة وسنّ اليأس. حسابٌ واحد يتغيّر معكِ.",
+    sub:"تطبيقٌ لتتبّع الدورة والحمل لا يتوقّف عند ذلك — يستمرّ معكِ عبر الحالات ومحاولة الحمل وما بعد الولادة وسنّ اليأس، مع أدلّة موثّقة لكل مرحلة.",
     cta:"ابدئي مجانًا — بلا بريد إلكتروني", cta2:"اقرئي الأدلة أولًا",
     anti:"‏Femio لا تُشخّص، ولا تبيع بياناتكِ الصحية أبدًا. والأمران يمكنكِ التحقّق منهما، لا مجرّد تصديقهما.",
     shotEyebrow:"هذا هو التطبيق", shotH:"تفتحينه فيعرف أين أنتِ من رحلتكِ.",
@@ -386,18 +397,15 @@ const C = {
     p3H:"نمطُكِ أنتِ، لا متوسّط الناس",
     p3P:"كلّ شيء يُقارَن بتاريخكِ أنتِ — حتى حين تكون دورتكِ غير منتظمة، وهو بالضبط ما تعجز عنه التطبيقات الأخرى.",
     trustEyebrow:"لماذا تثقين بها", trustH:"خمسة أمور يمكنكِ التحقّق منها.",
-    trust:[["كلّ دليل يراجعه طبيب","— باسمه ومؤهّلاته، على الصفحة نفسها."],
-           ["كلّ معلومة لها مصدر","— ‏NICE و‏ACOG ومنظمة الصحة العالمية و‏ESHRE. بروابط، لا بأسماء فقط."],
+    trust:[["كلّ معلومة لها مصدر وتاريخ","— ‏NICE و‏ACOG ومنظمة الصحة العالمية و‏ESHRE، بروابط، مع تاريخ آخر مراجعة للصفحة."],
            ["بياناتكِ محفوظة في أوروبا","— ولا يقرؤها أحدٌ سواكِ."],
            ["صدّريها أو احذفيها من داخل التطبيق","— بلا رسائل ولا انتظار."],
-           ["لا تصل بياناتكِ الصحية إلى أي مُعلن","— أبدًا. ليست إعدادًا يُغلق؛ لا توجد قناة أصلًا."]],
+           ["لا تصل بياناتكِ الصحية إلى أي مُعلن","— أبدًا. ليست إعدادًا يُغلق؛ لا توجد قناة أصلًا."],
+           ["بالعربية والإنجليزية والفرنسية والإسبانية","— من اليمين إلى اليسار منذ أول سطر برمجي، لا طبقةً أُلحقت لاحقًا."]],
     libEyebrow:"مجانًا وبلا حساب", libH:"ابدئي القراءة الآن.",
     lib:[["لماذا دورتي غير منتظمة؟","الأدلة · ٣١ مقالًا مراجَعًا طبيًا"],
          ["تكيّس المبايض وبطانة الرحم المهاجرة","الحالات والمواضيع"],
          ["موعد الولادة ونافذة الخصوبة","الحاسبات · بلا تسجيل"]],
-    langEyebrow:"مبنيّة لأكثر من لغة", langH:"العربية هنا ليست إضافةً لاحقة.",
-    langSub:"من اليمين إلى اليسار منذ أول سطر برمجي، لا طبقة ترجمة أُلحقت بعد ذلك.",
-    langs:["العربية","English","Français","Español"],
     closeH:"حسابٌ واحد. رحلتكِ الصحية بالكامل.",
     foot:"فيميو للتثقيف والتتبّع. لا تُشخّص ولا تعالج، وليست وسيلة لمنع الحمل. تحدّثي دائمًا إلى طبيبكِ بشأن رعايتكِ."
   }
@@ -479,12 +487,6 @@ function phone(locale, theme) {
     <p class="eyebrow">${c.libEyebrow}</p><h2>${c.libH}</h2>
     ${c.lib.map(([t2, d]) =>
       `<a href="#"><span><span class="t">${t2}</span><span class="d">${d}</span></span><span class="chev">›</span></a>`).join("")}
-  </section>
-
-  <section>
-    <p class="eyebrow">${c.langEyebrow}</p><h2>${c.langH}</h2>
-    <p class="sec-sub">${c.langSub}</p>
-    <div class="lang">${c.langs.map(l => `<b>${l}</b>`).join("")}</div>
   </section>
 
   <section class="close"><h2>${c.closeH}</h2><a class="btn" href="#">${c.cta}</a></section>
