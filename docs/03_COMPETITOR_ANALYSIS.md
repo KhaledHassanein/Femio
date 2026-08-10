@@ -55,7 +55,101 @@ Healthline, WebMD, Verywell Health, Mayo Clinic, Cleveland Clinic, Flo's blog, C
 5. **Free tier generosity + honest predictions** directly counter the top review complaints of the two market leaders.
 6. **Arabic (RTL) + FR + ES from day one** reaches markets the leaders localize poorly.
 
+---
+
+# H. Craft teardown (R1.1a — desk pass, 2026-08-11)
+
+Sections A–G compare **features**. This section compares **craft**, because the owner's verdict
+on Femio was *"the design is from first look AI generated and the user experience sucks"* and
+"make it look better" is not a brief (`docs/25` §2).
+
+**Status: desk research.** Everything below came from the live marketing surfaces, the App
+Store listings, and aggregated review reporting. **R1.1b — the owner's hour of screen
+recordings — is still owed**, and the in-app craft questions (one-handed logging, speed on a
+real connection, haptics, how a notification reads on a lock screen) are unanswerable without
+it. Claims here are quoted or attributed; where a source only supported a generalisation, it
+says so rather than inventing detail. Ovia and Stardust are **not yet done** — see §H.5.
+
+## H.1 What each one leads with, and what carries it
+
+| | Hero claim (quoted) | What carries it | Trust mechanism |
+|---|---|---|---|
+| **Flo** | *"a science-backed period tracker… used by over 460 million\* women worldwide"*; *"created with 100+ doctors and medical experts"* | Scale. Type-led, no product screenshot in the store description's first move | **A certification.** Paragraph two of the App Store description is about privacy, and its answer is an award: *"recognized as ISO 27001/ISMS Team of the Year at the 2025 PICCASO Privacy and Security Awards"* |
+| **Clue** | *"The #1 women-led period and cycle tracker app"* · *"Science-based, privacy-first. For everyone with a cycle."* | **Product screenshot** in a phone mockup — the tool, not a lifestyle image | Institutional partners named on the homepage (Stanford, Gates Foundation, Oxford), press logos, *"never sold your data"*, EU privacy law, 100M+ downloads, 4.8★ |
+| **Balance** | *"Understand your hormones. Feel more prepared"* | Product screenshot plus abstract purple ring graphics and dots. **No photography** | **A named clinician with credentials on the page** — Dr Louise Newson, BSc MBChB MRCP FRCGP DHealth — plus ORCHA certification and Apple Editors' Choice |
+
+**Three things Femio should take from this and one it should refuse.**
+
+- **Nobody in this category uses stock portraiture in their hero.** Clue and Balance both lead
+  with a product screenshot; Balance uses abstract geometry. This independently arrives at the
+  R1.2 decision (`docs/25` §5a) — botanical line-work over photography — from the market side
+  rather than from principle.
+- **Balance's move is the strongest and the cheapest to copy honestly:** put the clinician's
+  name and post-nominals on the page. Femio already has the reviewer, the credentials field and
+  the `people` collection — it is blocked only on P1.9.7, an owner task worth ten minutes.
+- **Clue proves a product screenshot outperforms a mood image** in this category. The R1.3
+  reference currently has none. **That is its biggest weakness** and the first thing to add.
+- **Refuse Flo's answer to privacy.** Their reply to a documented FTC action is a *certification
+  won in 2025*. Femio's is structural — there is no channel from health data to an advertiser,
+  by construction (ADR-017/025), owner-only RLS proven by an automated audit, and export/delete
+  in the app. **A structural claim beats a badge, and Femio can make one Flo cannot.** That is
+  the strongest sentence this product owns and it belongs in the hero — it is already in the
+  R1.3 reference as the anti-claim line.
+
+## H.2 The whitespace map — what users complain about
+
+This is where Femio's openings actually are, and the striking thing is how precisely the top
+complaints map onto rules Femio already committed to before seeing them.
+
+| Complaint (reported of the market leaders) | Femio's existing answer |
+|---|---|
+| Predictions degrade badly for **PCOS and perimenopause** — repeated wrong forecasts after months of logging | **Product rule 3.** `predictNextPeriod` widens the window and suppresses the "late" counter in irregular mode; the menopause panel reports **variability**, not an average |
+| Flo is reported to apply a **day-14 ovulation assumption** regardless of logged data unless an OPK result is entered | Femio's fertile window derives from *her* average cycle, and is framed as conception awareness — never a certainty and never contraception |
+| **Pattern analysis sits behind Premium** — described in reviews as *"the one feature I would actually pay for, gated"* | **Unbuilt (P2.5/R4) and therefore still a free decision.** See H.3 |
+| Features that were **free are now premium**; long-term users describe feeling *"bait and switched"*; pregnancy content moved behind the paywall | **Product rule 2 — personalize, never restrict.** Whatever the pricing becomes, the "free forever" list must be published and honoured (P2.10) |
+| **Subscription prompts after nearly every action** | No monetisation exists yet, so this is a discipline to keep rather than a gap to close |
+
+## H.3 The one strategic finding
+
+*"The one feature I would actually pay for, gated"* — said about **pattern analysis** — is the
+most useful sentence in this entire teardown.
+
+It says the willingness-to-pay in this category attaches to **pattern intelligence**, not to
+tracking, and that the leaders have already discovered this and put it behind the paywall.
+Femio's roadmap calls the pattern engine "the stated differentiator" (`docs/23` §3.2) and has
+not built it. Two consequences:
+
+1. **R4 is worth more than its position in the queue suggests.** It is both the differentiator
+   *and* the revenue mechanism, evidenced rather than assumed.
+2. **The pricing decision has to be made deliberately, not by drift.** Charging for patterns is
+   defensible; discovering later that patterns were promised free is the mistake the market
+   leaders are being punished for in their own reviews. Feed this into P2.10 before any paywall
+   is designed.
+
+## H.4 Where Femio genuinely stands apart
+
+Not one of the three markets **continuity**. Flo sells scale, Clue sells science, Balance sells
+a clinician. Ovia is the only one attempting a lifecycle and it splits across three apps. So
+the life-stage rail at the top of the R1.3 homepage reference is not a stylistic choice — it is
+**the only claim in this category that a competitor cannot answer by copying a screen.**
+
+## H.5 What is still owed
+
+- **R1.1b (owner, ~1 hour):** three screen recordings per app — sign up · log a period · open
+  cold on day 3. Every in-app craft question above is blocked on it.
+- **Ovia and Stardust are not covered here.** Ovia matters most (the only lifecycle attempt);
+  its App Store URL 404'd on this pass. Stardust matters for one narrow question — why a
+  shallow product feels premium — which is the purest craft question in the set.
+- **Localized store screenshots, including Arabic**, were not pulled. Arabic-first is a stated
+  differentiator and how the leaders handle RTL is directly relevant.
+- **No motion or transition evidence.** That needs video, which lands with R1.1b.
+
 ## Sources
+- App Store — Flo (listing text, ratings, IAP tiers), retrieved 2026-08-11
+- helloclue.com homepage, retrieved 2026-08-11
+- balance-app.com, retrieved 2026-08-11
+- Aggregated review reporting on Flo and Clue, retrieved 2026-08-11 (see H.2 — reported, not
+  first-party; treat as directional until R1.1b)
 - https://unstar.app/blog/flo-clue-stardust-apple-health-period-tracking-apps-ranked-2026
 - https://www.go-go-gaia.com/blog/how-to-choose-period-tracker-app.html
 - https://cyclesynced.org/best-period-tracker-app-2025-11-apps-compared-tested-reviewed/

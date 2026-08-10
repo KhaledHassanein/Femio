@@ -137,11 +137,17 @@ is rejected** and should not be proposed again; the reasoning is in `docs/25` §
 
 Everything in R1.2 was decided without R1.1 and may be revised by it — expected, not a failure.
 
-## First action for the next session
+**R1.1a is in progress** — `docs/03` §H carries the craft teardown for Flo, Clue and Balance
+(2026-08-11). Three things it established: nobody in the category uses stock portraiture, which
+confirms R1.2's illustration call from the market side; Balance puts its clinician's
+post-nominals on the page, which Femio could copy in ten minutes if P1.9.7 were unblocked; and
+Flo answers a documented FTC action with a **certification**, where Femio can answer
+structurally — no channel exists — which is the strongest sentence this product owns. **Key
+finding:** pattern analysis is *"the one feature I would actually pay for, gated"*, so R4 is
+both the differentiator and the revenue mechanism. Remaining: Ovia, Stardust, Arabic store
+screenshots.
 
-**Start R1.1a.** It is unblocked, needs nothing from the owner, and it is what turns R1.2 from
-defensible taste into a target. Write it into `docs/03` as a craft section, flagged as desk
-research pending R1.1b.
+## First action for the next session
 
 **Then, on the owner's verdict on R1.3:**
 
