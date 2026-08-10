@@ -166,6 +166,26 @@ finding:** pattern analysis is *"the one feature I would actually pay for, gated
 both the differentiator and the revenue mechanism. Remaining: Ovia, Stardust, Arabic store
 screenshots.
 
+## Next unit of work: R1.3c — implement the homepage
+
+Everything it needs is decided; this is execution, not design.
+
+- **Source of truth:** `assets/mockups/R1.3_homepage_reference.html`, EN light phone. Seven
+  sections in order: hero (with the anti-claim) → product shot → life-stage rail → three proof
+  cards → five trust facts → library → close.
+- **Target:** `apps/web/src/app/[locale]/(public)/page.tsx`. **Keep it server-rendered** — it is
+  the SEO landing page and is not on the tracker path.
+- **Copy:** the reference's `C.en` / `C.ar` objects are the draft strings. FR and ES still need
+  authoring. Insert into `messages/*.json` **as text** — never re-serialise with `json.dumps`,
+  and verify each file still parses after every edit.
+- **Delete while there:** the stale `home.title` / `home.body` placeholders ("Scaffold online.")
+  sitting in all four catalogs.
+- **Do not restore** the "reviewed by a clinician, named, with credentials" trust line until
+  P1.9.7 and P1.9.8 land — it is not true yet, and `claims-lint` should catch it if it returns.
+- **Gate:** `claims-lint` on the new EN copy, `i18n-client-lint`, `i18n-untranslated-lint`, axe
+  on `/en` and `/ar`, and the page-weight budget — the homepage has grown and
+  `page-weight.spec.ts` has a ceiling on it.
+
 ## First action for the next session
 
 **Then, on the owner's verdict on R1.3:**
