@@ -181,6 +181,30 @@ renders English as its read-only master column. Translations overlay exactly as 
 **Do not restore** the "reviewed by a clinician, named, with credentials" trust line until
 P1.9.7 and P1.9.8 land. It is not true yet.
 
+**Verified on production 2026-08-11** — `/en` and `/ar` both serve the new page, the Arabic
+crisis copy renders, and `Scaffold online` is gone. Still owed: a human looking at it at 390px
+in light and dark. Curl proves the copy, not the craft.
+
+## R2 has started — the Track D registry exists (R2.1, 2026-08-11)
+
+`apps/web/src/lib/experience/` holds the contract (`types.ts`) and the first registry
+(`registry/track-d.ts`). **Data only — nothing consumes it yet**, which is the point: R2.2
+builds `buildExperienceConfig` on it and R2.3 renders the pregnancy dashboard from the result.
+
+**The finding that makes the engine tractable:** reading D1, D2, D3, D4 and D7 end to end, the
+specs do not describe 73 configurations. They describe **one spine plus layers**. D1 is the
+spine and gestational age computes everything. D3, D4 and D7 each state that the D1 experience
+stays "completely intact and foregrounded" and their own tools are *added* — so they extend D1
+and contribute strips. D2 is an **emotional** layer, not a clinical one: it stacks on any D
+persona, the clinical layer wins the hero, and the anxiety-aware tone plus loss-suppression stay
+armed on top. That composition is why the remaining personas are additions to a table rather
+than branches in a screen.
+
+**Next: R2.2** — `buildExperienceConfig(resolution, phase, registry) → ExperienceConfig`, a pure
+tested function, still in the web app, still no behaviour change. Then **R2.3**, whose
+acceptance test is blunt: D3 and D4 must visibly differ and D7 must show a thyroid strip,
+**with no new `if` statement**.
+
 ## First action for the next session
 
 **Then, on the owner's verdict on R1.3:**
