@@ -166,25 +166,20 @@ finding:** pattern analysis is *"the one feature I would actually pay for, gated
 both the differentiator and the revenue mechanism. Remaining: Ovia, Stardust, Arabic store
 screenshots.
 
-## Next unit of work: R1.3c — implement the homepage
+## The homepage is rebuilt (R1.3c, 2026-08-11)
 
-Everything it needs is decided; this is execution, not design.
+`apps/web/src/app/[locale]/(public)/page.tsx` is now the seven-section page from the reference,
+server-rendered, in four locales. **Not yet verified on a deployed site** — see R1.3d.
 
-- **Source of truth:** `assets/mockups/R1.3_homepage_reference.html`, EN light phone. Seven
-  sections in order: hero (with the anti-claim) → product shot → life-stage rail → three proof
-  cards → five trust facts → library → close.
-- **Target:** `apps/web/src/app/[locale]/(public)/page.tsx`. **Keep it server-rendered** — it is
-  the SEO landing page and is not on the tracker path.
-- **Copy:** the reference's `C.en` / `C.ar` objects are the draft strings. FR and ES still need
-  authoring. Insert into `messages/*.json` **as text** — never re-serialise with `json.dumps`,
-  and verify each file still parses after every edit.
-- **Delete while there:** the stale `home.title` / `home.body` placeholders ("Scaffold online.")
-  sitting in all four catalogs.
-- **Do not restore** the "reviewed by a clinician, named, with credentials" trust line until
-  P1.9.7 and P1.9.8 land — it is not true yet, and `claims-lint` should catch it if it returns.
-- **Gate:** `claims-lint` on the new EN copy, `i18n-client-lint`, `i18n-untranslated-lint`, axe
-  on `/en` and `/ar`, and the page-weight budget — the homepage has grown and
-  `page-weight.spec.ts` has a ceiling on it.
+**The one you must know about: ADR-064.** The page shipped with its new markup and the *old
+text*, because the P1.19 seed had put the whole English catalog into `ui_strings` as
+`human_reviewed` and the overlay beat the repo. Scope: **every English copy edit to any of the
+~293 seeded keys had silently done nothing in production since that seed.** Fixed — the default
+locale never takes the DB overlay, because the portal was always a *translation* tool and
+renders English as its read-only master column. Translations overlay exactly as before.
+
+**Do not restore** the "reviewed by a clinician, named, with credentials" trust line until
+P1.9.7 and P1.9.8 land. It is not true yet.
 
 ## First action for the next session
 

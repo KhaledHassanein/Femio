@@ -1,5 +1,6 @@
 import { describe, expect, it } from "vitest";
 import { flatten, overlay, unflatten } from "./ui-strings";
+import { overlaysFromDatabase } from "./ui-strings-loader";
 
 describe("flatten / unflatten", () => {
   it("round-trips nested messages through dotted keys", () => {
@@ -33,5 +34,23 @@ describe("overlay", () => {
     };
     expect(Array.isArray(merged.about.points)).toBe(true);
     expect(merged.about.points[1]!.heading).toBe("H2");
+  });
+});
+
+describe("overlaysFromDatabase", () => {
+  /**
+   * ADR-064. This one line was a live defect: `home.heroTitle` had been seeded to
+   * `ui_strings` as `human_reviewed`, so the new R1.3 homepage shipped with its new
+   * markup and the old English text, and every English copy edit to a seeded key
+   * since P1.19 had silently done nothing in production.
+   */
+  it("never overlays the source locale — English is the master and lives in the repo", () => {
+    expect(overlaysFromDatabase("en", "en")).toBe(false);
+  });
+
+  it("still overlays every translated locale — the portal keeps working", () => {
+    for (const locale of ["ar", "fr", "es"]) {
+      expect(overlaysFromDatabase(locale, "en")).toBe(true);
+    }
   });
 });

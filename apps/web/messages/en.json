@@ -4,8 +4,117 @@
     "description": "One account for a woman's whole health life."
   },
   "home": {
-    "heroTitle": "One account for your whole health life.",
-    "heroBody": "Referenced, judgment-free guidance and honest tracking — from puberty and cycles through trying to conceive, pregnancy, and menopause.",
+    "signIn": "Sign in",
+    "heroTitle": "Your health has one story. Femio keeps all of it.",
+    "heroBody": "A period, cycle and pregnancy tracker that does not stop there — it carries on through conditions, trying to conceive, after birth and menopause, with referenced guides for every stage.",
+    "cta": "Start free — no email needed",
+    "ctaSecondary": "Read the guides first",
+    "antiClaim": "Femio is a wellness and education tool, not a medical device — and your health data is never sold. Both are things you can check, not things we ask you to believe.",
+    "shot": {
+      "eyebrow": "This is the app",
+      "heading": "Open it and it already knows where you are.",
+      "caption": "Your dashboard in cycle mode. Every stage gets its own — pregnancy counts weeks, menopause counts months and leaves the conclusion to you and your clinician.",
+      "app": {
+        "title": "Your dashboard",
+        "mode": "Cycle",
+        "eyebrow": "Cycle day 17",
+        "headline": "Next period 14–18 Sep",
+        "foot": "Fairly confident · based on your last 6 cycles",
+        "cta": "Log today",
+        "avgLabel": "Average cycle",
+        "avgValue": "29 days",
+        "tab": {
+          "home": "Home",
+          "track": "Track",
+          "settings": "Settings"
+        }
+      }
+    },
+    "rail": {
+      "eyebrow": "One account",
+      "heading": "Most apps cover one chapter. This one follows the whole book.",
+      "sub": "When your life changes, Femio re-arranges around it — it never starts you over and it never deletes what came before.",
+      "stages": {
+        "teen": {
+          "name": "First periods",
+          "note": "What is usual, in plain language"
+        },
+        "cycle": {
+          "name": "Cycles & conditions",
+          "note": "PCOS, endometriosis, heavy or absent periods"
+        },
+        "ttc": {
+          "name": "Trying to conceive",
+          "note": "Fertile window, and when to ask for help"
+        },
+        "pregnancy": {
+          "name": "Pregnancy",
+          "note": "Week by week, with warning signs kept in front"
+        },
+        "postpartum": {
+          "name": "After birth",
+          "note": "Recovery and mood — the part apps forget"
+        },
+        "menopause": {
+          "name": "Perimenopause & menopause",
+          "note": "Symptoms tracked, without a countdown"
+        }
+      },
+      "foot": "Your record is one record. Switching stage re-layers what you see over it — nothing is archived away from you, and you can switch back."
+    },
+    "proof": {
+      "eyebrow": "Honest by design",
+      "heading": "We would rather be useful than certain.",
+      "band": {
+        "title": "A window, not a date",
+        "body": "Your next period is shown as a range with a confidence, because that is what the data supports. The softer the edges, the less sure we are — and you can see it.",
+        "legendStart": "Last period",
+        "legendEnd": "Expected 14–18 Sep"
+      },
+      "late": {
+        "title": "No “you are 4 days late”",
+        "body": "Cycles shift for dozens of ordinary reasons. If the window passes, Femio says so and stops — it does not run a counter at you.",
+        "notice": "Your window has passed. Cycles shift — this is common and usually not a problem."
+      },
+      "pattern": {
+        "title": "Your own pattern, not an average",
+        "body": "Everything is compared against your history — including when your cycles are irregular, which is exactly where other apps give up."
+      }
+    },
+    "trust": {
+      "eyebrow": "Why trust it",
+      "heading": "Five things you can verify.",
+      "items": {
+        "sources": {
+          "claim": "Every claim is cited, and dated",
+          "detail": "— NICE, ACOG, WHO, ESHRE, linked, with the date the page was last reviewed."
+        },
+        "eu": {
+          "claim": "Your data lives in the EU",
+          "detail": "— and only you can read it."
+        },
+        "portable": {
+          "claim": "Export or delete it, in the app",
+          "detail": "— no email, no waiting."
+        },
+        "ads": {
+          "claim": "No health data reaches an advertiser",
+          "detail": "— ever. It is not a setting; there is no channel."
+        },
+        "languages": {
+          "claim": "English, Arabic, French and Spanish",
+          "detail": "— Arabic right-to-left from the first line of code, not a layer added later."
+        }
+      }
+    },
+    "library": {
+      "eyebrow": "Free, no account",
+      "heading": "Start reading now."
+    },
+    "close": {
+      "heading": "One account. Your whole health life."
+    },
+    "disclaimer": "Femio is for learning and tracking — not medical advice, and not a reliable way to avoid pregnancy. Always speak to your clinician about your care.",
     "sections": {
       "learn": {
         "name": "Learn",
@@ -30,11 +139,7 @@
     },
     "conditions": "Conditions",
     "learn": "Learn",
-    "signIn": "Sign in",
     "eyebrow": "femio",
-    "title": "Scaffold online.",
-    "body": "Next.js 15 + TypeScript + Tailwind, wired to the Femio design tokens. Internationalization (EN/AR/FR/ES, RTL), UI components, and the PWA shell land next.",
-    "cta": "Get started",
     "chips": {
       "primary": "Primary",
       "accent": "Accent",

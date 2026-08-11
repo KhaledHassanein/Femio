@@ -4,39 +4,144 @@
     "description": "Un seul compte pour toute ta vie de santé."
   },
   "home": {
-    "heroTitle": "Un seul compte pour toute votre vie de santé.",
-    "heroBody": "Des conseils référencés et sans jugement et un suivi honnête — de la puberté et des cycles à la conception, la grossesse et la ménopause.",
+    "signIn": "Se connecter",
+    "heroTitle": "Votre santé a une seule histoire. Femio la garde entière.",
+    "heroBody": "Un suivi des règles, du cycle et de la grossesse qui ne s'arrête pas là : il continue à travers les pathologies, l'essai de conception, l'après-naissance et la ménopause, avec des guides référencés à chaque étape.",
+    "cta": "Commencer gratuitement — sans e-mail",
+    "ctaSecondary": "Lire d'abord les guides",
+    "antiClaim": "Femio est un outil de bien-être et d'information, pas un dispositif médical — et vos données de santé ne sont jamais vendues. Ce sont deux choses que vous pouvez vérifier, pas des promesses à croire.",
+    "shot": {
+      "eyebrow": "Voici l'application",
+      "heading": "Vous l'ouvrez, et elle sait déjà où vous en êtes.",
+      "caption": "Votre tableau de bord en mode cycle. Chaque étape a le sien : la grossesse compte les semaines, la ménopause compte les mois et laisse la conclusion à vous et à votre clinicien.",
+      "app": {
+        "title": "Votre tableau de bord",
+        "mode": "Cycle",
+        "eyebrow": "Jour 17 du cycle",
+        "headline": "Prochaines règles 14–18 sept.",
+        "foot": "Assez fiable · d'après vos 6 derniers cycles",
+        "cta": "Noter aujourd'hui",
+        "avgLabel": "Cycle moyen",
+        "avgValue": "29 jours",
+        "tab": {
+          "home": "Accueil",
+          "track": "Suivi",
+          "settings": "Réglages"
+        }
+      }
+    },
+    "rail": {
+      "eyebrow": "Un seul compte",
+      "heading": "La plupart des applications couvrent un chapitre. Celle-ci suit tout le livre.",
+      "sub": "Quand votre vie change, Femio se réorganise autour — elle ne vous fait jamais recommencer et n'efface jamais ce qui précède.",
+      "stages": {
+        "teen": {
+          "name": "Premières règles",
+          "note": "Ce qui est habituel, en mots simples"
+        },
+        "cycle": {
+          "name": "Cycles et pathologies",
+          "note": "SOPK, endométriose, règles abondantes ou absentes"
+        },
+        "ttc": {
+          "name": "Essai de conception",
+          "note": "Fenêtre fertile, et quand demander de l'aide"
+        },
+        "pregnancy": {
+          "name": "Grossesse",
+          "note": "Semaine après semaine, les signaux d'alerte toujours devant"
+        },
+        "postpartum": {
+          "name": "Après la naissance",
+          "note": "Récupération et humeur — ce que les applications oublient"
+        },
+        "menopause": {
+          "name": "Périménopause et ménopause",
+          "note": "Symptômes suivis, sans compte à rebours"
+        }
+      },
+      "foot": "Votre dossier est un seul dossier. Changer d'étape réorganise ce que vous voyez par-dessus — rien ne vous est retiré, et vous pouvez revenir en arrière."
+    },
+    "proof": {
+      "eyebrow": "Honnête par construction",
+      "heading": "Nous préférons être utiles plutôt que certains.",
+      "band": {
+        "title": "Une fenêtre, pas une date",
+        "body": "Vos prochaines règles sont affichées comme une plage avec un niveau de confiance, parce que c'est ce que les données permettent. Plus les bords sont flous, moins nous sommes sûrs — et cela se voit.",
+        "legendStart": "Dernières règles",
+        "legendEnd": "Attendues 14–18 sept."
+      },
+      "late": {
+        "title": "Pas de « 4 jours de retard »",
+        "body": "Les cycles se décalent pour des dizaines de raisons ordinaires. Si la fenêtre passe, Femio le dit et s'arrête — elle ne fait pas défiler un compteur devant vous.",
+        "notice": "Votre fenêtre est passée. Les cycles se décalent — c'est fréquent et généralement sans gravité."
+      },
+      "pattern": {
+        "title": "Votre propre rythme, pas une moyenne",
+        "body": "Tout est comparé à votre historique — y compris quand vos cycles sont irréguliers, c'est-à-dire exactement là où les autres applications abandonnent."
+      }
+    },
+    "trust": {
+      "eyebrow": "Pourquoi lui faire confiance",
+      "heading": "Cinq choses vérifiables.",
+      "items": {
+        "sources": {
+          "claim": "Chaque affirmation est sourcée et datée",
+          "detail": "— NICE, ACOG, OMS, ESHRE, avec des liens et la date de la dernière relecture."
+        },
+        "eu": {
+          "claim": "Vos données restent dans l'UE",
+          "detail": "— et vous seule pouvez les lire."
+        },
+        "portable": {
+          "claim": "Exportez-les ou supprimez-les depuis l'application",
+          "detail": "— sans e-mail, sans attente."
+        },
+        "ads": {
+          "claim": "Aucune donnée de santé n'atteint un annonceur",
+          "detail": "— jamais. Ce n'est pas un réglage ; il n'existe aucun canal."
+        },
+        "languages": {
+          "claim": "Anglais, arabe, français et espagnol",
+          "detail": "— l'arabe de droite à gauche dès la première ligne de code, pas une couche ajoutée après."
+        }
+      }
+    },
+    "library": {
+      "eyebrow": "Gratuit, sans compte",
+      "heading": "Commencez à lire maintenant."
+    },
+    "close": {
+      "heading": "Un seul compte. Toute votre vie de santé."
+    },
+    "disclaimer": "Femio sert à s'informer et à suivre — ce n'est pas un avis médical, ni un moyen fiable d'éviter une grossesse. Parlez toujours de vos soins à votre clinicien.",
     "sections": {
       "learn": {
         "name": "Apprendre",
-        "desc": "Des guides relus médicalement sur votre cycle, votre corps et votre santé."
+        "desc": "Des guides relus par des cliniciens sur votre cycle, votre corps et votre santé."
       },
       "conditions": {
-        "name": "Affections et sujets",
-        "desc": "Comprendre les affections à chaque étape de la vie."
+        "name": "Pathologies et sujets",
+        "desc": "Comprendre les pathologies à chaque étape de la vie."
       },
       "calculators": {
         "name": "Calculatrices",
-        "desc": "Date d’accouchement, fenêtre de fertilité, longueur du cycle et plus — gratuit, sans compte."
+        "desc": "Date d'accouchement, fenêtre fertile, durée du cycle et plus — gratuit, sans compte."
       },
       "faq": {
         "name": "FAQ",
-        "desc": "Des réponses claires et référencées aux questions courantes."
+        "desc": "Des réponses claires et référencées aux questions fréquentes."
       },
       "glossary": {
         "name": "Glossaire",
-        "desc": "Des définitions en langage clair des termes de santé."
+        "desc": "Des définitions simples des termes de santé."
       }
     },
-    "conditions": "Affections",
+    "conditions": "Pathologies",
     "learn": "Apprendre",
-    "signIn": "Se connecter",
     "eyebrow": "femio",
-    "title": "Structure en ligne.",
-    "body": "Next.js 15 + TypeScript + Tailwind, connecté aux tokens de design Femio. L'internationalisation (EN/AR/FR/ES, RTL), les composants d'interface et le shell PWA arrivent ensuite.",
-    "cta": "Commencer",
     "chips": {
-      "primary": "Primaire",
+      "primary": "Principal",
       "accent": "Accent",
       "fertile": "Fertile",
       "uncertainty": "Incertitude"

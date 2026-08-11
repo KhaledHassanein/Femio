@@ -37,8 +37,35 @@ const fetchApproved = (locale: string) =>
     { revalidate: 60, tags: [UI_STRINGS_TAG] },
   )();
 
+/**
+ * English is the master and it lives in the repo, never in the database.
+ *
+ * The portal (P1.19) is a **translation** tool: its board is per-locale for
+ * ar/fr/es and it renders English as the read-only master column. English rows
+ * exist in `ui_strings` only because the seed script imported the whole catalog,
+ * and all they do is shadow the repo.
+ *
+ * That shadow was a live defect, found on 2026-08-11 while implementing R1.3
+ * (ADR-064). The new homepage shipped with its new markup and the **old text**:
+ * `home.heroTitle` had been seeded as "One account for your whole health life."
+ * and marked `human_reviewed`, so the overlay won. Every English copy edit made
+ * to a seeded key since P1.19 had silently done nothing in production — the class
+ * of failure that is invisible from inside a diff and only shows up on a rendered
+ * page, which is why `docs/STATE.md` says to check the deployed thing.
+ *
+ * Translations still overlay normally; only the source locale is protected.
+ */
+export function overlaysFromDatabase(locale: string, defaultLocale: string): boolean {
+  return locale !== defaultLocale;
+}
+
 /** Base JSON messages overlaid with approved DB strings. Falls back to pure JSON. */
-export async function loadMessages(locale: string, jsonMessages: Nested): Promise<Nested> {
+export async function loadMessages(
+  locale: string,
+  jsonMessages: Nested,
+  defaultLocale = "en",
+): Promise<Nested> {
+  if (!overlaysFromDatabase(locale, defaultLocale)) return jsonMessages;
   const db = await fetchApproved(locale);
   if (Object.keys(db).length === 0) return jsonMessages;
   return overlay(jsonMessages, db);

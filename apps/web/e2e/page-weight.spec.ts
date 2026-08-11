@@ -21,7 +21,11 @@ import { expect, test } from "@playwright/test";
  */
 const BUDGETS: Array<{ path: string; maxKb: number; measuredKb: number }> = [
   { path: "/en/learn", maxKb: 50, measuredKb: 39 },
-  { path: "/en", maxKb: 68, measuredKb: 53 },
+  // R1.3 (2026-08-11): the homepage went from a hero over five link cards to seven
+  // sections — a product shot, the life-stage rail, three proof cards and the trust
+  // list. Raised deliberately, and the growth is rendered content, not payload: the
+  // `home` namespace is server-only and does not ship to the browser.
+  { path: "/en", maxKb: 88, measuredKb: 70 },
   { path: "/en/calculators", maxKb: 57, measuredKb: 45 },
   // Arabic is the heaviest locale — non-Latin script costs more bytes per character.
   { path: "/ar/learn", maxKb: 58, measuredKb: 45 },

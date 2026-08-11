@@ -39,6 +39,8 @@ const ALLOWED = {
     "symptoms.items.irritable",
     "symptoms.items.fatigue",
     "dashboard.modeLabel.cycle",
+    // Same reason as dashboard.modeLabel.cycle: "Cycle" is the French word too.
+    "home.shot.app.mode",
     "visitSummary.cycleHeading",
     "visitSummary.colDate",
     "learn.sources",

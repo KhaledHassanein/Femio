@@ -4,16 +4,125 @@
     "description": "Una sola cuenta para toda tu vida de salud."
   },
   "home": {
-    "heroTitle": "Una sola cuenta para toda tu vida de salud.",
-    "heroBody": "Orientación referenciada y sin juicios y un seguimiento honesto — desde la pubertad y los ciclos hasta la búsqueda de embarazo, el embarazo y la menopausia.",
+    "signIn": "Iniciar sesión",
+    "heroTitle": "Tu salud tiene una sola historia. Femio la guarda entera.",
+    "heroBody": "Un seguimiento de la regla, el ciclo y el embarazo que no se queda ahí: continúa a través de las condiciones, la búsqueda de embarazo, el posparto y la menopausia, con guías referenciadas en cada etapa.",
+    "cta": "Empieza gratis — sin correo electrónico",
+    "ctaSecondary": "Lee primero las guías",
+    "antiClaim": "Femio es una herramienta de bienestar e información, no un dispositivo médico — y tus datos de salud nunca se venden. Ambas cosas puedes comprobarlas, no son promesas que te pidamos creer.",
+    "shot": {
+      "eyebrow": "Esta es la aplicación",
+      "heading": "La abres y ya sabe en qué punto estás.",
+      "caption": "Tu panel en modo ciclo. Cada etapa tiene el suyo: el embarazo cuenta semanas, la menopausia cuenta meses y deja la conclusión para ti y tu profesional sanitario.",
+      "app": {
+        "title": "Tu panel",
+        "mode": "Ciclo",
+        "eyebrow": "Día 17 del ciclo",
+        "headline": "Próxima regla 14–18 sept.",
+        "foot": "Bastante fiable · según tus últimos 6 ciclos",
+        "cta": "Registrar hoy",
+        "avgLabel": "Ciclo medio",
+        "avgValue": "29 días",
+        "tab": {
+          "home": "Inicio",
+          "track": "Registro",
+          "settings": "Ajustes"
+        }
+      }
+    },
+    "rail": {
+      "eyebrow": "Una sola cuenta",
+      "heading": "La mayoría de las apps cubren un capítulo. Esta sigue el libro entero.",
+      "sub": "Cuando tu vida cambia, Femio se reordena a su alrededor: nunca te hace empezar de cero y nunca borra lo anterior.",
+      "stages": {
+        "teen": {
+          "name": "Primeras reglas",
+          "note": "Qué es lo habitual, en palabras claras"
+        },
+        "cycle": {
+          "name": "Ciclos y condiciones",
+          "note": "SOP, endometriosis, reglas abundantes o ausentes"
+        },
+        "ttc": {
+          "name": "Buscando embarazo",
+          "note": "Ventana fértil, y cuándo pedir ayuda"
+        },
+        "pregnancy": {
+          "name": "Embarazo",
+          "note": "Semana a semana, con las señales de alarma siempre delante"
+        },
+        "postpartum": {
+          "name": "Después del parto",
+          "note": "Recuperación y ánimo — la parte que las apps olvidan"
+        },
+        "menopause": {
+          "name": "Perimenopausia y menopausia",
+          "note": "Síntomas registrados, sin cuenta atrás"
+        }
+      },
+      "foot": "Tu registro es un solo registro. Cambiar de etapa reordena lo que ves por encima — nada se te retira, y puedes volver atrás."
+    },
+    "proof": {
+      "eyebrow": "Honesta por diseño",
+      "heading": "Preferimos ser útiles a parecer seguros.",
+      "band": {
+        "title": "Una ventana, no una fecha",
+        "body": "Tu próxima regla se muestra como un rango con un nivel de confianza, porque es lo que permiten tus datos. Cuanto más suaves son los bordes, menos seguros estamos — y se ve.",
+        "legendStart": "Última regla",
+        "legendEnd": "Prevista 14–18 sept."
+      },
+      "late": {
+        "title": "Sin «llevas 4 días de retraso»",
+        "body": "Los ciclos se mueven por decenas de razones corrientes. Si la ventana pasa, Femio lo dice y se detiene — no te pone un contador delante.",
+        "notice": "Tu ventana ya pasó. Los ciclos se mueven — es frecuente y normalmente no es un problema."
+      },
+      "pattern": {
+        "title": "Tu propio patrón, no una media",
+        "body": "Todo se compara con tu historial — incluso cuando tus ciclos son irregulares, que es justo donde otras apps se rinden."
+      }
+    },
+    "trust": {
+      "eyebrow": "Por qué confiar",
+      "heading": "Cinco cosas que puedes comprobar.",
+      "items": {
+        "sources": {
+          "claim": "Cada afirmación está citada y fechada",
+          "detail": "— NICE, ACOG, OMS, ESHRE, con enlaces y la fecha de la última revisión."
+        },
+        "eu": {
+          "claim": "Tus datos viven en la UE",
+          "detail": "— y solo tú puedes leerlos."
+        },
+        "portable": {
+          "claim": "Expórtalos o bórralos desde la aplicación",
+          "detail": "— sin correos, sin esperas."
+        },
+        "ads": {
+          "claim": "Ningún dato de salud llega a un anunciante",
+          "detail": "— nunca. No es un ajuste; no existe el canal."
+        },
+        "languages": {
+          "claim": "Inglés, árabe, francés y español",
+          "detail": "— el árabe de derecha a izquierda desde la primera línea de código, no una capa añadida después."
+        }
+      }
+    },
+    "library": {
+      "eyebrow": "Gratis, sin cuenta",
+      "heading": "Empieza a leer ahora."
+    },
+    "close": {
+      "heading": "Una sola cuenta. Toda tu vida de salud."
+    },
+    "disclaimer": "Femio sirve para aprender y llevar un registro — no es consejo médico ni un método fiable para evitar el embarazo. Habla siempre con tu profesional sanitario sobre tu atención.",
     "sections": {
       "learn": {
         "name": "Aprender",
-        "desc": "Guías revisadas médicamente sobre tu ciclo, tu cuerpo y tu salud."
+        "desc": "Guías revisadas por profesionales sobre tu ciclo, tu cuerpo y tu salud."
       },
       "conditions": {
-        "name": "Afecciones y temas",
-        "desc": "Comprende las afecciones en cada etapa de la vida."
+        "name": "Condiciones y temas",
+        "desc": "Entiende las condiciones en cada etapa de la vida."
       },
       "calculators": {
         "name": "Calculadoras",
@@ -21,22 +130,18 @@
       },
       "faq": {
         "name": "Preguntas frecuentes",
-        "desc": "Respuestas claras y referenciadas a preguntas comunes."
+        "desc": "Respuestas claras y referenciadas."
       },
       "glossary": {
         "name": "Glosario",
-        "desc": "Definiciones en lenguaje sencillo de términos de salud."
+        "desc": "Definiciones sencillas de términos de salud."
       }
     },
-    "conditions": "Afecciones",
+    "conditions": "Condiciones",
     "learn": "Aprender",
-    "signIn": "Iniciar sesión",
     "eyebrow": "femio",
-    "title": "Estructura en línea.",
-    "body": "Next.js 15 + TypeScript + Tailwind, conectado a los tokens de diseño de Femio. La internacionalización (EN/AR/FR/ES, RTL), los componentes de interfaz y el shell PWA llegan después.",
-    "cta": "Empezar",
     "chips": {
-      "primary": "Primario",
+      "primary": "Principal",
       "accent": "Acento",
       "fertile": "Fértil",
       "uncertainty": "Incertidumbre"

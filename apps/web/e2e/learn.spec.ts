@@ -11,8 +11,9 @@ test("learn hub renders (empty state when no CMS content)", async ({ page }) => 
 
 test("home surfaces the library and links to the learn hub", async ({ page }) => {
   await page.goto("/en");
-  // Content-first homepage: section cards into the library.
-  await expect(page.getByRole("heading", { name: /whole health life/i })).toBeVisible();
+  // Content-first homepage: the library section is still reachable from it
+  // (product rule 2), now as a list below the life-stage rail (R1.3).
+  await expect(page.getByRole("heading", { name: /start reading now/i })).toBeVisible();
   await page.getByRole("link", { name: /^learn/i }).first().click();
   await expect(page).toHaveURL(/\/en\/learn$/);
 });

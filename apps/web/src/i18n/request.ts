@@ -11,7 +11,9 @@ export default getRequestConfig(async ({ requestLocale }) => {
   const locale = isLocale(requested) ? requested : routing.defaultLocale;
 
   const json = (await import(`../../messages/${locale}.json`)).default;
-  const messages = await loadMessages(locale, json);
+  // The default locale never takes the DB overlay — English is the master and it
+  // lives in the repo (ADR-064).
+  const messages = await loadMessages(locale, json, routing.defaultLocale);
 
   return { locale, messages };
 });
