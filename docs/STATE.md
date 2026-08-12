@@ -211,9 +211,27 @@ from the engine's real output. Building it exposed a second engine defect — st
 appended below the quick-log rather than sitting under the hero, which is where you put
 something nobody asked for. Fixed with a test.
 
-**Next: R2.3** — render the pregnancy dashboard from the config through a module registry. The
-acceptance test is blunt: **D3 and D4 must visibly differ and D7 must show a thyroid strip, with
-no new `if` statement.** Modules to build are inventoried in the R1.6 reference.
+**R2.3 landed — the engine reaches the screen.** `persona_id`, `modifiers` and
+`emotional_context` had been written at onboarding and read by nothing since; the pregnancy
+dashboard now renders `ExperienceConfig.home.modules` through a module registry, so D3, D4 and
+D7 differ **from data alone**. There is no `personaId ===` anywhere in a component, and
+`pnpm persona-branch-lint` fails the build if one appears.
+
+Two things worth knowing before extending it:
+
+- **A clinical strip is facts, never a verdict.** `ClinicalStrip` has no `status`, `inRange` or
+  `severity` prop and must never gain one — it shows the value, the unit and the lab's own
+  reference range, then stops (D7 §G). Same reasoning as the movement log's missing `result`
+  column.
+- **Unimplemented modules are listed, not skipped.** `UNIMPLEMENTED` in `module-registry.tsx`
+  names every id the registry can emit that has no component yet, and a test asserts the two
+  sets cover the registry. A module that vanished silently would let the engine look correct
+  while a woman's screen lost a panel.
+
+**Next: R2.4** — move tier 1 (`resolvePersona` + `buildExperienceConfig`) into a Supabase Edge
+Function, split the offline subset behind shared golden fixtures, and cache the document on the
+client. That is also when `native-readiness-lint` gets repointed (R2.7 proper), because the
+tracker will start calling the server on purpose.
 
 ## First action for the next session
 

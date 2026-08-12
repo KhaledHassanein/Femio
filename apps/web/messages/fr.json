@@ -521,6 +521,16 @@
     "empty": "De nouveaux sujets arrivent — revenez bientôt."
   },
   "experience": {
+    "strips": {
+      "thyroid": {
+        "title": "Thyroïde",
+        "empty": "Aucun résultat enregistré pour l'instant. Lorsque vous ajoutez une TSH ou une T4 libre, elle apparaît ici avec l'intervalle de référence de votre laboratoire — pour vos dossiers, pas comme une évaluation."
+      },
+      "glucose": {
+        "title": "Glycémie",
+        "empty": "Aucune mesure enregistrée pour l'instant. Lorsque vous en notez une, elle apparaît ici avec l'heure du prélèvement. Femio enregistre vos mesures ; votre clinicien les interprète."
+      }
+    },
     "heading": "Ton expérience Femio",
     "desc": "Femio s'adapte à l'étape où tu te trouves. Tu peux changer cela quand ta situation change — ou le désactiver et tout voir.",
     "modes": {

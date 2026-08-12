@@ -21,6 +21,7 @@
     "i18n-untranslated-lint": "node scripts/i18n/untranslated-lint.mjs",
     "tokens-parity-lint": "node scripts/design/tokens-parity-lint.mjs",
     "native-readiness-lint": "node scripts/native-readiness-lint.mjs",
+    "persona-branch-lint": "node scripts/persona-branch-lint.mjs",
     "content-lint": "node scripts/content-lint.mjs",
     "content-lint:urls": "node scripts/content-lint.mjs --check-urls",
     "sitemap-check": "node scripts/seo/sitemap-check.mjs",

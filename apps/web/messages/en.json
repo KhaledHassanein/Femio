@@ -521,6 +521,16 @@
     "empty": "New topics are on the way — check back soon."
   },
   "experience": {
+    "strips": {
+      "thyroid": {
+        "title": "Thyroid",
+        "empty": "No results recorded yet. When you add a TSH or Free T4 result, it appears here with your lab's own reference range — for your records, not as an assessment."
+      },
+      "glucose": {
+        "title": "Glucose",
+        "empty": "No readings recorded yet. When you log one, it appears here with the time you took it. Femio records your readings; your clinician reads them."
+      }
+    },
     "heading": "Your Femio experience",
     "desc": "Femio adapts to where you are in life. You can change this whenever it changes — or turn it off and see everything.",
     "modes": {

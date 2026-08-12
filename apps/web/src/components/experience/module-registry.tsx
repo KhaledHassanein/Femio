@@ -1,0 +1,96 @@
+"use client";
+
+import type { ReactNode } from "react";
+
+import type { ExperienceConfig, ModuleId, ModuleSpec } from "@/lib/experience/types";
+import { EmptyStrip } from "./clinical-strip";
+
+/**
+ * The module registry — where `ExperienceConfig` becomes pixels (R2.3, ADR-061).
+ *
+ * This is the indirection the whole revamp turns on. A screen used to say
+ * `mode === "pregnancy"`; it now renders `config.home.modules` by **id**, so
+ * telling D3 from D4 from D7 is a difference in *data*, not a new branch. Adding a
+ * persona is a row in the registry; adding a module is an entry in this map.
+ *
+ * ## Unimplemented ids are visible, not silent
+ *
+ * The Track D registry declares more modules than are built. An unknown id renders
+ * nothing — but `UNIMPLEMENTED` names them explicitly and a test asserts the two
+ * sets together cover every id the registry can emit. A module that silently
+ * vanished would be the worst failure available here: the engine would look
+ * correct while a woman's screen quietly lost a panel.
+ */
+
+export type ModuleContext = {
+  config: ExperienceConfig;
+  /** Rendered for `pregnancy.week` — the existing hero, unchanged (ADR-041). */
+  pregnancyHero: ReactNode;
+  /** Rendered for `pregnancy.warningSigns` — unchanged red-flag panel. */
+  warningSigns: ReactNode;
+  /** Rendered for `quickLog` — the existing log CTA. */
+  quickLog: ReactNode;
+  /** Rendered for `pregnancy.movement` when the phase surfaces it. */
+  movement: ReactNode;
+  /** Rendered for `library` / reading lists. */
+  reading: ReactNode;
+};
+
+/**
+ * Ids the engine can emit that have no component yet. Listed rather than left to
+ * fall through, so the gap is a tracked number instead of a surprise.
+ *
+ * Each is real Phase-2 work: appointments (P2.2.3, the table has been unused since
+ * v1), weight (P2.2.3), birth prep, contractions (P2.2.3), and the support and lab
+ * modules that arrive with D2 and the labs surface.
+ */
+export const UNIMPLEMENTED: readonly ModuleId[] = [
+  "pregnancy.milestone",
+  "pregnancy.appointments",
+  "pregnancy.weight",
+  "pregnancy.contractions",
+  "pregnancy.birthPrep",
+  "pregnancy.screeningPrep",
+  "strip.labs",
+  "strip.medication",
+  "strip.devices",
+  "support.checkIn",
+  "support.lossAware",
+  "support.reassurance",
+];
+
+/**
+ * No reading recorded yet — the labs and glucose surfaces land with P2.2.3, so the
+ * empty state is the honest one rather than a fabricated value. It still proves
+ * the module was *chosen by the engine*, which is what R2.3 has to demonstrate:
+ * D7 gets this and D3 does not, from data alone.
+ */
+const ThyroidStrip = () => <EmptyStrip titleKey="thyroid.title" ctaKey="thyroid.empty" />;
+const GlucoseStrip = () => <EmptyStrip titleKey="glucose.title" ctaKey="glucose.empty" />;
+
+type Renderer = (ctx: ModuleContext, spec: ModuleSpec) => ReactNode;
+
+const RENDERERS: Partial<Record<ModuleId, Renderer>> = {
+  "pregnancy.week": (ctx) => ctx.pregnancyHero,
+  "pregnancy.warningSigns": (ctx) => ctx.warningSigns,
+  "pregnancy.movement": (ctx) => ctx.movement,
+  quickLog: (ctx) => ctx.quickLog,
+  library: (ctx) => ctx.reading,
+  "strip.thyroid": () => <ThyroidStrip />,
+  "strip.glucose": () => <GlucoseStrip />,
+};
+
+/** Every id this registry can render. Used by the coverage test. */
+export const IMPLEMENTED = Object.keys(RENDERERS) as readonly ModuleId[];
+
+export function ExperienceModules({ ctx }: { ctx: ModuleContext }) {
+  return (
+    <>
+      {ctx.config.home.modules.map((spec) => {
+        const render = RENDERERS[spec.id];
+        if (!render) return null;
+        return <div key={spec.id}>{render(ctx, spec)}</div>;
+      })}
+    </>
+  );
+}

@@ -521,6 +521,16 @@
     "empty": "Pronto habrá nuevos temas — vuelve pronto."
   },
   "experience": {
+    "strips": {
+      "thyroid": {
+        "title": "Tiroides",
+        "empty": "Aún no hay resultados registrados. Cuando añadas una TSH o una T4 libre, aparecerá aquí con el intervalo de referencia de tu laboratorio: para tus registros, no como una valoración."
+      },
+      "glucose": {
+        "title": "Glucosa",
+        "empty": "Aún no hay lecturas registradas. Cuando registres una, aparecerá aquí con la hora en que la tomaste. Femio registra tus lecturas; tu profesional sanitario las interpreta."
+      }
+    },
     "heading": "Tu experiencia en Femio",
     "desc": "Femio se adapta al momento en el que estás. Puedes cambiarlo cuando cambie tu situación, o desactivarlo y verlo todo.",
     "modes": {

@@ -73,6 +73,13 @@ jobs:
       - name: Native readiness guard
         run: pnpm native-readiness-lint
 
+      # Personas must reach the screen as DATA, never as a branch in JSX — the
+      # failure docs/23 §3.1 found, where 73 personas collapsed into four hardcoded
+      # modes. A ratchet: the legacy mode-branch list can shrink, never grow
+      # (ADR-061).
+      - name: Persona-branch guard
+        run: pnpm persona-branch-lint
+
       # The authoring brief, enforced mechanically over docs/content/articles
       # (P1.9.1, ADR-031). Offline by default — source URLs are resolved by the
       # scheduled `content-urls` job below, so a guideline body's WAF or a slow
