@@ -240,10 +240,25 @@ allowed to delete.** It replaces `source='self'` condition rows, because leaving
 wishes. Screener rows (P2.7) are never touched — those are not hers to retract by re-answering
 a wizard question — and both sides of the change go to `adaptation_events`.
 
-**Next: R2.4** — move tier 1 (`resolvePersona` + `buildExperienceConfig`) into a Supabase Edge
-Function, split the offline subset behind shared golden fixtures, and cache the document on the
-client. That is also when `native-readiness-lint` gets repointed (R2.7 proper), because the
-tracker will start calling the server on purpose.
+**R2.4 is half done (2026-08-12): tier 1 is portable and the fixtures exist.**
+
+The medical logic can now leave the browser. `AgeBand` and `PersonaMode` moved to pure
+`lib/persona/{age,modes}.ts`, because importing them from `state.ts` was quietly dragging the
+Supabase client into the resolver — nothing broke in the web app, which is exactly why it
+needed a guard rather than a memory. `pnpm tier1-portability-lint` holds 12 modules to
+framework-free, data-free, alias-free, and adds two clock rules: no bare `new Date()` outside
+`dates.ts`, and no `todayISO()` inside a computation where it cannot be injected.
+
+**`fixtures/domain/*.json` is the anti-drift mechanism for Flutter** — 31 committed cases across
+cycle prediction, gestational age, phase, persona resolution and `ExperienceConfig`. The TS
+suite loads them; the Dart suite will load *the same files*. New behaviour lands as a new
+fixture before it lands as code in either language. **Do not regenerate them from the
+implementation** — a fixture that always matches proves nothing; a change to one is a change a
+reviewer looks at.
+
+**Remaining in R2.4:** the Edge Function itself (deployment needs the Supabase CLI and owner
+credentials — an APPLY-style task) and the client-side document cache. `native-readiness-lint`
+gets repointed then, because the tracker will start calling the server on purpose.
 
 ## First action for the next session
 

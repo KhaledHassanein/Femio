@@ -1,0 +1,210 @@
+{
+  "cases": [
+    {
+      "input": {
+        "ageBand": null,
+        "cycleRegularity": "unknown",
+        "averageCycleLength": null,
+        "daysSinceLastPeriod": null,
+        "ttcIntent": false,
+        "pregnancyStatus": "active",
+        "weeksSincePregnancyEnd": null,
+        "conditions": [
+          "thyroid"
+        ],
+        "symptomCounts": {},
+        "diabetesRecordedBeforePregnancy": false,
+        "priorLoss": false
+      },
+      "expected": {
+        "personaId": "D7",
+        "track": "D",
+        "modifiers": [
+          "thyroid"
+        ],
+        "emotionalContext": [],
+        "confidence": 0.6666666666666666,
+        "runnerUp": {
+          "personaId": "D1",
+          "confidence": 0.7142857142857143
+        }
+      }
+    },
+    {
+      "input": {
+        "ageBand": null,
+        "cycleRegularity": "unknown",
+        "averageCycleLength": null,
+        "daysSinceLastPeriod": null,
+        "ttcIntent": false,
+        "pregnancyStatus": "active",
+        "weeksSincePregnancyEnd": null,
+        "conditions": [
+          "diabetes"
+        ],
+        "symptomCounts": {},
+        "diabetesRecordedBeforePregnancy": true,
+        "priorLoss": false
+      },
+      "expected": {
+        "personaId": "D4",
+        "track": "D",
+        "modifiers": [
+          "diabetes"
+        ],
+        "emotionalContext": [],
+        "confidence": 0.6666666666666666,
+        "runnerUp": {
+          "personaId": "D1",
+          "confidence": 0.7142857142857143
+        }
+      }
+    },
+    {
+      "input": {
+        "ageBand": null,
+        "cycleRegularity": "unknown",
+        "averageCycleLength": null,
+        "daysSinceLastPeriod": null,
+        "ttcIntent": false,
+        "pregnancyStatus": "active",
+        "weeksSincePregnancyEnd": null,
+        "conditions": [
+          "diabetes"
+        ],
+        "symptomCounts": {},
+        "diabetesRecordedBeforePregnancy": false,
+        "priorLoss": false
+      },
+      "expected": {
+        "personaId": "D3",
+        "track": "D",
+        "modifiers": [
+          "diabetes"
+        ],
+        "emotionalContext": [],
+        "confidence": 0.6666666666666666,
+        "runnerUp": {
+          "personaId": "D1",
+          "confidence": 0.7142857142857143
+        }
+      }
+    },
+    {
+      "input": {
+        "ageBand": null,
+        "cycleRegularity": "unknown",
+        "averageCycleLength": null,
+        "daysSinceLastPeriod": null,
+        "ttcIntent": false,
+        "pregnancyStatus": "active",
+        "weeksSincePregnancyEnd": null,
+        "conditions": [],
+        "symptomCounts": {},
+        "diabetesRecordedBeforePregnancy": false,
+        "priorLoss": true
+      },
+      "expected": {
+        "personaId": "Z1",
+        "track": "Z",
+        "modifiers": [
+          "pregnancy_after_loss"
+        ],
+        "emotionalContext": [
+          "prior_loss"
+        ],
+        "confidence": 0.5833333333333334,
+        "runnerUp": {
+          "personaId": "D2",
+          "confidence": 0.5833333333333334
+        }
+      }
+    },
+    {
+      "input": {
+        "ageBand": null,
+        "cycleRegularity": "unknown",
+        "averageCycleLength": null,
+        "daysSinceLastPeriod": null,
+        "ttcIntent": true,
+        "pregnancyStatus": null,
+        "weeksSincePregnancyEnd": null,
+        "conditions": [
+          "pcos"
+        ],
+        "symptomCounts": {},
+        "diabetesRecordedBeforePregnancy": false,
+        "priorLoss": false
+      },
+      "expected": {
+        "personaId": "Z1",
+        "track": "Z",
+        "modifiers": [
+          "pcos"
+        ],
+        "emotionalContext": [],
+        "confidence": 0.5833333333333334,
+        "runnerUp": {
+          "personaId": "C6",
+          "confidence": 0.5833333333333334
+        }
+      }
+    },
+    {
+      "input": {
+        "ageBand": "45_54",
+        "cycleRegularity": "irregular",
+        "averageCycleLength": null,
+        "daysSinceLastPeriod": null,
+        "ttcIntent": false,
+        "pregnancyStatus": null,
+        "weeksSincePregnancyEnd": null,
+        "conditions": [],
+        "symptomCounts": {
+          "hotFlushes": 3
+        },
+        "diabetesRecordedBeforePregnancy": false,
+        "priorLoss": false
+      },
+      "expected": {
+        "personaId": "F1",
+        "track": "F",
+        "modifiers": [
+          "irregular_cycles"
+        ],
+        "emotionalContext": [],
+        "confidence": 0.675,
+        "runnerUp": {
+          "personaId": "B5",
+          "confidence": 0.6666666666666666
+        }
+      }
+    },
+    {
+      "input": {
+        "ageBand": null,
+        "cycleRegularity": "unknown",
+        "averageCycleLength": null,
+        "daysSinceLastPeriod": null,
+        "ttcIntent": false,
+        "pregnancyStatus": null,
+        "weeksSincePregnancyEnd": null,
+        "conditions": [],
+        "symptomCounts": {},
+        "diabetesRecordedBeforePregnancy": false,
+        "priorLoss": false
+      },
+      "expected": {
+        "personaId": "Z1",
+        "track": "Z",
+        "modifiers": [],
+        "emotionalContext": [],
+        "confidence": 0.21428571428571427,
+        "runnerUp": {
+          "personaId": "B1",
+          "confidence": 0.21428571428571427
+        }
+      }
+    }
+  ]
+}

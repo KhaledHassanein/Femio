@@ -22,7 +22,7 @@
  *    module, a tool or an alert, and the type could not express it if there were.
  */
 
-import type { Resolution } from "@/lib/persona/resolver";
+import type { Resolution } from "../persona/resolver";
 import type {
   AlertSpec,
   Emphasis,

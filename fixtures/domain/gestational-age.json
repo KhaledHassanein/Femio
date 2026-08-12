@@ -1,0 +1,64 @@
+{
+  "cases": [
+    {
+      "input": {
+        "edd": "2026-12-14",
+        "today": "2026-08-12"
+      },
+      "expected": {
+        "weeks": 22,
+        "days": 2,
+        "totalDays": 156,
+        "trimester": 2,
+        "daysUntilDue": 124,
+        "overdue": false,
+        "termStart": "2026-11-23"
+      }
+    },
+    {
+      "input": {
+        "edd": "2026-08-12",
+        "today": "2026-08-12"
+      },
+      "expected": {
+        "weeks": 40,
+        "days": 0,
+        "totalDays": 280,
+        "trimester": 3,
+        "daysUntilDue": 0,
+        "overdue": false,
+        "termStart": "2026-07-22"
+      }
+    },
+    {
+      "input": {
+        "edd": "2026-08-01",
+        "today": "2026-08-12"
+      },
+      "expected": {
+        "weeks": 41,
+        "days": 4,
+        "totalDays": 291,
+        "trimester": 3,
+        "daysUntilDue": -11,
+        "overdue": true,
+        "termStart": "2026-07-11"
+      }
+    },
+    {
+      "input": {
+        "edd": "2027-05-01",
+        "today": "2026-08-12"
+      },
+      "expected": {
+        "weeks": 2,
+        "days": 4,
+        "totalDays": 18,
+        "trimester": 1,
+        "daysUntilDue": 262,
+        "overdue": false,
+        "termStart": "2027-04-10"
+      }
+    }
+  ]
+}

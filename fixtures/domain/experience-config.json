@@ -1,0 +1,628 @@
+{
+  "cases": [
+    {
+      "input": {
+        "personaId": "D1",
+        "phase": "t2",
+        "emotionalLayers": []
+      },
+      "expected": {
+        "version": 1,
+        "resolvedAt": "2026-08-12T00:00:00.000Z",
+        "track": "D",
+        "personaId": "D1",
+        "modifiers": [],
+        "emotionalContext": [],
+        "confidence": 1,
+        "offer": null,
+        "phase": "t2",
+        "home": {
+          "modules": [
+            {
+              "id": "pregnancy.week",
+              "emphasis": "hero"
+            },
+            {
+              "id": "pregnancy.appointments",
+              "emphasis": "primary"
+            },
+            {
+              "id": "pregnancy.weight",
+              "emphasis": "primary"
+            },
+            {
+              "id": "pregnancy.warningSigns",
+              "emphasis": "primary"
+            },
+            {
+              "id": "quickLog",
+              "emphasis": "primary"
+            }
+          ],
+          "quickLog": [
+            "symptom",
+            "weight",
+            "movement",
+            "contractions",
+            "appointment",
+            "mood"
+          ]
+        },
+        "tools": [
+          "symptom",
+          "weight",
+          "movement",
+          "contractions",
+          "appointment",
+          "mood"
+        ],
+        "content": {
+          "skin": "pregnancy",
+          "foreground": [
+            "week-by-week",
+            "appointments-and-tests",
+            "warning-signs",
+            "nutrition"
+          ]
+        },
+        "alerts": [
+          {
+            "id": "pregnancy.redFlags",
+            "kind": "redFlag"
+          },
+          {
+            "id": "pregnancy.movementPrimer",
+            "kind": "milestone",
+            "params": {
+              "week": 28
+            }
+          }
+        ],
+        "emrView": [
+          "edd",
+          "gestationalAge",
+          "appointments",
+          "weight"
+        ],
+        "tone": {
+          "register": "warm",
+          "celebrationByDefault": true,
+          "countdown": false,
+          "readingLevel": "standard"
+        }
+      }
+    },
+    {
+      "input": {
+        "personaId": "D3",
+        "phase": "t2",
+        "emotionalLayers": []
+      },
+      "expected": {
+        "version": 1,
+        "resolvedAt": "2026-08-12T00:00:00.000Z",
+        "track": "D",
+        "personaId": "D3",
+        "modifiers": [],
+        "emotionalContext": [],
+        "confidence": 1,
+        "offer": null,
+        "phase": "t2",
+        "home": {
+          "modules": [
+            {
+              "id": "pregnancy.week",
+              "emphasis": "hero"
+            },
+            {
+              "id": "strip.glucose",
+              "emphasis": "primary"
+            },
+            {
+              "id": "pregnancy.appointments",
+              "emphasis": "primary"
+            },
+            {
+              "id": "pregnancy.weight",
+              "emphasis": "primary"
+            },
+            {
+              "id": "pregnancy.warningSigns",
+              "emphasis": "primary"
+            },
+            {
+              "id": "quickLog",
+              "emphasis": "primary"
+            }
+          ],
+          "quickLog": [
+            "symptom",
+            "weight",
+            "movement",
+            "contractions",
+            "appointment",
+            "mood",
+            "glucose",
+            "medication"
+          ]
+        },
+        "tools": [
+          "symptom",
+          "weight",
+          "movement",
+          "contractions",
+          "appointment",
+          "mood",
+          "glucose",
+          "medication"
+        ],
+        "content": {
+          "skin": "pregnancy-gdm",
+          "foreground": [
+            "week-by-week",
+            "appointments-and-tests",
+            "warning-signs",
+            "nutrition",
+            "just-diagnosed",
+            "understanding-your-numbers",
+            "carbs",
+            "gdm-delivery"
+          ]
+        },
+        "alerts": [
+          {
+            "id": "pregnancy.redFlags",
+            "kind": "redFlag"
+          },
+          {
+            "id": "pregnancy.movementPrimer",
+            "kind": "milestone",
+            "params": {
+              "week": 28
+            }
+          },
+          {
+            "id": "gdm.logCadence",
+            "kind": "cadence"
+          },
+          {
+            "id": "gdm.postpartumOgtt",
+            "kind": "milestone",
+            "params": {
+              "weeksAfterBirth": 6
+            }
+          }
+        ],
+        "emrView": [
+          "edd",
+          "gestationalAge",
+          "appointments",
+          "weight",
+          "glucoseReadings",
+          "gdmDiagnosedAt"
+        ],
+        "tone": {
+          "register": "warm",
+          "celebrationByDefault": true,
+          "countdown": false,
+          "readingLevel": "gentle"
+        }
+      }
+    },
+    {
+      "input": {
+        "personaId": "D4",
+        "phase": "preconception",
+        "emotionalLayers": []
+      },
+      "expected": {
+        "version": 1,
+        "resolvedAt": "2026-08-12T00:00:00.000Z",
+        "track": "D",
+        "personaId": "D4",
+        "modifiers": [],
+        "emotionalContext": [],
+        "confidence": 1,
+        "offer": null,
+        "phase": "preconception",
+        "home": {
+          "modules": [
+            {
+              "id": "strip.glucose",
+              "emphasis": "hero"
+            },
+            {
+              "id": "strip.labs",
+              "emphasis": "primary",
+              "params": {
+                "set": "hba1c"
+              }
+            },
+            {
+              "id": "strip.medication",
+              "emphasis": "primary"
+            }
+          ],
+          "quickLog": [
+            "symptom",
+            "weight",
+            "movement",
+            "contractions",
+            "appointment",
+            "mood",
+            "glucose",
+            "medication",
+            "labs"
+          ]
+        },
+        "tools": [
+          "symptom",
+          "weight",
+          "movement",
+          "contractions",
+          "appointment",
+          "mood",
+          "glucose",
+          "medication",
+          "labs"
+        ],
+        "content": {
+          "skin": "pregnancy-diabetes",
+          "foreground": [
+            "week-by-week",
+            "appointments-and-tests",
+            "warning-signs",
+            "nutrition",
+            "planning-with-diabetes",
+            "tighter-targets",
+            "hypo-safety",
+            "devices-in-labour"
+          ]
+        },
+        "alerts": [
+          {
+            "id": "pregnancy.redFlags",
+            "kind": "redFlag"
+          },
+          {
+            "id": "pregnancy.movementPrimer",
+            "kind": "milestone",
+            "params": {
+              "week": 28
+            }
+          },
+          {
+            "id": "diabetes.logCadence",
+            "kind": "cadence"
+          },
+          {
+            "id": "diabetes.medicationReview",
+            "kind": "education"
+          },
+          {
+            "id": "diabetes.postpartumHypo",
+            "kind": "milestone",
+            "params": {
+              "daysAfterBirth": 1
+            }
+          }
+        ],
+        "emrView": [
+          "edd",
+          "gestationalAge",
+          "appointments",
+          "weight",
+          "diabetesType",
+          "glucoseReadings",
+          "hba1c",
+          "devices"
+        ],
+        "tone": {
+          "register": "warm",
+          "celebrationByDefault": true,
+          "countdown": false,
+          "readingLevel": "standard"
+        }
+      }
+    },
+    {
+      "input": {
+        "personaId": "D7",
+        "phase": "t1",
+        "emotionalLayers": []
+      },
+      "expected": {
+        "version": 1,
+        "resolvedAt": "2026-08-12T00:00:00.000Z",
+        "track": "D",
+        "personaId": "D7",
+        "modifiers": [],
+        "emotionalContext": [],
+        "confidence": 1,
+        "offer": null,
+        "phase": "t1",
+        "home": {
+          "modules": [
+            {
+              "id": "pregnancy.week",
+              "emphasis": "hero"
+            },
+            {
+              "id": "strip.thyroid",
+              "emphasis": "primary"
+            },
+            {
+              "id": "strip.medication",
+              "emphasis": "primary"
+            },
+            {
+              "id": "support.reassurance",
+              "emphasis": "primary",
+              "params": {
+                "topic": "thyroid-and-baby"
+              }
+            },
+            {
+              "id": "pregnancy.screeningPrep",
+              "emphasis": "primary"
+            },
+            {
+              "id": "pregnancy.appointments",
+              "emphasis": "primary"
+            },
+            {
+              "id": "pregnancy.warningSigns",
+              "emphasis": "primary"
+            },
+            {
+              "id": "quickLog",
+              "emphasis": "primary"
+            }
+          ],
+          "quickLog": [
+            "symptom",
+            "weight",
+            "movement",
+            "contractions",
+            "appointment",
+            "mood",
+            "labs",
+            "medication"
+          ]
+        },
+        "tools": [
+          "symptom",
+          "weight",
+          "movement",
+          "contractions",
+          "appointment",
+          "mood",
+          "labs",
+          "medication"
+        ],
+        "content": {
+          "skin": "pregnancy-thyroid",
+          "foreground": [
+            "week-by-week",
+            "appointments-and-tests",
+            "warning-signs",
+            "nutrition",
+            "your-thyroid-and-your-baby",
+            "why-my-dose-often-goes-up",
+            "how-often-checked",
+            "taking-levothyroxine-right"
+          ]
+        },
+        "alerts": [
+          {
+            "id": "pregnancy.redFlags",
+            "kind": "redFlag"
+          },
+          {
+            "id": "pregnancy.movementPrimer",
+            "kind": "milestone",
+            "params": {
+              "week": 28
+            }
+          },
+          {
+            "id": "thyroid.labCadence",
+            "kind": "cadence",
+            "params": {
+              "everyWeeks": 4
+            }
+          },
+          {
+            "id": "thyroid.medicationReviewOnEntry",
+            "kind": "education"
+          },
+          {
+            "id": "thyroid.postpartumThyroiditisPrimer",
+            "kind": "milestone",
+            "params": {
+              "week": 34
+            }
+          }
+        ],
+        "emrView": [
+          "edd",
+          "gestationalAge",
+          "appointments",
+          "weight",
+          "tsh",
+          "freeT4",
+          "antibodies",
+          "thyroidMedication",
+          "doseChangeHistory"
+        ],
+        "tone": {
+          "register": "vigilantReassuring",
+          "celebrationByDefault": true,
+          "countdown": false,
+          "readingLevel": "standard"
+        }
+      }
+    },
+    {
+      "input": {
+        "personaId": "D7",
+        "phase": "t3",
+        "emotionalLayers": [
+          "D2"
+        ]
+      },
+      "expected": {
+        "version": 1,
+        "resolvedAt": "2026-08-12T00:00:00.000Z",
+        "track": "D",
+        "personaId": "D7",
+        "modifiers": [],
+        "emotionalContext": [],
+        "confidence": 1,
+        "offer": null,
+        "phase": "t3",
+        "home": {
+          "modules": [
+            {
+              "id": "pregnancy.week",
+              "emphasis": "hero"
+            },
+            {
+              "id": "pregnancy.milestone",
+              "emphasis": "primary"
+            },
+            {
+              "id": "support.lossAware",
+              "emphasis": "primary"
+            },
+            {
+              "id": "strip.thyroid",
+              "emphasis": "primary"
+            },
+            {
+              "id": "strip.medication",
+              "emphasis": "secondary"
+            },
+            {
+              "id": "pregnancy.movement",
+              "emphasis": "primary",
+              "params": {
+                "fromWeek": 28,
+                "anxietyAware": true
+              }
+            },
+            {
+              "id": "pregnancy.contractions",
+              "emphasis": "secondary",
+              "params": {
+                "fromWeek": 36
+              }
+            },
+            {
+              "id": "pregnancy.birthPrep",
+              "emphasis": "primary"
+            },
+            {
+              "id": "pregnancy.warningSigns",
+              "emphasis": "primary"
+            },
+            {
+              "id": "quickLog",
+              "emphasis": "primary"
+            }
+          ],
+          "quickLog": [
+            "symptom",
+            "weight",
+            "movement",
+            "contractions",
+            "appointment",
+            "mood",
+            "labs",
+            "medication"
+          ]
+        },
+        "tools": [
+          "symptom",
+          "weight",
+          "movement",
+          "contractions",
+          "appointment",
+          "mood",
+          "labs",
+          "medication"
+        ],
+        "content": {
+          "skin": "pregnancy-thyroid",
+          "foreground": [
+            "week-by-week",
+            "appointments-and-tests",
+            "warning-signs",
+            "nutrition",
+            "your-thyroid-and-your-baby",
+            "why-my-dose-often-goes-up",
+            "how-often-checked",
+            "taking-levothyroxine-right",
+            "milestone-at-a-time",
+            "however-you-feel",
+            "scan-literacy"
+          ]
+        },
+        "alerts": [
+          {
+            "id": "pregnancy.redFlags",
+            "kind": "redFlag"
+          },
+          {
+            "id": "pregnancy.movementPrimer",
+            "kind": "milestone",
+            "params": {
+              "week": 28
+            }
+          },
+          {
+            "id": "thyroid.labCadence",
+            "kind": "cadence",
+            "params": {
+              "everyWeeks": 4
+            }
+          },
+          {
+            "id": "thyroid.medicationReviewOnEntry",
+            "kind": "education"
+          },
+          {
+            "id": "thyroid.postpartumThyroiditisPrimer",
+            "kind": "milestone",
+            "params": {
+              "week": 34
+            }
+          },
+          {
+            "id": "loss.suppression",
+            "kind": "education"
+          }
+        ],
+        "emrView": [
+          "edd",
+          "gestationalAge",
+          "appointments",
+          "weight",
+          "tsh",
+          "freeT4",
+          "antibodies",
+          "thyroidMedication",
+          "doseChangeHistory",
+          "priorLossCount",
+          "lastLossGestation"
+        ],
+        "tone": {
+          "register": "anxietyAware",
+          "celebrationByDefault": false,
+          "countdown": false,
+          "readingLevel": "gentle"
+        }
+      }
+    }
+  ]
+}

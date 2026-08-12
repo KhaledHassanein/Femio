@@ -1,0 +1,54 @@
+{
+  "cases": [
+    {
+      "input": {
+        "starts": [
+          "2026-01-01",
+          "2026-01-29",
+          "2026-02-26",
+          "2026-03-26"
+        ]
+      },
+      "expected": {
+        "averageLength": 28,
+        "predictedStart": "2026-04-23",
+        "windowStart": "2026-04-21",
+        "windowEnd": "2026-04-25",
+        "confidence": "medium",
+        "irregular": false
+      }
+    },
+    {
+      "input": {
+        "starts": [
+          "2026-01-01",
+          "2026-02-05",
+          "2026-03-02",
+          "2026-04-10"
+        ]
+      },
+      "expected": {
+        "averageLength": 33,
+        "predictedStart": "2026-05-13",
+        "windowStart": "2026-05-06",
+        "windowEnd": "2026-05-20",
+        "confidence": "low",
+        "irregular": true
+      }
+    },
+    {
+      "input": {
+        "starts": [
+          "2026-01-01"
+        ]
+      },
+      "expected": null
+    },
+    {
+      "input": {
+        "starts": []
+      },
+      "expected": null
+    }
+  ]
+}

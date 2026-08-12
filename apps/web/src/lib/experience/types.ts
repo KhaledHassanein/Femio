@@ -20,7 +20,7 @@
  * decision requiring its own ADR — not a field added here.
  */
 
-import type { Track } from "@/lib/persona/resolver";
+import type { Track } from "../persona/resolver";
 
 /** Contract version. Clients refuse to render a document with a newer major. */
 export const EXPERIENCE_CONTRACT_VERSION = 1;

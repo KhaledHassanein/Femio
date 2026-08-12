@@ -24,25 +24,15 @@ import { buildConditionRows, type ConditionCode } from "./conditions";
  *    a transition reversible rather than merely repeatable.
  */
 
-export const PERSONA_MODES = ["cycle", "ttc", "pregnancy", "menopause", "general"] as const;
-export type PersonaMode = (typeof PERSONA_MODES)[number];
+// Vocabulary lives in pure modules so tier 1 can import it without this file's
+// Supabase dependency (R2.4). Imported for local use and re-exported so every
+// existing caller keeps working.
+import { PERSONA_MODES, type PersonaMode } from "./modes";
+export { PERSONA_MODES, type PersonaMode };
 
-/**
- * Mirrors the `profiles.age_band` check constraint. Age is stored as a band rather
- * than a date wherever possible — data minimisation, and the resolver never needs
- * more precision than this (docs/14).
- */
-export const AGE_BANDS = [
-  "under_13",
-  "13_15",
-  "16_17",
-  "18_24",
-  "25_34",
-  "35_44",
-  "45_54",
-  "55_plus",
-] as const;
-export type AgeBand = (typeof AGE_BANDS)[number];
+// Age bands moved to `./age` so tier 1 can import them without dragging in the
+// Supabase client this module uses (R2.4). Re-exported for existing callers.
+export { AGE_BANDS, type AgeBand } from "./age";
 
 /**
  * Track letters come from the taxonomy in docs/08. `Z` is the Z1 fallback —

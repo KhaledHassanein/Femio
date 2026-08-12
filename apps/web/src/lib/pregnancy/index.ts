@@ -1,4 +1,4 @@
-import { addDays, diffDays, isValidISODate } from "@/lib/calculators/dates";
+import { addDays, diffDays, isValidISODate } from "../calculators/dates";
 
 /**
  * Pregnancy progress, derived from the estimated due date (P1.13b).

@@ -44,7 +44,7 @@ describe("readSignals", () => {
         ],
       }),
     );
-    expect(signals.conditions.sort()).toEqual(["pcos", "thyroid"]);
+    expect([...signals.conditions].sort()).toEqual(["pcos", "thyroid"]);
   });
 
   /**

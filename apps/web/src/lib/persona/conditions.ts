@@ -1,4 +1,4 @@
-import type { PersonaMode } from "@/lib/persona/state";
+import type { PersonaMode } from "./modes";
 
 /**
  * The condition vocabulary the wizard asks about (P1.27.8, docs/09 §4 Q2–Q6).

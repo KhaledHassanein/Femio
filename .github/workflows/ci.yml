@@ -80,6 +80,12 @@ jobs:
       - name: Persona-branch guard
         run: pnpm persona-branch-lint
 
+      # Tier 1 has to lift into a Deno Edge Function and be mirrored in Dart
+      # unchanged (docs/24 §1). Nothing in the web app breaks when that stops being
+      # true, which is exactly why it is checked rather than remembered (ADR-060).
+      - name: Tier-1 portability guard
+        run: pnpm tier1-portability-lint
+
       # The authoring brief, enforced mechanically over docs/content/articles
       # (P1.9.1, ADR-031). Offline by default — source URLs are resolved by the
       # scheduled `content-urls` job below, so a guideline body's WAF or a slow
