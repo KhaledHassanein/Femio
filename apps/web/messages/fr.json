@@ -251,6 +251,21 @@
   "onboarding": {
     "title": "Bienvenue sur Femio",
     "stepOf": "Étape {current} sur {total}",
+    "age": {
+      "heading": "Quel âge avez-vous, approximativement ?",
+      "note": "Facultatif. Cela change ce que Femio attend de vos cycles : les règles mettent quelques années à se régulariser après leur apparition, et changent à nouveau vers 45 ans. Femio ne demande jamais votre date de naissance.",
+      "minorNote": "Comme vous avez moins de 18 ans, Femio ne partagera rien avec des partenaires d'analyse ou de recherche. Tout dans l'application vous reste accessible — rien n'est masqué.",
+      "bands": {
+        "under_13": "Moins de 13",
+        "13_15": "13–15",
+        "16_17": "16–17",
+        "18_24": "18–24",
+        "25_34": "25–34",
+        "35_44": "35–44",
+        "45_54": "45–54",
+        "55_plus": "55+"
+      }
+    },
     "mode": {
       "postpartum": {
         "name": "J'ai accouché récemment",

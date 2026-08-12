@@ -5,6 +5,8 @@ import {
   type ConsentRow,
   type OptionalPurpose,
 } from "./purposes";
+import type { AgeBand } from "@/lib/persona/age";
+import { purposeAllowedForAge } from "@/lib/persona/minor";
 
 /**
  * Reading and changing consent from the browser (P1.20.2).
@@ -51,6 +53,23 @@ export async function setConsent(purpose: OptionalPurpose, granted: boolean): Pr
   const { data: auth } = await supabase.auth.getUser();
   if (!auth.user) return { ok: false, error: "not_signed_in" };
   const profileId = auth.user.id;
+
+  /**
+   * The minor gate, enforced here rather than only in the UI (R2.5b).
+   *
+   * Onboarding already refuses to grant `analytics` or `research` to someone under
+   * 18, but a toggle in Settings is a second door to the same room — and a UI that
+   * merely hides a control is one refactor away from granting it anyway. A
+   * *withdrawal* is always allowed: the gate exists to protect her, not to trap a
+   * permission she wants to remove.
+   */
+  if (granted) {
+    const { data: profile } = await supabase.from("profiles").select("age_band").maybeSingle();
+    const ageBand = (profile?.age_band as AgeBand | null) ?? null;
+    if (!purposeAllowedForAge(purpose, ageBand)) {
+      return { ok: false, error: "not_permitted_for_age" };
+    }
+  }
 
   if (!granted) {
     const { error: revokeError } = await supabase

@@ -91,6 +91,19 @@ should change — gentler heading, nothing celebratory, no check-in cadence. If 
 screen reads as upbeat, tell me; that is the failure mode E6 exists to prevent.
 
 
+### T7 · Age and the minor tier (R2.5b)
+`/welcome` on a fresh browser profile.
+
+- [ ] Step 1 now asks **roughly how old are you**, as bands. It is skippable, and it never asks for a date of birth.
+- [ ] Pick **13–15**. A note appears saying nothing goes to analytics or research partners, **and that nothing in the app is hidden from you**. Both halves matter.
+- [ ] Finish onboarding, then Settings → Your privacy choices: turning **analytics** on should refuse. Turning it *off* must always work — the gate protects her, it does not trap a permission she wants removed.
+- [ ] Pick **25–34** instead on a second account: analytics is offerable as before.
+- [ ] Check the Arabic and French copy for the age note. It is new.
+
+**Why this matters more than it looks:** before this, nothing in Femio asked for age, so
+`profiles.age_band` was never written and the resolver rules for A2, F1 and F2 — all of which
+require an age band — could never fire at all.
+
 ---
 
 ## Regression sweep — before a beta or a release

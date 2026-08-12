@@ -13,6 +13,8 @@ import { ChoiceGroup } from "@/components/ui/choice-row";
 import { chipVariants } from "@/components/ui/chip";
 import { CONDITIONS_BY_MODE, type ConditionCode } from "@/lib/persona/conditions";
 import type { PersonaMode } from "@/lib/persona/modes";
+import { AGE_BANDS, type AgeBand } from "@/lib/persona/age";
+import { isMinor } from "@/lib/persona/minor";
 import { track } from "@/lib/analytics/track";
 import { PageView } from "@/components/analytics/page-view";
 
@@ -72,6 +74,9 @@ export function OnboardingWizard() {
   const [step, setStep] = useState(1);
   const [mode, setMode] = useState<Mode | null>(null);
   const [conditions, setConditions] = useState<Set<ConditionCode>>(new Set());
+  // `null` is a real answer ("prefer not to say"), and it is treated as a minor
+  // for consent purposes rather than as an adult (lib/persona/minor.ts).
+  const [ageBand, setAgeBand] = useState<AgeBand | null>(null);
   const [account, setAccount] = useState<Account>("anonymous");
   const [email, setEmail] = useState("");
   const [insights, setInsights] = useState(false);
@@ -111,6 +116,7 @@ export function OnboardingWizard() {
     const res = await completeOnboarding({
       mode,
       conditions: [...conditions],
+      ageBand,
       email: account === "email" ? email : undefined,
       insights,
       research,
@@ -175,6 +181,32 @@ export function OnboardingWizard() {
               desc: t(`mode.${m}.desc`),
             }))}
           />
+          {/* Age band. Optional, and asked here rather than as its own step so the
+              flow stays short (R1.4). It is the resolver's most-used gate — A2, F1
+              and F2 all require one — and nothing collected it until R2.5b, so
+              those rules could never fire. Bands rather than a date of birth is
+              data minimisation: nothing in the taxonomy needs more precision. */}
+          <div className="flex flex-col gap-2 border-t border-border pt-4">
+            <p className="text-sm font-medium text-text">{t("age.heading")}</p>
+            <p className="text-2xs text-text-muted">{t("age.note")}</p>
+            <div className="flex flex-wrap gap-2">
+              {AGE_BANDS.map((band) => (
+                <button
+                  key={band}
+                  type="button"
+                  aria-pressed={ageBand === band}
+                  onClick={() => setAgeBand(ageBand === band ? null : band)}
+                  className={chipVariants({ selected: ageBand === band })}
+                >
+                  {t(`age.bands.${band}`)}
+                </button>
+              ))}
+            </div>
+            {isMinor(ageBand) && ageBand ? (
+              <p className="text-2xs leading-relaxed text-text-muted">{t("age.minorNote")}</p>
+            ) : null}
+          </div>
+
           {/* "Skip / I'm not sure" → Z1 (P1.27.7, docs/09 §4). Required, and it
               was missing: the wizard forced a choice among four stages. Z1 is the
               full generic experience, not a lesser one. */}

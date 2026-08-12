@@ -251,6 +251,21 @@
   "onboarding": {
     "title": "Welcome to Femio",
     "stepOf": "Step {current} of {total}",
+    "age": {
+      "heading": "Roughly how old are you?",
+      "note": "Optional. It changes what Femio expects of your cycles — periods take a few years to settle after they start, and change again around 45. Femio never asks for your date of birth.",
+      "minorNote": "Because you are under 18, Femio will not share anything with analytics or research partners. Everything in the app stays open to you — nothing is hidden.",
+      "bands": {
+        "under_13": "Under 13",
+        "13_15": "13–15",
+        "16_17": "16–17",
+        "18_24": "18–24",
+        "25_34": "25–34",
+        "35_44": "35–44",
+        "45_54": "45–54",
+        "55_plus": "55+"
+      }
+    },
     "mode": {
       "postpartum": {
         "name": "I recently gave birth",

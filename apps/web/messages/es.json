@@ -251,6 +251,21 @@
   "onboarding": {
     "title": "Bienvenida a Femio",
     "stepOf": "Paso {current} de {total}",
+    "age": {
+      "heading": "¿Qué edad tienes, aproximadamente?",
+      "note": "Opcional. Cambia lo que Femio espera de tus ciclos: la regla tarda unos años en regularizarse tras aparecer, y vuelve a cambiar alrededor de los 45. Femio nunca te pide tu fecha de nacimiento.",
+      "minorNote": "Como eres menor de 18 años, Femio no compartirá nada con socios de analítica o investigación. Todo en la aplicación sigue disponible para ti: no se oculta nada.",
+      "bands": {
+        "under_13": "Menos de 13",
+        "13_15": "13–15",
+        "16_17": "16–17",
+        "18_24": "18–24",
+        "25_34": "25–34",
+        "35_44": "35–44",
+        "45_54": "45–54",
+        "55_plus": "55+"
+      }
+    },
     "mode": {
       "postpartum": {
         "name": "He dado a luz hace poco",

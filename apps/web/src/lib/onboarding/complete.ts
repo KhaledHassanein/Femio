@@ -1,6 +1,8 @@
 import { createClient } from "@/lib/supabase/client";
 import type { Locale } from "@/i18n/routing";
 import { CONSENT_VERSION } from "@/lib/consent/purposes";
+import type { AgeBand } from "@/lib/persona/age";
+import { purposeAllowedForAge } from "@/lib/persona/minor";
 import { buildConditionRows, type ConditionCode } from "@/lib/persona/conditions";
 import { resolvePersona } from "@/lib/persona/resolver";
 import { EMPTY_SIGNALS, type PersonaSignals } from "@/lib/persona/signals";
@@ -49,6 +51,7 @@ const MODE_TO_STATE: Record<OnboardingMode, { flags: Record<string, boolean> }> 
 function signalsFromWizard(choice: OnboardingChoice): PersonaSignals {
   return {
     ...EMPTY_SIGNALS,
+    ageBand: choice.ageBand ?? null,
     ttcIntent: choice.mode === "ttc",
     pregnancyStatus: choice.mode === "pregnancy" ? ("active" as const) : null,
     conditions: choice.conditions ?? [],
@@ -62,6 +65,13 @@ function signalsFromWizard(choice: OnboardingChoice): PersonaSignals {
 
 export type OnboardingChoice = {
   mode: OnboardingMode;
+  /**
+   * Age band, optional. It is the resolver's most-used gate — A2, F1 and F2 all
+   * require one — and nothing collected it until R2.5b, so those rules could never
+   * fire. `null` is a real answer ("prefer not to say") and is treated as a minor
+   * for consent purposes; see `lib/persona/minor.ts`.
+   */
+  ageBand?: AgeBand | null;
   /** Triage answers — "conditions your clinician is watching". Always self-reported. */
   conditions?: ConditionCode[];
   email?: string;
@@ -86,15 +96,32 @@ export async function completeOnboarding(choice: OnboardingChoice): Promise<Resu
   if (authError || !auth.user) return { ok: false, error: authError?.message ?? "sign_in_failed" };
   const profileId = auth.user.id;
 
-  await supabase.from("profiles").update({ locale: choice.locale }).eq("id", profileId);
+  await supabase
+    .from("profiles")
+    .update({ locale: choice.locale, age_band: choice.ageBand ?? null })
+    .eq("id", profileId);
 
   const { error: consentError } = await supabase.from("consent_records").insert([
     { profile_id: profileId, purpose: "core", granted: true, version: CONSENT_VERSION },
     { profile_id: profileId, purpose: "insights", granted: choice.insights, version: CONSENT_VERSION },
-    { profile_id: profileId, purpose: "research", granted: choice.research, version: CONSENT_VERSION },
+    {
+      profile_id: profileId,
+      purpose: "research",
+      // A minor cannot meaningfully consent to this under GDPR Art. 8 without
+      // verifiable parental consent, which Femio does not implement. Enforced at
+      // the write rather than by hiding the toggle: a UI that merely omits a
+      // control is one refactor away from granting it anyway.
+      granted: choice.research && purposeAllowedForAge("research", choice.ageBand ?? null),
+      version: CONSENT_VERSION,
+    },
     // Product analytics is its own opt-in purpose (0005) and must never be
     // inferred from `insights` — see lib/analytics/consent.ts.
-    { profile_id: profileId, purpose: "analytics", granted: choice.analytics, version: CONSENT_VERSION },
+    {
+      profile_id: profileId,
+      purpose: "analytics",
+      granted: choice.analytics && purposeAllowedForAge("analytics", choice.ageBand ?? null),
+      version: CONSENT_VERSION,
+    },
   ]);
   if (consentError) return { ok: false, error: consentError.message };
 
