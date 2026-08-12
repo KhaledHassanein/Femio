@@ -104,6 +104,14 @@ CI=1 pnpm --filter web test:e2e:ci     # after a fresh build
   work", check the preset map before anything else (`tokens-parity-lint` now catches this).
 - **The i18n catalogs are Prettier-formatted** and some maps are on one line. Insert keys as
   text; never re-serialise with `json.dumps`. Verify the file still parses after every edit.
+  Two specifics that each cost time on 2026-08-12: **`dashboard.modeLabel` is a single-line
+  map**, so a "insert before the closing brace" approach silently misses it; and **`"mode"` /
+  `"modes"` appear in more than one namespace**, so anchor inside the enclosing namespace
+  rather than on first match.
+- **`git checkout` restores the catalogs with CRLF** in this working tree, while files written
+  by a script are LF. Every `\n`-based anchor then stops matching — with no error, because
+  `indexOf` just returns −1 and a naive script reports success. Normalise to LF, edit, and
+  write back in whatever style the file had.
 - **`apps/cms/.env.local` holds the PRODUCTION connection string.** Any local migrate touches
   live data.
 - **Windows:** `pkill` does not kill `next start`; kill by port.

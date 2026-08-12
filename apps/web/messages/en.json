@@ -252,6 +252,10 @@
     "title": "Welcome to Femio",
     "stepOf": "Step {current} of {total}",
     "mode": {
+      "postpartum": {
+        "name": "I recently gave birth",
+        "desc": "Recovery, your body, and how you are doing."
+      },
       "skip": "Skip — I'm not sure",
       "general": {
         "name": "Not sure yet",
@@ -379,7 +383,7 @@
   "dashboard": {
     "title": "Your dashboard",
     "loading": "Loading your dashboard",
-    "modeLabel": { "cycle": "Cycle", "ttc": "Trying to conceive", "pregnancy": "Pregnancy", "menopause": "Menopause", "general": "General" },
+    "modeLabel": { "cycle": "Cycle", "ttc": "Trying to conceive", "pregnancy": "Pregnancy", "postpartum": "After birth", "menopause": "Menopause", "general": "General" },
     "cycleDay": "Day {day} of your cycle",
     "nextPeriod": "Next period",
     "window": "Expected between {start} and {end}",
@@ -520,6 +524,27 @@
     "subtitle": "Referenced guides to conditions and topics across your health life, each reviewed by a clinician.",
     "empty": "New topics are on the way — check back soon."
   },
+  "postpartum": {
+    "checkIn": {
+      "eyebrow": "After birth",
+      "heading": "How are you doing today?",
+      "note": "There is no right answer and nothing to score. Log what you feel, when you feel like it."
+    },
+    "loss": {
+      "eyebrow": "After your loss",
+      "heading": "However you feel today is okay.",
+      "note": "Nothing here celebrates on your behalf, and nothing counts anything. Femio keeps your record for as long as you want it."
+    },
+    "redFlags": {
+      "heading": "Signs to get checked now",
+      "body": "Heavy bleeding that soaks a pad in an hour · a severe headache that will not go away or changes in your vision · trouble breathing or chest pain · a fever · a red, painful or swollen leg · thoughts of harming yourself or your baby. Contact your maternity team or the emergency services available where you are. The weeks after birth carry real risks, and being seen early is never an overreaction."
+    },
+    "reading": {
+      "heading": "Reading for this stage",
+      "pending": "Clinician-reviewed guides for recovery after birth are being written. Everything already published stays searchable in the library."
+    },
+    "cycleReturnNote": "Femio is not showing a next-period estimate. Your cycle can take months to return and is often irregular at first, so a predicted date now would be a guess dressed up as a number. Log your first period and the cycle tools pick up from there."
+  },
   "experience": {
     "reanswer": {
       "open": "Re-answer the questions",
@@ -546,6 +571,10 @@
     "heading": "Your Femio experience",
     "desc": "Femio adapts to where you are in life. You can change this whenever it changes — or turn it off and see everything.",
     "modes": {
+      "postpartum": {
+        "label": "After birth",
+        "desc": "Recovery and how you are doing. No cycle predictions until your period returns."
+      },
       "cycle": {
         "label": "Cycle",
         "desc": "Periods, symptoms and predictions with honest ranges."

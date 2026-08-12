@@ -10,7 +10,13 @@ import { EMPTY_SIGNALS, type PersonaSignals } from "@/lib/persona/signals";
 // wording. Re-exported because it was published from here first.
 export { CONSENT_VERSION };
 
-export type OnboardingMode = "cycle" | "ttc" | "pregnancy" | "menopause" | "general";
+export type OnboardingMode =
+  | "cycle"
+  | "ttc"
+  | "pregnancy"
+  | "postpartum"
+  | "menopause"
+  | "general";
 
 // Life-stage mode → initial resolved state (docs/09). Emphasis only; access is
 // never restricted.
@@ -24,6 +30,7 @@ const MODE_TO_STATE: Record<OnboardingMode, { flags: Record<string, boolean> }> 
   cycle: { flags: {} },
   ttc: { flags: { ttc_intent: true } },
   pregnancy: { flags: { pregnant: true } },
+  postpartum: { flags: {} },
   menopause: { flags: {} },
   // "Skip / I'm not sure" (docs/09 §4). Z1 is a first-class state, not a failure:
   // the full generic experience, progressively personalised as she logs (P1.27.5).

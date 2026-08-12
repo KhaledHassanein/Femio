@@ -76,6 +76,21 @@ not a config problem.
 - [ ] Movement log saves (migration `0007` is applied). There is **no target and no pass mark** — that is deliberate (ADR-049).
 - [ ] Logging an **emergency-tier** symptom interrupts with guidance to contact care, and still saves the entry.
 
+### T6 · Postpartum mode (R2.5) — newly reachable
+Settings → **Your Femio experience** → **After birth**.
+
+- [ ] The dashboard badge says "After birth" and there is **no next-period estimate anywhere**. That absence is the point — if you see a predicted window, that is the bug this shipped to fix.
+- [ ] The note under the screen explains *why* there is no prediction, rather than leaving the gap to be interpreted.
+- [ ] The hero asks how you are doing and **does not congratulate you**. The mode alone does not tell Femio whether a baby came home.
+- [ ] The postpartum red-flag panel is present and high on the screen, and carries **no phone number**.
+- [ ] Re-answer the questions in this mode: the conditions offered are the postpartum set (gestational diabetes, hypertension, pre-eclampsia, anaemia, mood, previous loss), not the pregnancy one.
+- [ ] Repeat the whole check in Arabic. This copy is new and unreviewed.
+
+**The grief path, if you can face testing it:** tick **A previous loss** and save. The tone
+should change — gentler heading, nothing celebratory, no check-in cadence. If anything on that
+screen reads as upbeat, tell me; that is the failure mode E6 exists to prevent.
+
+
 ---
 
 ## Regression sweep — before a beta or a release

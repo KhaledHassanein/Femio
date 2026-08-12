@@ -12,13 +12,18 @@ import { Label } from "@/components/ui/label";
 import { ChoiceGroup } from "@/components/ui/choice-row";
 import { chipVariants } from "@/components/ui/chip";
 import { CONDITIONS_BY_MODE, type ConditionCode } from "@/lib/persona/conditions";
+import type { PersonaMode } from "@/lib/persona/modes";
 import { track } from "@/lib/analytics/track";
 import { PageView } from "@/components/analytics/page-view";
 
-type Mode = "cycle" | "ttc" | "pregnancy" | "menopause" | "general";
+// Was a hand-written copy of the mode list — a fourth one, which is how
+// "postpartum" could be added everywhere else and still not compile here.
+type Mode = PersonaMode;
 type Account = "anonymous" | "email";
 
-const MODES: readonly Mode[] = ["cycle", "ttc", "pregnancy", "menopause"];
+// docs/09 §4 Q1 lists "I recently gave birth" among the eight branches; it was
+// one of the four that had never been offered (R2.5).
+const MODES: readonly Mode[] = ["cycle", "ttc", "pregnancy", "postpartum", "menopause"];
 const ACCOUNTS: readonly Account[] = ["anonymous", "email"];
 // Q1 life stage → Q2 triage → privacy → confirm. docs/09 §4 specifies six
 // branches; the triage step is Q2–Q6 collapsed into one stage-scoped question,

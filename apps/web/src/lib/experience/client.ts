@@ -3,7 +3,7 @@ import { readSignals } from "@/lib/persona/signals-from-db";
 import { resolvePersona } from "@/lib/persona/resolver";
 import { todayISO } from "@/lib/calculators/dates";
 import { buildExperienceConfig, registryOf } from "./build";
-import { TRACK_D_RECORDS } from "./registry/track-d";
+import { PERSONA_RECORDS } from "./registry";
 import { EXPERIENCE_CONTRACT_VERSION, type ExperienceConfig, type Phase } from "./types";
 
 /**
@@ -39,7 +39,7 @@ const CACHE_PREFIX = "femio.experience.v1";
 /** Long enough to survive a flight, short enough that a stale persona self-corrects. */
 const MAX_AGE_MS = 24 * 60 * 60 * 1000;
 
-const REGISTRY = registryOf(TRACK_D_RECORDS);
+const REGISTRY = registryOf(PERSONA_RECORDS);
 const CONTEXT_TO_LAYER: Record<string, string> = { prior_loss: "D2" };
 
 export type ExperienceSource = "server" | "cache" | "local";

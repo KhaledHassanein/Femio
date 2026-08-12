@@ -22,11 +22,20 @@ describe("track <-> mode mapping", () => {
     expect(personaIdFromMode("general")).toBe("Z1");
   });
 
-  it("falls back to general for an unrecognised track rather than throwing", () => {
-    // Tracks A and E exist in the taxonomy but have no app mode yet. Someone whose
-    // state holds one must still get a usable app, not a crash or a blank screen.
+  it("maps E to postpartum — the track that used to have no mode at all", () => {
+    // This assertion previously read `expect(modeFromTrack("E")).toBe("general")`,
+    // which documented the defect rather than a decision: falling into `general`
+    // meant a woman weeks after giving birth was shown a next-period prediction
+    // built on cycles that had not returned (R2.5).
+    expect(modeFromTrack("E")).toBe("postpartum");
+    expect(trackFromMode("postpartum")).toBe("E");
+    expect(personaIdFromMode("postpartum")).toBe("E1");
+  });
+
+  it("falls back to general for a track with no mode yet, rather than throwing", () => {
+    // Track A (adolescent) is still unmapped — R2.5b. Someone whose state holds it
+    // must get a usable app, not a crash or a blank screen.
     expect(modeFromTrack("A")).toBe("general");
-    expect(modeFromTrack("E")).toBe("general");
     expect(modeFromTrack("nonsense")).toBe("general");
   });
 
@@ -62,7 +71,8 @@ describe("showsCyclePredictions", () => {
 describe("isPersonaMode", () => {
   it("accepts every declared mode and rejects anything else", () => {
     for (const mode of PERSONA_MODES) expect(isPersonaMode(mode)).toBe(true);
-    for (const bad of ["", "Cycle", "postpartum", null, undefined, 3, {}]) {
+    // "postpartum" was in this list as a mode that did not exist. It does now.
+    for (const bad of ["", "Cycle", "teen", null, undefined, 3, {}]) {
       expect(isPersonaMode(bad)).toBe(false);
     }
   });

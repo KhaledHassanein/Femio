@@ -252,6 +252,10 @@
     "title": "Bienvenida a Femio",
     "stepOf": "Paso {current} de {total}",
     "mode": {
+      "postpartum": {
+        "name": "He dado a luz hace poco",
+        "desc": "La recuperación, tu cuerpo y cómo estás."
+      },
       "skip": "Saltar: no estoy segura",
       "general": {
         "name": "Aún no lo sé",
@@ -379,7 +383,7 @@
   "dashboard": {
     "title": "Tu panel",
     "loading": "Cargando tu panel",
-    "modeLabel": { "cycle": "Ciclo", "ttc": "Buscando embarazo", "pregnancy": "Embarazo", "menopause": "Menopausia", "general": "General" },
+    "modeLabel": { "cycle": "Ciclo", "ttc": "Buscando embarazo", "pregnancy": "Embarazo", "postpartum": "Después del parto", "menopause": "Menopausia", "general": "General" },
     "cycleDay": "Día {day} de tu ciclo",
     "nextPeriod": "Próxima menstruación",
     "window": "Prevista entre el {start} y el {end}",
@@ -520,6 +524,27 @@
     "subtitle": "Guías referenciadas y revisadas médicamente sobre afecciones y temas a lo largo de tu vida de salud.",
     "empty": "Pronto habrá nuevos temas — vuelve pronto."
   },
+  "postpartum": {
+    "checkIn": {
+      "eyebrow": "Después del parto",
+      "heading": "¿Cómo estás hoy?",
+      "note": "No hay una respuesta correcta y no se puntúa nada. Anota lo que sientas, cuando te apetezca."
+    },
+    "loss": {
+      "eyebrow": "Después de tu pérdida",
+      "heading": "Como te sientas hoy está bien.",
+      "note": "Aquí nada celebra en tu nombre y nada cuenta nada. Femio guarda tu registro todo el tiempo que quieras."
+    },
+    "redFlags": {
+      "heading": "Señales para que te vean ahora",
+      "body": "Sangrado abundante que empapa una compresa en una hora · un dolor de cabeza intenso que no se va o cambios en la visión · dificultad para respirar o dolor en el pecho · fiebre · una pierna roja, dolorida o hinchada · pensamientos de hacerte daño o de hacérselo a tu bebé. Contacta con tu equipo de maternidad o con los servicios de emergencia disponibles donde estés. Las semanas tras el parto tienen riesgos reales y consultar pronto nunca es exagerar."
+    },
+    "reading": {
+      "heading": "Lecturas para esta etapa",
+      "pending": "Las guías revisadas por profesionales sobre la recuperación tras el parto se están escribiendo. Todo lo ya publicado sigue disponible en la biblioteca."
+    },
+    "cycleReturnNote": "Femio no muestra una estimación de tu próxima regla. El ciclo puede tardar meses en volver y al principio suele ser irregular, así que una fecha predicha ahora sería una suposición disfrazada de número. Registra tu primera regla y las herramientas del ciclo continuarán desde ahí."
+  },
   "experience": {
     "reanswer": {
       "open": "Volver a responder las preguntas",
@@ -546,6 +571,10 @@
     "heading": "Tu experiencia en Femio",
     "desc": "Femio se adapta al momento en el que estás. Puedes cambiarlo cuando cambie tu situación, o desactivarlo y verlo todo.",
     "modes": {
+      "postpartum": {
+        "label": "Después del parto",
+        "desc": "La recuperación y cómo estás. Sin predicciones de ciclo hasta que vuelva tu regla."
+      },
       "cycle": {
         "label": "Ciclo",
         "desc": "Reglas, síntomas y predicciones con rangos honestos."

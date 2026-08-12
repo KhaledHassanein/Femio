@@ -252,6 +252,10 @@
     "title": "Bienvenue sur Femio",
     "stepOf": "Étape {current} sur {total}",
     "mode": {
+      "postpartum": {
+        "name": "J'ai accouché récemment",
+        "desc": "La récupération, votre corps, et comment vous allez."
+      },
       "skip": "Passer — je ne suis pas sûre",
       "general": {
         "name": "Pas encore sûre",
@@ -379,7 +383,7 @@
   "dashboard": {
     "title": "Ton tableau de bord",
     "loading": "Chargement de votre tableau de bord",
-    "modeLabel": { "cycle": "Cycle", "ttc": "Essai de conception", "pregnancy": "Grossesse", "menopause": "Ménopause", "general": "Général" },
+    "modeLabel": { "cycle": "Cycle", "ttc": "Essai de conception", "pregnancy": "Grossesse", "postpartum": "Après la naissance", "menopause": "Ménopause", "general": "Général" },
     "cycleDay": "Jour {day} de ton cycle",
     "nextPeriod": "Prochaines règles",
     "window": "Attendues entre le {start} et le {end}",
@@ -520,6 +524,27 @@
     "subtitle": "Des guides référencés et relus médicalement sur les affections et sujets tout au long de votre vie de santé.",
     "empty": "De nouveaux sujets arrivent — revenez bientôt."
   },
+  "postpartum": {
+    "checkIn": {
+      "eyebrow": "Après la naissance",
+      "heading": "Comment allez-vous aujourd'hui ?",
+      "note": "Il n'y a pas de bonne réponse et rien n'est noté. Notez ce que vous ressentez, quand vous en avez envie."
+    },
+    "loss": {
+      "eyebrow": "Après votre perte",
+      "heading": "Ce que vous ressentez aujourd'hui est légitime.",
+      "note": "Rien ici ne célèbre à votre place et rien ne compte quoi que ce soit. Femio garde votre dossier aussi longtemps que vous le souhaitez."
+    },
+    "redFlags": {
+      "heading": "Signes à faire examiner maintenant",
+      "body": "Un saignement abondant qui imbibe une protection en une heure · un mal de tête intense qui ne passe pas ou des troubles de la vision · des difficultés à respirer ou une douleur thoracique · de la fièvre · une jambe rouge, douloureuse ou enflée · des pensées de vous faire du mal ou d'en faire à votre bébé. Contactez votre équipe de maternité ou les services d'urgence disponibles là où vous êtes. Les semaines après la naissance comportent de vrais risques, et consulter tôt n'est jamais exagéré."
+    },
+    "reading": {
+      "heading": "À lire à cette étape",
+      "pending": "Les guides relus par des cliniciens sur la récupération après la naissance sont en cours d'écriture. Tout ce qui est déjà publié reste consultable dans la bibliothèque."
+    },
+    "cycleReturnNote": "Femio n'affiche pas d'estimation pour vos prochaines règles. Le retour de couches peut prendre des mois et il est souvent irrégulier au début, donc une date prédite maintenant serait une supposition déguisée en chiffre. Notez vos premières règles et les outils de cycle reprendront à partir de là."
+  },
   "experience": {
     "reanswer": {
       "open": "Répondre à nouveau aux questions",
@@ -546,6 +571,10 @@
     "heading": "Ton expérience Femio",
     "desc": "Femio s'adapte à l'étape où tu te trouves. Tu peux changer cela quand ta situation change — ou le désactiver et tout voir.",
     "modes": {
+      "postpartum": {
+        "label": "Après la naissance",
+        "desc": "La récupération et comment vous allez. Aucune prédiction de cycle avant le retour de vos règles."
+      },
       "cycle": {
         "label": "Cycle",
         "desc": "Règles, symptômes et prévisions avec des fourchettes honnêtes."

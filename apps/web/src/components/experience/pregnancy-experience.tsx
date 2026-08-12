@@ -1,7 +1,7 @@
 "use client";
 
 import { buildExperienceConfig, registryOf } from "@/lib/experience/build";
-import { TRACK_D_RECORDS, findRecord } from "@/lib/experience/registry/track-d";
+import { PERSONA_RECORDS, findRecord } from "@/lib/experience/registry";
 import { phaseFor } from "@/lib/experience/phase";
 import type { Resolution } from "@/lib/persona/resolver";
 import { ExperienceModules } from "./module-registry";
@@ -35,7 +35,7 @@ import { useTranslations } from "next-intl";
  * `PregnancyPanel` still owns both.
  */
 
-const REGISTRY = registryOf(TRACK_D_RECORDS);
+const REGISTRY = registryOf(PERSONA_RECORDS);
 
 /** Emotional layers are persona ids; `emotional_context` carries reasons. */
 const CONTEXT_TO_LAYER: Record<string, string> = { prior_loss: "D2" };

@@ -82,6 +82,22 @@ export const CONDITIONS_BY_MODE: Record<PersonaMode, readonly ConditionCode[]> =
     "thyroid",
     "depression_anxiety",
   ],
+  /**
+   * Postpartum (Track E). Deliberately short and weighted to what a clinician
+   * follows up after birth: E4 carries complication flags forward (GDM → a
+   * postpartum OGTT, hypertension → BP follow-up), E3 is mood, E6 is loss. The
+   * question is what she was told, never an assessment.
+   */
+  postpartum: [
+    "gestational_diabetes",
+    "diabetes",
+    "hypertension",
+    "pre_eclampsia",
+    "thyroid",
+    "anemia",
+    "depression_anxiety",
+    "prior_loss",
+  ],
   ttc: [
     "pcos",
     "endometriosis",

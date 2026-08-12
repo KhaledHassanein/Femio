@@ -44,6 +44,7 @@ const TRACK_TO_MODE: Record<string, PersonaMode> = {
   B: "cycle",
   C: "ttc",
   D: "pregnancy",
+  E: "postpartum",
   F: "menopause",
   Z: "general",
 };
@@ -52,6 +53,7 @@ const MODE_TO_TRACK: Record<PersonaMode, string> = {
   cycle: "B",
   ttc: "C",
   pregnancy: "D",
+  postpartum: "E",
   menopause: "F",
   general: "Z",
 };
@@ -69,6 +71,7 @@ const MODE_TO_PERSONA: Record<PersonaMode, string> = {
   cycle: "B1",
   ttc: "C1",
   pregnancy: "D1",
+  postpartum: "E1",
   menopause: "F1",
   general: "Z1",
 };
@@ -77,6 +80,7 @@ const MODE_TO_FLAGS: Record<PersonaMode, Record<string, boolean>> = {
   cycle: {},
   ttc: { ttc_intent: true },
   pregnancy: { pregnant: true },
+  postpartum: {},
   menopause: {},
   general: {},
 };
@@ -112,7 +116,12 @@ export function isPersonaMode(value: unknown): value is PersonaMode {
  * nothing; it simply stops assuming which stage she is in.
  */
 export function showsCyclePredictions(mode: PersonaMode): boolean {
-  return mode !== "pregnancy" && mode !== "menopause";
+  // Postpartum joins pregnancy and menopause for the same reason both are here: a
+  // next-period window computed from cycles that stopped months ago is not an
+  // estimate, it is an invention — and the return of the cycle after birth is
+  // genuinely unpredictable (E1 §G). Before R2.5 this mode did not exist, so she
+  // fell into `general` and got exactly that prediction.
+  return mode !== "pregnancy" && mode !== "menopause" && mode !== "postpartum";
 }
 
 export type PersonaState = {

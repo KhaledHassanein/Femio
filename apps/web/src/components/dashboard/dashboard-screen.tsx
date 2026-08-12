@@ -14,6 +14,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Link } from "@/i18n/navigation";
 import { PregnancyExperience } from "@/components/experience/pregnancy-experience";
+import { PostpartumExperience } from "@/components/experience/postpartum-experience";
 import { MenopausePanel } from "@/components/menopause/menopause-panel";
 import { HeroCard } from "@/components/ui/hero-card";
 import { AppScreen, ScreenError } from "@/components/patterns/app-screen";
@@ -231,6 +232,16 @@ export function DashboardScreen() {
 
       {/* Perimenopause/menopause gets its own view too: a next-period prediction is
           the least useful thing to show someone whose cycles are stopping (P1.13c). */}
+      {/* Track E, reachable at last (R2.5). Before this it fell through to
+          `general`, which predicts a period from cycles that stopped months ago. */}
+      {mode === "postpartum" ? (
+        <PostpartumExperience
+          personaId={personaId}
+          modifiers={modifiers}
+          emotionalContext={emotionalContext}
+        />
+      ) : null}
+
       {mode === "menopause" ? (
         <MenopausePanel starts={starts} symptomCounts={top} today={today} />
       ) : null}
