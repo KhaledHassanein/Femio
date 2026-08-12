@@ -82,6 +82,24 @@ describe("buildExperienceConfig", () => {
     expect(heroes(d7)).toEqual(["pregnancy.week"]);
   });
 
+  /**
+   * "The D1 week-by-week hero **plus a thyroid strip**" (D7 §I) — beside the
+   * answer, not below the quick-log row. Appending put every clinical strip last,
+   * which is where you put something nobody asked for.
+   */
+  it("puts a layer's strip directly after the hero, not at the bottom", () => {
+    for (const [persona, strip] of [
+      ["D3", "strip.glucose"],
+      ["D7", "strip.thyroid"],
+      ["D4", "strip.glucose"],
+    ] as const) {
+      const order = ids(build(persona, "t2"));
+      expect(order[0], persona).toBe("pregnancy.week");
+      expect(order[1], persona).toBe(strip);
+      expect(order.indexOf(strip)).toBeLessThan(order.indexOf("quickLog"));
+    }
+  });
+
   it("never leaves more than one hero on a screen", () => {
     for (const persona of ["D1", "D2", "D3", "D4", "D7"]) {
       for (const phase of ["preconception", "t1", "t2", "t3", "postpartum"] as const) {

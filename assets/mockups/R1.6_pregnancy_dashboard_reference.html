@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Femio — R1.6 pregnancy dashboard reference (modules, not a screen)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600;700&family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../brand/tokens/femio.tokens.css">
+<style>
+/* ── review chrome ──────────────────────────────────────────────────────── */
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#EDEBF2;color:#1E1B2E;font-family:'Inter',sans-serif;line-height:1.5;
+  padding:32px 20px 96px}
+.wrap{max-width:1760px;margin:0 auto}
+.doc-h1{font-family:'Fraunces',serif;font-weight:600;font-size:32px;letter-spacing:-.02em}
+.doc-p{color:#514B60;max-width:80ch;margin-top:10px;font-size:15px}
+.doc-p code{background:#DFDBE8;padding:1px 5px;border-radius:4px;font-size:13px}
+.doc-h2{font-family:'Fraunces',serif;font-size:22px;font-weight:600;margin:40px 0 4px}
+.doc-note{color:#514B60;font-size:14px;max-width:84ch;margin-bottom:18px}
+.gallery{display:flex;flex-wrap:wrap;gap:26px;align-items:flex-start}
+.stage{display:flex;flex-direction:column;gap:10px;align-items:center}
+.stage-cap{font-size:13px;font-weight:600;color:#514B60;text-align:center;max-width:390px}
+.stage-cap span{display:block;font-weight:400;color:#857E94;font-size:12px}
+.phone{width:390px;height:844px;overflow-y:auto;overflow-x:hidden;
+  border-radius:38px;border:9px solid #221F2E;box-shadow:0 22px 48px rgb(30 27 46 / .28);
+  background:var(--bg);color:var(--text);scrollbar-width:thin}
+/* module inventory: each module alone, on its own card */
+.inv{display:flex;flex-wrap:wrap;gap:20px}
+.inv-item{width:340px;background:#fff;border-radius:14px;padding:14px;
+  box-shadow:0 2px 10px rgb(30 27 46 / .10)}
+.inv-id{font-family:ui-monospace,monospace;font-size:11.5px;color:#6D6580;margin-bottom:10px}
+.inv-body{background:var(--bg);border-radius:10px;padding:12px}
+.notes{margin-top:44px;background:#fff;border-radius:16px;padding:24px 28px;max-width:1100px}
+.notes h2{font-family:'Fraunces',serif;font-size:22px;font-weight:600;margin-bottom:6px}
+.notes h3{font-size:15px;margin:20px 0 6px}
+.notes p,.notes li{font-size:14.5px;color:#3F3A4D;max-width:84ch}
+.notes ul{padding-inline-start:20px;display:flex;flex-direction:column;gap:6px;margin-top:6px}
+
+/* ── the design — SEMANTIC TOKENS ONLY ──────────────────────────────────── */
+.phone *,.inv-body *{font-family:var(--font-ui)}
+[dir="rtl"] *{font-family:var(--font-ar)}
+
+.app-bar{position:sticky;top:0;z-index:var(--z-sticky);display:flex;align-items:center;
+  justify-content:space-between;padding:var(--space-3) var(--space-5);
+  background:var(--frost);backdrop-filter:var(--frost-blur);
+  border-bottom:1px solid var(--border)}
+.mark{font-family:var(--font-display)!important;font-size:var(--fs-lg);
+  font-weight:var(--fw-semibold);color:var(--primary);line-height:1}
+.screen{display:flex;flex-direction:column;gap:var(--space-4);padding:var(--space-5)
+  var(--space-5) var(--space-16)}
+.title-row{display:flex;flex-wrap:wrap;align-items:center;gap:var(--space-3)}
+.title-row h1{font-size:var(--fs-md);color:var(--text);font-weight:var(--fw-semibold)}
+.badge{font-size:var(--fs-2xs);font-weight:var(--fw-semibold);padding:2px var(--space-3);
+  border-radius:var(--radius-pill);background:var(--primary-soft);color:var(--primary-soft-text)}
+
+/* HERO — pregnancy.week */
+.m-hero{background:var(--gradient-hero-cycle);color:var(--text-on-brand);
+  border-radius:var(--radius-lg);padding:var(--space-6);box-shadow:var(--shadow-md);
+  display:flex;flex-direction:column;gap:var(--space-3)}
+.eyebrow{font-size:var(--fs-2xs);font-weight:var(--fw-semibold);letter-spacing:var(--ls-wider);
+  text-transform:uppercase;opacity:.9}
+[dir="rtl"] .eyebrow{text-transform:none;letter-spacing:var(--ls-normal)}
+.m-hero .headline{font-family:var(--font-display)!important;font-size:var(--fs-lg);
+  line-height:var(--lh-snug)}
+[dir="rtl"] .m-hero .headline{font-family:var(--font-ar)!important;font-weight:var(--fw-bold)}
+.m-hero .foot{font-size:var(--fs-2xs);opacity:.9}
+/* Term band: draws 37–42w, NOT a fill toward the EDD — the due date is not a
+   finish line (ADR-053). */
+.termband{position:relative;height:8px;border-radius:var(--radius-pill);
+  background:rgb(255 255 255 / .25)}
+.termband i{position:absolute;inset-block:0;inset-inline-start:34%;width:40%;
+  border-radius:var(--radius-pill);
+  background:linear-gradient(90deg,transparent,currentColor 35%,currentColor 65%,transparent)}
+.termband b{position:absolute;inset-block:-3px;inset-inline-start:48%;width:3px;
+  margin-inline-start:-1.5px;border-radius:var(--radius-pill);background:currentColor}
+.termlegend{display:flex;justify-content:space-between;font-size:var(--fs-2xs);opacity:.85}
+
+/* HERO — pregnancy.milestone (D2). No fruit card, no day counter. */
+.m-milestone{background:var(--gradient-hero-warm);color:var(--text-on-brand);
+  border-radius:var(--radius-lg);padding:var(--space-6);box-shadow:var(--shadow-md);
+  display:flex;flex-direction:column;gap:var(--space-3)}
+.m-milestone .headline{font-family:var(--font-display)!important;font-size:var(--fs-lg);
+  line-height:var(--lh-snug)}
+[dir="rtl"] .m-milestone .headline{font-family:var(--font-ar)!important;font-weight:var(--fw-bold)}
+
+/* STRIPS — the clinical layer. One row, glanceable, never a verdict. */
+.strip{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-md);
+  padding:var(--space-4);display:flex;flex-direction:column;gap:var(--space-3);
+  box-shadow:var(--shadow-xs)}
+.strip-head{display:flex;align-items:center;justify-content:space-between;gap:var(--space-3)}
+.strip-title{font-size:var(--fs-xs);font-weight:var(--fw-semibold);color:var(--text)}
+.strip-when{font-size:var(--fs-2xs);color:var(--text-muted)}
+.strip-row{display:flex;gap:var(--space-3)}
+.cell{flex:1;background:var(--surface-sunken);border-radius:var(--radius-sm);
+  padding:var(--space-3)}
+.cell .k{display:block;font-size:var(--fs-2xs);color:var(--text-muted)}
+.cell .v{display:block;font-family:var(--font-display)!important;font-size:var(--fs-md);
+  color:var(--text);line-height:1.2}
+[dir="rtl"] .cell .v{font-family:var(--font-ar)!important;font-weight:var(--fw-bold)}
+.cell .r{display:block;font-size:var(--fs-2xs);color:var(--text-subtle)}
+/* The reference range is shown; no pass/fail badge exists anywhere in this file. */
+.strip-note{font-size:var(--fs-2xs);color:var(--text-muted);line-height:var(--lh-relaxed)}
+.sparks{display:flex;align-items:flex-end;gap:2px;height:26px}
+.sparks i{flex:1;border-radius:2px;background:var(--primary);display:block;opacity:.55}
+.sparks i.now{opacity:1}
+
+/* MODULE — appointments / weight / birth prep (list rows) */
+.rows{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-md);
+  overflow:hidden}
+.row{display:flex;align-items:center;justify-content:space-between;gap:var(--space-3);
+  padding:var(--space-4);border-bottom:1px solid var(--divider)}
+.row:last-child{border-bottom:0}
+.row .l{font-size:var(--fs-xs);color:var(--text)}
+.row .r2{font-size:var(--fs-2xs);color:var(--text-subtle)}
+
+/* MODULE — warning signs. Sits HIGH; in pregnancy, late is the harmful direction. */
+.m-flags{background:var(--danger-soft);border:1px solid var(--danger-border);
+  border-radius:var(--radius-md);padding:var(--space-4);display:flex;flex-direction:column;
+  gap:var(--space-2)}
+.m-flags h3{font-size:var(--fs-xs);font-weight:var(--fw-semibold);color:var(--danger-text)}
+.m-flags p{font-size:var(--fs-2xs);color:var(--danger-text);line-height:var(--lh-relaxed)}
+.m-flags a{font-size:var(--fs-2xs);font-weight:var(--fw-semibold);color:var(--danger-text)}
+
+/* MODULE — support (check-in / loss-aware) */
+.m-support{background:var(--primary-soft);border-radius:var(--radius-md);
+  padding:var(--space-4);display:flex;flex-direction:column;gap:var(--space-2)}
+.m-support h3{font-size:var(--fs-xs);font-weight:var(--fw-semibold);color:var(--primary-soft-text)}
+.m-support p{font-size:var(--fs-2xs);color:var(--primary-soft-text);line-height:var(--lh-relaxed)}
+
+/* MODULE — movement */
+.m-move{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-md);
+  padding:var(--space-4);display:flex;flex-direction:column;gap:var(--space-2)}
+.m-move h3{font-size:var(--fs-xs);font-weight:var(--fw-semibold);color:var(--text)}
+.m-move p{font-size:var(--fs-2xs);color:var(--text-muted);line-height:var(--lh-relaxed)}
+
+/* MODULE — quickLog */
+.m-quick{display:flex;gap:var(--space-2);flex-wrap:wrap}
+.m-quick b{min-height:44px;display:inline-flex;align-items:center;padding:0 var(--space-4);
+  border-radius:var(--radius-pill);background:var(--surface);border:1px solid var(--border);
+  font-size:var(--fs-xs);font-weight:var(--fw-medium);color:var(--text)}
+.cta{min-height:48px;display:flex;align-items:center;justify-content:center;
+  border-radius:var(--radius-pill);background:var(--accent-solid);color:var(--on-accent-solid);
+  font-size:var(--fs-sm);font-weight:var(--fw-semibold);box-shadow:var(--shadow-primary-glow)}
+.secondary{font-size:var(--fs-2xs)!important;opacity:.92}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1 class="doc-h1">R1.6 — pregnancy dashboard, designed as modules</h1>
+  <p class="doc-p">
+    Not a screen. <code>docs/25</code> §5: R2 turns the dashboard into an ordered list of
+    modules chosen by the engine, so a pixel-perfect fixed composition would be undone by the
+    first persona that reorders it. Each module is drawn alone below, then assembled into four
+    real personas. <b>The assembled screens are driven by the module lists
+    <code>buildExperienceConfig</code> actually emits</b> — copied from its output, not
+    imagined — so the reference and the engine cannot disagree.
+  </p>
+
+  <h2 class="doc-h2">1 · The module inventory</h2>
+  <p class="doc-note">
+    Each one has to survive being dropped into a different position. If it doesn't, the module
+    boundary is wrong — and that is much cheaper to learn here than in React.
+  </p>
+  <div class="inv" id="inv"></div>
+
+  <h2 class="doc-h2">2 · Assembled — the same engine, four different women</h2>
+  <p class="doc-note">
+    D1 and D3 differ by one strip. D3 and D7 differ by which strip. D7 + prior loss keeps the
+    clinical hero and changes the tone. <b>None of this is an <code>if</code> in a screen.</b>
+  </p>
+  <div class="gallery" id="screens"></div>
+
+  <h2 class="doc-h2">3 · The hardest state</h2>
+  <p class="doc-note">D7 in Arabic, dark — RTL with a clinical strip and Latin lab units in it.</p>
+  <div class="gallery" id="hard"></div>
+
+  <div class="notes">
+    <h2>What this decides</h2>
+
+    <h3>1 · A strip is a row of facts, never a verdict</h3>
+    <p>Every clinical strip shows the value, the unit and <b>the lab's own reference range</b>,
+      and nothing else. There is no pass/fail badge, no colour-coded "in range", no arrow saying
+      good or bad — because deciding that is diagnosis (product rule 1), and D7 §G says it
+      explicitly: <em>"Lab values are shown with your lab's reference range for your records —
+      this is not a diagnosis."</em> The sparkline shows her own trend; it makes no claim about
+      where it should be.</p>
+
+    <h3>2 · The hero is the pregnancy, even when a condition is what she is worried about</h3>
+    <p><code>docs/09</code> §8 works the flagship through: pregnancy + thyroid + prior loss →
+      hero is the <em>pregnancy timeline</em>, with thyroid and PAL as strips. That is what the
+      D7 + D2 screen shows. The milestone card is present and subordinate — the engine demotes
+      it rather than deleting it, and this reference had to match that after the code was fixed
+      to stop an emotional layer stealing the hero.</p>
+
+    <h3>3 · The term band never fills toward the due date</h3>
+    <p>It draws <b>37–42 weeks</b> with today marked inside it (ADR-053). A bar filling toward
+      the EDD makes one date look like a finish line, which is the single-certain-date framing
+      product rule 3 exists to prevent.</p>
+
+    <h3>4 · Warning signs sit high, not at the bottom</h3>
+    <p>In pregnancy, late is the harmful direction. The module is a red-flag panel above the
+      fold in every assembled screen, and it carries no phone number — the global-only crisis
+      posture (P1.26.1) applies here too.</p>
+
+    <h3>5 · Strips sit directly under the hero</h3>
+    <p>The engine originally appended them, which put every clinical strip below the quick-log
+      row — where you put something nobody asked for. D7 §I asks for "the D1 week-by-week hero
+      <b>plus a thyroid strip</b>". Building this reference is what exposed it; the fix and its
+      test landed with R2.2.</p>
+
+    <h3>Known gaps</h3>
+    <ul>
+      <li><b>Not composited in a browser here.</b> The template was executed in node — state
+        counts, no undefined — but the visual judgement is the owner's, as with R1.3 and R1.4.</li>
+      <li><b>No botanical line-work.</b> A clinical dashboard is not where <code>docs/25</code>
+        §5a puts illustration; it belongs in empty states and onboarding.</li>
+      <li><b>Copy is a draft</b> and the Arabic needs P1.29's reviewer, though the pattern
+        follows the strings already approved for pregnancy mode.</li>
+      <li><b>D4 is not drawn.</b> It reuses D3's glucose strip plus device and lab modules that
+        are variants of ones here; drawing it would add no decision.</li>
+    </ul>
+  </div>
+</div>
+
+<script>
+/* Module lists copied verbatim from buildExperienceConfig's output (R2.2). */
+const SCREENS = {
+  D1: { badge: "Pregnancy", phase: "t2", tone: "warm",
+    modules: ["pregnancy.week:hero","pregnancy.appointments:primary","pregnancy.weight:primary",
+              "pregnancy.warningSigns:primary","quickLog:primary"] },
+  D3: { badge: "Pregnancy · GDM", phase: "t2", tone: "warm",
+    modules: ["pregnancy.week:hero","strip.glucose:primary","pregnancy.appointments:primary",
+              "pregnancy.weight:primary","pregnancy.warningSigns:primary","quickLog:primary"] },
+  D7: { badge: "Pregnancy · Thyroid", phase: "t2", tone: "vigilantReassuring",
+    modules: ["pregnancy.week:hero","strip.thyroid:primary","strip.labs:secondary",
+              "pregnancy.appointments:primary","pregnancy.weight:primary",
+              "pregnancy.warningSigns:primary","quickLog:primary"] },
+  D7D2: { badge: "Pregnancy · Thyroid", phase: "t3", tone: "anxietyAware",
+    modules: ["pregnancy.week:hero","strip.thyroid:primary","strip.medication:secondary",
+              "pregnancy.milestone:primary","support.lossAware:primary",
+              "pregnancy.movement:primary","pregnancy.birthPrep:primary",
+              "pregnancy.warningSigns:primary","quickLog:primary"] },
+};
+
+const T = {
+  en: { dir:"ltr", title:"Your pregnancy",
+    week:{eyebrow:"24 weeks + 3 days · second trimester", head:"Due 14 December",
+      foot:"Most babies arrive between 37 and 42 weeks. The date is an estimate.",
+      l:"37w", r:"42w"},
+    milestone:{eyebrow:"Next milestone", head:"Your anatomy scan is on 18 August",
+      foot:"However you feel about it is okay."},
+    thyroid:{title:"Thyroid", when:"Last checked 2 Aug",
+      k1:"TSH", v1:"1.8", r1:"lab range 0.4–4.0 mIU/L",
+      k2:"Medication", v2:"Taken", r2:"today, before breakfast",
+      note:"Shown with your lab's reference range for your records. Your clinician sets your schedule and reads your results."},
+    glucose:{title:"Glucose", when:"Last reading 2 hours ago",
+      k1:"After breakfast", v1:"6.4", r1:"mmol/L",
+      k2:"Logged today", v2:"3 of 4", r2:"your usual pattern",
+      note:"Your own readings over time. Femio records them — your clinician interprets them."},
+    labs:{title:"Lab results", when:"3 recorded"},
+    medication:{title:"Medication", when:"Levothyroxine · 100 mcg"},
+    appts:{title:"Appointments", rows:[["Midwife","18 Aug"],["Anatomy scan","18 Aug"],["Glucose screen","2 Sep"]]},
+    weight:{title:"Weight", rows:[["Last logged","2 days ago"],["Since booking","+6.2 kg"]]},
+    birth:{title:"Getting ready", rows:[["Birth preferences","Not started"],["Hospital bag","3 of 9"]]},
+    move:{h:"Movement", p:"There is no normal number of movements. What matters is a change from your baby's usual pattern — if it changes, contact your maternity team straight away, day or night."},
+    loss:{h:"You have been here before", p:"Milestones can be the hardest part. Nothing here celebrates on your behalf, and you can turn development content on whenever you want it."},
+    flags:{h:"Signs to get checked now", p:"Heavy bleeding · a severe headache that will not go away or changes in your vision · trouble breathing or chest pain · your baby moving less than usual.",
+      a:"Contact your maternity team"},
+    quick:["Symptom","Weight","Glucose","Medication","Movement"],
+    cta:"Log today" },
+  ar: { dir:"rtl", title:"حملُكِ",
+    week:{eyebrow:"٢٤ أسبوعًا و٣ أيام · الثلث الثاني", head:"الموعد المتوقّع ١٤ ديسمبر",
+      foot:"معظم الأطفال يولدون بين الأسبوع ٣٧ و٤٢. التاريخ تقديريّ.",
+      l:"٣٧ أسبوعًا", r:"٤٢ أسبوعًا"},
+    milestone:{eyebrow:"المحطة القادمة", head:"فحص التشريح في ١٨ أغسطس",
+      foot:"أيًّا كان شعورُكِ تجاهه، فهو شعورٌ مقبول."},
+    thyroid:{title:"الغدة الدرقية", when:"آخر فحص ٢ أغسطس",
+      k1:"TSH", v1:"١٫٨", r1:"النطاق المرجعي للمختبر ٠٫٤–٤٫٠ mIU/L",
+      k2:"الدواء", v2:"تم أخذه", r2:"اليوم، قبل الفطور",
+      note:"يُعرَض مع النطاق المرجعي لمختبركِ لسجلّكِ الخاص. طبيبكِ هو من يحدّد الجدول ويقرأ النتائج."},
+    glucose:{title:"سكر الدم", when:"آخر قراءة قبل ساعتين",
+      k1:"بعد الفطور", v1:"٦٫٤", r1:"mmol/L",
+      k2:"سُجّل اليوم", v2:"٣ من ٤", r2:"نمطُكِ المعتاد",
+      note:"قراءاتُكِ أنتِ عبر الوقت. فيميو تسجّلها — وطبيبكِ يفسّرها."},
+    labs:{title:"نتائج المختبر", when:"٣ مسجَّلة"},
+    medication:{title:"الدواء", when:"ليفوثيروكسين · ١٠٠ ميكروغرام"},
+    appts:{title:"المواعيد", rows:[["القابلة","١٨ أغسطس"],["فحص التشريح","١٨ أغسطس"],["فحص السكر","٢ سبتمبر"]]},
+    weight:{title:"الوزن", rows:[["آخر تسجيل","قبل يومين"],["منذ بداية المتابعة","+٦٫٢ كجم"]]},
+    birth:{title:"الاستعداد للولادة", rows:[["تفضيلات الولادة","لم تبدأ"],["حقيبة المستشفى","٣ من ٩"]]},
+    move:{h:"حركة الجنين", p:"لا يوجد عدد طبيعي لحركات الجنين. المهم هو تغيّر النمط المعتاد لطفلكِ — وإذا تغيّر، اتصلي بفريق الولادة فورًا، ليلًا أو نهارًا."},
+    loss:{h:"لقد مررتِ بهذا من قبل", p:"قد تكون المحطات هي الأصعب. لا شيء هنا يحتفل نيابةً عنكِ، ويمكنكِ تشغيل محتوى تطوّر الجنين متى أردتِ."},
+    flags:{h:"علامات تستدعي الفحص الآن", p:"نزيف غزير · صداع شديد لا يزول أو تغيّر في الرؤية · صعوبة في التنفّس أو ألم بالصدر · حركة الجنين أقل من المعتاد.",
+      a:"اتصلي بفريق الولادة"},
+    quick:["عَرَض","الوزن","السكر","الدواء","الحركة"],
+    cta:"سجّلي اليوم" },
+};
+
+const spark = (n = 12) => `<span class="sparks">${
+  [38,52,44,61,49,57,66,50,58,47,63,55].slice(0, n)
+    .map((h, i, a) => `<i class="${i === a.length - 1 ? "now" : ""}" style="height:${h}%"></i>`).join("")
+}</span>`;
+
+const M = {
+  "pregnancy.week": (t) => `<div class="m-hero">
+    <span class="eyebrow">${t.week.eyebrow}</span>
+    <span class="headline">${t.week.head}</span>
+    <span class="termband"><i></i><b></b></span>
+    <span class="termlegend"><span>${t.week.l}</span><span>${t.week.r}</span></span>
+    <span class="foot">${t.week.foot}</span></div>`,
+  "pregnancy.milestone": (t, e) => `<div class="m-milestone">
+    <span class="eyebrow">${t.milestone.eyebrow}</span>
+    <span class="headline">${t.milestone.head}</span>
+    <span class="foot ${e === "secondary" ? "secondary" : ""}">${t.milestone.foot}</span></div>`,
+  "strip.thyroid": (t) => `<div class="strip">
+    <span class="strip-head"><span class="strip-title">${t.thyroid.title}</span>
+      <span class="strip-when">${t.thyroid.when}</span></span>
+    <span class="strip-row">
+      <span class="cell"><span class="k">${t.thyroid.k1}</span><span class="v">${t.thyroid.v1}</span><span class="r">${t.thyroid.r1}</span></span>
+      <span class="cell"><span class="k">${t.thyroid.k2}</span><span class="v">${t.thyroid.v2}</span><span class="r">${t.thyroid.r2}</span></span>
+    </span>${spark()}
+    <span class="strip-note">${t.thyroid.note}</span></div>`,
+  "strip.glucose": (t) => `<div class="strip">
+    <span class="strip-head"><span class="strip-title">${t.glucose.title}</span>
+      <span class="strip-when">${t.glucose.when}</span></span>
+    <span class="strip-row">
+      <span class="cell"><span class="k">${t.glucose.k1}</span><span class="v">${t.glucose.v1}</span><span class="r">${t.glucose.r1}</span></span>
+      <span class="cell"><span class="k">${t.glucose.k2}</span><span class="v">${t.glucose.v2}</span><span class="r">${t.glucose.r2}</span></span>
+    </span>${spark()}
+    <span class="strip-note">${t.glucose.note}</span></div>`,
+  "strip.labs": (t) => `<div class="strip"><span class="strip-head">
+    <span class="strip-title">${t.labs.title}</span><span class="strip-when">${t.labs.when}</span></span></div>`,
+  "strip.medication": (t) => `<div class="strip"><span class="strip-head">
+    <span class="strip-title">${t.medication.title}</span><span class="strip-when">${t.medication.when}</span></span></div>`,
+  "pregnancy.appointments": (t) => rows(t.appts),
+  "pregnancy.weight": (t) => rows(t.weight),
+  "pregnancy.birthPrep": (t) => rows(t.birth),
+  "pregnancy.movement": (t) => `<div class="m-move"><h3>${t.move.h}</h3><p>${t.move.p}</p></div>`,
+  "pregnancy.contractions": () => "",
+  "support.lossAware": (t) => `<div class="m-support"><h3>${t.loss.h}</h3><p>${t.loss.p}</p></div>`,
+  "support.checkIn": (t) => `<div class="m-support"><h3>${t.loss.h}</h3><p>${t.loss.p}</p></div>`,
+  "pregnancy.warningSigns": (t) => `<div class="m-flags"><h3>${t.flags.h}</h3>
+    <p>${t.flags.p}</p><a href="#">${t.flags.a} ›</a></div>`,
+  "quickLog": (t) => `<div class="m-quick">${t.quick.map((q) => `<b>${q}</b>`).join("")}</div>
+    <div class="cta">${t.cta}</div>`,
+};
+
+function rows(g) {
+  return `<div class="rows">${g.rows
+    .map(([l, r]) => `<span class="row"><span class="l">${l}</span><span class="r2">${r}</span></span>`)
+    .join("")}</div>`;
+}
+
+function screen(key, locale, theme) {
+  const s = SCREENS[key], t = T[locale];
+  const th = theme === "dark" ? ' data-theme="dark"' : "";
+  const body = s.modules.map((entry) => {
+    const [id, emphasis] = entry.split(":");
+    return (M[id] ?? (() => ""))(t, emphasis);
+  }).join("");
+  return `<div class="phone" lang="${locale}" dir="${t.dir}"${th}>
+    <div class="app-bar"><span class="mark">femio</span></div>
+    <div class="screen">
+      <div class="title-row"><h1>${t.title}</h1><span class="badge">${s.badge}</span></div>
+      ${body}
+    </div></div>`;
+}
+
+const cap = (a, b) => `<div class="stage-cap">${a}<span>${b}</span></div>`;
+
+document.getElementById("inv").innerHTML = Object.entries(M)
+  .filter(([, fn]) => fn(T.en, "primary") !== "")
+  .map(([id, fn]) => `<div class="inv-item"><div class="inv-id">${id}</div>
+    <div class="inv-body">${fn(T.en, "primary")}</div></div>`).join("");
+
+document.getElementById("screens").innerHTML = [
+  ["D1", "D1 · uncomplicated, T2", "the spine — 5 modules"],
+  ["D3", "D3 · gestational diabetes, T2", "+ one glucose strip under the hero"],
+  ["D7", "D7 · thyroid, T2", "+ thyroid strip and labs — different strip, same spine"],
+  ["D7D2", "D7 + prior loss, T3", "clinical hero kept; milestone demoted; tone anxiety-aware"],
+].map(([k, a, b]) => `<div class="stage">${screen(k, "en", "light")}${cap(a, b)}</div>`).join("");
+
+document.getElementById("hard").innerHTML =
+  `<div class="stage">${screen("D7", "ar", "dark")}${cap("D7 · Arabic · dark", "RTL with Latin lab units inside it")}</div>` +
+  `<div class="stage">${screen("D7D2", "ar", "light")}${cap("D7 + prior loss · Arabic", "the hardest copy in the product")}</div>`;
+</script>
+</body>
+</html>

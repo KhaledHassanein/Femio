@@ -71,16 +71,24 @@ function chain(personaId: string, registry: Registry): PersonaRecord[] {
  * with params shallow-merged — so D7 adding `strip.thyroid` beside D1's week card
  * changes nothing about the week card, and a layer that raises an existing module
  * promotes it rather than duplicating it.
+ *
+ * **New modules are inserted directly after the hero, not appended.** D7 §I asks
+ * for "the D1 week-by-week hero **plus a thyroid strip**", and every clinical layer
+ * describes its strip the same way — as the thing beside the answer. Appending put
+ * it below the quick-log row, which is where you put something nobody asked for.
+ * Order within an inserted group is preserved.
  */
 function mergeModules(
   base: readonly ModuleSpec[],
   layer: readonly ModuleSpec[],
 ): ModuleSpec[] {
   const out = base.map((m) => ({ ...m }));
+  const additions: ModuleSpec[] = [];
+
   for (const incoming of layer) {
     const existing = out.find((m) => m.id === incoming.id);
     if (!existing) {
-      out.push({ ...incoming });
+      additions.push({ ...incoming });
       continue;
     }
     if (EMPHASIS_RANK[incoming.emphasis] > EMPHASIS_RANK[existing.emphasis]) {
@@ -88,6 +96,10 @@ function mergeModules(
     }
     if (incoming.params) existing.params = { ...existing.params, ...incoming.params };
   }
+
+  if (additions.length === 0) return out;
+  const lastHero = out.map((m) => m.emphasis).lastIndexOf("hero");
+  out.splice(lastHero + 1, 0, ...additions);
   return out;
 }
 

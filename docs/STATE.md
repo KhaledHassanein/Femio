@@ -200,10 +200,20 @@ persona, the clinical layer wins the hero, and the anxiety-aware tone plus loss-
 armed on top. That composition is why the remaining personas are additions to a table rather
 than branches in a screen.
 
-**Next: R2.2** — `buildExperienceConfig(resolution, phase, registry) → ExperienceConfig`, a pure
-tested function, still in the web app, still no behaviour change. Then **R2.3**, whose
-acceptance test is blunt: D3 and D4 must visibly differ and D7 must show a thyroid strip,
-**with no new `if` statement**.
+**R2.2 landed** — `buildExperienceConfig` is pure, clock-injected and lifts into an Edge
+Function unchanged. It found the flagship bug on the way: an emotional layer was stealing the
+hero, so pregnancy + thyroid + prior loss produced a milestone card instead of the pregnancy
+timeline `docs/09` §8 specifies. Caught because a test's *name* disagreed with its assertion.
+
+**R1.6 landed** — `assets/mockups/R1.6_pregnancy_dashboard_reference.html`, the dashboard drawn
+as **modules**: a 14-module inventory plus four assembled personas whose module lists are copied
+from the engine's real output. Building it exposed a second engine defect — strips were
+appended below the quick-log rather than sitting under the hero, which is where you put
+something nobody asked for. Fixed with a test.
+
+**Next: R2.3** — render the pregnancy dashboard from the config through a module registry. The
+acceptance test is blunt: **D3 and D4 must visibly differ and D7 must show a thyroid strip, with
+no new `if` statement.** Modules to build are inventoried in the R1.6 reference.
 
 ## First action for the next session
 
