@@ -117,6 +117,8 @@ and why) → `docs/24_REVAMP_PLAN.md` (the architecture) → `docs/25_DESIGN_DIR
 
 ## Owner / manual actions — nobody else can do these
 
+*Config, keys and one-off commands live in `docs/runbooks/OWNER_MANUAL_TASKS.md`. Anything needing human **judgement** — a screen at 390px, Arabic tone, whether a flow feels right — lives in `docs/runbooks/MANUAL_TEST_PLAN.md`.*
+
 - [ ] **P1.9.7** *(blocks P1.9.8)* Supply `credentials` + `affiliation` for the reviewer bio, then `upsert-people --apply --publish`. The script refuses to publish a `medical_reviewer` without them, deliberately.
 - [ ] **P1.9.8** Wire `authors` + `medicalReviewerProfile` on the 30 imported drafts — every byline still reads `PENDING`.
 - [ ] **P1.9.6** Backfill `meet-femio`'s sources + SEO fields — the one published article with neither, and the most likely first landing page.

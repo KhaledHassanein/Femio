@@ -13,6 +13,9 @@ per session.**
 4. `docs/25_DESIGN_DIRECTION_BRIEF.md` — before touching any UI.
 5. `docs/22_APP_UI_ARCHITECTURE.md` — the code conventions for tracker screens.
 6. `docs/07_MASTER_TODO.md` — the queue. Take the highest open item in **▶ NOW**.
+7. `docs/runbooks/MANUAL_TEST_PLAN.md` — what only a human can judge. Every automated gate
+   passes on every commit; none of them can tell you a screen looks generic or an Arabic
+   sentence is tonally wrong. Point the owner at it rather than describing checks in chat.
 
 ## How to work here
 
