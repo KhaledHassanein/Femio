@@ -1,8 +1,38 @@
 # Femio — current state (living document)
 
-**Last updated: 2026-08-09.** This file replaces the seven dated handover documents, which
+**Last updated: 2026-08-12.** This file replaces the seven dated handover documents, which
 are now in `docs/archive/` (ADR-062). **Rewrite this file in place; do not create a new one
 per session.**
+
+## ▶ Resume prompt — paste this into a new chat
+
+> Read `CLAUDE.md`, then this file, then `docs/07_MASTER_TODO.md` → **▶ NOW**. Skim
+> `docs/23`/`24`/`25` only if the task touches strategy, architecture or design.
+>
+> **Build, do not narrate.** Work in the loop below. Do not report progress between
+> checkpoints, do not present options, do not ask me to confirm a plan. Speak only when a
+> blocker in `docs/runbooks/BLOCKERS.md` actually stops you, and then in one short paragraph.
+>
+> Anything that needs my input goes into `docs/runbooks/BLOCKERS.md`; anything needing my eyes
+> goes into `docs/runbooks/MANUAL_TEST_PLAN.md`. Add it there silently and carry on with the
+> next unblocked item.
+>
+> Jump in large steps. Take the whole of an item, not a slice of it.
+
+## The working loop — one pass per checkpoint
+
+1. **Take** the highest open item under ▶ NOW. Mark it `[~]`.
+2. **Build** the whole thing, including its i18n in all four locales and its tests.
+3. **Gate** — everything below, no exceptions. When a guard fails, fix the code, never the rule.
+4. **Verify** the way the change can actually fail: a rendered page for UI, an injected fault
+   for a guard, the deployed site for anything that only breaks in production.
+5. **Record** — TODO line (one line), `STATE.md` in place, an ADR only if it meets the bar.
+6. **Commit and push to `main`.** Vercel deploys from `main`. A commit message carries the
+   *reasoning*; the TODO carries the *status*.
+7. **Next item.** Do not stop to summarise.
+
+**Checkpoint discipline:** never end a turn with a dirty tree. Any interruption should be
+recoverable from `git log` plus this file alone.
 
 ## Read this, in this order
 
@@ -13,7 +43,9 @@ per session.**
 4. `docs/25_DESIGN_DIRECTION_BRIEF.md` — before touching any UI.
 5. `docs/22_APP_UI_ARCHITECTURE.md` — the code conventions for tracker screens.
 6. `docs/07_MASTER_TODO.md` — the queue. Take the highest open item in **▶ NOW**.
-7. `docs/runbooks/MANUAL_TEST_PLAN.md` — what only a human can judge. Every automated gate
+7. `docs/runbooks/BLOCKERS.md` — the only things waiting on the owner. Check it before
+   claiming you are blocked, and add to it rather than asking in chat.
+8. `docs/runbooks/MANUAL_TEST_PLAN.md` — what only a human can judge. Every automated gate
    passes on every commit; none of them can tell you a screen looks generic or an Arabic
    sentence is tonally wrong. Point the owner at it rather than describing checks in chat.
 
@@ -61,9 +93,9 @@ delete; an offline IndexedDB queue; a consent manager; staff MFA; k-anonymous fi
 insights; the visit summary; Settings → "Your Femio experience" to change life stage or choose
 General.
 
-**Owner manual tasks outstanding:** see the *Owner / manual actions* section of the TODO.
-Migrations 0001–0007 are all applied; 0006 is the exception — confirm before relying on
-`/admin/insights`.
+**Blocked on the owner:** `docs/runbooks/BLOCKERS.md` — B1 (credentials, unblocks bylines on
+30 articles) and B2 (medical content, the gate on all of R3) are the two that matter. Migrations
+0001–0007 are applied.
 
 ## The architecture rule that governs new code (ADR-060/061)
 
@@ -80,12 +112,12 @@ R2.7 repoints it. Do not add server reads to the tracker before then.
 ## The gate — run all of it before pushing
 
 ```
-pnpm build && pnpm typecheck && pnpm lint
-pnpm claims-lint && pnpm crisis-lint && pnpm analytics-lint
-pnpm i18n-client-lint && pnpm content-lint && pnpm native-readiness-lint
-pnpm i18n-untranslated-lint && pnpm tokens-parity-lint
-pnpm test
-CI=1 pnpm --filter web test:e2e:ci     # after a fresh build
+pnpm typecheck && pnpm lint && pnpm test
+pnpm claims-lint && pnpm crisis-lint && pnpm analytics-lint && pnpm content-lint
+pnpm i18n-client-lint && pnpm i18n-untranslated-lint && pnpm tokens-parity-lint
+pnpm native-readiness-lint && pnpm persona-branch-lint && pnpm tier1-portability-lint
+rm -rf apps/web/.next/cache && pnpm build
+CI=1 pnpm --filter web test:e2e:ci     # after that fresh build, never before
 ```
 
 ## Environment traps that have each cost real time
