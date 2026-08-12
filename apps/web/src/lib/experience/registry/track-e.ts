@@ -26,7 +26,7 @@
  * stacked with anything else.
  */
 
-import type { PersonaRecord } from "../types";
+import type { PersonaRecord } from "../types.ts";
 
 /** E1 — recovery after birth. The spine of the track. */
 const E1: PersonaRecord = {

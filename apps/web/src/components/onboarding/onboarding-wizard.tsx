@@ -15,6 +15,7 @@ import { CONDITIONS_BY_MODE, type ConditionCode } from "@/lib/persona/conditions
 import type { PersonaMode } from "@/lib/persona/modes";
 import { AGE_BANDS, type AgeBand } from "@/lib/persona/age";
 import { isMinor } from "@/lib/persona/minor";
+import { codeAccepted, isBetaGateOn } from "@/lib/beta/gate";
 import { track } from "@/lib/analytics/track";
 import { PageView } from "@/components/analytics/page-view";
 
@@ -82,6 +83,7 @@ export function OnboardingWizard() {
   const [insights, setInsights] = useState(false);
   const [research, setResearch] = useState(false);
   const [analytics, setAnalytics] = useState(false);
+  const [inviteCode, setInviteCode] = useState("");
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
@@ -98,7 +100,10 @@ export function OnboardingWizard() {
         ? true
         : step === 3
           ? account === "anonymous" || email.length > 3
-          : true;
+          : // The private-beta gate (P0.12.5). Off entirely when no code is
+            // configured, so this reads `true` in every environment that has not
+            // set one — including today's.
+            codeAccepted(inviteCode);
 
   const offered = mode ? CONDITIONS_BY_MODE[mode] : [];
   const toggleCondition = (code: ConditionCode) =>
@@ -306,6 +311,29 @@ export function OnboardingWizard() {
               <dd className="font-semibold text-text">{t(`${ACCOUNT_KEY[account]}.name`)}</dd>
             </div>
           </dl>
+
+          {/* Private beta (P0.12.5, B4). Shown only when a code is configured, so
+              nothing changes until the owner turns it on. The notice is the point
+              as much as the field: someone storing real health data deserves to
+              know the privacy policy is still a draft. */}
+          {isBetaGateOn() ? (
+            <div className="flex flex-col gap-3 rounded-md bg-warning-soft p-4">
+              <div className="flex flex-col gap-1">
+                <h2 className="text-sm font-semibold text-warning-text">{t("beta.heading")}</h2>
+                <p className="text-2xs leading-relaxed text-warning-text">{t("beta.body")}</p>
+              </div>
+              <div className="flex flex-col gap-1">
+                <Label htmlFor="invite">{t("beta.label")}</Label>
+                <Input
+                  id="invite"
+                  value={inviteCode}
+                  onChange={(e) => setInviteCode(e.target.value)}
+                  autoComplete="off"
+                  placeholder={t("beta.placeholder")}
+                />
+              </div>
+            </div>
+          ) : null}
         </section>
       ) : null}
 

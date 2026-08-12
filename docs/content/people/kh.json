@@ -1,8 +1,10 @@
 {
   "slug": "kh",
   "name": "K.H.",
-  "roles": ["medical_reviewer"],
-  "credentials": "",
+  "roles": [
+    "medical_reviewer"
+  ],
+  "credentials": "MBBCh, CPC",
   "jobTitle": "",
   "affiliation": "",
   "sameAs": [],

@@ -30,12 +30,12 @@ import { resolvePersona } from "../../../apps/web/src/lib/persona/resolver.ts";
 import { EMPTY_SIGNALS } from "../../../apps/web/src/lib/persona/signals.ts";
 import type { PersonaSignals } from "../../../apps/web/src/lib/persona/signals.ts";
 import { buildExperienceConfig, registryOf } from "../../../apps/web/src/lib/experience/build.ts";
-import { TRACK_D_RECORDS } from "../../../apps/web/src/lib/experience/registry/track-d.ts";
+import { PERSONA_RECORDS } from "../../../apps/web/src/lib/experience/registry/index.ts";
 import { phaseFor } from "../../../apps/web/src/lib/experience/phase.ts";
 import { predictNextPeriod } from "../../../apps/web/src/lib/cycle/predict.ts";
 import type { Phase } from "../../../apps/web/src/lib/experience/types.ts";
 
-const REGISTRY = registryOf(TRACK_D_RECORDS);
+const REGISTRY = registryOf(PERSONA_RECORDS);
 const ABSENT_AFTER_DAYS = 90;
 
 /** Emotional layers are persona ids; `emotional_context` carries the reasons. */

@@ -29,7 +29,7 @@
  * the remaining personas are additions to a table rather than branches in a screen.
  */
 
-import type { PersonaRecord } from "../types";
+import type { PersonaRecord } from "../types.ts";
 
 /** D1 — uncomplicated pregnancy. The spine every other D persona layers onto. */
 const D1: PersonaRecord = {

@@ -266,6 +266,12 @@
         "55_plus": "55+"
       }
     },
+    "beta": {
+      "heading": "Femio está en beta privada",
+      "body": "Esto es un sistema de pruebas, no un servicio real. La política de privacidad y los términos siguen siendo borradores, y Femio todavía no la gestiona una empresa registrada. Tus datos se guardan en la UE y solo tú puedes leerlos, pero por favor no dependas de esta aplicación para nada importante hasta que te digamos lo contrario.",
+      "label": "Código de invitación",
+      "placeholder": "El código que te enviamos"
+    },
     "mode": {
       "postpartum": {
         "name": "He dado a luz hace poco",

@@ -1,4 +1,4 @@
-import { addDays, diffDays, isValidISODate, todayISO } from "../calculators/dates";
+import { addDays, diffDays, isValidISODate, todayISO } from "../calculators/dates.ts";
 
 // Prediction v1: a simple variability model over the user's own period-start
 // history. Uncertainty-honest by construction (docs/09 invariant 5, docs/12):

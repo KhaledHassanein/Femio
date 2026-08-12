@@ -8,8 +8,8 @@
  * safety problem, not a tidiness one.
  */
 
-import { pregnancyProgress, type Trimester } from "../pregnancy";
-import type { Phase } from "./types";
+import { pregnancyProgress, type Trimester } from "../pregnancy/index.ts";
+import type { Phase } from "./types.ts";
 
 const TRIMESTER_PHASE: Record<Trimester, Phase> = { 1: "t1", 2: "t2", 3: "t3" };
 

@@ -1,6 +1,6 @@
-import type { PersonaRecord } from "../types";
-import { TRACK_D_RECORDS } from "./track-d";
-import { TRACK_E_RECORDS } from "./track-e";
+import type { PersonaRecord } from "../types.ts";
+import { TRACK_D_RECORDS } from "./track-d.ts";
+import { TRACK_E_RECORDS } from "./track-e.ts";
 
 /**
  * Every persona record the engine knows about (R2.5).

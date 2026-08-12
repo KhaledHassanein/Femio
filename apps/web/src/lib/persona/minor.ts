@@ -1,4 +1,4 @@
-import type { AgeBand } from "./age";
+import type { AgeBand } from "./age.ts";
 
 /**
  * Minor tier (R2.5b, `docs/09` invariant 1, product rule 2).

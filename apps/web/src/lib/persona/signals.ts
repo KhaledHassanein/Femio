@@ -10,7 +10,7 @@
  * Everything here is derived from data the user entered herself. Nothing is
  * inferred from behaviour she did not consent to being read (product rule 4).
  */
-import type { AgeBand } from "./age";
+import type { AgeBand } from "./age.ts";
 
 export type CycleRegularity = "regular" | "irregular" | "absent" | "unknown";
 

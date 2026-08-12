@@ -30,7 +30,9 @@ const PORTABLE = [
   // tier 1 — decisions
   "lib/experience/types.ts",
   "lib/experience/build.ts",
+  "lib/experience/registry/index.ts",
   "lib/experience/registry/track-d.ts",
+  "lib/experience/registry/track-e.ts",
   "lib/persona/resolver.ts",
   "lib/persona/signals.ts",
   "lib/persona/age.ts",
@@ -49,6 +51,22 @@ const RULES = [
     // Deno resolves relative specifiers, not tsconfig paths.
     test: (t) => /from\s+["']@\//.test(t),
     why: 'imports via the "@/" alias, which Deno and Dart cannot resolve — use a relative path',
+  },
+  {
+    id: "extensionless-import",
+    /**
+     * Deno resolves relative specifiers literally: no extension inference, no
+     * directory/index lookup. `import ... from "./types"` and `from "../pregnancy"`
+     * both work perfectly in the web app and both fail at deploy time.
+     *
+     * Added after the first real `supabase functions deploy` failed on exactly
+     * this — five `failed to read file` warnings and an `EISDIR` from the
+     * directory import. The guard existed and did not cover it, which is the
+     * whole reason this rule is written down rather than remembered.
+     */
+    test: (t) =>
+      [...t.matchAll(/from\s+["'](\.[^"']*)["']/g)].some(([, spec]) => !spec.endsWith(".ts")),
+    why: 'has a relative import without an explicit ".ts" — Deno cannot resolve it',
   },
   {
     id: "framework",

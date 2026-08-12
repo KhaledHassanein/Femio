@@ -1,5 +1,5 @@
-import type { PersonaSignals } from "./signals";
-import { signalCoverage } from "./signals";
+import type { PersonaSignals } from "./signals.ts";
+import { signalCoverage } from "./signals.ts";
 
 /**
  * The persona resolver (P1.27.4, docs/09 §5).

@@ -21,12 +21,18 @@ before any health page claims review.
 blank credentials, deliberately. A bio reading only "K.H." is weaker evidence than none — it
 looks like the requirement was met when it was not. I will not guess post-nominals.
 
-**What I need — reply with two strings:**
+**Status 2026-08-12:** `credentials` received and set to **`MBBCh, CPC`**.
+**`affiliation` is still blank**, and `upsert-people.mjs` refuses `--publish` without it — so
+this is still blocked, on one more word.
 
 | Field | Example | Currently |
 |---|---|---|
-| `credentials` | `MBBCh, MSc` | `""` |
-| `affiliation` | `Cairo University` | `""` |
+| `credentials` | `MBBCh, MSc` | ✅ `MBBCh, CPC` |
+| `affiliation` | `Cairo University`, or a clinic, or `Independent` | ❌ `""` |
+
+If you genuinely have no institutional affiliation, say **`Independent`** — that is a true
+answer and it satisfies doc 15 §8, which asks for a named reviewer with credentials and a bio,
+not for an employer.
 
 **What happens next (I do this):** update `docs/content/people/kh.json`, then
 
@@ -51,6 +57,10 @@ week-by-week. Postpartum mode shipped on 2026-08-12 with a reading panel that sa
 
 **What I need — pick one:**
 
+**Status 2026-08-12: (a) authorised.** Drafting starts with postpartum, because that mode
+shipped with a placeholder reading panel. Titles will be confirmed with you before the first
+batch is written.
+
 - **(a) Authorise me to draft them** under `docs/content/CODEX_AUTHORING_BRIEF.md`, the same
   route the 31 live articles took. `content-lint` checks them mechanically first — Tier-1/2
   sourcing with ≥2 sources, forbidden claim verbs, red-flag boxes, reading level, metadata
@@ -71,20 +81,30 @@ set `reviewStatus: approved` → publish. Your account already holds `medical_re
 
 ---
 
-## B3 · Deploy the experience Edge Function — 5 minutes
+## B3 · Deploy the experience Edge Function — 5 minutes · **retry now**
+
+**Your 2026-08-12 attempt failed and it was my bug, not yours.** The deploy reported
+`failed to read file: .../persona/resolver` and then `EISDIR`. Deno resolves relative imports
+literally — no extension inference, no directory/index lookup — and the tier-1 modules imported
+each other the TypeScript way (`from "./types"`, `from "../pregnancy"`). Both work perfectly in
+the web app and both fail at deploy.
+
+Fixed: every tier-1 relative import now carries an explicit `.ts`, and the portability guard
+gained a rule for it that was watched failing on the exact pattern. **`login` and `link` already
+succeeded, so only the last line is needed:**
+
+```powershell
+npx supabase@latest functions deploy experience
+```
+
+(The `WARNING: Docker is not running` line is harmless — Docker is only needed to run functions
+locally, not to deploy.)
 
 **Blocked:** R2.4 cannot close. **Nothing is broken meanwhile** — the client falls back to
 computing the same document locally from the same modules, which is why it was built that way.
 This is a strict upgrade, not a switch-over.
 
-```powershell
-npx supabase@latest login
-npx supabase@latest link --project-ref wnthtqtcajkhskdygbgo
-npx supabase@latest functions deploy experience
-```
-
-Run from `E:\Femio`. Do **not** `npm i -g supabase` — the CLI does not support a global npm
-install. `scoop install supabase` works if you prefer it installed.
+Run from `E:\Femio`. `scoop` is not installed on this machine and is not needed — `npx` works.
 
 **Tell me when it is done** and I will point the dashboard at the served document and repoint
 `native-readiness-lint` (R2.7).
@@ -102,14 +122,23 @@ deferred. The trigger for P0.12 was never incorporation — it is the first real
 health data. While that is only you and testers, this is genuinely fine. It stops being fine
 the moment you invite someone.
 
-**What I need — a decision, then I build it (about an hour):**
+**Built 2026-08-12** — option (a) with (c)'s wording alongside it, as you approved. **It is
+off until you set one environment variable**, and with it unset signup behaves exactly as it
+does today:
 
-- **(a) Invite code** — one shared code on `/welcome`. Simplest, and enough.
-- **(b) Allowlist** — email allowlist; requires email signup, which breaks the anonymous path.
-- **(c) Private-beta notice** — no gate, just a clear statement on `/welcome` that this is a
-  test system and not a live service.
+```
+NEXT_PUBLIC_BETA_INVITE_CODE=femio-beta
+```
 
-My recommendation is **(a)**, with **(c)**'s wording alongside it.
+Set it in Vercel on the **web** project and redeploy. The last step of onboarding then shows
+the private-beta notice and asks for the code; the code is matched ignoring case and
+punctuation, so `FEMIO-BETA`, `femio beta` and `femiobeta` all work.
+
+**Stated plainly because it must not be oversold:** this is a speed bump, not a security
+control. It is a `NEXT_PUBLIC_` value and readable in the bundle. It stops a stranger arriving
+from a search result and storing real health data while the privacy policy is a draft; someone
+determined to read the bundle is making an informed choice, which is what the notice is for.
+The real control is P0.12.
 
 ---
 

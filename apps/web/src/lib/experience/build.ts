@@ -22,7 +22,7 @@
  *    module, a tool or an alert, and the type could not express it if there were.
  */
 
-import type { Resolution } from "../persona/resolver";
+import type { Resolution } from "../persona/resolver.ts";
 import type {
   AlertSpec,
   Emphasis,
@@ -32,8 +32,8 @@ import type {
   PersonaRecord,
   Phase,
   Tone,
-} from "./types";
-import { EXPERIENCE_CONTRACT_VERSION } from "./types";
+} from "./types.ts";
+import { EXPERIENCE_CONTRACT_VERSION } from "./types.ts";
 
 const EMPHASIS_RANK: Record<Emphasis, number> = { secondary: 0, primary: 1, hero: 2 };
 
