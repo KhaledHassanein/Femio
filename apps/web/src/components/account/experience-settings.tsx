@@ -12,6 +12,7 @@ import {
 import { Alert, AlertDescription } from "@/components/ui/alert";
 import { Button } from "@/components/ui/button";
 import { ChoiceGroup } from "@/components/ui/choice-row";
+import { ReanswerTriage } from "./reanswer-triage";
 
 /**
  * "Your Femio experience" — change life-stage mode, or switch to general
@@ -115,6 +116,11 @@ export function ExperienceSettings() {
       >
         {saving ? t("saving") : t("apply")}
       </Button>
+
+      {/* The second half of docs/09 §4: not just "change my stage", but "I answered
+          that wrong". Keyed on the SAVED mode, not the pending one — the questions
+          offered have to match the stage she is actually in. */}
+      <ReanswerTriage key={current} mode={current} />
     </div>
   );
 }

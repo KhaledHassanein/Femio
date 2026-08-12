@@ -521,6 +521,18 @@
     "empty": "Pronto habrá nuevos temas — vuelve pronto."
   },
   "experience": {
+    "reanswer": {
+      "open": "Volver a responder las preguntas",
+      "openHint": "¿Respondiste algo mal al principio? Puedes corregirlo aquí: nada de lo que has registrado se ve afectado.",
+      "heading": "¿Algo que tu profesional sanitario esté vigilando?",
+      "intro": "Elige lo que corresponda. Son estas respuestas las que deciden qué te muestra Femio.",
+      "noneOffered": "Nada que añadir en esta etapa: Femio seguirá adaptándose a medida que registres.",
+      "replacesNote": "Esto sustituye lo que nos dijiste antes sobre tus condiciones, y nada más. Tus reglas, tus síntomas, tu registro de embarazo y todo lo demás que hayas anotado se quedan exactamente igual.",
+      "save": "Guardar mis respuestas",
+      "saving": "Guardando…",
+      "saved": "Guardado. Femio se ha readaptado a tus respuestas.",
+      "cancel": "Cancelar"
+    },
     "strips": {
       "thyroid": {
         "title": "Tiroides",

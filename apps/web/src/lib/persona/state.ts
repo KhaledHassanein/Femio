@@ -1,4 +1,7 @@
 import type { createClient } from "@/lib/supabase/client";
+import { resolvePersona } from "./resolver";
+import { readSignals } from "./signals-from-db";
+import { buildConditionRows, type ConditionCode } from "./conditions";
 
 /**
  * Persona state — the one place that maps a stored `track` to what the app
@@ -64,10 +67,13 @@ const MODE_TO_TRACK: Record<PersonaMode, string> = {
 };
 
 /**
- * Initial persona id per mode. Deliberately the first persona of each track:
- * the full resolver that picks among ~73 personas does not exist yet, so this
- * is an honest placeholder rather than a pretence of resolution (see the
- * `resolver` note in docs/09 §5 and the open TODO).
+ * Fallback persona per mode — used **only** when the resolver lands on a different
+ * track than the one she explicitly chose.
+ *
+ * Her stated stage wins, because she just told us (product rule 3). If she says
+ * "I'm pregnant" and the resolver has no pregnancy row to work from yet, the honest
+ * answer is the track's base persona rather than overriding her with a cycle
+ * persona the evidence happens to score higher.
  */
 const MODE_TO_PERSONA: Record<PersonaMode, string> = {
   cycle: "B1",
@@ -153,10 +159,36 @@ export async function switchMode(supabase: Client, next: PersonaMode): Promise<S
 
   const before = await readPersonaState(supabase);
 
+  /**
+   * Re-resolve against her real record instead of writing the track's first
+   * persona (R2.6).
+   *
+   * This used to store `personaIdFromMode(next)` — B1/C1/D1/F1/Z1 — while leaving
+   * the resolver's `modifiers` and `confidence` from onboarding untouched. The row
+   * then held two disagreeing accounts of who she is: a persona chosen by a lookup
+   * table and modifiers computed for a different one (`docs/23` §3.1). Worse, a
+   * woman with a recorded thyroid condition who chose "I'm pregnant" here got D1
+   * and lost the thyroid layer she had been given at signup.
+   *
+   * Now the stage she picked is combined with what she has recorded and the
+   * resolver decides, exactly as it does at onboarding.
+   */
+  const signals = await readSignals(supabase);
+  const resolved = resolvePersona({
+    ...signals,
+    ttcIntent: next === "ttc",
+    pregnancyStatus: next === "pregnancy" ? "active" : signals.pregnancyStatus,
+  });
+
   const { error } = await supabase.from("persona_state").upsert({
     profile_id: user.id,
+    // Her explicit choice wins the track — she just told us. The resolver refines
+    // *within* it (product rule 3: explicit, reversible confirmation).
     track: trackFromMode(next),
-    persona_id: personaIdFromMode(next),
+    persona_id: resolved.track === trackFromMode(next) ? resolved.personaId : personaIdFromMode(next),
+    modifiers: resolved.modifiers,
+    emotional_context: resolved.emotionalContext,
+    confidence: resolved.confidence,
     flags_json: flagsFromMode(next),
   });
   if (error) return { ok: false, error: error.message };
@@ -167,8 +199,73 @@ export async function switchMode(supabase: Client, next: PersonaMode): Promise<S
     profile_id: user.id,
     event_type: "mode_changed_by_user",
     from_state: { track: before.track, persona_id: before.personaId },
-    to_state: { track: trackFromMode(next), persona_id: personaIdFromMode(next) },
+    to_state: { track: trackFromMode(next), persona_id: resolved.personaId },
   });
 
   return { ok: true, mode: next };
+}
+
+/**
+ * Re-answer the questions that decide her experience (P1.27.3).
+ *
+ * `docs/09` §4 promised a wizard that is "re-openable anytime from Settings", and
+ * nothing implemented it — so a wrong answer at signup was permanent. This is that
+ * promise, narrowed to the part that matters: the life stage and the triage
+ * answers. It deliberately does **not** re-run account creation or consent; those
+ * already happened, and re-asking would be theatre.
+ *
+ * ## Why this one is allowed to delete, when nothing else is
+ *
+ * Invariant 2 — "a transition re-layers, it never deletes" — is about life-stage
+ * changes not destroying her record. This is a different act: she is telling us a
+ * statement she made about herself was wrong. Leaving a retracted "PCOS" on file
+ * because a rule said never delete would make the record *less* true, and it would
+ * keep shaping her experience against her wishes.
+ *
+ * So the replacement is bounded as tightly as it can be:
+ * - only `source = 'self'` rows are touched. A screener result (P2.7) is evidence
+ *   she cannot retract by re-answering a wizard question, and is left alone.
+ * - the change is written to `adaptation_events` before and after, so the
+ *   correction is auditable even though the superseded rows are gone.
+ * - nothing outside `conditions_flagged` is read or written. Cycles, pregnancies,
+ *   symptoms and logs are untouched.
+ */
+export async function reanswerTriage(
+  supabase: Client,
+  next: PersonaMode,
+  conditions: readonly ConditionCode[],
+): Promise<SwitchResult> {
+  const {
+    data: { user },
+  } = await supabase.auth.getUser();
+  if (!user) return { ok: false, error: "not-signed-in" };
+
+  const before = await readPersonaState(supabase);
+
+  // Replace only what she said about herself.
+  const { error: clearError } = await supabase
+    .from("conditions_flagged")
+    .delete()
+    .eq("profile_id", user.id)
+    .eq("source", "self");
+  if (clearError) return { ok: false, error: clearError.message };
+
+  const rows = buildConditionRows(user.id, [...conditions]);
+  if (rows.length > 0) {
+    const { error: insertError } = await supabase.from("conditions_flagged").insert(rows);
+    if (insertError) return { ok: false, error: insertError.message };
+  }
+
+  // Resolve against the corrected record, not the one she just replaced.
+  return switchMode(supabase, next).then((result) => {
+    if (result.ok) {
+      void supabase.from("adaptation_events").insert({
+        profile_id: user.id,
+        event_type: "triage_reanswered_by_user",
+        from_state: { track: before.track, persona_id: before.personaId },
+        to_state: { track: trackFromMode(next), conditions: [...conditions] },
+      });
+    }
+    return result;
+  });
 }

@@ -521,6 +521,18 @@
     "empty": "De nouveaux sujets arrivent — revenez bientôt."
   },
   "experience": {
+    "reanswer": {
+      "open": "Répondre à nouveau aux questions",
+      "openHint": "Vous avez mal répondu au début ? Vous pouvez corriger ici — rien de ce que vous avez enregistré n'est touché.",
+      "heading": "Quelque chose que votre clinicien surveille ?",
+      "intro": "Sélectionnez ce qui s'applique. Ce sont ces réponses qui déterminent ce que Femio met en avant.",
+      "noneOffered": "Rien à ajouter pour cette étape — Femio continuera de s'adapter à mesure que vous notez.",
+      "replacesNote": "Ceci remplace ce que vous nous aviez indiqué sur vos pathologies, et rien d'autre. Vos règles, vos symptômes, votre dossier de grossesse et tout ce que vous avez enregistré restent exactement tels quels.",
+      "save": "Enregistrer mes réponses",
+      "saving": "Enregistrement…",
+      "saved": "Enregistré. Femio s'est réadaptée à vos réponses.",
+      "cancel": "Annuler"
+    },
     "strips": {
       "thyroid": {
         "title": "Thyroïde",

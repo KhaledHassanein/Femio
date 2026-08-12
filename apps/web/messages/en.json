@@ -521,6 +521,18 @@
     "empty": "New topics are on the way — check back soon."
   },
   "experience": {
+    "reanswer": {
+      "open": "Re-answer the questions",
+      "openHint": "Answered something wrong at the start? You can correct it here — nothing you have logged is affected.",
+      "heading": "Anything your clinician is watching?",
+      "intro": "Pick any that apply. These are what shape what Femio puts in front of you.",
+      "noneOffered": "Nothing to add for this stage — Femio will keep tailoring itself as you log.",
+      "replacesNote": "This replaces what you told us before about your conditions, and nothing else. Your periods, symptoms, pregnancy record and everything else you have logged stay exactly as they are.",
+      "save": "Save my answers",
+      "saving": "Saving…",
+      "saved": "Saved. Femio has re-tailored itself to your answers.",
+      "cancel": "Cancel"
+    },
     "strips": {
       "thyroid": {
         "title": "Thyroid",

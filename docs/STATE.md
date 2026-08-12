@@ -228,6 +228,18 @@ Two things worth knowing before extending it:
   sets cover the registry. A module that vanished silently would let the engine look correct
   while a woman's screen lost a panel.
 
+**She can now correct herself (P1.27.3, P1.27.4a, R2.6, 2026-08-12).** Settings has "Re-answer
+the questions", and the mode picker finally re-resolves properly. The bug it fixed was live and
+user-visible: **a woman with a recorded thyroid condition who chose "I'm pregnant" in Settings
+got D1 and silently lost the thyroid layer she had at signup**, because `switchMode` wrote the
+track's first persona from a lookup table while leaving the resolver's modifiers behind.
+
+One rule to know before touching it: **re-answering the triage is the only place in the product
+allowed to delete.** It replaces `source='self'` condition rows, because leaving a retracted
+"PCOS" on file would make the record less true and keep shaping her experience against her
+wishes. Screener rows (P2.7) are never touched — those are not hers to retract by re-answering
+a wizard question — and both sides of the change go to `adaptation_events`.
+
 **Next: R2.4** — move tier 1 (`resolvePersona` + `buildExperienceConfig`) into a Supabase Edge
 Function, split the offline subset behind shared golden fixtures, and cache the document on the
 client. That is also when `native-readiness-lint` gets repointed (R2.7 proper), because the
