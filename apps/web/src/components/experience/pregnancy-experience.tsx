@@ -80,6 +80,16 @@ export function PregnancyExperience({
     runnerUp: null,
   };
 
+  /**
+   * Built here from the stored persona rather than fetched.
+   *
+   * `loadExperienceConfig` (R2.4) is the server-first path and exists — but the
+   * Edge Function is not deployed yet, and calling it on every dashboard render
+   * would add a round trip that falls through to this same computation anyway. The
+   * document this produces is identical to the one the function returns, because it
+   * is the same modules. It moves to the fetched document in the same change that
+   * deploys the function, which is a one-line swap here.
+   */
   const config = buildExperienceConfig({
     resolution,
     phase,

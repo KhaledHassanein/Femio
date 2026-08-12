@@ -50,11 +50,17 @@ npx supabase@latest link --project-ref wnthtqtcajkhskdygbgo
 `login` opens a browser and stores a token. `link` connects this folder to the Femio project —
 run it from the repo root (`E:\Femio`), where `supabase/config.toml` already carries the ref.
 
-Once I have written the function, the deploy is one more line and I will tell you when:
+**The function is written and committed** (`supabase/functions/experience/`). After `login`
+and `link` above, deploy it:
 
 ```powershell
 npx supabase@latest functions deploy experience
 ```
+
+Nothing breaks if you never run it. The client tries the function, falls back to its cache,
+then computes the same answer locally from the same modules — so deploying is a strict
+upgrade, not a switch-over. Tell me once it is deployed and I will point the dashboard at
+the served document.
 
 If you would rather have it installed properly than go through `npx` each time:
 

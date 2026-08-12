@@ -259,9 +259,25 @@ fixture before it lands as code in either language. **Do not regenerate them fro
 implementation** — a fixture that always matches proves nothing; a change to one is a change a
 reviewer looks at.
 
-**Remaining in R2.4:** the Edge Function itself (deployment needs the Supabase CLI and owner
-credentials — an APPLY-style task) and the client-side document cache. `native-readiness-lint`
-gets repointed then, because the tracker will start calling the server on purpose.
+**The Edge Function and the client ladder are written (2026-08-12).**
+`supabase/functions/experience/` imports the tier-1 modules **directly from `apps/web/src`** —
+one implementation, not a copy that drifts, which is the only reason the portability guard
+exists. It runs the caller's JWT rather than the service role, so **RLS is still the security
+boundary**; it never writes; and it takes `today` from the caller, because she is the one in a
+timezone and a UTC server deciding it is already tomorrow would shift her gestational age by a
+day.
+
+`lib/experience/client.ts` is the ladder: **server → cache → local.** The local step is not a
+nicety — deploying is an owner task, and a screen that broke while waiting for a deployment
+would be worse than no engine at all. The three produce the same document because they run the
+same modules. The cached one carries her `modifiers`, i.e. her conditions, so it is user-scoped
+and cleared on sign-out.
+
+**Owner action to finish R2.4:** `npx supabase@latest functions deploy experience`
+(`docs/runbooks/OWNER_MANUAL_TASKS.md` task 4). After that, two small things: point the
+dashboard at the served document instead of building locally — a one-line swap in
+`pregnancy-experience.tsx` — and repoint `native-readiness-lint` (R2.7), because the tracker
+will then be calling the server on purpose.
 
 ## First action for the next session
 
