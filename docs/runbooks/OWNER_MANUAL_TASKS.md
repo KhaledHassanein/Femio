@@ -18,27 +18,44 @@ Key facts you'll reuse:
 
 ## ▶ Do these next (everything else can wait)
 
-Audited against the live database and the deployed site on **2026-07-30** — most of the old
-checklist turned out to be already done (see the checklist below for the evidence). What's left:
+Re-audited against the live site and database on **2026-08-12**. Several items in the old
+table had already been done (the CMS admin exists, the site reads the CMS, 31 articles are
+live). What is actually outstanding, in the order I would do it:
 
 | # | Task | Time | Why it matters |
 |---|---|---|---|
-| **1** | **[C3.7] Make your CMS account an admin** | 1 min | **Blocks all publishing.** Your only CMS user holds `editor`, and roles are admin-only editable with no admin in the system. You can write drafts but cannot approve or publish anything, or add users. |
-| **2** | **[C3.5] Point the website at the CMS** | 5 min | Without `NEXT_PUBLIC_CMS_URL` on the **web** project, published articles never appear on the site. (I can't check this one from outside — see C3.5.) |
-| **3** | **[B5] Re-seed the translation portal** | 2 min | The database has 293 strings; the app now has **482**. The newest screens (privacy, terms, authors, analytics consent) are live in English but invisible to Arabic/French/Spanish reviewers. |
-| **4** | **[B★★★] Turn on two-step sign-in** | 3 min | **`/admin/*` now requires it.** Staff pages check for a second factor; until you enrol, they redirect you to Settings. Nothing else is affected — the tracker, the site and the CMS are untouched. |
-| ~~5~~ | ~~**[A3] Apply migration `0006`**~~ — **done 2026-08-07** |  | Turns on the first-party insights dashboard (`/admin/insights`). Read-only, aggregate-only, k-anonymous — it creates functions and touches no data. |
-| ~~6~~ | ~~**[A4] Apply migration `0007`**~~ — **done 2026-08-07** |  | **The pregnancy movement log cannot save anything until this runs.** Creates one new table (`fetal_movement_sessions`) with owner-only RLS, exactly like every other health table. Creates nothing else and touches no existing data. |
-| **7** | **[D] PostHog EU key (when you want analytics on)** | 20 min | The event layer is built and fails closed; it stays a no-op until a key exists. Not blocking any other work. |
+| **1** | **Send me your credentials + affiliation** (P1.9.7) | 2 min | **Highest value per minute in the whole list.** It publishes your reviewer bio, which unblocks bylines on all 30 imported articles (P1.9.8) *and* lets the homepage say "every guide is reviewed by a clinician, named, with credentials" — a line I had to remove because it is not true yet. Nothing to run: reply with the two strings, e.g. `MBBCh, MSc` and `Cairo University`. |
+| **2** | **Read the ten Arabic crisis strings** (P1.26.2) | 5 min | You are the recorded reviewer (ADR-063). The English fallback that used to render in Arabic is **gone**, so these are what a woman at risk now sees. Open `/ar` on the live site and tap **تحتاجين مساعدة الآن؟**, or read `apps/web/src/lib/crisis/crisis.json`. A correction is an edit, not a blocked release. |
+| **3** | **Look at the new homepage on a phone** (R1.3d) | 5 min | `femioapp.com/en` and `/ar` at 390px, light and dark. I verified the copy with `curl`; I have never seen it rendered. Craft is your call. |
+| **4** | **Install the Supabase CLI** (unblocks R2.4) | 5 min | Needed to deploy the experience Edge Function once I finish writing it. Commands below. |
+| **5** | **Turn on two-step sign-in** (B★★★) | 3 min | `/admin/*` redirects you to Settings until you enrol. Blocks the translation portal and the insights dashboard, nothing else. |
+| **6** | **Gate signup** (P0.12.5) | 15 min | Before any outside tester. An invite code, an allowlist, or a "private beta" notice on `/welcome`. It keeps "we are only testing" true rather than merely intended. |
+| **7** | **PostHog EU key** (D) | 20 min | Optional. The event layer is built and fails closed; it stays a verified no-op until a key exists. |
 
-Task 1, verbatim — run it from the repo root, nothing to paste (it reads `apps/cms/.env.local`):
+### Task 4, verbatim — Supabase CLI
+
+Do **not** `npm i -g supabase`; the CLI does not support a global npm install. On Windows use
+`npx`, which needs no install at all:
 
 ```powershell
-$env:EMAIL="dr.khaled.hassanein@gmail.com"; $env:ROLES="admin,editor"; pnpm --filter cms set-roles
+npx supabase@latest login
+npx supabase@latest link --project-ref wnthtqtcajkhskdygbgo
 ```
 
-Add `NEW_PASSWORD="…"` to that same command if the CMS password is lost — Payload has no email
-sender configured, so its forgot-password link cannot reach you.
+`login` opens a browser and stores a token. `link` connects this folder to the Femio project —
+run it from the repo root (`E:\Femio`), where `supabase/config.toml` already carries the ref.
+
+Once I have written the function, the deploy is one more line and I will tell you when:
+
+```powershell
+npx supabase@latest functions deploy experience
+```
+
+If you would rather have it installed properly than go through `npx` each time:
+
+```powershell
+scoop install supabase
+```
 
 ---
 
