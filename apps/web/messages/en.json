@@ -675,6 +675,38 @@
         }
       }
     },
+    "mrs": {
+      "heading": "How you have been feeling",
+      "intro": "Eleven questions from the Menopause Rating Scale, a questionnaire clinicians already know. Answer what you want to; skip anything you would rather not say.",
+      "total": "Your total is {total}, from {answered} of 11 answers",
+      "subscales": "Physical {somatic} · Mood and thinking {psychological} · Bladder and intimacy {urogenital}",
+      "partial": "You have not answered every question, so this total is not comparable to a full one.",
+      "discuss": "This is a screening questionnaire, not an assessment. Femio does not grade the number — take it to your clinician, who can.",
+      "save": "Save this to my record",
+      "saving": "Saving…",
+      "saved": "Saved. You can show this at your next appointment.",
+      "saveFailed": "That did not save. Check your connection and try again.",
+      "items": {
+        "hotFlushes": "Hot flushes, sweating",
+        "heartDiscomfort": "Heart discomfort — unusual awareness of your heartbeat, racing, tightness",
+        "sleepProblems": "Sleep problems — difficulty falling asleep, sleeping through, waking early",
+        "jointMuscleDiscomfort": "Joint and muscular discomfort",
+        "depressiveMood": "Depressive mood — feeling down, sad, close to tears, lacking drive",
+        "irritability": "Irritability — feeling aggressive, tense, short-tempered",
+        "anxiety": "Anxiety — inner restlessness, feeling panicky",
+        "exhaustion": "Physical and mental exhaustion — tiredness, forgetfulness, poor concentration",
+        "sexualProblems": "Sexual problems — change in desire, in sexual activity or satisfaction",
+        "bladderProblems": "Bladder problems — difficulty passing urine, needing to go more often, leaking",
+        "vaginalDryness": "Vaginal dryness — dryness or burning, or discomfort during sex"
+      },
+      "levels": {
+        "0": "None",
+        "1": "Mild",
+        "2": "Moderate",
+        "3": "Severe",
+        "4": "Very severe"
+      }
+    },
   "postpartum": {
     "checkIn": {
       "eyebrow": "After birth",

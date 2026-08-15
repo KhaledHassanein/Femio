@@ -431,9 +431,29 @@ and it says it at the top.
 `isPlausibleBbt` is a **typo guard and must stay wider than any normal range** — 34–40 °C are
 both valid — so it can never drift into "your temperature is abnormal".
 
+## The first screener exists (P2.4, 2026-08-16)
+
+`screener_results` names MRS in its own schema comment and had never held a row. The
+Menopause Rating Scale now writes to it, and it sets the pattern every screener in P2.7 will
+follow:
+
+**It reports a number and refuses to grade it.** No band, no severity word, no threshold
+constant in the module, and two tests assert none appears. The literature attaches cut-offs;
+Femio does not apply them, because "your total is 19" is arithmetic on her own answers while
+"your symptoms are severe" is a clinical assessment — and the woman that hurts is the one who
+reads "mild" and decides the appointment can wait.
+
+Partial answers travel with their count. Scoring a blank as zero would describe her as having
+fewer symptoms than she reported, in a number she may read out loud in a consultation.
+
+The scoring is tier 1 because R2.7's guard forbids screener scoring in a screen — and this is
+the file that rule was written for: two clients disagreeing about an MRS total would give one
+woman two different sentences in the same appointment.
+
 ## First action for the next session
 
-Take the top open item under ▶ NOW — the rest of **R3 depth**: `P2.4` menopause depth (34
-symptoms, MRS, HRT log), then the remainder of `P2.2.3` (contraction timer, weight chart,
-checklists), then `P2.7` screeners. Postpartum content drafting is unblocked as of 2026-08-16
-(B2 approved, tracked as **P2.3c**); teen content is **P2.13**.
+Take the top open item under ▶ NOW — the rest of **R3 depth**: `P2.4`'s remainder (the
+34-symptom set and the HRT log; the CBT program is content-gated as **P2.13b**), the rest of
+`P2.2.3` (contraction timer, weight chart, checklists), then `P2.7`'s other screeners, which
+now have a pattern to copy. Postpartum content drafting is unblocked (B2 approved, **P2.3c**);
+teen content is **P2.13**.

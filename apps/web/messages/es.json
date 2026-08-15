@@ -675,6 +675,38 @@
         }
       }
     },
+    "mrs": {
+      "heading": "Cómo te has sentido",
+      "intro": "Once preguntas de la escala MRS, un cuestionario que el personal clínico ya conoce. Responde lo que quieras; salta lo que prefieras no decir.",
+      "total": "Tu total es {total}, de {answered} respuestas de 11",
+      "subscales": "Físico {somatic} · Ánimo y pensamiento {psychological} · Vejiga e intimidad {urogenital}",
+      "partial": "No has respondido a todas las preguntas, así que este total no es comparable con uno completo.",
+      "discuss": "Es un cuestionario de cribado, no una valoración. Femio no clasifica el número — llévalo a tu profesional sanitario, que sí puede.",
+      "save": "Guardar en mi historial",
+      "saving": "Guardando…",
+      "saved": "Guardado. Puedes enseñarlo en tu próxima cita.",
+      "saveFailed": "No se guardó. Comprueba tu conexión e inténtalo de nuevo.",
+      "items": {
+        "hotFlushes": "Sofocos, sudoración",
+        "heartDiscomfort": "Molestia cardíaca — notar los latidos de forma inusual, aceleración, opresión",
+        "sleepProblems": "Problemas de sueño — cuesta dormirse, despertares, despertar temprano",
+        "jointMuscleDiscomfort": "Molestias articulares y musculares",
+        "depressiveMood": "Ánimo bajo — tristeza, ganas de llorar, falta de impulso",
+        "irritability": "Irritabilidad — tensión, mal genio, poca paciencia",
+        "anxiety": "Ansiedad — inquietud interior, sensación de pánico",
+        "exhaustion": "Agotamiento físico y mental — cansancio, olvidos, poca concentración",
+        "sexualProblems": "Problemas sexuales — cambios en el deseo, la actividad o la satisfacción",
+        "bladderProblems": "Problemas de vejiga — dificultad al orinar, más ganas, escapes",
+        "vaginalDryness": "Sequedad vaginal — sequedad o escozor, o molestias en las relaciones"
+      },
+      "levels": {
+        "0": "Ninguno",
+        "1": "Leve",
+        "2": "Moderado",
+        "3": "Intenso",
+        "4": "Muy intenso"
+      }
+    },
   "postpartum": {
     "checkIn": {
       "eyebrow": "Después del parto",

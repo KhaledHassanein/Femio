@@ -6,6 +6,7 @@ import { Badge } from "@/components/ui/badge";
 import { HeroCard } from "@/components/ui/hero-card";
 import { Card, CardContent } from "@/components/ui/card";
 import { Link } from "@/i18n/navigation";
+import { MrsCheck } from "./mrs-check";
 
 /**
  * The perimenopause / menopause dashboard (P1.13c).
@@ -138,6 +139,11 @@ export function MenopausePanel({
           </ul>
         </CardContent>
       </Card>
+
+      {/* The MRS (P2.4). Placed under the reading rather than above it on purpose:
+          she opened this screen for her own picture, and a questionnaire in front
+          of that would read as being assessed. */}
+      <MrsCheck />
     </div>
   );
 }

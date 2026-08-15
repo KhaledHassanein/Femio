@@ -675,6 +675,38 @@
         }
       }
     },
+    "mrs": {
+      "heading": "Comment vous vous êtes sentie",
+      "intro": "Onze questions issues de l’échelle MRS, un questionnaire que les clinicien·nes connaissent déjà. Répondez à ce que vous voulez ; passez ce que vous préférez taire.",
+      "total": "Votre total est de {total}, sur {answered} réponses parmi 11",
+      "subscales": "Physique {somatic} · Humeur et pensée {psychological} · Vessie et intimité {urogenital}",
+      "partial": "Vous n’avez pas répondu à toutes les questions : ce total n’est donc pas comparable à un total complet.",
+      "discuss": "C’est un questionnaire de repérage, pas une évaluation. Femio ne classe pas ce chiffre — apportez-le à votre clinicien·ne, qui le peut.",
+      "save": "Enregistrer dans mon dossier",
+      "saving": "Enregistrement…",
+      "saved": "Enregistré. Vous pourrez le montrer à votre prochain rendez-vous.",
+      "saveFailed": "L’enregistrement a échoué. Vérifiez votre connexion et réessayez.",
+      "items": {
+        "hotFlushes": "Bouffées de chaleur, sueurs",
+        "heartDiscomfort": "Gêne cardiaque — perception inhabituelle des battements, emballement, oppression",
+        "sleepProblems": "Troubles du sommeil — endormissement difficile, réveils, réveil précoce",
+        "jointMuscleDiscomfort": "Douleurs articulaires et musculaires",
+        "depressiveMood": "Humeur dépressive — tristesse, envie de pleurer, manque d’élan",
+        "irritability": "Irritabilité — tension, agressivité, patience courte",
+        "anxiety": "Anxiété — agitation intérieure, sensation de panique",
+        "exhaustion": "Épuisement physique et mental — fatigue, oublis, concentration difficile",
+        "sexualProblems": "Troubles sexuels — changement du désir, de l’activité ou de la satisfaction",
+        "bladderProblems": "Troubles urinaires — difficulté à uriner, envies fréquentes, fuites",
+        "vaginalDryness": "Sécheresse vaginale — sécheresse, brûlures, gêne pendant les rapports"
+      },
+      "levels": {
+        "0": "Aucun",
+        "1": "Léger",
+        "2": "Modéré",
+        "3": "Sévère",
+        "4": "Très sévère"
+      }
+    },
   "postpartum": {
     "checkIn": {
       "eyebrow": "Après la naissance",

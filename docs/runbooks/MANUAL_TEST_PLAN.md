@@ -134,6 +134,16 @@ Settings → **Charting**, or the button on the TTC dashboard.
 - [ ] Log an ovulation test result. The wording should make clear you are recording **what the test said**, not asking Femio to read it.
 - [ ] Arabic: the OPK and mucus vocabulary. These are terms with real regional variation and I chose them from the literature, not from usage.
 
+### T12 · The Menopause Rating Scale (P2.4) — safety-critical, and yours as a clinician
+Settings → Your Femio experience → **Menopause**, then scroll to the questionnaire.
+
+- [ ] Read the eleven items against the published MRS. I transcribed them into plain English and then into three other languages; the wording is mine and the instrument is not.
+- [ ] Answer a few and check the result block: a **total, three subscores, and the number of items answered**. Confirm there is **no band, no severity word, and no colour that grades it**. That absence is the whole compliance position for this screen.
+- [ ] Answer all eleven at "very severe" — total 44. Nothing on screen should change tone. If anything reads as alarming or reassuring, tell me: Femio must not have an opinion about this number.
+- [ ] Leave some blank. It should say the total is not comparable to a full one.
+- [ ] Save it, then check the visit summary and the data export pick it up.
+- [ ] Arabic: this is clinical vocabulary in four languages and it is the highest-risk translation in the app after the crisis copy.
+
 ### T9 · The duplicate log button (found in R2.5c)
 Any of pregnancy, postpartum, or teen.
 
