@@ -414,10 +414,26 @@ Two decisions worth keeping:
   clinical finding and the next feature to read it is interpreting one. What it holds instead
   is the questions she meant to ask.
 
+## Charting exists (P2.1, 2026-08-16)
+
+`fertility_logs` was the third table unused since v1. BBT, OPK and cervical mucus now write to
+it at `/fertility`.
+
+**The chart is dots and an axis and nothing else** — no shift line, no ovulation marker, no
+shaded band — and `lib/fertility` exports no `ovulationDay`, `thermalShift` or `isFertile`,
+with a test asserting it never gains one. The reasoning is worth keeping: reading a thermal
+shift is a clinical inference from a home measurement (rule 1), and the feature everyone builds
+on top of one is "days you could avoid", which crosses the medical-device line and the
+contraception line in a single step. The table's schema comment has said *"conception
+AWARENESS, never contraception"* since v1; this is the first screen that could say it to her,
+and it says it at the top.
+
+`isPlausibleBbt` is a **typo guard and must stay wider than any normal range** — 34–40 °C are
+both valid — so it can never drift into "your temperature is abnormal".
+
 ## First action for the next session
 
-Take the top open item under ▶ NOW — the rest of **R3 depth**: `P2.1` TTC toolkit
-(`fertility_logs`, unused since v1, same story as appointments), `P2.4` menopause depth, then
-the remainder of `P2.2.3` (contraction timer, weight chart, checklists). Postpartum content
-drafting is unblocked as of 2026-08-16 (B2 approved, tracked as **P2.3c**); teen content is
-**P2.13**.
+Take the top open item under ▶ NOW — the rest of **R3 depth**: `P2.4` menopause depth (34
+symptoms, MRS, HRT log), then the remainder of `P2.2.3` (contraction timer, weight chart,
+checklists), then `P2.7` screeners. Postpartum content drafting is unblocked as of 2026-08-16
+(B2 approved, tracked as **P2.3c**); teen content is **P2.13**.

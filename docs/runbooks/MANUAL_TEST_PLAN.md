@@ -125,6 +125,15 @@ Settings → **Appointments**, or the card on the pregnancy dashboard.
 - [ ] Switch to cycle or menopause mode: Settings still reaches Appointments. It is not a pregnancy feature.
 - [ ] Arabic: the date and time format, and whether the list reads naturally right-to-left.
 
+### T11 · Charting (P2.1) — safety-critical wording
+Settings → **Charting**, or the button on the TTC dashboard.
+
+- [ ] The notice at the top says plainly that charting is **not a reliable way to avoid pregnancy**. Read it as a clinician: if it could be misread as contraception, tell me — that sentence is the whole medical-device boundary for this screen.
+- [ ] Log three waking temperatures on different days. A chart appears. Confirm it is **only dots and an axis** — no line joining them, no marker for a shift, no shaded "fertile" band, no colour that means anything.
+- [ ] Type `365` in the temperature field. It should refuse as a typo. Type `34.0` — it should accept, because the guard is for typos and must never become a comment on her temperature.
+- [ ] Log an ovulation test result. The wording should make clear you are recording **what the test said**, not asking Femio to read it.
+- [ ] Arabic: the OPK and mucus vocabulary. These are terms with real regional variation and I chose them from the literature, not from usage.
+
 ### T9 · The duplicate log button (found in R2.5c)
 Any of pregnancy, postpartum, or teen.
 

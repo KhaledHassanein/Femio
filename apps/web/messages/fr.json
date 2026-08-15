@@ -626,6 +626,55 @@
         "prepCount": "{count} questions enregistrées"
       }
     },
+    "fertility": {
+      "title": "Courbes",
+      "loading": "Chargement de vos courbes",
+      "loadError": "Nous n’avons pas pu charger vos saisies.",
+      "retry": "Réessayer",
+      "boundary": "Les courbes vous aident à comprendre votre propre rythme et à préparer vos échanges avec un·e clinicien·ne. Ce n’est pas un moyen fiable d’éviter une grossesse, et Femio ne le présente jamais comme tel.",
+      "invalidBbt": "Cela ne ressemble pas à une mesure de thermomètre. Vérifiez le nombre et réessayez.",
+      "nothingToSave": "Ajoutez au moins un élément avant d’enregistrer.",
+      "saveFailed": "L’enregistrement a échoué. Vérifiez votre connexion et réessayez.",
+      "saved": "Enregistré.",
+      "saving": "Enregistrement…",
+      "save": "Enregistrer la saisie du jour",
+      "historyHeading": "Vos saisies",
+      "log": {
+        "heading": "Saisir une journée",
+        "date": "Jour",
+        "bbt": "Température au réveil",
+        "bbtPlaceholder": "36,50",
+        "bbtHint": "Prise avant de vous lever, à peu près à la même heure. En Celsius ou en Fahrenheit — Femio devine l’unité.",
+        "opk": "Test d’ovulation",
+        "opkHint": "Notez ce qu’a indiqué le test. Femio ne le lit pas à votre place.",
+        "cm": "Glaire cervicale",
+        "intercourse": "Rapport sexuel"
+      },
+      "opk": {
+        "negative": "Négatif",
+        "low": "Faible",
+        "high": "Élevé",
+        "peak": "Pic",
+        "positive": "Positif"
+      },
+      "cm": {
+        "dry": "Sèche",
+        "sticky": "Collante",
+        "creamy": "Crémeuse",
+        "watery": "Aqueuse",
+        "eggWhite": "Blanc d’œuf"
+      },
+      "chart": {
+        "heading": "Vos températures",
+        "alt": "Un graphique de {count} températures au réveil",
+        "needData": "Notez trois températures au réveil et votre courbe apparaîtra ici. En dessous, c’est un point, pas une tendance.",
+        "note": "Ce sont vos mesures, telles quelles. Femio ne signale aucun décalage et ne désigne aucun jour — ce que dit une courbe se discute avec votre clinicien·ne.",
+        "unit": {
+          "c": "{value} °C",
+          "f": "{value} °F"
+        }
+      }
+    },
   "postpartum": {
     "checkIn": {
       "eyebrow": "Après la naissance",

@@ -626,6 +626,55 @@
         "prepCount": "{count} preguntas guardadas"
       }
     },
+    "fertility": {
+      "title": "Gráficas",
+      "loading": "Cargando tus gráficas",
+      "loadError": "No pudimos cargar tus registros.",
+      "retry": "Reintentar",
+      "boundary": "Llevar la gráfica te ayuda a entender tu propio patrón y a preparar las conversaciones con tu profesional sanitario. No es una forma fiable de evitar el embarazo, y Femio nunca lo presenta como tal.",
+      "invalidBbt": "Eso no parece una lectura de termómetro. Revisa el número e inténtalo de nuevo.",
+      "nothingToSave": "Añade al menos un dato antes de guardar.",
+      "saveFailed": "No se guardó. Comprueba tu conexión e inténtalo de nuevo.",
+      "saved": "Guardado.",
+      "saving": "Guardando…",
+      "save": "Guardar el registro de hoy",
+      "historyHeading": "Tus registros",
+      "log": {
+        "heading": "Registrar un día",
+        "date": "Día",
+        "bbt": "Temperatura al despertar",
+        "bbtPlaceholder": "36,50",
+        "bbtHint": "Tomada antes de levantarte, más o menos a la misma hora. En Celsius o Fahrenheit — Femio deduce cuál.",
+        "opk": "Test de ovulación",
+        "opkHint": "Anota lo que dijo el test. Femio no lo interpreta por ti.",
+        "cm": "Moco cervical",
+        "intercourse": "Hubo relaciones"
+      },
+      "opk": {
+        "negative": "Negativo",
+        "low": "Bajo",
+        "high": "Alto",
+        "peak": "Pico",
+        "positive": "Positivo"
+      },
+      "cm": {
+        "dry": "Seco",
+        "sticky": "Pegajoso",
+        "creamy": "Cremoso",
+        "watery": "Acuoso",
+        "eggWhite": "Clara de huevo"
+      },
+      "chart": {
+        "heading": "Tus temperaturas",
+        "alt": "Una gráfica de {count} temperaturas al despertar",
+        "needData": "Registra tres temperaturas al despertar y tu gráfica aparecerá aquí. Menos que eso es un punto, no un patrón.",
+        "note": "Son tus mediciones, tal cual. Femio no marca ningún cambio ni señala ningún día — lo que significa una gráfica se habla contigo y tu profesional.",
+        "unit": {
+          "c": "{value} °C",
+          "f": "{value} °F"
+        }
+      }
+    },
   "postpartum": {
     "checkIn": {
       "eyebrow": "Después del parto",

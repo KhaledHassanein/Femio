@@ -40,6 +40,7 @@ export function SettingsScreen() {
   const t = useTranslations("settings");
   const te = useTranslations("experience");
   const ta = useTranslations("appointments");
+  const tf = useTranslations("fertility");
 
   return (
     <AppScreen>
@@ -79,6 +80,21 @@ export function SettingsScreen() {
           </div>
           <Button asChild variant="outline" className="self-start">
             <Link href="/appointments">{ta("title")}</Link>
+          </Button>
+        </CardContent>
+      </Card>
+
+      {/* Charting, reachable in every mode for the same reason (P2.1). Someone
+          charting through perimenopause, or before a fertility appointment without
+          calling herself "trying", is not served by a feature behind a mode. */}
+      <Card>
+        <CardContent className="flex flex-col gap-3 p-6">
+          <div className="flex flex-col gap-1">
+            <h2 className="text-md font-semibold text-text">{tf("title")}</h2>
+            <p className="text-sm text-text-muted">{tf("boundary")}</p>
+          </div>
+          <Button asChild variant="outline" className="self-start">
+            <Link href="/fertility">{tf("title")}</Link>
           </Button>
         </CardContent>
       </Card>

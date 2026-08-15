@@ -58,6 +58,7 @@ export const APP_CLIENT_NAMESPACES = [
   "experience",
   "postpartum",
   "appointments",
+  "fertility",
   "teen",
   "menopause",
   "mfa",

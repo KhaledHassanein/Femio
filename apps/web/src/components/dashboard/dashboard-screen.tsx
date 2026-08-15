@@ -37,6 +37,7 @@ type Pregnancy = { id: string; edd: string | null; status: string } | null;
 export function DashboardScreen() {
   const t = useTranslations("dashboard");
   const st = useTranslations("symptoms");
+  const tFertility = useTranslations("fertility");
   const format = useFormatter();
   const today = todayISO();
 
@@ -200,6 +201,16 @@ export function DashboardScreen() {
           footnote={fertile ? t("fertileNote") : undefined}
           band={fertileBand}
         />
+      ) : null}
+
+      {/* The charting tools, surfaced where they are most wanted (P2.1). Surfaced,
+          not gated: Settings reaches the same screen from every mode, because the
+          window above is an estimate from cycle history and her own temperatures
+          and tests are a different, better kind of evidence about her own body. */}
+      {mode === "ttc" ? (
+        <Button asChild variant="outline" className="w-full">
+          <Link href="/fertility">{tFertility("title")}</Link>
+        </Button>
       ) : null}
 
       {showsCyclePredictions(mode) && mode !== "ttc" ? (

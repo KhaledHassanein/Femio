@@ -626,6 +626,55 @@
         "prepCount": "{count} questions saved"
       }
     },
+    "fertility": {
+      "title": "Charting",
+      "loading": "Loading your charts",
+      "loadError": "We could not load your entries.",
+      "retry": "Try again",
+      "boundary": "Charting helps you understand your own pattern and get ready for conversations with a clinician. It is not a reliable way to avoid pregnancy, and Femio never presents it as one.",
+      "invalidBbt": "That does not look like a thermometer reading. Check the number and try again.",
+      "nothingToSave": "Add at least one thing before saving.",
+      "saveFailed": "That did not save. Check your connection and try again.",
+      "saved": "Saved.",
+      "saving": "Saving…",
+      "save": "Save today's entry",
+      "historyHeading": "Your entries",
+      "log": {
+        "heading": "Log a day",
+        "date": "Day",
+        "bbt": "Waking temperature",
+        "bbtPlaceholder": "36.50",
+        "bbtHint": "Taken before getting up, at roughly the same time. Celsius or Fahrenheit — Femio works out which.",
+        "opk": "Ovulation test",
+        "opkHint": "Record what the test said. Femio does not read it for you.",
+        "cm": "Cervical mucus",
+        "intercourse": "We had sex"
+      },
+      "opk": {
+        "negative": "Negative",
+        "low": "Low",
+        "high": "High",
+        "peak": "Peak",
+        "positive": "Positive"
+      },
+      "cm": {
+        "dry": "Dry",
+        "sticky": "Sticky",
+        "creamy": "Creamy",
+        "watery": "Watery",
+        "eggWhite": "Egg white"
+      },
+      "chart": {
+        "heading": "Your temperatures",
+        "alt": "A chart of {count} waking temperatures",
+        "needData": "Log three waking temperatures and your chart appears here. Fewer than that is a dot, not a pattern.",
+        "note": "These are your readings, drawn as they are. Femio does not mark a shift or name a day — what a chart means is a conversation for you and your clinician.",
+        "unit": {
+          "c": "{value}°C",
+          "f": "{value}°F"
+        }
+      }
+    },
   "postpartum": {
     "checkIn": {
       "eyebrow": "After birth",
