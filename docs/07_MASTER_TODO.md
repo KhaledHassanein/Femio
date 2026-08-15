@@ -74,7 +74,8 @@ and why) → `docs/24_REVAMP_PLAN.md` (the architecture) → `docs/25_DESIGN_DIR
 
 - [ ] **P2.2.2** Pregnancy week-by-week — **blocked on reviewed CMS content**; build the surface only once approved week entries exist. Do not hand-write it.
 - [ ] **P2.2.3** Contraction timer, weight chart, **appointment tracking** (the `appointments` table has been unused since v1), checklists.
-- [ ] **P2.3** Postpartum mode — **does not exist today**; Track E has no mode. Recovery tracker, EPDS, feeding/sleep.
+- [ ] **P2.3** Postpartum depth: recovery tracker, EPDS, feeding/sleep. *(The mode itself shipped in R2.5; this is the depth behind it.)*
+- [ ] **P2.3c** Postpartum content — **14 titles approved by the owner 2026-08-16 (B2), drafting authorised.** Batches of ten under `docs/content/CODEX_AUTHORING_BRIEF.md`; `content-lint` first, imported as `draft`, owner approves each in the CMS as `medical_reviewer`. This is what makes the postpartum reading panel stop saying "being written".
 - [ ] **P2.1** TTC toolkit: BBT chart, OPK log, cervical mucus → the unused `fertility_logs` table.
 - [ ] **P2.4** Menopause depth: 34-symptom set, MRS score, HRT log, CBT-informed program v1.
 - [ ] **P2.7** Validated screeners (PHQ-9, GAD-7, DRSP, PBAC) → the unused `screener_results` table; clinician-discussion framing; **P1.26.3** wires a self-harm-affirmative response to `useCrisisHelp().open()`.

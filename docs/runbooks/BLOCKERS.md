@@ -6,8 +6,9 @@
 - Config, keys and one-off commands that are *not* blocking → `OWNER_MANUAL_TASKS.md`
 - Things needing your eyes rather than your input → `MANUAL_TEST_PLAN.md`
 
-Ordered by what unblocks the most. **B1 and B2 are the real ones** — the rest are single items
-that stay `[~]` until done and stop nothing else.
+**Nothing is blocked as of 2026-08-16.** B1, B2, B3 and B4 are all closed. B5 and B6 remain,
+and neither stops anything: B5 gates a dashboard nobody is waiting on, B6 gates `/admin/*`
+only. They are kept here because they are still genuinely yours to do.
 
 ---
 
@@ -45,47 +46,28 @@ line "every guide is reviewed by a clinician — named, with credentials".
 
 ---
 
-## B2 · Medical content — the gate on all of R3
+## B2 · ✅ APPROVED 2026-08-16 — the 14 postpartum titles, unchanged, drafting is authorised
 
-**Blocked:** P2.2.2 pregnancy **week-by-week** (the highest-engagement feature in the whole
-category) and postpartum depth. The queue says it plainly: *blocked on reviewed medical
-content, not on code — do not hand-write it.*
+**You replied "postpartum approved" with no cuts**, so the list stands as written: 1 your body
+in the first six weeks · 2 bleeding after birth · 3 postpartum warning signs · 4 perineal and
+caesarean wound healing · 5 afterpains · 6 pelvic floor · 7 your mood after birth · 8 sleep and
+exhaustion · 9 breastfeeding, the first two weeks · 10 if breastfeeding is not working · 11 when
+your periods come back · 12 contraception after birth · 13 your six-week check · 14 sex after
+birth.
 
-**The evidence:** of the 31 published articles, **zero** are postpartum and **zero** are
-week-by-week. Postpartum mode shipped on 2026-08-12 with a reading panel that says the guides
-"are being written", because that is true.
+Route (a): drafted under `docs/content/CODEX_AUTHORING_BRIEF.md`, the same path the 31 live
+articles took. `content-lint` checks them mechanically first — Tier-1/2 sourcing with ≥2
+sources, forbidden claim verbs, red-flag boxes, reading level, metadata uniqueness — then the
+importer writes them as `draft`. Tracked as **P2.3c** in the queue, in batches of ten.
 
-**What I need — pick one:**
+**The one thing still yours, and it is not a blocker:** each draft needs approving in the CMS
+before it is public. `femio-cms.vercel.app/admin` → Articles → open → `reviewStatus: approved`
+→ publish. Your account already holds `medical_reviewer` (ADR-032), and the gate is what makes
+the byline on every page true. Nothing goes live on my say-so.
 
-**Status: (a) authorised. ONE THING LEFT — approve this list, then drafting starts.**
-
-Postpartum, 14 articles: 1 your body in the first six weeks · 2 bleeding after birth · 3
-postpartum warning signs · 4 perineal and caesarean wound healing · 5 afterpains · 6 pelvic
-floor · 7 your mood after birth · 8 sleep and exhaustion · 9 breastfeeding, the first two
-weeks · 10 if breastfeeding is not working · 11 when your periods come back · 12 contraception
-after birth · 13 your six-week check · 14 sex after birth.
-
-Then week-by-week as 40 short entries under one pillar, batched by trimester.
-
-Reply "approved" or name the cuts.
-
-- **(a) Authorise me to draft them** under `docs/content/CODEX_AUTHORING_BRIEF.md`, the same
-  route the 31 live articles took. `content-lint` checks them mechanically first — Tier-1/2
-  sourcing with ≥2 sources, forbidden claim verbs, red-flag boxes, reading level, metadata
-  uniqueness — then the importer writes them as `draft`, and **you approve each one in the CMS
-  as `medical_reviewer`.** The review gate still decides publication; nothing goes live on my
-  say-so.
-- **(b) Commission them elsewhere** and tell me when drafts exist.
-- **(c) Defer** — then R3 skips to appointments, the TTC toolkit and menopause depth, all of
-  which need no content. Say so and I will re-order the queue.
-
-**Scope if (a):** ~14 postpartum articles (recovery, bleeding, mood, feeding, return of
-cycle, when to seek care) and 40 week entries. Several sessions, in batches of ten, titles
-confirmed with you first.
-
-**Approving in the CMS, when drafts exist:** `femio-cms.vercel.app/admin` → Articles → open →
-set `reviewStatus: approved` → publish. Your account already holds `medical_reviewer`
-(ADR-032).
+**Week-by-week (P2.2.2) is a separate ask** — 40 short entries under one pillar, batched by
+trimester — and it is *not* covered by this approval. I will bring you that list when the
+postpartum batch is drafted, rather than assuming.
 
 ---
 
