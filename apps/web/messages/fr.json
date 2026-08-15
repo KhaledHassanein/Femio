@@ -583,6 +583,49 @@
         "cta": "Parcourir la bibliothèque"
       }
     },
+    "appointments": {
+      "title": "Rendez-vous",
+      "loading": "Chargement de vos rendez-vous",
+      "loadError": "Nous n’avons pas pu charger vos rendez-vous.",
+      "retry": "Réessayer",
+      "add": "Ajouter un rendez-vous",
+      "cancel": "Annuler",
+      "save": "Enregistrer le rendez-vous",
+      "saving": "Enregistrement…",
+      "saveFailed": "L’enregistrement a échoué. Vérifiez votre connexion et réessayez.",
+      "untitled": "Rendez-vous",
+      "noDate": "Pas encore de date",
+      "todayLabel": "Aujourd’hui",
+      "inDays": "Dans {days} jours",
+      "prepHeading": "Ce que vous vouliez demander",
+      "upcomingHeading": "À venir",
+      "pastHeading": "Passés",
+      "noResultsNote": "Femio retient la date, la personne et ce que vous vouliez demander. Il ne retient pas ce qui a été trouvé — cela appartient à votre dossier et à votre clinicien·ne.",
+      "empty": {
+        "heading": "Rien pour l’instant",
+        "body": "Ajoutez un rendez-vous et Femio gardera les questions que vous vouliez poser — la partie que tout le monde oublie une fois dans la pièce."
+      },
+      "awaiting": {
+        "heading": "Toujours sans nouvelles ?",
+        "body": "Vous attendiez un résultat pour {count} d’entre eux. Cela vaut peut-être la peine de relancer — un résultat peut tarder pour des raisons tout à fait ordinaires."
+      },
+      "form": {
+        "type": "De quoi s’agit-il",
+        "typePlaceholder": "Échographie, prise de sang, contrôle…",
+        "clinician": "Avec qui",
+        "datetime": "Quand",
+        "resultsDue": "Résultats annoncés pour le",
+        "resultsDueHint": "Facultatif. Femio vous rappellera de relancer si la date passe ; il n’enregistre jamais le résultat lui-même.",
+        "prep": "Questions à poser",
+        "prepPlaceholder": "Une par ligne"
+      },
+      "card": {
+        "eyebrow": "Prochain rendez-vous",
+        "none": "Rien d’enregistré dans Femio pour l’instant.",
+        "all": "Tous les rendez-vous",
+        "prepCount": "{count} questions enregistrées"
+      }
+    },
   "postpartum": {
     "checkIn": {
       "eyebrow": "Après la naissance",

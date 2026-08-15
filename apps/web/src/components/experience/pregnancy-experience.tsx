@@ -9,6 +9,7 @@ import {
   PregnancyWarningSigns,
 } from "@/components/pregnancy/pregnancy-panel";
 import { EndPregnancy } from "@/components/pregnancy/end-pregnancy";
+import { NextAppointmentCard } from "@/components/appointments/next-appointment-card";
 import { Button } from "@/components/ui/button";
 import { Link } from "@/i18n/navigation";
 import { useTranslations } from "next-intl";
@@ -82,6 +83,9 @@ export function PregnancyExperience({
           config: config!,
           pregnancyHero: <PregnancyHero edd={pregnancy!.edd!} today={today} />,
           warningSigns: <PregnancyWarningSigns />,
+          // P2.2.3. The card reads its own data, so it needs nothing from this
+          // screen and drops into any track’s registry unchanged.
+          appointments: <NextAppointmentCard />,
           reading: <PregnancyReading />,
           movement: (
             <Button asChild variant="outline" className="w-full">

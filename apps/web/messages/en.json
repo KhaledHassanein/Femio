@@ -583,6 +583,49 @@
         "cta": "Browse the library"
       }
     },
+    "appointments": {
+      "title": "Appointments",
+      "loading": "Loading your appointments",
+      "loadError": "We could not load your appointments.",
+      "retry": "Try again",
+      "add": "Add an appointment",
+      "cancel": "Cancel",
+      "save": "Save appointment",
+      "saving": "Saving…",
+      "saveFailed": "That did not save. Check your connection and try again.",
+      "untitled": "Appointment",
+      "noDate": "No date yet",
+      "todayLabel": "Today",
+      "inDays": "In {days} days",
+      "prepHeading": "What you wanted to ask",
+      "upcomingHeading": "Coming up",
+      "pastHeading": "Past",
+      "noResultsNote": "Femio keeps when it is, who it is with, and what you wanted to ask. It does not keep what was found — that belongs with your clinician, in your notes.",
+      "empty": {
+        "heading": "Nothing here yet",
+        "body": "Add an appointment and Femio will hold the questions you meant to ask, which is the part people forget in the room."
+      },
+      "awaiting": {
+        "heading": "Still waiting to hear?",
+        "body": "You were expecting a result back by now for {count} of these. It may be worth asking — results run late for all sorts of ordinary reasons."
+      },
+      "form": {
+        "type": "What is it",
+        "typePlaceholder": "Scan, blood test, check-up…",
+        "clinician": "Who with",
+        "datetime": "When",
+        "resultsDue": "Told to expect results by",
+        "resultsDueHint": "Optional. Femio will remind you to ask if the date passes — it never records what the result was.",
+        "prep": "Questions you want to ask",
+        "prepPlaceholder": "One per line"
+      },
+      "card": {
+        "eyebrow": "Next appointment",
+        "none": "Nothing booked in Femio yet.",
+        "all": "All appointments",
+        "prepCount": "{count} questions saved"
+      }
+    },
   "postpartum": {
     "checkIn": {
       "eyebrow": "After birth",

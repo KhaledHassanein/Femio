@@ -583,6 +583,49 @@
         "cta": "Explorar la biblioteca"
       }
     },
+    "appointments": {
+      "title": "Citas",
+      "loading": "Cargando tus citas",
+      "loadError": "No pudimos cargar tus citas.",
+      "retry": "Reintentar",
+      "add": "Añadir una cita",
+      "cancel": "Cancelar",
+      "save": "Guardar la cita",
+      "saving": "Guardando…",
+      "saveFailed": "No se guardó. Comprueba tu conexión e inténtalo de nuevo.",
+      "untitled": "Cita",
+      "noDate": "Sin fecha todavía",
+      "todayLabel": "Hoy",
+      "inDays": "En {days} días",
+      "prepHeading": "Lo que querías preguntar",
+      "upcomingHeading": "Próximas",
+      "pastHeading": "Pasadas",
+      "noResultsNote": "Femio guarda cuándo es, con quién y qué querías preguntar. No guarda lo que se encontró — eso pertenece a tu historia clínica y a tu profesional.",
+      "empty": {
+        "heading": "Aquí no hay nada aún",
+        "body": "Añade una cita y Femio guardará las preguntas que querías hacer, que es la parte que se olvida al entrar en la consulta."
+      },
+      "awaiting": {
+        "heading": "¿Sigues sin noticias?",
+        "body": "Esperabas un resultado en {count} de ellas. Quizá merezca la pena preguntar — los resultados se retrasan por muchos motivos corrientes."
+      },
+      "form": {
+        "type": "Qué es",
+        "typePlaceholder": "Ecografía, análisis, revisión…",
+        "clinician": "Con quién",
+        "datetime": "Cuándo",
+        "resultsDue": "Te dijeron que habría resultados antes del",
+        "resultsDueHint": "Opcional. Femio te recordará que preguntes si pasa la fecha; nunca registra cuál fue el resultado.",
+        "prep": "Preguntas que quieres hacer",
+        "prepPlaceholder": "Una por línea"
+      },
+      "card": {
+        "eyebrow": "Próxima cita",
+        "none": "Nada registrado en Femio todavía.",
+        "all": "Todas las citas",
+        "prepCount": "{count} preguntas guardadas"
+      }
+    },
   "postpartum": {
     "checkIn": {
       "eyebrow": "Después del parto",

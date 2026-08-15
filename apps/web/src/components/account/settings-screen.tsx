@@ -39,6 +39,7 @@ function MfaRequiredNotice() {
 export function SettingsScreen() {
   const t = useTranslations("settings");
   const te = useTranslations("experience");
+  const ta = useTranslations("appointments");
 
   return (
     <AppScreen>
@@ -62,6 +63,22 @@ export function SettingsScreen() {
           </div>
           <Button asChild variant="outline" className="self-start">
             <Link href="/summary">{t("summary.link")}</Link>
+          </Button>
+        </CardContent>
+      </Card>
+
+      {/* Appointments are surfaced on the pregnancy dashboard by the engine, and
+          reachable from here in every other mode (P2.2.3). A fertility work-up, a
+          gynae follow-up and a menopause clinic are all appointments; making them a
+          pregnancy feature would be the restriction pattern product rule 2 forbids. */}
+      <Card>
+        <CardContent className="flex flex-col gap-3 p-6">
+          <div className="flex flex-col gap-1">
+            <h2 className="text-md font-semibold text-text">{ta("title")}</h2>
+            <p className="text-sm text-text-muted">{ta("empty.body")}</p>
+          </div>
+          <Button asChild variant="outline" className="self-start">
+            <Link href="/appointments">{ta("title")}</Link>
           </Button>
         </CardContent>
       </Card>

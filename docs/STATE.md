@@ -397,9 +397,27 @@ base's first card — A2's window under a reassurance card, E6's loss-aware card
 check-in), and there is **one log button per dashboard** (pregnancy and postpartum had rendered
 two identical ones since R2.3).
 
+## R3 has started — appointments exist (P2.2.3, 2026-08-16)
+
+`public.appointments` had a table, an index, RLS policies and a line in the GDPR export since
+schema v1, and **no code had ever written a row**. It is now a real feature at `/appointments`,
+surfaced on the pregnancy dashboard by the module the registry has emitted since R2.1.
+
+Two decisions worth keeping:
+
+- **It is not a pregnancy feature.** The obvious build was a panel inside the pregnancy
+  dashboard, and that would have been the restriction pattern rule 2 forbids — a fertility
+  work-up, a gynae follow-up and a menopause clinic are all appointments. Own route, reachable
+  from Settings in every mode.
+- **There is nowhere to record what it found.** No result, no status, no "normal". Third time
+  this codebase has made that call (ADR-049, R2.3) and the reason does not change: store a
+  clinical finding and the next feature to read it is interpreting one. What it holds instead
+  is the questions she meant to ask.
+
 ## First action for the next session
 
-Take the top open item under ▶ NOW — **R3 depth**: `P2.2.3` appointments (the `appointments`
-table has been unused since v1), `P2.1` TTC toolkit (`fertility_logs`, same), `P2.4` menopause
-depth. None of them need content. Postpartum content drafting is unblocked as of 2026-08-16
-(B2 approved); teen content is now tracked as **P2.13**.
+Take the top open item under ▶ NOW — the rest of **R3 depth**: `P2.1` TTC toolkit
+(`fertility_logs`, unused since v1, same story as appointments), `P2.4` menopause depth, then
+the remainder of `P2.2.3` (contraction timer, weight chart, checklists). Postpartum content
+drafting is unblocked as of 2026-08-16 (B2 approved, tracked as **P2.3c**); teen content is
+**P2.13**.

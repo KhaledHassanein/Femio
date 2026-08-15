@@ -115,6 +115,16 @@ require an age band — could never fire at all.
 - [ ] Now try it with **no periods logged**: you should get the gentler A1 screen with **no window at all**, not a window saying "we need more data". She is not cycling; there is nothing to estimate.
 - [ ] Repeat in Arabic. This copy is new and unreviewed, and A2 §B notes that menstruation carries more stigma pressure in Arabic-first markets — tone matters more here than anywhere else in the app.
 
+### T10 · Appointments (P2.2.3) — a table that has been empty since v1
+Settings → **Appointments**, or the card on the pregnancy dashboard.
+
+- [ ] Add one with only a name and no date. It should save, and appear **first** under "Coming up" — it is the one still needing a date, not the one to bury.
+- [ ] Add one with a date, a clinician and two questions on separate lines. The questions render as a list. That list is the feature; the date is the easy part.
+- [ ] Set "told to expect results by" to a date in the past. An **info** notice appears asking whether it is worth chasing. If it reads as urgent or clinical, tell me — a result runs late for a dozen ordinary reasons and Femio must not invent significance out of a calendar.
+- [ ] Confirm there is **nowhere to type what the result was**. That absence is deliberate and permanent.
+- [ ] Switch to cycle or menopause mode: Settings still reaches Appointments. It is not a pregnancy feature.
+- [ ] Arabic: the date and time format, and whether the list reads naturally right-to-left.
+
 ### T9 · The duplicate log button (found in R2.5c)
 Any of pregnancy, postpartum, or teen.
 

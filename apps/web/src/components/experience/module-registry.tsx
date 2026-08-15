@@ -34,6 +34,16 @@ export type ModuleContext = {
   movement: ReactNode;
   /** Rendered for `library` / reading lists. */
   reading: ReactNode;
+  /**
+   * Rendered for `pregnancy.appointments` (P2.2.3).
+   *
+   * Supplied by the screen rather than imported here, like every other module. The
+   * first attempt imported the card directly — which reads better until you notice
+   * it drags `next-intl`'s navigation helpers into this file's import graph, and
+   * this file is imported by a *node* test suite that renders nothing. The pattern
+   * was already right; breaking it cost a green suite.
+   */
+  appointments?: ReactNode;
   /** Track A (R2.5c). A2's wide, explained window; A1 contributes none. */
   teenWindow?: ReactNode;
   teenReassurance?: ReactNode;
@@ -64,7 +74,6 @@ export const UNIMPLEMENTED: readonly ModuleId[] = [
   "teen.body",
   "teen.readiness",
   "pregnancy.milestone",
-  "pregnancy.appointments",
   "pregnancy.weight",
   "pregnancy.contractions",
   "pregnancy.birthPrep",
@@ -94,6 +103,7 @@ const RENDERERS: Partial<Record<ModuleId, Renderer>> = {
   "teen.worthMentioning": (ctx) => ctx.teenWorthMentioning,
   "teen.privacy": (ctx) => ctx.teenPrivacy,
   "pregnancy.week": (ctx) => ctx.pregnancyHero,
+  "pregnancy.appointments": (ctx) => ctx.appointments,
   "pregnancy.warningSigns": (ctx) => ctx.warningSigns,
   "pregnancy.movement": (ctx) => ctx.movement,
   quickLog: (ctx) => ctx.quickLog,
