@@ -14,6 +14,17 @@
  * requirement was met when it was not. Drafts with blank credentials are fine and expected —
  * publishing one is not, so `--publish` fails on it and says what is missing.
  *
+ * That paragraph described an intention, not the code: until 2026-08-12 the check only
+ * printed a warning and published anyway. It is now enforced.
+ *
+ * AFFILIATION IS OPTIONAL, deliberately. Doc 15 §8 asks for a named reviewer with
+ * credentials and a bio — not for an employer. An independent clinician has no
+ * affiliation to give, and writing "Independent" into the field would be worse than
+ * leaving it blank: the bio page renders it as an organisation and `personJsonLd`
+ * emits it as `schema.org/Organization`, so the site would publish a claim that an
+ * organisation of that name exists. Blank is the honest value, and every surface
+ * already omits it when absent.
+ *
  * RUN (from the repo root):
  *   pnpm --filter cms exec payload run ./scripts/upsert-people.mjs                 # dry run
  *   pnpm --filter cms exec payload run ./scripts/upsert-people.mjs -- --apply      # write as draft
@@ -75,7 +86,11 @@ for (const file of files) {
   // saying out loud — but it is the owner's call, not the script's, and blocking on
   // it turned a bio into a negotiation. Warn and continue.
   const isReviewer = (raw.roles ?? []).includes("medical_reviewer");
-  const missingEeat = ["credentials", "affiliation"].filter((k) => !raw[k]?.trim());
+  // Credentials only — see the affiliation note in the header.
+  const missingEeat = ["credentials"].filter((k) => !raw[k]?.trim());
+  if (PUBLISH && isReviewer && missingEeat.length > 0) {
+    fail(`cannot publish a medical_reviewer without ${missingEeat.join(", ")}`);
+  }
 
   let body;
   try {

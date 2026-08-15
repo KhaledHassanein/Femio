@@ -11,7 +11,7 @@ that stay `[~]` until done and stop nothing else.
 
 ---
 
-## B1 · Your credentials and affiliation — 2 minutes, unblocks the most
+## B1 · ✅ DONE 2026-08-12 — one public bio: `Dr. Khaled M. · MBBCh, CPC`, no affiliation shown
 
 **Blocked:** P1.9.8 (bylines on all 30 imported articles), the homepage clinician trust line,
 and doc 15 §8 compliance — which requires a named reviewer *with* credentials and a bio link
@@ -57,9 +57,17 @@ week-by-week. Postpartum mode shipped on 2026-08-12 with a reading panel that sa
 
 **What I need — pick one:**
 
-**Status 2026-08-12: (a) authorised.** Drafting starts with postpartum, because that mode
-shipped with a placeholder reading panel. Titles will be confirmed with you before the first
-batch is written.
+**Status: (a) authorised. ONE THING LEFT — approve this list, then drafting starts.**
+
+Postpartum, 14 articles: 1 your body in the first six weeks · 2 bleeding after birth · 3
+postpartum warning signs · 4 perineal and caesarean wound healing · 5 afterpains · 6 pelvic
+floor · 7 your mood after birth · 8 sleep and exhaustion · 9 breastfeeding, the first two
+weeks · 10 if breastfeeding is not working · 11 when your periods come back · 12 contraception
+after birth · 13 your six-week check · 14 sex after birth.
+
+Then week-by-week as 40 short entries under one pillar, batched by trimester.
+
+Reply "approved" or name the cuts.
 
 - **(a) Authorise me to draft them** under `docs/content/CODEX_AUTHORING_BRIEF.md`, the same
   route the 31 live articles took. `content-lint` checks them mechanically first — Tier-1/2
@@ -81,7 +89,7 @@ set `reviewStatus: approved` → publish. Your account already holds `medical_re
 
 ---
 
-## B3 · Deploy the experience Edge Function — 5 minutes · **retry now**
+## B3 · ✅ DONE 2026-08-12 — deployed and verified live (401 unauthed, 200 returns a real config)
 
 **Your 2026-08-12 attempt failed and it was my bug, not yours.** The deploy reported
 `failed to read file: .../persona/resolver` and then `EISDIR`. Deno resolves relative imports
@@ -111,7 +119,7 @@ Run from `E:\Femio`. `scoop` is not installed on this machine and is not needed 
 
 ---
 
-## B4 · Signup gating — before any outside tester
+## B4 · ✅ BUILT 2026-08-12 — set `NEXT_PUBLIC_BETA_INVITE_CODE` in Vercel to switch it on
 
 **Blocked:** P1.24, the beta with 20–50 real users. **This is the single
 highest-information action available to the project** and it has been available for weeks;

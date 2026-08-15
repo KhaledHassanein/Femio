@@ -1,6 +1,6 @@
 # Femio — current state (living document)
 
-**Last updated: 2026-08-12.** This file replaces the seven dated handover documents, which
+**Last updated: 2026-08-12 (late).** This file replaces the seven dated handover documents, which
 are now in `docs/archive/` (ADR-062). **Rewrite this file in place; do not create a new one
 per session.**
 
@@ -93,9 +93,18 @@ delete; an offline IndexedDB queue; a consent manager; staff MFA; k-anonymous fi
 insights; the visit summary; Settings → "Your Femio experience" to change life stage or choose
 General.
 
-**Blocked on the owner:** `docs/runbooks/BLOCKERS.md` — B1 (credentials, unblocks bylines on
-30 articles) and B2 (medical content, the gate on all of R3) are the two that matter. Migrations
-0001–0007 are applied.
+**Blocked on the owner:** `docs/runbooks/BLOCKERS.md`. **B1, B3, B4 are done.** Only **B2**
+remains and it is one reply: approve the 14 postpartum titles listed there, then content
+drafting starts. Migrations 0001–0007 applied.
+
+**The Edge Function is DEPLOYED and verified** (2026-08-12): unauthenticated → 401, with a
+session → 200 returning a real `ExperienceConfig`. So `loadExperienceConfig`'s server rung is
+live. **Next code task: point `pregnancy-experience.tsx` at `loadExperienceConfig` instead of
+building locally, then repoint `native-readiness-lint` (R2.7).**
+
+**One public reviewer bio:** `Dr. Khaled M. · MBBCh, CPC`, no affiliation (deliberate — see
+`docs/content/people/khaled-m.json`). Next: wire `authors` + `medicalReviewerProfile` on the 30
+imported drafts (P1.9.8), then restore the homepage clinician trust line.
 
 ## The architecture rule that governs new code (ADR-060/061)
 
