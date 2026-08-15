@@ -9,6 +9,7 @@
  */
 
 import { pregnancyProgress, type Trimester } from "../pregnancy/index.ts";
+import type { Track } from "../persona/resolver.ts";
 import type { Phase } from "./types.ts";
 
 const TRIMESTER_PHASE: Record<Trimester, Phase> = { 1: "t1", 2: "t2", 3: "t3" };
@@ -34,4 +35,21 @@ export function phaseFor({ edd, status, todayISO }: PhaseInput): Phase | null {
   const progress = pregnancyProgress(edd, todayISO);
   if (!progress) return null;
   return TRIMESTER_PHASE[progress.trimester];
+}
+
+/**
+ * The phase, given what track she is in.
+ *
+ * Track E **is** the postpartum phase — that is what the letter means — and it has
+ * to be derivable without a pregnancy row, because the woman who installs Femio two
+ * weeks after giving birth has never had one. Without this she gets a Track E
+ * persona whose modules are all filed under `postpartum`, a null phase, and
+ * therefore an empty screen: the engine looking correct while her dashboard lost
+ * every panel.
+ *
+ * Track D still reads its phase from gestational age, and a pregnancy row that has
+ * ended still wins, so nothing about Track D changes here.
+ */
+export function phaseForTrack(track: Track | null, input: PhaseInput): Phase | null {
+  return phaseFor(input) ?? (track === "E" ? "postpartum" : null);
 }

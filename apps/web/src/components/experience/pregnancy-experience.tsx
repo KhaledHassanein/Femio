@@ -1,9 +1,6 @@
 "use client";
 
-import { buildExperienceConfig, registryOf } from "@/lib/experience/build";
-import { PERSONA_RECORDS, findRecord } from "@/lib/experience/registry";
-import { phaseFor } from "@/lib/experience/phase";
-import type { Resolution } from "@/lib/persona/resolver";
+import type { ExperienceConfig } from "@/lib/experience/types";
 import { ExperienceModules } from "./module-registry";
 import {
   PregnancyHero,
@@ -17,7 +14,8 @@ import { Link } from "@/i18n/navigation";
 import { useTranslations } from "next-intl";
 
 /**
- * The pregnancy dashboard, rendered from an `ExperienceConfig` (R2.3, ADR-061).
+ * The pregnancy dashboard, rendered from a **served** `ExperienceConfig`
+ * (R2.3 → R2.4, ADR-060/061).
  *
  * ## What changed, and why it is the whole point
  *
@@ -25,86 +23,63 @@ import { useTranslations } from "next-intl";
  * persona got the same one, so the ~73 specs could not reach a pixel and telling
  * D3 from D7 would have meant a new branch per persona (`docs/23` §3.1).
  *
- * Now the engine returns an ordered module list and this component renders it by
- * id. **D1, D3, D4 and D7 differ because their registry rows differ — not because
- * anything here asks which persona she is.** There is no `personaId ===` in this
- * file, and there must never be one; the acceptance test for R2 is exactly that.
+ * Then R2.3 made it render an ordered module list — but it still *built* that list
+ * here, in the browser, from the stored persona id. R2.4 finishes the job: the
+ * document arrives from `loadExperienceConfig` (server → cache → local) and this
+ * component only renders it. **There is no resolution left in this file.** No
+ * registry lookup, no `buildExperienceConfig`, no `Resolution` assembled from props
+ * — which is the ADR-060 rule stated as code rather than as a memory, and is now
+ * held there by `native-readiness-lint`.
+ *
+ * D1, D3, D4 and D7 differ because their registry rows differ. There is no
+ * `personaId ===` in this file and there must never be one.
  *
  * The pre-conditions stay outside the engine: a pregnancy that has ended and a
  * missing due date are not modules, they are reasons there is no dashboard yet, and
  * `PregnancyPanel` still owns both.
  */
 
-const REGISTRY = registryOf(PERSONA_RECORDS);
-
-/** Emotional layers are persona ids; `emotional_context` carries reasons. */
-const CONTEXT_TO_LAYER: Record<string, string> = { prior_loss: "D2" };
+/** Phases in which this screen has a dashboard to draw. */
+const PREGNANT_PHASES = new Set(["t1", "t2", "t3"]);
 
 export function PregnancyExperience({
   pregnancy,
   today,
-  personaId,
-  modifiers,
-  emotionalContext,
+  config,
 }: {
   pregnancy: { id: string; edd: string | null; status: string } | null;
   today: string;
-  personaId: string | null;
-  modifiers: readonly string[];
-  emotionalContext: readonly string[];
+  config: ExperienceConfig | null;
 }) {
   const t = useTranslations("dashboard");
 
-  const phase = phaseFor({
-    edd: pregnancy?.edd ?? null,
-    status: pregnancy?.status ?? null,
-    todayISO: today,
-  });
-
   /**
-   * Fall back to the fixed panel when the engine has nothing better to say — an
-   * unregistered persona, or no due date yet. Z1 is a real answer (`docs/09` §5),
-   * and the panel is the honest generic pregnancy screen rather than a blank one.
+   * Fall back to the fixed panel when there is no dashboard to draw: no served
+   * document yet, a phase outside pregnancy, or an engine that produced nothing for
+   * her (an unregistered persona degrades to the generic document — Z1 is a real
+   * answer, `docs/09` §5, and the panel is the honest generic pregnancy screen).
+   *
+   * `pregnancy?.edd` is checked here too, and not only through the phase. The
+   * document is resolved from the server's read of the pregnancy row while `edd`
+   * below comes from this screen's own read; if those two ever disagree the honest
+   * outcome is the panel, not a non-null assertion that throws in her face.
    */
-  const record = personaId ? findRecord(personaId) : undefined;
-  if (!record || !phase || phase === "postpartum") {
+  const drawable =
+    config !== null &&
+    config.phase !== null &&
+    PREGNANT_PHASES.has(config.phase) &&
+    config.home.modules.length > 0 &&
+    Boolean(pregnancy?.edd);
+
+  if (!drawable) {
     return <PregnancyPanel pregnancy={pregnancy} today={today} />;
   }
-
-  const resolution: Resolution = {
-    personaId: record.id,
-    track: "D",
-    modifiers: [...modifiers],
-    emotionalContext: [...emotionalContext],
-    confidence: 1,
-    runnerUp: null,
-  };
-
-  /**
-   * Built here from the stored persona rather than fetched.
-   *
-   * `loadExperienceConfig` (R2.4) is the server-first path and exists — but the
-   * Edge Function is not deployed yet, and calling it on every dashboard render
-   * would add a round trip that falls through to this same computation anyway. The
-   * document this produces is identical to the one the function returns, because it
-   * is the same modules. It moves to the fetched document in the same change that
-   * deploys the function, which is a one-line swap here.
-   */
-  const config = buildExperienceConfig({
-    resolution,
-    phase,
-    registry: REGISTRY,
-    resolvedAt: new Date().toISOString(),
-    emotionalLayers: emotionalContext
-      .map((c) => CONTEXT_TO_LAYER[c])
-      .filter((id): id is string => Boolean(id)),
-  });
 
   return (
     <div className="flex flex-col gap-4">
       <ExperienceModules
         ctx={{
-          config,
+          config: config!,
           pregnancyHero: <PregnancyHero edd={pregnancy!.edd!} today={today} />,
           warningSigns: <PregnancyWarningSigns />,
           reading: <PregnancyReading />,

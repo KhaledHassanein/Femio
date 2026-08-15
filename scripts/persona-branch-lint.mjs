@@ -57,7 +57,8 @@ const RULES = [
   },
   {
     id: "mode-branch",
-    test: (t) => /\bmode\s*[!=]==?\s*["'](cycle|ttc|pregnancy|menopause|general)["']/.test(t),
+    test: (t) =>
+      /\bmode\s*[!=]==?\s*["'](cycle|ttc|pregnancy|postpartum|menopause|general)["']/.test(t),
     why: "branches on a life-stage mode — render `ExperienceConfig.home.modules` instead",
     appliesTo: (rel) => !MODE_BASELINE.has(rel),
   },

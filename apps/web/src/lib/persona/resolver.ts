@@ -288,6 +288,52 @@ export const PERSONA_RULES: readonly PersonaRule[] = [
 ];
 
 /**
+ * The base persona of each track — the honest answer when she has *told us* which
+ * stage she is in and the evidence has not caught up.
+ *
+ * `state.ts` held this as a mode→persona map, reachable only from a browser. It is
+ * tier 1: the Edge Function has to apply the same rule or the document it serves
+ * disagrees with the state the app stored (R2.6).
+ */
+export const TRACK_BASE_PERSONA: Record<Track, string> = {
+  A: "A2",
+  B: "B1",
+  C: "C1",
+  D: "D1",
+  E: "E1",
+  F: "F1",
+  Z: "Z1",
+};
+
+/**
+ * Resolve, with her stated stage winning the track (R2.6, product rule 3).
+ *
+ * She just told us. If she says "I recently gave birth" and there is no pregnancy
+ * row in Femio to prove it — she joined after the birth, which is the common case —
+ * the evidence resolves her to Z1 and she would be shown the generic experience with
+ * a next-period prediction. That is the exact defect R2.5 closed, reopened from the
+ * server side, and it is why this rule cannot live only in `switchMode`.
+ *
+ * The resolver still refines *within* the track: a pregnant woman with a thyroid
+ * condition gets D7, not D1.
+ */
+export function resolveForStatedTrack(
+  signals: PersonaSignals,
+  statedTrack: Track | null,
+): Resolution {
+  const resolved = resolvePersona(signals);
+  if (!statedTrack || resolved.track === statedTrack) return resolved;
+  return {
+    ...resolved,
+    personaId: TRACK_BASE_PERSONA[statedTrack],
+    track: statedTrack,
+    // No offer. Suggesting a persona from a track she has just said she is not in
+    // would be the product arguing with her (P1.27.5 offers, it does not insist).
+    runnerUp: null,
+  };
+}
+
+/**
  * Modifiers are layers, not personas (docs/09 §8). They stack, and they are
  * resolved independently of which persona won — someone in D1 with a thyroid
  * condition still gets the thyroid layer.

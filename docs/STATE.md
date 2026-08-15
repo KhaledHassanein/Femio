@@ -1,6 +1,6 @@
 # Femio — current state (living document)
 
-**Last updated: 2026-08-12 (late).** This file replaces the seven dated handover documents, which
+**Last updated: 2026-08-16.** This file replaces the seven dated handover documents, which
 are now in `docs/archive/` (ADR-062). **Rewrite this file in place; do not create a new one
 per session.**
 
@@ -93,14 +93,18 @@ delete; an offline IndexedDB queue; a consent manager; staff MFA; k-anonymous fi
 insights; the visit summary; Settings → "Your Femio experience" to change life stage or choose
 General.
 
-**Blocked on the owner:** `docs/runbooks/BLOCKERS.md`. **B1, B3, B4 are done.** Only **B2**
-remains and it is one reply: approve the 14 postpartum titles listed there, then content
-drafting starts. Migrations 0001–0007 applied.
+**Blocked on the owner:** `docs/runbooks/BLOCKERS.md` — **nothing is blocked.** B1, B2, B3 and
+B4 are all closed; the 14 postpartum titles were approved on 2026-08-16. Migrations 0001–0007
+applied.
 
 **The Edge Function is DEPLOYED and verified** (2026-08-12): unauthenticated → 401, with a
-session → 200 returning a real `ExperienceConfig`. So `loadExperienceConfig`'s server rung is
-live. **Next code task: point `pregnancy-experience.tsx` at `loadExperienceConfig` instead of
-building locally, then repoint `native-readiness-lint` (R2.7).**
+session → 200 returning a real `ExperienceConfig`. **Its source changed on 2026-08-16, so it
+wants a re-deploy** (`npx supabase@latest functions deploy experience`, runbook task 4) — one
+line, and nothing is broken meanwhile because the local fallback now runs literally the same
+functions.
+
+**R2.4 is closed: the screens render a served document.** See below for the three defects that
+only became visible once the server was the authority.
 
 **One public reviewer bio:** `Dr. Khaled M. · MBBCh, CPC`, no affiliation (deliberate — see
 `docs/content/people/khaled-m.json`). Next: wire `authors` + `medicalReviewerProfile` on the 30
@@ -114,9 +118,12 @@ Function) or tier 2 (shared golden fixtures), never inline in a screen. Personas
 as an `ExperienceConfig` document rendered through a module registry, never as a `mode ===`
 branch. Full contract in `docs/24`.
 
-**Until R2.4 lands**, the tracker path is still governed by the old `native-readiness-lint`
-rule (no server reads, no `force-dynamic`, no Server Actions, no `searchParams` page props).
-R2.7 repoints it. Do not add server reads to the tracker before then.
+**`native-readiness-lint` now enforces that rule directly** (R2.7, 2026-08-16). It used to
+forbid server reads in the tracker, which ADR-060 turned from a protection into a
+contradiction — the tracker is *supposed* to call the server. It now fails on **medical
+decision logic inside a client component**: resolving or composing the experience, declaring a
+threshold or red-flag set, deriving days from milliseconds, accumulating a screener score.
+Server reads in the tracker are fine and expected.
 
 ## The gate — run all of it before pushing
 
@@ -322,20 +329,41 @@ would be worse than no engine at all. The three produce the same document becaus
 same modules. The cached one carries her `modifiers`, i.e. her conditions, so it is user-scoped
 and cleared on sign-out.
 
-**Owner action to finish R2.4:** `npx supabase@latest functions deploy experience`
-(`docs/runbooks/OWNER_MANUAL_TASKS.md` task 4). After that, two small things: point the
-dashboard at the served document instead of building locally — a one-line swap in
-`pregnancy-experience.tsx` — and repoint `native-readiness-lint` (R2.7), because the tracker
-will then be calling the server on purpose.
+## R2.4 closed — and what the swap exposed (2026-08-16)
+
+`dashboard-screen.tsx` calls `loadExperienceConfig`; `pregnancy-experience.tsx` and
+`postpartum-experience.tsx` render what comes back. Neither resolves anything any more — no
+`buildExperienceConfig`, no registry lookup, no `Resolution` built from props.
+
+**It was billed as a one-line swap and it was not, which is the useful part.** Making the
+server the authority meant the server's answer had to be right, and in three ways it was not:
+
+- **`weeksSincePregnancyEnd` was written by nothing.** `E1.requires` gates on it, so the gate
+  could only fail: **Track E was unreachable from the live record.** R2.5 looked fine because
+  the browser was composing E1 by hand from the stored persona id and never asking the
+  resolver. The lesson generalises — *a screen that builds its own answer cannot notice that
+  the pipeline behind it is dead.*
+- **The phase came only from a pregnancy row.** A woman who installs Femio two weeks after
+  giving birth has never had one, so she got a Track E persona whose every module is filed
+  under `postpartum`, against a null phase, and therefore an empty dashboard. `phaseForTrack`.
+- **"Her stated stage wins the track" (R2.6) lived in `switchMode`,** where the Edge Function
+  could not see it — so the server would have served her the generic document, i.e. the
+  next-period prediction R2.5 exists to stop. Now `resolveForStatedTrack`, in tier 1.
+
+Two duplications died with it, both of which had already drifted:
+`lib/persona/signals-from-rows.ts` is now the single rows→signals derivation (the Edge Function
+had a hand-copy that said it "mirrors `signals-from-db.ts` exactly" while hard-coding
+`ttcIntent` differently — **C1/C6/C8 could resolve on the server and never in the fallback**),
+and `lib/experience/layers.ts` owns `prior_loss` → **E6 in Track E, D2 in Track D**. That
+mapping sat in four files and three had it wrong for E: D2 is a pregnancy carried *after* a
+loss, E6 is the loss.
+
+**The rule this leaves behind:** the local fallback must call the *same functions* as the Edge
+Function, not equivalent ones. `tier1-portability-lint` (16 modules) and the golden fixtures
+(42 cases, Track E included) are what keep that true.
 
 ## First action for the next session
 
-**Then, on the owner's verdict on R1.3:**
-
-- *Approved* → implement at `apps/web/src/app/[locale]/(public)/page.tsx`, keeping the page
-  server-rendered (it is the SEO landing page), with new i18n keys in all four locales, and run
-  axe on the result. Delete the stale `home.title` / `home.body` placeholders ("Scaffold
-  online.") still sitting in all four catalogs in the same change.
-- *Rejected* → the notes at the bottom of the reference say what each decision was for, so the
-  argument can be had against a specific choice rather than a vibe. Move to **R1.4** (onboarding
-  reference) while R1.3 is reworked.
+Take the top open item under ▶ NOW. Right now that is **R2.5c** (Track A, the last track with
+no mode), then R3 depth: **P2.2.3** appointments, **P2.1** TTC toolkit, **P2.4** menopause —
+none of which need content. Postpartum content drafting (P2.3c) is unblocked as of 2026-08-16.

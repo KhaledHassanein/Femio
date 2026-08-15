@@ -1,4 +1,4 @@
 {
-  "_comment": "Accepted exceptions to the native-readiness rules (P4.0). Empty since 2026-08-06, when P4.0.3 cleared the original 13 — so the guard is currently a plain gate. Adding an entry is a deliberate, reviewable decision that some route will never ship to iOS/Android; it is not a way to make the build pass.",
+  "_comment": "Accepted exceptions to the client-medical-logic rule (R2.7, ADR-060). Empty: no screen decides anything medical today, so the guard is a plain gate. It was empty under the old native-readiness rules too, which is what made repointing it cheap. Adding an entry is a deliberate, reviewable decision that one screen may hold medical logic a Flutter client cannot share; it is not a way to make the build pass.",
   "violations": []
 }

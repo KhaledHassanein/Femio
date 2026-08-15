@@ -8,6 +8,7 @@ import { predictionBand } from "@/lib/ui/range-band";
 import { currentCycleDay, topSymptoms } from "@/lib/cycle/insights";
 import { SYMPTOM_GROUPS } from "@/lib/cycle/symptoms";
 import { useSupabaseQuery, unwrap } from "@/lib/supabase/use-query";
+import { loadExperienceConfig } from "@/lib/experience/client";
 import { modeFromTrack, showsCyclePredictions, type PersonaMode } from "@/lib/persona/state";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -39,16 +40,8 @@ export function DashboardScreen() {
   const today = todayISO();
 
   const query = useSupabaseQuery(async (supabase) => {
-    const [state, cycles, symptoms] = await Promise.all([
-      // `persona_id`, `modifiers` and `emotional_context` have been written since
-      // onboarding and read by nothing (docs/23 §3.1). R2.3 is where they start
-      // deciding what she sees.
-      unwrap(
-        supabase
-          .from("persona_state")
-          .select("track, persona_id, modifiers, emotional_context")
-          .maybeSingle(),
-      ),
+    const [state, cycles, symptoms, experience] = await Promise.all([
+      unwrap(supabase.from("persona_state").select("track").maybeSingle()),
       unwrap(
         supabase.from("cycles").select("period_start").order("period_start", { ascending: false }),
       ),
@@ -59,6 +52,16 @@ export function DashboardScreen() {
           .order("logged_at", { ascending: false })
           .limit(200),
       ),
+      /**
+       * The experience document, served rather than built here (R2.4, ADR-060).
+       *
+       * `persona_id`, `modifiers` and `emotional_context` used to be read straight
+       * off `persona_state` and turned into a config inside the pregnancy screen.
+       * Now tier 1 resolves them — on the Edge Function, or by the identical local
+       * fallback — and the screens render what comes back. This is the last place
+       * the dashboard has an opinion about who she is.
+       */
+      loadExperienceConfig(supabase, { today }),
     ]);
 
     const mode: PersonaMode = modeFromTrack(state?.track as string | null);
@@ -82,9 +85,7 @@ export function DashboardScreen() {
     return {
       mode,
       pregnancy,
-      personaId: (state?.persona_id as string | null) ?? null,
-      emotionalContext: (state?.emotional_context as string[] | null) ?? [],
-      modifiers: (state?.modifiers as string[] | null) ?? [],
+      config: experience?.config ?? null,
       track: (state?.track as string | null) ?? null,
       starts: (cycles ?? []).map((c) => c.period_start as string),
       top: topSymptoms(((symptoms ?? []) as { type: string }[]).map((s) => s.type)),
@@ -113,7 +114,7 @@ export function DashboardScreen() {
     );
   }
 
-  const { mode, pregnancy, starts, top, personaId, modifiers, emotionalContext } = query.data;
+  const { mode, pregnancy, starts, top, config } = query.data;
   const stItem = st as unknown as (key: string) => string;
   const symptomLabel = (type: string) =>
     KNOWN_SYMPTOMS.has(type) ? stItem(`items.${type}`) : type;
@@ -221,13 +222,7 @@ export function DashboardScreen() {
           A cycle-day counter and a next-period prediction are meaningless to someone
           who is pregnant, and the second one is alarming (P1.13b). */}
       {mode === "pregnancy" ? (
-        <PregnancyExperience
-          pregnancy={pregnancy}
-          today={today}
-          personaId={personaId}
-          modifiers={modifiers}
-          emotionalContext={emotionalContext}
-        />
+        <PregnancyExperience pregnancy={pregnancy} today={today} config={config} />
       ) : null}
 
       {/* Perimenopause/menopause gets its own view too: a next-period prediction is
@@ -235,11 +230,7 @@ export function DashboardScreen() {
       {/* Track E, reachable at last (R2.5). Before this it fell through to
           `general`, which predicts a period from cycles that stopped months ago. */}
       {mode === "postpartum" ? (
-        <PostpartumExperience
-          personaId={personaId}
-          modifiers={modifiers}
-          emotionalContext={emotionalContext}
-        />
+        <PostpartumExperience config={config} />
       ) : null}
 
       {mode === "menopause" ? (

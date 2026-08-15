@@ -1,5 +1,5 @@
 import type { createClient } from "@/lib/supabase/client";
-import { resolvePersona } from "./resolver";
+import { resolveForStatedTrack, TRACK_BASE_PERSONA, type Track } from "./resolver";
 import { readSignals } from "./signals-from-db";
 import { buildConditionRows, type ConditionCode } from "./conditions";
 
@@ -58,24 +58,6 @@ const MODE_TO_TRACK: Record<PersonaMode, string> = {
   general: "Z",
 };
 
-/**
- * Fallback persona per mode — used **only** when the resolver lands on a different
- * track than the one she explicitly chose.
- *
- * Her stated stage wins, because she just told us (product rule 3). If she says
- * "I'm pregnant" and the resolver has no pregnancy row to work from yet, the honest
- * answer is the track's base persona rather than overriding her with a cycle
- * persona the evidence happens to score higher.
- */
-const MODE_TO_PERSONA: Record<PersonaMode, string> = {
-  cycle: "B1",
-  ttc: "C1",
-  pregnancy: "D1",
-  postpartum: "E1",
-  menopause: "F1",
-  general: "Z1",
-};
-
 const MODE_TO_FLAGS: Record<PersonaMode, Record<string, boolean>> = {
   cycle: {},
   ttc: { ttc_intent: true },
@@ -95,8 +77,17 @@ export function trackFromMode(mode: PersonaMode): string {
   return MODE_TO_TRACK[mode];
 }
 
+/**
+ * The persona she gets when the evidence has not caught up with what she told us.
+ *
+ * The table itself moved to `resolver.ts` as `TRACK_BASE_PERSONA` (R2.4): the Edge
+ * Function has to apply the identical rule, and it cannot import this file — this
+ * one talks to Supabase. A mode→persona map living only in the browser is exactly
+ * how the server came to serve a generic document to a woman who had said she was
+ * postpartum.
+ */
 export function personaIdFromMode(mode: PersonaMode): string {
-  return MODE_TO_PERSONA[mode];
+  return TRACK_BASE_PERSONA[MODE_TO_TRACK[mode] as Track];
 }
 
 export function flagsFromMode(mode: PersonaMode): Record<string, boolean> {
@@ -171,20 +162,28 @@ export async function switchMode(supabase: Client, next: PersonaMode): Promise<S
    *
    * Now the stage she picked is combined with what she has recorded and the
    * resolver decides, exactly as it does at onboarding.
+   *
+   * The "stated stage wins the track" half is `resolveForStatedTrack`, in tier 1,
+   * because the Edge Function has to reach the same answer (R2.4). It used to be
+   * written out here, and the server — which could not see it — served a different
+   * persona than the one this function had stored.
    */
   const signals = await readSignals(supabase);
-  const resolved = resolvePersona({
-    ...signals,
-    ttcIntent: next === "ttc",
-    pregnancyStatus: next === "pregnancy" ? "active" : signals.pregnancyStatus,
-  });
+  const resolved = resolveForStatedTrack(
+    {
+      ...signals,
+      ttcIntent: next === "ttc",
+      pregnancyStatus: next === "pregnancy" ? "active" : signals.pregnancyStatus,
+    },
+    trackFromMode(next) as Track,
+  );
 
   const { error } = await supabase.from("persona_state").upsert({
     profile_id: user.id,
     // Her explicit choice wins the track — she just told us. The resolver refines
     // *within* it (product rule 3: explicit, reversible confirmation).
     track: trackFromMode(next),
-    persona_id: resolved.track === trackFromMode(next) ? resolved.personaId : personaIdFromMode(next),
+    persona_id: resolved.personaId,
     modifiers: resolved.modifiers,
     emotional_context: resolved.emotionalContext,
     confidence: resolved.confidence,

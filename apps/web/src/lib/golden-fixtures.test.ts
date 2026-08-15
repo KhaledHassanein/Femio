@@ -3,10 +3,12 @@ import { readFileSync, readdirSync } from "node:fs";
 import { join } from "node:path";
 import { predictNextPeriod } from "./cycle/predict";
 import { pregnancyProgress } from "./pregnancy";
-import { phaseFor } from "./experience/phase";
+import { phaseFor, phaseForTrack } from "./experience/phase";
 import { resolvePersona } from "./persona/resolver";
+import { signalsFromRows } from "./persona/signals-from-rows";
 import { buildExperienceConfig, registryOf } from "./experience/build";
-import { TRACK_D_RECORDS } from "./experience/registry/track-d";
+import { PERSONA_RECORDS } from "./experience/registry";
+import type { Track } from "./persona/resolver";
 
 /**
  * The golden fixtures (R2.4, `docs/24` §4).
@@ -33,19 +35,28 @@ function load(name: string): { cases: Array<{ input: never; expected: unknown }>
   return JSON.parse(readFileSync(join(DIR, `${name}.json`), "utf8"));
 }
 
-const REGISTRY = registryOf(TRACK_D_RECORDS);
+// Every track's records, so a Track E fixture resolves the same registry the Edge
+// Function does. Track D cases are unaffected: ids do not collide across tracks.
+const REGISTRY = registryOf(PERSONA_RECORDS);
 
 /** Every fixture file must be executed by a case below — an unrun fixture is a lie. */
 const RUNNERS: Record<string, (input: never) => unknown> = {
   "cycle-prediction": (i: { starts: string[] }) => predictNextPeriod(i.starts),
   "gestational-age": (i: { edd: string; today: string }) => pregnancyProgress(i.edd, i.today),
-  phase: (i: Parameters<typeof phaseFor>[0]) => phaseFor(i),
+  phase: (i: Parameters<typeof phaseFor>[0] & { track?: Track }) =>
+    "track" in i ? phaseForTrack(i.track ?? null, i) : phaseFor(i),
   "persona-resolution": (i: Parameters<typeof resolvePersona>[0]) => resolvePersona(i),
-  "experience-config": (i: { personaId: string; phase: string; emotionalLayers: string[] }) =>
+  "signals-from-rows": (i: Parameters<typeof signalsFromRows>[0]) => signalsFromRows(i),
+  "experience-config": (i: {
+    personaId: string;
+    track?: Track;
+    phase: string;
+    emotionalLayers: string[];
+  }) =>
     buildExperienceConfig({
       resolution: {
         personaId: i.personaId,
-        track: "D",
+        track: i.track ?? "D",
         modifiers: [],
         emotionalContext: [],
         confidence: 1,

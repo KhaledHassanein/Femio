@@ -17,6 +17,11 @@
  *   `switchMode`, which already records an `adaptation_events` row.
  * - **No interpretation.** It returns which modules to show. It does not decide
  *   whether a value is normal, and the contract cannot express that it did.
+ * - **No derivation of its own.** Rows in, `signalsFromRows` out. This file used to
+ *   carry a hand-copied version of that derivation "mirroring `signals-from-db.ts`
+ *   exactly", and it had already stopped matching — the browser hard-coded
+ *   `ttcIntent` to false while this side read it from `flags_json`. A comment cannot
+ *   hold two implementations together, so now there is one.
  *
  * ## Imports
  *
@@ -26,48 +31,21 @@
  */
 
 import { createClient } from "jsr:@supabase/supabase-js@2";
-import { resolvePersona } from "../../../apps/web/src/lib/persona/resolver.ts";
-import { EMPTY_SIGNALS } from "../../../apps/web/src/lib/persona/signals.ts";
-import type { PersonaSignals } from "../../../apps/web/src/lib/persona/signals.ts";
+import { resolveForStatedTrack } from "../../../apps/web/src/lib/persona/resolver.ts";
+import type { Track } from "../../../apps/web/src/lib/persona/resolver.ts";
+import { signalsFromRows } from "../../../apps/web/src/lib/persona/signals-from-rows.ts";
 import { buildExperienceConfig, registryOf } from "../../../apps/web/src/lib/experience/build.ts";
 import { PERSONA_RECORDS } from "../../../apps/web/src/lib/experience/registry/index.ts";
-import { phaseFor } from "../../../apps/web/src/lib/experience/phase.ts";
-import { predictNextPeriod } from "../../../apps/web/src/lib/cycle/predict.ts";
-import type { Phase } from "../../../apps/web/src/lib/experience/types.ts";
+import { phaseForTrack } from "../../../apps/web/src/lib/experience/phase.ts";
+import { emotionalLayersFor } from "../../../apps/web/src/lib/experience/layers.ts";
 
 const REGISTRY = registryOf(PERSONA_RECORDS);
-const ABSENT_AFTER_DAYS = 90;
-
-/** Emotional layers are persona ids; `emotional_context` carries the reasons. */
-const CONTEXT_TO_LAYER: Record<string, string> = { prior_loss: "D2" };
 
 const CORS = {
   "Access-Control-Allow-Origin": "*",
   "Access-Control-Allow-Headers": "authorization, x-client-info, apikey, content-type",
   "Access-Control-Allow-Methods": "POST, OPTIONS",
 };
-
-function daysBetween(fromISO: string, toISO: string): number {
-  const from = Date.parse(`${fromISO}T00:00:00Z`);
-  const to = Date.parse(`${toISO}T00:00:00Z`);
-  if (Number.isNaN(from) || Number.isNaN(to)) return 0;
-  return Math.round((to - from) / 86_400_000);
-}
-
-/**
- * `absent` describes the record, never the woman. A long gap is a gap in what she
- * logged — amenorrhea is a clinical finding and Femio does not make them
- * (product rule 1). This mirrors `signals-from-db.ts` exactly; when the client
- * cache lands, this is the only copy that runs.
- */
-function regularityFrom(starts: readonly string[], today: string): PersonaSignals["cycleRegularity"] {
-  if (starts.length === 0) return "unknown";
-  const sorted = [...starts].sort();
-  if (daysBetween(sorted[sorted.length - 1]!, today) > ABSENT_AFTER_DAYS) return "absent";
-  const prediction = predictNextPeriod(sorted);
-  if (!prediction) return "unknown";
-  return prediction.irregular ? "irregular" : "regular";
-}
 
 Deno.serve(async (req: Request) => {
   if (req.method === "OPTIONS") return new Response("ok", { headers: CORS });
@@ -109,13 +87,14 @@ Deno.serve(async (req: Request) => {
     ? body.today
     : new Date().toISOString().slice(0, 10);
 
+  // The same six queries `readPersonaRows` runs in the browser.
   const [profile, cycles, conditions, pregnancy, symptoms, state] = await Promise.all([
     supabase.from("profiles").select("age_band").maybeSingle(),
     supabase.from("cycles").select("period_start").order("period_start", { ascending: false }),
     supabase.from("conditions_flagged").select("condition_code, created_at"),
     supabase
       .from("pregnancy")
-      .select("status, edd, created_at")
+      .select("status, edd, created_at, updated_at")
       .order("updated_at", { ascending: false })
       .limit(1)
       .maybeSingle(),
@@ -123,47 +102,35 @@ Deno.serve(async (req: Request) => {
     supabase.from("persona_state").select("track, flags_json").maybeSingle(),
   ]);
 
-  const starts = (cycles.data ?? []).map((c) => c.period_start as string).filter(Boolean).sort();
-  const prediction = starts.length > 0 ? predictNextPeriod(starts) : null;
-
-  const conditionRows = (conditions.data ?? []) as { condition_code: string; created_at: string }[];
-  const codes = [...new Set(conditionRows.map((r) => r.condition_code))];
-
-  const symptomCounts: Record<string, number> = {};
-  for (const row of (symptoms.data ?? []) as { type: string }[]) {
-    symptomCounts[row.type] = (symptomCounts[row.type] ?? 0) + 1;
-  }
-
   const pregnancyRow = pregnancy.data as
-    | { status: string; edd: string | null; created_at: string }
+    | { status: string; edd: string | null; created_at: string; updated_at: string }
     | null;
-
-  const diabetesRow = conditionRows.find((r) => r.condition_code === "diabetes");
-
   const flags = (state.data?.flags_json ?? {}) as Record<string, boolean>;
+  const statedTrack = ((state.data?.track as string | null) ?? null) as Track | null;
 
-  const signals: PersonaSignals = {
-    ...EMPTY_SIGNALS,
-    ageBand: (profile.data?.age_band as PersonaSignals["ageBand"]) ?? null,
-    cycleRegularity: regularityFrom(starts, today),
-    averageCycleLength: prediction?.averageLength ?? null,
-    daysSinceLastPeriod: starts.length > 0 ? daysBetween(starts[starts.length - 1]!, today) : null,
+  const signals = signalsFromRows({
+    ageBand: (profile.data?.age_band as string | null) ?? null,
+    periodStarts: (cycles.data ?? []).map((c) => c.period_start as string),
+    conditions: ((conditions.data ?? []) as { condition_code: string; created_at: string }[]).map(
+      (r) => ({ code: r.condition_code, recordedAt: r.created_at }),
+    ),
+    pregnancy: pregnancyRow
+      ? {
+          status: pregnancyRow.status,
+          createdAt: pregnancyRow.created_at,
+          updatedAt: pregnancyRow.updated_at,
+        }
+      : null,
+    symptomTypes: ((symptoms.data ?? []) as { type: string }[]).map((r) => r.type),
     // Her stated intent, carried on persona_state — never inferred from behaviour.
     ttcIntent: flags.ttc_intent === true,
-    pregnancyStatus: pregnancyRow ? (pregnancyRow.status === "active" ? "active" : "ended") : null,
-    conditions: codes,
-    symptomCounts,
-    diabetesRecordedBeforePregnancy: Boolean(
-      diabetesRow &&
-        pregnancyRow &&
-        Date.parse(diabetesRow.created_at) < Date.parse(pregnancyRow.created_at),
-    ),
-    priorLoss: codes.includes("prior_loss"),
-  };
+    todayISO: today,
+  });
 
-  const resolution = resolvePersona(signals);
+  // Her stated stage wins the track; the resolver refines within it (R2.6).
+  const resolution = resolveForStatedTrack(signals, statedTrack);
 
-  const phase: Phase | null = phaseFor({
+  const phase = phaseForTrack(statedTrack, {
     edd: pregnancyRow?.edd ?? null,
     status: pregnancyRow?.status ?? null,
     todayISO: today,
@@ -174,9 +141,7 @@ Deno.serve(async (req: Request) => {
     phase,
     registry: REGISTRY,
     resolvedAt: new Date().toISOString(),
-    emotionalLayers: resolution.emotionalContext
-      .map((c) => CONTEXT_TO_LAYER[c])
-      .filter((id): id is string => Boolean(id)),
+    emotionalLayers: emotionalLayersFor(resolution.track, resolution.emotionalContext),
   });
 
   return new Response(JSON.stringify(config), {

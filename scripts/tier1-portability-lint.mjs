@@ -30,11 +30,13 @@ const PORTABLE = [
   // tier 1 — decisions
   "lib/experience/types.ts",
   "lib/experience/build.ts",
+  "lib/experience/layers.ts",
   "lib/experience/registry/index.ts",
   "lib/experience/registry/track-d.ts",
   "lib/experience/registry/track-e.ts",
   "lib/persona/resolver.ts",
   "lib/persona/signals.ts",
+  "lib/persona/signals-from-rows.ts",
   "lib/persona/age.ts",
   "lib/persona/modes.ts",
   "lib/persona/conditions.ts",

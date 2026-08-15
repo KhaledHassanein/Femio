@@ -39,6 +39,35 @@
         "todayISO": "2026-08-12"
       },
       "expected": "postpartum"
+    },
+    {
+      "_comment": "Track E with no pregnancy row at all — she installed Femio after giving birth. Without this she gets E1, whose every module is filed under `postpartum`, against a null phase, and therefore an empty dashboard.",
+      "input": {
+        "track": "E",
+        "edd": null,
+        "status": null,
+        "todayISO": "2026-08-12"
+      },
+      "expected": "postpartum"
+    },
+    {
+      "_comment": "The track never overrides a live pregnancy: Track D still reads its phase from gestational age.",
+      "input": {
+        "track": "D",
+        "edd": "2026-12-14",
+        "status": "active",
+        "todayISO": "2026-08-12"
+      },
+      "expected": "t2"
+    },
+    {
+      "input": {
+        "track": "B",
+        "edd": null,
+        "status": null,
+        "todayISO": "2026-08-12"
+      },
+      "expected": null
     }
   ]
 }

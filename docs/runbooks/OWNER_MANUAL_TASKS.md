@@ -27,7 +27,7 @@ live). What is actually outstanding, in the order I would do it:
 | **1** | **Send me your credentials + affiliation** (P1.9.7) | 2 min | **Highest value per minute in the whole list.** It publishes your reviewer bio, which unblocks bylines on all 30 imported articles (P1.9.8) *and* lets the homepage say "every guide is reviewed by a clinician, named, with credentials" — a line I had to remove because it is not true yet. Nothing to run: reply with the two strings, e.g. `MBBCh, MSc` and `Cairo University`. |
 | **2** | **Read the ten Arabic crisis strings** (P1.26.2) — *see `MANUAL_TEST_PLAN.md` T2* | 5 min | You are the recorded reviewer (ADR-063). The English fallback that used to render in Arabic is **gone**, so these are what a woman at risk now sees. Open `/ar` on the live site and tap **تحتاجين مساعدة الآن؟**, or read `apps/web/src/lib/crisis/crisis.json`. A correction is an edit, not a blocked release. |
 | **3** | **Look at the new homepage on a phone** (R1.3d) — *see `MANUAL_TEST_PLAN.md` T1* | 5 min | `femioapp.com/en` and `/ar` at 390px, light and dark. I verified the copy with `curl`; I have never seen it rendered. Craft is your call. |
-| **4** | **Install the Supabase CLI** (unblocks R2.4) | 5 min | Needed to deploy the experience Edge Function once I finish writing it. Commands below. |
+| **4** | **Re-deploy the experience Edge Function** (R2.4) | 2 min | ✅ deployed once already, on 2026-08-12. Its source changed on 2026-08-16 — it now resolves postpartum correctly and no longer carries its own copy of the signal derivation. **Nothing is broken until you run it:** the client falls back to the identical local computation, and the tests that hold the two together are the same golden fixtures. One line, below. |
 | **5** | **Turn on two-step sign-in** (B★★★) | 3 min | `/admin/*` redirects you to Settings until you enrol. Blocks the translation portal and the insights dashboard, nothing else. |
 | **6** | **Gate signup** (P0.12.5) | 15 min | Before any outside tester. An invite code, an allowlist, or a "private beta" notice on `/welcome`. It keeps "we are only testing" true rather than merely intended. |
 | **7** | **PostHog EU key** (D) | 20 min | Optional. The event layer is built and fails closed; it stays a verified no-op until a key exists. |
@@ -50,17 +50,18 @@ npx supabase@latest link --project-ref wnthtqtcajkhskdygbgo
 `login` opens a browser and stores a token. `link` connects this folder to the Femio project —
 run it from the repo root (`E:\Femio`), where `supabase/config.toml` already carries the ref.
 
-**The function is written and committed** (`supabase/functions/experience/`). After `login`
-and `link` above, deploy it:
+**The function is deployed** (verified 2026-08-12: 401 unauthenticated, 200 with a session).
+`login` and `link` are already done, so re-deploying after a source change is one line:
 
 ```powershell
 npx supabase@latest functions deploy experience
 ```
 
-Nothing breaks if you never run it. The client tries the function, falls back to its cache,
-then computes the same answer locally from the same modules — so deploying is a strict
-upgrade, not a switch-over. Tell me once it is deployed and I will point the dashboard at
-the served document.
+**Do this when a session note says the function changed** — 2026-08-16 is the current one.
+Nothing breaks if you delay it: the client tries the function, falls back to its cache, then
+computes the same answer locally from **the same modules** — literally the same files, which
+is what `tier1-portability-lint` and the golden fixtures exist to keep true. Deploying is a
+strict upgrade, never a switch-over.
 
 If you would rather have it installed properly than go through `npx` each time:
 

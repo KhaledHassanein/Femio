@@ -1,9 +1,7 @@
 "use client";
 
 import { useTranslations } from "next-intl";
-import { buildExperienceConfig, registryOf } from "@/lib/experience/build";
-import { PERSONA_RECORDS, findRecord } from "@/lib/experience/registry";
-import type { Resolution } from "@/lib/persona/resolver";
+import type { ExperienceConfig } from "@/lib/experience/types";
 import { ExperienceModules } from "./module-registry";
 import { Alert, AlertDescription } from "@/components/ui/alert";
 import { Button } from "@/components/ui/button";
@@ -38,45 +36,55 @@ import { Link } from "@/i18n/navigation";
  * **It does not predict the return of her cycle.** `showsCyclePredictions` excludes
  * postpartum for that reason. When her period returns she can log it, and the cycle
  * tools become useful again on their own.
+ *
+ * ## It resolves nothing (R2.4)
+ *
+ * The document arrives from `loadExperienceConfig`; this file renders it. Building
+ * it here meant Track E's modules were decided in the browser while the Edge
+ * Function decided them again on the server, and the two did not agree — the server
+ * had no way to know she had *told us* she was postpartum, so it resolved her to Z1
+ * and would have served a generic screen. `resolveForStatedTrack` and
+ * `phaseForTrack` fixed that on the tier-1 side; this is the client half.
  */
 
-const REGISTRY = registryOf(PERSONA_RECORDS);
-const CONTEXT_TO_LAYER: Record<string, string> = { prior_loss: "E6" };
-
-export function PostpartumExperience({
-  personaId,
-  modifiers,
-  emotionalContext,
-}: {
-  personaId: string | null;
-  modifiers: readonly string[];
-  emotionalContext: readonly string[];
-}) {
+export function PostpartumExperience({ config }: { config: ExperienceConfig | null }) {
   const t = useTranslations("postpartum");
   const td = useTranslations("dashboard");
 
-  const record = (personaId ? findRecord(personaId) : undefined) ?? findRecord("E1")!;
+  const gentle = config?.tone.register === "gentle";
 
-  const resolution: Resolution = {
-    personaId: record.id,
-    track: "E",
-    modifiers: [...modifiers],
-    emotionalContext: [...emotionalContext],
-    confidence: 1,
-    runnerUp: null,
-  };
+  const warningSigns = (
+    // The dangerous window does not close at delivery. Kept high, and carrying no
+    // phone number (P1.26.1).
+    <Alert variant="danger">
+      <AlertDescription className="flex flex-col gap-2">
+        <span className="font-medium">{t("redFlags.heading")}</span>
+        <span>{t("redFlags.body")}</span>
+      </AlertDescription>
+    </Alert>
+  );
 
-  const config = buildExperienceConfig({
-    resolution,
-    phase: "postpartum",
-    registry: REGISTRY,
-    resolvedAt: new Date().toISOString(),
-    emotionalLayers: emotionalContext
-      .map((c) => CONTEXT_TO_LAYER[c])
-      .filter((id): id is string => Boolean(id)),
-  });
+  // Said plainly rather than implied by an absent panel: she is not being shown a
+  // prediction because there is nothing honest to predict yet.
+  const cycleNote = (
+    <p className="text-2xs leading-relaxed text-text-subtle">{t("cycleReturnNote")}</p>
+  );
 
-  const gentle = config.tone.register === "gentle";
+  /**
+   * No document, or one carrying nothing for this phase. It should not happen —
+   * a stated Track E resolves to E1 and `phaseForTrack` guarantees the phase — but
+   * if it ever does, **the warning signs are the one thing that must not disappear
+   * with the engine.** A silent screen would be the failure `module-registry`'s
+   * `UNIMPLEMENTED` list exists to prevent, one level up.
+   */
+  if (!config || config.home.modules.length === 0) {
+    return (
+      <div className="flex flex-col gap-4">
+        {warningSigns}
+        {cycleNote}
+      </div>
+    );
+  }
 
   return (
     <div className="flex flex-col gap-4">
@@ -97,16 +105,7 @@ export function PostpartumExperience({
               footnote={t(gentle ? "loss.note" : "checkIn.note")}
             />
           ),
-          warningSigns: (
-            // The dangerous window does not close at delivery. Kept high, and
-            // carrying no phone number (P1.26.1).
-            <Alert variant="danger">
-              <AlertDescription className="flex flex-col gap-2">
-                <span className="font-medium">{t("redFlags.heading")}</span>
-                <span>{t("redFlags.body")}</span>
-              </AlertDescription>
-            </Alert>
-          ),
+          warningSigns,
           reading: (
             <Card>
               <CardContent className="flex flex-col gap-2 p-6">
@@ -123,10 +122,7 @@ export function PostpartumExperience({
           ),
         }}
       />
-
-      {/* Said plainly rather than implied by an absent panel: she is not being
-          shown a prediction because there is nothing honest to predict yet. */}
-      <p className="text-2xs leading-relaxed text-text-subtle">{t("cycleReturnNote")}</p>
+      {cycleNote}
     </div>
   );
 }

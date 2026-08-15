@@ -1,10 +1,13 @@
 import type { createClient } from "@/lib/supabase/client";
-import { readSignals } from "@/lib/persona/signals-from-db";
-import { resolvePersona } from "@/lib/persona/resolver";
+import { readPersonaRows } from "@/lib/persona/signals-from-db";
+import { signalsFromRows } from "@/lib/persona/signals-from-rows";
+import { resolveForStatedTrack } from "@/lib/persona/resolver";
 import { todayISO } from "@/lib/calculators/dates";
 import { buildExperienceConfig, registryOf } from "./build";
+import { emotionalLayersFor } from "./layers";
+import { phaseForTrack } from "./phase";
 import { PERSONA_RECORDS } from "./registry";
-import { EXPERIENCE_CONTRACT_VERSION, type ExperienceConfig, type Phase } from "./types";
+import { EXPERIENCE_CONTRACT_VERSION, type ExperienceConfig } from "./types";
 
 /**
  * Getting the experience document to the client (R2.4, `docs/24` §3).
@@ -40,7 +43,6 @@ const CACHE_PREFIX = "femio.experience.v1";
 const MAX_AGE_MS = 24 * 60 * 60 * 1000;
 
 const REGISTRY = registryOf(PERSONA_RECORDS);
-const CONTEXT_TO_LAYER: Record<string, string> = { prior_loss: "D2" };
 
 export type ExperienceSource = "server" | "cache" | "local";
 export type LoadedExperience = { config: ExperienceConfig; source: ExperienceSource };
@@ -82,28 +84,37 @@ export function clearExperienceCache(): void {
   }
 }
 
-/** Tier 1, in the browser. Identical modules to the Edge Function, by construction. */
-async function computeLocally(
-  supabase: Client,
-  today: string,
-  phase: Phase | null,
-): Promise<ExperienceConfig> {
-  const signals = await readSignals(supabase);
-  const resolution = resolvePersona(signals);
+/**
+ * Tier 1, in the browser. The **same** functions the Edge Function calls, over rows
+ * fetched by the same queries — `signalsFromRows`, `resolveForStatedTrack`,
+ * `phaseForTrack`, `buildExperienceConfig`. What differs between the two paths is
+ * the Supabase client and nothing else, which is the only way "the fallback returns
+ * an identical document" can be a fact rather than a hope.
+ */
+async function computeLocally(supabase: Client, today: string): Promise<ExperienceConfig | null> {
+  const rows = await readPersonaRows(supabase);
+  if (!rows) return null;
+
+  const signals = signalsFromRows({ ...rows.signals, todayISO: today });
+  const resolution = resolveForStatedTrack(signals, rows.statedTrack);
+  const phase = phaseForTrack(rows.statedTrack, {
+    edd: rows.edd,
+    status: rows.pregnancyStatus,
+    todayISO: today,
+  });
+
   return buildExperienceConfig({
     resolution,
     phase,
     registry: REGISTRY,
     resolvedAt: new Date().toISOString(),
-    emotionalLayers: resolution.emotionalContext
-      .map((c) => CONTEXT_TO_LAYER[c])
-      .filter((id): id is string => Boolean(id)),
+    emotionalLayers: emotionalLayersFor(resolution.track, resolution.emotionalContext),
   });
 }
 
 export async function loadExperienceConfig(
   supabase: Client,
-  options: { today?: string; phase?: Phase | null } = {},
+  options: { today?: string } = {},
 ): Promise<LoadedExperience | null> {
   const {
     data: { user },
@@ -128,7 +139,8 @@ export async function loadExperienceConfig(
   const cached = readCache(user.id);
   if (cached) return { config: cached, source: "cache" };
 
-  const config = await computeLocally(supabase, today, options.phase ?? null);
+  const config = await computeLocally(supabase, today);
+  if (!config) return null;
   writeCache(user.id, config);
   return { config, source: "local" };
 }

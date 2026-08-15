@@ -623,6 +623,187 @@
           "readingLevel": "gentle"
         }
       }
+    },
+    {
+      "_comment": "Track E, hand-written from registry/track-e.ts. Nothing rendered this before R2.4 — the postpartum screen composed its own copy in the browser while the server composed a different one.",
+      "input": {
+        "personaId": "E1",
+        "track": "E",
+        "phase": "postpartum",
+        "emotionalLayers": []
+      },
+      "expected": {
+        "version": 1,
+        "resolvedAt": "2026-08-12T00:00:00.000Z",
+        "track": "E",
+        "personaId": "E1",
+        "modifiers": [],
+        "emotionalContext": [],
+        "confidence": 1,
+        "offer": null,
+        "phase": "postpartum",
+        "home": {
+          "modules": [
+            {
+              "id": "support.checkIn",
+              "emphasis": "hero"
+            },
+            {
+              "id": "pregnancy.warningSigns",
+              "emphasis": "primary",
+              "params": {
+                "set": "postpartum"
+              }
+            },
+            {
+              "id": "quickLog",
+              "emphasis": "primary"
+            },
+            {
+              "id": "library",
+              "emphasis": "secondary"
+            }
+          ],
+          "quickLog": [
+            "symptom",
+            "mood",
+            "period"
+          ]
+        },
+        "tools": [
+          "symptom",
+          "mood",
+          "period"
+        ],
+        "content": {
+          "skin": "postpartum",
+          "foreground": [
+            "recovery-after-birth",
+            "when-to-seek-care",
+            "return-of-your-cycle"
+          ]
+        },
+        "alerts": [
+          {
+            "id": "postpartum.redFlags",
+            "kind": "redFlag"
+          },
+          {
+            "id": "postpartum.moodCheckIn",
+            "kind": "cadence",
+            "params": {
+              "everyWeeks": 2
+            }
+          }
+        ],
+        "emrView": [
+          "deliveryDate",
+          "postpartumWeek"
+        ],
+        "tone": {
+          "register": "warm",
+          "celebrationByDefault": false,
+          "countdown": false,
+          "readingLevel": "standard"
+        }
+      }
+    },
+    {
+      "_comment": "After a loss. E6 takes the hero because it IS the resolved persona here, the check-in is demoted rather than dropped (nothing is ever removed), and the tone folds to gentle and cannot fold back.",
+      "input": {
+        "personaId": "E6",
+        "track": "E",
+        "phase": "postpartum",
+        "emotionalLayers": []
+      },
+      "expected": {
+        "version": 1,
+        "resolvedAt": "2026-08-12T00:00:00.000Z",
+        "track": "E",
+        "personaId": "E6",
+        "modifiers": [],
+        "emotionalContext": [],
+        "confidence": 1,
+        "offer": null,
+        "phase": "postpartum",
+        "home": {
+          "modules": [
+            {
+              "id": "support.checkIn",
+              "emphasis": "primary"
+            },
+            {
+              "id": "support.lossAware",
+              "emphasis": "hero"
+            },
+            {
+              "id": "pregnancy.warningSigns",
+              "emphasis": "primary",
+              "params": {
+                "set": "postpartum"
+              }
+            },
+            {
+              "id": "quickLog",
+              "emphasis": "primary"
+            },
+            {
+              "id": "library",
+              "emphasis": "secondary"
+            }
+          ],
+          "quickLog": [
+            "symptom",
+            "mood",
+            "period"
+          ]
+        },
+        "tools": [
+          "symptom",
+          "mood",
+          "period"
+        ],
+        "content": {
+          "skin": "postpartum",
+          "foreground": [
+            "recovery-after-birth",
+            "when-to-seek-care",
+            "return-of-your-cycle",
+            "grief-and-what-helps",
+            "your-body-after-a-loss",
+            "telling-people"
+          ]
+        },
+        "alerts": [
+          {
+            "id": "postpartum.redFlags",
+            "kind": "redFlag"
+          },
+          {
+            "id": "postpartum.moodCheckIn",
+            "kind": "cadence",
+            "params": {
+              "everyWeeks": 2
+            }
+          },
+          {
+            "id": "loss.suppression",
+            "kind": "education"
+          }
+        ],
+        "emrView": [
+          "deliveryDate",
+          "postpartumWeek",
+          "lossDate",
+          "gestationAtLoss"
+        ],
+        "tone": {
+          "register": "gentle",
+          "celebrationByDefault": false,
+          "countdown": false,
+          "readingLevel": "gentle"
+        }
+      }
     }
   ]
 }

@@ -1,0 +1,138 @@
+{
+  "_comment": "Rows -> PersonaSignals (R2.4). Hand-written from the rules in signals-from-rows.ts, never generated from it. Case 0 is the one that matters most: weeksSincePregnancyEnd was null everywhere, so E1's gate could only fail and postpartum was unreachable from the live record.",
+  "cases": [
+    {
+      "input": {
+        "ageBand": "25_34",
+        "periodStarts": [],
+        "conditions": [],
+        "pregnancy": {
+          "status": "completed",
+          "createdAt": "2025-11-02T09:00:00Z",
+          "updatedAt": "2026-07-11T08:30:00Z"
+        },
+        "symptomTypes": [],
+        "ttcIntent": false,
+        "todayISO": "2026-08-15"
+      },
+      "expected": {
+        "ageBand": "25_34",
+        "cycleRegularity": "unknown",
+        "averageCycleLength": null,
+        "daysSinceLastPeriod": null,
+        "ttcIntent": false,
+        "pregnancyStatus": "ended",
+        "weeksSincePregnancyEnd": 5,
+        "conditions": [],
+        "symptomCounts": {},
+        "diabetesRecordedBeforePregnancy": false,
+        "priorLoss": false
+      }
+    },
+    {
+      "input": {
+        "ageBand": "35_44",
+        "periodStarts": ["2026-02-01", "2026-01-04"],
+        "conditions": [{ "code": "diabetes", "recordedAt": "2024-03-15T10:00:00Z" }],
+        "pregnancy": {
+          "status": "active",
+          "createdAt": "2026-03-01T10:00:00Z",
+          "updatedAt": "2026-03-01T10:00:00Z"
+        },
+        "symptomTypes": ["nausea", "nausea", "fatigue"],
+        "ttcIntent": false,
+        "todayISO": "2026-08-15"
+      },
+      "expected": {
+        "ageBand": "35_44",
+        "cycleRegularity": "absent",
+        "averageCycleLength": 28,
+        "daysSinceLastPeriod": 195,
+        "ttcIntent": false,
+        "pregnancyStatus": "active",
+        "weeksSincePregnancyEnd": null,
+        "conditions": ["diabetes"],
+        "symptomCounts": { "nausea": 2, "fatigue": 1 },
+        "diabetesRecordedBeforePregnancy": true,
+        "priorLoss": false
+      }
+    },
+    {
+      "input": {
+        "ageBand": "25_34",
+        "periodStarts": ["2026-05-10", "2026-06-07", "2026-07-05", "2026-08-02"],
+        "conditions": [],
+        "pregnancy": null,
+        "symptomTypes": [],
+        "ttcIntent": true,
+        "todayISO": "2026-08-15"
+      },
+      "expected": {
+        "ageBand": "25_34",
+        "cycleRegularity": "regular",
+        "averageCycleLength": 28,
+        "daysSinceLastPeriod": 13,
+        "ttcIntent": true,
+        "pregnancyStatus": null,
+        "weeksSincePregnancyEnd": null,
+        "conditions": [],
+        "symptomCounts": {},
+        "diabetesRecordedBeforePregnancy": false,
+        "priorLoss": false
+      }
+    },
+    {
+      "input": {
+        "ageBand": "25_34",
+        "periodStarts": [],
+        "conditions": [{ "code": "prior_loss", "recordedAt": "2026-06-20T00:00:00Z" }],
+        "pregnancy": {
+          "status": "loss",
+          "createdAt": "2026-02-01T00:00:00Z",
+          "updatedAt": "2026-06-20T00:00:00Z"
+        },
+        "symptomTypes": [],
+        "ttcIntent": false,
+        "todayISO": "2026-08-15"
+      },
+      "expected": {
+        "ageBand": "25_34",
+        "cycleRegularity": "unknown",
+        "averageCycleLength": null,
+        "daysSinceLastPeriod": null,
+        "ttcIntent": false,
+        "pregnancyStatus": "ended",
+        "weeksSincePregnancyEnd": 8,
+        "conditions": ["prior_loss"],
+        "symptomCounts": {},
+        "diabetesRecordedBeforePregnancy": false,
+        "priorLoss": true
+      }
+    },
+    {
+      "_comment": "An unknown age_band string is dropped rather than trusted — the column's check constraint is not this function's guarantee, and a bad band silently gating A2/F1/F2 would be invisible.",
+      "input": {
+        "ageBand": "thirties",
+        "periodStarts": [],
+        "conditions": [],
+        "pregnancy": null,
+        "symptomTypes": [],
+        "ttcIntent": false,
+        "todayISO": "2026-08-15"
+      },
+      "expected": {
+        "ageBand": null,
+        "cycleRegularity": "unknown",
+        "averageCycleLength": null,
+        "daysSinceLastPeriod": null,
+        "ttcIntent": false,
+        "pregnancyStatus": null,
+        "weeksSincePregnancyEnd": null,
+        "conditions": [],
+        "symptomCounts": {},
+        "diabetesRecordedBeforePregnancy": false,
+        "priorLoss": false
+      }
+    }
+  ]
+}

@@ -1,8 +1,8 @@
 import type { createClient } from "@/lib/supabase/client";
-import { predictNextPeriod } from "@/lib/cycle/predict";
 import { todayISO } from "@/lib/calculators/dates";
-import { EMPTY_SIGNALS, type CycleRegularity, type PersonaSignals } from "./signals";
-import type { AgeBand } from "./state";
+import type { Track } from "./resolver";
+import { EMPTY_SIGNALS, type PersonaSignals } from "./signals";
+import { signalsFromRows, type SignalRows } from "./signals-from-rows";
 
 /**
  * Derive `PersonaSignals` from what she has actually recorded (P1.27.4a).
@@ -13,117 +13,79 @@ import type { AgeBand } from "./state";
  * question or logging a period produces a real re-resolution rather than a
  * re-run of the same four answers.
  *
- * Two rules it keeps:
- *
- * - **Only what she entered herself.** Every field traces to a row she wrote. There
- *   is no behavioural inference here and there must not be one (product rule 4).
- * - **Regularity is read through `predictNextPeriod`**, not computed again. The
- *   menopause panel already reuses it for exactly this reason: two places deciding
- *   whether her cycles are regular is two places that can disagree with each other
- *   on the same screen.
+ * **This file is now only the query.** The derivation moved to
+ * `signals-from-rows.ts` (tier 1) so the Edge Function runs the same code rather
+ * than a copy of it — and the copy had already drifted on `ttcIntent`. Everything
+ * about *what a signal means* lives there; what is left here is which rows to fetch.
  */
 
 type Client = ReturnType<typeof createClient>;
 
-/** Days after which we describe the record as showing no recent bleed. */
-const ABSENT_AFTER_DAYS = 90;
+/** Everything the engine needs from the database, in one round of queries. */
+export type PersonaRecordRows = {
+  signals: SignalRows;
+  /** `persona_state.track` — the stage she chose. It wins the track (R2.6). */
+  statedTrack: Track | null;
+  /** For the Track D phase. Null before she gives a due date. */
+  edd: string | null;
+  pregnancyStatus: string | null;
+};
 
-function daysBetween(fromISO: string, toISO: string): number {
-  const from = Date.parse(`${fromISO}T00:00:00Z`);
-  const to = Date.parse(`${toISO}T00:00:00Z`);
-  if (Number.isNaN(from) || Number.isNaN(to)) return 0;
-  return Math.round((to - from) / 86_400_000);
-}
-
-/**
- * `absent` describes the record, never the woman.
- *
- * A long gap is a gap in what she logged. Amenorrhea is a clinical finding and
- * Femio does not make them (product rule 1) — the resolver uses this to *widen*
- * what it offers, never to conclude anything.
- */
-function regularityFrom(starts: readonly string[], today: string): CycleRegularity {
-  if (starts.length === 0) return "unknown";
-  const sorted = [...starts].sort();
-  const last = sorted.at(-1)!;
-  if (daysBetween(last, today) > ABSENT_AFTER_DAYS) return "absent";
-  const prediction = predictNextPeriod(sorted);
-  if (!prediction) return "unknown";
-  return prediction.irregular ? "irregular" : "regular";
-}
-
-export async function readSignals(supabase: Client): Promise<PersonaSignals> {
+export async function readPersonaRows(supabase: Client): Promise<PersonaRecordRows | null> {
   const {
     data: { user },
   } = await supabase.auth.getUser();
-  if (!user) return EMPTY_SIGNALS;
+  if (!user) return null;
 
-  const today = todayISO();
-
-  const [profile, cycles, conditions, pregnancy, symptoms] = await Promise.all([
+  const [profile, cycles, conditions, pregnancy, symptoms, state] = await Promise.all([
     supabase.from("profiles").select("age_band").maybeSingle(),
     supabase.from("cycles").select("period_start").order("period_start", { ascending: false }),
     supabase.from("conditions_flagged").select("condition_code, created_at"),
     supabase
       .from("pregnancy")
       .select("status, edd, created_at, updated_at")
+      // Most recent regardless of status: an ended pregnancy still decides the phase.
       .order("updated_at", { ascending: false })
       .limit(1)
       .maybeSingle(),
     supabase.from("symptom_logs").select("type").order("logged_at", { ascending: false }).limit(200),
+    supabase.from("persona_state").select("track, flags_json").maybeSingle(),
   ]);
 
-  const starts = (cycles.data ?? []).map((c) => c.period_start as string).filter(Boolean);
-  const sorted = [...starts].sort();
-  const lastStart = sorted.at(-1) ?? null;
-  const prediction = sorted.length > 0 ? predictNextPeriod(sorted) : null;
-
-  const conditionRows = (conditions.data ?? []) as { condition_code: string; created_at: string }[];
-  const codes = [...new Set(conditionRows.map((r) => r.condition_code))];
-
-  const symptomCounts: Record<string, number> = {};
-  for (const row of (symptoms.data ?? []) as { type: string }[]) {
-    symptomCounts[row.type] = (symptomCounts[row.type] ?? 0) + 1;
-  }
-
   const pregnancyRow = pregnancy.data as
-    | { status: string; edd: string | null; created_at: string }
+    | { status: string; edd: string | null; created_at: string; updated_at: string }
     | null;
-  const pregnancyStatus = pregnancyRow
-    ? pregnancyRow.status === "active"
-      ? ("active" as const)
-      : ("ended" as const)
-    : null;
-
-  /**
-   * The one signal that separates D3 from D4, and `docs/09` §8 rule 3 says they
-   * must never be conflated: gestational diabetes resolves postpartum into a
-   * single OGTT, pre-existing diabetes is lifelong care. The distinction is
-   * *when* it was recorded relative to this pregnancy — a `diabetes` code
-   * predating the pregnancy row, or the separate `gestational_diabetes` code the
-   * wizard offers precisely so the two can be told apart.
-   */
-  const diabetesRow = conditionRows.find((r) => r.condition_code === "diabetes");
-  const diabetesRecordedBeforePregnancy = Boolean(
-    diabetesRow &&
-      pregnancyRow &&
-      Date.parse(diabetesRow.created_at) < Date.parse(pregnancyRow.created_at),
-  );
+  const flags = (state.data?.flags_json ?? {}) as Record<string, boolean>;
 
   return {
-    ...EMPTY_SIGNALS,
-    ageBand: ((profile.data?.age_band as AgeBand | null) ?? null) as AgeBand | null,
-    cycleRegularity: regularityFrom(sorted, today),
-    averageCycleLength: prediction?.averageLength ?? null,
-    daysSinceLastPeriod: lastStart ? daysBetween(lastStart, today) : null,
-    // Stated intent, never guessed — it lives in `persona_state.flags_json` and is
-    // supplied by the caller who knows which stage she just chose.
-    ttcIntent: false,
-    pregnancyStatus,
-    weeksSincePregnancyEnd: null,
-    conditions: codes,
-    symptomCounts,
-    diabetesRecordedBeforePregnancy,
-    priorLoss: codes.includes("prior_loss"),
+    signals: {
+      ageBand: (profile.data?.age_band as string | null) ?? null,
+      periodStarts: (cycles.data ?? []).map((c) => c.period_start as string),
+      conditions: ((conditions.data ?? []) as { condition_code: string; created_at: string }[]).map(
+        (r) => ({ code: r.condition_code, recordedAt: r.created_at }),
+      ),
+      pregnancy: pregnancyRow
+        ? {
+            status: pregnancyRow.status,
+            createdAt: pregnancyRow.created_at,
+            updatedAt: pregnancyRow.updated_at,
+          }
+        : null,
+      symptomTypes: ((symptoms.data ?? []) as { type: string }[]).map((r) => r.type),
+      // Her stated intent, never inferred. This was hard-coded `false` here while the
+      // Edge Function read it from `flags_json`, so C1/C6/C8 could resolve on the
+      // server and never in the local fallback — the same document, two answers.
+      ttcIntent: flags.ttc_intent === true,
+      todayISO: todayISO(),
+    },
+    statedTrack: ((state.data?.track as string | null) ?? null) as Track | null,
+    edd: pregnancyRow?.edd ?? null,
+    pregnancyStatus: pregnancyRow?.status ?? null,
   };
+}
+
+export async function readSignals(supabase: Client): Promise<PersonaSignals> {
+  const rows = await readPersonaRows(supabase);
+  if (!rows) return EMPTY_SIGNALS;
+  return signalsFromRows(rows.signals);
 }
