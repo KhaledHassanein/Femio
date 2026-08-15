@@ -34,6 +34,15 @@ export type ModuleContext = {
   movement: ReactNode;
   /** Rendered for `library` / reading lists. */
   reading: ReactNode;
+  /** Track A (R2.5c). A2's wide, explained window; A1 contributes none. */
+  teenWindow?: ReactNode;
+  teenReassurance?: ReactNode;
+  /**
+   * A2's "worth mentioning to a trusted adult" note. Separate from `warningSigns`
+   * on purpose — that one is the danger surface, and this one must never be.
+   */
+  teenWorthMentioning?: ReactNode;
+  teenPrivacy?: ReactNode;
 };
 
 /**
@@ -45,6 +54,15 @@ export type ModuleContext = {
  * modules that arrive with D2 and the labs surface.
  */
 export const UNIMPLEMENTED: readonly ModuleId[] = [
+  /**
+   * Track A's two content hubs (R2.5c). Both are *articles*, not components —
+   * "what's changing in my body" and the first-period readiness plan — and no teen
+   * content exists in the CMS yet. Listed rather than silently dropped so the gap
+   * is a number someone can count, and so the day the content lands the module is
+   * already in the registry waiting for it (P2.13).
+   */
+  "teen.body",
+  "teen.readiness",
   "pregnancy.milestone",
   "pregnancy.appointments",
   "pregnancy.weight",
@@ -71,6 +89,10 @@ const GlucoseStrip = () => <EmptyStrip titleKey="glucose.title" ctaKey="glucose.
 type Renderer = (ctx: ModuleContext, spec: ModuleSpec) => ReactNode;
 
 const RENDERERS: Partial<Record<ModuleId, Renderer>> = {
+  "teen.window": (ctx) => ctx.teenWindow,
+  "teen.reassurance": (ctx) => ctx.teenReassurance,
+  "teen.worthMentioning": (ctx) => ctx.teenWorthMentioning,
+  "teen.privacy": (ctx) => ctx.teenPrivacy,
   "pregnancy.week": (ctx) => ctx.pregnancyHero,
   "pregnancy.warningSigns": (ctx) => ctx.warningSigns,
   "pregnancy.movement": (ctx) => ctx.movement,

@@ -84,6 +84,23 @@ const pregnant: Predicate = (s) => s.pregnancyStatus === "active";
 const notPregnant: Predicate = (s) => s.pregnancyStatus !== "active";
 
 /**
+ * Not in the bands where the adolescent framing is unambiguous (R2.5c).
+ *
+ * Track B's cycle personas are written for adults, and without this a
+ * thirteen-year-old with steady cycles outscored A2 on B1 — the general adult
+ * tracker — which is precisely the "17+ gap" A2 §C names as the category's
+ * recurring failure. Worse for **B5**: it reads irregular cycles as the defining
+ * signal, while A2 §D is explicit that irregularity is *developmentally expected*
+ * for the first 1–3 years after menarche and must never be treated as a finding.
+ *
+ * `16_17` is deliberately left free: a seventeen-year-old with three settled years
+ * behind her may genuinely be B1, and §J describes exactly that transition. An
+ * **unknown** band passes too — most accounts have none, and gating on absence
+ * would quietly stop B1 resolving for almost everybody.
+ */
+const notAdolescent: Predicate = (s) => s.ageBand !== "under_13" && s.ageBand !== "13_15";
+
+/**
  * The rules. **This is not all ~73 personas — and the reason is the wizard, not
  * the data model.**
  *
@@ -107,8 +124,30 @@ const notPregnant: Predicate = (s) => s.pregnancyStatus !== "active";
  * validated screeners or partner data (P2.1, P2.7, P3).
  */
 export const PERSONA_RULES: readonly PersonaRule[] = [
-  // ---- Track A — adolescent. Age band is the only signal we hold; A3–A6 need
-  // bleeding-volume, PCOS-sign and energy-availability data we do not collect.
+  // ---- Track A — adolescent. Age band and whether she has ever logged a period
+  // are the signals we hold; A3–A6 need bleeding-volume, PCOS-sign and
+  // energy-availability data we do not collect.
+  {
+    /**
+     * A1 — before the first period. The gate is `cycleRegularity === "unknown"`
+     * *and* nothing logged, because A1 §I resolves on "hasn't had a first period
+     * yet" and §J moves her to A2 the moment one is logged. `under_13` is included
+     * deliberately: she exists, and product rule 2 says the answer to a young user
+     * is a gentler experience, never a locked door.
+     */
+    id: "A1",
+    track: "A",
+    requires: [
+      notPregnant,
+      inBand("under_13", "13_15"),
+      (s) => s.daysSinceLastPeriod === null,
+    ],
+    signals: [
+      { weight: 3, when: inBand("under_13", "13_15") },
+      { weight: 3, when: (s) => s.daysSinceLastPeriod === null },
+      { weight: 1, when: (s) => !s.ttcIntent },
+    ],
+  },
   {
     id: "A2",
     track: "A",
@@ -117,6 +156,10 @@ export const PERSONA_RULES: readonly PersonaRule[] = [
       { weight: 3, when: inBand("13_15", "16_17") },
       { weight: 2, when: (s) => s.cycleRegularity === "irregular" },
       { weight: 1, when: (s) => !s.ttcIntent },
+      // §J: a first period logged is the transition into A2. It is evidence for
+      // A2 rather than a gate, because a teen who has not logged one yet may
+      // simply not have started logging.
+      { weight: 2, when: (s) => s.daysSinceLastPeriod !== null },
     ],
   },
 
@@ -125,7 +168,7 @@ export const PERSONA_RULES: readonly PersonaRule[] = [
   {
     id: "B1",
     track: "B",
-    requires: [notPregnant],
+    requires: [notPregnant, notAdolescent],
     signals: [
       { weight: 3, when: (s) => s.cycleRegularity === "regular" },
       { weight: 2, when: (s) => !s.ttcIntent },
@@ -136,7 +179,7 @@ export const PERSONA_RULES: readonly PersonaRule[] = [
   {
     id: "B5",
     track: "B",
-    requires: [notPregnant],
+    requires: [notPregnant, notAdolescent],
     signals: [
       { weight: 3, when: (s) => s.cycleRegularity === "irregular" || s.cycleRegularity === "absent" },
       { weight: 2, when: (s) => (s.daysSinceLastPeriod ?? 0) > 45 },
@@ -146,7 +189,7 @@ export const PERSONA_RULES: readonly PersonaRule[] = [
   {
     id: "B6",
     track: "B",
-    requires: [notPregnant, has("pcos")],
+    requires: [notPregnant, notAdolescent, has("pcos")],
     signals: [
       { weight: 4, when: has("pcos") },
       { weight: 2, when: (s) => s.cycleRegularity === "irregular" || s.cycleRegularity === "absent" },
@@ -323,14 +366,34 @@ export function resolveForStatedTrack(
 ): Resolution {
   const resolved = resolvePersona(signals);
   if (!statedTrack || resolved.track === statedTrack) return resolved;
+
+  /**
+   * Prefer the evidence's own best guess *within* her track over the base persona.
+   *
+   * When the answer is Z1, `runnerUp` holds the persona we would have committed to
+   * with more certainty — and it is often already in the track she named. A
+   * thirteen-year-old who has logged nothing scores A1 (before her first period)
+   * far above A2, just not confidently enough to commit; falling back to the
+   * track's base would hand her A2 and a window card for cycles she has not had.
+   * The base is for when the evidence says nothing about her track at all.
+   */
+  const nearest =
+    resolved.runnerUp && trackOfPersona(resolved.runnerUp.personaId) === statedTrack
+      ? resolved.runnerUp.personaId
+      : TRACK_BASE_PERSONA[statedTrack];
+
   return {
     ...resolved,
-    personaId: TRACK_BASE_PERSONA[statedTrack],
+    personaId: nearest,
     track: statedTrack,
     // No offer. Suggesting a persona from a track she has just said she is not in
     // would be the product arguing with her (P1.27.5 offers, it does not insist).
     runnerUp: null,
   };
+}
+
+function trackOfPersona(personaId: string): Track | null {
+  return PERSONA_RULES.find((rule) => rule.id === personaId)?.track ?? null;
 }
 
 /**

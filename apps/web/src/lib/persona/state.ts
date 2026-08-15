@@ -41,6 +41,7 @@ export { AGE_BANDS, type AgeBand } from "./age";
  * constraint; the app simply never wrote it.
  */
 const TRACK_TO_MODE: Record<string, PersonaMode> = {
+  A: "teen",
   B: "cycle",
   C: "ttc",
   D: "pregnancy",
@@ -50,6 +51,7 @@ const TRACK_TO_MODE: Record<string, PersonaMode> = {
 };
 
 const MODE_TO_TRACK: Record<PersonaMode, string> = {
+  teen: "A",
   cycle: "B",
   ttc: "C",
   pregnancy: "D",
@@ -59,6 +61,7 @@ const MODE_TO_TRACK: Record<PersonaMode, string> = {
 };
 
 const MODE_TO_FLAGS: Record<PersonaMode, Record<string, boolean>> = {
+  teen: {},
   cycle: {},
   ttc: { ttc_intent: true },
   pregnancy: { pregnant: true },
@@ -112,7 +115,17 @@ export function showsCyclePredictions(mode: PersonaMode): boolean {
   // estimate, it is an invention — and the return of the cycle after birth is
   // genuinely unpredictable (E1 §G). Before R2.5 this mode did not exist, so she
   // fell into `general` and got exactly that prediction.
-  return mode !== "pregnancy" && mode !== "menopause" && mode !== "postpartum";
+  //
+  // Teen is here for a different reason and it is **not** a restriction: A2 gets a
+  // window, a wide one, and the engine renders it as `teen.window` with the reason
+  // attached. What this excludes is the *generic adult* hero and the average-length
+  // card underneath it — A1 is not cycling at all (A1 §I: "no cycle predictions…
+  // deliberately hidden until A2"), and A2 needs the range explained rather than
+  // stated. The distinction is per-persona, which is exactly what a mode flag
+  // cannot express and the registry can.
+  return (
+    mode !== "pregnancy" && mode !== "menopause" && mode !== "postpartum" && mode !== "teen"
+  );
 }
 
 export type PersonaState = {

@@ -25,8 +25,11 @@ type Mode = PersonaMode;
 type Account = "anonymous" | "email";
 
 // docs/09 §4 Q1 lists "I recently gave birth" among the eight branches; it was
-// one of the four that had never been offered (R2.5).
-const MODES: readonly Mode[] = ["cycle", "ttc", "pregnancy", "postpartum", "menopause"];
+// one of the four that had never been offered (R2.5). `teen` joined it in R2.5c —
+// it sits first because Track A is the earliest life stage, and because a
+// thirteen-year-old scanning a list of adult options for herself is the experience
+// A2 §A describes as the "17+ gap".
+const MODES: readonly Mode[] = ["teen", "cycle", "ttc", "pregnancy", "postpartum", "menopause"];
 const ACCOUNTS: readonly Account[] = ["anonymous", "email"];
 // Q1 life stage → Q2 triage → privacy → confirm. docs/09 §4 specifies six
 // branches; the triage step is Q2–Q6 collapsed into one stage-scoped question,

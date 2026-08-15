@@ -277,6 +277,10 @@
       "placeholder": "Le code qui vous a été envoyé"
     },
     "mode": {
+      "teen": {
+        "name": "Je suis adolescente",
+        "desc": "Ton corps, tes règles, et ce qui est normal — en mots simples."
+      },
       "postpartum": {
         "name": "J'ai accouché récemment",
         "desc": "La récupération, votre corps, et comment vous allez."
@@ -408,7 +412,7 @@
   "dashboard": {
     "title": "Ton tableau de bord",
     "loading": "Chargement de votre tableau de bord",
-    "modeLabel": { "cycle": "Cycle", "ttc": "Essai de conception", "pregnancy": "Grossesse", "postpartum": "Après la naissance", "menopause": "Ménopause", "general": "Général" },
+    "modeLabel": { "teen": "Adolescente", "cycle": "Cycle", "ttc": "Essai de conception", "pregnancy": "Grossesse", "postpartum": "Après la naissance", "menopause": "Ménopause", "general": "Général" },
     "cycleDay": "Jour {day} de ton cycle",
     "nextPeriod": "Prochaines règles",
     "window": "Attendues entre le {start} et le {end}",
@@ -436,6 +440,8 @@
     "title": "Résumé pour la consultation",
     "generatedOn": "Généré le {date}",
     "modes": {
+      "teen": "Suivi adolescente",
+      "postpartum": "Après la naissance",
       "cycle": "Suivi du cycle",
       "ttc": "Essai de conception",
       "pregnancy": "Grossesse",
@@ -549,6 +555,34 @@
     "subtitle": "Des guides référencés et relus médicalement sur les affections et sujets tout au long de votre vie de santé.",
     "empty": "De nouveaux sujets arrivent — revenez bientôt."
   },
+    "teen": {
+      "window": {
+        "eyebrow": "Tes prochaines règles",
+        "range": "Sans doute entre le {start} et le {end}",
+        "why": "Les cycles varient beaucoup les premières années : c’est pour cela que Femio donne une fourchette et non une date.",
+        "passed": "Cette fourchette est passée. Cela arrive, et à soi seul ce n’est le signe de rien. Note tes règles quand elles arrivent et la prochaine estimation s’améliorera.",
+        "needData": "Note d’abord deux cycles",
+        "needDataNote": "Femio a besoin de deux dates de début avant de pouvoir calculer une fourchette."
+      },
+      "reassurance": {
+        "heading": "Tu es normale",
+        "body": "La première ou la deuxième année, un cycle court un mois puis long le suivant — ou un mois sans rien — est ce qui arrive le plus souvent. Cela se régularise tout seul."
+      },
+      "worthMentioning": {
+        "heading": "À dire à voix haute",
+        "body": "Certaines personnes trouvent utile d’en parler à un parent, à un autre adulte de confiance ou à un médecin : environ trois mois sans règles, un saignement qui imbibe une protection plus souvent que toutes les une à deux heures, ou des douleurs qui t’empêchent d’aller en cours. Rien de tout cela ne veut dire qu’il y a un problème. C’est simplement bon à dire."
+      },
+      "privacy": {
+        "heading": "Tes données, tes règles",
+        "body": "Rien de ce qui concerne ta santé n’atteint un annonceur, et personne d’autre ne peut lire ce que tu notes. Tu peux tout exporter ou tout supprimer toi-même.",
+        "cta": "Ouvrir tes réglages de confidentialité"
+      },
+      "reading": {
+        "heading": "Lis ce que tu veux",
+        "body": "Les guides écrits pour ton âge sont encore en préparation. Tout le reste de la bibliothèque est déjà là, et rien n’y est interdit.",
+        "cta": "Parcourir la bibliothèque"
+      }
+    },
   "postpartum": {
     "checkIn": {
       "eyebrow": "Après la naissance",
@@ -596,6 +630,10 @@
     "heading": "Ton expérience Femio",
     "desc": "Femio s'adapte à l'étape où tu te trouves. Tu peux changer cela quand ta situation change — ou le désactiver et tout voir.",
     "modes": {
+      "teen": {
+        "label": "Adolescente",
+        "desc": "Ton corps et ton cycle expliqués simplement, avec une fourchette large et honnête."
+      },
       "postpartum": {
         "label": "Après la naissance",
         "desc": "La récupération et comment vous allez. Aucune prédiction de cycle avant le retour de vos règles."

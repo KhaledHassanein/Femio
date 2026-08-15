@@ -21,7 +21,7 @@ first-class market, not a locale toggle.
 
 ---
 
-## ▶ After the latest changes (2026-08-12)
+## ▶ After the latest changes (2026-08-16)
 
 ### T1 · The new homepage (R1.3)
 `femioapp.com/en`, then `/ar`.
@@ -103,6 +103,22 @@ screen reads as upbeat, tell me; that is the failure mode E6 exists to prevent.
 **Why this matters more than it looks:** before this, nothing in Femio asked for age, so
 `profiles.age_band` was never written and the resolver rules for A2, F1 and F2 — all of which
 require an age band — could never fire at all.
+
+### T8 · Teen mode (R2.5c) — the last track to become reachable
+`/welcome` on a fresh browser profile, or Settings → **Your Femio experience** → **Teen**.
+
+- [ ] **"I'm a teenager" is the first option** on the life-stage step, and it does not read as a children's product. A2's specs are blunt about this: pink-flowers-only infantilising UI is on her list of things that break trust, and so is being talked down to.
+- [ ] Pick it with age band **13–15** and log two periods. The hero is a **window**, and the line under it says *why* it is a range rather than a date. That sentence is the whole feature — a teen whose prediction misses concludes the app is broken or she is.
+- [ ] The "worth saying out loud" panel is **info-coloured, not red**. If it renders as a danger alert, that is the failure this design exists to prevent: adolescent irregularity is developmentally normal and must never be presented as a finding.
+- [ ] **The word PCOS appears nowhere**, including in the conditions step. It is deliberately not offered to a teen.
+- [ ] Nothing is locked. The reading card should say plainly that the whole library is open to her, and the link should work.
+- [ ] Now try it with **no periods logged**: you should get the gentler A1 screen with **no window at all**, not a window saying "we need more data". She is not cycling; there is nothing to estimate.
+- [ ] Repeat in Arabic. This copy is new and unreviewed, and A2 §B notes that menstruation carries more stigma pressure in Arabic-first markets — tone matters more here than anywhere else in the app.
+
+### T9 · The duplicate log button (found in R2.5c)
+Any of pregnancy, postpartum, or teen.
+
+- [ ] There is now **one** full-width "Log" button per dashboard. Since R2.3 those screens rendered their own and then the dashboard's, stacked. Confirm none of the three modes lost the button entirely — that is the way the fix could be wrong.
 
 ---
 

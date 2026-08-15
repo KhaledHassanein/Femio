@@ -32,10 +32,18 @@ describe("track <-> mode mapping", () => {
     expect(personaIdFromMode("postpartum")).toBe("E1");
   });
 
-  it("falls back to general for a track with no mode yet, rather than throwing", () => {
-    // Track A (adolescent) is still unmapped — R2.5b. Someone whose state holds it
-    // must get a usable app, not a crash or a blank screen.
-    expect(modeFromTrack("A")).toBe("general");
+  it("maps Track A to teen — the last track that had no mode (R2.5c)", () => {
+    // Before this a 13-year-old fell through to `general`: the adult cycle
+    // dashboard, with adult framing, for the one audience whose specs are most
+    // explicit about not being adults.
+    expect(modeFromTrack("A")).toBe("teen");
+    expect(trackFromMode("teen")).toBe("A");
+    expect(personaIdFromMode("teen")).toBe("A2");
+  });
+
+  it("falls back to general for an unknown track, rather than throwing", () => {
+    // Every track letter now has a mode, so the fallback is only for a value the
+    // build has never heard of. It must still be a usable app, not a crash.
     expect(modeFromTrack("nonsense")).toBe("general");
   });
 
@@ -59,6 +67,15 @@ describe("showsCyclePredictions", () => {
     expect(showsCyclePredictions("menopause")).toBe(false);
   });
 
+  it("keeps the generic hero out of teen mode without taking the window away", () => {
+    // Not a restriction: A2 gets a window, from `teen.window`, wide and with its
+    // reason attached. What this excludes is the adult hero and the
+    // average-length card — and A1 gets no window at all, because she is not
+    // cycling yet (A1 §I). The difference is per-persona, which a mode flag
+    // cannot express and the registry can.
+    expect(showsCyclePredictions("teen")).toBe(false);
+  });
+
   it("shows them in general — the generic mode restricts nothing", () => {
     // Product rule 2: personalize, never restrict. General means "stop assuming
     // her stage", not "give her less".
@@ -71,8 +88,9 @@ describe("showsCyclePredictions", () => {
 describe("isPersonaMode", () => {
   it("accepts every declared mode and rejects anything else", () => {
     for (const mode of PERSONA_MODES) expect(isPersonaMode(mode)).toBe(true);
-    // "postpartum" was in this list as a mode that did not exist. It does now.
-    for (const bad of ["", "Cycle", "teen", null, undefined, 3, {}]) {
+    // "postpartum" and then "teen" were both in this list as modes that did not
+    // exist. Both do now, which is the shape this test keeps catching.
+    for (const bad of ["", "Cycle", "adolescent", null, undefined, 3, {}]) {
       expect(isPersonaMode(bad)).toBe(false);
     }
   });

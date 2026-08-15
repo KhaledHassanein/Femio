@@ -277,6 +277,10 @@
       "placeholder": "El código que te enviamos"
     },
     "mode": {
+      "teen": {
+        "name": "Soy adolescente",
+        "desc": "Tu cuerpo, tus reglas y qué es normal — en palabras claras."
+      },
       "postpartum": {
         "name": "He dado a luz hace poco",
         "desc": "La recuperación, tu cuerpo y cómo estás."
@@ -408,7 +412,7 @@
   "dashboard": {
     "title": "Tu panel",
     "loading": "Cargando tu panel",
-    "modeLabel": { "cycle": "Ciclo", "ttc": "Buscando embarazo", "pregnancy": "Embarazo", "postpartum": "Después del parto", "menopause": "Menopausia", "general": "General" },
+    "modeLabel": { "teen": "Adolescente", "cycle": "Ciclo", "ttc": "Buscando embarazo", "pregnancy": "Embarazo", "postpartum": "Después del parto", "menopause": "Menopausia", "general": "General" },
     "cycleDay": "Día {day} de tu ciclo",
     "nextPeriod": "Próxima menstruación",
     "window": "Prevista entre el {start} y el {end}",
@@ -436,6 +440,8 @@
     "title": "Resumen para la consulta",
     "generatedOn": "Generado el {date}",
     "modes": {
+      "teen": "Seguimiento adolescente",
+      "postpartum": "Después del parto",
       "cycle": "Seguimiento del ciclo",
       "ttc": "Buscando embarazo",
       "pregnancy": "Embarazo",
@@ -549,6 +555,34 @@
     "subtitle": "Guías referenciadas y revisadas médicamente sobre afecciones y temas a lo largo de tu vida de salud.",
     "empty": "Pronto habrá nuevos temas — vuelve pronto."
   },
+    "teen": {
+      "window": {
+        "eyebrow": "Tu próxima regla",
+        "range": "Probablemente entre el {start} y el {end}",
+        "why": "Los ciclos cambian mucho los primeros años, por eso esto es un rango y no una fecha.",
+        "passed": "Ese rango ya pasó. Ocurre, y por sí solo no es señal de nada. Anota tu regla cuando llegue y la siguiente estimación mejorará.",
+        "needData": "Anota primero dos reglas",
+        "needDataNote": "Femio necesita dos fechas de inicio antes de poder calcular un rango."
+      },
+      "reassurance": {
+        "heading": "Eres normal",
+        "body": "El primer año o dos, lo habitual es que un ciclo sea corto un mes y largo el siguiente, o que pase un mes sin nada. Se regulariza solo."
+      },
+      "worthMentioning": {
+        "heading": "Merece la pena decirlo",
+        "body": "A algunas personas les ayuda contarle cualquiera de estas cosas a su madre o padre, a otra persona adulta de confianza o a un médico: unos tres meses sin regla, un sangrado que empapa una compresa o un tampón más de una vez cada una o dos horas, o un dolor que te impide ir a clase. Ninguna significa que pase algo malo. Solo merece la pena decirlo."
+      },
+      "privacy": {
+        "heading": "Tus datos, tus reglas",
+        "body": "Nada sobre tu salud llega a un anunciante, y nadie más puede leer lo que anotas. Puedes exportarlo o borrarlo todo tú misma.",
+        "cta": "Abrir tus ajustes de privacidad"
+      },
+      "reading": {
+        "heading": "Lee sobre lo que quieras",
+        "body": "Las guías escritas para tu edad todavía se están preparando. El resto de la biblioteca ya está aquí, y nada en ella está fuera de tu alcance.",
+        "cta": "Explorar la biblioteca"
+      }
+    },
   "postpartum": {
     "checkIn": {
       "eyebrow": "Después del parto",
@@ -596,6 +630,10 @@
     "heading": "Tu experiencia en Femio",
     "desc": "Femio se adapta al momento en el que estás. Puedes cambiarlo cuando cambie tu situación, o desactivarlo y verlo todo.",
     "modes": {
+      "teen": {
+        "label": "Adolescente",
+        "desc": "Tu cuerpo y tu ciclo explicados con claridad, con un rango amplio y honesto."
+      },
       "postpartum": {
         "label": "Después del parto",
         "desc": "La recuperación y cómo estás. Sin predicciones de ciclo hasta que vuelva tu regla."

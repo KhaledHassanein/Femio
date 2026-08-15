@@ -70,6 +70,16 @@ export type ConditionCode = (typeof CONDITION_CODES)[number];
  * things at different points in a life, which is the entire premise of the app.
  */
 export const CONDITIONS_BY_MODE: Record<PersonaMode, readonly ConditionCode[]> = {
+  /**
+   * Track A. Deliberately the shortest list in the file, and the omissions are the
+   * point: **`pcos` is not offered.** A2 §D is explicit that PCOS should generally
+   * not be diagnosed within 2–3 years of menarche because irregular cycles are
+   * developmentally normal that early, and putting the word in front of a
+   * 13-year-old as a checkbox is how an app plants a label a clinician would not.
+   * What is here is what a teen may genuinely have been told she has, and what A3
+   * and A6 key on.
+   */
+  teen: ["heavy_bleeding", "dysmenorrhea", "anemia", "thyroid", "depression_anxiety"],
   cycle: [
     "pcos",
     "endometriosis",

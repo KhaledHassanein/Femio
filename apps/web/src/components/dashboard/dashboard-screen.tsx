@@ -16,6 +16,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Link } from "@/i18n/navigation";
 import { PregnancyExperience } from "@/components/experience/pregnancy-experience";
 import { PostpartumExperience } from "@/components/experience/postpartum-experience";
+import { TeenExperience } from "@/components/experience/teen-experience";
 import { MenopausePanel } from "@/components/menopause/menopause-panel";
 import { HeroCard } from "@/components/ui/hero-card";
 import { AppScreen, ScreenError } from "@/components/patterns/app-screen";
@@ -218,6 +219,20 @@ export function DashboardScreen() {
         />
       ) : null}
 
+      {/* Track A, reachable at last (R2.5c). Before this a 13-year-old fell through
+          to `general` and got the adult cycle dashboard — a confident-looking
+          window and an average-length card, with none of the reassurance A2 §B
+          says is the whole value at this age. The window she does get is wide and
+          explains itself; A1 gets none, because she is not cycling yet. */}
+      {mode === "teen" ? (
+        <TeenExperience
+          config={config}
+          prediction={prediction}
+          lastStart={lastStart}
+          today={today}
+        />
+      ) : null}
+
       {/* Pregnancy gets its own dashboard rather than cycle tools plus an apology.
           A cycle-day counter and a next-period prediction are meaningless to someone
           who is pregnant, and the second one is alarming (P1.13b). */}
@@ -241,10 +256,19 @@ export function DashboardScreen() {
           small button beside the title, in the hardest corner of the screen to
           hit one-handed — and logging is the whole daily interaction. It sits
           *after* the panels so every mode leads with its answer rather than with
-          a button (P1.28.4). */}
-      <Button asChild variant="accent" className="w-full">
-        <Link href="/track">{t("logCta")}</Link>
-      </Button>
+          a button (P1.28.4).
+
+          Suppressed when the engine already placed a `quickLog` module, which it
+          does for pregnancy and postpartum: since R2.3 both screens have rendered
+          their own accent "Log" button and then this one immediately below it, two
+          identical full-width CTAs stacked. Found while adding Track A, which would
+          have inherited it. The test is the served document rather than the mode —
+          a mode list here would go stale the next time a registry row changes. */}
+      {config?.home.modules.some((m) => m.id === "quickLog") ? null : (
+        <Button asChild variant="accent" className="w-full">
+          <Link href="/track">{t("logCta")}</Link>
+        </Button>
+      )}
 
       {/* Secondary detail. In cycle/general mode the hero already carries the cycle
           day (eyebrow) and the window (headline), so repeating them in cards below

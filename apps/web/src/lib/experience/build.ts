@@ -104,18 +104,32 @@ function mergeModules(
 }
 
 /**
- * `docs/09` §8 rule 2. Keep the **last** hero declared — the chain is base-first,
- * so the most specific layer wins — and demote any earlier one to `primary` rather
- * than deleting it. D2 replacing D1's week card with a milestone is exactly this:
- * the week card stays on the screen, it just stops being the answer.
+ * `docs/09` §8 rule 2: one hero, and it leads.
+ *
+ * Keep the **last** hero declared — the chain is base-first, so the most specific
+ * layer wins — and demote any earlier one to `primary` rather than deleting it. D2
+ * replacing D1's week card with a milestone is exactly this: the week card stays on
+ * the screen, it just stops being the answer.
+ *
+ * **The survivor is then moved to the front**, and that half was missing. A layer's
+ * hero merges in *after* the base's modules, so a base whose first module is a
+ * general card put that card above the answer: A2's window sat under A1's
+ * reassurance card, and E6's loss-aware card sat under a check-in. `types.ts` calls
+ * the hero "the single answer she opened the app for", and an answer in second
+ * place is the flatness P1.28.2 and R1.6 each fixed by hand at one life stage. The
+ * relative order of everything else is preserved, so a clinical strip inserted
+ * under the hero stays under it.
  */
 function resolveHero(modules: ModuleSpec[]): ModuleSpec[] {
   const heroes = modules.filter((m) => m.emphasis === "hero");
-  if (heroes.length <= 1) return modules;
+  if (heroes.length === 0) return modules;
   const winner = heroes[heroes.length - 1]!;
-  return modules.map((m) =>
+  const demoted = modules.map((m) =>
     m.emphasis === "hero" && m !== winner ? { ...m, emphasis: "primary" as const } : m,
   );
+  const index = demoted.findIndex((m) => m.id === winner.id);
+  if (index <= 0) return demoted;
+  return [demoted[index]!, ...demoted.slice(0, index), ...demoted.slice(index + 1)];
 }
 
 /**
@@ -124,13 +138,15 @@ function resolveHero(modules: ModuleSpec[]): ModuleSpec[] {
  * Demoted to `primary`, never dropped — nothing is ever removed.
  */
 function demoteHero(record: PersonaRecord): PersonaRecord {
-  const home: PersonaRecord["home"] = {};
-  for (const [phase, modules] of Object.entries(record.home)) {
-    home[phase as Phase] = (modules ?? []).map((m) =>
+  const home: Record<string, readonly ModuleSpec[]> = {};
+  // Every bucket, including `default` — a phase-less track's layer must demote
+  // exactly like a phased one's.
+  for (const [bucket, modules] of Object.entries(record.home)) {
+    home[bucket] = (modules ?? []).map((m) =>
       m.emphasis === "hero" ? { ...m, emphasis: "primary" as const } : m,
     );
   }
-  return { ...record, home };
+  return { ...record, home: home as PersonaRecord["home"] };
 }
 
 /** Union by id — overlapping red-flag sets merge rather than double-count. */
@@ -228,7 +244,16 @@ export function buildExperienceConfig(input: BuildInput): ExperienceConfig {
   let tone: Tone | null = null;
 
   for (const record of layers) {
-    const contribution = phase ? (record.home[phase] ?? []) : [];
+    /**
+     * The phase bucket if there is one, otherwise the record's `default`.
+     *
+     * Track D is unchanged: it always has a phase and always has that phase in its
+     * record, so `default` never applies to it. Track A has no phase at all, and
+     * before this it contributed nothing — the engine would have produced a
+     * correctly-resolved A2 with an empty screen, which is the same failure Track E
+     * hit from the other direction.
+     */
+    const contribution = (phase ? record.home[phase] : undefined) ?? record.home.default ?? [];
     modules = mergeModules(modules, contribution);
     tools = unique([...tools, ...record.tools]);
     alerts = mergeAlerts(alerts, record.alerts);

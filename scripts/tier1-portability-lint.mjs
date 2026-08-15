@@ -32,6 +32,7 @@ const PORTABLE = [
   "lib/experience/build.ts",
   "lib/experience/layers.ts",
   "lib/experience/registry/index.ts",
+  "lib/experience/registry/track-a.ts",
   "lib/experience/registry/track-d.ts",
   "lib/experience/registry/track-e.ts",
   "lib/persona/resolver.ts",

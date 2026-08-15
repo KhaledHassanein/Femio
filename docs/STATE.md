@@ -368,8 +368,38 @@ loss, E6 is the loss.
 Function, not equivalent ones. `tier1-portability-lint` (16 modules) and the golden fixtures
 (42 cases, Track E included) are what keep that true.
 
+## Every track has a mode now (R2.5c, 2026-08-16)
+
+Track A was the last one the audit named. `registry/track-a.ts` (A1 + A2) and
+`teen-experience.tsx` close it: before this a 13-year-old resolved to `general` and got the
+adult cycle dashboard.
+
+**A1 and A2 differ on one thing, and it is the clinical one.** A1 contributes no window,
+because she has not started menstruating — predicting a first period from no data would be the
+invented-window defect ADR-041, ADR-042 and R2.5 each fixed at a different life stage, aimed at
+a child anxious about exactly that. A2's window is wide and carries its reason *inside* it.
+
+Three things the work exposed, all pre-existing:
+
+- **A track with no phase contributed no modules.** `Phase` is Track D's vocabulary
+  (gestational age computes it), so the engine would have resolved A2 correctly and rendered an
+  empty screen. `PersonaRecord.home.default` is the fix; Track D is untouched by it.
+- **B1 outscored A2 for a teen with steady cycles** — the adult general-tracker persona,
+  winning for a 13-year-old. That is the "17+ gap" A2 §C names as the category's recurring
+  failure, reproduced in Femio's own resolver. B1/B5/B6 now require a non-adolescent age band;
+  an *unknown* band still passes, or B1 would stop resolving for nearly everyone.
+- **Onboarding wrote the resolver's track, not hers.** R2.6 fixed that in `switchMode` and
+  never came back for signup, so "I recently gave birth" with no pregnancy row was filed as
+  `general` from the first screen.
+
+Two smaller fixes rode along: the **hero now leads** (a layer's hero could render below the
+base's first card — A2's window under a reassurance card, E6's loss-aware card under a
+check-in), and there is **one log button per dashboard** (pregnancy and postpartum had rendered
+two identical ones since R2.3).
+
 ## First action for the next session
 
-Take the top open item under ▶ NOW. Right now that is **R2.5c** (Track A, the last track with
-no mode), then R3 depth: **P2.2.3** appointments, **P2.1** TTC toolkit, **P2.4** menopause —
-none of which need content. Postpartum content drafting (P2.3c) is unblocked as of 2026-08-16.
+Take the top open item under ▶ NOW — **R3 depth**: `P2.2.3` appointments (the `appointments`
+table has been unused since v1), `P2.1` TTC toolkit (`fertility_logs`, same), `P2.4` menopause
+depth. None of them need content. Postpartum content drafting is unblocked as of 2026-08-16
+(B2 approved); teen content is now tracked as **P2.13**.

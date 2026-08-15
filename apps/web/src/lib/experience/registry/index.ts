@@ -1,4 +1,5 @@
 import type { PersonaRecord } from "../types.ts";
+import { TRACK_A_RECORDS } from "./track-a.ts";
 import { TRACK_D_RECORDS } from "./track-d.ts";
 import { TRACK_E_RECORDS } from "./track-e.ts";
 
@@ -11,6 +12,7 @@ import { TRACK_E_RECORDS } from "./track-e.ts";
  * personas "slot in" rather than being rebuilt — this is where they slot.
  */
 export const PERSONA_RECORDS: readonly PersonaRecord[] = [
+  ...TRACK_A_RECORDS,
   ...TRACK_D_RECORDS,
   ...TRACK_E_RECORDS,
 ];
@@ -19,4 +21,4 @@ export function findRecord(id: string): PersonaRecord | undefined {
   return PERSONA_RECORDS.find((r) => r.id === id);
 }
 
-export { TRACK_D_RECORDS, TRACK_E_RECORDS };
+export { TRACK_A_RECORDS, TRACK_D_RECORDS, TRACK_E_RECORDS };

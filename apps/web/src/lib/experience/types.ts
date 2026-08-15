@@ -40,6 +40,13 @@ export type Phase = "preconception" | "t1" | "t2" | "t3" | "postpartum";
  * what `mode === "pregnancy"` cannot do.
  */
 export type ModuleId =
+  // ---- Track A — adolescent (R2.5c)
+  | "teen.reassurance"
+  | "teen.window"
+  | "teen.worthMentioning"
+  | "teen.body"
+  | "teen.readiness"
+  | "teen.privacy"
   // ---- D1 spine
   | "pregnancy.week"
   | "pregnancy.milestone"
@@ -143,8 +150,18 @@ export type PersonaRecord = {
    * anxiety-aware tone and the loss-suppression net stay armed on top of it.
    */
   emotionalLayer?: boolean;
-  /** Modules contributed per phase, merged onto the base by id. */
-  home: Partial<Record<Phase, readonly ModuleSpec[]>>;
+  /**
+   * Modules contributed per phase, merged onto the base by id.
+   *
+   * `default` is what a track with **no phase concept** contributes — Track A has
+   * no gestational age and no trimester, and filing its modules under a Track-D
+   * phase name to make the lookup work would be a lie in a data structure. It is
+   * used only when the phase is null or the record has nothing for that phase, so
+   * Track D behaves exactly as before.
+   */
+  home: Partial<Record<Phase, readonly ModuleSpec[]>> & {
+    default?: readonly ModuleSpec[];
+  };
   tools: readonly LogKind[];
   content: ContentSkin;
   alerts: readonly AlertSpec[];

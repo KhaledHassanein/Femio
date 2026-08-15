@@ -11,6 +11,11 @@
  * stays in `state.ts`, because it is application concern rather than vocabulary.
  */
 export const PERSONA_MODES = [
+  // Track A. Added 2026-08-16 (R2.5c) — the last track with no mode. The resolver
+  // could answer A2 from ADR-057 onwards and nothing could render it, so a
+  // 13-year-old got `general`: an adult cycle screen, with adult framing, for the
+  // one audience whose specs are most explicit about not being adults.
+  "teen",
   "cycle",
   "ttc",
   "pregnancy",

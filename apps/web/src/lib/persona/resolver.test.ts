@@ -51,7 +51,9 @@ describe("resolvePersona — the invariants", () => {
     // One weak signal and nothing else: a real persona would be a guess.
     const r = resolvePersona(signals({ ageBand: "13_15" }));
     expect(r.personaId).toBe("Z1");
-    expect(r.runnerUp?.personaId).toBe("A2");
+    // A1, not A2, since R2.5c: she is thirteen and has logged no period, and A1 is
+    // the persona for before the first one. It is still only an offer.
+    expect(r.runnerUp?.personaId).toBe("A1");
     // P1.27.5 shows this as "Want me to tailor Femio for X?" — never applies it.
     expect(r.runnerUp!.confidence).toBeLessThan(CONFIDENCE_THRESHOLD);
   });

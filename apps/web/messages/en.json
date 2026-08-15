@@ -277,6 +277,10 @@
       "placeholder": "The code you were sent"
     },
     "mode": {
+      "teen": {
+        "name": "I’m a teenager",
+        "desc": "Your body, your periods, and what’s normal — in plain words."
+      },
       "postpartum": {
         "name": "I recently gave birth",
         "desc": "Recovery, your body, and how you are doing."
@@ -408,7 +412,7 @@
   "dashboard": {
     "title": "Your dashboard",
     "loading": "Loading your dashboard",
-    "modeLabel": { "cycle": "Cycle", "ttc": "Trying to conceive", "pregnancy": "Pregnancy", "postpartum": "After birth", "menopause": "Menopause", "general": "General" },
+    "modeLabel": { "teen": "Teen", "cycle": "Cycle", "ttc": "Trying to conceive", "pregnancy": "Pregnancy", "postpartum": "After birth", "menopause": "Menopause", "general": "General" },
     "cycleDay": "Day {day} of your cycle",
     "nextPeriod": "Next period",
     "window": "Expected between {start} and {end}",
@@ -436,6 +440,8 @@
     "title": "Doctor-visit summary",
     "generatedOn": "Generated {date}",
     "modes": {
+      "teen": "Teen tracking",
+      "postpartum": "After birth",
       "cycle": "Cycle tracking",
       "ttc": "Trying to conceive",
       "pregnancy": "Pregnancy",
@@ -549,6 +555,34 @@
     "subtitle": "Referenced guides to conditions and topics across your health life, each reviewed by a clinician.",
     "empty": "New topics are on the way — check back soon."
   },
+    "teen": {
+      "window": {
+        "eyebrow": "Your next period",
+        "range": "Probably between {start} and {end}",
+        "why": "Cycles jump around a lot in the first few years, so this is a range rather than a date.",
+        "passed": "That window has passed. It happens, and on its own it isn’t a sign of anything. Log your period when it starts and the next estimate gets better.",
+        "needData": "Log a couple of periods first",
+        "needDataNote": "Femio needs two start dates before it can work out a range for you."
+      },
+      "reassurance": {
+        "heading": "You’re normal",
+        "body": "In the first year or two, a cycle that is short one month and long the next — or a month with none at all — is what usually happens. It settles on its own."
+      },
+      "worthMentioning": {
+        "heading": "Worth saying out loud",
+        "body": "Some people find it helps to mention any of these to a parent, another adult they trust, or a doctor: about three months with no period, bleeding that soaks a pad or tampon more often than every one to two hours, or pain that keeps you off school. None of them means something is wrong. They are just worth saying out loud."
+      },
+      "privacy": {
+        "heading": "Your data, your rules",
+        "body": "Nothing about your health ever reaches an advertiser, and nobody else can read what you log. You can export or delete all of it yourself.",
+        "cta": "Open your privacy settings"
+      },
+      "reading": {
+        "heading": "Read about any of it",
+        "body": "The guides written for your age are still being made. Everything else in the library is here already, and none of it is off-limits to you.",
+        "cta": "Browse the library"
+      }
+    },
   "postpartum": {
     "checkIn": {
       "eyebrow": "After birth",
@@ -596,6 +630,10 @@
     "heading": "Your Femio experience",
     "desc": "Femio adapts to where you are in life. You can change this whenever it changes — or turn it off and see everything.",
     "modes": {
+      "teen": {
+        "label": "Teen",
+        "desc": "Your body and your cycle explained plainly, with a wide, honest window."
+      },
       "postpartum": {
         "label": "After birth",
         "desc": "Recovery and how you are doing. No cycle predictions until your period returns."

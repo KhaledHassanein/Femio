@@ -2,6 +2,9 @@
 All notable changes to Femio V2.
 
 ## [Unreleased]
+### Added
+- **Femio has a mode for teenagers now** (R2.5c): "I'm a teenager" is the first choice at signup, and it changes the app rather than decorating it. The next period is shown as a **wide window with the reason attached** — cycles jump around for the first year or two, and an app that says "Tuesday" and is wrong teaches a 13-year-old that either it is broken or she is. Before her first period there is **no prediction at all**, because there is nothing honest to predict. Anything worth mentioning to a parent or a doctor is said calmly, in an ordinary panel, never in a red alert — irregular cycles at that age are what usually happens, not a finding. And nothing is hidden: the whole library is one tap away and the screen says so. Teen mode governs ads, data and social exposure, never what she is allowed to read. Until now a thirteen-year-old got the adult cycle screen.
+
 ### Changed
 - **Every guide now says who wrote it and who checked it** (P1.9.8): all 30 health pages carry a named clinician with credentials — on the page, and in the structured data search engines read — linked to a bio you can open. The homepage says so too, as the first of six things you can verify. It did not say so before, and that was deliberate: the line was written, then removed, because at the time no page actually carried a byline and a promise you cannot check on the page itself is worse than no promise. The one page that gets an author and **no** medical reviewer is "Meet Femio" — it explains the product rather than your health, and a review stamp there would spend the credential where it means nothing.
 
