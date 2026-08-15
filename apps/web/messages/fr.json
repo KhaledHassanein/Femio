@@ -83,7 +83,7 @@
     },
     "trust": {
       "eyebrow": "Pourquoi lui faire confiance",
-      "heading": "Cinq choses vérifiables.",
+      "heading": "Six choses vérifiables.",
       "items": {
         "sources": {
           "claim": "Chaque affirmation est sourcée et datée",
@@ -104,6 +104,10 @@
         "languages": {
           "claim": "Anglais, arabe, français et espagnol",
           "detail": "— l'arabe de droite à gauche dès la première ligne de code, pas une couche ajoutée après."
+        },
+        "reviewed": {
+          "claim": "Chaque guide est relu par une clinicienne ou un clinicien",
+          "detail": "— nommé, avec ses titres, et lié à sa biographie."
         }
       }
     },

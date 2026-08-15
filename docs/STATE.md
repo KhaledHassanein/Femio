@@ -106,9 +106,13 @@ functions.
 **R2.4 is closed: the screens render a served document.** See below for the three defects that
 only became visible once the server was the authority.
 
-**One public reviewer bio:** `Dr. Khaled M. · MBBCh, CPC`, no affiliation (deliberate — see
-`docs/content/people/khaled-m.json`). Next: wire `authors` + `medicalReviewerProfile` on the 30
-imported drafts (P1.9.8), then restore the homepage clinician trust line.
+**Bylines are live** (P1.9.8, 2026-08-16). One public reviewer bio — `Dr. Khaled M. · MBBCh,
+CPC`, no affiliation, deliberately (`docs/content/people/khaled-m.json`) — and all 30 imported
+documents now name it as author and medical reviewer, on the page and in the `Article` JSON-LD.
+`apps/cms/scripts/wire-bylines.mjs` did it: idempotent, never overwrites an existing byline,
+never publishes. **`meet-femio` deliberately has an author and no reviewer** — an About page is
+not health content, and spending the credential there dilutes it where it counts. The homepage
+clinician trust line is back, as the first of six verifiable claims.
 
 ## The architecture rule that governs new code (ADR-060/061)
 
@@ -237,8 +241,10 @@ text*, because the P1.19 seed had put the whole English catalog into `ui_strings
 locale never takes the DB overlay, because the portal was always a *translation* tool and
 renders English as its read-only master column. Translations overlay exactly as before.
 
-**Do not restore** the "reviewed by a clinician, named, with credentials" trust line until
-P1.9.7 and P1.9.8 land. It is not true yet.
+**The clinician trust line is restored** (2026-08-16). It was removed because it was not true —
+P1.9.7 and P1.9.8 have both landed, so it is, and it now leads the trust section. The rule it
+came from stands: a claim about review goes on the page *after* the review is verifiable from
+the page, never before.
 
 **Verified on production 2026-08-11** — `/en` and `/ar` both serve the new page, the Arabic
 crisis copy renders, and `Scaffold online` is gone. Still owed: a human looking at it at 390px

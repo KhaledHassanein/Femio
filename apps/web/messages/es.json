@@ -83,7 +83,7 @@
     },
     "trust": {
       "eyebrow": "Por qué confiar",
-      "heading": "Cinco cosas que puedes comprobar.",
+      "heading": "Seis cosas que puedes comprobar.",
       "items": {
         "sources": {
           "claim": "Cada afirmación está citada y fechada",
@@ -104,6 +104,10 @@
         "languages": {
           "claim": "Inglés, árabe, francés y español",
           "detail": "— el árabe de derecha a izquierda desde la primera línea de código, no una capa añadida después."
+        },
+        "reviewed": {
+          "claim": "Cada guía la revisa personal clínico",
+          "detail": "— con nombre, credenciales y enlace a su biografía."
         }
       }
     },
