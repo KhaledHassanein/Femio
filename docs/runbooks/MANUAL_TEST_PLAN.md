@@ -17,7 +17,7 @@ for every session.
 
 **Unseen as of 2026-08-16: T8, T10–T19.** Twelve screens shipped that day and nobody has looked
 at any of them. **T16 is the one I would want read first** — it is the only screen in Femio that
-acts on an answer. **T15 needs migration `0008` applied first** (owner task 4). **T11 and T12 want you as a clinician rather than as an owner** —
+acts on an answer. Migration `0008` is applied, so T15 is testable. **T11 and T12 want you as a clinician rather than as an owner** —
 charting must not read as contraception, and the MRS must not read as a grade. Those two are
 the ones I would not ship to an outside tester unread.
 
@@ -167,7 +167,7 @@ Settings → **Medicines and supplements**.
 - [ ] The note at the top should make both absences explicit rather than leaving you to notice a missing field.
 - [ ] Arabic: medicine names are often written in English or Franco-Arabic. Check the field accepts either without complaint.
 
-### T15 · Contraction timer and weight (P2.2.3) — needs migration 0008 first
+### T15 · Contraction timer and weight (P2.2.3)
 Pregnancy mode, third trimester (set a due date within ~4 weeks).
 
 - [ ] **Contractions.** The "call your maternity unit" panel is **above** the timer and present before, during and after. If it ever moves below, or appears only after some number is reached, that is the bug this design exists to prevent.

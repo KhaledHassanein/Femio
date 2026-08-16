@@ -515,8 +515,7 @@ content rather than code (**P2.13b**).
 
 **P2.2.3 is nearly done** (2026-08-16): the contraction timer and weight chart shipped, retiring three
 `UNIMPLEMENTED` module ids. Neither reads what it measures — no 5-1-1 verdict on the timer, no target
-band on the chart — and the maternity-contact route sits *above* the timer in every state. The timer
-needs **migration 0008** applied (owner task 4); until then that one card errors and nothing else does.
+band on the chart — and the maternity-contact route sits *above* the timer in every state. Migration **0008 was applied by the owner on 2026-08-16**, so the timer is live.
 `vitals` was the fifth table unused since v1. Only checklists remain.
 
 ## The first screener that acts on an answer (P2.7, P1.26.3, 2026-08-16)
