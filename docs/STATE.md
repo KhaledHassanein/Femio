@@ -9,9 +9,10 @@ per session.**
 > Read `CLAUDE.md`, then this file, then `docs/07_MASTER_TODO.md` → **▶ NOW**. Skim
 > `docs/23`/`24`/`25` only if the task touches strategy, architecture or design.
 >
-> **Build, do not narrate.** Work in the loop below. Do not report progress between
-> checkpoints, do not present options, do not ask me to confirm a plan. Speak only when a
-> blocker in `docs/runbooks/BLOCKERS.md` actually stops you, and then in one short paragraph.
+> **Build. Do not report.** I do not want to read anything unless you need my input. No
+> summaries of what you did, no options, no plan confirmations. Put what needs my eyes in
+> `MANUAL_TEST_PLAN.md`, what needs my decision in `BLOCKERS.md`, and everything else in the
+> commit message. Work several items per pass.
 >
 > Anything that needs my input goes into `docs/runbooks/BLOCKERS.md`; anything needing my eyes
 > goes into `docs/runbooks/MANUAL_TEST_PLAN.md`. Add it there silently and carry on with the
@@ -81,9 +82,20 @@ of the work — clean it up when the item closes.
 
 ## How to work here
 
-**Build. Do not discuss.** The owner's instruction, verbatim: *"only talk if something needed
-manual or info or decision but be short and to the point."* No progress narration, no options
-essays. Do the work, run the gate, commit, report in a few lines.
+**Build. Do not report.** The owner's instruction, sharpened on 2026-08-16: *"I do not want to
+read anything unless you need my input."* So — **no end-of-turn summaries, no "here is what I
+did", no explaining a decision he did not ask about.** The commit message carries the
+reasoning; this file carries the state; `MANUAL_TEST_PLAN.md` carries what needs his eyes.
+Speak only to ask a question you cannot answer yourself, and then in a few lines.
+
+Everything else that used to be said in chat now has a home:
+- needs his **decision or a credential** → `docs/runbooks/BLOCKERS.md`
+- needs his **eyes** → `docs/runbooks/MANUAL_TEST_PLAN.md`
+- needs a **one-off command or a key** → `docs/runbooks/OWNER_MANUAL_TASKS.md`
+- everything else → the commit message and this file.
+
+**Work in large steps.** Take several queue items per pass, not one. Do not stop between them
+to check in.
 
 **Do not overcomplicate a simple task.** Match the size of the solution to the size of the
 problem. A previous session built scaffolding around a one-line problem and was rightly pulled
