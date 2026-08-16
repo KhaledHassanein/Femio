@@ -97,6 +97,21 @@ export const UNIMPLEMENTED: readonly ModuleId[] = [
    */
   "support.feeding",
   "support.breastSymptoms",
+  /**
+   * E3, E4 and E7's surfaces (R2.5f). The records exist so that a woman who told
+   * the postpartum triage about her mood, her gestational diabetes or her thyroid
+   * gets the right *tone, alerts, EMR view and reading list* today — those parts
+   * of the document need no component. What is listed here is the panel each
+   * persona will eventually add on top of E1's spine, and E1's spine still renders
+   * in full underneath, so the degradation is a missing addition rather than a
+   * blank screen. `followup.schedule` in particular is a real feature: the 4–12
+   * week OGTT and the 72-hour and 7–10-day blood-pressure checks are the follow-up
+   * E4 §A says routine care drops, and a reminder surface for them is P2.4b.
+   */
+  "support.moodSupport",
+  "support.intrusiveThoughts",
+  "followup.schedule",
+  "thyroid.watch",
   "pregnancy.milestone",
   "pregnancy.birthPrep",
   "pregnancy.screeningPrep",

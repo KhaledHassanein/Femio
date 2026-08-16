@@ -1,220 +1,171 @@
 import { describe, expect, it } from "vitest";
-import { signalsFromRows, type SignalRows } from "../persona/signals-from-rows";
-import { resolveForStatedTrack, resolvePersona } from "../persona/resolver";
+import { resolvePersona } from "@/lib/persona/resolver";
+import { EMPTY_SIGNALS, type PersonaSignals } from "@/lib/persona/signals";
 import { buildExperienceConfig, registryOf } from "./build";
-import { emotionalLayersFor } from "./layers";
-import { phaseForTrack } from "./phase";
+import { TRACK_E_RECORDS } from "./registry/track-e";
 import { PERSONA_RECORDS } from "./registry";
 
 /**
- * Track E, end to end (R2.4).
+ * Track E reachability (R2.5f).
  *
- * R2.5 shipped postpartum and this suite is the check nobody ran on it: **could the
- * pipeline that actually feeds the screen ever produce a Track E document?** It
- * could not. Two independent faults, each invisible on its own because the browser
- * was composing E1 by hand from the stored persona id and never asking:
- *
- *   1. `weeksSincePregnancyEnd` was written by nothing, so `E1.requires` could only
- *      fail and the resolver answered Z1.
- *   2. The phase came from the pregnancy row, so a woman who joined Femio *after*
- *      giving birth had no phase at all — and every E1 module is filed under
- *      `postpartum`.
- *
- * Either one alone turns her dashboard into the generic experience, which is the
- * next-period prediction R2.5 exists to stop showing her. So the assertions here are
- * deliberately about the whole chain rather than any one function.
+ * The lesson R2.4 charged the most for: **R2.5 shipped a track that could not
+ * actually resolve.** `weeksSincePregnancyEnd` was written by nothing, so E1's gate
+ * could only fail, and the screen only looked right because the browser composed
+ * the persona by hand and never asked the resolver. A registry record with no path
+ * through the resolver is a file, not a feature — so every record in this track is
+ * walked here from a signal set a real account could produce.
  */
 
-const REGISTRY = registryOf(PERSONA_RECORDS);
-const TODAY = "2026-08-15";
-
-const rows = (over: Partial<SignalRows> = {}): SignalRows => ({
+const postpartum = (over: Partial<PersonaSignals> = {}): PersonaSignals => ({
+  ...EMPTY_SIGNALS,
   ageBand: "25_34",
-  periodStarts: [],
-  conditions: [],
-  pregnancy: null,
-  symptomTypes: [],
-  ttcIntent: false,
-  ttcMonths: null,
-  statedWeeksSinceBirth: null,
-  todayISO: TODAY,
+  cycleRegularity: "absent",
+  averageCycleLength: 29,
+  pregnancyStatus: "ended",
+  weeksSincePregnancyEnd: 8,
+  symptomCounts: { fatigue: 3 },
   ...over,
 });
 
-const ENDED_FIVE_WEEKS_AGO = {
-  status: "completed",
-  createdAt: "2025-11-02T09:00:00Z",
-  updatedAt: "2026-07-11T08:30:00Z",
-};
+describe("every Track E persona is reachable", () => {
+  const cases: Record<string, PersonaSignals> = {
+    E1: postpartum(),
+    E2: postpartum({ pregnancyOutcome: "completed" }),
+    E3: postpartum({ conditions: ["depression_anxiety"] }),
+    E4: postpartum({ conditions: ["gestational_diabetes"] }),
+    E6: postpartum({ pregnancyOutcome: "loss", priorLoss: true }),
+    E7: postpartum({ conditions: ["thyroid"] }),
+  };
 
-function documentFor(input: SignalRows, statedTrack: "E" | null) {
-  const signals = signalsFromRows(input);
-  const resolution = resolveForStatedTrack(signals, statedTrack);
-  return buildExperienceConfig({
-    resolution,
-    phase: phaseForTrack(statedTrack, {
-      edd: null,
-      status: input.pregnancy?.status ?? null,
-      todayISO: TODAY,
-    }),
-    registry: REGISTRY,
-    resolvedAt: "2026-08-15T00:00:00.000Z",
-    emotionalLayers: emotionalLayersFor(resolution.track, resolution.emotionalContext),
-  });
-}
-
-describe("Track E reachability", () => {
-  it("resolves Track E from a pregnancy that ended five weeks ago", () => {
-    const signals = signalsFromRows(rows({ pregnancy: ENDED_FIVE_WEEKS_AGO }));
-    expect(signals.weeksSincePregnancyEnd).toBe(5);
-    // `ENDED_FIVE_WEEKS_AGO` is a stated live birth, so the specific persona wins:
-    // E2 extends E1 and keeps everything it contributed. The outcome split is
-    // exercised properly in "Track E routes on how the pregnancy ended", below.
-    expect(resolvePersona(signals).track).toBe("E");
-    expect(resolvePersona(signals).personaId).toBe("E2");
-    // Unstated, she gets recovery and nothing assumed.
-    const unstated = signalsFromRows(rows({ pregnancy: { ...ENDED_FIVE_WEEKS_AGO, status: "ended" } }));
-    expect(resolvePersona(unstated).personaId).toBe("E1");
+  it("has a case for every record in the registry", () => {
+    expect(TRACK_E_RECORDS.map((r) => r.id).sort()).toEqual(Object.keys(cases).sort());
   });
 
-  /** The regression, stated as the gate that used to fail. */
-  it("cannot resolve E1 when the weeks-since signal is missing", () => {
-    const signals = signalsFromRows(rows({ pregnancy: ENDED_FIVE_WEEKS_AGO }));
-    expect(resolvePersona({ ...signals, weeksSincePregnancyEnd: null }).personaId).toBe("Z1");
+  for (const [id, signals] of Object.entries(cases)) {
+    it(`resolves ${id} from a record an account could really hold`, () => {
+      const resolution = resolvePersona(signals);
+      expect(resolution.track).toBe("E");
+      expect(resolution.personaId).toBe(id);
+    });
+  }
+});
+
+describe("what wins when several apply", () => {
+  /**
+   * The fourth outing of the tie trap. Before E1 gained `conditions.length === 0`,
+   * a woman who told the triage about her thyroid scored E1 and E7 identically at
+   * 1.0, E1 won on rule order, and the condition she had reported changed nothing.
+   */
+  it("lets a reported condition beat the general postpartum persona", () => {
+    expect(resolvePersona(postpartum({ conditions: ["thyroid"] })).personaId).toBe("E7");
+    expect(resolvePersona(postpartum({ conditions: ["depression_anxiety"] })).personaId).toBe("E3");
   });
 
-  it("gives her a postpartum document even with no pregnancy row — she joined after the birth", () => {
-    const config = documentFor(rows(), "E");
-    expect(config.track).toBe("E");
-    expect(config.personaId).toBe("E1");
-    expect(config.phase).toBe("postpartum");
-    expect(config.home.modules.map((m) => m.id)).toContain("pregnancy.warningSigns");
-    expect(config.home.modules.length).toBeGreaterThan(0);
+  it("still answers E1 when she reported nothing", () => {
+    expect(resolvePersona(postpartum()).personaId).toBe("E1");
   });
 
   /**
-   * Without `resolveForStatedTrack` this is what the Edge Function would have
-   * served her: a generic document, from which the dashboard would have drawn a
-   * next-period prediction over cycles that have not returned.
+   * `docs/09` §8 rule 2 — the most acute clinical emphasis wins the hero. The E4
+   * schedule is time-critical (the 72-hour and 7–10-day blood-pressure checks, the
+   * 4–12 week glucose test); postpartum thyroiditis is a watch across a year.
    */
-  it("would have served the generic document without her stated stage", () => {
-    const config = documentFor(rows(), null);
-    expect(config.personaId).toBe("Z1");
-    expect(config.home.modules).toHaveLength(0);
+  it("puts the time-critical follow-up ahead of the thyroid watch", () => {
+    const both = postpartum({ conditions: ["pre_eclampsia", "thyroid"] });
+    expect(resolvePersona(both).personaId).toBe("E4");
   });
 
-  it("never celebrates by default, whichever way she arrived", () => {
-    for (const input of [rows(), rows({ pregnancy: ENDED_FIVE_WEEKS_AGO })]) {
-      expect(documentFor(input, "E").tone.celebrationByDefault).toBe(false);
+  it("puts mood ahead of both", () => {
+    const all = postpartum({ conditions: ["depression_anxiety", "gestational_diabetes", "thyroid"] });
+    expect(resolvePersona(all).personaId).toBe("E3");
+  });
+
+  /**
+   * The one that must never bend. A recorded loss routes to E6 whatever else is
+   * true — a woman who lost a pregnancy and also reported gestational diabetes must
+   * not be handed a follow-up schedule as her experience.
+   */
+  it("routes a loss to E6 no matter what else she reported", () => {
+    for (const condition of ["depression_anxiety", "gestational_diabetes", "thyroid"]) {
+      const signals = postpartum({
+        pregnancyOutcome: "loss",
+        priorLoss: true,
+        conditions: [condition],
+      });
+      expect(resolvePersona(signals).personaId).toBe("E6");
     }
   });
 
+  /** A year, not six months: E3 §A is explicit that mood can begin late. */
+  it("keeps the mood and condition layers open for a full year", () => {
+    const late = postpartum({ weeksSincePregnancyEnd: 40, conditions: ["depression_anxiety"] });
+    expect(resolvePersona(late).personaId).toBe("E3");
+  });
+});
+
+describe("the documents the new records compose", () => {
+  const build = (personaId: string) =>
+    buildExperienceConfig({
+      resolution: {
+        personaId,
+        track: "E",
+        modifiers: [],
+        emotionalContext: [],
+        confidence: 1,
+        runnerUp: null,
+      },
+      phase: "postpartum",
+      registry: registryOf(PERSONA_RECORDS),
+      resolvedAt: "2026-08-16T00:00:00.000Z",
+    });
+
+  for (const id of ["E3", "E4", "E7"]) {
+    it(`${id} keeps E1's spine rather than replacing it`, () => {
+      const config = build(id);
+      const ids = config.home.modules.map((m) => m.id);
+      // E1 §A's own words, inherited through `extends`: the recovery experience
+      // remains intact and foregrounded, and the layer *adds*.
+      expect(ids).toContain("pregnancy.warningSigns");
+      expect(ids).toContain("quickLog");
+      expect(ids).toContain("library");
+    });
+
+    it(`${id} raises exactly one hero`, () => {
+      const heroes = build(id).home.modules.filter((m) => m.emphasis === "hero");
+      expect(heroes).toHaveLength(1);
+    });
+
+    it(`${id} never celebrates by default`, () => {
+      // The mode alone does not say whether she brought a baby home.
+      expect(build(id).tone.celebrationByDefault).toBe(false);
+      expect(build(id).tone.countdown).toBe(false);
+    });
+  }
+
+  it("gives E3 a support hero rather than a questionnaire", () => {
+    const hero = build("E3").home.modules.find((m) => m.emphasis === "hero");
+    // P2.7a: a ten-item screener in the first position makes opening the app feel
+    // like being assessed, and this is the persona least able to afford that.
+    expect(hero?.id).toBe("support.moodSupport");
+  });
+
+  it("surfaces the logs each layer actually needs", () => {
+    expect(build("E4").tools).toContain("glucose");
+    expect(build("E7").tools).toContain("labs");
+    // And never at the cost of what E1 offered — nothing is ever removed.
+    expect(build("E7").tools).toContain("period");
+  });
+
   /**
-   * The mapping that had been copied into four files and disagreed with itself.
-   * D2 is a pregnancy carried *after* a loss; E6 is the loss. Handing a woman in
-   * Track E the D2 layer is the wrong stage's tone, not a near-miss.
+   * The contract cannot express restriction, and these records must not be the
+   * first to try. `tools` means *surfaced*, never *permitted*.
    */
-  it("carries a loss into E6, never D2", () => {
-    expect(emotionalLayersFor("E", ["prior_loss"])).toEqual(["E6"]);
-    expect(emotionalLayersFor("D", ["prior_loss"])).toEqual(["D2"]);
-    expect(emotionalLayersFor("B", ["prior_loss"])).toEqual([]);
-    // A context with no layer for its track contributes nothing rather than
-    // resolving to something invented — `waiting` belongs to Track C, which has
-    // no emotional layer yet.
-    expect(emotionalLayersFor("C", ["waiting"])).toEqual([]);
-  });
-
-  it("speaks gently after a loss, and the clinical layer cannot switch it back", () => {
-    const config = documentFor(
-      rows({
-        pregnancy: { ...ENDED_FIVE_WEEKS_AGO, status: "loss" },
-        conditions: [{ code: "prior_loss", recordedAt: "2026-07-11T08:30:00Z" }],
-      }),
-      "E",
-    );
-    expect(config.personaId).toBe("E6");
-    expect(config.tone.register).toBe("gentle");
-    expect(config.tone.countdown).toBe(false);
-  });
-});
-
-describe("resolveForStatedTrack", () => {
-  it("lets the resolver refine within the track she chose", () => {
-    // Pregnant with a thyroid condition: D7, not the base D1 her statement alone
-    // would have given her.
-    const signals = signalsFromRows(
-      rows({
-        pregnancy: { status: "active", createdAt: "2026-03-01T00:00:00Z", updatedAt: "2026-03-01T00:00:00Z" },
-        conditions: [{ code: "thyroid", recordedAt: "2026-03-02T00:00:00Z" }],
-      }),
-    );
-    expect(resolveForStatedTrack(signals, "D").personaId).toBe("D7");
-  });
-
-  it("keeps her modifiers when it falls back to the track's base persona", () => {
-    const signals = signalsFromRows(
-      rows({ conditions: [{ code: "pcos", recordedAt: "2026-01-01T00:00:00Z" }] }),
-    );
-    const resolved = resolveForStatedTrack(signals, "E");
-    expect(resolved.personaId).toBe("E1");
-    // Nothing is ever removed: the layer she has stays on the document.
-    expect(resolved.modifiers).toContain("pcos");
-  });
-
-  it("makes no offer from a track she has just said she is not in", () => {
-    expect(resolveForStatedTrack(signalsFromRows(rows()), "E").runnerUp).toBeNull();
-  });
-});
-
-/**
- * The outcome decides the persona, not just the message (2026-08-16).
- *
- * E6 §A calls itself "the destination state of the universal loss handler", and E2
- * §E scopes feeding content to a live birth. Between them these two rules decide
- * whether a woman who has just lost a pregnancy is shown breastfeeding content,
- * which is the worst thing this track could get wrong.
- */
-describe("Track E routes on how the pregnancy ended", () => {
-  const outcome = (status: string, over: Partial<SignalRows> = {}) =>
-    signalsFromRows(
-      rows({ pregnancy: { ...ENDED_FIVE_WEEKS_AGO, status }, ...over }),
-    );
-
-  it("sends a recorded loss to E6, whatever else is true", () => {
-    expect(resolvePersona(outcome("loss")).personaId).toBe("E6");
-  });
-
-  it("keeps feeding content away from a loss, and from an unstated outcome", () => {
-    // E2 is gated on a *stated* live birth, not on "not a loss".
-    expect(resolvePersona(outcome("loss")).personaId).not.toBe("E2");
-    expect(resolvePersona(outcome("ended")).personaId).not.toBe("E2");
-  });
-
-  it("offers lactation after a stated birth", () => {
-    expect(resolvePersona(outcome("completed")).personaId).toBe("E2");
-  });
-
-  it("does not treat an unstated ending as a birth", () => {
-    // She did not say. E1 — recovery, the honest middle — not E2's feeding hero.
-    expect(resolvePersona(outcome("ended")).personaId).toBe("E1");
-  });
-
-  it("gives E2 the feeding modules on top of everything E1 had", () => {
-    const config = documentFor(rows({ pregnancy: { ...ENDED_FIVE_WEEKS_AGO, status: "completed" } }), "E");
-    const ids = config.home.modules.map((m) => m.id);
-    expect(config.personaId).toBe("E2");
-    expect(ids).toContain("support.feeding");
-    expect(ids).toContain("support.breastSymptoms");
-    // Layers add: her recovery has not stopped because feeding started.
-    expect(ids).toContain("pregnancy.warningSigns");
-    expect(ids).toContain("support.moodScreener");
-  });
-
-  it("still does not celebrate by default, even while feeding", () => {
-    // E2 §E10: she may be feeding through pain, or grieving a plan that did not
-    // happen. Guilt-free combination and formula content is the persona, not an
-    // afterthought.
-    const config = documentFor(rows({ pregnancy: { ...ENDED_FIVE_WEEKS_AGO, status: "completed" } }), "E");
-    expect(config.tone.celebrationByDefault).toBe(false);
+  it("adds no way to take anything away", () => {
+    for (const record of TRACK_E_RECORDS) {
+      const json = JSON.stringify(record);
+      for (const forbidden of ["hidden", "blocked", "disabled", "available", "locked"]) {
+        expect(json).not.toContain(`"${forbidden}"`);
+      }
+    }
   });
 });

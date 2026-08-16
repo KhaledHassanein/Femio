@@ -645,6 +645,24 @@ its own as the reviewer publishes it, with no deploy. Watched failing with the f
 **The card says "being written" rather than rendering empty.** True today, and it stops being shown
 the moment the first article is approved.
 
+## Track E is complete, and the trap appeared a fourth time (R2.5f, 2026-08-16)
+
+E3, E4 and E7 now resolve. The postpartum triage has asked about mood, diabetes, hypertension,
+pre-eclampsia and thyroid since R2.5 and **nothing read any of those answers** — every woman in
+Track E got E1 whatever she had reported.
+
+**The rule, now written down and worth reading before touching the resolver: when a specific
+persona extends a general one, the general one needs a signal that is false in the specific case.**
+This is its fourth appearance (C1/C2, E1/E2, the hero hoist, and now E1 against E3/E4/E7). E1
+gained `conditions.length === 0`; delete that one line and all three new personas become
+unreachable and six tests go red, which is how it was verified.
+
+Two decisions are in **ADR-065** and should not be reversed casually. E3 is gated on the
+`depression_anxiety` code she selected, **never on her EPDS total** — a score that may not produce
+"your symptoms are severe" may not silently produce a mood-shaped app either. And **E5 is not a
+persona**: "fertility returns before your first period" is true of everyone in the track, so it
+ships as content on E1 rather than as a record that would have made E1 vestigial.
+
 Take the top open item under ▶ NOW — the rest of
 `P2.2.3` (contraction timer, weight chart, checklists), then `P2.7`'s other screeners, which
 now have a pattern to copy. Postpartum content drafting is unblocked (B2 approved, **P2.3c**);

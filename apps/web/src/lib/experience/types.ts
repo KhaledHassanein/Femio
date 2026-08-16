@@ -63,9 +63,14 @@ export type ModuleId =
   | "strip.medication"
   | "strip.labs"
   | "strip.devices"
+  // ---- postpartum condition follow-up (E4, E7)
+  | "followup.schedule"
+  | "thyroid.watch"
   // ---- emotional / support
   | "support.checkIn"
   | "support.moodScreener"
+  | "support.moodSupport"
+  | "support.intrusiveThoughts"
   | "support.feeding"
   | "support.breastSymptoms"
   | "support.lossAware"

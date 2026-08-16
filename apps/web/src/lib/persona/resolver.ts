@@ -86,6 +86,24 @@ export const OFFER_THRESHOLD = 0.4;
 export const AMBIGUITY_MARGIN = 0.08;
 
 const has = (code: string): Predicate => (s) => s.conditions.includes(code);
+
+/**
+ * The pregnancy complications that carry a follow-up obligation past the birth
+ * (E4 §A, the destination of D3/D4/D5/D6/D8).
+ *
+ * `thyroid` is deliberately absent: D7 routes to **E7** rather than here, because
+ * postpartum thyroiditis is its own watch with its own cadence rather than one
+ * more item on a follow-up schedule. `prior_preterm` is here because a preterm
+ * birth or NICU stay is the fifth entry point §A names, even though its follow-up
+ * is about her rather than about a number.
+ */
+const COMPLICATION_CODES: readonly string[] = [
+  "gestational_diabetes",
+  "diabetes",
+  "hypertension",
+  "pre_eclampsia",
+  "prior_preterm",
+];
 const symptom =
   (type: string, atLeast = 2): Predicate =>
   (s) => (s.symptomCounts[type] ?? 0) >= atLeast;
@@ -385,6 +403,71 @@ export const PERSONA_RULES: readonly PersonaRule[] = [
        * which is the same trap C1 was in before `withinEvaluationWindow`.
        */
       { weight: 3, when: (s) => s.pregnancyOutcome !== "completed" },
+      /**
+       * The same move again, and the **fourth** time this pattern has appeared
+       * (C1/C2, E1/E2, the hero hoist, and now this): when a specific persona
+       * extends a general one, the general one needs a signal that is false in the
+       * specific case, or the two tie at 1.0 and the general one wins on rule
+       * order alone. Without this, a woman who told the postpartum triage about her
+       * thyroid or her mood scored E1 and E7/E3 identically, and E7 and E3 could
+       * never fire from an unstated outcome — the condition she reported would have
+       * changed nothing at all.
+       */
+      { weight: 1, when: (s) => s.conditions.length === 0 },
+    ],
+  },
+  {
+    /**
+     * E3 — postpartum mood. Gated on the `depression_anxiety` code the postpartum
+     * triage asks for, which is **her own statement**, never an EPDS total: a
+     * questionnaire crossing a line is not Femio's cue to decide she has a
+     * condition (product rule 1, and P2.7's whole posture on scoring).
+     *
+     * Listed before E4 and E7 because when several apply, `docs/09` §8 rule 2
+     * gives the hero to the most acute — and postpartum mood is the one this
+     * product treats as its highest-sensitivity tier.
+     */
+    id: "E3",
+    track: "E",
+    requires: [
+      (s) => s.pregnancyStatus === "ended",
+      (s) => s.pregnancyOutcome !== "loss",
+      (s) => !s.priorLoss,
+      (s) => s.conditions.includes("depression_anxiety"),
+      // A year, not six months. E3 §A is explicit that mood can begin any time in
+      // the first postpartum year, including after feeding stops.
+      (s) => (s.weeksSincePregnancyEnd ?? 99) <= 52,
+    ],
+    signals: [
+      { weight: 4, when: (s) => s.conditions.includes("depression_anxiety") },
+      { weight: 3, when: (s) => s.pregnancyStatus === "ended" },
+      { weight: 2, when: (s) => (s.weeksSincePregnancyEnd ?? 99) <= 52 },
+    ],
+  },
+  {
+    /**
+     * E4 — follow-up after a complicated pregnancy. The destination of D3, D4, D5,
+     * D6 and D8, and the record that carries a condition across the birth instead
+     * of ending it there (product rule 5).
+     *
+     * Ahead of E7 deliberately: the E4 schedule is *time-critical* — the 72-hour
+     * and 7–10-day blood-pressure checks, the 4–12 week glucose test — while
+     * postpartum thyroiditis is a watch across a year. When both apply, the acute
+     * schedule wins the hero and the thyroid layer is the runner-up.
+     */
+    id: "E4",
+    track: "E",
+    requires: [
+      (s) => s.pregnancyStatus === "ended",
+      (s) => s.pregnancyOutcome !== "loss",
+      (s) => !s.priorLoss,
+      (s) => s.conditions.some((c) => COMPLICATION_CODES.includes(c)),
+      (s) => (s.weeksSincePregnancyEnd ?? 99) <= 52,
+    ],
+    signals: [
+      { weight: 4, when: (s) => s.conditions.some((c) => COMPLICATION_CODES.includes(c)) },
+      { weight: 3, when: (s) => s.pregnancyStatus === "ended" },
+      { weight: 2, when: (s) => (s.weeksSincePregnancyEnd ?? 99) <= 52 },
     ],
   },
   {
@@ -409,6 +492,34 @@ export const PERSONA_RULES: readonly PersonaRule[] = [
       { weight: 4, when: (s) => s.pregnancyOutcome === "completed" },
       { weight: 2, when: (s) => (s.weeksSincePregnancyEnd ?? 99) <= 26 },
       { weight: 1, when: (s) => s.conditions.length === 0 },
+    ],
+  },
+  {
+    /**
+     * E7 — postpartum thyroiditis watch, the destination of D7's `ppt_watch_flag`.
+     *
+     * §A: the symptoms overlap almost completely with ordinary postpartum
+     * exhaustion and with mood, which is why this resolves from a *reported
+     * thyroid condition* and never from a symptom pattern. Femio surfacing "this
+     * could be your thyroid" off a fatigue log would be exactly the inference the
+     * spec forbids; what it does is put the lab log and the mood screener in the
+     * same place and let a clinician decide.
+     */
+    id: "E7",
+    track: "E",
+    requires: [
+      (s) => s.pregnancyStatus === "ended",
+      (s) => s.pregnancyOutcome !== "loss",
+      (s) => !s.priorLoss,
+      (s) => s.conditions.includes("thyroid"),
+      // A year: PPT is described across the first postpartum year, and the ATA
+      // recheck sits at its end.
+      (s) => (s.weeksSincePregnancyEnd ?? 99) <= 52,
+    ],
+    signals: [
+      { weight: 4, when: (s) => s.conditions.includes("thyroid") },
+      { weight: 3, when: (s) => s.pregnancyStatus === "ended" },
+      { weight: 2, when: (s) => (s.weeksSincePregnancyEnd ?? 99) <= 52 },
     ],
   },
   {

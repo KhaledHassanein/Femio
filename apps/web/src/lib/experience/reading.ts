@@ -103,7 +103,13 @@ export const NO_ARTICLE_YET: readonly string[] = [
   "why-my-dose-often-goes-up",
   "how-often-checked",
   "taking-levothyroxine-right",
-  // Track E — feeding facets and the loss shelf.
+  // Track E — feeding facets, condition follow-up, and the loss shelf. The E4 and
+  // E7 topics are new with R2.5f and unwritten: postpartum condition follow-up and
+  // the thyroid year are their own content asks, and neither is covered by B2.
+  "partner-explainer",
+  "your-follow-up-tests",
+  "what-this-means-long-term",
+  "could-this-be-my-thyroid",
   "is-baby-getting-enough",
   "mastitis-and-blocked-ducts",
   "grief-and-what-helps",
