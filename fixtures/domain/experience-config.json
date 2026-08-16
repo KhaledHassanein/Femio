@@ -690,6 +690,9 @@
           "foreground": [
             "recovery-after-birth",
             "when-to-seek-care",
+            "mood-after-birth",
+            "bleeding-after-birth",
+            "your-postnatal-check",
             "return-of-your-cycle"
           ]
         },
@@ -783,6 +786,9 @@
           "foreground": [
             "recovery-after-birth",
             "when-to-seek-care",
+            "mood-after-birth",
+            "bleeding-after-birth",
+            "your-postnatal-check",
             "return-of-your-cycle",
             "grief-and-what-helps",
             "your-body-after-a-loss",

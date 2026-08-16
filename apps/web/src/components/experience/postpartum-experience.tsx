@@ -3,10 +3,10 @@
 import { useTranslations } from "next-intl";
 import type { ExperienceConfig } from "@/lib/experience/types";
 import { ExperienceModules } from "./module-registry";
+import { ReadingList } from "./reading-list";
 import { MoodCheck } from "@/components/postpartum/mood-check";
 import { Alert, AlertDescription } from "@/components/ui/alert";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
 import { HeroCard } from "@/components/ui/hero-card";
 import { Link } from "@/i18n/navigation";
 
@@ -109,13 +109,18 @@ export function PostpartumExperience({ config }: { config: ExperienceConfig | nu
           moodScreener: <MoodCheck />,
           warningSigns,
           pregnancyHero: null,
+          /**
+           * P2.3c. The card is the persona's own `content.foreground` rendered —
+           * the first field in the document that had been written since R2.1 and
+           * read by nothing. It shows the guides the CMS is publishing, and the
+           * "being written" line until the reviewer approves them.
+           */
           reading: (
-            <Card>
-              <CardContent className="flex flex-col gap-2 p-6">
-                <h2 className="font-display text-lg text-text">{t("reading.heading")}</h2>
-                <p className="text-sm text-text-muted">{t("reading.pending")}</p>
-              </CardContent>
-            </Card>
+            <ReadingList
+              foreground={config.content.foreground}
+              heading={t("reading.heading")}
+              pending={t("reading.pending")}
+            />
           ),
           movement: null,
           quickLog: (

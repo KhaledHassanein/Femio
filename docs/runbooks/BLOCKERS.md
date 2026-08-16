@@ -56,6 +56,11 @@ exhaustion · 9 breastfeeding, the first two weeks · 10 if breastfeeding is not
 your periods come back · 12 contraception after birth · 13 your six-week check · 14 sex after
 birth.
 
+**Written and imported 2026-08-16 (P2.3c).** All fourteen are in the CMS as drafts, they pass
+the content guard, and every source URL resolves. **The review gate is yours** — `MANUAL_TEST_PLAN.md`
+T22 is the checklist. The postpartum dashboard's reading card fills itself in as you publish, with
+no deploy needed.
+
 Route (a): drafted under `docs/content/CODEX_AUTHORING_BRIEF.md`, the same path the 31 live
 articles took. `content-lint` checks them mechanically first — Tier-1/2 sourcing with ≥2
 sources, forbidden claim verbs, red-flag boxes, reading level, metadata uniqueness — then the

@@ -621,6 +621,30 @@ D**, because for anyone else it is an old fact and raising it months later is th
 loss unprompted; and dismissal is keyed **per suggestion**, so a "no thanks" to a personalization
 offer cannot swallow a positive test weeks afterwards.
 
+## The postpartum shelf exists, and `content.foreground` is finally read (P2.3c, 2026-08-16)
+
+Fourteen guides written against `CODEX_AUTHORING_BRIEF.md` and imported as drafts — 45 files now pass
+the content guard and **every source URL resolves** (`pnpm content-lint:urls`). They are not public:
+the CMS review gate is the owner's, and `MANUAL_TEST_PLAN.md` T22 is the checklist.
+
+The more interesting half is the render path. `ExperienceConfig.content.foreground` had been written
+since R2.1 and **read by nothing** — the same write-only shape `docs/23` §3.1 opened this workstream
+with. It now drives the reading card through `lib/experience/reading.ts`, and three decisions there are
+worth keeping:
+
+**The registry keeps naming topics, not slugs.** A slug is an SEO artefact that gets renamed and split;
+a topic outlives the article answering it, and a persona spec should not change when a page moves. So
+there is a mapping, and **every unmapped topic is listed in `NO_ARTICLE_YET`** with a test asserting the
+two lists cover the registry — the `UNIMPLEMENTED` idiom, for the reason P2.7a proved.
+
+**A draft cannot reach a screen.** `/api/reading` asks the CMS as an anonymous caller, so an unapproved
+article is simply absent from the answer. That is what lets a persona foreground an article *before* it
+is approved with no window in which the dashboard links to a 404 — and it means each guide appears on
+its own as the reviewer publishes it, with no deploy. Watched failing with the filter removed.
+
+**The card says "being written" rather than rendering empty.** True today, and it stops being shown
+the moment the first article is approved.
+
 Take the top open item under ▶ NOW — the rest of
 `P2.2.3` (contraction timer, weight chart, checklists), then `P2.7`'s other screeners, which
 now have a pattern to copy. Postpartum content drafting is unblocked (B2 approved, **P2.3c**);

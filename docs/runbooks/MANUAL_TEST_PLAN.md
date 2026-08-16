@@ -5,7 +5,7 @@ credentials, keys and one-off configuration — things only the owner *can* do. 
 things only a human can *judge*: whether a screen looks right, whether Arabic reads naturally,
 whether a flow feels like a product.
 
-**Why it exists.** Every automated gate in this repo passes on every commit — 11 guards, 510
+**Why it exists.** Every automated gate in this repo passes on every commit — 11 guards, 525
 unit tests, 63 end-to-end. None of them can tell you the homepage looks generic, that a
 translation is grammatically correct but tonally wrong, or that a control is out of thumb reach.
 `docs/22` §10 states the rule this file operationalises: *a screenshot is the test, not a
@@ -15,8 +15,10 @@ nice-to-have.*
 tracks what actually shipped. The regression sweep below is for before a beta or a release, not
 for every session.
 
-**Unseen as of 2026-08-16: T8, T10–T21.** Fourteen screens shipped that day and nobody has
-looked at any of them. **T21 is the one I most want read** — the three sentences a woman sees
+**Unseen as of 2026-08-16: T8, T10–T22.** Fifteen items shipped that day and nobody has
+looked at any of them. **T22 is the one that blocks other work** — fourteen postpartum drafts
+waiting on your review gate, and publishing them is what fills the postpartum reading card.
+**T21 is the one I most want read** — the three sentences a woman sees
 after a pregnancy ends, including a stillbirth. **T16 is the one I would want read first** — it is the only screen in Femio that
 acts on an answer. Migration `0008` is applied, so T15 is testable. **T11 and T12 want you as a clinician rather than as an owner** —
 charting must not read as contraception, and the MRS must not read as a grade. Those two are
@@ -242,6 +244,19 @@ Pregnancy mode, then **end the pregnancy** three separate times on three account
 - [ ] **Ended, without saying which.** The sentence must assume **neither**. No congratulations, no condolence. She gets recovery, and nothing about feeding.
 - [ ] In all three: nothing switches on its own. Every one is an offer with a **No thanks**.
 - [ ] Read all three in Arabic. Loss is private and often stigmatised in MENA — E6's own spec says so — and the Arabic sentence carries more weight here than the English one.
+
+### T22 · The fourteen postpartum guides (P2.3c) — you are the review gate
+`femio-cms.vercel.app/admin` → Articles. Fourteen new drafts, none public.
+
+**This is the one that cannot be automated away.** `content-lint` checked structure, sourcing,
+claim verbs, links and metadata; none of that is medicine. Nothing goes live until you set
+`reviewStatus: approved` and publish, article by article.
+
+- [ ] Read each draft as a clinician. The four I would read first: **postpartum warning signs** (the escalation lists), **your mood after birth** (the crisis routing and the intrusive-thoughts section), **when breastfeeding is not working** (guilt, and the mastitis timing), and **contraception after birth** (the lactational-amenorrhoea paragraph, which is the one place the brief's contraception ban and clinical accuracy pull against each other).
+- [ ] Check the **red-flag boxes** name what you would name, in the order you would name it.
+- [ ] Check nothing reads as triage — no article should tell a woman a symptom is or is not serious.
+- [ ] Approve and publish the ones you are happy with. **The dashboard reading card fills itself in** as you publish: no deploy, no code change. Publish one and reload a postpartum dashboard to see it appear.
+- [ ] Anything you want changed, say so and it is an edit, not a re-draft.
 
 ### T9 · The duplicate log button (found in R2.5c)
 Any of pregnancy, postpartum, or teen.

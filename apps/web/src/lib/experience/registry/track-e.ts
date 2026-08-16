@@ -54,7 +54,21 @@ const E1: PersonaRecord = {
   tools: ["symptom", "mood", "period"],
   content: {
     skin: "postpartum",
-    foreground: ["recovery-after-birth", "when-to-seek-care", "return-of-your-cycle"],
+    /**
+     * The shelf E1 §F asks for, in the order it asks for it: what is happening to
+     * her body, what is not ordinary, how she is, and then the cycle question that
+     * arrives later. Six topics rather than three because the postpartum set now
+     * exists (P2.3c) — the card renders the first four that are published, and
+     * `/learn` holds the rest.
+     */
+    foreground: [
+      "recovery-after-birth",
+      "when-to-seek-care",
+      "mood-after-birth",
+      "bleeding-after-birth",
+      "your-postnatal-check",
+      "return-of-your-cycle",
+    ],
   },
   alerts: [
     /**
