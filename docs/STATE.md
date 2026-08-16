@@ -494,6 +494,31 @@ woman two different sentences in the same appointment.
 
 ## First action for the next session
 
+> ### ▶ Checkpoint — 2026-08-16, end of session
+>
+> **Tree clean, `main` pushed at `f83de1e`, no `wip/` branch.** Everything below this box is
+> *why*; this box is *what next*.
+>
+> **Do next, in order:**
+> 1. `git branch --list "wip/*"` — expect nothing.
+> 2. Take the top open item in `docs/07_MASTER_TODO.md` → ▶ NOW. The R3 queue is the live
+>    one: **P2.3c** (postpartum content, 14 titles approved — B2), **P2.13** (teen content),
+>    **P2.2.2** (week-by-week, still needs its own title approval), the remaining Track E
+>    registry rows (E3/E4/E5/E7), then **R1 design**, which is now the oldest open workstream.
+> 3. Run the full gate before every push. Never end a turn with a dirty tree.
+>
+> **Waiting on the owner, blocking nothing:**
+> - **B7** — does Femio carry baby-care content at all? A scope decision, not a build.
+>   Recommendation (a), mother-facing only. `docs/runbooks/BLOCKERS.md`.
+> - **Owner task 5** — re-deploy the experience Edge Function; its source changed several
+>   times this session. The local fallback computes the identical document meanwhile.
+> - **`MANUAL_TEST_PLAN.md` T8, T10–T21** — fourteen screens shipped 2026-08-16 and **nobody
+>   has looked at any of them**. T21 (what is said after a pregnancy ends, including a
+>   stillbirth) and T16 (the EPDS crisis route) are the two that need a clinician.
+>
+> **Working rule, verbatim:** *"I do not want to read anything unless you need my input."*
+> No end-of-turn summaries. Several queue items per pass.
+
 **No `wip/` branch is open** — 2026-08-16 ended between items, with everything gated, committed
 and pushed. If that line ever says otherwise, finish the named branch before starting anything
 new (the `wip/` rule, above).
