@@ -83,3 +83,41 @@ describe("the universal transitions", () => {
     expect(Object.keys(t).sort()).toEqual(["id", "personaId", "to"]);
   });
 });
+
+/**
+ * The outcome split (2026-08-16, owner direction).
+ *
+ * All three move her to Track E and differ only in what is said. That is why they
+ * are three ids rather than one with a parameter: a shared key would eventually be
+ * written to cover both a birth and a stillbirth, and it cannot be.
+ */
+describe("what ended, and what is said about it", () => {
+  const ended = (outcome: PersonaSignals["pregnancyOutcome"]) =>
+    suggestTransition(signals({ pregnancyStatus: "ended", pregnancyOutcome: outcome }), "D");
+
+  it("congratulates a stated birth", () => {
+    expect(ended("completed")?.id).toBe("birth");
+  });
+
+  it("routes a recorded loss to its own message", () => {
+    expect(ended("loss")?.id).toBe("loss");
+  });
+
+  /**
+   * The one that matters most. A woman who ended her pregnancy record without
+   * saying how must not be congratulated, and must not be condoled with, on the
+   * strength of a missing answer.
+   */
+  it("assumes neither when she did not say", () => {
+    expect(ended("ended")?.id).toBe("pregnancyEnded");
+    expect(ended(null)?.id).toBe("pregnancyEnded");
+  });
+
+  it("still says nothing about an old ending from another track", () => {
+    for (const outcome of ["completed", "loss", "ended"] as const) {
+      expect(
+        suggestTransition(signals({ pregnancyStatus: "ended", pregnancyOutcome: outcome }), "B"),
+      ).toBeNull();
+    }
+  });
+});

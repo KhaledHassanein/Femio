@@ -941,8 +941,10 @@
     },
     "offer": {
       "transitions": {
+        "birth": "Félicitations. Femio peut passer en {stage} quand vous voulez — la récupération, l’allaitement, et comment vous allez.",
+        "loss": "Femio garde votre dossier et ne va nulle part. Quand vous le souhaiterez, il peut passer en {stage} : ce que traverse votre corps, et du soutien si vous en voulez. Rien ne presse et rien ne sera décompté.",
         "positiveTest": "Vous avez enregistré une grossesse. Voulez-vous que Femio passe en {stage} ?",
-        "pregnancyEnded": "Votre suivi de grossesse s’est terminé. Femio peut passer en {stage} quand vous serez prête — rien ne presse, et rien de ce que vous avez noté ne change dans un cas comme dans l’autre.",
+        "pregnancyEnded": "Votre suivi de grossesse s’est terminé. Femio peut passer en {stage} quand vous voulez — rien de ce que vous avez noté ne change.",
         "postpartumPassed": "Un certain temps s’est écoulé depuis la naissance. Voulez-vous que Femio passe en {stage} ?"
       },
       "body": "D’après ce que vous avez noté, Femio pourrait s’adapter à {stage}. Vous voulez essayer ?",

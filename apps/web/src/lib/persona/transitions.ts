@@ -39,6 +39,8 @@ import { TRACK_BASE_PERSONA, type Track } from "./resolver.ts";
 
 export type TransitionId =
   | "positiveTest"
+  | "birth"
+  | "loss"
   | "pregnancyEnded"
   | "postpartumPassed";
 
@@ -77,12 +79,42 @@ const RULES: readonly Rule[] = [
     to: "D",
     when: (s) => s.pregnancyStatus === "active",
   },
+  /**
+   * §6 splits here, and the split is the point.
+   *
+   * All three rules move her to Track E and differ only in **what is said**, which
+   * is why they are three ids rather than one with a parameter: the sentence a
+   * woman reads at this moment is the feature, and a shared key would eventually be
+   * written to cover both a birth and a stillbirth. It cannot.
+   *
+   * All three fire **only from Track D**, because "her pregnancy ended" is only
+   * news if Femio currently thinks she is pregnant. For anyone else it is an old
+   * row, and offering it months later would be the app raising a loss unprompted.
+   */
+  {
+    /** A live birth she stated. Warm, and the only one of the three that is. */
+    id: "birth",
+    to: "E",
+    from: ["D"],
+    when: (s) => s.pregnancyOutcome === "completed",
+  },
   {
     /**
-     * §6, pregnancy loss or birth. **Only from Track D**, because "her pregnancy
-     * ended" is only news if Femio currently thinks she is pregnant; for anyone
-     * else it is an old fact in her record and re-offering it would be the app
-     * bringing up a loss unprompted, months later.
+     * A recorded loss — miscarriage at any trimester, stillbirth, or neonatal
+     * death (E6 §A). Nothing cheerful, nothing hurried, and no word for what
+     * happened that she did not use first.
+     */
+    id: "loss",
+    to: "E",
+    from: ["D"],
+    when: (s) => s.pregnancyOutcome === "loss",
+  },
+  {
+    /**
+     * Ended without her saying how. **Never assumed to be either**, and the copy
+     * says the least of the three: a woman who did not want to say must not be
+     * congratulated, and must not be condoled with, on the strength of a missing
+     * answer.
      */
     id: "pregnancyEnded",
     to: "E",

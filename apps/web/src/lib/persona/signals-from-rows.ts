@@ -154,6 +154,17 @@ export function signalsFromRows(rows: SignalRows): PersonaSignals {
     daysSinceLastPeriod: lastStart ? diffDays(lastStart, today) : null,
     ttcIntent: rows.ttcIntent,
     ttcMonths: rows.ttcMonths ?? null,
+    /**
+     * The outcome as recorded, normalised to the three values the schema allows.
+     * A stated birth she did not qualify stays `ended`, never `completed`.
+     */
+    pregnancyOutcome: !pregnancy
+      ? null
+      : pregnancy.status === "active"
+        ? null
+        : pregnancy.status === "completed" || pregnancy.status === "loss"
+          ? pregnancy.status
+          : "ended",
     pregnancyStatus: pregnancy
       ? pregnancy.status === "active"
         ? "active"

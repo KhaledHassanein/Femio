@@ -366,21 +366,64 @@ export const PERSONA_RULES: readonly PersonaRule[] = [
     track: "E",
     requires: [
       (s) => s.pregnancyStatus === "ended",
+      // A recorded loss routes to E6 and must never land here, whatever else is
+      // true — E6 §A calls itself "the destination state of the universal loss
+      // handler". `ended` without a stated outcome is not treated as a birth.
+      (s) => s.pregnancyOutcome !== "loss",
       (s) => !s.priorLoss,
       (s) => (s.weeksSincePregnancyEnd ?? 99) <= 26,
     ],
     signals: [
       { weight: 4, when: (s) => s.pregnancyStatus === "ended" },
       { weight: 2, when: (s) => (s.weeksSincePregnancyEnd ?? 99) <= 26 },
+      /**
+       * What keeps E1 the *general* postpartum persona rather than merely the
+       * first one listed. After a stated live birth E2 is the more specific
+       * answer and should win; where the outcome was not stated, E1 is exactly
+       * right — recovery, with nothing assumed about feeding or about what
+       * happened. Without this, E1 tied E2 at 1.0 and won on rule order alone,
+       * which is the same trap C1 was in before `withinEvaluationWindow`.
+       */
+      { weight: 3, when: (s) => s.pregnancyOutcome !== "completed" },
+    ],
+  },
+  {
+    /**
+     * E2 — breastfeeding and lactation. Layers on E1: her recovery is still
+     * happening and E2 §E is emphatic that the subject stays **her** — "her
+     * breasts, her body, her mood" — rather than becoming a baby tracker.
+     *
+     * Gated on a live birth she stated. Surfacing feeding content to someone who
+     * recorded a loss is the single worst thing this track could do, and E6 §A
+     * notes that lactation after loss is "close to unspeakable" in some of Femio's
+     * markets. So the gate is `completed`, not "not a loss".
+     */
+    id: "E2",
+    track: "E",
+    requires: [
+      (s) => s.pregnancyOutcome === "completed",
+      (s) => !s.priorLoss,
+      (s) => (s.weeksSincePregnancyEnd ?? 99) <= 52,
+    ],
+    signals: [
+      { weight: 4, when: (s) => s.pregnancyOutcome === "completed" },
+      { weight: 2, when: (s) => (s.weeksSincePregnancyEnd ?? 99) <= 26 },
+      { weight: 1, when: (s) => s.conditions.length === 0 },
     ],
   },
   {
     id: "E6",
     track: "E",
-    requires: [(s) => s.pregnancyStatus === "ended", (s) => s.priorLoss],
+    requires: [
+      (s) => s.pregnancyStatus === "ended",
+      // Either a recorded loss, or a `prior_loss` she told us about. The first is
+      // what the universal handler fires on; the second is how she arrives from
+      // the wizard months later (E6 §A route b).
+      (s) => s.pregnancyOutcome === "loss" || s.priorLoss,
+    ],
     signals: [
       { weight: 4, when: (s) => s.pregnancyStatus === "ended" },
-      { weight: 4, when: (s) => s.priorLoss },
+      { weight: 4, when: (s) => s.pregnancyOutcome === "loss" || s.priorLoss },
     ],
   },
 

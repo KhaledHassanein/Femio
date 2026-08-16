@@ -941,8 +941,10 @@
     },
     "offer": {
       "transitions": {
+        "birth": "Enhorabuena. Femio puede pasar a {stage} cuando quieras — la recuperación, la lactancia y cómo estás tú.",
+        "loss": "Femio guarda tu historial y no se va a ninguna parte. Cuando quieras, puede pasar a {stage}: lo que está haciendo tu cuerpo, y apoyo si lo quieres. No hay prisa y no se contará nada atrás.",
         "positiveTest": "Has registrado un embarazo. ¿Quieres que Femio se configure para {stage}?",
-        "pregnancyEnded": "Tu registro de embarazo ha terminado. Femio puede pasar a {stage} cuando quieras — no hay prisa, y nada de lo que has anotado cambia en ningún caso.",
+        "pregnancyEnded": "Tu registro de embarazo ha terminado. Femio puede pasar a {stage} cuando quieras — nada de lo que has anotado cambia.",
         "postpartumPassed": "Ha pasado un tiempo desde el parto. ¿Quieres que Femio pase a {stage}?"
       },
       "body": "Por lo que has anotado, Femio podría adaptarse a {stage}. ¿Quieres probarlo?",

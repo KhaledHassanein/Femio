@@ -37,8 +37,22 @@ export type PersonaSignals = {
    * treated as having started today.
    */
   ttcMonths: number | null;
-  /** From the `pregnancy` table. `ended` covers every outcome; the reason is not a signal. */
+  /** From the `pregnancy` table. `ended` covers every outcome. */
   pregnancyStatus: "active" | "ended" | null;
+  /**
+   * **How** it ended — a live birth, a loss, or ended without her saying which.
+   *
+   * ADR-043 kept the reason out of the *phase*, and that still holds: the weeks
+   * after are the weeks after, whatever happened. But E6 is explicit that it is
+   * "where every pregnancy-track persona routes on a reported loss", and the
+   * difference between a screen that says *congratulations, here is feeding* and
+   * one that says nothing cheerful at all is the difference this field carries.
+   *
+   * `ended` (unspecified) is deliberately its own value and is **never treated as
+   * a live birth**: a woman who did not want to say must not be handed a
+   * celebration on the strength of a missing answer.
+   */
+  pregnancyOutcome: "completed" | "loss" | "ended" | null;
   /** Weeks since an ended pregnancy, for postpartum vs. long-past. */
   weeksSincePregnancyEnd: number | null;
   /** `conditions_flagged.condition_code`, all self-reported and non-diagnostic. */
@@ -65,6 +79,7 @@ export const EMPTY_SIGNALS: PersonaSignals = {
   ttcIntent: false,
   ttcMonths: null,
   pregnancyStatus: null,
+  pregnancyOutcome: null,
   weeksSincePregnancyEnd: null,
   conditions: [],
   symptomCounts: {},

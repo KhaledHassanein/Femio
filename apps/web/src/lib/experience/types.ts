@@ -66,6 +66,8 @@ export type ModuleId =
   // ---- emotional / support
   | "support.checkIn"
   | "support.moodScreener"
+  | "support.feeding"
+  | "support.breastSymptoms"
   | "support.lossAware"
   | "support.reassurance"
   // ---- shared

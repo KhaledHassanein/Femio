@@ -89,6 +89,14 @@ export const UNIMPLEMENTED: readonly ModuleId[] = [
    */
   "teen.body",
   "teen.readiness",
+  /**
+   * E2's lactation surfaces (P2.3). The feeding log and the per-breast symptom
+   * log are real Phase-2 features and the content behind them — "the first two
+   * weeks", "if breastfeeding is not working" — is in the approved postpartum
+   * batch (P2.3c) and not yet drafted. Listed so the gap is counted.
+   */
+  "support.feeding",
+  "support.breastSymptoms",
   "pregnancy.milestone",
   "pregnancy.birthPrep",
   "pregnancy.screeningPrep",

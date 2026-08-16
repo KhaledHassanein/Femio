@@ -64,10 +64,17 @@ function documentFor(input: SignalRows, statedTrack: "E" | null) {
 }
 
 describe("Track E reachability", () => {
-  it("resolves E1 from a pregnancy that ended five weeks ago", () => {
+  it("resolves Track E from a pregnancy that ended five weeks ago", () => {
     const signals = signalsFromRows(rows({ pregnancy: ENDED_FIVE_WEEKS_AGO }));
     expect(signals.weeksSincePregnancyEnd).toBe(5);
-    expect(resolvePersona(signals).personaId).toBe("E1");
+    // `ENDED_FIVE_WEEKS_AGO` is a stated live birth, so the specific persona wins:
+    // E2 extends E1 and keeps everything it contributed. The outcome split is
+    // exercised properly in "Track E routes on how the pregnancy ended", below.
+    expect(resolvePersona(signals).track).toBe("E");
+    expect(resolvePersona(signals).personaId).toBe("E2");
+    // Unstated, she gets recovery and nothing assumed.
+    const unstated = signalsFromRows(rows({ pregnancy: { ...ENDED_FIVE_WEEKS_AGO, status: "ended" } }));
+    expect(resolvePersona(unstated).personaId).toBe("E1");
   });
 
   /** The regression, stated as the gate that used to fail. */
@@ -156,5 +163,58 @@ describe("resolveForStatedTrack", () => {
 
   it("makes no offer from a track she has just said she is not in", () => {
     expect(resolveForStatedTrack(signalsFromRows(rows()), "E").runnerUp).toBeNull();
+  });
+});
+
+/**
+ * The outcome decides the persona, not just the message (2026-08-16).
+ *
+ * E6 §A calls itself "the destination state of the universal loss handler", and E2
+ * §E scopes feeding content to a live birth. Between them these two rules decide
+ * whether a woman who has just lost a pregnancy is shown breastfeeding content,
+ * which is the worst thing this track could get wrong.
+ */
+describe("Track E routes on how the pregnancy ended", () => {
+  const outcome = (status: string, over: Partial<SignalRows> = {}) =>
+    signalsFromRows(
+      rows({ pregnancy: { ...ENDED_FIVE_WEEKS_AGO, status }, ...over }),
+    );
+
+  it("sends a recorded loss to E6, whatever else is true", () => {
+    expect(resolvePersona(outcome("loss")).personaId).toBe("E6");
+  });
+
+  it("keeps feeding content away from a loss, and from an unstated outcome", () => {
+    // E2 is gated on a *stated* live birth, not on "not a loss".
+    expect(resolvePersona(outcome("loss")).personaId).not.toBe("E2");
+    expect(resolvePersona(outcome("ended")).personaId).not.toBe("E2");
+  });
+
+  it("offers lactation after a stated birth", () => {
+    expect(resolvePersona(outcome("completed")).personaId).toBe("E2");
+  });
+
+  it("does not treat an unstated ending as a birth", () => {
+    // She did not say. E1 — recovery, the honest middle — not E2's feeding hero.
+    expect(resolvePersona(outcome("ended")).personaId).toBe("E1");
+  });
+
+  it("gives E2 the feeding modules on top of everything E1 had", () => {
+    const config = documentFor(rows({ pregnancy: { ...ENDED_FIVE_WEEKS_AGO, status: "completed" } }), "E");
+    const ids = config.home.modules.map((m) => m.id);
+    expect(config.personaId).toBe("E2");
+    expect(ids).toContain("support.feeding");
+    expect(ids).toContain("support.breastSymptoms");
+    // Layers add: her recovery has not stopped because feeding started.
+    expect(ids).toContain("pregnancy.warningSigns");
+    expect(ids).toContain("support.moodScreener");
+  });
+
+  it("still does not celebrate by default, even while feeding", () => {
+    // E2 §E10: she may be feeding through pain, or grieving a plan that did not
+    // happen. Guilt-free combination and formula content is the persona, not an
+    // afterthought.
+    const config = documentFor(rows({ pregnancy: { ...ENDED_FIVE_WEEKS_AGO, status: "completed" } }), "E");
+    expect(config.tone.celebrationByDefault).toBe(false);
   });
 });

@@ -77,6 +77,75 @@ const E1: PersonaRecord = {
   },
 };
 
+
+/**
+ * E2 — breastfeeding and lactation.
+ *
+ * Layers on E1 rather than replacing it: her recovery has not stopped because
+ * feeding started. What E2 adds is a surface where **she** is the subject — E2 §E
+ * puts it as "her breasts, her body, her mood" — and it explicitly scopes *out*
+ * full baby tracking, growth curves and any adequacy verdict.
+ *
+ * ## The two things this record must never contribute
+ *
+ * **No milk-adequacy verdict.** E2 §E lists it under "explicitly out of scope",
+ * and the reason is the same one that keeps a `result` column off the movement log:
+ * "is the baby getting enough" is the question that brings a woman here at 2am, and
+ * an app answering it from a feeding log would be answering a clinical question
+ * from data that cannot support it. What she gets is the CDC/OWH signals to look
+ * for and a route to a lactation consultant.
+ *
+ * **No medication compatibility ruling.** Also §E. Femio can explain how
+ * compatibility is assessed and link the record; it does not decide.
+ *
+ * Gated in the resolver on a **stated live birth**, not merely "not a loss": E6 §A
+ * notes lactation after loss is close to unspeakable in some of Femio's markets,
+ * and surfacing feeding content on an unstated outcome would be the worst thing
+ * this track could do.
+ */
+const E2: PersonaRecord = {
+  id: "E2",
+  track: "E",
+  extends: "E1",
+  home: {
+    postpartum: [
+      { id: "support.feeding", emphasis: "hero" },
+      /**
+       * The mastitis-spectrum surface (E2 §E item 2, §G). Per breast, with the
+       * red-flag box after concerning entries — and it is a *log with education*,
+       * never an assessment.
+       */
+      { id: "support.breastSymptoms", emphasis: "primary" },
+    ],
+  },
+  // A feeding log deliberately minimal enough not to become a baby tracker (§E4).
+  tools: ["symptom", "mood", "period"],
+  content: {
+    skin: "postpartum-feeding",
+    foreground: [
+      "breastfeeding-first-two-weeks",
+      "if-breastfeeding-is-not-working",
+      "is-baby-getting-enough",
+      "mastitis-and-blocked-ducts",
+    ],
+  },
+  alerts: [
+    // "Seek care now", never a diagnosis: the mastitis spectrum escalates on time
+    // (ABM 2022 — 12–24h without improvement), and that is education, not triage.
+    { id: "feeding.redFlags", kind: "redFlag" },
+  ],
+  emrView: ["feedingMethod", "postpartumWeek"],
+  tone: {
+    register: "warm",
+    // Still not celebratory by default. She may be feeding through pain, or
+    // grieving a feeding plan that did not happen; §E10 is explicit that guilt-free
+    // combination and formula content is part of the persona, not an afterthought.
+    celebrationByDefault: false,
+    countdown: false,
+    readingLevel: "standard",
+  },
+};
+
 /**
  * E6 — pregnancy loss and grief.
  *
@@ -113,4 +182,4 @@ const E6: PersonaRecord = {
   },
 };
 
-export const TRACK_E_RECORDS: readonly PersonaRecord[] = [E1, E6];
+export const TRACK_E_RECORDS: readonly PersonaRecord[] = [E1, E2, E6];

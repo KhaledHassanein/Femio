@@ -5,7 +5,7 @@ credentials, keys and one-off configuration — things only the owner *can* do. 
 things only a human can *judge*: whether a screen looks right, whether Arabic reads naturally,
 whether a flow feels like a product.
 
-**Why it exists.** Every automated gate in this repo passes on every commit — 11 guards, 500
+**Why it exists.** Every automated gate in this repo passes on every commit — 11 guards, 510
 unit tests, 63 end-to-end. None of them can tell you the homepage looks generic, that a
 translation is grammatically correct but tonally wrong, or that a control is out of thumb reach.
 `docs/22` §10 states the rule this file operationalises: *a screenshot is the test, not a
@@ -15,9 +15,9 @@ nice-to-have.*
 tracks what actually shipped. The regression sweep below is for before a beta or a release, not
 for every session.
 
-**Unseen as of 2026-08-16: T8, T10–T20.** Thirteen screens shipped that day and nobody has
-looked at any of them. **T20's second bullet needs you specifically** — it is the one place a
-transition could land badly. **T16 is the one I would want read first** — it is the only screen in Femio that
+**Unseen as of 2026-08-16: T8, T10–T21.** Fourteen screens shipped that day and nobody has
+looked at any of them. **T21 is the one I most want read** — the three sentences a woman sees
+after a pregnancy ends, including a stillbirth. **T16 is the one I would want read first** — it is the only screen in Femio that
 acts on an answer. Migration `0008` is applied, so T15 is testable. **T11 and T12 want you as a clinician rather than as an owner** —
 charting must not read as contraception, and the MRS must not read as a grade. Those two are
 the ones I would not ship to an outside tester unread.
@@ -231,6 +231,17 @@ Any mode.
 - [ ] Then, without changing anything else, check that a *different* suggestion can still appear later — dismissals are per suggestion, not blanket.
 - [ ] Switch to **Cycle** mode with an old ended pregnancy in your record. Femio must say **nothing**. Raising a pregnancy that ended two years ago, unprompted, is the failure this rule exists to prevent.
 - [ ] Arabic, for all three messages.
+
+### T21 · What happens after a pregnancy ends (P2.3) — the most sensitive copy in the app
+Pregnancy mode, then **end the pregnancy** three separate times on three accounts.
+
+**Read all three sentences as a clinician and as a person. This is the one I most want your eyes on.**
+
+- [ ] **A live birth.** The offer is warm and says congratulations once, without exclamation, and mentions recovery and feeding. Accept it: you should land on the **feeding** view — a lactation hero plus a per-breast symptom log — with the recovery content still there beneath it, not replaced.
+- [ ] **A loss.** The offer must contain **nothing cheerful, nothing hurried, and no countdown**. It should say her record is safe, that Femio can move when she wants, and stop. Check specifically that **no feeding content appears anywhere** after accepting — that is the single worst thing this track could do.
+- [ ] **Ended, without saying which.** The sentence must assume **neither**. No congratulations, no condolence. She gets recovery, and nothing about feeding.
+- [ ] In all three: nothing switches on its own. Every one is an offer with a **No thanks**.
+- [ ] Read all three in Arabic. Loss is private and often stigmatised in MENA — E6's own spec says so — and the Arabic sentence carries more weight here than the English one.
 
 ### T9 · The duplicate log button (found in R2.5c)
 Any of pregnancy, postpartum, or teen.

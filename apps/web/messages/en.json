@@ -941,8 +941,10 @@
     },
     "offer": {
       "transitions": {
+        "birth": "Congratulations. Femio can move to {stage} whenever you are ready — recovery, feeding, and how you are doing.",
+        "loss": "Femio has your record and is not going anywhere. Whenever you want, it can move to {stage}: what your body is doing, and support if you want it. There is no hurry and nothing will be counted down.",
         "positiveTest": "You have recorded a pregnancy. Would you like Femio set up for {stage}?",
-        "pregnancyEnded": "Your pregnancy record has ended. Femio can move to {stage} when you are ready — there is no hurry, and nothing you have logged changes either way.",
+        "pregnancyEnded": "Your pregnancy record has ended. Femio can move to {stage} whenever you want — nothing you have logged changes either way.",
         "postpartumPassed": "It has been a while since the birth. Would you like Femio to move to {stage}?"
       },
       "body": "From what you have logged, Femio could tailor itself for {stage}. Want to try that?",

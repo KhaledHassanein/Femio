@@ -6,7 +6,8 @@
 - Config, keys and one-off commands that are *not* blocking → `OWNER_MANUAL_TASKS.md`
 - Things needing your eyes rather than your input → `MANUAL_TEST_PLAN.md`
 
-**Nothing is blocked as of 2026-08-16.** B1, B2, B3 and B4 are all closed. B5 and B6 remain,
+**One open question, blocking nothing: B7** — whether Femio carries baby-care content at all, which
+is a scope decision rather than a build one. B1–B4 are closed. B5 and B6 remain,
 and neither stops anything: B5 gates a dashboard nobody is waiting on, B6 gates `/admin/*`
 only. They are kept here because they are still genuinely yours to do.
 
@@ -153,6 +154,42 @@ site and the CMS are unaffected.
 
 Sign in → **Settings** → two-step sign-in → scan the QR with any authenticator app → enter the
 code. Recovery if you lose the authenticator is `scripts/auth/reset-mfa.mjs` (runbook B★★★).
+
+
+---
+
+## B7 · Does Femio carry **baby-care** content? — a scope decision, not a build one
+
+**You asked for** "how to raise your child in the first days… for at least 6 months to a year"
+alongside the after-birth work. Everything else you asked for is built (see below); this one
+part I have deliberately not started, because it is the first thing in months that sits outside
+the product definition rather than inside it.
+
+**Why it is a question at all.** `CLAUDE.md` defines Femio as *"one account for a woman's whole
+health life"*. Every persona spec is mother-centred, and **E2 §E names baby tracking as
+explicitly out of scope** — "full baby-tracking (diapers, sleep, growth curves)" — in the very
+persona that would host it. Adding newborn-care content is not an oversight being corrected; it
+is a decision to widen what Femio is. That is yours, not mine.
+
+**It also changes the compliance surface.** Every claim Femio makes today is about an adult
+woman's own body, and the medical-review chain (doc 15 §8, your byline) is built on that.
+Content about **an infant** is advice about a second person who is not the account holder,
+whose red flags are different, sharper, and time-critical — a newborn's fever is not an adult's.
+It would need its own review posture, and probably its own reviewer statement.
+
+**Pick one:**
+
+- **(a) Mother-facing only — my recommendation.** Femio covers feeding *from her side*
+  (supply, pain, mastitis, pumping, weaning, "is this normal for me"), her recovery, her mood,
+  her cycle returning. Where a question is really about the baby, it says so plainly and points
+  to her health visitor or paediatrician. **This is what is now built**, and it is what the E2
+  spec describes.
+- **(b) Add a newborn-basics layer**, 6–12 months, as its own content pillar with its own
+  review chain. Say so and I will bring you a title list the way B2's fourteen came — nothing
+  drafted before you approve it.
+- **(c) Defer.** Nothing changes; the queue line stays open.
+
+**Nothing is blocked on this.** The after-birth experience is complete without it.
 
 ---
 

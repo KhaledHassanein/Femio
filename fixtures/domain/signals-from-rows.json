@@ -23,6 +23,7 @@
         "ttcIntent": false,
         "ttcMonths": null,
         "pregnancyStatus": "ended",
+        "pregnancyOutcome": "completed",
         "weeksSincePregnancyEnd": 5,
         "conditions": [],
         "symptomCounts": {},
@@ -64,6 +65,7 @@
         "ttcIntent": false,
         "ttcMonths": null,
         "pregnancyStatus": "active",
+        "pregnancyOutcome": null,
         "weeksSincePregnancyEnd": null,
         "conditions": [
           "diabetes"
@@ -99,6 +101,7 @@
         "ttcIntent": true,
         "ttcMonths": null,
         "pregnancyStatus": null,
+        "pregnancyOutcome": null,
         "weeksSincePregnancyEnd": null,
         "conditions": [],
         "symptomCounts": {},
@@ -133,6 +136,7 @@
         "ttcIntent": false,
         "ttcMonths": null,
         "pregnancyStatus": "ended",
+        "pregnancyOutcome": "loss",
         "weeksSincePregnancyEnd": 8,
         "conditions": [
           "prior_loss"
@@ -161,6 +165,7 @@
         "ttcIntent": false,
         "ttcMonths": null,
         "pregnancyStatus": null,
+        "pregnancyOutcome": null,
         "weeksSincePregnancyEnd": null,
         "conditions": [],
         "symptomCounts": {},
@@ -191,6 +196,7 @@
         "ttcIntent": true,
         "ttcMonths": 12,
         "pregnancyStatus": null,
+        "pregnancyOutcome": null,
         "weeksSincePregnancyEnd": null,
         "conditions": [],
         "symptomCounts": {},
@@ -218,6 +224,7 @@
         "ttcIntent": false,
         "ttcMonths": null,
         "pregnancyStatus": "ended",
+        "pregnancyOutcome": null,
         "weeksSincePregnancyEnd": 6,
         "conditions": [],
         "symptomCounts": {},
