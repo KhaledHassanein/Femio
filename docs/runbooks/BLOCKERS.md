@@ -8,8 +8,9 @@
 
 **Nothing is blocked as of 2026-08-16.** B1–B9 are all closed: B5 and B6 done by the owner, and
 B7, B8 and B9 answered in one pass. What each answer unblocks is written into its section below,
-and the two content sets that need a separate chat have their prompts in
-`docs/content/HANDOVER_NEWBORN_BASICS.md` and `docs/content/HANDOVER_WEEK_BY_WEEK.md`.
+and the three content sets that go to a separate chat have their prompts in
+`docs/content/HANDOVER_NEWBORN_BASICS.md`, `docs/content/HANDOVER_WEEK_BY_WEEK.md` and
+`docs/content/HANDOVER_TEEN_CONTENT.md`.
 
 ---
 
@@ -196,6 +197,10 @@ set is not just "period articles for younger readers": **no condition is named a
 (A2 §D — PCOS should generally not be raised within two to three years of menarche), and one of
 the ten exists specifically to answer A2 §B's *"it said Tuesday and it didn't — is the app broken
 or am I broken?"*
+
+**Handed out 2026-08-16** the same way as B7 and B9 — the prompt is
+`docs/content/HANDOVER_TEEN_CONTENT.md`, with fixed slugs and the A-track constraints written in
+as rules rather than notes.
 
 **The one thing still yours, and it is not a blocker:** approving each draft in the CMS, the same
 gate the postpartum fourteen are waiting at.

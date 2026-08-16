@@ -514,8 +514,8 @@ woman two different sentences in the same appointment.
 > **Nothing is waiting on the owner. B1–B9 are all closed** (2026-08-16). Two content sets are
 > out to a separate chat — the prompts are `docs/content/HANDOVER_NEWBORN_BASICS.md` (B7 → eight
 > mother-facing newborn articles) and `docs/content/HANDOVER_WEEK_BY_WEEK.md` (B9 → weeks 4–40).
-> **P2.13's ten teen titles are approved (B8) and are drafting work here, not out to anyone** —
-> that is the next content item to pick up.
+> **P2.13's teen set went out the same way** — `docs/content/HANDOVER_TEEN_CONTENT.md`. All three
+> content sets are now with other agents, so the work here is **R1 design** until they return.
 > - **Owner task 5** — re-deploy the experience Edge Function; its source changed several
 >   times. The local fallback computes the identical document meanwhile.
 > - **`MANUAL_TEST_PLAN.md` T8, T10–T22** — fifteen items shipped 2026-08-16 and **nobody has
@@ -695,6 +695,21 @@ consolidation starts with the sources and the uncertainties rather than with 37 
 **The one line that governs the week-by-week set**, because it is the whole difference between a
 charming feature and a claim: *"babies are often about the length of a lemon"* is a population
 illustration; *"your baby is the size of a lemon"* is a measurement of her pregnancy.
+
+## All three content sets are out, and R1 is what is left (2026-08-16)
+
+Newborn basics (B7), week-by-week (B9) and the teen ten (B8) each have a self-contained prompt in
+`docs/content/HANDOVER_*.md`, each ending with an instruction to hand back a consolidation prompt.
+None of them is drafting work here any more.
+
+**The teen set is the one to read hardest on return**, and the reason is that its failure mode is
+invisible to `content-lint`: a condition named as a possibility. A2 §D is explicit that PCOS should
+not be raised within two to three years of menarche, and the guard checks claim verbs, not
+clinical judgement about an audience.
+
+With the content out, **R1 design is the live workstream** — the last of the three things
+`docs/23` named, and the oldest thing open. R1.5 (cycle dashboard), R1.7 (menopause) and R1.8
+(track screen) are the next concrete references.
 
 Take the top open item under ▶ NOW — the rest of
 `P2.2.3` (contraction timer, weight chart, checklists), then `P2.7`'s other screeners, which
