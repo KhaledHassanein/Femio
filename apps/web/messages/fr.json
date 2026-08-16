@@ -726,6 +726,48 @@
         "4": "Très sévère"
       }
     },
+    "medications": {
+      "title": "Médicaments et compléments",
+      "loading": "Chargement de votre liste",
+      "loadError": "Nous n’avons pas pu charger votre liste.",
+      "retry": "Réessayer",
+      "add": "Ajouter",
+      "cancel": "Annuler",
+      "save": "Enregistrer",
+      "saving": "Enregistrement…",
+      "saveFailed": "L’enregistrement a échoué. Vérifiez votre connexion et réessayez.",
+      "nameRequired": "Donnez-lui d’abord un nom.",
+      "boundary": "Femio garde la liste pour que vous puissiez la lire en consultation. Il ne propose jamais de dose, n’en vérifie aucune, et ne vous note pas sur votre régularité — cela regarde vous et la personne qui vous l’a prescrit.",
+      "currentHeading": "En cours",
+      "stoppedHeading": "Arrêtés",
+      "stop": "J’ai arrêté",
+      "restart": "J’en reprends",
+      "since": "Depuis le {date}",
+      "between": "Du {start} au {end}",
+      "daysOn": "{days} jours",
+      "empty": {
+        "heading": "Rien pour l’instant",
+        "body": "THS, pilule, comprimés pour la thyroïde, fer, vitamines de grossesse — quoi que vous preniez, dans une seule liste que vous pouvez montrer."
+      },
+      "form": {
+        "name": "De quoi s’agit-il",
+        "namePlaceholder": "Lévothyroxine, patch d’œstrogène, vitamine D…",
+        "dose": "Quelle quantité",
+        "dosePlaceholder": "50 µg, un patch, un demi-comprimé…",
+        "doseHint": "Ce qui est écrit sur la boîte. Femio le note, rien de plus.",
+        "schedule": "À quelle fréquence",
+        "startedOn": "Débuté le",
+        "note": "Note",
+        "notePlaceholder": "Le matin, avant de manger…"
+      },
+      "schedules": {
+        "daily": "Chaque jour",
+        "twiceDaily": "Deux fois par jour",
+        "weekly": "Chaque semaine",
+        "asNeeded": "Au besoin",
+        "other": "Autre"
+      }
+    },
   "postpartum": {
     "checkIn": {
       "eyebrow": "Après la naissance",

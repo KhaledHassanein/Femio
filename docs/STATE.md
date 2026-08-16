@@ -494,8 +494,14 @@ clinician establishes rather than things a woman notices. A test now pins the vo
 catalogs in both directions — a built-in with no label renders the raw key to a woman, and
 nothing else in the suite would have caught it.
 
-Take the top open item under ▶ NOW — the rest of **R3 depth**: `P2.4`'s remainder (the HRT log;
-the CBT program is content-gated as **P2.13b**), the rest of
+**P2.4 is code-complete.** The HRT log shipped as `meds_supplements` — the fourth table unused
+since v1 — and shipped as *one list*, not an HRT list: a woman on levothyroxine, a patch, iron
+and a prenatal vitamin has one, and an HRT-shaped screen would have restricted by data
+structure. Two absences are held by tests and must stay: **no dosing guidance** and **no
+adherence score**. Stopping keeps the row. What is left of P2.4 is the CBT program, which is
+content rather than code (**P2.13b**).
+
+Take the top open item under ▶ NOW — the rest of
 `P2.2.3` (contraction timer, weight chart, checklists), then `P2.7`'s other screeners, which
 now have a pattern to copy. Postpartum content drafting is unblocked (B2 approved, **P2.3c**);
 teen content is **P2.13**.

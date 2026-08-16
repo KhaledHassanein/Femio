@@ -726,6 +726,48 @@
         "4": "Muy intenso"
       }
     },
+    "medications": {
+      "title": "Medicamentos y suplementos",
+      "loading": "Cargando tu lista",
+      "loadError": "No pudimos cargar tu lista.",
+      "retry": "Reintentar",
+      "add": "Añadir",
+      "cancel": "Cancelar",
+      "save": "Guardar",
+      "saving": "Guardando…",
+      "saveFailed": "No se guardó. Comprueba tu conexión e inténtalo de nuevo.",
+      "nameRequired": "Ponle un nombre primero.",
+      "boundary": "Femio guarda la lista para que puedas leerla en la consulta. Nunca sugiere una dosis, nunca la revisa y nunca te puntúa por lo bien que la sigues — eso es cosa tuya y de quien te la recetó.",
+      "currentHeading": "Ahora mismo",
+      "stoppedHeading": "Dejados",
+      "stop": "Ya no lo tomo",
+      "restart": "Vuelvo a tomarlo",
+      "since": "Desde el {date}",
+      "between": "Del {start} al {end}",
+      "daysOn": "{days} días",
+      "empty": {
+        "heading": "Aquí no hay nada aún",
+        "body": "THS, la píldora, pastillas para la tiroides, hierro, vitaminas del embarazo — tomes lo que tomes, en una lista que puedes enseñar."
+      },
+      "form": {
+        "name": "Qué es",
+        "namePlaceholder": "Levotiroxina, parche de estrógeno, vitamina D…",
+        "dose": "Qué cantidad",
+        "dosePlaceholder": "50 mcg, un parche, media pastilla…",
+        "doseHint": "Lo que ponga en la caja. Femio lo anota y nada más.",
+        "schedule": "Con qué frecuencia",
+        "startedOn": "Empecé el",
+        "note": "Nota",
+        "notePlaceholder": "Por la mañana, antes de comer…"
+      },
+      "schedules": {
+        "daily": "A diario",
+        "twiceDaily": "Dos veces al día",
+        "weekly": "Cada semana",
+        "asNeeded": "Cuando lo necesito",
+        "other": "Otra cosa"
+      }
+    },
   "postpartum": {
     "checkIn": {
       "eyebrow": "Después del parto",

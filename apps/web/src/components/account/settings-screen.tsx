@@ -41,6 +41,7 @@ export function SettingsScreen() {
   const te = useTranslations("experience");
   const ta = useTranslations("appointments");
   const tf = useTranslations("fertility");
+  const tm = useTranslations("medications");
 
   return (
     <AppScreen>
@@ -95,6 +96,21 @@ export function SettingsScreen() {
           </div>
           <Button asChild variant="outline" className="self-start">
             <Link href="/fertility">{tf("title")}</Link>
+          </Button>
+        </CardContent>
+      </Card>
+
+      {/* Medicines and supplements (P2.4). One list across every stage — HRT, the
+          pill, thyroid tablets, a prenatal vitamin — because a woman has one list
+          and splitting it by life stage would restrict by data structure. */}
+      <Card>
+        <CardContent className="flex flex-col gap-3 p-6">
+          <div className="flex flex-col gap-1">
+            <h2 className="text-md font-semibold text-text">{tm("title")}</h2>
+            <p className="text-sm text-text-muted">{tm("empty.body")}</p>
+          </div>
+          <Button asChild variant="outline" className="self-start">
+            <Link href="/medications">{tm("title")}</Link>
           </Button>
         </CardContent>
       </Card>

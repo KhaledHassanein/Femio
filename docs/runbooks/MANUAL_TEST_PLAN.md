@@ -5,7 +5,7 @@ credentials, keys and one-off configuration — things only the owner *can* do. 
 things only a human can *judge*: whether a screen looks right, whether Arabic reads naturally,
 whether a flow feels like a product.
 
-**Why it exists.** Every automated gate in this repo passes on every commit — 11 guards, 422
+**Why it exists.** Every automated gate in this repo passes on every commit — 11 guards, 436
 unit tests, 63 end-to-end. None of them can tell you the homepage looks generic, that a
 translation is grammatically correct but tonally wrong, or that a control is out of thumb reach.
 `docs/22` §10 states the rule this file operationalises: *a screenshot is the test, not a
@@ -15,8 +15,8 @@ nice-to-have.*
 tracks what actually shipped. The regression sweep below is for before a beta or a release, not
 for every session.
 
-**Unseen as of 2026-08-16: T8, T10, T11, T12, T13.** Five screens shipped that day and nobody
-has looked at any of them. **T11 and T12 want you as a clinician rather than as an owner** —
+**Unseen as of 2026-08-16: T8, T10, T11, T12, T13, T14.** Six screens shipped that day and
+nobody has looked at any of them. **T11 and T12 want you as a clinician rather than as an owner** —
 charting must not read as contraception, and the MRS must not read as a grade. Those two are
 the ones I would not ship to an outside tester unread.
 
@@ -156,6 +156,15 @@ Track → the symptom chips, in any mode.
 - [ ] Read the nineteen new labels in Arabic, French and Spanish. Several are awkward to say in any language (burning mouth, electric-shock sensations, body-odour change) and the test is whether they read as something a person would tick rather than as a translation.
 - [ ] Nothing in the list is a **diagnosis** — no osteoporosis, no allergies, no depression-as-a-condition. If you see one, tell me: that is the line between logging what you notice and being invited to diagnose yourself.
 - [ ] The chips still fit a 390px screen at 45 items without the section becoming a wall.
+
+### T14 · Medicines and supplements (P2.4)
+Settings → **Medicines and supplements**.
+
+- [ ] Add something with a dose. Confirm Femio says **nothing at all** about the number — no range, no warning, no "that looks high". If any field comments on a dose, that is the line this screen exists not to cross.
+- [ ] Look for a streak, a "missed" count or an adherence percentage. There should be none. If a days-on number appears, check it counts from the date you typed, not from anything you did or did not do.
+- [ ] Press **I've stopped this**. The entry must move to "Stopped" and stay readable, not vanish.
+- [ ] The note at the top should make both absences explicit rather than leaving you to notice a missing field.
+- [ ] Arabic: medicine names are often written in English or Franco-Arabic. Check the field accepts either without complaint.
 
 ### T9 · The duplicate log button (found in R2.5c)
 Any of pregnancy, postpartum, or teen.

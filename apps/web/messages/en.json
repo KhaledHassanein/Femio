@@ -726,6 +726,48 @@
         "4": "Very severe"
       }
     },
+    "medications": {
+      "title": "Medicines and supplements",
+      "loading": "Loading your list",
+      "loadError": "We could not load your list.",
+      "retry": "Try again",
+      "add": "Add",
+      "cancel": "Cancel",
+      "save": "Save",
+      "saving": "Saving…",
+      "saveFailed": "That did not save. Check your connection and try again.",
+      "nameRequired": "Give it a name first.",
+      "boundary": "Femio keeps the list so you can read it out at an appointment. It never suggests a dose, never checks one, and never scores you on how well you keep to it — that is between you and whoever prescribed it.",
+      "currentHeading": "Taking now",
+      "stoppedHeading": "Stopped",
+      "stop": "I've stopped this",
+      "restart": "I'm taking this again",
+      "since": "Since {date}",
+      "between": "{start} to {end}",
+      "daysOn": "{days} days",
+      "empty": {
+        "heading": "Nothing here yet",
+        "body": "HRT, the pill, thyroid tablets, iron, a prenatal vitamin — whatever you take, in one list you can hand over."
+      },
+      "form": {
+        "name": "What is it",
+        "namePlaceholder": "Levothyroxine, oestrogen patch, vitamin D…",
+        "dose": "How much",
+        "dosePlaceholder": "50 mcg, one patch, half a tablet…",
+        "doseHint": "Whatever is written on the box. Femio records it and nothing more.",
+        "schedule": "How often",
+        "startedOn": "Started",
+        "note": "Note",
+        "notePlaceholder": "In the morning, before food…"
+      },
+      "schedules": {
+        "daily": "Daily",
+        "twiceDaily": "Twice a day",
+        "weekly": "Weekly",
+        "asNeeded": "When I need it",
+        "other": "Something else"
+      }
+    },
   "postpartum": {
     "checkIn": {
       "eyebrow": "After birth",

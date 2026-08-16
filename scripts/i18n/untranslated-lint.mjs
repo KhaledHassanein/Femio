@@ -43,6 +43,8 @@ const ALLOWED = {
     "home.shot.app.mode",
     "visitSummary.cycleHeading",
     "visitSummary.colDate",
+    // "Note" is the French word, spelled identically.
+    "medications.form.note",
     "learn.sources",
     "experience.modes.cycle.label",
     "insights.dimensions.persona.title",
