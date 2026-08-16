@@ -923,6 +923,54 @@
       "applying": "Setting it up…",
       "decline": "No thanks"
     },
+    "moodScreeners": {
+      "title": "Mood questionnaires",
+      "pageIntro": "Two questionnaires your doctor is likely to recognise, about the last two weeks. They are here in every mode, not behind a life stage. Answer what you want to; skip anything you would rather not.",
+      "intro": "Over the last two weeks, how often have you been bothered by any of the following?",
+      "PHQ9": {
+        "heading": "How you have been feeling (PHQ-9)"
+      },
+      "GAD7": {
+        "heading": "Worry and anxiety (GAD-7)"
+      },
+      "total": "Your total is {total}, from {answered} of {items} answers",
+      "partial": "You have not answered every question, so this total is not comparable to a full one.",
+      "discuss": "This is a screening questionnaire, not an assessment. Femio does not grade the number — take it to your doctor, who can.",
+      "save": "Save this to my record",
+      "saving": "Saving…",
+      "saved": "Saved. You can show this at your next appointment.",
+      "saveFailed": "That did not save. Check your connection and try again.",
+      "saveNote": "Saving is optional. Nothing here needs to be saved for you to use it.",
+      "support": {
+        "heading": "You do not have to sit with that on your own",
+        "body": "Thoughts like that are more common than most people are told, and they are worth telling someone about today — your doctor, or someone close to you.",
+        "cta": "Ways to get help now"
+      },
+      "items": {
+        "littleInterest": "Little interest or pleasure in doing things",
+        "feelingDown": "Feeling down, depressed, or hopeless",
+        "sleepTrouble": "Trouble falling or staying asleep, or sleeping too much",
+        "tiredLowEnergy": "Feeling tired or having little energy",
+        "appetiteChange": "Poor appetite or overeating",
+        "feelingBadAboutSelf": "Feeling bad about yourself, or that you are a failure or have let yourself or your family down",
+        "troubleConcentrating": "Trouble concentrating on things, such as reading or watching television",
+        "movingSlowlyOrRestless": "Moving or speaking so slowly that others could notice — or being so fidgety or restless that you move around a lot more than usual",
+        "betterOffDead": "Thoughts that you would be better off dead, or of hurting yourself in some way",
+        "feelingNervous": "Feeling nervous, anxious, or on edge",
+        "cannotStopWorrying": "Not being able to stop or control worrying",
+        "worryingTooMuch": "Worrying too much about different things",
+        "troubleRelaxing": "Trouble relaxing",
+        "restless": "Being so restless that it is hard to sit still",
+        "easilyAnnoyed": "Becoming easily annoyed or irritable",
+        "afraidSomethingAwful": "Feeling afraid, as if something awful might happen"
+      },
+      "levels": {
+        "0": "Not at all",
+        "1": "Several days",
+        "2": "More than half the days",
+        "3": "Nearly every day"
+      }
+    },
   "postpartum": {
     "checkIn": {
       "eyebrow": "After birth",

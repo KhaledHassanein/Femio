@@ -5,7 +5,7 @@ credentials, keys and one-off configuration — things only the owner *can* do. 
 things only a human can *judge*: whether a screen looks right, whether Arabic reads naturally,
 whether a flow feels like a product.
 
-**Why it exists.** Every automated gate in this repo passes on every commit — 11 guards, 473
+**Why it exists.** Every automated gate in this repo passes on every commit — 11 guards, 485
 unit tests, 63 end-to-end. None of them can tell you the homepage looks generic, that a
 translation is grammatically correct but tonally wrong, or that a control is out of thumb reach.
 `docs/22` §10 states the rule this file operationalises: *a screenshot is the test, not a
@@ -15,8 +15,8 @@ nice-to-have.*
 tracks what actually shipped. The regression sweep below is for before a beta or a release, not
 for every session.
 
-**Unseen as of 2026-08-16: T8, T10–T17.** Ten screens shipped that day and nobody has looked at
-any of them. **T16 is the one I would want read first** — it is the only screen in Femio that
+**Unseen as of 2026-08-16: T8, T10–T18.** Eleven screens shipped that day and nobody has looked
+at any of them. **T16 is the one I would want read first** — it is the only screen in Femio that
 acts on an answer. **T15 needs migration `0008` applied first** (owner task 4). **T11 and T12 want you as a clinician rather than as an owner** —
 charting must not read as contraception, and the MRS must not read as a grade. Those two are
 the ones I would not ship to an outside tester unread.
@@ -201,6 +201,15 @@ A fresh account, skipping the life-stage question at signup ("Not sure yet").
 - [ ] Press **No thanks**. It goes, and it stays gone on reload.
 - [ ] On a second account, press **Yes, tailor it**. The badge and the screen change, and Settings → Your Femio experience can put it straight back.
 - [ ] Sign out and in as someone else on the same browser: the first woman's dismissal must not follow her.
+
+### T18 · PHQ-9 and GAD-7 (P2.7)
+Settings → **Mood questionnaires**. In any mode.
+
+- [ ] Read both instruments against the published wording, in four languages. The nine PHQ-9 items and seven GAD-7 items are the standard ones; the translations are mine.
+- [ ] **PHQ-9 item 9** ("better off dead, or of hurting yourself"). Answer it above "not at all" with everything else at "not at all" — total 1. The crisis dialog must open **on the tap**, and a panel must stay behind it. Exactly the T16 behaviour, on a different screen.
+- [ ] Fill GAD-7 entirely at "nearly every day" — total 21. Nothing should open, because GAD-7 has no self-harm item. If anything fires, the wrong instrument's rule is being applied.
+- [ ] No band, no "moderate", no colour on either total.
+- [ ] Both are reachable in **cycle, TTC, pregnancy and menopause** modes, not just one.
 
 ### T9 · The duplicate log button (found in R2.5c)
 Any of pregnancy, postpartum, or teen.

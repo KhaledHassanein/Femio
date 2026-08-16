@@ -61,6 +61,7 @@ export const APP_CLIENT_NAMESPACES = [
   "fertility",
   "mrs",
   "epds",
+  "moodScreeners",
   "offer",
   "medications",
   "contractions",

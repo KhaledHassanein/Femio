@@ -550,6 +550,12 @@ who has told us nothing.
 and was right to. The fix moved the condition into tier 1. **When a guard fires on new code, the
 usual answer is that the decision is in the wrong layer** — not that the rule is too strict.
 
+**PHQ-9 and GAD-7 followed** (2026-08-16), at `/screeners`, reachable in every mode — general
+instruments, unlike the EPDS, which stays on the postpartum screen because it is perinatal. One
+module and one component parameterised by instrument: **a second near-identical copy is where the
+item-9 rule would eventually be lost.** `selfHarmItemPositive` is always false for GAD-7, which is a
+fact of the instrument kept in the type rather than a branch in a screen.
+
 Take the top open item under ▶ NOW — the rest of
 `P2.2.3` (contraction timer, weight chart, checklists), then `P2.7`'s other screeners, which
 now have a pattern to copy. Postpartum content drafting is unblocked (B2 approved, **P2.3c**);

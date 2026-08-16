@@ -42,6 +42,7 @@ export function SettingsScreen() {
   const ta = useTranslations("appointments");
   const tf = useTranslations("fertility");
   const tm = useTranslations("medications");
+  const ts = useTranslations("moodScreeners");
 
   return (
     <AppScreen>
@@ -111,6 +112,21 @@ export function SettingsScreen() {
           </div>
           <Button asChild variant="outline" className="self-start">
             <Link href="/medications">{tm("title")}</Link>
+          </Button>
+        </CardContent>
+      </Card>
+
+      {/* PHQ-9 and GAD-7 (P2.7). General instruments, so they sit here rather
+          than behind a life stage — the EPDS is on the postpartum screen because
+          it is perinatal, and these are not. */}
+      <Card>
+        <CardContent className="flex flex-col gap-3 p-6">
+          <div className="flex flex-col gap-1">
+            <h2 className="text-md font-semibold text-text">{ts("title")}</h2>
+            <p className="text-sm text-text-muted">{ts("pageIntro")}</p>
+          </div>
+          <Button asChild variant="outline" className="self-start">
+            <Link href="/screeners">{ts("title")}</Link>
           </Button>
         </CardContent>
       </Card>

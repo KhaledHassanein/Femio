@@ -923,6 +923,54 @@
       "applying": "Configurando…",
       "decline": "No, gracias"
     },
+    "moodScreeners": {
+      "title": "Cuestionarios de estado de ánimo",
+      "pageIntro": "Dos cuestionarios que tu médico probablemente reconozca, sobre las dos últimas semanas. Están disponibles en todos los modos, no detrás de una etapa vital. Responde lo que quieras; salta lo que prefieras no decir.",
+      "intro": "En las últimas dos semanas, ¿con qué frecuencia te ha molestado alguna de estas cosas?",
+      "PHQ9": {
+        "heading": "Cómo te has sentido (PHQ-9)"
+      },
+      "GAD7": {
+        "heading": "Preocupación y ansiedad (GAD-7)"
+      },
+      "total": "Tu total es {total}, de {answered} respuestas de {items}",
+      "partial": "No has respondido a todas las preguntas, así que este total no es comparable con uno completo.",
+      "discuss": "Es un cuestionario de cribado, no una valoración. Femio no clasifica el número — llévalo a tu médico, que sí puede.",
+      "save": "Guardar en mi historial",
+      "saving": "Guardando…",
+      "saved": "Guardado. Puedes enseñarlo en tu próxima cita.",
+      "saveFailed": "No se guardó. Comprueba tu conexión e inténtalo de nuevo.",
+      "saveNote": "Guardar es opcional. Nada de esto necesita guardarse para que te sirva.",
+      "support": {
+        "heading": "No tienes por qué llevar eso sola",
+        "body": "Esos pensamientos son más frecuentes de lo que se suele contar, y merece la pena contárselo hoy a alguien — tu médico o alguien cercano.",
+        "cta": "Formas de conseguir ayuda ahora"
+      },
+      "items": {
+        "littleInterest": "Poco interés o placer en hacer las cosas",
+        "feelingDown": "Sentirte decaída, deprimida o sin esperanza",
+        "sleepTrouble": "Dificultad para dormirte o mantenerte dormida, o dormir demasiado",
+        "tiredLowEnergy": "Sentirte cansada o con poca energía",
+        "appetiteChange": "Poco apetito o comer en exceso",
+        "feelingBadAboutSelf": "Sentirte mal contigo misma, o que eres un fracaso o que has decepcionado a los tuyos",
+        "troubleConcentrating": "Dificultad para concentrarte, por ejemplo al leer o ver la televisión",
+        "movingSlowlyOrRestless": "Moverte o hablar tan despacio que otras personas podrían notarlo — o estar tan inquieta que te mueves mucho más de lo normal",
+        "betterOffDead": "Pensar que estarías mejor muerta, o pensar en hacerte daño de alguna manera",
+        "feelingNervous": "Sentirte nerviosa, ansiosa o al límite",
+        "cannotStopWorrying": "No poder parar de preocuparte o controlar la preocupación",
+        "worryingTooMuch": "Preocuparte demasiado por distintas cosas",
+        "troubleRelaxing": "Dificultad para relajarte",
+        "restless": "Estar tan inquieta que te cuesta quedarte sentada",
+        "easilyAnnoyed": "Enfadarte o irritarte con facilidad",
+        "afraidSomethingAwful": "Sentir miedo, como si algo terrible fuera a pasar"
+      },
+      "levels": {
+        "0": "Nunca",
+        "1": "Varios días",
+        "2": "Más de la mitad de los días",
+        "3": "Casi todos los días"
+      }
+    },
   "postpartum": {
     "checkIn": {
       "eyebrow": "Después del parto",

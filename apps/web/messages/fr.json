@@ -923,6 +923,54 @@
       "applying": "Configuration…",
       "decline": "Non merci"
     },
+    "moodScreeners": {
+      "title": "Questionnaires d’humeur",
+      "pageIntro": "Deux questionnaires que votre médecin reconnaîtra sans doute, portant sur les deux dernières semaines. Ils sont accessibles dans tous les modes, pas derrière une étape de vie. Répondez à ce que vous voulez ; passez ce que vous préférez taire.",
+      "intro": "Au cours des deux dernières semaines, à quelle fréquence avez-vous été gênée par l’un des problèmes suivants ?",
+      "PHQ9": {
+        "heading": "Comment vous vous êtes sentie (PHQ-9)"
+      },
+      "GAD7": {
+        "heading": "Inquiétude et anxiété (GAD-7)"
+      },
+      "total": "Votre total est de {total}, sur {answered} réponses parmi {items}",
+      "partial": "Vous n’avez pas répondu à toutes les questions : ce total n’est donc pas comparable à un total complet.",
+      "discuss": "C’est un questionnaire de repérage, pas une évaluation. Femio ne classe pas ce chiffre — apportez-le à votre médecin, qui le peut.",
+      "save": "Enregistrer dans mon dossier",
+      "saving": "Enregistrement…",
+      "saved": "Enregistré. Vous pourrez le montrer à votre prochain rendez-vous.",
+      "saveFailed": "L’enregistrement a échoué. Vérifiez votre connexion et réessayez.",
+      "saveNote": "L’enregistrement est facultatif. Rien ici n’a besoin d’être enregistré pour vous servir.",
+      "support": {
+        "heading": "Vous n’avez pas à porter cela seule",
+        "body": "Ces pensées sont plus fréquentes qu’on ne le dit, et elles méritent d’être dites à quelqu’un aujourd’hui — votre médecin, ou un proche.",
+        "cta": "Trouver de l’aide maintenant"
+      },
+      "items": {
+        "littleInterest": "Peu d’intérêt ou de plaisir à faire les choses",
+        "feelingDown": "Vous sentir triste, déprimée ou désespérée",
+        "sleepTrouble": "Difficultés à vous endormir ou à rester endormie, ou dormir trop",
+        "tiredLowEnergy": "Vous sentir fatiguée ou manquer d’énergie",
+        "appetiteChange": "Manque d’appétit ou trop manger",
+        "feelingBadAboutSelf": "Avoir une mauvaise opinion de vous-même, ou penser que vous êtes un échec ou que vous avez déçu vos proches",
+        "troubleConcentrating": "Difficultés à vous concentrer, par exemple pour lire ou regarder la télévision",
+        "movingSlowlyOrRestless": "Bouger ou parler si lentement que les autres pourraient le remarquer — ou au contraire être si agitée que vous bougez beaucoup plus que d’habitude",
+        "betterOffDead": "Penser que vous seriez mieux morte, ou penser à vous faire du mal d’une manière ou d’une autre",
+        "feelingNervous": "Vous sentir nerveuse, anxieuse ou à cran",
+        "cannotStopWorrying": "Ne pas pouvoir arrêter de vous inquiéter ou contrôler vos inquiétudes",
+        "worryingTooMuch": "Vous inquiéter trop à propos de tout et de rien",
+        "troubleRelaxing": "Avoir du mal à vous détendre",
+        "restless": "Être si agitée qu’il est difficile de rester assise",
+        "easilyAnnoyed": "Devenir facilement contrariée ou irritable",
+        "afraidSomethingAwful": "Avoir peur que quelque chose d’affreux puisse arriver"
+      },
+      "levels": {
+        "0": "Jamais",
+        "1": "Plusieurs jours",
+        "2": "Plus de la moitié des jours",
+        "3": "Presque tous les jours"
+      }
+    },
   "postpartum": {
     "checkIn": {
       "eyebrow": "Après la naissance",
