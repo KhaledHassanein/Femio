@@ -5,7 +5,7 @@ credentials, keys and one-off configuration — things only the owner *can* do. 
 things only a human can *judge*: whether a screen looks right, whether Arabic reads naturally,
 whether a flow feels like a product.
 
-**Why it exists.** Every automated gate in this repo passes on every commit — 10 guards, 331
+**Why it exists.** Every automated gate in this repo passes on every commit — 11 guards, 416
 unit tests, 63 end-to-end. None of them can tell you the homepage looks generic, that a
 translation is grammatically correct but tonally wrong, or that a control is out of thumb reach.
 `docs/22` §10 states the rule this file operationalises: *a screenshot is the test, not a
@@ -14,6 +14,11 @@ nice-to-have.*
 **How to use it.** Work the **▶ After the latest changes** section first — it is short and
 tracks what actually shipped. The regression sweep below is for before a beta or a release, not
 for every session.
+
+**Unseen as of 2026-08-16: T8, T10, T11, T12.** Four screens shipped that day and nobody has
+looked at any of them. **T11 and T12 want you as a clinician rather than as an owner** —
+charting must not read as contraception, and the MRS must not read as a grade. Those two are
+the ones I would not ship to an outside tester unread.
 
 **Standing conditions for every check:** a real phone if possible, otherwise a browser at
 **390×844**. Each screen in **light and dark**, and in **English and Arabic**. Arabic is a

@@ -18,24 +18,27 @@ Key facts you'll reuse:
 
 ## ▶ Do these next (everything else can wait)
 
-Re-audited against the live site and database on **2026-08-12**. Several items in the old
-table had already been done (the CMS admin exists, the site reads the CMS, 31 articles are
-live). What is actually outstanding, in the order I would do it:
+Re-audited on **2026-08-16**. Row 1 of the old table — your credentials (P1.9.7) — is **done**:
+the bio is published and all 30 articles carry it, so it has left this list. What is actually
+outstanding, in the order I would do it:
 
 | # | Task | Time | Why it matters |
 |---|---|---|---|
-| **1** | **Send me your credentials + affiliation** (P1.9.7) | 2 min | **Highest value per minute in the whole list.** It publishes your reviewer bio, which unblocks bylines on all 30 imported articles (P1.9.8) *and* lets the homepage say "every guide is reviewed by a clinician, named, with credentials" — a line I had to remove because it is not true yet. Nothing to run: reply with the two strings, e.g. `MBBCh, MSc` and `Cairo University`. |
+| **1** | **Look at the five new screens** — *`MANUAL_TEST_PLAN.md` T8, T10, T11, T12* | 20 min | Five features shipped on 2026-08-16 and **I have seen none of them rendered.** Two want you specifically as a clinician: the charting screen must not read as contraception (T11), and the MRS must not read as a grade (T12). The rest is craft — teen mode, appointments, and whether the Arabic sounds like a person wrote it. |
 | **2** | **Read the ten Arabic crisis strings** (P1.26.2) — *see `MANUAL_TEST_PLAN.md` T2* | 5 min | You are the recorded reviewer (ADR-063). The English fallback that used to render in Arabic is **gone**, so these are what a woman at risk now sees. Open `/ar` on the live site and tap **تحتاجين مساعدة الآن؟**, or read `apps/web/src/lib/crisis/crisis.json`. A correction is an edit, not a blocked release. |
 | **3** | **Look at the new homepage on a phone** (R1.3d) — *see `MANUAL_TEST_PLAN.md` T1* | 5 min | `femioapp.com/en` and `/ar` at 390px, light and dark. I verified the copy with `curl`; I have never seen it rendered. Craft is your call. |
-| **4** | **Re-deploy the experience Edge Function** (R2.4) | 2 min | ✅ deployed once already, on 2026-08-12. Its source changed on 2026-08-16 — it now resolves postpartum correctly and no longer carries its own copy of the signal derivation. **Nothing is broken until you run it:** the client falls back to the identical local computation, and the tests that hold the two together are the same golden fixtures. One line, below. |
+| **4** | ▶ **Re-deploy the experience Edge Function** (R2.4) | 2 min | ✅ deployed once already, on 2026-08-12. Its source changed on 2026-08-16 — it now resolves postpartum correctly and no longer carries its own copy of the signal derivation. **Nothing is broken until you run it:** the client falls back to the identical local computation, and the tests that hold the two together are the same golden fixtures. One line, below. |
 | **5** | **Turn on two-step sign-in** (B★★★) | 3 min | `/admin/*` redirects you to Settings until you enrol. Blocks the translation portal and the insights dashboard, nothing else. |
 | **6** | **Gate signup** (P0.12.5) | 15 min | Before any outside tester. An invite code, an allowlist, or a "private beta" notice on `/welcome`. It keeps "we are only testing" true rather than merely intended. |
 | **7** | **PostHog EU key** (D) | 20 min | Optional. The event layer is built and fails closed; it stays a verified no-op until a key exists. |
 
 **Anything that needs your eyes rather than your credentials lives in
-`MANUAL_TEST_PLAN.md`** — the homepage at 390px, the Arabic crisis copy, and whether the
-experience engine actually changes the screen when you re-answer. This file stays keys,
-config and one-off commands.
+`MANUAL_TEST_PLAN.md`** — twelve checks now, T1–T12, of which T8 and T10–T12 have never been
+looked at by anyone. This file stays keys, config and one-off commands.
+
+**Nothing on this list blocks me.** Every item is a strict improvement on a working product:
+the Edge Function has a local fallback that computes the identical document, and the five new
+screens are live. They are here because they are yours to judge, not because work is waiting.
 
 ### Task 4, verbatim — Supabase CLI
 
