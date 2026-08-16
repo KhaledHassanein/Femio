@@ -22,6 +22,7 @@
  *    module, a tool or an alert, and the type could not express it if there were.
  */
 
+import { OFFER_THRESHOLD, trackOfPersona } from "../persona/resolver.ts";
 import type { Resolution } from "../persona/resolver.ts";
 import type {
   AlertSpec,
@@ -189,6 +190,31 @@ function mergeTone(base: Tone, layer: Tone): Tone {
   };
 }
 
+/**
+ * The offer the client may show (P1.27.5) — deliberately narrower than `runnerUp`.
+ *
+ * `runnerUp` answers *"who would we have picked"*, which is worth carrying even when
+ * the answer is weak or when a persona was chosen anyway. `offer` answers *"is this
+ * worth putting in front of her"*, and `docs/09` §5 makes it three conditions, all
+ * of which belong here rather than in a screen — a client that had to remember them
+ * would be one refactor from a woman being asked to reclassify herself:
+ *
+ * 1. **Only from the generic state.** With a persona resolved she is already in an
+ *    experience; the runner-up is then just second place, not a suggestion.
+ * 2. **Only above `OFFER_THRESHOLD`.** An account with nothing recorded still scores
+ *    a generic cycle persona around 0.2, because "no conditions" and "not trying to
+ *    conceive" are both true of someone who has told us nothing.
+ * 3. **Only when it names a real stage.** The offer sentence is "tailor Femio for
+ *    *perimenopause*", so a persona whose track cannot be resolved has nothing to
+ *    put in the sentence and is not offered at all.
+ */
+function offerFrom(resolution: Resolution): ExperienceConfig["offer"] {
+  const runnerUp = resolution.runnerUp;
+  if (resolution.track !== "Z") return null;
+  if (!runnerUp || runnerUp.confidence < OFFER_THRESHOLD) return null;
+  return trackOfPersona(runnerUp.personaId) ? runnerUp : null;
+}
+
 export type BuildInput = {
   resolution: Resolution;
   /** Null when the track has no phase concept, or when it is not yet known. */
@@ -275,7 +301,7 @@ export function buildExperienceConfig(input: BuildInput): ExperienceConfig {
     modifiers: resolution.modifiers,
     emotionalContext: resolution.emotionalContext,
     confidence: resolution.confidence,
-    offer: resolution.runnerUp,
+    offer: offerFrom(resolution),
     phase,
     home: {
       modules,

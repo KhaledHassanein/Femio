@@ -6,6 +6,7 @@ import { useTranslations } from "next-intl";
 import { createClient } from "@/lib/supabase/client";
 import { Button } from "@/components/ui/button";
 import { clearExperienceCache } from "@/lib/experience/client";
+import { clearOfferDismissals } from "@/components/experience/persona-offer";
 
 /**
  * Sign out, moved here from the app nav (P1.28.1).
@@ -23,6 +24,8 @@ export function SignOutButton() {
   const signOut = async () => {
     setBusy(true);
     clearExperienceCache();
+    // Her dismissals are hers, not the next person's on a shared device.
+    clearOfferDismissals();
     const supabase = createClient();
     await supabase.auth.signOut();
     router.push("/");

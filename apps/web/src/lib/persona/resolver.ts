@@ -67,6 +67,19 @@ type PersonaRule = {
 export const CONFIDENCE_THRESHOLD = 0.6;
 
 /**
+ * Below this, there is nothing worth *offering* either (P1.27.5).
+ *
+ * `docs/09` §5 says Femio offers the nearest persona "when confidence crosses a
+ * threshold", which is a different threshold from the one that makes it commit —
+ * and the gap between them is the whole offer. A test caught what happens without
+ * this: a brand-new account with **nothing logged at all** scores B1 at 0.21,
+ * because "no conditions recorded" and "not trying to conceive" are both true of
+ * someone who has told us nothing. Offering her a life stage on that evidence is
+ * the product guessing at a woman and calling it personalization.
+ */
+export const OFFER_THRESHOLD = 0.4;
+
+/**
  * If the top two are within this, we are choosing on noise. docs/09 §5 says blend
  * the two nearest rather than committing, and Z1 *is* the blended state.
  */
@@ -392,7 +405,13 @@ export function resolveForStatedTrack(
   };
 }
 
-function trackOfPersona(personaId: string): Track | null {
+/**
+ * Which track a persona belongs to. Exported for the offer (P1.27.5): the UI has
+ * to name the *stage* it is offering, and it must do that by lookup rather than by
+ * comparing persona ids in a component, which `persona-branch-lint` forbids and
+ * `docs/24` calls the whole point.
+ */
+export function trackOfPersona(personaId: string): Track | null {
   return PERSONA_RULES.find((rule) => rule.id === personaId)?.track ?? null;
 }
 

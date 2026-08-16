@@ -17,6 +17,7 @@ import { Link } from "@/i18n/navigation";
 import { PregnancyExperience } from "@/components/experience/pregnancy-experience";
 import { PostpartumExperience } from "@/components/experience/postpartum-experience";
 import { TeenExperience } from "@/components/experience/teen-experience";
+import { PersonaOffer } from "@/components/experience/persona-offer";
 import { MenopausePanel } from "@/components/menopause/menopause-panel";
 import { HeroCard } from "@/components/ui/hero-card";
 import { AppScreen, ScreenError } from "@/components/patterns/app-screen";
@@ -183,6 +184,12 @@ export function DashboardScreen() {
         <h1 className="font-display text-lg text-text">{t("title")}</h1>
         <Badge variant="primary">{t(`modeLabel.${mode}`)}</Badge>
       </div>
+
+      {/* Progressive personalization (P1.27.5). Only ever appears in the generic
+          state, names a life stage rather than a persona, and says it is
+          reversible before she taps. `runnerUp` has been computed since ADR-057
+          and rendered by nothing until now. */}
+      <PersonaOffer config={config} />
 
       {/* TTC leads with the fertile window — it is the question she opened the app
           with — and keeps the next-period estimate as a secondary card below. */}

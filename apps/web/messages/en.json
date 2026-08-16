@@ -916,6 +916,13 @@
         }
       }
     },
+    "offer": {
+      "body": "From what you have logged, Femio could tailor itself for {stage}. Want to try that?",
+      "reversible": "You can change it back whenever you like, and nothing you have logged is affected either way.",
+      "accept": "Yes, tailor it",
+      "applying": "Setting it up…",
+      "decline": "No thanks"
+    },
   "postpartum": {
     "checkIn": {
       "eyebrow": "After birth",

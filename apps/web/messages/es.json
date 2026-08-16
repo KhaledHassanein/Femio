@@ -916,6 +916,13 @@
         }
       }
     },
+    "offer": {
+      "body": "Por lo que has anotado, Femio podría adaptarse a {stage}. ¿Quieres probarlo?",
+      "reversible": "Puedes volver atrás cuando quieras, y nada de lo que has anotado se ve afectado en ningún caso.",
+      "accept": "Sí, adáptalo",
+      "applying": "Configurando…",
+      "decline": "No, gracias"
+    },
   "postpartum": {
     "checkIn": {
       "eyebrow": "Después del parto",

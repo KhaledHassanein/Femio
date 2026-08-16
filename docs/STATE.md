@@ -523,6 +523,21 @@ The node existed and was simply never asked for — the one failure `UNIMPLEMENT
 visible, and it could not, because the id *was* listed. Worth remembering when adding a module: a
 listed id proves the gap is known, not that the wiring is right.
 
+## The engine finally offers something (P1.27.5, 2026-08-16)
+
+`runnerUp` has been computed since ADR-057 and `ExperienceConfig.offer` since R2.2, and nothing had
+ever rendered either — the same write-only shape `docs/23` §3.1 opened this workstream with.
+
+**All three conditions live in tier 1** (`offerFrom` in `build.ts`), not in the component: only from
+the generic state, only above **`OFFER_THRESHOLD` (0.4)**, only when the runner-up names a real
+track. The threshold exists because a test caught the alternative — an account with nothing logged
+scores B1 at 0.21, because "no conditions" and "not trying to conceive" are both true of someone
+who has told us nothing.
+
+`persona-branch-lint` rejected the first version over a `mode !== "general"` check in the component
+and was right to. The fix moved the condition into tier 1. **When a guard fires on new code, the
+usual answer is that the decision is in the wrong layer** — not that the rule is too strict.
+
 Take the top open item under ▶ NOW — the rest of
 `P2.2.3` (contraction timer, weight chart, checklists), then `P2.7`'s other screeners, which
 now have a pattern to copy. Postpartum content drafting is unblocked (B2 approved, **P2.3c**);

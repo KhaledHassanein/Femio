@@ -5,7 +5,7 @@ credentials, keys and one-off configuration — things only the owner *can* do. 
 things only a human can *judge*: whether a screen looks right, whether Arabic reads naturally,
 whether a flow feels like a product.
 
-**Why it exists.** Every automated gate in this repo passes on every commit — 11 guards, 468
+**Why it exists.** Every automated gate in this repo passes on every commit — 11 guards, 473
 unit tests, 63 end-to-end. None of them can tell you the homepage looks generic, that a
 translation is grammatically correct but tonally wrong, or that a control is out of thumb reach.
 `docs/22` §10 states the rule this file operationalises: *a screenshot is the test, not a
@@ -15,7 +15,7 @@ nice-to-have.*
 tracks what actually shipped. The regression sweep below is for before a beta or a release, not
 for every session.
 
-**Unseen as of 2026-08-16: T8, T10–T16.** Nine screens shipped that day and nobody has looked at
+**Unseen as of 2026-08-16: T8, T10–T17.** Ten screens shipped that day and nobody has looked at
 any of them. **T16 is the one I would want read first** — it is the only screen in Femio that
 acts on an answer. **T15 needs migration `0008` applied first** (owner task 4). **T11 and T12 want you as a clinician rather than as an owner** —
 charting must not read as contraception, and the MRS must not read as a grade. Those two are
@@ -191,6 +191,16 @@ Settings → **After birth**, then the mood check under the hero.
 - [ ] Confirm there is **no band and no label** anywhere — no “probable depression”, no colour grading the total.
 - [ ] Saving is a separate button and clearly optional. She must be able to take the help without leaving a record.
 - [ ] Arabic especially: this is the highest-risk translation in the app after the crisis copy itself.
+
+### T17 · The personalization offer (P1.27.5)
+A fresh account, skipping the life-stage question at signup ("Not sure yet").
+
+- [ ] With **nothing logged**, there should be **no offer at all**. If Femio suggests a life stage to someone who has told it nothing, that is the failure this shipped with a threshold to prevent.
+- [ ] Now give it something thin — an age band of 13–15, or a couple of logged periods. An offer appears, naming a **life stage** ("Teen", "Cycle"), never a persona code.
+- [ ] It says it is reversible **before** the buttons, not after.
+- [ ] Press **No thanks**. It goes, and it stays gone on reload.
+- [ ] On a second account, press **Yes, tailor it**. The badge and the screen change, and Settings → Your Femio experience can put it straight back.
+- [ ] Sign out and in as someone else on the same browser: the first woman's dismissal must not follow her.
 
 ### T9 · The duplicate log button (found in R2.5c)
 Any of pregnancy, postpartum, or teen.
