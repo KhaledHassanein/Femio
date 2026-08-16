@@ -6,7 +6,9 @@
 - Config, keys and one-off commands that are *not* blocking → `OWNER_MANUAL_TASKS.md`
 - Things needing your eyes rather than your input → `MANUAL_TEST_PLAN.md`
 
-**One open question, blocking nothing: B7** — whether Femio carries baby-care content at all, which
+**Three open questions: B7, B8 and B9.** B8 (ten teen titles) and B9 (what a pregnancy week
+entry should be) each hold a content item that is otherwise ready to draft, and both are one
+reply. **B7** — whether Femio carries baby-care content at all, which
 is a scope decision rather than a build one. B1–B4 are closed. B5 and B6 remain,
 and neither stops anything: B5 gates a dashboard nobody is waiting on, B6 gates `/admin/*`
 only. They are kept here because they are still genuinely yours to do.
@@ -195,6 +197,67 @@ It would need its own review posture, and probably its own reviewer statement.
 - **(c) Defer.** Nothing changes; the queue line stays open.
 
 **Nothing is blocked on this.** The after-birth experience is complete without it.
+
+
+---
+
+## B8 · Ten teen titles, for approval — the same shape B2 took
+
+**Blocked:** P2.13. Track A has had a mode since R2.5c and **two modules with no article
+behind them** — `teen.body` and `teen.readiness` are listed in `UNIMPLEMENTED`, so the gap is
+counted rather than invisible. The authoring brief requires a confirmed title list before
+drafting, for the reason it gives: two articles competing for one query is the most common way
+a content set underperforms.
+
+**Read these as a clinician and as the parent of a thirteen-year-old.** A2 §D is explicit that
+PCOS must never be suggested within two to three years of menarche, and A2 §B names the
+question the set has to answer — *"it said Tuesday and it didn't; is the app broken or am I
+broken?"*
+
+1. **What's changing in my body** — puberty in the order it usually happens, with ranges, no averages presented as targets.
+2. **What is a period?** — written for someone who has not had one yet.
+3. **Getting ready for your first period** — the plan: what to carry, where to keep it, who to tell.
+4. **Period myths, checked** — swimming, exercise, washing, "how much blood is that really".
+5. **Is my period normal?** — the first years are irregular by design; this is the article that answers A2 §B.
+6. **Period products, and how to choose** — pads, tampons, cups, period underwear, without a recommendation.
+7. **Period pain: what helps, and when it is too much** — no doses, and a clear line to a clinician.
+8. **A period at school** — leaks, PE, asking to leave a lesson, what to keep in a bag.
+9. **Tracking without stress** — why Femio shows a wide window at her age, and why that is honest rather than broken.
+10. **When to tell an adult, and when to see a doctor** — including the A1 §D thresholds (early signs before 8, no signs by 13), framed as "let's ask together".
+
+**Deliberately not on the list:** anything that names a condition as a possibility. That is A2
+§D, and it is why "could I have PCOS" is not one of the ten.
+
+**Reply with cuts, additions, or "approved".** Nothing is drafted before you do.
+
+---
+
+## B9 · Pregnancy week-by-week — a scope question before a title list
+
+**Blocked:** P2.2.2, and through it the `week-by-week` topic that D1 has foregrounded since
+R2.1. The queue line says "do not hand-write it", which is right, and it is also why this needs
+a decision from you rather than a list from me.
+
+**The question is what a week entry *is*.** Forty pages called "Week 14 of pregnancy" is the
+shape every competitor uses, and it is forty pages that mostly say the same four things. The
+alternative is three trimester pillars with the week detail inside them, which is one strong
+page per trimester instead of forty weak ones.
+
+- **(a) Three trimester pillars, week detail inside — my recommendation.** Each pillar carries
+  the weeks as sections: what is usually happening, what she may notice, what care is typically
+  offered around then. Strongest for a reader, and it does not manufacture forty near-duplicate
+  pages competing with each other for the same searches.
+- **(b) Forty week entries**, short, batched by trimester. Matches what people search for, and
+  it is the option that needs the most review time from you — forty pages of clinical content
+  rather than three.
+- **(c) Both**: three pillars now, week entries later if the traffic argues for them.
+
+**Either way, two things hold.** Fetal-development detail stays *about her body and her care*
+rather than becoming a baby-size-in-fruit tracker, and every week that carries a red flag —
+bleeding, severe headache, vision changes, reduced movement, severe abdominal pain — gets the
+red-flag box, no exceptions (brief §8).
+
+**Tell me (a), (b) or (c)** and the title list follows the way B2's fourteen did.
 
 ---
 
