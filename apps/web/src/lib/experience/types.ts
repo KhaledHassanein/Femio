@@ -47,6 +47,21 @@ export type ModuleId =
   | "teen.body"
   | "teen.readiness"
   | "teen.privacy"
+  // ---- Track B — cycle & gynae (R2.8)
+  /**
+   * Two window modules, not one with a flag. `cycle.window` is a prediction with
+   * its confidence attached; `cycle.variability` is her own cycle lengths and, when
+   * they cannot support a window, the sentence saying so. Whether Femio is willing
+   * to predict at all is a tier-1 decision (`docs/24` §5), so it is expressed as
+   * *which module the record contributes* rather than as a `predict: false` param —
+   * the same shape as A1 contributing no window at all.
+   */
+  | "cycle.window"
+  | "cycle.variability"
+  | "cycle.phase"
+  | "cycle.flowStrip"
+  | "cycle.personalNormal"
+  | "cycle.changeAwareness"
   // ---- D1 spine
   | "pregnancy.week"
   | "pregnancy.milestone"
@@ -77,7 +92,15 @@ export type ModuleId =
   | "support.reassurance"
   // ---- shared
   | "quickLog"
-  | "library";
+  | "library"
+  /**
+   * Hidden-but-reachable, given a surface. Every B and F spec repeats the principle
+   * in its §I, and today it is true of the router and invisible on the screen — a
+   * product rule with no UI is a claim rather than a property.
+   */
+  | "explore"
+  | "visitPrep"
+  | "privacy";
 
 /**
  * How loudly a module speaks. `hero` is the single answer she opened the app for;

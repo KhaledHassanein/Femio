@@ -176,7 +176,7 @@
         "confidence": 0.675,
         "runnerUp": {
           "personaId": "B5",
-          "confidence": 0.6666666666666666
+          "confidence": 0.7142857142857143
         }
       }
     },
@@ -199,10 +199,10 @@
         "track": "Z",
         "modifiers": [],
         "emotionalContext": [],
-        "confidence": 0.21428571428571427,
+        "confidence": 0.2777777777777778,
         "runnerUp": {
           "personaId": "B1",
-          "confidence": 0.21428571428571427
+          "confidence": 0.2777777777777778
         }
       }
     }

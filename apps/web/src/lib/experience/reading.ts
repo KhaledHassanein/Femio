@@ -42,6 +42,17 @@ export const ARTICLE_FOR_TOPIC: Readonly<Record<string, string>> = {
   // Track A (P2.13 covers the rest).
   "menstrual-cycle-basics": "menstrual-cycle-basics",
 
+  /**
+   * Track B (R2.8) — and this is the first track whose reading card fills from the
+   * library that already exists rather than waiting on a batch. Six of B1/B5/B6's
+   * sixteen topics have a published article today, and B6's card fills completely.
+   */
+  "how-to-track": "how-to-track-menstrual-cycle",
+  "pms-and-the-week-before": "pms-pmdd",
+  "pcos-explained": "pcos",
+  "pcos-signs": "pcos-signs",
+  "how-pcos-is-assessed": "how-pcos-is-assessed",
+
   // Track D.
   "appointments-and-tests": "first-pregnancy-appointment",
   "warning-signs": "pregnancy-warning-signs",
@@ -85,6 +96,28 @@ export const NO_ARTICLE_YET: readonly string[] = [
   "using-period-products",
   "school-day",
   "tracking-without-stress",
+  /**
+   * Track B — R2.8. Four topics the cycle personas name and the library does not
+   * answer yet, and each is a real content ask rather than an oversight:
+   *
+   * - `whats-normal-whats-worth-checking` is B1 §F module 4 and B5's second-most
+   *   wanted page. The closest published article is `heavy-periods`, which answers
+   *   one symptom rather than the question.
+   * - `prediction-honestly` is B1 §F module 6 — *why no app can give a certain
+   *   date* — and it is the page that explains Femio's own posture. It is arguably
+   *   the highest-value unwritten article in the product.
+   * - `your-data-your-rules` is B1 §F module 8, the privacy explainer. §K calls
+   *   privacy a primary acquisition argument for this persona, so leaving it to the
+   *   legal pages is a decision rather than a gap.
+   * - `irregular-cycles-explained` and `when-a-gap-is-worth-checking` are B5's, and
+   *   they are the two that need the most care: B5's whole design is that a cause
+   *   is *undetermined*, so neither page may name one as hers.
+   */
+  "whats-normal-whats-worth-checking",
+  "prediction-honestly",
+  "your-data-your-rules",
+  "irregular-cycles-explained",
+  "when-a-gap-is-worth-checking",
   // Track D — P2.2.2 and the clinical layers.
   "week-by-week",
   "nutrition",

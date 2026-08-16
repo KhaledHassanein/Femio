@@ -90,6 +90,29 @@ export const UNIMPLEMENTED: readonly ModuleId[] = [
   "teen.body",
   "teen.readiness",
   /**
+   * Track B's surfaces (R2.8). The registry is **data only**, exactly as R2.1 was
+   * for Track D: it is what makes a woman's cycle experience come from her record
+   * rather than from `mode === "cycle"`, and every part of the document that needs
+   * no component — her tone, her alerts, her EMR view and her reading list — is
+   * live the day it ships. What is listed here is the panel each module will
+   * eventually draw, designed and argued in
+   * `assets/mockups/R1.5_cycle_dashboard_reference.html` and implemented under R1.9.
+   *
+   * `cycle.window` and `cycle.variability` are two ids rather than one with a flag,
+   * and that distinction has to survive into the components: one predicts, the
+   * other declines to, and collapsing them is how the invented-window defect would
+   * come back at a fourth life stage.
+   */
+  "cycle.window",
+  "cycle.variability",
+  "cycle.phase",
+  "cycle.flowStrip",
+  "cycle.personalNormal",
+  "cycle.changeAwareness",
+  "explore",
+  "visitPrep",
+  "privacy",
+  /**
    * E2's lactation surfaces (P2.3). The feeding log and the per-breast symptom
    * log are real Phase-2 features and the content behind them — "the first two
    * weeks", "if breastfeeding is not working" — is in the approved postpartum

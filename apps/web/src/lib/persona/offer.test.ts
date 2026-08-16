@@ -71,8 +71,9 @@ describe("what actually reaches the offer", () => {
 
   /**
    * The case that made `OFFER_THRESHOLD` exist. An account with nothing recorded
-   * still scores B1 around 0.21 — "no conditions" and "not trying to conceive"
-   * are both true of someone who has told us nothing — and `runnerUp` carries it,
+   * still scores B1 around 0.28 (0.21 before R2.8 raised B1's "no condition"
+   * weight) — "no conditions" and "not trying to conceive" are both true of
+   * someone who has told us nothing — and `runnerUp` carries it,
    * correctly, as "who we would have picked". Putting that in front of her would
    * be guessing dressed as personalization, so `offer` is where the floor is.
    */

@@ -72,10 +72,12 @@ export const CONFIDENCE_THRESHOLD = 0.6;
  * `docs/09` §5 says Femio offers the nearest persona "when confidence crosses a
  * threshold", which is a different threshold from the one that makes it commit —
  * and the gap between them is the whole offer. A test caught what happens without
- * this: a brand-new account with **nothing logged at all** scores B1 at 0.21,
- * because "no conditions recorded" and "not trying to conceive" are both true of
- * someone who has told us nothing. Offering her a life stage on that evidence is
- * the product guessing at a woman and calling it personalization.
+ * this: a brand-new account with **nothing logged at all** scores B1 at 0.28
+ * (0.21 before R2.8 raised B1's "no condition" weight), because "no conditions
+ * recorded" and "not trying to conceive" are both true of someone who has told us
+ * nothing. Offering her a life stage on that evidence is the product guessing at a
+ * woman and calling it personalization — and the margin to this threshold is worth
+ * watching as more weight lands on facts that are true by default.
  */
 export const OFFER_THRESHOLD = 0.4;
 
@@ -222,6 +224,22 @@ export const PERSONA_RULES: readonly PersonaRule[] = [
   // ---- Track B — cycle & gynae. B2/B3/B4 and B7–B19 need severity scales,
   // bleeding volume (PBAC) and screener results.
   {
+    /**
+     * B1 — the neutral hub, and the largest audience in the product.
+     *
+     * **"No condition" is weighted equal to "regular cycles"** (R2.8), and it used
+     * to be worth a third of that. B1 §I defines the persona by four wizard answers
+     * and *"Any condition a clinician is tracking? → No"* is one of them, so a
+     * condition she has reported should move her off the hub as firmly as an
+     * irregular cycle does. At weight 1 it did not: **a woman who told Femio she has
+     * PCOS and whose cycles are currently regular scored B1 above B6** and got the
+     * general cycle dashboard rather than the library she came for.
+     *
+     * It stays a signal rather than a gate on purpose. Gating B1 on "no conditions"
+     * would drop a woman with, say, a thyroid condition and ordinary cycles to Z1,
+     * because Track B has no B17 rule to catch her — and taking the cycle dashboard
+     * away from her would be restriction dressed as precision.
+     */
     id: "B1",
     track: "B",
     requires: [notPregnant, notAdolescent],
@@ -229,10 +247,24 @@ export const PERSONA_RULES: readonly PersonaRule[] = [
       { weight: 3, when: (s) => s.cycleRegularity === "regular" },
       { weight: 2, when: (s) => !s.ttcIntent },
       { weight: 1, when: inBand("18_24", "25_34", "35_44") },
-      { weight: 1, when: (s) => s.conditions.length === 0 },
+      { weight: 3, when: (s) => s.conditions.length === 0 },
     ],
   },
   {
+    /**
+     * B5 — irregular or absent cycles, **cause undetermined**.
+     *
+     * The last phrase is the persona rather than a caveat. B5 §I: *"Do you already
+     * have a diagnosis or a known reason? → No / not sure ⇒ cause = undetermined ⇒
+     * resolves to B5"*, and a "yes" routes to B6 or B17 instead.
+     *
+     * So B5 needs a signal that is false when a cause *has* been named — the
+     * **fifth** appearance of the pattern `track-e.ts` records (C1/C2, E1/E2, the
+     * hero hoist, E1 against E3/E4/E7, and now this). Without it B5 and B6 both
+     * scored a perfect 1.0 for a woman with PCOS and irregular cycles, B5 won on
+     * rule order alone, and **B6 could never fire at all**: the condition she took
+     * the trouble to report would have changed nothing about her app.
+     */
     id: "B5",
     track: "B",
     requires: [notPregnant, notAdolescent],
@@ -240,6 +272,7 @@ export const PERSONA_RULES: readonly PersonaRule[] = [
       { weight: 3, when: (s) => s.cycleRegularity === "irregular" || s.cycleRegularity === "absent" },
       { weight: 2, when: (s) => (s.daysSinceLastPeriod ?? 0) > 45 },
       { weight: 1, when: (s) => !s.ttcIntent },
+      { weight: 1, when: (s) => s.conditions.length === 0 },
     ],
   },
   {

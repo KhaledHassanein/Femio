@@ -301,6 +301,37 @@ All three were **executed in node** rather than looked at — every module id dr
 module and a renamed field before being trusted. The visual judgement is the owner's;
 `MANUAL_TEST_PLAN.md` T23 is the checklist.
 
+## Track B exists, and it was hiding a live defect (R2.8, 2026-08-16)
+
+`registry/track-b.ts` holds B1, B5 and B6. **Data only, like R2.1** — no component renders a
+cycle module yet — but the half of the document that needs no component is live from today:
+tone, alerts, EMR view and the reading list now come from her record rather than from
+`mode === "cycle"`.
+
+**Two versions of the same bug, both found by encoding the registry rather than by reading it:**
+
+- **B6 was unreachable.** B5 and B6 both scored a perfect 1.0 for a woman with PCOS and
+  irregular cycles, and B5 won on rule order. The PCOS she took the trouble to report changed
+  nothing about her app. This is the trap for the **fifth** time (C1/C2, E1/E2, the hero hoist,
+  E1 against E3/E4/E7) and the rule is unchanged: *when a specific persona extends a general
+  one, the general one needs a signal that is false in the specific case.* B5 gained
+  `conditions.length === 0`, which is not a patch — §I defines B5 as **cause undetermined**, and
+  a named cause routes elsewhere.
+- **The larger one: B1 outscored B6 for a woman with PCOS and currently-regular cycles**, because
+  "no condition" was worth 1 against "regular cycles" at 3. Raised to 3. Kept a **signal, not a
+  gate**: gating B1 would drop a woman with a thyroid condition and ordinary cycles to Z1, since
+  Track B has no B17 rule to catch her, and that is restriction dressed as precision.
+
+**Two window modules, not one with a flag.** `cycle.window` predicts; `cycle.variability` shows
+her own lengths and declines to. Whether Femio predicts at all is a tier-1 decision, so it is
+*which module the record contributes* — the same shape as A1 contributing no window (ADR-041/042).
+A `predict: false` param would have made the safety decision a value.
+
+**Two golden fixtures moved, and were checked rather than regenerated.** Both properties they
+encode still hold. The one to remember: an account with nothing logged now scores B1 at **0.28**
+rather than 0.21, still under `OFFER_THRESHOLD` (0.4) — worth watching as more weight lands on
+facts that are true of someone who has told us nothing.
+
 **R1.1a is in progress** — `docs/03` §H carries the craft teardown for Flo, Clue and Balance
 (2026-08-11). Three things it established: nobody in the category uses stock portraiture, which
 confirms R1.2's illustration call from the market side; Balance puts its clinician's
