@@ -186,6 +186,15 @@ export type ExperienceConfig = {
   confidence: number;
   /** Z1's "want me to tailor Femio for X?" — offered, never applied (`docs/09` §5). */
   offer: { personaId: string; confidence: number } | null;
+  /**
+   * A universal transition Femio would suggest (`docs/09` §6–§7, P1.27.6) —
+   * a positive test, a pregnancy that has ended, a postpartum period that has
+   * passed. Separate from `offer` because they are different claims: `offer`
+   * says *we could tailor this*, `transition` says *something in your record
+   * changed*. Both are suggestions and neither is ever applied on its own
+   * authority (invariant 3).
+   */
+  transition: { id: string; to: Track; personaId: string } | null;
 
   phase: Phase | null;
   home: { modules: readonly ModuleSpec[]; quickLog: readonly LogKind[] };

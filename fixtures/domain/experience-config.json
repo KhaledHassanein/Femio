@@ -15,6 +15,7 @@
         "emotionalContext": [],
         "confidence": 1,
         "offer": null,
+        "transition": null,
         "phase": "t2",
         "home": {
           "modules": [
@@ -107,6 +108,7 @@
         "emotionalContext": [],
         "confidence": 1,
         "offer": null,
+        "transition": null,
         "phase": "t2",
         "home": {
           "modules": [
@@ -224,6 +226,7 @@
         "emotionalContext": [],
         "confidence": 1,
         "offer": null,
+        "transition": null,
         "phase": "preconception",
         "home": {
           "modules": [
@@ -340,6 +343,7 @@
         "emotionalContext": [],
         "confidence": 1,
         "offer": null,
+        "transition": null,
         "phase": "t1",
         "home": {
           "modules": [
@@ -480,6 +484,7 @@
         "emotionalContext": [],
         "confidence": 1,
         "offer": null,
+        "transition": null,
         "phase": "t3",
         "home": {
           "modules": [
@@ -641,6 +646,7 @@
         "emotionalContext": [],
         "confidence": 1,
         "offer": null,
+        "transition": null,
         "phase": "postpartum",
         "home": {
           "modules": [
@@ -729,6 +735,7 @@
         "emotionalContext": [],
         "confidence": 1,
         "offer": null,
+        "transition": null,
         "phase": "postpartum",
         "home": {
           "modules": [
@@ -830,6 +837,7 @@
         "emotionalContext": [],
         "confidence": 1,
         "offer": null,
+        "transition": null,
         "phase": null,
         "home": {
           "modules": [
@@ -914,6 +922,7 @@
         "emotionalContext": [],
         "confidence": 1,
         "offer": null,
+        "transition": null,
         "phase": null,
         "home": {
           "modules": [

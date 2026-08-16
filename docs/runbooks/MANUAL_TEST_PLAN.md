@@ -5,7 +5,7 @@ credentials, keys and one-off configuration — things only the owner *can* do. 
 things only a human can *judge*: whether a screen looks right, whether Arabic reads naturally,
 whether a flow feels like a product.
 
-**Why it exists.** Every automated gate in this repo passes on every commit — 11 guards, 491
+**Why it exists.** Every automated gate in this repo passes on every commit — 11 guards, 500
 unit tests, 63 end-to-end. None of them can tell you the homepage looks generic, that a
 translation is grammatically correct but tonally wrong, or that a control is out of thumb reach.
 `docs/22` §10 states the rule this file operationalises: *a screenshot is the test, not a
@@ -15,8 +15,9 @@ nice-to-have.*
 tracks what actually shipped. The regression sweep below is for before a beta or a release, not
 for every session.
 
-**Unseen as of 2026-08-16: T8, T10–T19.** Twelve screens shipped that day and nobody has looked
-at any of them. **T16 is the one I would want read first** — it is the only screen in Femio that
+**Unseen as of 2026-08-16: T8, T10–T20.** Thirteen screens shipped that day and nobody has
+looked at any of them. **T20's second bullet needs you specifically** — it is the one place a
+transition could land badly. **T16 is the one I would want read first** — it is the only screen in Femio that
 acts on an answer. Migration `0008` is applied, so T15 is testable. **T11 and T12 want you as a clinician rather than as an owner** —
 charting must not read as contraception, and the MRS must not read as a grade. Those two are
 the ones I would not ship to an outside tester unread.
@@ -220,6 +221,16 @@ Settings → **Mood questionnaires**. In any mode.
 - [ ] Skip the question in both flows. Nothing should be assumed: you stay in the general TTC or postpartum experience rather than being promoted.
 - [ ] Now switch mode in Settings and switch back. Your answer must survive — it used to be erased.
 - [ ] Read both questions and their notes in Arabic, French and Spanish.
+
+### T20 · The transitions (P1.27.6) — read the loss one as a clinician
+Any mode.
+
+- [ ] In **TTC** mode, set a due date (which records a pregnancy). Back on the dashboard, Femio should *offer* to move you to Pregnancy — not do it. Accept: the screen changes and Settings can put it back.
+- [ ] In **Pregnancy** mode, end the pregnancy. Femio should offer to move to After birth, **gently, with no urgency, and no celebration or condolence in the copy**. Read that sentence carefully — it is the one place in the app where a transition could land badly, and my judgement here is not a substitute for yours.
+- [ ] Press **No thanks** on it. It goes and stays gone.
+- [ ] Then, without changing anything else, check that a *different* suggestion can still appear later — dismissals are per suggestion, not blanket.
+- [ ] Switch to **Cycle** mode with an old ended pregnancy in your record. Femio must say **nothing**. Raising a pregnancy that ended two years ago, unprompted, is the failure this rule exists to prevent.
+- [ ] Arabic, for all three messages.
 
 ### T9 · The duplicate log button (found in R2.5c)
 Any of pregnancy, postpartum, or teen.

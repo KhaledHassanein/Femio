@@ -23,7 +23,9 @@
  */
 
 import { OFFER_THRESHOLD, trackOfPersona } from "../persona/resolver.ts";
-import type { Resolution } from "../persona/resolver.ts";
+import { suggestTransition } from "../persona/transitions.ts";
+import type { PersonaSignals } from "../persona/signals.ts";
+import type { Resolution, Track } from "../persona/resolver.ts";
 import type {
   AlertSpec,
   Emphasis,
@@ -219,6 +221,14 @@ export type BuildInput = {
   resolution: Resolution;
   /** Null when the track has no phase concept, or when it is not yet known. */
   phase: Phase | null;
+  /**
+   * Her signals, only so the universal transitions can be evaluated (P1.27.6).
+   * Optional: a caller that omits them gets a document with no transition rather
+   * than an error, which is what the golden fixtures and the tests rely on.
+   */
+  signals?: PersonaSignals;
+  /** The track she is in *now*, which is what a transition is measured against. */
+  currentTrack?: Track | null;
   registry: Registry;
   /** Injected rather than read from a clock, so the output is deterministic. */
   resolvedAt: string;
@@ -302,6 +312,9 @@ export function buildExperienceConfig(input: BuildInput): ExperienceConfig {
     emotionalContext: resolution.emotionalContext,
     confidence: resolution.confidence,
     offer: offerFrom(resolution),
+    transition: input.signals
+      ? suggestTransition(input.signals, input.currentTrack ?? resolution.track)
+      : null,
     phase,
     home: {
       modules,

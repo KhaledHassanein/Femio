@@ -940,6 +940,11 @@
       }
     },
     "offer": {
+      "transitions": {
+        "positiveTest": "Has registrado un embarazo. ¿Quieres que Femio se configure para {stage}?",
+        "pregnancyEnded": "Tu registro de embarazo ha terminado. Femio puede pasar a {stage} cuando quieras — no hay prisa, y nada de lo que has anotado cambia en ningún caso.",
+        "postpartumPassed": "Ha pasado un tiempo desde el parto. ¿Quieres que Femio pase a {stage}?"
+      },
       "body": "Por lo que has anotado, Femio podría adaptarse a {stage}. ¿Quieres probarlo?",
       "reversible": "Puedes volver atrás cuando quieras, y nada de lo que has anotado se ve afectado en ningún caso.",
       "accept": "Sí, adáptalo",

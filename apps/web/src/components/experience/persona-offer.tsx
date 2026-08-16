@@ -44,9 +44,16 @@ import { Button } from "@/components/ui/button";
 
 const DISMISS_PREFIX = "femio.offer.dismissed.v1";
 
-/** Cleared on sign-out alongside the experience cache — see `lib/experience/client`. */
-function dismissKey(userId: string) {
-  return `${DISMISS_PREFIX}.${userId}`;
+/**
+ * Cleared on sign-out alongside the experience cache — see `lib/experience/client`.
+ *
+ * Keyed by **what was suggested**, not just by user. Saying "no thanks" to a
+ * personalization offer must not silence a later transition: a positive pregnancy
+ * test arriving weeks afterwards is a different thing to say, and inheriting a
+ * dismissal from an unrelated suggestion would swallow it.
+ */
+function dismissKey(userId: string, suggestion: string) {
+  return `${DISMISS_PREFIX}.${userId}.${suggestion}`;
 }
 
 export function PersonaOffer({ config }: { config: ExperienceConfig | null }) {
@@ -56,9 +63,22 @@ export function PersonaOffer({ config }: { config: ExperienceConfig | null }) {
   const [userId, setUserId] = useState<string | null>(null);
   const [applying, setApplying] = useState(false);
 
-  const offered = config?.offer ?? null;
-  const track = offered ? trackOfPersona(offered.personaId) : null;
+  /**
+   * A transition takes precedence over an offer (P1.27.6).
+   *
+   * They are different claims. `offer` says *we could tailor this*; `transition`
+   * says *something in your record changed*. When both are present the second is
+   * the one she is living through — a positive test outranks a suggestion built
+   * from cycle history — and showing two suggestions at once would make neither
+   * feel like it mattered.
+   */
+  const transition = config?.transition ?? null;
+  const offered = transition ?? config?.offer ?? null;
+  const track = transition ? transition.to : offered ? trackOfPersona(offered.personaId) : null;
   const mode: PersonaMode | null = track ? modeFromTrack(track) : null;
+  const messageKey = transition ? `transitions.${transition.id}` : "body";
+  /** What she is being asked about, so a dismissal is scoped to that and not to all. */
+  const suggestionId = transition ? `t.${transition.id}` : `o.${offered?.personaId ?? "none"}`;
 
   // Read the dismissal once we know who she is. Starts dismissed so the offer
   // cannot flash on screen before we have checked.
@@ -72,7 +92,7 @@ export function PersonaOffer({ config }: { config: ExperienceConfig | null }) {
       if (cancelled || !user) return;
       setUserId(user.id);
       try {
-        setDismissed(localStorage.getItem(dismissKey(user.id)) === "1");
+        setDismissed(localStorage.getItem(dismissKey(user.id, suggestionId)) === "1");
       } catch {
         // Blocked storage is not a reason to hide an offer or to show it twice.
         setDismissed(false);
@@ -81,7 +101,7 @@ export function PersonaOffer({ config }: { config: ExperienceConfig | null }) {
     return () => {
       cancelled = true;
     };
-  }, []);
+  }, [suggestionId]);
 
   /**
    * Whether there is anything to offer is decided in tier 1 — only from the generic
@@ -95,7 +115,7 @@ export function PersonaOffer({ config }: { config: ExperienceConfig | null }) {
     setDismissed(true);
     if (!userId) return;
     try {
-      localStorage.setItem(dismissKey(userId), "1");
+      localStorage.setItem(dismissKey(userId, suggestionId), "1");
     } catch {
       // Nothing to do; she will be asked once more at most.
     }
@@ -116,7 +136,7 @@ export function PersonaOffer({ config }: { config: ExperienceConfig | null }) {
   return (
     <Alert variant="info">
       <AlertDescription className="flex flex-col gap-3">
-        <span>{t("body", { stage: te(`modes.${mode}.label`) })}</span>
+        <span>{t(messageKey, { stage: te(`modes.${mode}.label`) })}</span>
         {/* Said before she taps, not after: this is the "you can undo this
             anytime" half of `docs/09` §5, and it is what makes the offer safe to
             accept without thinking hard. */}

@@ -940,6 +940,11 @@
       }
     },
     "offer": {
+      "transitions": {
+        "positiveTest": "Vous avez enregistré une grossesse. Voulez-vous que Femio passe en {stage} ?",
+        "pregnancyEnded": "Votre suivi de grossesse s’est terminé. Femio peut passer en {stage} quand vous serez prête — rien ne presse, et rien de ce que vous avez noté ne change dans un cas comme dans l’autre.",
+        "postpartumPassed": "Un certain temps s’est écoulé depuis la naissance. Voulez-vous que Femio passe en {stage} ?"
+      },
       "body": "D’après ce que vous avez noté, Femio pourrait s’adapter à {stage}. Vous voulez essayer ?",
       "reversible": "Vous pouvez revenir en arrière quand vous voulez, et rien de ce que vous avez noté n’est affecté dans un sens ou dans l’autre.",
       "accept": "Oui, adapter",

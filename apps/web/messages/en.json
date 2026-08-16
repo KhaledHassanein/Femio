@@ -940,6 +940,11 @@
       }
     },
     "offer": {
+      "transitions": {
+        "positiveTest": "You have recorded a pregnancy. Would you like Femio set up for {stage}?",
+        "pregnancyEnded": "Your pregnancy record has ended. Femio can move to {stage} when you are ready — there is no hurry, and nothing you have logged changes either way.",
+        "postpartumPassed": "It has been a while since the birth. Would you like Femio to move to {stage}?"
+      },
       "body": "From what you have logged, Femio could tailor itself for {stage}. Want to try that?",
       "reversible": "You can change it back whenever you like, and nothing you have logged is affected either way.",
       "accept": "Yes, tailor it",

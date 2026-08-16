@@ -576,6 +576,26 @@ they catch you.**
 Fixed on the way: `switchMode` replaced `flags_json` wholesale, so one mode change would have
 erased her answers.
 
+## The transitions fire at last (P1.27.6, 2026-08-16)
+
+`docs/09` §6 defines seven global handlers that "fire from almost any state" and **none of them
+fired**: a woman's mode changed only when she opened Settings herself, so someone who recorded that
+her pregnancy had ended stayed in pregnancy mode indefinitely, reading a panel telling her it had
+ended.
+
+Three of the seven are mode changes and are now in `lib/persona/transitions.ts`, surfaced through a
+new `ExperienceConfig.transition` beside P1.27.5's offer. The other four change what is *shown*
+rather than which track she is in, and modelling them as transitions would blur two things.
+
+**Offered, never applied.** A loss makes that non-negotiable: an app that silently reconfigured
+itself the moment she recorded one would be announcing her loss back to her, on its own schedule,
+possibly in front of someone.
+
+Two rules worth keeping in mind before editing that file: *pregnancy ended* fires **only from Track
+D**, because for anyone else it is an old fact and raising it months later is the app bringing up a
+loss unprompted; and dismissal is keyed **per suggestion**, so a "no thanks" to a personalization
+offer cannot swallow a positive test weeks afterwards.
+
 Take the top open item under ▶ NOW — the rest of
 `P2.2.3` (contraction timer, weight chart, checklists), then `P2.7`'s other screeners, which
 now have a pattern to copy. Postpartum content drafting is unblocked (B2 approved, **P2.3c**);
