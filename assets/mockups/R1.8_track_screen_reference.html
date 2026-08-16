@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Femio — R1.8 track / log screen reference (the tools list, rendered)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600;700&family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../brand/tokens/femio.tokens.css">
+<style>
+/* ── review chrome ──────────────────────────────────────────────────────── */
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#EDEBF2;color:#1E1B2E;font-family:'Inter',sans-serif;line-height:1.5;
+  padding:32px 20px 96px}
+.wrap{max-width:1760px;margin:0 auto}
+.doc-h1{font-family:'Fraunces',serif;font-weight:600;font-size:32px;letter-spacing:-.02em}
+.doc-p{color:#514B60;max-width:80ch;margin-top:10px;font-size:15px}
+.doc-p code{background:#DFDBE8;padding:1px 5px;border-radius:4px;font-size:13px}
+.doc-h2{font-family:'Fraunces',serif;font-size:22px;font-weight:600;margin:40px 0 4px}
+.doc-note{color:#514B60;font-size:14px;max-width:84ch;margin-bottom:18px}
+.warnbox{background:#FFF7E6;border:1px solid #E9C97A;border-radius:12px;padding:14px 18px;
+  margin-top:18px;max-width:96ch;font-size:14.5px;color:#5A4512}
+.gallery{display:flex;flex-wrap:wrap;gap:26px;align-items:flex-start}
+.stage{display:flex;flex-direction:column;gap:10px;align-items:center}
+.stage-cap{font-size:13px;font-weight:600;color:#514B60;text-align:center;max-width:390px}
+.stage-cap span{display:block;font-weight:400;color:#857E94;font-size:12px}
+.phone{width:390px;height:844px;overflow-y:auto;overflow-x:hidden;position:relative;
+  border-radius:38px;border:9px solid #221F2E;box-shadow:0 22px 48px rgb(30 27 46 / .28);
+  background:var(--bg);color:var(--text);scrollbar-width:thin}
+.inv{display:flex;flex-wrap:wrap;gap:20px}
+.inv-item{width:340px;background:#fff;border-radius:14px;padding:14px;
+  box-shadow:0 2px 10px rgb(30 27 46 / .10)}
+.inv-id{font-family:ui-monospace,monospace;font-size:11.5px;color:#6D6580;margin-bottom:10px}
+.inv-body{background:var(--bg);border-radius:10px;padding:12px}
+.notes{margin-top:44px;background:#fff;border-radius:16px;padding:24px 28px;max-width:1100px}
+.notes h2{font-family:'Fraunces',serif;font-size:22px;font-weight:600;margin-bottom:6px}
+.notes h3{font-size:15px;margin:20px 0 6px}
+.notes p,.notes li{font-size:14.5px;color:#3F3A4D;max-width:84ch}
+.notes ul{padding-inline-start:20px;display:flex;flex-direction:column;gap:6px;margin-top:6px}
+
+/* ── the design — SEMANTIC TOKENS ONLY ──────────────────────────────────── */
+.phone *,.inv-body *{font-family:var(--font-ui)}
+[dir="rtl"] *{font-family:var(--font-ar)}
+
+.app-bar{position:sticky;top:0;z-index:var(--z-sticky);display:flex;align-items:center;
+  justify-content:space-between;padding:var(--space-3) var(--space-5);
+  background:var(--frost);backdrop-filter:var(--frost-blur);
+  border-bottom:1px solid var(--border)}
+.mark{font-family:var(--font-display)!important;font-size:var(--fs-lg);
+  font-weight:var(--fw-semibold);color:var(--primary);line-height:1}
+.screen{display:flex;flex-direction:column;gap:var(--space-4);padding:var(--space-4)
+  var(--space-5) 120px}
+.title-row{display:flex;flex-wrap:wrap;align-items:center;gap:var(--space-3)}
+.title-row h1{font-size:var(--fs-md);color:var(--text);font-weight:var(--fw-semibold)}
+.badge{font-size:var(--fs-2xs);font-weight:var(--fw-semibold);padding:2px var(--space-3);
+  border-radius:var(--radius-pill);background:var(--primary-soft);color:var(--primary-soft-text)}
+
+/* THE DATE STRIP — the spine. Sticky under the bar, because every control below
+   writes against the day it holds (P1.28.3). */
+.datestrip{position:sticky;top:52px;z-index:var(--z-raised);display:flex;gap:var(--space-2);
+  padding:var(--space-2) 0;background:var(--bg);overflow-x:auto;scrollbar-width:none}
+.datestrip b{flex:0 0 auto;min-width:46px;min-height:52px;display:flex;flex-direction:column;
+  align-items:center;justify-content:center;gap:2px;border-radius:var(--radius-md);
+  background:var(--surface);border:1px solid var(--border);font-size:var(--fs-2xs);
+  color:var(--text-muted)}
+.datestrip b em{font-style:normal;font-size:var(--fs-xs);font-weight:var(--fw-semibold);
+  color:var(--text)}
+.datestrip b.on{background:var(--primary);border-color:transparent}
+.datestrip b.on em,.datestrip b.on{color:var(--on-primary)}
+.datestrip b i{width:5px;height:5px;border-radius:50%;background:var(--phase-menstrual);
+  display:block}
+.datestrip b.on i{background:var(--on-primary)}
+
+/* A LOGGER — open (the common case) or collapsed (everything else). */
+.logger{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-md);
+  padding:var(--space-4);display:flex;flex-direction:column;gap:var(--space-3);
+  box-shadow:var(--shadow-xs)}
+.logger.lead{box-shadow:var(--shadow-md);border-color:transparent}
+.logger h3{font-size:var(--fs-xs);font-weight:var(--fw-semibold);color:var(--text)}
+.logger p{font-size:var(--fs-2xs);color:var(--text-muted);line-height:var(--lh-relaxed)}
+.headrow{display:flex;align-items:center;justify-content:space-between;gap:var(--space-3)}
+.link{font-size:var(--fs-2xs);font-weight:var(--fw-semibold);color:var(--text-link)}
+.collapsed{display:flex;align-items:center;justify-content:space-between;gap:var(--space-3);
+  min-height:52px;padding:0 var(--space-4);background:var(--surface-sunken);
+  border-radius:var(--radius-md)}
+.collapsed span.l{font-size:var(--fs-xs);color:var(--text)}
+.collapsed span.r2{font-size:var(--fs-2xs);color:var(--text-subtle)}
+
+/* CHIPS — 44px targets, selected state carries fill AND a mark, never colour
+   alone. Two rows visible, the rest behind "more" (WCAG + thumb reach). */
+.chips{display:flex;flex-wrap:wrap;gap:var(--space-2)}
+.chips b{min-height:44px;display:inline-flex;align-items:center;gap:6px;
+  padding:0 var(--space-4);border-radius:var(--radius-pill);background:var(--surface);
+  border:1px solid var(--border);font-size:var(--fs-xs);font-weight:var(--fw-medium);
+  color:var(--text)}
+.chips b.on{background:var(--primary-soft);border-color:var(--primary);
+  color:var(--primary-soft-text)}
+.chips b.on::before{content:"✓";font-size:var(--fs-2xs);font-weight:var(--fw-bold)}
+.chips b.add{border-style:dashed;color:var(--text-muted)}
+.grouplabel{font-size:var(--fs-2xs);color:var(--text-subtle);letter-spacing:var(--ls-wide)}
+
+/* SEVERITY — optional, and it says so. Saving is never blocked by it. */
+.sev{display:flex;gap:var(--space-2)}
+.sev b{flex:1;min-height:44px;display:flex;align-items:center;justify-content:center;
+  border-radius:var(--radius-md);background:var(--surface-sunken);
+  border:1px solid var(--border);font-size:var(--fs-xs);color:var(--text)}
+.sev b.on{background:var(--primary);border-color:transparent;color:var(--on-primary)}
+.optional{font-size:var(--fs-2xs);color:var(--text-subtle)}
+
+/* FLOW PICKER — the most-used control in the product. */
+.flowpick{display:flex;gap:var(--space-2)}
+.flowpick b{flex:1;min-height:56px;display:flex;flex-direction:column;align-items:center;
+  justify-content:center;gap:4px;border-radius:var(--radius-md);background:var(--surface-sunken);
+  border:1px solid var(--border);font-size:var(--fs-2xs);color:var(--text)}
+.flowpick b u{display:block;width:18px;border-radius:2px;background:var(--phase-menstrual);
+  text-decoration:none}
+.flowpick b.on{background:var(--primary-soft);border-color:var(--primary);
+  color:var(--primary-soft-text)}
+
+/* MATERNITY ROUTE — sits ABOVE the movement and contraction tools in every
+   state (P2.2.3). The tool must never be the thing between her and a human. */
+.route{background:var(--danger-soft);border:1px solid var(--danger-border);
+  border-radius:var(--radius-md);padding:var(--space-4);display:flex;flex-direction:column;
+  gap:var(--space-2)}
+.route h3{font-size:var(--fs-xs);font-weight:var(--fw-semibold);color:var(--danger-text)}
+.route p{font-size:var(--fs-2xs);color:var(--danger-text);line-height:var(--lh-relaxed)}
+.route a{font-size:var(--fs-2xs);font-weight:var(--fw-semibold);color:var(--danger-text)}
+
+/* URGENCY TIERS — pregnancy symptoms are grouped by what to do, not by body
+   part, and the tier is the label rather than a colour (ADR-047). */
+.tier{display:flex;flex-direction:column;gap:var(--space-2)}
+.tierhead{font-size:var(--fs-2xs);font-weight:var(--fw-semibold);color:var(--text-muted)}
+.tierhead.urgent{color:var(--danger-text)}
+
+/* COUNTER — movement / contractions. A count and an elapsed time; no verdict. */
+.counter{display:flex;align-items:center;gap:var(--space-4)}
+.counter .n{font-family:var(--font-display)!important;font-size:32px;line-height:1;
+  color:var(--text)}
+[dir="rtl"] .counter .n{font-family:var(--font-ar)!important;font-weight:var(--fw-bold)}
+.counter .meta{font-size:var(--fs-2xs);color:var(--text-muted)}
+.tap{margin-inline-start:auto;min-height:56px;min-width:96px;display:flex;align-items:center;
+  justify-content:center;border-radius:var(--radius-pill);background:var(--primary-solid);
+  color:var(--on-primary-solid);font-size:var(--fs-sm);font-weight:var(--fw-semibold)}
+
+/* RECENT — the confirmation. What you logged appears here; undo lives on it. */
+.recent{display:flex;flex-direction:column;gap:var(--space-2)}
+.recent h2{font-size:var(--fs-xs);font-weight:var(--fw-semibold);color:var(--text)}
+.logged{display:flex;align-items:center;gap:var(--space-2);flex-wrap:wrap}
+.logged b{display:inline-flex;align-items:center;gap:6px;padding:6px var(--space-3);
+  border-radius:var(--radius-pill);background:var(--primary-soft);
+  color:var(--primary-soft-text);font-size:var(--fs-2xs)}
+.logged b.queued{background:var(--surface-sunken);color:var(--text-muted);
+  border:1px dashed var(--border-strong)}
+.undo{font-size:var(--fs-2xs);font-weight:var(--fw-semibold);color:var(--text-link)}
+
+/* HISTORY — the calendar, or a designed empty state. */
+.cal{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-md);
+  padding:var(--space-4);display:flex;flex-direction:column;gap:var(--space-3)}
+.calgrid{display:grid;grid-template-columns:repeat(7,1fr);gap:4px}
+.calgrid u{aspect-ratio:1;border-radius:var(--radius-sm);background:var(--surface-sunken);
+  display:block;text-decoration:none}
+.calgrid u.p{background:var(--phase-menstrual);opacity:.8}
+.calgrid u.w{background:var(--prediction-band);opacity:.45}
+.calgrid u.t{outline:2px solid var(--text);outline-offset:-2px}
+.callegend{display:flex;gap:var(--space-4);font-size:var(--fs-2xs);color:var(--text-subtle)}
+.callegend span{display:inline-flex;align-items:center;gap:6px}
+.callegend i{width:10px;height:10px;border-radius:3px;display:block}
+
+.empty{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-lg);
+  padding:var(--space-6);display:flex;flex-direction:column;align-items:center;
+  gap:var(--space-3);text-align:center;box-shadow:var(--shadow-xs)}
+.bloom{stroke:var(--primary);stroke-width:1.5;fill:none;stroke-linecap:round;opacity:.85}
+.empty h3{font-family:var(--font-display)!important;font-size:var(--fs-lg);color:var(--text)}
+[dir="rtl"] .empty h3{font-family:var(--font-ar)!important;font-weight:var(--fw-bold)}
+.empty p{font-size:var(--fs-2xs);color:var(--text-muted);line-height:var(--lh-relaxed)}
+
+/* THE SAVE BAR — pinned in the bottom third, where a thumb reaches. */
+.savebar{position:sticky;bottom:0;margin-top:auto;display:flex;gap:var(--space-3);
+  align-items:center;padding:var(--space-3) var(--space-5) var(--space-5);
+  background:var(--frost);backdrop-filter:var(--frost-blur);
+  border-top:1px solid var(--border)}
+.savebar .count{font-size:var(--fs-2xs);color:var(--text-muted)}
+.cta{flex:1;min-height:48px;display:flex;align-items:center;justify-content:center;
+  border-radius:var(--radius-pill);background:var(--accent-solid);color:var(--on-accent-solid);
+  font-size:var(--fs-sm);font-weight:var(--fw-semibold);box-shadow:var(--shadow-primary-glow)}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1 class="doc-h1">R1.8 — track / log: the tools list, rendered</h1>
+  <p class="doc-p">
+    The most-repeated interaction in the product, and <code>docs/25</code> §3.6's reason for
+    designing it: <b>every second it costs is paid daily</b>. The finding that shapes this
+    reference is structural rather than visual — see the box.
+  </p>
+
+  <div class="warnbox">
+    <b><code>ExperienceConfig.tools</code> already exists, is already served, and this screen
+    ignores it.</b> <code>LogKind</code> is a real union of ten values in
+    <code>lib/experience/types.ts</code>, every persona record declares its <code>tools</code>,
+    and <code>track-screen.tsx</code> branches on <code>isPregnancy</code> three times instead —
+    the same write-only shape <code>docs/23</code> §3.1 opened this workstream with, one screen
+    later. So this reference draws the log screen as <b>the tools list rendered through a logger
+    registry</b>, exactly as R2.3 did for the dashboard's modules. Filed as <b>R2.10</b>.
+    <br><br>
+    Two smaller consequences fall out of it and are drawn here: the BBT/OPK/mucus logging that
+    shipped with P2.1 has <b>no <code>LogKind</code></b>, so the engine cannot surface it and the
+    dashboard reaches it through a <code>mode === "ttc"</code> button; and postpartum feeding
+    logs (P2.3) have none either.
+  </div>
+
+  <h2 class="doc-h2">1 · The logger inventory</h2>
+  <p class="doc-note">
+    One drawing per <code>LogKind</code>, plus the screen furniture. Each has an <b>open</b> form
+    and a <b>collapsed</b> row, because which one it gets is an emphasis the engine sets, not a
+    property of the logger.
+  </p>
+  <div class="inv" id="inv"></div>
+
+  <h2 class="doc-h2">2 · Assembled — the same screen, five vocabularies</h2>
+  <p class="doc-note">
+    Cycle, pregnancy, postpartum, teen and menopause. The date strip, the recent row and the save
+    bar are identical in all five; everything between them comes from <code>tools</code>.
+  </p>
+  <div class="gallery" id="screens"></div>
+
+  <h2 class="doc-h2">3 · The hardest states</h2>
+  <p class="doc-note">
+    First run with nothing logged, an offline save sitting in the queue, and pregnancy in Arabic
+    dark — where the urgency tiers, the counter and the calendar all have to mirror.
+  </p>
+  <div class="gallery" id="hard"></div>
+
+  <div class="notes">
+    <h2>What this decides</h2>
+
+    <h3>1 · The screen is <code>tools</code>, rendered — not a mode branch</h3>
+    <p>Same argument as R2.3's module registry, one screen later: with a branch, a new persona
+      means editing this file, and the day someone adds a track and forgets it, a woman gets the
+      wrong vocabulary at the moment she is trying to record something. With a registry she gets
+      what her record says she has. <b>The three <code>isPregnancy</code> branches in
+      <code>track-screen.tsx</code> are the same defect <code>persona-branch-lint</code> was
+      built to stop</b>, surviving in a file its baseline still covers.</p>
+
+    <h3>2 · One logger is open; the rest are 52px rows</h3>
+    <p>Today every logger is expanded, so the most common action — one period tap, or two symptom
+      chips — sits below a screenful of controls she is not using. The engine already ranks the
+      tools; the ranking becomes <b>open versus collapsed</b>. B1 opens period. D1 opens the
+      movement counter. F1 opens symptoms. The rest are one tap away and none of them is hidden,
+      which is the difference between emphasis and restriction (product rule 2).</p>
+
+    <h3>3 · The date strip is the spine, and it is sticky</h3>
+    <p>One date for the whole screen (P1.28.3, already true) — but it currently scrolls away, so
+      a woman logging three days of a period loses the only indication of which day she is
+      writing to. Pinning it under the app bar costs 60px and removes the most likely wrong-day
+      entry in the product. Days with a period logged carry a dot, so scrolling back is
+      navigation rather than memory.</p>
+
+    <h3>4 · Severity is optional and says so on the control</h3>
+    <p>Every optional field that looks required turns a five-second interaction into homework,
+      and B1 §A is explicit that she abandons apps that do this. The severity row carries the
+      word <em>optional</em>, the save action is never disabled, and <b>nothing anywhere counts
+      how complete her logging is.</b> No streaks, no percentage, no "you missed 3 days" — the
+      same rule the medication list holds by test (P2.4), for the same reason: the apps that
+      grade people on tracking make the worst days worse.</p>
+
+    <h3>5 · The confirmation is the record appearing, and undo lives on it</h3>
+    <p>No toast, no modal, no "are you sure". What she logged shows up in <em>Just logged</em>
+      with an undo beside it, and it stays there for the session. A dialog to confirm a symptom
+      chip is friction on the safe path; undo is recovery on the unsafe one, and it is the
+      cheaper trade every time.</p>
+
+    <h3>6 · Offline is a state of the row, not a banner</h3>
+    <p>The IndexedDB queue already exists. A red bar across the top says the app is broken; a
+      dashed chip reading <em>saved on your phone, will sync</em> says the one true thing — her
+      entry is not lost. She is often logging in a bathroom, on a plane or in a hospital
+      basement, and the design has to treat that as ordinary rather than exceptional.</p>
+
+    <h3>7 · In pregnancy, the route to a human sits above the tool</h3>
+    <p>P2.2.3 established this for the contraction timer and the movement counter, and this
+      reference makes it a property of the screen: <b>the maternity-contact panel is above both
+      counters in every state.</b> A woman opening the movement counter at 2am is already
+      worried, and the tool must never be the thing between her and a person. The counter itself
+      counts and shows elapsed time — no 5-1-1 verdict, no "normal" — because a phone telling her
+      "not yet" is the failure with the worst consequence in the product.</p>
+
+    <h3>8 · The teen screen is the same screen with plainer words</h3>
+    <p>Not a reduced one. A2 §A: teen mode changes data handling, ads and social exposure, never
+      knowledge — so the symptom vocabulary is the shared one, the severity control is the same
+      control, and what differs is wording and the absence of the fertility tools she has no use
+      for. A visibly simplified screen reads as being locked out, which A2 §B records in her own
+      voice.</p>
+
+    <h3>Known gaps</h3>
+    <ul>
+      <li><b>Fertility logging has no <code>LogKind</code></b> and neither does feeding. Both are
+        drawn here as the loggers they would be, with their ids marked; adding the kinds is part
+        of R2.10 rather than something to invent in a component.</li>
+      <li><b>Bleeding quantity for B4</b> is drawn as a facet of the period logger rather than a
+        new kind. That may be wrong, and it is the one boundary in this file worth arguing with.</li>
+      <li><b>Not composited in a browser here</b> — executed in node, coverage counted, no
+        <code>undefined</code> leaking. The visual judgement is the owner's.</li>
+      <li><b>Motion is not shown.</b> The signature (<code>docs/25</code> §5a) is the prediction
+        band drawing in, which belongs to the dashboard; this screen's motion is chip feedback at
+        <code>--dur-fast</code> and nothing else.</li>
+    </ul>
+  </div>
+</div>
+
+<script>
+/* Tools lists use the real `LogKind` union from lib/experience/types.ts. Ids
+   marked (*) have no LogKind yet — see the note above; that is R2.10's work. */
+const SCREENS = {
+  cycle:      { badge:"Cycle", title:"Log",
+    tools:["log.period:lead","log.symptom:open","log.mood:collapsed",
+           "log.medication:collapsed","recent","history.calendar"] },
+  pregnancy:  { badge:"Pregnancy", title:"Log",
+    tools:["route.maternity","log.movement:lead","log.symptomPregnancy:open",
+           "log.contractions:collapsed","log.weight:collapsed","log.glucose:collapsed",
+           "recent"] },
+  postpartum: { badge:"After birth", title:"Log",
+    tools:["log.symptom:lead","log.mood:open","log.feeding:collapsed",
+           "log.medication:collapsed","recent"] },
+  teen:       { badge:"Teen", title:"Log",
+    tools:["log.period:lead","log.symptom:open","log.mood:collapsed","recent",
+           "history.calendar"] },
+  menopause:  { badge:"Perimenopause", title:"Log",
+    tools:["log.symptom:lead","log.mood:open","log.period:collapsed",
+           "log.medication:collapsed","recent"] },
+  firstRun:   { badge:"Cycle", title:"Log",
+    tools:["log.period:lead","log.symptom:open","recent.empty","history.empty"] },
+  offline:    { badge:"Cycle", title:"Log",
+    tools:["log.period:lead","log.symptom:open","recent.queued","history.calendar"] },
+};
+
+const T = {
+  en: { dir:"ltr", today:"Today",
+    days:[["Sat","9"],["Sun","10"],["Mon","11"],["Tue","12"],["Wed","13"],["Thu","14"],["Fri","15"],["Sat","16"]],
+    marked:[1, 2, 3],
+    period:{h:"Period", p:"One tap. You can change the day with the strip above, and correct anything later.",
+      flows:["Spotting","Light","Medium","Heavy"], start:"Period started today", end:"It has ended"},
+    symptom:{h:"How are you feeling?", groups:[
+        ["Body", ["Cramps", "Headache", "Bloating", "Breast tenderness", "Back pain"]],
+        ["Mood and energy", ["Low mood", "Irritable", "Anxious", "Tired"]]],
+      add:"Something else", sev:["Mild","Moderate","Severe"], optional:"Severity is optional",
+      more:"More symptoms"},
+    symptomPregnancy:{h:"How are you feeling?", tiers:[
+        ["Get checked now", ["Heavy bleeding","Severe headache","Vision changes","Trouble breathing"], true],
+        ["Mention at your next appointment", ["Swelling","Itching","Persistent nausea"], false],
+        ["Common, worth recording", ["Heartburn","Back pain","Trouble sleeping"], false]],
+      p:"Grouped by what to do about it rather than by where it is. Recording something in the first group does not send anything — the contact route is above."},
+    mood:{h:"Mood", scale:["Rough","Low","Okay","Good","Great"],
+      p:"One tap, and nothing follows it. There is no score and no streak."},
+    medication:{h:"Medication and supplements", r:"3 on your list"},
+    weight:{h:"Weight", r:"Last logged 2 days ago"},
+    glucose:{h:"Glucose", r:"3 of 4 today"},
+    feeding:{h:"Feeding", r:"Not set up yet"},
+    contractions:{h:"Contraction timer", r:"Not running"},
+    movement:{h:"Movements", n:"7", meta:"in 41 minutes · started 21:04",
+      tap:"Felt one", p:"There is no normal number. What matters is a change from your baby's usual pattern — and that is a call to your team, not a reading on this screen."},
+    route:{h:"If something does not feel right", p:"Your maternity team would rather hear from you and find nothing. Day or night, and you never need a reason.",
+      a:"How to contact them"},
+    recent:{h:"Just logged", items:["Cramps","Low mood","Period · medium"], undo:"Undo",
+      empty:"Nothing logged for today yet.",
+      queued:"Saved on your phone · will sync"},
+    history:{h:"Your last month", legend:["Period","Predicted window","Today"],
+      empty:{h:"Your history starts here", p:"Log a period and this becomes a calendar. Femio does not fill it in with guesses in the meantime."}},
+    save:{cta:"Save", count:"2 things selected"} },
+
+  ar: { dir:"rtl", today:"اليوم",
+    days:[["السبت","٩"],["الأحد","١٠"],["الاثنين","١١"],["الثلاثاء","١٢"],["الأربعاء","١٣"],["الخميس","١٤"],["الجمعة","١٥"],["السبت","١٦"]],
+    marked:[1, 2, 3],
+    period:{h:"الدورة", p:"نقرة واحدة. يمكنكِ تغيير اليوم من الشريط أعلاه، وتصحيح أي شيء لاحقًا.",
+      flows:["تنقيط","خفيفة","متوسطة","غزيرة"], start:"بدأت الدورة اليوم", end:"انتهت"},
+    symptom:{h:"كيف تشعرين؟", groups:[
+        ["الجسم", ["تقلّصات", "صداع", "انتفاخ", "ألم بالثدي", "ألم الظهر"]],
+        ["المزاج والطاقة", ["انخفاض المزاج", "تهيّج", "قلق", "إرهاق"]]],
+      add:"شيء آخر", sev:["خفيف","متوسط","شديد"], optional:"تحديد الشدّة اختياري",
+      more:"أعراض أخرى"},
+    symptomPregnancy:{h:"كيف تشعرين؟", tiers:[
+        ["تستدعي الفحص الآن", ["نزيف غزير","صداع شديد","تغيّر في الرؤية","صعوبة في التنفّس"], true],
+        ["اذكريها في موعدكِ القادم", ["تورّم","حكّة","غثيان مستمر"], false],
+        ["شائعة، ويستحسن تسجيلها", ["حرقة المعدة","ألم الظهر","صعوبة النوم"], false]],
+      p:"مُجمَّعة حسب ما يجب فعله لا حسب موضعها. وتسجيل شيء من المجموعة الأولى لا يُرسل شيئًا — طريق التواصل في الأعلى."},
+    mood:{h:"المزاج", scale:["صعب","منخفض","مقبول","جيد","ممتاز"],
+      p:"نقرة واحدة، ولا شيء يتبعها. لا درجة ولا سلسلة أيام."},
+    medication:{h:"الأدوية والمكمّلات", r:"٣ في قائمتكِ"},
+    weight:{h:"الوزن", r:"آخر تسجيل قبل يومين"},
+    glucose:{h:"سكر الدم", r:"٣ من ٤ اليوم"},
+    feeding:{h:"الرضاعة", r:"لم تُفعَّل بعد"},
+    contractions:{h:"مؤقّت الانقباضات", r:"غير مُشغَّل"},
+    movement:{h:"حركات الجنين", n:"٧", meta:"خلال ٤١ دقيقة · بدأت ٢١:٠٤",
+      tap:"شعرتُ بحركة", p:"لا يوجد عدد طبيعي. المهم هو تغيّر النمط المعتاد لطفلكِ — وذلك اتصال بفريقكِ، لا قراءة على هذه الشاشة."},
+    route:{h:"إذا شعرتِ أن شيئًا ليس على ما يرام", p:"فريق الولادة يفضّل أن يسمع منكِ ولا يجد شيئًا. ليلًا أو نهارًا، ولا تحتاجين إلى سبب.",
+      a:"كيفية التواصل معهم"},
+    recent:{h:"سُجّل للتو", items:["تقلّصات","انخفاض المزاج","الدورة · متوسطة"], undo:"تراجع",
+      empty:"لم يُسجَّل شيء لهذا اليوم بعد.",
+      queued:"محفوظ على هاتفكِ · سيُزامَن"},
+    history:{h:"آخر شهر", legend:["الدورة","النافذة المتوقّعة","اليوم"],
+      empty:{h:"سِجلُّكِ يبدأ من هنا", p:"سجّلي دورة ليصبح هذا تقويمًا. ولن تملأه فيميو بتخمينات في هذه الأثناء."}},
+    save:{cta:"حفظ", count:"عنصران محدَّدان"} },
+};
+
+const BLOOM = `<svg class="bloom" width="56" height="56" viewBox="0 0 56 56" aria-hidden="true">
+  <circle cx="28" cy="28" r="4.5"/>
+  <path d="M28 23.5c0-7 3-12 3-12s3 5 3 12"/>
+  <path d="M28 23.5c0-7-3-12-3-12s-3 5-3 12"/>
+  <path d="M32.5 28c7 0 12 3 12 3s-5 3-12 3"/>
+  <path d="M23.5 28c-7 0-12 3-12 3s5 3 12 3"/>
+  <path d="M28 32.5v12"/>
+</svg>`;
+
+const collapsed = (h, r) => `<div class="collapsed"><span class="l">${h}</span>
+  <span class="r2">${r} ›</span></div>`;
+
+const L = {
+  "log.period": (t, e) => e === "collapsed"
+    ? collapsed(t.period.h, t.period.start)
+    : `<div class="logger ${e === "lead" ? "lead" : ""}"><h3>${t.period.h}</h3>
+       <span class="flowpick">${t.period.flows.map((f, i) => `<b class="${i === 2 ? "on" : ""}">
+         <u style="height:${4 + i * 3}px"></u>${f}</b>`).join("")}</span>
+       <span class="chips"><b class="on">${t.period.start}</b><b>${t.period.end}</b></span>
+       <p>${t.period.p}</p></div>`,
+
+  "log.symptom": (t, e) => e === "collapsed"
+    ? collapsed(t.symptom.h, t.symptom.more)
+    : `<div class="logger ${e === "lead" ? "lead" : ""}"><h3>${t.symptom.h}</h3>
+       ${t.symptom.groups.map(([label, items]) => `<span class="grouplabel">${label}</span>
+         <span class="chips">${items.map((s, i) => `<b class="${i === 0 ? "on" : ""}">${s}</b>`)
+           .join("")}</span>`).join("")}
+       <span class="chips"><b class="add">+ ${t.symptom.add}</b></span>
+       <span class="sev">${t.symptom.sev.map((s, i) => `<b class="${i === 1 ? "on" : ""}">${s}</b>`)
+         .join("")}</span>
+       <span class="optional">${t.symptom.optional}</span></div>`,
+
+  "log.symptomPregnancy": (t, e) => `<div class="logger ${e === "lead" ? "lead" : ""}">
+    <h3>${t.symptomPregnancy.h}</h3>
+    ${t.symptomPregnancy.tiers.map(([label, items, urgent]) => `<span class="tier">
+      <span class="tierhead ${urgent ? "urgent" : ""}">${label}</span>
+      <span class="chips">${items.map((s) => `<b>${s}</b>`).join("")}</span></span>`).join("")}
+    <p>${t.symptomPregnancy.p}</p></div>`,
+
+  "log.mood": (t, e) => e === "collapsed"
+    ? collapsed(t.mood.h, t.mood.scale[2])
+    : `<div class="logger ${e === "lead" ? "lead" : ""}"><h3>${t.mood.h}</h3>
+       <span class="sev">${t.mood.scale.map((s, i) => `<b class="${i === 3 ? "on" : ""}">${s}</b>`)
+         .join("")}</span><p>${t.mood.p}</p></div>`,
+
+  "log.medication": (t) => collapsed(t.medication.h, t.medication.r),
+  "log.weight": (t) => collapsed(t.weight.h, t.weight.r),
+  "log.glucose": (t) => collapsed(t.glucose.h, t.glucose.r),
+  "log.contractions": (t) => collapsed(t.contractions.h, t.contractions.r),
+  "log.feeding": (t) => collapsed(t.feeding.h, t.feeding.r),
+
+  "log.movement": (t, e) => `<div class="logger ${e === "lead" ? "lead" : ""}">
+    <h3>${t.movement.h}</h3>
+    <span class="counter"><span class="n">${t.movement.n}</span>
+      <span class="meta">${t.movement.meta}</span>
+      <span class="tap">${t.movement.tap}</span></span>
+    <p>${t.movement.p}</p></div>`,
+
+  "route.maternity": (t) => `<div class="route"><h3>${t.route.h}</h3>
+    <p>${t.route.p}</p><a href="#">${t.route.a} ›</a></div>`,
+
+  "recent": (t) => `<div class="recent"><h2>${t.recent.h}</h2>
+    <span class="logged">${t.recent.items.map((i) => `<b>${i}</b>`).join("")}
+      <a class="undo" href="#">${t.recent.undo}</a></span></div>`,
+
+  "recent.empty": (t) => `<div class="recent"><h2>${t.recent.h}</h2>
+    <span class="logged"><span class="r2">${t.recent.empty}</span></span></div>`,
+
+  "recent.queued": (t) => `<div class="recent"><h2>${t.recent.h}</h2>
+    <span class="logged"><b class="queued">${t.recent.items[0]} · ${t.recent.queued}</b>
+      <a class="undo" href="#">${t.recent.undo}</a></span></div>`,
+
+  "history.calendar": (t) => `<div class="cal"><h3>${t.history.h}</h3>
+    <span class="calgrid">${new Array(35).fill(0).map((_, i) => {
+      const cls = [3, 4, 5, 6].includes(i) ? "p" : [29, 30, 31, 32].includes(i) ? "w" : "";
+      return `<u class="${cls}${i === 20 ? " t" : ""}"></u>`;
+    }).join("")}</span>
+    <span class="callegend">
+      <span><i style="background:var(--phase-menstrual)"></i>${t.history.legend[0]}</span>
+      <span><i style="background:var(--prediction-band);opacity:.5"></i>${t.history.legend[1]}</span>
+      <span><i style="border:2px solid var(--text)"></i>${t.history.legend[2]}</span></span></div>`,
+
+  "history.empty": (t) => `<div class="empty">${BLOOM}
+    <h3>${t.history.empty.h}</h3><p>${t.history.empty.p}</p></div>`,
+};
+
+function screen(key, locale, theme) {
+  const s = SCREENS[key], t = T[locale];
+  const th = theme === "dark" ? ' data-theme="dark"' : "";
+  const body = s.tools.map((entry) => {
+    const [id, emphasis] = entry.split(":");
+    const fn = L[id];
+    if (!fn) throw new Error(`R1.8: no drawing for logger "${id}"`);
+    return fn(t, emphasis ?? "open");
+  }).join("");
+  return `<div class="phone" lang="${locale}" dir="${t.dir}"${th}>
+    <div class="app-bar"><span class="mark">femio</span></div>
+    <div class="screen">
+      <div class="title-row"><h1>${s.title}</h1><span class="badge">${s.badge}</span></div>
+      <div class="datestrip">${t.days.map(([d, n], i) => `<b class="${i === 7 ? "on" : ""}">
+        <span>${d}</span><em>${n}</em>${t.marked.includes(i) ? "<i></i>" : ""}</b>`).join("")}</div>
+      ${body}
+    </div>
+    <div class="savebar"><span class="count">${t.save.count}</span>
+      <span class="cta">${t.save.cta}</span></div></div>`;
+}
+
+const cap = (a, b) => `<div class="stage-cap">${a}<span>${b}</span></div>`;
+
+document.getElementById("inv").innerHTML = Object.entries(L)
+  .map(([id, fn]) => `<div class="inv-item"><div class="inv-id">${id}</div>
+    <div class="inv-body">${fn(T.en, "open")}</div></div>`).join("");
+
+document.getElementById("screens").innerHTML = [
+  ["cycle", "B1 · cycle", "period open, symptoms open, the rest one tap away"],
+  ["pregnancy", "D1 · pregnancy", "the contact route above the counter, always"],
+  ["postpartum", "E1 · after birth", "symptoms lead; mood is a control, not a questionnaire"],
+  ["teen", "A2 · teen", "the same screen, plainer words — nothing removed"],
+  ["menopause", "F1 · perimenopause", "symptoms lead; period logging stays, collapsed"],
+].map(([k, a, b]) => `<div class="stage">${screen(k, "en", "light")}${cap(a, b)}</div>`).join("");
+
+document.getElementById("hard").innerHTML =
+  `<div class="stage">${screen("firstRun", "en", "light")}${cap("First run", "nothing logged, and no calendar invented to fill the space")}</div>` +
+  `<div class="stage">${screen("offline", "en", "light")}${cap("Saved offline", "a state of the row, not a banner across the screen")}</div>` +
+  `<div class="stage">${screen("pregnancy", "ar", "dark")}${cap("D1 · Arabic · dark", "urgency tiers, counter and route, mirrored")}</div>` +
+  `<div class="stage">${screen("cycle", "ar", "light")}${cap("B1 · Arabic", "the flow picker and the calendar, mirrored")}</div>`;
+</script>
+</body>
+</html>

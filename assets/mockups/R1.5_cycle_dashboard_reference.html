@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Femio — R1.5 cycle dashboard reference (modules, not a screen)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600;700&family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../brand/tokens/femio.tokens.css">
+<style>
+/* ── review chrome ──────────────────────────────────────────────────────── */
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#EDEBF2;color:#1E1B2E;font-family:'Inter',sans-serif;line-height:1.5;
+  padding:32px 20px 96px}
+.wrap{max-width:1760px;margin:0 auto}
+.doc-h1{font-family:'Fraunces',serif;font-weight:600;font-size:32px;letter-spacing:-.02em}
+.doc-p{color:#514B60;max-width:80ch;margin-top:10px;font-size:15px}
+.doc-p code{background:#DFDBE8;padding:1px 5px;border-radius:4px;font-size:13px}
+.doc-h2{font-family:'Fraunces',serif;font-size:22px;font-weight:600;margin:40px 0 4px}
+.doc-note{color:#514B60;font-size:14px;max-width:84ch;margin-bottom:18px}
+.warnbox{background:#FFF7E6;border:1px solid #E9C97A;border-radius:12px;padding:14px 18px;
+  margin-top:18px;max-width:96ch;font-size:14.5px;color:#5A4512}
+.gallery{display:flex;flex-wrap:wrap;gap:26px;align-items:flex-start}
+.stage{display:flex;flex-direction:column;gap:10px;align-items:center}
+.stage-cap{font-size:13px;font-weight:600;color:#514B60;text-align:center;max-width:390px}
+.stage-cap span{display:block;font-weight:400;color:#857E94;font-size:12px}
+.phone{width:390px;height:844px;overflow-y:auto;overflow-x:hidden;
+  border-radius:38px;border:9px solid #221F2E;box-shadow:0 22px 48px rgb(30 27 46 / .28);
+  background:var(--bg);color:var(--text);scrollbar-width:thin}
+.inv{display:flex;flex-wrap:wrap;gap:20px}
+.inv-item{width:340px;background:#fff;border-radius:14px;padding:14px;
+  box-shadow:0 2px 10px rgb(30 27 46 / .10)}
+.inv-id{font-family:ui-monospace,monospace;font-size:11.5px;color:#6D6580;margin-bottom:10px}
+.inv-body{background:var(--bg);border-radius:10px;padding:12px}
+.notes{margin-top:44px;background:#fff;border-radius:16px;padding:24px 28px;max-width:1100px}
+.notes h2{font-family:'Fraunces',serif;font-size:22px;font-weight:600;margin-bottom:6px}
+.notes h3{font-size:15px;margin:20px 0 6px}
+.notes p,.notes li{font-size:14.5px;color:#3F3A4D;max-width:84ch}
+.notes ul{padding-inline-start:20px;display:flex;flex-direction:column;gap:6px;margin-top:6px}
+
+/* ── the design — SEMANTIC TOKENS ONLY ──────────────────────────────────── */
+.phone *,.inv-body *{font-family:var(--font-ui)}
+[dir="rtl"] *{font-family:var(--font-ar)}
+
+.app-bar{position:sticky;top:0;z-index:var(--z-sticky);display:flex;align-items:center;
+  justify-content:space-between;padding:var(--space-3) var(--space-5);
+  background:var(--frost);backdrop-filter:var(--frost-blur);
+  border-bottom:1px solid var(--border)}
+.mark{font-family:var(--font-display)!important;font-size:var(--fs-lg);
+  font-weight:var(--fw-semibold);color:var(--primary);line-height:1}
+.screen{display:flex;flex-direction:column;gap:var(--space-4);padding:var(--space-5)
+  var(--space-5) var(--space-16)}
+.title-row{display:flex;flex-wrap:wrap;align-items:center;gap:var(--space-3)}
+.title-row h1{font-size:var(--fs-md);color:var(--text);font-weight:var(--fw-semibold)}
+.badge{font-size:var(--fs-2xs);font-weight:var(--fw-semibold);padding:2px var(--space-3);
+  border-radius:var(--radius-pill);background:var(--primary-soft);color:var(--primary-soft-text)}
+
+/* HERO — the one raised element per screen (docs/25 §5a). */
+.hero{background:var(--gradient-hero-cycle);color:var(--text-on-brand);
+  border-radius:var(--radius-lg);padding:var(--space-6);box-shadow:var(--shadow-md);
+  display:flex;flex-direction:column;gap:var(--space-3)}
+.hero.warm{background:var(--gradient-hero-warm)}
+.eyebrow{font-size:var(--fs-2xs);font-weight:var(--fw-semibold);letter-spacing:var(--ls-wider);
+  text-transform:uppercase;opacity:.9}
+[dir="rtl"] .eyebrow{text-transform:none;letter-spacing:var(--ls-normal)}
+.hero .headline{font-family:var(--font-display)!important;font-size:var(--fs-lg);
+  line-height:var(--lh-snug)}
+[dir="rtl"] .hero .headline{font-family:var(--font-ar)!important;font-weight:var(--fw-bold)}
+.hero .foot{font-size:var(--fs-2xs);opacity:.9;line-height:var(--lh-relaxed)}
+
+/* THE BAND — fading edges are mandatory. A hard edge claims a precision the
+   prediction does not have (docs/25 §5a, product rule 3). */
+.band{position:relative;height:10px;border-radius:var(--radius-pill);
+  background:rgb(255 255 255 / .22)}
+.band i{position:absolute;inset-block:0;border-radius:var(--radius-pill);
+  background:linear-gradient(90deg,transparent 0%,currentColor 30%,currentColor 70%,transparent 100%);
+  opacity:.85}
+.band b{position:absolute;inset-block:-4px;width:3px;margin-inline-start:-1.5px;
+  border-radius:var(--radius-pill);background:currentColor}
+.bandlegend{display:flex;justify-content:space-between;font-size:var(--fs-2xs);opacity:.85}
+/* The honest-absence variant: dotted, no filled range, same slot, same size. */
+.band.unknown i{background:none;border-top:2px dotted currentColor;top:4px;height:0;opacity:.7}
+
+/* CARD — resting level. */
+.card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-md);
+  padding:var(--space-4);display:flex;flex-direction:column;gap:var(--space-3);
+  box-shadow:var(--shadow-xs)}
+.card h3{font-size:var(--fs-xs);font-weight:var(--fw-semibold);color:var(--text)}
+.card p{font-size:var(--fs-2xs);color:var(--text-muted);line-height:var(--lh-relaxed)}
+.card .big{font-family:var(--font-display)!important;font-size:var(--fs-lg);color:var(--text);
+  line-height:1.15}
+[dir="rtl"] .card .big{font-family:var(--font-ar)!important;font-weight:var(--fw-bold)}
+.card .when{font-size:var(--fs-2xs);color:var(--text-subtle)}
+.headrow{display:flex;align-items:baseline;justify-content:space-between;gap:var(--space-3)}
+.link{font-size:var(--fs-2xs);font-weight:var(--fw-semibold);color:var(--text-link)}
+
+/* THE PHASE STRIP — replaces the ring, which docs/25 §5a rejects explicitly.
+   Proportional segments, today marked, ovulatory drawn SOFT at both edges
+   because its timing is inferred, never measured. No dates on it, and the word
+   "fertile" appears nowhere: B1 is non-TTC by default (B1 §I). */
+.phasestrip{display:flex;height:12px;border-radius:var(--radius-pill);overflow:hidden;
+  position:relative;background:var(--surface-sunken)}
+.phasestrip span{display:block;height:100%}
+.ph-m{background:var(--phase-menstrual);opacity:.85}
+.ph-f{background:var(--phase-follicular);opacity:.55}
+.ph-o{background:linear-gradient(90deg,transparent,var(--phase-ovulatory) 45%,
+  var(--phase-ovulatory) 55%,transparent);opacity:.75}
+.ph-l{background:var(--phase-luteal);opacity:.55}
+.phasestrip u{position:absolute;inset-block:-3px;width:3px;margin-inline-start:-1.5px;
+  background:var(--text);border-radius:var(--radius-pill)}
+.phasekeys{display:flex;justify-content:space-between;font-size:var(--fs-2xs);
+  color:var(--text-subtle)}
+
+/* THE STRIP — 90 days of one variable as marks. Size AND opacity carry the
+   value, so colour is never the only channel (docs/25 §5a, WCAG). */
+.strip{display:flex;align-items:flex-end;gap:2px;height:34px}
+.strip i{flex:1;border-radius:2px;display:block;background:var(--primary)}
+.strip.flow i{background:var(--phase-menstrual)}
+.strip.warn i{background:var(--warning)}
+
+/* PERSONAL NORMAL — her range over the typical range. No in/out marker, no
+   colour change, no tick: the same rule as a lab reference range (R1.6). */
+.ctxbar{position:relative;height:26px}
+.ctxbar .ctx{position:absolute;inset-block:9px;inset-inline:0;border-radius:var(--radius-pill);
+  background:var(--surface-sunken)}
+.ctxbar .mine{position:absolute;inset-block:4px;border-radius:var(--radius-pill);
+  background:var(--primary);opacity:.75}
+.ctxlegend{display:flex;justify-content:space-between;font-size:var(--fs-2xs);
+  color:var(--text-subtle)}
+
+/* CHANGE AWARENESS — deliberately NOT a danger colour. B1 §D: a pattern change
+   raises content prominence, never a medical alarm. */
+.m-change{background:var(--primary-soft);border-radius:var(--radius-md);
+  padding:var(--space-4);display:flex;flex-direction:column;gap:var(--space-2)}
+.m-change h3{font-size:var(--fs-xs);font-weight:var(--fw-semibold);color:var(--primary-soft-text)}
+.m-change p{font-size:var(--fs-2xs);color:var(--primary-soft-text);line-height:var(--lh-relaxed)}
+.m-change a{font-size:var(--fs-2xs);font-weight:var(--fw-semibold);color:var(--primary-soft-text)}
+
+/* LIST ROWS — sunken, inert. */
+.rows{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-md);
+  overflow:hidden}
+.row{display:flex;align-items:center;justify-content:space-between;gap:var(--space-3);
+  padding:var(--space-4);border-bottom:1px solid var(--divider)}
+.row:last-child{border-bottom:0}
+.row .l{font-size:var(--fs-xs);color:var(--text)}
+.row .r2{font-size:var(--fs-2xs);color:var(--text-subtle)}
+
+/* QUICK LOG + the one accent action per view. */
+.m-quick{display:flex;gap:var(--space-2);flex-wrap:wrap}
+.m-quick b{min-height:44px;display:inline-flex;align-items:center;padding:0 var(--space-4);
+  border-radius:var(--radius-pill);background:var(--surface);border:1px solid var(--border);
+  font-size:var(--fs-xs);font-weight:var(--fw-medium);color:var(--text)}
+.cta{min-height:48px;display:flex;align-items:center;justify-content:center;
+  border-radius:var(--radius-pill);background:var(--accent-solid);color:var(--on-accent-solid);
+  font-size:var(--fs-sm);font-weight:var(--fw-semibold);box-shadow:var(--shadow-primary-glow)}
+
+/* MOOD SCALE — B2's hero is a control, not a readout. 44px targets. */
+.scale{display:flex;gap:var(--space-2)}
+.scale b{flex:1;min-height:44px;display:flex;align-items:center;justify-content:center;
+  border-radius:var(--radius-md);background:rgb(255 255 255 / .16);
+  border:1px solid rgb(255 255 255 / .28);font-size:var(--fs-xs);
+  font-weight:var(--fw-semibold);color:var(--text-on-brand)}
+.scale b.on{background:rgb(255 255 255 / .92);color:var(--primary-soft-text);border-color:transparent}
+
+/* EMPTY / FIRST RUN — designed, not defaulted (docs/25 §4). */
+.empty{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-lg);
+  padding:var(--space-6);display:flex;flex-direction:column;align-items:center;
+  gap:var(--space-3);text-align:center;box-shadow:var(--shadow-xs)}
+.bloom{stroke:var(--primary);stroke-width:1.5;fill:none;stroke-linecap:round;opacity:.85}
+.empty h3{font-family:var(--font-display)!important;font-size:var(--fs-lg);color:var(--text)}
+[dir="rtl"] .empty h3{font-family:var(--font-ar)!important;font-weight:var(--fw-bold)}
+.empty p{font-size:var(--fs-2xs);color:var(--text-muted);line-height:var(--lh-relaxed)}
+
+/* EXPLORE — hidden-but-reachable, given a surface. A product rule with no UI
+   is a claim (product rule 2). */
+.m-explore{background:var(--surface-sunken);border-radius:var(--radius-md);
+  padding:var(--space-4);display:flex;flex-direction:column;gap:var(--space-2)}
+.m-explore h3{font-size:var(--fs-xs);font-weight:var(--fw-semibold);color:var(--text)}
+.m-explore p{font-size:var(--fs-2xs);color:var(--text-muted);line-height:var(--lh-relaxed)}
+.chips{display:flex;flex-wrap:wrap;gap:var(--space-2)}
+.chips b{padding:6px var(--space-3);border-radius:var(--radius-pill);background:var(--surface);
+  border:1px solid var(--border);font-size:var(--fs-2xs);color:var(--text)}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1 class="doc-h1">R1.5 — the cycle dashboard, designed as modules</h1>
+  <p class="doc-p">
+    The daily screen for the largest group (<code>docs/25</code> §3.3), drawn the way R1.6 drew
+    pregnancy: <b>a module inventory first, then assembled personas</b>, because R2 makes the
+    dashboard an ordered list the engine chooses and a fixed composition would be undone by the
+    first persona that reorders it.
+  </p>
+
+  <div class="warnbox">
+    <b>One honesty note, and it is the difference between this file and R1.6.</b>
+    R1.6's assembled screens were copied from <code>buildExperienceConfig</code>'s real output.
+    <b>Track B has no registry rows yet</b> — <code>registry/</code> holds A, D and E — so the
+    module lists below are read from the persona specs (B1 §E/§I, B2/B3/B4/B5/B6 §I) and are a
+    <b>specification for</b> Track B, not a copy of it. When R2.8 encodes those rows they must
+    match this file; if they do not, one of the two is a bug, and <code>docs/25</code> §1 says
+    the reference is the bug report. Everything the running app already renders — the hero, the
+    band, the persona offer, the quick-log row — is drawn as it actually behaves today.
+  </div>
+
+  <h2 class="doc-h2">1 · The module inventory</h2>
+  <p class="doc-note">
+    Each module drawn alone. If one cannot survive being dropped into a different position, the
+    module boundary is wrong — and that is much cheaper to learn here than in React.
+  </p>
+  <div class="inv" id="inv"></div>
+
+  <h2 class="doc-h2">2 · Assembled — five women, one engine</h2>
+  <p class="doc-note">
+    B1 and B5 differ in <b>what the hero is allowed to say</b>. B2 and B4 differ in <b>what the
+    hero is</b> — a control and a count, not a prediction. None of this is an <code>if</code> in
+    a screen.
+  </p>
+  <div class="gallery" id="screens"></div>
+
+  <h2 class="doc-h2">3 · The hardest states</h2>
+  <p class="doc-note">
+    First run, where the product currently looks least finished — and Arabic dark, where the
+    band, the phase strip and the flow strip all have to mirror.
+  </p>
+  <div class="gallery" id="hard"></div>
+
+  <div class="notes">
+    <h2>What this decides</h2>
+
+    <h3>1 · The honest absence gets the hero, at the same size as the confident answer</h3>
+    <p>B5/B6's hero is the same slot, the same gradient and the same type scale as B1's — and it
+      says Femio will not guess. The band is still drawn, <b>dotted and unfilled</b>, because
+      demoting "we don't know" to a small grey line below a card teaches that uncertainty is a
+      failure state. It is not: for a woman with 90-day gaps it is the true answer, and
+      product rule 3 makes it the only one Femio is allowed to give. <b>There is no "late"
+      counter in any state in this file</b>, and no state in which one could appear.</p>
+
+    <h3>2 · Different personas get a different hero, not the same hero with more cards</h3>
+    <p>This is the test R1.6 could not run, because every pregnancy persona shares the D1 spine.
+      Here <b>B2's hero is a control</b> — today's mood and symptoms, logged from the hero itself,
+      because B2 §I puts the daily log first and her question is not "when" — and <b>B4's hero is
+      a count</b>, her own bleeding record and its trend. If the engine can only reorder cards
+      under a fixed hero, it is a sorting function, not an experience engine.</p>
+
+    <h3>3 · The quantifier counts; it does not grade the period</h3>
+    <p>B4 §I asks for a "plain-language band" on the bleeding score. <b>This reference does not
+      draw one</b>, for the reason P2.4 gave when the MRS shipped: "you used 14 products over
+      four days" is arithmetic on her own answers, and "your period is heavy" is a clinical
+      assessment. It is the third time the product has made this call (ADR-049's missing
+      <code>result</code>, R1.6's verdict-free clinical strip, the MRS's missing severity word),
+      and the answer does not change with the instrument.</p>
+
+    <h3>4 · The ring is replaced, not simply removed</h3>
+    <p><code>docs/25</code> §5a rejects rings because they imply a target and a completion.
+      Removing one and leaving text is how the current dashboard ended up flat. What replaces it
+      is <b>the phase strip</b> — proportional segments with today marked — and it carries two
+      rules: the <b>ovulatory segment fades at both edges</b>, because its timing is inferred and
+      a crisp block would claim a measurement, and <b>the word "fertile" and any date appear
+      nowhere on it</b>, because B1 is non-TTC by default and a fertile window she did not ask
+      for is the pregnancy-funnel default her spec is written against (B1 §A).</p>
+
+    <h3>5 · Her range is shown over the typical range, and nothing grades the difference</h3>
+    <p>The personal-normal module draws her shortest–longest against the 21–35 day typical range
+      with the source named. <b>No in/out marker, no colour change, no tick</b> — the same rule as
+      the lab reference range in R1.6. ACOG's vital-sign framing is the reason the context is
+      there at all; deciding what her position in it means is the clinician's.</p>
+
+    <h3>6 · Change awareness is never a danger colour</h3>
+    <p>B1 §D is explicit that a pattern change raises content prominence and never a red banner.
+      So the module uses <code>--primary-soft</code>, sits mid-screen rather than above the fold,
+      and its action is reading rather than routing. <b>The cycle dashboard has no red panel at
+      all</b> — which is the opposite of the pregnancy dashboard, where warning signs sit high
+      because late is the harmful direction. Two life stages, two answers, one design language.</p>
+
+    <h3>7 · "Explore other chapters" is a module, because a rule with no UI is a claim</h3>
+    <p>Product rule 2 says personalize, never restrict, and every B spec repeats
+      hidden-but-reachable in its §I. Today that is true of the router and invisible on the
+      screen. Drawing it as a real, low-emphasis module is what makes the promise checkable —
+      and it is where TTC, pregnancy, contraception education and perimenopause live for a woman
+      who was never asked about them.</p>
+
+    <h3>8 · First run is a designed state</h3>
+    <p>A new account has no cycles, so the hero has nothing to predict. The empty state is a
+      botanical mark, one Fraunces sentence and one action — not a card with a fallback string in
+      it. <code>docs/25</code> §4 names this exactly: she sees the app at its emptiest first, and
+      that is currently when it looks least finished.</p>
+
+    <h3>Known gaps</h3>
+    <ul>
+      <li><b>Track B has no registry.</b> Filed as R2.8; until then these lists are a
+        specification, and the box at the top of this file says so rather than implying an
+        engine output that does not exist.</li>
+      <li><b>The pattern/correlation module is drawn thin.</b> The real one is R4 (P2.5) and
+        drawing it properly would be designing a feature that has no engine behind it.</li>
+      <li><b>Not composited in a browser here.</b> The template was executed in node — module
+        coverage counted, no <code>undefined</code> leaking — but the visual judgement is the
+        owner's, as with R1.3, R1.4 and R1.6.</li>
+      <li><b>Copy is a draft</b> and the Arabic follows the pattern of the approved cycle-mode
+        strings rather than being newly reviewed.</li>
+    </ul>
+  </div>
+</div>
+
+<script>
+/* Module lists read from the persona specs (§E/§I), NOT from engine output —
+   see the note at the top of this file. Track B is R2.8. */
+const SCREENS = {
+  B1:    { badge:"Cycle", modules:["cycle.window:hero","cycle.phase:primary",
+             "cycle.flowStrip:primary","cycle.personalNormal:primary","quickLog:primary",
+             "library:secondary","explore:secondary"] },
+  B1new: { badge:"Cycle", modules:["cycle.empty:hero","offer:primary","quickLog:primary",
+             "library:secondary","privacy:secondary","explore:secondary"] },
+  B5:    { badge:"Cycle · irregular", modules:["cycle.windowUnknown:hero","cycle.pattern:primary",
+             "cycle.changeAwareness:primary","visitPrep:primary","quickLog:primary",
+             "library:secondary","explore:secondary"] },
+  B2:    { badge:"Cycle · symptoms", modules:["mood.dailyLog:hero","cycle.phase:primary",
+             "cycle.correlation:primary","screener.mood:primary","visitPrep:secondary",
+             "library:secondary","explore:secondary"] },
+  B4:    { badge:"Cycle · bleeding", modules:["bleeding.quantifier:hero","cycle.flowStrip:primary",
+             "cycle.changeAwareness:primary","visitPrep:primary","quickLog:primary",
+             "library:secondary","explore:secondary"] },
+};
+
+const T = {
+  en: { dir:"ltr", title:"Your cycle",
+    window:{eyebrow:"Day 22 · luteal phase", head:"Next period likely 28 Aug – 1 Sep",
+      foot:"Cycles vary, so this is a range rather than a date. It tightens as you log more.",
+      l:"28 Aug", r:"1 Sep"},
+    unknown:{eyebrow:"63 days since your last period", head:"We are not going to guess this one",
+      foot:"Your recent cycles were 31, 47 and 62 days. When they vary this much, an estimate would look more certain than it is — so there isn't one. Nothing is wrong with the app.",
+      l:"", r:""},
+    phase:{h:"Where you are", p:"Many people notice lower energy in the days before a period. Common, not guaranteed — your own logs are the better guide.",
+      keys:["Period","Follicular","Around ovulation","Luteal"], link:"What the phases are"},
+    flow:{h:"Your last 90 days", when:"flow, as you logged it",
+      p:"Taller and darker marks are the days you recorded as heavier. This is your record, not a score."},
+    normal:{h:"Normal for you", big:"27–31 days", p:"Your own shortest and longest over the last six cycles, drawn against the 21–35 day range ACOG describes as typical for adults. Where you sit in it is a conversation for your clinician, not a mark out of ten.",
+      l:"21", r:"35"},
+    pattern:{h:"Your pattern", big:"31 · 47 · 62 days", p:"Three cycles, getting longer. Femio records the shape; it does not name a cause."},
+    change:{h:"Something has shifted", p:"Your last three cycles have been longer than your usual. That is often nothing, and it is sometimes worth mentioning at a check-up.",
+      a:"What is normal, and what is worth checking"},
+    quantifier:{eyebrow:"Period of 3–7 August", head:"14 products over 5 days",
+      foot:"Your own count, and the trend across your last six periods. Femio does not grade a period — take this to your clinician, who can."},
+    correlation:{h:"Two cycles recorded", p:"A clinician looks at symptoms recorded as they happen, across two full cycles, rather than remembered afterwards. You are 1 cycle and 12 days in.",
+      link:"Why two cycles"},
+    mood:{eyebrow:"Today", head:"How is today going?",
+      foot:"Logged from here, in one tap. Details are one screen down if you want them.",
+      scale:["Rough","Low","Okay","Good","Great"]},
+    screener:{h:"Mood check", p:"A short, private set of questions you can take whenever you want. It is a screening tool and never a diagnosis.", link:"Take it"},
+    visit:{h:"Prepare for an appointment", p:"Your cycle history, your symptom trends and the questions you meant to ask, on one page you can print or hand over.", link:"Build the summary"},
+    library:{h:"Worth reading", rows:[["Your cycle, explained","6 min"],["What is normal, what is worth checking","5 min"],["Prediction, honestly","4 min"]]},
+    privacy:{h:"Your data, your rules", p:"No advertising or analytics service can reach your health data. Export everything or delete everything, from Settings, whenever you like.", link:"See what is stored"},
+    explore:{h:"Other chapters", p:"Nothing here is switched off. Open any of these whenever you want them — Femio will not bring them up on its own.",
+      chips:["Trying to conceive","Pregnancy","Contraception","Perimenopause"]},
+    offer:{h:"Make this yours", p:"Answer a few questions and the home screen changes to match your stage. You can undo it at any time.", link:"Answer them"},
+    empty:{h:"Log your first period", p:"Femio needs a couple of periods before it can offer a range worth trusting. Until then it will not invent one — the calendar and symptom logging work from today."},
+    quick:["Period","Cramps","Mood","Energy","Sleep"],
+    cta:"Log today" },
+
+  ar: { dir:"rtl", title:"دورتُكِ",
+    window:{eyebrow:"اليوم ٢٢ · الطور الأصفري", head:"الدورة القادمة على الأرجح ٢٨ أغسطس – ١ سبتمبر",
+      foot:"الدورات تتفاوت، لذلك هذا نطاق وليس تاريخًا. ويضيق كلّما سجّلتِ أكثر.",
+      l:"٢٨ أغسطس", r:"١ سبتمبر"},
+    unknown:{eyebrow:"مضى ٦٣ يومًا على آخر دورة", head:"لن نخمّن هذه المرة",
+      foot:"دوراتُكِ الأخيرة كانت ٣١ و٤٧ و٦٢ يومًا. مع هذا التفاوت، أي تقدير سيبدو أكثر يقينًا مما هو عليه — فلا تقدير إذن. لا خلل في التطبيق.",
+      l:"", r:""},
+    phase:{h:"أين أنتِ الآن", p:"كثيرات يلاحظن انخفاض الطاقة في الأيام السابقة للدورة. أمر شائع، وليس حتميًّا — وسجلّاتُكِ أنتِ هي الدليل الأفضل.",
+      keys:["الدورة","الجُريبي","حول الإباضة","الأصفري"], link:"ما هي أطوار الدورة"},
+    flow:{h:"آخر ٩٠ يومًا", when:"الغزارة كما سجّلتِها",
+      p:"العلامات الأطول والأغمق هي الأيام التي سجّلتِها أغزر. هذا سجلُّكِ، وليس تقييمًا."},
+    normal:{h:"الطبيعي بالنسبة لكِ", big:"٢٧–٣١ يومًا", p:"أقصر وأطول دوراتِكِ في آخر ست دورات، مرسومة أمام نطاق ٢١–٣٥ يومًا الذي تصفه ACOG بالمعتاد للبالغات. وموضعُكِ داخله حديثٌ مع طبيبكِ، لا درجةٌ من عشرة.",
+      l:"٢١", r:"٣٥"},
+    pattern:{h:"نمطُكِ", big:"٣١ · ٤٧ · ٦٢ يومًا", p:"ثلاث دورات، تطول تدريجيًّا. فيميو تسجّل الشكل ولا تسمّي السبب."},
+    change:{h:"هناك تغيّر", p:"دوراتُكِ الثلاث الأخيرة كانت أطول من المعتاد لديكِ. غالبًا لا شيء، وأحيانًا يستحق الذكر في الفحص الدوري.",
+      a:"ما هو الطبيعي وما الذي يستحق المراجعة"},
+    quantifier:{eyebrow:"دورة ٣–٧ أغسطس", head:"١٤ فوطة على مدى ٥ أيام",
+      foot:"عددُكِ أنتِ، ومساره عبر آخر ست دورات. فيميو لا تقيّم الدورة — خذي هذا إلى طبيبكِ فهو من يقيّمها."},
+    correlation:{h:"تم تسجيل دورتين", p:"الطبيب ينظر إلى الأعراض المسجَّلة لحظة حدوثها عبر دورتين كاملتين، لا إلى ما يُتذكَّر لاحقًا. أنتِ عند دورة واحدة و١٢ يومًا.",
+      link:"لماذا دورتان"},
+    mood:{eyebrow:"اليوم", head:"كيف يمضي يومُكِ؟",
+      foot:"يُسجَّل من هنا بنقرة واحدة. والتفاصيل على بُعد شاشة إن أردتِها.",
+      scale:["صعب","منخفض","مقبول","جيد","ممتاز"]},
+    screener:{h:"فحص المزاج", p:"مجموعة أسئلة قصيرة وخاصة يمكنكِ الإجابة عنها متى شئتِ. أداة فحص، وليست تشخيصًا أبدًا.", link:"ابدئي"},
+    visit:{h:"استعدّي لموعدكِ", p:"تاريخ دوراتِكِ ومسار أعراضكِ والأسئلة التي نويتِ طرحها، في صفحة واحدة يمكنكِ طباعتها أو تسليمها.", link:"أنشئي الملخّص"},
+    library:{h:"يستحق القراءة", rows:[["دورتُكِ، بوضوح","٦ دقائق"],["ما هو الطبيعي وما يستحق المراجعة","٥ دقائق"],["التنبؤ، بصراحة","٤ دقائق"]]},
+    privacy:{h:"بياناتُكِ، وقواعدُكِ", p:"لا خدمة إعلانات أو تحليلات تصل إلى بياناتكِ الصحية. صدّري كل شيء أو احذفي كل شيء من الإعدادات، متى شئتِ.", link:"اطّلعي على المُخزَّن"},
+    explore:{h:"فصول أخرى", p:"لا شيء هنا مُغلق. افتحي أيًّا منها متى أردتِ — ولن تطرحها فيميو من تلقاء نفسها.",
+      chips:["محاولة الحمل","الحمل","وسائل المنع","ما قبل انقطاع الطمث"]},
+    offer:{h:"اجعلي هذا يخصُّكِ", p:"أجيبي عن بضعة أسئلة فتتغيّر الشاشة الرئيسية لتناسب مرحلتكِ. ويمكنكِ التراجع في أي وقت.", link:"أجيبي عنها"},
+    empty:{h:"سجّلي أول دورة", p:"تحتاج فيميو إلى دورتين قبل أن تقدّم نطاقًا يستحق الثقة. وحتى ذلك الحين لن تخترع واحدًا — التقويم وتسجيل الأعراض يعملان من اليوم."},
+    quick:["الدورة","تقلّصات","المزاج","الطاقة","النوم"],
+    cta:"سجّلي اليوم" },
+};
+
+const BLOOM = `<svg class="bloom" width="56" height="56" viewBox="0 0 56 56" aria-hidden="true">
+  <circle cx="28" cy="28" r="4.5"/>
+  <path d="M28 23.5c0-7 3-12 3-12s3 5 3 12"/>
+  <path d="M28 23.5c0-7-3-12-3-12s-3 5-3 12"/>
+  <path d="M32.5 28c7 0 12 3 12 3s-5 3-12 3"/>
+  <path d="M23.5 28c-7 0-12 3-12 3s5 3 12 3"/>
+  <path d="M28 32.5v12"/>
+</svg>`;
+
+/* Flow heights over 90 days: five bleed clusters, everything else zero-height.
+   Written out rather than randomised so the picture is the same every render. */
+const FLOW = (() => {
+  const days = new Array(45).fill(0);
+  [[1,3],[2,4],[3,3],[4,2],[16,3],[17,4],[18,2],[31,4],[32,3],[33,3],[34,1],[43,2],[44,3]]
+    .forEach(([i, v]) => { days[i] = v; });
+  return days;
+})();
+
+const strip = (values, cls = "") => `<span class="strip ${cls}">${values
+  .map((v) => `<i style="height:${v === 0 ? 8 : 20 + v * 20}%;opacity:${v === 0 ? .18 : .35 + v * .16}"></i>`)
+  .join("")}</span>`;
+
+const rows = (g) => `<div class="rows">${g.rows
+  .map(([l, r]) => `<span class="row"><span class="l">${l}</span><span class="r2">${r}</span></span>`)
+  .join("")}</div>`;
+
+const M = {
+  "cycle.window": (t) => `<div class="hero">
+    <span class="eyebrow">${t.window.eyebrow}</span>
+    <span class="headline">${t.window.head}</span>
+    <span class="band"><i style="inset-inline-start:38%;width:44%"></i><b style="inset-inline-start:30%"></b></span>
+    <span class="bandlegend"><span>${t.window.l}</span><span>${t.window.r}</span></span>
+    <span class="foot">${t.window.foot}</span></div>`,
+
+  "cycle.windowUnknown": (t) => `<div class="hero">
+    <span class="eyebrow">${t.unknown.eyebrow}</span>
+    <span class="headline">${t.unknown.head}</span>
+    <span class="band unknown"><i style="inset-inline-start:8%;width:84%"></i></span>
+    <span class="foot">${t.unknown.foot}</span></div>`,
+
+  "cycle.empty": (t) => `<div class="empty">${BLOOM}
+    <h3>${t.empty.h}</h3><p>${t.empty.p}</p></div>`,
+
+  "cycle.phase": (t) => `<div class="card">
+    <span class="headrow"><h3>${t.phase.h}</h3><a class="link" href="#">${t.phase.link} ›</a></span>
+    <span class="phasestrip">
+      <span class="ph-m" style="width:18%"></span><span class="ph-f" style="width:32%"></span>
+      <span class="ph-o" style="width:14%"></span><span class="ph-l" style="width:36%"></span>
+      <u style="inset-inline-start:76%"></u></span>
+    <span class="phasekeys">${t.phase.keys.map((k) => `<span>${k}</span>`).join("")}</span>
+    <p>${t.phase.p}</p></div>`,
+
+  "cycle.flowStrip": (t) => `<div class="card">
+    <span class="headrow"><h3>${t.flow.h}</h3><span class="when">${t.flow.when}</span></span>
+    ${strip(FLOW, "flow")}<p>${t.flow.p}</p></div>`,
+
+  "cycle.personalNormal": (t) => `<div class="card">
+    <h3>${t.normal.h}</h3><span class="big">${t.normal.big}</span>
+    <span class="ctxbar"><span class="ctx"></span>
+      <span class="mine" style="inset-inline-start:43%;width:29%"></span></span>
+    <span class="ctxlegend"><span>${t.normal.l}</span><span>${t.normal.r}</span></span>
+    <p>${t.normal.p}</p></div>`,
+
+  "cycle.pattern": (t) => `<div class="card">
+    <h3>${t.pattern.h}</h3><span class="big">${t.pattern.big}</span>
+    ${strip([2, 0, 3, 0, 0, 4, 0, 0, 0, 2, 0, 0], "")}<p>${t.pattern.p}</p></div>`,
+
+  "cycle.changeAwareness": (t) => `<div class="m-change"><h3>${t.change.h}</h3>
+    <p>${t.change.p}</p><a href="#">${t.change.a} ›</a></div>`,
+
+  "bleeding.quantifier": (t) => `<div class="hero warm">
+    <span class="eyebrow">${t.quantifier.eyebrow}</span>
+    <span class="headline">${t.quantifier.head}</span>
+    ${strip([2, 3, 4, 3, 1], "flow")}
+    <span class="foot">${t.quantifier.foot}</span></div>`,
+
+  "mood.dailyLog": (t) => `<div class="hero">
+    <span class="eyebrow">${t.mood.eyebrow}</span>
+    <span class="headline">${t.mood.head}</span>
+    <span class="scale">${t.mood.scale
+      .map((s, i) => `<b class="${i === 2 ? "on" : ""}">${s}</b>`).join("")}</span>
+    <span class="foot">${t.mood.foot}</span></div>`,
+
+  "cycle.correlation": (t) => `<div class="card">
+    <span class="headrow"><h3>${t.correlation.h}</h3>
+      <a class="link" href="#">${t.correlation.link} ›</a></span>
+    ${strip([3, 2, 1, 0, 0, 1, 2, 3, 4, 4, 3, 2], "")}<p>${t.correlation.p}</p></div>`,
+
+  "screener.mood": (t) => `<div class="card">
+    <span class="headrow"><h3>${t.screener.h}</h3>
+      <a class="link" href="#">${t.screener.link} ›</a></span><p>${t.screener.p}</p></div>`,
+
+  "visitPrep": (t) => `<div class="card">
+    <span class="headrow"><h3>${t.visit.h}</h3><a class="link" href="#">${t.visit.link} ›</a></span>
+    <p>${t.visit.p}</p></div>`,
+
+  "library": (t) => `<div class="card"><h3>${t.library.h}</h3></div>${rows(t.library)}`,
+
+  "privacy": (t) => `<div class="card">
+    <span class="headrow"><h3>${t.privacy.h}</h3>
+      <a class="link" href="#">${t.privacy.link} ›</a></span><p>${t.privacy.p}</p></div>`,
+
+  "offer": (t) => `<div class="m-change">
+    <h3>${t.offer.h}</h3><p>${t.offer.p}</p><a href="#">${t.offer.link} ›</a></div>`,
+
+  "explore": (t) => `<div class="m-explore"><h3>${t.explore.h}</h3><p>${t.explore.p}</p>
+    <span class="chips">${t.explore.chips.map((c) => `<b>${c}</b>`).join("")}</span></div>`,
+
+  "quickLog": (t) => `<div class="m-quick">${t.quick.map((q) => `<b>${q}</b>`).join("")}</div>
+    <div class="cta">${t.cta}</div>`,
+};
+
+function screen(key, locale, theme) {
+  const s = SCREENS[key], t = T[locale];
+  const th = theme === "dark" ? ' data-theme="dark"' : "";
+  const body = s.modules.map((entry) => {
+    const [id, emphasis] = entry.split(":");
+    const fn = M[id];
+    if (!fn) throw new Error(`R1.5: no drawing for module "${id}"`);
+    return fn(t, emphasis);
+  }).join("");
+  return `<div class="phone" lang="${locale}" dir="${t.dir}"${th}>
+    <div class="app-bar"><span class="mark">femio</span></div>
+    <div class="screen">
+      <div class="title-row"><h1>${t.title}</h1><span class="badge">${s.badge}</span></div>
+      ${body}
+    </div></div>`;
+}
+
+const cap = (a, b) => `<div class="stage-cap">${a}<span>${b}</span></div>`;
+
+document.getElementById("inv").innerHTML = Object.entries(M)
+  .map(([id, fn]) => `<div class="inv-item"><div class="inv-id">${id}</div>
+    <div class="inv-body">${fn(T.en, "primary")}</div></div>`).join("");
+
+document.getElementById("screens").innerHTML = [
+  ["B1", "B1 · the spine", "a range, a phase, her own shape — 7 modules"],
+  ["B5", "B5/B6 · irregular", "same hero slot, and it declines to predict"],
+  ["B2", "B2 · symptom- and mood-led", "the hero is a control, not a readout"],
+  ["B4", "B4 · heavy bleeding", "the hero is her own count, ungraded"],
+].map(([k, a, b]) => `<div class="stage">${screen(k, "en", "light")}${cap(a, b)}</div>`).join("");
+
+document.getElementById("hard").innerHTML =
+  `<div class="stage">${screen("B1new", "en", "light")}${cap("B1 · first run", "no history, and nothing invented to fill the hero")}</div>` +
+  `<div class="stage">${screen("B1", "ar", "dark")}${cap("B1 · Arabic · dark", "band, phase strip and flow strip all mirrored")}</div>` +
+  `<div class="stage">${screen("B5", "ar", "light")}${cap("B5 · Arabic", "the honest absence, in the harder language")}</div>`;
+</script>
+</body>
+</html>

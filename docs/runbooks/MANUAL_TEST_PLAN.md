@@ -15,8 +15,9 @@ nice-to-have.*
 tracks what actually shipped. The regression sweep below is for before a beta or a release, not
 for every session.
 
-**Unseen as of 2026-08-16: T8, T10–T22.** Fifteen items shipped that day and nobody has
-looked at any of them. **T22 is the one that blocks other work** — fourteen postpartum drafts
+**Unseen as of 2026-08-16: T8, T10–T23.** Sixteen items shipped that day and nobody has
+looked at any of them. **T23 is the cheapest** — three HTML files, no server, and approving them
+is the one thing standing between the design references and building against them (`docs/25` §1). **T22 is the one that blocks other work** — fourteen postpartum drafts
 waiting on your review gate, and publishing them is what fills the postpartum reading card.
 **T21 is the one I most want read** — the three sentences a woman sees
 after a pregnancy ends, including a stillbirth. **T16 is the one I would want read first** — it is the only screen in Femio that
@@ -257,6 +258,40 @@ claim verbs, links and metadata; none of that is medicine. Nothing goes live unt
 - [ ] Check nothing reads as triage — no article should tell a woman a symptom is or is not serious.
 - [ ] Approve and publish the ones you are happy with. **The dashboard reading card fills itself in** as you publish: no deploy, no code change. Publish one and reload a postpartum dashboard to see it appear.
 - [ ] Anything you want changed, say so and it is an edit, not a re-draft.
+
+### T23 · The three new design references (R1.5, R1.7, R1.8) — approve or send back
+Open each file directly in a browser; they need no server. Zoom to 100% and look at the phones
+as phones.
+
+- `assets/mockups/R1.5_cycle_dashboard_reference.html` — the cycle dashboard
+- `assets/mockups/R1.7_menopause_dashboard_reference.html` — menopause
+- `assets/mockups/R1.8_track_screen_reference.html` — track / log
+
+**This is `docs/25` §1's one process rule**: a screen is designed and approved before it is
+implemented, and when the reference and the code disagree the reference is the bug report. So
+approving these is what unblocks R1.9, and it is worth an hour rather than a glance.
+
+- [ ] **The R1.5 question, and it is the biggest one in the set:** B2's hero is a *control*
+      (today's mood, logged from the hero) and B4's is a *count*, where B1's is a prediction.
+      Is a per-persona hero right, or should every cycle persona keep the window and differ
+      below it? Everything else in that file follows from the answer.
+- [ ] **R1.5 · the irregular hero.** B5 gets a full-size hero that says Femio will not guess,
+      with a dotted band. Does that read as honest, or as broken? It is the sentence a woman
+      with 90-day gaps sees every day.
+- [ ] **R1.7 · the count with no conclusion.** F2's hero says "2 years and 5 months since your
+      last period" and never "postmenopausal". Read it as a clinician: does the refusal read as
+      respect or as evasion? That is the brief for the whole screen.
+- [ ] **R1.7 · F4 in Arabic, dark.** Induced menopause is the tonal sibling of E6, and the
+      Arabic is the paragraph I am least sure of in this set.
+- [ ] **R1.7 · the MRS card.** A number, her own past totals, and no word. Does it look
+      finished without a severity label?
+- [ ] **R1.8 · one open logger, the rest collapsed.** Today every logger is expanded. Is the
+      collapse right, and is the right one open per mode (period for cycle, movement for
+      pregnancy, symptoms for menopause)?
+- [ ] **R1.8 · the pregnancy screen.** The maternity-contact panel sits above the movement
+      counter. Confirm that ordering is what you would want at 2am.
+- [ ] Anything you want changed is an edit to the reference, not a re-draft — say which file
+      and which module.
 
 ### T9 · The duplicate log button (found in R2.5c)
 Any of pregnancy, postpartum, or teen.

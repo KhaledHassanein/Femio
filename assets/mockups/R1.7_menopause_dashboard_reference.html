@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Femio — R1.7 menopause dashboard reference (a count, and no conclusion)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600;700&family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../brand/tokens/femio.tokens.css">
+<style>
+/* ── review chrome ──────────────────────────────────────────────────────── */
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#EDEBF2;color:#1E1B2E;font-family:'Inter',sans-serif;line-height:1.5;
+  padding:32px 20px 96px}
+.wrap{max-width:1760px;margin:0 auto}
+.doc-h1{font-family:'Fraunces',serif;font-weight:600;font-size:32px;letter-spacing:-.02em}
+.doc-p{color:#514B60;max-width:80ch;margin-top:10px;font-size:15px}
+.doc-p code{background:#DFDBE8;padding:1px 5px;border-radius:4px;font-size:13px}
+.doc-h2{font-family:'Fraunces',serif;font-size:22px;font-weight:600;margin:40px 0 4px}
+.doc-note{color:#514B60;font-size:14px;max-width:84ch;margin-bottom:18px}
+.warnbox{background:#FFF7E6;border:1px solid #E9C97A;border-radius:12px;padding:14px 18px;
+  margin-top:18px;max-width:96ch;font-size:14.5px;color:#5A4512}
+.gallery{display:flex;flex-wrap:wrap;gap:26px;align-items:flex-start}
+.stage{display:flex;flex-direction:column;gap:10px;align-items:center}
+.stage-cap{font-size:13px;font-weight:600;color:#514B60;text-align:center;max-width:390px}
+.stage-cap span{display:block;font-weight:400;color:#857E94;font-size:12px}
+.phone{width:390px;height:844px;overflow-y:auto;overflow-x:hidden;
+  border-radius:38px;border:9px solid #221F2E;box-shadow:0 22px 48px rgb(30 27 46 / .28);
+  background:var(--bg);color:var(--text);scrollbar-width:thin}
+.inv{display:flex;flex-wrap:wrap;gap:20px}
+.inv-item{width:340px;background:#fff;border-radius:14px;padding:14px;
+  box-shadow:0 2px 10px rgb(30 27 46 / .10)}
+.inv-id{font-family:ui-monospace,monospace;font-size:11.5px;color:#6D6580;margin-bottom:10px}
+.inv-body{background:var(--bg);border-radius:10px;padding:12px}
+.notes{margin-top:44px;background:#fff;border-radius:16px;padding:24px 28px;max-width:1100px}
+.notes h2{font-family:'Fraunces',serif;font-size:22px;font-weight:600;margin-bottom:6px}
+.notes h3{font-size:15px;margin:20px 0 6px}
+.notes p,.notes li{font-size:14.5px;color:#3F3A4D;max-width:84ch}
+.notes ul{padding-inline-start:20px;display:flex;flex-direction:column;gap:6px;margin-top:6px}
+
+/* ── the design — SEMANTIC TOKENS ONLY ──────────────────────────────────── */
+.phone *,.inv-body *{font-family:var(--font-ui)}
+[dir="rtl"] *{font-family:var(--font-ar)}
+
+.app-bar{position:sticky;top:0;z-index:var(--z-sticky);display:flex;align-items:center;
+  justify-content:space-between;padding:var(--space-3) var(--space-5);
+  background:var(--frost);backdrop-filter:var(--frost-blur);
+  border-bottom:1px solid var(--border)}
+.mark{font-family:var(--font-display)!important;font-size:var(--fs-lg);
+  font-weight:var(--fw-semibold);color:var(--primary);line-height:1}
+.screen{display:flex;flex-direction:column;gap:var(--space-4);padding:var(--space-5)
+  var(--space-5) var(--space-16)}
+.title-row{display:flex;flex-wrap:wrap;align-items:center;gap:var(--space-3)}
+.title-row h1{font-size:var(--fs-md);color:var(--text);font-weight:var(--fw-semibold)}
+.badge{font-size:var(--fs-2xs);font-weight:var(--fw-semibold);padding:2px var(--space-3);
+  border-radius:var(--radius-pill);background:var(--primary-soft);color:var(--primary-soft-text)}
+
+/* HERO — one raised element per screen. Track F never draws progress inside it. */
+.hero{background:var(--gradient-hero-cycle);color:var(--text-on-brand);
+  border-radius:var(--radius-lg);padding:var(--space-6);box-shadow:var(--shadow-md);
+  display:flex;flex-direction:column;gap:var(--space-3)}
+.hero.warm{background:var(--gradient-hero-warm)}
+.eyebrow{font-size:var(--fs-2xs);font-weight:var(--fw-semibold);letter-spacing:var(--ls-wider);
+  text-transform:uppercase;opacity:.9}
+[dir="rtl"] .eyebrow{text-transform:none;letter-spacing:var(--ls-normal)}
+.hero .headline{font-family:var(--font-display)!important;font-size:var(--fs-lg);
+  line-height:var(--lh-snug)}
+[dir="rtl"] .hero .headline{font-family:var(--font-ar)!important;font-weight:var(--fw-bold)}
+.hero .foot{font-size:var(--fs-2xs);opacity:.9;line-height:var(--lh-relaxed)}
+
+/* THE CYCLE-LENGTH STRIP — the shape of the transition, with no destination
+   drawn. This is what replaces the ring/countdown every competitor puts here. */
+.lenstrip{display:flex;align-items:flex-end;gap:4px;height:46px}
+.lenstrip i{flex:1;border-radius:3px 3px 0 0;display:block;background:currentColor;opacity:.55}
+.lenstrip i.skip{background:none;border:1px dashed currentColor;opacity:.5}
+.lenlegend{display:flex;justify-content:space-between;font-size:var(--fs-2xs);opacity:.85}
+
+/* CARD — resting. */
+.card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-md);
+  padding:var(--space-4);display:flex;flex-direction:column;gap:var(--space-3);
+  box-shadow:var(--shadow-xs)}
+.card h3{font-size:var(--fs-xs);font-weight:var(--fw-semibold);color:var(--text)}
+.card p{font-size:var(--fs-2xs);color:var(--text-muted);line-height:var(--lh-relaxed)}
+.card .big{font-family:var(--font-display)!important;font-size:var(--fs-lg);color:var(--text);
+  line-height:1.15}
+[dir="rtl"] .card .big{font-family:var(--font-ar)!important;font-weight:var(--fw-bold)}
+.card .when{font-size:var(--fs-2xs);color:var(--text-subtle)}
+.headrow{display:flex;align-items:baseline;justify-content:space-between;gap:var(--space-3)}
+.link{font-size:var(--fs-2xs);font-weight:var(--fw-semibold);color:var(--text-link)}
+
+/* THE SYMPTOM STRIP — 90 days of one symptom, size AND opacity, never colour
+   alone. Her own record; no threshold drawn behind it. */
+.strip{display:flex;align-items:flex-end;gap:2px;height:30px}
+.strip i{flex:1;border-radius:2px;display:block;background:var(--primary)}
+.striprow{display:flex;flex-direction:column;gap:2px}
+.striplabel{display:flex;justify-content:space-between;font-size:var(--fs-2xs);
+  color:var(--text-subtle)}
+
+/* MRS — a number, and her own number over time. No band, no severity word:
+   two tests in lib/screeners/mrs.ts assert none exists in the code either. */
+.score{display:flex;align-items:baseline;gap:var(--space-3)}
+.score .n{font-family:var(--font-display)!important;font-size:32px;color:var(--text);
+  line-height:1}
+[dir="rtl"] .score .n{font-family:var(--font-ar)!important;font-weight:var(--fw-bold)}
+.score .of{font-size:var(--fs-2xs);color:var(--text-subtle)}
+
+/* PMB — the ONE danger surface in Track F, and it outranks the hero. */
+.m-flags{background:var(--danger-soft);border:1px solid var(--danger-border);
+  border-radius:var(--radius-md);padding:var(--space-4);display:flex;flex-direction:column;
+  gap:var(--space-2)}
+.m-flags h3{font-size:var(--fs-xs);font-weight:var(--fw-semibold);color:var(--danger-text)}
+.m-flags p{font-size:var(--fs-2xs);color:var(--danger-text);line-height:var(--lh-relaxed)}
+.m-flags a{font-size:var(--fs-2xs);font-weight:var(--fw-semibold);color:var(--danger-text)}
+
+/* SUPPORT — grief, identity, mood. Soft, never a status colour. */
+.m-support{background:var(--primary-soft);border-radius:var(--radius-md);
+  padding:var(--space-4);display:flex;flex-direction:column;gap:var(--space-2)}
+.m-support h3{font-size:var(--fs-xs);font-weight:var(--fw-semibold);color:var(--primary-soft-text)}
+.m-support p{font-size:var(--fs-2xs);color:var(--primary-soft-text);line-height:var(--lh-relaxed)}
+.m-support a{font-size:var(--fs-2xs);font-weight:var(--fw-semibold);color:var(--primary-soft-text)}
+
+/* Discreet (F6). Nothing explicit, nothing that reads across a room. */
+.m-discreet{background:var(--surface);border:1px solid var(--border);
+  border-radius:var(--radius-md);padding:var(--space-4);display:flex;flex-direction:column;
+  gap:var(--space-2)}
+.m-discreet h3{font-size:var(--fs-xs);font-weight:var(--fw-semibold);color:var(--text)}
+.m-discreet p{font-size:var(--fs-2xs);color:var(--text-muted);line-height:var(--lh-relaxed)}
+.m-discreet .lockline{font-size:var(--fs-2xs);color:var(--text-subtle)}
+
+/* LIST ROWS */
+.rows{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-md);
+  overflow:hidden}
+.row{display:flex;align-items:center;justify-content:space-between;gap:var(--space-3);
+  padding:var(--space-4);border-bottom:1px solid var(--divider)}
+.row:last-child{border-bottom:0}
+.row .l{font-size:var(--fs-xs);color:var(--text)}
+.row .r2{font-size:var(--fs-2xs);color:var(--text-subtle)}
+
+/* QUICK LOG + one accent action. */
+.m-quick{display:flex;gap:var(--space-2);flex-wrap:wrap}
+.m-quick b{min-height:44px;display:inline-flex;align-items:center;padding:0 var(--space-4);
+  border-radius:var(--radius-pill);background:var(--surface);border:1px solid var(--border);
+  font-size:var(--fs-xs);font-weight:var(--fw-medium);color:var(--text)}
+.cta{min-height:48px;display:flex;align-items:center;justify-content:center;
+  border-radius:var(--radius-pill);background:var(--accent-solid);color:var(--on-accent-solid);
+  font-size:var(--fs-sm);font-weight:var(--fw-semibold);box-shadow:var(--shadow-primary-glow)}
+
+/* EXPLORE */
+.m-explore{background:var(--surface-sunken);border-radius:var(--radius-md);
+  padding:var(--space-4);display:flex;flex-direction:column;gap:var(--space-2)}
+.m-explore h3{font-size:var(--fs-xs);font-weight:var(--fw-semibold);color:var(--text)}
+.m-explore p{font-size:var(--fs-2xs);color:var(--text-muted);line-height:var(--lh-relaxed)}
+.chips{display:flex;flex-wrap:wrap;gap:var(--space-2)}
+.chips b{padding:6px var(--space-3);border-radius:var(--radius-pill);background:var(--surface);
+  border:1px solid var(--border);font-size:var(--fs-2xs);color:var(--text)}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1 class="doc-h1">R1.7 — the menopause dashboard: a count, and no conclusion</h1>
+  <p class="doc-p">
+    <code>docs/25</code> §3.5 names the brief exactly: this screen <b>reports a count and refuses
+    a conclusion, and that has to read as respect rather than as evasion</b>. Everything below is
+    an answer to that one sentence. Drawn as modules, like R1.6 and R1.5, because R2 makes the
+    dashboard an ordered list the engine chooses.
+  </p>
+
+  <div class="warnbox">
+    <b>Same honesty note as R1.5.</b> <code>registry/</code> holds tracks A, D and E.
+    <b>Track F has no rows yet</b>, so the module lists here are read from F1/F2/F4/F6 §I and are
+    a <b>specification for</b> Track F (filed as R2.9), not a copy of engine output. What the app
+    already ships — the months-since count, the convention sentence, the variability card, the
+    MRS and the medication list — is drawn as it actually behaves, and this reference says where
+    each of those moves.
+  </div>
+
+  <h2 class="doc-h2">1 · The module inventory</h2>
+  <p class="doc-note">
+    Track F has the widest emotional range in the product: the same inventory has to serve a
+    47-year-old whose cycles are lengthening and a 34-year-old whose ovaries were removed last
+    month.
+  </p>
+  <div class="inv" id="inv"></div>
+
+  <h2 class="doc-h2">2 · Assembled — four states of one transition</h2>
+  <p class="doc-note">
+    F1 and F2 differ in whether a cycle exists to describe. F4 differs in <b>what the hero is
+    for</b> — orientation rather than arithmetic. F2 + a bleed is the one state where a red panel
+    outranks everything on the screen.
+  </p>
+  <div class="gallery" id="screens"></div>
+
+  <h2 class="doc-h2">3 · The hardest states</h2>
+  <p class="doc-note">
+    F6 discreet, which has to be safe on a glanced screen — and F4 in Arabic, which is the
+    hardest copy in this track for the same reason E6 is in Track E.
+  </p>
+  <div class="gallery" id="hard"></div>
+
+  <div class="notes">
+    <h2>What this decides</h2>
+
+    <h3>1 · The count is a fact; the twelve-month mark is a convention that nothing points at</h3>
+    <p>The current panel already refuses to draw a bar filling toward twelve months, and the
+      reasoning holds (ADR-042/043): the clinical convention is twelve months <em>with no other
+      cause</em>, and pregnancy, thyroid disease and several medicines also stop periods.
+      <b>Drawing progress toward a conclusion Femio may not reach turns arithmetic into a
+      diagnosis.</b> This reference keeps that and fixes the consequence — removing the ring left
+      the screen with nothing but text, which is the flatness R1 exists to fix.</p>
+
+    <h3>2 · What replaces the ring is the shape of the transition, without its destination</h3>
+    <p><code>menopause.trend</code> draws her recent cycle lengths as columns — 31, 24, 41,
+      skipped, 38, 62 — with skipped cycles as <b>dashed outlines rather than gaps</b>, because a
+      gap reads as missing data and a skipped cycle is data. It shows lengthening and scattering,
+      which is what F1 §I asks the copy to say, and it points at no endpoint. A woman can see her
+      own transition without being told where it ends.</p>
+
+    <h3>3 · The MRS shows a number and her own trend, and no word</h3>
+    <p>P2.4 shipped it that way in code — no band, no severity label, two tests asserting none
+      appears — and the design problem that creates is real: <b>a number with no label looks
+      unfinished.</b> The answer here is that <b>her own previous totals are the context</b>,
+      drawn as a small strip beside the number. "22, and it was 17 in June" is information she
+      owns. "Moderate" is an assessment, and the woman it hurts is the one who reads it and
+      decides the appointment can wait.</p>
+
+    <h3>4 · Postmenopausal bleeding is the only red panel in Track F, and it outranks the hero</h3>
+    <p>F2 §I: any post-FMP bleed pins the red-flag box to the top, above everything. This is the
+      one place in this track where Femio routes rather than educates, and two rules travel with
+      it: it carries <b>no phone number</b> (P1.26.1, global-only), and it is <b>never attributed
+      to dryness</b> — F6 §I is explicit, because the GSM content is the most plausible wrong
+      explanation a woman could reach for on her own.</p>
+
+    <h3>5 · F4's hero is orientation, not a count</h3>
+    <p>For induced menopause the months-since number is not the question; "what has happened to
+      me and what does it mean" is. So the hero is anchored on the onset she gave, names the thing
+      plainly, and the <b>grief and identity module sits directly under it</b> rather than at the
+      bottom of the screen. The three sentences F4 §I forbids are forbidden here too — never
+      "the same as natural menopause", never "at least you're alive", never a countdown. This is
+      the tonal sibling of E6, and it is drawn in Arabic for the same reason.</p>
+
+    <h3>6 · Discreet mode hides presentation, never access</h3>
+    <p>F6's card is deliberately dull: a plain surface, no imagery, wording that survives being
+      read over her shoulder on a bus. The lock line is stated <em>on</em> the card rather than
+      hidden in Settings, because a discreet mode she cannot see is one she will not trust. And
+      it hides nothing from her: the same content is reachable from search whether the mode is on
+      or off, which is product rule 2 in the one place people expect an exception.</p>
+
+    <h3>7 · There is no HRT card, because there is no HRT list</h3>
+    <p>P2.4 shipped medications as <b>one list</b> — levothyroxine, a patch, iron and a
+      prenatal vitamin belong together — and an HRT-shaped module here would rebuild the
+      restriction-by-data-structure that decision avoided. The module shows what she is taking
+      and when she started, and holds the two absences the code holds: <b>no dose guidance and no
+      adherence score.</b> Stopping something moves it down the list; it never deletes the row.</p>
+
+    <h3>8 · "Years since your final period" is a fact. "You are postmenopausal" is a conclusion.</h3>
+    <p>F2's hero says the first. The word postmenopause appears on this screen only as the name
+      of a chapter of content, never as a status Femio has assigned her. That is the whole
+      difference the brief asks this screen to make legible, and it is checkable in a
+      screenshot.</p>
+
+    <h3>Known gaps</h3>
+    <ul>
+      <li><b>Track F has no registry.</b> Filed as R2.9. F3 (comorbidity) and F5 (premature /
+        early) are not drawn — F5 in particular deserves its own pass, because the tone problem
+        there is closer to F4's than to F2's.</li>
+      <li><b>The CBT-informed program is content, not code</b> (P2.13b), so the module that would
+        surface it is a placeholder row rather than a designed surface.</li>
+      <li><b>Not composited in a browser here</b> — executed in node, coverage counted, no
+        <code>undefined</code> leaking. The visual judgement is the owner's.</li>
+      <li><b>Arabic is a draft</b> in the same sense as R1.5's: it follows the approved menopause
+        strings rather than being newly reviewed. F4's Arabic is the paragraph to read hardest.</li>
+    </ul>
+  </div>
+</div>
+
+<script>
+/* Module lists read from F1/F2/F4/F6 §I — Track F is R2.9, see the note above. */
+const SCREENS = {
+  F1:  { badge:"Perimenopause", modules:["menopause.trend:hero","menopause.marker:primary",
+           "menopause.symptomStrip:primary","mrs:primary","meds:secondary","quickLog:primary",
+           "library:secondary","explore:secondary"] },
+  F2:  { badge:"Postmenopause", modules:["menopause.since:hero","menopause.symptomStrip:primary",
+           "mrs:primary","menopause.longTerm:primary","gsm:secondary","meds:secondary",
+           "visitPrep:secondary","library:secondary","explore:secondary"] },
+  F2b: { badge:"Postmenopause", modules:["menopause.pmb:hero","menopause.since:primary",
+           "visitPrep:primary","menopause.symptomStrip:secondary","library:secondary"] },
+  F4:  { badge:"Induced menopause", modules:["menopause.orientation:hero","support.grief:primary",
+           "menopause.symptomStrip:primary","mrs:primary","meds:primary",
+           "menopause.longTerm:secondary","visitPrep:secondary","library:secondary"] },
+  F6:  { badge:"Comfort", modules:["gsm.comfort:hero","gsm.conversation:primary",
+           "menopause.symptomStrip:secondary","library:secondary","explore:secondary"] },
+};
+
+const T = {
+  en: { dir:"ltr", title:"Your health",
+    trend:{eyebrow:"41 days since your last period", head:"Your cycles are lengthening and scattering",
+      foot:"That is what the transition usually looks like. Femio will not offer a next-period date while your cycles vary this much — an estimate would look more certain than it is.",
+      l:"six cycles ago", r:"most recent", lens:[31, 24, 41, 0, 38, 62]},
+    since:{eyebrow:"Last period 14 March 2024", head:"2 years and 5 months since your last period",
+      foot:"Twelve months without a period is the convention clinicians use, and it assumes nothing else explains it. That last part is a conversation, not arithmetic — so Femio counts and stops there."},
+    orientation:{eyebrow:"Since your surgery on 4 June", head:"This is induced menopause, and it is not the same as the gradual kind",
+      foot:"It started at once rather than over years, which is why the symptoms can be sharper and why the long-term questions are different. Your specialist decides your care; this screen keeps your record."},
+    comfort:{eyebrow:"Comfort", head:"Common, treatable, and not just something to live with",
+      foot:"Dryness, discomfort and urinary changes are ordinary after menopause and there are options. Nothing here is shown on your home screen unless you ask for it."},
+    marker:{h:"What the count does and does not mean", p:"Femio counts the months. It does not decide what has caused them, because periods also stop for pregnancy, thyroid changes and some medicines — and telling them apart is your clinician's work, not an app's.",
+      link:"How menopause is described"},
+    symptoms:{h:"Your last 90 days", link:"See all",
+      rows:[["Hot flushes","31 days"],["Sleep disturbed","44 days"],["Low mood","18 days"]],
+      p:"Your own logs, day by day. No target, no score — this is the picture you can hand to a clinician."},
+    mrs:{h:"Menopause Rating Scale", n:"22", of:"of 44 · 11 of 11 answered",
+      p:"Your own total from your own answers. Femio does not attach a word to it — published cut-offs vary by setting and translation, and your clinician reads it in context. Your previous totals are beside it.",
+      link:"Take it again"},
+    longTerm:{h:"The years ahead", rows:[["Bone health","What to ask about"],["Heart health","What to ask about"],["Strength and movement","Reading"]],
+      p:"Screening and prevention are decided with a clinician. What Femio can do is make sure you know which questions exist."},
+    meds:{h:"What you are taking", rows:[["Estradiol patch","since Feb 2025"],["Levothyroxine","since 2019"],["Vitamin D","since Jan 2026"]],
+      p:"One list, not a hormone list. Femio records what you take and when you started; it never suggests a dose and never scores you on taking it."},
+    gsm:{h:"Comfort and intimate health", p:"Dryness, discomfort or urinary changes after menopause are common and there are options. You can open this privately, and turn on a discreet view.",
+      link:"Open"},
+    conversation:{h:"Starting the conversation", p:"A page of plain sentences you can read out or hand over, because this is the appointment people put off for years. Nothing here is explicit and nothing is stored unless you save it.",
+      link:"Open it"},
+    discreetline:"Discreet view is on. This section is hidden from the home screen and reachable from search.",
+    pmb:{h:"Bleeding after your periods stopped is always checked", p:"You logged bleeding, and it is more than twelve months since your last period. This is one of the few things in this app that has a straight answer: it needs a clinician, promptly, whatever else you think might explain it.",
+      a:"How to arrange to be seen"},
+    grief:{h:"This can be a loss, and it is allowed to be", p:"It arrived on a date rather than over years, and it may have taken decisions with it. Nothing here will hurry you, and there is no milestone cadence in this mode.",
+      a:"Support and reading"},
+    visit:{h:"Prepare for an appointment", p:"Your symptom record, your totals over time and the questions you meant to ask, on one page you can print or hand over.", link:"Build the summary"},
+    library:{h:"Worth reading", rows:[["Perimenopause, explained","7 min"],["What the options are","8 min"],["Tracking symptoms that matter","5 min"]]},
+    explore:{h:"Other chapters", p:"Nothing is switched off. Everything Femio has written is here whenever you want it.",
+      chips:["Cycles","Bone and heart health","Comfort and intimacy","Your data"]},
+    quick:["Hot flush","Sleep","Mood","Bleeding","Joint pain"],
+    cta:"Log today" },
+
+  ar: { dir:"rtl", title:"صحّتُكِ",
+    trend:{eyebrow:"مضى ٤١ يومًا على آخر دورة", head:"دوراتُكِ تطول وتتباعد",
+      foot:"هكذا تبدو المرحلة الانتقالية عادةً. ولن تقدّم فيميو موعدًا للدورة القادمة ما دام التفاوت بهذا القدر — فأي تقدير سيبدو أكثر يقينًا مما هو عليه.",
+      l:"قبل ست دورات", r:"الأحدث", lens:[31, 24, 41, 0, 38, 62]},
+    since:{eyebrow:"آخر دورة ١٤ مارس ٢٠٢٤", head:"مضى عامان وخمسة أشهر على آخر دورة",
+      foot:"اثنا عشر شهرًا دون دورة هو العُرف الذي يستخدمه الأطباء، وهو يفترض ألّا سبب آخر يفسّرها. وهذا الجزء الأخير حديثٌ مع طبيب لا عمليةٌ حسابية — لذلك تَعُدّ فيميو وتقف هنا."},
+    orientation:{eyebrow:"منذ عمليتكِ في ٤ يونيو", head:"هذا انقطاع طمث مُستحدَث، وهو ليس كالانقطاع التدريجي",
+      foot:"بدأ دفعةً واحدة لا عبر سنوات، ولهذا قد تكون الأعراض أحدّ، ولهذا تختلف أسئلة المدى الطويل. اختصاصيُّكِ هو من يقرّر رعايتكِ؛ وهذه الشاشة تحفظ سجلَّكِ."},
+    comfort:{eyebrow:"الراحة", head:"شائع، وقابل للعلاج، وليس أمرًا يُحتمَل فحسب",
+      foot:"الجفاف وعدم الراحة وتغيّرات المسالك البولية أمور معتادة بعد انقطاع الطمث، ولها خيارات. ولا يظهر أيٌّ من هذا على شاشتكِ الرئيسية إلا إذا طلبتِه."},
+    marker:{h:"ما الذي يعنيه العدّ وما لا يعنيه", p:"فيميو تَعُدّ الأشهر. ولا تقرّر سببها، لأن الدورة تتوقّف أيضًا بسبب الحمل وتغيّرات الغدة الدرقية وبعض الأدوية — والتمييز بينها عمل طبيبكِ لا عمل تطبيق.",
+      link:"كيف يُوصَف انقطاع الطمث"},
+    symptoms:{h:"آخر ٩٠ يومًا", link:"عرض الكل",
+      rows:[["هبّات ساخنة","٣١ يومًا"],["اضطراب النوم","٤٤ يومًا"],["انخفاض المزاج","١٨ يومًا"]],
+      p:"سجلّاتُكِ أنتِ، يومًا بيوم. لا هدف ولا درجة — هذه هي الصورة التي يمكنكِ تسليمها لطبيبكِ."},
+    mrs:{h:"مقياس تقييم انقطاع الطمث", n:"٢٢", of:"من ٤٤ · ١١ من ١١ إجابة",
+      p:"مجموعُكِ أنتِ من إجاباتكِ أنتِ. ولا تُلحق فيميو به وصفًا — فالحدود المنشورة تختلف باختلاف السياق والترجمة، وطبيبكِ هو من يقرأها في سياقها. ومجاميعُكِ السابقة بجانبه.",
+      link:"أعيدي الإجابة"},
+    longTerm:{h:"السنوات القادمة", rows:[["صحة العظام","ما الذي تسألين عنه"],["صحة القلب","ما الذي تسألين عنه"],["القوة والحركة","قراءة"]],
+      p:"الفحص والوقاية يُقرَّران مع طبيب. وما تستطيعه فيميو هو أن تضمن معرفتكِ بالأسئلة الموجودة."},
+    meds:{h:"ما تتناولينه", rows:[["لصقة إستراديول","منذ فبراير ٢٠٢٥"],["ليفوثيروكسين","منذ ٢٠١٩"],["فيتامين د","منذ يناير ٢٠٢٦"]],
+      p:"قائمة واحدة، لا قائمة هرمونات. تسجّل فيميو ما تتناولينه ومتى بدأتِ؛ ولا تقترح جرعة ولا تمنحكِ درجة على الالتزام."},
+    gsm:{h:"الراحة والصحة الحميمة", p:"الجفاف أو عدم الراحة أو تغيّرات المسالك البولية بعد انقطاع الطمث شائعة ولها خيارات. يمكنكِ فتح هذا بخصوصية وتفعيل عرضٍ متحفّظ.",
+      link:"افتحي"},
+    conversation:{h:"بدء الحديث", p:"صفحة بجُمل واضحة يمكنكِ قراءتها أو تسليمها، لأن هذا هو الموعد الذي يؤجّله الناس سنوات. لا شيء هنا صريح، ولا يُحفظ شيء إلا إذا حفظتِه.",
+      link:"افتحيها"},
+    discreetline:"العرض المتحفّظ مُفعَّل. هذا القسم مخفيّ عن الشاشة الرئيسية ويمكن الوصول إليه من البحث.",
+    pmb:{h:"النزيف بعد توقّف الدورات يُفحَص دائمًا", p:"سجّلتِ نزيفًا، وقد مضى أكثر من اثني عشر شهرًا على آخر دورة. هذا من الأمور القليلة في هذا التطبيق التي لها جواب مباشر: يحتاج إلى طبيب، وبسرعة، مهما كان ما تظنّين أنه يفسّره.",
+      a:"كيف تحصلين على موعد"},
+    grief:{h:"قد يكون هذا فقدًا، ومن حقّه أن يكون كذلك", p:"جاء في تاريخ محدّد لا عبر سنوات، وربما أخذ معه قرارات. لا شيء هنا سيستعجلكِ، ولا توجد محطات مجدوَلة في هذا الوضع.",
+      a:"دعم وقراءة"},
+    visit:{h:"استعدّي لموعدكِ", p:"سجلّ أعراضكِ ومجاميعُكِ عبر الوقت والأسئلة التي نويتِ طرحها، في صفحة واحدة يمكنكِ طباعتها أو تسليمها.", link:"أنشئي الملخّص"},
+    library:{h:"يستحق القراءة", rows:[["ما قبل انقطاع الطمث، بوضوح","٧ دقائق"],["ما هي الخيارات","٨ دقائق"],["تتبُّع الأعراض التي تهم","٥ دقائق"]]},
+    explore:{h:"فصول أخرى", p:"لا شيء مُغلق. كل ما كتبته فيميو موجود هنا متى أردتِه.",
+      chips:["الدورات","صحة العظام والقلب","الراحة والعلاقة الحميمة","بياناتُكِ"]},
+    quick:["هبّة ساخنة","النوم","المزاج","نزيف","ألم المفاصل"],
+    cta:"سجّلي اليوم" },
+};
+
+const strip = (values) => `<span class="strip">${values
+  .map((v) => `<i style="height:${v === 0 ? 8 : 20 + v * 20}%;opacity:${v === 0 ? .18 : .35 + v * .16}"></i>`)
+  .join("")}</span>`;
+
+/* Three 90-day symptom rows, written out so the picture is stable per render. */
+const SYMPTOM_ROWS = [
+  [3, 2, 3, 4, 2, 1, 0, 2, 3, 4, 4, 3, 2, 1, 2, 3],
+  [2, 3, 3, 2, 4, 4, 3, 3, 2, 2, 3, 4, 4, 3, 3, 2],
+  [0, 1, 0, 2, 1, 0, 0, 1, 2, 2, 1, 0, 1, 0, 0, 1],
+];
+
+const rows = (list) => `<div class="rows">${list
+  .map(([l, r]) => `<span class="row"><span class="l">${l}</span><span class="r2">${r}</span></span>`)
+  .join("")}</div>`;
+
+const M = {
+  "menopause.trend": (t) => `<div class="hero">
+    <span class="eyebrow">${t.trend.eyebrow}</span>
+    <span class="headline">${t.trend.head}</span>
+    <span class="lenstrip">${t.trend.lens
+      .map((d) => d === 0
+        ? `<i class="skip" style="height:70%"></i>`
+        : `<i style="height:${Math.round((d / 70) * 100)}%"></i>`).join("")}</span>
+    <span class="lenlegend"><span>${t.trend.l}</span><span>${t.trend.r}</span></span>
+    <span class="foot">${t.trend.foot}</span></div>`,
+
+  "menopause.since": (t) => `<div class="hero">
+    <span class="eyebrow">${t.since.eyebrow}</span>
+    <span class="headline">${t.since.head}</span>
+    <span class="foot">${t.since.foot}</span></div>`,
+
+  "menopause.orientation": (t) => `<div class="hero warm">
+    <span class="eyebrow">${t.orientation.eyebrow}</span>
+    <span class="headline">${t.orientation.head}</span>
+    <span class="foot">${t.orientation.foot}</span></div>`,
+
+  "gsm.comfort": (t) => `<div class="hero">
+    <span class="eyebrow">${t.comfort.eyebrow}</span>
+    <span class="headline">${t.comfort.head}</span>
+    <span class="foot">${t.comfort.foot}</span></div>`,
+
+  "menopause.marker": (t) => `<div class="card">
+    <span class="headrow"><h3>${t.marker.h}</h3>
+      <a class="link" href="#">${t.marker.link} ›</a></span><p>${t.marker.p}</p></div>`,
+
+  "menopause.symptomStrip": (t) => `<div class="card">
+    <span class="headrow"><h3>${t.symptoms.h}</h3>
+      <a class="link" href="#">${t.symptoms.link} ›</a></span>
+    ${t.symptoms.rows.map(([label, count], i) => `<span class="striprow">
+      <span class="striplabel"><span>${label}</span><span>${count}</span></span>
+      ${strip(SYMPTOM_ROWS[i])}</span>`).join("")}
+    <p>${t.symptoms.p}</p></div>`,
+
+  "mrs": (t) => `<div class="card">
+    <span class="headrow"><h3>${t.mrs.h}</h3><a class="link" href="#">${t.mrs.link} ›</a></span>
+    <span class="score"><span class="n">${t.mrs.n}</span><span class="of">${t.mrs.of}</span></span>
+    ${strip([2, 3, 3, 4])}
+    <p>${t.mrs.p}</p></div>`,
+
+  "menopause.longTerm": (t) => `<div class="card"><h3>${t.longTerm.h}</h3>
+    <p>${t.longTerm.p}</p></div>${rows(t.longTerm.rows)}`,
+
+  "meds": (t) => `<div class="card"><h3>${t.meds.h}</h3>
+    <p>${t.meds.p}</p></div>${rows(t.meds.rows)}`,
+
+  "gsm": (t) => `<div class="m-discreet">
+    <span class="headrow"><h3>${t.gsm.h}</h3><a class="link" href="#">${t.gsm.link} ›</a></span>
+    <p>${t.gsm.p}</p></div>`,
+
+  "gsm.conversation": (t) => `<div class="m-discreet">
+    <span class="headrow"><h3>${t.conversation.h}</h3>
+      <a class="link" href="#">${t.conversation.link} ›</a></span>
+    <p>${t.conversation.p}</p>
+    <span class="lockline">${t.discreetline}</span></div>`,
+
+  "menopause.pmb": (t) => `<div class="m-flags"><h3>${t.pmb.h}</h3>
+    <p>${t.pmb.p}</p><a href="#">${t.pmb.a} ›</a></div>`,
+
+  "support.grief": (t) => `<div class="m-support"><h3>${t.grief.h}</h3>
+    <p>${t.grief.p}</p><a href="#">${t.grief.a} ›</a></div>`,
+
+  "visitPrep": (t) => `<div class="card">
+    <span class="headrow"><h3>${t.visit.h}</h3><a class="link" href="#">${t.visit.link} ›</a></span>
+    <p>${t.visit.p}</p></div>`,
+
+  "library": (t) => `<div class="card"><h3>${t.library.h}</h3></div>${rows(t.library.rows)}`,
+
+  "explore": (t) => `<div class="m-explore"><h3>${t.explore.h}</h3><p>${t.explore.p}</p>
+    <span class="chips">${t.explore.chips.map((c) => `<b>${c}</b>`).join("")}</span></div>`,
+
+  "quickLog": (t) => `<div class="m-quick">${t.quick.map((q) => `<b>${q}</b>`).join("")}</div>
+    <div class="cta">${t.cta}</div>`,
+};
+
+function screen(key, locale, theme) {
+  const s = SCREENS[key], t = T[locale];
+  const th = theme === "dark" ? ' data-theme="dark"' : "";
+  const body = s.modules.map((entry) => {
+    const [id, emphasis] = entry.split(":");
+    const fn = M[id];
+    if (!fn) throw new Error(`R1.7: no drawing for module "${id}"`);
+    return fn(t, emphasis);
+  }).join("");
+  return `<div class="phone" lang="${locale}" dir="${t.dir}"${th}>
+    <div class="app-bar"><span class="mark">femio</span></div>
+    <div class="screen">
+      <div class="title-row"><h1>${t.title}</h1><span class="badge">${s.badge}</span></div>
+      ${body}
+    </div></div>`;
+}
+
+const cap = (a, b) => `<div class="stage-cap">${a}<span>${b}</span></div>`;
+
+document.getElementById("inv").innerHTML = Object.entries(M)
+  .map(([id, fn]) => `<div class="inv-item"><div class="inv-id">${id}</div>
+    <div class="inv-body">${fn(T.en, "primary")}</div></div>`).join("");
+
+document.getElementById("screens").innerHTML = [
+  ["F1", "F1 · perimenopause", "the shape of the transition, with no endpoint drawn"],
+  ["F2", "F2 · postmenopause", "no cycle view at all — the chapter is the subject"],
+  ["F2b", "F2 · a bleed logged", "the one red panel in the track, above the hero"],
+  ["F4", "F4 · surgical / induced", "orientation instead of arithmetic; grief sits high"],
+].map(([k, a, b]) => `<div class="stage">${screen(k, "en", "light")}${cap(a, b)}</div>`).join("");
+
+document.getElementById("hard").innerHTML =
+  `<div class="stage">${screen("F6", "en", "light")}${cap("F6 · GSM, discreet", "safe on a glanced screen; hides presentation, never access")}</div>` +
+  `<div class="stage">${screen("F4", "ar", "dark")}${cap("F4 · Arabic · dark", "the hardest copy in this track")}</div>` +
+  `<div class="stage">${screen("F1", "ar", "light")}${cap("F1 · Arabic", "the cycle-length columns, mirrored")}</div>`;
+</script>
+</body>
+</html>

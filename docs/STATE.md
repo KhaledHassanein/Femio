@@ -261,6 +261,46 @@ is rejected** and should not be proposed again; the reasoning is in `docs/25` §
 
 Everything in R1.2 was decided without R1.1 and may be revised by it — expected, not a failure.
 
+## The six references are drawn — R1.5, R1.7 and R1.8 landed (2026-08-16)
+
+`assets/mockups/` now holds five of the six screens `docs/25` §3 asks for: homepage (R1.3),
+onboarding (R1.4), pregnancy (R1.6), **cycle (R1.5), menopause (R1.7) and track/log (R1.8)**.
+Only R1.1b, the owner's hour of screen recordings, is still owed before implementation (R1.9).
+
+**Read the box at the top of R1.5 and R1.7 before trusting their module lists.** R1.6's
+assembled screens were copied from `buildExperienceConfig`'s real output, and these two could
+not be: `registry/` holds tracks A, D and E only. So their lists are read from the persona
+specs and are a **specification for** Track B (R2.8) and Track F (R2.9), not a copy of anything.
+The files say so at the top rather than implying an engine output that does not exist.
+
+**What each decided, in one line, because these are the arguments not the pictures:**
+
+- **R1.5** — *different personas get a different hero, not the same hero with more cards.* B2's
+  hero is a control and B4's is her own bleeding count, which is the test R1.6 could not run
+  because every D persona shares the D1 spine. The honest absence gets the hero at full size —
+  B5's window is dotted and unfilled in the same slot — because demoting "we don't know" to
+  grey small print teaches that uncertainty is a failure state. The ring is **replaced** by the
+  phase strip rather than merely removed, with the ovulatory segment faded at both edges and no
+  date and no word "fertile" on it. And the cycle dashboard has **no red panel at all**, which
+  is the deliberate opposite of pregnancy.
+- **R1.7** — the brief was one sentence (*reports a count and refuses a conclusion, and it must
+  read as respect rather than evasion*). What replaces the rejected ring is the shape of the
+  transition with no destination drawn: cycle lengths as columns, **skipped cycles as dashed
+  outlines rather than gaps**, because a gap reads as missing data and a skipped cycle is data.
+  The MRS's missing severity word is answered with **her own previous totals** as the context.
+  PMB is the only red panel in the track, outranks the hero, and is never attributed to dryness.
+- **R1.8** — the finding is structural. **`ExperienceConfig.tools` exists, is served, and the
+  log screen ignores it**, branching on `isPregnancy` three times — the write-only shape
+  `docs/23` §3.1 opened this workstream with, one screen after R2.3 fixed it for the dashboard.
+  Filed as R2.10, and it surfaced two more: **fertility logging (P2.1) has no `LogKind`**, so
+  the engine cannot reach it and the dashboard uses a `mode === "ttc"` button, and feeding has
+  none either.
+
+All three were **executed in node** rather than looked at — every module id drawn, no
+`undefined` leaking, RTL and dark rendered — and the checker was watched failing on a renamed
+module and a renamed field before being trusted. The visual judgement is the owner's;
+`MANUAL_TEST_PLAN.md` T23 is the checklist.
+
 **R1.1a is in progress** — `docs/03` §H carries the craft teardown for Flo, Clue and Balance
 (2026-08-11). Three things it established: nobody in the category uses stock portraiture, which
 confirms R1.2's illustration call from the market side; Balance puts its clinician's
@@ -501,14 +541,14 @@ woman two different sentences in the same appointment.
 >
 > **Do next, in order:**
 > 1. `git branch --list "wip/*"` — expect nothing.
-> 2. Take the top open item in `docs/07_MASTER_TODO.md` → ▶ NOW. **R2 and R3's engine work is
->    finished** — Track E is complete (R2.5f) and the postpartum content is written (P2.3c).
->    What was left in R3 was content waiting on one reply each (B7, B8, B9), and
->    all three are now answered, so the live items are **P2.13** (draft the ten approved teen
->    titles here) and consolidating the two handover sets when they come back. Otherwise
->    **R1 design is the item**: it is the oldest open workstream,
->    `docs/23` named it the last of the three things wrong, and R1.5/R1.7/R1.8 (cycle,
->    menopause and track-screen references) are the next concrete pieces.
+> 2. Take the top open item in `docs/07_MASTER_TODO.md` → ▶ NOW. **The reference set is
+>    complete** — R1.5, R1.7 and R1.8 landed 2026-08-16, so five of `docs/25` §3's six screens
+>    are drawn and only R1.1b (the owner's hour) is owed. The three that follow directly from
+>    them are new and in the queue: **R2.8** (Track B registry), **R2.9** (Track F registry) and
+>    **R2.10** (the log screen renders `tools`) — each has its module lists already argued in a
+>    reference, and encoding them is the work. **R1.9 implementation should wait for R2.8/R2.9**,
+>    because building the cycle dashboard against a `mode ===` branch is building the screen that
+>    gets rewritten. All three content sets are still out with other agents.
 > 3. Run the full gate before every push. Never end a turn with a dirty tree.
 >
 > **Nothing is waiting on the owner. B1–B9 are all closed** (2026-08-16). Two content sets are
@@ -707,11 +747,10 @@ invisible to `content-lint`: a condition named as a possibility. A2 §D is expli
 not be raised within two to three years of menarche, and the guard checks claim verbs, not
 clinical judgement about an audience.
 
-With the content out, **R1 design is the live workstream** — the last of the three things
-`docs/23` named, and the oldest thing open. R1.5 (cycle dashboard), R1.7 (menopause) and R1.8
-(track screen) are the next concrete references.
+With the content out, **R1 design was the live workstream** — and its references are now done
+(R1.5, R1.7, R1.8, above). What they leave behind is three engine items rather than a design
+one: **R2.8** Track B, **R2.9** Track F, **R2.10** the log screen rendering `tools`. Drawing the
+screens is what found the third of those, which is the argument for `docs/25` §1 in a sentence.
 
-Take the top open item under ▶ NOW — the rest of
-`P2.2.3` (contraction timer, weight chart, checklists), then `P2.7`'s other screeners, which
-now have a pattern to copy. Postpartum content drafting is unblocked (B2 approved, **P2.3c**);
-teen content is **P2.13**.
+Otherwise the open work is the rest of `P2.2.3` (checklists), `P2.7`'s remaining screeners
+(DRSP, PBAC), and consolidating the three content sets when they come back.
