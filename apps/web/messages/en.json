@@ -768,6 +768,45 @@
         "other": "Something else"
       }
     },
+    "contractions": {
+      "heading": "Contraction timer",
+      "intro": "Press start when one begins and stop when it eases. Femio keeps the times so you have them when you call.",
+      "start": "Start a contraction",
+      "stop": "It has eased",
+      "running": "Timing now",
+      "idle": "Not timing",
+      "saveFailed": "That did not save. Check your connection and try again.",
+      "loadError": "We could not load your earlier times. The timer still works.",
+      "contact": {
+        "heading": "Call your maternity unit whenever you need to",
+        "body": "You do not need to reach a certain number first. Call if you are worried, if your waters break, if there is bleeding, or if the baby is moving less than usual.",
+        "link": "Signs to call about"
+      },
+      "summary": {
+        "heading": "Your last {count}",
+        "duration": "Lasting about {value}",
+        "interval": "About {value} apart, start to start",
+        "note": "These are your times, as recorded. Femio does not decide what they mean — read them out to your midwife or maternity unit, who can."
+      }
+    },
+    "weight": {
+      "heading": "Weight",
+      "intro": "Add a reading whenever you like. Femio draws them and keeps the numbers for your notes.",
+      "value": "Weight",
+      "date": "Measured on",
+      "save": "Save",
+      "saving": "Saving…",
+      "saveFailed": "That did not save. Check your connection and try again.",
+      "invalid": "That does not look like a scale reading. Check the number and try again.",
+      "needData": "Add a second reading and your chart appears here.",
+      "alt": "A chart of {count} weight readings",
+      "change": "{value} {unit} since your first entry",
+      "note": "Your readings, drawn as they are. Femio does not show a target range or say whether a change is expected — what a pattern means is for you and your midwife or doctor.",
+      "units": {
+        "kg": "kg",
+        "lb": "lb"
+      }
+    },
   "postpartum": {
     "checkIn": {
       "eyebrow": "After birth",

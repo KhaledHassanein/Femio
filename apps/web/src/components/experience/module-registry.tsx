@@ -44,6 +44,10 @@ export type ModuleContext = {
    * was already right; breaking it cost a green suite.
    */
   appointments?: ReactNode;
+  /** Rendered for `pregnancy.weight` (P2.2.3). */
+  weight?: ReactNode;
+  /** Rendered for `pregnancy.contractions`, surfaced from ~36 weeks (P2.2.3). */
+  contractions?: ReactNode;
   /** Track A (R2.5c). A2's wide, explained window; A1 contributes none. */
   teenWindow?: ReactNode;
   teenReassurance?: ReactNode;
@@ -74,8 +78,6 @@ export const UNIMPLEMENTED: readonly ModuleId[] = [
   "teen.body",
   "teen.readiness",
   "pregnancy.milestone",
-  "pregnancy.weight",
-  "pregnancy.contractions",
   "pregnancy.birthPrep",
   "pregnancy.screeningPrep",
   "strip.labs",
@@ -104,6 +106,8 @@ const RENDERERS: Partial<Record<ModuleId, Renderer>> = {
   "teen.privacy": (ctx) => ctx.teenPrivacy,
   "pregnancy.week": (ctx) => ctx.pregnancyHero,
   "pregnancy.appointments": (ctx) => ctx.appointments,
+  "pregnancy.weight": (ctx) => ctx.weight,
+  "pregnancy.contractions": (ctx) => ctx.contractions,
   "pregnancy.warningSigns": (ctx) => ctx.warningSigns,
   "pregnancy.movement": (ctx) => ctx.movement,
   quickLog: (ctx) => ctx.quickLog,

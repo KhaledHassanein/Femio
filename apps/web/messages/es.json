@@ -768,6 +768,45 @@
         "other": "Otra cosa"
       }
     },
+    "contractions": {
+      "heading": "Cronómetro de contracciones",
+      "intro": "Pulsa empezar cuando comience una y parar cuando afloje. Femio guarda los tiempos para que los tengas cuando llames.",
+      "start": "Empezar una contracción",
+      "stop": "Ya aflojó",
+      "running": "Cronometrando",
+      "idle": "Parado",
+      "saveFailed": "No se guardó. Comprueba tu conexión e inténtalo de nuevo.",
+      "loadError": "No pudimos cargar tus tiempos anteriores. El cronómetro sigue funcionando.",
+      "contact": {
+        "heading": "Llama a tu unidad de maternidad cuando lo necesites",
+        "body": "No hace falta llegar a ninguna cifra antes. Llama si estás preocupada, si rompes aguas, si hay sangrado o si el bebé se mueve menos de lo habitual.",
+        "link": "Señales por las que llamar"
+      },
+      "summary": {
+        "heading": "Tus últimas {count}",
+        "duration": "Duran unos {value}",
+        "interval": "Cada {value} aproximadamente, de inicio a inicio",
+        "note": "Son tus tiempos, tal como se registraron. Femio no decide qué significan — léeselos a tu matrona o a la maternidad, que sí pueden."
+      }
+    },
+    "weight": {
+      "heading": "Peso",
+      "intro": "Añade una medición cuando quieras. Femio las dibuja y guarda las cifras para tu historial.",
+      "value": "Peso",
+      "date": "Medido el",
+      "save": "Guardar",
+      "saving": "Guardando…",
+      "saveFailed": "No se guardó. Comprueba tu conexión e inténtalo de nuevo.",
+      "invalid": "Eso no parece una lectura de báscula. Revisa el número e inténtalo de nuevo.",
+      "needData": "Añade una segunda medición y tu gráfica aparecerá aquí.",
+      "alt": "Una gráfica de {count} mediciones de peso",
+      "change": "{value} {unit} desde tu primera anotación",
+      "note": "Tus mediciones, tal cual. Femio no muestra un rango objetivo ni dice si un cambio es esperable — lo que significa un patrón es cosa tuya y de tu matrona o médico.",
+      "units": {
+        "kg": "kg",
+        "lb": "lb"
+      }
+    },
   "postpartum": {
     "checkIn": {
       "eyebrow": "Después del parto",

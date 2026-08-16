@@ -768,6 +768,45 @@
         "other": "Autre"
       }
     },
+    "contractions": {
+      "heading": "Minuteur de contractions",
+      "intro": "Appuyez sur démarrer quand une contraction commence et sur arrêter quand elle passe. Femio garde les temps pour que vous les ayez au téléphone.",
+      "start": "Démarrer une contraction",
+      "stop": "C’est passé",
+      "running": "Chronométrage en cours",
+      "idle": "Arrêté",
+      "saveFailed": "L’enregistrement a échoué. Vérifiez votre connexion et réessayez.",
+      "loadError": "Nous n’avons pas pu charger vos temps précédents. Le minuteur fonctionne quand même.",
+      "contact": {
+        "heading": "Appelez la maternité dès que vous en avez besoin",
+        "body": "Vous n’avez pas à atteindre un chiffre d’abord. Appelez si vous êtes inquiète, si vous perdez les eaux, en cas de saignement, ou si le bébé bouge moins que d’habitude.",
+        "link": "Les signes qui justifient un appel"
+      },
+      "summary": {
+        "heading": "Vos {count} dernières",
+        "duration": "Durée d’environ {value}",
+        "interval": "Environ {value} d’écart, début à début",
+        "note": "Ce sont vos temps, tels qu’enregistrés. Femio ne décide pas de ce qu’ils veulent dire — lisez-les à votre sage-femme ou à la maternité, qui le peut."
+      }
+    },
+    "weight": {
+      "heading": "Poids",
+      "intro": "Ajoutez une mesure quand vous voulez. Femio les trace et garde les chiffres pour votre dossier.",
+      "value": "Poids",
+      "date": "Mesuré le",
+      "save": "Enregistrer",
+      "saving": "Enregistrement…",
+      "saveFailed": "L’enregistrement a échoué. Vérifiez votre connexion et réessayez.",
+      "invalid": "Cela ne ressemble pas à une mesure de balance. Vérifiez le nombre et réessayez.",
+      "needData": "Ajoutez une deuxième mesure et votre courbe apparaîtra ici.",
+      "alt": "Un graphique de {count} mesures de poids",
+      "change": "{value} {unit} depuis votre première saisie",
+      "note": "Vos mesures, telles quelles. Femio n’affiche aucune fourchette cible et ne dit pas si une évolution est attendue — ce que signifie une courbe se discute avec votre sage-femme ou votre médecin.",
+      "units": {
+        "kg": "kg",
+        "lb": "lb"
+      }
+    },
   "postpartum": {
     "checkIn": {
       "eyebrow": "Après la naissance",

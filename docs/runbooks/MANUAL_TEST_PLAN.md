@@ -5,7 +5,7 @@ credentials, keys and one-off configuration — things only the owner *can* do. 
 things only a human can *judge*: whether a screen looks right, whether Arabic reads naturally,
 whether a flow feels like a product.
 
-**Why it exists.** Every automated gate in this repo passes on every commit — 11 guards, 436
+**Why it exists.** Every automated gate in this repo passes on every commit — 11 guards, 455
 unit tests, 63 end-to-end. None of them can tell you the homepage looks generic, that a
 translation is grammatically correct but tonally wrong, or that a control is out of thumb reach.
 `docs/22` §10 states the rule this file operationalises: *a screenshot is the test, not a
@@ -15,8 +15,8 @@ nice-to-have.*
 tracks what actually shipped. The regression sweep below is for before a beta or a release, not
 for every session.
 
-**Unseen as of 2026-08-16: T8, T10, T11, T12, T13, T14.** Six screens shipped that day and
-nobody has looked at any of them. **T11 and T12 want you as a clinician rather than as an owner** —
+**Unseen as of 2026-08-16: T8, T10–T15.** Eight screens shipped that day and nobody has looked
+at any of them. **T15 needs migration `0008` applied first** (owner task 4). **T11 and T12 want you as a clinician rather than as an owner** —
 charting must not read as contraception, and the MRS must not read as a grade. Those two are
 the ones I would not ship to an outside tester unread.
 
@@ -165,6 +165,16 @@ Settings → **Medicines and supplements**.
 - [ ] Press **I've stopped this**. The entry must move to "Stopped" and stay readable, not vanish.
 - [ ] The note at the top should make both absences explicit rather than leaving you to notice a missing field.
 - [ ] Arabic: medicine names are often written in English or Franco-Arabic. Check the field accepts either without complaint.
+
+### T15 · Contraction timer and weight (P2.2.3) — needs migration 0008 first
+Pregnancy mode, third trimester (set a due date within ~4 weeks).
+
+- [ ] **Contractions.** The "call your maternity unit" panel is **above** the timer and present before, during and after. If it ever moves below, or appears only after some number is reached, that is the bug this design exists to prevent.
+- [ ] Time three or four. You get an average duration and an average gap, and **nothing else** — no "this looks like labour", no colour change, no 5-1-1 verdict. Femio times; the midwife reads.
+- [ ] Start one and leave the page. Come back: the timer should not be counting up from hours ago.
+- [ ] **Weight.** Add two readings. The chart is dots on an axis with **no target line and no shaded range**. If you see a band, tell me immediately — that is an assessment of a woman's body drawn as a background colour, in a period that is high-risk for disordered eating.
+- [ ] Enter `650` kg. It should refuse as a typo. Enter `25` and `300` — both must be accepted, because the guard is for typos and must never become a comment on her weight.
+- [ ] Switch to lb for the newest entry: the axis and the change figure should follow, converting the older kg entries.
 
 ### T9 · The duplicate log button (found in R2.5c)
 Any of pregnancy, postpartum, or teen.

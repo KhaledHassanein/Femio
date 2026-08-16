@@ -501,6 +501,12 @@ structure. Two absences are held by tests and must stay: **no dosing guidance** 
 adherence score**. Stopping keeps the row. What is left of P2.4 is the CBT program, which is
 content rather than code (**P2.13b**).
 
+**P2.2.3 is nearly done** (2026-08-16): the contraction timer and weight chart shipped, retiring three
+`UNIMPLEMENTED` module ids. Neither reads what it measures — no 5-1-1 verdict on the timer, no target
+band on the chart — and the maternity-contact route sits *above* the timer in every state. The timer
+needs **migration 0008** applied (owner task 4); until then that one card errors and nothing else does.
+`vitals` was the fifth table unused since v1. Only checklists remain.
+
 Take the top open item under ▶ NOW — the rest of
 `P2.2.3` (contraction timer, weight chart, checklists), then `P2.7`'s other screeners, which
 now have a pattern to copy. Postpartum content drafting is unblocked (B2 approved, **P2.3c**);
