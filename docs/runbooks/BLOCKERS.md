@@ -6,12 +6,10 @@
 - Config, keys and one-off commands that are *not* blocking → `OWNER_MANUAL_TASKS.md`
 - Things needing your eyes rather than your input → `MANUAL_TEST_PLAN.md`
 
-**Three open questions: B7, B8 and B9.** B8 (ten teen titles) and B9 (what a pregnancy week
-entry should be) each hold a content item that is otherwise ready to draft, and both are one
-reply. **B7** — whether Femio carries baby-care content at all, which
-is a scope decision rather than a build one. B1–B4 are closed. B5 and B6 remain,
-and neither stops anything: B5 gates a dashboard nobody is waiting on, B6 gates `/admin/*`
-only. They are kept here because they are still genuinely yours to do.
+**Nothing is blocked as of 2026-08-16.** B1–B9 are all closed: B5 and B6 done by the owner, and
+B7, B8 and B9 answered in one pass. What each answer unblocks is written into its section below,
+and the two content sets that need a separate chat have their prompts in
+`docs/content/HANDOVER_NEWBORN_BASICS.md` and `docs/content/HANDOVER_WEEK_BY_WEEK.md`.
 
 ---
 
@@ -140,124 +138,90 @@ The real control is P0.12.
 
 ---
 
-## B5 · PostHog EU project — 20 minutes, optional
+## B5 · ✅ DONE 2026-08-16 — PostHog EU project created, **DPA signed**, register updated
 
-**Blocked:** P1.20's dashboard half. The event layer is built, fails closed, and is a
-**verified no-op** with no key — no vendor script loads at all. Nothing else waits on it.
+`docs/compliance/PROCESSOR_REGISTER.md` now records the DPA as signed 2026-08-16 with the EU
+region and EU transfer mechanism. That row records the **permission**, not the connection.
 
-1. Create a PostHog project in the **EU** region (not US — a non-EU host fails the build by
-   design).
-2. Sign their DPA.
-3. Add it to `docs/compliance/PROCESSOR_REGISTER.md` as signed.
-4. Set in Vercel (web project): `NEXT_PUBLIC_POSTHOG_KEY`, `NEXT_PUBLIC_POSTHOG_HOST=https://eu.i.posthog.com`.
+**Still off, and deliberately:** no key is set in Vercel, so no vendor script loads and `track()`
+remains a verified no-op. Setting these two turns it on, and it is a config task rather than a
+blocker (`OWNER_MANUAL_TASKS.md`):
 
----
+```
+NEXT_PUBLIC_POSTHOG_KEY=…
+NEXT_PUBLIC_POSTHOG_HOST=https://eu.i.posthog.com
+```
 
-## B6 · Enrol two-step sign-in — 3 minutes
-
-**Blocked:** `/admin/*` only — the translation portal and the insights dashboard. Staff routes
-check for a second factor and redirect you to Settings until you enrol. The tracker, the public
-site and the CMS are unaffected.
-
-Sign in → **Settings** → two-step sign-in → scan the QR with any authenticator app → enter the
-code. Recovery if you lose the authenticator is `scripts/auth/reset-mfa.mjs` (runbook B★★★).
-
+A non-EU host fails the build by design, so a mistyped host cannot ship.
 
 ---
 
-## B7 · Does Femio carry **baby-care** content? — a scope decision, not a build one
+## B6 · ✅ DONE 2026-08-16 — two-step sign-in enrolled
 
-**You asked for** "how to raise your child in the first days… for at least 6 months to a year"
-alongside the after-birth work. Everything else you asked for is built (see below); this one
-part I have deliberately not started, because it is the first thing in months that sits outside
-the product definition rather than inside it.
-
-**Why it is a question at all.** `CLAUDE.md` defines Femio as *"one account for a woman's whole
-health life"*. Every persona spec is mother-centred, and **E2 §E names baby tracking as
-explicitly out of scope** — "full baby-tracking (diapers, sleep, growth curves)" — in the very
-persona that would host it. Adding newborn-care content is not an oversight being corrected; it
-is a decision to widen what Femio is. That is yours, not mine.
-
-**It also changes the compliance surface.** Every claim Femio makes today is about an adult
-woman's own body, and the medical-review chain (doc 15 §8, your byline) is built on that.
-Content about **an infant** is advice about a second person who is not the account holder,
-whose red flags are different, sharper, and time-critical — a newborn's fever is not an adult's.
-It would need its own review posture, and probably its own reviewer statement.
-
-**Pick one:**
-
-- **(a) Mother-facing only — my recommendation.** Femio covers feeding *from her side*
-  (supply, pain, mastitis, pumping, weaning, "is this normal for me"), her recovery, her mood,
-  her cycle returning. Where a question is really about the baby, it says so plainly and points
-  to her health visitor or paediatrician. **This is what is now built**, and it is what the E2
-  spec describes.
-- **(b) Add a newborn-basics layer**, 6–12 months, as its own content pillar with its own
-  review chain. Say so and I will bring you a title list the way B2's fourteen came — nothing
-  drafted before you approve it.
-- **(c) Defer.** Nothing changes; the queue line stays open.
-
-**Nothing is blocked on this.** The after-birth experience is complete without it.
+`/admin/*` is reachable: the translation portal and the insights dashboard. Recovery if the
+authenticator is ever lost is `scripts/auth/reset-mfa.mjs` (runbook B★★★).
 
 
 ---
 
-## B8 · Ten teen titles, for approval — the same shape B2 took
+## B7 · ✅ ANSWERED 2026-08-16 — **(b), narrowly**: newborn basics as a seed set
 
-**Blocked:** P2.13. Track A has had a mode since R2.5c and **two modules with no article
-behind them** — `teen.body` and `teen.readiness` are listed in `UNIMPLEMENTED`, so the gap is
-counted rather than invisible. The authoring brief requires a confirmed title list before
-drafting, for the reason it gives: two articles competing for one query is the most common way
-a content set underperforms.
+**Owner direction:** *"I need newborn basics with breastfeeding — basic not extensive but to be
+supporting the mother (let this be a seed to be scalable later)."*
 
-**Read these as a clinician and as the parent of a thirteen-year-old.** A2 §D is explicit that
-PCOS must never be suggested within two to three years of menarche, and A2 §B names the
-question the set has to answer — *"it said Tuesday and it didn't; is the app broken or am I
-broken?"*
+So Femio does carry baby-care content, and the shape is the answer to the compliance question
+this raised: **eight articles, mother-facing, no baby tracking, no milestones, no growth
+charts** — enough to answer what the postpartum experience already provokes, small enough to
+review in one sitting, and structured so a second wave slots in without renaming anything.
 
-1. **What's changing in my body** — puberty in the order it usually happens, with ranges, no averages presented as targets.
-2. **What is a period?** — written for someone who has not had one yet.
-3. **Getting ready for your first period** — the plan: what to carry, where to keep it, who to tell.
-4. **Period myths, checked** — swimming, exercise, washing, "how much blood is that really".
-5. **Is my period normal?** — the first years are irregular by design; this is the article that answers A2 §B.
-6. **Period products, and how to choose** — pads, tampons, cups, period underwear, without a recommendation.
-7. **Period pain: what helps, and when it is too much** — no doses, and a clear line to a clinician.
-8. **A period at school** — leaks, PE, asking to leave a lesson, what to keep in a bag.
-9. **Tracking without stress** — why Femio shows a wide window at her age, and why that is honest rather than broken.
-10. **When to tell an adult, and when to see a doctor** — including the A1 §D thresholds (early signs before 8, no signs by 13), framed as "let's ask together".
+**The plan and the prompt for the other chat are in `docs/content/HANDOVER_NEWBORN_BASICS.md`.**
+Its §2 carries the three rules that make infant content publishable here: the boundary to a
+paediatrician stated in the first screen, a red-flag box on every article drawn from the
+*newborn* set rather than an adult one, and **no assessment of a baby, ever**.
 
-**Deliberately not on the list:** anything that names a condition as a possibility. That is A2
-§D, and it is why "could I have PCOS" is not one of the ten.
-
-**Reply with cuts, additions, or "approved".** Nothing is drafted before you do.
+**One thing will come back to you once, and it is not a blocker:** doc 15 §8's reviewer
+statement is written for content about an adult woman's own body. Eight pages about infants may
+want their own line in it. Tracked as **P2.13c**.
 
 ---
 
-## B9 · Pregnancy week-by-week — a scope question before a title list
+## B8 · ✅ APPROVED 2026-08-16 — the ten teen titles, unchanged
 
-**Blocked:** P2.2.2, and through it the `week-by-week` topic that D1 has foregrounded since
-R2.1. The queue line says "do not hand-write it", which is right, and it is also why this needs
-a decision from you rather than a list from me.
+**You replied "approved" with no cuts**, so the list stands as written in the queue. Drafting is
+authorised under `CODEX_AUTHORING_BRIEF.md`, `content-lint` first, imported as `draft`. Tracked
+as **P2.13**.
 
-**The question is what a week entry *is*.** Forty pages called "Week 14 of pregnancy" is the
-shape every competitor uses, and it is forty pages that mostly say the same four things. The
-alternative is three trimester pillars with the week detail inside them, which is one strong
-page per trimester instead of forty weak ones.
+Two constraints carry into the drafting and are worth repeating because they are the reason this
+set is not just "period articles for younger readers": **no condition is named as a possibility**
+(A2 §D — PCOS should generally not be raised within two to three years of menarche), and one of
+the ten exists specifically to answer A2 §B's *"it said Tuesday and it didn't — is the app broken
+or am I broken?"*
 
-- **(a) Three trimester pillars, week detail inside — my recommendation.** Each pillar carries
-  the weeks as sections: what is usually happening, what she may notice, what care is typically
-  offered around then. Strongest for a reader, and it does not manufacture forty near-duplicate
-  pages competing with each other for the same searches.
-- **(b) Forty week entries**, short, batched by trimester. Matches what people search for, and
-  it is the option that needs the most review time from you — forty pages of clinical content
-  rather than three.
-- **(c) Both**: three pillars now, week entries later if the traffic argues for them.
+**The one thing still yours, and it is not a blocker:** approving each draft in the CMS, the same
+gate the postpartum fourteen are waiting at.
 
-**Either way, two things hold.** Fetal-development detail stays *about her body and her care*
-rather than becoming a baby-size-in-fruit tracker, and every week that carries a red flag —
-bleeding, severe headache, vision changes, reduced movement, severe abdominal pain — gets the
-red-flag box, no exceptions (brief §8).
+---
 
-**Tell me (a), (b) or (c)** and the title list follows the way B2's fourteen did.
+## B9 · ✅ ANSWERED 2026-08-16 — **(b)**, forty week entries, and you do not review the list
+
+**Owner direction:** option (b), *"no need for me to review — create a prompt for a chat to get
+the data and consolidate it with references. I need data for the mother, her body, tips for the
+mother in this week, and also for the fetus with fun as pregnancy apps (size of the baby… fetus
+development news)."*
+
+**The prompt is in `docs/content/HANDOVER_WEEK_BY_WEEK.md`.** Weeks **4–40, 37 files** — weeks
+1–3 are deliberately absent because dating counts from the last period, so "week 1" is before
+conception and an entry for it teaches the wrong thing. Every entry answers the same four things
+in the same order: your body this week · what you may notice · your baby this week (with the size
+illustration) · one specific tip.
+
+**The fun is approved and it is not the risk.** The risk is one sentence type, and the prompt
+makes it load-bearing: *"around this week, babies are often about the length of a lemon"* is a
+population illustration; *"your baby is the size of a lemon"* is a measurement of her pregnancy,
+and a woman whose scan measured small has then been handed a verdict by a phone. Same for weight.
+
+**Publication is still your gate** even though the titles are not — that is ADR-032 and it does
+not move.
 
 ---
 

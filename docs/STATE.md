@@ -496,23 +496,26 @@ woman two different sentences in the same appointment.
 
 > ### ▶ Checkpoint — 2026-08-16, end of session
 >
-> **Tree clean, `main` pushed at `dda4634`, no `wip/` branch.** Everything below this box is
+> **Tree clean, `main` pushed, no `wip/` branch.** Everything below this box is
 > *why*; this box is *what next*.
 >
 > **Do next, in order:**
 > 1. `git branch --list "wip/*"` — expect nothing.
 > 2. Take the top open item in `docs/07_MASTER_TODO.md` → ▶ NOW. **R2 and R3's engine work is
 >    finished** — Track E is complete (R2.5f) and the postpartum content is written (P2.3c).
->    What is left in R3 is content that needs one reply each (**P2.13** → B8, **P2.2.2** → B9),
->    so unless those are answered, **R1 design is the item**: it is the oldest open workstream,
+>    What was left in R3 was content waiting on one reply each (B7, B8, B9), and
+>    all three are now answered, so the live items are **P2.13** (draft the ten approved teen
+>    titles here) and consolidating the two handover sets when they come back. Otherwise
+>    **R1 design is the item**: it is the oldest open workstream,
 >    `docs/23` named it the last of the three things wrong, and R1.5/R1.7/R1.8 (cycle,
 >    menopause and track-screen references) are the next concrete pieces.
 > 3. Run the full gate before every push. Never end a turn with a dirty tree.
 >
-> **Waiting on the owner — three questions, one reply each, blocking nothing else:**
-> - **B7** — does Femio carry baby-care content at all? Recommendation (a), mother-facing only.
-> - **B8** — ten teen titles, proposed. Approve, cut or add, and P2.13 is drafted.
-> - **B9** — three trimester pillars or forty week entries? A scope call before P2.2.2's list.
+> **Nothing is waiting on the owner. B1–B9 are all closed** (2026-08-16). Two content sets are
+> out to a separate chat — the prompts are `docs/content/HANDOVER_NEWBORN_BASICS.md` (B7 → eight
+> mother-facing newborn articles) and `docs/content/HANDOVER_WEEK_BY_WEEK.md` (B9 → weeks 4–40).
+> **P2.13's ten teen titles are approved (B8) and are drafting work here, not out to anyone** —
+> that is the next content item to pick up.
 > - **Owner task 5** — re-deploy the experience Edge Function; its source changed several
 >   times. The local fallback computes the identical document meanwhile.
 > - **`MANUAL_TEST_PLAN.md` T8, T10–T22** — fifteen items shipped 2026-08-16 and **nobody has
@@ -667,6 +670,31 @@ Two decisions are in **ADR-065** and should not be reversed casually. E3 is gate
 "your symptoms are severe" may not silently produce a mood-shaped app either. And **E5 is not a
 persona**: "fertility returns before your first period" is true of everyone in the track, so it
 ships as content on E1 rather than as a record that would have made E1 vestigial.
+
+## Every blocker is closed, and two content sets are out to a second agent (2026-08-16)
+
+B1–B9 are all answered. **B5** (PostHog DPA signed — the register records the permission, not the
+connection; no key is set, so `track()` is still a verified no-op) and **B6** (two-step sign-in, so
+`/admin/*` is reachable) were done by the owner. **B7, B8 and B9** were answered in one pass:
+
+- **B7 → (b), narrowly.** Femio does carry newborn content: **eight mother-facing articles**, no baby
+  tracking, no milestones, no growth charts. This is the first content Femio publishes about **a
+  person who is not the account holder**, so three rules are non-negotiable — the boundary to a
+  paediatrician in the first screen, a red-flag box drawn from the *newborn* set (a fever under three
+  months is an emergency in a way an adult's is not), and **no assessment of a baby, ever**.
+- **B8 → approved**, ten teen titles unchanged. P2.13 is drafting work, unblocked.
+- **B9 → (b)**, weeks 4–40, and the owner does not review the title list. Weeks 1–3 are absent because
+  dating counts from the last period.
+
+**The two large sets go to a separate chat**, with the prompts in `docs/content/HANDOVER_NEWBORN_BASICS.md`
+and `docs/content/HANDOVER_WEEK_BY_WEEK.md`. Each prompt is self-contained — schema, sourcing tiers,
+the forbidden-language list, the exact route surface for internal links, the four mechanical checks
+that fail most often — and each ends by telling that agent to write a handover prompt back here, so
+consolidation starts with the sources and the uncertainties rather than with 37 unexplained files.
+
+**The one line that governs the week-by-week set**, because it is the whole difference between a
+charming feature and a claim: *"babies are often about the length of a lemon"* is a population
+illustration; *"your baby is the size of a lemon"* is a measurement of her pregnancy.
 
 Take the top open item under ▶ NOW — the rest of
 `P2.2.3` (contraction timer, weight chart, checklists), then `P2.7`'s other screeners, which
