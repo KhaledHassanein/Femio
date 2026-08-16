@@ -496,25 +496,30 @@ woman two different sentences in the same appointment.
 
 > ### ▶ Checkpoint — 2026-08-16, end of session
 >
-> **Tree clean, `main` pushed at `f83de1e`, no `wip/` branch.** Everything below this box is
+> **Tree clean, `main` pushed at `dda4634`, no `wip/` branch.** Everything below this box is
 > *why*; this box is *what next*.
 >
 > **Do next, in order:**
 > 1. `git branch --list "wip/*"` — expect nothing.
-> 2. Take the top open item in `docs/07_MASTER_TODO.md` → ▶ NOW. The R3 queue is the live
->    one: **P2.3c** (postpartum content, 14 titles approved — B2), **P2.13** (teen content),
->    **P2.2.2** (week-by-week, still needs its own title approval), the remaining Track E
->    registry rows (E3/E4/E5/E7), then **R1 design**, which is now the oldest open workstream.
+> 2. Take the top open item in `docs/07_MASTER_TODO.md` → ▶ NOW. **R2 and R3's engine work is
+>    finished** — Track E is complete (R2.5f) and the postpartum content is written (P2.3c).
+>    What is left in R3 is content that needs one reply each (**P2.13** → B8, **P2.2.2** → B9),
+>    so unless those are answered, **R1 design is the item**: it is the oldest open workstream,
+>    `docs/23` named it the last of the three things wrong, and R1.5/R1.7/R1.8 (cycle,
+>    menopause and track-screen references) are the next concrete pieces.
 > 3. Run the full gate before every push. Never end a turn with a dirty tree.
 >
-> **Waiting on the owner, blocking nothing:**
-> - **B7** — does Femio carry baby-care content at all? A scope decision, not a build.
->   Recommendation (a), mother-facing only. `docs/runbooks/BLOCKERS.md`.
+> **Waiting on the owner — three questions, one reply each, blocking nothing else:**
+> - **B7** — does Femio carry baby-care content at all? Recommendation (a), mother-facing only.
+> - **B8** — ten teen titles, proposed. Approve, cut or add, and P2.13 is drafted.
+> - **B9** — three trimester pillars or forty week entries? A scope call before P2.2.2's list.
 > - **Owner task 5** — re-deploy the experience Edge Function; its source changed several
->   times this session. The local fallback computes the identical document meanwhile.
-> - **`MANUAL_TEST_PLAN.md` T8, T10–T21** — fourteen screens shipped 2026-08-16 and **nobody
->   has looked at any of them**. T21 (what is said after a pregnancy ends, including a
->   stillbirth) and T16 (the EPDS crisis route) are the two that need a clinician.
+>   times. The local fallback computes the identical document meanwhile.
+> - **`MANUAL_TEST_PLAN.md` T8, T10–T22** — fifteen items shipped 2026-08-16 and **nobody has
+>   looked at any of them**. **T22 is the one that unblocks work**: fourteen postpartum drafts
+>   waiting on the CMS review gate, and publishing them is what fills the postpartum reading
+>   card — no deploy needed, it fills itself in. T21 (what is said after a pregnancy ends,
+>   including a stillbirth) and T16 (the EPDS crisis route) are the two that need a clinician.
 >
 > **Working rule, verbatim:** *"I do not want to read anything unless you need my input."*
 > No end-of-turn summaries. Several queue items per pass.
