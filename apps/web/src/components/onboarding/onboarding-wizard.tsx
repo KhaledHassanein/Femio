@@ -14,6 +14,12 @@ import { chipVariants } from "@/components/ui/chip";
 import { CONDITIONS_BY_MODE, type ConditionCode } from "@/lib/persona/conditions";
 import type { PersonaMode } from "@/lib/persona/modes";
 import { AGE_BANDS, type AgeBand } from "@/lib/persona/age";
+import {
+  FOLLOWUP_BY_MODE,
+  type BirthRecencyBand,
+  type FollowUpBand,
+  type TtcDurationBand,
+} from "@/lib/persona/followup";
 import { isMinor } from "@/lib/persona/minor";
 import { codeAccepted, isBetaGateOn } from "@/lib/beta/gate";
 import { track } from "@/lib/analytics/track";
@@ -77,6 +83,9 @@ export function OnboardingWizard() {
   const router = useRouter();
   const [step, setStep] = useState(1);
   const [mode, setMode] = useState<Mode | null>(null);
+  // One answer, whichever question her stage asks. Which field it becomes is
+  // decided at submit from `FOLLOWUP_BY_MODE`, not by a branch here.
+  const [followUpBand, setFollowUpBand] = useState<FollowUpBand | null>(null);
   const [conditions, setConditions] = useState<Set<ConditionCode>>(new Set());
   // `null` is a real answer ("prefer not to say"), and it is treated as a minor
   // for consent purposes rather than as an adult (lib/persona/minor.ts).
@@ -109,6 +118,7 @@ export function OnboardingWizard() {
             codeAccepted(inviteCode);
 
   const offered = mode ? CONDITIONS_BY_MODE[mode] : [];
+  const followUp = mode ? FOLLOWUP_BY_MODE[mode] : undefined;
   const toggleCondition = (code: ConditionCode) =>
     setConditions((prev) => {
       const next = new Set(prev);
@@ -123,6 +133,8 @@ export function OnboardingWizard() {
     setError(null);
     const res = await completeOnboarding({
       mode,
+      ttcDuration: followUp?.id === "ttc" ? (followUpBand as TtcDurationBand) : null,
+      birthRecency: followUp?.id === "birth" ? (followUpBand as BirthRecencyBand) : null,
       conditions: [...conditions],
       ageBand,
       email: account === "email" ? email : undefined,
@@ -257,6 +269,35 @@ export function OnboardingWizard() {
           {offered.length === 0 ? (
             <p className="text-sm text-text-muted">{t("triage.noneOffered")}</p>
           ) : null}
+          {/* The stage-scoped follow-up (P1.27.8, docs/09 §4 Q3–Q6), driven by
+              `FOLLOWUP_BY_MODE` rather than by a branch — what a stage asks is
+              data, exactly as which conditions it offers is. A question exists
+              only if a resolver rule reads the answer; asking something Femio then
+              ignores is worse than not asking. Bands, not dates: nothing needs
+              more precision, and a delivery date is sharper health data than the
+              answer requires. */}
+          {followUp ? (
+            <div className="flex flex-col gap-2 border-t border-border pt-4">
+              <p className="text-sm font-medium text-text">
+                {t(`followUp.${followUp.id}.heading`)}
+              </p>
+              <p className="text-2xs text-text-muted">{t(`followUp.${followUp.id}.note`)}</p>
+              <div className="flex flex-wrap gap-2">
+                {followUp.bands.map((band) => (
+                  <button
+                    key={band.id}
+                    type="button"
+                    aria-pressed={followUpBand === band.id}
+                    onClick={() => setFollowUpBand(followUpBand === band.id ? null : band.id)}
+                    className={chipVariants({ selected: followUpBand === band.id })}
+                  >
+                    {t(`followUp.${followUp.id}.bands.${band.id}`)}
+                  </button>
+                ))}
+              </div>
+            </div>
+          ) : null}
+
           {/* Not a diagnosis, and it says so where she answers rather than in a
               policy page (product rule 1). */}
           <p className="text-2xs text-text-subtle">{t("triage.note")}</p>

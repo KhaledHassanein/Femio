@@ -41,6 +41,7 @@ const PORTABLE = [
   "lib/persona/age.ts",
   "lib/persona/modes.ts",
   "lib/persona/conditions.ts",
+  "lib/persona/followup.ts",
   // tier 2 — offline maths, bound by the golden fixtures
   "lib/experience/phase.ts",
   "lib/cycle/predict.ts",

@@ -27,6 +27,16 @@ export type PersonaSignals = {
   daysSinceLastPeriod: number | null;
   /** From `persona_state.flags_json.ttc_intent` — her stated intent, never guessed. */
   ttcIntent: boolean;
+  /**
+   * How long she has been trying, in months, as **she** reported it (P1.27.8).
+   *
+   * The only thing separating C1 from C2 and C3, and it is not derivable from
+   * anything Femio records: she was trying long before she installed an app.
+   * Null means she was not asked or preferred not to say, never zero — a woman
+   * who has been trying for two years and skipped the question must not be
+   * treated as having started today.
+   */
+  ttcMonths: number | null;
   /** From the `pregnancy` table. `ended` covers every outcome; the reason is not a signal. */
   pregnancyStatus: "active" | "ended" | null;
   /** Weeks since an ended pregnancy, for postpartum vs. long-past. */
@@ -53,6 +63,7 @@ export const EMPTY_SIGNALS: PersonaSignals = {
   averageCycleLength: null,
   daysSinceLastPeriod: null,
   ttcIntent: false,
+  ttcMonths: null,
   pregnancyStatus: null,
   weeksSincePregnancyEnd: null,
   conditions: [],
@@ -62,6 +73,12 @@ export const EMPTY_SIGNALS: PersonaSignals = {
 };
 
 /** How many of the signals we could know are actually populated, 0–1. */
+/**
+ * Deliberately only the **broadly applicable** signals. `ttcMonths` is not here:
+ * it is stage-specific, and counting it would lower confidence for every woman
+ * who is pregnant, postpartum or thirteen — none of whom will ever be asked it.
+ * Coverage measures how much we know about someone, not how many questions exist.
+ */
 export function signalCoverage(s: PersonaSignals): number {
   const known = [
     s.ageBand !== null,

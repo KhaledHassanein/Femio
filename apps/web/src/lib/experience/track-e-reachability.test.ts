@@ -35,6 +35,8 @@ const rows = (over: Partial<SignalRows> = {}): SignalRows => ({
   pregnancy: null,
   symptomTypes: [],
   ttcIntent: false,
+  ttcMonths: null,
+  statedWeeksSinceBirth: null,
   todayISO: TODAY,
   ...over,
 });

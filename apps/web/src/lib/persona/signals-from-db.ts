@@ -21,6 +21,10 @@ import { signalsFromRows, type SignalRows } from "./signals-from-rows";
 
 type Client = ReturnType<typeof createClient>;
 
+/** A numeric flag, or null. `0` is a real answer; `undefined` is an unasked one. */
+const numberFlag = (value: unknown): number | null =>
+  typeof value === "number" && Number.isFinite(value) ? value : null;
+
 /** Everything the engine needs from the database, in one round of queries. */
 export type PersonaRecordRows = {
   signals: SignalRows;
@@ -55,7 +59,7 @@ export async function readPersonaRows(supabase: Client): Promise<PersonaRecordRo
   const pregnancyRow = pregnancy.data as
     | { status: string; edd: string | null; created_at: string; updated_at: string }
     | null;
-  const flags = (state.data?.flags_json ?? {}) as Record<string, boolean>;
+  const flags = (state.data?.flags_json ?? {}) as Record<string, unknown>;
 
   return {
     signals: {
@@ -76,6 +80,11 @@ export async function readPersonaRows(supabase: Client): Promise<PersonaRecordRo
       // Edge Function read it from `flags_json`, so C1/C6/C8 could resolve on the
       // server and never in the local fallback — the same document, two answers.
       ttcIntent: flags.ttc_intent === true,
+      // Stage-scoped onboarding answers (P1.27.8). Numbers, not booleans, so
+      // they are read with a type check rather than a truthiness one — 0 is a
+      // real answer and `null` means she was not asked.
+      ttcMonths: numberFlag(flags.ttc_months),
+      statedWeeksSinceBirth: numberFlag(flags.weeks_since_birth),
       todayISO: todayISO(),
     },
     statedTrack: ((state.data?.track as string | null) ?? null) as Track | null,

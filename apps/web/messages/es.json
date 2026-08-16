@@ -298,6 +298,29 @@
       "menopause": { "name": "Perimenopausia o menopausia", "desc": "Ciclos y síntomas que cambian." },
       "notSure": "Aún no estoy segura — solo explorando"
     },
+    "followUp": {
+      "ttc": {
+        "heading": "¿Cuánto tiempo lleváis intentándolo?",
+        "note": "Femio no puede deducirlo de lo que anotas: empezó antes de que tuvieras la aplicación. Cambia lo que se te pone delante, nada más.",
+        "bands": {
+          "under6": "Menos de 6 meses",
+          "sixToTwelve": "De 6 a 12 meses",
+          "oneToTwoYears": "De 1 a 2 años",
+          "overTwoYears": "Más de 2 años"
+        }
+      },
+      "birth": {
+        "heading": "¿Cuándo diste a luz, más o menos?",
+        "note": "Más o menos basta. Si Femio no estuvo contigo durante el embarazo, esta es la única forma que tiene de saber dónde estás.",
+        "bands": {
+          "underSixWeeks": "En las últimas 6 semanas",
+          "sixWeeksToThreeMonths": "Hace de 6 semanas a 3 meses",
+          "threeToSixMonths": "Hace de 3 a 6 meses",
+          "sixToTwelveMonths": "Hace de 6 a 12 meses",
+          "overAYear": "Hace más de un año"
+        }
+      }
+    },
     "triage": {
       "heading": "¿Algo que tu profesional esté vigilando?",
       "intro": "Marca lo que corresponda. Esto es lo que decide qué te muestra Femio: lo primero que preguntaría un profesional. Sáltalo si no aplica nada.",

@@ -191,6 +191,21 @@ export async function switchMode(supabase: Client, next: PersonaMode): Promise<S
     trackFromMode(next) as Track,
   );
 
+  /**
+   * Merge the flags rather than replacing them (P1.27.8).
+   *
+   * `flags_json` used to be overwritten wholesale with `flagsFromMode(next)`, which
+   * was harmless while the only flags were mode-derived. It stopped being harmless
+   * the moment onboarding started storing her answers there: switching mode once
+   * would have silently erased how long she had been trying, or when she gave
+   * birth, and the resolver would have quietly dropped back to C1 or Z1 with no
+   * way for her to tell why.
+   */
+  const { data: existing } = await supabase
+    .from("persona_state")
+    .select("flags_json")
+    .maybeSingle();
+
   const { error } = await supabase.from("persona_state").upsert({
     profile_id: user.id,
     // Her explicit choice wins the track — she just told us. The resolver refines
@@ -200,7 +215,7 @@ export async function switchMode(supabase: Client, next: PersonaMode): Promise<S
     modifiers: resolved.modifiers,
     emotional_context: resolved.emotionalContext,
     confidence: resolved.confidence,
-    flags_json: flagsFromMode(next),
+    flags_json: { ...((existing?.flags_json ?? {}) as object), ...flagsFromMode(next) },
   });
   if (error) return { ok: false, error: error.message };
 

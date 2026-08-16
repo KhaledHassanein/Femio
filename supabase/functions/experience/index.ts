@@ -41,6 +41,10 @@ import { emotionalLayersFor } from "../../../apps/web/src/lib/experience/layers.
 
 const REGISTRY = registryOf(PERSONA_RECORDS);
 
+/** A numeric flag, or null. Mirrors `signals-from-db.ts`. */
+const numberFlag = (value: unknown): number | null =>
+  typeof value === "number" && Number.isFinite(value) ? value : null;
+
 const CORS = {
   "Access-Control-Allow-Origin": "*",
   "Access-Control-Allow-Headers": "authorization, x-client-info, apikey, content-type",
@@ -105,7 +109,7 @@ Deno.serve(async (req: Request) => {
   const pregnancyRow = pregnancy.data as
     | { status: string; edd: string | null; created_at: string; updated_at: string }
     | null;
-  const flags = (state.data?.flags_json ?? {}) as Record<string, boolean>;
+  const flags = (state.data?.flags_json ?? {}) as Record<string, unknown>;
   const statedTrack = ((state.data?.track as string | null) ?? null) as Track | null;
 
   const signals = signalsFromRows({
@@ -124,6 +128,10 @@ Deno.serve(async (req: Request) => {
     symptomTypes: ((symptoms.data ?? []) as { type: string }[]).map((r) => r.type),
     // Her stated intent, carried on persona_state — never inferred from behaviour.
     ttcIntent: flags.ttc_intent === true,
+    // Stage-scoped onboarding answers (P1.27.8). Read as numbers, because `0` is a
+    // real answer and an absent key is an unasked question.
+    ttcMonths: numberFlag(flags.ttc_months),
+    statedWeeksSinceBirth: numberFlag(flags.weeks_since_birth),
     todayISO: today,
   });
 

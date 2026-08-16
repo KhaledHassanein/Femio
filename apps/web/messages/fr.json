@@ -298,6 +298,29 @@
       "menopause": { "name": "Périménopause ou ménopause", "desc": "Cycles et symptômes qui changent." },
       "notSure": "Pas encore sûre — j'explore"
     },
+    "followUp": {
+      "ttc": {
+        "heading": "Depuis combien de temps essayez-vous ?",
+        "note": "Femio ne peut pas le déduire de ce que vous notez : cela a commencé avant l’application. Cela change ce qui vous est mis en avant, rien d’autre.",
+        "bands": {
+          "under6": "Moins de 6 mois",
+          "sixToTwelve": "6 à 12 mois",
+          "oneToTwoYears": "1 à 2 ans",
+          "overTwoYears": "Plus de 2 ans"
+        }
+      },
+      "birth": {
+        "heading": "Quand avez-vous accouché, à peu près ?",
+        "note": "À peu près suffit. Si Femio n’était pas là pendant la grossesse, c’est le seul moyen pour lui de savoir où vous en êtes.",
+        "bands": {
+          "underSixWeeks": "Ces 6 dernières semaines",
+          "sixWeeksToThreeMonths": "Il y a 6 semaines à 3 mois",
+          "threeToSixMonths": "Il y a 3 à 6 mois",
+          "sixToTwelveMonths": "Il y a 6 à 12 mois",
+          "overAYear": "Il y a plus d’un an"
+        }
+      }
+    },
     "triage": {
       "heading": "Quelque chose que votre professionnel de santé surveille ?",
       "intro": "Cochez ce qui s'applique. C'est ce qui détermine ce que Femio vous montre — la première chose qu'un clinicien demanderait. Passez si rien ne s'applique.",

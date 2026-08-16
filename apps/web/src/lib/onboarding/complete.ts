@@ -5,6 +5,12 @@ import type { AgeBand } from "@/lib/persona/age";
 import { purposeAllowedForAge } from "@/lib/persona/minor";
 import { buildConditionRows, type ConditionCode } from "@/lib/persona/conditions";
 import { resolveForStatedTrack, type Track } from "@/lib/persona/resolver";
+import {
+  monthsFromTtcBand,
+  weeksFromBirthBand,
+  type BirthRecencyBand,
+  type TtcDurationBand,
+} from "@/lib/persona/followup";
 import { flagsFromMode, trackFromMode, type PersonaMode } from "@/lib/persona/state";
 import { EMPTY_SIGNALS, type PersonaSignals } from "@/lib/persona/signals";
 
@@ -38,13 +44,22 @@ function signalsFromWizard(choice: OnboardingChoice): PersonaSignals {
     ...EMPTY_SIGNALS,
     ageBand: choice.ageBand ?? null,
     ttcIntent: choice.mode === "ttc",
-    pregnancyStatus: choice.mode === "pregnancy" ? ("active" as const) : null,
     conditions: choice.conditions ?? [],
     priorLoss: (choice.conditions ?? []).includes("prior_loss"),
     // She ticked "gestational diabetes" rather than "diabetes", which is the only
     // thing that separates D3 from D4 (docs/09 §8 rule 3).
     diabetesRecordedBeforePregnancy: (choice.conditions ?? []).includes("diabetes"),
     cycleRegularity: choice.mode === "menopause" ? "irregular" : "unknown",
+    // Her answer to the stage question, which nothing she logs could ever supply:
+    // both describe what happened before she installed Femio (P1.27.8).
+    ttcMonths: monthsFromTtcBand(choice.ttcDuration ?? null),
+    weeksSincePregnancyEnd: weeksFromBirthBand(choice.birthRecency ?? null),
+    pregnancyStatus:
+      choice.mode === "pregnancy"
+        ? ("active" as const)
+        : choice.birthRecency
+          ? ("ended" as const)
+          : null,
   };
 }
 
@@ -59,6 +74,13 @@ export type OnboardingChoice = {
   ageBand?: AgeBand | null;
   /** Triage answers — "conditions your clinician is watching". Always self-reported. */
   conditions?: ConditionCode[];
+  /**
+   * The stage-scoped follow-up (P1.27.8). One of these at most, decided by the
+   * stage she picked — see `lib/persona/followup.ts` for why only two stages have
+   * a question at all.
+   */
+  ttcDuration?: TtcDurationBand | null;
+  birthRecency?: BirthRecencyBand | null;
   email?: string;
   insights: boolean;
   research: boolean;
@@ -143,7 +165,13 @@ export async function completeOnboarding(choice: OnboardingChoice): Promise<Resu
     modifiers: resolved.modifiers,
     emotional_context: resolved.emotionalContext,
     confidence: resolved.confidence,
-    flags_json: flagsFromMode(choice.mode),
+    // Her answers live beside the mode flags, and `switchMode` merges rather than
+    // replaces so a later mode change cannot erase them (P1.27.8).
+    flags_json: {
+      ...flagsFromMode(choice.mode),
+      ...(choice.ttcDuration ? { ttc_months: monthsFromTtcBand(choice.ttcDuration) } : {}),
+      ...(choice.birthRecency ? { weeks_since_birth: weeksFromBirthBand(choice.birthRecency) } : {}),
+    },
   });
   if (stateError) return { ok: false, error: stateError.message };
 

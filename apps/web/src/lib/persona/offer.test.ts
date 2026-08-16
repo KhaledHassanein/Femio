@@ -103,3 +103,43 @@ describe("what actually reaches the offer", () => {
     expect(resolution.personaId).not.toBe("Z1");
   });
 });
+
+/**
+ * The stage-scoped follow-up (P1.27.8).
+ *
+ * C2 and C3 are the same persona with two different clocks, and the clock is the
+ * age band: twelve months under 35, six months at 35 and over, because that is
+ * where the published evaluation windows sit. Getting it wrong in the lenient
+ * direction costs a woman half a year of the one thing she cannot get back, which
+ * is why both the duration and the band are gates rather than weights.
+ */
+describe("TTC duration reaches the resolver", () => {
+  const trying = (months: number | null, ageBand: PersonaSignals["ageBand"]) =>
+    resolvePersona(
+      signals({ ttcIntent: true, ttcMonths: months, ageBand, cycleRegularity: "regular" }),
+    );
+
+  it("stays C1 before the threshold", () => {
+    expect(trying(6, "25_34").personaId).toBe("C1");
+  });
+
+  it("reaches C2 at twelve months under 35", () => {
+    expect(trying(12, "25_34").personaId).toBe("C2");
+  });
+
+  it("reaches C3 at six months from 35", () => {
+    // The shorter clock is the whole reason C3 is a separate persona.
+    expect(trying(6, "35_44").personaId).toBe("C3");
+    // And the same six months under 35 is still C1.
+    expect(trying(6, "25_34").personaId).toBe("C1");
+  });
+
+  /**
+   * She skipped the question. Treating that as "started today" would quietly hold
+   * a woman of two years at C1 — but so would treating it as any other number, so
+   * the honest answer is that the gate simply does not fire.
+   */
+  it("does not promote her when she did not answer", () => {
+    expect(trying(null, "35_44").personaId).toBe("C1");
+  });
+});

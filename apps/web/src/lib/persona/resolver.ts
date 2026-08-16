@@ -114,6 +114,31 @@ const notPregnant: Predicate = (s) => s.pregnancyStatus !== "active";
 const notAdolescent: Predicate = (s) => s.ageBand !== "under_13" && s.ageBand !== "13_15";
 
 /**
+ * How long she is expected to keep trying before an evaluation is usually offered
+ * — **twelve months, or six from 35** (P1.27.8).
+ *
+ * ACOG, NICE and ASRM all shorten the window at 35. One definition, three
+ * consumers: C1 is the woman *inside* it, C2 the woman past it under 35, C3 the
+ * woman past it over. Writing the number three times is how they would come to
+ * disagree, and the direction that disagreement would take — a 37-year-old held at
+ * C1 for six extra months — is the expensive one.
+ */
+export function evaluationWindowMonths(ageBand: PersonaSignals["ageBand"]): number {
+  return ageBand === "35_44" || ageBand === "45_54" ? 6 : 12;
+}
+
+/**
+ * Still within her own window. This is what makes C1 *the general TTC persona*
+ * rather than merely the first one in the list: without it C1 scored a perfect 1.0
+ * for a woman of two years and won the tie on rule order alone.
+ */
+const withinEvaluationWindow: Predicate = (s) =>
+  (s.ttcMonths ?? 0) < evaluationWindowMonths(s.ageBand);
+
+const pastEvaluationWindow: Predicate = (s) =>
+  s.ttcMonths !== null && s.ttcMonths >= evaluationWindowMonths(s.ageBand);
+
+/**
  * The rules. **This is not all ~73 personas — and the reason is the wizard, not
  * the data model.**
  *
@@ -217,8 +242,50 @@ export const PERSONA_RULES: readonly PersonaRule[] = [
     requires: [notPregnant, (s) => s.ttcIntent],
     signals: [
       { weight: 4, when: (s) => s.ttcIntent },
+      // The signal that keeps C1 general. Weighted above the others because
+      // being past her window is the single fact that makes her someone else.
+      { weight: 3, when: withinEvaluationWindow },
       { weight: 1, when: (s) => s.cycleRegularity === "regular" },
       { weight: 1, when: (s) => s.conditions.length === 0 },
+    ],
+  },
+  {
+    /**
+     * C2 — primary infertility, under 35 (P1.27.8).
+     *
+     * C2 §I: *"How long have you been trying?" -> >=12 months => candidate for C2*,
+     * with the under-35 band because ACOG/NICE/ASRM set her formal evaluation clock
+     * at twelve months rather than six. The threshold is the whole persona: C1 is
+     * the same woman before it, and the difference in what Femio should emphasise
+     * — a work-up roadmap rather than a fertile window — is large.
+     *
+     * Note what this is **not**: a statement that she has infertility. The persona
+     * changes emphasis and reading, never a label, and the copy never says one.
+     */
+    id: "C2",
+    track: "C",
+    requires: [notPregnant, (s) => s.ttcIntent, pastEvaluationWindow, inBand("18_24", "25_34")],
+    signals: [
+      { weight: 4, when: pastEvaluationWindow },
+      { weight: 2, when: (s) => s.ttcIntent },
+      { weight: 1, when: inBand("18_24", "25_34") },
+    ],
+  },
+  {
+    /**
+     * C3 — primary infertility, 35 and over. Same persona, **six months** rather
+     * than twelve, because the published guidance shortens the evaluation window at
+     * 35. Getting this wrong in the lenient direction costs a woman half a year of
+     * the one thing she cannot get back, which is why the age band is a gate rather
+     * than a weight.
+     */
+    id: "C3",
+    track: "C",
+    requires: [notPregnant, (s) => s.ttcIntent, pastEvaluationWindow, inBand("35_44", "45_54")],
+    signals: [
+      { weight: 4, when: pastEvaluationWindow },
+      { weight: 2, when: (s) => s.ttcIntent },
+      { weight: 2, when: inBand("35_44", "45_54") },
     ],
   },
   {

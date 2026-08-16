@@ -556,6 +556,27 @@ module and one component parameterised by instrument: **a second near-identical 
 item-9 rule would eventually be lost.** `selfHarmItemPositive` is always false for GAD-7, which is a
 fact of the instrument kept in the type rather than a branch in a screen.
 
+## The wizard asks one more thing (P1.27.8, 2026-08-16)
+
+One stage-scoped question on the triage step, and the rule is that **a question exists only if a
+resolver rule reads the answer**. TTC duration unlocks C2/C3; "roughly when did you give birth"
+supplies `weeksSincePregnancyEnd` *and* the `ended` status for the majority of Track E — the woman
+who installs Femio after the birth, whose gates otherwise fail exactly as they did before R2.4.
+
+**`evaluationWindowMonths` is one definition with three consumers** (twelve months, six from 35).
+C1 is the woman inside her window, C2 past it under 35, C3 past it over. Writing the number three
+times is how they would disagree, and the direction — a 37-year-old held at C1 for six extra
+months — is the expensive one.
+
+Two guards earned their keep. `persona-branch-lint` rejected `mode === "ttc"` in the wizard, so
+what a stage asks became **`FOLLOWUP_BY_MODE`, a lookup** like `CONDITIONS_BY_MODE`. And a golden
+fixture caught a hand-written "regular" for two period starts — one measured cycle, which
+`predictNextPeriod` correctly calls irregular. **Hand-writing fixtures is worth it precisely because
+they catch you.**
+
+Fixed on the way: `switchMode` replaced `flags_json` wholesale, so one mode change would have
+erased her answers.
+
 Take the top open item under ▶ NOW — the rest of
 `P2.2.3` (contraction timer, weight chart, checklists), then `P2.7`'s other screeners, which
 now have a pattern to copy. Postpartum content drafting is unblocked (B2 approved, **P2.3c**);

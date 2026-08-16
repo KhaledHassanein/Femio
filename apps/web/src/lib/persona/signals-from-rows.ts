@@ -62,6 +62,14 @@ export type SignalRows = {
   symptomTypes: readonly string[];
   /** Her stated intent, from `persona_state.flags_json.ttc_intent`. Never guessed. */
   ttcIntent: boolean;
+  /**
+   * Stage-scoped answers she gave at onboarding (P1.27.8), from
+   * `persona_state.flags_json`. Both describe things that happened **before** she
+   * installed Femio, so no amount of logging will ever produce them.
+   */
+  ttcMonths?: number | null;
+  /** Weeks since she gave birth, as she reported it. See below for precedence. */
+  statedWeeksSinceBirth?: number | null;
   todayISO: string;
 };
 
@@ -118,8 +126,25 @@ export function signalsFromRows(rows: SignalRows): PersonaSignals {
    * fail and E1 was unreachable from the live record. A woman weeks after giving
    * birth resolved to Z1, which is precisely the hole R2.5 set out to close.
    */
-  const weeksSincePregnancyEnd =
+  const weeksFromRow =
     ended && pregnancy ? Math.floor(diffDays(pregnancy.updatedAt.slice(0, 10), today) / DAYS_PER_WEEK) : null;
+
+  /**
+   * The row wins when there is one, and her answer fills the common gap.
+   *
+   * A pregnancy Femio watched end has a real date. A woman who installed Femio two
+   * weeks after giving birth has no row at all — the case `phaseForTrack` already
+   * had to special-case — and until P1.27.8 nothing could tell us how long ago it
+   * was. Her answer is not a fallback for a *missing* value so much as the only
+   * source for the majority of Track E.
+   *
+   * Preferring the row is deliberate: it is a date rather than a band, and where
+   * both exist the recorded one is the more precise.
+   */
+  // `?? null` throughout: these two are optional inputs, and a caller that omits
+  // them — a golden fixture written before they existed, or a Dart client — must
+  // get `null` rather than `undefined`, which would not match a recorded answer.
+  const weeksSincePregnancyEnd = weeksFromRow ?? rows.statedWeeksSinceBirth ?? null;
 
   return {
     ...EMPTY_SIGNALS,
@@ -128,7 +153,17 @@ export function signalsFromRows(rows: SignalRows): PersonaSignals {
     averageCycleLength: prediction?.averageLength ?? null,
     daysSinceLastPeriod: lastStart ? diffDays(lastStart, today) : null,
     ttcIntent: rows.ttcIntent,
-    pregnancyStatus: pregnancy ? (pregnancy.status === "active" ? "active" : "ended") : null,
+    ttcMonths: rows.ttcMonths ?? null,
+    pregnancyStatus: pregnancy
+      ? pregnancy.status === "active"
+        ? "active"
+        : "ended"
+      : // She told us she recently gave birth and Femio never saw the pregnancy.
+        // Without this, E1's `pregnancyStatus === "ended"` gate fails for the
+        // majority of Track E, exactly as its weeks gate did before R2.4.
+        (rows.statedWeeksSinceBirth ?? null) !== null
+        ? "ended"
+        : null,
     weeksSincePregnancyEnd,
     conditions: codes,
     symptomCounts,

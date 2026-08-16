@@ -5,7 +5,7 @@ credentials, keys and one-off configuration — things only the owner *can* do. 
 things only a human can *judge*: whether a screen looks right, whether Arabic reads naturally,
 whether a flow feels like a product.
 
-**Why it exists.** Every automated gate in this repo passes on every commit — 11 guards, 485
+**Why it exists.** Every automated gate in this repo passes on every commit — 11 guards, 491
 unit tests, 63 end-to-end. None of them can tell you the homepage looks generic, that a
 translation is grammatically correct but tonally wrong, or that a control is out of thumb reach.
 `docs/22` §10 states the rule this file operationalises: *a screenshot is the test, not a
@@ -15,7 +15,7 @@ nice-to-have.*
 tracks what actually shipped. The regression sweep below is for before a beta or a release, not
 for every session.
 
-**Unseen as of 2026-08-16: T8, T10–T18.** Eleven screens shipped that day and nobody has looked
+**Unseen as of 2026-08-16: T8, T10–T19.** Twelve screens shipped that day and nobody has looked
 at any of them. **T16 is the one I would want read first** — it is the only screen in Femio that
 acts on an answer. **T15 needs migration `0008` applied first** (owner task 4). **T11 and T12 want you as a clinician rather than as an owner** —
 charting must not read as contraception, and the MRS must not read as a grade. Those two are
@@ -210,6 +210,16 @@ Settings → **Mood questionnaires**. In any mode.
 - [ ] Fill GAD-7 entirely at "nearly every day" — total 21. Nothing should open, because GAD-7 has no self-harm item. If anything fires, the wrong instrument's rule is being applied.
 - [ ] No band, no "moderate", no colour on either total.
 - [ ] Both are reachable in **cycle, TTC, pregnancy and menopause** modes, not just one.
+
+### T19 · The stage question at signup (P1.27.8)
+`/welcome` on a fresh browser profile.
+
+- [ ] Pick **Trying to conceive**. A "how long have you been trying?" question appears on the same step as the conditions, in bands. Pick **1 to 2 years**, finish, and check the dashboard is not simply the fertile-window screen — she is past her evaluation window and Femio should read differently.
+- [ ] Repeat with age **35–44** and **6 to 12 months**: the shorter clock applies from 35, so that should behave like the two-year answer above, not like the under-35 six-month one. This is the one clinical judgement in the feature and it is yours to check.
+- [ ] Pick **I recently gave birth**. A "roughly when did you give birth?" question appears. Answer it, finish, and confirm the postpartum screen appears — **without** Femio ever having seen a pregnancy. That is the common case and it did not work before.
+- [ ] Skip the question in both flows. Nothing should be assumed: you stay in the general TTC or postpartum experience rather than being promoted.
+- [ ] Now switch mode in Settings and switch back. Your answer must survive — it used to be erased.
+- [ ] Read both questions and their notes in Arabic, French and Spanish.
 
 ### T9 · The duplicate log button (found in R2.5c)
 Any of pregnancy, postpartum, or teen.

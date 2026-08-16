@@ -298,6 +298,29 @@
       "menopause": { "name": "Perimenopause or menopause", "desc": "Changing cycles and symptoms." },
       "notSure": "Not sure yet — just exploring"
     },
+    "followUp": {
+      "ttc": {
+        "heading": "How long have you been trying?",
+        "note": "Femio cannot work this out from anything you log — it started before you had the app. It changes what gets put in front of you, nothing else.",
+        "bands": {
+          "under6": "Less than 6 months",
+          "sixToTwelve": "6 to 12 months",
+          "oneToTwoYears": "1 to 2 years",
+          "overTwoYears": "More than 2 years"
+        }
+      },
+      "birth": {
+        "heading": "Roughly when did you give birth?",
+        "note": "Roughly is enough. If Femio was not with you during the pregnancy, this is the only way it knows where you are.",
+        "bands": {
+          "underSixWeeks": "In the last 6 weeks",
+          "sixWeeksToThreeMonths": "6 weeks to 3 months ago",
+          "threeToSixMonths": "3 to 6 months ago",
+          "sixToTwelveMonths": "6 to 12 months ago",
+          "overAYear": "More than a year ago"
+        }
+      }
+    },
     "triage": {
       "heading": "Anything your clinician is watching?",
       "intro": "Pick any that apply. This is what shapes what Femio shows you — the same thing a clinician would ask first. Skip it if none apply.",
