@@ -507,6 +507,22 @@ band on the chart — and the maternity-contact route sits *above* the timer in 
 needs **migration 0008** applied (owner task 4); until then that one card errors and nothing else does.
 `vitals` was the fifth table unused since v1. Only checklists remain.
 
+## The first screener that acts on an answer (P2.7, P1.26.3, 2026-08-16)
+
+The EPDS ships with the crisis route wired. **Item 10 — “the thought of harming myself has occurred
+to me” — returns `selfHarmItemPositive`, a separate flag no total can mask**, and the client opens
+the crisis dialog *on the tap, not on submit*, whatever the score. Guidance is unanimous that a
+positive item 10 is followed up regardless of the total, and a woman can answer it above zero while
+scoring below every published cut-off. The decision is in tier 1 so a screen cannot forget it; the
+screen owns only the timing. Saving is optional and separate from answering — she may want the route
+without wanting a record.
+
+**It also found that Track E shipped without its hero.** `support.checkIn` sat in `UNIMPLEMENTED`
+while `postpartum-experience` passed its hero card in as `pregnancyHero`, an id Track E never emits.
+The node existed and was simply never asked for — the one failure `UNIMPLEMENTED` exists to make
+visible, and it could not, because the id *was* listed. Worth remembering when adding a module: a
+listed id proves the gap is known, not that the wiring is right.
+
 Take the top open item under ▶ NOW — the rest of
 `P2.2.3` (contraction timer, weight chart, checklists), then `P2.7`'s other screeners, which
 now have a pattern to copy. Postpartum content drafting is unblocked (B2 approved, **P2.3c**);

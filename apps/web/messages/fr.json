@@ -807,6 +807,115 @@
         "lb": "lb"
       }
     },
+    "epds": {
+      "heading": "Comment vous vous êtes sentie cette dernière semaine",
+      "intro": "Dix questions issues de l’échelle EPDS, le questionnaire que votre sage-femme ou votre médecin utilisera le plus probablement. Répondez à ce que vous voulez ; passez ce que vous préférez taire.",
+      "total": "Votre total est de {total}, sur {answered} réponses parmi 10",
+      "partial": "Vous n’avez pas répondu à toutes les questions : ce total n’est donc pas comparable à un total complet.",
+      "discuss": "C’est un questionnaire de repérage, pas une évaluation. Femio ne classe pas ce chiffre — apportez-le à votre sage-femme ou à votre médecin, qui le peut.",
+      "save": "Enregistrer dans mon dossier",
+      "saving": "Enregistrement…",
+      "saved": "Enregistré. Vous pourrez le montrer à votre prochain rendez-vous.",
+      "saveFailed": "L’enregistrement a échoué. Vérifiez votre connexion et réessayez.",
+      "saveNote": "L’enregistrement est facultatif. Rien ici n’a besoin d’être enregistré pour vous servir.",
+      "support": {
+        "heading": "Vous n’avez pas à porter cela seule",
+        "body": "Les pensées de se faire du mal sont plus fréquentes après une naissance qu’on ne le dit, et elles méritent d’être dites à quelqu’un aujourd’hui — votre sage-femme, votre médecin, ou un proche.",
+        "cta": "Trouver de l’aide maintenant"
+      },
+      "items": {
+        "ableToLaugh": {
+          "label": "J’ai pu rire et voir le bon côté des choses",
+          "options": {
+            "0": "Autant que d’habitude",
+            "1": "Un peu moins qu’avant",
+            "2": "Nettement moins qu’avant",
+            "3": "Pas du tout"
+          }
+        },
+        "lookedForward": {
+          "label": "Je me suis réjouie à l’idée de faire des choses",
+          "options": {
+            "0": "Autant que d’habitude",
+            "1": "Un peu moins qu’avant",
+            "2": "Nettement moins qu’avant",
+            "3": "Presque pas"
+          }
+        },
+        "blamedMyself": {
+          "label": "Je me suis reproché sans raison d’être responsable quand les choses allaient mal",
+          "options": {
+            "0": "Jamais",
+            "1": "Pas très souvent",
+            "2": "Oui, parfois",
+            "3": "Oui, la plupart du temps"
+          }
+        },
+        "anxiousOrWorried": {
+          "label": "Je me suis sentie inquiète ou soucieuse sans motif",
+          "options": {
+            "0": "Non, pas du tout",
+            "1": "Presque jamais",
+            "2": "Oui, parfois",
+            "3": "Oui, très souvent"
+          }
+        },
+        "scaredOrPanicky": {
+          "label": "Je me suis sentie effrayée ou paniquée sans vraiment de raison",
+          "options": {
+            "0": "Non, pas du tout",
+            "1": "Non, pas beaucoup",
+            "2": "Oui, parfois",
+            "3": "Oui, très souvent"
+          }
+        },
+        "thingsGettingOnTop": {
+          "label": "J’ai eu tendance à me sentir dépassée par les événements",
+          "options": {
+            "0": "Non, je me suis débrouillée comme d’habitude",
+            "1": "Non, la plupart du temps je me suis bien débrouillée",
+            "2": "Oui, parfois je ne me suis pas aussi bien débrouillée que d’habitude",
+            "3": "Oui, la plupart du temps je n’ai pas pu du tout faire face"
+          }
+        },
+        "difficultySleeping": {
+          "label": "Je me suis sentie si malheureuse que j’ai eu du mal à dormir",
+          "options": {
+            "0": "Non, pas du tout",
+            "1": "Pas très souvent",
+            "2": "Oui, parfois",
+            "3": "Oui, la plupart du temps"
+          }
+        },
+        "sadOrMiserable": {
+          "label": "Je me suis sentie triste ou peu heureuse",
+          "options": {
+            "0": "Non, pas du tout",
+            "1": "Pas très souvent",
+            "2": "Oui, très souvent",
+            "3": "Oui, la plupart du temps"
+          }
+        },
+        "unhappyAndCrying": {
+          "label": "Je me suis sentie si malheureuse que j’en ai pleuré",
+          "options": {
+            "0": "Non, jamais",
+            "1": "Seulement de temps en temps",
+            "2": "Oui, très souvent",
+            "3": "Oui, la plupart du temps"
+          }
+        },
+        "thoughtOfHarmingMyself": {
+          "label": "Il m’est arrivé de penser à me faire du mal",
+          "options": {
+            "0": "Jamais",
+            "1": "Presque jamais",
+            "2": "Parfois",
+            "3": "Oui, très souvent"
+          }
+        }
+      }
+    },
   "postpartum": {
     "checkIn": {
       "eyebrow": "Après la naissance",

@@ -65,6 +65,7 @@ export type ModuleId =
   | "strip.devices"
   // ---- emotional / support
   | "support.checkIn"
+  | "support.moodScreener"
   | "support.lossAware"
   | "support.reassurance"
   // ---- shared

@@ -3,6 +3,7 @@
 import { useTranslations } from "next-intl";
 import type { ExperienceConfig } from "@/lib/experience/types";
 import { ExperienceModules } from "./module-registry";
+import { MoodCheck } from "@/components/postpartum/mood-check";
 import { Alert, AlertDescription } from "@/components/ui/alert";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
@@ -97,7 +98,7 @@ export function PostpartumExperience({ config }: { config: ExperienceConfig | nu
            * crisis routing that comes with it (P1.26.3); a check-in that pretended
            * to be one would be the exact thing product rule 1 forbids.
            */
-          pregnancyHero: (
+          checkIn: (
             <HeroCard
               tone={gentle ? "brand" : "warm"}
               eyebrow={t(gentle ? "loss.eyebrow" : "checkIn.eyebrow")}
@@ -105,7 +106,9 @@ export function PostpartumExperience({ config }: { config: ExperienceConfig | nu
               footnote={t(gentle ? "loss.note" : "checkIn.note")}
             />
           ),
+          moodScreener: <MoodCheck />,
           warningSigns,
+          pregnancyHero: null,
           reading: (
             <Card>
               <CardContent className="flex flex-col gap-2 p-6">

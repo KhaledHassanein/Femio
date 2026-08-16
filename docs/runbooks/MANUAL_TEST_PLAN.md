@@ -5,7 +5,7 @@ credentials, keys and one-off configuration — things only the owner *can* do. 
 things only a human can *judge*: whether a screen looks right, whether Arabic reads naturally,
 whether a flow feels like a product.
 
-**Why it exists.** Every automated gate in this repo passes on every commit — 11 guards, 455
+**Why it exists.** Every automated gate in this repo passes on every commit — 11 guards, 468
 unit tests, 63 end-to-end. None of them can tell you the homepage looks generic, that a
 translation is grammatically correct but tonally wrong, or that a control is out of thumb reach.
 `docs/22` §10 states the rule this file operationalises: *a screenshot is the test, not a
@@ -15,8 +15,9 @@ nice-to-have.*
 tracks what actually shipped. The regression sweep below is for before a beta or a release, not
 for every session.
 
-**Unseen as of 2026-08-16: T8, T10–T15.** Eight screens shipped that day and nobody has looked
-at any of them. **T15 needs migration `0008` applied first** (owner task 4). **T11 and T12 want you as a clinician rather than as an owner** —
+**Unseen as of 2026-08-16: T8, T10–T16.** Nine screens shipped that day and nobody has looked at
+any of them. **T16 is the one I would want read first** — it is the only screen in Femio that
+acts on an answer. **T15 needs migration `0008` applied first** (owner task 4). **T11 and T12 want you as a clinician rather than as an owner** —
 charting must not read as contraception, and the MRS must not read as a grade. Those two are
 the ones I would not ship to an outside tester unread.
 
@@ -175,6 +176,21 @@ Pregnancy mode, third trimester (set a due date within ~4 weeks).
 - [ ] **Weight.** Add two readings. The chart is dots on an axis with **no target line and no shaded range**. If you see a band, tell me immediately — that is an assessment of a woman's body drawn as a background colour, in a period that is high-risk for disordered eating.
 - [ ] Enter `650` kg. It should refuse as a typo. Enter `25` and `300` — both must be accepted, because the guard is for typos and must never become a comment on her weight.
 - [ ] Switch to lb for the newest entry: the axis and the change figure should follow, converting the older kg entries.
+
+### T16 · The postpartum mood check — EPDS (P2.7, P1.26.3) — the most safety-critical screen in the app
+Settings → **After birth**, then the mood check under the hero.
+
+**Read this one as a clinician.** It is the only screen in Femio that acts on an answer.
+
+- [ ] The postpartum screen has a **hero card** again. If it does, R2.5 shipped without one for four days and this is the fix; if it does not, tell me immediately.
+- [ ] Read the ten items against the published EPDS in English, then in Arabic, French and Spanish. The instrument is not mine; the wording of these translations is.
+- [ ] Check the **two reverse-scored items** (laughing, looking forward). Picking “as much as I always could” must be the *least* symptomatic answer. If the chips look inverted, the score is wrong in the direction that under-reports.
+- [ ] **Item 10.** Answer it above “never”. The crisis dialog must open **immediately on the tap** — not on save, not after a score appears. A panel should also stay on the screen behind it, so closing the dialog does not remove the route.
+- [ ] Do that with every other answer at “never” (total 1). It must still open. A low total must never suppress it.
+- [ ] Then set item 10 back to “never”: the panel goes, and the dialog does not reopen when you touch other answers.
+- [ ] Confirm there is **no band and no label** anywhere — no “probable depression”, no colour grading the total.
+- [ ] Saving is a separate button and clearly optional. She must be able to take the help without leaving a record.
+- [ ] Arabic especially: this is the highest-risk translation in the app after the crisis copy itself.
 
 ### T9 · The duplicate log button (found in R2.5c)
 Any of pregnancy, postpartum, or teen.

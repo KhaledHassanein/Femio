@@ -60,6 +60,7 @@ export const APP_CLIENT_NAMESPACES = [
   "appointments",
   "fertility",
   "mrs",
+  "epds",
   "medications",
   "contractions",
   "weight",

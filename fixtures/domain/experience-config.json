@@ -649,6 +649,10 @@
               "emphasis": "hero"
             },
             {
+              "id": "support.moodScreener",
+              "emphasis": "primary"
+            },
+            {
               "id": "pregnancy.warningSigns",
               "emphasis": "primary",
               "params": {
@@ -709,7 +713,7 @@
       }
     },
     {
-      "_comment": "After a loss. E6 takes the hero because it IS the resolved persona here, and since R2.5c the hero leads: the check-in used to render above it, which put a general card in front of the answer. The check-in is demoted, never dropped (nothing is ever removed), and the tone folds to gentle and cannot fold back.",
+      "_comment": "After a loss. E6 takes the hero because it IS the resolved persona here, and since R2.5c the hero leads: the check-in used to render above it, which put a general card in front of the answer. The check-in is demoted, never dropped, and the EPDS is offered to her too (P2.7) — nothing is ever removed, and a woman after a loss may want it as much as anyone. The tone folds to gentle and cannot fold back.",
       "input": {
         "personaId": "E6",
         "track": "E",
@@ -734,6 +738,10 @@
             },
             {
               "id": "support.checkIn",
+              "emphasis": "primary"
+            },
+            {
+              "id": "support.moodScreener",
               "emphasis": "primary"
             },
             {

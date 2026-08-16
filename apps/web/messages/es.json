@@ -807,6 +807,115 @@
         "lb": "lb"
       }
     },
+    "epds": {
+      "heading": "Cómo te has sentido esta última semana",
+      "intro": "Diez preguntas de la escala EPDS, el cuestionario que con más probabilidad usará tu matrona o tu médico. Responde lo que quieras; salta lo que prefieras no decir.",
+      "total": "Tu total es {total}, de {answered} respuestas de 10",
+      "partial": "No has respondido a todas las preguntas, así que este total no es comparable con uno completo.",
+      "discuss": "Es un cuestionario de cribado, no una valoración. Femio no clasifica el número — llévalo a tu matrona o a tu médico, que sí pueden.",
+      "save": "Guardar en mi historial",
+      "saving": "Guardando…",
+      "saved": "Guardado. Puedes enseñarlo en tu próxima cita.",
+      "saveFailed": "No se guardó. Comprueba tu conexión e inténtalo de nuevo.",
+      "saveNote": "Guardar es opcional. Nada de esto necesita guardarse para que te sirva.",
+      "support": {
+        "heading": "No tienes por qué llevar eso sola",
+        "body": "Los pensamientos de hacerte daño son más frecuentes después del parto de lo que se suele contar, y merece la pena contárselo hoy a alguien — tu matrona, tu médico o alguien cercano.",
+        "cta": "Formas de conseguir ayuda ahora"
+      },
+      "items": {
+        "ableToLaugh": {
+          "label": "He podido reírme y ver el lado divertido de las cosas",
+          "options": {
+            "0": "Tanto como siempre",
+            "1": "No tanto ahora",
+            "2": "Mucho menos ahora",
+            "3": "Nada en absoluto"
+          }
+        },
+        "lookedForward": {
+          "label": "He mirado las cosas con ilusión",
+          "options": {
+            "0": "Tanto como siempre",
+            "1": "Algo menos que antes",
+            "2": "Bastante menos que antes",
+            "3": "Casi nada"
+          }
+        },
+        "blamedMyself": {
+          "label": "Me he culpado sin necesidad cuando las cosas han salido mal",
+          "options": {
+            "0": "Nunca",
+            "1": "No muy a menudo",
+            "2": "Sí, a veces",
+            "3": "Sí, la mayor parte del tiempo"
+          }
+        },
+        "anxiousOrWorried": {
+          "label": "He estado nerviosa o preocupada sin motivo",
+          "options": {
+            "0": "No, en absoluto",
+            "1": "Casi nunca",
+            "2": "Sí, a veces",
+            "3": "Sí, muy a menudo"
+          }
+        },
+        "scaredOrPanicky": {
+          "label": "He sentido miedo o pánico sin un motivo claro",
+          "options": {
+            "0": "No, en absoluto",
+            "1": "No, no mucho",
+            "2": "Sí, a veces",
+            "3": "Sí, bastante"
+          }
+        },
+        "thingsGettingOnTop": {
+          "label": "Las cosas me han superado",
+          "options": {
+            "0": "No, he llevado todo tan bien como siempre",
+            "1": "No, casi siempre lo he llevado bastante bien",
+            "2": "Sí, a veces no lo he llevado tan bien como de costumbre",
+            "3": "Sí, casi siempre no he podido con nada"
+          }
+        },
+        "difficultySleeping": {
+          "label": "Me he sentido tan mal que me ha costado dormir",
+          "options": {
+            "0": "No, en absoluto",
+            "1": "No muy a menudo",
+            "2": "Sí, a veces",
+            "3": "Sí, la mayor parte del tiempo"
+          }
+        },
+        "sadOrMiserable": {
+          "label": "Me he sentido triste o desdichada",
+          "options": {
+            "0": "No, en absoluto",
+            "1": "No muy a menudo",
+            "2": "Sí, bastante a menudo",
+            "3": "Sí, la mayor parte del tiempo"
+          }
+        },
+        "unhappyAndCrying": {
+          "label": "Me he sentido tan mal que he estado llorando",
+          "options": {
+            "0": "No, nunca",
+            "1": "Solo de vez en cuando",
+            "2": "Sí, bastante a menudo",
+            "3": "Sí, la mayor parte del tiempo"
+          }
+        },
+        "thoughtOfHarmingMyself": {
+          "label": "Se me ha ocurrido la idea de hacerme daño",
+          "options": {
+            "0": "Nunca",
+            "1": "Casi nunca",
+            "2": "A veces",
+            "3": "Sí, bastante a menudo"
+          }
+        }
+      }
+    },
   "postpartum": {
     "checkIn": {
       "eyebrow": "Después del parto",

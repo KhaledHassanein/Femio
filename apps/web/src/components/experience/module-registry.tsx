@@ -48,6 +48,18 @@ export type ModuleContext = {
   weight?: ReactNode;
   /** Rendered for `pregnancy.contractions`, surfaced from ~36 weeks (P2.2.3). */
   contractions?: ReactNode;
+  /**
+   * Rendered for `support.checkIn` — Track E's hero.
+   *
+   * It had **no renderer at all** until P2.7: `support.checkIn` sat in
+   * `UNIMPLEMENTED` while `postpartum-experience` passed its hero card in as
+   * `pregnancyHero`, an id Track E never emits. So the postpartum screen shipped
+   * in R2.5 with no hero and nobody noticed, because the node existed and was
+   * simply never asked for.
+   */
+  checkIn?: ReactNode;
+  /** Rendered for `support.moodScreener` — the EPDS (P2.7, P1.26.3). */
+  moodScreener?: ReactNode;
   /** Track A (R2.5c). A2's wide, explained window; A1 contributes none. */
   teenWindow?: ReactNode;
   teenReassurance?: ReactNode;
@@ -83,7 +95,6 @@ export const UNIMPLEMENTED: readonly ModuleId[] = [
   "strip.labs",
   "strip.medication",
   "strip.devices",
-  "support.checkIn",
   "support.lossAware",
   "support.reassurance",
 ];
@@ -108,6 +119,8 @@ const RENDERERS: Partial<Record<ModuleId, Renderer>> = {
   "pregnancy.appointments": (ctx) => ctx.appointments,
   "pregnancy.weight": (ctx) => ctx.weight,
   "pregnancy.contractions": (ctx) => ctx.contractions,
+  "support.checkIn": (ctx) => ctx.checkIn,
+  "support.moodScreener": (ctx) => ctx.moodScreener,
   "pregnancy.warningSigns": (ctx) => ctx.warningSigns,
   "pregnancy.movement": (ctx) => ctx.movement,
   quickLog: (ctx) => ctx.quickLog,

@@ -807,6 +807,115 @@
         "lb": "lb"
       }
     },
+    "epds": {
+      "heading": "How you have been feeling, this past week",
+      "intro": "Ten questions from the Edinburgh Postnatal Depression Scale, the questionnaire a midwife or health visitor is most likely to use. Answer what you want to; skip anything you would rather not.",
+      "total": "Your total is {total}, from {answered} of 10 answers",
+      "partial": "You have not answered every question, so this total is not comparable to a full one.",
+      "discuss": "This is a screening questionnaire, not an assessment. Femio does not grade the number — take it to your midwife, health visitor or doctor, who can.",
+      "save": "Save this to my record",
+      "saving": "Saving…",
+      "saved": "Saved. You can show this at your next appointment.",
+      "saveFailed": "That did not save. Check your connection and try again.",
+      "saveNote": "Saving is optional. Nothing here needs to be saved for you to use it.",
+      "support": {
+        "heading": "You do not have to sit with that on your own",
+        "body": "Thoughts of harming yourself are more common after birth than most people are told, and they are worth telling someone about today — your midwife, your health visitor, your doctor, or someone close to you.",
+        "cta": "Ways to get help now"
+      },
+      "items": {
+        "ableToLaugh": {
+          "label": "I have been able to laugh and see the funny side of things",
+          "options": {
+            "0": "As much as I always could",
+            "1": "Not quite so much now",
+            "2": "Definitely not so much now",
+            "3": "Not at all"
+          }
+        },
+        "lookedForward": {
+          "label": "I have looked forward with enjoyment to things",
+          "options": {
+            "0": "As much as I ever did",
+            "1": "Rather less than I used to",
+            "2": "Definitely less than I used to",
+            "3": "Hardly at all"
+          }
+        },
+        "blamedMyself": {
+          "label": "I have blamed myself unnecessarily when things went wrong",
+          "options": {
+            "0": "Never",
+            "1": "Not very often",
+            "2": "Yes, some of the time",
+            "3": "Yes, most of the time"
+          }
+        },
+        "anxiousOrWorried": {
+          "label": "I have been anxious or worried for no good reason",
+          "options": {
+            "0": "No, not at all",
+            "1": "Hardly ever",
+            "2": "Yes, sometimes",
+            "3": "Yes, very often"
+          }
+        },
+        "scaredOrPanicky": {
+          "label": "I have felt scared or panicky for no very good reason",
+          "options": {
+            "0": "No, not at all",
+            "1": "No, not much",
+            "2": "Yes, sometimes",
+            "3": "Yes, quite a lot"
+          }
+        },
+        "thingsGettingOnTop": {
+          "label": "Things have been getting on top of me",
+          "options": {
+            "0": "No, I have been coping as well as ever",
+            "1": "No, most of the time I have coped quite well",
+            "2": "Yes, sometimes I haven't been coping as well as usual",
+            "3": "Yes, most of the time I haven't been able to cope at all"
+          }
+        },
+        "difficultySleeping": {
+          "label": "I have been so unhappy that I have had difficulty sleeping",
+          "options": {
+            "0": "No, not at all",
+            "1": "Not very often",
+            "2": "Yes, sometimes",
+            "3": "Yes, most of the time"
+          }
+        },
+        "sadOrMiserable": {
+          "label": "I have felt sad or miserable",
+          "options": {
+            "0": "No, not at all",
+            "1": "Not very often",
+            "2": "Yes, quite often",
+            "3": "Yes, most of the time"
+          }
+        },
+        "unhappyAndCrying": {
+          "label": "I have been so unhappy that I have been crying",
+          "options": {
+            "0": "No, never",
+            "1": "Only occasionally",
+            "2": "Yes, quite often",
+            "3": "Yes, most of the time"
+          }
+        },
+        "thoughtOfHarmingMyself": {
+          "label": "The thought of harming myself has occurred to me",
+          "options": {
+            "0": "Never",
+            "1": "Hardly ever",
+            "2": "Sometimes",
+            "3": "Yes, quite often"
+          }
+        }
+      }
+    },
   "postpartum": {
     "checkIn": {
       "eyebrow": "After birth",

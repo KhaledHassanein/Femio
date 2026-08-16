@@ -35,6 +35,14 @@ const E1: PersonaRecord = {
   home: {
     postpartum: [
       { id: "support.checkIn", emphasis: "hero" },
+      /**
+       * The EPDS (P2.7). Below the check-in, never in place of it: the hero asks
+       * how she is and stops, and a ten-item questionnaire in that position would
+       * make opening the app feel like being assessed. Offered, never pushed —
+       * including to E6, because nothing is ever removed and a woman after a loss
+       * may want it as much as anyone.
+       */
+      { id: "support.moodScreener", emphasis: "primary" },
       { id: "pregnancy.warningSigns", emphasis: "primary", params: { set: "postpartum" } },
       { id: "quickLog", emphasis: "primary" },
       { id: "library", emphasis: "secondary" },
