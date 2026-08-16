@@ -1,5 +1,14 @@
 import { describe, expect, it } from "vitest";
-import { buildSymptomRows, loggedAtForDate, normalizeCustomSymptom } from "./symptoms";
+import { readFileSync } from "node:fs";
+import { join } from "node:path";
+import {
+  buildSymptomRows,
+  KNOWN_SYMPTOMS,
+  loggedAtForDate,
+  normalizeCustomSymptom,
+  SYMPTOM_GROUPS,
+} from "./symptoms";
+import { MENOPAUSE_SYMPTOMS } from "../menopause";
 
 describe("normalizeCustomSymptom", () => {
   it("trims, collapses whitespace, and caps length", () => {
@@ -60,5 +69,75 @@ describe("loggedAtForDate", () => {
       // on the transition date and the timestamp would roll into the next day.
       expect(back.getHours()).toBe(12);
     }
+  });
+});
+
+/**
+ * The vocabulary and its copy, checked together (P2.4).
+ *
+ * A built-in key with no label does not throw — `track-screen` falls back to the raw
+ * key, because that is correct for a *custom* symptom she typed herself. So a
+ * built-in added without copy would quietly show a woman the string `nightSweats`,
+ * in all four languages, and nothing else in the suite would notice.
+ */
+describe("the symptom vocabulary and the catalogs agree", () => {
+  const en = JSON.parse(
+    readFileSync(join(process.cwd(), "messages", "en.json"), "utf8"),
+  ) as { symptoms: { items: Record<string, string> } };
+
+  it("has an English label for every built-in symptom", () => {
+    const missing = [...KNOWN_SYMPTOMS].filter((key) => !(key in en.symptoms.items));
+    expect(missing, "built-in symptoms with no label").toEqual([]);
+  });
+
+  it("has no label left over from a symptom that was removed", () => {
+    const orphaned = Object.keys(en.symptoms.items).filter((key) => !KNOWN_SYMPTOMS.has(key));
+    expect(orphaned, "labels with no symptom").toEqual([]);
+  });
+
+  it("declares each key once, across all groups", () => {
+    const all = SYMPTOM_GROUPS.flatMap((g) => g.symptoms);
+    expect(all.length).toBe(new Set(all).size);
+  });
+});
+
+/**
+ * `MENOPAUSE_SYMPTOMS` decides **emphasis**, never availability — so every key in
+ * it has to exist in the shared vocabulary every other mode logs from. A menopause
+ * key that lived only in the menopause list would be restriction by data structure.
+ */
+describe("the menopause set is a view over the shared vocabulary", () => {
+  it("contains only keys every mode can log", () => {
+    const foreign = MENOPAUSE_SYMPTOMS.filter((key) => !KNOWN_SYMPTOMS.has(key));
+    expect(foreign, "menopause symptoms missing from the shared set").toEqual([]);
+  });
+
+  /**
+   * The circulating "34 symptoms of menopause" list includes osteoporosis and
+   * allergies. Neither is something a woman notices and logs; both are findings a
+   * clinician establishes, and offering one as a tickable symptom would be Femio
+   * inviting a self-diagnosis and then storing it (product rule 1).
+   */
+  it("offers no diagnosis as a tickable symptom", () => {
+    for (const diagnosis of [
+      "osteoporosis",
+      "allergies",
+      "depression",
+      "anxietyDisorder",
+      "thyroid",
+      "pcos",
+    ]) {
+      expect(KNOWN_SYMPTOMS.has(diagnosis)).toBe(false);
+      expect(MENOPAUSE_SYMPTOMS as readonly string[]).not.toContain(diagnosis);
+    }
+  });
+
+  /**
+   * Irregular periods are *derived* from her period history, which the app already
+   * holds and already reasons about. Asking her to tick it too would give the same
+   * question two answers, and `predictNextPeriod` is the one that gets to answer it.
+   */
+  it("does not ask her to tick something the record already knows", () => {
+    expect(MENOPAUSE_SYMPTOMS as readonly string[]).not.toContain("irregularPeriods");
   });
 });

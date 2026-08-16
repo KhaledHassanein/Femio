@@ -20,22 +20,67 @@ import { diffDays, isValidISODate } from "@/lib/calculators/dates";
 export const MENOPAUSE_MONTHS = 12;
 
 /**
- * Symptoms most associated with this transition, drawn from the existing taxonomy so
- * nothing new has to be logged or translated. Used to pick out the relevant part of a
- * symptom history rather than showing an undifferentiated "most logged" list.
+ * The symptoms most associated with this transition (P2.4).
+ *
+ * The queue called this "the 34-symptom set", after the list that circulates as *the
+ * 34 symptoms of menopause*. This is that list, **curated rather than copied**, and
+ * the edits are the point:
+ *
+ * - **Diagnoses are not symptoms.** The circulating list includes osteoporosis and
+ *   allergies. Neither is something a woman notices and logs; both are findings a
+ *   clinician establishes. Offering "osteoporosis" as a tickable symptom would be
+ *   Femio inviting a self-diagnosis and then storing it (product rule 1).
+ * - **"Irregular periods" is not logged here either** — it is *derived* from her
+ *   period history, which the app already holds and already reasons about. Asking
+ *   her to also tick it would produce two answers to the same question, and
+ *   `predictNextPeriod` is the one that gets to answer it.
+ * - Everything else is an experience she can notice, and every key is in the shared
+ *   taxonomy (`lib/cycle/symptoms`), reachable from every mode. This list decides
+ *   **emphasis**, never availability.
+ *
+ * Used to pick the relevant part of a symptom history rather than showing an
+ * undifferentiated "most logged" list.
  */
 export const MENOPAUSE_SYMPTOMS = [
+  // Vasomotor — the ones most people arrive naming.
   "hotFlashes",
+  "nightSweats",
+  // Sleep, mood and cognition.
   "insomnia",
+  "fatigue",
   "brainFog",
   "moodSwings",
   "anxious",
   "irritable",
-  "jointPain",
-  "headache",
-  "fatigue",
-  "libidoDown",
+  "sad",
+  "tearfulness",
+  "panicFeelings",
   "lowMotivation",
+  // Urogenital — the cluster women report being least often asked about.
+  "vaginalDryness",
+  "painDuringSex",
+  "libidoDown",
+  "bladderUrgency",
+  "bladderLeaks",
+  // Musculoskeletal and general.
+  "jointPain",
+  "musclePain",
+  "headache",
+  "dizziness",
+  "heartFlutters",
+  "weightChange",
+  "bloating",
+  "breastTenderness",
+  // Skin, hair, mouth and the odder ones that go unmentioned because they sound odd.
+  "hairThinning",
+  "dryItchySkin",
+  "brittleNails",
+  "gumSoreness",
+  "burningMouth",
+  "tingling",
+  "electricShocks",
+  "bodyOdourChange",
+  "tinnitus",
 ] as const;
 
 export type SinceLastPeriod = {

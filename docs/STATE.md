@@ -486,8 +486,16 @@ woman two different sentences in the same appointment.
 and pushed. If that line ever says otherwise, finish the named branch before starting anything
 new (the `wip/` rule, above).
 
-Take the top open item under ▶ NOW — the rest of **R3 depth**: `P2.4`'s remainder (the
-34-symptom set and the HRT log; the CBT program is content-gated as **P2.13b**), the rest of
+**The symptom vocabulary grew with P2.4** (26 keys → 45, four locales) and it grew *shared* —
+`MENOPAUSE_SYMPTOMS` is a view over it, so every key stays loggable from every mode. A
+menopause-only list would have been restriction by data structure. Curated, not copied: the
+circulating "34 symptoms" list carries osteoporosis and allergies, which are findings a
+clinician establishes rather than things a woman notices. A test now pins the vocabulary to the
+catalogs in both directions — a built-in with no label renders the raw key to a woman, and
+nothing else in the suite would have caught it.
+
+Take the top open item under ▶ NOW — the rest of **R3 depth**: `P2.4`'s remainder (the HRT log;
+the CBT program is content-gated as **P2.13b**), the rest of
 `P2.2.3` (contraction timer, weight chart, checklists), then `P2.7`'s other screeners, which
 now have a pattern to copy. Postpartum content drafting is unblocked (B2 approved, **P2.3c**);
 teen content is **P2.13**.

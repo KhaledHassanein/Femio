@@ -2,8 +2,35 @@
 // symptom_logs.type); labels come from i18n. The full 100+ set is DB/CMS-driven
 // (P1.19 translation portal); this curated list plus user-defined custom symptoms
 // (the schema accepts any `type`) covers logging today.
+/**
+ * The shared symptom vocabulary.
+ *
+ * **Grown, never partitioned** (P2.4, 2026-08-16). The menopause work needed
+ * nineteen experiences the list did not have — night sweats, vaginal dryness,
+ * bladder urgency, tingling, burning mouth — and the tempting shape was a separate
+ * "menopause symptoms" list beside this one. That would have meant a woman in cycle
+ * mode could not log a night sweat, which is restriction by data structure (product
+ * rule 2). Every key here is offered to every mode; what a persona changes is which
+ * ones are *emphasised* (`lib/menopause`), never which exist.
+ *
+ * P1.14.1 still owns the move to a DB/CMS-driven set of 100+. This is the same
+ * hard-coded shape, nineteen entries longer.
+ */
 export const SYMPTOM_GROUPS = [
-  { group: "mood", symptoms: ["happy", "calm", "anxious", "irritable", "sad", "moodSwings", "lowMotivation"] },
+  {
+    group: "mood",
+    symptoms: [
+      "happy",
+      "calm",
+      "anxious",
+      "irritable",
+      "sad",
+      "moodSwings",
+      "lowMotivation",
+      "tearfulness",
+      "panicFeelings",
+    ],
+  },
   {
     group: "body",
     symptoms: [
@@ -13,16 +40,43 @@ export const SYMPTOM_GROUPS = [
       "breastTenderness",
       "backache",
       "jointPain",
+      "musclePain",
       "nausea",
       "constipation",
       "diarrhea",
       "fatigue",
       "acne",
       "hotFlashes",
+      "nightSweats",
       "spotting",
+      "heartFlutters",
+      "weightChange",
     ],
   },
-  { group: "other", symptoms: ["cravings", "insomnia", "dizziness", "brainFog", "libidoUp", "libidoDown"] },
+  {
+    group: "other",
+    symptoms: [
+      "cravings",
+      "insomnia",
+      "dizziness",
+      "brainFog",
+      "libidoUp",
+      "libidoDown",
+      "vaginalDryness",
+      "painDuringSex",
+      "bladderUrgency",
+      "bladderLeaks",
+      "hairThinning",
+      "dryItchySkin",
+      "brittleNails",
+      "gumSoreness",
+      "burningMouth",
+      "tingling",
+      "electricShocks",
+      "bodyOdourChange",
+      "tinnitus",
+    ],
+  },
 ] as const;
 
 /** Stable set of built-in symptom keys (everything else is a user custom symptom). */
