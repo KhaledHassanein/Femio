@@ -18,6 +18,9 @@ per session.**
 > next unblocked item.
 >
 > Jump in large steps. Take the whole of an item, not a slice of it.
+>
+> **First, run `git branch --list "wip/*"`.** A branch there means the last session was cut off
+> mid-item; finish that before starting anything new (see the `wip/` rule below).
 
 ## The working loop — one pass per checkpoint
 
@@ -33,6 +36,33 @@ per session.**
 
 **Checkpoint discipline:** never end a turn with a dirty tree. Any interruption should be
 recoverable from `git log` plus this file alone.
+
+### When the stop lands mid-item — the `wip/` rule
+
+Between items the loop above is enough: the work is committed, gated and pushed, and a session
+that ends there costs nothing but tokens. **The exposed case is a stop in the middle of step 2
+or 3**, where the tree holds real work that has not passed the gate. Losing it is bad; pushing
+it to `main` is worse, because `main` is what Vercel deploys and its one guarantee is that
+everything on it went through the gate.
+
+So, when work must stop with the tree dirty:
+
+1. **Commit everything to `wip/<item-id>`** — e.g. `wip/P2.4-hrt-log`. Never to `main`.
+2. **Prefix the message `wip:`** and say three things in it: what is built, what is not, and
+   what the next action is. A WIP commit must be unmistakable at a glance in `git log`; the
+   failure to avoid is a half-finished change that reads like a finished one.
+3. **Leave the TODO line `[~]`.** It is not done. Do not write a `[x]` for work that has not
+   been gated.
+4. **Name the branch in this file**, in one line under *First action for the next session*.
+   That is what makes it recoverable from `git log` plus this file alone, which is the whole
+   property this discipline exists for.
+5. **Claim nothing about the gate.** If it did not run, say so in the commit message.
+
+Resuming: `git log main..wip/<item-id>`, finish on the branch, run the full gate, then merge to
+`main` and delete the branch. A `wip/` branch that outlives its item is a lie about the state
+of the work — clean it up when the item closes.
+
+**`main` never carries ungated work. `wip/` never carries a claim that it does.**
 
 ## Read this, in this order
 
@@ -451,6 +481,10 @@ the file that rule was written for: two clients disagreeing about an MRS total w
 woman two different sentences in the same appointment.
 
 ## First action for the next session
+
+**No `wip/` branch is open** — 2026-08-16 ended between items, with everything gated, committed
+and pushed. If that line ever says otherwise, finish the named branch before starting anything
+new (the `wip/` rule, above).
 
 Take the top open item under ▶ NOW — the rest of **R3 depth**: `P2.4`'s remainder (the
 34-symptom set and the HRT log; the CBT program is content-gated as **P2.13b**), the rest of

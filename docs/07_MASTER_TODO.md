@@ -175,6 +175,7 @@ and why) → `docs/24_REVAMP_PLAN.md` (the architecture) → `docs/25_DESIGN_DIR
 ## CONTINUOUS
 
 - [ ] **C.1** Every newly discovered task gets a line here, immediately. No exceptions.
+- [ ] **C.6** **The `wip/` rule** (owner direction 2026-08-16, full text in `docs/STATE.md`). Between items the loop already loses nothing — a session cut off there costs tokens and nothing else, which is how 2026-08-16 survived hitting its limit. The exposed case is a stop **mid-item**: commit the dirty tree to `wip/<item-id>` with a `wip:` message naming what is built, what is not and what is next; never to `main`, whose one guarantee is that everything on it passed the gate; leave the TODO line `[~]`; name the branch in `STATE.md`. Check `git branch --list "wip/*"` at the start of every session.
 - [ ] **C.2** Documentation per phase (agency standard, numbered `docs/`) — **now under the ADR-062 bar**: an ADR for a decision that cost something or could be reversed by accident; a commit message for everything else.
 - [ ] **C.3** Medical content review cycle (12-month re-review SLA).
 - [ ] **C.4** Privacy/compliance review on every new data field.

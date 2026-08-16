@@ -51,15 +51,16 @@ references/femio_v1_archive/  # V1 Flutter, learning-only
 - **Queue vs archive (ADR-062):** `07_MASTER_TODO.md` is the live queue and every item is **one line**; completed work lives verbatim in `07_MASTER_TODO_ARCHIVE.md`. When a TODO line wants to become a paragraph, that paragraph is an ADR or an archive entry.
 - **The ADR bar:** an ADR is for a decision that **cost something** or that a future session could **reverse by accident**. A commit message is for everything else.
 - **Session protocol:** open → read `docs/STATE.md`, then the TODO, mark item `[~]`; during → add new tasks immediately; close → mark done with a link, update CHANGELOG if user-visible, and **update `docs/STATE.md` in place** rather than writing a new handover file.
+- **Cut off mid-item?** Commit the dirty tree to `wip/<item-id>` with a `wip:` message, never to `main` — `main`'s one guarantee is that everything on it passed the gate. Full rule, including how to resume, in `docs/STATE.md`. Check `git branch --list "wip/*"` at the start of every session.
 - **Every "done" links to evidence.** Prose over bullets in docs.
 
 ## Skills (install the Femio plugin; they encode standards — use them)
 `femio-engineering-standards` (all code), `femio-design-system` (any UI — but note the newer token system in docs/12 supersedes its v1 tokens), `femio-medical-content` (any health content — cited, reviewed, grade 6–8, red-flag boxes), `femio-compliance-privacy` (any data/claims — the feature review gate), `femio-i18n-workflow` (any user-facing string), `femio-seo-aso` (public pages/store), `femio-docs-agency` (docs/governance). Plus core skills: docx/pptx/xlsx/pdf.
 
-## Current status (2026-08-09) — full picture in `docs/STATE.md`
-Phase 0 + 0.5 ✅ (73 persona specs, adaptation model, brand & tokens, 454 `[NEEDS SOURCE]` flags cleared). Phase 1 MVP essentially complete and **live**: `femioapp.com` + `femio-cms.vercel.app` on Vercel over Supabase EU; 31 published articles; onboarding wizard with condition triage; cycle/TTC/pregnancy/menopause dashboards; the full pregnancy lifecycle; export/delete; offline queue; consent manager; staff MFA; k-anonymous insights.
+## Current status (2026-08-16) — full picture in `docs/STATE.md`
+Phase 0 + 0.5 ✅ (73 persona specs, adaptation model, brand & tokens, 454 `[NEEDS SOURCE]` flags cleared). Phase 1 MVP essentially complete and **live**: `femioapp.com` + `femio-cms.vercel.app` on Vercel over Supabase EU; 31 published articles, all now carrying a named clinician byline; onboarding wizard with condition triage; cycle/TTC/pregnancy/postpartum/teen/menopause dashboards; the full pregnancy lifecycle; export/delete; offline queue; consent manager; staff MFA; k-anonymous insights.
 
-**The three things that are actually wrong** (`docs/23`): design and UX are the named gap and have no source of truth; the persona engine is **write-only** — 73 personas resolve to 4 hardcoded modes, and Tracks A and E have no mode at all; product depth is one stage deep, with `appointments`, `fertility_logs`, `screener_results` and `vitals` existing in the schema and used by nothing.
+**`docs/23` named three things wrong. Two are closed.** The persona engine is no longer write-only — the screens render a **served** `ExperienceConfig` (R2.4) and every track has a mode (Track E in R2.5, Track A in R2.5c). Depth has started: `appointments`, `fertility_logs` and `screener_results` all now hold real data (P2.2.3, P2.1, P2.4). **Design and UX (R1) is the one still open**, and `vitals` is still unused.
 
 **Deferred by owner direction, blocking nothing:** P0.12 legal (trigger is the first real user, not incorporation — so gate signup first, P0.12.5), billing, store compliance, community.
 
@@ -71,4 +72,4 @@ Phase 0 + 0.5 ✅ (73 persona specs, adaptation model, brand & tokens, 454 `[NEE
 5. Never invent medical facts/stats — cite Tier-1/2 or flag `[NEEDS SOURCE]`.
 6. **Judge every UI change on a 390×844 phone viewport**, in light and dark, and in Arabic RTL. A screenshot is the test, not a nice-to-have.
 
-Next up: **R1 design direction** (`docs/25`) → **R2 the experience engine** (`docs/24`) → **R3 life-stage depth**.
+Next up: **R3 life-stage depth**, continuing — and **R1 design direction** (`docs/25`), which is now the oldest open workstream. R2 (`docs/24`, the experience engine) is done.
