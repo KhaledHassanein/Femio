@@ -244,14 +244,17 @@ describe("Track F reachability", () => {
   });
 
   /**
-   * The gap worth naming out loud: F2 foregrounds the page behind its own red flag
-   * and that page does not exist. The module is live, the alert is live, and a
-   * woman who taps through has nowhere to land — so this asserts the gap is
-   * *tracked* rather than pretending it is closed.
+   * Closed by R2.9b. This test used to assert the gap was *tracked* — F2
+   * foregrounded the page behind its own red flag and that page did not exist, so
+   * a woman who tapped through had nowhere to land. The article is now written, so
+   * the assertion inverts: the topic must resolve to a slug, and must no longer be
+   * counted as missing. Kept rather than deleted because the pairing is the thing
+   * worth guarding — the only red flag in the track, and the page behind it.
    */
-  it("names the missing postmenopausal-bleeding article rather than hiding it", () => {
+  it("has an article behind the only red flag in the track", () => {
     const config = documentFor(rows({ periodStarts: STOPPED, symptomTypes: HOT_FLUSHES }));
     expect(config.content.foreground).toContain("postmenopausal-bleeding");
-    expect(NO_ARTICLE_YET).toContain("postmenopausal-bleeding");
+    expect(ARTICLE_FOR_TOPIC["postmenopausal-bleeding"]).toBe("postmenopausal-bleeding");
+    expect(NO_ARTICLE_YET).not.toContain("postmenopausal-bleeding");
   });
 });

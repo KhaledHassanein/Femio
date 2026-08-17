@@ -261,6 +261,22 @@ is rejected** and should not be proposed again; the reasoning is in `docs/25` §
 
 Everything in R1.2 was decided without R1.1 and may be revised by it — expected, not a failure.
 
+## The page behind Track F's only red flag exists (R2.9b, 2026-08-17)
+
+`menopause.pmb` was live, the alert was live, and there was nowhere for a woman who tapped through
+to land. `postmenopausal-bleeding` is written, imported as a draft and mapped, so it appears on the
+dashboard the moment the owner approves it — no deploy.
+
+**The test that pinned the gap was inverted, not deleted.** It used to assert the topic was counted
+as missing; it now asserts the topic resolves to a slug and is no longer counted. What is worth
+guarding is the *pairing* — the only red flag in the track, and the page behind it — and that
+survives either way.
+
+**Checking a source's HTTP status is not checking the source.** `content-lint:urls` passed NG23
+happily; reading the page title showed NICE renamed it *identification* and management in 2024,
+while the front matter said *diagnosis*. Read the `<title>`, not the status code — the same trap
+the last session hit with an ACOG page that returned 200 over "Page Not Found".
+
 ## The six references are drawn — R1.5, R1.7 and R1.8 landed (2026-08-16)
 
 `assets/mockups/` now holds five of the six screens `docs/25` §3 asks for: homepage (R1.3),

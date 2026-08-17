@@ -78,6 +78,13 @@ export const ARTICLE_FOR_TOPIC: Readonly<Record<string, string>> = {
   "menopause-explained": "menopause-explained",
   "menopause-care-options": "menopause-care-options",
   "tracking-menopause-symptoms": "track-perimenopause-symptoms",
+  /**
+   * R2.9b. F2 §F module 10 — the page behind the only red flag in Track F, and the
+   * one topic in this file that was a genuine hole rather than a queue item: the
+   * `menopause.pmb` module was live and the alert was live, and a woman who tapped
+   * through had nowhere to land.
+   */
+  "postmenopausal-bleeding": "postmenopausal-bleeding",
 
   // Track D.
   "appointments-and-tests": "first-pregnancy-appointment",
@@ -138,17 +145,14 @@ export const NO_ARTICLE_YET: readonly string[] = [
   "irregular-cycles-explained",
   "when-a-gap-is-worth-checking",
   /**
-   * Track F — R2.9. Five topics F1 and F2 name that the library does not answer,
-   * and **`postmenopausal-bleeding` is the one to write first.** F2 §F module 10
-   * is the page behind the only red flag in the track, said calmly and without
-   * minimising: any bleeding after twelve months is checked promptly. The module
-   * exists, the alert exists, and there is nowhere for a woman who taps through to
-   * land. The other four are `why-cycles-are-unpredictable` (F1 §F 2),
-   * `mood-and-brain-fog` (F1 §F 4 — the "am I going crazy?" page),
-   * `getting-taken-seriously` (F1 §F 10), and the bone and heart pair (F2 §F 4–5),
-   * which must stay awareness rather than risk-scoring.
+   * Track F — R2.9. Four topics F1 and F2 name that the library does not answer.
+   * **`postmenopausal-bleeding` has left this list (R2.9b)** — it was the one that
+   * mattered, because the module and the alert were both live with nowhere to land.
+   * The rest are `why-cycles-are-unpredictable` (F1 §F 2), `mood-and-brain-fog`
+   * (F1 §F 4 — the "am I going crazy?" page), `getting-taken-seriously` (F1 §F 10),
+   * and the bone and heart pair (F2 §F 4–5), which must stay awareness rather than
+   * risk-scoring.
    */
-  "postmenopausal-bleeding",
   "why-cycles-are-unpredictable",
   "mood-and-brain-fog",
   "getting-taken-seriously",
