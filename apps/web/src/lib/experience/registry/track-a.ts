@@ -136,12 +136,22 @@ const A2: PersonaRecord = {
   tools: ["period", "symptom", "mood"],
   content: {
     skin: "teen-cycle",
+    /**
+     * A2 §F's reading order, plus the two the set added (P2.13). **Pain and
+     * telling an adult were the gap**: they are the two things a teenager is most
+     * likely to be searching for on her own at 11pm, and until the articles
+     * existed the registry had no topic that could reach them. `period-pain` sits
+     * high deliberately — a girl missing school for cramps needs the escalation
+     * page before she needs the app explained.
+     */
     foreground: [
       "youre-normal",
+      "period-pain",
       "menstrual-cycle-basics",
       "using-period-products",
       "school-day",
       "tracking-without-stress",
+      "telling-an-adult",
     ],
   },
   alerts: [

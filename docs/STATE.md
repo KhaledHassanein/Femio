@@ -332,6 +332,36 @@ encode still hold. The one to remember: an account with nothing logged now score
 rather than 0.21, still under `OFFER_THRESHOLD` (0.4) — worth watching as more weight lands on
 facts that are true of someone who has told us nothing.
 
+## The teen ten are written and imported (P2.13, 2026-08-17)
+
+Written **here** rather than in the handover chat, on the owner's instruction — the prompt in
+`docs/content/HANDOVER_TEEN_CONTENT.md` had gone out on 2026-08-16 and nothing had come back.
+Ten drafts, 55 files now pass the content guard, and `pnpm content-lint:urls` resolves every
+source. All Tier 1: ACOG (*Your First Period*, and the menstrual-cycle-as-a-vital-sign committee
+opinion), NHS (periods, starting periods, period pain, period problems, irregular periods,
+missed periods, early or delayed puberty, toxic shock), NICHD (puberty, menstruation), the FDA
+tampon-safety page, the AAP's puberty page, and the US Office on Women's Health.
+
+**§0.1 held, and it is the rule the guard cannot check.** No condition is named as a possibility
+anywhere. Two names do appear and both are deliberate: *dysmenorrhea* only inside an ACOG page
+title in a citation, and *toxic shock syndrome* in the tampon sections, because the FDA and NHS
+both name it as the reason to follow the packet instructions — product safety, not a diagnosis
+put in front of a thirteen-year-old. Nothing predicts a first period, articles 1–4 read for
+someone who has not started, and there are no doses, no drug names and no phone numbers.
+
+**The importer caught what the guard could not.** It requires the body H1 to equal `title`, so
+ten title-cased front-matter titles were refused; they are now the H1 verbatim, which is what
+"one H1, in her words" actually means. Worth remembering: `content-lint` passing is not the same
+as the importer accepting.
+
+**`content.foreground` is fully answered for Track A.** All eight topics resolve to real
+articles, `NO_ARTICLE_YET` lost its entire Track A block, and **A2 gained `period-pain` and
+`telling-an-adult`** — the two a teenager is most likely to be searching for alone, and the two
+the registry previously had no topic that could reach. The A2 golden fixture moved with it.
+
+**Nothing is public.** `MANUAL_TEST_PLAN.md` **T24** is the checklist, and it is the one that
+most wants a clinician.
+
 ## Track F exists, and logging a bleed used to throw her out of it (R2.9, 2026-08-17)
 
 `registry/track-f.ts` holds F1 and F2. Data only, like R2.8. Encoding it found three defects,

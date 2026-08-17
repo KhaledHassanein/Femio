@@ -15,9 +15,11 @@ nice-to-have.*
 tracks what actually shipped. The regression sweep below is for before a beta or a release, not
 for every session.
 
-**Unseen as of 2026-08-16: T8, T10–T23.** Sixteen items shipped that day and nobody has
-looked at any of them. **T23 is the cheapest** — three HTML files, no server, and approving them
-is the one thing standing between the design references and building against them (`docs/25` §1). **T22 is the one that blocks other work** — fourteen postpartum drafts
+**Unseen as of 2026-08-17: T8, T10–T24.** Seventeen items are waiting and nobody has looked at
+any of them. **T23 is the cheapest** — three HTML files, no server, and approving them is the one
+thing standing between the design references and building against them (`docs/25` §1). **T24 is
+the one I most want a clinician on**: ten guides written for nine- to seventeen-year-olds, where
+the expensive failure is a condition named as a possibility and the guard cannot see it. **T22 is the one that blocks other work** — fourteen postpartum drafts
 waiting on your review gate, and publishing them is what fills the postpartum reading card.
 **T21 is the one I most want read** — the three sentences a woman sees
 after a pregnancy ends, including a stillbirth. **T16 is the one I would want read first** — it is the only screen in Femio that
@@ -258,6 +260,33 @@ claim verbs, links and metadata; none of that is medicine. Nothing goes live unt
 - [ ] Check nothing reads as triage — no article should tell a woman a symptom is or is not serious.
 - [ ] Approve and publish the ones you are happy with. **The dashboard reading card fills itself in** as you publish: no deploy, no code change. Publish one and reload a postpartum dashboard to see it appear.
 - [ ] Anything you want changed, say so and it is an edit, not a re-draft.
+
+### T24 · The ten teen guides (P2.13) — you are the review gate, and this set is the one to read hardest
+`femio-cms.vercel.app/admin` → Articles. Ten new drafts, none public.
+
+**Why this set more than the postpartum fourteen.** The failure that matters here is invisible
+to `content-lint`: a condition named as a possibility in front of a thirteen-year-old. A2 §D is
+explicit that irregular cycles are developmentally expected for two to three years after a first
+period and that a diagnosis should generally not be made in that window, so the word PCOS on one
+of these pages would plant a label a clinician would not.
+
+- [ ] Read each draft as a clinician. **The three I would read first: `is-my-period-normal`**
+      (the reassurance article, and the one carrying the "is the app broken or am I broken"
+      answer), **`period-pain-in-teens`** (where the line between ordinary cramps and an
+      appointment is drawn), and **`when-to-tell-an-adult`** (the safeguarding paragraph and the
+      15 / three-years / no-signs-by-13 thresholds).
+- [ ] **Two named things, and both are deliberate — tell me if either is wrong.** *Toxic shock
+      syndrome* is named in the tampon sections, because the FDA and NHS both name it as the
+      reason to follow the packet instructions. *Dysmenorrhea* appears only inside an ACOG page
+      title in a citation, never in prose.
+- [ ] Check the red-flag boxes on articles 5, 7 and 10 name what you would name, in your order.
+- [ ] Check the tampon paragraph in `choosing-period-products`. It says guidance differs between
+      countries and refuses to pick one, which is honest but may not be how you want it phrased.
+- [ ] Check nothing reads as withheld. The rule for this set is that teen mode gates ads, data
+      and social exposure — never knowledge — and every article answers before it routes.
+- [ ] Approve and publish the ones you are happy with. **The teen dashboard's reading card fills
+      itself in** as you publish, with no deploy: A2 foregrounds seven topics and shows the first
+      four that are live.
 
 ### T23 · The three new design references (R1.5, R1.7, R1.8) — approve or send back
 Open each file directly in a browser; they need no server. Zoom to 100% and look at the phones

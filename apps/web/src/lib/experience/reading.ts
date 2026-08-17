@@ -39,8 +39,28 @@
 
 /** Foregrounded topics that have an authored article. */
 export const ARTICLE_FOR_TOPIC: Readonly<Record<string, string>> = {
-  // Track A (P2.13 covers the rest).
+  /**
+   * Track A — the teen ten (P2.13, drafted 2026-08-17).
+   *
+   * The topics were named in `registry/track-a.ts` at R2.5c and had no articles
+   * behind them for two weeks; these are the pages A1 §D and A2 §F asked for.
+   * `menstrual-cycle-basics` stays pointed at the adult page on purpose — A2 §B
+   * says she reads being talked down to as being locked out, and the teen set says
+   * plainly where an article is written for adults.
+   */
   "menstrual-cycle-basics": "menstrual-cycle-basics",
+  "whats-changing": "whats-changing-in-my-body",
+  "what-is-a-period": "what-is-a-period",
+  "first-period-plan": "getting-ready-for-your-first-period",
+  "myth-busting": "period-myths-checked",
+  "youre-normal": "is-my-period-normal",
+  "using-period-products": "choosing-period-products",
+  "school-day": "period-at-school",
+  "tracking-without-stress": "tracking-your-cycle-as-a-teen",
+  // Added to A2's foreground with the set (P2.13): the two the dashboard had no
+  // way to reach, and the two a teen is most likely to be searching for alone.
+  "period-pain": "period-pain-in-teens",
+  "telling-an-adult": "when-to-tell-an-adult",
 
   /**
    * Track B (R2.8) — and this is the first track whose reading card fills from the
@@ -91,17 +111,10 @@ export const ARTICLE_FOR_TOPIC: Readonly<Record<string, string>> = {
  *   authoring brief forbids.
  */
 export const NO_ARTICLE_YET: readonly string[] = [
-  // Track A — P2.13.
-  "whats-changing",
-  // A1's, not A2's: `menstrual-cycle-basics` is written for an adult and A1 §D asks
-  // for the version a child reads before her first period. P2.13.
-  "what-is-a-period",
-  "first-period-plan",
-  "myth-busting",
-  "youre-normal",
-  "using-period-products",
-  "school-day",
-  "tracking-without-stress",
+  // Track A is fully covered as of P2.13 (2026-08-17) — the ten teen drafts are in
+  // `docs/content/articles/`, so every A1 and A2 topic has an article above. It was
+  // the whole of this list two weeks ago, which is the fastest a foreground list in
+  // this project has gone from empty to answered.
   /**
    * Track B — R2.8. Four topics the cycle personas name and the library does not
    * answer yet, and each is a real content ask rather than an oversight:
