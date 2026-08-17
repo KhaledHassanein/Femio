@@ -136,11 +136,32 @@ const E2: PersonaRecord = {
   tools: ["symptom", "mood", "period"],
   content: {
     skin: "postpartum-feeding",
+    /**
+     * The newborn seed set lands here and **nowhere else in Track E** (P2.13c).
+     *
+     * E1 would be the obvious home — a woman weeks after birth is the reader these
+     * pages were written for — and it is the one place they must not go. `foreground`
+     * merges purely additively up the `extends` chain (`build.ts`), and **E6 extends
+     * E1**, so a topic added to the recovery spine appears on the reading card of a
+     * woman after a pregnancy loss. "Your newborn in the first two weeks" in front of
+     * her is the worst thing this track could do, and E6 §A says so in those words.
+     *
+     * E2 is safe because its resolver gate is a **stated live birth**
+     * (`pregnancyOutcome === "completed"`, no prior loss), which E6 can never satisfy.
+     * So the two newborn topics that belong to feeding sit here, and `warning-signs`
+     * comes with them because it is the one newborn page that must be one tap away.
+     * The other five articles are reachable from `/learn` and from each other, which
+     * is the right amount of reach for a seed set; giving them a persona shelf needs
+     * either a subtraction mechanism in the engine or a live-birth-gated general
+     * newborn persona, and that is a decision, not a wiring task (BLOCKERS).
+     */
     foreground: [
       "breastfeeding-first-two-weeks",
       "if-breastfeeding-is-not-working",
       "is-baby-getting-enough",
+      "newborn-warning-signs",
       "mastitis-and-blocked-ducts",
+      "bottle-and-formula-feeding",
     ],
   },
   alerts: [

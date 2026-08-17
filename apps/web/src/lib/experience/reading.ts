@@ -99,6 +99,25 @@ export const ARTICLE_FOR_TOPIC: Readonly<Record<string, string>> = {
   "return-of-your-cycle": "periods-after-birth",
   "breastfeeding-first-two-weeks": "breastfeeding-first-two-weeks",
   "if-breastfeeding-is-not-working": "when-breastfeeding-is-not-working",
+
+  /**
+   * Track E, newborn (P2.13c, drafted 2026-08-17) — the first slugs in this file
+   * about **a person who is not the account holder**.
+   *
+   * `is-baby-getting-enough` has been in `NO_ARTICLE_YET` since R2.5f with a note
+   * saying a standalone page was a scope decision rather than an oversight. B7 made
+   * that decision, so it resolves to a real article now — one that answers the 2am
+   * question by describing what a midwife or health visitor looks at, and refuses to
+   * give a verdict on her baby. The topic keeps its name because the topic outlived
+   * the answer, which is the whole reason this file exists.
+   *
+   * Only three of the eight drafts appear here, because a slug may only be mapped if
+   * a persona foregrounds its topic (`reading.test.ts`) — and only E2 may carry them.
+   * See the note on E2's `foreground` for why E1 cannot.
+   */
+  "is-baby-getting-enough": "feeding-your-newborn",
+  "newborn-warning-signs": "newborn-warning-signs",
+  "bottle-and-formula-feeding": "bottle-and-formula-feeding",
 };
 
 /**
@@ -109,10 +128,10 @@ export const ARTICLE_FOR_TOPIC: Readonly<Record<string, string>> = {
  *   title approval; the brief forbids hand-writing a 40-entry set.
  * - the Track A topics — **P2.13**.
  * - the D2/D3/D4/D7 topics — clinical layers, unwritten.
- * - `is-baby-getting-enough` and `mastitis-and-blocked-ducts` — both are *covered
- *   inside* the two feeding articles rather than standing alone. They stay listed
- *   because E2 §E names them, and because a standalone "is the baby getting enough"
- *   page is a decision about scope (B7) rather than an oversight.
+ * - `mastitis-and-blocked-ducts` — covered *inside* `when-breastfeeding-is-not-working`
+ *   rather than standing alone. It stays listed because E2 §E names it.
+ *   (`is-baby-getting-enough` left this list with P2.13c: B7 answered the scope
+ *   question and `feeding-your-newborn` is the page.)
  * - the E6 loss topics — **not covered by B2**. Grief content needs its own title
  *   list and its own review, and drafting it unasked would be exactly the thing the
  *   authoring brief forbids.
@@ -184,7 +203,6 @@ export const NO_ARTICLE_YET: readonly string[] = [
   "your-follow-up-tests",
   "what-this-means-long-term",
   "could-this-be-my-thyroid",
-  "is-baby-getting-enough",
   "mastitis-and-blocked-ducts",
   "grief-and-what-helps",
   "your-body-after-a-loss",

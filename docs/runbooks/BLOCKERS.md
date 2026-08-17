@@ -6,7 +6,10 @@
 - Config, keys and one-off commands that are *not* blocking → `OWNER_MANUAL_TASKS.md`
 - Things needing your eyes rather than your input → `MANUAL_TEST_PLAN.md`
 
-**Nothing is blocked as of 2026-08-16.** B1–B9 are all closed: B5 and B6 done by the owner, and
+**Two questions are open as of 2026-08-17, both under B7 — the infant reviewer statement, and
+where the newborn set may appear (E1 cannot carry it; E6 extends E1). Neither stops other work.**
+
+**Nothing else is blocked.** B1–B9 are all closed: B5 and B6 done by the owner, and
 B7, B8 and B9 answered in one pass. What each answer unblocks is written into its section below,
 and the three content sets that go to a separate chat have their prompts in
 `docs/content/HANDOVER_NEWBORN_BASICS.md`, `docs/content/HANDOVER_WEEK_BY_WEEK.md` and
@@ -180,9 +183,44 @@ Its §2 carries the three rules that make infant content publishable here: the b
 paediatrician stated in the first screen, a red-flag box on every article drawn from the
 *newborn* set rather than an adult one, and **no assessment of a baby, ever**.
 
-**One thing will come back to you once, and it is not a blocker:** doc 15 §8's reviewer
-statement is written for content about an adult woman's own body. Eight pages about infants may
-want their own line in it. Tracked as **P2.13c**.
+**Written and imported 2026-08-17 (P2.13c).** All eight are in the CMS as drafts, both content
+lints pass over 64 files with every source URL resolving, and the return handover — what was cut
+for lack of a Tier-1 source, the three places national guidance genuinely disagrees, and the five
+sentences to re-read against the no-assessment rule — is in
+`docs/content/HANDOVER_NEWBORN_BASICS_RETURN.md`. **Publication is still yours**, page by page,
+in `/admin`.
+
+**Two things now want a word from you, and only the second is a decision:**
+
+**1. The reviewer statement** (the one flagged when B7 was answered). Doc 15 §8 is written for
+content about an adult woman's own body. Eight pages about infants may want their own line in
+it — a sentence saying who reviews content about a second person, and against what. Say the word
+and I draft it; say it does not need one and I close the point.
+
+**2. Where the newborn set is allowed to appear, and this one has a real constraint behind it.**
+The obvious home is **E1**, the postpartum recovery spine — a woman weeks after birth is exactly
+who these pages were written for. It is also the one place they cannot go. `content.foreground`
+merges purely additively up the `extends` chain, and **E6 (pregnancy loss) extends E1**, so any
+topic added to the recovery spine appears on the reading card of a woman after a loss. "Your
+newborn in the first two weeks" in front of her is the worst thing this track could do.
+
+So three of the eight are wired to **E2** instead, which is gated on a stated live birth that E6
+can never satisfy: `feeding-your-newborn`, `newborn-warning-signs` and `bottle-and-formula-feeding`.
+A test now resolves E6 through the whole inheritance chain and fails if newborn content ever
+reaches it. The other five — the pillar, crying, safer sleep, nappies and cord, checks and
+vaccinations — are reachable from `/learn` and from each other, and from no dashboard.
+
+**That is fine for a seed set and it is not fine forever.** Giving them a persona shelf needs one
+of two things, and both cost something:
+
+- **(a) Subtraction in the engine** — let an `emotionalLayer` remove inherited topics. It is the
+  first exception to "additive layers", which is product rule 5, so it would be an ADR.
+- **(b) A live-birth-gated newborn persona** — a new record beside E2 that carries the baby shelf
+  for mothers who are not breastfeeding. No engine change, one more persona to maintain.
+
+I would pick **(b)**: it keeps the additive rule intact, and the gate that already protects E2 is
+exactly the gate this needs. Nothing is broken while it waits — five articles are simply one tap
+further away than they could be.
 
 ---
 

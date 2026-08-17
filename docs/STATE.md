@@ -663,14 +663,24 @@ woman two different sentences in the same appointment.
 >    **R2.10** (the log screen renders `tools`) — each has its module lists already argued in a
 >    reference, and encoding them is the work. **R1.9 implementation should wait for R2.8/R2.9**,
 >    because building the cycle dashboard against a `mode ===` branch is building the screen that
->    gets rewritten. All three content sets are still out with other agents.
+>    gets rewritten. Only the week-by-week set is still out with another agent.
 > 3. Run the full gate before every push. Never end a turn with a dirty tree.
 >
-> **Nothing is waiting on the owner. B1–B9 are all closed** (2026-08-16). Two content sets are
-> out to a separate chat — the prompts are `docs/content/HANDOVER_NEWBORN_BASICS.md` (B7 → eight
-> mother-facing newborn articles) and `docs/content/HANDOVER_WEEK_BY_WEEK.md` (B9 → weeks 4–40).
-> **P2.13's teen set went out the same way** — `docs/content/HANDOVER_TEEN_CONTENT.md`. All three
-> content sets are now with other agents, so the work here is **R1 design** until they return.
+> **Two of the three content sets are home.** The teen ten landed 2026-08-17 (P2.13), and **the
+> eight newborn drafts landed the same day** (P2.13c) — written, imported as CMS drafts, wired to
+> Track E, with the return handover in `docs/content/HANDOVER_NEWBORN_BASICS_RETURN.md`. Only
+> `docs/content/HANDOVER_WEEK_BY_WEEK.md` (B9 → weeks 4–40) is still out.
+>
+> **Two questions now sit with the owner, neither blocking** — both under `BLOCKERS.md` B7: the
+> infant reviewer statement for doc 15 §8, and where the newborn set may appear. **Read the second
+> one before touching Track E's foreground lists.** `content.foreground` merges additively up
+> `extends` and **E6 (loss) extends E1**, so putting a newborn topic on the recovery spine puts
+> *"your newborn in the first two weeks"* on the reading card of a woman after a pregnancy loss.
+> Three topics are wired to **E2** instead, which is gated on a stated live birth; a test resolves
+> E6 through the whole chain and fails if newborn content ever reaches it. The remaining five
+> articles reach her from `/learn` only, and that stays true until the owner picks (a) engine
+> subtraction, which is an ADR against product rule 5, or (b) a live-birth-gated newborn persona,
+> which is the recommendation.
 > - **Owner task 5** — re-deploy the experience Edge Function; its source changed several
 >   times. The local fallback computes the identical document meanwhile.
 > - **`MANUAL_TEST_PLAN.md` T8, T10–T22** — fifteen items shipped 2026-08-16 and **nobody has

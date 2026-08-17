@@ -81,6 +81,47 @@ describe("the reading list mapping", () => {
     expect(slugs.some((s) => s.includes("breastfeed"))).toBe(false);
   });
 
+  /**
+   * The same rule, for the set that made it urgent (P2.13c).
+   *
+   * `foreground` merges additively up `extends` and **E6 extends E1**, so the guard
+   * that keeps newborn content away from a woman after a loss is not a comment on a
+   * registry record — it is this. It resolves E6 the way the engine does, through the
+   * whole inheritance chain, rather than reading E6's own list. If someone later adds
+   * a newborn topic to E1 because E1 is obviously where a mother of a newborn lives,
+   * this fails, and that is the entire point.
+   */
+  it("puts no newborn content in front of a loss, through the whole extends chain", () => {
+    const chain: string[] = [];
+    let record = PERSONA_RECORDS.find((r) => r.id === "E6");
+    while (record) {
+      chain.unshift(...record.content.foreground);
+      record = record.extends ? PERSONA_RECORDS.find((r) => r.id === record!.extends) : undefined;
+    }
+    const slugs = articleSlugsFor(chain);
+    expect(slugs.filter((s) => s.startsWith("newborn-") || s === "feeding-your-newborn")).toEqual(
+      [],
+    );
+    expect(slugs.some((s) => s.includes("safer-sleep") || s.includes("bottle"))).toBe(false);
+  });
+
+  /**
+   * E2's shelf, pinned like E1's. The order is the persona's ask: two pages about
+   * her own feeding, then the baby's side of it, then the one newborn page that must
+   * be one tap away. `mastitis-and-blocked-ducts` is still unwritten and drops out,
+   * which is what the card is supposed to do with an unanswered topic.
+   */
+  it("gives the feeding layer the baby's side of feeding, and the warning signs", () => {
+    const e2 = PERSONA_RECORDS.find((r) => r.id === "E2")!;
+    expect(articleSlugsFor(e2.content.foreground)).toEqual([
+      "breastfeeding-first-two-weeks",
+      "when-breastfeeding-is-not-working",
+      "feeding-your-newborn",
+      "newborn-warning-signs",
+      "bottle-and-formula-feeding",
+    ]);
+  });
+
   it("caps a card at four links", () => {
     expect(READING_LIST_LIMIT).toBe(4);
   });
