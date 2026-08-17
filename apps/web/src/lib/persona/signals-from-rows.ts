@@ -30,6 +30,16 @@ import { EMPTY_SIGNALS, type CycleRegularity, type PersonaSignals } from "./sign
 /** Days after which we describe the record as showing no recent bleed. */
 const ABSENT_AFTER_DAYS = 90;
 
+/**
+ * The gap after which a further bleed is the postmenopausal kind (R2.9).
+ *
+ * Twelve months is the convention F2 §A names, and it is the same number the
+ * menopause panel already counts to. One definition, because two places
+ * disagreeing about it would mean one screen telling her a bleed is worth checking
+ * and another saying nothing.
+ */
+const POSTMENOPAUSAL_GAP_DAYS = 365;
+
 const DAYS_PER_WEEK = 7;
 
 export type ConditionRow = {
@@ -93,6 +103,21 @@ function regularityFrom(sortedStarts: string[], today: string): CycleRegularity 
   const prediction = predictNextPeriod(sortedStarts);
   if (!prediction) return "unknown";
   return prediction.irregular ? "irregular" : "regular";
+}
+
+/**
+ * Did she record a bleed after twelve months without one?
+ *
+ * Read off consecutive starts rather than from a "final period" field, because
+ * Femio has never had one and inventing it would mean deciding when her periods
+ * stopped — which is the conclusion the whole track refuses to reach (ADR-042).
+ * A gap of a year between two logged starts is arithmetic; what it means is not.
+ */
+function bledAfterALongGap(sortedStarts: readonly string[]): boolean {
+  for (let i = 1; i < sortedStarts.length; i += 1) {
+    if (diffDays(sortedStarts[i - 1]!, sortedStarts[i]!) >= POSTMENOPAUSAL_GAP_DAYS) return true;
+  }
+  return false;
 }
 
 export function signalsFromRows(rows: SignalRows): PersonaSignals {
@@ -182,5 +207,6 @@ export function signalsFromRows(rows: SignalRows): PersonaSignals {
       diabetes && pregnancy && Date.parse(diabetes.recordedAt) < Date.parse(pregnancy.createdAt),
     ),
     priorLoss: codes.includes("prior_loss"),
+    postmenopausalBleed: bledAfterALongGap(starts),
   };
 }

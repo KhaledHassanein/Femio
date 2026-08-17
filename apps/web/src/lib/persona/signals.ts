@@ -68,6 +68,22 @@ export type PersonaSignals = {
   diabetesRecordedBeforePregnancy: boolean;
   /** Any recorded pregnancy loss. Drives emotional context, never a persona alone. */
   priorLoss: boolean;
+  /**
+   * A bleed recorded **after** twelve months without one (R2.9).
+   *
+   * Derived from her own period starts — a gap of a year or more between two of
+   * them — and it exists for one reason: without it, **logging a bleed threw her
+   * out of Track F entirely.** F2's gate is `daysSinceLastPeriod >= 365`, so the
+   * moment a postmenopausal woman recorded the one thing F2 §G calls "the main
+   * warning sign clinicians look for", her days-since counter reset and she
+   * resolved to B5 — losing the persona whose whole job is to tell her that
+   * bleeding after menopause is always checked. The same shape as
+   * `weeksSincePregnancyEnd` before R2.4: a gate that could only fail.
+   *
+   * It is a fact about her record, never a finding. Femio notes that a bleed
+   * happened after a long gap; what it means is a clinician's (product rule 1).
+   */
+  postmenopausalBleed: boolean;
 };
 
 /** A signal set that asserts nothing — the honest starting point for a new account. */
@@ -85,6 +101,7 @@ export const EMPTY_SIGNALS: PersonaSignals = {
   symptomCounts: {},
   diabetesRecordedBeforePregnancy: false,
   priorLoss: false,
+  postmenopausalBleed: false,
 };
 
 /** How many of the signals we could know are actually populated, 0–1. */

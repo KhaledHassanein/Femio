@@ -16,11 +16,30 @@
  * A file on this list may import: other listed files, and nothing else.
  */
 
-import { readFileSync } from "node:fs";
+import { readdirSync, readFileSync } from "node:fs";
 import { join } from "node:path";
 
 const ROOT = process.cwd();
 const SRC = join(ROOT, "apps", "web", "src");
+
+/**
+ * Every persona registry file, found rather than listed (R2.9).
+ *
+ * The four track files used to be four hand-written entries, and adding Track B
+ * and Track F did not add two more — so the two newest registries, the ones most
+ * likely to reach for a convenience import, were the only unguarded tier-1 files
+ * in the repo. The failure mode is not hypothetical: **B3 was exactly this**, an
+ * extensionless import in a tier-1 module that worked perfectly in the web app and
+ * failed at deploy, costing the owner an attempt.
+ *
+ * A directory is the truthful expression of "all of them". A new track now cannot
+ * be forgotten, because nobody has to remember.
+ */
+const REGISTRY_DIR = "lib/experience/registry";
+const registryFiles = readdirSync(join(SRC, REGISTRY_DIR))
+  .filter((f) => f.endsWith(".ts") && !f.endsWith(".test.ts"))
+  .sort()
+  .map((f) => `${REGISTRY_DIR}/${f}`);
 
 /**
  * The portable set. Every entry is either a decision (tier 1) or offline maths
@@ -31,10 +50,7 @@ const PORTABLE = [
   "lib/experience/types.ts",
   "lib/experience/build.ts",
   "lib/experience/layers.ts",
-  "lib/experience/registry/index.ts",
-  "lib/experience/registry/track-a.ts",
-  "lib/experience/registry/track-d.ts",
-  "lib/experience/registry/track-e.ts",
+  ...registryFiles,
   "lib/persona/resolver.ts",
   "lib/persona/signals.ts",
   "lib/persona/signals-from-rows.ts",
@@ -133,6 +149,16 @@ for (const rel of PORTABLE) {
 // A guard that checks nothing must fail, not pass (the P1.4.3 lesson).
 if (PORTABLE.length === 0) {
   console.error("✗ tier-1 portability guard: the portable set is empty, which cannot be right.");
+  process.exit(1);
+}
+
+// And the same rule applied to the half that is now discovered rather than typed:
+// a glob that silently matched nothing would turn every registry file unguarded
+// while the guard went on reporting success.
+if (registryFiles.length === 0) {
+  console.error(
+    `✗ tier-1 portability guard: no registry files found under ${REGISTRY_DIR}, which cannot be right.`,
+  );
   process.exit(1);
 }
 

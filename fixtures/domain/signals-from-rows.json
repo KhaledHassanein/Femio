@@ -28,7 +28,8 @@
         "conditions": [],
         "symptomCounts": {},
         "diabetesRecordedBeforePregnancy": false,
-        "priorLoss": false
+        "priorLoss": false,
+        "postmenopausalBleed": false
       }
     },
     {
@@ -75,7 +76,8 @@
           "fatigue": 1
         },
         "diabetesRecordedBeforePregnancy": true,
-        "priorLoss": false
+        "priorLoss": false,
+        "postmenopausalBleed": false
       }
     },
     {
@@ -106,7 +108,8 @@
         "conditions": [],
         "symptomCounts": {},
         "diabetesRecordedBeforePregnancy": false,
-        "priorLoss": false
+        "priorLoss": false,
+        "postmenopausalBleed": false
       }
     },
     {
@@ -143,7 +146,8 @@
         ],
         "symptomCounts": {},
         "diabetesRecordedBeforePregnancy": false,
-        "priorLoss": true
+        "priorLoss": true,
+        "postmenopausalBleed": false
       }
     },
     {
@@ -170,7 +174,8 @@
         "conditions": [],
         "symptomCounts": {},
         "diabetesRecordedBeforePregnancy": false,
-        "priorLoss": false
+        "priorLoss": false,
+        "postmenopausalBleed": false
       }
     },
     {
@@ -201,7 +206,8 @@
         "conditions": [],
         "symptomCounts": {},
         "diabetesRecordedBeforePregnancy": false,
-        "priorLoss": false
+        "priorLoss": false,
+        "postmenopausalBleed": false
       }
     },
     {
@@ -229,7 +235,40 @@
         "conditions": [],
         "symptomCounts": {},
         "diabetesRecordedBeforePregnancy": false,
-        "priorLoss": false
+        "priorLoss": false,
+        "postmenopausalBleed": false
+      }
+    },
+    {
+      "_comment": "A bleed logged after a twelve-month gap (R2.9). Hand-computed: the two measured cycles are 33 and 542 days, so averageCycleLength is round(287.5) = 288 and the spread makes it irregular. `postmenopausalBleed` is the point — without it, F2's gate failed the moment she recorded the one thing that persona exists for, and she resolved to B5.",
+      "input": {
+        "ageBand": "45_54",
+        "periodStarts": [
+          "2025-01-12",
+          "2025-02-14",
+          "2026-08-10"
+        ],
+        "conditions": [],
+        "pregnancy": null,
+        "symptomTypes": [],
+        "ttcIntent": false,
+        "todayISO": "2026-08-17"
+      },
+      "expected": {
+        "ageBand": "45_54",
+        "cycleRegularity": "irregular",
+        "averageCycleLength": 288,
+        "daysSinceLastPeriod": 7,
+        "ttcIntent": false,
+        "ttcMonths": null,
+        "pregnancyStatus": null,
+        "pregnancyOutcome": null,
+        "weeksSincePregnancyEnd": null,
+        "conditions": [],
+        "symptomCounts": {},
+        "diabetesRecordedBeforePregnancy": false,
+        "priorLoss": false,
+        "postmenopausalBleed": true
       }
     }
   ]

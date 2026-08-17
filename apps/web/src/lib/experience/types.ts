@@ -62,6 +62,23 @@ export type ModuleId =
   | "cycle.flowStrip"
   | "cycle.personalNormal"
   | "cycle.changeAwareness"
+  // ---- Track F — perimenopause & menopause (R2.9)
+  /**
+   * `menopause.trend` is what replaces the ring `docs/25` §5a rejects: her recent
+   * cycle lengths, with skipped cycles drawn rather than left as gaps, and no
+   * endpoint marked. Nothing in this track may draw progress toward twelve months —
+   * a bar filling toward the marker reads as a countdown to a diagnosis (ADR-042).
+   */
+  | "menopause.trend"
+  | "menopause.since"
+  | "menopause.marker"
+  | "menopause.symptomStrip"
+  | "menopause.longTerm"
+  /** The only danger surface in Track F, and it carries no phone number. */
+  | "menopause.pmb"
+  | "mrs"
+  | "medications"
+  | "gsm"
   // ---- D1 spine
   | "pregnancy.week"
   | "pregnancy.milestone"

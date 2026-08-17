@@ -332,6 +332,44 @@ encode still hold. The one to remember: an account with nothing logged now score
 rather than 0.21, still under `OFFER_THRESHOLD` (0.4) — worth watching as more weight lands on
 facts that are true of someone who has told us nothing.
 
+## Track F exists, and logging a bleed used to throw her out of it (R2.9, 2026-08-17)
+
+`registry/track-f.ts` holds F1 and F2. Data only, like R2.8. Encoding it found three defects,
+and the middle one is the worst the engine has produced so far.
+
+- **F1 did not count a skipped cycle.** `signals-from-rows` returns `"absent"` once ninety days
+  have passed, and F1's largest signal matched `"irregular"` only — so a 47-year-old four months
+  past her last period scored *lower* on the persona she fits best. F1 §I asks for the opposite
+  in as many words: *"skipping / long gaps ⇒ late-transition emphasis."*
+- **Logging a bleed threw a postmenopausal woman out of Track F.** F2's gate was
+  `daysSinceLastPeriod >= 365`. The moment she recorded the one thing F2 §G calls *"the main
+  warning sign clinicians look for"*, her days-since counter reset, the gate failed, and she
+  resolved to B5 — **she lost the persona whose entire job is that bleed, by doing what it asked
+  her to do.** The fix is a tier-1 signal, `postmenopausalBleed`, derived from a year-long gap
+  between two of her own logged starts. It is a fact about her record and never a finding: what
+  it means is a clinician's. Structurally identical to `weeksSincePregnancyEnd` before R2.4 — a
+  gate that could only fail.
+- **F2 was unreachable behind F1.** Both scored 1.0 for a woman eighteen months past her last
+  period and F1 won on rule order. The trap, for the **sixth** time. F1 gained a
+  *within-the-year* signal, which is the persona's own definition rather than a tiebreak.
+
+**B5 moved too** — it was beating F1 for a woman in her late forties with absent cycles and hot
+flushes, and B5 §J routes exactly that case to F1. It now carries a reproductive-age band signal
+mirroring B1's.
+
+**Two decisions in the record worth not reversing.** **F2 does not extend F1**: §I says no cycle
+view at all, and `build.ts` has no path that subtracts a module, so they are siblings rather than
+a layer. And **`period` stays in F2's tools** — §G says the bleeding log's purpose *flips* from
+"track your cycle" to "note and act on any bleeding", so removing it would remove the only way
+she can tell Femio the one thing it most needs to hear.
+
+**Two things this leaves open, both filed.** **R2.9a — F6 (GSM) must not become a resolver
+rule.** The signals exist (P2.4 added dryness and urinary urgency), which is why it is a decision:
+§I offers discreet mode *before any content loads*, and a resolver that reskinned her home screen
+because she logged dryness twice would announce her intimate symptoms on her own phone, unasked.
+**R2.9b — the `postmenopausal-bleeding` article does not exist**, while the module and the
+red-flag alert both do. Highest-priority single article in the queue.
+
 **R1.1a is in progress** — `docs/03` §H carries the craft teardown for Flo, Clue and Balance
 (2026-08-11). Three things it established: nobody in the category uses stock portraiture, which
 confirms R1.2's illustration call from the market side; Balance puts its clinician's

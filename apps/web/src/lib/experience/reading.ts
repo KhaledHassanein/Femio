@@ -53,6 +53,12 @@ export const ARTICLE_FOR_TOPIC: Readonly<Record<string, string>> = {
   "pcos-signs": "pcos-signs",
   "how-pcos-is-assessed": "how-pcos-is-assessed",
 
+  // Track F (R2.9) — three of F1/F2's twelve topics are already published.
+  "perimenopause-explained": "perimenopause-explained",
+  "menopause-explained": "menopause-explained",
+  "menopause-care-options": "menopause-care-options",
+  "tracking-menopause-symptoms": "track-perimenopause-symptoms",
+
   // Track D.
   "appointments-and-tests": "first-pregnancy-appointment",
   "warning-signs": "pregnancy-warning-signs",
@@ -118,6 +124,24 @@ export const NO_ARTICLE_YET: readonly string[] = [
   "your-data-your-rules",
   "irregular-cycles-explained",
   "when-a-gap-is-worth-checking",
+  /**
+   * Track F — R2.9. Five topics F1 and F2 name that the library does not answer,
+   * and **`postmenopausal-bleeding` is the one to write first.** F2 §F module 10
+   * is the page behind the only red flag in the track, said calmly and without
+   * minimising: any bleeding after twelve months is checked promptly. The module
+   * exists, the alert exists, and there is nowhere for a woman who taps through to
+   * land. The other four are `why-cycles-are-unpredictable` (F1 §F 2),
+   * `mood-and-brain-fog` (F1 §F 4 — the "am I going crazy?" page),
+   * `getting-taken-seriously` (F1 §F 10), and the bone and heart pair (F2 §F 4–5),
+   * which must stay awareness rather than risk-scoring.
+   */
+  "postmenopausal-bleeding",
+  "why-cycles-are-unpredictable",
+  "mood-and-brain-fog",
+  "getting-taken-seriously",
+  "bones-after-menopause",
+  "heart-after-menopause",
+  "gsm-explained",
   // Track D — P2.2.2 and the clinical layers.
   "week-by-week",
   "nutrition",

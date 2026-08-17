@@ -273,6 +273,17 @@ export const PERSONA_RULES: readonly PersonaRule[] = [
       { weight: 2, when: (s) => (s.daysSinceLastPeriod ?? 0) > 45 },
       { weight: 1, when: (s) => !s.ttcIntent },
       { weight: 1, when: (s) => s.conditions.length === 0 },
+      /**
+       * Reproductive age (R2.9). B5 is the *reproductive-age* irregular persona,
+       * and §J routes "cycles changing in 40s+" to F1 rather than keeping her here.
+       *
+       * Without this, **B5 beat F1 for a 48-year-old with no period for four months
+       * and hot flushes** — 1.0 against 0.6 — so a woman in the middle of the
+       * transition was handed the irregular-cycle experience and none of the
+       * perimenopause content she came for. The bands mirror B1's, and an unknown
+       * band scores nothing here rather than being assumed either way.
+       */
+      { weight: 1, when: inBand("18_24", "25_34", "35_44") },
     ],
   },
   {
@@ -574,23 +585,61 @@ export const PERSONA_RULES: readonly PersonaRule[] = [
   // ---- Track F — perimenopause & menopause. F3–F6 need bone/CV history and
   // surgical context we do not record.
   {
+    /**
+     * F1 — perimenopause.
+     *
+     * **The defining signal now counts a skipped cycle** (R2.9). It read
+     * `cycleRegularity === "irregular"` only, and `signals-from-rows` returns
+     * `"absent"` once ninety days have passed — so a 47-year-old four months past
+     * her last period, which is *late transition* and the most characteristic
+     * pattern in the whole persona, lost F1's largest signal at exactly the point
+     * she matched it best. §I asks for the opposite in as many words: *"skipping /
+     * long gaps ⇒ late-transition emphasis."*
+     */
     id: "F1",
     track: "F",
     requires: [notPregnant, inBand("35_44", "45_54", "55_plus")],
     signals: [
       { weight: 3, when: inBand("45_54") },
-      { weight: 3, when: (s) => s.cycleRegularity === "irregular" },
+      { weight: 3, when: (s) => s.cycleRegularity === "irregular" || s.cycleRegularity === "absent" },
       { weight: 2, when: symptom("hotFlushes") },
       { weight: 1, when: symptom("troubleSleeping") },
       { weight: 1, when: (s) => !s.ttcIntent },
+      /**
+       * Still within the year — the signal that keeps F1 the *transition* persona
+       * (R2.9), and the **sixth** appearance of the rule this codebase keeps
+       * relearning: when a specific persona extends a general one, the general one
+       * needs a signal that is false in the specific case.
+       *
+       * Without it F1 and F2 both scored a perfect 1.0 for a 50-year-old eighteen
+       * months past her last period, F1 won on rule order, and **F2 was
+       * unreachable** — she got the transition screen, with its cycle trend and its
+       * twelve-month prompt, years after the transition ended.
+       */
+      { weight: 2, when: (s) => (s.daysSinceLastPeriod ?? 0) < 365 },
     ],
   },
   {
+    /**
+     * F2 — postmenopause, **and it survives her logging a bleed** (R2.9).
+     *
+     * The gate used to be the days-since counter alone, which meant the moment she
+     * recorded bleeding after twelve months — the one thing F2 §G calls "the main
+     * warning sign clinicians look for" — the counter reset, the gate failed, and
+     * she resolved to B5. She lost the persona whose entire job is to tell her that
+     * bleed is always worth checking, by doing the thing it asked her to do.
+     *
+     * `postmenopausalBleed` is a fact about her record (a year-long gap between two
+     * logged starts), never a finding. What it means is a clinician's.
+     */
     id: "F2",
     track: "F",
-    requires: [notPregnant, (s) => (s.daysSinceLastPeriod ?? 0) >= 365],
+    requires: [
+      notPregnant,
+      (s) => (s.daysSinceLastPeriod ?? 0) >= 365 || s.postmenopausalBleed,
+    ],
     signals: [
-      { weight: 4, when: (s) => (s.daysSinceLastPeriod ?? 0) >= 365 },
+      { weight: 4, when: (s) => (s.daysSinceLastPeriod ?? 0) >= 365 || s.postmenopausalBleed },
       { weight: 2, when: inBand("45_54", "55_plus") },
       { weight: 1, when: symptom("hotFlushes") },
     ],

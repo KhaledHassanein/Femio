@@ -173,10 +173,10 @@
           "irregular_cycles"
         ],
         "emotionalContext": [],
-        "confidence": 0.675,
+        "confidence": 0.6875,
         "runnerUp": {
           "personaId": "B5",
-          "confidence": 0.7142857142857143
+          "confidence": 0.625
         }
       }
     },
@@ -203,6 +203,36 @@
         "runnerUp": {
           "personaId": "B1",
           "confidence": 0.2777777777777778
+        }
+      }
+    },
+    {
+      "_comment": "Postmenopause, after she logged a bleed (R2.9). F2 scores 6/7 and F1 9/12; coverage is 3 of 6, so confidence is (6/7) * 0.75. Before `postmenopausalBleed` existed, F2's gate read the days-since counter alone, this record resolved to B5, and she lost the persona whose only job is to say that bleeding after twelve months is always checked.",
+      "input": {
+        "ageBand": "45_54",
+        "cycleRegularity": "irregular",
+        "averageCycleLength": 288,
+        "daysSinceLastPeriod": 7,
+        "ttcIntent": false,
+        "pregnancyStatus": null,
+        "weeksSincePregnancyEnd": null,
+        "conditions": [],
+        "symptomCounts": {},
+        "diabetesRecordedBeforePregnancy": false,
+        "priorLoss": false,
+        "postmenopausalBleed": true
+      },
+      "expected": {
+        "personaId": "F2",
+        "track": "F",
+        "modifiers": [
+          "irregular_cycles"
+        ],
+        "emotionalContext": [],
+        "confidence": 0.6428571428571428,
+        "runnerUp": {
+          "personaId": "F1",
+          "confidence": 0.75
         }
       }
     }
