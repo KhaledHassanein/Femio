@@ -261,6 +261,28 @@ is rejected** and should not be proposed again; the reasoning is in `docs/25` §
 
 Everything in R1.2 was decided without R1.1 and may be revised by it — expected, not a failure.
 
+## R2.10 — the log screen, and where it actually is (noted 2026-08-17)
+
+Three things the next session would otherwise have to rediscover, checked on the current head:
+
+**The file is `components/cycle/track-screen.tsx`**, not `components/track/`. 187 lines, and the
+branch appears at **five sites** off one `isPregnancy` const on line 58, which is itself
+`modeFromTrack(personaState?.track) === "pregnancy"`.
+
+**`persona-branch-lint` does not flag it today.** Its baseline holds one file and that file is
+`components/dashboard/dashboard-screen.tsx` — track-screen is not baselined and passes anyway. So
+the target of R2.10 is a mode branch the guard is not currently catching, which is worth
+understanding before the refactor rather than after it: either the guard should catch this form
+and does not, or the form is deliberately outside it, and only reading the rule will say which.
+Do not widen the guard to make a point — the R2.7 lesson is that when a guard fires on new code
+the decision is usually in the wrong layer, and the inverse deserves the same care.
+
+**Two `LogKind`s are missing** and both must be decided in `types.ts`, never invented in a
+component: fertility (P2.1 shipped `/fertility` with no kind, so the dashboard reaches it through
+a `mode === "ttc"` button) and feeding (P2.3). `ExperienceConfig.tools` is a real served field of
+ten kinds that no screen reads — the same write-only shape `docs/23` §3.1 opened this workstream
+with, one screen after R2.3 closed it for the dashboard.
+
 ## The page behind Track F's only red flag exists (R2.9b, 2026-08-17)
 
 `menopause.pmb` was live, the alert was live, and there was nowhere for a woman who tapped through
