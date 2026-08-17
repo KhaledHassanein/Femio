@@ -106,103 +106,95 @@ common. Named, because Femio serves countries on both sides of that line.
 
 ## Part 2 — Handover prompt, to paste whole into a fresh chat
 
-> You are the Femio project agent. Eight newborn drafts have come back from the content pass and
-> need consolidating. Assume you have `docs/content/HANDOVER_NEWBORN_BASICS.md` and this file, and
-> none of the drafting conversation.
+> You are picking up **Femio** (`e:\Femio`, women's-health platform) after the newborn-basics
+> work of 2026-08-17. Read `CLAUDE.md`, then `docs/STATE.md`, then `docs/07_MASTER_TODO.md`.
+> Assume you have this file and none of that session's conversation. Two commits carry the work:
+> `38af656` (the eight drafts) and `13a5a30` (the wiring). The full gate is green on both —
+> typecheck, 570 tests, eslint, twelve lints, and `content-lint --check-urls`.
 >
-> **The files** are in `docs/content/articles/`, all `status: "draft"`, all bylines `PENDING`:
-> `newborn-first-two-weeks.md` (pillar) · `feeding-your-newborn.md` · `newborn-warning-signs.md` ·
-> `newborn-crying.md` · `safer-sleep-for-your-baby.md` · `newborn-nappies-skin-and-cord.md` ·
-> `bottle-and-formula-feeding.md` · `newborn-checks-and-vaccinations.md`.
+> ### What was done, and why each piece is where it is
 >
-> `pnpm content-lint` and `pnpm content-lint:urls` were clean on 2026-08-17 (64 drafts scanned).
-> Re-run both before anything else; the URL check is the one that can rot.
+> **1. Eight newborn articles were drafted and imported** (P2.13c, from B7's approval). They live
+> in `docs/content/articles/`: `newborn-first-two-weeks` (the pillar, ~1,430 words),
+> `feeding-your-newborn`, `newborn-warning-signs`, `newborn-crying`, `safer-sleep-for-your-baby`,
+> `newborn-nappies-skin-and-cord`, `bottle-and-formula-feeding`, `newborn-checks-and-vaccinations`.
+> `pnpm content-import -- --apply` created all eight in the CMS as drafts. **Nothing is public and
+> nothing may be published from code** — that is the owner's gate in `/admin` (ADR-032).
 >
-> **Every source used, with tier.** All were fetched and read, not recalled, and each URL is the
-> final address after redirects — NHS moved its baby content from `/conditions/baby/…` to
-> `/baby/…`, so older NHS links in the repo may now be one redirect away from where they resolve.
+> This is the first content Femio has published about **a person who is not the account holder**,
+> so three rules are load-bearing and were applied to every page: the boundary to a paediatrician,
+> health visitor or emergency service stated in the answer-first opening; a red-flag box drawn from
+> the *newborn* set rather than an adult one, closing with "Femio cannot assess a baby"; and **no
+> assessment of a baby, ever** — no adequacy, growth, sleep or development verdict about hers.
+> Emergency routing is global and number-free everywhere: "contact your local emergency services or
+> go to your nearest emergency department".
 >
-> Tier 1:
-> - NHS: Breastfeeding — the first few days · `https://www.nhs.uk/baby/breastfeeding-and-bottle-feeding/breastfeeding/the-first-few-days/`
-> - NHS: Your baby's weight and height · `https://www.nhs.uk/baby/babys-development/height-weight-and-reviews/baby-height-and-weight/`
-> - NHS: Jaundice in babies · `https://www.nhs.uk/conditions/jaundice-in-babies/`
-> - NHS: When to get urgent medical help for babies and children under 5 · `https://www.nhs.uk/baby/health/when-to-get-urgent-medical-help-for-babies-and-children-under-5/`
-> - NHS: Soothing a crying baby · `https://www.nhs.uk/baby/caring-for-a-newborn/soothing-a-crying-baby/`
-> - NHS: Sudden infant death syndrome (SIDS) · `https://www.nhs.uk/baby/caring-for-a-newborn/sudden-infant-death-syndrome-sids/`
-> - NHS: How to change your baby's nappy · `https://www.nhs.uk/baby/caring-for-a-newborn/how-to-change-your-babys-nappy/`
-> - NHS: Nappy rash · `https://www.nhs.uk/baby/caring-for-a-newborn/nappy-rash/`
-> - NHS: Washing and bathing your baby · `https://www.nhs.uk/baby/caring-for-a-newborn/washing-and-bathing-your-baby/`
-> - NHS: How to make up baby formula · `https://www.nhs.uk/baby/breastfeeding-and-bottle-feeding/bottle-feeding/making-up-baby-formula/`
-> - NHS: Sterilising baby bottles · `https://www.nhs.uk/baby/breastfeeding-and-bottle-feeding/bottle-feeding/sterilising-baby-bottles/`
-> - NHS: Newborn physical examination · `https://www.nhs.uk/baby/newborn-screening/physical-examination/`
-> - NHS: Newborn blood spot test · `https://www.nhs.uk/baby/newborn-screening/blood-spot-test/`
-> - NHS: NHS vaccinations and when to have them · `https://www.nhs.uk/vaccinations/nhs-vaccinations-and-when-to-have-them/`
-> - NICE NG143: Fever in under 5s · `https://www.nice.org.uk/guidance/ng143`
-> - NICE NG194: Postnatal care · `https://www.nice.org.uk/guidance/ng194`
-> - WHO: recommendations on maternal and newborn care for a positive postnatal experience · `https://www.who.int/publications/i/item/9789240045989`
-> - WHO: recommendations on postnatal care of the mother and newborn · `https://www.who.int/publications/i/item/9789241506649`
-> - WHO: Infant and young child feeding fact sheet · `https://www.who.int/news-room/fact-sheets/detail/infant-and-young-child-feeding`
-> - WHO: Safe preparation, storage and handling of powdered infant formula · `https://www.who.int/publications/i/item/9789241595414`
-> - WHO: recommendations for routine immunization — summary tables · `https://www.who.int/teams/immunization-vaccines-and-biologicals/policies/who-recommendations-for-routine-immunization---summary-tables`
-> - CDC: About Abusive Head Trauma · `https://www.cdc.gov/child-abuse-neglect/about/about-abusive-head-trauma.html`
-> - CDC: About SUID and SIDS · `https://www.cdc.gov/sudden-infant-death/about/index.html`
-> - CDC: Infant Formula Preparation and Storage · `https://www.cdc.gov/infant-toddler-nutrition/formula-feeding/preparation-and-storage.html`
-> - CDC: Vaccine Schedules for children · `https://www.cdc.gov/vaccines-children/schedules/index.html`
-> - AAP: Safe Sleep · `https://www.aap.org/en/patient-care/safe-sleep/`
+> Sourcing is recorded in Part 1 of this file with every URL and tier. Three points worth carrying
+> forward: **NHS moved its baby content** from `/conditions/baby/…` to `/baby/…`, so older NHS
+> links in the repo resolve only through a redirect; **three Tier-1 hosts reject automated
+> requests** and would fail `content-lint:urls` — `publications.aap.org` (403), NICE CKS (403),
+> Cochrane (412) — so their ground is covered by NHS and AAP pages instead; and **where national
+> guidance genuinely disagrees, both sides are stated and cited** rather than averaged into a fake
+> consensus (bed sharing, formula water temperature, vaccination and screening schedules).
 >
-> Tier 2 (AAP's parent-facing site — tiered conservatively, and never the only source on a page):
-> - AAP HealthyChildren: How Often and How Much Should Your Baby Eat? · `https://www.healthychildren.org/English/ages-stages/baby/feeding-nutrition/Pages/How-Often-and-How-Much-Should-Your-Baby-Eat.aspx`
-> - AAP HealthyChildren: Responding to Your Baby's Cries · `https://www.healthychildren.org/English/ages-stages/baby/crying-colic/Pages/Responding-to-Your-Babys-Cries.aspx`
-> - AAP HealthyChildren: How to Keep Your Sleeping Baby Safe · `https://www.healthychildren.org/English/ages-stages/baby/sleep/Pages/A-Parents-Guide-to-Safe-Sleep.aspx`
-> - AAP HealthyChildren: Umbilical Cord Care in Newborns · `https://www.healthychildren.org/English/ages-stages/baby/bathing-skin-care/Pages/Umbilical-Cord-Care.aspx`
+> **2. Three of the eight are wired into the experience engine, and five deliberately are not.**
+> This is the part to understand before touching Track E.
 >
-> Two Tier-1 bodies were wanted but could not be cited because their servers reject automated
-> requests and `content-lint:urls` would fail on them: `publications.aap.org` (the 2022 AAP
-> sleep-related infant deaths policy statement, HTTP 403), NICE CKS topics on infantile colic and
-> nappy rash (HTTP 403), and the Cochrane Library (HTTP 412). Their content is covered by the
-> NHS/AAP pages above. If a source URL must be added later, check the status code first.
+> `ARTICLE_FOR_TOPIC` in `apps/web/src/lib/experience/reading.ts` maps registry *topics* to article
+> slugs, and `reading.test.ts` asserts that every foregrounded topic is either mapped or listed in
+> `NO_ARTICLE_YET` — **and, in the other direction, that nothing is mapped which no persona
+> foregrounds.** So a slug can only appear there if some persona asks for its topic.
 >
-> **Points to re-check, in order:**
-> 1. The `38C` threshold and every red-flag box, against the newborn set in
->    `HANDOVER_NEWBORN_BASICS.md` §5.4–5.5. The boxes are near-identical by design; `newborn-crying`
->    adds the abnormal-cry line.
-> 2. `newborn-crying`, the section "When you have had enough", end to end — the step-away message,
->    "never shake a baby", and the `/en/help-now` route. No phone number appears anywhere in the
->    set, including in the CDC-derived passages, which is deliberate.
-> 3. The three country splits — bed sharing, formula water temperature, vaccination and screening
->    schedules — for whether "follow the guidance where you live" is doing enough work, or whether
->    a locale-aware note is needed later.
-> 4. Numbers that survive: `38C` and `36C`, "no wet nappy for 12 hours", "at least 8 to 12 feeds in
->    24 hours", "around six to eight nappy changes a day", "≥70°C water", CDC's 2 h / 1 h / 24 h
->    formula storage limits, "16C to 20C" room temperature, "before 37 weeks or under 2.5kg" for
->    bed sharing, "three weeks" for cord separation and birthweight regain. Each is attributed to a
->    named body in the prose. No dose, volume or regimen appears anywhere.
+> The obvious persona is **E1**, the postpartum recovery spine — a woman weeks after birth is
+> exactly who these pages were written for. **It is the one place they cannot go.**
+> `content.foreground` merges purely additively up the `extends` chain (`build.ts`, `foreground =
+> unique([...foreground, ...record.content.foreground])`), there is no subtraction anywhere in the
+> engine, and **E6 (pregnancy loss) extends E1**. A topic added to the spine therefore appears on
+> the reading card of a woman after a loss. "Your newborn in the first two weeks" in front of her is
+> the worst thing this track could do, and E6 §A says so in those words.
 >
-> **Sentences to read specifically for the "no assessment of a baby" line** — these are the ones
-> the drafting pass was least certain about:
-> - `newborn-nappies-skin-and-cord`: "A few drops of blood around the time the stump comes away are
->   expected. Active bleeding is not." Population-level and paired with an escalation, but it is
->   the closest the set comes to telling her that something she is looking at right now is fine.
-> - `newborn-first-two-weeks`, the weight section. It says babies commonly lose weight and are
->   weighed in the first two weeks, then explicitly hands the judgement to a midwife or health
->   visitor. Confirm the handoff sentence is doing enough.
-> - `newborn-checks-and-vaccinations`, hearing screening: "Being asked back for a second attempt is
->   common, and the audiology team explains what the next step is." An earlier draft said a repeat
->   "is not a verdict on your baby's hearing" and that was cut as too close to reassurance about
->   an individual result.
-> - `newborn-crying`, colic: "There may be little to do except comfort your baby and wait it out."
->   NHS's own framing, but it is advice about a specific crying baby.
-> - Every red-flag box ends "Femio cannot assess a baby" for exactly this reason. If the phrasing
->   should change, change it in all eight.
+> So three topics are on **E2** instead, whose resolver gate is a stated live birth
+> (`pregnancyOutcome === "completed"`, no prior loss) that E6 can never satisfy:
+> `is-baby-getting-enough` → `feeding-your-newborn` (it had been in `NO_ARTICLE_YET` since R2.5f
+> with a note saying a standalone page was a scope decision; B7 made that decision),
+> `newborn-warning-signs`, and `bottle-and-formula-feeding`. E2's card now fills with four real
+> pages. **A test enforces the rule** — "puts no newborn content in front of a loss, through the
+> whole extends chain" resolves E6 the way the engine does rather than reading E6's own list, and it
+> was watched failing by putting a newborn topic on E1 first. If you add one, it fails. That is the
+> point; do not weaken it.
 >
-> **Then do the work on this side**, in the order `HANDOVER_NEWBORN_BASICS.md` §6 sets out:
-> re-run both lints; read the boxes and the baby sentences; add the new newborn topics to Track E's
-> `content.foreground` lists and map them in `lib/experience/reading.ts` (`reading.test.ts` fails
-> until every registry topic is mapped or listed in `NO_ARTICLE_YET` — the E2 topic
-> `is-baby-getting-enough` now has a home in `feeding-your-newborn`, and
-> `mastitis-and-blocked-ducts` still does not); run `pnpm content-import -- --apply` to write them
-> as drafts; leave publication to the owner in the CMS; and raise the reviewer-posture question in
-> `docs/runbooks/BLOCKERS.md` — doc 15 §8's reviewer statement is written for adult content, and
-> eight pages about infants may want their own line.
+> The remaining five — the pillar, crying, safer sleep, nappies and cord, checks and vaccinations —
+> reach her from `/learn` and from each other's prose, and from no dashboard.
 >
-> Nothing here is published, and nothing should be. `status` stays `draft` on all eight.
+> ### What is open, and what you may not decide alone
+>
+> Both are in `docs/runbooks/BLOCKERS.md` under **B7**, and neither blocks other work:
+>
+> 1. **The infant reviewer statement.** Doc 15 §8's reviewer statement is written for content about
+>    an adult woman's own body. Eight pages about infants may want their own line. Owner's call.
+> 2. **Whether the five unshelved articles get a persona shelf**, which needs one of: **(a)**
+>    subtraction in the engine, letting an `emotionalLayer` remove inherited topics — the first
+>    exception to "additive layers", which is product rule 5, so it is an ADR; or **(b)** a
+>    live-birth-gated newborn persona beside E2, no engine change, one more record to maintain.
+>    **(b) is the standing recommendation.** Do not implement either without the owner's answer.
+>
+> Also still owner-side: publishing each draft in `/admin`, page by page. The reading cards fill
+> themselves in as he publishes — no deploy, no code change.
+>
+> ### Sentences a clinician should re-read, and why
+>
+> Listed in Part 1 §"What a clinician must decide" and §"Sentences to read for the no-assessment
+> line". The short version: the `38C` threshold in every red-flag box; the water temperature and
+> storage times in `bottle-and-formula-feeding`, which were read as hygiene parameters rather than
+> doses; the "put the baby down and step away" passage in `newborn-crying`, which is the
+> highest-value passage in the set; and four sentences that come closest to reassuring her about her
+> own baby rather than describing a population.
+>
+> ### What to do next
+>
+> `git branch --list "wip/*"` (expect nothing), then take the top open item in
+> `docs/07_MASTER_TODO.md` → **▶ NOW**. P2.13c stays `[~]` until the owner publishes and answers
+> the two B7 questions; nothing about it needs you. The one content set still out with another
+> agent is week-by-week (`docs/content/HANDOVER_WEEK_BY_WEEK.md`, B9 → weeks 4–40).
+>
+> Run the full gate before every push, and never end a turn with a dirty tree.
