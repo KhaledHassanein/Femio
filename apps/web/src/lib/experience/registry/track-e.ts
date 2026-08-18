@@ -132,8 +132,20 @@ const E2: PersonaRecord = {
       { id: "support.breastSymptoms", emphasis: "primary" },
     ],
   },
-  // A feeding log deliberately minimal enough not to become a baby tracker (§E4).
-  tools: ["symptom", "mood", "period"],
+  /**
+   * The feeding log, surfaced by the persona that owns it (R2.10b).
+   *
+   * `feeding` existed as a `LogKind` and no record offered it, so the engine could
+   * not reach the surface E2 is entirely about. It sits here and nowhere else in
+   * Track E for the same reason the newborn topics do: E2's resolver gate is a
+   * **stated live birth**, which E6 can never satisfy, and a feeding logger on the
+   * recovery spine would reach a woman after a loss through `extends`.
+   *
+   * Deliberately minimal enough not to become a baby tracker (§E4) — her feeding,
+   * her breasts, her body — and it surfaces *alongside* everything E1 offered,
+   * because nothing is ever removed.
+   */
+  tools: ["symptom", "mood", "period", "feeding"],
   content: {
     skin: "postpartum-feeding",
     /**
