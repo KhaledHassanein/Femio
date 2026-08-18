@@ -144,7 +144,29 @@ export type LogKind =
   | "movement"
   | "contractions"
   | "appointment"
-  | "mood";
+  | "mood"
+  /**
+   * The two kinds that shipped as screens before they existed here (R2.10a).
+   *
+   * `/fertility` (P2.1) and the feeding surfaces (P2.3) are built and reachable,
+   * and neither could ever be *surfaced by the engine*: a persona cannot ask for a
+   * logger the contract has no word for. So the TTC dashboard reaches its own
+   * screen through a `mode === "ttc"` button — the last shape of the defect
+   * `docs/23` opened this workstream with, surviving in the one place the engine
+   * could not see.
+   *
+   * They are added here, alone, and deliberately ahead of the registries adopting
+   * them: which personas *surface* a logger is a persona decision that belongs in
+   * `registry/`, and inventing the vocabulary inside a screen is exactly what
+   * `native-readiness-lint` exists to catch. A kind with no record offering it
+   * costs nothing and is visible; a screen inventing one is invisible.
+   *
+   * `feeding` is scoped by E2 §E and must stay so: her feeding, her breasts, her
+   * body. It is not a baby tracker, and a `LogKind` is where that could quietly
+   * stop being true.
+   */
+  | "fertility"
+  | "feeding";
 
 /**
  * Alert cadences and red-flag sets.
