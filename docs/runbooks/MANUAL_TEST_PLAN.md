@@ -288,6 +288,44 @@ of these pages would plant a label a clinician would not.
       itself in** as you publish, with no deploy: A2 foregrounds seven topics and shows the first
       four that are live.
 
+### T25 · The thirty-seven week-by-week entries (P2.2.2) — you are the review gate, and the risk is one sentence type
+`femio-cms.vercel.app/admin` → Articles. Thirty-seven new drafts, `pregnancy-week-4` … `pregnancy-week-40`, none public.
+
+**What the whole set turns on.** Not accuracy of the fun — the fun is approved — but whether any
+sentence reads as a measurement of *her* baby. *"Around week 12 the NHS gives a measurement of
+5.4cm, about the size of a plum"* is a population illustration; *"your baby is the size of a
+plum"* is a verdict handed to a woman whose scan measured small. Every figure in the set is
+attributed and hedged, and the full argument plus the five places I was least sure is in
+`docs/content/HANDOVER_WEEK_BY_WEEK_RETURN.md` Part 4. **Read that part before the articles.**
+
+- [ ] Read these six first, in this order: **week 24** (viability, and the week the movement line
+      enters the red-flag box), **week 40** (the due date as an estimate, term as 37–42 weeks, and
+      how the 41/42-week induction offer is described), **week 28** (repeat bloods, anti-D,
+      glucose screening and RSV — the busiest week, and three of those differ UK vs US), **weeks
+      25 and 35** (the two pre-eclampsia pages, each drawing a line a reader could take the wrong
+      half of), and **week 4** (the only entry with no previous week, read by someone frightened
+      rather than curious).
+- [ ] **The section heading `## Your baby this week` is the most possessive string in the set**
+      and it came from the brief. If you want it changed, say so — all 37 change together.
+- [ ] Check the movement wording. It appears in the red-flag box from **week 23** and says *any
+      reduction in her usual pattern*, routed to the maternity service. **There is no count
+      anywhere in the set**, deliberately. Tell me if you want one; I will argue against it.
+- [ ] Check the three red-flag variants are where you would put them: shoulder-tip pain in weeks
+      **4–12**, fluid leaking from **13**, movement from **23**, pain below the ribs from **35**.
+- [ ] **No fetal weight appears anywhere.** The NHS week pages do not give per-week weights and
+      every table that does traces back to app blogs. If you want weights, they need a source you
+      are willing to stand behind.
+- [ ] Check the care sections. Each names a guideline body and says schedules differ between
+      countries; none presents a schedule as Femio's. Week 28 and week 33 are the two where a UK
+      reader and a US reader are told genuinely different things.
+- [ ] Approve and publish the ones you are happy with. **The pregnancy dashboard reading card
+      fills itself in** as you publish, and from this item on it is **week-aware**: a woman at 14
+      weeks sees `pregnancy-week-14` at the top of her card, and at 31 weeks she sees
+      `pregnancy-week-31`. No deploy, no code change.
+- [ ] On a 390×844 phone, open the pregnancy dashboard and check the reading card at two
+      different gestations (change the due date in Settings). Light, dark, and Arabic RTL — the
+      card heading and the pending line are translated, the article titles are not, because the
+      set is English only.
 ### T23 · The three new design references (R1.5, R1.7, R1.8) — approve or send back
 Open each file directly in a browser; they need no server. Zoom to 100% and look at the phones
 as phones.

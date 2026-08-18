@@ -1,6 +1,6 @@
 # Femio — current state (living document)
 
-**Last updated: 2026-08-16.** This file replaces the seven dated handover documents, which
+**Last updated: 2026-08-18.** This file replaces the seven dated handover documents, which
 are now in `docs/archive/` (ADR-062). **Rewrite this file in place; do not create a new one
 per session.**
 
@@ -370,6 +370,49 @@ encode still hold. The one to remember: an account with nothing logged now score
 rather than 0.21, still under `OFFER_THRESHOLD` (0.4) — worth watching as more weight lands on
 facts that are true of someone who has told us nothing.
 
+## All three content sets are home — the week-by-week 37 landed last (P2.2.2, 2026-08-18)
+
+Written **here**, like the teen ten and the newborn eight, because the chat holding
+`docs/content/HANDOVER_WEEK_BY_WEEK.md` since 2026-08-16 never came back. 37 drafts,
+`pregnancy-week-4` … `pregnancy-week-40`, 612–823 words each, three Tier-1 sources apiece,
+imported as CMS drafts. **101 files now pass the content guard.** The consolidation record —
+every source, every size comparison with the measurement behind it, the five places the
+"measurement of her baby" line was hardest, and what was cut — is
+`docs/content/HANDOVER_WEEK_BY_WEEK_RETURN.md`.
+
+**Checking a source's title, not its status, caught two dead pages.** `content-lint:urls` would
+have passed both: **acog.org serves HTTP 200 with a "Page Not Found" body** for a dead FAQ slug,
+which is the trap `docs/23`-era sessions hit twice before. All 70 unique URLs were fetched and
+their `<h1>` read. Also worth keeping: **NHS moved the entire week-by-week guide** under
+`/best-start-in-life/…/{1st|2nd|3rd}-trimester/week-N/`, the old `/pregnancy/week-by-week/`
+paths 301 rather than 404, and **week 13 is filed under the 2nd trimester**, not the 1st.
+
+**§0.2 held in all 37.** Every figure is population-framed and attributed in the same sentence —
+*"around week 12, the NHS gives a measurement of 5.4cm, about the size of a plum"* — never *"your
+baby is"*. **No fetal weight appears anywhere in the set**: the NHS week pages do not give
+per-week weights, and every table that does traces back to app blogs. A weight is the single
+number most likely to be read as a verdict on a scan. **No movement count appears either**; from
+week 23 the red-flag box says *any reduction in her usual pattern*, routed to maternity services.
+
+**The engine half is the more interesting one, and it closed the oldest defect in the workstream.**
+`week-by-week` left `NO_ARTICLE_YET` for a new `WEEK_AWARE_TOPICS` list resolved by
+`weekArticleSlug`, because it is the first topic in `reading.ts` whose answer depends on a fact
+about her record rather than on a lookup. The pregnancy dashboard's reading slot now renders
+`ReadingList` over D1's own `content.foreground` — **the three hardcoded links there were the last
+live instance of the write-only shape `docs/23` §3.1 opened this workstream with**, surviving one
+screen after P2.3c fixed it for postpartum. The week comes from `pregnancyProgress`, the single
+place that turns an EDD into weeks, so the card and the hero above it cannot disagree.
+
+Two boundaries are held by tests, both watched failing before being trusted:
+
+- **Nothing resolves below week 4.** Substituting the week-4 entry to fill the slot would be the
+  invented-window defect ADR-041/042 fixed at three other life stages, in content form.
+- **Week 40 stands past the due date** rather than falling off the end, because term runs to 42
+  weeks (ADR-053) and that entry is the one a woman at 41 weeks is searching for.
+
+**Nothing is public.** `MANUAL_TEST_PLAN.md` **T25** is the checklist, and the reading card fills
+itself in per-article as the owner approves — no deploy.
+
 ## The teen ten are written and imported (P2.13, 2026-08-17)
 
 Written **here** rather than in the handover chat, on the owner's instruction — the prompt in
@@ -671,27 +714,26 @@ woman two different sentences in the same appointment.
 
 ## First action for the next session
 
-> ### ▶ Checkpoint — 2026-08-16, end of session
+> ### ▶ Checkpoint — 2026-08-18, end of session
 >
 > **Tree clean, `main` pushed, no `wip/` branch.** Everything below this box is
 > *why*; this box is *what next*.
 >
 > **Do next, in order:**
 > 1. `git branch --list "wip/*"` — expect nothing.
-> 2. Take the top open item in `docs/07_MASTER_TODO.md` → ▶ NOW. **The reference set is
->    complete** — R1.5, R1.7 and R1.8 landed 2026-08-16, so five of `docs/25` §3's six screens
->    are drawn and only R1.1b (the owner's hour) is owed. The three that follow directly from
->    them are new and in the queue: **R2.8** (Track B registry), **R2.9** (Track F registry) and
->    **R2.10** (the log screen renders `tools`) — each has its module lists already argued in a
->    reference, and encoding them is the work. **R1.9 implementation should wait for R2.8/R2.9**,
->    because building the cycle dashboard against a `mode ===` branch is building the screen that
->    gets rewritten. Only the week-by-week set is still out with another agent.
+> 2. Take the top open item in `docs/07_MASTER_TODO.md` → ▶ NOW. **R2.10 is the one to take**
+>    (the log screen renders `tools`) — R2.8 and R2.9 closed on 2026-08-17, its finding is already
+>    argued in R1.8, and the three traps waiting in it are written up under *"R2.10 — the log
+>    screen, and where it actually is"* below. After it, **R1.9** (implementing the cycle and
+>    menopause screens against the registries R2.8/R2.9 built) and **R1.1b**, the owner's hour of
+>    screen recordings, which is the last thing owed before R1 implementation.
 > 3. Run the full gate before every push. Never end a turn with a dirty tree.
 >
-> **Two of the three content sets are home.** The teen ten landed 2026-08-17 (P2.13), and **the
-> eight newborn drafts landed the same day** (P2.13c) — written, imported as CMS drafts, wired to
-> Track E, with the return handover in `docs/content/HANDOVER_NEWBORN_BASICS_RETURN.md`. Only
-> `docs/content/HANDOVER_WEEK_BY_WEEK.md` (B9 → weeks 4–40) is still out.
+> **All three content sets are home.** The teen ten (P2.13) and the eight newborn drafts (P2.13c)
+> landed 2026-08-17; **the 37 week-by-week entries landed 2026-08-18** (P2.2.2), with the return
+> handover in `docs/content/HANDOVER_WEEK_BY_WEEK_RETURN.md`. Nothing is out with another agent.
+> **101 drafts pass the content guard and 0 are public** — the review gate is the bottleneck now,
+> not the writing.
 >
 > **Two questions now sit with the owner, neither blocking** — both under `BLOCKERS.md` B7: the
 > infant reviewer statement for doc 15 §8, and where the newborn set may appear. **Read the second
@@ -705,11 +747,12 @@ woman two different sentences in the same appointment.
 > which is the recommendation.
 > - **Owner task 5** — re-deploy the experience Edge Function; its source changed several
 >   times. The local fallback computes the identical document meanwhile.
-> - **`MANUAL_TEST_PLAN.md` T8, T10–T22** — fifteen items shipped 2026-08-16 and **nobody has
->   looked at any of them**. **T22 is the one that unblocks work**: fourteen postpartum drafts
->   waiting on the CMS review gate, and publishing them is what fills the postpartum reading
->   card — no deploy needed, it fills itself in. T21 (what is said after a pregnancy ends,
->   including a stillbirth) and T16 (the EPDS crisis route) are the two that need a clinician.
+> - **`MANUAL_TEST_PLAN.md` T8, T10–T25** — eighteen items now, and **nobody has looked at any of
+>   them**. **The review-gate three are what unblock work**, because each fills a reading card the
+>   moment it is approved, with no deploy: **T22** (fourteen postpartum drafts), **T24** (the teen
+>   ten — the set to read hardest, because its failure mode is invisible to `content-lint`), and
+>   **T25** (the thirty-seven week-by-week entries). T21 (what is said after a pregnancy ends,
+>   including a stillbirth) and T16 (the EPDS crisis route) are the two that most need a clinician.
 >
 > **Working rule, verbatim:** *"I do not want to read anything unless you need my input."*
 > No end-of-turn summaries. Several queue items per pass.
@@ -883,7 +926,11 @@ consolidation starts with the sources and the uncertainties rather than with 37 
 charming feature and a claim: *"babies are often about the length of a lemon"* is a population
 illustration; *"your baby is the size of a lemon"* is a measurement of her pregnancy.
 
-## All three content sets are out, and R1 is what is left (2026-08-16)
+## All three content sets are out, and R1 is what is left (2026-08-16 — superseded 2026-08-18)
+
+*Kept because its reasoning still holds; all three sets are now written and imported. See the
+P2.2.2 section above.*
+
 
 Newborn basics (B7), week-by-week (B9) and the teen ten (B8) each have a self-contained prompt in
 `docs/content/HANDOVER_*.md`, each ending with an instruction to hand back a consolidation prompt.

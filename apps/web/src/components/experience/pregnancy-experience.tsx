@@ -2,12 +2,9 @@
 
 import type { ExperienceConfig } from "@/lib/experience/types";
 import { ExperienceModules } from "./module-registry";
-import {
-  PregnancyHero,
-  PregnancyPanel,
-  PregnancyReading,
-  PregnancyWarningSigns,
-} from "@/components/pregnancy/pregnancy-panel";
+import { PregnancyHero, PregnancyPanel, PregnancyWarningSigns } from "@/components/pregnancy/pregnancy-panel";
+import { ReadingList } from "./reading-list";
+import { pregnancyProgress } from "@/lib/pregnancy";
 import { EndPregnancy } from "@/components/pregnancy/end-pregnancy";
 import { NextAppointmentCard } from "@/components/appointments/next-appointment-card";
 import { WeightChart } from "@/components/pregnancy/weight-chart";
@@ -55,6 +52,7 @@ export function PregnancyExperience({
   config: ExperienceConfig | null;
 }) {
   const t = useTranslations("dashboard");
+  const tp = useTranslations("pregnancy");
 
   /**
    * Fall back to the fixed panel when there is no dashboard to draw: no served
@@ -90,7 +88,27 @@ export function PregnancyExperience({
           appointments: <NextAppointmentCard />,
           weight: <WeightChart />,
           contractions: <ContractionTimer />,
-          reading: <PregnancyReading />,
+          /**
+           * P2.2.2. Until now this slot rendered three hardcoded links — the same
+           * write-only shape `docs/23` §3.1 opened this workstream with, surviving
+           * one screen after P2.3c fixed it for postpartum. It is now D1's own
+           * `content.foreground`, and `week-by-week` resolves to the entry for the
+           * week she is actually in.
+           *
+           * The week comes from `pregnancyProgress`, the single place in this
+           * codebase that turns an EDD into weeks — the same function the hero above
+           * uses, so the card and the hero can never disagree about how pregnant she
+           * is. Which slug that week maps to is decided in `lib/experience/reading.ts`,
+           * not here.
+           */
+          reading: (
+            <ReadingList
+              foreground={config!.content.foreground}
+              heading={tp("reading.heading")}
+              pending={tp("reading.pending")}
+              gestationalWeek={pregnancyProgress(pregnancy!.edd!, today)?.weeks ?? null}
+            />
+          ),
           movement: (
             <Button asChild variant="outline" className="w-full">
               <Link href="/track">{t("logCta")}</Link>

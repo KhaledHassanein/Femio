@@ -89,6 +89,10 @@ export const ARTICLE_FOR_TOPIC: Readonly<Record<string, string>> = {
   // Track D.
   "appointments-and-tests": "first-pregnancy-appointment",
   "warning-signs": "pregnancy-warning-signs",
+  /**
+   * `week-by-week` is deliberately **not** here — it is the one topic in this file
+   * that has no single answer. See `WEEK_AWARE_TOPICS` below.
+   */
 
   // Track E — the fourteen postpartum drafts (B2, approved 2026-08-16).
   "recovery-after-birth": "postpartum-recovery-first-six-weeks",
@@ -121,11 +125,48 @@ export const ARTICLE_FOR_TOPIC: Readonly<Record<string, string>> = {
 };
 
 /**
+ * Topics answered by a **set** rather than by one article, resolved from a fact
+ * about her record instead of from a lookup (P2.2.2).
+ *
+ * `week-by-week` is the first and, today, the only one. D1 has foregrounded it since
+ * R2.1 and it sat in `NO_ARTICLE_YET` for as long as there was nothing behind it;
+ * there are now 37 entries, weeks 4 to 40, and the right one depends on how pregnant
+ * she is. A static map cannot express that, and a component computing it would put a
+ * content decision in a screen — so it lives here, in tier 1, beside the map.
+ *
+ * These topics are counted by `reading.test.ts` exactly like the two lists are: a
+ * topic must be in the map, in `NO_ARTICLE_YET`, or here.
+ */
+export const WEEK_AWARE_TOPICS: readonly string[] = ["week-by-week"];
+
+/**
+ * The week entry for a gestational week, or `null` when there is none to give.
+ *
+ * Two boundaries, both deliberate and both from `docs/content/HANDOVER_WEEK_BY_WEEK.md`:
+ *
+ * - **Below week 4 there is no article, and none is substituted.** Dating counts from
+ *   the last period, so weeks 1–3 precede conception and an entry for them would teach
+ *   the wrong thing. Returning week 4 to fill the slot would be the invented-window
+ *   defect (ADR-041/042) in content form.
+ * - **Past week 40 the week-40 entry stands**, because it is the one that covers going
+ *   past the due date, and because term runs to 42 weeks (ADR-053). Falling off the end
+ *   into no article at 41 weeks would remove the page precisely when it is being
+ *   searched for.
+ */
+export function weekArticleSlug(gestationalWeek: number | null | undefined): string | null {
+  if (gestationalWeek == null || !Number.isFinite(gestationalWeek)) return null;
+  const week = Math.floor(gestationalWeek);
+  if (week < 4) return null;
+  return `pregnancy-week-${Math.min(week, 40)}`;
+}
+
+/**
  * Foregrounded topics with no article behind them yet. Each is a real content
  * commitment from a persona spec, and each is queued:
  *
- * - `week-by-week` and the pregnancy topics — **P2.2.2**, still needing its own
- *   title approval; the brief forbids hand-writing a 40-entry set.
+ * - the remaining pregnancy topics — `nutrition` and the clinical layers.
+ *   (`week-by-week` left this list with P2.2.2; it is answered by the 37 week
+ *   entries and resolved through `weekArticleSlug`.)
  * - the Track A topics — **P2.13**.
  * - the D2/D3/D4/D7 topics — clinical layers, unwritten.
  * - `mastitis-and-blocked-ducts` — covered *inside* `when-breastfeeding-is-not-working`
@@ -178,8 +219,7 @@ export const NO_ARTICLE_YET: readonly string[] = [
   "bones-after-menopause",
   "heart-after-menopause",
   "gsm-explained",
-  // Track D — P2.2.2 and the clinical layers.
-  "week-by-week",
+  // Track D — the clinical layers, and the one general topic still unwritten.
   "nutrition",
   "milestone-at-a-time",
   "however-you-feel",
@@ -216,11 +256,22 @@ export const NO_ARTICLE_YET: readonly string[] = [
  */
 export const READING_LIST_LIMIT = 4;
 
-/** Candidate slugs for a foreground list, in the order the personas asked for them. */
-export function articleSlugsFor(foreground: readonly string[]): string[] {
+/**
+ * Candidate slugs for a foreground list, in the order the personas asked for them.
+ *
+ * `gestationalWeek` is what makes the pregnancy card week-aware (P2.2.2). It is
+ * optional because every other track resolves without it, and because a caller that
+ * does not know how pregnant she is should drop the topic rather than guess a week.
+ */
+export function articleSlugsFor(
+  foreground: readonly string[],
+  opts: { gestationalWeek?: number | null } = {},
+): string[] {
   const slugs: string[] = [];
   for (const topic of foreground) {
-    const slug = ARTICLE_FOR_TOPIC[topic];
+    const slug = WEEK_AWARE_TOPICS.includes(topic)
+      ? weekArticleSlug(opts.gestationalWeek)
+      : ARTICLE_FOR_TOPIC[topic];
     if (slug && !slugs.includes(slug)) slugs.push(slug);
   }
   return slugs;

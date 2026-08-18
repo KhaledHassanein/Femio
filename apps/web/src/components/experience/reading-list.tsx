@@ -29,14 +29,24 @@ export function ReadingList({
   foreground,
   heading,
   pending,
+  gestationalWeek,
 }: {
   foreground: readonly string[];
   heading: string;
   pending: string;
+  /**
+   * How many completed weeks pregnant she is, when the caller knows (P2.2.2).
+   *
+   * Only `week-by-week` reads it, and the mapping from a week to a slug lives in
+   * `lib/experience/reading.ts` rather than here — a component picking which article
+   * a pregnancy topic resolves to would be a content decision inside a screen. Left
+   * undefined, the topic drops out, which is the honest answer when nobody knows.
+   */
+  gestationalWeek?: number | null;
 }) {
   const locale = useLocale();
   const [articles, setArticles] = useState<Article[]>([]);
-  const slugs = articleSlugsFor(foreground);
+  const slugs = articleSlugsFor(foreground, { gestationalWeek });
   const key = slugs.join(",");
 
   useEffect(() => {

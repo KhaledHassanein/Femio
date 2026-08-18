@@ -4,7 +4,9 @@ import {
   ARTICLE_FOR_TOPIC,
   NO_ARTICLE_YET,
   READING_LIST_LIMIT,
+  WEEK_AWARE_TOPICS,
   articleSlugsFor,
+  weekArticleSlug,
 } from "./reading";
 
 const foregroundTopics = [
@@ -20,7 +22,8 @@ describe("the reading list mapping", () => {
    */
   it("accounts for every topic any persona foregrounds", () => {
     const unaccounted = foregroundTopics.filter(
-      (t) => !(t in ARTICLE_FOR_TOPIC) && !NO_ARTICLE_YET.includes(t),
+      (t) =>
+        !(t in ARTICLE_FOR_TOPIC) && !NO_ARTICLE_YET.includes(t) && !WEEK_AWARE_TOPICS.includes(t),
     );
     expect(unaccounted).toEqual([]);
   });
@@ -30,13 +33,20 @@ describe("the reading list mapping", () => {
     const known = new Set(foregroundTopics);
     expect(Object.keys(ARTICLE_FOR_TOPIC).filter((t) => !known.has(t))).toEqual([]);
     expect(NO_ARTICLE_YET.filter((t) => !known.has(t))).toEqual([]);
+    expect(WEEK_AWARE_TOPICS.filter((t) => !known.has(t))).toEqual([]);
   });
 
   it("never claims a topic twice", () => {
     expect(NO_ARTICLE_YET.filter((t) => t in ARTICLE_FOR_TOPIC)).toEqual([]);
+    expect(WEEK_AWARE_TOPICS.filter((t) => t in ARTICLE_FOR_TOPIC)).toEqual([]);
+    expect(WEEK_AWARE_TOPICS.filter((t) => NO_ARTICLE_YET.includes(t))).toEqual([]);
   });
 
-  it("keeps the personas' order and drops what is unwritten", () => {
+  /**
+   * `week-by-week` drops out here because no gestational week was given — a caller
+   * that does not know how pregnant she is may not pick a week for her.
+   */
+  it("keeps the personas' order and drops what it cannot resolve", () => {
     expect(articleSlugsFor(["when-to-seek-care", "week-by-week", "recovery-after-birth"])).toEqual([
       "postpartum-warning-signs",
       "postpartum-recovery-first-six-weeks",
@@ -124,5 +134,72 @@ describe("the reading list mapping", () => {
 
   it("caps a card at four links", () => {
     expect(READING_LIST_LIMIT).toBe(4);
+  });
+});
+
+/**
+ * The week-by-week set (P2.2.2) — the first topic in this file whose answer depends
+ * on a fact about her record rather than on a lookup.
+ */
+describe("the week-by-week resolution", () => {
+  it("gives the entry for the week she is in", () => {
+    expect(weekArticleSlug(4)).toBe("pregnancy-week-4");
+    expect(weekArticleSlug(14)).toBe("pregnancy-week-14");
+    expect(weekArticleSlug(40)).toBe("pregnancy-week-40");
+  });
+
+  /**
+   * Weeks 1–3 have no entry and none is substituted. Dating counts from the last
+   * period, so they precede conception; handing back week 4 to fill the slot would be
+   * the invented-window defect ADR-041/042 fixed at three other life stages.
+   */
+  it("gives nothing before week 4 rather than the nearest article", () => {
+    expect(weekArticleSlug(3)).toBeNull();
+    expect(weekArticleSlug(0)).toBeNull();
+    expect(weekArticleSlug(null)).toBeNull();
+    expect(weekArticleSlug(undefined)).toBeNull();
+  });
+
+  /**
+   * Term runs to 42 weeks (ADR-053) and the week-40 entry is the one that covers
+   * going past the due date, so it stands rather than falling off the end — which
+   * would remove the page exactly when it is being searched for.
+   */
+  it("holds week 40 past the due date instead of running out", () => {
+    expect(weekArticleSlug(41)).toBe("pregnancy-week-40");
+    expect(weekArticleSlug(42)).toBe("pregnancy-week-40");
+  });
+
+  /** The partial week is hers; the article is the completed week she is in. */
+  it("uses completed weeks", () => {
+    expect(weekArticleSlug(23.9)).toBe("pregnancy-week-23");
+  });
+
+  /**
+   * D1's shelf, pinned like E1's and E2's. This is the assertion that would fail if
+   * `week-by-week` ever went back to being a static slug: the same persona, two
+   * different weeks, two different first links.
+   */
+  it("gives the pregnancy spine a card that changes with her week", () => {
+    const d1 = PERSONA_RECORDS.find((r) => r.id === "D1")!;
+    expect(articleSlugsFor(d1.content.foreground, { gestationalWeek: 12 })).toEqual([
+      "pregnancy-week-12",
+      "first-pregnancy-appointment",
+      "pregnancy-warning-signs",
+    ]);
+    expect(articleSlugsFor(d1.content.foreground, { gestationalWeek: 31 })).toEqual([
+      "pregnancy-week-31",
+      "first-pregnancy-appointment",
+      "pregnancy-warning-signs",
+    ]);
+  });
+
+  /** Before week 4 the rest of the card still fills; only the week entry is absent. */
+  it("leaves the rest of the card intact when there is no week entry", () => {
+    const d1 = PERSONA_RECORDS.find((r) => r.id === "D1")!;
+    expect(articleSlugsFor(d1.content.foreground, { gestationalWeek: 2 })).toEqual([
+      "first-pregnancy-appointment",
+      "pregnancy-warning-signs",
+    ]);
   });
 });
