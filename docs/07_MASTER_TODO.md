@@ -16,6 +16,79 @@ and why) → `docs/24_REVAMP_PLAN.md` (the architecture) → `docs/25_DESIGN_DIR
 
 ---
 
+## ▣ Readiness — the running score (update this in place, every pass)
+
+**Measured 2026-08-18 at `9167302`.** This section is a *living instrument*, not a report: change
+the numbers when they change, and change the verdicts when the evidence does. It exists so
+"how far are we" stops being re-derived from scratch each session.
+
+### The numbers, and how they were taken
+
+| | Now | How it was measured | Moves when |
+|---|---|---|---|
+| Authored articles | **101** | `ls docs/content/articles/*.md \| wc -l` | a set is drafted |
+| **Live to readers** | **26** | `curl` the CMS public API and read `totalDocs` | the owner approves drafts |
+| Waiting on the review gate | **75** | the difference | same |
+| Unit tests | **576** across 55 files | `pnpm test` | any tier-1/2 change |
+| Guards | **12**, all green | the gate list in `STATE.md` | a new class of mistake earns one |
+| E2E | **63/63** | `CI=1 pnpm --filter web test:e2e:ci` | a route or flow changes |
+| Persona registries | **5 of 6 tracks** — A, B, D, E, F | `ls lib/experience/registry/` | Track C lands |
+| Queue | 32 done · 14 in flight · 70 open | `grep -c` the status markers | every pass |
+
+### What is actually finished, and what only looks finished
+
+**Finished and provable.** The experience engine end to end: signals from her real record, a
+resolver with hard gates, a served `ExperienceConfig`, a module registry, and five tracks whose
+personas are reachable — each proven by a reachability suite rather than asserted. The content
+pipeline: authoring brief → `content-lint` (structure, sourcing, claims, links, uniqueness) →
+`content-lint:urls` → importer → review gate → a reading card that fills itself in on publish
+with no deploy. Export, delete, offline queue, consent, staff MFA, crisis routing.
+
+**The single biggest gap between built and useful: 75 of 101 articles are invisible.** Every
+reading card in the product is sized to show four links and most can show one or none, because
+the pages exist and are not published. This is one owner action, not a workstream, and it is
+worth more to a real reader than anything else currently open.
+
+**Looks finished, is not.** Five tracks have registries; **only three have screens** — the
+pregnancy, postpartum and teen dashboards render from the engine, while Track B and Track F
+render the old panels, so R2.8/R2.9's work reaches a woman as tone, alerts and reading list but
+not as layout (R1.9). **Track C (TTC) has no registry at all** — `/fertility` exists, C1/C2/C3
+resolve, and there is no record for them to compose. And the log screen still branches on
+`isPregnancy` five times instead of reading `tools` (**R2.10**).
+
+**Not started, and honestly scoped.** The Flutter client (R5) — the stated destination, zero
+lines written. Pattern analysis (P2.5) — named in `docs/03` §H as the one feature people would
+pay for, and the only R4 item with revenue attached. Notifications (P2.8) — the first reason to
+return between sessions.
+
+**Deferred by owner direction, blocking nothing:** P0.12 legal, billing, store compliance,
+community. The trigger for legal is the first real user, which is why P0.12.5 (gating signup)
+sits ahead of P1.24 (the beta) rather than beside it.
+
+### The shortest path to "finished, properly"
+
+Ordered by *value per hour*, not by section number. Re-order it when the evidence changes, and
+say why in the commit.
+
+1. **Publish the 75 drafts.** Owner action, minutes, and it triples what a reader can reach.
+2. **R2.10** — the log screen renders `tools`. Removes the last `mode ===` screen and unblocks
+   fertility and feeding logging, which have no `LogKind` and therefore cannot be surfaced.
+3. **Track C registry** — the only track resolving into nothing. Same shape as R2.8/R2.9.
+4. **R1.9** — implement the approved references, cycle first. The engine is ready and the
+   screens are the last place the old architecture survives.
+5. **P0.12.5 → P1.24** — gate signup, then 20–50 real users. Every quality judgement so far,
+   including this one, is internal. This is the highest-information action available and it has
+   been available for weeks.
+6. **P2.5 pattern analysis** — the differentiator, and the thing a paid tier could rest on.
+7. **R5.1 Flutter** — only after the web product is one a beta liked, because building the same
+   screens twice before knowing which screens are right is the expensive order.
+
+**The trap to name once:** everything above item 5 is still guesswork about what women want,
+because nobody outside this repo has used it. Items 1–4 make the product coherent; item 5 makes
+the next decision *informed*. Do not let 6 and 7 jump the queue on enthusiasm.
+
+---
+
 ## ▶ NOW — in this order, and do not jump the queue
 
 1. **R1** — design direction. Nothing else visible improves until this does.
