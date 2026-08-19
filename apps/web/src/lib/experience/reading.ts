@@ -106,6 +106,13 @@ export const ARTICLE_FOR_TOPIC: Readonly<Record<string, string>> = {
    * rather than a date.
    */
   "age-and-fertility": "age-and-fertility",
+  /**
+   * R2.11c. C6's topic. It is the page where Femio's refusal to name an ovulation
+   * day stops being a technical footnote and becomes the actual advice: when
+   * cycles vary there is no day to aim at, and saying so is more useful than a
+   * confident window drawn from unstable data.
+   */
+  "irregular-cycles-and-timing": "irregular-cycles-and-timing",
 
   // Track D.
   "appointments-and-tests": "first-pregnancy-appointment",
@@ -200,12 +207,11 @@ export function weekArticleSlug(gestationalWeek: number | null | undefined): str
  */
 export const NO_ARTICLE_YET: readonly string[] = [
   /**
-   * Track C — R2.11. Two topics C6 and C8 name that the library does not answer.
-   * `what-a-workup-involves` left in R2.11a and `age-and-fertility` in R2.11b; the
-   * first was the hero of two personas with nothing behind it, and the second was
-   * C3's whole reason for existing separately from C2.
+   * Track C — R2.11. One topic left: C8's. `what-a-workup-involves` left this list
+   * in R2.11a (the hero of two personas with nothing behind it), `age-and-fertility`
+   * in R2.11b (C3's whole reason for existing separately from C2), and
+   * `irregular-cycles-and-timing` in R2.11c.
    */
-  "irregular-cycles-and-timing",
   "thyroid-and-conceiving",
   // Track A is fully covered as of P2.13 (2026-08-17) — the ten teen drafts are in
   // `docs/content/articles/`, so every A1 and A2 topic has an article above. It was
