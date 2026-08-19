@@ -1,6 +1,7 @@
 import type { PersonaRecord } from "../types.ts";
 import { TRACK_A_RECORDS } from "./track-a.ts";
 import { TRACK_B_RECORDS } from "./track-b.ts";
+import { TRACK_C_RECORDS } from "./track-c.ts";
 import { TRACK_D_RECORDS } from "./track-d.ts";
 import { TRACK_E_RECORDS } from "./track-e.ts";
 import { TRACK_F_RECORDS } from "./track-f.ts";
@@ -16,6 +17,7 @@ import { TRACK_F_RECORDS } from "./track-f.ts";
 export const PERSONA_RECORDS: readonly PersonaRecord[] = [
   ...TRACK_A_RECORDS,
   ...TRACK_B_RECORDS,
+  ...TRACK_C_RECORDS,
   ...TRACK_D_RECORDS,
   ...TRACK_E_RECORDS,
   ...TRACK_F_RECORDS,

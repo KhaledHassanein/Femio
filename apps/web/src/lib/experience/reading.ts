@@ -86,6 +86,13 @@ export const ARTICLE_FOR_TOPIC: Readonly<Record<string, string>> = {
    */
   "postmenopausal-bleeding": "postmenopausal-bleeding",
 
+  // Track C (R2.11) — four of its topics already have published articles.
+  "ttc-basics": "trying-to-conceive-guide",
+  "fertile-window": "fertile-window-explained",
+  "when-to-seek-help": "when-to-seek-fertility-help",
+  "preconception-visit": "preconception-appointment",
+  "pcos-and-conceiving": "pcos-and-fertility",
+
   // Track D.
   "appointments-and-tests": "first-pregnancy-appointment",
   "warning-signs": "pregnancy-warning-signs",
@@ -178,6 +185,17 @@ export function weekArticleSlug(gestationalWeek: number | null | undefined): str
  *   authoring brief forbids.
  */
 export const NO_ARTICLE_YET: readonly string[] = [
+  /**
+   * Track C — R2.11. Four topics C2, C3, C6 and C8 name that the library does not
+   * answer. **`what-a-workup-involves` is the one to write first:** it is the hero
+   * of both C2 and C3, so a woman past her evaluation window gets a roadmap card
+   * with nothing behind it — the same shape as the red flag Track F carried with no
+   * page until R2.9b.
+   */
+  "what-a-workup-involves",
+  "age-and-fertility",
+  "irregular-cycles-and-timing",
+  "thyroid-and-conceiving",
   // Track A is fully covered as of P2.13 (2026-08-17) — the ten teen drafts are in
   // `docs/content/articles/`, so every A1 and A2 topic has an article above. It was
   // the whole of this list two weeks ago, which is the fastest a foreground list in

@@ -13,15 +13,17 @@ describe("the log vocabulary", () => {
   const offered = new Set<string>(PERSONA_RECORDS.flatMap((r) => [...r.tools]));
 
   /**
-   * `feeding` is wired (R2.10b) and `fertility` is not, and the split is the point:
-   * E2 owns feeding and exists, while the persona that owns fertility logging is
-   * Track C — which has **no registry at all**. C1, C2 and C3 resolve into nothing
-   * to compose, so `/fertility` is still opened by a button rather than surfaced by
-   * the engine. Delete this half when Track C lands; do not weaken it before then.
+   * Both kinds now reach a persona (R2.11 closed the fertility half by giving
+   * Track C a registry at last). What this asserts is the property that made them
+   * worth adding: a screen exists *because a persona asked for it*, not because a
+   * component knew about it. `/fertility` was opened by a `mode === "ttc"` button
+   * for weeks precisely because C1 had no record to put `fertility` in.
    */
-  it("still has nobody to surface fertility logging, because Track C has no registry", () => {
-    expect(offered.has("fertility")).toBe(false);
-    expect(PERSONA_RECORDS.some((r) => r.track === "C")).toBe(false);
+  it("surfaces fertility logging from Track C, which now exists", () => {
+    expect(offered.has("fertility")).toBe(true);
+    const c = PERSONA_RECORDS.filter((r) => r.track === "C");
+    expect(c.length).toBeGreaterThan(0);
+    expect(c.every((r) => r.tools.includes("fertility"))).toBe(true);
   });
 
   /**

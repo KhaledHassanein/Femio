@@ -113,6 +113,17 @@ export const UNIMPLEMENTED: readonly ModuleId[] = [
   "visitPrep",
   "privacy",
   /**
+   * Track C's surfaces (R2.11), data-only like B and F. `/fertility` already
+   * exists and is a real screen — what was missing was any persona able to *ask*
+   * for it, which is why the TTC dashboard opened it with a button. The document
+   * now carries `fertility` in `tools`, so the log screen surfaces it from data;
+   * these four are the cards R1.9 draws on the dashboard itself.
+   */
+  "ttc.window",
+  "ttc.logSummary",
+  "ttc.workup",
+  "ttc.conditionContext",
+  /**
    * Track F's surfaces (R2.9), data-only for the same reason Track B's are. Two
    * of them already exist as components on the shipped menopause panel —
    * `MrsCheck` and the months-since hero — and wiring them through the registry

@@ -62,6 +62,17 @@ export type ModuleId =
   | "cycle.flowStrip"
   | "cycle.personalNormal"
   | "cycle.changeAwareness"
+  // ---- Track C — trying to conceive (R2.11)
+  /**
+   * `ttc.window` is awareness, not a verdict: `lib/fertility` has no `isFertile`
+   * and never will, so this module surfaces her own logs and the dates she can
+   * plan around — never "days you could avoid", which is the contraception line
+   * and the medical-device line in one step.
+   */
+  | "ttc.window"
+  | "ttc.logSummary"
+  | "ttc.workup"
+  | "ttc.conditionContext"
   // ---- Track F — perimenopause & menopause (R2.9)
   /**
    * `menopause.trend` is what replaces the ring `docs/25` §5a rejects: her recent
