@@ -1039,6 +1039,18 @@
       }
     },
   "postpartum": {
+    "moodSupport": {
+      "heading": "How you feel is not a verdict on you",
+      "body": "Low mood, anxiety and numbness after birth are common and they respond to support. Feeling this way is not a failure and it is not permanent.",
+      "cta": "What to look for, and who to tell"
+    },
+    "intrusiveThoughts": {
+      "helpNow": "Need help now?",
+      "heading": "Frightening thoughts are more common than anyone says",
+      "body": "Sudden, unwanted thoughts about harm coming to your baby happen to most new parents. They are frightening precisely because they are the opposite of what you want, and having them says nothing about what you would do. Telling a clinician about them is safe.",
+      "cta": "Read about intrusive thoughts",
+      "urgent": "If you feel pulled to act on a thought, or unable to stay safe, get help today."
+    },
     "checkIn": {
       "eyebrow": "After birth",
       "heading": "How are you doing today?",

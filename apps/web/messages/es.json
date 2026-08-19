@@ -1039,6 +1039,18 @@
       }
     },
   "postpartum": {
+    "moodSupport": {
+      "heading": "Lo que sientes no es un veredicto sobre ti",
+      "body": "El ánimo bajo, la ansiedad y el entumecimiento tras el parto son frecuentes y responden al apoyo. Sentirte así no es un fracaso ni es para siempre.",
+      "cta": "Qué observar y a quién contárselo"
+    },
+    "intrusiveThoughts": {
+      "helpNow": "¿Necesitas ayuda ahora?",
+      "heading": "Los pensamientos que asustan son más comunes de lo que se dice",
+      "body": "Los pensamientos repentinos y no deseados sobre un daño a tu bebé les ocurren a la mayoría de madres y padres nuevos. Asustan precisamente porque son lo contrario de lo que quieres, y tenerlos no dice nada sobre lo que harías. Contárselo a un profesional es seguro.",
+      "cta": "Leer sobre los pensamientos intrusivos",
+      "urgent": "Si sientes el impulso de actuar según un pensamiento, o no puedes mantenerte a salvo, busca ayuda hoy."
+    },
     "checkIn": {
       "eyebrow": "Después del parto",
       "heading": "¿Cómo estás hoy?",

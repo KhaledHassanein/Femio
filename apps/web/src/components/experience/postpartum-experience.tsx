@@ -7,6 +7,7 @@ import { ReadingList } from "./reading-list";
 import { MoodCheck } from "@/components/postpartum/mood-check";
 import { Alert, AlertDescription } from "@/components/ui/alert";
 import { Button } from "@/components/ui/button";
+import { Card, CardContent } from "@/components/ui/card";
 import { HeroCard } from "@/components/ui/hero-card";
 import { Link } from "@/i18n/navigation";
 
@@ -87,6 +88,48 @@ export function PostpartumExperience({ config }: { config: ExperienceConfig | nu
     );
   }
 
+  /**
+   * E3's two surfaces (R1.9j). E3 is the highest-sensitivity persona in the
+   * product by its own spec, and both cards exist to do one thing: **separate her
+   * from the illness**. No score, no label, nothing that says "you might have".
+   *
+   * The intrusive-thoughts card is the one that earns its place. §A: unwanted
+   * thoughts about harm coming to the baby are reported by the large majority of
+   * new mothers, and the shame is what stops her telling anyone — so the card says
+   * the sentence that ends it, plainly, and routes the one case that is urgent.
+   * It carries **no phone number** (P1.26.1) and never implies she is dangerous.
+   */
+  const moodSupport = (
+    <Card>
+      <CardContent className="flex flex-col gap-2 p-6">
+        <h2 className="font-display text-lg text-text">{t("moodSupport.heading")}</h2>
+        <p className="text-sm text-text-muted">{t("moodSupport.body")}</p>
+        <Link href="/learn/mood-after-birth" className="text-sm text-text-link underline">
+          {t("moodSupport.cta")}
+        </Link>
+      </CardContent>
+    </Card>
+  );
+
+  const intrusiveThoughts = (
+    <Card>
+      <CardContent className="flex flex-col gap-2 p-6">
+        <h2 className="font-display text-lg text-text">{t("intrusiveThoughts.heading")}</h2>
+        <p className="text-sm text-text-muted">{t("intrusiveThoughts.body")}</p>
+        <Link href="/learn/mood-after-birth" className="text-sm text-text-link underline">
+          {t("intrusiveThoughts.cta")}
+        </Link>
+        {/* The one case that is not reassurance: a thought she feels pulled to act
+            on is help-today, and it routes to the global crisis page rather than
+            being softened into the paragraph above it. */}
+        <p className="text-sm text-text">{t("intrusiveThoughts.urgent")}</p>
+        <Link href="/help-now" className="text-sm text-text-link underline">
+          {t("intrusiveThoughts.helpNow")}
+        </Link>
+      </CardContent>
+    </Card>
+  );
+
   return (
     <div className="flex flex-col gap-4">
       <ExperienceModules
@@ -107,6 +150,8 @@ export function PostpartumExperience({ config }: { config: ExperienceConfig | nu
             />
           ),
           moodScreener: <MoodCheck />,
+          moodSupport,
+          intrusiveThoughts,
           warningSigns,
           pregnancyHero: null,
           /**

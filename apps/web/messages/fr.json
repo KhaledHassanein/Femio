@@ -1039,6 +1039,18 @@
       }
     },
   "postpartum": {
+    "moodSupport": {
+      "heading": "Ce que vous ressentez n'est pas un verdict sur vous",
+      "body": "La déprime, l'anxiété et l'engourdissement après l'accouchement sont fréquents et répondent au soutien. Se sentir ainsi n'est ni un échec ni un état définitif.",
+      "cta": "Ce qu'il faut repérer, et à qui en parler"
+    },
+    "intrusiveThoughts": {
+      "helpNow": "Besoin d'aide maintenant ?",
+      "heading": "Les pensées effrayantes sont plus fréquentes qu'on ne le dit",
+      "body": "Des pensées soudaines et non désirées, imaginant un malheur pour votre bébé, surviennent chez la plupart des nouveaux parents. Elles font peur précisément parce qu'elles sont le contraire de ce que vous voulez, et les avoir ne dit rien de ce que vous feriez. En parler à un professionnel est sans danger.",
+      "cta": "Lire sur les pensées intrusives",
+      "urgent": "Si vous vous sentez poussée à agir sur une pensée, ou incapable d'être en sécurité, demandez de l'aide aujourd'hui."
+    },
     "checkIn": {
       "eyebrow": "Après la naissance",
       "heading": "Comment allez-vous aujourd'hui ?",
