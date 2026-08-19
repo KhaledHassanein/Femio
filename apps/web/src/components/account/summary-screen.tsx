@@ -6,6 +6,7 @@ import { KNOWN_SYMPTOMS } from "@/lib/cycle/symptoms";
 import { useSupabaseQuery, unwrap } from "@/lib/supabase/use-query";
 import { modeFromTrack } from "@/lib/persona/state";
 import { Alert, AlertDescription } from "@/components/ui/alert";
+import { parsePrep } from "@/lib/appointments";
 import { Button } from "@/components/ui/button";
 import { PrintButton } from "@/components/account/print-button";
 import { Link } from "@/i18n/navigation";
@@ -25,7 +26,7 @@ export function SummaryScreen() {
   const format = useFormatter();
 
   const query = useSupabaseQuery(async (supabase) => {
-    const [state, cycles, symptoms, meds, conditions, keyDates] = await Promise.all([
+    const [state, cycles, symptoms, meds, conditions, keyDates, appointments] = await Promise.all([
       unwrap(supabase.from("persona_state").select("track").maybeSingle()),
       unwrap(
         supabase
@@ -46,9 +47,39 @@ export function SummaryScreen() {
           ascending: false,
         }),
       ),
+      /**
+       * Her own questions, for the sheet she takes with her (P2.6).
+       *
+       * `appointments.prep` is the field P2.2.3 called "the thing people actually
+       * lose" — the questions they meant to ask — and it has lived on a screen she
+       * would have to remember to open. This is the page that gets printed, so it
+       * is where they belong.
+       */
+      unwrap(
+        supabase
+          .from("appointments")
+          .select("prep, datetime")
+          .order("datetime", { ascending: true }),
+      ),
     ]);
 
-    return buildVisitSummary(
+    /**
+     * Every question she has written down that has not already happened, oldest
+     * appointment first. Deliberately not just the next one: she may have written
+     * questions against a follow-up she has not been given a date for, and dropping
+     * them because they are filed under a later row would lose exactly the thing
+     * this section exists to carry. Duplicates are kept — `parsePrep` keeps them
+     * too, and it is not Femio's call that she meant to ask something once.
+     */
+    const todayISO = new Date().toISOString().slice(0, 10);
+    const questions = (appointments ?? [])
+      .filter((a) => {
+        const when = (a as { datetime: string | null }).datetime;
+        return when === null || when.slice(0, 10) >= todayISO;
+      })
+      .flatMap((a) => parsePrep((a as { prep: string | null }).prep ?? ""));
+
+    const summary = buildVisitSummary(
       {
         cycles: cycles ?? [],
         symptoms: symptoms ?? [],
@@ -59,6 +90,7 @@ export function SummaryScreen() {
       },
       new Date().toISOString(),
     );
+    return { summary, questions };
   });
 
   if (query.status === "loading") {
@@ -89,7 +121,7 @@ export function SummaryScreen() {
     );
   }
 
-  const summary = query.data;
+  const { summary, questions } = query.data;
   const fmt = (iso: string) =>
     format.dateTime(new Date(`${iso}T00:00:00Z`), { dateStyle: "medium", timeZone: "UTC" });
   const tsItem = ts as unknown as (key: string) => string;
@@ -242,6 +274,24 @@ export function SummaryScreen() {
           </ul>
         </section>
       ) : null}
+
+      {/* Her own words, printed last so they are the thing at the bottom of the
+          page when she is sitting in the room. Femio adds nothing to them, orders
+          nothing by importance and drops no duplicates — a question she wrote twice
+          is a question she meant twice, and this section is a carrier rather than
+          an editor. */}
+      <section className="flex flex-col gap-2">
+        <h2 className="font-display text-lg text-text">{t("questions.heading")}</h2>
+        {questions.length > 0 ? (
+          <ul className="flex list-disc flex-col gap-1 ps-5 text-sm text-text">
+            {questions.map((q, i) => (
+              <li key={`${i}-${q}`}>{q}</li>
+            ))}
+          </ul>
+        ) : (
+          <p className="text-sm text-text-muted print:hidden">{t("questions.empty")}</p>
+        )}
+      </section>
 
       <p className="border-t border-border pt-4 text-2xs text-text-subtle">{t("disclaimer")}</p>
 

@@ -502,6 +502,10 @@
     "retry": "Réessayer"
   },
   "visitSummary": {
+    "questions": {
+      "heading": "Les questions que vous vouliez poser",
+      "empty": "Rien de noté pour l'instant. Vous pouvez ajouter des questions à un rendez-vous et elles apparaîtront ici."
+    },
     "loadError": "Impossible de charger ton résumé. Rien ne manque dans ton dossier — il s'agit d'un problème de connexion.",
     "retry": "Réessayer",
     "title": "Résumé pour la consultation",

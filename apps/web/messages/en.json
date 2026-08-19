@@ -502,6 +502,10 @@
     "retry": "Try again"
   },
   "visitSummary": {
+    "questions": {
+      "heading": "Questions you wanted to ask",
+      "empty": "Nothing noted yet. You can add questions to an appointment and they will appear here."
+    },
     "loadError": "We couldn't load your summary. Nothing is missing from your record — this is a connection problem.",
     "retry": "Try again",
     "title": "Doctor-visit summary",

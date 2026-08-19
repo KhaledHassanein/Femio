@@ -502,6 +502,10 @@
     "retry": "Reintentar"
   },
   "visitSummary": {
+    "questions": {
+      "heading": "Preguntas que querías hacer",
+      "empty": "Nada anotado todavía. Puedes añadir preguntas a una cita y aparecerán aquí."
+    },
     "loadError": "No pudimos cargar tu resumen. No falta nada en tu registro: es un problema de conexión.",
     "retry": "Reintentar",
     "title": "Resumen para la consulta",

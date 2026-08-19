@@ -207,7 +207,7 @@ only on evidence from a real user, never because a topic list looked incomplete.
 
 - [ ] **P2.5** Pattern engine (timing / severity / co-occurrence, confidence-scored) — **the stated differentiator, not built**.
 - [ ] **P2.8** Notifications (web push + email digests) with discreet mode — the first real reason to return between sessions.
-- [ ] **P2.6** Doctor-visit prep + report export (builds on the existing `/summary`).
+- [~] **P2.6** **The questions she meant to ask are on the printed sheet** 2026-08-19 -> `components/account/summary-screen.tsx`. `appointments.prep` is the field P2.2.3 called *"the thing people actually lose"*, and it lived on a screen she had to remember to open. `/summary` is the page that gets **printed and carried into the room**, so that is where they belong. Every question against an appointment that has not happened yet — not just the next one, because a question written against a follow-up with no date would otherwise vanish for being filed under a later row. **Femio adds nothing to them**: no ordering by importance, no de-duplication (`parsePrep` keeps duplicates and so does this — a question she wrote twice is one she meant twice), no rephrasing. The section is a carrier, not an editor, and it prints last so it is the thing at the bottom of the page while she is sitting there. The empty state is `print:hidden`, because a printed sheet saying *"nothing noted yet"* is worse than a sheet that simply ends. *Remaining: the export half — a shareable file rather than a print dialog.*
 
 ## R5 — Flutter clients (ADR-060) — replaces the Capacitor plan
 
