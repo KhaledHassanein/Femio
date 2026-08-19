@@ -5,8 +5,10 @@ import { cycleVariability, sinceLastPeriod, MENOPAUSE_SYMPTOMS } from "@/lib/men
 import { Badge } from "@/components/ui/badge";
 import { HeroCard } from "@/components/ui/hero-card";
 import { Card, CardContent } from "@/components/ui/card";
-import { Link } from "@/i18n/navigation";
 import { MrsCheck } from "./mrs-check";
+import { ExperienceModules } from "@/components/experience/module-registry";
+import type { ExperienceConfig } from "@/lib/experience/types";
+import { ReadingList } from "@/components/experience/reading-list";
 
 /**
  * The perimenopause / menopause dashboard (P1.13c).
@@ -27,14 +29,30 @@ import { MrsCheck } from "./mrs-check";
  * browser to do. Now a client component, because a server one cannot run in a Capacitor
  * bundle and this screen has to ship to iOS/Android (P4.0, ADR-048).
  */
+/**
+ * Track F's screen. **Rendered from the served document since R1.9e** — the last
+ * hand-written dashboard in the product.
+ *
+ * The composition below is unchanged; what changed is who orders it. F1 and F2 are
+ * siblings rather than layers (`build.ts` has no path that subtracts a module), so
+ * F2 — a year past her last period — simply does not contribute `menopause.trend`,
+ * and the cycle view disappears because her persona stopped asking for it rather
+ * than because this file checks how long it has been.
+ *
+ * The document is optional: with none, every node still renders in its old order.
+ * A woman must not lose the twelve-month count because an Edge Function was
+ * unreachable.
+ */
 export function MenopausePanel({
   starts,
   symptomCounts,
   today,
+  config,
 }: {
   starts: string[];
   symptomCounts: { type: string; count: number }[];
   today: string;
+  config?: ExperienceConfig | null;
 }) {
   const t = useTranslations("menopause");
   const st = useTranslations("symptoms");
@@ -52,98 +70,133 @@ export function MenopausePanel({
   const fmt = (iso: string) =>
     format.dateTime(new Date(`${iso}T00:00:00Z`), { dateStyle: "medium", timeZone: "UTC" });
 
-  return (
-    <div className="flex flex-col gap-4">
-      {/* Deliberately **no band here**, and this is the one place in the app where
-          leaving the visual out is the decision rather than the omission. A bar
-          filling toward the twelve-month mark would read as a countdown to
-          menopause, and the convention includes "with no other cause" — periods
-          also stop for pregnancy, thyroid changes and some medicines. Drawing
-          progress toward a conclusion Femio is not allowed to reach would turn
-          arithmetic into a diagnosis (product rule 1, ADR-043). The number is the
-          number; the marker is named as a convention and nothing points at it. */}
-      {since ? (
-        <HeroCard
-          tone="brand"
-          eyebrow={t("lastLogged", { date: fmt(lastStart!) })}
-          headline={
-            since.months < 1
-              ? t("sinceDays", { days: since.days })
-              : t("sinceMonths", { months: since.months })
-          }
-          footnote={since.pastConventionalMarker ? t("markerPassed") : t("markerAhead")}
-        />
-      ) : (
-        <Card>
-          <CardContent className="flex flex-col gap-3 p-6">
-            <h2 className="font-display text-lg text-text">{t("empty.heading")}</h2>
-            <p className="text-sm text-text-muted">{t("empty.body")}</p>
-          </CardContent>
-        </Card>
-      )}
-
-      {/* Below the hero rather than inside it: four lines of white-on-violet is not
-          how you present the most important qualification on the screen. */}
-      {since ? (
-        <Card>
-          <CardContent className="p-6">
-            <p className="text-sm text-text-muted">{t("notDiagnosis")}</p>
-          </CardContent>
-        </Card>
-      ) : null}
-
-      {variability ? (
-        <Card>
-          <CardContent className="flex flex-col gap-1 p-6">
-            <p className="text-sm text-text-muted">{t("variability.heading")}</p>
-            <p className="font-display text-lg text-text">
-              {t("variability.range", { shortest: variability.shortest, longest: variability.longest })}
-            </p>
-            <p className="text-sm text-text-muted">
-              {variability.irregular ? t("variability.irregular") : t("variability.steady")}
-            </p>
-          </CardContent>
-        </Card>
-      ) : null}
-
-      {relevant.length > 0 ? (
-        <section className="flex flex-col gap-2">
-          <h2 className="text-md font-semibold text-text">{t("symptoms.heading")}</h2>
-          <div className="flex flex-wrap gap-2">
-            {relevant.map((s) => (
-              <Badge key={s.type} variant="primary">
-                {stItem(`items.${s.type}`)} · {s.count}
-              </Badge>
-            ))}
-          </div>
-          <p className="text-sm text-text-subtle">{t("symptoms.note")}</p>
-        </section>
-      ) : null}
-
+  const sinceNode = (
+    <>
+    {/* Deliberately **no band here**, and this is the one place in the app where
+        leaving the visual out is the decision rather than the omission. A bar
+        filling toward the twelve-month mark would read as a countdown to
+        menopause, and the convention includes "with no other cause" — periods
+        also stop for pregnancy, thyroid changes and some medicines. Drawing
+        progress toward a conclusion Femio is not allowed to reach would turn
+        arithmetic into a diagnosis (product rule 1, ADR-043). The number is the
+        number; the marker is named as a convention and nothing points at it. */}
+    {since ? (
+      <HeroCard
+        tone="brand"
+        eyebrow={t("lastLogged", { date: fmt(lastStart!) })}
+        headline={
+          since.months < 1
+            ? t("sinceDays", { days: since.days })
+            : t("sinceMonths", { months: since.months })
+        }
+        footnote={since.pastConventionalMarker ? t("markerPassed") : t("markerAhead")}
+      />
+    ) : (
       <Card>
-        <CardContent className="flex flex-col gap-2 p-6">
-          <h2 className="font-display text-lg text-text">{t("reading.heading")}</h2>
-          <ul className="flex flex-col gap-1 text-sm">
-            {[
-              { href: "/learn/perimenopause-explained", key: "perimenopause" },
-              { href: "/learn/menopause-explained", key: "menopause" },
-              { href: "/learn/menopause-care-options", key: "care" },
-              { href: "/learn/track-perimenopause-symptoms", key: "tracking" },
-            ].map((item) => (
-              <li key={item.key}>
-                <Link href={item.href} className="text-text-link underline">
-                  {t(`reading.${item.key}`)}
-                </Link>
-              </li>
-            ))}
-          </ul>
+        <CardContent className="flex flex-col gap-3 p-6">
+          <h2 className="font-display text-lg text-text">{t("empty.heading")}</h2>
+          <p className="text-sm text-text-muted">{t("empty.body")}</p>
         </CardContent>
       </Card>
+    )}
+    </>
+  );
 
-      {/* The MRS (P2.4). Placed under the reading rather than above it on purpose:
-          she opened this screen for her own picture, and a questionnaire in front
-          of that would read as being assessed. */}
-      <MrsCheck />
+  const markerNode = (
+    <>
+    {/* Below the hero rather than inside it: four lines of white-on-violet is not
+        how you present the most important qualification on the screen. */}
+    {since ? (
+      <Card>
+        <CardContent className="p-6">
+          <p className="text-sm text-text-muted">{t("notDiagnosis")}</p>
+        </CardContent>
+      </Card>
+    ) : null}
+    </>
+  );
+
+  const trendNode = (
+    <>
+    {variability ? (
+      <Card>
+        <CardContent className="flex flex-col gap-1 p-6">
+          <p className="text-sm text-text-muted">{t("variability.heading")}</p>
+          <p className="font-display text-lg text-text">
+            {t("variability.range", { shortest: variability.shortest, longest: variability.longest })}
+          </p>
+          <p className="text-sm text-text-muted">
+            {variability.irregular ? t("variability.irregular") : t("variability.steady")}
+          </p>
+        </CardContent>
+      </Card>
+    ) : null}
+    </>
+  );
+
+  const stripNode = (
+    <>
+    {relevant.length > 0 ? (
+      <section className="flex flex-col gap-2">
+        <h2 className="text-md font-semibold text-text">{t("symptoms.heading")}</h2>
+        <div className="flex flex-wrap gap-2">
+          {relevant.map((s) => (
+            <Badge key={s.type} variant="primary">
+              {stItem(`items.${s.type}`)} · {s.count}
+            </Badge>
+          ))}
+        </div>
+        <p className="text-sm text-text-subtle">{t("symptoms.note")}</p>
+      </section>
+    ) : null}
+    </>
+  );
+
+  /**
+   * The reading card, driven by F1/F2's own `content.foreground` (P2.3c's
+   * mechanism) rather than the four fixed links it replaces. F2 foregrounds
+   * `postmenopausal-bleeding`, which R2.9b wrote — so the page behind the only red
+   * flag in this track reaches her from her own shelf.
+   */
+  const readingNode = (
+    <ReadingList
+      foreground={config?.content.foreground ?? []}
+      heading={t("reading.heading")}
+      pending={t("empty.body")}
+    />
+  );
+
+  const nodes = {
+    menopauseSince: sinceNode,
+    menopauseMarker: markerNode,
+    menopauseTrend: trendNode,
+    menopauseSymptomStrip: stripNode,
+    mrs: <MrsCheck />,
+    reading: readingNode,
+    warningSigns: null,
+    movement: null,
+    pregnancyHero: null,
+    quickLog: null,
+  };
+
+  // No document — offline, or a persona the registry has not met. Everything still
+  // renders, in the order it always did.
+  if (!config || config.home.modules.length === 0) {
+    return (
+      <div className="flex flex-col gap-4">
+        {sinceNode}
+        {markerNode}
+        {trendNode}
+        {stripNode}
+        {readingNode}
+        <MrsCheck />
+      </div>
+    );
+  }
+
+  return (
+    <div className="flex flex-col gap-4">
+      <ExperienceModules ctx={{ config, ...nodes }} />
     </div>
   );
 }

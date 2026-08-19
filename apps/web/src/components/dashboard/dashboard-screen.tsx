@@ -234,7 +234,7 @@ export function DashboardScreen() {
       ) : null}
 
       {mode === "menopause" ? (
-        <MenopausePanel starts={starts} symptomCounts={top} today={today} />
+        <MenopausePanel starts={starts} symptomCounts={top} today={today} config={config} />
       ) : null}
 
       {/* The primary action, full width and inside thumb reach. It used to be a
