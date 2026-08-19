@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
+import { todayISO } from "@/lib/calculators/dates";
 import { useTranslations } from "next-intl";
 import { createClient } from "@/lib/supabase/client";
 import { Alert, AlertDescription } from "@/components/ui/alert";
@@ -53,7 +54,15 @@ export function EndPregnancy({ pregnancyId }: { pregnancyId: string }) {
 
     const { error: writeError } = await supabase
       .from("pregnancy")
-      .update({ status: outcome })
+      /**
+       * `ended_on` alongside the status (P2.4b, migration 0009). Recording *when*
+       * as a date rather than leaving `updated_at` to stand in for it: that column
+       * means "last edited", so a correction months later would move her
+       * postpartum week and her follow-up window with it. Today's date is the
+       * honest default here — she is telling us now — and it is a date rather than
+       * a timestamp because the hour has no use.
+       */
+      .update({ status: outcome, ended_on: todayISO() })
       .eq("id", pregnancyId);
 
     if (writeError) {

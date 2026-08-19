@@ -26,7 +26,13 @@ import { LoadingState } from "@/components/patterns/loading-state";
 
 const KNOWN_SYMPTOMS = new Set<string>(SYMPTOM_GROUPS.flatMap((g) => g.symptoms));
 
-type Pregnancy = { id: string; edd: string | null; status: string } | null;
+type Pregnancy = {
+  id: string;
+  edd: string | null;
+  status: string;
+  /** The day it ended, as she recorded it (migration 0009). Null is normal. */
+  ended_on: string | null;
+} | null;
 
 /**
  * The dashboard, reading its own data in the browser (P4.0, ADR-048).
@@ -80,7 +86,7 @@ export function DashboardScreen() {
         ? await unwrap(
             supabase
               .from("pregnancy")
-              .select("id, edd, status")
+              .select("id, edd, status, ended_on")
               // Most recent regardless of status: an ended pregnancy still decides what
               // the panel should say, and "no active row" must not silently mean
               // "start again".
@@ -240,7 +246,15 @@ export function DashboardScreen() {
       {/* Track E, reachable at last (R2.5). Before this it fell through to
           `general`, which predicts a period from cycles that stopped months ago. */}
       {mode === "postpartum" ? (
-        <PostpartumExperience config={config} todayISO={today} />
+        <PostpartumExperience
+          config={config}
+          // The real delivery date when she gave one (migration 0009). Null stays
+          // null: the follow-up card then lists the checks without claiming to know
+          // where she is in them, which is the honest answer rather than a guess
+          // built on `updated_at`.
+          birthDateISO={pregnancy?.ended_on ?? null}
+          todayISO={today}
+        />
       ) : null}
 
       {mode === "menopause" ? (
