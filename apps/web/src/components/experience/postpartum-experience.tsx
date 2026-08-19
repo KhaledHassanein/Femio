@@ -10,6 +10,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { HeroCard } from "@/components/ui/hero-card";
 import { Link } from "@/i18n/navigation";
+import { followUpKindsFor, followUpsFor } from "@/lib/followup";
 
 /**
  * Postpartum (R2.5, ADR-061). Track E's first screen.
@@ -49,7 +50,25 @@ import { Link } from "@/i18n/navigation";
  * `phaseForTrack` fixed that on the tier-1 side; this is the client half.
  */
 
-export function PostpartumExperience({ config }: { config: ExperienceConfig | null }) {
+export function PostpartumExperience({
+  config,
+  birthDateISO = null,
+  todayISO,
+}: {
+  config: ExperienceConfig | null;
+  /**
+   * When she gave birth, if Femio actually knows.
+   *
+   * **It does not today, and that is the finding.** E1's `emrView` has named
+   * `deliveryDate` since R2.5 and **nothing writes one**: tier 1 derives
+   * `weeksSincePregnancyEnd` from `pregnancy.updated_at`, which is fine for a
+   * coarse signal and wrong for a day-anchored schedule — editing the row would
+   * move her follow-up window. So the card renders the checks without saying where
+   * she is in them until a real delivery date exists (P2.4b).
+   */
+  birthDateISO?: string | null;
+  todayISO: string;
+}) {
   const t = useTranslations("postpartum");
   const td = useTranslations("dashboard");
 
@@ -130,6 +149,42 @@ export function PostpartumExperience({ config }: { config: ExperienceConfig | nu
     </Card>
   );
 
+  /**
+   * E4's schedule (P2.4b). The "postpartum cliff" its spec names: during pregnancy
+   * she was watched weekly, and afterwards the follow-up evaporates — the glucose
+   * test after gestational diabetes is completed by a minority of the women who
+   * need it, and the reason §A gives is that nobody offers it.
+   *
+   * Prompts to attend, never readings. Nothing here records a result, and the note
+   * says so out loud rather than leaving the absence to be read as an oversight.
+   */
+  const conditions = config?.emrView.includes("conditionsCarriedForward")
+    ? (config.home.modules.find((m) => m.id === "followup.schedule")?.params?.conditions ?? "")
+    : "";
+  const codes = String(conditions).split(",").filter(Boolean);
+  const scheduled = followUpsFor({ conditions: codes, birthDateISO, todayISO });
+  const kinds = scheduled.length > 0 ? scheduled : followUpKindsFor(codes).map((kind) => ({ kind }));
+
+  const followUpCard = (
+    <Card>
+      <CardContent className="flex flex-col gap-2 p-6">
+        <h2 className="font-display text-lg text-text">{t("followup.heading")}</h2>
+        <p className="text-sm text-text-muted">{t("followup.body")}</p>
+        <ul className="flex flex-col gap-2 text-sm">
+          {kinds.map((entry) => (
+            <li key={entry.kind} className="flex flex-col">
+              <span className="text-text">{t(`followup.${entry.kind}`)}</span>
+              {"status" in entry ? (
+                <span className="text-text-muted">{t(`followup.${entry.status}`)}</span>
+              ) : null}
+            </li>
+          ))}
+        </ul>
+        <p className="text-2xs text-text-subtle">{t("followup.note")}</p>
+      </CardContent>
+    </Card>
+  );
+
   return (
     <div className="flex flex-col gap-4">
       <ExperienceModules
@@ -151,6 +206,7 @@ export function PostpartumExperience({ config }: { config: ExperienceConfig | nu
           ),
           moodScreener: <MoodCheck />,
           moodSupport,
+          followupSchedule: followUpCard,
           intrusiveThoughts,
           warningSigns,
           pregnancyHero: null,

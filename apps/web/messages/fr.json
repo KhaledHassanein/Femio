@@ -1039,6 +1039,16 @@
       }
     },
   "postpartum": {
+    "followup": {
+      "heading": "Le suivi après votre grossesse",
+      "body": "Vous nous avez signalé une condition pendant la grossesse. Ces examens sont ceux que les recommandations décrivent ensuite, et ce sont les plus souvent oubliés — le plus souvent parce que personne ne les propose.",
+      "glucose": "Un test de glycémie, généralement proposé entre environ quatre et douze semaines après l'accouchement",
+      "bloodPressure": "Un contrôle de la tension dans les premiers jours, puis vers une semaine à dix jours",
+      "upcoming": "Pas encore — à réserver dès maintenant",
+      "open": "C'est le moment",
+      "overdue": "La période habituelle est passée — cela vaut la peine de relancer",
+      "note": "Femio n'enregistre aucun résultat et n'en interprète aucun. C'est votre médecin qui dit ce qu'ils signifient."
+    },
     "moodSupport": {
       "heading": "Ce que vous ressentez n'est pas un verdict sur vous",
       "body": "La déprime, l'anxiété et l'engourdissement après l'accouchement sont fréquents et répondent au soutien. Se sentir ainsi n'est ni un échec ni un état définitif.",

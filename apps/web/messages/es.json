@@ -1039,6 +1039,16 @@
       }
     },
   "postpartum": {
+    "followup": {
+      "heading": "El seguimiento después de tu embarazo",
+      "body": "Nos contaste una condición durante el embarazo. Estas revisiones son las que describen las guías después del parto, y son las que más se pierden, casi siempre porque nadie las ofrece.",
+      "glucose": "Una prueba de glucosa, que suele ofrecerse entre unas cuatro y doce semanas tras el parto",
+      "bloodPressure": "Una revisión de la tensión en los primeros días y otra hacia la semana o los diez días",
+      "upcoming": "Todavía no: conviene pedir cita ya",
+      "open": "Esta es la ventana",
+      "overdue": "La ventana habitual ha pasado: conviene reclamarla",
+      "note": "Femio no registra ningún resultado ni lo interpreta. Tu profesional dice qué significan."
+    },
     "moodSupport": {
       "heading": "Lo que sientes no es un veredicto sobre ti",
       "body": "El ánimo bajo, la ansiedad y el entumecimiento tras el parto son frecuentes y responden al apoyo. Sentirte así no es un fracaso ni es para siempre.",

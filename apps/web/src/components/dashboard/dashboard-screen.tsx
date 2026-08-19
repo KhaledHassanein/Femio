@@ -240,7 +240,7 @@ export function DashboardScreen() {
       {/* Track E, reachable at last (R2.5). Before this it fell through to
           `general`, which predicts a period from cycles that stopped months ago. */}
       {mode === "postpartum" ? (
-        <PostpartumExperience config={config} />
+        <PostpartumExperience config={config} todayISO={today} />
       ) : null}
 
       {mode === "menopause" ? (

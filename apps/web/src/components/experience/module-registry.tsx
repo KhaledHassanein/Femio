@@ -61,6 +61,7 @@ export type ModuleContext = {
   /** Rendered for `support.moodScreener` — the EPDS (P2.7, P1.26.3). */
   moodScreener?: ReactNode;
   moodSupport?: ReactNode;
+  followupSchedule?: ReactNode;
   intrusiveThoughts?: ReactNode;
   /** Track A (R2.5c). A2's wide, explained window; A1 contributes none. */
   teenWindow?: ReactNode;
@@ -173,7 +174,6 @@ export const UNIMPLEMENTED: readonly ModuleId[] = [
    * week OGTT and the 72-hour and 7–10-day blood-pressure checks are the follow-up
    * E4 §A says routine care drops, and a reminder surface for them is P2.4b.
    */
-  "followup.schedule",
   "thyroid.watch",
   "pregnancy.milestone",
   "pregnancy.birthPrep",
@@ -232,6 +232,7 @@ const RENDERERS: Partial<Record<ModuleId, Renderer>> = {
   "support.checkIn": (ctx) => ctx.checkIn,
   "support.moodScreener": (ctx) => ctx.moodScreener,
   "support.moodSupport": (ctx) => ctx.moodSupport,
+  "followup.schedule": (ctx) => ctx.followupSchedule,
   "support.intrusiveThoughts": (ctx) => ctx.intrusiveThoughts,
   "pregnancy.warningSigns": (ctx) => ctx.warningSigns,
   "pregnancy.movement": (ctx) => ctx.movement,

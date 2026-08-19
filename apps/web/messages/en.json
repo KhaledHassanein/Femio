@@ -1039,6 +1039,16 @@
       }
     },
   "postpartum": {
+    "followup": {
+      "heading": "Follow-up after your pregnancy",
+      "body": "You told us about a condition during pregnancy. These checks are the ones guidance describes afterwards, and they are the ones most often missed — usually because nobody offers them.",
+      "glucose": "A glucose test, usually offered between about four and twelve weeks after birth",
+      "bloodPressure": "A blood-pressure review in the first days and again around a week to ten days",
+      "upcoming": "Not yet — worth booking now",
+      "open": "This is the window",
+      "overdue": "The usual window has passed — worth chasing",
+      "note": "Femio records no result and reads none. Your clinician decides what any of these mean."
+    },
     "moodSupport": {
       "heading": "How you feel is not a verdict on you",
       "body": "Low mood, anxiety and numbness after birth are common and they respond to support. Feeling this way is not a failure and it is not permanent.",
