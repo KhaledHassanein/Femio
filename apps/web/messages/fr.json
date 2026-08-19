@@ -633,6 +633,8 @@
     "empty": "De nouveaux sujets arrivent — revenez bientôt."
   },
     "teen": {
+      "teenBody": { "heading": "Ce qui change dans ton corps", "body": "La puberté dans l'ordre où elle arrive le plus souvent, avec de larges fourchettes — parce qu'il n'y a pas une seule normalité.", "cta": "Lire le guide" },
+      "teenReadiness": { "heading": "Se préparer à ses premières règles", "body": "Quoi emporter, où le garder, à qui en parler. Un plan, et ce n'est jamais une surprise.", "cta": "Préparer un plan" },
       "window": {
         "eyebrow": "Tes prochaines règles",
         "range": "Sans doute entre le {start} et le {end}",

@@ -69,6 +69,8 @@ export type ModuleContext = {
    */
   teenWorthMentioning?: ReactNode;
   teenPrivacy?: ReactNode;
+  teenBody?: ReactNode;
+  teenReadiness?: ReactNode;
   /**
    * Track B (R1.9a). Two nodes, not one with a flag — `cycle.window` predicts and
    * `cycle.variability` declines to, and which one a persona contributes is the
@@ -119,8 +121,6 @@ export const UNIMPLEMENTED: readonly ModuleId[] = [
    * is a number someone can count, and so the day the content lands the module is
    * already in the registry waiting for it (P2.13).
    */
-  "teen.body",
-  "teen.readiness",
   /**
    * Track B's surfaces (R2.8). The registry is **data only**, exactly as R2.1 was
    * for Track D: it is what makes a woman's cycle experience come from her record
@@ -198,6 +198,8 @@ type Renderer = (ctx: ModuleContext, spec: ModuleSpec) => ReactNode;
 
 const RENDERERS: Partial<Record<ModuleId, Renderer>> = {
   "teen.window": (ctx) => ctx.teenWindow,
+  "teen.body": (ctx) => ctx.teenBody,
+  "teen.readiness": (ctx) => ctx.teenReadiness,
   "cycle.window": (ctx) => ctx.cycleWindow,
   "cycle.variability": (ctx) => ctx.cycleVariability,
   "cycle.personalNormal": (ctx) => ctx.cyclePersonalNormal,

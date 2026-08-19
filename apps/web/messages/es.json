@@ -633,6 +633,8 @@
     "empty": "Pronto habrá nuevos temas — vuelve pronto."
   },
     "teen": {
+      "teenBody": { "heading": "Qué está cambiando en tu cuerpo", "body": "La pubertad en el orden en que suele ocurrir, con rangos amplios: no hay una sola normalidad.", "cta": "Leer la guía" },
+      "teenReadiness": { "heading": "Prepararte para tu primera regla", "body": "Qué llevar, dónde guardarlo y a quién contárselo. Con un plan nunca es una sorpresa.", "cta": "Hacer un plan" },
       "window": {
         "eyebrow": "Tu próxima regla",
         "range": "Probablemente entre el {start} y el {end}",

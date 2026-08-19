@@ -633,6 +633,8 @@
     "empty": "New topics are on the way — check back soon."
   },
     "teen": {
+      "teenBody": { "heading": "What's changing in your body", "body": "Puberty in the order it usually happens, with wide ranges — because there is no single normal.", "cta": "Read the guide" },
+      "teenReadiness": { "heading": "Getting ready for your first period", "body": "What to carry, where to keep it, and who to tell. A plan means it is never a surprise.", "cta": "Make a plan" },
       "window": {
         "eyebrow": "Your next period",
         "range": "Probably between {start} and {end}",

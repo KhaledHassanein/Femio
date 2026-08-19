@@ -154,6 +154,28 @@ export function TeenExperience({
   );
 
   /**
+   * The two content hubs A1 and A2 have foregrounded since R2.5c (P2.13). They sat
+   * in `UNIMPLEMENTED` for one honest reason — no teen content existed — and the
+   * ten teen guides were written and published on 2026-08-19, so the modules now
+   * point at real pages rather than being listed as a gap.
+   *
+   * Link cards rather than embedded text: the articles are written for her at grade
+   * 5–7 and reproducing a summary here would be a second, shorter version of the
+   * same guidance that nobody keeps in sync.
+   */
+  const contentHub = (key: "teenBody" | "teenReadiness", href: string) => (
+    <Card>
+      <CardContent className="flex flex-col gap-2 p-6">
+        <h2 className="font-display text-lg text-text">{t(`${key}.heading`)}</h2>
+        <p className="text-sm text-text-muted">{t(`${key}.body`)}</p>
+        <Link href={href} className="text-sm text-text-link underline">
+          {t(`${key}.cta`)}
+        </Link>
+      </CardContent>
+    </Card>
+  );
+
+  /**
    * No document, or nothing for this track. Unreachable in practice — a stated
    * Track A resolves to A2 and `default` modules always exist — but reassurance is
    * the one thing that must not vanish with the engine, for the same reason the
@@ -172,6 +194,11 @@ export function TeenExperience({
           teenReassurance: reassurance,
           teenWorthMentioning: worthMentioning,
           teenPrivacy: privacy,
+          teenBody: contentHub("teenBody", "/learn/whats-changing-in-my-body"),
+          teenReadiness: contentHub(
+            "teenReadiness",
+            "/learn/getting-ready-for-your-first-period",
+          ),
           warningSigns: null,
           reading,
           movement: null,
