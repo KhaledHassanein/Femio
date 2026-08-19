@@ -470,6 +470,21 @@
     "irregularNote": "Tes cycles varient, donc les prévisions restent une fourchette plus large — c'est normal.",
     "fertileHeading": "Fenêtre de fertilité estimée",
     "fertileWindow": "Autour du {start} – {end}",
+    "explore": {
+      "heading": "Tout le reste est toujours là",
+      "body": "Femio met en avant ce qui vous correspond aujourd'hui. Rien n'est masqué : chaque guide et chaque outil reste à portée de main.",
+      "cta": "Parcourir toute la bibliothèque"
+    },
+    "visitPrep": {
+      "heading": "Un rendez-vous en vue ?",
+      "body": "Emportez ce que vous avez noté. Un relevé de ce qui s'est passé est plus facile à expliquer qu'un souvenir.",
+      "cta": "Voir votre résumé"
+    },
+    "privacyNote": {
+      "heading": "Vos données, vos règles",
+      "body": "Vos données de santé ne sont jamais transmises aux annonceurs ni aux outils d'analyse. Vous pouvez les exporter ou les supprimer quand vous le souhaitez.",
+      "cta": "Paramètres de confidentialité"
+    },
     "topSymptomsHeading": "Les plus enregistrés",
     "logCta": "Enregistrer aujourd'hui",
     "needData": "Enregistre deux cycles pour débloquer les analyses.",

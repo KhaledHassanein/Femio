@@ -470,6 +470,21 @@
     "irregularNote": "Your cycles vary, so predictions stay a wider range — that's expected.",
     "fertileHeading": "Estimated fertile window",
     "fertileWindow": "Around {start} – {end}",
+    "explore": {
+      "heading": "Everything else is still here",
+      "body": "Femio emphasises what fits you now. It never hides the rest — every guide and every tool stays one tap away.",
+      "cta": "Browse the whole library"
+    },
+    "visitPrep": {
+      "heading": "Going to an appointment?",
+      "body": "Take what you have logged with you. A record of what actually happened is easier to explain than a memory of it.",
+      "cta": "See your summary"
+    },
+    "privacyNote": {
+      "heading": "Your data, your rules",
+      "body": "Your health data is never shared with advertisers or analytics. You can export it or delete it at any time.",
+      "cta": "Privacy settings"
+    },
     "topSymptomsHeading": "Most logged",
     "logCta": "Log today",
     "needData": "Log a couple of periods to unlock insights.",

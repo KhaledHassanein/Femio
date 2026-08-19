@@ -470,6 +470,21 @@
     "irregularNote": "Tus ciclos varían, así que las predicciones se mantienen en un rango más amplio — es normal.",
     "fertileHeading": "Ventana fértil estimada",
     "fertileWindow": "Alrededor del {start} – {end}",
+    "explore": {
+      "heading": "Todo lo demás sigue aquí",
+      "body": "Femio destaca lo que encaja contigo ahora y nunca oculta el resto: cada guía y cada herramienta siguen a un toque.",
+      "cta": "Explorar toda la biblioteca"
+    },
+    "visitPrep": {
+      "heading": "¿Tienes una cita médica?",
+      "body": "Lleva contigo lo que has registrado. Un registro de lo que pasó de verdad es más fácil de explicar que un recuerdo.",
+      "cta": "Ver tu resumen"
+    },
+    "privacyNote": {
+      "heading": "Tus datos, tus normas",
+      "body": "Tus datos de salud nunca se comparten con anunciantes ni con herramientas de analítica. Puedes exportarlos o borrarlos cuando quieras.",
+      "cta": "Ajustes de privacidad"
+    },
     "topSymptomsHeading": "Los más registrados",
     "logCta": "Registrar hoy",
     "needData": "Registra dos ciclos para desbloquear los análisis.",

@@ -77,6 +77,13 @@ export type ModuleContext = {
   cycleWindow?: ReactNode;
   cycleVariability?: ReactNode;
   cyclePersonalNormal?: ReactNode;
+  /**
+   * The hidden-but-reachable trio (R1.9b). Every B and F spec repeats the rule in
+   * its §I, and until now it was true of the router and invisible on the screen.
+   */
+  explore?: ReactNode;
+  visitPrep?: ReactNode;
+  privacy?: ReactNode;
 };
 
 /**
@@ -114,9 +121,6 @@ export const UNIMPLEMENTED: readonly ModuleId[] = [
   "cycle.phase",
   "cycle.flowStrip",
   "cycle.changeAwareness",
-  "explore",
-  "visitPrep",
-  "privacy",
   /**
    * Track C's surfaces (R2.11), data-only like B and F. `/fertility` already
    * exists and is a real screen — what was missing was any persona able to *ask*
@@ -195,6 +199,9 @@ const RENDERERS: Partial<Record<ModuleId, Renderer>> = {
   "cycle.window": (ctx) => ctx.cycleWindow,
   "cycle.variability": (ctx) => ctx.cycleVariability,
   "cycle.personalNormal": (ctx) => ctx.cyclePersonalNormal,
+  explore: (ctx) => ctx.explore,
+  visitPrep: (ctx) => ctx.visitPrep,
+  privacy: (ctx) => ctx.privacy,
   "teen.reassurance": (ctx) => ctx.teenReassurance,
   "teen.worthMentioning": (ctx) => ctx.teenWorthMentioning,
   "teen.privacy": (ctx) => ctx.teenPrivacy,

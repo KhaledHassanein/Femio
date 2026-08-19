@@ -8,6 +8,7 @@ import { ExperienceModules } from "./module-registry";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
 import { HeroCard } from "@/components/ui/hero-card";
+import { Link } from "@/i18n/navigation";
 
 /**
  * Track B's supporting modules, rendered from the served document (R1.9a).
@@ -61,7 +62,14 @@ export function CycleExperience({
     format.dateTime(new Date(`${iso}T00:00:00Z`), { dateStyle: "medium", timeZone: "UTC" });
 
   const ids = new Set(config?.home.modules.map((m) => m.id) ?? []);
-  const drawable: ModuleId[] = ["cycle.window", "cycle.variability", "cycle.personalNormal"];
+  const drawable: ModuleId[] = [
+    "cycle.window",
+    "cycle.variability",
+    "cycle.personalNormal",
+    "explore",
+    "visitPrep",
+    "privacy",
+  ];
   if (!drawable.some((id) => ids.has(id))) return null;
 
   const band =
@@ -128,6 +136,27 @@ export function CycleExperience({
       </section>
     ) : null;
 
+  /**
+   * The hidden-but-reachable rule, given a surface at last (R1.9b).
+   *
+   * Every B and F spec repeats it in its §I and `types.ts` names the problem
+   * exactly: *"today it is true of the router and invisible on the screen — a
+   * product rule with no UI is a claim rather than a property."* Product rule 2
+   * says personalize, never restrict, and until now a woman had no way to see that
+   * the rest of Femio was still there. Now she does, in her own language.
+   */
+  const linkCard = (key: "explore" | "visitPrep" | "privacyNote", href: string) => (
+    <Card>
+      <CardContent className="flex flex-col gap-2 p-6">
+        <h2 className="font-display text-lg text-text">{t(`${key}.heading`)}</h2>
+        <p className="text-sm text-text-muted">{t(`${key}.body`)}</p>
+        <Link href={href} className="text-sm text-text-link underline">
+          {t(`${key}.cta`)}
+        </Link>
+      </CardContent>
+    </Card>
+  );
+
   return (
     <ExperienceModules
       ctx={{
@@ -135,6 +164,9 @@ export function CycleExperience({
         cycleWindow: windowCard,
         cycleVariability: variabilityCard,
         cyclePersonalNormal: personalNormal,
+        explore: linkCard("explore", "/learn"),
+        visitPrep: linkCard("visitPrep", "/summary"),
+        privacy: linkCard("privacyNote", "/settings"),
         warningSigns: null,
         reading: null,
         movement: null,
