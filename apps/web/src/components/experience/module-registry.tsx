@@ -69,6 +69,13 @@ export type ModuleContext = {
    */
   teenWorthMentioning?: ReactNode;
   teenPrivacy?: ReactNode;
+  /**
+   * Track B (R1.9a). Two nodes, not one with a flag — `cycle.window` predicts and
+   * `cycle.variability` declines to, and which one a persona contributes is the
+   * tier-1 decision about whether Femio will predict for her at all.
+   */
+  cycleWindow?: ReactNode;
+  cycleVariability?: ReactNode;
 };
 
 /**
@@ -103,8 +110,6 @@ export const UNIMPLEMENTED: readonly ModuleId[] = [
    * other declines to, and collapsing them is how the invented-window defect would
    * come back at a fourth life stage.
    */
-  "cycle.window",
-  "cycle.variability",
   "cycle.phase",
   "cycle.flowStrip",
   "cycle.personalNormal",
@@ -187,6 +192,8 @@ type Renderer = (ctx: ModuleContext, spec: ModuleSpec) => ReactNode;
 
 const RENDERERS: Partial<Record<ModuleId, Renderer>> = {
   "teen.window": (ctx) => ctx.teenWindow,
+  "cycle.window": (ctx) => ctx.cycleWindow,
+  "cycle.variability": (ctx) => ctx.cycleVariability,
   "teen.reassurance": (ctx) => ctx.teenReassurance,
   "teen.worthMentioning": (ctx) => ctx.teenWorthMentioning,
   "teen.privacy": (ctx) => ctx.teenPrivacy,

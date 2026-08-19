@@ -12,12 +12,12 @@ import { loadExperienceConfig } from "@/lib/experience/client";
 import { modeFromTrack, showsCyclePredictions, type PersonaMode } from "@/lib/persona/state";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
 import { Link } from "@/i18n/navigation";
 import { PregnancyExperience } from "@/components/experience/pregnancy-experience";
 import { PostpartumExperience } from "@/components/experience/postpartum-experience";
 import { TeenExperience } from "@/components/experience/teen-experience";
 import { PersonaOffer } from "@/components/experience/persona-offer";
+import { CycleExperience } from "@/components/experience/cycle-experience";
 import { MenopausePanel } from "@/components/menopause/menopause-panel";
 import { HeroCard } from "@/components/ui/hero-card";
 import { AppScreen, ScreenError } from "@/components/patterns/app-screen";
@@ -121,8 +121,6 @@ export function DashboardScreen() {
   const stItem = st as unknown as (key: string) => string;
   const symptomLabel = (type: string) =>
     KNOWN_SYMPTOMS.has(type) ? stItem(`items.${type}`) : type;
-  const fmt = (iso: string) =>
-    format.dateTime(new Date(`${iso}T00:00:00Z`), { dateStyle: "medium", timeZone: "UTC" });
   /**
    * Day and month only, for the hero. A prediction is never more than a couple of
    * months out, so the year is noise — and it is expensive noise: "Aug 28, 2026 and
@@ -288,42 +286,21 @@ export function DashboardScreen() {
         </Button>
       )}
 
-      {/* Secondary detail. In cycle/general mode the hero already carries the cycle
-          day (eyebrow) and the window (headline), so repeating them in cards below
-          it was the flatness the redesign is fixing (P1.28.2). What is left is the
-          supporting number — and, in TTC, the next-period estimate the hero gave up
-          its place to. Gated on `prediction`: with no history these cards had
-          nothing to say and said it in a fallback sentence about a different
-          number. */}
-      {showsCyclePredictions(mode) && prediction ? (
-        <div className="grid gap-4 sm:grid-cols-2">
-          {mode === "ttc" ? (
-            <Card>
-              <CardContent className="flex min-h-24 flex-col gap-1 p-6">
-                <p className="text-sm text-text-muted">{t("nextPeriod")}</p>
-                <p className="font-display text-md text-text">
-                  {t("window", {
-                    start: fmt(prediction.windowStart),
-                    end: fmt(prediction.windowEnd),
-                  })}
-                </p>
-                {prediction.irregular ? (
-                  <p className="text-sm text-warning-text">{t("irregularNote")}</p>
-                ) : null}
-              </CardContent>
-            </Card>
-          ) : null}
-
-          <Card>
-            <CardContent className="flex min-h-24 flex-col justify-center gap-1 p-6">
-              <p className="text-sm text-text-muted">{t("avgLengthHeading")}</p>
-              <p className="font-display text-lg text-text">
-                {t("avgLengthDays", { days: prediction.averageLength })}
-              </p>
-            </CardContent>
-          </Card>
-        </div>
-      ) : null}
+      {/* R1.9a. Track B's two supporting modules, rendered from the served document
+          by id rather than composed here. The hand-written pair this replaces drew
+          an average-length card off `showsCyclePredictions` and a next-period card
+          off `mode === "ttc"` — two mode checks deciding, between them, whether
+          Femio was willing to predict for her. That decision is tier 1's, and it is
+          now expressed as *which module her persona contributes*: `cycle.window`
+          predicts, `cycle.variability` shows her own lengths and declines to, and
+          B5 (irregular cycles) contributes only the second. Renders nothing when
+          the document carries neither, which is why the block below is unchanged. */}
+      <CycleExperience
+        config={config}
+        prediction={prediction}
+        lastStart={lastStart}
+        today={today}
+      />
 
       {top.length > 0 && mode !== "menopause" ? (
         <section className="flex flex-col gap-2">
