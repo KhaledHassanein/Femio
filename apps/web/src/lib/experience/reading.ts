@@ -99,6 +99,13 @@ export const ARTICLE_FOR_TOPIC: Readonly<Record<string, string>> = {
    * reason to close it first: a hero with no destination is worse than no hero.
    */
   "what-a-workup-involves": "fertility-tests-what-to-expect",
+  /**
+   * R2.11b. C3's own topic, and the one in this track most able to do harm by
+   * being written badly: it states population figures and refuses to turn them
+   * into a number about her, which is the same posture as a prediction window
+   * rather than a date.
+   */
+  "age-and-fertility": "age-and-fertility",
 
   // Track D.
   "appointments-and-tests": "first-pregnancy-appointment",
@@ -193,12 +200,11 @@ export function weekArticleSlug(gestationalWeek: number | null | undefined): str
  */
 export const NO_ARTICLE_YET: readonly string[] = [
   /**
-   * Track C — R2.11. Three topics C3, C6 and C8 name that the library does not
-   * answer. `what-a-workup-involves` left this list in R2.11a, which was the one
-   * that mattered: it is the hero of both C2 and C3, so a woman past her evaluation
-   * window was opening the app to a roadmap card with nothing behind it.
+   * Track C — R2.11. Two topics C6 and C8 name that the library does not answer.
+   * `what-a-workup-involves` left in R2.11a and `age-and-fertility` in R2.11b; the
+   * first was the hero of two personas with nothing behind it, and the second was
+   * C3's whole reason for existing separately from C2.
    */
-  "age-and-fertility",
   "irregular-cycles-and-timing",
   "thyroid-and-conceiving",
   // Track A is fully covered as of P2.13 (2026-08-17) — the ten teen drafts are in
