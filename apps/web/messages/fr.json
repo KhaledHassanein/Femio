@@ -485,6 +485,16 @@
       "body": "Vos données de santé ne sont jamais transmises aux annonceurs ni aux outils d'analyse. Vous pouvez les exporter ou les supprimer quand vous le souhaitez.",
       "cta": "Paramètres de confidentialité"
     },
+    "ttcWorkup": {
+      "heading": "Vous envisagez un bilan ?",
+      "body": "Les recommandations suggèrent d'en parler après un an d'essais, ou six mois à partir de 35 ans environ. C'est un bon moment pour savoir, pas un verdict.",
+      "cta": "Ce que comprend un bilan"
+    },
+    "ttcCondition": {
+      "heading": "Ce que vous nous avez dit compte toujours",
+      "body": "Vous avez signalé une condition en configurant Femio. Voici ce qu'elle peut signifier pendant vos essais, et ce qu'il vaut la peine d'aborder avec votre médecin.",
+      "cta": "En savoir plus"
+    },
     "topSymptomsHeading": "Les plus enregistrés",
     "logCta": "Enregistrer aujourd'hui",
     "needData": "Enregistre deux cycles pour débloquer les analyses.",

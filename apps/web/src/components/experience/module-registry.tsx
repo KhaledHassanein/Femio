@@ -84,6 +84,8 @@ export type ModuleContext = {
   /** Track C (R1.9c). */
   ttcWindow?: ReactNode;
   ttcLogSummary?: ReactNode;
+  ttcWorkup?: ReactNode;
+  ttcConditionContext?: ReactNode;
   explore?: ReactNode;
   visitPrep?: ReactNode;
   privacy?: ReactNode;
@@ -131,8 +133,6 @@ export const UNIMPLEMENTED: readonly ModuleId[] = [
    * now carries `fertility` in `tools`, so the log screen surfaces it from data;
    * these four are the cards R1.9 draws on the dashboard itself.
    */
-  "ttc.workup",
-  "ttc.conditionContext",
   /**
    * Track F's surfaces (R2.9), data-only for the same reason Track B's are. Two
    * of them already exist as components on the shipped menopause panel —
@@ -202,6 +202,8 @@ const RENDERERS: Partial<Record<ModuleId, Renderer>> = {
   "cycle.personalNormal": (ctx) => ctx.cyclePersonalNormal,
   "ttc.window": (ctx) => ctx.ttcWindow,
   "ttc.logSummary": (ctx) => ctx.ttcLogSummary,
+  "ttc.workup": (ctx) => ctx.ttcWorkup,
+  "ttc.conditionContext": (ctx) => ctx.ttcConditionContext,
   explore: (ctx) => ctx.explore,
   visitPrep: (ctx) => ctx.visitPrep,
   privacy: (ctx) => ctx.privacy,

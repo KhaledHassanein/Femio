@@ -485,6 +485,16 @@
       "body": "Tus datos de salud nunca se comparten con anunciantes ni con herramientas de analítica. Puedes exportarlos o borrarlos cuando quieras.",
       "cta": "Ajustes de privacidad"
     },
+    "ttcWorkup": {
+      "heading": "¿Estás pensando en hacerte pruebas?",
+      "body": "Las guías suelen sugerir consultar tras un año intentándolo, o seis meses a partir de los 35 años. Es un buen momento para saberlo, no un veredicto.",
+      "cta": "Qué incluye una evaluación"
+    },
+    "ttcCondition": {
+      "heading": "Lo que nos contaste sigue contando",
+      "body": "Mencionaste una condición al configurar Femio. Esto es lo que puede significar mientras lo intentas y lo que conviene comentar con tu profesional.",
+      "cta": "Leer más"
+    },
     "topSymptomsHeading": "Los más registrados",
     "logCta": "Registrar hoy",
     "needData": "Registra dos ciclos para desbloquear los análisis.",

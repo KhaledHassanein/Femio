@@ -5,6 +5,7 @@ import type { ExperienceConfig, ModuleId } from "@/lib/experience/types";
 import { predictionBand } from "@/lib/ui/range-band";
 import { ExperienceModules } from "./module-registry";
 import { Button } from "@/components/ui/button";
+import { Card, CardContent } from "@/components/ui/card";
 import { HeroCard } from "@/components/ui/hero-card";
 import { Link } from "@/i18n/navigation";
 
@@ -56,8 +57,40 @@ export function TtcExperience({
     });
 
   const ids = new Set(config?.home.modules.map((m) => m.id) ?? []);
-  const drawable: ModuleId[] = ["ttc.window", "ttc.logSummary"];
+  const drawable: ModuleId[] = [
+    "ttc.window",
+    "ttc.logSummary",
+    "ttc.workup",
+    "ttc.conditionContext",
+  ];
   if (!drawable.some((id) => ids.has(id))) return null;
+
+  /**
+   * Which article the condition layer points at. C6 and C8 carry the code as a
+   * module param, so the mapping lives here rather than as a branch on her
+   * persona id — `persona-branch-lint` forbids the latter and is right to: a
+   * screen that knows what C6 *is* has re-implemented the registry.
+   */
+  const conditionArticle: Record<string, string> = {
+    pcos: "/learn/pcos-and-fertility",
+    thyroid: "/learn/thyroid-and-conceiving",
+  };
+  const conditionParam = config?.home.modules.find((m) => m.id === "ttc.conditionContext")?.params
+    ?.condition;
+  const conditionHref =
+    typeof conditionParam === "string" ? conditionArticle[conditionParam] : undefined;
+
+  const linkCard = (key: "ttcWorkup" | "ttcCondition", href: string) => (
+    <Card>
+      <CardContent className="flex flex-col gap-2 p-6">
+        <h2 className="font-display text-lg text-text">{t(`${key}.heading`)}</h2>
+        <p className="text-sm text-text-muted">{t(`${key}.body`)}</p>
+        <Link href={href} className="text-sm text-text-link underline">
+          {t(`${key}.cta`)}
+        </Link>
+      </CardContent>
+    </Card>
+  );
 
   const band =
     lastStart && fertile
@@ -94,6 +127,15 @@ export function TtcExperience({
             <Link href="/fertility">{tFertility("title")}</Link>
           </Button>
         ),
+        /**
+         * Emphasis, never a label. C2 §I is explicit that being past her window
+         * changes what leads and says nothing about infertility, and the copy
+         * holds that line: "a good moment to find out, not a verdict".
+         */
+        ttcWorkup: linkCard("ttcWorkup", "/learn/fertility-tests-what-to-expect"),
+        // Nothing is drawn for a condition with no article, rather than a card
+        // that promises a page that is not there.
+        ttcConditionContext: conditionHref ? linkCard("ttcCondition", conditionHref) : null,
         warningSigns: null,
         reading: null,
         movement: null,

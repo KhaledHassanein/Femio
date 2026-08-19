@@ -485,6 +485,16 @@
       "body": "Your health data is never shared with advertisers or analytics. You can export it or delete it at any time.",
       "cta": "Privacy settings"
     },
+    "ttcWorkup": {
+      "heading": "Thinking about getting checked?",
+      "body": "Guidance usually suggests asking after a year of trying, or six months from around 35. It is a good moment to find out, not a verdict.",
+      "cta": "What an assessment involves"
+    },
+    "ttcCondition": {
+      "heading": "What you told us still counts",
+      "body": "You mentioned a condition when you set up Femio. Here is what it can mean while you are trying, and what is worth raising with your clinician.",
+      "cta": "Read more"
+    },
     "topSymptomsHeading": "Most logged",
     "logCta": "Log today",
     "needData": "Log a couple of periods to unlock insights.",
