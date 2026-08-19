@@ -81,6 +81,9 @@ export type ModuleContext = {
    * The hidden-but-reachable trio (R1.9b). Every B and F spec repeats the rule in
    * its §I, and until now it was true of the router and invisible on the screen.
    */
+  /** Track C (R1.9c). */
+  ttcWindow?: ReactNode;
+  ttcLogSummary?: ReactNode;
   explore?: ReactNode;
   visitPrep?: ReactNode;
   privacy?: ReactNode;
@@ -128,8 +131,6 @@ export const UNIMPLEMENTED: readonly ModuleId[] = [
    * now carries `fertility` in `tools`, so the log screen surfaces it from data;
    * these four are the cards R1.9 draws on the dashboard itself.
    */
-  "ttc.window",
-  "ttc.logSummary",
   "ttc.workup",
   "ttc.conditionContext",
   /**
@@ -199,6 +200,8 @@ const RENDERERS: Partial<Record<ModuleId, Renderer>> = {
   "cycle.window": (ctx) => ctx.cycleWindow,
   "cycle.variability": (ctx) => ctx.cycleVariability,
   "cycle.personalNormal": (ctx) => ctx.cyclePersonalNormal,
+  "ttc.window": (ctx) => ctx.ttcWindow,
+  "ttc.logSummary": (ctx) => ctx.ttcLogSummary,
   explore: (ctx) => ctx.explore,
   visitPrep: (ctx) => ctx.visitPrep,
   privacy: (ctx) => ctx.privacy,

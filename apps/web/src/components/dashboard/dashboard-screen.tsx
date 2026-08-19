@@ -18,6 +18,7 @@ import { PostpartumExperience } from "@/components/experience/postpartum-experie
 import { TeenExperience } from "@/components/experience/teen-experience";
 import { PersonaOffer } from "@/components/experience/persona-offer";
 import { CycleExperience } from "@/components/experience/cycle-experience";
+import { TtcExperience } from "@/components/experience/ttc-experience";
 import { MenopausePanel } from "@/components/menopause/menopause-panel";
 import { HeroCard } from "@/components/ui/hero-card";
 import { AppScreen, ScreenError } from "@/components/patterns/app-screen";
@@ -38,7 +39,6 @@ type Pregnancy = { id: string; edd: string | null; status: string } | null;
 export function DashboardScreen() {
   const t = useTranslations("dashboard");
   const st = useTranslations("symptoms");
-  const tFertility = useTranslations("fertility");
   const format = useFormatter();
   const today = todayISO();
 
@@ -136,8 +136,10 @@ export function DashboardScreen() {
   const prediction = predictNextPeriod(starts);
   const cycleDay = currentCycleDay(starts, today);
   const lastStart = starts.length > 0 ? [...starts].sort().at(-1)! : null;
-  const fertile =
-    mode === "ttc" && lastStart ? fertileWindow(lastStart, prediction?.averageLength ?? 28) : null;
+  // Computed for anyone with a cycle history, and *rendered* only where a persona
+  // contributes `ttc.window` (R1.9c). Gating the arithmetic on `mode === "ttc"` put
+  // the decision in the screen; the registry holds it now.
+  const fertile = lastStart ? fertileWindow(lastStart, prediction?.averageLength ?? 28) : null;
 
   // The band draws the range the prediction already returns; when the geometry
   // can't be computed the sentence stands on its own (lib/ui/range-band.ts).
@@ -147,15 +149,6 @@ export function DashboardScreen() {
           axisStart: lastStart,
           windowStart: prediction.windowStart,
           windowEnd: prediction.windowEnd,
-          today,
-        })
-      : null;
-  const fertileBand =
-    lastStart && fertile
-      ? predictionBand({
-          axisStart: lastStart,
-          windowStart: fertile.windowStart,
-          windowEnd: fertile.windowEnd,
           today,
         })
       : null;
@@ -189,34 +182,10 @@ export function DashboardScreen() {
           and rendered by nothing until now. */}
       <PersonaOffer config={config} />
 
-      {/* TTC leads with the fertile window — it is the question she opened the app
-          with — and keeps the next-period estimate as a secondary card below. */}
-      {mode === "ttc" ? (
-        <HeroCard
-          tone="fertile"
-          eyebrow={t("fertileHeading")}
-          headline={
-            fertile
-              ? t("fertileWindow", {
-                  start: fmtShort(fertile.windowStart),
-                  end: fmtShort(fertile.windowEnd),
-                })
-              : t("needData")
-          }
-          footnote={fertile ? t("fertileNote") : undefined}
-          band={fertileBand}
-        />
-      ) : null}
-
-      {/* The charting tools, surfaced where they are most wanted (P2.1). Surfaced,
-          not gated: Settings reaches the same screen from every mode, because the
-          window above is an estimate from cycle history and her own temperatures
-          and tests are a different, better kind of evidence about her own body. */}
-      {mode === "ttc" ? (
-        <Button asChild variant="outline" className="w-full">
-          <Link href="/fertility">{tFertility("title")}</Link>
-        </Button>
-      ) : null}
+      {/* Track C, rendered from the served document (R1.9c). The fertile-window
+          hero and the charting link were two `mode === "ttc"` branches; which woman
+          sees them is now her persona's contribution, not a string comparison. */}
+      <TtcExperience config={config} fertile={fertile} lastStart={lastStart} today={today} />
 
       {showsCyclePredictions(mode) && mode !== "ttc" ? (
         <HeroCard
