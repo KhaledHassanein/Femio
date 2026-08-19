@@ -1582,6 +1582,11 @@
     "markerAhead": "Los profesionales suelen describir la menopausia como 12 meses seguidos sin menstruación, una vez descartadas otras causas.",
     "markerPassed": "Eso supera los 12 meses seguidos que los profesionales suelen usar para describir la menopausia — una vez descartadas otras causas.",
     "notDiagnosis": "Esto es un recuento de las fechas que has registrado, no una valoración. La menstruación también puede detenerse por otros motivos, como el embarazo, cambios de tiroides y algunos medicamentos. Un profesional puede ver el cuadro completo contigo.",
+    "pmb": {
+      "heading": "¿Sangrado después de doce meses? Que te lo revisen",
+      "body": "Cuando ha pasado un año sin reglas, cualquier sangrado merece una cita pronto: una sola mancha, flujo marrón o sangrado después del sexo. La mayoría de las causas resultan leves, y por eso cada episodio se revisa en lugar de vigilarse.",
+      "cta": "Por qué siempre se revisa"
+    },
     "variability": {
       "heading": "La duración de tus ciclos recientes",
       "range": "Entre {shortest} y {longest} días",

@@ -1572,6 +1572,11 @@
     "markerAhead": "Clinicians often describe menopause as 12 months in a row without a period, once other causes have been ruled out.",
     "markerPassed": "That is past the 12 months in a row that clinicians often use to describe menopause \u2014 once other causes have been ruled out.",
     "notDiagnosis": "This is a count of the dates you logged, not an assessment. Periods can also stop for other reasons, including pregnancy, thyroid changes and some medicines. A clinician can look at the whole picture with you.",
+    "pmb": {
+      "heading": "Bleeding after twelve months? Get it checked",
+      "body": "Once you have gone a year without a period, any bleeding at all is worth a prompt appointment — a single spot, brown discharge, or bleeding after sex. Most causes turn out to be minor, and that is why every episode is checked rather than watched.",
+      "cta": "Why it is always checked"
+    },
     "variability": {
       "heading": "Your recent cycle lengths",
       "range": "Between {shortest} and {longest} days",

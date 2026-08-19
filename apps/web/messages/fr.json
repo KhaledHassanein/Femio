@@ -1582,6 +1582,11 @@
     "markerAhead": "Les cliniciens décrivent souvent la ménopause comme 12 mois consécutifs sans règles, une fois les autres causes écartées.",
     "markerPassed": "C'est au-delà des 12 mois consécutifs que les cliniciens utilisent souvent pour décrire la ménopause — une fois les autres causes écartées.",
     "notDiagnosis": "Il s'agit d'un décompte des dates que vous avez enregistrées, pas d'une évaluation. Les règles peuvent aussi s'arrêter pour d'autres raisons, dont une grossesse, des changements thyroïdiens et certains médicaments. Un clinicien peut examiner l'ensemble du tableau avec vous.",
+    "pmb": {
+      "heading": "Un saignement après douze mois ? Faites-le vérifier",
+      "body": "Une fois passée une année sans règles, tout saignement mérite un rendez-vous rapide — une seule tache, des pertes brunes ou un saignement après un rapport. La plupart des causes sont bénignes, et c'est précisément pour cela que chaque épisode est vérifié plutôt que surveillé.",
+      "cta": "Pourquoi cela se vérifie toujours"
+    },
     "variability": {
       "heading": "La durée de vos cycles récents",
       "range": "Entre {shortest} et {longest} jours",

@@ -88,6 +88,7 @@ export type ModuleContext = {
   ttcConditionContext?: ReactNode;
   /** Track F (R1.9e) — the last hand-written dashboard, now driven by the document. */
   menopauseSince?: ReactNode;
+  menopausePmb?: ReactNode;
   menopauseMarker?: ReactNode;
   menopauseTrend?: ReactNode;
   menopauseSymptomStrip?: ReactNode;
@@ -149,7 +150,6 @@ export const UNIMPLEMENTED: readonly ModuleId[] = [
    * could not before this change.
    */
   "menopause.longTerm",
-  "menopause.pmb",
   "medications",
   "gsm",
   /**
@@ -206,6 +206,7 @@ const RENDERERS: Partial<Record<ModuleId, Renderer>> = {
   "ttc.workup": (ctx) => ctx.ttcWorkup,
   "ttc.conditionContext": (ctx) => ctx.ttcConditionContext,
   "menopause.since": (ctx) => ctx.menopauseSince,
+  "menopause.pmb": (ctx) => ctx.menopausePmb,
   "menopause.marker": (ctx) => ctx.menopauseMarker,
   "menopause.trend": (ctx) => ctx.menopauseTrend,
   "menopause.symptomStrip": (ctx) => ctx.menopauseSymptomStrip,

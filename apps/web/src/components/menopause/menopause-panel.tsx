@@ -9,6 +9,8 @@ import { MrsCheck } from "./mrs-check";
 import { ExperienceModules } from "@/components/experience/module-registry";
 import type { ExperienceConfig } from "@/lib/experience/types";
 import { ReadingList } from "@/components/experience/reading-list";
+import { Alert, AlertDescription } from "@/components/ui/alert";
+import { Link } from "@/i18n/navigation";
 
 /**
  * The perimenopause / menopause dashboard (P1.13c).
@@ -166,8 +168,36 @@ export function MenopausePanel({
     />
   );
 
+  /**
+   * The only red flag in Track F, and the last one in the product to get a surface
+   * (R1.9f). The alert has been in F2's document since R2.9 and the article behind
+   * it since R2.9b, and between them sat nothing on screen: a woman who logged a
+   * bleed a year after her last period had the finding in her config and no panel.
+   *
+   * **It is standing, not conditional.** F2 §G shows it every time rather than
+   * after the fact, because a woman who has not bled yet is exactly who needs to
+   * know what to do if she does — and because a box that appears only once
+   * something has happened tells her something has happened.
+   *
+   * Says nothing about what a bleed means. No triage, no reassurance in place of
+   * routing, and **no phone number** (P1.26.1): the whole message is that any bleed
+   * after twelve months is checked promptly, however small.
+   */
+  const pmbNode = (
+    <Alert variant="danger">
+      <AlertDescription className="flex flex-col gap-2">
+        <span className="font-medium">{t("pmb.heading")}</span>
+        <span>{t("pmb.body")}</span>
+        <Link href="/learn/postmenopausal-bleeding" className="underline">
+          {t("pmb.cta")}
+        </Link>
+      </AlertDescription>
+    </Alert>
+  );
+
   const nodes = {
     menopauseSince: sinceNode,
+    menopausePmb: pmbNode,
     menopauseMarker: markerNode,
     menopauseTrend: trendNode,
     menopauseSymptomStrip: stripNode,
@@ -185,6 +215,10 @@ export function MenopausePanel({
     return (
       <div className="flex flex-col gap-4">
         {sinceNode}
+        {/* Kept in the no-document path deliberately: the red flag is the one thing
+            that must not disappear with the engine, for the same reason the
+            postpartum screen keeps its warning signs. */}
+        {pmbNode}
         {markerNode}
         {trendNode}
         {stripNode}
