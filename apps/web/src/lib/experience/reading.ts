@@ -113,6 +113,11 @@ export const ARTICLE_FOR_TOPIC: Readonly<Record<string, string>> = {
    * confident window drawn from unstable data.
    */
   "irregular-cycles-and-timing": "irregular-cycles-and-timing",
+  /**
+   * R2.11d, and the last of Track C's. C8's topic, and the C-track end of the
+   * C8 -> D7 -> E7 arc: the same condition, three life stages, one record.
+   */
+  "thyroid-and-conceiving": "thyroid-and-conceiving",
 
   // Track D.
   "appointments-and-tests": "first-pregnancy-appointment",
@@ -207,12 +212,12 @@ export function weekArticleSlug(gestationalWeek: number | null | undefined): str
  */
 export const NO_ARTICLE_YET: readonly string[] = [
   /**
-   * Track C — R2.11. One topic left: C8's. `what-a-workup-involves` left this list
-   * in R2.11a (the hero of two personas with nothing behind it), `age-and-fertility`
-   * in R2.11b (C3's whole reason for existing separately from C2), and
-   * `irregular-cycles-and-timing` in R2.11c.
+   * Track C is **fully answered** as of R2.11d (2026-08-19) — every topic C1, C2,
+   * C3, C6 and C8 foreground has an article above. It went from a track with no
+   * registry at all to a track with no content gap in a single day, which is worth
+   * noting only because the order mattered: the registry came first, so each
+   * article was written against a persona that already asked for it.
    */
-  "thyroid-and-conceiving",
   // Track A is fully covered as of P2.13 (2026-08-17) — the ten teen drafts are in
   // `docs/content/articles/`, so every A1 and A2 topic has an article above. It was
   // the whole of this list two weeks ago, which is the fastest a foreground list in
