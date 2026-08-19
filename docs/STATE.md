@@ -283,6 +283,26 @@ a `mode === "ttc"` button) and feeding (P2.3). `ExperienceConfig.tools` is a rea
 ten kinds that no screen reads — the same write-only shape `docs/23` §3.1 opened this workstream
 with, one screen after R2.3 closed it for the dashboard.
 
+## Content is closed — 2026-08-19, owner direction
+
+**All 105 articles are published.** The owner directed that nothing needs his prior approval and
+that content stops being a workstream: *"we are not bloggers or journalists… from the next prompt
+we are only developers."*
+
+**Do not write another article.** Not to fill a `NO_ARTICLE_YET` entry, not because a reading card
+shows two links instead of four, not because a topic list looks incomplete. Eight topics stay
+listed — four in Track B, four in Track F — and a test asserts they stay listed. A counted gap is
+the correct end state, and removing them quietly would be worse than leaving them.
+
+**The drift worth remembering, because it was mine.** The readiness ordering in
+`07_MASTER_TODO.md` put publishing and screens above content, and four consecutive passes went to
+writing articles anyway — because articles are bounded, gate cleanly and always succeed, while
+screens are ambiguous and need judgement. Safe work is not the same as valuable work, and a queue
+exists precisely to stop that substitution.
+
+**From here: build the product.** R1.9 (the dashboards for B, C and F), then the beta path
+(P0.12.5 → P1.24). Content re-opens only on evidence from a real user.
+
 ## The page behind Track F's only red flag exists (R2.9b, 2026-08-17)
 
 `menopause.pmb` was live, the alert was live, and there was nowhere for a woman who tapped through
