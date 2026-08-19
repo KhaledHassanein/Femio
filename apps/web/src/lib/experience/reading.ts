@@ -92,6 +92,13 @@ export const ARTICLE_FOR_TOPIC: Readonly<Record<string, string>> = {
   "when-to-seek-help": "when-to-seek-fertility-help",
   "preconception-visit": "preconception-appointment",
   "pcos-and-conceiving": "pcos-and-fertility",
+  /**
+   * R2.11a. The hero of both C2 and C3 — a woman past her evaluation window opens
+   * the app to a work-up roadmap, and until now there was nothing behind it. Same
+   * shape as the red flag Track F carried with no page until R2.9b, and the same
+   * reason to close it first: a hero with no destination is worse than no hero.
+   */
+  "what-a-workup-involves": "fertility-tests-what-to-expect",
 
   // Track D.
   "appointments-and-tests": "first-pregnancy-appointment",
@@ -186,13 +193,11 @@ export function weekArticleSlug(gestationalWeek: number | null | undefined): str
  */
 export const NO_ARTICLE_YET: readonly string[] = [
   /**
-   * Track C — R2.11. Four topics C2, C3, C6 and C8 name that the library does not
-   * answer. **`what-a-workup-involves` is the one to write first:** it is the hero
-   * of both C2 and C3, so a woman past her evaluation window gets a roadmap card
-   * with nothing behind it — the same shape as the red flag Track F carried with no
-   * page until R2.9b.
+   * Track C — R2.11. Three topics C3, C6 and C8 name that the library does not
+   * answer. `what-a-workup-involves` left this list in R2.11a, which was the one
+   * that mattered: it is the hero of both C2 and C3, so a woman past her evaluation
+   * window was opening the app to a roadmap card with nothing behind it.
    */
-  "what-a-workup-involves",
   "age-and-fertility",
   "irregular-cycles-and-timing",
   "thyroid-and-conceiving",
