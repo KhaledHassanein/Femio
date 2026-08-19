@@ -81,6 +81,7 @@ export type ModuleContext = {
   cyclePersonalNormal?: ReactNode;
   cyclePhase?: ReactNode;
   cycleChangeAwareness?: ReactNode;
+  cycleFlowStrip?: ReactNode;
   menopauseLongTerm?: ReactNode;
   medications?: ReactNode;
   gsm?: ReactNode;
@@ -135,7 +136,6 @@ export const UNIMPLEMENTED: readonly ModuleId[] = [
    * other declines to, and collapsing them is how the invented-window defect would
    * come back at a fourth life stage.
    */
-  "cycle.flowStrip",
   /**
    * Track C's surfaces (R2.11), data-only like B and F. `/fertility` already
    * exists and is a real screen — what was missing was any persona able to *ask*
@@ -205,6 +205,7 @@ const RENDERERS: Partial<Record<ModuleId, Renderer>> = {
   "cycle.personalNormal": (ctx) => ctx.cyclePersonalNormal,
   "cycle.phase": (ctx) => ctx.cyclePhase,
   "cycle.changeAwareness": (ctx) => ctx.cycleChangeAwareness,
+  "cycle.flowStrip": (ctx) => ctx.cycleFlowStrip,
   "menopause.longTerm": (ctx) => ctx.menopauseLongTerm,
   medications: (ctx) => ctx.medications,
   gsm: (ctx) => ctx.gsm,

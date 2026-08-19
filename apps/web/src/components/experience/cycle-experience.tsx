@@ -47,6 +47,7 @@ export function CycleExperience({
   topSymptoms,
   symptomLabel,
   cycleDay,
+  recentPeriods,
 }: {
   config: ExperienceConfig | null;
   prediction: CyclePrediction | null;
@@ -57,8 +58,12 @@ export function CycleExperience({
   symptomLabel: (type: string) => string;
   /** Days since the first day of her last period, from tier 2. Null with no history. */
   cycleDay: number | null;
+  /** Her logged period starts with the flow she chose, newest first. */
+  recentPeriods: readonly { date: string; flow: string | null }[];
 }) {
   const t = useTranslations("dashboard");
+  const tFlowRaw = useTranslations("track.flow");
+  const tFlow = tFlowRaw as unknown as (key: string) => string;
   const format = useFormatter();
 
   const fmt = (iso: string) =>
@@ -71,6 +76,7 @@ export function CycleExperience({
     "cycle.personalNormal",
     "cycle.phase",
     "cycle.changeAwareness",
+    "cycle.flowStrip",
     "explore",
     "visitPrep",
     "privacy",
@@ -178,6 +184,30 @@ export function CycleExperience({
     </Card>
   ) : null;
 
+  /**
+   * The last Track B module (R1.9i). Her recent periods with the flow **she**
+   * chose — the vocabulary is hers and this renders it back unchanged. No average
+   * flow, no "heavier than usual", no trend: those are the readings a clinician
+   * makes from a history, and `docs/25` §5a rejected the ring for the same reason
+   * a flow verdict is rejected here.
+   */
+  const flowStrip =
+    recentPeriods.length > 0 ? (
+      <section className="flex flex-col gap-2">
+        <h2 className="text-md font-semibold text-text">{t("flowStrip.heading")}</h2>
+        <ul className="flex flex-col gap-1 text-sm">
+          {recentPeriods.slice(0, 6).map((p) => (
+            <li key={p.date} className="flex justify-between gap-4">
+              <span className="text-text">{fmt(p.date)}</span>
+              <span className="text-text-muted">{p.flow ? tFlow(p.flow) : "—"}</span>
+            </li>
+          ))}
+        </ul>
+      </section>
+    ) : (
+      <p className="text-sm text-text-muted">{t("flowStrip.empty")}</p>
+    );
+
   const linkCard = (key: "explore" | "visitPrep" | "privacyNote", href: string) => (
     <Card>
       <CardContent className="flex flex-col gap-2 p-6">
@@ -199,6 +229,7 @@ export function CycleExperience({
         cyclePersonalNormal: personalNormal,
         cyclePhase: phaseCard,
         cycleChangeAwareness: changeAwarenessCard,
+        cycleFlowStrip: flowStrip,
         explore: linkCard("explore", "/learn"),
         visitPrep: linkCard("visitPrep", "/summary"),
         privacy: linkCard("privacyNote", "/settings"),

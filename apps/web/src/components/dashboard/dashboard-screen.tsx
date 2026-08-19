@@ -46,7 +46,12 @@ export function DashboardScreen() {
     const [state, cycles, symptoms, experience] = await Promise.all([
       unwrap(supabase.from("persona_state").select("track").maybeSingle()),
       unwrap(
-        supabase.from("cycles").select("period_start").order("period_start", { ascending: false }),
+        // `flow` comes back for `cycle.flowStrip` (R1.9i). It was not selected
+        // before, which is why that module had no data to render and sat listed.
+        supabase
+          .from("cycles")
+          .select("period_start, flow")
+          .order("period_start", { ascending: false }),
       ),
       unwrap(
         supabase
@@ -91,6 +96,11 @@ export function DashboardScreen() {
       config: experience?.config ?? null,
       track: (state?.track as string | null) ?? null,
       starts: (cycles ?? []).map((c) => c.period_start as string),
+      /** Newest first, capped in the module. Her own entries, never interpreted. */
+      recentPeriods: (cycles ?? []).map((c) => ({
+        date: c.period_start as string,
+        flow: (c as { flow: string | null }).flow,
+      })),
       top: topSymptoms(((symptoms ?? []) as { type: string }[]).map((s) => s.type)),
     };
   });
@@ -117,7 +127,7 @@ export function DashboardScreen() {
     );
   }
 
-  const { mode, pregnancy, starts, top, config } = query.data;
+  const { mode, pregnancy, starts, top, config, recentPeriods } = query.data;
   const stItem = st as unknown as (key: string) => string;
   const symptomLabel = (type: string) =>
     KNOWN_SYMPTOMS.has(type) ? stItem(`items.${type}`) : type;
@@ -272,6 +282,7 @@ export function DashboardScreen() {
         topSymptoms={top}
         symptomLabel={symptomLabel}
         cycleDay={cycleDay}
+        recentPeriods={recentPeriods}
       />
     </AppScreen>
   );
