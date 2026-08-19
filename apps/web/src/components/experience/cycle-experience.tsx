@@ -1,10 +1,11 @@
 "use client";
 
 import { useFormatter, useTranslations } from "next-intl";
-import type { ExperienceConfig } from "@/lib/experience/types";
+import type { ExperienceConfig, ModuleId } from "@/lib/experience/types";
 import type { CyclePrediction } from "@/lib/cycle/predict";
 import { predictionBand } from "@/lib/ui/range-band";
 import { ExperienceModules } from "./module-registry";
+import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
 import { HeroCard } from "@/components/ui/hero-card";
 
@@ -42,11 +43,16 @@ export function CycleExperience({
   prediction,
   lastStart,
   today,
+  topSymptoms,
+  symptomLabel,
 }: {
   config: ExperienceConfig | null;
   prediction: CyclePrediction | null;
   lastStart: string | null;
   today: string;
+  /** Her most-logged symptoms, already counted by tier 2 (`lib/cycle/insights`). */
+  topSymptoms: readonly { type: string; count: number }[];
+  symptomLabel: (type: string) => string;
 }) {
   const t = useTranslations("dashboard");
   const format = useFormatter();
@@ -55,7 +61,8 @@ export function CycleExperience({
     format.dateTime(new Date(`${iso}T00:00:00Z`), { dateStyle: "medium", timeZone: "UTC" });
 
   const ids = new Set(config?.home.modules.map((m) => m.id) ?? []);
-  if (!ids.has("cycle.window") && !ids.has("cycle.variability")) return null;
+  const drawable: ModuleId[] = ["cycle.window", "cycle.variability", "cycle.personalNormal"];
+  if (!drawable.some((id) => ids.has(id))) return null;
 
   const band =
     lastStart && prediction
@@ -101,12 +108,33 @@ export function CycleExperience({
     </Card>
   );
 
+  /**
+   * Her own pattern, which is the thing no competitor can copy by copying a screen
+   * — it is her record, not a population average. Only Track B contributes it: the
+   * block this replaces was gated on `mode !== "menopause"`, and the registry says
+   * the same thing better, because F1 and F2 simply do not offer the module.
+   */
+  const personalNormal =
+    topSymptoms.length > 0 ? (
+      <section className="flex flex-col gap-2">
+        <h2 className="text-md font-semibold text-text">{t("topSymptomsHeading")}</h2>
+        <div className="flex flex-wrap gap-2">
+          {topSymptoms.map((s) => (
+            <Badge key={s.type} variant="primary">
+              {symptomLabel(s.type)} · {s.count}
+            </Badge>
+          ))}
+        </div>
+      </section>
+    ) : null;
+
   return (
     <ExperienceModules
       ctx={{
         config: config!,
         cycleWindow: windowCard,
         cycleVariability: variabilityCard,
+        cyclePersonalNormal: personalNormal,
         warningSigns: null,
         reading: null,
         movement: null,

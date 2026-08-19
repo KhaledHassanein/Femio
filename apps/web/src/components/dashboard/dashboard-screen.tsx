@@ -300,20 +300,9 @@ export function DashboardScreen() {
         prediction={prediction}
         lastStart={lastStart}
         today={today}
+        topSymptoms={top}
+        symptomLabel={symptomLabel}
       />
-
-      {top.length > 0 && mode !== "menopause" ? (
-        <section className="flex flex-col gap-2">
-          <h2 className="text-md font-semibold text-text">{t("topSymptomsHeading")}</h2>
-          <div className="flex flex-wrap gap-2">
-            {top.map((s) => (
-              <Badge key={s.type} variant="primary">
-                {symptomLabel(s.type)} · {s.count}
-              </Badge>
-            ))}
-          </div>
-        </section>
-      ) : null}
     </AppScreen>
   );
 }

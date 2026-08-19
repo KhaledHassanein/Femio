@@ -76,6 +76,7 @@ export type ModuleContext = {
    */
   cycleWindow?: ReactNode;
   cycleVariability?: ReactNode;
+  cyclePersonalNormal?: ReactNode;
 };
 
 /**
@@ -112,7 +113,6 @@ export const UNIMPLEMENTED: readonly ModuleId[] = [
    */
   "cycle.phase",
   "cycle.flowStrip",
-  "cycle.personalNormal",
   "cycle.changeAwareness",
   "explore",
   "visitPrep",
@@ -194,6 +194,7 @@ const RENDERERS: Partial<Record<ModuleId, Renderer>> = {
   "teen.window": (ctx) => ctx.teenWindow,
   "cycle.window": (ctx) => ctx.cycleWindow,
   "cycle.variability": (ctx) => ctx.cycleVariability,
+  "cycle.personalNormal": (ctx) => ctx.cyclePersonalNormal,
   "teen.reassurance": (ctx) => ctx.teenReassurance,
   "teen.worthMentioning": (ctx) => ctx.teenWorthMentioning,
   "teen.privacy": (ctx) => ctx.teenPrivacy,
