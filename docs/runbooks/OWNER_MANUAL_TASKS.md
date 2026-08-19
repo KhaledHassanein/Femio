@@ -29,13 +29,17 @@ outstanding, in the order I would do it:
 | **3** | **Look at the new homepage on a phone** (R1.3d) — *see `MANUAL_TEST_PLAN.md` T1* | 5 min | `femioapp.com/en` and `/ar` at 390px, light and dark. I verified the copy with `curl`; I have never seen it rendered. Craft is your call. |
 | **4** | ✅ **Migration `0008` applied** 2026-08-16 | — | The contraction timer has its table. Nothing left to do here. |
 | **5** | ▶ **Re-deploy the experience Edge Function** (R2.4) | 2 min | ✅ deployed once already, on 2026-08-12. Its source changed again on 2026-08-17 — the resolver gained Tracks B and F, and with them a fix that matters: **logging a bleed after twelve months used to throw a postmenopausal woman out of Track F**, i.e. out of the one experience that tells her the bleed is worth checking. Until you re-deploy, the server keeps serving the old answer for that case; the local fallback already has the new one, so the two now disagree, which is the situation this task exists to end. **Nothing is broken until you run it:** the client falls back to the identical local computation, and the tests that hold the two together are the same golden fixtures. One line, below. |
-| **6** | **Turn on two-step sign-in** (B★★★) | 3 min | `/admin/*` redirects you to Settings until you enrol. Blocks the translation portal and the insights dashboard, nothing else. |
+| **6** | ✅ **Two-step sign-in enrolled** 2026-08-16 (B6) | — | `/admin/*` is reachable — the translation portal and the insights dashboard. Recovery if you lose the authenticator is `scripts/auth/reset-mfa.mjs`. |
 | **7** | **Gate signup** (P0.12.5) | 15 min | Before any outside tester. An invite code, an allowlist, or a "private beta" notice on `/welcome`. It keeps "we are only testing" true rather than merely intended. |
-| **8** | **PostHog EU key** (D) | 20 min | Optional. The event layer is built and fails closed; it stays a verified no-op until a key exists. |
+| **8** | **PostHog EU key** (B5) | 5 min | Optional. **The DPA is signed and the processor register records it** (2026-08-16) — what is left is two environment variables in Vercel: `NEXT_PUBLIC_POSTHOG_KEY` and `NEXT_PUBLIC_POSTHOG_HOST=https://eu.i.posthog.com`. Until they exist the event layer stays a **verified no-op**: no vendor script loads at all. A non-EU host fails the build by design. |
 
 **Anything that needs your eyes rather than your credentials lives in
-`MANUAL_TEST_PLAN.md`** — twelve checks now, T1–T12, of which T8 and T10–T12 have never been
-looked at by anyone. This file stays keys, config and one-off commands.
+`MANUAL_TEST_PLAN.md`** — **T1–T25 now**, and T8 and T10–T25 have never been looked at by
+anyone. The three that changed since this row was written: **T22** (the fourteen postpartum
+drafts), **T24** (the ten teen drafts) and **T25** (the thirty-seven week-by-week drafts) are
+the review gate itself — 75 of 101 articles are written and invisible to readers until you
+approve them, which is the largest single gap between what is built and what anyone can use.
+This file stays keys, config and one-off commands.
 
 **Nothing on this list blocks me.** Every item is a strict improvement on a working product:
 the Edge Function has a local fallback that computes the identical document, and the five new
