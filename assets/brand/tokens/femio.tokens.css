@@ -129,7 +129,7 @@
   /* Text */
   --text:var(--neutral-900);
   --text-muted:var(--neutral-600);
-  --text-subtle:var(--neutral-550);  /* AA-fixed: 4.81:1 on --bg #FAFAF9 (neutral-550 darkened #787189→#726C82; axe found 4.45 on the off-white bg) */
+  --text-subtle:#716B81;  /* AA on EVERY light surface, not just --bg (P1.5.2). The prior value was verified against --bg (4.81) and never against --surface-sunken, where it measured 4.47 — so any subtle text inside a sunken section failed AA while the token looked fixed. #726C82 → #716B81: sunken 4.54, bg 4.88, card 5.09. */
   --text-on-brand:var(--neutral-0);
   --text-link:var(--violet-700);
 
@@ -194,7 +194,7 @@
 
   --text:#F3F1F7;
   --text-muted:#B7B1C6;
-  --text-subtle:#8E88A0;
+  --text-subtle:#928CA4;  /* P1.5.2: the dark sweep found a second failure nobody had measured — 4.32 on --surface-raised. #8E88A0 → #928CA4: raised 4.55, card 5.05, sunken 5.40, bg 5.60, OLED 6.51. */
   --text-on-brand:#FFFFFF;
   --text-link:var(--violet-300);
 
