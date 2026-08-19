@@ -495,6 +495,12 @@
       "body": "Mencionaste una condición al configurar Femio. Esto es lo que puede significar mientras lo intentas y lo que conviene comentar con tu profesional.",
       "cta": "Leer más"
     },
+    "phase": { "heading": "Dónde estás", "body": "Contado desde el primer día de tu última regla." },
+    "flowStrip": { "heading": "Reglas recientes", "empty": "Registra una regla y aparecerá aquí." },
+    "changeAwareness": { "heading": "Tu patrón ha cambiado", "body": "Tus ciclos recientes se salen de tu rango habitual. Los ciclos cambian por muchos motivos corrientes; conviene comentarlo si continúa." },
+    "longTerm": { "heading": "Mirando más adelante", "body": "La salud de los huesos y del corazón importa más después de la menopausia. Esto es información, no una puntuación de riesgo: tu profesional dirá qué te aplica.", "cta": "Leer sobre opciones de cuidado" },
+    "medications": { "heading": "Medicamentos y suplementos", "body": "Una sola lista para todo lo que tomas, sin pautas de dosis ni puntuación de cumplimiento.", "cta": "Abrir tu lista" },
+    "gsm": { "heading": "Comodidad e intimidad", "body": "La sequedad, las molestias y los cambios urinarios son frecuentes tras la menopausia y tienen tratamiento. Nadie lo mencionará si no lo haces tú.", "cta": "Leer más" },
     "topSymptomsHeading": "Los más registrados",
     "logCta": "Registrar hoy",
     "needData": "Registra dos ciclos para desbloquear los análisis.",

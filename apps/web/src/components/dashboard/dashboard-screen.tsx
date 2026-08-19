@@ -271,6 +271,7 @@ export function DashboardScreen() {
         today={today}
         topSymptoms={top}
         symptomLabel={symptomLabel}
+        cycleDay={cycleDay}
       />
     </AppScreen>
   );

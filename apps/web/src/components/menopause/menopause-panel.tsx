@@ -58,6 +58,10 @@ export function MenopausePanel({
 }) {
   const t = useTranslations("menopause");
   const st = useTranslations("symptoms");
+  // The three link cards below live in `dashboard` because they are the same
+  // surfaces Track B offers; duplicating the copy per namespace is how two screens
+  // come to say slightly different things about privacy.
+  const tDash = useTranslations("dashboard");
   const stItem = st as unknown as (key: string) => string;
   const format = useFormatter();
 
@@ -195,9 +199,39 @@ export function MenopausePanel({
     </Alert>
   );
 
+  const td = tDash;
+
+  const linkCard = (key: "longTerm" | "medications" | "gsm", href: string) => (
+    <Card>
+      <CardContent className="flex flex-col gap-2 p-6">
+        <h2 className="font-display text-lg text-text">{td(`${key}.heading`)}</h2>
+        <p className="text-sm text-text-muted">{td(`${key}.body`)}</p>
+        <Link href={href} className="text-sm text-text-link underline">
+          {td(`${key}.cta`)}
+        </Link>
+      </CardContent>
+    </Card>
+  );
+
   const nodes = {
     menopauseSince: sinceNode,
     menopausePmb: pmbNode,
+    /**
+     * F2 §F 4–5. **Awareness, never risk-scoring** — the specs are explicit, and a
+     * calculated number here would be a clinical assessment wearing a progress bar.
+     * It says the two things that change after menopause and points at a clinician.
+     */
+    menopauseLongTerm: linkCard("longTerm", "/learn/menopause-care-options"),
+    /** One list for everything she takes: no dosing, no adherence score (P2.4). */
+    medications: linkCard("medications", "/medications"),
+    /**
+     * F6 §I. Genitourinary symptoms are common, treatable, and the thing least
+     * likely to be raised in a ten-minute appointment. **Femio raises it once, in a
+     * card she can ignore** — it is never inferred from her symptom log and never
+     * reskins her home screen, because a product that reacted to two dryness
+     * entries would be announcing her intimate symptoms on her own phone (R2.9a).
+     */
+    gsm: linkCard("gsm", "/learn/menopause-care-options"),
     menopauseMarker: markerNode,
     menopauseTrend: trendNode,
     menopauseSymptomStrip: stripNode,

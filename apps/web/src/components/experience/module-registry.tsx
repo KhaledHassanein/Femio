@@ -77,6 +77,11 @@ export type ModuleContext = {
   cycleWindow?: ReactNode;
   cycleVariability?: ReactNode;
   cyclePersonalNormal?: ReactNode;
+  cyclePhase?: ReactNode;
+  cycleChangeAwareness?: ReactNode;
+  menopauseLongTerm?: ReactNode;
+  medications?: ReactNode;
+  gsm?: ReactNode;
   /**
    * The hidden-but-reachable trio (R1.9b). Every B and F spec repeats the rule in
    * its §I, and until now it was true of the router and invisible on the screen.
@@ -130,9 +135,7 @@ export const UNIMPLEMENTED: readonly ModuleId[] = [
    * other declines to, and collapsing them is how the invented-window defect would
    * come back at a fourth life stage.
    */
-  "cycle.phase",
   "cycle.flowStrip",
-  "cycle.changeAwareness",
   /**
    * Track C's surfaces (R2.11), data-only like B and F. `/fertility` already
    * exists and is a real screen — what was missing was any persona able to *ask*
@@ -149,9 +152,6 @@ export const UNIMPLEMENTED: readonly ModuleId[] = [
    * the record now reaches a woman who logs a bleed after twelve months, which it
    * could not before this change.
    */
-  "menopause.longTerm",
-  "medications",
-  "gsm",
   /**
    * E2's lactation surfaces (P2.3). The feeding log and the per-breast symptom
    * log are real Phase-2 features and the content behind them — "the first two
@@ -201,6 +201,11 @@ const RENDERERS: Partial<Record<ModuleId, Renderer>> = {
   "cycle.window": (ctx) => ctx.cycleWindow,
   "cycle.variability": (ctx) => ctx.cycleVariability,
   "cycle.personalNormal": (ctx) => ctx.cyclePersonalNormal,
+  "cycle.phase": (ctx) => ctx.cyclePhase,
+  "cycle.changeAwareness": (ctx) => ctx.cycleChangeAwareness,
+  "menopause.longTerm": (ctx) => ctx.menopauseLongTerm,
+  medications: (ctx) => ctx.medications,
+  gsm: (ctx) => ctx.gsm,
   "ttc.window": (ctx) => ctx.ttcWindow,
   "ttc.logSummary": (ctx) => ctx.ttcLogSummary,
   "ttc.workup": (ctx) => ctx.ttcWorkup,

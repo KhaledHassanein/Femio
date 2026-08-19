@@ -495,6 +495,12 @@
       "body": "You mentioned a condition when you set up Femio. Here is what it can mean while you are trying, and what is worth raising with your clinician.",
       "cta": "Read more"
     },
+    "phase": { "heading": "Where you are", "body": "Counted from the first day of your last period." },
+    "flowStrip": { "heading": "Recent periods", "empty": "Log a period and it will show here." },
+    "changeAwareness": { "heading": "Your pattern has shifted", "body": "Recent cycles differ from your usual range. Cycles change for many ordinary reasons; it is worth a mention if it continues." },
+    "longTerm": { "heading": "Looking further ahead", "body": "Bone and heart health matter more after menopause. This is awareness, not a risk score — your clinician can say what applies to you.", "cta": "Read about care options" },
+    "medications": { "heading": "Medicines and supplements", "body": "One list for everything you take, with no dosing advice and no adherence score.", "cta": "Open your list" },
+    "gsm": { "heading": "Comfort and intimacy", "body": "Dryness, discomfort and urinary changes are common after menopause and are treatable. Nobody raises it unless you do.", "cta": "Read more" },
     "topSymptomsHeading": "Most logged",
     "logCta": "Log today",
     "needData": "Log a couple of periods to unlock insights.",

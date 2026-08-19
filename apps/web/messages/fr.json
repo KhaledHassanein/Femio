@@ -495,6 +495,12 @@
       "body": "Vous avez signalé une condition en configurant Femio. Voici ce qu'elle peut signifier pendant vos essais, et ce qu'il vaut la peine d'aborder avec votre médecin.",
       "cta": "En savoir plus"
     },
+    "phase": { "heading": "Où vous en êtes", "body": "Compté depuis le premier jour de vos dernières règles." },
+    "flowStrip": { "heading": "Règles récentes", "empty": "Enregistrez des règles et elles apparaîtront ici." },
+    "changeAwareness": { "heading": "Votre rythme a changé", "body": "Vos cycles récents s'écartent de votre intervalle habituel. Les cycles changent pour beaucoup de raisons ordinaires ; cela vaut la peine d'en parler si cela dure." },
+    "longTerm": { "heading": "Voir plus loin", "body": "La santé des os et du cœur compte davantage après la ménopause. Il s'agit d'information, pas d'un score de risque — votre médecin dira ce qui vous concerne.", "cta": "Lire sur les options de soins" },
+    "medications": { "heading": "Médicaments et compléments", "body": "Une seule liste pour tout ce que vous prenez, sans conseil de dosage ni score d'observance.", "cta": "Ouvrir votre liste" },
+    "gsm": { "heading": "Confort et intimité", "body": "La sécheresse, l'inconfort et les changements urinaires sont fréquents après la ménopause et se traitent. Personne n'en parlera si vous ne le faites pas.", "cta": "En savoir plus" },
     "topSymptomsHeading": "Les plus enregistrés",
     "logCta": "Enregistrer aujourd'hui",
     "needData": "Enregistre deux cycles pour débloquer les analyses.",

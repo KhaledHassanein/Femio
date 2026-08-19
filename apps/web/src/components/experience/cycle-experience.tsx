@@ -46,6 +46,7 @@ export function CycleExperience({
   today,
   topSymptoms,
   symptomLabel,
+  cycleDay,
 }: {
   config: ExperienceConfig | null;
   prediction: CyclePrediction | null;
@@ -54,6 +55,8 @@ export function CycleExperience({
   /** Her most-logged symptoms, already counted by tier 2 (`lib/cycle/insights`). */
   topSymptoms: readonly { type: string; count: number }[];
   symptomLabel: (type: string) => string;
+  /** Days since the first day of her last period, from tier 2. Null with no history. */
+  cycleDay: number | null;
 }) {
   const t = useTranslations("dashboard");
   const format = useFormatter();
@@ -66,6 +69,8 @@ export function CycleExperience({
     "cycle.window",
     "cycle.variability",
     "cycle.personalNormal",
+    "cycle.phase",
+    "cycle.changeAwareness",
     "explore",
     "visitPrep",
     "privacy",
@@ -145,6 +150,34 @@ export function CycleExperience({
    * says personalize, never restrict, and until now a woman had no way to see that
    * the rest of Femio was still there. Now she does, in her own language.
    */
+  /** Where she is, counted and not interpreted. No phase name, because naming a
+   *  phase from cycle length alone is an inference about her hormones. */
+  const phaseCard =
+    cycleDay !== null ? (
+      <Card>
+        <CardContent className="flex min-h-24 flex-col justify-center gap-1 p-6">
+          <p className="text-sm text-text-muted">{t("phase.heading")}</p>
+          <p className="font-display text-lg text-text">{t("cycleDay", { day: cycleDay })}</p>
+          <p className="text-sm text-text-muted">{t("phase.body")}</p>
+        </CardContent>
+      </Card>
+    ) : null;
+
+  /**
+   * B1 §D, and the reason this is a `Card` rather than an `Alert`: a pattern change
+   * **raises content prominence, never a red banner**. Cycles shift for many
+   * ordinary reasons, and Femio saying so calmly is the difference between
+   * information and alarm. It appears only when her own record says the range moved.
+   */
+  const changeAwarenessCard = prediction?.irregular ? (
+    <Card>
+      <CardContent className="flex flex-col gap-1 p-6">
+        <p className="font-display text-md text-text">{t("changeAwareness.heading")}</p>
+        <p className="text-sm text-text-muted">{t("changeAwareness.body")}</p>
+      </CardContent>
+    </Card>
+  ) : null;
+
   const linkCard = (key: "explore" | "visitPrep" | "privacyNote", href: string) => (
     <Card>
       <CardContent className="flex flex-col gap-2 p-6">
@@ -164,6 +197,8 @@ export function CycleExperience({
         cycleWindow: windowCard,
         cycleVariability: variabilityCard,
         cyclePersonalNormal: personalNormal,
+        cyclePhase: phaseCard,
+        cycleChangeAwareness: changeAwarenessCard,
         explore: linkCard("explore", "/learn"),
         visitPrep: linkCard("visitPrep", "/summary"),
         privacy: linkCard("privacyNote", "/settings"),
