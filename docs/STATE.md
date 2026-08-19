@@ -734,45 +734,44 @@ woman two different sentences in the same appointment.
 
 ## First action for the next session
 
-> ### ▶ Checkpoint — 2026-08-18, end of session
+> ### ▶ Checkpoint — 2026-08-19, end of session
 >
-> **Tree clean, `main` pushed, no `wip/` branch.** Everything below this box is
+> **Tree clean, `main` pushed at `ec0d7be`, no `wip/` branch.** Everything below this box is
 > *why*; this box is *what next*.
+>
+> **What closed today, so nobody re-opens it:**
+> - **Content is finished as a workstream.** All 105 articles are published — the library went
+>   from 26 to 105 in one action. Owner direction: *"we are not bloggers or journalists… from the
+>   next prompt we are only developers."* **Do not write another article** to fill a
+>   `NO_ARTICLE_YET` entry; eight topics stay listed and a test keeps them listed.
+> - **Every track renders from the served document** (R1.9a–e). No screen composes itself. Seven
+>   `mode ===` branches came out, the last hand-written dashboard is gone, and Tracks B, C and F
+>   joined A, D and E.
+> - **Every track has a registry** (R2.11), and the log screen renders `tools` (R2.10).
 >
 > **Do next, in order:**
 > 1. `git branch --list "wip/*"` — expect nothing.
-> 2. Take the top open item in `docs/07_MASTER_TODO.md` → ▶ NOW. **R2.10 is the one to take**
->    (the log screen renders `tools`) — R2.8 and R2.9 closed on 2026-08-17, its finding is already
->    argued in R1.8, and the three traps waiting in it are written up under *"R2.10 — the log
->    screen, and where it actually is"* below. After it, **R1.9** (implementing the cycle and
->    menopause screens against the registries R2.8/R2.9 built) and **R1.1b**, the owner's hour of
->    screen recordings, which is the last thing owed before R1 implementation.
-> 3. Run the full gate before every push. Never end a turn with a dirty tree.
+> 2. **P2.5, the pattern engine.** It is the stated differentiator (`docs/03` §H.3 — *"the one
+>    feature I would actually pay for, gated"*), the only R4 item with revenue attached, and the
+>    first thing in months that is a genuinely new capability rather than a rewiring. Timing,
+>    severity and co-occurrence, confidence-scored — and it is tier 1 by construction, because a
+>    pattern is a medical inference and `docs/24` §5 puts those on the server.
+> 3. **The remaining module surfaces**, if a smaller pass is wanted: `cycle.phase`,
+>    `cycle.flowStrip`, `cycle.changeAwareness`, `menopause.pmb`, `menopause.longTerm`,
+>    `medications`, `gsm`. All listed in `UNIMPLEMENTED`, none of them a branch — each is now a
+>    component plus one registry line, which is what the last week bought.
+> 4. Run the full gate before every push. Never end a turn with a dirty tree.
 >
-> **All three content sets are home.** The teen ten (P2.13) and the eight newborn drafts (P2.13c)
-> landed 2026-08-17; **the 37 week-by-week entries landed 2026-08-18** (P2.2.2), with the return
-> handover in `docs/content/HANDOVER_WEEK_BY_WEEK_RETURN.md`. Nothing is out with another agent.
-> **101 drafts pass the content guard and 0 are public** — the review gate is the bottleneck now,
-> not the writing.
->
-> **Two questions now sit with the owner, neither blocking** — both under `BLOCKERS.md` B7: the
-> infant reviewer statement for doc 15 §8, and where the newborn set may appear. **Read the second
-> one before touching Track E's foreground lists.** `content.foreground` merges additively up
-> `extends` and **E6 (loss) extends E1**, so putting a newborn topic on the recovery spine puts
-> *"your newborn in the first two weeks"* on the reading card of a woman after a pregnancy loss.
-> Three topics are wired to **E2** instead, which is gated on a stated live birth; a test resolves
-> E6 through the whole chain and fails if newborn content ever reaches it. The remaining five
-> articles reach her from `/learn` only, and that stays true until the owner picks (a) engine
-> subtraction, which is an ADR against product rule 5, or (b) a live-birth-gated newborn persona,
-> which is the recommendation.
-> - **Owner task 5** — re-deploy the experience Edge Function; its source changed several
->   times. The local fallback computes the identical document meanwhile.
-> - **`MANUAL_TEST_PLAN.md` T8, T10–T25** — eighteen items now, and **nobody has looked at any of
->   them**. **The review-gate three are what unblock work**, because each fills a reading card the
->   moment it is approved, with no deploy: **T22** (fourteen postpartum drafts), **T24** (the teen
->   ten — the set to read hardest, because its failure mode is invisible to `content-lint`), and
->   **T25** (the thirty-seven week-by-week entries). T21 (what is said after a pregnancy ends,
->   including a stillbirth) and T16 (the EPDS crisis route) are the two that most need a clinician.
+> **Waiting on the owner — nothing blocks the build:**
+> - **The beta.** `NEXT_PUBLIC_BETA_INVITE_CODE` in Vercel turns on the signup gate that B4 built
+>   (P0.12.5), and then P1.24 — 20–50 real users. **Everything above item 2 is still guesswork
+>   about what women want, because nobody outside this repo has used it.** That has been true for
+>   weeks and it is the single highest-information action available.
+> - **Owner task 5** — re-deploy the experience Edge Function. Its source has changed many times;
+>   the local fallback computes the same document, so nothing is broken, but the two disagree on
+>   the postmenopausal-bleed case until it runs.
+> - **`MANUAL_TEST_PLAN.md`** — T8, T10–T25 have never been looked at by anyone. Now that the
+>   content gate is cleared, these are craft and clinical judgement, not approvals.
 >
 > **Working rule, verbatim:** *"I do not want to read anything unless you need my input."*
 > No end-of-turn summaries. Several queue items per pass.
