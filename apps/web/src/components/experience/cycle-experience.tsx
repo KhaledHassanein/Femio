@@ -6,6 +6,7 @@ import type { CyclePrediction } from "@/lib/cycle/predict";
 import { predictionBand } from "@/lib/ui/range-band";
 import { ExperienceModules } from "./module-registry";
 import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { HeroCard } from "@/components/ui/hero-card";
 import { Link } from "@/i18n/navigation";
@@ -237,7 +238,11 @@ export function CycleExperience({
         reading: null,
         movement: null,
         pregnancyHero: null,
-        quickLog: null,
+        quickLog: (
+          <Button asChild variant="accent" className="w-full">
+            <Link href="/track">{t("logCta")}</Link>
+          </Button>
+        ),
       }}
     />
   );

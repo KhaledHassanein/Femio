@@ -4,6 +4,7 @@ import { useFormatter, useTranslations } from "next-intl";
 import { cycleVariability, sinceLastPeriod, MENOPAUSE_SYMPTOMS } from "@/lib/menopause";
 import { Badge } from "@/components/ui/badge";
 import { HeroCard } from "@/components/ui/hero-card";
+import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { MrsCheck } from "./mrs-check";
 import { ExperienceModules } from "@/components/experience/module-registry";
@@ -240,7 +241,11 @@ export function MenopausePanel({
     warningSigns: null,
     movement: null,
     pregnancyHero: null,
-    quickLog: null,
+    quickLog: (
+      <Button asChild variant="accent" className="w-full">
+        <Link href="/track">{td("logCta")}</Link>
+      </Button>
+    ),
   };
 
   // No document — offline, or a persona the registry has not met. Everything still
