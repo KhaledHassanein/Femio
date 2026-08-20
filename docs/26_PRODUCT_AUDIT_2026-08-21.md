@@ -257,3 +257,96 @@ Quick wins, one line each, to be scheduled rather than done here:
 
 The structural work — a real dashboard, a cycle visualisation, the module registry actually
 driving the screen — is the body of `docs/27`.
+
+---
+
+# Part 2 — Every persona, and the competitive gap
+
+## 5. Every persona dashboard is one viewport
+
+Each life stage was driven through real onboarding and measured:
+
+| Persona dashboard | Height | DOM nodes in `<main>` |
+|---|---|---|
+| Cycle | 844 px | 20 |
+| **TTC** | 844 px | **12** |
+| Pregnancy | 844 px | 19 |
+| Menopause | 844 px | 137 |
+
+Four personas, four identical viewport heights, because none of them has enough content to
+scroll. **The TTC dashboard contains twelve DOM nodes.** A woman trying to conceive — the
+highest-intent, highest-willingness-to-pay segment in this entire category — gets the emptiest
+screen in the product.
+
+Menopause at 137 nodes is the only dashboard with real substance, and it is the one built last.
+That is the proof the team can build a rich screen when it decides to; it simply has not done
+so anywhere else.
+
+## 6. What competitors actually ship on the home screen
+
+Flo's main screen leads with a **cycle ring** — a circular visualisation where the current day,
+the predicted ovulation day and the post-ovulation days are each distinguished — plus the time
+to fertile window, a persistent log affordance, and daily insight cards. Clue leads with
+analysis views and custom tagging aimed at clinician conversations.
+
+Femio leads with a sentence of prose in a purple box.
+
+Feature-by-feature against what the category treats as table stakes:
+
+| Capability | Flo | Clue | **Femio today** |
+|---|---|---|---|
+| Cycle ring / wheel | ✅ | ✅ | ❌ none |
+| Calendar view on home | ✅ | ✅ | ❌ none |
+| Cycle-phase education (follicular/luteal…) | ✅ | ✅ | ❌ none |
+| Symptom↔cycle correlation | ✅ | ✅ | ❌ logs only, never analysed |
+| Daily personalised insight | ✅ | ➖ | ❌ none |
+| End-of-cycle report | ✅ | ✅ | ❌ none |
+| Partner sharing | ✅ | ❌ | ❌ none |
+| Custom symptom tracking | ➖ | ✅ | ❌ fixed list |
+| Honest irregular-cycle handling | ❌ | ❌ | ✅ **only Femio** |
+| No paywall on basics | ❌ | ➖ | ✅ **only Femio** |
+
+## 7. The wedge, evidenced
+
+Three consistent complaints about the incumbents define the opening:
+
+1. **Neither Flo nor Clue handles irregular cycles well** — stated plainly in 2026 comparisons.
+   This is precisely Femio's product rule 3 and its strongest existing asset. It is currently
+   expressed only as *withholding* a prediction. It must become a **positive feature**:
+   pattern-finding, range-based guidance, and PCOS/endometriosis-aware framing.
+2. **Flo paywalls the basics** — users report current cycle state and hormone information moving
+   behind premium, "every update taking one free feature away." Femio can hold these free
+   permanently and say so.
+3. **Flo's home screen is cluttered with articles and images; navigation is unclear.** This is
+   the failure mode on the *other* side of Femio's. The target is a dense, *useful* home — tools
+   and personal data — not a home stuffed with content cards. Femio's 20 marketing routes make
+   this a live risk if the fix is "add article cards to the dashboard."
+
+Two further findings worth designing against: women repeatedly criticise **pink, flowery
+iconography** in favour of discreet, functional design — Femio currently pairs a saturated
+purple hero with a hot-pink CTA on the same screen — and criticise **heteronormative and
+cisnormative assumptions** in copy and icons.
+
+The most valuable single insight from the research: *apps that educate about cycle phases and
+help users plan accordingly deliver dramatically more value than apps that only predict when
+bleeding starts.* Femio today does only the second thing, and does it in prose.
+
+## 8. What is genuinely strong (verified, not assumed)
+
+- **Arabic/RTL is properly built.** `/ar` renders `dir=rtl`, `lang=ar`, Arabic-Indic numerals
+  (`١٣–١٥`), and zero Latin leakage in `<main>`. This is real i18n, not a translation veneer,
+  and it is a moat in MENA that neither Flo nor Clue contests seriously.
+- **Onboarding covers six life stages** including teen and postpartum — broader than Flo's entry.
+
+## 9. Further test rot (compounding §1.2)
+
+`onboarding.spec.ts` asserts `expect(options).toHaveCount(4)`. The wizard renders **six**
+life-stage radios, plus an age-band step the test never touches. The assertion would fail today.
+Combined with §1.2, the position is: the excluded half of the suite tests a product that no
+longer exists.
+
+---
+
+# Part 3 — Pending
+
+File-by-file criticism and the deletion inventory. Not yet written.
