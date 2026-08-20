@@ -1095,6 +1095,9 @@
       "cancel": "Cancelar"
     },
     "strips": {
+      "labs": { "title": "Resultados de análisis", "empty": "Ningún resultado registrado. Cuando añadas uno aparecerá aquí con el rango de referencia de tu laboratorio, para tu historial y no como una valoración." },
+      "medication": { "title": "Medicamentos", "empty": "Nada registrado. Femio guarda la lista y las fechas en que empezaste o dejaste algo: nunca una dosis y nunca una puntuación por tomarlos." },
+      "devices": { "title": "Dispositivos", "empty": "Nada registrado. Si usas un medidor o una bomba, puedes anotarlo aquí para que acompañe al resto de tu historial." },
       "thyroid": {
         "title": "Tiroides",
         "empty": "Aún no hay resultados registrados. Cuando añadas una TSH o una T4 libre, aparecerá aquí con el intervalo de referencia de tu laboratorio: para tus registros, no como una valoración."

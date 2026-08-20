@@ -1095,6 +1095,9 @@
       "cancel": "Annuler"
     },
     "strips": {
+      "labs": { "title": "Résultats d'analyses", "empty": "Aucun résultat enregistré. Quand vous en ajoutez un, il apparaît ici avec l'intervalle de référence de votre laboratoire, pour votre dossier et non comme une évaluation." },
+      "medication": { "title": "Médicaments", "empty": "Rien d'enregistré. Femio garde la liste et les dates de début et d'arrêt — jamais une dose, et jamais une note pour les avoir pris." },
+      "devices": { "title": "Appareils", "empty": "Rien d'enregistré. Si vous utilisez un lecteur ou une pompe, vous pouvez le noter ici pour qu'il suive le reste de votre dossier." },
       "thyroid": {
         "title": "Thyroïde",
         "empty": "Aucun résultat enregistré pour l'instant. Lorsque vous ajoutez une TSH ou une T4 libre, elle apparaît ici avec l'intervalle de référence de votre laboratoire — pour vos dossiers, pas comme une évaluation."

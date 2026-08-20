@@ -1095,6 +1095,9 @@
       "cancel": "Cancel"
     },
     "strips": {
+      "labs": { "title": "Lab results", "empty": "No results recorded yet. When you add one it appears here with your lab's own reference range, for your records rather than as an assessment." },
+      "medication": { "title": "Medicines", "empty": "Nothing recorded yet. Femio keeps the list and the dates you started or stopped — never a dose, and never a score for taking them." },
+      "devices": { "title": "Devices", "empty": "Nothing recorded yet. If you use a monitor or a pump, you can note it here so it travels with the rest of your record." },
       "thyroid": {
         "title": "Thyroid",
         "empty": "No results recorded yet. When you add a TSH or Free T4 result, it appears here with your lab's own reference range — for your records, not as an assessment."

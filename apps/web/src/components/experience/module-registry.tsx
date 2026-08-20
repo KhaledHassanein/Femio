@@ -119,68 +119,36 @@ export type ModuleContext = {
  */
 export const UNIMPLEMENTED: readonly ModuleId[] = [
   /**
-   * Track A's two content hubs (R2.5c). Both are *articles*, not components —
-   * "what's changing in my body" and the first-period readiness plan — and no teen
-   * content exists in the CMS yet. Listed rather than silently dropped so the gap
-   * is a number someone can count, and so the day the content lands the module is
-   * already in the registry waiting for it (P2.13).
-   */
-  /**
-   * Track B's surfaces (R2.8). The registry is **data only**, exactly as R2.1 was
-   * for Track D: it is what makes a woman's cycle experience come from her record
-   * rather than from `mode === "cycle"`, and every part of the document that needs
-   * no component — her tone, her alerts, her EMR view and her reading list — is
-   * live the day it ships. What is listed here is the panel each module will
-   * eventually draw, designed and argued in
-   * `assets/mockups/R1.5_cycle_dashboard_reference.html` and implemented under R1.9.
-   *
-   * `cycle.window` and `cycle.variability` are two ids rather than one with a flag,
-   * and that distinction has to survive into the components: one predicts, the
-   * other declines to, and collapsing them is how the invented-window defect would
-   * come back at a fourth life stage.
-   */
-  /**
-   * Track C's surfaces (R2.11), data-only like B and F. `/fertility` already
-   * exists and is a real screen — what was missing was any persona able to *ask*
-   * for it, which is why the TTC dashboard opened it with a button. The document
-   * now carries `fertility` in `tools`, so the log screen surfaces it from data;
-   * these four are the cards R1.9 draws on the dashboard itself.
-   */
-  /**
-   * Track F's surfaces (R2.9), data-only for the same reason Track B's are. Two
-   * of them already exist as components on the shipped menopause panel —
-   * `MrsCheck` and the months-since hero — and wiring them through the registry
-   * is R1.9's work rather than a second copy here. `menopause.pmb` is the one to
-   * build first when that lands: it is the only danger surface in the track, and
-   * the record now reaches a woman who logs a bleed after twelve months, which it
-   * could not before this change.
-   */
-  /**
-   * E2's lactation surfaces (P2.3). The feeding log and the per-breast symptom
-   * log are real Phase-2 features and the content behind them — "the first two
-   * weeks", "if breastfeeding is not working" — is in the approved postpartum
-   * batch (P2.3c) and not yet drafted. Listed so the gap is counted.
+   * E2's lactation surfaces (P2.3). A feeding log and a per-breast symptom log are
+   * real features with a table behind them, not cards — `feeding` became a
+   * `LogKind` in R2.10a and E2 offers it, so the engine can already ask for them;
+   * what is missing is somewhere to write.
    */
   "support.feeding",
   "support.breastSymptoms",
   /**
-   * E3, E4 and E7's surfaces (R2.5f). The records exist so that a woman who told
-   * the postpartum triage about her mood, her gestational diabetes or her thyroid
-   * gets the right *tone, alerts, EMR view and reading list* today — those parts
-   * of the document need no component. What is listed here is the panel each
-   * persona will eventually add on top of E1's spine, and E1's spine still renders
-   * in full underneath, so the degradation is a missing addition rather than a
-   * blank screen. `followup.schedule` in particular is a real feature: the 4–12
-   * week OGTT and the 72-hour and 7–10-day blood-pressure checks are the follow-up
-   * E4 §A says routine care drops, and a reminder surface for them is P2.4b.
+   * E7's watch (R2.5f). The lab log and the mood screener side by side, with **no
+   * phase interpretation** — PPT has described phases and Femio never says which
+   * one she is in, because that is a clinician's call on labs. `strip.thyroid`
+   * already renders beneath it, so E7 is not silent meanwhile.
    */
   "thyroid.watch",
+  /**
+   * Track D's remaining three. Each is a real surface rather than a card: the
+   * milestone feed, birth preparation, and screening-appointment prep. D1's spine —
+   * the week hero, warning signs, appointments, weight, contractions — has rendered
+   * since R2.3, so what is listed here is addition, never a blank screen.
+   */
   "pregnancy.milestone",
   "pregnancy.birthPrep",
   "pregnancy.screeningPrep",
-  "strip.labs",
-  "strip.medication",
-  "strip.devices",
+  /**
+   * E6's loss-aware hero and D2's reassurance card. Both are **tone made visible**,
+   * and both are the hardest copy in the product to get right — E6 §A's register is
+   * gentle, uncountable and never celebratory, and the postpartum screen already
+   * swaps its hero's tone for `gentle` meanwhile, so a woman after a loss is not
+   * currently seeing the wrong thing. She is seeing the neutral thing.
+   */
   "support.lossAware",
   "support.reassurance",
 ];
@@ -193,6 +161,17 @@ export const UNIMPLEMENTED: readonly ModuleId[] = [
  */
 const ThyroidStrip = () => <EmptyStrip titleKey="thyroid.title" ctaKey="thyroid.empty" />;
 const GlucoseStrip = () => <EmptyStrip titleKey="glucose.title" ctaKey="glucose.empty" />;
+/**
+ * The remaining three (R1.9k). Same construction as the two above and the same
+ * refusal: a strip is her own entries plus the lab's own reference range, and it
+ * has no `status`, no `inRange` and no trend **by design** (D7 §G, R2.3). The
+ * medicine strip says its two absences out loud — never a dose, never a score for
+ * taking them — because P2.4 established both and a strip is where they would
+ * quietly come back.
+ */
+const LabsStrip = () => <EmptyStrip titleKey="labs.title" ctaKey="labs.empty" />;
+const MedicationStrip = () => <EmptyStrip titleKey="medication.title" ctaKey="medication.empty" />;
+const DevicesStrip = () => <EmptyStrip titleKey="devices.title" ctaKey="devices.empty" />;
 
 type Renderer = (ctx: ModuleContext, spec: ModuleSpec) => ReactNode;
 
@@ -240,6 +219,9 @@ const RENDERERS: Partial<Record<ModuleId, Renderer>> = {
   library: (ctx) => ctx.reading,
   "strip.thyroid": () => <ThyroidStrip />,
   "strip.glucose": () => <GlucoseStrip />,
+  "strip.labs": () => <LabsStrip />,
+  "strip.medication": () => <MedicationStrip />,
+  "strip.devices": () => <DevicesStrip />,
 };
 
 /** Every id this registry can render. Used by the coverage test. */
