@@ -2,6 +2,11 @@
 All notable changes to Femio V2.
 
 ## [Unreleased]
+### Fixed
+- **The doctor-visit summary works again.** The page you print and take to an appointment had been failing to load since it was built, and told you it was your connection. It was ours: it asked the database for a field by the wrong name. Your record was never affected.
+- **Nothing covers the privacy choices during sign-up any more.** The "Need help now?" button sat on top of one of the consent checkboxes on a small screen, so an option you were being asked to agree to could not be fully read.
+- **Honest wording when something fails to load.** Two screens blamed your internet connection for faults on our side. They now say plainly that it is ours, and ask you to try again.
+
 ### Added
 - **The whole library is live.** Femio now has 105 referenced guides covering periods and cycles, PCOS and endometriosis, trying to conceive, pregnancy week by week from week 4 to week 40, the weeks after birth, newborn basics, the teenage years, and perimenopause and menopause — every one sourced to bodies like WHO, NICE, ACOG, CDC and the NHS, and every one reachable from the app and from the web without an account.
 - **The page behind the only warning in the menopause experience now exists.** If your periods stopped more than a year ago and you bleed — one spot, brown discharge, anything — Femio already showed you a standing note to get it checked. Now there is a guide behind it: why every episode is checked however small, what the appointment usually involves, what to say when you book, and why being told it is something minor is a good outcome rather than a wasted visit.

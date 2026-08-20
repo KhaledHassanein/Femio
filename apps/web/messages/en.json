@@ -504,7 +504,7 @@
     "topSymptomsHeading": "Most logged",
     "logCta": "Log today",
     "needData": "Log a couple of periods to unlock insights.",
-    "loadError": "We couldn't load your dashboard. Your information is safe — this is a connection problem.",
+    "loadError": "We couldn't load your dashboard. Your information is safe. Try again — if it keeps happening it is a fault on our side, not yours.",
     "retry": "Try again"
   },
   "visitSummary": {
@@ -512,7 +512,7 @@
       "heading": "Questions you wanted to ask",
       "empty": "Nothing noted yet. You can add questions to an appointment and they will appear here."
     },
-    "loadError": "We couldn't load your summary. Nothing is missing from your record — this is a connection problem.",
+    "loadError": "We couldn't load your summary. Nothing is missing from your record. Try again — if it keeps happening it is a fault on our side, not yours.",
     "retry": "Try again",
     "title": "Doctor-visit summary",
     "generatedOn": "Generated {date}",

@@ -6,7 +6,6 @@ import { KNOWN_SYMPTOMS } from "@/lib/cycle/symptoms";
 import { useSupabaseQuery, unwrap } from "@/lib/supabase/use-query";
 import { modeFromTrack } from "@/lib/persona/state";
 import { Alert, AlertDescription } from "@/components/ui/alert";
-import { parsePrep } from "@/lib/appointments";
 import { Button } from "@/components/ui/button";
 import { PrintButton } from "@/components/account/print-button";
 import { Link } from "@/i18n/navigation";
@@ -58,7 +57,7 @@ export function SummaryScreen() {
       unwrap(
         supabase
           .from("appointments")
-          .select("prep, datetime")
+          .select("prep_json, datetime")
           .order("datetime", { ascending: true }),
       ),
     ]);
@@ -68,8 +67,7 @@ export function SummaryScreen() {
      * appointment first. Deliberately not just the next one: she may have written
      * questions against a follow-up she has not been given a date for, and dropping
      * them because they are filed under a later row would lose exactly the thing
-     * this section exists to carry. Duplicates are kept — `parsePrep` keeps them
-     * too, and it is not Femio's call that she meant to ask something once.
+     * this section exists to carry. Duplicates are kept: it is not Femio's call that she meant to ask something once.
      */
     const todayISO = new Date().toISOString().slice(0, 10);
     const questions = (appointments ?? [])
@@ -77,7 +75,15 @@ export function SummaryScreen() {
         const when = (a as { datetime: string | null }).datetime;
         return when === null || when.slice(0, 10) >= todayISO;
       })
-      .flatMap((a) => parsePrep((a as { prep: string | null }).prep ?? ""));
+      // `prep_json` is a jsonb array of strings, written that way by
+      // appointments-screen.tsx. It is not newline-delimited text, so it is read
+      // directly rather than through `parsePrep` — which split a string and, given
+      // an array, would have produced nothing useful even once the column name was
+      // right. Non-array values are treated as absent rather than coerced (R3.0.1).
+      .flatMap((a) => {
+        const prep = (a as { prep_json: unknown }).prep_json;
+        return Array.isArray(prep) ? prep.filter((q): q is string => typeof q === "string") : [];
+      });
 
     const summary = buildVisitSummary(
       {

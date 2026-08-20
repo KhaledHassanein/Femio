@@ -65,7 +65,7 @@
   /* Scroll clearance for a fixed bottom bar. Reads the single definition below so
      the height lives in exactly one place. */
   .pb-bottom-bar {
-    padding-bottom: var(--bottom-bar-clearance, 0px);
+    padding-bottom: var(--content-clearance, var(--bottom-bar-clearance, 0px));
   }
 }
 
@@ -88,6 +88,30 @@ body:has(.app-bottom-bar) {
 
 body:has(.app-bottom-bar) .crisis-launcher {
   bottom: var(--bottom-bar-clearance);
+}
+
+/* The launcher is lifted clear of the bar above — but it then occupies the band
+   the bar used to, and `.pb-bottom-bar` was still only reserving room for the bar.
+   Anything scrolled to the bottom of the page therefore ran underneath it.
+
+   Measured on onboarding step 3 at 390x844: the pill overlapped the "Allow
+   anonymous product analytics" consent label by 168x11px and the "You can change
+   these anytime in Settings" line by 168x21px (docs/26 §3). On a granular-consent
+   screen a covered checkbox label is a GDPR Art. 7 problem, not a cosmetic one —
+   consent that cannot be read is not informed.
+
+   Content clearance is deliberately a *second* variable rather than a bigger
+   `--bottom-bar-clearance`. The launcher positions itself from that one, so
+   inflating it to reserve room for the launcher would push the launcher up by the
+   same amount, and again on the next recalculation — the fix would chase itself up
+   the screen. The bar variable stays the bar's height; this one adds the launcher's
+   44px (h-11) and a 12px gap on top of it, and only when a launcher is present. */
+body:has(.app-bottom-bar) {
+  --content-clearance: var(--bottom-bar-clearance);
+}
+
+body:has(.app-bottom-bar):has(.crisis-launcher) {
+  --content-clearance: calc(var(--bottom-bar-clearance) + 44px + 12px);
 }
 
 /* Print: force a clean light page for the doctor-visit summary (P1.16.1). App

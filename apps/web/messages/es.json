@@ -504,7 +504,7 @@
     "topSymptomsHeading": "Los más registrados",
     "logCta": "Registrar hoy",
     "needData": "Registra dos ciclos para desbloquear los análisis.",
-    "loadError": "No pudimos cargar tu panel. Tu información está a salvo: es un problema de conexión.",
+    "loadError": "No pudimos cargar tu panel. Tu información está a salvo: es un problema de conexión. Vuelve a intentarlo: si sigue ocurriendo, el fallo es nuestro, no tuyo.",
     "retry": "Reintentar"
   },
   "visitSummary": {
@@ -512,7 +512,7 @@
       "heading": "Preguntas que querías hacer",
       "empty": "Nada anotado todavía. Puedes añadir preguntas a una cita y aparecerán aquí."
     },
-    "loadError": "No pudimos cargar tu resumen. No falta nada en tu registro: es un problema de conexión.",
+    "loadError": "No pudimos cargar tu resumen. No falta nada en tu registro: es un problema de conexión. Vuelve a intentarlo: si sigue ocurriendo, el fallo es nuestro, no tuyo.",
     "retry": "Reintentar",
     "title": "Resumen para la consulta",
     "generatedOn": "Generado el {date}",

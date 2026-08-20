@@ -504,7 +504,7 @@
     "topSymptomsHeading": "Les plus enregistrés",
     "logCta": "Enregistrer aujourd'hui",
     "needData": "Enregistre deux cycles pour débloquer les analyses.",
-    "loadError": "Impossible de charger ton tableau de bord. Tes informations sont intactes — il s'agit d'un problème de connexion.",
+    "loadError": "Impossible de charger ton tableau de bord. Tes informations sont intactes. Réessaie — si cela persiste, le problème vient de nous, pas de toi.",
     "retry": "Réessayer"
   },
   "visitSummary": {
@@ -512,7 +512,7 @@
       "heading": "Les questions que vous vouliez poser",
       "empty": "Rien de noté pour l'instant. Vous pouvez ajouter des questions à un rendez-vous et elles apparaîtront ici."
     },
-    "loadError": "Impossible de charger ton résumé. Rien ne manque dans ton dossier — il s'agit d'un problème de connexion.",
+    "loadError": "Impossible de charger ton résumé. Rien ne manque dans ton dossier. Réessaie — si cela persiste, le problème vient de nous, pas de toi.",
     "retry": "Réessayer",
     "title": "Résumé pour la consultation",
     "generatedOn": "Généré le {date}",

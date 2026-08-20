@@ -116,10 +116,28 @@ only on evidence from a real user, never because a topic list looked incomplete.
 
 ## ▶ NOW — in this order, and do not jump the queue
 
-1. **R1** — design direction. Nothing else visible improves until this does.
-2. **R2** — the experience engine, proven on pregnancy. Every screen written before it against
-   `mode ===` gets rewritten after it.
-3. **R3** — life-stage depth, riding the engine.
+**Re-set 2026-08-21 by the product audit (`docs/26`) and the revamp plan (`docs/27`).** The audit
+measured the dashboard at 844px against a 5066px settings screen, found `/summary` broken since it
+was written, and found half the e2e suite excluded from CI and rotted. `docs/27` phases 0→6 are now
+the queue and run in order; each phase ends at a checkpoint (typecheck+test+build, commit, push,
+deploy) so an interrupted session loses at most one phase.
+
+1. **R3.0** — Phase 0, stop the bleeding: the safety net, before any new surface.
+2. **R3.1** — Phase 1, a dashboard that is a product (cycle ring, today card, real first-run).
+3. **R3.2 → R3.6** — navigation, insight engine, per-persona depth, design direction, cleanup.
+
+R1 (`docs/25`) is absorbed into `docs/27` phase 5; R2's unfinished half — the five surviving
+`mode ===` branches the audit found in `dashboard-screen.tsx` — is phase 1.6.
+
+## R3.0 — Phase 0, stop the bleeding (`docs/27`)
+
+- [x] **R3.0.1** `/summary` restored (2026-08-21). `summary-screen.tsx` selected `appointments.prep`; the column is `prep_json` and is a jsonb `string[]`, not newline text — so both the name and the type handling were wrong, and `parsePrep` would have returned nothing even after a rename. PostgREST 400 (`42703`) on every load since the feature was written. Verified: error box gone, zero failed requests.
+- [x] **R3.0.2** Honest failure copy in all four locales (2026-08-21). A schema fault told the user "this is a connection problem" — blaming her network for our bug and pointing support at the wrong cause.
+- [x] **R3.0.5** Consent-screen overlap fixed (2026-08-21). The crisis pill overlapped the analytics consent label by 168×11px and the "change these anytime" line by 168×21px, measured at 390×844. A covered checkbox label on a granular-consent screen is GDPR Art. 7 exposure, not a cosmetic bug. Fixed with a second CSS variable — inflating the existing one would have pushed the pill up by the same amount and chased itself up the screen.
+- [x] **R3.0.6** `NEXT_PUBLIC_CMS_URL` documented in `.env.example` (2026-08-21) — without it `/learn`, `/conditions` and `/glossary` render empty locally while production serves real articles, so content-page UI work was being done blind.
+- [ ] **R3.0.3** Repair the rotted `@live` selectors — 6 life-stage radios not 4, 4 wizard steps not 3, radio not button.
+- [ ] **R3.0.4** Run the product specs in CI against a seeded project; drop the blanket `@live` exclusion. **Highest-value item in the plan** — this is the hole every other defect came through.
+- [ ] **R3.0.7** Screenshot regression for the six persona dashboards at 390×844.
 
 ---
 
