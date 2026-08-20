@@ -767,9 +767,11 @@ woman two different sentences in the same appointment.
 >   (P0.12.5), and then P1.24 — 20–50 real users. **Everything above item 2 is still guesswork
 >   about what women want, because nobody outside this repo has used it.** That has been true for
 >   weeks and it is the single highest-information action available.
-> - **Owner task 5** — re-deploy the experience Edge Function. Its source has changed many times;
->   the local fallback computes the same document, so nothing is broken, but the two disagree on
->   the postmenopausal-bleed case until it runs.
+> - ~~Owner task 5 — re-deploy the experience Edge Function.~~ **Done 2026-08-19**, verified 401
+>   unauthed. It serves the `ended_on` read (migration 0009), so the server and the local fallback
+>   agree. **The trigger for the next one is a change under `lib/persona/` or `lib/experience/`,
+>   not a date** — and the tell that it is overdue is the served document disagreeing with the
+>   fallback for a case the tests already cover.
 > - **`MANUAL_TEST_PLAN.md`** — T8, T10–T25 have never been looked at by anyone. Now that the
 >   content gate is cleared, these are craft and clinical judgement, not approvals.
 >
