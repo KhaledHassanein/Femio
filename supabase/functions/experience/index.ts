@@ -98,7 +98,7 @@ Deno.serve(async (req: Request) => {
     supabase.from("conditions_flagged").select("condition_code, created_at"),
     supabase
       .from("pregnancy")
-      .select("status, edd, created_at, updated_at")
+      .select("status, edd, created_at, updated_at, ended_on")
       .order("updated_at", { ascending: false })
       .limit(1)
       .maybeSingle(),
@@ -107,7 +107,13 @@ Deno.serve(async (req: Request) => {
   ]);
 
   const pregnancyRow = pregnancy.data as
-    | { status: string; edd: string | null; created_at: string; updated_at: string }
+    | {
+        status: string;
+        edd: string | null;
+        created_at: string;
+        updated_at: string;
+        ended_on: string | null;
+      }
     | null;
   const flags = (state.data?.flags_json ?? {}) as Record<string, unknown>;
   const statedTrack = ((state.data?.track as string | null) ?? null) as Track | null;
@@ -123,6 +129,9 @@ Deno.serve(async (req: Request) => {
           status: pregnancyRow.status,
           createdAt: pregnancyRow.created_at,
           updatedAt: pregnancyRow.updated_at,
+            // Migration 0009. Read before `updated_at`, which means "last edited"
+            // — see `signals-from-rows.ts`.
+            endedOn: pregnancyRow.ended_on ?? null,
         }
       : null,
     symptomTypes: ((symptoms.data ?? []) as { type: string }[]).map((r) => r.type),

@@ -47,7 +47,7 @@ export async function readPersonaRows(supabase: Client): Promise<PersonaRecordRo
     supabase.from("conditions_flagged").select("condition_code, created_at"),
     supabase
       .from("pregnancy")
-      .select("status, edd, created_at, updated_at")
+      .select("status, edd, created_at, updated_at, ended_on")
       // Most recent regardless of status: an ended pregnancy still decides the phase.
       .order("updated_at", { ascending: false })
       .limit(1)
@@ -57,7 +57,13 @@ export async function readPersonaRows(supabase: Client): Promise<PersonaRecordRo
   ]);
 
   const pregnancyRow = pregnancy.data as
-    | { status: string; edd: string | null; created_at: string; updated_at: string }
+    | {
+        status: string;
+        edd: string | null;
+        created_at: string;
+        updated_at: string;
+        ended_on: string | null;
+      }
     | null;
   const flags = (state.data?.flags_json ?? {}) as Record<string, unknown>;
 
@@ -73,6 +79,9 @@ export async function readPersonaRows(supabase: Client): Promise<PersonaRecordRo
             status: pregnancyRow.status,
             createdAt: pregnancyRow.created_at,
             updatedAt: pregnancyRow.updated_at,
+            // Migration 0009. Read before `updated_at`, which means "last edited"
+            // — see `signals-from-rows.ts`.
+            endedOn: pregnancyRow.ended_on ?? null,
           }
         : null,
       symptomTypes: ((symptoms.data ?? []) as { type: string }[]).map((r) => r.type),

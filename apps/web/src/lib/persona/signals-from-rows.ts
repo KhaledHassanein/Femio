@@ -53,12 +53,20 @@ export type PregnancyRow = {
   status: string;
   createdAt: string;
   /**
-   * When the row last changed. For an ended pregnancy this **is** the end date:
-   * `status` is set by ending it and nothing updates the row afterwards. Stated
-   * rather than assumed, because a dedicated `ended_at` column would be truer and
-   * is worth adding the day anything else edits an ended pregnancy.
+   * When the row last changed. It used to stand in for the end date, and the
+   * comment here said a dedicated column would be truer and was worth adding the
+   * day anything else edited an ended pregnancy. **That day came with P2.4b:** a
+   * follow-up schedule anchored to "last edited" moves whenever she corrects a
+   * typo. `endedOn` below is the column (migration 0009); this stays as the
+   * fallback for rows recorded before it existed.
    */
   updatedAt: string;
+  /**
+   * The day it ended, as she recorded it (`pregnancy.ended_on`, migration 0009).
+   * Null for every row written before that and for anyone who did not give a date,
+   * which is why it is read *first* rather than assumed.
+   */
+  endedOn?: string | null;
 };
 
 export type SignalRows = {
@@ -151,8 +159,15 @@ export function signalsFromRows(rows: SignalRows): PersonaSignals {
    * fail and E1 was unreachable from the live record. A woman weeks after giving
    * birth resolved to Z1, which is precisely the hole R2.5 set out to close.
    */
+  /**
+   * `endedOn` first, `updatedAt` only as the fallback. The order is the whole point
+   * of migration 0009: `updated_at` means *last edited*, so a woman correcting
+   * anything on an ended pregnancy would have silently moved her own postpartum
+   * week — and, since P2.4b, her follow-up window with it.
+   */
+  const endDate = ended && pregnancy ? (pregnancy.endedOn ?? pregnancy.updatedAt.slice(0, 10)) : null;
   const weeksFromRow =
-    ended && pregnancy ? Math.floor(diffDays(pregnancy.updatedAt.slice(0, 10), today) / DAYS_PER_WEEK) : null;
+    endDate !== null ? Math.floor(diffDays(endDate, today) / DAYS_PER_WEEK) : null;
 
   /**
    * The row wins when there is one, and her answer fills the common gap.
