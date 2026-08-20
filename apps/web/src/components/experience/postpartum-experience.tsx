@@ -6,7 +6,6 @@ import { ExperienceModules } from "./module-registry";
 import { ReadingList } from "./reading-list";
 import { MoodCheck } from "@/components/postpartum/mood-check";
 import { Alert, AlertDescription } from "@/components/ui/alert";
-import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { HeroCard } from "@/components/ui/hero-card";
 import { Link } from "@/i18n/navigation";
@@ -70,7 +69,6 @@ export function PostpartumExperience({
   todayISO: string;
 }) {
   const t = useTranslations("postpartum");
-  const td = useTranslations("dashboard");
 
   const gentle = config?.tone.register === "gentle";
 
@@ -224,11 +222,6 @@ export function PostpartumExperience({
             />
           ),
           movement: null,
-          quickLog: (
-            <Button asChild variant="accent" className="w-full">
-              <Link href="/track">{td("logCta")}</Link>
-            </Button>
-          ),
         }}
       />
       {cycleNote}

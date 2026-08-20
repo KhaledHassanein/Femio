@@ -114,11 +114,6 @@ export function PregnancyExperience({
               <Link href="/track">{t("logCta")}</Link>
             </Button>
           ),
-          quickLog: (
-            <Button asChild variant="accent" className="w-full">
-              <Link href="/track">{t("logCta")}</Link>
-            </Button>
-          ),
         }}
       />
       {/* Outside the engine on purpose: recording a loss is not a module whose

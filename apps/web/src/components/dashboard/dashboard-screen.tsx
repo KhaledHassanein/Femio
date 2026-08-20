@@ -11,13 +11,12 @@ import { useSupabaseQuery, unwrap } from "@/lib/supabase/use-query";
 import { loadExperienceConfig } from "@/lib/experience/client";
 import { modeFromTrack, showsCyclePredictions, type PersonaMode } from "@/lib/persona/state";
 import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
-import { Link } from "@/i18n/navigation";
 import { PregnancyExperience } from "@/components/experience/pregnancy-experience";
 import { PostpartumExperience } from "@/components/experience/postpartum-experience";
 import { TeenExperience } from "@/components/experience/teen-experience";
 import { PersonaOffer } from "@/components/experience/persona-offer";
 import { CycleExperience } from "@/components/experience/cycle-experience";
+import { QuickLogButton } from "@/components/experience/quick-log-button";
 import { TtcExperience } from "@/components/experience/ttc-experience";
 import { MenopausePanel } from "@/components/menopause/menopause-panel";
 import { HeroCard } from "@/components/ui/hero-card";
@@ -273,11 +272,7 @@ export function DashboardScreen() {
           identical full-width CTAs stacked. Found while adding Track A, which would
           have inherited it. The test is the served document rather than the mode —
           a mode list here would go stale the next time a registry row changes. */}
-      {config?.home.modules.some((m) => m.id === "quickLog") ? null : (
-        <Button asChild variant="accent" className="w-full">
-          <Link href="/track">{t("logCta")}</Link>
-        </Button>
-      )}
+      {config?.home.modules.some((m) => m.id === "quickLog") ? null : <QuickLogButton />}
 
       {/* R1.9a. Track B's two supporting modules, rendered from the served document
           by id rather than composed here. The hand-written pair this replaces drew

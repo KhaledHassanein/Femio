@@ -6,7 +6,6 @@ import type { CyclePrediction } from "@/lib/cycle/predict";
 import { predictionBand } from "@/lib/ui/range-band";
 import { ExperienceModules } from "./module-registry";
 import { Alert, AlertDescription } from "@/components/ui/alert";
-import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { HeroCard } from "@/components/ui/hero-card";
 import { Link } from "@/i18n/navigation";
@@ -58,7 +57,6 @@ export function TeenExperience({
   today: string;
 }) {
   const t = useTranslations("teen");
-  const td = useTranslations("dashboard");
   const format = useFormatter();
 
   const fmtShort = (iso: string) =>
@@ -203,11 +201,6 @@ export function TeenExperience({
           reading,
           movement: null,
           pregnancyHero: null,
-          quickLog: (
-            <Button asChild variant="accent" className="w-full">
-              <Link href="/track">{td("logCta")}</Link>
-            </Button>
-          ),
         }}
       />
     </div>

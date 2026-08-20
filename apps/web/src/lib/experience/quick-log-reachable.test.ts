@@ -1,6 +1,6 @@
-import { readFileSync, readdirSync } from "node:fs";
-import { join } from "node:path";
 import { describe, expect, it } from "vitest";
+import { IMPLEMENTED } from "@/components/experience/module-registry";
+import type { ModuleContext } from "@/components/experience/module-registry";
 import { PERSONA_RECORDS } from "./registry";
 
 /**
@@ -9,76 +9,46 @@ import { PERSONA_RECORDS } from "./registry";
  *
  * ## The bug this exists for
  *
- * `dashboard-screen` renders its own accent "Log" button **unless the served
- * document already contains a `quickLog` module** — R2.5e added that suppression
- * because pregnancy and postpartum were stacking two identical full-width CTAs.
- * The suppression is correct and the test it used was the document rather than the
- * mode, which was also correct.
+ * `dashboard-screen` renders the log CTA **unless the served document already
+ * contains a `quickLog` module** — R2.5e added that suppression because pregnancy
+ * and postpartum were stacking two identical full-width CTAs. The suppression is
+ * correct, and keying it on the document rather than the mode was correct too.
  *
- * It rests on one unstated assumption: *if the document carries `quickLog`, some
- * component renders it.* R1.9a, R1.9c and R1.9e each added an experience component
- * that passed `quickLog: null`, and Tracks B, C and F all contribute the module —
- * so the suppression fired, the module rendered nothing, and **three live
+ * It rested on one unstated assumption: *if the document carries `quickLog`, some
+ * component renders it.* `quickLog` was a `ReactNode` slot on `ModuleContext`, so
+ * R1.9a, R1.9c and R1.9e each added an experience component that filled it with
+ * `null` — which type-checks perfectly. Tracks B, C and F all contribute the
+ * module, so the suppression fired, the module rendered nothing, and **three live
  * dashboards lost their log button entirely**. The cycle dashboard told a new user
  * "log a couple of periods to unlock insights" with no way to log one.
  *
  * Nothing caught it. `UNIMPLEMENTED` could not: `quickLog` *is* implemented, and
  * the coverage test asserts an id has a renderer, not that a caller passes a real
- * node. This is the same shape as P2.7a — a listed id proves the gap is known, not
- * that the wiring is right — arriving from the opposite direction.
+ * node. Same shape as P2.7a — a listed id proves the gap is known, not that the
+ * wiring is right — arriving from the opposite direction.
  *
  * ## What this asserts
  *
- * No experience component may pass `quickLog: null`. Reading the source is crude
- * and it is the level the bug lives at: the type is `ReactNode`, so `null`
- * type-checks perfectly, and only the rendered screen or this ever notices.
+ * R1.9m removed the slot: the registry now draws `QuickLogButton` itself, so there
+ * is nothing left for a caller to null out and the failure is unrepresentable
+ * rather than merely tested for. What remains worth holding is the pair the
+ * suppression depends on — the id is renderable, and the personas ask for it.
  */
 
-const COMPONENT_DIRS = [
-  "src/components/experience",
-  "src/components/menopause",
-  "src/components/dashboard",
-];
-
-function sourcesUnder(dir: string): { file: string; text: string }[] {
-  let entries: string[];
-  try {
-    entries = readdirSync(dir);
-  } catch {
-    return [];
-  }
-  return entries
-    .filter((f) => f.endsWith(".tsx") && !f.endsWith(".test.tsx"))
-    .map((f) => ({ file: join(dir, f), text: readFileSync(join(dir, f), "utf8") }));
-}
-
-const SOURCES = COMPONENT_DIRS.flatMap(sourcesUnder);
+/**
+ * The slot must stay gone. A compile-time assertion, not a runtime one: reviving
+ * `quickLog` on `ModuleContext` is exactly how the bug returns, and this fails
+ * `tsc --noEmit` the moment someone does.
+ */
+type SlotIsGone = "quickLog" extends keyof ModuleContext ? never : true;
+export const QUICK_LOG_SLOT_IS_GONE: SlotIsGone = true;
 
 describe("the log button reaches every dashboard that asks for one", () => {
-  it("has files to scan — a vacuous pass here would hide the whole bug", () => {
-    expect(SOURCES.length).toBeGreaterThan(3);
+  it("is rendered by the registry, which is what makes the suppression safe", () => {
+    expect(IMPLEMENTED).toContain("quickLog");
   });
 
-  it("never lets a component swallow the quickLog module", () => {
-    const offenders = SOURCES.filter(({ text }) => /quickLog:\s*null/.test(text)).map(
-      ({ file }) => file,
-    );
-    expect(offenders).toEqual([]);
-  });
-
-  /**
-   * And the other half of the pair: the suppression in `dashboard-screen` is only
-   * safe while it keys on the document. If it ever becomes a mode list again it
-   * goes stale the next time a registry row changes, which is the reason R2.5e
-   * gave for not writing one.
-   */
-  it("keeps the dashboard's own suppression keyed on the served document", () => {
-    const screen = SOURCES.find(({ file }) => file.endsWith("dashboard-screen.tsx"));
-    expect(screen).toBeDefined();
-    expect(screen!.text).toMatch(/config\?\.home\.modules\.some\(\(m\) => m\.id === "quickLog"\)/);
-  });
-
-  /** Most tracks offer it; the test above is worth having because they do. */
+  /** Most tracks offer it; the assertion above is worth having because they do. */
   it("is offered by the tracks that have dashboards", () => {
     const offering = new Set(
       PERSONA_RECORDS.filter((r) =>

@@ -4,6 +4,7 @@ import type { ReactNode } from "react";
 
 import type { ExperienceConfig, ModuleId, ModuleSpec } from "@/lib/experience/types";
 import { EmptyStrip } from "./clinical-strip";
+import { QuickLogButton } from "./quick-log-button";
 
 /**
  * The module registry — where `ExperienceConfig` becomes pixels (R2.3, ADR-061).
@@ -28,8 +29,6 @@ export type ModuleContext = {
   pregnancyHero: ReactNode;
   /** Rendered for `pregnancy.warningSigns` — unchanged red-flag panel. */
   warningSigns: ReactNode;
-  /** Rendered for `quickLog` — the existing log CTA. */
-  quickLog: ReactNode;
   /** Rendered for `pregnancy.movement` when the phase surfaces it. */
   movement: ReactNode;
   /** Rendered for `library` / reading lists. */
@@ -37,11 +36,14 @@ export type ModuleContext = {
   /**
    * Rendered for `pregnancy.appointments` (P2.2.3).
    *
-   * Supplied by the screen rather than imported here, like every other module. The
-   * first attempt imported the card directly — which reads better until you notice
-   * it drags `next-intl`'s navigation helpers into this file's import graph, and
-   * this file is imported by a *node* test suite that renders nothing. The pattern
-   * was already right; breaking it cost a green suite.
+   * Supplied by the screen rather than imported here, because the card needs data
+   * only the screen has. It used to be supplied for a second reason that **no
+   * longer holds**: importing anything that reached `@/i18n/navigation` dragged
+   * `next-intl`'s navigation helpers into this file's import graph and broke the
+   * *node* test suite that imports it. R1.9m fixed that in `vitest.config.ts`
+   * instead, because designing the registry around a resolution bug is what let a
+   * `quickLog: null` slot exist. A module needing nothing from the screen —
+   * `quickLog`, the strips — should own its component here.
    */
   appointments?: ReactNode;
   /** Rendered for `pregnancy.weight` (P2.2.3). */
@@ -153,26 +155,6 @@ export const UNIMPLEMENTED: readonly ModuleId[] = [
   "support.reassurance",
 ];
 
-/**
- * No reading recorded yet — the labs and glucose surfaces land with P2.2.3, so the
- * empty state is the honest one rather than a fabricated value. It still proves
- * the module was *chosen by the engine*, which is what R2.3 has to demonstrate:
- * D7 gets this and D3 does not, from data alone.
- */
-const ThyroidStrip = () => <EmptyStrip titleKey="thyroid.title" ctaKey="thyroid.empty" />;
-const GlucoseStrip = () => <EmptyStrip titleKey="glucose.title" ctaKey="glucose.empty" />;
-/**
- * The remaining three (R1.9k). Same construction as the two above and the same
- * refusal: a strip is her own entries plus the lab's own reference range, and it
- * has no `status`, no `inRange` and no trend **by design** (D7 §G, R2.3). The
- * medicine strip says its two absences out loud — never a dose, never a score for
- * taking them — because P2.4 established both and a strip is where they would
- * quietly come back.
- */
-const LabsStrip = () => <EmptyStrip titleKey="labs.title" ctaKey="labs.empty" />;
-const MedicationStrip = () => <EmptyStrip titleKey="medication.title" ctaKey="medication.empty" />;
-const DevicesStrip = () => <EmptyStrip titleKey="devices.title" ctaKey="devices.empty" />;
-
 type Renderer = (ctx: ModuleContext, spec: ModuleSpec) => ReactNode;
 
 const RENDERERS: Partial<Record<ModuleId, Renderer>> = {
@@ -215,13 +197,30 @@ const RENDERERS: Partial<Record<ModuleId, Renderer>> = {
   "support.intrusiveThoughts": (ctx) => ctx.intrusiveThoughts,
   "pregnancy.warningSigns": (ctx) => ctx.warningSigns,
   "pregnancy.movement": (ctx) => ctx.movement,
-  quickLog: (ctx) => ctx.quickLog,
+  /**
+   * The two modules the registry draws itself, because no caller ever varied them.
+   * `quickLog` was a slot until R1.9m and that is exactly how it went missing from
+   * three dashboards — see `quick-log-button.tsx`.
+   */
+  quickLog: () => <QuickLogButton />,
   library: (ctx) => ctx.reading,
-  "strip.thyroid": () => <ThyroidStrip />,
-  "strip.glucose": () => <GlucoseStrip />,
-  "strip.labs": () => <LabsStrip />,
-  "strip.medication": () => <MedicationStrip />,
-  "strip.devices": () => <DevicesStrip />,
+  /**
+   * The clinical strips (R2.3, R1.9k). No reading recorded yet — the labs and
+   * glucose surfaces land with P2.2.3 — so the empty state is the honest one
+   * rather than a fabricated value. It still proves the module was *chosen by the
+   * engine*: D7 gets this and D3 does not, from data alone.
+   *
+   * Each is its keys and nothing else, because a strip is her own entries plus the
+   * lab's own reference range and it has no `status`, no `inRange` and no trend
+   * **by design** (D7 §G). The medicine strip says its two absences out loud —
+   * never a dose, never a score for taking them — because P2.4 established both
+   * and a strip is where they would quietly come back.
+   */
+  "strip.thyroid": () => <EmptyStrip titleKey="thyroid.title" ctaKey="thyroid.empty" />,
+  "strip.glucose": () => <EmptyStrip titleKey="glucose.title" ctaKey="glucose.empty" />,
+  "strip.labs": () => <EmptyStrip titleKey="labs.title" ctaKey="labs.empty" />,
+  "strip.medication": () => <EmptyStrip titleKey="medication.title" ctaKey="medication.empty" />,
+  "strip.devices": () => <EmptyStrip titleKey="devices.title" ctaKey="devices.empty" />,
 };
 
 /** Every id this registry can render. Used by the coverage test. */

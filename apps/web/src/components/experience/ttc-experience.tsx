@@ -140,11 +140,6 @@ export function TtcExperience({
         reading: null,
         movement: null,
         pregnancyHero: null,
-        quickLog: (
-          <Button asChild variant="accent" className="w-full">
-            <Link href="/track">{t("logCta")}</Link>
-          </Button>
-        ),
       }}
     />
   );
