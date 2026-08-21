@@ -275,3 +275,63 @@ not move.
 - **P0.12 legal** — deferred by your direction. Blocks nothing except B4's honesty.
 - **Search Console, custom CMS subdomain, Sentry DSN** — real, unblocking nothing. They live in
   `OWNER_MANUAL_TASKS.md`.
+
+---
+
+## B10 · 🔴 OPEN 2026-08-21 — GitHub Actions is not running at all
+
+**Every workflow run fails in ~3 seconds having executed zero steps.** Not a code failure: the
+runner never starts. Verified across three runs including `d92f103`, which predates any of the
+audit work, and re-verified on a fresh attempt after the e2e secrets were added.
+
+```
+verify      failure  started 08:49:25Z  completed 08:49:28Z  steps=0
+verify-cms  failure  started 08:49:25Z  completed 08:49:28Z  steps=0
+```
+
+`verify-cms` fails identically and nothing in the revamp touched it. Two different jobs, zero
+steps, three seconds — that is the runner declining to start the job, which on a **private**
+repository is almost always exhausted included Actions minutes or a spending limit of $0.
+
+**What to check:** Settings → Billing → Plans and usage → Actions minutes, and the spending
+limit. The CLI cannot read this — the token lacks the `user` scope and refreshing it is an
+interactive auth change, so it is deliberately left to you.
+
+**What this blocks:** the entire CI gate, including the product e2e suite restored in R3.0.4.
+The secrets you added (`E2E_SUPABASE_URL`, `E2E_SUPABASE_PUBLISHABLE_KEY`) are **correct** —
+verified by name against the workflow's references — and will take effect the moment runs execute
+again. Nothing needs changing there.
+
+**What this does not block:** local development. The full gate runs locally and is green
+(typecheck, 637 unit tests, 70 e2e). Work continues; it is the automated net that is down.
+
+---
+
+## B11 · 🔴 OPEN 2026-08-21 — the Supabase Preview migration ledger is out of sync
+
+The `Supabase Preview` check fails on every push:
+
+```
+ERROR: relation "fetal_movement_sessions" already exists (SQLSTATE 42P07)
+At statement: 0   (0007_fetal_movement_sessions.sql)
+```
+
+It fails at **0007**, not 0001 — so 0001–0006 are recorded as applied and 0007 is not, while the
+table itself exists. That is the signature of a migration applied out of band (run by hand in the
+SQL editor) without being written to `supabase_migrations.schema_migrations`. `0008_contractions`
+is very likely in the same state; both are the only migrations with zero idempotency guards.
+
+**The fix is a ledger repair, not a code change**, which is why it is here rather than done:
+
+```
+supabase migration repair --status applied 0007
+supabase migration repair --status applied 0008   # if it reports the same
+```
+
+**Deliberately not "fixed" by adding `if not exists`.** That would make the error disappear while
+leaving the ledger wrong, so the next migration would fail the same way and the branch schema
+would drift from what the files say it is. The audit's whole complaint is defects hidden rather
+than fixed.
+
+**What this blocks:** preview branches per PR. Production is unaffected — it already has both
+tables.
