@@ -253,6 +253,14 @@
     }
   },
   "onboarding": {
+    "baseline": {
+    "heading": "Your usual cycle",
+    "note": "Femio uses this until your own logged cycles are a better answer. You can skip it, and change it any time.",
+    "cycleLabel": "How long is your cycle, usually?",
+    "periodLabel": "How many days does your period usually last?",
+    "notSure": "I'm not sure",
+    "days": "{count} days"
+    },
     "title": "Welcome to Femio",
     "stepOf": "Step {current} of {total}",
     "age": {
@@ -469,6 +477,7 @@
     "fertileNote": "Estimated from your own cycle history. Ovulation timing shifts between cycles, so this is a guide, not a test.",
     "irregularNote": "Your cycles vary, so predictions stay a wider range — that's expected.",
     "learningNote": "Femio is still learning your pattern — this range narrows as you log.",
+    "statedNote": "Based on the cycle length you told us — your own logged cycles will take over.",
     "fertileHeading": "Estimated fertile window",
     "fertileWindow": "Around {start} – {end}",
     "explore": {

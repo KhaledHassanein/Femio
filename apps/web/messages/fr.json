@@ -253,6 +253,14 @@
     }
   },
   "onboarding": {
+    "baseline": {
+    "heading": "Ton cycle habituel",
+    "note": "Femio s'en sert jusqu'à ce que tes propres cycles enregistrés donnent une meilleure réponse. Tu peux passer, et modifier à tout moment.",
+    "cycleLabel": "Ton cycle dure combien de temps, d'habitude ?",
+    "periodLabel": "Tes règles durent combien de jours, d'habitude ?",
+    "notSure": "Je ne sais pas",
+    "days": "{count} jours"
+    },
     "title": "Bienvenue sur Femio",
     "stepOf": "Étape {current} sur {total}",
     "age": {
@@ -469,6 +477,7 @@
     "fertileNote": "Estimation d’après votre propre historique de cycles. Le moment de l’ovulation varie d’un cycle à l’autre : c’est un repère, pas un test.",
     "irregularNote": "Tes cycles varient, donc les prévisions restent une fourchette plus large — c'est normal.",
     "learningNote": "Femio apprend encore ton rythme — cette fourchette se resserrera à mesure que tu enregistres.",
+    "statedNote": "D'après la durée de cycle que tu nous as indiquée — tes cycles enregistrés prendront le relais.",
     "fertileHeading": "Fenêtre de fertilité estimée",
     "fertileWindow": "Autour du {start} – {end}",
     "explore": {

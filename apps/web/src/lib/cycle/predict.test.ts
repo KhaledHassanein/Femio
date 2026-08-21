@@ -89,3 +89,49 @@ describe("learning vs irregular (R3.1.7)", () => {
     expect(daysUntilPredicted(p, "2026-09-10")).toBeNull();
   });
 });
+
+describe("a stated baseline (R3.1b)", () => {
+  it("says something useful from one logged period plus her stated length", () => {
+    // Flo and Clue both do this; Femio said nothing until the second cycle, which
+    // is most of why the first run felt empty.
+    const p = predictNextPeriod(["2026-08-05"], 30)!;
+    expect(p.averageLength).toBe(30);
+    expect(p.basis).toBe("stated");
+    expect(p.predictedStart).toBe("2026-09-04");
+  });
+
+  it("never mistakes a stated length for an observation", () => {
+    const p = predictNextPeriod(["2026-08-05"], 30)!;
+    expect(p.learning).toBe(true);
+    expect(p.irregular).toBe(false);
+    expect(p.confidence).toBe("low");
+    // No countdown from a number she remembered rather than logged.
+    expect(daysUntilPredicted(p, "2026-09-01")).toBeNull();
+  });
+
+  it("hands over to her own cycles as soon as there are two", () => {
+    const p = predictNextPeriod(["2026-07-08", "2026-08-05"], 30)!;
+    expect(p.basis).toBe("observed");
+    expect(p.averageLength).toBe(28); // hers, not the 30 she guessed
+  });
+
+  it("refuses to invent a length when she skipped the question", () => {
+    // "Not sure" must not silently become 28 — that is a number she never gave us,
+    // shown back as though she had.
+    expect(predictNextPeriod(["2026-08-05"])).toBeNull();
+    expect(predictNextPeriod(["2026-08-05"], null)).toBeNull();
+  });
+
+  it("ignores a stated length outside what the schema accepts", () => {
+    expect(predictNextPeriod(["2026-08-05"], 3)).toBeNull();
+    expect(predictNextPeriod(["2026-08-05"], 90)).toBeNull();
+  });
+
+  it("gives a stated length a wider window than measured cycles get", () => {
+    const stated = predictNextPeriod(["2026-08-05"], 28)!;
+    const observed = predictNextPeriod(["2026-06-10", "2026-07-08", "2026-08-05"], 28)!;
+    const width = (p: { windowStart: string; windowEnd: string }) =>
+      new Date(p.windowEnd).getTime() - new Date(p.windowStart).getTime();
+    expect(width(stated)).toBeGreaterThan(width(observed));
+  });
+});

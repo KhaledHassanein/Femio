@@ -104,7 +104,9 @@ export function CycleExperience({
       eyebrow={t("nextPeriod")}
       headline={t("window", { start: fmt(prediction.windowStart), end: fmt(prediction.windowEnd) })}
       footnote={
-        prediction.learning
+        prediction.basis === "stated"
+          ? t("statedNote")
+          : prediction.learning
           ? t("learningNote")
           : prediction.irregular
             ? t("irregularNote")

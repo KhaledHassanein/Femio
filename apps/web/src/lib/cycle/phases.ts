@@ -16,38 +16,48 @@
  * 2. **Irregular means unknown, not approximate** (product rule 3). When her
  *    cycles do not support a phase estimate this returns `null` rather than a
  *    plausible-looking guess. A confident wrong phase is worse than no phase.
- * 3. **Ovulation is estimated backwards, not forwards.** The luteal phase is the
- *    stable part of the cycle; the follicular part is what varies. So ovulation is
- *    derived as `cycleLength - LUTEAL_DAYS` rather than assumed to be day 14,
- *    which is only true for a 28-day cycle and is the single most common error in
- *    this category.
+ * 3. **Ovulation is estimated backwards, not forwards.** The end of the cycle is
+ *    its stable part; the follicular stretch is what varies. So the window is
+ *    counted back from the *next* period rather than assumed to sit on day 14 —
+ *    true only of a 28-day cycle, and the single most common error in this
+ *    category. The interval itself is the NHS's, not ours (see below).
  */
 
 export type CyclePhase = "menstrual" | "follicular" | "ovulatory" | "luteal";
 
 /**
- * Typical luteal length, counted back from the next period.
+ * The ovulatory window, counted back from the *next* period.
  *
- * [NEEDS SOURCE] — the 12–14 day luteal phase is standard in the clinical
- * literature and is the basis of every backwards ovulation estimate, but it needs
- * a Tier-1 citation (ACOG or NHS) before this ships user-visible copy. Using 14
- * here as the midpoint of the usual range.
+ * Sourced rather than invented, from Femio's own knowledge base: the NHS cycle
+ * guide says exact timing is hard to pinpoint and **often falls around 10 to 16
+ * days before the next period**, and ACOG describes a fertile interval that begins
+ * several days before ovulation and ends about a day after it. Both are cited in
+ * `docs/content/articles/fertile-window-explained.md`, which also states plainly
+ * that ovulation does not always happen on day 14.
+ *
+ * This replaces a hand-picked `14 ± 2`. That earlier guess was not only unsourced
+ * but **too narrow** — it described a five-day span where the NHS describes seven,
+ * which is precisely the false precision product rule 3 exists to prevent.
+ *
+ * Deliberately a window and never a single day: a highlighted "ovulation day" is
+ * the shape that gets read as a fertility guarantee, and Femio is not
+ * contraception (product rule 1).
+ *
+ * Sources:
+ *   NHS — Periods and fertility in the menstrual cycle
+ *   https://www.nhs.uk/conditions/periods/fertility-in-the-menstrual-cycle/
+ *   ACOG — Fertility Awareness-Based Methods of Family Planning
+ *   https://www.acog.org/womens-health/faqs/fertility-awareness-based-methods-of-family-planning
  */
-const LUTEAL_DAYS = 14;
+const OVULATION_EARLIEST_BEFORE_NEXT = 16;
+const OVULATION_LATEST_BEFORE_NEXT = 10;
 
 /**
- * How wide the ovulatory window is, centred on the estimate.
- *
- * [NEEDS SOURCE] — needs the same citation. Deliberately a *window*, never a day:
- * a single highlighted "ovulation day" is the shape that gets read as a fertility
- * guarantee, which is exactly what product rule 1 forbids.
- */
-const OVULATORY_SPAN = 2;
-
-/**
- * Below this, a cycle is too short for the backwards estimate to mean anything —
- * `cycleLength - 14` would land on or before the bleeding days and the phases
- * would overlap. Returning `null` is the honest answer.
+ * Below this, a cycle is too short for the backwards estimate to mean anything:
+ * the ovulatory window would land on or before the bleeding days and the phases
+ * would overlap. 21 days is also the low end of what the NHS describes as a usual
+ * cycle, and it is the lower bound the `profiles.stated_cycle_length` constraint
+ * enforces — one number, three places, deliberately the same.
  */
 const MIN_ESTIMABLE_CYCLE = 21;
 
@@ -66,7 +76,14 @@ export type PhaseInput = {
   irregular?: boolean;
 };
 
-/** [NEEDS SOURCE] — typical bleeding length when she has logged no flow data. */
+/**
+ * Bleeding length used only when she has neither stated nor logged one.
+ *
+ * A last resort, not a claim: `stated_period_length` (R3.1b.1) is asked during
+ * setup precisely so this is rarely reached, and her own logged days beat both.
+ * The NHS cycle guide describes bleeding of around 2–7 days as usual; 5 is the
+ * middle of that, and it is never presented to her as *her* number.
+ */
 const DEFAULT_PERIOD_DAYS = 5;
 
 /**
@@ -90,11 +107,14 @@ export function phaseOnDay({
 
   if (cycleDay <= Math.max(1, periodLength)) return "menstrual";
 
-  const ovulation = cycleLength - LUTEAL_DAYS;
-  if (cycleDay >= ovulation - OVULATORY_SPAN && cycleDay <= ovulation + OVULATORY_SPAN) {
-    return "ovulatory";
-  }
-  return cycleDay < ovulation ? "follicular" : "luteal";
+  // Counted back from the next period, which is the stable end of the cycle — not
+  // forward from day 1. Ovulation on "day 14" is true only of a 28-day cycle; for a
+  // 32-day cycle it is four days early, and that is the commonest error in this
+  // category.
+  const windowOpens = cycleLength - OVULATION_EARLIEST_BEFORE_NEXT;
+  const windowCloses = cycleLength - OVULATION_LATEST_BEFORE_NEXT;
+  if (cycleDay >= windowOpens && cycleDay <= windowCloses) return "ovulatory";
+  return cycleDay < windowOpens ? "follicular" : "luteal";
 }
 
 export type PhaseSegment = {

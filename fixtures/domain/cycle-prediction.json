@@ -11,6 +11,7 @@
       },
       "expected": {
         "averageLength": 28,
+        "basis": "observed",
         "predictedStart": "2026-04-23",
         "windowStart": "2026-04-21",
         "windowEnd": "2026-04-25",
@@ -30,6 +31,7 @@
       },
       "expected": {
         "averageLength": 33,
+        "basis": "observed",
         "predictedStart": "2026-05-13",
         "windowStart": "2026-05-06",
         "windowEnd": "2026-05-20",

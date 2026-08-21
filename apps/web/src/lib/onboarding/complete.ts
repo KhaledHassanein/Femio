@@ -72,6 +72,16 @@ export type OnboardingChoice = {
    * for consent purposes; see `lib/persona/minor.ts`.
    */
   ageBand?: AgeBand | null;
+  /**
+   * Her stated usual cycle and period length (R3.1b.1), or null for "not sure".
+   *
+   * Deliberately *not* written as a `cycles` row. A fabricated row would be
+   * indistinguishable from something she logged — in her history, in her export,
+   * and in the report she hands a clinician — so the baseline lives on the profile
+   * where it can seed a prediction without ever pretending to be an observation.
+   */
+  statedCycleLength?: number | null;
+  statedPeriodLength?: number | null;
   /** Triage answers — "conditions your clinician is watching". Always self-reported. */
   conditions?: ConditionCode[];
   /**
@@ -105,7 +115,12 @@ export async function completeOnboarding(choice: OnboardingChoice): Promise<Resu
 
   await supabase
     .from("profiles")
-    .update({ locale: choice.locale, age_band: choice.ageBand ?? null })
+    .update({
+      locale: choice.locale,
+      age_band: choice.ageBand ?? null,
+      stated_cycle_length: choice.statedCycleLength ?? null,
+      stated_period_length: choice.statedPeriodLength ?? null,
+    })
     .eq("id", profileId);
 
   const { error: consentError } = await supabase.from("consent_records").insert([

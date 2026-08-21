@@ -7,8 +7,17 @@ import { addDays, diffDays, isValidISODate, todayISO } from "../calculators/date
 
 export type Confidence = "high" | "medium" | "low";
 
+/**
+ * Where `averageLength` came from. Carried rather than inferred, because the visit
+ * report must tell a clinician which numbers she recorded and which Femio derived
+ * (phase 1c) — and "her stated usual length" and "the mean of her logged cycles"
+ * are different kinds of fact wearing the same shape.
+ */
+export type PredictionBasis = "stated" | "observed";
+
 export type CyclePrediction = {
   averageLength: number;
+  basis: PredictionBasis;
   /** Point estimate — always rendered soft/uncertain, never as a guarantee. */
   predictedStart: string;
   windowStart: string;
@@ -36,6 +45,15 @@ export type CyclePrediction = {
   learning: boolean;
 };
 
+/**
+ * How wide a window a stated length earns.
+ *
+ * Wider than the ±2 floor an observed history gets, because a remembered "about
+ * 28 days" is a rounder fact than three measured intervals, and the picture should
+ * say so before she has logged anything.
+ */
+const STATED_MARGIN_DAYS = 4;
+
 function mean(values: number[]): number {
   return values.reduce((a, b) => a + b, 0) / values.length;
 }
@@ -46,13 +64,51 @@ function cleanStarts(starts: string[]): string[] {
 }
 
 /**
- * Predict the next period from period-start history. Needs at least two starts
- * (one full cycle). Returns null when there isn't enough data — the UI shows a
- * "keep logging" state rather than a fabricated date.
+ * Predict the next period from period-start history.
+ *
+ * With two or more starts the intervals are her own. With exactly one start and a
+ * **stated** cycle length (R3.1b.1) that number stands in, which is how every app
+ * in this category behaves and is why theirs say something useful on day one while
+ * Femio said nothing until the second cycle.
+ *
+ * The stated baseline is never mistaken for an observation: it produces
+ * `basis: "stated"`, `learning: true` and no countdown, and her own intervals take
+ * over the moment there are two. The report she hands a clinician has to be able
+ * to say which of the two a number came from (phase 1c), and that is only possible
+ * because the distinction is carried here rather than reconstructed later.
+ *
+ * Returns null when there is nothing to work from at all.
  */
-export function predictNextPeriod(starts: string[]): CyclePrediction | null {
+export function predictNextPeriod(
+  starts: string[],
+  statedCycleLength?: number | null,
+): CyclePrediction | null {
   const sorted = cleanStarts(starts);
-  if (sorted.length < 2) return null;
+  if (sorted.length === 0) return null;
+
+  const stated =
+    typeof statedCycleLength === "number" && statedCycleLength >= 21 && statedCycleLength <= 35
+      ? statedCycleLength
+      : null;
+
+  // One logged start plus a stated length is enough to say something honest. One
+  // start and no stated length is not, and inventing 28 there would be a number she
+  // never gave us presented as though she had.
+  if (sorted.length < 2) {
+    if (stated === null) return null;
+    const last = sorted[0]!;
+    const predictedStart = addDays(last, stated);
+    return {
+      averageLength: stated,
+      basis: "stated",
+      predictedStart,
+      windowStart: addDays(predictedStart, -STATED_MARGIN_DAYS),
+      windowEnd: addDays(predictedStart, STATED_MARGIN_DAYS),
+      confidence: "low",
+      irregular: false,
+      learning: true,
+    };
+  }
 
   const lengths: number[] = [];
   for (let i = 1; i < sorted.length; i += 1) lengths.push(diffDays(sorted[i - 1]!, sorted[i]!));
@@ -79,6 +135,7 @@ export function predictNextPeriod(starts: string[]): CyclePrediction | null {
 
   return {
     averageLength,
+    basis: "observed",
     predictedStart,
     windowStart: addDays(predictedStart, -margin),
     windowEnd: addDays(predictedStart, margin),

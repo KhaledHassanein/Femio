@@ -49,8 +49,35 @@ export function DashboardScreen() {
   const today = todayISO();
 
   const query = useSupabaseQuery(async (supabase) => {
-    const [state, cycles, symptoms, experience] = await Promise.all([
+    const [state, profile, cycles, symptoms, experience] = await Promise.all([
       unwrap(supabase.from("persona_state").select("track").maybeSingle()),
+      /**
+       * Her stated baseline (R3.1b.1). Read alongside the cycles rather than
+       * folded into them: it must reach the prediction without ever appearing in
+       * her history as something she logged.
+       *
+       * **Deliberately not wrapped in `unwrap`**, which is the one place in this
+       * file that tolerates a failed read — and the reason is narrow enough to
+       * state precisely. Every other query here returns *her record*, where an
+       * error rendered as absence would be the lie ADR-046 forbids: "you have never
+       * logged anything" is a worse answer than an error message.
+       *
+       * This column is not her record. It is an optional hint that improves the
+       * first two cycles, and it ships in migration 0010 — so between deploying
+       * this code and applying that migration, PostgREST answers 42703 and an
+       * `unwrap` here would blank the entire dashboard for every user over a field
+       * that is allowed to be absent. That is exactly the shape of the /summary
+       * outage this revamp opened by fixing (`docs/26` §1.1), and repeating it
+       * while fixing it would be unforgivable.
+       *
+       * Absent, unreadable and "she skipped the question" are the same outcome by
+       * design: no stated baseline, so predictions wait for her own cycles.
+       */
+      supabase
+        .from("profiles")
+        .select("stated_cycle_length, stated_period_length")
+        .maybeSingle()
+        .then((r) => (r.error ? null : r.data)),
       unwrap(
         // `flow` comes back for `cycle.flowStrip` (R1.9i). It was not selected
         // before, which is why that module had no data to render and sat listed.
@@ -102,6 +129,8 @@ export function DashboardScreen() {
       config: experience?.config ?? null,
       track: (state?.track as string | null) ?? null,
       starts: (cycles ?? []).map((c) => c.period_start as string),
+      statedCycleLength: (profile as { stated_cycle_length: number | null } | null)
+        ?.stated_cycle_length ?? null,
       /** Newest first, capped in the module. Her own entries, never interpreted. */
       recentPeriods: (cycles ?? []).map((c) => ({
         date: c.period_start as string,
@@ -133,7 +162,8 @@ export function DashboardScreen() {
     );
   }
 
-  const { mode, pregnancy, starts, top, config, recentPeriods } = query.data;
+  const { mode, pregnancy, starts, top, config, recentPeriods, statedCycleLength } =
+    query.data;
   const stItem = st as unknown as (key: string) => string;
   const symptomLabel = (type: string) =>
     KNOWN_SYMPTOMS.has(type) ? stItem(`items.${type}`) : type;
@@ -149,7 +179,10 @@ export function DashboardScreen() {
       timeZone: "UTC",
     });
 
-  const prediction = predictNextPeriod(starts);
+  // Her stated length stands in until her own intervals are a better answer
+  // (R3.1b.2). `basis` on the result records which one this is, so nothing
+  // downstream — the copy, the report — has to guess.
+  const prediction = predictNextPeriod(starts, statedCycleLength);
   const cycleDay = currentCycleDay(starts, today);
   const lastStart = starts.length > 0 ? [...starts].sort().at(-1)! : null;
   // Computed for anyone with a cycle history, and *rendered* only where a persona
@@ -180,6 +213,10 @@ export function DashboardScreen() {
     // Two different sentences, because they say different things. "Still learning"
     // is about Femio and narrows on its own; "your cycles vary" is a claim about
     // her, and until R3.1.7 it was made from a single interval (docs/26 §16).
+    // Which number she is looking at, said out loud. A stated length and a
+    // measured average wear the same shape on screen, and she should never have to
+    // wonder which one produced the window she is reading (R3.1b.2).
+    if (prediction.basis === "stated") return t("statedNote");
     if (prediction.learning) return t("learningNote");
     if (prediction.irregular) return t("irregularNote");
     return t(`confidence.${prediction.confidence}`);
@@ -232,7 +269,7 @@ export function DashboardScreen() {
           then this is the floor, not a duplicate. */}
       {showsCyclePredictions(mode) &&
       mode !== "ttc" &&
-      starts.length >= 2 &&
+      prediction &&
       !config?.home.modules.some((m) => m.id === "cycle.window") ? (
         <HeroCard
           tone="brand"
@@ -315,7 +352,7 @@ export function DashboardScreen() {
           broken flow in the product. It replaces the generic CTA rather than
           joining it: two calls to action on an empty screen is the duplication
           §2.1 already found here, in a new costume. */}
-      {showsCyclePredictions(mode) && starts.length < 2 ? (
+      {showsCyclePredictions(mode) && !prediction ? (
         <FirstPeriodPrompt loggedCount={starts.length} onSaved={query.refresh} />
       ) : config?.home.modules.some((m) => m.id === "quickLog") ? null : (
         <QuickLogButton />

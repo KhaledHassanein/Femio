@@ -42,6 +42,22 @@ const ACCOUNTS: readonly Account[] = ["anonymous", "email"];
 // because they only ever differ by which conditions they offer.
 const TOTAL_STEPS = 4;
 
+/**
+ * The range `profiles.stated_cycle_length` accepts, and the range the NHS
+ * describes as usual. 21 is also where `lib/cycle/phases.ts` stops estimating,
+ * because below it the ovulatory window collides with the bleeding days — one
+ * number, three places, deliberately the same.
+ */
+const CYCLE_LENGTH_OPTIONS = Array.from({ length: 15 }, (_, i) => i + 21);
+const PERIOD_LENGTH_OPTIONS = Array.from({ length: 10 }, (_, i) => i + 1);
+
+/**
+ * Where a stated cycle length means anything. Pregnancy and menopause are not
+ * asked: a usual cycle length is not a question either one has a useful answer to,
+ * and asking it would be the "personalize" rule failing in the direction of noise.
+ */
+const CYCLE_BASELINE_MODES = new Set(["cycle", "ttc", "teen", "general"]);
+
 // The message keys predate the `Account` union and do not match it, so the mapping
 // lives here rather than as the same ternary written out at three call sites.
 const ACCOUNT_KEY: Record<Account, string> = {
@@ -90,6 +106,11 @@ export function OnboardingWizard() {
   // `null` is a real answer ("prefer not to say"), and it is treated as a minor
   // for consent purposes rather than as an adult (lib/persona/minor.ts).
   const [ageBand, setAgeBand] = useState<AgeBand | null>(null);
+  // Her stated baseline (R3.1b.1). Null means "not sure", which is a real answer
+  // and stays distinguishable from a number she chose — the UI can then say which
+  // figure it is using instead of defaulting silently.
+  const [statedCycleLength, setStatedCycleLength] = useState<number | null>(null);
+  const [statedPeriodLength, setStatedPeriodLength] = useState<number | null>(null);
   const [account, setAccount] = useState<Account>("anonymous");
   const [email, setEmail] = useState("");
   const [insights, setInsights] = useState(false);
@@ -137,6 +158,8 @@ export function OnboardingWizard() {
       birthRecency: followUp?.id === "birth" ? (followUpBand as BirthRecencyBand) : null,
       conditions: [...conditions],
       ageBand,
+      statedCycleLength,
+      statedPeriodLength,
       email: account === "email" ? email : undefined,
       insights,
       research,
@@ -294,6 +317,69 @@ export function OnboardingWizard() {
                     {t(`followUp.${followUp.id}.bands.${band.id}`)}
                   </button>
                 ))}
+              </div>
+            </div>
+          ) : null}
+
+          {/* Her usual cycle, asked rather than waited for (R3.1b.1).
+
+              Every app in this category asks this during setup; Femio asked a life
+              stage, an age band and consent, then said nothing useful until she had
+              logged two full cycles. That is why the first run felt empty, and it is
+              why a thin history produced a confident wrong answer (R3.1.9).
+
+              Skippable on purpose, and "not sure" is the default rather than a
+              hidden 28. A silent default is a number she never chose being shown
+              back to her as though she had — which is the same laundering the visit
+              report exists to prevent. Shown only where a cycle length means
+              something: pregnancy and menopause are asked nothing here. */}
+          {mode && CYCLE_BASELINE_MODES.has(mode) ? (
+            <div className="flex flex-col gap-3 border-t border-border pt-4">
+              <div className="flex flex-col gap-1">
+                <p className="text-sm font-medium text-text">{t("baseline.heading")}</p>
+                <p className="text-2xs text-text-muted">{t("baseline.note")}</p>
+              </div>
+
+              <div className="flex flex-col gap-2">
+                <label htmlFor="stated-cycle-length" className="text-sm text-text">
+                  {t("baseline.cycleLabel")}
+                </label>
+                <select
+                  id="stated-cycle-length"
+                  value={statedCycleLength ?? ""}
+                  onChange={(e) =>
+                    setStatedCycleLength(e.target.value === "" ? null : Number(e.target.value))
+                  }
+                  className="min-h-11 rounded-sm border border-border bg-surface px-3 text-sm text-text"
+                >
+                  <option value="">{t("baseline.notSure")}</option>
+                  {CYCLE_LENGTH_OPTIONS.map((d) => (
+                    <option key={d} value={d}>
+                      {t("baseline.days", { count: d })}
+                    </option>
+                  ))}
+                </select>
+              </div>
+
+              <div className="flex flex-col gap-2">
+                <label htmlFor="stated-period-length" className="text-sm text-text">
+                  {t("baseline.periodLabel")}
+                </label>
+                <select
+                  id="stated-period-length"
+                  value={statedPeriodLength ?? ""}
+                  onChange={(e) =>
+                    setStatedPeriodLength(e.target.value === "" ? null : Number(e.target.value))
+                  }
+                  className="min-h-11 rounded-sm border border-border bg-surface px-3 text-sm text-text"
+                >
+                  <option value="">{t("baseline.notSure")}</option>
+                  {PERIOD_LENGTH_OPTIONS.map((d) => (
+                    <option key={d} value={d}>
+                      {t("baseline.days", { count: d })}
+                    </option>
+                  ))}
+                </select>
               </div>
             </div>
           ) : null}

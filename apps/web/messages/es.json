@@ -253,6 +253,14 @@
     }
   },
   "onboarding": {
+    "baseline": {
+    "heading": "Tu ciclo habitual",
+    "note": "Femio lo usa hasta que tus propios ciclos registrados sean una respuesta mejor. Puedes omitirlo y cambiarlo cuando quieras.",
+    "cycleLabel": "¿Cuánto dura tu ciclo normalmente?",
+    "periodLabel": "¿Cuántos días te dura la regla normalmente?",
+    "notSure": "No estoy segura",
+    "days": "{count} días"
+    },
     "title": "Bienvenida a Femio",
     "stepOf": "Paso {current} de {total}",
     "age": {
@@ -469,6 +477,7 @@
     "fertileNote": "Estimación a partir de tu propio historial de ciclos. El momento de la ovulación cambia entre ciclos, así que es una guía, no una prueba.",
     "irregularNote": "Tus ciclos varían, así que las predicciones se mantienen en un rango más amplio — es normal.",
     "learningNote": "Femio todavía está aprendiendo tu patrón: este rango se irá estrechando según registres.",
+    "statedNote": "Según la duración de ciclo que nos indicaste; tus ciclos registrados lo sustituirán.",
     "fertileHeading": "Ventana fértil estimada",
     "fertileWindow": "Alrededor del {start} – {end}",
     "explore": {

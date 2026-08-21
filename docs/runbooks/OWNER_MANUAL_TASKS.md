@@ -861,3 +861,34 @@ Two things a history rewrite does not do, and both are worth a minute:
 
 Prevention is in place: `.seeded-state.json` and `screenshots/` are now gitignored, so a repeat
 cannot be staged.
+
+## Apply migration 0010 — unlocks the stated cycle baseline (R3.1b.1, 2026-08-21)
+
+`supabase/migrations/0010_stated_cycle_baseline.sql` adds two nullable columns to `profiles`.
+Until it is applied, the wizard's new "your usual cycle" answers have nowhere to land and the
+dashboard logs a harmless 400 per load.
+
+**The app does not break without it.** The read is deliberately tolerant — absent, unreadable and
+"she skipped the question" all mean the same thing (no stated baseline), so predictions simply
+wait for her own cycles as they did before. What you get is console noise, not an outage. This
+was designed that way rather than wrapped in `unwrap`, because an `unwrap` there would have
+blanked every dashboard between deploy and migrate — the exact shape of the `/summary` outage
+this revamp opened by fixing.
+
+**Not run automatically, on purpose.** B11 records that the migration ledger is out of sync —
+0007 and 0008 exist in the database but not in `supabase_migrations.schema_migrations`. Running
+`supabase db push` against that will try to replay them and fail on "already exists". Either fix
+the ledger first (B11) or paste this straight into the SQL editor, which is safe and additive:
+
+```sql
+alter table public.profiles
+  add column if not exists stated_cycle_length  integer
+    check (stated_cycle_length is null or stated_cycle_length between 21 and 35),
+  add column if not exists stated_period_length integer
+    check (stated_period_length is null or stated_period_length between 1 and 10);
+```
+
+Metadata-only on Postgres: no table rewrite, no data touched, nullable, and reversible with
+`drop column`. Afterwards the console 400s stop and her stated length starts feeding the first
+cycles. If you take the SQL-editor route, also run
+`supabase migration repair --status applied 0010` so the ledger does not drift further.

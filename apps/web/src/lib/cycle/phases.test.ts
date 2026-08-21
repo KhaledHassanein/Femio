@@ -15,18 +15,32 @@ describe("phaseOnDay", () => {
     // day 14 is the most common error in this category and would put the fertile
     // window four days early for her.
     expect(phaseOnDay({ cycleLength: 32, periodLength: 5, cycleDay: 18 })).toBe("ovulatory");
-    expect(phaseOnDay({ cycleLength: 32, periodLength: 5, cycleDay: 14 })).toBe("follicular");
+    expect(phaseOnDay({ cycleLength: 32, periodLength: 5, cycleDay: 15 })).toBe("follicular");
 
     // And a short cycle ovulates earlier, for the same reason.
     expect(phaseOnDay({ cycleLength: 24, periodLength: 4, cycleDay: 10 })).toBe("ovulatory");
   });
 
-  it("gives ovulation a window rather than a single day", () => {
-    for (const day of [12, 13, 14, 15, 16]) {
+  it("uses the NHS window — 10 to 16 days before the next period — not a hand-picked span", () => {
+    // The NHS cycle guide puts ovulation "around 10 to 16 days before the next
+    // period". On a 28-day cycle that is days 12–18. The first version of this
+    // module used an invented 14 ± 2, which described five days where the source
+    // describes seven — false precision, in the direction of a narrower fertile
+    // window than the evidence supports.
+    for (const day of [12, 13, 14, 15, 16, 17, 18]) {
       expect(phaseOnDay({ ...base, cycleDay: day })).toBe("ovulatory");
     }
     expect(phaseOnDay({ ...base, cycleDay: 11 })).toBe("follicular");
-    expect(phaseOnDay({ ...base, cycleDay: 17 })).toBe("luteal");
+    expect(phaseOnDay({ ...base, cycleDay: 19 })).toBe("luteal");
+  });
+
+  it("moves the whole window with cycle length, because it is counted backwards", () => {
+    // A 35-day cycle ovulates around days 19–25, not 12–18. Anchoring to day 14
+    // would put it a week early.
+    expect(phaseOnDay({ cycleLength: 35, periodLength: 5, cycleDay: 19 })).toBe("ovulatory");
+    expect(phaseOnDay({ cycleLength: 35, periodLength: 5, cycleDay: 25 })).toBe("ovulatory");
+    expect(phaseOnDay({ cycleLength: 35, periodLength: 5, cycleDay: 18 })).toBe("follicular");
+    expect(phaseOnDay({ cycleLength: 35, periodLength: 5, cycleDay: 26 })).toBe("luteal");
   });
 
   it("returns null for irregular cycles instead of guessing", () => {
