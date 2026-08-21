@@ -1751,5 +1751,21 @@
     "noDay": "Your cycle",
     "typicalFor": "Typical for a cycle of about {length} days — not a reading of your hormones.",
     "learning": "Your cycles vary, so Femio won't guess a phase."
+  },
+  "firstRun": {
+    "save": "Save this date",
+    "saving": "Saving…",
+    "error": "That didn't save. Try again.",
+    "note": "You can change or add more any time in Track.",
+    "first": {
+      "heading": "When did your last period start?",
+      "body": "One date is enough to begin.",
+      "dateLabel": "First day of your last period"
+    },
+    "second": {
+      "heading": "And the one before that?",
+      "body": "Two dates make a cycle — that's the point Femio can start predicting from.",
+      "dateLabel": "First day of the previous period"
+    }
   }
 }

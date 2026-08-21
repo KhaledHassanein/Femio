@@ -17,6 +17,7 @@ import { TeenExperience } from "@/components/experience/teen-experience";
 import { PersonaOffer } from "@/components/experience/persona-offer";
 import { CycleExperience } from "@/components/experience/cycle-experience";
 import { QuickLogButton } from "@/components/experience/quick-log-button";
+import { FirstPeriodPrompt } from "@/components/cycle/first-period-prompt";
 import { TtcExperience } from "@/components/experience/ttc-experience";
 import { MenopausePanel } from "@/components/menopause/menopause-panel";
 import { HeroCard } from "@/components/ui/hero-card";
@@ -212,6 +213,12 @@ export function DashboardScreen() {
           predict from, which is why the audit's screenshots missed it and a seeded
           dashboard caught it (docs/26 §13).
 
+          Also suppressed before anything is logged. With nothing to predict from it
+          rendered "Log a couple of periods to unlock insights" directly above the
+          first-run card that asks the same thing and can act on the answer — the
+          duplicate empty state of §2.1 reappearing in a new costume. The empty
+          screen now poses one question, once.
+
           Suppressed by module id rather than by mode, the same way `quickLog`
           already is: a mode list here would go stale the next time a registry row
           changes. It cannot simply be deleted, because `general` — the Z1 fallback —
@@ -221,6 +228,7 @@ export function DashboardScreen() {
           then this is the floor, not a duplicate. */}
       {showsCyclePredictions(mode) &&
       mode !== "ttc" &&
+      starts.length >= 2 &&
       !config?.home.modules.some((m) => m.id === "cycle.window") ? (
         <HeroCard
           tone="brand"
@@ -291,7 +299,23 @@ export function DashboardScreen() {
           identical full-width CTAs stacked. Found while adding Track A, which would
           have inherited it. The test is the served document rather than the mode —
           a mode list here would go stale the next time a registry row changes. */}
-      {config?.home.modules.some((m) => m.id === "quickLog") ? null : <QuickLogButton />}
+      {/* First run, for a cycle-tracking mode with nothing logged yet.
+          
+          The screen used to ask her to "log a couple of periods" and then offer a
+          single button that logs *today* — an action that cannot produce the state
+          being asked for, since her periods are in the past (docs/26 §2.5). The
+          only way through was to find /track and back-date through a strip that
+          reaches back fourteen days, which is less than one cycle.
+
+          Every user meets this before anything else, so it is the highest-leverage
+          broken flow in the product. It replaces the generic CTA rather than
+          joining it: two calls to action on an empty screen is the duplication
+          §2.1 already found here, in a new costume. */}
+      {showsCyclePredictions(mode) && starts.length < 2 ? (
+        <FirstPeriodPrompt loggedCount={starts.length} onSaved={query.refresh} />
+      ) : config?.home.modules.some((m) => m.id === "quickLog") ? null : (
+        <QuickLogButton />
+      )}
 
       {/* R1.9a. Track B's two supporting modules, rendered from the served document
           by id rather than composed here. The hand-written pair this replaces drew

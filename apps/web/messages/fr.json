@@ -1761,5 +1761,21 @@
     "noDay": "Ton cycle",
     "typicalFor": "Typique d'un cycle d'environ {length} jours — pas une lecture de tes hormones.",
     "learning": "Tes cycles varient, donc Femio ne devinera pas de phase."
+  },
+  "firstRun": {
+    "save": "Enregistrer cette date",
+    "saving": "Enregistrement…",
+    "error": "L'enregistrement a échoué. Réessaie.",
+    "note": "Tu peux modifier ou en ajouter à tout moment dans Suivi.",
+    "first": {
+      "heading": "Quand tes dernières règles ont-elles commencé ?",
+      "body": "Une seule date suffit pour commencer.",
+      "dateLabel": "Premier jour de tes dernières règles"
+    },
+    "second": {
+      "heading": "Et celles d'avant ?",
+      "body": "Deux dates font un cycle — c'est à partir de là que Femio peut prédire.",
+      "dateLabel": "Premier jour des règles précédentes"
+    }
   }
 }

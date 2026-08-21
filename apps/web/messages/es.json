@@ -1761,5 +1761,21 @@
     "noDay": "Tu ciclo",
     "typicalFor": "Típico de un ciclo de unos {length} días, no una lectura de tus hormonas.",
     "learning": "Tus ciclos varían, así que Femio no adivinará una fase."
+  },
+  "firstRun": {
+    "save": "Guardar esta fecha",
+    "saving": "Guardando…",
+    "error": "No se guardó. Vuelve a intentarlo.",
+    "note": "Puedes cambiarla o añadir más cuando quieras en Seguimiento.",
+    "first": {
+      "heading": "¿Cuándo empezó tu última regla?",
+      "body": "Con una fecha basta para empezar.",
+      "dateLabel": "Primer día de tu última regla"
+    },
+    "second": {
+      "heading": "¿Y la anterior?",
+      "body": "Dos fechas forman un ciclo: desde ahí Femio puede predecir.",
+      "dateLabel": "Primer día de la regla anterior"
+    }
   }
 }

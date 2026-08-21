@@ -2,6 +2,10 @@
 All notable changes to Femio V2.
 
 ## [Unreleased]
+### Added
+- **Your dashboard now shows where you are in your cycle**, as a coloured strip with today marked on it — period, then the days before and around ovulation, then the days after. Femio names the phase only when your own cycles are regular enough to place one; when they vary, it says so instead of guessing.
+- **Setting up takes two taps.** Femio asks when your last period started, then the one before it, and predicts from there. It used to ask you to log "a couple of periods" and then only offer a button that logs today.
+
 ### Fixed
 - **A period logged without signal now appears as soon as you are back online.** It was always saved and always synced — but the screen kept saying "No periods logged yet" until you reloaded the page, which looked exactly like losing it.
 - **The doctor-visit summary works again.** The page you print and take to an appointment had been failing to load since it was built, and told you it was your connection. It was ours: it asked the database for a field by the wrong name. Your record was never affected.
