@@ -278,7 +278,7 @@ not move.
 
 ---
 
-## B10 · 🔴 OPEN 2026-08-21 — GitHub Actions is not running at all
+## B10 · ⏸ DEFERRED to 2026-09-01 (owner decision 2026-08-21) — Actions quota exhausted
 
 **Every workflow run fails in ~3 seconds having executed zero steps.** Not a code failure: the
 runner never starts. Verified across three runs including `d92f103`, which predates any of the
@@ -293,9 +293,9 @@ verify-cms  failure  started 08:49:25Z  completed 08:49:28Z  steps=0
 steps, three seconds — that is the runner declining to start the job, which on a **private**
 repository is almost always exhausted included Actions minutes or a spending limit of $0.
 
-**What to check:** Settings → Billing → Plans and usage → Actions minutes, and the spending
-limit. The CLI cannot read this — the token lacks the `user` scope and refreshing it is an
-interactive auth change, so it is deliberately left to you.
+**Cause confirmed by the owner 2026-08-21:** the minutes are used up and the allowance resets on
+**1 September 2026**. Either add credit or wait. The decision was to wait, so every task that
+depends on a CI run is parked in `DEFERRED_2026-09-01.md` — do not retry them before then.
 
 **What this blocks:** the entire CI gate, including the product e2e suite restored in R3.0.4.
 The secrets you added (`E2E_SUPABASE_URL`, `E2E_SUPABASE_PUBLISHABLE_KEY`) are **correct** —
