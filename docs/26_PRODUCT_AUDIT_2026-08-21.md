@@ -507,3 +507,45 @@ The fix is a decision about what `cycles` means. The schema says one row per cyc
 behaves as though it were one row per bleeding day. Whichever wins, cycle *starts* must be
 derived by collapsing dates that belong to the same bleed rather than trusting every row to be a
 new cycle — which is tier-2 maths, bound by golden fixtures, and gets its own pass as **R3.1.9**.
+
+---
+
+# Checkpoint 1 — re-measured, including a correction to §5
+
+Every persona driven through real onboarding again, 390×844, after Phase 1.
+
+| Persona | §5 recorded (2026-08-21) | Now, fresh | Now, seeded | `<main>` nodes |
+|---|---|---|---|---|
+| Teen | — | **844** | — | **6** |
+| Cycle | 844 | 972 | 930 | 72 |
+| TTC | 844 | 944 | **844** | **17** |
+| Pregnancy | 844 | 855 | — | 19 |
+| Postpartum | — | 3707 | — | 101 |
+| Menopause | 844 | **3238** | — | 135 |
+
+## §5 was partly wrong, and the reason matters
+
+Menopause is recorded in §5 at 844px and measures 3238px now, against changes that never touched
+it. Postpartum was never measured at all. The explanation is not an improvement: **the original
+measurement script did not complete onboarding.** It clicked Continue twice against a four-step
+wizard — the same rot that had broken the `@live` specs, reproduced in the audit's own tooling —
+so several rows recorded a partially-onboarded screen rather than a persona dashboard.
+
+The headline of §5 stands: TTC seeded is still **844px and 17 nodes**, the emptiest screen in the
+product for the highest-intent segment. But "all four personas are 844" was an artifact in at
+least one row, and it is corrected here rather than left to be quoted later. The audit's own
+§1.2 finding — that nobody watches the tests fail — applied to the audit.
+
+## What Phase 1 actually moved
+
+- **Cycle, fresh: 844 → 972px, 6 → 61 nodes.** The dead end became a question she can answer.
+- **Cycle, seeded: 930px, 72 nodes**, having *removed* a duplicated hero and a philosophy card.
+  Less height, more product.
+- **Teen is now the emptiest screen in the app: 844px, 6 nodes.** Track A contributes almost
+  nothing. This replaces TTC as the most urgent persona gap and is logged as R3.4.0.
+- **Pregnancy at 855px / 19 nodes** is barely better and remains Phase 4 work.
+
+The plan's target — ≥2.5 viewports of useful content per persona — is **not met by Phase 1 and
+was never going to be**. Phase 1 removed the lies and the dead ends; the height comes from Phase
+3's insight engine and Phase 4's per-persona depth. Recording that plainly so the gap between
+"Phase 1 complete" and "the dashboard is good" is not mistaken for a claim it never made.
