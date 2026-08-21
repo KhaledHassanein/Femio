@@ -6,6 +6,7 @@ import type { CyclePrediction } from "@/lib/cycle/predict";
 import { predictionBand } from "@/lib/ui/range-band";
 import { ExperienceModules } from "./module-registry";
 import { PhaseStrip } from "@/components/cycle/phase-strip";
+import { FlowStrip } from "@/components/cycle/flow-strip";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
 import { HeroCard } from "@/components/ui/hero-card";
@@ -63,8 +64,6 @@ export function CycleExperience({
   recentPeriods: readonly { date: string; flow: string | null }[];
 }) {
   const t = useTranslations("dashboard");
-  const tFlowRaw = useTranslations("track.flow");
-  const tFlow = tFlowRaw as unknown as (key: string) => string;
   const format = useFormatter();
 
   const fmt = (iso: string) =>
@@ -218,37 +217,17 @@ export function CycleExperience({
    * makes from a history, and `docs/25` §5a rejected the ring for the same reason
    * a flow verdict is rejected here.
    */
-  const flowStrip =
-    recentPeriods.length > 0 ? (
-      <section className="flex flex-col gap-2">
-        <h2 className="text-md font-semibold text-text">{t("flowStrip.heading")}</h2>
-        <ul className="flex flex-col gap-1 text-sm">
-          {recentPeriods.slice(0, 6).map((p) => (
-            <li key={p.date} className="flex justify-between gap-4">
-              <span className="text-text">{fmt(p.date)}</span>
-              <span className="text-text-muted">{p.flow ? tFlow(p.flow) : "—"}</span>
-            </li>
-          ))}
-        </ul>
-      </section>
-    ) : (
-      <p className="text-sm text-text-muted">{t("flowStrip.empty")}</p>
-    );
-
   /**
-   * The three "there is more over there" cards, as rows rather than blocks.
+   * Her recent bleeding, drawn (R3.1.5).
    *
-   * Each was a full card — display heading, paragraph, link — and `explore`
-   * ("Everything else is still here") was the single largest content block on the
-   * dashboard, explaining Femio's personalization philosophy. Correct philosophy
-   * (product rule 2), and it will say exactly the same thing on day 400. Nobody
-   * opens a cycle app daily to re-read its design principles (`docs/26` §2.2).
-   *
-   * Demoted, not removed: rule 2 is "personalize, never restrict", so every one of
-   * these has to stay one tap away. Same destinations, same labels, a fraction of
-   * the height — the body copy goes because it is the part that never changes,
-   * while the link is the part that does something.
+   * This module has been named `cycle.flowStrip` since R1.9i and rendered six rows
+   * of "date — word". A table is not a strip: `docs/25` §5a specifies marks over
+   * 30/60/90 days, encoded by size *and* opacity so colour is never the only
+   * channel. The vocabulary is still hers and still uninterpreted — no average, no
+   * "heavier than usual", no trend.
    */
+  const flowStrip = <FlowStrip periods={recentPeriods} today={today} />;
+
   const linkCard = (key: "explore" | "visitPrep" | "privacyNote", href: string) => (
     <Card>
       <Link

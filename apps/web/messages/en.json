@@ -1768,5 +1768,15 @@
       "body": "Two dates make a cycle — that's the point Femio can start predicting from.",
       "dateLabel": "First day of the previous period"
     }
+  },
+  "flowStrip": {
+    "heading": "Your bleeding",
+    "range": "last {days} days",
+    "empty": "Nothing logged in this window yet.",
+    "footnote": "Taller and stronger marks are the days you logged as heavier.",
+    "a11y": {
+      "none": "Your bleeding over the last {days} days. Nothing logged yet.",
+      "summary": "Your bleeding over the last {days} days. {count} days logged."
+    }
   }
 }

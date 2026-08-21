@@ -478,3 +478,32 @@ her and may never narrow, and the other is about us and narrows on its own.
 
 The fixtures did the job they were written for: a behaviour change in a tier-2 module could not
 pass silently. Both fixture edits are one line each and deliberate.
+
+## 17. 🔴 Logging each day of a period destroys her predictions
+
+Found while checking why the new flow strip showed one mark for a multi-day period.
+
+`cycles` holds one row per **period start**, but `log-period.tsx` inserts a row for whatever date
+is selected, with nothing preventing consecutive days. A woman who logs Monday, Tuesday and
+Wednesday while bleeding — the most natural possible behaviour, and what a strip labelled "your
+bleeding" actively invites — creates three cycle *starts* one day apart.
+
+Verified in the running app, not inferred:
+
+> **Your average cycle — 1 days**
+> Expected between Aug 17 and Aug 21
+
+`predictNextPeriod` computes intervals of 1 day, and because those intervals are perfectly
+consistent, `spread` is 0 and **`irregular` is false**. So Femio does not merely get it wrong; it
+gets it wrong *confidently*, with the uncertainty machinery reporting everything is fine. This is
+worse than §16, which at least erred toward caution.
+
+Nothing in the tracker warns her, and the predicted window is already in the past.
+
+Two smaller defects visible in the same string: **"1 days"** is unpluralised, and a window that
+has already elapsed is presented as a forecast.
+
+The fix is a decision about what `cycles` means. The schema says one row per cycle; the UI
+behaves as though it were one row per bleeding day. Whichever wins, cycle *starts* must be
+derived by collapsing dates that belong to the same bleed rather than trusting every row to be a
+new cycle — which is tier-2 maths, bound by golden fixtures, and gets its own pass as **R3.1.9**.

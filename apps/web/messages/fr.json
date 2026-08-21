@@ -1778,5 +1778,15 @@
       "body": "Deux dates font un cycle — c'est à partir de là que Femio peut prédire.",
       "dateLabel": "Premier jour des règles précédentes"
     }
+  },
+  "flowStrip": {
+    "heading": "Tes saignements",
+    "range": "{days} derniers jours",
+    "empty": "Rien d'enregistré sur cette période.",
+    "footnote": "Les marques plus hautes et plus marquées sont les jours que tu as notés comme plus abondants.",
+    "a11y": {
+      "none": "Tes saignements sur les {days} derniers jours. Rien d'enregistré.",
+      "summary": "Tes saignements sur les {days} derniers jours. {count} jours enregistrés."
+    }
   }
 }

@@ -1778,5 +1778,15 @@
       "body": "Dos fechas forman un ciclo: desde ahí Femio puede predecir.",
       "dateLabel": "Primer día de la regla anterior"
     }
+  },
+  "flowStrip": {
+    "heading": "Tu sangrado",
+    "range": "últimos {days} días",
+    "empty": "Nada registrado en este periodo todavía.",
+    "footnote": "Las marcas más altas y marcadas son los días que registraste como más abundantes.",
+    "a11y": {
+      "none": "Tu sangrado en los últimos {days} días. Nada registrado.",
+      "summary": "Tu sangrado en los últimos {days} días. {count} días registrados."
+    }
   }
 }
