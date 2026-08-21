@@ -1746,9 +1746,9 @@
   },
   "phaseStrip": {
     "a11y": {
-      "noData": "Tu círculo de ciclo. Aún no hay datos suficientes para situarte.",
-      "withPhase": "Tu círculo de ciclo. Día {day} de unos {length}.",
-      "unknownPhase": "Tu círculo de ciclo. Día {day}. Tus ciclos varían demasiado para situar una fase."
+      "noData": "Tu ciclo hasta ahora. Aún no hay datos suficientes para situarte.",
+      "withPhase": "Tu ciclo hasta ahora. Día {day} de unos {length}.",
+      "unknownPhase": "Tu ciclo hasta ahora. Día {day}. Tus ciclos varían demasiado para situar una fase."
     },
     "phase": {
       "menstrual": "Regla",

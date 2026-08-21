@@ -1746,9 +1746,9 @@
   },
   "phaseStrip": {
     "a11y": {
-      "noData": "Ton cercle de cycle. Pas encore assez de données pour situer où tu en es.",
-      "withPhase": "Ton cercle de cycle. Jour {day} sur environ {length}.",
-      "unknownPhase": "Ton cercle de cycle. Jour {day}. Tes cycles varient trop pour situer une phase."
+      "noData": "Ton cycle jusqu'ici. Pas encore assez de données pour situer où tu en es.",
+      "withPhase": "Ton cycle jusqu'ici. Jour {day} sur environ {length}.",
+      "unknownPhase": "Ton cycle jusqu'ici. Jour {day}. Tes cycles varient trop pour situer une phase."
     },
     "phase": {
       "menstrual": "Règles",

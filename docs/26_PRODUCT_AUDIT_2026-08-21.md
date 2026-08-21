@@ -398,3 +398,54 @@ and offline sync. Split into `@live` (Supabase — now runs in CI) and `@cms` (s
 already guarded in production by `scripts/seo/sitemap-check.mjs`).
 
 Result: **70 product specs now pass in the CI subset**, where 0 ran before.
+
+---
+
+# Part 2c — What a *seeded* dashboard showed that an empty one could not
+
+Parts 1 and 2 measured a brand-new account, because that was all the tooling could reach. Once
+`scripts/dev/seed-and-shoot.mjs` could give a user three logged cycles, defects appeared that are
+invisible without data. Recording the lesson as much as the bugs: **an empty-state audit is half
+an audit**, and the dashboard is precisely the screen that shows least when it has least.
+
+## 13. The same prediction, rendered twice, in two date formats
+
+With cycles logged, the dashboard drew two nearly identical purple heroes back to back:
+
+```
+DAY 17 OF YOUR CYCLE        NEXT PERIOD
+Expected between            Expected between
+Aug 31 and Sep 4            Aug 31, 2026 and Sep 4, 2026
+```
+
+`dashboard-screen.tsx:205` hardcodes a `HeroCard` behind `showsCyclePredictions(mode) && mode !==
+"ttc"`, and the registry's `cycle.window` module draws the same prediction from the same data.
+Both fired for any Track B user with a history. 226px of the dashboard was a duplicate.
+
+The two also disagreed on date format — `fmtShort` above `fmt` — so the duplication was visible
+even to someone who did not notice it was the same sentence.
+
+**Not fixed by deleting the hardcoded one.** Only `track-b.ts` contributes `cycle.window`, so
+`general` — the Z1 fallback, i.e. the women who have told Femio least about themselves — would
+have lost the prediction entirely. Suppressed by module id instead, the pattern `quickLog`
+already used. Giving `general` a real registry document is R3.1.6.
+
+Dashboard height with data: **1313px → 1087px**, and the page says strictly more than before.
+
+## 14. Arabic and English disagree about which digits to use
+
+The seeded Arabic dashboard renders dates as `2026/08/31` — Western digits — while the onboarding
+age bands render `١٣–١٥` in Arabic-Indic. Both are defensible in isolation; together, in one app,
+they are an inconsistency a native reader will notice immediately.
+
+Neither is obviously the "right" answer — Arabic-Indic is standard in Egypt and the Gulf, Western
+digits in the Maghreb — which makes it a locale decision rather than a bug fix. Logged as
+**R3.5.2** for the design phase, not patched here.
+
+## 15. Note on screenshot artifacts
+
+Full-page screenshots place `position: fixed` elements at the initial viewport origin, so the
+crisis pill and the tab bar appear mid-page in every full-page capture in this audit. That is a
+capture artifact, **not** a layout bug, and §3's consent overlap was confirmed separately by
+measuring bounding-box intersection at the real scroll position rather than by looking at a
+picture. Any future finding of this shape must be verified the same way before it is written down.

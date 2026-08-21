@@ -202,7 +202,26 @@ export function DashboardScreen() {
           sees them is now her persona's contribution, not a string comparison. */}
       <TtcExperience config={config} fertile={fertile} lastStart={lastStart} today={today} />
 
-      {showsCyclePredictions(mode) && mode !== "ttc" ? (
+      {/* The generic prediction hero — and only when the served document has not
+          already placed one.
+
+          Without that test this rendered *underneath* `cycle.window`, so a Track B
+          woman with logged cycles got the same window twice, in two nearly
+          identical purple heroes, in two different date formats ("Aug 31 and Sep 4"
+          above "Aug 31, 2026 and Sep 4, 2026"). Invisible until there was data to
+          predict from, which is why the audit's screenshots missed it and a seeded
+          dashboard caught it (docs/26 §13).
+
+          Suppressed by module id rather than by mode, the same way `quickLog`
+          already is: a mode list here would go stale the next time a registry row
+          changes. It cannot simply be deleted, because `general` — the Z1 fallback —
+          has no registry document contributing `cycle.window`, so deleting it would
+          silently strip the prediction from exactly the women who have told us
+          least about themselves. Giving `general` a real document is R3.1.6; until
+          then this is the floor, not a duplicate. */}
+      {showsCyclePredictions(mode) &&
+      mode !== "ttc" &&
+      !config?.home.modules.some((m) => m.id === "cycle.window") ? (
         <HeroCard
           tone="brand"
           eyebrow={cycleDay ? t("cycleDay", { day: cycleDay }) : t(`modeLabel.${mode}`)}

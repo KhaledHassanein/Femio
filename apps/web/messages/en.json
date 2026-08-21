@@ -1736,9 +1736,9 @@
   },
   "phaseStrip": {
     "a11y": {
-      "noData": "Your cycle ring. Not enough logged yet to show where you are.",
-      "withPhase": "Your cycle ring. Day {day} of about {length}.",
-      "unknownPhase": "Your cycle ring. Day {day}. Your cycles vary too much to place a phase."
+      "noData": "Your cycle so far. Not enough logged yet to show where you are.",
+      "withPhase": "Your cycle so far. Day {day} of about {length}.",
+      "unknownPhase": "Your cycle so far. Day {day}. Your cycles vary too much to place a phase."
     },
     "phase": {
       "menstrual": "Period",
