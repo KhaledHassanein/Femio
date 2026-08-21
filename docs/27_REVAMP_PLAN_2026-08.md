@@ -71,6 +71,46 @@ The core of the revamp. Target: **≥ 2.5 viewports of useful, personal content*
 
 **Checkpoint 1** → commit, push, deploy.
 
+## Phase 1b — She tells Femio what she already knows (owner direction, 2026-08-21)
+
+Competitive check first, as instructed: **Flo and Clue both ask for the date her last period
+began and how long her cycle usually is**, each skippable with a sensible default. Femio asks
+neither — it asks a life stage, an age band and consent, then waits for two logged cycles before
+saying anything useful. That is why the first run felt empty, and it is the root of R3.1.9: with
+no stated baseline, every prediction is hostage to whatever rows happen to exist.
+
+- [ ] 1b.1 **Ask her usual cycle length and period length in the wizard**, both skippable, both
+      with a stated default rather than a hidden one. Store on `profiles`.
+- [ ] 1b.2 **Use her stated length as the baseline until her own data is better.** Her answer
+      seeds the first cycles; observed intervals take over once there are enough of them. The
+      handover must be explicit in the maths and visible in the copy — she should never wonder
+      which number she is looking at.
+- [ ] 1b.3 **The knowledge base carries the formulas, not just the articles.** This was the
+      owner's intent for it and it had been used only for prose. `fertile-window-explained.md`
+      already cites **NHS: ovulation often falls 10–16 days before the next period** and ACOG on
+      the fertile interval — so `phases.ts` stops carrying `[NEEDS SOURCE]` on invented numbers
+      and cites those instead. It also means the current ±2 ovulatory window is **too narrow**:
+      NHS describes a seven-day span, not five.
+- [ ] 1b.4 **AI is explicitly out of scope for now.** Strict formulas only, sourced. Revisit as
+      an enhancement once the deterministic version is right — a model cannot be audited against
+      a golden fixture the way `predictNextPeriod` can.
+
+## Phase 1c — The report she takes to a doctor (owner direction, 2026-08-21)
+
+The visit summary exists and was broken until R3.0.1. It must become the artefact she can hand
+over, exported as PDF, containing **everything she entered and everything Femio derived** — and
+it must **distinguish the two on the page**. A clinician reading it has to know instantly which
+numbers are observations and which are estimates; a report that blurs that is worse than no
+report, because it launders a prediction into a record.
+
+- [ ] 1c.1 Every logged category present: cycles, symptoms, medications, conditions, key dates,
+      appointment questions, screener results.
+- [ ] 1c.2 Every derived value present and **labelled as derived**: average length, predicted
+      window, confidence, phase estimate, and whether the average came from her stated baseline
+      or from observation (1b.2).
+- [ ] 1c.3 Visual and structural separation of *recorded* from *calculated*, not a footnote.
+- [ ] 1c.4 PDF export that survives print and carries the same distinction.
+
 ## Phase 2 — Navigation, and rescuing the orphans
 
 - [ ] 2.1 Expand the 3-item nav. Settings leaves the primary bar.
