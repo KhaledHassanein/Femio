@@ -104,7 +104,13 @@ export function CycleExperience({
       tone="brand"
       eyebrow={t("nextPeriod")}
       headline={t("window", { start: fmt(prediction.windowStart), end: fmt(prediction.windowEnd) })}
-      footnote={prediction.irregular ? t("irregularNote") : undefined}
+      footnote={
+        prediction.learning
+          ? t("learningNote")
+          : prediction.irregular
+            ? t("irregularNote")
+            : undefined
+      }
       band={band}
     />
   ) : null;
@@ -192,6 +198,10 @@ export function CycleExperience({
    * ordinary reasons, and Femio saying so calmly is the difference between
    * information and alarm. It appears only when her own record says the range moved.
    */
+  // Deliberately `irregular` alone, not `learning`. B1 §D raises this when *her
+  // own record* says the range moved; on two logged periods there is no movement
+  // to notice, and showing it there would tell a brand-new user her pattern had
+  // changed before Femio had seen a pattern at all.
   const changeAwarenessCard = prediction?.irregular ? (
     <Card>
       <CardContent className="flex flex-col gap-1 p-6">

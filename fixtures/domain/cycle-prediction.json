@@ -15,7 +15,8 @@
         "windowStart": "2026-04-21",
         "windowEnd": "2026-04-25",
         "confidence": "medium",
-        "irregular": false
+        "irregular": false,
+        "learning": false
       }
     },
     {
@@ -33,7 +34,8 @@
         "windowStart": "2026-05-06",
         "windowEnd": "2026-05-20",
         "confidence": "low",
-        "irregular": true
+        "irregular": true,
+        "learning": false
       }
     },
     {

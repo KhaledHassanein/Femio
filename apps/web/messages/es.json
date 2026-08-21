@@ -468,6 +468,7 @@
     "windowPassed": "Esta ventana ya ha pasado. Los ciclos varían, y eso por sí solo no indica nada. Registra tu regla cuando empiece y la siguiente estimación mejorará.",
     "fertileNote": "Estimación a partir de tu propio historial de ciclos. El momento de la ovulación cambia entre ciclos, así que es una guía, no una prueba.",
     "irregularNote": "Tus ciclos varían, así que las predicciones se mantienen en un rango más amplio — es normal.",
+    "learningNote": "Femio todavía está aprendiendo tu patrón: este rango se irá estrechando según registres.",
     "fertileHeading": "Ventana fértil estimada",
     "fertileWindow": "Alrededor del {start} – {end}",
     "explore": {

@@ -195,7 +195,7 @@
       },
       "expected": {
         "ageBand": "25_34",
-        "cycleRegularity": "irregular",
+        "cycleRegularity": "unknown",
         "averageCycleLength": 28,
         "daysSinceLastPeriod": 14,
         "ttcIntent": true,

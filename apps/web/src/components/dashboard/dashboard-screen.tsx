@@ -177,6 +177,10 @@ export function DashboardScreen() {
   const periodFootnote = () => {
     if (!prediction) return undefined;
     if (periodBand?.pastWindow) return t("windowPassed");
+    // Two different sentences, because they say different things. "Still learning"
+    // is about Femio and narrows on its own; "your cycles vary" is a claim about
+    // her, and until R3.1.7 it was made from a single interval (docs/26 §16).
+    if (prediction.learning) return t("learningNote");
     if (prediction.irregular) return t("irregularNote");
     return t(`confidence.${prediction.confidence}`);
   };

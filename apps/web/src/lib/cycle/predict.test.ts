@@ -59,3 +59,33 @@ describe("daysUntilPredicted (no 'late' counter when irregular)", () => {
     expect(daysUntilPredicted(p, "2026-05-01")).toBeNull();
   });
 });
+
+describe("learning vs irregular (R3.1.7)", () => {
+  it("does not call two logged periods irregular", () => {
+    // One interval has no spread to measure, so "your cycles vary" would be a
+    // claim about her body drawn from a single data point. This is the exact
+    // state every new user is in immediately after onboarding.
+    const p = predictNextPeriod(["2026-07-08", "2026-08-05"])!;
+    expect(p.learning).toBe(true);
+    expect(p.irregular).toBe(false);
+  });
+
+  it("stops learning once there are two intervals, and stays regular if they agree", () => {
+    const p = predictNextPeriod(["2026-06-10", "2026-07-08", "2026-08-05"])!;
+    expect(p.learning).toBe(false);
+    expect(p.irregular).toBe(false);
+  });
+
+  it("calls genuinely variable cycles irregular, and is not still learning", () => {
+    const p = predictNextPeriod(["2026-01-01", "2026-01-26", "2026-03-07", "2026-04-06"])!;
+    expect(p.learning).toBe(false);
+    expect(p.irregular).toBe(true);
+  });
+
+  it("shows no countdown while still learning", () => {
+    // The safety behaviour both states share. Splitting the flag would have
+    // re-enabled a "late" counter for the thinnest histories if this were missed.
+    const p = predictNextPeriod(["2026-07-08", "2026-08-05"])!;
+    expect(daysUntilPredicted(p, "2026-09-10")).toBeNull();
+  });
+});

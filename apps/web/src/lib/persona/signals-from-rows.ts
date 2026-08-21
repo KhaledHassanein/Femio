@@ -110,6 +110,13 @@ function regularityFrom(sortedStarts: string[], today: string): CycleRegularity 
   if (diffDays(last, today) > ABSENT_AFTER_DAYS) return "absent";
   const prediction = predictNextPeriod(sortedStarts);
   if (!prediction) return "unknown";
+  // Two starts is one interval, and one interval has no spread — so it supports
+  // neither answer. Before R3.1.7 `irregular` was true here and this said
+  // "irregular"; splitting the flag would have flipped it to "regular", trading one
+  // unfounded claim about her body for the opposite one. `unknown` is the value
+  // this type already has for exactly that, and it keeps a thin history from
+  // resolving her onto an irregular-cycles persona (B5) or off one.
+  if (prediction.learning) return "unknown";
   return prediction.irregular ? "irregular" : "regular";
 }
 

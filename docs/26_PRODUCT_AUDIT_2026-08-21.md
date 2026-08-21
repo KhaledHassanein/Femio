@@ -449,3 +449,32 @@ crisis pill and the tab bar appear mid-page in every full-page capture in this a
 capture artifact, **not** a layout bug, and §3's consent overlap was confirmed separately by
 measuring bounding-box intersection at the real scroll position rather than by looking at a
 picture. Any future finding of this shape must be verified the same way before it is written down.
+
+## 16. `irregular` was two questions wearing one flag
+
+`predict.ts:50` read `spread > 9 || lengths.length < 2`, so **two logged periods — one interval,
+no measurable spread at all — set the flag**, and the dashboard told her:
+
+> Your cycles vary, so predictions stay a wider range — that's expected.
+
+That is a statement about her body inferred from a single data point, shown to every user
+immediately after onboarding. It is the same error ADR-066 was careful to avoid when naming
+phases, sitting unnoticed one layer down in the prediction maths.
+
+Split into `irregular` (her cycles genuinely vary — false until two intervals exist to compare)
+and `learning` (Femio has not seen enough yet). Each gets its own sentence, because one is about
+her and may never narrow, and the other is about us and narrows on its own.
+
+**Two things the split nearly broke, both caught rather than shipped:**
+
+- `daysUntilPredicted` suppressed the "late" counter on `irregular` alone. Splitting the flag
+  would have quietly re-enabled a late count for the thinnest histories — the users it is least
+  defensible for. Both states now suppress it, and a test pins that.
+- The golden fixtures failed on `signals-from-rows` case 5, which is exactly two starts. With
+  `irregular` no longer true there, `regularityFrom` would have returned **`"regular"`** — trading
+  one unfounded claim about her cycles for the opposite one. It returns `"unknown"`, a value the
+  `CycleRegularity` type already carried for precisely this. Case 7 (three starts, two intervals)
+  is a real measurement and stays `irregular`.
+
+The fixtures did the job they were written for: a behaviour change in a tier-2 module could not
+pass silently. Both fixture edits are one line each and deliberate.

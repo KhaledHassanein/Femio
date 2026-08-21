@@ -14,7 +14,26 @@ export type CyclePrediction = {
   windowStart: string;
   windowEnd: string;
   confidence: Confidence;
+  /**
+   * Her cycles genuinely vary — a claim about her body, made only from evidence.
+   *
+   * This used to also be `true` whenever there was too little history, so two
+   * logged periods — one interval, no measurable variance at all — made the UI say
+   * "your cycles vary, so predictions stay a wider range". That is an inference
+   * drawn from a single data point, and it is exactly the error ADR-066 refuses to
+   * make when naming a phase. Femio cannot know whether her cycles vary until it
+   * has seen more than one of them.
+   */
   irregular: boolean;
+  /**
+   * Not enough history to characterise her pattern yet.
+   *
+   * Separate from `irregular` because the two need opposite copy: this one is
+   * about Femio, and narrows on its own as she logs; that one is about her, and
+   * may not. They share every *safety* behaviour — neither may show a "late"
+   * counter — which is why `daysUntilPredicted` tests both.
+   */
+  learning: boolean;
 };
 
 function mean(values: number[]): number {
@@ -46,8 +65,12 @@ export function predictNextPeriod(starts: string[]): CyclePrediction | null {
   // Window widens with variability; never tighter than ±2 days (honest floor).
   const margin = Math.max(2, Math.ceil(spread / 2));
 
-  // Irregular when cycles vary widely or there's too little history to trust.
-  const irregular = spread > 9 || lengths.length < 2;
+  // Two questions, deliberately not one: "do her cycles vary" and "have we seen
+  // enough to say". `spread` over a single interval is always 0, so the first is
+  // unanswerable until there are two, and answering it anyway is what produced a
+  // confident claim about her body from one data point (R3.1.7).
+  const learning = lengths.length < 2;
+  const irregular = !learning && spread > 9;
 
   let confidence: Confidence;
   if (lengths.length >= 6 && spread <= 4) confidence = "high";
@@ -61,6 +84,7 @@ export function predictNextPeriod(starts: string[]): CyclePrediction | null {
     windowEnd: addDays(predictedStart, margin),
     confidence,
     irregular,
+    learning,
   };
 }
 
@@ -69,6 +93,9 @@ export function predictNextPeriod(starts: string[]): CyclePrediction | null {
  * mode this returns null so the UI never shows a "late" counter (docs/09 §1.5).
  */
 export function daysUntilPredicted(prediction: CyclePrediction, today = todayISO()): number | null {
-  if (prediction.irregular) return null;
+  // Both states suppress the counter. Splitting `irregular` in two would have
+  // silently re-enabled a "late" count for the thinnest histories — the users it
+  // is least defensible for — if this had kept testing only the one flag.
+  if (prediction.irregular || prediction.learning) return null;
   return diffDays(today, prediction.predictedStart);
 }

@@ -468,6 +468,7 @@
     "windowPassed": "Cette fenêtre est passée. Les cycles varient, et cela seul n’indique rien. Enregistrez vos règles à leur début et la prochaine estimation s’améliorera.",
     "fertileNote": "Estimation d’après votre propre historique de cycles. Le moment de l’ovulation varie d’un cycle à l’autre : c’est un repère, pas un test.",
     "irregularNote": "Tes cycles varient, donc les prévisions restent une fourchette plus large — c'est normal.",
+    "learningNote": "Femio apprend encore ton rythme — cette fourchette se resserrera à mesure que tu enregistres.",
     "fertileHeading": "Fenêtre de fertilité estimée",
     "fertileWindow": "Autour du {start} – {end}",
     "explore": {
