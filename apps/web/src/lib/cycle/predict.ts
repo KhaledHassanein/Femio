@@ -58,9 +58,55 @@ function mean(values: number[]): number {
   return values.reduce((a, b) => a + b, 0) / values.length;
 }
 
-/** Sorted, de-duped, valid period-start dates. */
+/**
+ * The longest a single bleed can run, and therefore the gap below which two
+ * logged dates are the *same* period rather than two cycles.
+ *
+ * 10 is the upper bound `profiles.stated_period_length` accepts and the outside of
+ * what the NHS describes as usual bleeding, so it is deliberately generous: it
+ * would rather merge two dates that were separate than split one period into two
+ * cycles, because the second error is the catastrophic one (see below).
+ */
+const SAME_BLEED_WITHIN_DAYS = 10;
+
+/** Sorted, de-duped, valid dates. */
 function cleanStarts(starts: string[]): string[] {
   return [...new Set(starts.filter(isValidISODate))].sort();
+}
+
+/**
+ * Collapse logged dates into one entry per bleed (R3.1.9).
+ *
+ * `cycles` holds one row per period **start**, but the tracker inserts a row for
+ * whatever date is selected and nothing stopped consecutive days. A woman logging
+ * Monday, Tuesday and Wednesday while bleeding — the most natural behaviour there
+ * is, and exactly what a strip labelled "your bleeding" invites — created three
+ * cycle starts one day apart. The app then told her:
+ *
+ *     Your average cycle — 1 days
+ *
+ * with a window already in the past, and `irregular` **false**, because 1-day
+ * intervals are perfectly consistent. So it was not merely wrong; the entire
+ * uncertainty apparatus reported that everything was fine. That is worse than the
+ * flag confusion R3.1.7 fixed, which at least erred toward caution.
+ *
+ * The first date of each run wins, because a cycle is measured from the first day
+ * of bleeding.
+ *
+ * Exported because the visit report has to show the same starts the dashboard
+ * predicted from. Two answers to "when did her periods begin" is precisely the
+ * drift the tier-1 rule exists to prevent.
+ */
+export function bleedStarts(dates: string[]): string[] {
+  const sorted = cleanStarts(dates);
+  const starts: string[] = [];
+  for (const date of sorted) {
+    const previous = starts[starts.length - 1];
+    if (previous === undefined || diffDays(previous, date) > SAME_BLEED_WITHIN_DAYS) {
+      starts.push(date);
+    }
+  }
+  return starts;
 }
 
 /**
@@ -83,7 +129,8 @@ export function predictNextPeriod(
   starts: string[],
   statedCycleLength?: number | null,
 ): CyclePrediction | null {
-  const sorted = cleanStarts(starts);
+  // Consecutive logged days are one period, not several cycles (R3.1.9).
+  const sorted = bleedStarts(starts);
   if (sorted.length === 0) return null;
 
   const stated =

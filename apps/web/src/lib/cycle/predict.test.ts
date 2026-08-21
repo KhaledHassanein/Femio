@@ -135,3 +135,43 @@ describe("a stated baseline (R3.1b)", () => {
     expect(width(stated)).toBeGreaterThan(width(observed));
   });
 });
+
+describe("consecutive logged days are one period (R3.1.9)", () => {
+  it("does not turn three days of bleeding into three cycles", () => {
+    // The bug, exactly: this used to yield averageLength 1, irregular false, and a
+    // predicted window already in the past.
+    const p = predictNextPeriod(["2026-08-17", "2026-08-18", "2026-08-19"], null);
+    expect(p).toBeNull(); // one bleed, no interval to measure
+  });
+
+  it("measures from the first day of each bleed, not the last", () => {
+    const p = predictNextPeriod(
+      ["2026-07-06", "2026-07-07", "2026-07-08", "2026-08-03", "2026-08-04"],
+      null,
+    )!;
+    // 6 Jul -> 3 Aug is 28 days. Measuring from the last logged day of each run
+    // would give 27, and from a mix would give nonsense.
+    expect(p.averageLength).toBe(28);
+    expect(p.basis).toBe("observed");
+  });
+
+  it("still separates genuinely distinct cycles", () => {
+    const p = predictNextPeriod(["2026-06-10", "2026-07-08", "2026-08-05"], null)!;
+    expect(p.averageLength).toBe(28);
+  });
+
+  it("keeps a short cycle separate rather than swallowing it", () => {
+    // 21 days apart is a real cycle at the low end of the NHS range, not one long
+    // bleed, and the collapse threshold must not eat it.
+    const p = predictNextPeriod(["2026-08-01", "2026-08-22"], 28)!;
+    expect(p.averageLength).toBe(21);
+    expect(p.basis).toBe("observed");
+  });
+
+  it("falls back to her stated length when the logs are all one bleed", () => {
+    const p = predictNextPeriod(["2026-08-17", "2026-08-18", "2026-08-19"], 30)!;
+    expect(p.basis).toBe("stated");
+    expect(p.averageLength).toBe(30);
+    expect(p.predictedStart).toBe("2026-09-16"); // from 17 Aug, the first day
+  });
+});
