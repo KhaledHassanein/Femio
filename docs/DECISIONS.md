@@ -192,3 +192,69 @@ Context: Track E had three specs left unbuilt — E3 (postpartum mood), E4 (foll
 
 ## ADR-064 (2026-08-11): English is the master and lives in the repo — the `ui_strings` overlay no longer applies to the source locale (found while implementing R1.3)
 Context: the new homepage was implemented, the catalogs were updated, every guard passed, the build succeeded — and the page rendered **the new markup with the old text**. `home.heroTitle` still read "One account for your whole health life." and the CTA still read "Get started". Cause: the P1.19 seed script imported the *whole* English catalog into `ui_strings` as `status = 'human_reviewed'`, and `loadMessages` overlays approved DB rows on top of the JSON base for **every** locale including `en`. Verified against the live database, not inferred — the three rows were read back and they hold exactly the pre-R1.3 wording. **The scope is the part that matters: this was not an R1.3 problem.** Since the seed, *every English copy edit to any of the ~293 seeded keys has silently had no effect in production* — the repo stopped being the source of truth for English and nobody noticed, because a diff looks correct, the build succeeds, and only a rendered page disagrees. Decision: `loadMessages` takes the default locale and **never overlays it**; `overlaysFromDatabase(locale, defaultLocale)` is a one-line pure function with tests asserting both directions. This is not a workaround, it is what the portal already meant: P1.19's board is per-locale for **ar/fr/es** and renders English as the read-only master column, so English rows in `ui_strings` were only ever an artefact of seeding the whole file. Translations still overlay exactly as before, so the portal is untouched. Consequences: the stale English rows can stay — they are now inert — but P1.19.3's re-seed should skip `en` entirely rather than refresh it, and the live DB still holds `home.title = "Scaffold online."`, a placeholder deleted from the repo weeks ago, which is a good illustration of how long this had been silently diverging. **Trap worth naming for the next session:** a green build plus green guards is not evidence that copy changed — only a rendered page is, which is the same lesson `docs/STATE.md` records as "check the deployed thing", arriving here from a new direction.
+
+## ADR-066
+
+**Femio names the cycle phases — but only when her own cycles support it.**
+
+Date: 2026-08-21 · Owner: Khaled · Status: accepted · Supersedes the inline refusal in
+`cycle-experience.tsx` · Related: ADR-042, ADR-049, `docs/25` §5a, `docs/26` §7, `docs/27` phase 1
+
+### Context
+
+Two prior decisions pointed the other way, and both were reasoned.
+
+`cycle-experience.tsx` shipped a "Where you are" card that gives a cycle **day** and deliberately
+no phase name, with the comment: *"naming a phase from cycle length alone is an inference about
+her hormones."* That is a fair objection. For an anovulatory cycle — PCOS being the obvious case,
+and one Femio explicitly serves — calling days 12–16 "ovulatory" is not an approximation, it is
+wrong, and it is wrong in the direction of implying fertility.
+
+Against that: the design tokens have carried `--phase-menstrual`, `--phase-follicular`,
+`--phase-ovulatory` and `--phase-luteal` since the token work, unused. And the competitive
+research behind `docs/26` §7 is unambiguous that apps which explain the phases deliver
+dramatically more value than apps which only predict when bleeding starts. Femio was doing only
+the second, in prose, on a dashboard measuring 844px.
+
+So the choice was not "honest vs useful". It was whether the honest version of useful exists.
+
+### Decision
+
+It does, and it is a **conditional** naming rule:
+
+1. **Phases are named only when her cycles are regular enough to support the estimate.**
+   `lib/cycle/phases.ts` returns `null` for `irregular`, and for any cycle shorter than 21 days
+   where the backwards estimate would collide with the bleeding days. `null` is rendered as
+   "still learning your pattern", never as a default phase.
+2. **Ovulation is estimated backwards** — `cycleLength - 14` — never assumed to be day 14. Day 14
+   is true only of a 28-day cycle and is the most common error in this category; for a 32-day
+   cycle it puts the window four days early.
+3. **The ovulatory phase is a window, never a day.** A single highlighted day is the shape read
+   as a fertility guarantee, and product rule 1 keeps Femio out of contraception entirely.
+4. **Framing is "typical for a cycle your length", never "your hormones".** Femio describes a
+   pattern that has already happened. It does not report an endocrine state it cannot measure.
+
+The original objection is therefore preserved rather than overridden: Femio still refuses to
+infer a phase from cycle length alone *when the length does not support it*. What changes is that
+it no longer refuses when it does.
+
+### The visual is a strip, not a ring
+
+`docs/25` §5a rejects rings and circular progress outright — a ring implies a target and a
+completion, and a cycle is not a task you finish (ADR-049, ADR-042). That decision stands
+untouched. This work was drafted as a ring, caught against §5a, and rebuilt as the **strip**
+§5a already prescribes: horizontal, phases as segments, soft edges, a today marker. Same
+glance-value, no completion metaphor, mirrors in RTL for free.
+
+Recording that near-miss deliberately: the ring was half-built before the rejection was found,
+which is exactly the "reversed by accident" failure the ADR bar exists to catch.
+
+### Consequences
+
+- Phase education (`docs/27` phase 3.1) becomes buildable, and is the differentiator the research
+  identified.
+- The four phase tokens are used for the first time.
+- Irregular-cycle users get a visibly *different* and better-reasoned experience than at Flo or
+  Clue, where neither handles them well — turning the constraint into the positioning.
+- `LUTEAL_DAYS`, `OVULATORY_SPAN` and `DEFAULT_PERIOD_DAYS` carry `[NEEDS SOURCE]` and must have
+  Tier-1 citations before any of this reaches user-visible educational copy.

@@ -5,6 +5,7 @@ import type { ExperienceConfig, ModuleId } from "@/lib/experience/types";
 import type { CyclePrediction } from "@/lib/cycle/predict";
 import { predictionBand } from "@/lib/ui/range-band";
 import { ExperienceModules } from "./module-registry";
+import { PhaseStrip } from "@/components/cycle/phase-strip";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
 import { HeroCard } from "@/components/ui/hero-card";
@@ -156,15 +157,31 @@ export function CycleExperience({
    * says personalize, never restrict, and until now a woman had no way to see that
    * the rest of Femio was still there. Now she does, in her own language.
    */
-  /** Where she is, counted and not interpreted. No phase name, because naming a
-   *  phase from cycle length alone is an inference about her hormones. */
+  /**
+   * Where she is — now drawn, and named when her own cycles support naming it
+   * (ADR-066).
+   *
+   * This card used to give a day and refuse a phase outright, on the grounds that
+   * naming one from cycle length alone infers her hormones. That objection is
+   * preserved rather than dropped: `phases.ts` still returns `null` for an
+   * irregular cycle or one too short for the backwards estimate, and `PhaseStrip`
+   * renders that as an uncoloured track and "Femio won't guess a phase". What
+   * changed is that it no longer refuses when the estimate *is* supportable —
+   * which is the difference between honest and merely silent, and the feature the
+   * competitive research (`docs/26` §7) rates above bleeding prediction itself.
+   *
+   * Drawn as a strip and not a ring: `docs/25` §5a rejects circular progress
+   * because a ring implies a completion, and a cycle is not a task you finish.
+   */
   const phaseCard =
-    cycleDay !== null ? (
+    cycleDay !== null && prediction ? (
       <Card>
-        <CardContent className="flex min-h-24 flex-col justify-center gap-1 p-6">
-          <p className="text-sm text-text-muted">{t("phase.heading")}</p>
-          <p className="font-display text-lg text-text">{t("cycleDay", { day: cycleDay })}</p>
-          <p className="text-sm text-text-muted">{t("phase.body")}</p>
+        <CardContent className="flex flex-col gap-3 p-6">
+          <PhaseStrip
+            cycleDay={cycleDay}
+            cycleLength={prediction.averageLength}
+            irregular={prediction.irregular}
+          />
         </CardContent>
       </Card>
     ) : null;

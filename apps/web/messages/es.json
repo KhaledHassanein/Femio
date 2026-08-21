@@ -1743,5 +1743,23 @@
     "saving": "Guardando…",
     "saveFailed": "No se pudo guardar. Inténtalo de nuevo.",
     "queued": "Guardado sin conexión — se sincronizará cuando vuelvas a tener conexión."
+  },
+  "phaseStrip": {
+    "a11y": {
+      "noData": "Tu círculo de ciclo. Aún no hay datos suficientes para situarte.",
+      "withPhase": "Tu círculo de ciclo. Día {day} de unos {length}.",
+      "unknownPhase": "Tu círculo de ciclo. Día {day}. Tus ciclos varían demasiado para situar una fase."
+    },
+    "phase": {
+      "menstrual": "Regla",
+      "follicular": "Folicular",
+      "ovulatory": "Ovulatoria",
+      "luteal": "Lútea",
+      "unknown": "Todavía estamos aprendiendo tu patrón"
+    },
+    "day": "Día {day}",
+    "noDay": "Tu ciclo",
+    "typicalFor": "Típico de un ciclo de unos {length} días, no una lectura de tus hormonas.",
+    "learning": "Tus ciclos varían, así que Femio no adivinará una fase."
   }
 }

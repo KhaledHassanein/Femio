@@ -53,6 +53,10 @@ export const PUBLIC_CLIENT_NAMESPACES = [
  * to them; the cost is paid only by someone actually using the app.
  */
 export const APP_CLIENT_NAMESPACES = [
+  // The cycle phase strip (ADR-066). App-only on purpose: adding it to the public
+  // list would ship it to /learn, which is the regression the page-weight budget
+  // caught the last time tracker strings leaked onto a content page.
+  "phaseStrip",
   "admin",
   "dashboard",
   "experience",

@@ -1733,5 +1733,23 @@
     "saving": "Saving…",
     "saveFailed": "Could not save. Please try again.",
     "queued": "Saved offline — it will sync when you are back online."
+  },
+  "phaseStrip": {
+    "a11y": {
+      "noData": "Your cycle ring. Not enough logged yet to show where you are.",
+      "withPhase": "Your cycle ring. Day {day} of about {length}.",
+      "unknownPhase": "Your cycle ring. Day {day}. Your cycles vary too much to place a phase."
+    },
+    "phase": {
+      "menstrual": "Period",
+      "follicular": "Follicular",
+      "ovulatory": "Ovulatory",
+      "luteal": "Luteal",
+      "unknown": "Still learning your pattern"
+    },
+    "day": "Day {day}",
+    "noDay": "Your cycle",
+    "typicalFor": "Typical for a cycle of about {length} days — not a reading of your hormones.",
+    "learning": "Your cycles vary, so Femio won't guess a phase."
   }
 }

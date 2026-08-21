@@ -129,6 +129,16 @@ deploy) so an interrupted session loses at most one phase.
 R1 (`docs/25`) is absorbed into `docs/27` phase 5; R2's unfinished half — the five surviving
 `mode ===` branches the audit found in `dashboard-screen.tsx` — is phase 1.6.
 
+## R3.1 — Phase 1, a dashboard that is a product (`docs/27`)
+
+- [x] **R3.1.1** Cycle phases exist and are drawn (2026-08-21, ADR-066). `lib/cycle/phases.ts` is a tier-2 portable module with 11 tests; `PhaseStrip` renders it. **Drafted as a ring and rebuilt as a strip** — `docs/25` §5a rejects circular progress outright and the ring was half-written before that was found, which is the "reversed by accident" case the ADR bar exists for. Phases are named only when her cycles support it: irregular and sub-21-day cycles return `null` and render as "Femio won't guess a phase", so a PCOS user never gets a wrong label. Ovulation is estimated backwards (`length - 14`), never assumed to be day 14.
+- [ ] **R3.1.1a** See the strip on a seeded dashboard in light, dark and Arabic. Not yet done: the session lives in an `@supabase/ssr` cookie, so the seeding script could not mint rows from the browser. Do it with the Phase 1.2 work, which needs seeded data anyway.
+- [ ] **R3.1.2** Today card — cycle day, phase, what is typical, one action.
+- [ ] **R3.1.3** Kill the duplicate empty state; demote the "Everything else is still here" manifesto to a quiet link.
+- [ ] **R3.1.4** Fix the dead-end first run: ask "when did your last period start?" with a back-dated picker, not a `Log today` button she cannot use.
+- [ ] **R3.1.5** Calendar strip — last 30 days at a glance, tappable to log.
+- [ ] **R3.1.6** Retire the five surviving `mode ===` branches onto the module registry.
+
 ## R3.0 — Phase 0, stop the bleeding (`docs/27`)
 
 - [x] **R3.0.1** `/summary` restored (2026-08-21). `summary-screen.tsx` selected `appointments.prep`; the column is `prep_json` and is a jsonb `string[]`, not newline text — so both the name and the type handling were wrong, and `parsePrep` would have returned nothing even after a rename. PostgREST 400 (`42703`) on every load since the feature was written. Verified: error box gone, zero failed requests.

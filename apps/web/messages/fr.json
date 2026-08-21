@@ -1743,5 +1743,23 @@
     "saving": "Enregistrement…",
     "saveFailed": "Enregistrement impossible. Veuillez réessayer.",
     "queued": "Enregistré hors ligne — la synchronisation se fera au retour de la connexion."
+  },
+  "phaseStrip": {
+    "a11y": {
+      "noData": "Ton cercle de cycle. Pas encore assez de données pour situer où tu en es.",
+      "withPhase": "Ton cercle de cycle. Jour {day} sur environ {length}.",
+      "unknownPhase": "Ton cercle de cycle. Jour {day}. Tes cycles varient trop pour situer une phase."
+    },
+    "phase": {
+      "menstrual": "Règles",
+      "follicular": "Folliculaire",
+      "ovulatory": "Ovulatoire",
+      "luteal": "Lutéale",
+      "unknown": "Nous apprenons encore ton rythme"
+    },
+    "day": "Jour {day}",
+    "noDay": "Ton cycle",
+    "typicalFor": "Typique d'un cycle d'environ {length} jours — pas une lecture de tes hormones.",
+    "learning": "Tes cycles varient, donc Femio ne devinera pas de phase."
   }
 }

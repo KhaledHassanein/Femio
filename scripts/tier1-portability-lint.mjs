@@ -62,6 +62,7 @@ const PORTABLE = [
   // tier 2 — offline maths, bound by the golden fixtures
   "lib/experience/phase.ts",
   "lib/cycle/predict.ts",
+  "lib/cycle/phases.ts",
   "lib/pregnancy/index.ts",
   "lib/calculators/dates.ts",
 ];
