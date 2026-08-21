@@ -29,9 +29,17 @@ const COMPONENTS = join(ROOT, "apps", "web", "src", "components");
  * a file may leave the list, never join it without a deliberate edit here.
  */
 const MODE_BASELINE = new Set([
-  // The last one standing. R2.5 replaces it when the registry covers the remaining
-  // tracks. Measured, not guessed — the first version of this list named three more
-  // files and the stale-entry check proved none of them branch on mode.
+  // Still here, and now for a narrower reason than before (R3.1.6).
+  //
+  // The `mode ===` branch that mattered — the generic prediction hero — is gone: it
+  // was load-bearing only because `Z1`, the fallback persona, had no registry record
+  // at all, and `track-z.ts` now serves it one. What remains are the four
+  // life-stage *mounts* (teen, pregnancy, postpartum, menopause), which choose a
+  // component rather than vary a layout, and moving those is a separate refactor
+  // with its own risk.
+  //
+  // The ratchet still only shrinks: this entry leaves the list when those four
+  // mounts become registry rows, and nothing may join it without editing this file.
   "components/dashboard/dashboard-screen.tsx",
 ]);
 

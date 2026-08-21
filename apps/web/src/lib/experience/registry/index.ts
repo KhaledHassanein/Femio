@@ -5,6 +5,7 @@ import { TRACK_C_RECORDS } from "./track-c.ts";
 import { TRACK_D_RECORDS } from "./track-d.ts";
 import { TRACK_E_RECORDS } from "./track-e.ts";
 import { TRACK_F_RECORDS } from "./track-f.ts";
+import { TRACK_Z_RECORDS } from "./track-z.ts";
 
 /**
  * Every persona record the engine knows about (R2.5).
@@ -21,6 +22,8 @@ export const PERSONA_RECORDS: readonly PersonaRecord[] = [
   ...TRACK_D_RECORDS,
   ...TRACK_E_RECORDS,
   ...TRACK_F_RECORDS,
+  // The fallback, and the last track to get a document (R3.1.6).
+  ...TRACK_Z_RECORDS,
 ];
 
 export function findRecord(id: string): PersonaRecord | undefined {

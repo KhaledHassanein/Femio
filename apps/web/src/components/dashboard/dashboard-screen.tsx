@@ -1,10 +1,9 @@
 "use client";
 
-import { useFormatter, useTranslations } from "next-intl";
+import { useTranslations } from "next-intl";
 import { fertileWindow } from "@/lib/calculators";
 import { todayISO } from "@/lib/calculators/dates";
 import { predictNextPeriod } from "@/lib/cycle/predict";
-import { predictionBand } from "@/lib/ui/range-band";
 import { currentCycleDay, topSymptoms } from "@/lib/cycle/insights";
 import { SYMPTOM_GROUPS } from "@/lib/cycle/symptoms";
 import { useSupabaseQuery, unwrap } from "@/lib/supabase/use-query";
@@ -20,7 +19,6 @@ import { QuickLogButton } from "@/components/experience/quick-log-button";
 import { FirstPeriodPrompt } from "@/components/cycle/first-period-prompt";
 import { TtcExperience } from "@/components/experience/ttc-experience";
 import { MenopausePanel } from "@/components/menopause/menopause-panel";
-import { HeroCard } from "@/components/ui/hero-card";
 import { AppScreen, ScreenError } from "@/components/patterns/app-screen";
 import { LoadingState } from "@/components/patterns/loading-state";
 
@@ -45,7 +43,6 @@ type Pregnancy = {
 export function DashboardScreen() {
   const t = useTranslations("dashboard");
   const st = useTranslations("symptoms");
-  const format = useFormatter();
   const today = todayISO();
 
   const query = useSupabaseQuery(async (supabase) => {
@@ -167,17 +164,6 @@ export function DashboardScreen() {
   const stItem = st as unknown as (key: string) => string;
   const symptomLabel = (type: string) =>
     KNOWN_SYMPTOMS.has(type) ? stItem(`items.${type}`) : type;
-  /**
-   * Day and month only, for the hero. A prediction is never more than a couple of
-   * months out, so the year is noise — and it is expensive noise: "Aug 28, 2026 and
-   * Sep 1, 2026" wraps the headline onto three lines on a 390px screen.
-   */
-  const fmtShort = (iso: string) =>
-    format.dateTime(new Date(`${iso}T00:00:00Z`), {
-      day: "numeric",
-      month: "short",
-      timeZone: "UTC",
-    });
 
   // Her stated length stands in until her own intervals are a better answer
   // (R3.1b.2). `basis` on the result records which one this is, so nothing
@@ -192,35 +178,7 @@ export function DashboardScreen() {
 
   // The band draws the range the prediction already returns; when the geometry
   // can't be computed the sentence stands on its own (lib/ui/range-band.ts).
-  const periodBand =
-    lastStart && prediction
-      ? predictionBand({
-          axisStart: lastStart,
-          windowStart: prediction.windowStart,
-          windowEnd: prediction.windowEnd,
-          today,
-        })
-      : null;
 
-  /**
-   * The one line under the band. Order matters: a window that has already passed
-   * is the most useful thing to say, and a confidence grade would be beside the
-   * point once it has. Never a day count — no "late" counter (product rule 3).
-   */
-  const periodFootnote = () => {
-    if (!prediction) return undefined;
-    if (periodBand?.pastWindow) return t("windowPassed");
-    // Two different sentences, because they say different things. "Still learning"
-    // is about Femio and narrows on its own; "your cycles vary" is a claim about
-    // her, and until R3.1.7 it was made from a single interval (docs/26 §16).
-    // Which number she is looking at, said out loud. A stated length and a
-    // measured average wear the same shape on screen, and she should never have to
-    // wonder which one produced the window she is reading (R3.1b.2).
-    if (prediction.basis === "stated") return t("statedNote");
-    if (prediction.learning) return t("learningNote");
-    if (prediction.irregular) return t("irregularNote");
-    return t(`confidence.${prediction.confidence}`);
-  };
 
   return (
     <AppScreen>
@@ -244,48 +202,18 @@ export function DashboardScreen() {
           sees them is now her persona's contribution, not a string comparison. */}
       <TtcExperience config={config} fertile={fertile} lastStart={lastStart} today={today} />
 
-      {/* The generic prediction hero — and only when the served document has not
-          already placed one.
+      {/* The generic prediction hero is gone (R3.1.6).
 
-          Without that test this rendered *underneath* `cycle.window`, so a Track B
-          woman with logged cycles got the same window twice, in two nearly
-          identical purple heroes, in two different date formats ("Aug 31 and Sep 4"
-          above "Aug 31, 2026 and Sep 4, 2026"). Invisible until there was data to
-          predict from, which is why the audit's screenshots missed it and a seeded
-          dashboard caught it (docs/26 §13).
+          It rendered behind `showsCyclePredictions(mode) && mode !== "ttc"` and was
+          load-bearing for exactly one group: `general`, whose base persona Z1 had
+          no registry document at all, because `track-z.ts` did not exist. So the
+          women who had told Femio least about themselves got their prediction from
+          a hardcoded branch rather than from the engine — the concrete shape of the
+          gap `docs/26` §4.1 found, and the reason R3.1.3a suppressed this by module
+          id instead of deleting it.
 
-          Also suppressed before anything is logged. With nothing to predict from it
-          rendered "Log a couple of periods to unlock insights" directly above the
-          first-run card that asks the same thing and can act on the answer — the
-          duplicate empty state of §2.1 reappearing in a new costume. The empty
-          screen now poses one question, once.
-
-          Suppressed by module id rather than by mode, the same way `quickLog`
-          already is: a mode list here would go stale the next time a registry row
-          changes. It cannot simply be deleted, because `general` — the Z1 fallback —
-          has no registry document contributing `cycle.window`, so deleting it would
-          silently strip the prediction from exactly the women who have told us
-          least about themselves. Giving `general` a real document is R3.1.6; until
-          then this is the floor, not a duplicate. */}
-      {showsCyclePredictions(mode) &&
-      mode !== "ttc" &&
-      prediction &&
-      !config?.home.modules.some((m) => m.id === "cycle.window") ? (
-        <HeroCard
-          tone="brand"
-          eyebrow={cycleDay ? t("cycleDay", { day: cycleDay }) : t(`modeLabel.${mode}`)}
-          headline={
-            prediction
-              ? t("window", {
-                  start: fmtShort(prediction.windowStart),
-                  end: fmtShort(prediction.windowEnd),
-                })
-              : t("needData")
-          }
-          footnote={periodFootnote()}
-          band={periodBand}
-        />
-      ) : null}
+          `track-z.ts` now serves Z1 a real document carrying `cycle.window`, so the
+          engine covers every track and the branch has nothing left to do. */}
 
       {/* Track A, reachable at last (R2.5c). Before this a 13-year-old fell through
           to `general` and got the adult cycle dashboard — a confident-looking
