@@ -235,15 +235,31 @@ export function CycleExperience({
       <p className="text-sm text-text-muted">{t("flowStrip.empty")}</p>
     );
 
+  /**
+   * The three "there is more over there" cards, as rows rather than blocks.
+   *
+   * Each was a full card — display heading, paragraph, link — and `explore`
+   * ("Everything else is still here") was the single largest content block on the
+   * dashboard, explaining Femio's personalization philosophy. Correct philosophy
+   * (product rule 2), and it will say exactly the same thing on day 400. Nobody
+   * opens a cycle app daily to re-read its design principles (`docs/26` §2.2).
+   *
+   * Demoted, not removed: rule 2 is "personalize, never restrict", so every one of
+   * these has to stay one tap away. Same destinations, same labels, a fraction of
+   * the height — the body copy goes because it is the part that never changes,
+   * while the link is the part that does something.
+   */
   const linkCard = (key: "explore" | "visitPrep" | "privacyNote", href: string) => (
     <Card>
-      <CardContent className="flex flex-col gap-2 p-6">
-        <h2 className="font-display text-lg text-text">{t(`${key}.heading`)}</h2>
-        <p className="text-sm text-text-muted">{t(`${key}.body`)}</p>
-        <Link href={href} className="text-sm text-text-link underline">
-          {t(`${key}.cta`)}
-        </Link>
-      </CardContent>
+      <Link
+        href={href}
+        className="flex min-h-11 items-center justify-between gap-3 px-6 py-4 hover:bg-surface-sunken"
+      >
+        <span className="text-sm font-semibold text-text">{t(`${key}.heading`)}</span>
+        <span aria-hidden className="text-sm text-text-muted rtl:rotate-180">
+          →
+        </span>
+      </Link>
     </Card>
   );
 
