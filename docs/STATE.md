@@ -9,6 +9,17 @@ per session.**
 > Read `CLAUDE.md`, then this file, then `docs/07_MASTER_TODO.md` → **▶ NOW**. Skim
 > `docs/23`/`24`/`25` only if the task touches strategy, architecture or design.
 >
+> **The live workstream is the 2026-08-21 revamp.** `docs/26` is the audit — what is wrong,
+> measured, with screenshots and request logs. `docs/27` is the plan answering it, phases 0→6,
+> a checkpoint after each. Read both before touching a screen: `docs/26` records defects that
+> are invisible on an empty account, and `docs/27` carries design rules this session added
+> (dense with *her data*, never with article cards; one accent per screen; no pink-flowery
+> defaults; every screen earns its scroll).
+>
+> **Read "Environment traps" in this file before running anything.** Each entry cost real time
+> at least once. The 2026-08-21 block is the most recent and the most repeatable: do not build
+> while `next dev` runs, do not `git add -A`, and check `docs/25` §5a before drawing anything.
+>
 > **Build. Do not report.** I do not want to read anything unless you need my input. No
 > summaries of what you did, no options, no plan confirmations. Put what needs my eyes in
 > `MANUAL_TEST_PLAN.md`, what needs my decision in `BLOCKERS.md`, and everything else in the
@@ -209,6 +220,43 @@ CI=1 pnpm --filter web test:e2e:ci     # after that fresh build, never before
 - **`apps/cms/.env.local` holds the PRODUCTION connection string.** Any local migrate touches
   live data.
 - **Windows:** `pkill` does not kill `next start`; kill by port.
+
+### Added 2026-08-21 (the revamp session — each of these cost time in that one pass)
+
+- **Never run `pnpm build` while `next dev` is running.** They share `apps/web/.next`, and the
+  build overwrites the dev server's chunks underneath it. The dev server then 500s with
+  `Cannot find module './vendor-chunks/…'`, which reads like a dependency problem and is not.
+  **Stop the dev server, then build.** Cost two separate debugging detours in one session
+  because the symptom does not look like the cause.
+- **Never `git add -A` in this repo.** It swept a Playwright storage-state file holding a live
+  Supabase session cookie into a commit, which then needed a history rewrite and a force-push.
+  Stage paths explicitly. `.seeded-state.json` and `screenshots/` are gitignored now, but the
+  next stray artifact will not be.
+- **Read `docs/25` §5a before building any visualisation.** Rings and circular progress are
+  rejected *explicitly*, with reasoning (a ring implies a target and a completion). A cycle ring
+  was half-built before that was found. The prescribed vocabulary is the **band**, the **strip**
+  and the **stack** — use those.
+- **A full-page screenshot places `position: fixed` elements at the initial viewport origin.**
+  The crisis pill and the tab bar therefore *appear* to overlap content mid-page in every
+  full-page capture. That is an artifact. Confirm any overlap by measuring bounding-box
+  intersection at the real scroll position before writing it down as a defect — one real
+  consent-screen overlap was found that way, and several false ones were avoided.
+- **Audit with data, not just an empty account.** The dashboard shows least when it has least,
+  so an empty-state pass missed a duplicated prediction hero and a second dead end that only
+  appear once cycles exist. `node scripts/dev/seed-and-shoot.mjs --out DIR` builds a user with
+  three logged cycles and shoots light, dark and Arabic in about twenty seconds.
+- **A golden-fixture failure is the system working.** Changing anything in a tier-2 module will
+  fail `golden-fixtures.test.ts`. Read what changed and edit the fixture *by hand*; never
+  regenerate. One such failure caught a fix that would have flipped `regularityFrom` from one
+  unfounded claim about her cycles to the opposite one.
+- **The Supabase session is a cookie, not `localStorage`.** `@supabase/ssr` stores it as
+  `sb-<ref>-auth-token`, chunked across `.0`/`.1` past 4KB and prefixed `base64-`. Reassemble in
+  name order and decode. Guessing `localStorage` fails as "no auth token", which reads like a
+  broken login rather than a wrong assumption.
+- **Drive Playwright with labels read from `messages/<locale>.json`**, not hand-written regexes
+  and not positional selectors. Guessed Arabic labels failed unverifiably in a console that
+  mangles the script; a positional fallback was worse — it silently matched a *disabled*
+  Continue and hung every run.
 
 ## Verification honesty
 
