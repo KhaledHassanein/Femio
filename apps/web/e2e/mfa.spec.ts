@@ -1,4 +1,5 @@
 import { expect, test } from "@playwright/test";
+import { completeOnboarding } from "./helpers/onboarding";
 
 // Two-step sign-in (P1.23.3). The step-up page is reachable only by redirect
 // from a staff route; signed out, it must send you to sign-in rather than render
@@ -21,12 +22,7 @@ test("the step-up page is never indexed", async ({ page }) => {
 // @live — needs a real session: onboarding creates one, then Settings must offer
 // enrolment. Consumers may enrol too; staff are the ones it is enforced for.
 test("settings offers two-step sign-in @live", async ({ page }) => {
-  await page.goto("/en/welcome");
-  await page.getByRole("button", { name: /tracking my cycle/i }).click();
-  await page.getByRole("button", { name: /^continue$/i }).click();
-  await page.getByRole("button", { name: /^continue$/i }).click();
-  await page.getByRole("button", { name: /start using femio/i }).click();
-  await expect(page).toHaveURL(/\/en\/dashboard$/, { timeout: 25_000 });
+  await completeOnboarding(page);
 
   await page.goto("/en/settings");
   await expect(page.getByRole("heading", { name: /two-step sign-in/i })).toBeVisible({

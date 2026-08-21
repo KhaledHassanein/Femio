@@ -12,7 +12,8 @@
     "typecheck": "tsc --noEmit",
     "test": "vitest run",
     "test:e2e": "playwright test",
-    "test:e2e:ci": "playwright test --grep-invert @live"
+    "test:e2e:ci": "playwright test --grep-invert @cms",
+    "test:e2e:nodb": "playwright test --grep-invert \"@live|@cms\""
   },
   "dependencies": {
     "@femio/tokens": "workspace:*",

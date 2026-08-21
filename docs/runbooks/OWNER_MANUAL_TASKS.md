@@ -816,3 +816,26 @@ users cannot onboard for real until counsel + a DPO finalize the foundations.
 *Maintained alongside `docs/07_MASTER_TODO.md`. When you finish a task, tick its box here and
 tell Claude — several unlock further automated work (e.g., B lets Claude verify the portal
 end-to-end; D lets Claude wire analytics).*
+
+## Two GitHub Actions secrets — turns the product e2e gate on (R3.0.4, 2026-08-21)
+
+Until these exist, CI runs `test:e2e:nodb` and the product specs — onboarding, tracking,
+symptoms, consent, the visit summary, offline sync — stay unchecked in CI. The step name in the
+checks list says which subset ran, so a reduced gate is visible rather than assumed, but the gate
+is reduced.
+
+In **Settings → Secrets and variables → Actions**, add:
+
+| Secret | Value |
+|---|---|
+| `E2E_SUPABASE_URL` | the same value as `NEXT_PUBLIC_SUPABASE_URL` in `apps/web/.env.local` |
+| `E2E_SUPABASE_PUBLISHABLE_KEY` | the same value as `NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY` |
+
+These are the **publishable (anon) keys** — public by design and bounded by RLS. They are secrets
+here to keep the project id out of build logs, not because exposure would grant access. No
+service-role key is needed and none should ever be added: the specs sign in anonymously, exactly
+as a real user does.
+
+The specs create throwaway anonymous users on the live EU project. If you would rather they did
+not touch production data, create a second Supabase project and point these two secrets at it —
+nothing else changes.

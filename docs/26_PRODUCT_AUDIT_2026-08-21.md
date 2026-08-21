@@ -350,3 +350,51 @@ longer exists.
 # Part 3 — Pending
 
 File-by-file criticism and the deletion inventory. Not yet written.
+
+---
+
+# Part 2b — Two product bugs the repaired tests exposed
+
+Repairing the `@live` suite (R3.0.3) was supposed to be test maintenance. It surfaced two real
+defects, which is the argument for the repair in one line.
+
+## 10. Offline sync reached the database and never reached the screen
+
+`OfflineSync` flushed the queue and called `router.refresh()`. That re-runs **server**
+components — and every tracker screen moved to the client-side `useSupabaseQuery` hook in
+P4.0/ADR-048. Nothing re-read.
+
+A period logged offline was therefore written to Supabase correctly and stayed invisible behind
+*"No periods logged yet"* until the user manually reloaded. To someone who had just recorded her
+period, that is indistinguishable from having lost it — on the single screen where that
+misreading is least forgivable, in an app whose pitch is that her record is safe.
+
+Fixed by emitting a `femio:offline-flushed` event that `useSupabaseQuery` listens for, so every
+client-side screen re-reads rather than just the tracker. `router.refresh()` is kept for any
+server-rendered surface that remains.
+
+## 11. Analytics consent fails silently for anyone who skipped the age question
+
+`isMinor(null)` returns `true` (`lib/persona/minor.ts:43`) — unknown age is treated as a child.
+That is the correct fail-closed default and should not change.
+
+But onboarding offers **"Skip — I'm not sure"** on the age step, so `age_band: null` is a
+reachable, ordinary state. For that user, `consent/actions.ts:69` refuses every analytics or
+research grant with `not_permitted_for_age` — and that string is returned and **consumed nowhere
+in the codebase**. The Settings toggle therefore appears, is tappable, does nothing, and explains
+nothing. Forever.
+
+Two problems, one of them compliance-adjacent: a control that cannot work should not be offered,
+and GDPR Art. 7(3) reasoning about withdrawal being as easy as granting sits awkwardly beside a
+grant that fails in silence. **Not fixed here** — logged as R3.0.8, because the fix is a UX
+decision (hide the toggle, explain the refusal, or offer to set an age) rather than a bug with
+one obvious repair.
+
+## 12. The `@live` tag was doing two jobs
+
+One tag meant both "needs live Supabase" and "needs a live CMS". Excluding it from CI to avoid
+the CMS dependency therefore also excluded onboarding, tracking, symptoms, consent, the summary
+and offline sync. Split into `@live` (Supabase — now runs in CI) and `@cms` (still excluded, and
+already guarded in production by `scripts/seo/sitemap-check.mjs`).
+
+Result: **70 product specs now pass in the CI subset**, where 0 ran before.

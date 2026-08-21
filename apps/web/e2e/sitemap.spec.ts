@@ -9,13 +9,17 @@ import { expect, test } from "@playwright/test";
  * which is the worst shape for this particular file, because a page's absence from a
  * sitemap is read by a crawler as a signal about the page.
  *
- * Tagged `@live`: they need a real CMS, and `NEXT_PUBLIC_CMS_URL` is deliberately unset
- * in CI, where the sitemap correctly emits static pages only. Run them locally with the
+ * Tagged `@cms`, not `@live`: these need a real CMS, which is a different dependency
+ * from the live Supabase the product specs need. Lumping both under one tag is what
+ * kept onboarding, tracking, symptoms, consent and the summary out of CI for the sake
+ * of a sitemap (docs/26 §1.2) — the product specs now run there and these do not.
+ * `NEXT_PUBLIC_CMS_URL` is deliberately unset in CI, where the sitemap correctly emits
+ * static pages only. Run them locally with the
  * CMS configured. The production-facing counterpart — which is what would actually have
  * caught this — is `scripts/seo/sitemap-check.mjs`, run on a schedule against the live
  * site, because the failure was invisible from inside a build.
  */
-test("@live the sitemap includes published article and condition URLs", async ({ request }) => {
+test("@cms the sitemap includes published article and condition URLs", async ({ request }) => {
   const res = await request.get("/sitemap.xml");
   expect(res.status()).toBe(200);
   const xml = await res.text();
@@ -34,7 +38,7 @@ test("@live the sitemap includes published article and condition URLs", async ({
   expect(conditions.length, "no condition URLs in the sitemap").toBeGreaterThan(0);
 });
 
-test("@live the sitemap does not advertise untranslated locales", async ({ request }) => {
+test("@cms the sitemap does not advertise untranslated locales", async ({ request }) => {
   // Articles are English-only today. Listing /ar, /fr and /es for them would advertise
   // three duplicate English pages per article (P1.6.15).
   const xml = await (await request.get("/sitemap.xml")).text();
@@ -48,7 +52,7 @@ test("@live the sitemap does not advertise untranslated locales", async ({ reque
   ).toEqual([]);
 });
 
-test("@live the sitemap is well-formed and self-consistent", async ({ request }) => {
+test("@cms the sitemap is well-formed and self-consistent", async ({ request }) => {
   const xml = await (await request.get("/sitemap.xml")).text();
 
   expect(xml.startsWith("<?xml")).toBe(true);

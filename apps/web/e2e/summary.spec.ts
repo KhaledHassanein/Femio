@@ -1,13 +1,9 @@
 import { expect, test } from "@playwright/test";
+import { completeOnboarding } from "./helpers/onboarding";
 
 // @live — the doctor-visit summary renders logged data and offers print/PDF.
 test("doctor-visit summary renders logged cycle data and a print action @live", async ({ page }) => {
-  await page.goto("/en/welcome");
-  await page.getByRole("button", { name: /tracking my cycle/i }).click();
-  await page.getByRole("button", { name: /^continue$/i }).click();
-  await page.getByRole("button", { name: /^continue$/i }).click();
-  await page.getByRole("button", { name: /start using femio/i }).click();
-  await expect(page).toHaveURL(/\/en\/dashboard$/);
+  await completeOnboarding(page);
 
   // Log a period so the summary has cycle data.
   await page.getByRole("link", { name: /^track$/i }).click();

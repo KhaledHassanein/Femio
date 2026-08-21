@@ -28,6 +28,19 @@ export type QueryState<T> =
  * and here it would read as "you have never logged anything" — which, to someone
  * looking at her own health record, is a worse lie than an error message.
  */
+/**
+ * Fired after the offline queue drains, so client reads can pick up rows that
+ * arrived without any user interaction on this screen.
+ *
+ * `OfflineSync` used to call `router.refresh()`, which re-runs *server* components
+ * — and every tracker screen moved to this hook in P4.0/ADR-048, so nothing on
+ * them re-read. A period logged offline reached Supabase and then sat invisible
+ * behind "No periods logged yet" until a manual reload. To someone who had just
+ * recorded her period, that is indistinguishable from having lost it, which is the
+ * same class of lie the comment above refuses to tell.
+ */
+export const OFFLINE_FLUSHED_EVENT = "femio:offline-flushed";
+
 export function useSupabaseQuery<T>(
   run: (supabase: SupabaseClient) => Promise<T>,
   deps: readonly unknown[] = [],
@@ -64,6 +77,15 @@ export function useSupabaseQuery<T>(
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [...deps, nonce]);
+
+  // Re-read when the offline queue drains. Every screen using this hook gets it,
+  // which is the point: the bug was not specific to the tracker, it was specific
+  // to client-side reads, and that is all of them now.
+  useEffect(() => {
+    const onFlushed = () => setNonce((n) => n + 1);
+    window.addEventListener(OFFLINE_FLUSHED_EVENT, onFlushed);
+    return () => window.removeEventListener(OFFLINE_FLUSHED_EVENT, onFlushed);
+  }, []);
 
   return { ...state, refresh: () => setNonce((n) => n + 1) };
 }

@@ -1,14 +1,10 @@
 import { expect, test } from "@playwright/test";
+import { completeOnboarding } from "./helpers/onboarding";
 
 // @live — per-symptom severity + a user-defined custom symptom (P1.14.1), against
 // live Supabase (throwaway anonymous user).
 test("logs a built-in symptom with severity and a custom symptom @live", async ({ page }) => {
-  await page.goto("/en/welcome");
-  await page.getByRole("button", { name: /tracking my cycle/i }).click();
-  await page.getByRole("button", { name: /^continue$/i }).click();
-  await page.getByRole("button", { name: /^continue$/i }).click();
-  await page.getByRole("button", { name: /start using femio/i }).click();
-  await expect(page).toHaveURL(/\/en\/dashboard$/);
+  await completeOnboarding(page);
   await page.getByRole("link", { name: /^track$/i }).click();
   await expect(page).toHaveURL(/\/en\/track$/);
 
@@ -26,6 +22,12 @@ test("logs a built-in symptom with severity and a custom symptom @live", async (
   await page.getByRole("button", { name: /^log symptoms$/i }).click();
 
   // Both show under "Recently logged".
+  //
+  // Scoped to the exact text node rather than a substring match: the custom
+  // symptom is echoed back as "night sweats" while the picker above still offers
+  // a "Night sweats" chip, so an unscoped `getByText` matched two elements and
+  // failed strict mode. Asserting the chip would prove nothing — it is rendered
+  // whether or not the log was saved.
   await expect(page.getByText(/recently logged/i)).toBeVisible({ timeout: 25_000 });
-  await expect(page.getByText("night sweats")).toBeVisible();
+  await expect(page.getByText("night sweats", { exact: true })).toBeVisible();
 });

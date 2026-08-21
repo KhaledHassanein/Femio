@@ -3,6 +3,7 @@ All notable changes to Femio V2.
 
 ## [Unreleased]
 ### Fixed
+- **A period logged without signal now appears as soon as you are back online.** It was always saved and always synced — but the screen kept saying "No periods logged yet" until you reloaded the page, which looked exactly like losing it.
 - **The doctor-visit summary works again.** The page you print and take to an appointment had been failing to load since it was built, and told you it was your connection. It was ours: it asked the database for a field by the wrong name. Your record was never affected.
 - **Nothing covers the privacy choices during sign-up any more.** The "Need help now?" button sat on top of one of the consent checkboxes on a small screen, so an option you were being asked to agree to could not be fully read.
 - **Honest wording when something fails to load.** Two screens blamed your internet connection for faults on our side. They now say plainly that it is ours, and ask you to try again.

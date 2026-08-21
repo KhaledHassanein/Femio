@@ -1,15 +1,11 @@
 import { expect, test } from "@playwright/test";
+import { completeOnboarding } from "./helpers/onboarding";
 
 // @live — logging a period with a flow intensity renders it on the month calendar.
 // Exercises P1.13.1 end-to-end against live Supabase (throwaway anonymous user).
 test("logging a period with flow shows it on the calendar @live", async ({ page }) => {
   // Onboard → dashboard → tracker.
-  await page.goto("/en/welcome");
-  await page.getByRole("button", { name: /tracking my cycle/i }).click();
-  await page.getByRole("button", { name: /^continue$/i }).click();
-  await page.getByRole("button", { name: /^continue$/i }).click();
-  await page.getByRole("button", { name: /start using femio/i }).click();
-  await expect(page).toHaveURL(/\/en\/dashboard$/);
+  await completeOnboarding(page);
   await page.getByRole("link", { name: /^track$/i }).click();
   await expect(page).toHaveURL(/\/en\/track$/);
 

@@ -33,6 +33,17 @@ const BUDGETS: Array<{ path: string; maxKb: number; measuredKb: number }> = [
 
 for (const { path, maxKb, measuredKb } of BUDGETS) {
   test(`${path} stays within its HTML budget (${maxKb} KB)`, async ({ request }) => {
+    // These ceilings were measured against a production build, and CI serves one
+    // (`pnpm start`, see playwright.config.ts). A local run serves `next dev`,
+    // whose HTML carries the dev overlay and unminified inline scripts — every
+    // budget here fails by a wide margin for reasons that have nothing to do with
+    // the payload being guarded. Skipping locally keeps the signal trustworthy;
+    // four failures that always fail are four failures nobody reads.
+    test.skip(
+      !process.env.CI,
+      "budgets are calibrated against a production build; run with CI=1 after `pnpm build`",
+    );
+
     const response = await request.get(path);
     expect(response.status()).toBe(200);
 

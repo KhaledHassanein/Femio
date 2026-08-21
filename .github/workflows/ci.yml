@@ -18,10 +18,21 @@ jobs:
   verify:
     runs-on: ubuntu-latest
     env:
-      # Placeholder public env so the build never depends on real secrets.
       NEXT_PUBLIC_APP_URL: http://localhost:3000
-      NEXT_PUBLIC_SUPABASE_URL: https://example.supabase.co
-      NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY: ci-placeholder-key
+      # Real project when the e2e secrets are set, placeholder otherwise. The
+      # fallback keeps the build independent of secrets — fork PRs and clones still
+      # build — but the *build* has to carry the real values too, not just the test
+      # step: `next start` serves whatever the build baked in, so pointing only the
+      # test run at Supabase would leave the served app talking to example.com.
+      #
+      # These are the publishable (anon) keys, which are public by design and
+      # protected by RLS. They live in secrets to keep the project id out of logs,
+      # not because leaking them would grant access.
+      NEXT_PUBLIC_SUPABASE_URL: ${{ secrets.E2E_SUPABASE_URL || 'https://example.supabase.co' }}
+      NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY: ${{ secrets.E2E_SUPABASE_PUBLISHABLE_KEY || 'ci-placeholder-key' }}
+      # `secrets` cannot be read in a step-level `if:`, so the presence check is
+      # promoted to a plain env var here and tested downstream.
+      E2E_SUPABASE_CONFIGURED: ${{ secrets.E2E_SUPABASE_URL != '' }}
     steps:
       - uses: actions/checkout@v4
 
@@ -110,13 +121,32 @@ jobs:
       - name: Build
         run: pnpm build
 
-      # DB-free e2e (home, crisis, axe a11y) against the built app via `next start`.
-      # @live specs (real Supabase auth/sync) stay a local gate — see playwright.config.ts.
+      # E2E against the built app via `next start`.
+      #
+      # The product specs — onboarding, tracking, symptoms, consent, the visit
+      # summary, offline sync — used to be excluded here by a blanket `--grep-invert
+      # @live`, so CI covered marketing pages and legal text while the product went
+      # unchecked. They rotted to the point of not passing, and a schema drift that
+      # disabled /summary entirely shipped through the gap (docs/26 §1.2). They now
+      # run, against a throwaway anonymous user on the real project.
+      #
+      # `@cms` stays excluded: those need a live CMS, which is a different
+      # dependency, and the sitemap is guarded in production by
+      # scripts/seo/sitemap-check.mjs instead.
       - name: Install Playwright browser
         run: pnpm --filter web exec playwright install --with-deps chromium
 
-      - name: E2E (DB-free) + accessibility
+      # Without Supabase credentials the product specs cannot sign in, so the run
+      # falls back to the DB-free subset rather than failing red on every fork PR
+      # and every repo without the secrets set. The step name says which one ran, so
+      # a silently reduced gate is visible in the checks list rather than assumed.
+      - name: E2E (product + accessibility)
+        if: env.E2E_SUPABASE_CONFIGURED == 'true'
         run: pnpm --filter web test:e2e:ci
+
+      - name: E2E (DB-free only — Supabase secrets not set)
+        if: env.E2E_SUPABASE_CONFIGURED != 'true'
+        run: pnpm --filter web test:e2e:nodb
 
   verify-cms:
     runs-on: ubuntu-latest
