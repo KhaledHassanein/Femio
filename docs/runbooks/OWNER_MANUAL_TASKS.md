@@ -839,3 +839,25 @@ as a real user does.
 The specs create throwaway anonymous users on the live EU project. If you would rather they did
 not touch production data, create a second Supabase project and point these two secrets at it —
 nothing else changes.
+
+## Revoke one anonymous Supabase session (2026-08-21) — the part git cannot fix
+
+A Playwright storage-state file holding a live session cookie was committed by accident and has
+been **purged from git history**; the commits that carried it no longer exist locally or on the
+remote.
+
+Two things a history rewrite does not do, and both are worth a minute:
+
+1. **The token is still valid.** Purging the file does not revoke the credential. It is an
+   anonymous user's JWT, bounded by RLS to a record containing three fabricated period dates, and
+   it expires **2027-09-25**. To end it now: Supabase dashboard → Authentication → Users → find
+   the anonymous user created 2026-08-21 → delete. The seeding script creates a fresh throwaway
+   user on every run, so deleting it breaks nothing.
+2. **GitHub may still hold the unreachable objects.** A force-push makes them unreachable, not
+   deleted; they can remain fetchable by exact SHA until GitHub's own garbage collection. If you
+   want them gone for certain, GitHub Support can force a repository GC. Given what the token
+   grants — read/write on one throwaway record, in a private repo — this is likely
+   disproportionate, but it is your call rather than mine.
+
+Prevention is in place: `.seeded-state.json` and `screenshots/` are now gitignored, so a repeat
+cannot be staged.

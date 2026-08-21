@@ -59,8 +59,8 @@ temp/
 # Playwright storage state written by scripts/dev/seed-and-shoot.mjs during
 # debugging. It holds a live Supabase session cookie for a throwaway anonymous
 # user — short-lived and RLS-bound, but a session credential all the same, and
-# credentials do not belong in a repo. One was committed in b73d890 and removed
-# in the commit after it.
+# credentials do not belong in a repo. One was committed by accident and has since
+# been purged from history; the SHAs that carried it no longer exist.
 .seeded-state.json
 **/.seeded-state.json
 screenshots/
