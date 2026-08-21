@@ -34,7 +34,7 @@ jobs:
       # promoted to a plain env var here and tested downstream.
       E2E_SUPABASE_CONFIGURED: ${{ secrets.E2E_SUPABASE_URL != '' }}
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
 
       # Reads the pnpm version from package.json "packageManager".
       - uses: pnpm/action-setup@v4
@@ -155,7 +155,7 @@ jobs:
       DATABASE_URL: postgresql://user:pass@localhost:5432/femio
       PAYLOAD_SECRET: ci-placeholder-secret-not-used-at-build-time
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
       - uses: pnpm/action-setup@v4
       - uses: actions/setup-node@v4
         with:
@@ -182,7 +182,7 @@ jobs:
     if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
       - uses: pnpm/action-setup@v4
       - uses: actions/setup-node@v4
         with:
