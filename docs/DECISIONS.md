@@ -258,3 +258,66 @@ which is exactly the "reversed by accident" failure the ADR bar exists to catch.
   Clue, where neither handles them well — turning the constraint into the positioning.
 - `LUTEAL_DAYS`, `OVULATORY_SPAN` and `DEFAULT_PERIOD_DAYS` carry `[NEEDS SOURCE]` and must have
   Tier-1 citations before any of this reaches user-visible educational copy.
+
+## ADR-067
+
+**The signed-in app keeps its gradient hero. `docs/25` §5a is amended, not ADR-051.**
+
+Date: 2026-08-22 · Owner: Khaled · Status: accepted · Resolves B12 · Supersedes one line of `docs/25` §5a
+
+### Context
+
+Two decisions contradicted each other and both were live.
+
+**ADR-051 (2026-08-07)** put the gradient hero *into* the signed-in dashboard, as the direct
+response to the owner's verdict that *"the design is from first look AI generated"*. It diagnosed
+the cause precisely — the token file shipped four gradients and an elevation scale and the app used
+**none** of them, rendering flat `bg-surface` cards under three text links — and it added three
+**hero** gradients whose every stop is AA-safe under white text, specifically so a hero could carry
+small copy without a scrim.
+
+**`docs/25` §5a (2026-08-09)**, two days later, wrote that `--gradient-hero-*` is *"never used
+inside the signed-in app, which stays calm"* — with no ADR, and no reference to the decision it was
+reversing.
+
+`docs/26` then flagged "a saturated purple hero against a hot-pink CTA" as a design defect, which is
+how the contradiction surfaced.
+
+### Decision
+
+**Keep the hero.** §5a's line is amended to read: hero gradients carry *the answer card*, wherever
+it appears, in-app included.
+
+Three reasons, in order of weight:
+
+1. **§5a would undo the fix for the complaint that started all of this.** ADR-051 exists because the
+   app was flat and the owner said so. Removing six heroes returns it to flat cards — a different
+   route to the same verdict.
+2. **The clash `docs/26` named has already dissolved**, and not by design intent. Phase 3 put a
+   phase strip, cited education, a bleed strip and a cycle report between the hero and the CTA. They
+   are no longer adjacent, and §5a's actual rule — *one accent element per view, and it is the
+   primary action* — is satisfied: `Log today` is the only accent on the dashboard.
+3. **One gradient per screen is calm.** §5a's concern was a busy app, and the constraint that
+   delivers it is "at most one raised element per screen", which §5a states in the same section and
+   which the app already honours.
+
+### What this does not license
+
+The decorative `--gradient-brand` / `--gradient-fertile` pair still never carries text — ADR-051(d)
+stands untouched, and `tokens-parity-lint` continues to guard the token map. One hero per screen,
+one accent per screen. A second gradient anywhere is a regression.
+
+### Consequences
+
+- No code changes. The app already behaves this way; what changes is that it is now *decided*
+  rather than accidentally correct.
+- `docs/25` §5a carries a pointer to this ADR, so the next session reads one rule instead of two.
+- B12 closes.
+
+### The process note worth keeping
+
+This was very nearly reversed by accident. `docs/26` called the hero a defect, and the obvious fix
+was to strip six components — which would have silently overturned a workstream the owner
+commissioned, on the strength of one undated line. **Check the dates and look for the ADR before
+"fixing" a design decision.** The ADR bar exists for precisely this, and it only works if the losing
+side gets written down.

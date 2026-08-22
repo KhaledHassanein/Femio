@@ -456,7 +456,7 @@ before touching either.
 
 ---
 
-## B12 · 🔴 OPEN 2026-08-22 — two design decisions contradict each other about the in-app hero
+## B12 · ✅ DONE 2026-08-22 — resolved by ADR-067: the hero stays, §5a amended
 
 `docs/26` flagged "a saturated purple hero against a hot-pink CTA" as a design defect. Trying to
 fix it surfaced that the rule is not ambiguous — **there are two rules, and they disagree.**
@@ -494,3 +494,14 @@ Either way the losing decision gets an ADR, so the next session inherits one rul
 
 **What this blocks:** Phase 5.1 only. Everything else in Phase 5 — dark mode, RTL, iconography,
 inclusive copy — proceeds independently.
+
+### ✅ Resolved 2026-08-22 — ADR-067
+
+Owner chose to keep the hero. `docs/25` §5a's line is amended rather than ADR-051 reversed, and the
+reasoning is in ADR-067: §5a would have undone the fix for the complaint that started this
+workstream, the clash `docs/26` named has already dissolved now that Phase 3 put four cards between
+the hero and the CTA, and §5a's real constraint — one raised element and one accent per screen — is
+already satisfied.
+
+**No code changed.** The app already behaved this way; it is now decided rather than accidentally
+correct. What changed is that the next session reads one rule instead of two.
