@@ -198,6 +198,10 @@ stashes, typecheck clean, 692 tests passing, **all eleven guards passing**, prod
 
 ### Open product gaps, ranked
 
+- **Phase 4.5 · Partner sharing.** The only Phase 4 item that was never about emptiness, and the
+  only one still open. Flo has it, Clue does not. It shares health data with a second person, so it
+  is a DPIA and `docs/13` question before it is a UI one — no code until that consent design exists.
+
 - **R3.4.1 · TTC (944px/22 nodes) and pregnancy (855px/19)** are the thin screens. Phase 4.
 - **R3.5.2 · Arabic mixes Western and Arabic-Indic digits.** A locale decision for Phase 5.
 - **R3.1.2 · The Today card** was folded into the phase strip rather than built; what it was for

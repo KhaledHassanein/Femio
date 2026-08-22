@@ -138,19 +138,46 @@ apps that only predict bleeding.* Femio does only the second, in prose.
 
 **Checkpoint 3** → commit, push, deploy.
 
-## Phase 4 — Per-persona depth, emptiest and highest-value first
+## Phase 4 — Per-persona depth
 
-Order set by `docs/26` §5: TTC (12 nodes) → pregnancy (19) → cycle (20) → teen → postpartum.
-Menopause (137) is the reference standard to match, not to rebuild.
+**The ordering this phase was built on was wrong, and most of it dissolved on re-measurement.**
 
-- [ ] 4.1 **TTC** — fertile-window ring, BBT/LH/CM charting, cycle-over-cycle comparison. Highest
-      intent and willingness to pay in the category, currently the emptiest screen we ship.
-- [ ] 4.2 **Pregnancy** — week-by-week, size/development, appointment schedule, kick counter.
-- [ ] 4.3 **Teen** — reassurance-led per persona spec A2 §B.
-- [ ] 4.4 **Postpartum** — recovery timeline, feeding, mood screening cadence.
-- [ ] 4.5 Partner sharing (Flo has it, Clue does not; requires a consent design).
+It was ranked by `docs/26` §5 — TTC 12 nodes, pregnancy 19, cycle 20 — and three of those numbers
+were measurement artifacts, not product defects. §5's script never completed onboarding; checkpoint
+1 inherited that; teen was measured against a contradictory age band; pregnancy was measured in its
+*setup* state. Corrected numbers with coherent ages and populated data:
 
-**Checkpoint 4** → commit, push, deploy.
+| Persona | Real measurement | Verdict |
+|---|---|---|
+| Postpartum | 3707 / 101 | rich |
+| Menopause | 3593 / 143 | rich |
+| Pregnancy *(due date entered)* | 1541 / 51 | healthy |
+| Teen *(teen age band)* | 1501 / 35 | healthy |
+| Cycle | 1440 / 85 | healthy |
+| TTC | 844 / 17 | **the one real gap** |
+
+- [x] 4.1 **TTC** — done (R3.4.1). 844 → **1646px**. The cause was not a missing feature: the cycle
+      modules existed and Track C never asked for them, so her stage removed surfaces rather than
+      re-emphasising them. Fixed as registry data.
+- [x] 4.2 **Pregnancy** — **rationale void.** 1541px/51 nodes with a due date entered: trimester,
+      week and day, days to go, full-term date. The "19 nodes" that justified this item was its
+      setup screen. Week-by-week content exists; `fetal_movement_sessions` and `contractions` are
+      built. Nothing here is a gap the audit found.
+- [x] 4.3 **Teen** — **rationale void.** 1501px/35 nodes, leading with the "You're normal"
+      reassurance A2 §B calls for. The 844px/6 that justified this item was a contradictory age
+      band, not an empty persona.
+- [x] 4.4 **Postpartum** — **rationale void.** 3707px/101 nodes, the richest screen in the product.
+- [ ] 4.5 **Partner sharing** — genuinely open, and the only item here that was never about
+      emptiness. Flo has it, Clue does not, and it needs a consent design before any code: it
+      shares health data with a second person, which is a DPIA question and a `docs/13` question
+      before it is a UI one. Carried into Phase 6's register rather than closed.
+
+**Checkpoint 4** → done (commit `bab19aa`, Edge Function deployed, re-measured).
+
+**The lesson this phase actually taught** is recorded in `docs/26` and `STATE.md`: five findings in
+this workstream were measurement artifacts, all the same shape — a script driving the product
+wrongly, with the result written up as a product defect. Phase 4 existed mostly because of three
+of them.
 
 ## Phase 5 — Design direction (closes `docs/25`)
 
