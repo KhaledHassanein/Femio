@@ -43,6 +43,7 @@ export function SettingsScreen() {
   const tf = useTranslations("fertility");
   const tm = useTranslations("medications");
   const ts = useTranslations("moodScreeners");
+  const tp = useTranslations("partnerSharing");
 
   return (
     <AppScreen>
@@ -127,6 +128,23 @@ export function SettingsScreen() {
           </div>
           <Button asChild variant="outline" className="self-start">
             <Link href="/screeners">{ts("title")}</Link>
+          </Button>
+        </CardContent>
+      </Card>
+
+      {/* Partner sharing (Phase 4.5). It lives here rather than on the dashboard
+          because it is an account decision, not a daily one — and because the
+          design asks for a "what they can see right now" panel that is never
+          buried behind a link. That panel is the first thing on the screen this
+          links to. */}
+      <Card>
+        <CardContent className="flex flex-col gap-3 p-6">
+          <div className="flex flex-col gap-1">
+            <h2 className="text-md font-semibold text-text">{tp("title")}</h2>
+            <p className="text-sm text-text-muted">{tp("intro")}</p>
+          </div>
+          <Button asChild variant="outline" className="self-start">
+            <Link href="/sharing">{tp("title")}</Link>
           </Button>
         </CardContent>
       </Card>

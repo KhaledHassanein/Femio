@@ -28,7 +28,16 @@ const LOCALES = ["ar", "fr", "es"];
  * shared symbols, and words French/Spanish spell the same way. Reviewed 2026-08-07.
  */
 const ALLOWED = {
-  "*": ["meta.title", "home.eyebrow", "footer.rights", "calculators.ovulation.rangeValue"],
+  "*": [
+    "meta.title",
+    "home.eyebrow",
+    "footer.rights",
+    "calculators.ovulation.rangeValue",
+    // Two ICU placeholders and an em dash. There is no word in it to translate, in
+    // any locale, and inventing a difference to satisfy the guard would be worse
+    // copy in three languages (Phase 4.5).
+    "partnerShared.symptoms.row",
+  ],
   ar: [],
   fr: [
     "home.chips.accent",

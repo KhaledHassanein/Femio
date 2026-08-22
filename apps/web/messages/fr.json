@@ -1818,6 +1818,10 @@
     "intro": "Tout ce que Femio sait faire, quelle que soit ton étape. Rien n'est masqué ici selon ce que tu nous as dit.",
     "recordHeading": "Ton dossier",
     "toolsHeading": "Outils et guides",
+    "sharing": {
+      "label": "Partager avec un partenaire",
+      "note": "Choisissez exactement ce qu'une autre personne peut voir"
+    },
     "summary": {
       "label": "Résumé pour le médecin",
       "note": "Une page imprimable de ton dossier, avec tes questions"
@@ -1892,5 +1896,121 @@
     "range": "Tes cycles ont duré de {shortest} à {longest} jours",
     "evidence": "Sur {cycles} cycles enregistrés",
     "notFailing": "Femio élargit la fenêtre quand tes cycles varient, et cesse de prédire quand il n'y a rien d'honnête à prédire. Ce n'est pas un échec de l'application — une date affirmée sur des données instables serait une invention."
+  },
+  "partnerSharing": {
+    "title": "Partager avec un partenaire",
+    "intro": "Choisissez exactement ce qu'une autre personne peut voir. Rien n'est partag\u00e9 tant que vous ne l'activez pas, et vous pouvez arr\u00eater \u00e0 tout moment sans qu'elle en soit avertie.",
+    "createError": "L'enregistrement a \u00e9chou\u00e9. R\u00e9essayez.",
+    "stopError": "Nous n'avons pas pu arr\u00eater ce partage. R\u00e9essayez.",
+    "renewError": "Nous n'avons pas pu prolonger ce partage. R\u00e9essayez.",
+    "ageGate": {
+      "body": "Femio ne propose pas le partage avec un partenaire avant 18 ans. Si vous souhaitez l'utiliser, indiquez votre tranche d'\u00e2ge.",
+      "dismiss": "Pas maintenant"
+    },
+    "current": {
+      "heading": "Ce qu'elle voit en ce moment",
+      "desc": "Voici son \u00e9cran \u00e0 elle, pas vos r\u00e9glages. Tout ce qui n'est pas list\u00e9 ici lui est invisible.",
+      "none": "Vous ne partagez rien avec personne.",
+      "active": "Partage en cours",
+      "pending": "En attente d'acceptation \u2014 code {code}",
+      "until": "Se termine le {date}",
+      "stop": "Arr\u00eater le partage",
+      "renew": "Prolonger de six mois"
+    },
+    "categories": {
+      "nextPeriod": {
+        "label": "La date attendue de vos prochaines r\u00e8gles",
+        "note": "La fourchette estim\u00e9e par Femio, avec la m\u00eame incertitude que celle que vous voyez."
+      },
+      "cycleDates": {
+        "label": "Vos derni\u00e8res dates de r\u00e8gles",
+        "note": "Les jours o\u00f9 vous avez enregistr\u00e9 un d\u00e9but de r\u00e8gles."
+      },
+      "phase": {
+        "label": "O\u00f9 vous en \u00eates dans votre cycle",
+        "note": "Seulement lorsque vos cycles permettent de nommer une phase."
+      },
+      "pregnancy": {
+        "label": "\u00c0 combien de semaines de grossesse vous \u00eates",
+        "note": "La semaine et le jour, ainsi que votre date pr\u00e9vue d'accouchement."
+      },
+      "symptoms": {
+        "label": "Les sympt\u00f4mes que vous notez",
+        "note": "Les noms et les dates uniquement \u2014 jamais l'intensit\u00e9 d'une journ\u00e9e."
+      },
+      "medications": {
+        "label": "Les m\u00e9dicaments et compl\u00e9ments que vous prenez",
+        "note": "Les noms uniquement \u2014 jamais une dose."
+      },
+      "fertility": {
+        "label": "Vos courbes",
+        "note": "Les jours not\u00e9s et le r\u00e9sultat d'un test \u00e9ventuel. Jamais vos rapports, jamais un test de grossesse."
+      }
+    },
+    "create": {
+      "heading": "Commencer un partage",
+      "desc": "Cochez chaque \u00e9l\u00e9ment s\u00e9par\u00e9ment. Il n'existe aucun raccourci qui partage tout, et c'est voulu.",
+      "neverShared": "Certaines choses ne sont jamais partageables : les r\u00e9sultats de vos questionnaires, tout ce qui vient de \u00ab\u00a0Besoin d'aide maintenant\u00a0?\u00a0\u00bb, et les questions que vous notez pour un rendez-vous. Femio ne les propose pas, donc personne ne peut vous les demander.",
+      "cta": "Cr\u00e9er un code d'invitation",
+      "codeIntro": "Donnez-lui ce code.",
+      "codeNote": "Il fonctionne une seule fois et expire au bout de 14 jours s'il n'est pas utilis\u00e9. Le partage commence quand elle le saisit et dure six mois."
+    },
+    "redeem": {
+      "heading": "Quelqu'un partage avec vous\u00a0?",
+      "desc": "Saisissez le code qu'on vous a donn\u00e9. Vous verrez ce que cette personne a choisi de partager, et rien d'autre.",
+      "label": "Code d'invitation",
+      "cta": "Utiliser ce code",
+      "error": "Ce code ne fonctionne pas. Il a peut-\u00eatre d\u00e9j\u00e0 servi, ou expir\u00e9.",
+      "done": "C'est fait. Vous le trouverez sous \u00ab\u00a0Partag\u00e9 avec vous\u00a0\u00bb."
+    }
+  },
+  "partnerShared": {
+    "title": "Partag\u00e9 avec vous",
+    "intro": "Ce qui a \u00e9t\u00e9 partag\u00e9 avec vous, et rien d'autre.",
+    "none": "Rien n'est partag\u00e9 avec vous pour le moment.",
+    "loadError": "Nous n'avons pas pu charger cette page. R\u00e9essayez dans un instant.",
+    "until": "Le partage se termine le {date}",
+    "nextPeriod": {
+      "heading": "Prochaines r\u00e8gles",
+      "window": "Attendues entre le {start} et le {end}",
+      "notYet": "Femio n'a pas encore assez d'\u00e9l\u00e9ments pour l'estimer.",
+      "irregular": "Ces cycles varient, la fourchette est donc large volontairement.",
+      "confidence": {
+        "high": "Une estimation \u00e0 partir de plusieurs cycles enregistr\u00e9s, pas une certitude.",
+        "medium": "Une estimation, qui peut bouger de quelques jours.",
+        "low": "Une premi\u00e8re estimation \u00e0 partir de tr\u00e8s peu d'historique."
+      }
+    },
+    "phase": {
+      "heading": "O\u00f9 elle en est dans son cycle",
+      "unknown": "Femio ne devinera pas de phase \u00e0 partir de ces cycles.",
+      "day": "Jour {day}"
+    },
+    "cycleDates": {
+      "heading": "Derni\u00e8res dates de r\u00e8gles"
+    },
+    "pregnancy": {
+      "heading": "Grossesse",
+      "weeks": "{weeks} semaines et {days} jours",
+      "none": "Aucune grossesse n'est suivie en ce moment."
+    },
+    "symptoms": {
+      "heading": "Sympt\u00f4mes not\u00e9s",
+      "row": "{name} \u2014 {date}",
+      "none": "Rien de not\u00e9 pour l'instant.",
+      "note": "Noms et dates uniquement. L'intensit\u00e9 d'une journ\u00e9e, c'est \u00e0 elle de la dire."
+    },
+    "medications": {
+      "heading": "M\u00e9dicaments et compl\u00e9ments",
+      "none": "Rien d'indiqu\u00e9.",
+      "note": "Noms uniquement. Femio n'affiche jamais de dose et n'en conseille aucune."
+    },
+    "fertility": {
+      "heading": "Courbes",
+      "row": "Not\u00e9 le {date}",
+      "rowWithTest": "Not\u00e9 le {date} \u2014 test\u00a0: {result}",
+      "none": "Rien de not\u00e9 pour l'instant.",
+      "note": "\u00c0 titre indicatif seulement. Ces jours sont une estimation, jamais une limite."
+    }
   }
 }

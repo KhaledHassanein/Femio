@@ -1808,6 +1808,10 @@
     "intro": "Everything Femio can do, whatever stage you are in. Nothing here is hidden based on what you told us.",
     "recordHeading": "Your record",
     "toolsHeading": "Tools and guides",
+    "sharing": {
+      "label": "Sharing with a partner",
+      "note": "Choose exactly what someone else can see"
+    },
     "summary": {
       "label": "Doctor-visit summary",
       "note": "A printable page of your record, with your questions"
@@ -1882,5 +1886,121 @@
     "range": "Your cycles have run {shortest} to {longest} days",
     "evidence": "Across {cycles} recorded cycles",
     "notFailing": "Femio widens the window when your cycles vary, and stops predicting when there is nothing honest to predict from. That is not the app failing — a confident date built on unstable data would be an invention."
+  },
+  "partnerSharing": {
+    "title": "Sharing with a partner",
+    "intro": "Choose exactly what someone else can see. Nothing is shared until you turn it on, and you can stop at any time without them being told.",
+    "createError": "That didn't save. Please try again.",
+    "stopError": "We couldn't stop that. Please try again.",
+    "renewError": "We couldn't extend that. Please try again.",
+    "ageGate": {
+      "body": "Femio doesn't offer partner sharing under 18. If you'd like to use it, tell us your age band.",
+      "dismiss": "Not now"
+    },
+    "current": {
+      "heading": "What they can see right now",
+      "desc": "This is their view, not your settings. Anything not listed here is invisible to them.",
+      "none": "You aren't sharing anything with anyone.",
+      "active": "Sharing now",
+      "pending": "Waiting to be accepted \u2014 code {code}",
+      "until": "Ends on {date}",
+      "stop": "Stop sharing",
+      "renew": "Extend by six months"
+    },
+    "categories": {
+      "nextPeriod": {
+        "label": "When your next period is expected",
+        "note": "The range Femio estimates, with the same uncertainty you see."
+      },
+      "cycleDates": {
+        "label": "Your recent period dates",
+        "note": "The days you logged a period starting."
+      },
+      "phase": {
+        "label": "Where you are in your cycle",
+        "note": "Only when your own cycles support naming it."
+      },
+      "pregnancy": {
+        "label": "How many weeks pregnant you are",
+        "note": "The week and day, and your due date."
+      },
+      "symptoms": {
+        "label": "Symptoms you log",
+        "note": "Names and dates only \u2014 never how bad a day was."
+      },
+      "medications": {
+        "label": "Medicines and supplements you take",
+        "note": "Names only \u2014 never a dose."
+      },
+      "fertility": {
+        "label": "Your charting",
+        "note": "The days you charted and any test result. Never whether you had sex, and never a pregnancy test."
+      }
+    },
+    "create": {
+      "heading": "Start sharing",
+      "desc": "Pick each one separately. There is no shortcut that shares everything, and that is deliberate.",
+      "neverShared": "Some things can never be shared: your questionnaire scores, anything from \u201cNeed help now?\u201d, and the questions you write down for an appointment. Femio doesn't offer them, so nobody can ask you for them.",
+      "cta": "Create an invite code",
+      "codeIntro": "Give them this code.",
+      "codeNote": "It works once, and expires in 14 days if it isn't used. Sharing starts when they enter it and runs for six months."
+    },
+    "redeem": {
+      "heading": "Has someone shared with you?",
+      "desc": "Enter the code they gave you. You'll see what they chose to share, and nothing else.",
+      "label": "Invite code",
+      "cta": "Use this code",
+      "error": "That code doesn't work. It may have been used already, or expired.",
+      "done": "Done. You'll find it under \u201cShared with you\u201d."
+    }
+  },
+  "partnerShared": {
+    "title": "Shared with you",
+    "intro": "What has been shared with you, and nothing else.",
+    "none": "Nothing is shared with you right now.",
+    "loadError": "We couldn't load this. Please try again in a moment.",
+    "until": "Sharing ends on {date}",
+    "nextPeriod": {
+      "heading": "Next period",
+      "window": "Expected between {start} and {end}",
+      "notYet": "Femio doesn't have enough logged yet to estimate this.",
+      "irregular": "These cycles vary, so the range is wide on purpose.",
+      "confidence": {
+        "high": "An estimate from several logged cycles, not a certainty.",
+        "medium": "An estimate, and it may move by a few days.",
+        "low": "An early estimate from very little history."
+      }
+    },
+    "phase": {
+      "heading": "Where she is in her cycle",
+      "unknown": "Femio won't guess a phase from these cycles.",
+      "day": "Day {day}"
+    },
+    "cycleDates": {
+      "heading": "Recent period dates"
+    },
+    "pregnancy": {
+      "heading": "Pregnancy",
+      "weeks": "{weeks} weeks and {days} days",
+      "none": "No pregnancy is being tracked right now."
+    },
+    "symptoms": {
+      "heading": "Symptoms logged",
+      "row": "{name} \u2014 {date}",
+      "none": "Nothing logged yet.",
+      "note": "Names and dates only. How bad a day was is hers to say."
+    },
+    "medications": {
+      "heading": "Medicines and supplements",
+      "none": "Nothing listed.",
+      "note": "Names only. Femio never shows a dose, and never advises on one."
+    },
+    "fertility": {
+      "heading": "Charting",
+      "row": "Charted on {date}",
+      "rowWithTest": "Charted on {date} \u2014 test: {result}",
+      "none": "Nothing charted yet.",
+      "note": "Awareness only. These days are an estimate, never a boundary."
+    }
   }
 }

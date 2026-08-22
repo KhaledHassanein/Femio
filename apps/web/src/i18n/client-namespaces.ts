@@ -62,6 +62,10 @@ export const APP_CLIENT_NAMESPACES = [
   "flowStrip",
   // The Tools hub (R3.2.1/2.3) — signed-in only, so it never reaches /learn.
   "tools",
+  // Partner sharing (Phase 4.5) — her side and the recipient's side. Both are
+  // signed-in-only routes, so neither reaches a public content page.
+  "partnerSharing",
+  "partnerShared",
   "phaseEducation",
   "phaseStrip",
   "symptomPatterns",

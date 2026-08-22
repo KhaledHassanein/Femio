@@ -5,6 +5,7 @@ import {
   CalendarClock,
   ClipboardList,
   Calculator,
+  Share2,
   FileText,
   HeartPulse,
   Pill,
@@ -50,6 +51,13 @@ const RECORD: readonly Tool[] = [
   { href: "/track", key: "track", Icon: CalendarClock },
   { href: "/medications", key: "medications", Icon: Pill },
   { href: "/appointments", key: "appointments", Icon: ClipboardList },
+  /**
+   * Partner sharing (Phase 4.5). Listed here as well as in Settings for the
+   * reason this screen exists at all: five built, working routes were unreachable
+   * from the navigation (`docs/26` §2.3), and a privacy control nobody can find is
+   * a privacy control nobody uses.
+   */
+  { href: "/sharing", key: "sharing", Icon: Share2 },
 ];
 
 /** Tools that produce an answer rather than store one. */
