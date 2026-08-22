@@ -242,9 +242,13 @@ export function MenopausePanel({
     pregnancyHero: null,
   };
 
-  // No document — offline, or a persona the registry has not met. Everything still
-  // renders, in the order it always did.
-  if (!config || config.home.modules.length === 0) {
+  // Mounted from the served document rather than from `mode === "menopause"`
+  // (R3.1.6a) — the same swap the other three life-stage screens make.
+  if (config?.track !== "F") return null;
+
+  // No modules — offline with an empty cache, or a persona the registry has not
+  // met. Everything still renders, in the order it always did.
+  if (config.home.modules.length === 0) {
     return (
       <div className="flex flex-col gap-4">
         {sinceNode}

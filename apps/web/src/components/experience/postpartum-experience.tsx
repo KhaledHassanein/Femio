@@ -96,7 +96,9 @@ export function PostpartumExperience({
    * with the engine.** A silent screen would be the failure `module-registry`'s
    * `UNIMPLEMENTED` list exists to prevent, one level up.
    */
-  if (!config || config.home.modules.length === 0) {
+  if (config?.track !== "E") return null;
+
+  if (config.home.modules.length === 0) {
     return (
       <div className="flex flex-col gap-4">
         {warningSigns}

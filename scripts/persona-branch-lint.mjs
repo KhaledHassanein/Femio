@@ -27,21 +27,20 @@ const COMPONENTS = join(ROOT, "apps", "web", "src", "components");
 /**
  * Files still allowed to branch on `mode`, with the reason. This is a ratchet:
  * a file may leave the list, never join it without a deliberate edit here.
+ *
+ * **It is empty, as of R3.1.6a (2026-08-23), and that is the end of the ratchet.**
+ * `dashboard-screen.tsx` was the last entry. Its final four `mode ===` branches
+ * were the life-stage *mounts* — teen, pregnancy, postpartum, menopause — and they
+ * did not become registry rows; each screen now reads `config.track` from the
+ * served document and decides for itself whether it has anything to draw, which is
+ * the same answer arrived at from tier 1 instead of from a second client-side
+ * derivation off `persona_state`. The fifth branch, a data fetch gated on
+ * `mode === "pregnancy"`, went the same way.
+ *
+ * Nothing may join this list without a deliberate edit here, and there is now no
+ * precedent to point at.
  */
-const MODE_BASELINE = new Set([
-  // Still here, and now for a narrower reason than before (R3.1.6).
-  //
-  // The `mode ===` branch that mattered — the generic prediction hero — is gone: it
-  // was load-bearing only because `Z1`, the fallback persona, had no registry record
-  // at all, and `track-z.ts` now serves it one. What remains are the four
-  // life-stage *mounts* (teen, pregnancy, postpartum, menopause), which choose a
-  // component rather than vary a layout, and moving those is a separate refactor
-  // with its own risk.
-  //
-  // The ratchet still only shrinks: this entry leaves the list when those four
-  // mounts become registry rows, and nothing may join it without editing this file.
-  "components/dashboard/dashboard-screen.tsx",
-]);
+const MODE_BASELINE = new Set([]);
 
 /**
  * Comments are documentation, not behaviour.
@@ -65,8 +64,19 @@ const RULES = [
   },
   {
     id: "mode-branch",
+    /**
+     * Every member of `PersonaMode` — and `teen` is on this list because it was
+     * **missing** until R3.1.6a. The alternation was written before Track A
+     * existed and never grew with it, so `mode === "teen"` — one of the four
+     * life-stage mounts this guard was explicitly waiting to see removed — was the
+     * single branch it could not see. Found by injecting it and watching the guard
+     * pass, which is the only reason it was found at all (STATE.md, "Verification
+     * honesty": watch a guard fail before trusting it).
+     */
     test: (t) =>
-      /\bmode\s*[!=]==?\s*["'](cycle|ttc|pregnancy|postpartum|menopause|general)["']/.test(t),
+      /\bmode\s*[!=]==?\s*["'](teen|cycle|ttc|pregnancy|postpartum|menopause|general)["']/.test(
+        t,
+      ),
     why: "branches on a life-stage mode — render `ExperienceConfig.home.modules` instead",
     appliesTo: (rel) => !MODE_BASELINE.has(rel),
   },

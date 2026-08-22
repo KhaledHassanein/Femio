@@ -174,12 +174,22 @@ export function TeenExperience({
   );
 
   /**
-   * No document, or nothing for this track. Unreachable in practice — a stated
-   * Track A resolves to A2 and `default` modules always exist — but reassurance is
-   * the one thing that must not vanish with the engine, for the same reason the
-   * postpartum screen keeps its warning signs.
+   * Whether this screen mounts at all is now read from the served document
+   * (R3.1.6a). The dashboard used to ask `mode === "teen"`, which is
+   * `modeFromTrack(persona_state.track)` — a second, client-side answer to a
+   * question tier 1 has already answered in `config.track`. The two agreed; having
+   * two of them is the thing ADR-061 removes, and this was the last place they
+   * could have drifted.
    */
-  if (!config || config.home.modules.length === 0) {
+  if (config?.track !== "A") return null;
+
+  /**
+   * The track is right and the document carries nothing. Unreachable in practice —
+   * a stated Track A resolves to A2 and `default` modules always exist — but
+   * reassurance is the one thing that must not vanish with the engine, for the same
+   * reason the postpartum screen keeps its warning signs.
+   */
+  if (config.home.modules.length === 0) {
     return <div className="flex flex-col gap-4">{reassurance}</div>;
   }
 

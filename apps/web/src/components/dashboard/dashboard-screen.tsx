@@ -106,9 +106,16 @@ export function DashboardScreen() {
 
     const mode: PersonaMode = modeFromTrack(state?.track as string | null);
 
-    // Only the pregnancy dashboard needs this, and only one pregnancy is active at a time.
+    /**
+     * Only the pregnancy dashboard needs this, and only one pregnancy is active at
+     * a time. Gated on the **served document** rather than on the mode (R3.1.6a):
+     * with the four life-stage mounts now reading `config.track`, a `mode ===` here
+     * would be the one remaining place where the browser and tier 1 could disagree
+     * about who she is — and the disagreement would show up as a pregnancy panel
+     * with no `edd` to draw.
+     */
     const pregnancy: Pregnancy =
-      mode === "pregnancy"
+      experience?.config.track === "D"
         ? await unwrap(
             supabase
               .from("pregnancy")
@@ -226,41 +233,33 @@ export function DashboardScreen() {
           window and an average-length card, with none of the reassurance A2 §B
           says is the whole value at this age. The window she does get is wide and
           explains itself; A1 gets none, because she is not cycling yet. */}
-      {mode === "teen" ? (
-        <TeenExperience
-          config={config}
-          prediction={prediction}
-          lastStart={lastStart}
-          today={today}
-        />
-      ) : null}
+      <TeenExperience
+        config={config}
+        prediction={prediction}
+        lastStart={lastStart}
+        today={today}
+      />
 
       {/* Pregnancy gets its own dashboard rather than cycle tools plus an apology.
           A cycle-day counter and a next-period prediction are meaningless to someone
           who is pregnant, and the second one is alarming (P1.13b). */}
-      {mode === "pregnancy" ? (
-        <PregnancyExperience pregnancy={pregnancy} today={today} config={config} />
-      ) : null}
+      <PregnancyExperience pregnancy={pregnancy} today={today} config={config} />
 
       {/* Perimenopause/menopause gets its own view too: a next-period prediction is
           the least useful thing to show someone whose cycles are stopping (P1.13c). */}
       {/* Track E, reachable at last (R2.5). Before this it fell through to
           `general`, which predicts a period from cycles that stopped months ago. */}
-      {mode === "postpartum" ? (
-        <PostpartumExperience
-          config={config}
+      <PostpartumExperience
+        config={config}
           // The real delivery date when she gave one (migration 0009). Null stays
           // null: the follow-up card then lists the checks without claiming to know
           // where she is in them, which is the honest answer rather than a guess
           // built on `updated_at`.
-          birthDateISO={pregnancy?.ended_on ?? null}
-          todayISO={today}
-        />
-      ) : null}
+        birthDateISO={pregnancy?.ended_on ?? null}
+        todayISO={today}
+      />
 
-      {mode === "menopause" ? (
-        <MenopausePanel starts={starts} symptomCounts={top} today={today} config={config} />
-      ) : null}
+      <MenopausePanel starts={starts} symptomCounts={top} today={today} config={config} />
 
       {/* The primary action, full width and inside thumb reach. It used to be a
           small button beside the title, in the hardest corner of the screen to

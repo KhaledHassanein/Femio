@@ -72,6 +72,14 @@ export function PregnancyExperience({
     config.home.modules.length > 0 &&
     Boolean(pregnancy?.edd);
 
+  /**
+   * Mounted from the served document rather than from `mode === "pregnancy"`
+   * (R3.1.6a). `config.track` is tier 1's answer; the mode was the browser's
+   * second one, computed from `persona_state` independently of the document the
+   * screen is actually rendering.
+   */
+  if (config?.track !== "D") return null;
+
   if (!drawable) {
     return <PregnancyPanel pregnancy={pregnancy} today={today} />;
   }
