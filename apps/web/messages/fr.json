@@ -1870,5 +1870,13 @@
       "heading": "La phase lutéale",
       "body": "Cette phase commence après l'ovulation. Le follicule vide produit de la progestérone, qui aide à maintenir la muqueuse utérine. En l'absence de grossesse, la progestérone et l'œstrogène chutent et les règles suivantes commencent. Certaines personnes remarquent une sensibilité des seins, des ballonnements, des maux de tête, des changements de peau, de la fatigue ou des changements d'humeur — noter un schéma qui se répète peut être utile, mais ce schéma seul ne peut pas confirmer un problème de santé."
     }
+  },
+  "symptomPatterns": {
+    "heading": "Ton schéma",
+    "note": "Compté à partir de ce que tu as enregistré. Femio ne l'interprète pas.",
+    "onDay": "{symptom} — au jour {day} de ton cycle",
+    "onDays": "{symptom} — aux jours {from}–{to} de ton cycle",
+    "evidence": "Sur {cycles} de tes {ofCycles} derniers cycles",
+    "limit": "Noter un schéma qui se répète peut être utile, mais ce schéma seul ne peut pas confirmer un problème de santé."
   }
 }

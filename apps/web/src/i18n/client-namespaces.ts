@@ -62,6 +62,7 @@ export const APP_CLIENT_NAMESPACES = [
   "tools",
   "phaseEducation",
   "phaseStrip",
+  "symptomPatterns",
   "admin",
   "dashboard",
   "experience",

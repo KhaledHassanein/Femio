@@ -1870,5 +1870,13 @@
       "heading": "La fase lútea",
       "body": "Esta fase empieza después de la ovulación. El folículo vacío produce progesterona, que ayuda a mantener el revestimiento uterino. Si no hay embarazo, la progesterona y el estrógeno bajan y comienza la siguiente regla. Algunas personas notan sensibilidad en el pecho, hinchazón, dolor de cabeza, cambios en la piel, cansancio o cambios de humor: registrar un patrón que se repite puede ser útil, pero el patrón por sí solo no confirma ningún problema de salud."
     }
+  },
+  "symptomPatterns": {
+    "heading": "Tu patrón",
+    "note": "Contado a partir de lo que registraste. Femio no lo interpreta.",
+    "onDay": "{symptom} — el día {day} de tu ciclo",
+    "onDays": "{symptom} — los días {from}–{to} de tu ciclo",
+    "evidence": "En {cycles} de tus últimos {ofCycles} ciclos",
+    "limit": "Registrar un patrón que se repite puede ser útil, pero el patrón por sí solo no confirma ningún problema de salud."
   }
 }

@@ -8,6 +8,8 @@ import { ExperienceModules } from "./module-registry";
 import { PhaseStrip } from "@/components/cycle/phase-strip";
 import { PhaseEducation } from "@/components/cycle/phase-education";
 import { phaseOnDay } from "@/lib/cycle/phases";
+import { SymptomPatternCard } from "@/components/cycle/symptom-pattern-card";
+import { symptomPatterns } from "@/lib/cycle/symptom-patterns";
 import { FlowStrip } from "@/components/cycle/flow-strip";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
@@ -49,6 +51,7 @@ export function CycleExperience({
   lastStart,
   today,
   topSymptoms,
+  symptomLogs,
   symptomLabel,
   cycleDay,
   recentPeriods,
@@ -59,6 +62,8 @@ export function CycleExperience({
   today: string;
   /** Her most-logged symptoms, already counted by tier 2 (`lib/cycle/insights`). */
   topSymptoms: readonly { type: string; count: number }[];
+  /** Dated logs, so a symptom can be placed in a cycle (R3.3.2). */
+  symptomLogs: readonly { type: string; date: string }[];
   symptomLabel: (type: string) => string;
   /** Days since the first day of her last period, from tier 2. Null with no history. */
   cycleDay: number | null;
@@ -222,6 +227,18 @@ export function CycleExperience({
   // own record* says the range moved; on two logged periods there is no movement
   // to notice, and showing it there would tell a brand-new user her pattern had
   // changed before Femio had seen a pattern at all.
+  /**
+   * Her symptoms against her own cycle (`docs/27` 3.2). Rendered beside the
+   * personal-normal card because both answer "what is usual for me" — and, like
+   * that card, nothing here grades the answer.
+   */
+  const patternCard = (
+    <SymptomPatternCard
+      patterns={symptomPatterns(symptomLogs, recentPeriods.map((p) => p.date))}
+      label={symptomLabel}
+    />
+  );
+
   const changeAwarenessCard = prediction?.irregular ? (
     <Card>
       <CardContent className="flex flex-col gap-1 p-6">
@@ -269,7 +286,12 @@ export function CycleExperience({
         config: config!,
         cycleWindow: windowCard,
         cycleVariability: variabilityCard,
-        cyclePersonalNormal: personalNormal,
+        cyclePersonalNormal: (
+          <>
+            {personalNormal}
+            {patternCard}
+          </>
+        ),
         cyclePhase: (
           <>
             {phaseCard}

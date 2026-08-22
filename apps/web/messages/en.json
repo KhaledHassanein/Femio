@@ -1860,5 +1860,13 @@
       "heading": "The luteal phase",
       "body": "This phase begins after ovulation. The empty follicle makes progesterone, which helps maintain the uterine lining. If pregnancy does not occur, progesterone and oestrogen fall and the next period begins. Some people notice breast tenderness, bloating, headaches, skin changes, tiredness or mood changes — a repeating pattern may be useful to record, but the pattern alone cannot confirm a health condition."
     }
+  },
+  "symptomPatterns": {
+    "heading": "Your pattern",
+    "note": "Counted from what you logged. Femio is not interpreting it.",
+    "onDay": "{symptom} — on day {day} of your cycle",
+    "onDays": "{symptom} — on days {from}–{to} of your cycle",
+    "evidence": "In {cycles} of your last {ofCycles} cycles",
+    "limit": "A repeating pattern may be useful to record, but the pattern alone cannot confirm a health condition."
   }
 }

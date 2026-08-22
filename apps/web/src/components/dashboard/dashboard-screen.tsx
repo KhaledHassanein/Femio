@@ -86,7 +86,9 @@ export function DashboardScreen() {
       unwrap(
         supabase
           .from("symptom_logs")
-          .select("type")
+          // `logged_at` joins R3.3.2: a symptom without its date cannot be placed
+          // in a cycle, and placing it is the whole point of the pattern card.
+          .select("type, logged_at")
           .order("logged_at", { ascending: false })
           .limit(200),
       ),
@@ -134,6 +136,10 @@ export function DashboardScreen() {
         flow: (c as { flow: string | null }).flow,
       })),
       top: topSymptoms(((symptoms ?? []) as { type: string }[]).map((s) => s.type)),
+      symptomLogs: ((symptoms ?? []) as { type: string; logged_at: string }[]).map((s) => ({
+        type: s.type,
+        date: s.logged_at.slice(0, 10),
+      })),
     };
   });
 
@@ -159,7 +165,7 @@ export function DashboardScreen() {
     );
   }
 
-  const { mode, pregnancy, starts, top, config, recentPeriods, statedCycleLength } =
+  const { mode, pregnancy, starts, top, config, recentPeriods, statedCycleLength, symptomLogs } =
     query.data;
   const stItem = st as unknown as (key: string) => string;
   const symptomLabel = (type: string) =>
@@ -301,6 +307,7 @@ export function DashboardScreen() {
         lastStart={lastStart}
         today={today}
         topSymptoms={top}
+        symptomLogs={symptomLogs}
         symptomLabel={symptomLabel}
         cycleDay={cycleDay}
         recentPeriods={recentPeriods}
