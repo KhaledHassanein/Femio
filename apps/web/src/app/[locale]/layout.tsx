@@ -78,7 +78,19 @@ export default async function LocaleLayout({ children, params }: LayoutProps) {
   return (
     <html lang={locale} dir={getDir(locale)} className={fontVars} suppressHydrationWarning>
       <body className={locale === "ar" ? "font-arabic" : "font-sans"}>
-        <NextIntlClientProvider messages={clientMessages}>
+        {/* `locale` is passed explicitly, and it is not decoration (2026-08-23).
+            Without it `useLocale()` in a client component resolves to the default
+            locale, and every client component that *branches* on the locale rather
+            than merely reading a message silently rendered the English version.
+            There is exactly one such component and it is the worst possible one:
+            `CrisisHelpProvider` calls `getCrisisContent(useLocale())`, so an Arabic
+            reader got the English crisis launcher and an LTR English dialog — the
+            copy the owner personally reviewed and approved in Arabic (ADR-063),
+            unreachable in the locale it was approved for. `/ar/help-now` was
+            correct throughout, because it is a server component, which is why this
+            survived: the page looked right and the launcher on every other page did
+            not. The two `[ar]` crisis e2e specs were failing and had been. */}
+        <NextIntlClientProvider locale={locale} messages={clientMessages}>
           <ThemeProvider attribute="data-theme" defaultTheme="system" enableSystem disableTransitionOnChange>
             <CrisisHelpProvider>{children}</CrisisHelpProvider>
           </ThemeProvider>

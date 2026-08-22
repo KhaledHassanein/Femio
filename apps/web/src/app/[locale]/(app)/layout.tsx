@@ -1,6 +1,6 @@
 import type { ReactNode } from "react";
 import { NextIntlClientProvider } from "next-intl";
-import { getMessages } from "next-intl/server";
+import { getLocale, getMessages } from "next-intl/server";
 import { pickAppClientMessages } from "@/i18n/client-namespaces";
 import { AppNav } from "@/components/app-nav";
 import { OfflineSync } from "@/components/offline-sync";
@@ -16,8 +16,12 @@ import { PageView } from "@/components/analytics/page-view";
 // the page-weight budget in e2e, not by anything in the build (P1.11.2, ADR-048).
 export default async function AppLayout({ children }: { children: ReactNode }) {
   const messages = pickAppClientMessages(await getMessages());
+  // A nested provider *replaces* the context rather than extending it, so it has to
+  // carry the locale too — otherwise it would undo the root layout's fix for every
+  // signed-in page. See the comment there for what that costs.
+  const locale = await getLocale();
   return (
-    <NextIntlClientProvider messages={messages}>
+    <NextIntlClientProvider locale={locale} messages={messages}>
       <PageView area="app" />
       <AppNav />
       <OfflineSync />
