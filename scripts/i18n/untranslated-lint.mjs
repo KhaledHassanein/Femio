@@ -49,6 +49,8 @@ const ALLOWED = {
     "experience.modes.cycle.label",
     "insights.dimensions.persona.title",
     "pregnancySymptoms.items.constipation",
+    // "Guides" is the French plural of "guide", spelled identically to English.
+    "tools.learn.label",
   ],
   es: [
     // Spelled identically in Spanish.

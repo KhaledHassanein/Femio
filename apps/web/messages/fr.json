@@ -1840,7 +1840,7 @@
     },
     "screeners": {
       "label": "Questionnaires",
-      "note": "À apporter à un clinicien — jamais un diagnostic"
+      "note": "Questionnaires de dépistage à discuter avec un clinicien"
     },
     "calculators": {
       "label": "Calculatrices",
