@@ -9,11 +9,14 @@ per session.**
 > Read `CLAUDE.md`, then this file, then `docs/07_MASTER_TODO.md` → **▶ NOW**. Skim
 > `docs/23`/`24`/`25` only if the task touches strategy, architecture or design.
 >
-> **Where things stand (2026-08-23).** The 2026-08-21 revamp is **through all six phases**. The
-> dashboard that opened it at 844px is 1440px (TTC 1646px); `/summary` works; the e2e CI exclusion
-> went from 9-of-18 to 1-of-19; 706 unit tests; all eleven guards green. `docs/26` §"Re-audit"
-> carries the before/after. **Read `docs/07_MASTER_TODO.md` → R3.6 cleanup register first** — it is
-> the single list of everything still open, grouped by *why* it is open.
+> **Where things stand (2026-08-23, second pass).** The 2026-08-21 revamp is through all six
+> phases, and the three items queued after it are done: **partner sharing is built, deployed and
+> verified end-to-end** (Phase 4.5, ADR-068); **the persona-branch ratchet is finished and its
+> baseline is empty** (R3.1.6a); and **the visit report's print output is measured rather than
+> assumed** (R3.1c.4, `scripts/dev/print-check.mjs`). 721 unit tests, eleven guards green,
+> migration 0011 applied, both Edge Functions deployed. **Read `docs/07_MASTER_TODO.md` → R3.6
+> cleanup register first** — it is the single list of everything still open, grouped by *why* it
+> is open.
 >
 > **The live workstream is the 2026-08-21 revamp.** `docs/26` is the audit — what is wrong,
 > measured, with screenshots and request logs. `docs/27` is the plan answering it, phases 0→6,
@@ -273,6 +276,24 @@ CI=1 pnpm --filter web test:e2e:ci     # after that fresh build, never before
   `Cannot find module './vendor-chunks/…'`, which reads like a dependency problem and is not.
   **Stop the dev server, then build.** Cost two separate debugging detours in one session
   because the symptom does not look like the cause.
+  - **Extended 2026-08-23, and the extension is the expensive half: a dev server can be running
+    that *this* session did not start.** One survived from an earlier session, holding :3000 for
+    the whole pass. `pnpm build` therefore hit the trap above without anyone typing `pnpm dev`,
+    and — worse — the CI e2e run silently went to that dev server instead of the built app.
+    `playwright.config.ts` sets `reuseExistingServer: !process.env.CI`, so under `CI=1` it starts
+    `pnpm start`, which cannot bind a port already taken; the config's `url` check then succeeds
+    against the squatter and the suite runs against the wrong server. It produced **forty minutes
+    of no output at all** and would have been reported as a pass or a hang, never as "you tested
+    something else". **Check the port before you build and before you run e2e** — a green e2e
+    against `next dev` proves nothing, which is the very first trap in this list:
+
+    ```powershell
+    Get-CimInstance Win32_Process -Filter "Name='node.exe'" |
+      Select-Object ProcessId, CommandLine     # look for `next dev`
+    Get-NetTCPConnection -LocalPort 3000 -State Listen
+    ```
+
+    `pkill` does not kill it (see below); `Stop-Process -Id <pid> -Force` does.
 - **Never `git add -A` in this repo.** It swept a Playwright storage-state file holding a live
   Supabase session cookie into a commit, which then needed a history rewrite and a force-push.
   Stage paths explicitly. `.seeded-state.json` and `screenshots/` are gitignored now, but the
@@ -825,51 +846,176 @@ The scoring is tier 1 because R2.7's guard forbids screener scoring in a screen 
 the file that rule was written for: two clients disagreeing about an MRS total would give one
 woman two different sentences in the same appointment.
 
+## Partner sharing exists, and building it deleted an RLS policy (Phase 4.5, 2026-08-23)
+
+`partner_links` was the seventh table shipped empty in schema v1. It now holds real data, reused
+rather than replaced — v1 already carried the exact shape the design asked for, and a second
+`partner_shares` table beside it would have been a second mechanism where the house pattern is one
+revocable ledger.
+
+**The reasoning is in `docs/compliance/PARTNER_SHARING_DESIGN.md` and ADR-068. Three things are
+worth carrying forward without opening either.**
+
+**The checkboxes are not the feature.** Seven categories, all off, no "share everything" shortcut,
+six-month term. That part is ordinary. What makes it safe is that a **withheld category is absent
+from the payload** rather than present-and-empty — his view is byte-identical to one in which Femio
+has no symptom log at all — and that **revocation is silent**, so a revoked share, an expired one
+and one that never existed produce the same response. Both properties are invisible in a screenshot
+and both are the reason the feature is worth having.
+
+**Building it required dropping `partner_links_select_involved`.** The v1 policy let the recipient
+read the row naming him, "so they know their scope". That row carries `scope_json` — *the list of
+what she concealed* — and `revoked_at`, which makes her revocation observable. It broke §2 and §3
+of the design in one line of SQL written before either risk had a name. **If a future session sees
+`partner_links` with no recipient SELECT policy, that is not an omission.** It is the feature, and
+ADR-068 exists so nobody re-adds it.
+
+**`partner-view` holds the service role and `experience` still must not.** A partner granted
+`nextPeriod` and not `cycleDates` is entitled to a window derived from dates he may not see, and no
+browser can hold that distinction. The Edge Function derives it with the same tier-2 modules the
+dashboard uses. The three alternatives — filter client-side, re-derive in PL/pgSQL, or forbid the
+combination — are compared in ADR-068 and each is worse.
+
+**Verified against the live project, not locally** — `scripts/dev/partner-sharing-check.mjs`, and
+it is committed so the check is repeatable rather than a claim in a handover. 20 assertions, three
+real anonymous accounts, publishable key only, including that a `screenerResults` key is rejected by Postgres,
+that `partner_shared_rows` returns 403 to an authenticated browser, that a code cannot be redeemed
+twice, that an unknown age is treated as a minor, and that a revoked share returns JSON identical
+to a stranger's. The accounts were deleted afterwards.
+
+**Launch is still gated and never was on code:** `docs/13` §5 disclosures, and DPO sign-off on the
+Art. 9(2)(a) wording. Femio has no DPO appointed (P0.12).
+
+## The persona-branch ratchet is finished (R3.1.6a, 2026-08-23)
+
+`MODE_BASELINE` in `persona-branch-lint.mjs` is **empty**. `dashboard-screen.tsx` was the last
+entry and it has no `mode ===` left.
+
+The four life-stage mounts did not become registry rows. Each screen now reads **`config.track`**
+from the served document and decides for itself whether it has anything to draw — the same shape
+`TtcExperience` has used since R1.9c. That is the point rather than a shortcut: `mode` was
+`modeFromTrack(persona_state.track)`, a second answer computed in the browser, independent of the
+document the screen was actually rendering. The two agreed; having two of them is what ADR-061
+removes. The fifth branch — the pregnancy row read, gated on `mode === "pregnancy"` — went the same
+way, so the browser and tier 1 can no longer disagree about who she is.
+
+**Watching the guard fail first found a hole in the guard.** Injecting `mode === "teen"` and
+running `persona-branch-lint` produced a **pass**: the `mode-branch` alternation listed
+cycle/ttc/pregnancy/postpartum/menopause/general and never grew a `teen` when Track A arrived. So
+the one branch the guard was explicitly waiting to see removed was the one it could not see. Fixed
+in the same change, and re-verified by injection in both directions. This is the whole of
+"Verification honesty" in one incident: the guard had been reported green for weeks while blind to
+a member of its own enum.
+
+## The visit report did NOT survive a print, in either theme (R3.1c.4, 2026-08-23)
+
+The register listed this as "verified by hand, not by machine". It had never been verified either
+way, and both themes were broken.
+
+`scripts/dev/print-check.mjs` drives a seeded account to `/summary`, switches to `print` media and
+measures the derived section — the dashed box separating what Femio estimated from what she logged
+— compositing every alpha layer down to the paper first. What it found:
+
+- **Printing from dark mode lost the heading.** "Worked out by Femio" is `--color-text`, near-white
+  under `[data-theme="dark"]`, printed onto the white page `globals.css` forces. **1.12:1.**
+- **Printing from light mode lost the dashed border.** `--color-border` is a pale lilac tuned
+  against an app surface, not against paper. **1.26:1.**
+
+Both erase the same thing: the boundary between what she recorded and what Femio derived, which is
+the one distinction R3.1c built the section to make. A clinician who cannot tell an estimate from an
+observation is reading a document that launders a prediction into a medical record.
+
+**The cause was scope.** The `@media print` block forced `background` and `color` on `body` and
+stopped. Both are inherited properties — so every descendant carrying its own token colour, which
+is every heading, muted line and border in the report, kept it. The fix gives the printed document
+a small explicit palette instead of the theme's: two text levels and a border grey at 4.54:1. Both
+themes now measure 4.54:1 on the border and 18.88:1 on the heading.
+
+**The tool was wrong before the product was.** The first run failed all fourteen assertions, which
+would have read as "the derived section does not survive a print" — a defect that does not exist.
+`page.evaluate` treats a **string** first argument as an *expression*, not a function body, so the
+selector was never passed and every measurement came back `undefined`. Ninth measurement artifact
+in this workstream; caught by dumping the DOM before believing the result, which is now the habit
+that has caught most of them.
+
+## Arabic readers were getting the English crisis dialog, and had been (2026-08-23)
+
+Found by running the full e2e suite, which is the only reason it was found: the two `[ar]` crisis
+specs were **failing on `main` and in production**, and the last handover recorded the suite as
+green.
+
+**What was wrong.** `NextIntlClientProvider` in the locale layout was mounted without a `locale`
+prop. Messages were passed, so every client component reading a *message* rendered correct Arabic
+and the app looked entirely fine. `useLocale()`, though, resolved to the default locale — and there
+is exactly one client component that **branches** on the locale rather than reading a message:
+`CrisisHelpProvider` calls `getCrisisContent(useLocale())`. So the launcher on every page rendered
+`Need help now?` in a `lang="en"` span and the dialog opened in English, LTR — the copy the owner
+personally reviewed and approved in Arabic (ADR-063), unreachable in the locale it was approved for.
+
+**Why it survived.** `/ar/help-now` is a *server* component and was correct throughout. The page
+you would check by hand was right; the launcher on every other page was not.
+
+**The fix is `locale={locale}` on both providers** — the root layout and the `(app)` one, since a
+nested provider replaces the context rather than extending it and would otherwise undo the fix for
+every signed-in page.
+
+**The reusable part.** `crisis-lint` passed the whole time, and correctly: the copy is approved, in
+date, and in key parity. It checks the *content*, and the defect was in whether the content was
+ever reached. Two guards can both be green either side of a gap. And a first pass at diagnosing
+this produced a **false** reading — `curl | python -c "'<arabic>' in html"` compares against a
+literal the shell has already mangled, which reported production as broken in a way it was not and
+the built output as broken in a way it was not either. **Read the expected Arabic from the catalog
+file; never type it into a command line.** That is the eighth measurement artifact here and the
+second caused specifically by Arabic in a console.
+
 ## First action for the next session
 
-> ### ▶ Checkpoint — 2026-08-19, end of session
+> ### ▶ Checkpoint — 2026-08-23, end of session
 >
-> **Tree clean, `main` pushed at `ec0d7be`, no `wip/` branch.** Everything below this box is
-> *why*; this box is *what next*.
+> **No `wip/` branch. Everything below this box is *why*; this box is *what next*.**
 >
-> **What closed today, so nobody re-opens it:**
-> - **Content is finished as a workstream.** All 105 articles are published — the library went
->   from 26 to 105 in one action. Owner direction: *"we are not bloggers or journalists… from the
->   next prompt we are only developers."* **Do not write another article** to fill a
->   `NO_ARTICLE_YET` entry; eight topics stay listed and a test keeps them listed.
-> - **Every track renders from the served document** (R1.9a–e). No screen composes itself. Seven
->   `mode ===` branches came out, the last hand-written dashboard is gone, and Tracks B, C and F
->   joined A, D and E.
-> - **Every track has a registry** (R2.11), and the log screen renders `tools` (R2.10).
+> **What closed today:**
+> - **Partner sharing (Phase 4.5, ADR-068)** — built, migration 0011 applied, `partner-view` and
+>   `experience` both deployed, verified end to end against the live project with
+>   `scripts/dev/partner-sharing-check.mjs`. Launch is still gated on `docs/13` §5 and DPO
+>   sign-off, and never was on code.
+> - **R3.1.6a** — the persona-branch ratchet is finished; `MODE_BASELINE` is empty. The guard was
+>   blind to `mode === "teen"` and now is not.
+> - **R3.1c.4** — the visit report's print output is measured by `scripts/dev/print-check.mjs`,
+>   and it was **broken in both themes**: the derived heading at 1.12:1 printing from dark, the
+>   dashed border at 1.26:1 printing from light. Fixed; both now 4.54:1 and 18.88:1.
+> - **Arabic readers were getting the English crisis dialog on every page, and had been** — one
+>   missing `locale` prop on `NextIntlClientProvider`. Found only by running the full e2e suite,
+>   which was **not** green despite the last handover saying so.
 >
 > **Do next, in order:**
 > 1. `git branch --list "wip/*"` — expect nothing.
-> 2. **P2.5, the pattern engine.** It is the stated differentiator (`docs/03` §H.3 — *"the one
->    feature I would actually pay for, gated"*), the only R4 item with revenue attached, and the
->    first thing in months that is a genuinely new capability rather than a rewiring. Timing,
->    severity and co-occurrence, confidence-scored — and it is tier 1 by construction, because a
->    pattern is a medical inference and `docs/24` §5 puts those on the server.
-> 3. **The remaining module surfaces**, if a smaller pass is wanted: `cycle.phase`,
->    `cycle.flowStrip`, `cycle.changeAwareness`, `menopause.pmb`, `menopause.longTerm`,
->    `medications`, `gsm`. All listed in `UNIMPLEMENTED`, none of them a branch — each is now a
->    component plus one registry line, which is what the last week bought.
-> 4. Run the full gate before every push. Never end a turn with a dirty tree.
+> 2. **Check nothing is squatting on :3000 before you build or run e2e.** A stale `next dev` from
+>    an earlier session cost this one a forty-minute e2e run against the wrong server. The
+>    extended trap entry has the two commands.
+> 3. **Run the full e2e suite before believing a handover that says it is green.** This one said
+>    so and two `[ar]` crisis specs were failing, in production, on the highest-stakes copy in the
+>    product.
+> 4. **P2.5, the pattern engine.** Unchanged as the highest-value open item: the stated
+>    differentiator (`docs/03` §H.3), the only R4 item with revenue attached, and tier 1 by
+>    construction because a pattern is a medical inference.
+> 5. **The remaining module surfaces**, for a smaller pass: `cycle.phase`, `cycle.flowStrip`,
+>    `cycle.changeAwareness`, `menopause.pmb`, `menopause.longTerm`, `medications`, `gsm`. Each is
+>    a component plus one registry line.
+> 6. **R3.6's open register** — `docs/07_MASTER_TODO.md`. What is left there is B10 (parked to
+>    1 September), the two owner decisions (B12, Arabic digits), the deliberate cycle-average
+>    disagreement, and the thin TTC/pregnancy screens (R3.4.1).
 >
 > **Waiting on the owner — nothing blocks the build:**
-> - **The beta.** `NEXT_PUBLIC_BETA_INVITE_CODE` in Vercel turns on the signup gate that B4 built
->   (P0.12.5), and then P1.24 — 20–50 real users. **Everything above item 2 is still guesswork
->   about what women want, because nobody outside this repo has used it.** That has been true for
->   weeks and it is the single highest-information action available.
-> - ~~Owner task 5 — re-deploy the experience Edge Function.~~ **Done 2026-08-19**, verified 401
->   unauthed. It serves the `ended_on` read (migration 0009), so the server and the local fallback
->   agree. **The trigger for the next one is a change under `lib/persona/` or `lib/experience/`,
->   not a date** — and the tell that it is overdue is the served document disagreeing with the
->   fallback for a case the tests already cover.
-> - **`MANUAL_TEST_PLAN.md`** — T8, T10–T25 have never been looked at by anyone. Now that the
->   content gate is cleared, these are craft and clinical judgement, not approvals.
+> - **The beta.** `NEXT_PUBLIC_BETA_INVITE_CODE` in Vercel turns on the signup gate (P0.12.5),
+>   then P1.24. Still the single highest-information action available, and still true that nobody
+>   outside this repo has used any of it.
+> - **`MANUAL_TEST_PLAN.md`** — T8, T10–T25 unseen, plus **T26 and T27** added today. T26 is the
+>   one worth his time: whether the partner view *reads* as safe is the one property no automated
+>   check can reach, and it is the property the whole feature rests on.
 >
-> **Working rule, verbatim:** *"I do not want to read anything unless you need my input."*
-> No end-of-turn summaries. Several queue items per pass.
+> **Working rule, verbatim:** *"I do not want to read anything unless you need my input."* No
+> end-of-turn summaries. Several queue items per pass.
 
 **No `wip/` branch is open** — 2026-08-16 ended between items, with everything gated, committed
 and pushed. If that line ever says otherwise, finish the named branch before starting anything

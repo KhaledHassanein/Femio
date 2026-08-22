@@ -1,6 +1,6 @@
 # Partner sharing — the consent design (recommendation)
 
-Status: **scope APPROVED by owner 2026-08-23** · DPIA updated the same day · Owner: Khaled + DPO · For `docs/27` phase 4.5
+Status: **BUILT 2026-08-23** (ADR-068) · scope approved by owner the same day · DPIA updated the same day · Owner: Khaled + DPO · `docs/27` phase 4.5
 Ties to `docs/13` §5–6, `DPIA.md`, `PROCESSOR_REGISTER.md`, product rules 1, 2 and 4
 
 The owner's instinct — *"the main user has the right to give full access or restricted, like
@@ -134,3 +134,35 @@ named recipient with an account can be cut off, and revocation is meaningless wi
 
 **Building may now proceed.** What may not proceed without 3 and 4 is *launching* it to real users —
 the same line `docs/13` already draws for every other processing activity.
+
+---
+
+## What was built, 2026-08-23 (ADR-068)
+
+Every recommendation above is implemented, on **`partner_links`** rather than a new
+`partner_shares` table — v1 already ships that table, empty, carrying exactly the shape asked for
+here (an owner, a named recipient, a scope, a revocation stamp), and the house pattern is one
+revocable ledger rather than two. Three recommendations turned out to need to be *structure* rather
+than copy, and those are the ones worth knowing about:
+
+- **§4 is a database constraint.** `partner_links.scope_json` carries a CHECK that every key names
+  a shareable category, so an insert naming `screenerResults` is rejected by Postgres whatever the
+  client believes it is doing. `ShareCategory` in `lib/partner/index.ts` cannot express those three
+  ids either. The absence of a checkbox is the protection, and a checkbox is a UI — a UI is one
+  refactor from changing.
+- **§2 and §3 required deleting something.** Schema v1 shipped an RLS policy letting the recipient
+  read the link row naming him, "so they know their scope". That row carries `scope_json` — *the
+  list of what she concealed* — and `revoked_at`, which makes her revocation observable. Both
+  sections of this document, broken by one line of SQL written before either risk had a name. The
+  policy is gone; the recipient selects nothing and reaches everything through a curated function.
+- **`nextPeriod` without `cycleDates` forced the derivation onto the server.** He is entitled to a
+  window and not to the dates it comes from, and no browser can hold that distinction. The
+  `partner-view` Edge Function derives it with the same tier-2 modules her own dashboard uses, then
+  serialises only the granted categories. See ADR-068 for why the three alternatives were worse.
+
+**Verified end-to-end against the live project**, three real anonymous accounts, publishable key
+only, 20 assertions — including that a withheld category is absent from the payload rather than
+empty, that a revoked share returns byte-identical JSON to a stranger's, that an unknown age is
+treated as a minor, and that a code cannot be redeemed twice. The accounts were deleted afterwards.
+
+**Gates 3 and 4 are unchanged and still open.** Nothing here launches without them.

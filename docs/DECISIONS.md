@@ -300,3 +300,76 @@ two possible subjects is not a contradiction, it is a parse.
 This is the seventh misreading in this workstream and the same shape as the other six: confident
 analysis of something I had measured or read wrongly. The pattern is not in the product.
 
+
+## ADR-068
+
+**A partner sees a curated server-rendered view, and the v1 RLS policy that would have shown him
+her scope is removed.**
+
+Date: 2026-08-23 · Owner: Khaled · Status: accepted · Related: `docs/compliance/PARTNER_SHARING_DESIGN.md`,
+`DPIA.md` §3–§4, ADR-060, migration `0011_partner_sharing.sql`, `docs/27` phase 4.5
+
+### Context
+
+Partner sharing was scope-approved on 2026-08-23 with a design whose three load-bearing decisions
+are not the checkboxes: revocation must be **silent**, a withheld category must be **invisible
+rather than marked withheld**, and the highest-harm categories must have **no checkbox at all**.
+Building it turned two of those from copy into architecture, and each cut against something the
+repo already did.
+
+### Decision 1 — the v1 `partner_links` SELECT policy is dropped
+
+Schema v1 shipped `partner_links_select_involved`, which let **the recipient read the row naming
+him**, with the stated intent "so they know their scope". Under the design that policy is the
+single worst thing in the feature: the row carries `scope_json`, which is *the list of what she
+chose to conceal*, and `revoked_at`, which makes her revocation observable. It is §2 and §3 of
+the design broken by one line of SQL written before either risk had a name.
+
+It is replaced by an owner-only policy. The recipient now selects nothing at all; everything he
+sees arrives through a curated function.
+
+**Recording this because it is the accident-reversible case.** A future session reading
+`partner_links` with no recipient policy will see an omission and be tempted to add one back. It
+is not an omission. It is the feature.
+
+### Decision 2 — `partner-view` holds the service role, and `experience` still must not
+
+`experience`'s header states the principle plainly: no service-role key, the caller's own JWT,
+RLS stays the security boundary. `partner-view` breaks it, deliberately and in exactly one place.
+
+The forcing case is a partner granted `nextPeriod` and not `cycleDates`. He is entitled to a
+predicted window and not to the start dates it is derived from — and there is nowhere in his
+browser that can hold that distinction, because whatever the client is sent, the client's owner
+can read. The three alternatives were each worse:
+
+- **Return the starts and filter client-side** — the leak the design exists to prevent.
+- **Derive the window in PL/pgSQL** — a third implementation of cycle prediction, bound by no
+  golden fixture, free to disagree with both clients about a woman's body.
+- **Refuse `nextPeriod` without `cycleDates`** — granularity removed to protect a boundary, which
+  is the opposite of the point.
+
+So: one function, one privileged call (`partner_shared_rows`), and the recipient id passed as an
+argument after being proved against his own JWT with the anon client first. The service key never
+touches a table and never sees an id the caller did not prove. `experience` is unchanged and the
+principle still holds everywhere it can.
+
+### Decision 3 — the never-shareable class is a database constraint, not a UI absence
+
+The design says the protection *is* the missing checkbox. A missing checkbox is a UI, and a UI is
+one refactor from changing, so `partner_links.scope_json` now carries a CHECK that every key names
+a shareable category. An insert naming `screenerResults` is rejected by Postgres whatever the
+client believes it is doing. `ShareCategory` cannot express those three ids either, so there is no
+type that could carry one to the database in the first place.
+
+### Consequences
+
+- `partner_links` is the seventh v1 table to hold real data, and it is reused rather than joined by
+  a second `partner_shares` table — the house pattern is one revocable ledger, not two.
+- Grants are time-boxed: 14 days for an unredeemed invite code, six months from redemption.
+- Verified end-to-end against the deployed project on 2026-08-23 with three real anonymous
+  accounts and the publishable key only — 20 assertions, including that a withheld category is
+  absent from the payload rather than empty, that a revoked share returns byte-identical JSON to a
+  stranger's, and that an unknown age is treated as a minor. The accounts were deleted afterwards.
+- **Not yet cleared for launch**, and code was never the gate: `docs/13` §5 needs a disclosures
+  section and the Art. 9(2)(a) wording needs DPO sign-off. Femio has no DPO appointed, which is a
+  P0.12 dependency.

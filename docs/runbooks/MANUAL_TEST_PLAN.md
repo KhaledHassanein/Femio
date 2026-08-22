@@ -35,6 +35,47 @@ first-class market, not a locale toggle.
 
 ## ▶ After the latest changes (2026-08-16)
 
+### T26 · Partner sharing (Phase 4.5) — the copy is the safety feature here
+**Settings → Sharing with a partner**, or the Tools tab. Needs **two accounts**: use a private
+window for the second one.
+
+The machine has already proved the hard parts — a withheld category is absent from the payload
+rather than empty, a revoked share returns byte-identical JSON to a stranger's, an unknown age is
+refused. What no test can judge is whether the screen *reads* as safe to a woman who has a reason
+to be careful. That is this check.
+
+- [ ] Tick only **when your next period is expected**. Create the code, redeem it on the second
+      account, and open **Shared with you**. Confirm with your own eyes that the page contains
+      **no trace of the six things you did not share** — no "hidden", no empty section, no greyed
+      row, no "1 of 7". It should read like an app that only ever had this one feature. *This is
+      the single most important thing on this list, and it is invisible to every automated check.*
+- [ ] Read the "some things can never be shared" paragraph. Could she point at it and say to
+      someone, truthfully, *"the app doesn't offer that"*? If it reads like a Femio policy rather
+      than a fact about the product, it is not doing its job.
+- [ ] Tap **Stop sharing**. It goes immediately, with no "are you sure". Confirm nothing on the
+      second account announces it — reload and it is simply empty. Then decide whether one tap is
+      right: a mis-tap costs her a new invite, and a confirmation step costs her the seconds
+      someone reading over her shoulder needs.
+- [ ] Read the seven category labels and their notes. They are the sentences she will be argued
+      with about. **Arabic especially** — the whole namespace is new and unread.
+- [ ] Check there is genuinely no "share everything" control anywhere on the screen, and decide
+      whether you still agree with that after seeing it. Seven taps is the friction; the friction
+      is the feature.
+- [ ] At 390×844, light and dark, English and Arabic.
+
+### T27 · The visit report as an actual PDF (R3.1c.4)
+**Settings → Doctor-visit summary → Print**, then "Save as PDF".
+
+`scripts/dev/print-check.mjs` now measures this in light and dark and writes the PDFs. What it
+cannot judge is whether the printed page is a document a clinician would accept.
+
+- [ ] Print it **from dark mode**. That is where a failure would be: the print stylesheet forces a
+      white page, and dark-theme text colours on white paper is how this breaks silently.
+- [ ] Confirm the **derived** section — the dashed box — is still clearly separated from what you
+      logged. A clinician has to tell an estimate from an observation at a glance; if the two blur
+      on paper, the report launders a prediction into a medical record.
+- [ ] Check nothing important lands across a page break.
+
 ### T1 · The new homepage (R1.3)
 `femioapp.com/en`, then `/ar`.
 

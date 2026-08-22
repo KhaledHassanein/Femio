@@ -178,9 +178,26 @@ stashes, typecheck clean, 692 tests passing, **all eleven guards passing**, prod
 
 ### Verified by hand, not by machine
 
-- **R3.1c.4 · PDF print output.** `window.print()` works and keeps health data on-device, which is
-  why it was chosen. **Not verified:** whether the visit report's derived section — its dashed
-  border and its heading — survives an actual print to PDF. Needs a real print, not an assumption.
+- [x] **R3.1c.4 · PDF print output** (2026-08-23). Measured rather than assumed, by
+  `scripts/dev/print-check.mjs`, and **it did not survive — in either theme.** Printing from dark
+  mode put the derived heading at **1.12:1** on the forced white page; printing from light mode put
+  the dashed border at **1.26:1**. Both erased the boundary between what she logged and what Femio
+  derived, which is the only thing that section exists for. The `@media print` block forced
+  `background` and `color` on `body` and stopped — both are inherited, so every descendant with its
+  own token colour kept it. The printed document now carries a small explicit palette: two text
+  levels and a border grey at 4.54:1. Both themes now measure 4.54:1 and 18.88:1. **The tool failed
+  before the product did** — `page.evaluate` treats a string first argument as an expression, so the
+  first run's fourteen failures were all `undefined`; ninth measurement artifact, caught by dumping
+  the DOM first.
+
+- [x] **The Arabic crisis dialog was English, on every page, in production** (2026-08-23). Found by
+  running the full e2e suite — the two `[ar]` crisis specs were failing and the previous handover
+  recorded the suite as green. `NextIntlClientProvider` was mounted without a `locale` prop, so
+  `useLocale()` resolved to the default; every client component reading a *message* was fine, and
+  the one that **branches** on the locale — `CrisisHelpProvider` → `getCrisisContent` — served the
+  English fallback in a `lang="en"` span, LTR. `/ar/help-now` is a server component and was always
+  correct, which is exactly why nobody saw it. `crisis-lint` was green throughout and was right to
+  be: it checks whether the copy is approved, not whether it is reached.
 
 ### Known disagreements, deliberately not unified
 
@@ -191,9 +208,14 @@ stashes, typecheck clean, 692 tests passing, **all eleven guards passing**, prod
 
 ### Architecture debt with a named owner-decision
 
-- **R3.1.6a · The four life-stage mounts.** `dashboard-screen.tsx` stays on the persona-branch
-  baseline until teen/pregnancy/postpartum/menopause become registry rows. The ratchet only
-  shrinks; this is the last entry on it.
+- [x] **R3.1.6a · The four life-stage mounts** (2026-08-23). **The persona-branch baseline is now
+  empty and the ratchet is finished.** They did not become registry rows: each screen reads
+  `config.track` from the served document and decides for itself whether it has anything to draw,
+  which is tier 1's answer instead of a second client-side one derived from `persona_state`. The
+  fifth branch — a pregnancy read gated on `mode === "pregnancy"` — went the same way. Watching the
+  guard fail first found a hole in it: the `mode-branch` alternation never contained `teen`, so
+  `mode === "teen"` — one of the four mounts it was explicitly waiting on — was invisible to it.
+  Fixed in the same change.
 - **`vitals` is still unused**, as `CLAUDE.md` has said since Phase 1.
 
 - [x] **R3.5.4** Dark mode and Arabic RTL verified (2026-08-22). Seeded dashboard at 390×844 in
@@ -215,7 +237,7 @@ stashes, typecheck clean, 692 tests passing, **all eleven guards passing**, prod
 
 ### Open product gaps, ranked
 
-- **Phase 4.5 · Partner sharing — ✅ scope approved and DPIA updated 2026-08-23; buildable.** Design: `compliance/PARTNER_SHARING_DESIGN.md`. Per-category opt-in, **no one-tap "share everything"**, time-boxed at 6 months, account-based rather than link-based, minors excluded (unknown age counts as a minor), and three categories never offered at all — screener results, the crisis surface, free-text appointment questions. Two design points matter more than the checkboxes: revocation is **silent**, and a withheld category is **invisible rather than marked withheld** — otherwise granular sharing hands a coercive partner a list of what she concealed. `DPIA.md` now carries **coercion** as a named risk class in §3 with six mitigations in §4. **Still needed before launch, not before code:** a disclosures section in `docs/13` §5, and DPO sign-off on the Art. 9(2)(a) wording — Femio has no DPO appointed, which is a P0.12 dependency.
+- [x] **Phase 4.5 · Partner sharing** (2026-08-23, ADR-068). Built, deployed and verified end-to-end against the live project: 20 assertions with three real anonymous accounts and the publishable key only, including that a withheld category is **absent** from the payload rather than empty, that a revoked share returns byte-identical JSON to a stranger's, and that an unknown age counts as a minor. `partner_links` is the seventh v1 table to hold real data — reused, not joined by a second table. Three things became architecture rather than copy: the never-shareable class is a **CHECK constraint** (`screenerResults` is rejected by Postgres, not merely absent from the UI); the v1 `partner_links_select_involved` **policy was dropped**, because it showed the recipient `scope_json` — the list of what she concealed — and `revoked_at`, which made her revocation observable; and `partner-view` derives the window server-side so `nextPeriod` can be granted without `cycleDates`. Migration 0011 applied, both Edge Functions deployed. **Launch still gated on `docs/13` §5 disclosures and DPO sign-off — never on code.**
 
 - **R3.4.1 · TTC (944px/22 nodes) and pregnancy (855px/19)** are the thin screens. Phase 4.
 - **R3.5.2 · Arabic mixes Western and Arabic-Indic digits.** A locale decision for Phase 5.
