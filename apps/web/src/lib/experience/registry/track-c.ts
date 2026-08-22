@@ -35,6 +35,27 @@ const C1: PersonaRecord = {
       { id: "ttc.window", emphasis: "hero" },
       { id: "ttc.logSummary", emphasis: "primary" },
       { id: "quickLog", emphasis: "primary" },
+      /**
+       * The cycle modules, because **a woman trying to conceive is still cycling**
+       * (R3.4.1).
+       *
+       * C1's home was a fertile-window hero and three links, and it measured 844px
+       * against 1441–3707 everywhere else — the emptiest screen Femio shipped, for
+       * the highest-intent segment in the category. The cause was not a missing
+       * feature: `cycle.phase`, `cycle.flowStrip` and the rest already existed and
+       * Track C simply did not ask for them.
+       *
+       * That is product rule 2 failing in the direction it warns about. Her stage
+       * is supposed to change what *leads*; here it removed surfaces she still has
+       * every use for. Where she is in her cycle and what her bleeding looked like
+       * are more relevant when trying to conceive, not less.
+       *
+       * They sit below the fertile window rather than replacing it: the window is
+       * still what she opens the app for.
+       */
+      { id: "cycle.phase", emphasis: "primary" },
+      { id: "cycle.flowStrip", emphasis: "secondary" },
+      { id: "cycle.personalNormal", emphasis: "secondary" },
       { id: "library", emphasis: "secondary" },
     ],
   },

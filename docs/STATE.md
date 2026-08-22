@@ -227,6 +227,16 @@ CI=1 pnpm --filter web test:e2e:ci     # after that fresh build, never before
   — the row where `Local` has a version and `Remote` is blank is the whole problem — and confirm
   by probing for the artifact the migration creates before touching either command (B11).
 - **Windows:** `pkill` does not kill `next start`; kill by port.
+- **A registry change is inert until the Edge Function is deployed.** `experience/index.ts`
+  imports `PERSONA_RECORDS` straight from `apps/web/src`, and the function is tier-1 *authority* —
+  the local computation is only a fallback for when it has not been deployed. So editing
+  `lib/experience/registry/*` and testing locally proves nothing about what a user is served:
+  Track C gained the cycle modules and the dashboard measured **exactly the same 844px** until
+  `npx supabase functions deploy experience` ran, at which point it became 1646px. Worse, R3.1.6
+  had shipped `track-z.ts` *and deleted the hardcoded branch that compensated for its absence*
+  without a deploy — leaving the fallback persona thinner in production than before the fix, for
+  as long as that gap lasted. **Deploy the function in the same pass as any registry change, and
+  measure after, not before.**
 - **Run the whole guard set, not the three you remember.** `pnpm typecheck && pnpm test` plus
   *every* `*-lint` script. Adding UI copy across a long session and checking only persona-branch,
   tier-1 and client-i18n let two failures sit in a clean tree until a full sweep found them:
