@@ -453,3 +453,44 @@ is the tool and `push` is the trap — `push` is for SQL that has not run, `repa
 has. Confirm which situation you are in by probing for the artifact (a table, column or function)
 before touching either.
 
+
+---
+
+## B12 · 🔴 OPEN 2026-08-22 — two design decisions contradict each other about the in-app hero
+
+`docs/26` flagged "a saturated purple hero against a hot-pink CTA" as a design defect. Trying to
+fix it surfaced that the rule is not ambiguous — **there are two rules, and they disagree.**
+
+**ADR-051 (2026-08-07)** introduced the gradient hero *into the signed-in dashboard*, as the fix
+for your own "the design is from first look AI generated" verdict. Its (b) and (d) are explicit:
+the dashboard leads with one answer carried by a hero, and *"heroes use `--gradient-hero-*`; the
+decorative gradients never carry text."* Three AA-safe hero gradients were added specifically so a
+hero could carry small copy.
+
+**`docs/25` §5a (2026-08-09)**, two days later, says the opposite: *"`--gradient-hero-*` marks the
+answer and is **never used inside the signed-in app**, which stays calm."*
+
+The app currently follows ADR-051 — six components render `HeroCard` with a gradient. §5a is the
+later decision and would remove all six.
+
+**Not resolved here, deliberately.** This is precisely the ADR bar: a decision that cost something
+and that a future session could reverse by accident. I would be reversing ADR-051 — a workstream
+you commissioned in response to a specific complaint — on the strength of one line written two days
+afterwards, with no ADR recording the change of mind. Picking either one silently is the failure
+mode the bar exists to prevent.
+
+**What is not in question:** the raspberry CTA is correct either way. §5a's "one accent element per
+view, and it is the primary action" is satisfied — `Log today` is the only accent on the dashboard.
+So the audit's "clash" is really *one* question: does the signed-in app keep its gradient hero?
+
+**Your call, and it needs one line either way:**
+
+- **Keep ADR-051** — the hero stays; `docs/25` §5a is amended to say hero gradients are for the
+  *answer* card wherever it appears, in-app included. Cheapest, and consistent with what shipped.
+- **Follow §5a** — the six heroes become calm surfaces (`--surface` + `shadow-md`, no gradient),
+  and an ADR records that ADR-051(d) is superseded. More restrained; closer to Clue.
+
+Either way the losing decision gets an ADR, so the next session inherits one rule instead of two.
+
+**What this blocks:** Phase 5.1 only. Everything else in Phase 5 — dark mode, RTL, iconography,
+inclusive copy — proceeds independently.

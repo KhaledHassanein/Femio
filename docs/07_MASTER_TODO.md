@@ -196,6 +196,16 @@ stashes, typecheck clean, 692 tests passing, **all eleven guards passing**, prod
   shrinks; this is the last entry on it.
 - **`vitals` is still unused**, as `CLAUDE.md` has said since Phase 1.
 
+### Open, and needing an owner decision
+
+- **B12 · The in-app hero gradient.** ADR-051 (2026-08-07) put the gradient hero *into* the
+  dashboard as the fix for the "AI generated" verdict; `docs/25` §5a (2026-08-09) says hero
+  gradients are never used inside the signed-in app. The app follows ADR-051; §5a is later. This
+  is the audit's "accent clash" — and the raspberry CTA is correct either way, so the only real
+  question is whether the hero keeps its gradient. Blocks Phase 5.1 and nothing else.
+- **R3.5.2 · Arabic digits.** Western for dates, Arabic-Indic for age bands. A locale call:
+  Arabic-Indic is standard in Egypt and the Gulf, Western in the Maghreb.
+
 ### Open product gaps, ranked
 
 - **Phase 4.5 · Partner sharing.** The only Phase 4 item that was never about emptiness, and the
