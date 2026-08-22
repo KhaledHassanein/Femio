@@ -618,3 +618,53 @@ hardcoding an adult one, so the coherence lives in the tool instead of in whoeve
 The broader rule now sits in `STATE.md`: **before reporting an empty screen as a product defect,
 prove the persona resolved.** The badge in the header says which one she got, and it is one line
 to check.
+
+---
+
+# Checkpoint 3 — after the insight engine
+
+All personas re-measured with coherent ages, and populated where a persona needs data to have
+anything to say.
+
+| Persona | Audit opened (§5) | Checkpoint 1 | **Now** | nodes |
+|---|---|---|---|---|
+| Postpartum | not measured | 3707 | 3707 | 101 |
+| Menopause | 844 *(artifact)* | 3238 | **3593** | 143 |
+| Pregnancy *(due date entered)* | 844 *(artifact)* | 855 *(setup state)* | **1541** | 51 |
+| Teen | not measured | 1501 | 1501 | 35 |
+| Cycle *(4 logged cycles)* | **844** | 930 | **1440** | 85 |
+| **TTC** *(4 logged cycles)* | 844 | 844 | **844** | **17** |
+
+## A fourth measurement correction — caught before publishing this time
+
+Checkpoint 1 recorded **pregnancy at 855px / 19 nodes** and R3.4.1 named it one of the two thin
+screens. It is not. That measurement was of the pregnancy **setup state** — the screen that says
+*"Enter your due date to see how far along you are"*, which is a correct and actionable first run,
+not an empty persona. With a due date entered it renders **1541px / 51 nodes**: trimester, week and
+day, days to go, the full-term date, and the note that these are estimates from the date she gave.
+
+This is the same error as R3.4.0 in a new costume — measuring a persona that has nothing to work
+with and reporting the emptiness as a product defect. The rule in `STATE.md` caught it: the badge
+said "Pregnancy", so the persona *had* resolved, which meant the thinness had to be explained by
+data rather than by routing. **R3.4.1 is narrowed to TTC alone.**
+
+## The one screen that is genuinely thin
+
+**TTC: 844px, 17 nodes, with four cycles logged.** Every other persona is between 1441 and 3707.
+It is not a setup state and not a routing failure — it renders its estimated fertile window and
+then stops. This is the highest-intent, highest-willingness-to-pay segment in the category, and it
+is the emptiest thing Femio ships. **Phase 4 is TTC, and only TTC.**
+
+## What Phase 3 moved
+
+Cycle went **930 → 1440px** and 72 → 85 nodes, and every pixel of the increase is her own data or
+cited education: the phase she is in explained in the reviewed article's words, her symptoms read
+back against her own cycle, a summary of the cycle that just ended, and — for an irregular cycle —
+the range her cycles actually ran, which is the wedge neither incumbent serves.
+
+Menopause rose 3238 → 3593 without being touched directly, because the cycle modules it shares
+gained the report and the range.
+
+**Nothing was added as an article card.** Flo's failure mode is a home screen stuffed with content;
+`docs/27`'s design rule was to be dense with her data instead, and the numbers above are that rule
+holding.
