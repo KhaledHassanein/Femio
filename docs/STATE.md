@@ -227,6 +227,14 @@ CI=1 pnpm --filter web test:e2e:ci     # after that fresh build, never before
   — the row where `Local` has a version and `Remote` is blank is the whole problem — and confirm
   by probing for the artifact the migration creates before touching either command (B11).
 - **Windows:** `pkill` does not kill `next start`; kill by port.
+- **Run the whole guard set, not the three you remember.** `pnpm typecheck && pnpm test` plus
+  *every* `*-lint` script. Adding UI copy across a long session and checking only persona-branch,
+  tier-1 and client-i18n let two failures sit in a clean tree until a full sweep found them:
+  `claims-lint` rejecting "never a diagnosis" (the meaning was right, the word is still forbidden
+  — the guard keyword-scans and cannot read a negation) and `i18n-untranslated-lint` flagging a
+  genuine French cognate. The full list: persona-branch, tier1-portability, i18n-client,
+  i18n-untranslated, content, content:test, claims, crisis, analytics, native-readiness,
+  tokens-parity.
 - **Prove the persona resolved before calling a screen empty.** Three findings in the 2026-08-21
   revamp were measurement artifacts, all the same shape: a script drove the product wrongly and
   the result was written up as a product defect. The subtlest answered "I'm a teenager" and then
