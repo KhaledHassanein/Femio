@@ -335,3 +335,78 @@ than fixed.
 
 **What this blocks:** preview branches per PR. Production is unaffected — it already has both
 tables.
+
+---
+
+### The schema is fine. Only the bookkeeping is wrong.
+
+Verified 2026-08-22 by probing every migration's artifact against the live database:
+
+| Migration | Artifact probed | Result |
+|---|---|---|
+| 0001 | `profiles` | present |
+| 0003 | `delete_account()` | present |
+| 0006 | `insights_overview()` | present |
+| 0007 | `fetal_movement_sessions` | present (`42501` = RLS blocking anon, which proves the table exists) |
+| 0008 | `contractions` | present (same) |
+| 0009 | `pregnancy.ended_on` | present |
+| 0010 | `profiles.stated_cycle_length` | present |
+
+So **nothing needs to be re-run against the database.** `supabase migration repair` writes to the
+ledger only — it executes no SQL — which is exactly what this situation needs.
+
+### Steps
+
+**1 — Link the CLI to the project.** Needs the database password (Dashboard → Project Settings →
+Database). Skip if `supabase/.temp` already exists from a previous link.
+
+```bash
+npx supabase link --project-ref wnthtqtcajkhskdygbgo
+```
+
+**2 — Look at the truth. This is also the answer to "are my migrations done".**
+
+```bash
+npx supabase migration list --linked
+```
+
+Two columns, `Local` and `Remote`. `Local` is the files in `supabase/migrations/`; `Remote` is
+what the ledger believes. Expect `0007`, `0008` and `0010` to show a version in `Local` and a gap
+in `Remote` — that gap *is* B11.
+
+**3 — Repair only the rows that showed a gap.** Pass the version numbers, not filenames:
+
+```bash
+npx supabase migration repair --status applied 0007 0008 0010
+```
+
+Adjust the list to match what step 2 actually showed. If step 2 shows no gaps, stop — B11 is
+already resolved and the Preview failure has another cause.
+
+**4 — Verify the repair.**
+
+```bash
+npx supabase migration list --linked
+```
+
+Every row should now carry a version in **both** columns.
+
+**5 — Confirm nothing is pending.**
+
+```bash
+npx supabase db push --dry-run
+```
+
+Expect "Remote database is up to date" or an empty plan. **If it instead proposes to run 0007,
+stop** — the repair did not take, and running it for real will fail on "already exists", which is
+precisely the loop this blocker describes.
+
+**6 — Confirm the fix.** Push any commit and check that the `Supabase Preview` check goes green.
+
+### Do not
+
+- **Do not run `supabase db push` before step 3.** It will try to replay 0007 against a database
+  that already has the table and fail with `42P07` — the error in this blocker.
+- **Do not add `if not exists` to the migrations to make the error go away.** That hides the
+  drift and leaves the ledger wrong, so the next migration fails the same way.
+- **Do not re-run the SQL by hand.** The table is already there; the probe above confirms it.
