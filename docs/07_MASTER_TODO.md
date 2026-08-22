@@ -143,9 +143,7 @@ R1 (`docs/25`) is absorbed into `docs/27` phase 5; R2's unfinished half — the 
 - [x] **R3.1.9** Consecutive logged days are one period again (2026-08-21). `cycles` is one row per period *start*, but the tracker inserted a row per selected date, so logging Mon/Tue/Wed while bleeding — the most natural behaviour there is, and exactly what a strip labelled "your bleeding" invites — created three cycle starts a day apart and produced **"Your average cycle — 1 days"** with `irregular` **false**, because 1-day intervals are perfectly consistent. Not merely wrong: the whole uncertainty apparatus reported no problem. `bleedStarts()` now collapses dates within 10 days (the upper bound `stated_period_length` accepts) into one bleed, keeping the **first** day because that is where a cycle is measured from. Verified live on the exact scenario: three consecutive days now ask for the previous period instead of inventing a 1-day cycle. Exported, because the visit report must show the same starts the dashboard predicted from (`docs/26` §17).
 - [x] **R3.1.5** `cycle.flowStrip` is finally a strip (2026-08-21). It has carried that name since R1.9i while rendering six rows of "date — word"; `docs/25` §5a specifies marks over 30 days encoded by **size *and* opacity**, never colour alone — this is data she may print for a clinician, and hue-only encoding fails both colour-vision deficiency and grayscale. Still uninterpreted: no average, no "heavier than usual", no trend.
 - [~] **R3.1.2** Today card — **folded into R3.1.1 rather than built.** The phase strip already gives cycle day, phase and "typical for a cycle your length" in one block; a second card repeating it is precisely the duplication §2.1 and §13 were about, and this pass has removed two of those already. What the Today card was *for* — "what is happening now, and what helps" — is real, needs cited content, and is **Phase 3.1 phase education**, where it belongs. Kept open rather than closed so the intent is not lost.
-- [ ] **R3.1.3** Kill the duplicate empty state; demote the "Everything else is still here" manifesto to a quiet link.
-- [ ] **R3.1.4** Fix the dead-end first run: ask "when did your last period start?" with a back-dated picker, not a `Log today` button she cannot use.
-- [ ] **R3.1.5** Calendar strip — last 30 days at a glance, tappable to log.
+- [x] **R3.1.3/1.4** *(duplicate plan lines — done, see the R3.1.3 and R3.1.4 entries above and R3.1.8.)* These were mirrored from `docs/27` into this file and then completed under their own headings, leaving the originals stale at `[ ]`. Corrected rather than deleted, per the MASTER_TODO covenant.
 - [x] **R3.1.6** The fallback persona is served by the engine, not by a branch (2026-08-21). `TRACK_BASE_PERSONA` has mapped `Z → Z1` since the resolver was written and **`track-z.ts` never existed**, so the women whose evidence did not place them in a life stage were served an empty document — and their dashboard worked only because a hardcoded `HeroCard` sat behind `showsCyclePredictions(mode)`. That branch was load-bearing for exactly the users who had told Femio least about themselves, which is why R3.1.3a suppressed it rather than deleting it. `track-z.ts` now serves Z1 a real document and the branch is gone, along with four helpers that existed only to feed it (`dashboard-screen.tsx` 338 → 310 lines). Pinned by `track-z-reachability.test.ts`, which also asserts the general case: **no base persona may lack a record**, since that failure is silent.
 - [x] **R3.4.0** **WITHDRAWN — measurement artifact** (2026-08-22). Teen was reported at 844px/6 nodes and called the emptiest screen in the app. The measurement script answered "I'm a teenager" and then picked the **25–34** age band; the resolver weighs stage against age and a contradiction there quietly resolves her to a different persona than the one being measured. With a 13–15 band teen renders **1501px / 35 nodes**, leading with the "You're normal" reassurance A2 §B calls for. Fixed in the tool — `seed-and-shoot.mjs` now derives the age band from the stage — and the rule is in `STATE.md`: prove the persona resolved before reporting an empty screen as a defect. **Third measurement artifact in this workstream**, all three the same shape: a script driving the product wrongly and the result reported as a product bug.
 - [ ] **R3.4.1** 🔴 **TTC (944px, 22 nodes) and pregnancy (855px, 19 nodes) are the two thin screens**, against menopause's 135 nodes and postpartum's 101 — measured with coherent ages, so this one stands. TTC is the highest-intent segment in the category and pregnancy the longest-duration. **Phase 4 starts here.**
@@ -157,6 +155,55 @@ R1 (`docs/25`) is absorbed into `docs/27` phase 5; R2's unfinished half — the 
       - **Last N cycles, not last N months.** A month cutoff drops a cycle at 13 months and keeps one at 11; for a sparse logger a count is stabler. Flo and Clue both work in recent cycles. Suggest last 6 with an age cap.
       - **Sparse loggers fall back to her stated baseline** (R3.1b), which now exists for precisely this.
       - **Regularity is a separate question** and gets its own decision, not a shared constant.
+## R3.6 — Phase 6 cleanup register (the definitive list, kept current)
+
+Everything knowingly left open, dirty or unverified during the revamp. Phase 6 closes this list
+or restates each item with a reason. **Nothing here is a surprise; that is the point of writing it
+down as it happens rather than discovering it at the end.**
+
+Verified 2026-08-22: working tree clean, `main` in sync with origin, no `wip/*` branches, no
+stashes, typecheck clean, 692 tests passing, **all eleven guards passing**, production `200` on
+`/en`, `/en/learn` and `/en/welcome`.
+
+### Waiting on the calendar, not on work
+
+- **B10 · Actions quota** — parked to **1 September 2026** by owner decision. Everything merged in
+  the window is verified locally only; `DEFERRED_2026-09-01.md` lists what to re-check and keeps
+  the running list of what landed unverified.
+- **R3.0.7 · Screenshot regression in CI** — belongs with B10, since it needs runner minutes.
+
+### Verified by hand, not by machine
+
+- **R3.1c.4 · PDF print output.** `window.print()` works and keeps health data on-device, which is
+  why it was chosen. **Not verified:** whether the visit report's derived section — its dashed
+  border and its heading — survives an actual print to PDF. Needs a real print, not an assumption.
+
+### Known disagreements, deliberately not unified
+
+- **R3.1.10 · The average cycle length.** The report discards intervals over 90 days; the
+  dashboard does not. Unifying them made a menopausal woman who bled after eighteen months read as
+  *regular* and was reverted. Owner direction is a recent-cycles window applied to the **average
+  only**, with regularity and Track F signals keeping the full history.
+
+### Architecture debt with a named owner-decision
+
+- **R3.1.6a · The four life-stage mounts.** `dashboard-screen.tsx` stays on the persona-branch
+  baseline until teen/pregnancy/postpartum/menopause become registry rows. The ratchet only
+  shrinks; this is the last entry on it.
+- **`vitals` is still unused**, as `CLAUDE.md` has said since Phase 1.
+
+### Open product gaps, ranked
+
+- **R3.4.1 · TTC (944px/22 nodes) and pregnancy (855px/19)** are the thin screens. Phase 4.
+- **R3.5.2 · Arabic mixes Western and Arabic-Indic digits.** A locale decision for Phase 5.
+- **R3.1.2 · The Today card** was folded into the phase strip rather than built; what it was for
+  is phase education, which now exists. Kept `[~]` so the intent is not lost.
+
+### Deferred by owner direction, blocking nothing
+
+P0.12 legal (trigger is the first real user), billing, store compliance, community — unchanged
+from `CLAUDE.md`.
+
 ## R3.3 — Phase 3, the insight engine (`docs/27`)
 
 - [x] **R3.3.1** Cycle-phase education (2026-08-22). The research behind `docs/26` §7 rates this above bleeding prediction outright, and Femio did only the second. Each phase now carries what is happening, shown under the strip. **Every sentence comes from `docs/content/articles/menstrual-cycle-basics.md`** — clinician-reviewed, cited to the NHS cycle guide and ACOG — rather than being paraphrased, because paraphrasing reviewed content is how a reviewed fact quietly becomes an unreviewed one. This is the knowledge base doing the job it was built for. No advice attached: no "eat this, rest now", since those are the claims that move Femio out of education (product rule 1) and none is in the source. The ovulatory card repeats the article's own bolded warning verbatim — *estimates, not a reliable way to avoid pregnancy*. Renders nothing when the phase is unknown, so an irregular cycle gets no invented education. Dashboard 930px → **1271px**, zero console errors in all three locales.
