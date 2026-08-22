@@ -115,7 +115,32 @@ body:has(.app-bottom-bar):has(.crisis-launcher) {
 }
 
 /* Print: force a clean light page for the doctor-visit summary (P1.16.1). App
-   chrome is hidden with the Tailwind `print:hidden` variant on those elements. */
+   chrome is hidden with the Tailwind `print:hidden` variant on those elements.
+
+   ## Paper needs its own palette, and forcing it on `body` was not enough (R3.1c.4)
+
+   This block used to stop after `body`. That looks sufficient and is not: `color`
+   and `background` are inherited, so any descendant carrying its own token colour
+   — which is every heading, every muted line and every border in the report —
+   keeps it. On paper the result is measurably broken in *both* themes, and each
+   failure hides the same thing:
+
+   - **Printing from dark mode lost the derived heading.** "Worked out by Femio"
+     is `--color-text` — near-white under `[data-theme="dark"]` — printed onto the
+     white page this block forces. Measured at **1.12:1**. Invisible.
+   - **Printing from light mode lost the dashed border.** `--color-border` is a
+     pale lilac tuned against an app surface, not against paper. Measured at
+     **1.26:1**. Invisible.
+
+   Both erase the boundary between *what she logged* and *what Femio worked out* —
+   the one distinction the report exists to make (R3.1c). A clinician who cannot
+   tell an estimate from an observation is reading a document that launders a
+   prediction into a medical record, which is worse than no report at all.
+
+   So the printed document gets a small explicit palette instead of the theme's.
+   Two text levels rather than one, because the hierarchy is worth keeping, and a
+   border grey chosen to clear 3:1 on white (WCAG 1.4.11, non-text contrast).
+   `scripts/dev/print-check.mjs` measures all of it, in light and dark. */
 @media print {
   :root {
     color-scheme: light;
@@ -123,5 +148,21 @@ body:has(.app-bottom-bar):has(.crisis-launcher) {
   body {
     background: #fff !important;
     color: #000 !important;
+  }
+
+  /* Scoped to `main`: app chrome is already `print:hidden`, and flattening colour
+     everywhere would take the crisis dialog's red with it. */
+  main,
+  main :is(h1, h2, h3, h4, p, li, span, strong, em, td, th, dt, dd, a) {
+    background: transparent !important;
+    color: #111 !important;
+  }
+  main :is(.text-text-muted, .text-text-subtle, .text-2xs) {
+    color: #444 !important;
+  }
+  /* #767676 is 4.54:1 on white — the darkest grey that still reads as a rule
+     rather than as a line of type. */
+  main [class*="border"] {
+    border-color: #767676 !important;
   }
 }
