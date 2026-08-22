@@ -1556,6 +1556,7 @@
     }
   },
   "appNav": {
+    "tools": "Outils",
     "primary": "Sections principales",
     "home": "Accueil",
     "track": "Suivi",
@@ -1806,6 +1807,44 @@
     "a11y": {
       "none": "Tes saignements sur les {days} derniers jours. Rien d'enregistré.",
       "summary": "Tes saignements sur les {days} derniers jours. {count} jours enregistrés."
+    }
+  },
+  "tools": {
+    "title": "Outils",
+    "intro": "Tout ce que Femio sait faire, quelle que soit ton étape. Rien n'est masqué ici selon ce que tu nous as dit.",
+    "recordHeading": "Ton dossier",
+    "toolsHeading": "Outils et guides",
+    "summary": {
+      "label": "Résumé pour le médecin",
+      "note": "Une page imprimable de ton dossier, avec tes questions"
+    },
+    "track": {
+      "label": "Suivi",
+      "note": "Enregistre règles, symptômes et ressenti"
+    },
+    "medications": {
+      "label": "Médicaments",
+      "note": "Ce que tu prends, et quand"
+    },
+    "appointments": {
+      "label": "Rendez-vous",
+      "note": "Les dates, et les questions que tu voulais poser"
+    },
+    "fertility": {
+      "label": "Courbe de fertilité",
+      "note": "Température, tests et glaire cervicale"
+    },
+    "screeners": {
+      "label": "Questionnaires",
+      "note": "À apporter à un clinicien — jamais un diagnostic"
+    },
+    "calculators": {
+      "label": "Calculatrices",
+      "note": "Terme, durée de cycle, fenêtre fertile, IMC"
+    },
+    "learn": {
+      "label": "Guides",
+      "note": "Articles sourcés, relus par un clinicien"
     }
   }
 }

@@ -1556,6 +1556,7 @@
     }
   },
   "appNav": {
+    "tools": "Herramientas",
     "primary": "Secciones principales",
     "home": "Inicio",
     "track": "Seguimiento",
@@ -1806,6 +1807,44 @@
     "a11y": {
       "none": "Tu sangrado en los últimos {days} días. Nada registrado.",
       "summary": "Tu sangrado en los últimos {days} días. {count} días registrados."
+    }
+  },
+  "tools": {
+    "title": "Herramientas",
+    "intro": "Todo lo que Femio puede hacer, sea cual sea tu etapa. Aquí no se oculta nada según lo que nos contaste.",
+    "recordHeading": "Tu historial",
+    "toolsHeading": "Herramientas y guías",
+    "summary": {
+      "label": "Resumen para el médico",
+      "note": "Una página imprimible de tu historial, con tus preguntas"
+    },
+    "track": {
+      "label": "Seguimiento",
+      "note": "Registra reglas, síntomas y cómo te sientes"
+    },
+    "medications": {
+      "label": "Medicación",
+      "note": "Qué tomas, y cuándo"
+    },
+    "appointments": {
+      "label": "Citas",
+      "note": "Fechas, y las preguntas que querías hacer"
+    },
+    "fertility": {
+      "label": "Registro de fertilidad",
+      "note": "Temperatura, pruebas y moco cervical"
+    },
+    "screeners": {
+      "label": "Cuestionarios",
+      "note": "Para llevar a un profesional; nunca un diagnóstico"
+    },
+    "calculators": {
+      "label": "Calculadoras",
+      "note": "Fecha de parto, duración del ciclo, ventana fértil, IMC"
+    },
+    "learn": {
+      "label": "Guías",
+      "note": "Artículos con fuentes, revisados por un clínico"
     }
   }
 }

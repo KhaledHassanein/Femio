@@ -1556,6 +1556,7 @@
     }
   },
   "appNav": {
+    "tools": "Tools",
     "primary": "Main sections",
     "home": "Home",
     "track": "Track",
@@ -1796,6 +1797,44 @@
     "a11y": {
       "none": "Your bleeding over the last {days} days. Nothing logged yet.",
       "summary": "Your bleeding over the last {days} days. {count} days logged."
+    }
+  },
+  "tools": {
+    "title": "Tools",
+    "intro": "Everything Femio can do, whatever stage you are in. Nothing here is hidden based on what you told us.",
+    "recordHeading": "Your record",
+    "toolsHeading": "Tools and guides",
+    "summary": {
+      "label": "Doctor-visit summary",
+      "note": "A printable page of your record, with your questions"
+    },
+    "track": {
+      "label": "Track",
+      "note": "Log periods, symptoms and how you feel"
+    },
+    "medications": {
+      "label": "Medications",
+      "note": "What you take, and when"
+    },
+    "appointments": {
+      "label": "Appointments",
+      "note": "Dates, and the questions you meant to ask"
+    },
+    "fertility": {
+      "label": "Fertility charting",
+      "note": "Temperature, tests and cervical mucus"
+    },
+    "screeners": {
+      "label": "Screeners",
+      "note": "Questionnaires to bring to a clinician — never a diagnosis"
+    },
+    "calculators": {
+      "label": "Calculators",
+      "note": "Due date, cycle length, fertile window, BMI"
+    },
+    "learn": {
+      "label": "Guides",
+      "note": "Referenced articles, reviewed by a clinician"
     }
   }
 }

@@ -157,6 +157,11 @@ R1 (`docs/25`) is absorbed into `docs/27` phase 5; R2's unfinished half — the 
       - **Last N cycles, not last N months.** A month cutoff drops a cycle at 13 months and keeps one at 11; for a sparse logger a count is stabler. Flo and Clue both work in recent cycles. Suggest last 6 with an age cap.
       - **Sparse loggers fall back to her stated baseline** (R3.1b), which now exists for precisely this.
       - **Regularity is a separate question** and gets its own decision, not a shared constant.
+## R3.2 — Phase 2, navigation and the orphans (`docs/27`)
+
+- [x] **R3.2.1/2.2/2.3** The five orphaned routes are reachable (2026-08-22). `/summary`, `/fertility`, `/appointments`, `/screeners` and `/medications` were built, worked and appeared in **no navigation at all** (`docs/26` §2.3) — the app was bigger than its own nav admitted, and a third of that nav was Settings. Added a **Tools** tab and a `/tools` hub listing all of them plus the calculators and the library. Verified: nav reads Home · Track · Tools · Settings, the hub links to all eight destinations, every previously-orphaned route returns 200, and no row is under the 44px touch target.
+- [x] **R3.2.3a** The hub is deliberately **not** personalised. The dashboard is where her stage decides what leads; this screen is the promise that nothing was taken away, so it does not filter by persona or hide a tool Femio thinks she will not want — a pregnant woman may still want the cycle-length calculator, and deciding otherwise for her is the restriction product rule 2 forbids. It is also the honest home for the "everything else is still here" claim the dashboard used to spend its largest card describing (R3.1.8): the promise is better kept than explained.
+
 - [ ] **R3.1.6a** Move the four life-stage *mounts* (teen, pregnancy, postpartum, menopause) into the registry. These choose a component rather than vary a layout, so they are a different and riskier refactor; `dashboard-screen.tsx` stays on the persona-branch baseline until they land, and the ratchet still only shrinks.
 
 ## R3.0 — Phase 0, stop the bleeding (`docs/27`)

@@ -1,6 +1,6 @@
 "use client";
 
-import { CalendarHeart, House, Settings2 } from "lucide-react";
+import { CalendarHeart, House, LayoutGrid, Settings2 } from "lucide-react";
 import { useTranslations } from "next-intl";
 import { Link, usePathname } from "@/i18n/navigation";
 import { ThemeToggle } from "@/components/theme-toggle";
@@ -22,6 +22,13 @@ const TABS = [
   // "Tableau de bord" does not fit in it.
   { href: "/dashboard", key: "home", Icon: House },
   { href: "/track", key: "track", Icon: CalendarHeart },
+  /**
+   * Tools (R3.2.1). Five built, working routes — the visit summary, fertility
+   * charting, appointments, screeners and medications — were unreachable from the
+   * navigation entirely (`docs/26` §2.3), so the app was bigger than its own nav
+   * admitted and a third of that nav was Settings.
+   */
+  { href: "/tools", key: "tools", Icon: LayoutGrid },
   { href: "/settings", key: "settings", Icon: Settings2 },
 ] as const;
 
