@@ -576,3 +576,45 @@ outlier rule — and the whole thing is logged as **R3.1.10** rather than half-f
 The general lesson is worth more than the bug: **a "long gap" is not one concept.** For an
 average cycle length it is noise to discard; for menopause it is the single most clinically
 important thing in her record. A rule that treats it as one will be wrong for one of them.
+
+---
+
+# Checkpoint 1, corrected again — and the tooling fixed
+
+The checkpoint table above reported **teen at 844px / 6 nodes** and called it the emptiest screen
+in the app (R3.4.0). It was wrong, for the third time in this workstream and for a new reason:
+the measurement script answered *"I'm a teenager"* and then selected the **25–34** age band.
+
+The resolver weighs stage against age. A contradiction there does not error — it quietly resolves
+her to a different persona than the one being measured. Teen with a **13–15** band renders 1501px
+and 35 nodes, leading with the "You're normal" reassurance A2 §B says is the whole value at that
+age. **R3.4.0 is withdrawn.** The teen experience is one of the better ones in the product.
+
+Final measurements, every persona driven with a coherent age:
+
+| Persona | Height | `<main>` nodes | Verdict |
+|---|---|---|---|
+| Postpartum | 3707 | 101 | rich |
+| Menopause | 3238 | 135 | rich |
+| Teen | 1501 | 35 | serviceable |
+| Cycle | 972 | 61 | thin, but dense per pixel |
+| **TTC** | **944** | **22** | **thinnest** |
+| **Pregnancy** | **855** | **19** | **thinnest** |
+
+**The original §5 finding, restated once and correctly:** TTC and pregnancy are the two empty
+screens — 22 and 19 nodes against menopause's 135. TTC is the highest-intent, highest-willingness-
+to-pay segment in the category, and pregnancy is the longest-duration one. Phase 4 starts there,
+and teen drops down the queue where it belongs.
+
+## The tooling, not just the number
+
+Three measurement errors in one workstream is a pattern, not bad luck, and all three shared a
+shape: **a script that drove the product wrongly and reported the result as a product defect.**
+§5 clicked Continue twice against a four-step wizard; the checkpoint inherited that; this one
+answered two questions inconsistently.
+
+`scripts/dev/seed-and-shoot.mjs` now derives the age band from the life stage rather than
+hardcoding an adult one, so the coherence lives in the tool instead of in whoever remembers.
+The broader rule now sits in `STATE.md`: **before reporting an empty screen as a product defect,
+prove the persona resolved.** The badge in the header says which one she got, and it is one line
+to check.

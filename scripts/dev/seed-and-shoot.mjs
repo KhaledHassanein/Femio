@@ -49,6 +49,13 @@ const STAGE = Number(args.stage ?? 1); // index into the life-stage radio group
 const OFFSETS = (args.offsets ?? "16,44,72").split(",").map(Number);
 const BASE = "http://localhost:3000";
 
+/**
+ * A plausible age for each life stage, by radio index: teen, cycle, TTC,
+ * pregnant, postpartum, menopause. A contradiction here does not error — it
+ * quietly resolves her to a different persona than the one being measured.
+ */
+const AGE_BAND_FOR_STAGE = [/^13–15$/, /^25–34$/, /^25–34$/, /^25–34$/, /^25–34$/, /^45–54$/];
+
 mkdirSync(OUT, { recursive: true });
 
 const env = Object.fromEntries(
@@ -80,9 +87,18 @@ async function onboard(page, locale) {
   await page.goto(`${BASE}/${locale}/welcome`, { waitUntil: "networkidle", timeout: 180_000 });
   await page.getByRole("radio").nth(STAGE).click();
 
-  // An adult band, answered rather than skipped: `isMinor(null)` is true, so a
-  // skipped age silently changes what the rest of the app will allow (R3.0.8).
-  const band = page.getByRole("button", { name: /^25–34$/ });
+  // An age band **coherent with the life stage**, answered rather than skipped.
+  //
+  // Two things depend on this and both bite silently. `isMinor(null)` is true, so
+  // a skipped age changes what the rest of the app will allow (R3.0.8). And the
+  // resolver weighs stage against age: answering "I'm a teenager" and then 25–34
+  // is a contradiction, and it produced a **false audit finding** — teen measured
+  // at 844px and six nodes, reported as the emptiest screen in the app, when a
+  // teenager with a teen age band gets 1501px and thirty-five. That is the third
+  // measurement artifact in this workstream (see §5 and the checkpoint-1
+  // correction), so the coherence lives in the tool rather than in whoever
+  // remembers to pass `--band`.
+  const band = page.getByRole("button", { name: AGE_BAND_FOR_STAGE[STAGE] ?? /^25–34$/ });
   if (await band.count()) await band.first().click();
 
   // Labels are read from the locale's own catalog rather than guessed. Hardcoding

@@ -220,6 +220,13 @@ CI=1 pnpm --filter web test:e2e:ci     # after that fresh build, never before
 - **`apps/cms/.env.local` holds the PRODUCTION connection string.** Any local migrate touches
   live data.
 - **Windows:** `pkill` does not kill `next start`; kill by port.
+- **Prove the persona resolved before calling a screen empty.** Three findings in the 2026-08-21
+  revamp were measurement artifacts, all the same shape: a script drove the product wrongly and
+  the result was written up as a product defect. The subtlest answered "I'm a teenager" and then
+  picked the 25–34 age band — the resolver weighs stage against age, and a contradiction there
+  does not error, it quietly serves a different persona. The badge in the dashboard header says
+  which one she got; check it before believing a height. `scripts/dev/seed-and-shoot.mjs` now
+  derives a coherent age band from the stage.
 
 ### Added 2026-08-21 (the revamp session — each of these cost time in that one pass)
 
