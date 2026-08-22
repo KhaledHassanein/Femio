@@ -1868,5 +1868,14 @@
     "onDays": "{symptom} — on days {from}–{to} of your cycle",
     "evidence": "In {cycles} of your last {ofCycles} cycles",
     "limit": "A repeating pattern may be useful to record, but the pattern alone cannot confirm a health condition."
+  },
+  "cycleReport": {
+    "heading": "Your last cycle",
+    "range": "{start} to {end}",
+    "length": "{days} days, start to start",
+    "longer": "{days} days longer than your usual",
+    "shorter": "{days} days shorter than your usual",
+    "bleedDays": "{days} days of bleeding logged",
+    "symptoms": "You logged: {list}"
   }
 }

@@ -1878,5 +1878,14 @@
     "onDays": "{symptom} — los días {from}–{to} de tu ciclo",
     "evidence": "En {cycles} de tus últimos {ofCycles} ciclos",
     "limit": "Registrar un patrón que se repite puede ser útil, pero el patrón por sí solo no confirma ningún problema de salud."
+  },
+  "cycleReport": {
+    "heading": "Tu último ciclo",
+    "range": "del {start} al {end}",
+    "length": "{days} días, de inicio a inicio",
+    "longer": "{days} días más que tu habitual",
+    "shorter": "{days} días menos que tu habitual",
+    "bleedDays": "{days} días de sangrado registrados",
+    "symptoms": "Registraste: {list}"
   }
 }

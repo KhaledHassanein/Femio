@@ -1878,5 +1878,14 @@
     "onDays": "{symptom} — aux jours {from}–{to} de ton cycle",
     "evidence": "Sur {cycles} de tes {ofCycles} derniers cycles",
     "limit": "Noter un schéma qui se répète peut être utile, mais ce schéma seul ne peut pas confirmer un problème de santé."
+  },
+  "cycleReport": {
+    "heading": "Ton dernier cycle",
+    "range": "du {start} au {end}",
+    "length": "{days} jours, d'un début à l'autre",
+    "longer": "{days} jours de plus que ton habitude",
+    "shorter": "{days} jours de moins que ton habitude",
+    "bleedDays": "{days} jours de saignement enregistrés",
+    "symptoms": "Tu as noté : {list}"
   }
 }

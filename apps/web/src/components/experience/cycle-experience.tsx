@@ -10,6 +10,8 @@ import { PhaseEducation } from "@/components/cycle/phase-education";
 import { phaseOnDay } from "@/lib/cycle/phases";
 import { SymptomPatternCard } from "@/components/cycle/symptom-pattern-card";
 import { symptomPatterns } from "@/lib/cycle/symptom-patterns";
+import { CycleReportCard } from "@/components/cycle/cycle-report-card";
+import { lastCompletedCycle } from "@/lib/cycle/cycle-report";
 import { FlowStrip } from "@/components/cycle/flow-strip";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
@@ -239,6 +241,20 @@ export function CycleExperience({
     />
   );
 
+  /**
+   * The cycle that just ended (`docs/27` 3.3). Rendered with the flow strip, since
+   * both look backwards at what she recorded rather than forwards at an estimate.
+   */
+  const reportCard = (
+    <CycleReportCard
+      report={lastCompletedCycle({
+        periodDates: recentPeriods.map((p) => p.date),
+        symptoms: symptomLogs,
+      })}
+      label={symptomLabel}
+    />
+  );
+
   const changeAwarenessCard = prediction?.irregular ? (
     <Card>
       <CardContent className="flex flex-col gap-1 p-6">
@@ -299,7 +315,12 @@ export function CycleExperience({
           </>
         ),
         cycleChangeAwareness: changeAwarenessCard,
-        cycleFlowStrip: flowStrip,
+        cycleFlowStrip: (
+          <>
+            {flowStrip}
+            {reportCard}
+          </>
+        ),
         explore: linkCard("explore", "/learn"),
         visitPrep: linkCard("visitPrep", "/summary"),
         privacy: linkCard("privacyNote", "/settings"),

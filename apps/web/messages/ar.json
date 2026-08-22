@@ -1878,5 +1878,14 @@
     "onDays": "{symptom} — في الأيام {from}–{to} من دورتك",
     "evidence": "في {cycles} من آخر {ofCycles} دورات",
     "limit": "قد يفيد تسجيل النمط المتكرر، لكنه وحده لا يؤكّد وجود حالة صحية."
+  },
+  "cycleReport": {
+    "heading": "دورتك الأخيرة",
+    "range": "من {start} إلى {end}",
+    "length": "{days} يومًا، من بداية إلى بداية",
+    "longer": "أطول من المعتاد لديك بـ {days} أيام",
+    "shorter": "أقصر من المعتاد لديك بـ {days} أيام",
+    "bleedDays": "{days} أيام نزيف مسجَّلة",
+    "symptoms": "سجّلتِ: {list}"
   }
 }

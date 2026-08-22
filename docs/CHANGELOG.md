@@ -3,6 +3,7 @@ All notable changes to Femio V2.
 
 ## [Unreleased]
 ### Added
+- **A summary of the cycle that just ended.** How long it ran start to start, how that compares with your own usual, the days you logged bleeding, and the symptoms you noted. No score and no verdict — a longer cycle is not a worse one.
 - **Femio can now show you your own pattern.** If you have logged a symptom across at least three cycles, your dashboard says which days of your cycle it fell on and in how many cycles — counted from your entries, with nothing read into it. It waits until there is enough to be worth saying.
 - **Your dashboard now explains the phase you are in.** What is happening around ovulation, in the luteal phase, and the rest — drawn word for word from Femio's own clinician-reviewed guide, with the NHS and ACOG sources it cites, and a link to read the whole thing. Femio still says nothing about a phase it cannot place.
 - **A Tools tab, with everything Femio can do in one place.** The doctor-visit summary, fertility charting, appointments, medications and the screeners were all built and working but reachable from nowhere. Nothing on that screen is hidden based on the life stage you chose — your dashboard decides what to lead with, Tools is where the rest stays.
