@@ -518,6 +518,16 @@
     "retry": "Try again"
   },
   "visitSummary": {
+    "derivedHeading": "Worked out by Femio",
+    "derivedNote": "Estimates, not observations. Everything above this line is what she recorded.",
+    "derivedNone": "Not enough logged yet for Femio to estimate anything.",
+    "derivedLearning": "Femio has not seen enough cycles to characterise this pattern.",
+    "derivedIrregular": "Her logged cycle lengths vary widely.",
+    "predictedWindow": "Next period estimated between {start} and {end}",
+    "basis": {
+      "stated": "Average is the usual length she stated during setup — not measured from logs.",
+      "observed": "Average is the mean of the cycles she has logged."
+    },
     "questions": {
       "heading": "Questions you wanted to ask",
       "empty": "Nothing noted yet. You can add questions to an appointment and they will appear here."

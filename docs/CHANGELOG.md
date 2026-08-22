@@ -3,6 +3,7 @@ All notable changes to Femio V2.
 
 ## [Unreleased]
 ### Added
+- **The doctor-visit summary now separates what you recorded from what Femio worked out.** Your logged periods, symptoms, medications and notes appear as your own entries; anything Femio estimated — your average cycle length, the next expected window — sits in its own clearly marked section, and says whether the average came from the cycle length you gave us at setup or from the periods you have actually logged.
 - **Femio now asks how long your cycle usually is, during setup.** It uses your answer for the first cycle or two, then quietly switches to what your own logged periods actually show — and it always tells you which of the two you are looking at. You can skip the question, and Femio will simply wait for your data rather than assuming a number for you.
 - **Your dashboard now shows where you are in your cycle**, as a coloured strip with today marked on it — period, then the days before and around ovulation, then the days after. Femio names the phase only when your own cycles are regular enough to place one; when they vary, it says so instead of guessing.
 - **Setting up takes two taps.** Femio asks when your last period started, then the one before it, and predicts from there. It used to ask you to log "a couple of periods" and then only offer a button that logs today.

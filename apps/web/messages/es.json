@@ -518,6 +518,16 @@
     "retry": "Reintentar"
   },
   "visitSummary": {
+    "derivedHeading": "Calculado por Femio",
+    "derivedNote": "Estimaciones, no observaciones. Todo lo anterior es lo que ella registró.",
+    "derivedNone": "Aún no hay datos suficientes para que Femio estime nada.",
+    "derivedLearning": "Femio no ha visto ciclos suficientes para caracterizar este patrón.",
+    "derivedIrregular": "Las duraciones de ciclo que ha registrado varían bastante.",
+    "predictedWindow": "Próxima regla estimada entre el {start} y el {end}",
+    "basis": {
+      "stated": "La media es la duración habitual que indicó en la configuración, no medida.",
+      "observed": "La media es la de los ciclos que ha registrado."
+    },
     "questions": {
       "heading": "Preguntas que querías hacer",
       "empty": "Nada anotado todavía. Puedes añadir preguntas a una cita y aparecerán aquí."

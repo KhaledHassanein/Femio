@@ -25,8 +25,17 @@ export function SummaryScreen() {
   const format = useFormatter();
 
   const query = useSupabaseQuery(async (supabase) => {
-    const [state, cycles, symptoms, meds, conditions, keyDates, appointments] = await Promise.all([
+    const [state, profile, cycles, symptoms, meds, conditions, keyDates, appointments] =
+      await Promise.all([
       unwrap(supabase.from("persona_state").select("track").maybeSingle()),
+      // Her stated baseline, tolerated the same way the dashboard tolerates it —
+      // an optional hint, never her record, and absent must not blank the page she
+      // is about to print.
+      supabase
+        .from("profiles")
+        .select("stated_cycle_length")
+        .maybeSingle()
+        .then((r) => (r.error ? null : r.data)),
       unwrap(
         supabase
           .from("cycles")
@@ -93,6 +102,8 @@ export function SummaryScreen() {
         conditions: conditions ?? [],
         keyDates: keyDates ?? [],
         track: (state?.track as string) ?? null,
+        statedCycleLength:
+          (profile as { stated_cycle_length: number | null } | null)?.stated_cycle_length ?? null,
       },
       new Date().toISOString(),
     );
@@ -169,14 +180,7 @@ export function SummaryScreen() {
                 ? ` · ${t("lastPeriod", { date: fmt(summary.cycle.lastPeriod) })}`
                 : ""}
             </p>
-            {summary.cycle.averageLength ? (
-              <p className="text-sm text-text-muted">
-                {t("averageLength", { days: summary.cycle.averageLength })}
-                {summary.cycle.rangeLow != null && summary.cycle.rangeHigh != null
-                  ? ` · ${t("range", { low: summary.cycle.rangeLow, high: summary.cycle.rangeHigh })}`
-                  : ""}
-              </p>
-            ) : null}
+
             {summary.cycle.recent.length > 0 ? (
               <table className="mt-1 w-full max-w-sm text-start text-sm">
                 <thead>
@@ -203,6 +207,55 @@ export function SummaryScreen() {
         ) : (
           <p className="text-sm text-text-muted">{t("noneLogged")}</p>
         )}
+      </section>
+
+      {/* What Femio worked out — kept structurally apart from what she recorded.
+
+          The requirement is clinical, not cosmetic. Every number above is
+          something she wrote down; every number here is an estimate Femio
+          produced, and on a printed page "28 days" looks identical either way. A
+          clinician who cannot tell them apart is reading a prediction as a record,
+          which is worse than having no report at all. So this is its own section,
+          with its own border and its own heading, and it says where each figure
+          came from — including whether the average is her stated usual length or
+          the mean of cycles she actually logged (R3.1c). */}
+      <section className="flex flex-col gap-2 rounded-md border border-dashed border-border p-4">
+        <div className="flex flex-col gap-0.5">
+          <h2 className="text-md font-semibold text-text">{t("derivedHeading")}</h2>
+          <p className="text-2xs text-text-muted">{t("derivedNote")}</p>
+        </div>
+
+        {summary.derived.averageLength ? (
+          <p className="text-sm text-text">
+            {t("averageLength", { days: summary.derived.averageLength })}
+            {summary.derived.rangeLow != null && summary.derived.rangeHigh != null
+              ? ` · ${t("range", { low: summary.derived.rangeLow, high: summary.derived.rangeHigh })}`
+              : ""}
+          </p>
+        ) : null}
+
+        {summary.derived.basis ? (
+          <p className="text-2xs text-text-muted">{t(`basis.${summary.derived.basis}`)}</p>
+        ) : null}
+
+        {summary.derived.predictedWindow ? (
+          <p className="text-sm text-text">
+            {t("predictedWindow", {
+              start: fmt(summary.derived.predictedWindow.start),
+              end: fmt(summary.derived.predictedWindow.end),
+            })}
+          </p>
+        ) : null}
+
+        {summary.derived.learning ? (
+          <p className="text-2xs text-text-muted">{t("derivedLearning")}</p>
+        ) : summary.derived.irregular ? (
+          <p className="text-2xs text-text-muted">{t("derivedIrregular")}</p>
+        ) : null}
+
+        {summary.derived.averageLength === null ? (
+          <p className="text-sm text-text-muted">{t("derivedNone")}</p>
+        ) : null}
       </section>
 
       {/* Symptoms */}

@@ -518,6 +518,16 @@
     "retry": "Réessayer"
   },
   "visitSummary": {
+    "derivedHeading": "Déduit par Femio",
+    "derivedNote": "Des estimations, pas des observations. Tout ce qui précède est ce qu'elle a enregistré.",
+    "derivedNone": "Pas encore assez de données pour que Femio estime quoi que ce soit.",
+    "derivedLearning": "Femio n'a pas vu assez de cycles pour caractériser ce rythme.",
+    "derivedIrregular": "Les durées de cycle qu'elle a enregistrées varient nettement.",
+    "predictedWindow": "Prochaines règles estimées entre le {start} et le {end}",
+    "basis": {
+      "stated": "La moyenne est la durée habituelle qu'elle a indiquée lors de la configuration, non mesurée.",
+      "observed": "La moyenne est celle des cycles qu'elle a enregistrés."
+    },
     "questions": {
       "heading": "Les questions que vous vouliez poser",
       "empty": "Rien de noté pour l'instant. Vous pouvez ajouter des questions à un rendez-vous et elles apparaîtront ici."

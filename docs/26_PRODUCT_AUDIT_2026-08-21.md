@@ -549,3 +549,30 @@ The plan's target — ≥2.5 viewports of useful content per persona — is **no
 was never going to be**. Phase 1 removed the lies and the dead ends; the height comes from Phase
 3's insight engine and Phase 4's per-persona depth. Recording that plainly so the gap between
 "Phase 1 complete" and "the dashboard is good" is not mistaken for a claim it never made.
+
+## 18. The report and the dashboard disagree about her average cycle length
+
+Found while giving the visit summary a recorded-vs-derived split.
+
+`buildVisitSummary` has always discarded intervals over 90 days — a 151-day gap is not a
+151-day cycle — and `predictNextPeriod` never has. So the number on screen and the number on the
+printed page could differ, and the printed one is the one that gets read aloud in a consulting
+room.
+
+Unifying them looked like a one-line change. It is not, and the guards said so:
+
+- `signals-from-rows` fixture case 7 is `['2025-01-12', '2025-02-14', '2026-08-10']` — a bleed
+  after roughly eighteen months.
+- With the outlier rule applied, that gap is discarded, only the 33-day interval survives, and
+  `regularityFrom` reports her **regular**.
+- That is the exact opposite of the signal `bledAfterALongGap` and Track F's postmenopausal-bleed
+  red flag exist to raise. Two Track F reachability tests failed immediately.
+
+So the change was reverted from the shared predictor. The report keeps the safer filter, the
+dashboard keeps its behaviour, `basis` and the predicted window still come from the shared
+function — the two can never disagree about *where a number came from*, only about this one
+outlier rule — and the whole thing is logged as **R3.1.10** rather than half-fixed.
+
+The general lesson is worth more than the bug: **a "long gap" is not one concept.** For an
+average cycle length it is noise to discard; for menopause it is the single most clinically
+important thing in her record. A rule that treats it as one will be wrong for one of them.
