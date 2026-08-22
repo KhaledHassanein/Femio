@@ -988,6 +988,14 @@ second caused specifically by Arabic in a console.
 >   missing `locale` prop on `NextIntlClientProvider`. Found only by running the full e2e suite,
 >   which was **not** green despite the last handover saying so.
 >
+> **One thing is unverified and it is the first thing to check.** `main` is pushed at `337ee3a`
+> and the full gate was green locally — 721 unit tests, all eleven guards, 74 e2e against a fresh
+> build — but **the Vercel deploy had not landed when this session ended**: `/en/sharing` and
+> `/en/shared-with-me` were still 404 in production and `/ar` was still serving the pre-fix English
+> crisis launcher. There is no Vercel credential in this tree, so "still building" and "the build
+> failed" cannot be told apart from here. Check those three things before anything else; if the
+> deploy failed, the log is in the Vercel dashboard and nothing local needs redoing.
+>
 > **Do next, in order:**
 > 1. `git branch --list "wip/*"` — expect nothing.
 > 2. **Check nothing is squatting on :3000 before you build or run e2e.** A stale `next dev` from
