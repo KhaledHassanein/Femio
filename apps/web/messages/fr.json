@@ -1518,6 +1518,10 @@
     "summary": {"heading":"Résumé pour la consultation","desc":"Un aperçu imprimable de votre cycle, vos symptômes et vos notes à partager avec un professionnel de santé.","link":"Ouvrir le résumé"},
     "signOut": {"heading":"Se déconnecter","desc":"Se déconnecter sur cet appareil. Votre dossier reste inchangé."},
       "consent": {
+        "ageGate": {
+          "body": "Femio doit savoir à peu près quel âge tu as avant d'activer ceci. Les moins de 18 ans sont exclus de l'analyse et de la recherche, donc il demande plutôt que de supposer.",
+          "dismiss": "Pas maintenant"
+        },
         "heading": "Vos choix de confidentialité",
         "desc": "Changez ce que Femio peut faire de vos données. Désactivez ce que vous voulez, quand vous voulez — l’effet est immédiat.",
         "error": "Nous n’avons pas pu enregistrer ce changement. Réessayez.",

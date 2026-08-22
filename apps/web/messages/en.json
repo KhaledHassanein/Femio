@@ -1518,6 +1518,10 @@
     "summary": {"heading":"Doctor-visit summary","desc":"A printable snapshot of your cycle, symptoms and notes to share with a clinician.","link":"Open summary"},
     "signOut": {"heading":"Sign out","desc":"Sign out on this device. Your record stays exactly as it is."},
       "consent": {
+        "ageGate": {
+          "body": "Femio needs to know roughly how old you are before it can turn this on. Anyone under 18 is kept out of analytics and research, so it has to ask rather than assume.",
+          "dismiss": "Not now"
+        },
         "heading": "Your privacy choices",
         "desc": "Change what Femio may do with your data. Turn any of these off whenever you like — it takes effect immediately.",
         "error": "We couldn’t save that change. Please try again.",
