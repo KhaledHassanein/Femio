@@ -14,6 +14,7 @@ All notable changes to Femio V2.
 - **Setting up takes two taps.** Femio asks when your last period started, then the one before it, and predicts from there. It used to ask you to log "a couple of periods" and then only offer a button that logs today.
 
 ### Fixed
+- **Your average cycle length now comes from your recent cycles.** It used to include everything you had ever logged, so a long gap or a cycle from two years ago could drag it somewhere that no longer describes you — and a gap between periods could be averaged in as though it were a cycle. Your dashboard and your doctor-visit summary now give the same number.
 - **If you skipped the age question, the privacy switches now explain themselves.** Turning on analytics or research quietly failed for anyone who chose "I'm not sure" during setup — Femio treats an unknown age as under 18 and will not share anything for a minor. It now says so, and lets you answer the age question right there instead of leaving you stuck.
 - **Logging every day of your period no longer confuses Femio.** If you tapped through Monday, Tuesday and Wednesday while bleeding, Femio counted three separate cycles and told you your cycle was one day long. It now reads those as one period, the way you meant it.
 - **A period logged without signal now appears as soon as you are back online.** It was always saved and always synced — but the screen kept saying "No periods logged yet" until you reloaded the page, which looked exactly like losing it.

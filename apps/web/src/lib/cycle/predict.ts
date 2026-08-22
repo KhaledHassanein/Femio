@@ -160,7 +160,75 @@ export function predictNextPeriod(
   const lengths: number[] = [];
   for (let i = 1; i < sorted.length; i += 1) lengths.push(diffDays(sorted[i - 1]!, sorted[i]!));
 
-  const averageLength = Math.round(mean(lengths));
+  /**
+   * The average is drawn from her **recent** cycles; everything else is not
+   * (R3.1.10, owner direction 2026-08-22).
+   *
+   * A cycle from eighteen months ago is not evidence about this month. Averaging
+   * it in drags her estimate toward a body she no longer has — cycle length shifts
+   * with age, with a new contraceptive, after a birth, and through perimenopause.
+   *
+   * **The window applies to the average and nothing else, and that scope is the
+   * whole safety of it.** An earlier attempt filtered long gaps inside this
+   * function and broke Track F: `regularityFrom` reads `irregular` from here, so a
+   * menopausal woman who bled after eighteen months had that gap discarded and was
+   * reported *regular* — the opposite of the postmenopausal-bleed red flag the
+   * track exists to raise (`docs/26` §18). So `spread`, and therefore `irregular`,
+   * still see every interval she has logged.
+   *
+   * Recent *cycles*, not recent months: a month cutoff drops a cycle at thirteen
+   * months and keeps one at eleven, and for someone who logs sparsely a count is
+   * the stabler unit. Six is what Flo and Clue work in and what `confidence`
+   * already treats as a full history below.
+   */
+  const RECENT_CYCLES = 6;
+
+  /**
+   * And a gap too long to be a cycle is excluded from the average as well.
+   *
+   * A 542-day interval between two bleeds is not a 542-day cycle; it is a stretch
+   * she did not log, or periods that did not come. The visit report has filtered
+   * these since it was written and this function never did, so **the printed page
+   * and the dashboard could disagree about her average** — with the printed one
+   * winning any argument in a consulting room (`docs/26` §18).
+   *
+   * The earlier attempt to unify them applied this to `lengths` and broke Track F.
+   * Scoped here to the average alone it is safe: `spread` and `irregular` below
+   * still see every interval, so a bleed after eighteen months still reports as
+   * irregular and still reaches the postmenopausal red flag. The gap is excluded
+   * from *the arithmetic*, not from *the record* — which is the distinction the
+   * first attempt missed.
+   */
+  const MAX_PLAUSIBLE_CYCLE_DAYS = 90;
+  const usable = lengths.filter((n) => n <= MAX_PLAUSIBLE_CYCLE_DAYS);
+
+  /**
+   * If nothing she has logged is plausibly a cycle, there is no observed average.
+   *
+   * Two bleeds 151 days apart do not make a 151-day cycle — averaging the gap and
+   * calling it her average would state a number nothing in her body produced.
+   * Her stated baseline is a better answer, and "we cannot tell yet" is better
+   * than both. The visit report has behaved this way since it was written; this is
+   * where that behaviour moves to, rather than being lost in the unification.
+   */
+  if (usable.length === 0) {
+    if (stated === null) return null;
+    const last = sorted[sorted.length - 1]!;
+    const predictedStart = addDays(last, stated);
+    return {
+      averageLength: stated,
+      basis: "stated",
+      predictedStart,
+      windowStart: addDays(predictedStart, -STATED_MARGIN_DAYS),
+      windowEnd: addDays(predictedStart, STATED_MARGIN_DAYS),
+      confidence: "low",
+      irregular: false,
+      learning: true,
+    };
+  }
+
+  const recent = usable.slice(-RECENT_CYCLES);
+  const averageLength = Math.round(mean(recent));
   const spread = Math.max(...lengths) - Math.min(...lengths);
   const last = sorted[sorted.length - 1]!;
   const predictedStart = addDays(last, averageLength);

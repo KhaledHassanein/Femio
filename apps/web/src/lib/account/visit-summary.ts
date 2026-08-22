@@ -108,28 +108,20 @@ export function buildVisitSummary(
     },
     derived: {
       /**
-       * The report keeps its own average, and that is a **known disagreement with
-       * the dashboard**, recorded rather than papered over (R3.1c.5).
+       * One answer to "what is her average cycle length", on screen and on paper
+       * (R3.1.10 closed).
        *
-       * `cycleLengths` here discards intervals over 90 days — a 151-day gap is not
-       * a 151-day cycle — and `predictNextPeriod` never has. Unifying them looked
-       * like a one-line win until the golden fixtures and Track F's reachability
-       * tests caught what it costs: a menopausal woman who bleeds after eighteen
-       * months has that gap dropped, and is then reported as **regular**, which is
-       * the opposite of the signal `bledAfterALongGap` and F2's red flag exist to
-       * raise. Fixing the dashboard to match cannot be a tail-end edit.
+       * This kept its own filtered average while `predictNextPeriod` averaged
+       * everything, so the dashboard and the printed page could disagree — and the
+       * printed one wins any argument in a consulting room. Unifying them was
+       * reverted once because the fix broke Track F's postmenopausal-bleed signal.
        *
-       * So the safer behaviour stays here, the disagreement is logged as R3.1.10,
-       * and `basis`/`predictedWindow` still come from the shared predictor so the
-       * two never disagree about *where a number came from* — only, for now, about
-       * one outlier rule.
+       * It is safe now because the plausibility bound lives inside the prediction
+       * and is scoped to the **average alone**: a bleed after eighteen months is
+       * excluded from the arithmetic and still reaches `irregular`, so the red flag
+       * stands. The report no longer computes its own.
        */
-      averageLength:
-        prediction?.basis === "stated"
-          ? prediction.averageLength
-          : lengths.length > 0
-            ? Math.round(lengths.reduce((a, b) => a + b, 0) / lengths.length)
-            : null,
+      averageLength: prediction?.averageLength ?? null,
       basis: prediction?.basis ?? null,
       // The observed spread, and only ever observed: a stated length has no range,
       // and inventing one around it would dress a single remembered number as a

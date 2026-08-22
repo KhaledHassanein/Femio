@@ -175,3 +175,80 @@ describe("consecutive logged days are one period (R3.1.9)", () => {
     expect(p.predictedStart).toBe("2026-09-16"); // from 17 Aug, the first day
   });
 });
+
+describe("the average uses recent cycles only (R3.1.10)", () => {
+  it("ignores cycles older than the window when averaging", () => {
+    // Six 28s after three 40s: her average is 28, not the 32 an all-time mean gives.
+    const starts = ["2026-01-01", "2026-02-10", "2026-03-22", "2026-05-01"];
+    let d = new Date("2026-05-01T00:00:00Z");
+    for (let i = 0; i < 6; i += 1) {
+      d = new Date(d.getTime() + 28 * 86_400_000);
+      starts.push(d.toISOString().slice(0, 10));
+    }
+    const p = predictNextPeriod(starts)!;
+    expect(p.averageLength).toBe(28);
+  });
+
+  it("still uses everything she has when that is less than the window", () => {
+    const p = predictNextPeriod(["2026-06-10", "2026-07-08", "2026-08-05"])!;
+    expect(p.averageLength).toBe(28);
+  });
+
+  it("keeps irregular on her full history, not the window", () => {
+    // The Track F case, and the reason the window is scoped to the average alone.
+    // A menopausal woman who bleeds after eighteen months must not read as regular
+    // just because the recent window makes her look steady (docs/26 §18).
+    const p = predictNextPeriod(["2025-01-12", "2025-02-14", "2026-08-10"])!;
+    expect(p.irregular).toBe(true);
+  });
+
+  it("keeps a long-ago swing visible in irregular even when recent cycles are steady", () => {
+    const starts = ["2026-01-01", "2026-02-20"]; // a 50-day cycle, long ago
+    let d = new Date("2026-02-20T00:00:00Z");
+    for (let i = 0; i < 6; i += 1) {
+      d = new Date(d.getTime() + 28 * 86_400_000);
+      starts.push(d.toISOString().slice(0, 10));
+    }
+    const p = predictNextPeriod(starts)!;
+    expect(p.averageLength).toBe(28); // the average has moved on
+    expect(p.irregular).toBe(true); // the record has not been rewritten
+  });
+});
+
+describe("implausible gaps leave the average but stay in the record (R3.1.10)", () => {
+  const TRACK_F = ["2025-01-12", "2025-02-14", "2026-08-10"];
+
+  it("excludes an 18-month gap from her average", () => {
+    // Previously (33 + 542) / 2 = 288 days, which describes no one.
+    const p = predictNextPeriod(TRACK_F)!;
+    expect(p.averageLength).toBe(33);
+  });
+
+  it("but still reports her as irregular, which is what Track F depends on", () => {
+    // The exact regression the first attempt at this caused: the gap disappeared
+    // from the arithmetic AND from the signal, and a postmenopausal bleed read as
+    // a regular cycle.
+    const p = predictNextPeriod(TRACK_F)!;
+    expect(p.irregular).toBe(true);
+    expect(p.learning).toBe(false);
+  });
+
+  it("agrees with the visit report, which has always filtered these", () => {
+    // One answer to "what is her average cycle length", on screen and on paper.
+    const p = predictNextPeriod(TRACK_F)!;
+    expect(p.averageLength).toBe(33);
+  });
+
+  it("reports no average at all when nothing logged is plausibly a cycle", () => {
+    // Two bleeds two years apart do not make a two-year cycle. Averaging the gap
+    // would state a number nothing in her body produced.
+    expect(predictNextPeriod(["2024-01-01", "2026-01-01"])).toBeNull();
+  });
+
+  it("prefers her stated length over averaging a gap", () => {
+    const p = predictNextPeriod(["2024-01-01", "2026-01-01"], 30)!;
+    expect(p.basis).toBe("stated");
+    expect(p.averageLength).toBe(30);
+    expect(p.learning).toBe(true);
+  });
+});

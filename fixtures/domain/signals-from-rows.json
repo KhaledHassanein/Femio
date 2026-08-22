@@ -257,7 +257,7 @@
       "expected": {
         "ageBand": "45_54",
         "cycleRegularity": "irregular",
-        "averageCycleLength": 288,
+        "averageCycleLength": 33,
         "daysSinceLastPeriod": 7,
         "ttcIntent": false,
         "ttcMonths": null,
