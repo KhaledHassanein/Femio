@@ -3,6 +3,7 @@ All notable changes to Femio V2.
 
 ## [Unreleased]
 ### Added
+- **Your dashboard now explains the phase you are in.** What is happening around ovulation, in the luteal phase, and the rest — drawn word for word from Femio's own clinician-reviewed guide, with the NHS and ACOG sources it cites, and a link to read the whole thing. Femio still says nothing about a phase it cannot place.
 - **A Tools tab, with everything Femio can do in one place.** The doctor-visit summary, fertility charting, appointments, medications and the screeners were all built and working but reachable from nowhere. Nothing on that screen is hidden based on the life stage you chose — your dashboard decides what to lead with, Tools is where the rest stays.
 - **The doctor-visit summary now separates what you recorded from what Femio worked out.** Your logged periods, symptoms, medications and notes appear as your own entries; anything Femio estimated — your average cycle length, the next expected window — sits in its own clearly marked section, and says whether the average came from the cycle length you gave us at setup or from the periods you have actually logged.
 - **Femio now asks how long your cycle usually is, during setup.** It uses your answer for the first cycle or two, then quietly switches to what your own logged periods actually show — and it always tells you which of the two you are looking at. You can skip the question, and Femio will simply wait for your data rather than assuming a number for you.

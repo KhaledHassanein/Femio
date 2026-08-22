@@ -1850,5 +1850,25 @@
       "label": "Guías",
       "note": "Artículos con fuentes, revisados por un clínico"
     }
+  },
+  "phaseEducation": {
+    "readMore": "Cómo funciona el ciclo",
+    "menstrual": {
+      "heading": "Tu regla",
+      "body": "Si no ha habido embarazo, los niveles hormonales bajan y el revestimiento uterino sale del cuerpo por la vagina en forma de sangre y tejido. El día 1 del sangrado completo es el día 1 de un ciclo nuevo."
+    },
+    "follicular": {
+      "heading": "La fase folicular",
+      "body": "Esta fase empieza el día 1 y dura hasta la ovulación. Las señales hormonales ayudan a que se desarrolle un folículo, mientras el estrógeno ayuda a reconstruir el revestimiento uterino. Su duración puede cambiar de un ciclo a otro: una de las razones por las que una fecha futura no puede saberse con certeza solo con un calendario."
+    },
+    "ovulatory": {
+      "heading": "Alrededor de la ovulación",
+      "body": "La ovulación significa que un ovario libera un óvulo. No siempre ocurre el día 14: el NHS señala que el momento exacto es difícil de precisar y depende de la duración del ciclo.",
+      "notContraception": "Estas fechas sirven para planificar un embarazo y conocer tu ciclo. Son estimaciones, no un método fiable para evitar el embarazo."
+    },
+    "luteal": {
+      "heading": "La fase lútea",
+      "body": "Esta fase empieza después de la ovulación. El folículo vacío produce progesterona, que ayuda a mantener el revestimiento uterino. Si no hay embarazo, la progesterona y el estrógeno bajan y comienza la siguiente regla. Algunas personas notan sensibilidad en el pecho, hinchazón, dolor de cabeza, cambios en la piel, cansancio o cambios de humor: registrar un patrón que se repite puede ser útil, pero el patrón por sí solo no confirma ningún problema de salud."
+    }
   }
 }

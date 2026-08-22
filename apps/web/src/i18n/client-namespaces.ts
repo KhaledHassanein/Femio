@@ -60,6 +60,7 @@ export const APP_CLIENT_NAMESPACES = [
   "flowStrip",
   // The Tools hub (R3.2.1/2.3) — signed-in only, so it never reaches /learn.
   "tools",
+  "phaseEducation",
   "phaseStrip",
   "admin",
   "dashboard",

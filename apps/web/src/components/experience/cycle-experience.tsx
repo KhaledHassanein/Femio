@@ -6,6 +6,8 @@ import type { CyclePrediction } from "@/lib/cycle/predict";
 import { predictionBand } from "@/lib/ui/range-band";
 import { ExperienceModules } from "./module-registry";
 import { PhaseStrip } from "@/components/cycle/phase-strip";
+import { PhaseEducation } from "@/components/cycle/phase-education";
+import { phaseOnDay } from "@/lib/cycle/phases";
 import { FlowStrip } from "@/components/cycle/flow-strip";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
@@ -194,6 +196,23 @@ export function CycleExperience({
     ) : null;
 
   /**
+   * What is happening in that phase, in the reviewed article's own words
+   * (`docs/27` 3.1). Renders nothing when the phase is unknown — an irregular
+   * cycle gets no phase, and education for a phase Femio cannot place would be the
+   * same false confidence in a different costume.
+   */
+  const phaseEducation =
+    cycleDay !== null && prediction ? (
+      <PhaseEducation
+        phase={phaseOnDay({
+          cycleDay,
+          cycleLength: prediction.averageLength,
+          irregular: prediction.irregular,
+        })}
+      />
+    ) : null;
+
+  /**
    * B1 §D, and the reason this is a `Card` rather than an `Alert`: a pattern change
    * **raises content prominence, never a red banner**. Cycles shift for many
    * ordinary reasons, and Femio saying so calmly is the difference between
@@ -251,7 +270,12 @@ export function CycleExperience({
         cycleWindow: windowCard,
         cycleVariability: variabilityCard,
         cyclePersonalNormal: personalNormal,
-        cyclePhase: phaseCard,
+        cyclePhase: (
+          <>
+            {phaseCard}
+            {phaseEducation}
+          </>
+        ),
         cycleChangeAwareness: changeAwarenessCard,
         cycleFlowStrip: flowStrip,
         explore: linkCard("explore", "/learn"),

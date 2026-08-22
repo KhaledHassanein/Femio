@@ -1850,5 +1850,25 @@
       "label": "Guides",
       "note": "Articles sourcés, relus par un clinicien"
     }
+  },
+  "phaseEducation": {
+    "readMore": "Comment fonctionne le cycle",
+    "menstrual": {
+      "heading": "Tes règles",
+      "body": "S'il n'y a pas eu de grossesse, les taux hormonaux chutent et la muqueuse utérine quitte le corps par le vagin sous forme de sang et de tissu. Le jour 1 du saignement complet est le jour 1 d'un nouveau cycle."
+    },
+    "follicular": {
+      "heading": "La phase folliculaire",
+      "body": "Cette phase commence au jour 1 et dure jusqu'à l'ovulation. Des signaux hormonaux aident un follicule à se développer, tandis que l'œstrogène aide à reconstruire la muqueuse utérine. Sa durée peut varier d'un cycle à l'autre — l'une des raisons pour lesquelles une date future ne peut être connue avec certitude à partir d'un calendrier seul."
+    },
+    "ovulatory": {
+      "heading": "Autour de l'ovulation",
+      "body": "L'ovulation signifie qu'un ovaire libère un ovule. Cela n'arrive pas toujours le jour 14 — le NHS note que le moment exact est difficile à situer et dépend de la durée du cycle.",
+      "notContraception": "Ces dates soutiennent la planification d'une conception et la connaissance de son cycle. Ce sont des estimations, pas un moyen fiable d'éviter une grossesse."
+    },
+    "luteal": {
+      "heading": "La phase lutéale",
+      "body": "Cette phase commence après l'ovulation. Le follicule vide produit de la progestérone, qui aide à maintenir la muqueuse utérine. En l'absence de grossesse, la progestérone et l'œstrogène chutent et les règles suivantes commencent. Certaines personnes remarquent une sensibilité des seins, des ballonnements, des maux de tête, des changements de peau, de la fatigue ou des changements d'humeur — noter un schéma qui se répète peut être utile, mais ce schéma seul ne peut pas confirmer un problème de santé."
+    }
   }
 }
