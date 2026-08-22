@@ -708,3 +708,72 @@ and it is worth more than any individual fix in this document.
 
 - **B12** — the in-app hero gradient. Two decisions disagree (ADR-051 vs `docs/25` §5a); owner call.
 - **R3.5.2** — Arabic digits, Western for dates and Arabic-Indic for age bands. A locale call.
+
+---
+
+# Re-audit — the same measurements, re-run (R3.6.3)
+
+Every headline number from this document, measured again the same way.
+
+## The verdict that opened it
+
+> "The settings screen carries six times the content of the home screen."
+
+| Screen | Then | Now |
+|---|---|---|
+| **Dashboard** (cycle, 4 logged cycles) | **844 px** | **1440 px** |
+| Dashboard (TTC) | 844 px | **1646 px** |
+| Settings | 5066 px | ~5066 px (untouched) |
+
+The ratio is gone. Settings is no longer the deepest screen in the app, and the dashboard is not a
+single viewport of duplicate empty states.
+
+## Severity 1
+
+| Finding | Then | Now |
+|---|---|---|
+| §1.1 `/summary` broken since written | 400 on every load | fixed; zero failed requests |
+| §1.2 e2e excluded from CI | **9 of 18 excluded**, and rotted | **1 of 19** (`@cms`, needs a live CMS) |
+| Unit tests | 637 | **706** |
+
+## Severity 2 — the dashboard
+
+| | Then | Now |
+|---|---|---|
+| Duplicate empty states | 2 saying the same sentence | 0 |
+| Largest card | a philosophy manifesto | her prediction |
+| Cycle visualisation | none | phase strip + 30-day bleed strip |
+| Nav items | 3, one third Settings | 4, with a Tools hub |
+| Unreachable built routes | 5 | 0 |
+| First-run dead end | "Log today" for past periods | two-tap back-dated entry |
+
+## Severity 4 — proportions
+
+| | Then | Now |
+|---|---|---|
+| App source files | 289 | 307 |
+| Docs files | 245 | 248 |
+| `mode ===` branches in the dashboard | 5, one load-bearing | 4 mounts, none load-bearing |
+| Tier-2 cycle modules | 2 | **8** |
+
+Documentation grew by three files while source grew by eighteen — the ratio the audit complained
+about moved in the right direction, and the three new docs are the audit, the plan and the deferred
+register rather than more prose about unbuilt features.
+
+## What the audit got wrong
+
+Six findings in this document were **measurement artifacts, not product defects**: §5's persona
+heights (a script that never completed onboarding), the checkpoint-1 heights that inherited it,
+R3.4.0's teen "844px/6 nodes" (a contradictory age band), pregnancy's "19 nodes" (its setup state),
+and two contrast failures (gradients report transparent backgrounds; alpha was dropped from
+`rgba()`). Four were caught before publication; two reached this document and were corrected in it.
+
+That is a worse hit rate than any single bug found here, and the response was to fix the tooling
+each time rather than the number: `seed-and-shoot.mjs` now derives a coherent age band from the life
+stage, and `STATE.md` carries the rules that caught the rest.
+
+## Still open
+
+`docs/07_MASTER_TODO.md` → **R3.6 cleanup register** is the live list. Nothing here is unknown:
+B10 (Actions quota, 1 September), B12 and R3.5.2 (owner decisions), R3.1c.4 (PDF print unverified),
+R3.1.6a (four life-stage mounts), 4.5 (partner sharing, needs a consent design).

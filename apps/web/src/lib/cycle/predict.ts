@@ -263,6 +263,17 @@ export function predictNextPeriod(
 /**
  * Days until the predicted start — ONLY when cycles are regular. In irregular
  * mode this returns null so the UI never shows a "late" counter (docs/09 §1.5).
+ *
+ * **Nothing calls this, and that is deliberate rather than an oversight** (noted
+ * again in the R3.6 cleanup pass, 2026-08-22). Femio shows no countdown anywhere:
+ * product rule 3 forbids a "late" counter, and a "3 days to go" is barely better —
+ * it invites the same reading of a range as a date. So there is no caller.
+ *
+ * It is kept rather than deleted because deleting it makes the *next* countdown
+ * easy to add without the guard. Whoever wires a day count reaches for this and
+ * inherits the two refusals already baked in — irregular and still-learning both
+ * return null, which is asserted by four tests. An empty function with a hostile
+ * contract is a cheaper safeguard than a comment nobody reads.
  */
 export function daysUntilPredicted(prediction: CyclePrediction, today = todayISO()): number | null {
   // Both states suppress the counter. Splitting `irregular` in two would have

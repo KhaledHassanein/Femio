@@ -64,7 +64,10 @@ The **shadcn MCP** is wired in `.mcp.json`, pinned to `shadcn@4.18.0` rather tha
 ## Current status (2026-08-16) — full picture in `docs/STATE.md`
 Phase 0 + 0.5 ✅ (73 persona specs, adaptation model, brand & tokens, 454 `[NEEDS SOURCE]` flags cleared). Phase 1 MVP essentially complete and **live**: `femioapp.com` + `femio-cms.vercel.app` on Vercel over Supabase EU; 31 published articles, all now carrying a named clinician byline; onboarding wizard with condition triage; cycle/TTC/pregnancy/postpartum/teen/menopause dashboards; the full pregnancy lifecycle; export/delete; offline queue; consent manager; staff MFA; k-anonymous insights.
 
-**`docs/23` named three things wrong. Two are closed.** The persona engine is no longer write-only — the screens render a **served** `ExperienceConfig` (R2.4) and every track has a mode (Track E in R2.5, Track A in R2.5c). Depth has started: `appointments`, `fertility_logs` and `screener_results` all now hold real data (P2.2.3, P2.1, P2.4). **Design and UX (R1) is the one still open**, and `vitals` is still unused.
+**`docs/23` named three things wrong. Two are closed.** The persona engine is no longer write-only — the screens render a **served** `ExperienceConfig` (R2.4) and every track has a mode (Track E in R2.5, Track A in R2.5c). Depth has started: `appointments`, `fertility_logs` and `screener_results` all now hold real data (P2.2.3, P2.1, P2.4). **Design and UX (R1) is the one still open** — and it is now the 2026-08-21 revamp: read `docs/26`
+(the audit, measured) and `docs/27` (the plan answering it) before touching a screen. `vitals` is
+**no longer unused**: `WeightChart` renders it in the pregnancy experience (P2.2.3). Every table
+from v1 now holds real data.
 
 **Deferred by owner direction, blocking nothing:** P0.12 legal (trigger is the first real user, not incorporation — so gate signup first, P0.12.5), billing, store compliance, community.
 
