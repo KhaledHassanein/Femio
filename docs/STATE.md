@@ -988,13 +988,13 @@ second caused specifically by Arabic in a console.
 >   missing `locale` prop on `NextIntlClientProvider`. Found only by running the full e2e suite,
 >   which was **not** green despite the last handover saying so.
 >
-> **One thing is unverified and it is the first thing to check.** `main` is pushed at `337ee3a`
-> and the full gate was green locally — 721 unit tests, all eleven guards, 74 e2e against a fresh
-> build — but **the Vercel deploy had not landed when this session ended**: `/en/sharing` and
-> `/en/shared-with-me` were still 404 in production and `/ar` was still serving the pre-fix English
-> crisis launcher. There is no Vercel credential in this tree, so "still building" and "the build
-> failed" cannot be told apart from here. Check those three things before anything else; if the
-> deploy failed, the log is in the Vercel dashboard and nothing local needs redoing.
+> **The deploy landed and was verified after the checkpoint was first written.** `main` is at
+> `a7aac07`; the full gate was green locally — 721 unit tests, all eleven guards, 74 e2e against a
+> fresh build — and production now agrees: `/en/sharing`, `/en/shared-with-me` and `/ar/sharing`
+> all 200, `partner-view` 401 unauthenticated, and **`/ar` serves the Arabic crisis launcher with
+> no `lang="en"` span anywhere** — the fix confirmed on the deployed site rather than only in the
+> build. It took roughly half an hour to appear, which is worth knowing: a 404 on a new route
+> minutes after a push is a slow Vercel build, not a failed one.
 >
 > **Do next, in order:**
 > 1. `git branch --list "wip/*"` — expect nothing.
