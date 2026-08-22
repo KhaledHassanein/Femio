@@ -1,6 +1,6 @@
 # Partner sharing — the consent design (recommendation)
 
-Status: **recommendation, not decided** · Owner: Khaled + DPO · For `docs/27` phase 4.5
+Status: **scope APPROVED by owner 2026-08-23** · DPIA updated the same day · Owner: Khaled + DPO · For `docs/27` phase 4.5
 Ties to `docs/13` §5–6, `DPIA.md`, `PROCESSOR_REGISTER.md`, product rules 1, 2 and 4
 
 The owner's instinct — *"the main user has the right to give full access or restricted, like
@@ -121,15 +121,16 @@ named recipient with an account can be cut off, and revocation is meaningless wi
 
 ---
 
-## What still needs a decision before code
+## Status of the gates
 
-1. **Scope confirmation** — the table above, particularly the three "never" rows.
-2. **The "full access" question** — this document recommends against it; the owner may disagree, and
-   it is his call.
-3. **DPIA update** — partner sharing is a new processing activity with a new risk (coercion) that
-   the current DPIA does not model.
-4. **`docs/13` §5** — a disclosures section distinct from the processor register.
-5. **DPO sign-off** on Art. 9(2)(a) wording, since this is the first disclosure of special-category
-   data to a non-processor.
+1. ✅ **Scope approved** by the owner, 2026-08-23 — including the three "never" rows and
+   restricted-only with no one-tap "share everything".
+2. ✅ **DPIA updated** the same day: partner sharing added to §1 as a *disclosure*, **coercion**
+   added to §3 as a new risk class with its three named harms, and six mitigations recorded in §4.
+3. ⏸ **`docs/13` §5 disclosures section** — needed before launch, not before code.
+4. ⏸ **DPO sign-off** on the Art. 9(2)(a) consent wording — needed before launch. Femio has no DPO
+   appointed yet (`DPIA.md` §5 is unsigned), which is a P0.12 dependency rather than a blocker on
+   building.
 
-**No code should be written before 1 and 3.** The rest can proceed in parallel.
+**Building may now proceed.** What may not proceed without 3 and 4 is *launching* it to real users —
+the same line `docs/13` already draws for every other processing activity.
