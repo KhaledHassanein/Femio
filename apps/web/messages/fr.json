@@ -1887,5 +1887,10 @@
     "shorter": "{days} jours de moins que ton habitude",
     "bleedDays": "{days} jours de saignement enregistrés",
     "symptoms": "Tu as noté : {list}"
+  },
+  "cycleVariability": {
+    "range": "Tes cycles ont duré de {shortest} à {longest} jours",
+    "evidence": "Sur {cycles} cycles enregistrés",
+    "notFailing": "Femio élargit la fenêtre quand tes cycles varient, et cesse de prédire quand il n'y a rien d'honnête à prédire. Ce n'est pas un échec de l'application — une date affirmée sur des données instables serait une invention."
   }
 }

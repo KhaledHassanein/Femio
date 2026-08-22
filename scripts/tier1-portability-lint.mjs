@@ -65,6 +65,7 @@ const PORTABLE = [
   "lib/cycle/phases.ts",
   "lib/cycle/symptom-patterns.ts",
   "lib/cycle/cycle-report.ts",
+  "lib/cycle/variability.ts",
   "lib/pregnancy/index.ts",
   "lib/calculators/dates.ts",
 ];

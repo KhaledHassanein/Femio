@@ -58,6 +58,7 @@ export const APP_CLIENT_NAMESPACES = [
   // caught the last time tracker strings leaked onto a content page.
   "firstRun",
   "cycleReport",
+  "cycleVariability",
   "flowStrip",
   // The Tools hub (R3.2.1/2.3) — signed-in only, so it never reaches /learn.
   "tools",

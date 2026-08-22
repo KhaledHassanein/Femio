@@ -3,6 +3,7 @@ All notable changes to Femio V2.
 
 ## [Unreleased]
 ### Added
+- **If your cycles vary, Femio now tells you what they actually did.** Instead of only widening its estimate and saying less, your dashboard shows the range your own cycles have run and how many they are drawn from — the first thing a clinician asks. Nothing is graded: there is no ideal amount of variation.
 - **A summary of the cycle that just ended.** How long it ran start to start, how that compares with your own usual, the days you logged bleeding, and the symptoms you noted. No score and no verdict — a longer cycle is not a worse one.
 - **Femio can now show you your own pattern.** If you have logged a symptom across at least three cycles, your dashboard says which days of your cycle it fell on and in how many cycles — counted from your entries, with nothing read into it. It waits until there is enough to be worth saying.
 - **Your dashboard now explains the phase you are in.** What is happening around ovulation, in the luteal phase, and the rest — drawn word for word from Femio's own clinician-reviewed guide, with the NHS and ACOG sources it cites, and a link to read the whole thing. Femio still says nothing about a phase it cannot place.

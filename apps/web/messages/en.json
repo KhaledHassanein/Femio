@@ -1877,5 +1877,10 @@
     "shorter": "{days} days shorter than your usual",
     "bleedDays": "{days} days of bleeding logged",
     "symptoms": "You logged: {list}"
+  },
+  "cycleVariability": {
+    "range": "Your cycles have run {shortest} to {longest} days",
+    "evidence": "Across {cycles} recorded cycles",
+    "notFailing": "Femio widens the window when your cycles vary, and stops predicting when there is nothing honest to predict from. That is not the app failing — a confident date built on unstable data would be an invention."
   }
 }

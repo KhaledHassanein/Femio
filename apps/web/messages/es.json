@@ -1887,5 +1887,10 @@
     "shorter": "{days} días menos que tu habitual",
     "bleedDays": "{days} días de sangrado registrados",
     "symptoms": "Registraste: {list}"
+  },
+  "cycleVariability": {
+    "range": "Tus ciclos han durado entre {shortest} y {longest} días",
+    "evidence": "En {cycles} ciclos registrados",
+    "notFailing": "Femio amplía la ventana cuando tus ciclos varían, y deja de predecir cuando no hay nada honesto que predecir. Eso no es un fallo de la aplicación: una fecha rotunda basada en datos inestables sería una invención."
   }
 }

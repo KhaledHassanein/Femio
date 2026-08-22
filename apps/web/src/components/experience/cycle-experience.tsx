@@ -12,6 +12,7 @@ import { SymptomPatternCard } from "@/components/cycle/symptom-pattern-card";
 import { symptomPatterns } from "@/lib/cycle/symptom-patterns";
 import { CycleReportCard } from "@/components/cycle/cycle-report-card";
 import { lastCompletedCycle } from "@/lib/cycle/cycle-report";
+import { observedRange } from "@/lib/cycle/variability";
 import { FlowStrip } from "@/components/cycle/flow-strip";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
@@ -73,6 +74,7 @@ export function CycleExperience({
   recentPeriods: readonly { date: string; flow: string | null }[];
 }) {
   const t = useTranslations("dashboard");
+  const tv = useTranslations("cycleVariability");
   const format = useFormatter();
 
   const fmt = (iso: string) =>
@@ -130,6 +132,24 @@ export function CycleExperience({
    * gets *instead of* a prediction — the absence is the content, so the card says
    * why rather than leaving a gap to be interpreted as the app being broken.
    */
+  /**
+   * Her cycles as they actually ran (`docs/27` 3.4).
+   *
+   * This card used to state an average and, when her cycles varied, add a
+   * warning-coloured line saying predictions stay wider. Correct, and an apology —
+   * an irregular cycle got a smaller version of the regular experience.
+   *
+   * `docs/26` §7 identifies this as the wedge: neither incumbent handles irregular
+   * cycles well. So she now gets something the regular case does not need — **her
+   * observed range, stated as fact.** "Your cycles have run 24 to 41 days" is not a
+   * prediction, carries no uncertainty, and is the first thing a clinician asks.
+   *
+   * The reframe is Femio's own reviewed words rather than new copy: a widened
+   * window is not the app failing, and a confident date built on unstable data
+   * would be an invention. Nothing grades the spread — there is no ideal
+   * variability, and a wide range is a fact about her body, not a failure of it.
+   */
+  const range = observedRange(recentPeriods.map((p) => p.date));
   const variabilityCard = (
     <Card>
       <CardContent className="flex min-h-24 flex-col justify-center gap-1 p-6">
@@ -137,8 +157,18 @@ export function CycleExperience({
         <p className="font-display text-lg text-text">
           {prediction ? t("avgLengthDays", { days: prediction.averageLength }) : t("needData")}
         </p>
+
+        {range ? (
+          <>
+            <p className="text-sm text-text">
+              {tv("range", { shortest: range.shortest, longest: range.longest })}
+            </p>
+            <p className="text-2xs text-text-muted">{tv("evidence", { cycles: range.cycles })}</p>
+          </>
+        ) : null}
+
         {prediction?.irregular ? (
-          <p className="text-sm text-warning-text">{t("irregularNote")}</p>
+          <p className="text-sm text-text-muted">{tv("notFailing")}</p>
         ) : null}
       </CardContent>
     </Card>
