@@ -215,9 +215,7 @@ stashes, typecheck clean, 692 tests passing, **all eleven guards passing**, prod
 
 ### Open product gaps, ranked
 
-- **Phase 4.5 · Partner sharing.** The only Phase 4 item that was never about emptiness, and the
-  only one still open. Flo has it, Clue does not. It shares health data with a second person, so it
-  is a DPIA and `docs/13` question before it is a UI one — no code until that consent design exists.
+- **Phase 4.5 · Partner sharing.** Recommendation written: `docs/compliance/PARTNER_SHARING_DESIGN.md`. Per-category opt-in reusing the `consent_records` pattern, **no one-tap "share everything"**, time-boxed, account-based rather than link-based, and three categories never offered at all — screener results, anything from the crisis surface, and free-text appointment questions. The two design points that matter more than the checkboxes: revocation must be **silent** (a partner who is notified is a partner she may not feel safe revoking from), and a hidden category must be **invisible** rather than shown as hidden, or granular sharing becomes a map of what she concealed. **Needs before code:** owner confirmation of scope, and a DPIA update — coercion is a risk the current DPIA does not model.
 
 - **R3.4.1 · TTC (944px/22 nodes) and pregnancy (855px/19)** are the thin screens. Phase 4.
 - **R3.5.2 · Arabic mixes Western and Arabic-Indic digits.** A locale decision for Phase 5.
