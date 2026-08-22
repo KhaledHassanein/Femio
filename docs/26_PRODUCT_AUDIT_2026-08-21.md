@@ -668,3 +668,43 @@ gained the report and the range.
 **Nothing was added as an article card.** Flo's failure mode is a home screen stuffed with content;
 `docs/27`'s design rule was to be dense with her data instead, and the numbers above are that rule
 holding.
+
+---
+
+# Phase 5 verification — and a sixth measurement artifact
+
+Contrast and direction measured on a seeded dashboard at 390×844, in light, dark and Arabic.
+
+| | dir | physical-direction classes | AA failures |
+|---|---|---|---|
+| Light | `ltr` | **0** | **0** |
+| Dark | `ltr` | **0** | **0** |
+| Arabic | `rtl` | **0** | **0** |
+
+**Zero physical direction classes** — no `ml-`, `mr-`, `pl-`, `pr-`, `left-`, `right-`, `text-left`
+or `text-right` anywhere in the dashboard's rendered tree. `docs/22` §216's logical-property rule is
+being followed in practice, not just documented.
+
+## The two "failures" were both mine
+
+A first pass reported three AA failures. Both causes were bugs in the measuring script, not in the app:
+
+1. **Gradient backgrounds.** `getComputedStyle().backgroundColor` is `transparent` on an element
+   painting a gradient, so walking up for a background found the page behind it — measuring white
+   hero text against a white page and reporting **1.04:1**. Elements backed by a gradient are now
+   excluded, because a ratio measured through one is fiction. (ADR-051(d) already guarantees every
+   hero-gradient stop is AA-safe under white; that is where this belongs.)
+2. **Alpha ignored.** The mode badge reported **3.09:1**. Its background is
+   `rgba(124, 58, 237, 0.18)` — semi-transparent — and the parser read the RGB and dropped the
+   alpha, comparing violet-300 against *solid* violet-600. Composited properly it is **5.4:1 to
+   8.9:1** depending on the dark surface behind it. It passes comfortably.
+
+**Sixth artifact in this workstream, and the fourth caught before it was written up as a defect.**
+The shape never changes: a script that measures the wrong thing, reported as a product bug. The rule
+that keeps catching them is the same one — *prove the measurement before believing the finding* —
+and it is worth more than any individual fix in this document.
+
+## What remains open in Phase 5
+
+- **B12** — the in-app hero gradient. Two decisions disagree (ADR-051 vs `docs/25` §5a); owner call.
+- **R3.5.2** — Arabic digits, Western for dates and Arabic-Indic for age bands. A locale call.

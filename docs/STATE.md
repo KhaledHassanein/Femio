@@ -245,6 +245,13 @@ CI=1 pnpm --filter web test:e2e:ci     # after that fresh build, never before
   genuine French cognate. The full list: persona-branch, tier1-portability, i18n-client,
   i18n-untranslated, content, content:test, claims, crisis, analytics, native-readiness,
   tokens-parity.
+- **Contrast cannot be measured with `getComputedStyle` alone.** Two things break it and both
+  produced false failures: an element painting a **gradient** reports `backgroundColor:
+  transparent`, so walking up for a background measures text against the page behind it (white on
+  white, 1.04:1); and a **semi-transparent** background like `rgba(124,58,237,.18)` must be
+  composited over what is behind it before any ratio means anything — reading its RGB and dropping
+  the alpha reported 3.09:1 for a badge that is actually 5.4–8.9:1. Exclude gradient-backed text
+  and composite alpha, or the tool invents defects.
 - **Prove the persona resolved before calling a screen empty.** Three findings in the 2026-08-21
   revamp were measurement artifacts, all the same shape: a script drove the product wrongly and
   the result was written up as a product defect. The subtlest answered "I'm a teenager" and then

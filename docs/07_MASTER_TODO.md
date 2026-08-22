@@ -196,6 +196,13 @@ stashes, typecheck clean, 692 tests passing, **all eleven guards passing**, prod
   shrinks; this is the last entry on it.
 - **`vitals` is still unused**, as `CLAUDE.md` has said since Phase 1.
 
+- [x] **R3.5.4** Dark mode and Arabic RTL verified (2026-08-22). Seeded dashboard at 390×844 in
+  light, dark and Arabic: `dir` correct in each, **zero** physical direction classes anywhere in the
+  rendered tree — `docs/22`'s logical-property rule is being followed, not just written down — and
+  **zero AA contrast failures**. A first pass reported three; all were bugs in the measuring script
+  (gradients report a transparent background; alpha was being dropped from `rgba()` backgrounds).
+  Sixth measurement artifact in this workstream, fourth caught before publication (`docs/26`).
+
 ### Open, and needing an owner decision
 
 - **B12 · The in-app hero gradient.** ADR-051 (2026-08-07) put the gradient hero *into* the
