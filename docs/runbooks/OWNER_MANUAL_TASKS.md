@@ -892,3 +892,23 @@ Metadata-only on Postgres: no table rewrite, no data touched, nullable, and reve
 `drop column`. Afterwards the console 400s stop and her stated length starts feeding the first
 cycles. If you take the SQL-editor route, also run
 `supabase migration repair --status applied 0010` so the ledger does not drift further.
+
+## Before launching partner sharing (2026-08-23) — not before building it
+
+Scope approved and the DPIA updated, so the feature is buildable. Two things gate *launch to real
+users*, and both are the same P0.12 dependency you have already deferred until the first real user:
+
+1. **Appoint a DPO or engage privacy counsel**, and have them sign `compliance/DPIA.md` §5, which is
+   currently blank. Hand them two documents, both written to be handed over as-is:
+   `compliance/DPIA.md` and `compliance/PARTNER_SHARING_DESIGN.md`.
+2. **Add a disclosures section to `docs/13` §5.** `PROCESSOR_REGISTER.md` governs processors bound by
+   a DPA; a partner is a *recipient*, not a processor, and filing him there would be the register's
+   first inaccuracy.
+
+Specifically ask them to rule on: the Art. 9(2)(a) consent wording (it must name the recipient and
+the categories at the moment of consent — "allow sharing" is not explicit consent), whether the
+coercion mitigations in DPIA §4 are sufficient, and what happens to a recipient's cached view after
+she revokes.
+
+**Nothing here blocks writing the code.** It blocks turning it on for real users, which is the same
+line `docs/13` already draws for every other processing activity.

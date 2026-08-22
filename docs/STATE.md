@@ -9,6 +9,12 @@ per session.**
 > Read `CLAUDE.md`, then this file, then `docs/07_MASTER_TODO.md` → **▶ NOW**. Skim
 > `docs/23`/`24`/`25` only if the task touches strategy, architecture or design.
 >
+> **Where things stand (2026-08-23).** The 2026-08-21 revamp is **through all six phases**. The
+> dashboard that opened it at 844px is 1440px (TTC 1646px); `/summary` works; the e2e CI exclusion
+> went from 9-of-18 to 1-of-19; 706 unit tests; all eleven guards green. `docs/26` §"Re-audit"
+> carries the before/after. **Read `docs/07_MASTER_TODO.md` → R3.6 cleanup register first** — it is
+> the single list of everything still open, grouped by *why* it is open.
+>
 > **The live workstream is the 2026-08-21 revamp.** `docs/26` is the audit — what is wrong,
 > measured, with screenshots and request logs. `docs/27` is the plan answering it, phases 0→6,
 > a checkpoint after each. Read both before touching a screen: `docs/26` records defects that
