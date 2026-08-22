@@ -307,7 +307,7 @@ again. Nothing needs changing there.
 
 ---
 
-## B11 · 🔴 OPEN 2026-08-21 — the Supabase Preview migration ledger is out of sync
+## B11 · ✅ DONE 2026-08-22 — the Supabase Preview migration ledger is back in sync
 
 The `Supabase Preview` check fails on every push:
 
@@ -410,3 +410,46 @@ precisely the loop this blocker describes.
 - **Do not add `if not exists` to the migrations to make the error go away.** That hides the
   drift and leaves the ledger wrong, so the next migration fails the same way.
 - **Do not re-run the SQL by hand.** The table is already there; the probe above confirms it.
+
+---
+
+### ✅ Resolved 2026-08-22 — and what it actually was
+
+`migration list --linked` is the whole diagnostic, and it named a different row than this blocker
+predicted:
+
+```
+   Local  | Remote
+   0008   | 0008
+   0009   | ` `      ← the only gap
+   0010   | 0010
+```
+
+**The gap was `0009`, not `0007 0008 0010`.** Those three were guessed — `0007` from the error
+message and `0010` because it had been applied by hand — and repairing them was harmless but beside
+the point. The lesson is the ordering in the steps above: **run `migration list` first and repair
+exactly what it shows**, never a list inferred from an error message.
+
+Why the error message pointed at `0007` anyway: `db push` walks migrations in order and stops at
+the first one the ledger does not know about, so it reports the earliest symptom rather than the
+cause. After the three wrong rows were repaired it moved on and named the real one — *"Found local
+migration files to be inserted before the last migration on remote database: 0009"*, which is
+Supabase saying "0010 is recorded but 0009 is not, so this would land out of order".
+
+That message offers `--include-all`, and **taking that offer would have been the mistake**:
+`0009` was already applied — `pregnancy.ended_on` answers on the live database — so `--include-all`
+would have re-run it and failed exactly like `0007` did. The correct instrument was the one that
+touches no SQL:
+
+```bash
+npx supabase migration repair --status applied 0009
+```
+
+Verified after: every row carries a version in both columns, and `db push --dry-run` reports
+`Remote database is up to date`.
+
+**The durable rule:** when the schema is already correct and only the ledger disagrees, `repair`
+is the tool and `push` is the trap — `push` is for SQL that has not run, `repair` is for SQL that
+has. Confirm which situation you are in by probing for the artifact (a table, column or function)
+before touching either.
+

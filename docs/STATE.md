@@ -219,6 +219,13 @@ CI=1 pnpm --filter web test:e2e:ci     # after that fresh build, never before
   write back in whatever style the file had.
 - **`apps/cms/.env.local` holds the PRODUCTION connection string.** Any local migrate touches
   live data.
+- **Supabase: `repair` is for SQL that has already run, `push` is for SQL that has not.** When the
+  schema is right and only `supabase_migrations.schema_migrations` disagrees, `migration repair
+  --status applied <version>` fixes it and executes nothing. `db push` will try to re-run the
+  migration and fail with `42P07`. `db push --dry-run` may suggest `--include-all`; taking that
+  offer on an already-applied migration is the same trap. Diagnose with `migration list --linked`
+  — the row where `Local` has a version and `Remote` is blank is the whole problem — and confirm
+  by probing for the artifact the migration creates before touching either command (B11).
 - **Windows:** `pkill` does not kill `next start`; kill by port.
 - **Prove the persona resolved before calling a screen empty.** Three findings in the 2026-08-21
   revamp were measurement artifacts, all the same shape: a script drove the product wrongly and
