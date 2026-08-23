@@ -17,7 +17,7 @@ Status marks follow the MASTER_TODO covenant: `[ ]` open · `[~]` in progress ·
 Chapter [02_DATA_MODEL.md](02_DATA_MODEL.md), [05_DESIGN_SYSTEM.md](05_DESIGN_SYSTEM.md) §1.
 
 - [x] A1 · `0015_period_days.sql` — per-day flow, backfilled from `cycles`
-- [ ] A2 · `0016_log_dimensions.sql` — `symptom_logs.dimension`, mood backfilled
+- [x] A2 · `0016_log_dimensions.sql` — `symptom_logs.dimension`, mood backfilled
 - [ ] A3 · `0017_vitals_kinds.sql` — BBT and other kinds, `source` column
 - [ ] A4 · `0018_predictions.sql` — prediction with basis, two tiers, outcome
 - [ ] A5 · `0019_patterns.sql` — persisted findings with evidence and dismissal
@@ -110,5 +110,6 @@ Newest first. One line per checkpoint, with the commit.
 
 | When | What | Commit |
 |---|---|---|
-| 2026-08-23 | **A1** `period_days` — per-day flow, backfilled, RLS, idempotent | _pending_ |
+| 2026-08-23 | **A2** `symptom_logs.dimension` — mood its own dimension, 9 keys backfilled | _pending_ |
+| 2026-08-23 | **A1** `period_days` — per-day flow, backfilled, RLS, idempotent | `5ca727b` |
 | 2026-08-23 | Plan written, phases opened, nothing built yet | `de2cb28` |
