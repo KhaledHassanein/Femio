@@ -18,7 +18,7 @@ Chapter [02_DATA_MODEL.md](02_DATA_MODEL.md), [05_DESIGN_SYSTEM.md](05_DESIGN_SY
 
 - [x] A1 · `0015_period_days.sql` — per-day flow, backfilled from `cycles`
 - [x] A2 · `0016_log_dimensions.sql` — `symptom_logs.dimension`, mood backfilled
-- [ ] A3 · `0017_vitals_kinds.sql` — BBT and other kinds, `source` column
+- [x] A3 · `0017_log_provenance.sql` — `source` on `vitals` + `fertility_logs`; **BBT/discharge/intercourse already existed** (chapter 02 §3 corrected)
 - [ ] A4 · `0018_predictions.sql` — prediction with basis, two tiers, outcome
 - [ ] A5 · `0019_patterns.sql` — persisted findings with evidence and dismissal
 - [ ] A6 · `0020_experience_documents.sql` — served documents, per contract version
@@ -110,6 +110,7 @@ Newest first. One line per checkpoint, with the commit.
 
 | When | What | Commit |
 |---|---|---|
-| 2026-08-23 | **A2** `symptom_logs.dimension` — mood its own dimension, 9 keys backfilled | _pending_ |
+| 2026-08-23 | **A3** provenance on measured values; corrected ch.02 §3 — BBT, discharge and the intercourse marker already exist | _pending_ |
+| 2026-08-23 | **A2** `symptom_logs.dimension` — mood its own dimension, 9 keys backfilled | `46bd13e` |
 | 2026-08-23 | **A1** `period_days` — per-day flow, backfilled, RLS, idempotent | `5ca727b` |
 | 2026-08-23 | Plan written, phases opened, nothing built yet | `de2cb28` |

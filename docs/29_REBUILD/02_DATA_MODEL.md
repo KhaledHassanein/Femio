@@ -81,9 +81,18 @@ create index symptom_logs_profile_dim_time_idx
   on public.symptom_logs (profile_id, dimension, logged_at desc);
 ```
 
-Backfill: every existing mood key (`anxious`, `calm`, `happy`, `irritable`, `sad`,
-`tearfulness`, `mood`) becomes `dimension = 'mood'`; everything else stays
-`'symptom'`.
+Backfill: the nine keys in `SYMPTOM_GROUPS[group="mood"]` — `happy`, `calm`,
+`anxious`, `irritable`, `sad`, `moodSwings`, `lowMotivation`, `tearfulness`,
+`panicFeelings` — become `dimension = 'mood'`; everything else keeps the `'symptom'`
+default. (An earlier draft of this list was written from memory and was wrong in
+three places; the migration carries the correct set and a note that it goes stale if
+the group changes.)
+
+**`dimension` is a discriminator, not a partition.** `symptoms.ts` says the
+vocabulary is *"grown, never partitioned"*, because a separate menopause list would
+mean a woman in cycle mode could not log a night sweat — product rule 2 violated in
+the schema. Dimension groups facts for analysis and privacy; it never decides what
+she may log.
 
 **The vocabulary that fills it** (chapter 03 §4 owns the canonical list, tier 1):
 
@@ -91,8 +100,8 @@ Backfill: every existing mood key (`anxious`, `calm`, `happy`, `irritable`, `sad
 |---|---|---|
 | `symptom` | Expanded from ~22 toward Flo's 47, chosen for clinical weight rather than count. Adds the perimenopause set (hot flushes, night sweats, brain fog, joint pain, palpitations, vaginal dryness, bladder leaks) and the pregnancy/postpartum set (heartburn, food aversions, perineal pain, stretch marks) that `docs/16` and the MRS already imply. | |
 | `mood` | Its own dimension, roughly 12–16 entries | |
-| `discharge` | Cervical fluid types — clinically meaningful for TTC and infection awareness | |
-| `intercourse` | **One marker. Date only.** No act types, no orgasm or masturbation entries. Conservative wording in all four languages. | **OD-5** |
+| `discharge` | Cervical fluid types — clinically meaningful for TTC and infection awareness. **Already exists as `fertility_logs.cm_type`**; the work is surfacing it beyond the TTC screen (§3) | |
+| `intercourse` | **One marker. Date only.** No act types, no orgasm or masturbation entries. Conservative wording in all four languages. **Already exists as `fertility_logs.intercourse boolean`** — it was right from schema v1 | **OD-5** |
 | `vital` | Pointer dimension; the values live in `vitals` | |
 
 `severity` (0–4) already exists and stays; the pattern engine's severity trend
@@ -100,22 +109,52 @@ depends on it.
 
 ---
 
-## 3. `vitals` — BBT has nowhere to live
+## 3. Provenance on measured values — and a correction
 
-**The problem.** Basal body temperature is the single most requested TTC signal, it
-is what Flo's `TemperatureChart` and Oura connector exist for, and we have no column
-for it. `vitals` currently carries weight (rendered by `WeightChart`).
+**Corrected 2026-08-23, during implementation.** This section originally said BBT
+"has nowhere to live". That was wrong, and it is correction C-1's mistake repeated:
+describing a gap from the plan rather than from the code.
 
-**Change — `0017_vitals_kinds.sql`.** Confirm `vitals` carries a `kind` discriminator;
-if it does not, add one, and register `bbt`, `temperature`, `weight`, `glucose`,
-`resting_hr`, `hrv`, `sleep_minutes`, `steps`. Add the same `source` column as
-`period_days`, for TD-07.
+`fertility_logs` has carried all three supposedly-missing things since schema v1:
 
-BBT needs `measured_at` precision to the minute and a `time_of_day` note, because a
-temperature taken at a different hour is a different measurement — a nuance no
-competitor surfaces and one our confidence explanation (D2) can use.
+| Column | What it is |
+|---|---|
+| `bbt numeric` | Basal body temperature. `lib/fertility` already does plausibility checking and Celsius/Fahrenheit inference (`isPlausibleBbt`). |
+| `cm_type text` | Cervical mucus — the discharge vocabulary. |
+| `intercourse boolean` | **Exactly the conservative date-only marker OD-5 asks for.** No act types, no categories. A boolean on a date. It was already right. |
 
----
+`vitals` likewise already has an open `type` set whose own column comment names
+`temp_bbt`, plus `value`, `unit` and `measured_at`.
+
+**So the gap is surfacing, not schema.** These columns are reachable only from the
+TTC charting screen, which means a woman on the cycle track cannot log a temperature
+or a discharge observation at all. That is a Phase C problem (the log screen,
+chapter 06 §3) and a Phase D problem (the vocabulary), not a migration.
+
+### What is actually missing: provenance
+
+**Change — `0017_log_provenance.sql`.** A `source` column on `vitals` and
+`fertility_logs`, checked to `user | imported | health_platform`, matching
+`period_days`.
+
+When Health Connect and HealthKit land (TD-07), rows will arrive that she did not
+type. Three things depend on telling them apart: the **visit pack** must say which
+numbers are hers and which came from a device, because a clinician will ask; **her
+own trust**, because a value she never entered appearing in her record with no
+explanation is alarming and correctly so; and **deletion**, because disconnecting a
+platform should remove what that platform wrote without touching what she did.
+
+Adding it now, before any integration exists, means the integration cannot ship
+without it. Adding it afterwards means a backfill that has to guess.
+
+The migration also documents the canonical `vitals.type` set in a column comment
+rather than a CHECK — the closed set lives in tier 1 as `LogVocabulary` (chapter 03
+§4) where both clients read it — and adds the `(profile_id, type, measured_at)` index
+every Phase C chart needs to draw one line without scanning her whole history.
+
+**BBT is deliberately not registered as a `vitals` kind.** It stays in
+`fertility_logs.bbt` where `lib/fertility` reads it; duplicating it would create two
+sources of truth for one measurement.
 
 ## 4. `predictions` — new, and the reason D2 is possible
 

@@ -50,6 +50,8 @@ not resurrect the original version from an older chapter.
 | **C-6** | Flo ships six chart surfaces to our one | True of the binary, **misleading about the product**. The screen users actually reach for cycle analytics is a list of dot strips; the "Insights" tab is a content library with no chart. **Nobody here has a data-visualisation layer.** | Running the app |
 | **C-7** | Uncertainty-honest prediction is our differentiator | Flo already hedges consistently ("likely", "on or around", ranges). **Table stakes we have not met**, not an edge. Our edge is *explaining* the confidence. | Reading strings, confirmed live |
 
+| **C-8** | Femio has no home for BBT, discharge or an intercourse marker (`docs/29` ch.02 §3, as first written) | All three have existed since schema v1: `fertility_logs.bbt`, `.cm_type`, `.intercourse boolean` — and the boolean is exactly the conservative marker OD-5 asks for. The gap is **surfacing**, not schema: they are reachable only from the TTC screen. | Implementing A3 |
+
 **The meta-lesson, and it should govern any future teardown:** reading a binary tells
 you what was *built*; running the app tells you what users *reach*. Those differed
 materially in six of seven cases above. Never ship a competitive claim that has only
