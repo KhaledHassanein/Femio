@@ -66,6 +66,8 @@ export const APP_CLIENT_NAMESPACES = [
   // signed-in-only routes, so neither reaches a public content page.
   "partnerSharing",
   "partnerShared",
+  // The pattern engine (P2.5) — its own signed-in screen.
+  "patterns",
   "phaseEducation",
   "phaseStrip",
   "symptomPatterns",

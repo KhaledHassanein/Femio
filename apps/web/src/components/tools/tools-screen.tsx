@@ -10,6 +10,7 @@ import {
   HeartPulse,
   Pill,
   Thermometer,
+  TrendingUp,
 } from "lucide-react";
 import { useTranslations } from "next-intl";
 
@@ -62,6 +63,11 @@ const RECORD: readonly Tool[] = [
 
 /** Tools that produce an answer rather than store one. */
 const TOOLS: readonly Tool[] = [
+  /**
+   * The pattern engine (P2.5). A tool rather than a record: it produces an
+   * answer from what she already logged rather than storing something new.
+   */
+  { href: "/patterns", key: "patterns", Icon: TrendingUp },
   { href: "/fertility", key: "fertility", Icon: Thermometer },
   { href: "/screeners", key: "screeners", Icon: HeartPulse },
   { href: "/calculators", key: "calculators", Icon: Calculator },

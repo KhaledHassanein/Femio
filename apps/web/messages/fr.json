@@ -1838,6 +1838,10 @@
       "label": "Rendez-vous",
       "note": "Les dates, et les questions que tu voulais poser"
     },
+    "patterns": {
+      "label": "Vos tendances",
+      "note": "Ce que montrent vos propres entrées, comptées"
+    },
     "fertility": {
       "label": "Courbe de fertilité",
       "note": "Température, tests et glaire cervicale"
@@ -2018,6 +2022,45 @@
       "rowWithTest": "Not\u00e9 le {date} \u2014 test\u00a0: {result}",
       "none": "Rien de not\u00e9 pour l'instant.",
       "note": "\u00c0 titre indicatif seulement. Ces jours sont une estimation, jamais une limite."
+    }
+  },
+  "patterns": {
+    "title": "Vos tendances",
+    "intro": "Ce que montrent vos propres entr\u00e9es, compt\u00e9es. Femio ne les interpr\u00e8te pas.",
+    "loading": "Chargement de vos tendances",
+    "loadError": "Nous n'avons pas pu charger cette page. C'est de notre c\u00f4t\u00e9, pas votre connexion \u2014 r\u00e9essayez.",
+    "retry": "R\u00e9essayer",
+    "limit": "Une tendance qui se r\u00e9p\u00e8te peut \u00eatre utile \u00e0 noter, mais elle ne suffit pas \u00e0 confirmer un probl\u00e8me de sant\u00e9. Parlez-en \u00e0 votre m\u00e9decin plut\u00f4t que d'agir dessus.",
+    "confidence": {
+      "high": "R\u00e9gulier",
+      "medium": "Assez r\u00e9gulier",
+      "low": "Signal pr\u00e9coce"
+    },
+    "consent": {
+      "body": "Cet \u00e9cran vous relit vos propres entr\u00e9es\u00a0; il a donc besoin de l'autorisation \u00ab\u00a0montrez-moi mes tendances\u00a0\u00bb. Rien ne sort de Femio dans un cas comme dans l'autre.",
+      "cta": "L'activer"
+    },
+    "empty": {
+      "heading": "Pas encore assez d'entr\u00e9es",
+      "body": "Femio a besoin d'environ trois cycles avant de parler d'une tendance. En dessous, c'est une co\u00efncidence, et l'appeler une tendance serait une supposition."
+    },
+    "timing": {
+      "heading": "Quand cela arrive g\u00e9n\u00e9ralement",
+      "note": "Le jour de votre cycle o\u00f9 vous avez not\u00e9 chacun d'eux."
+    },
+    "together": {
+      "heading": "Ce que vous notez le m\u00eame jour",
+      "note": "Ces \u00e9l\u00e9ments sont apparus ensemble. Femio ne dit pas que l'un cause l'autre \u2014 il ne peut pas le savoir, et un simple comptage non plus.",
+      "pair": "{a} et {b}",
+      "evidence": "Ensemble sur {cycles} cycles sur {ofCycles}"
+    },
+    "severity": {
+      "heading": "\u00c0 quel point c'est intense",
+      "note": "La moyenne des notes que vous avez donn\u00e9es, r\u00e9cemment par rapport \u00e0 avant. Pas un jugement sur votre sant\u00e9.",
+      "higher": "{symptom} \u2014 not\u00e9 plus haut derni\u00e8rement",
+      "lower": "{symptom} \u2014 not\u00e9 plus bas derni\u00e8rement",
+      "steady": "{symptom} \u2014 \u00e0 peu pr\u00e8s pareil",
+      "evidence": "Moyenne de {recent} r\u00e9cemment contre {earlier} avant, sur {cycles} cycles"
     }
   }
 }

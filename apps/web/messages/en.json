@@ -1828,6 +1828,10 @@
       "label": "Appointments",
       "note": "Dates, and the questions you meant to ask"
     },
+    "patterns": {
+      "label": "Your patterns",
+      "note": "What your own entries show, counted"
+    },
     "fertility": {
       "label": "Fertility charting",
       "note": "Temperature, tests and cervical mucus"
@@ -2008,6 +2012,45 @@
       "rowWithTest": "Charted on {date} \u2014 test: {result}",
       "none": "Nothing charted yet.",
       "note": "Awareness only. These days are an estimate, never a boundary."
+    }
+  },
+  "patterns": {
+    "title": "Your patterns",
+    "intro": "What your own entries show, counted. Femio is not interpreting them.",
+    "loading": "Loading your patterns",
+    "loadError": "We couldn't load this. That is our side, not your connection \u2014 please try again.",
+    "retry": "Try again",
+    "limit": "A repeating pattern may be useful to record, but the pattern alone cannot confirm a health condition. Take it to your clinician rather than acting on it.",
+    "confidence": {
+      "high": "Consistent",
+      "medium": "Fairly consistent",
+      "low": "Early signal"
+    },
+    "consent": {
+      "body": "This screen reads your own entries back to you, so it needs the \u201cshow me patterns and insights\u201d permission. Nothing leaves Femio either way.",
+      "cta": "Turn it on"
+    },
+    "empty": {
+      "heading": "Not enough logged yet",
+      "body": "Femio needs about three cycles of entries before it will say anything about a pattern. Fewer than that is a coincidence, and calling it a pattern would be a guess."
+    },
+    "timing": {
+      "heading": "When things tend to happen",
+      "note": "The day of your cycle you logged each one."
+    },
+    "together": {
+      "heading": "What you log on the same day",
+      "note": "These appeared together. Femio is not saying one causes the other \u2014 it cannot know that, and neither can a count.",
+      "pair": "{a} and {b}",
+      "evidence": "Together in {cycles} of {ofCycles} cycles"
+    },
+    "severity": {
+      "heading": "How hard they have been hitting",
+      "note": "The average of the ratings you gave, recently against before. Not a judgement about your health.",
+      "higher": "{symptom} \u2014 rated higher lately",
+      "lower": "{symptom} \u2014 rated lower lately",
+      "steady": "{symptom} \u2014 about the same",
+      "evidence": "Averaging {recent} recently against {earlier} before, across {cycles} cycles"
     }
   }
 }

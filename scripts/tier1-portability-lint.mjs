@@ -64,6 +64,17 @@ const PORTABLE = [
   "lib/cycle/predict.ts",
   "lib/cycle/phases.ts",
   "lib/cycle/symptom-patterns.ts",
+  /**
+   * The pattern engine (P2.5). Tier 2 rather than tier 1 by the same reasoning as
+   * the prediction it sits beside: it is arithmetic over her own record, it has to
+   * work offline, and a Dart twin has to reach the identical answer — two clients
+   * disagreeing about whether a pattern exists is the same class of problem as two
+   * clients disagreeing about a due date.
+   */
+  "lib/patterns/confidence.ts",
+  "lib/patterns/cycles.ts",
+  "lib/patterns/co-occurrence.ts",
+  "lib/patterns/severity.ts",
   "lib/cycle/cycle-report.ts",
   "lib/cycle/variability.ts",
   "lib/pregnancy/index.ts",

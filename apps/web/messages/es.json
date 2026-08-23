@@ -1838,6 +1838,10 @@
       "label": "Citas",
       "note": "Fechas, y las preguntas que querías hacer"
     },
+    "patterns": {
+      "label": "Tus patrones",
+      "note": "Lo que muestran tus propias entradas, contadas"
+    },
     "fertility": {
       "label": "Registro de fertilidad",
       "note": "Temperatura, pruebas y moco cervical"
@@ -2018,6 +2022,45 @@
       "rowWithTest": "Registrado el {date} \u2014 prueba: {result}",
       "none": "Todav\u00eda no hay nada registrado.",
       "note": "Solo a t\u00edtulo informativo. Estos d\u00edas son una estimaci\u00f3n, nunca un l\u00edmite."
+    }
+  },
+  "patterns": {
+    "title": "Tus patrones",
+    "intro": "Lo que muestran tus propias entradas, contadas. Femio no las interpreta.",
+    "loading": "Cargando tus patrones",
+    "loadError": "No pudimos cargarlo. Es cosa nuestra, no de tu conexi\u00f3n: int\u00e9ntalo de nuevo.",
+    "retry": "Reintentar",
+    "limit": "Un patr\u00f3n que se repite puede ser \u00fatil para anotarlo, pero por s\u00ed solo no confirma ning\u00fan problema de salud. Ll\u00e9valo a tu m\u00e9dica en lugar de actuar por tu cuenta.",
+    "confidence": {
+      "high": "Constante",
+      "medium": "Bastante constante",
+      "low": "Se\u00f1al temprana"
+    },
+    "consent": {
+      "body": "Esta pantalla te devuelve tus propias entradas, as\u00ed que necesita el permiso \u00abmu\u00e9strame patrones\u00bb. En ninguno de los dos casos sale nada de Femio.",
+      "cta": "Activarlo"
+    },
+    "empty": {
+      "heading": "A\u00fan no hay suficientes entradas",
+      "body": "Femio necesita unos tres ciclos de entradas antes de hablar de un patr\u00f3n. Con menos es una coincidencia, y llamarlo patr\u00f3n ser\u00eda adivinar."
+    },
+    "timing": {
+      "heading": "Cu\u00e1ndo suelen aparecer",
+      "note": "El d\u00eda de tu ciclo en el que registraste cada uno."
+    },
+    "together": {
+      "heading": "Lo que registras el mismo d\u00eda",
+      "note": "Aparecieron juntos. Femio no dice que uno cause el otro: no puede saberlo, y un recuento tampoco.",
+      "pair": "{a} y {b}",
+      "evidence": "Juntos en {cycles} de {ofCycles} ciclos"
+    },
+    "severity": {
+      "heading": "Con cu\u00e1nta fuerza aparecen",
+      "note": "La media de las valoraciones que diste, \u00faltimamente frente a antes. No es un juicio sobre tu salud.",
+      "higher": "{symptom}: valorado m\u00e1s alto \u00faltimamente",
+      "lower": "{symptom}: valorado m\u00e1s bajo \u00faltimamente",
+      "steady": "{symptom}: m\u00e1s o menos igual",
+      "evidence": "Media de {recent} \u00faltimamente frente a {earlier} antes, en {cycles} ciclos"
     }
   }
 }
