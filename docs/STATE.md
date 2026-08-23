@@ -970,6 +970,36 @@ the built output as broken in a way it was not either. **Read the expected Arabi
 file; never type it into a command line.** That is the eighth measurement artifact here and the
 second caused specifically by Arabic in a console.
 
+## A new table can have perfect RLS and still be unreadable (2026-08-23)
+
+Found by driving the **deployed** site and watching the network, minutes after calling the
+notification work done. `GET /rest/v1/notification_prefs` returned **403** to its own owner.
+
+**RLS narrows a privilege; it does not grant one.** Migration 0002 ran `grant … on ALL TABLES in
+schema public to authenticated`, and `ALL TABLES` means *the tables that existed at that moment*.
+Every table created since — `notification_prefs`, `push_subscriptions` — inherited nothing.
+`partner_links` was fine only because it is a v1 table.
+
+**Why the whole gate missed it.** Nothing failed. `readPrefs()` treats a missing row as the normal
+state, which it is for anyone who has never opened the panel, so it returns the defaults — and an
+*unreadable* table and an *empty* one are indistinguishable from the screen. The panel rendered
+perfectly, every checkbox correctly unticked, and the first real user to change a setting would
+have had it silently fail. Unit tests do not touch Postgres and the e2e suite has no signed-in
+notification flow.
+
+Migration 0014 grants the two tables and — the part that matters more — adds the
+`alter default privileges … to authenticated` line that 0004 wrote for `service_role` and nobody
+wrote for `authenticated`, which is the entire reason this was possible. It also **re-applies
+0011's revokes**, because a blanket `grant execute on all functions` would otherwise hand
+`partner_shared_rows` back to `authenticated` and quietly undo ADR-068's boundary.
+
+`scripts/dev/notifications-rls-check.mjs` is committed and asserts the status codes rather than the
+screen: read, write, read back, cross-account denial, the CHECK constraint, and that
+`partner_shared_rows` is still 403 from a browser.
+
+**The reusable rule: a new table needs a GRANT line or a default privilege, and "the screen looks
+right" is not evidence that it has one.**
+
 ## Sentry, PostHog and 0006 were all already done — the file was wrong (2026-08-23)
 
 The owner said so and was right. All three were carried as open owner tasks for weeks while being
