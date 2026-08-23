@@ -547,6 +547,42 @@ reserved for accounts with enough history to support it.
 is in Flo, where it sits behind an icon. Detail deferred to the design pass; recorded
 here so it is not lost.
 
+### The calendar with history — five states, and one tier too few
+
+With three cycles logged (Jun/Jul/Aug), the month grid renders five distinct states:
+
+| State | Treatment | Example |
+|---|---|---|
+| Logged period day | Solid pink fill, white numeral | Aug 9–13 |
+| **Predicted period day** | **Dotted pink ring, pink numeral** | Aug 24–27 |
+| Today, when it is also predicted | Solid pink fill inside a grey ring | Aug 23 |
+| Fertile window | Teal numeral, no fill | Aug 30–31 |
+| Ordinary day | Plain black numeral | — |
+
+Two observations that matter for **OD-15**.
+
+**Every day of a run is marked, not just its start.** The whole logged period is filled
+and the whole predicted period is ringed. That is the floor OD-15 sets, and Flo meets
+it. What Flo does *not* do is distinguish the first and last day of a run, so the
+length has to be counted rather than read.
+
+**All four predicted days render identically — and that is a defect.** Flo's own
+string catalogue carries two tiers, `day_info_panel_legend_high_probable_period_day_description`
+("Your period is **likely** to start on this day") and
+`day_info_panel_legend_future_low_probable_period_day_description` ("Your period **may**
+start on this day"), each with a `{learnMore}` link. The calendar collapses both into
+one dotted ring. **Their calendar under-communicates what their own copy claims.**
+
+That is the specific, concrete opening OD-15 asks for. Rendering the two tiers
+visibly — a firmer treatment for the likely days, a softer one for the possible ones,
+with the confidence tappable — beats the market leader on the surface she looks at
+most, using information they already compute and fail to show.
+
+One more detail worth copying: the cycle-summary card had already flagged
+*"Your cycle: 14 days — Short?"* once a second cycle existed. Flagging a short cycle
+is reasonable; doing it as a **question** rather than a verdict is the tone to take,
+and it sits oddly beside the same product's flat "ABNORMAL" label from §6c.
+
 ## 7. What this chapter changes elsewhere
 
 | Chapter | Amendment |
