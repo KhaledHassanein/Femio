@@ -14,6 +14,7 @@
     "lint": "pnpm --filter web lint",
     "typecheck": "pnpm --filter web typecheck",
     "test": "pnpm --filter web test",
+    "db-artifacts-probe": "node scripts/db-artifacts-probe.mjs",
     "claims-lint": "node scripts/claims-lint.mjs",
     "crisis-lint": "node scripts/crisis-compliance.mjs",
     "analytics-lint": "node scripts/analytics-lint.mjs",

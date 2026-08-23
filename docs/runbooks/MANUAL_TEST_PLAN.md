@@ -451,3 +451,23 @@ A screenshot beats a description, and **which locale and theme** matters more th
 most defects in this project's history were locale- or theme-specific and invisible otherwise.
 If it is a behaviour rather than a look, the sequence that produced it is enough; I do not need
 console output unless I ask.
+
+## Column-level grant on `patterns` (added 2026-08-23, RB-A5)
+
+**Why a human.** `scripts/db-artifacts-probe.mjs` verifies every other Phase A
+artifact anonymously, but this one needs a signed-in session, and no automated gate
+covers it. It is the difference between "she can dismiss a finding" and "she can
+rewrite what Femio concluded about her body".
+
+**Signed in, from the browser console on the app:**
+
+```js
+// Should SUCCEED — dismissing is hers.
+await supabase.from('patterns').update({ dismissed_at: new Date().toISOString() }).eq('profile_id', USER_ID);
+
+// Should FAIL with 42501 — the finding itself is tier-1's.
+await supabase.from('patterns').update({ confidence: 1 }).eq('profile_id', USER_ID);
+```
+
+Needs at least one row in `patterns`, so it can only be run once tier 1 writes them
+(Phase D2). Until then it is pending, not passing.

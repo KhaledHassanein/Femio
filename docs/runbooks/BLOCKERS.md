@@ -546,7 +546,7 @@ CLDR default — it was already correct, and correct-by-accident is what the tes
 
 ---
 
-## B13 · ⏳ OPEN 2026-08-23 — seven migrations are written and none of them has run
+## B13 · ✅ DONE 2026-08-23 — `0015`–`0021` applied and **verified by probing the artifacts**
 
 **What is needed:** apply `0015`–`0021` to Preview, then Production.
 
@@ -574,6 +574,32 @@ safe to re-run, but worth watching the row counts on Preview before Production.
 none and desynced the migration ledger.
 
 **What to check after.** That `feature_flags` is readable when signed out (the public
-site needs it), that `predictions` rejects an insert from a signed-in browser client
-(it must be tier-1 only), and that `patterns` accepts an update to `dismissed_at` and
-rejects one to `confidence` — the column grant is doing work that RLS alone cannot.
+site needs it), that `predictions` rejects an insert from a browser client (it must be
+tier-1 only), and that `patterns` accepts an update to `dismissed_at` and rejects one
+to `confidence` — the column grant is doing work that RLS alone cannot.
+
+---
+
+### Closed 2026-08-23 — and the ledger was not taken at its word
+
+The owner ran both commands; all 21 migrations showed Local/Remote matched and
+`db push` reported the remote up to date.
+
+**That is a ledger, and B11 is the reason a ledger is not evidence.** So the
+artifacts themselves were probed. All five new tables answer, all three new columns
+answer, `feature_flags` returns `200 []` to an anonymous reader, and `predictions`
+rejects an anonymous insert with `42501`:
+
+```bash
+pnpm db-artifacts-probe
+```
+
+`scripts/db-artifacts-probe.mjs` is that check, kept rather than thrown away — B11
+and B13 both needed it and no tool existed. It uses only the publishable key, so it
+runs anywhere the web app runs, and its table and column lists should grow with every
+migration that adds one.
+
+**One check it cannot make.** That `patterns` accepts an update to `dismissed_at` and
+rejects one to `confidence` needs a signed-in session. It is a column-level grant that
+RLS cannot express, so it is worth confirming by hand — added to
+`MANUAL_TEST_PLAN.md`.
