@@ -10,24 +10,42 @@ is the most useful single fact in this chapter: **type is not where the money go
 
 ---
 
-## 1. Scale decisions, made now
+## 1. Scale decisions — corrected during implementation
 
-Flo is visibly mid-migration from a multiplier scale (`spacing1x … spacing40x`) to a
-numeric one (`spacing050 … spacing4000`), carrying both in the same binary. They are
-paying to move off the multiplier scale.
+**This section originally said to migrate our spacing to a numeric scale. On reading
+the token file, there is nothing to migrate.**
 
-**Adopt the numeric scale now.** `--space-050` through `--space-4000`, the same for
-radius and border. If our current `space-*` naming is multiplier-shaped, rename it in
-one pass while the surface is small — it is a cheaper migration today than it will
-ever be again.
+Flo carries two scales at once and is visibly paying to move off the older one:
+`spacing1x … spacing40x` toward `spacing050 … spacing4000`. The thing they are
+escaping is the **multiplier suffix**, which we never had. Ours is
+`--space-0 … --space-32` on a 4px grid, where the number is the multiple —
+Tailwind's convention, already numeric, already unambiguous. Renaming `space-4` to
+`space-400` would touch every utility class in the product and buy nothing.
 
-Add a **border scale**, which we lack entirely: `--border-0`, `--border-050`,
-`--border-100`, `--border-200`, `--border-300`.
+Radius is likewise fine. Chapter 05 asked for `--radius-full`; `--radius-pill: 999px`
+already exists and does exactly that job, alongside `--radius-round: 50%`.
 
-Extend radius with **`--radius-full`**, because pill shapes recur across chips,
-buttons and the calendar and a magic `9999px` will otherwise appear in twelve files.
+**What was genuinely missing is border _widths_.** The system has `--border` and
+`--border-strong`, and both are *colours*. There was no width scale at all, which is
+why stroke widths are literals at call sites.
 
----
+**Change — `--stroke-*` in `femio.tokens.css`:**
+
+```css
+--stroke-0:0; --stroke-1:1px; --stroke-2:2px; --stroke-3:3px; --stroke-4:4px;
+--stroke-focus:2px;
+```
+
+Named `--stroke-` rather than `--border-` because a width family under a prefix
+already used for colours reads as a colour. `--stroke-focus` is its own token even
+though it equals `--stroke-2` today: a focus ring is an accessibility commitment and
+must be changeable without touching every 2px border in the product.
+
+Mapped into the Tailwind preset as `borderWidth`, and added to
+`tokens-parity-lint.mjs`'s guarded families — which exists because
+`--radius-round` once sat in the token file unmapped, `rounded-round` silently
+emitted nothing, and a radio dot rendered as a square until someone looked at a
+screenshot.
 
 ## 2. The colour families to add
 
@@ -50,9 +68,17 @@ and a third in a chart. It is the single highest-value addition here.
 **Interaction states as tokens.** `--button-*-hover`, `--button-*-pressed`. Today
 these are opacity guesses at call sites, which is why press feedback varies.
 
-**A named focus ring.** `--border-focus`. Flo has `borderFocus`; we have nothing, and
-a keyboard user on the web app currently gets the browser default over our own
-colours. This is an accessibility defect, not a polish item.
+**~~A named focus ring.~~ Corrected during implementation — we already have one.**
+`--shadow-focus: 0 0 0 3px var(--violet-200)` is applied by a global `:focus-visible`
+rule in `globals.css`, and `--focus-ring` aliases it. This section claimed a keyboard
+user gets the browser default; they do not. What was added in A8 is `--stroke-focus`,
+the ring's *width* as a token, so it can change without touching every 2px border.
+
+This is the third thing in this plan that turned out to already exist (with BBT and
+the intercourse marker). The common cause: `docs/28` chapter 05 measured Femio by
+**counting** — 144 tokens, 27 tables, 40 routes — and counting does not reveal that
+one of those tokens is a focus ring. **A gap is not real until someone has looked for
+the thing.**
 
 **Chart tokens.** `--chart-1` … `--chart-6` for categorical series, plus
 `--chart-inactive`, `--chart-grid`, `--chart-axis`, `--chart-annotation`. Chapter

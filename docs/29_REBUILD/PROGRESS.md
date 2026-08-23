@@ -23,7 +23,7 @@ Chapter [02_DATA_MODEL.md](02_DATA_MODEL.md), [05_DESIGN_SYSTEM.md](05_DESIGN_SY
 - [x] A5 · `0019_patterns.sql` — persisted findings with evidence and dismissal
 - [x] A6 · `0020_experience_documents.sql` — served documents, per contract version
 - [x] A7 · `0021_feature_flags.sql` — remote config with supplier order
-- [ ] A8 · Numeric spacing / radius / border scale in `assets/brand/tokens/`
+- [x] A8 · `--stroke-*` width scale + preset + parity lint; **spacing/radius needed no migration** (chapter 05 §1 corrected)
 
 **Phase gate.** Every migration has RLS policies (grants inherit from `0014`'s
 `alter default privileges`). Backfills verified. `lib/patterns` byte-identical on
@@ -110,7 +110,8 @@ Newest first. One line per checkpoint, with the commit.
 
 | When | What | Commit |
 |---|---|---|
-| 2026-08-23 | **A6+A7** `experience_documents` + `feature_flags` with an audit trigger | _pending_ |
+| 2026-08-23 | **A8** `--stroke-*` widths; corrected ch.05 — spacing fine, focus ring already existed | _pending_ |
+| 2026-08-23 | **A6+A7** `experience_documents` + `feature_flags` with an audit trigger | `b46d12e` |
 | 2026-08-23 | **A5** `patterns` — evidence, confidence, dismissal; column-level grant | `854a741` |
 | 2026-08-23 | **A4** `predictions` — basis, two tiers, outcome; tier-1 write only | `70f3c6e` |
 | 2026-08-23 | **A3** provenance on measured values; corrected ch.02 §3 — BBT, discharge and the intercourse marker already exist | `f1d80b9` |

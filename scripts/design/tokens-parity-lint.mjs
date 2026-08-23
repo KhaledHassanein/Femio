@@ -30,6 +30,7 @@ const PRESET = "assets/brand/tokens/femio.tailwind.preset.js";
  */
 const FAMILIES = [
   { prefix: "--radius-", section: "borderRadius" },
+  { prefix: "--stroke-", section: "borderWidth" },
   { prefix: "--gradient-", section: "backgroundImage" },
   { prefix: "--shadow-", section: "boxShadow" },
   { prefix: "--z-", section: "zIndex" },

@@ -45,6 +45,12 @@ module.exports = {
         1: '4px', 2: '8px', 3: '12px', 4: '16px', 5: '20px', 6: '24px',
         8: '32px', 10: '40px', 12: '48px', 16: '64px', 20: '80px', 24: '96px', 32: '128px',
       },
+      borderWidth: {
+        // Mirrors --stroke-* in femio.tokens.css. `focus` is deliberately its own
+        // key rather than an alias of `2`: the focus ring is an accessibility
+        // commitment and must be changeable without touching every 2px border.
+        0: '0', 1: '1px', 2: '2px', 3: '3px', 4: '4px', focus: '2px',
+      },
       borderRadius: {
         // `round` mirrors --radius-round in femio.tokens.css. It was in the token
         // file and missing here, so `rounded-round` silently produced no radius at

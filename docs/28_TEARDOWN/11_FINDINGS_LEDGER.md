@@ -52,6 +52,15 @@ not resurrect the original version from an older chapter.
 
 | **C-8** | Femio has no home for BBT, discharge or an intercourse marker (`docs/29` ch.02 §3, as first written) | All three have existed since schema v1: `fertility_logs.bbt`, `.cm_type`, `.intercourse boolean` — and the boolean is exactly the conservative marker OD-5 asks for. The gap is **surfacing**, not schema: they are reachable only from the TTC screen. | Implementing A3 |
 
+| **C-9** | Femio has no named focus ring (`docs/29` ch.05 §2, as first written) | `--shadow-focus: 0 0 0 3px var(--violet-200)` is applied by a global `:focus-visible` rule and aliased as `--focus-ring`. What was missing was the *width* as a token. | Implementing A8 |
+
+**A second meta-lesson, from C-1, C-8 and C-9.** All three are the same mistake: a gap
+asserted from a **count** rather than from a read. `docs/28` chapter 05 measured Femio
+as 144 tokens, 27 tables, 40 routes — accurate, and blind to the fact that one token is
+a focus ring, one column is a BBT reading and one boolean is exactly the conservative
+intercourse marker the owner later asked for. **A gap is not real until someone has
+looked for the thing itself.**
+
 **The meta-lesson, and it should govern any future teardown:** reading a binary tells
 you what was *built*; running the app tells you what users *reach*. Those differed
 materially in six of seven cases above. Never ship a competitive claim that has only

@@ -69,6 +69,17 @@
   --space-5:20px; --space-6:24px; --space-8:32px; --space-10:40px; --space-12:48px;
   --space-16:64px; --space-20:80px; --space-24:96px; --space-32:128px;
 
+  /* ---- Stroke widths ----
+     Border *widths*, which the system did not have. `--border` and `--border-strong`
+     are colours, so a width family under that prefix would read as one. Named
+     `--stroke-*` for that reason.
+
+     `--stroke-focus` is separate from `--stroke-2` even though they are equal
+     today: a focus ring is an accessibility commitment and should be changeable
+     without touching every 2px border in the product. */
+  --stroke-0:0; --stroke-1:1px; --stroke-2:2px; --stroke-3:3px; --stroke-4:4px;
+  --stroke-focus:2px;
+
   /* ---- Radii ---- */
   --radius-xs:6px; --radius-sm:10px; --radius-md:16px; --radius-lg:24px;
   --radius-xl:32px; --radius-pill:999px; --radius-round:50%;
