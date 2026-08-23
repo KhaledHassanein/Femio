@@ -95,10 +95,13 @@ of the work — clean it up when the item closes.
 3. `docs/24_REVAMP_PLAN.md` — the architecture every new feature must obey.
 4. `docs/25_DESIGN_DIRECTION_BRIEF.md` — before touching any UI.
 5. `docs/22_APP_UI_ARCHITECTURE.md` — the code conventions for tracker screens.
-6. `docs/07_MASTER_TODO.md` — the queue. Take the highest open item in **▶ NOW**.
-7. `docs/runbooks/BLOCKERS.md` — the only things waiting on the owner. Check it before
+6. `docs/28_TEARDOWN/` — the competitive teardown and parity study (2026-08-23). Read
+   `00_INDEX.md`, then `07_GAP_REGISTER.md` before planning any screen work, and
+   `02_FLO.md` before touching the experience engine.
+7. `docs/07_MASTER_TODO.md` — the queue. Take the highest open item in **▶ NOW**.
+8. `docs/runbooks/BLOCKERS.md` — the only things waiting on the owner. Check it before
    claiming you are blocked, and add to it rather than asking in chat.
-8. `docs/runbooks/MANUAL_TEST_PLAN.md` — what only a human can judge. Every automated gate
+9. `docs/runbooks/MANUAL_TEST_PLAN.md` — what only a human can judge. Every automated gate
    passes on every commit; none of them can tell you a screen looks generic or an Arabic
    sentence is tonally wrong. Point the owner at it rather than describing checks in chat.
 
@@ -332,6 +335,59 @@ Guards have caught real errors in this project's own work, repeatedly — includ
 handover doc based on a grep over an already-modified tree. **Watch a new guard fail before
 trusting it.** Prefer assertions that break loudly over ones that can silently pass. When a
 guard fails, fix the code — do not narrow the rule.
+
+## The competitive teardown exists — R1 step 1 is closed (2026-08-23)
+
+`docs/25` §2 asked for "an honest competitor teardown" as step 1 of the R1 design
+workstream. It is done, and it lives in `docs/28_TEARDOWN/` as ten chapters.
+
+Three shipped Android apps were decompiled with jadx from XAPK/APK files already on
+the owner's disk — Flo 10.3.0, `com.teamthree.pregnancytracker` 1.0.20, and
+`com.go.flo` 1.1.9. Nothing was downloaded from a store and no request was made to
+any of their servers. Decompiled output is in `E:/re/` and is deliberately outside
+the repository; working extractions are in `E:/re/notes/`.
+
+**The four findings that should change what the next session does.**
+
+Flo's architecture is ours, several years ahead — a server-driven UI constructor
+with ~65 element types, and screens shipping in *pairs* (native beside `Uic`) behind
+a flag. `docs/24` framed our experience engine as a rewrite; Flo's binary says it is
+a per-screen migration with no flag day. That is cheaper than what we assumed.
+
+Their element envelope carries eleven fields; our `ModuleSpec` carries three. The
+eight we are missing include `accessibility` and `impressionConfig` — so on their
+side a served module cannot ship unlabelled or untracked, and on ours it can. This
+is `TD-03` and it should land before more modules are written against the current
+shape.
+
+Flo 10.3.0 declares `android:supportsRtl="false"` and ships zero `values-<lang>`
+folders. Counting only app strings, GO Flo's Arabic is a 40-string stub against 764
+in English. **No competitor in the study has real Arabic, and the leader does not
+mirror for RTL.** Our four-language parity (1,836 keys × 4) is unopposed — except
+that all 105 of our authored articles are `locale: "en"`, which is `TD-08` and the
+highest-leverage gap in the study.
+
+And the surface gap is measured now rather than asserted: **one chart component in
+the whole repository and no charting library**, against Flo's six native chart
+surfaces plus three server-driven chart types; **zero animation assets** against
+roughly fifty of theirs, ten of which exist only to make logging feel like
+something. That is `TD-01` and `TD-02`, and it is what the owner named first.
+
+**Queue status.** Per owner direction on 2026-08-23 the gap register in
+`28_TEARDOWN/07_GAP_REGISTER.md` is **reference-only** — sixteen `TD-nn` gaps and
+nine `Dn` differentiators, none of them written into `07_MASTER_TODO.md`. This is a
+deliberate, owner-approved exception to the MASTER_TODO covenant, not a dropped
+item: converting the approved lines into queue items and a phase document is a
+separate pass. Do not treat the absence of `TD-nn` lines in the queue as a bug.
+
+**One trap for whoever re-runs a teardown.** The skill's `decompile.sh` combined
+`set -euo pipefail` with `find | head` and a no-match `grep -v`, both of which abort
+the script — so on an XAPK it silently stopped after the first split APK and still
+exited 0. Flo's base APK, the only one that matters, was never decompiled on the
+first run. Fixed at `decompile.sh:264` with the original kept beside it. Check that
+every expected output directory exists rather than trusting the exit code. The stock
+`jadx` launcher also builds a POSIX classpath Windows Java rejects; `~/.local/bin/jadx`
+is now a shim pointing at Android Studio's bundled JDK 21.
 
 ## Where R1 stands (2026-08-09)
 
