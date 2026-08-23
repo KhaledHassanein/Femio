@@ -117,18 +117,21 @@ only on evidence from a real user, never because a topic list looked incomplete.
 
 ## ▶ NOW — in this order, and do not jump the queue
 
-**Re-set 2026-08-21 by the product audit (`docs/26`) and the revamp plan (`docs/27`).** The audit
-measured the dashboard at 844px against a 5066px settings screen, found `/summary` broken since it
-was written, and found half the e2e suite excluded from CI and rotted. `docs/27` phases 0→6 are now
-the queue and run in order; each phase ends at a checkpoint (typecheck+test+build, commit, push,
-deploy) so an interrupted session loses at most one phase.
+**Re-set 2026-08-23 by the competitive teardown (`docs/28`) and the rebuild plan (`docs/29`).**
+`docs/27` is **superseded**: its phases were right about the surface and wrong about the order, because
+the teardown measured the layers *beneath* the surface thinner than they assumed — a three-field module
+contract, 24 of 73 personas wired, one chart, no motion, no remote config. `docs/29_REBUILD/07_SEQUENCE.md`
+is now the queue. **Live status lives in `docs/29_REBUILD/PROGRESS.md`, one line per checkpoint with its
+commit — read that first when resuming.**
 
-1. **R3.0** — Phase 0, stop the bleeding: the safety net, before any new surface.
-2. **R3.1** — Phase 1, a dashboard that is a product (cycle ring, today card, real first-run).
-3. **R3.2 → R3.6** — navigation, insight engine, per-persona depth, design direction, cleanup.
+1. **RB-A** — Phase A, foundations: seven migrations + the numeric token scale. Nothing user-visible.
+2. **RB-B** — Phase B, `ExperienceConfig` v2: the eleven-field module envelope, surfaces, per-surface flags.
+3. **RB-C** — Phase C, the visible foundation: tokens, motion, seven chart primitives, dashboard, calendar, log.
+4. **RB-D → RB-G** — depth, the clinician bridge, content (runs from A onward), then mobile.
 
-R1 (`docs/25`) is absorbed into `docs/27` phase 5; R2's unfinished half — the five surviving
-`mode ===` branches the audit found in `dashboard-screen.tsx` — is phase 1.6.
+Order in A and B is not negotiable: a screen built on today's `ModuleSpec` is a screen that gets
+rewritten, which is the third document to say so. R1 (`docs/25`) step 1 is closed by `docs/28`; its
+remaining steps are `docs/29` chapter 05.
 
 ## R3.1 — Phase 1, a dashboard that is a product (`docs/27`)
 
