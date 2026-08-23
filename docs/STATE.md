@@ -95,9 +95,11 @@ of the work — clean it up when the item closes.
 3. `docs/24_REVAMP_PLAN.md` — the architecture every new feature must obey.
 4. `docs/25_DESIGN_DIRECTION_BRIEF.md` — before touching any UI.
 5. `docs/22_APP_UI_ARCHITECTURE.md` — the code conventions for tracker screens.
-6. `docs/28_TEARDOWN/` — the competitive teardown and parity study (2026-08-23). Read
-   `00_INDEX.md`, then `07_GAP_REGISTER.md` before planning any screen work, and
-   `02_FLO.md` before touching the experience engine.
+6. `docs/28_TEARDOWN/` — the competitive teardown and parity study (2026-08-23).
+   **Read `11_FINDINGS_LEDGER.md` first** — it carries the 16 binding owner directions
+   (OD-1…OD-16), the 7 corrections where an earlier claim was disproved, and the
+   evidence index. Then `07_GAP_REGISTER.md` before planning any screen work, and
+   `02_FLO.md` + `10_FLO_RUNNING.md` before touching the experience engine.
 7. `docs/07_MASTER_TODO.md` — the queue. Take the highest open item in **▶ NOW**.
 8. `docs/runbooks/BLOCKERS.md` — the only things waiting on the owner. Check it before
    claiming you are blocked, and add to it rather than asking in chat.
