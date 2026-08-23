@@ -1,6 +1,16 @@
 # 27 — Revamp Plan (answers `docs/26`)
 
-Status: **live** · Owner: Khaled · Supersedes the open parts of `docs/24` and `docs/25`
+Status: **SUPERSEDED (2026-08-23) by `docs/29_REBUILD/`** · Owner: Khaled
+
+> This plan is no longer the one to work from. `docs/29_REBUILD/` absorbs its phases
+> and extends them below the UI, after `docs/28_TEARDOWN` measured Femio against three
+> shipped competitors and found the layers beneath the surface thinner than these
+> phases assumed. The analysis here stands and the phases map onto chapter 07 of the
+> new plan; it is kept in place per the MASTER_TODO covenant rather than removed.
+>
+> Its original header follows.
+
+Status: ~~live~~ · Owner: Khaled · Supersedes the open parts of `docs/24` and `docs/25`
 Rule: this document exists to be executed, not discussed. Every phase ends at a **checkpoint** —
 `pnpm typecheck && pnpm test && pnpm build`, commit, push, deploy — so an interrupted session
 never loses more than one phase.

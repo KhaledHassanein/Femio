@@ -95,15 +95,18 @@ of the work — clean it up when the item closes.
 3. `docs/24_REVAMP_PLAN.md` — the architecture every new feature must obey.
 4. `docs/25_DESIGN_DIRECTION_BRIEF.md` — before touching any UI.
 5. `docs/22_APP_UI_ARCHITECTURE.md` — the code conventions for tracker screens.
-6. `docs/28_TEARDOWN/` — the competitive teardown and parity study (2026-08-23).
+6. `docs/29_REBUILD/` — **the plan to work from.** Supersedes `docs/27`; keeps `docs/24`
+   as the architecture reference. Full stack: schema, the v2 module contract, content,
+   design system, screens, then the phase sequence in `07_SEQUENCE.md`.
+7. `docs/28_TEARDOWN/` — the competitive teardown and parity study (2026-08-23).
    **Read `11_FINDINGS_LEDGER.md` first** — it carries the 16 binding owner directions
    (OD-1…OD-16), the 7 corrections where an earlier claim was disproved, and the
    evidence index. Then `07_GAP_REGISTER.md` before planning any screen work, and
    `02_FLO.md` + `10_FLO_RUNNING.md` before touching the experience engine.
-7. `docs/07_MASTER_TODO.md` — the queue. Take the highest open item in **▶ NOW**.
-8. `docs/runbooks/BLOCKERS.md` — the only things waiting on the owner. Check it before
+8. `docs/07_MASTER_TODO.md` — the queue. Take the highest open item in **▶ NOW**.
+9. `docs/runbooks/BLOCKERS.md` — the only things waiting on the owner. Check it before
    claiming you are blocked, and add to it rather than asking in chat.
-9. `docs/runbooks/MANUAL_TEST_PLAN.md` — what only a human can judge. Every automated gate
+10. `docs/runbooks/MANUAL_TEST_PLAN.md` — what only a human can judge. Every automated gate
    passes on every commit; none of them can tell you a screen looks generic or an Arabic
    sentence is tonally wrong. Point the owner at it rather than describing checks in chat.
 
@@ -337,6 +340,51 @@ Guards have caught real errors in this project's own work, repeatedly — includ
 handover doc based on a grep over an already-modified tree. **Watch a new guard fail before
 trusting it.** Prefer assertions that break loudly over ones that can silently pass. When a
 guard fails, fix the code — do not narrow the rule.
+
+## The rebuild plan exists, and it is what to work from (2026-08-23)
+
+`docs/29_REBUILD/` — eight chapters, bottom-up: principles, data model, the experience
+engine, content, design system, screens, sequence. **It supersedes
+`docs/27_REVAMP_PLAN_2026-08.md`**, which is marked and left in place. `docs/24` stays
+as the architecture reference — ADR-060/061 hold and this plan implements them.
+
+The diagnosis it answers: `docs/26` measured a product thinner than its own
+documentation, and the cause was ordering. Screens were built against a three-field
+module contract, a persona registry two-thirds unwired, no chart foundation and no
+motion vocabulary — so each screen could only be as good as the layer under it.
+**Phases A and B of the new plan are foundations and nothing user-visible ships until
+they land.** A screen built on today's `ModuleSpec` is a screen that gets rewritten.
+
+What the plan specifies, concretely. Seven migrations from `0015`: per-day flow, a
+`dimension` column on `symptom_logs`, BBT, and four new tables — `predictions` (with
+its basis and what actually happened, which is what makes an explainable prediction
+possible at all), `patterns`, `experience_documents`, and `feature_flags`. Then
+`ExperienceConfig` v2, whose module envelope makes `a11y` and `impression` **required**
+so a served module cannot ship unlabelled or untracked, with every human-readable
+field an i18n key because we serve four languages and Flo serves one. Then tokens,
+motion from zero, seven chart primitives built rather than adopted. Then the screens.
+
+Three findings from the teardown drive the shape. Flo migrated to server-driven UI
+**per screen behind a flag**, so `docs/24`'s flag day is unnecessary and each surface
+is independently revertible. **Nobody in the category has a data-visualisation layer**
+— Flo's cycle history is a row of coloured dots — so charts are a differentiator
+rather than catch-up. And Flo **does** cite sources with DOIs, so our content claim
+narrows to attributed and dated review by a named person, in four languages, which
+nobody else has.
+
+Content (phase F) starts immediately and runs throughout: it is the highest-leverage
+item and it blocks on clinical review rather than engineering. **No locale publishes
+without its own named reviewer** — if an Arabic-competent clinical reviewer does not
+exist yet, that is a `BLOCKERS.md` item, not a reason to lower the bar.
+
+Sixteen owner directions constrain all of it, recorded in
+`docs/28_TEARDOWN/11_FINDINGS_LEDGER.md` §1 and restated in `29_REBUILD/01`. The ones
+that change scope: conservative register with no sexual-wellness content and a single
+conservative intercourse marker; no messaging or chat, ever; the assistant post-V1;
+freemium with a genuinely useful free tier; the mobile-first web app first.
+
+**Still reference-only.** Per OD-1 neither the gap register nor this plan writes lines
+into `07_MASTER_TODO.md` until Khaled approves them.
 
 ## The competitive teardown exists — R1 step 1 is closed (2026-08-23)
 
