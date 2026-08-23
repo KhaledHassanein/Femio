@@ -14,6 +14,7 @@
     "lint": "pnpm --filter web lint",
     "typecheck": "pnpm --filter web typecheck",
     "test": "pnpm --filter web test",
+    "gate": "pnpm typecheck && pnpm lint && pnpm test && pnpm claims-lint && pnpm crisis-lint && pnpm analytics-lint && pnpm content-lint && pnpm i18n-client-lint && pnpm i18n-untranslated-lint && pnpm tokens-parity-lint && pnpm native-readiness-lint && pnpm persona-branch-lint && pnpm tier1-portability-lint",
     "db-artifacts-probe": "node scripts/db-artifacts-probe.mjs",
     "claims-lint": "node scripts/claims-lint.mjs",
     "crisis-lint": "node scripts/crisis-compliance.mjs",

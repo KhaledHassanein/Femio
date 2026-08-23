@@ -32,10 +32,15 @@ function config(modules: readonly ModuleSpecV2[], variables = {}): ExperienceCon
     offer: null,
     transition: null,
     phase: null,
-    content: { tone: "neutral" } as ExperienceConfigV2["content"],
+    content: { skin: "neutral", foreground: [] },
     alerts: [],
     emrView: [],
-    tone: {} as ExperienceConfigV2["tone"],
+    tone: {
+      register: "neutral",
+      celebrationByDefault: false,
+      countdown: false,
+      readingLevel: "standard",
+    },
     surfaces: {
       home: { modules, quickLog: [] },
       calendar: { modules: [] },

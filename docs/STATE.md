@@ -204,13 +204,17 @@ Server reads in the tracker are fine and expected.
 ## The gate — run all of it before pushing
 
 ```
-pnpm typecheck && pnpm lint && pnpm test
-pnpm claims-lint && pnpm crisis-lint && pnpm analytics-lint && pnpm content-lint
-pnpm i18n-client-lint && pnpm i18n-untranslated-lint && pnpm tokens-parity-lint
-pnpm native-readiness-lint && pnpm persona-branch-lint && pnpm tier1-portability-lint
+pnpm gate                              # everything below the build, in one exit code
 rm -rf apps/web/.next/cache && pnpm build
 CI=1 pnpm --filter web test:e2e:ci     # after that fresh build, never before
 ```
+
+`pnpm gate` is typecheck, lint, test and all ten guards chained with `&&`, added
+2026-08-23 after a real mistake: running them individually and piping each to `tail`
+to read the output **discards the exit code**, so a failing typecheck scrolled past
+and a commit went out on top of it. One command, one exit code, nothing to mask.
+It excludes `build` and the e2e suite, which are slow and belong at the phase
+boundary rather than at every checkpoint.
 
 ## Environment traps that have each cost real time
 
