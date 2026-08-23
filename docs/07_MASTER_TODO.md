@@ -228,12 +228,12 @@ stashes, typecheck clean, 692 tests passing, **all eleven guards passing**, prod
 
 ### Open, and needing an owner decision
 
-- **B12 · The in-app hero gradient.** ADR-051 (2026-08-07) put the gradient hero *into* the
+- [x] **B12 · The in-app hero gradient** — closed 2026-08-23 by owner direction: **the hero keeps its gradient** (ADR-069). ADR-051 stands and `docs/25` §5a is not amended. Original framing, kept for the record:  ADR-051 (2026-08-07) put the gradient hero *into* the
   dashboard as the fix for the "AI generated" verdict; `docs/25` §5a (2026-08-09) says hero
   gradients are never used inside the signed-in app. The app follows ADR-051; §5a is later. This
   is the audit's "accent clash" — and the raspberry CTA is correct either way, so the only real
   question is whether the hero keeps its gradient. Blocks Phase 5.1 and nothing else.
-- **R3.5.2 · Arabic digits.** Western for dates, Arabic-Indic for age bands. A locale call:
+- [x] **R3.5.2 · Arabic digits** — closed 2026-08-23 by owner direction: **same as English** (ADR-069). Already true in practice, and now pinned by `i18n/numbering.test.ts` rather than left to the runtime's CLDR default. Original framing: 
   Arabic-Indic is standard in Egypt and the Gulf, Western in the Maghreb.
 
 ### Open product gaps, ranked
@@ -363,8 +363,8 @@ from `CLAUDE.md`.
 
 ## R4 — Retention: patterns and reasons to return
 
-- [ ] **P2.5** Pattern engine (timing / severity / co-occurrence, confidence-scored) — **the stated differentiator, not built**.
-- [ ] **P2.8** Notifications (web push + email digests) with discreet mode — the first real reason to return between sessions.
+- [x] **P2.5** Pattern engine (2026-08-23) — timing, co-occurrence and severity, one shared confidence model, all tier 2 and on the portability guard. Its own `/patterns` screen behind the `insights` consent, which until now described nothing in the product. Confidence is a **coverage** measure, never a statistic: three-for-three is `medium`, because clean data is not the same as enough data. Co-occurrence counts distinct *cycles*, so one bad week cannot become a pattern; severity says `higher`/`lower`, never *worse*; an unrated entry is skipped rather than averaged in as a zero. 16 tests.
+- [~] **P2.8** Notifications (2026-08-23) — preferences ship complete and are honoured: five kinds all off by default, discreet wording on by default with the actual text shown rather than described, her own quiet hours, per-device subscribe/unsubscribe, and a service worker that renders without deciding anything. Migration 0013. **What is left is delivery, and it is an owner task plus a cron**: `NEXT_PUBLIC_VAPID_PUBLIC_KEY` is unset, so no permission prompt is raised at all — a browser gives one prompt and a denial is permanent. Email digests are not built and are not missed; push is the channel that matters on a phone.
 - [~] **P2.6** **The questions she meant to ask are on the printed sheet** 2026-08-19 -> `components/account/summary-screen.tsx`. `appointments.prep` is the field P2.2.3 called *"the thing people actually lose"*, and it lived on a screen she had to remember to open. `/summary` is the page that gets **printed and carried into the room**, so that is where they belong. Every question against an appointment that has not happened yet — not just the next one, because a question written against a follow-up with no date would otherwise vanish for being filed under a later row. **Femio adds nothing to them**: no ordering by importance, no de-duplication (`parsePrep` keeps duplicates and so does this — a question she wrote twice is one she meant twice), no rephrasing. The section is a carrier, not an editor, and it prints last so it is the thing at the bottom of the page while she is sitting there. The empty state is `print:hidden`, because a printed sheet saying *"nothing noted yet"* is worse than a sheet that simply ends. *Remaining: the export half — a shareable file rather than a print dialog.*
 
 ## R5 — Flutter clients (ADR-060) — replaces the Capacitor plan
@@ -405,11 +405,11 @@ from `CLAUDE.md`.
 - [x] **P1.9.8a** **Homepage clinician trust line restored** 2026-08-16 → a sixth verifiable item, first in the list, because `docs/03` §H.1 found post-nominals on the page to be the category's strongest trust mechanism (it is how Balance answers the question). R1.3b had removed it as untrue; it is true now. Four locales, headings re-counted from five to six.
 - [ ] **P1.9.6** Backfill `meet-femio`'s sources + SEO fields — the one published article with neither, and the most likely first landing page.
 - [ ] **P1.11.GSC** Verify the domain in Search Console + submit `/sitemap.xml` (live sitemap now carries 99 URLs).
-- [ ] **P1.20.APPLY** Create the PostHog **EU** project, sign the DPA, add to the processor register, set the key + host. Until then the event layer is a verified no-op.
-- [ ] **P1.20.3.APPLY** Apply `0006_insights_aggregates.sql` (functions only) → `/admin/insights` works and the rls-audit checks stop reporting `[SKIPPED]`.
+- [x] **P1.20.APPLY** PostHog EU is live — verified 2026-08-23. Key and `eu.i.posthog.com` are both set in Vercel and the project accepted a test event (`200 {"status":"Ok"}`). The SDK is a dynamic import behind the consent gate, so it is correctly absent from the bundle for anyone who has not opted in — which is what made it look unconfigured.
+- [x] **P1.20.3.APPLY** Migration 0006 is applied and its four functions exist — verified 2026-08-23. `insights_k()` returns 10; `insights_overview`, `insights_by_dimension` and `insights_retention` each refuse a non-staff caller with 42501; `pnpm rls-audit` is 15/15 with no `[SKIPPED]`.
 - [ ] **P1.19.3** Re-seed `ui_strings` so the portal covers the newest screens (live DB 293 keys vs 698 in the catalogs).
 - [ ] **P1.23.4** Verify Supabase project settings (JWT expiry, storage bucket visibility).
-- [ ] **P1.4.2** Remaining: set the Sentry DSN (EU) in Vercel. Vercel previews + envs are live.
+- [x] **P1.4.2** Sentry is live — verified 2026-08-23. EU ingest (`ingest.de.sentry.io`), and a real browser session was watched POSTing an envelope to it.
 - [ ] **STATUS?** **P1.6.APPLY** and **P0.10** look complete from the evidence (CMS live with an admin account; GitHub remote pushed) but were never closed. Confirm and close, or say what is missing.
 
 ## Phase 1 remainder — real, not urgent

@@ -9,14 +9,16 @@ per session.**
 > Read `CLAUDE.md`, then this file, then `docs/07_MASTER_TODO.md` → **▶ NOW**. Skim
 > `docs/23`/`24`/`25` only if the task touches strategy, architecture or design.
 >
-> **Where things stand (2026-08-23, second pass).** The 2026-08-21 revamp is through all six
-> phases, and the three items queued after it are done: **partner sharing is built, deployed and
-> verified end-to-end** (Phase 4.5, ADR-068); **the persona-branch ratchet is finished and its
-> baseline is empty** (R3.1.6a); and **the visit report's print output is measured rather than
-> assumed** (R3.1c.4, `scripts/dev/print-check.mjs`). 721 unit tests, eleven guards green,
-> migration 0011 applied, both Edge Functions deployed. **Read `docs/07_MASTER_TODO.md` → R3.6
-> cleanup register first** — it is the single list of everything still open, grouped by *why* it
-> is open.
+> **Where things stand (2026-08-23, third pass).** The `docs/27` revamp is closed, and so are the
+> three items queued after it and the two biggest not-started ones. **Partner sharing** is built,
+> deployed and **cleared for the private beta** (ADR-068, ADR-069). **The persona-branch ratchet is
+> finished** — `MODE_BASELINE` is empty. **The pattern engine ships** (P2.5, the stated
+> differentiator) and **notification preferences ship** (P2.8, delivery pending one owner key).
+> Two live defects were found by running the gate rather than by looking for them: Arabic readers
+> were getting the **English crisis dialog** on every page, and the visit report **printed
+> illegibly in both themes**. 756 unit tests, 74 e2e, eleven guards, migrations through 0013.
+> **Read `docs/07_MASTER_TODO.md` → the readiness score and then R3.6** — the score was
+> re-measured this pass and its "shortest path" list is now the launch path.
 >
 > **The live workstream is the 2026-08-21 revamp.** `docs/26` is the audit — what is wrong,
 > measured, with screenshots and request logs. `docs/27` is the plan answering it, phases 0→6,
@@ -968,62 +970,111 @@ the built output as broken in a way it was not either. **Read the expected Arabi
 file; never type it into a command line.** That is the eighth measurement artifact here and the
 second caused specifically by Arabic in a console.
 
+## Sentry, PostHog and 0006 were all already done — the file was wrong (2026-08-23)
+
+The owner said so and was right. All three were carried as open owner tasks for weeks while being
+live. What each check actually found:
+
+- **Sentry** — DSN set, EU ingest (`ingest.de.sentry.io`), and a real browser session watched
+  POSTing an envelope to it. Live.
+- **PostHog** — key and `eu.i.posthog.com` both set in Vercel; the project accepted a test event,
+  `200 {"status":"Ok"}`. Live.
+- **Migration 0006** — applied, and its four functions exist: `insights_k()` returns 10 and the
+  other three refuse a non-staff caller with 42501. `pnpm rls-audit` is 15/15 with no `[SKIPPED]`.
+
+**The PostHog diagnosis is the part worth keeping, because it nearly produced a false bug report.**
+`posthog-js` is **absent from the shipped bundle**, which reads exactly like "not configured" — and
+it is the feature working: the SDK is a dynamic import *inside* `capture()`, so for anyone who has
+not granted analytics consent no vendor code is ever fetched, which is what `docs/13` §6 requires
+literally rather than approximately. Then, with consent granted, a Playwright run still sent
+nothing: `posthog.capture()` returned `undefined`, which is what posthog-js does when it decides
+the visitor is a **bot**, and headless Chromium announces itself as one twice over. Masking
+`navigator.webdriver` and the user agent was not enough to convince it.
+
+**So an automated browser cannot verify this feature, and a run that sends nothing is not evidence
+of anything.** The endpoint POST is the check that works. Tenth measurement artifact in this
+project, and the first where the tool was *correct* to refuse.
+
+## The pattern engine, and the two things it refuses (P2.5, 2026-08-23)
+
+`docs/03` §H.3 calls it *"the one feature I would actually pay for"*. Timing already existed;
+co-occurrence, severity and a shared confidence model did not. All tier 2, all on the portability
+guard, because a Dart client has to reach the identical answer.
+
+**Confidence is a coverage measure, not a statistic.** Three to twelve cycles of self-reported data
+collected without a protocol cannot support a p-value, and one printed next to a symptom would
+imply a rigour that is not there. Three-for-three is `medium`: clean data is not the same as enough
+data.
+
+**Co-occurrence counts distinct cycles, never days.** Someone who logs both symptoms every day for
+one bad week has seven co-occurrences and no pattern. The pair is stored alphabetically so no
+direction can be inferred and there is no field that could carry one — this is the shape people
+read as causation, and the copy says *together*, never *because*.
+
+**Severity says `higher` and `lower`, never *worse*.** One is a fact about her entries, the other a
+judgement about her health. An unrated entry is skipped rather than averaged in as a zero: "she
+didn't rate it" must not read as "it didn't hurt".
+
+Behind the `insights` consent, which reads *"use my entries to show me patterns and insights"* and
+until now described nothing in the product.
+
+## Notification preferences ship; delivery waits on one key (P2.8, 2026-08-23)
+
+The first thing Femio does *to* a woman rather than *for* her, and the design follows from a
+notification arriving on a lock screen in a room she did not choose.
+
+Five kinds, **all off by default**. **Discreet wording on by default**, with the panel showing the
+actual text rather than describing it — and the discreet body is *identical for all five kinds*,
+because five distinct discreet messages are five distinguishable notifications and someone reading
+over her shoulder twice learns the mapping. Her own quiet hours, honoured in the decision rather
+than in the sender so no future scheduler can forget them. **No streaks, no missed-day counts,
+nothing about being late**, stated in the UI and not only in a comment.
+
+`NEXT_PUBLIC_VAPID_PUBLIC_KEY` is unset, so **no notification permission prompt is raised at all**.
+That is deliberate: a browser gives an origin one prompt and a denial is permanent, so spending it
+on a feature that cannot yet deliver would burn it for good. Owner task 6d.
+
+## Partner sharing had one real compliance gap, and it was not on the register (2026-08-23)
+
+0011 shipped *granular* consent. But the recipient was **whoever redeemed the code**, so at the
+moment she agreed there was no identified recipient to agree about — granular, and not **explicit**
+under Art. 9(2)(a). Migration 0012 makes her name the person before she can create an invite. He
+never sees the name and cannot set it, or it becomes one more field a coercive partner can ask her
+to change.
+
+**The DPO gate was mis-specified rather than wrong** (ADR-069). A DPO is mandatory for *large-scale*
+special-category processing; 20–50 invited testers is not that, and Art. 35(2) only asks for a DPO's
+advice *where one has been designated*. Taken literally the old gate was circular. Cleared for the
+private beta with `docs/13` §5b written; **unchanged for public launch**, and conditional on the
+beta gate actually being switched on.
+
 ## First action for the next session
 
-> ### ▶ Checkpoint — 2026-08-23, end of session
+> ### ▶ Checkpoint — 2026-08-23, third pass
 >
-> **No `wip/` branch. Everything below this box is *why*; this box is *what next*.**
+> **No `wip/` branch. Tree clean. Migrations through 0013 applied. Full gate green: 756 unit
+> tests, 74 e2e against a fresh build, eleven guards.**
 >
-> **What closed today:**
-> - **Partner sharing (Phase 4.5, ADR-068)** — built, migration 0011 applied, `partner-view` and
->   `experience` both deployed, verified end to end against the live project with
->   `scripts/dev/partner-sharing-check.mjs`. Launch is still gated on `docs/13` §5 and DPO
->   sign-off, and never was on code.
-> - **R3.1.6a** — the persona-branch ratchet is finished; `MODE_BASELINE` is empty. The guard was
->   blind to `mode === "teen"` and now is not.
-> - **R3.1c.4** — the visit report's print output is measured by `scripts/dev/print-check.mjs`,
->   and it was **broken in both themes**: the derived heading at 1.12:1 printing from dark, the
->   dashed border at 1.26:1 printing from light. Fixed; both now 4.54:1 and 18.88:1.
-> - **Arabic readers were getting the English crisis dialog on every page, and had been** — one
->   missing `locale` prop on `NextIntlClientProvider`. Found only by running the full e2e suite,
->   which was **not** green despite the last handover saying so.
->
-> **The deploy landed and was verified after the checkpoint was first written.** `main` is at
-> `a7aac07`; the full gate was green locally — 721 unit tests, all eleven guards, 74 e2e against a
-> fresh build — and production now agrees: `/en/sharing`, `/en/shared-with-me` and `/ar/sharing`
-> all 200, `partner-view` 401 unauthenticated, and **`/ar` serves the Arabic crisis launcher with
-> no `lang="en"` span anywhere** — the fix confirmed on the deployed site rather than only in the
-> build. It took roughly half an hour to appear, which is worth knowing: a 404 on a new route
-> minutes after a push is a slow Vercel build, not a failed one.
+> **What closed:** partner sharing (built, deployed, beta-cleared), R3.1.6a, R3.1c.4, P2.5, the
+> notification-preferences half of P2.8, B12, R3.5.2, and three stale owner tasks that were done
+> all along. Two live defects fixed: the Arabic crisis dialog and the unprintable visit report.
 >
 > **Do next, in order:**
-> 1. `git branch --list "wip/*"` — expect nothing.
-> 2. **Check nothing is squatting on :3000 before you build or run e2e.** A stale `next dev` from
->    an earlier session cost this one a forty-minute e2e run against the wrong server. The
->    extended trap entry has the two commands.
-> 3. **Run the full e2e suite before believing a handover that says it is green.** This one said
->    so and two `[ar]` crisis specs were failing, in production, on the highest-stakes copy in the
->    product.
-> 4. **P2.5, the pattern engine.** Unchanged as the highest-value open item: the stated
->    differentiator (`docs/03` §H.3), the only R4 item with revenue attached, and tier 1 by
->    construction because a pattern is a medical inference.
-> 5. **The remaining module surfaces**, for a smaller pass: `cycle.phase`, `cycle.flowStrip`,
->    `cycle.changeAwareness`, `menopause.pmb`, `menopause.longTerm`, `medications`, `gsm`. Each is
->    a component plus one registry line.
-> 6. **R3.6's open register** — `docs/07_MASTER_TODO.md`. What is left there is B10 (parked to
->    1 September), the two owner decisions (B12, Arabic digits), the deliberate cycle-average
->    disagreement, and the thin TTC/pregnancy screens (R3.4.1).
+> 1. `git branch --list "wip/*"` — expect nothing. Check nothing is squatting on :3000 before you
+>    build or run e2e; a stale `next dev` cost an earlier pass forty minutes.
+> 2. **Two owner actions, and the first is a live exposure.** `NEXT_PUBLIC_BETA_INVITE_CODE`
+>    (P0.12.5) — signup is open on a live domain while `/privacy` is a draft, and partner sharing's
+>    beta clearance is conditional on it. Then `NEXT_PUBLIC_VAPID_PUBLIC_KEY` (owner task 6d),
+>    which is all that stands between notification preferences and reminders that arrive.
+> 3. **The notification sender.** Preferences are saved and honoured; nothing sends them yet. An
+>    Edge Function reading `notification_prefs` + `push_subscriptions` through `shouldSend`, called
+>    by a cron. The decision layer is done and tested — this is the transport.
+> 4. **`MANUAL_TEST_PLAN.md`.** The owner has said he is not ready to review UI yet, so this is
+>    parked rather than pending. It stays the largest unmeasured surface: both defects found this
+>    pass were invisible to every guard and obvious to a human with the app open.
+> 5. **R5.1 Flutter**, or **R3.4.1** (the thin TTC and pregnancy screens) for a smaller pass.
 >
-> **Waiting on the owner — nothing blocks the build:**
-> - **The beta.** `NEXT_PUBLIC_BETA_INVITE_CODE` in Vercel turns on the signup gate (P0.12.5),
->   then P1.24. Still the single highest-information action available, and still true that nobody
->   outside this repo has used any of it.
-> - **`MANUAL_TEST_PLAN.md`** — T8, T10–T25 unseen, plus **T26 and T27** added today. T26 is the
->   one worth his time: whether the partner view *reads* as safe is the one property no automated
->   check can reach, and it is the property the whole feature rests on.
->
-> **Working rule, verbatim:** *"I do not want to read anything unless you need my input."* No
-> end-of-turn summaries. Several queue items per pass.
+> **Working rule, verbatim:** *"I do not want to read anything unless you need my input."*
 
 **No `wip/` branch is open** — 2026-08-16 ended between items, with everything gated, committed
 and pushed. If that line ever says otherwise, finish the named branch before starting anything
