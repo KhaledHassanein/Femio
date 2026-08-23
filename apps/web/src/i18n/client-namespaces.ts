@@ -68,6 +68,8 @@ export const APP_CLIENT_NAMESPACES = [
   "partnerShared",
   // The pattern engine (P2.5) — its own signed-in screen.
   "patterns",
+  // Notification preferences (P2.8), rendered inside Settings.
+  "notifications",
   "phaseEducation",
   "phaseStrip",
   "symptomPatterns",

@@ -64,6 +64,13 @@ const envSchema = z.object({
       message: "must be an https:// PostHog EU host (eu.i.posthog.com) with no query string",
     })
     .optional(),
+  // Web-push VAPID public key (P2.8). Unset → push is a verified no-op: the
+  // Settings panel says delivery is not configured and **no permission prompt is
+  // ever raised**, which matters more than it sounds. A browser gives an origin one
+  // notification prompt; spending it on a feature that cannot yet deliver would
+  // burn it permanently. Public by construction — the private half never leaves
+  // the sender.
+  NEXT_PUBLIC_VAPID_PUBLIC_KEY: z.string().min(1).optional(),
 })
   // A key without a host would fall back to the SDK's US default, so require the
   // pair. Enforced here rather than at call time: a misconfiguration must fail at
@@ -89,6 +96,7 @@ const parsed = envSchema.safeParse({
   NEXT_PUBLIC_SENTRY_DSN: process.env.NEXT_PUBLIC_SENTRY_DSN,
   NEXT_PUBLIC_POSTHOG_KEY: process.env.NEXT_PUBLIC_POSTHOG_KEY,
   NEXT_PUBLIC_POSTHOG_HOST: process.env.NEXT_PUBLIC_POSTHOG_HOST,
+  NEXT_PUBLIC_VAPID_PUBLIC_KEY: process.env.NEXT_PUBLIC_VAPID_PUBLIC_KEY,
 });
 
 if (!parsed.success) {

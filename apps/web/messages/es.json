@@ -2062,5 +2062,56 @@
       "steady": "{symptom}: m\u00e1s o menos igual",
       "evidence": "Media de {recent} \u00faltimamente frente a {earlier} antes, en {cycles} ciclos"
     }
+  },
+  "notifications": {
+    "heading": "Recordatorios",
+    "desc": "Nada est\u00e1 activado hasta que t\u00fa lo actives, y t\u00fa eliges c\u00f3mo se redacta.",
+    "saveError": "No se guard\u00f3. Int\u00e9ntalo de nuevo.",
+    "enableError": "No pudimos activar los recordatorios en este dispositivo. Int\u00e9ntalo de nuevo.",
+    "deniedNotice": "Tu navegador est\u00e1 bloqueando las notificaciones de Femio. Puedes cambiarlo en los ajustes del sitio: desde aqu\u00ed no podemos volver a pedirlo.",
+    "neverDoes": "Femio nunca env\u00eda rachas, nunca cuenta los d\u00edas que no registraste y nunca te dice que la regla lleva retraso. Un recordatorio es un ofrecimiento, no una nota.",
+    "kinds": {
+      "periodWindow": {
+        "label": "Cu\u00e1ndo se espera tu pr\u00f3xima regla",
+        "note": "Una vez, al abrirse el rango. Un rango, nunca una fecha \u00fanica."
+      },
+      "logReminder": {
+        "label": "Un aviso para registrar",
+        "note": "Un recordatorio tranquilo de que hoy puedes registrar. Sin rachas y sin contar los d\u00edas que faltaron."
+      },
+      "appointment": {
+        "label": "Una cita pr\u00f3xima",
+        "note": "El d\u00eda antes de una que registraste, con las preguntas que anotaste."
+      },
+      "medication": {
+        "label": "Algo que tomas",
+        "note": "Solo para lo que pediste recordar. Femio nunca comprueba si lo tomaste."
+      },
+      "cycleSummary": {
+        "label": "El resumen de tu ciclo",
+        "note": "Cuando termina un ciclo y hay algo que mirar."
+      }
+    },
+    "discreet": {
+      "label": "Mantener la redacci\u00f3n discreta",
+      "note": "Las notificaciones no dicen nada sobre tu salud: \u00fatil si tu tel\u00e9fono las muestra en la pantalla de bloqueo.",
+      "sample": "En tu pantalla de bloqueo: \u00abFemio: abre la aplicaci\u00f3n\u00bb",
+      "samplePlain": "En tu pantalla de bloqueo: \u00abFemio: tu pr\u00f3xima regla se espera pronto\u00bb"
+    },
+    "quiet": {
+      "label": "Horas de silencio",
+      "note": "No llega nada entre estas horas. Femio lo guarda en lugar de descartarlo.",
+      "from": "Desde",
+      "to": "Hasta",
+      "none": "Ambas a la misma hora, as\u00ed que no hay horas de silencio: los recordatorios pueden llegar a cualquier hora."
+    },
+    "delivery": {
+      "label": "Este dispositivo",
+      "on": "Los recordatorios pueden llegar a este dispositivo.",
+      "off": "Este dispositivo a\u00fan no est\u00e1 preparado para recibirlos.",
+      "turnOn": "Permitir en este dispositivo",
+      "turnOff": "Detener en este dispositivo",
+      "unavailable": "Los recordatorios todav\u00eda no se pueden entregar: o este navegador no los admite, o Femio no ha terminado de configurar el env\u00edo. Tus opciones de arriba se guardan igualmente."
+    }
   }
 }

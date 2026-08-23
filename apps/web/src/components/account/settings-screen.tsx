@@ -8,6 +8,7 @@ import { ExportButton } from "@/components/account/export-button";
 import { DeleteButton } from "@/components/account/delete-button";
 import { SetPassword } from "@/components/account/set-password";
 import { ConsentSettings } from "@/components/account/consent-settings";
+import { NotificationSettings } from "@/components/account/notification-settings";
 import { MfaSettings } from "@/components/account/mfa-settings";
 import { ExperienceSettings } from "@/components/account/experience-settings";
 import { SignOutButton } from "@/components/account/sign-out-button";
@@ -44,6 +45,7 @@ export function SettingsScreen() {
   const tm = useTranslations("medications");
   const ts = useTranslations("moodScreeners");
   const tp = useTranslations("partnerSharing");
+  const tn = useTranslations("notifications");
 
   return (
     <AppScreen>
@@ -129,6 +131,19 @@ export function SettingsScreen() {
           <Button asChild variant="outline" className="self-start">
             <Link href="/screeners">{ts("title")}</Link>
           </Button>
+        </CardContent>
+      </Card>
+
+      {/* Notifications (P2.8). Above consent and below the tools, because it is the
+          one setting that changes what Femio does *to* her rather than what it
+          shows her — and everything in it is off until she says otherwise. */}
+      <Card>
+        <CardContent className="flex flex-col gap-4 p-6">
+          <div className="flex flex-col gap-1">
+            <h2 className="text-md font-semibold text-text">{tn("heading")}</h2>
+            <p className="text-sm text-text-muted">{tn("desc")}</p>
+          </div>
+          <NotificationSettings />
         </CardContent>
       </Card>
 

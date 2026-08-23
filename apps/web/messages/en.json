@@ -2052,5 +2052,56 @@
       "steady": "{symptom} \u2014 about the same",
       "evidence": "Averaging {recent} recently against {earlier} before, across {cycles} cycles"
     }
+  },
+  "notifications": {
+    "heading": "Reminders",
+    "desc": "Nothing is on until you turn it on, and you choose the wording.",
+    "saveError": "That didn't save. Please try again.",
+    "enableError": "We couldn't turn reminders on for this device. Please try again.",
+    "deniedNotice": "Your browser is blocking notifications for Femio. You can change that in your browser's site settings \u2014 we can't ask again from here.",
+    "neverDoes": "Femio never sends streaks, never counts days you didn't log, and never tells you a period is late. A reminder is an offer, not a score.",
+    "kinds": {
+      "periodWindow": {
+        "label": "When your next period is expected",
+        "note": "Once, as the window opens. A range, never a single date."
+      },
+      "logReminder": {
+        "label": "A nudge to log",
+        "note": "A quiet reminder that you can log today. Never a streak, never a count of days you missed."
+      },
+      "appointment": {
+        "label": "An appointment coming up",
+        "note": "The day before one you recorded, with the questions you wrote down."
+      },
+      "medication": {
+        "label": "Something you take",
+        "note": "Only for entries you asked to be reminded about. Femio never checks whether you took it."
+      },
+      "cycleSummary": {
+        "label": "Your cycle summary",
+        "note": "When a cycle ends and there is something to look back at."
+      }
+    },
+    "discreet": {
+      "label": "Keep the wording private",
+      "note": "Notifications say nothing about your health \u2014 useful if your phone shows them on the lock screen.",
+      "sample": "On your lock screen: \u201cFemio \u2014 open the app\u201d",
+      "samplePlain": "On your lock screen: \u201cFemio \u2014 your next period is expected soon\u201d"
+    },
+    "quiet": {
+      "label": "Quiet hours",
+      "note": "Nothing arrives between these times. Femio holds it rather than dropping it.",
+      "from": "From",
+      "to": "Until",
+      "none": "Set to the same time, so there are no quiet hours \u2014 reminders can arrive at any time of day."
+    },
+    "delivery": {
+      "label": "This device",
+      "on": "Reminders can reach this device.",
+      "off": "This device isn't set up to receive them yet.",
+      "turnOn": "Allow on this device",
+      "turnOff": "Stop on this device",
+      "unavailable": "Reminders can't be delivered yet \u2014 either this browser doesn't support them, or Femio hasn't finished setting delivery up. Your choices above are saved either way."
+    }
   }
 }
