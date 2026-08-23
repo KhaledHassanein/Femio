@@ -18,7 +18,7 @@ and why) → `docs/24_REVAMP_PLAN.md` (the architecture) → `docs/25_DESIGN_DIR
 
 ## ▣ Readiness — the running score (update this in place, every pass)
 
-**Measured 2026-08-18 at `9167302`.** This section is a *living instrument*, not a report: change
+**Measured 2026-08-23 at `6bab92c`.** This section is a *living instrument*, not a report: change
 the numbers when they change, and change the verdicts when the evidence does. It exists so
 "how far are we" stops being re-derived from scratch each session.
 
@@ -26,65 +26,66 @@ the numbers when they change, and change the verdicts when the evidence does. It
 
 | | Now | How it was measured | Moves when |
 |---|---|---|---|
-| Authored articles | **105** | `ls docs/content/articles/*.md \| wc -l` | a set is drafted |
-| **Live to readers** | **105 — all of them** | `curl` the CMS public API and read `totalDocs` | the owner approves drafts |
+| Authored articles | **105** | `ls docs/content/articles/*.md \| wc -l` | never — content is closed (below) |
+| **Live to readers** | **105 — all of them** | `curl` the CMS public API and read `totalDocs` | same |
 | Waiting on the review gate | **0** | the difference | same |
-| Unit tests | **593** across 57 files | `pnpm test` | any tier-1/2 change |
-| Guards | **12**, all green | the gate list in `STATE.md` | a new class of mistake earns one |
-| E2E | **63/63** | `CI=1 pnpm --filter web test:e2e:ci` | a route or flow changes |
-| Persona registries | **6 of 6 tracks** — A, B, C, D, E, F. Every resolver rule now has a record to compose | `ls lib/experience/registry/` | Track C lands |
-| Queue | 32 done · 14 in flight · 70 open | `grep -c` the status markers | every pass |
+| Unit tests | **721** across 67 files | `pnpm test` | any tier-1/2 change |
+| Guards | **11**, all green, plus the `content-lint` self-test | the gate list in `STATE.md` | a new class of mistake earns one |
+| E2E | **74/74**, one file excluded from CI (`@cms`) | `CI=1 pnpm --filter web test:e2e:ci` | a route or flow changes |
+| Persona registries | **7 of 7 tracks** — A–F and Z. Every resolver rule has a record, including the fallback persona | `ls lib/experience/registry/` | a track is added |
+| Persona `mode ===` branches in components | **0** | `pnpm persona-branch-lint` — the baseline is empty (R3.1.6a) | it must not |
+| Queue | 84 done · 16 in flight · 69 open · 2 deferred | `grep -c` the status markers | every pass |
 
 ### What is actually finished, and what only looks finished
 
 **Finished and provable.** The experience engine end to end: signals from her real record, a
-resolver with hard gates, a served `ExperienceConfig`, a module registry, and five tracks whose
-personas are reachable — each proven by a reachability suite rather than asserted. The content
-pipeline: authoring brief → `content-lint` (structure, sourcing, claims, links, uniqueness) →
-`content-lint:urls` → importer → review gate → a reading card that fills itself in on publish
-with no deploy. Export, delete, offline queue, consent, staff MFA, crisis routing.
+resolver with hard gates, a served `ExperienceConfig`, a module registry, and **every** track
+reachable and *drawn* — proven by a reachability suite per track rather than asserted. The
+content pipeline and all 105 articles. Export, delete, offline queue, consent, staff MFA, crisis
+routing — now actually reaching Arabic readers, which it had not been. Partner sharing. The
+doctor-visit report, including on paper.
 
-**That gap is closed.** It read, for weeks: *75 of 101 articles are invisible.* All 105 are now
-published, so every reading card in the product fills. The next-largest gap is no longer content
-at all — it is that Tracks B, C and F compose documents no dashboard draws (R1.9).
+**The three things `docs/23` named wrong are all closed.** The persona engine is no longer
+write-only; depth exists (`appointments`, `fertility_logs`, `screener_results`, `meds_supplements`,
+`vitals`, `partner_links` all hold real data); and the design/UX workstream ran as the 2026-08-21
+revamp, phases 0→6.
 
-**Looks finished, is not.** Five tracks have registries; **only three have screens** — the
-pregnancy, postpartum and teen dashboards render from the engine, while Track B and Track F
-render the old panels, so R2.8/R2.9's work reaches a woman as tone, alerts and reading list but
-not as layout (R1.9). **Track C (TTC) has no registry at all** — `/fertility` exists, C1/C2/C3
-resolve, and there is no record for them to compose. And the log screen still branches on
-`isPregnancy` five times instead of reading `tools` (**R2.10**).
+**Looks finished, is not — and this is now a short list.**
+- **Nobody outside this repo has ever used it.** Every quality judgement in this file is internal.
+- **`MANUAL_TEST_PLAN.md` T8, T10–T27 have never been looked at.** The automated gates cannot see
+  tone, craft, or whether Arabic reads like a person wrote it. Two recent defects — the English
+  crisis dialog on Arabic pages, and a visit report that printed illegibly — were invisible to
+  every guard and would have been obvious to a human with the app open.
+- **Nothing is a *reason to return*.** No notifications (P2.8), no pattern analysis (P2.5). The app
+  is good when opened and does not ask to be.
 
-**Not started, and honestly scoped.** The Flutter client (R5) — the stated destination, zero
-lines written. Pattern analysis (P2.5) — named in `docs/03` §H as the one feature people would
-pay for, and the only R4 item with revenue attached. Notifications (P2.8) — the first reason to
-return between sessions.
+**Not started, and honestly scoped.** The Flutter client (R5) — the stated destination, zero lines
+written. Pattern analysis (P2.5) — the one feature `docs/03` §H says people would pay for.
 
-**Deferred by owner direction, blocking nothing:** P0.12 legal, billing, store compliance,
-community. The trigger for legal is the first real user, which is why P0.12.5 (gating signup)
-sits ahead of P1.24 (the beta) rather than beside it.
+**Deferred by owner direction:** P0.12 legal, billing, store compliance, community. The trigger for
+legal is the first real user, which is why P0.12.5 (gating signup) sits ahead of P1.24 (the beta).
 
 ### The shortest path to "finished, properly"
 
-Ordered by *value per hour*, not by section number. Re-order it when the evidence changes, and
-say why in the commit.
+Ordered by *value per hour*. Items 1–4 of the previous ordering are done; what is left is short
+enough to state as the launch path, which is what it now is.
 
-1. ~~Publish the drafts.~~ **Done 2026-08-19** — all 105 live.
-2. **R2.10** — the log screen renders `tools`. Removes the last `mode ===` screen and unblocks
-   fertility and feeding logging, which have no `LogKind` and therefore cannot be surfaced.
-3. **Track C registry** — the only track resolving into nothing. Same shape as R2.8/R2.9.
-4. **R1.9** — implement the approved references, cycle first. The engine is ready and the
-   screens are the last place the old architecture survives.
-5. **P0.12.5 → P1.24** — gate signup, then 20–50 real users. Every quality judgement so far,
-   including this one, is internal. This is the highest-information action available and it has
-   been available for weeks.
-6. **P2.5 pattern analysis** — the differentiator, and the thing a paid tier could rest on.
-7. **R5.1 Flutter** — only after the web product is one a beta liked, because building the same
-   screens twice before knowing which screens are right is the expensive order.
+1. **P0.12.5 — turn the signup gate on.** Built (B4), tested, and **off in production**: signup is
+   open to anyone who finds the domain, while `/privacy` and `/terms` are drafts marked noindex.
+   One Vercel environment variable. This is the only item here that is both minutes of work and
+   currently a live exposure.
+2. **`MANUAL_TEST_PLAN.md`** — the owner's eyes, T26 first. The one property no test reaches.
+3. **P1.24 — the beta**, 20–50 real users including Arabic speakers. Still the single
+   highest-information action available, and it has been for weeks.
+4. **P2.5 pattern analysis** — the differentiator, and what a paid tier could rest on.
+5. **P2.8 notifications** — the first real reason to return between sessions.
+6. **P0.12 legal**, on the beta's trigger: entity, DPO, EU rep, then P0.12.4 flips the legal pages
+   from drafts to indexable. Partner sharing's launch gate (`docs/13` §5 disclosures + Art. 9(2)(a)
+   sign-off) is inside this and needs a DPO to exist.
+7. **R5.1 Flutter** — only after the web product is one a beta liked.
 
-**The trap to name once:** everything above item 5 is still guesswork about what women want,
-because nobody outside this repo has used it. Items 1–4 make the product coherent; item 5 makes
-the next decision *informed*. Do not let 6 and 7 jump the queue on enthusiasm.
+**The trap to name once:** items 4 onward are still guesswork about what women want. Items 1–3 are
+what make the next decision *informed*. Do not let 4 and 7 jump the queue on enthusiasm.
 
 ---
 
@@ -134,7 +135,7 @@ R1 (`docs/25`) is absorbed into `docs/27` phase 5; R2's unfinished half — the 
 - [x] **R3.1.1** Cycle phases exist and are drawn (2026-08-21, ADR-066). `lib/cycle/phases.ts` is a tier-2 portable module with 11 tests; `PhaseStrip` renders it. **Drafted as a ring and rebuilt as a strip** — `docs/25` §5a rejects circular progress outright and the ring was half-written before that was found, which is the "reversed by accident" case the ADR bar exists for. Phases are named only when her cycles support it: irregular and sub-21-day cycles return `null` and render as "Femio won't guess a phase", so a PCOS user never gets a wrong label. Ovulation is estimated backwards (`length - 14`), never assumed to be day 14.
 - [x] **R3.1.1a** Verified on a seeded dashboard in light, dark and Arabic (2026-08-21) — zero console errors in all three, and the strip mirrors correctly in RTL with the marker on the right origin. Tooling committed as `scripts/dev/seed-and-shoot.mjs`; it reads the session out of the `@supabase/ssr` cookie and inserts through PostgREST with her own JWT, so **RLS is exercised rather than bypassed** (the first attempt omitted `profile_id` and was correctly refused with 42501). No service-role key, deliberately.
 - [x] **R3.1.3a** Duplicate prediction hero removed (2026-08-21). With data logged, `dashboard-screen.tsx:205` and the registry's `cycle.window` drew the same window twice in two date formats — 226px of duplicate, invisible on an empty account, which is why Part 1 missed it. Suppressed by module id, not deleted: only `track-b` contributes `cycle.window`, so deleting it would have stripped the prediction from `general` — the fallback persona. Dashboard 1313px → 1087px saying more (`docs/26` §13).
-- [ ] **R3.5.2** Arabic uses Western digits for dates (`2026/08/31`) and Arabic-Indic for age bands (`١٣–١٥`). A locale decision, not a bug — Arabic-Indic is standard in Egypt and the Gulf, Western in the Maghreb. Needs a call in the design phase (`docs/26` §14).
+- [ ] **R3.5.2** Arabic mixes Western and Arabic-Indic digits — an owner locale call, not a bug. Tracked in the **R3.6 register** under *Open, and needing an owner decision*.
 - [x] **R3.1.4** First run no longer dead-ends (2026-08-21). The empty screen asked for "a couple of periods" and offered one button that logs *today*, so the only action available could not produce the state being asked for (`docs/26` §2.5). Now it asks the question directly, with a back-dated field — and a **second** step, because one logged period was still a dead end: predictions need two starts, so the window module rendered nothing and the screen went quiet without saying what it was waiting for. Verified end to end: two taps take a new user from 844px to a working 1513px dashboard, zero console errors.
 - [x] **R3.1.3** Duplicate empty state removed (2026-08-21). "Log a couple of periods to unlock insights" sat directly above the card asking the same thing — §2.1's duplication in a new costume. The empty screen now poses one question, once.
 - [x] **R3.1.7** `irregular` no longer claims something Femio cannot know (2026-08-21). `predict.ts` split the flag in two: `irregular` means her cycles genuinely vary and is now false until there are two intervals to measure; `learning` means Femio has not seen enough yet. Each gets its own sentence — one is about her and may not narrow, the other is about us and does. Both still suppress the "late" counter, which is tested, because splitting a safety flag is how you re-enable the thing it was guarding. **The golden fixtures earned their keep**: they caught that the split would flip `regularityFrom` to `"regular"` for two logged periods — trading one unfounded claim about her body for the opposite one — so it returns `"unknown"`, a value the type already had. Verified in the browser: two cycles now read "still learning your pattern", not "your cycles vary" (`docs/26` §16).
@@ -151,7 +152,7 @@ R1 (`docs/25`) is absorbed into `docs/27` phase 5; R2's unfinished half — the 
 - [x] **R3.4.1a** **Pregnancy removed from that finding — a fourth measurement artifact, caught before publishing** (2026-08-22). Checkpoint 1 recorded pregnancy at 855px/19 nodes; that was its **setup state**, the screen asking for a due date, which is a correct first run rather than an empty persona. With a due date entered it renders **1541px / 51 nodes** — trimester, week and day, days to go, full-term date. The `STATE.md` rule caught it: the badge said "Pregnancy", so the persona had resolved and the thinness had to be data, not routing.
 - [x] **CHECKPOINT 1** (2026-08-21) — all personas re-measured and **§5 of `docs/26` corrected**. Menopause was recorded at 844px and measures 3238px against changes that never touched it: the audit's own measurement script clicked Continue twice against a four-step wizard, the same rot that had broken the `@live` specs. Several §5 rows were partially-onboarded screens, not dashboards. The headline survives — TTC seeded is still 844px/17 nodes — but the correction is written down rather than left to be quoted.
 - [x] **R3.1c.1–1c.3** The visit report separates what she recorded from what Femio worked out (2026-08-21). `VisitSummary.cycle` now holds only her entries — the type enforces it — and a new `derived` block holds every estimate in its own bordered section headed "Worked out by Femio", stating whether the average came from **the length she stated at setup** or **the mean of cycles she logged**, plus the predicted window, and whether Femio is still learning or her cycles genuinely vary. On a printed page "28 days" looks identical either way, and a clinician who cannot tell them apart is reading a prediction as a record. Also fixes R3.1.9 in the report, which computed its own intervals and would have turned three logged days of one period into three cycles.
-- [ ] **R3.1c.4** PDF export beyond `window.print()`. The print path works and keeps health data on-device, which is why it was chosen; what is untested is whether the derived section's dashed border and headings survive an actual print to PDF. Needs a real print check, not an assumption.
+- [x] **R3.1c.4** Print output measured, not assumed (2026-08-23) — and it was broken in both themes. Full entry in the **R3.6 register**; `scripts/dev/print-check.mjs` is the check.
 - [x] **R3.1.10** The average uses recent, plausible cycles — and only the average (2026-08-22, owner direction). Two changes, both scoped to the arithmetic and nothing else. **Recent**: the last 6 intervals, because a cycle from eighteen months ago is not evidence about this month and length shifts with age, contraception, birth and perimenopause. Cycles rather than months, since a month cutoff drops one at thirteen and keeps one at eleven, and a count is stabler for a sparse logger. **Plausible**: intervals over 90 days are gaps, not cycles — the Track F case averaged 33 days and a 542-day gap into **288 days**, a number describing nobody.
       - **The scope is the safety.** `spread` and therefore `irregular` still see every interval, so a bleed after eighteen months still reports irregular and still reaches the postmenopausal red flag. The first attempt at this filtered `lengths` itself and broke exactly that — the gap left the arithmetic *and* the record. It now leaves only the arithmetic.
       - **When nothing logged is plausibly a cycle**, there is no observed average at all: her stated baseline is used, or nothing. Averaging a 151-day gap and calling it her average states a number nothing in her body produced.
@@ -262,7 +263,7 @@ from `CLAUDE.md`.
 - [x] **R3.2.1/2.2/2.3** The five orphaned routes are reachable (2026-08-22). `/summary`, `/fertility`, `/appointments`, `/screeners` and `/medications` were built, worked and appeared in **no navigation at all** (`docs/26` §2.3) — the app was bigger than its own nav admitted, and a third of that nav was Settings. Added a **Tools** tab and a `/tools` hub listing all of them plus the calculators and the library. Verified: nav reads Home · Track · Tools · Settings, the hub links to all eight destinations, every previously-orphaned route returns 200, and no row is under the 44px touch target.
 - [x] **R3.2.3a** The hub is deliberately **not** personalised. The dashboard is where her stage decides what leads; this screen is the promise that nothing was taken away, so it does not filter by persona or hide a tool Femio thinks she will not want — a pregnant woman may still want the cycle-length calculator, and deciding otherwise for her is the restriction product rule 2 forbids. It is also the honest home for the "everything else is still here" claim the dashboard used to spend its largest card describing (R3.1.8): the promise is better kept than explained.
 
-- [ ] **R3.1.6a** Move the four life-stage *mounts* (teen, pregnancy, postpartum, menopause) into the registry. These choose a component rather than vary a layout, so they are a different and riskier refactor; `dashboard-screen.tsx` stays on the persona-branch baseline until they land, and the ratchet still only shrinks.
+- [x] **R3.1.6a** The four life-stage mounts read `config.track` from the served document (2026-08-23). `MODE_BASELINE` is empty; the ratchet is finished. Full entry in the **R3.6 register**.
 
 ## R3.0 — Phase 0, stop the bleeding (`docs/27`)
 
