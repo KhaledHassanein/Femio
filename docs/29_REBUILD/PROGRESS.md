@@ -12,7 +12,14 @@ Status marks follow the MASTER_TODO covenant: `[ ]` open · `[~]` in progress ·
 
 ---
 
-## Phase A — Foundations (nothing user-visible)
+## Phase A — Foundations ✅ **CLOSED 2026-08-23** (`69a72cb`)
+
+Seven migrations (`0015`–`0021`) written and the stroke scale landed. **Not yet applied
+to any database** — running them is an owner task, see `runbooks/BLOCKERS.md`. Gate
+green: typecheck, 756 tests in 70 files, eslint, token parity.
+
+Three of the plan's asserted gaps turned out not to exist (C-8, C-9 in the teardown
+ledger). Chapters 02 §3 and 05 §1–2 are corrected in place.
 
 Chapter [02_DATA_MODEL.md](02_DATA_MODEL.md), [05_DESIGN_SYSTEM.md](05_DESIGN_SYSTEM.md) §1.
 
@@ -110,7 +117,8 @@ Newest first. One line per checkpoint, with the commit.
 
 | When | What | Commit |
 |---|---|---|
-| 2026-08-23 | **A8** `--stroke-*` widths; corrected ch.05 — spacing fine, focus ring already existed | _pending_ |
+| 2026-08-23 | **Phase A closed** — gate green: typecheck, 756 tests, eslint, token parity | `69a72cb` |
+| 2026-08-23 | **A8** `--stroke-*` widths; corrected ch.05 — spacing fine, focus ring already existed | `69a72cb` |
 | 2026-08-23 | **A6+A7** `experience_documents` + `feature_flags` with an audit trigger | `b46d12e` |
 | 2026-08-23 | **A5** `patterns` — evidence, confidence, dismissal; column-level grant | `854a741` |
 | 2026-08-23 | **A4** `predictions` — basis, two tiers, outcome; tier-1 write only | `70f3c6e` |

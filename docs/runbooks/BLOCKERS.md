@@ -543,3 +543,37 @@ changed.
 
 **Arabic renders Western digits**, and is now pinned by a test rather than left to the runtime's
 CLDR default — it was already correct, and correct-by-accident is what the test removes.
+
+---
+
+## B13 · ⏳ OPEN 2026-08-23 — seven migrations are written and none of them has run
+
+**What is needed:** apply `0015`–`0021` to Preview, then Production.
+
+```bash
+npx supabase migration list --linked    # confirm 0014 is the last applied
+npx supabase db push                    # applies 0015..0021
+```
+
+**What they are.** Phase A of `docs/29_REBUILD` — the foundations everything else
+waits on. `period_days` (per-day flow), `symptom_logs.dimension` (mood as its own
+dimension), `source` provenance on `vitals` and `fertility_logs`, and four new tables:
+`predictions`, `patterns`, `experience_documents`, `feature_flags`.
+
+**Nothing in the app reads them yet**, so applying them changes no behaviour. That is
+deliberate: the schema lands silently and Phase B onwards consumes it. Equally,
+**Phase B cannot start until they are applied**, because the resolver writes to
+`experience_documents` and reads `feature_flags`.
+
+**Two of them contain backfills.** `0015` writes one `period_days` row per day of each
+closed period, and `0016` reclassifies nine mood keys. Both are idempotent and both are
+safe to re-run, but worth watching the row counts on Preview before Production.
+
+**Every one has idempotency guards** — `if not exists`, `drop policy if exists`,
+`drop trigger if exists` — which is the lesson from B11, where `0007` and `0008` had
+none and desynced the migration ledger.
+
+**What to check after.** That `feature_flags` is readable when signed out (the public
+site needs it), that `predictions` rejects an insert from a signed-in browser client
+(it must be tier-1 only), and that `patterns` accepts an update to `dismissed_at` and
+rejects one to `confidence` — the column grant is doing work that RLS alone cannot.
