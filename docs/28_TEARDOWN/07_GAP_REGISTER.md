@@ -102,10 +102,17 @@ have and nothing else in the market connects those two.
 
 **Closed when.** Mood is its own dimension rather than symptom keys; discharge and
 cervical fluid are trackable (they are clinically meaningful for TTC and for
-infection awareness); BBT is trackable; a libido/sexual-wellbeing dimension exists
-with an explicit `docs/13` decision on how it presents in conservative markets; and
-the perimenopause and postpartum symptom sets match what `docs/16` and the MRS
-already imply. Everything added must feed `lib/patterns`.
+infection awareness); BBT is trackable; and the perimenopause and postpartum symptom
+sets match what `docs/16` and the MRS already imply. Everything added must feed
+`lib/patterns`.
+
+**Amended by owner direction, 2026-08-23 — see `10_FLO_RUNNING.md` §6.** The
+sexual-health scope is clinical only. A single conservative *intercourse* /
+*conception* marker carrying a date, because that is all `lib/fertility` needs. No
+"sex and sex drive" category, no act types, no orgasm or masturbation entries.
+Painful intercourse, vaginal dryness, bleeding after intercourse and libido change
+*as a symptom* stay, under clinical names. Conservative wording is part of the
+requirement in Arabic, French and Spanish, not a later copy pass.
 
 ### TD-07 · No platform-health or wearable input · L
 
@@ -138,8 +145,17 @@ nine illustrated goal choices. Femio's wizard is a coded sequence of questions.
 **Closed when.** Onboarding is a data document with the shape Flo uses — steps,
 conditional transitions with tag conditions, precomputed progress — and the ratio of
 "we tell you something" to "you tell us something" is deliberately chosen rather
-than incidental. It does not need 442 steps; it needs the answer-then-respond
-rhythm and a designed refusal path (our Z1).
+than incidental.
+
+**Amended by owner direction, 2026-08-23 — see `10_FLO_RUNNING.md` §2.** Walking
+Flo's 57-screen flow end to end, the owner's verdict was that it is soliciting and
+boring rather than comfortable. So: keep the answer-then-respond rhythm, the
+reason-for-asking subtitle on every question, "I don't know" as a first-class
+answer, the recovery screen when she cannot remember a date, and the pre-permission
+primer. Reject the social-proof stat cards, the donation cards, the commitment
+ritual, the three-layer goal interrogation and the paywall as terminus. Target:
+good-looking, joyful, simple, short, no overselling — she reaches a working
+dashboard, and Femio earns the rest later.
 
 ### TD-10 · No remote config, experiments or kill switches · L
 

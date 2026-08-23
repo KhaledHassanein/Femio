@@ -45,7 +45,7 @@ it is real** — chapters 08 and 09 exist to make it visible rather than merely 
 | Symptoms | 47 | symptom tracker (count unknown) | basic | ~22 |
 | Moods | 16 (own dimension) | — | — | mixed into symptoms |
 | Discharge / cervical fluid | 11 types, each animated | — | — | — |
-| Sex & libido | 10 entries | — | — | — |
+| Intercourse / conception marker | 10 sex & libido entries | — | — | — (scoped conservative — see below) |
 | Flow levels | 3, each animated | — | ✅ | ✅ flow strip |
 | Weight | ✅ | ✅ | — | ✅ `vitals` |
 | Temperature / BBT | ✅ + chart + UIC element | — | — | — |
@@ -59,8 +59,16 @@ it is real** — chapters 08 and 09 exist to make it visible rather than merely 
 | **Pattern analysis** | flat lists | — | — | ✅ timing, co-occurrence, severity, confidence |
 
 Flo logs 84 concepts; Femio logs ~30 but is the only one that *analyses* them. The
-right target is not 84 — it is our 30 plus the ones that carry clinical or emotional
-weight (discharge, libido, BBT), all of them feeding the pattern engine.
+right target is not 84 — it is our 30 plus the ones that carry clinical weight
+(discharge and cervical fluid, BBT, mood as its own dimension), all of them feeding
+the pattern engine.
+
+Flo's ten-entry "sex and sex drive" category is **not** a gap to close. Per owner
+direction of 2026-08-23 (`10_FLO_RUNNING.md` §6) Femio logs a single conservative
+*intercourse* / *conception* marker carrying a date — which is all `lib/fertility`
+needs — and keeps the clinical symptoms (painful intercourse, dryness, bleeding after
+intercourse, libido change as a perimenopause or medication marker) under their
+clinical names. Femio is not a sexual-wellness platform.
 
 ## D. Design system
 
@@ -98,6 +106,13 @@ weight (discharge, libido, BBT), all of them feeding the pattern engine.
 | Home-screen widget | ✅ pregnancy | — | — | — |
 
 This is the matrix Khaled's brief is really about, and it is close to a shutout.
+
+**One correction from running the app (chapter 10).** Flo's charts are not a headline
+surface — its "Insights" tab is a content library with no chart on it, and the data
+graphics live several levels down in cycle details, cycle history and the BBT chart.
+Their delight is carried by illustration, motion and editorial cards. So a genuinely
+good chart layer is not only parity work for us; done well it is a differentiator
+nobody in this study holds.
 
 ## F. Personalisation engine
 

@@ -34,6 +34,32 @@ own corpus, which is where we are genuinely ahead on paper and behind in shipped
 | 07 | [Gap register](07_GAP_REGISTER.md) | Every parity gap, ranked, with the evidence line that proves it |
 | 08 | [Differentiation](08_DIFFERENTIATION.md) | The layer beyond parity, sourced from our 73 personas and the adaptation model |
 | 09 | [Build plan](09_BUILD_PLAN.md) | Sequenced work for web and Flutter, mapped to the gap register |
+| 10 | [Flo, running](10_FLO_RUNNING.md) | The app on an emulator — 72 screens, the live-vs-binary divergence, the real paywall, and the owner directions that amend 07 and 08 |
+
+## Owner directions recorded during this study (2026-08-23)
+
+Four, all given while walking Flo on the emulator, all binding on the chapters they
+touch. Chapter 10 carries the detail.
+
+**Register.** Femio is professional and conservative. No "sex" or "anal sex" logging
+categories; where the fact matters clinically it is an *intercourse* or *conception*
+day, worded conservatively in all four languages. We are not a sexual-education or
+sexual-wellness platform. Clinical symptoms — dyspareunia, dryness, bleeding after
+intercourse, libido change as a perimenopause or medication marker — stay, under
+their clinical names. Education of that kind lives in articles and short tips only.
+Amends **TD-06**.
+
+**Onboarding.** Flo's is "extensive, soliciting and boring rather than practical and
+comfortable" — a pain point to kill. Good-looking, detailed, joyful, simple. No
+overselling. Behave ethically. Amends **TD-09**.
+
+**Monetisation.** Freemium — a genuinely useful free tier that shows what Femio can
+do, then monetise the depth. The specific model is a later conversation.
+
+**The Learn section.** Flo's Insights tab is the structural model for our content
+surface — search, question-shaped topic chips, "most popular", category rows, bold
+illustrated cards — with their subject matter excluded and our citations, clinician
+names and four languages added.
 
 ## How to use this when revamping a screen
 

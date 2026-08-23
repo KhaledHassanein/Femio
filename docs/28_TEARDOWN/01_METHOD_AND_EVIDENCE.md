@@ -69,6 +69,15 @@ illustration, not a line of copy, not a schema verbatim. Where a chapter says
 voice. If a future session finds itself pasting a competitor's value into a Femio
 file, that is the error this paragraph exists to prevent.
 
+**Superseded in part by chapter 10.** After this study was first written, the owner
+asked for the apps to be run rather than only read. Flo 10.3.0 was installed on an
+Android emulator and walked end to end on the same day. That *does* contact Flo's
+servers — there is no other way to see a server-driven product — so the "no request
+was made" statement above holds for chapters 02–09 and not for chapter 10. No account
+was created; the owner made the one purchase involved, on his own account.
+`10_FLO_RUNNING.md` §7 lists every claim in the earlier chapters that running the app
+corrected.
+
 One consequence worth stating plainly: Flo delivers most of its strings, content
 and layout from its servers at runtime. We can see the *machinery* in full and the
 bundled fallbacks, but the live content is not on our disk and was not fetched.
