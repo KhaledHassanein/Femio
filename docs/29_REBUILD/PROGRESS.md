@@ -42,8 +42,8 @@ golden fixtures. Nothing in the UI changes.
 
 Chapter [03_EXPERIENCE_ENGINE.md](03_EXPERIENCE_ENGINE.md).
 
-- [ ] B1 · `ExperienceConfig` v2 types — the eleven-field module envelope
-- [ ] B2 · `SurfaceMap` — home, calendar, learn, tools, insights
+- [x] B1 · v2 contract in `lib/experience/v2/types.ts` + 4 pinned invariants; **`impression` corrected to first-party `measure`** (ch.03 §2)
+- [x] B2 · `SurfaceMap` — landed with B1 (home, calendar, learn, tools, insights)
 - [ ] B3 · `LogVocabulary` as a tier-1 artefact (OD-5 scope)
 - [ ] B4 · Variables — `writes` / `reactsTo`
 - [ ] B5 · Resolver emits v1 **and** v2; per-surface flags
@@ -117,6 +117,8 @@ Newest first. One line per checkpoint, with the commit.
 
 | When | What | Commit |
 |---|---|---|
+| 2026-08-23 | **B1+B2** v2 contract + SurfaceMap, 763 tests | _pending_ |
+| 2026-08-23 | **B13 closed** — migrations applied *and artifacts probed*; `pnpm db-artifacts-probe` added | `727dba5` |
 | 2026-08-23 | **Phase A closed** — gate green: typecheck, 756 tests, eslint, token parity | `69a72cb` |
 | 2026-08-23 | **A8** `--stroke-*` widths; corrected ch.05 — spacing fine, focus ring already existed | `69a72cb` |
 | 2026-08-23 | **A6+A7** `experience_documents` + `feature_flags` with an audit trigger | `b46d12e` |

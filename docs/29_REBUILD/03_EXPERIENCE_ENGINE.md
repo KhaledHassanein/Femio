@@ -88,9 +88,9 @@ export type ModuleSpec = {
     descriptionKey?: string;
   };
 
-  /** REQUIRED. A served module cannot ship untracked. */
-  impression: {
-    event: AnalyticsEvent;             // from docs/19's schema, typed
+  /** OPTIONAL, first-party only — corrected during implementation, see below. */
+  measure?: {
+    bucket: "module_seen";             // our own store; there is no `event` field
     minVisibleMs?: number;             // default 1000
     minVisibleRatio?: number;          // default 0.5
   };
@@ -112,9 +112,26 @@ rendered string in the document cannot be shown to an Arabic user. **Every
 human-readable field in this contract is a key.** This rule has no exceptions and it
 is the reason our version of their envelope is safer than theirs.
 
-**`impression.event` is typed against `docs/19`**, not a free string. An event name
-that is not in the analytics schema is a compile error, which closes the gap where
-analytics drifts from the product.
+**~~`impression.event` is typed against `docs/19`.~~ Corrected while implementing
+(RB-B1).** This said a served module must carry a typed analytics event so it
+"cannot ship untracked". Checked against our own code, that is neither possible nor
+desirable:
+
+* `lib/analytics/events.ts` carries **eight deliberately coarse events**.
+  `signup_completed` omits `mode` because "life-stage is health data";
+  `calculator_used` omits which calculator because due-date implies pregnancy.
+* `lib/analytics/guard.ts` blocks `cycle`, `mood`, `persona`, `symptom`, `pregnan`
+  and `menopaus` as property tokens **at runtime**.
+
+So an impression event naming `cycle.window` would be dropped by our own guard — and
+rightly, because it is exactly the health inference the schema is engineered to
+withhold. Flo can measure per-module engagement because it runs AppsFlyer, Firebase
+and TikTok Ad Manager; product rule 4 says we do not.
+
+The requirement was borrowed from Flo without checking it against rule 4. `measure`
+replaces it: **optional, off by default, first-party only**, and the type gives it
+nowhere to put an event name. `a11y` remains required, which was always the half of
+this that mattered.
 
 **No `style` object.** Flo needs one because its server composes arbitrary layouts.
 Ours does not: a module id maps to a component that owns its own appearance from our
