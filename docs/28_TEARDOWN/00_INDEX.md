@@ -35,6 +35,8 @@ own corpus, which is where we are genuinely ahead on paper and behind in shipped
 | 08 | [Differentiation](08_DIFFERENTIATION.md) | The layer beyond parity, sourced from our 73 personas and the adaptation model |
 | 09 | [Build plan](09_BUILD_PLAN.md) | Sequenced work for web and Flutter, mapped to the gap register |
 | 10 | [Flo, running](10_FLO_RUNNING.md) | The app on an emulator — 72 screens, the live-vs-binary divergence, the real paywall, and the owner directions that amend 07 and 08 |
+| 11 | [Findings ledger](11_FINDINGS_LEDGER.md) | **Start here.** All 16 owner directions, the 7 corrections, judgements, evidence index, method rules, and what remains |
+| 12 | [The other two, running](12_THE_OTHER_TWO_RUNNING.md) | Petal's "Safe Period" label and its contacts prompt; why the pregnancy tracker would not install |
 
 ## Owner directions recorded during this study (2026-08-23)
 
@@ -63,8 +65,10 @@ names and four languages added.
 
 ## How to use this when revamping a screen
 
-Read `02_FLO.md` for the mechanism, `06` for where we stand on that specific
-surface, and `07` for the gap line that names the work. Do not read this study as
+**Read `11_FINDINGS_LEDGER.md` first** — it is the entry point and holds the binding
+owner directions. Then `02_FLO.md` and `10_FLO_RUNNING.md` for the mechanism, `06`
+for where we stand on that specific surface, and `07` for the gap line that names the
+work. Do not read this study as
 a specification to copy — it is a description of someone else's product. The
 specification is `08` and `09`, which are ours.
 
