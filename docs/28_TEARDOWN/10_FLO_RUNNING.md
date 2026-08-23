@@ -417,6 +417,136 @@ study after charts, and chapter 09 already treats **TD-08** as the highest-lever
 item — this reinforces it. We will not beat 1,000 articles on volume soon; we can
 beat them on *attribution, currency, language and fit to her persona*.
 
+## 6c. Below the fold — and the second correction
+
+Scrolling the live dashboard past the insight cards reveals three more sections, and
+they change two more of this study's claims.
+
+### Cycle summary — Flo grades your cycle, and does it badly
+
+A card headed *"The more you share with us, the better Flo works. Log 2 or more
+periods to get personalized analysis of your most recent cycles."* — and then,
+immediately below it, three graded verdicts:
+
+| Metric | Verdict shown |
+|---|---|
+| Previous cycle length | ⚠ **ABNORMAL** |
+| Previous period length | ✓ NORMAL |
+| Cycle length variation | ⚠ **IRREGULAR** |
+
+Each sits beside an **empty grey placeholder bar**. There was one logged period in the
+account. The same card that says it needs two or more periods is simultaneously
+telling her that her cycle length is abnormal and her variation is irregular, from
+no data at all.
+
+This is the clearest example in the study of a competitor doing something Femio has
+explicitly decided not to do. Our rule is on the record in the changelog — *"No score
+and no verdict — a longer cycle is not a worse one"* — and `cycle.personalNormal`
+exists precisely to say what is normal *for her* rather than against a population
+band. Flo's card is alarming, unearned, and clinically indefensible on one data point.
+
+**Keep our position, and make it visible.** Where Flo shows ABNORMAL, Femio should
+show her own range with the number of cycles it rests on. That is D2, and this card
+is the argument for it.
+
+### Cycle history — a list of dot strips
+
+The "See all" from *My cycles* opens `Cycle history`. In full, the screen is:
+
+```
+Cycle history
+● Period   ● Fertile window   ● Ovulation
+2026
+  Current cycle: 15 days
+  Started Aug 9                                    ›
+  ●●●●●○○●●●●●●●●
+```
+
+A legend, a year heading, and one row per cycle whose entire visualisation is a
+**strip of coloured dots** — pink for period days, grey for the gap, teal for the
+fertile stretch, dark teal for ovulation. No axis, no chart, no cycle-length
+comparison, no trend. With twelve cycles logged it would be twelve dot strips.
+
+**This is the strongest data-visualisation finding in the study.** Chapter 06 §E
+counted Flo's six chart activities and rated us 1-to-6. That count is accurate about
+the binary and misleading about the product: the screen a user actually reaches for
+cycle analytics has no chart on it. Combined with §3's finding that the Insights tab
+is a content library, the conclusion is firm — **Flo has no meaningful data-visualisation
+layer, and TD-01 done well is a differentiator rather than catch-up.**
+
+The dot strip itself is worth keeping in mind as a component. It is legible at a
+glance, it works at any width, it needs no library, and it is close to what our
+`cycle.flowStrip` module already implies.
+
+### Cycle details — hedged, but unexplained
+
+Tapping into the current cycle gives three sentences:
+
+> Your fertile window is **likely** to last from Aug 16 to 26
+> It's **likely** that you ovulated on Aug 22
+> Your period is **likely** to start on or around Sep 6
+
+The hedging is consistent and good — "likely", "on or around", a range for the
+window rather than a day. What is entirely absent: any confidence figure, any "based
+on N cycles", any explanation of *why* the window is eleven days wide, and any
+statement of what would narrow it.
+
+That gap is exactly the shape of **D2**. Flo hedges; it cannot explain. We can.
+
+### My symptom patterns — a third correction
+
+The dashboard carries a *My symptom patterns* section: *"By logging symptoms, you'll
+be able to spot patterns across multiple cycles and get insights verified by medical
+experts."*
+
+Chapter 06 §C says Flo "logs 84 concepts and analyses none of them", and D6 repeats
+it. **That is wrong.** Flo has a symptom-pattern feature and claims medical
+verification for its insights. It was not populated in a one-cycle account, so its
+depth is unknown.
+
+What we can still say, and it is narrower: `lib/patterns` does timing, co-occurrence
+*and* severity with an explicit confidence score attached to each finding, and we
+publish the evidence behind it ("together in 4 of 6 cycles"). Whether Flo's does any
+of that is unverified. **D6's claim must be about the confidence and the evidence,
+not about being the only one who analyses.**
+
+## 6d. The calendar
+
+Reached from the icon top-right of the dashboard. Month / Year toggle, then a
+conventional month grid, then — on the same scroll — the selected day's detail.
+
+Four visual states, and only four:
+
+| State | Treatment |
+|---|---|
+| Logged period day | Solid pink filled circle, white numeral |
+| Fertile window | Teal numeral, no fill |
+| Predicted ovulation | Dotted teal ring |
+| Today | Grey filled circle, teal numeral |
+
+An "Edit period dates" pill floats over the grid. Below it, without leaving the
+screen:
+
+```
+Aug 23 · Cycle day 15
+Chance to get pregnant
+Symptoms and activities
+  [ Add weight, mood & symptoms          (+) ]
+My daily insights
+  [ card ] [ card ] [ card ] …
+```
+
+Two things to take. **The calendar and the day detail are one screen**, so tapping a
+date changes the panel below rather than navigating away — logging, cycle position
+and content for that day all in one place. And **the whole calendar carries only four
+states**, which is why it stays legible; the two-tier "likely / may start" probability
+band from chapter 02 §7 did not appear with a single cycle logged, so it is presumably
+reserved for accounts with enough history to support it.
+
+**Owner note, 2026-08-23:** the calendar should be *more* prominent in Femio than it
+is in Flo, where it sits behind an icon. Detail deferred to the design pass; recorded
+here so it is not lost.
+
 ## 7. What this chapter changes elsewhere
 
 | Chapter | Amendment |

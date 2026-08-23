@@ -56,7 +56,8 @@ it is real** — chapters 08 and 09 exist to make it visible rather than merely 
 | Medications / supplements | contraceptives + pills | — | — | ✅ `meds_supplements` |
 | Contractions | — | ✅ | — | ✅ |
 | Fetal movement | — | ✅ | — | ✅ |
-| **Pattern analysis** | flat lists | — | — | ✅ timing, co-occurrence, severity, confidence |
+| **Pattern analysis** | ✅ symptom patterns, "verified by medical experts" (ch.10 §6c) | — | — | ✅ timing, co-occurrence, severity — **with confidence and evidence shown** |
+| Grades the cycle against a population band | ✅ ABNORMAL / IRREGULAR verdicts, on one data point | — | — | — by design (`cycle.personalNormal`) |
 
 Flo logs 84 concepts; Femio logs ~30 but is the only one that *analyses* them. The
 right target is not 84 — it is our 30 plus the ones that carry clinical weight
@@ -93,7 +94,7 @@ clinical names. Femio is not a sexual-wellness platform.
 
 | | Flo | Preg. Tracker | GO Flo | **Femio** |
 |---|---|---|---|---|
-| Chart surfaces | 6 native + 3 UIC element types | growth + weight | 1 analysis view | **1** (weight) |
+| Chart surfaces | 6 native + 3 UIC types in the binary — but the *reached* cycle-analytics screen is a list of dot strips (ch.10 §6c) | growth + weight | 1 analysis view | **1** (weight) |
 | Charting library | none — all bespoke | Compose canvas | — | **none, and no charts** |
 | Server-driven charts | ✅ `TemperatureChart`, `ScoreChart`, `ProgressCircular` | — | — | — |
 | Lottie / motion assets | ~50 own animations | — | — | **0** |

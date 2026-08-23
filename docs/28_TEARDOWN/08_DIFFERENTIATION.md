@@ -131,8 +131,15 @@ touched your data is a *position*.
 ## D6 · Patterns that mean something
 
 **What we have that they do not.** `lib/patterns` (410 lines) does timing,
-co-occurrence and severity with confidence scoring. Flo logs 84 concepts and
-analyses none of them.
+co-occurrence and severity with confidence scoring, and publishes the evidence
+behind each finding ("together in 4 of 6 cycles").
+
+**Corrected by chapter 10 §6c:** this originally claimed Flo analyses nothing. It
+has a symptom-pattern feature and claims its insights are "verified by medical
+experts"; its depth is unverified because a one-cycle account did not populate it.
+So the differentiator is not *that* we analyse — it is that every finding carries a
+confidence score and the evidence it rests on, and that we refuse to grade her
+cycle against a population band the way Flo's ABNORMAL / IRREGULAR card does.
 
 **The feature.** Surface it. Right now the pattern engine has a route
 (`/patterns`) and no presence anywhere else. Patterns should arrive as home modules

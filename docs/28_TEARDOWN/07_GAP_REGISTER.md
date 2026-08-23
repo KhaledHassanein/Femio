@@ -32,6 +32,14 @@ default theme. Judged on a 390×844 viewport, light and dark, and in Arabic RTL.
 **Note.** This is the largest single gap in the study and the one Khaled named
 first. It should be treated as its own workstream, not a task.
 
+**Strengthened by chapter 10 §3 and §6c.** Running the app showed Flo's six chart
+activities are not where users go. Their "Insights" tab is a content library with
+no chart on it, and `Cycle history` — the screen actually reached for cycle
+analytics — is a legend plus one strip of coloured dots per cycle. **Nobody in this
+study has a real data-visualisation layer.** TD-01 done well is therefore a
+differentiator, not catch-up, and it should be read alongside D2 and D6 rather than
+as parity work.
+
 ---
 
 ### TD-02 · There is no motion or delight layer at all · L
