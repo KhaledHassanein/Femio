@@ -1908,6 +1908,9 @@
       "dismiss": "Pas maintenant"
     },
     "current": {
+      "activeNamed": "Partage en cours avec {name}",
+      "pendingNamed": "En attente que {name} accepte \u2014 code {code}",
+      "unnamed": "quelqu'un",
       "heading": "Ce qu'elle voit en ce moment",
       "desc": "Voici son \u00e9cran \u00e0 elle, pas vos r\u00e9glages. Tout ce qui n'est pas list\u00e9 ici lui est invisible.",
       "none": "Vous ne partagez rien avec personne.",
@@ -1948,6 +1951,10 @@
       }
     },
     "create": {
+      "recipientLabel": "Pour qui\u00a0?",
+      "recipientPlaceholder": "Un nom que vous seule verrez",
+      "recipientNote": "Vous seule voyez ce nom. Cette personne ne saura jamais comment vous l'avez appel\u00e9e et ne peut pas le modifier.",
+      "recipientRequired": "Ajoutez d'abord un nom \u2014 on partage avec une personne, pas avec un code.",
       "heading": "Commencer un partage",
       "desc": "Cochez chaque \u00e9l\u00e9ment s\u00e9par\u00e9ment. Il n'existe aucun raccourci qui partage tout, et c'est voulu.",
       "neverShared": "Certaines choses ne sont jamais partageables : les r\u00e9sultats de vos questionnaires, tout ce qui vient de \u00ab\u00a0Besoin d'aide maintenant\u00a0?\u00a0\u00bb, et les questions que vous notez pour un rendez-vous. Femio ne les propose pas, donc personne ne peut vous les demander.",

@@ -94,6 +94,21 @@ export const SHARE_DURATION_DAYS = 183;
 /** How long an unredeemed invite code stays usable. Short: it is a rendezvous, not access. */
 export const INVITE_TTL_DAYS = 14;
 
+/**
+ * The longest label she can give a recipient. A label, not a note.
+ *
+ * Matched by a CHECK in migration 0012, so the two cannot drift — and bounded on
+ * purpose: an unbounded text field she believes is private is an invitation to
+ * write something that has no business inside a disclosure feature.
+ */
+export const MAX_RECIPIENT_LABEL = 60;
+
+/** Trim, collapse whitespace, cap. Empty becomes `null` rather than `""`. */
+export function normalizeRecipientLabel(raw: string): string | null {
+  const cleaned = raw.trim().replace(/\s+/g, " ").slice(0, MAX_RECIPIENT_LABEL);
+  return cleaned.length > 0 ? cleaned : null;
+}
+
 /** Read a stored `scope_json` without trusting it. Unknown or missing keys are false. */
 export function normalizeScope(raw: unknown): ShareScope {
   const source = raw && typeof raw === "object" ? (raw as Record<string, unknown>) : {};

@@ -6,6 +6,7 @@ import { createClient } from "@/lib/supabase/client";
 import type { AgeBand } from "@/lib/persona/age";
 import {
   EMPTY_SCOPE,
+  MAX_RECIPIENT_LABEL,
   SHARE_CATEGORIES,
   formatInviteCode,
   hasAnyCategory,
@@ -65,6 +66,7 @@ export function PartnerSharingScreen() {
 
   const [shares, setShares] = useState<OwnerShare[] | null>(null);
   const [scope, setScope] = useState<ShareScope>(EMPTY_SCOPE);
+  const [recipient, setRecipient] = useState("");
   const [creating, setCreating] = useState(false);
   const [newCode, setNewCode] = useState<string | null>(null);
   const [error, setError] = useState<string | null>(null);
@@ -98,15 +100,17 @@ export function PartnerSharingScreen() {
     setCreating(true);
     setError(null);
     setNewCode(null);
-    const res = await createShare(scope);
+    const res = await createShare(scope, recipient);
     setCreating(false);
     if (!res.ok) {
       if (res.error === "not_permitted_for_age") setAgeBlocked(true);
+      else if (res.error === "recipient_required") setError(t("create.recipientRequired"));
       else setError(t("createError"));
       return;
     }
     setNewCode(res.value);
     setScope(EMPTY_SCOPE);
+    setRecipient("");
     refresh();
   };
 
@@ -233,8 +237,13 @@ export function PartnerSharingScreen() {
                 <li key={share.id} className="flex flex-col gap-2 border-t border-border pt-4">
                   <p className="text-sm font-semibold text-text">
                     {share.inviteCode
-                      ? t("current.pending", { code: formatInviteCode(share.inviteCode) })
-                      : t("current.active")}
+                      ? t("current.pendingNamed", {
+                          name: share.recipientLabel ?? t("current.unnamed"),
+                          code: formatInviteCode(share.inviteCode),
+                        })
+                      : t("current.activeNamed", {
+                          name: share.recipientLabel ?? t("current.unnamed"),
+                        })}
                   </p>
                   <ul className="flex flex-col gap-0.5">
                     {share.categories.map((c) => (
@@ -281,6 +290,24 @@ export function PartnerSharingScreen() {
             <p className="text-sm text-text-muted">{t("create.desc")}</p>
           </div>
 
+          {/* Asked first, and required. Art. 9(2)(a) consent names the recipient as
+              well as the data, and until this existed a share was a grant to
+              "whoever redeems this code" — granular, but not explicit (migration
+              0012). It is also the answer to the question she actually has when
+              she opens this screen in four months. */}
+          <div className="flex flex-col gap-2">
+            <Label htmlFor="recipient-label">{t("create.recipientLabel")}</Label>
+            <Input
+              id="recipient-label"
+              value={recipient}
+              maxLength={MAX_RECIPIENT_LABEL}
+              autoComplete="off"
+              onChange={(e) => setRecipient(e.target.value)}
+              placeholder={t("create.recipientPlaceholder")}
+            />
+            <p className="text-xs text-text-muted">{t("create.recipientNote")}</p>
+          </div>
+
           <div className="flex flex-col gap-3">
             {SHARE_CATEGORIES.map((category: ShareCategory) => (
               <label key={category} className="flex items-start gap-3 text-sm text-text">
@@ -307,7 +334,10 @@ export function PartnerSharingScreen() {
             {t("create.neverShared")}
           </p>
 
-          <Button disabled={creating || !hasAnyCategory(scope)} onClick={() => void create()}>
+          <Button
+            disabled={creating || !hasAnyCategory(scope) || recipient.trim().length === 0}
+            onClick={() => void create()}
+          >
             {t("create.cta")}
           </Button>
 

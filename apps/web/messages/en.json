@@ -1898,6 +1898,9 @@
       "dismiss": "Not now"
     },
     "current": {
+      "activeNamed": "Sharing now with {name}",
+      "pendingNamed": "Waiting for {name} to accept \u2014 code {code}",
+      "unnamed": "someone",
       "heading": "What they can see right now",
       "desc": "This is their view, not your settings. Anything not listed here is invisible to them.",
       "none": "You aren't sharing anything with anyone.",
@@ -1938,6 +1941,10 @@
       }
     },
     "create": {
+      "recipientLabel": "Who is this for?",
+      "recipientPlaceholder": "A name only you will see",
+      "recipientNote": "Only you ever see this. They are never shown what you called them, and they cannot change it.",
+      "recipientRequired": "Add a name first \u2014 sharing is with a person, not with a code.",
       "heading": "Start sharing",
       "desc": "Pick each one separately. There is no shortcut that shares everything, and that is deliberate.",
       "neverShared": "Some things can never be shared: your questionnaire scores, anything from \u201cNeed help now?\u201d, and the questions you write down for an appointment. Femio doesn't offer them, so nobody can ask you for them.",

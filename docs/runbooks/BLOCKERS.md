@@ -6,8 +6,14 @@
 - Config, keys and one-off commands that are *not* blocking → `OWNER_MANUAL_TASKS.md`
 - Things needing your eyes rather than your input → `MANUAL_TEST_PLAN.md`
 
-**Two questions are open as of 2026-08-17, both under B7 — the infant reviewer statement, and
-where the newborn set may appear (E1 cannot carry it; E6 extends E1). Neither stops other work.**
+**Nothing is blocked as of 2026-08-23.** B13 closed the last three open questions — partner
+sharing's launch clearance, the in-app hero gradient, and Arabic digits. **One action remains and
+it is not a blocker on me, it is a live exposure:** `NEXT_PUBLIC_BETA_INVITE_CODE` is unset in
+Vercel, so signup is open to anyone who finds the domain while `/privacy` and `/terms` are drafts.
+Partner sharing's beta clearance is conditional on that variable existing (B13, ADR-069).
+
+**Two older questions remain open under B7** — the infant reviewer statement, and where the newborn
+set may appear (E1 cannot carry it; E6 extends E1). Neither stops other work.
 
 **Nothing else is blocked.** B1–B9 are all closed: B5 and B6 done by the owner, and
 B7, B8 and B9 answered in one pass. What each answer unblocks is written into its section below,
@@ -510,3 +516,30 @@ is withdrawn rather than deleted, with the misreading recorded in it.
 **Nothing changed in the app at any point** — no code was written for this, and the §5a edit was
 reverted. The rule for next time: quote the whole sentence before declaring two documents in
 conflict.
+
+---
+
+## B13 · ✅ ANSWERED 2026-08-23 — partner sharing ships to the beta; the hero keeps its gradient; Arabic uses Western digits
+
+Three owner decisions, all closed. Reasoning and the research behind the first are in **ADR-069**.
+
+**Partner sharing is cleared for the private beta, not for public launch.** The DPO gate was
+mis-specified: a DPO is mandatory for *large-scale* special-category processing (Art. 37(1)(c)),
+and twenty to fifty invited testers is not large scale under Recital 91 or WP243 — while Art. 35(2)
+only asks for a DPO's advice *where one has been designated*. Taken literally the old gate was
+circular: no launch without a DPO, no DPO until real users, no users without something to use.
+
+What is required at any scale has now been done: `docs/13` §5b carries the disclosures table, and
+**the consent moment names the recipient** — which it did not. That was the one real compliance gap
+in the build, and it is fixed in migration 0012.
+
+**One condition is still on you, and the clearance depends on it: `NEXT_PUBLIC_BETA_INVITE_CODE`
+must be set** (P0.12.5). The whole argument rests on the population being *invited* rather than
+arriving from a search result. Until that variable exists, signup is open on a live domain and
+"private beta" is a claim rather than a fact.
+
+**B12 closes with the gradient kept.** ADR-051 stands, `docs/25` §5a is not amended, no code
+changed.
+
+**Arabic renders Western digits**, and is now pinned by a test rather than left to the runtime's
+CLDR default — it was already correct, and correct-by-accident is what the test removes.

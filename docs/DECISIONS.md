@@ -373,3 +373,86 @@ type that could carry one to the database in the first place.
 - **Not yet cleared for launch**, and code was never the gate: `docs/13` §5 needs a disclosures
   section and the Art. 9(2)(a) wording needs DPO sign-off. Femio has no DPO appointed, which is a
   P0.12 dependency.
+
+## ADR-069
+
+**Partner sharing is cleared for the closed beta and not for public launch; the hero keeps its
+gradient; Arabic renders Western digits.**
+
+Date: 2026-08-23 · Owner: Khaled · Status: accepted · Related: ADR-068, ADR-051, `docs/13` §5b,
+`DPIA.md` §5–6, `docs/25` §5a, R3.5.2, B12
+
+Three owner decisions taken in one pass. The first needed research and is the substance of this
+ADR; the other two are recorded because both had been raised as open questions and a future
+session would otherwise re-open them.
+
+### 1. Partner sharing — cleared for the beta, not for the public
+
+**The question.** `PARTNER_SHARING_DESIGN.md` set two launch gates: a disclosures section in
+`docs/13` §5, and **DPO sign-off** on the Art. 9(2)(a) wording. Femio has no DPO, and appointing
+one is inside P0.12, which is deferred until the first real user. Taken literally that is circular:
+the feature cannot launch until a DPO exists, a DPO does not arrive until there are users, and
+users cannot arrive without something to use.
+
+**What the research actually says.** Art. 37(1)(b)–(c) makes a DPO mandatory where core activities
+consist of *large-scale* processing of special categories of data. Femio's core activity is health
+data, so at scale this is unambiguous — a public Femio needs a DPO. **"Large scale" is not met by a
+closed beta.** Recital 91 and WP29's DPO guidance (WP243) weigh the number of data subjects, the
+volume, the duration and the geographic extent, and draw the line by contrasting an individual
+practitioner's records with a hospital's. Twenty to fifty invited testers on an invite code is the
+former. Art. 35(2) — *seek the advice of the DPO* — is likewise conditional on one having been
+designated.
+
+**So the DPO gate was mis-specified, not wrong.** What is required at *any* scale is: explicit
+consent that names the recipient and the data, a DPIA (which exists), transparency under Art. 13,
+and a record of the disclosure. Those are satisfiable now, and three of the four already were.
+
+**Decision.** Partner sharing is cleared to ship **to the private beta**, subject to three
+conditions, all of which are now met:
+
+1. **`docs/13` §5b exists** — a disclosures table for third parties who are not processors, with
+   partner sharing as its single entry, and the explicit rule that nothing may be disclosed to a
+   non-processor that is not described there. Written this pass.
+2. **The consent moment names the recipient.** It did not. 0011 shipped granular consent — she
+   ticked seven categories individually — but the recipient was *whoever redeemed the code*, so at
+   the moment she agreed there was no identified recipient to agree about. That is granular consent
+   and not **explicit** consent, and it is the one substantive compliance gap the build had.
+   Migration 0012 adds `recipient_label`: she names the person, in her own words, before she can
+   create the invite. He never sees it and cannot set it — otherwise it becomes another field a
+   coercive partner can ask her to change.
+3. **The beta gate is on** (P0.12.5). Without it "private beta" is a claim rather than a fact, and
+   the clearance above rests entirely on the population being invited rather than arriving.
+
+**Not cleared for public launch**, and the gate there is unchanged in substance: P0.12 delivers the
+entity, the DPO and a privacy policy in force, and `docs/13` §5b plus the Art. 9(2)(a) wording get
+reviewed by that DPO as part of it. The scale argument that opens the beta closes at exactly the
+point the beta ends.
+
+**What is *not* claimed.** This is a reasoned engineering-and-compliance position, not legal
+advice, and it is recorded so counsel can disagree with something specific rather than with a
+vibe. The residual risks in `DPIA.md` §6 — retention after revocation, and whether the coercion
+mitigations are sufficient in every jurisdiction — remain open and are unaffected by beta scale.
+
+### 2. B12 — the in-app hero keeps its gradient
+
+ADR-051 put the gradient hero into the dashboard as the fix for the "AI generated" verdict.
+ADR-067 then established that `docs/25` §5a never contradicted it: the "never inside the signed-in
+app" clause attaches to `--gradient-dawn`, the marketing gradient, not to `--gradient-hero-*`.
+Owner direction confirms it: **the hero keeps its gradient.** No code changes; B12 closes; §5a is
+not amended.
+
+### 3. R3.5.2 — Arabic uses the same digits as English
+
+Owner direction, verbatim in substance: *"arabic digits are same as english"*. Western digits
+throughout, dates and numbers alike.
+
+**This was already true and only by accident**, which is the part worth recording. Every literal in
+`ar.json` uses Western digits, and both Node's ICU and Chromium resolve `ar` to the `latn`
+numbering system — so `docs/26`'s "Arabic mixes Western and Arabic-Indic digits" no longer
+reproduces. But nothing in Femio *asks* for `latn`; it is today's CLDR default. A future ICU
+release flipping it would change every number a woman sees, with no code change and no failing
+build, months from any cause anyone could connect it to.
+
+So the decision is pinned by `apps/web/src/i18n/numbering.test.ts` rather than left to a default.
+If it ever fails, the runtime changed its mind and the fix is to pass the `-u-nu-latn` extension
+where we format — not to relax the test.

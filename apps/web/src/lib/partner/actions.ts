@@ -10,6 +10,7 @@ import {
   inviteCodeFrom,
   isLiveShare,
   isPendingInvite,
+  normalizeRecipientLabel,
   normalizeScope,
   parseInviteCode,
   sharedCategories,
@@ -30,6 +31,7 @@ import {
 /** The columns `readOwnerShares` selects, as the database can actually return them. */
 type LinkRow = {
   id: string;
+  recipient_label: string | null;
   scope_json: unknown;
   revoked_at: string | null;
   expires_at: string | null;
@@ -39,6 +41,12 @@ type LinkRow = {
 
 export type OwnerShare = {
   id: string;
+  /**
+   * What she calls this person. Named at the moment of consent, which is what
+   * turns granular consent into Art. 9(2)(a) *explicit* consent (migration 0012).
+   * Never leaves her side of the feature.
+   */
+  recipientLabel: string | null;
   scope: ShareScope;
   categories: ShareCategory[];
   expiresAt: string;
@@ -66,7 +74,7 @@ export async function readOwnerShares(nowISO = new Date().toISOString()): Promis
 
   const { data, error } = await supabase
     .from("partner_links")
-    .select("id, scope_json, revoked_at, expires_at, partner_profile_id, invite_code")
+    .select("id, scope_json, revoked_at, expires_at, partner_profile_id, invite_code, recipient_label")
     .eq("profile_id", auth.user.id)
     .order("created_at", { ascending: false });
   if (error || !data) return [];
@@ -78,6 +86,7 @@ export async function readOwnerShares(nowISO = new Date().toISOString()): Promis
       const scope = normalizeScope(row.scope_json);
       return {
         id: row.id,
+        recipientLabel: row.recipient_label,
         scope,
         categories: sharedCategories(scope),
         expiresAt: row.expires_at ?? "",
@@ -96,9 +105,19 @@ export async function readOwnerShares(nowISO = new Date().toISOString()): Promis
  */
 export async function createShare(
   scope: ShareScope,
+  recipientLabel: string,
   nowISO = new Date().toISOString(),
 ): Promise<Value<string> | Failure> {
   if (!hasAnyCategory(scope)) return fail("nothing_selected");
+
+  /**
+   * Required, not optional. Art. 9(2)(a) consent names the recipient, and a share
+   * created without one would be a grant to "whoever redeems this" — which is the
+   * shape the design explicitly rules out. Refusing here rather than defaulting to
+   * "someone" keeps the record honest about what she actually agreed to.
+   */
+  const label = normalizeRecipientLabel(recipientLabel);
+  if (!label) return fail("recipient_required");
 
   const supabase = createClient();
   const { data: auth } = await supabase.auth.getUser();
@@ -123,6 +142,7 @@ export async function createShare(
     // Nobody yet. The row grants nothing until an account redeems the code.
     partner_profile_id: null,
     scope_json: scope,
+    recipient_label: label,
     consent_ts: nowISO,
     version: PARTNER_CONSENT_VERSION,
     invite_code: code,

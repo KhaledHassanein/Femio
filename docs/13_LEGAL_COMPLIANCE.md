@@ -55,6 +55,42 @@ Eligibility & age; **wellness disclaimer** ("Femio provides educational and trac
 5. **Residual risk & sign-off** — DPO + Khaled sign-off; review cadence. **→ COUNSEL/DPO to run the formal DPIA.**
 6. Store at `docs/compliance/DPIA.md`; update before each new data category (CI checklist item).
 
+## 5b. Disclosures — third parties who are **not** processors
+
+`PROCESSOR_REGISTER.md` governs processors: Supabase, Vercel, PostHog, Sentry. Each acts only on
+Femio's documented instructions, under a DPA, and can be made to delete. **A disclosure recipient
+is none of those things.** There is no contract, no instruction, and no mechanism to make him
+forget a cycle date once he has read it. Filing such a recipient in the processor register would
+be the register's first inaccuracy, so this section exists as their home.
+
+**One entry today.**
+
+| Recipient | What may be disclosed | Lawful basis | Controls | Retention |
+|---|---|---|---|---|
+| **A person the user names and invites** (partner sharing, Phase 4.5) | Only the categories she ticks, from a closed list of seven: next-period window, recent period dates, cycle phase, pregnancy week, symptom names and dates, medicine names, charting dates. **Never** screener results, anything from the crisis surface, or free-text appointment questions — those have no id in the schema and are rejected by a CHECK constraint. | **Art. 9(2)(a)** explicit consent. Recorded in `partner_links` with its own `version` string, deliberately distinct from `CONSENT_VERSION`, so partner grants can be invalidated without touching analytics grants. | Per-category opt-in, nothing on by default, **no "share everything" control**. Recipient named by her at the moment of consent (migration 0012). Account-based, never a forwardable link. Not offered under 18, and an unknown age counts as under 18. | Six months from redemption unless she renews; fourteen days for an unredeemed invite. Revocation is immediate, one tap, and **silent**. |
+
+**Three properties that are compliance measures rather than features**, all verified by
+`scripts/dev/partner-sharing-check.mjs` against the live project:
+
+1. **A withheld category is absent from the payload, not empty.** The recipient's view is
+   byte-identical to one in which Femio has no such feature. Granular sharing that displays its own
+   gaps produces a map of what she chose to conceal, which is more dangerous than sharing
+   everything — see `DPIA.md` §3, coercion.
+2. **Revocation is not observable.** A revoked share, an expired one and one that never existed all
+   return the same response. Art. 7(3) requires withdrawal to be as easy as granting; the
+   requirement above that floor is that she can withdraw without being seen to.
+3. **The recipient can read no row.** He reaches everything through a curated function; the RLS
+   policy that would have shown him the scope was removed in migration 0011 (ADR-068).
+
+**What Femio cannot control, stated plainly:** once a recipient has seen a screen, he has seen it.
+Revocation stops future access; it cannot reach a screenshot, a memory or a photograph. This is
+disclosed in the consent copy rather than implied, and it is the reason the never-shareable class
+exists at all.
+
+**Adding a second recipient type requires a new row here, a DPIA update, and the review gate in
+§9.** Nothing may be disclosed to a non-processor that is not described in this table.
+
+
 ## 6. Cookie & consent plan
 - **Essential-only by default**; **no non-essential cookies/SDKs fire before consent** (CMP gate).
 - **Granular, revocable** consent recorded per purpose (essential / analytics / research) — mirrors the privacy-policy split; consent log stored.
