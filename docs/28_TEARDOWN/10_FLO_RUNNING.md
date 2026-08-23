@@ -288,6 +288,135 @@ category treats it as opt-in. Femio going further — clinical facts in, lifesty
 content out — is a defensible product position in every market we serve, and the
 decisive one in MENA.
 
+## 6a. The live dashboard — one state change repaints the product
+
+A single logged period (Aug 9–13, putting her mid-cycle on day 15) changed the app
+completely. This is the section to read if you only read one.
+
+**The background is the phase indicator.** With no data the dashboard was a peach-pink
+gradient. With a fertile window it is **teal-mint**, and the date-strip numerals for
+the fertile days recolour to teal while the rest stay grey. There is no badge, no
+chip, no label — the entire screen tells you where you are in your cycle. That is
+`backgroundFertility` and `backgroundOvulation` from chapter 02 §5 earning their
+place, and it is directly transferable to our five `phase-*` tokens.
+
+**The hero became a prediction**, with an explanation attached:
+
+```
+                Period in
+                14 days
+      High chance of getting pregnant  (i)
+```
+
+Note the hierarchy: the *next period* is the big number even during the fertile
+window; fertility is the subordinate line. And the ⓘ is a real affordance, not
+decoration — see below.
+
+**The content re-layered.** The daily-insight cards changed from generic to
+"Today's chance of pregnancy" and "Symptoms to expect / In your mid-cycle".
+
+**Owner assessment, 2026-08-23** — and it is the clearest statement of intent in this
+whole study:
+
+> "See how when you move up in the persona you are mimicking, the experience changed
+> and resources were provided to you according to your needs? That is the gap I am
+> trying to tell Claude chats since we started Femio — this is how the app should be."
+
+That is the thesis. Not "the dashboard has more cards", but: **a change in her state
+re-layers content, tools and emphasis over an unchanged record, and everything else
+stays exactly where it was.** Product rule 5 and product rule 2, working, in a
+shipped product. Femio's `ExperienceConfig` is built to do this and currently does a
+fraction of it.
+
+### The ⓘ — how Flo explains a prediction
+
+Tapping it opens a full educational article, not a tooltip. Three things in it matter
+to us.
+
+**The regulatory language is almost word-for-word our product rule 1:**
+
+> "Flo serves as an educational tool, designed to help you understand these changes
+> and how they relate to your body… **Flo does not predict your fertility status and
+> cannot be used as a method of contraception or to aid conception.** To find a birth
+> control option that works for you, we recommend speaking to a health care
+> professional."
+
+That is the wellness/education carve-out that keeps them outside medical-device
+scope, placed at the exact point of highest risk — the fertility number itself, not
+buried in terms. Worth copying as *practice*: the disclaimer belongs where the claim
+is made.
+
+**It teaches rather than reassures.** The article runs through why tracking improves
+predictions, what a period is hormonally, what ovulation is, how long an egg lives,
+and why pinpointing ovulation is hard — "it usually happens 10 to 16 days before your
+next period, but everyone's cycle is different". Uncertainty stated plainly, in the
+explanation of the prediction.
+
+**It carries numbered citations and a References list.** See §6b.
+
+### The assistant as a logging prompt
+
+Unprompted, the Health Assistant opened with:
+
+> "Flo users with cycles similar to yours notice these symptoms on this day of their
+> cycle: Calm, Bloating, Fatigue, Frisky, Happy. Are you experiencing any of these
+> today?" — Yes / No
+
+A cohort insight used as an engagement mechanic: it teaches something, and the answer
+harvests structured data. Our k-anonymous insights are the same asset and are
+currently invisible in the product.
+
+**Owner direction, 2026-08-23:** the AI assistant is a **post-V1 scale-up feature** —
+no time or resources before the V1 mobile and web launch, to be discussed after.
+This closes **TD-12**.
+
+**Owner direction, 2026-08-23:** **no messaging and no chat in Femio.** Not planned,
+not wanted. This closes **TD-11** — Flo's "Secret Chats" and "Messages" tabs are not
+a gap for us. The two nav slots they occupy are ours to spend on something better;
+the owner's suggestion is the calculators, which we already have five of and which no
+competitor in this study offers at all.
+
+**Owner direction, 2026-08-23 — the dashboard.** Fewer items than Flo, but far more
+than Femio has today. Informative and appealing: daily insights, personalised
+learning, and the tools and resources that suit *her* persona surfaced on the home
+screen — with every one of them still reachable in its original place. That is
+product rule 2 stated as a design brief, and it is what the 73 personas are for.
+
+## 6b. Correction — Flo does cite its sources
+
+**Chapters 02 §15, 06 §G, 07 and 08 claim no competitor has citations. That is
+wrong, and running the app is what caught it.**
+
+Flo's in-app articles carry numbered citation markers in the body ("Understanding
+your cycle 1–4") and a **References** section at the end, in full scholarly format:
+
+> Baker, Fiona C., et al. "Temperature Regulation in Women: Effects of the Menstrual
+> Cycle." *Temperature*, vol. 7, no. 3, 2020, pp. 226–62,
+> doi: 10.1080/23328940.2020.1735927.
+
+Peer-reviewed journal, volume, issue, pages, DOI. This is a higher standard than
+"has some links", and it is invisible in the decompiled binary because the content is
+served.
+
+**What survives of our advantage, stated honestly.** Flo cites. Flo does **not** show
+a named reviewing clinician, a review date, or an editorial policy — the article
+header carries a title and nothing else. Femio's `People` collection, clinician
+bylines, `/authors`, `/editorial-policy` and `/medical-review` remain unmatched, and
+so do the validated screeners.
+
+So the differentiator is not "we cite and they do not". It is **attributed and dated
+clinical review by a named person, on every article, in four languages** — a narrower
+claim, and one we can actually defend. Chapters 07 and 08 are amended accordingly.
+
+### And on volume
+
+Owner note, 2026-08-23: *"see how extensive the data and articles are"*. Flo's own
+premium carousel claims **1,000+ articles, videos and courses**. Femio has 105
+authored, 31 live, English only. The content gap is the widest measurable gap in the
+study after charts, and chapter 09 already treats **TD-08** as the highest-leverage
+item — this reinforces it. We will not beat 1,000 articles on volume soon; we can
+beat them on *attribution, currency, language and fit to her persona*.
+
 ## 7. What this chapter changes elsewhere
 
 | Chapter | Amendment |

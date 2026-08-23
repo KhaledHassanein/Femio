@@ -143,8 +143,9 @@ unwired.
 | CMS | ✅ Contentful | hardcoded in Kotlin | — | ✅ Payload, 8 collections |
 | Article count | server-delivered | 40 weeks + 5 guide categories | — | 105 authored / 31 live |
 | Pregnancy week-by-week | ✅ | ✅ 40 weeks, 3 registers each | — | ✅ 37 weeks (4–40) |
-| Citations / sources | — | — | — | ✅ Tier-1/2 enforced |
-| Named clinician byline | — | — | — | ✅ |
+| Citations / sources | ✅ numbered + References with DOIs (ch.10 §6b) | — | — | ✅ Tier-1/2 enforced |
+| **Named clinician byline** | — | — | — | ✅ — the differentiator that survives |
+| Review date shown | — | — | — | ✅ |
 | Editorial / review policy page | — | — | — | ✅ |
 | Conditions library | onboarding triage | — | — | ✅ |
 | Glossary | — | — | — | ✅ |

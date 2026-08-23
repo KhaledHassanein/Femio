@@ -65,7 +65,9 @@ screen in the category.
 **What we have that they do not.** Validated screeners (EPDS, MRS, mood), a
 `screener_results` table, `conditions_flagged`, `labs`, `meds_supplements`,
 appointments, an export path, and a summary surface. No competitor in this study has
-a single validated instrument or any clinician-facing output.
+a single validated instrument or any clinician-facing output — and per chapter 10
+§2, Flo is already *selling* this idea in its onboarding funnel without any of it
+built.
 
 **The feature.** A **visit pack**: pick an upcoming appointment, and Femio assembles
 the questions you saved, the patterns the engine found with their confidence, your

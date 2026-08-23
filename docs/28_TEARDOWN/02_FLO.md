@@ -613,10 +613,12 @@ Symptom, mood and discharge vocabularies are flat lists with no severity, no
 duration, no free-text structure and no co-occurrence model. Femio's pattern engine
 (P2.5) is genuinely ahead here.
 
-There is no clinician-facing surface, no export for a doctor's appointment, no
-condition library with citations, and no medical review apparatus visible anywhere
-in the binary. The assistant's disclaimer — "Not medical advice" — is doing a lot of
-work that Femio intends to do with sourced content and named clinician bylines.
+There is no clinician-facing surface and no export for a doctor's appointment.
+**Corrected by chapter 10 §6b:** this section originally claimed Flo has no
+citations. It does — its served articles carry numbered markers and a full
+References list with DOIs. What it does not carry is a named reviewing clinician, a
+review date or an editorial policy, which is the narrower and defensible form of our
+advantage.
 
 And the localisation gap above is not just RTL: an app that ships one hardcoded
 string file and translates at runtime has no translator workflow visible in the

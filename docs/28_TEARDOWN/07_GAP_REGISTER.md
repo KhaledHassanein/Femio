@@ -233,7 +233,10 @@ its own — it is table stakes we have not yet met in the interface. What we can
 them on is showing *why* the confidence is what it is, which their model has no
 place for and our `cycle.variability` module does.
 
-**Nobody has clinical trust.** No competitor in this study has citations, a named
-clinician byline, an editorial policy, a medical-review page, or a validated
-screening instrument. Flo's assistant disclaims itself in one line. This is the
-widest open field in the market and we already stand in it — badly signposted.
+**Nobody has *attributed* clinical trust.** Corrected by chapter 10 §6b: Flo *does*
+cite, in full scholarly format with DOIs, which this register originally denied.
+What no competitor has is a **named reviewing clinician, a review date, an editorial
+policy, a medical-review page, or a validated screening instrument**. Flo's articles
+carry a title and a reference list and no human name; its assistant disclaims itself
+in one line. That is a narrower open field than first claimed, and we already stand
+in it — badly signposted.
