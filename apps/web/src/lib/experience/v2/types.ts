@@ -109,18 +109,30 @@ export type SheetId =
   | "explain-prediction"
   | "cycle-details";
 
-/** Everything on the Tools screen. See `SurfaceMap.tools` — this orders, never filters. */
+/**
+ * Everything on the Tools screen. See `SurfaceMap.tools` — this orders, never filters.
+ *
+ * **Read from `components/tools/tools-screen.tsx`, not invented.** The first draft of
+ * this union guessed, and guessed wrong in six places: it listed `contraction-timer`,
+ * `movement-counter` and `weight`, which are controls inside the pregnancy experience
+ * rather than tools with routes, and it omitted `track`, `sharing` and `learn`, which
+ * are three of the ten that exist.
+ *
+ * `scripts/tools-completeness-lint.mjs` now fails if this union and that screen ever
+ * disagree, in either direction — a tool the union does not know cannot be ordered,
+ * and a tool the screen has dropped cannot be found.
+ */
 export type ToolId =
   | "summary"
-  | "fertility"
-  | "appointments"
+  | "track"
   | "medications"
-  | "screeners"
+  | "appointments"
+  | "sharing"
   | "patterns"
-  | "contraction-timer"
-  | "movement-counter"
-  | "weight"
-  | "calculators";
+  | "fertility"
+  | "screeners"
+  | "calculators"
+  | "learn";
 
 /**
  * What a tap does. A closed union, so a served document cannot ask for behaviour

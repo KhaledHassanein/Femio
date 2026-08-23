@@ -57,6 +57,8 @@ not resurrect the original version from an older chapter.
 | **C-10** | Femio logs ~22 concepts against Flo's 84 (`docs/28` ch.05 §7, ch.06 §C) | **45** symptom and mood terms exist in `SYMPTOM_GROUPS`, plus 5 cervical-mucus types and an intercourse boolean — 51, near parity with Flo's 47 symptoms. The earlier figure came from grepping one file for quoted strings and catching a fraction. The real defect was that they live in three places and only one is reachable from the log screen. | Implementing B3 |
 | **C-11** | A served module should carry a typed analytics event so it "cannot ship untracked" (`docs/29` ch.03 §2) | Impossible and undesirable here. `events.ts` carries eight deliberately coarse events and `guard.ts` blocks `cycle`, `mood`, `persona` and `symptom` as property tokens at runtime, so an impression naming `cycle.window` would be dropped by our own guard. Requirement borrowed from Flo without checking it against product rule 4. | Implementing B1 |
 
+| **C-12** | The `ToolId` union in the v2 contract, as first drafted | Written from memory and wrong in six of ten places: it invented `contraction-timer`, `movement-counter` and `weight` — controls inside the pregnancy experience, not tools with routes — and omitted `track`, `sharing` and `learn`. The real list is in `components/tools/tools-screen.tsx`, whose own header already argues rule 2 better than the plan did. Now pinned by `tools-completeness-lint`. | Implementing B6 |
+
 **A second meta-lesson, from C-1, C-8 and C-9.** All three are the same mistake: a gap
 asserted from a **count** rather than from a read. `docs/28` chapter 05 measured Femio
 as 144 tokens, 27 tables, 40 routes — accurate, and blind to the fact that one token is

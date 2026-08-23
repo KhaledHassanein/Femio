@@ -47,7 +47,7 @@ Chapter [03_EXPERIENCE_ENGINE.md](03_EXPERIENCE_ENGINE.md).
 - [x] B3 · `LogVocabulary` — **51 terms unified from 3 places, not expanded**; 1 intercourse term; ar wording → B14
 - [x] B4 · Variables — seeds read-only, wiring validated (unknown refs, double writers, cycles), reactivity opt-in
 - [ ] B5 · Resolver emits v1 **and** v2; per-surface flags
-- [ ] B6 · `tools.featured` orders never filters — with a lint
+- [x] B6 · `tools-completeness-lint` — union ↔ screen in sync both ways, no persona filter; **`ToolId` corrected (6 wrong)**
 
 **Phase gate.** v1 output byte-identical to before. Golden fixtures extended.
 `a11y` and `impression` required — a module without them does not compile.
@@ -117,7 +117,9 @@ Newest first. One line per checkpoint, with the commit.
 
 | When | What | Commit |
 |---|---|---|
-| 2026-08-23 | **B4** variables — seeds read-only, cycle detection, 791 tests | _pending_ |
+| 2026-08-23 | **B6** tools lint, `ToolId` aligned to the real screen | _pending_ |
+| 2026-08-23 | `pnpm gate` added after a masked exit code | `94228c1` |
+| 2026-08-23 | **B4** variables — seeds read-only, cycle detection, 791 tests | `33a2dda` |
 | 2026-08-23 | **B3** `LogVocabulary` unified (60 terms), i18n ×4, tier-1 guarded, 777 tests | `7855924` |
 | 2026-08-23 | **B1+B2** v2 contract + SurfaceMap, 763 tests | `8a513a5` |
 | 2026-08-23 | **B13 closed** — migrations applied *and artifacts probed*; `pnpm db-artifacts-probe` added | `727dba5` |
