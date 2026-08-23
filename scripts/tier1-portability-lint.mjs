@@ -48,6 +48,15 @@ const registryFiles = readdirSync(join(SRC, REGISTRY_DIR))
 const PORTABLE = [
   // tier 1 — decisions
   "lib/experience/types.ts",
+  /**
+   * The v2 contract (RB-B1/B3). Tier 1 for the same reason v1 is: it is the
+   * document the Edge Function produces and both clients render, so a framework
+   * import here would be discovered on the day the Dart client tried to read it.
+   * `vocabulary.ts` in particular is medical content — the canonical list of what
+   * may be logged — and both clients must agree on it exactly.
+   */
+  "lib/experience/v2/types.ts",
+  "lib/experience/v2/vocabulary.ts",
   "lib/experience/build.ts",
   "lib/experience/layers.ts",
   ...registryFiles,

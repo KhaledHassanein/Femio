@@ -167,8 +167,16 @@
       "states": "Vide, chargement et erreur",
       "phases": "Phases du cycle"
     },
-    "buttons": { "primary": "Principal", "accent": "Commencer", "outline": "Contour", "ghost": "Discret" },
-    "form": { "label": "Ta note", "placeholder": "Comment te sens-tu aujourd'hui ?" },
+    "buttons": {
+      "primary": "Principal",
+      "accent": "Commencer",
+      "outline": "Contour",
+      "ghost": "Discret"
+    },
+    "form": {
+      "label": "Ta note",
+      "placeholder": "Comment te sens-tu aujourd'hui ?"
+    },
     "feedback": {
       "info": "Les prévisions indiquent une plage, jamais une seule date certaine.",
       "success": "Entrée enregistrée.",
@@ -176,10 +184,22 @@
       "redFlagTitle": "Consulte sans attendre",
       "redFlagBody": "Si les symptômes semblent graves, contacte ta clinicienne ou les services d'urgence locaux."
     },
-    "empty": { "title": "Rien d'enregistré pour l'instant", "body": "Tes entrées apparaîtront ici." },
-    "error": { "title": "Une erreur est survenue", "body": "Impossible de charger ceci pour le moment.", "retry": "Réessayer" },
+    "empty": {
+      "title": "Rien d'enregistré pour l'instant",
+      "body": "Tes entrées apparaîtront ici."
+    },
+    "error": {
+      "title": "Une erreur est survenue",
+      "body": "Impossible de charger ceci pour le moment.",
+      "retry": "Réessayer"
+    },
     "loading": "Chargement",
-    "phases": { "menstrual": "Menstruelle", "follicular": "Folliculaire", "ovulatory": "Ovulatoire", "luteal": "Lutéale" }
+    "phases": {
+      "menstrual": "Menstruelle",
+      "follicular": "Folliculaire",
+      "ovulatory": "Ovulatoire",
+      "luteal": "Lutéale"
+    }
   },
   "calculators": {
     "title": "Calculateurs",
@@ -192,11 +212,26 @@
       "lmpLabel": "Premier jour de tes dernières règles"
     },
     "list": {
-      "dueDate": { "name": "Date d'accouchement", "desc": "Estime ta date à partir de tes dernières règles." },
-      "ovulation": { "name": "Fenêtre de fertilité", "desc": "Vois tes jours fertiles et ton ovulation estimés." },
-      "gestationalAge": { "name": "Âge gestationnel", "desc": "Vois à combien de semaines tu en es." },
-      "bmi": { "name": "IMC", "desc": "Une estimation générale de la masse corporelle." },
-      "cycleLength": { "name": "Durée du cycle", "desc": "Ta durée moyenne de cycle et sa variabilité." }
+      "dueDate": {
+        "name": "Date d'accouchement",
+        "desc": "Estime ta date à partir de tes dernières règles."
+      },
+      "ovulation": {
+        "name": "Fenêtre de fertilité",
+        "desc": "Vois tes jours fertiles et ton ovulation estimés."
+      },
+      "gestationalAge": {
+        "name": "Âge gestationnel",
+        "desc": "Vois à combien de semaines tu en es."
+      },
+      "bmi": {
+        "name": "IMC",
+        "desc": "Une estimation générale de la masse corporelle."
+      },
+      "cycleLength": {
+        "name": "Durée du cycle",
+        "desc": "Ta durée moyenne de cycle et sa variabilité."
+      }
     },
     "dueDate": {
       "title": "Estimation de la date d'accouchement",
@@ -254,12 +289,12 @@
   },
   "onboarding": {
     "baseline": {
-    "heading": "Ton cycle habituel",
-    "note": "Femio s'en sert jusqu'à ce que tes propres cycles enregistrés donnent une meilleure réponse. Tu peux passer, et modifier à tout moment.",
-    "cycleLabel": "Ton cycle dure combien de temps, d'habitude ?",
-    "periodLabel": "Tes règles durent combien de jours, d'habitude ?",
-    "notSure": "Je ne sais pas",
-    "days": "{count} jours"
+      "heading": "Ton cycle habituel",
+      "note": "Femio s'en sert jusqu'à ce que tes propres cycles enregistrés donnent une meilleure réponse. Tu peux passer, et modifier à tout moment.",
+      "cycleLabel": "Ton cycle dure combien de temps, d'habitude ?",
+      "periodLabel": "Tes règles durent combien de jours, d'habitude ?",
+      "notSure": "Je ne sais pas",
+      "days": "{count} jours"
     },
     "title": "Bienvenue sur Femio",
     "stepOf": "Étape {current} sur {total}",
@@ -300,10 +335,22 @@
       },
       "heading": "Où en es-tu dans ton parcours de santé ?",
       "subheading": "Tu peux changer cela à tout moment — rien n'est verrouillé.",
-      "cycle": { "name": "Suivre mon cycle", "desc": "Règles, symptômes et tendances." },
-      "ttc": { "name": "Essayer de concevoir", "desc": "Fenêtre de fertilité et outils." },
-      "pregnancy": { "name": "Je suis enceinte", "desc": "Semaine par semaine et signes à surveiller." },
-      "menopause": { "name": "Périménopause ou ménopause", "desc": "Cycles et symptômes qui changent." },
+      "cycle": {
+        "name": "Suivre mon cycle",
+        "desc": "Règles, symptômes et tendances."
+      },
+      "ttc": {
+        "name": "Essayer de concevoir",
+        "desc": "Fenêtre de fertilité et outils."
+      },
+      "pregnancy": {
+        "name": "Je suis enceinte",
+        "desc": "Semaine par semaine et signes à surveiller."
+      },
+      "menopause": {
+        "name": "Périménopause ou ménopause",
+        "desc": "Cycles et symptômes qui changent."
+      },
       "notSure": "Pas encore sûre — j'explore"
     },
     "followUp": {
@@ -364,8 +411,14 @@
     "privacy": {
       "heading": "Ta vie privée d'abord",
       "intro": "Femio fonctionne sans compte. Tes données de santé t'appartiennent — jamais vendues, jamais partagées avec des annonceurs.",
-      "anonymous": { "name": "Commencer en privé", "desc": "Sans e-mail ni compte. Tu pourras en ajouter un plus tard sans rien perdre." },
-      "account": { "name": "Créer un compte", "desc": "Synchronise entre appareils avec un e-mail. Même confidentialité." },
+      "anonymous": {
+        "name": "Commencer en privé",
+        "desc": "Sans e-mail ni compte. Tu pourras en ajouter un plus tard sans rien perdre."
+      },
+      "account": {
+        "name": "Créer un compte",
+        "desc": "Synchronise entre appareils avec un e-mail. Même confidentialité."
+      },
       "emailLabel": "E-mail",
       "consentHeading": "Ce que tu acceptes",
       "consentCore": "Enregistrer mes données de santé pour que je puisse les suivre (requis pour utiliser Femio).",
@@ -380,14 +433,33 @@
       "accountLabel": "Compte",
       "start": "Commencer à utiliser Femio"
     },
-    "nav": { "next": "Continuer", "back": "Retour" }
+    "nav": {
+      "next": "Continuer",
+      "back": "Retour"
+    }
   },
   "track": {
     "loadError": "Impossible de charger ton historique. Tu peux quand même enregistrer ci-dessous.",
     "retry": "Réessayer",
     "loading": "Chargement de votre historique",
-    "flow": { "label": "Flux", "spotting": "Léger (spotting)", "light": "Faible", "medium": "Moyen", "heavy": "Abondant" },
-    "calendar": { "heading": "Calendrier", "prevMonth": "Mois précédent", "nextMonth": "Mois suivant", "legendPeriod": "Règles", "legendPredicted": "Prévu", "legendFertile": "Fenêtre de fertilité", "legendOvulation": "Ovulation estimée", "legendToday": "Aujourd’hui", "awarenessNote": "Les dates de la fenêtre de fertilité servent uniquement à la planification et à la sensibilisation à la conception — ce sont des estimations, pas un moyen fiable d’éviter une grossesse." },
+    "flow": {
+      "label": "Flux",
+      "spotting": "Léger (spotting)",
+      "light": "Faible",
+      "medium": "Moyen",
+      "heavy": "Abondant"
+    },
+    "calendar": {
+      "heading": "Calendrier",
+      "prevMonth": "Mois précédent",
+      "nextMonth": "Mois suivant",
+      "legendPeriod": "Règles",
+      "legendPredicted": "Prévu",
+      "legendFertile": "Fenêtre de fertilité",
+      "legendOvulation": "Ovulation estimée",
+      "legendToday": "Aujourd’hui",
+      "awarenessNote": "Les dates de la fenêtre de fertilité servent uniquement à la planification et à la sensibilisation à la conception — ce sont des estimations, pas un moyen fiable d’éviter une grossesse."
+    },
     "title": "Ton cycle",
     "dateStripLabel": "Choisissez un jour à enregistrer",
     "periodSaved": "Règles enregistrées.",
@@ -395,20 +467,36 @@
     "logDateLabel": "Premier jour de tes règles",
     "logButton": "Enregistrer",
     "savedOffline": "Enregistré hors ligne — la synchronisation se fera au retour de la connexion.",
-    "history": { "heading": "Règles enregistrées", "empty": "Aucune règle enregistrée." }
+    "history": {
+      "heading": "Règles enregistrées",
+      "empty": "Aucune règle enregistrée."
+    }
   },
   "symptoms": {
     "selectedHeading": "Sélectionnés",
-    "custom": { "label": "Ajouter le vôtre", "placeholder": "Saisir un symptôme…", "add": "Ajouter" },
+    "custom": {
+      "label": "Ajouter le vôtre",
+      "placeholder": "Saisir un symptôme…",
+      "add": "Ajouter"
+    },
     "remove": "Retirer {symptom}",
     "heading": "Comment te sens-tu aujourd'hui ?",
     "severityLabel": "Intensité",
-    "severity": { "1": "Légère", "2": "Modérée", "3": "Forte", "4": "Sévère" },
+    "severity": {
+      "1": "Légère",
+      "2": "Modérée",
+      "3": "Forte",
+      "4": "Sévère"
+    },
     "noteLabel": "Note (facultatif)",
     "save": "Enregistrer les symptômes",
     "savedOffline": "Enregistré hors ligne — la synchronisation se fera au retour de la connexion.",
     "saved": "Enregistré dans votre dossier.",
-    "groups": { "mood": "Humeur", "body": "Corps", "other": "Autre" },
+    "groups": {
+      "mood": "Humeur",
+      "body": "Corps",
+      "other": "Autre"
+    },
     "items": {
       "nightSweats": "Sueurs nocturnes",
       "hairThinning": "Cheveux qui s’affinent",
@@ -462,7 +550,15 @@
   "dashboard": {
     "title": "Ton tableau de bord",
     "loading": "Chargement de votre tableau de bord",
-    "modeLabel": { "teen": "Adolescente", "cycle": "Cycle", "ttc": "Essai de conception", "pregnancy": "Grossesse", "postpartum": "Après la naissance", "menopause": "Ménopause", "general": "Général" },
+    "modeLabel": {
+      "teen": "Adolescente",
+      "cycle": "Cycle",
+      "ttc": "Essai de conception",
+      "pregnancy": "Grossesse",
+      "postpartum": "Après la naissance",
+      "menopause": "Ménopause",
+      "general": "Général"
+    },
     "cycleDay": "Jour {day} de ton cycle",
     "nextPeriod": "Prochaines règles",
     "window": "Attendues entre le {start} et le {end}",
@@ -505,12 +601,33 @@
       "body": "Vous avez signalé une condition en configurant Femio. Voici ce qu'elle peut signifier pendant vos essais, et ce qu'il vaut la peine d'aborder avec votre médecin.",
       "cta": "En savoir plus"
     },
-    "phase": { "heading": "Où vous en êtes", "body": "Compté depuis le premier jour de vos dernières règles." },
-    "flowStrip": { "heading": "Règles récentes", "empty": "Enregistrez des règles et elles apparaîtront ici." },
-    "changeAwareness": { "heading": "Votre rythme a changé", "body": "Vos cycles récents s'écartent de votre intervalle habituel. Les cycles changent pour beaucoup de raisons ordinaires ; cela vaut la peine d'en parler si cela dure." },
-    "longTerm": { "heading": "Voir plus loin", "body": "La santé des os et du cœur compte davantage après la ménopause. Il s'agit d'information, pas d'un score de risque — votre médecin dira ce qui vous concerne.", "cta": "Lire sur les options de soins" },
-    "medications": { "heading": "Médicaments et compléments", "body": "Une seule liste pour tout ce que vous prenez, sans conseil de dosage ni score d'observance.", "cta": "Ouvrir votre liste" },
-    "gsm": { "heading": "Confort et intimité", "body": "La sécheresse, l'inconfort et les changements urinaires sont fréquents après la ménopause et se traitent. Personne n'en parlera si vous ne le faites pas.", "cta": "En savoir plus" },
+    "phase": {
+      "heading": "Où vous en êtes",
+      "body": "Compté depuis le premier jour de vos dernières règles."
+    },
+    "flowStrip": {
+      "heading": "Règles récentes",
+      "empty": "Enregistrez des règles et elles apparaîtront ici."
+    },
+    "changeAwareness": {
+      "heading": "Votre rythme a changé",
+      "body": "Vos cycles récents s'écartent de votre intervalle habituel. Les cycles changent pour beaucoup de raisons ordinaires ; cela vaut la peine d'en parler si cela dure."
+    },
+    "longTerm": {
+      "heading": "Voir plus loin",
+      "body": "La santé des os et du cœur compte davantage après la ménopause. Il s'agit d'information, pas d'un score de risque — votre médecin dira ce qui vous concerne.",
+      "cta": "Lire sur les options de soins"
+    },
+    "medications": {
+      "heading": "Médicaments et compléments",
+      "body": "Une seule liste pour tout ce que vous prenez, sans conseil de dosage ni score d'observance.",
+      "cta": "Ouvrir votre liste"
+    },
+    "gsm": {
+      "heading": "Confort et intimité",
+      "body": "La sécheresse, l'inconfort et les changements urinaires sont fréquents après la ménopause et se traitent. Personne n'en parlera si vous ne le faites pas.",
+      "cta": "En savoir plus"
+    },
     "topSymptomsHeading": "Les plus enregistrés",
     "logCta": "Enregistrer aujourd'hui",
     "needData": "Enregistre deux cycles pour débloquer les analyses.",
@@ -652,412 +769,421 @@
     "subtitle": "Des guides référencés et relus médicalement sur les affections et sujets tout au long de votre vie de santé.",
     "empty": "De nouveaux sujets arrivent — revenez bientôt."
   },
-    "teen": {
-      "teenBody": { "heading": "Ce qui change dans ton corps", "body": "La puberté dans l'ordre où elle arrive le plus souvent, avec de larges fourchettes — parce qu'il n'y a pas une seule normalité.", "cta": "Lire le guide" },
-      "teenReadiness": { "heading": "Se préparer à ses premières règles", "body": "Quoi emporter, où le garder, à qui en parler. Un plan, et ce n'est jamais une surprise.", "cta": "Préparer un plan" },
-      "window": {
-        "eyebrow": "Tes prochaines règles",
-        "range": "Sans doute entre le {start} et le {end}",
-        "why": "Les cycles varient beaucoup les premières années : c’est pour cela que Femio donne une fourchette et non une date.",
-        "passed": "Cette fourchette est passée. Cela arrive, et à soi seul ce n’est le signe de rien. Note tes règles quand elles arrivent et la prochaine estimation s’améliorera.",
-        "needData": "Note d’abord deux cycles",
-        "needDataNote": "Femio a besoin de deux dates de début avant de pouvoir calculer une fourchette."
-      },
-      "reassurance": {
-        "heading": "Tu es normale",
-        "body": "La première ou la deuxième année, un cycle court un mois puis long le suivant — ou un mois sans rien — est ce qui arrive le plus souvent. Cela se régularise tout seul."
-      },
-      "worthMentioning": {
-        "heading": "À dire à voix haute",
-        "body": "Certaines personnes trouvent utile d’en parler à un parent, à un autre adulte de confiance ou à un médecin : environ trois mois sans règles, un saignement qui imbibe une protection plus souvent que toutes les une à deux heures, ou des douleurs qui t’empêchent d’aller en cours. Rien de tout cela ne veut dire qu’il y a un problème. C’est simplement bon à dire."
-      },
-      "privacy": {
-        "heading": "Tes données, tes règles",
-        "body": "Rien de ce qui concerne ta santé n’atteint un annonceur, et personne d’autre ne peut lire ce que tu notes. Tu peux tout exporter ou tout supprimer toi-même.",
-        "cta": "Ouvrir tes réglages de confidentialité"
-      },
-      "reading": {
-        "heading": "Lis ce que tu veux",
-        "body": "Les guides écrits pour ton âge sont encore en préparation. Tout le reste de la bibliothèque est déjà là, et rien n’y est interdit.",
-        "cta": "Parcourir la bibliothèque"
+  "teen": {
+    "teenBody": {
+      "heading": "Ce qui change dans ton corps",
+      "body": "La puberté dans l'ordre où elle arrive le plus souvent, avec de larges fourchettes — parce qu'il n'y a pas une seule normalité.",
+      "cta": "Lire le guide"
+    },
+    "teenReadiness": {
+      "heading": "Se préparer à ses premières règles",
+      "body": "Quoi emporter, où le garder, à qui en parler. Un plan, et ce n'est jamais une surprise.",
+      "cta": "Préparer un plan"
+    },
+    "window": {
+      "eyebrow": "Tes prochaines règles",
+      "range": "Sans doute entre le {start} et le {end}",
+      "why": "Les cycles varient beaucoup les premières années : c’est pour cela que Femio donne une fourchette et non une date.",
+      "passed": "Cette fourchette est passée. Cela arrive, et à soi seul ce n’est le signe de rien. Note tes règles quand elles arrivent et la prochaine estimation s’améliorera.",
+      "needData": "Note d’abord deux cycles",
+      "needDataNote": "Femio a besoin de deux dates de début avant de pouvoir calculer une fourchette."
+    },
+    "reassurance": {
+      "heading": "Tu es normale",
+      "body": "La première ou la deuxième année, un cycle court un mois puis long le suivant — ou un mois sans rien — est ce qui arrive le plus souvent. Cela se régularise tout seul."
+    },
+    "worthMentioning": {
+      "heading": "À dire à voix haute",
+      "body": "Certaines personnes trouvent utile d’en parler à un parent, à un autre adulte de confiance ou à un médecin : environ trois mois sans règles, un saignement qui imbibe une protection plus souvent que toutes les une à deux heures, ou des douleurs qui t’empêchent d’aller en cours. Rien de tout cela ne veut dire qu’il y a un problème. C’est simplement bon à dire."
+    },
+    "privacy": {
+      "heading": "Tes données, tes règles",
+      "body": "Rien de ce qui concerne ta santé n’atteint un annonceur, et personne d’autre ne peut lire ce que tu notes. Tu peux tout exporter ou tout supprimer toi-même.",
+      "cta": "Ouvrir tes réglages de confidentialité"
+    },
+    "reading": {
+      "heading": "Lis ce que tu veux",
+      "body": "Les guides écrits pour ton âge sont encore en préparation. Tout le reste de la bibliothèque est déjà là, et rien n’y est interdit.",
+      "cta": "Parcourir la bibliothèque"
+    }
+  },
+  "appointments": {
+    "title": "Rendez-vous",
+    "loading": "Chargement de vos rendez-vous",
+    "loadError": "Nous n’avons pas pu charger vos rendez-vous.",
+    "retry": "Réessayer",
+    "add": "Ajouter un rendez-vous",
+    "cancel": "Annuler",
+    "save": "Enregistrer le rendez-vous",
+    "saving": "Enregistrement…",
+    "saveFailed": "L’enregistrement a échoué. Vérifiez votre connexion et réessayez.",
+    "untitled": "Rendez-vous",
+    "noDate": "Pas encore de date",
+    "todayLabel": "Aujourd’hui",
+    "inDays": "Dans {days} jours",
+    "prepHeading": "Ce que vous vouliez demander",
+    "upcomingHeading": "À venir",
+    "pastHeading": "Passés",
+    "noResultsNote": "Femio retient la date, la personne et ce que vous vouliez demander. Il ne retient pas ce qui a été trouvé — cela appartient à votre dossier et à votre clinicien·ne.",
+    "empty": {
+      "heading": "Rien pour l’instant",
+      "body": "Ajoutez un rendez-vous et Femio gardera les questions que vous vouliez poser — la partie que tout le monde oublie une fois dans la pièce."
+    },
+    "awaiting": {
+      "heading": "Toujours sans nouvelles ?",
+      "body": "Vous attendiez un résultat pour {count} d’entre eux. Cela vaut peut-être la peine de relancer — un résultat peut tarder pour des raisons tout à fait ordinaires."
+    },
+    "form": {
+      "type": "De quoi s’agit-il",
+      "typePlaceholder": "Échographie, prise de sang, contrôle…",
+      "clinician": "Avec qui",
+      "datetime": "Quand",
+      "resultsDue": "Résultats annoncés pour le",
+      "resultsDueHint": "Facultatif. Femio vous rappellera de relancer si la date passe ; il n’enregistre jamais le résultat lui-même.",
+      "prep": "Questions à poser",
+      "prepPlaceholder": "Une par ligne"
+    },
+    "card": {
+      "eyebrow": "Prochain rendez-vous",
+      "none": "Rien d’enregistré dans Femio pour l’instant.",
+      "all": "Tous les rendez-vous",
+      "prepCount": "{count} questions enregistrées"
+    }
+  },
+  "fertility": {
+    "title": "Courbes",
+    "loading": "Chargement de vos courbes",
+    "loadError": "Nous n’avons pas pu charger vos saisies.",
+    "retry": "Réessayer",
+    "boundary": "Les courbes vous aident à comprendre votre propre rythme et à préparer vos échanges avec un·e clinicien·ne. Ce n’est pas un moyen fiable d’éviter une grossesse, et Femio ne le présente jamais comme tel.",
+    "invalidBbt": "Cela ne ressemble pas à une mesure de thermomètre. Vérifiez le nombre et réessayez.",
+    "nothingToSave": "Ajoutez au moins un élément avant d’enregistrer.",
+    "saveFailed": "L’enregistrement a échoué. Vérifiez votre connexion et réessayez.",
+    "saved": "Enregistré.",
+    "saving": "Enregistrement…",
+    "save": "Enregistrer la saisie du jour",
+    "historyHeading": "Vos saisies",
+    "log": {
+      "heading": "Saisir une journée",
+      "date": "Jour",
+      "bbt": "Température au réveil",
+      "bbtPlaceholder": "36,50",
+      "bbtHint": "Prise avant de vous lever, à peu près à la même heure. En Celsius ou en Fahrenheit — Femio devine l’unité.",
+      "opk": "Test d’ovulation",
+      "opkHint": "Notez ce qu’a indiqué le test. Femio ne le lit pas à votre place.",
+      "cm": "Glaire cervicale",
+      "intercourse": "Rapport sexuel"
+    },
+    "opk": {
+      "negative": "Négatif",
+      "low": "Faible",
+      "high": "Élevé",
+      "peak": "Pic",
+      "positive": "Positif"
+    },
+    "cm": {
+      "dry": "Sèche",
+      "sticky": "Collante",
+      "creamy": "Crémeuse",
+      "watery": "Aqueuse",
+      "eggWhite": "Blanc d’œuf"
+    },
+    "chart": {
+      "heading": "Vos températures",
+      "alt": "Un graphique de {count} températures au réveil",
+      "needData": "Notez trois températures au réveil et votre courbe apparaîtra ici. En dessous, c’est un point, pas une tendance.",
+      "note": "Ce sont vos mesures, telles quelles. Femio ne signale aucun décalage et ne désigne aucun jour — ce que dit une courbe se discute avec votre clinicien·ne.",
+      "unit": {
+        "c": "{value} °C",
+        "f": "{value} °F"
       }
     },
-    "appointments": {
-      "title": "Rendez-vous",
-      "loading": "Chargement de vos rendez-vous",
-      "loadError": "Nous n’avons pas pu charger vos rendez-vous.",
-      "retry": "Réessayer",
-      "add": "Ajouter un rendez-vous",
-      "cancel": "Annuler",
-      "save": "Enregistrer le rendez-vous",
-      "saving": "Enregistrement…",
-      "saveFailed": "L’enregistrement a échoué. Vérifiez votre connexion et réessayez.",
-      "untitled": "Rendez-vous",
-      "noDate": "Pas encore de date",
-      "todayLabel": "Aujourd’hui",
-      "inDays": "Dans {days} jours",
-      "prepHeading": "Ce que vous vouliez demander",
-      "upcomingHeading": "À venir",
-      "pastHeading": "Passés",
-      "noResultsNote": "Femio retient la date, la personne et ce que vous vouliez demander. Il ne retient pas ce qui a été trouvé — cela appartient à votre dossier et à votre clinicien·ne.",
-      "empty": {
-        "heading": "Rien pour l’instant",
-        "body": "Ajoutez un rendez-vous et Femio gardera les questions que vous vouliez poser — la partie que tout le monde oublie une fois dans la pièce."
-      },
-      "awaiting": {
-        "heading": "Toujours sans nouvelles ?",
-        "body": "Vous attendiez un résultat pour {count} d’entre eux. Cela vaut peut-être la peine de relancer — un résultat peut tarder pour des raisons tout à fait ordinaires."
-      },
-      "form": {
-        "type": "De quoi s’agit-il",
-        "typePlaceholder": "Échographie, prise de sang, contrôle…",
-        "clinician": "Avec qui",
-        "datetime": "Quand",
-        "resultsDue": "Résultats annoncés pour le",
-        "resultsDueHint": "Facultatif. Femio vous rappellera de relancer si la date passe ; il n’enregistre jamais le résultat lui-même.",
-        "prep": "Questions à poser",
-        "prepPlaceholder": "Une par ligne"
-      },
-      "card": {
-        "eyebrow": "Prochain rendez-vous",
-        "none": "Rien d’enregistré dans Femio pour l’instant.",
-        "all": "Tous les rendez-vous",
-        "prepCount": "{count} questions enregistrées"
-      }
+    "intercourse": "Rapport sexuel"
+  },
+  "mrs": {
+    "heading": "Comment vous vous êtes sentie",
+    "intro": "Onze questions issues de l’échelle MRS, un questionnaire que les clinicien·nes connaissent déjà. Répondez à ce que vous voulez ; passez ce que vous préférez taire.",
+    "total": "Votre total est de {total}, sur {answered} réponses parmi 11",
+    "subscales": "Physique {somatic} · Humeur et pensée {psychological} · Vessie et intimité {urogenital}",
+    "partial": "Vous n’avez pas répondu à toutes les questions : ce total n’est donc pas comparable à un total complet.",
+    "discuss": "C’est un questionnaire de repérage, pas une évaluation. Femio ne classe pas ce chiffre — apportez-le à votre clinicien·ne, qui le peut.",
+    "save": "Enregistrer dans mon dossier",
+    "saving": "Enregistrement…",
+    "saved": "Enregistré. Vous pourrez le montrer à votre prochain rendez-vous.",
+    "saveFailed": "L’enregistrement a échoué. Vérifiez votre connexion et réessayez.",
+    "items": {
+      "hotFlushes": "Bouffées de chaleur, sueurs",
+      "heartDiscomfort": "Gêne cardiaque — perception inhabituelle des battements, emballement, oppression",
+      "sleepProblems": "Troubles du sommeil — endormissement difficile, réveils, réveil précoce",
+      "jointMuscleDiscomfort": "Douleurs articulaires et musculaires",
+      "depressiveMood": "Humeur dépressive — tristesse, envie de pleurer, manque d’élan",
+      "irritability": "Irritabilité — tension, agressivité, patience courte",
+      "anxiety": "Anxiété — agitation intérieure, sensation de panique",
+      "exhaustion": "Épuisement physique et mental — fatigue, oublis, concentration difficile",
+      "sexualProblems": "Troubles sexuels — changement du désir, de l’activité ou de la satisfaction",
+      "bladderProblems": "Troubles urinaires — difficulté à uriner, envies fréquentes, fuites",
+      "vaginalDryness": "Sécheresse vaginale — sécheresse, brûlures, gêne pendant les rapports"
     },
-    "fertility": {
-      "title": "Courbes",
-      "loading": "Chargement de vos courbes",
-      "loadError": "Nous n’avons pas pu charger vos saisies.",
-      "retry": "Réessayer",
-      "boundary": "Les courbes vous aident à comprendre votre propre rythme et à préparer vos échanges avec un·e clinicien·ne. Ce n’est pas un moyen fiable d’éviter une grossesse, et Femio ne le présente jamais comme tel.",
-      "invalidBbt": "Cela ne ressemble pas à une mesure de thermomètre. Vérifiez le nombre et réessayez.",
-      "nothingToSave": "Ajoutez au moins un élément avant d’enregistrer.",
-      "saveFailed": "L’enregistrement a échoué. Vérifiez votre connexion et réessayez.",
-      "saved": "Enregistré.",
-      "saving": "Enregistrement…",
-      "save": "Enregistrer la saisie du jour",
-      "historyHeading": "Vos saisies",
-      "log": {
-        "heading": "Saisir une journée",
-        "date": "Jour",
-        "bbt": "Température au réveil",
-        "bbtPlaceholder": "36,50",
-        "bbtHint": "Prise avant de vous lever, à peu près à la même heure. En Celsius ou en Fahrenheit — Femio devine l’unité.",
-        "opk": "Test d’ovulation",
-        "opkHint": "Notez ce qu’a indiqué le test. Femio ne le lit pas à votre place.",
-        "cm": "Glaire cervicale",
-        "intercourse": "Rapport sexuel"
+    "levels": {
+      "0": "Aucun",
+      "1": "Léger",
+      "2": "Modéré",
+      "3": "Sévère",
+      "4": "Très sévère"
+    }
+  },
+  "medications": {
+    "title": "Médicaments et compléments",
+    "loading": "Chargement de votre liste",
+    "loadError": "Nous n’avons pas pu charger votre liste.",
+    "retry": "Réessayer",
+    "add": "Ajouter",
+    "cancel": "Annuler",
+    "save": "Enregistrer",
+    "saving": "Enregistrement…",
+    "saveFailed": "L’enregistrement a échoué. Vérifiez votre connexion et réessayez.",
+    "nameRequired": "Donnez-lui d’abord un nom.",
+    "boundary": "Femio garde la liste pour que vous puissiez la lire en consultation. Il ne propose jamais de dose, n’en vérifie aucune, et ne vous note pas sur votre régularité — cela regarde vous et la personne qui vous l’a prescrit.",
+    "currentHeading": "En cours",
+    "stoppedHeading": "Arrêtés",
+    "stop": "J’ai arrêté",
+    "restart": "J’en reprends",
+    "since": "Depuis le {date}",
+    "between": "Du {start} au {end}",
+    "daysOn": "{days} jours",
+    "empty": {
+      "heading": "Rien pour l’instant",
+      "body": "THS, pilule, comprimés pour la thyroïde, fer, vitamines de grossesse — quoi que vous preniez, dans une seule liste que vous pouvez montrer."
+    },
+    "form": {
+      "name": "De quoi s’agit-il",
+      "namePlaceholder": "Lévothyroxine, patch d’œstrogène, vitamine D…",
+      "dose": "Quelle quantité",
+      "dosePlaceholder": "50 µg, un patch, un demi-comprimé…",
+      "doseHint": "Ce qui est écrit sur la boîte. Femio le note, rien de plus.",
+      "schedule": "À quelle fréquence",
+      "startedOn": "Débuté le",
+      "note": "Note",
+      "notePlaceholder": "Le matin, avant de manger…"
+    },
+    "schedules": {
+      "daily": "Chaque jour",
+      "twiceDaily": "Deux fois par jour",
+      "weekly": "Chaque semaine",
+      "asNeeded": "Au besoin",
+      "other": "Autre"
+    }
+  },
+  "contractions": {
+    "heading": "Minuteur de contractions",
+    "intro": "Appuyez sur démarrer quand une contraction commence et sur arrêter quand elle passe. Femio garde les temps pour que vous les ayez au téléphone.",
+    "start": "Démarrer une contraction",
+    "stop": "C’est passé",
+    "running": "Chronométrage en cours",
+    "idle": "Arrêté",
+    "saveFailed": "L’enregistrement a échoué. Vérifiez votre connexion et réessayez.",
+    "loadError": "Nous n’avons pas pu charger vos temps précédents. Le minuteur fonctionne quand même.",
+    "contact": {
+      "heading": "Appelez la maternité dès que vous en avez besoin",
+      "body": "Vous n’avez pas à atteindre un chiffre d’abord. Appelez si vous êtes inquiète, si vous perdez les eaux, en cas de saignement, ou si le bébé bouge moins que d’habitude.",
+      "link": "Les signes qui justifient un appel"
+    },
+    "summary": {
+      "heading": "Vos {count} dernières",
+      "duration": "Durée d’environ {value}",
+      "interval": "Environ {value} d’écart, début à début",
+      "note": "Ce sont vos temps, tels qu’enregistrés. Femio ne décide pas de ce qu’ils veulent dire — lisez-les à votre sage-femme ou à la maternité, qui le peut."
+    }
+  },
+  "weight": {
+    "heading": "Poids",
+    "intro": "Ajoutez une mesure quand vous voulez. Femio les trace et garde les chiffres pour votre dossier.",
+    "value": "Poids",
+    "date": "Mesuré le",
+    "save": "Enregistrer",
+    "saving": "Enregistrement…",
+    "saveFailed": "L’enregistrement a échoué. Vérifiez votre connexion et réessayez.",
+    "invalid": "Cela ne ressemble pas à une mesure de balance. Vérifiez le nombre et réessayez.",
+    "needData": "Ajoutez une deuxième mesure et votre courbe apparaîtra ici.",
+    "alt": "Un graphique de {count} mesures de poids",
+    "change": "{value} {unit} depuis votre première saisie",
+    "note": "Vos mesures, telles quelles. Femio n’affiche aucune fourchette cible et ne dit pas si une évolution est attendue — ce que signifie une courbe se discute avec votre sage-femme ou votre médecin.",
+    "units": {
+      "kg": "kg",
+      "lb": "lb"
+    }
+  },
+  "epds": {
+    "heading": "Comment vous vous êtes sentie cette dernière semaine",
+    "intro": "Dix questions issues de l’échelle EPDS, le questionnaire que votre sage-femme ou votre médecin utilisera le plus probablement. Répondez à ce que vous voulez ; passez ce que vous préférez taire.",
+    "total": "Votre total est de {total}, sur {answered} réponses parmi 10",
+    "partial": "Vous n’avez pas répondu à toutes les questions : ce total n’est donc pas comparable à un total complet.",
+    "discuss": "C’est un questionnaire de repérage, pas une évaluation. Femio ne classe pas ce chiffre — apportez-le à votre sage-femme ou à votre médecin, qui le peut.",
+    "save": "Enregistrer dans mon dossier",
+    "saving": "Enregistrement…",
+    "saved": "Enregistré. Vous pourrez le montrer à votre prochain rendez-vous.",
+    "saveFailed": "L’enregistrement a échoué. Vérifiez votre connexion et réessayez.",
+    "saveNote": "L’enregistrement est facultatif. Rien ici n’a besoin d’être enregistré pour vous servir.",
+    "support": {
+      "heading": "Vous n’avez pas à porter cela seule",
+      "body": "Les pensées de se faire du mal sont plus fréquentes après une naissance qu’on ne le dit, et elles méritent d’être dites à quelqu’un aujourd’hui — votre sage-femme, votre médecin, ou un proche.",
+      "cta": "Trouver de l’aide maintenant"
+    },
+    "items": {
+      "ableToLaugh": {
+        "label": "J’ai pu rire et voir le bon côté des choses",
+        "options": {
+          "0": "Autant que d’habitude",
+          "1": "Un peu moins qu’avant",
+          "2": "Nettement moins qu’avant",
+          "3": "Pas du tout"
+        }
       },
-      "opk": {
-        "negative": "Négatif",
-        "low": "Faible",
-        "high": "Élevé",
-        "peak": "Pic",
-        "positive": "Positif"
+      "lookedForward": {
+        "label": "Je me suis réjouie à l’idée de faire des choses",
+        "options": {
+          "0": "Autant que d’habitude",
+          "1": "Un peu moins qu’avant",
+          "2": "Nettement moins qu’avant",
+          "3": "Presque pas"
+        }
       },
-      "cm": {
-        "dry": "Sèche",
-        "sticky": "Collante",
-        "creamy": "Crémeuse",
-        "watery": "Aqueuse",
-        "eggWhite": "Blanc d’œuf"
+      "blamedMyself": {
+        "label": "Je me suis reproché sans raison d’être responsable quand les choses allaient mal",
+        "options": {
+          "0": "Jamais",
+          "1": "Pas très souvent",
+          "2": "Oui, parfois",
+          "3": "Oui, la plupart du temps"
+        }
       },
-      "chart": {
-        "heading": "Vos températures",
-        "alt": "Un graphique de {count} températures au réveil",
-        "needData": "Notez trois températures au réveil et votre courbe apparaîtra ici. En dessous, c’est un point, pas une tendance.",
-        "note": "Ce sont vos mesures, telles quelles. Femio ne signale aucun décalage et ne désigne aucun jour — ce que dit une courbe se discute avec votre clinicien·ne.",
-        "unit": {
-          "c": "{value} °C",
-          "f": "{value} °F"
+      "anxiousOrWorried": {
+        "label": "Je me suis sentie inquiète ou soucieuse sans motif",
+        "options": {
+          "0": "Non, pas du tout",
+          "1": "Presque jamais",
+          "2": "Oui, parfois",
+          "3": "Oui, très souvent"
+        }
+      },
+      "scaredOrPanicky": {
+        "label": "Je me suis sentie effrayée ou paniquée sans vraiment de raison",
+        "options": {
+          "0": "Non, pas du tout",
+          "1": "Non, pas beaucoup",
+          "2": "Oui, parfois",
+          "3": "Oui, très souvent"
+        }
+      },
+      "thingsGettingOnTop": {
+        "label": "J’ai eu tendance à me sentir dépassée par les événements",
+        "options": {
+          "0": "Non, je me suis débrouillée comme d’habitude",
+          "1": "Non, la plupart du temps je me suis bien débrouillée",
+          "2": "Oui, parfois je ne me suis pas aussi bien débrouillée que d’habitude",
+          "3": "Oui, la plupart du temps je n’ai pas pu du tout faire face"
+        }
+      },
+      "difficultySleeping": {
+        "label": "Je me suis sentie si malheureuse que j’ai eu du mal à dormir",
+        "options": {
+          "0": "Non, pas du tout",
+          "1": "Pas très souvent",
+          "2": "Oui, parfois",
+          "3": "Oui, la plupart du temps"
+        }
+      },
+      "sadOrMiserable": {
+        "label": "Je me suis sentie triste ou peu heureuse",
+        "options": {
+          "0": "Non, pas du tout",
+          "1": "Pas très souvent",
+          "2": "Oui, très souvent",
+          "3": "Oui, la plupart du temps"
+        }
+      },
+      "unhappyAndCrying": {
+        "label": "Je me suis sentie si malheureuse que j’en ai pleuré",
+        "options": {
+          "0": "Non, jamais",
+          "1": "Seulement de temps en temps",
+          "2": "Oui, très souvent",
+          "3": "Oui, la plupart du temps"
+        }
+      },
+      "thoughtOfHarmingMyself": {
+        "label": "Il m’est arrivé de penser à me faire du mal",
+        "options": {
+          "0": "Jamais",
+          "1": "Presque jamais",
+          "2": "Parfois",
+          "3": "Oui, très souvent"
         }
       }
+    }
+  },
+  "offer": {
+    "transitions": {
+      "birth": "Félicitations. Femio peut passer en {stage} quand vous voulez — la récupération, l’allaitement, et comment vous allez.",
+      "loss": "Femio garde votre dossier et ne va nulle part. Quand vous le souhaiterez, il peut passer en {stage} : ce que traverse votre corps, et du soutien si vous en voulez. Rien ne presse et rien ne sera décompté.",
+      "positiveTest": "Vous avez enregistré une grossesse. Voulez-vous que Femio passe en {stage} ?",
+      "pregnancyEnded": "Votre suivi de grossesse s’est terminé. Femio peut passer en {stage} quand vous voulez — rien de ce que vous avez noté ne change.",
+      "postpartumPassed": "Un certain temps s’est écoulé depuis la naissance. Voulez-vous que Femio passe en {stage} ?"
     },
-    "mrs": {
-      "heading": "Comment vous vous êtes sentie",
-      "intro": "Onze questions issues de l’échelle MRS, un questionnaire que les clinicien·nes connaissent déjà. Répondez à ce que vous voulez ; passez ce que vous préférez taire.",
-      "total": "Votre total est de {total}, sur {answered} réponses parmi 11",
-      "subscales": "Physique {somatic} · Humeur et pensée {psychological} · Vessie et intimité {urogenital}",
-      "partial": "Vous n’avez pas répondu à toutes les questions : ce total n’est donc pas comparable à un total complet.",
-      "discuss": "C’est un questionnaire de repérage, pas une évaluation. Femio ne classe pas ce chiffre — apportez-le à votre clinicien·ne, qui le peut.",
-      "save": "Enregistrer dans mon dossier",
-      "saving": "Enregistrement…",
-      "saved": "Enregistré. Vous pourrez le montrer à votre prochain rendez-vous.",
-      "saveFailed": "L’enregistrement a échoué. Vérifiez votre connexion et réessayez.",
-      "items": {
-        "hotFlushes": "Bouffées de chaleur, sueurs",
-        "heartDiscomfort": "Gêne cardiaque — perception inhabituelle des battements, emballement, oppression",
-        "sleepProblems": "Troubles du sommeil — endormissement difficile, réveils, réveil précoce",
-        "jointMuscleDiscomfort": "Douleurs articulaires et musculaires",
-        "depressiveMood": "Humeur dépressive — tristesse, envie de pleurer, manque d’élan",
-        "irritability": "Irritabilité — tension, agressivité, patience courte",
-        "anxiety": "Anxiété — agitation intérieure, sensation de panique",
-        "exhaustion": "Épuisement physique et mental — fatigue, oublis, concentration difficile",
-        "sexualProblems": "Troubles sexuels — changement du désir, de l’activité ou de la satisfaction",
-        "bladderProblems": "Troubles urinaires — difficulté à uriner, envies fréquentes, fuites",
-        "vaginalDryness": "Sécheresse vaginale — sécheresse, brûlures, gêne pendant les rapports"
-      },
-      "levels": {
-        "0": "Aucun",
-        "1": "Léger",
-        "2": "Modéré",
-        "3": "Sévère",
-        "4": "Très sévère"
-      }
+    "body": "D’après ce que vous avez noté, Femio pourrait s’adapter à {stage}. Vous voulez essayer ?",
+    "reversible": "Vous pouvez revenir en arrière quand vous voulez, et rien de ce que vous avez noté n’est affecté dans un sens ou dans l’autre.",
+    "accept": "Oui, adapter",
+    "applying": "Configuration…",
+    "decline": "Non merci"
+  },
+  "moodScreeners": {
+    "title": "Questionnaires d’humeur",
+    "pageIntro": "Deux questionnaires que votre médecin reconnaîtra sans doute, portant sur les deux dernières semaines. Ils sont accessibles dans tous les modes, pas derrière une étape de vie. Répondez à ce que vous voulez ; passez ce que vous préférez taire.",
+    "intro": "Au cours des deux dernières semaines, à quelle fréquence avez-vous été gênée par l’un des problèmes suivants ?",
+    "PHQ9": {
+      "heading": "Comment vous vous êtes sentie (PHQ-9)"
     },
-    "medications": {
-      "title": "Médicaments et compléments",
-      "loading": "Chargement de votre liste",
-      "loadError": "Nous n’avons pas pu charger votre liste.",
-      "retry": "Réessayer",
-      "add": "Ajouter",
-      "cancel": "Annuler",
-      "save": "Enregistrer",
-      "saving": "Enregistrement…",
-      "saveFailed": "L’enregistrement a échoué. Vérifiez votre connexion et réessayez.",
-      "nameRequired": "Donnez-lui d’abord un nom.",
-      "boundary": "Femio garde la liste pour que vous puissiez la lire en consultation. Il ne propose jamais de dose, n’en vérifie aucune, et ne vous note pas sur votre régularité — cela regarde vous et la personne qui vous l’a prescrit.",
-      "currentHeading": "En cours",
-      "stoppedHeading": "Arrêtés",
-      "stop": "J’ai arrêté",
-      "restart": "J’en reprends",
-      "since": "Depuis le {date}",
-      "between": "Du {start} au {end}",
-      "daysOn": "{days} jours",
-      "empty": {
-        "heading": "Rien pour l’instant",
-        "body": "THS, pilule, comprimés pour la thyroïde, fer, vitamines de grossesse — quoi que vous preniez, dans une seule liste que vous pouvez montrer."
-      },
-      "form": {
-        "name": "De quoi s’agit-il",
-        "namePlaceholder": "Lévothyroxine, patch d’œstrogène, vitamine D…",
-        "dose": "Quelle quantité",
-        "dosePlaceholder": "50 µg, un patch, un demi-comprimé…",
-        "doseHint": "Ce qui est écrit sur la boîte. Femio le note, rien de plus.",
-        "schedule": "À quelle fréquence",
-        "startedOn": "Débuté le",
-        "note": "Note",
-        "notePlaceholder": "Le matin, avant de manger…"
-      },
-      "schedules": {
-        "daily": "Chaque jour",
-        "twiceDaily": "Deux fois par jour",
-        "weekly": "Chaque semaine",
-        "asNeeded": "Au besoin",
-        "other": "Autre"
-      }
+    "GAD7": {
+      "heading": "Inquiétude et anxiété (GAD-7)"
     },
-    "contractions": {
-      "heading": "Minuteur de contractions",
-      "intro": "Appuyez sur démarrer quand une contraction commence et sur arrêter quand elle passe. Femio garde les temps pour que vous les ayez au téléphone.",
-      "start": "Démarrer une contraction",
-      "stop": "C’est passé",
-      "running": "Chronométrage en cours",
-      "idle": "Arrêté",
-      "saveFailed": "L’enregistrement a échoué. Vérifiez votre connexion et réessayez.",
-      "loadError": "Nous n’avons pas pu charger vos temps précédents. Le minuteur fonctionne quand même.",
-      "contact": {
-        "heading": "Appelez la maternité dès que vous en avez besoin",
-        "body": "Vous n’avez pas à atteindre un chiffre d’abord. Appelez si vous êtes inquiète, si vous perdez les eaux, en cas de saignement, ou si le bébé bouge moins que d’habitude.",
-        "link": "Les signes qui justifient un appel"
-      },
-      "summary": {
-        "heading": "Vos {count} dernières",
-        "duration": "Durée d’environ {value}",
-        "interval": "Environ {value} d’écart, début à début",
-        "note": "Ce sont vos temps, tels qu’enregistrés. Femio ne décide pas de ce qu’ils veulent dire — lisez-les à votre sage-femme ou à la maternité, qui le peut."
-      }
+    "total": "Votre total est de {total}, sur {answered} réponses parmi {items}",
+    "partial": "Vous n’avez pas répondu à toutes les questions : ce total n’est donc pas comparable à un total complet.",
+    "discuss": "C’est un questionnaire de repérage, pas une évaluation. Femio ne classe pas ce chiffre — apportez-le à votre médecin, qui le peut.",
+    "save": "Enregistrer dans mon dossier",
+    "saving": "Enregistrement…",
+    "saved": "Enregistré. Vous pourrez le montrer à votre prochain rendez-vous.",
+    "saveFailed": "L’enregistrement a échoué. Vérifiez votre connexion et réessayez.",
+    "saveNote": "L’enregistrement est facultatif. Rien ici n’a besoin d’être enregistré pour vous servir.",
+    "support": {
+      "heading": "Vous n’avez pas à porter cela seule",
+      "body": "Ces pensées sont plus fréquentes qu’on ne le dit, et elles méritent d’être dites à quelqu’un aujourd’hui — votre médecin, ou un proche.",
+      "cta": "Trouver de l’aide maintenant"
     },
-    "weight": {
-      "heading": "Poids",
-      "intro": "Ajoutez une mesure quand vous voulez. Femio les trace et garde les chiffres pour votre dossier.",
-      "value": "Poids",
-      "date": "Mesuré le",
-      "save": "Enregistrer",
-      "saving": "Enregistrement…",
-      "saveFailed": "L’enregistrement a échoué. Vérifiez votre connexion et réessayez.",
-      "invalid": "Cela ne ressemble pas à une mesure de balance. Vérifiez le nombre et réessayez.",
-      "needData": "Ajoutez une deuxième mesure et votre courbe apparaîtra ici.",
-      "alt": "Un graphique de {count} mesures de poids",
-      "change": "{value} {unit} depuis votre première saisie",
-      "note": "Vos mesures, telles quelles. Femio n’affiche aucune fourchette cible et ne dit pas si une évolution est attendue — ce que signifie une courbe se discute avec votre sage-femme ou votre médecin.",
-      "units": {
-        "kg": "kg",
-        "lb": "lb"
-      }
+    "items": {
+      "littleInterest": "Peu d’intérêt ou de plaisir à faire les choses",
+      "feelingDown": "Vous sentir triste, déprimée ou désespérée",
+      "sleepTrouble": "Difficultés à vous endormir ou à rester endormie, ou dormir trop",
+      "tiredLowEnergy": "Vous sentir fatiguée ou manquer d’énergie",
+      "appetiteChange": "Manque d’appétit ou trop manger",
+      "feelingBadAboutSelf": "Avoir une mauvaise opinion de vous-même, ou penser que vous êtes un échec ou que vous avez déçu vos proches",
+      "troubleConcentrating": "Difficultés à vous concentrer, par exemple pour lire ou regarder la télévision",
+      "movingSlowlyOrRestless": "Bouger ou parler si lentement que les autres pourraient le remarquer — ou au contraire être si agitée que vous bougez beaucoup plus que d’habitude",
+      "betterOffDead": "Penser que vous seriez mieux morte, ou penser à vous faire du mal d’une manière ou d’une autre",
+      "feelingNervous": "Vous sentir nerveuse, anxieuse ou à cran",
+      "cannotStopWorrying": "Ne pas pouvoir arrêter de vous inquiéter ou contrôler vos inquiétudes",
+      "worryingTooMuch": "Vous inquiéter trop à propos de tout et de rien",
+      "troubleRelaxing": "Avoir du mal à vous détendre",
+      "restless": "Être si agitée qu’il est difficile de rester assise",
+      "easilyAnnoyed": "Devenir facilement contrariée ou irritable",
+      "afraidSomethingAwful": "Avoir peur que quelque chose d’affreux puisse arriver"
     },
-    "epds": {
-      "heading": "Comment vous vous êtes sentie cette dernière semaine",
-      "intro": "Dix questions issues de l’échelle EPDS, le questionnaire que votre sage-femme ou votre médecin utilisera le plus probablement. Répondez à ce que vous voulez ; passez ce que vous préférez taire.",
-      "total": "Votre total est de {total}, sur {answered} réponses parmi 10",
-      "partial": "Vous n’avez pas répondu à toutes les questions : ce total n’est donc pas comparable à un total complet.",
-      "discuss": "C’est un questionnaire de repérage, pas une évaluation. Femio ne classe pas ce chiffre — apportez-le à votre sage-femme ou à votre médecin, qui le peut.",
-      "save": "Enregistrer dans mon dossier",
-      "saving": "Enregistrement…",
-      "saved": "Enregistré. Vous pourrez le montrer à votre prochain rendez-vous.",
-      "saveFailed": "L’enregistrement a échoué. Vérifiez votre connexion et réessayez.",
-      "saveNote": "L’enregistrement est facultatif. Rien ici n’a besoin d’être enregistré pour vous servir.",
-      "support": {
-        "heading": "Vous n’avez pas à porter cela seule",
-        "body": "Les pensées de se faire du mal sont plus fréquentes après une naissance qu’on ne le dit, et elles méritent d’être dites à quelqu’un aujourd’hui — votre sage-femme, votre médecin, ou un proche.",
-        "cta": "Trouver de l’aide maintenant"
-      },
-      "items": {
-        "ableToLaugh": {
-          "label": "J’ai pu rire et voir le bon côté des choses",
-          "options": {
-            "0": "Autant que d’habitude",
-            "1": "Un peu moins qu’avant",
-            "2": "Nettement moins qu’avant",
-            "3": "Pas du tout"
-          }
-        },
-        "lookedForward": {
-          "label": "Je me suis réjouie à l’idée de faire des choses",
-          "options": {
-            "0": "Autant que d’habitude",
-            "1": "Un peu moins qu’avant",
-            "2": "Nettement moins qu’avant",
-            "3": "Presque pas"
-          }
-        },
-        "blamedMyself": {
-          "label": "Je me suis reproché sans raison d’être responsable quand les choses allaient mal",
-          "options": {
-            "0": "Jamais",
-            "1": "Pas très souvent",
-            "2": "Oui, parfois",
-            "3": "Oui, la plupart du temps"
-          }
-        },
-        "anxiousOrWorried": {
-          "label": "Je me suis sentie inquiète ou soucieuse sans motif",
-          "options": {
-            "0": "Non, pas du tout",
-            "1": "Presque jamais",
-            "2": "Oui, parfois",
-            "3": "Oui, très souvent"
-          }
-        },
-        "scaredOrPanicky": {
-          "label": "Je me suis sentie effrayée ou paniquée sans vraiment de raison",
-          "options": {
-            "0": "Non, pas du tout",
-            "1": "Non, pas beaucoup",
-            "2": "Oui, parfois",
-            "3": "Oui, très souvent"
-          }
-        },
-        "thingsGettingOnTop": {
-          "label": "J’ai eu tendance à me sentir dépassée par les événements",
-          "options": {
-            "0": "Non, je me suis débrouillée comme d’habitude",
-            "1": "Non, la plupart du temps je me suis bien débrouillée",
-            "2": "Oui, parfois je ne me suis pas aussi bien débrouillée que d’habitude",
-            "3": "Oui, la plupart du temps je n’ai pas pu du tout faire face"
-          }
-        },
-        "difficultySleeping": {
-          "label": "Je me suis sentie si malheureuse que j’ai eu du mal à dormir",
-          "options": {
-            "0": "Non, pas du tout",
-            "1": "Pas très souvent",
-            "2": "Oui, parfois",
-            "3": "Oui, la plupart du temps"
-          }
-        },
-        "sadOrMiserable": {
-          "label": "Je me suis sentie triste ou peu heureuse",
-          "options": {
-            "0": "Non, pas du tout",
-            "1": "Pas très souvent",
-            "2": "Oui, très souvent",
-            "3": "Oui, la plupart du temps"
-          }
-        },
-        "unhappyAndCrying": {
-          "label": "Je me suis sentie si malheureuse que j’en ai pleuré",
-          "options": {
-            "0": "Non, jamais",
-            "1": "Seulement de temps en temps",
-            "2": "Oui, très souvent",
-            "3": "Oui, la plupart du temps"
-          }
-        },
-        "thoughtOfHarmingMyself": {
-          "label": "Il m’est arrivé de penser à me faire du mal",
-          "options": {
-            "0": "Jamais",
-            "1": "Presque jamais",
-            "2": "Parfois",
-            "3": "Oui, très souvent"
-          }
-        }
-      }
-    },
-    "offer": {
-      "transitions": {
-        "birth": "Félicitations. Femio peut passer en {stage} quand vous voulez — la récupération, l’allaitement, et comment vous allez.",
-        "loss": "Femio garde votre dossier et ne va nulle part. Quand vous le souhaiterez, il peut passer en {stage} : ce que traverse votre corps, et du soutien si vous en voulez. Rien ne presse et rien ne sera décompté.",
-        "positiveTest": "Vous avez enregistré une grossesse. Voulez-vous que Femio passe en {stage} ?",
-        "pregnancyEnded": "Votre suivi de grossesse s’est terminé. Femio peut passer en {stage} quand vous voulez — rien de ce que vous avez noté ne change.",
-        "postpartumPassed": "Un certain temps s’est écoulé depuis la naissance. Voulez-vous que Femio passe en {stage} ?"
-      },
-      "body": "D’après ce que vous avez noté, Femio pourrait s’adapter à {stage}. Vous voulez essayer ?",
-      "reversible": "Vous pouvez revenir en arrière quand vous voulez, et rien de ce que vous avez noté n’est affecté dans un sens ou dans l’autre.",
-      "accept": "Oui, adapter",
-      "applying": "Configuration…",
-      "decline": "Non merci"
-    },
-    "moodScreeners": {
-      "title": "Questionnaires d’humeur",
-      "pageIntro": "Deux questionnaires que votre médecin reconnaîtra sans doute, portant sur les deux dernières semaines. Ils sont accessibles dans tous les modes, pas derrière une étape de vie. Répondez à ce que vous voulez ; passez ce que vous préférez taire.",
-      "intro": "Au cours des deux dernières semaines, à quelle fréquence avez-vous été gênée par l’un des problèmes suivants ?",
-      "PHQ9": {
-        "heading": "Comment vous vous êtes sentie (PHQ-9)"
-      },
-      "GAD7": {
-        "heading": "Inquiétude et anxiété (GAD-7)"
-      },
-      "total": "Votre total est de {total}, sur {answered} réponses parmi {items}",
-      "partial": "Vous n’avez pas répondu à toutes les questions : ce total n’est donc pas comparable à un total complet.",
-      "discuss": "C’est un questionnaire de repérage, pas une évaluation. Femio ne classe pas ce chiffre — apportez-le à votre médecin, qui le peut.",
-      "save": "Enregistrer dans mon dossier",
-      "saving": "Enregistrement…",
-      "saved": "Enregistré. Vous pourrez le montrer à votre prochain rendez-vous.",
-      "saveFailed": "L’enregistrement a échoué. Vérifiez votre connexion et réessayez.",
-      "saveNote": "L’enregistrement est facultatif. Rien ici n’a besoin d’être enregistré pour vous servir.",
-      "support": {
-        "heading": "Vous n’avez pas à porter cela seule",
-        "body": "Ces pensées sont plus fréquentes qu’on ne le dit, et elles méritent d’être dites à quelqu’un aujourd’hui — votre médecin, ou un proche.",
-        "cta": "Trouver de l’aide maintenant"
-      },
-      "items": {
-        "littleInterest": "Peu d’intérêt ou de plaisir à faire les choses",
-        "feelingDown": "Vous sentir triste, déprimée ou désespérée",
-        "sleepTrouble": "Difficultés à vous endormir ou à rester endormie, ou dormir trop",
-        "tiredLowEnergy": "Vous sentir fatiguée ou manquer d’énergie",
-        "appetiteChange": "Manque d’appétit ou trop manger",
-        "feelingBadAboutSelf": "Avoir une mauvaise opinion de vous-même, ou penser que vous êtes un échec ou que vous avez déçu vos proches",
-        "troubleConcentrating": "Difficultés à vous concentrer, par exemple pour lire ou regarder la télévision",
-        "movingSlowlyOrRestless": "Bouger ou parler si lentement que les autres pourraient le remarquer — ou au contraire être si agitée que vous bougez beaucoup plus que d’habitude",
-        "betterOffDead": "Penser que vous seriez mieux morte, ou penser à vous faire du mal d’une manière ou d’une autre",
-        "feelingNervous": "Vous sentir nerveuse, anxieuse ou à cran",
-        "cannotStopWorrying": "Ne pas pouvoir arrêter de vous inquiéter ou contrôler vos inquiétudes",
-        "worryingTooMuch": "Vous inquiéter trop à propos de tout et de rien",
-        "troubleRelaxing": "Avoir du mal à vous détendre",
-        "restless": "Être si agitée qu’il est difficile de rester assise",
-        "easilyAnnoyed": "Devenir facilement contrariée ou irritable",
-        "afraidSomethingAwful": "Avoir peur que quelque chose d’affreux puisse arriver"
-      },
-      "levels": {
-        "0": "Jamais",
-        "1": "Plusieurs jours",
-        "2": "Plus de la moitié des jours",
-        "3": "Presque tous les jours"
-      }
-    },
+    "levels": {
+      "0": "Jamais",
+      "1": "Plusieurs jours",
+      "2": "Plus de la moitié des jours",
+      "3": "Presque tous les jours"
+    }
+  },
   "postpartum": {
     "followup": {
       "heading": "Le suivi après votre grossesse",
@@ -1115,9 +1241,18 @@
       "cancel": "Annuler"
     },
     "strips": {
-      "labs": { "title": "Résultats d'analyses", "empty": "Aucun résultat enregistré. Quand vous en ajoutez un, il apparaît ici avec l'intervalle de référence de votre laboratoire, pour votre dossier et non comme une évaluation." },
-      "medication": { "title": "Médicaments", "empty": "Rien d'enregistré. Femio garde la liste et les dates de début et d'arrêt — jamais une dose, et jamais une note pour les avoir pris." },
-      "devices": { "title": "Appareils", "empty": "Rien d'enregistré. Si vous utilisez un lecteur ou une pompe, vous pouvez le noter ici pour qu'il suive le reste de votre dossier." },
+      "labs": {
+        "title": "Résultats d'analyses",
+        "empty": "Aucun résultat enregistré. Quand vous en ajoutez un, il apparaît ici avec l'intervalle de référence de votre laboratoire, pour votre dossier et non comme une évaluation."
+      },
+      "medication": {
+        "title": "Médicaments",
+        "empty": "Rien d'enregistré. Femio garde la liste et les dates de début et d'arrêt — jamais une dose, et jamais une note pour les avoir pris."
+      },
+      "devices": {
+        "title": "Appareils",
+        "empty": "Rien d'enregistré. Si vous utilisez un lecteur ou une pompe, vous pouvez le noter ici pour qu'il suive le reste de votre dossier."
+      },
       "thyroid": {
         "title": "Thyroïde",
         "empty": "Aucun résultat enregistré pour l'instant. Lorsque vous ajoutez une TSH ou une T4 libre, elle apparaît ici avec l'intervalle de référence de votre laboratoire — pour vos dossiers, pas comme une évaluation."
@@ -1402,73 +1537,73 @@
     },
     "profiles": "Profils professionnels"
   },
-    "insights": {
-      "title": "Statistiques produit",
-      "desc": "Comment Femio est utilisé, calculé depuis notre propre base de données — jamais via un prestataire d’analyse externe.",
-      "translationsLink": "Traductions",
-      "privacy": {
-        "title": "Pourquoi ces chiffres restent ici",
-        "body": "L’étape de vie, la pathologie, la tranche d’âge et la rétention sont des inférences de santé sur des femmes réelles : elles ne sont jamais envoyées à un outil d’analyse tiers. Elles sont agrégées dans notre base, et tout groupe de moins de {k} personnes est masqué, afin qu’aucun chiffre ici ne puisse désigner quelqu’un."
+  "insights": {
+    "title": "Statistiques produit",
+    "desc": "Comment Femio est utilisé, calculé depuis notre propre base de données — jamais via un prestataire d’analyse externe.",
+    "translationsLink": "Traductions",
+    "privacy": {
+      "title": "Pourquoi ces chiffres restent ici",
+      "body": "L’étape de vie, la pathologie, la tranche d’âge et la rétention sont des inférences de santé sur des femmes réelles : elles ne sont jamais envoyées à un outil d’analyse tiers. Elles sont agrégées dans notre base, et tout groupe de moins de {k} personnes est masqué, afin qu’aucun chiffre ici ne puisse désigner quelqu’un."
+    },
+    "notInstalled": {
+      "title": "Pas encore configuré",
+      "body": "Les fonctions d’agrégation ne sont pas appliquées à la base. Appliquez la migration 0006 (tâche A3 du runbook), puis rechargez cette page."
+    },
+    "notAuthorized": "Votre compte n’est pas autorisé à lire ces agrégats.",
+    "error": "Impossible de charger les chiffres pour le moment.",
+    "tooFew": "Pas encore assez de personnes pour l’afficher sans identifier quelqu’un.",
+    "withheldHint": "Masqué — en dessous de la taille de groupe minimale.",
+    "withheldGroup": "Petits groupes (cumulés)",
+    "unset": "Non renseigné",
+    "group": "Groupe",
+    "people": "Personnes",
+    "overview": {
+      "total_users": "Comptes au total",
+      "onboarded_users": "Inscription terminée",
+      "active_28d": "Ont noté quelque chose (28 jours)",
+      "registered_users": "Avec un e-mail",
+      "anonymous_users": "Anonymes"
+    },
+    "modes": {
+      "A": "Adolescence",
+      "B": "Cycle et gynécologie",
+      "C": "Essai de conception",
+      "D": "Grossesse",
+      "E": "Post-partum",
+      "F": "Périménopause et ménopause",
+      "Z": "Autre / personnalisé"
+    },
+    "dimensions": {
+      "mode": {
+        "title": "Étape de vie",
+        "note": "Le parcours choisi à l’inscription, ou celui rejoint depuis."
       },
-      "notInstalled": {
-        "title": "Pas encore configuré",
-        "body": "Les fonctions d’agrégation ne sont pas appliquées à la base. Appliquez la migration 0006 (tâche A3 du runbook), puis rechargez cette page."
+      "persona": {
+        "title": "Persona",
+        "note": "Le persona résolu derrière l’accueil personnalisé."
       },
-      "notAuthorized": "Votre compte n’est pas autorisé à lire ces agrégats.",
-      "error": "Impossible de charger les chiffres pour le moment.",
-      "tooFew": "Pas encore assez de personnes pour l’afficher sans identifier quelqu’un.",
-      "withheldHint": "Masqué — en dessous de la taille de groupe minimale.",
-      "withheldGroup": "Petits groupes (cumulés)",
-      "unset": "Non renseigné",
-      "group": "Groupe",
-      "people": "Personnes",
-      "overview": {
-        "total_users": "Comptes au total",
-        "onboarded_users": "Inscription terminée",
-        "active_28d": "Ont noté quelque chose (28 jours)",
-        "registered_users": "Avec un e-mail",
-        "anonymous_users": "Anonymes"
+      "age_band": {
+        "title": "Tranche d’âge",
+        "note": "Des tranches uniquement — pas de date de naissance sauf nécessité."
       },
-      "modes": {
-        "A": "Adolescence",
-        "B": "Cycle et gynécologie",
-        "C": "Essai de conception",
-        "D": "Grossesse",
-        "E": "Post-partum",
-        "F": "Périménopause et ménopause",
-        "Z": "Autre / personnalisé"
+      "locale": {
+        "title": "Langue",
+        "note": "La langue configurée sur le compte."
       },
-      "dimensions": {
-        "mode": {
-          "title": "Étape de vie",
-          "note": "Le parcours choisi à l’inscription, ou celui rejoint depuis."
-        },
-        "persona": {
-          "title": "Persona",
-          "note": "Le persona résolu derrière l’accueil personnalisé."
-        },
-        "age_band": {
-          "title": "Tranche d’âge",
-          "note": "Des tranches uniquement — pas de date de naissance sauf nécessité."
-        },
-        "locale": {
-          "title": "Langue",
-          "note": "La langue configurée sur le compte."
-        },
-        "account_type": {
-          "title": "Type de compte",
-          "note": "Un compte anonyme peut ajouter un e-mail plus tard sans rien perdre."
-        }
-      },
-      "retention": {
-        "title": "Rétention par mois d’inscription",
-        "note": "Combien de personnes de chaque mois notaient encore les mois suivants. Un mois n’est compté que s’il dépasse la taille de groupe minimale.",
-        "cohort": "Inscription",
-        "size": "Personnes",
-        "month1": "Mois 1",
-        "month2": "Mois 2"
+      "account_type": {
+        "title": "Type de compte",
+        "note": "Un compte anonyme peut ajouter un e-mail plus tard sans rien perdre."
       }
     },
+    "retention": {
+      "title": "Rétention par mois d’inscription",
+      "note": "Combien de personnes de chaque mois notaient encore les mois suivants. Un mois n’est compté que s’il dépasse la taille de groupe minimale.",
+      "cohort": "Inscription",
+      "size": "Personnes",
+      "month1": "Mois 1",
+      "month2": "Mois 2"
+    }
+  },
   "notFound": {
     "code": "404",
     "title": "Page introuvable",
@@ -1476,34 +1611,34 @@
     "home": "Aller à l’accueil",
     "learn": "Parcourir la bibliothèque"
   },
-    "mfa": {
-      "title": "Confirmez que c'est bien vous",
-      "intro": "Saisissez le code à 6 chiffres de votre application d'authentification pour accéder au back-office.",
-      "codeLabel": "Code à 6 chiffres",
-      "verify": "Confirmer",
-      "verifying": "Vérification…",
-      "wrongCode": "Ce code n'a pas fonctionné. Les codes changent toutes les 30 secondes — essayez le code actuel.",
-      "error": "Impossible de vérifier ce code pour le moment."
-    },
+  "mfa": {
+    "title": "Confirmez que c'est bien vous",
+    "intro": "Saisissez le code à 6 chiffres de votre application d'authentification pour accéder au back-office.",
+    "codeLabel": "Code à 6 chiffres",
+    "verify": "Confirmer",
+    "verifying": "Vérification…",
+    "wrongCode": "Ce code n'a pas fonctionné. Les codes changent toutes les 30 secondes — essayez le code actuel.",
+    "error": "Impossible de vérifier ce code pour le moment."
+  },
   "settings": {
-      "mfa": {
-        "heading": "Connexion en deux étapes",
-        "desc": "Ajoutez un code d'application d'authentification en plus de votre mot de passe. Obligatoire pour les comptes de l'équipe.",
-        "requiredNotice": "Les pages de l'équipe exigent la connexion en deux étapes. Activez-la ci-dessous, puis réessayez.",
-        "enable": "Activer la connexion en deux étapes",
-        "enabled": "La connexion en deux étapes est active.",
-        "disable": "Désactiver la connexion en deux étapes",
-        "scan": "Scannez ceci avec votre application d'authentification (Google Authenticator, 1Password, Aegis…).",
-        "qrAlt": "QR code pour votre application d'authentification",
-        "manualEntry": "Impossible de scanner ? Saisissez cette clé :",
-        "codeLabel": "Code à 6 chiffres de l'application",
-        "verify": "Activer",
-        "verifying": "Vérification…",
-        "cancel": "Annuler",
-        "saved": "La connexion en deux étapes est active.",
-        "wrongCode": "Ce code n'a pas fonctionné. Les codes changent toutes les 30 secondes — essayez le code actuel.",
-        "error": "Un problème est survenu lors de la configuration."
-      },
+    "mfa": {
+      "heading": "Connexion en deux étapes",
+      "desc": "Ajoutez un code d'application d'authentification en plus de votre mot de passe. Obligatoire pour les comptes de l'équipe.",
+      "requiredNotice": "Les pages de l'équipe exigent la connexion en deux étapes. Activez-la ci-dessous, puis réessayez.",
+      "enable": "Activer la connexion en deux étapes",
+      "enabled": "La connexion en deux étapes est active.",
+      "disable": "Désactiver la connexion en deux étapes",
+      "scan": "Scannez ceci avec votre application d'authentification (Google Authenticator, 1Password, Aegis…).",
+      "qrAlt": "QR code pour votre application d'authentification",
+      "manualEntry": "Impossible de scanner ? Saisissez cette clé :",
+      "codeLabel": "Code à 6 chiffres de l'application",
+      "verify": "Activer",
+      "verifying": "Vérification…",
+      "cancel": "Annuler",
+      "saved": "La connexion en deux étapes est active.",
+      "wrongCode": "Ce code n'a pas fonctionné. Les codes changent toutes les 30 secondes — essayez le code actuel.",
+      "error": "Un problème est survenu lors de la configuration."
+    },
     "password": {
       "heading": "Mot de passe",
       "desc": "Définissez ou modifiez un mot de passe pour vous connecter sans lien e-mail.",
@@ -1515,33 +1650,40 @@
       "tooShort": "Utilisez au moins {min} caractères.",
       "mismatch": "Les mots de passe ne correspondent pas."
     },
-    "summary": {"heading":"Résumé pour la consultation","desc":"Un aperçu imprimable de votre cycle, vos symptômes et vos notes à partager avec un professionnel de santé.","link":"Ouvrir le résumé"},
-    "signOut": {"heading":"Se déconnecter","desc":"Se déconnecter sur cet appareil. Votre dossier reste inchangé."},
-      "consent": {
-        "ageGate": {
-          "body": "Femio doit savoir à peu près quel âge tu as avant d'activer ceci. Les moins de 18 ans sont exclus de l'analyse et de la recherche, donc il demande plutôt que de supposer.",
-          "dismiss": "Pas maintenant"
-        },
-        "heading": "Vos choix de confidentialité",
-        "desc": "Changez ce que Femio peut faire de vos données. Désactivez ce que vous voulez, quand vous voulez — l’effet est immédiat.",
-        "error": "Nous n’avons pas pu enregistrer ce changement. Réessayez.",
-        "insights": {
-          "label": "Utiliser mes saisies pour me montrer des tendances.",
-          "note": "Reste dans Femio — vos saisies ne sont envoyées nulle part pour cela."
-        },
-        "research": {
-          "label": "Utiliser mes données anonymisées pour la recherche en santé des femmes.",
-          "note": "Uniquement de façon agrégée, sans rien qui vous identifie."
-        },
-        "analytics": {
-          "label": "Autoriser des statistiques d’usage anonymes.",
-          "note": "Quelles pages et fonctions sont utilisées, pour les améliorer. N’inclut jamais ce que vous notez — ni symptômes, ni dates, ni cycles, ni pathologies — ni l’écran d’aide d’urgence."
-        },
-        "core": {
-          "label": "Enregistrer mes saisies de santé pour pouvoir les suivre.",
-          "note": "Indispensable au fonctionnement de Femio — sans cela, il n’y a rien à enregistrer ni à vous montrer. Pour le retirer, supprimez votre compte ci-dessous : tout est effacé."
-        }
+    "summary": {
+      "heading": "Résumé pour la consultation",
+      "desc": "Un aperçu imprimable de votre cycle, vos symptômes et vos notes à partager avec un professionnel de santé.",
+      "link": "Ouvrir le résumé"
+    },
+    "signOut": {
+      "heading": "Se déconnecter",
+      "desc": "Se déconnecter sur cet appareil. Votre dossier reste inchangé."
+    },
+    "consent": {
+      "ageGate": {
+        "body": "Femio doit savoir à peu près quel âge tu as avant d'activer ceci. Les moins de 18 ans sont exclus de l'analyse et de la recherche, donc il demande plutôt que de supposer.",
+        "dismiss": "Pas maintenant"
       },
+      "heading": "Vos choix de confidentialité",
+      "desc": "Changez ce que Femio peut faire de vos données. Désactivez ce que vous voulez, quand vous voulez — l’effet est immédiat.",
+      "error": "Nous n’avons pas pu enregistrer ce changement. Réessayez.",
+      "insights": {
+        "label": "Utiliser mes saisies pour me montrer des tendances.",
+        "note": "Reste dans Femio — vos saisies ne sont envoyées nulle part pour cela."
+      },
+      "research": {
+        "label": "Utiliser mes données anonymisées pour la recherche en santé des femmes.",
+        "note": "Uniquement de façon agrégée, sans rien qui vous identifie."
+      },
+      "analytics": {
+        "label": "Autoriser des statistiques d’usage anonymes.",
+        "note": "Quelles pages et fonctions sont utilisées, pour les améliorer. N’inclut jamais ce que vous notez — ni symptômes, ni dates, ni cycles, ni pathologies — ni l’écran d’aide d’urgence."
+      },
+      "core": {
+        "label": "Enregistrer mes saisies de santé pour pouvoir les suivre.",
+        "note": "Indispensable au fonctionnement de Femio — sans cela, il n’y a rien à enregistrer ni à vous montrer. Pour le retirer, supprimez votre compte ci-dessous : tout est effacé."
+      }
+    },
     "title": "Confidentialité et données",
     "exporting": "Préparation…",
     "deleting": "Suppression…",
@@ -1903,102 +2045,102 @@
   },
   "partnerSharing": {
     "title": "Partager avec un partenaire",
-    "intro": "Choisissez exactement ce qu'une autre personne peut voir. Rien n'est partag\u00e9 tant que vous ne l'activez pas, et vous pouvez arr\u00eater \u00e0 tout moment sans qu'elle en soit avertie.",
-    "createError": "L'enregistrement a \u00e9chou\u00e9. R\u00e9essayez.",
-    "stopError": "Nous n'avons pas pu arr\u00eater ce partage. R\u00e9essayez.",
-    "renewError": "Nous n'avons pas pu prolonger ce partage. R\u00e9essayez.",
+    "intro": "Choisissez exactement ce qu'une autre personne peut voir. Rien n'est partagé tant que vous ne l'activez pas, et vous pouvez arrêter à tout moment sans qu'elle en soit avertie.",
+    "createError": "L'enregistrement a échoué. Réessayez.",
+    "stopError": "Nous n'avons pas pu arrêter ce partage. Réessayez.",
+    "renewError": "Nous n'avons pas pu prolonger ce partage. Réessayez.",
     "ageGate": {
-      "body": "Femio ne propose pas le partage avec un partenaire avant 18 ans. Si vous souhaitez l'utiliser, indiquez votre tranche d'\u00e2ge.",
+      "body": "Femio ne propose pas le partage avec un partenaire avant 18 ans. Si vous souhaitez l'utiliser, indiquez votre tranche d'âge.",
       "dismiss": "Pas maintenant"
     },
     "current": {
       "activeNamed": "Partage en cours avec {name}",
-      "pendingNamed": "En attente que {name} accepte \u2014 code {code}",
+      "pendingNamed": "En attente que {name} accepte — code {code}",
       "unnamed": "quelqu'un",
       "heading": "Ce qu'elle voit en ce moment",
-      "desc": "Voici son \u00e9cran \u00e0 elle, pas vos r\u00e9glages. Tout ce qui n'est pas list\u00e9 ici lui est invisible.",
+      "desc": "Voici son écran à elle, pas vos réglages. Tout ce qui n'est pas listé ici lui est invisible.",
       "none": "Vous ne partagez rien avec personne.",
       "active": "Partage en cours",
-      "pending": "En attente d'acceptation \u2014 code {code}",
+      "pending": "En attente d'acceptation — code {code}",
       "until": "Se termine le {date}",
-      "stop": "Arr\u00eater le partage",
+      "stop": "Arrêter le partage",
       "renew": "Prolonger de six mois"
     },
     "categories": {
       "nextPeriod": {
-        "label": "La date attendue de vos prochaines r\u00e8gles",
-        "note": "La fourchette estim\u00e9e par Femio, avec la m\u00eame incertitude que celle que vous voyez."
+        "label": "La date attendue de vos prochaines règles",
+        "note": "La fourchette estimée par Femio, avec la même incertitude que celle que vous voyez."
       },
       "cycleDates": {
-        "label": "Vos derni\u00e8res dates de r\u00e8gles",
-        "note": "Les jours o\u00f9 vous avez enregistr\u00e9 un d\u00e9but de r\u00e8gles."
+        "label": "Vos dernières dates de règles",
+        "note": "Les jours où vous avez enregistré un début de règles."
       },
       "phase": {
-        "label": "O\u00f9 vous en \u00eates dans votre cycle",
+        "label": "Où vous en êtes dans votre cycle",
         "note": "Seulement lorsque vos cycles permettent de nommer une phase."
       },
       "pregnancy": {
-        "label": "\u00c0 combien de semaines de grossesse vous \u00eates",
-        "note": "La semaine et le jour, ainsi que votre date pr\u00e9vue d'accouchement."
+        "label": "À combien de semaines de grossesse vous êtes",
+        "note": "La semaine et le jour, ainsi que votre date prévue d'accouchement."
       },
       "symptoms": {
-        "label": "Les sympt\u00f4mes que vous notez",
-        "note": "Les noms et les dates uniquement \u2014 jamais l'intensit\u00e9 d'une journ\u00e9e."
+        "label": "Les symptômes que vous notez",
+        "note": "Les noms et les dates uniquement — jamais l'intensité d'une journée."
       },
       "medications": {
-        "label": "Les m\u00e9dicaments et compl\u00e9ments que vous prenez",
-        "note": "Les noms uniquement \u2014 jamais une dose."
+        "label": "Les médicaments et compléments que vous prenez",
+        "note": "Les noms uniquement — jamais une dose."
       },
       "fertility": {
         "label": "Vos courbes",
-        "note": "Les jours not\u00e9s et le r\u00e9sultat d'un test \u00e9ventuel. Jamais vos rapports, jamais un test de grossesse."
+        "note": "Les jours notés et le résultat d'un test éventuel. Jamais vos rapports, jamais un test de grossesse."
       }
     },
     "create": {
-      "recipientLabel": "Pour qui\u00a0?",
+      "recipientLabel": "Pour qui ?",
       "recipientPlaceholder": "Un nom que vous seule verrez",
-      "recipientNote": "Vous seule voyez ce nom. Cette personne ne saura jamais comment vous l'avez appel\u00e9e et ne peut pas le modifier.",
-      "recipientRequired": "Ajoutez d'abord un nom \u2014 on partage avec une personne, pas avec un code.",
+      "recipientNote": "Vous seule voyez ce nom. Cette personne ne saura jamais comment vous l'avez appelée et ne peut pas le modifier.",
+      "recipientRequired": "Ajoutez d'abord un nom — on partage avec une personne, pas avec un code.",
       "heading": "Commencer un partage",
-      "desc": "Cochez chaque \u00e9l\u00e9ment s\u00e9par\u00e9ment. Il n'existe aucun raccourci qui partage tout, et c'est voulu.",
-      "neverShared": "Certaines choses ne sont jamais partageables : les r\u00e9sultats de vos questionnaires, tout ce qui vient de \u00ab\u00a0Besoin d'aide maintenant\u00a0?\u00a0\u00bb, et les questions que vous notez pour un rendez-vous. Femio ne les propose pas, donc personne ne peut vous les demander.",
-      "cta": "Cr\u00e9er un code d'invitation",
+      "desc": "Cochez chaque élément séparément. Il n'existe aucun raccourci qui partage tout, et c'est voulu.",
+      "neverShared": "Certaines choses ne sont jamais partageables : les résultats de vos questionnaires, tout ce qui vient de « Besoin d'aide maintenant ? », et les questions que vous notez pour un rendez-vous. Femio ne les propose pas, donc personne ne peut vous les demander.",
+      "cta": "Créer un code d'invitation",
       "codeIntro": "Donnez-lui ce code.",
-      "codeNote": "Il fonctionne une seule fois et expire au bout de 14 jours s'il n'est pas utilis\u00e9. Le partage commence quand elle le saisit et dure six mois."
+      "codeNote": "Il fonctionne une seule fois et expire au bout de 14 jours s'il n'est pas utilisé. Le partage commence quand elle le saisit et dure six mois."
     },
     "redeem": {
-      "heading": "Quelqu'un partage avec vous\u00a0?",
-      "desc": "Saisissez le code qu'on vous a donn\u00e9. Vous verrez ce que cette personne a choisi de partager, et rien d'autre.",
+      "heading": "Quelqu'un partage avec vous ?",
+      "desc": "Saisissez le code qu'on vous a donné. Vous verrez ce que cette personne a choisi de partager, et rien d'autre.",
       "label": "Code d'invitation",
       "cta": "Utiliser ce code",
-      "error": "Ce code ne fonctionne pas. Il a peut-\u00eatre d\u00e9j\u00e0 servi, ou expir\u00e9.",
-      "done": "C'est fait. Vous le trouverez sous \u00ab\u00a0Partag\u00e9 avec vous\u00a0\u00bb."
+      "error": "Ce code ne fonctionne pas. Il a peut-être déjà servi, ou expiré.",
+      "done": "C'est fait. Vous le trouverez sous « Partagé avec vous »."
     }
   },
   "partnerShared": {
-    "title": "Partag\u00e9 avec vous",
-    "intro": "Ce qui a \u00e9t\u00e9 partag\u00e9 avec vous, et rien d'autre.",
-    "none": "Rien n'est partag\u00e9 avec vous pour le moment.",
-    "loadError": "Nous n'avons pas pu charger cette page. R\u00e9essayez dans un instant.",
+    "title": "Partagé avec vous",
+    "intro": "Ce qui a été partagé avec vous, et rien d'autre.",
+    "none": "Rien n'est partagé avec vous pour le moment.",
+    "loadError": "Nous n'avons pas pu charger cette page. Réessayez dans un instant.",
     "until": "Le partage se termine le {date}",
     "nextPeriod": {
-      "heading": "Prochaines r\u00e8gles",
+      "heading": "Prochaines règles",
       "window": "Attendues entre le {start} et le {end}",
-      "notYet": "Femio n'a pas encore assez d'\u00e9l\u00e9ments pour l'estimer.",
+      "notYet": "Femio n'a pas encore assez d'éléments pour l'estimer.",
       "irregular": "Ces cycles varient, la fourchette est donc large volontairement.",
       "confidence": {
-        "high": "Une estimation \u00e0 partir de plusieurs cycles enregistr\u00e9s, pas une certitude.",
+        "high": "Une estimation à partir de plusieurs cycles enregistrés, pas une certitude.",
         "medium": "Une estimation, qui peut bouger de quelques jours.",
-        "low": "Une premi\u00e8re estimation \u00e0 partir de tr\u00e8s peu d'historique."
+        "low": "Une première estimation à partir de très peu d'historique."
       }
     },
     "phase": {
-      "heading": "O\u00f9 elle en est dans son cycle",
-      "unknown": "Femio ne devinera pas de phase \u00e0 partir de ces cycles.",
+      "heading": "Où elle en est dans son cycle",
+      "unknown": "Femio ne devinera pas de phase à partir de ces cycles.",
       "day": "Jour {day}"
     },
     "cycleDates": {
-      "heading": "Derni\u00e8res dates de r\u00e8gles"
+      "heading": "Dernières dates de règles"
     },
     "pregnancy": {
       "heading": "Grossesse",
@@ -2006,112 +2148,123 @@
       "none": "Aucune grossesse n'est suivie en ce moment."
     },
     "symptoms": {
-      "heading": "Sympt\u00f4mes not\u00e9s",
-      "row": "{name} \u2014 {date}",
-      "none": "Rien de not\u00e9 pour l'instant.",
-      "note": "Noms et dates uniquement. L'intensit\u00e9 d'une journ\u00e9e, c'est \u00e0 elle de la dire."
+      "heading": "Symptômes notés",
+      "row": "{name} — {date}",
+      "none": "Rien de noté pour l'instant.",
+      "note": "Noms et dates uniquement. L'intensité d'une journée, c'est à elle de la dire."
     },
     "medications": {
-      "heading": "M\u00e9dicaments et compl\u00e9ments",
-      "none": "Rien d'indiqu\u00e9.",
+      "heading": "Médicaments et compléments",
+      "none": "Rien d'indiqué.",
       "note": "Noms uniquement. Femio n'affiche jamais de dose et n'en conseille aucune."
     },
     "fertility": {
       "heading": "Courbes",
-      "row": "Not\u00e9 le {date}",
-      "rowWithTest": "Not\u00e9 le {date} \u2014 test\u00a0: {result}",
-      "none": "Rien de not\u00e9 pour l'instant.",
-      "note": "\u00c0 titre indicatif seulement. Ces jours sont une estimation, jamais une limite."
+      "row": "Noté le {date}",
+      "rowWithTest": "Noté le {date} — test : {result}",
+      "none": "Rien de noté pour l'instant.",
+      "note": "À titre indicatif seulement. Ces jours sont une estimation, jamais une limite."
     }
   },
   "patterns": {
     "title": "Vos tendances",
-    "intro": "Ce que montrent vos propres entr\u00e9es, compt\u00e9es. Femio ne les interpr\u00e8te pas.",
+    "intro": "Ce que montrent vos propres entrées, comptées. Femio ne les interprète pas.",
     "loading": "Chargement de vos tendances",
-    "loadError": "Nous n'avons pas pu charger cette page. C'est de notre c\u00f4t\u00e9, pas votre connexion \u2014 r\u00e9essayez.",
-    "retry": "R\u00e9essayer",
-    "limit": "Une tendance qui se r\u00e9p\u00e8te peut \u00eatre utile \u00e0 noter, mais elle ne suffit pas \u00e0 confirmer un probl\u00e8me de sant\u00e9. Parlez-en \u00e0 votre m\u00e9decin plut\u00f4t que d'agir dessus.",
+    "loadError": "Nous n'avons pas pu charger cette page. C'est de notre côté, pas votre connexion — réessayez.",
+    "retry": "Réessayer",
+    "limit": "Une tendance qui se répète peut être utile à noter, mais elle ne suffit pas à confirmer un problème de santé. Parlez-en à votre médecin plutôt que d'agir dessus.",
     "confidence": {
-      "high": "R\u00e9gulier",
-      "medium": "Assez r\u00e9gulier",
-      "low": "Signal pr\u00e9coce"
+      "high": "Régulier",
+      "medium": "Assez régulier",
+      "low": "Signal précoce"
     },
     "consent": {
-      "body": "Cet \u00e9cran vous relit vos propres entr\u00e9es\u00a0; il a donc besoin de l'autorisation \u00ab\u00a0montrez-moi mes tendances\u00a0\u00bb. Rien ne sort de Femio dans un cas comme dans l'autre.",
+      "body": "Cet écran vous relit vos propres entrées ; il a donc besoin de l'autorisation « montrez-moi mes tendances ». Rien ne sort de Femio dans un cas comme dans l'autre.",
       "cta": "L'activer"
     },
     "empty": {
-      "heading": "Pas encore assez d'entr\u00e9es",
-      "body": "Femio a besoin d'environ trois cycles avant de parler d'une tendance. En dessous, c'est une co\u00efncidence, et l'appeler une tendance serait une supposition."
+      "heading": "Pas encore assez d'entrées",
+      "body": "Femio a besoin d'environ trois cycles avant de parler d'une tendance. En dessous, c'est une coïncidence, et l'appeler une tendance serait une supposition."
     },
     "timing": {
-      "heading": "Quand cela arrive g\u00e9n\u00e9ralement",
-      "note": "Le jour de votre cycle o\u00f9 vous avez not\u00e9 chacun d'eux."
+      "heading": "Quand cela arrive généralement",
+      "note": "Le jour de votre cycle où vous avez noté chacun d'eux."
     },
     "together": {
-      "heading": "Ce que vous notez le m\u00eame jour",
-      "note": "Ces \u00e9l\u00e9ments sont apparus ensemble. Femio ne dit pas que l'un cause l'autre \u2014 il ne peut pas le savoir, et un simple comptage non plus.",
+      "heading": "Ce que vous notez le même jour",
+      "note": "Ces éléments sont apparus ensemble. Femio ne dit pas que l'un cause l'autre — il ne peut pas le savoir, et un simple comptage non plus.",
       "pair": "{a} et {b}",
       "evidence": "Ensemble sur {cycles} cycles sur {ofCycles}"
     },
     "severity": {
-      "heading": "\u00c0 quel point c'est intense",
-      "note": "La moyenne des notes que vous avez donn\u00e9es, r\u00e9cemment par rapport \u00e0 avant. Pas un jugement sur votre sant\u00e9.",
-      "higher": "{symptom} \u2014 not\u00e9 plus haut derni\u00e8rement",
-      "lower": "{symptom} \u2014 not\u00e9 plus bas derni\u00e8rement",
-      "steady": "{symptom} \u2014 \u00e0 peu pr\u00e8s pareil",
-      "evidence": "Moyenne de {recent} r\u00e9cemment contre {earlier} avant, sur {cycles} cycles"
+      "heading": "À quel point c'est intense",
+      "note": "La moyenne des notes que vous avez données, récemment par rapport à avant. Pas un jugement sur votre santé.",
+      "higher": "{symptom} — noté plus haut dernièrement",
+      "lower": "{symptom} — noté plus bas dernièrement",
+      "steady": "{symptom} — à peu près pareil",
+      "evidence": "Moyenne de {recent} récemment contre {earlier} avant, sur {cycles} cycles"
     }
   },
   "notifications": {
     "heading": "Rappels",
-    "desc": "Rien n'est activ\u00e9 tant que vous ne l'activez pas, et vous choisissez la formulation.",
-    "saveError": "L'enregistrement a \u00e9chou\u00e9. R\u00e9essayez.",
-    "enableError": "Nous n'avons pas pu activer les rappels sur cet appareil. R\u00e9essayez.",
-    "deniedNotice": "Votre navigateur bloque les notifications de Femio. Vous pouvez le changer dans les param\u00e8tres du site \u2014 nous ne pouvons plus le demander d'ici.",
-    "neverDoes": "Femio n'envoie jamais de s\u00e9ries, ne compte jamais les jours sans saisie et ne vous dit jamais qu'un cycle est en retard. Un rappel est une proposition, pas une note.",
+    "desc": "Rien n'est activé tant que vous ne l'activez pas, et vous choisissez la formulation.",
+    "saveError": "L'enregistrement a échoué. Réessayez.",
+    "enableError": "Nous n'avons pas pu activer les rappels sur cet appareil. Réessayez.",
+    "deniedNotice": "Votre navigateur bloque les notifications de Femio. Vous pouvez le changer dans les paramètres du site — nous ne pouvons plus le demander d'ici.",
+    "neverDoes": "Femio n'envoie jamais de séries, ne compte jamais les jours sans saisie et ne vous dit jamais qu'un cycle est en retard. Un rappel est une proposition, pas une note.",
     "kinds": {
       "periodWindow": {
-        "label": "La date attendue de vos prochaines r\u00e8gles",
-        "note": "Une fois, \u00e0 l'ouverture de la fourchette. Une fourchette, jamais une date unique."
+        "label": "La date attendue de vos prochaines règles",
+        "note": "Une fois, à l'ouverture de la fourchette. Une fourchette, jamais une date unique."
       },
       "logReminder": {
         "label": "Un rappel pour noter",
-        "note": "Un rappel discret que vous pouvez noter aujourd'hui. Jamais de s\u00e9rie, jamais de compte des jours manqu\u00e9s."
+        "note": "Un rappel discret que vous pouvez noter aujourd'hui. Jamais de série, jamais de compte des jours manqués."
       },
       "appointment": {
-        "label": "Un rendez-vous \u00e0 venir",
-        "note": "La veille d'un rendez-vous que vous avez not\u00e9, avec les questions que vous avez \u00e9crites."
+        "label": "Un rendez-vous à venir",
+        "note": "La veille d'un rendez-vous que vous avez noté, avec les questions que vous avez écrites."
       },
       "medication": {
         "label": "Quelque chose que vous prenez",
-        "note": "Uniquement pour ce que vous avez demand\u00e9. Femio ne v\u00e9rifie jamais si vous l'avez pris."
+        "note": "Uniquement pour ce que vous avez demandé. Femio ne vérifie jamais si vous l'avez pris."
       },
       "cycleSummary": {
-        "label": "Le r\u00e9sum\u00e9 de votre cycle",
-        "note": "Quand un cycle se termine et qu'il y a quelque chose \u00e0 relire."
+        "label": "Le résumé de votre cycle",
+        "note": "Quand un cycle se termine et qu'il y a quelque chose à relire."
       }
     },
     "discreet": {
       "label": "Garder une formulation neutre",
-      "note": "Les notifications ne disent rien de votre sant\u00e9 \u2014 utile si votre t\u00e9l\u00e9phone les affiche sur l'\u00e9cran verrouill\u00e9.",
-      "sample": "Sur votre \u00e9cran verrouill\u00e9\u00a0: \u00ab\u00a0Femio \u2014 ouvrez l'application\u00a0\u00bb",
-      "samplePlain": "Sur votre \u00e9cran verrouill\u00e9\u00a0: \u00ab\u00a0Femio \u2014 vos prochaines r\u00e8gles sont attendues bient\u00f4t\u00a0\u00bb"
+      "note": "Les notifications ne disent rien de votre santé — utile si votre téléphone les affiche sur l'écran verrouillé.",
+      "sample": "Sur votre écran verrouillé : « Femio — ouvrez l'application »",
+      "samplePlain": "Sur votre écran verrouillé : « Femio — vos prochaines règles sont attendues bientôt »"
     },
     "quiet": {
       "label": "Heures calmes",
-      "note": "Rien n'arrive entre ces heures. Femio le garde plut\u00f4t que de l'abandonner.",
+      "note": "Rien n'arrive entre ces heures. Femio le garde plutôt que de l'abandonner.",
       "from": "De",
-      "to": "\u00c0",
-      "none": "R\u00e9gl\u00e9 sur la m\u00eame heure, donc aucune heure calme \u2014 les rappels peuvent arriver \u00e0 tout moment."
+      "to": "À",
+      "none": "Réglé sur la même heure, donc aucune heure calme — les rappels peuvent arriver à tout moment."
     },
     "delivery": {
       "label": "Cet appareil",
       "on": "Les rappels peuvent atteindre cet appareil.",
-      "off": "Cet appareil n'est pas encore configur\u00e9 pour les recevoir.",
+      "off": "Cet appareil n'est pas encore configuré pour les recevoir.",
       "turnOn": "Autoriser sur cet appareil",
-      "turnOff": "Arr\u00eater sur cet appareil",
-      "unavailable": "Les rappels ne peuvent pas encore \u00eatre envoy\u00e9s \u2014 soit ce navigateur ne les g\u00e8re pas, soit Femio n'a pas fini de configurer l'envoi. Vos choix ci-dessus sont enregistr\u00e9s dans les deux cas."
+      "turnOff": "Arrêter sur cet appareil",
+      "unavailable": "Les rappels ne peuvent pas encore être envoyés — soit ce navigateur ne les gère pas, soit Femio n'a pas fini de configurer l'envoi. Vos choix ci-dessus sont enregistrés dans les deux cas."
     }
+  },
+  "vitals": {
+    "weight": "Poids",
+    "glucose": "Glycémie",
+    "bpSystolic": "Tension artérielle (systolique)",
+    "bpDiastolic": "Tension artérielle (diastolique)",
+    "bodyTemperature": "Température corporelle",
+    "restingHeartRate": "Fréquence cardiaque au repos",
+    "heartRateVariability": "Variabilité de la fréquence cardiaque",
+    "sleep": "Sommeil",
+    "steps": "Pas"
   }
 }

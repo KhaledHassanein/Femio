@@ -192,7 +192,19 @@ lint: any code path that removes a tool from the tools list is a bug.
 
 Chapter 02 §2 adds a `dimension` column. The canonical list of what may be logged is
 a **tier-1 artefact**, not a client constant, because it is medical content and
-because both clients must agree:
+because both clients must agree.
+
+**Corrected while implementing (RB-B3): this is unification, not expansion.** The
+plan elsewhere says to grow the vocabulary "from ~22 toward Flo's 47". Counted
+properly, **45 terms already existed** — 9 mood, 17 body, 19 other in
+`SYMPTOM_GROUPS` — plus five cervical-mucus types in `lib/fertility` `CM_TYPES` and
+one intercourse boolean. Fifty-one terms in three separate places, none carrying a
+dimension, a sensitivity or a clinical name, and only the first reachable from the log
+screen. The count was near parity with Flo all along; what was missing was one list.
+
+Four of the terms are the clinical sexual-health ones OD-5 permits — `painDuringSex`,
+`vaginalDryness`, `libidoUp`, `libidoDown` — and they were already scoped correctly
+before the direction existed.
 
 ```ts
 export type LogVocabulary = {

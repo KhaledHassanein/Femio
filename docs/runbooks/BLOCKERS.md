@@ -603,3 +603,40 @@ migration that adds one.
 rejects one to `confidence` needs a signed-in session. It is a column-level grant that
 RLS cannot express, so it is worth confirming by hand — added to
 `MANUAL_TEST_PLAN.md`.
+
+---
+
+## B14 · ⏳ OPEN 2026-08-23 — the Arabic wording for the intercourse marker needs a named reviewer
+
+**What is needed:** confirmation, by someone Arabic-competent and clinically literate,
+of one string.
+
+| Locale | `fertility.intercourse` |
+|---|---|
+| en | Intercourse |
+| ar | **جماع** ← the one under review |
+| fr | Rapport sexuel |
+| es | Relación sexual |
+
+**Why it is a blocker rather than a copy task.** OD-5 makes conservative wording a
+**review item, not a detail**: a term that reads clinical in English and crude in
+Arabic fails the direction, and nothing in our automated gate can tell the difference.
+`i18n-untranslated-lint` compares values, not register — it will pass a word that is
+accurate and unusable.
+
+**Why this word.** `جماع` is the classical and medical register, the term used in
+clinical and religious writing, rather than any colloquial alternative. That is the
+conservative choice as far as I can judge it, and judging it is not mine to do.
+
+**What it labels.** One marker, carrying a date and nothing else — the single term in
+the `intercourse` dimension of `LogVocabulary` (`lib/experience/v2/vocabulary.ts`),
+backed by `fertility_logs.intercourse`, which has been a boolean since schema v1.
+There are no act types and there will be none.
+
+**Not blocking Phase B.** Nothing renders this string yet. It blocks the log screen
+(C6), which is where the term first appears to a user.
+
+**Also worth a look while you are there:** the four clinical sexual-health symptoms
+that stay in the vocabulary under clinical names — `painDuringSex` (dyspareunia),
+`vaginalDryness`, `libidoUp`, `libidoDown`. Their existing Arabic strings predate
+OD-5 and were never reviewed against it.
