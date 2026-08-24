@@ -58,6 +58,8 @@ const PORTABLE = [
   "lib/experience/v2/types.ts",
   "lib/experience/v2/vocabulary.ts",
   "lib/experience/v2/variables.ts",
+  "lib/experience/v2/upgrade.ts",
+  "lib/experience/v2/flags.ts",
   "lib/experience/build.ts",
   "lib/experience/layers.ts",
   ...registryFiles,

@@ -38,7 +38,11 @@ golden fixtures. Nothing in the UI changes.
 
 ---
 
-## Phase B — The contract
+## Phase B — The contract ✅ **CLOSED 2026-08-23**
+
+Gate green: typecheck, 813 tests in 75 files, eslint, and all eleven guards. v1 is
+byte-identical because `build.ts` was never touched — v2 is derived from its output.
+**Nothing reads v2 yet**; every surface flag defaults to v1, so the app is unchanged.
 
 Chapter [03_EXPERIENCE_ENGINE.md](03_EXPERIENCE_ENGINE.md).
 
@@ -46,7 +50,7 @@ Chapter [03_EXPERIENCE_ENGINE.md](03_EXPERIENCE_ENGINE.md).
 - [x] B2 · `SurfaceMap` — landed with B1 (home, calendar, learn, tools, insights)
 - [x] B3 · `LogVocabulary` — **51 terms unified from 3 places, not expanded**; 1 intercourse term; ar wording → B14
 - [x] B4 · Variables — seeds read-only, wiring validated (unknown refs, double writers, cycles), reactivity opt-in
-- [ ] B5 · Resolver emits v1 **and** v2; per-surface flags
+- [x] B5 · `toV2` derivation (v1 untouched, asserted over all 9 golden cases) + per-surface flag resolution
 - [x] B6 · `tools-completeness-lint` — union ↔ screen in sync both ways, no persona filter; **`ToolId` corrected (6 wrong)**
 
 **Phase gate.** v1 output byte-identical to before. Golden fixtures extended.
@@ -117,7 +121,8 @@ Newest first. One line per checkpoint, with the commit.
 
 | When | What | Commit |
 |---|---|---|
-| 2026-08-23 | **B6** tools lint, `ToolId` aligned to the real screen | _pending_ |
+| 2026-08-23 | **Phase B closed** — B5 derivation + surface flags, 813 tests | _pending_ |
+| 2026-08-23 | **B6** tools lint, `ToolId` aligned to the real screen | `cfd0f66` |
 | 2026-08-23 | `pnpm gate` added after a masked exit code | `94228c1` |
 | 2026-08-23 | **B4** variables — seeds read-only, cycle detection, 791 tests | `33a2dda` |
 | 2026-08-23 | **B3** `LogVocabulary` unified (60 terms), i18n ×4, tier-1 guarded, 777 tests | `7855924` |
