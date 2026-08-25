@@ -94,6 +94,13 @@ const PORTABLE = [
    * on the same woman's phone.
    */
   "lib/notifications/index.ts",
+  /**
+   * Chart geometry (RB-C3). Tier 2: it is arithmetic over her own record, it has to
+   * work offline, and a Dart twin must reach identical coordinates — two clients
+   * disagreeing about where a fertile window starts is the same class of problem as
+   * two disagreeing about a due date.
+   */
+  "lib/charts/geometry.ts",
   "lib/cycle/cycle-report.ts",
   "lib/cycle/variability.ts",
   "lib/pregnancy/index.ts",
