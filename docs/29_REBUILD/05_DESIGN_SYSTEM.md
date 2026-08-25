@@ -106,10 +106,38 @@ probability calendar and every prediction affordance read from these, so "likely
 The repository contains **no animation assets**. Flo ships ~50 Lottie files, ten of
 which exist only to make *logging* feel like something happened.
 
-**The vocabulary.** Four `--ease-*` tokens exist; add durations —
-`--motion-instant` (100ms), `--motion-quick` (200ms), `--motion-standard` (320ms),
-`--motion-deliberate` (500ms) — and pair each with an easing so a component chooses
-one token, not two.
+**The vocabulary — corrected during implementation (RB-C2).** Four `--ease-*` tokens
+exist. Durations existed too, but **only as literals inside the Tailwind preset** —
+`fast: 150ms, base: 250ms, slow: 400ms` — with no CSS variable behind them. So a
+stylesheet could not reach them with `var()`, the Dart client would not be able to
+read them, and the parity guard could not see them because it only checks CSS →
+preset.
+
+The proposed values (100/200/320/500) are **not** used. Introducing a second scale
+beside one already in use across the app is the migration mess Flo is visibly paying
+for, and A8 declined the same thing for spacing. Instead the existing values keep
+their meaning and gain semantic names matching `MotionToken`:
+
+```
+--motion-instant     100ms   press, toggle
+--motion-quick       150ms   = the old `fast`
+--motion-standard    250ms   = the old `base`
+--motion-deliberate  400ms   = the old `slow`
+--motion-crossfade   600ms   NEW — the phase ground change only
+```
+
+`fast`/`base`/`slow` remain as preset aliases pointing at the same values, so
+`duration-fast` keeps working and nothing moves on screen. Verified in the built CSS:
+`.duration-fast{transition-duration:var(--motion-quick)}`.
+
+Seven **pairings** carry a duration and its easing together, so a component chooses
+one token rather than two and cannot pair a slow duration with a snappy curve:
+`--motion-press`, `--motion-reveal`, `--motion-enter`, `--motion-sheet`,
+`--motion-log-confirm`, `--motion-prediction`, `--motion-phase`.
+
+Two other things were found and fixed: the preset **duplicated the cubic-béziers as
+literals** rather than referencing `--ease-*`, and `--ease-out` and `--ease-in` were
+reachable from no utility at all.
 
 **Where motion is required**, in priority order:
 
@@ -132,9 +160,11 @@ Rive only if a case appears that Lottie cannot serve — Flo fetches Rive at run
 and we have no such need.
 
 **Performance.** Flo authors two versions of animated onboarding beats and routes by
-device capability. Our equivalent is simpler and already half-built: respect
-`prefers-reduced-motion` everywhere, and let `feature_flags` disable the heavy layer
-for low-end devices.
+device capability. Our equivalent is simpler and, it turns out, already whole on the
+first half: `globals.css` already clamps every animation and transition to 0.01ms
+under `prefers-reduced-motion: reduce`, globally, with a comment explaining why
+over-reach is the right error to make. `feature_flags` can disable the heavy layer for
+low-end devices when there is a heavy layer to disable.
 
 ---
 

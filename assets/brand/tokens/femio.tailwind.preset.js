@@ -106,9 +106,28 @@ module.exports = {
         'gradient-hero-warm': 'var(--gradient-hero-warm)',
       },
       transitionTimingFunction: {
-        standard: 'cubic-bezier(.2,0,0,1)', spring: 'cubic-bezier(.34,1.56,.64,1)',
+        // Pointed at the tokens rather than repeating the curves. These were
+        // duplicated as literals here, which is two sources of truth for one
+        // easing — and `--ease-out` / `--ease-in` existed in the token file and
+        // were reachable from no utility at all.
+        standard: 'var(--ease-standard)', spring: 'var(--ease-spring)',
+        out: 'var(--ease-out)', in: 'var(--ease-in)',
       },
-      transitionDuration: { fast: '150ms', base: '250ms', slow: '400ms' },
+      transitionDuration: {
+        // Semantic names, matching MotionToken in lib/experience/v2/types.ts.
+        instant: 'var(--motion-instant)', quick: 'var(--motion-quick)',
+        standard: 'var(--motion-standard)', deliberate: 'var(--motion-deliberate)',
+        crossfade: 'var(--motion-crossfade)',
+        // Aliases for the original three keys, same values. `duration-fast` is used
+        // across the app; renaming it would be churn with nothing gained.
+        fast: 'var(--motion-quick)', base: 'var(--motion-standard)',
+        slow: 'var(--motion-deliberate)',
+      },
+      transitionProperty: {
+        // The phase crossfade changes a background gradient, and `transition-colors`
+        // does not cover background-image.
+        ground: 'background-color, background-image',
+      },
       screens: { xs: '360px', sm: '480px', md: '768px', lg: '1024px', xl: '1440px' },
       zIndex: {
         // base/raised mirror --z-base and --z-raised, which were in the token file

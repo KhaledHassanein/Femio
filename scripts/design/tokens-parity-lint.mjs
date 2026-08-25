@@ -31,6 +31,8 @@ const PRESET = "assets/brand/tokens/femio.tailwind.preset.js";
 const FAMILIES = [
   { prefix: "--radius-", section: "borderRadius" },
   { prefix: "--stroke-", section: "borderWidth" },
+  { prefix: "--ease-", section: "transitionTimingFunction" },
+  { prefix: "--motion-", section: "transitionDuration" },
   /**
    * The RB-C1 colour families. Colour is *usually* excluded from this guard — the
    * semantic tokens map by meaning (`--primary-soft` → `primary.soft`) so a literal
@@ -57,6 +59,19 @@ const CSS_ONLY = new Set([
   "--shadow-focus",
   // The `frost` surface treatment is composed in CSS alongside --frost-blur.
   "--gradient-dawn",
+  /**
+   * The motion *pairings* (RB-C2). Each is a duration and an easing together, for
+   * the `transition:` shorthand — `transition: opacity var(--motion-enter)`. There
+   * is no Tailwind utility that takes both at once, so they are stylesheet-only by
+   * construction rather than by omission.
+   */
+  "--motion-press",
+  "--motion-reveal",
+  "--motion-enter",
+  "--motion-sheet",
+  "--motion-log-confirm",
+  "--motion-prediction",
+  "--motion-phase",
 ]);
 
 const css = readFileSync(TOKENS_CSS, "utf8");

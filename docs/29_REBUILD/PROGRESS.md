@@ -63,7 +63,7 @@ Chapter [03_EXPERIENCE_ENGINE.md](03_EXPERIENCE_ENGINE.md).
 Chapter [05_DESIGN_SYSTEM.md](05_DESIGN_SYSTEM.md), [06_SCREENS.md](06_SCREENS.md).
 
 - [x] C1 · 49 tokens: log ×8+alt, chart ×10, confidence ×4, skin ×5 — light+dark, preset-mapped, **both guarded**; interaction states and focus ring already existed
-- [ ] C2 · Motion vocabulary + logging confirmation + prediction change + phase crossfade
+- [x] C2 · Motion **vocabulary** — 5 durations + 7 pairings, easings de-duplicated, guarded; the confirmations/crossfade themselves land with C4–C6
 - [ ] C3 · Chart primitives ×7 (web), golden fixtures
 - [ ] C4 · Dashboard on v2 — phase-as-ground, served modules, explain affordance
 - [ ] C5 · Calendar promoted to a tab — seven day-states, **both probability tiers**
@@ -121,7 +121,8 @@ Newest first. One line per checkpoint, with the commit.
 
 | When | What | Commit |
 |---|---|---|
-| 2026-08-23 | **C1** colour families + a dark-parity guard that caught its own bug | _pending_ |
+| 2026-08-23 | **C2** motion vocabulary; durations get CSS vars at last; build-verified | _pending_ |
+| 2026-08-23 | **C1** colour families + a dark-parity guard that caught its own bug | `4991fdb` |
 | 2026-08-23 | **Phase B closed** — B5 derivation + surface flags, 813 tests | `fa29c24` |
 | 2026-08-23 | **B6** tools lint, `ToolId` aligned to the real screen | `cfd0f66` |
 | 2026-08-23 | `pnpm gate` added after a masked exit code | `94228c1` |

@@ -100,6 +100,43 @@
   --ease-in:cubic-bezier(.4,0,1,1);
   --ease-spring:cubic-bezier(.34,1.56,.64,1);              /* micro-interaction pop */
 
+  /* ---- Motion durations (RB-C2) ----
+     **These were the one scale with no CSS variable behind them.** `fast`, `base`
+     and `slow` lived as literals inside the Tailwind preset, so a stylesheet could
+     not reach them with `var()`, the Dart client will not be able to read them, and
+     the parity guard could not see them because it only checks CSS → preset.
+
+     Named for the four `MotionToken` values in `lib/experience/v2/types.ts`, so a
+     served module asking for `quick` maps to `--motion-quick` with nothing in
+     between. The preset keeps `fast`/`base`/`slow` as aliases pointing at the same
+     values — `duration-fast` is used across the app and renaming it would be churn
+     for nothing. **The values are unchanged**, so nothing moves on screen. */
+  --motion-instant:100ms;      /* a state that should feel immediate: press, toggle */
+  --motion-quick:150ms;        /* = the old `fast`. Hover, focus, small reveals */
+  --motion-standard:250ms;     /* = the old `base`. The default for anything visible */
+  --motion-deliberate:400ms;   /* = the old `slow`. Sheets, a module entering */
+  /* The dashboard's ground colour when she moves between cycle phases. Slower than
+     anything else on purpose: it is scenery, and scenery that hurries reads as a
+     glitch. Only used by the phase crossfade (chapter 06 §1). */
+  --motion-crossfade:600ms;
+
+  /* ---- Motion pairings (RB-C2) ----
+     A duration and its easing together, so a component chooses **one** token rather
+     than two and cannot accidentally pair a slow duration with a snappy curve.
+
+     `--motion-log-confirm` is the one that matters most. Flo spends more animation
+     budget on logging feedback than on anything else — ten of its ~50 Lottie files
+     exist only to acknowledge a tap — and it is why logging feels good there. */
+  --motion-press:var(--motion-instant) var(--ease-out);
+  --motion-reveal:var(--motion-quick) var(--ease-out);
+  --motion-enter:var(--motion-standard) var(--ease-standard);
+  --motion-sheet:var(--motion-deliberate) var(--ease-standard);
+  --motion-log-confirm:var(--motion-standard) var(--ease-spring);
+  /* A prediction moving is information, not decoration: it animates so she can see
+     that it changed, rather than swapping silently and reading as a glitch. */
+  --motion-prediction:var(--motion-deliberate) var(--ease-standard);
+  --motion-phase:var(--motion-crossfade) var(--ease-standard);
+
   /* ---- Z-index scale ---- */
   --z-base:0; --z-raised:10; --z-dropdown:1000; --z-sticky:1100;
   --z-overlay:1200; --z-modal:1300; --z-toast:1400; --z-tooltip:1500;
