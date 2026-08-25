@@ -178,6 +178,78 @@
   /* Prediction uncertainty is ALWAYS visually soft/dotted — see docs */
   --prediction-band:var(--amber-400);
 
+  /* ---- Log categories (RB-C1) ----
+     One colour per `LogVocabulary` dimension, plus the two record kinds that are
+     logged but live in their own tables. Flo assigns a colour to every tracked
+     category and an `...Alternate` for a second surface; this is that idea with
+     our hues.
+
+     Why it matters: without these a symptom is violet on the calendar, grey in the
+     panel and whatever the chart picked in a graph. The colour IS the identity, and
+     it has to survive the trip between surfaces.
+
+     `-alt` is the tinted fill for chips, calendar day-fills and chart bands. The
+     base is for text, icons and strokes. */
+  --log-period:var(--rasp-600);          --log-period-alt:var(--rasp-50);
+  --log-symptom:var(--violet-600);       --log-symptom-alt:var(--violet-50);
+  --log-mood:var(--amber-600);           --log-mood-alt:var(--amber-50);
+  --log-discharge:var(--teal-600);       --log-discharge-alt:var(--teal-50);
+  --log-vital:var(--neutral-700);        --log-vital-alt:var(--neutral-100);
+  --log-medication:var(--violet-800);    --log-medication-alt:var(--violet-100);
+  --log-appointment:var(--teal-800);     --log-appointment-alt:var(--teal-100);
+  /* Deliberately the quietest in the set. `LogVocabulary` marks this term
+     `sensitivity: "elevated"`, and a bright chip on a shared device defeats the
+     point of marking it. */
+  --log-intercourse:var(--neutral-550);  --log-intercourse-alt:var(--neutral-100);
+
+  /* ---- Charts (RB-C1, for the C3 primitives) ----
+     Six categorical series, ordered by how often a chart needs a new one. Hue
+     carries the distinction and lightness stays close, so a series is identifiable
+     without relying on hue alone — the ordering is also a safe greyscale ramp,
+     which is what makes it legible to a deuteranope and in a printed visit pack.
+
+     Red is deliberately absent: in this product red means a red flag, and a
+     categorical series that happens to be sixth must never read as a warning. */
+  --chart-1:var(--violet-600);
+  --chart-2:var(--teal-600);
+  --chart-3:var(--amber-600);
+  --chart-4:var(--rasp-600);
+  --chart-5:var(--neutral-600);
+  --chart-6:var(--violet-400);
+  --chart-inactive:var(--neutral-300);
+  --chart-grid:var(--neutral-200);
+  --chart-axis:var(--neutral-500);
+  --chart-annotation:var(--neutral-700);
+
+  /* ---- Confidence (RB-C1) ----
+     Ours alone. Read by D2's prediction affordances and by the two-tier calendar,
+     so "likely" and "may" look the same everywhere they appear.
+
+     **One hue at three weights, never a traffic light.** Green-amber-red would say
+     high confidence is *good* and low confidence is *bad*, and a wide window is
+     neither — it is an honest statement about her cycles. Darker simply means more
+     strongly stated, which is what confidence is. This is the same reason chapter
+     01 refuses to grade a cycle. */
+  --confidence-high:var(--neutral-800);
+  --confidence-medium:var(--neutral-550);
+  --confidence-low:var(--neutral-400);
+  /* The wash behind a ConfidenceBand. Soft enough that the band never competes with
+     the series drawn on top of it. */
+  --confidence-band:rgb(146 139 163 / .16);
+
+  /* ---- Illustration skin tones (RB-C1) ----
+     Five, as Flo tokenises five. `docs/12` has argued for inclusive illustration
+     since the brand work and never made it a token, so every illustration
+     commissioned so far made its own decision.
+
+     Identical in both themes on purpose: skin does not invert. A dark-mode variant
+     would mean the same character has a different complexion at night. */
+  --skin-1:#F7D9C4;
+  --skin-2:#EFC49F;
+  --skin-3:#C89B7B;
+  --skin-4:#8D5B3F;
+  --skin-5:#5A3825;
+
   /* Interaction */
   /* Solid fills that carry white text — AA-verified with white in BOTH themes.
      Use these for buttons/labels; the raw --primary/--success (and teal-600) are for
@@ -233,6 +305,36 @@
 
   --phase-ovulatory:#FBBF24;
   --prediction-band:var(--amber-300);
+
+  /* Log categories on dark. Lightened so each keeps its identity against
+     #211E2E; the `-alt` fills become translucent washes rather than pale tints,
+     because a 50-level tint on a dark card reads as a light-mode bug. */
+  --log-period:var(--rasp-400);          --log-period-alt:rgb(225 29 116 / .18);
+  --log-symptom:var(--violet-400);       --log-symptom-alt:rgb(124 58 237 / .18);
+  --log-mood:var(--amber-400);           --log-mood-alt:rgb(217 119 6 / .18);
+  --log-discharge:var(--teal-400);       --log-discharge-alt:rgb(13 148 136 / .18);
+  --log-vital:var(--neutral-400);        --log-vital-alt:rgb(255 255 255 / .07);
+  --log-medication:var(--violet-300);    --log-medication-alt:rgb(124 58 237 / .24);
+  --log-appointment:var(--teal-300);     --log-appointment-alt:rgb(13 148 136 / .24);
+  --log-intercourse:var(--neutral-500);  --log-intercourse-alt:rgb(255 255 255 / .07);
+
+  --chart-1:var(--violet-400);
+  --chart-2:var(--teal-400);
+  --chart-3:var(--amber-400);
+  --chart-4:var(--rasp-400);
+  --chart-5:var(--neutral-400);
+  --chart-6:var(--violet-200);
+  --chart-inactive:var(--neutral-700);
+  --chart-grid:rgb(255 255 255 / .08);
+  --chart-axis:var(--neutral-500);
+  --chart-annotation:var(--neutral-300);
+
+  /* Inverted weighting: on dark, *lighter* is more strongly stated. The rule is
+     "further from the background", not "darker". */
+  --confidence-high:var(--neutral-100);
+  --confidence-medium:var(--neutral-400);
+  --confidence-low:var(--neutral-600);
+  --confidence-band:rgb(255 255 255 / .10);
 
   /* Solid CTA fills — keep violet-600/teal-700 for white-text AA-safety on dark too.
      (--primary stays violet-500 for legible on-dark text/icons/borders.) */

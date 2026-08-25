@@ -606,7 +606,7 @@ RLS cannot express, so it is worth confirming by hand — added to
 
 ---
 
-## B14 · ⏳ OPEN 2026-08-23 — the Arabic wording for the intercourse marker needs a named reviewer
+## B14 · ✅ APPROVED 2026-08-23 — `جماع` confirmed by the owner, unchanged
 
 **What is needed:** confirmation, by someone Arabic-competent and clinically literate,
 of one string.
@@ -640,3 +640,11 @@ There are no act types and there will be none.
 that stay in the vocabulary under clinical names — `painDuringSex` (dyspareunia),
 `vaginalDryness`, `libidoUp`, `libidoDown`. Their existing Arabic strings predate
 OD-5 and were never reviewed against it.
+
+---
+
+### Approved 2026-08-23, unchanged
+
+The owner confirmed `جماع` as the Arabic term. The string ships as written; no code
+change was needed. The four clinical symptom strings remain worth a pass when the log
+screen (C6) puts them in front of a user for the first time — they are not blocking.

@@ -65,8 +65,13 @@ to chapter 02's dimensions:
 This is what stops a symptom looking one way on the calendar, another on the panel
 and a third in a chart. It is the single highest-value addition here.
 
-**Interaction states as tokens.** `--button-*-hover`, `--button-*-pressed`. Today
-these are opacity guesses at call sites, which is why press feedback varies.
+**~~Interaction states as tokens.~~ Corrected during implementation — these exist.**
+`--primary-hover`, `--primary-active`, `--accent-hover`, `--success-hover` and their
+dark counterparts are all in the token file, and `components/ui/button.tsx` uses them
+(`hover:bg-primary-hover active:bg-primary-active`). The claim that press feedback is
+"opacity guesses at call sites" was wrong. There are also generic `--state-hover` and
+`--state-press` overlays which nothing currently uses — a token with no consumer,
+which is a smaller and different problem.
 
 **~~A named focus ring.~~ Corrected during implementation — we already have one.**
 `--shadow-focus: 0 0 0 3px var(--violet-200)` is applied by a global `:focus-visible`

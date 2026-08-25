@@ -31,6 +31,21 @@ const PRESET = "assets/brand/tokens/femio.tailwind.preset.js";
 const FAMILIES = [
   { prefix: "--radius-", section: "borderRadius" },
   { prefix: "--stroke-", section: "borderWidth" },
+  /**
+   * The RB-C1 colour families. Colour is *usually* excluded from this guard — the
+   * semantic tokens map by meaning (`--primary-soft` → `primary.soft`) so a literal
+   * name check would be noise. These four are the exception because they map
+   * name-for-name, which means the check is exact rather than approximate.
+   *
+   * They are also the families most likely to drift: a new log dimension, a seventh
+   * chart series or a sixth skin tone is added to the CSS by whoever needs it, and
+   * the preset is the step that gets forgotten. That is precisely how
+   * `--radius-round` shipped unmapped and rendered a radio dot as a square.
+   */
+  { prefix: "--log-", section: "colors" },
+  { prefix: "--chart-", section: "colors" },
+  { prefix: "--confidence-", section: "colors" },
+  { prefix: "--skin-", section: "colors" },
   { prefix: "--gradient-", section: "backgroundImage" },
   { prefix: "--shadow-", section: "boxShadow" },
   { prefix: "--z-", section: "zIndex" },
@@ -117,6 +132,56 @@ if (missing.length > 0) {
   process.exit(1);
 }
 
+/* ---------------------------------------------------------------------------
+ * Second check: every themed token is redefined for dark.
+ *
+ * A token declared only in `:root` keeps its light value on a dark background —
+ * silently, with no error and no failing test, exactly like an unmapped utility.
+ * A chart axis at `--neutral-500` is legible on white and nearly invisible on
+ * #211E2E, and the only symptom is a screenshot nobody took.
+ *
+ * `--skin-*` is exempt by design: skin does not invert, and a dark-mode variant
+ * would mean the same character has a different complexion at night.
+ * ------------------------------------------------------------------------- */
+const THEMED = ["--log-", "--chart-", "--confidence-"];
+/**
+ * Everything from the `[data-theme="dark"]` *selector* onward.
+ *
+ * Anchored to a line that starts the rule, not to the first occurrence of the
+ * string: the file's own header comment on line 6 mentions `[data-theme="dark"]`,
+ * and slicing from there made "the dark block" mean the whole file — so every
+ * light-only token counted as themed and the check passed on everything. Found by
+ * deliberately deleting a dark token and watching the guard stay green.
+ */
+const darkMatch = /^\[data-theme="dark"\]\s*\{/m.exec(css);
+if (darkMatch === null) {
+  console.error('tokens-parity-lint: no [data-theme="dark"] rule found — did the file change shape?');
+  process.exit(1);
+}
+const darkBlock = css.slice(darkMatch.index);
+const darkDeclared = new Set(
+  [...darkBlock.matchAll(/(--[a-z0-9-]+)\s*:/gi)].map((m) => m[1].toLowerCase()),
+);
+
+const unthemed = [...declared].filter(
+  (t) => THEMED.some((p) => t.startsWith(p)) && !darkDeclared.has(t),
+);
+
+if (unthemed.length > 0) {
+  console.error(
+    `tokens-parity-lint: ${unthemed.length} token(s) are declared for light and never
+` +
+      `redefined under [data-theme="dark"]. They will keep their light value on a dark
+` +
+      `background, which no test can see.
+`,
+  );
+  for (const t of unthemed) console.error(`  ${t}`);
+  process.exit(1);
+}
+
 console.log(
-  `✓ Token parity guard: ${checked} token(s) across ${FAMILIES.length} famil(ies) are all mapped into the Tailwind preset.`,
+  `✓ Token parity guard: ${checked} token(s) across ${FAMILIES.length} famil(ies) are all mapped into the Tailwind preset,
+` +
+    `  and every themed token is redefined for dark.`,
 );

@@ -59,6 +59,8 @@ not resurrect the original version from an older chapter.
 
 | **C-12** | The `ToolId` union in the v2 contract, as first drafted | Written from memory and wrong in six of ten places: it invented `contraction-timer`, `movement-counter` and `weight` — controls inside the pregnancy experience, not tools with routes — and omitted `track`, `sharing` and `learn`. The real list is in `components/tools/tools-screen.tsx`, whose own header already argues rule 2 better than the plan did. Now pinned by `tools-completeness-lint`. | Implementing B6 |
 
+| **C-13** | Interaction states are "opacity guesses at call sites" (`docs/29` ch.05 §2) | `--primary-hover`, `--primary-active`, `--accent-hover` and dark equivalents all exist, and `button.tsx` uses them. Separately, generic `--state-hover`/`--state-press` exist and nothing consumes them — a token with no consumer, not a missing token. | Implementing C1 |
+
 **A second meta-lesson, from C-1, C-8 and C-9.** All three are the same mistake: a gap
 asserted from a **count** rather than from a read. `docs/28` chapter 05 measured Femio
 as 144 tokens, 27 tables, 40 routes — accurate, and blind to the fact that one token is

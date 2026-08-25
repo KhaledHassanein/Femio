@@ -20,6 +20,38 @@ module.exports = {
         warning: { DEFAULT: 'var(--warning)', soft: 'var(--warning-soft)', text: 'var(--warning-text)' },
         danger: { DEFAULT: 'var(--danger)', soft: 'var(--danger-soft)', text: 'var(--danger-text)', border: 'var(--danger-border)' },
         info: { DEFAULT: 'var(--info)', soft: 'var(--info-soft)' },
+        /**
+         * One colour per LogVocabulary dimension (RB-C1). `alt` is the tinted fill
+         * for chips, calendar days and chart bands; the base is text and strokes.
+         * A symptom must look the same on the calendar, in the panel and in a chart.
+         */
+        log: {
+          period: 'var(--log-period)', 'period-alt': 'var(--log-period-alt)',
+          symptom: 'var(--log-symptom)', 'symptom-alt': 'var(--log-symptom-alt)',
+          mood: 'var(--log-mood)', 'mood-alt': 'var(--log-mood-alt)',
+          discharge: 'var(--log-discharge)', 'discharge-alt': 'var(--log-discharge-alt)',
+          vital: 'var(--log-vital)', 'vital-alt': 'var(--log-vital-alt)',
+          medication: 'var(--log-medication)', 'medication-alt': 'var(--log-medication-alt)',
+          appointment: 'var(--log-appointment)', 'appointment-alt': 'var(--log-appointment-alt)',
+          intercourse: 'var(--log-intercourse)', 'intercourse-alt': 'var(--log-intercourse-alt)',
+        },
+        /** Categorical series for the C3 chart primitives. No red: red means red flag. */
+        chart: {
+          1: 'var(--chart-1)', 2: 'var(--chart-2)', 3: 'var(--chart-3)',
+          4: 'var(--chart-4)', 5: 'var(--chart-5)', 6: 'var(--chart-6)',
+          inactive: 'var(--chart-inactive)', grid: 'var(--chart-grid)',
+          axis: 'var(--chart-axis)', annotation: 'var(--chart-annotation)',
+        },
+        /** How strongly stated, never how good. One hue at three weights. */
+        confidence: {
+          high: 'var(--confidence-high)', medium: 'var(--confidence-medium)',
+          low: 'var(--confidence-low)', band: 'var(--confidence-band)',
+        },
+        /** Illustration complexions. Identical in both themes — skin does not invert. */
+        skin: {
+          1: 'var(--skin-1)', 2: 'var(--skin-2)', 3: 'var(--skin-3)',
+          4: 'var(--skin-4)', 5: 'var(--skin-5)',
+        },
         phase: { menstrual: 'var(--phase-menstrual)', follicular: 'var(--phase-follicular)', ovulatory: 'var(--phase-ovulatory)', luteal: 'var(--phase-luteal)' },
         prediction: { band: 'var(--prediction-band)' },
       },

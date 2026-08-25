@@ -58,11 +58,11 @@ Chapter [03_EXPERIENCE_ENGINE.md](03_EXPERIENCE_ENGINE.md).
 
 ---
 
-## Phase C — The visible foundation
+## Phase C — The visible foundation  ⏳ in progress
 
 Chapter [05_DESIGN_SYSTEM.md](05_DESIGN_SYSTEM.md), [06_SCREENS.md](06_SCREENS.md).
 
-- [ ] C1 · Colour families: per-log-category + alt, interaction states, focus ring, chart, skin tones, confidence
+- [x] C1 · 49 tokens: log ×8+alt, chart ×10, confidence ×4, skin ×5 — light+dark, preset-mapped, **both guarded**; interaction states and focus ring already existed
 - [ ] C2 · Motion vocabulary + logging confirmation + prediction change + phase crossfade
 - [ ] C3 · Chart primitives ×7 (web), golden fixtures
 - [ ] C4 · Dashboard on v2 — phase-as-ground, served modules, explain affordance
@@ -121,7 +121,8 @@ Newest first. One line per checkpoint, with the commit.
 
 | When | What | Commit |
 |---|---|---|
-| 2026-08-23 | **Phase B closed** — B5 derivation + surface flags, 813 tests | _pending_ |
+| 2026-08-23 | **C1** colour families + a dark-parity guard that caught its own bug | _pending_ |
+| 2026-08-23 | **Phase B closed** — B5 derivation + surface flags, 813 tests | `fa29c24` |
 | 2026-08-23 | **B6** tools lint, `ToolId` aligned to the real screen | `cfd0f66` |
 | 2026-08-23 | `pnpm gate` added after a masked exit code | `94228c1` |
 | 2026-08-23 | **B4** variables — seeds read-only, cycle detection, 791 tests | `33a2dda` |
