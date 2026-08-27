@@ -65,7 +65,7 @@ Chapter [05_DESIGN_SYSTEM.md](05_DESIGN_SYSTEM.md), [06_SCREENS.md](06_SCREENS.m
 - [x] C1 · 49 tokens: log ×8+alt, chart ×10, confidence ×4, skin ×5 — light+dark, preset-mapped, **both guarded**; interaction states and focus ring already existed
 - [x] C2 · Motion **vocabulary** — 5 durations + 7 pairings, easings de-duplicated, guarded; the confirmations/crossfade themselves land with C4–C6
 - [x] C3 · 7 primitives — geometry tier-2 (30 tests) + SVG renderers; `chart-literals-lint`; **captions and RTL required by construction**
-- [ ] C4 · Dashboard on v2 — phase-as-ground, served modules, explain affordance
+- [~] C4 · **Shell landed**: `HomeShell` + `ModuleHost` + phase-as-ground, flag-gated off, v1 untouched. Track B's 6 module labels ×4 locales. **Still open:** the registry populated per track, the explain affordance (needs D3), mounting behind the flag in `dashboard-screen.tsx`
 - [ ] C5 · Calendar promoted to a tab — seven day-states, **both probability tiers**
 - [ ] C6 · Log screen — search, per-day navigation, reorderable categories, severity
 - [ ] C7 · Designed empty / loading / error / offline states
@@ -121,7 +121,8 @@ Newest first. One line per checkpoint, with the commit.
 
 | When | What | Commit |
 |---|---|---|
-| 2026-08-23 | **C3** seven chart primitives, geometry split for the Dart twin, 843 tests | _pending_ |
+| 2026-08-23 | **C4 (part)** v2 home shell, module host, phase-as-ground, 851 tests | _pending_ |
+| 2026-08-23 | **C3** seven chart primitives, geometry split for the Dart twin, 843 tests | `665182b` |
 | 2026-08-23 | **C2** motion vocabulary; durations get CSS vars at last; build-verified | `2f15438` |
 | 2026-08-23 | **C1** colour families + a dark-parity guard that caught its own bug | `4991fdb` |
 | 2026-08-23 | **Phase B closed** — B5 derivation + surface flags, 813 tests | `fa29c24` |

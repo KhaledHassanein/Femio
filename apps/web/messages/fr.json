@@ -2266,5 +2266,27 @@
     "heartRateVariability": "Variabilité de la fréquence cardiaque",
     "sleep": "Sommeil",
     "steps": "Pas"
+  },
+  "modules": {
+    "cycle": {
+      "window": {
+        "label": "Fenêtre de vos prochaines règles"
+      },
+      "variability": {
+        "label": "La variabilité de vos cycles"
+      },
+      "phase": {
+        "label": "Où vous en êtes dans votre cycle"
+      },
+      "flowStrip": {
+        "label": "Votre flux récent"
+      },
+      "personalNormal": {
+        "label": "Ce qui est habituel pour vous"
+      },
+      "changeAwareness": {
+        "label": "Ce qui a changé"
+      }
+    }
   }
 }

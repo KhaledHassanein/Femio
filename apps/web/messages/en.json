@@ -2266,5 +2266,27 @@
     "heartRateVariability": "Heart rate variability",
     "sleep": "Sleep",
     "steps": "Steps"
+  },
+  "modules": {
+    "cycle": {
+      "window": {
+        "label": "Your next period window"
+      },
+      "variability": {
+        "label": "How your cycles vary"
+      },
+      "phase": {
+        "label": "Where you are in your cycle"
+      },
+      "flowStrip": {
+        "label": "Your recent flow"
+      },
+      "personalNormal": {
+        "label": "What is usual for you"
+      },
+      "changeAwareness": {
+        "label": "What has changed"
+      }
+    }
   }
 }

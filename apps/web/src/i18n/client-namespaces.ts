@@ -53,6 +53,13 @@ export const PUBLIC_CLIENT_NAMESPACES = [
  * to them; the cost is paid only by someone actually using the app.
  */
 export const APP_CLIENT_NAMESPACES = [
+  /**
+   * Accessible names for served modules (RB-C4). Read by `ModuleHost`, which
+   * applies `a11y.labelKey` from the v2 document so no module has to remember to
+   * label itself. App-only: a served experience document is never resolved on a
+   * public content page.
+   */
+  "modules",
   // First-run period entry and the cycle phase strip. App-only on purpose: adding it to the public
   // list would ship it to /learn, which is the regression the page-weight budget
   // caught the last time tracker strings leaked onto a content page.

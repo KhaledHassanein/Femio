@@ -2266,5 +2266,27 @@
     "heartRateVariability": "تغيّر معدل ضربات القلب",
     "sleep": "النوم",
     "steps": "الخطوات"
+  },
+  "modules": {
+    "cycle": {
+      "window": {
+        "label": "نافذة دورتك القادمة"
+      },
+      "variability": {
+        "label": "مدى اختلاف دوراتك"
+      },
+      "phase": {
+        "label": "أين أنتِ في دورتك"
+      },
+      "flowStrip": {
+        "label": "تدفّقك الأخير"
+      },
+      "personalNormal": {
+        "label": "ما المعتاد بالنسبة لكِ"
+      },
+      "changeAwareness": {
+        "label": "ما الذي تغيّر"
+      }
+    }
   }
 }

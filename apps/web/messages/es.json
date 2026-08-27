@@ -2266,5 +2266,27 @@
     "heartRateVariability": "Variabilidad de la frecuencia cardíaca",
     "sleep": "Sueño",
     "steps": "Pasos"
+  },
+  "modules": {
+    "cycle": {
+      "window": {
+        "label": "Ventana de tu próximo periodo"
+      },
+      "variability": {
+        "label": "Variabilidad de tus ciclos"
+      },
+      "phase": {
+        "label": "En qué punto de tu ciclo estás"
+      },
+      "flowStrip": {
+        "label": "Tu flujo reciente"
+      },
+      "personalNormal": {
+        "label": "Lo que es habitual para ti"
+      },
+      "changeAwareness": {
+        "label": "Lo que ha cambiado"
+      }
+    }
   }
 }
