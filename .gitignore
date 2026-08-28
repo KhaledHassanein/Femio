@@ -64,3 +64,10 @@ temp/
 .seeded-state.json
 **/.seeded-state.json
 screenshots/
+
+# Per-runtime agent tooling. `.agents/skills` is a mirror of `.claude/skills`,
+# which is tracked (70 files) — committing both would be 3.7MB of near-duplicate
+# that drifts silently, since the two copies already differ. `.codex/config.toml`
+# is one person's local tool config, not a build input.
+.agents/
+.codex/
