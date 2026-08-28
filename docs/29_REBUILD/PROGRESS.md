@@ -14,8 +14,9 @@ Status marks follow the MASTER_TODO covenant: `[ ]` open · `[~]` in progress ·
 
 ## Phase A — Foundations ✅ **CLOSED 2026-08-23** (`69a72cb`)
 
-Seven migrations (`0015`–`0021`) written and the stroke scale landed. **Not yet applied
-to any database** — running them is an owner task, see `runbooks/BLOCKERS.md`. Gate
+Seven migrations (`0015`–`0021`) written and the stroke scale landed. **Applied to the
+linked project** — verified 2026-08-28: `migration list --linked` shows all 21 present
+in both columns, and `db push --dry-run` reports the remote up to date. Gate
 green: typecheck, 756 tests in 70 files, eslint, token parity.
 
 Three of the plan's asserted gaps turned out not to exist (C-8, C-9 in the teardown

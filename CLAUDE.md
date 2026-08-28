@@ -1,6 +1,7 @@
 # CLAUDE.md — Femio V2 (read this first, every session)
 
-You are working on **Femio**, a women's-health platform. This file orients you; the authoritative detail lives in `docs/`. **Read `docs/STATE.md` first** — it carries the resume prompt, the working loop and the gate — then `docs/07_MASTER_TODO.md` for the queue. What is waiting on Khaled is in `docs/runbooks/BLOCKERS.md`; what needs his eyes is in `docs/runbooks/MANUAL_TEST_PLAN.md`.
+You are working on **Femio**, a women's-health platform. **If you need one page on where the
+project stands across web, Android and iOS, read `docs/00_WHERE_WE_ARE.md`.** This file orients you; the authoritative detail lives in `docs/`. **Read `docs/STATE.md` first** — it carries the resume prompt, the working loop and the gate — then `docs/07_MASTER_TODO.md` for the queue. What is waiting on Khaled is in `docs/runbooks/BLOCKERS.md`; what needs his eyes is in `docs/runbooks/MANUAL_TEST_PLAN.md`.
 
 ## What Femio is
 One account for a woman's **whole health life** — puberty → cycles → conditions → TTC/IVF → pregnancy → postpartum → perimenopause → menopause — with referenced medical content, honest predictions, and verifiable privacy. 4 languages (EN/AR/FR/ES, RTL-native). **Mobile is the destination; web is also a real product** — Android via **Flutter**, then iOS, over the same backend (ADR-060). The public content site and CMS are *support functions*: they bring people to the app. Positioning & strategy: `docs/00_EXECUTIVE_SUMMARY.md`, `docs/05_PRODUCT_STRATEGY_PLAN.md`.

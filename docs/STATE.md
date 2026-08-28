@@ -6,6 +6,9 @@ per session.**
 
 ## ▶ Resume prompt — paste this into a new chat
 
+> **Lost? Read `docs/00_WHERE_WE_ARE.md` first** — one page, the three launches, and what only the
+> owner can do.
+>
 > Read `CLAUDE.md`, then this file, then `docs/07_MASTER_TODO.md` → **▶ NOW**. Skim
 > `docs/23`/`24`/`25` only if the task touches strategy, architecture or design.
 >
