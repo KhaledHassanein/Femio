@@ -66,7 +66,10 @@ Chapter [05_DESIGN_SYSTEM.md](05_DESIGN_SYSTEM.md), [06_SCREENS.md](06_SCREENS.m
 - [x] C1 · 49 tokens: log ×8+alt, chart ×10, confidence ×4, skin ×5 — light+dark, preset-mapped, **both guarded**; interaction states and focus ring already existed
 - [x] C2 · Motion **vocabulary** — 5 durations + 7 pairings, easings de-duplicated, guarded; the confirmations/crossfade themselves land with C4–C6
 - [x] C3 · 7 primitives — geometry tier-2 (30 tests) + SVG renderers; `chart-literals-lint`; **captions and RTL required by construction**
-- [~] C4 · **Shell landed**: `HomeShell` + `ModuleHost` + phase-as-ground, flag-gated off, v1 untouched. Track B's 6 module labels ×4 locales. **Still open:** the registry populated per track, the explain affordance (needs D3), mounting behind the flag in `dashboard-screen.tsx`
+- [~] C4 · **Shell + registry + flag reader landed**, v1 untouched throughout. `HomeShell` + `ModuleHost` + phase-as-ground; Track B's 6 module labels ×4 locales; `module-registry-v2` (an *adapter* over v1's renderers, not a second list — `ModuleId` is shared, and two lists would drift until a flag flip exposed it); `useSurfaceVersion` resolving **remote → cached → compiled v1** per `0021`, with 5 tests on the order.
+  **Still open, and one is bigger than the plan assumed:**
+  - **Mounting needs per-track contexts extracted first.** `HomeShell` takes one `ModuleRenderer`, but v1 builds its `ModuleContext` *inside* each per-track experience component (`cycle-experience`, `ttc-experience`, …) and never exposes it — so there is no single context at the dashboard level to hand it. A mount was written and reverted rather than half-landed: the honest version extracts context construction from those components so v1 and v2 share it, which is its own checkpoint and can break v1 if rushed. **→ C4a.**
+  - The explain affordance (needs D3).
 - [ ] C5 · Calendar promoted to a tab — seven day-states, **both probability tiers**
 - [ ] C6 · Log screen — search, per-day navigation, reorderable categories, severity
 - [ ] C7 · Designed empty / loading / error / offline states

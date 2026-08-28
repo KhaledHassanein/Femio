@@ -157,7 +157,12 @@ export const UNIMPLEMENTED: readonly ModuleId[] = [
 
 type Renderer = (ctx: ModuleContext, spec: ModuleSpec) => ReactNode;
 
-const RENDERERS: Partial<Record<ModuleId, Renderer>> = {
+/**
+ * Exported for the v2 adapter (RB-C4). `ModuleId` is shared between the contracts,
+ * so v2 reuses these rather than keeping a second list that would drift — a module
+ * fixed in one and not the other is a bug nobody sees until a flag flips.
+ */
+export const RENDERERS_BY_ID: Partial<Record<ModuleId, Renderer>> = {
   "teen.window": (ctx) => ctx.teenWindow,
   "teen.body": (ctx) => ctx.teenBody,
   "teen.readiness": (ctx) => ctx.teenReadiness,
@@ -224,13 +229,13 @@ const RENDERERS: Partial<Record<ModuleId, Renderer>> = {
 };
 
 /** Every id this registry can render. Used by the coverage test. */
-export const IMPLEMENTED = Object.keys(RENDERERS) as readonly ModuleId[];
+export const IMPLEMENTED = Object.keys(RENDERERS_BY_ID) as readonly ModuleId[];
 
 export function ExperienceModules({ ctx }: { ctx: ModuleContext }) {
   return (
     <>
       {ctx.config.home.modules.map((spec) => {
-        const render = RENDERERS[spec.id];
+        const render = RENDERERS_BY_ID[spec.id];
         if (!render) return null;
         return <div key={spec.id}>{render(ctx, spec)}</div>;
       })}
