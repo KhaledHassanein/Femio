@@ -1702,6 +1702,7 @@
     }
   },
   "appNav": {
+    "calendar": "Calendrier",
     "tools": "Outils",
     "primary": "Sections principales",
     "home": "Accueil",
@@ -2303,5 +2304,31 @@
     "privacy": {
       "label": "Tes réglages de confidentialité"
     }
+  },
+  "calendar": {
+    "gridLabel": "Ton cycle mois par mois",
+    "a11y": {
+      "today": "Aujourd'hui",
+      "runStart": "Premier jour enregistré de ces règles",
+      "runEnd": "Dernier jour enregistré de ces règles",
+      "likely": "Tes règles devraient probablement commencer vers maintenant",
+      "possible": "Tes règles pourraient commencer vers maintenant",
+      "fertile": "Fenêtre fertile estimée",
+      "ovulation": "Ovulation estimée",
+      "hasLogs": "Tu as enregistré quelque chose ce jour-là",
+      "flow": {
+        "spotting": "Spotting enregistré",
+        "light": "Flux léger enregistré",
+        "medium": "Flux moyen enregistré",
+        "heavy": "Flux abondant enregistré"
+      }
+    },
+    "title": "Calendrier",
+    "detail": {
+      "cycleDay": "Jour {day} de ton cycle",
+      "nothingLogged": "Rien d'enregistré ce jour-là."
+    },
+    "loadError": "Impossible de charger ton calendrier. Réessaie — si cela persiste, le problème vient de nous, pas de toi.",
+    "retry": "Réessayer"
   }
 }

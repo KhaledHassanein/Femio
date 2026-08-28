@@ -64,6 +64,7 @@ export const APP_CLIENT_NAMESPACES = [
   // list would ship it to /learn, which is the regression the page-weight budget
   // caught the last time tracker strings leaked onto a content page.
   "firstRun",
+  "calendar",
   "cycleReport",
   "cycleVariability",
   "flowStrip",

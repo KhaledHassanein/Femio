@@ -1,6 +1,6 @@
 "use client";
 
-import { CalendarHeart, House, LayoutGrid, Settings2 } from "lucide-react";
+import { CalendarDays, CalendarHeart, House, LayoutGrid, Settings2 } from "lucide-react";
 import { useTranslations } from "next-intl";
 import { Link, usePathname } from "@/i18n/navigation";
 import { ThemeToggle } from "@/components/theme-toggle";
@@ -22,6 +22,13 @@ const TABS = [
   // "Tableau de bord" does not fit in it.
   { href: "/dashboard", key: "home", Icon: House },
   { href: "/track", key: "track", Icon: CalendarHeart },
+  /**
+   * Calendar, promoted from an icon to a tab (RB-C5). `docs/29_REBUILD/06` §2:
+   * it is the surface she looks at most, and it was reachable only from inside
+   * Track. Five tabs is the ceiling on a 390px screen — anything more and the
+   * labels truncate before the icons do.
+   */
+  { href: "/calendar", key: "calendar", Icon: CalendarDays },
   /**
    * Tools (R3.2.1). Five built, working routes — the visit summary, fertility
    * charting, appointments, screeners and medications — were unreachable from the

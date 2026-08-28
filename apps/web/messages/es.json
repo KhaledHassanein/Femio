@@ -1702,6 +1702,7 @@
     }
   },
   "appNav": {
+    "calendar": "Calendario",
     "tools": "Herramientas",
     "primary": "Secciones principales",
     "home": "Inicio",
@@ -2303,5 +2304,31 @@
     "privacy": {
       "label": "Tus ajustes de privacidad"
     }
+  },
+  "calendar": {
+    "gridLabel": "Tu ciclo mes a mes",
+    "a11y": {
+      "today": "Hoy",
+      "runStart": "Primer día registrado de esta regla",
+      "runEnd": "Último día registrado de esta regla",
+      "likely": "Es probable que tu regla empiece por estas fechas",
+      "possible": "Tu regla podría empezar por estas fechas",
+      "fertile": "Ventana fértil estimada",
+      "ovulation": "Ovulación estimada",
+      "hasLogs": "Registraste algo este día",
+      "flow": {
+        "spotting": "Manchado registrado",
+        "light": "Flujo ligero registrado",
+        "medium": "Flujo medio registrado",
+        "heavy": "Flujo abundante registrado"
+      }
+    },
+    "title": "Calendario",
+    "detail": {
+      "cycleDay": "Día {day} de tu ciclo",
+      "nothingLogged": "Nada registrado este día."
+    },
+    "loadError": "No hemos podido cargar tu calendario. Vuelve a intentarlo: si sigue ocurriendo, el fallo es nuestro, no tuyo.",
+    "retry": "Reintentar"
   }
 }

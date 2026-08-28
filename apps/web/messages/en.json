@@ -1702,6 +1702,7 @@
     }
   },
   "appNav": {
+    "calendar": "Calendar",
     "tools": "Tools",
     "primary": "Main sections",
     "home": "Home",
@@ -2303,5 +2304,31 @@
     "privacy": {
       "label": "Your privacy settings"
     }
+  },
+  "calendar": {
+    "gridLabel": "Your cycle month by month",
+    "a11y": {
+      "today": "Today",
+      "runStart": "First logged day of this period",
+      "runEnd": "Last logged day of this period",
+      "likely": "Your period is likely to start around now",
+      "possible": "Your period may start around now",
+      "fertile": "Estimated fertile window",
+      "ovulation": "Estimated ovulation",
+      "hasLogs": "You logged something on this day",
+      "flow": {
+        "spotting": "Spotting logged",
+        "light": "Light flow logged",
+        "medium": "Medium flow logged",
+        "heavy": "Heavy flow logged"
+      }
+    },
+    "title": "Calendar",
+    "detail": {
+      "cycleDay": "Day {day} of your cycle",
+      "nothingLogged": "Nothing logged on this day."
+    },
+    "loadError": "We couldn't load your calendar. Try again — if it keeps happening it is a fault on our side, not yours.",
+    "retry": "Try again"
   }
 }

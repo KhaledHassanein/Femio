@@ -104,6 +104,7 @@ const PORTABLE = [
   "lib/charts/geometry.ts",
   "lib/cycle/cycle-report.ts",
   "lib/cycle/variability.ts",
+  "lib/cycle/day-states.ts",
   "lib/pregnancy/index.ts",
   "lib/calculators/dates.ts",
 ];

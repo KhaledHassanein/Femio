@@ -71,7 +71,11 @@ Chapter [05_DESIGN_SYSTEM.md](05_DESIGN_SYSTEM.md), [06_SCREENS.md](06_SCREENS.m
   Verified with the flag on, in en/light, en/dark and ar: **zero console errors, and 8 aria-labelled regions where v1 has 2** — the contract's promise, kept by the host rather than by fifty authors.
   **Still open:** the explain affordance (needs D3).
 
-- [ ] C5 · Calendar promoted to a tab — seven day-states, **both probability tiers**
+- [x] C5 · **Calendar is a tab, with all seven day-states and both probability tiers.** `lib/cycle/day-states.ts` is tier-2 with 9 tests; `CalendarMonth` draws it; `/calendar` joins them and is the **first consumer of `period_days` and `predictions`** — nothing read either Phase-A table before this.
+  **States are a set, not an enum.** A day can be logged bleeding *and* today *and* carry other logs, and the grid draws all three. An enum would force a precedence order into the data model where nobody can see it, and the first collision would produce `todayAndPeriod`. Precedence lives in CSS instead.
+  **Both tiers render as two things.** Firm ring from `predictions.likely_*`, soft dashed ring from `window_*`. Flo computes both — its string catalogue distinguishes "likely to start" from "may start" — and draws one ring. It also does not assume `likely ⊆ window`: if a model change made them disjoint, both flags stay honest.
+  **RTL proven, not assumed.** The caps use `border-start-start-radius`, so the run-start cap measures **left in LTR and right in RTL** — verified against a rendered page, because ch.06 §2 names this as the thing that ships broken if nobody looks.
+  Verified in en/light, ar/rtl and en/dark with seeded per-day flow: 42 cells, 4 flow-graded fills, 2 run caps, **42 of 42 cells carrying a full-sentence accessible label**, none under the 44px target, zero console errors.
 - [ ] C6 · Log screen — search, per-day navigation, reorderable categories, severity
 - [ ] C7 · Designed empty / loading / error / offline states
 
