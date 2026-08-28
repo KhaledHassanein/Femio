@@ -66,10 +66,11 @@ Chapter [05_DESIGN_SYSTEM.md](05_DESIGN_SYSTEM.md), [06_SCREENS.md](06_SCREENS.m
 - [x] C1 · 49 tokens: log ×8+alt, chart ×10, confidence ×4, skin ×5 — light+dark, preset-mapped, **both guarded**; interaction states and focus ring already existed
 - [x] C2 · Motion **vocabulary** — 5 durations + 7 pairings, easings de-duplicated, guarded; the confirmations/crossfade themselves land with C4–C6
 - [x] C3 · 7 primitives — geometry tier-2 (30 tests) + SVG renderers; `chart-literals-lint`; **captions and RTL required by construction**
-- [~] C4 · **Shell + registry + flag reader landed**, v1 untouched throughout. `HomeShell` + `ModuleHost` + phase-as-ground; Track B's 6 module labels ×4 locales; `module-registry-v2` (an *adapter* over v1's renderers, not a second list — `ModuleId` is shared, and two lists would drift until a flag flip exposed it); `useSurfaceVersion` resolving **remote → cached → compiled v1** per `0021`, with 5 tests on the order.
-  **Still open, and one is bigger than the plan assumed:**
-  - **Mounting needs per-track contexts extracted first.** `HomeShell` takes one `ModuleRenderer`, but v1 builds its `ModuleContext` *inside* each per-track experience component (`cycle-experience`, `ttc-experience`, …) and never exposes it — so there is no single context at the dashboard level to hand it. A mount was written and reverted rather than half-landed: the honest version extracts context construction from those components so v1 and v2 share it, which is its own checkpoint and can break v1 if rushed. **→ C4a.**
-  - The explain affordance (needs D3).
+- [x] C4 · **v2 renders behind its flag.** `HomeShell` + `ModuleHost` + phase-as-ground; `module-registry-v2` as an *adapter* over v1's renderers (`ModuleId` is shared — two lists would drift until a flag flip exposed it); `useSurfaceVersion` resolving **remote → cached → compiled v1** per `0021`, 5 tests on the order; 11 module labels ×4 locales.
+  **The mount went in at `ExperienceModules`, not the dashboard**, and that is the whole of C4a. `HomeShell` needs one `ModuleContext`; each of the six experience components builds its own privately, so none exists a level up. The first attempt extracted all six — a large change to v1 for a flag that is off — and was reverted. Every track already *hands* its context to `ExperienceModules`, so the branch lives at that single choke point and v1's path below it is byte-identical.
+  Verified with the flag on, in en/light, en/dark and ar: **zero console errors, and 8 aria-labelled regions where v1 has 2** — the contract's promise, kept by the host rather than by fifty authors.
+  **Still open:** the explain affordance (needs D3).
+
 - [ ] C5 · Calendar promoted to a tab — seven day-states, **both probability tiers**
 - [ ] C6 · Log screen — search, per-day navigation, reorderable categories, severity
 - [ ] C7 · Designed empty / loading / error / offline states

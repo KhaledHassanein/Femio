@@ -2287,6 +2287,21 @@
       "changeAwareness": {
         "label": "What has changed"
       }
+    },
+    "quickLog": {
+      "label": "Log today"
+    },
+    "library": {
+      "label": "Guides and articles"
+    },
+    "explore": {
+      "label": "Everything else in Femio"
+    },
+    "visitPrep": {
+      "label": "Prepare for an appointment"
+    },
+    "privacy": {
+      "label": "Your privacy settings"
     }
   }
 }

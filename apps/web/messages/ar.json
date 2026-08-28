@@ -2287,6 +2287,21 @@
       "changeAwareness": {
         "label": "ما الذي تغيّر"
       }
+    },
+    "quickLog": {
+      "label": "سجّلي اليوم"
+    },
+    "library": {
+      "label": "الأدلّة والمقالات"
+    },
+    "explore": {
+      "label": "كل ما في فيميو"
+    },
+    "visitPrep": {
+      "label": "التحضير لموعد طبي"
+    },
+    "privacy": {
+      "label": "إعدادات خصوصيتك"
     }
   }
 }

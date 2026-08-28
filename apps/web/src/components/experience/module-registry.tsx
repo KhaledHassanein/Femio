@@ -3,6 +3,10 @@
 import type { ReactNode } from "react";
 
 import type { ExperienceConfig, ModuleId, ModuleSpec } from "@/lib/experience/types";
+import { HomeShell } from "@/components/experience/v2/home-shell";
+import { createModuleRenderer } from "@/components/experience/v2/module-registry-v2";
+import { toV2 } from "@/lib/experience/v2/upgrade";
+import { useSurfaceVersion } from "@/lib/experience/v2/use-surface-version";
 import { EmptyStrip } from "./clinical-strip";
 import { QuickLogButton } from "./quick-log-button";
 
@@ -231,7 +235,34 @@ export const RENDERERS_BY_ID: Partial<Record<ModuleId, Renderer>> = {
 /** Every id this registry can render. Used by the coverage test. */
 export const IMPLEMENTED = Object.keys(RENDERERS_BY_ID) as readonly ModuleId[];
 
+/**
+ * Render the served document's home modules.
+ *
+ * ## Why v2 branches here and not at the dashboard (RB-C4a)
+ *
+ * `HomeShell` needs one `ModuleContext`, and every track builds its own *inside*
+ * its experience component — `cycle-experience`, `ttc-experience` and four more —
+ * so no single context exists one level up. The first attempt at mounting v2
+ * therefore tried to extract six contexts, which is a large change to v1 for the
+ * benefit of a flag that is off.
+ *
+ * This is the same decision made in the one place where the problem does not
+ * exist: **every track already hands its context to this function.** So the branch
+ * lives here, each experience component keeps its context private, and v1's path
+ * below is byte-identical to what it was.
+ *
+ * The flag is read here too rather than passed down, because a prop would have to
+ * be threaded through all six callers — reintroducing the coupling this avoids.
+ */
 export function ExperienceModules({ ctx }: { ctx: ModuleContext }) {
+  const version = useSurfaceVersion("home");
+
+  if (version === 2) {
+    return (
+      <HomeShell config={toV2(ctx.config)} render={createModuleRenderer(ctx)} />
+    );
+  }
+
   return (
     <>
       {ctx.config.home.modules.map((spec) => {
