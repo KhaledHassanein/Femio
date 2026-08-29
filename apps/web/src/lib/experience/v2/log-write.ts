@@ -53,7 +53,10 @@ export const VITAL_UNITS: Readonly<Record<string, string>> = {
   resting_hr: "bpm",
   hrv: "ms",
   sleep_minutes: "min",
-  steps: "count",
+  // Steps are a count, and "count" is not a unit — printing it gives "Steps
+  // (count)", which is worse than silence in all four locales. An empty string
+  // means the screen shows the label alone.
+  steps: "",
 };
 
 export type SymptomRow = {

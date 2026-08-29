@@ -268,7 +268,7 @@ export function LogScreenV2() {
         <div className="relative">
           <Search
             aria-hidden
-            className="pointer-events-none absolute inset-inline-start-3 top-1/2 size-4 -translate-y-1/2 text-text-subtle"
+            className="pointer-events-none absolute start-3 top-1/2 size-4 -translate-y-1/2 text-text-subtle"
           />
           <Input
             id="log-search"
@@ -276,6 +276,10 @@ export function LogScreenV2() {
             value={query}
             onChange={(e) => setQuery(e.target.value)}
             placeholder={t("searchPlaceholder")}
+            // Logical padding, so the room made for the icon is on the right in
+            // Arabic. `px-3` from the base input would otherwise let the
+            // placeholder start underneath it.
+            className="ps-9"
           />
         </div>
       </div>
@@ -335,13 +339,27 @@ export function LogScreenV2() {
                       <div key={term.key} className="flex flex-col gap-1">
                         <label
                           htmlFor={`vital-${term.key}`}
-                          className="text-sm text-text-muted"
+                          // A form label, not commentary: `text-text`, with only
+                          // the unit dimmed. `text-text-muted` on the dark surface
+                          // put the field's own name at the bottom of the contrast
+                          // range, which is the one word she has to read.
+                          className="text-sm text-text"
                         >
                           {label(term)}
                           {/* The unit is shown, never typed. A field that accepts
                               "62 kg" and one that accepts "62" cannot both be
-                              parsed safely, so the screen commits to the second. */}
-                          <span className="text-text-subtle"> ({VITAL_UNITS[term.key]})</span>
+                              parsed safely, so the screen commits to the second.
+
+                              `dir="ltr"` isolates it: without that, bidi reorders
+                              "°C" to "C°" when it trails Arabic, and a unit that
+                              renders backwards is a unit a reader cannot trust.
+                              Omitted entirely when there is no real unit. */}
+                          {VITAL_UNITS[term.key] ? (
+                            <span className="text-text-subtle" dir="ltr">
+                              {" "}
+                              ({VITAL_UNITS[term.key]})
+                            </span>
+                          ) : null}
                         </label>
                         <Input
                           id={`vital-${term.key}`}
@@ -394,8 +412,18 @@ export function LogScreenV2() {
       )}
       {/* Sticky rather than trailing the list: with 51 terms the button would
           otherwise sit below a long scroll, and a save she cannot see is a save
-          she does not make. */}
-      <div className="sticky bottom-0 flex flex-col gap-2 bg-surface/95 py-3 backdrop-blur">
+          she does not make.
+
+          Offset by `--content-clearance`, never `bottom-0`. At zero it sticks to
+          the viewport floor, which is already occupied by the tab bar and the
+          crisis launcher — the same overlap that cost a pass on the consent
+          screen. The variable exists precisely so a bottom-anchored control asks
+          the layout how much room is taken rather than guessing a number that a
+          safe-area inset then invalidates. */}
+      <div
+        className="sticky z-10 flex flex-col gap-2 bg-surface/95 py-3 backdrop-blur"
+        style={{ bottom: "var(--content-clearance, 0px)" }}
+      >
         {status === "queued" ? (
           <Alert>
             <AlertDescription>{t("queued")}</AlertDescription>

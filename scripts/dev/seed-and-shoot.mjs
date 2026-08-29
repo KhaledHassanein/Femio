@@ -30,6 +30,12 @@
  *
  * Usage:
  *   node scripts/dev/seed-and-shoot.mjs [--out DIR] [--stage 1] [--offsets 16,44,72]
+ *                                        [--route dashboard] [--flags experience.v2.log]
+ *
+ * `--flags` seeds `femio.flags.v1` — the client's *cached* flag source — so a
+ * screen behind a flag that is off in the database can still be rendered and
+ * looked at. This is the only way to see one before it ships, and this project
+ * has three times learned that a green gate is not a rendered screen.
  *
  * Requires the dev server on :3000 and apps/web/.env.local.
  */
@@ -47,6 +53,8 @@ const args = Object.fromEntries(
 const OUT = args.out ?? "screenshots";
 const STAGE = Number(args.stage ?? 1); // index into the life-stage radio group
 const OFFSETS = (args.offsets ?? "16,44,72").split(",").map(Number);
+const ROUTE = args.route ?? "dashboard";
+const FLAGS = (args.flags ?? "").split(",").map((f) => f.trim()).filter(Boolean);
 const BASE = "http://localhost:3000";
 
 /**
@@ -185,12 +193,30 @@ for (const run of runs) {
     const seeded = await seedCycles(page, jwt);
     if (!seeded.startsWith("201")) throw new Error(`seed failed: ${seeded}`);
 
-    await page.goto(`${BASE}/${run.locale}/dashboard`, { waitUntil: "networkidle" });
+    if (FLAGS.length > 0) {
+      await page.evaluate((keys) => {
+        const flags = {};
+        for (const k of keys) flags[k] = true;
+        window.localStorage.setItem("femio.flags.v1", JSON.stringify(flags));
+      }, FLAGS);
+    }
+
+    await page.goto(`${BASE}/${run.locale}/${ROUTE}`, { waitUntil: "networkidle" });
     await page.waitForTimeout(2500);
     const height = await page.evaluate(() => document.body.scrollHeight);
-    await page.screenshot({ path: join(OUT, `dashboard-${run.name}.png`), fullPage: true });
+    await page.screenshot({ path: join(OUT, `${ROUTE}-${run.name}.png`), fullPage: true });
+    // A second shot, viewport-sized and scrolled to the end. `fullPage` expands the
+    // viewport, which moves `fixed` elements to the page origin and can leave a
+    // `sticky bottom-0` bar somewhere no eye is looking — so a bottom-anchored
+    // control is invisible in exactly the screenshot taken to check it. This is the
+    // frame that shows the save bar, the nav and the crisis pill where a phone puts
+    // them.
+    await page.evaluate(() => window.scrollTo(0, document.body.scrollHeight));
+    await page.waitForTimeout(400);
+    await page.screenshot({ path: join(OUT, `${ROUTE}-${run.name}-bottom.png`) });
+
     console.log(
-      `${run.name.padEnd(6)} dashboard ${String(height).padStart(5)}px  console-errors=${consoleErrors.length}`,
+      `${run.name.padEnd(6)} ${ROUTE.padEnd(9)} ${String(height).padStart(5)}px  console-errors=${consoleErrors.length}`,
     );
     consoleErrors.slice(0, 3).forEach((e) => console.log(`   ! ${e}`));
   } catch (cause) {

@@ -55,7 +55,7 @@ describe("buildLogWrites", () => {
         profile_id: P,
         type: "steps",
         value: 8000,
-        unit: "count",
+        unit: "",
         measured_at: `${DATE}T12:00:00.000Z`,
       },
     ]);
