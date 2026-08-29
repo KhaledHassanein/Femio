@@ -127,6 +127,7 @@ commit — read that first when resuming.**
 1. **RB-A** — Phase A, foundations: seven migrations + the numeric token scale. Nothing user-visible.
 2. **RB-B** — Phase B, `ExperienceConfig` v2: the eleven-field module envelope, surfaces, per-surface flags.
 3. **RB-C** — Phase C, the visible foundation: tokens, motion, seven chart primitives, dashboard, calendar, log.
+- [ ] **R3.6** Plural forms are not applied to logged-day counts — the cycle card renders "1 days of bleeding logged" (and "1 أيام" in Arabic). Found while photographing D3 on a seeded account; pre-existing and outside that scope, so recorded rather than folded in. ICU `plural` in the `dashboard` namespace, four locales, and Arabic needs all six categories.
 4. **RB-D → RB-G** — depth, the clinician bridge, content (runs from A onward), then mobile.
 
 Order in A and B is not negotiable: a screen built on today's `ModuleSpec` is a screen that gets

@@ -67,6 +67,7 @@ export const APP_CLIENT_NAMESPACES = [
   "calendar",
   "log",
   "states",
+  "prediction",
   // Log term labels span three namespaces (RB-C6): symptoms.items.*,
   // fertility.cm.* and vitals.* — all three must reach the browser or a chip
   // renders with no label.

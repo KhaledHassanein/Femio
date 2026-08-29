@@ -15,6 +15,7 @@ import { CycleReportCard } from "@/components/cycle/cycle-report-card";
 import { lastCompletedCycle } from "@/lib/cycle/cycle-report";
 import { observedRange } from "@/lib/cycle/variability";
 import { FlowStrip } from "@/components/cycle/flow-strip";
+import { PredictionExplanation } from "@/components/cycle/prediction-explanation";
 import {
   PatternFindingCard,
   type FindingRow,
@@ -162,6 +163,18 @@ export function CycleExperience({
       }
       band={band}
     />
+  ) : null;
+
+  /**
+   * The window's reasoning, directly beneath it (D3).
+   *
+   * Attached to `cycle.window` rather than given its own module id: it is not a
+   * thing a persona may or may not contribute, it is part of what showing a
+   * prediction *means*. A registry entry would make explaining the number optional,
+   * and product rule 3 does not leave that open.
+   */
+  const windowExplanation = prediction ? (
+    <PredictionExplanation prediction={prediction} />
   ) : null;
 
   /**
@@ -367,7 +380,12 @@ export function CycleExperience({
     <ExperienceModules
       ctx={{
         config: config!,
-        cycleWindow: windowCard,
+        cycleWindow: windowCard ? (
+          <>
+            {windowCard}
+            {windowExplanation}
+          </>
+        ) : null,
         cycleVariability: variabilityCard,
         cyclePersonalNormal: (
           <>

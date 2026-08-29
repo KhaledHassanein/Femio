@@ -59,8 +59,15 @@ const STAGE = Number(args.stage ?? 1); // index into the life-stage radio group
 const OFFSETS = (args.offsets ?? "16,44,72").split(",").map(Number);
 const ROUTE = args.route ?? "dashboard";
 const OFFLINE = process.argv.includes("--offline");
+/**
+ * A control to tap before shooting, by accessible name.
+ *
+ * A disclosure collapsed by default is invisible to a screenshot that never opens
+ * it, so the shot would prove the trigger exists and nothing about what it reveals.
+ */
+const CLICK = args.click ?? null;
 const FLAGS = (args.flags ?? "").split(",").map((f) => f.trim()).filter(Boolean);
-const BASE = "http://localhost:3000";
+const BASE = process.env.FEMIO_BASE ?? "http://localhost:3000";
 
 /**
  * A plausible age for each life stage, by radio index: teen, cycle, TTC,
@@ -228,6 +235,15 @@ for (const run of runs) {
       await page.goto(`${BASE}/${run.locale}/${ROUTE}`, { waitUntil: "networkidle" });
     }
     await page.waitForTimeout(2500);
+    if (CLICK) {
+      await page
+        .getByRole("button", { name: new RegExp(CLICK, "i") })
+        .first()
+        .click()
+        .catch(() => {});
+      await page.waitForTimeout(600);
+    }
+
     const height = await page.evaluate(() => document.body.scrollHeight);
     await page.screenshot({ path: join(OUT, `${ROUTE}-${run.name}.png`), fullPage: true });
     // A second shot, viewport-sized and scrolled to the end. `fullPage` expands the

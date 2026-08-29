@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
 import { addDays, diffDays } from "@/lib/calculators/dates";
-import { daysUntilPredicted, predictNextPeriod } from "./predict";
+import { daysUntilPredicted, marginSource, predictNextPeriod } from "./predict";
 
 // Six regular 28-day cycles → 7 start dates.
 const regular = Array.from({ length: 7 }, (_, i) => addDays("2026-01-01", i * 28));
@@ -250,5 +250,84 @@ describe("implausible gaps leave the average but stay in the record (R3.1.10)", 
     expect(p.basis).toBe("stated");
     expect(p.averageLength).toBe(30);
     expect(p.learning).toBe(true);
+  });
+});
+
+describe("prediction evidence (D3)", () => {
+  it("counts intervals, not periods logged", () => {
+    // The easiest thing to get wrong here: four logged starts are three cycles.
+    // An explanation that says "across 4 cycles" when three intervals were
+    // measured overstates the evidence by one every single time.
+    const p = predictNextPeriod(["2026-01-01", "2026-01-29", "2026-02-26", "2026-03-26"])!;
+    expect(p.evidence.cyclesUsed).toBe(3);
+    expect(p.evidence.rule).toBe("observed");
+  });
+
+  it("reports the margin the window was actually built with", () => {
+    const p = predictNextPeriod(["2026-01-01", "2026-01-29", "2026-02-26", "2026-03-26"])!;
+    // The stated relationship must hold, or the explanation describes a different
+    // window from the one drawn.
+    expect(daysBetween(p.evidence.margin, p)).toBe(true);
+  });
+
+  it("never claims a measured cycle when the number came from her", () => {
+    // One start plus a stated length: nothing has been measured, and the
+    // explanation must not imply an average was taken over anything.
+    const p = predictNextPeriod(["2026-01-01"], 28)!;
+    expect(p.evidence.rule).toBe("stated");
+    expect(p.evidence.cyclesUsed).toBe(0);
+    expect(p.evidence.spread).toBe(0);
+  });
+
+  it("stays at zero cycles when every gap was implausible", () => {
+    // Two bleeds 151 days apart are not a 151-day cycle. The average falls back to
+    // her stated number, so the evidence must not claim an interval was used.
+    const p = predictNextPeriod(["2026-01-01", "2026-06-01"], 28)!;
+    expect(p.evidence.rule).toBe("stated");
+    expect(p.evidence.cyclesUsed).toBe(0);
+  });
+
+  it("widens the margin as her spread widens", () => {
+    const tight = predictNextPeriod(["2026-01-01", "2026-01-29", "2026-02-26", "2026-03-26"])!;
+    const loose = predictNextPeriod(["2026-01-01", "2026-01-25", "2026-03-02", "2026-03-24"])!;
+    expect(loose.evidence.spread).toBeGreaterThan(tight.evidence.spread);
+    expect(loose.evidence.margin).toBeGreaterThanOrEqual(tight.evidence.margin);
+  });
+});
+
+/** The window really is ±margin around the point estimate. */
+function daysBetween(margin: number, p: { predictedStart: string; windowStart: string; windowEnd: string }) {
+  const d = (a: string, b: string) =>
+    Math.round((Date.parse(`${b}T00:00:00Z`) - Date.parse(`${a}T00:00:00Z`)) / 86_400_000);
+  return d(p.windowStart, p.predictedStart) === margin && d(p.predictedStart, p.windowEnd) === margin;
+}
+
+describe("marginSource (D3)", () => {
+  // The bug this exists to prevent: the explanation said "±2 days, which is half
+  // that difference" for a spread of 0. Two is not half of zero — it is the floor,
+  // and a feature whose whole purpose is honesty cannot misstate its own maths.
+  it("reports the floor whenever the floor is what won", () => {
+    for (const spread of [0, 1, 2, 3]) {
+      const margin = Math.max(2, Math.ceil(spread / 2));
+      expect(marginSource({ margin, spread })).toBe("floor");
+    }
+  });
+
+  it("reports the spread once the spread exceeds the floor", () => {
+    for (const spread of [4, 5, 9, 14]) {
+      const margin = Math.max(2, Math.ceil(spread / 2));
+      expect(marginSource({ margin, spread })).toBe("spread");
+    }
+  });
+
+  it("agrees with what the predictor actually produced", () => {
+    // Identical cycles: the floor is the only reason the window is not zero-width.
+    const exact = predictNextPeriod(["2026-01-01", "2026-01-29", "2026-02-26", "2026-03-26"])!;
+    expect(exact.evidence.spread).toBe(0);
+    expect(marginSource(exact.evidence)).toBe("floor");
+
+    // Varied cycles: the spread is doing the work.
+    const varied = predictNextPeriod(["2026-01-01", "2026-02-05", "2026-03-02", "2026-04-10"])!;
+    expect(marginSource(varied.evidence)).toBe("spread");
   });
 });

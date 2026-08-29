@@ -1717,6 +1717,16 @@
     "settings": "Ajustes",
     "signOut": "Cerrar sesión"
   },
+  "prediction": {
+    "explain": {
+      "trigger": "¿Por qué este rango?",
+      "stated": "Nos dijiste que tus ciclos suelen durar {length} días, y hasta ahora has registrado un periodo — así que esto parte de tu cifra, no de un patrón que Femio haya medido. El rango es de <ltr>±{margin}</ltr> días hasta tener más datos.",
+      "observedSpread": "En tus últimos {cycles} ciclos la media fue de {length} días, y entre el más largo y el más corto hubo {spread} de diferencia. El rango es de <ltr>±{margin}</ltr> días, la mitad de esa diferencia.",
+      "observedExact": "Tus últimos {cycles} ciclos duraron exactamente {length} días. Aun así el rango es de <ltr>±{margin}</ltr> días — lo más estrecho que da Femio, por muy regulares que parezcan tus ciclos.",
+      "observedFloor": "En tus últimos {cycles} ciclos la media fue de {length} días, con una diferencia de {spread}. El rango es de <ltr>±{margin}</ltr> días — el mínimo de Femio, más amplio de lo que sugeriría tu historial por sí solo.",
+      "floor": "Femio nunca da un rango más estrecho de dos días a cada lado, por muy regulares que parezcan tus ciclos."
+    }
+  },
   "pregnancy": {
     "weeksDays": "{weeks} semanas y {days} días",
     "trimester": {

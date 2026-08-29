@@ -43,6 +43,57 @@ export type CyclePrediction = {
    * counter — which is why `daysUntilPredicted` tests both.
    */
   learning: boolean;
+  /**
+   * Why this prediction says what it says (D3, `0018`'s `basis_json`).
+   *
+   * `0018`'s header: *storing the prediction is what separates hedging from
+   * explaining*, and the teardown found Flo hedging well and unable to say why
+   * because **there was nowhere for the reasoning to live**. This function already
+   * computed every number below and then dropped all of them on the floor, which
+   * is the same problem one layer earlier.
+   *
+   * It is evidence, never a justification. Nothing here argues the prediction is
+   * right — it says what it was built from, so she can judge it herself. That is
+   * also why `margin` is exposed: a woman who can see the window is ±2 days
+   * *because her cycles have varied by four* is being told something true, where
+   * "we are fairly confident" alone is a mood.
+   */
+  evidence: PredictionEvidence;
+};
+
+/**
+ * Which rule set the window's half-width (D3).
+ *
+ * `margin = max(2, ceil(spread / 2))`, so the floor wins whenever her spread is 3
+ * days or less. An explanation that says *"±2 days, which is half that
+ * difference"* for a spread of 0 is not merely clumsy — it is **false**, and this
+ * feature exists to be trusted. Exported so the sentence and the arithmetic cannot
+ * drift: the UI asks which branch ran rather than guessing from the numbers.
+ */
+export function marginSource(evidence: {
+  margin: number;
+  spread: number;
+}): "spread" | "floor" {
+  return evidence.margin === Math.ceil(evidence.spread / 2) && evidence.spread > 3
+    ? "spread"
+    : "floor";
+}
+
+export type PredictionEvidence = {
+  /** Intervals behind the average. Not periods logged — one fewer than that. */
+  cyclesUsed: number;
+  /** Longest minus shortest, across her **whole** history. */
+  spread: number;
+  /** Half-width of the window, in days. Never below 2 — an honest floor. */
+  margin: number;
+  /** How many of her most recent cycles the average was taken over. */
+  recentWindow: number;
+  /**
+   * Which rule produced the window. `stated` means she has not logged enough for
+   * Femio to have measured anything, and the number came from what she told us at
+   * onboarding — a distinction she is entitled to see rather than infer.
+   */
+  rule: "stated" | "observed";
 };
 
 /**
@@ -146,6 +197,16 @@ export function predictNextPeriod(
     const last = sorted[0]!;
     const predictedStart = addDays(last, stated);
     return {
+      // One start and a number she gave us. `cyclesUsed: 0` is the honest count —
+      // there is no interval yet, so nothing has been measured, and the explanation
+      // must not imply otherwise (D3).
+      evidence: {
+        cyclesUsed: 0,
+        spread: 0,
+        margin: STATED_MARGIN_DAYS,
+        recentWindow: 0,
+        rule: "stated",
+      },
       averageLength: stated,
       basis: "stated",
       predictedStart,
@@ -216,6 +277,16 @@ export function predictNextPeriod(
     const last = sorted[sorted.length - 1]!;
     const predictedStart = addDays(last, stated);
     return {
+      // She has bled more than once, but every gap was implausible as a cycle, so
+      // none of them was used. `cyclesUsed: 0` again — it counts intervals the
+      // average rests on, not periods she logged, and here that is none.
+      evidence: {
+        cyclesUsed: 0,
+        spread: 0,
+        margin: STATED_MARGIN_DAYS,
+        recentWindow: 0,
+        rule: "stated",
+      },
       averageLength: stated,
       basis: "stated",
       predictedStart,
@@ -257,6 +328,13 @@ export function predictNextPeriod(
     confidence,
     irregular,
     learning,
+    evidence: {
+      cyclesUsed: lengths.length,
+      spread,
+      margin,
+      recentWindow: recent.length,
+      rule: "observed",
+    },
   };
 }
 

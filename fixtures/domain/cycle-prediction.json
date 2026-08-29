@@ -17,7 +17,14 @@
         "windowEnd": "2026-04-25",
         "confidence": "medium",
         "irregular": false,
-        "learning": false
+        "learning": false,
+        "evidence": {
+          "cyclesUsed": 3,
+          "spread": 0,
+          "margin": 2,
+          "recentWindow": 3,
+          "rule": "observed"
+        }
       }
     },
     {
@@ -37,7 +44,14 @@
         "windowEnd": "2026-05-20",
         "confidence": "low",
         "irregular": true,
-        "learning": false
+        "learning": false,
+        "evidence": {
+          "cyclesUsed": 3,
+          "spread": 14,
+          "margin": 7,
+          "recentWindow": 3,
+          "rule": "observed"
+        }
       }
     },
     {

@@ -1717,6 +1717,16 @@
     "settings": "Settings",
     "signOut": "Sign out"
   },
+  "prediction": {
+    "explain": {
+      "trigger": "Why this range?",
+      "stated": "You told us your cycles are usually {length} days, and you have logged one period so far — so this is built from your number, not from a pattern Femio has measured. The range is <ltr>±{margin}</ltr> days until there is more to go on.",
+      "observedSpread": "Across your last {cycles} cycles the average was {length} days, and the longest and shortest differed by {spread}. The range is <ltr>±{margin}</ltr> days, which is half that difference.",
+      "observedExact": "Your last {cycles} cycles were all exactly {length} days. The range is still <ltr>±{margin}</ltr> days — that is the narrowest Femio will ever give, however regular your cycles look.",
+      "observedFloor": "Across your last {cycles} cycles the average was {length} days, varying by {spread}. The range is <ltr>±{margin}</ltr> days — Femio's minimum, which is wider than your history alone would suggest.",
+      "floor": "Femio never gives a range tighter than two days either side, however regular your cycles look."
+    }
+  },
   "pregnancy": {
     "weeksDays": "{weeks} weeks, {days} days",
     "trimester": {

@@ -1717,6 +1717,16 @@
     "settings": "Réglages",
     "signOut": "Se déconnecter"
   },
+  "prediction": {
+    "explain": {
+      "trigger": "Pourquoi cette fourchette ?",
+      "stated": "Vous nous avez dit que vos cycles durent généralement {length} jours, et vous n'avez enregistré qu'une seule période — cette estimation vient donc de votre chiffre, pas d'un schéma mesuré par Femio. La fourchette est de <ltr>±{margin}</ltr> jours en attendant d'en savoir plus.",
+      "observedSpread": "Sur vos {cycles} derniers cycles, la moyenne était de {length} jours, et l'écart entre le plus long et le plus court était de {spread}. La fourchette est de <ltr>±{margin}</ltr> jours, soit la moitié de cet écart.",
+      "observedExact": "Vos {cycles} derniers cycles ont tous duré exactement {length} jours. La fourchette reste de <ltr>±{margin}</ltr> jours — c'est la plus étroite que Femio donne, même si vos cycles semblent très réguliers.",
+      "observedFloor": "Sur vos {cycles} derniers cycles, la moyenne était de {length} jours, avec un écart de {spread}. La fourchette est de <ltr>±{margin}</ltr> jours — le minimum de Femio, plus large que votre historique seul ne le suggérerait.",
+      "floor": "Femio ne donne jamais une fourchette plus étroite que deux jours de chaque côté, même si vos cycles semblent très réguliers."
+    }
+  },
   "pregnancy": {
     "weeksDays": "{weeks} semaines et {days} jours",
     "trimester": {
