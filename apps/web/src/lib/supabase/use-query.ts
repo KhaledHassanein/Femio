@@ -5,6 +5,15 @@ import { createClient } from "./client";
 
 type SupabaseClient = ReturnType<typeof createClient>;
 
+/**
+ * How long a read may take before it is reported as a failure. Long enough for a
+ * bad signal, short enough that a dead one does not look like a hang.
+ */
+export const QUERY_TIMEOUT_MS = 15_000;
+
+/** Distinguishable in a log without being shown to anyone — screens render their own copy. */
+export const QUERY_TIMEOUT_MESSAGE = "query-timeout";
+
 export type QueryState<T> =
   | { status: "loading"; data: null; error: null }
   | { status: "ready"; data: T; error: null }
@@ -63,7 +72,22 @@ export function useSupabaseQuery<T>(
 
     void (async () => {
       try {
-        const data = await runRef.current(createClient());
+        // Raced against a deadline, because supabase-js retries a failed fetch with
+        // backoff and the promise therefore does not settle when the network is
+        // simply gone. Without this the screen holds its skeleton indefinitely: a
+        // loading state that can never end is not a designed state, it is a hang
+        // wearing the right colours, and it offers her no retry and no explanation
+        // (RB-C7).
+        //
+        // The deadline is generous on purpose — this is for a dead connection, not
+        // a slow one, and cutting off a read that would have succeeded on a bad
+        // signal would trade one wrong answer for another.
+        const data = await Promise.race([
+          runRef.current(createClient()),
+          new Promise<never>((_, reject) =>
+            setTimeout(() => reject(new Error(QUERY_TIMEOUT_MESSAGE)), QUERY_TIMEOUT_MS),
+          ),
+        ]);
         if (!cancelled) setState({ status: "ready", data, error: null });
       } catch (cause) {
         if (cancelled) return;

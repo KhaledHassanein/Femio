@@ -6,6 +6,7 @@ import { todayISO } from "@/lib/calculators/dates";
 import { daysUntil, nextAppointment, type Appointment } from "@/lib/appointments";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
+import { LoadingState } from "@/components/patterns/loading-state";
 import { Link } from "@/i18n/navigation";
 
 /**
@@ -51,8 +52,24 @@ export function NextAppointmentCard() {
   // A failed read renders the empty invitation rather than an error: this is one
   // card on someone else's screen, and it has no heading of its own to hang
   // "we could not load it" from (ADR-046's distinction, applied downward).
+  //
+  // **Loading is not the same choice** (RB-C7). The line below treats `loading`
+  // identically to `ready`-with-nothing, so the card asserted "no appointments"
+  // for as long as the fetch took and then swapped — telling her something untrue
+  // about her own record, briefly, on every visit. A skeleton says "not yet"
+  // instead, which is the only accurate thing to say while a read is in flight.
   const next = query.status === "ready" ? nextAppointment(query.data, today) : null;
   const days = next ? daysUntil(next, today) : null;
+
+  if (query.status === "loading") {
+    return (
+      <Card>
+        <CardContent className="p-5">
+          <LoadingState rows={2} label={t("card.eyebrow")} />
+        </CardContent>
+      </Card>
+    );
+  }
 
   return (
     <Card>

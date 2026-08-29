@@ -472,6 +472,13 @@
       "empty": "No periods logged yet."
     }
   },
+  "states": {
+    "loadError": "This could not load just now.",
+    "offline": {
+      "message": "You are offline, so this could not load. Anything you log now is saved on this device and will sync when you are back.",
+      "retry": "Try again"
+    }
+  },
   "symptoms": {
     "selectedHeading": "Selected",
     "custom": {

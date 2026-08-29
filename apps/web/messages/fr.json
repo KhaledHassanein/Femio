@@ -472,6 +472,13 @@
       "empty": "Aucune règle enregistrée."
     }
   },
+  "states": {
+    "loadError": "Le chargement a échoué pour le moment.",
+    "offline": {
+      "message": "Vous êtes hors ligne, le chargement a échoué. Ce que vous enregistrez maintenant reste sur cet appareil et se synchronisera au retour du réseau.",
+      "retry": "Réessayer"
+    }
+  },
   "symptoms": {
     "selectedHeading": "Sélectionnés",
     "custom": {

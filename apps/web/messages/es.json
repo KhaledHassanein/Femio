@@ -472,6 +472,13 @@
       "empty": "Aún no hay registros."
     }
   },
+  "states": {
+    "loadError": "No se pudo cargar en este momento.",
+    "offline": {
+      "message": "Estás sin conexión, así que no se pudo cargar. Lo que registres ahora se guarda en este dispositivo y se sincronizará cuando vuelvas.",
+      "retry": "Reintentar"
+    }
+  },
   "symptoms": {
     "selectedHeading": "Seleccionados",
     "custom": {

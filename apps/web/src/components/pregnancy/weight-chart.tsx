@@ -15,6 +15,7 @@ import {
 import { Alert, AlertDescription } from "@/components/ui/alert";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
+import { LoadingState } from "@/components/patterns/loading-state";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { chipVariants } from "@/components/ui/chip";
@@ -39,6 +40,7 @@ import { chipVariants } from "@/components/ui/chip";
  */
 export function WeightChart() {
   const t = useTranslations("weight");
+  const ts = useTranslations("states");
   const format = useFormatter();
   const today = todayISO();
 
@@ -200,6 +202,16 @@ export function WeightChart() {
             </p>
             <p className="text-2xs leading-relaxed text-text-subtle">{t("note")}</p>
           </>
+        ) : query.status === "loading" ? (
+          // Not `needData`. That line says she has logged nothing, and while the
+          // read is still in flight nobody knows whether that is true — on this
+          // card least of all, since the entry form sits directly above it and an
+          // invitation to log looks like confirmation her history is empty (RB-C7).
+          <LoadingState rows={2} label={t("heading")} />
+        ) : query.status === "error" ? (
+          <Alert variant="warning">
+            <AlertDescription>{ts("loadError")}</AlertDescription>
+          </Alert>
         ) : (
           <p className="text-sm text-text-muted">{t("needData")}</p>
         )}

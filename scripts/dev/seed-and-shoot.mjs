@@ -31,6 +31,10 @@
  * Usage:
  *   node scripts/dev/seed-and-shoot.mjs [--out DIR] [--stage 1] [--offsets 16,44,72]
  *                                        [--route dashboard] [--flags experience.v2.log]
+ *                                        [--offline]
+ *
+ * `--offline` cuts the context's network *after* onboarding, so the screen renders
+ * the way it does on a train. RB-C7 exists because nobody had ever looked at that.
  *
  * `--flags` seeds `femio.flags.v1` — the client's *cached* flag source — so a
  * screen behind a flag that is off in the database can still be rendered and
@@ -54,6 +58,7 @@ const OUT = args.out ?? "screenshots";
 const STAGE = Number(args.stage ?? 1); // index into the life-stage radio group
 const OFFSETS = (args.offsets ?? "16,44,72").split(",").map(Number);
 const ROUTE = args.route ?? "dashboard";
+const OFFLINE = process.argv.includes("--offline");
 const FLAGS = (args.flags ?? "").split(",").map((f) => f.trim()).filter(Boolean);
 const BASE = "http://localhost:3000";
 
@@ -201,7 +206,27 @@ for (const run of runs) {
       }, FLAGS);
     }
 
-    await page.goto(`${BASE}/${run.locale}/${ROUTE}`, { waitUntil: "networkidle" });
+    if (OFFLINE) {
+      // **Block Supabase, not the world.** `context.setOffline(true)` also cuts
+      // Next's own chunk and RSC fetches, so the page never renders and the
+      // screenshot is blank — that tests the browser's error page, not ours. Two
+      // earlier attempts died this way.
+      //
+      // What we actually want to reproduce is narrower and is what really happens
+      // on a train: the app is loaded, and *her data read* fails. So the Supabase
+      // host is failed at the route level and the `offline` event is dispatched so
+      // `useOnline` reports what the browser would report. Everything the app needs
+      // to draw itself still arrives.
+      await context.route("**/*.supabase.co/**", (r) => r.abort());
+      await page.goto(`${BASE}/${run.locale}/${ROUTE}`, { waitUntil: "domcontentloaded" });
+      await page.evaluate(() => {
+        Object.defineProperty(navigator, "onLine", { get: () => false, configurable: true });
+        window.dispatchEvent(new Event("offline"));
+      });
+      await page.waitForTimeout(18000); // past QUERY_TIMEOUT_MS, so the deadline has fired
+    } else {
+      await page.goto(`${BASE}/${run.locale}/${ROUTE}`, { waitUntil: "networkidle" });
+    }
     await page.waitForTimeout(2500);
     const height = await page.evaluate(() => document.body.scrollHeight);
     await page.screenshot({ path: join(OUT, `${ROUTE}-${run.name}.png`), fullPage: true });

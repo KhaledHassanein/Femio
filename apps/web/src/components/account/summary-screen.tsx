@@ -5,8 +5,8 @@ import { buildVisitSummary } from "@/lib/account/visit-summary";
 import { KNOWN_SYMPTOMS } from "@/lib/cycle/symptoms";
 import { useSupabaseQuery, unwrap } from "@/lib/supabase/use-query";
 import { modeFromTrack } from "@/lib/persona/state";
-import { Alert, AlertDescription } from "@/components/ui/alert";
-import { Button } from "@/components/ui/button";
+import { LoadingState } from "@/components/patterns/loading-state";
+import { ScreenError } from "@/components/patterns/app-screen";
 import { PrintButton } from "@/components/account/print-button";
 import { Link } from "@/i18n/navigation";
 
@@ -110,12 +110,15 @@ export function SummaryScreen() {
     return { summary, questions };
   });
 
+  // Both states use the shared patterns rather than hand-rolled markup (RB-C7).
+  // They were a faithful copy of `LoadingState` and `ScreenError` written out
+  // longhand, which is how a screen quietly stops benefiting from a fix made
+  // everywhere else — this page missed the offline distinction for exactly that
+  // reason, and now inherits it.
   if (query.status === "loading") {
     return (
-      <main className="mx-auto flex w-full max-w-2xl flex-col gap-6 px-6 py-12" aria-busy="true">
-        <div className="h-8 w-56 animate-pulse rounded-md bg-surface-sunken" />
-        <div className="h-32 animate-pulse rounded-md bg-surface-sunken" />
-        <div className="h-32 animate-pulse rounded-md bg-surface-sunken" />
+      <main className="mx-auto flex w-full max-w-2xl flex-col gap-6 px-6 py-12">
+        <LoadingState rows={4} label={t("title")} />
       </main>
     );
   }
@@ -123,17 +126,14 @@ export function SummaryScreen() {
   if (query.status === "error") {
     return (
       <main className="mx-auto flex w-full max-w-2xl flex-col gap-6 px-6 py-12">
-        <h1 className="font-display text-2xl text-text">{t("title")}</h1>
         {/* Deliberately replaces the summary rather than rendering a partial one. A
             printed record with a section silently missing is worse than no record. */}
-        <Alert variant="danger">
-          <AlertDescription className="flex flex-col items-start gap-3">
-            <span>{t("loadError")}</span>
-            <Button variant="outline" onClick={query.refresh}>
-              {t("retry")}
-            </Button>
-          </AlertDescription>
-        </Alert>
+        <ScreenError
+          title={t("title")}
+          message={t("loadError")}
+          retryLabel={t("retry")}
+          onRetry={query.refresh}
+        />
       </main>
     );
   }
