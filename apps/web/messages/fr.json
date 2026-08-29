@@ -2330,5 +2330,42 @@
     },
     "loadError": "Impossible de charger ton calendrier. Réessaie — si cela persiste, le problème vient de nous, pas de toi.",
     "retry": "Réessayer"
+  },
+  "log": {
+    "title": "Journal",
+    "previousDay": "Jour précédent",
+    "nextDay": "Jour suivant",
+    "searchLabel": "Rechercher tout ce que tu peux suivre",
+    "save": "Enregistrer cette journée",
+    "saving": "Enregistrement…",
+    "saved": "Enregistré.",
+    "queued": "Enregistré sur cet appareil. La synchronisation se fera une fois en ligne.",
+    "saveFailed": "L’enregistrement a échoué. Réessayez.",
+    "nothingToSave": "Rien de sélectionné pour l’instant.",
+    "searchPlaceholder": "Chercher symptômes, humeur, et plus",
+    "searchResults": "{count} résultats",
+    "noResults": "Rien ne correspond.",
+    "moveUp": "Monter",
+    "moveDown": "Descendre",
+    "hide": "Masquer cette catégorie",
+    "show": "Afficher {name}",
+    "hiddenHeading": "Catégories masquées",
+    "dimensions": {
+      "symptom": "Symptômes",
+      "mood": "Humeur",
+      "discharge": "Pertes",
+      "vital": "Mesures",
+      "intercourse": "Intimité"
+    },
+    "a11y": {
+      "logged": "Enregistré",
+      "cycleHint": "Appuie encore pour changer l'intensité",
+      "severity": {
+        "1": "À peine perceptible",
+        "2": "Léger",
+        "3": "Fort",
+        "4": "Très fort"
+      }
+    }
   }
 }

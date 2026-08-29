@@ -13,7 +13,11 @@ export type QueueItem = {
   // A movement session is queued like any other log. It matters more than most that
   // this works offline: a hospital or clinic corridor is exactly where signal drops
   // and exactly where someone may be counting (P2.2).
-  table: "cycles" | "symptom_logs" | "fetal_movement_sessions";
+  // `fertility_logs` and `vitals` joined when the rebuilt log screen became one
+  // surface over four tables (RB-C6). Queueing them matters for the same reason it
+  // matters for the others: a day logged on a train is a day that must survive the
+  // tunnel.
+  table: "cycles" | "symptom_logs" | "fetal_movement_sessions" | "fertility_logs" | "vitals";
   payload: QueuePayload;
   createdAt: string;
 };

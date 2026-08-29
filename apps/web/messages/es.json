@@ -2330,5 +2330,42 @@
     },
     "loadError": "No hemos podido cargar tu calendario. Vuelve a intentarlo: si sigue ocurriendo, el fallo es nuestro, no tuyo.",
     "retry": "Reintentar"
+  },
+  "log": {
+    "title": "Registro",
+    "previousDay": "Día anterior",
+    "nextDay": "Día siguiente",
+    "searchLabel": "Buscar todo lo que puedes registrar",
+    "save": "Guardar este día",
+    "saving": "Guardando…",
+    "saved": "Guardado.",
+    "queued": "Guardado en este dispositivo. Se sincronizará cuando vuelvas a estar en línea.",
+    "saveFailed": "No se guardó. Inténtalo de nuevo.",
+    "nothingToSave": "Aún no has seleccionado nada.",
+    "searchPlaceholder": "Buscar síntomas, ánimo y más",
+    "searchResults": "{count} resultados",
+    "noResults": "No hay coincidencias.",
+    "moveUp": "Subir",
+    "moveDown": "Bajar",
+    "hide": "Ocultar esta categoría",
+    "show": "Mostrar {name}",
+    "hiddenHeading": "Categorías ocultas",
+    "dimensions": {
+      "symptom": "Síntomas",
+      "mood": "Ánimo",
+      "discharge": "Flujo",
+      "vital": "Mediciones",
+      "intercourse": "Intimidad"
+    },
+    "a11y": {
+      "logged": "Registrado",
+      "cycleHint": "Toca otra vez para cambiar la intensidad",
+      "severity": {
+        "1": "Apenas perceptible",
+        "2": "Leve",
+        "3": "Fuerte",
+        "4": "Muy fuerte"
+      }
+    }
   }
 }

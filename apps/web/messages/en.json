@@ -2330,5 +2330,42 @@
     },
     "loadError": "We couldn't load your calendar. Try again — if it keeps happening it is a fault on our side, not yours.",
     "retry": "Try again"
+  },
+  "log": {
+    "title": "Log",
+    "previousDay": "Previous day",
+    "nextDay": "Next day",
+    "searchLabel": "Search everything you can track",
+    "save": "Save this day",
+    "saving": "Saving…",
+    "saved": "Saved.",
+    "queued": "Saved on this device. It will sync when you are back online.",
+    "saveFailed": "That did not save. Please try again.",
+    "nothingToSave": "Nothing selected yet.",
+    "searchPlaceholder": "Search symptoms, mood, and more",
+    "searchResults": "{count} matches",
+    "noResults": "Nothing matches that.",
+    "moveUp": "Move up",
+    "moveDown": "Move down",
+    "hide": "Hide this category",
+    "show": "Show {name}",
+    "hiddenHeading": "Hidden categories",
+    "dimensions": {
+      "symptom": "Symptoms",
+      "mood": "Mood",
+      "discharge": "Discharge",
+      "vital": "Measurements",
+      "intercourse": "Intimacy"
+    },
+    "a11y": {
+      "logged": "Logged",
+      "cycleHint": "Tap again to change how strong",
+      "severity": {
+        "1": "Barely noticeable",
+        "2": "Mild",
+        "3": "Strong",
+        "4": "Very strong"
+      }
+    }
   }
 }

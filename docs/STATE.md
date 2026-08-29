@@ -263,6 +263,14 @@ boundary rather than at every checkpoint.
   without a deploy — leaving the fallback persona thinner in production than before the fix, for
   as long as that gap lasted. **Deploy the function in the same pass as any registry change, and
   measure after, not before.**
+- **A flag read inside a component is a hook, and an early return below it skips every other
+  hook.** Mounting the v2 log screen as `if (flag) return <LogScreenV2 />` at the top of
+  `TrackScreen` type-checked, passed 879 tests, and would have crashed the moment the flag was
+  flipped — the hooks after the return stop running, so the order changes between renders.
+  `react-hooks/rules-of-hooks` caught it and nothing else would have, because the failing path is
+  the one no test takes while the flag is off. **Split the decision into its own component**, so
+  each branch mounts something whose hooks all run unconditionally — correct rather than merely
+  currently working.
 - **Run the whole guard set, not the three you remember.** `pnpm typecheck && pnpm test` plus
   *every* `*-lint` script. Adding UI copy across a long session and checking only persona-branch,
   tier-1 and client-i18n let two failures sit in a clean tree until a full sweep found them:

@@ -65,6 +65,11 @@ export const APP_CLIENT_NAMESPACES = [
   // caught the last time tracker strings leaked onto a content page.
   "firstRun",
   "calendar",
+  "log",
+  // Log term labels span three namespaces (RB-C6): symptoms.items.*,
+  // fertility.cm.* and vitals.* — all three must reach the browser or a chip
+  // renders with no label.
+  "vitals",
   "cycleReport",
   "cycleVariability",
   "flowStrip",

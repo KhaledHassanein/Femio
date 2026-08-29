@@ -74,6 +74,8 @@ const PORTABLE = [
   "lib/persona/transitions.ts",
   // tier 2 — offline maths, bound by the golden fixtures
   "lib/experience/phase.ts",
+  "lib/experience/v2/log-search.ts",
+  "lib/experience/v2/log-write.ts",
   "lib/cycle/predict.ts",
   "lib/cycle/phases.ts",
   "lib/cycle/symptom-patterns.ts",

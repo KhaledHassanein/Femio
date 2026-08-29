@@ -116,6 +116,41 @@ export function useSurfaceVersions(): Readonly<Record<MigratableSurface, Contrac
   return out;
 }
 
+/**
+ * A plain rollout flag, for a screen that is not a served *surface*.
+ *
+ * The log screen has no served modules — nothing in `SurfaceMap` describes it, and
+ * adding one would widen the v2 contract to carry a screen the engine does not
+ * compose. It still needs to ship behind a switch, so it reads the same
+ * `feature_flags` table through the same remote → cached → default order, and
+ * defaults **off**.
+ */
+export function useFeatureFlag(key: string): boolean {
+  const [sources, setSources] = useState<FlagSources>(() => ({ cached: readCache() }));
+
+  useEffect(() => {
+    let active = true;
+    void (async () => {
+      try {
+        const supabase = createClient();
+        const { data, error } = await supabase.from("feature_flags").select("key, enabled");
+        if (error || !data || !active) return;
+        const remote: Record<string, boolean> = {};
+        for (const row of data as { key: string; enabled: boolean }[]) remote[row.key] = row.enabled;
+        writeCache(remote);
+        setSources((prev) => ({ ...prev, remote }));
+      } catch {
+        // Offline. Falls through to cache, then to off.
+      }
+    })();
+    return () => {
+      active = false;
+    };
+  }, []);
+
+  return sources.remote?.[key] ?? sources.cached?.[key] ?? false;
+}
+
 /** One surface, for a screen that only renders one. */
 export function useSurfaceVersion(surface: MigratableSurface): ContractVersion {
   return useSurfaceVersions()[surface];

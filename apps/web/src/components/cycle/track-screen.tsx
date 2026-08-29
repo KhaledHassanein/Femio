@@ -7,6 +7,8 @@ import { fertileWindow } from "@/lib/calculators";
 import { SYMPTOM_GROUPS } from "@/lib/cycle/symptoms";
 import type { Flow } from "@/lib/cycle/calendar";
 import { todayISO } from "@/lib/calculators/dates";
+import { LogScreenV2 } from "@/components/log/log-screen-v2";
+import { useFeatureFlag } from "@/lib/experience/v2/use-surface-version";
 import { useSupabaseQuery, unwrap } from "@/lib/supabase/use-query";
 import { modeFromTrack, showsCyclePredictions } from "@/lib/persona/state";
 import { loadExperienceConfig } from "@/lib/experience/client";
@@ -47,7 +49,29 @@ const PREGNANT_PHASES = new Set(["t1", "t2", "t3"]);
  * asking someone who is pregnant about period cramps is the least of it (P1.13d),
  * and phase is the served field that already means "where she is in a pregnancy".
  */
+/**
+ * `/track`, choosing which logging screen answers it (RB-C6).
+ *
+ * The route and its place in the nav do not change; the screen behind it does. A
+ * separate `/log` would have left two logging screens in the app with no rule
+ * about which is real, and the flag exists precisely so this is reversible.
+ *
+ * **This wrapper exists because of the Rules of Hooks.** The first attempt put the
+ * flag check inside `TrackScreen` and returned early, which skipped every hook
+ * below it whenever the flag was on — a conditional hook order, and a crash the
+ * moment the flag flipped. The linter caught it. Splitting the decision into its
+ * own component means each branch mounts a component that runs its own hooks
+ * unconditionally, which is the only shape that is correct rather than merely
+ * currently working.
+ *
+ * Defaults off, like every other v2 flag.
+ */
 export function TrackScreen() {
+  const useV2Log = useFeatureFlag("experience.v2.log");
+  return useV2Log ? <LogScreenV2 /> : <TrackScreenV1 />;
+}
+
+function TrackScreenV1() {
   const t = useTranslations("track");
   const st = useTranslations("symptoms");
   const today = todayISO();
