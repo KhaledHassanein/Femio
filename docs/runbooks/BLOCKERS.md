@@ -648,3 +648,39 @@ OD-5 and were never reviewed against it.
 The owner confirmed `جماع` as the Arabic term. The string ships as written; no code
 change was needed. The four clinical symptom strings remain worth a pass when the log
 screen (C6) puts them in front of a user for the first time — they are not blocking.
+
+## Two deploys, so D2's findings can exist at all (added 2026-08-29)
+
+**Why a human.** Both are production deploys, and the first one is a *new* function
+that writes to a table using the service role. That is not a call I should make on
+my own.
+
+**Nothing is broken meanwhile.** Until they run, `patterns` stays empty, the home
+module renders nothing, and the patterns *screen* keeps working exactly as it does
+today by computing in the browser. This is an addition, not a switch-over.
+
+Run from `E:\Femio`:
+
+```powershell
+npx supabase@latest functions deploy patterns
+npx supabase@latest functions deploy experience
+```
+
+**Why the second one.** Track B now contributes the `patterns.finding` module, and
+a registry change is inert until `experience` is redeployed — STATE.md records the
+session that lost half a day to exactly this. Deploying the first without the
+second writes findings that nothing renders.
+
+**No secret to set.** Supabase injects `SUPABASE_URL`, `SUPABASE_ANON_KEY` and
+`SUPABASE_SERVICE_ROLE_KEY` into Edge Functions automatically. The function reads
+her logs with the *caller's* JWT and uses the service role only for the insert,
+scoped to the id it got from verifying that JWT.
+
+**What to check after.** `curl` the function with no auth header and confirm `401`.
+Then, signed in with at least three logged cycles, open the dashboard and confirm a
+finding card appears with its evidence line — and that dismissing it keeps it gone
+across a reload. That last one is also the `patterns` column-grant check in
+MANUAL_TEST_PLAN, which has been pending since it was written because nothing
+wrote a row.
+
+**Tell me when it is done** and I will photograph the module and close D2.
