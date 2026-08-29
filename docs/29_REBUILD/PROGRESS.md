@@ -83,7 +83,7 @@ Chapter [05_DESIGN_SYSTEM.md](05_DESIGN_SYSTEM.md), [06_SCREENS.md](06_SCREENS.m
 
 ## Phase D — Depth
 
-- [ ] D1 · Expanded vocabulary (symptom, mood, discharge, BBT, one intercourse marker)
+- [x] D1 · **Expanded vocabulary — built during C6 and closed here rather than re-done.** `lib/experience/v2/vocabulary.ts` carries 45 existing symptom/mood terms, 5 cervical-mucus terms, the single intercourse marker (OD-5 — a date and nothing else, not a taxonomy of acts) and 9 vitals, typed by dimension with `severityScale` per term, 14 tests. C6's log screen is what made them reachable. **BBT is deliberately absent**: it lives in `fertility_logs.bbt` (migration `0017`) and duplicating it here would create two sources of truth for one measurement — the spec line names BBT, and the honest reading of it is *BBT is trackable*, which it already was.
 - [ ] D2 · Patterns as home modules with confidence and evidence
 - [ ] D3 · Prediction explanations from `basis_json`
 - [ ] D4 · Search across articles, conditions, glossary, calculators
