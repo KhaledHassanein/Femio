@@ -271,6 +271,17 @@ boundary rather than at every checkpoint.
   the one no test takes while the flag is off. **Split the decision into its own component**, so
   each branch mounts something whose hooks all run unconditionally — correct rather than merely
   currently working.
+- **Offline is not signed out, and a skeleton that never ends is not a loading state.** Two
+  defects found by photographing the offline case (RB-C7), each hiding the next. `AuthGate` called
+  `getUser()`, which calls the auth server; offline it fails, and the gate read that as *anon* and
+  redirected a signed-in woman to onboarding — her account appeared gone, and no offline state was
+  reachable behind it. Use `getSession()` first: it reads stored session state with **no network
+  call**, so "no session at all" stays answerable offline. Then, with the gate fixed, the screen
+  held its skeleton forever, because supabase-js retries a failed fetch with backoff and the
+  promise never settles — every read now races `QUERY_TIMEOUT_MS`. **To see any of this:**
+  `node scripts/dev/seed-and-shoot.mjs --route <r> --offline`, which blocks *only* the Supabase
+  host. Cutting all network gives a blank page (the document itself cannot load) and tests the
+  browser's error page rather than ours.
 - **Run the whole guard set, not the three you remember.** `pnpm typecheck && pnpm test` plus
   *every* `*-lint` script. Adding UI copy across a long session and checking only persona-branch,
   tier-1 and client-i18n let two failures sit in a clean tree until a full sweep found them:
