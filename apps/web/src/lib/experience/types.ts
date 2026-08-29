@@ -119,6 +119,15 @@ export type ModuleId =
   | "support.lossAware"
   | "support.reassurance"
   // ---- shared
+  /**
+   * A finding from her own entries, with its evidence and how much it rests on
+   * (D2, migration `0019`).
+   *
+   * Its own id rather than a variant of `cycle.*` because a pattern is not a fact
+   * about her cycle — it is a claim Femio is making *about* her entries, and the
+   * contract has to be able to say which modules carry that weight.
+   */
+  | "patterns.finding"
   | "quickLog"
   | "library"
   /**

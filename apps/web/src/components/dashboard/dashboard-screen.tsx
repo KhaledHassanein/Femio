@@ -1,5 +1,6 @@
 "use client";
 
+import { useEffect } from "react";
 import { useTranslations } from "next-intl";
 import { fertileWindow } from "@/lib/calculators";
 import { todayISO } from "@/lib/calculators/dates";
@@ -21,6 +22,10 @@ import { TtcExperience } from "@/components/experience/ttc-experience";
 import { MenopausePanel } from "@/components/menopause/menopause-panel";
 import { AppScreen, ScreenError } from "@/components/patterns/app-screen";
 import { LoadingState } from "@/components/patterns/loading-state";
+// The row shape only — the card itself is rendered by the experience component
+// that owns the module context.
+import type { FindingRow } from "@/components/patterns/pattern-finding-card";
+import { recomputePatterns } from "@/lib/patterns/recompute";
 
 const KNOWN_SYMPTOMS = new Set<string>(SYMPTOM_GROUPS.flatMap((g) => g.symptoms));
 
@@ -46,7 +51,7 @@ export function DashboardScreen() {
   const today = todayISO();
 
   const query = useSupabaseQuery(async (supabase) => {
-    const [state, profile, cycles, symptoms, experience] = await Promise.all([
+    const [state, profile, cycles, finding, symptoms, experience] = await Promise.all([
       unwrap(supabase.from("persona_state").select("track").maybeSingle()),
       /**
        * Her stated baseline (R3.1b.1). Read alongside the cycles rather than
@@ -83,6 +88,22 @@ export function DashboardScreen() {
           .select("period_start, flow")
           .order("period_start", { ascending: false }),
       ),
+      /**
+       * Her strongest live finding (D2, `0019`).
+       *
+       * Tolerant, like the calendar's Phase-A reads: `patterns` is written by an
+       * Edge Function the owner deploys, and between shipping this client and that
+       * deploy the home screen should carry no finding rather than refuse to
+       * render. `dismissed_at is null` is applied in the query, so a finding she
+       * put away costs nothing to skip.
+       */
+      supabase
+        .from("patterns")
+        .select("id, kind, subject, partner_key, summary_key, evidence_json, confidence, cycles_used")
+        .is("dismissed_at", null)
+        .order("confidence", { ascending: false })
+        .limit(1)
+        .then((r) => (r.error ? null : ((r.data?.[0] ?? null) as FindingRow | null))),
       unwrap(
         supabase
           .from("symptom_logs")
@@ -142,6 +163,7 @@ export function DashboardScreen() {
         date: c.period_start as string,
         flow: (c as { flow: string | null }).flow,
       })),
+      finding,
       top: topSymptoms(((symptoms ?? []) as { type: string }[]).map((s) => s.type)),
       symptomLogs: ((symptoms ?? []) as { type: string; logged_at: string }[]).map((s) => ({
         type: s.type,
@@ -149,6 +171,23 @@ export function DashboardScreen() {
       })),
     };
   });
+
+  /**
+   * Ask tier 1 to refresh her findings, at most once a day (D2).
+   *
+   * Here rather than in the log screen because a pattern is measured across cycles
+   * — one more entry cannot move it — and because this is the screen that renders
+   * the result, so the recompute and the read stay in one place.
+   *
+   * **Above the early returns, and it reads its own status.** The first version sat
+   * below them, next to the data it uses, which skips the hook on every loading and
+   * error render — the exact trap STATE.md records from RB-C6, walked into again
+   * three commits later. A hook cannot be placed where the data is convenient.
+   */
+  useEffect(() => {
+    if (query.status !== "ready") return;
+    recomputePatterns(query.data.starts.length);
+  }, [query.status, query.data]);
 
   if (query.status === "loading") {
     return (
@@ -172,8 +211,9 @@ export function DashboardScreen() {
     );
   }
 
-  const { mode, pregnancy, starts, top, config, recentPeriods, statedCycleLength, symptomLogs } =
+  const { mode, pregnancy, starts, top, config, recentPeriods, statedCycleLength, symptomLogs, finding } =
     query.data;
+
   const stItem = st as unknown as (key: string) => string;
   const symptomLabel = (type: string) =>
     KNOWN_SYMPTOMS.has(type) ? stItem(`items.${type}`) : type;
@@ -301,6 +341,7 @@ export function DashboardScreen() {
           B5 (irregular cycles) contributes only the second. Renders nothing when
           the document carries neither, which is why the block below is unchanged. */}
       <CycleExperience
+        finding={finding}
         config={config}
         prediction={prediction}
         lastStart={lastStart}

@@ -91,6 +91,7 @@ export type ModuleContext = {
   cyclePhase?: ReactNode;
   cycleChangeAwareness?: ReactNode;
   cycleFlowStrip?: ReactNode;
+  patternsFinding?: ReactNode;
   menopauseLongTerm?: ReactNode;
   medications?: ReactNode;
   gsm?: ReactNode;
@@ -176,6 +177,7 @@ export const RENDERERS_BY_ID: Partial<Record<ModuleId, Renderer>> = {
   "cycle.phase": (ctx) => ctx.cyclePhase,
   "cycle.changeAwareness": (ctx) => ctx.cycleChangeAwareness,
   "cycle.flowStrip": (ctx) => ctx.cycleFlowStrip,
+  "patterns.finding": (ctx) => ctx.patternsFinding,
   "menopause.longTerm": (ctx) => ctx.menopauseLongTerm,
   medications: (ctx) => ctx.medications,
   gsm: (ctx) => ctx.gsm,

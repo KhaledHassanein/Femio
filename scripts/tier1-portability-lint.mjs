@@ -90,6 +90,7 @@ const PORTABLE = [
   "lib/patterns/cycles.ts",
   "lib/patterns/co-occurrence.ts",
   "lib/patterns/severity.ts",
+  "lib/patterns/rows.ts",
   /**
    * Notification rules (P2.8). Tier 2 because a Flutter background task will
    * schedule the same reminders, and "may this be sent now" — quiet hours, per-kind

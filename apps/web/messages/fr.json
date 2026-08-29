@@ -2175,6 +2175,7 @@
     }
   },
   "patterns": {
+    "dismiss": "C'est noté — ne plus afficher",
     "title": "Vos tendances",
     "intro": "Ce que montrent vos propres entrées, comptées. Femio ne les interprète pas.",
     "loading": "Chargement de vos tendances",
@@ -2195,10 +2196,13 @@
       "body": "Femio a besoin d'environ trois cycles avant de parler d'une tendance. En dessous, c'est une coïncidence, et l'appeler une tendance serait une supposition."
     },
     "timing": {
+      "summary": "{symptom} — généralement vers le jour {from}–{to}",
+      "evidence": "Dans {cycles} de vos {ofCycles} derniers cycles",
       "heading": "Quand cela arrive généralement",
       "note": "Le jour de votre cycle où vous avez noté chacun d'eux."
     },
     "together": {
+      "summary": "{a} et {b}, le même jour",
       "heading": "Ce que vous notez le même jour",
       "note": "Ces éléments sont apparus ensemble. Femio ne dit pas que l'un cause l'autre — il ne peut pas le savoir, et un simple comptage non plus.",
       "pair": "{a} et {b}",

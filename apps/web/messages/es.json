@@ -2175,6 +2175,7 @@
     }
   },
   "patterns": {
+    "dismiss": "Entendido — no volver a mostrar",
     "title": "Tus patrones",
     "intro": "Lo que muestran tus propias entradas, contadas. Femio no las interpreta.",
     "loading": "Cargando tus patrones",
@@ -2195,10 +2196,13 @@
       "body": "Femio necesita unos tres ciclos de entradas antes de hablar de un patrón. Con menos es una coincidencia, y llamarlo patrón sería adivinar."
     },
     "timing": {
+      "summary": "{symptom} — normalmente cerca del día {from}–{to}",
+      "evidence": "En {cycles} de tus últimos {ofCycles} ciclos",
       "heading": "Cuándo suelen aparecer",
       "note": "El día de tu ciclo en el que registraste cada uno."
     },
     "together": {
+      "summary": "{a} y {b}, el mismo día",
       "heading": "Lo que registras el mismo día",
       "note": "Aparecieron juntos. Femio no dice que uno cause el otro: no puede saberlo, y un recuento tampoco.",
       "pair": "{a} y {b}",

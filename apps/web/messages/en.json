@@ -2175,6 +2175,7 @@
     }
   },
   "patterns": {
+    "dismiss": "Got it — don't show this again",
     "title": "Your patterns",
     "intro": "What your own entries show, counted. Femio is not interpreting them.",
     "loading": "Loading your patterns",
@@ -2195,10 +2196,13 @@
       "body": "Femio needs about three cycles of entries before it will say anything about a pattern. Fewer than that is a coincidence, and calling it a pattern would be a guess."
     },
     "timing": {
+      "summary": "{symptom} — usually around day {from}–{to}",
+      "evidence": "In {cycles} of your last {ofCycles} cycles",
       "heading": "When things tend to happen",
       "note": "The day of your cycle you logged each one."
     },
     "together": {
+      "summary": "{a} and {b}, on the same day",
       "heading": "What you log on the same day",
       "note": "These appeared together. Femio is not saying one causes the other — it cannot know that, and neither can a count.",
       "pair": "{a} and {b}",

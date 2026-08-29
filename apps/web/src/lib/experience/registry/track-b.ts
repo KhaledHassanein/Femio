@@ -66,6 +66,17 @@ const B1: PersonaRecord = {
        * are the days she recorded as heavier, and nothing is scored.
        */
       { id: "cycle.flowStrip", emphasis: "primary" },
+      /**
+       * Her strongest live finding, with its evidence attached (D2, `0019`).
+       *
+       * `secondary` and not higher on purpose. A pattern is something she comes to
+       * look at rather than a daily answer, and the patterns *screen* remains the
+       * place that holds all three dimensions — this is the one that earned a place
+       * on the home surface, not a summary of the rest. It renders nothing until
+       * tier 1 has written a row, so a woman with three cycles sees no gap where a
+       * finding will later be.
+       */
+      { id: "patterns.finding", emphasis: "secondary" },
       { id: "quickLog", emphasis: "primary" },
       /**
        * Her range against the typical range, and **nothing grades the difference** —

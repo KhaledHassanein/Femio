@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react";
 import { useFormatter, useTranslations } from "next-intl";
 import type { ExperienceConfig, ModuleId } from "@/lib/experience/types";
 import type { CyclePrediction } from "@/lib/cycle/predict";
@@ -14,6 +15,11 @@ import { CycleReportCard } from "@/components/cycle/cycle-report-card";
 import { lastCompletedCycle } from "@/lib/cycle/cycle-report";
 import { observedRange } from "@/lib/cycle/variability";
 import { FlowStrip } from "@/components/cycle/flow-strip";
+import {
+  PatternFindingCard,
+  type FindingRow,
+} from "@/components/patterns/pattern-finding-card";
+import { createClient } from "@/lib/supabase/client";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
 import { HeroCard } from "@/components/ui/hero-card";
@@ -58,6 +64,7 @@ export function CycleExperience({
   symptomLabel,
   cycleDay,
   recentPeriods,
+  finding,
 }: {
   config: ExperienceConfig | null;
   prediction: CyclePrediction | null;
@@ -72,10 +79,40 @@ export function CycleExperience({
   cycleDay: number | null;
   /** Her logged period starts with the flow she chose, newest first. */
   recentPeriods: readonly { date: string; flow: string | null }[];
+  /**
+   * Her strongest live finding, or null (D2). Null covers three different cases
+   * on purpose — not enough cycles, nothing above the floor, and she dismissed it
+   * — because the module renders nothing in all three and a card explaining which
+   * would be a card about the absence of a finding.
+   */
+  finding: FindingRow | null;
 }) {
   const t = useTranslations("dashboard");
   const tv = useTranslations("cycleVariability");
   const format = useFormatter();
+  const [dismissed, setDismissed] = useState(false);
+
+  /**
+   * Put a finding away, permanently (D2, `0019`).
+   *
+   * `dismissed_at` is the only column `authenticated` may update — the migration
+   * revokes the rest precisely so a client cannot rewrite a finding's confidence or
+   * its evidence. The local flag hides it immediately rather than waiting on the
+   * round trip: she tapped *don't show this again*, and a card that lingers for a
+   * second afterwards reads as the app arguing.
+   *
+   * A failed write is deliberately not surfaced. The worst case is the finding
+   * returning on her next visit, which is recoverable by tapping again; an error
+   * banner about a dismissal would be more intrusive than the card she just chose
+   * to be rid of.
+   */
+  const dismiss = (id: string) => {
+    setDismissed(true);
+    void createClient()
+      .from("patterns")
+      .update({ dismissed_at: new Date().toISOString() })
+      .eq("id", id);
+  };
 
   const fmt = (iso: string) =>
     format.dateTime(new Date(`${iso}T00:00:00Z`), { dateStyle: "medium", timeZone: "UTC" });
@@ -345,6 +382,9 @@ export function CycleExperience({
           </>
         ),
         cycleChangeAwareness: changeAwarenessCard,
+        patternsFinding: finding && !dismissed ? (
+          <PatternFindingCard row={finding} label={symptomLabel} onDismiss={() => dismiss(finding.id)} />
+        ) : null,
         cycleFlowStrip: (
           <>
             {flowStrip}
