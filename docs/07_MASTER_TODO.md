@@ -127,6 +127,8 @@ commit — read that first when resuming.**
 1. **RB-A** — Phase A, foundations: seven migrations + the numeric token scale. Nothing user-visible.
 2. **RB-B** — Phase B, `ExperienceConfig` v2: the eleven-field module envelope, surfaces, per-surface flags.
 3. **RB-C** — Phase C, the visible foundation: tokens, motion, seven chart primitives, dashboard, calendar, log.
+- [ ] **R3.7** **The glossary is empty in production** — `payload.glossary` holds **0 rows**, so "search across articles, conditions, glossary" has nothing to return from one of its three sources and `/glossary` renders an empty page. Found while introspecting the schema for D4's FTS migration. Either write the terms or drop the surface; an empty library page is worse than no link to one.
+- [ ] **R3.8** **All CMS content is English-only** — every row in `articles_locales`, `conditions_locales` and the rest carries `_locale = 'en'`, and Payload is configured with `fallback: true`, so an Arabic reader is silently served English with no indication. `localesFor` already exists to detect this per document (P1.6.15); what is missing is the content itself. Product rule 6 says Arabic is first-class, and today it is first-class in the UI and absent in the library. Sizing and prioritising this is an owner call.
 - [ ] **R3.6** Plural forms are not applied to logged-day counts — the cycle card renders "1 days of bleeding logged" (and "1 أيام" in Arabic). Found while photographing D3 on a seeded account; pre-existing and outside that scope, so recorded rather than folded in. ICU `plural` in the `dashboard` namespace, four locales, and Arabic needs all six categories.
 4. **RB-D → RB-G** — depth, the clinician bridge, content (runs from A onward), then mobile.
 

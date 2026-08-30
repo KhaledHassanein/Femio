@@ -649,7 +649,7 @@ The owner confirmed `جماع` as the Arabic term. The string ships as written; 
 change was needed. The four clinical symptom strings remain worth a pass when the log
 screen (C6) puts them in front of a user for the first time — they are not blocking.
 
-## Two deploys, so D2's findings can exist at all (added 2026-08-29)
+## ~~Two deploys, so D2's findings can exist at all~~ — DONE 2026-08-30 (added 2026-08-29)
 
 **Why a human.** Both are production deploys, and the first one is a *new* function
 that writes to a table using the service role. That is not a call I should make on
@@ -683,4 +683,42 @@ across a reload. That last one is also the `patterns` column-grant check in
 MANUAL_TEST_PLAN, which has been pending since it was written because nothing
 wrote a row.
 
-**Tell me when it is done** and I will photograph the module and close D2.
+**Done 2026-08-30.** Both functions verified returning `401` unauthenticated. D2 is closed.
+
+## One migration: content search (added 2026-08-30, D4)
+
+**Why a human.** It is a production schema change. Nothing else about it is risky —
+it adds two functions and one search function in `public`, creates no tables, and
+touches no existing object.
+
+Run from `E:\Femio`:
+
+```powershell
+npx supabase@latest db push
+```
+
+**Already verified against production.** The whole migration was applied inside a
+transaction on the live database and rolled back, and the search was exercised
+against the real 100 articles — `endometriosis` returns the condition above the
+articles that mention it, `pregnan` returns pregnancy articles mid-word, a quoted
+`"iron"` finds the anaemia article, and junk like `!!! &&` returns nothing rather
+than erroring. So this is not expected to surprise anyone; it is queued because
+production DDL is yours to run, not because it is doubtful.
+
+**What it reads.** Payload's own tables, in the `payload` schema, through a
+`security definer` function with a pinned `search_path`. It returns only
+`_status = 'published'` rows — content that is already public on the marketing
+site — and is granted to `anon` as well as `authenticated`, because search has to
+work before sign-in.
+
+**It cannot block the CMS.** Deliberately a function rather than a view: Postgres
+does not track function-to-column dependencies, so a future Payload schema change
+can never fail on our account. If Payload renames a column, our search breaks and
+the CMS still deploys — the right way round.
+
+**What to check after.** Signed out, on the site, search for `endometriosis` and
+confirm the condition page ranks above the articles that mention it. **Two things
+you will notice and should not report as bugs** — both are already in the queue:
+the glossary returns nothing because `payload.glossary` is empty (R3.7), and
+searching in Arabic returns English results because all CMS content is English
+(R3.8).
