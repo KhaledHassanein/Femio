@@ -40,6 +40,19 @@
 export const PUBLIC_CLIENT_NAMESPACES = [
   "appNav",
   "calculators",
+  /**
+   * `/search` is a **public** route (D4): everything it searches is public, and
+   * migration `0022` grants the search function to `anon` precisely so a visitor
+   * can look something up before creating an account.
+   *
+   * `tools` rides along because the results list names Femio's tools, and it uses
+   * the launcher's own labels rather than a second copy of them — a duplicate
+   * vocabulary is how a tool ends up called one thing in the launcher and another
+   * in search. That costs the public pages roughly a kilobyte per locale, which is
+   * the right trade for not having two names for the same screen.
+   */
+  "search",
+  "tools",
   "notFound",
   "onboarding",
   "resetPassword",
@@ -75,8 +88,6 @@ export const APP_CLIENT_NAMESPACES = [
   "cycleReport",
   "cycleVariability",
   "flowStrip",
-  // The Tools hub (R3.2.1/2.3) — signed-in only, so it never reaches /learn.
-  "tools",
   // Partner sharing (Phase 4.5) — her side and the recipient's side. Both are
   // signed-in-only routes, so neither reaches a public content page.
   "partnerSharing",

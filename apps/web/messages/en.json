@@ -1318,6 +1318,7 @@
     "empty": "Terms are on the way — check back soon."
   },
   "nav": {
+    "search": "Search",
     "authors": "Authors & reviewers",
     "privacy": "Privacy",
     "terms": "Terms",
@@ -1626,6 +1627,23 @@
     "verifying": "Checking…",
     "wrongCode": "That code didn't work. Codes change every 30 seconds — try the current one.",
     "error": "We couldn't check that code just now."
+  },
+  "search": {
+    "englishFallback": "Showing results from the English library — these pages are not translated yet.",
+    "title": "Search",
+    "label": "Search Femio",
+    "placeholder": "Search articles, conditions and tools",
+    "hint": "Results appear as you type. Try a condition, a symptom, or what you want to do.",
+    "searching": "Searching",
+    "failed": "Search could not run just now. Please try again.",
+    "noResults": "Nothing found for \"{query}\".",
+    "noResultsHint": "Try a shorter word, or the name of a symptom or condition.",
+    "kinds": {
+      "condition": "Conditions ({count})",
+      "article": "Articles ({count})",
+      "glossary": "Glossary ({count})",
+      "calculator": "Tools ({count})"
+    }
   },
   "settings": {
     "mfa": {
@@ -1974,6 +1992,10 @@
     }
   },
   "tools": {
+    "calendar": {
+      "label": "Calendar",
+      "note": "Your cycle month by month"
+    },
     "title": "Tools",
     "intro": "Everything Femio can do, whatever stage you are in. Nothing here is hidden based on what you told us.",
     "recordHeading": "Your record",

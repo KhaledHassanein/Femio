@@ -6,6 +6,12 @@ import { ThemeToggle } from "@/components/theme-toggle";
 // appears on every marketing/content page but not on the signed-in app (which has
 // its own AppNav).
 const LINKS = [
+  /**
+   * Search leads (D4). It is the entry point to everything after it, and a search
+   * page nobody can navigate to is the defect R1.9l cost a session on — a feature
+   * that exists, passes its tests, and is unreachable from the running app.
+   */
+  { href: "/search", key: "search" },
   { href: "/learn", key: "learn" },
   { href: "/conditions", key: "conditions" },
   { href: "/calculators", key: "calculators" },

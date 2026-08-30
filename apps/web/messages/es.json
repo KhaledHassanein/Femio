@@ -1318,6 +1318,7 @@
     "empty": "Pronto habrá términos — vuelve pronto."
   },
   "nav": {
+    "search": "Buscar",
     "authors": "Autoras y revisores",
     "privacy": "Privacidad",
     "terms": "Términos",
@@ -1626,6 +1627,23 @@
     "verifying": "Comprobando…",
     "wrongCode": "Ese código no ha funcionado. Los códigos cambian cada 30 segundos: prueba con el actual.",
     "error": "No pudimos comprobar el código ahora mismo."
+  },
+  "search": {
+    "englishFallback": "Resultados de la biblioteca en inglés — estas páginas aún no están traducidas.",
+    "title": "Buscar",
+    "label": "Buscar en Femio",
+    "placeholder": "Busca artículos, afecciones y herramientas",
+    "hint": "Los resultados aparecen mientras escribes. Prueba con una afección, un síntoma o lo que quieras hacer.",
+    "searching": "Buscando",
+    "failed": "La búsqueda no se pudo completar. Inténtalo de nuevo.",
+    "noResults": "Sin resultados para «{query}».",
+    "noResultsHint": "Prueba con una palabra más corta, o el nombre de un síntoma o afección.",
+    "kinds": {
+      "condition": "Afecciones ({count})",
+      "article": "Artículos ({count})",
+      "glossary": "Glosario ({count})",
+      "calculator": "Herramientas ({count})"
+    }
   },
   "settings": {
     "mfa": {
@@ -1974,6 +1992,10 @@
     }
   },
   "tools": {
+    "calendar": {
+      "label": "Calendario",
+      "note": "Tu ciclo mes a mes"
+    },
     "title": "Herramientas",
     "intro": "Todo lo que Femio puede hacer, sea cual sea tu etapa. Aquí no se oculta nada según lo que nos contaste.",
     "recordHeading": "Tu historial",

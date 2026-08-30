@@ -685,7 +685,7 @@ wrote a row.
 
 **Done 2026-08-30.** Both functions verified returning `401` unauthenticated. D2 is closed.
 
-## One migration: content search (added 2026-08-30, D4)
+## ~~One migration: content search~~ — DONE 2026-08-30 (added 2026-08-30, D4)
 
 **Why a human.** It is a production schema change. Nothing else about it is risky —
 it adds two functions and one search function in `public`, creates no tables, and
@@ -722,3 +722,27 @@ you will notice and should not report as bugs** — both are already in the queu
 the glossary returns nothing because `payload.glossary` is empty (R3.7), and
 searching in Arabic returns English results because all CMS content is English
 (R3.8).
+
+## One more migration: search falls back to English (added 2026-08-30, D4)
+
+**Why now.** `0022` is applied and working, and looking at the running page showed
+what it shipped with: every CMS row is `_locale = 'en'` (R3.8), so searching in
+Arabic, French or Spanish returns **nothing, for every query**. Meanwhile Payload's
+`fallback: true` already serves those readers the English article when they open
+it — so today the library is reachable by browsing and unreachable by searching.
+
+```powershell
+npx supabase@latest db push
+```
+
+**Verified the same way as `0022`** — applied inside a transaction against the live
+database and rolled back. `endometriosis` in Arabic went from 0 results to 3, each
+labelled `matched_locale = en`; a genuine no-match still returns nothing.
+
+**What to check after.** Search `endometriosis` on `/ar/search`: results appear,
+with a line above them saying they come from the English library. That line is the
+point — without it she would conclude Femio has an Arabic library that happens not
+to cover her subject, rather than that it has no Arabic library yet.
+
+The fallback stops firing on its own the day translated rows exist. **Whether to
+translate the library is R3.8 and is your call**, not a code change.

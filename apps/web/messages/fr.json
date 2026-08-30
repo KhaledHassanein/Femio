@@ -1318,6 +1318,7 @@
     "empty": "Des termes arrivent — revenez bientôt."
   },
   "nav": {
+    "search": "Recherche",
     "authors": "Auteurs et relecteurs",
     "privacy": "Confidentialité",
     "terms": "Conditions",
@@ -1626,6 +1627,23 @@
     "verifying": "Vérification…",
     "wrongCode": "Ce code n'a pas fonctionné. Les codes changent toutes les 30 secondes — essayez le code actuel.",
     "error": "Impossible de vérifier ce code pour le moment."
+  },
+  "search": {
+    "englishFallback": "Résultats de la bibliothèque anglaise — ces pages ne sont pas encore traduites.",
+    "title": "Recherche",
+    "label": "Rechercher dans Femio",
+    "placeholder": "Rechercher articles, affections et outils",
+    "hint": "Les résultats apparaissent au fil de la saisie. Essayez une affection, un symptôme, ou ce que vous voulez faire.",
+    "searching": "Recherche en cours",
+    "failed": "La recherche n'a pas pu aboutir. Réessayez.",
+    "noResults": "Aucun résultat pour « {query} ».",
+    "noResultsHint": "Essayez un mot plus court, ou le nom d'un symptôme ou d'une affection.",
+    "kinds": {
+      "condition": "Affections ({count})",
+      "article": "Articles ({count})",
+      "glossary": "Glossaire ({count})",
+      "calculator": "Outils ({count})"
+    }
   },
   "settings": {
     "mfa": {
@@ -1974,6 +1992,10 @@
     }
   },
   "tools": {
+    "calendar": {
+      "label": "Calendrier",
+      "note": "Votre cycle mois par mois"
+    },
     "title": "Outils",
     "intro": "Tout ce que Femio sait faire, quelle que soit ton étape. Rien n'est masqué ici selon ce que tu nous as dit.",
     "recordHeading": "Ton dossier",
