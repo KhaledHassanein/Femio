@@ -1,4 +1,4 @@
-import { getFormatter, getTranslations } from "next-intl/server";
+import { getFormatter, getLocale, getTranslations } from "next-intl/server";
 import type { ContentDoc } from "@/lib/cms/client";
 import { RichText } from "@/lib/cms/lexical";
 import { Link } from "@/i18n/navigation";
@@ -137,9 +137,25 @@ export async function ContentArticle({
  * Named author + named clinician reviewer, each linked to their bio (doc 15 §8).
  * Renders nothing until the CMS has people attached, so an article published
  * before its bios exist degrades to the reviewed badge rather than to "By ,".
+ *
+ * ## On a translated page it says the review was of the English (R3.8)
+ *
+ * Approval is not a localised field — `review_status`, `medical_reviewer_id` and
+ * `last_reviewed` live on the parent row, so a translation inherits them the
+ * moment it is written. That is the intended behaviour and it is the owner's
+ * call: the clinical substance was reviewed, and re-reviewing a faithful
+ * translation of it is not what the two reviewers' time is for.
+ *
+ * What does not follow is the sentence "Reviewed by Dr X" sitting under Arabic
+ * prose Dr X has never read. That is a claim about a **named real person's**
+ * professional endorsement, and it is the one part of this that is not Femio's
+ * to assert. So on any non-English rendering the label changes to say the review
+ * was of the English text. Same reviewer, same link, same authority — described
+ * accurately, at no cost to anyone.
  */
 async function Byline({ authors, reviewer }: { authors: Byline[]; reviewer: Byline | null }) {
   const t = await getTranslations("learn");
+  const locale = await getLocale();
   if (authors.length === 0 && !reviewer) return null;
 
   const name = (p: Byline) => (p.credentials ? `${p.name}, ${p.credentials}` : p.name);
@@ -161,7 +177,7 @@ async function Byline({ authors, reviewer }: { authors: Byline[]; reviewer: Byli
       ) : null}
       {reviewer ? (
         <span>
-          {t("reviewedBy")}{" "}
+          {t(locale === "en" ? "reviewedBy" : "reviewedInEnglishBy")}{" "}
           <Link href={`/authors/${reviewer.slug}`} className="text-text-link underline">
             {name(reviewer)}
           </Link>

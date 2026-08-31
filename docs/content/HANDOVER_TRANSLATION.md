@@ -9,21 +9,22 @@ prompt for that return.
 
 ---
 
-## 1. What this is, and one thing said once
+## 1. What this is
 
 Every row in the CMS is `_locale = 'en'`: 100 published articles, 5 conditions, 0 glossary
 terms, 0 FAQs. Payload is configured with `fallback: true`, so an Arabic reader is *already*
 served the English article with no indication. Product rule 6 says Arabic is first-class; today
 it is first-class in the UI and absent from the library.
 
-**My recommendation was narrower** — Arabic only, roughly twenty articles — because the binding
-constraint is not translation cost but **clinical review capacity**, and there are two reviewers
-in `payload.people`. The full scope is 105 articles × 3 languages = **315 translated documents,
-each of which is new medical content in a language a clinician must read before it can be
-published.** The owner has decided on the full library; this handover is written for that, and
-the constraint is recorded here rather than argued again.
+**Scope and approval are both the owner's decisions, taken 2026-08-30:** the full library —
+105 articles × 3 languages, **315 documents** — and translations inherit the English article's
+clinical approval rather than queuing for review. The reasoning is that the clinical substance
+was reviewed once, and two reviewers re-reading faithful translations is not the best use of
+the only review capacity the project has.
 
-**Nothing about the scope decision changes the safety rules in §3.** They are not preferences.
+**What that changes is where the risk sits, not whether it exists.** With no review step
+downstream, a mistranslated hedge, red flag or dose goes live unchallenged. Everything in §3
+and §4 is written for that: they are not process, they are the only checks there are.
 
 ## 2. What already exists
 
@@ -32,7 +33,8 @@ the constraint is recorded here rather than argued again.
 | English source of truth | `docs/content/articles/*.md` | **105 files**, frontmatter + Markdown |
 | Published in the CMS | `payload.articles` + `articles_locales` | 100, all `reviewStatus: approved` |
 | Conditions | `payload.conditions` | 5 |
-| Importer (English only) | `apps/cms/scripts/import-articles.mjs` | Hard-fails on `locale !== "en"` |
+| Importer (English) | `apps/cms/scripts/import-articles.mjs` | Hard-fails on `locale !== "en"` |
+| **Importer (translations)** | `apps/cms/scripts/import-translations.mjs` | **Built 2026-08-30.** `pnpm content-import-translations` |
 | Content guard | `pnpm content-lint` | Runs in the gate |
 | Review gate | `apps/cms/src/hooks/review-gate.ts` | Data layer, cannot be bypassed |
 | Search fallback | migration `0023` | Applied 2026-08-30 |
@@ -42,19 +44,27 @@ falls back to English, and returns `matched_locale` so the UI says which library
 half-translated library therefore degrades honestly rather than looking broken — so translate in
 whatever order makes sense and ship continuously. There is no big-bang cutover to wait for.
 
-## 3. The four rules that are not negotiable
+## 3. The four rules — the only checks there are
 
-**3.1 — A translation is new medical content, not a formatting change.** It cannot inherit the
-English article's `reviewStatus: approved`, its `medically_reviewed_by`, or its `last_reviewed`
-date. Those fields assert that a named clinician read *this text* and stands behind it. Carrying
-them across languages would be a false claim of clinical review, on health content, in a language
-nobody reviewed. Every translated document imports as `_status: draft`, `reviewStatus: draft`,
-reviewer `PENDING`, review date `null`.
+**3.1 — Approval is inherited, and the schema already does it.** `review_status`,
+`_status`, `medical_reviewer_id` and `last_reviewed` live on the **parent** `articles`
+row; only `title`, `excerpt` and `body` are per-locale. So writing a translation into an
+approved, published article makes it live immediately, carrying that approval. **Owner
+direction, 2026-08-30: this is intended.** The clinical substance was reviewed in
+English, re-reviewing a faithful translation is not what two reviewers' time is for, and
+there is no approval step for the agent to wait on.
 
-The CMS enforces this at the data layer — `enforceReviewGate` rejects `approved` and `published`
-from anyone without the `medical_reviewer` or `admin` role, whichever API is used. **The agent
-cannot publish. Do not try, and do not attempt to work around it.** Producing good drafts is the
-whole job.
+Two things follow, and neither is a loop:
+
+- **The page says the review was of the English.** On any non-English rendering the
+  byline reads *"Reviewed in English by Dr X"* rather than *"Reviewed by Dr X"*. Same
+  reviewer, same link, same authority — accurate about which text they read, because
+  that is a claim about a named real person and not Femio's to overstate. Already built;
+  the agent does not need to do anything about it.
+- **A faithful translation therefore carries the whole weight.** Nothing downstream will
+  catch a mistranslated dose, hedge or red flag, because nothing downstream is looking.
+  That is the trade the inherited approval makes, and it is why §3.4 is the rule that
+  matters most in this document.
 
 **3.2 — Slugs do not change.** URLs are stable identifiers and the app routes by slug in every
 locale. `endometriosis-signs` stays `endometriosis-signs` in Arabic. Translate `title`, `excerpt`
@@ -70,13 +80,20 @@ is a different claim with a different evidence base, and it needs its own review
 that reads as neutral in English can land as diagnostic in another language. Where a hedge has no
 natural equivalent, keep the hedge and lose the elegance.
 
-## 4. Two things specific to Arabic
+## 4. Three things specific to Arabic
 
 **RTL is built and verified, but bidi has bitten this project twice.** `°C` rendered as `C°` and
 `±2` rendered as `2±`, both beside Arabic text. Neither Unicode isolates nor a `dir="ltr"` span
 settled the second one; the fix was to remove the sign and write the words. **So: avoid leading
 mathematical signs and stray Latin units inside Arabic sentences.** Write "يومين في كل اتجاه"
 rather than "±2 يوم". Numerals themselves are fine.
+
+**Register: conservative and professional throughout (owner rule, standing).** Arabic
+especially. This is the same direction that keeps sexual-wellness content out of the
+product: clinical, plain, unembarrassed, and never casual or intimate in tone. Where
+English uses a warm colloquialism, Arabic uses the neutral clinical term. Address the
+reader respectfully in the feminine singular, as the existing UI strings do. If a term
+has a street register and a medical register, use the medical one.
 
 **Terminology has to be decided once, up front.** The same condition must not be three different
 words across a hundred articles. Build the term list first — and note that it doubles as the
@@ -95,6 +112,11 @@ glossary, which is currently **empty** (R3.7) and is a real gap in its own right
 > follows) and `docs/content/HANDOVER_TRANSLATION.md` (which produced this prompt). Use the
 > `femio-medical-content` and `femio-i18n-workflow` skills.
 >
+> **Your translations go live carrying the English article's clinical approval** — that
+> is deliberate and is the owner's decision, so there is no review queue to wait for and
+> no approval flag to set. It also means nothing downstream will catch a mistranslation.
+> Accuracy on medical claims is entirely on you.
+>
 > **What you are producing:** for each English article, one translated Markdown file per target
 > language, in `docs/content/articles/`, named `<slug>.<locale>.md` — for example
 > `endometriosis-signs.ar.md`. Same frontmatter schema as the English file, with `locale` set to
@@ -102,18 +124,23 @@ glossary, which is currently **empty** (R3.7) and is a real gap in its own right
 >
 > **Five rules that are not stylistic:**
 >
-> 1. **Never mark a translation as reviewed.** `status: draft`, `review_status: draft`,
->    `medically_reviewed_by: PENDING`, `last_reviewed: null`. A translation is new medical
->    content in a language no clinician has read. Carrying the English article's approval across
->    would be a false claim of clinical review. The CMS enforces this at the data layer and will
->    reject you; do not attempt to work around it.
+> 1. **Write in a conservative, professional register — Arabic especially.** Clinical,
+>    plain, unembarrassed; never casual or intimate. Where the English uses a warm
+>    colloquialism, use the neutral clinical term. Address the reader in the feminine
+>    singular, as the existing UI strings do. If a term has a street register and a
+>    medical one, use the medical one. This is a standing owner rule, not a preference.
+>
 > 2. **Never change a slug**, and never change an internal link target. URLs are stable in every
 >    locale and the app routes by slug.
 > 3. **Keep the sources identical** — same citations, same order, same URLs. Do not substitute a
 >    local-language source that says something similar.
-> 4. **Do not add or drop a medical claim**, especially red-flag lines and "discuss with your
->    clinician" hedges. Where a hedge has no natural equivalent, keep the hedge and lose the
->    elegance. Femio is wellness and education only and never diagnoses.
+> 4. **Do not add or drop a medical claim** — especially red-flag lines and
+>    "discuss with your clinician" hedges. Where a hedge has no natural equivalent, keep
+>    the hedge and lose the elegance. Femio is wellness and education only and never
+>    diagnoses. **This is the rule that matters most:** translations inherit the English
+>    article's clinical approval automatically, so nothing downstream re-checks your
+>    work. A mistranslated hedge goes live.
+>
 > 5. **Arabic: avoid leading mathematical signs and stray Latin units inside sentences.** Write
 >    "يومين في كل اتجاه", not "±2 يوم" — bidi reorders those and it has cost this project two
 >    debugging passes. Numerals are fine.

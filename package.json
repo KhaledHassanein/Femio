@@ -33,6 +33,7 @@
     "content-lint:test": "node scripts/content-lint.test.mjs",
     "content-import:test": "node scripts/content-import.test.mjs",
     "content-import": "pnpm --filter cms exec payload run ./scripts/import-articles.mjs",
+    "content-import-translations": "pnpm --filter cms exec payload run ./scripts/import-translations.mjs",
     "rls-audit": "node scripts/security/rls-audit.mjs",
     "audit": "pnpm audit --audit-level high"
   }
