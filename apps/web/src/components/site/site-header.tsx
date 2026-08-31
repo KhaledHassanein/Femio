@@ -1,6 +1,7 @@
 import { getTranslations } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
 import { ThemeToggle } from "@/components/theme-toggle";
+import { isUnpublishedSection } from "@/lib/content/unpublished-sections";
 
 // Persistent public-site header (P1.9b.1). Rendered by the (public) layout, so it
 // appears on every marketing/content page but not on the signed-in app (which has
@@ -28,7 +29,7 @@ export async function SiteHeader() {
           femio
         </Link>
         <nav className="flex flex-wrap items-center gap-x-4 gap-y-1 text-sm">
-          {LINKS.map((l) => (
+          {LINKS.filter((l) => !isUnpublishedSection(l.href)).map((l) => (
             <Link key={l.href} href={l.href} className="text-text-muted hover:text-text">
               {t(l.key)}
             </Link>

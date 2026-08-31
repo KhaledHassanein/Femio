@@ -2,11 +2,18 @@ import type { MetadataRoute } from "next";
 import { routing } from "@/i18n/routing";
 import { siteConfig } from "@/lib/seo/config";
 import { listContent, listPeople, translatedSlugs } from "@/lib/cms/client";
+import { isUnpublishedSection } from "@/lib/content/unpublished-sections";
 
 // Static routes + published CMS content (P1.11.1). Deliberate exclusions:
 //  - /help-now (crisis-safety routing) is `noindex` and must never surface in search;
 //  - /privacy + /terms are `noindex` while they are drafts (ADR-015) — add them here
-//    with counsel's finalized text (P0.12.4).
+//    with counsel's finalized text (P0.12.4);
+//  - /glossary + /faq are filtered below while their collections are empty (R3.7).
+//    Submitting an empty page for indexing earns a thin-content impression against
+//    the domain and sends anyone who lands on it straight back out.
+//  - /search is absent by design: a results page is `noindex` (every URL a thin
+//    duplicate of the library it points at) and the library pages are the ones
+//    worth indexing.
 const STATIC_PATHS = [
   "",
   "/learn",
@@ -47,7 +54,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     }
   };
 
-  for (const path of STATIC_PATHS) add(path, now);
+  for (const path of STATIC_PATHS.filter((p) => !isUnpublishedSection(p))) add(path, now);
 
   // Published content (slugs shared across locales). Graceful if the CMS is unset.
   for (const { collection, base } of [

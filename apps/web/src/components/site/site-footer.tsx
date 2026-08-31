@@ -1,5 +1,6 @@
 import { getTranslations } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
+import { isUnpublishedSection } from "@/lib/content/unpublished-sections";
 
 // Persistent public-site footer (P1.9b.1): library nav + crisis link + copyright.
 const LINKS = [
@@ -23,7 +24,7 @@ export async function SiteFooter() {
           <p className="text-sm text-text-muted">{t("tagline")}</p>
         </div>
         <nav className="flex flex-wrap gap-x-5 gap-y-2 text-sm">
-          {LINKS.map((l) => (
+          {LINKS.filter((l) => !isUnpublishedSection(l.href)).map((l) => (
             <Link key={l.href} href={l.href} className="text-text-muted hover:text-text">
               {nav(l.key)}
             </Link>
