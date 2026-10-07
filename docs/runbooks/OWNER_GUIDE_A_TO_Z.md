@@ -104,7 +104,7 @@ feature, so skip this step while you stay free and do it when you upgrade at lau
 
 ---
 
-## Step 5 · Give Claude full read access to Vercel (2 min)
+## Step 5 · Give Claude full read access to Vercel: ✅ done 2026-10-07
 
 The Vercel connector works but cannot see logs, usage or settings for your team
 ("403 forbidden").
@@ -157,9 +157,10 @@ This tells Google your site exists and shows you what people search to find it.
 
 These are not clicks but they set the launch date:
 
-- **A privacy lawyer** (MENA + EU) with three questions: does Egypt's data-protection
-  licence apply to Femio, does Saudi law allow EU hosting, and finalise the privacy policy
-  and terms. Egypt's rules are enforced from **31 October 2026**.
+- **First, decide D7** (`OWNER_ACTIONS.md` §0): keep health records on the phone for v1.
+  If yes, the lawyer's job shrinks to four short questions
+  (`docs/compliance/PRIVATE_LAUNCH_V1.md` §6). Egypt's rules are enforced from
+  **31 October 2026**.
 - **An Arabic-speaking medical reviewer**, or confirm you will review Arabic yourself.
   Nothing in Arabic is published without a named reviewer.
 - **Google Play developer account** ($25, one-off) at play.google.com/console. A personal

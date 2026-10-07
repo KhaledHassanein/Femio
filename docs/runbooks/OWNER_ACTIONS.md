@@ -32,6 +32,18 @@ Khaled replied *"Go with all your recommended defaults"*. D1–D6 below are ther
 | **D5** | **Target date for the soft launch (50–100 women)** | **Week of 2026-11-30.** Phases 1–4 at the pace in `30.03` §5. | pick a date |
 | **D6** | **Visual direction "Dusk Bloom"** (plum · rose · peach · saffron on porcelain) | **Proceed.** You see it in screenshots at the Phase 1 checkpoint and can redirect then. | describe what you want instead |
 
+### D7 · Private launch: health records stay on the phone (proposed 2026-10-07, needs your yes)
+
+You asked to launch without holding health data. Full assessment: [`docs/compliance/PRIVATE_LAUNCH_V1.md`](../compliance/PRIVATE_LAUNCH_V1.md).
+**Proposal:** v1 has no accounts; cycle, TTC, pregnancy and symptom records live only on
+her phone; predictions run on the phone; backup is a file she saves herself; the tracker is
+18+ at launch (articles stay open to all). Cloud sync comes later, once the licences are in
+place. **Cost:** a lost phone without a backup loses the record, and iPhone users must add
+Femio to the Home Screen. **Gain:** no sensitive-data or cross-border licences, no Supabase
+dependency (and no egress) for the app, and a much shorter lawyer engagement (A1).
+Disclaimers and waivers cannot do this; the architecture can. *Reply "D7 yes" and Phase 3
+is rebuilt on a local store.*
+
 ---
 
 ## A · Legal and compliance: the real launch gate (start now, runs in the background)
@@ -41,7 +53,7 @@ enforced from **31 October 2026**, and Saudi SDAIA issued 48 violation decisions
 
 | # | Action | Time | Unblocks |
 |---|---|---|---|
-| A1 | **Engage one privacy lawyer** (MENA + EU) with three questions: (1) does Egypt PDPL licensing apply to Femio as a foreign controller of Egyptian residents' health data; (2) do Saudi PDPL transfer rules allow EU (Frankfurt) hosting; (3) final privacy policy + terms from our drafts (`/privacy`, `/terms`) | 1 h to brief | launch |
+| A1 | **Engage one privacy lawyer** (Egypt-qualified ideally; Saudi + UK by referral). **If D7 is accepted**, the brief shrinks to the four narrow questions in `PRIVATE_LAUNCH_V1.md` §6 (do we need an Egypt controller licence/representative for logs and crash reports only; same for Saudi and UK; review the v1 policy). **Also tell them where Femio's operating entity is registered**; it changes Egypt's answer. Do not reuse the ChatGPT drafts as-is: they assume Firebase and Frankfurt (Femio uses Supabase in Ireland) and cloud sync. | 1 h to brief | launch |
 | A2 | **Name a DPO** (can be external) and sign the DPIA §5 (`docs/compliance/`) | 30 min | launch |
 | A3 | **Crisis-safety sign-off.** Read the crisis copy in AR/FR/ES (`apps/web/src/lib/crisis/crisis.json`) and confirm the ThroughLine (findahelpline.com) linking terms | 20 min | launch |
 | A4 | ✅ **Done by Claude 2026-10-07: `BLOOM-2026`, Production, active from the next deploy.** ~~Set `NEXT_PUBLIC_BETA_INVITE_CODE` in Vercel~~ (web project → Settings → Environment Variables → Production) to any code you choose, then redeploy. **Signup is open to anyone today** while privacy/terms are drafts. | 3 min | closes a live exposure |
@@ -67,7 +79,7 @@ Do these in order; each says where.
 | C6 | ✅ **Done 2026-10-07, verified in the database.** ~~Apply migrations `0024` + `0025` + the Payload 3.90 column~~: paste `docs/runbooks/sql/2026-10-07_apply_all.sql` into the Supabase SQL editor (guide step 2; no terminal needed). Do it **before merging #22**. **0024** drops three never-used content tables (verified empty 2026-10-07; it refuses to run otherwise). **0025** acts on the Supabase security/performance advisors: it stops visitors with no session calling six account/staff functions over the API (including `handle_new_user`, a trigger that was callable as an RPC), pins six function search paths, drops a duplicate index and adds four missing foreign-key indexes. The session's attempt to apply them was blocked by the permission system, correctly: production schema changes are yours to run. | terminal, repo root | 2 min |
 | C6b | **Supabase → Authentication → Settings: turn on "Leaked password protection"** (an advisor finding; a dashboard toggle, not SQL) | Supabase | 1 min |
 | C6c | **Purge 442 stale test accounts?** The production project holds 443 accounts, **442 of them anonymous**, all idle 30+ days and none newer than 2026-08-29: CI runs and onboarding tests. 214 hold no data; 228 hold test data. Say *"purge test accounts"* and the next session deletes the 214 empty ones (and, if you say *"all"*, the rest). Nothing is deleted until you say so. | chat | 1 min |
-| C6d | **Re-authorise the Vercel connector for the `khaledhassaneins-projects` scope.** It can list projects and deployments but gets 403 on project settings, logs and usage. | claude.ai → Connectors → Vercel | 2 min |
+| C6d | ✅ **Done 2026-10-07 (verified: deployments readable).** ~~Re-authorise the Vercel connector for the `khaledhassaneins-projects` scope.** It can list projects and deployments but gets 403 on project settings, logs and usage. | claude.ai → Connectors → Vercel | 2 min |
 | C7 | **Vercel: confirm Root Directory** = `apps/web` (web project) and `apps/cms` (CMS project), and that **Settings → Git → Ignored Build Step** is *not* overridden in the dashboard, so the new `vercel.json` rule applies. | Vercel | 3 min |
 | C8 | **Google Search Console**: add `femioapp.com` as a Domain property (DNS TXT), submit `https://femioapp.com/sitemap.xml` | GSC + DNS | 10 min |
 | C9 | **Google Play Console account** ($25 one-off). **Note:** a new *personal* account must run a closed test with **12 testers for 14 days** before production. An *organisation* account (needs a D-U-N-S number) avoids that. Choose before Phase 4. | play.google.com/console | 20 min |
