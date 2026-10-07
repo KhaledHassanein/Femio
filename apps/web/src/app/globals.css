@@ -17,7 +17,16 @@
 
   body {
     min-height: 100dvh;
-    font-family: var(--font-inter), Inter, system-ui, sans-serif;
+    font-family: var(--font-sans-latin), var(--font-plex-arabic), system-ui, sans-serif;
+  }
+
+  /* Display faces are drawn with real weights (Newsreader is variable, with optical
+     sizes; Noto Naskh has 500–700), so synthesis is never wanted. Turning it off makes
+     a weight the face lacks fall back visibly in review instead of being smeared. */
+  .font-display {
+    font-synthesis-weight: none;
+    font-optical-sizing: auto;
+    letter-spacing: -0.015em;
   }
 
   /* Never remove focus affordance — a visible ring is a token (docs/12). */
@@ -166,3 +175,54 @@ body:has(.app-bottom-bar):has(.crisis-launcher) {
     border-color: #767676 !important;
   }
 }
+
+/* ---------------------------------------------------------------------------
+   Aurora (v3 P1.3, docs/30_REVAMP/03 §3.4) — the hero ground. Layered dusk light
+   over deep plum, film grain on top, drifting slowly. CSS only: no script, no
+   canvas, one composited layer. The global reduced-motion rule above stops the
+   drift; the light itself stays, because it is colour, not movement.
+   Tokens live in femio.tokens.css (--aurora-*). Use `.aurora` on the hero element
+   and keep text inside it white (≥ 6:1 at the brightest point).
+   ------------------------------------------------------------------------- */
+@layer components {
+  .aurora {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    background-color: var(--aurora-ground);
+  }
+  .aurora::before {
+    content: "";
+    position: absolute;
+    inset: -30%;
+    z-index: -2;
+    background:
+      radial-gradient(40% 34% at 92% 8%, var(--aurora-1), transparent 70%),
+      radial-gradient(34% 30% at 96% 70%, var(--aurora-2), transparent 70%),
+      radial-gradient(26% 24% at 70% 38%, var(--aurora-3), transparent 70%),
+      radial-gradient(48% 40% at 18% 14%, var(--aurora-4), transparent 70%);
+    filter: blur(28px);
+    animation: aurora-drift 22s ease-in-out infinite alternate;
+    will-change: transform;
+  }
+  /* Grain: an inline SVG turbulence tile. It is what turns a gradient into light. */
+  .aurora::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    opacity: 0.14;
+    mix-blend-mode: overlay;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+  @keyframes aurora-drift {
+    0% {
+      transform: translate3d(0, 0, 0) rotate(0deg) scale(1);
+    }
+    100% {
+      transform: translate3d(-5%, 4%, 0) rotate(9deg) scale(1.06);
+    }
+  }
+}
+

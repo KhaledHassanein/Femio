@@ -15,9 +15,10 @@ const config: Config = {
       // Point the preset's font families at the self-hosted next/font variables
       // (loaded in the locale layout) while keeping named fallbacks.
       fontFamily: {
-        sans: ["var(--font-inter)", "Inter", "system-ui", "sans-serif"],
-        display: ["var(--font-fraunces)", "Fraunces", "Georgia", "serif"],
-        arabic: ["var(--font-plex-arabic)", "IBM Plex Sans Arabic", "sans-serif"],
+        // Latin face first, Arabic face second: the browser falls through per glyph.
+        sans: ["var(--font-sans-latin)", "var(--font-plex-arabic)", "system-ui", "sans-serif"],
+        display: ["var(--font-display-latin)", "var(--font-naskh)", "Georgia", "serif"],
+        arabic: ["var(--font-plex-arabic)", "var(--font-sans-latin)", "sans-serif"],
       },
     },
   },

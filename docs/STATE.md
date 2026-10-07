@@ -25,11 +25,11 @@ Search it by feature name when you need the history of a decision. It is not req
   **100 articles** + 5 condition hubs published, all clinician-bylined. Migrations 0001–0022
   applied. 0023 is unverified and 0024 (guarded drop of unused content tables) is new; both
   apply with `db push`.
-- **Health:** `pnpm gate` green, 940 unit tests, `pnpm audit --audit-level high` clean as of
+- **Health:** `pnpm gate` green, 942 unit tests, `pnpm audit --audit-level high` clean as of
   `7abbb2e`. CMS on Payload 3.90.2 / Next 16.3.8; web on Next 15.5.27.
 - **Branch:** this session works on `claude/epic-planck-5y8geb`. Vercel deploys from `main`,
   so nothing here is live until the owner merges (OWNER_ACTIONS C1).
-- **Design:** still the August look until Phase 1 lands. v2 experience surfaces exist behind
+- **Design:** Phase 1 under way — Dusk Bloom palette, Newsreader/Plus Jakarta/Noto Naskh/Plex Arabic type, aurora hero, new header and compact crisis launcher are in (see PROGRESS). Next: reveal-on-scroll, cycle band, components pass, footer, app shell tabs. v2 experience surfaces exist behind
   flags that default **off**. Phase 3 turns them on and deletes v1 behind each.
 
 ## The working loop

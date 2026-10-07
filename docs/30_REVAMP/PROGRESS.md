@@ -10,15 +10,15 @@ work.** Marks: `[ ]` open · `[~]` in progress · `[x]` done (commit) · `[BLOCK
 - [x] P0.3 · Audit, market research, plan, single `OWNER_ACTIONS.md`
 - [x] P0.4 · Governance collapse: short `STATE.md`; superseded plans and runbooks → `docs/archive/`; V1 Flutter reference removed from tree
 - [x] P0.5 · Migration `0024`: guarded drop of `content`, `content_i18n`, `content_history` (owner applies: C6)
-- [ ] P0.6 · Content pages to ISR instead of `force-dynamic` (verify a 404 stays a 404)
+- [~] P0.6 · CMS lists select only their fields: 2.1 MB → 4.2 KB, now cacheable (`544bac0`) — this was ~8 MB of DB egress per article view. ISR switch still open (verify a 404 stays a 404)
 
 ## Phase 1 — Design language v3 "Dusk Bloom"
 
-- [ ] P1.1 · Palette tokens (light + dark), parity guards green
-- [ ] P1.2 · Type: Instrument Serif · Plus Jakarta Sans · Noto Naskh Arabic · IBM Plex Sans Arabic
-- [ ] P1.3 · Aurora + grain primitive; reveal-on-scroll; breathing cycle band
+- [x] P1.1 · Dusk Bloom palette: plum/rose/peach/saffron/sage + porcelain neutrals, light + dark, every pairing contrast-checked (white on solids 5.6–7.9:1); JSON mirror regenerated from the CSS
+- [x] P1.2 · Type: Newsreader · Plus Jakarta Sans · Noto Naskh Arabic · IBM Plex Sans Arabic, per-glyph stacks (no locale branching); Instrument Serif tried and rejected (cramped at UI sizes)
+- [~] P1.3 · Aurora + grain shipped on the home hero (white text ≥ 6.9:1 measured on rendered pixels, EN + AR); reveal-on-scroll and breathing cycle band still open
 - [ ] P1.4 · Components restyled (button, card, chip, badge, alert, inputs)
-- [ ] P1.5 · Header, footer; crisis entry relocated off the floating pill
+- [~] P1.5 · Header rebuilt (one row of actions + scrolling sections, sticky, frosted; visible "Need help now?" link to /help-now); launcher now a compact 44px lifebuoy keeping its approved accessible name (ADR-013 kept). Footer open
 - [ ] P1.6 · App shell: bottom tabs Today · Calendar · Log · Learn · You
 - [ ] P1.7 · Checkpoint: gallery + 3 screens photographed (light, dark, AR) → owner D-1
 
@@ -60,4 +60,6 @@ work.** Marks: `[ ]` open · `[~]` in progress · `[x]` done (commit) · `[BLOCK
 
 | When | What | Commit |
 |---|---|---|
-| 2026-10-07 | Takeover: CI green, critical CVEs patched, build skipping, plan written, repo cleaned | `7abbb2e` `0b62436` + this |
+| 2026-10-07 | Phase 1 started: Dusk Bloom palette + type, aurora hero, header, compact crisis launcher | this commit |
+| 2026-10-07 | CMS list queries 2.1 MB → 4.2 KB (the likely usage-alert cause) | `544bac0` `3d8df90` |
+| 2026-10-07 | Takeover: CI green, critical CVEs patched, build skipping, plan written, repo cleaned | `7abbb2e` `0b62436` `6d1e677` |

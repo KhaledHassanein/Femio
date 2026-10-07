@@ -135,7 +135,7 @@ info keep their accessible values.
 
 | Role | Latin | Arabic |
 |---|---|---|
-| Display | **Instrument Serif** (editorial, high contrast) | **Noto Naskh Arabic** 600–700 |
+| Display | **Newsreader** (editorial, optical sizes, real weights) | **Noto Naskh Arabic** 600–700 |
 | UI / body | **Plus Jakarta Sans** (warmer than Inter) | **IBM Plex Sans Arabic** (kept) |
 
 All four are loaded through `next/font`, self-hosted, with no runtime Google request (CSP
@@ -197,7 +197,7 @@ manual items run in parallel from `OWNER_ACTIONS.md`.
 ### Phase 1 — Design language v3 · ~1 week
 
 - Tokens: the Dusk Bloom palette in `femio.tokens.css`, light and dark, all parity guards green
-- Type: Instrument Serif, Plus Jakarta Sans, Noto Naskh Arabic, IBM Plex Sans Arabic
+- Type: Newsreader, Plus Jakarta Sans, Noto Naskh Arabic, IBM Plex Sans Arabic
 - Aurora + grain hero primitive; breathing cycle band; reveal-on-scroll utility
 - Components restyled: button, card, chip, badge, alert, inputs, header, footer, bottom tabs
 - Crisis entry relocated (header + menu + content), never floating over the product
