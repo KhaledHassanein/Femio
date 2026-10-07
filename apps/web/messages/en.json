@@ -1,7 +1,7 @@
 {
   "meta": {
     "title": "Femio",
-    "description": "One account for a woman's whole health life."
+    "description": "Your whole health life, from first period to menopause, private on your phone."
   },
   "home": {
     "signIn": "Sign in",
@@ -213,16 +213,16 @@
     },
     "list": {
       "dueDate": {
-        "name": "Due date",
+        "name": "Due date calculator",
         "desc": "Estimate your due date from your last period."
       },
       "ovulation": {
-        "name": "Fertile window",
-        "desc": "See your estimated fertile days and ovulation."
+        "name": "Ovulation calculator",
+        "desc": "Your fertile window and likely ovulation day."
       },
       "gestationalAge": {
-        "name": "Gestational age",
-        "desc": "See how many weeks along you are."
+        "name": "Pregnancy week calculator",
+        "desc": "How many weeks pregnant you are, and your trimester."
       },
       "bmi": {
         "name": "BMI",
@@ -231,16 +231,24 @@
       "cycleLength": {
         "name": "Cycle length",
         "desc": "Your average cycle length and variability."
+      },
+      "period": {
+        "name": "Period calculator",
+        "desc": "See when your next three periods are likely to start."
+      },
+      "pregnancyTest": {
+        "name": "Pregnancy test calculator",
+        "desc": "The day a home test is most reliable."
       }
     },
     "dueDate": {
-      "title": "Due date estimator",
+      "title": "Due date calculator",
       "intro": "Estimate your due date from the first day of your last period.",
       "eddLabel": "Estimated due date",
       "termWindowLabel": "Most babies arrive between {start} and {end}."
     },
     "ovulation": {
-      "title": "Fertile window estimator",
+      "title": "Ovulation calculator",
       "intro": "Estimate your fertile days from your last period and cycle length.",
       "ovulationLabel": "Estimated ovulation",
       "windowLabel": "Fertile window",
@@ -249,7 +257,7 @@
       "awarenessNote": "These dates support conception planning and awareness. They're estimates, not a reliable way to avoid pregnancy — talk to your clinician about your options."
     },
     "gestationalAge": {
-      "title": "Gestational age",
+      "title": "Pregnancy week calculator",
       "intro": "See how many weeks along you are, counting from your last period.",
       "asOfLabel": "As of",
       "resultLabel": "{weeks} weeks and {days} days"
@@ -287,7 +295,43 @@
       "needTwo": "Add at least two period start dates."
     },
     "appCta": "Track this automatically in the Femio app.",
-    "appCtaLink": "Get the app"
+    "appCtaLink": "Get the app",
+    "period": {
+      "title": "Period calculator",
+      "intro": "See when your next three periods are likely to start, as a range that reflects how much your cycles vary.",
+      "shortestLabel": "Shortest cycle (days)",
+      "longestLabel": "Longest cycle (days)",
+      "periodLengthLabel": "How many days your period lasts",
+      "varyNote": "Cycles normally vary by a few days. Enter your shortest and longest to see an honest range.",
+      "nextLabel": "Period {n}",
+      "rangeValue": "{start} – {end}",
+      "singleValue": "Around {date}",
+      "resultNote": "Each range widens a little further ahead, because each cycle can vary."
+    },
+    "pregnancyTest": {
+      "title": "Pregnancy test calculator",
+      "intro": "Find the day a home pregnancy test is most reliable.",
+      "modeLabel": "What do you know?",
+      "modePeriod": "My last period",
+      "modeSex": "When we had sex",
+      "sexLabel": "The day you last had unprotected sex",
+      "expectedPeriodLabel": "Your period is expected around",
+      "testFromLabel": "Test from",
+      "notePeriod": "Most home tests work from the first day of a missed period. Testing earlier can give a negative result even if you are pregnant.",
+      "noteSex": "If you do not know when your period is due, test at least 21 days after you last had unprotected sex.",
+      "source": "Source: NHS, Doing a pregnancy test."
+    },
+    "calendar": {
+      "period": "Period",
+      "periodMaybe": "Period could start",
+      "fertile": "Fertile window",
+      "ovulation": "Likely ovulation",
+      "test": "Test day"
+    },
+    "progress": {
+      "trimester": "Trimester {n}",
+      "weekOf": "Week {week} of 40"
+    }
   },
   "onboarding": {
     "baseline": {
@@ -1375,7 +1419,7 @@
     "explore": "Explore",
     "trust": "Trust",
     "legal": "Legal",
-    "tagline": "One account for your whole health life.",
+    "tagline": "Your whole health life, private on your phone.",
     "rights": "© {year} Femio",
     "helpNow": "Need help now?"
   },

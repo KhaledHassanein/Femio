@@ -26,6 +26,8 @@ const STATIC_PATHS = [
   "/authors",
   "/calculators",
   "/app",
+  "/calculators/period",
+  "/calculators/pregnancy-test",
   "/calculators/due-date",
   "/calculators/fertile-window",
   "/calculators/gestational-age",

@@ -1,7 +1,7 @@
 {
   "meta": {
     "title": "Femio",
-    "description": "Una sola cuenta para toda tu vida de salud."
+    "description": "Toda tu vida de salud, de la primera regla a la menopausia, en privado en tu teléfono."
   },
   "home": {
     "signIn": "Iniciar sesión",
@@ -213,16 +213,16 @@
     },
     "list": {
       "dueDate": {
-        "name": "Fecha de parto",
-        "desc": "Estima tu fecha a partir de tu última menstruación."
+        "name": "Calculadora de fecha de parto",
+        "desc": "Calcula tu fecha probable de parto a partir de tu última regla."
       },
       "ovulation": {
-        "name": "Ventana fértil",
-        "desc": "Ve tus días fértiles y tu ovulación estimados."
+        "name": "Calculadora de ovulación",
+        "desc": "Tu ventana fértil y el día probable de ovulación."
       },
       "gestationalAge": {
-        "name": "Edad gestacional",
-        "desc": "Ve de cuántas semanas estás."
+        "name": "Calculadora de semanas de embarazo",
+        "desc": "Cuántas semanas de embarazo tienes y en qué trimestre estás."
       },
       "bmi": {
         "name": "IMC",
@@ -231,16 +231,24 @@
       "cycleLength": {
         "name": "Duración del ciclo",
         "desc": "Tu duración media de ciclo y su variabilidad."
+      },
+      "period": {
+        "name": "Calculadora de la regla",
+        "desc": "Mira cuándo es probable que empiecen tus próximas tres reglas."
+      },
+      "pregnancyTest": {
+        "name": "Calculadora de prueba de embarazo",
+        "desc": "El día en que una prueba casera es más fiable."
       }
     },
     "dueDate": {
-      "title": "Estimador de fecha de parto",
+      "title": "Calculadora de fecha de parto",
       "intro": "Estima tu fecha a partir del primer día de tu última menstruación.",
       "eddLabel": "Fecha de parto estimada",
       "termWindowLabel": "La mayoría de los bebés llega entre el {start} y el {end}."
     },
     "ovulation": {
-      "title": "Estimador de ventana fértil",
+      "title": "Calculadora de ovulación",
       "intro": "Estima tus días fértiles a partir de tu última menstruación y la duración del ciclo.",
       "ovulationLabel": "Ovulación estimada",
       "windowLabel": "Ventana fértil",
@@ -249,7 +257,7 @@
       "awarenessNote": "Estas fechas apoyan la planificación del embarazo y el conocimiento de tu ciclo. Son estimaciones, no un método fiable para evitar el embarazo — habla con tu profesional de salud sobre tus opciones."
     },
     "gestationalAge": {
-      "title": "Edad gestacional",
+      "title": "Calculadora de semanas de embarazo",
       "intro": "Ve de cuántas semanas estás, contando desde tu última menstruación.",
       "asOfLabel": "A fecha de",
       "resultLabel": "{weeks} semanas y {days} días"
@@ -287,7 +295,43 @@
       "needTwo": "Añade al menos dos fechas de inicio de la menstruación."
     },
     "appCta": "Registra esto automáticamente en la app de Femio.",
-    "appCtaLink": "Descargar la app"
+    "appCtaLink": "Descargar la app",
+    "period": {
+      "title": "Calculadora de la regla",
+      "intro": "Mira cuándo es probable que empiecen tus próximas tres reglas, como un rango que refleja cuánto varían tus ciclos.",
+      "shortestLabel": "Ciclo más corto (días)",
+      "longestLabel": "Ciclo más largo (días)",
+      "periodLengthLabel": "Cuántos días dura tu regla",
+      "varyNote": "Los ciclos suelen variar unos días. Indica el más corto y el más largo para ver un rango honesto.",
+      "nextLabel": "Regla {n}",
+      "rangeValue": "{start} – {end}",
+      "singleValue": "Hacia el {date}",
+      "resultNote": "Cada rango se amplía un poco más adelante, porque cada ciclo puede variar."
+    },
+    "pregnancyTest": {
+      "title": "Calculadora de prueba de embarazo",
+      "intro": "Descubre el día en que una prueba de embarazo casera es más fiable.",
+      "modeLabel": "¿Qué sabes?",
+      "modePeriod": "Mi última regla",
+      "modeSex": "Cuándo tuvimos relaciones",
+      "sexLabel": "El último día que tuviste relaciones sin protección",
+      "expectedPeriodLabel": "Tu regla se espera hacia el",
+      "testFromLabel": "Haz la prueba a partir del",
+      "notePeriod": "La mayoría de las pruebas caseras funcionan desde el primer día de retraso de la regla. Hacerla antes puede dar negativo aunque estés embarazada.",
+      "noteSex": "Si no sabes cuándo te toca la regla, haz la prueba al menos 21 días después de tu última relación sin protección.",
+      "source": "Fuente: NHS, hacer una prueba de embarazo."
+    },
+    "calendar": {
+      "period": "Regla",
+      "periodMaybe": "La regla podría empezar",
+      "fertile": "Ventana fértil",
+      "ovulation": "Ovulación probable",
+      "test": "Día de la prueba"
+    },
+    "progress": {
+      "trimester": "Trimestre {n}",
+      "weekOf": "Semana {week} de 40"
+    }
   },
   "onboarding": {
     "baseline": {
@@ -1375,7 +1419,7 @@
     "explore": "Explorar",
     "trust": "Confianza",
     "legal": "Aviso legal",
-    "tagline": "Una sola cuenta para toda tu vida de salud.",
+    "tagline": "Toda tu vida de salud, en privado en tu teléfono.",
     "rights": "© {year} Femio",
     "helpNow": "¿Necesitas ayuda ahora?"
   },

@@ -33,6 +33,7 @@ const ALLOWED = {
     "home.eyebrow",
     "footer.rights",
     "calculators.ovulation.rangeValue",
+    "calculators.period.rangeValue",
     // Two ICU placeholders and an em dash. There is no word in it to translate, in
     // any locale, and inventing a difference to satisfy the guard would be worse
     // copy in three languages (Phase 4.5).

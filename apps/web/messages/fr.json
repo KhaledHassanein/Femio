@@ -1,7 +1,7 @@
 {
   "meta": {
     "title": "Femio",
-    "description": "Un seul compte pour toute ta vie de santé."
+    "description": "Toute votre vie de santé, des premières règles à la ménopause, en privé sur votre téléphone."
   },
   "home": {
     "signIn": "Se connecter",
@@ -213,16 +213,16 @@
     },
     "list": {
       "dueDate": {
-        "name": "Date d'accouchement",
-        "desc": "Estime ta date à partir de tes dernières règles."
+        "name": "Calculateur de date d'accouchement",
+        "desc": "Estimez votre date d'accouchement à partir de vos dernières règles."
       },
       "ovulation": {
-        "name": "Fenêtre de fertilité",
-        "desc": "Vois tes jours fertiles et ton ovulation estimés."
+        "name": "Calculateur d'ovulation",
+        "desc": "Votre fenêtre de fertilité et le jour probable de l'ovulation."
       },
       "gestationalAge": {
-        "name": "Âge gestationnel",
-        "desc": "Vois à combien de semaines tu en es."
+        "name": "Calculateur de semaines de grossesse",
+        "desc": "Combien de semaines de grossesse, et quel trimestre."
       },
       "bmi": {
         "name": "IMC",
@@ -231,16 +231,24 @@
       "cycleLength": {
         "name": "Durée du cycle",
         "desc": "Ta durée moyenne de cycle et sa variabilité."
+      },
+      "period": {
+        "name": "Calculateur de règles",
+        "desc": "Voyez quand vos trois prochaines règles devraient commencer."
+      },
+      "pregnancyTest": {
+        "name": "Calculateur de test de grossesse",
+        "desc": "Le jour où un test à domicile est le plus fiable."
       }
     },
     "dueDate": {
-      "title": "Estimation de la date d'accouchement",
+      "title": "Calculateur de date d'accouchement",
       "intro": "Estime ta date à partir du premier jour de tes dernières règles.",
       "eddLabel": "Date d'accouchement estimée",
       "termWindowLabel": "La plupart des bébés arrivent entre le {start} et le {end}."
     },
     "ovulation": {
-      "title": "Estimation de la fenêtre de fertilité",
+      "title": "Calculateur d'ovulation",
       "intro": "Estime tes jours fertiles à partir de tes dernières règles et de la durée du cycle.",
       "ovulationLabel": "Ovulation estimée",
       "windowLabel": "Fenêtre de fertilité",
@@ -249,7 +257,7 @@
       "awarenessNote": "Ces dates aident à planifier une grossesse et à la connaissance de ton cycle. Ce sont des estimations, pas un moyen fiable d'éviter une grossesse — parle de tes options avec ta clinicienne."
     },
     "gestationalAge": {
-      "title": "Âge gestationnel",
+      "title": "Calculateur de semaines de grossesse",
       "intro": "Vois à combien de semaines tu en es, à partir de tes dernières règles.",
       "asOfLabel": "À la date du",
       "resultLabel": "{weeks} semaines et {days} jours"
@@ -287,7 +295,43 @@
       "needTwo": "Ajoute au moins deux dates de début de règles."
     },
     "appCta": "Suivez cela automatiquement dans l'application Femio.",
-    "appCtaLink": "Obtenir l'app"
+    "appCtaLink": "Obtenir l'app",
+    "period": {
+      "title": "Calculateur de règles",
+      "intro": "Voyez quand vos trois prochaines règles devraient commencer, sous forme de fourchette qui reflète la variation de vos cycles.",
+      "shortestLabel": "Cycle le plus court (jours)",
+      "longestLabel": "Cycle le plus long (jours)",
+      "periodLengthLabel": "Durée de vos règles (jours)",
+      "varyNote": "Les cycles varient normalement de quelques jours. Indiquez le plus court et le plus long pour voir une fourchette honnête.",
+      "nextLabel": "Règles {n}",
+      "rangeValue": "{start} – {end}",
+      "singleValue": "Vers le {date}",
+      "resultNote": "Chaque fourchette s'élargit un peu plus loin, car chaque cycle peut varier."
+    },
+    "pregnancyTest": {
+      "title": "Calculateur de test de grossesse",
+      "intro": "Trouvez le jour où un test de grossesse à domicile est le plus fiable.",
+      "modeLabel": "Que savez-vous ?",
+      "modePeriod": "Mes dernières règles",
+      "modeSex": "La date du rapport",
+      "sexLabel": "Le jour de votre dernier rapport non protégé",
+      "expectedPeriodLabel": "Vos règles sont attendues vers le",
+      "testFromLabel": "Faites le test à partir du",
+      "notePeriod": "La plupart des tests à domicile fonctionnent dès le premier jour de retard des règles. Un test plus précoce peut être négatif même en cas de grossesse.",
+      "noteSex": "Si vous ne savez pas quand vos règles sont attendues, faites le test au moins 21 jours après votre dernier rapport non protégé.",
+      "source": "Source : NHS, faire un test de grossesse."
+    },
+    "calendar": {
+      "period": "Règles",
+      "periodMaybe": "Les règles peuvent commencer",
+      "fertile": "Fenêtre de fertilité",
+      "ovulation": "Ovulation probable",
+      "test": "Jour du test"
+    },
+    "progress": {
+      "trimester": "Trimestre {n}",
+      "weekOf": "Semaine {week} sur 40"
+    }
   },
   "onboarding": {
     "baseline": {
@@ -1375,7 +1419,7 @@
     "explore": "Explorer",
     "trust": "Confiance",
     "legal": "Mentions légales",
-    "tagline": "Un seul compte pour toute votre vie de santé.",
+    "tagline": "Toute votre vie de santé, en privé sur votre téléphone.",
     "rights": "© {year} Femio",
     "helpNow": "Besoin d’aide maintenant ?"
   },
