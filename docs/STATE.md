@@ -15,29 +15,36 @@ Search it by feature name when you need the history of a decision. It is not req
 > First, run `git branch --list "wip/*"`. A branch there means the last session stopped
 > mid-item; finish it first.
 
-## Where things stand (2026-10-07)
+## Where things stand (2026-10-07, evening)
 
-- **🔴 Production API restricted until the billing month resets.** Supabase returns 402
-  on every REST/auth request since 2026-10-06 19:45 UTC (free-plan egress exhausted by the
-  CMS's 2 MB queries; fixed by the content snapshot). The owner chose to stay free and wait
-  for the reset rather than upgrade. Sign-in is down until then, and every `@live` e2e
-  fails through no code defect: they stop on /welcome because sign-in gets 402.
-- **PR #22 merged 2026-10-07 20:14 UTC** (Phases 0–2 so far). The owner ran the SQL file
-  first; 0024, 0025 and the Payload 3.90 column are applied and recorded (verified).
-
-- **Agency takeover, Phase 0.** Audit `docs/30_REVAMP/01`, market research `02`, plan `03`.
-  Wedge: Arabic-first TTC → pregnancy with PCOS depth, Saudi + Egypt; web first, then Play via
-  TWA, then Flutter. The owner confirms decisions D1–D6 in `OWNER_ACTIONS.md` §0. Work
-  proceeds on the stated defaults meanwhile.
-- **Live:** `femioapp.com` (web) and `femio-cms.vercel.app` (Payload) on Vercel, Supabase EU.
-  **100 articles** + 5 condition hubs published, all clinician-bylined. Migrations 0001–0025
-  applied (verified in `schema_migrations` 2026-10-07).
-- **Health:** `pnpm gate` green, 942 unit tests, `pnpm audit --audit-level high` clean as of
-  `7abbb2e`. CMS on Payload 3.90.2 / Next 16.3.8; web on Next 15.5.27.
-- **Branch:** sessions work on `claude/epic-planck-5y8geb`, restarted from `main` after each
-  merge. Vercel deploys from `main`, so a branch is live only once the owner merges its PR.
-- **Design:** Phase 1 (Dusk Bloom) is done on the branch: palette, type, aurora, header/footer, compact crisis launcher, app tabs Today·Calendar·Log·Learn·Tools, softer primitives, motion moments. Next is Phase 2 (`PROGRESS.md`). App screens wait on a staging Supabase for photos (C5).
-- **Infra (measured via connectors, 2026-10-07):** the error emails were Supabase pool exhaustion (`EMAXCONNSESSION`) caused by the CMS on uncached renders. Fixed in code (`544bac0`, ISR in `c125435`, content snapshot in `3c58733`), live since the #22 merge. Production schema changes are the owner's to run (C6 shows the SQL-file route).
+- **Direction changed (D7 + D8, ADR-070).** The product is a **private Android app**
+  (Flutter, health records on the phone, no accounts); the **website** is articles,
+  calculators and the way to the app. The web tracker is **closed** behind
+  `NEXT_PUBLIC_WEB_APP_ENABLED` (unset in production and previews; CI sets `1` so its tests
+  still run). Spec: `docs/30_REVAMP/04_ANDROID_APP_SPEC.md`; compliance reasoning:
+  `docs/compliance/PRIVATE_LAUNCH_V1.md`. Next work: Phase 3 in `PROGRESS.md` (P3.1, Flutter
+  project in `apps/mobile`).
+- **Website, on the branch (not yet merged):** search from a static index (P2.2), web beta
+  closed + `/app` page (P2.7), calculators to the competitor set with calendar results
+  (P2.6), homepage rebuilt as the app's front door with feminine motifs (P2.3). Needs the
+  owner to merge before it is live.
+- **🔴 Supabase restricted (402) until the billing month resets**; the owner stays free.
+  With D7/D8 the website no longer calls Supabase at all when the web app is closed (no
+  session refresh in middleware, no search RPC). `@live` e2e still fail until the reset;
+  they test the closed web app against production and should move to a staging project or
+  be retired with it.
+- **PR #22 merged 2026-10-07 20:14 UTC.** 0024, 0025 and the Payload 3.90 column are
+  applied and recorded (verified via the connector).
+- **Live:** `femioapp.com` + `femio-cms.vercel.app`; **100 articles** + 5 condition hubs,
+  clinician-bylined, shipped inside the web build (`src/content/snapshot/`). Payload stays
+  the editor until P2.8 retires it ("publish the new articles" = run the snapshot script).
+- **Health:** `pnpm gate` green, 971 unit tests. Web on Next 15.5.27, CMS on Payload 3.90.2.
+- **Branch:** `claude/epic-planck-5y8geb`, restarted from `main` after each merge.
+- **Connectors:** Supabase, Vercel (full scope since 2026-10-07), GitHub. Supabase region is
+  `eu-west-1` (Ireland), not Frankfurt.
+- **Flutter toolchain:** not preinstalled. A session downloads the newest stable release
+  that is at least two weeks old into `/root/sdk/flutter` (3.47.5 on 2026-10-07); the Android
+  SDK command-line tools go beside it. Neither lives in the repo.
 
 ## The working loop
 
