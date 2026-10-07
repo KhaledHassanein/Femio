@@ -175,7 +175,9 @@
 
   /* Illustration palette (v3 P2.4) — the colours topic art is drawn from. Art sits on
      its own painted ground, so it is not themed: a cover reads the same in both modes,
-     like a printed book cover. Text never sits on art. */
+     like a printed book cover. Text never sits on art. The covers are static files
+     generated from these values: re-run scripts/design/generate-topic-art.mjs after a
+     change. */
   --art-plum:var(--plum-700);    --art-plum-soft:var(--plum-300);
   --art-rose:var(--rose-500);    --art-rose-soft:var(--rose-200);
   --art-peach:var(--peach-400);  --art-peach-soft:var(--peach-100);

@@ -26,7 +26,6 @@ const sansLatin = Plus_Jakarta_Sans({
 const displayLatin = Newsreader({
   subsets: ["latin"],
   axes: ["opsz"],
-  style: ["normal", "italic"],
   variable: "--font-display-latin",
   display: "swap",
 });
@@ -35,12 +34,17 @@ const naskh = Noto_Naskh_Arabic({
   weight: ["500", "600", "700"],
   variable: "--font-naskh",
   display: "swap",
+  // Not preloaded: an English page must not download Arabic fonts up front. The
+  // browser fetches them the moment Arabic text needs them (P2 page-weight pass:
+  // 8 preloaded font files on every page became 2).
+  preload: false,
 });
 const plexArabic = IBM_Plex_Sans_Arabic({
   subsets: ["arabic"],
   weight: ["400", "500", "600", "700"],
   variable: "--font-plex-arabic",
   display: "swap",
+  preload: false,
 });
 
 type LayoutProps = {

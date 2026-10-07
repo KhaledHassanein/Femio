@@ -1,5 +1,5 @@
 import { getTranslations } from "next-intl/server";
-import { ArrowUpRight, Search } from "lucide-react";
+import { Search } from "lucide-react";
 import type { ContentDoc } from "@/lib/cms/client";
 import { lede } from "@/lib/cms/format";
 import { Link } from "@/i18n/navigation";
@@ -112,11 +112,7 @@ export async function LearnHub({ locale, articles }: { locale: string; articles:
                 const week = pregnancyWeek(doc.slug);
                 return (
                   <li key={doc.id}>
-                    <Link
-                      href={`/learn/${doc.slug}`}
-                      aria-label={t("week", { n: week ?? 0 })}
-                      className="flex aspect-square items-center justify-center rounded-md border border-border bg-surface font-display text-lg text-text transition-colors duration-fast hover:border-accent hover:bg-accent-soft hover:text-accent-soft-text"
-                    >
+                    <Link href={`/learn/${doc.slug}`} aria-label={t("week", { n: week ?? 0 })} className="learn-week">
                       {week}
                     </Link>
                   </li>
@@ -171,34 +167,16 @@ function Row({
 }
 
 function Card({ doc, size = "md" }: { doc: ContentDoc; size?: "md" | "lg" }) {
+  // Styling lives in `.learn-card` (globals.css), not in utility lists: with ~70
+  // cards, every class string was paid for twice (HTML and React payload).
   const summary = lede(doc);
   return (
-    <li className={size === "lg" ? "w-72 shrink-0 snap-start" : "w-60 shrink-0 snap-start"}>
-      <Link
-        href={`/learn/${doc.slug}`}
-        className="group flex h-full flex-col overflow-hidden rounded-lg border border-border/70 bg-surface shadow-xs transition-[box-shadow,transform] duration-fast hover:shadow-md motion-safe:hover:-translate-y-0.5"
-      >
-        <TopicArt
-          topic={topicOf(doc.slug)}
-          slug={doc.slug}
-          className={size === "lg" ? "h-36 w-full" : "h-28 w-full"}
-        />
-        <div className="flex flex-1 flex-col gap-1.5 p-4">
-          <h3
-            dir="auto"
-            className="line-clamp-2 font-display text-lg font-medium leading-snug text-text"
-          >
-            {doc.title}
-          </h3>
-          {summary ? (
-            <p dir="auto" className="line-clamp-2 text-xs leading-relaxed text-text-muted">
-              {summary}
-            </p>
-          ) : null}
-          <ArrowUpRight
-            className="mt-auto size-4 self-end text-text-subtle transition-colors group-hover:text-primary rtl:-scale-x-100"
-            aria-hidden
-          />
+    <li className={size === "lg" ? "learn-card learn-card-lg" : "learn-card"}>
+      <Link href={`/learn/${doc.slug}`}>
+        <TopicArt topic={topicOf(doc.slug)} slug={doc.slug} className="learn-card-art" />
+        <div>
+          <h3 dir="auto">{doc.title}</h3>
+          {summary ? <p dir="auto">{summary}</p> : null}
         </div>
       </Link>
     </li>

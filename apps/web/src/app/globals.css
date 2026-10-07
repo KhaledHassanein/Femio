@@ -252,7 +252,7 @@ body:has(.app-bottom-bar):has(.crisis-launcher) {
 /* Motion moments (v3 P1.3, docs/30_REVAMP/03 §3.4). Both are CSS-only and both stop
    under the global reduced-motion rule.
 
-   .reveal: a section rises 12px and fades in as it scrolls into view. Driven by the
+   .reveal: a section rises 16px and settles as it scrolls into view (no fade). Driven by the
    scroll position itself (`animation-timeline: view()`), so there is no observer, no
    script and no layout cost. Browsers without scroll-driven animations get no
    animation and a fully visible section: the `@supports` gate means the content can
@@ -269,13 +269,15 @@ body:has(.app-bottom-bar):has(.crisis-launcher) {
     }
   }
 }
+/* Movement only, never opacity. A fade means text near the bottom of the screen is
+   briefly semi-transparent, which is genuinely harder to read and fails contrast
+   while it lasts (axe caught it mid-fade on the homepage). A rise reads as motion
+   and keeps every word at full contrast the whole time. */
 @keyframes reveal-rise {
   from {
-    opacity: 0;
-    transform: translateY(12px);
+    transform: translateY(16px) scale(0.985);
   }
   to {
-    opacity: 1;
     transform: none;
   }
 }
@@ -293,6 +295,40 @@ body:has(.app-bottom-bar):has(.crisis-launcher) {
   50% {
     opacity: 1;
     transform: scaleY(1.35);
+  }
+}
+
+/* Learn hub cards (v3 P2.4). Written once here rather than as utility lists on each
+   of ~70 cards, because every class string was paid for twice per card (HTML and
+   React payload). Tokens only; logical properties throughout. */
+@layer components {
+  .learn-card {
+    @apply w-60 shrink-0 snap-start;
+  }
+  .learn-card-lg {
+    @apply w-72;
+  }
+  .learn-card > a {
+    @apply flex h-full flex-col overflow-hidden rounded-lg border border-border/70 bg-surface shadow-xs transition-[box-shadow,transform] duration-fast hover:shadow-md motion-safe:hover:-translate-y-0.5;
+  }
+  .learn-card-art {
+    @apply h-28 w-full bg-no-repeat;
+    background-size: 170% auto;
+  }
+  .learn-card-lg .learn-card-art {
+    @apply h-36;
+  }
+  .learn-card > a > div:last-child {
+    @apply flex flex-1 flex-col gap-1.5 p-4;
+  }
+  .learn-card h3 {
+    @apply line-clamp-2 font-display text-lg font-medium leading-snug text-text;
+  }
+  .learn-card p {
+    @apply line-clamp-2 text-xs leading-relaxed text-text-muted;
+  }
+  .learn-week {
+    @apply flex aspect-square items-center justify-center rounded-md border border-border bg-surface font-display text-lg text-text transition-colors duration-fast hover:border-accent hover:bg-accent-soft hover:text-accent-soft-text;
   }
 }
 

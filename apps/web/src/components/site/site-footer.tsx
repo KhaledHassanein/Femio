@@ -34,7 +34,7 @@ export async function SiteFooter({ locale }: { locale: string }) {
 
   const column = (title: string, links: readonly { href: string; key: string }[]) => (
     <div className="flex flex-col gap-3">
-      <h2 className="text-2xs font-semibold uppercase tracking-wider text-white/45">{title}</h2>
+      <h2 className="text-2xs font-semibold uppercase tracking-wider text-white/65">{title}</h2>
       <ul className="flex flex-col gap-2 text-sm">
         {links
           .filter((l) => !isUnpublishedSection(l.href))
@@ -74,7 +74,7 @@ export async function SiteFooter({ locale }: { locale: string }) {
             <LifeBuoy className="size-4" aria-hidden />
             {t("helpNow")}
           </Link>
-          <p className="text-2xs text-white/50">{t("rights", { year })}</p>
+          <p className="text-2xs text-white/65">{t("rights", { year })}</p>
         </div>
       </div>
     </footer>
