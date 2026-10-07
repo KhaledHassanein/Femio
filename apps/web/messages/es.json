@@ -285,7 +285,9 @@
       "regular": "Tus ciclos parecen regulares.",
       "irregular": "Tus ciclos varían — es común, y Femio adapta sus predicciones cuando ocurre.",
       "needTwo": "Añade al menos dos fechas de inicio de la menstruación."
-    }
+    },
+    "appCta": "Registra esto automáticamente en la app de Femio.",
+    "appCtaLink": "Descargar la app"
   },
   "onboarding": {
     "baseline": {
@@ -1366,7 +1368,8 @@
     "calculators": "Calculadoras",
     "faq": "Preguntas",
     "glossary": "Glosario",
-    "signIn": "Iniciar sesión"
+    "signIn": "Iniciar sesión",
+    "getApp": "Descargar la app"
   },
   "footer": {
     "explore": "Explorar",
@@ -2447,6 +2450,55 @@
         "3": "Fuerte",
         "4": "Muy fuerte"
       }
+    }
+  },
+  "getApp": {
+    "metaTitle": "Descarga la app de Femio",
+    "eyebrow": "Femio para Android",
+    "title": "Tu ciclo, tus planes, tu embarazo. En privado, en tu teléfono.",
+    "body": "Registra tu regla, conoce tu ventana fértil y sigue tu embarazo semana a semana, en árabe, inglés, francés o español. Tus datos se quedan en tu teléfono: sin cuenta, y Femio nunca los ve.",
+    "android": "Google Play",
+    "androidStatus": "Muy pronto",
+    "ios": "iPhone",
+    "iosStatus": "Más adelante",
+    "featuresTitle": "Qué hace la app",
+    "features": {
+      "period": {
+        "title": "Predicción de la regla",
+        "body": "Tu próxima regla como un rango honesto que se ajusta a medida que registras, nunca una única fecha segura."
+      },
+      "fertile": {
+        "title": "Ventana fértil y ovulación",
+        "body": "Tus días más fértiles, con registro de pruebas de ovulación y temperatura si buscas embarazo."
+      },
+      "pregnancy": {
+        "title": "El embarazo, semana a semana",
+        "body": "Tu semana, el tamaño de tu bebé, tu fecha probable de parto, un contador de patadas y un cronómetro de contracciones."
+      },
+      "private": {
+        "title": "Privada por diseño",
+        "body": "Tus datos se guardan en tu teléfono, no en nuestros servidores. Haz una copia de seguridad cuando quieras."
+      },
+      "arabic": {
+        "title": "Primero en árabe",
+        "body": "Pensada para mujeres en Arabia Saudí y Egipto, en árabe, con inglés, francés y español."
+      },
+      "doctor": {
+        "title": "Lista para tu consulta",
+        "body": "Un resumen de una página de tus ciclos y síntomas para mostrar en tu cita."
+      }
+    },
+    "meanwhileTitle": "Mientras tanto",
+    "meanwhileBody": "Todo en esta web es gratis y no necesita cuenta.",
+    "meanwhileCalculators": "Probar las calculadoras",
+    "meanwhileLearn": "Leer la biblioteca",
+    "notMedical": "Femio sirve para registrar y aprender, no es consejo médico, y sus estimaciones no son una forma fiable de evitar el embarazo. Habla de tu salud con tu profesional sanitario.",
+    "mock": {
+      "day": "Día 12 del ciclo",
+      "title": "Ventana fértil",
+      "range": "Hoy – en 4 días",
+      "note": "Estimación · confianza media",
+      "period": "Próxima regla en 15–18 días"
     }
   }
 }

@@ -26,40 +26,37 @@ work.** Marks: `[ ]` open · `[~]` in progress · `[x]` done (commit) · `[BLOCK
 
 - [x] P2.1 · **Content from the repo (D3 step 1)**: `scripts/content/snapshot-cms.mjs` → `apps/web/src/content/snapshot/` (100 articles, 5 conditions, 1 bio); `lib/cms/client.ts` reads it with unchanged signatures; 589 pages prerendered, sitemap 99 → 161 URLs; zero DB reads per page view (root cause of the 8.96/5 GB egress restriction). Payload stays the editor until full retirement (P2.8)
 - [x] P2.2 · **Search without the database**: `/api/search-index/{locale}` is a static file built from the snapshot (titles, summaries, section headings; 69 KB raw, ~15 KB on the wire) and ranked in the browser by `lib/search`, which now also answers questions ("bleeding after birth") and finds a word after a mid-word miss. Replaces the `search_content` RPC, which cost egress on every keystroke and failed outright under the 402. English titles on Arabic results keep their punctuation (`dir="auto"`). `e2e/search.spec.ts` asserts no Supabase request (2026-10-07)
-- [ ] P2.3 · Homepage rebuilt (aurora hero, real product UI, Arabic-first copy, proof as visuals)
-- [~] P2.4 · **Learn hub done** (OD-12): aurora hero with search (a no-JS GET form; /search now reads `?q=`) and 8 question chips, Start-here row, one row per stage in wedge order with procedural `TopicArt` covers, a tappable week 4–40 grid; 21,224px → 5,316px at 390 wide; `lib/content/topics.ts` + 5 tests (a new article with no topic fails CI). Article template refresh still open
+- [ ] P2.3 · Homepage rebuilt as the app's front door (D8): hero for the Android app, the top calculators, stages, Learn, the privacy promise; Flo-like feminine motifs
+- [~] P2.4 · **Learn hub done** (OD-12): aurora hero with search, question chips, Start-here row, stage rows with `TopicArt`, week 4–40 grid; `lib/content/topics.ts` + tests. Article template refresh still open
 - [ ] P2.5 · Illustration set (brief → generate → owner D-2)
-- [ ] P2.6 · Calculators with visual results + OG images
-- [ ] P2.7 · Checkpoint: Lighthouse ≥ 95 mobile, LCP < 2.0 s
-- [ ] P2.8 · Retire the CMS Vercel project (owner, after P2.1 ships)
+- [ ] P2.6 · Calculators to Flo's top set with visual results: period, ovulation, pregnancy test timing, due date, pregnancy week (+ BMI, cycle length kept)
+- [x] P2.7 · **Web beta closed** (D8): `middleware.ts` sends every app route (sign-in, welcome, the `(app)` group) to `/app` with a 307 and skips the Supabase session refresh, unless `NEXT_PUBLIC_WEB_APP_ENABLED=1` (CI only); a test fails if a new `(app)` route is not covered; `/help-now` stays open. Header CTA "Get the app", calculators end with "track this in the app", `/app` page with a drawn phone (Android coming soon, iPhone later) in 4 languages
+- [ ] P2.8 · Checkpoint: Lighthouse ≥ 95 mobile, LCP < 2.0 s; retire the CMS Vercel project (owner)
 
-## Phase 3 — The app, for the wedge
+## Phase 3 — The Android app (D7, D8; spec `04_ANDROID_APP_SPEC.md`)
 
-- [ ] P3.1 · Onboarding ≤ 6 screens
-- [ ] P3.2 · Today
-- [ ] P3.3 · Calendar to OD-15
-- [ ] P3.4 · TTC toolkit
-- [ ] P3.5 · Pregnancy week-by-week + transitions
-- [ ] P3.6 · PCOS hub + screener (owner D-5)
-- [ ] P3.7 · Visit pack one-pager (PDF + WhatsApp)
-- [ ] P3.8 · Privacy centre + app lock + anonymous start
-- [ ] P3.9 · v2 surfaces default-on; v1 paths deleted
-- [ ] P3.10 · Checkpoint: TTC + pregnancy journeys recorded in AR → owner D-4
+- [ ] P3.1 · Flutter project in `apps/mobile`: Dusk Bloom theme from the tokens, AR/EN/FR/ES + RTL, local encrypted store behind `Store`
+- [ ] P3.2 · Cycle and pregnancy maths in Dart with the shared golden fixtures (twin of `lib/calculators`, `lib/cycle`)
+- [ ] P3.3 · Onboarding: five questions, under a minute, first prediction at the end (spec §3)
+- [ ] P3.4 · Today + calendar + log (period, symptoms, mood)
+- [ ] P3.5 · TTC toolkit: fertile window, ovulation tests, BBT, test timing, trying-time nudge
+- [ ] P3.6 · Pregnancy: week-by-week, due date, kick counter, contraction timer, appointments
+- [ ] P3.7 · Articles in the app (snapshot), conditions offered on Today and in Settings, PCOS hub
+- [ ] P3.8 · Backup export/import, app lock, reminders (local notifications), crash reporting without content
+- [ ] P3.9 · Checkpoint: TTC + pregnancy journeys recorded in Arabic → owner D-4
 
-## Phase 4 — Launch readiness
+## Phase 4 — Launch
 
-- [ ] P4.1 · Legal gate (owner §A) · P4.2 SMTP + Supabase Pro (owner §E) · P4.3 funnels
-- [ ] P4.4 · Play listing via TWA (AR/EN) · P4.5 Ramadan hub · P4.6 Arabic top-50 content (owner §B)
-- [ ] P4.7 · Soft launch, 50–100 women, Egypt + KSA
-
-## Phase 5 — Native mobile (after launch signal)
-
-- [ ] P5.1 · Flutter on served documents (`docs/29` G1–G4)
+- [ ] P4.1 · Privacy policy + terms for the private architecture; counsel's four questions (A1)
+- [ ] P4.2 · Play Console: listing AR/EN, Data safety ("health data not collected"), Health apps declaration, target audience 18+; closed test (12 testers × 14 days if personal account)
+- [ ] P4.3 · Soft launch, 50–100 women, Egypt + KSA
+- [ ] P4.4 · iOS from the same Flutter code (after launch signal)
 
 ## Session log
 
 | When | What | Commit |
 |---|---|---|
+| 2026-10-07 | D7 + D8: private Android app is the product; website promotes it; onboarding respecified to the competitor standard | this commit |
 | 2026-10-07 | Phase 1 started: Dusk Bloom palette + type, aurora hero, header, compact crisis launcher | this commit |
 | 2026-10-07 | CMS list queries 2.1 MB → 4.2 KB (the likely usage-alert cause) | `544bac0` `3d8df90` |
 | 2026-10-07 | Takeover: CI green, critical CVEs patched, build skipping, plan written, repo cleaned | `7abbb2e` `0b62436` `6d1e677` |

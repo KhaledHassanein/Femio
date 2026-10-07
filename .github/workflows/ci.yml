@@ -19,6 +19,9 @@ jobs:
     runs-on: ubuntu-latest
     env:
       NEXT_PUBLIC_APP_URL: http://localhost:3000
+      # The web app is closed in production (D8, ADR-070) and kept in code; CI opens
+      # it so its tests keep running until it is either revived for sync or deleted.
+      NEXT_PUBLIC_WEB_APP_ENABLED: "1"
       # Real project when the e2e secrets are set, placeholder otherwise. The
       # fallback keeps the build independent of secrets — fork PRs and clones still
       # build — but the *build* has to carry the real values too, not just the test

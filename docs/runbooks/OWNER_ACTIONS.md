@@ -32,17 +32,22 @@ Khaled replied *"Go with all your recommended defaults"*. D1–D6 below are ther
 | **D5** | **Target date for the soft launch (50–100 women)** | **Week of 2026-11-30.** Phases 1–4 at the pace in `30.03` §5. | pick a date |
 | **D6** | **Visual direction "Dusk Bloom"** (plum · rose · peach · saffron on porcelain) | **Proceed.** You see it in screenshots at the Phase 1 checkpoint and can redirect then. | describe what you want instead |
 
-### D7 · Private launch: health records stay on the phone (proposed 2026-10-07, needs your yes)
+### D7 · Private launch: health records stay on the phone ✅ accepted 2026-10-07
 
-You asked to launch without holding health data. Full assessment: [`docs/compliance/PRIVATE_LAUNCH_V1.md`](../compliance/PRIVATE_LAUNCH_V1.md).
-**Proposal:** v1 has no accounts; cycle, TTC, pregnancy and symptom records live only on
-her phone; predictions run on the phone; backup is a file she saves herself; the tracker is
-18+ at launch (articles stay open to all). Cloud sync comes later, once the licences are in
-place. **Cost:** a lost phone without a backup loses the record, and iPhone users must add
-Femio to the Home Screen. **Gain:** no sensitive-data or cross-border licences, no Supabase
-dependency (and no egress) for the app, and a much shorter lawyer engagement (A1).
-Disclaimers and waivers cannot do this; the architecture can. *Reply "D7 yes" and Phase 3
-is rebuilt on a local store.*
+Owner: *"make the website as this and promote the Android app as the solution"*. Full
+assessment: [`docs/compliance/PRIVATE_LAUNCH_V1.md`](../compliance/PRIVATE_LAUNCH_V1.md).
+v1 has no accounts; health records live only on her phone; predictions run on the phone;
+backup is a file she saves; the tracker is 18+ at launch (articles open to all). Cloud
+sync comes later, once the licences are in place.
+
+### D8 · The website promotes the Android app; the web beta closes ✅ decided 2026-10-07
+
+The website keeps articles, conditions, glossary and calculators, and gets a Flo-like
+feminine visual pass; its single call to action is **the Android app** (iOS later). Sign-in,
+onboarding and the web tracker close (kept in code behind `WEB_APP_ENABLED`, off in
+production). Development moves to the **Flutter Android app**, local-first, with the
+onboarding rebuilt to the competitor standard: [`04_ANDROID_APP_SPEC.md`](../30_REVAMP/04_ANDROID_APP_SPEC.md).
+This replaces D2's "Play via TWA" step: the Play listing will be the real app.
 
 ---
 

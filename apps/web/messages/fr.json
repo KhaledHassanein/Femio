@@ -285,7 +285,9 @@
       "regular": "Tes cycles semblent réguliers.",
       "irregular": "Tes cycles varient — c'est courant, et Femio adapte ses prévisions en conséquence.",
       "needTwo": "Ajoute au moins deux dates de début de règles."
-    }
+    },
+    "appCta": "Suivez cela automatiquement dans l'application Femio.",
+    "appCtaLink": "Obtenir l'app"
   },
   "onboarding": {
     "baseline": {
@@ -1366,7 +1368,8 @@
     "calculators": "Calculatrices",
     "faq": "FAQ",
     "glossary": "Glossaire",
-    "signIn": "Se connecter"
+    "signIn": "Se connecter",
+    "getApp": "Obtenir l'app"
   },
   "footer": {
     "explore": "Explorer",
@@ -2447,6 +2450,55 @@
         "3": "Fort",
         "4": "Très fort"
       }
+    }
+  },
+  "getApp": {
+    "metaTitle": "Téléchargez l'application Femio",
+    "eyebrow": "Femio pour Android",
+    "title": "Votre cycle, vos projets, votre grossesse. En privé, sur votre téléphone.",
+    "body": "Suivez vos règles, voyez votre fenêtre de fertilité et suivez votre grossesse semaine après semaine, en arabe, anglais, français ou espagnol. Vos données restent sur votre téléphone : sans compte, et Femio ne les voit jamais.",
+    "android": "Google Play",
+    "androidStatus": "Bientôt",
+    "ios": "iPhone",
+    "iosStatus": "Plus tard",
+    "featuresTitle": "Ce que fait l'application",
+    "features": {
+      "period": {
+        "title": "Prévision des règles",
+        "body": "Vos prochaines règles sous forme de fourchette honnête, qui s'affine à mesure que vous notez, jamais une date unique certaine."
+      },
+      "fertile": {
+        "title": "Fenêtre de fertilité et ovulation",
+        "body": "Vos jours les plus fertiles, avec le suivi des tests d'ovulation et de la température pour concevoir."
+      },
+      "pregnancy": {
+        "title": "La grossesse, semaine après semaine",
+        "body": "Votre semaine, la taille de votre bébé, votre date prévue, un compteur de mouvements et un minuteur de contractions."
+      },
+      "private": {
+        "title": "Privée par conception",
+        "body": "Vos données sont enregistrées sur votre téléphone, pas sur nos serveurs. Faites une sauvegarde quand vous voulez."
+      },
+      "arabic": {
+        "title": "L'arabe d'abord",
+        "body": "Conçue pour les femmes en Arabie saoudite et en Égypte, en arabe, avec l'anglais, le français et l'espagnol."
+      },
+      "doctor": {
+        "title": "Prête pour votre médecin",
+        "body": "Un résumé d'une page de vos cycles et symptômes à montrer en consultation."
+      }
+    },
+    "meanwhileTitle": "En attendant",
+    "meanwhileBody": "Tout ce site est gratuit et ne demande aucun compte.",
+    "meanwhileCalculators": "Essayer les calculateurs",
+    "meanwhileLearn": "Lire la bibliothèque",
+    "notMedical": "Femio sert au suivi et à l'information, pas aux conseils médicaux, et ses estimations ne sont pas un moyen fiable d'éviter une grossesse. Parlez de votre santé avec votre soignant.",
+    "mock": {
+      "day": "Jour 12 du cycle",
+      "title": "Fenêtre de fertilité",
+      "range": "Aujourd'hui – dans 4 jours",
+      "note": "Estimation · confiance moyenne",
+      "period": "Prochaines règles dans 15 à 18 jours"
     }
   }
 }

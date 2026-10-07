@@ -37,6 +37,9 @@ const ALLOWED = {
     // any locale, and inventing a difference to satisfy the guard would be worse
     // copy in three languages (Phase 4.5).
     "partnerShared.symptoms.row",
+    // Store and device names are trademarks, written the same in every language.
+    "getApp.android",
+    "getApp.ios",
   ],
   ar: [],
   fr: [

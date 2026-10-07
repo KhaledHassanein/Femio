@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { JsonLd } from "@/components/seo/json-ld";
 import { organizationJsonLd, websiteJsonLd } from "@/lib/seo/jsonld";
 import { Link } from "@/i18n/navigation";
+import { APP_PAGE, webAppEnabled } from "@/lib/web-app";
 import { PageView } from "@/components/analytics/page-view";
 
 type PageProps = { params: Promise<{ locale: string }> };
@@ -56,16 +57,12 @@ const SECTIONS = [
 ] as const;
 
 /** Section frame. `sunken` alternates the background so seven sections still read. */
-function Section({
-  children,
-  sunken = false,
-}: {
-  children: React.ReactNode;
-  sunken?: boolean;
-}) {
+function Section({ children, sunken = false }: { children: React.ReactNode; sunken?: boolean }) {
   return (
     <section className={sunken ? "bg-surface-sunken" : undefined}>
-      <div className="reveal mx-auto flex w-full max-w-3xl flex-col gap-4 px-6 py-12">{children}</div>
+      <div className="reveal mx-auto flex w-full max-w-3xl flex-col gap-4 px-6 py-12">
+        {children}
+      </div>
     </section>
   );
 }
@@ -175,7 +172,7 @@ export default async function HomePage({ params }: PageProps) {
             {/* Accent = "act". Repeated at the close because it is the same action,
                 not a second competing one (docs/25 §5a). */}
             <Button asChild variant="accent" size="lg" className="w-full sm:w-auto">
-              <Link href="/welcome">{t("cta")}</Link>
+              <Link href={webAppEnabled() ? "/welcome" : APP_PAGE}>{t("cta")}</Link>
             </Button>
             <Button
               asChild
@@ -196,9 +193,7 @@ export default async function HomePage({ params }: PageProps) {
       {/* ── The product, because Clue and Balance both lead with one ────────── */}
       <Section sunken>
         <Eyebrow>{t("shot.eyebrow")}</Eyebrow>
-        <h2 className="font-display text-lg text-text rtl:font-bold">
-          {t("shot.heading")}
-        </h2>
+        <h2 className="font-display text-lg text-text rtl:font-bold">{t("shot.heading")}</h2>
         <ProductShot locale={locale} />
         {/* `--text-subtle` on `--surface-sunken` measures 4.47:1 — it was verified
             against `--bg` (4.81) and nobody checked it against a sunken section.
@@ -212,9 +207,7 @@ export default async function HomePage({ params }: PageProps) {
       {/* ── The life-stage rail — the claim no competitor can answer ────────── */}
       <Section>
         <Eyebrow>{t("rail.eyebrow")}</Eyebrow>
-        <h2 className="font-display text-lg text-text rtl:font-bold">
-          {t("rail.heading")}
-        </h2>
+        <h2 className="font-display text-lg text-text rtl:font-bold">{t("rail.heading")}</h2>
         <p className="text-xs leading-relaxed text-text-muted">{t("rail.sub")}</p>
 
         <ul className="relative mt-2 flex flex-col ps-4">
@@ -246,9 +239,7 @@ export default async function HomePage({ params }: PageProps) {
       {/* ── Honesty, shown rather than claimed ──────────────────────────────── */}
       <Section sunken>
         <Eyebrow>{t("proof.eyebrow")}</Eyebrow>
-        <h2 className="font-display text-lg text-text rtl:font-bold">
-          {t("proof.heading")}
-        </h2>
+        <h2 className="font-display text-lg text-text rtl:font-bold">{t("proof.heading")}</h2>
 
         <div className="mt-2 flex flex-col gap-4">
           <article className="rounded-md bg-surface p-5 shadow-sm">
@@ -294,9 +285,7 @@ export default async function HomePage({ params }: PageProps) {
       {/* ── Trust: five verifiable facts, not badges ────────────────────────── */}
       <Section>
         <Eyebrow>{t("trust.eyebrow")}</Eyebrow>
-        <h2 className="font-display text-lg text-text rtl:font-bold">
-          {t("trust.heading")}
-        </h2>
+        <h2 className="font-display text-lg text-text rtl:font-bold">{t("trust.heading")}</h2>
         <ul className="mt-2 flex flex-col">
           {TRUST.map((k) => (
             <li
@@ -321,9 +310,7 @@ export default async function HomePage({ params }: PageProps) {
       {/* ── The library, demoted but complete (product rule 2) ──────────────── */}
       <Section sunken>
         <Eyebrow>{t("library.eyebrow")}</Eyebrow>
-        <h2 className="font-display text-lg text-text rtl:font-bold">
-          {t("library.heading")}
-        </h2>
+        <h2 className="font-display text-lg text-text rtl:font-bold">{t("library.heading")}</h2>
         <div className="mt-2 flex flex-col gap-3">
           {SECTIONS.map((s) => (
             <Link
@@ -351,11 +338,9 @@ export default async function HomePage({ params }: PageProps) {
       {/* ── Close ───────────────────────────────────────────────────────────── */}
       <Section>
         <div className="flex flex-col items-center gap-5 text-center">
-          <h2 className="font-display text-lg text-text rtl:font-bold">
-            {t("close.heading")}
-          </h2>
+          <h2 className="font-display text-lg text-text rtl:font-bold">{t("close.heading")}</h2>
           <Button asChild variant="accent" size="lg" className="w-full sm:w-auto">
-            <Link href="/welcome">{t("cta")}</Link>
+            <Link href={webAppEnabled() ? "/welcome" : APP_PAGE}>{t("cta")}</Link>
           </Button>
           <p className="text-2xs leading-relaxed text-text-subtle">{t("disclaimer")}</p>
         </div>

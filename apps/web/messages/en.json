@@ -285,7 +285,9 @@
       "regular": "Your cycles look regular.",
       "irregular": "Your cycles vary — that's common, and Femio adapts predictions when they do.",
       "needTwo": "Add at least two period start dates."
-    }
+    },
+    "appCta": "Track this automatically in the Femio app.",
+    "appCtaLink": "Get the app"
   },
   "onboarding": {
     "baseline": {
@@ -1366,7 +1368,8 @@
     "calculators": "Calculators",
     "faq": "FAQ",
     "glossary": "Glossary",
-    "signIn": "Sign in"
+    "signIn": "Sign in",
+    "getApp": "Get the app"
   },
   "footer": {
     "explore": "Explore",
@@ -2447,6 +2450,55 @@
         "3": "Strong",
         "4": "Very strong"
       }
+    }
+  },
+  "getApp": {
+    "metaTitle": "Get the Femio app",
+    "eyebrow": "Femio for Android",
+    "title": "Your cycle, your plans, your pregnancy. Private, on your phone.",
+    "body": "Track your period, see your fertile window and follow your pregnancy week by week, in Arabic, English, French or Spanish. Your records stay on your phone: no account, and Femio never sees them.",
+    "android": "Google Play",
+    "androidStatus": "Coming soon",
+    "ios": "iPhone",
+    "iosStatus": "Later",
+    "featuresTitle": "What the app does",
+    "features": {
+      "period": {
+        "title": "Period predictions",
+        "body": "Your next period as an honest range that tightens as you log, never a single certain date."
+      },
+      "fertile": {
+        "title": "Fertile window & ovulation",
+        "body": "Your most fertile days, with ovulation-test and temperature logs for trying to conceive."
+      },
+      "pregnancy": {
+        "title": "Pregnancy, week by week",
+        "body": "Your week, your baby's size, your due date, a kick counter and a contraction timer."
+      },
+      "private": {
+        "title": "Private by design",
+        "body": "Your records are stored on your phone, not on our servers. Save a backup whenever you like."
+      },
+      "arabic": {
+        "title": "Arabic first",
+        "body": "Written for women in Saudi Arabia and Egypt, in Arabic, with English, French and Spanish."
+      },
+      "doctor": {
+        "title": "Ready for your doctor",
+        "body": "A one-page summary of your cycles and symptoms to show at your appointment."
+      }
+    },
+    "meanwhileTitle": "Until then",
+    "meanwhileBody": "Everything on this website is free and needs no account.",
+    "meanwhileCalculators": "Try the calculators",
+    "meanwhileLearn": "Read the library",
+    "notMedical": "Femio is for tracking and learning, not medical advice, and its estimates are not a reliable way to avoid pregnancy. Talk to your clinician about your health.",
+    "mock": {
+      "day": "Cycle day 12",
+      "title": "Fertile window",
+      "range": "Today – in 4 days",
+      "note": "Estimate · medium confidence",
+      "period": "Next period in 15–18 days"
     }
   }
 }
