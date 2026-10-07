@@ -124,15 +124,14 @@ async function run() {
     check("A's row survived B's attempts", Array.isArray(data) && data.length === 1);
   }
 
-  // 3. Anonymous (no-JWT) role — no health reads; published content readable.
+  // 3. Anonymous (no-JWT) role — no health reads. (The published-content read check
+  //    went with public.content in migration 0024; content is not served from here.)
   console.log("\n3. Unauthenticated (anon role, no session)");
   {
     const anon = newClient();
     const { data, error } = await anon.from("cycles").select("id").limit(1);
     // RLS yields 0 rows (profile_id = null); a hard error is also acceptable.
     check("anon role reads no health rows", error != null || (Array.isArray(data) && data.length === 0));
-    const { error: cErr } = await anon.from("content").select("id").limit(1);
-    check("anon role may query published content", cErr == null, cErr?.message);
   }
 
   // 4. Privilege escalation — a non-admin cannot grant themselves a staff role,
