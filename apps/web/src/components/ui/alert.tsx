@@ -17,8 +17,7 @@ const alertVariants = cva("flex gap-3 rounded-md border p-4 text-sm", {
 });
 
 export interface AlertProps
-  extends React.HTMLAttributes<HTMLDivElement>,
-    VariantProps<typeof alertVariants> {
+  extends React.HTMLAttributes<HTMLDivElement>, VariantProps<typeof alertVariants> {
   icon?: React.ReactNode;
 }
 

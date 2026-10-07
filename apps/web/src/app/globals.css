@@ -17,7 +17,16 @@
 
   body {
     min-height: 100dvh;
-    font-family: var(--font-inter), Inter, system-ui, sans-serif;
+    font-family: var(--font-sans-latin), var(--font-plex-arabic), system-ui, sans-serif;
+  }
+
+  /* Display faces are drawn with real weights (Newsreader is variable, with optical
+     sizes; Noto Naskh has 500–700), so synthesis is never wanted. Turning it off makes
+     a weight the face lacks fall back visibly in review instead of being smeared. */
+  .font-display {
+    font-synthesis-weight: none;
+    font-optical-sizing: auto;
+    letter-spacing: -0.015em;
   }
 
   /* Never remove focus affordance — a visible ring is a token (docs/12). */
@@ -166,3 +175,160 @@ body:has(.app-bottom-bar):has(.crisis-launcher) {
     border-color: #767676 !important;
   }
 }
+
+/* ---------------------------------------------------------------------------
+   Aurora (v3 P1.3, docs/30_REVAMP/03 §3.4) — the hero ground. Layered dusk light
+   over deep plum, film grain on top, drifting slowly. CSS only: no script, no
+   canvas, one composited layer. The global reduced-motion rule above stops the
+   drift; the light itself stays, because it is colour, not movement.
+   Tokens live in femio.tokens.css (--aurora-*). Use `.aurora` on the hero element
+   and keep text inside it white (≥ 6:1 at the brightest point).
+   ------------------------------------------------------------------------- */
+@layer components {
+  .aurora {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    background-color: var(--aurora-ground);
+  }
+  .aurora::before {
+    content: "";
+    position: absolute;
+    inset: -30%;
+    z-index: -2;
+    background:
+      radial-gradient(40% 34% at 92% 8%, var(--aurora-1), transparent 70%),
+      radial-gradient(34% 30% at 96% 70%, var(--aurora-2), transparent 70%),
+      radial-gradient(26% 24% at 70% 38%, var(--aurora-3), transparent 70%),
+      radial-gradient(48% 40% at 18% 14%, var(--aurora-4), transparent 70%);
+    filter: blur(28px);
+    animation: aurora-drift 22s ease-in-out infinite alternate;
+    will-change: transform;
+  }
+  /* Grain: an inline SVG turbulence tile. It is what turns a gradient into light. */
+  .aurora::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    opacity: 0.14;
+    mix-blend-mode: overlay;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+  @keyframes aurora-drift {
+    0% {
+      transform: translate3d(0, 0, 0) rotate(0deg) scale(1);
+    }
+    100% {
+      transform: translate3d(-5%, 4%, 0) rotate(9deg) scale(1.06);
+    }
+  }
+}
+
+/* Hero glow (v3 P1.4) — the in-app hero card's light. A single soft radial highlight
+   at the top-end corner, so a daily card has depth without competing with the data
+   on it. Lighter than the aurora: the hero card is seen every day, the aurora is a
+   moment. White light only, so it suits every tone (plum, sage, rose); the
+   highlight sits in the top-end corner, away from the body text. */
+@layer components {
+  .hero-glow {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+  }
+  .hero-glow::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    background:
+      radial-gradient(60% 55% at 100% 0%, rgb(255 255 255 / 0.22), transparent 70%),
+      radial-gradient(50% 50% at 0% 100%, rgb(0 0 0 / 0.12), transparent 75%);
+  }
+}
+
+/* Motion moments (v3 P1.3, docs/30_REVAMP/03 §3.4). Both are CSS-only and both stop
+   under the global reduced-motion rule.
+
+   .reveal: a section rises 16px and settles as it scrolls into view (no fade). Driven by the
+   scroll position itself (`animation-timeline: view()`), so there is no observer, no
+   script and no layout cost. Browsers without scroll-driven animations get no
+   animation and a fully visible section: the `@supports` gate means the content can
+   never be stuck invisible.
+
+   .band-breathe: the prediction window's light swells and settles over 4.8s. The one
+   uncertain thing on the card is the one thing that moves. */
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) {
+    .reveal {
+      animation: reveal-rise linear both;
+      animation-timeline: view();
+      animation-range: entry 0% entry 40%;
+    }
+  }
+}
+/* Movement only, never opacity. A fade means text near the bottom of the screen is
+   briefly semi-transparent, which is genuinely harder to read and fails contrast
+   while it lasts (axe caught it mid-fade on the homepage). A rise reads as motion
+   and keeps every word at full contrast the whole time. */
+@keyframes reveal-rise {
+  from {
+    transform: translateY(16px) scale(0.985);
+  }
+  to {
+    transform: none;
+  }
+}
+@media (prefers-reduced-motion: no-preference) {
+  .band-breathe {
+    animation: band-breathe 4.8s ease-in-out infinite;
+  }
+}
+@keyframes band-breathe {
+  0%,
+  100% {
+    opacity: 0.85;
+    transform: scaleY(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scaleY(1.35);
+  }
+}
+
+/* Learn hub cards (v3 P2.4). Written once here rather than as utility lists on each
+   of ~70 cards, because every class string was paid for twice per card (HTML and
+   React payload). Tokens only; logical properties throughout. */
+@layer components {
+  .learn-card {
+    @apply w-60 shrink-0 snap-start;
+  }
+  .learn-card-lg {
+    @apply w-72;
+  }
+  .learn-card > a {
+    @apply flex h-full flex-col overflow-hidden rounded-lg border border-border/70 bg-surface shadow-xs transition-[box-shadow,transform] duration-fast hover:shadow-md motion-safe:hover:-translate-y-0.5;
+  }
+  .learn-card-art {
+    @apply h-28 w-full bg-no-repeat;
+    background-size: 170% auto;
+  }
+  .learn-card-lg .learn-card-art {
+    @apply h-36;
+  }
+  .learn-card > a > div:last-child {
+    @apply flex flex-1 flex-col gap-1.5 p-4;
+  }
+  .learn-card h3 {
+    @apply line-clamp-2 font-display text-lg font-medium leading-snug text-text;
+  }
+  .learn-card p {
+    @apply line-clamp-2 text-xs leading-relaxed text-text-muted;
+  }
+  .learn-week {
+    @apply flex aspect-square items-center justify-center rounded-md border border-border bg-surface font-display text-lg text-text transition-colors duration-fast hover:border-accent hover:bg-accent-soft hover:text-accent-soft-text;
+  }
+}
+

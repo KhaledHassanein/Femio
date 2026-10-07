@@ -1,11 +1,11 @@
 import { expect, test } from "@playwright/test";
 
-// Author/reviewer bio scaffolding (P1.9b.3b). DB-free: with no CMS configured the
-// index shows its graceful empty state and an unknown slug 404s.
-test("authors index renders (empty state until bios are published)", async ({ page }) => {
+// Author/reviewer bios (P1.9b.3b). Content is built in from the repo snapshot (D3),
+// so the published reviewer is listed with no network, and an unknown slug 404s.
+test("authors index lists the published reviewer", async ({ page }) => {
   await page.goto("/en/authors");
   await expect(page.getByRole("heading", { name: /authors & reviewers/i })).toBeVisible();
-  await expect(page.getByText(/bios appear here as our first guides are published/i)).toBeVisible();
+  await expect(page.getByRole("main").getByRole("link", { name: /dr\. khaled/i }).first()).toBeVisible();
   // Links out to the trust pages that explain the review standard (E-E-A-T).
   await expect(page.getByRole("main").getByRole("link", { name: /editorial policy/i })).toBeVisible();
 });

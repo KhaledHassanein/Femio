@@ -753,7 +753,39 @@
     "tooShort": "Utilisez au moins {min} caractères.",
     "mismatch": "Les mots de passe ne correspondent pas."
   },
+  "learnHub": {
+    "searchLabel": "Rechercher dans la bibliothèque",
+    "searchPlaceholder": "Rechercher des guides, des affections et des outils",
+    "questionsTitle": "Questions fréquentes",
+    "startHere": "Commencer ici",
+    "weeksHint": "Choisissez votre semaine de grossesse.",
+    "week": "Semaine {n}",
+    "guides": "{count, plural, one {# fiche} other {# fiches}}",
+    "questions": {
+      "fertile": "Quand suis-je la plus fertile ?",
+      "test": "Quand faire un test de grossesse ?",
+      "normal": "Mes règles sont-elles normales ?",
+      "pcos": "Quels sont les signes du SOPK ?",
+      "urgent": "Quels signes pendant la grossesse demandent des soins urgents ?",
+      "bleeding": "Quels saignements sont normaux après l'accouchement ?",
+      "specialist": "Quand consulter un spécialiste de la fertilité ?",
+      "perimenopause": "Qu'est-ce que la périménopause ?"
+    },
+    "topics": {
+      "ttc": "Projet de grossesse",
+      "weeks": "La grossesse semaine par semaine",
+      "pregnancy": "Grossesse",
+      "afterBirth": "Après l'accouchement",
+      "newborn": "Votre nouveau-né",
+      "cycles": "Règles et cycles",
+      "conditions": "Problèmes de santé",
+      "teens": "Pour les ados",
+      "menopause": "Périménopause et ménopause",
+      "more": "Autres guides"
+    }
+  },
   "learn": {
+    "englishOnly": "Ce guide n'est pas encore traduit ; il s'affiche donc en anglais.",
     "boundaryNote": "Information santé pour s'informer et planifier — pas un avis médical, et pas un substitut à votre clinicien.",
     "byline": "Par",
     "reviewedInEnglishBy": "Révisé en anglais par",
@@ -1320,6 +1352,7 @@
   },
   "nav": {
     "search": "Recherche",
+    "sections": "Rubriques",
     "authors": "Auteurs et relecteurs",
     "privacy": "Confidentialité",
     "terms": "Conditions",
@@ -1336,6 +1369,9 @@
     "signIn": "Se connecter"
   },
   "footer": {
+    "explore": "Explorer",
+    "trust": "Confiance",
+    "legal": "Mentions légales",
     "tagline": "Un seul compte pour toute votre vie de santé.",
     "rights": "© {year} Femio",
     "helpNow": "Besoin d’aide maintenant ?"
@@ -1728,11 +1764,12 @@
     }
   },
   "appNav": {
+    "today": "Aujourd'hui",
+    "log": "Noter",
+    "learn": "Apprendre",
     "calendar": "Calendrier",
     "tools": "Outils",
     "primary": "Sections principales",
-    "home": "Accueil",
-    "track": "Suivi",
     "settings": "Réglages",
     "signOut": "Se déconnecter"
   },

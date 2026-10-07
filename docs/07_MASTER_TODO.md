@@ -1,5 +1,7 @@
 # Femio V2 — MASTER TODO (the live queue)
 
+> **2026-10-07:** new work is sequenced in `docs/30_REVAMP/PROGRESS.md` (the agency revamp). This file keeps its covenant as the historical queue: nothing here is removed, and open lines are absorbed into the revamp phases where they still apply.
+
 **Restructured 2026-08-09** (ADR-062). Completed work moved verbatim to
 `07_MASTER_TODO_ARCHIVE.md` — nothing was summarised and nothing was dropped. This file
 answers one question: *what do I do next?*

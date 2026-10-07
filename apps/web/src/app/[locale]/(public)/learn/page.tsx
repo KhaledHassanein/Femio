@@ -1,13 +1,12 @@
 import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
-import { listContent } from "@/lib/cms/client";
-import { lede } from "@/lib/cms/format";
-import { ContentHub } from "@/components/cms/content-hub";
+import { listContent, LIST_FIELDS } from "@/lib/cms/client";
+import { LearnHub } from "@/components/learn/learn-hub";
 import { localizedAlternates } from "@/lib/seo/metadata";
 
 type PageProps = { params: Promise<{ locale: string }> };
 
-export const revalidate = 300;
+export const revalidate = 3600; // content changes only with a deploy now (repo snapshot, D3)
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { locale } = await params;
@@ -22,17 +21,6 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 export default async function LearnPage({ params }: PageProps) {
   const { locale } = await params;
   setRequestLocale(locale);
-  const t = await getTranslations("learn");
-  const articles = await listContent("articles", locale);
-
-  return (
-    <ContentHub
-      title={t("title")}
-      subtitle={t("subtitle")}
-      emptyText={t("empty")}
-      items={articles}
-      hrefBase="/learn"
-      lede={lede}
-    />
-  );
+  const articles = await listContent("articles", locale, { fields: LIST_FIELDS });
+  return <LearnHub locale={locale} articles={articles} />;
 }

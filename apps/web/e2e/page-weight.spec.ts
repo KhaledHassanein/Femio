@@ -20,15 +20,23 @@ import { expect, test } from "@playwright/test";
  * somebody made, not a drift nobody noticed.
  */
 const BUDGETS: Array<{ path: string; maxKb: number; measuredKb: number }> = [
-  { path: "/en/learn", maxKb: 50, measuredKb: 39 },
+  // Content is in the build now (repo snapshot, D3), so CI measures the real hub:
+  // 100 guides as cards. 161 KB raw / 27 KB gzipped on 2026-10-07, down from 484 KB
+  // before the covers became cached files and card styles moved into CSS classes.
+  // Raised deliberately; the client i18n payload is guarded separately below.
+  { path: "/en/learn", maxKb: 175, measuredKb: 161 },
   // R1.3 (2026-08-11): the homepage went from a hero over five link cards to seven
   // sections — a product shot, the life-stage rail, three proof cards and the trust
   // list. Raised deliberately, and the growth is rendered content, not payload: the
   // `home` namespace is server-only and does not ship to the browser.
-  { path: "/en", maxKb: 88, measuredKb: 70 },
+  // v3 (2026-10-07): the Dusk Bloom header (actions row + section row) and the
+  // grouped footer add ~8 KB of rendered markup to every public page; /en measured
+  // 98 KB raw, 18 KB gzipped. Raised deliberately; the client i18n payload did not
+  // grow (the namespace check below still guards it).
+  { path: "/en", maxKb: 104, measuredKb: 98 },
   { path: "/en/calculators", maxKb: 57, measuredKb: 45 },
   // Arabic is the heaviest locale — non-Latin script costs more bytes per character.
-  { path: "/ar/learn", maxKb: 58, measuredKb: 45 },
+  { path: "/ar/learn", maxKb: 185, measuredKb: 170 },
 ];
 
 for (const { path, maxKb, measuredKb } of BUDGETS) {

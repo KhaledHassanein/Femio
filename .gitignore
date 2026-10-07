@@ -71,3 +71,7 @@ screenshots/
 # is one person's local tool config, not a build input.
 .agents/
 .codex/
+
+# Python bytecode (the ui-ux-pro-max search script)
+__pycache__/
+*.pyc

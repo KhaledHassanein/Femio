@@ -10,14 +10,15 @@ import {
   type ReactNode,
 } from "react";
 import { useLocale } from "next-intl";
-import { X } from "lucide-react";
+import { LifeBuoy, X } from "lucide-react";
 import { getCrisisContent } from "@/lib/crisis/content";
 import { env } from "@/lib/env";
 import { cn } from "@/lib/utils";
 import { CrisisContentView } from "./crisis-content-view";
 
 /**
- * Global crisis-safety routing. Mounts a persistent "Need help now?" launcher and
+ * Global crisis-safety routing. Mounts a persistent launcher (a lifebuoy named
+ * "Need help now?") and
  * an accessible native <dialog> in the locale layout so help is reachable from
  * every public, onboarding, calculator and signed-in page.
  *
@@ -72,26 +73,28 @@ export function CrisisHelpProvider({ children }: { children: ReactNode }) {
     <CrisisHelpContext.Provider value={{ open, close, isOpen }}>
       {children}
 
+      {/* v3 (P1.5): a compact 44px lifebuoy instead of a wide violet pill. It stays on
+          every page (ADR-013) and keeps the approved launcher text as its accessible
+          name, but it no longer covers headings, consent labels or the onboarding
+          Continue button the way the pill did. The public header carries a visible
+          "Need help now?" link to /help-now as well. */}
       <button
         type="button"
         onClick={open}
+        aria-label={content.strings.launcher}
+        title={content.strings.launcher}
+        lang={content.isFallback ? content.lang : undefined}
         className={cn(
           // `crisis-launcher` is a positioning hook, not a style: globals.css lifts
           // the launcher clear of the signed-in tab bar, which would otherwise sit
           // on top of it (P1.28.1). A safety affordance must never be the thing
           // that gets covered.
-          "crisis-launcher fixed bottom-4 end-4 z-sticky inline-flex h-11 items-center gap-2 rounded-pill px-4",
-          "bg-primary-solid text-sm font-semibold text-primary-fg-solid shadow-md",
-          "hover:bg-primary-hover focus-visible:outline-none print:hidden",
+          "crisis-launcher fixed bottom-4 end-4 z-sticky inline-flex size-11 items-center justify-center rounded-pill",
+          "border border-border bg-surface/90 text-primary shadow-md backdrop-blur",
+          "hover:bg-surface hover:text-primary-hover focus-visible:outline-none print:hidden",
         )}
       >
-        <span
-          aria-hidden
-          className="inline-block size-2 rounded-pill bg-primary-fg-solid/90"
-        />
-        <span lang={content.isFallback ? content.lang : undefined}>
-          {content.strings.launcher}
-        </span>
+        <LifeBuoy className="size-5" aria-hidden />
       </button>
 
       <dialog

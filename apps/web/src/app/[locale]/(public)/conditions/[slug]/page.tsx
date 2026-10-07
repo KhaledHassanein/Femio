@@ -1,23 +1,27 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { getTranslations, setRequestLocale } from "next-intl/server";
-import { availableLocales, getContentBySlug } from "@/lib/cms/client";
+import { availableLocales, getContentBySlug, allSlugs } from "@/lib/cms/client";
 import { metaDescription } from "@/lib/cms/format";
 import { ContentArticle } from "@/components/cms/content-article";
 import { localizedAlternates } from "@/lib/seo/metadata";
 
 type PageProps = { params: Promise<{ locale: string; slug: string }> };
 
-// Rendered per-request, not ISR. `notFound()` thrown during a static/ISR render
-// makes next-intl resolve the locale from `headers()` in the not-found pass — a
-// dynamic API, illegal there — so every unknown slug returned **500 instead of
-// 404** in production (dev renders dynamically, which is why it looked fine).
-// The CMS fetch keeps its own 5-minute cache, so this costs HTML assembly, not
-// round-trips. Revisit when next-intl v4 lands (P1.23.2).
-export const dynamic = "force-dynamic";
+// ISR, revalidated hourly (P0.6, 2026-10-07). This page was `force-dynamic`, so every
+// view, bots included, was a serverless render plus several CMS calls, and the CMS
+// was exhausting Supabase's session pool (`EMAXCONNSESSION`, hundreds a day). The
+// reason it was dynamic (an unknown slug returning 500 instead of 404) is fixed twice
+// over: the client-side `[locale]/not-found.tsx`, and `setRequestLocale` in the
+// `(public)` layout, without which the header and footer read `headers()` during a
+// cached render. Verified against the live CMS: an article goes MISS → HIT, and an
+// unknown slug is a 404 in en and ar. Publishing shows up within the hour.
+export const revalidate = 3600;
 export const dynamicParams = true;
+// Every published slug is prerendered at build: content lives in the repo snapshot,
+// so building it costs no request to anything (D3 step 1).
 export function generateStaticParams() {
-  return [];
+  return allSlugs("conditions").map((slug) => ({ slug }));
 }
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
@@ -50,6 +54,10 @@ export default async function ConditionPage({ params }: PageProps) {
   setRequestLocale(locale);
   const doc = await getContentBySlug("conditions", locale, slug);
   if (!doc) notFound();
+  // Which language the text is really in (English is the fallback for every locale).
+  const contentLocale = (await availableLocales("conditions", slug)).includes(locale)
+    ? locale
+    : "en";
   const t = await getTranslations("conditions");
 
   return (
@@ -59,6 +67,7 @@ export default async function ConditionPage({ params }: PageProps) {
       sectionTitle={t("title")}
       sectionHref="/conditions"
       description={metaDescription(doc)}
+      contentLocale={contentLocale}
     />
   );
 }

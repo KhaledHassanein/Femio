@@ -3,15 +3,16 @@ version: 2
 # Dependency updates (P1.23 / SECURITY_REVIEW A06). Femio processes special-category
 # health data, so a stale transitive dependency is a real risk, not housekeeping —
 # but a flood of PRs is how update fatigue starts, so this is deliberately narrow:
-# security fixes arrive as they land, everything else is grouped into one weekly PR.
+# security fixes arrive as they land, everything else is grouped and arrives monthly.
+# Monthly since 2026-10-07: weekly grouped PRs sat red and unmerged for a month,
+# each one a failed-CI email and two Vercel preview builds, before launch.
 updates:
   # One entry covers the whole pnpm workspace (root + apps/*).
   - package-ecosystem: npm
     directory: "/"
     schedule:
-      interval: weekly
-      day: monday
-    open-pull-requests-limit: 5
+      interval: monthly
+    open-pull-requests-limit: 3
     versioning-strategy: increase-if-necessary
     groups:
       # Framework moves that need the full suite run against them anyway.

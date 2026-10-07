@@ -1,6 +1,7 @@
 import * as Sentry from "@sentry/nextjs";
 import { env } from "@/lib/env";
 import { scrubEvent } from "@/lib/observability/scrub";
+import { DENY_URLS, IGNORE_ERRORS } from "@/lib/observability/noise";
 
 /**
  * Browser-side error monitoring (P1.4.2).
@@ -14,6 +15,8 @@ import { scrubEvent } from "@/lib/observability/scrub";
  *                                 inference. We are not diagnosing latency yet.
  *   - session replay off        — it would record the tracker screen: symptoms,
  *                                 dates, free-text notes, everything.
+ *   - `ignoreErrors`/`denyUrls`  — extension, network and stale-chunk noise
+ *                                 (`noise.ts`): every issue is an alert email.
  *   - `beforeSend: scrubEvent`  — the last line: normalises URLs to route patterns
  *                                 and strips bodies, cookies, user and `extra`.
  *
@@ -26,6 +29,8 @@ if (env.NEXT_PUBLIC_SENTRY_DSN) {
     tracesSampleRate: 0,
     replaysSessionSampleRate: 0,
     replaysOnErrorSampleRate: 0,
+    ignoreErrors: IGNORE_ERRORS,
+    denyUrls: DENY_URLS,
     beforeSend: (event) => scrubEvent(event),
   });
 }

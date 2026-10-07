@@ -65,7 +65,7 @@ function Section({
 }) {
   return (
     <section className={sunken ? "bg-surface-sunken" : undefined}>
-      <div className="mx-auto flex w-full max-w-3xl flex-col gap-4 px-6 py-12">{children}</div>
+      <div className="reveal mx-auto flex w-full max-w-3xl flex-col gap-4 px-6 py-12">{children}</div>
     </section>
   );
 }
@@ -107,7 +107,7 @@ async function ProductShot({ locale }: { locale: string }) {
           <span className="text-[8px] font-semibold uppercase tracking-wider opacity-90 rtl:normal-case rtl:tracking-normal">
             {t("app.eyebrow")}
           </span>
-          <span className="font-display text-sm leading-tight rtl:font-arabic rtl:font-bold">
+          <span className="font-display text-sm leading-tight rtl:font-bold">
             {t("app.headline")}
           </span>
           {/* The band: soft edges, because the window has soft boundaries. */}
@@ -124,7 +124,7 @@ async function ProductShot({ locale }: { locale: string }) {
 
         <div className="rounded-sm bg-surface p-2.5 shadow-xs">
           <span className="block text-[8px] text-text-muted">{t("app.avgLabel")}</span>
-          <span className="font-display text-xs text-text rtl:font-arabic">{t("app.avgValue")}</span>
+          <span className="font-display text-xs text-text">{t("app.avgValue")}</span>
         </div>
       </div>
 
@@ -160,13 +160,13 @@ export default async function HomePage({ params }: PageProps) {
       <JsonLd data={organizationJsonLd()} />
 
       {/* ── Hero — the one raised element on the page ───────────────────────── */}
-      <section className="relative bg-gradient-hero-cycle text-text-on-brand shadow-md">
+      <section className="aurora text-text-on-brand">
         {/* `--gradient-dawn` runs out to amber, where white body copy measures
             2.15:1. So dawn is the signature, not the backdrop: a bar carrying no
             text over an AA-safe violet field (docs/25 §5a). */}
         <div className="absolute inset-x-0 top-0 h-1.5 bg-gradient-dawn" aria-hidden />
         <div className="mx-auto flex w-full max-w-3xl flex-col gap-4 px-6 pb-16 pt-14">
-          <h1 className="font-display text-2xl leading-tight sm:text-3xl rtl:font-arabic rtl:text-xl rtl:font-bold rtl:leading-relaxed">
+          <h1 className="font-display text-2xl leading-tight sm:text-3xl rtl:text-xl rtl:font-bold rtl:leading-relaxed">
             {t("heroTitle")}
           </h1>
           <p className="text-sm leading-relaxed opacity-95">{t("heroBody")}</p>
@@ -196,7 +196,7 @@ export default async function HomePage({ params }: PageProps) {
       {/* ── The product, because Clue and Balance both lead with one ────────── */}
       <Section sunken>
         <Eyebrow>{t("shot.eyebrow")}</Eyebrow>
-        <h2 className="font-display text-lg text-text rtl:font-arabic rtl:font-bold">
+        <h2 className="font-display text-lg text-text rtl:font-bold">
           {t("shot.heading")}
         </h2>
         <ProductShot locale={locale} />
@@ -212,7 +212,7 @@ export default async function HomePage({ params }: PageProps) {
       {/* ── The life-stage rail — the claim no competitor can answer ────────── */}
       <Section>
         <Eyebrow>{t("rail.eyebrow")}</Eyebrow>
-        <h2 className="font-display text-lg text-text rtl:font-arabic rtl:font-bold">
+        <h2 className="font-display text-lg text-text rtl:font-bold">
           {t("rail.heading")}
         </h2>
         <p className="text-xs leading-relaxed text-text-muted">{t("rail.sub")}</p>
@@ -246,7 +246,7 @@ export default async function HomePage({ params }: PageProps) {
       {/* ── Honesty, shown rather than claimed ──────────────────────────────── */}
       <Section sunken>
         <Eyebrow>{t("proof.eyebrow")}</Eyebrow>
-        <h2 className="font-display text-lg text-text rtl:font-arabic rtl:font-bold">
+        <h2 className="font-display text-lg text-text rtl:font-bold">
           {t("proof.heading")}
         </h2>
 
@@ -294,7 +294,7 @@ export default async function HomePage({ params }: PageProps) {
       {/* ── Trust: five verifiable facts, not badges ────────────────────────── */}
       <Section>
         <Eyebrow>{t("trust.eyebrow")}</Eyebrow>
-        <h2 className="font-display text-lg text-text rtl:font-arabic rtl:font-bold">
+        <h2 className="font-display text-lg text-text rtl:font-bold">
           {t("trust.heading")}
         </h2>
         <ul className="mt-2 flex flex-col">
@@ -321,7 +321,7 @@ export default async function HomePage({ params }: PageProps) {
       {/* ── The library, demoted but complete (product rule 2) ──────────────── */}
       <Section sunken>
         <Eyebrow>{t("library.eyebrow")}</Eyebrow>
-        <h2 className="font-display text-lg text-text rtl:font-arabic rtl:font-bold">
+        <h2 className="font-display text-lg text-text rtl:font-bold">
           {t("library.heading")}
         </h2>
         <div className="mt-2 flex flex-col gap-3">
@@ -351,7 +351,7 @@ export default async function HomePage({ params }: PageProps) {
       {/* ── Close ───────────────────────────────────────────────────────────── */}
       <Section>
         <div className="flex flex-col items-center gap-5 text-center">
-          <h2 className="font-display text-lg text-text rtl:font-arabic rtl:font-bold">
+          <h2 className="font-display text-lg text-text rtl:font-bold">
             {t("close.heading")}
           </h2>
           <Button asChild variant="accent" size="lg" className="w-full sm:w-auto">

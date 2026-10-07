@@ -1,5 +1,6 @@
 import * as migration_20260803_123841_baseline_existing_schema from './20260803_123841_baseline_existing_schema';
 import * as migration_20260803_123901_p1_6_6_publishing_fields from './20260803_123901_p1_6_6_publishing_fields';
+import * as migration_20261007_192351_payload_3_90 from './20261007_192351_payload_3_90';
 
 export const migrations = [
   {
@@ -10,6 +11,11 @@ export const migrations = [
   {
     up: migration_20260803_123901_p1_6_6_publishing_fields.up,
     down: migration_20260803_123901_p1_6_6_publishing_fields.down,
-    name: '20260803_123901_p1_6_6_publishing_fields'
+    name: '20260803_123901_p1_6_6_publishing_fields',
+  },
+  {
+    up: migration_20261007_192351_payload_3_90.up,
+    down: migration_20261007_192351_payload_3_90.down,
+    name: '20261007_192351_payload_3_90'
   },
 ];

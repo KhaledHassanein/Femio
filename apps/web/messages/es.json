@@ -753,7 +753,39 @@
     "tooShort": "Usa al menos {min} caracteres.",
     "mismatch": "Las contraseñas no coinciden."
   },
+  "learnHub": {
+    "searchLabel": "Buscar en la biblioteca",
+    "searchPlaceholder": "Busca guías, afecciones y herramientas",
+    "questionsTitle": "Preguntas frecuentes",
+    "startHere": "Empieza aquí",
+    "weeksHint": "Elige tu semana de embarazo.",
+    "week": "Semana {n}",
+    "guides": "{count, plural, one {# guía} other {# guías}}",
+    "questions": {
+      "fertile": "¿Cuándo soy más fértil?",
+      "test": "¿Cuándo hacerme una prueba de embarazo?",
+      "normal": "¿Mi regla es normal?",
+      "pcos": "¿Cuáles son los signos del SOP?",
+      "urgent": "¿Qué señales en el embarazo requieren atención urgente?",
+      "bleeding": "¿Cuánto sangrado es normal después del parto?",
+      "specialist": "¿Cuándo consultar a un especialista en fertilidad?",
+      "perimenopause": "¿Qué es la perimenopausia?"
+    },
+    "topics": {
+      "ttc": "Buscar un embarazo",
+      "weeks": "El embarazo semana a semana",
+      "pregnancy": "Embarazo",
+      "afterBirth": "Después del parto",
+      "newborn": "Tu recién nacido",
+      "cycles": "Reglas y ciclos",
+      "conditions": "Afecciones",
+      "teens": "Para adolescentes",
+      "menopause": "Perimenopausia y menopausia",
+      "more": "Más guías"
+    }
+  },
   "learn": {
+    "englishOnly": "Esta guía aún no está traducida, por eso se muestra en inglés.",
     "boundaryNote": "Información de salud para informarte y planificar: no es consejo médico ni sustituye a tu profesional clínico.",
     "byline": "Por",
     "reviewedInEnglishBy": "Revisado en inglés por",
@@ -1320,6 +1352,7 @@
   },
   "nav": {
     "search": "Buscar",
+    "sections": "Secciones",
     "authors": "Autoras y revisores",
     "privacy": "Privacidad",
     "terms": "Términos",
@@ -1336,6 +1369,9 @@
     "signIn": "Iniciar sesión"
   },
   "footer": {
+    "explore": "Explorar",
+    "trust": "Confianza",
+    "legal": "Aviso legal",
     "tagline": "Una sola cuenta para toda tu vida de salud.",
     "rights": "© {year} Femio",
     "helpNow": "¿Necesitas ayuda ahora?"
@@ -1728,11 +1764,12 @@
     }
   },
   "appNav": {
+    "today": "Hoy",
+    "log": "Registrar",
+    "learn": "Aprender",
     "calendar": "Calendario",
     "tools": "Herramientas",
     "primary": "Secciones principales",
-    "home": "Inicio",
-    "track": "Seguimiento",
     "settings": "Ajustes",
     "signOut": "Cerrar sesión"
   },

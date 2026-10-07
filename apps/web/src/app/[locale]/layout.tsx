@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { Inter, Fraunces, IBM_Plex_Sans_Arabic } from "next/font/google";
+import { Newsreader, Plus_Jakarta_Sans, Noto_Naskh_Arabic, IBM_Plex_Sans_Arabic } from "next/font/google";
 import { NextIntlClientProvider } from "next-intl";
 import { getMessages, getTranslations, setRequestLocale } from "next-intl/server";
 import { getDir, isLocale, routing } from "@/i18n/routing";
@@ -13,13 +13,38 @@ import { env } from "@/lib/env";
 import "@femio/tokens/tokens.css";
 import "../globals.css";
 
-const inter = Inter({ subsets: ["latin"], variable: "--font-inter", display: "swap" });
-const fraunces = Fraunces({ subsets: ["latin"], variable: "--font-fraunces", display: "swap" });
+// Type v3 "Dusk Bloom" (docs/30_REVAMP/03 §3.3). Each script gets a real face rather
+// than a fallback: Newsreader and Noto Naskh Arabic share the display role, Plus
+// Jakarta Sans and IBM Plex Sans Arabic share the UI role. Tailwind's family stacks list
+// both, and the browser picks per glyph, so a mixed Arabic/Latin line renders each run
+// in its own face with no per-locale branching.
+const sansLatin = Plus_Jakarta_Sans({
+  subsets: ["latin"],
+  variable: "--font-sans-latin",
+  display: "swap",
+});
+const displayLatin = Newsreader({
+  subsets: ["latin"],
+  axes: ["opsz"],
+  variable: "--font-display-latin",
+  display: "swap",
+});
+const naskh = Noto_Naskh_Arabic({
+  subsets: ["arabic"],
+  weight: ["500", "600", "700"],
+  variable: "--font-naskh",
+  display: "swap",
+  // Not preloaded: an English page must not download Arabic fonts up front. The
+  // browser fetches them the moment Arabic text needs them (P2 page-weight pass:
+  // 8 preloaded font files on every page became 2).
+  preload: false,
+});
 const plexArabic = IBM_Plex_Sans_Arabic({
   subsets: ["arabic"],
   weight: ["400", "500", "600", "700"],
   variable: "--font-plex-arabic",
   display: "swap",
+  preload: false,
 });
 
 type LayoutProps = {
@@ -69,7 +94,7 @@ export default async function LocaleLayout({ children, params }: LayoutProps) {
   if (!isLocale(locale)) notFound();
   setRequestLocale(locale);
 
-  const fontVars = `${inter.variable} ${fraunces.variable} ${plexArabic.variable}`;
+  const fontVars = `${sansLatin.variable} ${displayLatin.variable} ${naskh.variable} ${plexArabic.variable}`;
 
   // Send only the namespaces client components actually use (P1.11.2). Without this
   // the whole catalog is serialised into every page — see i18n/client-namespaces.ts.

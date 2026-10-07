@@ -1,13 +1,13 @@
 import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
-import { listContent } from "@/lib/cms/client";
+import { listContent, LIST_FIELDS } from "@/lib/cms/client";
 import { lede } from "@/lib/cms/format";
 import { ContentHub } from "@/components/cms/content-hub";
 import { localizedAlternates } from "@/lib/seo/metadata";
 
 type PageProps = { params: Promise<{ locale: string }> };
 
-export const revalidate = 300;
+export const revalidate = 3600; // content changes only with a deploy now (repo snapshot, D3)
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { locale } = await params;
@@ -23,7 +23,7 @@ export default async function ConditionsPage({ params }: PageProps) {
   const { locale } = await params;
   setRequestLocale(locale);
   const t = await getTranslations("conditions");
-  const items = await listContent("conditions", locale);
+  const items = await listContent("conditions", locale, { fields: LIST_FIELDS });
 
   return (
     <ContentHub

@@ -1,10 +1,21 @@
-import { env } from "@/lib/env";
 import { routing } from "@/i18n/routing";
+import articles from "@/content/snapshot/articles.json";
+import conditions from "@/content/snapshot/conditions.json";
+import faqs from "@/content/snapshot/faqs.json";
+import glossary from "@/content/snapshot/glossary.json";
+import people from "@/content/snapshot/people.json";
 
-// Read PUBLISHED content from the Payload CMS REST API (P1.6.2). The CMS access
-// rules already restrict unauthenticated callers to published docs, so no auth is
-// sent. Every call degrades gracefully: if the CMS URL is unset or the request
-// fails, we return empty/null so the public site never breaks.
+// Published content, read from the snapshot committed in `src/content/snapshot/`
+// (D3 step 1, 2026-10-07). This module used to fetch the Payload REST API on every
+// render, and Payload reads Supabase Postgres, which Supabase bills as egress. With
+// bots crawling ~400 article URLs, those reads exhausted the free plan's 5 GB and the
+// project was restricted on 2026-10-06 (every API request answered 402; 8.96 GB used,
+// 0 monthly active users). Now a page view, a crawl or a sitemap build touches no
+// database at all.
+//
+// The function names and return shapes are unchanged, so no page changed with it.
+// Publishing: approve in the CMS as before, then `node scripts/content/snapshot-cms.mjs`
+// and commit the snapshot (OWNER_ACTIONS explains it in plain words).
 
 export type LexicalNode = {
   type?: string;
@@ -78,21 +89,39 @@ export type PersonDoc = {
   updatedAt?: string | null;
 };
 
-const REVALIDATE_SECONDS = 300; // ISR: refresh published content every 5 min.
+type ByLocale<T> = Record<string, T[]>;
+const COLLECTIONS: Record<string, ByLocale<ContentDoc>> = {
+  articles: articles as unknown as ByLocale<ContentDoc>,
+  conditions: conditions as unknown as ByLocale<ContentDoc>,
+  faqs: faqs as unknown as ByLocale<ContentDoc>,
+  glossary: glossary as unknown as ByLocale<ContentDoc>,
+};
+const PEOPLE = people as unknown as ByLocale<PersonDoc>;
+const DEFAULT_LOCALE = routing.defaultLocale;
 
-function baseUrl(): string | null {
-  return env.NEXT_PUBLIC_CMS_URL ? env.NEXT_PUBLIC_CMS_URL.replace(/\/$/, "") : null;
+/**
+ * Payload's `fallback: true`, reproduced: a locale's own translation where one
+ * exists, the English document where it does not. Order follows English
+ * (most recently updated first), so a translation never reorders a list.
+ */
+function inLocale<T extends { slug: string }>(
+  byLocale: ByLocale<T> | undefined,
+  locale: string,
+): T[] {
+  if (!byLocale) return [];
+  const base = byLocale[DEFAULT_LOCALE] ?? [];
+  if (locale === DEFAULT_LOCALE) return base;
+  const own = new Map((byLocale[locale] ?? []).map((d) => [d.slug, d]));
+  return base.map((d) => own.get(d.slug) ?? d);
 }
 
 export function cmsEnabled(): boolean {
-  return baseUrl() !== null;
+  return (COLLECTIONS.articles?.[DEFAULT_LOCALE]?.length ?? 0) > 0;
 }
 
 /**
- * The CMS was unreachable or errored — as distinct from "it answered, and there is no
- * such document". Conflating the two is how a transient outage turns a live article
- * into a 404, which is the one failure mode search engines punish: a 404 invites
- * deindexing, a 5xx is understood as temporary and retried (P1.6.16).
+ * Kept for callers that distinguish "unavailable" from "not found" (P1.6.16). With
+ * content in the build there is no outage to report, so nothing throws it today.
  */
 export class CmsUnavailableError extends Error {
   constructor(path: string, cause?: unknown) {
@@ -102,101 +131,69 @@ export class CmsUnavailableError extends Error {
   }
 }
 
-async function query<T>(path: string, opts?: { throwOnFailure?: boolean }): Promise<T | null> {
-  const b = baseUrl();
-  if (!b) return null;
-  try {
-    const res = await fetch(`${b}${path}`, { next: { revalidate: REVALIDATE_SECONDS } });
-    if (!res.ok) {
-      if (opts?.throwOnFailure) throw new CmsUnavailableError(path, `HTTP ${res.status}`);
-      return null;
-    }
-    return (await res.json()) as T;
-  } catch (err) {
-    if (err instanceof CmsUnavailableError) throw err;
-    if (opts?.throwOnFailure) throw new CmsUnavailableError(path, err);
-    return null;
-  }
+/**
+ * The fields a list of articles or conditions renders: a hub card, the sitemap, the
+ * dashboard reading list. Never the body. (It was 2.1 MB per uncached list request
+ * when this came from the CMS; it still keeps list payloads small.)
+ */
+export const LIST_FIELDS = ["slug", "title", "excerpt", "summary", "updatedAt"] as const;
+
+function pick(doc: ContentDoc, fields: readonly string[]): ContentDoc {
+  const out: Record<string, unknown> = { id: doc.id };
+  for (const f of fields) if (f in doc) out[f] = (doc as Record<string, unknown>)[f];
+  return out as ContentDoc;
 }
 
-/** All published docs in a content collection, for the given locale. */
+/**
+ * All published docs in a content collection, for the given locale.
+ * Pass `fields` for anything that lists rather than renders a body.
+ */
 export async function listContent(
   collection: string,
   locale: string,
-  opts?: { throwOnFailure?: boolean },
+  opts?: { throwOnFailure?: boolean; fields?: readonly string[] },
 ): Promise<ContentDoc[]> {
-  const data = await query<{ docs: ContentDoc[] }>(
-    `/api/${collection}?locale=${encodeURIComponent(locale)}&depth=0&limit=100&sort=-updatedAt`,
-    opts,
-  );
-  return data?.docs ?? [];
+  const docs = inLocale(COLLECTIONS[collection], locale);
+  return opts?.fields ? docs.map((d) => pick(d, opts.fields!)) : docs;
 }
 
-/** All published author/reviewer bios for the given locale. */
+/** All published author/reviewer bios for the given locale, by name. */
 export async function listPeople(
   locale: string,
-  opts?: { throwOnFailure?: boolean },
+  _opts?: { throwOnFailure?: boolean },
 ): Promise<PersonDoc[]> {
-  const data = await query<{ docs: PersonDoc[] }>(
-    `/api/people?locale=${encodeURIComponent(locale)}&depth=0&limit=100&sort=name`,
-    opts,
-  );
-  return data?.docs ?? [];
+  return [...inLocale(PEOPLE, locale)].sort((a, b) => a.name.localeCompare(b.name));
 }
 
 /** A single published bio by slug (null if not found). */
 export async function getPersonBySlug(locale: string, slug: string): Promise<PersonDoc | null> {
-  const data = await query<{ docs: PersonDoc[] }>(
-    `/api/people?locale=${encodeURIComponent(locale)}&depth=0&limit=1&where[slug][equals]=${encodeURIComponent(slug)}`,
-  );
-  return data?.docs?.[0] ?? null;
+  return inLocale(PEOPLE, locale).find((p) => p.slug === slug) ?? null;
 }
 
 /**
- * Which locales a document is genuinely written in (P1.6.15).
- *
- * Payload is configured with `fallback: true`, so asking for `locale=ar` on an
- * English-only article returns the **English** text with no indication that it did.
- * That is right for a reader — better to show her something than nothing — and wrong
- * for a search engine: it made `/ar`, `/fr` and `/es` serve identical English copy at
- * indexable URLs that the sitemap advertised. `fallback-locale=none` is the honest
- * question: it returns a null title where no translation exists.
- *
- * Cheap in practice — one request per locale, on the same 5-minute cache as every
- * other CMS read, and only the sitemap and a page's metadata ask.
+ * Which slugs exist in which locale. English is the master, so every published doc
+ * counts; any other locale counts only real translations (P1.6.15: a fallback
+ * rendering must not be advertised to search engines as Arabic, French or Spanish).
  */
+export async function translatedSlugs(
+  collection: string,
+  _opts?: { throwOnFailure?: boolean },
+): Promise<Record<string, Set<string>>> {
+  const byLocale = COLLECTIONS[collection] ?? {};
+  return Object.fromEntries(
+    routing.locales.map((l) => [l, new Set((byLocale[l] ?? []).map((d) => d.slug))]),
+  );
+}
+
+/** Which locales a document is genuinely written in (P1.6.15). */
 export async function availableLocales(collection: string, slug: string): Promise<string[]> {
   const byLocale = await translatedSlugs(collection);
   return routing.locales.filter((l) => byLocale[l]?.has(slug));
 }
 
-/**
- * Which slugs exist in which locale, one request per locale for the whole collection.
- *
- * The first version asked per document, which read cleanly and was wrong at scale: the
- * sitemap covers every published doc, so 30 articles became ~120 CMS requests per
- * regeneration. Each is a serverless invocation holding a Postgres connection from a
- * **session-mode** pool capped at 15, and it took the CMS API down with
- * `EMAXCONNSESSION` — a self-inflicted outage from a change whose whole purpose was
- * a cleaner sitemap. Asking per *locale* instead answers the same question in four
- * requests regardless of how many articles exist.
- */
-export async function translatedSlugs(
-  collection: string,
-  opts?: { throwOnFailure?: boolean },
-): Promise<Record<string, Set<string>>> {
-  const pairs = await Promise.all(
-    routing.locales.map(async (locale) => {
-      const data = await query<{ docs: { slug?: string; title?: string | null }[] }>(
-        `/api/${collection}?locale=${encodeURIComponent(locale)}&fallback-locale=none&depth=0&limit=200`,
-        opts,
-      );
-      // A doc that comes back with no title in this locale exists but is untranslated.
-      const slugs = new Set((data?.docs ?? []).filter((d) => d.title && d.slug).map((d) => d.slug!));
-      return [locale, slugs] as const;
-    }),
-  );
-  return Object.fromEntries(pairs);
+/** Every published slug in a collection: what `generateStaticParams` prerenders. */
+export function allSlugs(collection: string): string[] {
+  return (COLLECTIONS[collection]?.[DEFAULT_LOCALE] ?? []).map((d) => d.slug);
 }
 
 /** A single published doc by slug (null if not found). */
@@ -205,14 +202,5 @@ export async function getContentBySlug(
   locale: string,
   slug: string,
 ): Promise<ContentDoc | null> {
-  // depth=1 so `authors` / `medicalReviewerProfile` come back as people rather
-  // than ids — a byline is the whole point of fetching a single document.
-  // Throws rather than returning null when the CMS is down, so the page can answer 503
-  // instead of 404. A published article that 404s during an outage can be dropped from
-  // the index; the same request answered 5xx is simply retried.
-  const data = await query<{ docs: ContentDoc[] }>(
-    `/api/${collection}?locale=${encodeURIComponent(locale)}&depth=1&limit=1&where[slug][equals]=${encodeURIComponent(slug)}`,
-    { throwOnFailure: true },
-  );
-  return data?.docs?.[0] ?? null;
+  return inLocale(COLLECTIONS[collection], locale).find((d) => d.slug === slug) ?? null;
 }

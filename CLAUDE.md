@@ -1,7 +1,6 @@
 # CLAUDE.md — Femio V2 (read this first, every session)
 
-You are working on **Femio**, a women's-health platform. **If you need one page on where the
-project stands across web, Android and iOS, read `docs/00_WHERE_WE_ARE.md`.** This file orients you; the authoritative detail lives in `docs/`. **Read `docs/STATE.md` first** — it carries the resume prompt, the working loop and the gate — then `docs/07_MASTER_TODO.md` for the queue. What is waiting on Khaled is in `docs/runbooks/BLOCKERS.md`; what needs his eyes is in `docs/runbooks/MANUAL_TEST_PLAN.md`.
+You are working on **Femio**, a women's-health platform. **The live workstream is the 2026-10 revamp: `docs/30_REVAMP/`** (read `00_README.md`, one page). **Read `docs/STATE.md` first.** It is short and carries the resume prompt, the working loop, the gate and the environment traps. Then read `docs/30_REVAMP/PROGRESS.md`; the first open line is the work. Everything that needs Khaled (decisions, keys, legal, reviews) is in **one file: `docs/runbooks/OWNER_ACTIONS.md`**.
 
 ## What Femio is
 One account for a woman's **whole health life** — puberty → cycles → conditions → TTC/IVF → pregnancy → postpartum → perimenopause → menopause — with referenced medical content, honest predictions, and verifiable privacy. 4 languages (EN/AR/FR/ES, RTL-native). **Mobile is the destination; web is also a real product** — Android via **Flutter**, then iOS, over the same backend (ADR-060). The public content site and CMS are *support functions*: they bring people to the app. Positioning & strategy: `docs/00_EXECUTIVE_SUMMARY.md`, `docs/05_PRODUCT_STRATEGY_PLAN.md`.
@@ -23,7 +22,8 @@ Next.js 15 + TypeScript + Tailwind + shadcn/ui + next-intl (EN/AR/FR/ES, RTL) + 
 ## Repo map
 ```
 docs/
-  STATE.md                                   # ← READ FIRST: living state, gate, traps
+  STATE.md                                   # ← READ FIRST: short living state, gate, traps
+  30_REVAMP/                                 # ← THE PLAN: audit, market research, revamp plan, PROGRESS
   00_EXECUTIVE_SUMMARY … 06_TECH_STACK      # Phase-0 strategy pack
   07_MASTER_TODO.md                          # the live queue (one line per item)
   07_MASTER_TODO_ARCHIVE.md                  # completed work, verbatim — search by ID
@@ -35,16 +35,16 @@ docs/
   13_LEGAL_COMPLIANCE.md                      # (P0.12) legal foundation
   14_SYSTEM_ARCHITECTURE.md                   # (P1.1) ERD/RLS/API/i18n — build gateway
   22_APP_UI_ARCHITECTURE.md                   # tracker-screen conventions — read before any UI
-  23_STRATEGIC_REVIEW_2026-08-09.md           # what is wrong, ranked, with evidence
-  24_REVAMP_PLAN.md                           # the experience engine + two-client architecture
-  25_DESIGN_DIRECTION_BRIEF.md                # the design workstream (R1)
-  DECISIONS.md (ADR log) · CHANGELOG.md · archive/ · phases/ · compliance/ · runbooks/
+  24_REVAMP_PLAN.md                           # the experience engine + two-client architecture (still binding)
+  28_TEARDOWN/ · 29_REBUILD/                  # competitive evidence + screen/data specs (reference)
+  DECISIONS.md (ADR log) · CHANGELOG.md · compliance/ · runbooks/OWNER_ACTIONS.md
+  archive/                                   # superseded plans (23,25,26,27), old STATE, old runbooks
   personas/  # 73 persona specs, schema A–K each (snapshot, needs, competitors, clinical,
              # features, content, tools/alerts, EMR fields, personalization, transitions, compliance)
 assets/brand/tokens/  femio.tokens.css (canonical) · .json (W3C) · .tailwind.preset.js
 assets/brand/logo/    Bloom mark — femio-logo.svg (primary) + lockups + app-icon
 assets/mockups/       femio_personalized_screens.html (HTML screen mockups)
-references/femio_v1_archive/  # V1 Flutter, learning-only
+# references/femio_v1_archive/ (V1 Flutter) was removed from the tree 2026-10-07; it is in git history.
 ```
 
 ## Governance (agency-grade — from the femio-docs-agency skill)
@@ -62,22 +62,19 @@ Also installed in-repo (not part of the Femio plugin): **`ui-ux-pro-max`** at `.
 
 The **shadcn MCP** is wired in `.mcp.json`, pinned to `shadcn@4.18.0` rather than `@latest` — `add` is a destructive verb here and its behaviour should not change under us on a CLI release. The CLI is deliberately **not** a devDependency: it is a dev-time tool that never ships, and adding it would drag an untriaged tree past the `allowBuilds` gate in `pnpm-workspace.yaml` for no runtime benefit. (Public MIT registry, no account, no code leaves the repo.) It is pinned to `--cwd apps/web` because that is where `components.json` lives — the CLI's default cwd is the repo root, where it finds no project. Use it to *read* the registry and to add primitives we do not have yet. **Never let it `add` over an existing `apps/web/src/components/ui/*` file.** Ours have diverged on purpose: `button.tsx` carries Femio semantic tokens (`bg-primary-solid`, not upstream `bg-primary`), a 44px default height for the WCAG 2.2 AA touch target, and `motion-safe:active:scale-[0.98]` press feedback from P1.28.6. Upstream would silently revert all three. Anything pulled in fresh still needs the token pass and the logical-property pass (`docs/22`) before it ships.
 
-## Current status (2026-08-16) — full picture in `docs/STATE.md`
-Phase 0 + 0.5 ✅ (73 persona specs, adaptation model, brand & tokens, 454 `[NEEDS SOURCE]` flags cleared). Phase 1 MVP essentially complete and **live**: `femioapp.com` + `femio-cms.vercel.app` on Vercel over Supabase EU; 31 published articles, all now carrying a named clinician byline; onboarding wizard with condition triage; cycle/TTC/pregnancy/postpartum/teen/menopause dashboards; the full pregnancy lifecycle; export/delete; offline queue; consent manager; staff MFA; k-anonymous insights.
+## Current status (2026-10-07) — full picture in `docs/STATE.md`
+Live: `femioapp.com` + `femio-cms.vercel.app` on Vercel over Supabase EU. **100 published, clinician-bylined articles**, 5 condition hubs, 5 calculators, Postgres full-text search; the app has onboarding, cycle/TTC/pregnancy/postpartum/teen/menopause experiences, calendar, log, patterns, visit summary, partner sharing, export/delete, offline. Gate green, 940 tests, audit clean.
 
-**`docs/23` named three things wrong. Two are closed.** The persona engine is no longer write-only — the screens render a **served** `ExperienceConfig` (R2.4) and every track has a mode (Track E in R2.5, Track A in R2.5c). Depth has started: `appointments`, `fertility_logs` and `screener_results` all now hold real data (P2.2.3, P2.1, P2.4). **Design and UX (R1) is the one still open** — and it is now the 2026-08-21 revamp: read `docs/26`
-(the audit, measured) and `docs/27` (the plan answering it) before touching a screen. `vitals` is
-**no longer unused**: `WeightChart` renders it in the pregnancy experience (P2.2.3). Every table
-from v1 now holds real data.
+**The 2026-10 agency revamp (`docs/30_REVAMP/`)** found the engine strong and the product generic, with no launch date. The plan: **one wedge** (Arabic-first TTC → pregnancy, with PCOS depth, Saudi + Egypt), **a new design language** ("Dusk Bloom": the stock Tailwind violet retired), **content published from the repo** (Payload retired, D3), web first, then **Google Play via TWA**, then Flutter. Phases 0–5 in `03_REVAMP_PLAN.md` §5.
 
-**Deferred by owner direction, blocking nothing:** P0.12 legal (trigger is the first real user, not incorporation — so gate signup first, P0.12.5), billing, store compliance, community.
+**Deferred by owner direction:** AI chat (OD-9), messaging/community (OD-8), billing until retention data. **Legal (P0.12) is now a launch condition** (Egypt PDPL licensing from 2026-10-31): `OWNER_ACTIONS.md` §A.
 
 ## How to work here
-1. Read `docs/STATE.md`, then `docs/07_MASTER_TODO.md`; take the highest open item under **▶ NOW**; mark `[~]`.
+1. Read `docs/STATE.md`, then `docs/30_REVAMP/PROGRESS.md`; take the first open item; mark `[~]`. (`docs/07_MASTER_TODO.md` keeps its covenant as the historical queue; new work is sequenced in PROGRESS.)
 2. Follow the relevant skill(s). Respect the 6 product rules and the architecture rule above.
 3. Work in **small commits = restore points**. Conventional messages (`feat:`, `docs:`, `fix:`). Update TODO/CHANGELOG in the same change; an ADR only when it meets the bar.
 4. When touching data or claims, fill the compliance review gate (fields? consent? data-map? claims language? processors? retention?).
 5. Never invent medical facts/stats — cite Tier-1/2 or flag `[NEEDS SOURCE]`.
 6. **Judge every UI change on a 390×844 phone viewport**, in light and dark, and in Arabic RTL. A screenshot is the test, not a nice-to-have.
 
-Next up: **R3 life-stage depth**, continuing — and **R1 design direction** (`docs/25`), which is now the oldest open workstream. R2 (`docs/24`, the experience engine) is done.
+Next up: **Phase 1 of `docs/30_REVAMP` — the Dusk Bloom design language**, then the public site (Phase 2) and the wedge app (Phase 3).

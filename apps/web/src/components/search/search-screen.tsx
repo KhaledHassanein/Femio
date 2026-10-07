@@ -71,6 +71,15 @@ export function SearchScreen() {
   const [query, setQuery] = useState("");
   const [state, setState] = useState<State>({ status: "idle" });
 
+  // Arriving from the Learn hub's search box (`/search?q=…`, a plain GET form that
+  // works without JavaScript): start with her words already in the field. Read once
+  // from the URL rather than via useSearchParams, which would force this static page
+  // into a client-rendered bailout.
+  useEffect(() => {
+    const q = new URLSearchParams(window.location.search).get("q");
+    if (q) setQuery(q.slice(0, 200));
+  }, []);
+
   // Titles come from the tools namespace the launcher already uses, so a tool is
   // never called one thing there and another here.
   const tools = useMemo(
