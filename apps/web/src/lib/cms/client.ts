@@ -119,14 +119,38 @@ async function query<T>(path: string, opts?: { throwOnFailure?: boolean }): Prom
   }
 }
 
-/** All published docs in a content collection, for the given locale. */
+/**
+ * The fields a list of articles or conditions actually renders: a hub card, the
+ * sitemap, the dashboard reading list. Never the body.
+ *
+ * Without a selection Payload returns every field, bodies included, and for 100
+ * articles that response was **2.1 MB**. That is past Next's 2 MB data-cache limit,
+ * so it was never cached: every Learn render and every sitemap regeneration pulled the
+ * whole library through a CMS function and out of Postgres again. The same list with
+ * these fields is about 4 KB.
+ */
+export const LIST_FIELDS = ["slug", "title", "excerpt", "summary", "updatedAt"] as const;
+
+/** `&select[a]=true&select[b]=true…`, Payload's REST field selection. */
+export function selectParams(fields: readonly string[]): string {
+  return fields.map((f) => `&select[${encodeURIComponent(f)}]=true`).join("");
+}
+
+/**
+ * All published docs in a content collection, for the given locale.
+ *
+ * Pass `fields` for anything that lists rather than renders a body: articles and
+ * conditions want `LIST_FIELDS`. Glossary and FAQ render their definitions and answers
+ * inline, so they omit it. Both collections are small.
+ */
 export async function listContent(
   collection: string,
   locale: string,
-  opts?: { throwOnFailure?: boolean },
+  opts?: { throwOnFailure?: boolean; fields?: readonly string[] },
 ): Promise<ContentDoc[]> {
+  const select = opts?.fields ? selectParams(opts.fields) : "";
   const data = await query<{ docs: ContentDoc[] }>(
-    `/api/${collection}?locale=${encodeURIComponent(locale)}&depth=0&limit=100&sort=-updatedAt`,
+    `/api/${collection}?locale=${encodeURIComponent(locale)}&depth=0&limit=100&sort=-updatedAt${select}`,
     opts,
   );
   return data?.docs ?? [];
@@ -188,7 +212,9 @@ export async function translatedSlugs(
   const pairs = await Promise.all(
     routing.locales.map(async (locale) => {
       const data = await query<{ docs: { slug?: string; title?: string | null }[] }>(
-        `/api/${collection}?locale=${encodeURIComponent(locale)}&fallback-locale=none&depth=0&limit=200`,
+        // Slug and title only. This runs in every article's metadata, and without the
+        // selection it fetched four 2 MB responses per page view, none of them cacheable.
+        `/api/${collection}?locale=${encodeURIComponent(locale)}&fallback-locale=none&depth=0&limit=200${selectParams(["slug", "title"])}`,
         opts,
       );
       // A doc that comes back with no title in this locale exists but is untranslated.

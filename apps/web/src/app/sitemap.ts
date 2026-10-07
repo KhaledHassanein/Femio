@@ -1,7 +1,7 @@
 import type { MetadataRoute } from "next";
 import { routing } from "@/i18n/routing";
 import { siteConfig } from "@/lib/seo/config";
-import { listContent, listPeople, translatedSlugs } from "@/lib/cms/client";
+import { listContent, listPeople, translatedSlugs, LIST_FIELDS } from "@/lib/cms/client";
 import { isUnpublishedSection } from "@/lib/content/unpublished-sections";
 
 // Static routes + published CMS content (P1.11.1). Deliberate exclusions:
@@ -50,7 +50,11 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     const languages: Record<string, string> = {};
     for (const l of locales) languages[l] = `${siteConfig.baseUrl}/${l}${path}`;
     for (const locale of locales) {
-      entries.push({ url: `${siteConfig.baseUrl}/${locale}${path}`, lastModified, alternates: { languages } });
+      entries.push({
+        url: `${siteConfig.baseUrl}/${locale}${path}`,
+        lastModified,
+        alternates: { languages },
+      });
     }
   };
 
@@ -65,7 +69,10 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     // this silently emit static pages only — a 200 sitemap with every article missing,
     // cached for an hour and handed to Google, which reads absence as "these pages are
     // gone". A 5xx on /sitemap.xml is simply retried. Loud beats quietly wrong.
-    const docs = await listContent(collection, routing.defaultLocale, { throwOnFailure: true });
+    const docs = await listContent(collection, routing.defaultLocale, {
+      throwOnFailure: true,
+      fields: LIST_FIELDS,
+    });
     // One lookup for the whole collection, not one per document — see translatedSlugs.
     const byLocale = await translatedSlugs(collection, { throwOnFailure: true });
     for (const d of docs) {

@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { listContent } from "@/lib/cms/client";
+import { listContent, LIST_FIELDS } from "@/lib/cms/client";
 import { routing } from "@/i18n/routing";
 
 /**
@@ -43,7 +43,7 @@ export async function GET(request: Request) {
   if (slugs.length === 0) return NextResponse.json({ articles: [] });
 
   const published = new Map(
-    (await listContent("articles", locale)).map((doc) => [doc.slug, doc.title]),
+    (await listContent("articles", locale, { fields: LIST_FIELDS })).map((doc) => [doc.slug, doc.title]),
   );
 
   // The caller's order is the persona's order, so it is preserved rather than the
