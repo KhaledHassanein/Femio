@@ -24,7 +24,7 @@ work.** Marks: `[ ]` open · `[~]` in progress · `[x]` done (commit) · `[BLOCK
 
 ## Phase 2 — Public site
 
-- [ ] P2.1 · Content from the repo (D3): reconcile 100 published articles from the CMS export; loader; static pages
+- [x] P2.1 · **Content from the repo (D3 step 1)**: `scripts/content/snapshot-cms.mjs` → `apps/web/src/content/snapshot/` (100 articles, 5 conditions, 1 bio); `lib/cms/client.ts` reads it with unchanged signatures; 589 pages prerendered, sitemap 99 → 161 URLs; zero DB reads per page view (root cause of the 8.96/5 GB egress restriction). Payload stays the editor until full retirement (P2.8)
 - [ ] P2.2 · Build-time search index replacing the Payload-table search
 - [ ] P2.3 · Homepage rebuilt (aurora hero, real product UI, Arabic-first copy, proof as visuals)
 - [~] P2.4 · **Learn hub done** (OD-12): aurora hero with search (a no-JS GET form; /search now reads `?q=`) and 8 question chips, Start-here row, one row per stage in wedge order with procedural `TopicArt` covers, a tappable week 4–40 grid; 21,224px → 5,316px at 390 wide; `lib/content/topics.ts` + 5 tests (a new article with no topic fails CI). Article template refresh still open

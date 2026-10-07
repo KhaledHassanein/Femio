@@ -7,38 +7,46 @@ screenshot or the message into the chat. Nothing here can break the app if you s
 halfway.
 
 Already done for you this session (nothing to do): the security upgrade, the fix for
-the database overuse, the new design, the Learn hub, **the beta invite code**
+the database overuse (articles now ship inside the website build, so they never touch the database), the new design, the Learn hub, **the beta invite code**
 (`BLOOM-2026`, active from the next deploy), and **the pull request** (#22) with
 everything in it.
 
 ---
 
-## Step 1 · Get the app working again: upgrade Supabase to Pro (5 min, $25/month) 🔴 URGENT
+## Step 1 · Choose: stay free (recommended for now) or upgrade to Pro
 
-**What is wrong.** Since **6 October, 19:45 UTC**, Supabase has answered every request
-from the live app with "402 Payment Required". The free plan includes 5 GB of data
-transfer a month, and a bug in the CMS (now fixed in #22) burned through it by
-downloading the whole article library on every page view. So right now **nobody can
-sign up, sign in or log anything** on femioapp.com. The articles still show, because
-the CMS talks to the database another way. These are the usage-alert emails you were
-getting.
+**What happened.** The free plan includes 5 GB of data transfer ("egress") a month. Your
+dashboard shows **8.96 GB used with 0 monthly active users**: no people caused it. A bug
+made the website download the whole article library from the database on every page view,
+and search-engine bots view a lot of pages. On **6 October, 19:45 UTC** Supabase
+restricted the project, and it now answers the app with "402". Articles still show, but
+**nobody can sign up or sign in until the restriction lifts**.
 
-**The fix is a plan upgrade.** The free plan only lifts the block when the next billing
-month starts, which could be weeks away. Pro was already planned for launch (backups,
-no pausing), so this only brings it forward.
+**Used egress cannot be "freed" or refunded.** Supabase counts it until the billing month
+ends. Pausing or deleting things does not undo it (Supabase's own billing FAQ says so).
+There are two ways out:
 
-1. Go to **https://supabase.com/dashboard** and sign in.
-2. Top-left, click your **organization name** (the one that contains the "Femio" project).
-3. In the left menu click **Billing** (in some layouts it sits under **Organization settings**).
-4. Click **Change subscription plan**, then choose **Pro**, then confirm with your card.
-5. On the same page, make sure **Spend cap** is **ON**. That is the default. It means you can
-   never be charged more than the $25 plan price by surprise.
-6. Wait about 5 minutes, then open **https://femioapp.com/en/welcome**, choose any option
-   and press Continue through to the end. **It worked if you land in the app.** If you are
-   still sent back to the welcome screen after 15 minutes, tell Claude: it can read the logs.
+| | Stay free (recommended now) | Upgrade to Pro |
+|---|---|---|
+| Cost | $0 | $25/month |
+| When sign-in works again | Automatically, shortly after your billing month resets | About 5 minutes after upgrading |
+| Fits you if | No real users yet, which is true today (0 MAU) | You want testers in this week |
 
-> Prefer not to pay yet? The block lifts on its own when your next Supabase billing month
-> starts (the date is on the **Usage** page). Until then the app cannot sign anyone in.
+**To stay free:** do nothing in Supabase. To see the reset date, go to
+**https://supabase.com/dashboard** → click **"KM Org"** (top-left) → **Billing** →
+**"Upcoming invoice"**. The restriction lifts shortly after that date.
+
+**Why it will not happen again: this is fixed in #22.** The website now carries its
+articles inside its own build, so a page view, a bot crawl or a sitemap read **touches the
+database not at all**. After the merge the only Supabase traffic left is people's own
+logins and logs: a few MB a month at this stage, far under 5 GB.
+
+> ⚠️ Supabase gives **no second grace period**. If the quota is exceeded again, the project is
+> restricted at once. That is why Step 3 (the merge) matters even if you stay free: it is
+> what stops the leak.
+
+**To upgrade instead:** Billing → **Change subscription plan** → **Pro** → confirm. Keep
+**Spend cap ON** (the default) so you can never be charged above $25 by surprise.
 
 ---
 
@@ -66,12 +74,13 @@ a copy of your database's structure before being given to you.
 
 ## Step 3 · Merge the pull request so the new version goes live (3 min)
 
-Do this **after Step 2**. The upgraded CMS needs the column Step 2 adds.
+Do this **after Step 2**. The upgraded CMS needs the column Step 2 adds. **Do it even if you stay on the free plan: this merge is what stops the leak.**
 
 1. Open **https://github.com/KhaledHassanein/Femio/pull/22**.
-2. Scroll to the bottom. You will see the checks. **If "CI" shows a red ✗**: that was caused
-   by the Supabase block from Step 1. After Step 1, click **Details** next to the red CI
-   check → **Re-run all jobs** (top-right), and wait about 12 minutes for it to turn green ✓.
+2. Scroll to the bottom to see the checks. **"CI" will show a red ✗ while Supabase is
+   restricted.** The tests that sign in to the real database cannot pass during the
+   restriction. Every other test passes: the code was checked separately. **Merge anyway**:
+   the merge is the fix. Once the restriction lifts, CI goes green on its own next run.
 3. Click **Merge pull request** → **Confirm merge**.
 4. Vercel publishes automatically in about 3–5 minutes. **It worked if**
    **https://femioapp.com/en** shows the new deep-plum design, and
@@ -83,10 +92,10 @@ Do this **after Step 2**. The upgraded CMS needs the column Step 2 adds.
 
 ---
 
-## Step 4 · Turn on leaked-password protection (1 min)
+## Step 4 · Turn on leaked-password protection (1 min, only on Pro)
 
-Supabase checks new passwords against known breached passwords. It is a Pro feature, so
-do it after Step 1.
+Supabase checks new passwords against known breached passwords. It is a Pro-plan
+feature, so skip this step while you stay free and do it when you upgrade at launch.
 
 1. Supabase → **Femio** project → left sidebar **Authentication**.
 2. Open **Attack Protection**. In some layouts it is under **Sign In / Providers → Email**,

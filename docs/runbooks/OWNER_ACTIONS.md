@@ -10,10 +10,11 @@ disagree with a default, say so and the work changes course.
 
 Last updated: 2026-10-07.
 
-> **🔴 URGENT (2026-10-07): the live app's sign-in and tracking are down.** Supabase has
+> **🔴 (2026-10-07): the live app's sign-in and tracking are down.** Supabase has
 > answered every API request with *402 Payment Required* since 2026-10-06 19:45 UTC: the
-> free plan's 5 GB monthly egress was exhausted by the CMS bug fixed in #22. Upgrading
-> Supabase to Pro lifts it. **Start with [`OWNER_GUIDE_A_TO_Z.md`](OWNER_GUIDE_A_TO_Z.md)**:
+> free plan's 5 GB monthly egress was exhausted (8.96 GB, 0 users) by the CMS reads that #22
+> removes: articles now ship inside the web build. Stay free and wait for the cycle reset,
+> or upgrade to Pro; either way, merge #22 to stop the leak. **Start with [`OWNER_GUIDE_A_TO_Z.md`](OWNER_GUIDE_A_TO_Z.md)**:
 > every step below, in order, click by click, written for a non-developer.
 
 ---
@@ -91,6 +92,13 @@ Do these in order; each says where.
 | E4 | Remove `NEXT_PUBLIC_BETA_INVITE_CODE` (opens signup) on launch day | — |
 
 ---
+
+## Publishing an article (new process, 2026-10-07)
+
+Approve and publish in the CMS exactly as before. The website no longer reads the CMS live,
+so a new or edited article appears after the next session runs
+`node scripts/content/snapshot-cms.mjs` and commits it (Vercel redeploys). Just say
+**"publish the new articles"** in the chat.
 
 ## Done (kept for reference: nothing to do)
 

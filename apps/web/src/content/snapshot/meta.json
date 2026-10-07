@@ -1,0 +1,36 @@
+{
+  "takenAt": "2026-10-07T19:56:12.171Z",
+  "source": "https://femio-cms.vercel.app",
+  "summary": {
+    "articles": {
+      "en": 100,
+      "ar": 0,
+      "fr": 0,
+      "es": 0
+    },
+    "conditions": {
+      "en": 5,
+      "ar": 0,
+      "fr": 0,
+      "es": 0
+    },
+    "faqs": {
+      "en": 0,
+      "ar": 0,
+      "fr": 0,
+      "es": 0
+    },
+    "glossary": {
+      "en": 0,
+      "ar": 0,
+      "fr": 0,
+      "es": 0
+    },
+    "people": {
+      "en": 1,
+      "ar": 0,
+      "fr": 0,
+      "es": 0
+    }
+  }
+}

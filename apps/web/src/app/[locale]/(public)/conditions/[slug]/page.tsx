@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { getTranslations, setRequestLocale } from "next-intl/server";
-import { availableLocales, getContentBySlug } from "@/lib/cms/client";
+import { availableLocales, getContentBySlug, allSlugs } from "@/lib/cms/client";
 import { metaDescription } from "@/lib/cms/format";
 import { ContentArticle } from "@/components/cms/content-article";
 import { localizedAlternates } from "@/lib/seo/metadata";
@@ -18,8 +18,10 @@ type PageProps = { params: Promise<{ locale: string; slug: string }> };
 // unknown slug is a 404 in en and ar. Publishing shows up within the hour.
 export const revalidate = 3600;
 export const dynamicParams = true;
+// Every published slug is prerendered at build: content lives in the repo snapshot,
+// so building it costs no request to anything (D3 step 1).
 export function generateStaticParams() {
-  return [];
+  return allSlugs("conditions").map((slug) => ({ slug }));
 }
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {

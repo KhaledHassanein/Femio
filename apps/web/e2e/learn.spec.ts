@@ -1,12 +1,15 @@
 import { expect, test } from "@playwright/test";
 
-// Content hub (P1.6.2). DB-free: with no CMS URL configured the client returns
-// nothing, so the page renders its graceful empty state (no network needed).
-test("learn hub renders (empty state when no CMS content)", async ({ page }) => {
+// Learn hub (P1.6.2, v3 P2.4). Content is built in from the repo snapshot (D3), so
+// this needs no network and checks the real library, not an empty state.
+test("learn hub renders the library in rows, with search and question chips", async ({ page }) => {
   await page.goto("/en/learn");
   await expect(page.getByRole("heading", { name: /^learn$/i })).toBeVisible();
-  // Either published articles or the graceful empty message.
-  await expect(page.getByText(/new guides are on the way|medically-reviewed guides/i).first()).toBeVisible();
+  await expect(page.getByRole("search")).toBeVisible();
+  await expect(page.getByRole("heading", { level: 2, name: /^trying to conceive$/i })).toBeVisible();
+  // A question chip leads to its guide.
+  await page.getByRole("link", { name: /when am i most fertile/i }).click();
+  await expect(page).toHaveURL(/\/en\/learn\/fertile-window-explained$/);
 });
 
 test("home surfaces the library and links to the learn hub", async ({ page }) => {

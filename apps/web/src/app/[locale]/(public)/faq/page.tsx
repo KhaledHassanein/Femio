@@ -9,7 +9,7 @@ import { PageView } from "@/components/analytics/page-view";
 
 type PageProps = { params: Promise<{ locale: string }> };
 
-export const revalidate = 300;
+export const revalidate = 3600; // content changes only with a deploy now (repo snapshot, D3)
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { locale } = await params;

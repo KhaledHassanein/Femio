@@ -34,7 +34,12 @@ const fetchApproved = (locale: string) =>
       }
     },
     ["ui-strings", locale],
-    { revalidate: 60, tags: [UI_STRINGS_TAG] },
+    // An hour, not a minute. Approving a string in the portal busts this cache at
+    // once (UI_STRINGS_TAG), so the timer is only a backstop. At 60s it set the
+    // revalidate of every page that reads messages: each visited page was rebuilt
+    // every minute (a function invocation plus a Supabase request each time), which
+    // is what the build table showed as "1m" for the static article pages.
+    { revalidate: 3600, tags: [UI_STRINGS_TAG] },
   )();
 
 /**

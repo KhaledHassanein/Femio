@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { getTranslations, setRequestLocale } from "next-intl/server";
-import { getPersonBySlug, type PersonDoc } from "@/lib/cms/client";
+import { getPersonBySlug, listPeople, type PersonDoc } from "@/lib/cms/client";
 import { lexicalToPlainText, RichText } from "@/lib/cms/lexical";
 import { Link } from "@/i18n/navigation";
 import { JsonLd } from "@/components/seo/json-ld";
@@ -23,13 +23,17 @@ type PageProps = { params: Promise<{ locale: string; slug: string }> };
 // unknown slug is a 404 in en and ar. Publishing shows up within the hour.
 export const revalidate = 3600;
 export const dynamicParams = true;
-export function generateStaticParams() {
-  return [];
+// Prerendered at build from the repo snapshot (D3 step 1).
+export async function generateStaticParams() {
+  return (await listPeople("en")).map((p) => ({ slug: p.slug }));
 }
 
 function summarize(person: PersonDoc): string {
   return (
-    person.jobTitle || lexicalToPlainText(person.bio ?? null) || person.affiliation || person.name
+    person.jobTitle ||
+    lexicalToPlainText(person.bio ?? null) ||
+    person.affiliation ||
+    person.name
   ).slice(0, 160);
 }
 
@@ -113,7 +117,12 @@ export default async function AuthorPage({ params }: PageProps) {
           <ul className="flex flex-col gap-1 text-sm text-text-muted">
             {links.map((l, i) => (
               <li key={i}>
-                <a href={l.url} rel="noreferrer" target="_blank" className="text-text-link underline">
+                <a
+                  href={l.url}
+                  rel="noreferrer"
+                  target="_blank"
+                  className="text-text-link underline"
+                >
                   {l.label || l.url}
                 </a>
               </li>
