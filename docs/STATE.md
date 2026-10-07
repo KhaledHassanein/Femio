@@ -17,6 +17,12 @@ Search it by feature name when you need the history of a decision. It is not req
 
 ## Where things stand (2026-10-07)
 
+- **🔴 Production API restricted.** Supabase returns 402 on every REST/auth request
+  since 2026-10-06 19:45 UTC (free-plan egress exhausted by the CMS 2 MB queries). The
+  owner must upgrade to Pro (`OWNER_GUIDE_A_TO_Z.md` step 1). Every `@live` e2e fails
+  until then, through no code defect: they stop on /welcome because sign-in gets 402.
+- **PR #22** carries Phases 0–2 so far. Merge order: owner SQL (step 2), then merge.
+
 - **Agency takeover, Phase 0.** Audit `docs/30_REVAMP/01`, market research `02`, plan `03`.
   Wedge: Arabic-first TTC → pregnancy with PCOS depth, Saudi + Egypt; web first, then Play via
   TWA, then Flutter. The owner confirms decisions D1–D6 in `OWNER_ACTIONS.md` §0. Work

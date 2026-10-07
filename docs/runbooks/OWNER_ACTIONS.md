@@ -10,6 +10,12 @@ disagree with a default, say so and the work changes course.
 
 Last updated: 2026-10-07.
 
+> **🔴 URGENT (2026-10-07): the live app's sign-in and tracking are down.** Supabase has
+> answered every API request with *402 Payment Required* since 2026-10-06 19:45 UTC: the
+> free plan's 5 GB monthly egress was exhausted by the CMS bug fixed in #22. Upgrading
+> Supabase to Pro lifts it. **Start with [`OWNER_GUIDE_A_TO_Z.md`](OWNER_GUIDE_A_TO_Z.md)**:
+> every step below, in order, click by click, written for a non-developer.
+
 ---
 
 ## 0 · Decisions: ✅ all six accepted as defaults (owner, 2026-10-07)
@@ -37,7 +43,7 @@ enforced from **31 October 2026**, and Saudi SDAIA issued 48 violation decisions
 | A1 | **Engage one privacy lawyer** (MENA + EU) with three questions: (1) does Egypt PDPL licensing apply to Femio as a foreign controller of Egyptian residents' health data; (2) do Saudi PDPL transfer rules allow EU (Frankfurt) hosting; (3) final privacy policy + terms from our drafts (`/privacy`, `/terms`) | 1 h to brief | launch |
 | A2 | **Name a DPO** (can be external) and sign the DPIA §5 (`docs/compliance/`) | 30 min | launch |
 | A3 | **Crisis-safety sign-off.** Read the crisis copy in AR/FR/ES (`apps/web/src/lib/crisis/crisis.json`) and confirm the ThroughLine (findahelpline.com) linking terms | 20 min | launch |
-| A4 | **Set `NEXT_PUBLIC_BETA_INVITE_CODE` in Vercel** (web project → Settings → Environment Variables → Production) to any code you choose, then redeploy. **Signup is open to anyone today** while privacy/terms are drafts. | 3 min | closes a live exposure |
+| A4 | ✅ **Done by Claude 2026-10-07: `BLOOM-2026`, Production, active from the next deploy.** ~~Set `NEXT_PUBLIC_BETA_INVITE_CODE` in Vercel~~ (web project → Settings → Environment Variables → Production) to any code you choose, then redeploy. **Signup is open to anyone today** while privacy/terms are drafts. | 3 min | closes a live exposure |
 
 ## B · People (start now; the long-lead item)
 
@@ -57,7 +63,7 @@ Do these in order; each says where.
 | C3 | ✅ **Done 2026-10-07.** ~~Connect the Supabase and Vercel connectors~~ in claude.ai → Settings → Connectors. With them, a session can read usage, the security and performance advisors, logs and deployments directly instead of guessing what the alert emails say. | claude.ai | 5 min |
 | C4 | **Forward one of each alert email** you keep getting (Vercel, Supabase, Sentry, GitHub…) or paste the subject lines into the chat. This session can read a message but not search the inbox. | Gmail | 3 min |
 | C5 | **Create a free staging Supabase project** (EU), apply migrations to it (`npx supabase@latest link --project-ref <staging>` then `db push`), and set GitHub secrets `E2E_SUPABASE_URL` / `E2E_SUPABASE_PUBLISHABLE_KEY` to **staging**. CI currently signs anonymous users into **production** on every run. | Supabase + GitHub → Settings → Secrets | 15 min |
-| C6 | **Apply migrations `0024` + `0025`** with `npx supabase@latest db push` from the repo root. **0024** drops three never-used content tables (verified empty 2026-10-07; it refuses to run otherwise). **0025** acts on the Supabase security/performance advisors: it stops visitors with no session calling six account/staff functions over the API (including `handle_new_user`, a trigger that was callable as an RPC), pins six function search paths, drops a duplicate index and adds four missing foreign-key indexes. The session's attempt to apply them was blocked by the permission system, correctly: production schema changes are yours to run. | terminal, repo root | 2 min |
+| C6 | **Apply migrations `0024` + `0025` + the Payload 3.90 column**: paste `docs/runbooks/sql/2026-10-07_apply_all.sql` into the Supabase SQL editor (guide step 2; no terminal needed). Do it **before merging #22**. **0024** drops three never-used content tables (verified empty 2026-10-07; it refuses to run otherwise). **0025** acts on the Supabase security/performance advisors: it stops visitors with no session calling six account/staff functions over the API (including `handle_new_user`, a trigger that was callable as an RPC), pins six function search paths, drops a duplicate index and adds four missing foreign-key indexes. The session's attempt to apply them was blocked by the permission system, correctly: production schema changes are yours to run. | terminal, repo root | 2 min |
 | C6b | **Supabase → Authentication → Settings: turn on "Leaked password protection"** (an advisor finding; a dashboard toggle, not SQL) | Supabase | 1 min |
 | C6c | **Purge 442 stale test accounts?** The production project holds 443 accounts, **442 of them anonymous**, all idle 30+ days and none newer than 2026-08-29: CI runs and onboarding tests. 214 hold no data; 228 hold test data. Say *"purge test accounts"* and the next session deletes the 214 empty ones (and, if you say *"all"*, the rest). Nothing is deleted until you say so. | chat | 1 min |
 | C6d | **Re-authorise the Vercel connector for the `khaledhassaneins-projects` scope.** It can list projects and deployments but gets 403 on project settings, logs and usage. | claude.ai → Connectors → Vercel | 2 min |
