@@ -27,7 +27,7 @@ work.** Marks: `[ ]` open · `[~]` in progress · `[x]` done (commit) · `[BLOCK
 - [ ] P2.1 · Content from the repo (D3): reconcile 100 published articles from the CMS export; loader; static pages
 - [ ] P2.2 · Build-time search index replacing the Payload-table search
 - [ ] P2.3 · Homepage rebuilt (aurora hero, real product UI, Arabic-first copy, proof as visuals)
-- [ ] P2.4 · Learn hub per OD-12 + article template
+- [~] P2.4 · **Learn hub done** (OD-12): aurora hero with search (a no-JS GET form; /search now reads `?q=`) and 8 question chips, Start-here row, one row per stage in wedge order with procedural `TopicArt` covers, a tappable week 4–40 grid; 21,224px → 5,316px at 390 wide; `lib/content/topics.ts` + 5 tests (a new article with no topic fails CI). Article template refresh still open
 - [ ] P2.5 · Illustration set (brief → generate → owner D-2)
 - [ ] P2.6 · Calculators with visual results + OG images
 - [ ] P2.7 · Checkpoint: Lighthouse ≥ 95 mobile, LCP < 2.0 s

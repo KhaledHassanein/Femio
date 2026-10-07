@@ -753,6 +753,37 @@
     "tooShort": "Use at least {min} characters.",
     "mismatch": "Those passwords don’t match."
   },
+  "learnHub": {
+    "searchLabel": "Search the library",
+    "searchPlaceholder": "Search guides, conditions and tools",
+    "questionsTitle": "Common questions",
+    "startHere": "Start here",
+    "weeksHint": "Choose your week of pregnancy.",
+    "week": "Week {n}",
+    "guides": "{count, plural, one {# guide} other {# guides}}",
+    "questions": {
+      "fertile": "When am I most fertile?",
+      "test": "When should I take a pregnancy test?",
+      "normal": "Is my period normal?",
+      "pcos": "What are the signs of PCOS?",
+      "urgent": "Which pregnancy signs need urgent care?",
+      "bleeding": "How much bleeding after birth is normal?",
+      "specialist": "When should we see a fertility specialist?",
+      "perimenopause": "What is perimenopause?"
+    },
+    "topics": {
+      "ttc": "Trying to conceive",
+      "weeks": "Pregnancy, week by week",
+      "pregnancy": "Pregnancy",
+      "afterBirth": "After birth",
+      "newborn": "Your newborn",
+      "cycles": "Periods and cycles",
+      "conditions": "Conditions",
+      "teens": "For teens",
+      "menopause": "Perimenopause and menopause",
+      "more": "More guides"
+    }
+  },
   "learn": {
     "englishOnly": "This guide is not translated yet, so it is shown in English.",
     "boundaryNote": "Health information for learning and planning — not medical advice, and not a substitute for your own clinician.",
