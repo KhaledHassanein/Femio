@@ -14,7 +14,15 @@ case "$VERCEL_GIT_COMMIT_REF" in
   dependabot/*) echo "skip: dependabot branch"; exit 0 ;;
 esac
 
-BASE="${VERCEL_GIT_PREVIOUS_SHA:-HEAD^}"
+# No previous deployment for this branch (a new branch, a first push) means there is
+# nothing to compare against. Do NOT fall back to HEAD^: a first push can carry many
+# commits, and comparing only the last one skipped the CMS upgrade (Payload 3.90 /
+# Next 16) on this branch's first push, so it was never built before review.
+if [ -z "$VERCEL_GIT_PREVIOUS_SHA" ]; then
+  echo "build: no previous deployment to compare against"
+  exit 1
+fi
+BASE="$VERCEL_GIT_PREVIOUS_SHA"
 git cat-file -e "$BASE^{commit}" 2>/dev/null || { echo "build: base $BASE not in clone"; exit 1; }
 
 if git diff --quiet "$BASE" HEAD -- "$@"; then
