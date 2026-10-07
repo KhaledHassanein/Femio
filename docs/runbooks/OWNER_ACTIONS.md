@@ -10,12 +10,12 @@ disagree with a default, say so and the work changes course.
 
 Last updated: 2026-10-07.
 
-> **🔴 (2026-10-07): the live app's sign-in and tracking are down.** Supabase has
+> **🔴 (2026-10-07): the live app's sign-in and tracking are down until the billing month resets.** Supabase has
 > answered every API request with *402 Payment Required* since 2026-10-06 19:45 UTC: the
-> free plan's 5 GB monthly egress was exhausted (8.96 GB, 0 users) by the CMS reads that #22
-> removes: articles now ship inside the web build. Stay free and wait for the cycle reset,
-> or upgrade to Pro; either way, merge #22 to stop the leak. **Start with [`OWNER_GUIDE_A_TO_Z.md`](OWNER_GUIDE_A_TO_Z.md)**:
-> every step below, in order, click by click, written for a non-developer.
+> free plan's 5 GB monthly egress was exhausted (8.96 GB, 0 users) by CMS reads. **The leak is
+> fixed and live** (#22 merged 2026-10-07; articles ship inside the web build). Staying free, the
+> restriction lifts on its own after the reset; nothing to do. **[`OWNER_GUIDE_A_TO_Z.md`](OWNER_GUIDE_A_TO_Z.md)**
+> has every remaining step, click by click, written for a non-developer.
 
 ---
 
@@ -59,12 +59,12 @@ Do these in order; each says where.
 
 | # | Action | Where | Time |
 |---|---|---|---|
-| C1 | **Merge this session's branch into `main`.** Vercel deploys from `main`, so the security fix reaches production only after the merge. Open the PR for `claude/epic-planck-5y8geb` and merge once CI is green (or tell the next session it may push to `main` directly, as earlier sessions did). | GitHub | 2 min |
+| C1 | ✅ **Done 2026-10-07 (#22 merged).** ~~Merge this session's branch into `main`.~~ Vercel deploys from `main`, so the security fix reaches production only after the merge. Open the PR for `claude/epic-planck-5y8geb` and merge once CI is green (or tell the next session it may push to `main` directly, as earlier sessions did). | GitHub | 2 min |
 | C2 | **After C1, smoke-test the CMS** at `femio-cms.vercel.app/admin`: log in, open one article. It moved to Payload 3.90 / Next 16. If the admin errors, tell the session. (Moot once D3 retires it.) | browser | 2 min |
 | C3 | ✅ **Done 2026-10-07.** ~~Connect the Supabase and Vercel connectors~~ in claude.ai → Settings → Connectors. With them, a session can read usage, the security and performance advisors, logs and deployments directly instead of guessing what the alert emails say. | claude.ai | 5 min |
 | C4 | **Forward one of each alert email** you keep getting (Vercel, Supabase, Sentry, GitHub…) or paste the subject lines into the chat. This session can read a message but not search the inbox. | Gmail | 3 min |
 | C5 | **Create a free staging Supabase project** (EU), apply migrations to it (`npx supabase@latest link --project-ref <staging>` then `db push`), and set GitHub secrets `E2E_SUPABASE_URL` / `E2E_SUPABASE_PUBLISHABLE_KEY` to **staging**. CI currently signs anonymous users into **production** on every run. | Supabase + GitHub → Settings → Secrets | 15 min |
-| C6 | **Apply migrations `0024` + `0025` + the Payload 3.90 column**: paste `docs/runbooks/sql/2026-10-07_apply_all.sql` into the Supabase SQL editor (guide step 2; no terminal needed). Do it **before merging #22**. **0024** drops three never-used content tables (verified empty 2026-10-07; it refuses to run otherwise). **0025** acts on the Supabase security/performance advisors: it stops visitors with no session calling six account/staff functions over the API (including `handle_new_user`, a trigger that was callable as an RPC), pins six function search paths, drops a duplicate index and adds four missing foreign-key indexes. The session's attempt to apply them was blocked by the permission system, correctly: production schema changes are yours to run. | terminal, repo root | 2 min |
+| C6 | ✅ **Done 2026-10-07, verified in the database.** ~~Apply migrations `0024` + `0025` + the Payload 3.90 column~~: paste `docs/runbooks/sql/2026-10-07_apply_all.sql` into the Supabase SQL editor (guide step 2; no terminal needed). Do it **before merging #22**. **0024** drops three never-used content tables (verified empty 2026-10-07; it refuses to run otherwise). **0025** acts on the Supabase security/performance advisors: it stops visitors with no session calling six account/staff functions over the API (including `handle_new_user`, a trigger that was callable as an RPC), pins six function search paths, drops a duplicate index and adds four missing foreign-key indexes. The session's attempt to apply them was blocked by the permission system, correctly: production schema changes are yours to run. | terminal, repo root | 2 min |
 | C6b | **Supabase → Authentication → Settings: turn on "Leaked password protection"** (an advisor finding; a dashboard toggle, not SQL) | Supabase | 1 min |
 | C6c | **Purge 442 stale test accounts?** The production project holds 443 accounts, **442 of them anonymous**, all idle 30+ days and none newer than 2026-08-29: CI runs and onboarding tests. 214 hold no data; 228 hold test data. Say *"purge test accounts"* and the next session deletes the 214 empty ones (and, if you say *"all"*, the rest). Nothing is deleted until you say so. | chat | 1 min |
 | C6d | **Re-authorise the Vercel connector for the `khaledhassaneins-projects` scope.** It can list projects and deployments but gets 403 on project settings, logs and usage. | claude.ai → Connectors → Vercel | 2 min |

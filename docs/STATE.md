@@ -17,27 +17,27 @@ Search it by feature name when you need the history of a decision. It is not req
 
 ## Where things stand (2026-10-07)
 
-- **🔴 Production API restricted.** Supabase returns 402 on every REST/auth request
-  since 2026-10-06 19:45 UTC (free-plan egress exhausted by the CMS 2 MB queries). The
-  owner must upgrade to Pro (`OWNER_GUIDE_A_TO_Z.md` step 1). Every `@live` e2e fails
-  until then, through no code defect: they stop on /welcome because sign-in gets 402.
-- **PR #22** carries Phases 0–2 so far. Merge order: owner SQL (step 2), then merge.
+- **🔴 Production API restricted until the billing month resets.** Supabase returns 402
+  on every REST/auth request since 2026-10-06 19:45 UTC (free-plan egress exhausted by the
+  CMS's 2 MB queries; fixed by the content snapshot). The owner chose to stay free and wait
+  for the reset rather than upgrade. Sign-in is down until then, and every `@live` e2e
+  fails through no code defect: they stop on /welcome because sign-in gets 402.
+- **PR #22 merged 2026-10-07 20:14 UTC** (Phases 0–2 so far). The owner ran the SQL file
+  first; 0024, 0025 and the Payload 3.90 column are applied and recorded (verified).
 
 - **Agency takeover, Phase 0.** Audit `docs/30_REVAMP/01`, market research `02`, plan `03`.
   Wedge: Arabic-first TTC → pregnancy with PCOS depth, Saudi + Egypt; web first, then Play via
   TWA, then Flutter. The owner confirms decisions D1–D6 in `OWNER_ACTIONS.md` §0. Work
   proceeds on the stated defaults meanwhile.
 - **Live:** `femioapp.com` (web) and `femio-cms.vercel.app` (Payload) on Vercel, Supabase EU.
-  **100 articles** + 5 condition hubs published, all clinician-bylined. Migrations 0001–0022
-  applied. 0023 is unverified and 0024 (guarded drop of unused content tables) is new; both
-  apply with `db push`.
+  **100 articles** + 5 condition hubs published, all clinician-bylined. Migrations 0001–0025
+  applied (verified in `schema_migrations` 2026-10-07).
 - **Health:** `pnpm gate` green, 942 unit tests, `pnpm audit --audit-level high` clean as of
   `7abbb2e`. CMS on Payload 3.90.2 / Next 16.3.8; web on Next 15.5.27.
-- **Branch:** this session works on `claude/epic-planck-5y8geb`. Vercel deploys from `main`,
-  so nothing here is live until the owner merges (OWNER_ACTIONS C1).
+- **Branch:** sessions work on `claude/epic-planck-5y8geb`, restarted from `main` after each
+  merge. Vercel deploys from `main`, so a branch is live only once the owner merges its PR.
 - **Design:** Phase 1 (Dusk Bloom) is done on the branch: palette, type, aurora, header/footer, compact crisis launcher, app tabs Today·Calendar·Log·Learn·Tools, softer primitives, motion moments. Next is Phase 2 (`PROGRESS.md`). App screens wait on a staging Supabase for photos (C5).
-- **Infra (measured via connectors, 2026-10-07):** the error emails were Supabase pool exhaustion (`EMAXCONNSESSION`) caused by the CMS on uncached renders. Fixed in code (`544bac0`, ISR in `c125435`) and live after merge. Migrations 0024/0025 written and not applied: a production schema change is the owner's to run (C6).
-  flags that default **off**. Phase 3 turns them on and deletes v1 behind each.
+- **Infra (measured via connectors, 2026-10-07):** the error emails were Supabase pool exhaustion (`EMAXCONNSESSION`) caused by the CMS on uncached renders. Fixed in code (`544bac0`, ISR in `c125435`, content snapshot in `3c58733`), live since the #22 merge. Production schema changes are the owner's to run (C6 shows the SQL-file route).
 
 ## The working loop
 

@@ -50,7 +50,7 @@ logins and logs: a few MB a month at this stage, far under 5 GB.
 
 ---
 
-## Step 2 · Run one SQL file in Supabase (3 min)
+## Step 2 · Run one SQL file in Supabase: ✅ done 2026-10-07 (verified)
 
 This applies three database changes: it removes three empty, unused tables, applies the
 security fixes Supabase's own checker asked for, and adds one column the upgraded CMS
@@ -72,7 +72,7 @@ a copy of your database's structure before being given to you.
 
 ---
 
-## Step 3 · Merge the pull request so the new version goes live (3 min)
+## Step 3 · Merge the pull request: ✅ done 2026-10-07
 
 Do this **after Step 2**. The upgraded CMS needs the column Step 2 adds. **Do it even if you stay on the free plan: this merge is what stops the leak.**
 
