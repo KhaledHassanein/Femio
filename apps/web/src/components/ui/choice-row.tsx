@@ -126,7 +126,9 @@ export function ChoiceGroup<T extends string>({
               )}
             />
             <span className="flex min-w-0 flex-col gap-0.5">
-              <span className={cn("font-semibold", selected ? "text-primary-soft-text" : "text-text")}>
+              <span
+                className={cn("font-semibold", selected ? "text-primary-soft-text" : "text-text")}
+              >
                 {option.name}
               </span>
               <span className="text-sm text-text-muted">{option.desc}</span>

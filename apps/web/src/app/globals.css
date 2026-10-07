@@ -226,3 +226,26 @@ body:has(.app-bottom-bar):has(.crisis-launcher) {
   }
 }
 
+/* Hero glow (v3 P1.4) — the in-app hero card's light. A single soft radial highlight
+   at the top-end corner, so a daily card has depth without competing with the data
+   on it. Lighter than the aurora: the hero card is seen every day, the aurora is a
+   moment. White light only, so it suits every tone (plum, sage, rose); the
+   highlight sits in the top-end corner, away from the body text. */
+@layer components {
+  .hero-glow {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+  }
+  .hero-glow::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    background:
+      radial-gradient(60% 55% at 100% 0%, rgb(255 255 255 / 0.22), transparent 70%),
+      radial-gradient(50% 50% at 0% 100%, rgb(0 0 0 / 0.12), transparent 75%);
+  }
+}
+

@@ -1,6 +1,7 @@
 import type { ReactNode } from "react";
 import { SiteHeader } from "@/components/site/site-header";
 import { SiteFooter } from "@/components/site/site-footer";
+import { SignedInTabs } from "@/components/signed-in-tabs";
 
 // Shell for the public content site (home + library). A persistent header/footer
 // wrap every marketing/content page. The signed-in app ((app) group) and the
@@ -11,6 +12,7 @@ export default function PublicLayout({ children }: { children: ReactNode }) {
       <SiteHeader />
       {children}
       <SiteFooter />
+      <SignedInTabs />
     </div>
   );
 }

@@ -19,7 +19,7 @@ work.** Marks: `[ ]` open · `[~]` in progress · `[x]` done (commit) · `[BLOCK
 - [~] P1.3 · Aurora + grain shipped on the home hero (white text ≥ 6.9:1 measured on rendered pixels, EN + AR); reveal-on-scroll and breathing cycle band still open
 - [ ] P1.4 · Components restyled (button, card, chip, badge, alert, inputs)
 - [~] P1.5 · Header rebuilt (one row of actions + scrolling sections, sticky, frosted; visible "Need help now?" link to /help-now); launcher now a compact 44px lifebuoy keeping its approved accessible name (ADR-013 kept). Footer open
-- [ ] P1.6 · App shell: bottom tabs Today · Calendar · Log · Learn · You
+- [x] P1.6 · App shell: tabs Today · Calendar · Log · Learn · Tools; Settings → header gear; the tab bar follows a signed-in woman onto public Learn pages (session read locally, no network)
 - [ ] P1.7 · Checkpoint: gallery + 3 screens photographed (light, dark, AR) → owner D-1
 
 ## Phase 2 — Public site

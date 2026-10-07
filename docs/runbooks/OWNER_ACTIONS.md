@@ -12,9 +12,11 @@ Last updated: 2026-10-07.
 
 ---
 
-## 0 · Decisions (10 minutes: reply with a letter per line)
+## 0 · Decisions: ✅ all six accepted as defaults (owner, 2026-10-07)
 
-| # | Decision | Default the build proceeds on | Alternatives |
+Khaled replied *"Go with all your recommended defaults"*. D1–D6 below are therefore **decided**, not pending. Each one still names its alternatives, in case a later conversation reopens it.
+
+| # | Decision | Decided (2026-10-07) | Alternatives not taken |
 |---|---|---|---|
 | **D1** | **Launch wedge** | **TTC → pregnancy, with PCOS/irregular cycles as depth.** Every stage stays reachable; this sets emphasis and marketing. (`30.03` §2.1) | (b) whole-life launch, all stages equal · (c) cycle tracking first |
 | **D2** | **Route to the stores** | **Web PWA first → Google Play via TWA within days of the web revamp → Flutter (iOS + full Android) after launch signal** (`30.03` §2.3) | (b) Flutter now, no store presence until it is done (months) · (c) Capacitor wrapper for both stores |

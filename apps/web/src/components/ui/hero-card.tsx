@@ -50,7 +50,7 @@ export function HeroCard({
   return (
     <section
       className={cn(
-        "flex flex-col gap-3 rounded-lg p-6 text-text-on-brand shadow-md",
+        "hero-glow flex flex-col gap-3 rounded-lg p-6 text-text-on-brand shadow-md",
         TONE_CLASS[tone],
       )}
     >

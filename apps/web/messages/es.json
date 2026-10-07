@@ -1337,6 +1337,9 @@
     "signIn": "Iniciar sesión"
   },
   "footer": {
+    "explore": "Explorar",
+    "trust": "Confianza",
+    "legal": "Aviso legal",
     "tagline": "Una sola cuenta para toda tu vida de salud.",
     "rights": "© {year} Femio",
     "helpNow": "¿Necesitas ayuda ahora?"
@@ -1729,11 +1732,12 @@
     }
   },
   "appNav": {
+    "today": "Hoy",
+    "log": "Registrar",
+    "learn": "Aprender",
     "calendar": "Calendario",
     "tools": "Herramientas",
     "primary": "Secciones principales",
-    "home": "Inicio",
-    "track": "Seguimiento",
     "settings": "Ajustes",
     "signOut": "Cerrar sesión"
   },

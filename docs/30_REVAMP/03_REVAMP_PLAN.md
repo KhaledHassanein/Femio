@@ -201,7 +201,7 @@ manual items run in parallel from `OWNER_ACTIONS.md`.
 - Aurora + grain hero primitive; breathing cycle band; reveal-on-scroll utility
 - Components restyled: button, card, chip, badge, alert, inputs, header, footer, bottom tabs
 - Crisis entry relocated (header + menu + content), never floating over the product
-- App shell: bottom tab bar **Today · Calendar · Log · Learn · You**, with Calendar a tab
+- App shell: bottom tab bar **Today · Calendar · Log · Learn · Tools**, Settings as a gear in the top bar, Calendar a tab
   (OD-11)
 - **Checkpoint:** `/components` gallery and three key screens photographed in light, dark
   and AR

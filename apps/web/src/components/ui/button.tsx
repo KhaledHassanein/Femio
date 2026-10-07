@@ -14,14 +14,17 @@ import { cn } from "@/lib/utils";
 // the scale is `motion-safe:` as well as being caught by the global
 // reduced-motion rule in globals.css, because the intent should be readable here.
 const buttonVariants = cva(
-  "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-sm text-sm font-semibold transition-[background-color,border-color,color,transform] duration-fast ease-standard motion-safe:active:scale-[0.98] focus-visible:outline-none disabled:pointer-events-none disabled:opacity-50",
+  "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-pill text-sm font-semibold tracking-[0.005em] transition-[background-color,border-color,color,box-shadow,transform] duration-fast ease-standard motion-safe:active:scale-[0.98] focus-visible:outline-none disabled:pointer-events-none disabled:opacity-50",
   {
     variants: {
       variant: {
-        primary: "bg-primary-solid text-primary-fg-solid hover:bg-primary-hover active:bg-primary-active",
-        accent: "bg-accent-solid text-accent-fg-solid hover:bg-accent-hover active:bg-accent-hover",
+        // v3: pill-shaped, with a soft plum glow on the two actions that matter.
+        primary:
+          "bg-primary-solid text-primary-fg-solid shadow-sm hover:bg-primary-hover hover:shadow-primary-glow active:bg-primary-active",
+        accent:
+          "bg-accent-solid text-accent-fg-solid shadow-sm hover:bg-accent-hover hover:shadow-primary-glow active:bg-accent-hover",
         outline:
-          "border border-border bg-transparent text-text hover:bg-surface-sunken active:border-border-strong active:bg-surface-sunken",
+          "border border-border-strong bg-transparent text-text hover:bg-surface-sunken active:bg-surface-sunken",
         ghost: "bg-transparent text-text hover:bg-surface-sunken active:bg-surface-sunken",
       },
       size: {
@@ -36,8 +39,7 @@ const buttonVariants = cva(
 );
 
 export interface ButtonProps
-  extends React.ButtonHTMLAttributes<HTMLButtonElement>,
-    VariantProps<typeof buttonVariants> {
+  extends React.ButtonHTMLAttributes<HTMLButtonElement>, VariantProps<typeof buttonVariants> {
   asChild?: boolean;
 }
 
