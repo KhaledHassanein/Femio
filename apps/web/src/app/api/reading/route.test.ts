@@ -1,7 +1,7 @@
 import { describe, expect, it, vi, beforeEach } from "vitest";
 
 const listContent = vi.hoisted(() => vi.fn());
-vi.mock("@/lib/cms/client", () => ({ listContent }));
+vi.mock("@/lib/cms/client", () => ({ listContent, LIST_FIELDS: ["slug", "title"] }));
 
 import { GET } from "./route";
 
@@ -52,9 +52,9 @@ describe("the reading route", () => {
 
   it("falls back to the default locale rather than trusting the query", async () => {
     await get("?slugs=pregnancy-basics&locale=xx");
-    expect(listContent).toHaveBeenCalledWith("articles", "en");
+    expect(listContent).toHaveBeenCalledWith("articles", "en", expect.anything());
     await get("?slugs=pregnancy-basics&locale=ar");
-    expect(listContent).toHaveBeenLastCalledWith("articles", "ar");
+    expect(listContent).toHaveBeenLastCalledWith("articles", "ar", expect.anything());
   });
 
   /** A reading card is the least important thing on the screen; it fails quiet. */
