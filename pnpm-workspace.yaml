@@ -45,12 +45,20 @@ allowBuilds:
 #   undici    GHSA-4cwx-7wf7-3272   (via payload)
 #   fast-uri  GHSA-7p8r-x3mc-p8w7   (via ajv)
 overrides:
-  sharp: ">=0.35.3"
+  sharp: ">=0.35.5"
   postcss: ">=8.5.23 <9"
   dompurify: ">=3.4.13 <4"
   esbuild: ">=0.25.12"
-  undici: ">=7.29.0 <8"
-  fast-uri: ">=3.1.5 <4"
+  undici: ">=7.29.1 <8"
+  fast-uri: ">=3.1.7 <4"
+  # 2026-10-07 batch: all transitive (Next's postcss/sass, Serwist's build tooling),
+  # each bounded inside its major for the reason given under brace-expansion below.
+  #   nanoid GHSA-2v37-7h3g-55p8 ·
+  #   source-map-js GHSA-68fv-2mgg-jv7q · browserslist GHSA-c83g-rgw3-j3cx +
+  #   GHSA-73wf-gq98-2v4g
+  "nanoid@3": ">=3.3.18 <4"
+  source-map-js: ">=1.2.2 <2"
+  browserslist: ">=4.28.7 <5"
   # GHSA-rgw5-rvv9-x895 affects both major lines, so both are pinned — each
   # inside its own major, which matters more than it looks. An override target
   # is a range resolved against the whole registry, so a bare `>=1.1.18` has no
@@ -60,9 +68,9 @@ overrides:
   # bound the major here.
   # The 1.x pin also closes GHSA-mh99-v99m-4gvg, which is why the accepted
   # residual that used to sit below could be dropped rather than renewed.
-  "brace-expansion@5": ">=5.0.9 <6"
-  "brace-expansion@1": ">=1.1.18 <2"
-  "js-yaml@4": ">=4.3.1 <5"
+  "brace-expansion@5": ">=5.0.11 <6"
+  "brace-expansion@1": ">=1.1.20 <2"
+  "js-yaml@4": ">=4.3.2 <5"
 
 # Advisories we have consciously accepted, with the reason and a review date.
 # Anything NOT listed here fails `pnpm audit --audit-level high` in CI, so this
@@ -83,6 +91,11 @@ auditConfig:
     # Re-check for 2.0.3 by 2026-09-07 — this is a short date on purpose.
     - GHSA-w3rx-r6r6-pgpr
     - GHSA-5p2g-fcmc-qvqq
+    # braces (GHSA-vfj7-8cjw-p6xm): the advisory names >=3.0.4, which has not been
+    # published (3.0.3 is the newest, checked 2026-10-07). Reachable only through
+    # sass > chokidar — dev-server file watching over our own source tree, never
+    # user input and never at runtime in production. Re-check by 2026-11-07.
+    - GHSA-vfj7-8cjw-p6xm
     # Empty, and worth keeping that way. GHSA-mh99-v99m-4gvg (brace-expansion 1.x
     # unbounded expansion) was accepted on 2026-07-31 because no 1.x patch existed;
     # 1.1.18 shipped one, so it is now fixed by the override above rather than
