@@ -4,34 +4,8 @@
     "description": "Your whole health life, from first period to menopause, private on your phone."
   },
   "home": {
-    "signIn": "Sign in",
-    "heroTitle": "Your health has one story. Femio keeps all of it.",
-    "heroBody": "A period, cycle and pregnancy tracker that does not stop there — it carries on through conditions, trying to conceive, after birth and menopause, with referenced guides for every stage.",
-    "cta": "Start free — no email needed",
-    "ctaSecondary": "Read the guides first",
-    "antiClaim": "Femio is a wellness and education tool, not a medical device — and your health data is never sold. Both are things you can check, not things we ask you to believe.",
-    "shot": {
-      "eyebrow": "This is the app",
-      "heading": "Open it and it already knows where you are.",
-      "caption": "Your dashboard in cycle mode. Every stage gets its own — pregnancy counts weeks, menopause counts months and leaves the conclusion to you and your clinician.",
-      "app": {
-        "title": "Your dashboard",
-        "mode": "Cycle",
-        "eyebrow": "Cycle day 17",
-        "headline": "Next period 14–18 Sep",
-        "foot": "Fairly confident · based on your last 6 cycles",
-        "cta": "Log today",
-        "avgLabel": "Average cycle",
-        "avgValue": "29 days",
-        "tab": {
-          "home": "Home",
-          "track": "Track",
-          "settings": "Settings"
-        }
-      }
-    },
     "rail": {
-      "eyebrow": "One account",
+      "eyebrow": "Every stage",
       "heading": "Most apps cover one chapter. This one follows the whole book.",
       "sub": "When your life changes, Femio re-arranges around it — it never starts you over and it never deletes what came before.",
       "stages": {
@@ -83,19 +57,11 @@
     },
     "trust": {
       "eyebrow": "Why trust it",
-      "heading": "Six things you can verify.",
+      "heading": "Four things you can verify.",
       "items": {
         "sources": {
           "claim": "Every claim is cited, and dated",
           "detail": "— NICE, ACOG, WHO, ESHRE, linked, with the date the page was last reviewed."
-        },
-        "eu": {
-          "claim": "Your data lives in the EU",
-          "detail": "— and only you can read it."
-        },
-        "portable": {
-          "claim": "Export or delete it, in the app",
-          "detail": "— no email, no waiting."
         },
         "ads": {
           "claim": "No health data reaches an advertiser",
@@ -116,7 +82,7 @@
       "heading": "Start reading now."
     },
     "close": {
-      "heading": "One account. Your whole health life."
+      "heading": "Your whole health life, private on your phone."
     },
     "disclaimer": "Femio is for learning and tracking — not medical advice, and not a reliable way to avoid pregnancy. Always speak to your clinician about your care.",
     "sections": {
@@ -149,6 +115,56 @@
       "accent": "Accent",
       "fertile": "Fertile",
       "uncertainty": "Uncertainty"
+    },
+    "hero": {
+      "eyebrow": "Period · Ovulation · Pregnancy",
+      "title": "Know your cycle. Plan your family. Privately.",
+      "body": "Femio is a period, ovulation and pregnancy tracker made for women in Saudi Arabia and Egypt, with clinician-reviewed guides for every stage of life, in Arabic and English.",
+      "cta": "Get the app",
+      "ctaSecondary": "Try the period calculator"
+    },
+    "goals": {
+      "heading": "What brings you here?",
+      "period": {
+        "title": "Track my period",
+        "body": "Know when your next period is coming."
+      },
+      "ttc": {
+        "title": "Get pregnant",
+        "body": "Find your most fertile days."
+      },
+      "pregnant": {
+        "title": "I'm pregnant",
+        "body": "Your due date and your week."
+      },
+      "menopause": {
+        "title": "Menopause",
+        "body": "Understand the changes, month by month."
+      }
+    },
+    "tools": {
+      "heading": "Free calculators",
+      "sub": "No account, nothing saved.",
+      "more": "All calculators"
+    },
+    "privacy": {
+      "eyebrow": "Private by design",
+      "heading": "Your records stay on your phone.",
+      "body": "The Femio app keeps what you log on your device. We never see it, so there is nothing for anyone to sell, share or lose.",
+      "points": {
+        "account": {
+          "title": "No account needed",
+          "body": "Open the app and start. No email, no password."
+        },
+        "never": {
+          "title": "Femio never sees your entries",
+          "body": "Your periods, symptoms and pregnancy stay on your phone."
+        },
+        "backup": {
+          "title": "Back up when you choose",
+          "body": "Save a backup file wherever you like, and restore it on a new phone."
+        }
+      }
     }
   },
   "theme": {

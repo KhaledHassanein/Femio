@@ -2,7 +2,13 @@
 All notable changes to Femio V2.
 
 ## [Unreleased]
+### Changed
+- **Femio is becoming an Android app, and your records will stay on your phone.** The website is now where you read the guides and use the free calculators. Signing in on the web is closed, and the app (coming soon to Google Play, with iPhone later) keeps what you log on your device: no account, and Femio never sees it.
+- **A new homepage**, built around what you came for: track your period, get pregnant, follow a pregnancy or understand menopause, each one tap from the tool for it.
+
 ### Added
+- **Two new calculators:** a period calculator that shows your next three periods as honest ranges based on how much your own cycles vary, and a pregnancy test calculator that tells you the day a home test is most reliable (from the NHS's guidance).
+- **Calculator results you can see:** your fertile window, ovulation and next periods are drawn on a calendar, and pregnancy results show your week and trimester on a bar.
 - **Femio can now show you your own patterns, three ways.** When things tend to happen in your cycle, which things you tend to log on the same day, and whether you have been rating something higher or lower lately. Every one comes with how much it rests on — "together in 4 of 6 cycles" — and how sure Femio is, because a pattern is the kind of evidence that is easy to over-read. **Nothing here interprets anything.** It never says one thing causes another, it never predicts, and it never says a symptom is getting *worse* — only that you rated it higher, which is a fact about what you typed rather than a judgement about your health. It waits for about three cycles before saying anything at all: fewer than that is a coincidence, and calling it a pattern would be a guess.
 - **Reminders, and you decide every part of them.** Five things Femio can remind you about — your next expected period, a nudge to log, an appointment coming up, something you take, your cycle summary — and all of them start off. **The wording stays private by default:** a notification says "Femio — open the app" and nothing about your health, which matters if your phone shows notifications on the lock screen, and the settings screen shows you the exact words rather than promising they are discreet. You set your own quiet hours. **Femio never sends streaks, never counts the days you did not log, and never tells you a period is late** — a reminder is an offer, not a score.
 - **When you share with a partner, you name them first.** Sharing now starts with who it is for, in your own words. Only you ever see that name: the other person is never shown it and cannot change it. It also means the record of what you agreed to says who you agreed to share it with, which is what the law actually asks for.

@@ -1,40 +1,46 @@
 import { getTranslations, setRequestLocale } from "next-intl/server";
-import { ArrowRight } from "lucide-react";
+import {
+  ArrowRight,
+  Baby,
+  CalendarHeart,
+  Flower2,
+  Lock,
+  MoonStar,
+  Save,
+  ShieldCheck,
+  TestTube,
+  Timer,
+  UserRoundX,
+} from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { JsonLd } from "@/components/seo/json-ld";
 import { organizationJsonLd, websiteJsonLd } from "@/lib/seo/jsonld";
 import { Link } from "@/i18n/navigation";
-import { APP_PAGE, webAppEnabled } from "@/lib/web-app";
+import { APP_PAGE } from "@/lib/web-app";
 import { PageView } from "@/components/analytics/page-view";
+import { PhoneMock } from "@/components/site/phone-mock";
+import { Bloom, Moon, Petal, Spark } from "@/components/site/motifs";
 
 type PageProps = { params: Promise<{ locale: string }> };
 
 /**
- * The public homepage (R1.3, `assets/mockups/R1.3_homepage_reference.html`).
+ * The public homepage, rebuilt as the app's front door (P2.3, D8, ADR-070).
  *
- * What this replaced: a hero sentence over five visually identical link cards — a
- * sitemap with a headline. It showed no product, gave no reason to trust, and said
- * nothing a competitor could not say.
+ * The website's job changed: it is articles, calculators and the way to the Android
+ * app. So the page follows what women come for, in the order competitors have taught
+ * them (Flo, Clue: product in the hero, goals, tools), then says what only Femio says:
  *
- * The order of the page is the argument, and each section earns its place from the
- * competitor teardown in `docs/03` §H:
+ *   hero (the app) → goals → free calculators → honesty shown → every stage →
+ *   private by design → trust → library → close
  *
- *   hero → product → life-stage rail → honesty shown → trust → library → close
+ * - **Goals are the first question**, as in every tracker's onboarding (spec §2):
+ *   period, pregnant-soon, pregnant, menopause. Each leads to the tool for it.
+ * - **Feminine, from our own mark**: the Bloom petal, the moon, a spark (`motifs.tsx`),
+ *   in Dusk Bloom art tokens. Decorative only.
+ * - **Privacy is structural, so it is a section, not a badge**: no account, records on
+ *   the phone (D7). Nothing on this page claims an account or EU storage any more.
  *
- * - **The rail is the page.** Not one of Flo, Clue, Balance or Ovia markets
- *   continuity (§H.5); answering it would take Flo five more products and Ovia a
- *   different business model.
- * - **A product shot, because the market says so** (§H.1): Clue and Balance both
- *   lead with one, neither uses a mood image. It is drawn from the same tokens as
- *   the app so it cannot drift from what ships.
- * - **Honesty is shown, not claimed** — the band with its soft edges, the real
- *   no-late-counter copy, her own 30 days. The top reported complaint against the
- *   leaders is predictions collapsing for PCOS and perimenopause (§H.2).
- * - **The anti-claim sits in the hero.** Flo answers privacy with a certification;
- *   Femio answers structurally, and a structural claim beats a badge.
- *
- * Deliberately **server-rendered**: this is the SEO landing page and is not on the
- * tracker path, so `native-readiness-lint` does not apply to it.
+ * Server-rendered: the SEO landing page, not on the tracker path.
  */
 
 const STAGES = ["teen", "cycle", "ttc", "pregnancy", "postpartum", "menopause"] as const;
@@ -47,7 +53,7 @@ const STAGES = ["teen", "cycle", "ttc", "pregnancy", "postpartum", "menopause"] 
  * `Article` schema — so the claim comes back, first, because `docs/03` §H.1 found
  * post-nominals on the page to be the strongest trust mechanism in the category.
  */
-const TRUST = ["reviewed", "sources", "eu", "portable", "ads", "languages"] as const;
+const TRUST = ["reviewed", "sources", "ads", "languages"] as const;
 const SECTIONS = [
   { key: "learn", href: "/learn" },
   { key: "conditions", href: "/conditions" },
@@ -75,80 +81,53 @@ function Eyebrow({ children }: { children: React.ReactNode }) {
   );
 }
 
-/**
- * The product shot: the real cycle dashboard, at rest.
- *
- * Every value here is a token the app itself uses — the hero gradient, the
- * prediction band with fading edges, the accent action, the tab bar — so a
- * marketing image cannot promise a screen the product does not have.
- */
-async function ProductShot({ locale }: { locale: string }) {
-  const t = await getTranslations({ locale, namespace: "home.shot" });
-  return (
-    <div className="mx-auto w-[232px] overflow-hidden rounded-lg border-[7px] border-text bg-bg shadow-lg">
-      <div className="flex items-center justify-between border-b border-border bg-surface px-3 py-2">
-        {/* Always English "femio", in every locale — product rule 6. */}
-        <span className="font-display text-xs font-semibold text-primary">femio</span>
-        <span className="size-3 rounded-round bg-surface-sunken" aria-hidden />
-      </div>
+const GOALS = [
+  {
+    key: "period",
+    href: "/calculators/period",
+    Icon: CalendarHeart,
+    tone: "bg-log-period-alt text-log-period",
+  },
+  {
+    key: "ttc",
+    href: "/calculators/fertile-window",
+    Icon: Flower2,
+    tone: "bg-success-soft text-success-text",
+  },
+  {
+    key: "pregnant",
+    href: "/calculators/due-date",
+    Icon: Baby,
+    tone: "bg-accent-soft text-accent-soft-text",
+  },
+  {
+    key: "menopause",
+    href: "/learn",
+    Icon: MoonStar,
+    tone: "bg-primary-soft text-primary-soft-text",
+  },
+] as const;
 
-      <div className="flex flex-col gap-2 px-3 pt-3">
-        <div className="flex items-center gap-2">
-          <span className="text-2xs font-semibold text-text">{t("app.title")}</span>
-          <span className="rounded-pill bg-primary-soft px-2 py-0.5 text-[8px] font-semibold text-primary-soft-text">
-            {t("app.mode")}
-          </span>
-        </div>
+const TOOLS = [
+  { slug: "period", key: "period", Icon: CalendarHeart },
+  { slug: "fertile-window", key: "ovulation", Icon: Flower2 },
+  { slug: "pregnancy-test", key: "pregnancyTest", Icon: TestTube },
+  { slug: "due-date", key: "dueDate", Icon: Baby },
+  { slug: "gestational-age", key: "gestationalAge", Icon: Timer },
+] as const;
 
-        <div className="flex flex-col gap-1.5 rounded-md bg-gradient-hero-cycle p-3 text-text-on-brand shadow-sm">
-          <span className="text-[8px] font-semibold uppercase tracking-wider opacity-90 rtl:normal-case rtl:tracking-normal">
-            {t("app.eyebrow")}
-          </span>
-          <span className="font-display text-sm leading-tight rtl:font-bold">
-            {t("app.headline")}
-          </span>
-          {/* The band: soft edges, because the window has soft boundaries. */}
-          <span className="relative block h-1.5 rounded-pill bg-white/25" aria-hidden>
-            <span className="absolute inset-y-0 start-[32%] w-[40%] rounded-pill bg-[linear-gradient(90deg,transparent,currentColor_35%,currentColor_65%,transparent)]" />
-            <span className="absolute -inset-y-0.5 start-[52%] w-0.5 rounded-pill bg-current" />
-          </span>
-          <span className="text-[8px] opacity-90">{t("app.foot")}</span>
-        </div>
-
-        <span className="grid min-h-7 place-items-center rounded-pill bg-accent-solid text-[10px] font-semibold text-accent-fg-solid">
-          {t("app.cta")}
-        </span>
-
-        <div className="rounded-sm bg-surface p-2.5 shadow-xs">
-          <span className="block text-[8px] text-text-muted">{t("app.avgLabel")}</span>
-          <span className="font-display text-xs text-text">{t("app.avgValue")}</span>
-        </div>
-      </div>
-
-      <div className="mt-2 flex justify-around border-t border-border bg-surface pb-2.5 pt-2">
-        {(["home", "track", "settings"] as const).map((k, i) => (
-          <span
-            key={k}
-            className={`flex flex-col items-center gap-0.5 text-[7px] ${
-              i === 0 ? "text-primary" : "text-text-subtle"
-            }`}
-          >
-            <span
-              className={`h-3 w-6 rounded-pill ${i === 0 ? "bg-primary-soft" : ""}`}
-              aria-hidden
-            />
-            {t(`app.tab.${k}`)}
-          </span>
-        ))}
-      </div>
-    </div>
-  );
-}
+const PRIVACY = [
+  { key: "account", Icon: UserRoundX },
+  { key: "never", Icon: Lock },
+  { key: "backup", Icon: Save },
+] as const;
 
 export default async function HomePage({ params }: PageProps) {
   const { locale } = await params;
   setRequestLocale(locale);
   const t = await getTranslations("home");
+  const tc = await getTranslations("calculators");
+  const tApp = await getTranslations("getApp");
 
   return (
     <main className="flex w-full flex-1 flex-col">
@@ -156,52 +135,115 @@ export default async function HomePage({ params }: PageProps) {
       <JsonLd data={websiteJsonLd(locale)} />
       <JsonLd data={organizationJsonLd()} />
 
-      {/* ── Hero — the one raised element on the page ───────────────────────── */}
-      <section className="aurora text-text-on-brand">
-        {/* `--gradient-dawn` runs out to amber, where white body copy measures
-            2.15:1. So dawn is the signature, not the backdrop: a bar carrying no
-            text over an AA-safe violet field (docs/25 §5a). */}
-        <div className="absolute inset-x-0 top-0 h-1.5 bg-gradient-dawn" aria-hidden />
-        <div className="mx-auto flex w-full max-w-3xl flex-col gap-4 px-6 pb-16 pt-14">
-          <h1 className="font-display text-2xl leading-tight sm:text-3xl rtl:text-xl rtl:font-bold rtl:leading-relaxed">
-            {t("heroTitle")}
-          </h1>
-          <p className="text-sm leading-relaxed opacity-95">{t("heroBody")}</p>
+      {/* ── Hero: the app ───────────────────────────────────────────────────── */}
+      <section className="aurora relative overflow-hidden text-text-on-brand">
+        {/* Floating motifs. Decorative; they sit behind the copy and never carry text. */}
+        <Bloom
+          id="hero-bloom"
+          className="pointer-events-none absolute -end-16 -top-16 size-64 opacity-25 motion-safe:animate-[spin_90s_linear_infinite]"
+        />
+        <Petal className="pointer-events-none absolute start-[8%] top-24 h-10 rotate-[-25deg] text-white/20" />
+        <Moon className="pointer-events-none absolute end-[12%] bottom-10 size-8 text-white/25" />
+        <Spark className="pointer-events-none absolute start-[46%] top-10 size-4 text-white/40" />
+        <Spark className="pointer-events-none absolute start-[14%] bottom-24 size-3 text-white/30" />
 
-          <div className="mt-2 flex flex-col gap-3 sm:flex-row">
-            {/* Accent = "act". Repeated at the close because it is the same action,
-                not a second competing one (docs/25 §5a). */}
-            <Button asChild variant="accent" size="lg" className="w-full sm:w-auto">
-              <Link href={webAppEnabled() ? "/welcome" : APP_PAGE}>{t("cta")}</Link>
-            </Button>
-            <Button
-              asChild
-              variant="outline"
-              size="lg"
-              className="w-full border-white/55 bg-transparent text-text-on-brand hover:bg-white/10 sm:w-auto"
-            >
-              <Link href="/learn">{t("ctaSecondary")}</Link>
-            </Button>
+        <div className="relative mx-auto flex w-full max-w-5xl flex-col items-center gap-10 px-6 pb-16 pt-12 md:flex-row">
+          <div className="flex flex-1 flex-col gap-4">
+            <p className="text-2xs font-semibold uppercase tracking-widest opacity-85 rtl:tracking-normal">
+              {t("hero.eyebrow")}
+            </p>
+            <h1 className="font-display text-2xl leading-tight sm:text-4xl rtl:font-bold rtl:leading-relaxed">
+              {t("hero.title")}
+            </h1>
+            <p className="text-sm leading-relaxed opacity-95">{t("hero.body")}</p>
+            <div className="mt-2 flex flex-col gap-3 sm:flex-row">
+              <Button asChild variant="accent" size="lg" className="w-full sm:w-auto">
+                <Link href={APP_PAGE}>{t("hero.cta")}</Link>
+              </Button>
+              <Button
+                asChild
+                variant="outline"
+                size="lg"
+                className="w-full border-white/55 bg-transparent text-text-on-brand hover:bg-white/10 sm:w-auto"
+              >
+                <Link href="/calculators/period">{t("hero.ctaSecondary")}</Link>
+              </Button>
+            </div>
+            <p className="text-2xs opacity-85">
+              {tApp("android")} · {tApp("androidStatus")} &nbsp;·&nbsp; {tApp("ios")} ·{" "}
+              {tApp("iosStatus")}
+            </p>
           </div>
-
-          <p className="mt-4 border-t border-white/25 pt-4 text-2xs leading-relaxed opacity-90">
-            {t("antiClaim")}
-          </p>
+          <PhoneMock
+            strings={{
+              day: tApp("mock.day"),
+              title: tApp("mock.title"),
+              range: tApp("mock.range"),
+              note: tApp("mock.note"),
+              period: tApp("mock.period"),
+            }}
+          />
         </div>
       </section>
 
-      {/* ── The product, because Clue and Balance both lead with one ────────── */}
-      <Section sunken>
-        <Eyebrow>{t("shot.eyebrow")}</Eyebrow>
-        <h2 className="font-display text-lg text-text rtl:font-bold">{t("shot.heading")}</h2>
-        <ProductShot locale={locale} />
-        {/* `--text-subtle` on `--surface-sunken` measures 4.47:1 — it was verified
-            against `--bg` (4.81) and nobody checked it against a sunken section.
-            Caught by axe, not by eye. `--text-muted` is 4.73 here. The token pairing
-            itself is logged on P1.5.2. */}
-        <p className="mt-2 text-center text-2xs leading-relaxed text-text-muted">
-          {t("shot.caption")}
-        </p>
+      {/* ── Goals: the first question every tracker asks ────────────────────── */}
+      <section className="mx-auto w-full max-w-5xl px-6 pt-12">
+        <h2 className="font-display text-xl text-text rtl:font-bold">{t("goals.heading")}</h2>
+        <ul className="mt-5 grid grid-cols-2 gap-3 lg:grid-cols-4">
+          {GOALS.map(({ key, href, Icon, tone }) => (
+            <li key={key}>
+              <Link
+                href={href}
+                className={`group relative flex h-full flex-col gap-3 overflow-hidden rounded-lg p-4 transition-transform motion-safe:hover:-translate-y-0.5 ${tone}`}
+              >
+                <Petal className="pointer-events-none absolute -bottom-6 -end-3 h-24 rotate-[35deg] opacity-[0.18]" />
+                <span className="flex size-11 items-center justify-center rounded-pill bg-surface/70">
+                  <Icon className="size-6" aria-hidden />
+                </span>
+                <span className="text-sm font-semibold leading-snug">
+                  {t(`goals.${key}.title`)}
+                </span>
+                <span className="text-2xs leading-relaxed">
+                  {t(`goals.${key}.body`)}
+                </span>
+              </Link>
+            </li>
+          ))}
+        </ul>
+      </section>
+
+      {/* ── Free calculators: how women find a period app ───────────────────── */}
+      <Section>
+        <div className="flex items-end justify-between gap-3">
+          <div>
+            <h2 className="font-display text-lg text-text rtl:font-bold">{t("tools.heading")}</h2>
+            <p className="text-2xs text-text-muted">{t("tools.sub")}</p>
+          </div>
+          <Link href="/calculators" className="shrink-0 text-xs font-semibold text-text-link">
+            {t("tools.more")}
+          </Link>
+        </div>
+        <ul className="flex flex-col gap-2">
+          {TOOLS.map(({ slug, key, Icon }) => (
+            <li key={slug}>
+              <Link
+                href={`/calculators/${slug}`}
+                className="group flex items-center gap-3 rounded-md border border-border bg-surface p-3 transition-colors hover:bg-surface-sunken"
+              >
+                <span className="flex size-10 shrink-0 items-center justify-center rounded-pill bg-primary-soft text-primary-soft-text">
+                  <Icon className="size-5" aria-hidden />
+                </span>
+                <span className="flex-1 text-sm font-semibold text-text">
+                  {tc(`list.${key}.name`)}
+                </span>
+                <ArrowRight
+                  className="size-4 text-text-subtle transition-transform group-hover:translate-x-0.5 rtl:-scale-x-100"
+                  aria-hidden
+                />
+              </Link>
+            </li>
+          ))}
+        </ul>
       </Section>
 
       {/* ── The life-stage rail — the claim no competitor can answer ────────── */}
@@ -282,7 +324,37 @@ export default async function HomePage({ params }: PageProps) {
         </div>
       </Section>
 
-      {/* ── Trust: five verifiable facts, not badges ────────────────────────── */}
+      {/* ── Private by design (D7): a structure, so a section, not a badge ───── */}
+      <section className="relative overflow-hidden bg-[var(--aurora-ground)] text-text-on-brand">
+        <Bloom
+          id="privacy-bloom"
+          className="pointer-events-none absolute -start-20 -bottom-20 size-72 opacity-15"
+        />
+        <div className="reveal relative mx-auto flex w-full max-w-3xl flex-col gap-4 px-6 py-14">
+          <p className="flex items-center gap-2 text-2xs font-semibold uppercase tracking-wider opacity-85 rtl:tracking-normal">
+            <ShieldCheck className="size-4" aria-hidden />
+            {t("privacy.eyebrow")}
+          </p>
+          <h2 className="font-display text-xl rtl:font-bold">{t("privacy.heading")}</h2>
+          <p className="text-sm leading-relaxed opacity-90">{t("privacy.body")}</p>
+          <ul className="mt-2 grid gap-3 sm:grid-cols-3">
+            {PRIVACY.map(({ key, Icon }) => (
+              <li
+                key={key}
+                className="flex flex-col gap-2 rounded-lg bg-white/10 p-4 ring-1 ring-white/15"
+              >
+                <Icon className="size-5" aria-hidden />
+                <span className="text-sm font-semibold">{t(`privacy.points.${key}.title`)}</span>
+                <span className="text-2xs leading-relaxed opacity-85">
+                  {t(`privacy.points.${key}.body`)}
+                </span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </section>
+
+      {/* ── Trust: verifiable facts, not badges ─────────────────────────────── */}
       <Section>
         <Eyebrow>{t("trust.eyebrow")}</Eyebrow>
         <h2 className="font-display text-lg text-text rtl:font-bold">{t("trust.heading")}</h2>
@@ -338,9 +410,10 @@ export default async function HomePage({ params }: PageProps) {
       {/* ── Close ───────────────────────────────────────────────────────────── */}
       <Section>
         <div className="flex flex-col items-center gap-5 text-center">
+          <Bloom id="close-bloom" className="size-14" />
           <h2 className="font-display text-lg text-text rtl:font-bold">{t("close.heading")}</h2>
           <Button asChild variant="accent" size="lg" className="w-full sm:w-auto">
-            <Link href={webAppEnabled() ? "/welcome" : APP_PAGE}>{t("cta")}</Link>
+            <Link href={APP_PAGE}>{t("hero.cta")}</Link>
           </Button>
           <p className="text-2xs leading-relaxed text-text-subtle">{t("disclaimer")}</p>
         </div>

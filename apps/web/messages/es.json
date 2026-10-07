@@ -4,34 +4,8 @@
     "description": "Toda tu vida de salud, de la primera regla a la menopausia, en privado en tu teléfono."
   },
   "home": {
-    "signIn": "Iniciar sesión",
-    "heroTitle": "Tu salud tiene una sola historia. Femio la guarda entera.",
-    "heroBody": "Un seguimiento de la regla, el ciclo y el embarazo que no se queda ahí: continúa a través de las condiciones, la búsqueda de embarazo, el posparto y la menopausia, con guías referenciadas en cada etapa.",
-    "cta": "Empieza gratis — sin correo electrónico",
-    "ctaSecondary": "Lee primero las guías",
-    "antiClaim": "Femio es una herramienta de bienestar e información, no un dispositivo médico — y tus datos de salud nunca se venden. Ambas cosas puedes comprobarlas, no son promesas que te pidamos creer.",
-    "shot": {
-      "eyebrow": "Esta es la aplicación",
-      "heading": "La abres y ya sabe en qué punto estás.",
-      "caption": "Tu panel en modo ciclo. Cada etapa tiene el suyo: el embarazo cuenta semanas, la menopausia cuenta meses y deja la conclusión para ti y tu profesional sanitario.",
-      "app": {
-        "title": "Tu panel",
-        "mode": "Ciclo",
-        "eyebrow": "Día 17 del ciclo",
-        "headline": "Próxima regla 14–18 sept.",
-        "foot": "Bastante fiable · según tus últimos 6 ciclos",
-        "cta": "Registrar hoy",
-        "avgLabel": "Ciclo medio",
-        "avgValue": "29 días",
-        "tab": {
-          "home": "Inicio",
-          "track": "Registro",
-          "settings": "Ajustes"
-        }
-      }
-    },
     "rail": {
-      "eyebrow": "Una sola cuenta",
+      "eyebrow": "Cada etapa",
       "heading": "La mayoría de las apps cubren un capítulo. Esta sigue el libro entero.",
       "sub": "Cuando tu vida cambia, Femio se reordena a su alrededor: nunca te hace empezar de cero y nunca borra lo anterior.",
       "stages": {
@@ -83,19 +57,11 @@
     },
     "trust": {
       "eyebrow": "Por qué confiar",
-      "heading": "Seis cosas que puedes comprobar.",
+      "heading": "Cuatro cosas que puedes comprobar.",
       "items": {
         "sources": {
           "claim": "Cada afirmación está citada y fechada",
           "detail": "— NICE, ACOG, OMS, ESHRE, con enlaces y la fecha de la última revisión."
-        },
-        "eu": {
-          "claim": "Tus datos viven en la UE",
-          "detail": "— y solo tú puedes leerlos."
-        },
-        "portable": {
-          "claim": "Expórtalos o bórralos desde la aplicación",
-          "detail": "— sin correos, sin esperas."
         },
         "ads": {
           "claim": "Ningún dato de salud llega a un anunciante",
@@ -116,7 +82,7 @@
       "heading": "Empieza a leer ahora."
     },
     "close": {
-      "heading": "Una sola cuenta. Toda tu vida de salud."
+      "heading": "Toda tu vida de salud, en privado en tu teléfono."
     },
     "disclaimer": "Femio sirve para aprender y llevar un registro — no es consejo médico ni un método fiable para evitar el embarazo. Habla siempre con tu profesional sanitario sobre tu atención.",
     "sections": {
@@ -149,6 +115,56 @@
       "accent": "Acento",
       "fertile": "Fértil",
       "uncertainty": "Incertidumbre"
+    },
+    "hero": {
+      "eyebrow": "Regla · Ovulación · Embarazo",
+      "title": "Conoce tu ciclo. Planifica tu familia. En privado.",
+      "body": "Femio es una app de seguimiento de la regla, la ovulación y el embarazo, creada para mujeres en Arabia Saudí y Egipto, con guías revisadas por profesionales clínicos para cada etapa de la vida, en árabe e inglés.",
+      "cta": "Descargar la app",
+      "ctaSecondary": "Probar la calculadora de la regla"
+    },
+    "goals": {
+      "heading": "¿Qué te trae por aquí?",
+      "period": {
+        "title": "Seguir mi regla",
+        "body": "Sabe cuándo llega tu próxima regla."
+      },
+      "ttc": {
+        "title": "Quedarme embarazada",
+        "body": "Encuentra tus días más fértiles."
+      },
+      "pregnant": {
+        "title": "Estoy embarazada",
+        "body": "Tu fecha de parto y tu semana."
+      },
+      "menopause": {
+        "title": "Menopausia",
+        "body": "Entiende los cambios, mes a mes."
+      }
+    },
+    "tools": {
+      "heading": "Calculadoras gratis",
+      "sub": "Sin cuenta, no se guarda nada.",
+      "more": "Todas las calculadoras"
+    },
+    "privacy": {
+      "eyebrow": "Privada por diseño",
+      "heading": "Tus datos se quedan en tu teléfono.",
+      "body": "La app de Femio guarda lo que registras en tu dispositivo. Nunca lo vemos, así que no hay nada que vender, compartir o perder.",
+      "points": {
+        "account": {
+          "title": "Sin cuenta",
+          "body": "Abre la app y empieza. Sin correo ni contraseña."
+        },
+        "never": {
+          "title": "Femio nunca ve tus datos",
+          "body": "Tus reglas, síntomas y embarazo se quedan en tu teléfono."
+        },
+        "backup": {
+          "title": "Copia de seguridad cuando quieras",
+          "body": "Guarda un archivo de copia donde quieras y restáuralo en un teléfono nuevo."
+        }
+      }
     }
   },
   "theme": {
