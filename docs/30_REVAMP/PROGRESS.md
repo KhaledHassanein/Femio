@@ -12,15 +12,15 @@ work.** Marks: `[ ]` open · `[~]` in progress · `[x]` done (commit) · `[BLOCK
 - [x] P0.5 · Migration `0024`: guarded drop of `content`, `content_i18n`, `content_history`; `0025`: advisor hardening (owner applies both: C6)
 - [x] P0.6 · CMS lists select only their fields: 2.1 MB → 4.2 KB (`544bac0`); article/condition/author pages are ISR (hourly), verified MISS → HIT and 404 for unknown slugs in en+ar. Root cause of the error emails confirmed in Supabase logs: `EMAXCONNSESSION` (pool exhaustion), hundreds/day
 
-## Phase 1 — Design language v3 "Dusk Bloom"
+## Phase 1 — Design language v3 "Dusk Bloom" ✅ (2026-10-07, pending owner D-1)
 
 - [x] P1.1 · Dusk Bloom palette: plum/rose/peach/saffron/sage + porcelain neutrals, light + dark, every pairing contrast-checked (white on solids 5.6–7.9:1); JSON mirror regenerated from the CSS
 - [x] P1.2 · Type: Newsreader · Plus Jakarta Sans · Noto Naskh Arabic · IBM Plex Sans Arabic, per-glyph stacks (no locale branching); Instrument Serif tried and rejected (cramped at UI sizes)
-- [~] P1.3 · Aurora + grain shipped on the home hero (white text ≥ 6.9:1 measured on rendered pixels, EN + AR); reveal-on-scroll and breathing cycle band still open
-- [ ] P1.4 · Components restyled (button, card, chip, badge, alert, inputs)
-- [~] P1.5 · Header rebuilt (one row of actions + scrolling sections, sticky, frosted; visible "Need help now?" link to /help-now); launcher now a compact 44px lifebuoy keeping its approved accessible name (ADR-013 kept). Footer open
+- [x] P1.3 · Aurora + grain on the home hero (white text ≥ 6.9:1 measured on rendered pixels, EN + AR); scroll-driven `.reveal` on home sections (CSS `view()` timeline, `@supports`-gated so content can never stick invisible); the prediction window band breathes (`.band-breathe`); all stop under reduced motion
+- [x] P1.4 · Pill buttons with plum glow, 24px cards, 48px inputs, white hero-card highlight; prediction band moved amber → saffron
+- [x] P1.5 · Header rebuilt (one row of actions + scrolling sections, sticky, frosted; visible "Need help now?" link); launcher a compact 44px lifebuoy (ADR-013 kept); footer grouped Explore/Trust/Legal on plum
 - [x] P1.6 · App shell: tabs Today · Calendar · Log · Learn · Tools; Settings → header gear; the tab bar follows a signed-in woman onto public Learn pages (session read locally, no network)
-- [ ] P1.7 · Checkpoint: gallery + 3 screens photographed (light, dark, AR) → owner D-1
+- [x] P1.7 · Checkpoint photographed at 390×844 (home, Learn, article, gallery × en/ar × light/dark). Found and fixed a live Arabic defect: English-fallback articles rendered RTL with punctuation at the wrong end; content now carries `lang`/`dir` and an "not translated yet" note. **App screens not photographed**: seeding creates accounts on production (442 already), so they wait for the staging project (OWNER_ACTIONS C5). Owner D-1 review due.
 
 ## Phase 2 — Public site
 

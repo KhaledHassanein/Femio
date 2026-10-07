@@ -754,6 +754,7 @@
     "mismatch": "Las contraseñas no coinciden."
   },
   "learn": {
+    "englishOnly": "Esta guía aún no está traducida, por eso se muestra en inglés.",
     "boundaryNote": "Información de salud para informarte y planificar: no es consejo médico ni sustituye a tu profesional clínico.",
     "byline": "Por",
     "reviewedInEnglishBy": "Revisado en inglés por",

@@ -239,7 +239,7 @@
   --phase-ovulatory:var(--saffron-500);
   --phase-luteal:var(--plum-600);
   /* Prediction uncertainty is ALWAYS visually soft/dotted — see docs */
-  --prediction-band:var(--amber-400);
+  --prediction-band:var(--saffron-400);
 
   /* ---- Log categories (RB-C1) ----
      One colour per `LogVocabulary` dimension, plus the two record kinds that are
@@ -367,7 +367,7 @@
   --info:var(--plum-200);  --info-soft:rgb(197 110 167 / .2);
 
   --phase-ovulatory:var(--saffron-300);
-  --prediction-band:var(--amber-300);
+  --prediction-band:var(--saffron-300);
 
   /* Log categories on dark. Lightened so each keeps its identity against
      #211E2E; the `-alt` fills become translucent washes rather than pale tints,

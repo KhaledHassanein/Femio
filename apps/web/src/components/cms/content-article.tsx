@@ -6,7 +6,12 @@ import type { Byline } from "@/lib/cms/client";
 import { JsonLd } from "@/components/seo/json-ld";
 import { Alert, AlertDescription } from "@/components/ui/alert";
 import { Badge } from "@/components/ui/badge";
-import { articleJsonLd, breadcrumbJsonLd, faqPageJsonLd, medicalWebPageJsonLd } from "@/lib/seo/jsonld";
+import {
+  articleJsonLd,
+  breadcrumbJsonLd,
+  faqPageJsonLd,
+  medicalWebPageJsonLd,
+} from "@/lib/seo/jsonld";
 import { extractFaqs } from "@/lib/cms/faq";
 import { siteConfig } from "@/lib/seo/config";
 import { PageView } from "@/components/analytics/page-view";
@@ -21,25 +26,47 @@ export async function ContentArticle({
   sectionTitle,
   sectionHref,
   description,
+  contentLocale = locale,
 }: {
   doc: ContentDoc;
   locale: string;
   sectionTitle: string;
   sectionHref: string; // locale-less, e.g. "/conditions"
   description: string;
+  /**
+   * The language the document's text is actually in. Payload falls back to English
+   * for an untranslated locale, so on `/ar/learn/…` the prose can be English inside
+   * an RTL page. Without `lang` + `dir` on the content, English sentences were laid
+   * out right-to-left and their full stops jumped to the start of the line
+   * (".or doctor"), seen in the v3 checkpoint photos.
+   */
+  contentLocale?: string;
 }) {
   const t = await getTranslations("learn");
   const format = await getFormatter();
   const disclaimer =
-    doc.disclaimerType && doc.disclaimerType !== "none" ? t(`disclaimer.${doc.disclaimerType}`) : null;
+    doc.disclaimerType && doc.disclaimerType !== "none"
+      ? t(`disclaimer.${doc.disclaimerType}`)
+      : null;
   const url = `${siteConfig.baseUrl}/${locale}${sectionHref}/${doc.slug}`;
   const faqs = extractFaqs(doc.body);
+  const fallback = contentLocale !== locale;
+  // Only the document's own text changes direction; the page chrome stays in hers.
+  const contentAttrs = fallback
+    ? { lang: contentLocale, dir: contentLocale === "ar" ? ("rtl" as const) : ("ltr" as const) }
+    : {};
 
   return (
     <main className="mx-auto flex w-full max-w-3xl flex-col gap-6 px-6 py-12">
       <PageView area="library" />
       <JsonLd
-        data={medicalWebPageJsonLd({ title: doc.title, description, url, locale, lastReviewed: doc.lastReviewed })}
+        data={medicalWebPageJsonLd({
+          title: doc.title,
+          description,
+          url,
+          locale,
+          lastReviewed: doc.lastReviewed,
+        })}
       />
       <JsonLd
         data={articleJsonLd({
@@ -81,7 +108,14 @@ export async function ContentArticle({
       </nav>
 
       <div className="flex flex-col gap-2">
-        <h1 className="font-display text-3xl text-text">{doc.title}</h1>
+        {fallback ? (
+          <p className="w-fit rounded-pill bg-surface-sunken px-3 py-1 text-2xs text-text-muted">
+            {t("englishOnly")}
+          </p>
+        ) : null}
+        <h1 {...contentAttrs} className="font-display text-3xl text-text">
+          {doc.title}
+        </h1>
         <Byline authors={doc.authors ?? []} reviewer={doc.medicalReviewerProfile ?? null} />
         {/* Boundary first, guidance second: a reader should know what this is
             before she acts on it, not after (health product, not a medical one). */}
@@ -98,7 +132,7 @@ export async function ContentArticle({
         </div>
       </div>
 
-      <article className="text-md">
+      <article {...contentAttrs} className="text-md">
         <RichText content={doc.body ?? null} />
       </article>
 
@@ -111,11 +145,17 @@ export async function ContentArticle({
       {doc.sources && doc.sources.length > 0 ? (
         <section className="flex flex-col gap-2 border-t border-border pt-4">
           <h2 className="text-sm font-semibold text-text">{t("sources")}</h2>
-          <ul className="flex flex-col gap-1 text-sm text-text-muted">
+          {/* Source titles are English in every locale (they are the guidelines' own titles). */}
+          <ul lang="en" dir="ltr" className="flex flex-col gap-1 text-sm text-text-muted">
             {doc.sources.map((s, i) => (
               <li key={i}>
                 {s.url ? (
-                  <a href={s.url} rel="noreferrer" target="_blank" className="text-text-link underline">
+                  <a
+                    href={s.url}
+                    rel="noreferrer"
+                    target="_blank"
+                    className="text-text-link underline"
+                  >
                     {s.title}
                   </a>
                 ) : (

@@ -65,7 +65,7 @@ function Section({
 }) {
   return (
     <section className={sunken ? "bg-surface-sunken" : undefined}>
-      <div className="mx-auto flex w-full max-w-3xl flex-col gap-4 px-6 py-12">{children}</div>
+      <div className="reveal mx-auto flex w-full max-w-3xl flex-col gap-4 px-6 py-12">{children}</div>
     </section>
   );
 }

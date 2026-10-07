@@ -80,7 +80,10 @@ function PredictionBand({ band }: { band: BandGeometry }) {
       {/* Fading edges, not hard ones: the window has soft boundaries and the
           drawing should not claim otherwise. */}
       <div
-        className="absolute inset-y-0 rounded-pill bg-[linear-gradient(90deg,transparent_0%,currentColor_35%,currentColor_65%,transparent_100%)]"
+        // `band-breathe` (v3 P1.3): the window's glow swells and settles, slowly.
+        // It is the one moving thing on the card because it is the one uncertain
+        // thing; a fixed date would sit still. Stops under reduced motion.
+        className="band-breathe absolute inset-y-0 rounded-pill bg-[linear-gradient(90deg,transparent_0%,currentColor_35%,currentColor_65%,transparent_100%)]"
         style={{ insetInlineStart: `${band.windowStartPct}%`, width: `${width}%` }}
       />
       <div

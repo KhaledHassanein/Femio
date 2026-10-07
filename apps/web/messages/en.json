@@ -754,6 +754,7 @@
     "mismatch": "Those passwords don’t match."
   },
   "learn": {
+    "englishOnly": "This guide is not translated yet, so it is shown in English.",
     "boundaryNote": "Health information for learning and planning — not medical advice, and not a substitute for your own clinician.",
     "byline": "By",
     "reviewedInEnglishBy": "Reviewed in English by",

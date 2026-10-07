@@ -29,7 +29,8 @@ Search it by feature name when you need the history of a decision. It is not req
   `7abbb2e`. CMS on Payload 3.90.2 / Next 16.3.8; web on Next 15.5.27.
 - **Branch:** this session works on `claude/epic-planck-5y8geb`. Vercel deploys from `main`,
   so nothing here is live until the owner merges (OWNER_ACTIONS C1).
-- **Design:** Phase 1 under way — Dusk Bloom palette, Newsreader/Plus Jakarta/Noto Naskh/Plex Arabic type, aurora hero, new header and compact crisis launcher are in (see PROGRESS). Next: reveal-on-scroll, cycle band, components pass, footer, app shell tabs. v2 experience surfaces exist behind
+- **Design:** Phase 1 (Dusk Bloom) is done on the branch: palette, type, aurora, header/footer, compact crisis launcher, app tabs Today·Calendar·Log·Learn·Tools, softer primitives, motion moments. Next is Phase 2 (`PROGRESS.md`). App screens wait on a staging Supabase for photos (C5).
+- **Infra (measured via connectors, 2026-10-07):** the error emails were Supabase pool exhaustion (`EMAXCONNSESSION`) caused by the CMS on uncached renders. Fixed in code (`544bac0`, ISR in `c125435`) and live after merge. Migrations 0024/0025 written and not applied: a production schema change is the owner's to run (C6).
   flags that default **off**. Phase 3 turns them on and deletes v1 behind each.
 
 ## The working loop

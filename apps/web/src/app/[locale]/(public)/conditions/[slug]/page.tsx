@@ -52,6 +52,10 @@ export default async function ConditionPage({ params }: PageProps) {
   setRequestLocale(locale);
   const doc = await getContentBySlug("conditions", locale, slug);
   if (!doc) notFound();
+  // Which language the text is really in (English is the fallback for every locale).
+  const contentLocale = (await availableLocales("conditions", slug)).includes(locale)
+    ? locale
+    : "en";
   const t = await getTranslations("conditions");
 
   return (
@@ -61,6 +65,7 @@ export default async function ConditionPage({ params }: PageProps) {
       sectionTitle={t("title")}
       sectionHref="/conditions"
       description={metaDescription(doc)}
+      contentLocale={contentLocale}
     />
   );
 }

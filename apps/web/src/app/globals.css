@@ -249,3 +249,50 @@ body:has(.app-bottom-bar):has(.crisis-launcher) {
   }
 }
 
+/* Motion moments (v3 P1.3, docs/30_REVAMP/03 §3.4). Both are CSS-only and both stop
+   under the global reduced-motion rule.
+
+   .reveal: a section rises 12px and fades in as it scrolls into view. Driven by the
+   scroll position itself (`animation-timeline: view()`), so there is no observer, no
+   script and no layout cost. Browsers without scroll-driven animations get no
+   animation and a fully visible section: the `@supports` gate means the content can
+   never be stuck invisible.
+
+   .band-breathe: the prediction window's light swells and settles over 4.8s. The one
+   uncertain thing on the card is the one thing that moves. */
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) {
+    .reveal {
+      animation: reveal-rise linear both;
+      animation-timeline: view();
+      animation-range: entry 0% entry 40%;
+    }
+  }
+}
+@keyframes reveal-rise {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+@media (prefers-reduced-motion: no-preference) {
+  .band-breathe {
+    animation: band-breathe 4.8s ease-in-out infinite;
+  }
+}
+@keyframes band-breathe {
+  0%,
+  100% {
+    opacity: 0.85;
+    transform: scaleY(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scaleY(1.35);
+  }
+}
+

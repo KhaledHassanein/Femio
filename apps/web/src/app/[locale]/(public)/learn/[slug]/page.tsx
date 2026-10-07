@@ -53,6 +53,8 @@ export default async function ArticlePage({ params }: PageProps) {
   setRequestLocale(locale);
   const doc = await getContentBySlug("articles", locale, slug);
   if (!doc) notFound();
+  // Which language the text is really in (English is the fallback for every locale).
+  const contentLocale = (await availableLocales("articles", slug)).includes(locale) ? locale : "en";
   const t = await getTranslations("learn");
 
   return (
@@ -62,6 +64,7 @@ export default async function ArticlePage({ params }: PageProps) {
       sectionTitle={t("title")}
       sectionHref="/learn"
       description={metaDescription(doc)}
+      contentLocale={contentLocale}
     />
   );
 }
