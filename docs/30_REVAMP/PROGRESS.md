@@ -9,8 +9,8 @@ work.** Marks: `[ ]` open · `[~]` in progress · `[x]` done (commit) · `[BLOCK
 - [x] P0.2 · Vercel ignored-build step per app; Sentry noise filter; Dependabot monthly (`0b62436`)
 - [x] P0.3 · Audit, market research, plan, single `OWNER_ACTIONS.md`
 - [x] P0.4 · Governance collapse: short `STATE.md`; superseded plans and runbooks → `docs/archive/`; V1 Flutter reference removed from tree
-- [x] P0.5 · Migration `0024`: guarded drop of `content`, `content_i18n`, `content_history` (owner applies: C6)
-- [~] P0.6 · CMS lists select only their fields: 2.1 MB → 4.2 KB, now cacheable (`544bac0`) — this was ~8 MB of DB egress per article view. ISR switch still open (verify a 404 stays a 404)
+- [x] P0.5 · Migration `0024`: guarded drop of `content`, `content_i18n`, `content_history`; `0025`: advisor hardening (owner applies both: C6)
+- [x] P0.6 · CMS lists select only their fields: 2.1 MB → 4.2 KB (`544bac0`); article/condition/author pages are ISR (hourly), verified MISS → HIT and 404 for unknown slugs in en+ar. Root cause of the error emails confirmed in Supabase logs: `EMAXCONNSESSION` (pool exhaustion), hundreds/day
 
 ## Phase 1 — Design language v3 "Dusk Bloom"
 

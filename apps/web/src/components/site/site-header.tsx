@@ -1,4 +1,4 @@
-import { getLocale, getTranslations } from "next-intl/server";
+import { getTranslations } from "next-intl/server";
 import { LifeBuoy, Search } from "lucide-react";
 import { Link } from "@/i18n/navigation";
 import { ThemeToggle } from "@/components/theme-toggle";
@@ -20,11 +20,11 @@ const LINKS = [
   { href: "/glossary", key: "glossary" },
 ] as const;
 
-export async function SiteHeader() {
-  const t = await getTranslations("nav");
+export async function SiteHeader({ locale }: { locale: string }) {
+  const t = await getTranslations({ locale, namespace: "nav" });
   // The approved, verbatim crisis copy (ADR-013), not a new string: a woman looking
   // for help reads the same words here as on the launcher and in the dialog.
-  const crisis = getCrisisContent(await getLocale());
+  const crisis = getCrisisContent(locale);
 
   return (
     <header className="sticky top-0 z-sticky border-b border-border/70 bg-bg/85 backdrop-blur-md supports-[backdrop-filter]:bg-bg/70">

@@ -27,9 +27,9 @@ const LEGAL = [
 
 const linkClass = "text-white/70 transition-colors duration-fast hover:text-white";
 
-export async function SiteFooter() {
-  const nav = await getTranslations("nav");
-  const t = await getTranslations("footer");
+export async function SiteFooter({ locale }: { locale: string }) {
+  const nav = await getTranslations({ locale, namespace: "nav" });
+  const t = await getTranslations({ locale, namespace: "footer" });
   const year = new Date().getFullYear();
 
   const column = (title: string, links: readonly { href: string; key: string }[]) => (
