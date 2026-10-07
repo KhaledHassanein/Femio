@@ -23,8 +23,8 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 /**
  * `/search`, and deliberately **public** (D4).
  *
- * Everything it searches — articles, conditions, the glossary — is public, and
- * migration `0022` grants the search function to `anon` for exactly this reason.
+ * Everything it searches (articles, conditions, the glossary) is public, and the
+ * index it ranks over is a static file built from published content (P2.2).
  * Putting it behind the app's auth gate would mean the one place a visitor can
  * look something up requires an account first, which inverts what the content site
  * is for.
