@@ -35,9 +35,9 @@ work.** Marks: `[ ]` open · `[~]` in progress · `[x]` done (commit) · `[BLOCK
 
 ## Phase 3 — The Android app (D7, D8; spec `04_ANDROID_APP_SPEC.md`)
 
-- [ ] P3.1 · Flutter project in `apps/mobile`: Dusk Bloom theme from the tokens, AR/EN/FR/ES + RTL, local encrypted store behind `Store`
-- [ ] P3.2 · Cycle and pregnancy maths in Dart with the shared golden fixtures (twin of `lib/calculators`, `lib/cycle`)
-- [ ] P3.3 · Onboarding: five questions, under a minute, first prediction at the end (spec §3)
+- [x] P3.1 · **Flutter app in `apps/mobile`** (ID `com.femioapp.femio`): colours generated from the web token CSS (`tokens-to-dart.mjs`, 191 colours light + dark, gate-checked); Newsreader / Plus Jakarta Sans / IBM Plex Sans Arabic bundled; AR/EN/FR/ES with RTL and Western digits; `FemioStore` with a private-file implementation (no network); Dusk Bloom app icon; CI job `verify-mobile`. Keystore encryption and app lock stay with P3.8 (2026-10-08)
+- [~] P3.2 · **Prediction and pregnancy maths in Dart**, passing the same `fixtures/domain` files as the web (cycle-prediction, gestational-age, new `edd-from`: due date from LMP, conception or IVF transfer per ACOG CO 700, added to both languages). Persona/phase/experience fixtures listed as deferred; the period-forecast and test-timing calculators still to port
+- [x] P3.3 · **Onboarding to the competitor standard**: welcome (language), goal, birth year (under 18 → the guides), last period / period length / cycle length (not sure, irregular), trying-for (TTC), four ways to date a pregnancy plus "I've had my baby", menopause last period; nothing asks about conditions. Ends on Today with her first prediction (range + confidence, fertile window as awareness, pregnancy week and trimester). Screens shot in en/ar light/dark; release APK built. Reminders step moves to P3.8 with local notifications, rather than asking for something v1 cannot yet do
 - [ ] P3.4 · Today + calendar + log (period, symptoms, mood)
 - [ ] P3.5 · TTC toolkit: fertile window, ovulation tests, BBT, test timing, trying-time nudge
 - [ ] P3.6 · Pregnancy: week-by-week, due date, kick counter, contraction timer, appointments
@@ -56,6 +56,7 @@ work.** Marks: `[ ]` open · `[~]` in progress · `[x]` done (commit) · `[BLOCK
 
 | When | What | Commit |
 |---|---|---|
+| 2026-10-08 | Android app started: P3.1, P3.3 done, P3.2 underway; first APK to the owner | this commit |
 | 2026-10-07 | D7 + D8: private Android app is the product; website promotes it; onboarding respecified to the competitor standard | this commit |
 | 2026-10-07 | Phase 1 started: Dusk Bloom palette + type, aurora hero, header, compact crisis launcher | this commit |
 | 2026-10-07 | CMS list queries 2.1 MB → 4.2 KB (the likely usage-alert cause) | `544bac0` `3d8df90` |

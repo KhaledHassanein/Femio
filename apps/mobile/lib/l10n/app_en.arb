@@ -1,0 +1,146 @@
+{
+  "@@locale": "en",
+  "appTitle": "femio",
+  "welcomeTitle": "Your cycle, your plans, your pregnancy.",
+  "welcomeBody": "Your records stay on this phone. No account, and Femio never sees them.",
+  "language": "Language",
+  "getStarted": "Get started",
+  "continueLabel": "Continue",
+  "back": "Back",
+  "notSure": "Not sure",
+  "goalTitle": "What brings you to femio?",
+  "goalSub": "You can change this any time.",
+  "goalPeriod": "Track my period",
+  "goalPeriodDesc": "Know when it's coming, and what's usual for you.",
+  "goalTtc": "Get pregnant",
+  "goalTtcDesc": "Your fertile window and likely ovulation.",
+  "goalPregnant": "I'm pregnant",
+  "goalPregnantDesc": "Week by week, and your due date.",
+  "goalMenopause": "Perimenopause & menopause",
+  "goalMenopauseDesc": "Changing cycles and symptoms.",
+  "birthYearTitle": "What year were you born?",
+  "birthYearSub": "Cycles change with age, so this shapes what Femio expects. Only the year.",
+  "under18Title": "The tracker is for adults, for now",
+  "under18Body": "Femio's tracker is for women aged 18 and over in this first version. Every guide on femioapp.com is open to you, with no account.",
+  "lastPeriodTitle": "When did your last period start?",
+  "lastPeriodSub": "The first day of bleeding.",
+  "dontRemember": "I don't remember",
+  "periodLengthTitle": "How many days does your period usually last?",
+  "cycleLengthTitle": "How long is your cycle usually?",
+  "cycleLengthSub": "From the first day of one period to the first day of the next.",
+  "irregular": "My cycles are irregular",
+  "daysValue": "{count, plural, =1{1 day} other{{count} days}}",
+  "tryingTitle": "How long have you been trying?",
+  "tryingJustStarted": "Just starting",
+  "tryingUnder6": "Under 6 months",
+  "trying6to12": "6 to 12 months",
+  "tryingOver12": "Over a year",
+  "dueMethodTitle": "How should we work out your due date?",
+  "dueMethodKnown": "I know my due date",
+  "dueMethodLmp": "First day of my last period",
+  "dueMethodConception": "Conception date",
+  "dueMethodIvf3": "IVF transfer (day-3 embryo)",
+  "dueMethodIvf5": "IVF transfer (day-5 embryo)",
+  "dueMethodBorn": "I've had my baby",
+  "dueDateTitle": "What is your due date?",
+  "conceptionTitle": "When did you conceive?",
+  "transferTitle": "When was your embryo transfer?",
+  "birthDateTitle": "When was your baby born?",
+  "implausibleDue": "That date doesn't look like a current pregnancy. Please check it.",
+  "menoLastTitle": "When was your last period?",
+  "menoOverYear": "Over a year ago",
+  "predictionPeriodTitle": "Your next period",
+  "predictionFertileTitle": "Your fertile window",
+  "predictionOvulation": "Likely ovulation: {date}",
+  "predictionNextPeriod": "Next period around {range}",
+  "rangeValue": "{start} – {end}",
+  "confidenceLow": "Low confidence: it sharpens as you log your periods",
+  "confidenceMedium": "Medium confidence",
+  "confidenceHigh": "High confidence",
+  "basisStated": "Based on the cycle length you told us",
+  "irregularNote": "Your cycles vary, so Femio shows a wider range and never counts days late.",
+  "noPredictionTitle": "Log your next period",
+  "noPredictionBody": "When your period starts, log it and Femio will predict the next one.",
+  "pregnancyWeek": "Week {weeks}, day {days}",
+  "trimesterLabel": "Trimester {n}",
+  "dueDateLabel": "Due date around {date}",
+  "postpartumWeeks": "{weeks, plural, =0{Your baby is less than a week old} =1{1 week since your baby was born} other{{weeks} weeks since your baby was born}}",
+  "menoMonths": "{months, plural, =0{Your last period was less than a month ago} =1{1 month since your last period} other{{months} months since your last period}}",
+  "menoUnknown": "Log any bleeding or symptoms and Femio keeps the record for your clinician.",
+  "awarenessNote": "Estimates for awareness and planning, not a way to avoid pregnancy.",
+  "seeClinicianTtc": "Trying for over a year (or six months if you are 35 or older) is a good time to talk to a clinician.",
+  "privacyLine": "Stored on this phone only.",
+  "logPeriodToday": "My period started today",
+  "loggedToday": "Logged. Your prediction is updated.",
+  "startOver": "Start again",
+  "todayTitle": "Today",
+  "@daysValue": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "@predictionOvulation": {
+    "placeholders": {
+      "date": {
+        "type": "String"
+      }
+    }
+  },
+  "@predictionNextPeriod": {
+    "placeholders": {
+      "range": {
+        "type": "String"
+      }
+    }
+  },
+  "@rangeValue": {
+    "placeholders": {
+      "start": {
+        "type": "String"
+      },
+      "end": {
+        "type": "String"
+      }
+    }
+  },
+  "@pregnancyWeek": {
+    "placeholders": {
+      "weeks": {
+        "type": "int"
+      },
+      "days": {
+        "type": "int"
+      }
+    }
+  },
+  "@trimesterLabel": {
+    "placeholders": {
+      "n": {
+        "type": "int"
+      }
+    }
+  },
+  "@dueDateLabel": {
+    "placeholders": {
+      "date": {
+        "type": "String"
+      }
+    }
+  },
+  "@postpartumWeeks": {
+    "placeholders": {
+      "weeks": {
+        "type": "int"
+      }
+    }
+  },
+  "@menoMonths": {
+    "placeholders": {
+      "months": {
+        "type": "int"
+      }
+    }
+  }
+}

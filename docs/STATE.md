@@ -42,9 +42,17 @@ Search it by feature name when you need the history of a decision. It is not req
 - **Branch:** `claude/epic-planck-5y8geb`, restarted from `main` after each merge.
 - **Connectors:** Supabase, Vercel (full scope since 2026-10-07), GitHub. Supabase region is
   `eu-west-1` (Ireland), not Frankfurt.
+- **Android app (2026-10-08):** `apps/mobile`, onboarding + Today done (P3.1, P3.3),
+  maths twinned with the web through `fixtures/domain` (P3.2 underway). Application ID
+  `com.femioapp.femio` is permanent once on Play. Next: P3.4 (Today, calendar, log).
 - **Flutter toolchain:** not preinstalled. A session downloads the newest stable release
   that is at least two weeks old into `/root/sdk/flutter` (3.47.5 on 2026-10-07); the Android
-  SDK command-line tools go beside it. Neither lives in the repo.
+  SDK command-line tools go beside it (`/root/sdk/android`; `sdkmanager` the platform,
+  build-tools and platform-tools; `flutter config --android-sdk /root/sdk/android`).
+  Neither lives in the repo. No Android emulator in the cloud (no KVM): screens are
+  checked with `flutter test --update-goldens test/screens_test.dart`, and the owner
+  tests the APK on a real phone. Run `git config --global --add safe.directory
+  /root/sdk/flutter` once, or every flutter command fails as root.
 
 ## The working loop
 

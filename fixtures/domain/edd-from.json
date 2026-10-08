@@ -1,0 +1,40 @@
+{
+  "$comment": "Due date from what she knows (onboarding, 04_ANDROID_APP_SPEC \u00a73). LMP +280; conception +266; IVF transfer +266 minus the embryo's age (ACOG Committee Opinion 700).",
+  "cases": [
+    {
+      "input": {
+        "method": "lmp",
+        "date": "2026-01-01"
+      },
+      "expected": "2026-10-08"
+    },
+    {
+      "input": {
+        "method": "conception",
+        "date": "2026-01-15"
+      },
+      "expected": "2026-10-08"
+    },
+    {
+      "input": {
+        "method": "transfer5",
+        "date": "2026-01-20"
+      },
+      "expected": "2026-10-08"
+    },
+    {
+      "input": {
+        "method": "transfer3",
+        "date": "2026-01-18"
+      },
+      "expected": "2026-10-08"
+    },
+    {
+      "input": {
+        "method": "lmp",
+        "date": "2026-02-30"
+      },
+      "expected": null
+    }
+  ]
+}

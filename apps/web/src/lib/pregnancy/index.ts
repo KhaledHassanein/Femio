@@ -77,6 +77,26 @@ export function eddFromLmp(lmpISO: string): string | null {
 }
 
 /**
+ * Estimated due date from a conception date: 266 days, the 280 less the two weeks
+ * before ovulation that an LMP count includes. Twin of `eddFromConception` in
+ * `apps/mobile/lib/domain/pregnancy.dart` (fixture `edd-from.json`).
+ */
+export function eddFromConception(conceptionISO: string): string | null {
+  if (!isValidISODate(conceptionISO)) return null;
+  return addDays(conceptionISO, GESTATION_DAYS - 14);
+}
+
+/**
+ * Estimated due date from an IVF embryo transfer: 266 days less the embryo's age at
+ * transfer (3 or 5 days). ACOG Committee Opinion 700, "Methods for Estimating the Due
+ * Date". Twin of `eddFromTransfer` in the Dart app.
+ */
+export function eddFromTransfer(transferISO: string, embryoDays: 3 | 5): string | null {
+  if (!isValidISODate(transferISO)) return null;
+  return addDays(transferISO, GESTATION_DAYS - 14 - embryoDays);
+}
+
+/**
  * Is this a date someone could plausibly be pregnant against today?
  * Guards the setup form: a due date years out or long past is a typo, and a week
  * counter built on a typo is worse than an empty state.

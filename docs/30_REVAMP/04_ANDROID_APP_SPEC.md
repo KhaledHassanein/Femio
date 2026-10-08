@@ -48,14 +48,14 @@ log a period") rather than assumed silently.
 |---|---|---|---|
 | 0 | **Welcome** | Language (العربية · English · Français · Español), "Get started" | One line of promise: *Your records stay on this phone.* Wordmark always "femio" |
 | 1 | **What brings you to femio?** | Track my period · Get pregnant · I'm pregnant · Perimenopause & menopause | One tap, then next. "I recently gave birth" lives inside *I'm pregnant* (step 3b). No teen, no "not sure" here: anyone can change goal in one tap later |
-| 2 | **What year were you born?** | Year wheel | Under 18 → the tracker is 18+ at launch (D7); she is pointed to the articles and the website, which stay open to everyone (rule 2) |
+| 2 | **What year were you born?** | Year wheel (it rests on a central year, as wheels do; Continue confirms it) | Under 18 → the tracker is 18+ at launch (D7); she is pointed to the articles and the website, which stay open to everyone (rule 2) |
 | 3a | *Period / Get pregnant:* **When did your last period start?** | Calendar · "I don't remember" | |
 | 3a | **How many days does your period usually last?** | Stepper (default shown, not chosen) · Not sure | |
 | 3a | **How long is your cycle usually?** | Stepper · Not sure · **My cycles are irregular** | Irregular switches predictions to wider ranges and no "late" counter (rule 3) |
 | 3a | *Get pregnant only:* **How long have you been trying?** | Just starting · Under 6 months · 6–12 months · Over a year | Drives the "talk to a clinician" nudge at 12 months (6 if 35+) |
 | 3b | *I'm pregnant:* **How should we work out your due date?** | I know my due date · First day of last period · Conception date · IVF transfer date · I've had my baby | Shows the week straight away; "had my baby" → postpartum |
 | 3c | *Menopause:* **When was your last period?** | Calendar · Over a year ago · Not sure | |
-| 4 | **Reminders?** | "Remind me 2 days before my period" (or the fertile window, or a weekly pregnancy update) · Not now | Asked in context, local notifications only |
+| 4 | **Reminders?** | "Remind me 2 days before my period" (or the fertile window, or a weekly pregnancy update) · Not now | Asked in context, local notifications only. **Ships with P3.8**: v1's first build does not ask for what it cannot yet do |
 | 5 | **Your first prediction** | — | Her next period / fertile window / pregnancy week, as a range with a confidence word. This is the payoff: value on the first screen, not a blank dashboard |
 
 **Conditions are not asked in onboarding.** PCOS, endometriosis, thyroid and the rest

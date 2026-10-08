@@ -176,6 +176,29 @@ jobs:
       - name: Build (cms)
         run: pnpm --filter cms build
 
+  # The Android app (D8, ADR-070). Analyze and test only: a release build needs the
+  # owner's signing key, which never lives in CI. The golden fixtures it loads are the
+  # same files `verify` runs against the TypeScript twins, so a change to either
+  # language that breaks agreement fails here or there.
+  verify-mobile:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: apps/mobile
+    steps:
+      - uses: actions/checkout@v7
+      - uses: subosito/flutter-action@v2
+        with:
+          flutter-version: 3.47.5
+          channel: stable
+          cache: true
+      - name: Dependencies
+        run: flutter pub get
+      - name: Analyze
+        run: flutter analyze
+      - name: Test (golden fixtures, onboarding walk-through)
+        run: flutter test
+
   # Citation link rot is a slow, silent failure on health content: a source that
   # 404s undermines the page it supports, and nobody notices by reading. This
   # resolves every source URL in every draft, weekly and on demand — kept out of
