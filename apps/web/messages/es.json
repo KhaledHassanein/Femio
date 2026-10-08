@@ -72,8 +72,8 @@
           "detail": "— el árabe de derecha a izquierda desde la primera línea de código, no una capa añadida después."
         },
         "reviewed": {
-          "claim": "Cada guía la revisa personal clínico",
-          "detail": "— con nombre, credenciales y enlace a su biografía."
+          "claim": "Las guías revisadas dicen quién las revisó",
+          "detail": "— personal clínico con nombre y credenciales, enlazado a su biografía, en cada página que revisó."
         }
       }
     },

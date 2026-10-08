@@ -72,8 +72,8 @@
           "detail": "— Arabic right-to-left from the first line of code, not a layer added later."
         },
         "reviewed": {
-          "claim": "Every guide is reviewed by a clinician",
-          "detail": "— named, with credentials, and linked to their bio."
+          "claim": "Reviewed guides say who reviewed them",
+          "detail": "— a named clinician with credentials, linked to their bio, on each page they reviewed."
         }
       }
     },

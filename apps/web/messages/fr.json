@@ -72,8 +72,8 @@
           "detail": "— l'arabe de droite à gauche dès la première ligne de code, pas une couche ajoutée après."
         },
         "reviewed": {
-          "claim": "Chaque guide est relu par une clinicienne ou un clinicien",
-          "detail": "— nommé, avec ses titres, et lié à sa biographie."
+          "claim": "Les guides relus indiquent qui les a relus",
+          "detail": "— une clinicienne ou un clinicien nommé, avec ses titres et un lien vers sa biographie, sur chaque page relue."
         }
       }
     },

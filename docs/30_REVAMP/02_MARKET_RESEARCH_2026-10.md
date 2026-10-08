@@ -466,7 +466,7 @@ Blunt, as asked.
   an investor or insurer.
 - **An AI-built codebase** carries maintenance and security risk proportional to its size,
   and its quality has not been validated by an outside reviewer or by load.
-- **31 articles** against Altibbi's 2M+ pages; and the Arabic content is not yet at parity
+- **100 articles (English only; 25 with a named reviewer)** against Altibbi's 2M+ pages; and the Arabic content is not yet at parity
   with the English (TD-08 in `docs/28/07`).
 - **73 personas is a liability at launch**: it invites building for everyone. It is the
   right model for the engine and the wrong scope for the first release.
@@ -610,7 +610,7 @@ Arabic tagline candidates for testing (copy needs native-speaker and clinician r
 | 7 | **Ramadan mode** — seasonal hub for fasting in pregnancy and with PCOS/diabetes, red-flag box, optional worship-day counters (no rulings) | Gap #3; annual acquisition moment | Content + small tool |
 | 8 | **Verifiable privacy** — no-account/anonymous start, app lock + discreet icon, plain-Arabic data map, export/delete, zero third-party SDKs | Gap #4; regulatory gate | Mostly built on web; needs mobile parity and an anonymous mode |
 | 9 | **Husband/partner share** — read-only link to fertile window or pregnancy week, opt-in, revocable | Flo for Partners and Clue Connect show demand; marriage-context fit in MENA | Not built |
-| 10 | **Referenced Arabic content library** — clinician-bylined articles, short videos and WhatsApp-shareable cards for the wedge's top 50 questions | Acquisition engine (SEO/ASO) and trust; Arabic is 0.6% of the web | 31 articles; Arabic parity is TD-08 |
+| 10 | **Referenced Arabic content library** — clinician-bylined articles, short videos and WhatsApp-shareable cards for the wedge's top 50 questions | Acquisition engine (SEO/ASO) and trust; Arabic is 0.6% of the web | 100 English articles, 0 Arabic; Arabic parity is TD-08 |
 
 **Free vs paid at launch.** Keep tracking, predictions, pregnancy weeks, the Ramadan hub and
 the privacy features free. Put depth behind the paywall: PCOS programme, the visit pack's

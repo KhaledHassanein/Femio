@@ -1,5 +1,20 @@
 # Competitor benchmark: Arabic-first TTC and pregnancy wedge
 
+> **Lead review, 2026-10-08: accepted.** Spot-checked against primary sources: our own
+> snapshot (100 English articles, 0 Arabic; 26 with an author, 25 with a reviewer, confirmed),
+> Flo's Saudi App Store listing (no Arabic, confirmed), Ramadan 2027 (~8 February per the UAE
+> Astronomy Centre, confirmed). Semrush figures are taken as estimates.
+>
+> - **Acted on now:** the homepage said "Every guide is reviewed by a clinician"; 25 of 100
+>   are. The claim now says only what is true and the docs that repeated it are corrected.
+> - **Into PROGRESS:** P0-1 → P4.0 (Arabic top-50, Ramadan first), reviewer bylines → P4.0b,
+>   P0-3/P0-4 → P3.10 (Hijri, ultrasound dating), P0-5 topics → P3.7, P0-2 remainder stays
+>   in P3.6. P0-6/7/8 were already P3.8/P4.1/P4.2.
+> - **Held:** the make-up-fast counter (P0-9) goes to P1: a religious-practice tool needs the
+>   owner's call and no clinical review, and the content is the deadline. P1/P2 stay in this
+>   file as the backlog to draw from after launch.
+
+
 Prepared 2026-10-08 by a delegated research pass (Sonnet) for the lead session to review. Nothing here has been committed or merged into other docs. Builds on `02_MARKET_RESEARCH_2026-10.md`, `28_TEARDOWN/06_COMPARISON_MATRICES.md` and `07_GAP_REGISTER.md`; those are not repeated.
 
 ## 0. Read this first

@@ -32,7 +32,7 @@ Search it by feature name when you need the history of a decision. It is not req
 - **PR #22 merged 2026-10-07 20:14 UTC.** 0024, 0025 and the Payload 3.90 column are
   applied and recorded (verified via the connector).
 - **Live:** `femioapp.com` + `femio-cms.vercel.app`; **100 articles** + 5 condition hubs,
-  clinician-bylined, shipped inside the web build (`src/content/snapshot/`). Payload stays
+  all cited, 25 with a named clinician reviewer (the homepage says only that), shipped inside the web build (`src/content/snapshot/`). Payload stays
   the editor until P2.8 retires it ("publish the new articles" = run the snapshot script).
 - **Health:** `pnpm gate` green, 971 unit tests. Web on Next 15.5.27, CMS on Payload 3.90.2.
 - **Branch:** `claude/epic-planck-5y8geb`, restarted from `main` after each merge.

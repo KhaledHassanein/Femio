@@ -76,6 +76,11 @@ Nothing medical is published in Arabic without a named reviewer. Either name a c
 (ideally OB-GYN: name, credentials, one-line bio) or tell Claude you will review Arabic
 yourself, and it is recorded that way.
 
+The same reviewer is needed in English too: 25 of the 100 guides on the website name a
+reviewer and 75 do not yet. The homepage now says only that a reviewed guide names its
+reviewer. If you review them yourself, Claude adds your name, credentials and bio once,
+and they appear on each guide you approve.
+
 ## Step 6 · Google Search Console (10 min, any time) ☐
 
 This tells Google your site exists and shows what people search to find it.
