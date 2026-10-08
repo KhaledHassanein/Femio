@@ -33,8 +33,14 @@ const BUDGETS: Array<{ path: string; maxKb: number; measuredKb: number }> = [
   // grouped footer add ~8 KB of rendered markup to every public page; /en measured
   // 98 KB raw, 18 KB gzipped. Raised deliberately; the client i18n payload did not
   // grow (the namespace check below still guards it).
-  { path: "/en", maxKb: 104, measuredKb: 98 },
-  { path: "/en/calculators", maxKb: 57, measuredKb: 45 },
+  // P2.3 (2026-10-08): the homepage became the app's front door (D8): drawn phone, goal
+  // cards, five calculator links, a privacy section, feminine motifs. 132 KB raw, ~24 KB
+  // gzipped; all rendered content. The same change took the calculator and sign-in strings
+  // off every page (CALCULATOR_ and AUTH_CLIENT_NAMESPACES), which saved ~12 KB here.
+  { path: "/en", maxKb: 165, measuredKb: 132 },
+  // P2.6: seven calculators with icons, and the calculator strings now load on this page
+  // (their own layout) instead of everywhere. 61 KB raw.
+  { path: "/en/calculators", maxKb: 76, measuredKb: 61 },
   // Arabic is the heaviest locale — non-Latin script costs more bytes per character.
   { path: "/ar/learn", maxKb: 185, measuredKb: 170 },
 ];

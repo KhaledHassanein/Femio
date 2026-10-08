@@ -56,15 +56,21 @@ try {
   const source = readFileSync(LIST_FILE, "utf8");
   const names = new Set();
   let found = 0;
-  for (const listName of ["PUBLIC_CLIENT_NAMESPACES", "APP_CLIENT_NAMESPACES"]) {
+  const LISTS = [
+    "PUBLIC_CLIENT_NAMESPACES",
+    "APP_CLIENT_NAMESPACES",
+    "CALCULATOR_CLIENT_NAMESPACES",
+    "AUTH_CLIENT_NAMESPACES",
+  ];
+  for (const listName of LISTS) {
     const block = source.match(new RegExp(`${listName}\\s*=\\s*\\[([\\s\\S]*?)\\]`));
     if (!block) continue;
     found += 1;
     for (const m of block[1].matchAll(/"([^"]+)"/g)) names.add(m[1]);
   }
-  if (found !== 2) {
+  if (found !== LISTS.length) {
     throw new Error(
-      "expected both PUBLIC_CLIENT_NAMESPACES and APP_CLIENT_NAMESPACES — " +
+      `expected all of ${LISTS.join(", ")} — ` +
         `found ${found}. If the lists were renamed or merged, update this guard in the ` +
         "same change rather than letting it check a subset.",
     );
