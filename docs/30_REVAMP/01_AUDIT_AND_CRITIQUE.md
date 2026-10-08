@@ -33,7 +33,7 @@ one launch date.
 | **Honest predictions** | Ranges with confidence, a "why this window" explanation, no "late" counter in irregular mode. This is a real differentiator and matches the #2 user complaint about competitors. |
 | **Arabic RTL** | Built in, not bolted on. Logical properties, bidi traps found and fixed, Arabic crisis copy reviewed. Flo has **no Arabic at all** (research §1), which makes this Femio's single biggest structural advantage. |
 | **Privacy posture** | No ad SDKs, EU hosting, consent manager, export/delete, scrubbed telemetry, a strict CSP. This is a moat as Saudi and Egyptian enforcement starts (research §2.3). |
-| **Content** | **100 published, clinician-bylined, cited articles** (not 31 as `STATE.md` still says), plus 5 condition hubs, 5 calculators and a postgres full-text search with Arabic stemming. |
+| **Content** | **100 published, cited articles, 25 with a named clinician reviewer** (corrected 2026-10-08; this line once said all 100 were bylined) (not 31 as `STATE.md` still says), plus 5 condition hubs, 5 calculators and a postgres full-text search with Arabic stemming. |
 | **The guards** | Claims-language, crisis, analytics-privacy, i18n, token parity, tier-1 portability. Cheap to run, and each one encodes a lesson that was paid for. |
 | **Tier-1/tier-2 split** | Medical decisions live in pure, portable TypeScript with golden fixtures. This is exactly what makes a Flutter client affordable later. |
 

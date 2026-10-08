@@ -2,6 +2,17 @@ import { describe, expect, it } from "vitest";
 import { readFileSync, readdirSync } from "node:fs";
 import { join } from "node:path";
 import { predictNextPeriod } from "./cycle/predict";
+import { bbtChart, type FertilityEntry } from "./fertility";
+import { inProgress, summarize, timeContractions, type Contraction } from "./contractions";
+import { comparePattern, type MovementSession } from "./pregnancy/movements";
+import { weightChart, type WeightEntry } from "./vitals/weight";
+import {
+  awaitingResults,
+  daysUntil,
+  nextAppointment,
+  splitAppointments,
+  type Appointment,
+} from "./appointments";
 import { eddFromConception, eddFromLmp, eddFromTransfer, pregnancyProgress } from "./pregnancy";
 import { phaseFor, phaseForTrack } from "./experience/phase";
 import { resolvePersona } from "./persona/resolver";
@@ -43,6 +54,47 @@ const REGISTRY = registryOf(PERSONA_RECORDS);
 const RUNNERS: Record<string, (input: never) => unknown> = {
   "cycle-prediction": (i: { starts: string[]; statedCycleLength?: number }) =>
     predictNextPeriod(i.starts, i.statedCycleLength),
+  "bbt-chart": (i: { cycleStart: string | null; entries: Array<{ id: string; loggedAt: string; bbt: number }> }) => {
+    const r4 = (n: number) => Math.round(n * 10_000) / 10_000;
+    const entries: FertilityEntry[] = i.entries.map((e) => ({ ...e, opk: null, cm: null, intercourse: null }));
+    const chart = bbtChart(entries, i.cycleStart);
+    return chart && { ...chart, low: r4(chart.low), high: r4(chart.high), points: chart.points.map((p) => ({ ...p, y: r4(p.y) })) };
+  },
+  contractions: (i: { contractions: Contraction[] }) => {
+    const timed = timeContractions(i.contractions);
+    return {
+      timed: timed.map(({ id, durationSeconds, intervalSeconds }) => ({ id, durationSeconds, intervalSeconds })),
+      summary: summarize(timed),
+      inProgress: inProgress(timed)?.id ?? null,
+    };
+  },
+  "movement-pattern": (i: { sessions: MovementSession[] }) => {
+    const r4 = (n: number) => Math.round(n * 10_000) / 10_000;
+    const r = comparePattern(i.sessions);
+    return r.status === "insufficient"
+      ? r
+      : {
+          ...r,
+          typicalMinutesPerMovement: r4(r.typicalMinutesPerMovement),
+          latestMinutesPerMovement: r4(r.latestMinutesPerMovement),
+          ratio: r4(r.ratio),
+        };
+  },
+  "weight-chart": (i: { entries: WeightEntry[] }) => {
+    const r4 = (n: number) => Math.round(n * 10_000) / 10_000;
+    const c = weightChart(i.entries);
+    return c && { ...c, low: r4(c.low), high: r4(c.high), points: c.points.map((p) => ({ ...p, y: r4(p.y) })) };
+  },
+  appointments: (i: { today: string; appointments: Appointment[] }) => {
+    const s = splitAppointments(i.appointments, i.today);
+    return {
+      upcoming: s.upcoming.map((a) => a.id),
+      past: s.past.map((a) => a.id),
+      next: nextAppointment(i.appointments, i.today)?.id ?? null,
+      awaiting: awaitingResults(i.appointments, i.today).map((a) => a.id),
+      daysUntil: Object.fromEntries(i.appointments.map((a) => [a.id, daysUntil(a, i.today)])),
+    };
+  },
   "edd-from": (i: { method: "lmp" | "conception" | "transfer3" | "transfer5"; date: string }) =>
     i.method === "lmp"
       ? eddFromLmp(i.date)

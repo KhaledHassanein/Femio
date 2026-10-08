@@ -1,0 +1,99 @@
+{
+  "$comment": "Appointments (lib/appointments): when, with whom, what to ask, when a result is due back. Never a result: 'awaiting' only ever means 'it may be worth asking'.",
+  "cases": [
+    {
+      "$comment": "Split by day (today's counts as upcoming), soonest first ahead, newest first behind; undated leads. Awaiting = results-due date passed. Days until from today.",
+      "input": {
+        "today": "2026-10-08",
+        "appointments": [
+          {
+            "id": "past1",
+            "clinician": null,
+            "type": null,
+            "datetime": "2026-09-20T09:00:00Z",
+            "prep": [],
+            "resultsDue": "2026-10-01"
+          },
+          {
+            "id": "past2",
+            "clinician": null,
+            "type": null,
+            "datetime": "2026-10-02T10:30:00Z",
+            "prep": [],
+            "resultsDue": "2026-10-20"
+          },
+          {
+            "id": "undated",
+            "clinician": null,
+            "type": null,
+            "datetime": null,
+            "prep": [],
+            "resultsDue": null
+          },
+          {
+            "id": "today",
+            "clinician": null,
+            "type": null,
+            "datetime": "2026-10-08T15:00:00Z",
+            "prep": [],
+            "resultsDue": null
+          },
+          {
+            "id": "soon",
+            "clinician": null,
+            "type": null,
+            "datetime": "2026-10-12T08:00:00Z",
+            "prep": [],
+            "resultsDue": null
+          },
+          {
+            "id": "later",
+            "clinician": null,
+            "type": null,
+            "datetime": "2026-11-03T11:00:00Z",
+            "prep": [],
+            "resultsDue": "2026-11-10"
+          }
+        ]
+      },
+      "expected": {
+        "upcoming": [
+          "undated",
+          "today",
+          "soon",
+          "later"
+        ],
+        "past": [
+          "past2",
+          "past1"
+        ],
+        "next": "today",
+        "awaiting": [
+          "past1"
+        ],
+        "daysUntil": {
+          "past1": -18,
+          "past2": -6,
+          "undated": null,
+          "today": 0,
+          "soon": 4,
+          "later": 26
+        }
+      }
+    },
+    {
+      "$comment": "Nothing booked.",
+      "input": {
+        "today": "2026-10-08",
+        "appointments": []
+      },
+      "expected": {
+        "upcoming": [],
+        "past": [],
+        "next": null,
+        "awaiting": [],
+        "daysUntil": {}
+      }
+    }
+  ]
+}

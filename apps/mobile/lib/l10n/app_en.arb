@@ -142,5 +142,289 @@
         "type": "int"
       }
     }
-  }
+  },
+  "logHappy": "Happy",
+  "logCalm": "Calm",
+  "logAnxious": "Anxious",
+  "logIrritable": "Irritable",
+  "logSad": "Sad",
+  "logMoodSwings": "Mood swings",
+  "logLowMotivation": "Low motivation",
+  "logTearfulness": "Tearfulness",
+  "logPanicFeelings": "Sudden panicky feelings",
+  "logCramps": "Cramps",
+  "logHeadache": "Headache",
+  "logBloating": "Bloating",
+  "logBreastTenderness": "Breast tenderness",
+  "logBackache": "Backache",
+  "logJointPain": "Joint pain",
+  "logMusclePain": "Muscle aches",
+  "logNausea": "Nausea",
+  "logConstipation": "Constipation",
+  "logDiarrhea": "Diarrhoea",
+  "logFatigue": "Fatigue",
+  "logAcne": "Acne",
+  "logHotFlashes": "Hot flushes",
+  "logNightSweats": "Night sweats",
+  "logSpotting": "Spotting",
+  "logHeartFlutters": "Heart fluttering or racing",
+  "logWeightChange": "A change in weight",
+  "logCravings": "Cravings",
+  "logInsomnia": "Trouble sleeping",
+  "logDizziness": "Dizziness",
+  "logBrainFog": "Brain fog",
+  "logLibidoUp": "Higher sex drive",
+  "logLibidoDown": "Lower sex drive",
+  "logVaginalDryness": "Vaginal dryness",
+  "logPainDuringSex": "Pain during sex",
+  "logBladderUrgency": "Needing to pee urgently or often",
+  "logBladderLeaks": "Leaking urine",
+  "logHairThinning": "Hair thinning",
+  "logDryItchySkin": "Dry or itchy skin",
+  "logBrittleNails": "Brittle nails",
+  "logGumSoreness": "Sore or bleeding gums",
+  "logBurningMouth": "Burning or tingling mouth",
+  "logTingling": "Tingling in hands or feet",
+  "logElectricShocks": "Brief electric-shock sensations",
+  "logBodyOdourChange": "A change in body odour",
+  "logTinnitus": "Ringing in the ears",
+  "logDry": "Dry",
+  "logSticky": "Sticky",
+  "logCreamy": "Creamy",
+  "logWatery": "Watery",
+  "logEggWhite": "Egg white",
+  "logIntercourse": "Intercourse",
+  "flowSpotting": "Spotting",
+  "flowLight": "Light",
+  "flowMedium": "Medium",
+  "flowHeavy": "Heavy",
+  "flowLabel": "Flow",
+  "navToday": "Today",
+  "navCalendar": "Calendar",
+  "navLog": "Log",
+  "calendarTitle": "Calendar",
+  "legendPeriod": "Period",
+  "legendSpotting": "Spotting",
+  "legendPredicted": "Period may start",
+  "legendFertile": "Fertile window",
+  "legendOvulation": "Likely ovulation",
+  "legendLogged": "Something logged",
+  "calendarHint": "Tap a day to log it. Estimates are shown in outline; what you log is filled in.",
+  "logTitle": "Log",
+  "sectionPeriod": "Period",
+  "flowNone": "None",
+  "sectionMood": "Mood",
+  "sectionSymptoms": "Symptoms",
+  "sectionDischarge": "Discharge",
+  "sectionMore": "More",
+  "previousDay": "Previous day",
+  "nextDay": "Next day",
+  "logSavedNote": "Saved on this phone as you tap.",
+  "logSymptomsButton": "Log how you feel",
+  "loggedTodayCount": "{count, plural, =0{Nothing logged today} =1{1 thing logged today} other{{count} things logged today}}",
+  "@loggedTodayCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "sectionOvulationTest": "Ovulation test",
+  "sectionTemperature": "Waking temperature",
+  "temperatureHint": "Taken before getting up, in °C or °F",
+  "temperatureSave": "Save",
+  "temperatureClear": "Clear",
+  "testTimingTitle": "When to test",
+  "testTimingBody": "If your period hasn't started by {date}, a home pregnancy test is reliable from that day.",
+  "@testTimingBody": {
+    "placeholders": {
+      "date": {
+        "type": "String"
+      }
+    }
+  },
+  "opkNegative": "Negative",
+  "opkLow": "Low",
+  "opkHigh": "High",
+  "opkPeak": "Peak",
+  "opkPositive": "Positive",
+  "bbtChartHeading": "Your temperatures",
+  "bbtChartNeedData": "Log three waking temperatures and your chart appears here. Fewer than that is a dot, not a pattern.",
+  "bbtChartNote": "These are your readings, drawn as they are. Femio does not mark a shift or name a day — what a chart means is a conversation for you and your clinician.",
+  "invalidBbt": "That does not look like a thermometer reading. Check the number and try again.",
+  "testTimingGeneral": "Most home tests work from the first day of a missed period. Testing earlier can give a negative result even if you are pregnant.",
+  "testTimingSource": "Source: NHS, Doing a pregnancy test.",
+  "pregDaysToGo": "{days, plural, one {{days} day to go} other {{days} days to go}}",
+  "@pregDaysToGo": {
+    "placeholders": {
+      "days": {
+        "type": "int"
+      }
+    }
+  },
+  "pregOverdue": "{days, plural, one {{days} day past your due date} other {{days} days past your due date}}",
+  "@pregOverdue": {
+    "placeholders": {
+      "days": {
+        "type": "int"
+      }
+    }
+  },
+  "pregTermFrom": "Full term from {date}",
+  "@pregTermFrom": {
+    "placeholders": {
+      "date": {
+        "type": "String"
+      }
+    }
+  },
+  "pregEstimateNote": "These dates are estimates based on the due date you entered. Your clinician may adjust it after a scan.",
+  "pregRedFlagsHeading": "Some symptoms need urgent care",
+  "pregRedFlagsBody": "Bleeding, severe headache, vision changes, severe abdominal pain, or reduced movements need to be checked straight away. Contact your maternity unit or local emergency services — do not wait.",
+  "contractionsHeading": "Contraction timer",
+  "contractionsIntro": "Press start when one begins and stop when it eases. Femio keeps the times so you have them when you call.",
+  "contractionsStart": "Start a contraction",
+  "contractionsStop": "It has eased",
+  "contractionsRunning": "Timing now",
+  "contractionsContactHeading": "Call your maternity unit whenever you need to",
+  "contractionsContactBody": "You do not need to reach a certain number first. Call if you are worried, if your waters break, if there is bleeding, or if the baby is moving less than usual.",
+  "contractionsSummaryHeading": "{count, plural, one {Your last contraction} other {Your last {count} contractions}}",
+  "@contractionsSummaryHeading": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "contractionsSummaryDuration": "Lasting about {value}",
+  "@contractionsSummaryDuration": {
+    "placeholders": {
+      "value": {
+        "type": "String"
+      }
+    }
+  },
+  "contractionsSummaryInterval": "About {value} apart, start to start",
+  "@contractionsSummaryInterval": {
+    "placeholders": {
+      "value": {
+        "type": "String"
+      }
+    }
+  },
+  "contractionsSummaryNote": "These are your times, as recorded. Femio does not decide what they mean — read them out to your midwife or maternity unit, who can.",
+  "movementsHeading": "Movement log",
+  "movementsIntro": "There is no normal number of movements. What matters is a change from your baby's usual pattern, so this records what you feel and shows you your own pattern over time.",
+  "movementsUrgentHeading": "If movements are less than usual",
+  "movementsUrgentBody": "Contact your maternity team now. Do not wait for this session to finish, and do not wait until tomorrow.",
+  "movementsStart": "Start a session",
+  "movementsStartBody": "Get comfortable, then start. Tap each time you feel a movement.",
+  "movementsTap": "I felt a movement",
+  "movementsCounted": "{count, plural, one {{count} movement recorded} other {{count} movements recorded}}",
+  "@movementsCounted": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "movementsFinish": "Finish and save",
+  "movementsFinishNote": "You can stop any time. The session saves either way.",
+  "movementsRecentHeading": "Your recent sessions",
+  "movementsSessionSummary": "{count, plural, one {{count} movement} other {{count} movements}} · about {minutes} min apart",
+  "@movementsSessionSummary": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      },
+      "minutes": {
+        "type": "String"
+      }
+    }
+  },
+  "movementsUnfinished": "Not finished",
+  "movementsSlowerHeading": "Movements were further apart than usual for you",
+  "movementsSlowerBody": "This is a change from your own recent sessions. What it means is for your maternity team to say, so contact them and let someone check.",
+  "movementsNeedMore": "After {count} sessions you will be able to compare with your own pattern.",
+  "@movementsNeedMore": {
+    "placeholders": {
+      "count": {
+        "type": "String"
+      }
+    }
+  },
+  "pregnancyToolsTitle": "Pregnancy tools",
+  "contractionsClear": "Clear these times",
+  "contractionsCleared": "Times cleared",
+  "contractionLength": "Length",
+  "contractionApart": "Apart",
+  "apptTitle": "Appointments",
+  "apptAdd": "Add an appointment",
+  "apptCancel": "Cancel",
+  "apptSave": "Save appointment",
+  "apptUntitled": "Appointment",
+  "apptNoDate": "No date yet",
+  "apptToday": "Today",
+  "apptInDays": "{days, plural, one {Tomorrow} other {In {days} days}}",
+  "@apptInDays": {
+    "placeholders": {
+      "days": {
+        "type": "int"
+      }
+    }
+  },
+  "apptPrepHeading": "What you wanted to ask",
+  "apptUpcoming": "Coming up",
+  "apptPast": "Past",
+  "apptNoResultsNote": "Femio keeps when it is, who it is with, and what you wanted to ask. It does not keep what was found — that belongs with your clinician, in your notes.",
+  "apptEmptyHeading": "Nothing here yet",
+  "apptEmptyBody": "Add an appointment and Femio will hold the questions you meant to ask, which is the part people forget in the room.",
+  "apptAwaitingHeading": "Still waiting to hear?",
+  "apptAwaitingBody": "{count, plural, one {You were expecting a result back by now for one of these.} other {You were expecting results back by now for {count} of these.}} It may be worth asking — results run late for all sorts of ordinary reasons.",
+  "@apptAwaitingBody": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "apptFormType": "What is it",
+  "apptFormTypePlaceholder": "Scan, blood test, check-up…",
+  "apptFormClinician": "Who with",
+  "apptFormWhen": "When",
+  "apptFormResultsDue": "Told to expect results by",
+  "apptFormResultsDueHint": "Optional. Femio will remind you to ask if the date passes — it never records what the result was.",
+  "apptFormPrep": "Questions you want to ask",
+  "apptFormPrepPlaceholder": "One per line",
+  "apptPrepCount": "{count, plural, one {{count} question saved} other {{count} questions saved}}",
+  "@apptPrepCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "weightHeading": "Weight",
+  "weightIntro": "Add a reading whenever you like. Femio draws them and keeps the numbers for your notes.",
+  "weightValue": "Weight",
+  "weightSave": "Save",
+  "weightInvalid": "That does not look like a scale reading. Check the number and try again.",
+  "weightNeedData": "Add a second reading and your chart appears here.",
+  "weightChange": "{value} {unit} since your first entry",
+  "@weightChange": {
+    "placeholders": {
+      "value": {
+        "type": "String"
+      },
+      "unit": {
+        "type": "String"
+      }
+    }
+  },
+  "weightNote": "Your readings, drawn as they are. Femio does not show a target range or say whether a change is expected — what a pattern means is for you and your midwife or doctor.",
+  "weightDate": "Measured on",
+  "weightUnitKg": "kg",
+  "weightUnitLb": "lb",
+  "apptDelete": "Delete",
+  "apptEdit": "Edit"
 }

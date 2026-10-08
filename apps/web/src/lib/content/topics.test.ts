@@ -9,6 +9,9 @@ import { QUESTIONS, START_HERE, groupByTopic, pregnancyWeek, rankOf, topicOf } f
 const DIR = join(__dirname, "../../../../../docs/content/articles");
 const SLUGS = readdirSync(DIR)
   .filter((f) => f.endsWith(".md"))
+  // `<slug>.<locale>.md` is a translation of `<slug>.md` (HANDOVER_TRANSLATION), not an
+  // article of its own: it shares the English file's slug and topic.
+  .filter((f) => !/\.(ar|fr|es)\.md$/.test(f))
   .filter((f) => !/^content_type: "condition pillar"$/m.test(readFileSync(join(DIR, f), "utf8")))
   .map((f) => f.replace(/\.md$/, ""));
 

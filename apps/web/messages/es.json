@@ -72,8 +72,8 @@
           "detail": "— el árabe de derecha a izquierda desde la primera línea de código, no una capa añadida después."
         },
         "reviewed": {
-          "claim": "Cada guía la revisa personal clínico",
-          "detail": "— con nombre, credenciales y enlace a su biografía."
+          "claim": "Las guías revisadas dicen quién las revisó",
+          "detail": "— personal clínico con nombre y credenciales, enlazado a su biografía, en cada página que revisó."
         }
       }
     },
@@ -922,7 +922,7 @@
     "untitled": "Cita",
     "noDate": "Sin fecha todavía",
     "todayLabel": "Hoy",
-    "inDays": "En {days} días",
+    "inDays": "{days, plural, one {Mañana} other {En # días}}",
     "prepHeading": "Lo que querías preguntar",
     "upcomingHeading": "Próximas",
     "pastHeading": "Pasadas",
@@ -933,7 +933,7 @@
     },
     "awaiting": {
       "heading": "¿Sigues sin noticias?",
-      "body": "Esperabas un resultado en {count} de ellas. Quizá merezca la pena preguntar — los resultados se retrasan por muchos motivos corrientes."
+      "body": "{count, plural, one {Esperabas un resultado en una de ellas.} other {Esperabas un resultado en # de ellas.}} Quizá merezca la pena preguntar — los resultados se retrasan por muchos motivos corrientes."
     },
     "form": {
       "type": "Qué es",
@@ -949,7 +949,7 @@
       "eyebrow": "Próxima cita",
       "none": "Nada registrado en Femio todavía.",
       "all": "Todas las citas",
-      "prepCount": "{count} preguntas guardadas"
+      "prepCount": "{count, plural, one {# pregunta guardada} other {# preguntas guardadas}}"
     }
   },
   "fertility": {
@@ -1091,7 +1091,7 @@
       "link": "Señales por las que llamar"
     },
     "summary": {
-      "heading": "Tus últimas {count}",
+      "heading": "{count, plural, one {Tu última contracción} other {Tus últimas # contracciones}}",
       "duration": "Duran unos {value}",
       "interval": "Cada {value} aproximadamente, de inicio a inicio",
       "note": "Son tus tiempos, tal como se registraron. Femio no decide qué significan — léeselos a tu matrona o a la maternidad, que sí pueden."
@@ -1854,8 +1854,8 @@
       "3": "Tercer trimestre"
     },
     "due": "Fecha prevista: {date}",
-    "daysToGo": "Quedan {days} días",
-    "overdue": "{days} días después de la fecha prevista",
+    "daysToGo": "{days, plural, one {Queda # día} other {Quedan # días}}",
+    "overdue": "{days, plural, one {# día después de la fecha prevista} other {# días después de la fecha prevista}}",
     "termFrom": "A término desde el {date}",
     "estimateNote": "Estas fechas son estimaciones basadas en la fecha prevista que introdujiste. Tu profesional sanitario puede ajustarla tras una ecografía.",
     "redFlags": {
@@ -1961,13 +1961,13 @@
     "start": "Iniciar una sesión",
     "startBody": "Ponte cómoda y empieza. Toca cada vez que sientas un movimiento.",
     "tap": "Sentí un movimiento",
-    "counted": "{count} registrados",
+    "counted": "{count, plural, one {# movimiento registrado} other {# movimientos registrados}}",
     "finish": "Terminar y guardar",
     "finishNote": "Puedes parar cuando quieras. La sesión se guarda igualmente.",
     "saving": "Guardando…",
     "queued": "Guardado en este dispositivo. Se sincronizará cuando vuelvas a tener conexión.",
     "recentHeading": "Tus sesiones recientes",
-    "sessionSummary": "{count} movimientos · unos {minutes} min de diferencia",
+    "sessionSummary": "{count, plural, one {# movimiento} other {# movimientos}} · unos {minutes} min de diferencia",
     "unfinished": "Sin terminar",
     "pattern": {
       "slowerHeading": "Los movimientos estuvieron más separados de lo habitual para ti",

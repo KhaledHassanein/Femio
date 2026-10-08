@@ -72,8 +72,8 @@
           "detail": "— l'arabe de droite à gauche dès la première ligne de code, pas une couche ajoutée après."
         },
         "reviewed": {
-          "claim": "Chaque guide est relu par une clinicienne ou un clinicien",
-          "detail": "— nommé, avec ses titres, et lié à sa biographie."
+          "claim": "Les guides relus indiquent qui les a relus",
+          "detail": "— une clinicienne ou un clinicien nommé, avec ses titres et un lien vers sa biographie, sur chaque page relue."
         }
       }
     },
@@ -190,19 +190,19 @@
       "ghost": "Discret"
     },
     "form": {
-      "label": "Ta note",
-      "placeholder": "Comment te sens-tu aujourd'hui ?"
+      "label": "Votre note",
+      "placeholder": "Comment vous sentez-vous aujourd'hui ?"
     },
     "feedback": {
       "info": "Les prévisions indiquent une plage, jamais une seule date certaine.",
       "success": "Entrée enregistrée.",
-      "warning": "Ton cycle semble irrégulier — c'est normal à certaines phases.",
-      "redFlagTitle": "Consulte sans attendre",
-      "redFlagBody": "Si les symptômes semblent graves, contacte ta clinicienne ou les services d'urgence locaux."
+      "warning": "Votre cycle semble irrégulier — c'est normal à certaines phases.",
+      "redFlagTitle": "Consultez sans attendre",
+      "redFlagBody": "Si les symptômes semblent graves, contactez votre clinicienne ou les services d'urgence locaux."
     },
     "empty": {
       "title": "Rien d'enregistré pour l'instant",
-      "body": "Tes entrées apparaîtront ici."
+      "body": "Vos entrées apparaîtront ici."
     },
     "error": {
       "title": "Une erreur est survenue",
@@ -220,12 +220,12 @@
   "calculators": {
     "title": "Calculateurs",
     "subtitle": "Des outils gratuits pour le cycle, la fertilité et la grossesse. Sans compte.",
-    "disclaimer": "Ces calculateurs donnent des estimations générales pour t'informer et planifier, pas un avis médical. Parle de ta santé avec ta clinicienne.",
+    "disclaimer": "Ces calculateurs donnent des estimations générales pour vous informer et planifier, pas un avis médical. Parlez de votre santé avec votre clinicienne.",
     "common": {
       "back": "Tous les calculateurs",
       "estimateNote": "C'est une estimation basée sur les dates saisies — chaque corps est différent.",
       "cycleLabel": "Durée moyenne du cycle (jours)",
-      "lmpLabel": "Premier jour de tes dernières règles"
+      "lmpLabel": "Premier jour de vos dernières règles"
     },
     "list": {
       "dueDate": {
@@ -246,7 +246,7 @@
       },
       "cycleLength": {
         "name": "Durée du cycle",
-        "desc": "Ta durée moyenne de cycle et sa variabilité."
+        "desc": "Votre durée moyenne de cycle et sa variabilité."
       },
       "period": {
         "name": "Calculateur de règles",
@@ -259,22 +259,22 @@
     },
     "dueDate": {
       "title": "Calculateur de date d'accouchement",
-      "intro": "Estime ta date à partir du premier jour de tes dernières règles.",
+      "intro": "Estimez votre date à partir du premier jour de vos dernières règles.",
       "eddLabel": "Date d'accouchement estimée",
       "termWindowLabel": "La plupart des bébés arrivent entre le {start} et le {end}."
     },
     "ovulation": {
       "title": "Calculateur d'ovulation",
-      "intro": "Estime tes jours fertiles à partir de tes dernières règles et de la durée du cycle.",
+      "intro": "Estimez vos jours fertiles à partir de vos dernières règles et de la durée du cycle.",
       "ovulationLabel": "Ovulation estimée",
       "windowLabel": "Fenêtre de fertilité",
       "nextPeriodLabel": "Prochaines règles autour du",
       "rangeValue": "{start} – {end}",
-      "awarenessNote": "Ces dates aident à planifier une grossesse et à la connaissance de ton cycle. Ce sont des estimations, pas un moyen fiable d'éviter une grossesse — parle de tes options avec ta clinicienne."
+      "awarenessNote": "Ces dates aident à planifier une grossesse et à la connaissance de votre cycle. Ce sont des estimations, pas un moyen fiable d'éviter une grossesse — parlez de vos options avec votre clinicienne."
     },
     "gestationalAge": {
       "title": "Calculateur de semaines de grossesse",
-      "intro": "Vois à combien de semaines tu en es, à partir de tes dernières règles.",
+      "intro": "Voyez à combien de semaines vous en êtes, à partir de vos dernières règles.",
       "asOfLabel": "À la date du",
       "resultLabel": "{weeks} semaines et {days} jours"
     },
@@ -287,7 +287,7 @@
       "heightMetric": "Taille (cm)",
       "weightImperial": "Poids (lb)",
       "heightImperial": "Taille (po)",
-      "resultLabel": "Ton IMC",
+      "resultLabel": "Votre IMC",
       "categoryLabel": "Catégorie : {category}",
       "categories": {
         "underweight": "Insuffisance pondérale",
@@ -295,20 +295,20 @@
         "overweight": "Surpoids",
         "obese": "Obésité"
       },
-      "note": "L'IMC est un indicateur général avec des limites — il ne reflète ni les muscles, ni la morphologie, ni la composition corporelle. Discute de ce qui est sain pour toi avec ta clinicienne."
+      "note": "L'IMC est un indicateur général avec des limites — il ne reflète ni les muscles, ni la morphologie, ni la composition corporelle. Discutez de ce qui est sain pour vous avec votre clinicienne."
     },
     "cycleLength": {
       "title": "Durée du cycle",
-      "intro": "Saisis quelques dates de début de règles pour voir ta durée moyenne de cycle.",
+      "intro": "Saisissez quelques dates de début de règles pour voir votre durée moyenne de cycle.",
       "datesLabel": "Dates de début de règles",
       "addDate": "Ajouter une date",
       "removeDate": "Retirer",
       "averageLabel": "Durée moyenne du cycle",
       "daysValue": "{days} jours",
       "rangeLabel": "Écart",
-      "regular": "Tes cycles semblent réguliers.",
-      "irregular": "Tes cycles varient — c'est courant, et Femio adapte ses prévisions en conséquence.",
-      "needTwo": "Ajoute au moins deux dates de début de règles."
+      "regular": "Vos cycles semblent réguliers.",
+      "irregular": "Vos cycles varient — c'est courant, et Femio adapte ses prévisions en conséquence.",
+      "needTwo": "Ajoutez au moins deux dates de début de règles."
     },
     "appCta": "Suivez cela automatiquement dans l'application Femio.",
     "appCtaLink": "Obtenir l'app",
@@ -351,10 +351,10 @@
   },
   "onboarding": {
     "baseline": {
-      "heading": "Ton cycle habituel",
-      "note": "Femio s'en sert jusqu'à ce que tes propres cycles enregistrés donnent une meilleure réponse. Tu peux passer, et modifier à tout moment.",
-      "cycleLabel": "Ton cycle dure combien de temps, d'habitude ?",
-      "periodLabel": "Tes règles durent combien de jours, d'habitude ?",
+      "heading": "Votre cycle habituel",
+      "note": "Femio s'en sert jusqu'à ce que vos propres cycles enregistrés donnent une meilleure réponse. Vous pouvez passer, et modifier à tout moment.",
+      "cycleLabel": "Votre cycle dure combien de temps, d'habitude ?",
+      "periodLabel": "Vos règles durent combien de jours, d'habitude ?",
       "notSure": "Je ne sais pas",
       "days": "{count} jours"
     },
@@ -395,8 +395,8 @@
         "name": "Pas encore sûre",
         "desc": "Tout, sans rien présumer de votre étape."
       },
-      "heading": "Où en es-tu dans ton parcours de santé ?",
-      "subheading": "Tu peux changer cela à tout moment — rien n'est verrouillé.",
+      "heading": "Où en êtes-vous dans votre parcours de santé ?",
+      "subheading": "Vous pouvez changer cela à tout moment — rien n'est verrouillé.",
       "cycle": {
         "name": "Suivre mon cycle",
         "desc": "Règles, symptômes et tendances."
@@ -471,23 +471,23 @@
       }
     },
     "privacy": {
-      "heading": "Ta vie privée d'abord",
-      "intro": "Femio fonctionne sans compte. Tes données de santé t'appartiennent — jamais vendues, jamais partagées avec des annonceurs.",
+      "heading": "Votre vie privée d'abord",
+      "intro": "Femio fonctionne sans compte. Vos données de santé vous appartiennent — jamais vendues, jamais partagées avec des annonceurs.",
       "anonymous": {
         "name": "Commencer en privé",
-        "desc": "Sans e-mail ni compte. Tu pourras en ajouter un plus tard sans rien perdre."
+        "desc": "Sans e-mail ni compte. Vous pourrez en ajouter un plus tard sans rien perdre."
       },
       "account": {
         "name": "Créer un compte",
-        "desc": "Synchronise entre appareils avec un e-mail. Même confidentialité."
+        "desc": "Synchronisez entre appareils avec un e-mail. Même confidentialité."
       },
       "emailLabel": "E-mail",
-      "consentHeading": "Ce que tu acceptes",
+      "consentHeading": "Ce que vous acceptez",
       "consentCore": "Enregistrer mes données de santé pour que je puisse les suivre (requis pour utiliser Femio).",
       "consentInsights": "Utiliser mes données pour me montrer des tendances et des analyses.",
       "consentResearch": "Utiliser mes données anonymisées pour améliorer la recherche en santé féminine.",
       "consentAnalytics": "Autoriser des statistiques d’usage anonymes — quelles pages et fonctions servent, jamais ce que vous notez.",
-      "consentNote": "Tu peux modifier ces choix à tout moment dans les Réglages."
+      "consentNote": "Vous pouvez modifier ces choix à tout moment dans les Réglages."
     },
     "confirm": {
       "heading": "Tout est prêt",
@@ -501,7 +501,7 @@
     }
   },
   "track": {
-    "loadError": "Impossible de charger ton historique. Tu peux quand même enregistrer ci-dessous.",
+    "loadError": "Impossible de charger votre historique. Vous pouvez quand même enregistrer ci-dessous.",
     "retry": "Réessayer",
     "loading": "Chargement de votre historique",
     "flow": {
@@ -522,11 +522,11 @@
       "legendToday": "Aujourd’hui",
       "awarenessNote": "Les dates de la fenêtre de fertilité servent uniquement à la planification et à la sensibilisation à la conception — ce sont des estimations, pas un moyen fiable d’éviter une grossesse."
     },
-    "title": "Ton cycle",
+    "title": "Votre cycle",
     "dateStripLabel": "Choisissez un jour à enregistrer",
     "periodSaved": "Règles enregistrées.",
     "logHeading": "Enregistrer des règles",
-    "logDateLabel": "Premier jour de tes règles",
+    "logDateLabel": "Premier jour de vos règles",
     "logButton": "Enregistrer",
     "savedOffline": "Enregistré hors ligne — la synchronisation se fera au retour de la connexion.",
     "history": {
@@ -549,7 +549,7 @@
       "add": "Ajouter"
     },
     "remove": "Retirer {symptom}",
-    "heading": "Comment te sens-tu aujourd'hui ?",
+    "heading": "Comment vous sentez-vous aujourd'hui ?",
     "severityLabel": "Intensité",
     "severity": {
       "1": "Légère",
@@ -617,7 +617,7 @@
     "recentEmpty": "Aucun symptôme enregistré."
   },
   "dashboard": {
-    "title": "Ton tableau de bord",
+    "title": "Votre tableau de bord",
     "loading": "Chargement de votre tableau de bord",
     "modeLabel": {
       "teen": "Adolescente",
@@ -628,7 +628,7 @@
       "menopause": "Ménopause",
       "general": "Général"
     },
-    "cycleDay": "Jour {day} de ton cycle",
+    "cycleDay": "Jour {day} de votre cycle",
     "nextPeriod": "Prochaines règles",
     "window": "Attendues entre le {start} et le {end}",
     "avgLengthHeading": "Votre cycle moyen",
@@ -640,9 +640,9 @@
     },
     "windowPassed": "Cette fenêtre est passée. Les cycles varient, et cela seul n’indique rien. Enregistrez vos règles à leur début et la prochaine estimation s’améliorera.",
     "fertileNote": "Estimation d’après votre propre historique de cycles. Le moment de l’ovulation varie d’un cycle à l’autre : c’est un repère, pas un test.",
-    "irregularNote": "Tes cycles varient, donc les prévisions restent une fourchette plus large — c'est normal.",
-    "learningNote": "Femio apprend encore ton rythme — cette fourchette se resserrera à mesure que tu enregistres.",
-    "statedNote": "D'après la durée de cycle que tu nous as indiquée — tes cycles enregistrés prendront le relais.",
+    "irregularNote": "Vos cycles varient, donc les prévisions restent une fourchette plus large — c'est normal.",
+    "learningNote": "Femio apprend encore votre rythme — cette fourchette se resserrera à mesure que vous enregistrez.",
+    "statedNote": "D'après la durée de cycle que vous nous avez indiquée — vos cycles enregistrés prendront le relais.",
     "fertileHeading": "Fenêtre de fertilité estimée",
     "fertileWindow": "Autour du {start} – {end}",
     "explore": {
@@ -699,8 +699,8 @@
     },
     "topSymptomsHeading": "Les plus enregistrés",
     "logCta": "Enregistrer aujourd'hui",
-    "needData": "Enregistre deux cycles pour débloquer les analyses.",
-    "loadError": "Impossible de charger ton tableau de bord. Tes informations sont intactes. Réessaie — si cela persiste, le problème vient de nous, pas de toi.",
+    "needData": "Enregistrez deux cycles pour débloquer les analyses.",
+    "loadError": "Impossible de charger votre tableau de bord. Vos informations sont intactes. Réessayez — si cela persiste, le problème vient de nous, pas de vous.",
     "retry": "Réessayer"
   },
   "visitSummary": {
@@ -718,7 +718,7 @@
       "heading": "Les questions que vous vouliez poser",
       "empty": "Rien de noté pour l'instant. Vous pouvez ajouter des questions à un rendez-vous et elles apparaîtront ici."
     },
-    "loadError": "Impossible de charger ton résumé. Rien ne manque dans ton dossier. Réessaie — si cela persiste, le problème vient de nous, pas de toi.",
+    "loadError": "Impossible de charger votre résumé. Rien ne manque dans votre dossier. Réessayez — si cela persiste, le problème vient de nous, pas de vous.",
     "retry": "Réessayer",
     "title": "Résumé pour la consultation",
     "generatedOn": "Généré le {date}",
@@ -922,7 +922,7 @@
     "untitled": "Rendez-vous",
     "noDate": "Pas encore de date",
     "todayLabel": "Aujourd’hui",
-    "inDays": "Dans {days} jours",
+    "inDays": "{days, plural, one {Demain} other {Dans # jours}}",
     "prepHeading": "Ce que vous vouliez demander",
     "upcomingHeading": "À venir",
     "pastHeading": "Passés",
@@ -933,7 +933,7 @@
     },
     "awaiting": {
       "heading": "Toujours sans nouvelles ?",
-      "body": "Vous attendiez un résultat pour {count} d’entre eux. Cela vaut peut-être la peine de relancer — un résultat peut tarder pour des raisons tout à fait ordinaires."
+      "body": "{count, plural, one {Vous attendiez un résultat pour l’un d’entre eux.} other {Vous attendiez un résultat pour # d’entre eux.}} Cela vaut peut-être la peine de relancer — un résultat peut tarder pour des raisons tout à fait ordinaires."
     },
     "form": {
       "type": "De quoi s’agit-il",
@@ -949,7 +949,7 @@
       "eyebrow": "Prochain rendez-vous",
       "none": "Rien d’enregistré dans Femio pour l’instant.",
       "all": "Tous les rendez-vous",
-      "prepCount": "{count} questions enregistrées"
+      "prepCount": "{count, plural, one {# question enregistrée} other {# questions enregistrées}}"
     }
   },
   "fertility": {
@@ -1080,7 +1080,7 @@
     "heading": "Minuteur de contractions",
     "intro": "Appuyez sur démarrer quand une contraction commence et sur arrêter quand elle passe. Femio garde les temps pour que vous les ayez au téléphone.",
     "start": "Démarrer une contraction",
-    "stop": "C’est passé",
+    "stop": "Elle s’est calmée",
     "running": "Chronométrage en cours",
     "idle": "Arrêté",
     "saveFailed": "L’enregistrement a échoué. Vérifiez votre connexion et réessayez.",
@@ -1091,7 +1091,7 @@
       "link": "Les signes qui justifient un appel"
     },
     "summary": {
-      "heading": "Vos {count} dernières",
+      "heading": "{count, plural, one {Votre dernière contraction} other {Vos # dernières contractions}}",
       "duration": "Durée d’environ {value}",
       "interval": "Environ {value} d’écart, début à début",
       "note": "Ce sont vos temps, tels qu’enregistrés. Femio ne décide pas de ce qu’ils veulent dire — lisez-les à votre sage-femme ou à la maternité, qui le peut."
@@ -1364,8 +1364,8 @@
         "empty": "Aucune mesure enregistrée pour l'instant. Lorsque vous en notez une, elle apparaît ici avec l'heure du prélèvement. Femio enregistre vos mesures ; votre clinicien les interprète."
       }
     },
-    "heading": "Ton expérience Femio",
-    "desc": "Femio s'adapte à l'étape où tu te trouves. Tu peux changer cela quand ta situation change — ou le désactiver et tout voir.",
+    "heading": "Votre expérience Femio",
+    "desc": "Femio s'adapte à l'étape où vous vous trouvez. Vous pouvez changer cela quand votre situation change — ou le désactiver et tout voir.",
     "modes": {
       "teen": {
         "label": "Adolescente",
@@ -1381,7 +1381,7 @@
       },
       "ttc": {
         "label": "Essai de conception",
-        "desc": "Ajoute la fenêtre de fertilité au suivi du cycle."
+        "desc": "Ajoutez la fenêtre de fertilité au suivi du cycle."
       },
       "pregnancy": {
         "label": "Grossesse",
@@ -1389,18 +1389,18 @@
       },
       "menopause": {
         "label": "Préménopause ou ménopause",
-        "desc": "Mois depuis tes dernières règles et les symptômes qui comptent à cette étape."
+        "desc": "Mois depuis vos dernières règles et les symptômes qui comptent à cette étape."
       },
       "general": {
         "label": "Général — ne rien adapter",
-        "desc": "Tous les outils, sans rien supposer de ton étape. Choisis ceci si rien ci-dessus ne correspond, ou si tu préfères décider toi-même."
+        "desc": "Tous les outils, sans rien supposer de votre étape. Choisissez ceci si rien ci-dessus ne correspond, ou si vous préférez décider vous-même."
       }
     },
     "currentBadge": "Actuel",
-    "nothingLost": "Ce changement n'efface jamais rien. Ton dossier reste entier, tous les outils restent disponibles, et tu peux revenir à tout moment et le retrouver tel quel.",
+    "nothingLost": "Ce changement n'efface jamais rien. Votre dossier reste entier, tous les outils restent disponibles, et vous pouvez revenir à tout moment et le retrouver tel quel.",
     "apply": "Enregistrer ce changement",
     "saving": "Enregistrement…",
-    "saved": "Mis à jour. Ton tableau de bord et ton écran de suivi correspondent désormais."
+    "saved": "Mis à jour. Votre tableau de bord et votre écran de suivi correspondent désormais."
   },
   "faq": {
     "title": "Questions fréquentes",
@@ -1786,7 +1786,7 @@
     },
     "consent": {
       "ageGate": {
-        "body": "Femio doit savoir à peu près quel âge tu as avant d'activer ceci. Les moins de 18 ans sont exclus de l'analyse et de la recherche, donc il demande plutôt que de supposer.",
+        "body": "Femio doit savoir à peu près quel âge vous avez avant d'activer ceci. Les moins de 18 ans sont exclus de l'analyse et de la recherche, donc il demande plutôt que de supposer.",
         "dismiss": "Pas maintenant"
       },
       "heading": "Vos choix de confidentialité",
@@ -1794,7 +1794,7 @@
       "error": "Nous n’avons pas pu enregistrer ce changement. Réessayez.",
       "insights": {
         "label": "Utiliser mes saisies pour me montrer des tendances.",
-        "note": "Reste dans Femio — vos saisies ne sont envoyées nulle part pour cela."
+        "note": "Restez dans Femio — vos saisies ne sont envoyées nulle part pour cela."
       },
       "research": {
         "label": "Utiliser mes données anonymisées pour la recherche en santé des femmes.",
@@ -1813,15 +1813,15 @@
     "exporting": "Préparation…",
     "deleting": "Suppression…",
     "export": {
-      "heading": "Exporter tes données",
-      "desc": "Télécharge dans un fichier tout ce que Femio a enregistré pour toi.",
+      "heading": "Exporter vos données",
+      "desc": "Téléchargez dans un fichier tout ce que Femio a enregistré pour vous.",
       "button": "Télécharger mes données (JSON)"
     },
     "delete": {
-      "heading": "Supprimer ton compte",
-      "desc": "Supprime définitivement ton compte et toutes tes données. C'est irréversible.",
+      "heading": "Supprimer votre compte",
+      "desc": "Supprimez définitivement votre compte et toutes vos données. C'est irréversible.",
       "button": "Supprimer mon compte",
-      "confirm": "Cela supprime définitivement ton compte et toutes tes données. C'est irréversible.",
+      "confirm": "Cela supprime définitivement votre compte et toutes vos données. C'est irréversible.",
       "confirmButton": "Oui, tout supprimer",
       "cancel": "Annuler"
     }
@@ -1854,8 +1854,8 @@
       "3": "Troisième trimestre"
     },
     "due": "Date prévue : {date}",
-    "daysToGo": "Encore {days} jours",
-    "overdue": "{days} jours après la date prévue",
+    "daysToGo": "{days, plural, one {Encore # jour} other {Encore # jours}}",
+    "overdue": "{days, plural, one {# jour après la date prévue} other {# jours après la date prévue}}",
     "termFrom": "À terme à partir du {date}",
     "estimateNote": "Ces dates sont des estimations fondées sur la date prévue que vous avez saisie. Votre professionnel de santé peut l'ajuster après une échographie.",
     "redFlags": {
@@ -1952,27 +1952,27 @@
   },
   "pregnancyMovements": {
     "heading": "Journal des mouvements",
-    "intro": "Il n'existe pas de nombre normal de mouvements. Ce qui compte, c'est un changement par rapport aux habitudes de ton bébé : ce journal enregistre ce que tu ressens et te montre ton propre rythme au fil du temps.",
+    "intro": "Il n'existe pas de nombre normal de mouvements. Ce qui compte, c'est un changement par rapport aux habitudes de votre bébé : ce journal enregistre ce que vous ressentez et vous montre votre propre rythme au fil du temps.",
     "urgent": {
       "heading": "Si les mouvements sont moins fréquents que d'habitude",
-      "body": "Contacte ton équipe de maternité maintenant. N'attends pas la fin de cette séance, et n'attends pas demain.",
+      "body": "Contactez votre équipe de maternité maintenant. N’attendez pas la fin de cette séance, et n’attendez pas demain.",
       "link": "Lire les signes d'alerte de la grossesse"
     },
     "start": "Commencer une séance",
-    "startBody": "Installe-toi confortablement, puis commence. Appuie chaque fois que tu sens un mouvement.",
+    "startBody": "Installez-vous confortablement, puis commencez. Appuyez chaque fois que vous sentez un mouvement.",
     "tap": "J'ai senti un mouvement",
-    "counted": "{count} enregistrés",
+    "counted": "{count, plural, one {# mouvement enregistré} other {# mouvements enregistrés}}",
     "finish": "Terminer et enregistrer",
-    "finishNote": "Tu peux arrêter à tout moment. La séance est enregistrée dans tous les cas.",
+    "finishNote": "Vous pouvez arrêter à tout moment. La séance est enregistrée dans tous les cas.",
     "saving": "Enregistrement…",
     "queued": "Enregistré sur cet appareil. La synchronisation se fera au retour du réseau.",
-    "recentHeading": "Tes séances récentes",
-    "sessionSummary": "{count} mouvements · environ {minutes} min d'intervalle",
+    "recentHeading": "Vos séances récentes",
+    "sessionSummary": "{count, plural, one {# mouvement} other {# mouvements}} · environ {minutes} min d’intervalle",
     "unfinished": "Non terminée",
     "pattern": {
-      "slowerHeading": "Les mouvements étaient plus espacés que d'habitude pour toi",
-      "slowerBody": "C'est un changement par rapport à tes séances récentes. Ce que cela signifie, c'est à ton équipe de maternité de le dire : contacte-la pour qu'on vérifie.",
-      "needMore": "Après {count} séances, tu pourras comparer avec ton propre rythme."
+      "slowerHeading": "Les mouvements étaient plus espacés que d'habitude pour vous",
+      "slowerBody": "C'est un changement par rapport à vos séances récentes. Ce que cela signifie, c'est à votre équipe de maternité de le dire : contactez-la pour qu'on vérifie.",
+      "needMore": "Après {count} séances, vous pourrez comparer avec votre propre rythme."
     }
   },
   "pregnancySymptoms": {
@@ -2050,31 +2050,31 @@
   },
   "phaseStrip": {
     "a11y": {
-      "noData": "Ton cycle jusqu'ici. Pas encore assez de données pour situer où tu en es.",
-      "withPhase": "Ton cycle jusqu'ici. Jour {day} sur environ {length}.",
-      "unknownPhase": "Ton cycle jusqu'ici. Jour {day}. Tes cycles varient trop pour situer une phase."
+      "noData": "Votre cycle jusqu'ici. Pas encore assez de données pour situer où vous en êtes.",
+      "withPhase": "Votre cycle jusqu'ici. Jour {day} sur environ {length}.",
+      "unknownPhase": "Votre cycle jusqu'ici. Jour {day}. Vos cycles varient trop pour situer une phase."
     },
     "phase": {
       "menstrual": "Règles",
       "follicular": "Folliculaire",
       "ovulatory": "Ovulatoire",
       "luteal": "Lutéale",
-      "unknown": "Nous apprenons encore ton rythme"
+      "unknown": "Nous apprenons encore votre rythme"
     },
     "day": "Jour {day}",
-    "noDay": "Ton cycle",
-    "typicalFor": "Typique d'un cycle d'environ {length} jours — pas une lecture de tes hormones.",
-    "learning": "Tes cycles varient, donc Femio ne devinera pas de phase."
+    "noDay": "Votre cycle",
+    "typicalFor": "Typique d'un cycle d'environ {length} jours — pas une lecture de vos hormones.",
+    "learning": "Vos cycles varient, donc Femio ne devinera pas de phase."
   },
   "firstRun": {
     "save": "Enregistrer cette date",
     "saving": "Enregistrement…",
-    "error": "L'enregistrement a échoué. Réessaie.",
-    "note": "Tu peux modifier ou en ajouter à tout moment dans Suivi.",
+    "error": "L'enregistrement a échoué. Réessayez.",
+    "note": "Vous pouvez modifier ou en ajouter à tout moment dans Suivi.",
     "first": {
-      "heading": "Quand tes dernières règles ont-elles commencé ?",
+      "heading": "Quand vos dernières règles ont-elles commencé ?",
       "body": "Une seule date suffit pour commencer.",
-      "dateLabel": "Premier jour de tes dernières règles"
+      "dateLabel": "Premier jour de vos dernières règles"
     },
     "second": {
       "heading": "Et celles d'avant ?",
@@ -2083,13 +2083,13 @@
     }
   },
   "flowStrip": {
-    "heading": "Tes saignements",
+    "heading": "Vos saignements",
     "range": "{days} derniers jours",
     "empty": "Rien d'enregistré sur cette période.",
-    "footnote": "Les marques plus hautes et plus marquées sont les jours que tu as notés comme plus abondants.",
+    "footnote": "Les marques plus hautes et plus marquées sont les jours que vous avez notés comme plus abondants.",
     "a11y": {
-      "none": "Tes saignements sur les {days} derniers jours. Rien d'enregistré.",
-      "summary": "Tes saignements sur les {days} derniers jours. {count} jours enregistrés."
+      "none": "Vos saignements sur les {days} derniers jours. Rien d'enregistré.",
+      "summary": "Vos saignements sur les {days} derniers jours. {count} jours enregistrés."
     }
   },
   "tools": {
@@ -2098,8 +2098,8 @@
       "note": "Votre cycle mois par mois"
     },
     "title": "Outils",
-    "intro": "Tout ce que Femio sait faire, quelle que soit ton étape. Rien n'est masqué ici selon ce que tu nous as dit.",
-    "recordHeading": "Ton dossier",
+    "intro": "Tout ce que Femio sait faire, quelle que soit votre étape. Rien n'est masqué ici selon ce que vous nous avez dit.",
+    "recordHeading": "Votre dossier",
     "toolsHeading": "Outils et guides",
     "sharing": {
       "label": "Partager avec un partenaire",
@@ -2107,19 +2107,19 @@
     },
     "summary": {
       "label": "Résumé pour le médecin",
-      "note": "Une page imprimable de ton dossier, avec tes questions"
+      "note": "Une page imprimable de votre dossier, avec vos questions"
     },
     "track": {
       "label": "Suivi",
-      "note": "Enregistre règles, symptômes et ressenti"
+      "note": "Enregistrez règles, symptômes et ressenti"
     },
     "medications": {
       "label": "Médicaments",
-      "note": "Ce que tu prends, et quand"
+      "note": "Ce que vous prenez, et quand"
     },
     "appointments": {
       "label": "Rendez-vous",
-      "note": "Les dates, et les questions que tu voulais poser"
+      "note": "Les dates, et les questions que vous vouliez poser"
     },
     "patterns": {
       "label": "Vos tendances",
@@ -2145,7 +2145,7 @@
   "phaseEducation": {
     "readMore": "Comment fonctionne le cycle",
     "menstrual": {
-      "heading": "Tes règles",
+      "heading": "Vos règles",
       "body": "S'il n'y a pas eu de grossesse, les taux hormonaux chutent et la muqueuse utérine quitte le corps par le vagin sous forme de sang et de tissu. Le jour 1 du saignement complet est le jour 1 d'un nouveau cycle."
     },
     "follicular": {
@@ -2163,26 +2163,26 @@
     }
   },
   "symptomPatterns": {
-    "heading": "Ton schéma",
-    "note": "Compté à partir de ce que tu as enregistré. Femio ne l'interprète pas.",
-    "onDay": "{symptom} — au jour {day} de ton cycle",
-    "onDays": "{symptom} — aux jours {from}–{to} de ton cycle",
-    "evidence": "Sur {cycles} de tes {ofCycles} derniers cycles",
+    "heading": "Votre schéma",
+    "note": "Compté à partir de ce que vous avez enregistré. Femio ne l'interprète pas.",
+    "onDay": "{symptom} — au jour {day} de votre cycle",
+    "onDays": "{symptom} — aux jours {from}–{to} de votre cycle",
+    "evidence": "Sur {cycles} de vos {ofCycles} derniers cycles",
     "limit": "Noter un schéma qui se répète peut être utile, mais ce schéma seul ne peut pas confirmer un problème de santé."
   },
   "cycleReport": {
-    "heading": "Ton dernier cycle",
+    "heading": "Votre dernier cycle",
     "range": "du {start} au {end}",
     "length": "{days} jours, d'un début à l'autre",
-    "longer": "{days} jours de plus que ton habitude",
-    "shorter": "{days} jours de moins que ton habitude",
+    "longer": "{days} jours de plus que votre habitude",
+    "shorter": "{days} jours de moins que votre habitude",
     "bleedDays": "{days} jours de saignement enregistrés",
-    "symptoms": "Tu as noté : {list}"
+    "symptoms": "Vous avez noté : {list}"
   },
   "cycleVariability": {
-    "range": "Tes cycles ont duré de {shortest} à {longest} jours",
+    "range": "Vos cycles ont duré de {shortest} à {longest} jours",
     "evidence": "Sur {cycles} cycles enregistrés",
-    "notFailing": "Femio élargit la fenêtre quand tes cycles varient, et cesse de prédire quand il n'y a rien d'honnête à prédire. Ce n'est pas un échec de l'application — une date affirmée sur des données instables serait une invention."
+    "notFailing": "Femio élargit la fenêtre quand vos cycles varient, et cesse de prédire quand il n'y a rien d'honnête à prédire. Ce n'est pas un échec de l'application — une date affirmée sur des données instables serait une invention."
   },
   "partnerSharing": {
     "title": "Partager avec un partenaire",
@@ -2446,20 +2446,20 @@
       "label": "Préparer un rendez-vous"
     },
     "privacy": {
-      "label": "Tes réglages de confidentialité"
+      "label": "Vos réglages de confidentialité"
     }
   },
   "calendar": {
-    "gridLabel": "Ton cycle mois par mois",
+    "gridLabel": "Votre cycle mois par mois",
     "a11y": {
       "today": "Aujourd'hui",
       "runStart": "Premier jour enregistré de ces règles",
       "runEnd": "Dernier jour enregistré de ces règles",
-      "likely": "Tes règles devraient probablement commencer vers maintenant",
-      "possible": "Tes règles pourraient commencer vers maintenant",
+      "likely": "Vos règles devraient probablement commencer vers maintenant",
+      "possible": "Vos règles pourraient commencer vers maintenant",
       "fertile": "Fenêtre fertile estimée",
       "ovulation": "Ovulation estimée",
-      "hasLogs": "Tu as enregistré quelque chose ce jour-là",
+      "hasLogs": "Vous avez enregistré quelque chose ce jour-là",
       "flow": {
         "spotting": "Spotting enregistré",
         "light": "Flux léger enregistré",
@@ -2469,17 +2469,17 @@
     },
     "title": "Calendrier",
     "detail": {
-      "cycleDay": "Jour {day} de ton cycle",
+      "cycleDay": "Jour {day} de votre cycle",
       "nothingLogged": "Rien d'enregistré ce jour-là."
     },
-    "loadError": "Impossible de charger ton calendrier. Réessaie — si cela persiste, le problème vient de nous, pas de toi.",
+    "loadError": "Impossible de charger votre calendrier. Réessayez — si cela persiste, le problème vient de nous, pas de vous.",
     "retry": "Réessayer"
   },
   "log": {
     "title": "Journal",
     "previousDay": "Jour précédent",
     "nextDay": "Jour suivant",
-    "searchLabel": "Rechercher tout ce que tu peux suivre",
+    "searchLabel": "Rechercher tout ce que vous pouvez suivre",
     "save": "Enregistrer cette journée",
     "saving": "Enregistrement…",
     "saved": "Enregistré.",
@@ -2503,7 +2503,7 @@
     },
     "a11y": {
       "logged": "Enregistré",
-      "cycleHint": "Appuie encore pour changer l'intensité",
+      "cycleHint": "Appuyez encore pour changer l'intensité",
       "severity": {
         "1": "À peine perceptible",
         "2": "Léger",

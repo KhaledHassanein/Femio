@@ -1,0 +1,180 @@
+{
+  "$comment": "Fetal movement log (lib/pregnancy/movements): her latest session's minutes per movement against the median of her earlier ones (newest first). Flags a change at 1.5x; never says a session was fine (rule 1, ADR-049). Ratios rounded to 4 decimal places.",
+  "cases": [
+    {
+      "$comment": "Fewer than three usable sessions: no comparison is offered.",
+      "input": {
+        "sessions": [
+          {
+            "id": "a",
+            "startedAt": "2026-08-16T20:00:00Z",
+            "endedAt": "2026-08-16T20:20:00Z",
+            "movementCount": 10
+          },
+          {
+            "id": "b",
+            "startedAt": "2026-08-16T19:00:00Z",
+            "endedAt": "2026-08-16T19:15:00Z",
+            "movementCount": 10
+          }
+        ]
+      },
+      "expected": {
+        "status": "insufficient",
+        "sessions": 2
+      }
+    },
+    {
+      "$comment": "Unfinished and zero-count sessions are not usable, so this is still insufficient.",
+      "input": {
+        "sessions": [
+          {
+            "id": "a",
+            "startedAt": "2026-08-16T20:00:00Z",
+            "endedAt": "2026-08-16T20:20:00Z",
+            "movementCount": 10
+          },
+          {
+            "id": "b",
+            "startedAt": "2026-08-16T19:00:00Z",
+            "endedAt": null,
+            "movementCount": 4
+          },
+          {
+            "id": "c",
+            "startedAt": "2026-08-16T18:00:00Z",
+            "endedAt": "2026-08-16T18:10:00Z",
+            "movementCount": 0
+          },
+          {
+            "id": "d",
+            "startedAt": "2026-08-16T17:00:00Z",
+            "endedAt": "2026-08-16T17:12:00Z",
+            "movementCount": 10
+          }
+        ]
+      },
+      "expected": {
+        "status": "insufficient",
+        "sessions": 2
+      }
+    },
+    {
+      "$comment": "Latest is similar to her own median: comparable, not slower.",
+      "input": {
+        "sessions": [
+          {
+            "id": "a",
+            "startedAt": "2026-08-16T21:00:00Z",
+            "endedAt": "2026-08-16T21:22:00Z",
+            "movementCount": 10
+          },
+          {
+            "id": "b",
+            "startedAt": "2026-08-16T20:00:00Z",
+            "endedAt": "2026-08-16T20:20:00Z",
+            "movementCount": 10
+          },
+          {
+            "id": "c",
+            "startedAt": "2026-08-16T19:00:00Z",
+            "endedAt": "2026-08-16T19:18:00Z",
+            "movementCount": 10
+          },
+          {
+            "id": "d",
+            "startedAt": "2026-08-16T18:00:00Z",
+            "endedAt": "2026-08-16T18:25:00Z",
+            "movementCount": 10
+          }
+        ]
+      },
+      "expected": {
+        "status": "comparable",
+        "sessions": 4,
+        "typicalMinutesPerMovement": 2,
+        "latestMinutesPerMovement": 2.2,
+        "ratio": 1.1,
+        "slower": false
+      }
+    },
+    {
+      "$comment": "Latest gaps 1.5x her median: flagged slower (a change for her to act on, not a verdict).",
+      "input": {
+        "sessions": [
+          {
+            "id": "a",
+            "startedAt": "2026-08-16T21:00:00Z",
+            "endedAt": "2026-08-16T21:30:00Z",
+            "movementCount": 10
+          },
+          {
+            "id": "b",
+            "startedAt": "2026-08-16T20:00:00Z",
+            "endedAt": "2026-08-16T20:20:00Z",
+            "movementCount": 10
+          },
+          {
+            "id": "c",
+            "startedAt": "2026-08-16T19:00:00Z",
+            "endedAt": "2026-08-16T19:18:00Z",
+            "movementCount": 10
+          },
+          {
+            "id": "d",
+            "startedAt": "2026-08-16T18:00:00Z",
+            "endedAt": "2026-08-16T18:22:00Z",
+            "movementCount": 10
+          }
+        ]
+      },
+      "expected": {
+        "status": "comparable",
+        "sessions": 4,
+        "typicalMinutesPerMovement": 2,
+        "latestMinutesPerMovement": 3,
+        "ratio": 1.5,
+        "slower": true
+      }
+    },
+    {
+      "$comment": "One very long earlier session does not mask a slower latest: the median ignores it.",
+      "input": {
+        "sessions": [
+          {
+            "id": "a",
+            "startedAt": "2026-08-16T21:00:00Z",
+            "endedAt": "2026-08-16T21:40:00Z",
+            "movementCount": 10
+          },
+          {
+            "id": "b",
+            "startedAt": "2026-08-16T20:00:00Z",
+            "endedAt": "2026-08-16T20:20:00Z",
+            "movementCount": 10
+          },
+          {
+            "id": "c",
+            "startedAt": "2026-08-16T19:00:00Z",
+            "endedAt": "2026-08-16T19:20:00Z",
+            "movementCount": 10
+          },
+          {
+            "id": "d",
+            "startedAt": "2026-08-16T17:00:00Z",
+            "endedAt": "2026-08-16T19:00:00Z",
+            "movementCount": 10
+          }
+        ]
+      },
+      "expected": {
+        "status": "comparable",
+        "sessions": 4,
+        "typicalMinutesPerMovement": 2,
+        "latestMinutesPerMovement": 4,
+        "ratio": 2,
+        "slower": true
+      }
+    }
+  ]
+}

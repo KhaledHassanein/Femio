@@ -6,9 +6,57 @@
 /// question after the goal can be skipped.
 library;
 
+import '../domain/appointments.dart';
+import '../domain/contractions.dart';
+import '../domain/movements.dart';
+import '../domain/weight.dart';
+
 enum Goal { period, ttc, pregnant, menopause }
 
 enum TryingFor { justStarted, under6, sixTo12, over12 }
+
+/// One day's log. Terms are keys from the shared vocabulary (`log_vocabulary.g.dart`).
+class DayLog {
+  const DayLog({this.flow, this.terms = const [], this.opk, this.bbt});
+
+  /// `spotting`, `light`, `medium`, `heavy`, or null for no bleeding logged.
+  final String? flow;
+  final List<String> terms;
+
+  /// What her ovulation-test stick said (`opkResults`), verbatim.
+  final String? opk;
+
+  /// Waking temperature, in the unit she typed (°C or °F, guessed from magnitude).
+  final double? bbt;
+
+  bool get isEmpty => flow == null && terms.isEmpty && opk == null && bbt == null;
+
+  DayLog copyWith({
+    Object? flow = _keep,
+    List<String>? terms,
+    Object? opk = _keep,
+    Object? bbt = _keep,
+  }) =>
+      DayLog(
+        flow: identical(flow, _keep) ? this.flow : flow as String?,
+        terms: terms ?? this.terms,
+        opk: identical(opk, _keep) ? this.opk : opk as String?,
+        bbt: identical(bbt, _keep) ? this.bbt : bbt as double?,
+      );
+
+  /// Spotting is logged but is not a period: it never starts a cycle.
+  bool get isBleed => flow != null && flow != 'spotting';
+
+  Map<String, Object?> toJson() => {'flow': flow, 'terms': terms, 'opk': opk, 'bbt': bbt};
+  static DayLog fromJson(Map<String, Object?> j) => DayLog(
+        flow: j['flow'] as String?,
+        terms: List<String>.from((j['terms'] as List?) ?? const []),
+        opk: j['opk'] as String?,
+        bbt: (j['bbt'] as num?)?.toDouble(),
+      );
+}
+
+const _keep = Object();
 
 class Profile {
   const Profile({
@@ -23,14 +71,36 @@ class Profile {
     this.edd,
     this.birthDate,
     this.lastPeriodOverYear = false,
+    this.logs = const {},
+    this.contractions = const [],
+    this.movements = const [],
+    this.weights = const [],
+    this.appointments = const [],
   });
 
   final Goal goal;
   final String locale;
   final int? birthYear;
 
-  /// ISO dates of the first day of each period she has logged, oldest first.
+  /// Every day of bleeding she has recorded, oldest first: her onboarding answer plus
+  /// any day logged with a flow other than spotting. The prediction collapses
+  /// consecutive days into one period (`bleedStarts`), so whole periods can be logged.
   final List<String> periodStarts;
+
+  /// Day logs by ISO date.
+  final Map<String, DayLog> logs;
+
+  /// Contraction times, as she recorded them (the timer sorts them).
+  final List<Contraction> contractions;
+
+  /// Movement-log sessions, oldest first. The last may still be open.
+  final List<MovementSession> movements;
+
+  /// Weight readings as she typed them.
+  final List<WeightEntry> weights;
+
+  /// Appointments: when, with whom, what to ask. Never a result.
+  final List<Appointment> appointments;
   final int? periodLength;
 
   /// Her stated usual cycle length. Null when she said "not sure" or "irregular".
@@ -50,6 +120,11 @@ class Profile {
   Profile copyWith({
     List<String>? periodStarts,
     String? locale,
+    Map<String, DayLog>? logs,
+    List<Contraction>? contractions,
+    List<MovementSession>? movements,
+    List<WeightEntry>? weights,
+    List<Appointment>? appointments,
   }) =>
       Profile(
         goal: goal,
@@ -63,7 +138,29 @@ class Profile {
         edd: edd,
         birthDate: birthDate,
         lastPeriodOverYear: lastPeriodOverYear,
+        logs: logs ?? this.logs,
+        contractions: contractions ?? this.contractions,
+        movements: movements ?? this.movements,
+        weights: weights ?? this.weights,
+        appointments: appointments ?? this.appointments,
       );
+
+  /// Set or clear one day's log, keeping [periodStarts] in step with its flow.
+  Profile withDayLog(String date, DayLog log) {
+    final nextLogs = {...logs};
+    if (log.isEmpty) {
+      nextLogs.remove(date);
+    } else {
+      nextLogs[date] = log;
+    }
+    final bleeds = {...periodStarts};
+    if (log.isBleed) {
+      bleeds.add(date);
+    } else {
+      bleeds.remove(date);
+    }
+    return copyWith(logs: nextLogs, periodStarts: bleeds.toList()..sort());
+  }
 
   Map<String, Object?> toJson() => {
         'v': 1,
@@ -78,6 +175,11 @@ class Profile {
         'edd': edd,
         'birthDate': birthDate,
         'lastPeriodOverYear': lastPeriodOverYear,
+        'logs': {for (final e in logs.entries) e.key: e.value.toJson()},
+        'contractions': [for (final c in contractions) c.toJson()],
+        'movements': [for (final m in movements) m.toJson()],
+        'weights': [for (final w in weights) w.toJson()],
+        'appointments': [for (final a in appointments) a.toJson()],
       };
 
   static Profile fromJson(Map<String, Object?> j) => Profile(
@@ -92,5 +194,24 @@ class Profile {
         edd: j['edd'] as String?,
         birthDate: j['birthDate'] as String?,
         lastPeriodOverYear: j['lastPeriodOverYear'] as bool? ?? false,
+        logs: {
+          for (final e in ((j['logs'] as Map?) ?? const {}).entries)
+            e.key as String: DayLog.fromJson(Map<String, Object?>.from(e.value as Map)),
+        },
+        contractions: [
+          for (final c in (j['contractions'] as List?) ?? const [])
+            Contraction.fromJson(Map<String, Object?>.from(c as Map)),
+        ],
+        movements: [
+          for (final m in (j['movements'] as List?) ?? const [])
+            MovementSession.fromJson(Map<String, Object?>.from(m as Map)),
+        ],
+        weights: [
+          for (final w in (j['weights'] as List?) ?? const []) WeightEntry.fromJson(Map<String, Object?>.from(w as Map)),
+        ],
+        appointments: [
+          for (final a in (j['appointments'] as List?) ?? const [])
+            Appointment.fromJson(Map<String, Object?>.from(a as Map)),
+        ],
       );
 }

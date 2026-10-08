@@ -45,15 +45,13 @@ type PageProps = { params: Promise<{ locale: string }> };
 
 const STAGES = ["teen", "cycle", "ttc", "pregnancy", "postpartum", "menopause"] as const;
 /**
- * `reviewed` leads (P1.9.8, 2026-08-16). R1.3b **removed** a clinician-review line
- * because it was not true: every byline read as nothing at all, since the importer
- * never set `authors` or `medicalReviewerProfile` and `Byline` correctly renders
- * nothing rather than inventing one. It is true now — 30 pages carry a named
- * reviewer with credentials, linked to a published bio, in the page and in the
- * `Article` schema — so the claim comes back, first, because `docs/03` §H.1 found
- * post-nominals on the page to be the strongest trust mechanism in the category.
+ * `sources` leads: every guide cites them, which is true of all 100. `reviewed` was
+ * "Every guide is reviewed by a clinician" until 2026-10-08, when the competitor
+ * benchmark (docs/30_REVAMP/delegated/) counted the snapshot: 25 of 100 guides carry
+ * a named reviewer. The claim now says only what is true of each page — a reviewed
+ * guide names its reviewer — and goes back to "every" when every guide has one.
  */
-const TRUST = ["reviewed", "sources", "ads", "languages"] as const;
+const TRUST = ["sources", "reviewed", "ads", "languages"] as const;
 const SECTIONS = [
   { key: "learn", href: "/learn" },
   { key: "conditions", href: "/conditions" },

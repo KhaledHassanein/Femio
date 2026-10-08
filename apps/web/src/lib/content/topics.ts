@@ -45,6 +45,7 @@ const TOPIC_SLUGS: Record<Exclude<Topic, "weeks" | "more">, readonly string[]> =
     "early-pregnancy-changes",
     "first-pregnancy-appointment",
     "pregnancy-warning-signs",
+    "ramadan-fasting-pregnancy",
   ],
   afterBirth: [
     "postpartum-recovery-first-six-weeks",

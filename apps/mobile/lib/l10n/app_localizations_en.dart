@@ -281,4 +281,632 @@ class L10nEn extends L10n {
 
   @override
   String get todayTitle => 'Today';
+
+  @override
+  String get logHappy => 'Happy';
+
+  @override
+  String get logCalm => 'Calm';
+
+  @override
+  String get logAnxious => 'Anxious';
+
+  @override
+  String get logIrritable => 'Irritable';
+
+  @override
+  String get logSad => 'Sad';
+
+  @override
+  String get logMoodSwings => 'Mood swings';
+
+  @override
+  String get logLowMotivation => 'Low motivation';
+
+  @override
+  String get logTearfulness => 'Tearfulness';
+
+  @override
+  String get logPanicFeelings => 'Sudden panicky feelings';
+
+  @override
+  String get logCramps => 'Cramps';
+
+  @override
+  String get logHeadache => 'Headache';
+
+  @override
+  String get logBloating => 'Bloating';
+
+  @override
+  String get logBreastTenderness => 'Breast tenderness';
+
+  @override
+  String get logBackache => 'Backache';
+
+  @override
+  String get logJointPain => 'Joint pain';
+
+  @override
+  String get logMusclePain => 'Muscle aches';
+
+  @override
+  String get logNausea => 'Nausea';
+
+  @override
+  String get logConstipation => 'Constipation';
+
+  @override
+  String get logDiarrhea => 'Diarrhoea';
+
+  @override
+  String get logFatigue => 'Fatigue';
+
+  @override
+  String get logAcne => 'Acne';
+
+  @override
+  String get logHotFlashes => 'Hot flushes';
+
+  @override
+  String get logNightSweats => 'Night sweats';
+
+  @override
+  String get logSpotting => 'Spotting';
+
+  @override
+  String get logHeartFlutters => 'Heart fluttering or racing';
+
+  @override
+  String get logWeightChange => 'A change in weight';
+
+  @override
+  String get logCravings => 'Cravings';
+
+  @override
+  String get logInsomnia => 'Trouble sleeping';
+
+  @override
+  String get logDizziness => 'Dizziness';
+
+  @override
+  String get logBrainFog => 'Brain fog';
+
+  @override
+  String get logLibidoUp => 'Higher sex drive';
+
+  @override
+  String get logLibidoDown => 'Lower sex drive';
+
+  @override
+  String get logVaginalDryness => 'Vaginal dryness';
+
+  @override
+  String get logPainDuringSex => 'Pain during sex';
+
+  @override
+  String get logBladderUrgency => 'Needing to pee urgently or often';
+
+  @override
+  String get logBladderLeaks => 'Leaking urine';
+
+  @override
+  String get logHairThinning => 'Hair thinning';
+
+  @override
+  String get logDryItchySkin => 'Dry or itchy skin';
+
+  @override
+  String get logBrittleNails => 'Brittle nails';
+
+  @override
+  String get logGumSoreness => 'Sore or bleeding gums';
+
+  @override
+  String get logBurningMouth => 'Burning or tingling mouth';
+
+  @override
+  String get logTingling => 'Tingling in hands or feet';
+
+  @override
+  String get logElectricShocks => 'Brief electric-shock sensations';
+
+  @override
+  String get logBodyOdourChange => 'A change in body odour';
+
+  @override
+  String get logTinnitus => 'Ringing in the ears';
+
+  @override
+  String get logDry => 'Dry';
+
+  @override
+  String get logSticky => 'Sticky';
+
+  @override
+  String get logCreamy => 'Creamy';
+
+  @override
+  String get logWatery => 'Watery';
+
+  @override
+  String get logEggWhite => 'Egg white';
+
+  @override
+  String get logIntercourse => 'Intercourse';
+
+  @override
+  String get flowSpotting => 'Spotting';
+
+  @override
+  String get flowLight => 'Light';
+
+  @override
+  String get flowMedium => 'Medium';
+
+  @override
+  String get flowHeavy => 'Heavy';
+
+  @override
+  String get flowLabel => 'Flow';
+
+  @override
+  String get navToday => 'Today';
+
+  @override
+  String get navCalendar => 'Calendar';
+
+  @override
+  String get navLog => 'Log';
+
+  @override
+  String get calendarTitle => 'Calendar';
+
+  @override
+  String get legendPeriod => 'Period';
+
+  @override
+  String get legendSpotting => 'Spotting';
+
+  @override
+  String get legendPredicted => 'Period may start';
+
+  @override
+  String get legendFertile => 'Fertile window';
+
+  @override
+  String get legendOvulation => 'Likely ovulation';
+
+  @override
+  String get legendLogged => 'Something logged';
+
+  @override
+  String get calendarHint =>
+      'Tap a day to log it. Estimates are shown in outline; what you log is filled in.';
+
+  @override
+  String get logTitle => 'Log';
+
+  @override
+  String get sectionPeriod => 'Period';
+
+  @override
+  String get flowNone => 'None';
+
+  @override
+  String get sectionMood => 'Mood';
+
+  @override
+  String get sectionSymptoms => 'Symptoms';
+
+  @override
+  String get sectionDischarge => 'Discharge';
+
+  @override
+  String get sectionMore => 'More';
+
+  @override
+  String get previousDay => 'Previous day';
+
+  @override
+  String get nextDay => 'Next day';
+
+  @override
+  String get logSavedNote => 'Saved on this phone as you tap.';
+
+  @override
+  String get logSymptomsButton => 'Log how you feel';
+
+  @override
+  String loggedTodayCount(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count things logged today',
+      one: '1 thing logged today',
+      zero: 'Nothing logged today',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get sectionOvulationTest => 'Ovulation test';
+
+  @override
+  String get sectionTemperature => 'Waking temperature';
+
+  @override
+  String get temperatureHint => 'Taken before getting up, in °C or °F';
+
+  @override
+  String get temperatureSave => 'Save';
+
+  @override
+  String get temperatureClear => 'Clear';
+
+  @override
+  String get testTimingTitle => 'When to test';
+
+  @override
+  String testTimingBody(String date) {
+    return 'If your period hasn\'t started by $date, a home pregnancy test is reliable from that day.';
+  }
+
+  @override
+  String get opkNegative => 'Negative';
+
+  @override
+  String get opkLow => 'Low';
+
+  @override
+  String get opkHigh => 'High';
+
+  @override
+  String get opkPeak => 'Peak';
+
+  @override
+  String get opkPositive => 'Positive';
+
+  @override
+  String get bbtChartHeading => 'Your temperatures';
+
+  @override
+  String get bbtChartNeedData =>
+      'Log three waking temperatures and your chart appears here. Fewer than that is a dot, not a pattern.';
+
+  @override
+  String get bbtChartNote =>
+      'These are your readings, drawn as they are. Femio does not mark a shift or name a day — what a chart means is a conversation for you and your clinician.';
+
+  @override
+  String get invalidBbt =>
+      'That does not look like a thermometer reading. Check the number and try again.';
+
+  @override
+  String get testTimingGeneral =>
+      'Most home tests work from the first day of a missed period. Testing earlier can give a negative result even if you are pregnant.';
+
+  @override
+  String get testTimingSource => 'Source: NHS, Doing a pregnancy test.';
+
+  @override
+  String pregDaysToGo(int days) {
+    String _temp0 = intl.Intl.pluralLogic(
+      days,
+      locale: localeName,
+      other: '$days days to go',
+      one: '$days day to go',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String pregOverdue(int days) {
+    String _temp0 = intl.Intl.pluralLogic(
+      days,
+      locale: localeName,
+      other: '$days days past your due date',
+      one: '$days day past your due date',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String pregTermFrom(String date) {
+    return 'Full term from $date';
+  }
+
+  @override
+  String get pregEstimateNote =>
+      'These dates are estimates based on the due date you entered. Your clinician may adjust it after a scan.';
+
+  @override
+  String get pregRedFlagsHeading => 'Some symptoms need urgent care';
+
+  @override
+  String get pregRedFlagsBody =>
+      'Bleeding, severe headache, vision changes, severe abdominal pain, or reduced movements need to be checked straight away. Contact your maternity unit or local emergency services — do not wait.';
+
+  @override
+  String get contractionsHeading => 'Contraction timer';
+
+  @override
+  String get contractionsIntro =>
+      'Press start when one begins and stop when it eases. Femio keeps the times so you have them when you call.';
+
+  @override
+  String get contractionsStart => 'Start a contraction';
+
+  @override
+  String get contractionsStop => 'It has eased';
+
+  @override
+  String get contractionsRunning => 'Timing now';
+
+  @override
+  String get contractionsContactHeading =>
+      'Call your maternity unit whenever you need to';
+
+  @override
+  String get contractionsContactBody =>
+      'You do not need to reach a certain number first. Call if you are worried, if your waters break, if there is bleeding, or if the baby is moving less than usual.';
+
+  @override
+  String contractionsSummaryHeading(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: 'Your last $count contractions',
+      one: 'Your last contraction',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String contractionsSummaryDuration(String value) {
+    return 'Lasting about $value';
+  }
+
+  @override
+  String contractionsSummaryInterval(String value) {
+    return 'About $value apart, start to start';
+  }
+
+  @override
+  String get contractionsSummaryNote =>
+      'These are your times, as recorded. Femio does not decide what they mean — read them out to your midwife or maternity unit, who can.';
+
+  @override
+  String get movementsHeading => 'Movement log';
+
+  @override
+  String get movementsIntro =>
+      'There is no normal number of movements. What matters is a change from your baby\'s usual pattern, so this records what you feel and shows you your own pattern over time.';
+
+  @override
+  String get movementsUrgentHeading => 'If movements are less than usual';
+
+  @override
+  String get movementsUrgentBody =>
+      'Contact your maternity team now. Do not wait for this session to finish, and do not wait until tomorrow.';
+
+  @override
+  String get movementsStart => 'Start a session';
+
+  @override
+  String get movementsStartBody =>
+      'Get comfortable, then start. Tap each time you feel a movement.';
+
+  @override
+  String get movementsTap => 'I felt a movement';
+
+  @override
+  String movementsCounted(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count movements recorded',
+      one: '$count movement recorded',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get movementsFinish => 'Finish and save';
+
+  @override
+  String get movementsFinishNote =>
+      'You can stop any time. The session saves either way.';
+
+  @override
+  String get movementsRecentHeading => 'Your recent sessions';
+
+  @override
+  String movementsSessionSummary(int count, String minutes) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count movements',
+      one: '$count movement',
+    );
+    return '$_temp0 · about $minutes min apart';
+  }
+
+  @override
+  String get movementsUnfinished => 'Not finished';
+
+  @override
+  String get movementsSlowerHeading =>
+      'Movements were further apart than usual for you';
+
+  @override
+  String get movementsSlowerBody =>
+      'This is a change from your own recent sessions. What it means is for your maternity team to say, so contact them and let someone check.';
+
+  @override
+  String movementsNeedMore(String count) {
+    return 'After $count sessions you will be able to compare with your own pattern.';
+  }
+
+  @override
+  String get pregnancyToolsTitle => 'Pregnancy tools';
+
+  @override
+  String get contractionsClear => 'Clear these times';
+
+  @override
+  String get contractionsCleared => 'Times cleared';
+
+  @override
+  String get contractionLength => 'Length';
+
+  @override
+  String get contractionApart => 'Apart';
+
+  @override
+  String get apptTitle => 'Appointments';
+
+  @override
+  String get apptAdd => 'Add an appointment';
+
+  @override
+  String get apptCancel => 'Cancel';
+
+  @override
+  String get apptSave => 'Save appointment';
+
+  @override
+  String get apptUntitled => 'Appointment';
+
+  @override
+  String get apptNoDate => 'No date yet';
+
+  @override
+  String get apptToday => 'Today';
+
+  @override
+  String apptInDays(int days) {
+    String _temp0 = intl.Intl.pluralLogic(
+      days,
+      locale: localeName,
+      other: 'In $days days',
+      one: 'Tomorrow',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get apptPrepHeading => 'What you wanted to ask';
+
+  @override
+  String get apptUpcoming => 'Coming up';
+
+  @override
+  String get apptPast => 'Past';
+
+  @override
+  String get apptNoResultsNote =>
+      'Femio keeps when it is, who it is with, and what you wanted to ask. It does not keep what was found — that belongs with your clinician, in your notes.';
+
+  @override
+  String get apptEmptyHeading => 'Nothing here yet';
+
+  @override
+  String get apptEmptyBody =>
+      'Add an appointment and Femio will hold the questions you meant to ask, which is the part people forget in the room.';
+
+  @override
+  String get apptAwaitingHeading => 'Still waiting to hear?';
+
+  @override
+  String apptAwaitingBody(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: 'You were expecting results back by now for $count of these.',
+      one: 'You were expecting a result back by now for one of these.',
+    );
+    return '$_temp0 It may be worth asking — results run late for all sorts of ordinary reasons.';
+  }
+
+  @override
+  String get apptFormType => 'What is it';
+
+  @override
+  String get apptFormTypePlaceholder => 'Scan, blood test, check-up…';
+
+  @override
+  String get apptFormClinician => 'Who with';
+
+  @override
+  String get apptFormWhen => 'When';
+
+  @override
+  String get apptFormResultsDue => 'Told to expect results by';
+
+  @override
+  String get apptFormResultsDueHint =>
+      'Optional. Femio will remind you to ask if the date passes — it never records what the result was.';
+
+  @override
+  String get apptFormPrep => 'Questions you want to ask';
+
+  @override
+  String get apptFormPrepPlaceholder => 'One per line';
+
+  @override
+  String apptPrepCount(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count questions saved',
+      one: '$count question saved',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get weightHeading => 'Weight';
+
+  @override
+  String get weightIntro =>
+      'Add a reading whenever you like. Femio draws them and keeps the numbers for your notes.';
+
+  @override
+  String get weightValue => 'Weight';
+
+  @override
+  String get weightSave => 'Save';
+
+  @override
+  String get weightInvalid =>
+      'That does not look like a scale reading. Check the number and try again.';
+
+  @override
+  String get weightNeedData =>
+      'Add a second reading and your chart appears here.';
+
+  @override
+  String weightChange(String value, String unit) {
+    return '$value $unit since your first entry';
+  }
+
+  @override
+  String get weightNote =>
+      'Your readings, drawn as they are. Femio does not show a target range or say whether a change is expected — what a pattern means is for you and your midwife or doctor.';
+
+  @override
+  String get weightDate => 'Measured on';
+
+  @override
+  String get weightUnitKg => 'kg';
+
+  @override
+  String get weightUnitLb => 'lb';
+
+  @override
+  String get apptDelete => 'Delete';
+
+  @override
+  String get apptEdit => 'Edit';
 }

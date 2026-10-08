@@ -544,6 +544,1044 @@ abstract class L10n {
   /// In en, this message translates to:
   /// **'Today'**
   String get todayTitle;
+
+  /// No description provided for @logHappy.
+  ///
+  /// In en, this message translates to:
+  /// **'Happy'**
+  String get logHappy;
+
+  /// No description provided for @logCalm.
+  ///
+  /// In en, this message translates to:
+  /// **'Calm'**
+  String get logCalm;
+
+  /// No description provided for @logAnxious.
+  ///
+  /// In en, this message translates to:
+  /// **'Anxious'**
+  String get logAnxious;
+
+  /// No description provided for @logIrritable.
+  ///
+  /// In en, this message translates to:
+  /// **'Irritable'**
+  String get logIrritable;
+
+  /// No description provided for @logSad.
+  ///
+  /// In en, this message translates to:
+  /// **'Sad'**
+  String get logSad;
+
+  /// No description provided for @logMoodSwings.
+  ///
+  /// In en, this message translates to:
+  /// **'Mood swings'**
+  String get logMoodSwings;
+
+  /// No description provided for @logLowMotivation.
+  ///
+  /// In en, this message translates to:
+  /// **'Low motivation'**
+  String get logLowMotivation;
+
+  /// No description provided for @logTearfulness.
+  ///
+  /// In en, this message translates to:
+  /// **'Tearfulness'**
+  String get logTearfulness;
+
+  /// No description provided for @logPanicFeelings.
+  ///
+  /// In en, this message translates to:
+  /// **'Sudden panicky feelings'**
+  String get logPanicFeelings;
+
+  /// No description provided for @logCramps.
+  ///
+  /// In en, this message translates to:
+  /// **'Cramps'**
+  String get logCramps;
+
+  /// No description provided for @logHeadache.
+  ///
+  /// In en, this message translates to:
+  /// **'Headache'**
+  String get logHeadache;
+
+  /// No description provided for @logBloating.
+  ///
+  /// In en, this message translates to:
+  /// **'Bloating'**
+  String get logBloating;
+
+  /// No description provided for @logBreastTenderness.
+  ///
+  /// In en, this message translates to:
+  /// **'Breast tenderness'**
+  String get logBreastTenderness;
+
+  /// No description provided for @logBackache.
+  ///
+  /// In en, this message translates to:
+  /// **'Backache'**
+  String get logBackache;
+
+  /// No description provided for @logJointPain.
+  ///
+  /// In en, this message translates to:
+  /// **'Joint pain'**
+  String get logJointPain;
+
+  /// No description provided for @logMusclePain.
+  ///
+  /// In en, this message translates to:
+  /// **'Muscle aches'**
+  String get logMusclePain;
+
+  /// No description provided for @logNausea.
+  ///
+  /// In en, this message translates to:
+  /// **'Nausea'**
+  String get logNausea;
+
+  /// No description provided for @logConstipation.
+  ///
+  /// In en, this message translates to:
+  /// **'Constipation'**
+  String get logConstipation;
+
+  /// No description provided for @logDiarrhea.
+  ///
+  /// In en, this message translates to:
+  /// **'Diarrhoea'**
+  String get logDiarrhea;
+
+  /// No description provided for @logFatigue.
+  ///
+  /// In en, this message translates to:
+  /// **'Fatigue'**
+  String get logFatigue;
+
+  /// No description provided for @logAcne.
+  ///
+  /// In en, this message translates to:
+  /// **'Acne'**
+  String get logAcne;
+
+  /// No description provided for @logHotFlashes.
+  ///
+  /// In en, this message translates to:
+  /// **'Hot flushes'**
+  String get logHotFlashes;
+
+  /// No description provided for @logNightSweats.
+  ///
+  /// In en, this message translates to:
+  /// **'Night sweats'**
+  String get logNightSweats;
+
+  /// No description provided for @logSpotting.
+  ///
+  /// In en, this message translates to:
+  /// **'Spotting'**
+  String get logSpotting;
+
+  /// No description provided for @logHeartFlutters.
+  ///
+  /// In en, this message translates to:
+  /// **'Heart fluttering or racing'**
+  String get logHeartFlutters;
+
+  /// No description provided for @logWeightChange.
+  ///
+  /// In en, this message translates to:
+  /// **'A change in weight'**
+  String get logWeightChange;
+
+  /// No description provided for @logCravings.
+  ///
+  /// In en, this message translates to:
+  /// **'Cravings'**
+  String get logCravings;
+
+  /// No description provided for @logInsomnia.
+  ///
+  /// In en, this message translates to:
+  /// **'Trouble sleeping'**
+  String get logInsomnia;
+
+  /// No description provided for @logDizziness.
+  ///
+  /// In en, this message translates to:
+  /// **'Dizziness'**
+  String get logDizziness;
+
+  /// No description provided for @logBrainFog.
+  ///
+  /// In en, this message translates to:
+  /// **'Brain fog'**
+  String get logBrainFog;
+
+  /// No description provided for @logLibidoUp.
+  ///
+  /// In en, this message translates to:
+  /// **'Higher sex drive'**
+  String get logLibidoUp;
+
+  /// No description provided for @logLibidoDown.
+  ///
+  /// In en, this message translates to:
+  /// **'Lower sex drive'**
+  String get logLibidoDown;
+
+  /// No description provided for @logVaginalDryness.
+  ///
+  /// In en, this message translates to:
+  /// **'Vaginal dryness'**
+  String get logVaginalDryness;
+
+  /// No description provided for @logPainDuringSex.
+  ///
+  /// In en, this message translates to:
+  /// **'Pain during sex'**
+  String get logPainDuringSex;
+
+  /// No description provided for @logBladderUrgency.
+  ///
+  /// In en, this message translates to:
+  /// **'Needing to pee urgently or often'**
+  String get logBladderUrgency;
+
+  /// No description provided for @logBladderLeaks.
+  ///
+  /// In en, this message translates to:
+  /// **'Leaking urine'**
+  String get logBladderLeaks;
+
+  /// No description provided for @logHairThinning.
+  ///
+  /// In en, this message translates to:
+  /// **'Hair thinning'**
+  String get logHairThinning;
+
+  /// No description provided for @logDryItchySkin.
+  ///
+  /// In en, this message translates to:
+  /// **'Dry or itchy skin'**
+  String get logDryItchySkin;
+
+  /// No description provided for @logBrittleNails.
+  ///
+  /// In en, this message translates to:
+  /// **'Brittle nails'**
+  String get logBrittleNails;
+
+  /// No description provided for @logGumSoreness.
+  ///
+  /// In en, this message translates to:
+  /// **'Sore or bleeding gums'**
+  String get logGumSoreness;
+
+  /// No description provided for @logBurningMouth.
+  ///
+  /// In en, this message translates to:
+  /// **'Burning or tingling mouth'**
+  String get logBurningMouth;
+
+  /// No description provided for @logTingling.
+  ///
+  /// In en, this message translates to:
+  /// **'Tingling in hands or feet'**
+  String get logTingling;
+
+  /// No description provided for @logElectricShocks.
+  ///
+  /// In en, this message translates to:
+  /// **'Brief electric-shock sensations'**
+  String get logElectricShocks;
+
+  /// No description provided for @logBodyOdourChange.
+  ///
+  /// In en, this message translates to:
+  /// **'A change in body odour'**
+  String get logBodyOdourChange;
+
+  /// No description provided for @logTinnitus.
+  ///
+  /// In en, this message translates to:
+  /// **'Ringing in the ears'**
+  String get logTinnitus;
+
+  /// No description provided for @logDry.
+  ///
+  /// In en, this message translates to:
+  /// **'Dry'**
+  String get logDry;
+
+  /// No description provided for @logSticky.
+  ///
+  /// In en, this message translates to:
+  /// **'Sticky'**
+  String get logSticky;
+
+  /// No description provided for @logCreamy.
+  ///
+  /// In en, this message translates to:
+  /// **'Creamy'**
+  String get logCreamy;
+
+  /// No description provided for @logWatery.
+  ///
+  /// In en, this message translates to:
+  /// **'Watery'**
+  String get logWatery;
+
+  /// No description provided for @logEggWhite.
+  ///
+  /// In en, this message translates to:
+  /// **'Egg white'**
+  String get logEggWhite;
+
+  /// No description provided for @logIntercourse.
+  ///
+  /// In en, this message translates to:
+  /// **'Intercourse'**
+  String get logIntercourse;
+
+  /// No description provided for @flowSpotting.
+  ///
+  /// In en, this message translates to:
+  /// **'Spotting'**
+  String get flowSpotting;
+
+  /// No description provided for @flowLight.
+  ///
+  /// In en, this message translates to:
+  /// **'Light'**
+  String get flowLight;
+
+  /// No description provided for @flowMedium.
+  ///
+  /// In en, this message translates to:
+  /// **'Medium'**
+  String get flowMedium;
+
+  /// No description provided for @flowHeavy.
+  ///
+  /// In en, this message translates to:
+  /// **'Heavy'**
+  String get flowHeavy;
+
+  /// No description provided for @flowLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Flow'**
+  String get flowLabel;
+
+  /// No description provided for @navToday.
+  ///
+  /// In en, this message translates to:
+  /// **'Today'**
+  String get navToday;
+
+  /// No description provided for @navCalendar.
+  ///
+  /// In en, this message translates to:
+  /// **'Calendar'**
+  String get navCalendar;
+
+  /// No description provided for @navLog.
+  ///
+  /// In en, this message translates to:
+  /// **'Log'**
+  String get navLog;
+
+  /// No description provided for @calendarTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Calendar'**
+  String get calendarTitle;
+
+  /// No description provided for @legendPeriod.
+  ///
+  /// In en, this message translates to:
+  /// **'Period'**
+  String get legendPeriod;
+
+  /// No description provided for @legendSpotting.
+  ///
+  /// In en, this message translates to:
+  /// **'Spotting'**
+  String get legendSpotting;
+
+  /// No description provided for @legendPredicted.
+  ///
+  /// In en, this message translates to:
+  /// **'Period may start'**
+  String get legendPredicted;
+
+  /// No description provided for @legendFertile.
+  ///
+  /// In en, this message translates to:
+  /// **'Fertile window'**
+  String get legendFertile;
+
+  /// No description provided for @legendOvulation.
+  ///
+  /// In en, this message translates to:
+  /// **'Likely ovulation'**
+  String get legendOvulation;
+
+  /// No description provided for @legendLogged.
+  ///
+  /// In en, this message translates to:
+  /// **'Something logged'**
+  String get legendLogged;
+
+  /// No description provided for @calendarHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Tap a day to log it. Estimates are shown in outline; what you log is filled in.'**
+  String get calendarHint;
+
+  /// No description provided for @logTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Log'**
+  String get logTitle;
+
+  /// No description provided for @sectionPeriod.
+  ///
+  /// In en, this message translates to:
+  /// **'Period'**
+  String get sectionPeriod;
+
+  /// No description provided for @flowNone.
+  ///
+  /// In en, this message translates to:
+  /// **'None'**
+  String get flowNone;
+
+  /// No description provided for @sectionMood.
+  ///
+  /// In en, this message translates to:
+  /// **'Mood'**
+  String get sectionMood;
+
+  /// No description provided for @sectionSymptoms.
+  ///
+  /// In en, this message translates to:
+  /// **'Symptoms'**
+  String get sectionSymptoms;
+
+  /// No description provided for @sectionDischarge.
+  ///
+  /// In en, this message translates to:
+  /// **'Discharge'**
+  String get sectionDischarge;
+
+  /// No description provided for @sectionMore.
+  ///
+  /// In en, this message translates to:
+  /// **'More'**
+  String get sectionMore;
+
+  /// No description provided for @previousDay.
+  ///
+  /// In en, this message translates to:
+  /// **'Previous day'**
+  String get previousDay;
+
+  /// No description provided for @nextDay.
+  ///
+  /// In en, this message translates to:
+  /// **'Next day'**
+  String get nextDay;
+
+  /// No description provided for @logSavedNote.
+  ///
+  /// In en, this message translates to:
+  /// **'Saved on this phone as you tap.'**
+  String get logSavedNote;
+
+  /// No description provided for @logSymptomsButton.
+  ///
+  /// In en, this message translates to:
+  /// **'Log how you feel'**
+  String get logSymptomsButton;
+
+  /// No description provided for @loggedTodayCount.
+  ///
+  /// In en, this message translates to:
+  /// **'{count, plural, =0{Nothing logged today} =1{1 thing logged today} other{{count} things logged today}}'**
+  String loggedTodayCount(int count);
+
+  /// No description provided for @sectionOvulationTest.
+  ///
+  /// In en, this message translates to:
+  /// **'Ovulation test'**
+  String get sectionOvulationTest;
+
+  /// No description provided for @sectionTemperature.
+  ///
+  /// In en, this message translates to:
+  /// **'Waking temperature'**
+  String get sectionTemperature;
+
+  /// No description provided for @temperatureHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Taken before getting up, in °C or °F'**
+  String get temperatureHint;
+
+  /// No description provided for @temperatureSave.
+  ///
+  /// In en, this message translates to:
+  /// **'Save'**
+  String get temperatureSave;
+
+  /// No description provided for @temperatureClear.
+  ///
+  /// In en, this message translates to:
+  /// **'Clear'**
+  String get temperatureClear;
+
+  /// No description provided for @testTimingTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'When to test'**
+  String get testTimingTitle;
+
+  /// No description provided for @testTimingBody.
+  ///
+  /// In en, this message translates to:
+  /// **'If your period hasn\'t started by {date}, a home pregnancy test is reliable from that day.'**
+  String testTimingBody(String date);
+
+  /// No description provided for @opkNegative.
+  ///
+  /// In en, this message translates to:
+  /// **'Negative'**
+  String get opkNegative;
+
+  /// No description provided for @opkLow.
+  ///
+  /// In en, this message translates to:
+  /// **'Low'**
+  String get opkLow;
+
+  /// No description provided for @opkHigh.
+  ///
+  /// In en, this message translates to:
+  /// **'High'**
+  String get opkHigh;
+
+  /// No description provided for @opkPeak.
+  ///
+  /// In en, this message translates to:
+  /// **'Peak'**
+  String get opkPeak;
+
+  /// No description provided for @opkPositive.
+  ///
+  /// In en, this message translates to:
+  /// **'Positive'**
+  String get opkPositive;
+
+  /// No description provided for @bbtChartHeading.
+  ///
+  /// In en, this message translates to:
+  /// **'Your temperatures'**
+  String get bbtChartHeading;
+
+  /// No description provided for @bbtChartNeedData.
+  ///
+  /// In en, this message translates to:
+  /// **'Log three waking temperatures and your chart appears here. Fewer than that is a dot, not a pattern.'**
+  String get bbtChartNeedData;
+
+  /// No description provided for @bbtChartNote.
+  ///
+  /// In en, this message translates to:
+  /// **'These are your readings, drawn as they are. Femio does not mark a shift or name a day — what a chart means is a conversation for you and your clinician.'**
+  String get bbtChartNote;
+
+  /// No description provided for @invalidBbt.
+  ///
+  /// In en, this message translates to:
+  /// **'That does not look like a thermometer reading. Check the number and try again.'**
+  String get invalidBbt;
+
+  /// No description provided for @testTimingGeneral.
+  ///
+  /// In en, this message translates to:
+  /// **'Most home tests work from the first day of a missed period. Testing earlier can give a negative result even if you are pregnant.'**
+  String get testTimingGeneral;
+
+  /// No description provided for @testTimingSource.
+  ///
+  /// In en, this message translates to:
+  /// **'Source: NHS, Doing a pregnancy test.'**
+  String get testTimingSource;
+
+  /// No description provided for @pregDaysToGo.
+  ///
+  /// In en, this message translates to:
+  /// **'{days, plural, one {{days} day to go} other {{days} days to go}}'**
+  String pregDaysToGo(int days);
+
+  /// No description provided for @pregOverdue.
+  ///
+  /// In en, this message translates to:
+  /// **'{days, plural, one {{days} day past your due date} other {{days} days past your due date}}'**
+  String pregOverdue(int days);
+
+  /// No description provided for @pregTermFrom.
+  ///
+  /// In en, this message translates to:
+  /// **'Full term from {date}'**
+  String pregTermFrom(String date);
+
+  /// No description provided for @pregEstimateNote.
+  ///
+  /// In en, this message translates to:
+  /// **'These dates are estimates based on the due date you entered. Your clinician may adjust it after a scan.'**
+  String get pregEstimateNote;
+
+  /// No description provided for @pregRedFlagsHeading.
+  ///
+  /// In en, this message translates to:
+  /// **'Some symptoms need urgent care'**
+  String get pregRedFlagsHeading;
+
+  /// No description provided for @pregRedFlagsBody.
+  ///
+  /// In en, this message translates to:
+  /// **'Bleeding, severe headache, vision changes, severe abdominal pain, or reduced movements need to be checked straight away. Contact your maternity unit or local emergency services — do not wait.'**
+  String get pregRedFlagsBody;
+
+  /// No description provided for @contractionsHeading.
+  ///
+  /// In en, this message translates to:
+  /// **'Contraction timer'**
+  String get contractionsHeading;
+
+  /// No description provided for @contractionsIntro.
+  ///
+  /// In en, this message translates to:
+  /// **'Press start when one begins and stop when it eases. Femio keeps the times so you have them when you call.'**
+  String get contractionsIntro;
+
+  /// No description provided for @contractionsStart.
+  ///
+  /// In en, this message translates to:
+  /// **'Start a contraction'**
+  String get contractionsStart;
+
+  /// No description provided for @contractionsStop.
+  ///
+  /// In en, this message translates to:
+  /// **'It has eased'**
+  String get contractionsStop;
+
+  /// No description provided for @contractionsRunning.
+  ///
+  /// In en, this message translates to:
+  /// **'Timing now'**
+  String get contractionsRunning;
+
+  /// No description provided for @contractionsContactHeading.
+  ///
+  /// In en, this message translates to:
+  /// **'Call your maternity unit whenever you need to'**
+  String get contractionsContactHeading;
+
+  /// No description provided for @contractionsContactBody.
+  ///
+  /// In en, this message translates to:
+  /// **'You do not need to reach a certain number first. Call if you are worried, if your waters break, if there is bleeding, or if the baby is moving less than usual.'**
+  String get contractionsContactBody;
+
+  /// No description provided for @contractionsSummaryHeading.
+  ///
+  /// In en, this message translates to:
+  /// **'{count, plural, one {Your last contraction} other {Your last {count} contractions}}'**
+  String contractionsSummaryHeading(int count);
+
+  /// No description provided for @contractionsSummaryDuration.
+  ///
+  /// In en, this message translates to:
+  /// **'Lasting about {value}'**
+  String contractionsSummaryDuration(String value);
+
+  /// No description provided for @contractionsSummaryInterval.
+  ///
+  /// In en, this message translates to:
+  /// **'About {value} apart, start to start'**
+  String contractionsSummaryInterval(String value);
+
+  /// No description provided for @contractionsSummaryNote.
+  ///
+  /// In en, this message translates to:
+  /// **'These are your times, as recorded. Femio does not decide what they mean — read them out to your midwife or maternity unit, who can.'**
+  String get contractionsSummaryNote;
+
+  /// No description provided for @movementsHeading.
+  ///
+  /// In en, this message translates to:
+  /// **'Movement log'**
+  String get movementsHeading;
+
+  /// No description provided for @movementsIntro.
+  ///
+  /// In en, this message translates to:
+  /// **'There is no normal number of movements. What matters is a change from your baby\'s usual pattern, so this records what you feel and shows you your own pattern over time.'**
+  String get movementsIntro;
+
+  /// No description provided for @movementsUrgentHeading.
+  ///
+  /// In en, this message translates to:
+  /// **'If movements are less than usual'**
+  String get movementsUrgentHeading;
+
+  /// No description provided for @movementsUrgentBody.
+  ///
+  /// In en, this message translates to:
+  /// **'Contact your maternity team now. Do not wait for this session to finish, and do not wait until tomorrow.'**
+  String get movementsUrgentBody;
+
+  /// No description provided for @movementsStart.
+  ///
+  /// In en, this message translates to:
+  /// **'Start a session'**
+  String get movementsStart;
+
+  /// No description provided for @movementsStartBody.
+  ///
+  /// In en, this message translates to:
+  /// **'Get comfortable, then start. Tap each time you feel a movement.'**
+  String get movementsStartBody;
+
+  /// No description provided for @movementsTap.
+  ///
+  /// In en, this message translates to:
+  /// **'I felt a movement'**
+  String get movementsTap;
+
+  /// No description provided for @movementsCounted.
+  ///
+  /// In en, this message translates to:
+  /// **'{count, plural, one {{count} movement recorded} other {{count} movements recorded}}'**
+  String movementsCounted(int count);
+
+  /// No description provided for @movementsFinish.
+  ///
+  /// In en, this message translates to:
+  /// **'Finish and save'**
+  String get movementsFinish;
+
+  /// No description provided for @movementsFinishNote.
+  ///
+  /// In en, this message translates to:
+  /// **'You can stop any time. The session saves either way.'**
+  String get movementsFinishNote;
+
+  /// No description provided for @movementsRecentHeading.
+  ///
+  /// In en, this message translates to:
+  /// **'Your recent sessions'**
+  String get movementsRecentHeading;
+
+  /// No description provided for @movementsSessionSummary.
+  ///
+  /// In en, this message translates to:
+  /// **'{count, plural, one {{count} movement} other {{count} movements}} · about {minutes} min apart'**
+  String movementsSessionSummary(int count, String minutes);
+
+  /// No description provided for @movementsUnfinished.
+  ///
+  /// In en, this message translates to:
+  /// **'Not finished'**
+  String get movementsUnfinished;
+
+  /// No description provided for @movementsSlowerHeading.
+  ///
+  /// In en, this message translates to:
+  /// **'Movements were further apart than usual for you'**
+  String get movementsSlowerHeading;
+
+  /// No description provided for @movementsSlowerBody.
+  ///
+  /// In en, this message translates to:
+  /// **'This is a change from your own recent sessions. What it means is for your maternity team to say, so contact them and let someone check.'**
+  String get movementsSlowerBody;
+
+  /// No description provided for @movementsNeedMore.
+  ///
+  /// In en, this message translates to:
+  /// **'After {count} sessions you will be able to compare with your own pattern.'**
+  String movementsNeedMore(String count);
+
+  /// No description provided for @pregnancyToolsTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Pregnancy tools'**
+  String get pregnancyToolsTitle;
+
+  /// No description provided for @contractionsClear.
+  ///
+  /// In en, this message translates to:
+  /// **'Clear these times'**
+  String get contractionsClear;
+
+  /// No description provided for @contractionsCleared.
+  ///
+  /// In en, this message translates to:
+  /// **'Times cleared'**
+  String get contractionsCleared;
+
+  /// No description provided for @contractionLength.
+  ///
+  /// In en, this message translates to:
+  /// **'Length'**
+  String get contractionLength;
+
+  /// No description provided for @contractionApart.
+  ///
+  /// In en, this message translates to:
+  /// **'Apart'**
+  String get contractionApart;
+
+  /// No description provided for @apptTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Appointments'**
+  String get apptTitle;
+
+  /// No description provided for @apptAdd.
+  ///
+  /// In en, this message translates to:
+  /// **'Add an appointment'**
+  String get apptAdd;
+
+  /// No description provided for @apptCancel.
+  ///
+  /// In en, this message translates to:
+  /// **'Cancel'**
+  String get apptCancel;
+
+  /// No description provided for @apptSave.
+  ///
+  /// In en, this message translates to:
+  /// **'Save appointment'**
+  String get apptSave;
+
+  /// No description provided for @apptUntitled.
+  ///
+  /// In en, this message translates to:
+  /// **'Appointment'**
+  String get apptUntitled;
+
+  /// No description provided for @apptNoDate.
+  ///
+  /// In en, this message translates to:
+  /// **'No date yet'**
+  String get apptNoDate;
+
+  /// No description provided for @apptToday.
+  ///
+  /// In en, this message translates to:
+  /// **'Today'**
+  String get apptToday;
+
+  /// No description provided for @apptInDays.
+  ///
+  /// In en, this message translates to:
+  /// **'{days, plural, one {Tomorrow} other {In {days} days}}'**
+  String apptInDays(int days);
+
+  /// No description provided for @apptPrepHeading.
+  ///
+  /// In en, this message translates to:
+  /// **'What you wanted to ask'**
+  String get apptPrepHeading;
+
+  /// No description provided for @apptUpcoming.
+  ///
+  /// In en, this message translates to:
+  /// **'Coming up'**
+  String get apptUpcoming;
+
+  /// No description provided for @apptPast.
+  ///
+  /// In en, this message translates to:
+  /// **'Past'**
+  String get apptPast;
+
+  /// No description provided for @apptNoResultsNote.
+  ///
+  /// In en, this message translates to:
+  /// **'Femio keeps when it is, who it is with, and what you wanted to ask. It does not keep what was found — that belongs with your clinician, in your notes.'**
+  String get apptNoResultsNote;
+
+  /// No description provided for @apptEmptyHeading.
+  ///
+  /// In en, this message translates to:
+  /// **'Nothing here yet'**
+  String get apptEmptyHeading;
+
+  /// No description provided for @apptEmptyBody.
+  ///
+  /// In en, this message translates to:
+  /// **'Add an appointment and Femio will hold the questions you meant to ask, which is the part people forget in the room.'**
+  String get apptEmptyBody;
+
+  /// No description provided for @apptAwaitingHeading.
+  ///
+  /// In en, this message translates to:
+  /// **'Still waiting to hear?'**
+  String get apptAwaitingHeading;
+
+  /// No description provided for @apptAwaitingBody.
+  ///
+  /// In en, this message translates to:
+  /// **'{count, plural, one {You were expecting a result back by now for one of these.} other {You were expecting results back by now for {count} of these.}} It may be worth asking — results run late for all sorts of ordinary reasons.'**
+  String apptAwaitingBody(int count);
+
+  /// No description provided for @apptFormType.
+  ///
+  /// In en, this message translates to:
+  /// **'What is it'**
+  String get apptFormType;
+
+  /// No description provided for @apptFormTypePlaceholder.
+  ///
+  /// In en, this message translates to:
+  /// **'Scan, blood test, check-up…'**
+  String get apptFormTypePlaceholder;
+
+  /// No description provided for @apptFormClinician.
+  ///
+  /// In en, this message translates to:
+  /// **'Who with'**
+  String get apptFormClinician;
+
+  /// No description provided for @apptFormWhen.
+  ///
+  /// In en, this message translates to:
+  /// **'When'**
+  String get apptFormWhen;
+
+  /// No description provided for @apptFormResultsDue.
+  ///
+  /// In en, this message translates to:
+  /// **'Told to expect results by'**
+  String get apptFormResultsDue;
+
+  /// No description provided for @apptFormResultsDueHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Optional. Femio will remind you to ask if the date passes — it never records what the result was.'**
+  String get apptFormResultsDueHint;
+
+  /// No description provided for @apptFormPrep.
+  ///
+  /// In en, this message translates to:
+  /// **'Questions you want to ask'**
+  String get apptFormPrep;
+
+  /// No description provided for @apptFormPrepPlaceholder.
+  ///
+  /// In en, this message translates to:
+  /// **'One per line'**
+  String get apptFormPrepPlaceholder;
+
+  /// No description provided for @apptPrepCount.
+  ///
+  /// In en, this message translates to:
+  /// **'{count, plural, one {{count} question saved} other {{count} questions saved}}'**
+  String apptPrepCount(int count);
+
+  /// No description provided for @weightHeading.
+  ///
+  /// In en, this message translates to:
+  /// **'Weight'**
+  String get weightHeading;
+
+  /// No description provided for @weightIntro.
+  ///
+  /// In en, this message translates to:
+  /// **'Add a reading whenever you like. Femio draws them and keeps the numbers for your notes.'**
+  String get weightIntro;
+
+  /// No description provided for @weightValue.
+  ///
+  /// In en, this message translates to:
+  /// **'Weight'**
+  String get weightValue;
+
+  /// No description provided for @weightSave.
+  ///
+  /// In en, this message translates to:
+  /// **'Save'**
+  String get weightSave;
+
+  /// No description provided for @weightInvalid.
+  ///
+  /// In en, this message translates to:
+  /// **'That does not look like a scale reading. Check the number and try again.'**
+  String get weightInvalid;
+
+  /// No description provided for @weightNeedData.
+  ///
+  /// In en, this message translates to:
+  /// **'Add a second reading and your chart appears here.'**
+  String get weightNeedData;
+
+  /// No description provided for @weightChange.
+  ///
+  /// In en, this message translates to:
+  /// **'{value} {unit} since your first entry'**
+  String weightChange(String value, String unit);
+
+  /// No description provided for @weightNote.
+  ///
+  /// In en, this message translates to:
+  /// **'Your readings, drawn as they are. Femio does not show a target range or say whether a change is expected — what a pattern means is for you and your midwife or doctor.'**
+  String get weightNote;
+
+  /// No description provided for @weightDate.
+  ///
+  /// In en, this message translates to:
+  /// **'Measured on'**
+  String get weightDate;
+
+  /// No description provided for @weightUnitKg.
+  ///
+  /// In en, this message translates to:
+  /// **'kg'**
+  String get weightUnitKg;
+
+  /// No description provided for @weightUnitLb.
+  ///
+  /// In en, this message translates to:
+  /// **'lb'**
+  String get weightUnitLb;
+
+  /// No description provided for @apptDelete.
+  ///
+  /// In en, this message translates to:
+  /// **'Delete'**
+  String get apptDelete;
+
+  /// No description provided for @apptEdit.
+  ///
+  /// In en, this message translates to:
+  /// **'Edit'**
+  String get apptEdit;
 }
 
 class _L10nDelegate extends LocalizationsDelegate<L10n> {

@@ -72,8 +72,8 @@
           "detail": "— Arabic right-to-left from the first line of code, not a layer added later."
         },
         "reviewed": {
-          "claim": "Every guide is reviewed by a clinician",
-          "detail": "— named, with credentials, and linked to their bio."
+          "claim": "Reviewed guides say who reviewed them",
+          "detail": "— a named clinician with credentials, linked to their bio, on each page they reviewed."
         }
       }
     },
@@ -922,7 +922,7 @@
     "untitled": "Appointment",
     "noDate": "No date yet",
     "todayLabel": "Today",
-    "inDays": "In {days} days",
+    "inDays": "{days, plural, one {Tomorrow} other {In # days}}",
     "prepHeading": "What you wanted to ask",
     "upcomingHeading": "Coming up",
     "pastHeading": "Past",
@@ -933,7 +933,7 @@
     },
     "awaiting": {
       "heading": "Still waiting to hear?",
-      "body": "You were expecting a result back by now for {count} of these. It may be worth asking — results run late for all sorts of ordinary reasons."
+      "body": "{count, plural, one {You were expecting a result back by now for one of these.} other {You were expecting results back by now for # of these.}} It may be worth asking — results run late for all sorts of ordinary reasons."
     },
     "form": {
       "type": "What is it",
@@ -949,7 +949,7 @@
       "eyebrow": "Next appointment",
       "none": "Nothing booked in Femio yet.",
       "all": "All appointments",
-      "prepCount": "{count} questions saved"
+      "prepCount": "{count, plural, one {# question saved} other {# questions saved}}"
     }
   },
   "fertility": {
@@ -1091,7 +1091,7 @@
       "link": "Signs to call about"
     },
     "summary": {
-      "heading": "Your last {count}",
+      "heading": "{count, plural, one {Your last contraction} other {Your last # contractions}}",
       "duration": "Lasting about {value}",
       "interval": "About {value} apart, start to start",
       "note": "These are your times, as recorded. Femio does not decide what they mean — read them out to your midwife or maternity unit, who can."
@@ -1854,8 +1854,8 @@
       "3": "Third trimester"
     },
     "due": "Due date: {date}",
-    "daysToGo": "{days} days to go",
-    "overdue": "{days} days past your due date",
+    "daysToGo": "{days, plural, one {# day to go} other {# days to go}}",
+    "overdue": "{days, plural, one {# day past your due date} other {# days past your due date}}",
     "termFrom": "Full term from {date}",
     "estimateNote": "These dates are estimates based on the due date you entered. Your clinician may adjust it after a scan.",
     "redFlags": {
@@ -1961,13 +1961,13 @@
     "start": "Start a session",
     "startBody": "Get comfortable, then start. Tap each time you feel a movement.",
     "tap": "I felt a movement",
-    "counted": "{count} recorded",
+    "counted": "{count, plural, one {# movement recorded} other {# movements recorded}}",
     "finish": "Finish and save",
     "finishNote": "You can stop any time. The session saves either way.",
     "saving": "Saving…",
     "queued": "Saved on this device. It will sync when you are back online.",
     "recentHeading": "Your recent sessions",
-    "sessionSummary": "{count} movements · about {minutes} min apart",
+    "sessionSummary": "{count, plural, one {# movement} other {# movements}} · about {minutes} min apart",
     "unfinished": "Not finished",
     "pattern": {
       "slowerHeading": "Movements were further apart than usual for you",

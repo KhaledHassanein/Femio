@@ -1,0 +1,123 @@
+{
+  "$comment": "Geometry of a waking-temperature chart (lib/fertility bbtChart). y, low and high rounded to 4 decimals by both runners. Never a shift, a phase or an ovulation day.",
+  "cases": [
+    {
+      "input": {
+        "cycleStart": "2026-10-01",
+        "entries": [
+          {
+            "id": "a",
+            "loggedAt": "2026-10-07",
+            "bbt": 36.8
+          },
+          {
+            "id": "b",
+            "loggedAt": "2026-10-05",
+            "bbt": 36.4
+          },
+          {
+            "id": "c",
+            "loggedAt": "2026-10-06",
+            "bbt": 36.5
+          }
+        ]
+      },
+      "expected": {
+        "unit": "c",
+        "low": 36.0,
+        "high": 37.2,
+        "points": [
+          {
+            "entryId": "b",
+            "loggedAt": "2026-10-05",
+            "cycleDay": 5,
+            "bbt": 36.4,
+            "y": 0.3333
+          },
+          {
+            "entryId": "c",
+            "loggedAt": "2026-10-06",
+            "cycleDay": 6,
+            "bbt": 36.5,
+            "y": 0.4167
+          },
+          {
+            "entryId": "a",
+            "loggedAt": "2026-10-07",
+            "cycleDay": 7,
+            "bbt": 36.8,
+            "y": 0.6667
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "cycleStart": "2026-10-01",
+        "entries": [
+          {
+            "id": "a",
+            "loggedAt": "2026-10-05",
+            "bbt": 36.4
+          },
+          {
+            "id": "b",
+            "loggedAt": "2026-10-06",
+            "bbt": 36.5
+          }
+        ]
+      },
+      "expected": null
+    },
+    {
+      "input": {
+        "cycleStart": null,
+        "entries": [
+          {
+            "id": "a",
+            "loggedAt": "2026-10-05",
+            "bbt": 97.5
+          },
+          {
+            "id": "b",
+            "loggedAt": "2026-10-06",
+            "bbt": 97.7
+          },
+          {
+            "id": "c",
+            "loggedAt": "2026-10-07",
+            "bbt": 98.2
+          }
+        ]
+      },
+      "expected": {
+        "unit": "f",
+        "low": 96.8,
+        "high": 98.9,
+        "points": [
+          {
+            "entryId": "a",
+            "loggedAt": "2026-10-05",
+            "cycleDay": null,
+            "bbt": 97.5,
+            "y": 0.3333
+          },
+          {
+            "entryId": "b",
+            "loggedAt": "2026-10-06",
+            "cycleDay": null,
+            "bbt": 97.7,
+            "y": 0.4286
+          },
+          {
+            "entryId": "c",
+            "loggedAt": "2026-10-07",
+            "cycleDay": null,
+            "bbt": 98.2,
+            "y": 0.6667
+          }
+        ]
+      }
+    }
+  ]
+}
