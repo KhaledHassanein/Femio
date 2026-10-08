@@ -6,6 +6,9 @@
 /// question after the goal can be skipped.
 library;
 
+import '../domain/contractions.dart';
+import '../domain/movements.dart';
+
 enum Goal { period, ttc, pregnant, menopause }
 
 enum TryingFor { justStarted, under6, sixTo12, over12 }
@@ -67,6 +70,8 @@ class Profile {
     this.birthDate,
     this.lastPeriodOverYear = false,
     this.logs = const {},
+    this.contractions = const [],
+    this.movements = const [],
   });
 
   final Goal goal;
@@ -80,6 +85,12 @@ class Profile {
 
   /// Day logs by ISO date.
   final Map<String, DayLog> logs;
+
+  /// Contraction times, as she recorded them (the timer sorts them).
+  final List<Contraction> contractions;
+
+  /// Movement-log sessions, oldest first. The last may still be open.
+  final List<MovementSession> movements;
   final int? periodLength;
 
   /// Her stated usual cycle length. Null when she said "not sure" or "irregular".
@@ -100,6 +111,8 @@ class Profile {
     List<String>? periodStarts,
     String? locale,
     Map<String, DayLog>? logs,
+    List<Contraction>? contractions,
+    List<MovementSession>? movements,
   }) =>
       Profile(
         goal: goal,
@@ -114,6 +127,8 @@ class Profile {
         birthDate: birthDate,
         lastPeriodOverYear: lastPeriodOverYear,
         logs: logs ?? this.logs,
+        contractions: contractions ?? this.contractions,
+        movements: movements ?? this.movements,
       );
 
   /// Set or clear one day's log, keeping [periodStarts] in step with its flow.
@@ -147,6 +162,8 @@ class Profile {
         'birthDate': birthDate,
         'lastPeriodOverYear': lastPeriodOverYear,
         'logs': {for (final e in logs.entries) e.key: e.value.toJson()},
+        'contractions': [for (final c in contractions) c.toJson()],
+        'movements': [for (final m in movements) m.toJson()],
       };
 
   static Profile fromJson(Map<String, Object?> j) => Profile(
@@ -165,5 +182,13 @@ class Profile {
           for (final e in ((j['logs'] as Map?) ?? const {}).entries)
             e.key as String: DayLog.fromJson(Map<String, Object?>.from(e.value as Map)),
         },
+        contractions: [
+          for (final c in (j['contractions'] as List?) ?? const [])
+            Contraction.fromJson(Map<String, Object?>.from(c as Map)),
+        ],
+        movements: [
+          for (final m in (j['movements'] as List?) ?? const [])
+            MovementSession.fromJson(Map<String, Object?>.from(m as Map)),
+        ],
       );
 }

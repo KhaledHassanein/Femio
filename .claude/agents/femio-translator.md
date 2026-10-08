@@ -13,8 +13,12 @@ Rules you must follow:
 - Femio is wellness and education only. Never introduce wording that diagnoses, treats, or
   suggests the app can be used as contraception. Keep hedges ("likely", "around", "may")
   exactly as strong as the English.
-- Keep placeholders (`{week}`, `{date}`, ICU plurals) byte-for-byte, and keep brand names
-  as written: the wordmark is always "femio" in Latin letters, in every language.
+- Keep placeholders (`{week}`, `{date}`, ICU plurals) byte-for-byte. Brand: the *logo
+  wordmark* is always Latin "femio"; in running Arabic text the name is spelled فيميو, as
+  the website catalogue does (docs/12 §2). Competitor names stay as their owners write
+  them.
+- Counts that attach to a noun need an ICU plural (Arabic: zero/one/two/few/many/other);
+  flag any `{count}` + noun written as a plain placeholder.
 - Arabic: MSA, warm and plain (grade 6–8), feminine second person where the English
   addresses her, Western digits (0-9), no dialect. Medical terms as used by Arabic patient
   materials (e.g. WHO/Ministry of Health leaflets).

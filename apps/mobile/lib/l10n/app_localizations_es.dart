@@ -127,7 +127,7 @@ class L10nEs extends L10n {
   String get tryingOver12 => 'Más de un año';
 
   @override
-  String get dueMethodTitle => '¿Cómo calculamos tu fecha de parto?';
+  String get dueMethodTitle => '¿Cómo calculamos tu fecha probable de parto?';
 
   @override
   String get dueMethodKnown => 'Sé mi fecha de parto';
@@ -182,7 +182,7 @@ class L10nEs extends L10n {
 
   @override
   String predictionNextPeriod(String range) {
-    return 'Próxima regla hacia $range';
+    return 'Próxima regla alrededor de $range';
   }
 
   @override
@@ -201,7 +201,7 @@ class L10nEs extends L10n {
   String get confidenceHigh => 'Confianza alta';
 
   @override
-  String get basisStated => 'Según la duración de ciclo que nos indicaste';
+  String get basisStated => 'Según la duración del ciclo que nos indicaste';
 
   @override
   String get irregularNote =>
@@ -226,7 +226,7 @@ class L10nEs extends L10n {
 
   @override
   String dueDateLabel(String date) {
-    return 'Fecha de parto hacia el $date';
+    return 'Fecha probable de parto: alrededor del $date';
   }
 
   @override
@@ -263,7 +263,7 @@ class L10nEs extends L10n {
 
   @override
   String get seeClinicianTtc =>
-      'Llevar más de un año intentándolo (o seis meses si tienes 35 o más) es buen momento para hablar con un profesional.';
+      'Llevar más de un año intentándolo (o seis meses si tienes 35 o más) es un buen momento para hablar con un profesional.';
 
   @override
   String get privacyLine => 'Guardado solo en este teléfono.';
@@ -467,7 +467,7 @@ class L10nEs extends L10n {
   String get legendSpotting => 'Manchado';
 
   @override
-  String get legendPredicted => 'La regla podría empezar';
+  String get legendPredicted => 'La regla puede empezar';
 
   @override
   String get legendFertile => 'Ventana fértil';
@@ -480,7 +480,7 @@ class L10nEs extends L10n {
 
   @override
   String get calendarHint =>
-      'Toca un día para registrarlo. Las estimaciones van con contorno; lo que registras, relleno.';
+      'Toca un día para registrarlo. Las estimaciones van con contorno; lo que registras aparece relleno.';
 
   @override
   String get logTitle => 'Registro';
@@ -498,7 +498,7 @@ class L10nEs extends L10n {
   String get sectionSymptoms => 'Síntomas';
 
   @override
-  String get sectionDischarge => 'Flujo';
+  String get sectionDischarge => 'Flujo vaginal';
 
   @override
   String get sectionMore => 'Otros';
@@ -547,7 +547,7 @@ class L10nEs extends L10n {
 
   @override
   String testTimingBody(String date) {
-    return 'Si tu regla no ha empezado el $date, una prueba de embarazo casera es fiable desde ese día.';
+    return 'Si para el $date tu regla aún no ha empezado, una prueba de embarazo casera es fiable desde ese día.';
   }
 
   @override
@@ -586,4 +586,180 @@ class L10nEs extends L10n {
 
   @override
   String get testTimingSource => 'Fuente: NHS, hacer una prueba de embarazo.';
+
+  @override
+  String pregDaysToGo(int days) {
+    String _temp0 = intl.Intl.pluralLogic(
+      days,
+      locale: localeName,
+      other: 'Quedan $days días',
+      one: 'Queda $days día',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String pregOverdue(int days) {
+    String _temp0 = intl.Intl.pluralLogic(
+      days,
+      locale: localeName,
+      other: '$days días después de la fecha prevista',
+      one: '$days día después de la fecha prevista',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String pregTermFrom(String date) {
+    return 'A término desde el $date';
+  }
+
+  @override
+  String get pregEstimateNote =>
+      'Estas fechas son estimaciones basadas en la fecha prevista que introdujiste. Tu profesional sanitario puede ajustarla tras una ecografía.';
+
+  @override
+  String get pregRedFlagsHeading =>
+      'Algunos síntomas necesitan atención urgente';
+
+  @override
+  String get pregRedFlagsBody =>
+      'El sangrado, el dolor de cabeza intenso, los cambios en la visión, el dolor abdominal fuerte o los movimientos reducidos deben revisarse de inmediato. Contacta con tu unidad de maternidad o con los servicios de emergencia locales — no esperes.';
+
+  @override
+  String get contractionsHeading => 'Cronómetro de contracciones';
+
+  @override
+  String get contractionsIntro =>
+      'Pulsa empezar cuando comience una y parar cuando afloje. Femio guarda los tiempos para que los tengas cuando llames.';
+
+  @override
+  String get contractionsStart => 'Empezar una contracción';
+
+  @override
+  String get contractionsStop => 'Ya aflojó';
+
+  @override
+  String get contractionsRunning => 'Cronometrando';
+
+  @override
+  String get contractionsContactHeading =>
+      'Llama a tu unidad de maternidad cuando lo necesites';
+
+  @override
+  String get contractionsContactBody =>
+      'No hace falta llegar a ninguna cifra antes. Llama si estás preocupada, si rompes aguas, si hay sangrado o si el bebé se mueve menos de lo habitual.';
+
+  @override
+  String contractionsSummaryHeading(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: 'Tus últimas $count contracciones',
+      one: 'Tu última contracción',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String contractionsSummaryDuration(String value) {
+    return 'Duran unos $value';
+  }
+
+  @override
+  String contractionsSummaryInterval(String value) {
+    return 'Cada $value aproximadamente, de inicio a inicio';
+  }
+
+  @override
+  String get contractionsSummaryNote =>
+      'Son tus tiempos, tal como se registraron. Femio no decide qué significan — léeselos a tu matrona o a la maternidad, que sí pueden.';
+
+  @override
+  String get movementsHeading => 'Registro de movimientos';
+
+  @override
+  String get movementsIntro =>
+      'No existe un número normal de movimientos. Lo que importa es un cambio respecto al patrón habitual de tu bebé: por eso esto registra lo que sientes y te muestra tu propio patrón con el tiempo.';
+
+  @override
+  String get movementsUrgentHeading =>
+      'Si los movimientos son menos de lo habitual';
+
+  @override
+  String get movementsUrgentBody =>
+      'Contacta ahora con tu equipo de maternidad. No esperes a terminar esta sesión ni esperes a mañana.';
+
+  @override
+  String get movementsStart => 'Iniciar una sesión';
+
+  @override
+  String get movementsStartBody =>
+      'Ponte cómoda y empieza. Toca cada vez que sientas un movimiento.';
+
+  @override
+  String get movementsTap => 'Sentí un movimiento';
+
+  @override
+  String movementsCounted(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count movimientos registrados',
+      one: '$count movimiento registrado',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get movementsFinish => 'Terminar y guardar';
+
+  @override
+  String get movementsFinishNote =>
+      'Puedes parar cuando quieras. La sesión se guarda igualmente.';
+
+  @override
+  String get movementsRecentHeading => 'Tus sesiones recientes';
+
+  @override
+  String movementsSessionSummary(int count, String minutes) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count movimientos',
+      one: '$count movimiento',
+    );
+    return '$_temp0 · unos $minutes min de diferencia';
+  }
+
+  @override
+  String get movementsUnfinished => 'Sin terminar';
+
+  @override
+  String get movementsSlowerHeading =>
+      'Los movimientos estuvieron más separados de lo habitual para ti';
+
+  @override
+  String get movementsSlowerBody =>
+      'Es un cambio respecto a tus sesiones recientes. Lo que significa lo dice tu equipo de maternidad: contacta con ellos para que lo revisen.';
+
+  @override
+  String movementsNeedMore(String count) {
+    return 'Después de $count sesiones podrás comparar con tu propio patrón.';
+  }
+
+  @override
+  String get pregnancyToolsTitle => 'Herramientas de embarazo';
+
+  @override
+  String get contractionsClear => 'Borrar estos tiempos';
+
+  @override
+  String get contractionsCleared => 'Tiempos borrados';
+
+  @override
+  String get contractionLength => 'Duración';
+
+  @override
+  String get contractionApart => 'Intervalo';
 }

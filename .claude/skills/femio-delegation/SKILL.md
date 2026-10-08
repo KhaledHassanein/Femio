@@ -58,8 +58,14 @@ as the prompt preamble. Run independent agents in the background and in parallel
 
 ## Known failure modes (add to this list as they appear)
 
-- Cheap models "fix" Arabic medical terms into colloquial dialect, or translate brand
-  and product names. Keep MSA; keep "femio", "Flo", "Clue" as written.
+- Cheap models "fix" Arabic medical terms into colloquial dialect, or the reverse: swap a
+  word women actually use (ماء الرأس) for a clinical one nobody searches. Prefer the
+  precise term with the everyday one in brackets.
+- Briefs get over-read. "The wordmark is always femio" became eight wrong rows asking to
+  put Latin letters into Arabic sentences (2026-10-08). State the rule's scope, and check
+  a systemic finding against the existing catalogue before accepting it.
+- An agent reviewing files that are changing under it says so (the translator recorded
+  checksums); re-check the rows against the version you are about to commit.
 - Competitor feature lists go stale fast and marketing pages overclaim. A feature counts
   only if it is visible in the shipped product or its help centre, with a date checked.
 - Benchmarking agents recommend copying everything. The lead filters every

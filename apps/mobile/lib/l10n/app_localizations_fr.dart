@@ -61,7 +61,7 @@ class L10nFr extends L10n {
   String get goalPregnantDesc => 'Semaine après semaine, et votre date prévue.';
 
   @override
-  String get goalMenopause => 'Préménopause et ménopause';
+  String get goalMenopause => 'Périménopause et ménopause';
 
   @override
   String get goalMenopauseDesc => 'Cycles qui changent et symptômes.';
@@ -133,7 +133,7 @@ class L10nFr extends L10n {
   String get tryingOver12 => 'Plus d\'un an';
 
   @override
-  String get dueMethodTitle => 'Comment calculer votre date d\'accouchement ?';
+  String get dueMethodTitle => 'Comment calculer votre date prévue ?';
 
   @override
   String get dueMethodKnown => 'Je connais ma date prévue';
@@ -470,7 +470,7 @@ class L10nFr extends L10n {
   String get legendPeriod => 'Règles';
 
   @override
-  String get legendSpotting => 'Saignement léger';
+  String get legendSpotting => 'Spotting';
 
   @override
   String get legendPredicted => 'Les règles peuvent commencer';
@@ -486,7 +486,7 @@ class L10nFr extends L10n {
 
   @override
   String get calendarHint =>
-      'Touchez un jour pour le noter. Les estimations sont en contour ; ce que vous notez est plein.';
+      'Touchez un jour pour le noter. Les estimations sont en contour ; ce que vous notez est rempli.';
 
   @override
   String get logTitle => 'Journal';
@@ -553,7 +553,7 @@ class L10nFr extends L10n {
 
   @override
   String testTimingBody(String date) {
-    return 'Si vos règles n\'ont pas commencé le $date, un test de grossesse à domicile est fiable à partir de ce jour.';
+    return 'Si vos règles ne sont pas arrivées d\'ici le $date, un test de grossesse à domicile est fiable à partir de ce jour.';
   }
 
   @override
@@ -592,4 +592,180 @@ class L10nFr extends L10n {
 
   @override
   String get testTimingSource => 'Source : NHS, faire un test de grossesse.';
+
+  @override
+  String pregDaysToGo(int days) {
+    String _temp0 = intl.Intl.pluralLogic(
+      days,
+      locale: localeName,
+      other: 'Encore $days jours',
+      one: 'Encore $days jour',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String pregOverdue(int days) {
+    String _temp0 = intl.Intl.pluralLogic(
+      days,
+      locale: localeName,
+      other: '$days jours après la date prévue',
+      one: '$days jour après la date prévue',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String pregTermFrom(String date) {
+    return 'À terme à partir du $date';
+  }
+
+  @override
+  String get pregEstimateNote =>
+      'Ces dates sont des estimations fondées sur la date prévue que vous avez saisie. Votre professionnel de santé peut l\'ajuster après une échographie.';
+
+  @override
+  String get pregRedFlagsHeading =>
+      'Certains symptômes nécessitent des soins urgents';
+
+  @override
+  String get pregRedFlagsBody =>
+      'Saignements, maux de tête intenses, troubles de la vision, douleurs abdominales sévères ou mouvements réduits doivent être examinés immédiatement. Contactez votre maternité ou les services d\'urgence locaux — n\'attendez pas.';
+
+  @override
+  String get contractionsHeading => 'Minuteur de contractions';
+
+  @override
+  String get contractionsIntro =>
+      'Appuyez sur démarrer quand une contraction commence et sur arrêter quand elle passe. Femio garde les temps pour que vous les ayez au téléphone.';
+
+  @override
+  String get contractionsStart => 'Démarrer une contraction';
+
+  @override
+  String get contractionsStop => 'Elle s’est calmée';
+
+  @override
+  String get contractionsRunning => 'Chronométrage en cours';
+
+  @override
+  String get contractionsContactHeading =>
+      'Appelez la maternité dès que vous en avez besoin';
+
+  @override
+  String get contractionsContactBody =>
+      'Vous n’avez pas à atteindre un chiffre d’abord. Appelez si vous êtes inquiète, si vous perdez les eaux, en cas de saignement, ou si le bébé bouge moins que d’habitude.';
+
+  @override
+  String contractionsSummaryHeading(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: 'Vos $count dernières contractions',
+      one: 'Votre dernière contraction',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String contractionsSummaryDuration(String value) {
+    return 'Durée d’environ $value';
+  }
+
+  @override
+  String contractionsSummaryInterval(String value) {
+    return 'Environ $value d’écart, début à début';
+  }
+
+  @override
+  String get contractionsSummaryNote =>
+      'Ce sont vos temps, tels qu’enregistrés. Femio ne décide pas de ce qu’ils veulent dire — lisez-les à votre sage-femme ou à la maternité, qui le peut.';
+
+  @override
+  String get movementsHeading => 'Journal des mouvements';
+
+  @override
+  String get movementsIntro =>
+      'Il n\'existe pas de nombre normal de mouvements. Ce qui compte, c\'est un changement par rapport aux habitudes de votre bébé : ce journal enregistre ce que vous ressentez et vous montre votre propre rythme au fil du temps.';
+
+  @override
+  String get movementsUrgentHeading =>
+      'Si les mouvements sont moins fréquents que d\'habitude';
+
+  @override
+  String get movementsUrgentBody =>
+      'Contactez votre équipe de maternité maintenant. N’attendez pas la fin de cette séance, et n’attendez pas demain.';
+
+  @override
+  String get movementsStart => 'Commencer une séance';
+
+  @override
+  String get movementsStartBody =>
+      'Installez-vous confortablement, puis commencez. Appuyez chaque fois que vous sentez un mouvement.';
+
+  @override
+  String get movementsTap => 'J\'ai senti un mouvement';
+
+  @override
+  String movementsCounted(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count mouvements enregistrés',
+      one: '$count mouvement enregistré',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get movementsFinish => 'Terminer et enregistrer';
+
+  @override
+  String get movementsFinishNote =>
+      'Vous pouvez arrêter à tout moment. La séance est enregistrée dans tous les cas.';
+
+  @override
+  String get movementsRecentHeading => 'Vos séances récentes';
+
+  @override
+  String movementsSessionSummary(int count, String minutes) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count mouvements',
+      one: '$count mouvement',
+    );
+    return '$_temp0 · environ $minutes min d’intervalle';
+  }
+
+  @override
+  String get movementsUnfinished => 'Non terminée';
+
+  @override
+  String get movementsSlowerHeading =>
+      'Les mouvements étaient plus espacés que d\'habitude pour vous';
+
+  @override
+  String get movementsSlowerBody =>
+      'C\'est un changement par rapport à vos séances récentes. Ce que cela signifie, c\'est à votre équipe de maternité de le dire : contactez-la pour qu\'on vérifie.';
+
+  @override
+  String movementsNeedMore(String count) {
+    return 'Après $count séances, vous pourrez comparer avec votre propre rythme.';
+  }
+
+  @override
+  String get pregnancyToolsTitle => 'Outils de grossesse';
+
+  @override
+  String get contractionsClear => 'Effacer ces temps';
+
+  @override
+  String get contractionsCleared => 'Temps effacés';
+
+  @override
+  String get contractionLength => 'Durée';
+
+  @override
+  String get contractionApart => 'Intervalle';
 }

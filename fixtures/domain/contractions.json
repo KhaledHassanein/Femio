@@ -1,0 +1,238 @@
+{
+  "$comment": "Contraction timing (lib/contractions): duration and start-to-start interval, averaged over the latest five. Facts only: no labour verdict, no 5-1-1 test, no trend (rule 1).",
+  "cases": [
+    {
+      "$comment": "Two finished: start-to-start interval, the first has none (never a zero).",
+      "input": {
+        "contractions": [
+          {
+            "id": "a",
+            "startedAt": "2026-08-16T10:00:00Z",
+            "endedAt": "2026-08-16T10:01:00Z"
+          },
+          {
+            "id": "b",
+            "startedAt": "2026-08-16T10:05:00Z",
+            "endedAt": "2026-08-16T10:05:50Z"
+          }
+        ]
+      },
+      "expected": {
+        "timed": [
+          {
+            "id": "a",
+            "durationSeconds": 60,
+            "intervalSeconds": null
+          },
+          {
+            "id": "b",
+            "durationSeconds": 50,
+            "intervalSeconds": 300
+          }
+        ],
+        "summary": {
+          "counted": 2,
+          "averageDurationSeconds": 55,
+          "averageIntervalSeconds": 300
+        },
+        "inProgress": null
+      }
+    },
+    {
+      "$comment": "Rows arrive out of order: sorted before intervals are taken.",
+      "input": {
+        "contractions": [
+          {
+            "id": "c",
+            "startedAt": "2026-08-16T10:12:00Z",
+            "endedAt": "2026-08-16T10:12:45Z"
+          },
+          {
+            "id": "a",
+            "startedAt": "2026-08-16T10:00:00Z",
+            "endedAt": "2026-08-16T10:01:00Z"
+          },
+          {
+            "id": "b",
+            "startedAt": "2026-08-16T10:06:00Z",
+            "endedAt": "2026-08-16T10:07:00Z"
+          }
+        ]
+      },
+      "expected": {
+        "timed": [
+          {
+            "id": "a",
+            "durationSeconds": 60,
+            "intervalSeconds": null
+          },
+          {
+            "id": "b",
+            "durationSeconds": 60,
+            "intervalSeconds": 360
+          },
+          {
+            "id": "c",
+            "durationSeconds": 45,
+            "intervalSeconds": 360
+          }
+        ],
+        "summary": {
+          "counted": 3,
+          "averageDurationSeconds": 55,
+          "averageIntervalSeconds": 360
+        },
+        "inProgress": null
+      }
+    },
+    {
+      "$comment": "The last one is running; an earlier unfinished one was abandoned, not in progress.",
+      "input": {
+        "contractions": [
+          {
+            "id": "a",
+            "startedAt": "2026-08-16T09:00:00Z",
+            "endedAt": null
+          },
+          {
+            "id": "b",
+            "startedAt": "2026-08-16T10:00:00Z",
+            "endedAt": "2026-08-16T10:01:00Z"
+          },
+          {
+            "id": "c",
+            "startedAt": "2026-08-16T10:04:00Z",
+            "endedAt": null
+          }
+        ]
+      },
+      "expected": {
+        "timed": [
+          {
+            "id": "a",
+            "durationSeconds": null,
+            "intervalSeconds": null
+          },
+          {
+            "id": "b",
+            "durationSeconds": 60,
+            "intervalSeconds": 3600
+          },
+          {
+            "id": "c",
+            "durationSeconds": null,
+            "intervalSeconds": 240
+          }
+        ],
+        "summary": {
+          "counted": 3,
+          "averageDurationSeconds": 60,
+          "averageIntervalSeconds": 1920
+        },
+        "inProgress": "c"
+      }
+    },
+    {
+      "$comment": "Seven recorded: the averages cover only the latest five.",
+      "input": {
+        "contractions": [
+          {
+            "id": "k0",
+            "startedAt": "2026-08-16T10:00:00Z",
+            "endedAt": "2026-08-16T10:00:50Z"
+          },
+          {
+            "id": "k1",
+            "startedAt": "2026-08-16T10:20:00Z",
+            "endedAt": "2026-08-16T10:20:50Z"
+          },
+          {
+            "id": "k2",
+            "startedAt": "2026-08-16T10:35:00Z",
+            "endedAt": "2026-08-16T10:35:50Z"
+          },
+          {
+            "id": "k3",
+            "startedAt": "2026-08-16T10:45:00Z",
+            "endedAt": "2026-08-16T10:45:50Z"
+          },
+          {
+            "id": "k4",
+            "startedAt": "2026-08-16T10:52:00Z",
+            "endedAt": "2026-08-16T10:52:50Z"
+          },
+          {
+            "id": "k5",
+            "startedAt": "2026-08-16T10:58:00Z",
+            "endedAt": "2026-08-16T10:58:50Z"
+          },
+          {
+            "id": "k6",
+            "startedAt": "2026-08-16T11:03:00Z",
+            "endedAt": "2026-08-16T11:03:50Z"
+          }
+        ]
+      },
+      "expected": {
+        "timed": [
+          {
+            "id": "k0",
+            "durationSeconds": 50,
+            "intervalSeconds": null
+          },
+          {
+            "id": "k1",
+            "durationSeconds": 50,
+            "intervalSeconds": 1200
+          },
+          {
+            "id": "k2",
+            "durationSeconds": 50,
+            "intervalSeconds": 900
+          },
+          {
+            "id": "k3",
+            "durationSeconds": 50,
+            "intervalSeconds": 600
+          },
+          {
+            "id": "k4",
+            "durationSeconds": 50,
+            "intervalSeconds": 420
+          },
+          {
+            "id": "k5",
+            "durationSeconds": 50,
+            "intervalSeconds": 360
+          },
+          {
+            "id": "k6",
+            "durationSeconds": 50,
+            "intervalSeconds": 300
+          }
+        ],
+        "summary": {
+          "counted": 5,
+          "averageDurationSeconds": 50,
+          "averageIntervalSeconds": 516
+        },
+        "inProgress": null
+      }
+    },
+    {
+      "$comment": "Nothing recorded.",
+      "input": {
+        "contractions": []
+      },
+      "expected": {
+        "timed": [],
+        "summary": {
+          "counted": 0,
+          "averageDurationSeconds": null,
+          "averageIntervalSeconds": null
+        },
+        "inProgress": null
+      }
+    }
+  ]
+}

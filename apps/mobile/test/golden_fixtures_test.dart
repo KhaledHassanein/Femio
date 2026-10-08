@@ -2,6 +2,8 @@ import 'dart:convert';
 import 'dart:io';
 
 import 'package:femio/domain/bbt.dart';
+import 'package:femio/domain/contractions.dart';
+import 'package:femio/domain/movements.dart';
 import 'package:femio/domain/cycle_prediction.dart';
 import 'package:femio/domain/pregnancy.dart';
 import 'package:flutter_test/flutter_test.dart';
@@ -37,6 +39,36 @@ final runners = <String, Object? Function(Map<String, dynamic>)>{
         for (final p in chart.points)
           {'entryId': p.entryId, 'loggedAt': p.loggedAt, 'cycleDay': p.cycleDay, 'bbt': p.bbt, 'y': r4(p.y)},
       ],
+    };
+  },
+  'contractions': (i) {
+    final timed = timeContractions([
+      for (final c in i['contractions'] as List) Contraction.fromJson(Map<String, Object?>.from(c as Map)),
+    ]);
+    return {
+      'timed': [
+        for (final t in timed)
+          {'id': t.contraction.id, 'durationSeconds': t.durationSeconds, 'intervalSeconds': t.intervalSeconds},
+      ],
+      'summary': summarize(timed).toJson(),
+      'inProgress': inProgress(timed)?.contraction.id,
+    };
+  },
+  'movement-pattern': (i) {
+    double r4(double n) => (n * 10000).round() / 10000;
+    final r = comparePattern([
+      for (final s in i['sessions'] as List) MovementSession.fromJson(Map<String, Object?>.from(s as Map)),
+    ]);
+    return switch (r) {
+      InsufficientPattern() => {'status': 'insufficient', 'sessions': r.sessions},
+      ComparablePattern() => {
+          'status': 'comparable',
+          'sessions': r.sessions,
+          'typicalMinutesPerMovement': r4(r.typical),
+          'latestMinutesPerMovement': r4(r.latest),
+          'ratio': r4(r.ratio),
+          'slower': r.slower,
+        },
     };
   },
   'edd-from': (i) {

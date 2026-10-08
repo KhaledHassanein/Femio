@@ -40,7 +40,7 @@ work.** Marks: `[ ]` open · `[~]` in progress · `[x]` done (commit) · `[BLOCK
 - [x] P3.3 · **Onboarding to the competitor standard**: welcome (language), goal, birth year (under 18 → the guides), last period / period length / cycle length (not sure, irregular), trying-for (TTC), four ways to date a pregnancy plus "I've had my baby", menopause last period; nothing asks about conditions. Ends on Today with her first prediction (range + confidence, fertile window as awareness, pregnancy week and trimester). Screens shot in en/ar light/dark; release APK built. Reminders step moves to P3.8 with local notifications, rather than asking for something v1 cannot yet do
 - [x] P3.4 · **Today, Calendar, Log** (tabs): month calendar draws logged bleeding, spotting and logs filled and the predicted window, fertile days and likely ovulation in outline or tint, estimates only from today forward (`day_marks.dart`, tested); a day log saving on every tap (flow, 9 moods, 36 symptoms, 5 discharge types, one intimacy marker kept visually quiet); logged bleeding feeds the prediction. The 51 terms and their four-language labels are generated from the web vocabulary and catalogues (`scripts/mobile/sync-log-vocabulary.mjs`, gate-checked) (2026-10-08)
 - [x] P3.5 · **TTC toolkit**: fertile window and likely ovulation on Today (range + confidence, "not a way to avoid pregnancy"); ovulation-test result logged as what the stick said (negative → positive), never Femio's conclusion; waking temperature typed (°C or °F, only impossible values refused) and drawn as her readings with no shift or ovulation day marked (rule 1), per the new shared `bbt-chart` fixture passing in TS and Dart; pregnancy-test timing from the NHS rule; the trying-time nudge at 12 months (6 if 35+). Strings shared with the website's fertility tools through the vocabulary generator (2026-10-08)
-- [ ] P3.6 · Pregnancy: week-by-week, due date, kick counter, contraction timer, appointments
+- [~] P3.6 · **Pregnancy tools.** Done: Today shows week and day, days to go, the full-term date and the "see someone now" red-flag card; a **movement log** (her own pattern, a change flagged at 1.5× her median gap, never a pass mark, ADR-049) and a **contraction timer** (duration and start-to-start gap over the last five, no labour verdict), both bound to the web logic by new shared fixtures `contractions` and `movement-pattern`, with the website's reviewed wording in four languages and ICU plurals. The contraction timer leads from 36 weeks; both are always listed (rule 2). Open: week-by-week content (needs sourced drafting and the Arabic reviewer), appointments, weight log, hospital bag (2026-10-08)
 - [ ] P3.7 · Articles in the app (snapshot), conditions offered on Today and in Settings, PCOS hub
 - [ ] P3.8 · Backup export/import, app lock, reminders (local notifications), crash reporting without content
 - [ ] P3.9 · Checkpoint: TTC + pregnancy journeys recorded in Arabic → owner D-4
@@ -56,7 +56,8 @@ work.** Marks: `[ ]` open · `[~]` in progress · `[x]` done (commit) · `[BLOCK
 
 | When | What | Commit |
 |---|---|---|
-| 2026-10-08 | P3.5 TTC toolkit (ovulation tests, temperature chart, test timing) | this commit |
+| 2026-10-08 | P3.6 pregnancy tools (movement log, contraction timer); delegation skill; translation QA applied | this commit |
+| 2026-10-08 | P3.5 TTC toolkit (ovulation tests, temperature chart, test timing) | 0eca658 |
 | 2026-10-08 | PR #26 merged (website as the app's front door); P3.4 calendar + log | earlier |
 | 2026-10-08 | Android app started: P3.1, P3.3 done, P3.2 underway; first APK to the owner | this commit |
 | 2026-10-07 | D7 + D8: private Android app is the product; website promotes it; onboarding respecified to the competitor standard | this commit |

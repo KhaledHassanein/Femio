@@ -253,5 +253,109 @@
   "bbtChartNote": "These are your readings, drawn as they are. Femio does not mark a shift or name a day — what a chart means is a conversation for you and your clinician.",
   "invalidBbt": "That does not look like a thermometer reading. Check the number and try again.",
   "testTimingGeneral": "Most home tests work from the first day of a missed period. Testing earlier can give a negative result even if you are pregnant.",
-  "testTimingSource": "Source: NHS, Doing a pregnancy test."
+  "testTimingSource": "Source: NHS, Doing a pregnancy test.",
+  "pregDaysToGo": "{days, plural, one {{days} day to go} other {{days} days to go}}",
+  "@pregDaysToGo": {
+    "placeholders": {
+      "days": {
+        "type": "int"
+      }
+    }
+  },
+  "pregOverdue": "{days, plural, one {{days} day past your due date} other {{days} days past your due date}}",
+  "@pregOverdue": {
+    "placeholders": {
+      "days": {
+        "type": "int"
+      }
+    }
+  },
+  "pregTermFrom": "Full term from {date}",
+  "@pregTermFrom": {
+    "placeholders": {
+      "date": {
+        "type": "String"
+      }
+    }
+  },
+  "pregEstimateNote": "These dates are estimates based on the due date you entered. Your clinician may adjust it after a scan.",
+  "pregRedFlagsHeading": "Some symptoms need urgent care",
+  "pregRedFlagsBody": "Bleeding, severe headache, vision changes, severe abdominal pain, or reduced movements need to be checked straight away. Contact your maternity unit or local emergency services — do not wait.",
+  "contractionsHeading": "Contraction timer",
+  "contractionsIntro": "Press start when one begins and stop when it eases. Femio keeps the times so you have them when you call.",
+  "contractionsStart": "Start a contraction",
+  "contractionsStop": "It has eased",
+  "contractionsRunning": "Timing now",
+  "contractionsContactHeading": "Call your maternity unit whenever you need to",
+  "contractionsContactBody": "You do not need to reach a certain number first. Call if you are worried, if your waters break, if there is bleeding, or if the baby is moving less than usual.",
+  "contractionsSummaryHeading": "{count, plural, one {Your last contraction} other {Your last {count} contractions}}",
+  "@contractionsSummaryHeading": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "contractionsSummaryDuration": "Lasting about {value}",
+  "@contractionsSummaryDuration": {
+    "placeholders": {
+      "value": {
+        "type": "String"
+      }
+    }
+  },
+  "contractionsSummaryInterval": "About {value} apart, start to start",
+  "@contractionsSummaryInterval": {
+    "placeholders": {
+      "value": {
+        "type": "String"
+      }
+    }
+  },
+  "contractionsSummaryNote": "These are your times, as recorded. Femio does not decide what they mean — read them out to your midwife or maternity unit, who can.",
+  "movementsHeading": "Movement log",
+  "movementsIntro": "There is no normal number of movements. What matters is a change from your baby's usual pattern, so this records what you feel and shows you your own pattern over time.",
+  "movementsUrgentHeading": "If movements are less than usual",
+  "movementsUrgentBody": "Contact your maternity team now. Do not wait for this session to finish, and do not wait until tomorrow.",
+  "movementsStart": "Start a session",
+  "movementsStartBody": "Get comfortable, then start. Tap each time you feel a movement.",
+  "movementsTap": "I felt a movement",
+  "movementsCounted": "{count, plural, one {{count} movement recorded} other {{count} movements recorded}}",
+  "@movementsCounted": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "movementsFinish": "Finish and save",
+  "movementsFinishNote": "You can stop any time. The session saves either way.",
+  "movementsRecentHeading": "Your recent sessions",
+  "movementsSessionSummary": "{count, plural, one {{count} movement} other {{count} movements}} · about {minutes} min apart",
+  "@movementsSessionSummary": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      },
+      "minutes": {
+        "type": "String"
+      }
+    }
+  },
+  "movementsUnfinished": "Not finished",
+  "movementsSlowerHeading": "Movements were further apart than usual for you",
+  "movementsSlowerBody": "This is a change from your own recent sessions. What it means is for your maternity team to say, so contact them and let someone check.",
+  "movementsNeedMore": "After {count} sessions you will be able to compare with your own pattern.",
+  "@movementsNeedMore": {
+    "placeholders": {
+      "count": {
+        "type": "String"
+      }
+    }
+  },
+  "pregnancyToolsTitle": "Pregnancy tools",
+  "contractionsClear": "Clear these times",
+  "contractionsCleared": "Times cleared",
+  "contractionLength": "Length",
+  "contractionApart": "Apart"
 }

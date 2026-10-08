@@ -1126,6 +1126,234 @@ abstract class L10n {
   /// In en, this message translates to:
   /// **'Source: NHS, Doing a pregnancy test.'**
   String get testTimingSource;
+
+  /// No description provided for @pregDaysToGo.
+  ///
+  /// In en, this message translates to:
+  /// **'{days, plural, one {{days} day to go} other {{days} days to go}}'**
+  String pregDaysToGo(int days);
+
+  /// No description provided for @pregOverdue.
+  ///
+  /// In en, this message translates to:
+  /// **'{days, plural, one {{days} day past your due date} other {{days} days past your due date}}'**
+  String pregOverdue(int days);
+
+  /// No description provided for @pregTermFrom.
+  ///
+  /// In en, this message translates to:
+  /// **'Full term from {date}'**
+  String pregTermFrom(String date);
+
+  /// No description provided for @pregEstimateNote.
+  ///
+  /// In en, this message translates to:
+  /// **'These dates are estimates based on the due date you entered. Your clinician may adjust it after a scan.'**
+  String get pregEstimateNote;
+
+  /// No description provided for @pregRedFlagsHeading.
+  ///
+  /// In en, this message translates to:
+  /// **'Some symptoms need urgent care'**
+  String get pregRedFlagsHeading;
+
+  /// No description provided for @pregRedFlagsBody.
+  ///
+  /// In en, this message translates to:
+  /// **'Bleeding, severe headache, vision changes, severe abdominal pain, or reduced movements need to be checked straight away. Contact your maternity unit or local emergency services — do not wait.'**
+  String get pregRedFlagsBody;
+
+  /// No description provided for @contractionsHeading.
+  ///
+  /// In en, this message translates to:
+  /// **'Contraction timer'**
+  String get contractionsHeading;
+
+  /// No description provided for @contractionsIntro.
+  ///
+  /// In en, this message translates to:
+  /// **'Press start when one begins and stop when it eases. Femio keeps the times so you have them when you call.'**
+  String get contractionsIntro;
+
+  /// No description provided for @contractionsStart.
+  ///
+  /// In en, this message translates to:
+  /// **'Start a contraction'**
+  String get contractionsStart;
+
+  /// No description provided for @contractionsStop.
+  ///
+  /// In en, this message translates to:
+  /// **'It has eased'**
+  String get contractionsStop;
+
+  /// No description provided for @contractionsRunning.
+  ///
+  /// In en, this message translates to:
+  /// **'Timing now'**
+  String get contractionsRunning;
+
+  /// No description provided for @contractionsContactHeading.
+  ///
+  /// In en, this message translates to:
+  /// **'Call your maternity unit whenever you need to'**
+  String get contractionsContactHeading;
+
+  /// No description provided for @contractionsContactBody.
+  ///
+  /// In en, this message translates to:
+  /// **'You do not need to reach a certain number first. Call if you are worried, if your waters break, if there is bleeding, or if the baby is moving less than usual.'**
+  String get contractionsContactBody;
+
+  /// No description provided for @contractionsSummaryHeading.
+  ///
+  /// In en, this message translates to:
+  /// **'{count, plural, one {Your last contraction} other {Your last {count} contractions}}'**
+  String contractionsSummaryHeading(int count);
+
+  /// No description provided for @contractionsSummaryDuration.
+  ///
+  /// In en, this message translates to:
+  /// **'Lasting about {value}'**
+  String contractionsSummaryDuration(String value);
+
+  /// No description provided for @contractionsSummaryInterval.
+  ///
+  /// In en, this message translates to:
+  /// **'About {value} apart, start to start'**
+  String contractionsSummaryInterval(String value);
+
+  /// No description provided for @contractionsSummaryNote.
+  ///
+  /// In en, this message translates to:
+  /// **'These are your times, as recorded. Femio does not decide what they mean — read them out to your midwife or maternity unit, who can.'**
+  String get contractionsSummaryNote;
+
+  /// No description provided for @movementsHeading.
+  ///
+  /// In en, this message translates to:
+  /// **'Movement log'**
+  String get movementsHeading;
+
+  /// No description provided for @movementsIntro.
+  ///
+  /// In en, this message translates to:
+  /// **'There is no normal number of movements. What matters is a change from your baby\'s usual pattern, so this records what you feel and shows you your own pattern over time.'**
+  String get movementsIntro;
+
+  /// No description provided for @movementsUrgentHeading.
+  ///
+  /// In en, this message translates to:
+  /// **'If movements are less than usual'**
+  String get movementsUrgentHeading;
+
+  /// No description provided for @movementsUrgentBody.
+  ///
+  /// In en, this message translates to:
+  /// **'Contact your maternity team now. Do not wait for this session to finish, and do not wait until tomorrow.'**
+  String get movementsUrgentBody;
+
+  /// No description provided for @movementsStart.
+  ///
+  /// In en, this message translates to:
+  /// **'Start a session'**
+  String get movementsStart;
+
+  /// No description provided for @movementsStartBody.
+  ///
+  /// In en, this message translates to:
+  /// **'Get comfortable, then start. Tap each time you feel a movement.'**
+  String get movementsStartBody;
+
+  /// No description provided for @movementsTap.
+  ///
+  /// In en, this message translates to:
+  /// **'I felt a movement'**
+  String get movementsTap;
+
+  /// No description provided for @movementsCounted.
+  ///
+  /// In en, this message translates to:
+  /// **'{count, plural, one {{count} movement recorded} other {{count} movements recorded}}'**
+  String movementsCounted(int count);
+
+  /// No description provided for @movementsFinish.
+  ///
+  /// In en, this message translates to:
+  /// **'Finish and save'**
+  String get movementsFinish;
+
+  /// No description provided for @movementsFinishNote.
+  ///
+  /// In en, this message translates to:
+  /// **'You can stop any time. The session saves either way.'**
+  String get movementsFinishNote;
+
+  /// No description provided for @movementsRecentHeading.
+  ///
+  /// In en, this message translates to:
+  /// **'Your recent sessions'**
+  String get movementsRecentHeading;
+
+  /// No description provided for @movementsSessionSummary.
+  ///
+  /// In en, this message translates to:
+  /// **'{count, plural, one {{count} movement} other {{count} movements}} · about {minutes} min apart'**
+  String movementsSessionSummary(int count, String minutes);
+
+  /// No description provided for @movementsUnfinished.
+  ///
+  /// In en, this message translates to:
+  /// **'Not finished'**
+  String get movementsUnfinished;
+
+  /// No description provided for @movementsSlowerHeading.
+  ///
+  /// In en, this message translates to:
+  /// **'Movements were further apart than usual for you'**
+  String get movementsSlowerHeading;
+
+  /// No description provided for @movementsSlowerBody.
+  ///
+  /// In en, this message translates to:
+  /// **'This is a change from your own recent sessions. What it means is for your maternity team to say, so contact them and let someone check.'**
+  String get movementsSlowerBody;
+
+  /// No description provided for @movementsNeedMore.
+  ///
+  /// In en, this message translates to:
+  /// **'After {count} sessions you will be able to compare with your own pattern.'**
+  String movementsNeedMore(String count);
+
+  /// No description provided for @pregnancyToolsTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Pregnancy tools'**
+  String get pregnancyToolsTitle;
+
+  /// No description provided for @contractionsClear.
+  ///
+  /// In en, this message translates to:
+  /// **'Clear these times'**
+  String get contractionsClear;
+
+  /// No description provided for @contractionsCleared.
+  ///
+  /// In en, this message translates to:
+  /// **'Times cleared'**
+  String get contractionsCleared;
+
+  /// No description provided for @contractionLength.
+  ///
+  /// In en, this message translates to:
+  /// **'Length'**
+  String get contractionLength;
+
+  /// No description provided for @contractionApart.
+  ///
+  /// In en, this message translates to:
+  /// **'Apart'**
+  String get contractionApart;
 }
 
 class _L10nDelegate extends LocalizationsDelegate<L10n> {

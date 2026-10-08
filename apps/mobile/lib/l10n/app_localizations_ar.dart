@@ -59,7 +59,7 @@ class L10nAr extends L10n {
   String get goalPregnantDesc => 'أسبوعًا بأسبوع، وموعد ولادتك.';
 
   @override
-  String get goalMenopause => 'ما قبل انقطاع الطمث وانقطاعه';
+  String get goalMenopause => 'ما حول انقطاع الطمث وانقطاعه';
 
   @override
   String get goalMenopauseDesc => 'دورات متغيّرة وأعراض.';
@@ -88,7 +88,7 @@ class L10nAr extends L10n {
   String get dontRemember => 'لا أتذكّر';
 
   @override
-  String get periodLengthTitle => 'كم يومًا تستمر دورتك عادةً؟';
+  String get periodLengthTitle => 'كم يومًا يستمر نزيف الدورة عادةً؟';
 
   @override
   String get cycleLengthTitle => 'كم يبلغ طول دورتك عادةً؟';
@@ -129,7 +129,7 @@ class L10nAr extends L10n {
   String get tryingOver12 => 'أكثر من سنة';
 
   @override
-  String get dueMethodTitle => 'كيف نحسب موعد ولادتك؟';
+  String get dueMethodTitle => 'كيف نحسب موعد ولادتك المتوقّع؟';
 
   @override
   String get dueMethodKnown => 'أعرف موعد ولادتي';
@@ -138,13 +138,13 @@ class L10nAr extends L10n {
   String get dueMethodLmp => 'أول يوم في آخر دورة';
 
   @override
-  String get dueMethodConception => 'تاريخ الحمل (الإخصاب)';
+  String get dueMethodConception => 'تاريخ الإخصاب';
 
   @override
-  String get dueMethodIvf3 => 'نقل أجنة بالتلقيح الصناعي (جنين اليوم الثالث)';
+  String get dueMethodIvf3 => 'نقل جنين اليوم الثالث (أطفال الأنابيب IVF)';
 
   @override
-  String get dueMethodIvf5 => 'نقل أجنة بالتلقيح الصناعي (جنين اليوم الخامس)';
+  String get dueMethodIvf5 => 'نقل جنين اليوم الخامس (أطفال الأنابيب IVF)';
 
   @override
   String get dueMethodBorn => 'لقد أنجبت طفلي';
@@ -153,7 +153,7 @@ class L10nAr extends L10n {
   String get dueDateTitle => 'ما موعد ولادتك المتوقع؟';
 
   @override
-  String get conceptionTitle => 'متى حدث الحمل؟';
+  String get conceptionTitle => 'متى حدث الإخصاب؟';
 
   @override
   String get transferTitle => 'متى تمّ نقل الأجنة؟';
@@ -222,7 +222,15 @@ class L10nAr extends L10n {
 
   @override
   String trimesterLabel(int n) {
-    return 'الثلث $n';
+    String _temp0 = intl.Intl.pluralLogic(
+      n,
+      locale: localeName,
+      other: 'الثلث $n',
+      few: 'الثلث الثالث',
+      two: 'الثلث الثاني',
+      one: 'الثلث الأول',
+    );
+    return '$_temp0';
   }
 
   @override
@@ -595,4 +603,190 @@ class L10nAr extends L10n {
   @override
   String get testTimingSource =>
       'المصدر: هيئة الخدمات الصحية البريطانية (NHS)، إجراء اختبار الحمل.';
+
+  @override
+  String pregDaysToGo(int days) {
+    String _temp0 = intl.Intl.pluralLogic(
+      days,
+      locale: localeName,
+      other: 'بقي $days يومًا',
+      few: 'بقي $days أيام',
+      two: 'بقي يومان',
+      one: 'بقي يوم واحد',
+      zero: 'اليوم موعد الولادة المتوقّع',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String pregOverdue(int days) {
+    String _temp0 = intl.Intl.pluralLogic(
+      days,
+      locale: localeName,
+      other: 'مضى $days يومًا على موعد الولادة المتوقّع',
+      few: 'مضت $days أيام على موعد الولادة المتوقّع',
+      two: 'مضى يومان على موعد الولادة المتوقّع',
+      one: 'مضى يوم واحد على موعد الولادة المتوقّع',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String pregTermFrom(String date) {
+    return 'الحمل تامّ المدة اعتبارًا من $date';
+  }
+
+  @override
+  String get pregEstimateNote =>
+      'هذه التواريخ تقديرات مبنية على موعد الولادة المتوقّع الذي أدخلتِه. قد يعدّله طبيبكِ بعد فحص السونار.';
+
+  @override
+  String get pregRedFlagsHeading => 'بعض الأعراض تحتاج رعاية عاجلة';
+
+  @override
+  String get pregRedFlagsBody =>
+      'النزيف، أو الصداع الشديد، أو تغيّر الرؤية، أو ألم البطن الشديد، أو قلّة حركة الجنين — كلها تحتاج فحصًا فوريًا. اتّصلي بوحدة الولادة أو بخدمات الطوارئ المحلية، ولا تنتظري.';
+
+  @override
+  String get contractionsHeading => 'مؤقّت الانقباضات';
+
+  @override
+  String get contractionsIntro =>
+      'اضغطي «ابدئي» عند بدء الانقباضة و«خفّت» عند انتهائها. يحتفظ فيميو بالأوقات لتكون بين يديكِ عند الاتصال.';
+
+  @override
+  String get contractionsStart => 'ابدئي انقباضة';
+
+  @override
+  String get contractionsStop => 'خفّت';
+
+  @override
+  String get contractionsRunning => 'يجري القياس';
+
+  @override
+  String get contractionsContactHeading =>
+      'اتصلي بوحدة الولادة متى احتجتِ إلى ذلك';
+
+  @override
+  String get contractionsContactBody =>
+      'لستِ مضطرة لبلوغ رقم معيّن أولًا. اتصلي إن كنتِ قلقة، أو إن نزل السائل الأمنيوسي (ماء الرأس)، أو حدث نزيف، أو قلّت حركة الجنين عن المعتاد.';
+
+  @override
+  String contractionsSummaryHeading(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: 'آخر $count انقباضة',
+      few: 'آخر $count انقباضات',
+      two: 'آخر انقباضتين',
+      one: 'آخر انقباضة',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String contractionsSummaryDuration(String value) {
+    return 'تستمر نحو $value';
+  }
+
+  @override
+  String contractionsSummaryInterval(String value) {
+    return 'بفاصل نحو $value من بداية إلى بداية';
+  }
+
+  @override
+  String get contractionsSummaryNote =>
+      'هذه أوقاتكِ كما سُجّلت. لا يقرّر فيميو معناها — اقرئيها على القابلة أو وحدة الولادة، فهم من يقرّر.';
+
+  @override
+  String get movementsHeading => 'سجل الحركة';
+
+  @override
+  String get movementsIntro =>
+      'لا يوجد عدد طبيعي محدد للحركات. المهم هو التغيّر عن النمط المعتاد لطفلك، لذلك يسجّل هذا ما تشعرين به ويُظهر لك نمطك مع الوقت.';
+
+  @override
+  String get movementsUrgentHeading => 'إذا قلّت الحركات عن المعتاد';
+
+  @override
+  String get movementsUrgentBody =>
+      'تواصلي مع فريق رعاية الحمل الآن. لا تنتظري انتهاء هذه الجلسة، ولا تنتظري حتى الغد.';
+
+  @override
+  String get movementsStart => 'ابدئي جلسة';
+
+  @override
+  String get movementsStartBody =>
+      'استرخي ثم ابدئي. اضغطي في كل مرة تشعرين فيها بحركة.';
+
+  @override
+  String get movementsTap => 'شعرتُ بحركة';
+
+  @override
+  String movementsCounted(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count حركة مسجّلة',
+      few: '$count حركات مسجّلة',
+      two: 'حركتان مسجّلتان',
+      one: 'حركة واحدة مسجّلة',
+      zero: 'لا حركات مسجّلة بعد',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get movementsFinish => 'إنهاء وحفظ';
+
+  @override
+  String get movementsFinishNote =>
+      'يمكنك التوقف في أي وقت. تُحفظ الجلسة في الحالتين.';
+
+  @override
+  String get movementsRecentHeading => 'جلساتك الأخيرة';
+
+  @override
+  String movementsSessionSummary(int count, String minutes) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count حركة',
+      few: '$count حركات',
+      two: 'حركتان',
+      one: 'حركة واحدة',
+    );
+    return '$_temp0 · نحو $minutes دقيقة بين كل حركة';
+  }
+
+  @override
+  String get movementsUnfinished => 'غير مكتملة';
+
+  @override
+  String get movementsSlowerHeading =>
+      'كانت الحركات متباعدة أكثر من المعتاد لديك';
+
+  @override
+  String get movementsSlowerBody =>
+      'هذا تغيّر عن جلساتك الأخيرة. تفسير ذلك يعود إلى فريق رعاية الحمل، فتواصلي معهم ليطمئن أحدهم عليك.';
+
+  @override
+  String movementsNeedMore(String count) {
+    return 'بعد $count جلسات ستتمكنين من المقارنة مع نمطك الخاص.';
+  }
+
+  @override
+  String get pregnancyToolsTitle => 'أدوات الحمل';
+
+  @override
+  String get contractionsClear => 'امسحي هذه الأوقات';
+
+  @override
+  String get contractionsCleared => 'تم مسح الأوقات';
+
+  @override
+  String get contractionLength => 'المدة';
+
+  @override
+  String get contractionApart => 'الفاصل';
 }

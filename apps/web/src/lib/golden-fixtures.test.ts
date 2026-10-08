@@ -3,6 +3,8 @@ import { readFileSync, readdirSync } from "node:fs";
 import { join } from "node:path";
 import { predictNextPeriod } from "./cycle/predict";
 import { bbtChart, type FertilityEntry } from "./fertility";
+import { inProgress, summarize, timeContractions, type Contraction } from "./contractions";
+import { comparePattern, type MovementSession } from "./pregnancy/movements";
 import { eddFromConception, eddFromLmp, eddFromTransfer, pregnancyProgress } from "./pregnancy";
 import { phaseFor, phaseForTrack } from "./experience/phase";
 import { resolvePersona } from "./persona/resolver";
@@ -49,6 +51,26 @@ const RUNNERS: Record<string, (input: never) => unknown> = {
     const entries: FertilityEntry[] = i.entries.map((e) => ({ ...e, opk: null, cm: null, intercourse: null }));
     const chart = bbtChart(entries, i.cycleStart);
     return chart && { ...chart, low: r4(chart.low), high: r4(chart.high), points: chart.points.map((p) => ({ ...p, y: r4(p.y) })) };
+  },
+  contractions: (i: { contractions: Contraction[] }) => {
+    const timed = timeContractions(i.contractions);
+    return {
+      timed: timed.map(({ id, durationSeconds, intervalSeconds }) => ({ id, durationSeconds, intervalSeconds })),
+      summary: summarize(timed),
+      inProgress: inProgress(timed)?.id ?? null,
+    };
+  },
+  "movement-pattern": (i: { sessions: MovementSession[] }) => {
+    const r4 = (n: number) => Math.round(n * 10_000) / 10_000;
+    const r = comparePattern(i.sessions);
+    return r.status === "insufficient"
+      ? r
+      : {
+          ...r,
+          typicalMinutesPerMovement: r4(r.typicalMinutesPerMovement),
+          latestMinutesPerMovement: r4(r.latestMinutesPerMovement),
+          ratio: r4(r.ratio),
+        };
   },
   "edd-from": (i: { method: "lmp" | "conception" | "transfer3" | "transfer5"; date: string }) =>
     i.method === "lmp"

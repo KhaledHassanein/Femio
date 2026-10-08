@@ -34,6 +34,41 @@ const SHARED = {
   invalidBbt: "fertility.invalidBbt",
   testTimingGeneral: "calculators.pregnancyTest.notePeriod",
   testTimingSource: "calculators.pregnancyTest.source",
+  // Pregnancy (P3.6): the website's reviewed contraction timer, movement log and
+  // red-flag wording, so the app says exactly what the clinician-reviewed site says.
+  pregDaysToGo: "pregnancy.daysToGo",
+  pregOverdue: "pregnancy.overdue",
+  pregTermFrom: "pregnancy.termFrom",
+  pregEstimateNote: "pregnancy.estimateNote",
+  pregRedFlagsHeading: "pregnancy.redFlags.heading",
+  pregRedFlagsBody: "pregnancy.redFlags.body",
+  contractionsHeading: "contractions.heading",
+  contractionsIntro: "contractions.intro",
+  contractionsStart: "contractions.start",
+  contractionsStop: "contractions.stop",
+  contractionsRunning: "contractions.running",
+  contractionsContactHeading: "contractions.contact.heading",
+  contractionsContactBody: "contractions.contact.body",
+  contractionsSummaryHeading: "contractions.summary.heading",
+  contractionsSummaryDuration: "contractions.summary.duration",
+  contractionsSummaryInterval: "contractions.summary.interval",
+  contractionsSummaryNote: "contractions.summary.note",
+  movementsHeading: "pregnancyMovements.heading",
+  movementsIntro: "pregnancyMovements.intro",
+  movementsUrgentHeading: "pregnancyMovements.urgent.heading",
+  movementsUrgentBody: "pregnancyMovements.urgent.body",
+  movementsStart: "pregnancyMovements.start",
+  movementsStartBody: "pregnancyMovements.startBody",
+  movementsTap: "pregnancyMovements.tap",
+  movementsCounted: "pregnancyMovements.counted",
+  movementsFinish: "pregnancyMovements.finish",
+  movementsFinishNote: "pregnancyMovements.finishNote",
+  movementsRecentHeading: "pregnancyMovements.recentHeading",
+  movementsSessionSummary: "pregnancyMovements.sessionSummary",
+  movementsUnfinished: "pregnancyMovements.unfinished",
+  movementsSlowerHeading: "pregnancyMovements.pattern.slowerHeading",
+  movementsSlowerBody: "pregnancyMovements.pattern.slowerBody",
+  movementsNeedMore: "pregnancyMovements.pattern.needMore",
 };
 
 const terms = LOG_TERMS.filter((t) => DIMENSIONS.includes(t.dimension));
@@ -44,6 +79,41 @@ function lookup(messages, path) {
   const value = path.split(".").reduce((o, k) => (o == null ? undefined : o[k]), messages);
   if (typeof value !== "string") throw new Error(`missing web string ${path}`);
   return value;
+}
+
+/**
+ * A web catalogue string as an ARB entry. Simple `{name}` placeholders are typed
+ * String; an ICU `{name, plural, …}` is kept (both next-intl and gen-l10n read it),
+ * its count typed int, and `#` spelled `{name}` because gen-l10n does not expand it.
+ */
+function toArb(value, path) {
+  const placeholders = {};
+  let text = "";
+  for (let i = 0; i < value.length; ) {
+    const m = /^\{(\w+)\s*,\s*(\w+)\s*,/.exec(value.slice(i));
+    if (m) {
+      if (m[2] !== "plural") throw new Error(`${path}: ICU ${m[2]} is not supported; port it by hand`);
+      let depth = 0;
+      let j = i;
+      for (; j < value.length; j++) {
+        if (value[j] === "{") depth++;
+        else if (value[j] === "}" && --depth === 0) break;
+      }
+      placeholders[m[1]] = { type: "int" };
+      text += value.slice(i, j + 1).replaceAll("#", `{${m[1]}}`);
+      i = j + 1;
+      continue;
+    }
+    const s = /^\{(\w+)\}/.exec(value.slice(i));
+    if (s) {
+      placeholders[s[1]] ??= { type: "String" };
+      text += s[0];
+      i += s[0].length;
+      continue;
+    }
+    text += value[i++];
+  }
+  return { text, placeholders };
 }
 
 const outputs = new Map();
@@ -116,7 +186,12 @@ for (const locale of LOCALES) {
   for (const f of FLOW) arb[`flow${camel(f)}`] = lookup(web, `track.flow.${f}`);
   arb.flowLabel = lookup(web, "track.flow.label");
   for (const o of OPK) arb[`opk${camel(o)}`] = lookup(web, `fertility.opk.${o}`);
-  for (const [key, path] of Object.entries(SHARED)) arb[key] = lookup(web, path);
+  for (const [key, path] of Object.entries(SHARED)) {
+    const { text, placeholders } = toArb(lookup(web, path), path);
+    arb[key] = text;
+    // The English file is gen-l10n's template: placeholders are declared there.
+    if (locale === "en" && Object.keys(placeholders).length) arb[`@${key}`] = { placeholders };
+  }
   outputs.set(path, `${JSON.stringify(arb, null, 2)}`);
 }
 

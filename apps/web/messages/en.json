@@ -1091,7 +1091,7 @@
       "link": "Signs to call about"
     },
     "summary": {
-      "heading": "Your last {count}",
+      "heading": "{count, plural, one {Your last contraction} other {Your last # contractions}}",
       "duration": "Lasting about {value}",
       "interval": "About {value} apart, start to start",
       "note": "These are your times, as recorded. Femio does not decide what they mean — read them out to your midwife or maternity unit, who can."
@@ -1854,8 +1854,8 @@
       "3": "Third trimester"
     },
     "due": "Due date: {date}",
-    "daysToGo": "{days} days to go",
-    "overdue": "{days} days past your due date",
+    "daysToGo": "{days, plural, one {# day to go} other {# days to go}}",
+    "overdue": "{days, plural, one {# day past your due date} other {# days past your due date}}",
     "termFrom": "Full term from {date}",
     "estimateNote": "These dates are estimates based on the due date you entered. Your clinician may adjust it after a scan.",
     "redFlags": {
@@ -1961,13 +1961,13 @@
     "start": "Start a session",
     "startBody": "Get comfortable, then start. Tap each time you feel a movement.",
     "tap": "I felt a movement",
-    "counted": "{count} recorded",
+    "counted": "{count, plural, one {# movement recorded} other {# movements recorded}}",
     "finish": "Finish and save",
     "finishNote": "You can stop any time. The session saves either way.",
     "saving": "Saving…",
     "queued": "Saved on this device. It will sync when you are back online.",
     "recentHeading": "Your recent sessions",
-    "sessionSummary": "{count} movements · about {minutes} min apart",
+    "sessionSummary": "{count, plural, one {# movement} other {# movements}} · about {minutes} min apart",
     "unfinished": "Not finished",
     "pattern": {
       "slowerHeading": "Movements were further apart than usual for you",

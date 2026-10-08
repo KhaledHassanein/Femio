@@ -7,7 +7,6 @@ import { useSupabaseQuery, unwrap } from "@/lib/supabase/use-query";
 import {
   formatDuration,
   inProgress,
-  RECENT_WINDOW,
   summarize,
   timeContractions,
   type Contraction,
@@ -147,7 +146,7 @@ export function ContractionTimer() {
         {summary.counted > 0 ? (
           <div className="flex flex-col gap-1">
             <p className="text-2xs font-semibold uppercase tracking-wider text-text-muted">
-              {t("summary.heading", { count: RECENT_WINDOW })}
+              {t("summary.heading", { count: summary.counted })}
             </p>
             <p className="text-sm text-text">
               {t("summary.duration", {

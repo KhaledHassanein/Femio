@@ -1080,7 +1080,7 @@
     "heading": "Minuteur de contractions",
     "intro": "Appuyez sur démarrer quand une contraction commence et sur arrêter quand elle passe. Femio garde les temps pour que vous les ayez au téléphone.",
     "start": "Démarrer une contraction",
-    "stop": "C’est passé",
+    "stop": "Elle s’est calmée",
     "running": "Chronométrage en cours",
     "idle": "Arrêté",
     "saveFailed": "L’enregistrement a échoué. Vérifiez votre connexion et réessayez.",
@@ -1091,7 +1091,7 @@
       "link": "Les signes qui justifient un appel"
     },
     "summary": {
-      "heading": "Vos {count} dernières",
+      "heading": "{count, plural, one {Votre dernière contraction} other {Vos # dernières contractions}}",
       "duration": "Durée d’environ {value}",
       "interval": "Environ {value} d’écart, début à début",
       "note": "Ce sont vos temps, tels qu’enregistrés. Femio ne décide pas de ce qu’ils veulent dire — lisez-les à votre sage-femme ou à la maternité, qui le peut."
@@ -1854,8 +1854,8 @@
       "3": "Troisième trimestre"
     },
     "due": "Date prévue : {date}",
-    "daysToGo": "Encore {days} jours",
-    "overdue": "{days} jours après la date prévue",
+    "daysToGo": "{days, plural, one {Encore # jour} other {Encore # jours}}",
+    "overdue": "{days, plural, one {# jour après la date prévue} other {# jours après la date prévue}}",
     "termFrom": "À terme à partir du {date}",
     "estimateNote": "Ces dates sont des estimations fondées sur la date prévue que vous avez saisie. Votre professionnel de santé peut l'ajuster après une échographie.",
     "redFlags": {
@@ -1952,27 +1952,27 @@
   },
   "pregnancyMovements": {
     "heading": "Journal des mouvements",
-    "intro": "Il n'existe pas de nombre normal de mouvements. Ce qui compte, c'est un changement par rapport aux habitudes de ton bébé : ce journal enregistre ce que tu ressens et te montre ton propre rythme au fil du temps.",
+    "intro": "Il n'existe pas de nombre normal de mouvements. Ce qui compte, c'est un changement par rapport aux habitudes de votre bébé : ce journal enregistre ce que vous ressentez et vous montre votre propre rythme au fil du temps.",
     "urgent": {
       "heading": "Si les mouvements sont moins fréquents que d'habitude",
-      "body": "Contacte ton équipe de maternité maintenant. N'attends pas la fin de cette séance, et n'attends pas demain.",
+      "body": "Contactez votre équipe de maternité maintenant. N’attendez pas la fin de cette séance, et n’attendez pas demain.",
       "link": "Lire les signes d'alerte de la grossesse"
     },
     "start": "Commencer une séance",
-    "startBody": "Installe-toi confortablement, puis commence. Appuie chaque fois que tu sens un mouvement.",
+    "startBody": "Installez-vous confortablement, puis commencez. Appuyez chaque fois que vous sentez un mouvement.",
     "tap": "J'ai senti un mouvement",
-    "counted": "{count} enregistrés",
+    "counted": "{count, plural, one {# mouvement enregistré} other {# mouvements enregistrés}}",
     "finish": "Terminer et enregistrer",
-    "finishNote": "Tu peux arrêter à tout moment. La séance est enregistrée dans tous les cas.",
+    "finishNote": "Vous pouvez arrêter à tout moment. La séance est enregistrée dans tous les cas.",
     "saving": "Enregistrement…",
     "queued": "Enregistré sur cet appareil. La synchronisation se fera au retour du réseau.",
-    "recentHeading": "Tes séances récentes",
-    "sessionSummary": "{count} mouvements · environ {minutes} min d'intervalle",
+    "recentHeading": "Vos séances récentes",
+    "sessionSummary": "{count, plural, one {# mouvement} other {# mouvements}} · environ {minutes} min d’intervalle",
     "unfinished": "Non terminée",
     "pattern": {
-      "slowerHeading": "Les mouvements étaient plus espacés que d'habitude pour toi",
-      "slowerBody": "C'est un changement par rapport à tes séances récentes. Ce que cela signifie, c'est à ton équipe de maternité de le dire : contacte-la pour qu'on vérifie.",
-      "needMore": "Après {count} séances, tu pourras comparer avec ton propre rythme."
+      "slowerHeading": "Les mouvements étaient plus espacés que d'habitude pour vous",
+      "slowerBody": "C'est un changement par rapport à vos séances récentes. Ce que cela signifie, c'est à votre équipe de maternité de le dire : contactez-la pour qu'on vérifie.",
+      "needMore": "Après {count} séances, vous pourrez comparer avec votre propre rythme."
     }
   },
   "pregnancySymptoms": {

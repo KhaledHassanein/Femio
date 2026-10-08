@@ -3,6 +3,8 @@ import 'dart:io';
 import 'package:femio/app.dart';
 import 'package:femio/data/profile.dart';
 import 'package:femio/data/store.dart';
+import 'package:femio/domain/contractions.dart';
+import 'package:femio/domain/movements.dart';
 import 'package:femio/features/onboarding/widgets.dart';
 import 'package:femio/main.dart' show configureFormatting;
 import 'package:flutter/material.dart';
@@ -158,6 +160,72 @@ void main() {
         await tester.tap(find.byType(FilledButton).last);
         await tester.pumpAndSettle();
         expect(c.profile!.logs[today]!.bbt, 36.52);
+      });
+    }
+  }
+
+  for (final b in Brightness.values) {
+    for (final lang in ['en', 'ar']) {
+      testWidgets('pregnancy tools ($lang, ${b.name})', (tester) async {
+        // Real clock: the tools are opened from Today, as she would. Times are relative.
+        final now = DateTime.now().toUtc();
+        String ago(int minutes, [int seconds = 0]) =>
+            now.subtract(Duration(minutes: minutes, seconds: seconds)).toIso8601String();
+        final p = Profile(
+          goal: Goal.pregnant,
+          locale: lang,
+          birthYear: 1993,
+          edd: '2026-10-28', // 37 weeks: the contraction timer comes first
+          contractions: [
+            for (final (i, m) in [40, 31, 23, 16, 10].indexed) Contraction('c$i', ago(m), ago(m - 1, 10)),
+          ],
+          movements: [
+            for (final (i, (h, mins)) in [(5, 18), (4, 22), (3, 20), (2, 20), (1, 34)].indexed)
+              MovementSession('m$i', ago(h * 60), ago(h * 60 - mins), 10),
+          ],
+        );
+        final c = FemioController(MemoryStore(p));
+        await _pump(tester, c, b);
+        tester.view.physicalSize = const Size(780, 2600);
+        await tester.pumpAndSettle();
+        await _shoot(tester, '${lang}_${b.name}_13_today_pregnant_tools');
+
+        await tester.ensureVisible(find.byIcon(Icons.timer_outlined));
+        await tester.pumpAndSettle();
+        await tester.tap(find.byIcon(Icons.timer_outlined));
+        await tester.pumpAndSettle();
+        tester.view.physicalSize = const Size(780, 1688);
+        await _shoot(tester, '${lang}_${b.name}_14_contractions');
+        // Start, then stop: one more contraction, finished. (The ticker runs while timing,
+        // so this pumps frames rather than settling.)
+        await tester.tap(find.byType(FilledButton).first);
+        await tester.pump(const Duration(seconds: 1));
+        expect(c.profile!.contractions.last.endedAt, isNull);
+        await tester.tap(find.byType(FilledButton).first);
+        await tester.pumpAndSettle();
+        expect(c.profile!.contractions, hasLength(6));
+        expect(c.profile!.contractions.last.endedAt, isNotNull);
+        // pageBack() looks for the English "Back" tooltip; tap the button itself.
+        await tester.tap(find.byType(BackButton));
+        await tester.pumpAndSettle();
+
+        await tester.ensureVisible(find.byIcon(Icons.touch_app_outlined));
+        await tester.pumpAndSettle();
+        await tester.tap(find.byIcon(Icons.touch_app_outlined));
+        await tester.pumpAndSettle();
+        await _shoot(tester, '${lang}_${b.name}_15_movements');
+        // A session: start, three movements, finish. Saved on every tap.
+        await tester.tap(find.byIcon(Icons.play_arrow_rounded));
+        await tester.pumpAndSettle();
+        for (var i = 0; i < 3; i++) {
+          await tester.tap(find.byType(FilledButton).first);
+          await tester.pumpAndSettle();
+        }
+        await _shoot(tester, '${lang}_${b.name}_16_movements_session');
+        expect(c.profile!.movements.last.movementCount, 3);
+        await tester.tap(find.byType(OutlinedButton));
+        await tester.pumpAndSettle();
+        expect(c.profile!.movements.last.endedAt, isNotNull);
       });
     }
   }
