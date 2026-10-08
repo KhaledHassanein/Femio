@@ -41,6 +41,13 @@ message into the chat. Nothing here can break the app if you stop halfway.
 4. Go through the questions, then use Today, Calendar and Log for a day or two.
 5. Tell Claude what feels wrong, confusing or missing. Screenshots help.
 
+## Testers (any time) ☐
+
+There is no test login to share, on purpose: the website is fully public and the app has
+no accounts. Send testers `docs/runbooks/TESTER_GUIDE.md` (what to try, in which
+languages, and how to report) and the newest APK. On Google Play, testers are added
+later by their Gmail address (Step 2).
+
 ## Step 2 · Google Play developer account (20 min, $25 once) ☐
 
 Needed before the app can be published. Do this soon: a new personal account must run a
