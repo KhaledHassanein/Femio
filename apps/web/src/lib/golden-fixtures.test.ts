@@ -2,7 +2,7 @@ import { describe, expect, it } from "vitest";
 import { readFileSync, readdirSync } from "node:fs";
 import { join } from "node:path";
 import { predictNextPeriod } from "./cycle/predict";
-import { pregnancyProgress } from "./pregnancy";
+import { eddFromConception, eddFromLmp, eddFromTransfer, pregnancyProgress } from "./pregnancy";
 import { phaseFor, phaseForTrack } from "./experience/phase";
 import { resolvePersona } from "./persona/resolver";
 import { signalsFromRows } from "./persona/signals-from-rows";
@@ -41,7 +41,14 @@ const REGISTRY = registryOf(PERSONA_RECORDS);
 
 /** Every fixture file must be executed by a case below — an unrun fixture is a lie. */
 const RUNNERS: Record<string, (input: never) => unknown> = {
-  "cycle-prediction": (i: { starts: string[] }) => predictNextPeriod(i.starts),
+  "cycle-prediction": (i: { starts: string[]; statedCycleLength?: number }) =>
+    predictNextPeriod(i.starts, i.statedCycleLength),
+  "edd-from": (i: { method: "lmp" | "conception" | "transfer3" | "transfer5"; date: string }) =>
+    i.method === "lmp"
+      ? eddFromLmp(i.date)
+      : i.method === "conception"
+        ? eddFromConception(i.date)
+        : eddFromTransfer(i.date, i.method === "transfer3" ? 3 : 5),
   "gestational-age": (i: { edd: string; today: string }) => pregnancyProgress(i.edd, i.today),
   phase: (i: Parameters<typeof phaseFor>[0] & { track?: Track }) =>
     "track" in i ? phaseForTrack(i.track ?? null, i) : phaseFor(i),

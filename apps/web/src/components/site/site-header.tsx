@@ -4,6 +4,7 @@ import { Link } from "@/i18n/navigation";
 import { ThemeToggle } from "@/components/theme-toggle";
 import { getCrisisContent } from "@/lib/crisis/content";
 import { isUnpublishedSection } from "@/lib/content/unpublished-sections";
+import { APP_PAGE, webAppEnabled } from "@/lib/web-app";
 
 // Persistent public-site header (P1.9b.1, v3 P1.5). Rendered by the (public) layout, so
 // it appears on every marketing/content page but not on the signed-in app (which has
@@ -55,11 +56,12 @@ export async function SiteHeader({ locale }: { locale: string }) {
           {crisis.strings.launcher}
         </Link>
         <ThemeToggle />
+        {/* One action: the app (D8). Sign-in returns only with the web app. */}
         <Link
-          href="/sign-in"
+          href={webAppEnabled() ? "/sign-in" : APP_PAGE}
           className="inline-flex h-9 items-center rounded-pill bg-primary-solid px-4 text-sm font-semibold text-primary-fg-solid hover:bg-primary-hover"
         >
-          {t("signIn")}
+          {webAppEnabled() ? t("signIn") : t("getApp")}
         </Link>
       </div>
       <nav

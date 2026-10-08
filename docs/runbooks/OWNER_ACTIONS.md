@@ -10,12 +10,12 @@ disagree with a default, say so and the work changes course.
 
 Last updated: 2026-10-07.
 
-> **🔴 (2026-10-07): the live app's sign-in and tracking are down.** Supabase has
+> **🔴 (2026-10-07): the live app's sign-in and tracking are down until the billing month resets.** Supabase has
 > answered every API request with *402 Payment Required* since 2026-10-06 19:45 UTC: the
-> free plan's 5 GB monthly egress was exhausted (8.96 GB, 0 users) by the CMS reads that #22
-> removes: articles now ship inside the web build. Stay free and wait for the cycle reset,
-> or upgrade to Pro; either way, merge #22 to stop the leak. **Start with [`OWNER_GUIDE_A_TO_Z.md`](OWNER_GUIDE_A_TO_Z.md)**:
-> every step below, in order, click by click, written for a non-developer.
+> free plan's 5 GB monthly egress was exhausted (8.96 GB, 0 users) by CMS reads. **The leak is
+> fixed and live** (#22 merged 2026-10-07; articles ship inside the web build). Staying free, the
+> restriction lifts on its own after the reset; nothing to do. **[`OWNER_GUIDE_A_TO_Z.md`](OWNER_GUIDE_A_TO_Z.md)**
+> has every remaining step, click by click, written for a non-developer.
 
 ---
 
@@ -32,6 +32,23 @@ Khaled replied *"Go with all your recommended defaults"*. D1–D6 below are ther
 | **D5** | **Target date for the soft launch (50–100 women)** | **Week of 2026-11-30.** Phases 1–4 at the pace in `30.03` §5. | pick a date |
 | **D6** | **Visual direction "Dusk Bloom"** (plum · rose · peach · saffron on porcelain) | **Proceed.** You see it in screenshots at the Phase 1 checkpoint and can redirect then. | describe what you want instead |
 
+### D7 · Private launch: health records stay on the phone ✅ accepted 2026-10-07
+
+Owner: *"make the website as this and promote the Android app as the solution"*. Full
+assessment: [`docs/compliance/PRIVATE_LAUNCH_V1.md`](../compliance/PRIVATE_LAUNCH_V1.md).
+v1 has no accounts; health records live only on her phone; predictions run on the phone;
+backup is a file she saves; the tracker is 18+ at launch (articles open to all). Cloud
+sync comes later, once the licences are in place.
+
+### D8 · The website promotes the Android app; the web beta closes ✅ decided 2026-10-07
+
+The website keeps articles, conditions, glossary and calculators, and gets a Flo-like
+feminine visual pass; its single call to action is **the Android app** (iOS later). Sign-in,
+onboarding and the web tracker close (kept in code behind `WEB_APP_ENABLED`, off in
+production). Development moves to the **Flutter Android app**, local-first, with the
+onboarding rebuilt to the competitor standard: [`04_ANDROID_APP_SPEC.md`](../30_REVAMP/04_ANDROID_APP_SPEC.md).
+This replaces D2's "Play via TWA" step: the Play listing will be the real app.
+
 ---
 
 ## A · Legal and compliance: the real launch gate (start now, runs in the background)
@@ -41,7 +58,7 @@ enforced from **31 October 2026**, and Saudi SDAIA issued 48 violation decisions
 
 | # | Action | Time | Unblocks |
 |---|---|---|---|
-| A1 | **Engage one privacy lawyer** (MENA + EU) with three questions: (1) does Egypt PDPL licensing apply to Femio as a foreign controller of Egyptian residents' health data; (2) do Saudi PDPL transfer rules allow EU (Frankfurt) hosting; (3) final privacy policy + terms from our drafts (`/privacy`, `/terms`) | 1 h to brief | launch |
+| A1 | **Engage one privacy lawyer** (Egypt-qualified ideally; Saudi + UK by referral). **If D7 is accepted**, the brief shrinks to the four narrow questions in `PRIVATE_LAUNCH_V1.md` §6 (do we need an Egypt controller licence/representative for logs and crash reports only; same for Saudi and UK; review the v1 policy). **Also tell them where Femio's operating entity is registered**; it changes Egypt's answer. Do not reuse the ChatGPT drafts as-is: they assume Firebase and Frankfurt (Femio uses Supabase in Ireland) and cloud sync. | 1 h to brief | launch |
 | A2 | **Name a DPO** (can be external) and sign the DPIA §5 (`docs/compliance/`) | 30 min | launch |
 | A3 | **Crisis-safety sign-off.** Read the crisis copy in AR/FR/ES (`apps/web/src/lib/crisis/crisis.json`) and confirm the ThroughLine (findahelpline.com) linking terms | 20 min | launch |
 | A4 | ✅ **Done by Claude 2026-10-07: `BLOOM-2026`, Production, active from the next deploy.** ~~Set `NEXT_PUBLIC_BETA_INVITE_CODE` in Vercel~~ (web project → Settings → Environment Variables → Production) to any code you choose, then redeploy. **Signup is open to anyone today** while privacy/terms are drafts. | 3 min | closes a live exposure |
@@ -59,15 +76,15 @@ Do these in order; each says where.
 
 | # | Action | Where | Time |
 |---|---|---|---|
-| C1 | **Merge this session's branch into `main`.** Vercel deploys from `main`, so the security fix reaches production only after the merge. Open the PR for `claude/epic-planck-5y8geb` and merge once CI is green (or tell the next session it may push to `main` directly, as earlier sessions did). | GitHub | 2 min |
+| C1 | ✅ **Done 2026-10-07 (#22 merged).** ~~Merge this session's branch into `main`.~~ Vercel deploys from `main`, so the security fix reaches production only after the merge. Open the PR for `claude/epic-planck-5y8geb` and merge once CI is green (or tell the next session it may push to `main` directly, as earlier sessions did). | GitHub | 2 min |
 | C2 | **After C1, smoke-test the CMS** at `femio-cms.vercel.app/admin`: log in, open one article. It moved to Payload 3.90 / Next 16. If the admin errors, tell the session. (Moot once D3 retires it.) | browser | 2 min |
 | C3 | ✅ **Done 2026-10-07.** ~~Connect the Supabase and Vercel connectors~~ in claude.ai → Settings → Connectors. With them, a session can read usage, the security and performance advisors, logs and deployments directly instead of guessing what the alert emails say. | claude.ai | 5 min |
 | C4 | **Forward one of each alert email** you keep getting (Vercel, Supabase, Sentry, GitHub…) or paste the subject lines into the chat. This session can read a message but not search the inbox. | Gmail | 3 min |
 | C5 | **Create a free staging Supabase project** (EU), apply migrations to it (`npx supabase@latest link --project-ref <staging>` then `db push`), and set GitHub secrets `E2E_SUPABASE_URL` / `E2E_SUPABASE_PUBLISHABLE_KEY` to **staging**. CI currently signs anonymous users into **production** on every run. | Supabase + GitHub → Settings → Secrets | 15 min |
-| C6 | **Apply migrations `0024` + `0025` + the Payload 3.90 column**: paste `docs/runbooks/sql/2026-10-07_apply_all.sql` into the Supabase SQL editor (guide step 2; no terminal needed). Do it **before merging #22**. **0024** drops three never-used content tables (verified empty 2026-10-07; it refuses to run otherwise). **0025** acts on the Supabase security/performance advisors: it stops visitors with no session calling six account/staff functions over the API (including `handle_new_user`, a trigger that was callable as an RPC), pins six function search paths, drops a duplicate index and adds four missing foreign-key indexes. The session's attempt to apply them was blocked by the permission system, correctly: production schema changes are yours to run. | terminal, repo root | 2 min |
+| C6 | ✅ **Done 2026-10-07, verified in the database.** ~~Apply migrations `0024` + `0025` + the Payload 3.90 column~~: paste `docs/runbooks/sql/2026-10-07_apply_all.sql` into the Supabase SQL editor (guide step 2; no terminal needed). Do it **before merging #22**. **0024** drops three never-used content tables (verified empty 2026-10-07; it refuses to run otherwise). **0025** acts on the Supabase security/performance advisors: it stops visitors with no session calling six account/staff functions over the API (including `handle_new_user`, a trigger that was callable as an RPC), pins six function search paths, drops a duplicate index and adds four missing foreign-key indexes. The session's attempt to apply them was blocked by the permission system, correctly: production schema changes are yours to run. | terminal, repo root | 2 min |
 | C6b | **Supabase → Authentication → Settings: turn on "Leaked password protection"** (an advisor finding; a dashboard toggle, not SQL) | Supabase | 1 min |
 | C6c | **Purge 442 stale test accounts?** The production project holds 443 accounts, **442 of them anonymous**, all idle 30+ days and none newer than 2026-08-29: CI runs and onboarding tests. 214 hold no data; 228 hold test data. Say *"purge test accounts"* and the next session deletes the 214 empty ones (and, if you say *"all"*, the rest). Nothing is deleted until you say so. | chat | 1 min |
-| C6d | **Re-authorise the Vercel connector for the `khaledhassaneins-projects` scope.** It can list projects and deployments but gets 403 on project settings, logs and usage. | claude.ai → Connectors → Vercel | 2 min |
+| C6d | ✅ **Done 2026-10-07 (verified: deployments readable).** ~~Re-authorise the Vercel connector for the `khaledhassaneins-projects` scope.** It can list projects and deployments but gets 403 on project settings, logs and usage. | claude.ai → Connectors → Vercel | 2 min |
 | C7 | **Vercel: confirm Root Directory** = `apps/web` (web project) and `apps/cms` (CMS project), and that **Settings → Git → Ignored Build Step** is *not* overridden in the dashboard, so the new `vercel.json` rule applies. | Vercel | 3 min |
 | C8 | **Google Search Console**: add `femioapp.com` as a Domain property (DNS TXT), submit `https://femioapp.com/sitemap.xml` | GSC + DNS | 10 min |
 | C9 | **Google Play Console account** ($25 one-off). **Note:** a new *personal* account must run a closed test with **12 testers for 14 days** before production. An *organisation* account (needs a D-U-N-S number) avoids that. Choose before Phase 4. | play.google.com/console | 20 min |

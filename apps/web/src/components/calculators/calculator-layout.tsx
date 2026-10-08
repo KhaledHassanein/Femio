@@ -14,6 +14,8 @@ export function CalculatorLayout({
   intro,
   disclaimer,
   backLabel,
+  appCta,
+  appCtaLink,
   locale,
   path,
   children,
@@ -22,6 +24,9 @@ export function CalculatorLayout({
   intro: string;
   disclaimer: string;
   backLabel: string;
+  /** The bridge to the product (D8): every result can be tracked in the app. */
+  appCta?: string;
+  appCtaLink?: string;
   locale: string;
   path: string;
   children: ReactNode;
@@ -43,6 +48,14 @@ export function CalculatorLayout({
         <p className="text-sm text-text-muted">{intro}</p>
       </div>
       {children}
+      {appCta && appCtaLink ? (
+        <p className="flex flex-wrap items-center gap-x-2 gap-y-1 rounded-lg bg-primary-soft px-5 py-4 text-sm text-primary-soft-text">
+          <span>{appCta}</span>
+          <Link href="/app" className="font-semibold underline underline-offset-4">
+            {appCtaLink}
+          </Link>
+        </p>
+      ) : null}
       <Alert variant="info" icon={<Info className="size-5" />}>
         <AlertDescription>{disclaimer}</AlertDescription>
       </Alert>

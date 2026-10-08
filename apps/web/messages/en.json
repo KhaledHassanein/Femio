@@ -1,37 +1,11 @@
 {
   "meta": {
     "title": "Femio",
-    "description": "One account for a woman's whole health life."
+    "description": "Your whole health life, from first period to menopause, private on your phone."
   },
   "home": {
-    "signIn": "Sign in",
-    "heroTitle": "Your health has one story. Femio keeps all of it.",
-    "heroBody": "A period, cycle and pregnancy tracker that does not stop there — it carries on through conditions, trying to conceive, after birth and menopause, with referenced guides for every stage.",
-    "cta": "Start free — no email needed",
-    "ctaSecondary": "Read the guides first",
-    "antiClaim": "Femio is a wellness and education tool, not a medical device — and your health data is never sold. Both are things you can check, not things we ask you to believe.",
-    "shot": {
-      "eyebrow": "This is the app",
-      "heading": "Open it and it already knows where you are.",
-      "caption": "Your dashboard in cycle mode. Every stage gets its own — pregnancy counts weeks, menopause counts months and leaves the conclusion to you and your clinician.",
-      "app": {
-        "title": "Your dashboard",
-        "mode": "Cycle",
-        "eyebrow": "Cycle day 17",
-        "headline": "Next period 14–18 Sep",
-        "foot": "Fairly confident · based on your last 6 cycles",
-        "cta": "Log today",
-        "avgLabel": "Average cycle",
-        "avgValue": "29 days",
-        "tab": {
-          "home": "Home",
-          "track": "Track",
-          "settings": "Settings"
-        }
-      }
-    },
     "rail": {
-      "eyebrow": "One account",
+      "eyebrow": "Every stage",
       "heading": "Most apps cover one chapter. This one follows the whole book.",
       "sub": "When your life changes, Femio re-arranges around it — it never starts you over and it never deletes what came before.",
       "stages": {
@@ -83,19 +57,11 @@
     },
     "trust": {
       "eyebrow": "Why trust it",
-      "heading": "Six things you can verify.",
+      "heading": "Four things you can verify.",
       "items": {
         "sources": {
           "claim": "Every claim is cited, and dated",
           "detail": "— NICE, ACOG, WHO, ESHRE, linked, with the date the page was last reviewed."
-        },
-        "eu": {
-          "claim": "Your data lives in the EU",
-          "detail": "— and only you can read it."
-        },
-        "portable": {
-          "claim": "Export or delete it, in the app",
-          "detail": "— no email, no waiting."
         },
         "ads": {
           "claim": "No health data reaches an advertiser",
@@ -116,7 +82,7 @@
       "heading": "Start reading now."
     },
     "close": {
-      "heading": "One account. Your whole health life."
+      "heading": "Your whole health life, private on your phone."
     },
     "disclaimer": "Femio is for learning and tracking — not medical advice, and not a reliable way to avoid pregnancy. Always speak to your clinician about your care.",
     "sections": {
@@ -149,6 +115,56 @@
       "accent": "Accent",
       "fertile": "Fertile",
       "uncertainty": "Uncertainty"
+    },
+    "hero": {
+      "eyebrow": "Period · Ovulation · Pregnancy",
+      "title": "Know your cycle. Plan your family. Privately.",
+      "body": "Femio is a period, ovulation and pregnancy tracker made for women in Saudi Arabia and Egypt, with clinician-reviewed guides for every stage of life, in Arabic and English.",
+      "cta": "Get the app",
+      "ctaSecondary": "Try the period calculator"
+    },
+    "goals": {
+      "heading": "What brings you here?",
+      "period": {
+        "title": "Track my period",
+        "body": "Know when your next period is coming."
+      },
+      "ttc": {
+        "title": "Get pregnant",
+        "body": "Find your most fertile days."
+      },
+      "pregnant": {
+        "title": "I'm pregnant",
+        "body": "Your due date and your week."
+      },
+      "menopause": {
+        "title": "Menopause",
+        "body": "Understand the changes, month by month."
+      }
+    },
+    "tools": {
+      "heading": "Free calculators",
+      "sub": "No account, nothing saved.",
+      "more": "All calculators"
+    },
+    "privacy": {
+      "eyebrow": "Private by design",
+      "heading": "Your records stay on your phone.",
+      "body": "The Femio app keeps what you log on your device. We never see it, so there is nothing for anyone to sell, share or lose.",
+      "points": {
+        "account": {
+          "title": "No account needed",
+          "body": "Open the app and start. No email, no password."
+        },
+        "never": {
+          "title": "Femio never sees your entries",
+          "body": "Your periods, symptoms and pregnancy stay on your phone."
+        },
+        "backup": {
+          "title": "Back up when you choose",
+          "body": "Save a backup file wherever you like, and restore it on a new phone."
+        }
+      }
     }
   },
   "theme": {
@@ -213,16 +229,16 @@
     },
     "list": {
       "dueDate": {
-        "name": "Due date",
+        "name": "Due date calculator",
         "desc": "Estimate your due date from your last period."
       },
       "ovulation": {
-        "name": "Fertile window",
-        "desc": "See your estimated fertile days and ovulation."
+        "name": "Ovulation calculator",
+        "desc": "Your fertile window and likely ovulation day."
       },
       "gestationalAge": {
-        "name": "Gestational age",
-        "desc": "See how many weeks along you are."
+        "name": "Pregnancy week calculator",
+        "desc": "How many weeks pregnant you are, and your trimester."
       },
       "bmi": {
         "name": "BMI",
@@ -231,16 +247,24 @@
       "cycleLength": {
         "name": "Cycle length",
         "desc": "Your average cycle length and variability."
+      },
+      "period": {
+        "name": "Period calculator",
+        "desc": "See when your next three periods are likely to start."
+      },
+      "pregnancyTest": {
+        "name": "Pregnancy test calculator",
+        "desc": "The day a home test is most reliable."
       }
     },
     "dueDate": {
-      "title": "Due date estimator",
+      "title": "Due date calculator",
       "intro": "Estimate your due date from the first day of your last period.",
       "eddLabel": "Estimated due date",
       "termWindowLabel": "Most babies arrive between {start} and {end}."
     },
     "ovulation": {
-      "title": "Fertile window estimator",
+      "title": "Ovulation calculator",
       "intro": "Estimate your fertile days from your last period and cycle length.",
       "ovulationLabel": "Estimated ovulation",
       "windowLabel": "Fertile window",
@@ -249,7 +273,7 @@
       "awarenessNote": "These dates support conception planning and awareness. They're estimates, not a reliable way to avoid pregnancy — talk to your clinician about your options."
     },
     "gestationalAge": {
-      "title": "Gestational age",
+      "title": "Pregnancy week calculator",
       "intro": "See how many weeks along you are, counting from your last period.",
       "asOfLabel": "As of",
       "resultLabel": "{weeks} weeks and {days} days"
@@ -285,6 +309,44 @@
       "regular": "Your cycles look regular.",
       "irregular": "Your cycles vary — that's common, and Femio adapts predictions when they do.",
       "needTwo": "Add at least two period start dates."
+    },
+    "appCta": "Track this automatically in the Femio app.",
+    "appCtaLink": "Get the app",
+    "period": {
+      "title": "Period calculator",
+      "intro": "See when your next three periods are likely to start, as a range that reflects how much your cycles vary.",
+      "shortestLabel": "Shortest cycle (days)",
+      "longestLabel": "Longest cycle (days)",
+      "periodLengthLabel": "How many days your period lasts",
+      "varyNote": "Cycles normally vary by a few days. Enter your shortest and longest to see an honest range.",
+      "nextLabel": "Period {n}",
+      "rangeValue": "{start} – {end}",
+      "singleValue": "Around {date}",
+      "resultNote": "Each range widens a little further ahead, because each cycle can vary."
+    },
+    "pregnancyTest": {
+      "title": "Pregnancy test calculator",
+      "intro": "Find the day a home pregnancy test is most reliable.",
+      "modeLabel": "What do you know?",
+      "modePeriod": "My last period",
+      "modeSex": "When we had sex",
+      "sexLabel": "The day you last had unprotected sex",
+      "expectedPeriodLabel": "Your period is expected around",
+      "testFromLabel": "Test from",
+      "notePeriod": "Most home tests work from the first day of a missed period. Testing earlier can give a negative result even if you are pregnant.",
+      "noteSex": "If you do not know when your period is due, test at least 21 days after you last had unprotected sex.",
+      "source": "Source: NHS, Doing a pregnancy test."
+    },
+    "calendar": {
+      "period": "Period",
+      "periodMaybe": "Period could start",
+      "fertile": "Fertile window",
+      "ovulation": "Likely ovulation",
+      "test": "Test day"
+    },
+    "progress": {
+      "trimester": "Trimester {n}",
+      "weekOf": "Week {week} of 40"
     }
   },
   "onboarding": {
@@ -1366,13 +1428,14 @@
     "calculators": "Calculators",
     "faq": "FAQ",
     "glossary": "Glossary",
-    "signIn": "Sign in"
+    "signIn": "Sign in",
+    "getApp": "Get the app"
   },
   "footer": {
     "explore": "Explore",
     "trust": "Trust",
     "legal": "Legal",
-    "tagline": "One account for your whole health life.",
+    "tagline": "Your whole health life, private on your phone.",
     "rights": "© {year} Femio",
     "helpNow": "Need help now?"
   },
@@ -2447,6 +2510,55 @@
         "3": "Strong",
         "4": "Very strong"
       }
+    }
+  },
+  "getApp": {
+    "metaTitle": "Get the Femio app",
+    "eyebrow": "Femio for Android",
+    "title": "Your cycle, your plans, your pregnancy. Private, on your phone.",
+    "body": "Track your period, see your fertile window and follow your pregnancy week by week, in Arabic, English, French or Spanish. Your records stay on your phone: no account, and Femio never sees them.",
+    "android": "Google Play",
+    "androidStatus": "Coming soon",
+    "ios": "iPhone",
+    "iosStatus": "Later",
+    "featuresTitle": "What the app does",
+    "features": {
+      "period": {
+        "title": "Period predictions",
+        "body": "Your next period as an honest range that tightens as you log, never a single certain date."
+      },
+      "fertile": {
+        "title": "Fertile window & ovulation",
+        "body": "Your most fertile days, with ovulation-test and temperature logs for trying to conceive."
+      },
+      "pregnancy": {
+        "title": "Pregnancy, week by week",
+        "body": "Your week, your baby's size, your due date, a kick counter and a contraction timer."
+      },
+      "private": {
+        "title": "Private by design",
+        "body": "Your records are stored on your phone, not on our servers. Save a backup whenever you like."
+      },
+      "arabic": {
+        "title": "Arabic first",
+        "body": "Written for women in Saudi Arabia and Egypt, in Arabic, with English, French and Spanish."
+      },
+      "doctor": {
+        "title": "Ready for your doctor",
+        "body": "A one-page summary of your cycles and symptoms to show at your appointment."
+      }
+    },
+    "meanwhileTitle": "Until then",
+    "meanwhileBody": "Everything on this website is free and needs no account.",
+    "meanwhileCalculators": "Try the calculators",
+    "meanwhileLearn": "Read the library",
+    "notMedical": "Femio is for tracking and learning, not medical advice, and its estimates are not a reliable way to avoid pregnancy. Talk to your clinician about your health.",
+    "mock": {
+      "day": "Cycle day 12",
+      "title": "Fertile window",
+      "range": "Today – in 4 days",
+      "note": "Estimate · medium confidence",
+      "period": "Next period in 15–18 days"
     }
   }
 }

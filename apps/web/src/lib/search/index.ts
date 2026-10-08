@@ -8,9 +8,8 @@
  *
  * ## Why the corpus is passed in
  *
- * The four sources live in different places — articles and glossary in the
- * database, conditions and calculators in the repo — and half of them are only
- * reachable through a network call. A module that fetched its own corpus could not
+ * The sources live in different places: the library in a static index fetched on
+ * first search (`library.ts`, P2.2), the tools in code with labels from i18n. A module that fetched its own corpus could not
  * be tested without mocking two clients, and would drag framework imports into
  * tier 2. So it ranks what it is given.
  *
@@ -49,18 +48,27 @@ export type SearchHit = SearchDoc & { score: number };
  * stripping them here would be a guess about a language this function cannot see.
  */
 function fold(value: string): string {
-  return value
-    .normalize("NFD")
-    .replace(/[̀-ͯ]/g, "")
-    .toLocaleLowerCase()
-    .trim();
+  return value.normalize("NFD").replace(/[̀-ͯ]/g, "").toLocaleLowerCase().trim();
 }
 
-/** Whole-word boundary, so "pms" does not match "symptoms". */
+/**
+ * Whole-word boundary, so "pms" does not match "symptoms". Every occurrence is
+ * tried: "pain" must still find "Cramping pain" after missing inside "Painful".
+ */
 function wordStarts(haystack: string, needle: string): boolean {
-  const at = haystack.indexOf(needle);
-  if (at === -1) return false;
-  return at === 0 || !/[\p{L}\p{N}]/u.test(haystack[at - 1]!);
+  for (let at = haystack.indexOf(needle); at !== -1; at = haystack.indexOf(needle, at + 1)) {
+    if (at === 0 || !/[\p{L}\p{N}]/u.test(haystack[at - 1]!)) return true;
+  }
+  return false;
+}
+
+/**
+ * The words of a several-word query that carry meaning. Words under three letters
+ * ("am", "I", "is", "في") are dropped: they match nearly everything and say nothing
+ * about what she is looking for.
+ */
+function meaningfulWords(needle: string): string[] {
+  return needle.split(/\s+/).filter((w) => [...w].length >= 3);
 }
 
 /**
@@ -103,6 +111,17 @@ export function search(query: string, docs: readonly SearchDoc[], limit = 20): S
 
     if (score === 0 && doc.keywords?.some((k) => wordStarts(fold(k), needle))) score = 50;
     if (score === 0 && doc.summary && wordStarts(fold(doc.summary), needle)) score = 20;
+
+    // A question rather than a name ("bleeding after birth", "is ibuprofen safe"):
+    // every meaningful word starts a word somewhere in the document. Weakest match,
+    // so a document that contains the phrase itself always ranks above it.
+    if (score === 0) {
+      const words = meaningfulWords(needle);
+      if (words.length > 1) {
+        const text = fold([doc.title, doc.summary ?? "", ...(doc.keywords ?? [])].join(" "));
+        if (words.every((w) => wordStarts(text, w))) score = 10;
+      }
+    }
 
     if (score > 0) hits.push({ ...doc, score: score + KIND_WEIGHT[doc.kind] });
   }

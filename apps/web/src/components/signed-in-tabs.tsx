@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import { createClient } from "@/lib/supabase/client";
 import { BottomTabs } from "@/components/app-nav";
+import { webAppEnabled } from "@/lib/web-app";
 
 /**
  * The app's tab bar on public pages, for a signed-in woman only (v3 P1.6).
@@ -16,6 +17,12 @@ import { BottomTabs } from "@/components/app-nav";
  * page. A visitor sees nothing: no bar, no spacer, no layout shift.
  */
 export function SignedInTabs() {
+  // The web app is closed (D8): no session to look for, so no Supabase client at all.
+  if (!webAppEnabled()) return null;
+  return <SessionTabs />;
+}
+
+function SessionTabs() {
   const [signedIn, setSignedIn] = useState(false);
 
   useEffect(() => {

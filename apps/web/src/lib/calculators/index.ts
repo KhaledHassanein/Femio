@@ -58,7 +58,10 @@ export function gestationalAge(
 }
 
 /** BMI (metric). Category uses WHO adult cutoffs — general information, not a diagnosis. */
-export function bmi(weightKg: number, heightCm: number): { value: number; category: BmiCategory } | null {
+export function bmi(
+  weightKg: number,
+  heightCm: number,
+): { value: number; category: BmiCategory } | null {
   if (!(weightKg > 0) || !(heightCm > 0)) return null;
   const meters = heightCm / 100;
   const value = Math.round((weightKg / (meters * meters)) * 10) / 10;
@@ -94,4 +97,81 @@ export function cycleStats(
     count: lengths.length,
     regular: max - min <= 7,
   };
+}
+
+export const MIN_PERIOD = 2;
+export const MAX_PERIOD = 10;
+
+export type PeriodForecast = {
+  /** First possible start day, from her shortest cycle. */
+  earliest: string;
+  /** Last possible start day, from her longest cycle. Equal to `earliest` if they match. */
+  latest: string;
+  /** Last day of bleeding if it starts on `earliest`. */
+  endIfEarliest: string;
+};
+
+/**
+ * The next `count` periods, each as a range (rule 3: never one certain date).
+ *
+ * The range comes from her own shortest and longest cycle, not from a constant we
+ * chose, so it is exactly as wide as her cycles are variable and it widens with each
+ * cycle ahead, which is the honest shape of the uncertainty.
+ */
+export function periodForecast(
+  lmpISO: string,
+  shortest: number,
+  longest: number,
+  periodLength = 5,
+  count = 3,
+): PeriodForecast[] | null {
+  if (!isValidISODate(lmpISO)) return null;
+  const a = clampCycle(Math.min(shortest, longest));
+  const b = clampCycle(Math.max(shortest, longest));
+  const len = Math.min(MAX_PERIOD, Math.max(MIN_PERIOD, Math.round(periodLength) || 5));
+  const out: PeriodForecast[] = [];
+  for (let n = 1; n <= count; n += 1) {
+    const earliest = addDays(lmpISO, n * a);
+    out.push({
+      earliest,
+      latest: addDays(lmpISO, n * b),
+      endIfEarliest: addDays(earliest, len - 1),
+    });
+  }
+  return out;
+}
+
+/**
+ * When a home pregnancy test is most reliable.
+ *
+ * NHS, "Doing a pregnancy test": most tests work from the first day of a missed period;
+ * if you do not know when your period is due, test at least 21 days after you last had
+ * unprotected sex. Both rules, nothing earlier: an earlier "you could try" date is the
+ * kind of precision that produces false negatives.
+ * https://www.nhs.uk/pregnancy/trying-for-a-baby/doing-a-pregnancy-test/
+ */
+export function pregnancyTestFromPeriod(
+  lmpISO: string,
+  cycleLength = 28,
+): { expectedPeriod: string; testFrom: string } | null {
+  if (!isValidISODate(lmpISO)) return null;
+  const expectedPeriod = addDays(lmpISO, clampCycle(cycleLength));
+  return { expectedPeriod, testFrom: expectedPeriod };
+}
+
+export const DAYS_AFTER_SEX_TO_TEST = 21;
+
+export function pregnancyTestFromSex(sexISO: string): { testFrom: string } | null {
+  if (!isValidISODate(sexISO)) return null;
+  return { testFrom: addDays(sexISO, DAYS_AFTER_SEX_TO_TEST) };
+}
+
+/**
+ * Trimester for a gestational week. ACOG's boundaries: first through 13w6d, second
+ * 14w0d–27w6d, third from 28w0d.
+ */
+export function trimesterOf(weeks: number): 1 | 2 | 3 {
+  if (weeks < 14) return 1;
+  if (weeks < 28) return 2;
+  return 3;
 }

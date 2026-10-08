@@ -39,7 +39,6 @@
 /** Sent on every page, public and signed-in alike. */
 export const PUBLIC_CLIENT_NAMESPACES = [
   "appNav",
-  "calculators",
   /**
    * `/search` is a **public** route (D4): everything it searches is public, and
    * migration `0022` grants the search function to `anon` precisely so a visitor
@@ -54,11 +53,23 @@ export const PUBLIC_CLIENT_NAMESPACES = [
   "search",
   "tools",
   "notFound",
-  "onboarding",
-  "resetPassword",
-  "signIn",
   "theme",
 ] as const;
+
+/**
+ * Sent only under `/calculators/*`, by that route's layout (2026-10-08). The calculator
+ * set grew to the competitor list with calendar results (P2.6), and shipping its strings
+ * from the root layout put ~5 KB on every page, the homepage included, where the page-weight
+ * budget caught it. Scoped here, a new calculator costs only the calculator pages.
+ */
+export const CALCULATOR_CLIENT_NAMESPACES = ["calculators"] as const;
+
+/**
+ * Sent only by the sign-in, welcome (onboarding) and reset-password layouts, and inside the
+ * app. With the web app closed (D8) these pages redirect away, so the root layout carrying
+ * the onboarding wizard's copy on every public page was pure weight.
+ */
+export const AUTH_CLIENT_NAMESPACES = ["onboarding", "resetPassword", "signIn"] as const;
 
 /**
  * Sent only under `/[locale]/(app)/*` — the signed-in tracker. Every one of these is on a
@@ -128,6 +139,8 @@ export const APP_CLIENT_NAMESPACES = [
 export const CLIENT_NAMESPACES = [
   ...PUBLIC_CLIENT_NAMESPACES,
   ...APP_CLIENT_NAMESPACES,
+  ...CALCULATOR_CLIENT_NAMESPACES,
+  ...AUTH_CLIENT_NAMESPACES,
 ] as const;
 
 type Messages = Record<string, unknown>;
@@ -152,4 +165,14 @@ export function pickClientMessages(messages: Messages): Messages {
  */
 export function pickAppClientMessages(messages: Messages): Messages {
   return pick(messages, CLIENT_NAMESPACES);
+}
+
+/** The public set plus the calculators (the `/calculators` layout). */
+export function pickCalculatorClientMessages(messages: Messages): Messages {
+  return pick(messages, [...PUBLIC_CLIENT_NAMESPACES, ...CALCULATOR_CLIENT_NAMESPACES]);
+}
+
+/** The public set plus sign-in, onboarding and password reset (their layouts). */
+export function pickAuthClientMessages(messages: Messages): Messages {
+  return pick(messages, [...PUBLIC_CLIENT_NAMESPACES, ...AUTH_CLIENT_NAMESPACES]);
 }

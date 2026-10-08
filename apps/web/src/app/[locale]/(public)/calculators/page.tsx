@@ -1,17 +1,21 @@
 import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
-import { Card, CardContent } from "@/components/ui/card";
+import { Baby, CalendarHeart, CalendarRange, Flower2, Ruler, TestTube, Timer } from "lucide-react";
 import { Link } from "@/i18n/navigation";
 import { localizedAlternates } from "@/lib/seo/metadata";
 
 type PageProps = { params: Promise<{ locale: string }> };
 
+// Ordered by what women search for (Flo's calculator set, `04_ANDROID_APP_SPEC` §2):
+// period and ovulation first, then pregnancy, then the general tools.
 const TOOLS = [
-  { slug: "due-date", key: "dueDate" },
-  { slug: "fertile-window", key: "ovulation" },
-  { slug: "gestational-age", key: "gestationalAge" },
-  { slug: "bmi", key: "bmi" },
-  { slug: "cycle-length", key: "cycleLength" },
+  { slug: "period", key: "period", Icon: CalendarHeart },
+  { slug: "fertile-window", key: "ovulation", Icon: Flower2 },
+  { slug: "pregnancy-test", key: "pregnancyTest", Icon: TestTube },
+  { slug: "due-date", key: "dueDate", Icon: Baby },
+  { slug: "gestational-age", key: "gestationalAge", Icon: Timer },
+  { slug: "cycle-length", key: "cycleLength", Icon: CalendarRange },
+  { slug: "bmi", key: "bmi", Icon: Ruler },
 ] as const;
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
@@ -36,14 +40,19 @@ export default async function CalculatorsPage({ params }: PageProps) {
         <p className="text-sm text-text-muted">{t("subtitle")}</p>
       </div>
       <div className="grid gap-4 sm:grid-cols-2">
-        {TOOLS.map((tool) => (
-          <Link key={tool.slug} href={`/calculators/${tool.slug}`} className="rounded-md">
-            <Card className="h-full transition-shadow hover:shadow-md">
-              <CardContent className="flex flex-col gap-1 p-6">
-                <p className="font-display text-lg text-text">{t(`list.${tool.key}.name`)}</p>
-                <p className="text-sm text-text-muted">{t(`list.${tool.key}.desc`)}</p>
-              </CardContent>
-            </Card>
+        {TOOLS.map(({ slug, key, Icon }) => (
+          <Link
+            key={slug}
+            href={`/calculators/${slug}`}
+            className="group flex items-start gap-4 rounded-lg border border-border bg-surface p-5 transition-shadow hover:shadow-md"
+          >
+            <span className="flex size-12 shrink-0 items-center justify-center rounded-pill bg-primary-soft text-primary-soft-text transition-transform motion-safe:group-hover:scale-105">
+              <Icon className="size-6" aria-hidden />
+            </span>
+            <span className="flex flex-col gap-1">
+              <span className="font-display text-lg text-text">{t(`list.${key}.name`)}</span>
+              <span className="text-sm text-text-muted">{t(`list.${key}.desc`)}</span>
+            </span>
           </Link>
         ))}
       </div>

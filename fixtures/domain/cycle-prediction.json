@@ -67,6 +67,66 @@
         "starts": []
       },
       "expected": null
+    },
+    {
+      "input": {
+        "starts": [
+          "2026-10-01"
+        ],
+        "statedCycleLength": 30
+      },
+      "expected": {
+        "averageLength": 30,
+        "basis": "stated",
+        "predictedStart": "2026-10-31",
+        "windowStart": "2026-10-27",
+        "windowEnd": "2026-11-04",
+        "confidence": "low",
+        "irregular": false,
+        "learning": true,
+        "evidence": {
+          "cyclesUsed": 0,
+          "spread": 0,
+          "margin": 4,
+          "recentWindow": 0,
+          "rule": "stated"
+        }
+      }
+    },
+    {
+      "input": {
+        "starts": [
+          "2026-10-01"
+        ]
+      },
+      "expected": null
+    },
+    {
+      "input": {
+        "starts": [
+          "2026-09-01",
+          "2026-09-02",
+          "2026-09-03",
+          "2026-09-29"
+        ]
+      },
+      "expected": {
+        "averageLength": 28,
+        "basis": "observed",
+        "predictedStart": "2026-10-27",
+        "windowStart": "2026-10-25",
+        "windowEnd": "2026-10-29",
+        "confidence": "low",
+        "irregular": false,
+        "learning": true,
+        "evidence": {
+          "cyclesUsed": 1,
+          "spread": 0,
+          "margin": 2,
+          "recentWindow": 1,
+          "rule": "observed"
+        }
+      }
     }
   ]
 }

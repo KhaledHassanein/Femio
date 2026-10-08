@@ -8,6 +8,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { useCalculatorUsed } from "@/lib/analytics/use-calculator-used";
+import { PregnancyProgress } from "./pregnancy-progress";
 
 export function GestationalAgeCalculator() {
   const t = useTranslations("calculators");
@@ -34,6 +35,9 @@ export function GestationalAgeCalculator() {
             <p className="font-display text-xl">
               {t("gestationalAge.resultLabel", { weeks: result.weeks, days: result.days })}
             </p>
+            <div className="mt-3">
+              <PregnancyProgress weeks={result.totalDays / 7} />
+            </div>
             <p className="mt-2 text-xs opacity-90">{t("common.estimateNote")}</p>
           </div>
         ) : null}

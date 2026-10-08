@@ -50,7 +50,7 @@ logins and logs: a few MB a month at this stage, far under 5 GB.
 
 ---
 
-## Step 2 · Run one SQL file in Supabase (3 min)
+## Step 2 · Run one SQL file in Supabase: ✅ done 2026-10-07 (verified)
 
 This applies three database changes: it removes three empty, unused tables, applies the
 security fixes Supabase's own checker asked for, and adds one column the upgraded CMS
@@ -72,7 +72,7 @@ a copy of your database's structure before being given to you.
 
 ---
 
-## Step 3 · Merge the pull request so the new version goes live (3 min)
+## Step 3 · Merge the pull request: ✅ done 2026-10-07
 
 Do this **after Step 2**. The upgraded CMS needs the column Step 2 adds. **Do it even if you stay on the free plan: this merge is what stops the leak.**
 
@@ -104,7 +104,7 @@ feature, so skip this step while you stay free and do it when you upgrade at lau
 
 ---
 
-## Step 5 · Give Claude full read access to Vercel (2 min)
+## Step 5 · Give Claude full read access to Vercel: ✅ done 2026-10-07
 
 The Vercel connector works but cannot see logs, usage or settings for your team
 ("403 forbidden").
@@ -157,9 +157,10 @@ This tells Google your site exists and shows you what people search to find it.
 
 These are not clicks but they set the launch date:
 
-- **A privacy lawyer** (MENA + EU) with three questions: does Egypt's data-protection
-  licence apply to Femio, does Saudi law allow EU hosting, and finalise the privacy policy
-  and terms. Egypt's rules are enforced from **31 October 2026**.
+- **First, decide D7** (`OWNER_ACTIONS.md` §0): keep health records on the phone for v1.
+  If yes, the lawyer's job shrinks to four short questions
+  (`docs/compliance/PRIVATE_LAUNCH_V1.md` §6). Egypt's rules are enforced from
+  **31 October 2026**.
 - **An Arabic-speaking medical reviewer**, or confirm you will review Arabic yourself.
   Nothing in Arabic is published without a named reviewer.
 - **Google Play developer account** ($25, one-off) at play.google.com/console. A personal

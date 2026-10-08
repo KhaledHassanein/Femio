@@ -2,11 +2,13 @@
 
 import { useState } from "react";
 import { useFormatter, useTranslations } from "next-intl";
-import { estimateDueDate, MAX_CYCLE, MIN_CYCLE } from "@/lib/calculators";
+import { estimateDueDate, gestationalAge, MAX_CYCLE, MIN_CYCLE } from "@/lib/calculators";
+import { todayISO } from "@/lib/calculators/dates";
 import { Card, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { useCalculatorUsed } from "@/lib/analytics/use-calculator-used";
+import { PregnancyProgress } from "./pregnancy-progress";
 
 export function DueDateCalculator() {
   const t = useTranslations("calculators");
@@ -17,6 +19,8 @@ export function DueDateCalculator() {
   const result = lmp ? estimateDueDate(lmp, Number(cycle) || 28) : null;
 
   useCalculatorUsed(result != null);
+  // Where she is today, when the date she gave is a pregnancy in progress.
+  const now = lmp ? gestationalAge(lmp, todayISO()) : null;
   const fmt = (iso: string) =>
     format.dateTime(new Date(`${iso}T00:00:00Z`), { dateStyle: "long", timeZone: "UTC" });
 
@@ -43,8 +47,16 @@ export function DueDateCalculator() {
             <p className="text-sm">{t("dueDate.eddLabel")}</p>
             <p className="font-display text-xl">{fmt(result.edd)}</p>
             <p className="mt-2 text-sm">
-              {t("dueDate.termWindowLabel", { start: fmt(result.termStart), end: fmt(result.termEnd) })}
+              {t("dueDate.termWindowLabel", {
+                start: fmt(result.termStart),
+                end: fmt(result.termEnd),
+              })}
             </p>
+            {now ? (
+              <div className="mt-3">
+                <PregnancyProgress weeks={now.totalDays / 7} />
+              </div>
+            ) : null}
             <p className="mt-2 text-xs opacity-90">{t("common.estimateNote")}</p>
           </div>
         ) : null}

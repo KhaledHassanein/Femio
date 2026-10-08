@@ -86,3 +86,36 @@ describe("groupByKind", () => {
     expect(kinds).toEqual(ranked);
   });
 });
+
+describe("search, beyond a single name", () => {
+  const more: SearchDoc[] = [
+    {
+      id: "x1",
+      kind: "article",
+      title: "Travel and your cycle",
+      summary: "A trip to Spain, and period pain on the way",
+      href: "/learn/x1",
+    },
+    {
+      id: "x2",
+      kind: "article",
+      title: "Bleeding in the weeks after birth",
+      keywords: ["When bleeding is too heavy"],
+      href: "/learn/x2",
+    },
+  ];
+
+  it("finds a word that starts later in the text after a mid-word miss", () => {
+    // "pain" first occurs inside "Spain", then later as a word of its own.
+    expect(search("pain", more).map((h) => h.id)).toEqual(["x1"]);
+  });
+
+  it("matches a question when every meaningful word is in the document", () => {
+    expect(search("heavy bleeding after birth", more)[0]?.id).toBe("x2");
+    expect(search("heavy bleeding in pregnancy", more)).toEqual([]);
+  });
+
+  it("ignores short words, so 'is it' does not match everything", () => {
+    expect(search("is it", more)).toEqual([]);
+  });
+});

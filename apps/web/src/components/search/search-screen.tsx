@@ -10,9 +10,9 @@ import { Input } from "@/components/ui/input";
 import { LoadingState } from "@/components/patterns/loading-state";
 import { Alert, AlertDescription } from "@/components/ui/alert";
 import { Link } from "@/i18n/navigation";
-import { createClient } from "@/lib/supabase/client";
-import { groupByKind, search, type SearchHit, type SearchKind } from "@/lib/search";
-import { hrefForContent, toolDocs } from "@/lib/search/corpus";
+import { groupByKind, search, type SearchHit } from "@/lib/search";
+import { toolDocs } from "@/lib/search/corpus";
+import type { LibraryIndex } from "@/lib/search/library";
 
 /**
  * Search across everything Femio knows how to explain (D4, TD-14).
@@ -20,49 +20,49 @@ import { hrefForContent, toolDocs } from "@/lib/search/corpus";
  * Chapter 04's opening line: 100 published articles, a conditions library and a
  * glossary, and no way to search any of it.
  *
- * ## Two rankers, and deliberately no common scale between them
+ * ## No database request (P2.2)
  *
- * The library is ranked in Postgres by `ts_rank` (migration `0022`, full-text over
- * titles, summaries and Lexical bodies). The tools are ranked in the browser by
- * `lib/search`, because they are routes in code and no database row will ever
- * describe them. Those two scores are not comparable, and normalising one onto the
- * other would invent a precision neither has.
+ * The library is ranked in the browser over a static index built from the content
+ * that ships with the site (`/api/search-index/{locale}`, see `lib/search/library`).
+ * It is fetched once, on the first search, and every keystroke after that is local.
+ * It used to be a Supabase RPC per keystroke: egress on a plan that had run out of
+ * it, and a search that failed outright while the project was restricted.
  *
- * So they are never compared. Results render **grouped by kind** in a fixed order,
- * and each group is ordered by its own ranker. The cross-scale comparison simply
- * never happens, which is why it cannot be wrong.
- *
- * ## Why the query is debounced and not submitted
- *
- * `0022` makes the last token a prefix so results appear mid-word. That only pays
- * off if the search runs while she types, and 250ms is long enough that a typed
- * word is one request rather than seven.
+ * Tools are ranked by the same `lib/search` ranker, so library and tools now share
+ * one scale. Results still render **grouped by kind** in a fixed order, because a
+ * condition and the calculator for it answer different questions.
  *
  * ## A failed search says so
  *
  * Empty results and a failed request are different answers and are rendered
- * differently — the distinction RB-C7 exists to protect. Telling her nothing
- * matched when the request never completed is the lie that costs trust in a search
+ * differently, the distinction RB-C7 exists to protect. Telling her nothing
+ * matched when the index never loaded is the lie that costs trust in a search
  * box, because she will conclude Femio has nothing on her subject.
  */
-
-type ContentRow = {
-  kind: string;
-  slug: string;
-  title: string;
-  summary: string | null;
-  rank: number;
-  /** Which library actually answered (`0023`). Differs from hers on fallback. */
-  matched_locale: string;
-};
 
 type State =
   | { status: "idle" }
   | { status: "searching" }
-  | { status: "ready"; hits: SearchHit[]; matchedLocale: string | null }
+  | { status: "ready"; hits: SearchHit[]; englishOnly: boolean }
   | { status: "error" };
 
-const DEBOUNCE_MS = 250;
+/** One fetch per locale per page load; a failure is not cached, so retyping retries. */
+const indexes = new Map<string, Promise<LibraryIndex>>();
+function loadIndex(locale: string): Promise<LibraryIndex> {
+  let pending = indexes.get(locale);
+  if (!pending) {
+    pending = fetch(`/api/search-index/${locale}`).then((res) => {
+      if (!res.ok) throw new Error(`search index ${res.status}`);
+      return res.json() as Promise<LibraryIndex>;
+    });
+    pending.catch(() => indexes.delete(locale));
+    indexes.set(locale, pending);
+  }
+  return pending;
+}
+
+/** Short now that ranking is local: just enough to not re-rank on every key repeat. */
+const DEBOUNCE_MS = 120;
 
 export function SearchScreen() {
   const t = useTranslations("search");
@@ -99,43 +99,27 @@ export function SearchScreen() {
     }
 
     let cancelled = false;
-    setState({ status: "searching" });
+    // Keep the last results on screen while the next query ranks, so typing does
+    // not flash a skeleton between every letter.
+    setState((prev) => (prev.status === "ready" ? prev : { status: "searching" }));
 
     const timer = setTimeout(() => {
       void (async () => {
-        // Tools are matched locally and are always available, even if the library
-        // request fails — she can still reach the calculator she was looking for.
+        // Tools are always available, even if the library index fails to load:
+        // she can still reach the calculator she was looking for.
         const toolHits = search(trimmed, tools, 5);
-
-        const { data, error } = await createClient().rpc("search_content", {
-          p_query: trimmed,
-          p_locale: locale,
-          p_limit: 20,
-        });
-        if (cancelled) return;
-
-        if (error) {
-          setState({ status: "error" });
-          return;
+        try {
+          const index = await loadIndex(locale);
+          if (cancelled) return;
+          const libraryHits = search(trimmed, index.docs, 20);
+          setState({
+            status: "ready",
+            hits: [...libraryHits, ...toolHits],
+            englishOnly: index.englishOnly && libraryHits.length > 0,
+          });
+        } catch {
+          if (!cancelled) setState({ status: "error" });
         }
-
-        const contentHits: SearchHit[] = ((data ?? []) as ContentRow[]).map((row, i) => ({
-          id: `${row.kind}:${row.slug}`,
-          kind: row.kind as SearchKind,
-          title: row.title,
-          summary: row.summary ?? undefined,
-          href: hrefForContent(row.kind, row.slug),
-          // Postgres already returned these in rank order. The index is kept as
-          // the score so `groupByKind` preserves that order without pretending
-          // `ts_rank` and the client ranker share a scale.
-          score: 1000 - i,
-        }));
-
-        setState({
-          status: "ready",
-          hits: [...contentHits, ...toolHits],
-          matchedLocale: (data as ContentRow[] | null)?.[0]?.matched_locale ?? null,
-        });
       })();
     }, DEBOUNCE_MS);
 
@@ -149,15 +133,14 @@ export function SearchScreen() {
   const nothing = state.status === "ready" && state.hits.length === 0;
 
   /**
-   * The library that answered was not hers (`0023`).
+   * The library that answered was not hers (`0023`'s rule).
    *
-   * Every CMS row is English today (R3.8), so this fires for every non-English
-   * search. Saying so is not optional: silently returning English would let her
-   * conclude Femio has an Arabic library that happens not to cover her subject,
-   * rather than that it has no Arabic library yet.
+   * Every article is English today (R3.8), so this fires for every non-English
+   * search that finds something. Saying so is not optional: silently returning
+   * English would let her conclude Femio has an Arabic library that happens not to
+   * cover her subject, rather than that it has no Arabic library yet.
    */
-  const fellBack =
-    state.status === "ready" && state.matchedLocale !== null && state.matchedLocale !== locale;
+  const fellBack = state.status === "ready" && state.englishOnly;
 
   return (
     <AppScreen>
@@ -222,9 +205,15 @@ export function SearchScreen() {
                   href={hit.href}
                   className="flex min-h-11 flex-col gap-1 rounded-md border border-border bg-surface p-4 hover:bg-surface-sunken"
                 >
-                  <span className="font-semibold text-text">{hit.title}</span>
+                  {/* An English title on an Arabic page: `auto` lays it out by its own
+                      script, so "Can PCOS affect fertility?" keeps its question mark. */}
+                  <span dir="auto" className="font-semibold text-text">
+                    {hit.title}
+                  </span>
                   {hit.summary ? (
-                    <span className="line-clamp-2 text-sm text-text-muted">{hit.summary}</span>
+                    <span dir="auto" className="line-clamp-2 text-sm text-text-muted">
+                      {hit.summary}
+                    </span>
                   ) : null}
                 </Link>
               </li>

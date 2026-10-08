@@ -27,6 +27,8 @@ export default async function Page({ params }: PageProps) {
       intro={t("ovulation.intro")}
       disclaimer={t("disclaimer")}
       backLabel={t("common.back")}
+      appCta={t("appCta")}
+      appCtaLink={t("appCtaLink")}
       locale={locale}
       path={PATH}
     >

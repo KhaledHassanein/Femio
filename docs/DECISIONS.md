@@ -456,3 +456,32 @@ build, months from any cause anyone could connect it to.
 So the decision is pinned by `apps/web/src/i18n/numbering.test.ts` rather than left to a default.
 If it ever fails, the runtime changed its mind and the fix is to pass the `-u-nu-latn` extension
 where we format — not to relax the test.
+
+## ADR-070
+
+**The product is a private Android app: health records live on the phone, the website
+promotes the app, and the web beta closes.**
+
+Date: 2026-10-07 · Owner: Khaled · Status: accepted · Related: ADR-060, ADR-061, D7, D8
+(`OWNER_ACTIONS.md` §0), `docs/compliance/PRIVATE_LAUNCH_V1.md`, `docs/30_REVAMP/04_ANDROID_APP_SPEC.md`
+
+**What it cost.** The signed-in web app (onboarding, Today, calendar, log, patterns, partner
+sharing, visit summary), months of work, stops being the product. Cloud sync, accounts and
+partner sharing are deferred. A lost phone without a backup loses the record, which bends
+rule 5 for v1.
+
+**Why.** Holding health data makes Femio a controller of special-category data in Egypt, Saudi
+Arabia and the UK, with a sensitive-data licence, cross-border transfer licences or safeguards,
+local representatives and DPOs. Egypt's grace period ends 31 October 2026. A disclaimer cannot
+remove those duties; not receiving the data removes most of them. The free Supabase plan's
+restriction (2026-10-06) showed the cost of a server in the loop before there are users.
+
+**What changes in the architecture rule (ADR-060/061).** "The backend owns decisions" becomes
+"**the specification owns decisions**": medical rules, thresholds and persona logic stay out of
+screens, authored once as versioned data and golden fixtures, and run by the TypeScript
+(website calculators) and Dart (app) twins **on the device**. Tier 1 (Edge Functions) returns
+when sync does.
+
+**What a future session must not do by accident.** Re-enable `WEB_APP_ENABLED` in production,
+add an analytics or ads SDK to the app, or send any health value off the phone, without a new
+ADR and the compliance package that sync requires (`PRIVATE_LAUNCH_V1.md` §7).

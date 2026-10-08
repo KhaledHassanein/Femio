@@ -7,6 +7,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { useCalculatorUsed } from "@/lib/analytics/use-calculator-used";
+import { MiniCalendar, markRange, type DayMark } from "./mini-calendar";
 
 export function OvulationCalculator() {
   const t = useTranslations("calculators");
@@ -19,6 +20,13 @@ export function OvulationCalculator() {
   useCalculatorUsed(result != null);
   const fmt = (iso: string) =>
     format.dateTime(new Date(`${iso}T00:00:00Z`), { dateStyle: "long", timeZone: "UTC" });
+
+  const marks = new Map<string, DayMark>();
+  if (result) {
+    marks.set(result.ovulation, "ovulation");
+    marks.set(result.nextPeriod, "period");
+    markRange(marks, result.windowStart, result.windowEnd, "fertile");
+  }
 
   return (
     <Card>
@@ -43,7 +51,10 @@ export function OvulationCalculator() {
             <div>
               <p className="text-sm">{t("ovulation.windowLabel")}</p>
               <p className="font-display text-xl">
-                {t("ovulation.rangeValue", { start: fmt(result.windowStart), end: fmt(result.windowEnd) })}
+                {t("ovulation.rangeValue", {
+                  start: fmt(result.windowStart),
+                  end: fmt(result.windowEnd),
+                })}
               </p>
             </div>
             <p className="text-sm">
@@ -54,6 +65,9 @@ export function OvulationCalculator() {
             </p>
             <p className="text-xs opacity-90">{t("ovulation.awarenessNote")}</p>
           </div>
+        ) : null}
+        {result ? (
+          <MiniCalendar marks={marks} from={result.windowStart} to={result.nextPeriod} />
         ) : null}
       </CardContent>
     </Card>
