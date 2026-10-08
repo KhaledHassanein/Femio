@@ -1,7 +1,7 @@
 name: femio
 description: "Femio: your cycle, your plans, your pregnancy. Private, on your phone."
 publish_to: 'none'
-version: 0.3.0+3
+version: 0.4.0+4
 
 environment:
   sdk: ^3.13.4
