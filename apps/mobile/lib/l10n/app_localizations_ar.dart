@@ -284,4 +284,253 @@ class L10nAr extends L10n {
 
   @override
   String get todayTitle => 'اليوم';
+
+  @override
+  String get logHappy => 'سعيدة';
+
+  @override
+  String get logCalm => 'هادئة';
+
+  @override
+  String get logAnxious => 'قلقة';
+
+  @override
+  String get logIrritable => 'سريعة الانفعال';
+
+  @override
+  String get logSad => 'حزينة';
+
+  @override
+  String get logMoodSwings => 'تقلّب المزاج';
+
+  @override
+  String get logLowMotivation => 'قلة الدافع';
+
+  @override
+  String get logTearfulness => 'سرعة البكاء';
+
+  @override
+  String get logPanicFeelings => 'نوبات هلع مفاجئة';
+
+  @override
+  String get logCramps => 'تقلّصات';
+
+  @override
+  String get logHeadache => 'صداع';
+
+  @override
+  String get logBloating => 'انتفاخ';
+
+  @override
+  String get logBreastTenderness => 'ألم الثدي';
+
+  @override
+  String get logBackache => 'ألم الظهر';
+
+  @override
+  String get logJointPain => 'ألم المفاصل';
+
+  @override
+  String get logMusclePain => 'آلام عضلية';
+
+  @override
+  String get logNausea => 'غثيان';
+
+  @override
+  String get logConstipation => 'إمساك';
+
+  @override
+  String get logDiarrhea => 'إسهال';
+
+  @override
+  String get logFatigue => 'إرهاق';
+
+  @override
+  String get logAcne => 'حبّ الشباب';
+
+  @override
+  String get logHotFlashes => 'هبّات ساخنة';
+
+  @override
+  String get logNightSweats => 'تعرّق ليلي';
+
+  @override
+  String get logSpotting => 'تنقيط';
+
+  @override
+  String get logHeartFlutters => 'خفقان أو تسارع في القلب';
+
+  @override
+  String get logWeightChange => 'تغيّر في الوزن';
+
+  @override
+  String get logCravings => 'اشتهاء الطعام';
+
+  @override
+  String get logInsomnia => 'صعوبة النوم';
+
+  @override
+  String get logDizziness => 'دوخة';
+
+  @override
+  String get logBrainFog => 'تشوّش ذهني';
+
+  @override
+  String get logLibidoUp => 'ارتفاع الرغبة الجنسية';
+
+  @override
+  String get logLibidoDown => 'انخفاض الرغبة الجنسية';
+
+  @override
+  String get logVaginalDryness => 'جفاف المهبل';
+
+  @override
+  String get logPainDuringSex => 'ألم أثناء العلاقة';
+
+  @override
+  String get logBladderUrgency => 'إلحاح أو تكرار في التبوّل';
+
+  @override
+  String get logBladderLeaks => 'تسرّب البول';
+
+  @override
+  String get logHairThinning => 'خفّة الشعر';
+
+  @override
+  String get logDryItchySkin => 'جفاف الجلد أو حكّته';
+
+  @override
+  String get logBrittleNails => 'هشاشة الأظافر';
+
+  @override
+  String get logGumSoreness => 'التهاب اللثة أو نزفها';
+
+  @override
+  String get logBurningMouth => 'حرقان أو تنميل في الفم';
+
+  @override
+  String get logTingling => 'تنميل في اليدين أو القدمين';
+
+  @override
+  String get logElectricShocks => 'إحساس لحظي يشبه الصعقة';
+
+  @override
+  String get logBodyOdourChange => 'تغيّر في رائحة الجسم';
+
+  @override
+  String get logTinnitus => 'طنين في الأذن';
+
+  @override
+  String get logDry => 'جاف';
+
+  @override
+  String get logSticky => 'لزج';
+
+  @override
+  String get logCreamy => 'كريمي';
+
+  @override
+  String get logWatery => 'مائي';
+
+  @override
+  String get logEggWhite => 'شبيه ببياض البيض';
+
+  @override
+  String get logIntercourse => 'جماع';
+
+  @override
+  String get flowSpotting => 'تنقيط';
+
+  @override
+  String get flowLight => 'خفيف';
+
+  @override
+  String get flowMedium => 'متوسط';
+
+  @override
+  String get flowHeavy => 'غزير';
+
+  @override
+  String get flowLabel => 'الغزارة';
+
+  @override
+  String get navToday => 'اليوم';
+
+  @override
+  String get navCalendar => 'التقويم';
+
+  @override
+  String get navLog => 'السجل';
+
+  @override
+  String get calendarTitle => 'التقويم';
+
+  @override
+  String get legendPeriod => 'الدورة';
+
+  @override
+  String get legendSpotting => 'تنقيط';
+
+  @override
+  String get legendPredicted => 'قد تبدأ الدورة';
+
+  @override
+  String get legendFertile => 'أيام الخصوبة';
+
+  @override
+  String get legendOvulation => 'الإباضة المرجّحة';
+
+  @override
+  String get legendLogged => 'سجّلتِ شيئًا';
+
+  @override
+  String get calendarHint =>
+      'اضغطي على أي يوم لتسجيله. التقديرات تظهر بإطار فقط، وما تسجّلينه يظهر ممتلئًا.';
+
+  @override
+  String get logTitle => 'السجل';
+
+  @override
+  String get sectionPeriod => 'الدورة';
+
+  @override
+  String get flowNone => 'لا يوجد';
+
+  @override
+  String get sectionMood => 'المزاج';
+
+  @override
+  String get sectionSymptoms => 'الأعراض';
+
+  @override
+  String get sectionDischarge => 'الإفرازات';
+
+  @override
+  String get sectionMore => 'أخرى';
+
+  @override
+  String get previousDay => 'اليوم السابق';
+
+  @override
+  String get nextDay => 'اليوم التالي';
+
+  @override
+  String get logSavedNote => 'يُحفظ على هذا الهاتف فور الضغط.';
+
+  @override
+  String get logSymptomsButton => 'سجّلي ما تشعرين به';
+
+  @override
+  String loggedTodayCount(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: 'سجّلتِ $count شيئًا اليوم',
+      few: 'سجّلتِ $count أشياء اليوم',
+      two: 'سجّلتِ شيئين اليوم',
+      one: 'سجّلتِ شيئًا واحدًا اليوم',
+      zero: 'لم تسجّلي شيئًا اليوم',
+    );
+    return '$_temp0';
+  }
 }

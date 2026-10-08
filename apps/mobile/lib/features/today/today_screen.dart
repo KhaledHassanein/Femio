@@ -15,12 +15,18 @@ import '../../widgets/bloom.dart';
 /// one action. Every number is a range with a confidence (rule 3); nothing counts days
 /// late; fertile days are awareness, never contraception (rule 1).
 class TodayScreen extends StatelessWidget {
-  const TodayScreen({super.key, required this.controller, this.today});
+  const TodayScreen({super.key, required this.controller, this.today, this.onLog});
   final FemioController controller;
   final String? today;
 
+  /// Opens today's log (the Log tab).
+  final VoidCallback? onLog;
+
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context) =>
+      ListenableBuilder(listenable: controller, builder: (context, _) => _build(context));
+
+  Widget _build(BuildContext context) {
     final profile = controller.profile!;
     final l = L10n.of(context);
     final p = context.palette;
@@ -60,8 +66,8 @@ class TodayScreen extends StatelessWidget {
               const SizedBox(height: 16),
               FilledButton.icon(
                 onPressed: () async {
-                  final starts = {...profile.periodStarts, now}.toList()..sort();
-                  await controller.save(profile.copyWith(periodStarts: starts));
+                  final existing = profile.logs[now];
+                  await controller.setDayLog(now, DayLog(flow: 'medium', terms: existing?.terms ?? const []));
                   if (context.mounted) {
                     ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(l.loggedToday)));
                   }
@@ -70,6 +76,19 @@ class TodayScreen extends StatelessWidget {
                 label: Text(l.logPeriodToday),
               ),
             ],
+            const SizedBox(height: 10),
+            OutlinedButton.icon(
+              onPressed: onLog,
+              icon: const Icon(Icons.edit_note_rounded),
+              label: Text(l.logSymptomsButton),
+            ),
+            const SizedBox(height: 8),
+            Center(
+              child: Text(
+                l.loggedTodayCount((profile.logs[now]?.terms.length ?? 0) + (profile.logs[now]?.flow != null ? 1 : 0)),
+                style: t.bodySmall,
+              ),
+            ),
             const SizedBox(height: 28),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,

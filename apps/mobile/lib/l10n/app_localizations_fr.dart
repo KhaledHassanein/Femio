@@ -285,4 +285,251 @@ class L10nFr extends L10n {
 
   @override
   String get todayTitle => 'Aujourd\'hui';
+
+  @override
+  String get logHappy => 'Heureuse';
+
+  @override
+  String get logCalm => 'Calme';
+
+  @override
+  String get logAnxious => 'Anxieuse';
+
+  @override
+  String get logIrritable => 'Irritable';
+
+  @override
+  String get logSad => 'Triste';
+
+  @override
+  String get logMoodSwings => 'Sautes d’humeur';
+
+  @override
+  String get logLowMotivation => 'Manque de motivation';
+
+  @override
+  String get logTearfulness => 'Envie de pleurer';
+
+  @override
+  String get logPanicFeelings => 'Bouffées de panique soudaines';
+
+  @override
+  String get logCramps => 'Crampes';
+
+  @override
+  String get logHeadache => 'Mal de tête';
+
+  @override
+  String get logBloating => 'Ballonnements';
+
+  @override
+  String get logBreastTenderness => 'Seins sensibles';
+
+  @override
+  String get logBackache => 'Mal de dos';
+
+  @override
+  String get logJointPain => 'Douleurs articulaires';
+
+  @override
+  String get logMusclePain => 'Douleurs musculaires';
+
+  @override
+  String get logNausea => 'Nausées';
+
+  @override
+  String get logConstipation => 'Constipation';
+
+  @override
+  String get logDiarrhea => 'Diarrhée';
+
+  @override
+  String get logFatigue => 'Fatigue';
+
+  @override
+  String get logAcne => 'Acné';
+
+  @override
+  String get logHotFlashes => 'Bouffées de chaleur';
+
+  @override
+  String get logNightSweats => 'Sueurs nocturnes';
+
+  @override
+  String get logSpotting => 'Spotting';
+
+  @override
+  String get logHeartFlutters => 'Palpitations';
+
+  @override
+  String get logWeightChange => 'Changement de poids';
+
+  @override
+  String get logCravings => 'Fringales';
+
+  @override
+  String get logInsomnia => 'Sommeil difficile';
+
+  @override
+  String get logDizziness => 'Vertiges';
+
+  @override
+  String get logBrainFog => 'Brouillard mental';
+
+  @override
+  String get logLibidoUp => 'Libido élevée';
+
+  @override
+  String get logLibidoDown => 'Libido basse';
+
+  @override
+  String get logVaginalDryness => 'Sécheresse vaginale';
+
+  @override
+  String get logPainDuringSex => 'Douleurs pendant les rapports';
+
+  @override
+  String get logBladderUrgency => 'Envies d’uriner pressantes ou fréquentes';
+
+  @override
+  String get logBladderLeaks => 'Fuites urinaires';
+
+  @override
+  String get logHairThinning => 'Cheveux qui s’affinent';
+
+  @override
+  String get logDryItchySkin => 'Peau sèche ou qui démange';
+
+  @override
+  String get logBrittleNails => 'Ongles cassants';
+
+  @override
+  String get logGumSoreness => 'Gencives douloureuses ou qui saignent';
+
+  @override
+  String get logBurningMouth => 'Bouche qui brûle ou picote';
+
+  @override
+  String get logTingling => 'Fourmillements dans les mains ou les pieds';
+
+  @override
+  String get logElectricShocks => 'Brèves sensations de décharge électrique';
+
+  @override
+  String get logBodyOdourChange => 'Changement d’odeur corporelle';
+
+  @override
+  String get logTinnitus => 'Sifflements dans les oreilles';
+
+  @override
+  String get logDry => 'Sèche';
+
+  @override
+  String get logSticky => 'Collante';
+
+  @override
+  String get logCreamy => 'Crémeuse';
+
+  @override
+  String get logWatery => 'Aqueuse';
+
+  @override
+  String get logEggWhite => 'Blanc d’œuf';
+
+  @override
+  String get logIntercourse => 'Rapport sexuel';
+
+  @override
+  String get flowSpotting => 'Léger (spotting)';
+
+  @override
+  String get flowLight => 'Faible';
+
+  @override
+  String get flowMedium => 'Moyen';
+
+  @override
+  String get flowHeavy => 'Abondant';
+
+  @override
+  String get flowLabel => 'Flux';
+
+  @override
+  String get navToday => 'Aujourd\'hui';
+
+  @override
+  String get navCalendar => 'Calendrier';
+
+  @override
+  String get navLog => 'Journal';
+
+  @override
+  String get calendarTitle => 'Calendrier';
+
+  @override
+  String get legendPeriod => 'Règles';
+
+  @override
+  String get legendSpotting => 'Saignement léger';
+
+  @override
+  String get legendPredicted => 'Les règles peuvent commencer';
+
+  @override
+  String get legendFertile => 'Fenêtre de fertilité';
+
+  @override
+  String get legendOvulation => 'Ovulation probable';
+
+  @override
+  String get legendLogged => 'Quelque chose noté';
+
+  @override
+  String get calendarHint =>
+      'Touchez un jour pour le noter. Les estimations sont en contour ; ce que vous notez est plein.';
+
+  @override
+  String get logTitle => 'Journal';
+
+  @override
+  String get sectionPeriod => 'Règles';
+
+  @override
+  String get flowNone => 'Aucun';
+
+  @override
+  String get sectionMood => 'Humeur';
+
+  @override
+  String get sectionSymptoms => 'Symptômes';
+
+  @override
+  String get sectionDischarge => 'Pertes';
+
+  @override
+  String get sectionMore => 'Autres';
+
+  @override
+  String get previousDay => 'Jour précédent';
+
+  @override
+  String get nextDay => 'Jour suivant';
+
+  @override
+  String get logSavedNote => 'Enregistré sur ce téléphone à chaque touche.';
+
+  @override
+  String get logSymptomsButton => 'Noter ce que vous ressentez';
+
+  @override
+  String loggedTodayCount(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count éléments notés aujourd\'hui',
+      one: '1 élément noté aujourd\'hui',
+      zero: 'Rien de noté aujourd\'hui',
+    );
+    return '$_temp0';
+  }
 }

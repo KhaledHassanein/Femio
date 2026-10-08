@@ -38,7 +38,7 @@ work.** Marks: `[ ]` open · `[~]` in progress · `[x]` done (commit) · `[BLOCK
 - [x] P3.1 · **Flutter app in `apps/mobile`** (ID `com.femioapp.femio`): colours generated from the web token CSS (`tokens-to-dart.mjs`, 191 colours light + dark, gate-checked); Newsreader / Plus Jakarta Sans / IBM Plex Sans Arabic bundled; AR/EN/FR/ES with RTL and Western digits; `FemioStore` with a private-file implementation (no network); Dusk Bloom app icon; CI job `verify-mobile`. Keystore encryption and app lock stay with P3.8 (2026-10-08)
 - [~] P3.2 · **Prediction and pregnancy maths in Dart**, passing the same `fixtures/domain` files as the web (cycle-prediction, gestational-age, new `edd-from`: due date from LMP, conception or IVF transfer per ACOG CO 700, added to both languages). Persona/phase/experience fixtures listed as deferred; the period-forecast and test-timing calculators still to port
 - [x] P3.3 · **Onboarding to the competitor standard**: welcome (language), goal, birth year (under 18 → the guides), last period / period length / cycle length (not sure, irregular), trying-for (TTC), four ways to date a pregnancy plus "I've had my baby", menopause last period; nothing asks about conditions. Ends on Today with her first prediction (range + confidence, fertile window as awareness, pregnancy week and trimester). Screens shot in en/ar light/dark; release APK built. Reminders step moves to P3.8 with local notifications, rather than asking for something v1 cannot yet do
-- [ ] P3.4 · Today + calendar + log (period, symptoms, mood)
+- [x] P3.4 · **Today, Calendar, Log** (tabs): month calendar draws logged bleeding, spotting and logs filled and the predicted window, fertile days and likely ovulation in outline or tint, estimates only from today forward (`day_marks.dart`, tested); a day log saving on every tap (flow, 9 moods, 36 symptoms, 5 discharge types, one intimacy marker kept visually quiet); logged bleeding feeds the prediction. The 51 terms and their four-language labels are generated from the web vocabulary and catalogues (`scripts/mobile/sync-log-vocabulary.mjs`, gate-checked) (2026-10-08)
 - [ ] P3.5 · TTC toolkit: fertile window, ovulation tests, BBT, test timing, trying-time nudge
 - [ ] P3.6 · Pregnancy: week-by-week, due date, kick counter, contraction timer, appointments
 - [ ] P3.7 · Articles in the app (snapshot), conditions offered on Today and in Settings, PCOS hub
@@ -56,6 +56,7 @@ work.** Marks: `[ ]` open · `[~]` in progress · `[x]` done (commit) · `[BLOCK
 
 | When | What | Commit |
 |---|---|---|
+| 2026-10-08 | PR #26 merged (website as the app's front door); P3.4 calendar + log | this commit |
 | 2026-10-08 | Android app started: P3.1, P3.3 done, P3.2 underway; first APK to the owner | this commit |
 | 2026-10-07 | D7 + D8: private Android app is the product; website promotes it; onboarding respecified to the competitor standard | this commit |
 | 2026-10-07 | Phase 1 started: Dusk Bloom palette + type, aurora hero, header, compact crisis launcher | this commit |

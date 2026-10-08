@@ -107,4 +107,27 @@ void main() {
       }
     });
   }
+
+  for (final b in Brightness.values) {
+    for (final lang in ['en', 'ar']) {
+      testWidgets('calendar and log ($lang, ${b.name})', (tester) async {
+        var p = Profile(goal: Goal.ttc, locale: lang, birthYear: 1994, periodStarts: const ['2026-09-10'], cycleLength: 28);
+        for (final d in ['2026-10-01', '2026-10-02', '2026-10-03', '2026-10-04']) {
+          p = p.withDayLog(d, DayLog(flow: d == '2026-10-02' ? 'heavy' : 'medium', terms: d == '2026-10-01' ? const ['cramps', 'fatigue'] : const []));
+        }
+        p = p.withDayLog('2026-10-06', const DayLog(flow: 'spotting', terms: ['calm', 'headache']));
+        p = p.withDayLog('2026-10-08', const DayLog(terms: ['happy', 'bloating', 'creamy']));
+        final c = FemioController(MemoryStore(p));
+        await _pump(tester, c, b);
+        await tester.tap(find.byIcon(Icons.calendar_month_outlined));
+        await _shoot(tester, '${lang}_${b.name}_09_calendar');
+        await tester.tap(find.byIcon(Icons.edit_note_outlined));
+        await _shoot(tester, '${lang}_${b.name}_10_log');
+        // Logging from the screen saves to the record.
+        await tester.tap(find.text(lang == 'en' ? 'Acne' : 'حبّ الشباب'));
+        await tester.pumpAndSettle();
+        expect(c.profile!.logs[today]!.terms, contains('acne'));
+      });
+    }
+  }
 }

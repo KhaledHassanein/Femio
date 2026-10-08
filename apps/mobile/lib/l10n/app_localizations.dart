@@ -544,6 +544,480 @@ abstract class L10n {
   /// In en, this message translates to:
   /// **'Today'**
   String get todayTitle;
+
+  /// No description provided for @logHappy.
+  ///
+  /// In en, this message translates to:
+  /// **'Happy'**
+  String get logHappy;
+
+  /// No description provided for @logCalm.
+  ///
+  /// In en, this message translates to:
+  /// **'Calm'**
+  String get logCalm;
+
+  /// No description provided for @logAnxious.
+  ///
+  /// In en, this message translates to:
+  /// **'Anxious'**
+  String get logAnxious;
+
+  /// No description provided for @logIrritable.
+  ///
+  /// In en, this message translates to:
+  /// **'Irritable'**
+  String get logIrritable;
+
+  /// No description provided for @logSad.
+  ///
+  /// In en, this message translates to:
+  /// **'Sad'**
+  String get logSad;
+
+  /// No description provided for @logMoodSwings.
+  ///
+  /// In en, this message translates to:
+  /// **'Mood swings'**
+  String get logMoodSwings;
+
+  /// No description provided for @logLowMotivation.
+  ///
+  /// In en, this message translates to:
+  /// **'Low motivation'**
+  String get logLowMotivation;
+
+  /// No description provided for @logTearfulness.
+  ///
+  /// In en, this message translates to:
+  /// **'Tearfulness'**
+  String get logTearfulness;
+
+  /// No description provided for @logPanicFeelings.
+  ///
+  /// In en, this message translates to:
+  /// **'Sudden panicky feelings'**
+  String get logPanicFeelings;
+
+  /// No description provided for @logCramps.
+  ///
+  /// In en, this message translates to:
+  /// **'Cramps'**
+  String get logCramps;
+
+  /// No description provided for @logHeadache.
+  ///
+  /// In en, this message translates to:
+  /// **'Headache'**
+  String get logHeadache;
+
+  /// No description provided for @logBloating.
+  ///
+  /// In en, this message translates to:
+  /// **'Bloating'**
+  String get logBloating;
+
+  /// No description provided for @logBreastTenderness.
+  ///
+  /// In en, this message translates to:
+  /// **'Breast tenderness'**
+  String get logBreastTenderness;
+
+  /// No description provided for @logBackache.
+  ///
+  /// In en, this message translates to:
+  /// **'Backache'**
+  String get logBackache;
+
+  /// No description provided for @logJointPain.
+  ///
+  /// In en, this message translates to:
+  /// **'Joint pain'**
+  String get logJointPain;
+
+  /// No description provided for @logMusclePain.
+  ///
+  /// In en, this message translates to:
+  /// **'Muscle aches'**
+  String get logMusclePain;
+
+  /// No description provided for @logNausea.
+  ///
+  /// In en, this message translates to:
+  /// **'Nausea'**
+  String get logNausea;
+
+  /// No description provided for @logConstipation.
+  ///
+  /// In en, this message translates to:
+  /// **'Constipation'**
+  String get logConstipation;
+
+  /// No description provided for @logDiarrhea.
+  ///
+  /// In en, this message translates to:
+  /// **'Diarrhoea'**
+  String get logDiarrhea;
+
+  /// No description provided for @logFatigue.
+  ///
+  /// In en, this message translates to:
+  /// **'Fatigue'**
+  String get logFatigue;
+
+  /// No description provided for @logAcne.
+  ///
+  /// In en, this message translates to:
+  /// **'Acne'**
+  String get logAcne;
+
+  /// No description provided for @logHotFlashes.
+  ///
+  /// In en, this message translates to:
+  /// **'Hot flushes'**
+  String get logHotFlashes;
+
+  /// No description provided for @logNightSweats.
+  ///
+  /// In en, this message translates to:
+  /// **'Night sweats'**
+  String get logNightSweats;
+
+  /// No description provided for @logSpotting.
+  ///
+  /// In en, this message translates to:
+  /// **'Spotting'**
+  String get logSpotting;
+
+  /// No description provided for @logHeartFlutters.
+  ///
+  /// In en, this message translates to:
+  /// **'Heart fluttering or racing'**
+  String get logHeartFlutters;
+
+  /// No description provided for @logWeightChange.
+  ///
+  /// In en, this message translates to:
+  /// **'A change in weight'**
+  String get logWeightChange;
+
+  /// No description provided for @logCravings.
+  ///
+  /// In en, this message translates to:
+  /// **'Cravings'**
+  String get logCravings;
+
+  /// No description provided for @logInsomnia.
+  ///
+  /// In en, this message translates to:
+  /// **'Trouble sleeping'**
+  String get logInsomnia;
+
+  /// No description provided for @logDizziness.
+  ///
+  /// In en, this message translates to:
+  /// **'Dizziness'**
+  String get logDizziness;
+
+  /// No description provided for @logBrainFog.
+  ///
+  /// In en, this message translates to:
+  /// **'Brain fog'**
+  String get logBrainFog;
+
+  /// No description provided for @logLibidoUp.
+  ///
+  /// In en, this message translates to:
+  /// **'Higher sex drive'**
+  String get logLibidoUp;
+
+  /// No description provided for @logLibidoDown.
+  ///
+  /// In en, this message translates to:
+  /// **'Lower sex drive'**
+  String get logLibidoDown;
+
+  /// No description provided for @logVaginalDryness.
+  ///
+  /// In en, this message translates to:
+  /// **'Vaginal dryness'**
+  String get logVaginalDryness;
+
+  /// No description provided for @logPainDuringSex.
+  ///
+  /// In en, this message translates to:
+  /// **'Pain during sex'**
+  String get logPainDuringSex;
+
+  /// No description provided for @logBladderUrgency.
+  ///
+  /// In en, this message translates to:
+  /// **'Needing to pee urgently or often'**
+  String get logBladderUrgency;
+
+  /// No description provided for @logBladderLeaks.
+  ///
+  /// In en, this message translates to:
+  /// **'Leaking urine'**
+  String get logBladderLeaks;
+
+  /// No description provided for @logHairThinning.
+  ///
+  /// In en, this message translates to:
+  /// **'Hair thinning'**
+  String get logHairThinning;
+
+  /// No description provided for @logDryItchySkin.
+  ///
+  /// In en, this message translates to:
+  /// **'Dry or itchy skin'**
+  String get logDryItchySkin;
+
+  /// No description provided for @logBrittleNails.
+  ///
+  /// In en, this message translates to:
+  /// **'Brittle nails'**
+  String get logBrittleNails;
+
+  /// No description provided for @logGumSoreness.
+  ///
+  /// In en, this message translates to:
+  /// **'Sore or bleeding gums'**
+  String get logGumSoreness;
+
+  /// No description provided for @logBurningMouth.
+  ///
+  /// In en, this message translates to:
+  /// **'Burning or tingling mouth'**
+  String get logBurningMouth;
+
+  /// No description provided for @logTingling.
+  ///
+  /// In en, this message translates to:
+  /// **'Tingling in hands or feet'**
+  String get logTingling;
+
+  /// No description provided for @logElectricShocks.
+  ///
+  /// In en, this message translates to:
+  /// **'Brief electric-shock sensations'**
+  String get logElectricShocks;
+
+  /// No description provided for @logBodyOdourChange.
+  ///
+  /// In en, this message translates to:
+  /// **'A change in body odour'**
+  String get logBodyOdourChange;
+
+  /// No description provided for @logTinnitus.
+  ///
+  /// In en, this message translates to:
+  /// **'Ringing in the ears'**
+  String get logTinnitus;
+
+  /// No description provided for @logDry.
+  ///
+  /// In en, this message translates to:
+  /// **'Dry'**
+  String get logDry;
+
+  /// No description provided for @logSticky.
+  ///
+  /// In en, this message translates to:
+  /// **'Sticky'**
+  String get logSticky;
+
+  /// No description provided for @logCreamy.
+  ///
+  /// In en, this message translates to:
+  /// **'Creamy'**
+  String get logCreamy;
+
+  /// No description provided for @logWatery.
+  ///
+  /// In en, this message translates to:
+  /// **'Watery'**
+  String get logWatery;
+
+  /// No description provided for @logEggWhite.
+  ///
+  /// In en, this message translates to:
+  /// **'Egg white'**
+  String get logEggWhite;
+
+  /// No description provided for @logIntercourse.
+  ///
+  /// In en, this message translates to:
+  /// **'Intercourse'**
+  String get logIntercourse;
+
+  /// No description provided for @flowSpotting.
+  ///
+  /// In en, this message translates to:
+  /// **'Spotting'**
+  String get flowSpotting;
+
+  /// No description provided for @flowLight.
+  ///
+  /// In en, this message translates to:
+  /// **'Light'**
+  String get flowLight;
+
+  /// No description provided for @flowMedium.
+  ///
+  /// In en, this message translates to:
+  /// **'Medium'**
+  String get flowMedium;
+
+  /// No description provided for @flowHeavy.
+  ///
+  /// In en, this message translates to:
+  /// **'Heavy'**
+  String get flowHeavy;
+
+  /// No description provided for @flowLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Flow'**
+  String get flowLabel;
+
+  /// No description provided for @navToday.
+  ///
+  /// In en, this message translates to:
+  /// **'Today'**
+  String get navToday;
+
+  /// No description provided for @navCalendar.
+  ///
+  /// In en, this message translates to:
+  /// **'Calendar'**
+  String get navCalendar;
+
+  /// No description provided for @navLog.
+  ///
+  /// In en, this message translates to:
+  /// **'Log'**
+  String get navLog;
+
+  /// No description provided for @calendarTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Calendar'**
+  String get calendarTitle;
+
+  /// No description provided for @legendPeriod.
+  ///
+  /// In en, this message translates to:
+  /// **'Period'**
+  String get legendPeriod;
+
+  /// No description provided for @legendSpotting.
+  ///
+  /// In en, this message translates to:
+  /// **'Spotting'**
+  String get legendSpotting;
+
+  /// No description provided for @legendPredicted.
+  ///
+  /// In en, this message translates to:
+  /// **'Period may start'**
+  String get legendPredicted;
+
+  /// No description provided for @legendFertile.
+  ///
+  /// In en, this message translates to:
+  /// **'Fertile window'**
+  String get legendFertile;
+
+  /// No description provided for @legendOvulation.
+  ///
+  /// In en, this message translates to:
+  /// **'Likely ovulation'**
+  String get legendOvulation;
+
+  /// No description provided for @legendLogged.
+  ///
+  /// In en, this message translates to:
+  /// **'Something logged'**
+  String get legendLogged;
+
+  /// No description provided for @calendarHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Tap a day to log it. Estimates are shown in outline; what you log is filled in.'**
+  String get calendarHint;
+
+  /// No description provided for @logTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Log'**
+  String get logTitle;
+
+  /// No description provided for @sectionPeriod.
+  ///
+  /// In en, this message translates to:
+  /// **'Period'**
+  String get sectionPeriod;
+
+  /// No description provided for @flowNone.
+  ///
+  /// In en, this message translates to:
+  /// **'None'**
+  String get flowNone;
+
+  /// No description provided for @sectionMood.
+  ///
+  /// In en, this message translates to:
+  /// **'Mood'**
+  String get sectionMood;
+
+  /// No description provided for @sectionSymptoms.
+  ///
+  /// In en, this message translates to:
+  /// **'Symptoms'**
+  String get sectionSymptoms;
+
+  /// No description provided for @sectionDischarge.
+  ///
+  /// In en, this message translates to:
+  /// **'Discharge'**
+  String get sectionDischarge;
+
+  /// No description provided for @sectionMore.
+  ///
+  /// In en, this message translates to:
+  /// **'More'**
+  String get sectionMore;
+
+  /// No description provided for @previousDay.
+  ///
+  /// In en, this message translates to:
+  /// **'Previous day'**
+  String get previousDay;
+
+  /// No description provided for @nextDay.
+  ///
+  /// In en, this message translates to:
+  /// **'Next day'**
+  String get nextDay;
+
+  /// No description provided for @logSavedNote.
+  ///
+  /// In en, this message translates to:
+  /// **'Saved on this phone as you tap.'**
+  String get logSavedNote;
+
+  /// No description provided for @logSymptomsButton.
+  ///
+  /// In en, this message translates to:
+  /// **'Log how you feel'**
+  String get logSymptomsButton;
+
+  /// No description provided for @loggedTodayCount.
+  ///
+  /// In en, this message translates to:
+  /// **'{count, plural, =0{Nothing logged today} =1{1 thing logged today} other{{count} things logged today}}'**
+  String loggedTodayCount(int count);
 }
 
 class _L10nDelegate extends LocalizationsDelegate<L10n> {

@@ -10,6 +10,24 @@ enum Goal { period, ttc, pregnant, menopause }
 
 enum TryingFor { justStarted, under6, sixTo12, over12 }
 
+/// One day's log. Terms are keys from the shared vocabulary (`log_vocabulary.g.dart`).
+class DayLog {
+  const DayLog({this.flow, this.terms = const []});
+
+  /// `spotting`, `light`, `medium`, `heavy`, or null for no bleeding logged.
+  final String? flow;
+  final List<String> terms;
+
+  bool get isEmpty => flow == null && terms.isEmpty;
+
+  /// Spotting is logged but is not a period: it never starts a cycle.
+  bool get isBleed => flow != null && flow != 'spotting';
+
+  Map<String, Object?> toJson() => {'flow': flow, 'terms': terms};
+  static DayLog fromJson(Map<String, Object?> j) =>
+      DayLog(flow: j['flow'] as String?, terms: List<String>.from((j['terms'] as List?) ?? const []));
+}
+
 class Profile {
   const Profile({
     required this.goal,
@@ -23,14 +41,20 @@ class Profile {
     this.edd,
     this.birthDate,
     this.lastPeriodOverYear = false,
+    this.logs = const {},
   });
 
   final Goal goal;
   final String locale;
   final int? birthYear;
 
-  /// ISO dates of the first day of each period she has logged, oldest first.
+  /// Every day of bleeding she has recorded, oldest first: her onboarding answer plus
+  /// any day logged with a flow other than spotting. The prediction collapses
+  /// consecutive days into one period (`bleedStarts`), so whole periods can be logged.
   final List<String> periodStarts;
+
+  /// Day logs by ISO date.
+  final Map<String, DayLog> logs;
   final int? periodLength;
 
   /// Her stated usual cycle length. Null when she said "not sure" or "irregular".
@@ -50,6 +74,7 @@ class Profile {
   Profile copyWith({
     List<String>? periodStarts,
     String? locale,
+    Map<String, DayLog>? logs,
   }) =>
       Profile(
         goal: goal,
@@ -63,7 +88,25 @@ class Profile {
         edd: edd,
         birthDate: birthDate,
         lastPeriodOverYear: lastPeriodOverYear,
+        logs: logs ?? this.logs,
       );
+
+  /// Set or clear one day's log, keeping [periodStarts] in step with its flow.
+  Profile withDayLog(String date, DayLog log) {
+    final nextLogs = {...logs};
+    if (log.isEmpty) {
+      nextLogs.remove(date);
+    } else {
+      nextLogs[date] = log;
+    }
+    final bleeds = {...periodStarts};
+    if (log.isBleed) {
+      bleeds.add(date);
+    } else {
+      bleeds.remove(date);
+    }
+    return copyWith(logs: nextLogs, periodStarts: bleeds.toList()..sort());
+  }
 
   Map<String, Object?> toJson() => {
         'v': 1,
@@ -78,6 +121,7 @@ class Profile {
         'edd': edd,
         'birthDate': birthDate,
         'lastPeriodOverYear': lastPeriodOverYear,
+        'logs': {for (final e in logs.entries) e.key: e.value.toJson()},
       };
 
   static Profile fromJson(Map<String, Object?> j) => Profile(
@@ -92,5 +136,9 @@ class Profile {
         edd: j['edd'] as String?,
         birthDate: j['birthDate'] as String?,
         lastPeriodOverYear: j['lastPeriodOverYear'] as bool? ?? false,
+        logs: {
+          for (final e in ((j['logs'] as Map?) ?? const {}).entries)
+            e.key as String: DayLog.fromJson(Map<String, Object?>.from(e.value as Map)),
+        },
       );
 }

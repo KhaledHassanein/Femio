@@ -24,10 +24,6 @@ Search it by feature name when you need the history of a decision. It is not req
   still run). Spec: `docs/30_REVAMP/04_ANDROID_APP_SPEC.md`; compliance reasoning:
   `docs/compliance/PRIVATE_LAUNCH_V1.md`. Next work: Phase 3 in `PROGRESS.md` (P3.1, Flutter
   project in `apps/mobile`).
-- **Website, on the branch (not yet merged):** search from a static index (P2.2), web beta
-  closed + `/app` page (P2.7), calculators to the competitor set with calendar results
-  (P2.6), homepage rebuilt as the app's front door with feminine motifs (P2.3). Needs the
-  owner to merge before it is live.
 - **🔴 Supabase restricted (402) until the billing month resets**; the owner stays free.
   With D7/D8 the website no longer calls Supabase at all when the web app is closed (no
   session refresh in middleware, no search RPC). `@live` e2e still fail until the reset;
@@ -42,9 +38,13 @@ Search it by feature name when you need the history of a decision. It is not req
 - **Branch:** `claude/epic-planck-5y8geb`, restarted from `main` after each merge.
 - **Connectors:** Supabase, Vercel (full scope since 2026-10-07), GitHub. Supabase region is
   `eu-west-1` (Ireland), not Frankfurt.
-- **Android app (2026-10-08):** `apps/mobile`, onboarding + Today done (P3.1, P3.3),
-  maths twinned with the web through `fixtures/domain` (P3.2 underway). Application ID
-  `com.femioapp.femio` is permanent once on Play. Next: P3.4 (Today, calendar, log).
+- **Android app (2026-10-08):** `apps/mobile`: onboarding, Today, Calendar, Log (P3.1,
+  P3.3, P3.4); maths twinned with the web through `fixtures/domain` (P3.2 underway);
+  log vocabulary generated from the web's (`mobile-vocab-lint`). Application ID
+  `com.femioapp.femio` is permanent once on Play. Next: P3.5 (TTC toolkit).
+- **#26 merged 2026-10-08**: the website is live as the app's front door; no page view
+  calls Supabase. Supabase still holds Payload's tables and serves `ui_strings` hourly;
+  retiring Payload (P2.8) and moving `ui_strings` into the repo lets it be paused.
 - **Flutter toolchain:** not preinstalled. A session downloads the newest stable release
   that is at least two weeks old into `/root/sdk/flutter` (3.47.5 on 2026-10-07); the Android
   SDK command-line tools go beside it (`/root/sdk/android`; `sdkmanager` the platform,

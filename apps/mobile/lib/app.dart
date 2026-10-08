@@ -4,7 +4,7 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 import 'data/profile.dart';
 import 'data/store.dart';
 import 'features/onboarding/onboarding_flow.dart';
-import 'features/today/today_screen.dart';
+import 'features/home/home_shell.dart';
 import 'l10n/app_localizations.dart';
 import 'theme/femio_theme.dart';
 
@@ -44,6 +44,9 @@ class FemioController extends ChangeNotifier {
     notifyListeners();
   }
 
+  /// Write one day's log (flow and terms) and save.
+  Future<void> setDayLog(String date, DayLog log) => save(profile!.withDayLog(date, log));
+
   Future<void> reset() async {
     await store.clear();
     profile = null;
@@ -81,7 +84,7 @@ class FemioApp extends StatelessWidget {
               ? const SizedBox.shrink()
               : controller.profile == null
                   ? OnboardingFlow(controller: controller, today: today)
-                  : TodayScreen(controller: controller, today: today),
+                  : HomeShell(controller: controller, today: today),
         );
       },
     );
