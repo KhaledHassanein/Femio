@@ -864,7 +864,15 @@
       "general": "General wellness information — not a substitute for professional medical care.",
       "screening": "Screening information only. Discuss any concerns and next steps with your clinician.",
       "emergency": "If you notice severe or sudden warning signs, seek urgent medical care."
-    }
+    },
+    "readingTime": "{minutes, plural, one {# min read} other {# min read}}",
+    "writtenAndReviewedBy": "Written and reviewed by",
+    "writtenAndReviewedInEnglishBy": "Written and reviewed in English by",
+    "contents": "In this guide",
+    "readNext": "Read next",
+    "appTitle": "Keep track of it in the app",
+    "appBody": "Log what you notice and see your own pattern over time. Private: your records stay on your phone.",
+    "appCta": "Get the app"
   },
   "conditions": {
     "title": "Conditions & topics",

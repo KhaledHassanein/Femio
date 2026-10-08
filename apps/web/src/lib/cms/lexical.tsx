@@ -19,6 +19,44 @@ export function lexicalToPlainText(value: RichTextValue): string {
   return parts.join(" ");
 }
 
+function nodeText(node?: LexicalNode): string {
+  if (!node) return "";
+  if (typeof node.text === "string") return node.text;
+  return (node.children ?? []).map(nodeText).join("");
+}
+
+/**
+ * A stable anchor for a section heading, from its text. Unicode letters are kept, so
+ * an Arabic heading gets an Arabic anchor rather than an empty one.
+ */
+export function headingId(text: string): string {
+  return (
+    "s-" +
+    text
+      .toLowerCase()
+      .replace(/[^\p{L}\p{N}]+/gu, "-")
+      .replace(/^-+|-+$/g, "")
+      .slice(0, 60)
+  );
+}
+
+/** The article's sections (its h2s), for the "In this guide" outline. */
+export function outlineOf(value: RichTextValue): { id: string; text: string }[] {
+  return (value?.root?.children ?? [])
+    .filter((n) => n.type === "heading" && (n.tag ?? "h2") === "h2")
+    .map((n) => {
+      const text = nodeText(n).trim();
+      return { id: headingId(text), text };
+    })
+    .filter((h) => h.text.length > 0);
+}
+
+/** Whole minutes to read, at a calm 200 words a minute; never less than one. */
+export function readingMinutes(value: RichTextValue): number {
+  const words = lexicalToPlainText(value).split(/\s+/).filter(Boolean).length;
+  return Math.max(1, Math.round(words / 200));
+}
+
 function textWithFormat(node: LexicalNode, key: number): ReactNode {
   let el: ReactNode = node.text ?? "";
   const f = node.format ?? 0;
@@ -50,20 +88,26 @@ function renderNode(node: LexicalNode, key: number): ReactNode {
       const tag = (node.tag as "h1" | "h2" | "h3" | "h4" | "h5" | "h6") ?? "h2";
       const cls =
         tag === "h2"
-          ? "font-display text-xl text-text mt-6"
+          ? "font-display text-xl text-text mt-6 scroll-mt-28"
           : tag === "h3"
             ? "font-display text-lg text-text mt-5"
             : "font-semibold text-text mt-4";
       const Tag = tag;
       return (
-        <Tag key={key} className={cls}>
+        <Tag key={key} className={cls} id={tag === "h2" ? headingId(nodeText(node).trim()) : undefined}>
           {children(node)}
         </Tag>
       );
     }
     case "quote":
+      // Every quote in the library is a "Seek care now" box (the authoring brief
+      // reserves blockquotes for it, §4/§8; 78 of 78 in the snapshot). It was drawn as
+      // a pale aside, the quietest thing on the page; it is now the loudest.
       return (
-        <blockquote key={key} className="border-s-2 border-border ps-4 text-text-muted">
+        <blockquote
+          key={key}
+          className="rounded-lg border border-danger-border bg-danger-soft p-4 text-danger-text [&_strong]:font-semibold"
+        >
           {children(node)}
         </blockquote>
       );

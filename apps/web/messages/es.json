@@ -864,7 +864,15 @@
       "general": "Información general de bienestar — no sustituye la atención médica profesional.",
       "screening": "Solo información de cribado. Habla de cualquier inquietud y de los próximos pasos con tu profesional clínico.",
       "emergency": "Si notas señales de alarma graves o repentinas, busca atención médica urgente."
-    }
+    },
+    "readingTime": "{minutes, plural, one {# min de lectura} other {# min de lectura}}",
+    "writtenAndReviewedBy": "Escrito y revisado por",
+    "writtenAndReviewedInEnglishBy": "Escrito y revisado en inglés por",
+    "contents": "En esta guía",
+    "readNext": "Lee también",
+    "appTitle": "Llévalo en la app",
+    "appBody": "Registra lo que notas y ve tu propio patrón con el tiempo. Privado: tus datos se quedan en tu teléfono.",
+    "appCta": "Descarga la app"
   },
   "conditions": {
     "title": "Afecciones y temas",

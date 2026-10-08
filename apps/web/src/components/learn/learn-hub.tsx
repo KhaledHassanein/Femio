@@ -103,7 +103,8 @@ export async function LearnHub({ locale, articles }: { locale: string; articles:
         topic === "weeks" ? (
           <section
             key={topic}
-            className="reveal mx-auto flex w-full max-w-5xl flex-col gap-3 px-4 pt-10 sm:px-6"
+            id={topic}
+            className="reveal mx-auto flex w-full max-w-5xl scroll-mt-24 flex-col gap-3 px-4 pt-10 sm:px-6"
           >
             <RowHeading title={t(`topics.${topic}`)} count={t("guides", { count: items.length })} />
             <p className="text-sm text-text-muted">{t("weeksHint")}</p>
@@ -123,6 +124,7 @@ export async function LearnHub({ locale, articles }: { locale: string; articles:
         ) : (
           <Row
             key={topic}
+            id={topic}
             title={t(`topics.${topic}`)}
             count={t("guides", { count: items.length })}
           >
@@ -147,15 +149,17 @@ function RowHeading({ title, count }: { title: string; count?: string }) {
 
 function Row({
   title,
+  id,
   count,
   children,
 }: {
+  id?: string;
   title: string;
   count?: string;
   children: React.ReactNode;
 }) {
   return (
-    <section className="reveal mx-auto flex w-full max-w-5xl flex-col gap-3 pt-10">
+    <section id={id} className="reveal mx-auto flex w-full max-w-5xl scroll-mt-24 flex-col gap-3 pt-10">
       <div className="px-4 sm:px-6">
         <RowHeading title={title} count={count} />
       </div>

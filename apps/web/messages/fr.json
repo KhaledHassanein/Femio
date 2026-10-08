@@ -864,7 +864,15 @@
       "general": "Information de bien-être générale — pas un substitut aux soins médicaux professionnels.",
       "screening": "Information de dépistage uniquement. Discutez de toute préoccupation et des prochaines étapes avec votre clinicien.",
       "emergency": "En cas de signes d’alerte sévères ou soudains, consultez en urgence."
-    }
+    },
+    "readingTime": "{minutes, plural, one {# min de lecture} other {# min de lecture}}",
+    "writtenAndReviewedBy": "Rédigé et relu par",
+    "writtenAndReviewedInEnglishBy": "Rédigé et relu en anglais par",
+    "contents": "Dans ce guide",
+    "readNext": "À lire ensuite",
+    "appTitle": "Suivez-le dans l’application",
+    "appBody": "Notez ce que vous remarquez et voyez votre propre rythme au fil du temps. En privé : vos données restent sur votre téléphone.",
+    "appCta": "Obtenir l’application"
   },
   "conditions": {
     "title": "Affections et sujets",

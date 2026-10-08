@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { getTranslations, setRequestLocale } from "next-intl/server";
-import { availableLocales, getContentBySlug, allSlugs } from "@/lib/cms/client";
+import { availableLocales, getContentBySlug, allSlugs, listContent } from "@/lib/cms/client";
+import { rankOf, topicOf } from "@/lib/content/topics";
 import { metaDescription } from "@/lib/cms/format";
 import { ContentArticle } from "@/components/cms/content-article";
 import { localizedAlternates } from "@/lib/seo/metadata";
@@ -58,6 +59,17 @@ export default async function ArticlePage({ params }: PageProps) {
   // Which language the text is really in (English is the fallback for every locale).
   const contentLocale = (await availableLocales("articles", slug)).includes(locale) ? locale : "en";
   const t = await getTranslations("learn");
+  const hub = await getTranslations("learnHub");
+  const topic = topicOf(slug);
+  // "Read next": the nearest guides in the same topic, in the hub's own order, so a
+  // week-by-week page leads to the next week and a TTC guide to the next TTC guide.
+  const siblings = (await listContent("articles", locale, { fields: ["slug", "title"] }))
+    .filter((d) => d.slug !== slug && topicOf(d.slug) === topic)
+    .sort((a, b) => rankOf(a.slug) - rankOf(b.slug));
+  const after = siblings.filter((d) => rankOf(d.slug) > rankOf(slug));
+  const related = [...after, ...siblings.filter((d) => !after.includes(d))]
+    .slice(0, 3)
+    .map((d) => ({ slug: d.slug, title: d.title, topic }));
 
   return (
     <ContentArticle
@@ -67,6 +79,8 @@ export default async function ArticlePage({ params }: PageProps) {
       sectionHref="/learn"
       description={metaDescription(doc)}
       contentLocale={contentLocale}
+      topic={topic === "more" ? undefined : { key: topic, label: hub(`topics.${topic}`), href: `/learn#${topic}` }}
+      related={related}
     />
   );
 }

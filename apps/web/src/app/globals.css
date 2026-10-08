@@ -327,6 +327,16 @@ body:has(.app-bottom-bar):has(.crisis-launcher) {
   .learn-card p {
     @apply line-clamp-2 text-xs leading-relaxed text-text-muted;
   }
+  /* Article page (P2.4): a wide crop of the topic's cover above the title, and a
+     square crop beside each "Read next" link. Same art as the Learn cards. */
+  .article-cover {
+    @apply h-20 w-full rounded-lg bg-no-repeat md:h-36;
+    background-size: 120% auto;
+  }
+  .article-related-art {
+    @apply size-20 shrink-0 bg-no-repeat;
+    background-size: 320% auto;
+  }
   .learn-week {
     @apply flex aspect-square items-center justify-center rounded-md border border-border bg-surface font-display text-lg text-text transition-colors duration-fast hover:border-accent hover:bg-accent-soft hover:text-accent-soft-text;
   }

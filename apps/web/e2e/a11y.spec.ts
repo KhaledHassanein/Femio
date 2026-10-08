@@ -29,6 +29,9 @@ const PAGES = [
   "/en/privacy",
   "/en/terms",
   "/en/authors",
+  // An article: the safety callout, trust card and "Read next" (P2.4), in both directions.
+  "/en/learn/early-pregnancy-changes",
+  "/ar/learn/early-pregnancy-changes",
   "/ar",
   "/ar/help-now",
 ];
