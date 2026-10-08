@@ -762,4 +762,151 @@ class L10nEs extends L10n {
 
   @override
   String get contractionApart => 'Intervalo';
+
+  @override
+  String get apptTitle => 'Citas';
+
+  @override
+  String get apptAdd => 'Añadir una cita';
+
+  @override
+  String get apptCancel => 'Cancelar';
+
+  @override
+  String get apptSave => 'Guardar la cita';
+
+  @override
+  String get apptUntitled => 'Cita';
+
+  @override
+  String get apptNoDate => 'Sin fecha todavía';
+
+  @override
+  String get apptToday => 'Hoy';
+
+  @override
+  String apptInDays(int days) {
+    String _temp0 = intl.Intl.pluralLogic(
+      days,
+      locale: localeName,
+      other: 'En $days días',
+      one: 'Mañana',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get apptPrepHeading => 'Lo que querías preguntar';
+
+  @override
+  String get apptUpcoming => 'Próximas';
+
+  @override
+  String get apptPast => 'Pasadas';
+
+  @override
+  String get apptNoResultsNote =>
+      'Femio guarda cuándo es, con quién y qué querías preguntar. No guarda lo que se encontró — eso pertenece a tu historia clínica y a tu profesional.';
+
+  @override
+  String get apptEmptyHeading => 'Aquí no hay nada aún';
+
+  @override
+  String get apptEmptyBody =>
+      'Añade una cita y Femio guardará las preguntas que querías hacer, que es la parte que se olvida al entrar en la consulta.';
+
+  @override
+  String get apptAwaitingHeading => '¿Sigues sin noticias?';
+
+  @override
+  String apptAwaitingBody(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: 'Esperabas un resultado en $count de ellas.',
+      one: 'Esperabas un resultado en una de ellas.',
+    );
+    return '$_temp0 Quizá merezca la pena preguntar — los resultados se retrasan por muchos motivos corrientes.';
+  }
+
+  @override
+  String get apptFormType => 'Qué es';
+
+  @override
+  String get apptFormTypePlaceholder => 'Ecografía, análisis, revisión…';
+
+  @override
+  String get apptFormClinician => 'Con quién';
+
+  @override
+  String get apptFormWhen => 'Cuándo';
+
+  @override
+  String get apptFormResultsDue => 'Te dijeron que habría resultados antes del';
+
+  @override
+  String get apptFormResultsDueHint =>
+      'Opcional. Femio te recordará que preguntes si pasa la fecha; nunca registra cuál fue el resultado.';
+
+  @override
+  String get apptFormPrep => 'Preguntas que quieres hacer';
+
+  @override
+  String get apptFormPrepPlaceholder => 'Una por línea';
+
+  @override
+  String apptPrepCount(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count preguntas guardadas',
+      one: '$count pregunta guardada',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get weightHeading => 'Peso';
+
+  @override
+  String get weightIntro =>
+      'Añade una medición cuando quieras. Femio las dibuja y guarda las cifras para tu historial.';
+
+  @override
+  String get weightValue => 'Peso';
+
+  @override
+  String get weightSave => 'Guardar';
+
+  @override
+  String get weightInvalid =>
+      'Eso no parece una lectura de báscula. Revisa el número e inténtalo de nuevo.';
+
+  @override
+  String get weightNeedData =>
+      'Añade una segunda medición y tu gráfica aparecerá aquí.';
+
+  @override
+  String weightChange(String value, String unit) {
+    return '$value $unit desde tu primera anotación';
+  }
+
+  @override
+  String get weightNote =>
+      'Tus mediciones, tal cual. Femio no muestra un rango objetivo ni dice si un cambio es esperable — lo que significa un patrón es cosa tuya y de tu matrona o médico.';
+
+  @override
+  String get weightDate => 'Medido el';
+
+  @override
+  String get weightUnitKg => 'kg';
+
+  @override
+  String get weightUnitLb => 'lb';
+
+  @override
+  String get apptDelete => 'Eliminar';
+
+  @override
+  String get apptEdit => 'Editar';
 }

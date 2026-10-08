@@ -3,6 +3,7 @@ import 'package:intl/intl.dart' show DateFormat;
 
 import '../../app.dart';
 import '../../data/profile.dart';
+import '../../domain/appointments.dart';
 import '../../domain/bbt.dart';
 import '../../domain/cycle_prediction.dart';
 import '../../domain/dates.dart';
@@ -13,8 +14,10 @@ import '../../theme/femio_theme.dart';
 import '../../widgets/bbt_chart.dart';
 import '../../widgets/bloom.dart';
 import '../../widgets/notice_card.dart';
+import '../pregnancy/appointments_screen.dart';
 import '../pregnancy/contraction_timer_screen.dart';
 import '../pregnancy/movement_log_screen.dart';
+import '../pregnancy/weight_screen.dart';
 
 /// Today, v0: her first prediction, the moment onboarding ends (spec §3 step 5), and
 /// one action. Every number is a range with a confidence (rule 3); nothing counts days
@@ -73,7 +76,7 @@ class TodayScreen extends StatelessWidget {
               const SizedBox(height: 16),
               NoticeCard(tone: NoticeTone.urgent, heading: l.pregRedFlagsHeading, body: l.pregRedFlagsBody),
               const SizedBox(height: 20),
-              _PregnancyTools(controller: controller, progress: profile.edd == null ? null : pregnancyProgress(profile.edd!, now)),
+              _PregnancyTools(controller: controller, today: now, progress: profile.edd == null ? null : pregnancyProgress(profile.edd!, now)),
             ],
             if (canLog) ...[
               const SizedBox(height: 16),
@@ -403,8 +406,9 @@ class _TestTiming extends StatelessWidget {
 /// The pregnancy tools, both always listed (rule 2). From 36 weeks the contraction
 /// timer comes first: emphasis changes, access does not.
 class _PregnancyTools extends StatelessWidget {
-  const _PregnancyTools({required this.controller, required this.progress});
+  const _PregnancyTools({required this.controller, required this.today, required this.progress});
   final FemioController controller;
+  final String today;
   final PregnancyProgress? progress;
 
   @override
@@ -449,11 +453,26 @@ class _PregnancyTools extends StatelessWidget {
         () => MovementLogScreen(controller: controller));
     final contractions = tile(Icons.timer_outlined, l.contractionsHeading, l.contractionsIntro,
         () => ContractionTimerScreen(controller: controller));
+    final next = nextAppointment(controller.profile!.appointments, today);
+    final appointments = tile(
+      Icons.event_note_outlined,
+      l.apptTitle,
+      next == null ? l.apptEmptyBody : '${next.type ?? l.apptUntitled} · ${switch (daysUntil(next, today)) {
+          0 => l.apptToday,
+          final d? when d > 0 => l.apptInDays(d),
+          _ => l.apptNoDate,
+        }}',
+      () => AppointmentsScreen(controller: controller, today: today),
+    );
+    final weight = tile(Icons.monitor_weight_outlined, l.weightHeading, l.weightIntro,
+        () => WeightScreen(controller: controller, today: today));
     final late = (progress?.weeks ?? 0) >= 36;
     return Column(crossAxisAlignment: CrossAxisAlignment.stretch, children: [
       Semantics(header: true, child: Text(l.pregnancyToolsTitle, style: t.titleLarge)),
       const SizedBox(height: 10),
       ...late ? [contractions, movements] : [movements, contractions],
+      appointments,
+      weight,
     ]);
   }
 }

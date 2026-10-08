@@ -1,0 +1,406 @@
+{
+  "calculators.bmi.note": {
+    "current": "L'IMC est un indicateur général avec des limites — il ne reflète ni les muscles, ni la morphologie, ni la composition corporelle. Discute de ce qui est sain pour toi avec ta clinicienne.",
+    "proposed": "L'IMC est un indicateur général avec des limites — il ne reflète ni les muscles, ni la morphologie, ni la composition corporelle. Discutez de ce qui est sain pour vous avec votre clinicienne."
+  },
+  "calculators.bmi.resultLabel": {
+    "current": "Ton IMC",
+    "proposed": "Votre IMC"
+  },
+  "calculators.common.lmpLabel": {
+    "current": "Premier jour de tes dernières règles",
+    "proposed": "Premier jour de vos dernières règles"
+  },
+  "calculators.cycleLength.intro": {
+    "current": "Saisis quelques dates de début de règles pour voir ta durée moyenne de cycle.",
+    "proposed": "Saisissez quelques dates de début de règles pour voir votre durée moyenne de cycle."
+  },
+  "calculators.cycleLength.irregular": {
+    "current": "Tes cycles varient — c'est courant, et Femio adapte ses prévisions en conséquence.",
+    "proposed": "Vos cycles varient — c'est courant, et Femio adapte ses prévisions en conséquence."
+  },
+  "calculators.cycleLength.needTwo": {
+    "current": "Ajoute au moins deux dates de début de règles.",
+    "proposed": "Ajoutez au moins deux dates de début de règles."
+  },
+  "calculators.cycleLength.regular": {
+    "current": "Tes cycles semblent réguliers.",
+    "proposed": "Vos cycles semblent réguliers."
+  },
+  "calculators.disclaimer": {
+    "current": "Ces calculateurs donnent des estimations générales pour t'informer et planifier, pas un avis médical. Parle de ta santé avec ta clinicienne.",
+    "proposed": "Ces calculateurs donnent des estimations générales pour vous informer et planifier, pas un avis médical. Parlez de votre santé avec votre clinicienne."
+  },
+  "calculators.dueDate.intro": {
+    "current": "Estime ta date à partir du premier jour de tes dernières règles.",
+    "proposed": "Estimez votre date à partir du premier jour de vos dernières règles."
+  },
+  "calculators.gestationalAge.intro": {
+    "current": "Vois à combien de semaines tu en es, à partir de tes dernières règles.",
+    "proposed": "Voyez à combien de semaines vous en êtes, à partir de vos dernières règles."
+  },
+  "calculators.list.cycleLength.desc": {
+    "current": "Ta durée moyenne de cycle et sa variabilité.",
+    "proposed": "Votre durée moyenne de cycle et sa variabilité."
+  },
+  "calculators.ovulation.awarenessNote": {
+    "current": "Ces dates aident à planifier une grossesse et à la connaissance de ton cycle. Ce sont des estimations, pas un moyen fiable d'éviter une grossesse — parle de tes options avec ta clinicienne.",
+    "proposed": "Ces dates aident à planifier une grossesse et à la connaissance de votre cycle. Ce sont des estimations, pas un moyen fiable d'éviter une grossesse — parlez de vos options avec votre clinicienne."
+  },
+  "calculators.ovulation.intro": {
+    "current": "Estime tes jours fertiles à partir de tes dernières règles et de la durée du cycle.",
+    "proposed": "Estimez vos jours fertiles à partir de vos dernières règles et de la durée du cycle."
+  },
+  "calendar.a11y.hasLogs": {
+    "current": "Tu as enregistré quelque chose ce jour-là",
+    "proposed": "Vous avez enregistré quelque chose ce jour-là"
+  },
+  "calendar.a11y.likely": {
+    "current": "Tes règles devraient probablement commencer vers maintenant",
+    "proposed": "Vos règles devraient probablement commencer vers maintenant"
+  },
+  "calendar.a11y.possible": {
+    "current": "Tes règles pourraient commencer vers maintenant",
+    "proposed": "Vos règles pourraient commencer vers maintenant"
+  },
+  "calendar.detail.cycleDay": {
+    "current": "Jour {day} de ton cycle",
+    "proposed": "Jour {day} de votre cycle"
+  },
+  "calendar.gridLabel": {
+    "current": "Ton cycle mois par mois",
+    "proposed": "Votre cycle mois par mois"
+  },
+  "calendar.loadError": {
+    "current": "Impossible de charger ton calendrier. Réessaie — si cela persiste, le problème vient de nous, pas de toi.",
+    "proposed": "Impossible de charger votre calendrier. Réessayez — si cela persiste, le problème vient de nous, pas de vous."
+  },
+  "cycleReport.heading": {
+    "current": "Ton dernier cycle",
+    "proposed": "Votre dernier cycle"
+  },
+  "cycleReport.longer": {
+    "current": "{days} jours de plus que ton habitude",
+    "proposed": "{days} jours de plus que votre habitude"
+  },
+  "cycleReport.shorter": {
+    "current": "{days} jours de moins que ton habitude",
+    "proposed": "{days} jours de moins que votre habitude"
+  },
+  "cycleReport.symptoms": {
+    "current": "Tu as noté : {list}",
+    "proposed": "Vous avez noté : {list}"
+  },
+  "cycleVariability.notFailing": {
+    "current": "Femio élargit la fenêtre quand tes cycles varient, et cesse de prédire quand il n'y a rien d'honnête à prédire. Ce n'est pas un échec de l'application — une date affirmée sur des données instables serait une invention.",
+    "proposed": "Femio élargit la fenêtre quand vos cycles varient, et cesse de prédire quand il n'y a rien d'honnête à prédire. Ce n'est pas un échec de l'application — une date affirmée sur des données instables serait une invention."
+  },
+  "cycleVariability.range": {
+    "current": "Tes cycles ont duré de {shortest} à {longest} jours",
+    "proposed": "Vos cycles ont duré de {shortest} à {longest} jours"
+  },
+  "dashboard.cycleDay": {
+    "current": "Jour {day} de ton cycle",
+    "proposed": "Jour {day} de votre cycle"
+  },
+  "dashboard.irregularNote": {
+    "current": "Tes cycles varient, donc les prévisions restent une fourchette plus large — c'est normal.",
+    "proposed": "Vos cycles varient, donc les prévisions restent une fourchette plus large — c'est normal."
+  },
+  "dashboard.learningNote": {
+    "current": "Femio apprend encore ton rythme — cette fourchette se resserrera à mesure que tu enregistres.",
+    "proposed": "Femio apprend encore votre rythme — cette fourchette se resserrera à mesure que vous enregistrez."
+  },
+  "dashboard.loadError": {
+    "current": "Impossible de charger ton tableau de bord. Tes informations sont intactes. Réessaie — si cela persiste, le problème vient de nous, pas de toi.",
+    "proposed": "Impossible de charger votre tableau de bord. Vos informations sont intactes. Réessayez — si cela persiste, le problème vient de nous, pas de vous."
+  },
+  "dashboard.needData": {
+    "current": "Enregistre deux cycles pour débloquer les analyses.",
+    "proposed": "Enregistrez deux cycles pour débloquer les analyses."
+  },
+  "dashboard.statedNote": {
+    "current": "D'après la durée de cycle que tu nous as indiquée — tes cycles enregistrés prendront le relais.",
+    "proposed": "D'après la durée de cycle que vous nous avez indiquée — vos cycles enregistrés prendront le relais."
+  },
+  "dashboard.title": {
+    "current": "Ton tableau de bord",
+    "proposed": "Votre tableau de bord"
+  },
+  "experience.desc": {
+    "current": "Femio s'adapte à l'étape où tu te trouves. Tu peux changer cela quand ta situation change — ou le désactiver et tout voir.",
+    "proposed": "Femio s'adapte à l'étape où vous vous trouvez. Vous pouvez changer cela quand votre situation change — ou le désactiver et tout voir."
+  },
+  "experience.heading": {
+    "current": "Ton expérience Femio",
+    "proposed": "Votre expérience Femio"
+  },
+  "experience.modes.general.desc": {
+    "current": "Tous les outils, sans rien supposer de ton étape. Choisis ceci si rien ci-dessus ne correspond, ou si tu préfères décider toi-même.",
+    "proposed": "Tous les outils, sans rien supposer de votre étape. Choisissez ceci si rien ci-dessus ne correspond, ou si vous préférez décider vous-même."
+  },
+  "experience.modes.menopause.desc": {
+    "current": "Mois depuis tes dernières règles et les symptômes qui comptent à cette étape.",
+    "proposed": "Mois depuis vos dernières règles et les symptômes qui comptent à cette étape."
+  },
+  "experience.modes.teen.desc": {
+    "current": "Ton corps et ton cycle expliqués simplement, avec une fourchette large et honnête.",
+    "proposed": "Votre corps et votre cycle expliqués simplement, avec une fourchette large et honnête."
+  },
+  "experience.modes.ttc.desc": {
+    "current": "Ajoute la fenêtre de fertilité au suivi du cycle.",
+    "proposed": "Ajoutez la fenêtre de fertilité au suivi du cycle."
+  },
+  "experience.nothingLost": {
+    "current": "Ce changement n'efface jamais rien. Ton dossier reste entier, tous les outils restent disponibles, et tu peux revenir à tout moment et le retrouver tel quel.",
+    "proposed": "Ce changement n'efface jamais rien. Votre dossier reste entier, tous les outils restent disponibles, et vous pouvez revenir à tout moment et le retrouver tel quel."
+  },
+  "experience.saved": {
+    "current": "Mis à jour. Ton tableau de bord et ton écran de suivi correspondent désormais.",
+    "proposed": "Mis à jour. Votre tableau de bord et votre écran de suivi correspondent désormais."
+  },
+  "firstRun.error": {
+    "current": "L'enregistrement a échoué. Réessaie.",
+    "proposed": "L'enregistrement a échoué. Réessayez."
+  },
+  "firstRun.first.dateLabel": {
+    "current": "Premier jour de tes dernières règles",
+    "proposed": "Premier jour de vos dernières règles"
+  },
+  "firstRun.first.heading": {
+    "current": "Quand tes dernières règles ont-elles commencé ?",
+    "proposed": "Quand vos dernières règles ont-elles commencé ?"
+  },
+  "firstRun.note": {
+    "current": "Tu peux modifier ou en ajouter à tout moment dans Suivi.",
+    "proposed": "Vous pouvez modifier ou en ajouter à tout moment dans Suivi."
+  },
+  "flowStrip.a11y.none": {
+    "current": "Tes saignements sur les {days} derniers jours. Rien d'enregistré.",
+    "proposed": "Vos saignements sur les {days} derniers jours. Rien d'enregistré."
+  },
+  "flowStrip.a11y.summary": {
+    "current": "Tes saignements sur les {days} derniers jours. {count} jours enregistrés.",
+    "proposed": "Vos saignements sur les {days} derniers jours. {count} jours enregistrés."
+  },
+  "flowStrip.footnote": {
+    "current": "Les marques plus hautes et plus marquées sont les jours que tu as notés comme plus abondants.",
+    "proposed": "Les marques plus hautes et plus marquées sont les jours que vous avez notés comme plus abondants."
+  },
+  "flowStrip.heading": {
+    "current": "Tes saignements",
+    "proposed": "Vos saignements"
+  },
+  "gallery.empty.body": {
+    "current": "Tes entrées apparaîtront ici.",
+    "proposed": "Vos entrées apparaîtront ici."
+  },
+  "gallery.feedback.redFlagBody": {
+    "current": "Si les symptômes semblent graves, contacte ta clinicienne ou les services d'urgence locaux.",
+    "proposed": "Si les symptômes semblent graves, contactez votre clinicienne ou les services d'urgence locaux."
+  },
+  "gallery.feedback.redFlagTitle": {
+    "current": "Consulte sans attendre",
+    "proposed": "Consultez sans attendre"
+  },
+  "gallery.feedback.warning": {
+    "current": "Ton cycle semble irrégulier — c'est normal à certaines phases.",
+    "proposed": "Votre cycle semble irrégulier — c'est normal à certaines phases."
+  },
+  "gallery.form.label": {
+    "current": "Ta note",
+    "proposed": "Votre note"
+  },
+  "gallery.form.placeholder": {
+    "current": "Comment te sens-tu aujourd'hui ?",
+    "proposed": "Comment vous sentez-vous aujourd'hui ?"
+  },
+  "log.a11y.cycleHint": {
+    "current": "Appuie encore pour changer l'intensité",
+    "proposed": "Appuyez encore pour changer l'intensité"
+  },
+  "log.searchLabel": {
+    "current": "Rechercher tout ce que tu peux suivre",
+    "proposed": "Rechercher tout ce que vous pouvez suivre"
+  },
+  "modules.privacy.label": {
+    "current": "Tes réglages de confidentialité",
+    "proposed": "Vos réglages de confidentialité"
+  },
+  "onboarding.baseline.cycleLabel": {
+    "current": "Ton cycle dure combien de temps, d'habitude ?",
+    "proposed": "Votre cycle dure combien de temps, d'habitude ?"
+  },
+  "onboarding.baseline.heading": {
+    "current": "Ton cycle habituel",
+    "proposed": "Votre cycle habituel"
+  },
+  "onboarding.baseline.note": {
+    "current": "Femio s'en sert jusqu'à ce que tes propres cycles enregistrés donnent une meilleure réponse. Tu peux passer, et modifier à tout moment.",
+    "proposed": "Femio s'en sert jusqu'à ce que vos propres cycles enregistrés donnent une meilleure réponse. Vous pouvez passer, et modifier à tout moment."
+  },
+  "onboarding.baseline.periodLabel": {
+    "current": "Tes règles durent combien de jours, d'habitude ?",
+    "proposed": "Vos règles durent combien de jours, d'habitude ?"
+  },
+  "onboarding.mode.heading": {
+    "current": "Où en es-tu dans ton parcours de santé ?",
+    "proposed": "Où en êtes-vous dans votre parcours de santé ?"
+  },
+  "onboarding.mode.subheading": {
+    "current": "Tu peux changer cela à tout moment — rien n'est verrouillé.",
+    "proposed": "Vous pouvez changer cela à tout moment — rien n'est verrouillé."
+  },
+  "onboarding.mode.teen.desc": {
+    "current": "Ton corps, tes règles, et ce qui est normal — en mots simples.",
+    "proposed": "Votre corps, vos règles, et ce qui est normal — en mots simples."
+  },
+  "onboarding.privacy.account.desc": {
+    "current": "Synchronise entre appareils avec un e-mail. Même confidentialité.",
+    "proposed": "Synchronisez entre appareils avec un e-mail. Même confidentialité."
+  },
+  "onboarding.privacy.anonymous.desc": {
+    "current": "Sans e-mail ni compte. Tu pourras en ajouter un plus tard sans rien perdre.",
+    "proposed": "Sans e-mail ni compte. Vous pourrez en ajouter un plus tard sans rien perdre."
+  },
+  "onboarding.privacy.consentHeading": {
+    "current": "Ce que tu acceptes",
+    "proposed": "Ce que vous acceptez"
+  },
+  "onboarding.privacy.consentNote": {
+    "current": "Tu peux modifier ces choix à tout moment dans les Réglages.",
+    "proposed": "Vous pouvez modifier ces choix à tout moment dans les Réglages."
+  },
+  "onboarding.privacy.heading": {
+    "current": "Ta vie privée d'abord",
+    "proposed": "Votre vie privée d'abord"
+  },
+  "onboarding.privacy.intro": {
+    "current": "Femio fonctionne sans compte. Tes données de santé t'appartiennent — jamais vendues, jamais partagées avec des annonceurs.",
+    "proposed": "Femio fonctionne sans compte. Vos données de santé vous appartiennent — jamais vendues, jamais partagées avec des annonceurs."
+  },
+  "phaseEducation.menstrual.heading": {
+    "current": "Tes règles",
+    "proposed": "Vos règles"
+  },
+  "phaseStrip.a11y.noData": {
+    "current": "Ton cycle jusqu'ici. Pas encore assez de données pour situer où tu en es.",
+    "proposed": "Votre cycle jusqu'ici. Pas encore assez de données pour situer où vous en êtes."
+  },
+  "phaseStrip.a11y.unknownPhase": {
+    "current": "Ton cycle jusqu'ici. Jour {day}. Tes cycles varient trop pour situer une phase.",
+    "proposed": "Votre cycle jusqu'ici. Jour {day}. Vos cycles varient trop pour situer une phase."
+  },
+  "phaseStrip.a11y.withPhase": {
+    "current": "Ton cycle jusqu'ici. Jour {day} sur environ {length}.",
+    "proposed": "Votre cycle jusqu'ici. Jour {day} sur environ {length}."
+  },
+  "phaseStrip.learning": {
+    "current": "Tes cycles varient, donc Femio ne devinera pas de phase.",
+    "proposed": "Vos cycles varient, donc Femio ne devinera pas de phase."
+  },
+  "phaseStrip.noDay": {
+    "current": "Ton cycle",
+    "proposed": "Votre cycle"
+  },
+  "phaseStrip.phase.unknown": {
+    "current": "Nous apprenons encore ton rythme",
+    "proposed": "Nous apprenons encore votre rythme"
+  },
+  "phaseStrip.typicalFor": {
+    "current": "Typique d'un cycle d'environ {length} jours — pas une lecture de tes hormones.",
+    "proposed": "Typique d'un cycle d'environ {length} jours — pas une lecture de vos hormones."
+  },
+  "settings.consent.ageGate.body": {
+    "current": "Femio doit savoir à peu près quel âge tu as avant d'activer ceci. Les moins de 18 ans sont exclus de l'analyse et de la recherche, donc il demande plutôt que de supposer.",
+    "proposed": "Femio doit savoir à peu près quel âge vous avez avant d'activer ceci. Les moins de 18 ans sont exclus de l'analyse et de la recherche, donc il demande plutôt que de supposer."
+  },
+  "settings.consent.insights.note": {
+    "current": "Reste dans Femio — vos saisies ne sont envoyées nulle part pour cela.",
+    "proposed": "Restez dans Femio — vos saisies ne sont envoyées nulle part pour cela."
+  },
+  "settings.delete.confirm": {
+    "current": "Cela supprime définitivement ton compte et toutes tes données. C'est irréversible.",
+    "proposed": "Cela supprime définitivement votre compte et toutes vos données. C'est irréversible."
+  },
+  "settings.delete.desc": {
+    "current": "Supprime définitivement ton compte et toutes tes données. C'est irréversible.",
+    "proposed": "Supprimez définitivement votre compte et toutes vos données. C'est irréversible."
+  },
+  "settings.delete.heading": {
+    "current": "Supprimer ton compte",
+    "proposed": "Supprimer votre compte"
+  },
+  "settings.export.desc": {
+    "current": "Télécharge dans un fichier tout ce que Femio a enregistré pour toi.",
+    "proposed": "Téléchargez dans un fichier tout ce que Femio a enregistré pour vous."
+  },
+  "settings.export.heading": {
+    "current": "Exporter tes données",
+    "proposed": "Exporter vos données"
+  },
+  "symptomPatterns.evidence": {
+    "current": "Sur {cycles} de tes {ofCycles} derniers cycles",
+    "proposed": "Sur {cycles} de vos {ofCycles} derniers cycles"
+  },
+  "symptomPatterns.heading": {
+    "current": "Ton schéma",
+    "proposed": "Votre schéma"
+  },
+  "symptomPatterns.note": {
+    "current": "Compté à partir de ce que tu as enregistré. Femio ne l'interprète pas.",
+    "proposed": "Compté à partir de ce que vous avez enregistré. Femio ne l'interprète pas."
+  },
+  "symptomPatterns.onDay": {
+    "current": "{symptom} — au jour {day} de ton cycle",
+    "proposed": "{symptom} — au jour {day} de votre cycle"
+  },
+  "symptomPatterns.onDays": {
+    "current": "{symptom} — aux jours {from}–{to} de ton cycle",
+    "proposed": "{symptom} — aux jours {from}–{to} de votre cycle"
+  },
+  "symptoms.heading": {
+    "current": "Comment te sens-tu aujourd'hui ?",
+    "proposed": "Comment vous sentez-vous aujourd'hui ?"
+  },
+  "tools.appointments.note": {
+    "current": "Les dates, et les questions que tu voulais poser",
+    "proposed": "Les dates, et les questions que vous vouliez poser"
+  },
+  "tools.intro": {
+    "current": "Tout ce que Femio sait faire, quelle que soit ton étape. Rien n'est masqué ici selon ce que tu nous as dit.",
+    "proposed": "Tout ce que Femio sait faire, quelle que soit votre étape. Rien n'est masqué ici selon ce que vous nous avez dit."
+  },
+  "tools.medications.note": {
+    "current": "Ce que tu prends, et quand",
+    "proposed": "Ce que vous prenez, et quand"
+  },
+  "tools.recordHeading": {
+    "current": "Ton dossier",
+    "proposed": "Votre dossier"
+  },
+  "tools.summary.note": {
+    "current": "Une page imprimable de ton dossier, avec tes questions",
+    "proposed": "Une page imprimable de votre dossier, avec vos questions"
+  },
+  "tools.track.note": {
+    "current": "Enregistre règles, symptômes et ressenti",
+    "proposed": "Enregistrez règles, symptômes et ressenti"
+  },
+  "track.loadError": {
+    "current": "Impossible de charger ton historique. Tu peux quand même enregistrer ci-dessous.",
+    "proposed": "Impossible de charger votre historique. Vous pouvez quand même enregistrer ci-dessous."
+  },
+  "track.logDateLabel": {
+    "current": "Premier jour de tes règles",
+    "proposed": "Premier jour de vos règles"
+  },
+  "track.title": {
+    "current": "Ton cycle",
+    "proposed": "Votre cycle"
+  },
+  "visitSummary.loadError": {
+    "current": "Impossible de charger ton résumé. Rien ne manque dans ton dossier. Réessaie — si cela persiste, le problème vient de nous, pas de toi.",
+    "proposed": "Impossible de charger votre résumé. Rien ne manque dans votre dossier. Réessayez — si cela persiste, le problème vient de nous, pas de vous."
+  }
+}

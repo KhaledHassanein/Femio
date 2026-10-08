@@ -3,8 +3,10 @@ import 'dart:io';
 import 'package:femio/app.dart';
 import 'package:femio/data/profile.dart';
 import 'package:femio/data/store.dart';
+import 'package:femio/domain/appointments.dart';
 import 'package:femio/domain/contractions.dart';
 import 'package:femio/domain/movements.dart';
+import 'package:femio/domain/weight.dart';
 import 'package:femio/features/onboarding/widgets.dart';
 import 'package:femio/main.dart' show configureFormatting;
 import 'package:flutter/material.dart';
@@ -54,6 +56,8 @@ Future<void> _pump(WidgetTester tester, FemioController c, Brightness b) async {
 Future<void> _shoot(WidgetTester tester, String name) async {
   await tester.pumpAndSettle();
   if (!autoUpdateGoldenFiles) return;
+  // Shadows render as solid outlines under flutter_test (debugDisableShadows); the
+  // phone draws them soft. Turning them on per capture made the suite time out.
   await expectLater(find.byType(MaterialApp), matchesGoldenFile('screenshots/$name.png'));
 }
 
@@ -183,6 +187,16 @@ void main() {
             for (final (i, (h, mins)) in [(5, 18), (4, 22), (3, 20), (2, 20), (1, 34)].indexed)
               MovementSession('m$i', ago(h * 60), ago(h * 60 - mins), 10),
           ],
+          weights: const [
+            WeightEntry('w1', '2026-08-01', 63.0, 'kg'),
+            WeightEntry('w2', '2026-08-29', 64.4, 'kg'),
+            WeightEntry('w3', '2026-09-26', 65.9, 'kg'),
+          ],
+          appointments: const [
+            Appointment(id: 'a1', type: 'Growth scan', clinician: 'Dr Mansour', datetime: '2026-10-12T09:30',
+                prep: ['Is the baby head down?', 'When do I stop work?']),
+            Appointment(id: 'a2', type: 'Glucose test', datetime: '2026-09-24T08:00', resultsDue: '2026-10-01'),
+          ],
         );
         final c = FemioController(MemoryStore(p));
         await _pump(tester, c, b);
@@ -226,6 +240,31 @@ void main() {
         await tester.tap(find.byType(OutlinedButton));
         await tester.pumpAndSettle();
         expect(c.profile!.movements.last.endedAt, isNotNull);
+        await tester.tap(find.byType(BackButton));
+        await tester.pumpAndSettle();
+
+        await tester.ensureVisible(find.byIcon(Icons.event_note_outlined));
+        await tester.pumpAndSettle();
+        await tester.tap(find.byIcon(Icons.event_note_outlined));
+        await tester.pumpAndSettle();
+        await _shoot(tester, '${lang}_${b.name}_17_appointments');
+        await tester.tap(find.byType(BackButton));
+        await tester.pumpAndSettle();
+
+        await tester.ensureVisible(find.byIcon(Icons.monitor_weight_outlined));
+        await tester.pumpAndSettle();
+        await tester.tap(find.byIcon(Icons.monitor_weight_outlined));
+        await tester.pumpAndSettle();
+        // A typo is refused; a reading is saved as typed.
+        await tester.enterText(find.byType(TextField), '665');
+        await tester.tap(find.byType(FilledButton).last);
+        await tester.pumpAndSettle();
+        expect(c.profile!.weights, hasLength(3));
+        await tester.enterText(find.byType(TextField), '66.4');
+        await tester.tap(find.byType(FilledButton).last);
+        await tester.pumpAndSettle();
+        expect(c.profile!.weights.last.value, 66.4);
+        await _shoot(tester, '${lang}_${b.name}_18_weight');
       });
     }
   }

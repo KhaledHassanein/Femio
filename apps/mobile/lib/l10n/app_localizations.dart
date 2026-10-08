@@ -1354,6 +1354,234 @@ abstract class L10n {
   /// In en, this message translates to:
   /// **'Apart'**
   String get contractionApart;
+
+  /// No description provided for @apptTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Appointments'**
+  String get apptTitle;
+
+  /// No description provided for @apptAdd.
+  ///
+  /// In en, this message translates to:
+  /// **'Add an appointment'**
+  String get apptAdd;
+
+  /// No description provided for @apptCancel.
+  ///
+  /// In en, this message translates to:
+  /// **'Cancel'**
+  String get apptCancel;
+
+  /// No description provided for @apptSave.
+  ///
+  /// In en, this message translates to:
+  /// **'Save appointment'**
+  String get apptSave;
+
+  /// No description provided for @apptUntitled.
+  ///
+  /// In en, this message translates to:
+  /// **'Appointment'**
+  String get apptUntitled;
+
+  /// No description provided for @apptNoDate.
+  ///
+  /// In en, this message translates to:
+  /// **'No date yet'**
+  String get apptNoDate;
+
+  /// No description provided for @apptToday.
+  ///
+  /// In en, this message translates to:
+  /// **'Today'**
+  String get apptToday;
+
+  /// No description provided for @apptInDays.
+  ///
+  /// In en, this message translates to:
+  /// **'{days, plural, one {Tomorrow} other {In {days} days}}'**
+  String apptInDays(int days);
+
+  /// No description provided for @apptPrepHeading.
+  ///
+  /// In en, this message translates to:
+  /// **'What you wanted to ask'**
+  String get apptPrepHeading;
+
+  /// No description provided for @apptUpcoming.
+  ///
+  /// In en, this message translates to:
+  /// **'Coming up'**
+  String get apptUpcoming;
+
+  /// No description provided for @apptPast.
+  ///
+  /// In en, this message translates to:
+  /// **'Past'**
+  String get apptPast;
+
+  /// No description provided for @apptNoResultsNote.
+  ///
+  /// In en, this message translates to:
+  /// **'Femio keeps when it is, who it is with, and what you wanted to ask. It does not keep what was found — that belongs with your clinician, in your notes.'**
+  String get apptNoResultsNote;
+
+  /// No description provided for @apptEmptyHeading.
+  ///
+  /// In en, this message translates to:
+  /// **'Nothing here yet'**
+  String get apptEmptyHeading;
+
+  /// No description provided for @apptEmptyBody.
+  ///
+  /// In en, this message translates to:
+  /// **'Add an appointment and Femio will hold the questions you meant to ask, which is the part people forget in the room.'**
+  String get apptEmptyBody;
+
+  /// No description provided for @apptAwaitingHeading.
+  ///
+  /// In en, this message translates to:
+  /// **'Still waiting to hear?'**
+  String get apptAwaitingHeading;
+
+  /// No description provided for @apptAwaitingBody.
+  ///
+  /// In en, this message translates to:
+  /// **'{count, plural, one {You were expecting a result back by now for one of these.} other {You were expecting results back by now for {count} of these.}} It may be worth asking — results run late for all sorts of ordinary reasons.'**
+  String apptAwaitingBody(int count);
+
+  /// No description provided for @apptFormType.
+  ///
+  /// In en, this message translates to:
+  /// **'What is it'**
+  String get apptFormType;
+
+  /// No description provided for @apptFormTypePlaceholder.
+  ///
+  /// In en, this message translates to:
+  /// **'Scan, blood test, check-up…'**
+  String get apptFormTypePlaceholder;
+
+  /// No description provided for @apptFormClinician.
+  ///
+  /// In en, this message translates to:
+  /// **'Who with'**
+  String get apptFormClinician;
+
+  /// No description provided for @apptFormWhen.
+  ///
+  /// In en, this message translates to:
+  /// **'When'**
+  String get apptFormWhen;
+
+  /// No description provided for @apptFormResultsDue.
+  ///
+  /// In en, this message translates to:
+  /// **'Told to expect results by'**
+  String get apptFormResultsDue;
+
+  /// No description provided for @apptFormResultsDueHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Optional. Femio will remind you to ask if the date passes — it never records what the result was.'**
+  String get apptFormResultsDueHint;
+
+  /// No description provided for @apptFormPrep.
+  ///
+  /// In en, this message translates to:
+  /// **'Questions you want to ask'**
+  String get apptFormPrep;
+
+  /// No description provided for @apptFormPrepPlaceholder.
+  ///
+  /// In en, this message translates to:
+  /// **'One per line'**
+  String get apptFormPrepPlaceholder;
+
+  /// No description provided for @apptPrepCount.
+  ///
+  /// In en, this message translates to:
+  /// **'{count, plural, one {{count} question saved} other {{count} questions saved}}'**
+  String apptPrepCount(int count);
+
+  /// No description provided for @weightHeading.
+  ///
+  /// In en, this message translates to:
+  /// **'Weight'**
+  String get weightHeading;
+
+  /// No description provided for @weightIntro.
+  ///
+  /// In en, this message translates to:
+  /// **'Add a reading whenever you like. Femio draws them and keeps the numbers for your notes.'**
+  String get weightIntro;
+
+  /// No description provided for @weightValue.
+  ///
+  /// In en, this message translates to:
+  /// **'Weight'**
+  String get weightValue;
+
+  /// No description provided for @weightSave.
+  ///
+  /// In en, this message translates to:
+  /// **'Save'**
+  String get weightSave;
+
+  /// No description provided for @weightInvalid.
+  ///
+  /// In en, this message translates to:
+  /// **'That does not look like a scale reading. Check the number and try again.'**
+  String get weightInvalid;
+
+  /// No description provided for @weightNeedData.
+  ///
+  /// In en, this message translates to:
+  /// **'Add a second reading and your chart appears here.'**
+  String get weightNeedData;
+
+  /// No description provided for @weightChange.
+  ///
+  /// In en, this message translates to:
+  /// **'{value} {unit} since your first entry'**
+  String weightChange(String value, String unit);
+
+  /// No description provided for @weightNote.
+  ///
+  /// In en, this message translates to:
+  /// **'Your readings, drawn as they are. Femio does not show a target range or say whether a change is expected — what a pattern means is for you and your midwife or doctor.'**
+  String get weightNote;
+
+  /// No description provided for @weightDate.
+  ///
+  /// In en, this message translates to:
+  /// **'Measured on'**
+  String get weightDate;
+
+  /// No description provided for @weightUnitKg.
+  ///
+  /// In en, this message translates to:
+  /// **'kg'**
+  String get weightUnitKg;
+
+  /// No description provided for @weightUnitLb.
+  ///
+  /// In en, this message translates to:
+  /// **'lb'**
+  String get weightUnitLb;
+
+  /// No description provided for @apptDelete.
+  ///
+  /// In en, this message translates to:
+  /// **'Delete'**
+  String get apptDelete;
+
+  /// No description provided for @apptEdit.
+  ///
+  /// In en, this message translates to:
+  /// **'Edit'**
+  String get apptEdit;
 }
 
 class _L10nDelegate extends LocalizationsDelegate<L10n> {

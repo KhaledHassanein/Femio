@@ -6,8 +6,10 @@
 /// question after the goal can be skipped.
 library;
 
+import '../domain/appointments.dart';
 import '../domain/contractions.dart';
 import '../domain/movements.dart';
+import '../domain/weight.dart';
 
 enum Goal { period, ttc, pregnant, menopause }
 
@@ -72,6 +74,8 @@ class Profile {
     this.logs = const {},
     this.contractions = const [],
     this.movements = const [],
+    this.weights = const [],
+    this.appointments = const [],
   });
 
   final Goal goal;
@@ -91,6 +95,12 @@ class Profile {
 
   /// Movement-log sessions, oldest first. The last may still be open.
   final List<MovementSession> movements;
+
+  /// Weight readings as she typed them.
+  final List<WeightEntry> weights;
+
+  /// Appointments: when, with whom, what to ask. Never a result.
+  final List<Appointment> appointments;
   final int? periodLength;
 
   /// Her stated usual cycle length. Null when she said "not sure" or "irregular".
@@ -113,6 +123,8 @@ class Profile {
     Map<String, DayLog>? logs,
     List<Contraction>? contractions,
     List<MovementSession>? movements,
+    List<WeightEntry>? weights,
+    List<Appointment>? appointments,
   }) =>
       Profile(
         goal: goal,
@@ -129,6 +141,8 @@ class Profile {
         logs: logs ?? this.logs,
         contractions: contractions ?? this.contractions,
         movements: movements ?? this.movements,
+        weights: weights ?? this.weights,
+        appointments: appointments ?? this.appointments,
       );
 
   /// Set or clear one day's log, keeping [periodStarts] in step with its flow.
@@ -164,6 +178,8 @@ class Profile {
         'logs': {for (final e in logs.entries) e.key: e.value.toJson()},
         'contractions': [for (final c in contractions) c.toJson()],
         'movements': [for (final m in movements) m.toJson()],
+        'weights': [for (final w in weights) w.toJson()],
+        'appointments': [for (final a in appointments) a.toJson()],
       };
 
   static Profile fromJson(Map<String, Object?> j) => Profile(
@@ -189,6 +205,13 @@ class Profile {
         movements: [
           for (final m in (j['movements'] as List?) ?? const [])
             MovementSession.fromJson(Map<String, Object?>.from(m as Map)),
+        ],
+        weights: [
+          for (final w in (j['weights'] as List?) ?? const []) WeightEntry.fromJson(Map<String, Object?>.from(w as Map)),
+        ],
+        appointments: [
+          for (final a in (j['appointments'] as List?) ?? const [])
+            Appointment.fromJson(Map<String, Object?>.from(a as Map)),
         ],
       );
 }

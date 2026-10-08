@@ -922,7 +922,7 @@
     "untitled": "Appointment",
     "noDate": "No date yet",
     "todayLabel": "Today",
-    "inDays": "In {days} days",
+    "inDays": "{days, plural, one {Tomorrow} other {In # days}}",
     "prepHeading": "What you wanted to ask",
     "upcomingHeading": "Coming up",
     "pastHeading": "Past",
@@ -933,7 +933,7 @@
     },
     "awaiting": {
       "heading": "Still waiting to hear?",
-      "body": "You were expecting a result back by now for {count} of these. It may be worth asking — results run late for all sorts of ordinary reasons."
+      "body": "{count, plural, one {You were expecting a result back by now for one of these.} other {You were expecting results back by now for # of these.}} It may be worth asking — results run late for all sorts of ordinary reasons."
     },
     "form": {
       "type": "What is it",
@@ -949,7 +949,7 @@
       "eyebrow": "Next appointment",
       "none": "Nothing booked in Femio yet.",
       "all": "All appointments",
-      "prepCount": "{count} questions saved"
+      "prepCount": "{count, plural, one {# question saved} other {# questions saved}}"
     }
   },
   "fertility": {

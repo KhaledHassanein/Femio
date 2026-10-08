@@ -357,5 +357,74 @@
   "contractionsClear": "Clear these times",
   "contractionsCleared": "Times cleared",
   "contractionLength": "Length",
-  "contractionApart": "Apart"
+  "contractionApart": "Apart",
+  "apptTitle": "Appointments",
+  "apptAdd": "Add an appointment",
+  "apptCancel": "Cancel",
+  "apptSave": "Save appointment",
+  "apptUntitled": "Appointment",
+  "apptNoDate": "No date yet",
+  "apptToday": "Today",
+  "apptInDays": "{days, plural, one {Tomorrow} other {In {days} days}}",
+  "@apptInDays": {
+    "placeholders": {
+      "days": {
+        "type": "int"
+      }
+    }
+  },
+  "apptPrepHeading": "What you wanted to ask",
+  "apptUpcoming": "Coming up",
+  "apptPast": "Past",
+  "apptNoResultsNote": "Femio keeps when it is, who it is with, and what you wanted to ask. It does not keep what was found — that belongs with your clinician, in your notes.",
+  "apptEmptyHeading": "Nothing here yet",
+  "apptEmptyBody": "Add an appointment and Femio will hold the questions you meant to ask, which is the part people forget in the room.",
+  "apptAwaitingHeading": "Still waiting to hear?",
+  "apptAwaitingBody": "{count, plural, one {You were expecting a result back by now for one of these.} other {You were expecting results back by now for {count} of these.}} It may be worth asking — results run late for all sorts of ordinary reasons.",
+  "@apptAwaitingBody": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "apptFormType": "What is it",
+  "apptFormTypePlaceholder": "Scan, blood test, check-up…",
+  "apptFormClinician": "Who with",
+  "apptFormWhen": "When",
+  "apptFormResultsDue": "Told to expect results by",
+  "apptFormResultsDueHint": "Optional. Femio will remind you to ask if the date passes — it never records what the result was.",
+  "apptFormPrep": "Questions you want to ask",
+  "apptFormPrepPlaceholder": "One per line",
+  "apptPrepCount": "{count, plural, one {{count} question saved} other {{count} questions saved}}",
+  "@apptPrepCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "weightHeading": "Weight",
+  "weightIntro": "Add a reading whenever you like. Femio draws them and keeps the numbers for your notes.",
+  "weightValue": "Weight",
+  "weightSave": "Save",
+  "weightInvalid": "That does not look like a scale reading. Check the number and try again.",
+  "weightNeedData": "Add a second reading and your chart appears here.",
+  "weightChange": "{value} {unit} since your first entry",
+  "@weightChange": {
+    "placeholders": {
+      "value": {
+        "type": "String"
+      },
+      "unit": {
+        "type": "String"
+      }
+    }
+  },
+  "weightNote": "Your readings, drawn as they are. Femio does not show a target range or say whether a change is expected — what a pattern means is for you and your midwife or doctor.",
+  "weightDate": "Measured on",
+  "weightUnitKg": "kg",
+  "weightUnitLb": "lb",
+  "apptDelete": "Delete",
+  "apptEdit": "Edit"
 }

@@ -922,7 +922,7 @@
     "untitled": "Cita",
     "noDate": "Sin fecha todavía",
     "todayLabel": "Hoy",
-    "inDays": "En {days} días",
+    "inDays": "{days, plural, one {Mañana} other {En # días}}",
     "prepHeading": "Lo que querías preguntar",
     "upcomingHeading": "Próximas",
     "pastHeading": "Pasadas",
@@ -933,7 +933,7 @@
     },
     "awaiting": {
       "heading": "¿Sigues sin noticias?",
-      "body": "Esperabas un resultado en {count} de ellas. Quizá merezca la pena preguntar — los resultados se retrasan por muchos motivos corrientes."
+      "body": "{count, plural, one {Esperabas un resultado en una de ellas.} other {Esperabas un resultado en # de ellas.}} Quizá merezca la pena preguntar — los resultados se retrasan por muchos motivos corrientes."
     },
     "form": {
       "type": "Qué es",
@@ -949,7 +949,7 @@
       "eyebrow": "Próxima cita",
       "none": "Nada registrado en Femio todavía.",
       "all": "Todas las citas",
-      "prepCount": "{count} preguntas guardadas"
+      "prepCount": "{count, plural, one {# pregunta guardada} other {# preguntas guardadas}}"
     }
   },
   "fertility": {

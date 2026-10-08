@@ -789,4 +789,156 @@ class L10nAr extends L10n {
 
   @override
   String get contractionApart => 'الفاصل';
+
+  @override
+  String get apptTitle => 'المواعيد';
+
+  @override
+  String get apptAdd => 'أضيفي موعدًا';
+
+  @override
+  String get apptCancel => 'إلغاء';
+
+  @override
+  String get apptSave => 'حفظ الموعد';
+
+  @override
+  String get apptUntitled => 'موعد';
+
+  @override
+  String get apptNoDate => 'بلا تاريخ بعد';
+
+  @override
+  String get apptToday => 'اليوم';
+
+  @override
+  String apptInDays(int days) {
+    String _temp0 = intl.Intl.pluralLogic(
+      days,
+      locale: localeName,
+      other: 'بعد $days يومًا',
+      few: 'بعد $days أيام',
+      two: 'بعد يومين',
+      one: 'غدًا',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get apptPrepHeading => 'ما أردتِ أن تسأليه';
+
+  @override
+  String get apptUpcoming => 'القادمة';
+
+  @override
+  String get apptPast => 'السابقة';
+
+  @override
+  String get apptNoResultsNote =>
+      'يحتفظ فيميو بموعدكِ ومع من هو وبما أردتِ أن تسأليه. ولا يحتفظ بما تبيّن — فذلك يخصّ طبيبكِ وملفكِ الطبي.';
+
+  @override
+  String get apptEmptyHeading => 'لا شيء هنا بعد';
+
+  @override
+  String get apptEmptyBody =>
+      'أضيفي موعدًا ليحفظ فيميو الأسئلة التي نويتِ طرحها، فهي الجزء الذي يُنسى داخل العيادة.';
+
+  @override
+  String get apptAwaitingHeading => 'ألم تصلكِ النتيجة بعد؟';
+
+  @override
+  String apptAwaitingBody(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: 'كنتِ تتوقّعين نتائج $count موعدًا منها حتى الآن.',
+      few: 'كنتِ تتوقّعين نتائج $count مواعيد منها حتى الآن.',
+      two: 'كنتِ تتوقّعين نتيجتَي موعدين منها حتى الآن.',
+      one: 'كنتِ تتوقّعين نتيجة أحد هذه المواعيد حتى الآن.',
+    );
+    return '$_temp0 قد يستحق الأمر السؤال — فتأخّر النتائج يحدث لأسباب اعتيادية كثيرة.';
+  }
+
+  @override
+  String get apptFormType => 'ما هو';
+
+  @override
+  String get apptFormTypePlaceholder => 'أشعة، تحليل دم، متابعة…';
+
+  @override
+  String get apptFormClinician => 'مع من';
+
+  @override
+  String get apptFormWhen => 'متى';
+
+  @override
+  String get apptFormResultsDue => 'قيل لكِ إن النتيجة تصل بحلول';
+
+  @override
+  String get apptFormResultsDueHint =>
+      'اختياري. سيذكّركِ فيميو بالسؤال إذا مرّ التاريخ، ولا يسجّل النتيجة نفسها أبدًا.';
+
+  @override
+  String get apptFormPrep => 'أسئلة تريدين طرحها';
+
+  @override
+  String get apptFormPrepPlaceholder => 'سؤال في كل سطر';
+
+  @override
+  String apptPrepCount(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count سؤالًا محفوظًا',
+      few: '$count أسئلة محفوظة',
+      two: 'سؤالان محفوظان',
+      one: 'سؤال واحد محفوظ',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get weightHeading => 'الوزن';
+
+  @override
+  String get weightIntro =>
+      'أضيفي قياسًا وقتما تشائين. يرسمها فيميو ويحتفظ بالأرقام لملفكِ.';
+
+  @override
+  String get weightValue => 'الوزن';
+
+  @override
+  String get weightSave => 'حفظ';
+
+  @override
+  String get weightInvalid =>
+      'لا يبدو هذا قياسًا لميزان. راجعي الرقم وأعيدي المحاولة.';
+
+  @override
+  String get weightNeedData => 'أضيفي قياسًا ثانيًا ليظهر الرسم هنا.';
+
+  @override
+  String weightChange(String value, String unit) {
+    return '$value $unit منذ أول قياس';
+  }
+
+  @override
+  String get weightNote =>
+      'قياساتكِ كما هي. لا يعرض فيميو نطاقًا مستهدفًا ولا يقول إن كان التغيّر متوقّعًا — فمعنى النمط بينكِ وبين قابلتكِ أو طبيبكِ.';
+
+  @override
+  String get weightDate => 'تاريخ القياس';
+
+  @override
+  String get weightUnitKg => 'كجم';
+
+  @override
+  String get weightUnitLb => 'رطل';
+
+  @override
+  String get apptDelete => 'حذف';
+
+  @override
+  String get apptEdit => 'تعديل';
 }

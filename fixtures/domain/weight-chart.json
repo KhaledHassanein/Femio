@@ -1,0 +1,155 @@
+{
+  "$comment": "Weight in pregnancy (lib/vitals/weight): her readings as geometry, change since the first, and nothing else: no target band, no expected gain (the harm is quiet). low/high/y rounded to 4 decimal places.",
+  "cases": [
+    {
+      "$comment": "One reading: no chart (a dot is not a pattern).",
+      "input": {
+        "entries": [
+          {
+            "id": "a",
+            "measuredOn": "2026-09-01",
+            "value": 64.2,
+            "unit": "kg"
+          }
+        ]
+      },
+      "expected": null
+    },
+    {
+      "$comment": "Sorted by date; change since the first, no target of any kind.",
+      "input": {
+        "entries": [
+          {
+            "id": "c",
+            "measuredOn": "2026-10-01",
+            "value": 66,
+            "unit": "kg"
+          },
+          {
+            "id": "a",
+            "measuredOn": "2026-09-01",
+            "value": 64.2,
+            "unit": "kg"
+          },
+          {
+            "id": "b",
+            "measuredOn": "2026-09-15",
+            "value": 65.1,
+            "unit": "kg"
+          }
+        ]
+      },
+      "expected": {
+        "unit": "kg",
+        "low": 62.2,
+        "high": 68,
+        "changeSinceFirst": 1.8,
+        "points": [
+          {
+            "entryId": "a",
+            "measuredOn": "2026-09-01",
+            "value": 64.2,
+            "unit": "kg",
+            "y": 0.3448
+          },
+          {
+            "entryId": "b",
+            "measuredOn": "2026-09-15",
+            "value": 65.1,
+            "unit": "kg",
+            "y": 0.5
+          },
+          {
+            "entryId": "c",
+            "measuredOn": "2026-10-01",
+            "value": 66,
+            "unit": "kg",
+            "y": 0.6552
+          }
+        ]
+      }
+    },
+    {
+      "$comment": "Mixed units: the most recent unit wins the axis; values converted for plotting only.",
+      "input": {
+        "entries": [
+          {
+            "id": "a",
+            "measuredOn": "2026-09-01",
+            "value": 64,
+            "unit": "kg"
+          },
+          {
+            "id": "b",
+            "measuredOn": "2026-09-20",
+            "value": 143.3,
+            "unit": "lb"
+          }
+        ]
+      },
+      "expected": {
+        "unit": "lb",
+        "low": 137.0958,
+        "high": 147.3,
+        "changeSinceFirst": 2.2,
+        "points": [
+          {
+            "entryId": "a",
+            "measuredOn": "2026-09-01",
+            "value": 141.1,
+            "unit": "lb",
+            "y": 0.392
+          },
+          {
+            "entryId": "b",
+            "measuredOn": "2026-09-20",
+            "value": 143.3,
+            "unit": "lb",
+            "y": 0.608
+          }
+        ]
+      }
+    },
+    {
+      "$comment": "Identical readings: padding keeps a flat line from dividing by zero.",
+      "input": {
+        "entries": [
+          {
+            "id": "a",
+            "measuredOn": "2026-09-01",
+            "value": 70,
+            "unit": "kg"
+          },
+          {
+            "id": "b",
+            "measuredOn": "2026-09-08",
+            "value": 70,
+            "unit": "kg"
+          }
+        ]
+      },
+      "expected": {
+        "unit": "kg",
+        "low": 68,
+        "high": 72,
+        "changeSinceFirst": 0,
+        "points": [
+          {
+            "entryId": "a",
+            "measuredOn": "2026-09-01",
+            "value": 70,
+            "unit": "kg",
+            "y": 0.5
+          },
+          {
+            "entryId": "b",
+            "measuredOn": "2026-09-08",
+            "value": 70,
+            "unit": "kg",
+            "y": 0.5
+          }
+        ]
+      }
+    }
+  ]
+}

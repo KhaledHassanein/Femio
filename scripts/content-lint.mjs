@@ -42,6 +42,16 @@ const ARTICLES_DIR = argv.find((a) => a.startsWith("--dir="))?.slice("--dir=".le
 const findings = [];
 const add = (file, rule, message) => findings.push({ file, rule, message });
 
+const TRANSLATION_FILE = /^(.+)\.(ar|fr|es)\.md$/;
+/** The two labels the brief fixes (§4, §8), as each locale writes them. */
+const LABELS = {
+  en: { doctor: "When to see a doctor", care: "Seek care now:" },
+  ar: { doctor: "متى تراجعين الطبيب؟", care: "اطلبي الرعاية الآن:" },
+  fr: { doctor: "Quand consulter", care: "Consultez sans attendre :" },
+  es: { doctor: "Cuándo consultar", care: "Busca atención ya:" },
+};
+const escapeRe = (s) => s.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+
 /* ------------------------------------------------------------------ *
  * Route surface — derived from the App Router, never hand-maintained.
  * A hardcoded list would drift the moment someone adds or renames a
@@ -73,9 +83,9 @@ if (existsSync(APP_DIR)) {
 }
 
 /** Resolve `/en/foo/bar` against the route table. Returns a verdict object. */
-function resolveRoute(path, slugSet) {
-  const m = path.match(/^\/en(\/.*)?$/);
-  if (!m) return { ok: false, why: "not an /en-prefixed Femio path" };
+function resolveRoute(path, slugSet, locale = "en") {
+  const m = path.match(new RegExp(`^/${locale}(/.*)?$`));
+  if (!m) return { ok: false, why: `not an /${locale}-prefixed Femio path` };
   const rest = m[1] ?? "";
   const exact = routes.get(rest);
   if (exact) {
@@ -217,7 +227,12 @@ const slugSet = new Set(parsed.map((p) => p.frontMatter.slug).filter(Boolean));
  * Per-file rules
  * ------------------------------------------------------------------ */
 for (const { file, frontMatter: fm, keyOrder, body } of parsed) {
-  const expectedSlug = file.replace(/\.md$/, "");
+  // `<slug>.<locale>.md` is a translation of `<slug>.md` (HANDOVER_TRANSLATION): same
+  // slug and schema, its own locale, links and the two required labels in its language.
+  const translation = file.match(TRANSLATION_FILE);
+  const locale = translation ? translation[2] : "en";
+  const labels = LABELS[locale];
+  const expectedSlug = translation ? translation[1] : file.replace(/\.md$/, "");
   const prose = proseOf(body);
 
   /* --- front matter: required keys, parity, no extras --- */
@@ -231,7 +246,7 @@ for (const { file, frontMatter: fm, keyOrder, body } of parsed) {
   }
 
   /* --- fixed values --- */
-  if (fm.locale !== "en") add(file, "locale", `locale must be "en", got ${JSON.stringify(fm.locale)}`);
+  if (fm.locale !== locale) add(file, "locale", `locale must be "${locale}", got ${JSON.stringify(fm.locale)}`);
   if (fm.status !== "draft") {
     add(file, "status", `status must be "draft" — publication is the CMS review gate's decision (§5, §9)`);
   }
@@ -256,15 +271,15 @@ for (const { file, frontMatter: fm, keyOrder, body } of parsed) {
 
   /* --- slug ↔ filename ↔ canonical_url --- */
   if (fm.slug !== expectedSlug) {
-    add(file, "slug", `slug ${JSON.stringify(fm.slug)} does not match filename \`${expectedSlug}.md\``);
+    add(file, "slug", `slug ${JSON.stringify(fm.slug)} does not match filename \`${file}\``);
   }
   if (typeof fm.canonical_url === "string") {
-    const m = fm.canonical_url.match(/^https:\/\/femioapp\.com\/en\/(learn|conditions)\/([a-z0-9-]+)$/);
+    const m = fm.canonical_url.match(new RegExp(`^https://femioapp\\.com/${locale}/(learn|conditions)/([a-z0-9-]+)$`));
     if (!m) {
       add(
         file,
         "canonical",
-        `canonical_url must be ${SITE_ORIGIN}/en/{learn|conditions}/{slug} (§5). Got ${JSON.stringify(fm.canonical_url)}`,
+        `canonical_url must be ${SITE_ORIGIN}/${locale}/{learn|conditions}/{slug} (§5). Got ${JSON.stringify(fm.canonical_url)}`,
       );
     } else if (m[2] !== fm.slug) {
       add(file, "canonical", `canonical_url slug "${m[2]}" disagrees with slug "${fm.slug}"`);
@@ -322,14 +337,14 @@ for (const { file, frontMatter: fm, keyOrder, body } of parsed) {
     add(file, "internal-links", `${declared.length} internal links; the brief asks for 3–6 (§7)`);
   }
   for (const link of declared) {
-    const verdict = resolveRoute(link, slugSet);
+    const verdict = resolveRoute(link, slugSet, locale);
     if (!verdict.ok) add(file, "internal-links", `internal_links entry \`${link}\` ${verdict.why} (§7)`);
   }
   // Every Femio link in the prose must also be declared, so the list can be trusted
   // as the thing reviewers and the importer read.
-  const bodyLinks = [...body.matchAll(/\]\((\/en\/[^)#?]*)/g)].map((m) => m[1].replace(/\/$/, ""));
+  const bodyLinks = [...body.matchAll(new RegExp(`\\]\\((/${locale}/[^)#?]*)`, "g"))].map((m) => m[1].replace(/\/$/, ""));
   for (const link of new Set(bodyLinks)) {
-    const verdict = resolveRoute(link, slugSet);
+    const verdict = resolveRoute(link, slugSet, locale);
     if (!verdict.ok) {
       add(file, "internal-links", `body links to \`${link}\` but ${verdict.why} (§7)`);
     } else if (!declared.includes(link)) {
@@ -367,18 +382,18 @@ for (const { file, frontMatter: fm, keyOrder, body } of parsed) {
   }
 
   const isProductPage = fm.content_type === "product introduction";
-  if (!isProductPage && !/^## When to see a doctor\s*$/im.test(body)) {
-    add(file, "structure", `missing the required "## When to see a doctor" section (§4)`);
+  if (!isProductPage && !new RegExp(`^## ${escapeRe(labels.doctor)}\\s*$`, "im").test(body)) {
+    add(file, "structure", `missing the required "## ${labels.doctor}" section (§4)`);
   }
   // The red-flag box is required where a symptom can be an emergency. `disclaimer_type`
   // is the author's own declaration that this article is in that territory, which makes
   // it a fair mechanical trigger — the judgement stays with the author, the consistency
   // is enforced here.
-  if (fm.disclaimer_type === "emergency" && !/^>\s*\*\*Seek care now:\*\*/im.test(body)) {
+  if (fm.disclaimer_type === "emergency" && !new RegExp(`^>\\s*\\*\\*${escapeRe(labels.care)}\\*\\*`, "im").test(body)) {
     add(
       file,
       "red-flag",
-      `disclaimer_type is "emergency" but there is no red-flag box; the brief requires a blockquote beginning \`**Seek care now:**\` (§4, §8)`,
+      `disclaimer_type is "emergency" but there is no red-flag box; the brief requires a blockquote beginning \`**${labels.care}**\` (§4, §8)`,
     );
   }
 
@@ -425,14 +440,14 @@ for (const { file, frontMatter: fm, keyOrder, body } of parsed) {
     );
   }
   const crisis = prose.match(CRISIS_TOPICS);
-  if (crisis && !body.includes("/en/help-now")) {
+  if (crisis && !body.includes(`/${locale}/help-now`)) {
     add(
       file,
       "safety",
       `mentions "${crisis[0]}" but never links to /en/help-now — crisis-adjacent content must route to the global crisis page (§8)`,
     );
   }
-  if (/\bfertile window\b/i.test(prose) && !body.includes(FERTILE_SENTENCE)) {
+  if (locale === "en" && /\bfertile window\b/i.test(prose) && !body.includes(FERTILE_SENTENCE)) {
     add(
       file,
       "fertile-window",
@@ -449,7 +464,8 @@ for (const field of ["meta_title", "meta_description", "slug", "primary_query"])
   for (const { file, frontMatter } of parsed) {
     const value = frontMatter[field];
     if (typeof value !== "string") continue;
-    const key = value.trim().toLowerCase();
+    // A translation shares its English file's slug and competes in its own language only.
+    const key = `${file.match(TRANSLATION_FILE)?.[2] ?? "en"}:${value.trim().toLowerCase()}`;
     if (!seen.has(key)) seen.set(key, []);
     seen.get(key).push(file);
   }
@@ -460,7 +476,7 @@ for (const field of ["meta_title", "meta_description", "slug", "primary_query"])
         field === "primary_query"
           ? "two articles competing for one query is keyword cannibalisation (§6, §7)"
           : `${field} must be unique across the whole set (§5)`;
-      add(owners.join(", "), rule, `duplicate ${field} ${JSON.stringify(value)} — ${why}`);
+      add(owners.join(", "), rule, `duplicate ${field} ${JSON.stringify(value.slice(value.indexOf(":") + 1))} — ${why}`);
     }
   }
 }
