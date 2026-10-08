@@ -2,6 +2,7 @@ import { describe, expect, it } from "vitest";
 import { readFileSync, readdirSync } from "node:fs";
 import { join } from "node:path";
 import { predictNextPeriod } from "./cycle/predict";
+import { bbtChart, type FertilityEntry } from "./fertility";
 import { eddFromConception, eddFromLmp, eddFromTransfer, pregnancyProgress } from "./pregnancy";
 import { phaseFor, phaseForTrack } from "./experience/phase";
 import { resolvePersona } from "./persona/resolver";
@@ -43,6 +44,12 @@ const REGISTRY = registryOf(PERSONA_RECORDS);
 const RUNNERS: Record<string, (input: never) => unknown> = {
   "cycle-prediction": (i: { starts: string[]; statedCycleLength?: number }) =>
     predictNextPeriod(i.starts, i.statedCycleLength),
+  "bbt-chart": (i: { cycleStart: string | null; entries: Array<{ id: string; loggedAt: string; bbt: number }> }) => {
+    const r4 = (n: number) => Math.round(n * 10_000) / 10_000;
+    const entries: FertilityEntry[] = i.entries.map((e) => ({ ...e, opk: null, cm: null, intercourse: null }));
+    const chart = bbtChart(entries, i.cycleStart);
+    return chart && { ...chart, low: r4(chart.low), high: r4(chart.high), points: chart.points.map((p) => ({ ...p, y: r4(p.y) })) };
+  },
   "edd-from": (i: { method: "lmp" | "conception" | "transfer3" | "transfer5"; date: string }) =>
     i.method === "lmp"
       ? eddFromLmp(i.date)

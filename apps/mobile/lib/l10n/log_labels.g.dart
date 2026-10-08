@@ -58,6 +58,16 @@ String logLabel(L10n l, String key) => switch (key) {
       _ => key,
     };
 
+/// The localised label for an ovulation-test result.
+String opkLabel(L10n l, String result) => switch (result) {
+      'negative' => l.opkNegative,
+      'low' => l.opkLow,
+      'high' => l.opkHigh,
+      'peak' => l.opkPeak,
+      'positive' => l.opkPositive,
+      _ => result,
+    };
+
 /// The localised label for a flow level.
 String flowLabel(L10n l, String level) => switch (level) {
       'spotting' => l.flowSpotting,

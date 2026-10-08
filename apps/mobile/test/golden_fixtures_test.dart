@@ -1,6 +1,7 @@
 import 'dart:convert';
 import 'dart:io';
 
+import 'package:femio/domain/bbt.dart';
 import 'package:femio/domain/cycle_prediction.dart';
 import 'package:femio/domain/pregnancy.dart';
 import 'package:flutter_test/flutter_test.dart';
@@ -21,6 +22,23 @@ final runners = <String, Object? Function(Map<String, dynamic>)>{
         List<String>.from(i['starts'] as List),
         i['statedCycleLength'] as int?,
       )?.toJson(),
+  'bbt-chart': (i) {
+    double r4(double n) => (n * 10000).round() / 10000;
+    final chart = bbtChart([
+      for (final e in i['entries'] as List)
+        BbtEntry(e['id'] as String, e['loggedAt'] as String, (e['bbt'] as num).toDouble()),
+    ], i['cycleStart'] as String?);
+    if (chart == null) return null;
+    return {
+      'unit': chart.unit,
+      'low': r4(chart.low),
+      'high': r4(chart.high),
+      'points': [
+        for (final p in chart.points)
+          {'entryId': p.entryId, 'loggedAt': p.loggedAt, 'cycleDay': p.cycleDay, 'bbt': p.bbt, 'y': r4(p.y)},
+      ],
+    };
+  },
   'edd-from': (i) {
     final date = i['date'] as String;
     return switch (i['method']) {

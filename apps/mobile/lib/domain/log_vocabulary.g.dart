@@ -67,3 +67,6 @@ const logTerms = <LogTerm>[
 ];
 
 const flowLevels = <String>['spotting', 'light', 'medium', 'heavy'];
+
+/// What the ovulation-test stick said: her reading, never Femio's conclusion.
+const opkResults = <String>['negative', 'low', 'high', 'peak', 'positive'];

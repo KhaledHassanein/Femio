@@ -228,5 +228,30 @@
         "type": "int"
       }
     }
-  }
+  },
+  "sectionOvulationTest": "Ovulation test",
+  "sectionTemperature": "Waking temperature",
+  "temperatureHint": "Taken before getting up, in °C or °F",
+  "temperatureSave": "Save",
+  "temperatureClear": "Clear",
+  "testTimingTitle": "When to test",
+  "testTimingBody": "If your period hasn't started by {date}, a home pregnancy test is reliable from that day.",
+  "@testTimingBody": {
+    "placeholders": {
+      "date": {
+        "type": "String"
+      }
+    }
+  },
+  "opkNegative": "Negative",
+  "opkLow": "Low",
+  "opkHigh": "High",
+  "opkPeak": "Peak",
+  "opkPositive": "Positive",
+  "bbtChartHeading": "Your temperatures",
+  "bbtChartNeedData": "Log three waking temperatures and your chart appears here. Fewer than that is a dot, not a pattern.",
+  "bbtChartNote": "These are your readings, drawn as they are. Femio does not mark a shift or name a day — what a chart means is a conversation for you and your clinician.",
+  "invalidBbt": "That does not look like a thermometer reading. Check the number and try again.",
+  "testTimingGeneral": "Most home tests work from the first day of a missed period. Testing earlier can give a negative result even if you are pregnant.",
+  "testTimingSource": "Source: NHS, Doing a pregnancy test."
 }

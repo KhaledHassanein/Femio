@@ -526,4 +526,64 @@ class L10nEs extends L10n {
     );
     return '$_temp0';
   }
+
+  @override
+  String get sectionOvulationTest => 'Prueba de ovulación';
+
+  @override
+  String get sectionTemperature => 'Temperatura al despertar';
+
+  @override
+  String get temperatureHint => 'Tomada antes de levantarte, en °C o °F';
+
+  @override
+  String get temperatureSave => 'Guardar';
+
+  @override
+  String get temperatureClear => 'Borrar';
+
+  @override
+  String get testTimingTitle => 'Cuándo hacer la prueba';
+
+  @override
+  String testTimingBody(String date) {
+    return 'Si tu regla no ha empezado el $date, una prueba de embarazo casera es fiable desde ese día.';
+  }
+
+  @override
+  String get opkNegative => 'Negativo';
+
+  @override
+  String get opkLow => 'Bajo';
+
+  @override
+  String get opkHigh => 'Alto';
+
+  @override
+  String get opkPeak => 'Pico';
+
+  @override
+  String get opkPositive => 'Positivo';
+
+  @override
+  String get bbtChartHeading => 'Tus temperaturas';
+
+  @override
+  String get bbtChartNeedData =>
+      'Registra tres temperaturas al despertar y tu gráfica aparecerá aquí. Menos que eso es un punto, no un patrón.';
+
+  @override
+  String get bbtChartNote =>
+      'Son tus mediciones, tal cual. Femio no marca ningún cambio ni señala ningún día — lo que significa una gráfica se habla contigo y tu profesional.';
+
+  @override
+  String get invalidBbt =>
+      'Eso no parece una lectura de termómetro. Revisa el número e inténtalo de nuevo.';
+
+  @override
+  String get testTimingGeneral =>
+      'La mayoría de las pruebas caseras funcionan desde el primer día de retraso de la regla. Hacerla antes puede dar negativo aunque estés embarazada.';
+
+  @override
+  String get testTimingSource => 'Fuente: NHS, hacer una prueba de embarazo.';
 }

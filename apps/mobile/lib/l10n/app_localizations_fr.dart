@@ -532,4 +532,64 @@ class L10nFr extends L10n {
     );
     return '$_temp0';
   }
+
+  @override
+  String get sectionOvulationTest => 'Test d\'ovulation';
+
+  @override
+  String get sectionTemperature => 'Température au réveil';
+
+  @override
+  String get temperatureHint => 'Prise avant de vous lever, en °C ou °F';
+
+  @override
+  String get temperatureSave => 'Enregistrer';
+
+  @override
+  String get temperatureClear => 'Effacer';
+
+  @override
+  String get testTimingTitle => 'Quand faire le test';
+
+  @override
+  String testTimingBody(String date) {
+    return 'Si vos règles n\'ont pas commencé le $date, un test de grossesse à domicile est fiable à partir de ce jour.';
+  }
+
+  @override
+  String get opkNegative => 'Négatif';
+
+  @override
+  String get opkLow => 'Faible';
+
+  @override
+  String get opkHigh => 'Élevé';
+
+  @override
+  String get opkPeak => 'Pic';
+
+  @override
+  String get opkPositive => 'Positif';
+
+  @override
+  String get bbtChartHeading => 'Vos températures';
+
+  @override
+  String get bbtChartNeedData =>
+      'Notez trois températures au réveil et votre courbe apparaîtra ici. En dessous, c’est un point, pas une tendance.';
+
+  @override
+  String get bbtChartNote =>
+      'Ce sont vos mesures, telles quelles. Femio ne signale aucun décalage et ne désigne aucun jour — ce que dit une courbe se discute avec votre clinicien·ne.';
+
+  @override
+  String get invalidBbt =>
+      'Cela ne ressemble pas à une mesure de thermomètre. Vérifiez le nombre et réessayez.';
+
+  @override
+  String get testTimingGeneral =>
+      'La plupart des tests à domicile fonctionnent dès le premier jour de retard des règles. Un test plus précoce peut être négatif même en cas de grossesse.';
+
+  @override
+  String get testTimingSource => 'Source : NHS, faire un test de grossesse.';
 }

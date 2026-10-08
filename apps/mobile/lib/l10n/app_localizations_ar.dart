@@ -533,4 +533,66 @@ class L10nAr extends L10n {
     );
     return '$_temp0';
   }
+
+  @override
+  String get sectionOvulationTest => 'اختبار الإباضة';
+
+  @override
+  String get sectionTemperature => 'حرارة الاستيقاظ';
+
+  @override
+  String get temperatureHint =>
+      'تُقاس قبل النهوض من السرير، بالدرجة المئوية أو الفهرنهايت';
+
+  @override
+  String get temperatureSave => 'حفظ';
+
+  @override
+  String get temperatureClear => 'مسح';
+
+  @override
+  String get testTimingTitle => 'متى تُجرين الاختبار';
+
+  @override
+  String testTimingBody(String date) {
+    return 'إذا لم تبدأ دورتك بحلول $date، يكون اختبار الحمل المنزلي موثوقًا ابتداءً من ذلك اليوم.';
+  }
+
+  @override
+  String get opkNegative => 'سلبي';
+
+  @override
+  String get opkLow => 'منخفض';
+
+  @override
+  String get opkHigh => 'مرتفع';
+
+  @override
+  String get opkPeak => 'الذروة';
+
+  @override
+  String get opkPositive => 'إيجابي';
+
+  @override
+  String get bbtChartHeading => 'درجات حرارتكِ';
+
+  @override
+  String get bbtChartNeedData =>
+      'سجّلي ثلاث قياسات لحرارة الاستيقاظ ليظهر رسمكِ هنا. ما دون ذلك نقطة، لا نمط.';
+
+  @override
+  String get bbtChartNote =>
+      'هذه قياساتكِ كما هي. لا يضع فيميو علامة على تحوّل ولا يسمّي يومًا — فمعنى الرسم حديثٌ بينكِ وبين طبيبكِ.';
+
+  @override
+  String get invalidBbt =>
+      'لا يبدو هذا قياسًا لميزان حرارة. راجعي الرقم وأعيدي المحاولة.';
+
+  @override
+  String get testTimingGeneral =>
+      'تعمل معظم الاختبارات المنزلية ابتداءً من أول يوم لتأخر الدورة. قد يعطي الاختبار المبكر نتيجة سلبية حتى لو كنتِ حاملًا.';
+
+  @override
+  String get testTimingSource =>
+      'المصدر: هيئة الخدمات الصحية البريطانية (NHS)، إجراء اختبار الحمل.';
 }

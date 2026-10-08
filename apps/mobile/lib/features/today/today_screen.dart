@@ -3,12 +3,14 @@ import 'package:intl/intl.dart' show DateFormat;
 
 import '../../app.dart';
 import '../../data/profile.dart';
+import '../../domain/bbt.dart';
 import '../../domain/cycle_prediction.dart';
 import '../../domain/dates.dart';
 import '../../domain/fertility.dart';
 import '../../domain/pregnancy.dart';
 import '../../l10n/app_localizations.dart';
 import '../../theme/femio_theme.dart';
+import '../../widgets/bbt_chart.dart';
 import '../../widgets/bloom.dart';
 
 /// Today, v0: her first prediction, the moment onboarding ends (spec §3 step 5), and
@@ -194,6 +196,10 @@ class _Hero extends StatelessWidget {
           ),
           note(l.awarenessNote),
           if (longTrying) note(l.seeClinicianTtc),
+          const SizedBox(height: 12),
+          _TestTiming(prediction: prediction, date: date),
+          const SizedBox(height: 12),
+          BbtChartCard(chart: _cycleBbt(profile)),
         ]);
 
       case Goal.pregnant:
@@ -326,6 +332,55 @@ class _PregnancyBar extends StatelessWidget {
           ]),
         );
       }),
+    );
+  }
+}
+
+/// Temperatures since her last period started: the current cycle's chart.
+BbtChart? _cycleBbt(Profile profile) {
+  final starts = bleedStarts(profile.periodStarts);
+  final since = starts.isEmpty ? null : starts.last;
+  return bbtChart([
+    for (final e in profile.logs.entries)
+      if (e.value.bbt != null && (since == null || e.key.compareTo(since) >= 0))
+        BbtEntry(e.key, e.key, e.value.bbt!),
+  ], since);
+}
+
+/// NHS timing (`calculators/index.ts` `pregnancyTestFromPeriod`): most tests work from the
+/// first day of a missed period. With a range, the end of the window is the honest
+/// "missed" day: testing earlier is what produces false negatives.
+class _TestTiming extends StatelessWidget {
+  const _TestTiming({required this.prediction, required this.date});
+  final CyclePrediction prediction;
+  final String Function(String) date;
+
+  @override
+  Widget build(BuildContext context) {
+    final l = L10n.of(context);
+    final p = context.palette;
+    final t = Theme.of(context).textTheme;
+    return Container(
+      padding: const EdgeInsets.all(18),
+      decoration: BoxDecoration(
+        color: p.surface,
+        borderRadius: BorderRadius.circular(24),
+        border: Border.all(color: p.border),
+      ),
+      child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+        Row(children: [
+          Icon(Icons.science_outlined, color: p.primary),
+          const SizedBox(width: 8),
+          Text(l.testTimingTitle, style: t.titleMedium),
+        ]),
+        const SizedBox(height: 8),
+        Text(
+          prediction.irregular ? l.testTimingGeneral : l.testTimingBody(date(prediction.windowEnd)),
+          style: t.bodyMedium,
+        ),
+        const SizedBox(height: 6),
+        Text(l.testTimingSource, style: t.bodySmall),
+      ]),
     );
   }
 }

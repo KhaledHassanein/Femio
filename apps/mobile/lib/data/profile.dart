@@ -12,21 +12,46 @@ enum TryingFor { justStarted, under6, sixTo12, over12 }
 
 /// One day's log. Terms are keys from the shared vocabulary (`log_vocabulary.g.dart`).
 class DayLog {
-  const DayLog({this.flow, this.terms = const []});
+  const DayLog({this.flow, this.terms = const [], this.opk, this.bbt});
 
   /// `spotting`, `light`, `medium`, `heavy`, or null for no bleeding logged.
   final String? flow;
   final List<String> terms;
 
-  bool get isEmpty => flow == null && terms.isEmpty;
+  /// What her ovulation-test stick said (`opkResults`), verbatim.
+  final String? opk;
+
+  /// Waking temperature, in the unit she typed (°C or °F, guessed from magnitude).
+  final double? bbt;
+
+  bool get isEmpty => flow == null && terms.isEmpty && opk == null && bbt == null;
+
+  DayLog copyWith({
+    Object? flow = _keep,
+    List<String>? terms,
+    Object? opk = _keep,
+    Object? bbt = _keep,
+  }) =>
+      DayLog(
+        flow: identical(flow, _keep) ? this.flow : flow as String?,
+        terms: terms ?? this.terms,
+        opk: identical(opk, _keep) ? this.opk : opk as String?,
+        bbt: identical(bbt, _keep) ? this.bbt : bbt as double?,
+      );
 
   /// Spotting is logged but is not a period: it never starts a cycle.
   bool get isBleed => flow != null && flow != 'spotting';
 
-  Map<String, Object?> toJson() => {'flow': flow, 'terms': terms};
-  static DayLog fromJson(Map<String, Object?> j) =>
-      DayLog(flow: j['flow'] as String?, terms: List<String>.from((j['terms'] as List?) ?? const []));
+  Map<String, Object?> toJson() => {'flow': flow, 'terms': terms, 'opk': opk, 'bbt': bbt};
+  static DayLog fromJson(Map<String, Object?> j) => DayLog(
+        flow: j['flow'] as String?,
+        terms: List<String>.from((j['terms'] as List?) ?? const []),
+        opk: j['opk'] as String?,
+        bbt: (j['bbt'] as num?)?.toDouble(),
+      );
 }
+
+const _keep = Object();
 
 class Profile {
   const Profile({

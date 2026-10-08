@@ -1018,6 +1018,114 @@ abstract class L10n {
   /// In en, this message translates to:
   /// **'{count, plural, =0{Nothing logged today} =1{1 thing logged today} other{{count} things logged today}}'**
   String loggedTodayCount(int count);
+
+  /// No description provided for @sectionOvulationTest.
+  ///
+  /// In en, this message translates to:
+  /// **'Ovulation test'**
+  String get sectionOvulationTest;
+
+  /// No description provided for @sectionTemperature.
+  ///
+  /// In en, this message translates to:
+  /// **'Waking temperature'**
+  String get sectionTemperature;
+
+  /// No description provided for @temperatureHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Taken before getting up, in °C or °F'**
+  String get temperatureHint;
+
+  /// No description provided for @temperatureSave.
+  ///
+  /// In en, this message translates to:
+  /// **'Save'**
+  String get temperatureSave;
+
+  /// No description provided for @temperatureClear.
+  ///
+  /// In en, this message translates to:
+  /// **'Clear'**
+  String get temperatureClear;
+
+  /// No description provided for @testTimingTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'When to test'**
+  String get testTimingTitle;
+
+  /// No description provided for @testTimingBody.
+  ///
+  /// In en, this message translates to:
+  /// **'If your period hasn\'t started by {date}, a home pregnancy test is reliable from that day.'**
+  String testTimingBody(String date);
+
+  /// No description provided for @opkNegative.
+  ///
+  /// In en, this message translates to:
+  /// **'Negative'**
+  String get opkNegative;
+
+  /// No description provided for @opkLow.
+  ///
+  /// In en, this message translates to:
+  /// **'Low'**
+  String get opkLow;
+
+  /// No description provided for @opkHigh.
+  ///
+  /// In en, this message translates to:
+  /// **'High'**
+  String get opkHigh;
+
+  /// No description provided for @opkPeak.
+  ///
+  /// In en, this message translates to:
+  /// **'Peak'**
+  String get opkPeak;
+
+  /// No description provided for @opkPositive.
+  ///
+  /// In en, this message translates to:
+  /// **'Positive'**
+  String get opkPositive;
+
+  /// No description provided for @bbtChartHeading.
+  ///
+  /// In en, this message translates to:
+  /// **'Your temperatures'**
+  String get bbtChartHeading;
+
+  /// No description provided for @bbtChartNeedData.
+  ///
+  /// In en, this message translates to:
+  /// **'Log three waking temperatures and your chart appears here. Fewer than that is a dot, not a pattern.'**
+  String get bbtChartNeedData;
+
+  /// No description provided for @bbtChartNote.
+  ///
+  /// In en, this message translates to:
+  /// **'These are your readings, drawn as they are. Femio does not mark a shift or name a day — what a chart means is a conversation for you and your clinician.'**
+  String get bbtChartNote;
+
+  /// No description provided for @invalidBbt.
+  ///
+  /// In en, this message translates to:
+  /// **'That does not look like a thermometer reading. Check the number and try again.'**
+  String get invalidBbt;
+
+  /// No description provided for @testTimingGeneral.
+  ///
+  /// In en, this message translates to:
+  /// **'Most home tests work from the first day of a missed period. Testing earlier can give a negative result even if you are pregnant.'**
+  String get testTimingGeneral;
+
+  /// No description provided for @testTimingSource.
+  ///
+  /// In en, this message translates to:
+  /// **'Source: NHS, Doing a pregnancy test.'**
+  String get testTimingSource;
 }
 
 class _L10nDelegate extends LocalizationsDelegate<L10n> {

@@ -130,4 +130,35 @@ void main() {
       });
     }
   }
+
+  for (final b in Brightness.values) {
+    for (final lang in ['en', 'ar']) {
+      testWidgets('ttc tools on Today and Log ($lang, ${b.name})', (tester) async {
+        var p = Profile(goal: Goal.ttc, locale: lang, birthYear: 1990, periodStarts: const ['2026-09-30'], cycleLength: 29, tryingFor: TryingFor.over12);
+        final temps = {'2026-10-03': 36.42, '2026-10-04': 36.38, '2026-10-05': 36.45, '2026-10-06': 36.40, '2026-10-07': 36.47};
+        for (final e in temps.entries) {
+          p = p.withDayLog(e.key, DayLog(bbt: e.value, opk: e.key == '2026-10-07' ? 'high' : 'negative'));
+        }
+        final c = FemioController(MemoryStore(p));
+        await _pump(tester, c, b);
+        tester.view.physicalSize = const Size(780, 3000);
+        await tester.pumpAndSettle();
+        await _shoot(tester, '${lang}_${b.name}_11_today_ttc_tools');
+        tester.view.physicalSize = const Size(780, 1688);
+        await tester.tap(find.byIcon(Icons.edit_note_outlined));
+        await tester.pumpAndSettle();
+        await tester.drag(find.byType(ListView).last, const Offset(0, -2400));
+        await _shoot(tester, '${lang}_${b.name}_12_log_ttc');
+        // Typing a temperature saves it; a typo is refused rather than recorded.
+        await tester.enterText(find.byType(TextField), '365');
+        await tester.tap(find.byType(FilledButton).last);
+        await tester.pumpAndSettle();
+        expect(c.profile!.logs[today]?.bbt, isNull);
+        await tester.enterText(find.byType(TextField), '36.52');
+        await tester.tap(find.byType(FilledButton).last);
+        await tester.pumpAndSettle();
+        expect(c.profile!.logs[today]!.bbt, 36.52);
+      });
+    }
+  }
 }

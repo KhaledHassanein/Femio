@@ -24,6 +24,17 @@ const { LOG_TERMS } = await import("../../apps/web/src/lib/experience/v2/vocabul
 const LOCALES = ["en", "ar", "fr", "es"];
 const DIMENSIONS = ["mood", "symptom", "discharge", "intercourse"];
 const FLOW = ["spotting", "light", "medium", "heavy"];
+const OPK = ["negative", "low", "high", "peak", "positive"];
+
+/** Whole strings the app takes from the web catalogues verbatim (arb key → web path). */
+const SHARED = {
+  bbtChartHeading: "fertility.chart.heading",
+  bbtChartNeedData: "fertility.chart.needData",
+  bbtChartNote: "fertility.chart.note",
+  invalidBbt: "fertility.invalidBbt",
+  testTimingGeneral: "calculators.pregnancyTest.notePeriod",
+  testTimingSource: "calculators.pregnancyTest.source",
+};
 
 const terms = LOG_TERMS.filter((t) => DIMENSIONS.includes(t.dimension));
 const camel = (s) => s.charAt(0).toUpperCase() + s.slice(1);
@@ -63,6 +74,9 @@ outputs.set(
     "",
     `const flowLevels = <String>[${FLOW.map((f) => `'${f}'`).join(", ")}];`,
     "",
+    "/// What the ovulation-test stick said: her reading, never Femio's conclusion.",
+    `const opkResults = <String>[${OPK.map((f) => `'${f}'`).join(", ")}];`,
+    "",
   ].join("\n"),
 );
 
@@ -77,6 +91,12 @@ outputs.set(
     "String logLabel(L10n l, String key) => switch (key) {",
     ...terms.map((t) => `      '${t.key}' => l.${arbKey(t.key)},`),
     "      _ => key,",
+    "    };",
+    "",
+    "/// The localised label for an ovulation-test result.",
+    "String opkLabel(L10n l, String result) => switch (result) {",
+    ...OPK.map((f) => `      '${f}' => l.opk${camel(f)},`),
+    "      _ => result,",
     "    };",
     "",
     "/// The localised label for a flow level.",
@@ -95,6 +115,8 @@ for (const locale of LOCALES) {
   for (const t of terms) arb[arbKey(t.key)] = lookup(web, t.labelKey);
   for (const f of FLOW) arb[`flow${camel(f)}`] = lookup(web, `track.flow.${f}`);
   arb.flowLabel = lookup(web, "track.flow.label");
+  for (const o of OPK) arb[`opk${camel(o)}`] = lookup(web, `fertility.opk.${o}`);
+  for (const [key, path] of Object.entries(SHARED)) arb[key] = lookup(web, path);
   outputs.set(path, `${JSON.stringify(arb, null, 2)}`);
 }
 

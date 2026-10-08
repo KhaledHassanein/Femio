@@ -3,6 +3,7 @@ import 'package:intl/intl.dart' show DateFormat;
 
 import '../../app.dart';
 import '../../data/profile.dart';
+import '../../domain/bbt.dart';
 import '../../domain/dates.dart';
 import '../../domain/log_vocabulary.g.dart';
 import '../../l10n/app_localizations.dart';
@@ -40,11 +41,11 @@ class LogScreen extends StatelessWidget {
             (profile.periodStarts.contains(date) ? const DayLog(flow: 'medium') : const DayLog());
 
         void save(DayLog next) => controller.setDayLog(date, next);
-        void setFlow(String? flow) => save(DayLog(flow: flow, terms: log.terms));
+        void setFlow(String? flow) => save(log.copyWith(flow: flow));
         void toggle(String key) {
           final terms = [...log.terms];
           terms.contains(key) ? terms.remove(key) : terms.add(key);
-          save(DayLog(flow: log.flow, terms: terms));
+          save(log.copyWith(terms: terms));
         }
 
         Widget section(String title, List<Widget> chips) => Padding(
@@ -126,6 +127,27 @@ class LogScreen extends StatelessWidget {
               section(l.sectionMood, [termChips(LogDimension.mood, p.logMoodAlt, p.logMood)]),
               section(l.sectionSymptoms, [termChips(LogDimension.symptom, p.logSymptomAlt, p.logSymptom)]),
               section(l.sectionDischarge, [termChips(LogDimension.discharge, p.logDischargeAlt, p.logDischarge)]),
+              section(l.sectionOvulationTest, [
+                for (final r in opkResults)
+                  _Chip(
+                    label: opkLabel(l, r),
+                    selected: log.opk == r,
+                    tint: p.successSoft,
+                    ink: p.successText,
+                    onTap: () => save(log.copyWith(opk: log.opk == r ? null : r)),
+                  ),
+              ]),
+              section(l.sectionTemperature, [
+                _TemperatureField(
+                  key: ValueKey('bbt-$date'),
+                  initial: log.bbt,
+                  hint: l.temperatureHint,
+                  saveLabel: l.temperatureSave,
+                  clearLabel: l.temperatureClear,
+                  invalid: l.invalidBbt,
+                  onSave: (v) => save(log.copyWith(bbt: v)),
+                ),
+              ]),
               section(l.sectionMore, [termChips(LogDimension.intercourse, p.surfaceSunken, p.text)]),
               const SizedBox(height: 24),
               Row(mainAxisAlignment: MainAxisAlignment.center, children: [
@@ -187,5 +209,109 @@ class _Chip extends StatelessWidget {
         ),
       ),
     );
+  }
+}
+
+/// Waking temperature, typed. Rejects only what no thermometer produced (a typo guard,
+/// `isPlausibleBbt`); a plausible number is never commented on.
+class _TemperatureField extends StatefulWidget {
+  const _TemperatureField({
+    super.key,
+    required this.initial,
+    required this.hint,
+    required this.saveLabel,
+    required this.clearLabel,
+    required this.invalid,
+    required this.onSave,
+  });
+  final double? initial;
+  final String hint;
+  final String saveLabel;
+  final String clearLabel;
+  final String invalid;
+  final ValueChanged<double?> onSave;
+
+  @override
+  State<_TemperatureField> createState() => _TemperatureFieldState();
+}
+
+class _TemperatureFieldState extends State<_TemperatureField> {
+  late final _controller = TextEditingController(text: widget.initial?.toString() ?? '');
+  String? _error;
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
+  }
+
+  void _save() {
+    final text = _controller.text.trim().replaceAll(',', '.').replaceAll('٫', '.');
+    final value = double.tryParse(text);
+    if (value == null || unitOf(value) == null) {
+      setState(() => _error = widget.invalid);
+      return;
+    }
+    setState(() => _error = null);
+    widget.onSave(value);
+    FocusScope.of(context).unfocus();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final p = context.palette;
+    final theme = Theme.of(context);
+    // The hint and the error sit under the whole row, in her reading direction: the
+    // field itself is LTR (numbers), and a helper inside it would be clipped to the
+    // field's width and drawn left-aligned in Arabic.
+    return Column(crossAxisAlignment: CrossAxisAlignment.stretch, children: [
+      Row(crossAxisAlignment: CrossAxisAlignment.center, children: [
+        Expanded(
+          child: TextField(
+            controller: _controller,
+            keyboardType: const TextInputType.numberWithOptions(decimal: true),
+            textDirection: TextDirection.ltr,
+            decoration: InputDecoration(
+              hintText: '36.5',
+              filled: true,
+              fillColor: p.surface,
+              border: OutlineInputBorder(borderRadius: BorderRadius.circular(16)),
+              enabledBorder: _error == null
+                  ? null
+                  : OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(16),
+                      borderSide: BorderSide(color: theme.colorScheme.error),
+                    ),
+            ),
+            onSubmitted: (_) => _save(),
+          ),
+        ),
+        const SizedBox(width: 8),
+        FilledButton(
+          style: FilledButton.styleFrom(minimumSize: const Size(88, 52)),
+          onPressed: _save,
+          child: Text(widget.saveLabel),
+        ),
+        if (widget.initial != null)
+          IconButton(
+            tooltip: widget.clearLabel,
+            onPressed: () {
+              _controller.clear();
+              widget.onSave(null);
+            },
+            icon: const Icon(Icons.close_rounded),
+          ),
+      ]),
+      const SizedBox(height: 6),
+      Padding(
+        padding: const EdgeInsetsDirectional.only(start: 12),
+        child: Text(
+          _error ?? widget.hint,
+          style: theme.textTheme.bodySmall?.copyWith(
+            color: _error == null ? p.textMuted : theme.colorScheme.error,
+          ),
+        ),
+      ),
+    ]);
   }
 }

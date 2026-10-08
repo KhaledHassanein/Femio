@@ -528,4 +528,64 @@ class L10nEn extends L10n {
     );
     return '$_temp0';
   }
+
+  @override
+  String get sectionOvulationTest => 'Ovulation test';
+
+  @override
+  String get sectionTemperature => 'Waking temperature';
+
+  @override
+  String get temperatureHint => 'Taken before getting up, in °C or °F';
+
+  @override
+  String get temperatureSave => 'Save';
+
+  @override
+  String get temperatureClear => 'Clear';
+
+  @override
+  String get testTimingTitle => 'When to test';
+
+  @override
+  String testTimingBody(String date) {
+    return 'If your period hasn\'t started by $date, a home pregnancy test is reliable from that day.';
+  }
+
+  @override
+  String get opkNegative => 'Negative';
+
+  @override
+  String get opkLow => 'Low';
+
+  @override
+  String get opkHigh => 'High';
+
+  @override
+  String get opkPeak => 'Peak';
+
+  @override
+  String get opkPositive => 'Positive';
+
+  @override
+  String get bbtChartHeading => 'Your temperatures';
+
+  @override
+  String get bbtChartNeedData =>
+      'Log three waking temperatures and your chart appears here. Fewer than that is a dot, not a pattern.';
+
+  @override
+  String get bbtChartNote =>
+      'These are your readings, drawn as they are. Femio does not mark a shift or name a day — what a chart means is a conversation for you and your clinician.';
+
+  @override
+  String get invalidBbt =>
+      'That does not look like a thermometer reading. Check the number and try again.';
+
+  @override
+  String get testTimingGeneral =>
+      'Most home tests work from the first day of a missed period. Testing earlier can give a negative result even if you are pregnant.';
+
+  @override
+  String get testTimingSource => 'Source: NHS, Doing a pregnancy test.';
 }
