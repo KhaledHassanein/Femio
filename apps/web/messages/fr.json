@@ -367,7 +367,8 @@
       "readIrregular": "Cycles irréguliers : ce qui aide",
       "readLate": "Quand faire un test de grossesse",
       "readNormal": "Mes règles sont-elles normales ?"
-    }
+    },
+    "privateNote": "Calculé dans votre navigateur : rien de ce que vous saisissez n’est envoyé à Femio."
   },
   "onboarding": {
     "baseline": {
@@ -864,7 +865,8 @@
       "teens": "Pour les ados",
       "menopause": "Périménopause et ménopause",
       "more": "Autres guides"
-    }
+    },
+    "englishOnly": "Les guides sont en anglais pour l'instant ; les versions françaises suivront."
   },
   "learn": {
     "englishOnly": "Ce guide n'est pas encore traduit ; il s'affiche donc en anglais.",
@@ -1503,7 +1505,7 @@
   },
   "editorialPolicy": {
     "title": "Politique éditoriale",
-    "intro": "Chaque affirmation santé sur Femio est traçable jusqu’à une source fiable, chaque page est relue par un clinicien qualifié avant sa mise en ligne, et chaque langue est médicalement correcte — pas seulement traduite.",
+    "intro": "Chaque affirmation santé sur Femio renvoie à une source reconnue, et chaque page indique clairement si un clinicien nommé l’a déjà relue. Une traduction n’est publiée qu’après relecture dans sa langue.",
     "points": [
       {
         "heading": "La preuve avant l’opinion",
@@ -1533,7 +1535,7 @@
   },
   "medicalReview": {
     "title": "Comment nous relisons le contenu",
-    "intro": "Aucun contenu santé n’est mis en ligne sur Femio tant qu’un clinicien qualifié ne l’a pas relu et approuvé — notre système refuse de publier tout contenu non relu.",
+    "intro": "Voici comment un guide est relu, et comment le savoir : un guide relu nomme son clinicien et la date ; un guide en attente indique « Relecture clinique en attente » et n’est pas indexé par les moteurs de recherche avant d’être validé.",
     "points": [
       {
         "heading": "Brouillon, relecture, approbation, publication",

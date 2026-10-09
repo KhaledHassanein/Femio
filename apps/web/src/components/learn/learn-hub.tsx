@@ -1,6 +1,6 @@
 import { getTranslations } from "next-intl/server";
 import { Search } from "lucide-react";
-import type { ContentDoc } from "@/lib/cms/client";
+import { translatedSlugs, type ContentDoc } from "@/lib/cms/client";
 import { lede } from "@/lib/cms/format";
 import { Link } from "@/i18n/navigation";
 import { PageView } from "@/components/analytics/page-view";
@@ -31,6 +31,11 @@ export async function LearnHub({ locale, articles }: { locale: string; articles:
   const start = START_HERE.map((s) => bySlug.get(s)).filter((a): a is ContentDoc => a != null);
   const questions = QUESTIONS.filter((q) => bySlug.has(q.slug));
   const rows = groupByTopic(articles.filter((a) => a.slug !== "meet-femio"));
+  // Which cards are really in this language. The rest are English under a
+  // translated shell, and say so, both to her and to a screen reader (audit F07).
+  const native =
+    locale === "en" ? null : ((await translatedSlugs("articles"))[locale] ?? new Set());
+  const englishOnly = native != null && native.size === 0;
 
   return (
     <main className="flex flex-col pb-16">
@@ -42,6 +47,9 @@ export async function LearnHub({ locale, articles }: { locale: string; articles:
           <div className="flex flex-col gap-2">
             <h1 className="font-display text-4xl font-medium leading-tight">{learn("title")}</h1>
             <p className="max-w-xl text-sm leading-relaxed opacity-90">{learn("subtitle")}</p>
+            {englishOnly ? (
+              <p className="w-fit rounded-pill bg-white/15 px-3 py-1 text-xs">{t("englishOnly")}</p>
+            ) : null}
           </div>
           <form
             action={`/${locale}/search`}
@@ -93,7 +101,12 @@ export async function LearnHub({ locale, articles }: { locale: string; articles:
       {start.length > 0 ? (
         <Row title={t("startHere")}>
           {start.map((doc) => (
-            <Card key={doc.id} doc={doc} size="lg" />
+            <Card
+              key={doc.id}
+              doc={doc}
+              size="lg"
+              english={native != null && !native.has(doc.slug)}
+            />
           ))}
         </Row>
       ) : null}
@@ -113,7 +126,11 @@ export async function LearnHub({ locale, articles }: { locale: string; articles:
                 const week = pregnancyWeek(doc.slug);
                 return (
                   <li key={doc.id}>
-                    <Link href={`/learn/${doc.slug}`} aria-label={t("week", { n: week ?? 0 })} className="learn-week">
+                    <Link
+                      href={`/learn/${doc.slug}`}
+                      aria-label={t("week", { n: week ?? 0 })}
+                      className="learn-week"
+                    >
                       {week}
                     </Link>
                   </li>
@@ -129,7 +146,7 @@ export async function LearnHub({ locale, articles }: { locale: string; articles:
             count={t("guides", { count: items.length })}
           >
             {items.map((doc) => (
-              <Card key={doc.id} doc={doc} />
+              <Card key={doc.id} doc={doc} english={native != null && !native.has(doc.slug)} />
             ))}
           </Row>
         ),
@@ -159,7 +176,10 @@ function Row({
   children: React.ReactNode;
 }) {
   return (
-    <section id={id} className="reveal mx-auto flex w-full max-w-5xl scroll-mt-24 flex-col gap-3 pt-10">
+    <section
+      id={id}
+      className="reveal mx-auto flex w-full max-w-5xl scroll-mt-24 flex-col gap-3 pt-10"
+    >
       <div className="px-4 sm:px-6">
         <RowHeading title={title} count={count} />
       </div>
@@ -170,7 +190,16 @@ function Row({
   );
 }
 
-function Card({ doc, size = "md" }: { doc: ContentDoc; size?: "md" | "lg" }) {
+function Card({
+  doc,
+  size = "md",
+  english = false,
+}: {
+  doc: ContentDoc;
+  size?: "md" | "lg";
+  /** True when this card is the English original under another locale's page. */
+  english?: boolean;
+}) {
   // Styling lives in `.learn-card` (globals.css), not in utility lists: with ~70
   // cards, every class string was paid for twice (HTML and React payload).
   const summary = lede(doc);
@@ -178,7 +207,7 @@ function Card({ doc, size = "md" }: { doc: ContentDoc; size?: "md" | "lg" }) {
     <li className={size === "lg" ? "learn-card learn-card-lg" : "learn-card"}>
       <Link href={`/learn/${doc.slug}`}>
         <TopicArt topic={topicOf(doc.slug)} slug={doc.slug} className="learn-card-art" />
-        <div>
+        <div {...(english ? { lang: "en", dir: "ltr" } : {})}>
           <h3 dir="auto">{doc.title}</h3>
           {summary ? <p dir="auto">{summary}</p> : null}
         </div>

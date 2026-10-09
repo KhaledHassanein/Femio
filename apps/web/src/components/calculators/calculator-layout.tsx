@@ -1,5 +1,5 @@
 import type { ReactNode } from "react";
-import { ArrowLeft, Info } from "lucide-react";
+import { ArrowLeft, Info, Lock } from "lucide-react";
 import { Alert, AlertDescription } from "@/components/ui/alert";
 import { Link } from "@/i18n/navigation";
 import { JsonLd } from "@/components/seo/json-ld";
@@ -13,6 +13,7 @@ export function CalculatorLayout({
   title,
   intro,
   disclaimer,
+  privateNote,
   backLabel,
   appCta,
   appCtaLink,
@@ -23,6 +24,8 @@ export function CalculatorLayout({
   title: string;
   intro: string;
   disclaimer: string;
+  /** "Calculated in your browser": true, and the thing a cautious woman wants to know first. */
+  privateNote?: string;
   backLabel: string;
   /** The bridge to the product (D8): every result can be tracked in the app. */
   appCta?: string;
@@ -46,6 +49,12 @@ export function CalculatorLayout({
       <div className="flex flex-col gap-1">
         <h1 className="font-display text-2xl text-text">{title}</h1>
         <p className="text-sm text-text-muted">{intro}</p>
+        {privateNote ? (
+          <p className="flex items-center gap-1.5 text-xs text-text-subtle">
+            <Lock className="size-3.5 shrink-0" aria-hidden />
+            {privateNote}
+          </p>
+        ) : null}
       </div>
       {children}
       {appCta && appCtaLink ? (

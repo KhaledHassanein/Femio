@@ -367,7 +367,8 @@
       "readIrregular": "Irregular cycles: what helps",
       "readLate": "When to take a pregnancy test",
       "readNormal": "Is my period normal?"
-    }
+    },
+    "privateNote": "Calculated in your browser: nothing you enter is sent to Femio."
   },
   "onboarding": {
     "baseline": {
@@ -864,7 +865,8 @@
       "teens": "For teens",
       "menopause": "Perimenopause and menopause",
       "more": "More guides"
-    }
+    },
+    "englishOnly": "Guides are in English for now."
   },
   "learn": {
     "englishOnly": "This guide is not translated yet, so it is shown in English.",
@@ -1503,7 +1505,7 @@
   },
   "editorialPolicy": {
     "title": "Editorial policy",
-    "intro": "Every health claim on Femio is traceable to a reputable source, every page is reviewed by a qualified clinician before it goes live, and every language is medically correct — not merely translated.",
+    "intro": "Every health claim on Femio is traceable to a reputable source, and every page says plainly whether a named clinician has reviewed it yet. A translation is published only after review in its own language.",
     "points": [
       {
         "heading": "Evidence over opinion",
@@ -1533,7 +1535,7 @@
   },
   "medicalReview": {
     "title": "How we review content",
-    "intro": "No health content goes live on Femio until a qualified clinician has reviewed and approved it — our system refuses to publish anything unreviewed.",
+    "intro": "This is how a guide is reviewed, and how you can tell. A reviewed guide names its clinician and the date; a guide still waiting for review says “Clinical review pending” and is not indexed by search engines until it is signed.",
     "points": [
       {
         "heading": "Draft, review, approve, publish",

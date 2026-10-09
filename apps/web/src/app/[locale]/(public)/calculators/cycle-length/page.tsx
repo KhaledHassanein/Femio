@@ -26,6 +26,7 @@ export default async function Page({ params }: PageProps) {
       title={t("cycleLength.title")}
       intro={t("cycleLength.intro")}
       disclaimer={t("disclaimer")}
+      privateNote={t("privateNote")}
       backLabel={t("common.back")}
       appCta={t("appCta")}
       appCtaLink={t("appCtaLink")}

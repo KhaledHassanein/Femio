@@ -367,7 +367,8 @@
       "readIrregular": "Ciclos irregulares: qué ayuda",
       "readLate": "Cuándo hacer una prueba de embarazo",
       "readNormal": "¿Es normal mi regla?"
-    }
+    },
+    "privateNote": "Calculado en tu navegador: nada de lo que escribes se envía a Femio."
   },
   "onboarding": {
     "baseline": {
@@ -864,7 +865,8 @@
       "teens": "Para adolescentes",
       "menopause": "Perimenopausia y menopausia",
       "more": "Más guías"
-    }
+    },
+    "englishOnly": "Las guías están en inglés por ahora; las versiones en español llegarán después."
   },
   "learn": {
     "englishOnly": "Esta guía aún no está traducida, por eso se muestra en inglés.",
@@ -1503,7 +1505,7 @@
   },
   "editorialPolicy": {
     "title": "Política editorial",
-    "intro": "Cada afirmación de salud en Femio es rastreable hasta una fuente fiable, cada página la revisa un profesional clínico cualificado antes de publicarse, y cada idioma es médicamente correcto — no solo traducido.",
+    "intro": "Cada afirmación de salud en Femio remite a una fuente de prestigio, y cada página dice claramente si un profesional clínico con nombre la ha revisado ya. Una traducción solo se publica tras revisarse en su idioma.",
     "points": [
       {
         "heading": "La evidencia por encima de la opinión",
@@ -1533,7 +1535,7 @@
   },
   "medicalReview": {
     "title": "Cómo revisamos el contenido",
-    "intro": "Ningún contenido de salud se publica en Femio hasta que un profesional clínico cualificado lo ha revisado y aprobado — nuestro sistema se niega a publicar nada sin revisar.",
+    "intro": "Así se revisa una guía, y así puedes saberlo: una guía revisada nombra a su profesional y la fecha; una guía pendiente dice «Revisión clínica pendiente» y los buscadores no la indexan hasta que se firma.",
     "points": [
       {
         "heading": "Borrador, revisión, aprobación, publicación",
