@@ -19,23 +19,18 @@ export default getRequestConfig(async ({ requestLocale }) => {
     locale,
     messages,
     /**
-     * Arabic renders **Western digits** — 1 2 3, not ١ ٢ ٣ (owner decision,
-     * R3.5.2, 2026-08-22).
+     * Arabic renders **Western digits** (owner decision, R3.5.2, 2026-08-22), and
+     * `numbering.test.ts` pins that bare `ar` resolves to them.
      *
-     * Both are correct Arabic. Arabic-Indic is standard in Egypt and the Gulf,
-     * Western across the Maghreb, and the app was doing **both at once**: dates
-     * came out `2026/08/31` while the onboarding age bands read `١٣–١٥`, which a
-     * native reader notices immediately (`docs/26` §14).
-     *
-     * Stated rather than inherited. `Intl` with a bare `ar` locale picks a
-     * numbering system per runtime, so leaving it implicit means the digits a woman
-     * sees depend on which Node or browser served her — and the catalog and the
-     * formatter could drift apart again silently. `-u-nu-latn` pins it, and the
-     * catalog strings were converted to match in the same change.
+     * The returned `locale` must stay a **route** locale. Returning
+     * `ar-u-nu-latn` here (2026-08-23 to 2026-10-09) made `useLocale()` return it,
+     * so every next-intl `Link` on the Arabic site pointed at `/ar-u-nu-latn/...`
+     * and 404'd: the Arabic site could only be read by typing URLs. If the digits
+     * ever need pinning again, pass `numberingSystem: "latn"` where we format,
+     * never through this field. `request.test.ts` guards it.
      */
     formats: {
       dateTime: { medium: { dateStyle: "medium" }, long: { dateStyle: "long" } },
     },
-    ...(locale === "ar" ? { locale: "ar-u-nu-latn" as const } : {}),
   };
 });

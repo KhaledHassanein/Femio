@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { useFormatter, useTranslations } from "next-intl";
 import {
+  cycleInRange,
   MAX_CYCLE,
   MIN_CYCLE,
   pregnancyTestFromPeriod,
@@ -14,6 +15,7 @@ import { Label } from "@/components/ui/label";
 import { chipVariants } from "@/components/ui/chip";
 import { useCalculatorUsed } from "@/lib/analytics/use-calculator-used";
 import { MiniCalendar, type DayMark } from "./mini-calendar";
+import { CalcNotice, ResultRegion, useToday } from "./calc-notice";
 
 type Mode = "period" | "sex";
 
@@ -24,9 +26,13 @@ export function PregnancyTestCalculator() {
   const [date, setDate] = useState("");
   const [cycle, setCycle] = useState("28");
 
+  const ti = useTranslations("calculators.issues");
+  const today = useToday();
+  const future = Boolean(date && today && date > today);
+  const cycleBad = mode === "period" && !cycleInRange(Number(cycle));
   const fromPeriod =
-    mode === "period" && date ? pregnancyTestFromPeriod(date, Number(cycle) || 28) : null;
-  const fromSex = mode === "sex" && date ? pregnancyTestFromSex(date) : null;
+    mode === "period" && date && !future ? pregnancyTestFromPeriod(date, Number(cycle)) : null;
+  const fromSex = mode === "sex" && date && !future ? pregnancyTestFromSex(date) : null;
   const testFrom = fromPeriod?.testFrom ?? fromSex?.testFrom ?? null;
   useCalculatorUsed(testFrom != null);
 
@@ -78,24 +84,33 @@ export function PregnancyTestCalculator() {
           </div>
         ) : null}
 
-        {testFrom ? (
-          <div className="flex flex-col gap-4">
-            <div className="flex flex-col gap-1 rounded-md bg-primary-soft p-4 text-primary-soft-text">
-              {fromPeriod ? (
-                <p className="text-sm">
-                  {t("pregnancyTest.expectedPeriodLabel")} {fmt(fromPeriod.expectedPeriod)}
+        <ResultRegion>
+          {future ? <CalcNotice>{ti("future")}</CalcNotice> : null}
+          {date && cycleBad ? (
+            <CalcNotice read={["irregular", "test"]}>
+              {ti("cycleRange", { min: MIN_CYCLE, max: MAX_CYCLE })}
+            </CalcNotice>
+          ) : null}
+          {testFrom && today && testFrom <= today ? <CalcNotice>{ti("testNow")}</CalcNotice> : null}
+          {testFrom ? (
+            <div className="flex flex-col gap-4">
+              <div className="flex flex-col gap-1 rounded-md bg-primary-soft p-4 text-primary-soft-text">
+                {fromPeriod ? (
+                  <p className="text-sm">
+                    {t("pregnancyTest.expectedPeriodLabel")} {fmt(fromPeriod.expectedPeriod)}
+                  </p>
+                ) : null}
+                <p className="text-sm">{t("pregnancyTest.testFromLabel")}</p>
+                <p className="font-display text-xl">{fmt(testFrom)}</p>
+                <p className="mt-1 text-xs">
+                  {t(fromPeriod ? "pregnancyTest.notePeriod" : "pregnancyTest.noteSex")}
                 </p>
-              ) : null}
-              <p className="text-sm">{t("pregnancyTest.testFromLabel")}</p>
-              <p className="font-display text-xl">{fmt(testFrom)}</p>
-              <p className="mt-1 text-xs">
-                {t(fromPeriod ? "pregnancyTest.notePeriod" : "pregnancyTest.noteSex")}
-              </p>
+              </div>
+              <MiniCalendar marks={marks} from={testFrom} to={testFrom} />
+              <p className="text-2xs text-text-subtle">{t("pregnancyTest.source")}</p>
             </div>
-            <MiniCalendar marks={marks} from={testFrom} to={testFrom} />
-            <p className="text-2xs text-text-subtle">{t("pregnancyTest.source")}</p>
-          </div>
-        ) : null}
+          ) : null}
+        </ResultRegion>
       </CardContent>
     </Card>
   );

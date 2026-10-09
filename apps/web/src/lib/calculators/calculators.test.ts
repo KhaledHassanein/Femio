@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { addDays, diffDays } from "./dates";
+import { addDays, diffDays, todayISO } from "./dates";
 import {
   bmi,
   cycleStats,
@@ -27,9 +27,11 @@ describe("estimateDueDate", () => {
     expect(diffDays(LMP, estimateDueDate(LMP, 21)!.edd)).toBe(280 - 7);
   });
 
-  it("clamps extreme cycle lengths", () => {
-    expect(diffDays(LMP, estimateDueDate(LMP, 999)!.edd)).toBe(280 + (45 - 28));
-    expect(diffDays(LMP, estimateDueDate(LMP, 1)!.edd)).toBe(280 + (20 - 28));
+  it("refuses cycle lengths calendar maths cannot use, instead of clamping them", () => {
+    // Audit F02: 90 was silently computed as 45 with 90 still showing in the box.
+    expect(estimateDueDate(LMP, 999)).toBeNull();
+    expect(estimateDueDate(LMP, 1)).toBeNull();
+    expect(diffDays(LMP, estimateDueDate(LMP, 45)!.edd)).toBe(280 + (45 - 28));
   });
 
   it("returns null for an invalid date", () => {
@@ -82,9 +84,12 @@ describe("bmi", () => {
     expect(bmi(120, 200)!.category).toBe("obese"); // exactly 30.0
   });
 
-  it("returns null for non-positive input", () => {
+  it("returns null for non-positive or implausible adult input", () => {
     expect(bmi(0, 175)).toBeNull();
     expect(bmi(70, 0)).toBeNull();
+    expect(bmi(-70, 170)).toBeNull();
+    expect(bmi(300.5, 170)).toBeNull();
+    expect(bmi(70, 50)).toBeNull();
   });
 });
 
@@ -95,8 +100,16 @@ describe("cycleStats", () => {
       min: 28,
       max: 28,
       count: 1,
-      regular: true,
+      regular: null,
+      tooClose: false,
     });
+  });
+
+  it("gives no regularity verdict from one interval, and flags starts too close to be cycles", () => {
+    // Audit F04: one interval, even a one-day one, was called "regular".
+    expect(cycleStats(["2026-08-01", "2026-08-29"])!.regular).toBeNull();
+    expect(cycleStats(["2026-08-01", "2026-08-02"])!.tooClose).toBe(true);
+    expect(cycleStats(["2026-01-01", "2026-01-29", "2026-02-26"])!.regular).toBe(true);
   });
 
   it("flags irregular when spread > 7 days", () => {
@@ -135,9 +148,10 @@ describe("periodForecast", () => {
     expect(first!.earliest).toBe(first!.latest);
   });
 
-  it("accepts the bounds in either order and clamps them", () => {
+  it("accepts the bounds in either order and refuses out-of-range ones", () => {
     expect(periodForecast(LMP, 30, 26)).toEqual(periodForecast(LMP, 26, 30));
-    expect(diffDays(LMP, periodForecast(LMP, 5, 99)![0]!.latest)).toBe(45);
+    expect(periodForecast(LMP, 24, 90)).toBeNull();
+    expect(periodForecast(LMP, 5, 30)).toBeNull();
   });
 
   it("returns null for an invalid date", () => {
@@ -162,5 +176,13 @@ describe("pregnancy test timing (NHS)", () => {
 describe("trimesterOf", () => {
   it("uses ACOG's 14 and 28 week boundaries", () => {
     expect([0, 13, 14, 27, 28, 41].map(trimesterOf)).toEqual([1, 1, 2, 2, 3, 3]);
+  });
+});
+
+describe("todayISO", () => {
+  it("is her local calendar date, not UTC's", () => {
+    // 23:30 local on 9 October is still the 9th, whatever UTC says (audit F17).
+    expect(todayISO(new Date(2026, 9, 9, 23, 30))).toBe("2026-10-09");
+    expect(todayISO(new Date(2026, 9, 10, 0, 30))).toBe("2026-10-10");
   });
 });

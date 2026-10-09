@@ -151,11 +151,15 @@ function cleanStarts(starts: string[]): string[] {
 export function bleedStarts(dates: string[]): string[] {
   const sorted = cleanStarts(dates);
   const starts: string[] = [];
+  // Measured from the previous bleeding day, not from the run's first day: a
+  // 12-day bleed is one period, and measuring from its start split it into two
+  // with an 11-day "cycle" between them (public audit appendix S02, 2026-10-09).
+  let previous: string | undefined;
   for (const date of sorted) {
-    const previous = starts[starts.length - 1];
     if (previous === undefined || diffDays(previous, date) > SAME_BLEED_WITHIN_DAYS) {
       starts.push(date);
     }
+    previous = date;
   }
   return starts;
 }

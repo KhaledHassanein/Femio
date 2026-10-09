@@ -11,8 +11,14 @@ export const MAX_CYCLE = 45;
 
 export type BmiCategory = "underweight" | "normal" | "overweight" | "obese";
 
-function clampCycle(cycleLength: number): number {
-  return Math.min(MAX_CYCLE, Math.max(MIN_CYCLE, Math.round(cycleLength)));
+/**
+ * Calendar maths only holds for cycles of 20–45 days. Outside that range every tool
+ * returns null and the screen says why: until 2026-10-09 the value was silently
+ * clamped, so a woman who typed 90 got answers computed for 45 with 90 still showing
+ * in the box (public audit F02).
+ */
+export function cycleInRange(cycleLength: number): boolean {
+  return Number.isFinite(cycleLength) && cycleLength >= MIN_CYCLE && cycleLength <= MAX_CYCLE;
 }
 
 /** EDD from LMP, adjusted for cycle length, plus the full-term (37–42w) window. */
@@ -20,8 +26,8 @@ export function estimateDueDate(
   lmpISO: string,
   cycleLength = 28,
 ): { edd: string; termStart: string; termEnd: string } | null {
-  if (!isValidISODate(lmpISO)) return null;
-  const adjust = clampCycle(cycleLength) - 28;
+  if (!isValidISODate(lmpISO) || !cycleInRange(cycleLength)) return null;
+  const adjust = Math.round(cycleLength) - 28;
   return {
     edd: addDays(lmpISO, GESTATION_DAYS + adjust),
     termStart: addDays(lmpISO, 259 + adjust), // 37w0d
@@ -34,8 +40,8 @@ export function fertileWindow(
   lmpISO: string,
   cycleLength = 28,
 ): { ovulation: string; windowStart: string; windowEnd: string; nextPeriod: string } | null {
-  if (!isValidISODate(lmpISO)) return null;
-  const cycle = clampCycle(cycleLength);
+  if (!isValidISODate(lmpISO) || !cycleInRange(cycleLength)) return null;
+  const cycle = Math.round(cycleLength);
   const nextPeriod = addDays(lmpISO, cycle);
   const ovulation = addDays(nextPeriod, -LUTEAL_PHASE_DAYS);
   return {
@@ -57,12 +63,17 @@ export function gestationalAge(
   return { weeks: Math.floor(totalDays / 7), days: totalDays % 7, totalDays };
 }
 
+/** Outside these an entry is a typo or not an adult, and BMI says nothing useful. */
+export const ADULT_WEIGHT_KG = [30, 300] as const;
+export const ADULT_HEIGHT_CM = [120, 230] as const;
+
 /** BMI (metric). Category uses WHO adult cutoffs — general information, not a diagnosis. */
 export function bmi(
   weightKg: number,
   heightCm: number,
 ): { value: number; category: BmiCategory } | null {
-  if (!(weightKg > 0) || !(heightCm > 0)) return null;
+  if (!(weightKg >= ADULT_WEIGHT_KG[0] && weightKg <= ADULT_WEIGHT_KG[1])) return null;
+  if (!(heightCm >= ADULT_HEIGHT_CM[0] && heightCm <= ADULT_HEIGHT_CM[1])) return null;
   const meters = heightCm / 100;
   const value = Math.round((weightKg / (meters * meters)) * 10) / 10;
   let category: BmiCategory;
@@ -73,10 +84,25 @@ export function bmi(
   return { value, category };
 }
 
-/** Average cycle length + variability from period start dates (needs ≥2). */
-export function cycleStats(
-  startDatesISO: string[],
-): { averageLength: number; min: number; max: number; count: number; regular: boolean } | null {
+/** Two "starts" closer than this are almost always days of the same period. */
+export const MIN_GAP_DAYS = 15;
+
+/**
+ * Average cycle length + variability from period start dates (needs ≥2).
+ *
+ * `regular` is null until there are two intervals: one interval has no spread to
+ * judge, and calling it regular reassured a woman who had typed two consecutive
+ * bleeding days (audit F04). `tooClose` flags a gap under `MIN_GAP_DAYS`, which the
+ * screen treats as a data-entry problem, not a cycle.
+ */
+export function cycleStats(startDatesISO: string[]): {
+  averageLength: number;
+  min: number;
+  max: number;
+  count: number;
+  regular: boolean | null;
+  tooClose: boolean;
+} | null {
   const sorted = startDatesISO
     .filter(isValidISODate)
     .sort()
@@ -95,7 +121,8 @@ export function cycleStats(
     min,
     max,
     count: lengths.length,
-    regular: max - min <= 7,
+    regular: lengths.length < 2 ? null : max - min <= 7,
+    tooClose: min < MIN_GAP_DAYS,
   };
 }
 
@@ -125,9 +152,9 @@ export function periodForecast(
   periodLength = 5,
   count = 3,
 ): PeriodForecast[] | null {
-  if (!isValidISODate(lmpISO)) return null;
-  const a = clampCycle(Math.min(shortest, longest));
-  const b = clampCycle(Math.max(shortest, longest));
+  if (!isValidISODate(lmpISO) || !cycleInRange(shortest) || !cycleInRange(longest)) return null;
+  const a = Math.round(Math.min(shortest, longest));
+  const b = Math.round(Math.max(shortest, longest));
   const len = Math.min(MAX_PERIOD, Math.max(MIN_PERIOD, Math.round(periodLength) || 5));
   const out: PeriodForecast[] = [];
   for (let n = 1; n <= count; n += 1) {
@@ -154,8 +181,8 @@ export function pregnancyTestFromPeriod(
   lmpISO: string,
   cycleLength = 28,
 ): { expectedPeriod: string; testFrom: string } | null {
-  if (!isValidISODate(lmpISO)) return null;
-  const expectedPeriod = addDays(lmpISO, clampCycle(cycleLength));
+  if (!isValidISODate(lmpISO) || !cycleInRange(cycleLength)) return null;
+  const expectedPeriod = addDays(lmpISO, Math.round(cycleLength));
   return { expectedPeriod, testFrom: expectedPeriod };
 }
 

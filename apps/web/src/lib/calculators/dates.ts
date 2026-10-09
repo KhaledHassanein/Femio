@@ -22,6 +22,12 @@ export function diffDays(aISO: string, bISO: string): number {
   return Math.round((toUTC(bISO) - toUTC(aISO)) / MS_PER_DAY);
 }
 
-export function todayISO(): string {
-  return new Date().toISOString().slice(0, 10);
+/**
+ * Her calendar date, not UTC's: in Cairo after 21:00 UTC is already tomorrow, and
+ * the UTC date made the pregnancy-week tool a day behind every evening (audit F17).
+ */
+export function todayISO(now = new Date()): string {
+  const m = String(now.getMonth() + 1).padStart(2, "0");
+  const d = String(now.getDate()).padStart(2, "0");
+  return `${now.getFullYear()}-${m}-${d}`;
 }

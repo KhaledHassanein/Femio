@@ -276,7 +276,7 @@
       "title": "Pregnancy week calculator",
       "intro": "See how many weeks along you are, counting from your last period.",
       "asOfLabel": "As of",
-      "resultLabel": "{weeks} weeks and {days} days"
+      "resultLabel": "{weeks, plural, one {# week} other {# weeks}} and {days, plural, one {# day} other {# days}}"
     },
     "bmi": {
       "title": "BMI calculator",
@@ -304,11 +304,11 @@
       "addDate": "Add another date",
       "removeDate": "Remove",
       "averageLabel": "Average cycle length",
-      "daysValue": "{days} days",
+      "daysValue": "{days, plural, one {# day} other {# days}}",
       "rangeLabel": "Range",
-      "regular": "Your cycles look regular.",
-      "irregular": "Your cycles vary — that's common, and Femio adapts predictions when they do.",
-      "needTwo": "Add at least two period start dates."
+      "regular": "Your cycles vary by a week or less.",
+      "irregular": "Your cycles vary by more than a week. That's common, and it's useful to know before you use a calendar estimate.",
+      "needTwo": "Add at least two different period start dates."
     },
     "appCta": "Track this automatically in the Femio app.",
     "appCtaLink": "Get the app",
@@ -347,6 +347,24 @@
     "progress": {
       "trimester": "Trimester {n}",
       "weekOf": "Week {week} of 40"
+    },
+    "issues": {
+      "future": "That date hasn't happened yet. Check the date you entered.",
+      "asOfBeforeLmp": "The “as of” date is before your last period. Check both dates.",
+      "cycleRange": "This tool works for cycles of {min} to {max} days. Cycles shorter or longer than that can't be predicted from dates alone, so any date we showed would be a guess.",
+      "periodLengthRange": "Enter a period length between {min} and {max} days.",
+      "swapped": "Your shortest cycle was longer than your longest, so we swapped them.",
+      "lmpLongAgo": "Your last period started {days, plural, one {# day} other {# days}} ago, longer than your longest cycle, so these dates have passed. If you could be pregnant, a test can tell you. If your periods are often this far apart, it is worth talking to a doctor.",
+      "notCurrentPregnancy": "That date is more than 42 weeks ago, so it can't be a pregnancy in progress. Check the date you entered.",
+      "pastTerm": "You're past 41 weeks. Care teams usually check in and talk about next steps around now. If you haven't heard from yours, call them.",
+      "testNow": "That day has already come, so a test now should give a reliable result.",
+      "bmiImplausible": "These numbers are outside an adult's height and weight. Check them, and check the units.",
+      "bmiAdults": "For adults 18 and over. Children and teenagers need an age-based chart; their clinician can check it.",
+      "oneInterval": "One cycle measured. Add another start date to see how much your cycles vary.",
+      "tooClose": "Two of these dates are only {days, plural, one {# day} other {# days}} apart. Enter just the first day of each period, not every day you bled.",
+      "readIrregular": "Irregular cycles: what helps",
+      "readLate": "When to take a pregnancy test",
+      "readNormal": "Is my period normal?"
     }
   },
   "onboarding": {

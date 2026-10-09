@@ -127,6 +127,42 @@
           "rule": "observed"
         }
       }
+    },
+    {
+      "input": {
+        "starts": [
+          "2026-01-01",
+          "2026-01-02",
+          "2026-01-03",
+          "2026-01-04",
+          "2026-01-05",
+          "2026-01-06",
+          "2026-01-07",
+          "2026-01-08",
+          "2026-01-09",
+          "2026-01-10",
+          "2026-01-11",
+          "2026-01-12",
+          "2026-01-29"
+        ]
+      },
+      "expected": {
+        "averageLength": 28,
+        "basis": "observed",
+        "predictedStart": "2026-02-26",
+        "windowStart": "2026-02-24",
+        "windowEnd": "2026-02-28",
+        "confidence": "low",
+        "irregular": false,
+        "learning": true,
+        "evidence": {
+          "cyclesUsed": 1,
+          "spread": 0,
+          "margin": 2,
+          "recentWindow": 1,
+          "rule": "observed"
+        }
+      }
     }
   ]
 }

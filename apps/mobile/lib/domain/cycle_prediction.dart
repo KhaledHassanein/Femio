@@ -81,10 +81,14 @@ const _maxPlausibleCycleDays = 90;
 List<String> bleedStarts(List<String> dates) {
   final sorted = dates.where(isValidISODate).toSet().toList()..sort();
   final starts = <String>[];
+  // From the previous bleeding day, not the run's first day: a 12-day bleed is one
+  // period (twin of predict.ts `bleedStarts`, audit appendix S02).
+  String? previous;
   for (final date in sorted) {
-    if (starts.isEmpty || diffDays(starts.last, date) > _sameBleedWithinDays) {
+    if (previous == null || diffDays(previous, date) > _sameBleedWithinDays) {
       starts.add(date);
     }
+    previous = date;
   }
   return starts;
 }

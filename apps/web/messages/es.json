@@ -276,7 +276,7 @@
       "title": "Calculadora de semanas de embarazo",
       "intro": "Ve de cuántas semanas estás, contando desde tu última menstruación.",
       "asOfLabel": "A fecha de",
-      "resultLabel": "{weeks} semanas y {days} días"
+      "resultLabel": "{weeks, plural, one {# semana} other {# semanas}} y {days, plural, one {# día} other {# días}}"
     },
     "bmi": {
       "title": "Calculadora de IMC",
@@ -304,11 +304,11 @@
       "addDate": "Añadir otra fecha",
       "removeDate": "Quitar",
       "averageLabel": "Duración media del ciclo",
-      "daysValue": "{days} días",
+      "daysValue": "{days, plural, one {# día} other {# días}}",
       "rangeLabel": "Rango",
-      "regular": "Tus ciclos parecen regulares.",
-      "irregular": "Tus ciclos varían — es común, y Femio adapta sus predicciones cuando ocurre.",
-      "needTwo": "Añade al menos dos fechas de inicio de la menstruación."
+      "regular": "Tus ciclos varían una semana o menos.",
+      "irregular": "Tus ciclos varían más de una semana. Es común, y conviene saberlo antes de fiarte de una estimación por calendario.",
+      "needTwo": "Añade al menos dos fechas de inicio de la menstruación distintas."
     },
     "appCta": "Registra esto automáticamente en la app de Femio.",
     "appCtaLink": "Descargar la app",
@@ -347,6 +347,24 @@
     "progress": {
       "trimester": "Trimestre {n}",
       "weekOf": "Semana {week} de 40"
+    },
+    "issues": {
+      "future": "Esa fecha todavía no ha llegado. Revisa la fecha que indicaste.",
+      "asOfBeforeLmp": "La fecha «a día de» es anterior a tu última menstruación. Revisa ambas fechas.",
+      "cycleRange": "Esta herramienta funciona con ciclos de {min} a {max} días. Fuera de ese rango no se puede predecir solo con fechas, y cualquier fecha que mostráramos sería una suposición.",
+      "periodLengthRange": "Indica una duración de la regla entre {min} y {max} días.",
+      "swapped": "Tu ciclo más corto era más largo que el más largo, así que los hemos intercambiado.",
+      "lmpLongAgo": "Tu última menstruación empezó hace {days, plural, one {# día} other {# días}}, más que tu ciclo más largo, así que estas fechas ya pasaron. Si puedes estar embarazada, una prueba te lo dirá. Si tus reglas suelen estar tan separadas, conviene hablarlo con un médico.",
+      "notCurrentPregnancy": "Esa fecha es de hace más de 42 semanas, así que no puede ser un embarazo en curso. Revisa la fecha que indicaste.",
+      "pastTerm": "Has pasado las 41 semanas. Tu equipo suele hacer seguimiento y hablar de los siguientes pasos en este momento. Si no sabes nada de ellos, llámalos.",
+      "testNow": "Ese día ya llegó, así que una prueba ahora debería ser fiable.",
+      "bmiImplausible": "Estos números están fuera de la altura y el peso de una persona adulta. Revísalos, y revisa las unidades.",
+      "bmiAdults": "Para personas adultas de 18 años o más. Niñas, niños y adolescentes necesitan una gráfica por edad que puede revisar su pediatra.",
+      "oneInterval": "Un solo ciclo medido. Añade otra fecha de inicio para ver cuánto varían tus ciclos.",
+      "tooClose": "Dos de estas fechas están a solo {days, plural, one {# día} other {# días}}. Indica solo el primer día de cada regla, no cada día de sangrado.",
+      "readIrregular": "Ciclos irregulares: qué ayuda",
+      "readLate": "Cuándo hacer una prueba de embarazo",
+      "readNormal": "¿Es normal mi regla?"
     }
   },
   "onboarding": {

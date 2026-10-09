@@ -2,13 +2,21 @@
 
 import { useState } from "react";
 import { useFormatter, useTranslations } from "next-intl";
-import { MAX_CYCLE, MAX_PERIOD, MIN_CYCLE, MIN_PERIOD, periodForecast } from "@/lib/calculators";
-import { addDays } from "@/lib/calculators/dates";
+import {
+  cycleInRange,
+  MAX_CYCLE,
+  MAX_PERIOD,
+  MIN_CYCLE,
+  MIN_PERIOD,
+  periodForecast,
+} from "@/lib/calculators";
+import { addDays, diffDays } from "@/lib/calculators/dates";
 import { Card, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { useCalculatorUsed } from "@/lib/analytics/use-calculator-used";
 import { MiniCalendar, markRange, type DayMark } from "./mini-calendar";
+import { CalcNotice, ResultRegion, useToday } from "./calc-notice";
 
 export function PeriodCalculator() {
   const t = useTranslations("calculators");
@@ -18,10 +26,21 @@ export function PeriodCalculator() {
   const [longest, setLongest] = useState("28");
   const [length, setLength] = useState("5");
 
-  const len = Number(length) || 5;
-  const result = lmp
-    ? periodForecast(lmp, Number(shortest) || 28, Number(longest) || 28, len, 3)
-    : null;
+  const ti = useTranslations("calculators.issues");
+  const today = useToday();
+  const len = Number(length);
+  const lo = Number(shortest);
+  const hi = Number(longest);
+  // Every input she typed is used as typed or the screen says why it isn't (F02).
+  const future = Boolean(lmp && today && lmp > today);
+  const cycleBad = !cycleInRange(lo) || !cycleInRange(hi);
+  const lengthBad = !(len >= MIN_PERIOD && len <= MAX_PERIOD);
+  const forecast =
+    lmp && !future && !cycleBad && !lengthBad ? periodForecast(lmp, lo, hi, len, 3) : null;
+  const daysAgo = lmp && today ? diffDays(lmp, today) : 0;
+  // Her last period is further back than her longest cycle: every date would be past.
+  const overdue = forecast != null && daysAgo > Math.max(lo, hi);
+  const result = overdue ? null : forecast;
   useCalculatorUsed(result != null);
 
   const fmt = (iso: string) =>
@@ -77,31 +96,46 @@ export function PeriodCalculator() {
           />
         </div>
 
-        {result ? (
-          <div className="flex flex-col gap-4">
-            <ol className="flex flex-col gap-2">
-              {result.map((p, i) => (
-                <li
-                  key={p.earliest}
-                  className="flex items-center justify-between gap-3 rounded-md bg-log-period-alt px-4 py-3 text-log-period"
-                >
-                  <span className="text-sm">{t("period.nextLabel", { n: i + 1 })}</span>
-                  <span className="font-display text-md">
-                    {p.earliest === p.latest
-                      ? t("period.singleValue", { date: fmt(p.earliest) })
-                      : t("period.rangeValue", { start: fmt(p.earliest), end: fmt(p.latest) })}
-                  </span>
-                </li>
-              ))}
-            </ol>
-            <MiniCalendar
-              marks={marks}
-              from={result[0]!.earliest}
-              to={addDays(result[2]!.latest, len)}
-            />
-            <p className="text-xs text-text-muted">{t("period.resultNote")}</p>
-          </div>
-        ) : null}
+        <ResultRegion>
+          {future ? <CalcNotice>{ti("future")}</CalcNotice> : null}
+          {lmp && cycleBad ? (
+            <CalcNotice read={["irregular"]}>
+              {ti("cycleRange", { min: MIN_CYCLE, max: MAX_CYCLE })}
+            </CalcNotice>
+          ) : null}
+          {lmp && lengthBad ? (
+            <CalcNotice>{ti("periodLengthRange", { min: MIN_PERIOD, max: MAX_PERIOD })}</CalcNotice>
+          ) : null}
+          {overdue ? (
+            <CalcNotice read={["test", "normal"]}>{ti("lmpLongAgo", { days: daysAgo })}</CalcNotice>
+          ) : null}
+          {result && lo > hi ? <CalcNotice>{ti("swapped")}</CalcNotice> : null}
+          {result ? (
+            <div className="flex flex-col gap-4">
+              <ol className="flex flex-col gap-2">
+                {result.map((p, i) => (
+                  <li
+                    key={p.earliest}
+                    className="flex items-center justify-between gap-3 rounded-md bg-log-period-alt px-4 py-3 text-log-period"
+                  >
+                    <span className="text-sm">{t("period.nextLabel", { n: i + 1 })}</span>
+                    <span className="font-display text-md">
+                      {p.earliest === p.latest
+                        ? t("period.singleValue", { date: fmt(p.earliest) })
+                        : t("period.rangeValue", { start: fmt(p.earliest), end: fmt(p.latest) })}
+                    </span>
+                  </li>
+                ))}
+              </ol>
+              <MiniCalendar
+                marks={marks}
+                from={result[0]!.earliest}
+                to={addDays(result[2]!.latest, len)}
+              />
+              <p className="text-xs text-text-muted">{t("period.resultNote")}</p>
+            </div>
+          ) : null}
+        </ResultRegion>
       </CardContent>
     </Card>
   );

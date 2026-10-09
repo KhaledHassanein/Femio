@@ -276,7 +276,7 @@
       "title": "Calculateur de semaines de grossesse",
       "intro": "Voyez à combien de semaines vous en êtes, à partir de vos dernières règles.",
       "asOfLabel": "À la date du",
-      "resultLabel": "{weeks} semaines et {days} jours"
+      "resultLabel": "{weeks, plural, one {# semaine} other {# semaines}} et {days, plural, one {# jour} other {# jours}}"
     },
     "bmi": {
       "title": "Calculateur d'IMC",
@@ -304,11 +304,11 @@
       "addDate": "Ajouter une date",
       "removeDate": "Retirer",
       "averageLabel": "Durée moyenne du cycle",
-      "daysValue": "{days} jours",
+      "daysValue": "{days, plural, one {# jour} other {# jours}}",
       "rangeLabel": "Écart",
-      "regular": "Vos cycles semblent réguliers.",
-      "irregular": "Vos cycles varient — c'est courant, et Femio adapte ses prévisions en conséquence.",
-      "needTwo": "Ajoutez au moins deux dates de début de règles."
+      "regular": "Vos cycles varient d'une semaine ou moins.",
+      "irregular": "Vos cycles varient de plus d'une semaine. C'est courant, et utile à savoir avant de vous fier à une estimation par calendrier.",
+      "needTwo": "Ajoutez au moins deux dates de début de règles différentes."
     },
     "appCta": "Suivez cela automatiquement dans l'application Femio.",
     "appCtaLink": "Obtenir l'app",
@@ -347,6 +347,24 @@
     "progress": {
       "trimester": "Trimestre {n}",
       "weekOf": "Semaine {week} sur 40"
+    },
+    "issues": {
+      "future": "Cette date n'est pas encore passée. Vérifiez la date saisie.",
+      "asOfBeforeLmp": "La date « au » précède vos dernières règles. Vérifiez les deux dates.",
+      "cycleRange": "Cet outil fonctionne pour des cycles de {min} à {max} jours. Au-delà, les dates seules ne permettent pas de prévoir, et toute date affichée serait une supposition.",
+      "periodLengthRange": "Indiquez une durée de règles entre {min} et {max} jours.",
+      "swapped": "Votre cycle le plus court était plus long que le plus long : nous les avons inversés.",
+      "lmpLongAgo": "Vos dernières règles ont commencé il y a {days, plural, one {# jour} other {# jours}}, plus longtemps que votre cycle le plus long : ces dates sont passées. Si vous pouvez être enceinte, un test vous le dira. Si vos règles sont souvent aussi espacées, parlez-en à un médecin.",
+      "notCurrentPregnancy": "Cette date remonte à plus de 42 semaines : ce ne peut pas être une grossesse en cours. Vérifiez la date saisie.",
+      "pastTerm": "Vous avez dépassé 41 semaines. L'équipe qui vous suit fait généralement le point à ce moment-là. Si vous n'avez pas de nouvelles, appelez-la.",
+      "testNow": "Ce jour est déjà arrivé : un test maintenant devrait être fiable.",
+      "bmiImplausible": "Ces valeurs sont en dehors de la taille et du poids d'un adulte. Vérifiez-les, ainsi que les unités.",
+      "bmiAdults": "Pour les adultes de 18 ans et plus. Les enfants et adolescents ont besoin d'une courbe selon l'âge, que leur médecin peut vérifier.",
+      "oneInterval": "Un seul cycle mesuré. Ajoutez une autre date de début pour voir combien vos cycles varient.",
+      "tooClose": "Deux de ces dates ne sont séparées que de {days, plural, one {# jour} other {# jours}}. Indiquez seulement le premier jour de chaque période de règles, pas chaque jour de saignement.",
+      "readIrregular": "Cycles irréguliers : ce qui aide",
+      "readLate": "Quand faire un test de grossesse",
+      "readNormal": "Mes règles sont-elles normales ?"
     }
   },
   "onboarding": {

@@ -4,6 +4,7 @@ import { useState } from "react";
 import { Plus, X } from "lucide-react";
 import { useTranslations } from "next-intl";
 import { cycleStats } from "@/lib/calculators";
+import { CalcNotice, ResultRegion } from "./calc-notice";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
@@ -14,8 +15,7 @@ export function CycleLengthCalculator() {
   const t = useTranslations("calculators");
   const [dates, setDates] = useState<string[]>(["", ""]);
 
-  const setAt = (i: number, v: string) =>
-    setDates((d) => d.map((x, idx) => (idx === i ? v : x)));
+  const setAt = (i: number, v: string) => setDates((d) => d.map((x, idx) => (idx === i ? v : x)));
   const add = () => setDates((d) => [...d, ""]);
   const remove = (i: number) => setDates((d) => d.filter((_, idx) => idx !== i));
 
@@ -55,20 +55,30 @@ export function CycleLengthCalculator() {
           <Plus className="size-4" />
           {t("cycleLength.addDate")}
         </Button>
-        {result ? (
-          <div className="rounded-sm bg-primary-soft p-4 text-primary-soft-text">
-            <p className="text-sm">{t("cycleLength.averageLabel")}</p>
-            <p className="font-display text-xl">{days(result.averageLength)}</p>
-            <p className="mt-1 text-sm">
-              {t("cycleLength.rangeLabel")}: {days(result.min)} – {days(result.max)}
-            </p>
-            <p className="mt-2 text-sm">
-              {result.regular ? t("cycleLength.regular") : t("cycleLength.irregular")}
-            </p>
-          </div>
-        ) : (
-          <p className="text-sm text-text-muted">{t("cycleLength.needTwo")}</p>
-        )}
+        <ResultRegion>
+          {result?.tooClose ? (
+            <CalcNotice>{t("issues.tooClose", { days: result.min })}</CalcNotice>
+          ) : result ? (
+            <div className="rounded-sm bg-primary-soft p-4 text-primary-soft-text">
+              <p className="text-sm">{t("cycleLength.averageLabel")}</p>
+              <p className="font-display text-xl">{days(result.averageLength)}</p>
+              {result.count > 1 ? (
+                <p className="mt-1 text-sm">
+                  {t("cycleLength.rangeLabel")}: {days(result.min)} – {days(result.max)}
+                </p>
+              ) : null}
+              <p className="mt-2 text-sm">
+                {result.regular === null
+                  ? t("issues.oneInterval")
+                  : result.regular
+                    ? t("cycleLength.regular")
+                    : t("cycleLength.irregular")}
+              </p>
+            </div>
+          ) : (
+            <p className="text-sm text-text-muted">{t("cycleLength.needTwo")}</p>
+          )}
+        </ResultRegion>
       </CardContent>
     </Card>
   );

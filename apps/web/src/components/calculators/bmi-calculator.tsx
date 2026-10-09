@@ -3,6 +3,8 @@
 import { useState } from "react";
 import { useTranslations } from "next-intl";
 import { bmi } from "@/lib/calculators";
+import { CalcNotice, ResultRegion } from "./calc-notice";
+
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
@@ -10,6 +12,14 @@ import { Label } from "@/components/ui/label";
 import { useCalculatorUsed } from "@/lib/analytics/use-calculator-used";
 
 type Unit = "metric" | "imperial";
+
+const LB_PER_KG = 2.20462;
+const CM_PER_IN = 2.54;
+/** Re-express a typed value in the other unit, so switching never changes her body (F03). */
+const convert = (v: string, factor: number, decimals: number) =>
+  v.trim() === "" || !Number.isFinite(Number(v))
+    ? v
+    : String(Number((Number(v) * factor).toFixed(decimals)));
 
 export function BmiCalculator() {
   const t = useTranslations("calculators");
@@ -19,9 +29,18 @@ export function BmiCalculator() {
 
   const w = Number(weight);
   const h = Number(height);
-  const weightKg = unit === "metric" ? w : w * 0.453592;
-  const heightCm = unit === "metric" ? h : h * 2.54;
+  const weightKg = unit === "metric" ? w : w / LB_PER_KG;
+  const heightCm = unit === "metric" ? h : h * CM_PER_IN;
   const result = weight && height ? bmi(weightKg, heightCm) : null;
+  const implausible = Boolean(weight && height) && result == null;
+  const switchTo = (next: Unit) => {
+    if (next === unit) return;
+    setWeight((w) => convert(w, next === "imperial" ? LB_PER_KG : 1 / LB_PER_KG, 1));
+    setHeight((h) =>
+      convert(h, next === "imperial" ? 1 / CM_PER_IN : CM_PER_IN, next === "imperial" ? 1 : 0),
+    );
+    setUnit(next);
+  };
   useCalculatorUsed(result != null);
 
   return (
@@ -34,7 +53,7 @@ export function BmiCalculator() {
               type="button"
               variant={unit === u ? "primary" : "outline"}
               size="sm"
-              onClick={() => setUnit(u)}
+              onClick={() => switchTo(u)}
               aria-pressed={unit === u}
             >
               {t(u === "metric" ? "bmi.unitMetric" : "bmi.unitImperial")}
@@ -67,16 +86,20 @@ export function BmiCalculator() {
             onChange={(e) => setHeight(e.target.value)}
           />
         </div>
-        {result ? (
-          <div className="rounded-sm bg-primary-soft p-4 text-primary-soft-text">
-            <p className="text-sm">{t("bmi.resultLabel")}</p>
-            <p className="font-display text-xl">{result.value}</p>
-            <p className="mt-1 text-sm">
-              {t("bmi.categoryLabel", { category: t(`bmi.categories.${result.category}`) })}
-            </p>
-            <p className="mt-2 text-xs opacity-90">{t("bmi.note")}</p>
-          </div>
-        ) : null}
+        <p className="text-2xs text-text-muted">{t("issues.bmiAdults")}</p>
+        <ResultRegion>
+          {implausible ? <CalcNotice>{t("issues.bmiImplausible")}</CalcNotice> : null}
+          {result ? (
+            <div className="rounded-sm bg-primary-soft p-4 text-primary-soft-text">
+              <p className="text-sm">{t("bmi.resultLabel")}</p>
+              <p className="font-display text-xl">{result.value}</p>
+              <p className="mt-1 text-sm">
+                {t("bmi.categoryLabel", { category: t(`bmi.categories.${result.category}`) })}
+              </p>
+              <p className="mt-2 text-xs opacity-90">{t("bmi.note")}</p>
+            </div>
+          ) : null}
+        </ResultRegion>
       </CardContent>
     </Card>
   );

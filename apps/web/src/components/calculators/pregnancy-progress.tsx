@@ -17,7 +17,7 @@ export function PregnancyProgress({ weeks }: { weeks: number }) {
   return (
     <div className="flex flex-col gap-2">
       <div className="flex items-baseline justify-between text-xs text-text-muted">
-        <span>{t("weekOf", { week: Math.floor(at) })}</span>
+        <span>{t("weekOf", { week: Math.floor(Math.max(0, weeks)) })}</span>
         <span className="font-semibold text-text">{t("trimester", { n: trimesterOf(at) })}</span>
       </div>
       <div aria-hidden className="relative">
