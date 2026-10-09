@@ -59,6 +59,7 @@ work.** Marks: `[ ]` open · `[~]` in progress · `[x]` done (commit) · `[BLOCK
 
 | When | What | Commit |
 |---|---|---|
+| 2026-10-09 | Public audit (GPT report verified + own crawl of 230 pages, 66 calculator runs, 8 persona/competitor agents): Arabic links 404 fixed, library un-noindexed for reviewed pages (ADR-071), honest review labels, calculator validation, shared bleed-grouping fix (web + app), language switcher, search aliases, gated emergency numbers; owner D-6..D-10 | `c719d54` `0fa8067` `50f2fbb` |
 | 2026-10-08 | P2.4 article template; tester guide (no test login: public site, private app) | this commit |
 | 2026-10-08 | P3.6 appointments + weight log; French register (vous) across the site; Ramadan-and-pregnancy draft (EN/AR) | f486149 |
 | 2026-10-08 | P3.6 pregnancy tools (movement log, contraction timer); delegation skill; translation QA applied | f8d8dd2 |
