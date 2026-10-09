@@ -3,6 +3,7 @@ import { routing } from "@/i18n/routing";
 import { siteConfig } from "@/lib/seo/config";
 import { listContent, listPeople, translatedSlugs, LIST_FIELDS } from "@/lib/cms/client";
 import { isUnpublishedSection } from "@/lib/content/unpublished-sections";
+import { isIndexable } from "@/lib/seo/content-index";
 
 // Static routes + published CMS content (P1.11.1). Deliberate exclusions:
 //  - /help-now (crisis-safety routing) is `noindex` and must never surface in search;
@@ -74,11 +75,13 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     // gone". A 5xx on /sitemap.xml is simply retried. Loud beats quietly wrong.
     const docs = await listContent(collection, routing.defaultLocale, {
       throwOnFailure: true,
-      fields: LIST_FIELDS,
+      fields: [...LIST_FIELDS, "medicalReviewerProfile"],
     });
     // One lookup for the whole collection, not one per document — see translatedSlugs.
     const byLocale = await translatedSlugs(collection, { throwOnFailure: true });
     for (const d of docs) {
+      // Only what may be indexed: a sitemap listing noindex pages contradicts itself.
+      if (!isIndexable(d, true)) continue;
       const locales = routing.locales.filter((l) => byLocale[l]?.has(d.slug));
       add(`${base}/${d.slug}`, d.updatedAt ? new Date(d.updatedAt) : now, locales);
     }

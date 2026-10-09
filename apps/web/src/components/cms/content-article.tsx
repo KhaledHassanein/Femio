@@ -148,10 +148,16 @@ export async function ContentArticle({
         <div className="flex flex-col gap-2.5 rounded-lg border border-border bg-surface p-4">
           <Byline authors={doc.authors ?? []} reviewer={doc.medicalReviewerProfile ?? null} />
           <div className="flex flex-wrap items-center gap-2 text-xs text-text-muted">
-            <Badge variant="success">{t("reviewed")}</Badge>
+            {/* "Clinician reviewed" only where a clinician is named: 75 of 100 guides
+                showed it with nobody behind it (public audit F06, 2026-10-09). */}
+            {doc.medicalReviewerProfile ? (
+              <Badge variant="success">{t("reviewed")}</Badge>
+            ) : (
+              <Badge variant="neutral">{t("reviewPending")}</Badge>
+            )}
             {doc.lastReviewed ? (
               <span>
-                {t("lastReviewed", {
+                {t(doc.medicalReviewerProfile ? "lastReviewed" : "updated", {
                   date: format.dateTime(new Date(doc.lastReviewed), { dateStyle: "medium" }),
                 })}
               </span>

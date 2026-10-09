@@ -105,6 +105,9 @@ export function PregnancyTestCalculator() {
                 <p className="mt-1 text-xs">
                   {t(fromPeriod ? "pregnancyTest.notePeriod" : "pregnancyTest.noteSex")}
                 </p>
+                {fromSex ? (
+                  <p className="mt-1 text-xs">{t("pregnancyTest.emergencyNote")}</p>
+                ) : null}
               </div>
               <MiniCalendar marks={marks} from={testFrom} to={testFrom} />
               <p className="text-2xs text-text-subtle">{t("pregnancyTest.source")}</p>

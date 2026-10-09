@@ -46,7 +46,7 @@ sources:
 internal_links:
   - "/en/learn/is-my-period-normal"
   - "/en/learn/period-at-school"
-  - "/en/learn/painful-periods"
+  - "/en/conditions/painful-periods"
   - "/en/learn/when-to-tell-an-adult"
 ---
 
@@ -97,7 +97,7 @@ You or a trusted adult can arrange an appointment if:
 - you have pain at other times of the month, not only with your period
 - you have pain when you use a tampon, or during sex
 
-Adults sometimes say period pain is just part of it. It is fair to ask again, or to ask someone else. [Period pain and how it is looked at in adults](/en/learn/painful-periods) is written for adult readers and goes into more detail if you want it.
+Adults sometimes say period pain is just part of it. It is fair to ask again, or to ask someone else. [Period pain and how it is looked at in adults](/en/conditions/painful-periods) is written for adult readers and goes into more detail if you want it.
 
 > **Seek care now:** get help the same day if the pain is sudden and severe rather than the usual cramping, if you cannot stand up or function at all, if you faint or nearly faint, if you have a fever with the pain, or if you are soaking through a pad or tampon every hour or two.
 

@@ -485,3 +485,23 @@ when sync does.
 **What a future session must not do by accident.** Re-enable `WEB_APP_ENABLED` in production,
 add an analytics or ads SDK to the app, or send any health value off the phone, without a new
 ADR and the compliance package that sync requires (`PRIVATE_LAUNCH_V1.md` §7).
+
+## ADR-071 (2026-10-09): A health page is indexed when, and only when, it names its clinical reviewer
+
+**Context.** The public audit of 2026-10-09 found every article and every condition hub served
+`noindex`: the drafting frontmatter's `robots_while_draft: noindex` had been imported as
+`seo.noIndex: true` on all of them, so Google was told to ignore the whole library while the
+sitemap listed it, and the 25 guides and 5 hubs that do name a clinical reviewer were hidden with
+the rest. The same pages carried a "Clinician reviewed" badge whether or not anyone had reviewed
+them.
+
+**Decision.** `isIndexable(doc, translated)` (`apps/web/src/lib/seo/content-index.ts`) is the one
+rule: indexed if the page is written in this locale **and** names a `medicalReviewerProfile`.
+The imported `seo.noIndex` flag no longer decides it, because it carries no per-page signal. The
+sitemap lists only indexable pages. Pages without a reviewer stay public, linked and searchable
+on the site, and say "Clinical review pending" instead of "Clinician reviewed"; each one is
+indexed the day a reviewer signs it, with no code change.
+
+**What a future session must not do by accident.** Index unreviewed health pages to grow
+traffic, or show a review badge without a named reviewer. Either reverses the YMYL bar this
+records. Translations stay `noindex` until they are real translations (ADR on P1.6.15).

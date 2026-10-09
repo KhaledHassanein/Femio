@@ -49,7 +49,7 @@ internal_links:
   - "/en/learn/postpartum-recovery-first-six-weeks"
   - "/en/learn/postpartum-warning-signs"
   - "/en/learn/periods-after-birth"
-  - "/en/learn/heavy-periods"
+  - "/en/conditions/heavy-periods"
 ---
 
 # Bleeding After Birth: What Is Normal and What Is Not
@@ -132,4 +132,4 @@ Feeding makes the womb tighten, which can bring cramps and a brief increase in f
 
 ### Could heavy bleeding later be my period?
 
-It might be. Heavy bleeding is still worth reporting, and [heavy periods](/en/learn/heavy-periods) explains what counts as heavy once cycles return.
+It might be. Heavy bleeding is still worth reporting, and [heavy periods](/en/conditions/heavy-periods) explains what counts as heavy once cycles return.

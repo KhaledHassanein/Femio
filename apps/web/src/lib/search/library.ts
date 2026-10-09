@@ -1,5 +1,6 @@
 import type { SearchDoc, SearchKind } from "./index.ts";
 import { hrefForContent } from "./corpus.ts";
+import { SEARCH_ALIASES } from "./aliases.ts";
 
 /**
  * The library half of the search corpus, built from published content (P2.2).
@@ -56,7 +57,7 @@ function toDoc(kind: SearchKind, entry: LibraryEntry): SearchDoc | null {
   const title = (entry.title ?? entry.term ?? "").trim();
   if (!title || !entry.slug) return null;
   const summary = (entry.excerpt ?? entry.summary ?? "").trim();
-  const keywords = headingsOf(entry.body);
+  const keywords = [...headingsOf(entry.body), ...(SEARCH_ALIASES[entry.slug] ?? [])];
   return {
     id: `${kind}:${entry.slug}`,
     kind,

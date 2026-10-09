@@ -27,7 +27,10 @@ export default async function PublicLayout({
   return (
     <div className="flex min-h-dvh flex-col">
       <SiteHeader locale={locale} />
-      {children}
+      {/* The skip link's target: past the header, onto the page's own content. */}
+      <div id="content" tabIndex={-1} className="flex flex-1 flex-col outline-none">
+        {children}
+      </div>
       <SiteFooter locale={locale} />
       <SignedInTabs />
     </div>

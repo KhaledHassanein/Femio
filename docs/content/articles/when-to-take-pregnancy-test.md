@@ -88,7 +88,7 @@ Read [pregnancy basics](/en/learn/pregnancy-basics). Then learn what may happen 
 
 A negative result means the test did not detect enough hCG at that time. It does not always rule out pregnancy. You may have tested early, used diluted urine, read the result at the wrong time, or misjudged when the period was due.
 
-[NHS](https://www.nhs.uk/pregnancy/trying-for-a-baby/signs-and-symptoms-of-pregnancy/) advises repeating a test after a week if the result is negative but pregnancy is still suspected. Follow local advice and your product's instructions.
+[NHS](https://www.nhs.uk/pregnancy/trying-for-a-baby/signs-and-symptoms-of-pregnancy/) advises waiting a few days and testing again if the result is negative but pregnancy is still suspected. Follow local advice and your product's instructions.
 
 Contact a clinician if repeated tests are negative but the period does not come, or if symptoms worry you. Other health issues can also cause a missed period.
 

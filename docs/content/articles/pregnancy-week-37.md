@@ -61,7 +61,7 @@ Around 95% of babies are head down by now, usually facing your back, which the N
 
 There is often more vaginal discharge, and Braxton Hicks tightenings that can feel uncomfortable without being painful. A sudden urge to clean the house is the nesting instinct, and the sensible response to it is to not overdo it.
 
-Mood is worth a mention now rather than later. Low mood after a birth is common and it is an illness rather than a failing — [mood after birth](/en/learn/mood-after-birth) covers what it looks like and who to tell. Reading it before the birth is easier than reading it after.
+Mood is worth a mention now rather than later. Low mood in the first days after a birth is common and usually passes; low mood that lasts more than two weeks may be postnatal depression, which is an illness rather than a failing and is treatable — [mood after birth](/en/learn/mood-after-birth) covers what it looks like and who to tell. Reading it before the birth is easier than reading it after.
 
 ## What you may notice
 

@@ -98,7 +98,7 @@ Chest pain, fainting, severe breathlessness, or marked weakness need urgent care
 
 A clinician may suggest a full blood count. This measures haemoglobin and other blood-cell details. Ferritin, a marker of stored iron, may be checked based on symptoms, results, and local guidance.
 
-Low haemoglobin can show anaemia, but the cause still needs assessment. Swelling in the body can affect ferritin, so context matters. A clinician may consider pregnancy, food, gut symptoms, or medicine effects. Bleeding from another site or a blood condition may also need a check.
+Low haemoglobin can show anaemia, but the cause still needs assessment. Inflammation or infection can raise ferritin and hide low iron, so context matters. A clinician may consider pregnancy, food, gut symptoms, or medicine effects. Bleeding from another site or a blood condition may also need a check.
 
 Ask what each result means, what caused the low iron, and when it should be checked again. Use the [glossary](/en/glossary) for plain definitions of health terms.
 

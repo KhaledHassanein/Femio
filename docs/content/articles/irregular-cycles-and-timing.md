@@ -98,7 +98,7 @@ Ask for a referral rather than waiting to be offered one.
 
 It can hold every bleed, symptom and log in one place, show you the range your cycles actually fall in, and hand a clinician real dates instead of a recollection.
 
-It cannot tell you when you ovulated, and it will not pretend to. There is no ovulation day in Femio's logic and there is not going to be one: reading a shift from a home measurement is a clinical inference, and the feature built on top of one is always "days you could avoid" — which is a line this product does not cross.
+It cannot tell you when you ovulated, and it will not pretend to: confirming ovulation from a home measurement is a clinical judgement. The ovulation calculator on this site gives a calendar estimate from cycle length, which is least reliable when cycles are irregular, and Femio never offers "safe days" for avoiding pregnancy.
 
 ## When to see a doctor
 

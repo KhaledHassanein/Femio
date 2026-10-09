@@ -60,3 +60,14 @@ describe("libraryDocs", () => {
     expect(search("call midwife", docs)[0]?.id).toBe("article:afterpains");
   });
 });
+
+describe("search aliases", () => {
+  it("only name guides that exist", async () => {
+    const { SEARCH_ALIASES } = await import("./aliases.ts");
+    const articles = (await import("@/content/snapshot/articles.json")).default as {
+      en: { slug: string }[];
+    };
+    const slugs = new Set(articles.en.map((a) => a.slug));
+    for (const slug of Object.keys(SEARCH_ALIASES)) expect(slugs.has(slug), slug).toBe(true);
+  });
+});

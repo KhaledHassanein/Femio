@@ -49,7 +49,7 @@ internal_links:
   - "/en/learn/bleeding-after-birth"
   - "/en/learn/contraception-after-birth"
   - "/en/learn/menstrual-cycle-basics"
-  - "/en/learn/heavy-periods"
+  - "/en/conditions/heavy-periods"
   - "/en/learn/how-to-track-menstrual-cycle"
 ---
 
@@ -103,7 +103,7 @@ Many people find their pattern settles over three to six cycles. Some find their
 - Pain much worse than before pregnancy, or pain that stops you functioning.
 - Any bleeding that returns heavier after it had settled in the early weeks.
 
-[NICE's postnatal guidance](https://www.nice.org.uk/guidance/ng194) expects bleeding patterns to be reviewed after birth rather than assumed to sort themselves out. [Heavy periods](/en/learn/heavy-periods) explains what counts as heavy and why it matters for iron levels.
+[NICE's postnatal guidance](https://www.nice.org.uk/guidance/ng194) expects bleeding patterns to be reviewed after birth rather than assumed to sort themselves out. [Heavy periods](/en/conditions/heavy-periods) explains what counts as heavy and why it matters for iron levels.
 
 ## Tracking while it is unpredictable
 

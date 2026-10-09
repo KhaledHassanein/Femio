@@ -5,6 +5,7 @@ import { ThemeToggle } from "@/components/theme-toggle";
 import { getCrisisContent } from "@/lib/crisis/content";
 import { isUnpublishedSection } from "@/lib/content/unpublished-sections";
 import { APP_PAGE, webAppEnabled } from "@/lib/web-app";
+import { LanguageSwitcher } from "./language-switcher";
 
 // Persistent public-site header (P1.9b.1, v3 P1.5). Rendered by the (public) layout, so
 // it appears on every marketing/content page but not on the signed-in app (which has
@@ -29,6 +30,12 @@ export async function SiteHeader({ locale }: { locale: string }) {
 
   return (
     <header className="sticky top-0 z-sticky border-b border-border/70 bg-bg/85 backdrop-blur-md supports-[backdrop-filter]:bg-bg/70">
+      <a
+        href="#content"
+        className="sr-only focus:not-sr-only focus:absolute focus:start-4 focus:top-2 focus:z-overlay focus:rounded-pill focus:bg-primary-solid focus:px-4 focus:py-2 focus:text-primary-fg-solid"
+      >
+        {t("skip")}
+      </a>
       <div className="mx-auto flex w-full max-w-5xl items-center gap-2 px-4 pt-3 sm:px-6">
         <Link
           href="/"
@@ -79,6 +86,10 @@ export async function SiteHeader({ locale }: { locale: string }) {
               </Link>
             </li>
           ))}
+          <li aria-hidden className="mx-1 h-5 w-px bg-border" />
+          <li>
+            <LanguageSwitcher label={t("language")} />
+          </li>
         </ul>
       </nav>
     </header>

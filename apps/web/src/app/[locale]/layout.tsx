@@ -1,13 +1,18 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { Newsreader, Plus_Jakarta_Sans, Noto_Naskh_Arabic, IBM_Plex_Sans_Arabic } from "next/font/google";
+import {
+  Newsreader,
+  Plus_Jakarta_Sans,
+  Noto_Naskh_Arabic,
+  IBM_Plex_Sans_Arabic,
+} from "next/font/google";
 import { NextIntlClientProvider } from "next-intl";
 import { getMessages, getTranslations, setRequestLocale } from "next-intl/server";
 import { getDir, isLocale, routing } from "@/i18n/routing";
 import { pickClientMessages } from "@/i18n/client-namespaces";
 import { ThemeProvider } from "@/components/theme-provider";
 import { CrisisHelpProvider } from "@/components/crisis/crisis-help-provider";
-import { ogLocale, siteConfig } from "@/lib/seo/config";
+import { OG_IMAGES, ogLocale, siteConfig } from "@/lib/seo/config";
 import { localizedAlternates } from "@/lib/seo/metadata";
 import { env } from "@/lib/env";
 import "@femio/tokens/tokens.css";
@@ -73,6 +78,7 @@ export async function generateMetadata({
     applicationName: siteConfig.name,
     alternates: localizedAlternates(locale, "/"),
     openGraph: {
+      images: [...OG_IMAGES],
       type: "website",
       siteName: siteConfig.name,
       title,
@@ -80,7 +86,7 @@ export async function generateMetadata({
       url: `${siteConfig.baseUrl}/${locale}`,
       locale: ogLocale[locale] ?? locale,
     },
-    twitter: { card: "summary_large_image", title, description },
+    twitter: { card: "summary_large_image", title, description, images: ["/og-femio.png"] },
     robots: { index: true, follow: true },
     icons: { icon: "/icon.svg" },
     ...(env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION
@@ -116,7 +122,12 @@ export default async function LocaleLayout({ children, params }: LayoutProps) {
             survived: the page looked right and the launcher on every other page did
             not. The two `[ar]` crisis e2e specs were failing and had been. */}
         <NextIntlClientProvider locale={locale} messages={clientMessages}>
-          <ThemeProvider attribute="data-theme" defaultTheme="system" enableSystem disableTransitionOnChange>
+          <ThemeProvider
+            attribute="data-theme"
+            defaultTheme="system"
+            enableSystem
+            disableTransitionOnChange
+          >
             <CrisisHelpProvider>{children}</CrisisHelpProvider>
           </ThemeProvider>
         </NextIntlClientProvider>

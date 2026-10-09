@@ -98,6 +98,11 @@ Do these in order; each says where.
 | D-3 | Phase 2 | Read the new Arabic homepage copy as a native speaker |
 | D-4 | Phase 3 | Walk the TTC and pregnancy journeys on your phone (a recorded walkthrough is provided) |
 | D-5 | Phase 3 | Clinician check of the PCOS screener wording (must screen, not diagnose) |
+| D-6 | **Now (audit 2026-10-09)** | **Confirm the help-page emergency numbers** in `apps/web/src/lib/crisis/crisis.json` → `emergencyNumbers` (Saudi 911/997/937, Egypt 123/122/16328, UAE 998/999, France 15/112/3114, Spain 112/024, UK 999/111, US 911/988). Call or check each ministry site, then set `review.status` to `approved` with your name and the date; they appear on /help-now only after that (`CRISIS_RESOURCES.md` rule) |
+| D-7 | Now | Say what **"CPC"** after your name stands for. Three reviewers read it as the *Certified Professional Coder* billing credential; if it is clinical, spell it out on the author page, if not, drop it from bylines |
+| D-8 | Before launch marketing | **A second, external clinical reviewer** (OB-GYN, plus a midwife or paediatrician): 30 reviewed pages name the same person as author and reviewer, which a clinician reader and Google's raters treat as self-review. Registration body and number on their bio |
+| D-9 | With D-8 | Approve the regional layer the clinician review asked for: WHO eight-contact antenatal schedule beside the UK one, Gulf/Egypt GDM screening, Tdap timing, Ramadan fasting, premarital screening, hot-climate safe sleep, folic-acid dose (400 mcg) |
+| D-10 | Now | Keep or remove the one-line **emergency-contraception pointer** added under the pregnancy-test calculator's "when we had sex" result ("a pharmacist or doctor can tell you about emergency options"). Standard NHS signposting; your call for the market |
 
 ## E · At launch (Phase 4; not yet)
 

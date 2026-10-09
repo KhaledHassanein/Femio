@@ -52,7 +52,7 @@ internal_links:
 
 # Week 40 of Pregnancy: What to Expect
 
-Week 40 contains the due date, and the due date is an estimate rather than a deadline. Term runs from 37 to 42 weeks, which means a birth anywhere in that five-week band is on time. Nothing about week 41 makes a pregnancy late.
+Week 40 contains the due date, and the due date is an estimate rather than a deadline. Most babies are born between 37 and 42 weeks, and only a few on the due date itself. Doctors divide that span: 39 and 40 weeks are full term, and from 41 weeks a pregnancy is called late term, which is when your care team will usually talk with you about extra checks or bringing on labour.
 
 ## Your body this week
 
@@ -96,7 +96,7 @@ Call the maternity unit for contractions lasting 60 seconds every five minutes, 
 
 ### Is my baby late?
 
-No. Term is 37 to 42 weeks, and a due date is a single estimated point inside a five-week band. Most women give birth in the week either side of it.
+Not at 40 weeks. The due date is an estimate and most women give birth in the week or two either side of it. From 41 weeks a pregnancy is called late term, and your care team will usually discuss extra checks or bringing on labour then.
 
 ### Can I do anything to bring on labour?
 

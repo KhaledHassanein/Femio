@@ -6,7 +6,7 @@
   "home": {
     "rail": {
       "eyebrow": "Every stage",
-      "heading": "Most apps cover one chapter. This one follows the whole book.",
+      "heading": "One record from your first period to menopause, so nothing starts from zero.",
       "sub": "When your life changes, Femio re-arranges around it — it never starts you over and it never deletes what came before.",
       "stages": {
         "teen": {
@@ -27,7 +27,7 @@
         },
         "postpartum": {
           "name": "After birth",
-          "note": "Recovery and mood — the part apps forget"
+          "note": "Recovery and mood, not only the baby"
         },
         "menopause": {
           "name": "Perimenopause & menopause",
@@ -52,7 +52,7 @@
       },
       "pattern": {
         "title": "Your own pattern, not an average",
-        "body": "Everything is compared against your history — including when your cycles are irregular, which is exactly where other apps give up."
+        "body": "Everything is compared against your own history, including when your cycles are irregular, and a guess is shown as a range rather than a date."
       }
     },
     "trust": {
@@ -88,7 +88,7 @@
     "sections": {
       "learn": {
         "name": "Learn",
-        "desc": "Clinician-reviewed guides on your cycle, body, and health."
+        "desc": "Referenced guides on your cycle, body and health. Each says who reviewed it."
       },
       "conditions": {
         "name": "Conditions & topics",
@@ -119,7 +119,7 @@
     "hero": {
       "eyebrow": "Period · Ovulation · Pregnancy",
       "title": "Know your cycle. Plan your family. Privately.",
-      "body": "Femio is a period, ovulation and pregnancy tracker made for women in Saudi Arabia and Egypt, with clinician-reviewed guides for every stage of life, in Arabic and English.",
+      "body": "Femio is a period, ovulation and pregnancy tracker made for women in Saudi Arabia and Egypt, with referenced guides for every stage of life. Arabic guides are being written now.",
       "cta": "Get the app",
       "ctaSecondary": "Try the period calculator"
     },
@@ -261,12 +261,13 @@
       "title": "Due date calculator",
       "intro": "Estimate your due date from the first day of your last period.",
       "eddLabel": "Estimated due date",
-      "termWindowLabel": "Most babies arrive between {start} and {end}."
+      "termWindowLabel": "Most babies arrive between {start} and {end}.",
+      "scanNote": "If you've had an early pregnancy scan, the due date your clinician gives from it is more accurate than this one."
     },
     "ovulation": {
       "title": "Ovulation calculator",
       "intro": "Estimate your fertile days from your last period and cycle length.",
-      "ovulationLabel": "Estimated ovulation",
+      "ovulationLabel": "Most likely ovulation day (an estimate)",
       "windowLabel": "Fertile window",
       "nextPeriodLabel": "Next period around",
       "rangeValue": "{start} – {end}",
@@ -310,8 +311,8 @@
       "irregular": "Your cycles vary by more than a week. That's common, and it's useful to know before you use a calendar estimate.",
       "needTwo": "Add at least two different period start dates."
     },
-    "appCta": "Track this automatically in the Femio app.",
-    "appCtaLink": "Get the app",
+    "appCta": "The Femio Android app, coming soon, will keep track of this for you, privately on your phone.",
+    "appCtaLink": "About the app",
     "period": {
       "title": "Period calculator",
       "intro": "See when your next three periods are likely to start, as a range that reflects how much your cycles vary.",
@@ -335,7 +336,8 @@
       "testFromLabel": "Test from",
       "notePeriod": "Most home tests work from the first day of a missed period. Testing earlier can give a negative result even if you are pregnant.",
       "noteSex": "If you do not know when your period is due, test at least 21 days after you last had unprotected sex.",
-      "source": "Source: NHS, Doing a pregnancy test."
+      "source": "Source: NHS, Doing a pregnancy test.",
+      "emergencyNote": "If you don't want to be pregnant and it was within the last few days, a pharmacist or doctor can tell you about emergency options, which work best the sooner they are used."
     },
     "calendar": {
       "period": "Period",
@@ -871,7 +873,7 @@
     "reviewedInEnglishBy": "Reviewed in English by",
     "reviewedBy": "Reviewed by",
     "title": "Learn",
-    "subtitle": "Referenced guides on your cycle, conditions, fertility, pregnancy and menopause — each reviewed by a clinician.",
+    "subtitle": "Referenced guides on your cycle, conditions, fertility, pregnancy and menopause. Each one says who reviewed it, or that its review is pending.",
     "empty": "New guides are on the way — check back soon.",
     "reviewed": "Clinician reviewed",
     "lastReviewed": "Last reviewed {date}",
@@ -890,11 +892,13 @@
     "readNext": "Read next",
     "appTitle": "Keep track of it in the app",
     "appBody": "Log what you notice and see your own pattern over time. Private: your records stay on your phone.",
-    "appCta": "Get the app"
+    "appCta": "Get the app",
+    "reviewPending": "Clinical review pending",
+    "updated": "Updated {date}"
   },
   "conditions": {
     "title": "Conditions & topics",
-    "subtitle": "Referenced guides to conditions and topics across your health life, each reviewed by a clinician.",
+    "subtitle": "Referenced guides to conditions and topics across your health life. Each one says who reviewed it.",
     "empty": "New topics are on the way — check back soon."
   },
   "teen": {
@@ -1455,7 +1459,9 @@
     "faq": "FAQ",
     "glossary": "Glossary",
     "signIn": "Sign in",
-    "getApp": "Get the app"
+    "getApp": "Get the app",
+    "skip": "Skip to content",
+    "language": "Language"
   },
   "footer": {
     "explore": "Explore",
@@ -1467,7 +1473,7 @@
   },
   "about": {
     "title": "About Femio",
-    "intro": "Femio is one account for a woman’s whole health life — from puberty and cycles through trying to conceive, pregnancy, postpartum, and menopause.",
+    "intro": "Femio is one private record for a woman’s whole health life, from puberty and cycles through trying to conceive, pregnancy, postpartum and menopause, kept on her phone.",
     "points": [
       {
         "heading": "Our mission",
@@ -1479,7 +1485,7 @@
       },
       {
         "heading": "Referenced, reviewed content",
-        "body": "Every guide is sourced from reputable medical bodies and checked by a qualified clinician before it goes live."
+        "body": "Every guide cites reputable medical bodies, and each page says whether a named clinician has reviewed it yet. Guides still awaiting review are marked as such."
       },
       {
         "heading": "Honest predictions",
@@ -1552,7 +1558,7 @@
     "intro": "Your health data is yours. This page explains in plain language what Femio collects, why, who else can see it, and how you take it back or delete it.",
     "draft": {
       "title": "Draft — not yet in force",
-      "body": "We publish this early so you can see our intentions before you trust us with anything. Our lawyers and data-protection officer are finalising the binding version, and the company name and contact details below are still to be confirmed. Femio is not open to the public yet."
+      "body": "Today femioapp.com has no accounts and no sign-in. The calculators run inside your browser, so the dates and numbers you type are not sent to us. The site keeps a cookie that remembers your language, and our host keeps standard technical logs (such as IP address and browser) for security; there are no advertising cookies. The Femio Android app, coming soon, keeps your records on your phone. The sections below were written for an earlier account-based design and are being rewritten with our lawyers before the app launches: where they describe accounts or our database, they do not apply to the website today."
     },
     "points": [
       {
@@ -1611,7 +1617,7 @@
     "intro": "The deal between you and Femio: what we promise, what we ask of you, and the limits of what a tracking and education service can do.",
     "draft": {
       "title": "Draft — not yet in force",
-      "body": "This is our plain-language draft, published for transparency while our lawyers finalise the binding version. It is not an agreement between us yet, and the company details, governing law and liability wording below are still to be settled."
+      "body": "This is our plain-language draft, published for transparency while our lawyers finalise the binding version. Today the website has no accounts, sign-in or community, so the sections about those do not apply to it yet. The company details, governing law and liability wording are still to be settled."
     },
     "points": [
       {
@@ -1741,7 +1747,7 @@
   "notFound": {
     "code": "404",
     "title": "We couldn’t find that page",
-    "body": "The link may be old, or the page may have moved. The health library and your tracker are both still here.",
+    "body": "The link may be old, or the page may have moved. The health library and the calculators are still here.",
     "home": "Go to the homepage",
     "learn": "Browse the library"
   },
@@ -2165,7 +2171,7 @@
     },
     "learn": {
       "label": "Guides",
-      "note": "Referenced articles, reviewed by a clinician"
+      "note": "Referenced articles; each names its reviewer"
     }
   },
   "phaseEducation": {

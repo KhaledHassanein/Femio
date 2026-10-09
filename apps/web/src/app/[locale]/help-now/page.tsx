@@ -27,7 +27,11 @@ export default async function HelpNowPage({ params }: PageProps) {
 
   return (
     <main className="mx-auto flex w-full max-w-lg flex-col gap-6 px-6 py-12">
-      <CrisisContentView content={content} directoryUrl={env.NEXT_PUBLIC_CRISIS_DIRECTORY_URL} />
+      <CrisisContentView
+        content={content}
+        directoryUrl={env.NEXT_PUBLIC_CRISIS_DIRECTORY_URL}
+        showNumbers
+      />
     </main>
   );
 }

@@ -114,13 +114,13 @@ export function CrisisHelpProvider({ children }: { children: ReactNode }) {
         {/* Inner wrapper stops backdrop-close clicks from bubbling out. */}
         <div className="flex flex-col gap-4 p-6" onClick={(e) => e.stopPropagation()}>
           <div className="flex items-start justify-between gap-4" dir={content.dir}>
-            <h1
+            <h2
               id={titleId}
               lang={content.isFallback ? content.lang : undefined}
               className="font-display text-xl text-text"
             >
               {content.strings.dialogTitle}
-            </h1>
+            </h2>
             <button
               type="button"
               autoFocus

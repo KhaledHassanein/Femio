@@ -1,3 +1,4 @@
+import { isUnpublishedSection } from "@/lib/content/unpublished-sections";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import {
   ArrowRight,
@@ -100,7 +101,8 @@ const GOALS = [
   },
   {
     key: "menopause",
-    href: "/learn",
+    // The menopause row of the library, not its top (audit F10).
+    href: "/learn#menopause",
     Icon: MoonStar,
     tone: "bg-primary-soft text-primary-soft-text",
   },
@@ -201,9 +203,7 @@ export default async function HomePage({ params }: PageProps) {
                 <span className="text-sm font-semibold leading-snug">
                   {t(`goals.${key}.title`)}
                 </span>
-                <span className="text-2xs leading-relaxed">
-                  {t(`goals.${key}.body`)}
-                </span>
+                <span className="text-2xs leading-relaxed">{t(`goals.${key}.body`)}</span>
               </Link>
             </li>
           ))}
@@ -382,7 +382,7 @@ export default async function HomePage({ params }: PageProps) {
         <Eyebrow>{t("library.eyebrow")}</Eyebrow>
         <h2 className="font-display text-lg text-text rtl:font-bold">{t("library.heading")}</h2>
         <div className="mt-2 flex flex-col gap-3">
-          {SECTIONS.map((s) => (
+          {SECTIONS.filter((s) => !isUnpublishedSection(s.href)).map((s) => (
             <Link
               key={s.key}
               href={s.href}

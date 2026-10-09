@@ -6,7 +6,7 @@
   "home": {
     "rail": {
       "eyebrow": "Cada etapa",
-      "heading": "La mayoría de las apps cubren un capítulo. Esta sigue el libro entero.",
+      "heading": "Un solo registro desde tu primera regla hasta la menopausia, para que nada empiece de cero.",
       "sub": "Cuando tu vida cambia, Femio se reordena a su alrededor: nunca te hace empezar de cero y nunca borra lo anterior.",
       "stages": {
         "teen": {
@@ -27,7 +27,7 @@
         },
         "postpartum": {
           "name": "Después del parto",
-          "note": "Recuperación y ánimo — la parte que las apps olvidan"
+          "note": "Recuperación y ánimo, no solo el bebé"
         },
         "menopause": {
           "name": "Perimenopausia y menopausia",
@@ -52,7 +52,7 @@
       },
       "pattern": {
         "title": "Tu propio patrón, no una media",
-        "body": "Todo se compara con tu historial — incluso cuando tus ciclos son irregulares, que es justo donde otras apps se rinden."
+        "body": "Todo se compara con tu propio historial, incluso cuando tus ciclos son irregulares, y una estimación se muestra como un rango, no como una fecha."
       }
     },
     "trust": {
@@ -88,7 +88,7 @@
     "sections": {
       "learn": {
         "name": "Aprender",
-        "desc": "Guías revisadas por profesionales sobre tu ciclo, tu cuerpo y tu salud."
+        "desc": "Guías con fuentes sobre tu ciclo, tu cuerpo y tu salud. Cada una dice quién la revisó."
       },
       "conditions": {
         "name": "Condiciones y temas",
@@ -119,7 +119,7 @@
     "hero": {
       "eyebrow": "Regla · Ovulación · Embarazo",
       "title": "Conoce tu ciclo. Planifica tu familia. En privado.",
-      "body": "Femio es una app de seguimiento de la regla, la ovulación y el embarazo, creada para mujeres en Arabia Saudí y Egipto, con guías revisadas por profesionales clínicos para cada etapa de la vida, en árabe e inglés.",
+      "body": "Femio es una app de seguimiento de la regla, la ovulación y el embarazo, creada para mujeres en Arabia Saudí y Egipto, con guías con fuentes para cada etapa de la vida. Las guías en árabe se están escribiendo ahora.",
       "cta": "Descargar la app",
       "ctaSecondary": "Probar la calculadora de la regla"
     },
@@ -261,12 +261,13 @@
       "title": "Calculadora de fecha de parto",
       "intro": "Estima tu fecha a partir del primer día de tu última menstruación.",
       "eddLabel": "Fecha de parto estimada",
-      "termWindowLabel": "La mayoría de los bebés llega entre el {start} y el {end}."
+      "termWindowLabel": "La mayoría de los bebés llega entre el {start} y el {end}.",
+      "scanNote": "Si te han hecho una ecografía al principio del embarazo, la fecha de parto que te da tu profesional a partir de ella es más precisa que esta."
     },
     "ovulation": {
       "title": "Calculadora de ovulación",
       "intro": "Estima tus días fértiles a partir de tu última menstruación y la duración del ciclo.",
-      "ovulationLabel": "Ovulación estimada",
+      "ovulationLabel": "Día de ovulación más probable (una estimación)",
       "windowLabel": "Ventana fértil",
       "nextPeriodLabel": "Próxima menstruación alrededor del",
       "rangeValue": "{start} – {end}",
@@ -310,8 +311,8 @@
       "irregular": "Tus ciclos varían más de una semana. Es común, y conviene saberlo antes de fiarte de una estimación por calendario.",
       "needTwo": "Añade al menos dos fechas de inicio de la menstruación distintas."
     },
-    "appCta": "Registra esto automáticamente en la app de Femio.",
-    "appCtaLink": "Descargar la app",
+    "appCta": "La app de Femio para Android, muy pronto, llevará esto por ti, de forma privada en tu teléfono.",
+    "appCtaLink": "Sobre la app",
     "period": {
       "title": "Calculadora de la regla",
       "intro": "Mira cuándo es probable que empiecen tus próximas tres reglas, como un rango que refleja cuánto varían tus ciclos.",
@@ -335,7 +336,8 @@
       "testFromLabel": "Haz la prueba a partir del",
       "notePeriod": "La mayoría de las pruebas caseras funcionan desde el primer día de retraso de la regla. Hacerla antes puede dar negativo aunque estés embarazada.",
       "noteSex": "Si no sabes cuándo te toca la regla, haz la prueba al menos 21 días después de tu última relación sin protección.",
-      "source": "Fuente: NHS, hacer una prueba de embarazo."
+      "source": "Fuente: NHS, hacer una prueba de embarazo.",
+      "emergencyNote": "Si no quieres un embarazo y fue en los últimos días, en la farmacia o tu médico pueden informarte de las opciones de emergencia, que funcionan mejor cuanto antes se usen."
     },
     "calendar": {
       "period": "Regla",
@@ -871,7 +873,7 @@
     "reviewedInEnglishBy": "Revisado en inglés por",
     "reviewedBy": "Revisado por",
     "title": "Aprender",
-    "subtitle": "Guías referenciadas y revisadas médicamente sobre tu ciclo, afecciones, fertilidad, embarazo y menopausia.",
+    "subtitle": "Guías con fuentes sobre tu ciclo, afecciones, fertilidad, embarazo y menopausia. Cada una dice quién la revisó, o que su revisión está pendiente.",
     "empty": "Pronto habrá nuevas guías — vuelve pronto.",
     "reviewed": "Revisado por un profesional clínico",
     "lastReviewed": "Última revisión {date}",
@@ -890,11 +892,13 @@
     "readNext": "Lee también",
     "appTitle": "Llévalo en la app",
     "appBody": "Registra lo que notas y ve tu propio patrón con el tiempo. Privado: tus datos se quedan en tu teléfono.",
-    "appCta": "Descarga la app"
+    "appCta": "Descarga la app",
+    "reviewPending": "Revisión clínica pendiente",
+    "updated": "Actualizado el {date}"
   },
   "conditions": {
     "title": "Afecciones y temas",
-    "subtitle": "Guías referenciadas y revisadas médicamente sobre afecciones y temas a lo largo de tu vida de salud.",
+    "subtitle": "Guías con fuentes sobre afecciones y temas a lo largo de tu vida de salud. Cada una dice quién la revisó.",
     "empty": "Pronto habrá nuevos temas — vuelve pronto."
   },
   "teen": {
@@ -1455,7 +1459,9 @@
     "faq": "Preguntas",
     "glossary": "Glosario",
     "signIn": "Iniciar sesión",
-    "getApp": "Descargar la app"
+    "getApp": "Descargar la app",
+    "skip": "Saltar al contenido",
+    "language": "Idioma"
   },
   "footer": {
     "explore": "Explorar",
@@ -1467,7 +1473,7 @@
   },
   "about": {
     "title": "Acerca de Femio",
-    "intro": "Femio es una sola cuenta para toda la vida de salud de una mujer — desde la pubertad y los ciclos hasta la búsqueda de embarazo, el embarazo, el posparto y la menopausia.",
+    "intro": "Femio es un único registro privado para toda la vida de salud de una mujer, desde la pubertad y los ciclos hasta la búsqueda de embarazo, el embarazo, el posparto y la menopausia, guardado en su teléfono.",
     "points": [
       {
         "heading": "Nuestra misión",
@@ -1479,7 +1485,7 @@
       },
       {
         "heading": "Contenido referenciado y revisado",
-        "body": "Cada guía se basa en organismos médicos de prestigio y la revisa un profesional clínico cualificado antes de publicarse."
+        "body": "Cada guía se basa en organismos médicos de prestigio, y cada página dice si un profesional clínico con nombre la ha revisado ya. Las guías pendientes de revisión lo indican."
       },
       {
         "heading": "Predicciones honestas",
@@ -1552,7 +1558,7 @@
     "intro": "Tus datos de salud son tuyos. Esta página explica en lenguaje sencillo qué recoge Femio, para qué, quién más puede verlo y cómo recuperarlo o borrarlo.",
     "draft": {
       "title": "Borrador — todavía no está en vigor",
-      "body": "Lo publicamos pronto para que puedas ver nuestras intenciones antes de confiarnos nada. Nuestros abogados y la delegada de protección de datos están cerrando la versión vinculante, y el nombre de la empresa y los datos de contacto de abajo están pendientes de confirmar. Femio aún no está abierto al público."
+      "body": "Hoy femioapp.com no tiene cuentas ni inicio de sesión. Las calculadoras funcionan dentro de tu navegador, así que las fechas y números que escribes no se nos envían. El sitio guarda una cookie que recuerda tu idioma, y nuestro proveedor de alojamiento conserva registros técnicos habituales (como la dirección IP y el navegador) por seguridad; no hay cookies publicitarias. La app de Femio para Android, muy pronto, guarda tus registros en tu teléfono. Las secciones siguientes se escribieron para un diseño anterior con cuentas y las estamos reescribiendo con nuestros abogados antes del lanzamiento de la app: cuando describen cuentas o nuestra base de datos, no se aplican hoy al sitio."
     },
     "points": [
       {
@@ -1611,7 +1617,7 @@
     "intro": "El acuerdo entre tú y Femio: qué prometemos, qué te pedimos y hasta dónde llega un servicio de seguimiento e información.",
     "draft": {
       "title": "Borrador — todavía no está en vigor",
-      "body": "Este es nuestro borrador en lenguaje claro, publicado por transparencia mientras nuestros abogados cierran la versión vinculante. Todavía no es un acuerdo entre nosotros: los datos de la empresa, la ley aplicable y la redacción sobre responsabilidad están pendientes."
+      "body": "Este es nuestro borrador en lenguaje claro, publicado por transparencia mientras nuestros abogados terminan la versión vinculante. Hoy el sitio no tiene cuentas, inicio de sesión ni comunidad, así que las secciones sobre ello aún no se le aplican. Los datos de la empresa, la ley aplicable y la redacción sobre responsabilidad están por cerrar."
     },
     "points": [
       {
@@ -1741,7 +1747,7 @@
   "notFound": {
     "code": "404",
     "title": "No encontramos esa página",
-    "body": "Puede que el enlace sea antiguo o que la página se haya movido. La biblioteca de salud y tu seguimiento siguen aquí.",
+    "body": "Puede que el enlace sea antiguo o que la página se haya movido. La biblioteca de salud y las calculadoras siguen aquí.",
     "home": "Ir al inicio",
     "learn": "Ver la biblioteca"
   },
@@ -2165,7 +2171,7 @@
     },
     "learn": {
       "label": "Guías",
-      "note": "Artículos con fuentes, revisados por un clínico"
+      "note": "Artículos con fuentes; cada uno nombra a quien lo revisó"
     }
   },
   "phaseEducation": {

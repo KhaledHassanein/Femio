@@ -92,7 +92,7 @@ Femio does not assess any of these and cannot tell you which applies. What it ca
 
 Some regimens cause a regular expected bleed and some are designed to stop bleeding after the first few months. Either way, **bleeding that is unexpected for your regimen is still checked**, and starting a new one does not make a bleed something to ignore.
 
-Tell the clinician exactly what you take, at what dose, for how long, and whether the bleeding changed when something changed. [NICE's menopause guidance](https://www.nice.org.uk/guidance/ng23) expects unscheduled bleeding on hormone therapy to be investigated rather than watched, particularly in the first months and after any change.
+Tell the clinician exactly what you take, at what dose, for how long, and whether the bleeding changed when something changed. [NICE's menopause guidance](https://www.nice.org.uk/guidance/ng23) treats unscheduled bleeding on hormone therapy by timing. In the first six months after starting, or within three months of a change of dose or product, it is common and is usually reviewed and the treatment adjusted. Bleeding that starts after those times, or that is heavy or long-lasting, should be checked promptly.
 
 [Menopause care options](/en/learn/menopause-care-options) explains what these treatments are and how they are discussed.
 

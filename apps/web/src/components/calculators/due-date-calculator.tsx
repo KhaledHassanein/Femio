@@ -86,6 +86,7 @@ export function DueDateCalculator() {
                 </div>
               ) : null}
               <p className="mt-2 text-xs opacity-90">{t("common.estimateNote")}</p>
+              <p className="mt-1 text-xs opacity-90">{t("dueDate.scanNote")}</p>
             </div>
           ) : null}
         </ResultRegion>

@@ -122,6 +122,22 @@ const nextConfig = {
   async headers() {
     return [{ source: "/:path*", headers: securityHeaders }];
   },
+  async redirects() {
+    return [
+      // Condition hubs live under /conditions; three guides linked /learn/<slug>
+      // and 404'd (public audit F14, 2026-10-09). Kept for anyone holding the old URL.
+      {
+        source: "/:locale(en|ar|fr|es)/learn/:slug(heavy-periods|painful-periods|endometriosis|pcos|pms-pmdd)",
+        destination: "/:locale/conditions/:slug",
+        permanent: true,
+      },
+      // Every Arabic link pointed here from 2026-08-23 to 2026-10-09 (F01); shared and
+      // crawled copies of those URLs land on the real page instead of a 404.
+      { source: "/ar-u-nu-latn", destination: "/ar", permanent: true },
+      { source: "/ar-u-nu-latn/:path*", destination: "/ar/:path*", permanent: true },
+      { source: "/:locale(en|ar|fr|es)/ar-u-nu-latn/:path*", destination: "/ar/:path*", permanent: true },
+    ];
+  },
 };
 
 export default withSerwist(withNextIntl(nextConfig));

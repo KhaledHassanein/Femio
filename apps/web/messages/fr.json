@@ -6,7 +6,7 @@
   "home": {
     "rail": {
       "eyebrow": "Chaque étape",
-      "heading": "La plupart des applications couvrent un chapitre. Celle-ci suit tout le livre.",
+      "heading": "Un seul dossier de vos premières règles à la ménopause, pour que rien ne reparte de zéro.",
       "sub": "Quand votre vie change, Femio se réorganise autour — elle ne vous fait jamais recommencer et n'efface jamais ce qui précède.",
       "stages": {
         "teen": {
@@ -27,7 +27,7 @@
         },
         "postpartum": {
           "name": "Après la naissance",
-          "note": "Récupération et humeur — ce que les applications oublient"
+          "note": "Récupération et humeur, pas seulement le bébé"
         },
         "menopause": {
           "name": "Périménopause et ménopause",
@@ -52,7 +52,7 @@
       },
       "pattern": {
         "title": "Votre propre rythme, pas une moyenne",
-        "body": "Tout est comparé à votre historique — y compris quand vos cycles sont irréguliers, c'est-à-dire exactement là où les autres applications abandonnent."
+        "body": "Tout est comparé à votre propre historique, y compris quand vos cycles sont irréguliers, et une estimation est affichée comme une fourchette, pas une date."
       }
     },
     "trust": {
@@ -88,7 +88,7 @@
     "sections": {
       "learn": {
         "name": "Apprendre",
-        "desc": "Des guides relus par des cliniciens sur votre cycle, votre corps et votre santé."
+        "desc": "Des guides référencés sur votre cycle, votre corps et votre santé. Chacun indique qui l'a relu."
       },
       "conditions": {
         "name": "Pathologies et sujets",
@@ -119,7 +119,7 @@
     "hero": {
       "eyebrow": "Règles · Ovulation · Grossesse",
       "title": "Comprenez votre cycle. Préparez votre famille. En toute confidentialité.",
-      "body": "Femio est une application de suivi des règles, de l'ovulation et de la grossesse, conçue pour les femmes d'Arabie saoudite et d'Égypte, avec des guides relus par des cliniciens pour chaque étape de la vie, en arabe et en anglais.",
+      "body": "Femio est une application de suivi des règles, de l'ovulation et de la grossesse, conçue pour les femmes d'Arabie saoudite et d'Égypte, avec des guides référencés pour chaque étape de la vie. Les guides en arabe sont en cours de rédaction.",
       "cta": "Obtenir l'app",
       "ctaSecondary": "Essayer le calculateur de règles"
     },
@@ -261,12 +261,13 @@
       "title": "Calculateur de date d'accouchement",
       "intro": "Estimez votre date à partir du premier jour de vos dernières règles.",
       "eddLabel": "Date d'accouchement estimée",
-      "termWindowLabel": "La plupart des bébés arrivent entre le {start} et le {end}."
+      "termWindowLabel": "La plupart des bébés arrivent entre le {start} et le {end}.",
+      "scanNote": "Si vous avez eu une échographie précoce, la date d'accouchement donnée par votre médecin à partir de celle-ci est plus fiable que celle-ci."
     },
     "ovulation": {
       "title": "Calculateur d'ovulation",
       "intro": "Estimez vos jours fertiles à partir de vos dernières règles et de la durée du cycle.",
-      "ovulationLabel": "Ovulation estimée",
+      "ovulationLabel": "Jour d'ovulation le plus probable (estimation)",
       "windowLabel": "Fenêtre de fertilité",
       "nextPeriodLabel": "Prochaines règles autour du",
       "rangeValue": "{start} – {end}",
@@ -310,8 +311,8 @@
       "irregular": "Vos cycles varient de plus d'une semaine. C'est courant, et utile à savoir avant de vous fier à une estimation par calendrier.",
       "needTwo": "Ajoutez au moins deux dates de début de règles différentes."
     },
-    "appCta": "Suivez cela automatiquement dans l'application Femio.",
-    "appCtaLink": "Obtenir l'app",
+    "appCta": "L'application Android Femio, bientôt disponible, suivra cela pour vous, en toute confidentialité sur votre téléphone.",
+    "appCtaLink": "À propos de l'application",
     "period": {
       "title": "Calculateur de règles",
       "intro": "Voyez quand vos trois prochaines règles devraient commencer, sous forme de fourchette qui reflète la variation de vos cycles.",
@@ -335,7 +336,8 @@
       "testFromLabel": "Faites le test à partir du",
       "notePeriod": "La plupart des tests à domicile fonctionnent dès le premier jour de retard des règles. Un test plus précoce peut être négatif même en cas de grossesse.",
       "noteSex": "Si vous ne savez pas quand vos règles sont attendues, faites le test au moins 21 jours après votre dernier rapport non protégé.",
-      "source": "Source : NHS, faire un test de grossesse."
+      "source": "Source : NHS, faire un test de grossesse.",
+      "emergencyNote": "Si vous ne souhaitez pas être enceinte et que c'était il y a quelques jours, un pharmacien ou un médecin peut vous parler des solutions d'urgence, plus efficaces quand elles sont prises tôt."
     },
     "calendar": {
       "period": "Règles",
@@ -871,7 +873,7 @@
     "reviewedInEnglishBy": "Révisé en anglais par",
     "reviewedBy": "Relu par",
     "title": "Apprendre",
-    "subtitle": "Des guides référencés et relus médicalement sur votre cycle, vos affections, la fertilité, la grossesse et la ménopause.",
+    "subtitle": "Des guides référencés sur votre cycle, vos affections, la fertilité, la grossesse et la ménopause. Chacun indique qui l'a relu, ou que sa relecture est en attente.",
     "empty": "De nouveaux guides arrivent — revenez bientôt.",
     "reviewed": "Relu par un clinicien",
     "lastReviewed": "Dernière relecture {date}",
@@ -890,11 +892,13 @@
     "readNext": "À lire ensuite",
     "appTitle": "Suivez-le dans l’application",
     "appBody": "Notez ce que vous remarquez et voyez votre propre rythme au fil du temps. En privé : vos données restent sur votre téléphone.",
-    "appCta": "Obtenir l’application"
+    "appCta": "Obtenir l’application",
+    "reviewPending": "Relecture clinique en attente",
+    "updated": "Mis à jour le {date}"
   },
   "conditions": {
     "title": "Affections et sujets",
-    "subtitle": "Des guides référencés et relus médicalement sur les affections et sujets tout au long de votre vie de santé.",
+    "subtitle": "Des guides référencés sur les affections et sujets de toute votre vie de santé. Chacun indique qui l'a relu.",
     "empty": "De nouveaux sujets arrivent — revenez bientôt."
   },
   "teen": {
@@ -1455,7 +1459,9 @@
     "faq": "FAQ",
     "glossary": "Glossaire",
     "signIn": "Se connecter",
-    "getApp": "Obtenir l'app"
+    "getApp": "Obtenir l'app",
+    "skip": "Aller au contenu",
+    "language": "Langue"
   },
   "footer": {
     "explore": "Explorer",
@@ -1467,7 +1473,7 @@
   },
   "about": {
     "title": "À propos de Femio",
-    "intro": "Femio, c’est un seul compte pour toute la vie de santé d’une femme — de la puberté et des cycles à la conception, la grossesse, le post-partum et la ménopause.",
+    "intro": "Femio est un dossier privé unique pour toute la vie de santé d’une femme, de la puberté et des cycles à la conception, la grossesse, le post-partum et la ménopause, conservé sur son téléphone.",
     "points": [
       {
         "heading": "Notre mission",
@@ -1479,7 +1485,7 @@
       },
       {
         "heading": "Contenu référencé et relu",
-        "body": "Chaque guide s’appuie sur des organismes médicaux reconnus et est vérifié par un clinicien qualifié avant sa mise en ligne."
+        "body": "Chaque guide s’appuie sur des organismes médicaux reconnus, et chaque page indique si un clinicien nommé l’a déjà relue. Les guides en attente de relecture sont signalés."
       },
       {
         "heading": "Des prévisions honnêtes",
@@ -1552,7 +1558,7 @@
     "intro": "Vos données de santé sont les vôtres. Cette page explique simplement ce que Femio recueille, pourquoi, qui d’autre peut y accéder, et comment les récupérer ou les supprimer.",
     "draft": {
       "title": "Version préliminaire — pas encore en vigueur",
-      "body": "Nous la publions tôt pour que vous puissiez juger de nos intentions avant de nous confier quoi que ce soit. Nos avocats et notre délégué à la protection des données finalisent la version contraignante ; le nom de la société et les coordonnées ci-dessous restent à confirmer. Femio n’est pas encore ouvert au public."
+      "body": "Aujourd'hui, femioapp.com n'a ni compte ni connexion. Les calculateurs fonctionnent dans votre navigateur : les dates et chiffres que vous saisissez ne nous sont pas envoyés. Le site conserve un cookie qui retient votre langue, et notre hébergeur conserve des journaux techniques habituels (adresse IP, navigateur) pour la sécurité ; il n'y a pas de cookies publicitaires. L'application Android Femio, bientôt disponible, garde vos données sur votre téléphone. Les sections ci-dessous ont été écrites pour une version antérieure avec comptes et sont en cours de réécriture avec nos avocats avant le lancement de l'application : lorsqu'elles décrivent des comptes ou notre base de données, elles ne s'appliquent pas au site aujourd'hui."
     },
     "points": [
       {
@@ -1611,7 +1617,7 @@
     "intro": "L’accord entre vous et Femio : ce que nous promettons, ce que nous vous demandons, et les limites de ce qu’un service de suivi et d’information peut faire.",
     "draft": {
       "title": "Version préliminaire — pas encore en vigueur",
-      "body": "Voici notre brouillon en langage clair, publié par transparence pendant que nos avocats finalisent la version contraignante. Ce n’est pas encore un accord entre nous : les informations sur la société, le droit applicable et les clauses de responsabilité restent à arrêter."
+      "body": "Voici notre brouillon en langage clair, publié par transparence pendant que nos avocats finalisent la version contraignante. Aujourd'hui le site n'a ni compte, ni connexion, ni communauté : les sections qui en parlent ne s'y appliquent pas encore. Les informations sur la société, le droit applicable et la responsabilité restent à finaliser."
     },
     "points": [
       {
@@ -1741,7 +1747,7 @@
   "notFound": {
     "code": "404",
     "title": "Page introuvable",
-    "body": "Le lien est peut-être ancien, ou la page a été déplacée. La bibliothèque santé et votre suivi sont toujours là.",
+    "body": "Le lien est peut-être ancien, ou la page a été déplacée. La bibliothèque santé et les calculateurs sont toujours là.",
     "home": "Aller à l’accueil",
     "learn": "Parcourir la bibliothèque"
   },
@@ -2165,7 +2171,7 @@
     },
     "learn": {
       "label": "Guides",
-      "note": "Articles sourcés, relus par un clinicien"
+      "note": "Articles sourcés ; chacun nomme son relecteur"
     }
   },
   "phaseEducation": {

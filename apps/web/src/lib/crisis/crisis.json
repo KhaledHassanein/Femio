@@ -82,5 +82,169 @@
         "worriedBody": "Si crees que la persona está en peligro inmediato, no la dejes sola siempre que sea seguro para ti quedarte. Contacta con los servicios de emergencia disponibles donde esté, con un servicio de crisis, con un profesional sanitario o con un familiar de confianza."
       }
     }
+  },
+  "emergencyNumbers": {
+    "$comment": "Public emergency numbers per country, shown on /help-now and in the crisis dialog under the approved copy. Facts, not guidance wording, so they sit outside the per-locale approved strings. Checked 2026-10-09 against public directories (Saudi: 911 unified emergency, 997 Red Crescent ambulance, 937 Ministry of Health line; Egypt: 123 ambulance, 122 police, 16328 General Secretariat of Mental Health; UAE 998/999; France 15/112/3114; Spain 112/024; UK 999/111; US 911/988). Owner to confirm (OWNER_ACTIONS); re-check with every crisis-copy review.",
+    "checked": "2026-10-09",
+    "labels": {
+      "en": {
+        "heading": "Emergency numbers",
+        "ambulance": "Ambulance",
+        "emergency": "Emergency (all services)",
+        "police": "Police",
+        "healthLine": "Ministry of Health line (24 hours)",
+        "mentalHealth": "Mental health support",
+        "suicideLine": "Suicide and crisis line",
+        "nonEmergency": "Urgent advice (not an emergency)",
+        "checked": "Numbers checked {date}."
+      },
+      "ar": {
+        "heading": "أرقام الطوارئ",
+        "ambulance": "الإسعاف",
+        "emergency": "الطوارئ (كل الخدمات)",
+        "police": "الشرطة",
+        "healthLine": "خط وزارة الصحة (على مدار الساعة)",
+        "mentalHealth": "دعم الصحة النفسية",
+        "suicideLine": "خط الأزمات ومنع الانتحار",
+        "nonEmergency": "نصيحة عاجلة (ليست طارئة)",
+        "checked": "رُوجعت الأرقام في {date}."
+      },
+      "fr": {
+        "heading": "Numéros d'urgence",
+        "ambulance": "Ambulance",
+        "emergency": "Urgences (tous services)",
+        "police": "Police",
+        "healthLine": "Ligne du ministère de la Santé (24 h/24)",
+        "mentalHealth": "Soutien en santé mentale",
+        "suicideLine": "Prévention du suicide",
+        "nonEmergency": "Conseil urgent (hors urgence vitale)",
+        "checked": "Numéros vérifiés le {date}."
+      },
+      "es": {
+        "heading": "Números de emergencia",
+        "ambulance": "Ambulancia",
+        "emergency": "Emergencias (todos los servicios)",
+        "police": "Policía",
+        "healthLine": "Línea del Ministerio de Salud (24 horas)",
+        "mentalHealth": "Apoyo en salud mental",
+        "suicideLine": "Línea de atención a la conducta suicida",
+        "nonEmergency": "Consejo urgente (no es una emergencia)",
+        "checked": "Números comprobados el {date}."
+      }
+    },
+    "order": {
+      "en": [
+        "SA",
+        "EG",
+        "AE",
+        "GB",
+        "US"
+      ],
+      "ar": [
+        "SA",
+        "EG",
+        "AE"
+      ],
+      "fr": [
+        "FR",
+        "SA",
+        "EG",
+        "AE"
+      ],
+      "es": [
+        "ES",
+        "SA",
+        "EG",
+        "AE"
+      ]
+    },
+    "countries": {
+      "SA": [
+        [
+          "emergency",
+          "911"
+        ],
+        [
+          "ambulance",
+          "997"
+        ],
+        [
+          "healthLine",
+          "937"
+        ]
+      ],
+      "EG": [
+        [
+          "ambulance",
+          "123"
+        ],
+        [
+          "police",
+          "122"
+        ],
+        [
+          "mentalHealth",
+          "16328"
+        ]
+      ],
+      "AE": [
+        [
+          "ambulance",
+          "998"
+        ],
+        [
+          "police",
+          "999"
+        ]
+      ],
+      "FR": [
+        [
+          "ambulance",
+          "15"
+        ],
+        [
+          "emergency",
+          "112"
+        ],
+        [
+          "suicideLine",
+          "3114"
+        ]
+      ],
+      "ES": [
+        [
+          "emergency",
+          "112"
+        ],
+        [
+          "suicideLine",
+          "024"
+        ]
+      ],
+      "GB": [
+        [
+          "emergency",
+          "999"
+        ],
+        [
+          "nonEmergency",
+          "111"
+        ]
+      ],
+      "US": [
+        [
+          "emergency",
+          "911"
+        ],
+        [
+          "suicideLine",
+          "988"
+        ]
+      ]
+    },
+    "review": {
+      "status": "pending",
+      "note": "Shown on /help-now only once status is 'approved'. CRISIS_RESOURCES.md: national numbers appear only in country-specific content after re-verification. Lead session checked them against public directories on 2026-10-09; the owner or a named reviewer confirms each (call or ministry site), sets status 'approved', reviewer and reviewDate."
+    }
   }
 }

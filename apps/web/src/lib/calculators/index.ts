@@ -76,6 +76,9 @@ export function bmi(
   if (!(heightCm >= ADULT_HEIGHT_CM[0] && heightCm <= ADULT_HEIGHT_CM[1])) return null;
   const meters = heightCm / 100;
   const value = Math.round((weightKg / (meters * meters)) * 10) / 10;
+  // Categorised from the one-decimal value she sees, as WHO tables are read: a
+  // shown 25.0 is "overweight" (reviewed 2026-10-09; unrounded categories made a
+  // displayed 25.0 read "healthy", which is the worse inconsistency).
   let category: BmiCategory;
   if (value < 18.5) category = "underweight";
   else if (value < 25) category = "normal";

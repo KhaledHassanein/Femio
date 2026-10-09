@@ -1,4 +1,6 @@
 import type { Metadata } from "next";
+import { OG_IMAGES } from "@/lib/seo/config";
+import { contentTitle, isIndexable } from "@/lib/seo/content-index";
 import { notFound } from "next/navigation";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { availableLocales, getContentBySlug, allSlugs } from "@/lib/cms/client";
@@ -36,14 +38,15 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const available = await availableLocales("conditions", slug);
   const translated = available.includes(locale);
   return {
-    title: seo.seoTitle || doc.title,
+    title: contentTitle(doc),
     description: seo.metaDescription || metaDescription(doc),
     alternates: seo.canonicalOverride
       ? { canonical: seo.canonicalOverride }
       : localizedAlternates(locale, `/conditions/${slug}`, available),
-    ...(seo.noIndex || !translated ? { robots: { index: false, follow: true } } : {}),
+    ...(isIndexable(doc, translated) ? {} : { robots: { index: false, follow: true } }),
     openGraph: {
-      title: seo.socialTitle || seo.seoTitle || doc.title,
+      images: [...OG_IMAGES],
+      title: seo.socialTitle || contentTitle(doc),
       description: seo.socialDescription || seo.metaDescription || metaDescription(doc),
     },
   };
