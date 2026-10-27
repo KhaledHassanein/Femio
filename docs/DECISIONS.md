@@ -524,3 +524,48 @@ specification-driven twins anyway.
 
 **Consequences.** No agent builds, upgrades or ships from the archive. Anything taken from it passes
 the normal gate here (tokens, logical properties, i18n review, tests) like new code.
+
+## ADR-072
+
+**v3: the web tracker, the database and the CMS are deleted; the calculators take dates from a calendar; the app seals its record on the phone.**
+
+Date: 2026-10-27 · Owner: Khaled (direction), lead session (defaults) · Status: accepted ·
+Related: ADR-070, ADR-071, `docs/32_STUDY/00_SYNTHESIS.md`, `docs/33_REBUILD_V3/00_PLAN.md`
+
+**Context.** On 2026-10-27 the owner asked for a professional takeover: study everything, keep the
+content, rebuild the rest, clean from the database to the favicon, keep health data local, and treat
+the earlier review gates as learning exercises rather than blockers. The study (twelve reports)
+found the closed web tracker still built, bundled, tested and translated; the website tied to a
+restricted Supabase project by an hourly `ui_strings` read and a build-time env check; Payload
+retired on paper only; the app's record a plaintext JSON file with no backup or lock; three
+palettes across the icon surfaces; and 41 contradictions between planning documents.
+
+**Decision.**
+1. The closed web tracker is **deleted** from the tree (19 routes, ~100 components, 15 libs, 44
+   message namespaces, the live e2e specs). Git history is the archive. Its product rules live in
+   the medical rules register (`01_PRODUCT_SCOPE.md` §4) and the Dart domain, not in TSX.
+2. **No server holds a woman's data.** `supabase/`, `apps/cms`, Sentry, PostHog and the service
+   worker are removed. The website needs three public env vars and makes no network call of its
+   own; a privacy tripwire (`scripts/analytics-lint.mjs`) fails the gate if either product gains an
+   analytics, error-reporting, ads or database client, or if the release manifest asks for
+   INTERNET. The Supabase project is to be paused and the CMS Vercel project deleted (owner).
+3. **The calculators take dates from an interactive calendar**, not a native date field: tap the
+   day, the result draws on the same grid, with the register's rules (six-day window ending on
+   ovulation, no window outside 21–35 days, nine-day spread for "regular", local today, the
+   mandated fertility sentence). The persona resolver and experience engine have no consumer and are
+   removed with the tracker; the twin discipline continues through `fixtures/domain`.
+4. **The app seals its record** (AES-GCM, key in the Android Keystore), serialises writes,
+   quarantines an unreadable file instead of overwriting it, exports a passphrase-sealed backup she
+   saves herself, offers a PIN lock, blocks Google backup and device transfer, and signs releases
+   from a key outside git.
+5. **One icon source** (`femio-app-icon-dusk.svg`) generates every surface; the logo is Dusk Bloom.
+
+**Alternatives.** Keeping the tracker behind its flag "for sync later" (rejected: it cost a build
+dependency on a restricted database and 72% of the catalogs for nothing). Keeping Payload as the
+editor (rejected: the content already lives in the repo; one Vercel project and a CVE surface for
+an editor one person uses). A native `<input type="date">` (rejected by the owner: the calendar
+is the product's own language).
+
+**Consequences.** `main` has no path back to accounts without a new ADR. The `ui_strings` human
+edits, if any were never merged into the JSON catalogs, are lost when the project is paused unless
+the owner exports them first (listed in `OWNER_ACTIONS.md`). FR/ES stay UI-only languages.

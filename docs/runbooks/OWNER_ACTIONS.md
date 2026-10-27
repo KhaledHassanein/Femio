@@ -1,43 +1,29 @@
 # Owner actions: only what Khaled must do by hand
 
-**Rewritten 2026-10-27 on the owner's direction:** *"I will be the only one in charge of everything
-… I just need the website and apps really functional and up and running."*
+**Rewritten 2026-10-28 for v3.** The 2026-10-27 version (four items) is in git history. The rule
+is unchanged: Khaled is the only person in every role; sessions do everything else and proceed on
+the recommended default. Do not add a line here unless only a human with Khaled's identity can do it.
 
-The previous version (lawyer, DPO, Arabic reviewer, staging project, SMTP, Search Console and the
-rest) is archived at `docs/archive/runbooks-2026-10/OWNER_ACTIONS_2026-10-07.md`, together with
-the A-to-Z guide. Nothing there is required now.
-
-## The rule for sessions
-
-- **Khaled is the only person in every role:** owner, controller, clinical reviewer (English and
-  Arabic), and approver of the legal texts.
-- **Sessions do everything else.** They draft the legal pages, the store listing, the content
-  and the code.
-- **Every decision has a default.** A session proceeds on its recommended default and tells Khaled
-  at the next checkpoint. It never waits on Khaled for something it can do itself.
-- **Do not add a line to this file** unless only a human with Khaled's identity can do it.
-
-## The list
+## Now (before the release candidate)
 
 | # | What | Why only you | Time |
 |---|---|---|---|
-| 1 | **Install each test APK on your phone** when a session sends one, and say what's wrong | Real phone, real use | 10 min each |
-| 2 | **Create the Google Play Console account** ($25, one-off) | Google verifies your identity | 20 min |
-| 3 | **Find 12 testers who keep the app installed for 14 days** | Google requires it of new personal developer accounts before an app can go public | Messages to friends and family |
-| 4 | **Say "publish"** on the legal pages and articles you're happy with | You are the named reviewer | When you want |
+| 1 | **Create the Google Play Console account** ($25, one-off) at play.google.com/console | Google verifies your identity | 20 min |
+| 2 | **Create the upload keystore** and keep it outside the repo: run the command in `docs/33_REBUILD_V3/05_RELEASE_RUNBOOK.md` §2, then copy `apps/mobile/android/key.properties.example` to `key.properties` and fill it in. Back the `.jks` file up somewhere safe: losing it means a new app listing | A signing key is an identity | 10 min |
+| 3 | **Fill the three legal placeholders** in `apps/web/src/lib/legal/placeholders.ts`: the legal entity (KM Digital Labs, with its registration), the privacy contact email, and the effective date | They are your name and address | 5 min |
+| 4 | **Pause the Supabase project** (Settings → General → Pause) and **delete the `femio-cms` Vercel project**. Before pausing, if you ever edited translations in the old CMS translation portal, export them first: SQL editor → `select key, locale, value from ui_strings where status = 'human_reviewed' and locale <> 'en'` → CSV → send to a session to merge | Account owner only | 10 min |
 
-## Moved, not dropped
+## When a session sends a build
 
-- **Lawyer, DPO, DPIA sign-off.** Replaced by legal pages and a short regulatory note that a session
-  drafts from the published laws. You approve them as owner. They are not a lawyer's opinion. The
-  private design (records never leave the phone) is what keeps the legal exposure low.
-- **Arabic reviewer.** That's you. An Arabic article goes live when you say "publish".
-- **Supabase Pro, custom email, web-push keys, invite code, staging project.** Not needed: there are
-  no accounts in v1 (D7).
-- **Search Console, illustration approval, CMS smoke test, forwarding alert emails.** Optional.
-  Sessions handle them through the connectors, or they wait until after launch.
+| # | What | Why only you | Time |
+|---|---|---|---|
+| 5 | **Install each test APK on your phone** and say what is wrong, in Arabic and English | Real phone, real use | 10 min each |
+| 6 | **Find 12 testers who keep the app installed for 14 days** (Google requires it of a new personal developer account). The recruitment message in Arabic and English is in `docs/33_REBUILD_V3/04_GROWTH_PACK.md` §5 | Your people | messages |
+| 7 | **Say "publish"** on the legal pages and the Arabic articles you are happy with | You are the named reviewer | when you want |
 
 ## Decisions already made (unchanged)
 
-D1–D8 stand: the TTC → pregnancy wedge, Saudi + Egypt, Arabic first, the private Android app,
-the website as its front door, Dusk Bloom. The full text is in the archived file, §0.
+D1–D8 and ADR-072 stand: the TTC → pregnancy wedge, Saudi + Egypt, Arabic first, the private
+Android app, the website as its front door, Dusk Bloom, no database, calendar calculators.
+Every other decision has a default in `docs/33_REBUILD_V3/01_PRODUCT_SCOPE.md` §6; a session
+proceeds on it and tells you at the next checkpoint.

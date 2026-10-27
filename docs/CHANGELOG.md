@@ -3,6 +3,12 @@ All notable changes to Femio V2.
 
 ## [Unreleased]
 ### Changed
+- **The calculators now work on a calendar.** Tap the day your last period started and your period, fertile days, likely ovulation and next period are drawn on the same month; in Arabic the week starts on Saturday and each day shows its Hijri date. When your cycles vary, or a cycle length is outside 21 to 35 days, Femio says it cannot name a fertile window from one date and shows how to tell afterwards, rather than guessing a day. Due date and pregnancy week show the 37 to 42 week window on a bar that never fills toward a date.
+- **Honest review labels on every guide.** A guide names its reviewer and the review date only where a clinician reviewed it; the rest now say "Editorially checked, clinician review pending". "Seek care now" boxes in guides are drawn as warning boxes.
+- **The privacy policy and terms describe the real product**: an app whose records never leave your phone, and a website that collects nothing. Help now shows emergency and support numbers for Egypt and Saudi Arabia, each with its source.
+- **The app keeps your records sealed on the phone** (encrypted with a key in your phone's secure hardware), can save a backup file that opens only with a passphrase you choose, can lock behind a PIN, and asks before deleting anything. Google backup and device-to-device transfer of your records are switched off. Settings now exists: language, Hijri dates, lock, backup, delete.
+- **Web sign-in and the web tracker are gone**, not just closed. Old links go to the app page.
+- **New icons everywhere**: the Dusk Bloom mark as favicon, home-screen icon, Android launcher and splash, and a share image for links.
 - **Femio is becoming an Android app, and your records will stay on your phone.** The website is now where you read the guides and use the free calculators. Signing in on the web is closed, and the app (coming soon to Google Play, with iPhone later) keeps what you log on your device: no account, and Femio never sees it.
 - **A new homepage**, built around what you came for: track your period, get pregnant, follow a pregnancy or understand menopause, each one tap from the tool for it.
 
