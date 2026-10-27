@@ -143,6 +143,9 @@ measured from this machine.**
 
 ## 7 · The real critical path to 30 Nov (from the docs, with dates)
 
+*Later the same day the owner said a 31 Oct lawyer brief is not realistic. The re-dated path is in
+`02_SPEC_V1_DRAFT.md` §4. This section stays as the snapshot it was.*
+
 | Item | Owner | Why it is critical |
 |---|---|---|
 | Lawyer engaged on the four narrow questions (A1) | Khaled | Egypt's health-data licensing is enforced from **31 Oct 2026**. Nothing launches without counsel's answer |
