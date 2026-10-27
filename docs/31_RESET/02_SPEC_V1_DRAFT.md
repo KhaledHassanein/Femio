@@ -1,5 +1,7 @@
 # 31.02 — Femio v1: scope lock (draft for Khaled)
 
+> **Superseded 2026-10-27 (same day).** The owner's later direction (take over, rebuild on sound knowledge, no review gates) is carried out in `docs/33_REBUILD_V3/`. Kept for the record.
+
 **Status: DRAFT. Nothing here is decided until you approve it.**
 
 **This is not a new plan.** The October revamp already chose the direction: D1–D8 in

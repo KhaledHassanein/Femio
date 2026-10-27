@@ -1,5 +1,7 @@
 # 30 — The revamp (opened 2026-10-07)
 
+> **Superseded 2026-10-27.** The live plan is `docs/33_REBUILD_V3/00_PLAN.md`; this chapter is kept for the record. Its launch table below predates D7/D8 (the Flutter app in `apps/mobile` is the product; TWA was dropped).
+
 The agency takeover. One page to orient; the detail lives in the chapters.
 
 | # | Chapter | Read it when |

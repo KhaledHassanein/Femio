@@ -2,24 +2,25 @@
 
 [![CI](https://github.com/KhaledHassanein/Femio/actions/workflows/ci.yml/badge.svg)](https://github.com/KhaledHassanein/Femio/actions/workflows/ci.yml)
 
-Web-first women's-health platform — one account for a woman's whole health life
-(EN/AR/FR/ES, RTL-native). Wellness / education / tracking only. See `CLAUDE.md`.
+A private women's-health app (Flutter, Android first) whose records never leave her phone, and the
+website that is its front door (articles, calculators, no database). Arabic-first; EN/AR/FR/ES UI,
+RTL-native. Wellness, education and tracking only. See `CLAUDE.md`.
 
 ## Repo map
-- `docs/30_REVAMP/` — the live plan (audit, market research, revamp plan, `PROGRESS.md`)
-- `docs/` — `STATE.md` (read first), architecture and specs, `DECISIONS.md`, `CHANGELOG.md`,
-  `runbooks/OWNER_ACTIONS.md` (everything the owner does), `compliance/`, `personas/`
-- `apps/web/` — Next.js 15 PWA (TS, Tailwind, next-intl, shadcn/ui, Serwist)
-- `apps/cms/` — Payload 3 CMS (being retired in favour of repo-published content, D3)
-- `supabase/` — versioned SQL migrations (schema + RLS)
-- `assets/brand/` — design tokens (`@femio/tokens`) + Bloom logo
-- `skills/` — installable Femio `.skill` packages
+- `docs/33_REBUILD_V3/` — the live plan and ledger (`PROGRESS.md`)
+- `docs/32_STUDY/` — the 2026-10-27 study: reports, knowledge graph (`graph/index.html`), synthesis
+- `docs/` — `STATE.md` (read first), `DECISIONS.md`, `CHANGELOG.md`, `compliance/`, `personas/`,
+  `content/articles/` (the content source), `runbooks/OWNER_ACTIONS.md`
+- `apps/mobile/` — the Flutter app
+- `apps/web/` — the Next.js teaser site
+- `fixtures/domain/` — golden fixtures shared by the TypeScript and Dart maths
+- `assets/brand/` — design tokens and the Bloom logo
 
 ## Develop
-Prerequisite: Node ≥ 20, pnpm. From the repo root:
+Prerequisites: Node ≥ 20, pnpm 11, Flutter ≥ 3.47.
 ```bash
 pnpm install
-pnpm dev         # http://localhost:3000 → /en
-pnpm gate        # typecheck, lint, tests and every guard, one exit code
+pnpm dev                       # website at http://localhost:3000 → /en
+pnpm gate                      # typecheck, lint, tests and every web guard, one exit code
+cd apps/mobile && flutter analyze && flutter test
 ```
-Applying database migrations: `docs/runbooks/supabase_apply_migrations.md`.
