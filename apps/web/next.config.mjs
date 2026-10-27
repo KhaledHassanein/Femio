@@ -1,31 +1,8 @@
 import createNextIntlPlugin from "next-intl/plugin";
-import withSerwistInit from "@serwist/next";
 
 const withNextIntl = createNextIntlPlugin("./src/i18n/request.ts");
 
-const withSerwist = withSerwistInit({
-  swSrc: "src/app/sw.ts",
-  swDest: "public/sw.js",
-  // Disable the SW in dev so HMR isn't intercepted by cached assets.
-  disable: process.env.NODE_ENV === "development",
-});
-
 const isDev = process.env.NODE_ENV === "development";
-
-/**
- * Origin a Sentry DSN sends to. Duplicated from `lib/observability/dsn.ts`
- * because next.config.mjs is plain ESM loaded before the TS build exists — the
- * unit-tested copy is the reference; this is four lines that must not import.
- */
-function sentryOrigin(dsn) {
-  if (!dsn) return null;
-  try {
-    const parsed = new URL(dsn);
-    return `${parsed.protocol}//${parsed.hostname}`;
-  } catch {
-    return null;
-  }
-}
 
 /**
  * Origins the browser is allowed to talk to. Built from the same public env the
@@ -34,32 +11,13 @@ function sentryOrigin(dsn) {
  * cannot be reached from a Femio page.
  */
 function connectSources() {
-  const sources = new Set(["'self'"]);
-
-  const supabase = process.env.NEXT_PUBLIC_SUPABASE_URL;
-  if (supabase) {
-    sources.add(supabase);
-    // Realtime/auth use WebSockets against the same host.
-    sources.add(supabase.replace(/^https:/, "wss:"));
-  }
-  // Analytics is EU-hosted and opt-in (ADR-017); listed only once configured.
-  const posthog = process.env.NEXT_PUBLIC_POSTHOG_HOST;
-  if (posthog) sources.add(posthog);
-
-  // Sentry's EU ingest endpoint. Derived from the DSN rather than hardcoded, so
-  // the policy can't drift from the project actually in use — and if the DSN is
-  // unparseable we add nothing rather than widening the policy on a guess.
-  const sentry = sentryOrigin(process.env.NEXT_PUBLIC_SENTRY_DSN);
-  if (sentry) sources.add(sentry);
-
-  return [...sources].join(" ");
+  // The site is static and talks to nobody but itself. Any origin added here is
+  // a decision for docs/DECISIONS.md: it means a visitor's request leaves Femio.
+  return "'self'";
 }
 
 function imageSources() {
-  const sources = new Set(["'self'", "data:", "blob:"]);
-  // Published CMS media (P1.9 article images) is served from the CMS origin.
-  if (process.env.NEXT_PUBLIC_CMS_URL) sources.add(process.env.NEXT_PUBLIC_CMS_URL);
-  return [...sources].join(" ");
+  return "'self' data: blob:";
 }
 
 /**
@@ -124,4 +82,4 @@ const nextConfig = {
   },
 };
 
-export default withSerwist(withNextIntl(nextConfig));
+export default withNextIntl(nextConfig);

@@ -1,7 +1,14 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
-  "ignoreCommand": "sh ../../scripts/vercel/ignore-build.sh . ../../assets/brand ../../packages ../../pnpm-lock.yaml ../../pnpm-workspace.yaml ../../package.json",
+  "ignoreCommand": "sh ../../scripts/vercel/ignore-build.sh . ../../assets/brand ../../pnpm-lock.yaml ../../pnpm-workspace.yaml ../../package.json",
   "regions": [
     "dub1"
+  ],
+  "redirects": [
+    {
+      "source": "/:locale(en|ar|fr|es)/:segment(sign-in|welcome|reset-password|dashboard|track|calendar|log|fertility|patterns|screeners|settings|sharing|shared-with-me|summary|tools|medications|appointments|admin|mfa)/:rest*",
+      "destination": "/:locale/app",
+      "permanent": false
+    }
   ]
 }

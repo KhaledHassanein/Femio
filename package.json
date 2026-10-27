@@ -2,7 +2,7 @@
   "name": "femio",
   "version": "0.0.0",
   "private": true,
-  "description": "Femio V2 — web-first women's-health platform (monorepo root).",
+  "description": "Femio \u2014 a private women's-health app (Flutter) and its static front-door website (Next.js).",
   "packageManager": "pnpm@11.16.0",
   "engines": {
     "node": ">=20"
@@ -14,8 +14,7 @@
     "lint": "pnpm --filter web lint",
     "typecheck": "pnpm --filter web typecheck",
     "test": "pnpm --filter web test",
-    "gate": "pnpm typecheck && pnpm lint && pnpm test && pnpm claims-lint && pnpm crisis-lint && pnpm analytics-lint && pnpm content-lint && pnpm i18n-client-lint && pnpm i18n-untranslated-lint && pnpm tokens-parity-lint && pnpm tokens-dart-lint && pnpm mobile-vocab-lint && pnpm native-readiness-lint && pnpm persona-branch-lint && pnpm tier1-portability-lint && pnpm tools-completeness-lint && pnpm chart-literals-lint",
-    "db-artifacts-probe": "node scripts/db-artifacts-probe.mjs",
+    "gate": "pnpm typecheck && pnpm lint && pnpm test && pnpm claims-lint && pnpm crisis-lint && pnpm analytics-lint && pnpm content-lint && pnpm i18n-client-lint && pnpm i18n-untranslated-lint && pnpm tokens-parity-lint && pnpm tokens-dart-lint && pnpm mobile-vocab-lint && pnpm native-readiness-lint && pnpm chart-literals-lint",
     "claims-lint": "node scripts/claims-lint.mjs",
     "crisis-lint": "node scripts/crisis-compliance.mjs",
     "analytics-lint": "node scripts/analytics-lint.mjs",
@@ -25,18 +24,12 @@
     "tokens-dart-lint": "node scripts/design/tokens-to-dart.mjs --check",
     "mobile-vocab-lint": "node --experimental-strip-types --no-warnings scripts/mobile/sync-log-vocabulary.mjs --check",
     "native-readiness-lint": "node scripts/native-readiness-lint.mjs",
-    "persona-branch-lint": "node scripts/persona-branch-lint.mjs",
-    "tier1-portability-lint": "node scripts/tier1-portability-lint.mjs",
-    "tools-completeness-lint": "node scripts/tools-completeness-lint.mjs",
     "chart-literals-lint": "node scripts/chart-literals-lint.mjs",
     "content-lint": "node scripts/content-lint.mjs",
     "content-lint:urls": "node scripts/content-lint.mjs --check-urls",
     "sitemap-check": "node scripts/seo/sitemap-check.mjs",
     "content-lint:test": "node scripts/content-lint.test.mjs",
-    "content-import:test": "node scripts/content-import.test.mjs",
-    "content-import": "pnpm --filter cms exec payload run ./scripts/import-articles.mjs",
-    "content-import-translations": "pnpm --filter cms exec payload run ./scripts/import-translations.mjs",
-    "rls-audit": "node scripts/security/rls-audit.mjs",
-    "audit": "pnpm audit --audit-level high"
+    "audit": "pnpm audit --audit-level high",
+    "gate:mobile": "cd apps/mobile && flutter analyze && flutter test"
   }
 }

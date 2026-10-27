@@ -12,7 +12,6 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { chipVariants } from "@/components/ui/chip";
-import { useCalculatorUsed } from "@/lib/analytics/use-calculator-used";
 import { MiniCalendar, type DayMark } from "./mini-calendar";
 
 type Mode = "period" | "sex";
@@ -28,7 +27,6 @@ export function PregnancyTestCalculator() {
     mode === "period" && date ? pregnancyTestFromPeriod(date, Number(cycle) || 28) : null;
   const fromSex = mode === "sex" && date ? pregnancyTestFromSex(date) : null;
   const testFrom = fromPeriod?.testFrom ?? fromSex?.testFrom ?? null;
-  useCalculatorUsed(testFrom != null);
 
   const fmt = (iso: string) =>
     format.dateTime(new Date(`${iso}T00:00:00Z`), { dateStyle: "long", timeZone: "UTC" });

@@ -3,7 +3,6 @@ import { Search } from "lucide-react";
 import type { ContentDoc } from "@/lib/cms/client";
 import { lede } from "@/lib/cms/format";
 import { Link } from "@/i18n/navigation";
-import { PageView } from "@/components/analytics/page-view";
 import { TopicArt } from "@/components/learn/topic-art";
 import { QUESTIONS, START_HERE, groupByTopic, pregnancyWeek, topicOf } from "@/lib/content/topics";
 
@@ -34,7 +33,6 @@ export async function LearnHub({ locale, articles }: { locale: string; articles:
 
   return (
     <main className="flex flex-col pb-16">
-      <PageView area="library" />
 
       {/* ── Hero: the promise, the search, the questions ─────────────────────── */}
       <section className="aurora text-text-on-brand">

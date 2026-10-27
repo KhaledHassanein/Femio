@@ -2,7 +2,7 @@
 # Vercel "Ignored Build Step" (vercel.json `ignoreCommand`). Exit 0 = skip, 1 = build.
 #
 # Most commits on this repo touch only docs/, and every push used to rebuild both
-# Vercel projects (web + cms) — build minutes and a deploy for nothing. This skips
+# Vercel project — build minutes and a deploy for nothing. This skips
 # a build only when it can PROVE nothing the app depends on changed; any doubt
 # (no previous SHA, a shallow clone without it, a git error) falls through to build.
 #

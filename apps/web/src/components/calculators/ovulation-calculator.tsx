@@ -6,7 +6,6 @@ import { fertileWindow, MAX_CYCLE, MIN_CYCLE } from "@/lib/calculators";
 import { Card, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { useCalculatorUsed } from "@/lib/analytics/use-calculator-used";
 import { MiniCalendar, markRange, type DayMark } from "./mini-calendar";
 
 export function OvulationCalculator() {
@@ -16,8 +15,6 @@ export function OvulationCalculator() {
   const [cycle, setCycle] = useState("28");
 
   const result = lmp ? fertileWindow(lmp, Number(cycle) || 28) : null;
-
-  useCalculatorUsed(result != null);
   const fmt = (iso: string) =>
     format.dateTime(new Date(`${iso}T00:00:00Z`), { dateStyle: "long", timeZone: "UTC" });
 

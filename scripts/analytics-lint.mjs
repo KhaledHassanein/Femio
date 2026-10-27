@@ -1,190 +1,108 @@
 #!/usr/bin/env node
 /**
- * Femio analytics compliance guard (docs/13 §5/§6, docs/compliance/DATA_MAP.md).
+ * Privacy tripwire (replaces the analytics-catalog guard on 2026-10-27).
  *
- * The rule it defends: **no health data reaches a third-party analytics SDK,
- * ever.** The unit tests already prove the runtime guard rejects unsafe payloads,
- * but tests only cover the schema as it stands today. This lint is the ratchet —
- * it fails CI when the *source* drifts in a direction that would widen what can
- * leave the browser, including in ways a passing test suite wouldn't notice.
+ * The website collects nothing and the app sends nothing. That is a product
+ * promise (CLAUDE.md rule 4) and a legal position (docs/33_REBUILD_V3/03_LEGAL_PACK.md:
+ * the Play Data safety answer "no data collected" holds only while nothing leaves
+ * the device). A promise nobody checks drifts, so this fails the gate when:
  *
- * Checks:
- *   1. The event catalog contains no health-shaped property key or value.
- *   2. No free-form value types (z.string(), template literals, `string` typed
- *      props) creep into the catalog — closed enums are the whole guarantee.
- *   3. Autocapture and session recording are never enabled, since either would
- *      bypass the catalog entirely by scraping the DOM.
- *   4. Nothing in the app tracks the crisis surface (ADR-013).
+ *   1. the website's package.json gains an analytics, error-reporting, tag-manager
+ *      or database client;
+ *   2. website source mentions a tracking host or a third-party beacon;
+ *   3. the app's pubspec.yaml gains an analytics, crash-reporting or ads package;
+ *   4. the app's release manifest asks for the INTERNET permission.
  *
- * If a flagged term is genuinely fine, narrow the check with a comment — never
- * delete a rule to make the build pass.
+ * Adding any of these is a decision for docs/DECISIONS.md and a change to the
+ * privacy policy, never a dependency bump.
  */
 import { readFileSync, readdirSync, statSync } from "node:fs";
 import { join, relative } from "node:path";
 
-const EVENTS_FILE = "apps/web/src/lib/analytics/events.ts";
-const ANALYTICS_DIR = "apps/web/src/lib/analytics";
-const APP_SRC = "apps/web/src";
-
 const findings = [];
 const fail = (file, message) => findings.push(`${file}: ${message}`);
 
-// ---------------------------------------------------------------------------
-// 1 + 2. The event catalog must stay a closed, health-free enum schema.
-// ---------------------------------------------------------------------------
-let events;
+// 1. Web dependencies.
+const WEB_PKG = "apps/web/package.json";
+const FORBIDDEN_WEB_PACKAGES = [
+  /posthog/i, /@sentry\//i, /segment/i, /mixpanel/i, /amplitude/i, /hotjar/i, /@vercel\/analytics/i,
+  /gtag/i, /google-tag/i, /firebase/i, /@supabase\//i, /plausible/i, /fathom/i, /fullstory/i,
+];
 try {
-  events = readFileSync(EVENTS_FILE, "utf8");
-} catch {
-  fail(EVENTS_FILE, "missing — the analytics event catalog must exist");
-}
-
-if (events) {
-  // Strip comments so the explanatory prose (which necessarily names the health
-  // fields we exclude, e.g. "a symptom name") isn't mistaken for schema.
-  const code = events
-    .replace(/\/\*[\s\S]*?\*\//g, "")
-    .replace(/^[ \t]*\/\/.*$/gm, "");
-
-  // Health stems, prefix-matched against *tokens*. Tokenizing (rather than using
-  // \b on the raw source) is essential: an underscore is a word character, so
-  // /\bcondition\b/ does not match `condition_tag` — the exact leak this check
-  // exists to catch. Mirrors `tokenize` in lib/analytics/guard.ts.
-  const HEALTH = [
-    "symptom", "cycle", "menstrual", "ovulation", "fertile", "fertility",
-    "pregnan", "gestation", "postpartum", "menopaus", "conceive", "contracept",
-    "mood", "depress", "anxiety", "epds", "phq", "screener", "diagnos",
-    "condition", "persona", "medication", "dosage", "bmi", "bbt", "suicide",
-    "birthdate", "birthday",
-  ];
-  const tokens = new Set(
-    code
-      .replace(/([a-z0-9])([A-Z])/g, "$1 $2")
-      .split(/[^a-zA-Z0-9]+/)
-      .filter(Boolean)
-      .map((token) => token.toLowerCase()),
-  );
-  for (const stem of HEALTH) {
-    const hit = [...tokens].find((token) => token.startsWith(stem));
-    if (hit) {
-      fail(EVENTS_FILE, `event catalog mentions health-shaped term "${hit}" — see docs/13 §5`);
+  const pkg = JSON.parse(readFileSync(WEB_PKG, "utf8"));
+  const deps = { ...pkg.dependencies, ...pkg.devDependencies };
+  for (const name of Object.keys(deps)) {
+    if (FORBIDDEN_WEB_PACKAGES.some((re) => re.test(name))) {
+      fail(WEB_PKG, `dependency "${name}" would send visitor data to a third party`);
     }
   }
-  // "age" needs the token-equality treatment: as a prefix it fires on the
-  // legitimate `language`/`page` tokens the catalog contains.
-  for (const exact of ["age", "ages", "band", "lab", "labs", "dob"]) {
-    if (tokens.has(exact)) {
-      fail(EVENTS_FILE, `event catalog mentions health-shaped term "${exact}" — see docs/13 §5`);
-    }
-  }
-
-  // Free-form value types would defeat the closed-enum guarantee.
-  for (const [pattern, why] of [
-    [/z\s*\.\s*string\s*\(/, "zod free-form string in the catalog"],
-    [/:\s*string(\s*[;,)\]}]|$)/m, "a `string`-typed property (must be a closed enum)"],
-    [/\$\{/, "a template literal (values must be literal enum members)"],
-    // `: number` only — NOT the `(typeof X)[number]` tuple-indexing idiom, which
-    // is how the enum member types are derived and is entirely safe.
-    [/:\s*number(\s*[;,)\]}]|$)/m, "a numeric property (a number can encode a date or lab value)"],
-    [/\bz\s*\.\s*number\s*\(/, "a zod numeric property"],
-  ]) {
-    if (pattern.test(code)) fail(EVENTS_FILE, `${why} — every value must come from a listed enum`);
-  }
+} catch (error) {
+  fail(WEB_PKG, `cannot read: ${error.message}`);
 }
 
-// ---------------------------------------------------------------------------
-// 3. Autocapture / session recording must never be switched on.
-// ---------------------------------------------------------------------------
-function walkFiles(dir, out = []) {
+// 2. Web source: tracking hosts and beacons.
+const WEB_SRC = "apps/web/src";
+const TRACKING_PATTERNS = [
+  /google-analytics\.com/i, /googletagmanager\.com/i, /connect\.facebook\.net/i, /posthog\.com/i,
+  /sentry\.io/i, /hotjar\.com/i, /mixpanel\.com/i, /segment\.io/i, /navigator\.sendBeacon/,
+  /supabase\.co/i,
+];
+function walk(dir, out = []) {
   for (const entry of readdirSync(dir)) {
-    const path = join(dir, entry);
-    if (statSync(path).isDirectory()) {
-      if (entry === "node_modules" || entry === ".next") continue;
-      walkFiles(path, out);
-    } else if (/\.(ts|tsx|mjs|js)$/.test(entry)) {
-      out.push(path);
-    }
+    const full = join(dir, entry);
+    if (statSync(full).isDirectory()) walk(full, out);
+    else if (/\.(ts|tsx|mjs|js)$/.test(entry)) out.push(full);
   }
   return out;
 }
-
-let appFiles = [];
+let files = [];
 try {
-  appFiles = walkFiles(APP_SRC);
+  files = walk(WEB_SRC);
 } catch {
-  fail(APP_SRC, "missing — cannot scan the app source");
+  fail(WEB_SRC, "cannot scan the website source");
 }
-
-for (const file of appFiles) {
-  const src = readFileSync(file, "utf8");
-  const code = src.replace(/\/\*[\s\S]*?\*\//g, "").replace(/^[ \t]*\/\/.*$/gm, "");
-  const rel = relative(".", file).replace(/\\/g, "/");
-
-  if (/autocapture\s*:\s*true/.test(code)) {
-    fail(rel, "autocapture: true — would scrape DOM text (symptom labels, article titles)");
-  }
-  if (/disable_session_recording\s*:\s*false/.test(code) || /session_recording\s*:\s*\{/.test(code)) {
-    fail(rel, "session recording enabled — would capture health fields on screen");
-  }
-  // A pageview carries the URL, and a Femio URL (/learn/<condition>) is itself a
-  // health inference. We send a coarse `area` from the catalog instead.
-  if (/capture_pageview\s*:\s*true/.test(code)) {
-    fail(rel, "capture_pageview: true — a Femio URL is a health inference (docs/13 §5)");
-  }
-  // 4. The crisis surface must never be measured.
-  if (/\btrack\s*\(\s*["'`][^"'`]*crisis/i.test(code) || /\bcapture\s*\(\s*["'`][^"'`]*crisis/i.test(code)) {
-    fail(rel, "tracks the crisis surface — forbidden by ADR-013 / CRISIS_RESOURCES");
+if (files.length === 0) fail(WEB_SRC, "no source files found; refusing to pass on nothing");
+for (const file of files) {
+  const text = readFileSync(file, "utf8");
+  for (const re of TRACKING_PATTERNS) {
+    if (re.test(text)) fail(relative(process.cwd(), file), `mentions a tracking or data host (${re.source})`);
   }
 }
 
-// ---------------------------------------------------------------------------
-// The vendor's own automatic properties must stay filtered. The event catalog
-// only governs what *we* attach; posthog-js appends $current_url, $referrer and
-// UTM values to every capture unless a sanitizer strips them — so an init that
-// loses `sanitize_properties` leaks article slugs while every test still passes.
-// ---------------------------------------------------------------------------
+// 3. App dependencies.
+const PUBSPEC = "apps/mobile/pubspec.yaml";
+const FORBIDDEN_DART_PACKAGES = [
+  /firebase/i, /sentry/i, /crashlytics/i, /analytics/i, /admob/i, /google_mobile_ads/i, /facebook/i,
+  /amplitude/i, /mixpanel/i, /posthog/i, /supabase/i, /appsflyer/i, /adjust/i, /onesignal/i,
+];
 try {
-  const transport = readFileSync(join(ANALYTICS_DIR, "transport.ts"), "utf8");
-  if (/posthog\.init\s*\(/.test(transport) && !/sanitize_properties\s*:/.test(transport)) {
-    fail(
-      "apps/web/src/lib/analytics/transport.ts",
-      "posthog.init without sanitize_properties — $current_url/$referrer would ride along",
-    );
+  const pubspec = readFileSync(PUBSPEC, "utf8");
+  const depsBlock = pubspec.split(/^dependencies:/m)[1] ?? "";
+  for (const line of depsBlock.split("\n")) {
+    const name = line.match(/^  ([a-z_0-9]+):/)?.[1];
+    if (name && FORBIDDEN_DART_PACKAGES.some((re) => re.test(name))) {
+      fail(PUBSPEC, `package "${name}" would send her data off the phone`);
+    }
   }
-  if (/posthog\.init\s*\(/.test(transport) && !/import\(["']posthog-js["']\)/.test(transport)) {
-    fail(
-      "apps/web/src/lib/analytics/transport.ts",
-      "posthog-js must be imported dynamically inside capture, so it never loads before consent",
-    );
-  }
-} catch {
-  fail("apps/web/src/lib/analytics/transport.ts", "missing — the transport seam must exist");
+} catch (error) {
+  fail(PUBSPEC, `cannot read: ${error.message}`);
 }
 
-// ---------------------------------------------------------------------------
-// Consent gating must remain opt-in and fail-closed.
-// ---------------------------------------------------------------------------
+// 4. Release manifest.
+const MANIFEST = "apps/mobile/android/app/src/main/AndroidManifest.xml";
 try {
-  const consent = readFileSync(join(ANALYTICS_DIR, "consent.ts"), "utf8");
-  if (!/return false/.test(consent)) {
-    fail(`${ANALYTICS_DIR}/consent.ts`, "must fail closed (return false) when consent is absent");
+  const manifest = readFileSync(MANIFEST, "utf8");
+  if (/android\.permission\.INTERNET/.test(manifest)) {
+    fail(MANIFEST, "the release manifest requests INTERNET; the app must not be able to send anything");
   }
-  if (/purpose\s*=\s*["']insights["']/.test(consent)) {
-    fail(
-      `${ANALYTICS_DIR}/consent.ts`,
-      "gates analytics on the 'insights' purpose — that is first-party pattern " +
-        "processing, not permission to send events to a third party",
-    );
-  }
-} catch {
-  fail(`${ANALYTICS_DIR}/consent.ts`, "missing — analytics must be consent-gated");
+} catch (error) {
+  fail(MANIFEST, `cannot read: ${error.message}`);
 }
 
 if (findings.length > 0) {
-  console.error("analytics-lint FAILED:\n");
-  for (const finding of findings) console.error(`  ✗ ${finding}`);
-  console.error(`\n${findings.length} finding(s). See docs/19_ANALYTICS_EVENT_SCHEMA.md.`);
+  console.error("privacy tripwire FAILED:\n");
+  for (const f of findings) console.error(`  ✗ ${f}`);
+  console.error(`\n${findings.length} finding(s). See docs/33_REBUILD_V3/03_LEGAL_PACK.md.`);
   process.exit(1);
 }
-
-console.log("analytics-lint OK — event catalog is closed, health-free, and consent-gated.");
+console.log("✓ privacy tripwire: no analytics, error-reporting, ads or database client in either product; release manifest has no INTERNET permission.");

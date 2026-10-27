@@ -7,7 +7,6 @@ import { addDays } from "@/lib/calculators/dates";
 import { Card, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { useCalculatorUsed } from "@/lib/analytics/use-calculator-used";
 import { MiniCalendar, markRange, type DayMark } from "./mini-calendar";
 
 export function PeriodCalculator() {
@@ -22,7 +21,6 @@ export function PeriodCalculator() {
   const result = lmp
     ? periodForecast(lmp, Number(shortest) || 28, Number(longest) || 28, len, 3)
     : null;
-  useCalculatorUsed(result != null);
 
   const fmt = (iso: string) =>
     format.dateTime(new Date(`${iso}T00:00:00Z`), { dateStyle: "medium", timeZone: "UTC" });

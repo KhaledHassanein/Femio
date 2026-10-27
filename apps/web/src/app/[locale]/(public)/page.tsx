@@ -16,8 +16,7 @@ import { Button } from "@/components/ui/button";
 import { JsonLd } from "@/components/seo/json-ld";
 import { organizationJsonLd, websiteJsonLd } from "@/lib/seo/jsonld";
 import { Link } from "@/i18n/navigation";
-import { APP_PAGE } from "@/lib/web-app";
-import { PageView } from "@/components/analytics/page-view";
+import { APP_PAGE } from "@/lib/site";
 import { PhoneMock } from "@/components/site/phone-mock";
 import { Bloom, Moon, Petal, Spark } from "@/components/site/motifs";
 
@@ -129,7 +128,6 @@ export default async function HomePage({ params }: PageProps) {
 
   return (
     <main className="flex w-full flex-1 flex-col">
-      <PageView area="home" />
       <JsonLd data={websiteJsonLd(locale)} />
       <JsonLd data={organizationJsonLd()} />
 

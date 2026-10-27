@@ -47,21 +47,16 @@ if (files.length === 0) {
   process.exit(1);
 }
 
-// The declared lists. Since P2.3 the payload is split in two — a public set shipped
-// by the root layout and an app set added by the `(app)` route-group layout — so the
-// guard reads both and checks usage against their union. Reading only the first
-// match would silently under-report and let a missing namespace reach a browser.
+// The declared lists: the public set shipped by the root layout and the calculators
+// set added by the calculators layout (the signed-in app lists went with the web
+// tracker on 2026-10-27). The guard reads every list and checks usage against their
+// union; reading only the first match would silently under-report.
 let declared;
 try {
   const source = readFileSync(LIST_FILE, "utf8");
   const names = new Set();
   let found = 0;
-  const LISTS = [
-    "PUBLIC_CLIENT_NAMESPACES",
-    "APP_CLIENT_NAMESPACES",
-    "CALCULATOR_CLIENT_NAMESPACES",
-    "AUTH_CLIENT_NAMESPACES",
-  ];
+  const LISTS = ["PUBLIC_CLIENT_NAMESPACES", "CALCULATOR_CLIENT_NAMESPACES"];
   for (const listName of LISTS) {
     const block = source.match(new RegExp(`${listName}\\s*=\\s*\\[([\\s\\S]*?)\\]`));
     if (!block) continue;

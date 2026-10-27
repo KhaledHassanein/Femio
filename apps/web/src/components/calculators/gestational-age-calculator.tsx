@@ -7,7 +7,6 @@ import { todayISO } from "@/lib/calculators/dates";
 import { Card, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { useCalculatorUsed } from "@/lib/analytics/use-calculator-used";
 import { PregnancyProgress } from "./pregnancy-progress";
 
 export function GestationalAgeCalculator() {
@@ -16,8 +15,6 @@ export function GestationalAgeCalculator() {
   const [asOf, setAsOf] = useState(todayISO());
 
   const result = lmp ? gestationalAge(lmp, asOf) : null;
-
-  useCalculatorUsed(result != null);
 
   return (
     <Card>

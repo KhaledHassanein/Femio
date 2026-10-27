@@ -33,35 +33,12 @@ type ToolEntry = {
 };
 
 const TOOLS: readonly ToolEntry[] = [
-  { key: "patterns", href: "/patterns", keywords: ["trends", "insights", "what my logs show"] },
-  {
-    key: "fertility",
-    href: "/fertility",
-    keywords: ["ovulation", "bbt", "basal body temperature", "cervical mucus", "ttc", "conceive"],
-  },
-  {
-    key: "screeners",
-    href: "/screeners",
-    keywords: ["mood", "anxiety", "depression", "epds", "questionnaire", "menopause rating"],
-  },
+  // The website's only tools are the calculators; everything else lives in the
+  // app, which search sends her to through the calculators' own hand-off cards.
   {
     key: "calculators",
     href: "/calculators",
-    keywords: ["due date", "cycle length", "ovulation date", "bmi", "period calculator"],
-  },
-  { key: "track", href: "/track", keywords: ["log", "diary", "symptoms", "record a period"] },
-  { key: "calendar", href: "/calendar", keywords: ["month", "cycle calendar", "period dates"] },
-  {
-    key: "summary",
-    href: "/summary",
-    keywords: ["doctor visit", "appointment", "report", "print", "questions for my doctor"],
-  },
-  { key: "medications", href: "/medications", keywords: ["pills", "prescriptions", "supplements"] },
-  { key: "appointments", href: "/appointments", keywords: ["visits", "clinic", "booking"] },
-  {
-    key: "sharing",
-    href: "/settings/sharing",
-    keywords: ["partner", "share", "consent", "who can see"],
+    keywords: ["due date", "cycle length", "ovulation date", "bmi", "period calculator", "pregnancy test"],
   },
 ];
 

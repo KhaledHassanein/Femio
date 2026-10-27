@@ -4,7 +4,7 @@ on:
   push:
     branches: [main]
   pull_request:
-  # Weekly, for the source-URL check only (see the `content-urls` job).
+  # Weekly, for the source-URL and deployed-sitemap checks only (see `content-urls`).
   schedule:
     - cron: "0 6 * * 1"
   workflow_dispatch:
@@ -15,171 +15,41 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  verify:
+  # The website: static, no database, no secrets. Everything `pnpm gate` runs,
+  # then the build and the browser tests against the built site.
+  verify-web:
     runs-on: ubuntu-latest
     env:
       NEXT_PUBLIC_APP_URL: http://localhost:3000
-      # The web app is closed in production (D8, ADR-070) and kept in code; CI opens
-      # it so its tests keep running until it is either revived for sync or deleted.
-      NEXT_PUBLIC_WEB_APP_ENABLED: "1"
-      # Real project when the e2e secrets are set, placeholder otherwise. The
-      # fallback keeps the build independent of secrets — fork PRs and clones still
-      # build — but the *build* has to carry the real values too, not just the test
-      # step: `next start` serves whatever the build baked in, so pointing only the
-      # test run at Supabase would leave the served app talking to example.com.
-      #
-      # These are the publishable (anon) keys, which are public by design and
-      # protected by RLS. They live in secrets to keep the project id out of logs,
-      # not because leaking them would grant access.
-      NEXT_PUBLIC_SUPABASE_URL: ${{ secrets.E2E_SUPABASE_URL || 'https://example.supabase.co' }}
-      NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY: ${{ secrets.E2E_SUPABASE_PUBLISHABLE_KEY || 'ci-placeholder-key' }}
-      # `secrets` cannot be read in a step-level `if:`, so the presence check is
-      # promoted to a plain env var here and tested downstream.
-      E2E_SUPABASE_CONFIGURED: ${{ secrets.E2E_SUPABASE_URL != '' }}
     steps:
       - uses: actions/checkout@v7
-
-      # Reads the pnpm version from package.json "packageManager".
       - uses: pnpm/action-setup@v6
-
       - uses: actions/setup-node@v7
         with:
           node-version: 22
           cache: pnpm
-
       - name: Install
         run: pnpm install --frozen-lockfile
-
-      # Fails on a high/critical advisory in any workspace package. Accepted
-      # residuals live in pnpm-workspace.yaml `auditConfig.ignoreGhsas`, each with
-      # a written reason + review date — so a known issue can only stay green by
-      # being declared in a diff (P1.23 / SECURITY_REVIEW A06).
+      # Fails on a high/critical advisory. Accepted residuals live in
+      # pnpm-workspace.yaml `auditConfig.ignoreGhsas`, each with a reason and a
+      # review date, so a known issue can only stay green by being declared in a diff.
       - name: Dependency audit
         run: pnpm audit --audit-level high
-
-      - name: Claims-language guard
-        run: pnpm claims-lint
-
-      - name: Crisis-safety compliance guard
-        run: pnpm crisis-lint
-
-      - name: Analytics privacy guard
-        run: pnpm analytics-lint
-
-      # A namespace used by a client component but missing from CLIENT_NAMESPACES is not
-      # a build error — it is a runtime error in someone's browser (P1.11.2).
-      - name: Client i18n payload guard
-        run: pnpm i18n-client-lint
-
-      # A whole namespace left in English renders fine and passes key-parity, so
-      # only a value comparison catches it — three of them shipped that way for
-      # months (P1.29, ADR-053).
-      - name: Untranslated-copy guard
-        run: pnpm i18n-untranslated-lint
-
-      # A Tailwind utility with no theme entry emits nothing — no error, just the
-      # wrong result on screen. `rounded-round` did exactly that (ADR-054).
-      - name: Token/preset parity guard
-        run: pnpm tokens-parity-lint
-
-      # The tracker has to stay buildable without a server or Phase 4 cannot ship
-      # (P4.0). A ratchet over known violations, not a gate — see docs/21.
-      - name: Native readiness guard
-        run: pnpm native-readiness-lint
-
-      # Personas must reach the screen as DATA, never as a branch in JSX — the
-      # failure docs/23 §3.1 found, where 73 personas collapsed into four hardcoded
-      # modes. A ratchet: the legacy mode-branch list can shrink, never grow
-      # (ADR-061).
-      - name: Persona-branch guard
-        run: pnpm persona-branch-lint
-
-      # Tier 1 has to lift into a Deno Edge Function and be mirrored in Dart
-      # unchanged (docs/24 §1). Nothing in the web app breaks when that stops being
-      # true, which is exactly why it is checked rather than remembered (ADR-060).
-      - name: Tier-1 portability guard
-        run: pnpm tier1-portability-lint
-
-      # The authoring brief, enforced mechanically over docs/content/articles
-      # (P1.9.1, ADR-031). Offline by default — source URLs are resolved by the
-      # scheduled `content-urls` job below, so a guideline body's WAF or a slow
-      # response can never fail an unrelated PR.
-      - name: Content guard
-        run: pnpm content-lint
-
-      # A guard nobody has watched fail is indistinguishable from no guard, so the
-      # guard's own rules are tested: each is handed an article built to violate it.
+      - name: Gate (typecheck, lint, tests, every guard)
+        run: pnpm gate
       - name: Content guard self-test
         run: pnpm content-lint:test
-
-      - name: Lint
-        run: pnpm lint
-
-      - name: Typecheck
-        run: pnpm typecheck
-
-      - name: Test
-        run: pnpm test
-
       - name: Build
         run: pnpm build
-
-      # E2E against the built app via `next start`.
-      #
-      # The product specs — onboarding, tracking, symptoms, consent, the visit
-      # summary, offline sync — used to be excluded here by a blanket `--grep-invert
-      # @live`, so CI covered marketing pages and legal text while the product went
-      # unchecked. They rotted to the point of not passing, and a schema drift that
-      # disabled /summary entirely shipped through the gap (docs/26 §1.2). They now
-      # run, against a throwaway anonymous user on the real project.
-      #
-      # `@cms` stays excluded: those need a live CMS, which is a different
-      # dependency, and the sitemap is guarded in production by
-      # scripts/seo/sitemap-check.mjs instead.
       - name: Install Playwright browser
         run: pnpm --filter web exec playwright install --with-deps chromium
-
-      # Without Supabase credentials the product specs cannot sign in, so the run
-      # falls back to the DB-free subset rather than failing red on every fork PR
-      # and every repo without the secrets set. The step name says which one ran, so
-      # a silently reduced gate is visible in the checks list rather than assumed.
-      - name: E2E (product + accessibility)
-        if: env.E2E_SUPABASE_CONFIGURED == 'true'
+      - name: E2E (public site, accessibility, security headers)
         run: pnpm --filter web test:e2e:ci
 
-      - name: E2E (DB-free only — Supabase secrets not set)
-        if: env.E2E_SUPABASE_CONFIGURED != 'true'
-        run: pnpm --filter web test:e2e:nodb
-
-  verify-cms:
-    runs-on: ubuntu-latest
-    env:
-      # Placeholder Payload env — the CMS build does not connect to the DB.
-      DATABASE_URL: postgresql://user:pass@localhost:5432/femio
-      PAYLOAD_SECRET: ci-placeholder-secret-not-used-at-build-time
-    steps:
-      - uses: actions/checkout@v7
-      - uses: pnpm/action-setup@v6
-      - uses: actions/setup-node@v7
-        with:
-          node-version: 22
-          cache: pnpm
-      - name: Install
-        run: pnpm install --frozen-lockfile
-      - name: Typecheck (cms)
-        run: pnpm --filter cms typecheck
-      # Covers the Markdown → Lexical converter and the importer's refusal paths
-      # (P1.9.2). Runs in dry-run mode, which returns before Payload is imported,
-      # so it never touches a database — the placeholder env above is enough.
-      - name: Importer self-test
-        run: pnpm content-import:test
-      - name: Build (cms)
-        run: pnpm --filter cms build
-
-  # The Android app (D8, ADR-070). Analyze and test only: a release build needs the
-  # owner's signing key, which never lives in CI. The golden fixtures it loads are the
-  # same files `verify` runs against the TypeScript twins, so a change to either
-  # language that breaks agreement fails here or there.
+  # The app. Analyze and test only: a release build needs the owner's signing key,
+  # which never lives in CI. The golden fixtures it loads are the same files
+  # `verify-web` runs against the TypeScript twins, so a change in either language
+  # that breaks agreement fails here or there.
   verify-mobile:
     runs-on: ubuntu-latest
     defaults:
@@ -189,21 +59,20 @@ jobs:
       - uses: actions/checkout@v7
       - uses: subosito/flutter-action@v2
         with:
-          flutter-version: 3.47.5
+          flutter-version: 3.47.8
           channel: stable
           cache: true
       - name: Dependencies
         run: flutter pub get
       - name: Analyze
         run: flutter analyze
-      - name: Test (golden fixtures, onboarding walk-through)
+      - name: Test (golden fixtures, screens, dates)
         run: flutter test
 
-  # Citation link rot is a slow, silent failure on health content: a source that
-  # 404s undermines the page it supports, and nobody notices by reading. This
-  # resolves every source URL in every draft, weekly and on demand — kept out of
-  # the PR path on purpose, so an unrelated change is never blocked by a guideline
-  # body's WAF, a timeout, or a rate limit.
+  # Citation link rot is a slow, silent failure on health content. This resolves
+  # every source URL in every draft weekly and on demand, kept out of the PR path
+  # so a guideline body's WAF or a timeout never blocks an unrelated change. The
+  # sitemap check reads the DEPLOYED sitemap, the only place that failure is visible.
   content-urls:
     if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
     runs-on: ubuntu-latest
@@ -218,9 +87,5 @@ jobs:
         run: pnpm install --frozen-lockfile
       - name: Resolve every source URL
         run: pnpm content-lint:urls
-      # Looks at the DEPLOYED sitemap, because that is the only place the failure it
-      # guards against is visible: NEXT_PUBLIC_CMS_URL is unset in CI, so CI's own
-      # sitemap correctly contains no articles. Production once served a 200 sitemap
-      # with every article missing, cached for an hour (P1.6.18).
       - name: Production sitemap check
         run: pnpm sitemap-check

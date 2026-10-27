@@ -4,7 +4,6 @@ import { useEffect, useMemo, useState } from "react";
 import { Search as SearchIcon } from "lucide-react";
 import { useLocale, useTranslations } from "next-intl";
 
-import { AppScreen } from "@/components/patterns/app-screen";
 import { Card, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { LoadingState } from "@/components/patterns/loading-state";
@@ -143,7 +142,7 @@ export function SearchScreen() {
   const fellBack = state.status === "ready" && state.englishOnly;
 
   return (
-    <AppScreen>
+    <main className="mx-auto flex w-full max-w-2xl flex-col gap-5 px-5 py-6">
       <h1 className="font-display text-lg text-text">{t("title")}</h1>
 
       <div className="flex flex-col gap-2">
@@ -221,6 +220,6 @@ export function SearchScreen() {
           </ul>
         </section>
       ))}
-    </AppScreen>
+    </main>
   );
 }

@@ -6,7 +6,6 @@ import { JsonLd } from "@/components/seo/json-ld";
 import { definedTermSetJsonLd } from "@/lib/seo/jsonld";
 import { localizedAlternates } from "@/lib/seo/metadata";
 import { siteConfig } from "@/lib/seo/config";
-import { PageView } from "@/components/analytics/page-view";
 
 type PageProps = { params: Promise<{ locale: string }> };
 
@@ -28,7 +27,6 @@ export default async function GlossaryPage({ params }: PageProps) {
 
   return (
     <main className="mx-auto flex w-full max-w-3xl flex-col gap-6 px-6 py-12">
-      <PageView area="library" />
       {terms.length > 0 ? (
         <JsonLd
           data={definedTermSetJsonLd({

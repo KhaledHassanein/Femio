@@ -7,7 +7,6 @@ import { todayISO } from "@/lib/calculators/dates";
 import { Card, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { useCalculatorUsed } from "@/lib/analytics/use-calculator-used";
 import { PregnancyProgress } from "./pregnancy-progress";
 
 export function DueDateCalculator() {
@@ -17,8 +16,6 @@ export function DueDateCalculator() {
   const [cycle, setCycle] = useState("28");
 
   const result = lmp ? estimateDueDate(lmp, Number(cycle) || 28) : null;
-
-  useCalculatorUsed(result != null);
   // Where she is today, when the date she gave is a pregnancy in progress.
   const now = lmp ? gestationalAge(lmp, todayISO()) : null;
   const fmt = (iso: string) =>

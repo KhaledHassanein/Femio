@@ -2,11 +2,9 @@ import type { ReactNode } from "react";
 import { setRequestLocale } from "next-intl/server";
 import { SiteHeader } from "@/components/site/site-header";
 import { SiteFooter } from "@/components/site/site-footer";
-import { SignedInTabs } from "@/components/signed-in-tabs";
 
-// Shell for the public content site (home + library). A persistent header/footer
-// wrap every marketing/content page. The signed-in app ((app) group) and the
-// minimal auth/onboarding/crisis pages keep their own layouts.
+// Shell for the public site (home, library, calculators, legal). A persistent
+// header/footer wrap every page; help-now keeps its own minimal layout.
 //
 // `setRequestLocale` here is load-bearing, not ceremony (P0.6). A layout renders
 // independently of its page, so without it the header and footer had no request
@@ -29,7 +27,6 @@ export default async function PublicLayout({
       <SiteHeader locale={locale} />
       {children}
       <SiteFooter locale={locale} />
-      <SignedInTabs />
     </div>
   );
 }

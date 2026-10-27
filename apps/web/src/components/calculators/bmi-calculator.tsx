@@ -7,7 +7,6 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { useCalculatorUsed } from "@/lib/analytics/use-calculator-used";
 
 type Unit = "metric" | "imperial";
 
@@ -22,7 +21,6 @@ export function BmiCalculator() {
   const weightKg = unit === "metric" ? w : w * 0.453592;
   const heightCm = unit === "metric" ? h : h * 2.54;
   const result = weight && height ? bmi(weightKg, heightCm) : null;
-  useCalculatorUsed(result != null);
 
   return (
     <Card>

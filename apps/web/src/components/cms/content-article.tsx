@@ -14,7 +14,6 @@ import {
 } from "@/lib/seo/jsonld";
 import { extractFaqs } from "@/lib/cms/faq";
 import { siteConfig } from "@/lib/seo/config";
-import { PageView } from "@/components/analytics/page-view";
 
 // Shared renderer for a single CMS content doc (articles, conditions, …). The
 // common editorial chrome (reviewed badge, sources, disclaimer) lives in the
@@ -58,7 +57,6 @@ export async function ContentArticle({
 
   return (
     <main className="mx-auto flex w-full max-w-3xl flex-col gap-6 px-6 py-12">
-      <PageView area="library" />
       <JsonLd
         data={medicalWebPageJsonLd({
           title: doc.title,

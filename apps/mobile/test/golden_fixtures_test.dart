@@ -119,7 +119,7 @@ final runners = <String, Object? Function(Map<String, dynamic>)>{
 
 /// Persona and experience-config logic drives the web app's adaptive screens. The
 /// Android v1 (`docs/30_REVAMP/04_ANDROID_APP_SPEC.md`) ports it when Today does.
-const notYetPorted = {'phase', 'persona-resolution', 'signals-from-rows', 'experience-config'};
+const notYetPorted = <String>{};
 
 void main() {
   final files = Directory(dir)
