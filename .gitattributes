@@ -1,0 +1,15 @@
+# Line endings: LF everywhere, on every OS.
+# Why: the generators (tokens-to-dart, sync-log-vocabulary) write LF and the gate
+# compares bytes; core.autocrlf=true on Windows checked files out as CRLF and
+# failed two guards for no real difference (docs/32_STUDY/reports/06-tooling-ci.md).
+* text=auto eol=lf
+*.png binary
+*.jpg binary
+*.webp binary
+*.ico binary
+*.ttf binary
+*.woff binary
+*.woff2 binary
+*.xlsx binary
+*.skill binary
+*.jar binary
