@@ -13,6 +13,45 @@ import '../domain/weight.dart';
 
 enum Goal { period, ttc, pregnant, menopause }
 
+/// The record's schema version, written as `v`. Bump it when a field changes
+/// meaning; [migrateRecord] carries older files forward.
+const schemaVersion = 2;
+
+/// Brings a record written by an older build up to [schemaVersion]. Unknown
+/// future versions are returned untouched so [Profile.fromJson] can refuse them
+/// loudly rather than guess. v1 → v2 added `settings`; its absence is the
+/// default, so nothing to rewrite.
+Map<String, Object?> migrateRecord(Map<String, Object?> json) {
+  final v = (json['v'] as num?)?.toInt() ?? 1;
+  if (v < 2) return {...json, 'v': 2};
+  return json;
+}
+
+/// Her preferences, kept with the record so a backup carries them.
+class AppSettings {
+  const AppSettings({this.showHijri = false, this.storageNoticeSeen = false});
+
+  /// Show Hijri dates beside Gregorian ones (on by default in Arabic, see
+  /// [AppSettings.defaultsFor]).
+  final bool showHijri;
+
+  /// The one-time "your records stay on this phone" notice has been dismissed.
+  final bool storageNoticeSeen;
+
+  /// Defaults for a new record in [locale].
+  static AppSettings defaultsFor(String locale) => AppSettings(showHijri: locale == 'ar');
+
+  AppSettings copyWith({bool? showHijri, bool? storageNoticeSeen}) =>
+      AppSettings(showHijri: showHijri ?? this.showHijri, storageNoticeSeen: storageNoticeSeen ?? this.storageNoticeSeen);
+
+  Map<String, Object?> toJson() => {'showHijri': showHijri, 'storageNoticeSeen': storageNoticeSeen};
+
+  static AppSettings fromJson(Map<String, Object?>? j) => AppSettings(
+        showHijri: j?['showHijri'] as bool? ?? false,
+        storageNoticeSeen: j?['storageNoticeSeen'] as bool? ?? false,
+      );
+}
+
 enum TryingFor { justStarted, under6, sixTo12, over12 }
 
 /// One day's log. Terms are keys from the shared vocabulary (`log_vocabulary.g.dart`).
@@ -76,6 +115,7 @@ class Profile {
     this.movements = const [],
     this.weights = const [],
     this.appointments = const [],
+    this.settings = const AppSettings(),
   });
 
   final Goal goal;
@@ -101,6 +141,9 @@ class Profile {
 
   /// Appointments: when, with whom, what to ask. Never a result.
   final List<Appointment> appointments;
+
+  /// Her preferences (Hijri display, dismissed notices).
+  final AppSettings settings;
   final int? periodLength;
 
   /// Her stated usual cycle length. Null when she said "not sure" or "irregular".
@@ -125,6 +168,7 @@ class Profile {
     List<MovementSession>? movements,
     List<WeightEntry>? weights,
     List<Appointment>? appointments,
+    AppSettings? settings,
   }) =>
       Profile(
         goal: goal,
@@ -143,6 +187,7 @@ class Profile {
         movements: movements ?? this.movements,
         weights: weights ?? this.weights,
         appointments: appointments ?? this.appointments,
+        settings: settings ?? this.settings,
       );
 
   /// Set or clear one day's log, keeping [periodStarts] in step with its flow.
@@ -163,7 +208,7 @@ class Profile {
   }
 
   Map<String, Object?> toJson() => {
-        'v': 1,
+        'v': schemaVersion,
         'goal': goal.name,
         'locale': locale,
         'birthYear': birthYear,
@@ -180,6 +225,7 @@ class Profile {
         'movements': [for (final m in movements) m.toJson()],
         'weights': [for (final w in weights) w.toJson()],
         'appointments': [for (final a in appointments) a.toJson()],
+        'settings': settings.toJson(),
       };
 
   static Profile fromJson(Map<String, Object?> j) => Profile(
@@ -213,5 +259,6 @@ class Profile {
           for (final a in (j['appointments'] as List?) ?? const [])
             Appointment.fromJson(Map<String, Object?>.from(a as Map)),
         ],
+        settings: AppSettings.fromJson(j['settings'] == null ? null : Map<String, Object?>.from(j['settings'] as Map)),
       );
 }

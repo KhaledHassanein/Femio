@@ -77,7 +77,7 @@ class L10nEn extends L10n {
 
   @override
   String get under18Body =>
-      'Femio\'s tracker is for women aged 18 and over in this first version. Every guide on femioapp.com is open to you, with no account.';
+      'femio\'s tracker is for women aged 18 and over in this first version. Every guide on femioapp.com is open to you, with no account.';
 
   @override
   String get lastPeriodTitle => 'When did your last period start?';
@@ -909,4 +909,153 @@ class L10nEn extends L10n {
 
   @override
   String get apptEdit => 'Edit';
+
+  @override
+  String get settingsTitle => 'Settings';
+
+  @override
+  String get settingsLanguage => 'Language';
+
+  @override
+  String get settingsDates => 'Dates';
+
+  @override
+  String get settingsHijri => 'Show Hijri dates';
+
+  @override
+  String get settingsHijriNote =>
+      'Beside each Gregorian date. Umm al-Qura calendar; can differ by a day from local announcements.';
+
+  @override
+  String get settingsPrivacy => 'Privacy';
+
+  @override
+  String get settingsLock => 'App lock';
+
+  @override
+  String get settingsLockNote =>
+      'Ask for a PIN when femio opens and after a minute away.';
+
+  @override
+  String get setPin => 'Choose a PIN of 4 to 8 digits';
+
+  @override
+  String get changePin => 'Change PIN';
+
+  @override
+  String get enterPin => 'PIN';
+
+  @override
+  String get enterPinAgain => 'Enter the PIN again';
+
+  @override
+  String get enterCurrentPin => 'Enter your current PIN';
+
+  @override
+  String get pinMismatch => 'The two PINs did not match. Try again.';
+
+  @override
+  String get wrongPin => 'That PIN is not right.';
+
+  @override
+  String get lockTitle => 'Welcome back';
+
+  @override
+  String get lockHint => 'Enter your PIN to open your records.';
+
+  @override
+  String get forgotPin =>
+      'Forgot your PIN? There is no way to recover it: femio has no account. Delete everything from this phone and start again, or restore a backup file.';
+
+  @override
+  String get backupSection => 'Backup';
+
+  @override
+  String get exportBackup => 'Save a backup file';
+
+  @override
+  String get importBackup => 'Restore from a backup file';
+
+  @override
+  String get backupPassphrase => 'Passphrase';
+
+  @override
+  String get backupPassphraseAgain => 'Passphrase again';
+
+  @override
+  String get backupPassphraseHint =>
+      'Choose a passphrase you will remember. The file opens only with it, and nobody can reset it.';
+
+  @override
+  String backupPassphraseShort(int count) {
+    return 'Use at least $count characters.';
+  }
+
+  @override
+  String get backupPassphraseMismatch => 'The two passphrases did not match.';
+
+  @override
+  String get backupSaved => 'Backup saved.';
+
+  @override
+  String get backupImported => 'Your records were restored.';
+
+  @override
+  String get backupWrongPassphrase =>
+      'That passphrase does not open this file.';
+
+  @override
+  String get backupNotFemio => 'That is not a femio backup file.';
+
+  @override
+  String get backupUnreadable =>
+      'This backup was made by a newer femio and cannot be read here. Update the app and try again.';
+
+  @override
+  String get backupHonesty =>
+      'Your records live only on this phone. If you lose or reset the phone, they are gone unless you have saved a backup file. We cannot recover them for you.';
+
+  @override
+  String get aboutSection => 'About';
+
+  @override
+  String get wellnessDisclaimer =>
+      'femio is a wellness and education tool for tracking your own health. It is not a medical device and does not replace your clinician.';
+
+  @override
+  String get predictionNote =>
+      'Predictions are estimates, not guarantees, and must not be relied on to avoid pregnancy.';
+
+  @override
+  String get firstRunStorageNotice =>
+      'Your records stay on this phone. femio has no account and no server, and cannot see what you enter.';
+
+  @override
+  String get firstRunStorageTitle => 'Private by design';
+
+  @override
+  String get dismiss => 'Got it';
+
+  @override
+  String get deleteEverything => 'Delete everything on this phone';
+
+  @override
+  String get deleteConfirmTitle => 'Delete everything on this phone?';
+
+  @override
+  String get deleteConfirmBody =>
+      'This removes all your records and settings from femio on this phone. It cannot be undone, and we cannot restore it. Backup files you saved elsewhere are not deleted.';
+
+  @override
+  String get deleteConfirmAction => 'Delete everything';
+
+  @override
+  String get deleteConfirmCancel => 'Keep my records';
+
+  @override
+  String get corruptTitle => 'Your records could not be opened';
+
+  @override
+  String get corruptBody =>
+      'The file on this phone is damaged or was written by a different femio. It has been kept aside, not deleted. Restore a backup file if you have one, or start again.';
 }

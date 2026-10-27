@@ -146,6 +146,7 @@ class _OnboardingFlowState extends State<OnboardingFlow> {
       edd: goal == Goal.pregnant && !born ? _computedEdd : null,
       birthDate: born ? toISO(_dueInput!) : null,
       lastPeriodOverYear: goal == Goal.menopause && _menoOverYear,
+      settings: AppSettings.defaultsFor(locale),
     ));
   }
 

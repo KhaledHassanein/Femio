@@ -76,7 +76,7 @@ class L10nAr extends L10n {
 
   @override
   String get under18Body =>
-      'المتابعة في فيميو للنساء من عمر 18 عامًا فما فوق في هذا الإصدار الأول. وكل الأدلة على femioapp.com متاحة لكِ بلا حساب.';
+      'المتابعة في femio للنساء من عمر 18 عامًا فما فوق في هذا الإصدار الأول. وكل الأدلة على femioapp.com متاحة لكِ بلا حساب.';
 
   @override
   String get lastPeriodTitle => 'متى بدأت آخر دورة لكِ؟';
@@ -941,4 +941,152 @@ class L10nAr extends L10n {
 
   @override
   String get apptEdit => 'تعديل';
+
+  @override
+  String get settingsTitle => 'الإعدادات';
+
+  @override
+  String get settingsLanguage => 'اللغة';
+
+  @override
+  String get settingsDates => 'التواريخ';
+
+  @override
+  String get settingsHijri => 'إظهار التاريخ الهجري';
+
+  @override
+  String get settingsHijriNote =>
+      'إلى جانب كل تاريخ ميلادي. بحسب تقويم أم القرى، وقد يختلف يومًا عن الإعلان المحلي.';
+
+  @override
+  String get settingsPrivacy => 'الخصوصية';
+
+  @override
+  String get settingsLock => 'قفل التطبيق';
+
+  @override
+  String get settingsLockNote =>
+      'طلب رمز PIN عند فتح femio وبعد دقيقة من الغياب.';
+
+  @override
+  String get setPin => 'اختاري رمز PIN من 4 إلى 8 أرقام';
+
+  @override
+  String get changePin => 'تغيير رمز PIN';
+
+  @override
+  String get enterPin => 'رمز PIN';
+
+  @override
+  String get enterPinAgain => 'أدخلي رمز PIN مرة أخرى';
+
+  @override
+  String get enterCurrentPin => 'أدخلي رمز PIN الحالي';
+
+  @override
+  String get pinMismatch => 'الرمزان غير متطابقين. حاولي مرة أخرى.';
+
+  @override
+  String get wrongPin => 'هذا الرمز غير صحيح.';
+
+  @override
+  String get lockTitle => 'أهلًا بعودتكِ';
+
+  @override
+  String get lockHint => 'أدخلي رمز PIN لفتح سجلاتكِ.';
+
+  @override
+  String get forgotPin =>
+      'نسيتِ الرمز؟ لا توجد طريقة لاستعادته، فليس في femio حساب. احذفي كل شيء من هذا الهاتف وابدئي من جديد، أو استعيدي ملف نسخة احتياطية.';
+
+  @override
+  String get backupSection => 'النسخ الاحتياطي';
+
+  @override
+  String get exportBackup => 'حفظ ملف نسخة احتياطية';
+
+  @override
+  String get importBackup => 'الاستعادة من ملف نسخة احتياطية';
+
+  @override
+  String get backupPassphrase => 'عبارة المرور';
+
+  @override
+  String get backupPassphraseAgain => 'عبارة المرور مرة أخرى';
+
+  @override
+  String get backupPassphraseHint =>
+      'اختاري عبارة مرور تتذكرينها. لا يُفتح الملف إلا بها، ولا يستطيع أحد إعادة تعيينها.';
+
+  @override
+  String backupPassphraseShort(int count) {
+    return 'استخدمي $count أحرف على الأقل.';
+  }
+
+  @override
+  String get backupPassphraseMismatch => 'عبارتا المرور غير متطابقتين.';
+
+  @override
+  String get backupSaved => 'تم حفظ النسخة الاحتياطية.';
+
+  @override
+  String get backupImported => 'تمت استعادة سجلاتكِ.';
+
+  @override
+  String get backupWrongPassphrase => 'عبارة المرور هذه لا تفتح هذا الملف.';
+
+  @override
+  String get backupNotFemio => 'هذا ليس ملف نسخة احتياطية من femio.';
+
+  @override
+  String get backupUnreadable =>
+      'أُنشئت هذه النسخة بإصدار أحدث من femio ولا يمكن قراءتها هنا. حدّثي التطبيق وحاولي مرة أخرى.';
+
+  @override
+  String get backupHonesty =>
+      'سجلاتكِ محفوظة على هذا الهاتف فقط. إذا فُقد الهاتف أو أُعيد ضبطه فستضيع السجلات ما لم تكوني قد حفظتِ ملف نسخة احتياطية. ولا نستطيع استرجاعها لكِ.';
+
+  @override
+  String get aboutSection => 'حول التطبيق';
+
+  @override
+  String get wellnessDisclaimer =>
+      'femio أداة للتوعية والمتابعة الصحية الشخصية، وليست جهازًا طبيًا ولا تغني عن استشارة الطبيبة أو الطبيب.';
+
+  @override
+  String get predictionNote =>
+      'التوقعات تقديرات وليست ضمانات، ولا يجوز الاعتماد عليها لتجنّب الحمل.';
+
+  @override
+  String get firstRunStorageNotice =>
+      'تبقى سجلاتكِ على هذا الهاتف. لا يوجد في femio حساب ولا خادم، ولا يستطيع أن يرى ما تُدخلينه.';
+
+  @override
+  String get firstRunStorageTitle => 'خصوصية بالتصميم';
+
+  @override
+  String get dismiss => 'فهمت';
+
+  @override
+  String get deleteEverything => 'حذف كل شيء من هذا الهاتف';
+
+  @override
+  String get deleteConfirmTitle => 'حذف كل شيء من هذا الهاتف؟';
+
+  @override
+  String get deleteConfirmBody =>
+      'سيحذف femio جميع سجلاتكِ وإعداداتكِ من هذا الهاتف. لا يمكن التراجع عن ذلك ولا نستطيع استعادتها. ولن تُحذف ملفات النسخ الاحتياطي التي حفظتِها في مكان آخر.';
+
+  @override
+  String get deleteConfirmAction => 'احذفي كل شيء';
+
+  @override
+  String get deleteConfirmCancel => 'أبقي سجلاتي';
+
+  @override
+  String get corruptTitle => 'تعذّر فتح سجلاتكِ';
+
+  @override
+  String get corruptBody =>
+      'الملف على هذا الهاتف تالف أو كُتب بإصدار مختلف من femio. تم الاحتفاظ به جانبًا ولم يُحذف. استعيدي ملف نسخة احتياطية إن كان لديكِ، أو ابدئي من جديد.';
 }

@@ -1,0 +1,7 @@
+# Copy to android/key.properties (git-ignored) and point it at the upload keystore
+# you created with keytool (docs/33_REBUILD_V3/05_RELEASE_RUNBOOK.md). Never commit
+# the keystore or this file with real values.
+storeFile=../upload-keystore.jks
+storePassword=CHANGE_ME
+keyAlias=upload
+keyPassword=CHANGE_ME

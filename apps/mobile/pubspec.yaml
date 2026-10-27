@@ -1,18 +1,26 @@
 name: femio
 description: "Femio: your cycle, your plans, your pregnancy. Private, on your phone."
 publish_to: 'none'
-version: 0.4.0+4
+version: 0.5.0+5
 
 environment:
   sdk: ^3.13.4
 
-# Pinned exactly, and only versions at least two weeks old (the same release-age rule
-# the web workspace enforces in pnpm-workspace.yaml).
+# Pinned exactly. Every package here works offline; none opens a socket. The
+# privacy tripwire (scripts/analytics-lint.mjs) fails the gate if an analytics,
+# crash-reporting, ads or database package ever appears in this list.
+#   path_provider          where the record file lives
+#   flutter_secure_storage the record's encryption key, in the Android Keystore
+#   cryptography           AES-GCM for the record and backups, PBKDF2 for passphrases and the PIN
+#   file_picker            the backup file she saves and opens herself (Storage Access Framework)
 dependencies:
+  cryptography: 2.9.0
+  file_picker: 13.3.0
   flutter:
     sdk: flutter
   flutter_localizations:
     sdk: flutter
+  flutter_secure_storage: 11.2.0
   intl: any # the version flutter_localizations pins
   path_provider: 2.1.6
 

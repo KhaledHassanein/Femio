@@ -230,7 +230,7 @@ abstract class L10n {
   /// No description provided for @under18Body.
   ///
   /// In en, this message translates to:
-  /// **'Femio\'s tracker is for women aged 18 and over in this first version. Every guide on femioapp.com is open to you, with no account.'**
+  /// **'femio\'s tracker is for women aged 18 and over in this first version. Every guide on femioapp.com is open to you, with no account.'**
   String get under18Body;
 
   /// No description provided for @lastPeriodTitle.
@@ -1582,6 +1582,276 @@ abstract class L10n {
   /// In en, this message translates to:
   /// **'Edit'**
   String get apptEdit;
+
+  /// No description provided for @settingsTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Settings'**
+  String get settingsTitle;
+
+  /// No description provided for @settingsLanguage.
+  ///
+  /// In en, this message translates to:
+  /// **'Language'**
+  String get settingsLanguage;
+
+  /// No description provided for @settingsDates.
+  ///
+  /// In en, this message translates to:
+  /// **'Dates'**
+  String get settingsDates;
+
+  /// No description provided for @settingsHijri.
+  ///
+  /// In en, this message translates to:
+  /// **'Show Hijri dates'**
+  String get settingsHijri;
+
+  /// No description provided for @settingsHijriNote.
+  ///
+  /// In en, this message translates to:
+  /// **'Beside each Gregorian date. Umm al-Qura calendar; can differ by a day from local announcements.'**
+  String get settingsHijriNote;
+
+  /// No description provided for @settingsPrivacy.
+  ///
+  /// In en, this message translates to:
+  /// **'Privacy'**
+  String get settingsPrivacy;
+
+  /// No description provided for @settingsLock.
+  ///
+  /// In en, this message translates to:
+  /// **'App lock'**
+  String get settingsLock;
+
+  /// No description provided for @settingsLockNote.
+  ///
+  /// In en, this message translates to:
+  /// **'Ask for a PIN when femio opens and after a minute away.'**
+  String get settingsLockNote;
+
+  /// No description provided for @setPin.
+  ///
+  /// In en, this message translates to:
+  /// **'Choose a PIN of 4 to 8 digits'**
+  String get setPin;
+
+  /// No description provided for @changePin.
+  ///
+  /// In en, this message translates to:
+  /// **'Change PIN'**
+  String get changePin;
+
+  /// No description provided for @enterPin.
+  ///
+  /// In en, this message translates to:
+  /// **'PIN'**
+  String get enterPin;
+
+  /// No description provided for @enterPinAgain.
+  ///
+  /// In en, this message translates to:
+  /// **'Enter the PIN again'**
+  String get enterPinAgain;
+
+  /// No description provided for @enterCurrentPin.
+  ///
+  /// In en, this message translates to:
+  /// **'Enter your current PIN'**
+  String get enterCurrentPin;
+
+  /// No description provided for @pinMismatch.
+  ///
+  /// In en, this message translates to:
+  /// **'The two PINs did not match. Try again.'**
+  String get pinMismatch;
+
+  /// No description provided for @wrongPin.
+  ///
+  /// In en, this message translates to:
+  /// **'That PIN is not right.'**
+  String get wrongPin;
+
+  /// No description provided for @lockTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Welcome back'**
+  String get lockTitle;
+
+  /// No description provided for @lockHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Enter your PIN to open your records.'**
+  String get lockHint;
+
+  /// No description provided for @forgotPin.
+  ///
+  /// In en, this message translates to:
+  /// **'Forgot your PIN? There is no way to recover it: femio has no account. Delete everything from this phone and start again, or restore a backup file.'**
+  String get forgotPin;
+
+  /// No description provided for @backupSection.
+  ///
+  /// In en, this message translates to:
+  /// **'Backup'**
+  String get backupSection;
+
+  /// No description provided for @exportBackup.
+  ///
+  /// In en, this message translates to:
+  /// **'Save a backup file'**
+  String get exportBackup;
+
+  /// No description provided for @importBackup.
+  ///
+  /// In en, this message translates to:
+  /// **'Restore from a backup file'**
+  String get importBackup;
+
+  /// No description provided for @backupPassphrase.
+  ///
+  /// In en, this message translates to:
+  /// **'Passphrase'**
+  String get backupPassphrase;
+
+  /// No description provided for @backupPassphraseAgain.
+  ///
+  /// In en, this message translates to:
+  /// **'Passphrase again'**
+  String get backupPassphraseAgain;
+
+  /// No description provided for @backupPassphraseHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Choose a passphrase you will remember. The file opens only with it, and nobody can reset it.'**
+  String get backupPassphraseHint;
+
+  /// No description provided for @backupPassphraseShort.
+  ///
+  /// In en, this message translates to:
+  /// **'Use at least {count} characters.'**
+  String backupPassphraseShort(int count);
+
+  /// No description provided for @backupPassphraseMismatch.
+  ///
+  /// In en, this message translates to:
+  /// **'The two passphrases did not match.'**
+  String get backupPassphraseMismatch;
+
+  /// No description provided for @backupSaved.
+  ///
+  /// In en, this message translates to:
+  /// **'Backup saved.'**
+  String get backupSaved;
+
+  /// No description provided for @backupImported.
+  ///
+  /// In en, this message translates to:
+  /// **'Your records were restored.'**
+  String get backupImported;
+
+  /// No description provided for @backupWrongPassphrase.
+  ///
+  /// In en, this message translates to:
+  /// **'That passphrase does not open this file.'**
+  String get backupWrongPassphrase;
+
+  /// No description provided for @backupNotFemio.
+  ///
+  /// In en, this message translates to:
+  /// **'That is not a femio backup file.'**
+  String get backupNotFemio;
+
+  /// No description provided for @backupUnreadable.
+  ///
+  /// In en, this message translates to:
+  /// **'This backup was made by a newer femio and cannot be read here. Update the app and try again.'**
+  String get backupUnreadable;
+
+  /// No description provided for @backupHonesty.
+  ///
+  /// In en, this message translates to:
+  /// **'Your records live only on this phone. If you lose or reset the phone, they are gone unless you have saved a backup file. We cannot recover them for you.'**
+  String get backupHonesty;
+
+  /// No description provided for @aboutSection.
+  ///
+  /// In en, this message translates to:
+  /// **'About'**
+  String get aboutSection;
+
+  /// No description provided for @wellnessDisclaimer.
+  ///
+  /// In en, this message translates to:
+  /// **'femio is a wellness and education tool for tracking your own health. It is not a medical device and does not replace your clinician.'**
+  String get wellnessDisclaimer;
+
+  /// No description provided for @predictionNote.
+  ///
+  /// In en, this message translates to:
+  /// **'Predictions are estimates, not guarantees, and must not be relied on to avoid pregnancy.'**
+  String get predictionNote;
+
+  /// No description provided for @firstRunStorageNotice.
+  ///
+  /// In en, this message translates to:
+  /// **'Your records stay on this phone. femio has no account and no server, and cannot see what you enter.'**
+  String get firstRunStorageNotice;
+
+  /// No description provided for @firstRunStorageTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Private by design'**
+  String get firstRunStorageTitle;
+
+  /// No description provided for @dismiss.
+  ///
+  /// In en, this message translates to:
+  /// **'Got it'**
+  String get dismiss;
+
+  /// No description provided for @deleteEverything.
+  ///
+  /// In en, this message translates to:
+  /// **'Delete everything on this phone'**
+  String get deleteEverything;
+
+  /// No description provided for @deleteConfirmTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Delete everything on this phone?'**
+  String get deleteConfirmTitle;
+
+  /// No description provided for @deleteConfirmBody.
+  ///
+  /// In en, this message translates to:
+  /// **'This removes all your records and settings from femio on this phone. It cannot be undone, and we cannot restore it. Backup files you saved elsewhere are not deleted.'**
+  String get deleteConfirmBody;
+
+  /// No description provided for @deleteConfirmAction.
+  ///
+  /// In en, this message translates to:
+  /// **'Delete everything'**
+  String get deleteConfirmAction;
+
+  /// No description provided for @deleteConfirmCancel.
+  ///
+  /// In en, this message translates to:
+  /// **'Keep my records'**
+  String get deleteConfirmCancel;
+
+  /// No description provided for @corruptTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Your records could not be opened'**
+  String get corruptTitle;
+
+  /// No description provided for @corruptBody.
+  ///
+  /// In en, this message translates to:
+  /// **'The file on this phone is damaged or was written by a different femio. It has been kept aside, not deleted. Restore a backup file if you have one, or start again.'**
+  String get corruptBody;
 }
 
 class _L10nDelegate extends LocalizationsDelegate<L10n> {

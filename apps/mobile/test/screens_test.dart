@@ -7,6 +7,7 @@ import 'package:femio/domain/appointments.dart';
 import 'package:femio/domain/contractions.dart';
 import 'package:femio/domain/movements.dart';
 import 'package:femio/domain/weight.dart';
+import 'package:femio/features/lock/pin_field.dart';
 import 'package:femio/features/onboarding/widgets.dart';
 import 'package:femio/main.dart' show configureFormatting;
 import 'package:flutter/material.dart';
@@ -265,6 +266,37 @@ void main() {
         await tester.pumpAndSettle();
         expect(c.profile!.weights.last.value, 66.4);
         await _shoot(tester, '${lang}_${b.name}_18_weight');
+      });
+    }
+  }
+
+  for (final b in Brightness.values) {
+    for (final lang in ['en', 'ar']) {
+      testWidgets('settings and lock ($lang, ${b.name})', (tester) async {
+        final p = Profile(goal: Goal.ttc, locale: lang, birthYear: 1994, periodStarts: const ['2026-09-10'], cycleLength: 28);
+        final c = FemioController(MemoryStore(p));
+        await _pump(tester, c, b);
+        // The one-time storage notice shows on Today until she dismisses it.
+        await _shoot(tester, '${lang}_${b.name}_12_today_notice');
+        await tester.tap(find.byIcon(Icons.settings_outlined));
+        await tester.pumpAndSettle();
+        await _shoot(tester, '${lang}_${b.name}_13_settings');
+        expect(find.byType(SwitchListTile), findsNWidgets(2));
+        // Setting a PIN locks the next launch; the lock screen opens the record again.
+        // PBKDF2 yields to the event loop, which testWidgets' fake clock never advances,
+        // so the key derivation runs under runAsync (real time).
+        await tester.runAsync(() => c.setPin('2468'));
+        c.locked = true;
+        c.notifyListeners();
+        // The PIN field's caret blinks forever, so pumpAndSettle would never return;
+        // pump a fixed frame and capture without settling.
+        await tester.pump(const Duration(milliseconds: 400));
+        if (autoUpdateGoldenFiles) {
+          await expectLater(find.byType(MaterialApp), matchesGoldenFile('screenshots/${lang}_${b.name}_14_lock.png'));
+        }
+        expect(find.byType(PinField), findsOneWidget);
+        expect(await tester.runAsync(() => c.unlock('0000')), isFalse);
+        expect(await tester.runAsync(() => c.unlock('2468')), isTrue);
       });
     }
   }

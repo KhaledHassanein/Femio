@@ -17,6 +17,7 @@ import '../../theme/spacing.dart';
 import '../../theme/type_sizes.dart';
 import '../../widgets/bloom.dart';
 import '../../widgets/notice_card.dart';
+import '../settings/settings_screen.dart';
 import 'pregnancy_tools.dart';
 import 'today_hero.dart';
 
@@ -63,16 +64,31 @@ class TodayScreen extends StatelessWidget {
                     textDirection: TextDirection.ltr,
                     style: t.headlineSmall?.copyWith(color: p.primary)),
                 const Spacer(),
-                PopupMenuButton<String>(
-                  icon: Icon(Icons.more_horiz_rounded, color: p.textMuted),
-                  onSelected: (_) => controller.reset(),
-                  itemBuilder: (_) => [PopupMenuItem(value: 'reset', child: Text(l.startOver))],
+                IconButton(
+                  tooltip: l.settingsTitle,
+                  icon: Icon(Icons.settings_outlined, color: p.textMuted),
+                  onPressed: () => Navigator.of(context).push(
+                    MaterialPageRoute<void>(builder: (_) => SettingsScreen(controller: controller)),
+                  ),
                 ),
               ],
             ),
             const SizedBox(height: space1),
             Semantics(header: true, child: Text(l.todayTitle, style: t.headlineMedium)),
             const SizedBox(height: space4),
+            if (!profile.settings.storageNoticeSeen) ...[
+              // Shown once, instead of a consent step: there is nothing to consent to
+              // because nothing leaves the phone (03_LEGAL_PACK §5, §7 row 21).
+              NoticeCard(tone: NoticeTone.quiet, heading: l.firstRunStorageTitle, body: l.firstRunStorageNotice),
+              Align(
+                alignment: AlignmentDirectional.centerEnd,
+                child: TextButton(
+                  onPressed: () => controller.setSettings(profile.settings.copyWith(storageNoticeSeen: true)),
+                  child: Text(l.dismiss),
+                ),
+              ),
+              const SizedBox(height: space2),
+            ],
             TodayHero(profile: profile, today: now, range: range, date: date),
             if (profile.goal == Goal.pregnant && profile.birthDate == null) ...[
               const SizedBox(height: space3),

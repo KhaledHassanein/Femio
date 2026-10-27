@@ -11,7 +11,7 @@ Every "done" names its evidence: a test count, a screenshot folder, a deployed U
 - [x] R0.3 · `CLAUDE.md` rewritten for v3; `AGENTS.md`, `README.md`; tool notes to `docs/runbooks/TOOLS.md`; superseded plans bannered (`afe8988`)
 - [x] R0.4 · Role packs: product scope + medical rules register, design spec, legal pack, growth pack (`401c26f`)
 - [x] R0.5 · The closed web tracker, Supabase, Payload, Sentry, PostHog and the service worker removed; privacy tripwire replaces the analytics guard; CI without the CMS job and the live-database run; old tracker URLs redirect to `/app` (`fdbbc1f`). Evidence: `pnpm gate` green (502 tests), `flutter test` 61 passing, `pnpm build` with three env vars
-- [ ] R0.6 · `docs/STATE.md` rewritten in place for v3; DECISIONS gets ADR-072 (v3 direction: tracker deleted, no database, calendar calculators)
+- [x] R0.6 · `docs/STATE.md` rewritten for v3; ADR-072; changelog; owner actions (`2b5a860`)
 - [ ] R0.7 · Trim the 44 dead message namespaces once the app's ARB strings own their copy (today the vocabulary generator still reads six of them)
 
 ## R1 · Brand surface
@@ -43,9 +43,9 @@ Every "done" names its evidence: a test count, a screenshot folder, a deployed U
 
 ## R4 · App v1
 
-- [ ] R4.1 · Encrypted store (AES-GCM, key in Android Keystore), schema version read and migrated, corruption quarantine, serialised writes; `FemioStore` interface kept
-- [ ] R4.2 · Backup export/import (a file she saves herself) and app lock; `allowBackup=false` + `dataExtractionRules`
-- [ ] R4.3 · Settings (language, Hijri, lock, backup, reminders, delete with confirmation); confirm before "Start over"
+- [x] R4.1 · Sealed store (AES-GCM, key in the Android Keystore via flutter_secure_storage), schema version read and migrated (v1 → v2), corruption quarantine, serialised writes, v0.4 plaintext file migrated then deleted; `FemioStore` interface kept. Evidence: `test/data_layer_test.dart` (14 tests), 79 Dart tests green
+- [x] R4.2 · Backup file sealed with a passphrase she chooses (PBKDF2 + AES-GCM, self-describing, opens on any phone), saved and opened through the Storage Access Framework; PIN lock (salted PBKDF2 hash, never the PIN) covering every route, relocks after 60 s away; `allowBackup=false` + `fullBackupContent` + `dataExtractionRules`. Evidence: `testing-results/2026-10-28-app-settings-lock/`
+- [x] R4.3 · Settings (language, Hijri toggle, lock, backup, delete everything with the legal pack's confirmation), the one-time "Private by design" notice on Today, the recovery screen for a quarantined record, the mandated fertility sentence on Today (MR-15); "Start over" now confirms. Reminders remain R4.4
 - [ ] R4.4 · Local reminders (notifications package pinned); the onboarding reminders step
 - [ ] R4.5 · Learn tab from `packages/content` (EN + AR), Lexical/Markdown renderer with red-flag boxes
 - [ ] R4.6 · Tools tab; medical rules out of `today_screen.dart` into `domain/` with fixtures (seek-help clock MR-13/14, test timing, week-36 ordering)
@@ -53,14 +53,14 @@ Every "done" names its evidence: a test count, a screenshot folder, a deployed U
 - [ ] R4.8 · Crisis entry (header), wellness disclaimer, the mandated fertility sentence, the sourced red-flag list (MR-29), under-18 by full birth date
 - [ ] R4.9 · Hijri secondary dates (Umm al-Qura package pinned, bound to `fixtures/domain/hijri.json`)
 - [x] R4.10 · Split onboarding (589 lines), Today (478) and Log (317); file headers and docstrings; spacing/radius tokens (flutter analyze clean, 61 tests)
-- [ ] R4.11 · Release signing (key outside git), App Bundle build; Flutter in the root gate (`pnpm gate:mobile`) and the claims/untranslated guards over the ARB files
+- [~] R4.11 · Release signing from a git-ignored `key.properties` (debug fallback keeps a test APK buildable), R8 minify on, `pnpm gate:mobile` script. Open: Flutter in CI's gate job already runs; the claims/untranslated guards over the ARB files
 - [ ] R4.12 · Release candidate on the owner's phone (owner action 1)
 
 ## R5 · Launch
 
 - [ ] R5.1 · Play listing AR/EN from `04_GROWTH_PACK.md` §4, feature-gated lines removed for what did not ship
 - [ ] R5.2 · Data safety and Health apps declaration answers from `03_LEGAL_PACK.md` §4
-- [ ] R5.3 · A-to-Z launch guide (user-guide skill, offline HTML + Markdown) and the ASO pack delivered
+- [x] R5.3 · `05_RELEASE_RUNBOOK.md`, `06_LAUNCH_GUIDE_A_TO_Z.md` (+ offline `.html`); ASO pack in `04_GROWTH_PACK.md` §4 (`4e4f6d9`)
 - [ ] R5.4 · Closed test (12 testers × 14 days); fix round; production access
 - [ ] R5.5 · Soft launch, first-100-women plan running
 
@@ -69,3 +69,4 @@ Every "done" names its evidence: a test count, a screenshot folder, a deployed U
 | When | What | Commit |
 |---|---|---|
 | 2026-10-27 | Study, plan, constitution, tracker removal, calendar calculators | see above |
+| 2026-10-28 | Brand surface, article template + legal pages, Flutter refactor, sealed store + backup + lock + Settings, launch guide | see above |

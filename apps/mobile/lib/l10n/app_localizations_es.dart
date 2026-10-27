@@ -76,7 +76,7 @@ class L10nEs extends L10n {
 
   @override
   String get under18Body =>
-      'En esta primera versión, el seguimiento de Femio es para mujeres de 18 años o más. Todas las guías de femioapp.com están abiertas para ti, sin cuenta.';
+      'El seguimiento de femio es para mujeres de 18 años o más en esta primera versión. Todas las guías de femioapp.com están abiertas para ti, sin cuenta.';
 
   @override
   String get lastPeriodTitle => '¿Cuándo empezó tu última regla?';
@@ -909,4 +909,153 @@ class L10nEs extends L10n {
 
   @override
   String get apptEdit => 'Editar';
+
+  @override
+  String get settingsTitle => 'Ajustes';
+
+  @override
+  String get settingsLanguage => 'Idioma';
+
+  @override
+  String get settingsDates => 'Fechas';
+
+  @override
+  String get settingsHijri => 'Mostrar fechas hégira';
+
+  @override
+  String get settingsHijriNote =>
+      'Junto a cada fecha gregoriana. Calendario Umm al-Qura; puede diferir un día de los anuncios locales.';
+
+  @override
+  String get settingsPrivacy => 'Privacidad';
+
+  @override
+  String get settingsLock => 'Bloqueo de la app';
+
+  @override
+  String get settingsLockNote =>
+      'Pedir un PIN al abrir femio y tras un minuto fuera.';
+
+  @override
+  String get setPin => 'Elige un PIN de 4 a 8 dígitos';
+
+  @override
+  String get changePin => 'Cambiar el PIN';
+
+  @override
+  String get enterPin => 'PIN';
+
+  @override
+  String get enterPinAgain => 'Introduce el PIN otra vez';
+
+  @override
+  String get enterCurrentPin => 'Introduce tu PIN actual';
+
+  @override
+  String get pinMismatch => 'Los dos PIN no coinciden. Inténtalo de nuevo.';
+
+  @override
+  String get wrongPin => 'Ese PIN no es correcto.';
+
+  @override
+  String get lockTitle => 'Bienvenida de nuevo';
+
+  @override
+  String get lockHint => 'Introduce tu PIN para abrir tus registros.';
+
+  @override
+  String get forgotPin =>
+      '¿Olvidaste el PIN? No se puede recuperar: femio no tiene cuenta. Borra todo de este teléfono y empieza de nuevo, o restaura un archivo de copia de seguridad.';
+
+  @override
+  String get backupSection => 'Copia de seguridad';
+
+  @override
+  String get exportBackup => 'Guardar un archivo de copia de seguridad';
+
+  @override
+  String get importBackup => 'Restaurar desde un archivo de copia de seguridad';
+
+  @override
+  String get backupPassphrase => 'Frase de contraseña';
+
+  @override
+  String get backupPassphraseAgain => 'Frase de contraseña otra vez';
+
+  @override
+  String get backupPassphraseHint =>
+      'Elige una frase que recuerdes. El archivo solo se abre con ella, y nadie puede restablecerla.';
+
+  @override
+  String backupPassphraseShort(int count) {
+    return 'Usa al menos $count caracteres.';
+  }
+
+  @override
+  String get backupPassphraseMismatch => 'Las dos frases no coinciden.';
+
+  @override
+  String get backupSaved => 'Copia de seguridad guardada.';
+
+  @override
+  String get backupImported => 'Tus registros se han restaurado.';
+
+  @override
+  String get backupWrongPassphrase => 'Esa frase no abre este archivo.';
+
+  @override
+  String get backupNotFemio =>
+      'Eso no es un archivo de copia de seguridad de femio.';
+
+  @override
+  String get backupUnreadable =>
+      'Esta copia la hizo un femio más reciente y no se puede leer aquí. Actualiza la app e inténtalo de nuevo.';
+
+  @override
+  String get backupHonesty =>
+      'Tus registros están solo en este teléfono. Si lo pierdes o lo restableces, desaparecen, salvo que hayas guardado un archivo de copia de seguridad. No podemos recuperarlos por ti.';
+
+  @override
+  String get aboutSection => 'Acerca de';
+
+  @override
+  String get wellnessDisclaimer =>
+      'femio es una herramienta de bienestar e información para seguir tu propia salud. No es un producto sanitario y no sustituye a tu profesional de salud.';
+
+  @override
+  String get predictionNote =>
+      'Las predicciones son estimaciones, no garantías, y no deben usarse para evitar un embarazo.';
+
+  @override
+  String get firstRunStorageNotice =>
+      'Tus registros se quedan en este teléfono. femio no tiene cuenta ni servidor, y no puede ver lo que introduces.';
+
+  @override
+  String get firstRunStorageTitle => 'Privada por diseño';
+
+  @override
+  String get dismiss => 'Entendido';
+
+  @override
+  String get deleteEverything => 'Borrar todo de este teléfono';
+
+  @override
+  String get deleteConfirmTitle => '¿Borrar todo de este teléfono?';
+
+  @override
+  String get deleteConfirmBody =>
+      'Esto elimina todos tus registros y ajustes de femio en este teléfono. No se puede deshacer y no podemos restaurarlo. Los archivos de copia de seguridad guardados en otro sitio no se borran.';
+
+  @override
+  String get deleteConfirmAction => 'Borrar todo';
+
+  @override
+  String get deleteConfirmCancel => 'Conservar mis registros';
+
+  @override
+  String get corruptTitle => 'No se pudieron abrir tus registros';
+
+  @override
+  String get corruptBody =>
+      'El archivo de este teléfono está dañado o lo escribió otro femio. Se ha apartado, no borrado. Restaura un archivo de copia de seguridad si lo tienes, o empieza de nuevo.';
 }

@@ -80,7 +80,7 @@ class PeriodHero extends StatelessWidget {
           ...extra,
         ],
       ),
-      HeroNote(l.awarenessNote),
+      HeroNote(l.predictionNote),
       if (longTrying) HeroNote(l.seeClinicianTtc),
       const SizedBox(height: space3),
       TestTimingCard(prediction: prediction, date: date),
