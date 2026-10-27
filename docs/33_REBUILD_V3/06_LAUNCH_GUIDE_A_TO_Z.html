@@ -1,0 +1,195 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Launching femio, A to Z</title><style>
+:root{--bg:#FBF7F3;--surface:#fff;--ink:#24141F;--muted:#5E4D57;--plum:#8A3572;--rose:#BF2F59;--line:#E9DFD9;--sunken:#F4EDE8}
+@media(prefers-color-scheme:dark){:root{--bg:#140D14;--surface:#1E1520;--ink:#F6EEF2;--muted:#C9B8C2;--plum:#DDA2C8;--line:#33262F;--sunken:#19111A}}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.6 "Plus Jakarta Sans",system-ui,sans-serif}
+main{max-width:760px;margin:0 auto;padding:32px 20px 80px}
+h1,h2,h3{font-family:Newsreader,Georgia,serif;letter-spacing:-.01em;line-height:1.2}h1{font-size:34px;color:var(--plum)}h2{font-size:26px;margin-top:48px;border-top:1px solid var(--line);padding-top:24px}h3{font-size:20px;margin-top:28px}
+a{color:var(--plum)}code{background:var(--sunken);padding:1px 5px;border-radius:6px;font-size:.92em}pre{background:var(--sunken);padding:14px;border-radius:12px;overflow:auto}pre code{background:none;padding:0}
+table{border-collapse:collapse;width:100%;font-size:15px;margin:16px 0}th,td{text-align:start;padding:8px 10px;border-bottom:1px solid var(--line);vertical-align:top}th{color:var(--muted);font-weight:600}
+blockquote{margin:16px 0;padding:12px 16px;border-inline-start:4px solid var(--plum);background:var(--surface);border-radius:0 12px 12px 0}
+hr{border:0;border-top:1px solid var(--line);margin:32px 0}strong{font-weight:600}
+.meta{color:var(--muted);font-size:14px}
+</style></head><body><main><p class="meta">femio · generated 2026-10-27 from 06_LAUNCH_GUIDE_A_TO_Z.md</p><h1>06 — Launching femio, A to Z</h1>
+<p><strong>For Khaled.</strong> Plain words, in order, with what to paste. Nothing here needs a developer: when a
+step says &quot;a session&quot;, open Claude Code in the repo and paste the line in quotes. Every step says
+how long it takes and what &quot;done&quot; looks like. The texts you paste into Google Play are in
+<code>04_GROWTH_PACK.md</code> §4 (ASO pack) and <code>03_LEGAL_PACK.md</code> §4 (Play answers); this guide points
+at them rather than repeating them.</p>
+<p><strong>The shape of it.</strong> A → get the accounts and keys (one evening). B → the website goes live
+(one session). C → the app reaches your phone (one session, then you). D → the closed test with
+12 testers (14 days, mostly waiting). E → production access and the soft launch. F → the first
+100 women. Dates: release candidate 9 Nov, closed test 11–25 Nov, soft launch the week of 30 Nov
+2026 (D5). Everything slips day for day with the release candidate.</p>
+<hr>
+<h2>A · Accounts and keys (one evening, about 1 hour)</h2>
+<h3>A1 · Google Play Console account (20 min, $25 once)</h3>
+<ol>
+<li>Go to <strong>play.google.com/console</strong> and sign in with the Google account that will own femio
+for good (not a work account you might lose).</li>
+<li>Choose <strong>&quot;Yourself&quot;</strong> (personal developer account). Pay the one-time <strong>$25</strong>.</li>
+<li>Identity verification: Google asks for a government ID and may send a letter or a code. Use
+your legal name and your Cairo address. This can take a few days; start it now.</li>
+<li>Done when: the Console shows &quot;Verified&quot; on the account.</li>
+</ol>
+<p><em>Why personal and not an organisation account:</em> you are the only person in every role; an
+organisation account needs a D-U-N-S number and company documents. The cost of a personal
+account is the closed-test rule in step D.</p>
+<h3>A2 · The signing key (10 min, once, keep it forever)</h3>
+<p>The key proves every future update comes from you. Lose it and femio has to start as a new app.</p>
+<ol>
+<li>Open PowerShell on your PC and run the <code>keytool</code> command in <code>05_RELEASE_RUNBOOK.md</code> §2. It
+asks for a password and your name. Choose a long passphrase and save it in your password
+manager under &quot;femio upload key&quot;.</li>
+<li>Copy the <code>.jks</code> file to a second place (an offline drive or the password manager&#39;s attachments).</li>
+<li>Copy <code>apps/mobile/android/key.properties.example</code> to <code>apps/mobile/android/key.properties</code>
+and type the path and passwords in. This file is ignored by git; never commit it.</li>
+<li>Done when: <code>flutter build appbundle --release</code> in <code>apps/mobile</code> finishes without &quot;debug&quot;.</li>
+</ol>
+<h3>A3 · The three legal placeholders (5 min)</h3>
+<p>Open <code>apps/web/src/lib/legal/placeholders.ts</code> and fill in: the legal entity (KM Digital Labs
+and its registration number or your name as a sole trader), the privacy contact email (one you
+read), and the effective date (the launch week). A session can do this if you tell it the values.</p>
+<h3>A4 · Close the old cloud (10 min)</h3>
+<ol>
+<li><strong>Supabase</strong>: supabase.com → project → Settings → General → <strong>Pause project</strong>. If you ever
+edited translations in the old CMS portal, run the export line in
+<code>docs/runbooks/OWNER_ACTIONS.md</code> #4 first.</li>
+<li><strong>Vercel</strong>: delete the <code>femio-cms</code> project. Keep <code>femio</code> (the website).</li>
+<li>In the <code>femio</code> Vercel project → Settings → Environment Variables: delete everything except
+<code>NEXT_PUBLIC_APP_URL</code>. (A session can list what is there if you paste a screenshot.)
+Done when: the Supabase dashboard says Paused and Vercel shows one project.</li>
+</ol>
+<hr>
+<h2>B · The website goes live (one session, 1 hour)</h2>
+<ol>
+<li>Tell a session: <strong>&quot;Merge the v3 branch into main and deploy&quot;</strong>. It runs the gate, merges,
+pushes; Vercel builds <code>main</code>. (The branch today: <code>claude/femio-repo-study-planning-88d7c9</code>.)</li>
+<li>On your phone, open <strong>femioapp.com/ar/calculators/fertile-window</strong>: tap a day; the window
+draws on the calendar; the Hijri date shows under each day.</li>
+<li>Open <strong>femioapp.com/ar/privacy</strong>: your entity, email and date appear where the highlighted
+placeholders were.</li>
+<li>Open <strong>femioapp.com/en/help-now</strong>: choose Egypt; the numbers appear with their sources.</li>
+<li>Share any article link in WhatsApp: the preview card shows the plum &quot;femio&quot; image.</li>
+<li>Google Search Console (optional, 10 min): search.google.com/search-console → add property
+<code>femioapp.com</code> → verify with the HTML tag → paste the token into Vercel as
+<code>NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION</code> → submit <code>https://femioapp.com/sitemap.xml</code>.
+Done when: steps 2–5 look right on your phone.</li>
+</ol>
+<hr>
+<h2>C · The app reaches your phone (one session + 30 min of you)</h2>
+<ol>
+<li>Tell a session: <strong>&quot;Build the release candidate APK and bundle for R4.12&quot;</strong>. It bumps the
+version, builds both files, and tells you where the APK is
+(<code>apps/mobile/build/app/outputs/flutter-apk/app-release.apk</code>).</li>
+<li>Copy the APK to your phone (USB, or send it to yourself) and install it. Android will warn
+about an unknown source; allow it once.</li>
+<li>Run the six checks in <code>05_RELEASE_RUNBOOK.md</code> §4 (onboarding in Arabic, PIN, backup, delete
+and restore, airplane mode, both themes). Write what is wrong in one message to a session:
+&quot;On the Today screen in Arabic, …&quot;. Each round is one session.</li>
+<li>Done when: you would hand this phone to your wife or sister without explaining anything.</li>
+</ol>
+<hr>
+<h2>D · Play Console: listing, forms, closed test (2 hours of you, then 14 days)</h2>
+<h3>D1 · Create the app (10 min)</h3>
+<p>Console → <strong>Create app</strong> → name <strong>femio</strong> → default language <strong>Arabic (Saudi Arabia)</strong>, then
+add English, French and Spanish listings → app (not game) → free → accept the declarations.</p>
+<h3>D2 · Store listing (30 min)</h3>
+<p>Open <code>04_GROWTH_PACK.md</code> §4 beside the Console and paste:</p>
+<ul>
+<li><strong>Title</strong> (29 chars AR / 28 EN) and <strong>short description</strong> (§4.1).</li>
+<li><strong>Full description</strong> AR (§4.3) and EN (§4.2). Delete every line marked <strong>†</strong> whose feature
+is not in the build you are uploading. Keep the &quot;not a medical device&quot; paragraph; Google
+requires it.</li>
+<li><strong>Screenshots</strong>: 8 per language, from the real app (a session makes them with
+<code>flutter test --update-goldens</code>; captions in §4.4). The Arabic set first.</li>
+<li><strong>Feature graphic</strong> 1024×500 (§4.5) and the icon (<code>apps/web/public/icons/icon-512.png</code>).</li>
+<li><strong>Category</strong> Health &amp; Fitness; <strong>contact email</strong> the one from A3; <strong>privacy policy URL</strong>
+<code>https://femioapp.com/ar/privacy</code>.</li>
+</ul>
+<h3>D3 · The forms (30 min, answer exactly as written)</h3>
+<p>Console → Policy → App content:</p>
+<ul>
+<li><strong>Privacy policy</strong>: the URL above.</li>
+<li><strong>Ads</strong>: No.</li>
+<li><strong>App access</strong>: all features available without special access.</li>
+<li><strong>Content rating</strong>: the IARC questionnaire; answer literally (<code>03_LEGAL_PACK.md</code> §4.4).</li>
+<li><strong>Target audience</strong>: 18 and over; tick &quot;restrict minor access&quot;; no, it does not appeal to
+children.</li>
+<li><strong>Data safety</strong>: the answers in <code>03_LEGAL_PACK.md</code> §4.1, line by line. Collects: <strong>No</strong>.
+Shares: <strong>No</strong>. Deletion: <strong>Yes, in Settings</strong>.</li>
+<li><strong>Health apps declaration</strong>: Period tracking; Reproductive and sexual health; Medical
+reference and education. Nothing under medical device or clinical decision support
+(<code>03_LEGAL_PACK.md</code> §4.2).</li>
+<li><strong>Government apps / Financial features / News</strong>: No.</li>
+</ul>
+<h3>D4 · Find the 12 testers (your messages, 2 days)</h3>
+<p>Google requires <strong>12 people who keep the app installed for 14 consecutive days</strong> before a
+personal account may publish. Aim for <strong>16</strong>, because one who uninstalls on day 10 restarts the
+clock. Send the message in <code>04_GROWTH_PACK.md</code> §5.5 (Egyptian Arabic, Gulf Arabic, English
+versions) to friends, family, colleagues and your clinic&#39;s staff. Ask each for the Gmail address
+they use on their phone.</p>
+<h3>D5 · Start the closed test (20 min)</h3>
+<p>Console → Testing → <strong>Closed testing</strong> → create track → upload the <code>.aab</code> a session built →
+release notes (two lines, AR and EN) → add the testers&#39; emails (or a Google Group) → <strong>Start
+rollout</strong>. Send every tester the opt-in link the Console shows. Write the start date in
+<code>docs/33_REBUILD_V3/PROGRESS.md</code> R5.4.</p>
+<h3>D6 · During the 14 days</h3>
+<ul>
+<li>Every message from a tester goes to a session as it is (&quot;Mona says the Hijri date is one day
+off&quot;). The session fixes, gates, and tells you when a new bundle is ready; upload it to the
+same track. Updates do not restart the 14 days; uninstalls do.</li>
+<li>Check the Console weekly: Testing → Closed testing → the tester count must stay ≥ 12.</li>
+</ul>
+<hr>
+<h2>E · Production access and the soft launch (about a week of waiting)</h2>
+<ol>
+<li>On day 15, Console → <strong>Apply for production access</strong>. Describe the test honestly: who the
+testers were, what you fixed, what the app does. Google usually answers in about seven days.</li>
+<li>When approved: Production → <strong>Create release</strong> → upload the latest <code>.aab</code> → <strong>Countries</strong>:
+Egypt and Saudi Arabia first (add the rest later) → roll out.</li>
+<li>Tell a session: <strong>&quot;The app is live at <Play URL>; wire the store link&quot;</strong>. It sets
+<code>PLAY_STORE_URL</code> in <code>apps/web/src/lib/site.ts</code>, redeploys, and every &quot;Get the app&quot; button on
+the site goes to Play.</li>
+<li>Done when: a stranger in Riyadh can search &quot;femio&quot; on Play and install it.</li>
+</ol>
+<hr>
+<h2>F · The first 100 women (6 weeks)</h2>
+<p>The plan, channels, calendar and the one-question feedback link are in <code>04_GROWTH_PACK.md</code> §5.
+In short: QR cards in the clinic, a WhatsApp Channel, Egyptian Facebook groups, three posts a
+week each tied to one article or calculator, and the Ramadan set live by 11 January 2027. You
+measure with Play Console installs and the feedback link, not with analytics in the app.</p>
+<hr>
+<h2>If something goes wrong</h2>
+<table>
+<thead>
+<tr>
+<th>Symptom</th>
+<th>Do</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Play rejects the bundle: &quot;Health apps declaration&quot;</td>
+<td>Reopen D3 and tick the three features; re-submit</td>
+</tr>
+<tr>
+<td>Play rejects: &quot;Data safety does not match&quot;</td>
+<td>Tell a session: &quot;Play says Data safety mismatch&quot;; it re-runs the privacy tripwire and tells you what changed</td>
+</tr>
+<tr>
+<td>A tester cannot install: &quot;not available in your country&quot;</td>
+<td>Add the country under Testing → Countries</td>
+</tr>
+<tr>
+<td>You lost the keystore</td>
+<td>Stop. Tell a session; the app must be re-created under a new package name</td>
+</tr>
+<tr>
+<td>A tester&#39;s records vanished</td>
+<td>They uninstalled; records live only on the phone. Restore from their backup file if they saved one</td>
+</tr>
+<tr>
+<td>The website shows the old design</td>
+<td>Vercel built an older commit; tell a session &quot;redeploy main&quot;</td>
+</tr>
+</tbody></table>
+</main></body></html>

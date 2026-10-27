@@ -31,9 +31,11 @@
     "content-lint:test": "node scripts/content-lint.test.mjs",
     "audit": "pnpm audit --audit-level high",
     "gate:mobile": "cd apps/mobile && flutter analyze && flutter test",
-    "brand:icons": "node scripts/brand/generate-icons.mjs"
+    "brand:icons": "node scripts/brand/generate-icons.mjs",
+    "docs:html": "node scripts/docs/md-to-html.mjs"
   },
   "devDependencies": {
-    "sharp": "0.35.5"
+    "sharp": "0.35.5",
+    "marked": "14.0.0"
   }
 }
