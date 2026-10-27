@@ -918,25 +918,28 @@
     "englishOnly": "Esta guía aún no está traducida, por eso se muestra en inglés.",
     "boundaryNote": "Información de salud para informarte y planificar: no es consejo médico ni sustituye a tu profesional clínico.",
     "byline": "Por",
-    "reviewedInEnglishBy": "Revisado en inglés por",
-    "reviewedBy": "Revisado por",
     "title": "Aprender",
-    "subtitle": "Guías referenciadas y revisadas médicamente sobre tu ciclo, afecciones, fertilidad, embarazo y menopausia.",
+    "subtitle": "Guías referenciadas sobre tu ciclo, afecciones, fertilidad, embarazo y menopausia. Cada una cita sus fuentes y muestra el estado de su revisión.",
     "empty": "Pronto habrá nuevas guías — vuelve pronto.",
-    "reviewed": "Revisado por un profesional clínico",
-    "lastReviewed": "Última revisión {date}",
     "sources": "Fuentes",
-    "tier": "Nivel {tier}",
     "footerNote": "Esta es información general de bienestar, no un sustituto del consejo médico profesional.",
     "disclaimer": {
       "general": "Información general de bienestar — no sustituye la atención médica profesional.",
       "screening": "Solo información de cribado. Habla de cualquier inquietud y de los próximos pasos con tu profesional clínico.",
       "emergency": "Si notas señales de alarma graves o repentinas, busca atención médica urgente."
-    }
+    },
+    "reviewedByOn": "Revisado por <person>{name}</person>, {date}",
+    "reviewedByName": "Revisado por <person>{name}</person>",
+    "reviewedInEnglishByOn": "Texto en inglés revisado por <person>{name}</person>, {date}",
+    "reviewedInEnglishByName": "Texto en inglés revisado por <person>{name}</person>",
+    "editoriallyChecked": "Comprobado por la redacción · revisión clínica pendiente",
+    "lastUpdated": "Última actualización: {date}",
+    "nameWithCredentials": "{name}, {credentials}",
+    "sourceWithTier": "<source>{title}</source> · Nivel {tier}"
   },
   "conditions": {
     "title": "Afecciones y temas",
-    "subtitle": "Guías referenciadas y revisadas médicamente sobre afecciones y temas a lo largo de tu vida de salud.",
+    "subtitle": "Guías referenciadas sobre afecciones y temas a lo largo de tu vida de salud. Cada una cita sus fuentes y muestra el estado de su revisión.",
     "empty": "Pronto habrá nuevos temas — vuelve pronto."
   },
   "teen": {
@@ -1591,117 +1594,150 @@
   },
   "privacy": {
     "title": "Política de privacidad",
-    "intro": "Tus datos de salud son tuyos. Esta página explica en lenguaje sencillo qué recoge Femio, para qué, quién más puede verlo y cómo recuperarlo o borrarlo.",
-    "draft": {
-      "title": "Borrador — todavía no está en vigor",
-      "body": "Lo publicamos pronto para que puedas ver nuestras intenciones antes de confiarnos nada. Nuestros abogados y la delegada de protección de datos están cerrando la versión vinculante, y el nombre de la empresa y los datos de contacto de abajo están pendientes de confirmar. Femio aún no está abierto al público."
+    "intro": "Cómo trata femio tu información: tus registros se quedan en tu teléfono, y este sitio web no recoge nada sobre ti aparte de los registros técnicos habituales del servidor.",
+    "effective": "Fecha de entrada en vigor: {date} · Versión {version}",
+    "tocLabel": "En esta página",
+    "summary": {
+      "title": "En resumen",
+      "items": [
+        "La app femio guarda tus registros solo en tu teléfono. No tenemos un servidor para ellos. No podemos verlos ni podemos recuperarlos por ti.",
+        "femio no tiene cuenta, ni inicio de sesión, ni anuncios, ni analítica. La app no pide permiso para usar internet.",
+        "El sitio web de femio no recoge nada sobre ti, salvo los registros técnicos habituales que guarda cualquier alojamiento web.",
+        "femio es para mujeres de 18 años o más. Los artículos del sitio web están abiertos a todo el mundo.",
+        "Puedes ver, copiar y borrar tú misma, dentro de la app, todo lo que contiene."
+      ]
     },
     "points": [
       {
         "heading": "Quiénes somos",
-        "body": "Femio es la responsable de los datos que se describen aquí. La sociedad, nuestra delegada de protección de datos y nuestro representante en la UE se están designando ahora; sus nombres y datos de contacto aparecerán aquí antes del lanzamiento."
+        "body": "femio está hecho por {entity}, El Cairo, Egipto (Dr. Khaled Hassanein). Preguntas sobre privacidad: {email}."
       },
       {
-        "heading": "Qué recogemos",
-        "body": "Lo básico de la cuenta (un identificador seudónimo, tu correo si creas una cuenta, tu franja de edad, tu idioma) y la información de salud que decides introducir: fechas de ciclo y regla, síntomas, ánimo, constantes, medicamentos, resultados de analíticas que anotes, respuestas a cuestionarios de cribado y tu etapa de vida. También guardamos los datos técnicos mínimos para que el sitio funcione de forma segura. No recogemos nada que no necesite una función que uses."
+        "heading": "Qué guarda la app, en tu teléfono",
+        "body": "Al usar la app puedes introducir: tu año de nacimiento (solo para comprobar que tienes 18 años o más), tu idioma, las fechas de tu regla y de tus ciclos, síntomas, estado de ánimo, notas que escribas, peso, citas, registros de embarazo y de movimientos del bebé, y sesiones del cronómetro de contracciones. Es información de salud, así que la tratamos con cuidado. Se guarda en un archivo privado que solo la app femio puede abrir. El archivo está protegido por el cifrado de almacenamiento de tu propio teléfono. No añadimos un segundo bloqueo."
       },
       {
-        "heading": "Por qué podemos guardar datos de salud",
-        "body": "Los datos de salud tienen la protección más alta de la ley, así que pedimos tu consentimiento explícito antes de guardar el primer dato de salud, y lo pedimos por separado para cada finalidad: seguimiento básico, patrones e investigación (totalmente opcional). Puedes retirar cualquiera cuando quieras sin perder tu cuenta."
+        "heading": "Qué no recoge la app",
+        "body": "Ningún nombre. Ningún correo. Ningún número de teléfono. Ninguna ubicación. Ningún contacto, foto ni archivo. Ningún identificador publicitario. Ninguna analítica. Ninguna herramienta propia de informes de fallos. femio no envía nada sobre ti fuera de tu teléfono, porque no puede: la app no tiene permiso para usar internet."
       },
       {
-        "heading": "Cómo funcionan nuestras estimaciones",
-        "body": "Nuestras estimaciones salen de tus propios registros y de los patrones generales del ciclo. Se muestran como rangos con un nivel de confianza porque son realmente inciertas; sirven para informarte y planificar, y no son consejo médico ni una forma fiable de evitar un embarazo."
+        "heading": "Las copias de seguridad son archivos que guardas tú",
+        "body": "femio puede guardar un archivo de copia de seguridad cuando se lo pidas. Tú eliges dónde va: los archivos del teléfono, una unidad en la nube, un correo. Después, el archivo está en tus manos, no en las nuestras. Contiene tus registros, así que guárdalo en un lugar privado. Hemos desactivado la copia de seguridad automática de Android en la nube para femio, de modo que Google no copia tus registros. Si pierdes el teléfono o lo restableces y no tienes un archivo de copia, tus registros se pierden. No podemos recuperarlos."
       },
       {
-        "heading": "Quién más lo ve",
-        "body": "Solo los proveedores que necesitamos para que Femio funcione, cada uno con un contrato escrito de protección de datos y solo con el mínimo que necesitan. Únicamente nuestro proveedor de base de datos y alojamiento guarda datos de salud. Nunca vendemos tus datos y nunca entregamos datos de salud a anunciantes ni a herramientas de análisis de terceros. Cualquier publicidad futura se basará en la página que estés leyendo, nunca en lo que hayas registrado."
+        "heading": "Recordatorios",
+        "body": "Los recordatorios se crean en tu teléfono. Ningún servidor los envía."
       },
       {
-        "heading": "Dónde están",
-        "body": "La base de datos de Femio se aloja en la Unión Europea. Si algún proveedor está fuera de la UE, primero establecemos una garantía de transferencia válida y la anotamos en nuestro registro de encargados."
+        "heading": "Qué puede ver Google",
+        "body": "Puedes instalar femio desde Google Play. Google nos da totales, como cuánta gente instaló la app o cuántos fallos hubo, según su propia política. Esos totales no contienen tus registros. femio nunca envía tus registros a Google."
       },
       {
-        "heading": "Cuánto tiempo los guardamos",
-        "body": "Tus registros permanecen mientras exista tu cuenta, para que tu historial acompañe toda tu vida de salud: ese es el sentido de Femio. Borra una parte o todo cuando quieras; el borrado se propaga por nuestros sistemas, incluidas las copias de seguridad según su rotación habitual."
+        "heading": "El sitio web (femioapp.com)",
+        "items": [
+          {
+            "lead": "Registros que guarda nuestro alojamiento.",
+            "body": "Nuestro alojamiento (Vercel) guarda los registros habituales del servidor: tu dirección IP, la hora, la página que pediste, el tipo de navegador y el sitio del que vienes. Los usamos solo para mantener el sitio en marcha y seguro. No los usamos para publicidad ni los combinamos con nada más. Nuestro alojamiento los conserva durante un periodo corto. Puede tratarlos fuera de tu país, con las garantías legales que describe en su propio aviso de privacidad."
+          },
+          {
+            "lead": "Sin analítica ni cookies de seguimiento.",
+            "body": "El sitio web no mide ni sigue lo que lees."
+          },
+          {
+            "lead": "La memoria de tu navegador.",
+            "body": "El sitio puede recordar en tu navegador tu idioma y tu elección de modo claro u oscuro. No te sigue."
+          },
+          {
+            "lead": "Las calculadoras y la búsqueda funcionan en tu navegador.",
+            "body": "Lo que escribes en una calculadora no se nos envía."
+          },
+          {
+            "lead": "Enlaces a otros sitios.",
+            "body": "Algunas páginas enlazan a otros sitios, como fuentes médicas y Find A Helpline. Se aplican sus propias políticas. Nuestro enlace de ayuda se abre sin decirle al otro sitio de qué página vienes."
+          }
+        ]
       },
       {
-        "heading": "Tus derechos",
-        "body": "Puedes consultar tus datos, exportar una copia completa en un archivo, corregirlos, borrar tu cuenta por completo, retirar un consentimiento u oponerte a un uso. Exportar y borrar son botones en la aplicación, no una solicitud a soporte, y buscamos resolver cualquier petición en menos de 72 horas."
+        "heading": "Si necesitas ayuda urgente",
+        "body": "femio no es un servicio de emergencias. Consulta el enlace «¿Necesitas ayuda ahora?» en la app y en el sitio."
       },
       {
-        "heading": "Modo anónimo",
-        "body": "Puedes registrarlo todo sin darnos ningún correo. Si más adelante añades uno, no se pierde nada de lo que hayas guardado."
+        "heading": "Edad",
+        "body": "El seguimiento de femio es para mujeres de 18 años o más. La app pregunta una vez tu año de nacimiento y se detiene si tienes menos de 18. No recogemos a sabiendas información de nadie menor de 18 años."
       },
       {
-        "heading": "Adolescentes y tutores",
-        "body": "El modo adolescente no tiene publicidad ni mensajes privados y recoge los datos mínimos. Cuando una chica no llega a la edad de consentimiento de su país, pedimos el consentimiento de su madre, su padre o su tutor; las edades exactas y las comprobaciones que usamos se están confirmando con abogados en cada mercado."
+        "heading": "Tus derechos y cómo ejercerlos",
+        "body": "Como tus registros están solo en tu teléfono, los tienes tú. En la app puedes verlos, cambiarlos, guardar una copia (exportar) y borrar todo (Ajustes, «Borrar todo de este teléfono»). Para los registros del servidor del sitio web, escribe a {email} y responderemos en 30 días. También puedes reclamar ante tu autoridad de protección de datos: el Centro de Protección de Datos Personales (Egipto), la SDAIA (Arabia Saudí), la ICO (Reino Unido) o la autoridad de tu país de la UE."
       },
       {
-        "heading": "Seguridad",
-        "body": "Los datos van cifrados en tránsito y en reposo. Cada fila de la base de datos queda restringida a su propietaria por la propia base de datos, el acceso del equipo sigue el mínimo privilegio y mantenemos un procedimiento escrito ante brechas con un plazo de aviso de 72 horas."
+        "heading": "Si esto cambia",
+        "body": "Si algún día añadimos funciones en línea que guarden algo sobre ti, actualizaremos primero esta página, te lo diremos en la app y te lo preguntaremos antes de guardar nada. Mantendremos disponibles las versiones anteriores."
       },
       {
-        "heading": "Cambios y reclamaciones",
-        "body": "Versionamos esta página y te avisaremos de los cambios importantes en lugar de editarla en silencio. Puedes escribir a nuestro equipo de privacidad sobre cualquier punto de aquí, y siempre conservas el derecho a reclamar ante tu autoridad de protección de datos."
+        "heading": "Contacto",
+        "body": "{email} · {entity}, El Cairo, Egipto."
       }
-    ],
-    "footnote": "Femio es un servicio de bienestar, información y seguimiento. No es un producto sanitario y nunca sustituye la atención de tu profesional clínico."
+    ]
   },
   "terms": {
     "title": "Condiciones de uso",
-    "intro": "El acuerdo entre tú y Femio: qué prometemos, qué te pedimos y hasta dónde llega un servicio de seguimiento e información.",
-    "draft": {
-      "title": "Borrador — todavía no está en vigor",
-      "body": "Este es nuestro borrador en lenguaje claro, publicado por transparencia mientras nuestros abogados cierran la versión vinculante. Todavía no es un acuerdo entre nosotros: los datos de la empresa, la ley aplicable y la redacción sobre responsabilidad están pendientes."
-    },
+    "intro": "Qué es femio y qué no es, y las reglas para usar la app y el sitio web.",
+    "effective": "Fecha de entrada en vigor: {date} · Versión {version}",
+    "tocLabel": "En esta página",
     "points": [
       {
-        "heading": "Qué es Femio y qué no es",
-        "body": "Femio ofrece contenido informativo y herramientas para registrar y entender tu salud. No da consejo médico, no te dice qué te ocurre y no sustituye a tu profesional clínico. Usarlo no crea una relación clínica. Las estimaciones de ventana fértil sirven solo para planificar y conocer la concepción: no son una forma fiable de evitar un embarazo. Si crees que estás ante una urgencia, llama a los servicios de emergencia locales o acude al servicio de urgencias más cercano."
+        "heading": "Qué es femio",
+        "body": "femio te da información y herramientas para registrar y entender tu propia salud: un seguimiento del ciclo y del embarazo, y una biblioteca de artículos y calculadoras. Es para el bienestar, la educación y el seguimiento."
       },
       {
-        "heading": "Quién puede usarlo",
-        "body": "Necesitas tener la edad para consentir el tratamiento de datos de salud donde vives, o el consentimiento de tu madre, tu padre o tu tutor. Las cuentas adolescentes empiezan con una configuración más protectora. Las edades exactas por país se están confirmando con abogados."
+        "heading": "Qué no es femio",
+        "body": "No es consejo médico. No es un producto sanitario. No identifica una enfermedad, no elige ni cambia ningún medicamento ni plan de cuidados, y no sustituye a tu médico, tu matrona ni tu farmacéutico. Usar femio no crea una relación entre médico y paciente."
       },
       {
-        "heading": "Tu cuenta",
-        "body": "Guarda tus credenciales, danos información veraz y avísanos si alguien más entra en tu cuenta. Eres responsable de lo que ocurra con ella."
+        "heading": "No es una forma de evitar el embarazo",
+        "body": "Las predicciones de ventana fértil y de ciclo son estimaciones. No impiden que ocurra un embarazo y no debes confiar en ellas para evitarlo. Si no quieres quedarte embarazada, habla con un profesional sanitario sobre un método pensado para eso."
       },
       {
-        "heading": "Uso razonable",
-        "body": "Usa Femio para tu propia salud. Nada de extracción automatizada, de intentar romperlo, de revenderlo, de sobrecargar nuestros sistemas ni de usarlo para dañar a nadie. Podemos suspender las cuentas que lo hagan."
+        "heading": "Estimaciones, con rangos",
+        "body": "Las predicciones se muestran como rangos porque los cuerpos varían y tus registros pueden estar incompletos. Una predicción puede fallar. Un retraso o unos ciclos irregulares pueden tener muchas causas; habla con un profesional sanitario si te preocupa."
       },
       {
-        "heading": "El dinero",
-        "body": "El núcleo de Femio —registro, estimaciones honestas y biblioteca de salud— es gratuito y seguirá siéndolo. Si añadimos un plan de pago, sumará profundidad sin quitar lo básico, y mostraremos el precio, la renovación y las reglas de reembolso antes de que pagues nada."
+        "heading": "Emergencias",
+        "body": "Si puedes estar en peligro o tienes síntomas urgentes, llama al número de emergencias local o acude al servicio de urgencias más cercano. femio no puede llamar a nadie por ti y no vigila lo que registras."
       },
       {
-        "heading": "Lo que publicas",
-        "body": "Todo lo que publiques en un espacio comunitario debe ser lícito y respetuoso; dar consejo médico a otras usuarias no está permitido. Sigues siendo dueña de tu contenido y solo nos das el permiso necesario para mostrarlo. Podemos retirar contenido que incumpla estas reglas."
+        "heading": "Quién puede usar la app",
+        "body": "Debes tener 18 años o más para usar el seguimiento. Los artículos del sitio web están abiertos a todo el mundo."
       },
       {
-        "heading": "Lo que es nuestro",
-        "body": "El software, la marca y el contenido original de Femio son nuestros. Las guías que citamos pertenecen a los organismos médicos correspondientes, y se acreditan y enlazan."
+        "heading": "Tus responsabilidades",
+        "body": "Introduce la información con veracidad, para tu propio uso. Mantén tu teléfono seguro. Mantén privados tus archivos de copia de seguridad. No copies, revendas ni desmontes la app ni el sitio, no sobrecargues el sitio ni uses ninguno de los dos para dañar a nadie."
+      },
+      {
+        "heading": "Tus registros son tuyos, y están en tu teléfono",
+        "body": "Nosotros no los tenemos, así que no podemos restaurarlos, moverlos ni recuperarlos. Guarda una copia de seguridad si quieres tener una copia."
+      },
+      {
+        "heading": "Qué es nuestro",
+        "body": "El nombre femio, el logotipo, el software, el diseño y los artículos originales pertenecen a {entity}. Las recomendaciones que citamos de organismos médicos les pertenecen y se les atribuyen. Puedes leer y usar femio para ti; no puedes copiar nuestro contenido para uso comercial sin permiso por escrito."
       },
       {
         "heading": "Límites",
-        "body": "Trabajamos mucho la exactitud, pero Femio se ofrece tal cual, y ninguna información de salud puede tener en cuenta tu situación individual: las decisiones sobre tu salud son tuyas y de tu profesional clínico. Los descargos y los límites de responsabilidad los están redactando abogados, y nada de esto eliminará los derechos que te da la ley de consumo."
+        "body": "femio se ofrece tal cual. Nos esforzamos por ser exactos y citamos nuestras fuentes, pero ninguna herramienta puede conocer tu situación, y las decisiones sobre tu salud son tuyas y de tu profesional sanitario. En la medida en que la ley lo permita, {entity} no es responsable de las pérdidas causadas por confiar en femio en lugar de en la atención profesional. Nada en estas condiciones limita una responsabilidad que la ley no permite limitar, como el fraude o la negligencia grave, ni elimina los derechos que tienes como consumidora."
       },
       {
-        "heading": "Terminar",
-        "body": "Puedes borrar tu cuenta cuando quieras desde la aplicación, y tus datos se van con ella. Podemos limitar o cerrar el acceso si se incumplen estas condiciones o si tenemos que dejar de ofrecer el servicio."
+        "heading": "Cambios y fin",
+        "body": "Podemos actualizar estas condiciones y la app. Si un cambio te importa, lo diremos en la app. Puedes dejar de usar femio en cualquier momento borrando todo y quitando la app."
       },
       {
-        "heading": "Ley y conflictos",
-        "body": "La ley aplicable y la forma de resolver conflictos seguirán a la sociedad que registremos, y se indicarán aquí antes del lanzamiento."
+        "heading": "Ley aplicable",
+        "body": "Estas condiciones se rigen por las leyes de la República Árabe de Egipto, y los tribunales competentes de El Cairo resuelven las disputas, salvo que las normas imperativas de consumo del país donde vives se siguen aplicando a ti, también en Arabia Saudí, y nada aquí te impide ejercer los derechos o acudir a los tribunales que esas normas te dan."
       },
       {
-        "heading": "Cambios",
-        "body": "Si cambiamos estas condiciones de forma relevante, te lo diremos y te daremos la opción de dejar de usar Femio."
+        "heading": "Contacto",
+        "body": "Escríbenos a {email}."
       }
-    ],
-    "footnote": "Femio es un servicio de bienestar, información y seguimiento. No es un producto sanitario y nunca sustituye la atención de tu profesional clínico."
+    ]
   },
   "authors": {
     "title": "Autoras y revisores",
@@ -2207,7 +2243,7 @@
     },
     "learn": {
       "label": "Guías",
-      "note": "Artículos con fuentes, revisados por un clínico"
+      "note": "Artículos con fuentes; cada uno muestra el estado de su revisión"
     }
   },
   "phaseEducation": {
@@ -2627,6 +2663,31 @@
       "range": "Hoy – en 4 días",
       "note": "Estimación · confianza media",
       "period": "Próxima regla en 15–18 días"
+    }
+  },
+  "helpNow": {
+    "heading": "Números en tu país",
+    "prompt": "Elige tu país para ver sus números.",
+    "regionNote": "El acceso a emergencias varía según la región, así que la orientación de arriba vale dondequiera que estés.",
+    "countries": {
+      "egypt": "Egipto",
+      "saudi": "Arabia Saudí"
+    },
+    "groups": {
+      "emergency": "Servicios de emergencia",
+      "support": "Líneas de apoyo"
+    },
+    "checked": "Números comprobados por última vez el {date}.",
+    "source": "Fuente",
+    "call": "Llamar al {number}",
+    "numbers": {
+      "eg-ambulance": "Ambulancia (Organización Egipcia de Ambulancias)",
+      "eg-mental-health": "Línea de salud mental (Ministerio de Salud, secretaría de salud mental)",
+      "eg-ncw": "Oficina de quejas de las mujeres (Consejo Nacional de la Mujer)",
+      "sa-srca": "Ambulancia (Autoridad de la Media Luna Roja Saudí)",
+      "sa-moh": "Centro de llamadas del Ministerio de Salud",
+      "sa-moh-mental": "Consultas psicológicas (Ministerio de Salud)",
+      "sa-hrsd": "Centro de denuncias de violencia familiar (Ministerio de Recursos Humanos y Desarrollo Social)"
     }
   }
 }

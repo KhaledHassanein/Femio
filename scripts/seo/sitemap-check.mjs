@@ -20,8 +20,6 @@ const SITE = (process.argv[2] ?? process.env.SITE_URL ?? "https://femioapp.com")
 /** Pages that must never be advertised, with why. */
 const MUST_NOT_APPEAR = [
   ["the crisis page (noindex by design)", /\/help-now/],
-  ["the draft privacy policy (ADR-015)", /\/privacy$/],
-  ["the draft terms (ADR-015)", /\/terms$/],
 ];
 
 async function main() {

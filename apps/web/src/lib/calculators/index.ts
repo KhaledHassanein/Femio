@@ -39,6 +39,11 @@ export const CYCLE_LOOKBACK_DAYS = 90;
 /** 37w0d and 42w0d from the last period: the term window (MR-24). */
 export const TERM_START_DAYS = 259;
 export const TERM_END_DAYS = 294;
+/** The term bar's axis ends at 42w0d (MR-24); the window starts at 37w0d. */
+export const AXIS_WEEKS = 42;
+export const TERM_START_WEEKS = 37;
+/** MR-25, ACOG: the second trimester starts at 14w0d, the third at 28w0d. */
+export const TRIMESTER_ENDS_WEEKS: readonly [number, number, number] = [14, 28, AXIS_WEEKS];
 /** MR-26: a gestation past this is refused with "check the date", not computed. */
 export const MAX_GESTATION_DAYS = 315;
 /** MR-21, NHS: with no period date, test at least this many days after sex. */

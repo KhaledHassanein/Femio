@@ -65,8 +65,16 @@ const ALLOWED = {
     "pregnancySymptoms.items.constipation",
     // "Guides" is the French plural of "guide", spelled identically to English.
     "tools.learn.label",
+    // "{name}, {credentials}" is punctuation around two arguments, the same in French.
+    "learn.nameWithCredentials",
+    // "Contact" and "Source" are the French words too.
+    "privacy.points.11.heading",
+    "terms.points.12.heading",
+    "helpNow.source",
   ],
   es: [
+    // Same: punctuation around two arguments.
+    "learn.nameWithCredentials",
     // Spelled identically in Spanish.
     "onboarding.triage.conditions.endometriosis",
     "gallery.phases.menstrual",

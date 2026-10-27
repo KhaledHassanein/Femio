@@ -1,5 +1,8 @@
 import { Fragment, type ReactNode } from "react";
+import { TriangleAlert } from "lucide-react";
+import { Alert } from "@/components/ui/alert";
 import type { LexicalNode, RichTextValue } from "./client";
+import { isRedFlagText } from "./red-flag";
 
 // Minimal renderer for Payload's Lexical rich text (P1.6.2). Handles the common
 // nodes an article uses — paragraphs, headings, lists, links, quotes, inline
@@ -17,6 +20,12 @@ export function lexicalToPlainText(value: RichTextValue): string {
   };
   const parts = (value?.root?.children ?? []).map((n) => walk(n).trim()).filter(Boolean);
   return parts.join(" ");
+}
+
+/** The text of a node and everything under it, for deciding what kind of quote this is. */
+function nodeText(node: LexicalNode): string {
+  if (typeof node.text === "string") return node.text;
+  return (node.children ?? []).map(nodeText).join("");
 }
 
 function textWithFormat(node: LexicalNode, key: number): ReactNode {
@@ -62,6 +71,24 @@ function renderNode(node: LexicalNode, key: number): ReactNode {
       );
     }
     case "quote":
+      // A quote that opens with the red-flag prefix ("Seek care now:") is the article's
+      // warning-signs box, not a pull quote: danger tokens plus an icon so the meaning
+      // never rides on colour alone (docs/12). `role="note"` because it is static page
+      // content, not a live announcement (the Alert default, role="alert", would be
+      // read out on load, once per box).
+      if (isRedFlagText(nodeText(node))) {
+        return (
+          <Alert
+            key={key}
+            variant="danger"
+            role="note"
+            icon={<TriangleAlert className="size-5" />}
+            data-testid="red-flag-box"
+          >
+            <p className="leading-relaxed">{children(node)}</p>
+          </Alert>
+        );
+      }
       return (
         <blockquote key={key} className="border-s-2 border-border ps-4 text-text-muted">
           {children(node)}

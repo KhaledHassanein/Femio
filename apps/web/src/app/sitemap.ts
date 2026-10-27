@@ -6,8 +6,8 @@ import { isUnpublishedSection } from "@/lib/content/unpublished-sections";
 
 // Static routes + published CMS content (P1.11.1). Deliberate exclusions:
 //  - /help-now (crisis-safety routing) is `noindex` and must never surface in search;
-//  - /privacy + /terms are `noindex` while they are drafts (ADR-015) — add them here
-//    with counsel's finalized text (P0.12.4);
+//  - /privacy + /terms are listed (R2.4): the v3 texts from the legal pack are final
+//    drafts, indexable, and the stores link to them;
 //  - /glossary + /faq are filtered below while their collections are empty (R3.7).
 //    Submitting an empty page for indexing earns a thin-content impression against
 //    the domain and sends anyone who lands on it straight back out.
@@ -23,6 +23,8 @@ const STATIC_PATHS = [
   "/about",
   "/editorial-policy",
   "/medical-review",
+  "/privacy",
+  "/terms",
   "/authors",
   "/calculators",
   "/app",

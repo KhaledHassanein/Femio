@@ -64,9 +64,9 @@ test("@cms the sitemap is well-formed and self-consistent", async ({ request }) 
   // Every URL absolute and on the canonical host, or hreflang clusters point nowhere.
   for (const loc of locs) expect(loc).toMatch(/^https:\/\//);
 
-  // Draft-only legal pages are deliberately excluded until P0.12 (ADR-015).
-  expect(locs.some((u) => u.endsWith("/privacy"))).toBe(false);
-  expect(locs.some((u) => u.endsWith("/terms"))).toBe(false);
+  // The legal pages are listed since R2.4 (the stores link to them; they are indexable).
+  expect(locs.some((u) => u.endsWith("/privacy"))).toBe(true);
+  expect(locs.some((u) => u.endsWith("/terms"))).toBe(true);
   // The crisis page is noindex and must never be advertised.
   expect(locs.some((u) => u.includes("/help-now"))).toBe(false);
 });

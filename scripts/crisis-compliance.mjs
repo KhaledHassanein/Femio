@@ -10,6 +10,8 @@
  *      or their `strings` block.
  *   3. Translation-key mismatches — an approved locale whose `strings` keys are not
  *      an exact parity match with English (the master).
+ *   4. Country help numbers (lib/crisis/country-numbers.ts) older than 12 months, or
+ *      a number listed without its source URL.
  *
  * Locales marked `pending` are expected to have no `strings` (they render the
  * English fallback at runtime) and are only checked for a valid status value.
@@ -88,6 +90,29 @@ for (const [locale, entry] of Object.entries(locales)) {
   }
 }
 
+// 4. Country numbers (apps/web/src/lib/crisis/country-numbers.ts): every number is
+// re-checked at its source within 12 months, as CRISIS_RESOURCES.md requires, and the
+// file carries a source URL for each number it lists.
+const COUNTRY_NUMBERS_TS = join(HERE, "..", "apps", "web", "src", "lib", "crisis", "country-numbers.ts");
+const MAX_AGE_DAYS = 365;
+{
+  const src = readFileSync(COUNTRY_NUMBERS_TS, "utf8");
+  const checked = src.match(/COUNTRY_NUMBERS_CHECKED\s*=\s*"(\d{4}-\d{2}-\d{2})"/)?.[1];
+  if (!checked) {
+    errors.push("[country-numbers] COUNTRY_NUMBERS_CHECKED (YYYY-MM-DD) is missing.");
+  } else {
+    const ageDays = (today.getTime() - new Date(`${checked}T00:00:00Z`).getTime()) / 86_400_000;
+    if (ageDays > MAX_AGE_DAYS) {
+      errors.push(`[country-numbers] numbers last checked ${checked}, over ${MAX_AGE_DAYS} days ago — re-verify each at its source, then update COUNTRY_NUMBERS_CHECKED.`);
+    }
+  }
+  const numbers = (src.match(/number:\s*"/g) ?? []).length;
+  const sources = (src.match(/sourceUrl:\s*"https:/g) ?? []).length;
+  if (numbers !== sources) {
+    errors.push(`[country-numbers] ${numbers} number(s) but ${sources} sourceUrl(s) — every number needs the page it was read on.`);
+  }
+}
+
 if (errors.length > 0) {
   console.error("✗ Crisis-safety compliance guard failed:\n");
   for (const e of errors) console.error(`  ${e}`);
@@ -95,4 +120,4 @@ if (errors.length > 0) {
   process.exit(1);
 }
 
-console.log("✓ Crisis-safety compliance guard: approved copy in date, metadata complete, keys in parity.");
+console.log("✓ Crisis-safety compliance guard: approved copy in date, metadata complete, keys in parity, country numbers sourced and in date.");

@@ -1,11 +1,14 @@
-import { getFormatter, getLocale, getTranslations } from "next-intl/server";
+import type { ReactNode } from "react";
+import { getFormatter, getTranslations } from "next-intl/server";
 import type { ContentDoc } from "@/lib/cms/client";
 import { RichText } from "@/lib/cms/lexical";
 import { Link } from "@/i18n/navigation";
 import type { Byline } from "@/lib/cms/client";
 import { JsonLd } from "@/components/seo/json-ld";
+import { BadgeCheck } from "lucide-react";
 import { Alert, AlertDescription } from "@/components/ui/alert";
 import { Badge } from "@/components/ui/badge";
+import { AppHandoffCard } from "@/components/site/app-handoff-card";
 import {
   articleJsonLd,
   breadcrumbJsonLd,
@@ -16,9 +19,12 @@ import { extractFaqs } from "@/lib/cms/faq";
 import { siteConfig } from "@/lib/seo/config";
 
 // Shared renderer for a single CMS content doc (articles, conditions, …). The
-// common editorial chrome (reviewed badge, sources, disclaimer) lives in the
+// common editorial chrome (review line, sources, disclaimer) lives in the
 // `learn` message namespace; the calling page supplies its own section
-// title/href for the breadcrumb + back link.
+// title/href for the breadcrumb + back link. Every page ends with the app hand-off
+// card (02_DESIGN_SPEC §2.12), and the review line is honest by construction:
+// a named reviewer gets "Reviewed by <name>, <date>"; everything else says the
+// clinician review is still pending (01_PRODUCT_SCOPE D-07).
 export async function ContentArticle({
   doc,
   locale,
@@ -42,7 +48,6 @@ export async function ContentArticle({
   contentLocale?: string;
 }) {
   const t = await getTranslations("learn");
-  const format = await getFormatter();
   const disclaimer =
     doc.disclaimerType && doc.disclaimerType !== "none"
       ? t(`disclaimer.${doc.disclaimerType}`)
@@ -50,6 +55,14 @@ export async function ContentArticle({
   const url = `${siteConfig.baseUrl}/${locale}${sectionHref}/${doc.slug}`;
   const faqs = extractFaqs(doc.body);
   const fallback = contentLocale !== locale;
+  const sourceLabel = (s: NonNullable<ContentDoc["sources"]>[number], label: ReactNode) =>
+    s.url ? (
+      <a href={s.url} rel="noreferrer" target="_blank" className="text-text-link underline">
+        {label}
+      </a>
+    ) : (
+      label
+    );
   // Only the document's own text changes direction; the page chrome stays in hers.
   const contentAttrs = fallback
     ? { lang: contentLocale, dir: contentLocale === "ar" ? ("rtl" as const) : ("ltr" as const) }
@@ -63,7 +76,10 @@ export async function ContentArticle({
           description,
           url,
           locale,
-          lastReviewed: doc.lastReviewed,
+          // Only a named reviewer makes a review date true. `lastReviewed` is set on
+          // unreviewed articles too (it is the import date there), so it must not be
+          // published to search engines as a review.
+          lastReviewed: doc.medicalReviewerProfile ? doc.lastReviewed : null,
         })}
       />
       <JsonLd
@@ -114,20 +130,11 @@ export async function ContentArticle({
         <h1 {...contentAttrs} className="font-display text-3xl text-text">
           {doc.title}
         </h1>
-        <Byline authors={doc.authors ?? []} reviewer={doc.medicalReviewerProfile ?? null} />
+        <Byline authors={doc.authors ?? []} />
         {/* Boundary first, guidance second: a reader should know what this is
             before she acts on it, not after (health product, not a medical one). */}
         <p className="text-sm text-text-subtle">{t("boundaryNote")}</p>
-        <div className="flex flex-wrap items-center gap-2 text-sm text-text-muted">
-          <Badge variant="success">{t("reviewed")}</Badge>
-          {doc.lastReviewed ? (
-            <span>
-              {t("lastReviewed", {
-                date: format.dateTime(new Date(doc.lastReviewed), { dateStyle: "medium" }),
-              })}
-            </span>
-          ) : null}
-        </div>
+        <ReviewLine doc={doc} locale={locale} />
       </div>
 
       <article {...contentAttrs} className="text-md">
@@ -147,24 +154,20 @@ export async function ContentArticle({
           <ul lang="en" dir="ltr" className="flex flex-col gap-1 text-sm text-text-muted">
             {doc.sources.map((s, i) => (
               <li key={i}>
-                {s.url ? (
-                  <a
-                    href={s.url}
-                    rel="noreferrer"
-                    target="_blank"
-                    className="text-text-link underline"
-                  >
-                    {s.title}
-                  </a>
-                ) : (
-                  s.title
-                )}
-                {s.tier ? ` · ${t("tier", { tier: s.tier })}` : ""}
+                {s.tier
+                  ? t.rich("sourceWithTier", {
+                      title: s.title,
+                      tier: s.tier,
+                      source: (chunks) => sourceLabel(s, chunks),
+                    })
+                  : sourceLabel(s, s.title)}
               </li>
             ))}
           </ul>
         </section>
       ) : null}
+
+      <AppHandoffCard id="article-handoff" />
 
       <p className="text-2xs text-text-subtle">{t("footerNote")}</p>
     </main>
@@ -172,55 +175,94 @@ export async function ContentArticle({
 }
 
 /**
- * Named author + named clinician reviewer, each linked to their bio (doc 15 §8).
- * Renders nothing until the CMS has people attached, so an article published
- * before its bios exist degrades to the reviewed badge rather than to "By ,".
+ * The honest review line (01_PRODUCT_SCOPE D-07, report 07 §9).
+ *
+ * - A named reviewer: "Reviewed by <name>, <date>", the name linked to the bio. The
+ *   date is the document's `lastReviewed`; without a date the line is the name alone.
+ * - No named reviewer: "Editorially checked · clinician review pending" (neutral
+ *   pill). It never says a clinician reviewed it, and it does not show `lastReviewed`
+ *   as a review date (on these articles that field is the import date), only the
+ *   last-updated date.
  *
  * ## On a translated page it says the review was of the English (R3.8)
  *
- * Approval is not a localised field — `review_status`, `medical_reviewer_id` and
- * `last_reviewed` live on the parent row, so a translation inherits them the
- * moment it is written. That is the intended behaviour and it is the owner's
- * call: the clinical substance was reviewed, and re-reviewing a faithful
- * translation of it is not what the two reviewers' time is for.
- *
- * What does not follow is the sentence "Reviewed by Dr X" sitting under Arabic
- * prose Dr X has never read. That is a claim about a **named real person's**
- * professional endorsement, and it is the one part of this that is not Femio's
- * to assert. So on any non-English rendering the label changes to say the review
- * was of the English text. Same reviewer, same link, same authority — described
- * accurately, at no cost to anyone.
+ * Approval is not a localised field, so a translation inherits the reviewer the
+ * moment it is written. The clinical substance was reviewed, and re-reviewing a
+ * faithful translation is not what a reviewer's time is for. What does not follow is
+ * "Reviewed by Dr X" under Arabic prose Dr X has never read: a claim about a named
+ * real person's endorsement. So on any non-English page the label says the review was
+ * of the English text. Same reviewer, same link, described accurately.
  */
-async function Byline({ authors, reviewer }: { authors: Byline[]; reviewer: Byline | null }) {
+async function ReviewLine({ doc, locale }: { doc: ContentDoc; locale: string }) {
   const t = await getTranslations("learn");
-  const locale = await getLocale();
-  if (authors.length === 0 && !reviewer) return null;
+  const format = await getFormatter();
+  const reviewer = doc.medicalReviewerProfile ?? null;
+  const fmt = (iso: string) => format.dateTime(new Date(iso), { dateStyle: "medium" });
 
-  const name = (p: Byline) => (p.credentials ? `${p.name}, ${p.credentials}` : p.name);
+  if (reviewer) {
+    const person = (chunks: ReactNode) => (
+      <Link href={`/authors/${reviewer.slug}`} className="text-text-link underline">
+        {chunks}
+      </Link>
+    );
+    const name = personName(t, reviewer);
+    // Plain text beside a check icon, not a coloured pill: the link inside keeps the
+    // page's link colour on the page background, where its contrast is known.
+    return (
+      <p className="flex items-center gap-2 text-sm text-text-muted">
+        <BadgeCheck className="size-4 shrink-0 text-success-text" aria-hidden />
+        <span>
+          {doc.lastReviewed
+            ? t.rich(locale === "en" ? "reviewedByOn" : "reviewedInEnglishByOn", {
+                name,
+                person,
+                date: fmt(doc.lastReviewed),
+              })
+            : t.rich(locale === "en" ? "reviewedByName" : "reviewedInEnglishByName", {
+                name,
+                person,
+              })}
+        </span>
+      </p>
+    );
+  }
 
   return (
-    <p className="flex flex-wrap items-center gap-x-2 gap-y-1 text-sm text-text-muted">
-      {authors.length > 0 ? (
-        <span>
-          {t("byline")}{" "}
-          {authors.map((a, i) => (
-            <span key={a.slug}>
-              {i > 0 ? ", " : ""}
-              <Link href={`/authors/${a.slug}`} className="text-text-link underline">
-                {name(a)}
-              </Link>
-            </span>
-          ))}
-        </span>
-      ) : null}
-      {reviewer ? (
-        <span>
-          {t(locale === "en" ? "reviewedBy" : "reviewedInEnglishBy")}{" "}
-          <Link href={`/authors/${reviewer.slug}`} className="text-text-link underline">
-            {name(reviewer)}
-          </Link>
-        </span>
-      ) : null}
+    <p className="flex flex-wrap items-center gap-2 text-sm text-text-muted">
+      <Badge variant="neutral">{t("editoriallyChecked")}</Badge>
+      {doc.updatedAt ? <span>{t("lastUpdated", { date: fmt(doc.updatedAt) })}</span> : null}
+    </p>
+  );
+}
+
+/** "Name, credentials" through the catalogue, so each language owns its punctuation. */
+function personName(
+  t: (key: "nameWithCredentials", values: { name: string; credentials: string }) => string,
+  p: Byline,
+): string {
+  return p.credentials ? t("nameWithCredentials", { name: p.name, credentials: p.credentials }) : p.name;
+}
+
+/**
+ * Named authors, each linked to their bio (doc 15 §8). Renders nothing until the CMS
+ * has authors attached, so an article published before its bios exist degrades to
+ * the review line rather than to "By ,". Names are joined by the locale's own list
+ * format (Intl.ListFormat), so Arabic gets its conjunction and comma, not an ASCII ", ".
+ */
+async function Byline({ authors }: { authors: Byline[] }) {
+  const t = await getTranslations("learn");
+  const format = await getFormatter();
+  if (authors.length === 0) return null;
+
+  const links = authors.map((a) => (
+    <Link key={a.slug} href={`/authors/${a.slug}`} className="text-text-link underline">
+      {personName(t, a)}
+    </Link>
+  ));
+
+  return (
+    <p className="text-sm text-text-muted">
+      {t("byline")} {format.list(links)}
     </p>
   );
 }

@@ -1,11 +1,6 @@
 "use client";
 
-/** Weeks on the axis: 0 to 42w0d, the end of the term window (MR-24). */
-export const AXIS_WEEKS = 42;
-/** Trimester boundaries, ACOG (MR-25). */
-const TRIMESTER_ENDS = [14, 28, AXIS_WEEKS] as const;
-/** 37w0d: the term window starts here. */
-const TERM_START_WEEKS = 37;
+import { AXIS_WEEKS, TERM_START_WEEKS, TRIMESTER_ENDS_WEEKS as TRIMESTER_ENDS } from "@/lib/calculators";
 
 /**
  * The term-window bar (02_DESIGN_SPEC §2.7). An axis from 0 to 42 weeks with three
