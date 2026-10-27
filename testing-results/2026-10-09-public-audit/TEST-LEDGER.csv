@@ -1,0 +1,68 @@
+id,surface,scenario,outcome,evidence_level,notes
+T01,/ar,Click Learn from Arabic homepage,FAIL,L,Actual destination /ar/ar-u-nu-latn/learn gives framework 404
+T02,/ar/learn,Click Arabic urgent pregnancy question,FAIL,L,Actual destination /ar/ar-u-nu-latn/learn/pregnancy-warning-signs gives framework 404
+T03,/ar/learn/pregnancy-warning-signs,Open direct intended URL,PARTIAL,L,Page exists; explicit English fallback; body not Arabic
+T04,/en/calculators/period,LMP 2026-10-01 shortest 24 longest 90 duration 5,FAIL,L,Input displays 90 but first range ends 2026-11-15 = 45 days
+T05,/ar/calculators/period,Repeat T04 in Arabic,FAIL,L,Same substituted range; translated labels and dates
+T06,/en/calculators/period,Shortest 40 longest 20,PARTIAL,L,Outputs sorted 20-40 range without visible correction message
+T07,/en/calculators/period,Future LMP 2027-10-01 and 28/28 cycles,FAIL,L,Predictions around 2027-10-29; 2027-11-26; 2027-12-24
+T08,/en/calculators/fertile-window,LMP 2026-10-01 average 28,PARTIAL,L,Window Oct10-16; ovulation Oct15; next period Oct29; non-contraceptive warning
+T09,/en/calculators/fertile-window,LMP 2026-10-01 average 90,FAIL,L,Window Oct27-Nov2; ovulation Nov1; next period Nov15; uses 45
+T10,/en/calculators/pregnancy-test,Period method LMP 2026-10-01 average 90,FAIL,L,Test from 2026-11-15; uses 45-day cycle
+T11,/en/calculators/pregnancy-test,Switch from period to intercourse method,PASS,L,Incompatible date cleared
+T12,/en/calculators/pregnancy-test,Intercourse date 2026-10-01,PASS,L,Test from 2026-10-22; 21-day explanation and NHS source
+T13,/en/calculators/due-date,LMP 2026-10-01 average 28,PASS,L,EDD 2027-07-08; estimate and arrival window shown
+T14,/en/calculators/due-date,LMP 2026-10-01 average 90,FAIL,L,EDD 2027-07-25 consistent with silently capped 45-day input
+T15,/en/calculators/due-date,Future LMP 2027-10-01 with prior 90 input,FAIL,L,EDD 2028-07-24 instead of future-LMP explanation
+T16,/en/calculators/gestational-age,LMP 2026-10-01 as-of 2026-10-09,PARTIAL,L,1 weeks and 1 days; arithmetic correct but grammar wrong
+T17,/en/calculators/gestational-age,LMP 2025-01-01 as-of 2026-10-09,FAIL,L,Results vanish without explaining implausible date
+T18,/en/calculators/gestational-age,LMP 2027-10-01 as-of 2026-10-09,FAIL,L,Results vanish without explaining future date
+T19,/en/calculators/gestational-age,Default as-of during Cairo 2026-10-09,FAIL,L,Default 2026-10-08; UTC verified 2026-10-08 22:48
+T20,/en/calculators/cycle-length,Starts 2026-08-01 and 2026-08-29,FAIL,L,28-day interval correct; regularity conclusion unsupported by one interval
+T21,/en/calculators/cycle-length,Starts 2026-08-01 and 2026-08-02,FAIL,L,1-day cycle called regular
+T22,/en/calculators/cycle-length,Identical starts 2026-08-01 twice,PARTIAL,L,Duplicates not counted; generic add-two-dates message
+T23,/en/calculators/bmi,70 kg and 170 cm,PASS,L,BMI 24.2; body-composition limitation shown
+T24,/en/calculators/bmi,Click Imperial after T23,FAIL,L,Same numbers relabeled lb/in; BMI 1.7 Underweight
+T25,/en/calculators/bmi,Negative weight -70 kg,FAIL,L,Result disappears without field explanation
+T26,/en/search,miscarriage,FAIL,L,Nothing found
+T27,/en/search,IVF,PARTIAL,L,One general fertility-help article; no dedicated journey
+T28,/en/search,PCOS,PASS,L,One condition and four articles
+T29,/en/search,endometriosis,PASS,L,Two conditions and three articles
+T30,/en/search,HRT,PASS,L,Menopause care-options guide returned
+T31,/en/search,hot flashes,FAIL,L,Nothing found
+T32,/en/search,no period,FAIL,L,Nothing found
+T33,/en/search,breastfeeding,PASS,L,Seven relevant articles returned
+T34,/en,Click Menopause entry card,PARTIAL,L,Generic library opens at TTC-led top; stage not selected
+T35,/en/faq,Open advertised FAQ,FAIL,L,Questions are on the way placeholder
+T36,/en/glossary,Open advertised glossary,FAIL,L,Terms are on the way placeholder
+T37,/en/learn/heavy-periods,Open article-linked destination,FAIL,L,Tailored 404; actual condition exists at /en/conditions/heavy-periods
+T38,/en/learn/painful-periods,Open teen-pain-linked destination,FAIL,L,Tailored 404; actual condition exists at /en/conditions/painful-periods
+T39,/en/learn,Open all 99 unique linked health guides,PASS,M,Structural/provenance sweep only; inventory CSV records each
+T40,/en/learn,Check named reviewer links,FAIL,M,25 named; 74 unnamed; all 37 weekly pregnancy guides unnamed
+T41,/en/conditions,Open all five listed condition pages,PASS,M,All opened with named reviewer links and external sources
+T42,/en/privacy and /en/about,Compare with homepage no-account promise,FAIL,L,Hosted account-based privacy model conflicts with on-device app marketing
+T43,/en/terms,Check current product fit,FAIL,L,Draft account/community terms conflict with current public offer
+T44,/en/app,Follow Get the app,PARTIAL,L,Android coming soon; iPhone later; no install action
+T45,/ar,Check language and direction,PASS,M,html lang ar and dir rtl; no measured horizontal overflow at 390px
+T46,/ar/learn,Check guide-card language,PARTIAL,L,Translated shell with English guide cards
+T47,/ar/learn/pregnancy-warning-signs,Check fallback language markup,PASS,M,English h1 and body use lang en and dir ltr
+T48,/fr,Click library navigation,PASS,L,Correct /fr/learn route; English guide cards under French shell
+T49,/es,Click library navigation,PASS,L,Correct /es/learn route; English guide cards under Spanish shell
+T50,/en/help-now,Open crisis dialog,PASS,L,Close initially focused; Escape closes and restores launcher focus
+T51,/en/help-now,Tab from final dialog link,CONCERN,L,Focus reached body rather than cycling to Close; assistive-technology retest needed
+T52,/en/help-now and /ar/help-now,Check local care navigation,PARTIAL,L,Translated generic emergency advice; worldwide external directory; no local country action
+T53,Sampled public shell,Check language switch,FAIL,M,None found in tested header/footer
+T54,Sampled public shell,Check skip-to-main link,CONCERN,M,None found; alternative bypass mechanisms not exhaustively assessed
+T55,Period calculator,Check dynamic result announcement,CONCERN,M,No result status/live region; static disclaimer alert only
+T56,Period calendar,Check day/state semantics,CONCERN,M,Plain spans with CSS states; no per-day date/state accessible labels
+T57,Homepage light mode,Measure eligible text contrast,PASS,M,61 elements; gradients excluded; alpha composited and srgb parsed correctly
+T58,BMI light/dark,Measure eligible text contrast,PASS,M,27 elements in each sampled mode; not whole-site certification
+T59,Irregular TTC guide dark mode,Measure eligible content/shell text contrast,PASS,M,66 elements; not every article or non-text graphic
+T60,/robots.txt,Read crawler directives,PASS,L,Allow public routes; disallow /api; sitemap declared
+T61,/sitemap.xml,Count public sitemap entries,PASS,M,173 distinct URLs; 100 English learn detail URLs including meet-femio
+T62,Guide metadata,Check duplicate title brand,FAIL,M,39 of 99 library titles include | Femio — Femio
+T63,Five condition metadata titles,Check duplicate title brand,FAIL,M,All five sampled titles duplicate branding
+T64,Postmenopausal bleeding guide,Compare HRT statement with current NICE,REVIEW,R,Specific source-fidelity mismatch; clinician review required
+T65,Shared browser,Attempt 320px override,NOT_VERIFIED,M,Actual viewport remained 390; no 320px pass claimed
+T66,Mobile app and signed-in tracker,Account or persistent-data scenarios,NOT_TESTED,none,Owner scoped current public site; advertised mobile app unavailable
+T67,Security/privacy/performance,Network audit and load injection,NOT_TESTED,none,No privacy compliance or performance certification claimed
