@@ -222,10 +222,7 @@
     "subtitle": "Herramientas gratuitas para el ciclo, la fertilidad y el embarazo. Sin cuenta.",
     "disclaimer": "Estas calculadoras dan estimaciones generales para informarte y planificar, no consejo médico. Habla con tu profesional de salud sobre tu salud.",
     "common": {
-      "back": "Todas las calculadoras",
-      "estimateNote": "Es una estimación basada en las fechas que ingresaste — cada cuerpo es diferente.",
-      "cycleLabel": "Duración media del ciclo (días)",
-      "lmpLabel": "Primer día de tu última menstruación"
+      "back": "Todas las calculadoras"
     },
     "list": {
       "dueDate": {
@@ -261,22 +258,26 @@
       "title": "Calculadora de fecha de parto",
       "intro": "Estima tu fecha a partir del primer día de tu última menstruación.",
       "eddLabel": "Fecha de parto estimada",
-      "termWindowLabel": "La mayoría de los bebés llega entre el {start} y el {end}."
+      "termWindowLabel": "La mayoría de los bebés llega entre el {start} y el {end}.",
+      "sentence": "Fecha probable de parto alrededor del {date}. La mayoría de los bebés nacen entre el {start} y el {end}.",
+      "around": "Alrededor del {date}"
     },
     "ovulation": {
       "title": "Calculadora de ovulación",
       "intro": "Estima tus días fértiles a partir de tu última menstruación y la duración del ciclo.",
-      "ovulationLabel": "Ovulación estimada",
       "windowLabel": "Ventana fértil",
-      "nextPeriodLabel": "Próxima menstruación alrededor del",
-      "rangeValue": "{start} – {end}",
-      "awarenessNote": "Estas fechas apoyan la planificación del embarazo y el conocimiento de tu ciclo. Son estimaciones, no un método fiable para evitar el embarazo — habla con tu profesional de salud sobre tus opciones."
+      "sentence": "Ventana fértil probable {window}. Ovulación alrededor del {ovulation}. Próxima regla alrededor del {next}.",
+      "ovulationAround": "Ovulación alrededor del {date}",
+      "nextPeriodAround": "Próxima regla alrededor del {date}"
     },
     "gestationalAge": {
       "title": "Calculadora de semanas de embarazo",
       "intro": "Ve de cuántas semanas estás, contando desde tu última menstruación.",
       "asOfLabel": "A fecha de",
-      "resultLabel": "{weeks} semanas y {days} días"
+      "resultLabel": "{weeks} semanas y {days} días",
+      "sentence": "{weeks} semanas y {days} días, trimestre {trimester}.",
+      "eyebrow": "Estás de unas",
+      "trimesterLine": "Trimestre {n}"
     },
     "bmi": {
       "title": "Calculadora de IMC",
@@ -300,29 +301,23 @@
     "cycleLength": {
       "title": "Duración del ciclo",
       "intro": "Ingresa algunas fechas de inicio de tu menstruación para ver tu duración media de ciclo.",
-      "datesLabel": "Fechas de inicio de la menstruación",
-      "addDate": "Añadir otra fecha",
-      "removeDate": "Quitar",
       "averageLabel": "Duración media del ciclo",
-      "daysValue": "{days} días",
-      "rangeLabel": "Rango",
       "regular": "Tus ciclos parecen regulares.",
-      "irregular": "Tus ciclos varían — es común, y Femio adapta sus predicciones cuando ocurre.",
-      "needTwo": "Añade al menos dos fechas de inicio de la menstruación."
+      "prompt": "Toca el primer día de cada regla que recuerdes",
+      "sentence": "Ciclo medio de {average} días, de {min} a {max}.",
+      "rangeLine": "De {min} a {max}",
+      "stripLabel": "Duración de cada ciclo",
+      "varies": "Los ciclos muy variables son frecuentes y tienen muchas causas. Si es lo habitual en ti, coméntalo con una profesional de salud.",
+      "irregularLink": "Ciclos irregulares y tiempos",
+      "pcosLink": "Sobre el SOP"
     },
-    "appCta": "Registra esto automáticamente en la app de Femio.",
-    "appCtaLink": "Descargar la app",
     "period": {
       "title": "Calculadora de la regla",
       "intro": "Mira cuándo es probable que empiecen tus próximas tres reglas, como un rango que refleja cuánto varían tus ciclos.",
-      "shortestLabel": "Ciclo más corto (días)",
-      "longestLabel": "Ciclo más largo (días)",
-      "periodLengthLabel": "Cuántos días dura tu regla",
       "varyNote": "Los ciclos suelen variar unos días. Indica el más corto y el más largo para ver un rango honesto.",
-      "nextLabel": "Regla {n}",
-      "rangeValue": "{start} – {end}",
-      "singleValue": "Hacia el {date}",
-      "resultNote": "Cada rango se amplía un poco más adelante, porque cada ciclo puede variar."
+      "resultNote": "Cada rango se amplía un poco más adelante, porque cada ciclo puede variar.",
+      "eyebrow": "Tu próxima regla puede empezar",
+      "nextLine": "Regla {n}: {when}"
     },
     "pregnancyTest": {
       "title": "Calculadora de prueba de embarazo",
@@ -330,23 +325,96 @@
       "modeLabel": "¿Qué sabes?",
       "modePeriod": "Mi última regla",
       "modeSex": "Cuándo tuvimos relaciones",
-      "sexLabel": "El último día que tuviste relaciones sin protección",
-      "expectedPeriodLabel": "Tu regla se espera hacia el",
       "testFromLabel": "Haz la prueba a partir del",
       "notePeriod": "La mayoría de las pruebas caseras funcionan desde el primer día de retraso de la regla. Hacerla antes puede dar negativo aunque estés embarazada.",
       "noteSex": "Si no sabes cuándo te toca la regla, haz la prueba al menos 21 días después de tu última relación sin protección.",
-      "source": "Fuente: NHS, hacer una prueba de embarazo."
+      "source": "Fuente: NHS, hacer una prueba de embarazo.",
+      "sentence": "Una prueba de embarazo casera es más fiable desde el {date}.",
+      "promptSex": "Toca el día de tu última relación sin protección",
+      "expectedPeriodLine": "Tu regla se espera alrededor del {date}"
     },
     "calendar": {
-      "period": "Regla",
-      "periodMaybe": "La regla podría empezar",
-      "fertile": "Ventana fértil",
-      "ovulation": "Ovulación probable",
-      "test": "Día de la prueba"
+      "prompt": "Toca el día en que empezó tu última regla",
+      "promptHelp": "¿No estás segura? Elige tu mejor estimación; puedes cambiarla en cualquier momento.",
+      "futureDay": "Ese día aún no ha llegado. Toca el primer día de tu última regla.",
+      "tooOld": "Hace más de 3 meses. Si has tenido la regla desde entonces, toca su primer día.",
+      "overTerm": "Hace más de 42 semanas. Si estás embarazada, habla de tus fechas con tu matrona o tu médica.",
+      "needTwo": "Toca al menos otro inicio de regla.",
+      "noscript": "El calendario necesita JavaScript para funcionar. Cómo se hace la estimación se explica más abajo.",
+      "clear": "Borrar",
+      "cleared": "Borrado. Toca un día para empezar de nuevo.",
+      "prevMonth": "Mes anterior",
+      "nextMonth": "Mes siguiente",
+      "hijriNote": "Las fechas hégira siguen el calendario Umm al-Qura y pueden diferir un día de los anuncios locales.",
+      "aria": {
+        "today": "hoy",
+        "start": "primer día de tu regla, seleccionado",
+        "period": "tu regla",
+        "fertile": "probablemente fértil, estimación",
+        "ovulation": "ovulación probable alrededor de este día, estimación",
+        "nextPeriod": "la próxima regla puede empezar, estimación"
+      }
     },
-    "progress": {
-      "trimester": "Trimestre {n}",
-      "weekOf": "Semana {week} de 40"
+    "legend": {
+      "start": "Primer día que tocaste",
+      "period": "Tu regla",
+      "fertile": "Días probablemente fértiles",
+      "ovulation": "Ovulación, alrededor de",
+      "nextPeriod": "La próxima regla puede empezar",
+      "testFrom": "La prueba es más fiable desde aquí",
+      "term": "Ventana de 37 a 42 semanas",
+      "cycleSpan": "Días entre reglas",
+      "lmp": "Primer día de tu última regla",
+      "sexDay": "El día que tocaste",
+      "periodStart": "Inicio de la regla"
+    },
+    "stepper": {
+      "cycleLabel": "Duración del ciclo",
+      "daysUnit": "días",
+      "days": "{count, plural, one {# día} other {# días}}",
+      "shorterCycle": "Ciclo más corto",
+      "longerCycle": "Ciclo más largo",
+      "periodLengthLabel": "Duración de la regla",
+      "shorterPeriod": "Regla más corta",
+      "longerPeriod": "Regla más larga",
+      "irregularChip": "Irregular / no estoy segura",
+      "shortestLabel": "Ciclo más corto",
+      "longestLabel": "Ciclo más largo",
+      "outsideRegular": "Los ciclos fuera de 21 a 35 días son frecuentes. No se puede nombrar una ventana fértil fiable a partir de una sola fecha, así que el resultado muestra cómo saberlo después."
+    },
+    "confidence": {
+      "fair": "Estimación razonable · según la duración de tu ciclo",
+      "rough": "Estimación aproximada · según una fecha y un ciclo típico",
+      "wide": "Estimación amplia · tus ciclos varían"
+    },
+    "noWindow": {
+      "title": "No hay una ventana fértil fiable en este ciclo",
+      "body": "Tus ciclos varían demasiado para nombrar una ventana fértil a partir de una sola fecha. Así puedes saber después si ovulaste.",
+      "link": "Cómo saberlo después"
+    },
+    "rules": {
+      "predictions": "Las predicciones son estimaciones, no garantías, y no deben usarse para evitar un embarazo.",
+      "stripLine": "Una tira de ovulación muestra una subida hormonal, no una prueba de que ovulaste. Una subida de tu temperatura al despertar después es una mejor señal.",
+      "soonerHelp": "Como tus ciclos son irregulares, es razonable hablar con una profesional de salud ahora en lugar de esperar un año.",
+      "testFirst": "Si tu regla no ha empezado y podrías estar embarazada, una prueba es el primer paso.",
+      "estimateNote": "Estas fechas son estimaciones basadas en la fecha que introdujiste. Cada cuerpo es distinto.",
+      "clinicianAdjust": "Tu profesional de salud puede ajustar la fecha tras una ecografía.",
+      "overTerm": "Esta fecha es de hace más de 42 semanas, así que no se puede contar una semana desde ella. Si estás embarazada, habla de tus fechas con tu matrona o tu médica.",
+      "redFlag": "Busca atención ahora si tienes dolor de cabeza intenso, cambios en la visión, dolor en la parte alta del abdomen, hinchazón de la cara o las manos, o dificultad para respirar. Contacta con tu unidad de maternidad o los servicios de emergencia locales. Si no puedes contactarlos, acude al servicio de urgencias más cercano."
+    },
+    "termBar": {
+      "here": "Semana {weeks} + {days} días",
+      "first": "1.er trimestre",
+      "second": "2.º trimestre",
+      "third": "3.er trimestre",
+      "label": "La ventana de 37 a 42 semanas: {range}"
+    },
+    "handoff": {
+      "title": "Registra esto automáticamente en la app femio.",
+      "body": "Se queda en tu teléfono, aprende tu ciclo real a medida que registras, y no se sube nada. Solo Android por ahora.",
+      "getOnPlay": "Consíguela en Google Play",
+      "getTheApp": "Descarga la app",
+      "whatItDoes": "Qué hace la app"
     }
   },
   "onboarding": {

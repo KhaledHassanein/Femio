@@ -1,5 +1,5 @@
-// Date-only helpers. Inputs are ISO dates (YYYY-MM-DD, as produced by <input
-// type="date">). All math is done in UTC to avoid DST/timezone drift.
+// Date-only helpers over ISO dates (YYYY-MM-DD). Arithmetic is done in UTC so DST
+// can never shift a day; only `todayISO` reads the local clock, on purpose.
 
 const MS_PER_DAY = 86_400_000;
 
@@ -22,6 +22,13 @@ export function diffDays(aISO: string, bISO: string): number {
   return Math.round((toUTC(bISO) - toUTC(aISO)) / MS_PER_DAY);
 }
 
-export function todayISO(): string {
-  return new Date().toISOString().slice(0, 10);
+/**
+ * Today as the device's LOCAL calendar date (MR-11). The UTC date is wrong for
+ * three hours a night in Cairo and Riyadh, which is exactly when a woman logs.
+ */
+export function todayISO(now: Date = new Date()): string {
+  const y = now.getFullYear();
+  const m = String(now.getMonth() + 1).padStart(2, "0");
+  const d = String(now.getDate()).padStart(2, "0");
+  return `${y}-${m}-${d}`;
 }

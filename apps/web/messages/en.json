@@ -222,10 +222,7 @@
     "subtitle": "Free tools for cycle, fertility, and pregnancy planning. No account needed.",
     "disclaimer": "These calculators give general estimates for learning and planning, not medical advice. Talk to your clinician about your health.",
     "common": {
-      "back": "All calculators",
-      "estimateNote": "This is an estimate based on the dates you entered — every body is different.",
-      "cycleLabel": "Average cycle length (days)",
-      "lmpLabel": "First day of your last period"
+      "back": "All calculators"
     },
     "list": {
       "dueDate": {
@@ -261,22 +258,26 @@
       "title": "Due date calculator",
       "intro": "Estimate your due date from the first day of your last period.",
       "eddLabel": "Estimated due date",
-      "termWindowLabel": "Most babies arrive between {start} and {end}."
+      "termWindowLabel": "Most babies arrive between {start} and {end}.",
+      "sentence": "Due date around {date}. Most babies arrive between {start} and {end}.",
+      "around": "Around {date}"
     },
     "ovulation": {
       "title": "Ovulation calculator",
       "intro": "Estimate your fertile days from your last period and cycle length.",
-      "ovulationLabel": "Estimated ovulation",
       "windowLabel": "Fertile window",
-      "nextPeriodLabel": "Next period around",
-      "rangeValue": "{start} – {end}",
-      "awarenessNote": "These dates support conception planning and awareness. They're estimates, not a reliable way to avoid pregnancy — talk to your clinician about your options."
+      "sentence": "Likely fertile window {window}. Ovulation around {ovulation}. Next period around {next}.",
+      "ovulationAround": "Ovulation around {date}",
+      "nextPeriodAround": "Next period around {date}"
     },
     "gestationalAge": {
       "title": "Pregnancy week calculator",
       "intro": "See how many weeks along you are, counting from your last period.",
       "asOfLabel": "As of",
-      "resultLabel": "{weeks} weeks and {days} days"
+      "resultLabel": "{weeks} weeks and {days} days",
+      "sentence": "{weeks} weeks and {days} days, trimester {trimester}.",
+      "eyebrow": "You are about",
+      "trimesterLine": "Trimester {n}"
     },
     "bmi": {
       "title": "BMI calculator",
@@ -300,29 +301,23 @@
     "cycleLength": {
       "title": "Cycle length",
       "intro": "Enter a few period start dates to see your average cycle length.",
-      "datesLabel": "Period start dates",
-      "addDate": "Add another date",
-      "removeDate": "Remove",
       "averageLabel": "Average cycle length",
-      "daysValue": "{days} days",
-      "rangeLabel": "Range",
       "regular": "Your cycles look regular.",
-      "irregular": "Your cycles vary — that's common, and Femio adapts predictions when they do.",
-      "needTwo": "Add at least two period start dates."
+      "prompt": "Tap the first day of each period you remember",
+      "sentence": "Average cycle {average} days, from {min} to {max}.",
+      "rangeLine": "From {min} to {max}",
+      "stripLabel": "Each cycle's length",
+      "varies": "Cycles that vary a lot are common and have many causes. If this is usual for you, mention it to a clinician.",
+      "irregularLink": "Irregular cycles and timing",
+      "pcosLink": "About PCOS"
     },
-    "appCta": "Track this automatically in the Femio app.",
-    "appCtaLink": "Get the app",
     "period": {
       "title": "Period calculator",
       "intro": "See when your next three periods are likely to start, as a range that reflects how much your cycles vary.",
-      "shortestLabel": "Shortest cycle (days)",
-      "longestLabel": "Longest cycle (days)",
-      "periodLengthLabel": "How many days your period lasts",
       "varyNote": "Cycles normally vary by a few days. Enter your shortest and longest to see an honest range.",
-      "nextLabel": "Period {n}",
-      "rangeValue": "{start} – {end}",
-      "singleValue": "Around {date}",
-      "resultNote": "Each range widens a little further ahead, because each cycle can vary."
+      "resultNote": "Each range widens a little further ahead, because each cycle can vary.",
+      "eyebrow": "Your next period may start",
+      "nextLine": "Period {n}: {when}"
     },
     "pregnancyTest": {
       "title": "Pregnancy test calculator",
@@ -330,23 +325,96 @@
       "modeLabel": "What do you know?",
       "modePeriod": "My last period",
       "modeSex": "When we had sex",
-      "sexLabel": "The day you last had unprotected sex",
-      "expectedPeriodLabel": "Your period is expected around",
       "testFromLabel": "Test from",
       "notePeriod": "Most home tests work from the first day of a missed period. Testing earlier can give a negative result even if you are pregnant.",
       "noteSex": "If you do not know when your period is due, test at least 21 days after you last had unprotected sex.",
-      "source": "Source: NHS, Doing a pregnancy test."
+      "source": "Source: NHS, Doing a pregnancy test.",
+      "sentence": "A home pregnancy test is most reliable from {date}.",
+      "promptSex": "Tap the day you last had unprotected sex",
+      "expectedPeriodLine": "Your period is expected around {date}"
     },
     "calendar": {
-      "period": "Period",
-      "periodMaybe": "Period could start",
-      "fertile": "Fertile window",
-      "ovulation": "Likely ovulation",
-      "test": "Test day"
+      "prompt": "Tap the day your last period started",
+      "promptHelp": "Not sure? Pick your best guess. You can change it any time.",
+      "futureDay": "That day hasn't come yet. Tap the first day of your last period.",
+      "tooOld": "That's more than 3 months ago. If you've had a period since, tap its first day.",
+      "overTerm": "That's more than 42 weeks ago. If you are pregnant, talk to your midwife or doctor about your dates.",
+      "needTwo": "Tap at least one more period start.",
+      "noscript": "The calendar needs JavaScript to work. How the estimate is made is explained below.",
+      "clear": "Clear",
+      "cleared": "Cleared. Tap a day to start again.",
+      "prevMonth": "Previous month",
+      "nextMonth": "Next month",
+      "hijriNote": "Hijri dates follow the Umm al-Qura calendar and can differ by a day from local announcements.",
+      "aria": {
+        "today": "today",
+        "start": "first day of your period, selected",
+        "period": "your period",
+        "fertile": "likely fertile, estimate",
+        "ovulation": "ovulation likely around this day, estimate",
+        "nextPeriod": "next period may start, estimate"
+      }
     },
-    "progress": {
-      "trimester": "Trimester {n}",
-      "weekOf": "Week {week} of 40"
+    "legend": {
+      "start": "First day you tapped",
+      "period": "Your period",
+      "fertile": "Likely fertile days",
+      "ovulation": "Ovulation, around",
+      "nextPeriod": "Next period may start",
+      "testFrom": "A test is most reliable from here",
+      "term": "37 to 42 week window",
+      "cycleSpan": "Days between periods",
+      "lmp": "First day of your last period",
+      "sexDay": "The day you tapped",
+      "periodStart": "Period start"
+    },
+    "stepper": {
+      "cycleLabel": "Cycle length",
+      "daysUnit": "days",
+      "days": "{count, plural, one {# day} other {# days}}",
+      "shorterCycle": "Shorter cycle",
+      "longerCycle": "Longer cycle",
+      "periodLengthLabel": "Period length",
+      "shorterPeriod": "Shorter period",
+      "longerPeriod": "Longer period",
+      "irregularChip": "Irregular / not sure",
+      "shortestLabel": "Shortest cycle",
+      "longestLabel": "Longest cycle",
+      "outsideRegular": "Cycles outside 21 to 35 days are common. A fertile window can't be named reliably from one date, so the result shows how to tell afterwards instead."
+    },
+    "confidence": {
+      "fair": "Fair estimate · from your cycle length",
+      "rough": "Rough estimate · from one date and a typical cycle",
+      "wide": "Wide estimate · your cycles vary"
+    },
+    "noWindow": {
+      "title": "No confident fertile window this cycle",
+      "body": "Your cycles vary too much to name a fertile window from one date. Here is how to tell afterwards whether you ovulated.",
+      "link": "How to tell afterwards"
+    },
+    "rules": {
+      "predictions": "Predictions are estimates, not guarantees, and must not be relied on to avoid pregnancy.",
+      "stripLine": "An ovulation test strip shows a hormone surge, not proof that you ovulated. A rise in your waking temperature afterwards is a better sign.",
+      "soonerHelp": "Because your cycles are irregular, it is reasonable to talk to a clinician now rather than wait a year.",
+      "testFirst": "If your period has not started and you could be pregnant, a test is the first step.",
+      "estimateNote": "These dates are estimates based on the date you entered. Every body is different.",
+      "clinicianAdjust": "Your clinician may adjust the date after a scan.",
+      "overTerm": "This date is more than 42 weeks ago, so a week can't be counted from it. If you are pregnant, talk to your midwife or doctor about your dates.",
+      "redFlag": "Seek care now if you have a severe headache, changes in your vision, pain in the upper abdomen, swelling of the face or hands, or difficulty breathing. Contact your maternity unit or local emergency services. If you cannot reach them, go to the nearest emergency department."
+    },
+    "termBar": {
+      "here": "Week {weeks} + {days} days",
+      "first": "1st trimester",
+      "second": "2nd trimester",
+      "third": "3rd trimester",
+      "label": "The 37 to 42 week window: {range}"
+    },
+    "handoff": {
+      "title": "Track this automatically in the femio app.",
+      "body": "It stays on your phone, learns your real cycle as you log, and nothing is uploaded. Android only for now.",
+      "getOnPlay": "Get it on Google Play",
+      "getTheApp": "Get the app",
+      "whatItDoes": "What the app does"
     }
   },
   "onboarding": {

@@ -30,19 +30,16 @@ test("the CSP blocks framing, plugins and unlisted origins", async ({ request })
   expect(csp).toMatch(/connect-src [^;]*'self'/);
   expect(csp).not.toMatch(/connect-src [^;]*\*/);
 
+  // The site talks to nobody but itself: connect-src is exactly 'self'.
+  expect(csp).toMatch(/connect-src 'self'(;|$)/);
+
   // `'unsafe-eval'` is granted only to the dev server (React Refresh needs it).
-  // The suite runs against `next dev` locally and `next start` in CI, so pin
-  // both: CI — the gate that guards merges — checks the build that actually
-  // ships, and the local run proves the relaxation is scoped to dev.
-  if (process.env.CI) {
-    expect(csp).not.toContain("'unsafe-eval'");
-  } else {
-    expect(csp).toContain("'unsafe-eval'");
-  }
+  // The suite runs against the built app (`next start`), which must not carry it.
+  expect(csp).not.toContain("'unsafe-eval'");
 });
 
-test("the app shell and its API route are covered too", async ({ request }) => {
-  for (const path of ["/en/welcome", "/manifest.webmanifest"]) {
+test("a calculator page and the search index are covered too", async ({ request }) => {
+  for (const path of ["/en/calculators/period", "/api/search-index/en"]) {
     const headers = (await request.get(path)).headers();
     expect(headers["content-security-policy"], path).toBeTruthy();
     expect(headers["x-content-type-options"], path).toBe("nosniff");

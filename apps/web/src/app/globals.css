@@ -294,9 +294,31 @@ body:has(.app-bottom-bar):has(.crisis-launcher) {
   }
   50% {
     opacity: 1;
-    transform: scaleY(1.35);
+    transform: scaleY(var(--breathe-scale, 1.35));
   }
 }
+/* ---------------------------------------------------------------------------
+   The interactive calendar (docs/33_REBUILD_V3/02_DESIGN_SPEC.md §2.5, §2.10).
+   A band is a date range drawn behind the day numbers. Soft edges fade the
+   first and last 24px; the direction follows the reading direction, which a
+   gradient cannot express logically, hence the [dir=rtl] twins. The grow
+   animation scales from the inline start; the breathe amplitude is a custom
+   property so a band under a Hijri label can breathe less. All of it stops
+   under reduced motion through the global rule above plus `motion-safe:`. */
+.band-soft-s { mask-image: linear-gradient(to right, transparent, #000 24px); }
+.band-soft-e { mask-image: linear-gradient(to left, transparent, #000 24px); }
+.band-soft-s.band-soft-e { mask-image: linear-gradient(to right, transparent, #000 24px, #000 calc(100% - 24px), transparent); }
+[dir="rtl"] .band-soft-s { mask-image: linear-gradient(to left, transparent, #000 24px); }
+[dir="rtl"] .band-soft-e { mask-image: linear-gradient(to right, transparent, #000 24px); }
+[dir="rtl"] .band-soft-s.band-soft-e { mask-image: linear-gradient(to left, transparent, #000 24px, #000 calc(100% - 24px), transparent); }
+@media (prefers-reduced-motion: no-preference) {
+  .band-grow { animation: band-grow var(--motion-prediction) both; transform-origin: left center; }
+  [dir="rtl"] .band-grow { transform-origin: right center; }
+  .animate-start-pop { animation: start-pop var(--motion-log-confirm) both; }
+}
+@keyframes band-grow { from { transform: scaleX(0); } to { transform: scaleX(1); } }
+@keyframes start-pop { from { transform: translateY(-50%) scale(0.6); } to { transform: translateY(-50%) scale(1); } }
+
 
 /* Learn hub cards (v3 P2.4). Written once here rather than as utility lists on each
    of ~70 cards, because every class string was paid for twice per card (HTML and

@@ -222,10 +222,7 @@
     "subtitle": "Des outils gratuits pour le cycle, la fertilité et la grossesse. Sans compte.",
     "disclaimer": "Ces calculateurs donnent des estimations générales pour vous informer et planifier, pas un avis médical. Parlez de votre santé avec votre clinicienne.",
     "common": {
-      "back": "Tous les calculateurs",
-      "estimateNote": "C'est une estimation basée sur les dates saisies — chaque corps est différent.",
-      "cycleLabel": "Durée moyenne du cycle (jours)",
-      "lmpLabel": "Premier jour de vos dernières règles"
+      "back": "Tous les calculateurs"
     },
     "list": {
       "dueDate": {
@@ -261,22 +258,26 @@
       "title": "Calculateur de date d'accouchement",
       "intro": "Estimez votre date à partir du premier jour de vos dernières règles.",
       "eddLabel": "Date d'accouchement estimée",
-      "termWindowLabel": "La plupart des bébés arrivent entre le {start} et le {end}."
+      "termWindowLabel": "La plupart des bébés arrivent entre le {start} et le {end}.",
+      "sentence": "Terme autour du {date}. La plupart des bébés naissent entre le {start} et le {end}.",
+      "around": "Autour du {date}"
     },
     "ovulation": {
       "title": "Calculateur d'ovulation",
       "intro": "Estimez vos jours fertiles à partir de vos dernières règles et de la durée du cycle.",
-      "ovulationLabel": "Ovulation estimée",
       "windowLabel": "Fenêtre de fertilité",
-      "nextPeriodLabel": "Prochaines règles autour du",
-      "rangeValue": "{start} – {end}",
-      "awarenessNote": "Ces dates aident à planifier une grossesse et à la connaissance de votre cycle. Ce sont des estimations, pas un moyen fiable d'éviter une grossesse — parlez de vos options avec votre clinicienne."
+      "sentence": "Fenêtre fertile probable {window}. Ovulation autour du {ovulation}. Prochaines règles autour du {next}.",
+      "ovulationAround": "Ovulation autour du {date}",
+      "nextPeriodAround": "Prochaines règles autour du {date}"
     },
     "gestationalAge": {
       "title": "Calculateur de semaines de grossesse",
       "intro": "Voyez à combien de semaines vous en êtes, à partir de vos dernières règles.",
       "asOfLabel": "À la date du",
-      "resultLabel": "{weeks} semaines et {days} jours"
+      "resultLabel": "{weeks} semaines et {days} jours",
+      "sentence": "{weeks} semaines et {days} jours, trimestre {trimester}.",
+      "eyebrow": "Vous êtes à environ",
+      "trimesterLine": "Trimestre {n}"
     },
     "bmi": {
       "title": "Calculateur d'IMC",
@@ -300,29 +301,23 @@
     "cycleLength": {
       "title": "Durée du cycle",
       "intro": "Saisissez quelques dates de début de règles pour voir votre durée moyenne de cycle.",
-      "datesLabel": "Dates de début de règles",
-      "addDate": "Ajouter une date",
-      "removeDate": "Retirer",
       "averageLabel": "Durée moyenne du cycle",
-      "daysValue": "{days} jours",
-      "rangeLabel": "Écart",
       "regular": "Vos cycles semblent réguliers.",
-      "irregular": "Vos cycles varient — c'est courant, et Femio adapte ses prévisions en conséquence.",
-      "needTwo": "Ajoutez au moins deux dates de début de règles."
+      "prompt": "Touchez le premier jour de chaque règles dont vous vous souvenez",
+      "sentence": "Cycle moyen de {average} jours, de {min} à {max}.",
+      "rangeLine": "De {min} à {max}",
+      "stripLabel": "Durée de chaque cycle",
+      "varies": "Des cycles très variables sont fréquents et ont de nombreuses causes. Si c'est habituel pour vous, mentionnez-le à un professionnel de santé.",
+      "irregularLink": "Cycles irréguliers et timing",
+      "pcosLink": "À propos du SOPK"
     },
-    "appCta": "Suivez cela automatiquement dans l'application Femio.",
-    "appCtaLink": "Obtenir l'app",
     "period": {
       "title": "Calculateur de règles",
       "intro": "Voyez quand vos trois prochaines règles devraient commencer, sous forme de fourchette qui reflète la variation de vos cycles.",
-      "shortestLabel": "Cycle le plus court (jours)",
-      "longestLabel": "Cycle le plus long (jours)",
-      "periodLengthLabel": "Durée de vos règles (jours)",
       "varyNote": "Les cycles varient normalement de quelques jours. Indiquez le plus court et le plus long pour voir une fourchette honnête.",
-      "nextLabel": "Règles {n}",
-      "rangeValue": "{start} – {end}",
-      "singleValue": "Vers le {date}",
-      "resultNote": "Chaque fourchette s'élargit un peu plus loin, car chaque cycle peut varier."
+      "resultNote": "Chaque fourchette s'élargit un peu plus loin, car chaque cycle peut varier.",
+      "eyebrow": "Vos prochaines règles peuvent commencer",
+      "nextLine": "Règles {n} : {when}"
     },
     "pregnancyTest": {
       "title": "Calculateur de test de grossesse",
@@ -330,23 +325,96 @@
       "modeLabel": "Que savez-vous ?",
       "modePeriod": "Mes dernières règles",
       "modeSex": "La date du rapport",
-      "sexLabel": "Le jour de votre dernier rapport non protégé",
-      "expectedPeriodLabel": "Vos règles sont attendues vers le",
       "testFromLabel": "Faites le test à partir du",
       "notePeriod": "La plupart des tests à domicile fonctionnent dès le premier jour de retard des règles. Un test plus précoce peut être négatif même en cas de grossesse.",
       "noteSex": "Si vous ne savez pas quand vos règles sont attendues, faites le test au moins 21 jours après votre dernier rapport non protégé.",
-      "source": "Source : NHS, faire un test de grossesse."
+      "source": "Source : NHS, faire un test de grossesse.",
+      "sentence": "Un test de grossesse à domicile est le plus fiable à partir du {date}.",
+      "promptSex": "Touchez le jour de votre dernier rapport non protégé",
+      "expectedPeriodLine": "Vos règles sont attendues autour du {date}"
     },
     "calendar": {
-      "period": "Règles",
-      "periodMaybe": "Les règles peuvent commencer",
-      "fertile": "Fenêtre de fertilité",
-      "ovulation": "Ovulation probable",
-      "test": "Jour du test"
+      "prompt": "Touchez le premier jour de vos dernières règles",
+      "promptHelp": "Pas sûre ? Choisissez votre meilleure estimation, vous pourrez la changer à tout moment.",
+      "futureDay": "Ce jour n'est pas encore arrivé. Touchez le premier jour de vos dernières règles.",
+      "tooOld": "C'était il y a plus de 3 mois. Si vous avez eu vos règles depuis, touchez leur premier jour.",
+      "overTerm": "C'était il y a plus de 42 semaines. Si vous êtes enceinte, parlez de vos dates à votre sage-femme ou à votre médecin.",
+      "needTwo": "Touchez au moins un autre début de règles.",
+      "noscript": "Le calendrier a besoin de JavaScript pour fonctionner. La méthode d'estimation est expliquée ci-dessous.",
+      "clear": "Effacer",
+      "cleared": "Effacé. Touchez un jour pour recommencer.",
+      "prevMonth": "Mois précédent",
+      "nextMonth": "Mois suivant",
+      "hijriNote": "Les dates hégiriennes suivent le calendrier Umm al-Qura et peuvent différer d'un jour des annonces locales.",
+      "aria": {
+        "today": "aujourd'hui",
+        "start": "premier jour de vos règles, sélectionné",
+        "period": "vos règles",
+        "fertile": "probablement fertile, estimation",
+        "ovulation": "ovulation probable autour de ce jour, estimation",
+        "nextPeriod": "les prochaines règles peuvent commencer, estimation"
+      }
     },
-    "progress": {
-      "trimester": "Trimestre {n}",
-      "weekOf": "Semaine {week} sur 40"
+    "legend": {
+      "start": "Premier jour touché",
+      "period": "Vos règles",
+      "fertile": "Jours probablement fertiles",
+      "ovulation": "Ovulation, autour de",
+      "nextPeriod": "Prochaines règles possibles",
+      "testFrom": "Test le plus fiable à partir d'ici",
+      "term": "Fenêtre de 37 à 42 semaines",
+      "cycleSpan": "Jours entre deux règles",
+      "lmp": "Premier jour de vos dernières règles",
+      "sexDay": "Le jour touché",
+      "periodStart": "Début des règles"
+    },
+    "stepper": {
+      "cycleLabel": "Durée du cycle",
+      "daysUnit": "jours",
+      "days": "{count, plural, one {# jour} other {# jours}}",
+      "shorterCycle": "Cycle plus court",
+      "longerCycle": "Cycle plus long",
+      "periodLengthLabel": "Durée des règles",
+      "shorterPeriod": "Règles plus courtes",
+      "longerPeriod": "Règles plus longues",
+      "irregularChip": "Irrégulier / pas sûre",
+      "shortestLabel": "Cycle le plus court",
+      "longestLabel": "Cycle le plus long",
+      "outsideRegular": "Les cycles hors de 21 à 35 jours sont fréquents. Une fenêtre fertile ne peut pas être nommée de façon fiable à partir d'une seule date ; le résultat montre plutôt comment le savoir après coup."
+    },
+    "confidence": {
+      "fair": "Estimation correcte · d'après la durée de votre cycle",
+      "rough": "Estimation approximative · d'après une date et un cycle typique",
+      "wide": "Estimation large · vos cycles varient"
+    },
+    "noWindow": {
+      "title": "Pas de fenêtre fertile fiable ce cycle",
+      "body": "Vos cycles varient trop pour nommer une fenêtre fertile à partir d'une seule date. Voici comment savoir après coup si vous avez ovulé.",
+      "link": "Comment le savoir après coup"
+    },
+    "rules": {
+      "predictions": "Les prédictions sont des estimations, pas des garanties, et ne doivent pas servir à éviter une grossesse.",
+      "stripLine": "Un test d'ovulation montre une poussée hormonale, pas la preuve d'une ovulation. Une hausse de votre température au réveil ensuite est un meilleur signe.",
+      "soonerHelp": "Comme vos cycles sont irréguliers, il est raisonnable d'en parler à un professionnel de santé maintenant plutôt que d'attendre un an.",
+      "testFirst": "Si vos règles n'ont pas commencé et qu'une grossesse est possible, un test est la première étape.",
+      "estimateNote": "Ces dates sont des estimations fondées sur la date saisie. Chaque corps est différent.",
+      "clinicianAdjust": "Votre professionnel de santé pourra ajuster la date après une échographie.",
+      "overTerm": "Cette date remonte à plus de 42 semaines, on ne peut donc pas compter une semaine à partir d'elle. Si vous êtes enceinte, parlez de vos dates à votre sage-femme ou à votre médecin.",
+      "redFlag": "Consultez sans attendre en cas de maux de tête sévères, de troubles de la vision, de douleur en haut de l'abdomen, de gonflement du visage ou des mains, ou de difficulté à respirer. Contactez votre maternité ou les services d'urgence locaux. Si vous ne les joignez pas, rendez-vous aux urgences les plus proches."
+    },
+    "termBar": {
+      "here": "Semaine {weeks} + {days} jours",
+      "first": "1er trimestre",
+      "second": "2e trimestre",
+      "third": "3e trimestre",
+      "label": "La fenêtre de 37 à 42 semaines : {range}"
+    },
+    "handoff": {
+      "title": "Suivez cela automatiquement dans l'application femio.",
+      "body": "Tout reste sur votre téléphone, l'application apprend votre vrai cycle au fil de vos saisies, et rien n'est envoyé. Android seulement pour l'instant.",
+      "getOnPlay": "Disponible sur Google Play",
+      "getTheApp": "Obtenir l'application",
+      "whatItDoes": "Ce que fait l'application"
     }
   },
   "onboarding": {

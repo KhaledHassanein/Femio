@@ -1,67 +1,122 @@
+/**
+ * The website's calculator maths (docs/33_REBUILD_V3/01_PRODUCT_SCOPE.md §4–5).
+ *
+ * Every function returns windows and ranges, never one certain date (product rule
+ * 3). Nothing here diagnoses or acts as a way to avoid pregnancy; the components
+ * frame every result as an estimate and the register's sentences sit under them.
+ *
+ * Constants are named once here and twinned in `apps/mobile/lib/domain/`; the
+ * register row each one carries is noted beside it so a change is a decision, not
+ * a typo. Out-of-range input returns `null` rather than a silently clamped answer
+ * (§5: "a cycle length outside the range silently clamped" is a must-not).
+ */
 import { addDays, diffDays, isValidISODate } from "./dates";
+import { eddFromLmp, GESTATION_DAYS } from "@/lib/pregnancy";
 
-// Uncertainty-honest by design: due-date and ovulation return WINDOWS, not just a
-// point. Nothing here is contraception or diagnosis — the UI frames it as awareness
-// and "discuss with your clinician" (medical-device guardrail, docs/13 §7).
-
-const GESTATION_DAYS = 280;
-const LUTEAL_PHASE_DAYS = 14;
-export const MIN_CYCLE = 20;
+/** MR-03: a stated cycle length is accepted from 21 days. */
+export const MIN_CYCLE = 21;
+/** The stepper's upper bound; above `REGULAR_CYCLE_MAX` the fertile window is withheld (MR-08). */
 export const MAX_CYCLE = 45;
+/** MR-08: a fertile window is only named for cycles in this range. */
+export const REGULAR_CYCLE_MIN = 21;
+export const REGULAR_CYCLE_MAX = 35;
+/** MR-09: "regular" means a spread of at most this many days, everywhere. */
+export const REGULAR_SPREAD_MAX = 9;
+/** The untouched stepper value; the typical cycle, never a claim about hers. */
+export const DEFAULT_CYCLE_DAYS = 28;
+/** "Not sure" seeds the shortest/longest steppers with the MR-03 accepted range. */
+export const IRREGULAR_SEED = { shortest: 21, longest: 35 } as const;
+/** MR-07: ovulation is estimated this many days before the next period. */
+export const LUTEAL_PHASE_DAYS = 14;
+/** MR-07: the fertile window is the six days ending on ovulation day. */
+export const FERTILE_WINDOW_DAYS = 6;
+/** Period length bounds and the default for a first tap (MR-12). */
+export const MIN_PERIOD = 2;
+export const MAX_PERIOD = 10;
+export const DEFAULT_PERIOD_DAYS = 5;
+/** How far back a period start may be tapped (one long cycle and some). */
+export const CYCLE_LOOKBACK_DAYS = 90;
+/** 37w0d and 42w0d from the last period: the term window (MR-24). */
+export const TERM_START_DAYS = 259;
+export const TERM_END_DAYS = 294;
+/** MR-26: a gestation past this is refused with "check the date", not computed. */
+export const MAX_GESTATION_DAYS = 315;
+/** MR-21, NHS: with no period date, test at least this many days after sex. */
+export const DAYS_AFTER_SEX_TO_TEST = 21;
 
 export type BmiCategory = "underweight" | "normal" | "overweight" | "obese";
 
-function clampCycle(cycleLength: number): number {
-  return Math.min(MAX_CYCLE, Math.max(MIN_CYCLE, Math.round(cycleLength)));
+function cycleInRange(cycleLength: number): boolean {
+  return Number.isInteger(cycleLength) && cycleLength >= MIN_CYCLE && cycleLength <= MAX_CYCLE;
 }
 
-/** EDD from LMP, adjusted for cycle length, plus the full-term (37–42w) window. */
-export function estimateDueDate(
-  lmpISO: string,
-  cycleLength = 28,
-): { edd: string; termStart: string; termEnd: string } | null {
-  if (!isValidISODate(lmpISO)) return null;
-  const adjust = clampCycle(cycleLength) - 28;
+/** True when a stated cycle length earns a named fertile window (MR-08). */
+export function isRegularCycleLength(cycleLength: number): boolean {
+  return cycleLength >= REGULAR_CYCLE_MIN && cycleLength <= REGULAR_CYCLE_MAX;
+}
+
+export type DueDateEstimate = {
+  edd: string;
+  /** 37w0d: the start of the window most babies arrive in. */
+  termStart: string;
+  /** 42w0d. */
+  termEnd: string;
+};
+
+/**
+ * Due date from the last period (MR-23): the shared `eddFromLmp` (280 days), shifted
+ * by how far her cycle length is from 28 when she has stated one. The window is
+ * 37w0d–42w0d from the same anchor (MR-24). `null` for an invalid date or a cycle
+ * length outside the accepted range.
+ */
+export function estimateDueDate(lmpISO: string, cycleLength = DEFAULT_CYCLE_DAYS): DueDateEstimate | null {
+  if (!isValidISODate(lmpISO) || !cycleInRange(cycleLength)) return null;
+  const adjust = cycleLength - DEFAULT_CYCLE_DAYS;
+  const edd = eddFromLmp(lmpISO);
+  if (!edd) return null;
   return {
-    edd: addDays(lmpISO, GESTATION_DAYS + adjust),
-    termStart: addDays(lmpISO, 259 + adjust), // 37w0d
-    termEnd: addDays(lmpISO, 294 + adjust), // 42w0d
+    edd: addDays(edd, adjust),
+    termStart: addDays(lmpISO, TERM_START_DAYS + adjust),
+    termEnd: addDays(lmpISO, TERM_END_DAYS + adjust),
   };
 }
 
-/** Estimated ovulation + fertile window from LMP and cycle length. */
-export function fertileWindow(
-  lmpISO: string,
-  cycleLength = 28,
-): { ovulation: string; windowStart: string; windowEnd: string; nextPeriod: string } | null {
-  if (!isValidISODate(lmpISO)) return null;
-  const cycle = clampCycle(cycleLength);
-  const nextPeriod = addDays(lmpISO, cycle);
+export type FertileEstimate = {
+  /** When the next period may start, from the stated cycle length. */
+  nextPeriod: string;
+  /** The window and the day it ends on; `null` when the cycle length is outside 21–35 (MR-06/08). */
+  window: { start: string; end: string; ovulation: string } | null;
+};
+
+/**
+ * Fertile window from the last period and cycle length (MR-07): ovulation 14 days
+ * before the next period, the six days ending on it. Withheld, with the next period
+ * still estimated, when the cycle length is outside the regular range (MR-08), so
+ * the component shows the "no confident window" box instead of a day.
+ */
+export function fertileWindow(lmpISO: string, cycleLength = DEFAULT_CYCLE_DAYS): FertileEstimate | null {
+  if (!isValidISODate(lmpISO) || !cycleInRange(cycleLength)) return null;
+  const nextPeriod = addDays(lmpISO, cycleLength);
+  if (!isRegularCycleLength(cycleLength)) return { nextPeriod, window: null };
   const ovulation = addDays(nextPeriod, -LUTEAL_PHASE_DAYS);
   return {
-    ovulation,
-    windowStart: addDays(ovulation, -5),
-    windowEnd: addDays(ovulation, 1),
     nextPeriod,
+    window: { start: addDays(ovulation, -(FERTILE_WINDOW_DAYS - 1)), end: ovulation, ovulation },
   };
 }
 
-/** Gestational age (weeks + days) from LMP at a given date. */
-export function gestationalAge(
-  lmpISO: string,
-  atISO: string,
-): { weeks: number; days: number; totalDays: number } | null {
+export type GestationalAge = { weeks: number; days: number; totalDays: number };
+
+/** Weeks and days from the last period at a date; `null` before it or past `MAX_GESTATION_DAYS` (MR-26). */
+export function gestationalAge(lmpISO: string, atISO: string): GestationalAge | null {
   if (!isValidISODate(lmpISO) || !isValidISODate(atISO)) return null;
   const totalDays = diffDays(lmpISO, atISO);
-  if (totalDays < 0 || totalDays > 320) return null;
+  if (totalDays < 0 || totalDays > MAX_GESTATION_DAYS) return null;
   return { weeks: Math.floor(totalDays / 7), days: totalDays % 7, totalDays };
 }
 
-/** BMI (metric). Category uses WHO adult cutoffs — general information, not a diagnosis. */
-export function bmi(
-  weightKg: number,
-  heightCm: number,
-): { value: number; category: BmiCategory } | null {
+/** BMI (metric). Category uses WHO adult cut-offs: general information, never a verdict on a person. */
+export function bmi(weightKg: number, heightCm: number): { value: number; category: BmiCategory } | null {
   if (!(weightKg > 0) || !(heightCm > 0)) return null;
   const meters = heightCm / 100;
   const value = Math.round((weightKg / (meters * meters)) * 10) / 10;
@@ -73,10 +128,19 @@ export function bmi(
   return { value, category };
 }
 
-/** Average cycle length + variability from period start dates (needs ≥2). */
-export function cycleStats(
-  startDatesISO: string[],
-): { averageLength: number; min: number; max: number; count: number; regular: boolean } | null {
+export type CycleStats = {
+  averageLength: number;
+  min: number;
+  max: number;
+  count: number;
+  /** MR-09: spread of at most `REGULAR_SPREAD_MAX` days. */
+  regular: boolean;
+  /** The intervals between consecutive starts, in order. */
+  lengths: number[];
+};
+
+/** Average cycle length and spread from period start dates (needs at least two). */
+export function cycleStats(startDatesISO: string[]): CycleStats | null {
   const sorted = startDatesISO
     .filter(isValidISODate)
     .sort()
@@ -84,9 +148,7 @@ export function cycleStats(
   if (sorted.length < 2) return null;
 
   const lengths: number[] = [];
-  for (let i = 1; i < sorted.length; i += 1) {
-    lengths.push(diffDays(sorted[i - 1]!, sorted[i]!));
-  }
+  for (let i = 1; i < sorted.length; i += 1) lengths.push(diffDays(sorted[i - 1]!, sorted[i]!));
   const sum = lengths.reduce((a, b) => a + b, 0);
   const min = Math.min(...lengths);
   const max = Math.max(...lengths);
@@ -95,12 +157,10 @@ export function cycleStats(
     min,
     max,
     count: lengths.length,
-    regular: max - min <= 7,
+    regular: max - min <= REGULAR_SPREAD_MAX,
+    lengths,
   };
 }
-
-export const MIN_PERIOD = 2;
-export const MAX_PERIOD = 10;
 
 export type PeriodForecast = {
   /** First possible start day, from her shortest cycle. */
@@ -112,37 +172,33 @@ export type PeriodForecast = {
 };
 
 /**
- * The next `count` periods, each as a range (rule 3: never one certain date).
- *
- * The range comes from her own shortest and longest cycle, not from a constant we
- * chose, so it is exactly as wide as her cycles are variable and it widens with each
- * cycle ahead, which is the honest shape of the uncertainty.
+ * The next `count` periods, each as a range (rule 3: never one certain date). The
+ * range comes from her own shortest and longest cycle, so it is exactly as wide as
+ * her cycles vary and widens with each cycle ahead. `null` when a bound is outside
+ * the accepted range: the stepper never lets that happen, and a silent clamp would.
  */
 export function periodForecast(
   lmpISO: string,
   shortest: number,
   longest: number,
-  periodLength = 5,
+  periodLength = DEFAULT_PERIOD_DAYS,
   count = 3,
 ): PeriodForecast[] | null {
   if (!isValidISODate(lmpISO)) return null;
-  const a = clampCycle(Math.min(shortest, longest));
-  const b = clampCycle(Math.max(shortest, longest));
-  const len = Math.min(MAX_PERIOD, Math.max(MIN_PERIOD, Math.round(periodLength) || 5));
+  const a = Math.min(shortest, longest);
+  const b = Math.max(shortest, longest);
+  if (!cycleInRange(a) || !cycleInRange(b)) return null;
+  const len = Math.min(MAX_PERIOD, Math.max(MIN_PERIOD, Math.round(periodLength) || DEFAULT_PERIOD_DAYS));
   const out: PeriodForecast[] = [];
   for (let n = 1; n <= count; n += 1) {
     const earliest = addDays(lmpISO, n * a);
-    out.push({
-      earliest,
-      latest: addDays(lmpISO, n * b),
-      endIfEarliest: addDays(earliest, len - 1),
-    });
+    out.push({ earliest, latest: addDays(lmpISO, n * b), endIfEarliest: addDays(earliest, len - 1) });
   }
   return out;
 }
 
 /**
- * When a home pregnancy test is most reliable.
+ * When a home pregnancy test is most reliable (MR-21).
  *
  * NHS, "Doing a pregnancy test": most tests work from the first day of a missed period;
  * if you do not know when your period is due, test at least 21 days after you last had
@@ -152,26 +208,23 @@ export function periodForecast(
  */
 export function pregnancyTestFromPeriod(
   lmpISO: string,
-  cycleLength = 28,
+  cycleLength = DEFAULT_CYCLE_DAYS,
 ): { expectedPeriod: string; testFrom: string } | null {
-  if (!isValidISODate(lmpISO)) return null;
-  const expectedPeriod = addDays(lmpISO, clampCycle(cycleLength));
+  if (!isValidISODate(lmpISO) || !cycleInRange(cycleLength)) return null;
+  const expectedPeriod = addDays(lmpISO, cycleLength);
   return { expectedPeriod, testFrom: expectedPeriod };
 }
-
-export const DAYS_AFTER_SEX_TO_TEST = 21;
 
 export function pregnancyTestFromSex(sexISO: string): { testFrom: string } | null {
   if (!isValidISODate(sexISO)) return null;
   return { testFrom: addDays(sexISO, DAYS_AFTER_SEX_TO_TEST) };
 }
 
-/**
- * Trimester for a gestational week. ACOG's boundaries: first through 13w6d, second
- * 14w0d–27w6d, third from 28w0d.
- */
+/** Trimester for a gestational week (MR-25, ACOG): 14w0d and 28w0d. */
 export function trimesterOf(weeks: number): 1 | 2 | 3 {
   if (weeks < 14) return 1;
   if (weeks < 28) return 2;
   return 3;
 }
+
+export { GESTATION_DAYS };

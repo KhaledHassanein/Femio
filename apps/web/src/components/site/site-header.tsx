@@ -56,7 +56,7 @@ export async function SiteHeader({ locale }: { locale: string }) {
           {crisis.strings.launcher}
         </Link>
         <ThemeToggle />
-        {/* One action: the app (D8). Sign-in returns only with the web app. */}
+        {/* One action: the app (D8). */}
         <Link
           href={APP_PAGE}
           className="inline-flex h-9 items-center rounded-pill bg-primary-solid px-4 text-sm font-semibold text-primary-fg-solid hover:bg-primary-hover"

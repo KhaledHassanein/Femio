@@ -1,6 +1,6 @@
 import { defineConfig, devices } from "@playwright/test";
 
-// E2E against a locally-served build. The dev server loads .env.local (Supabase),
+// E2E against a locally-served build (no database, no secrets).
 // so onboarding/auth flows exercise the real backend. RTL snapshots + more land
 // with P1.22.
 export default defineConfig({

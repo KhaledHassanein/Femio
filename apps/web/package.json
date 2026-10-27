@@ -12,7 +12,7 @@
     "typecheck": "tsc --noEmit",
     "test": "vitest run",
     "test:e2e": "playwright test",
-    "test:e2e:ci": "playwright test"
+    "test:e2e:ci": "playwright test --grep-invert @cms"
   },
   "dependencies": {
     "@femio/tokens": "workspace:*",

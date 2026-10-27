@@ -23,7 +23,6 @@ const PAGES = [
   "/en/app",
   "/ar/app",
   "/en/help-now",
-  "/en/welcome",
   "/en/about",
   "/en/editorial-policy",
   "/en/privacy",
@@ -60,7 +59,7 @@ test("a11y: the crisis dialog (open state) has no serious/critical violations", 
  * directions — a rule that never applies and a rule that always applies both look
  * like "no animation" from the outside, and only one of them is correct.
  *
- * `/en/welcome` is DB-free and carries a Button, which is the widest-used
+ * A calculator page carries the hand-off pill, styled by `buttonVariants`, the widest-used
  * transition in the app.
  */
 function longestDurationMs(value: string): number {
@@ -75,14 +74,16 @@ function longestDurationMs(value: string): number {
 
 const durationOfContinue = (page: Page) =>
   page
-    .getByRole("button", { name: /^continue$/i })
-    .first()
+    .getByRole("link", { name: /^get the app$/i })
+    .last()
     .evaluate((el) => getComputedStyle(el).transitionDuration);
 
 test("a11y: reduced motion is honoured, and motion exists when it is not asked for", async ({
   page,
 }) => {
-  await page.goto("/en/welcome");
+  // The hand-off card's pill (styled by `buttonVariants`) is the last "Get the app"
+  // link on a calculator page; the header's plain link comes first.
+  await page.goto("/en/calculators/period");
 
   await page.emulateMedia({ reducedMotion: "no-preference" });
   expect(longestDurationMs(await durationOfContinue(page))).toBeGreaterThanOrEqual(100);

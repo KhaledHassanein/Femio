@@ -27,9 +27,10 @@ describe("estimateDueDate", () => {
     expect(diffDays(LMP, estimateDueDate(LMP, 21)!.edd)).toBe(280 - 7);
   });
 
-  it("clamps extreme cycle lengths", () => {
-    expect(diffDays(LMP, estimateDueDate(LMP, 999)!.edd)).toBe(280 + (45 - 28));
-    expect(diffDays(LMP, estimateDueDate(LMP, 1)!.edd)).toBe(280 + (20 - 28));
+  it("refuses a cycle length outside the accepted range instead of clamping it", () => {
+    expect(estimateDueDate(LMP, 5)).toBeNull();
+    expect(estimateDueDate(LMP, 99)).toBeNull();
+    expect(estimateDueDate(LMP, 45)).not.toBeNull();
   });
 
   it("returns null for an invalid date", () => {
@@ -39,18 +40,33 @@ describe("estimateDueDate", () => {
 });
 
 describe("fertileWindow", () => {
-  it("puts ovulation ~14 days before the next period", () => {
+  it("puts ovulation 14 days before the next period and the window as the six days ending on it (MR-07)", () => {
     const r = fertileWindow(LMP, 28)!;
     expect(r.nextPeriod).toBe(addDays(LMP, 28));
-    expect(diffDays(r.ovulation, r.nextPeriod)).toBe(14);
-    expect(diffDays(r.windowStart, r.ovulation)).toBe(5);
-    expect(diffDays(r.ovulation, r.windowEnd)).toBe(1);
+    const w = r.window!;
+    expect(diffDays(w.ovulation, r.nextPeriod)).toBe(14);
+    expect(diffDays(w.start, w.ovulation)).toBe(5);
+    expect(w.end).toBe(w.ovulation);
   });
 
   it("shifts ovulation later for longer cycles", () => {
     const short = fertileWindow(LMP, 26)!;
     const long = fertileWindow(LMP, 32)!;
-    expect(diffDays(short.ovulation, long.ovulation)).toBe(6);
+    expect(diffDays(short.window!.ovulation, long.window!.ovulation)).toBe(6);
+  });
+
+  it("withholds the window, but not the next period, outside 21–35 days (MR-08)", () => {
+    const r = fertileWindow(LMP, 40)!;
+    expect(r.window).toBeNull();
+    expect(r.nextPeriod).toBe(addDays(LMP, 40));
+    expect(fertileWindow(LMP, 21)!.window).not.toBeNull();
+    expect(fertileWindow(LMP, 35)!.window).not.toBeNull();
+    expect(fertileWindow(LMP, 36)!.window).toBeNull();
+  });
+
+  it("returns null outside the accepted range rather than clamping", () => {
+    expect(fertileWindow(LMP, 20)).toBeNull();
+    expect(fertileWindow(LMP, 46)).toBeNull();
   });
 
   it("returns null for an invalid date", () => {
@@ -64,9 +80,10 @@ describe("gestationalAge", () => {
     expect(gestationalAge(LMP, addDays(LMP, 100))).toEqual({ weeks: 14, days: 2, totalDays: 100 });
   });
 
-  it("rejects a date before LMP or absurdly far after", () => {
+  it("rejects a date before the last period or past 315 days (MR-26)", () => {
     expect(gestationalAge(LMP, addDays(LMP, -1))).toBeNull();
-    expect(gestationalAge(LMP, addDays(LMP, 400))).toBeNull();
+    expect(gestationalAge(LMP, addDays(LMP, 315))).not.toBeNull();
+    expect(gestationalAge(LMP, addDays(LMP, 316))).toBeNull();
   });
 });
 
@@ -96,10 +113,11 @@ describe("cycleStats", () => {
       max: 28,
       count: 1,
       regular: true,
+      lengths: [28],
     });
   });
 
-  it("flags irregular when spread > 7 days", () => {
+  it("flags irregular when the spread is more than 9 days (MR-09)", () => {
     const r = cycleStats(["2026-01-01", "2026-01-26", "2026-03-05"])!; // 25, then 38
     expect(r.min).toBe(25);
     expect(r.max).toBe(38);
@@ -135,9 +153,10 @@ describe("periodForecast", () => {
     expect(first!.earliest).toBe(first!.latest);
   });
 
-  it("accepts the bounds in either order and clamps them", () => {
+  it("accepts the bounds in either order and refuses an out-of-range bound", () => {
     expect(periodForecast(LMP, 30, 26)).toEqual(periodForecast(LMP, 26, 30));
-    expect(diffDays(LMP, periodForecast(LMP, 5, 99)![0]!.latest)).toBe(45);
+    expect(periodForecast(LMP, 5, 99)).toBeNull();
+    expect(periodForecast(LMP, 21, 45)).not.toBeNull();
   });
 
   it("returns null for an invalid date", () => {
