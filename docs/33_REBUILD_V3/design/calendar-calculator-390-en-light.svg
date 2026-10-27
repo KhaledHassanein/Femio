@@ -1,0 +1,80 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="390" height="844" viewBox="0 0 390 844" font-family="Plus Jakarta Sans, system-ui, sans-serif">
+<title>Sketch: ovulation calendar calculator, 390x844, English, light. Hex values here are the resolved light-theme tokens named in 02_DESIGN_SPEC.md section 2; code uses the token names, never these hex values.</title>
+<defs>
+ <linearGradient id="softStart" x1="0" x2="1"><stop offset="0" stop-color="#D7ECE5" stop-opacity="0"/><stop offset=".22" stop-color="#D7ECE5"/></linearGradient>
+ <linearGradient id="softEnd" x1="0" x2="1"><stop offset=".78" stop-color="#D7ECE5"/><stop offset="1" stop-color="#D7ECE5" stop-opacity="0"/></linearGradient>
+ <linearGradient id="predStart" x1="0" x2="1"><stop offset="0" stop-color="#FFF1F4" stop-opacity="0"/><stop offset=".3" stop-color="#FFF1F4"/></linearGradient>
+</defs>
+<rect width="390" height="844" fill="#FBF7F3"/>
+<rect width="390" height="56" fill="#FFFFFFB8"/><line x1="0" y1="56" x2="390" y2="56" stroke="#E9DFD9"/>
+<text x="16" y="35" font-family="Newsreader, Georgia, serif" font-size="22" font-weight="600" fill="#8A3572">femio</text>
+<g fill="none" stroke="#5E4D57" stroke-width="2"><circle cx="262" cy="28" r="8"/><circle cx="310" cy="28" r="9"/><circle cx="310" cy="28" r="4"/><path d="M348 22h16M348 28h16M348 34h16"/></g>
+<text x="16" y="96" font-family="Newsreader, Georgia, serif" font-size="28" font-weight="600" fill="#24141F">Ovulation calendar</text>
+<text x="16" y="124" font-size="16" fill="#5E4D57">Tap a day and see your likely fertile</text>
+<text x="16" y="148" font-size="16" fill="#5E4D57">window drawn on the same calendar.</text>
+<rect x="16" y="172" width="358" height="700" rx="24" fill="#FFFFFF" stroke="#E9DFD9"/>
+<text x="28" y="206" font-size="16" font-weight="600" fill="#24141F">Tap the day your last period started</text>
+<g fill="none" stroke="#24141F" stroke-width="2"><path d="M54 240l-6 8 6 8"/><path d="M336 240l6 8-6 8"/></g>
+<text x="195" y="254" text-anchor="middle" font-size="18" font-weight="600" fill="#24141F">October 2026</text>
+<text x="50.1" y="294" text-anchor="middle" font-size="12" fill="#6E5D67">M</text>
+<text x="98.4" y="294" text-anchor="middle" font-size="12" fill="#6E5D67">T</text>
+<text x="146.7" y="294" text-anchor="middle" font-size="12" fill="#6E5D67">W</text>
+<text x="195.0" y="294" text-anchor="middle" font-size="12" fill="#6E5D67">T</text>
+<text x="243.3" y="294" text-anchor="middle" font-size="12" fill="#6E5D67">F</text>
+<text x="291.6" y="294" text-anchor="middle" font-size="12" fill="#6E5D67">S</text>
+<text x="339.9" y="294" text-anchor="middle" font-size="12" fill="#6E5D67">S</text>
+<rect x="76.3" y="358" width="237.5" height="32" rx="16" fill="#FFF1F4" />
+<rect x="172.9" y="406" width="189.2" height="32" rx="16" fill="url(#softStart)" />
+<rect x="28.0" y="454" width="92.6" height="32" rx="16" fill="url(#softEnd)" />
+<rect x="221.2" y="502" width="92.6" height="32" rx="16" fill="url(#predStart)" />
+<path d="M229.16 502H313.74 M229.16 534H313.74" stroke="#BF2F59" stroke-width="2" stroke-dasharray="2 4" stroke-linecap="round"/>
+<text x="195.0" y="331" text-anchor="middle" font-size="16" font-weight="500" fill="#5E4D57">1</text>
+<text x="243.3" y="331" text-anchor="middle" font-size="16" font-weight="500" fill="#5E4D57">2</text>
+<text x="291.6" y="331" text-anchor="middle" font-size="16" font-weight="500" fill="#5E4D57">3</text>
+<text x="339.9" y="331" text-anchor="middle" font-size="16" font-weight="500" fill="#5E4D57">4</text>
+<text x="50.1" y="379" text-anchor="middle" font-size="16" font-weight="500" fill="#5E4D57">5</text>
+<circle cx="98.4" cy="374" r="18" fill="#BF2F59"/><text x="98.4" y="379" text-anchor="middle" font-size="16" font-weight="700" fill="#FFFFFF">6</text>
+<text x="146.7" y="379" text-anchor="middle" font-size="16" font-weight="600" fill="#BF2F59">7</text>
+<text x="195.0" y="379" text-anchor="middle" font-size="16" font-weight="600" fill="#BF2F59">8</text>
+<text x="243.3" y="379" text-anchor="middle" font-size="16" font-weight="600" fill="#BF2F59">9</text>
+<text x="291.6" y="379" text-anchor="middle" font-size="16" font-weight="600" fill="#BF2F59">10</text>
+<text x="339.9" y="379" text-anchor="middle" font-size="16" font-weight="500" fill="#5E4D57">11</text>
+<text x="50.1" y="427" text-anchor="middle" font-size="16" font-weight="500" fill="#5E4D57">12</text>
+<text x="98.4" y="427" text-anchor="middle" font-size="16" font-weight="500" fill="#5E4D57">13</text>
+<text x="146.7" y="427" text-anchor="middle" font-size="16" font-weight="500" fill="#5E4D57">14</text>
+<text x="195.0" y="427" text-anchor="middle" font-size="16" font-weight="600" fill="#214841">15</text>
+<text x="243.3" y="427" text-anchor="middle" font-size="16" font-weight="600" fill="#214841">16</text>
+<text x="291.6" y="427" text-anchor="middle" font-size="16" font-weight="600" fill="#214841">17</text>
+<text x="339.9" y="427" text-anchor="middle" font-size="16" font-weight="600" fill="#214841">18</text>
+<text x="50.1" y="475" text-anchor="middle" font-size="16" font-weight="600" fill="#214841">19</text>
+<text x="98.4" y="475" text-anchor="middle" font-size="16" font-weight="600" fill="#214841">20</text>
+<circle cx="98.4" cy="485" r="4" fill="#C08A2E"/>
+<text x="146.7" y="475" text-anchor="middle" font-size="16" font-weight="500" fill="#5E4D57">21</text>
+<text x="195.0" y="475" text-anchor="middle" font-size="16" font-weight="500" fill="#5E4D57">22</text>
+<text x="243.3" y="475" text-anchor="middle" font-size="16" font-weight="500" fill="#5E4D57">23</text>
+<text x="291.6" y="475" text-anchor="middle" font-size="16" font-weight="500" fill="#5E4D57">24</text>
+<text x="339.9" y="475" text-anchor="middle" font-size="16" font-weight="500" fill="#5E4D57">25</text>
+<text x="50.1" y="523" text-anchor="middle" font-size="16" font-weight="500" fill="#5E4D57">26</text>
+<rect x="90.4" y="532" width="16" height="3" rx="1.5" fill="#8A3572"/><text x="98.4" y="523" text-anchor="middle" font-size="16" font-weight="700" fill="#24141F">27</text>
+<text x="146.7" y="523" text-anchor="middle" font-size="16" font-weight="500" fill="#5E4D57">28</text>
+<text x="195.0" y="523" text-anchor="middle" font-size="16" font-weight="500" fill="#5E4D57">29</text>
+<text x="243.3" y="523" text-anchor="middle" font-size="16" font-weight="500" fill="#BF2F59">30</text>
+<text x="291.6" y="523" text-anchor="middle" font-size="16" font-weight="500" fill="#BF2F59">31</text>
+<line x1="28" y1="560" x2="362" y2="560" stroke="#E9DFD9"/>
+<text x="28" y="590" font-size="14" fill="#5E4D57">Likely fertile window</text>
+<text x="28" y="620" font-family="Newsreader, Georgia, serif" font-size="22" font-weight="600" fill="#24141F">15 – 20 October</text>
+<text x="28" y="646" font-size="14" fill="#5E4D57">Ovulation likely around 20 Oct</text>
+<text x="28" y="666" font-size="14" fill="#5E4D57">Next period likely 30 Oct – 7 Nov</text>
+<text x="28" y="690" font-size="14" font-weight="600" fill="#6F5E68">Rough estimate · from one date and a typical cycle</text>
+<text x="28" y="712" font-size="12" fill="#5E4D57">Predictions are estimates, not guarantees, and are not</text>
+<text x="28" y="728" font-size="12" fill="#5E4D57">a method of birth control.</text>
+<g font-size="12" fill="#5E4D57"><rect x="28" y="750" width="14" height="14" rx="7" fill="#FFF1F4" stroke="#BF2F59"/><text x="48" y="761">Your period</text>
+<rect x="128" y="750" width="14" height="14" rx="7" fill="#D7ECE5"/><text x="148" y="761">Likely fertile</text>
+<circle cx="242" cy="757" r="4" fill="#C08A2E"/><text x="252" y="761">Likely ovulation</text>
+<rect x="28" y="774" width="14" height="14" rx="7" fill="#FFF1F4" stroke="#BF2F59" stroke-dasharray="2 2"/><text x="48" y="785">Next period (estimate)</text></g>
+<text x="28" y="826" font-size="14" font-weight="600" fill="#24141F">Cycle length</text>
+<rect x="28" y="836" width="44" height="44" rx="22" fill="#F4EDE8"/><text x="50" y="864" text-anchor="middle" font-size="22" fill="#24141F">−</text>
+<text x="112" y="866" text-anchor="middle" font-size="22" font-weight="600" fill="#24141F">28</text>
+<rect x="152" y="836" width="44" height="44" rx="22" fill="#F4EDE8"/><text x="174" y="864" text-anchor="middle" font-size="22" fill="#24141F">+</text>
+<rect x="212" y="836" width="150" height="44" rx="22" fill="none" stroke="#E9DFD9"/><text x="287" y="863" text-anchor="middle" font-size="14" fill="#24141F">Irregular / not sure</text>
+</svg>
