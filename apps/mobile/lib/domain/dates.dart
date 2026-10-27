@@ -15,10 +15,13 @@ bool isValidISODate(String iso) {
 
 DateTime fromISO(String iso) => DateTime.parse('${iso}T00:00:00Z');
 
+/// The calendar day [d] names, read in its own zone: a UTC value by its UTC fields, a
+/// local one (what every Flutter date picker returns, at local midnight) by its local
+/// fields. Converting a local midnight to UTC first moved every picked date one day
+/// earlier on phones east of UTC, which is Egypt and Saudi Arabia.
 String toISO(DateTime d) {
-  final u = d.toUtc();
   String two(int n) => n.toString().padLeft(2, '0');
-  return '${u.year.toString().padLeft(4, '0')}-${two(u.month)}-${two(u.day)}';
+  return '${d.year.toString().padLeft(4, '0')}-${two(d.month)}-${two(d.day)}';
 }
 
 String addDays(String iso, int days) => toISO(fromISO(iso).add(Duration(days: days)));
