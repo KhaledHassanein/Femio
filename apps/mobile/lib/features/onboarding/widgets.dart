@@ -1,9 +1,22 @@
+// Shared building blocks of the onboarding questions: the page frame, an answer tile,
+// a number stepper and a date calendar.
+//
+// Why it exists: every question looks and behaves alike, so the frame and the controls
+// live in one place and each step file only says what it asks.
+
 import 'package:flutter/material.dart';
 
 import '../../theme/femio_theme.dart';
+import '../../theme/radii.dart';
+import '../../theme/spacing.dart';
+import '../../theme/type_sizes.dart';
 
 /// One onboarding question: a progress bar, the question, its answers, and the
 /// actions pinned to the bottom where a thumb reaches them.
+///
+/// [progress] is 0 to 1. The primary button shows only when [primaryLabel] is set, and
+/// is disabled while [onPrimary] is null. [secondary] are quiet text buttons below it.
+/// The back arrow shows only when [onBack] is set.
 class StepScaffold extends StatelessWidget {
   const StepScaffold({
     super.key,
@@ -36,7 +49,7 @@ class StepScaffold extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
             Padding(
-              padding: const EdgeInsetsDirectional.fromSTEB(8, 8, 20, 0),
+              padding: const EdgeInsetsDirectional.fromSTEB(space2, space2, space5, 0),
               child: Row(
                 children: [
                   if (onBack != null)
@@ -46,11 +59,11 @@ class StepScaffold extends StatelessWidget {
                       tooltip: MaterialLocalizations.of(context).backButtonTooltip,
                     )
                   else
-                    const SizedBox(width: 48),
-                  const SizedBox(width: 4),
+                    const SizedBox(width: space12),
+                  const SizedBox(width: space1),
                   Expanded(
                     child: ClipRRect(
-                      borderRadius: BorderRadius.circular(99),
+                      borderRadius: BorderRadius.circular(radiusPill),
                       child: LinearProgressIndicator(
                         value: progress,
                         minHeight: 6,
@@ -64,16 +77,16 @@ class StepScaffold extends StatelessWidget {
             ),
             Expanded(
               child: SingleChildScrollView(
-                padding: const EdgeInsets.fromLTRB(24, 28, 24, 16),
+                padding: const EdgeInsets.fromLTRB(space6, space7, space6, space4),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.stretch,
                   children: [
                     Semantics(header: true, child: Text(title, style: t.headlineMedium)),
                     if (subtitle != null) ...[
-                      const SizedBox(height: 8),
+                      const SizedBox(height: space2),
                       Text(subtitle!, style: t.bodyMedium),
                     ],
-                    const SizedBox(height: 24),
+                    const SizedBox(height: space6),
                     child,
                   ],
                 ),
@@ -81,13 +94,13 @@ class StepScaffold extends StatelessWidget {
             ),
             if (primaryLabel != null || secondary.isNotEmpty)
               Padding(
-                padding: const EdgeInsets.fromLTRB(24, 8, 24, 20),
+                padding: const EdgeInsets.fromLTRB(space6, space2, space6, space5),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.stretch,
                   children: [
                     if (primaryLabel != null)
                       FilledButton(onPressed: onPrimary, child: Text(primaryLabel!)),
-                    for (final w in secondary) ...[const SizedBox(height: 4), w],
+                    for (final w in secondary) ...[const SizedBox(height: space1), w],
                   ],
                 ),
               ),
@@ -99,6 +112,8 @@ class StepScaffold extends StatelessWidget {
 }
 
 /// A large tappable answer: tinted icon, title, one line of explanation.
+///
+/// [selected] draws the highlighted state; [tint] colours the icon disc.
 class OptionTile extends StatelessWidget {
   const OptionTile({
     super.key,
@@ -122,18 +137,18 @@ class OptionTile extends StatelessWidget {
     final p = context.palette;
     final t = Theme.of(context).textTheme;
     return Padding(
-      padding: const EdgeInsets.only(bottom: 12),
+      padding: const EdgeInsets.only(bottom: space3),
       child: Material(
         color: selected ? p.primarySoft : p.surface,
         shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(20),
+          borderRadius: BorderRadius.circular(radiusOption),
           side: BorderSide(color: selected ? p.primarySolid : p.border, width: selected ? 2 : 1),
         ),
         child: InkWell(
-          borderRadius: BorderRadius.circular(20),
+          borderRadius: BorderRadius.circular(radiusOption),
           onTap: onTap,
           child: Padding(
-            padding: const EdgeInsets.all(16),
+            padding: const EdgeInsets.all(space4),
             child: Row(
               children: [
                 Container(
@@ -145,14 +160,14 @@ class OptionTile extends StatelessWidget {
                   ),
                   child: Icon(icon, color: p.primarySoftText),
                 ),
-                const SizedBox(width: 16),
+                const SizedBox(width: space4),
                 Expanded(
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(title, style: t.titleMedium),
                       if (description != null) ...[
-                        const SizedBox(height: 2),
+                        const SizedBox(height: spaceHalf),
                         Text(description!, style: t.bodySmall),
                       ],
                     ],
@@ -169,6 +184,9 @@ class OptionTile extends StatelessWidget {
 }
 
 /// A number chosen with − and +, shown large.
+///
+/// [value] stays within [min] and [max]: the matching button disables at each end.
+/// [label] is the already-localised text shown for the value ("28 days").
 class NumberStepper extends StatelessWidget {
   const NumberStepper({
     super.key,
@@ -192,7 +210,7 @@ class NumberStepper extends StatelessWidget {
     Widget round(IconData icon, VoidCallback? onTap, String tooltip) => IconButton.filledTonal(
           onPressed: onTap,
           icon: Icon(icon),
-          iconSize: 28,
+          iconSize: iconSizeStepper,
           tooltip: tooltip,
           style: IconButton.styleFrom(
             minimumSize: const Size(56, 56),
@@ -201,10 +219,10 @@ class NumberStepper extends StatelessWidget {
           ),
         );
     return Container(
-      padding: const EdgeInsets.symmetric(vertical: 28, horizontal: 16),
+      padding: const EdgeInsets.symmetric(vertical: space7, horizontal: space4),
       decoration: BoxDecoration(
         color: p.surface,
-        borderRadius: BorderRadius.circular(24),
+        borderRadius: BorderRadius.circular(radiusLg),
         border: Border.all(color: p.border),
       ),
       child: Row(
@@ -224,6 +242,8 @@ class NumberStepper extends StatelessWidget {
 }
 
 /// A month calendar in a card. Nothing is selected until she taps a day.
+///
+/// Days from [first] to [last] can be picked; [last] is also drawn as today.
 class DateCard extends StatelessWidget {
   const DateCard({
     super.key,
@@ -244,7 +264,7 @@ class DateCard extends StatelessWidget {
     return Container(
       decoration: BoxDecoration(
         color: p.surface,
-        borderRadius: BorderRadius.circular(24),
+        borderRadius: BorderRadius.circular(radiusLg),
         border: Border.all(color: p.border),
       ),
       child: CalendarDatePicker(

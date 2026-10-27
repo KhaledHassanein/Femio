@@ -1,3 +1,8 @@
+// A small dot chart for a person's own readings (temperature, weight).
+//
+// Why it exists: both charts rest on the same rule, her numbers drawn honestly with no
+// target, band or marker, so one painter serves both.
+
 import 'package:flutter/material.dart';
 
 import '../theme/femio_theme.dart';

@@ -1,3 +1,8 @@
+// The weight screen: her readings drawn as they are.
+//
+// Why it exists: she may want her numbers for her notes. There is no target band and no
+// expected gain (domain/weight.dart); judging the trend is for her clinician.
+
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart' show DateFormat;
 
@@ -6,6 +11,8 @@ import '../../domain/dates.dart';
 import '../../domain/weight.dart';
 import '../../l10n/app_localizations.dart';
 import '../../theme/femio_theme.dart';
+import '../../theme/radii.dart';
+import '../../theme/spacing.dart';
 import '../../widgets/readings_chart.dart';
 
 /// Weight readings, drawn as they are. No target band and no "expected gain"
@@ -74,15 +81,15 @@ class _WeightScreenState extends State<WeightScreen> {
         return Scaffold(
           appBar: AppBar(title: Text(l.weightHeading)),
           body: ListView(
-            padding: const EdgeInsets.fromLTRB(20, 8, 20, 32),
+            padding: const EdgeInsets.fromLTRB(space5, space2, space5, space8),
             children: [
               Text(l.weightIntro, style: t.bodyMedium),
-              const SizedBox(height: 16),
+              const SizedBox(height: space4),
               Container(
-                padding: const EdgeInsets.all(18),
+                padding: const EdgeInsets.all(space4h),
                 decoration: BoxDecoration(
                   color: p.surface,
-                  borderRadius: BorderRadius.circular(24),
+                  borderRadius: BorderRadius.circular(radiusLg),
                   border: Border.all(color: p.border),
                 ),
                 child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
@@ -98,7 +105,7 @@ class _WeightScreenState extends State<WeightScreen> {
                       semanticsLabel:
                           '${l.weightHeading}: ${chart.points.map((x) => '${fmt(x.value)} ${unitLabel(x.unit)}').join(', ')}',
                     ),
-                    const SizedBox(height: 8),
+                    const SizedBox(height: space2),
                     if (chart.changeSinceFirst != null)
                       Text(
                         l.weightChange(
@@ -107,12 +114,12 @@ class _WeightScreenState extends State<WeightScreen> {
                         ),
                         style: t.titleMedium,
                       ),
-                    const SizedBox(height: 6),
+                    const SizedBox(height: space1h),
                     Text(l.weightNote, style: t.bodySmall),
                   ],
                 ]),
               ),
-              const SizedBox(height: 20),
+              const SizedBox(height: space5),
               Row(crossAxisAlignment: CrossAxisAlignment.center, children: [
                 Expanded(
                   child: TextField(
@@ -123,12 +130,12 @@ class _WeightScreenState extends State<WeightScreen> {
                       labelText: l.weightValue,
                       filled: true,
                       fillColor: p.surface,
-                      border: OutlineInputBorder(borderRadius: BorderRadius.circular(16)),
+                      border: OutlineInputBorder(borderRadius: BorderRadius.circular(radiusMd)),
                     ),
                     onSubmitted: (_) => _save(),
                   ),
                 ),
-                const SizedBox(width: 8),
+                const SizedBox(width: space2),
                 SegmentedButton<String>(
                   showSelectedIcon: false,
                   segments: [for (final u in weightUnits) ButtonSegment(value: u, label: Text(unitLabel(u)))],
@@ -136,7 +143,7 @@ class _WeightScreenState extends State<WeightScreen> {
                   onSelectionChanged: (s) => setState(() => _unit = s.first),
                 ),
               ]),
-              const SizedBox(height: 8),
+              const SizedBox(height: space2),
               TextButton.icon(
                 onPressed: _pickDate,
                 icon: const Icon(Icons.event_outlined),
@@ -144,14 +151,14 @@ class _WeightScreenState extends State<WeightScreen> {
               ),
               if (_error != null)
                 Padding(
-                  padding: const EdgeInsetsDirectional.only(start: 12, bottom: 6),
+                  padding: const EdgeInsetsDirectional.only(start: space3, bottom: space1h),
                   child: Text(_error!, style: t.bodySmall?.copyWith(color: Theme.of(context).colorScheme.error)),
                 ),
               FilledButton(onPressed: _save, child: Text(l.weightSave)),
-              const SizedBox(height: 20),
+              const SizedBox(height: space5),
               for (final w in sorted)
                 Container(
-                  padding: const EdgeInsets.symmetric(vertical: 4),
+                  padding: const EdgeInsets.symmetric(vertical: space1),
                   decoration: BoxDecoration(border: Border(bottom: BorderSide(color: p.border))),
                   child: Row(children: [
                     Expanded(child: Text(DateFormat.yMMMd(locale).format(fromISO(w.measuredOn)), style: t.bodyMedium)),

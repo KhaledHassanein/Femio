@@ -1,3 +1,8 @@
+// The Material theme built from Femio's design tokens.
+//
+// Why it exists: every colour, font and button shape comes from here, so the app and the
+// website cannot drift apart, and no screen needs to choose a colour by hand.
+
 import 'package:flutter/material.dart';
 
 import 'tokens.g.dart';
@@ -9,11 +14,19 @@ import 'tokens.g.dart';
 /// every Arabic glyph (as a fallback family, so mixed Arabic and Latin lines work).
 /// All three are bundled; nothing is fetched at runtime.
 class FemioTheme {
+  /// Family for headlines.
   static const display = 'Newsreader';
+
+  /// Family for body text and labels.
   static const sans = 'PlusJakartaSans';
+
+  /// Fallback family for every Arabic glyph.
   static const arabic = 'IBMPlexSansArabic';
 
+  /// The light theme.
   static ThemeData light() => _build(FemioPalette.light, Brightness.light);
+
+  /// The dark theme.
   static ThemeData dark() => _build(FemioPalette.dark, Brightness.dark);
 
   /// Variable fonts take their weight from the `wght` axis; set both so the right
@@ -117,6 +130,8 @@ class FemioColors extends ThemeExtension<FemioColors> {
   FemioColors lerp(FemioColors? other, double t) => t < 0.5 ? this : (other ?? this);
 }
 
+/// Shortcut to the palette from any widget: `context.palette.surface`. Requires the
+/// app to be built with [FemioTheme]; otherwise the null check fails at once.
 extension FemioContext on BuildContext {
   FemioPalette get palette => Theme.of(this).extension<FemioColors>()!.p;
 }

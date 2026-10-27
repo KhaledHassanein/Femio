@@ -1,3 +1,8 @@
+// The Bloom logo mark, drawn in code.
+//
+// Why it exists: a drawn mark stays crisp at any size and follows the theme's colours,
+// where an image file would need one copy per size and per theme.
+
 import 'dart:math' as math;
 
 import 'package:flutter/material.dart';

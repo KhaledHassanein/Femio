@@ -1,3 +1,8 @@
+// The Calendar tab: one month, what she logged and what Femio estimates.
+//
+// Why it exists: logged days and predicted days must never look alike (product rule 3), and
+// a tap on a day is the quickest way into that day's log.
+
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart' show DateFormat;
 
@@ -6,9 +11,14 @@ import '../../domain/dates.dart';
 import '../../domain/day_marks.dart';
 import '../../l10n/app_localizations.dart';
 import '../../theme/femio_theme.dart';
+import '../../theme/radii.dart';
+import '../../theme/spacing.dart';
 
 /// Month calendar. What she logged is drawn filled; what Femio estimates is drawn in
 /// outline or tint, never the same way (rule 3). Tapping a day opens its log.
+///
+/// [today] is an ISO day (future days cannot be opened); [onDay] receives the ISO day
+/// she taps. Needs a loaded [controller].
 class CalendarScreen extends StatefulWidget {
   const CalendarScreen({super.key, required this.controller, required this.today, required this.onDay});
   final FemioController controller;
@@ -110,7 +120,7 @@ class _CalendarScreenState extends State<CalendarScreen> {
 
         Widget legend(Widget swatch, String label) => Row(mainAxisSize: MainAxisSize.min, children: [
               swatch,
-              const SizedBox(width: 6),
+              const SizedBox(width: space1h),
               Text(label, style: t.bodySmall),
             ]);
         Widget dot(Color fill, {Color? ring}) => Container(
@@ -125,15 +135,15 @@ class _CalendarScreenState extends State<CalendarScreen> {
 
         return SafeArea(
           child: ListView(
-            padding: const EdgeInsets.fromLTRB(20, 16, 20, 24),
+            padding: const EdgeInsets.fromLTRB(space5, space4, space5, space6),
             children: [
               Semantics(header: true, child: Text(l.calendarTitle, style: t.headlineMedium)),
-              const SizedBox(height: 16),
+              const SizedBox(height: space4),
               Container(
-                padding: const EdgeInsets.fromLTRB(12, 8, 12, 16),
+                padding: const EdgeInsets.fromLTRB(space3, space2, space3, space4),
                 decoration: BoxDecoration(
                   color: p.surface,
-                  borderRadius: BorderRadius.circular(24),
+                  borderRadius: BorderRadius.circular(radiusLg),
                   border: Border.all(color: p.border),
                 ),
                 child: Column(children: [
@@ -156,7 +166,7 @@ class _CalendarScreenState extends State<CalendarScreen> {
                       tooltip: ml.nextMonthTooltip,
                     ),
                   ]),
-                  const SizedBox(height: 4),
+                  const SizedBox(height: space1),
                   GridView.count(
                     crossAxisCount: 7,
                     shrinkWrap: true,
@@ -170,8 +180,8 @@ class _CalendarScreenState extends State<CalendarScreen> {
                   ),
                 ]),
               ),
-              const SizedBox(height: 16),
-              Wrap(spacing: 16, runSpacing: 10, children: [
+              const SizedBox(height: space4),
+              Wrap(spacing: space4, runSpacing: space2h, children: [
                 legend(dot(p.logPeriod), l.legendPeriod),
                 legend(dot(Colors.transparent, ring: p.logPeriod), l.legendSpotting),
                 legend(dot(p.predictionBand.withValues(alpha: 0.14), ring: p.predictionBand), l.legendPredicted),
@@ -179,7 +189,7 @@ class _CalendarScreenState extends State<CalendarScreen> {
                 legend(dot(p.successSoft, ring: p.successSolid), l.legendOvulation),
                 legend(Container(width: 6, height: 6, decoration: BoxDecoration(color: p.logSymptom, shape: BoxShape.circle)), l.legendLogged),
               ]),
-              const SizedBox(height: 14),
+              const SizedBox(height: space3h),
               Text(l.calendarHint, style: t.bodySmall),
             ],
           ),

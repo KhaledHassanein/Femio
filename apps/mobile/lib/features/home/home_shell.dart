@@ -1,3 +1,8 @@
+// The app once she is set up: the bottom navigation and the three tabs.
+//
+// Why it exists: it owns which tab is open and which day the Log tab shows, so tapping a
+// calendar day can jump straight to that day's log without the tabs knowing each other.
+
 import 'package:flutter/material.dart';
 
 import '../../app.dart';
@@ -9,6 +14,8 @@ import '../today/today_screen.dart';
 
 /// The app once she is set up: Today, Calendar and Log (spec §4). Learn and Tools
 /// join as their screens land; nothing is a dead tab.
+///
+/// [controller] must be loaded with a profile. [today] fixes the date in tests.
 class HomeShell extends StatefulWidget {
   const HomeShell({super.key, required this.controller, this.today});
   final FemioController controller;

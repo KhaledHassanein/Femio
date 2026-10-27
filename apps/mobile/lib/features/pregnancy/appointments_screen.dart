@@ -1,3 +1,8 @@
+// The appointments screen: when, with whom, and the questions to ask.
+//
+// Why it exists: the questions are the part people forget in the room. It stores no
+// results (see domain/appointments.dart), only what she needs to bring and ask.
+
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart' show DateFormat;
 
@@ -6,10 +11,14 @@ import '../../domain/appointments.dart';
 import '../../domain/dates.dart';
 import '../../l10n/app_localizations.dart';
 import '../../theme/femio_theme.dart';
+import '../../theme/radii.dart';
+import '../../theme/spacing.dart';
 import '../../widgets/notice_card.dart';
 
 /// Appointments: when, with whom, and the questions she meant to ask, which is the
 /// part people forget in the room. Never the result (`domain/appointments.dart`).
+///
+/// [today] is an ISO day, used to order and label upcoming visits.
 class AppointmentsScreen extends StatelessWidget {
   const AppointmentsScreen({super.key, required this.controller, required this.today});
   final FemioController controller;
@@ -36,7 +45,7 @@ class AppointmentsScreen extends StatelessWidget {
             label: Text(l.apptAdd),
           ),
           body: ListView(
-            padding: const EdgeInsets.fromLTRB(20, 8, 20, 96),
+            padding: const EdgeInsets.fromLTRB(space5, space2, space5, 96),
             children: [
               if (all.isEmpty)
                 NoticeCard(tone: NoticeTone.quiet, heading: l.apptEmptyHeading, body: l.apptEmptyBody),
@@ -47,20 +56,20 @@ class AppointmentsScreen extends StatelessWidget {
                   heading: l.apptAwaitingHeading,
                   body: l.apptAwaitingBody(awaiting.length),
                 ),
-                const SizedBox(height: 16),
+                const SizedBox(height: space4),
               ],
               if (split.upcoming.isNotEmpty) ...[
                 Text(l.apptUpcoming, style: t.titleLarge),
-                const SizedBox(height: 8),
+                const SizedBox(height: space2),
                 for (final a in split.upcoming) _Card(a: a, today: today, onTap: () => open(a)),
               ],
               if (split.past.isNotEmpty) ...[
-                const SizedBox(height: 16),
+                const SizedBox(height: space4),
                 Text(l.apptPast, style: t.titleLarge),
-                const SizedBox(height: 8),
+                const SizedBox(height: space2),
                 for (final a in split.past) _Card(a: a, today: today, onTap: () => open(a)),
               ],
-              const SizedBox(height: 16),
+              const SizedBox(height: space4),
               Text(l.apptNoResultsNote, style: t.bodySmall),
             ],
           ),
@@ -92,29 +101,29 @@ class _Card extends StatelessWidget {
       _ => null,
     };
     return Padding(
-      padding: const EdgeInsets.only(bottom: 10),
+      padding: const EdgeInsets.only(bottom: space2h),
       child: Material(
         color: p.surface,
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20), side: BorderSide(color: p.border)),
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(radiusOption), side: BorderSide(color: p.border)),
         child: InkWell(
-          borderRadius: BorderRadius.circular(20),
+          borderRadius: BorderRadius.circular(radiusOption),
           onTap: onTap,
           child: Padding(
-            padding: const EdgeInsets.all(16),
+            padding: const EdgeInsets.all(space4),
             child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
               Row(children: [
                 Expanded(child: Text(a.type?.isNotEmpty == true ? a.type! : l.apptUntitled, style: t.titleMedium)),
                 if (soon != null)
                   Container(
-                    padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
-                    decoration: BoxDecoration(color: p.primarySoft, borderRadius: BorderRadius.circular(99)),
+                    padding: const EdgeInsets.symmetric(horizontal: space2h, vertical: space1),
+                    decoration: BoxDecoration(color: p.primarySoft, borderRadius: BorderRadius.circular(radiusPill)),
                     child: Text(soon, style: t.labelMedium?.copyWith(color: p.primarySoftText)),
                   ),
               ]),
-              const SizedBox(height: 4),
+              const SizedBox(height: space1),
               Text([when, if (a.clinician?.isNotEmpty == true) a.clinician!].join(' · '), style: t.bodySmall),
               if (a.prep.isNotEmpty) ...[
-                const SizedBox(height: 6),
+                const SizedBox(height: space1h),
                 Text(l.apptPrepCount(a.prep.length), style: t.bodySmall?.copyWith(color: p.primary)),
               ],
             ]),
@@ -219,16 +228,16 @@ class _EditorState extends State<_Editor> {
           hintText: hint,
           filled: true,
           fillColor: p.surface,
-          border: OutlineInputBorder(borderRadius: BorderRadius.circular(16)),
+          border: OutlineInputBorder(borderRadius: BorderRadius.circular(radiusMd)),
         );
     Widget pickerRow(String label, String? value, VoidCallback onTap, {VoidCallback? onClear}) => Material(
           color: p.surface,
-          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16), side: BorderSide(color: p.border)),
+          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(radiusMd), side: BorderSide(color: p.border)),
           child: InkWell(
-            borderRadius: BorderRadius.circular(16),
+            borderRadius: BorderRadius.circular(radiusMd),
             onTap: onTap,
             child: Padding(
-              padding: const EdgeInsets.fromLTRB(16, 10, 8, 10),
+              padding: const EdgeInsets.fromLTRB(space4, space2h, space2, space2h),
               child: Row(children: [
                 Expanded(
                   child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
@@ -254,25 +263,25 @@ class _EditorState extends State<_Editor> {
         ],
       ),
       body: ListView(
-        padding: const EdgeInsets.fromLTRB(20, 8, 20, 32),
+        padding: const EdgeInsets.fromLTRB(space5, space2, space5, space8),
         children: [
           TextField(controller: _type, decoration: deco(l.apptFormType, l.apptFormTypePlaceholder)),
-          const SizedBox(height: 12),
+          const SizedBox(height: space3),
           TextField(controller: _clinician, decoration: deco(l.apptFormClinician)),
-          const SizedBox(height: 12),
+          const SizedBox(height: space3),
           pickerRow(
             l.apptFormWhen,
             _datetime == null ? null : DateFormat.yMMMEd(locale).add_Hm().format(DateTime.parse(_datetime!)),
             _pickWhen,
           ),
-          const SizedBox(height: 12),
+          const SizedBox(height: space3),
           TextField(
             controller: _prep,
             minLines: 3,
             maxLines: 8,
             decoration: deco(l.apptFormPrep, l.apptFormPrepPlaceholder),
           ),
-          const SizedBox(height: 12),
+          const SizedBox(height: space3),
           pickerRow(
             l.apptFormResultsDue,
             _resultsDue == null ? null : DateFormat.yMMMd(locale).format(fromISO(_resultsDue!)),
@@ -280,12 +289,12 @@ class _EditorState extends State<_Editor> {
             onClear: () => setState(() => _resultsDue = null),
           ),
           Padding(
-            padding: const EdgeInsetsDirectional.only(start: 12, top: 6),
+            padding: const EdgeInsetsDirectional.only(start: space3, top: space1h),
             child: Text(l.apptFormResultsDueHint, style: t.bodySmall),
           ),
-          const SizedBox(height: 24),
+          const SizedBox(height: space6),
           FilledButton(onPressed: _save, child: Text(l.apptSave)),
-          const SizedBox(height: 8),
+          const SizedBox(height: space2),
           TextButton(onPressed: () => Navigator.of(context).pop(), child: Text(l.apptCancel)),
         ],
       ),

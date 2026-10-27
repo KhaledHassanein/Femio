@@ -1,9 +1,15 @@
+// Program entry point.
+//
+// Why it exists: Flutter needs one place that loads her saved record before the first
+// frame, so the app never flashes the onboarding screen at a woman who already has data.
+
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart' show DateFormat;
 
 import 'app.dart';
 import 'data/store.dart';
 
+/// Starts the app: loads her record from the phone first, then draws the first frame.
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   configureFormatting();

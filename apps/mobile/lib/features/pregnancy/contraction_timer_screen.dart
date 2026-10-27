@@ -1,3 +1,8 @@
+// The contraction timer: start, stop, and the two averages a midwife asks for.
+//
+// Why it exists: timing is all the app does here. It never says whether labour has begun;
+// the route to the maternity unit is always the first thing on the screen.
+
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:intl/intl.dart' show DateFormat;
@@ -6,6 +11,7 @@ import '../../app.dart';
 import '../../domain/contractions.dart';
 import '../../l10n/app_localizations.dart';
 import '../../theme/femio_theme.dart';
+import '../../theme/spacing.dart';
 import '../../widgets/notice_card.dart';
 
 /// Contraction timer: start, stop, and the two numbers she reads out on the phone.
@@ -102,12 +108,12 @@ class _ContractionTimerScreenState extends State<ContractionTimerScreen> with Si
         ],
       ),
       body: ListView(
-        padding: const EdgeInsets.fromLTRB(20, 8, 20, 32),
+        padding: const EdgeInsets.fromLTRB(space5, space2, space5, space8),
         children: [
           NoticeCard(tone: NoticeTone.urgent, heading: l.contractionsContactHeading, body: l.contractionsContactBody),
-          const SizedBox(height: 16),
+          const SizedBox(height: space4),
           Text(l.contractionsIntro, style: t.bodyMedium),
-          const SizedBox(height: 24),
+          const SizedBox(height: space6),
           Center(
             child: Semantics(
               button: true,
@@ -129,10 +135,10 @@ class _ContractionTimerScreenState extends State<ContractionTimerScreen> with Si
                         textDirection: TextDirection.ltr,
                         style: t.displaySmall?.copyWith(color: p.onAccentSolid, fontFeatures: const [FontFeature.tabularFigures()]),
                       ),
-                      const SizedBox(height: 4),
+                      const SizedBox(height: space1),
                     ],
                     Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 20),
+                      padding: const EdgeInsets.symmetric(horizontal: space5),
                       child: Text(
                         running ? l.contractionsStop : l.contractionsStart,
                         textAlign: TextAlign.center,
@@ -145,20 +151,20 @@ class _ContractionTimerScreenState extends State<ContractionTimerScreen> with Si
             ),
           ),
           if (running) ...[
-            const SizedBox(height: 8),
+            const SizedBox(height: space2),
             Center(child: Text(l.contractionsRunning, style: t.bodySmall)),
           ],
           if (summary.counted > 0) ...[
-            const SizedBox(height: 28),
+            const SizedBox(height: space7),
             Text(l.contractionsSummaryHeading(summary.counted), style: t.titleMedium),
-            const SizedBox(height: 8),
+            const SizedBox(height: space2),
             if (summary.averageDurationSeconds != null)
               Text(l.contractionsSummaryDuration(formatDuration(summary.averageDurationSeconds!)), style: t.bodyLarge),
             if (summary.averageIntervalSeconds != null)
               Text(l.contractionsSummaryInterval(formatDuration(summary.averageIntervalSeconds!)), style: t.bodyLarge),
-            const SizedBox(height: 8),
+            const SizedBox(height: space2),
             Text(l.contractionsSummaryNote, style: t.bodySmall),
-            const SizedBox(height: 16),
+            const SizedBox(height: space4),
             for (final c in timed.reversed.take(12))
               _Row(
                 time: clockTime(c.contraction.startedAt),
@@ -199,7 +205,7 @@ class _Row extends StatelessWidget {
           ]),
         );
     return Container(
-      padding: const EdgeInsets.symmetric(vertical: 10),
+      padding: const EdgeInsets.symmetric(vertical: space2h),
       decoration: BoxDecoration(border: Border(bottom: BorderSide(color: p.border))),
       child: Row(children: [
         SizedBox(width: 72, child: Text(time, textDirection: TextDirection.ltr, style: t.titleMedium)),

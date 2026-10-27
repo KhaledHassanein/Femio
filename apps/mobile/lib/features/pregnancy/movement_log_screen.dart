@@ -1,3 +1,8 @@
+// The baby-movement log: a tap for each movement and her own recent pattern.
+//
+// Why it exists: knowing her usual pattern is what lets her notice a change. It sets no
+// target and never calls a count normal; the call-now notice always comes first.
+
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart' show DateFormat;
 
@@ -5,6 +10,7 @@ import '../../app.dart';
 import '../../domain/movements.dart';
 import '../../l10n/app_localizations.dart';
 import '../../theme/femio_theme.dart';
+import '../../theme/spacing.dart';
 import '../../widgets/notice_card.dart';
 
 /// Movement log: she taps for each movement she feels and sees her own pattern.
@@ -44,15 +50,15 @@ class MovementLogScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(title: Text(l.movementsHeading)),
       body: ListView(
-        padding: const EdgeInsets.fromLTRB(20, 8, 20, 32),
+        padding: const EdgeInsets.fromLTRB(space5, space2, space5, space8),
         children: [
           NoticeCard(tone: NoticeTone.urgent, heading: l.movementsUrgentHeading, body: l.movementsUrgentBody),
-          const SizedBox(height: 16),
+          const SizedBox(height: space4),
           Text(l.movementsIntro, style: t.bodyMedium),
-          const SizedBox(height: 24),
+          const SizedBox(height: space6),
           if (open == null) ...[
             Text(l.movementsStartBody, style: t.bodyMedium),
-            const SizedBox(height: 12),
+            const SizedBox(height: space3),
             FilledButton.icon(
               onPressed: () => controller.save(profile.copyWith(movements: [
                 ...sessions,
@@ -71,24 +77,24 @@ class MovementLogScreen extends StatelessWidget {
                     MovementSession(open.id, open.startedAt, null, (open.movementCount ?? 0) + 1),
                   ),
                   child: Padding(
-                    padding: const EdgeInsets.all(20),
+                    padding: const EdgeInsets.all(space5),
                     child: Text(l.movementsTap,
                         textAlign: TextAlign.center, style: t.titleMedium?.copyWith(color: p.onPrimarySolid)),
                   ),
                 ),
               ),
             ),
-            const SizedBox(height: 12),
+            const SizedBox(height: space3),
             Center(child: Text(l.movementsCounted(open.movementCount ?? 0), style: t.titleMedium)),
-            const SizedBox(height: 16),
+            const SizedBox(height: space4),
             OutlinedButton(
               onPressed: () => replaceOpen(MovementSession(open.id, open.startedAt, _now(), open.movementCount)),
               child: Text(l.movementsFinish),
             ),
-            const SizedBox(height: 6),
+            const SizedBox(height: space1h),
             Center(child: Text(l.movementsFinishNote, style: t.bodySmall, textAlign: TextAlign.center)),
           ],
-          const SizedBox(height: 28),
+          const SizedBox(height: space7),
           switch (pattern) {
             ComparablePattern(slower: true) => NoticeCard(
                 tone: NoticeTone.caution,
@@ -99,12 +105,12 @@ class MovementLogScreen extends StatelessWidget {
             _ => const SizedBox.shrink(),
           },
           if (finished.isNotEmpty) ...[
-            const SizedBox(height: 20),
+            const SizedBox(height: space5),
             Text(l.movementsRecentHeading, style: t.titleMedium),
-            const SizedBox(height: 8),
+            const SizedBox(height: space2),
             for (final s in finished.take(10))
               Container(
-                padding: const EdgeInsets.symmetric(vertical: 10),
+                padding: const EdgeInsets.symmetric(vertical: space2h),
                 decoration: BoxDecoration(border: Border(bottom: BorderSide(color: p.border))),
                 child: Row(children: [
                   Expanded(child: Text(when(s.startedAt), style: t.bodyMedium)),
