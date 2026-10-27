@@ -485,3 +485,42 @@ when sync does.
 **What a future session must not do by accident.** Re-enable `WEB_APP_ENABLED` in production,
 add an analytics or ads SDK to the app, or send any health value off the phone, without a new
 ADR and the compliance package that sync requires (`PRIVATE_LAUNCH_V1.md` §7).
+
+---
+
+## ADR-071
+
+**The Codex-built Flutter app is reference only; Phase G starts fresh on the served contract.**
+
+Date: 2026-10-27 · Owner: Khaled · Status: accepted · Related: ADR-060, ADR-061,
+ADR-070, `docs/30_REVAMP/04_ANDROID_APP_SPEC.md`, `docs/29_REBUILD/PROGRESS.md` G1
+
+**Context.** Between March and October 2026 Codex built a separate Flutter app in
+`E:\flutter_projects\femio`, outside this repo: 14 phases, 24 features, on-device storage and
+decisions, simulated subscription, ARB catalogues in en/ar/es/fr/tr (420 keys each). Its medical
+logic is written inside the app rather than authored once as versioned data with golden fixtures,
+which ADR-070 still requires of on-device decisions. Meanwhile `apps/mobile` in this repo is the
+Android app ADR-070 chose. Codex was retired on 27 Oct 2026.
+
+*Renumbered from a local ADR-070 on 2026-10-27 when it met `main`'s ADR-070. Context and
+alternatives reconciled with ADR-070 (decisions now run on the device, from the specification); the
+decision itself is unchanged.*
+
+**Decision.** Treat that app like the V1 archive: reference only, never a build input. It is
+archived with its git history at `E:\_Archive\2026-10\flutter_projects\femio-codex-flutter`. The Android app continues in `apps/mobile`, and may **mine** it.
+
+**What is worth mining for Phase G.**
+- Screens and flows, per feature in `lib/features/*`: onboarding, dashboard, cycle, fertility,
+  pregnancy, postpartum, perimenopause, symptoms, vitals, patterns, reports, library, calculators,
+  coaching, health conditions, notifications, settings and wearables. Use them as UX reference and
+  for widget ideas, re-tokenised to `assets/brand/tokens/`.
+- `lib/l10n/app_*.arb`: 420 keys in each of en/ar/es/fr/tr. These are machine-era translations, so
+  treat each string as a draft for the translation portal (machine draft → human review), never as
+  approved copy. Turkish (tr) is not one of Femio's four locales; keep it as a future option only.
+
+**Alternatives.** Adopting it as the app's base was rejected: `apps/mobile` already exists, and
+the archive's medical logic is inline in screens, so adopting it means rewriting it as
+specification-driven twins anyway.
+
+**Consequences.** No agent builds, upgrades or ships from the archive. Anything taken from it passes
+the normal gate here (tokens, logical properties, i18n review, tests) like new code.

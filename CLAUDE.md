@@ -45,6 +45,7 @@ assets/brand/tokens/  femio.tokens.css (canonical) · .json (W3C) · .tailwind.p
 assets/brand/logo/    Bloom mark — femio-logo.svg (primary) + lockups + app-icon
 assets/mockups/       femio_personalized_screens.html (HTML screen mockups)
 # references/femio_v1_archive/ (V1 Flutter) was removed from the tree 2026-10-07; it is in git history.
+# E:/_Archive/2026-10/flutter_projects/femio-codex-flutter — Codex Flutter app, reference only (ADR-071)
 ```
 
 ## Governance (agency-grade — from the femio-docs-agency skill)
@@ -55,7 +56,8 @@ assets/mockups/       femio_personalized_screens.html (HTML screen mockups)
 - **Cut off mid-item?** Commit the dirty tree to `wip/<item-id>` with a `wip:` message, never to `main` — `main`'s one guarantee is that everything on it passed the gate. Full rule, including how to resume, in `docs/STATE.md`. Check `git branch --list "wip/*"` at the start of every session.
 - **Every "done" links to evidence.** Prose over bullets in docs.
 
-## Skills (install the Femio plugin; they encode standards — use them)
+## Skills (account-level; they encode standards — use them)
+The generic `project-governance`, `engineering-standards`, `localization` and `user-guide` skills apply too; where they differ, the Femio skills below win.
 `femio-engineering-standards` (all code), `femio-design-system` (any UI — but note the newer token system in docs/12 supersedes its v1 tokens), `femio-medical-content` (any health content — cited, reviewed, grade 6–8, red-flag boxes), `femio-compliance-privacy` (any data/claims — the feature review gate), `femio-i18n-workflow` (any user-facing string), `femio-seo-aso` (public pages/store), `femio-docs-agency` (docs/governance). Plus core skills: docx/pptx/xlsx/pdf.
 
 **Supervised delegation (`femio-delegation`, `.claude/skills/femio-delegation/`).** Translation QA and content drafting go to Haiku subagents (`.claude/agents/femio-translator.md`, `femio-content-drafter.md`), competitor benchmarking to a Sonnet subagent (`femio-competitor-analyst.md`); medical logic, architecture, merges and releases are never delegated. Subagents write proposals to `docs/30_REVAMP/delegated/` and edit nothing else; **the lead session reviews every output, records the verdict at the top of the file, and only then applies the accepted parts** in its own commit, through the generators and the gate.

@@ -117,7 +117,8 @@ Chapter [05_DESIGN_SYSTEM.md](05_DESIGN_SYSTEM.md), [06_SCREENS.md](06_SCREENS.m
 
 ## Phase G — Mobile (after the web app is right)
 
-- [ ] G1 · Flutter clients on the served documents
+- [ ] G1 · Flutter clients on the served documents (mine the archived Codex app's screens and ARB
+  drafts first; ADR-071)
 - [ ] G2 · Health Connect / HealthKit
 - [ ] G3 · Home-screen widget
 - [ ] G4 · Dart chart primitives
