@@ -2,7 +2,7 @@
   <title>Femio — primary logo (horizontal, Bloom lockup)</title>
   <defs>
     <linearGradient id="fbloomH" x1="14" y1="82" x2="82" y2="14" gradientUnits="userSpaceOnUse">
-      <stop offset="0" stop-color="#7C3AED"/><stop offset=".5" stop-color="#E11D74"/><stop offset="1" stop-color="#F59E0B"/>
+      <stop offset="0" stop-color="#C56EA7"/><stop offset=".5" stop-color="#EE6A8C"/><stop offset="1" stop-color="#E5BC6B"/>
     </linearGradient>
   </defs>
   <!-- mark -->
@@ -14,10 +14,10 @@
     <path d="M0,4 C7.5,-9 7.5,-27 0,-40 C-7.5,-27 -7.5,-9 0,4 Z" opacity=".94" transform="rotate(240)"/>
     <path d="M0,4 C7.5,-9 7.5,-27 0,-40 C-7.5,-27 -7.5,-9 0,4 Z" opacity=".86" transform="rotate(300)"/>
   </g>
-  <circle cx="48" cy="48" r="7.5" fill="#FFFFFF"/>
-  <circle cx="48" cy="48" r="5.5" fill="#6D28D9"/>
-  <circle cx="48" cy="48" r="2.2" fill="#FFFFFF"/>
+  <circle cx="48" cy="48" r="7.5" fill="#FFF8F1"/>
+  <circle cx="48" cy="48" r="5.5" fill="#8A3572"/>
+  <circle cx="48" cy="48" r="2.2" fill="#FFF8F1"/>
   <!-- wordmark (lowercase, Fraunces) -->
   <text x="104" y="62" font-family="Fraunces, Georgia, serif" font-size="46" font-weight="600"
-        letter-spacing="-0.5" fill="#1E1B2E">femio</text>
+        letter-spacing="-0.5" fill="#24141F">femio</text>
 </svg>

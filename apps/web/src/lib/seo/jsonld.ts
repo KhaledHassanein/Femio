@@ -20,7 +20,7 @@ export function organizationJsonLd() {
     "@type": "Organization",
     name: siteConfig.name,
     url: siteConfig.baseUrl,
-    logo: `${siteConfig.baseUrl}/icons/app-icon.svg`,
+    logo: `${siteConfig.baseUrl}/icons/icon-512.png`,
   };
 }
 

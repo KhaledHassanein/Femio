@@ -1,8 +1,14 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Her record never leaves the phone: no Google backup, no device transfer
+         (both rule files under res/xml), and no INTERNET permission anywhere in
+         this manifest (the privacy tripwire in scripts/analytics-lint.mjs checks). -->
     <application
         android:label="femio"
         android:name="${applicationName}"
-        android:icon="@mipmap/ic_launcher">
+        android:icon="@mipmap/ic_launcher"
+        android:allowBackup="false"
+        android:fullBackupContent="@xml/backup_rules"
+        android:dataExtractionRules="@xml/data_extraction_rules">
         <activity
             android:name=".MainActivity"
             android:exported="true"

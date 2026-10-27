@@ -2,7 +2,7 @@
   <title>Femio — app icon (Bloom on warm surface)</title>
   <defs>
     <linearGradient id="fbloomIcon" x1="150" y1="380" x2="362" y2="150" gradientUnits="userSpaceOnUse">
-      <stop offset="0" stop-color="#7C3AED"/><stop offset=".5" stop-color="#E11D74"/><stop offset="1" stop-color="#F59E0B"/>
+      <stop offset="0" stop-color="#C56EA7"/><stop offset=".5" stop-color="#EE6A8C"/><stop offset="1" stop-color="#E5BC6B"/>
     </linearGradient>
   </defs>
   <!-- squircle background: warm off-white (premium, iOS-friendly); use gradient bloom -->
@@ -16,7 +16,7 @@
     <path d="M0,20 C40,-48 40,-144 0,-212 C-40,-144 -40,-48 0,20 Z" opacity=".94" transform="rotate(240)"/>
     <path d="M0,20 C40,-48 40,-144 0,-212 C-40,-144 -40,-48 0,20 Z" opacity=".86" transform="rotate(300)"/>
   </g>
-  <circle cx="256" cy="246" r="40" fill="#FFFFFF"/>
-  <circle cx="256" cy="246" r="29" fill="#6D28D9"/>
-  <circle cx="256" cy="246" r="11.5" fill="#FFFFFF"/>
+  <circle cx="256" cy="246" r="40" fill="#FFF8F1"/>
+  <circle cx="256" cy="246" r="29" fill="#8A3572"/>
+  <circle cx="256" cy="246" r="11.5" fill="#FFF8F1"/>
 </svg>

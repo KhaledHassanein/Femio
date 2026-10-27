@@ -2,7 +2,7 @@
   "name": "femio",
   "version": "0.0.0",
   "private": true,
-  "description": "Femio \u2014 a private women's-health app (Flutter) and its static front-door website (Next.js).",
+  "description": "Femio — a private women's-health app (Flutter) and its static front-door website (Next.js).",
   "packageManager": "pnpm@11.16.0",
   "engines": {
     "node": ">=20"
@@ -30,6 +30,10 @@
     "sitemap-check": "node scripts/seo/sitemap-check.mjs",
     "content-lint:test": "node scripts/content-lint.test.mjs",
     "audit": "pnpm audit --audit-level high",
-    "gate:mobile": "cd apps/mobile && flutter analyze && flutter test"
+    "gate:mobile": "cd apps/mobile && flutter analyze && flutter test",
+    "brand:icons": "node scripts/brand/generate-icons.mjs"
+  },
+  "devDependencies": {
+    "sharp": "0.35.5"
   }
 }

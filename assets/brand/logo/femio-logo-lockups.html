@@ -47,7 +47,7 @@ h2{font-family:Fraunces,serif;font-weight:600;font-size:20px;margin:32px 0 12px}
 <h2>Monochrome &amp; reversed</h2>
 <div class="grid2">
   <div class="card"><div class="lock"><span data-mark="52" data-mono="#1E1B2E"></span><span class="wm">femio</span></div><div class="cap">Single-ink (stamp, emboss, one-color print)</div></div>
-  <div class="card dark"><div class="lock"><span data-mark="52" data-mono="#FFFFFF"></span><span class="wm">femio</span></div><div class="cap">Reversed white</div></div>
+  <div class="card dark"><div class="lock"><span data-mark="52" data-mono="#FFF8F1"></span><span class="wm">femio</span></div><div class="cap">Reversed white</div></div>
 </div>
 
 <h2>In Arabic / RTL contexts</h2>
@@ -73,9 +73,9 @@ function bloom(size, dark, mono){
   const P='M0,4 C7.5,-9 7.5,-27 0,-40 C-7.5,-27 -7.5,-9 0,4 Z';
   let petals='';
   for(let i=0;i<6;i++) petals+=`<path d="${P}" opacity="${i%2?'.86':'.94'}" transform="rotate(${i*60})"/>`;
-  const centerOuter = dark? '#211E2E' : '#FFFFFF';
-  const centerCore  = dark? '#A78BFA' : '#6D28D9';
-  const centerDot   = dark? '#211E2E' : '#FFFFFF';
+  const centerOuter = dark? '#211E2E' : '#FFF8F1';
+  const centerCore  = dark? '#A78BFA' : '#8A3572';
+  const centerDot   = dark? '#211E2E' : '#FFF8F1';
   if(mono){
     return `<svg width="${size}" height="${size}" viewBox="0 0 96 96">
       <defs><mask id="m${id}"><rect width="96" height="96" fill="#fff"/><circle cx="48" cy="48" r="6.5" fill="#000"/><circle cx="48" cy="48" r="2.2" fill="#fff"/></mask></defs>
@@ -83,7 +83,7 @@ function bloom(size, dark, mono){
   }
   return `<svg width="${size}" height="${size}" viewBox="0 0 96 96">
     <defs><linearGradient id="${id}" x1="14" y1="82" x2="82" y2="14" gradientUnits="userSpaceOnUse">
-      <stop offset="0" stop-color="#7C3AED"/><stop offset=".5" stop-color="#E11D74"/><stop offset="1" stop-color="#F59E0B"/></linearGradient></defs>
+      <stop offset="0" stop-color="#C56EA7"/><stop offset=".5" stop-color="#EE6A8C"/><stop offset="1" stop-color="#E5BC6B"/></linearGradient></defs>
     <g transform="translate(48,48)" fill="url(#${id})">${petals}</g>
     <circle cx="48" cy="48" r="7.5" fill="${centerOuter}"/><circle cx="48" cy="48" r="5.5" fill="${centerCore}"/><circle cx="48" cy="48" r="2.2" fill="${centerDot}"/></svg>`;
 }

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Platform colours that cannot read the token CSS: the adaptive-icon
+     background and the splash. Both are plum-900 from femio.tokens.css. -->
+<resources>
+    <color name="ic_launcher_background">#3F1534</color>
+    <color name="splash_background">#3F1534</color>
+</resources>

@@ -79,10 +79,21 @@ export async function generateMetadata({
       description,
       url: `${siteConfig.baseUrl}/${locale}`,
       locale: ogLocale[locale] ?? locale,
+      images: [{ url: `/og/${locale}.png`, width: 1200, height: 630, alt: title }],
     },
-    twitter: { card: "summary_large_image", title, description },
+    twitter: { card: "summary_large_image", title, description, images: [`/og/${locale}.png`] },
     robots: { index: true, follow: true },
-    icons: { icon: "/icon.svg" },
+    // The full set lives under /icons (scripts/brand/generate-icons.mjs); the SVG
+    // is first because modern browsers prefer it and it scales to any tab size.
+    icons: {
+      icon: [
+        { url: "/icon.svg", type: "image/svg+xml" },
+        { url: "/icons/icon-32.png", sizes: "32x32", type: "image/png" },
+        { url: "/icons/icon-16.png", sizes: "16x16", type: "image/png" },
+      ],
+      apple: [{ url: "/icons/icon-180.png", sizes: "180x180", type: "image/png" }],
+      shortcut: ["/favicon.ico"],
+    },
     ...(env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION
       ? { verification: { google: env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION } }
       : {}),
