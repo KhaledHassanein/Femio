@@ -1,0 +1,1168 @@
+{
+ "area": "04-mobile (apps/mobile Flutter Android app)",
+ "nodes": [
+  {
+   "id": "mobile-lib-main",
+   "label": "main.dart",
+   "type": "module",
+   "path": "apps/mobile/lib/main.dart",
+   "status": "live"
+  },
+  {
+   "id": "mobile-lib-app",
+   "label": "app.dart (FemioController, FemioApp)",
+   "type": "module",
+   "path": "apps/mobile/lib/app.dart",
+   "status": "live"
+  },
+  {
+   "id": "mobile-lib-data-store",
+   "label": "store.dart (FemioStore, FileStore)",
+   "type": "module",
+   "path": "apps/mobile/lib/data/store.dart",
+   "status": "live"
+  },
+  {
+   "id": "mobile-lib-data-profile",
+   "label": "profile.dart (Profile, DayLog)",
+   "type": "module",
+   "path": "apps/mobile/lib/data/profile.dart",
+   "status": "live"
+  },
+  {
+   "id": "mobile-record-file",
+   "label": "femio-record.json (private app file, plaintext JSON)",
+   "type": "table",
+   "path": "<app support dir>/femio-record.json",
+   "status": "live"
+  },
+  {
+   "id": "mobile-lib-domain-dates",
+   "label": "dates.dart",
+   "type": "function",
+   "path": "apps/mobile/lib/domain/dates.dart",
+   "status": "live"
+  },
+  {
+   "id": "mobile-lib-domain-cycle-prediction",
+   "label": "cycle_prediction.dart",
+   "type": "function",
+   "path": "apps/mobile/lib/domain/cycle_prediction.dart",
+   "status": "live"
+  },
+  {
+   "id": "mobile-lib-domain-fertility",
+   "label": "fertility.dart",
+   "type": "function",
+   "path": "apps/mobile/lib/domain/fertility.dart",
+   "status": "live"
+  },
+  {
+   "id": "mobile-lib-domain-pregnancy",
+   "label": "pregnancy.dart",
+   "type": "function",
+   "path": "apps/mobile/lib/domain/pregnancy.dart",
+   "status": "live"
+  },
+  {
+   "id": "mobile-lib-domain-contractions",
+   "label": "contractions.dart",
+   "type": "function",
+   "path": "apps/mobile/lib/domain/contractions.dart",
+   "status": "live"
+  },
+  {
+   "id": "mobile-lib-domain-movements",
+   "label": "movements.dart",
+   "type": "function",
+   "path": "apps/mobile/lib/domain/movements.dart",
+   "status": "live"
+  },
+  {
+   "id": "mobile-lib-domain-weight",
+   "label": "weight.dart",
+   "type": "function",
+   "path": "apps/mobile/lib/domain/weight.dart",
+   "status": "live"
+  },
+  {
+   "id": "mobile-lib-domain-bbt",
+   "label": "bbt.dart",
+   "type": "function",
+   "path": "apps/mobile/lib/domain/bbt.dart",
+   "status": "live"
+  },
+  {
+   "id": "mobile-lib-domain-appointments",
+   "label": "appointments.dart",
+   "type": "function",
+   "path": "apps/mobile/lib/domain/appointments.dart",
+   "status": "live"
+  },
+  {
+   "id": "mobile-lib-domain-day-marks",
+   "label": "day_marks.dart",
+   "type": "function",
+   "path": "apps/mobile/lib/domain/day_marks.dart",
+   "status": "live"
+  },
+  {
+   "id": "mobile-lib-domain-log-vocabulary-g",
+   "label": "log_vocabulary.g.dart (generated)",
+   "type": "module",
+   "path": "apps/mobile/lib/domain/log_vocabulary.g.dart",
+   "status": "live"
+  },
+  {
+   "id": "mobile-lib-features-home-shell",
+   "label": "HomeShell (3 tabs)",
+   "type": "screen",
+   "path": "apps/mobile/lib/features/home/home_shell.dart",
+   "status": "live"
+  },
+  {
+   "id": "mobile-lib-features-onboarding-flow",
+   "label": "OnboardingFlow (11 steps)",
+   "type": "screen",
+   "path": "apps/mobile/lib/features/onboarding/onboarding_flow.dart",
+   "status": "live"
+  },
+  {
+   "id": "mobile-lib-features-onboarding-widgets",
+   "label": "Onboarding widgets",
+   "type": "module",
+   "path": "apps/mobile/lib/features/onboarding/widgets.dart",
+   "status": "live"
+  },
+  {
+   "id": "mobile-lib-features-today",
+   "label": "TodayScreen",
+   "type": "screen",
+   "path": "apps/mobile/lib/features/today/today_screen.dart",
+   "status": "live"
+  },
+  {
+   "id": "mobile-lib-features-calendar",
+   "label": "CalendarScreen",
+   "type": "screen",
+   "path": "apps/mobile/lib/features/calendar/calendar_screen.dart",
+   "status": "live"
+  },
+  {
+   "id": "mobile-lib-features-log",
+   "label": "LogScreen",
+   "type": "screen",
+   "path": "apps/mobile/lib/features/log/log_screen.dart",
+   "status": "live"
+  },
+  {
+   "id": "mobile-lib-features-contraction-timer",
+   "label": "ContractionTimerScreen",
+   "type": "screen",
+   "path": "apps/mobile/lib/features/pregnancy/contraction_timer_screen.dart",
+   "status": "live"
+  },
+  {
+   "id": "mobile-lib-features-movement-log",
+   "label": "MovementLogScreen",
+   "type": "screen",
+   "path": "apps/mobile/lib/features/pregnancy/movement_log_screen.dart",
+   "status": "live"
+  },
+  {
+   "id": "mobile-lib-features-appointments",
+   "label": "AppointmentsScreen + editor",
+   "type": "screen",
+   "path": "apps/mobile/lib/features/pregnancy/appointments_screen.dart",
+   "status": "live"
+  },
+  {
+   "id": "mobile-lib-features-weight",
+   "label": "WeightScreen",
+   "type": "screen",
+   "path": "apps/mobile/lib/features/pregnancy/weight_screen.dart",
+   "status": "live"
+  },
+  {
+   "id": "mobile-lib-widgets-readings-chart",
+   "label": "ReadingsChart",
+   "type": "module",
+   "path": "apps/mobile/lib/widgets/readings_chart.dart",
+   "status": "live"
+  },
+  {
+   "id": "mobile-lib-widgets-bbt-chart",
+   "label": "BbtChartCard",
+   "type": "module",
+   "path": "apps/mobile/lib/widgets/bbt_chart.dart",
+   "status": "live"
+  },
+  {
+   "id": "mobile-lib-widgets-notice-card",
+   "label": "NoticeCard",
+   "type": "module",
+   "path": "apps/mobile/lib/widgets/notice_card.dart",
+   "status": "live"
+  },
+  {
+   "id": "mobile-lib-widgets-bloom",
+   "label": "Bloom logo painter",
+   "type": "module",
+   "path": "apps/mobile/lib/widgets/bloom.dart",
+   "status": "live"
+  },
+  {
+   "id": "mobile-lib-theme-femio-theme",
+   "label": "FemioTheme",
+   "type": "module",
+   "path": "apps/mobile/lib/theme/femio_theme.dart",
+   "status": "live"
+  },
+  {
+   "id": "mobile-lib-theme-tokens-g",
+   "label": "tokens.g.dart (191 colours, generated)",
+   "type": "module",
+   "path": "apps/mobile/lib/theme/tokens.g.dart",
+   "status": "live"
+  },
+  {
+   "id": "mobile-lib-l10n-arb-en",
+   "label": "app_en.arb (247 keys)",
+   "type": "asset",
+   "path": "apps/mobile/lib/l10n/app_en.arb",
+   "status": "live"
+  },
+  {
+   "id": "mobile-lib-l10n-arb-ar",
+   "label": "app_ar.arb (247 keys)",
+   "type": "asset",
+   "path": "apps/mobile/lib/l10n/app_ar.arb",
+   "status": "live"
+  },
+  {
+   "id": "mobile-lib-l10n-arb-fr",
+   "label": "app_fr.arb (247 keys)",
+   "type": "asset",
+   "path": "apps/mobile/lib/l10n/app_fr.arb",
+   "status": "live"
+  },
+  {
+   "id": "mobile-lib-l10n-arb-es",
+   "label": "app_es.arb (247 keys)",
+   "type": "asset",
+   "path": "apps/mobile/lib/l10n/app_es.arb",
+   "status": "live"
+  },
+  {
+   "id": "mobile-lib-l10n-localizations",
+   "label": "app_localizations*.dart (generated)",
+   "type": "module",
+   "path": "apps/mobile/lib/l10n/app_localizations.dart",
+   "status": "live"
+  },
+  {
+   "id": "mobile-lib-l10n-log-labels-g",
+   "label": "log_labels.g.dart (generated)",
+   "type": "module",
+   "path": "apps/mobile/lib/l10n/log_labels.g.dart",
+   "status": "live"
+  },
+  {
+   "id": "mobile-test-golden-fixtures",
+   "label": "golden_fixtures_test.dart",
+   "type": "module",
+   "path": "apps/mobile/test/golden_fixtures_test.dart",
+   "status": "live"
+  },
+  {
+   "id": "mobile-test-screens",
+   "label": "screens_test.dart",
+   "type": "module",
+   "path": "apps/mobile/test/screens_test.dart",
+   "status": "live"
+  },
+  {
+   "id": "mobile-test-day-marks",
+   "label": "day_marks_test.dart",
+   "type": "module",
+   "path": "apps/mobile/test/day_marks_test.dart",
+   "status": "live"
+  },
+  {
+   "id": "mobile-test-dates",
+   "label": "dates_test.dart",
+   "type": "module",
+   "path": "apps/mobile/test/dates_test.dart",
+   "status": "live"
+  },
+  {
+   "id": "mobile-pubspec",
+   "label": "pubspec.yaml",
+   "type": "module",
+   "path": "apps/mobile/pubspec.yaml",
+   "status": "live"
+  },
+  {
+   "id": "mobile-l10n-yaml",
+   "label": "l10n.yaml",
+   "type": "module",
+   "path": "apps/mobile/l10n.yaml",
+   "status": "live"
+  },
+  {
+   "id": "mobile-analysis-options",
+   "label": "analysis_options.yaml",
+   "type": "module",
+   "path": "apps/mobile/analysis_options.yaml",
+   "status": "live"
+  },
+  {
+   "id": "mobile-readme",
+   "label": "apps/mobile README",
+   "type": "doc",
+   "path": "apps/mobile/README.md",
+   "status": "live"
+  },
+  {
+   "id": "mobile-android-build-gradle",
+   "label": "build.gradle.kts (debug-key signing)",
+   "type": "module",
+   "path": "apps/mobile/android/app/build.gradle.kts",
+   "status": "live"
+  },
+  {
+   "id": "mobile-android-manifest",
+   "label": "AndroidManifest.xml (no permissions, no backup rule)",
+   "type": "module",
+   "path": "apps/mobile/android/app/src/main/AndroidManifest.xml",
+   "status": "live"
+  },
+  {
+   "id": "mobile-android-manifest-debug",
+   "label": "debug/profile manifests (INTERNET)",
+   "type": "module",
+   "path": "apps/mobile/android/app/src/debug/AndroidManifest.xml",
+   "status": "live"
+  },
+  {
+   "id": "mobile-assets-fonts",
+   "label": "bundled fonts (Newsreader, Jakarta, Plex Arabic)",
+   "type": "asset",
+   "path": "apps/mobile/assets/fonts",
+   "status": "live"
+  },
+  {
+   "id": "mobile-ios",
+   "label": "ios/ default scaffold",
+   "type": "module",
+   "path": "apps/mobile/ios",
+   "status": "dead"
+  },
+  {
+   "id": "fixtures-domain",
+   "label": "fixtures/domain/*.json (12 files)",
+   "type": "fixture",
+   "path": "fixtures/domain",
+   "status": "live"
+  },
+  {
+   "id": "fixtures-domain-cycle-prediction",
+   "label": "cycle-prediction.json",
+   "type": "fixture",
+   "path": "fixtures/domain/cycle-prediction.json",
+   "status": "live"
+  },
+  {
+   "id": "fixtures-domain-gestational-age",
+   "label": "gestational-age.json",
+   "type": "fixture",
+   "path": "fixtures/domain/gestational-age.json",
+   "status": "live"
+  },
+  {
+   "id": "fixtures-domain-edd-from",
+   "label": "edd-from.json",
+   "type": "fixture",
+   "path": "fixtures/domain/edd-from.json",
+   "status": "live"
+  },
+  {
+   "id": "fixtures-domain-contractions",
+   "label": "contractions.json",
+   "type": "fixture",
+   "path": "fixtures/domain/contractions.json",
+   "status": "live"
+  },
+  {
+   "id": "fixtures-domain-movement-pattern",
+   "label": "movement-pattern.json",
+   "type": "fixture",
+   "path": "fixtures/domain/movement-pattern.json",
+   "status": "live"
+  },
+  {
+   "id": "fixtures-domain-weight-chart",
+   "label": "weight-chart.json",
+   "type": "fixture",
+   "path": "fixtures/domain/weight-chart.json",
+   "status": "live"
+  },
+  {
+   "id": "fixtures-domain-bbt-chart",
+   "label": "bbt-chart.json",
+   "type": "fixture",
+   "path": "fixtures/domain/bbt-chart.json",
+   "status": "live"
+  },
+  {
+   "id": "fixtures-domain-appointments",
+   "label": "appointments.json",
+   "type": "fixture",
+   "path": "fixtures/domain/appointments.json",
+   "status": "live"
+  },
+  {
+   "id": "fixtures-domain-deferred",
+   "label": "phase / persona-resolution / signals-from-rows / experience-config (not ported)",
+   "type": "fixture",
+   "path": "fixtures/domain",
+   "status": "unknown"
+  },
+  {
+   "id": "scripts-design-tokens-to-dart",
+   "label": "tokens-to-dart.mjs",
+   "type": "script",
+   "path": "scripts/design/tokens-to-dart.mjs",
+   "status": "live"
+  },
+  {
+   "id": "scripts-mobile-sync-log-vocabulary",
+   "label": "sync-log-vocabulary.mjs",
+   "type": "script",
+   "path": "scripts/mobile/sync-log-vocabulary.mjs",
+   "status": "live"
+  },
+  {
+   "id": "assets-brand-tokens-css",
+   "label": "femio.tokens.css",
+   "type": "asset",
+   "path": "assets/brand/tokens/femio.tokens.css",
+   "status": "live"
+  },
+  {
+   "id": "web-lib-experience-v2-vocabulary",
+   "label": "web vocabulary.ts",
+   "type": "module",
+   "path": "apps/web/src/lib/experience/v2/vocabulary.ts",
+   "status": "live"
+  },
+  {
+   "id": "web-messages",
+   "label": "web messages/{en,ar,fr,es}.json",
+   "type": "asset",
+   "path": "apps/web/messages",
+   "status": "live"
+  },
+  {
+   "id": "web-lib-golden-fixtures-test",
+   "label": "web golden-fixtures.test.ts",
+   "type": "module",
+   "path": "apps/web/src/lib/golden-fixtures.test.ts",
+   "status": "live"
+  },
+  {
+   "id": "web-lib-cycle-predict",
+   "label": "web cycle/predict.ts (twin)",
+   "type": "module",
+   "path": "apps/web/src/lib/cycle/predict.ts",
+   "status": "live"
+  },
+  {
+   "id": "web-lib-pregnancy",
+   "label": "web pregnancy/index.ts + movements.ts (twin)",
+   "type": "module",
+   "path": "apps/web/src/lib/pregnancy/index.ts",
+   "status": "live"
+  },
+  {
+   "id": "web-lib-calculators",
+   "label": "web calculators/index.ts + dates.ts (twin)",
+   "type": "module",
+   "path": "apps/web/src/lib/calculators/index.ts",
+   "status": "live"
+  },
+  {
+   "id": "web-lib-contractions",
+   "label": "web contractions/index.ts (twin)",
+   "type": "module",
+   "path": "apps/web/src/lib/contractions/index.ts",
+   "status": "live"
+  },
+  {
+   "id": "web-lib-appointments",
+   "label": "web appointments/index.ts (twin)",
+   "type": "module",
+   "path": "apps/web/src/lib/appointments/index.ts",
+   "status": "live"
+  },
+  {
+   "id": "web-lib-vitals-weight",
+   "label": "web vitals/weight.ts (twin)",
+   "type": "module",
+   "path": "apps/web/src/lib/vitals/weight.ts",
+   "status": "live"
+  },
+  {
+   "id": "web-lib-fertility",
+   "label": "web fertility/index.ts (twin)",
+   "type": "module",
+   "path": "apps/web/src/lib/fertility/index.ts",
+   "status": "live"
+  },
+  {
+   "id": "docs-30-revamp-04-android-app-spec",
+   "label": "04_ANDROID_APP_SPEC.md",
+   "type": "doc",
+   "path": "docs/30_REVAMP/04_ANDROID_APP_SPEC.md",
+   "status": "live"
+  },
+  {
+   "id": "github-ci-verify-mobile",
+   "label": "CI job verify-mobile",
+   "type": "service",
+   "path": ".github/workflows/ci.yml",
+   "status": "live"
+  },
+  {
+   "id": "service-device-fbe",
+   "label": "Android file-based encryption (device level)",
+   "type": "service",
+   "path": "(platform)",
+   "status": "live"
+  },
+  {
+   "id": "service-google-drive-autobackup",
+   "label": "Google Drive auto-backup (probable, unconfirmed)",
+   "type": "service",
+   "path": "(platform)",
+   "status": "unknown"
+  }
+ ],
+ "edges": [
+  {
+   "from": "mobile-lib-main",
+   "to": "mobile-lib-app",
+   "kind": "imports"
+  },
+  {
+   "from": "mobile-lib-main",
+   "to": "mobile-lib-data-store",
+   "kind": "imports"
+  },
+  {
+   "from": "mobile-lib-app",
+   "to": "mobile-lib-features-onboarding-flow",
+   "kind": "renders"
+  },
+  {
+   "from": "mobile-lib-app",
+   "to": "mobile-lib-features-home-shell",
+   "kind": "renders"
+  },
+  {
+   "from": "mobile-lib-app",
+   "to": "mobile-lib-theme-femio-theme",
+   "kind": "imports"
+  },
+  {
+   "from": "mobile-lib-app",
+   "to": "mobile-lib-l10n-localizations",
+   "kind": "imports"
+  },
+  {
+   "from": "mobile-lib-app",
+   "to": "mobile-lib-data-store",
+   "kind": "calls"
+  },
+  {
+   "from": "mobile-lib-data-store",
+   "to": "mobile-lib-data-profile",
+   "kind": "imports"
+  },
+  {
+   "from": "mobile-lib-data-store",
+   "to": "mobile-record-file",
+   "kind": "writes"
+  },
+  {
+   "from": "mobile-lib-data-store",
+   "to": "mobile-record-file",
+   "kind": "reads"
+  },
+  {
+   "from": "mobile-record-file",
+   "to": "service-device-fbe",
+   "kind": "documents"
+  },
+  {
+   "from": "mobile-record-file",
+   "to": "service-google-drive-autobackup",
+   "kind": "documents"
+  },
+  {
+   "from": "mobile-android-manifest",
+   "to": "service-google-drive-autobackup",
+   "kind": "documents"
+  },
+  {
+   "from": "mobile-lib-data-profile",
+   "to": "mobile-lib-domain-appointments",
+   "kind": "imports"
+  },
+  {
+   "from": "mobile-lib-data-profile",
+   "to": "mobile-lib-domain-contractions",
+   "kind": "imports"
+  },
+  {
+   "from": "mobile-lib-data-profile",
+   "to": "mobile-lib-domain-movements",
+   "kind": "imports"
+  },
+  {
+   "from": "mobile-lib-data-profile",
+   "to": "mobile-lib-domain-weight",
+   "kind": "imports"
+  },
+  {
+   "from": "mobile-lib-domain-cycle-prediction",
+   "to": "mobile-lib-domain-dates",
+   "kind": "imports"
+  },
+  {
+   "from": "mobile-lib-domain-fertility",
+   "to": "mobile-lib-domain-dates",
+   "kind": "imports"
+  },
+  {
+   "from": "mobile-lib-domain-pregnancy",
+   "to": "mobile-lib-domain-dates",
+   "kind": "imports"
+  },
+  {
+   "from": "mobile-lib-domain-bbt",
+   "to": "mobile-lib-domain-dates",
+   "kind": "imports"
+  },
+  {
+   "from": "mobile-lib-domain-appointments",
+   "to": "mobile-lib-domain-dates",
+   "kind": "imports"
+  },
+  {
+   "from": "mobile-lib-domain-day-marks",
+   "to": "mobile-lib-data-profile",
+   "kind": "imports"
+  },
+  {
+   "from": "mobile-lib-domain-day-marks",
+   "to": "mobile-lib-domain-cycle-prediction",
+   "kind": "imports"
+  },
+  {
+   "from": "mobile-lib-domain-day-marks",
+   "to": "mobile-lib-domain-fertility",
+   "kind": "imports"
+  },
+  {
+   "from": "mobile-lib-domain-day-marks",
+   "to": "mobile-lib-domain-dates",
+   "kind": "imports"
+  },
+  {
+   "from": "mobile-lib-features-home-shell",
+   "to": "mobile-lib-features-today",
+   "kind": "renders"
+  },
+  {
+   "from": "mobile-lib-features-home-shell",
+   "to": "mobile-lib-features-calendar",
+   "kind": "renders"
+  },
+  {
+   "from": "mobile-lib-features-home-shell",
+   "to": "mobile-lib-features-log",
+   "kind": "renders"
+  },
+  {
+   "from": "mobile-lib-features-onboarding-flow",
+   "to": "mobile-lib-features-onboarding-widgets",
+   "kind": "imports"
+  },
+  {
+   "from": "mobile-lib-features-onboarding-flow",
+   "to": "mobile-lib-domain-pregnancy",
+   "kind": "calls"
+  },
+  {
+   "from": "mobile-lib-features-onboarding-flow",
+   "to": "mobile-lib-data-profile",
+   "kind": "writes"
+  },
+  {
+   "from": "mobile-lib-features-today",
+   "to": "mobile-lib-domain-cycle-prediction",
+   "kind": "calls"
+  },
+  {
+   "from": "mobile-lib-features-today",
+   "to": "mobile-lib-domain-fertility",
+   "kind": "calls"
+  },
+  {
+   "from": "mobile-lib-features-today",
+   "to": "mobile-lib-domain-pregnancy",
+   "kind": "calls"
+  },
+  {
+   "from": "mobile-lib-features-today",
+   "to": "mobile-lib-domain-appointments",
+   "kind": "calls"
+  },
+  {
+   "from": "mobile-lib-features-today",
+   "to": "mobile-lib-widgets-bbt-chart",
+   "kind": "renders"
+  },
+  {
+   "from": "mobile-lib-features-today",
+   "to": "mobile-lib-widgets-notice-card",
+   "kind": "renders"
+  },
+  {
+   "from": "mobile-lib-features-today",
+   "to": "mobile-lib-widgets-bloom",
+   "kind": "renders"
+  },
+  {
+   "from": "mobile-lib-features-today",
+   "to": "mobile-lib-features-contraction-timer",
+   "kind": "renders"
+  },
+  {
+   "from": "mobile-lib-features-today",
+   "to": "mobile-lib-features-movement-log",
+   "kind": "renders"
+  },
+  {
+   "from": "mobile-lib-features-today",
+   "to": "mobile-lib-features-appointments",
+   "kind": "renders"
+  },
+  {
+   "from": "mobile-lib-features-today",
+   "to": "mobile-lib-features-weight",
+   "kind": "renders"
+  },
+  {
+   "from": "mobile-lib-features-today",
+   "to": "mobile-lib-app",
+   "kind": "calls"
+  },
+  {
+   "from": "mobile-lib-features-calendar",
+   "to": "mobile-lib-domain-day-marks",
+   "kind": "calls"
+  },
+  {
+   "from": "mobile-lib-features-log",
+   "to": "mobile-lib-domain-log-vocabulary-g",
+   "kind": "imports"
+  },
+  {
+   "from": "mobile-lib-features-log",
+   "to": "mobile-lib-l10n-log-labels-g",
+   "kind": "imports"
+  },
+  {
+   "from": "mobile-lib-features-log",
+   "to": "mobile-lib-domain-bbt",
+   "kind": "calls"
+  },
+  {
+   "from": "mobile-lib-features-contraction-timer",
+   "to": "mobile-lib-domain-contractions",
+   "kind": "calls"
+  },
+  {
+   "from": "mobile-lib-features-movement-log",
+   "to": "mobile-lib-domain-movements",
+   "kind": "calls"
+  },
+  {
+   "from": "mobile-lib-features-appointments",
+   "to": "mobile-lib-domain-appointments",
+   "kind": "calls"
+  },
+  {
+   "from": "mobile-lib-features-weight",
+   "to": "mobile-lib-domain-weight",
+   "kind": "calls"
+  },
+  {
+   "from": "mobile-lib-features-weight",
+   "to": "mobile-lib-widgets-readings-chart",
+   "kind": "renders"
+  },
+  {
+   "from": "mobile-lib-widgets-bbt-chart",
+   "to": "mobile-lib-widgets-readings-chart",
+   "kind": "renders"
+  },
+  {
+   "from": "mobile-lib-widgets-bbt-chart",
+   "to": "mobile-lib-domain-bbt",
+   "kind": "imports"
+  },
+  {
+   "from": "mobile-lib-features-onboarding-widgets",
+   "to": "mobile-lib-theme-femio-theme",
+   "kind": "imports"
+  },
+  {
+   "from": "mobile-lib-theme-femio-theme",
+   "to": "mobile-lib-theme-tokens-g",
+   "kind": "imports"
+  },
+  {
+   "from": "mobile-lib-l10n-log-labels-g",
+   "to": "mobile-lib-l10n-localizations",
+   "kind": "imports"
+  },
+  {
+   "from": "mobile-lib-l10n-localizations",
+   "to": "mobile-lib-l10n-arb-en",
+   "kind": "generates"
+  },
+  {
+   "from": "mobile-lib-l10n-localizations",
+   "to": "mobile-lib-l10n-arb-ar",
+   "kind": "generates"
+  },
+  {
+   "from": "mobile-lib-l10n-localizations",
+   "to": "mobile-lib-l10n-arb-fr",
+   "kind": "generates"
+  },
+  {
+   "from": "mobile-lib-l10n-localizations",
+   "to": "mobile-lib-l10n-arb-es",
+   "kind": "generates"
+  },
+  {
+   "from": "mobile-l10n-yaml",
+   "to": "mobile-lib-l10n-localizations",
+   "kind": "generates"
+  },
+  {
+   "from": "scripts-design-tokens-to-dart",
+   "to": "assets-brand-tokens-css",
+   "kind": "reads"
+  },
+  {
+   "from": "scripts-design-tokens-to-dart",
+   "to": "mobile-lib-theme-tokens-g",
+   "kind": "generates"
+  },
+  {
+   "from": "scripts-mobile-sync-log-vocabulary",
+   "to": "web-lib-experience-v2-vocabulary",
+   "kind": "reads"
+  },
+  {
+   "from": "scripts-mobile-sync-log-vocabulary",
+   "to": "web-messages",
+   "kind": "reads"
+  },
+  {
+   "from": "scripts-mobile-sync-log-vocabulary",
+   "to": "mobile-lib-domain-log-vocabulary-g",
+   "kind": "generates"
+  },
+  {
+   "from": "scripts-mobile-sync-log-vocabulary",
+   "to": "mobile-lib-l10n-log-labels-g",
+   "kind": "generates"
+  },
+  {
+   "from": "scripts-mobile-sync-log-vocabulary",
+   "to": "mobile-lib-l10n-arb-en",
+   "kind": "writes"
+  },
+  {
+   "from": "scripts-mobile-sync-log-vocabulary",
+   "to": "mobile-lib-l10n-arb-ar",
+   "kind": "writes"
+  },
+  {
+   "from": "scripts-mobile-sync-log-vocabulary",
+   "to": "mobile-lib-l10n-arb-fr",
+   "kind": "writes"
+  },
+  {
+   "from": "scripts-mobile-sync-log-vocabulary",
+   "to": "mobile-lib-l10n-arb-es",
+   "kind": "writes"
+  },
+  {
+   "from": "mobile-test-golden-fixtures",
+   "to": "fixtures-domain-cycle-prediction",
+   "kind": "reads"
+  },
+  {
+   "from": "web-lib-golden-fixtures-test",
+   "to": "fixtures-domain-cycle-prediction",
+   "kind": "reads"
+  },
+  {
+   "from": "mobile-lib-domain-cycle-prediction",
+   "to": "fixtures-domain-cycle-prediction",
+   "kind": "tested-by"
+  },
+  {
+   "from": "web-lib-cycle-predict",
+   "to": "fixtures-domain-cycle-prediction",
+   "kind": "tested-by"
+  },
+  {
+   "from": "mobile-test-golden-fixtures",
+   "to": "fixtures-domain-gestational-age",
+   "kind": "reads"
+  },
+  {
+   "from": "web-lib-golden-fixtures-test",
+   "to": "fixtures-domain-gestational-age",
+   "kind": "reads"
+  },
+  {
+   "from": "mobile-lib-domain-pregnancy",
+   "to": "fixtures-domain-gestational-age",
+   "kind": "tested-by"
+  },
+  {
+   "from": "web-lib-pregnancy",
+   "to": "fixtures-domain-gestational-age",
+   "kind": "tested-by"
+  },
+  {
+   "from": "mobile-test-golden-fixtures",
+   "to": "fixtures-domain-edd-from",
+   "kind": "reads"
+  },
+  {
+   "from": "web-lib-golden-fixtures-test",
+   "to": "fixtures-domain-edd-from",
+   "kind": "reads"
+  },
+  {
+   "from": "mobile-lib-domain-pregnancy",
+   "to": "fixtures-domain-edd-from",
+   "kind": "tested-by"
+  },
+  {
+   "from": "web-lib-calculators",
+   "to": "fixtures-domain-edd-from",
+   "kind": "tested-by"
+  },
+  {
+   "from": "mobile-test-golden-fixtures",
+   "to": "fixtures-domain-contractions",
+   "kind": "reads"
+  },
+  {
+   "from": "web-lib-golden-fixtures-test",
+   "to": "fixtures-domain-contractions",
+   "kind": "reads"
+  },
+  {
+   "from": "mobile-lib-domain-contractions",
+   "to": "fixtures-domain-contractions",
+   "kind": "tested-by"
+  },
+  {
+   "from": "web-lib-contractions",
+   "to": "fixtures-domain-contractions",
+   "kind": "tested-by"
+  },
+  {
+   "from": "mobile-test-golden-fixtures",
+   "to": "fixtures-domain-movement-pattern",
+   "kind": "reads"
+  },
+  {
+   "from": "web-lib-golden-fixtures-test",
+   "to": "fixtures-domain-movement-pattern",
+   "kind": "reads"
+  },
+  {
+   "from": "mobile-lib-domain-movements",
+   "to": "fixtures-domain-movement-pattern",
+   "kind": "tested-by"
+  },
+  {
+   "from": "web-lib-pregnancy",
+   "to": "fixtures-domain-movement-pattern",
+   "kind": "tested-by"
+  },
+  {
+   "from": "mobile-test-golden-fixtures",
+   "to": "fixtures-domain-weight-chart",
+   "kind": "reads"
+  },
+  {
+   "from": "web-lib-golden-fixtures-test",
+   "to": "fixtures-domain-weight-chart",
+   "kind": "reads"
+  },
+  {
+   "from": "mobile-lib-domain-weight",
+   "to": "fixtures-domain-weight-chart",
+   "kind": "tested-by"
+  },
+  {
+   "from": "web-lib-vitals-weight",
+   "to": "fixtures-domain-weight-chart",
+   "kind": "tested-by"
+  },
+  {
+   "from": "mobile-test-golden-fixtures",
+   "to": "fixtures-domain-bbt-chart",
+   "kind": "reads"
+  },
+  {
+   "from": "web-lib-golden-fixtures-test",
+   "to": "fixtures-domain-bbt-chart",
+   "kind": "reads"
+  },
+  {
+   "from": "mobile-lib-domain-bbt",
+   "to": "fixtures-domain-bbt-chart",
+   "kind": "tested-by"
+  },
+  {
+   "from": "web-lib-fertility",
+   "to": "fixtures-domain-bbt-chart",
+   "kind": "tested-by"
+  },
+  {
+   "from": "mobile-test-golden-fixtures",
+   "to": "fixtures-domain-appointments",
+   "kind": "reads"
+  },
+  {
+   "from": "web-lib-golden-fixtures-test",
+   "to": "fixtures-domain-appointments",
+   "kind": "reads"
+  },
+  {
+   "from": "mobile-lib-domain-appointments",
+   "to": "fixtures-domain-appointments",
+   "kind": "tested-by"
+  },
+  {
+   "from": "web-lib-appointments",
+   "to": "fixtures-domain-appointments",
+   "kind": "tested-by"
+  },
+  {
+   "from": "mobile-lib-domain-fertility",
+   "to": "web-lib-calculators",
+   "kind": "documents"
+  },
+  {
+   "from": "mobile-lib-domain-dates",
+   "to": "web-lib-calculators",
+   "kind": "documents"
+  },
+  {
+   "from": "mobile-test-golden-fixtures",
+   "to": "fixtures-domain-deferred",
+   "kind": "documents"
+  },
+  {
+   "from": "mobile-test-screens",
+   "to": "mobile-lib-app",
+   "kind": "tested-by"
+  },
+  {
+   "from": "mobile-test-screens",
+   "to": "mobile-lib-features-onboarding-flow",
+   "kind": "tested-by"
+  },
+  {
+   "from": "mobile-test-screens",
+   "to": "mobile-lib-features-today",
+   "kind": "tested-by"
+  },
+  {
+   "from": "mobile-test-screens",
+   "to": "mobile-lib-features-calendar",
+   "kind": "tested-by"
+  },
+  {
+   "from": "mobile-test-screens",
+   "to": "mobile-lib-features-log",
+   "kind": "tested-by"
+  },
+  {
+   "from": "mobile-test-screens",
+   "to": "mobile-lib-features-contraction-timer",
+   "kind": "tested-by"
+  },
+  {
+   "from": "mobile-test-day-marks",
+   "to": "mobile-lib-domain-day-marks",
+   "kind": "tested-by"
+  },
+  {
+   "from": "mobile-test-day-marks",
+   "to": "mobile-lib-data-profile",
+   "kind": "tested-by"
+  },
+  {
+   "from": "mobile-test-dates",
+   "to": "mobile-lib-domain-dates",
+   "kind": "tested-by"
+  },
+  {
+   "from": "github-ci-verify-mobile",
+   "to": "mobile-test-golden-fixtures",
+   "kind": "calls"
+  },
+  {
+   "from": "github-ci-verify-mobile",
+   "to": "mobile-test-screens",
+   "kind": "calls"
+  },
+  {
+   "from": "mobile-pubspec",
+   "to": "mobile-assets-fonts",
+   "kind": "reads"
+  },
+  {
+   "from": "mobile-lib-theme-femio-theme",
+   "to": "mobile-assets-fonts",
+   "kind": "reads"
+  },
+  {
+   "from": "mobile-readme",
+   "to": "docs-30-revamp-04-android-app-spec",
+   "kind": "documents"
+  },
+  {
+   "from": "docs-30-revamp-04-android-app-spec",
+   "to": "mobile-lib-data-store",
+   "kind": "documents"
+  }
+ ]
+}

@@ -1,0 +1,1610 @@
+{
+  "area": "08-strategy-market",
+  "nodes": [
+    {
+      "id": "dec-d1-wedge-ttc-pregnancy",
+      "label": "D1 wedge: TTC to pregnancy, PCOS depth",
+      "type": "doc",
+      "path": "docs/archive/runbooks-2026-10/OWNER_ACTIONS_2026-10-07.md",
+      "status": "live"
+    },
+    {
+      "id": "dec-d2-route-to-stores-twa",
+      "label": "D2 web PWA, then Play TWA, then Flutter",
+      "type": "doc",
+      "path": "docs/archive/runbooks-2026-10/OWNER_ACTIONS_2026-10-07.md",
+      "status": "dead"
+    },
+    {
+      "id": "dec-d3-retire-payload",
+      "label": "D3 retire Payload; publish from repo Markdown",
+      "type": "doc",
+      "path": "docs/archive/runbooks-2026-10/OWNER_ACTIONS_2026-10-07.md",
+      "status": "live"
+    },
+    {
+      "id": "dec-d4-markets-sa-eg-arabic",
+      "label": "D4 markets: SA and EG, Arabic first",
+      "type": "doc",
+      "path": "docs/archive/runbooks-2026-10/OWNER_ACTIONS_2026-10-07.md",
+      "status": "live"
+    },
+    {
+      "id": "dec-d5-launch-30-nov",
+      "label": "D5 soft launch week of 30 Nov 2026",
+      "type": "doc",
+      "path": "docs/archive/runbooks-2026-10/OWNER_ACTIONS_2026-10-07.md",
+      "status": "live"
+    },
+    {
+      "id": "dec-d6-dusk-bloom",
+      "label": "D6 visual direction Dusk Bloom",
+      "type": "doc",
+      "path": "docs/archive/runbooks-2026-10/OWNER_ACTIONS_2026-10-07.md",
+      "status": "live"
+    },
+    {
+      "id": "dec-d7-private-launch",
+      "label": "D7 private launch, records on phone, no accounts",
+      "type": "doc",
+      "path": "docs/archive/runbooks-2026-10/OWNER_ACTIONS_2026-10-07.md",
+      "status": "live"
+    },
+    {
+      "id": "dec-d8-website-promotes-android",
+      "label": "D8 website promotes Android app; web closes",
+      "type": "doc",
+      "path": "docs/archive/runbooks-2026-10/OWNER_ACTIONS_2026-10-07.md",
+      "status": "live"
+    },
+    {
+      "id": "dec-launch-jan-2027",
+      "label": "Launch re-dated to 4 Jan 2027 (commit 098e18e)",
+      "type": "doc",
+      "path": "git log",
+      "status": "dead"
+    },
+    {
+      "id": "adr-012-payload-source",
+      "label": "ADR-012 Payload as content source of truth",
+      "type": "doc",
+      "path": "docs/DECISIONS.md",
+      "status": "dead"
+    },
+    {
+      "id": "adr-028-health-not-medical",
+      "label": "ADR-028 health product, not medical",
+      "type": "doc",
+      "path": "docs/DECISIONS.md",
+      "status": "live"
+    },
+    {
+      "id": "adr-058-personas-57-resolvable",
+      "label": "ADR-058 57 of 73 personas resolvable",
+      "type": "doc",
+      "path": "docs/DECISIONS.md",
+      "status": "unknown"
+    },
+    {
+      "id": "adr-060-flutter-backend-decides",
+      "label": "ADR-060 Flutter; backend owns decisions",
+      "type": "doc",
+      "path": "docs/DECISIONS.md",
+      "status": "unknown"
+    },
+    {
+      "id": "adr-070-private-android-app",
+      "label": "ADR-070 private Android app; web closes",
+      "type": "doc",
+      "path": "docs/DECISIONS.md",
+      "status": "live"
+    },
+    {
+      "id": "dec-store-shopify-phase3",
+      "label": "Headless Shopify store in Phase 3",
+      "type": "doc",
+      "path": "docs/06_TECH_STACK_SKILLS_CHECKLIST.md",
+      "status": "unknown"
+    },
+    {
+      "id": "dec-store-affiliate-only",
+      "label": "E-commerce affiliate-only (Mumzworld owns rail)",
+      "type": "doc",
+      "path": "docs/30_REVAMP/02_MARKET_RESEARCH_2026-10.md",
+      "status": "live"
+    },
+    {
+      "id": "dec-legal-lawyer-gate",
+      "label": "Counsel review is launch-blocking",
+      "type": "doc",
+      "path": "docs/30_REVAMP/02_MARKET_RESEARCH_2026-10.md",
+      "status": "unknown"
+    },
+    {
+      "id": "dec-legal-no-lawyer-drafts",
+      "label": "Lawyer replaced by legal pages and drafts",
+      "type": "doc",
+      "path": "docs/runbooks/OWNER_ACTIONS.md",
+      "status": "unknown"
+    },
+    {
+      "id": "dec-monetisation-freemium",
+      "label": "Freemium in principle; model later (OD-7)",
+      "type": "doc",
+      "path": "docs/30_REVAMP/03_REVAMP_PLAN.md",
+      "status": "live"
+    },
+    {
+      "id": "dec-payments-owner-rule",
+      "label": "Owner rule: PayPal, Paddle, Google Play Billing only",
+      "type": "doc",
+      "path": "external:owner-global-instructions (not in repo)",
+      "status": "live"
+    },
+    {
+      "id": "dec-payments-stripe-primary",
+      "label": "Stripe primary, Paddle or LemonSqueezy (06)",
+      "type": "doc",
+      "path": "docs/06_TECH_STACK_SKILLS_CHECKLIST.md",
+      "status": "dead"
+    },
+    {
+      "id": "dir-od-1-4-study-mechanics",
+      "label": "OD-1 to OD-4 study mechanics and APK extraction",
+      "type": "doc",
+      "path": "docs/28_TEARDOWN/11_FINDINGS_LEDGER.md",
+      "status": "live"
+    },
+    {
+      "id": "dir-od-5-conservative-register",
+      "label": "OD-5 conservative register, no sexual-wellness surface",
+      "type": "doc",
+      "path": "docs/28_TEARDOWN/11_FINDINGS_LEDGER.md",
+      "status": "live"
+    },
+    {
+      "id": "dir-od-6-onboarding-joyful",
+      "label": "OD-6 onboarding joyful, simple, no overselling",
+      "type": "doc",
+      "path": "docs/28_TEARDOWN/11_FINDINGS_LEDGER.md",
+      "status": "live"
+    },
+    {
+      "id": "dir-od-7-freemium",
+      "label": "OD-7 freemium, model later",
+      "type": "doc",
+      "path": "docs/28_TEARDOWN/11_FINDINGS_LEDGER.md",
+      "status": "live"
+    },
+    {
+      "id": "dir-od-8-no-chat",
+      "label": "OD-8 no messaging, no chat",
+      "type": "doc",
+      "path": "docs/28_TEARDOWN/11_FINDINGS_LEDGER.md",
+      "status": "live"
+    },
+    {
+      "id": "dir-od-9-ai-post-v1",
+      "label": "OD-9 AI assistant after V1",
+      "type": "doc",
+      "path": "docs/28_TEARDOWN/11_FINDINGS_LEDGER.md",
+      "status": "live"
+    },
+    {
+      "id": "dir-od-10-11-dashboard-calendar",
+      "label": "OD-10/11 dashboard and calendar prominence",
+      "type": "doc",
+      "path": "docs/28_TEARDOWN/11_FINDINGS_LEDGER.md",
+      "status": "live"
+    },
+    {
+      "id": "dir-od-12-learn-structure",
+      "label": "OD-12 Learn follows Flo structure, our citations",
+      "type": "doc",
+      "path": "docs/28_TEARDOWN/11_FINDINGS_LEDGER.md",
+      "status": "live"
+    },
+    {
+      "id": "dir-od-13-persona-thesis",
+      "label": "OD-13 experience changes with persona",
+      "type": "doc",
+      "path": "docs/28_TEARDOWN/11_FINDINGS_LEDGER.md",
+      "status": "live"
+    },
+    {
+      "id": "dir-od-14-three-apps-gate",
+      "label": "OD-14 at least as good as three apps combined",
+      "type": "doc",
+      "path": "docs/28_TEARDOWN/11_FINDINGS_LEDGER.md",
+      "status": "live"
+    },
+    {
+      "id": "dir-od-15-calendar-detail",
+      "label": "OD-15 calendar detail floor",
+      "type": "doc",
+      "path": "docs/28_TEARDOWN/11_FINDINGS_LEDGER.md",
+      "status": "live"
+    },
+    {
+      "id": "dir-od-16-web-first-build",
+      "label": "OD-16 mobile-first web app built first",
+      "type": "doc",
+      "path": "docs/28_TEARDOWN/11_FINDINGS_LEDGER.md",
+      "status": "dead"
+    },
+    {
+      "id": "persona-group-a-puberty",
+      "label": "Persona group A: puberty and teen (6)",
+      "type": "doc",
+      "path": "docs/personas/",
+      "status": "live"
+    },
+    {
+      "id": "persona-group-b-cycle-gyn",
+      "label": "Persona group B: cycle and gynae (19)",
+      "type": "doc",
+      "path": "docs/personas/",
+      "status": "live"
+    },
+    {
+      "id": "persona-group-c-ttc",
+      "label": "Persona group C: trying to conceive (16)",
+      "type": "doc",
+      "path": "docs/personas/",
+      "status": "live"
+    },
+    {
+      "id": "persona-group-d-pregnancy",
+      "label": "Persona group D: pregnancy (17)",
+      "type": "doc",
+      "path": "docs/personas/",
+      "status": "live"
+    },
+    {
+      "id": "persona-group-e-postpartum",
+      "label": "Persona group E: postpartum (7)",
+      "type": "doc",
+      "path": "docs/personas/",
+      "status": "live"
+    },
+    {
+      "id": "persona-group-f-menopause",
+      "label": "Persona group F: perimenopause and menopause (6)",
+      "type": "doc",
+      "path": "docs/personas/",
+      "status": "live"
+    },
+    {
+      "id": "persona-group-x-cross-cutting",
+      "label": "Persona group X: partner and guardian modes (2)",
+      "type": "doc",
+      "path": "docs/personas/",
+      "status": "live"
+    },
+    {
+      "id": "mkt-saudi-arabia",
+      "label": "Market: Saudi Arabia (revenue first)",
+      "type": "module",
+      "path": "docs/30_REVAMP/02_MARKET_RESEARCH_2026-10.md",
+      "status": "live"
+    },
+    {
+      "id": "mkt-egypt",
+      "label": "Market: Egypt (volume, content, clinicians)",
+      "type": "module",
+      "path": "docs/30_REVAMP/02_MARKET_RESEARCH_2026-10.md",
+      "status": "live"
+    },
+    {
+      "id": "mkt-uae",
+      "label": "Market: UAE (fast follower)",
+      "type": "module",
+      "path": "docs/30_REVAMP/02_MARKET_RESEARCH_2026-10.md",
+      "status": "live"
+    },
+    {
+      "id": "mkt-eu-global-web",
+      "label": "Market: EU and global, web only",
+      "type": "module",
+      "path": "docs/30_REVAMP/02_MARKET_RESEARCH_2026-10.md",
+      "status": "live"
+    },
+    {
+      "id": "mkt-mena-overall",
+      "label": "Market: MENA overall (low-confidence sizing)",
+      "type": "module",
+      "path": "docs/30_REVAMP/02_MARKET_RESEARCH_2026-10.md",
+      "status": "unknown"
+    },
+    {
+      "id": "mkt-us-context",
+      "label": "Market: US (leaders' home, context)",
+      "type": "module",
+      "path": "docs/30_REVAMP/02_MARKET_RESEARCH_2026-10.md",
+      "status": "live"
+    },
+    {
+      "id": "comp-flo",
+      "label": "Flo (no Arabic in listing)",
+      "type": "service",
+      "path": "docs/30_REVAMP/02_MARKET_RESEARCH_2026-10.md",
+      "status": "live"
+    },
+    {
+      "id": "comp-clue",
+      "label": "Clue (Arabic among 27 languages)",
+      "type": "service",
+      "path": "docs/30_REVAMP/02_MARKET_RESEARCH_2026-10.md",
+      "status": "live"
+    },
+    {
+      "id": "comp-stardust",
+      "label": "Stardust (privacy damaged, Oct 2026)",
+      "type": "service",
+      "path": "docs/03_COMPETITOR_ANALYSIS.md",
+      "status": "unknown"
+    },
+    {
+      "id": "comp-natural-cycles",
+      "label": "Natural Cycles (regulated contraceptive)",
+      "type": "service",
+      "path": "docs/30_REVAMP/02_MARKET_RESEARCH_2026-10.md",
+      "status": "live"
+    },
+    {
+      "id": "comp-premom",
+      "label": "Premom (OPK photo, Arabic listed)",
+      "type": "service",
+      "path": "docs/30_REVAMP/delegated/2026-10-08-competitor-benchmark.md",
+      "status": "live"
+    },
+    {
+      "id": "comp-fertility-friend",
+      "label": "Fertility Friend (BBT depth)",
+      "type": "service",
+      "path": "docs/03_COMPETITOR_ANALYSIS.md",
+      "status": "live"
+    },
+    {
+      "id": "comp-ovia",
+      "label": "Ovia (lifecycle concept, employer model)",
+      "type": "service",
+      "path": "docs/03_COMPETITOR_ANALYSIS.md",
+      "status": "live"
+    },
+    {
+      "id": "comp-pregnancy-plus",
+      "label": "Pregnancy+ (Philips, polish)",
+      "type": "service",
+      "path": "docs/30_REVAMP/02_MARKET_RESEARCH_2026-10.md",
+      "status": "live"
+    },
+    {
+      "id": "comp-babycenter-wte",
+      "label": "BabyCenter and What to Expect (ad-funded)",
+      "type": "service",
+      "path": "docs/03_COMPETITOR_ANALYSIS.md",
+      "status": "unknown"
+    },
+    {
+      "id": "comp-balance",
+      "label": "Balance (named clinician, menopause)",
+      "type": "service",
+      "path": "docs/30_REVAMP/02_MARKET_RESEARCH_2026-10.md",
+      "status": "live"
+    },
+    {
+      "id": "comp-caria",
+      "label": "Caria (CBT menopause)",
+      "type": "service",
+      "path": "docs/03_COMPETITOR_ANALYSIS.md",
+      "status": "unknown"
+    },
+    {
+      "id": "comp-stella",
+      "label": "Stella (HRT pathway, Discovery bundle)",
+      "type": "service",
+      "path": "docs/30_REVAMP/02_MARKET_RESEARCH_2026-10.md",
+      "status": "live"
+    },
+    {
+      "id": "comp-midday",
+      "label": "Midday (Lisa Health, Mayo)",
+      "type": "service",
+      "path": "docs/30_REVAMP/02_MARKET_RESEARCH_2026-10.md",
+      "status": "unknown"
+    },
+    {
+      "id": "comp-midi-health",
+      "label": "Midi Health (care delivery, $150M run-rate)",
+      "type": "service",
+      "path": "docs/30_REVAMP/02_MARKET_RESEARCH_2026-10.md",
+      "status": "live"
+    },
+    {
+      "id": "comp-oura-whoop",
+      "label": "Oura and Whoop (wearable insight layer)",
+      "type": "service",
+      "path": "docs/30_REVAMP/02_MARKET_RESEARCH_2026-10.md",
+      "status": "unknown"
+    },
+    {
+      "id": "comp-apple-samsung-os",
+      "label": "Apple Health and Samsung Health (free floor)",
+      "type": "service",
+      "path": "docs/30_REVAMP/02_MARKET_RESEARCH_2026-10.md",
+      "status": "live"
+    },
+    {
+      "id": "comp-al-malika",
+      "label": "Al-Malika (Arabic tracking plus OB-GYN consult)",
+      "type": "service",
+      "path": "docs/30_REVAMP/02_MARKET_RESEARCH_2026-10.md",
+      "status": "live"
+    },
+    {
+      "id": "comp-hawaa",
+      "label": "Hawaa (Arabic period tracker)",
+      "type": "service",
+      "path": "docs/30_REVAMP/02_MARKET_RESEARCH_2026-10.md",
+      "status": "live"
+    },
+    {
+      "id": "comp-pregnancy-calculator-hayah",
+      "label": "Arabic pregnancy calculator (2.5M downloads, ad-funded)",
+      "type": "service",
+      "path": "docs/30_REVAMP/02_MARKET_RESEARCH_2026-10.md",
+      "status": "live"
+    },
+    {
+      "id": "comp-altibbi",
+      "label": "Altibbi (Arabic telehealth and search)",
+      "type": "service",
+      "path": "docs/30_REVAMP/02_MARKET_RESEARCH_2026-10.md",
+      "status": "live"
+    },
+    {
+      "id": "comp-sehhaty",
+      "label": "Sehhaty (Saudi MoH app, 27M)",
+      "type": "service",
+      "path": "docs/30_REVAMP/02_MARKET_RESEARCH_2026-10.md",
+      "status": "live"
+    },
+    {
+      "id": "comp-vezeeta",
+      "label": "Vezeeta (booking rail, Egypt)",
+      "type": "service",
+      "path": "docs/30_REVAMP/02_MARKET_RESEARCH_2026-10.md",
+      "status": "unknown"
+    },
+    {
+      "id": "comp-nabta-health",
+      "label": "Nabta Health (UAE, hybrid women's health)",
+      "type": "service",
+      "path": "docs/30_REVAMP/02_MARKET_RESEARCH_2026-10.md",
+      "status": "live"
+    },
+    {
+      "id": "comp-mumzworld",
+      "label": "Mumzworld (mother and baby commerce)",
+      "type": "service",
+      "path": "docs/30_REVAMP/02_MARKET_RESEARCH_2026-10.md",
+      "status": "live"
+    },
+    {
+      "id": "comp-muslim-cycle-apps",
+      "label": "Muslim cycle apps (Sila, Nisa Care, Tuhr, Afifa, others)",
+      "type": "service",
+      "path": "docs/30_REVAMP/02_MARKET_RESEARCH_2026-10.md",
+      "status": "live"
+    },
+    {
+      "id": "comp-maven-clinic",
+      "label": "Maven Clinic (US employer care)",
+      "type": "service",
+      "path": "docs/30_REVAMP/02_MARKET_RESEARCH_2026-10.md",
+      "status": "unknown"
+    },
+    {
+      "id": "comp-glow-eve",
+      "label": "Glow and Eve (2024 breach, aging)",
+      "type": "service",
+      "path": "docs/03_COMPETITOR_ANALYSIS.md",
+      "status": "unknown"
+    },
+    {
+      "id": "comp-peanut",
+      "label": "Peanut (community, scale unverified)",
+      "type": "service",
+      "path": "docs/30_REVAMP/02_MARKET_RESEARCH_2026-10.md",
+      "status": "unknown"
+    },
+    {
+      "id": "comp-imc-hospital",
+      "label": "IMC Women's Health (Jeddah hospital app)",
+      "type": "service",
+      "path": "docs/30_REVAMP/02_MARKET_RESEARCH_2026-10.md",
+      "status": "live"
+    },
+    {
+      "id": "comp-content-sites",
+      "label": "Healthline, WebMD, Mayo, NHS (SEO content)",
+      "type": "service",
+      "path": "docs/03_COMPETITOR_ANALYSIS.md",
+      "status": "live"
+    },
+    {
+      "id": "femio-web-tracker",
+      "label": "Femio web tracker (closed in production)",
+      "type": "module",
+      "path": "docs/STATE.md",
+      "status": "app-only"
+    },
+    {
+      "id": "femio-android-app",
+      "label": "Femio private Android app (Flutter, local-first)",
+      "type": "module",
+      "path": "docs/30_REVAMP/04_ANDROID_APP_SPEC.md",
+      "status": "live"
+    },
+    {
+      "id": "reg-egypt-pdpl-31-oct-2026",
+      "label": "Egypt PDPL enforcement from 31 Oct 2026",
+      "type": "module",
+      "path": "docs/30_REVAMP/02_MARKET_RESEARCH_2026-10.md",
+      "status": "live"
+    },
+    {
+      "id": "doc-00-executive-summary",
+      "label": "July exec summary (web-first, Capacitor)",
+      "type": "doc",
+      "path": "docs/00_EXECUTIVE_SUMMARY.md",
+      "status": "dead"
+    },
+    {
+      "id": "doc-01-v1-lessons",
+      "label": "V1 lessons learned",
+      "type": "doc",
+      "path": "docs/01_V1_LESSONS_LEARNED.md",
+      "status": "live"
+    },
+    {
+      "id": "doc-02-market-jul",
+      "label": "July market and user research",
+      "type": "doc",
+      "path": "docs/02_MARKET_USER_RESEARCH.md",
+      "status": "unknown"
+    },
+    {
+      "id": "doc-03-competitor-analysis",
+      "label": "Competitor analysis (July tables, Aug craft)",
+      "type": "doc",
+      "path": "docs/03_COMPETITOR_ANALYSIS.md",
+      "status": "unknown"
+    },
+    {
+      "id": "doc-05-product-strategy-plan",
+      "label": "July product strategy and phases",
+      "type": "doc",
+      "path": "docs/05_PRODUCT_STRATEGY_PLAN.md",
+      "status": "dead"
+    },
+    {
+      "id": "doc-30-revamp-00-readme",
+      "label": "Revamp index",
+      "type": "doc",
+      "path": "docs/30_REVAMP/00_README.md",
+      "status": "unknown"
+    },
+    {
+      "id": "doc-30-revamp-01-audit",
+      "label": "Agency audit and critique (7 Oct)",
+      "type": "doc",
+      "path": "docs/30_REVAMP/01_AUDIT_AND_CRITIQUE.md",
+      "status": "live"
+    },
+    {
+      "id": "doc-30-revamp-02-market-research",
+      "label": "Market research, Oct 2026 (SWOT, wedge)",
+      "type": "doc",
+      "path": "docs/30_REVAMP/02_MARKET_RESEARCH_2026-10.md",
+      "status": "live"
+    },
+    {
+      "id": "doc-30-revamp-03-revamp-plan",
+      "label": "Revamp plan (wedge, Dusk Bloom, phases)",
+      "type": "doc",
+      "path": "docs/30_REVAMP/03_REVAMP_PLAN.md",
+      "status": "unknown"
+    },
+    {
+      "id": "doc-30-revamp-04-android-spec",
+      "label": "Android app spec (D7/D8)",
+      "type": "doc",
+      "path": "docs/30_REVAMP/04_ANDROID_APP_SPEC.md",
+      "status": "live"
+    },
+    {
+      "id": "doc-30-revamp-delegated-benchmark",
+      "label": "Competitor benchmark, Arabic wedge (8 Oct)",
+      "type": "doc",
+      "path": "docs/30_REVAMP/delegated/2026-10-08-competitor-benchmark.md",
+      "status": "live"
+    },
+    {
+      "id": "doc-28-findings-ledger",
+      "label": "Findings ledger (OD and corrections)",
+      "type": "doc",
+      "path": "docs/28_TEARDOWN/11_FINDINGS_LEDGER.md",
+      "status": "live"
+    },
+    {
+      "id": "doc-28-index",
+      "label": "Teardown index",
+      "type": "doc",
+      "path": "docs/28_TEARDOWN/00_INDEX.md",
+      "status": "live"
+    },
+    {
+      "id": "doc-28-build-plan",
+      "label": "Old teardown build plan",
+      "type": "doc",
+      "path": "docs/28_TEARDOWN/09_BUILD_PLAN.md",
+      "status": "dead"
+    },
+    {
+      "id": "doc-28-comparison-matrices",
+      "label": "Comparison matrices (August counts)",
+      "type": "doc",
+      "path": "docs/28_TEARDOWN/06_COMPARISON_MATRICES.md",
+      "status": "unknown"
+    },
+    {
+      "id": "doc-29-sequence",
+      "label": "Rebuild sequence (Phases A to G)",
+      "type": "doc",
+      "path": "docs/29_REBUILD/07_SEQUENCE.md",
+      "status": "dead"
+    },
+    {
+      "id": "doc-31-reset-01-inventory",
+      "label": "Reset inventory (27 Oct)",
+      "type": "doc",
+      "path": "docs/31_RESET/01_INVENTORY.md",
+      "status": "live"
+    },
+    {
+      "id": "doc-claude-md",
+      "label": "Project constitution CLAUDE.md",
+      "type": "doc",
+      "path": "CLAUDE.md",
+      "status": "unknown"
+    },
+    {
+      "id": "doc-state-md",
+      "label": "Resume file STATE.md",
+      "type": "doc",
+      "path": "docs/STATE.md",
+      "status": "live"
+    },
+    {
+      "id": "doc-decisions-md",
+      "label": "ADR log DECISIONS.md",
+      "type": "doc",
+      "path": "docs/DECISIONS.md",
+      "status": "live"
+    },
+    {
+      "id": "doc-owner-actions-now",
+      "label": "Owner actions (27 Oct rewrite)",
+      "type": "doc",
+      "path": "docs/runbooks/OWNER_ACTIONS.md",
+      "status": "live"
+    },
+    {
+      "id": "doc-owner-actions-archive",
+      "label": "Owner actions archive (D1 to D8 in section 0)",
+      "type": "doc",
+      "path": "docs/archive/runbooks-2026-10/OWNER_ACTIONS_2026-10-07.md",
+      "status": "dead"
+    },
+    {
+      "id": "doc-06-tech-stack",
+      "label": "Tech stack and payments checklist",
+      "type": "doc",
+      "path": "docs/06_TECH_STACK_SKILLS_CHECKLIST.md",
+      "status": "unknown"
+    },
+    {
+      "id": "doc-processor-register",
+      "label": "Processor register (Stripe line)",
+      "type": "doc",
+      "path": "docs/compliance/PROCESSOR_REGISTER.md",
+      "status": "unknown"
+    },
+    {
+      "id": "doc-private-launch-v1",
+      "label": "Private launch compliance note",
+      "type": "doc",
+      "path": "docs/compliance/PRIVATE_LAUNCH_V1.md",
+      "status": "live"
+    }
+  ],
+  "edges": [
+    {
+      "from": "doc-owner-actions-archive",
+      "to": "dec-d1-wedge-ttc-pregnancy",
+      "kind": "documents"
+    },
+    {
+      "from": "doc-owner-actions-archive",
+      "to": "dec-d2-route-to-stores-twa",
+      "kind": "documents"
+    },
+    {
+      "from": "doc-owner-actions-archive",
+      "to": "dec-d3-retire-payload",
+      "kind": "documents"
+    },
+    {
+      "from": "doc-owner-actions-archive",
+      "to": "dec-d4-markets-sa-eg-arabic",
+      "kind": "documents"
+    },
+    {
+      "from": "doc-owner-actions-archive",
+      "to": "dec-d5-launch-30-nov",
+      "kind": "documents"
+    },
+    {
+      "from": "doc-owner-actions-archive",
+      "to": "dec-d6-dusk-bloom",
+      "kind": "documents"
+    },
+    {
+      "from": "doc-owner-actions-archive",
+      "to": "dec-d7-private-launch",
+      "kind": "documents"
+    },
+    {
+      "from": "doc-owner-actions-archive",
+      "to": "dec-d8-website-promotes-android",
+      "kind": "documents"
+    },
+    {
+      "from": "doc-owner-actions-now",
+      "to": "dec-d7-private-launch",
+      "kind": "documents"
+    },
+    {
+      "from": "doc-owner-actions-now",
+      "to": "dec-d8-website-promotes-android",
+      "kind": "documents"
+    },
+    {
+      "from": "doc-owner-actions-now",
+      "to": "dec-legal-no-lawyer-drafts",
+      "kind": "documents"
+    },
+    {
+      "from": "doc-state-md",
+      "to": "dec-d7-private-launch",
+      "kind": "documents"
+    },
+    {
+      "from": "doc-state-md",
+      "to": "dec-d8-website-promotes-android",
+      "kind": "documents"
+    },
+    {
+      "from": "doc-state-md",
+      "to": "femio-web-tracker",
+      "kind": "documents"
+    },
+    {
+      "from": "doc-decisions-md",
+      "to": "adr-070-private-android-app",
+      "kind": "documents"
+    },
+    {
+      "from": "doc-decisions-md",
+      "to": "adr-060-flutter-backend-decides",
+      "kind": "documents"
+    },
+    {
+      "from": "doc-decisions-md",
+      "to": "adr-012-payload-source",
+      "kind": "documents"
+    },
+    {
+      "from": "doc-decisions-md",
+      "to": "adr-028-health-not-medical",
+      "kind": "documents"
+    },
+    {
+      "from": "doc-decisions-md",
+      "to": "adr-058-personas-57-resolvable",
+      "kind": "documents"
+    },
+    {
+      "from": "doc-30-revamp-00-readme",
+      "to": "dec-d2-route-to-stores-twa",
+      "kind": "documents"
+    },
+    {
+      "from": "doc-30-revamp-03-revamp-plan",
+      "to": "dec-d1-wedge-ttc-pregnancy",
+      "kind": "documents"
+    },
+    {
+      "from": "doc-30-revamp-03-revamp-plan",
+      "to": "dec-d6-dusk-bloom",
+      "kind": "documents"
+    },
+    {
+      "from": "doc-30-revamp-03-revamp-plan",
+      "to": "dec-d3-retire-payload",
+      "kind": "documents"
+    },
+    {
+      "from": "doc-30-revamp-03-revamp-plan",
+      "to": "dec-monetisation-freemium",
+      "kind": "documents"
+    },
+    {
+      "from": "doc-30-revamp-02-market-research",
+      "to": "dec-d1-wedge-ttc-pregnancy",
+      "kind": "documents"
+    },
+    {
+      "from": "doc-30-revamp-02-market-research",
+      "to": "dec-store-affiliate-only",
+      "kind": "documents"
+    },
+    {
+      "from": "doc-30-revamp-02-market-research",
+      "to": "dec-legal-lawyer-gate",
+      "kind": "documents"
+    },
+    {
+      "from": "doc-30-revamp-04-android-spec",
+      "to": "femio-android-app",
+      "kind": "documents"
+    },
+    {
+      "from": "doc-30-revamp-04-android-spec",
+      "to": "dec-d8-website-promotes-android",
+      "kind": "documents"
+    },
+    {
+      "from": "doc-private-launch-v1",
+      "to": "dec-d7-private-launch",
+      "kind": "documents"
+    },
+    {
+      "from": "doc-31-reset-01-inventory",
+      "to": "dec-d5-launch-30-nov",
+      "kind": "documents"
+    },
+    {
+      "from": "doc-31-reset-01-inventory",
+      "to": "dec-legal-lawyer-gate",
+      "kind": "documents"
+    },
+    {
+      "from": "doc-06-tech-stack",
+      "to": "dec-payments-stripe-primary",
+      "kind": "documents"
+    },
+    {
+      "from": "doc-06-tech-stack",
+      "to": "dec-store-shopify-phase3",
+      "kind": "documents"
+    },
+    {
+      "from": "doc-processor-register",
+      "to": "dec-payments-stripe-primary",
+      "kind": "documents"
+    },
+    {
+      "from": "doc-28-findings-ledger",
+      "to": "dec-payments-owner-rule",
+      "kind": "documents"
+    },
+    {
+      "from": "doc-28-index",
+      "to": "dir-od-5-conservative-register",
+      "kind": "documents"
+    },
+    {
+      "from": "doc-28-index",
+      "to": "dir-od-6-onboarding-joyful",
+      "kind": "documents"
+    },
+    {
+      "from": "doc-28-index",
+      "to": "dir-od-7-freemium",
+      "kind": "documents"
+    },
+    {
+      "from": "doc-28-index",
+      "to": "dir-od-12-learn-structure",
+      "kind": "documents"
+    },
+    {
+      "from": "doc-28-findings-ledger",
+      "to": "dir-od-1-4-study-mechanics",
+      "kind": "documents"
+    },
+    {
+      "from": "doc-28-findings-ledger",
+      "to": "dir-od-5-conservative-register",
+      "kind": "documents"
+    },
+    {
+      "from": "doc-28-findings-ledger",
+      "to": "dir-od-6-onboarding-joyful",
+      "kind": "documents"
+    },
+    {
+      "from": "doc-28-findings-ledger",
+      "to": "dir-od-7-freemium",
+      "kind": "documents"
+    },
+    {
+      "from": "doc-28-findings-ledger",
+      "to": "dir-od-8-no-chat",
+      "kind": "documents"
+    },
+    {
+      "from": "doc-28-findings-ledger",
+      "to": "dir-od-9-ai-post-v1",
+      "kind": "documents"
+    },
+    {
+      "from": "doc-28-findings-ledger",
+      "to": "dir-od-10-11-dashboard-calendar",
+      "kind": "documents"
+    },
+    {
+      "from": "doc-28-findings-ledger",
+      "to": "dir-od-12-learn-structure",
+      "kind": "documents"
+    },
+    {
+      "from": "doc-28-findings-ledger",
+      "to": "dir-od-13-persona-thesis",
+      "kind": "documents"
+    },
+    {
+      "from": "doc-28-findings-ledger",
+      "to": "dir-od-14-three-apps-gate",
+      "kind": "documents"
+    },
+    {
+      "from": "doc-28-findings-ledger",
+      "to": "dir-od-15-calendar-detail",
+      "kind": "documents"
+    },
+    {
+      "from": "doc-28-findings-ledger",
+      "to": "dir-od-16-web-first-build",
+      "kind": "documents"
+    },
+    {
+      "from": "doc-30-revamp-02-market-research",
+      "to": "persona-group-a-puberty",
+      "kind": "documents"
+    },
+    {
+      "from": "doc-30-revamp-02-market-research",
+      "to": "persona-group-b-cycle-gyn",
+      "kind": "documents"
+    },
+    {
+      "from": "doc-30-revamp-02-market-research",
+      "to": "persona-group-c-ttc",
+      "kind": "documents"
+    },
+    {
+      "from": "doc-30-revamp-02-market-research",
+      "to": "persona-group-d-pregnancy",
+      "kind": "documents"
+    },
+    {
+      "from": "doc-30-revamp-02-market-research",
+      "to": "persona-group-e-postpartum",
+      "kind": "documents"
+    },
+    {
+      "from": "doc-30-revamp-02-market-research",
+      "to": "persona-group-f-menopause",
+      "kind": "documents"
+    },
+    {
+      "from": "doc-30-revamp-02-market-research",
+      "to": "persona-group-x-cross-cutting",
+      "kind": "documents"
+    },
+    {
+      "from": "doc-30-revamp-02-market-research",
+      "to": "comp-flo",
+      "kind": "documents"
+    },
+    {
+      "from": "doc-30-revamp-02-market-research",
+      "to": "comp-clue",
+      "kind": "documents"
+    },
+    {
+      "from": "doc-30-revamp-02-market-research",
+      "to": "comp-natural-cycles",
+      "kind": "documents"
+    },
+    {
+      "from": "doc-30-revamp-02-market-research",
+      "to": "comp-balance",
+      "kind": "documents"
+    },
+    {
+      "from": "doc-30-revamp-02-market-research",
+      "to": "comp-midi-health",
+      "kind": "documents"
+    },
+    {
+      "from": "doc-30-revamp-02-market-research",
+      "to": "comp-al-malika",
+      "kind": "documents"
+    },
+    {
+      "from": "doc-30-revamp-02-market-research",
+      "to": "comp-hawaa",
+      "kind": "documents"
+    },
+    {
+      "from": "doc-30-revamp-02-market-research",
+      "to": "comp-pregnancy-calculator-hayah",
+      "kind": "documents"
+    },
+    {
+      "from": "doc-30-revamp-02-market-research",
+      "to": "comp-altibbi",
+      "kind": "documents"
+    },
+    {
+      "from": "doc-30-revamp-02-market-research",
+      "to": "comp-sehhaty",
+      "kind": "documents"
+    },
+    {
+      "from": "doc-30-revamp-02-market-research",
+      "to": "comp-vezeeta",
+      "kind": "documents"
+    },
+    {
+      "from": "doc-30-revamp-02-market-research",
+      "to": "comp-mumzworld",
+      "kind": "documents"
+    },
+    {
+      "from": "doc-30-revamp-02-market-research",
+      "to": "comp-muslim-cycle-apps",
+      "kind": "documents"
+    },
+    {
+      "from": "doc-30-revamp-02-market-research",
+      "to": "comp-maven-clinic",
+      "kind": "documents"
+    },
+    {
+      "from": "doc-30-revamp-02-market-research",
+      "to": "comp-stella",
+      "kind": "documents"
+    },
+    {
+      "from": "doc-30-revamp-02-market-research",
+      "to": "comp-midday",
+      "kind": "documents"
+    },
+    {
+      "from": "doc-30-revamp-02-market-research",
+      "to": "comp-oura-whoop",
+      "kind": "documents"
+    },
+    {
+      "from": "doc-30-revamp-02-market-research",
+      "to": "comp-ovia",
+      "kind": "documents"
+    },
+    {
+      "from": "doc-30-revamp-02-market-research",
+      "to": "comp-pregnancy-plus",
+      "kind": "documents"
+    },
+    {
+      "from": "doc-30-revamp-02-market-research",
+      "to": "comp-imc-hospital",
+      "kind": "documents"
+    },
+    {
+      "from": "doc-30-revamp-02-market-research",
+      "to": "comp-nabta-health",
+      "kind": "documents"
+    },
+    {
+      "from": "doc-30-revamp-02-market-research",
+      "to": "comp-apple-samsung-os",
+      "kind": "documents"
+    },
+    {
+      "from": "doc-30-revamp-02-market-research",
+      "to": "comp-stardust",
+      "kind": "documents"
+    },
+    {
+      "from": "doc-03-competitor-analysis",
+      "to": "comp-stardust",
+      "kind": "documents"
+    },
+    {
+      "from": "doc-03-competitor-analysis",
+      "to": "comp-premom",
+      "kind": "documents"
+    },
+    {
+      "from": "doc-03-competitor-analysis",
+      "to": "comp-fertility-friend",
+      "kind": "documents"
+    },
+    {
+      "from": "doc-03-competitor-analysis",
+      "to": "comp-ovia",
+      "kind": "documents"
+    },
+    {
+      "from": "doc-03-competitor-analysis",
+      "to": "comp-babycenter-wte",
+      "kind": "documents"
+    },
+    {
+      "from": "doc-03-competitor-analysis",
+      "to": "comp-balance",
+      "kind": "documents"
+    },
+    {
+      "from": "doc-03-competitor-analysis",
+      "to": "comp-caria",
+      "kind": "documents"
+    },
+    {
+      "from": "doc-03-competitor-analysis",
+      "to": "comp-glow-eve",
+      "kind": "documents"
+    },
+    {
+      "from": "doc-03-competitor-analysis",
+      "to": "comp-muslim-cycle-apps",
+      "kind": "documents"
+    },
+    {
+      "from": "doc-03-competitor-analysis",
+      "to": "comp-content-sites",
+      "kind": "documents"
+    },
+    {
+      "from": "doc-30-revamp-delegated-benchmark",
+      "to": "comp-clue",
+      "kind": "documents"
+    },
+    {
+      "from": "doc-30-revamp-delegated-benchmark",
+      "to": "comp-premom",
+      "kind": "documents"
+    },
+    {
+      "from": "doc-30-revamp-delegated-benchmark",
+      "to": "comp-flo",
+      "kind": "documents"
+    },
+    {
+      "from": "doc-30-revamp-02-market-research",
+      "to": "mkt-saudi-arabia",
+      "kind": "documents"
+    },
+    {
+      "from": "doc-30-revamp-02-market-research",
+      "to": "mkt-egypt",
+      "kind": "documents"
+    },
+    {
+      "from": "doc-30-revamp-02-market-research",
+      "to": "mkt-uae",
+      "kind": "documents"
+    },
+    {
+      "from": "doc-30-revamp-02-market-research",
+      "to": "mkt-eu-global-web",
+      "kind": "documents"
+    },
+    {
+      "from": "doc-30-revamp-02-market-research",
+      "to": "mkt-mena-overall",
+      "kind": "documents"
+    },
+    {
+      "from": "doc-30-revamp-02-market-research",
+      "to": "mkt-us-context",
+      "kind": "documents"
+    },
+    {
+      "from": "doc-30-revamp-02-market-research",
+      "to": "reg-egypt-pdpl-31-oct-2026",
+      "kind": "documents"
+    },
+    {
+      "from": "doc-30-revamp-01-audit",
+      "to": "dec-d3-retire-payload",
+      "kind": "documents"
+    },
+    {
+      "from": "doc-30-revamp-01-audit",
+      "to": "dec-d1-wedge-ttc-pregnancy",
+      "kind": "supports"
+    },
+    {
+      "from": "doc-30-revamp-02-market-research",
+      "to": "dec-d1-wedge-ttc-pregnancy",
+      "kind": "supports"
+    },
+    {
+      "from": "doc-30-revamp-02-market-research",
+      "to": "dec-d4-markets-sa-eg-arabic",
+      "kind": "supports"
+    },
+    {
+      "from": "doc-30-revamp-delegated-benchmark",
+      "to": "dec-d1-wedge-ttc-pregnancy",
+      "kind": "supports"
+    },
+    {
+      "from": "doc-01-v1-lessons",
+      "to": "dec-d7-private-launch",
+      "kind": "supports"
+    },
+    {
+      "from": "doc-claude-md",
+      "to": "dec-store-shopify-phase3",
+      "kind": "supports"
+    },
+    {
+      "from": "comp-flo",
+      "to": "dec-d1-wedge-ttc-pregnancy",
+      "kind": "supports"
+    },
+    {
+      "from": "comp-al-malika",
+      "to": "dec-d1-wedge-ttc-pregnancy",
+      "kind": "supports"
+    },
+    {
+      "from": "comp-pregnancy-calculator-hayah",
+      "to": "dec-d1-wedge-ttc-pregnancy",
+      "kind": "supports"
+    },
+    {
+      "from": "persona-group-c-ttc",
+      "to": "dec-d1-wedge-ttc-pregnancy",
+      "kind": "supports"
+    },
+    {
+      "from": "persona-group-d-pregnancy",
+      "to": "dec-d1-wedge-ttc-pregnancy",
+      "kind": "supports"
+    },
+    {
+      "from": "persona-group-b-cycle-gyn",
+      "to": "dec-d1-wedge-ttc-pregnancy",
+      "kind": "supports"
+    },
+    {
+      "from": "mkt-saudi-arabia",
+      "to": "dec-d4-markets-sa-eg-arabic",
+      "kind": "supports"
+    },
+    {
+      "from": "mkt-egypt",
+      "to": "dec-d4-markets-sa-eg-arabic",
+      "kind": "supports"
+    },
+    {
+      "from": "mkt-uae",
+      "to": "dec-d4-markets-sa-eg-arabic",
+      "kind": "supports"
+    },
+    {
+      "from": "mkt-eu-global-web",
+      "to": "dec-d4-markets-sa-eg-arabic",
+      "kind": "supports"
+    },
+    {
+      "from": "dir-od-5-conservative-register",
+      "to": "dec-d1-wedge-ttc-pregnancy",
+      "kind": "supports"
+    },
+    {
+      "from": "adr-028-health-not-medical",
+      "to": "dir-od-5-conservative-register",
+      "kind": "supports"
+    },
+    {
+      "from": "doc-30-revamp-04-android-spec",
+      "to": "dec-d8-website-promotes-android",
+      "kind": "supports"
+    },
+    {
+      "from": "reg-egypt-pdpl-31-oct-2026",
+      "to": "dec-legal-lawyer-gate",
+      "kind": "supports"
+    },
+    {
+      "from": "doc-30-revamp-02-market-research",
+      "to": "dec-monetisation-freemium",
+      "kind": "supports"
+    },
+    {
+      "from": "doc-30-revamp-delegated-benchmark",
+      "to": "dec-d3-retire-payload",
+      "kind": "supports"
+    },
+    {
+      "from": "dec-d8-website-promotes-android",
+      "to": "dec-d2-route-to-stores-twa",
+      "kind": "supersedes"
+    },
+    {
+      "from": "dec-d8-website-promotes-android",
+      "to": "dir-od-16-web-first-build",
+      "kind": "supersedes"
+    },
+    {
+      "from": "adr-070-private-android-app",
+      "to": "adr-060-flutter-backend-decides",
+      "kind": "supersedes"
+    },
+    {
+      "from": "dec-d3-retire-payload",
+      "to": "adr-012-payload-source",
+      "kind": "supersedes"
+    },
+    {
+      "from": "dec-d5-launch-30-nov",
+      "to": "dec-launch-jan-2027",
+      "kind": "supersedes"
+    },
+    {
+      "from": "doc-30-revamp-03-revamp-plan",
+      "to": "doc-00-executive-summary",
+      "kind": "supersedes"
+    },
+    {
+      "from": "doc-30-revamp-03-revamp-plan",
+      "to": "doc-05-product-strategy-plan",
+      "kind": "supersedes"
+    },
+    {
+      "from": "doc-30-revamp-03-revamp-plan",
+      "to": "doc-29-sequence",
+      "kind": "supersedes"
+    },
+    {
+      "from": "doc-30-revamp-03-revamp-plan",
+      "to": "doc-28-build-plan",
+      "kind": "supersedes"
+    },
+    {
+      "from": "doc-30-revamp-02-market-research",
+      "to": "doc-02-market-jul",
+      "kind": "supersedes"
+    },
+    {
+      "from": "doc-30-revamp-02-market-research",
+      "to": "doc-03-competitor-analysis",
+      "kind": "supersedes"
+    },
+    {
+      "from": "doc-owner-actions-now",
+      "to": "doc-owner-actions-archive",
+      "kind": "supersedes"
+    },
+    {
+      "from": "dec-payments-owner-rule",
+      "to": "dec-payments-stripe-primary",
+      "kind": "supersedes"
+    },
+    {
+      "from": "doc-30-revamp-01-audit",
+      "to": "doc-state-md",
+      "kind": "supersedes"
+    },
+    {
+      "from": "doc-30-revamp-03-revamp-plan",
+      "to": "dec-d8-website-promotes-android",
+      "kind": "contradicts"
+    },
+    {
+      "from": "doc-30-revamp-00-readme",
+      "to": "dec-d8-website-promotes-android",
+      "kind": "contradicts"
+    },
+    {
+      "from": "doc-30-revamp-02-market-research",
+      "to": "doc-30-revamp-03-revamp-plan",
+      "kind": "contradicts"
+    },
+    {
+      "from": "doc-30-revamp-02-market-research",
+      "to": "doc-03-competitor-analysis",
+      "kind": "contradicts"
+    },
+    {
+      "from": "doc-30-revamp-02-market-research",
+      "to": "doc-00-executive-summary",
+      "kind": "contradicts"
+    },
+    {
+      "from": "doc-30-revamp-02-market-research",
+      "to": "comp-midi-health",
+      "kind": "contradicts"
+    },
+    {
+      "from": "doc-03-competitor-analysis",
+      "to": "doc-30-revamp-02-market-research",
+      "kind": "contradicts"
+    },
+    {
+      "from": "doc-03-competitor-analysis",
+      "to": "comp-stardust",
+      "kind": "contradicts"
+    },
+    {
+      "from": "doc-02-market-jul",
+      "to": "doc-30-revamp-02-market-research",
+      "kind": "contradicts"
+    },
+    {
+      "from": "doc-28-findings-ledger",
+      "to": "comp-clue",
+      "kind": "contradicts"
+    },
+    {
+      "from": "doc-28-findings-ledger",
+      "to": "doc-30-revamp-01-audit",
+      "kind": "contradicts"
+    },
+    {
+      "from": "doc-28-index",
+      "to": "doc-28-findings-ledger",
+      "kind": "contradicts"
+    },
+    {
+      "from": "doc-28-findings-ledger",
+      "to": "dir-od-16-web-first-build",
+      "kind": "contradicts"
+    },
+    {
+      "from": "doc-30-revamp-01-audit",
+      "to": "doc-state-md",
+      "kind": "contradicts"
+    },
+    {
+      "from": "doc-30-revamp-03-revamp-plan",
+      "to": "doc-30-revamp-02-market-research",
+      "kind": "contradicts"
+    },
+    {
+      "from": "doc-05-product-strategy-plan",
+      "to": "dir-od-8-no-chat",
+      "kind": "contradicts"
+    },
+    {
+      "from": "doc-05-product-strategy-plan",
+      "to": "dir-od-9-ai-post-v1",
+      "kind": "contradicts"
+    },
+    {
+      "from": "doc-05-product-strategy-plan",
+      "to": "dec-d7-private-launch",
+      "kind": "contradicts"
+    },
+    {
+      "from": "doc-00-executive-summary",
+      "to": "adr-060-flutter-backend-decides",
+      "kind": "contradicts"
+    },
+    {
+      "from": "doc-01-v1-lessons",
+      "to": "dec-d3-retire-payload",
+      "kind": "contradicts"
+    },
+    {
+      "from": "doc-01-v1-lessons",
+      "to": "dec-d7-private-launch",
+      "kind": "contradicts"
+    },
+    {
+      "from": "doc-claude-md",
+      "to": "dec-d7-private-launch",
+      "kind": "contradicts"
+    },
+    {
+      "from": "doc-claude-md",
+      "to": "dec-d3-retire-payload",
+      "kind": "contradicts"
+    },
+    {
+      "from": "doc-claude-md",
+      "to": "dec-legal-no-lawyer-drafts",
+      "kind": "contradicts"
+    },
+    {
+      "from": "doc-claude-md",
+      "to": "adr-060-flutter-backend-decides",
+      "kind": "contradicts"
+    },
+    {
+      "from": "doc-06-tech-stack",
+      "to": "dec-payments-owner-rule",
+      "kind": "contradicts"
+    },
+    {
+      "from": "doc-processor-register",
+      "to": "dec-payments-owner-rule",
+      "kind": "contradicts"
+    },
+    {
+      "from": "doc-30-revamp-03-revamp-plan",
+      "to": "dec-monetisation-freemium",
+      "kind": "contradicts"
+    },
+    {
+      "from": "doc-30-revamp-02-market-research",
+      "to": "dec-store-shopify-phase3",
+      "kind": "contradicts"
+    },
+    {
+      "from": "dec-store-shopify-phase3",
+      "to": "dec-store-affiliate-only",
+      "kind": "contradicts"
+    },
+    {
+      "from": "dec-legal-lawyer-gate",
+      "to": "dec-legal-no-lawyer-drafts",
+      "kind": "contradicts"
+    },
+    {
+      "from": "doc-31-reset-01-inventory",
+      "to": "doc-owner-actions-now",
+      "kind": "contradicts"
+    },
+    {
+      "from": "dec-launch-jan-2027",
+      "to": "dec-d5-launch-30-nov",
+      "kind": "contradicts"
+    },
+    {
+      "from": "adr-058-personas-57-resolvable",
+      "to": "doc-28-findings-ledger",
+      "kind": "contradicts"
+    },
+    {
+      "from": "doc-30-revamp-02-market-research",
+      "to": "doc-owner-actions-now",
+      "kind": "contradicts"
+    },
+    {
+      "from": "comp-flo",
+      "to": "dec-d1-wedge-ttc-pregnancy",
+      "kind": "contradicts"
+    }
+  ]
+}

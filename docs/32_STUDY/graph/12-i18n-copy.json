@@ -1,0 +1,975 @@
+{
+ "area": "i18n-copy",
+ "nodes": [
+  {
+   "id": "docs-compliance-crisis-resources-md",
+   "label": "CRISIS_RESOURCES.md",
+   "type": "doc",
+   "path": "docs/compliance/CRISIS_RESOURCES.md",
+   "status": "live"
+  },
+  {
+   "id": "mobile-l10n-yaml",
+   "label": "l10n.yaml",
+   "type": "asset",
+   "path": "apps/mobile/l10n.yaml",
+   "status": "live"
+  },
+  {
+   "id": "mobile-lib-domain-log-vocabulary-g-dart",
+   "label": "log_vocabulary.g.dart",
+   "type": "module",
+   "path": "apps/mobile/lib/domain/log_vocabulary.g.dart",
+   "status": "live"
+  },
+  {
+   "id": "mobile-lib-domain-movements-dart",
+   "label": "movements.dart",
+   "type": "module",
+   "path": "apps/mobile/lib/domain/movements.dart",
+   "status": "live"
+  },
+  {
+   "id": "mobile-lib-features-pregnancy-movement-log-screen-dart",
+   "label": "movement_log_screen.dart",
+   "type": "screen",
+   "path": "apps/mobile/lib/features/pregnancy/movement_log_screen.dart",
+   "status": "live"
+  },
+  {
+   "id": "mobile-lib-l10n-app-ar-arb",
+   "label": "app_ar.arb",
+   "type": "asset",
+   "path": "apps/mobile/lib/l10n/app_ar.arb",
+   "status": "live"
+  },
+  {
+   "id": "mobile-lib-l10n-app-en-arb",
+   "label": "app_en.arb",
+   "type": "asset",
+   "path": "apps/mobile/lib/l10n/app_en.arb",
+   "status": "live"
+  },
+  {
+   "id": "mobile-lib-l10n-app-es-arb",
+   "label": "app_es.arb",
+   "type": "asset",
+   "path": "apps/mobile/lib/l10n/app_es.arb",
+   "status": "live"
+  },
+  {
+   "id": "mobile-lib-l10n-app-fr-arb",
+   "label": "app_fr.arb",
+   "type": "asset",
+   "path": "apps/mobile/lib/l10n/app_fr.arb",
+   "status": "live"
+  },
+  {
+   "id": "mobile-lib-l10n-app-localizations-dart",
+   "label": "generated L10n class",
+   "type": "asset",
+   "path": "apps/mobile/lib/l10n/app_localizations.dart",
+   "status": "live"
+  },
+  {
+   "id": "mobile-lib-l10n-log-labels-g-dart",
+   "label": "log_labels.g.dart",
+   "type": "module",
+   "path": "apps/mobile/lib/l10n/log_labels.g.dart",
+   "status": "live"
+  },
+  {
+   "id": "mobile-test-screens-test-dart",
+   "label": "screens_test.dart",
+   "type": "fixture",
+   "path": "apps/mobile/test/screens_test.dart",
+   "status": "live"
+  },
+  {
+   "id": "ns-app-tracker",
+   "label": "closed-tracker namespaces (44 namespaces, 1226 keys)",
+   "type": "asset",
+   "path": "apps/web/messages/en.json",
+   "status": "app-only"
+  },
+  {
+   "id": "ns-appnav",
+   "label": "appNav (8 keys, listed as public)",
+   "type": "asset",
+   "path": "apps/web/messages/en.json",
+   "status": "app-only"
+  },
+  {
+   "id": "ns-gallery-dev-page",
+   "label": "gallery namespace (29 keys, dev component page)",
+   "type": "asset",
+   "path": "apps/web/messages/en.json",
+   "status": "unknown"
+  },
+  {
+   "id": "ns-teaser-public-site",
+   "label": "public-site namespaces (21 namespaces, 429 keys)",
+   "type": "asset",
+   "path": "apps/web/messages/en.json",
+   "status": "live"
+  },
+  {
+   "id": "scripts-crisis-compliance-mjs",
+   "label": "crisis-compliance.mjs",
+   "type": "script",
+   "path": "scripts/crisis-compliance.mjs",
+   "status": "live"
+  },
+  {
+   "id": "scripts-i18n-client-namespaces-lint-mjs",
+   "label": "client-namespaces-lint.mjs",
+   "type": "script",
+   "path": "scripts/i18n/client-namespaces-lint.mjs",
+   "status": "live"
+  },
+  {
+   "id": "scripts-i18n-seed-ui-strings-mjs",
+   "label": "seed-ui-strings.mjs",
+   "type": "script",
+   "path": "scripts/i18n/seed-ui-strings.mjs",
+   "status": "app-only"
+  },
+  {
+   "id": "scripts-i18n-untranslated-lint-mjs",
+   "label": "untranslated-lint.mjs",
+   "type": "script",
+   "path": "scripts/i18n/untranslated-lint.mjs",
+   "status": "live"
+  },
+  {
+   "id": "scripts-mobile-sync-log-vocabulary-mjs",
+   "label": "sync-log-vocabulary.mjs",
+   "type": "script",
+   "path": "scripts/mobile/sync-log-vocabulary.mjs",
+   "status": "live"
+  },
+  {
+   "id": "supabase-migrations-0001-schema-v1-sql-profiles",
+   "label": "table profiles",
+   "type": "table",
+   "path": "supabase/migrations/0001_schema_v1.sql#profiles",
+   "status": "live"
+  },
+  {
+   "id": "supabase-migrations-0001-schema-v1-sql-ui-strings",
+   "label": "table ui_strings",
+   "type": "table",
+   "path": "supabase/migrations/0001_schema_v1.sql#ui_strings",
+   "status": "live"
+  },
+  {
+   "id": "web-app-locale-app-layout-tsx",
+   "label": "layout.tsx",
+   "type": "screen",
+   "path": "apps/web/src/app/[locale]/(app)/layout.tsx",
+   "status": "app-only"
+  },
+  {
+   "id": "web-app-locale-components-page-tsx",
+   "label": "page.tsx",
+   "type": "screen",
+   "path": "apps/web/src/app/[locale]/components/page.tsx",
+   "status": "unknown"
+  },
+  {
+   "id": "web-app-locale-help-now-page-tsx",
+   "label": "page.tsx",
+   "type": "screen",
+   "path": "apps/web/src/app/[locale]/help-now/page.tsx",
+   "status": "live"
+  },
+  {
+   "id": "web-app-locale-layout-tsx",
+   "label": "layout.tsx",
+   "type": "screen",
+   "path": "apps/web/src/app/[locale]/layout.tsx",
+   "status": "live"
+  },
+  {
+   "id": "web-app-locale-public-calculators-layout-tsx",
+   "label": "layout.tsx",
+   "type": "screen",
+   "path": "apps/web/src/app/[locale]/(public)/calculators/layout.tsx",
+   "status": "live"
+  },
+  {
+   "id": "web-app-locale-reset-password-layout-tsx",
+   "label": "layout.tsx",
+   "type": "screen",
+   "path": "apps/web/src/app/[locale]/reset-password/layout.tsx",
+   "status": "app-only"
+  },
+  {
+   "id": "web-app-locale-sign-in-layout-tsx",
+   "label": "layout.tsx",
+   "type": "screen",
+   "path": "apps/web/src/app/[locale]/sign-in/layout.tsx",
+   "status": "app-only"
+  },
+  {
+   "id": "web-app-locale-welcome-layout-tsx",
+   "label": "layout.tsx",
+   "type": "screen",
+   "path": "apps/web/src/app/[locale]/welcome/layout.tsx",
+   "status": "app-only"
+  },
+  {
+   "id": "web-components-admin-translation-editor-tsx",
+   "label": "translation-editor.tsx",
+   "type": "screen",
+   "path": "apps/web/src/components/admin/translation-editor.tsx",
+   "status": "app-only"
+  },
+  {
+   "id": "web-components-analytics-page-view-tsx",
+   "label": "page-view.tsx",
+   "type": "module",
+   "path": "apps/web/src/components/analytics/page-view.tsx",
+   "status": "app-only"
+  },
+  {
+   "id": "web-components-app-nav-tsx",
+   "label": "app-nav.tsx",
+   "type": "module",
+   "path": "apps/web/src/components/app-nav.tsx",
+   "status": "app-only"
+  },
+  {
+   "id": "web-components-cms-content-article-tsx",
+   "label": "content-article.tsx",
+   "type": "module",
+   "path": "apps/web/src/components/cms/content-article.tsx",
+   "status": "live"
+  },
+  {
+   "id": "web-components-crisis-crisis-content-view-tsx",
+   "label": "crisis-content-view.tsx",
+   "type": "screen",
+   "path": "apps/web/src/components/crisis/crisis-content-view.tsx",
+   "status": "live"
+  },
+  {
+   "id": "web-components-crisis-crisis-help-provider-tsx",
+   "label": "crisis-help-provider.tsx",
+   "type": "screen",
+   "path": "apps/web/src/components/crisis/crisis-help-provider.tsx",
+   "status": "live"
+  },
+  {
+   "id": "web-components-cycle-calendar-screen-tsx",
+   "label": "calendar-screen.tsx",
+   "type": "screen",
+   "path": "apps/web/src/components/cycle/calendar-screen.tsx",
+   "status": "app-only"
+  },
+  {
+   "id": "web-components-cycle-cycle-calendar-tsx",
+   "label": "cycle-calendar.tsx",
+   "type": "screen",
+   "path": "apps/web/src/components/cycle/cycle-calendar.tsx",
+   "status": "app-only"
+  },
+  {
+   "id": "web-components-onboarding-onboarding-wizard-tsx",
+   "label": "onboarding-wizard.tsx",
+   "type": "screen",
+   "path": "apps/web/src/components/onboarding/onboarding-wizard.tsx",
+   "status": "app-only"
+  },
+  {
+   "id": "web-components-pregnancy-movement-counter-tsx",
+   "label": "movement-counter.tsx",
+   "type": "screen",
+   "path": "apps/web/src/components/pregnancy/movement-counter.tsx",
+   "status": "app-only"
+  },
+  {
+   "id": "web-components-site-site-footer-tsx",
+   "label": "site-footer.tsx",
+   "type": "module",
+   "path": "apps/web/src/components/site/site-footer.tsx",
+   "status": "live"
+  },
+  {
+   "id": "web-components-site-site-header-tsx",
+   "label": "site-header.tsx",
+   "type": "module",
+   "path": "apps/web/src/components/site/site-header.tsx",
+   "status": "live"
+  },
+  {
+   "id": "web-e2e-crisis-spec-ts",
+   "label": "crisis.spec.ts",
+   "type": "fixture",
+   "path": "apps/web/e2e/crisis.spec.ts",
+   "status": "live"
+  },
+  {
+   "id": "web-i18n-client-namespaces-ts",
+   "label": "client-namespaces.ts",
+   "type": "module",
+   "path": "apps/web/src/i18n/client-namespaces.ts",
+   "status": "live"
+  },
+  {
+   "id": "web-i18n-navigation-ts",
+   "label": "navigation.ts",
+   "type": "module",
+   "path": "apps/web/src/i18n/navigation.ts",
+   "status": "live"
+  },
+  {
+   "id": "web-i18n-numbering-test-ts",
+   "label": "numbering.test.ts",
+   "type": "fixture",
+   "path": "apps/web/src/i18n/numbering.test.ts",
+   "status": "live"
+  },
+  {
+   "id": "web-i18n-request-ts",
+   "label": "request.ts",
+   "type": "module",
+   "path": "apps/web/src/i18n/request.ts",
+   "status": "live"
+  },
+  {
+   "id": "web-i18n-routing-test-ts",
+   "label": "routing.test.ts",
+   "type": "fixture",
+   "path": "apps/web/src/i18n/routing.test.ts",
+   "status": "live"
+  },
+  {
+   "id": "web-i18n-routing-ts",
+   "label": "routing.ts",
+   "type": "module",
+   "path": "apps/web/src/i18n/routing.ts",
+   "status": "live"
+  },
+  {
+   "id": "web-lib-crisis-content-ts",
+   "label": "content.ts",
+   "type": "module",
+   "path": "apps/web/src/lib/crisis/content.ts",
+   "status": "live"
+  },
+  {
+   "id": "web-lib-crisis-crisis-json",
+   "label": "crisis.json",
+   "type": "asset",
+   "path": "apps/web/src/lib/crisis/crisis.json",
+   "status": "live"
+  },
+  {
+   "id": "web-lib-crisis-directory-test-ts",
+   "label": "directory.test.ts",
+   "type": "fixture",
+   "path": "apps/web/src/lib/crisis/directory.test.ts",
+   "status": "live"
+  },
+  {
+   "id": "web-lib-crisis-directory-ts",
+   "label": "directory.ts",
+   "type": "module",
+   "path": "apps/web/src/lib/crisis/directory.ts",
+   "status": "live"
+  },
+  {
+   "id": "web-lib-cycle-calendar-ts",
+   "label": "calendar.ts",
+   "type": "function",
+   "path": "apps/web/src/lib/cycle/calendar.ts",
+   "status": "app-only"
+  },
+  {
+   "id": "web-lib-experience-v2-vocabulary-ts",
+   "label": "vocabulary.ts",
+   "type": "module",
+   "path": "apps/web/src/lib/experience/v2/vocabulary.ts",
+   "status": "live"
+  },
+  {
+   "id": "web-lib-i18n-csv-test-ts",
+   "label": "csv.test.ts",
+   "type": "fixture",
+   "path": "apps/web/src/lib/i18n/csv.test.ts",
+   "status": "app-only"
+  },
+  {
+   "id": "web-lib-i18n-csv-ts",
+   "label": "csv.ts",
+   "type": "module",
+   "path": "apps/web/src/lib/i18n/csv.ts",
+   "status": "app-only"
+  },
+  {
+   "id": "web-lib-i18n-translation-actions-ts",
+   "label": "translation-actions.ts",
+   "type": "function",
+   "path": "apps/web/src/lib/i18n/translation-actions.ts",
+   "status": "app-only"
+  },
+  {
+   "id": "web-lib-i18n-ui-strings-loader-ts",
+   "label": "ui-strings-loader.ts",
+   "type": "module",
+   "path": "apps/web/src/lib/i18n/ui-strings-loader.ts",
+   "status": "live"
+  },
+  {
+   "id": "web-lib-i18n-ui-strings-test-ts",
+   "label": "ui-strings.test.ts",
+   "type": "fixture",
+   "path": "apps/web/src/lib/i18n/ui-strings.test.ts",
+   "status": "live"
+  },
+  {
+   "id": "web-lib-i18n-ui-strings-ts",
+   "label": "ui-strings.ts",
+   "type": "module",
+   "path": "apps/web/src/lib/i18n/ui-strings.ts",
+   "status": "live"
+  },
+  {
+   "id": "web-lib-onboarding-complete-ts",
+   "label": "complete.ts",
+   "type": "function",
+   "path": "apps/web/src/lib/onboarding/complete.ts",
+   "status": "app-only"
+  },
+  {
+   "id": "web-lib-web-app-ts",
+   "label": "web-app.ts",
+   "type": "module",
+   "path": "apps/web/src/lib/web-app.ts",
+   "status": "live"
+  },
+  {
+   "id": "web-messages-ar-json",
+   "label": "web catalogue ar",
+   "type": "asset",
+   "path": "apps/web/messages/ar.json",
+   "status": "live"
+  },
+  {
+   "id": "web-messages-en-json",
+   "label": "web catalogue en (master)",
+   "type": "asset",
+   "path": "apps/web/messages/en.json",
+   "status": "live"
+  },
+  {
+   "id": "web-messages-es-json",
+   "label": "web catalogue es",
+   "type": "asset",
+   "path": "apps/web/messages/es.json",
+   "status": "live"
+  },
+  {
+   "id": "web-messages-fr-json",
+   "label": "web catalogue fr",
+   "type": "asset",
+   "path": "apps/web/messages/fr.json",
+   "status": "live"
+  },
+  {
+   "id": "web-middleware-ts",
+   "label": "middleware.ts",
+   "type": "module",
+   "path": "apps/web/src/middleware.ts",
+   "status": "live"
+  }
+ ],
+ "edges": [
+  {
+   "from": "web-messages-ar-json",
+   "to": "web-messages-en-json",
+   "kind": "documents"
+  },
+  {
+   "from": "web-messages-fr-json",
+   "to": "web-messages-en-json",
+   "kind": "documents"
+  },
+  {
+   "from": "web-messages-es-json",
+   "to": "web-messages-en-json",
+   "kind": "documents"
+  },
+  {
+   "from": "ns-teaser-public-site",
+   "to": "web-messages-en-json",
+   "kind": "documents"
+  },
+  {
+   "from": "ns-gallery-dev-page",
+   "to": "web-messages-en-json",
+   "kind": "documents"
+  },
+  {
+   "from": "ns-appnav",
+   "to": "web-messages-en-json",
+   "kind": "documents"
+  },
+  {
+   "from": "ns-app-tracker",
+   "to": "web-messages-en-json",
+   "kind": "documents"
+  },
+  {
+   "from": "web-i18n-request-ts",
+   "to": "web-i18n-routing-ts",
+   "kind": "imports"
+  },
+  {
+   "from": "web-i18n-navigation-ts",
+   "to": "web-i18n-routing-ts",
+   "kind": "imports"
+  },
+  {
+   "from": "web-i18n-request-ts",
+   "to": "web-messages-en-json",
+   "kind": "reads"
+  },
+  {
+   "from": "web-i18n-request-ts",
+   "to": "web-messages-ar-json",
+   "kind": "reads"
+  },
+  {
+   "from": "web-i18n-request-ts",
+   "to": "web-messages-fr-json",
+   "kind": "reads"
+  },
+  {
+   "from": "web-i18n-request-ts",
+   "to": "web-messages-es-json",
+   "kind": "reads"
+  },
+  {
+   "from": "web-middleware-ts",
+   "to": "web-i18n-routing-ts",
+   "kind": "imports"
+  },
+  {
+   "from": "web-middleware-ts",
+   "to": "web-lib-web-app-ts",
+   "kind": "imports"
+  },
+  {
+   "from": "web-i18n-numbering-test-ts",
+   "to": "web-i18n-routing-ts",
+   "kind": "tested-by"
+  },
+  {
+   "from": "web-i18n-routing-test-ts",
+   "to": "web-i18n-routing-ts",
+   "kind": "tested-by"
+  },
+  {
+   "from": "web-i18n-request-ts",
+   "to": "web-lib-i18n-ui-strings-loader-ts",
+   "kind": "calls"
+  },
+  {
+   "from": "web-lib-i18n-ui-strings-loader-ts",
+   "to": "web-lib-i18n-ui-strings-ts",
+   "kind": "imports"
+  },
+  {
+   "from": "web-lib-i18n-ui-strings-loader-ts",
+   "to": "supabase-migrations-0001-schema-v1-sql-ui-strings",
+   "kind": "reads"
+  },
+  {
+   "from": "web-lib-i18n-ui-strings-test-ts",
+   "to": "web-lib-i18n-ui-strings-ts",
+   "kind": "tested-by"
+  },
+  {
+   "from": "web-lib-i18n-translation-actions-ts",
+   "to": "web-lib-i18n-ui-strings-ts",
+   "kind": "imports"
+  },
+  {
+   "from": "web-lib-i18n-translation-actions-ts",
+   "to": "supabase-migrations-0001-schema-v1-sql-ui-strings",
+   "kind": "writes"
+  },
+  {
+   "from": "web-components-admin-translation-editor-tsx",
+   "to": "web-lib-i18n-translation-actions-ts",
+   "kind": "calls"
+  },
+  {
+   "from": "web-lib-i18n-csv-ts",
+   "to": "web-components-admin-translation-editor-tsx",
+   "kind": "calls"
+  },
+  {
+   "from": "web-lib-i18n-csv-test-ts",
+   "to": "web-lib-i18n-csv-ts",
+   "kind": "tested-by"
+  },
+  {
+   "from": "scripts-i18n-seed-ui-strings-mjs",
+   "to": "supabase-migrations-0001-schema-v1-sql-ui-strings",
+   "kind": "writes"
+  },
+  {
+   "from": "scripts-i18n-seed-ui-strings-mjs",
+   "to": "web-messages-en-json",
+   "kind": "reads"
+  },
+  {
+   "from": "web-app-locale-layout-tsx",
+   "to": "web-i18n-client-namespaces-ts",
+   "kind": "imports"
+  },
+  {
+   "from": "web-app-locale-app-layout-tsx",
+   "to": "web-i18n-client-namespaces-ts",
+   "kind": "imports"
+  },
+  {
+   "from": "web-app-locale-public-calculators-layout-tsx",
+   "to": "web-i18n-client-namespaces-ts",
+   "kind": "imports"
+  },
+  {
+   "from": "web-app-locale-sign-in-layout-tsx",
+   "to": "web-i18n-client-namespaces-ts",
+   "kind": "imports"
+  },
+  {
+   "from": "web-app-locale-welcome-layout-tsx",
+   "to": "web-i18n-client-namespaces-ts",
+   "kind": "imports"
+  },
+  {
+   "from": "web-app-locale-reset-password-layout-tsx",
+   "to": "web-i18n-client-namespaces-ts",
+   "kind": "imports"
+  },
+  {
+   "from": "web-app-locale-layout-tsx",
+   "to": "web-i18n-request-ts",
+   "kind": "calls"
+  },
+  {
+   "from": "web-app-locale-layout-tsx",
+   "to": "ns-teaser-public-site",
+   "kind": "renders"
+  },
+  {
+   "from": "web-app-locale-app-layout-tsx",
+   "to": "ns-app-tracker",
+   "kind": "renders"
+  },
+  {
+   "from": "web-app-locale-app-layout-tsx",
+   "to": "ns-appnav",
+   "kind": "renders"
+  },
+  {
+   "from": "web-app-locale-public-calculators-layout-tsx",
+   "to": "ns-teaser-public-site",
+   "kind": "renders"
+  },
+  {
+   "from": "web-app-locale-sign-in-layout-tsx",
+   "to": "ns-app-tracker",
+   "kind": "renders"
+  },
+  {
+   "from": "web-app-locale-welcome-layout-tsx",
+   "to": "ns-app-tracker",
+   "kind": "renders"
+  },
+  {
+   "from": "web-app-locale-reset-password-layout-tsx",
+   "to": "ns-app-tracker",
+   "kind": "renders"
+  },
+  {
+   "from": "scripts-i18n-client-namespaces-lint-mjs",
+   "to": "web-i18n-client-namespaces-ts",
+   "kind": "reads"
+  },
+  {
+   "from": "scripts-i18n-client-namespaces-lint-mjs",
+   "to": "ns-app-tracker",
+   "kind": "documents"
+  },
+  {
+   "from": "scripts-i18n-untranslated-lint-mjs",
+   "to": "web-messages-en-json",
+   "kind": "reads"
+  },
+  {
+   "from": "scripts-i18n-untranslated-lint-mjs",
+   "to": "web-messages-ar-json",
+   "kind": "reads"
+  },
+  {
+   "from": "scripts-i18n-untranslated-lint-mjs",
+   "to": "web-messages-fr-json",
+   "kind": "reads"
+  },
+  {
+   "from": "scripts-i18n-untranslated-lint-mjs",
+   "to": "web-messages-es-json",
+   "kind": "reads"
+  },
+  {
+   "from": "scripts-crisis-compliance-mjs",
+   "to": "web-messages-en-json",
+   "kind": "documents"
+  },
+  {
+   "from": "web-lib-crisis-content-ts",
+   "to": "web-i18n-routing-ts",
+   "kind": "imports"
+  },
+  {
+   "from": "web-lib-crisis-content-ts",
+   "to": "web-lib-crisis-crisis-json",
+   "kind": "reads"
+  },
+  {
+   "from": "web-lib-crisis-content-ts",
+   "to": "web-lib-crisis-directory-ts",
+   "kind": "imports"
+  },
+  {
+   "from": "web-lib-crisis-directory-test-ts",
+   "to": "web-lib-crisis-directory-ts",
+   "kind": "tested-by"
+  },
+  {
+   "from": "web-components-crisis-crisis-content-view-tsx",
+   "to": "web-lib-crisis-content-ts",
+   "kind": "calls"
+  },
+  {
+   "from": "web-components-crisis-crisis-help-provider-tsx",
+   "to": "web-lib-crisis-content-ts",
+   "kind": "calls"
+  },
+  {
+   "from": "web-components-crisis-crisis-help-provider-tsx",
+   "to": "web-app-locale-layout-tsx",
+   "kind": "renders"
+  },
+  {
+   "from": "web-app-locale-help-now-page-tsx",
+   "to": "web-lib-crisis-content-ts",
+   "kind": "calls"
+  },
+  {
+   "from": "web-app-locale-help-now-page-tsx",
+   "to": "web-components-crisis-crisis-content-view-tsx",
+   "kind": "renders"
+  },
+  {
+   "from": "web-lib-crisis-crisis-json",
+   "to": "docs-compliance-crisis-resources-md",
+   "kind": "documents"
+  },
+  {
+   "from": "scripts-crisis-compliance-mjs",
+   "to": "web-lib-crisis-crisis-json",
+   "kind": "reads"
+  },
+  {
+   "from": "web-e2e-crisis-spec-ts",
+   "to": "web-app-locale-help-now-page-tsx",
+   "kind": "tested-by"
+  },
+  {
+   "from": "mobile-lib-l10n-app-localizations-dart",
+   "to": "mobile-lib-l10n-app-en-arb",
+   "kind": "generates"
+  },
+  {
+   "from": "mobile-l10n-yaml",
+   "to": "mobile-lib-l10n-app-en-arb",
+   "kind": "reads"
+  },
+  {
+   "from": "mobile-lib-l10n-app-localizations-dart",
+   "to": "mobile-l10n-yaml",
+   "kind": "reads"
+  },
+  {
+   "from": "mobile-lib-features-pregnancy-movement-log-screen-dart",
+   "to": "mobile-lib-l10n-app-localizations-dart",
+   "kind": "renders"
+  },
+  {
+   "from": "mobile-lib-features-pregnancy-movement-log-screen-dart",
+   "to": "mobile-lib-domain-movements-dart",
+   "kind": "imports"
+  },
+  {
+   "from": "mobile-lib-features-pregnancy-movement-log-screen-dart",
+   "to": "mobile-lib-l10n-log-labels-g-dart",
+   "kind": "imports"
+  },
+  {
+   "from": "mobile-test-screens-test-dart",
+   "to": "mobile-lib-features-pregnancy-movement-log-screen-dart",
+   "kind": "tested-by"
+  },
+  {
+   "from": "scripts-mobile-sync-log-vocabulary-mjs",
+   "to": "web-lib-experience-v2-vocabulary-ts",
+   "kind": "reads"
+  },
+  {
+   "from": "scripts-mobile-sync-log-vocabulary-mjs",
+   "to": "web-messages-en-json",
+   "kind": "reads"
+  },
+  {
+   "from": "scripts-mobile-sync-log-vocabulary-mjs",
+   "to": "mobile-lib-l10n-app-en-arb",
+   "kind": "generates"
+  },
+  {
+   "from": "scripts-mobile-sync-log-vocabulary-mjs",
+   "to": "web-messages-ar-json",
+   "kind": "reads"
+  },
+  {
+   "from": "scripts-mobile-sync-log-vocabulary-mjs",
+   "to": "mobile-lib-l10n-app-ar-arb",
+   "kind": "generates"
+  },
+  {
+   "from": "scripts-mobile-sync-log-vocabulary-mjs",
+   "to": "web-messages-fr-json",
+   "kind": "reads"
+  },
+  {
+   "from": "scripts-mobile-sync-log-vocabulary-mjs",
+   "to": "mobile-lib-l10n-app-fr-arb",
+   "kind": "generates"
+  },
+  {
+   "from": "scripts-mobile-sync-log-vocabulary-mjs",
+   "to": "web-messages-es-json",
+   "kind": "reads"
+  },
+  {
+   "from": "scripts-mobile-sync-log-vocabulary-mjs",
+   "to": "mobile-lib-l10n-app-es-arb",
+   "kind": "generates"
+  },
+  {
+   "from": "scripts-mobile-sync-log-vocabulary-mjs",
+   "to": "mobile-lib-l10n-log-labels-g-dart",
+   "kind": "generates"
+  },
+  {
+   "from": "scripts-mobile-sync-log-vocabulary-mjs",
+   "to": "mobile-lib-domain-log-vocabulary-g-dart",
+   "kind": "generates"
+  },
+  {
+   "from": "mobile-lib-l10n-log-labels-g-dart",
+   "to": "mobile-lib-l10n-app-localizations-dart",
+   "kind": "imports"
+  },
+  {
+   "from": "mobile-lib-domain-log-vocabulary-g-dart",
+   "to": "web-lib-experience-v2-vocabulary-ts",
+   "kind": "documents"
+  },
+  {
+   "from": "web-components-pregnancy-movement-counter-tsx",
+   "to": "ns-app-tracker",
+   "kind": "documents"
+  },
+  {
+   "from": "web-components-pregnancy-movement-counter-tsx",
+   "to": "web-messages-en-json",
+   "kind": "reads"
+  },
+  {
+   "from": "web-components-cycle-cycle-calendar-tsx",
+   "to": "web-lib-cycle-calendar-ts",
+   "kind": "calls"
+  },
+  {
+   "from": "web-components-cycle-calendar-screen-tsx",
+   "to": "web-lib-cycle-calendar-ts",
+   "kind": "calls"
+  },
+  {
+   "from": "web-components-onboarding-onboarding-wizard-tsx",
+   "to": "web-lib-onboarding-complete-ts",
+   "kind": "calls"
+  },
+  {
+   "from": "web-lib-onboarding-complete-ts",
+   "to": "supabase-migrations-0001-schema-v1-sql-profiles",
+   "kind": "writes"
+  },
+  {
+   "from": "web-app-locale-app-layout-tsx",
+   "to": "web-components-analytics-page-view-tsx",
+   "kind": "renders"
+  },
+  {
+   "from": "web-components-site-site-header-tsx",
+   "to": "ns-teaser-public-site",
+   "kind": "reads"
+  },
+  {
+   "from": "web-components-site-site-footer-tsx",
+   "to": "ns-teaser-public-site",
+   "kind": "reads"
+  },
+  {
+   "from": "web-components-app-nav-tsx",
+   "to": "ns-appnav",
+   "kind": "reads"
+  },
+  {
+   "from": "web-components-cms-content-article-tsx",
+   "to": "ns-teaser-public-site",
+   "kind": "reads"
+  },
+  {
+   "from": "web-app-locale-app-layout-tsx",
+   "to": "web-components-app-nav-tsx",
+   "kind": "renders"
+  },
+  {
+   "from": "web-components-site-site-header-tsx",
+   "to": "web-i18n-navigation-ts",
+   "kind": "imports"
+  },
+  {
+   "from": "web-components-site-site-footer-tsx",
+   "to": "web-i18n-navigation-ts",
+   "kind": "imports"
+  },
+  {
+   "from": "web-app-locale-components-page-tsx",
+   "to": "ns-gallery-dev-page",
+   "kind": "reads"
+  },
+  {
+   "from": "web-lib-cycle-calendar-ts",
+   "to": "web-i18n-request-ts",
+   "kind": "documents"
+  }
+ ]
+}

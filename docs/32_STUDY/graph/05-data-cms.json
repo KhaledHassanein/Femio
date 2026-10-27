@@ -1,0 +1,1363 @@
+{
+ "area": "05-data-cms",
+ "nodes": [
+  {
+   "id": "db-profiles",
+   "label": "profiles",
+   "type": "table",
+   "path": "supabase/migrations/0001_schema_v1.sql",
+   "status": "app-only"
+  },
+  {
+   "id": "db-consent-records",
+   "label": "consent_records",
+   "type": "table",
+   "path": "supabase/migrations/0001_schema_v1.sql",
+   "status": "app-only"
+  },
+  {
+   "id": "db-ui-strings",
+   "label": "ui_strings",
+   "type": "table",
+   "path": "supabase/migrations/0001_schema_v1.sql",
+   "status": "live"
+  },
+  {
+   "id": "db-cycles",
+   "label": "cycles",
+   "type": "table",
+   "path": "supabase/migrations/0001_schema_v1.sql",
+   "status": "app-only"
+  },
+  {
+   "id": "db-period-days",
+   "label": "period_days",
+   "type": "table",
+   "path": "supabase/migrations/0015_period_days.sql",
+   "status": "app-only"
+  },
+  {
+   "id": "db-symptom-logs",
+   "label": "symptom_logs",
+   "type": "table",
+   "path": "supabase/migrations/0001_schema_v1.sql",
+   "status": "app-only"
+  },
+  {
+   "id": "db-vitals",
+   "label": "vitals",
+   "type": "table",
+   "path": "supabase/migrations/0001_schema_v1.sql",
+   "status": "app-only"
+  },
+  {
+   "id": "db-fertility-logs",
+   "label": "fertility_logs",
+   "type": "table",
+   "path": "supabase/migrations/0001_schema_v1.sql",
+   "status": "app-only"
+  },
+  {
+   "id": "db-meds-supplements",
+   "label": "meds_supplements",
+   "type": "table",
+   "path": "supabase/migrations/0001_schema_v1.sql",
+   "status": "app-only"
+  },
+  {
+   "id": "db-conditions-flagged",
+   "label": "conditions_flagged",
+   "type": "table",
+   "path": "supabase/migrations/0001_schema_v1.sql",
+   "status": "app-only"
+  },
+  {
+   "id": "db-screener-results",
+   "label": "screener_results",
+   "type": "table",
+   "path": "supabase/migrations/0001_schema_v1.sql",
+   "status": "app-only"
+  },
+  {
+   "id": "db-labs",
+   "label": "labs",
+   "type": "table",
+   "path": "supabase/migrations/0001_schema_v1.sql",
+   "status": "app-only"
+  },
+  {
+   "id": "db-pregnancy",
+   "label": "pregnancy",
+   "type": "table",
+   "path": "supabase/migrations/0001_schema_v1.sql",
+   "status": "app-only"
+  },
+  {
+   "id": "db-fetal-movement-sessions",
+   "label": "fetal_movement_sessions",
+   "type": "table",
+   "path": "supabase/migrations/0007_fetal_movement_sessions.sql",
+   "status": "app-only"
+  },
+  {
+   "id": "db-contractions",
+   "label": "contractions",
+   "type": "table",
+   "path": "supabase/migrations/0008_contractions.sql",
+   "status": "app-only"
+  },
+  {
+   "id": "db-appointments",
+   "label": "appointments",
+   "type": "table",
+   "path": "supabase/migrations/0001_schema_v1.sql",
+   "status": "app-only"
+  },
+  {
+   "id": "db-key-dates",
+   "label": "key_dates",
+   "type": "table",
+   "path": "supabase/migrations/0001_schema_v1.sql",
+   "status": "app-only"
+  },
+  {
+   "id": "db-partner-links",
+   "label": "partner_links",
+   "type": "table",
+   "path": "supabase/migrations/0001_schema_v1.sql",
+   "status": "app-only"
+  },
+  {
+   "id": "db-persona-state",
+   "label": "persona_state",
+   "type": "table",
+   "path": "supabase/migrations/0001_schema_v1.sql",
+   "status": "app-only"
+  },
+  {
+   "id": "db-adaptation-events",
+   "label": "adaptation_events",
+   "type": "table",
+   "path": "supabase/migrations/0001_schema_v1.sql",
+   "status": "app-only"
+  },
+  {
+   "id": "db-subscriptions",
+   "label": "subscriptions",
+   "type": "table",
+   "path": "supabase/migrations/0001_schema_v1.sql",
+   "status": "dead"
+  },
+  {
+   "id": "db-staff-roles",
+   "label": "staff_roles",
+   "type": "table",
+   "path": "supabase/migrations/0001_schema_v1.sql",
+   "status": "app-only"
+  },
+  {
+   "id": "db-audit-log",
+   "label": "audit_log",
+   "type": "table",
+   "path": "supabase/migrations/0001_schema_v1.sql",
+   "status": "app-only"
+  },
+  {
+   "id": "db-notification-prefs",
+   "label": "notification_prefs",
+   "type": "table",
+   "path": "supabase/migrations/0013_notifications.sql",
+   "status": "app-only"
+  },
+  {
+   "id": "db-push-subscriptions",
+   "label": "push_subscriptions",
+   "type": "table",
+   "path": "supabase/migrations/0013_notifications.sql",
+   "status": "app-only"
+  },
+  {
+   "id": "db-predictions",
+   "label": "predictions",
+   "type": "table",
+   "path": "supabase/migrations/0018_predictions.sql",
+   "status": "dead"
+  },
+  {
+   "id": "db-patterns",
+   "label": "patterns",
+   "type": "table",
+   "path": "supabase/migrations/0019_patterns.sql",
+   "status": "app-only"
+  },
+  {
+   "id": "db-experience-documents",
+   "label": "experience_documents",
+   "type": "table",
+   "path": "supabase/migrations/0020_experience_documents.sql",
+   "status": "dead"
+  },
+  {
+   "id": "db-feature-flags",
+   "label": "feature_flags",
+   "type": "table",
+   "path": "supabase/migrations/0021_feature_flags.sql",
+   "status": "app-only"
+  },
+  {
+   "id": "db-dropped-content-tables",
+   "label": "content, content_i18n, content_history (dropped 0024)",
+   "type": "table",
+   "path": "supabase/migrations/0024_drop_unused_content_tables.sql",
+   "status": "dead"
+  },
+  {
+   "id": "db-fn-has-core-consent",
+   "label": "has_core_consent",
+   "type": "function",
+   "path": "supabase/migrations/0002_rls_policies.sql",
+   "status": "app-only"
+  },
+  {
+   "id": "db-fn-is-staff",
+   "label": "is_staff",
+   "type": "function",
+   "path": "supabase/migrations/0002_rls_policies.sql",
+   "status": "app-only"
+  },
+  {
+   "id": "db-fn-handle-new-user",
+   "label": "handle_new_user",
+   "type": "function",
+   "path": "supabase/migrations/0002_rls_policies.sql",
+   "status": "app-only"
+  },
+  {
+   "id": "db-fn-delete-account",
+   "label": "delete_account",
+   "type": "function",
+   "path": "supabase/migrations/0003_delete_account.sql",
+   "status": "app-only"
+  },
+  {
+   "id": "db-fn-insights-rpcs",
+   "label": "insights_rpcs",
+   "type": "function",
+   "path": "supabase/migrations/0006_insights_aggregates.sql",
+   "status": "app-only"
+  },
+  {
+   "id": "db-fn-redeem-partner-invite",
+   "label": "redeem_partner_invite",
+   "type": "function",
+   "path": "supabase/migrations/0011_partner_sharing.sql",
+   "status": "app-only"
+  },
+  {
+   "id": "db-fn-partner-shared-rows",
+   "label": "partner_shared_rows",
+   "type": "function",
+   "path": "supabase/migrations/0011_partner_sharing.sql",
+   "status": "app-only"
+  },
+  {
+   "id": "db-fn-audit-feature-flag-change",
+   "label": "audit_feature_flag_change",
+   "type": "function",
+   "path": "supabase/migrations/0021_feature_flags.sql",
+   "status": "app-only"
+  },
+  {
+   "id": "db-fn-search-content",
+   "label": "search_content",
+   "type": "function",
+   "path": "supabase/migrations/0023_search_locale_fallback.sql",
+   "status": "dead"
+  },
+  {
+   "id": "supabase-migration-0002",
+   "label": "0002_rls_policies.sql",
+   "type": "script",
+   "path": "supabase/migrations/0002_rls_policies.sql",
+   "status": "app-only"
+  },
+  {
+   "id": "supabase-migration-0014",
+   "label": "0014_grant_new_tables.sql",
+   "type": "script",
+   "path": "supabase/migrations/0014_grant_new_tables.sql",
+   "status": "app-only"
+  },
+  {
+   "id": "supabase-migration-0025",
+   "label": "0025_advisor_hardening.sql",
+   "type": "script",
+   "path": "supabase/migrations/0025_advisor_hardening.sql",
+   "status": "app-only"
+  },
+  {
+   "id": "supabase-migration-0022",
+   "label": "0022_content_search.sql",
+   "type": "script",
+   "path": "supabase/migrations/0022_content_search.sql",
+   "status": "dead"
+  },
+  {
+   "id": "supabase-config",
+   "label": "supabase/config.toml",
+   "type": "doc",
+   "path": "supabase/config.toml",
+   "status": "live"
+  },
+  {
+   "id": "supabase-fn-experience",
+   "label": "experience edge fn",
+   "type": "function",
+   "path": "supabase/functions/experience/index.ts",
+   "status": "app-only"
+  },
+  {
+   "id": "supabase-fn-partner-view",
+   "label": "partner-view edge fn",
+   "type": "function",
+   "path": "supabase/functions/partner-view/index.ts",
+   "status": "app-only"
+  },
+  {
+   "id": "supabase-fn-patterns",
+   "label": "patterns edge fn",
+   "type": "function",
+   "path": "supabase/functions/patterns/index.ts",
+   "status": "app-only"
+  },
+  {
+   "id": "svc-supabase",
+   "label": "Supabase (Postgres, Auth, Functions) EU",
+   "type": "service",
+   "path": "supabase/config.toml",
+   "status": "app-only"
+  },
+  {
+   "id": "svc-vercel-cms",
+   "label": "Vercel project femio-cms",
+   "type": "service",
+   "path": "apps/cms/vercel.json",
+   "status": "live"
+  },
+  {
+   "id": "cms-config",
+   "label": "payload.config.ts",
+   "type": "module",
+   "path": "apps/cms/src/payload.config.ts",
+   "status": "live"
+  },
+  {
+   "id": "cms-access-roles",
+   "label": "access/roles.ts",
+   "type": "module",
+   "path": "apps/cms/src/access/roles.ts",
+   "status": "live"
+  },
+  {
+   "id": "cms-access-content",
+   "label": "access/content.ts",
+   "type": "module",
+   "path": "apps/cms/src/access/content.ts",
+   "status": "live"
+  },
+  {
+   "id": "cms-coll-factory",
+   "label": "collections/factory.ts",
+   "type": "module",
+   "path": "apps/cms/src/collections/factory.ts",
+   "status": "live"
+  },
+  {
+   "id": "cms-coll-articles",
+   "label": "collections/Articles.ts",
+   "type": "module",
+   "path": "apps/cms/src/collections/Articles.ts",
+   "status": "live"
+  },
+  {
+   "id": "cms-coll-conditions",
+   "label": "collections/Conditions.ts",
+   "type": "module",
+   "path": "apps/cms/src/collections/Conditions.ts",
+   "status": "live"
+  },
+  {
+   "id": "cms-coll-faqs",
+   "label": "collections/FAQs.ts",
+   "type": "module",
+   "path": "apps/cms/src/collections/FAQs.ts",
+   "status": "dead"
+  },
+  {
+   "id": "cms-coll-glossary",
+   "label": "collections/Glossary.ts",
+   "type": "module",
+   "path": "apps/cms/src/collections/Glossary.ts",
+   "status": "dead"
+  },
+  {
+   "id": "cms-coll-tips",
+   "label": "collections/Tips.ts",
+   "type": "module",
+   "path": "apps/cms/src/collections/Tips.ts",
+   "status": "dead"
+  },
+  {
+   "id": "cms-coll-people",
+   "label": "collections/People.ts",
+   "type": "module",
+   "path": "apps/cms/src/collections/People.ts",
+   "status": "live"
+  },
+  {
+   "id": "cms-coll-media",
+   "label": "collections/Media.ts",
+   "type": "module",
+   "path": "apps/cms/src/collections/Media.ts",
+   "status": "live"
+  },
+  {
+   "id": "cms-coll-users",
+   "label": "collections/Users.ts",
+   "type": "module",
+   "path": "apps/cms/src/collections/Users.ts",
+   "status": "live"
+  },
+  {
+   "id": "cms-fields-editorial",
+   "label": "fields/editorial.ts",
+   "type": "module",
+   "path": "apps/cms/src/fields/editorial.ts",
+   "status": "live"
+  },
+  {
+   "id": "cms-fields-publishing",
+   "label": "fields/publishing.ts",
+   "type": "module",
+   "path": "apps/cms/src/fields/publishing.ts",
+   "status": "live"
+  },
+  {
+   "id": "cms-hook-review-gate",
+   "label": "hooks/review-gate.ts",
+   "type": "module",
+   "path": "apps/cms/src/hooks/review-gate.ts",
+   "status": "live"
+  },
+  {
+   "id": "cms-migrations",
+   "label": "migrations/index.ts",
+   "type": "script",
+   "path": "apps/cms/src/migrations/index.ts",
+   "status": "live"
+  },
+  {
+   "id": "cms-script-import-articles",
+   "label": "import-articles.mjs",
+   "type": "script",
+   "path": "apps/cms/scripts/import-articles.mjs",
+   "status": "live"
+  },
+  {
+   "id": "cms-script-import-translations",
+   "label": "import-translations.mjs",
+   "type": "script",
+   "path": "apps/cms/scripts/import-translations.mjs",
+   "status": "live"
+  },
+  {
+   "id": "cms-script-publish-reviewed",
+   "label": "publish-reviewed.mjs",
+   "type": "script",
+   "path": "apps/cms/scripts/publish-reviewed.mjs",
+   "status": "live"
+  },
+  {
+   "id": "cms-script-wire-bylines",
+   "label": "wire-bylines.mjs",
+   "type": "script",
+   "path": "apps/cms/scripts/wire-bylines.mjs",
+   "status": "live"
+  },
+  {
+   "id": "cms-script-upsert-people",
+   "label": "upsert-people.mjs",
+   "type": "script",
+   "path": "apps/cms/scripts/upsert-people.mjs",
+   "status": "live"
+  },
+  {
+   "id": "cms-script-unpublish-person",
+   "label": "unpublish-person.mjs",
+   "type": "script",
+   "path": "apps/cms/scripts/unpublish-person.mjs",
+   "status": "live"
+  },
+  {
+   "id": "cms-script-set-user-roles",
+   "label": "set-user-roles.mjs",
+   "type": "script",
+   "path": "apps/cms/scripts/set-user-roles.mjs",
+   "status": "live"
+  },
+  {
+   "id": "cms-script-migrate-apply",
+   "label": "migrate-apply.mjs",
+   "type": "script",
+   "path": "apps/cms/scripts/migrate-apply.mjs",
+   "status": "live"
+  },
+  {
+   "id": "cms-script-migrate-on-deploy",
+   "label": "migrate-on-deploy.mjs",
+   "type": "script",
+   "path": "apps/cms/scripts/migrate-on-deploy.mjs",
+   "status": "unknown"
+  },
+  {
+   "id": "cms-script-drop-dev-migration-row",
+   "label": "drop-dev-migration-row.mjs",
+   "type": "script",
+   "path": "apps/cms/scripts/drop-dev-migration-row.mjs",
+   "status": "live"
+  },
+  {
+   "id": "script-snapshot-cms",
+   "label": "snapshot-cms.mjs",
+   "type": "script",
+   "path": "scripts/content/snapshot-cms.mjs",
+   "status": "live"
+  },
+  {
+   "id": "script-seed-ui-strings",
+   "label": "seed-ui-strings.mjs",
+   "type": "script",
+   "path": "scripts/i18n/seed-ui-strings.mjs",
+   "status": "dead"
+  },
+  {
+   "id": "script-rls-audit",
+   "label": "rls-audit.mjs",
+   "type": "script",
+   "path": "scripts/security/rls-audit.mjs",
+   "status": "app-only"
+  },
+  {
+   "id": "script-db-artifacts-probe",
+   "label": "db-artifacts-probe.mjs",
+   "type": "script",
+   "path": "scripts/db-artifacts-probe.mjs",
+   "status": "app-only"
+  },
+  {
+   "id": "lib-markdown-to-lexical",
+   "label": "markdown-to-lexical.mjs",
+   "type": "script",
+   "path": "scripts/lib/markdown-to-lexical.mjs",
+   "status": "live"
+  },
+  {
+   "id": "doc-runbook-supabase",
+   "label": "supabase_apply_migrations.md",
+   "type": "doc",
+   "path": "docs/runbooks/supabase_apply_migrations.md",
+   "status": "duplicate"
+  },
+  {
+   "id": "doc-runbook-cms",
+   "label": "cms_setup.md",
+   "type": "doc",
+   "path": "docs/runbooks/cms_setup.md",
+   "status": "duplicate"
+  },
+  {
+   "id": "doc-runbook-apply-all",
+   "label": "2026-10-07_apply_all.sql",
+   "type": "doc",
+   "path": "docs/runbooks/sql/2026-10-07_apply_all.sql",
+   "status": "dead"
+  },
+  {
+   "id": "doc-14-architecture",
+   "label": "14_SYSTEM_ARCHITECTURE.md",
+   "type": "doc",
+   "path": "docs/14_SYSTEM_ARCHITECTURE.md",
+   "status": "live"
+  },
+  {
+   "id": "doc-18-rbac",
+   "label": "18_RBAC_MODEL.md",
+   "type": "doc",
+   "path": "docs/18_RBAC_MODEL.md",
+   "status": "live"
+  },
+  {
+   "id": "fixture-snapshot",
+   "label": "content snapshot JSON (articles 100, conditions 5, people 1)",
+   "type": "asset",
+   "path": "apps/web/src/content/snapshot",
+   "status": "live"
+  },
+  {
+   "id": "asset-articles-md",
+   "label": "docs/content/articles/*.md (107)",
+   "type": "asset",
+   "path": "docs/content/articles",
+   "status": "live"
+  },
+  {
+   "id": "asset-people-json",
+   "label": "docs/content/people/khaled-m.json",
+   "type": "asset",
+   "path": "docs/content/people/khaled-m.json",
+   "status": "live"
+  },
+  {
+   "id": "asset-messages",
+   "label": "apps/web/messages/*.json (1619 keys x4)",
+   "type": "asset",
+   "path": "apps/web/messages",
+   "status": "live"
+  },
+  {
+   "id": "web-lib-cms-client",
+   "label": "lib/cms/client.ts",
+   "type": "module",
+   "path": "apps/web/src/lib/cms/client.ts",
+   "status": "live"
+  },
+  {
+   "id": "web-api-search-index",
+   "label": "api/search-index/[locale]",
+   "type": "module",
+   "path": "apps/web/src/app/api/search-index/[locale]/route.ts",
+   "status": "live"
+  },
+  {
+   "id": "web-i18n-request",
+   "label": "i18n/request.ts",
+   "type": "module",
+   "path": "apps/web/src/i18n/request.ts",
+   "status": "live"
+  },
+  {
+   "id": "web-lib-ui-strings-loader",
+   "label": "lib/i18n/ui-strings-loader.ts",
+   "type": "module",
+   "path": "apps/web/src/lib/i18n/ui-strings-loader.ts",
+   "status": "live"
+  },
+  {
+   "id": "web-admin-translations",
+   "label": "admin/translations page",
+   "type": "screen",
+   "path": "apps/web/src/app/[locale]/(app)/admin/translations/page.tsx",
+   "status": "app-only"
+  },
+  {
+   "id": "web-admin-insights",
+   "label": "admin/insights page",
+   "type": "screen",
+   "path": "apps/web/src/app/[locale]/(app)/admin/insights/page.tsx",
+   "status": "app-only"
+  },
+  {
+   "id": "web-lib-env",
+   "label": "lib/env.ts",
+   "type": "module",
+   "path": "apps/web/src/lib/env.ts",
+   "status": "live"
+  },
+  {
+   "id": "web-middleware",
+   "label": "middleware.ts",
+   "type": "module",
+   "path": "apps/web/src/middleware.ts",
+   "status": "live"
+  },
+  {
+   "id": "web-lib-experience-client",
+   "label": "lib/experience/client.ts",
+   "type": "module",
+   "path": "apps/web/src/lib/experience/client.ts",
+   "status": "app-only"
+  },
+  {
+   "id": "web-lib-partner-actions",
+   "label": "lib/partner/actions.ts",
+   "type": "module",
+   "path": "apps/web/src/lib/partner/actions.ts",
+   "status": "app-only"
+  },
+  {
+   "id": "web-lib-patterns-recompute",
+   "label": "lib/patterns/recompute.ts",
+   "type": "module",
+   "path": "apps/web/src/lib/patterns/recompute.ts",
+   "status": "app-only"
+  },
+  {
+   "id": "web-lib-persona-state",
+   "label": "lib/persona/state.ts",
+   "type": "module",
+   "path": "apps/web/src/lib/persona/state.ts",
+   "status": "app-only"
+  },
+  {
+   "id": "web-calendar-screen",
+   "label": "components/cycle/calendar-screen.tsx",
+   "type": "screen",
+   "path": "apps/web/src/components/cycle/calendar-screen.tsx",
+   "status": "app-only"
+  },
+  {
+   "id": "web-lib-use-surface-version",
+   "label": "lib/experience/v2/use-surface-version.ts",
+   "type": "module",
+   "path": "apps/web/src/lib/experience/v2/use-surface-version.ts",
+   "status": "app-only"
+  },
+  {
+   "id": "web-lib-export-data",
+   "label": "lib/account/export-data.ts",
+   "type": "module",
+   "path": "apps/web/src/lib/account/export-data.ts",
+   "status": "app-only"
+  },
+  {
+   "id": "web-lib-notifications-actions",
+   "label": "lib/notifications/actions.ts",
+   "type": "module",
+   "path": "apps/web/src/lib/notifications/actions.ts",
+   "status": "app-only"
+  },
+  {
+   "id": "web-lib-auth-roles",
+   "label": "lib/auth/roles.ts",
+   "type": "module",
+   "path": "apps/web/src/lib/auth/roles.ts",
+   "status": "app-only"
+  },
+  {
+   "id": "web-tier1-libs",
+   "label": "tier-1 libs imported by edge fns",
+   "type": "module",
+   "path": "apps/web/src/lib",
+   "status": "app-only"
+  },
+  {
+   "id": "mobile-store",
+   "label": "apps/mobile/lib/data/store.dart (local file, no network)",
+   "type": "module",
+   "path": "apps/mobile/lib/data/store.dart",
+   "status": "live"
+  }
+ ],
+ "edges": [
+  {
+   "from": "supabase-fn-experience",
+   "to": "db-profiles",
+   "kind": "reads"
+  },
+  {
+   "from": "supabase-fn-experience",
+   "to": "db-cycles",
+   "kind": "reads"
+  },
+  {
+   "from": "supabase-fn-experience",
+   "to": "db-symptom-logs",
+   "kind": "reads"
+  },
+  {
+   "from": "supabase-fn-experience",
+   "to": "db-pregnancy",
+   "kind": "reads"
+  },
+  {
+   "from": "supabase-fn-experience",
+   "to": "db-conditions-flagged",
+   "kind": "reads"
+  },
+  {
+   "from": "supabase-fn-experience",
+   "to": "db-persona-state",
+   "kind": "reads"
+  },
+  {
+   "from": "supabase-fn-patterns",
+   "to": "db-cycles",
+   "kind": "reads"
+  },
+  {
+   "from": "supabase-fn-patterns",
+   "to": "db-symptom-logs",
+   "kind": "reads"
+  },
+  {
+   "from": "supabase-fn-patterns",
+   "to": "db-patterns",
+   "kind": "writes"
+  },
+  {
+   "from": "supabase-fn-partner-view",
+   "to": "db-fn-partner-shared-rows",
+   "kind": "calls"
+  },
+  {
+   "from": "db-fn-partner-shared-rows",
+   "to": "db-partner-links",
+   "kind": "reads"
+  },
+  {
+   "from": "db-fn-partner-shared-rows",
+   "to": "db-cycles",
+   "kind": "reads"
+  },
+  {
+   "from": "db-fn-partner-shared-rows",
+   "to": "db-pregnancy",
+   "kind": "reads"
+  },
+  {
+   "from": "db-fn-partner-shared-rows",
+   "to": "db-symptom-logs",
+   "kind": "reads"
+  },
+  {
+   "from": "db-fn-partner-shared-rows",
+   "to": "db-meds-supplements",
+   "kind": "reads"
+  },
+  {
+   "from": "db-fn-partner-shared-rows",
+   "to": "db-fertility-logs",
+   "kind": "reads"
+  },
+  {
+   "from": "db-fn-partner-shared-rows",
+   "to": "db-profiles",
+   "kind": "reads"
+  },
+  {
+   "from": "supabase-fn-experience",
+   "to": "web-tier1-libs",
+   "kind": "imports"
+  },
+  {
+   "from": "supabase-fn-experience",
+   "to": "svc-supabase",
+   "kind": "calls"
+  },
+  {
+   "from": "supabase-fn-partner-view",
+   "to": "web-tier1-libs",
+   "kind": "imports"
+  },
+  {
+   "from": "supabase-fn-partner-view",
+   "to": "svc-supabase",
+   "kind": "calls"
+  },
+  {
+   "from": "supabase-fn-patterns",
+   "to": "web-tier1-libs",
+   "kind": "imports"
+  },
+  {
+   "from": "supabase-fn-patterns",
+   "to": "svc-supabase",
+   "kind": "calls"
+  },
+  {
+   "from": "web-lib-experience-client",
+   "to": "supabase-fn-experience",
+   "kind": "calls"
+  },
+  {
+   "from": "web-lib-partner-actions",
+   "to": "supabase-fn-partner-view",
+   "kind": "calls"
+  },
+  {
+   "from": "web-lib-patterns-recompute",
+   "to": "supabase-fn-patterns",
+   "kind": "calls"
+  },
+  {
+   "from": "web-lib-partner-actions",
+   "to": "db-fn-redeem-partner-invite",
+   "kind": "calls"
+  },
+  {
+   "from": "web-lib-partner-actions",
+   "to": "db-partner-links",
+   "kind": "writes"
+  },
+  {
+   "from": "web-admin-insights",
+   "to": "db-fn-insights-rpcs",
+   "kind": "calls"
+  },
+  {
+   "from": "web-lib-ui-strings-loader",
+   "to": "db-ui-strings",
+   "kind": "reads"
+  },
+  {
+   "from": "web-admin-translations",
+   "to": "db-ui-strings",
+   "kind": "reads"
+  },
+  {
+   "from": "web-admin-translations",
+   "to": "db-ui-strings",
+   "kind": "writes"
+  },
+  {
+   "from": "web-i18n-request",
+   "to": "web-lib-ui-strings-loader",
+   "kind": "imports"
+  },
+  {
+   "from": "web-i18n-request",
+   "to": "asset-messages",
+   "kind": "imports"
+  },
+  {
+   "from": "web-lib-ui-strings-loader",
+   "to": "svc-supabase",
+   "kind": "calls"
+  },
+  {
+   "from": "web-calendar-screen",
+   "to": "db-predictions",
+   "kind": "reads"
+  },
+  {
+   "from": "web-calendar-screen",
+   "to": "db-period-days",
+   "kind": "reads"
+  },
+  {
+   "from": "web-lib-use-surface-version",
+   "to": "db-feature-flags",
+   "kind": "reads"
+  },
+  {
+   "from": "web-lib-auth-roles",
+   "to": "db-staff-roles",
+   "kind": "reads"
+  },
+  {
+   "from": "web-lib-persona-state",
+   "to": "db-persona-state",
+   "kind": "writes"
+  },
+  {
+   "from": "web-lib-persona-state",
+   "to": "db-adaptation-events",
+   "kind": "writes"
+  },
+  {
+   "from": "web-lib-export-data",
+   "to": "db-subscriptions",
+   "kind": "reads"
+  },
+  {
+   "from": "web-lib-export-data",
+   "to": "db-labs",
+   "kind": "reads"
+  },
+  {
+   "from": "web-lib-notifications-actions",
+   "to": "db-notification-prefs",
+   "kind": "writes"
+  },
+  {
+   "from": "web-lib-notifications-actions",
+   "to": "db-push-subscriptions",
+   "kind": "writes"
+  },
+  {
+   "from": "web-lib-env",
+   "to": "svc-supabase",
+   "kind": "documents"
+  },
+  {
+   "from": "web-middleware",
+   "to": "web-lib-env",
+   "kind": "imports"
+  },
+  {
+   "from": "web-lib-cms-client",
+   "to": "fixture-snapshot",
+   "kind": "imports"
+  },
+  {
+   "from": "web-api-search-index",
+   "to": "web-lib-cms-client",
+   "kind": "imports"
+  },
+  {
+   "from": "script-snapshot-cms",
+   "to": "svc-vercel-cms",
+   "kind": "calls"
+  },
+  {
+   "from": "script-snapshot-cms",
+   "to": "fixture-snapshot",
+   "kind": "generates"
+  },
+  {
+   "from": "svc-vercel-cms",
+   "to": "cms-config",
+   "kind": "renders"
+  },
+  {
+   "from": "script-seed-ui-strings",
+   "to": "db-ui-strings",
+   "kind": "writes"
+  },
+  {
+   "from": "script-seed-ui-strings",
+   "to": "asset-messages",
+   "kind": "reads"
+  },
+  {
+   "from": "script-rls-audit",
+   "to": "svc-supabase",
+   "kind": "calls"
+  },
+  {
+   "from": "script-db-artifacts-probe",
+   "to": "svc-supabase",
+   "kind": "calls"
+  },
+  {
+   "from": "script-rls-audit",
+   "to": "db-consent-records",
+   "kind": "reads"
+  },
+  {
+   "from": "script-rls-audit",
+   "to": "db-cycles",
+   "kind": "reads"
+  },
+  {
+   "from": "script-rls-audit",
+   "to": "db-staff-roles",
+   "kind": "reads"
+  },
+  {
+   "from": "script-rls-audit",
+   "to": "db-fn-insights-rpcs",
+   "kind": "calls"
+  },
+  {
+   "from": "script-db-artifacts-probe",
+   "to": "db-period-days",
+   "kind": "reads"
+  },
+  {
+   "from": "script-db-artifacts-probe",
+   "to": "db-predictions",
+   "kind": "reads"
+  },
+  {
+   "from": "script-db-artifacts-probe",
+   "to": "db-patterns",
+   "kind": "reads"
+  },
+  {
+   "from": "script-db-artifacts-probe",
+   "to": "db-experience-documents",
+   "kind": "reads"
+  },
+  {
+   "from": "script-db-artifacts-probe",
+   "to": "db-feature-flags",
+   "kind": "reads"
+  },
+  {
+   "from": "cms-coll-articles",
+   "to": "cms-coll-factory",
+   "kind": "imports"
+  },
+  {
+   "from": "cms-config",
+   "to": "cms-coll-articles",
+   "kind": "imports"
+  },
+  {
+   "from": "cms-coll-conditions",
+   "to": "cms-coll-factory",
+   "kind": "imports"
+  },
+  {
+   "from": "cms-config",
+   "to": "cms-coll-conditions",
+   "kind": "imports"
+  },
+  {
+   "from": "cms-coll-faqs",
+   "to": "cms-coll-factory",
+   "kind": "imports"
+  },
+  {
+   "from": "cms-config",
+   "to": "cms-coll-faqs",
+   "kind": "imports"
+  },
+  {
+   "from": "cms-coll-glossary",
+   "to": "cms-coll-factory",
+   "kind": "imports"
+  },
+  {
+   "from": "cms-config",
+   "to": "cms-coll-glossary",
+   "kind": "imports"
+  },
+  {
+   "from": "cms-coll-tips",
+   "to": "cms-coll-factory",
+   "kind": "imports"
+  },
+  {
+   "from": "cms-config",
+   "to": "cms-coll-tips",
+   "kind": "imports"
+  },
+  {
+   "from": "cms-config",
+   "to": "cms-coll-people",
+   "kind": "imports"
+  },
+  {
+   "from": "cms-config",
+   "to": "cms-coll-media",
+   "kind": "imports"
+  },
+  {
+   "from": "cms-config",
+   "to": "cms-coll-users",
+   "kind": "imports"
+  },
+  {
+   "from": "cms-coll-factory",
+   "to": "cms-fields-editorial",
+   "kind": "imports"
+  },
+  {
+   "from": "cms-coll-factory",
+   "to": "cms-fields-publishing",
+   "kind": "imports"
+  },
+  {
+   "from": "cms-coll-factory",
+   "to": "cms-hook-review-gate",
+   "kind": "imports"
+  },
+  {
+   "from": "cms-coll-factory",
+   "to": "cms-access-content",
+   "kind": "imports"
+  },
+  {
+   "from": "cms-hook-review-gate",
+   "to": "cms-access-roles",
+   "kind": "imports"
+  },
+  {
+   "from": "cms-access-content",
+   "to": "cms-access-roles",
+   "kind": "imports"
+  },
+  {
+   "from": "cms-config",
+   "to": "svc-supabase",
+   "kind": "writes"
+  },
+  {
+   "from": "cms-migrations",
+   "to": "cms-config",
+   "kind": "documents"
+  },
+  {
+   "from": "cms-coll-people",
+   "to": "cms-coll-media",
+   "kind": "imports"
+  },
+  {
+   "from": "cms-script-import-articles",
+   "to": "asset-articles-md",
+   "kind": "reads"
+  },
+  {
+   "from": "cms-script-import-articles",
+   "to": "lib-markdown-to-lexical",
+   "kind": "imports"
+  },
+  {
+   "from": "cms-script-import-articles",
+   "to": "cms-coll-articles",
+   "kind": "writes"
+  },
+  {
+   "from": "cms-script-import-translations",
+   "to": "asset-articles-md",
+   "kind": "reads"
+  },
+  {
+   "from": "cms-script-upsert-people",
+   "to": "asset-people-json",
+   "kind": "reads"
+  },
+  {
+   "from": "cms-script-upsert-people",
+   "to": "cms-coll-people",
+   "kind": "writes"
+  },
+  {
+   "from": "cms-script-publish-reviewed",
+   "to": "cms-hook-review-gate",
+   "kind": "calls"
+  },
+  {
+   "from": "cms-script-wire-bylines",
+   "to": "cms-coll-articles",
+   "kind": "writes"
+  },
+  {
+   "from": "cms-script-set-user-roles",
+   "to": "cms-coll-users",
+   "kind": "writes"
+  },
+  {
+   "from": "cms-script-unpublish-person",
+   "to": "cms-coll-people",
+   "kind": "writes"
+  },
+  {
+   "from": "cms-script-migrate-apply",
+   "to": "cms-migrations",
+   "kind": "calls"
+  },
+  {
+   "from": "cms-script-migrate-on-deploy",
+   "to": "cms-migrations",
+   "kind": "calls"
+  },
+  {
+   "from": "cms-script-drop-dev-migration-row",
+   "to": "svc-supabase",
+   "kind": "writes"
+  },
+  {
+   "from": "db-fn-search-content",
+   "to": "cms-coll-articles",
+   "kind": "reads"
+  },
+  {
+   "from": "supabase-migration-0022",
+   "to": "db-fn-search-content",
+   "kind": "generates"
+  },
+  {
+   "from": "supabase-migration-0002",
+   "to": "db-fn-is-staff",
+   "kind": "generates"
+  },
+  {
+   "from": "supabase-migration-0002",
+   "to": "db-fn-has-core-consent",
+   "kind": "generates"
+  },
+  {
+   "from": "supabase-migration-0002",
+   "to": "db-fn-handle-new-user",
+   "kind": "generates"
+  },
+  {
+   "from": "supabase-migration-0014",
+   "to": "db-fn-partner-shared-rows",
+   "kind": "documents"
+  },
+  {
+   "from": "supabase-migration-0025",
+   "to": "db-fn-delete-account",
+   "kind": "documents"
+  },
+  {
+   "from": "db-fn-is-staff",
+   "to": "db-staff-roles",
+   "kind": "reads"
+  },
+  {
+   "from": "db-fn-has-core-consent",
+   "to": "db-consent-records",
+   "kind": "reads"
+  },
+  {
+   "from": "db-fn-audit-feature-flag-change",
+   "to": "db-audit-log",
+   "kind": "writes"
+  },
+  {
+   "from": "db-feature-flags",
+   "to": "db-fn-audit-feature-flag-change",
+   "kind": "calls"
+  },
+  {
+   "from": "db-fn-delete-account",
+   "to": "db-profiles",
+   "kind": "writes"
+  },
+  {
+   "from": "supabase-migration-0002",
+   "to": "db-dropped-content-tables",
+   "kind": "documents"
+  },
+  {
+   "from": "doc-14-architecture",
+   "to": "db-profiles",
+   "kind": "documents"
+  },
+  {
+   "from": "doc-18-rbac",
+   "to": "db-staff-roles",
+   "kind": "documents"
+  },
+  {
+   "from": "doc-18-rbac",
+   "to": "cms-access-roles",
+   "kind": "documents"
+  },
+  {
+   "from": "doc-runbook-supabase",
+   "to": "supabase-migration-0002",
+   "kind": "documents"
+  },
+  {
+   "from": "doc-runbook-cms",
+   "to": "cms-config",
+   "kind": "documents"
+  },
+  {
+   "from": "doc-runbook-apply-all",
+   "to": "supabase-migration-0025",
+   "kind": "documents"
+  },
+  {
+   "from": "supabase-config",
+   "to": "svc-supabase",
+   "kind": "documents"
+  }
+ ]
+}

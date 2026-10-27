@@ -1,0 +1,1532 @@
+{
+ "area": "02-web-platform",
+ "nodes": [
+  {
+   "id": "web-app-locale-layout",
+   "label": "Root locale layout",
+   "type": "module",
+   "path": "apps/web/src/app/[locale]/layout.tsx",
+   "status": "live"
+  },
+  {
+   "id": "web-app-public-layout",
+   "label": "Public shell layout",
+   "type": "module",
+   "path": "apps/web/src/app/[locale]/(public)/layout.tsx",
+   "status": "live"
+  },
+  {
+   "id": "web-app-app-layout",
+   "label": "Closed tracker layout",
+   "type": "module",
+   "path": "apps/web/src/app/[locale]/(app)/layout.tsx",
+   "status": "app-only"
+  },
+  {
+   "id": "web-app-public-home",
+   "label": "Home page",
+   "type": "screen",
+   "path": "apps/web/src/app/[locale]/(public)/page.tsx",
+   "status": "live"
+  },
+  {
+   "id": "web-app-public-app-page",
+   "label": "/app get-the-app page",
+   "type": "screen",
+   "path": "apps/web/src/app/[locale]/(public)/app/page.tsx",
+   "status": "live"
+  },
+  {
+   "id": "web-app-public-learn",
+   "label": "Learn hub + article",
+   "type": "screen",
+   "path": "apps/web/src/app/[locale]/(public)/learn",
+   "status": "live"
+  },
+  {
+   "id": "web-app-public-conditions",
+   "label": "Conditions hub + page",
+   "type": "screen",
+   "path": "apps/web/src/app/[locale]/(public)/conditions",
+   "status": "live"
+  },
+  {
+   "id": "web-app-public-calculators",
+   "label": "Seven calculators + hub",
+   "type": "screen",
+   "path": "apps/web/src/app/[locale]/(public)/calculators",
+   "status": "live"
+  },
+  {
+   "id": "web-app-public-faq-glossary",
+   "label": "FAQ and glossary pages",
+   "type": "screen",
+   "path": "apps/web/src/app/[locale]/(public)/faq",
+   "status": "live"
+  },
+  {
+   "id": "web-app-public-authors",
+   "label": "Authors index + bio",
+   "type": "screen",
+   "path": "apps/web/src/app/[locale]/(public)/authors",
+   "status": "live"
+  },
+  {
+   "id": "web-app-public-trust-pages",
+   "label": "About, editorial, review, privacy, terms",
+   "type": "screen",
+   "path": "apps/web/src/app/[locale]/(public)/about",
+   "status": "live"
+  },
+  {
+   "id": "web-app-public-search",
+   "label": "Search page",
+   "type": "screen",
+   "path": "apps/web/src/app/[locale]/(public)/search/page.tsx",
+   "status": "live"
+  },
+  {
+   "id": "web-app-help-now",
+   "label": "Crisis /help-now page",
+   "type": "screen",
+   "path": "apps/web/src/app/[locale]/help-now/page.tsx",
+   "status": "live"
+  },
+  {
+   "id": "web-app-components-gallery",
+   "label": "/components design gallery",
+   "type": "screen",
+   "path": "apps/web/src/app/[locale]/components/page.tsx",
+   "status": "unknown"
+  },
+  {
+   "id": "web-app-not-found",
+   "label": "Localized 404",
+   "type": "screen",
+   "path": "apps/web/src/app/[locale]/not-found.tsx",
+   "status": "live"
+  },
+  {
+   "id": "web-app-global-error",
+   "label": "Global error boundary",
+   "type": "screen",
+   "path": "apps/web/src/app/global-error.tsx",
+   "status": "live"
+  },
+  {
+   "id": "web-app-tracker-pages",
+   "label": "16 closed (app) pages",
+   "type": "screen",
+   "path": "apps/web/src/app/[locale]/(app)",
+   "status": "app-only"
+  },
+  {
+   "id": "web-app-admin-pages",
+   "label": "Admin insights + translations",
+   "type": "screen",
+   "path": "apps/web/src/app/[locale]/(app)/admin",
+   "status": "app-only"
+  },
+  {
+   "id": "web-app-sign-in",
+   "label": "Sign-in route",
+   "type": "screen",
+   "path": "apps/web/src/app/[locale]/sign-in/page.tsx",
+   "status": "app-only"
+  },
+  {
+   "id": "web-app-welcome",
+   "label": "Onboarding route",
+   "type": "screen",
+   "path": "apps/web/src/app/[locale]/welcome/page.tsx",
+   "status": "app-only"
+  },
+  {
+   "id": "web-app-reset-password",
+   "label": "Reset-password route",
+   "type": "screen",
+   "path": "apps/web/src/app/[locale]/reset-password/page.tsx",
+   "status": "app-only"
+  },
+  {
+   "id": "web-app-api-auth-callback",
+   "label": "Auth callback route",
+   "type": "module",
+   "path": "apps/web/src/app/api/auth/callback/route.ts",
+   "status": "app-only"
+  },
+  {
+   "id": "web-app-api-reading",
+   "label": "Reading-list route",
+   "type": "module",
+   "path": "apps/web/src/app/api/reading/route.ts",
+   "status": "app-only"
+  },
+  {
+   "id": "web-app-api-search-index",
+   "label": "Search index route",
+   "type": "module",
+   "path": "apps/web/src/app/api/search-index/[locale]/route.ts",
+   "status": "live"
+  },
+  {
+   "id": "web-app-sitemap",
+   "label": "sitemap.ts",
+   "type": "module",
+   "path": "apps/web/src/app/sitemap.ts",
+   "status": "live"
+  },
+  {
+   "id": "web-app-robots",
+   "label": "robots.ts",
+   "type": "module",
+   "path": "apps/web/src/app/robots.ts",
+   "status": "live"
+  },
+  {
+   "id": "web-app-manifest",
+   "label": "PWA manifest",
+   "type": "module",
+   "path": "apps/web/src/app/manifest.ts",
+   "status": "live"
+  },
+  {
+   "id": "web-app-icon-svg",
+   "label": "icon.svg (favicon)",
+   "type": "asset",
+   "path": "apps/web/src/app/icon.svg",
+   "status": "live"
+  },
+  {
+   "id": "web-app-sw",
+   "label": "Service worker source",
+   "type": "module",
+   "path": "apps/web/src/app/sw.ts",
+   "status": "live"
+  },
+  {
+   "id": "web-app-globals-css",
+   "label": "globals.css",
+   "type": "asset",
+   "path": "apps/web/src/app/globals.css",
+   "status": "live"
+  },
+  {
+   "id": "web-middleware",
+   "label": "Edge middleware",
+   "type": "module",
+   "path": "apps/web/src/middleware.ts",
+   "status": "live"
+  },
+  {
+   "id": "web-lib-web-app",
+   "label": "web-app gate (D8)",
+   "type": "module",
+   "path": "apps/web/src/lib/web-app.ts",
+   "status": "live"
+  },
+  {
+   "id": "web-lib-supabase-middleware",
+   "label": "Supabase session refresh",
+   "type": "module",
+   "path": "apps/web/src/lib/supabase/middleware.ts",
+   "status": "app-only"
+  },
+  {
+   "id": "web-lib-supabase-client",
+   "label": "Supabase browser client",
+   "type": "module",
+   "path": "apps/web/src/lib/supabase/client.ts",
+   "status": "app-only"
+  },
+  {
+   "id": "web-lib-supabase-server",
+   "label": "Supabase server client",
+   "type": "module",
+   "path": "apps/web/src/lib/supabase/server.ts",
+   "status": "app-only"
+  },
+  {
+   "id": "web-lib-supabase-use-query",
+   "label": "useSupabaseQuery hook",
+   "type": "module",
+   "path": "apps/web/src/lib/supabase/use-query.ts",
+   "status": "app-only"
+  },
+  {
+   "id": "web-i18n-routing",
+   "label": "i18n routing",
+   "type": "module",
+   "path": "apps/web/src/i18n/routing.ts",
+   "status": "live"
+  },
+  {
+   "id": "web-i18n-request",
+   "label": "i18n request config",
+   "type": "module",
+   "path": "apps/web/src/i18n/request.ts",
+   "status": "live"
+  },
+  {
+   "id": "web-i18n-navigation",
+   "label": "i18n navigation",
+   "type": "module",
+   "path": "apps/web/src/i18n/navigation.ts",
+   "status": "live"
+  },
+  {
+   "id": "web-i18n-client-namespaces",
+   "label": "Client namespace lists",
+   "type": "module",
+   "path": "apps/web/src/i18n/client-namespaces.ts",
+   "status": "live"
+  },
+  {
+   "id": "web-messages-en",
+   "label": "messages/en.json",
+   "type": "asset",
+   "path": "apps/web/messages/en.json",
+   "status": "live"
+  },
+  {
+   "id": "web-messages-ar",
+   "label": "messages/ar.json",
+   "type": "asset",
+   "path": "apps/web/messages/ar.json",
+   "status": "live"
+  },
+  {
+   "id": "web-messages-fr",
+   "label": "messages/fr.json",
+   "type": "asset",
+   "path": "apps/web/messages/fr.json",
+   "status": "live"
+  },
+  {
+   "id": "web-messages-es",
+   "label": "messages/es.json",
+   "type": "asset",
+   "path": "apps/web/messages/es.json",
+   "status": "live"
+  },
+  {
+   "id": "web-lib-i18n-ui-strings-loader",
+   "label": "DB ui_strings overlay loader",
+   "type": "module",
+   "path": "apps/web/src/lib/i18n/ui-strings-loader.ts",
+   "status": "unknown"
+  },
+  {
+   "id": "web-lib-i18n-ui-strings",
+   "label": "ui-strings pure helpers",
+   "type": "module",
+   "path": "apps/web/src/lib/i18n/ui-strings.ts",
+   "status": "unknown"
+  },
+  {
+   "id": "web-lib-i18n-translation-actions",
+   "label": "Translation portal actions",
+   "type": "module",
+   "path": "apps/web/src/lib/i18n/translation-actions.ts",
+   "status": "app-only"
+  },
+  {
+   "id": "web-lib-i18n-csv",
+   "label": "Translation CSV",
+   "type": "module",
+   "path": "apps/web/src/lib/i18n/csv.ts",
+   "status": "app-only"
+  },
+  {
+   "id": "web-instrumentation",
+   "label": "Server Sentry init",
+   "type": "module",
+   "path": "apps/web/src/instrumentation.ts",
+   "status": "live"
+  },
+  {
+   "id": "web-instrumentation-client",
+   "label": "Browser Sentry init",
+   "type": "module",
+   "path": "apps/web/src/instrumentation-client.ts",
+   "status": "live"
+  },
+  {
+   "id": "web-lib-observability-scrub",
+   "label": "Sentry event scrubber",
+   "type": "module",
+   "path": "apps/web/src/lib/observability/scrub.ts",
+   "status": "live"
+  },
+  {
+   "id": "web-lib-observability-dsn",
+   "label": "Sentry EU DSN check",
+   "type": "module",
+   "path": "apps/web/src/lib/observability/dsn.ts",
+   "status": "live"
+  },
+  {
+   "id": "web-lib-observability-noise",
+   "label": "Sentry noise filters",
+   "type": "module",
+   "path": "apps/web/src/lib/observability/noise.ts",
+   "status": "live"
+  },
+  {
+   "id": "web-lib-env",
+   "label": "Validated env",
+   "type": "module",
+   "path": "apps/web/src/lib/env.ts",
+   "status": "live"
+  },
+  {
+   "id": "web-lib-utils",
+   "label": "cn() helper",
+   "type": "function",
+   "path": "apps/web/src/lib/utils.ts",
+   "status": "live"
+  },
+  {
+   "id": "web-hooks-use-crisis-help",
+   "label": "useCrisisHelp re-export",
+   "type": "module",
+   "path": "apps/web/src/hooks/use-crisis-help.ts",
+   "status": "live"
+  },
+  {
+   "id": "web-lib-seo-config",
+   "label": "SEO site config",
+   "type": "module",
+   "path": "apps/web/src/lib/seo/config.ts",
+   "status": "live"
+  },
+  {
+   "id": "web-lib-seo-metadata",
+   "label": "hreflang alternates",
+   "type": "function",
+   "path": "apps/web/src/lib/seo/metadata.ts",
+   "status": "live"
+  },
+  {
+   "id": "web-lib-seo-jsonld",
+   "label": "JSON-LD builders",
+   "type": "module",
+   "path": "apps/web/src/lib/seo/jsonld.ts",
+   "status": "live"
+  },
+  {
+   "id": "web-lib-cms-client",
+   "label": "Snapshot content client",
+   "type": "module",
+   "path": "apps/web/src/lib/cms/client.ts",
+   "status": "live"
+  },
+  {
+   "id": "web-lib-cms-lexical",
+   "label": "Lexical renderer",
+   "type": "module",
+   "path": "apps/web/src/lib/cms/lexical.tsx",
+   "status": "live"
+  },
+  {
+   "id": "web-lib-cms-faq",
+   "label": "FAQ extraction",
+   "type": "module",
+   "path": "apps/web/src/lib/cms/faq.ts",
+   "status": "live"
+  },
+  {
+   "id": "web-lib-cms-format",
+   "label": "meta description helper",
+   "type": "function",
+   "path": "apps/web/src/lib/cms/format.ts",
+   "status": "live"
+  },
+  {
+   "id": "web-content-snapshot",
+   "label": "Content snapshot JSON",
+   "type": "fixture",
+   "path": "apps/web/src/content/snapshot",
+   "status": "live"
+  },
+  {
+   "id": "web-lib-content-topics",
+   "label": "Learn hub topics",
+   "type": "module",
+   "path": "apps/web/src/lib/content/topics.ts",
+   "status": "live"
+  },
+  {
+   "id": "web-lib-content-unpublished",
+   "label": "Unpublished section filter",
+   "type": "module",
+   "path": "apps/web/src/lib/content/unpublished-sections.ts",
+   "status": "live"
+  },
+  {
+   "id": "web-lib-search-index",
+   "label": "Search ranker",
+   "type": "module",
+   "path": "apps/web/src/lib/search/index.ts",
+   "status": "live"
+  },
+  {
+   "id": "web-lib-search-corpus",
+   "label": "Search tool corpus",
+   "type": "module",
+   "path": "apps/web/src/lib/search/corpus.ts",
+   "status": "live"
+  },
+  {
+   "id": "web-lib-search-library",
+   "label": "Search library index",
+   "type": "module",
+   "path": "apps/web/src/lib/search/library.ts",
+   "status": "live"
+  },
+  {
+   "id": "web-lib-analytics-track",
+   "label": "track() gate",
+   "type": "function",
+   "path": "apps/web/src/lib/analytics/track.ts",
+   "status": "live"
+  },
+  {
+   "id": "web-lib-analytics-transport",
+   "label": "PostHog transport",
+   "type": "module",
+   "path": "apps/web/src/lib/analytics/transport.ts",
+   "status": "live"
+  },
+  {
+   "id": "web-lib-analytics-consent",
+   "label": "Analytics consent read",
+   "type": "module",
+   "path": "apps/web/src/lib/analytics/consent.ts",
+   "status": "app-only"
+  },
+  {
+   "id": "web-lib-analytics-guard",
+   "label": "Event guard",
+   "type": "module",
+   "path": "apps/web/src/lib/analytics/guard.ts",
+   "status": "live"
+  },
+  {
+   "id": "web-lib-analytics-sanitize",
+   "label": "Property sanitizer",
+   "type": "module",
+   "path": "apps/web/src/lib/analytics/sanitize.ts",
+   "status": "live"
+  },
+  {
+   "id": "web-lib-analytics-events",
+   "label": "Event catalog",
+   "type": "module",
+   "path": "apps/web/src/lib/analytics/events.ts",
+   "status": "live"
+  },
+  {
+   "id": "web-lib-analytics-host",
+   "label": "PostHog EU host check",
+   "type": "function",
+   "path": "apps/web/src/lib/analytics/host.ts",
+   "status": "live"
+  },
+  {
+   "id": "web-lib-analytics-use-calculator-used",
+   "label": "useCalculatorUsed hook",
+   "type": "module",
+   "path": "apps/web/src/lib/analytics/use-calculator-used.ts",
+   "status": "live"
+  },
+  {
+   "id": "web-lib-consent-actions",
+   "label": "Consent ledger actions",
+   "type": "module",
+   "path": "apps/web/src/lib/consent/actions.ts",
+   "status": "app-only"
+  },
+  {
+   "id": "web-lib-consent-purposes",
+   "label": "Consent purposes",
+   "type": "module",
+   "path": "apps/web/src/lib/consent/purposes.ts",
+   "status": "app-only"
+  },
+  {
+   "id": "web-lib-auth-require-staff",
+   "label": "requireStaff guard",
+   "type": "module",
+   "path": "apps/web/src/lib/auth/require-staff.ts",
+   "status": "app-only"
+  },
+  {
+   "id": "web-lib-auth-roles",
+   "label": "Staff roles",
+   "type": "module",
+   "path": "apps/web/src/lib/auth/roles.ts",
+   "status": "app-only"
+  },
+  {
+   "id": "web-lib-auth-mfa",
+   "label": "MFA helpers",
+   "type": "module",
+   "path": "apps/web/src/lib/auth/mfa.ts",
+   "status": "app-only"
+  },
+  {
+   "id": "web-lib-beta-gate",
+   "label": "Beta invite gate",
+   "type": "module",
+   "path": "apps/web/src/lib/beta/gate.ts",
+   "status": "app-only"
+  },
+  {
+   "id": "web-lib-offline-queue",
+   "label": "IndexedDB log queue",
+   "type": "module",
+   "path": "apps/web/src/lib/offline/queue.ts",
+   "status": "app-only"
+  },
+  {
+   "id": "web-lib-offline-sync",
+   "label": "saveOrQueue / flush",
+   "type": "module",
+   "path": "apps/web/src/lib/offline/sync.ts",
+   "status": "app-only"
+  },
+  {
+   "id": "web-lib-offline-use-online",
+   "label": "useOnline hook",
+   "type": "module",
+   "path": "apps/web/src/lib/offline/use-online.ts",
+   "status": "app-only"
+  },
+  {
+   "id": "web-lib-account-export-data",
+   "label": "GDPR export",
+   "type": "module",
+   "path": "apps/web/src/lib/account/export-data.ts",
+   "status": "app-only"
+  },
+  {
+   "id": "web-lib-account-visit-summary",
+   "label": "Visit summary builder",
+   "type": "module",
+   "path": "apps/web/src/lib/account/visit-summary.ts",
+   "status": "app-only"
+  },
+  {
+   "id": "web-lib-partner-index",
+   "label": "Partner scope rules",
+   "type": "module",
+   "path": "apps/web/src/lib/partner/index.ts",
+   "status": "app-only"
+  },
+  {
+   "id": "web-lib-partner-actions",
+   "label": "Partner sharing actions",
+   "type": "module",
+   "path": "apps/web/src/lib/partner/actions.ts",
+   "status": "app-only"
+  },
+  {
+   "id": "web-lib-notifications-index",
+   "label": "Notification rules",
+   "type": "module",
+   "path": "apps/web/src/lib/notifications/index.ts",
+   "status": "app-only"
+  },
+  {
+   "id": "web-lib-notifications-actions",
+   "label": "Push subscription actions",
+   "type": "module",
+   "path": "apps/web/src/lib/notifications/actions.ts",
+   "status": "app-only"
+  },
+  {
+   "id": "web-lib-ui-range-band",
+   "label": "Range-band geometry",
+   "type": "function",
+   "path": "apps/web/src/lib/ui/range-band.ts",
+   "status": "app-only"
+  },
+  {
+   "id": "web-next-config",
+   "label": "next.config.mjs (CSP, PWA)",
+   "type": "module",
+   "path": "apps/web/next.config.mjs",
+   "status": "live"
+  },
+  {
+   "id": "web-tailwind-config",
+   "label": "tailwind.config.ts",
+   "type": "module",
+   "path": "apps/web/tailwind.config.ts",
+   "status": "live"
+  },
+  {
+   "id": "web-vitest-config",
+   "label": "vitest.config.ts",
+   "type": "module",
+   "path": "apps/web/vitest.config.ts",
+   "status": "live"
+  },
+  {
+   "id": "web-playwright-config",
+   "label": "playwright.config.ts",
+   "type": "module",
+   "path": "apps/web/playwright.config.ts",
+   "status": "live"
+  },
+  {
+   "id": "web-package-json",
+   "label": "apps/web package.json",
+   "type": "module",
+   "path": "apps/web/package.json",
+   "status": "live"
+  },
+  {
+   "id": "web-vercel-json",
+   "label": "vercel.json",
+   "type": "module",
+   "path": "apps/web/vercel.json",
+   "status": "live"
+  },
+  {
+   "id": "web-env-example",
+   "label": ".env.example",
+   "type": "doc",
+   "path": "apps/web/.env.example",
+   "status": "live"
+  },
+  {
+   "id": "web-components-json",
+   "label": "shadcn components.json",
+   "type": "module",
+   "path": "apps/web/components.json",
+   "status": "live"
+  },
+  {
+   "id": "web-public-art",
+   "label": "public/art topic SVGs",
+   "type": "asset",
+   "path": "apps/web/public/art",
+   "status": "live"
+  },
+  {
+   "id": "web-public-app-icon",
+   "label": "public/icons/app-icon.svg",
+   "type": "asset",
+   "path": "apps/web/public/icons/app-icon.svg",
+   "status": "duplicate"
+  },
+  {
+   "id": "web-e2e-suite",
+   "label": "Playwright e2e (20 specs)",
+   "type": "fixture",
+   "path": "apps/web/e2e",
+   "status": "live"
+  },
+  {
+   "id": "assets-brand-tokens",
+   "label": "@femio/tokens package",
+   "type": "asset",
+   "path": "assets/brand/tokens",
+   "status": "live"
+  },
+  {
+   "id": "web-components-site-header",
+   "label": "SiteHeader",
+   "type": "module",
+   "path": "apps/web/src/components/site/site-header.tsx",
+   "status": "live"
+  },
+  {
+   "id": "web-components-signed-in-tabs",
+   "label": "SignedInTabs",
+   "type": "module",
+   "path": "apps/web/src/components/signed-in-tabs.tsx",
+   "status": "app-only"
+  },
+  {
+   "id": "web-components-page-view",
+   "label": "PageView analytics",
+   "type": "module",
+   "path": "apps/web/src/components/analytics/page-view.tsx",
+   "status": "live"
+  },
+  {
+   "id": "web-components-content-article",
+   "label": "ContentArticle",
+   "type": "module",
+   "path": "apps/web/src/components/cms/content-article.tsx",
+   "status": "live"
+  },
+  {
+   "id": "web-lib-crisis",
+   "label": "Crisis content library",
+   "type": "module",
+   "path": "apps/web/src/lib/crisis",
+   "status": "live"
+  },
+  {
+   "id": "svc-supabase",
+   "label": "Supabase (EU)",
+   "type": "service",
+   "path": "",
+   "status": "app-only"
+  },
+  {
+   "id": "svc-sentry",
+   "label": "Sentry EU ingest",
+   "type": "service",
+   "path": "",
+   "status": "live"
+  },
+  {
+   "id": "svc-posthog",
+   "label": "PostHog EU",
+   "type": "service",
+   "path": "",
+   "status": "live"
+  },
+  {
+   "id": "svc-vercel",
+   "label": "Vercel (dub1)",
+   "type": "service",
+   "path": "",
+   "status": "live"
+  },
+  {
+   "id": "svc-google-fonts",
+   "label": "Google Fonts (build time)",
+   "type": "service",
+   "path": "",
+   "status": "live"
+  }
+ ],
+ "edges": [
+  {
+   "from": "web-middleware",
+   "to": "web-lib-web-app",
+   "kind": "imports"
+  },
+  {
+   "from": "web-middleware",
+   "to": "web-i18n-routing",
+   "kind": "imports"
+  },
+  {
+   "from": "web-middleware",
+   "to": "web-lib-supabase-middleware",
+   "kind": "calls"
+  },
+  {
+   "from": "web-lib-supabase-middleware",
+   "to": "svc-supabase",
+   "kind": "calls"
+  },
+  {
+   "from": "web-lib-supabase-middleware",
+   "to": "web-lib-env",
+   "kind": "imports"
+  },
+  {
+   "from": "web-lib-supabase-client",
+   "to": "svc-supabase",
+   "kind": "calls"
+  },
+  {
+   "from": "web-lib-supabase-server",
+   "to": "svc-supabase",
+   "kind": "calls"
+  },
+  {
+   "from": "web-lib-supabase-use-query",
+   "to": "web-lib-supabase-client",
+   "kind": "imports"
+  },
+  {
+   "from": "web-app-locale-layout",
+   "to": "web-i18n-client-namespaces",
+   "kind": "imports"
+  },
+  {
+   "from": "web-app-locale-layout",
+   "to": "web-lib-seo-metadata",
+   "kind": "imports"
+  },
+  {
+   "from": "web-app-locale-layout",
+   "to": "web-lib-seo-config",
+   "kind": "imports"
+  },
+  {
+   "from": "web-app-locale-layout",
+   "to": "assets-brand-tokens",
+   "kind": "imports"
+  },
+  {
+   "from": "web-app-locale-layout",
+   "to": "web-app-globals-css",
+   "kind": "imports"
+  },
+  {
+   "from": "web-app-locale-layout",
+   "to": "svc-google-fonts",
+   "kind": "calls"
+  },
+  {
+   "from": "web-app-locale-layout",
+   "to": "web-lib-env",
+   "kind": "imports"
+  },
+  {
+   "from": "web-app-public-layout",
+   "to": "web-components-site-header",
+   "kind": "renders"
+  },
+  {
+   "from": "web-app-public-layout",
+   "to": "web-components-signed-in-tabs",
+   "kind": "renders"
+  },
+  {
+   "from": "web-components-signed-in-tabs",
+   "to": "web-lib-web-app",
+   "kind": "imports"
+  },
+  {
+   "from": "web-components-signed-in-tabs",
+   "to": "web-lib-supabase-client",
+   "kind": "calls"
+  },
+  {
+   "from": "web-components-site-header",
+   "to": "web-lib-web-app",
+   "kind": "imports"
+  },
+  {
+   "from": "web-app-app-layout",
+   "to": "web-i18n-client-namespaces",
+   "kind": "imports"
+  },
+  {
+   "from": "web-app-app-layout",
+   "to": "web-lib-offline-sync",
+   "kind": "renders"
+  },
+  {
+   "from": "web-app-app-layout",
+   "to": "web-components-page-view",
+   "kind": "renders"
+  },
+  {
+   "from": "web-app-tracker-pages",
+   "to": "web-lib-supabase-use-query",
+   "kind": "imports"
+  },
+  {
+   "from": "web-app-tracker-pages",
+   "to": "web-lib-offline-sync",
+   "kind": "imports"
+  },
+  {
+   "from": "web-app-tracker-pages",
+   "to": "web-lib-consent-actions",
+   "kind": "imports"
+  },
+  {
+   "from": "web-app-tracker-pages",
+   "to": "web-lib-partner-actions",
+   "kind": "imports"
+  },
+  {
+   "from": "web-app-tracker-pages",
+   "to": "web-lib-notifications-actions",
+   "kind": "imports"
+  },
+  {
+   "from": "web-app-tracker-pages",
+   "to": "web-lib-account-export-data",
+   "kind": "imports"
+  },
+  {
+   "from": "web-app-admin-pages",
+   "to": "web-lib-auth-require-staff",
+   "kind": "imports"
+  },
+  {
+   "from": "web-lib-auth-require-staff",
+   "to": "web-lib-supabase-server",
+   "kind": "imports"
+  },
+  {
+   "from": "web-lib-auth-require-staff",
+   "to": "web-lib-auth-roles",
+   "kind": "imports"
+  },
+  {
+   "from": "web-lib-auth-require-staff",
+   "to": "web-lib-auth-mfa",
+   "kind": "imports"
+  },
+  {
+   "from": "web-lib-i18n-translation-actions",
+   "to": "web-lib-supabase-server",
+   "kind": "imports"
+  },
+  {
+   "from": "web-app-admin-pages",
+   "to": "web-lib-i18n-translation-actions",
+   "kind": "calls"
+  },
+  {
+   "from": "web-lib-i18n-translation-actions",
+   "to": "web-lib-i18n-ui-strings",
+   "kind": "imports"
+  },
+  {
+   "from": "web-lib-i18n-csv",
+   "to": "web-lib-i18n-ui-strings",
+   "kind": "imports"
+  },
+  {
+   "from": "web-app-sign-in",
+   "to": "web-lib-supabase-client",
+   "kind": "calls"
+  },
+  {
+   "from": "web-app-welcome",
+   "to": "web-lib-beta-gate",
+   "kind": "imports"
+  },
+  {
+   "from": "web-app-welcome",
+   "to": "web-lib-consent-actions",
+   "kind": "imports"
+  },
+  {
+   "from": "web-app-reset-password",
+   "to": "web-lib-supabase-client",
+   "kind": "calls"
+  },
+  {
+   "from": "web-app-api-auth-callback",
+   "to": "web-lib-supabase-server",
+   "kind": "calls"
+  },
+  {
+   "from": "web-app-api-reading",
+   "to": "web-lib-cms-client",
+   "kind": "imports"
+  },
+  {
+   "from": "web-app-tracker-pages",
+   "to": "web-app-api-reading",
+   "kind": "calls"
+  },
+  {
+   "from": "web-app-api-search-index",
+   "to": "web-lib-cms-client",
+   "kind": "imports"
+  },
+  {
+   "from": "web-app-api-search-index",
+   "to": "web-lib-search-library",
+   "kind": "imports"
+  },
+  {
+   "from": "web-app-public-search",
+   "to": "web-app-api-search-index",
+   "kind": "calls"
+  },
+  {
+   "from": "web-lib-search-library",
+   "to": "web-lib-search-corpus",
+   "kind": "imports"
+  },
+  {
+   "from": "web-lib-search-corpus",
+   "to": "web-app-tracker-pages",
+   "kind": "documents"
+  },
+  {
+   "from": "web-app-public-search",
+   "to": "web-lib-search-index",
+   "kind": "imports"
+  },
+  {
+   "from": "web-i18n-request",
+   "to": "web-lib-i18n-ui-strings-loader",
+   "kind": "calls"
+  },
+  {
+   "from": "web-lib-i18n-ui-strings-loader",
+   "to": "svc-supabase",
+   "kind": "reads"
+  },
+  {
+   "from": "web-lib-i18n-ui-strings-loader",
+   "to": "web-lib-i18n-ui-strings",
+   "kind": "imports"
+  },
+  {
+   "from": "web-i18n-request",
+   "to": "web-messages-en",
+   "kind": "reads"
+  },
+  {
+   "from": "web-i18n-request",
+   "to": "web-messages-ar",
+   "kind": "reads"
+  },
+  {
+   "from": "web-i18n-request",
+   "to": "web-messages-fr",
+   "kind": "reads"
+  },
+  {
+   "from": "web-i18n-request",
+   "to": "web-messages-es",
+   "kind": "reads"
+  },
+  {
+   "from": "web-i18n-request",
+   "to": "web-i18n-routing",
+   "kind": "imports"
+  },
+  {
+   "from": "web-i18n-navigation",
+   "to": "web-i18n-routing",
+   "kind": "imports"
+  },
+  {
+   "from": "web-app-public-home",
+   "to": "web-lib-seo-jsonld",
+   "kind": "imports"
+  },
+  {
+   "from": "web-app-public-home",
+   "to": "web-lib-web-app",
+   "kind": "imports"
+  },
+  {
+   "from": "web-app-public-home",
+   "to": "web-components-page-view",
+   "kind": "renders"
+  },
+  {
+   "from": "web-app-public-app-page",
+   "to": "web-lib-seo-metadata",
+   "kind": "imports"
+  },
+  {
+   "from": "web-app-public-learn",
+   "to": "web-lib-cms-client",
+   "kind": "imports"
+  },
+  {
+   "from": "web-app-public-learn",
+   "to": "web-components-content-article",
+   "kind": "renders"
+  },
+  {
+   "from": "web-app-public-conditions",
+   "to": "web-lib-cms-client",
+   "kind": "imports"
+  },
+  {
+   "from": "web-app-public-conditions",
+   "to": "web-components-content-article",
+   "kind": "renders"
+  },
+  {
+   "from": "web-components-content-article",
+   "to": "web-lib-seo-jsonld",
+   "kind": "imports"
+  },
+  {
+   "from": "web-components-content-article",
+   "to": "web-lib-cms-lexical",
+   "kind": "imports"
+  },
+  {
+   "from": "web-lib-cms-faq",
+   "to": "web-lib-cms-client",
+   "kind": "imports"
+  },
+  {
+   "from": "web-app-public-faq-glossary",
+   "to": "web-lib-cms-client",
+   "kind": "imports"
+  },
+  {
+   "from": "web-app-public-faq-glossary",
+   "to": "web-lib-seo-jsonld",
+   "kind": "imports"
+  },
+  {
+   "from": "web-app-public-authors",
+   "to": "web-lib-cms-client",
+   "kind": "imports"
+  },
+  {
+   "from": "web-app-public-authors",
+   "to": "web-lib-seo-jsonld",
+   "kind": "imports"
+  },
+  {
+   "from": "web-app-public-calculators",
+   "to": "web-lib-analytics-use-calculator-used",
+   "kind": "imports"
+  },
+  {
+   "from": "web-app-public-calculators",
+   "to": "web-lib-seo-jsonld",
+   "kind": "imports"
+  },
+  {
+   "from": "web-lib-cms-client",
+   "to": "web-content-snapshot",
+   "kind": "reads"
+  },
+  {
+   "from": "web-lib-content-topics",
+   "to": "web-lib-cms-client",
+   "kind": "documents"
+  },
+  {
+   "from": "web-lib-content-unpublished",
+   "to": "web-app-sitemap",
+   "kind": "documents"
+  },
+  {
+   "from": "web-app-sitemap",
+   "to": "web-lib-cms-client",
+   "kind": "imports"
+  },
+  {
+   "from": "web-app-sitemap",
+   "to": "web-lib-content-unpublished",
+   "kind": "imports"
+  },
+  {
+   "from": "web-app-sitemap",
+   "to": "web-lib-seo-config",
+   "kind": "imports"
+  },
+  {
+   "from": "web-app-robots",
+   "to": "web-lib-seo-config",
+   "kind": "imports"
+  },
+  {
+   "from": "web-app-public-trust-pages",
+   "to": "web-lib-seo-metadata",
+   "kind": "imports"
+  },
+  {
+   "from": "web-app-help-now",
+   "to": "web-lib-crisis",
+   "kind": "imports"
+  },
+  {
+   "from": "web-app-help-now",
+   "to": "web-lib-env",
+   "kind": "imports"
+  },
+  {
+   "from": "web-app-components-gallery",
+   "to": "assets-brand-tokens",
+   "kind": "renders"
+  },
+  {
+   "from": "web-lib-seo-config",
+   "to": "web-lib-env",
+   "kind": "imports"
+  },
+  {
+   "from": "web-lib-seo-metadata",
+   "to": "web-i18n-routing",
+   "kind": "imports"
+  },
+  {
+   "from": "web-lib-seo-jsonld",
+   "to": "web-lib-seo-config",
+   "kind": "imports"
+  },
+  {
+   "from": "web-lib-seo-jsonld",
+   "to": "web-public-app-icon",
+   "kind": "reads"
+  },
+  {
+   "from": "web-lib-analytics-track",
+   "to": "web-lib-analytics-consent",
+   "kind": "calls"
+  },
+  {
+   "from": "web-lib-analytics-track",
+   "to": "web-lib-analytics-guard",
+   "kind": "calls"
+  },
+  {
+   "from": "web-lib-analytics-track",
+   "to": "web-lib-analytics-transport",
+   "kind": "calls"
+  },
+  {
+   "from": "web-lib-analytics-guard",
+   "to": "web-lib-analytics-events",
+   "kind": "imports"
+  },
+  {
+   "from": "web-lib-analytics-transport",
+   "to": "web-lib-analytics-sanitize",
+   "kind": "imports"
+  },
+  {
+   "from": "web-lib-analytics-transport",
+   "to": "svc-posthog",
+   "kind": "calls"
+  },
+  {
+   "from": "web-lib-analytics-consent",
+   "to": "svc-supabase",
+   "kind": "reads"
+  },
+  {
+   "from": "web-lib-analytics-consent",
+   "to": "web-lib-consent-purposes",
+   "kind": "imports"
+  },
+  {
+   "from": "web-lib-analytics-use-calculator-used",
+   "to": "web-lib-analytics-track",
+   "kind": "calls"
+  },
+  {
+   "from": "web-components-page-view",
+   "to": "web-lib-analytics-track",
+   "kind": "calls"
+  },
+  {
+   "from": "web-lib-env",
+   "to": "web-lib-analytics-host",
+   "kind": "imports"
+  },
+  {
+   "from": "web-lib-env",
+   "to": "web-lib-observability-dsn",
+   "kind": "imports"
+  },
+  {
+   "from": "web-lib-consent-actions",
+   "to": "svc-supabase",
+   "kind": "writes"
+  },
+  {
+   "from": "web-lib-consent-actions",
+   "to": "web-lib-consent-purposes",
+   "kind": "imports"
+  },
+  {
+   "from": "web-lib-offline-sync",
+   "to": "web-lib-offline-queue",
+   "kind": "imports"
+  },
+  {
+   "from": "web-lib-offline-sync",
+   "to": "svc-supabase",
+   "kind": "writes"
+  },
+  {
+   "from": "web-lib-account-export-data",
+   "to": "svc-supabase",
+   "kind": "reads"
+  },
+  {
+   "from": "web-lib-partner-actions",
+   "to": "svc-supabase",
+   "kind": "writes"
+  },
+  {
+   "from": "web-lib-partner-actions",
+   "to": "web-lib-partner-index",
+   "kind": "imports"
+  },
+  {
+   "from": "web-lib-notifications-actions",
+   "to": "svc-supabase",
+   "kind": "writes"
+  },
+  {
+   "from": "web-lib-notifications-actions",
+   "to": "web-lib-notifications-index",
+   "kind": "imports"
+  },
+  {
+   "from": "web-instrumentation",
+   "to": "web-lib-observability-scrub",
+   "kind": "imports"
+  },
+  {
+   "from": "web-instrumentation",
+   "to": "svc-sentry",
+   "kind": "calls"
+  },
+  {
+   "from": "web-instrumentation-client",
+   "to": "web-lib-observability-scrub",
+   "kind": "imports"
+  },
+  {
+   "from": "web-instrumentation-client",
+   "to": "web-lib-observability-noise",
+   "kind": "imports"
+  },
+  {
+   "from": "web-instrumentation-client",
+   "to": "svc-sentry",
+   "kind": "calls"
+  },
+  {
+   "from": "web-next-config",
+   "to": "web-app-sw",
+   "kind": "generates"
+  },
+  {
+   "from": "web-next-config",
+   "to": "web-i18n-request",
+   "kind": "imports"
+  },
+  {
+   "from": "web-next-config",
+   "to": "svc-supabase",
+   "kind": "documents"
+  },
+  {
+   "from": "web-next-config",
+   "to": "svc-posthog",
+   "kind": "documents"
+  },
+  {
+   "from": "web-next-config",
+   "to": "svc-sentry",
+   "kind": "documents"
+  },
+  {
+   "from": "web-app-sw",
+   "to": "web-app-icon-svg",
+   "kind": "reads"
+  },
+  {
+   "from": "web-app-manifest",
+   "to": "web-public-app-icon",
+   "kind": "reads"
+  },
+  {
+   "from": "web-tailwind-config",
+   "to": "assets-brand-tokens",
+   "kind": "imports"
+  },
+  {
+   "from": "web-package-json",
+   "to": "web-next-config",
+   "kind": "documents"
+  },
+  {
+   "from": "web-vercel-json",
+   "to": "svc-vercel",
+   "kind": "documents"
+  },
+  {
+   "from": "web-vitest-config",
+   "to": "web-lib-env",
+   "kind": "documents"
+  },
+  {
+   "from": "web-playwright-config",
+   "to": "web-e2e-suite",
+   "kind": "documents"
+  },
+  {
+   "from": "web-e2e-suite",
+   "to": "web-app-public-home",
+   "kind": "tested-by"
+  },
+  {
+   "from": "web-lib-web-app",
+   "to": "web-e2e-suite",
+   "kind": "tested-by"
+  },
+  {
+   "from": "web-lib-supabase-use-query",
+   "to": "web-lib-offline-sync",
+   "kind": "documents"
+  },
+  {
+   "from": "web-app-public-learn",
+   "to": "web-public-art",
+   "kind": "renders"
+  },
+  {
+   "from": "web-lib-web-app",
+   "to": "web-app-tracker-pages",
+   "kind": "documents"
+  },
+  {
+   "from": "web-lib-ui-range-band",
+   "to": "web-app-tracker-pages",
+   "kind": "documents"
+  },
+  {
+   "from": "web-lib-offline-use-online",
+   "to": "web-app-tracker-pages",
+   "kind": "documents"
+  },
+  {
+   "from": "web-lib-account-visit-summary",
+   "to": "web-app-tracker-pages",
+   "kind": "documents"
+  },
+  {
+   "from": "web-hooks-use-crisis-help",
+   "to": "web-lib-crisis",
+   "kind": "imports"
+  },
+  {
+   "from": "web-lib-beta-gate",
+   "to": "web-app-welcome",
+   "kind": "documents"
+  },
+  {
+   "from": "web-lib-utils",
+   "to": "web-components-json",
+   "kind": "documents"
+  },
+  {
+   "from": "web-app-locale-layout",
+   "to": "web-instrumentation-client",
+   "kind": "documents"
+  },
+  {
+   "from": "web-app-not-found",
+   "to": "web-app-locale-layout",
+   "kind": "documents"
+  },
+  {
+   "from": "web-app-global-error",
+   "to": "web-i18n-routing",
+   "kind": "imports"
+  },
+  {
+   "from": "web-app-public-layout",
+   "to": "web-app-public-home",
+   "kind": "renders"
+  }
+ ]
+}

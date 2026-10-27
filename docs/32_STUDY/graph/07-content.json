@@ -1,0 +1,948 @@
+{
+  "area": "07-content",
+  "nodes": [
+    {
+      "id": "snapshot-articles-json",
+      "label": "Snapshot: 100 EN articles",
+      "type": "fixture",
+      "path": "apps/web/src/content/snapshot/articles.json",
+      "status": "live"
+    },
+    {
+      "id": "snapshot-conditions-json",
+      "label": "Snapshot: 5 EN conditions",
+      "type": "fixture",
+      "path": "apps/web/src/content/snapshot/conditions.json",
+      "status": "live"
+    },
+    {
+      "id": "snapshot-faqs-json",
+      "label": "Snapshot: FAQs (empty)",
+      "type": "fixture",
+      "path": "apps/web/src/content/snapshot/faqs.json",
+      "status": "live"
+    },
+    {
+      "id": "snapshot-glossary-json",
+      "label": "Snapshot: glossary (empty)",
+      "type": "fixture",
+      "path": "apps/web/src/content/snapshot/glossary.json",
+      "status": "live"
+    },
+    {
+      "id": "snapshot-people-json",
+      "label": "Snapshot: reviewer bio (1)",
+      "type": "fixture",
+      "path": "apps/web/src/content/snapshot/people.json",
+      "status": "live"
+    },
+    {
+      "id": "snapshot-meta-json",
+      "label": "Snapshot metadata (2026-10-07)",
+      "type": "fixture",
+      "path": "apps/web/src/content/snapshot/meta.json",
+      "status": "live"
+    },
+    {
+      "id": "docs-content-people-khaled-m",
+      "label": "Bio source khaled-m.json",
+      "type": "fixture",
+      "path": "docs/content/people/khaled-m.json",
+      "status": "unknown"
+    },
+    {
+      "id": "messages-en-json",
+      "label": "UI copy: \"reviewed by a clinician\" claims",
+      "type": "asset",
+      "path": "apps/web/messages/en.json",
+      "status": "live"
+    },
+    {
+      "id": "group-row-ttc",
+      "label": "Row: trying to conceive (11)",
+      "type": "fixture",
+      "path": "apps/web/src/content/snapshot/articles.json",
+      "status": "live"
+    },
+    {
+      "id": "group-row-weeks",
+      "label": "Row: pregnancy weeks 4 to 40 (37, none reviewed)",
+      "type": "fixture",
+      "path": "apps/web/src/content/snapshot/articles.json",
+      "status": "live"
+    },
+    {
+      "id": "group-row-pregnancy",
+      "label": "Row: pregnancy (4)",
+      "type": "fixture",
+      "path": "apps/web/src/content/snapshot/articles.json",
+      "status": "live"
+    },
+    {
+      "id": "group-row-after-birth",
+      "label": "Row: after birth (14)",
+      "type": "fixture",
+      "path": "apps/web/src/content/snapshot/articles.json",
+      "status": "live"
+    },
+    {
+      "id": "group-row-newborn",
+      "label": "Row: newborn (8)",
+      "type": "fixture",
+      "path": "apps/web/src/content/snapshot/articles.json",
+      "status": "live"
+    },
+    {
+      "id": "group-row-cycles",
+      "label": "Row: cycles and periods (8)",
+      "type": "fixture",
+      "path": "apps/web/src/content/snapshot/articles.json",
+      "status": "live"
+    },
+    {
+      "id": "group-row-conditions",
+      "label": "Row: conditions (4 articles)",
+      "type": "fixture",
+      "path": "apps/web/src/content/snapshot/articles.json",
+      "status": "live"
+    },
+    {
+      "id": "group-row-teens",
+      "label": "Row: teens (8)",
+      "type": "fixture",
+      "path": "apps/web/src/content/snapshot/articles.json",
+      "status": "live"
+    },
+    {
+      "id": "group-row-menopause",
+      "label": "Row: menopause (5)",
+      "type": "fixture",
+      "path": "apps/web/src/content/snapshot/articles.json",
+      "status": "live"
+    },
+    {
+      "id": "group-row-no-row",
+      "label": "No row: meet-femio (1, hidden on hub)",
+      "type": "fixture",
+      "path": "apps/web/src/content/snapshot/articles.json",
+      "status": "live"
+    },
+    {
+      "id": "group-ramadan-draft",
+      "label": "Ramadan article (EN and AR drafts, not in snapshot)",
+      "type": "fixture",
+      "path": "docs/content/articles/ramadan-fasting-pregnancy.md",
+      "status": "unknown"
+    },
+    {
+      "id": "condition-endometriosis",
+      "label": "Condition: endometriosis",
+      "type": "fixture",
+      "path": "apps/web/src/content/snapshot/conditions.json",
+      "status": "live"
+    },
+    {
+      "id": "condition-heavy-periods",
+      "label": "Condition: heavy periods",
+      "type": "fixture",
+      "path": "apps/web/src/content/snapshot/conditions.json",
+      "status": "live"
+    },
+    {
+      "id": "condition-painful-periods",
+      "label": "Condition: painful periods",
+      "type": "fixture",
+      "path": "apps/web/src/content/snapshot/conditions.json",
+      "status": "live"
+    },
+    {
+      "id": "condition-pcos",
+      "label": "Condition: PCOS (no red-flag box)",
+      "type": "fixture",
+      "path": "apps/web/src/content/snapshot/conditions.json",
+      "status": "live"
+    },
+    {
+      "id": "condition-pms-pmdd",
+      "label": "Condition: PMS and PMDD",
+      "type": "fixture",
+      "path": "apps/web/src/content/snapshot/conditions.json",
+      "status": "live"
+    },
+    {
+      "id": "learn-hub-page",
+      "label": "Learn hub page",
+      "type": "screen",
+      "path": "apps/web/src/components/learn/learn-hub.tsx",
+      "status": "live"
+    },
+    {
+      "id": "conditions-index-page",
+      "label": "Conditions index page",
+      "type": "screen",
+      "path": "apps/web/src/app/[locale]/(public)/conditions/page.tsx",
+      "status": "live"
+    },
+    {
+      "id": "article-page-template",
+      "label": "Article page template",
+      "type": "screen",
+      "path": "apps/web/src/components/cms/content-article.tsx",
+      "status": "live"
+    },
+    {
+      "id": "faq-page-hidden",
+      "label": "FAQ page (hidden from nav, empty)",
+      "type": "screen",
+      "path": "apps/web/src/app/[locale]/(public)/faq",
+      "status": "live"
+    },
+    {
+      "id": "glossary-page-hidden",
+      "label": "Glossary page (hidden from nav, empty)",
+      "type": "screen",
+      "path": "apps/web/src/app/[locale]/(public)/glossary",
+      "status": "live"
+    },
+    {
+      "id": "docs-16-condition-library-ia",
+      "label": "doc 16: condition library IA (8 categories)",
+      "type": "doc",
+      "path": "docs/16_CONDITION_LIBRARY_IA.md",
+      "status": "live"
+    },
+    {
+      "id": "web-lib-content-topics",
+      "label": "topics.ts (Learn rows, START_HERE, questions)",
+      "type": "module",
+      "path": "apps/web/src/lib/content/topics.ts",
+      "status": "live"
+    },
+    {
+      "id": "web-lib-content-topics-test",
+      "label": "topics.test.ts (5 cases)",
+      "type": "script",
+      "path": "apps/web/src/lib/content/topics.test.ts",
+      "status": "live"
+    },
+    {
+      "id": "web-lib-content-unpublished-sections",
+      "label": "unpublished-sections.ts (/glossary, /faq)",
+      "type": "module",
+      "path": "apps/web/src/lib/content/unpublished-sections.ts",
+      "status": "live"
+    },
+    {
+      "id": "web-lib-content-unpublished-sections-test",
+      "label": "unpublished-sections.test.ts (3 cases)",
+      "type": "script",
+      "path": "apps/web/src/lib/content/unpublished-sections.test.ts",
+      "status": "live"
+    },
+    {
+      "id": "web-lib-cms-client",
+      "label": "lib/cms/client.ts (reads snapshot, EN fallback)",
+      "type": "module",
+      "path": "apps/web/src/lib/cms/client.ts",
+      "status": "live"
+    },
+    {
+      "id": "web-lib-cms-lexical",
+      "label": "lib/cms/lexical.tsx (Lexical renderer)",
+      "type": "module",
+      "path": "apps/web/src/lib/cms/lexical.tsx",
+      "status": "live"
+    },
+    {
+      "id": "web-lib-cms-lexical-test",
+      "label": "lexical.test.ts (2 cases)",
+      "type": "script",
+      "path": "apps/web/src/lib/cms/lexical.test.ts",
+      "status": "live"
+    },
+    {
+      "id": "web-lib-cms-faq",
+      "label": "lib/cms/faq.ts (FAQ schema from body)",
+      "type": "module",
+      "path": "apps/web/src/lib/cms/faq.ts",
+      "status": "live"
+    },
+    {
+      "id": "web-lib-cms-faq-test",
+      "label": "faq.test.ts",
+      "type": "script",
+      "path": "apps/web/src/lib/cms/faq.test.ts",
+      "status": "live"
+    },
+    {
+      "id": "web-lib-search-library",
+      "label": "lib/search/library.ts (search corpus)",
+      "type": "module",
+      "path": "apps/web/src/lib/search/library.ts",
+      "status": "live"
+    },
+    {
+      "id": "web-lib-search-library-test",
+      "label": "library.test.ts (5 cases)",
+      "type": "script",
+      "path": "apps/web/src/lib/search/library.test.ts",
+      "status": "live"
+    },
+    {
+      "id": "web-lib-experience-reading",
+      "label": "lib/experience/reading.ts (topic and week to slug)",
+      "type": "module",
+      "path": "apps/web/src/lib/experience/reading.ts",
+      "status": "live"
+    },
+    {
+      "id": "web-lib-experience-reading-test",
+      "label": "reading.test.ts (17 cases)",
+      "type": "script",
+      "path": "apps/web/src/lib/experience/reading.test.ts",
+      "status": "live"
+    },
+    {
+      "id": "web-app-api-reading-route",
+      "label": "api/reading route (reading list, no body)",
+      "type": "function",
+      "path": "apps/web/src/app/api/reading/route.ts",
+      "status": "live"
+    },
+    {
+      "id": "web-app-sitemap",
+      "label": "sitemap.ts",
+      "type": "function",
+      "path": "apps/web/src/app/sitemap.ts",
+      "status": "live"
+    },
+    {
+      "id": "web-components-learn-topic-art",
+      "label": "topic-art.tsx (row artwork)",
+      "type": "module",
+      "path": "apps/web/src/components/learn/topic-art.tsx",
+      "status": "unknown"
+    },
+    {
+      "id": "scripts-content-snapshot-cms",
+      "label": "scripts/content/snapshot-cms.mjs (CMS to snapshot)",
+      "type": "script",
+      "path": "scripts/content/snapshot-cms.mjs",
+      "status": "live"
+    },
+    {
+      "id": "scripts-content-lint",
+      "label": "scripts/content-lint.mjs (offline content guard)",
+      "type": "script",
+      "path": "scripts/content-lint.mjs",
+      "status": "live"
+    },
+    {
+      "id": "scripts-content-lint-test",
+      "label": "content-lint.test.mjs",
+      "type": "script",
+      "path": "scripts/content-lint.test.mjs",
+      "status": "live"
+    },
+    {
+      "id": "scripts-content-import-test",
+      "label": "content-import.test.mjs",
+      "type": "script",
+      "path": "scripts/content-import.test.mjs",
+      "status": "unknown"
+    },
+    {
+      "id": "package-json-content-lint",
+      "label": "package.json: content-lint script (in pnpm gate)",
+      "type": "script",
+      "path": "package.json",
+      "status": "live"
+    },
+    {
+      "id": "apps-cms-import-articles",
+      "label": "apps/cms import-articles.mjs (drafts to CMS)",
+      "type": "script",
+      "path": "apps/cms/scripts/import-articles.mjs",
+      "status": "unknown"
+    },
+    {
+      "id": "apps-cms-import-translations",
+      "label": "apps/cms import-translations.mjs (hard-codes articles)",
+      "type": "script",
+      "path": "apps/cms/scripts/import-translations.mjs",
+      "status": "unknown"
+    },
+    {
+      "id": "apps-cms-root",
+      "label": "apps/cms: Payload CMS app",
+      "type": "service",
+      "path": "apps/cms",
+      "status": "unknown"
+    },
+    {
+      "id": "cms-femio-cms-vercel",
+      "label": "femio-cms.vercel.app (CMS deployment)",
+      "type": "service",
+      "path": "femio-cms.vercel.app",
+      "status": "unknown"
+    },
+    {
+      "id": "docs-content-articles-dir",
+      "label": "Markdown drafts folder (107 files)",
+      "type": "fixture",
+      "path": "docs/content/articles",
+      "status": "live"
+    },
+    {
+      "id": "docs-content-articles-ar-ramadan",
+      "label": "Arabic Ramadan draft (editor notes)",
+      "type": "fixture",
+      "path": "docs/content/articles/ramadan-fasting-pregnancy.ar.md",
+      "status": "live"
+    },
+    {
+      "id": "docs-15-editorial-medical-review-policy",
+      "label": "doc 15: editorial and medical review policy",
+      "type": "doc",
+      "path": "docs/15_EDITORIAL_MEDICAL_REVIEW_POLICY.md",
+      "status": "live"
+    },
+    {
+      "id": "docs-04-medical-data-sources",
+      "label": "doc 04: medical data sources (tiers)",
+      "type": "doc",
+      "path": "docs/04_MEDICAL_DATA_SOURCES.md",
+      "status": "live"
+    },
+    {
+      "id": "docs-11-needs-source-checklist",
+      "label": "doc 11: needs-source checklist (452 open)",
+      "type": "doc",
+      "path": "docs/11_NEEDS_SOURCE_CHECKLIST.md",
+      "status": "live"
+    },
+    {
+      "id": "docs-content-codex-authoring-brief",
+      "label": "Authoring brief (rules; Codex name)",
+      "type": "doc",
+      "path": "docs/content/CODEX_AUTHORING_BRIEF.md",
+      "status": "live"
+    },
+    {
+      "id": "docs-content-glossary-terms",
+      "label": "Glossary terms: AR, FR, ES renderings (draft)",
+      "type": "doc",
+      "path": "docs/content/GLOSSARY_TERMS.md",
+      "status": "live"
+    },
+    {
+      "id": "docs-content-cms-seo-publishing-recommendations",
+      "label": "CMS and SEO publishing recommendations",
+      "type": "doc",
+      "path": "docs/content/CMS_SEO_PUBLISHING_RECOMMENDATIONS.md",
+      "status": "unknown"
+    },
+    {
+      "id": "docs-content-handover-translation",
+      "label": "Handover: AR, FR, ES translation prompt",
+      "type": "doc",
+      "path": "docs/content/HANDOVER_TRANSLATION.md",
+      "status": "dead"
+    },
+    {
+      "id": "docs-content-handover-translation-return",
+      "label": "Return: translation run (0 kept)",
+      "type": "doc",
+      "path": "docs/content/HANDOVER_TRANSLATION_RETURN.md",
+      "status": "dead"
+    },
+    {
+      "id": "docs-content-handover-week-by-week",
+      "label": "Handover: weeks 4 to 40 prompt",
+      "type": "doc",
+      "path": "docs/content/HANDOVER_WEEK_BY_WEEK.md",
+      "status": "dead"
+    },
+    {
+      "id": "docs-content-handover-week-by-week-return",
+      "label": "Return: 37 week drafts",
+      "type": "doc",
+      "path": "docs/content/HANDOVER_WEEK_BY_WEEK_RETURN.md",
+      "status": "dead"
+    },
+    {
+      "id": "docs-content-handover-teen-content",
+      "label": "Handover: teen set of ten",
+      "type": "doc",
+      "path": "docs/content/HANDOVER_TEEN_CONTENT.md",
+      "status": "dead"
+    },
+    {
+      "id": "docs-content-handover-newborn-basics",
+      "label": "Handover: newborn set of eight",
+      "type": "doc",
+      "path": "docs/content/HANDOVER_NEWBORN_BASICS.md",
+      "status": "dead"
+    },
+    {
+      "id": "docs-content-handover-newborn-basics-return",
+      "label": "Return: newborn set",
+      "type": "doc",
+      "path": "docs/content/HANDOVER_NEWBORN_BASICS_RETURN.md",
+      "status": "dead"
+    },
+    {
+      "id": "docs-30-revamp-benchmark",
+      "label": "Competitor benchmark (content gaps, 5.2)",
+      "type": "doc",
+      "path": "docs/30_REVAMP/delegated/2026-10-08-competitor-benchmark.md",
+      "status": "live"
+    },
+    {
+      "id": "docs-30-revamp-app-strings-qa",
+      "label": "App strings QA (AR, FR, ES UI)",
+      "type": "doc",
+      "path": "docs/30_REVAMP/delegated/2026-10-08-app-strings-qa.md",
+      "status": "live"
+    },
+    {
+      "id": "docs-30-revamp-fr-register",
+      "label": "FR register proposal (applied 99 of 101)",
+      "type": "doc",
+      "path": "docs/30_REVAMP/delegated/2026-10-08-fr-register.md",
+      "status": "live"
+    }
+  ],
+  "edges": [
+    {
+      "from": "snapshot-articles-json",
+      "to": "web-lib-cms-client",
+      "kind": "reads"
+    },
+    {
+      "from": "snapshot-conditions-json",
+      "to": "web-lib-cms-client",
+      "kind": "reads"
+    },
+    {
+      "from": "snapshot-faqs-json",
+      "to": "web-lib-cms-client",
+      "kind": "reads"
+    },
+    {
+      "from": "snapshot-glossary-json",
+      "to": "web-lib-cms-client",
+      "kind": "reads"
+    },
+    {
+      "from": "snapshot-people-json",
+      "to": "web-lib-cms-client",
+      "kind": "reads"
+    },
+    {
+      "from": "snapshot-meta-json",
+      "to": "web-lib-cms-client",
+      "kind": "documents"
+    },
+    {
+      "from": "web-lib-cms-client",
+      "to": "conditions-index-page",
+      "kind": "calls"
+    },
+    {
+      "from": "web-lib-cms-client",
+      "to": "web-app-api-reading-route",
+      "kind": "calls"
+    },
+    {
+      "from": "web-lib-cms-client",
+      "to": "article-page-template",
+      "kind": "imports"
+    },
+    {
+      "from": "web-lib-cms-client",
+      "to": "learn-hub-page",
+      "kind": "imports"
+    },
+    {
+      "from": "web-lib-cms-client",
+      "to": "web-app-sitemap",
+      "kind": "calls"
+    },
+    {
+      "from": "snapshot-conditions-json",
+      "to": "conditions-index-page",
+      "kind": "reads"
+    },
+    {
+      "from": "conditions-index-page",
+      "to": "condition-pcos",
+      "kind": "renders"
+    },
+    {
+      "from": "conditions-index-page",
+      "to": "condition-endometriosis",
+      "kind": "renders"
+    },
+    {
+      "from": "conditions-index-page",
+      "to": "condition-heavy-periods",
+      "kind": "renders"
+    },
+    {
+      "from": "conditions-index-page",
+      "to": "condition-painful-periods",
+      "kind": "renders"
+    },
+    {
+      "from": "conditions-index-page",
+      "to": "condition-pms-pmdd",
+      "kind": "renders"
+    },
+    {
+      "from": "docs-content-people-khaled-m",
+      "to": "snapshot-people-json",
+      "kind": "documents"
+    },
+    {
+      "from": "web-lib-search-library",
+      "to": "snapshot-articles-json",
+      "kind": "reads"
+    },
+    {
+      "from": "web-lib-search-library",
+      "to": "web-lib-search-library-test",
+      "kind": "tested-by"
+    },
+    {
+      "from": "web-lib-cms-faq",
+      "to": "web-lib-cms-faq-test",
+      "kind": "tested-by"
+    },
+    {
+      "from": "web-lib-cms-faq",
+      "to": "article-page-template",
+      "kind": "imports"
+    },
+    {
+      "from": "web-lib-cms-lexical",
+      "to": "article-page-template",
+      "kind": "renders"
+    },
+    {
+      "from": "article-page-template",
+      "to": "web-lib-cms-lexical",
+      "kind": "imports"
+    },
+    {
+      "from": "article-page-template",
+      "to": "web-lib-cms-faq",
+      "kind": "imports"
+    },
+    {
+      "from": "web-lib-cms-lexical",
+      "to": "web-lib-cms-lexical-test",
+      "kind": "tested-by"
+    },
+    {
+      "from": "article-page-template",
+      "to": "docs-15-editorial-medical-review-policy",
+      "kind": "documents"
+    },
+    {
+      "from": "docs-content-codex-authoring-brief",
+      "to": "article-page-template",
+      "kind": "documents"
+    },
+    {
+      "from": "learn-hub-page",
+      "to": "web-lib-content-topics",
+      "kind": "imports"
+    },
+    {
+      "from": "learn-hub-page",
+      "to": "web-components-learn-topic-art",
+      "kind": "imports"
+    },
+    {
+      "from": "web-components-learn-topic-art",
+      "to": "web-lib-content-topics",
+      "kind": "imports"
+    },
+    {
+      "from": "learn-hub-page",
+      "to": "messages-en-json",
+      "kind": "reads"
+    },
+    {
+      "from": "web-lib-content-topics",
+      "to": "web-lib-content-topics-test",
+      "kind": "tested-by"
+    },
+    {
+      "from": "web-lib-content-topics",
+      "to": "group-row-ttc",
+      "kind": "documents"
+    },
+    {
+      "from": "web-lib-content-topics",
+      "to": "group-row-weeks",
+      "kind": "documents"
+    },
+    {
+      "from": "web-lib-content-topics",
+      "to": "group-row-pregnancy",
+      "kind": "documents"
+    },
+    {
+      "from": "web-lib-content-topics",
+      "to": "group-row-after-birth",
+      "kind": "documents"
+    },
+    {
+      "from": "web-lib-content-topics",
+      "to": "group-row-newborn",
+      "kind": "documents"
+    },
+    {
+      "from": "web-lib-content-topics",
+      "to": "group-row-cycles",
+      "kind": "documents"
+    },
+    {
+      "from": "web-lib-content-topics",
+      "to": "group-row-conditions",
+      "kind": "documents"
+    },
+    {
+      "from": "web-lib-content-topics",
+      "to": "group-row-teens",
+      "kind": "documents"
+    },
+    {
+      "from": "web-lib-content-topics",
+      "to": "group-row-menopause",
+      "kind": "documents"
+    },
+    {
+      "from": "web-lib-content-topics",
+      "to": "group-row-no-row",
+      "kind": "documents"
+    },
+    {
+      "from": "web-lib-content-topics",
+      "to": "group-ramadan-draft",
+      "kind": "documents"
+    },
+    {
+      "from": "docs-16-condition-library-ia",
+      "to": "learn-hub-page",
+      "kind": "documents"
+    },
+    {
+      "from": "web-lib-content-unpublished-sections",
+      "to": "web-lib-content-unpublished-sections-test",
+      "kind": "tested-by"
+    },
+    {
+      "from": "web-lib-content-unpublished-sections",
+      "to": "web-app-sitemap",
+      "kind": "imports"
+    },
+    {
+      "from": "web-lib-content-unpublished-sections",
+      "to": "faq-page-hidden",
+      "kind": "documents"
+    },
+    {
+      "from": "web-lib-content-unpublished-sections",
+      "to": "glossary-page-hidden",
+      "kind": "documents"
+    },
+    {
+      "from": "snapshot-faqs-json",
+      "to": "faq-page-hidden",
+      "kind": "reads"
+    },
+    {
+      "from": "snapshot-glossary-json",
+      "to": "glossary-page-hidden",
+      "kind": "reads"
+    },
+    {
+      "from": "messages-en-json",
+      "to": "article-page-template",
+      "kind": "documents"
+    },
+    {
+      "from": "web-lib-experience-reading",
+      "to": "web-lib-experience-reading-test",
+      "kind": "tested-by"
+    },
+    {
+      "from": "web-lib-experience-reading",
+      "to": "group-row-weeks",
+      "kind": "reads"
+    },
+    {
+      "from": "web-app-api-reading-route",
+      "to": "snapshot-articles-json",
+      "kind": "reads"
+    },
+    {
+      "from": "scripts-content-snapshot-cms",
+      "to": "snapshot-articles-json",
+      "kind": "writes"
+    },
+    {
+      "from": "scripts-content-snapshot-cms",
+      "to": "cms-femio-cms-vercel",
+      "kind": "reads"
+    },
+    {
+      "from": "apps-cms-root",
+      "to": "cms-femio-cms-vercel",
+      "kind": "documents"
+    },
+    {
+      "from": "apps-cms-import-articles",
+      "to": "docs-content-articles-dir",
+      "kind": "reads"
+    },
+    {
+      "from": "apps-cms-import-articles",
+      "to": "apps-cms-root",
+      "kind": "writes"
+    },
+    {
+      "from": "apps-cms-import-translations",
+      "to": "apps-cms-root",
+      "kind": "writes"
+    },
+    {
+      "from": "docs-content-articles-dir",
+      "to": "apps-cms-import-articles",
+      "kind": "generates"
+    },
+    {
+      "from": "scripts-content-lint",
+      "to": "docs-content-articles-dir",
+      "kind": "reads"
+    },
+    {
+      "from": "scripts-content-lint-test",
+      "to": "scripts-content-lint",
+      "kind": "tested-by"
+    },
+    {
+      "from": "package-json-content-lint",
+      "to": "scripts-content-lint",
+      "kind": "calls"
+    },
+    {
+      "from": "docs-content-codex-authoring-brief",
+      "to": "scripts-content-lint",
+      "kind": "documents"
+    },
+    {
+      "from": "docs-content-articles-ar-ramadan",
+      "to": "group-ramadan-draft",
+      "kind": "documents"
+    },
+    {
+      "from": "docs-content-articles-dir",
+      "to": "group-ramadan-draft",
+      "kind": "documents"
+    },
+    {
+      "from": "docs-04-medical-data-sources",
+      "to": "docs-15-editorial-medical-review-policy",
+      "kind": "documents"
+    },
+    {
+      "from": "docs-15-editorial-medical-review-policy",
+      "to": "scripts-content-lint",
+      "kind": "documents"
+    },
+    {
+      "from": "docs-11-needs-source-checklist",
+      "to": "group-row-ttc",
+      "kind": "documents"
+    },
+    {
+      "from": "docs-content-glossary-terms",
+      "to": "docs-content-handover-translation-return",
+      "kind": "documents"
+    },
+    {
+      "from": "docs-content-handover-translation",
+      "to": "docs-content-handover-translation-return",
+      "kind": "documents"
+    },
+    {
+      "from": "docs-content-handover-translation-return",
+      "to": "docs-content-glossary-terms",
+      "kind": "generates"
+    },
+    {
+      "from": "docs-content-handover-week-by-week",
+      "to": "docs-content-articles-dir",
+      "kind": "generates"
+    },
+    {
+      "from": "docs-content-handover-week-by-week",
+      "to": "docs-content-handover-week-by-week-return",
+      "kind": "documents"
+    },
+    {
+      "from": "docs-content-handover-week-by-week-return",
+      "to": "group-row-weeks",
+      "kind": "generates"
+    },
+    {
+      "from": "docs-content-handover-teen-content",
+      "to": "group-row-teens",
+      "kind": "generates"
+    },
+    {
+      "from": "docs-content-handover-newborn-basics",
+      "to": "group-row-newborn",
+      "kind": "generates"
+    },
+    {
+      "from": "docs-content-handover-newborn-basics",
+      "to": "docs-content-handover-newborn-basics-return",
+      "kind": "documents"
+    },
+    {
+      "from": "docs-content-handover-newborn-basics-return",
+      "to": "group-row-newborn",
+      "kind": "generates"
+    },
+    {
+      "from": "docs-30-revamp-benchmark",
+      "to": "group-row-pregnancy",
+      "kind": "documents"
+    },
+    {
+      "from": "docs-30-revamp-benchmark",
+      "to": "condition-pcos",
+      "kind": "documents"
+    },
+    {
+      "from": "docs-30-revamp-benchmark",
+      "to": "snapshot-articles-json",
+      "kind": "documents"
+    },
+    {
+      "from": "docs-content-cms-seo-publishing-recommendations",
+      "to": "docs-15-editorial-medical-review-policy",
+      "kind": "documents"
+    },
+    {
+      "from": "docs-16-condition-library-ia",
+      "to": "learn-hub-page",
+      "kind": "documents"
+    }
+  ]
+}

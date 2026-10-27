@@ -1,0 +1,1376 @@
+{
+ "area": "09-plans-architecture",
+ "nodes": [
+  {
+   "id": "doc-claude-md",
+   "label": "CLAUDE.md constitution",
+   "type": "doc",
+   "path": "CLAUDE.md",
+   "status": "live"
+  },
+  {
+   "id": "doc-agents-md",
+   "label": "AGENTS.md pointer",
+   "type": "doc",
+   "path": "AGENTS.md",
+   "status": "live"
+  },
+  {
+   "id": "doc-state",
+   "label": "STATE.md living state",
+   "type": "doc",
+   "path": "docs/STATE.md",
+   "status": "live"
+  },
+  {
+   "id": "doc-30-readme",
+   "label": "Revamp README",
+   "type": "doc",
+   "path": "docs/30_REVAMP/00_README.md",
+   "status": "live"
+  },
+  {
+   "id": "doc-03-revamp-plan",
+   "label": "Revamp plan (strategy, Dusk Bloom)",
+   "type": "doc",
+   "path": "docs/30_REVAMP/03_REVAMP_PLAN.md",
+   "status": "live"
+  },
+  {
+   "id": "doc-04-android-spec",
+   "label": "Android app spec",
+   "type": "doc",
+   "path": "docs/30_REVAMP/04_ANDROID_APP_SPEC.md",
+   "status": "live"
+  },
+  {
+   "id": "doc-progress",
+   "label": "Revamp PROGRESS ledger",
+   "type": "doc",
+   "path": "docs/30_REVAMP/PROGRESS.md",
+   "status": "live"
+  },
+  {
+   "id": "doc-31-inventory",
+   "label": "Reset inventory 27 Oct",
+   "type": "doc",
+   "path": "docs/31_RESET/01_INVENTORY.md",
+   "status": "live"
+  },
+  {
+   "id": "doc-31-spec-v1-draft",
+   "label": "V1 scope lock (DRAFT)",
+   "type": "doc",
+   "path": "docs/31_RESET/02_SPEC_V1_DRAFT.md",
+   "status": "unknown"
+  },
+  {
+   "id": "doc-owner-actions",
+   "label": "Owner actions (27 Oct)",
+   "type": "doc",
+   "path": "docs/runbooks/OWNER_ACTIONS.md",
+   "status": "live"
+  },
+  {
+   "id": "doc-owner-actions-archive",
+   "label": "Owner actions 7 Oct (D1-D8 text)",
+   "type": "doc",
+   "path": "docs/archive/runbooks-2026-10/OWNER_ACTIONS_2026-10-07.md",
+   "status": "dead"
+  },
+  {
+   "id": "doc-decisions",
+   "label": "DECISIONS.md ADR log",
+   "type": "doc",
+   "path": "docs/DECISIONS.md",
+   "status": "live"
+  },
+  {
+   "id": "doc-24-revamp-plan",
+   "label": "Experience engine + two-client architecture",
+   "type": "doc",
+   "path": "docs/24_REVAMP_PLAN.md",
+   "status": "app-only"
+  },
+  {
+   "id": "doc-22-app-ui",
+   "label": "App UI architecture (web tracker)",
+   "type": "doc",
+   "path": "docs/22_APP_UI_ARCHITECTURE.md",
+   "status": "app-only"
+  },
+  {
+   "id": "doc-14-system-architecture",
+   "label": "System architecture (ERD, RLS)",
+   "type": "doc",
+   "path": "docs/14_SYSTEM_ARCHITECTURE.md",
+   "status": "app-only"
+  },
+  {
+   "id": "doc-12-brand-tokens",
+   "label": "Brand tokens v2 (violet)",
+   "type": "doc",
+   "path": "docs/12_BRAND_DESIGN_TOKENS.md",
+   "status": "dead"
+  },
+  {
+   "id": "doc-09-adaptation-model",
+   "label": "Master adaptation model",
+   "type": "doc",
+   "path": "docs/09_MASTER_ADAPTATION_MODEL.md",
+   "status": "app-only"
+  },
+  {
+   "id": "doc-state-machine-mermaid",
+   "label": "State machine (mermaid copy)",
+   "type": "doc",
+   "path": "docs/femio_state_machine.mermaid",
+   "status": "duplicate"
+  },
+  {
+   "id": "doc-07-master-todo",
+   "label": "Master TODO (historical queue)",
+   "type": "doc",
+   "path": "docs/07_MASTER_TODO.md",
+   "status": "live"
+  },
+  {
+   "id": "doc-changelog",
+   "label": "CHANGELOG",
+   "type": "doc",
+   "path": "docs/CHANGELOG.md",
+   "status": "live"
+  },
+  {
+   "id": "doc-28-findings-ledger",
+   "label": "Teardown ledger (OD-1..16)",
+   "type": "doc",
+   "path": "docs/28_TEARDOWN/11_FINDINGS_LEDGER.md",
+   "status": "live"
+  },
+  {
+   "id": "doc-25-design-brief",
+   "label": "Design direction brief (archived)",
+   "type": "doc",
+   "path": "docs/archive/plans-2026-08/25_DESIGN_DIRECTION_BRIEF.md",
+   "status": "dead"
+  },
+  {
+   "id": "doc-private-launch-v1",
+   "label": "Private launch legal reasoning",
+   "type": "doc",
+   "path": "docs/compliance/PRIVATE_LAUNCH_V1.md",
+   "status": "live"
+  },
+  {
+   "id": "doc-29-rebuild-progress",
+   "label": "Aug web rebuild ledger",
+   "type": "doc",
+   "path": "docs/29_REBUILD/PROGRESS.md",
+   "status": "dead"
+  },
+  {
+   "id": "asset-femio-tokens-css",
+   "label": "femio.tokens.css (canonical tokens)",
+   "type": "asset",
+   "path": "assets/brand/tokens/femio.tokens.css",
+   "status": "live"
+  },
+  {
+   "id": "module-apps-mobile",
+   "label": "Flutter app v0.4.0",
+   "type": "module",
+   "path": "apps/mobile",
+   "status": "live"
+  },
+  {
+   "id": "module-apps-web",
+   "label": "Next.js website (tracker closed)",
+   "type": "module",
+   "path": "apps/web",
+   "status": "live"
+  },
+  {
+   "id": "module-apps-cms",
+   "label": "Payload CMS (retiring, D3)",
+   "type": "module",
+   "path": "apps/cms",
+   "status": "dead"
+  },
+  {
+   "id": "service-supabase",
+   "label": "Supabase backend (dormant)",
+   "type": "service",
+   "path": "supabase",
+   "status": "app-only"
+  },
+  {
+   "id": "fixture-domain-fixtures",
+   "label": "Golden fixtures (12 JSON)",
+   "type": "fixture",
+   "path": "fixtures/domain",
+   "status": "live"
+  },
+  {
+   "id": "script-snapshot-cms",
+   "label": "snapshot-cms.mjs (CMS to repo)",
+   "type": "script",
+   "path": "scripts/content/snapshot-cms.mjs",
+   "status": "live"
+  },
+  {
+   "id": "script-tokens-to-dart",
+   "label": "tokens-to-dart.mjs",
+   "type": "script",
+   "path": "scripts/design/tokens-to-dart.mjs",
+   "status": "live"
+  },
+  {
+   "id": "script-gate",
+   "label": "pnpm gate (17 steps)",
+   "type": "script",
+   "path": "package.json",
+   "status": "live"
+  },
+  {
+   "id": "service-google-play",
+   "label": "Google Play Console (not yet created)",
+   "type": "service",
+   "path": "n/a",
+   "status": "unknown"
+  },
+  {
+   "id": "service-vercel",
+   "label": "Vercel hosting (deploys main)",
+   "type": "service",
+   "path": "n/a",
+   "status": "live"
+  },
+  {
+   "id": "d1-wedge",
+   "label": "D1 wedge: TTC to pregnancy, PCOS depth",
+   "type": "doc",
+   "path": "docs/archive/runbooks-2026-10/OWNER_ACTIONS_2026-10-07.md",
+   "status": "live"
+  },
+  {
+   "id": "d2-route-pwa-twa-flutter",
+   "label": "D2 route: PWA, TWA, then Flutter",
+   "type": "doc",
+   "path": "docs/archive/runbooks-2026-10/OWNER_ACTIONS_2026-10-07.md",
+   "status": "dead"
+  },
+  {
+   "id": "d3-retire-payload",
+   "label": "D3 retire Payload CMS",
+   "type": "doc",
+   "path": "docs/archive/runbooks-2026-10/OWNER_ACTIONS_2026-10-07.md",
+   "status": "live"
+  },
+  {
+   "id": "d4-markets",
+   "label": "D4 markets: KSA + Egypt, Arabic first",
+   "type": "doc",
+   "path": "docs/archive/runbooks-2026-10/OWNER_ACTIONS_2026-10-07.md",
+   "status": "live"
+  },
+  {
+   "id": "d5-launch-week-30-nov",
+   "label": "D5 soft launch week of 30 Nov 2026",
+   "type": "doc",
+   "path": "docs/archive/runbooks-2026-10/OWNER_ACTIONS_2026-10-07.md",
+   "status": "live"
+  },
+  {
+   "id": "d6-dusk-bloom",
+   "label": "D6 Dusk Bloom look",
+   "type": "doc",
+   "path": "docs/archive/runbooks-2026-10/OWNER_ACTIONS_2026-10-07.md",
+   "status": "live"
+  },
+  {
+   "id": "d7-private-launch",
+   "label": "D7 records stay on the phone",
+   "type": "doc",
+   "path": "docs/archive/runbooks-2026-10/OWNER_ACTIONS_2026-10-07.md",
+   "status": "live"
+  },
+  {
+   "id": "d8-site-promotes-app",
+   "label": "D8 site promotes the Android app",
+   "type": "doc",
+   "path": "docs/archive/runbooks-2026-10/OWNER_ACTIONS_2026-10-07.md",
+   "status": "live"
+  },
+  {
+   "id": "adr-001",
+   "label": "ADR-001 web-first PWA + Supabase",
+   "type": "doc",
+   "path": "docs/DECISIONS.md",
+   "status": "dead"
+  },
+  {
+   "id": "adr-004",
+   "label": "ADR-004 persona-driven adaptive UX",
+   "type": "doc",
+   "path": "docs/DECISIONS.md",
+   "status": "app-only"
+  },
+  {
+   "id": "adr-006",
+   "label": "ADR-006 two-tier tokens (violet palette)",
+   "type": "doc",
+   "path": "docs/DECISIONS.md",
+   "status": "dead"
+  },
+  {
+   "id": "adr-007",
+   "label": "ADR-007 constant-core EMR, server resolver",
+   "type": "doc",
+   "path": "docs/DECISIONS.md",
+   "status": "app-only"
+  },
+  {
+   "id": "adr-010",
+   "label": "ADR-010 native anonymous auth",
+   "type": "doc",
+   "path": "docs/DECISIONS.md",
+   "status": "app-only"
+  },
+  {
+   "id": "adr-012",
+   "label": "ADR-012 Payload as content source",
+   "type": "doc",
+   "path": "docs/DECISIONS.md",
+   "status": "dead"
+  },
+  {
+   "id": "adr-013",
+   "label": "ADR-013 global crisis routing",
+   "type": "doc",
+   "path": "docs/DECISIONS.md",
+   "status": "live"
+  },
+  {
+   "id": "adr-028",
+   "label": "ADR-028 health not medical framing",
+   "type": "doc",
+   "path": "docs/DECISIONS.md",
+   "status": "live"
+  },
+  {
+   "id": "adr-032",
+   "label": "ADR-032 owner holds medical_reviewer",
+   "type": "doc",
+   "path": "docs/DECISIONS.md",
+   "status": "live"
+  },
+  {
+   "id": "adr-048",
+   "label": "ADR-048 tracker as package (retired)",
+   "type": "doc",
+   "path": "docs/DECISIONS.md",
+   "status": "dead"
+  },
+  {
+   "id": "adr-049",
+   "label": "ADR-049 kick counter, no pass mark",
+   "type": "doc",
+   "path": "docs/DECISIONS.md",
+   "status": "live"
+  },
+  {
+   "id": "adr-051",
+   "label": "ADR-051 design gap workstream",
+   "type": "doc",
+   "path": "docs/DECISIONS.md",
+   "status": "app-only"
+  },
+  {
+   "id": "adr-057",
+   "label": "ADR-057 resolver cannot restrict",
+   "type": "doc",
+   "path": "docs/DECISIONS.md",
+   "status": "app-only"
+  },
+  {
+   "id": "adr-058",
+   "label": "ADR-058 correction: 57 of 73 resolvable",
+   "type": "doc",
+   "path": "docs/DECISIONS.md",
+   "status": "app-only"
+  },
+  {
+   "id": "adr-059",
+   "label": "ADR-059 wizard as medical triage",
+   "type": "doc",
+   "path": "docs/DECISIONS.md",
+   "status": "app-only"
+  },
+  {
+   "id": "adr-060",
+   "label": "ADR-060 mobile is Flutter",
+   "type": "doc",
+   "path": "docs/DECISIONS.md",
+   "status": "live"
+  },
+  {
+   "id": "adr-061",
+   "label": "ADR-061 ExperienceConfig document",
+   "type": "doc",
+   "path": "docs/DECISIONS.md",
+   "status": "app-only"
+  },
+  {
+   "id": "adr-062",
+   "label": "ADR-062 queue/archive split, ADR bar",
+   "type": "doc",
+   "path": "docs/DECISIONS.md",
+   "status": "live"
+  },
+  {
+   "id": "adr-063",
+   "label": "ADR-063 review gates move to testing",
+   "type": "doc",
+   "path": "docs/DECISIONS.md",
+   "status": "live"
+  },
+  {
+   "id": "adr-064",
+   "label": "ADR-064 English is master in repo",
+   "type": "doc",
+   "path": "docs/DECISIONS.md",
+   "status": "live"
+  },
+  {
+   "id": "adr-065",
+   "label": "ADR-065 E3 from what she said",
+   "type": "doc",
+   "path": "docs/DECISIONS.md",
+   "status": "app-only"
+  },
+  {
+   "id": "adr-066",
+   "label": "ADR-066 name phases only when supported",
+   "type": "doc",
+   "path": "docs/DECISIONS.md",
+   "status": "live"
+  },
+  {
+   "id": "adr-067",
+   "label": "ADR-067 withdrawn (B12 misreading)",
+   "type": "doc",
+   "path": "docs/DECISIONS.md",
+   "status": "dead"
+  },
+  {
+   "id": "adr-068",
+   "label": "ADR-068 partner curated view",
+   "type": "doc",
+   "path": "docs/DECISIONS.md",
+   "status": "app-only"
+  },
+  {
+   "id": "adr-069",
+   "label": "ADR-069 partner beta, hero gradient, Western digits",
+   "type": "doc",
+   "path": "docs/DECISIONS.md",
+   "status": "live"
+  },
+  {
+   "id": "adr-070",
+   "label": "ADR-070 private Android app",
+   "type": "doc",
+   "path": "docs/DECISIONS.md",
+   "status": "live"
+  },
+  {
+   "id": "adr-071",
+   "label": "ADR-071 Codex app reference only",
+   "type": "doc",
+   "path": "docs/DECISIONS.md",
+   "status": "live"
+  },
+  {
+   "id": "od-05-conservative-register",
+   "label": "OD-5 conservative register",
+   "type": "doc",
+   "path": "docs/28_TEARDOWN/11_FINDINGS_LEDGER.md",
+   "status": "live"
+  },
+  {
+   "id": "od-07-freemium",
+   "label": "OD-7 freemium",
+   "type": "doc",
+   "path": "docs/28_TEARDOWN/11_FINDINGS_LEDGER.md",
+   "status": "live"
+  },
+  {
+   "id": "od-08-no-chat",
+   "label": "OD-8 no messaging or chat",
+   "type": "doc",
+   "path": "docs/28_TEARDOWN/11_FINDINGS_LEDGER.md",
+   "status": "live"
+  },
+  {
+   "id": "od-09-ai-post-v1",
+   "label": "OD-9 AI assistant post-V1",
+   "type": "doc",
+   "path": "docs/28_TEARDOWN/11_FINDINGS_LEDGER.md",
+   "status": "live"
+  },
+  {
+   "id": "od-11-calendar-prominent",
+   "label": "OD-11 calendar prominent",
+   "type": "doc",
+   "path": "docs/28_TEARDOWN/11_FINDINGS_LEDGER.md",
+   "status": "live"
+  },
+  {
+   "id": "od-12-learn-structure",
+   "label": "OD-12 Learn like Flo Insights",
+   "type": "doc",
+   "path": "docs/28_TEARDOWN/11_FINDINGS_LEDGER.md",
+   "status": "live"
+  },
+  {
+   "id": "od-13-persona-thesis",
+   "label": "OD-13 experience adapts to persona",
+   "type": "doc",
+   "path": "docs/28_TEARDOWN/11_FINDINGS_LEDGER.md",
+   "status": "app-only"
+  },
+  {
+   "id": "od-14-three-apps-gate",
+   "label": "OD-14 better than three apps combined",
+   "type": "doc",
+   "path": "docs/28_TEARDOWN/11_FINDINGS_LEDGER.md",
+   "status": "live"
+  },
+  {
+   "id": "od-15-calendar-detail",
+   "label": "OD-15 calendar detail",
+   "type": "doc",
+   "path": "docs/28_TEARDOWN/11_FINDINGS_LEDGER.md",
+   "status": "live"
+  },
+  {
+   "id": "od-16-web-first",
+   "label": "OD-16 web app first",
+   "type": "doc",
+   "path": "docs/28_TEARDOWN/11_FINDINGS_LEDGER.md",
+   "status": "dead"
+  },
+  {
+   "id": "od-others",
+   "label": "OD-1,2,3,4,6,10 (historical or realised)",
+   "type": "doc",
+   "path": "docs/28_TEARDOWN/11_FINDINGS_LEDGER.md",
+   "status": "live"
+  },
+  {
+   "id": "phase-p0-stabilise",
+   "label": "Phase 0 stabilise and clean (done)",
+   "type": "doc",
+   "path": "docs/30_REVAMP/PROGRESS.md",
+   "status": "live"
+  },
+  {
+   "id": "phase-p1-dusk-bloom",
+   "label": "Phase 1 Dusk Bloom (done, owner review D-1 pending)",
+   "type": "doc",
+   "path": "docs/30_REVAMP/PROGRESS.md",
+   "status": "live"
+  },
+  {
+   "id": "phase-p2-public-site",
+   "label": "Phase 2 public site (mostly done)",
+   "type": "doc",
+   "path": "docs/30_REVAMP/PROGRESS.md",
+   "status": "live"
+  },
+  {
+   "id": "phase-p3-android-app",
+   "label": "Phase 3 Android app (in progress)",
+   "type": "doc",
+   "path": "docs/30_REVAMP/PROGRESS.md",
+   "status": "live"
+  },
+  {
+   "id": "phase-p4-launch",
+   "label": "Phase 4 launch (open)",
+   "type": "doc",
+   "path": "docs/30_REVAMP/PROGRESS.md",
+   "status": "live"
+  },
+  {
+   "id": "phase-p5-native-ios",
+   "label": "Phase 5 iOS / native (after signal)",
+   "type": "doc",
+   "path": "docs/30_REVAMP/PROGRESS.md",
+   "status": "live"
+  },
+  {
+   "id": "v1-05-backup-and-lock",
+   "label": "V1-05 backup export/import + app lock (P3.8)",
+   "type": "doc",
+   "path": "docs/31_RESET/02_SPEC_V1_DRAFT.md",
+   "status": "unknown"
+  },
+  {
+   "id": "v1-06-articles-in-app",
+   "label": "V1-06 articles in the app (P3.7)",
+   "type": "doc",
+   "path": "docs/31_RESET/02_SPEC_V1_DRAFT.md",
+   "status": "unknown"
+  },
+  {
+   "id": "v1-07-reminders-crash",
+   "label": "V1-07 reminders + crash reporting (P3.8)",
+   "type": "doc",
+   "path": "docs/31_RESET/02_SPEC_V1_DRAFT.md",
+   "status": "unknown"
+  },
+  {
+   "id": "v1-08-legal-pages",
+   "label": "V1-08 legal pages + Play answers (P4.1)",
+   "type": "doc",
+   "path": "docs/31_RESET/02_SPEC_V1_DRAFT.md",
+   "status": "unknown"
+  },
+  {
+   "id": "ms-rc-9-nov",
+   "label": "9 Nov release-candidate APK + Play account",
+   "type": "doc",
+   "path": "docs/31_RESET/02_SPEC_V1_DRAFT.md",
+   "status": "unknown"
+  },
+  {
+   "id": "ms-closed-test-start-11-nov",
+   "label": "11 Nov Play closed test starts (12 testers)",
+   "type": "doc",
+   "path": "docs/31_RESET/02_SPEC_V1_DRAFT.md",
+   "status": "unknown"
+  },
+  {
+   "id": "ms-closed-test-end-25-nov",
+   "label": "25 Nov closed test ends",
+   "type": "doc",
+   "path": "docs/31_RESET/02_SPEC_V1_DRAFT.md",
+   "status": "unknown"
+  },
+  {
+   "id": "ms-soft-launch-30-nov",
+   "label": "Week of 30 Nov soft launch, 50-100 women",
+   "type": "doc",
+   "path": "docs/31_RESET/02_SPEC_V1_DRAFT.md",
+   "status": "unknown"
+  },
+  {
+   "id": "ms-ramadan-2027",
+   "label": "~8 Feb 2027 Ramadan content due",
+   "type": "doc",
+   "path": "docs/31_RESET/02_SPEC_V1_DRAFT.md",
+   "status": "unknown"
+  },
+  {
+   "id": "ms-egypt-licensing-31-oct",
+   "label": "31 Oct 2026 Egypt licensing enforced (unverified)",
+   "type": "doc",
+   "path": "docs/31_RESET/02_SPEC_V1_DRAFT.md",
+   "status": "unknown"
+  },
+  {
+   "id": "design-rejected-rings",
+   "label": "Rejected: rings, certain dates, pass marks",
+   "type": "doc",
+   "path": "docs/archive/plans-2026-08/25_DESIGN_DIRECTION_BRIEF.md",
+   "status": "live"
+  },
+  {
+   "id": "design-dusk-bloom-spec",
+   "label": "Dusk Bloom reference (this report s.7)",
+   "type": "doc",
+   "path": "docs/32_STUDY/reports/09-plans-architecture.md",
+   "status": "live"
+  }
+ ],
+ "edges": [
+  {
+   "from": "adr-060",
+   "to": "adr-048",
+   "kind": "supersedes",
+   "note": "Capacitor packaging retired"
+  },
+  {
+   "from": "adr-060",
+   "to": "adr-001",
+   "kind": "supersedes",
+   "note": "Capacitor wrap replaced by Flutter (part)"
+  },
+  {
+   "from": "adr-070",
+   "to": "adr-060",
+   "kind": "supersedes",
+   "note": "backend owns decisions becomes specification owns decisions (part)"
+  },
+  {
+   "from": "adr-070",
+   "to": "adr-061",
+   "kind": "supersedes",
+   "note": "served ExperienceConfig dormant (part)"
+  },
+  {
+   "from": "adr-070",
+   "to": "adr-007",
+   "kind": "supersedes",
+   "note": "server-side resolver becomes on-device (part)"
+  },
+  {
+   "from": "adr-070",
+   "to": "adr-068",
+   "kind": "supersedes",
+   "note": "partner sharing deferred"
+  },
+  {
+   "from": "adr-070",
+   "to": "adr-069",
+   "kind": "supersedes",
+   "note": "partner sharing beta clearance deferred (part)"
+  },
+  {
+   "from": "adr-070",
+   "to": "adr-010",
+   "kind": "supersedes",
+   "note": "no accounts, anonymous auth moot"
+  },
+  {
+   "from": "adr-058",
+   "to": "adr-057",
+   "kind": "supersedes",
+   "note": "correction"
+  },
+  {
+   "from": "adr-064",
+   "to": "doc-decisions",
+   "kind": "documents"
+  },
+  {
+   "from": "d8-site-promotes-app",
+   "to": "d2-route-pwa-twa-flutter",
+   "kind": "supersedes",
+   "note": "TWA step replaced"
+  },
+  {
+   "from": "d8-site-promotes-app",
+   "to": "od-16-web-first",
+   "kind": "supersedes",
+   "note": "Android first, not web first"
+  },
+  {
+   "from": "d3-retire-payload",
+   "to": "adr-012",
+   "kind": "supersedes",
+   "note": "no ADR records it"
+  },
+  {
+   "from": "d6-dusk-bloom",
+   "to": "adr-006",
+   "kind": "supersedes",
+   "note": "palette and type; no ADR records it"
+  },
+  {
+   "from": "d6-dusk-bloom",
+   "to": "doc-12-brand-tokens",
+   "kind": "supersedes",
+   "note": "values"
+  },
+  {
+   "from": "doc-04-android-spec",
+   "to": "adr-059",
+   "kind": "supersedes",
+   "note": "conditions not asked at onboarding (for the app)"
+  },
+  {
+   "from": "doc-03-revamp-plan",
+   "to": "doc-29-rebuild-progress",
+   "kind": "supersedes",
+   "note": "sequence"
+  },
+  {
+   "from": "doc-owner-actions",
+   "to": "doc-owner-actions-archive",
+   "kind": "supersedes",
+   "note": "rewritten 27 Oct, owner is every role"
+  },
+  {
+   "from": "adr-065",
+   "to": "doc-09-adaptation-model",
+   "kind": "supersedes",
+   "note": "EPDS-driven E3 label is stale"
+  },
+  {
+   "from": "adr-065",
+   "to": "doc-state-machine-mermaid",
+   "kind": "supersedes",
+   "note": "EPDS-driven E3 label is stale"
+  },
+  {
+   "from": "d7-private-launch",
+   "to": "doc-03-revamp-plan",
+   "kind": "supersedes",
+   "note": "platform order and phases 3-5"
+  },
+  {
+   "from": "d8-site-promotes-app",
+   "to": "doc-30-readme",
+   "kind": "supersedes",
+   "note": "Android not started / TWA lines"
+  },
+  {
+   "from": "adr-061",
+   "to": "adr-060",
+   "kind": "depends"
+  },
+  {
+   "from": "adr-068",
+   "to": "adr-060",
+   "kind": "depends"
+  },
+  {
+   "from": "adr-069",
+   "to": "adr-068",
+   "kind": "depends"
+  },
+  {
+   "from": "adr-071",
+   "to": "adr-070",
+   "kind": "depends"
+  },
+  {
+   "from": "adr-071",
+   "to": "adr-060",
+   "kind": "depends"
+  },
+  {
+   "from": "adr-063",
+   "to": "adr-032",
+   "kind": "depends"
+  },
+  {
+   "from": "adr-070",
+   "to": "d7-private-launch",
+   "kind": "depends"
+  },
+  {
+   "from": "adr-070",
+   "to": "d8-site-promotes-app",
+   "kind": "depends"
+  },
+  {
+   "from": "d7-private-launch",
+   "to": "doc-private-launch-v1",
+   "kind": "depends"
+  },
+  {
+   "from": "doc-04-android-spec",
+   "to": "adr-070",
+   "kind": "depends"
+  },
+  {
+   "from": "doc-31-spec-v1-draft",
+   "to": "doc-31-inventory",
+   "kind": "depends"
+  },
+  {
+   "from": "doc-31-spec-v1-draft",
+   "to": "doc-04-android-spec",
+   "kind": "depends"
+  },
+  {
+   "from": "doc-agents-md",
+   "to": "doc-claude-md",
+   "kind": "depends"
+  },
+  {
+   "from": "doc-claude-md",
+   "to": "doc-state",
+   "kind": "depends"
+  },
+  {
+   "from": "doc-state",
+   "to": "doc-progress",
+   "kind": "depends"
+  },
+  {
+   "from": "doc-07-master-todo",
+   "to": "doc-progress",
+   "kind": "depends",
+   "note": "header says new work is sequenced in PROGRESS"
+  },
+  {
+   "from": "doc-03-revamp-plan",
+   "to": "od-16-web-first",
+   "kind": "depends",
+   "note": "stale: says OD-16 stands"
+  },
+  {
+   "from": "doc-24-revamp-plan",
+   "to": "adr-061",
+   "kind": "depends"
+  },
+  {
+   "from": "doc-24-revamp-plan",
+   "to": "adr-060",
+   "kind": "depends"
+  },
+  {
+   "from": "module-apps-mobile",
+   "to": "fixture-domain-fixtures",
+   "kind": "depends"
+  },
+  {
+   "from": "module-apps-web",
+   "to": "fixture-domain-fixtures",
+   "kind": "depends"
+  },
+  {
+   "from": "module-apps-mobile",
+   "to": "asset-femio-tokens-css",
+   "kind": "depends"
+  },
+  {
+   "from": "script-tokens-to-dart",
+   "to": "asset-femio-tokens-css",
+   "kind": "depends"
+  },
+  {
+   "from": "module-apps-web",
+   "to": "script-snapshot-cms",
+   "kind": "depends"
+  },
+  {
+   "from": "script-snapshot-cms",
+   "to": "module-apps-cms",
+   "kind": "depends"
+  },
+  {
+   "from": "d3-retire-payload",
+   "to": "script-snapshot-cms",
+   "kind": "depends"
+  },
+  {
+   "from": "module-apps-web",
+   "to": "service-supabase",
+   "kind": "depends",
+   "note": "one hourly ui_strings read (per report 05)"
+  },
+  {
+   "from": "module-apps-web",
+   "to": "service-vercel",
+   "kind": "depends"
+  },
+  {
+   "from": "module-apps-cms",
+   "to": "service-supabase",
+   "kind": "depends"
+  },
+  {
+   "from": "script-gate",
+   "to": "module-apps-web",
+   "kind": "depends"
+  },
+  {
+   "from": "phase-p1-dusk-bloom",
+   "to": "phase-p0-stabilise",
+   "kind": "depends"
+  },
+  {
+   "from": "phase-p2-public-site",
+   "to": "phase-p1-dusk-bloom",
+   "kind": "depends"
+  },
+  {
+   "from": "phase-p3-android-app",
+   "to": "phase-p2-public-site",
+   "kind": "depends"
+  },
+  {
+   "from": "phase-p3-android-app",
+   "to": "d8-site-promotes-app",
+   "kind": "depends"
+  },
+  {
+   "from": "phase-p4-launch",
+   "to": "phase-p3-android-app",
+   "kind": "depends"
+  },
+  {
+   "from": "phase-p5-native-ios",
+   "to": "phase-p4-launch",
+   "kind": "depends"
+  },
+  {
+   "from": "v1-05-backup-and-lock",
+   "to": "phase-p3-android-app",
+   "kind": "depends"
+  },
+  {
+   "from": "v1-06-articles-in-app",
+   "to": "phase-p3-android-app",
+   "kind": "depends"
+  },
+  {
+   "from": "v1-07-reminders-crash",
+   "to": "phase-p3-android-app",
+   "kind": "depends"
+  },
+  {
+   "from": "v1-08-legal-pages",
+   "to": "phase-p4-launch",
+   "kind": "depends"
+  },
+  {
+   "from": "ms-rc-9-nov",
+   "to": "v1-05-backup-and-lock",
+   "kind": "depends"
+  },
+  {
+   "from": "ms-rc-9-nov",
+   "to": "v1-06-articles-in-app",
+   "kind": "depends"
+  },
+  {
+   "from": "ms-rc-9-nov",
+   "to": "v1-07-reminders-crash",
+   "kind": "depends"
+  },
+  {
+   "from": "ms-rc-9-nov",
+   "to": "v1-08-legal-pages",
+   "kind": "depends"
+  },
+  {
+   "from": "ms-rc-9-nov",
+   "to": "service-google-play",
+   "kind": "depends",
+   "note": "owner creates the account"
+  },
+  {
+   "from": "ms-closed-test-start-11-nov",
+   "to": "ms-rc-9-nov",
+   "kind": "depends"
+  },
+  {
+   "from": "ms-closed-test-end-25-nov",
+   "to": "ms-closed-test-start-11-nov",
+   "kind": "depends",
+   "note": "14 days"
+  },
+  {
+   "from": "ms-soft-launch-30-nov",
+   "to": "ms-closed-test-end-25-nov",
+   "kind": "depends"
+  },
+  {
+   "from": "ms-soft-launch-30-nov",
+   "to": "d5-launch-week-30-nov",
+   "kind": "depends"
+  },
+  {
+   "from": "ms-ramadan-2027",
+   "to": "ms-soft-launch-30-nov",
+   "kind": "depends"
+  },
+  {
+   "from": "ms-egypt-licensing-31-oct",
+   "to": "d7-private-launch",
+   "kind": "depends",
+   "note": "reason for the private design"
+  },
+  {
+   "from": "d1-wedge",
+   "to": "d4-markets",
+   "kind": "depends"
+  },
+  {
+   "from": "od-13-persona-thesis",
+   "to": "adr-061",
+   "kind": "depends"
+  },
+  {
+   "from": "od-16-web-first",
+   "to": "adr-001",
+   "kind": "depends"
+  },
+  {
+   "from": "doc-owner-actions-archive",
+   "to": "d1-wedge",
+   "kind": "documents"
+  },
+  {
+   "from": "doc-owner-actions-archive",
+   "to": "d2-route-pwa-twa-flutter",
+   "kind": "documents"
+  },
+  {
+   "from": "doc-owner-actions-archive",
+   "to": "d3-retire-payload",
+   "kind": "documents"
+  },
+  {
+   "from": "doc-owner-actions-archive",
+   "to": "d4-markets",
+   "kind": "documents"
+  },
+  {
+   "from": "doc-owner-actions-archive",
+   "to": "d5-launch-week-30-nov",
+   "kind": "documents"
+  },
+  {
+   "from": "doc-owner-actions-archive",
+   "to": "d6-dusk-bloom",
+   "kind": "documents"
+  },
+  {
+   "from": "doc-owner-actions-archive",
+   "to": "d7-private-launch",
+   "kind": "documents"
+  },
+  {
+   "from": "doc-owner-actions-archive",
+   "to": "d8-site-promotes-app",
+   "kind": "documents"
+  },
+  {
+   "from": "doc-owner-actions",
+   "to": "doc-owner-actions-archive",
+   "kind": "documents",
+   "note": "points to it for D1-D8 text"
+  },
+  {
+   "from": "adr-070",
+   "to": "doc-04-android-spec",
+   "kind": "documents"
+  },
+  {
+   "from": "doc-30-readme",
+   "to": "doc-03-revamp-plan",
+   "kind": "documents"
+  },
+  {
+   "from": "doc-30-readme",
+   "to": "doc-progress",
+   "kind": "documents"
+  },
+  {
+   "from": "doc-30-readme",
+   "to": "doc-owner-actions",
+   "kind": "documents"
+  },
+  {
+   "from": "doc-03-revamp-plan",
+   "to": "d1-wedge",
+   "kind": "documents"
+  },
+  {
+   "from": "doc-03-revamp-plan",
+   "to": "d6-dusk-bloom",
+   "kind": "documents"
+  },
+  {
+   "from": "doc-03-revamp-plan",
+   "to": "design-dusk-bloom-spec",
+   "kind": "documents"
+  },
+  {
+   "from": "asset-femio-tokens-css",
+   "to": "design-dusk-bloom-spec",
+   "kind": "documents",
+   "note": "canonical values"
+  },
+  {
+   "from": "doc-progress",
+   "to": "phase-p1-dusk-bloom",
+   "kind": "documents"
+  },
+  {
+   "from": "doc-progress",
+   "to": "phase-p3-android-app",
+   "kind": "documents"
+  },
+  {
+   "from": "doc-progress",
+   "to": "phase-p4-launch",
+   "kind": "documents"
+  },
+  {
+   "from": "doc-31-spec-v1-draft",
+   "to": "ms-rc-9-nov",
+   "kind": "documents"
+  },
+  {
+   "from": "doc-31-spec-v1-draft",
+   "to": "d5-launch-week-30-nov",
+   "kind": "documents"
+  },
+  {
+   "from": "doc-31-inventory",
+   "to": "doc-claude-md",
+   "kind": "documents",
+   "note": "lists the contradictions in CLAUDE.md"
+  },
+  {
+   "from": "doc-24-revamp-plan",
+   "to": "adr-060",
+   "kind": "documents"
+  },
+  {
+   "from": "doc-22-app-ui",
+   "to": "adr-051",
+   "kind": "documents"
+  },
+  {
+   "from": "doc-14-system-architecture",
+   "to": "adr-007",
+   "kind": "documents"
+  },
+  {
+   "from": "doc-12-brand-tokens",
+   "to": "adr-006",
+   "kind": "documents"
+  },
+  {
+   "from": "doc-09-adaptation-model",
+   "to": "adr-004",
+   "kind": "documents"
+  },
+  {
+   "from": "doc-state-machine-mermaid",
+   "to": "doc-09-adaptation-model",
+   "kind": "documents",
+   "note": "duplicate of section 7"
+  },
+  {
+   "from": "doc-25-design-brief",
+   "to": "design-rejected-rings",
+   "kind": "documents"
+  },
+  {
+   "from": "adr-066",
+   "to": "design-rejected-rings",
+   "kind": "documents"
+  },
+  {
+   "from": "adr-049",
+   "to": "design-rejected-rings",
+   "kind": "documents",
+   "note": "no pass mark"
+  },
+  {
+   "from": "adr-067",
+   "to": "doc-25-design-brief",
+   "kind": "documents"
+  },
+  {
+   "from": "doc-28-findings-ledger",
+   "to": "od-others",
+   "kind": "documents"
+  },
+  {
+   "from": "doc-28-findings-ledger",
+   "to": "od-05-conservative-register",
+   "kind": "documents"
+  },
+  {
+   "from": "doc-28-findings-ledger",
+   "to": "od-07-freemium",
+   "kind": "documents"
+  },
+  {
+   "from": "doc-28-findings-ledger",
+   "to": "od-08-no-chat",
+   "kind": "documents"
+  },
+  {
+   "from": "doc-28-findings-ledger",
+   "to": "od-09-ai-post-v1",
+   "kind": "documents"
+  },
+  {
+   "from": "doc-28-findings-ledger",
+   "to": "od-11-calendar-prominent",
+   "kind": "documents"
+  },
+  {
+   "from": "doc-28-findings-ledger",
+   "to": "od-12-learn-structure",
+   "kind": "documents"
+  },
+  {
+   "from": "doc-28-findings-ledger",
+   "to": "od-13-persona-thesis",
+   "kind": "documents"
+  },
+  {
+   "from": "doc-28-findings-ledger",
+   "to": "od-14-three-apps-gate",
+   "kind": "documents"
+  },
+  {
+   "from": "doc-28-findings-ledger",
+   "to": "od-15-calendar-detail",
+   "kind": "documents"
+  },
+  {
+   "from": "doc-28-findings-ledger",
+   "to": "od-16-web-first",
+   "kind": "documents"
+  },
+  {
+   "from": "adr-062",
+   "to": "doc-07-master-todo",
+   "kind": "documents"
+  },
+  {
+   "from": "adr-062",
+   "to": "doc-state",
+   "kind": "documents"
+  },
+  {
+   "from": "doc-changelog",
+   "to": "d8-site-promotes-app",
+   "kind": "documents",
+   "note": "only two bullets mention the Android pivot"
+  },
+  {
+   "from": "doc-claude-md",
+   "to": "adr-060",
+   "kind": "documents",
+   "note": "architecture rule paragraph, stale after ADR-070"
+  },
+  {
+   "from": "doc-state",
+   "to": "d7-private-launch",
+   "kind": "documents"
+  },
+  {
+   "from": "module-apps-mobile",
+   "to": "doc-04-android-spec",
+   "kind": "documents",
+   "note": "code implements the spec; storage differs"
+  },
+  {
+   "from": "service-supabase",
+   "to": "adr-007",
+   "kind": "documents"
+  },
+  {
+   "from": "adr-013",
+   "to": "module-apps-web",
+   "kind": "documents",
+   "note": "help-now page; Android entry unspecified"
+  }
+ ]
+}

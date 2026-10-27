@@ -1,0 +1,1347 @@
+{
+ "area": "web-components",
+ "nodes": [
+  {
+   "id": "web-components-site-site-header",
+   "label": "site header",
+   "type": "module",
+   "path": "apps/web/src/components/site/site-header.tsx",
+   "status": "live"
+  },
+  {
+   "id": "web-components-site-site-footer",
+   "label": "site footer",
+   "type": "module",
+   "path": "apps/web/src/components/site/site-footer.tsx",
+   "status": "live"
+  },
+  {
+   "id": "web-components-site-motifs",
+   "label": "motifs",
+   "type": "asset",
+   "path": "apps/web/src/components/site/motifs.tsx",
+   "status": "live"
+  },
+  {
+   "id": "web-components-site-phone-mock",
+   "label": "phone mock",
+   "type": "asset",
+   "path": "apps/web/src/components/site/phone-mock.tsx",
+   "status": "live"
+  },
+  {
+   "id": "web-components-site-trust-page",
+   "label": "trust page layout",
+   "type": "module",
+   "path": "apps/web/src/components/site/trust-page.tsx",
+   "status": "live"
+  },
+  {
+   "id": "web-components-calculators-calculator-layout",
+   "label": "calculator layout",
+   "type": "module",
+   "path": "apps/web/src/components/calculators/calculator-layout.tsx",
+   "status": "live"
+  },
+  {
+   "id": "web-components-calculators-period-calculator",
+   "label": "period calculator",
+   "type": "module",
+   "path": "apps/web/src/components/calculators/period-calculator.tsx",
+   "status": "live"
+  },
+  {
+   "id": "web-components-calculators-due-date-calculator",
+   "label": "due date calculator",
+   "type": "module",
+   "path": "apps/web/src/components/calculators/due-date-calculator.tsx",
+   "status": "live"
+  },
+  {
+   "id": "web-components-calculators-gestational-age-calculator",
+   "label": "gestational age calculator",
+   "type": "module",
+   "path": "apps/web/src/components/calculators/gestational-age-calculator.tsx",
+   "status": "live"
+  },
+  {
+   "id": "web-components-calculators-ovulation-calculator",
+   "label": "ovulation calculator",
+   "type": "module",
+   "path": "apps/web/src/components/calculators/ovulation-calculator.tsx",
+   "status": "live"
+  },
+  {
+   "id": "web-components-calculators-pregnancy-test-calculator",
+   "label": "pregnancy test calculator",
+   "type": "module",
+   "path": "apps/web/src/components/calculators/pregnancy-test-calculator.tsx",
+   "status": "live"
+  },
+  {
+   "id": "web-components-calculators-cycle-length-calculator",
+   "label": "cycle length calculator",
+   "type": "module",
+   "path": "apps/web/src/components/calculators/cycle-length-calculator.tsx",
+   "status": "live"
+  },
+  {
+   "id": "web-components-calculators-bmi-calculator",
+   "label": "BMI calculator",
+   "type": "module",
+   "path": "apps/web/src/components/calculators/bmi-calculator.tsx",
+   "status": "live"
+  },
+  {
+   "id": "web-components-calculators-mini-calendar",
+   "label": "mini calendar",
+   "type": "module",
+   "path": "apps/web/src/components/calculators/mini-calendar.tsx",
+   "status": "live"
+  },
+  {
+   "id": "web-components-calculators-pregnancy-progress",
+   "label": "pregnancy progress bar",
+   "type": "module",
+   "path": "apps/web/src/components/calculators/pregnancy-progress.tsx",
+   "status": "live"
+  },
+  {
+   "id": "web-components-cms-content-article",
+   "label": "CMS article",
+   "type": "module",
+   "path": "apps/web/src/components/cms/content-article.tsx",
+   "status": "live"
+  },
+  {
+   "id": "web-components-cms-content-hub",
+   "label": "CMS hub",
+   "type": "module",
+   "path": "apps/web/src/components/cms/content-hub.tsx",
+   "status": "live"
+  },
+  {
+   "id": "web-components-learn-learn-hub",
+   "label": "learn hub",
+   "type": "module",
+   "path": "apps/web/src/components/learn/learn-hub.tsx",
+   "status": "live"
+  },
+  {
+   "id": "web-components-learn-topic-art",
+   "label": "topic art",
+   "type": "asset",
+   "path": "apps/web/src/components/learn/topic-art.tsx",
+   "status": "live"
+  },
+  {
+   "id": "web-components-crisis-crisis-help-provider",
+   "label": "crisis help provider",
+   "type": "module",
+   "path": "apps/web/src/components/crisis/crisis-help-provider.tsx",
+   "status": "live"
+  },
+  {
+   "id": "web-components-crisis-crisis-content-view",
+   "label": "crisis content view",
+   "type": "module",
+   "path": "apps/web/src/components/crisis/crisis-content-view.tsx",
+   "status": "live"
+  },
+  {
+   "id": "web-components-theme-provider",
+   "label": "theme provider",
+   "type": "module",
+   "path": "apps/web/src/components/theme-provider.tsx",
+   "status": "live"
+  },
+  {
+   "id": "web-components-theme-toggle",
+   "label": "theme toggle",
+   "type": "module",
+   "path": "apps/web/src/components/theme-toggle.tsx",
+   "status": "live"
+  },
+  {
+   "id": "web-components-seo-json-ld",
+   "label": "JSON-LD",
+   "type": "module",
+   "path": "apps/web/src/components/seo/json-ld.tsx",
+   "status": "live"
+  },
+  {
+   "id": "web-components-analytics-page-view",
+   "label": "page view event",
+   "type": "module",
+   "path": "apps/web/src/components/analytics/page-view.tsx",
+   "status": "live"
+  },
+  {
+   "id": "web-components-search-search-screen",
+   "label": "search screen",
+   "type": "screen",
+   "path": "apps/web/src/components/search/search-screen.tsx",
+   "status": "live"
+  },
+  {
+   "id": "web-components-ui-button",
+   "label": "button",
+   "type": "module",
+   "path": "apps/web/src/components/ui/button.tsx",
+   "status": "live"
+  },
+  {
+   "id": "web-components-ui-input",
+   "label": "input",
+   "type": "module",
+   "path": "apps/web/src/components/ui/input.tsx",
+   "status": "live"
+  },
+  {
+   "id": "web-components-ui-label",
+   "label": "label",
+   "type": "module",
+   "path": "apps/web/src/components/ui/label.tsx",
+   "status": "live"
+  },
+  {
+   "id": "web-components-ui-card",
+   "label": "card",
+   "type": "module",
+   "path": "apps/web/src/components/ui/card.tsx",
+   "status": "live"
+  },
+  {
+   "id": "web-components-ui-alert",
+   "label": "alert",
+   "type": "module",
+   "path": "apps/web/src/components/ui/alert.tsx",
+   "status": "live"
+  },
+  {
+   "id": "web-components-ui-badge",
+   "label": "badge",
+   "type": "module",
+   "path": "apps/web/src/components/ui/badge.tsx",
+   "status": "live"
+  },
+  {
+   "id": "web-components-ui-chip",
+   "label": "chip",
+   "type": "module",
+   "path": "apps/web/src/components/ui/chip.tsx",
+   "status": "live"
+  },
+  {
+   "id": "web-components-ui-choice-row",
+   "label": "choice row",
+   "type": "module",
+   "path": "apps/web/src/components/ui/choice-row.tsx",
+   "status": "app-only"
+  },
+  {
+   "id": "web-components-ui-hero-card",
+   "label": "hero card",
+   "type": "module",
+   "path": "apps/web/src/components/ui/hero-card.tsx",
+   "status": "app-only"
+  },
+  {
+   "id": "web-components-patterns-loading-state",
+   "label": "loading state",
+   "type": "module",
+   "path": "apps/web/src/components/patterns/loading-state.tsx",
+   "status": "live"
+  },
+  {
+   "id": "web-components-patterns-error-state",
+   "label": "error state",
+   "type": "module",
+   "path": "apps/web/src/components/patterns/error-state.tsx",
+   "status": "duplicate"
+  },
+  {
+   "id": "web-components-patterns-empty-state",
+   "label": "empty state",
+   "type": "module",
+   "path": "apps/web/src/components/patterns/empty-state.tsx",
+   "status": "dead"
+  },
+  {
+   "id": "web-components-patterns-app-screen",
+   "label": "app screen frame and read error",
+   "type": "module",
+   "path": "apps/web/src/components/patterns/app-screen.tsx",
+   "status": "app-only"
+  },
+  {
+   "id": "web-components-patterns-pattern-finding-card",
+   "label": "pattern finding card",
+   "type": "module",
+   "path": "apps/web/src/components/patterns/pattern-finding-card.tsx",
+   "status": "app-only"
+  },
+  {
+   "id": "web-components-patterns-patterns-screen",
+   "label": "patterns screen",
+   "type": "screen",
+   "path": "apps/web/src/components/patterns/patterns-screen.tsx",
+   "status": "app-only"
+  },
+  {
+   "id": "web-components-patterns-screen-states.test",
+   "label": "screen states test",
+   "type": "doc",
+   "path": "apps/web/src/components/patterns/screen-states.test.ts",
+   "status": "app-only"
+  },
+  {
+   "id": "web-components-signed-in-tabs",
+   "label": "signed-in tabs",
+   "type": "module",
+   "path": "apps/web/src/components/signed-in-tabs.tsx",
+   "status": "app-only"
+  },
+  {
+   "id": "web-components-app-nav",
+   "label": "app nav",
+   "type": "module",
+   "path": "apps/web/src/components/app-nav.tsx",
+   "status": "app-only"
+  },
+  {
+   "id": "web-components-offline-sync",
+   "label": "offline sync",
+   "type": "module",
+   "path": "apps/web/src/components/offline-sync.tsx",
+   "status": "app-only"
+  },
+  {
+   "id": "web-components-auth-auth-gate",
+   "label": "auth gate",
+   "type": "module",
+   "path": "apps/web/src/components/auth/auth-gate.tsx",
+   "status": "app-only"
+  },
+  {
+   "id": "web-components-auth-sign-in-form",
+   "label": "sign-in form",
+   "type": "module",
+   "path": "apps/web/src/components/auth/sign-in-form.tsx",
+   "status": "app-only"
+  },
+  {
+   "id": "web-components-auth-sign-in-screen",
+   "label": "sign-in screen",
+   "type": "screen",
+   "path": "apps/web/src/components/auth/sign-in-screen.tsx",
+   "status": "app-only"
+  },
+  {
+   "id": "web-components-auth-reset-password-form",
+   "label": "reset password form",
+   "type": "module",
+   "path": "apps/web/src/components/auth/reset-password-form.tsx",
+   "status": "app-only"
+  },
+  {
+   "id": "web-components-auth-mfa-challenge",
+   "label": "MFA challenge",
+   "type": "module",
+   "path": "apps/web/src/components/auth/mfa-challenge.tsx",
+   "status": "app-only"
+  },
+  {
+   "id": "web-components-auth-mfa-screen",
+   "label": "MFA screen",
+   "type": "screen",
+   "path": "apps/web/src/components/auth/mfa-screen.tsx",
+   "status": "app-only"
+  },
+  {
+   "id": "web-components-tools-tools-screen",
+   "label": "tools screen",
+   "type": "screen",
+   "path": "apps/web/src/components/tools/tools-screen.tsx",
+   "status": "app-only"
+  },
+  {
+   "id": "web-components-account-settings-screen",
+   "label": "settings screen",
+   "type": "screen",
+   "path": "apps/web/src/components/account/settings-screen.tsx",
+   "status": "app-only"
+  },
+  {
+   "id": "web-components-account-partner-sharing-screen",
+   "label": "partner sharing screen",
+   "type": "screen",
+   "path": "apps/web/src/components/account/partner-sharing-screen.tsx",
+   "status": "app-only"
+  },
+  {
+   "id": "web-components-account-shared-with-me-screen",
+   "label": "shared with me screen",
+   "type": "screen",
+   "path": "apps/web/src/components/account/shared-with-me-screen.tsx",
+   "status": "app-only"
+  },
+  {
+   "id": "web-components-account-summary-screen",
+   "label": "visit summary screen",
+   "type": "screen",
+   "path": "apps/web/src/components/account/summary-screen.tsx",
+   "status": "app-only"
+  },
+  {
+   "id": "web-components-account-notification-settings",
+   "label": "notification settings",
+   "type": "module",
+   "path": "apps/web/src/components/account/notification-settings.tsx",
+   "status": "app-only"
+  },
+  {
+   "id": "web-components-account-consent-settings",
+   "label": "consent settings",
+   "type": "module",
+   "path": "apps/web/src/components/account/consent-settings.tsx",
+   "status": "app-only"
+  },
+  {
+   "id": "web-components-account-experience-settings",
+   "label": "experience settings",
+   "type": "module",
+   "path": "apps/web/src/components/account/experience-settings.tsx",
+   "status": "app-only"
+  },
+  {
+   "id": "web-components-account-mfa-settings",
+   "label": "MFA settings",
+   "type": "module",
+   "path": "apps/web/src/components/account/mfa-settings.tsx",
+   "status": "app-only"
+  },
+  {
+   "id": "web-components-account-delete-button",
+   "label": "delete account button",
+   "type": "module",
+   "path": "apps/web/src/components/account/delete-button.tsx",
+   "status": "app-only"
+  },
+  {
+   "id": "web-components-account-set-password",
+   "label": "set password",
+   "type": "module",
+   "path": "apps/web/src/components/account/set-password.tsx",
+   "status": "app-only"
+  },
+  {
+   "id": "web-components-account-reanswer-triage",
+   "label": "re-answer triage",
+   "type": "module",
+   "path": "apps/web/src/components/account/reanswer-triage.tsx",
+   "status": "app-only"
+  },
+  {
+   "id": "web-components-account-export-button",
+   "label": "export button",
+   "type": "module",
+   "path": "apps/web/src/components/account/export-button.tsx",
+   "status": "app-only"
+  },
+  {
+   "id": "web-components-account-print-button",
+   "label": "print button",
+   "type": "module",
+   "path": "apps/web/src/components/account/print-button.tsx",
+   "status": "app-only"
+  },
+  {
+   "id": "web-components-account-sign-out-button",
+   "label": "sign-out button",
+   "type": "module",
+   "path": "apps/web/src/components/account/sign-out-button.tsx",
+   "status": "app-only"
+  },
+  {
+   "id": "web-components-admin-insights-panels",
+   "label": "admin insights panels",
+   "type": "module",
+   "path": "apps/web/src/components/admin/insights-panels.tsx",
+   "status": "app-only"
+  },
+  {
+   "id": "web-components-admin-translation-editor",
+   "label": "translation editor",
+   "type": "module",
+   "path": "apps/web/src/components/admin/translation-editor.tsx",
+   "status": "app-only"
+  },
+  {
+   "id": "web-components-appointments-appointments-screen",
+   "label": "appointments screen",
+   "type": "screen",
+   "path": "apps/web/src/components/appointments/appointments-screen.tsx",
+   "status": "app-only"
+  },
+  {
+   "id": "web-components-appointments-next-appointment-card",
+   "label": "next appointment card",
+   "type": "module",
+   "path": "apps/web/src/components/appointments/next-appointment-card.tsx",
+   "status": "app-only"
+  },
+  {
+   "id": "web-components-cycle-track-screen",
+   "label": "track screen",
+   "type": "screen",
+   "path": "apps/web/src/components/cycle/track-screen.tsx",
+   "status": "app-only"
+  },
+  {
+   "id": "web-components-cycle-calendar-screen",
+   "label": "calendar screen",
+   "type": "screen",
+   "path": "apps/web/src/components/cycle/calendar-screen.tsx",
+   "status": "app-only"
+  },
+  {
+   "id": "web-components-cycle-cycle-calendar",
+   "label": "cycle calendar",
+   "type": "module",
+   "path": "apps/web/src/components/cycle/cycle-calendar.tsx",
+   "status": "app-only"
+  },
+  {
+   "id": "web-components-cycle-calendar-month",
+   "label": "calendar month grid",
+   "type": "module",
+   "path": "apps/web/src/components/cycle/calendar-month.tsx",
+   "status": "app-only"
+  },
+  {
+   "id": "web-components-cycle-log-period",
+   "label": "period logger",
+   "type": "module",
+   "path": "apps/web/src/components/cycle/log-period.tsx",
+   "status": "app-only"
+  },
+  {
+   "id": "web-components-cycle-log-symptoms",
+   "label": "symptom logger",
+   "type": "module",
+   "path": "apps/web/src/components/cycle/log-symptoms.tsx",
+   "status": "app-only"
+  },
+  {
+   "id": "web-components-cycle-phase-strip",
+   "label": "phase strip",
+   "type": "module",
+   "path": "apps/web/src/components/cycle/phase-strip.tsx",
+   "status": "app-only"
+  },
+  {
+   "id": "web-components-cycle-flow-strip",
+   "label": "flow strip",
+   "type": "module",
+   "path": "apps/web/src/components/cycle/flow-strip.tsx",
+   "status": "app-only"
+  },
+  {
+   "id": "web-components-cycle-prediction-explanation",
+   "label": "prediction explanation",
+   "type": "module",
+   "path": "apps/web/src/components/cycle/prediction-explanation.tsx",
+   "status": "app-only"
+  },
+  {
+   "id": "web-components-cycle-symptom-pattern-card",
+   "label": "symptom pattern card",
+   "type": "module",
+   "path": "apps/web/src/components/cycle/symptom-pattern-card.tsx",
+   "status": "app-only"
+  },
+  {
+   "id": "web-components-dashboard-dashboard-screen",
+   "label": "dashboard screen",
+   "type": "screen",
+   "path": "apps/web/src/components/dashboard/dashboard-screen.tsx",
+   "status": "app-only"
+  },
+  {
+   "id": "web-components-experience-module-registry",
+   "label": "module registry (v1)",
+   "type": "module",
+   "path": "apps/web/src/components/experience/module-registry.tsx",
+   "status": "app-only"
+  },
+  {
+   "id": "web-components-experience-module-registry.test",
+   "label": "module registry test",
+   "type": "doc",
+   "path": "apps/web/src/components/experience/module-registry.test.ts",
+   "status": "app-only"
+  },
+  {
+   "id": "web-components-experience-cycle-experience",
+   "label": "cycle experience modules",
+   "type": "module",
+   "path": "apps/web/src/components/experience/cycle-experience.tsx",
+   "status": "app-only"
+  },
+  {
+   "id": "web-components-experience-persona-offer",
+   "label": "persona offer",
+   "type": "module",
+   "path": "apps/web/src/components/experience/persona-offer.tsx",
+   "status": "app-only"
+  },
+  {
+   "id": "web-components-experience-reading-list",
+   "label": "reading list",
+   "type": "module",
+   "path": "apps/web/src/components/experience/reading-list.tsx",
+   "status": "app-only"
+  },
+  {
+   "id": "web-components-experience-v2-module-registry-v2",
+   "label": "module registry (v2 adapter)",
+   "type": "module",
+   "path": "apps/web/src/components/experience/v2/module-registry-v2.tsx",
+   "status": "app-only"
+  },
+  {
+   "id": "web-components-experience-v2-module-host",
+   "label": "v2 module host",
+   "type": "module",
+   "path": "apps/web/src/components/experience/v2/module-host.tsx",
+   "status": "app-only"
+  },
+  {
+   "id": "web-components-experience-v2-home-shell",
+   "label": "v2 home shell",
+   "type": "screen",
+   "path": "apps/web/src/components/experience/v2/home-shell.tsx",
+   "status": "app-only"
+  },
+  {
+   "id": "web-components-fertility-fertility-screen",
+   "label": "fertility screen",
+   "type": "screen",
+   "path": "apps/web/src/components/fertility/fertility-screen.tsx",
+   "status": "app-only"
+  },
+  {
+   "id": "web-components-log-log-screen-v2",
+   "label": "log screen v2",
+   "type": "screen",
+   "path": "apps/web/src/components/log/log-screen-v2.tsx",
+   "status": "app-only"
+  },
+  {
+   "id": "web-components-log-severity-chip",
+   "label": "severity chip",
+   "type": "module",
+   "path": "apps/web/src/components/log/severity-chip.tsx",
+   "status": "app-only"
+  },
+  {
+   "id": "web-components-log-severity-chip.test",
+   "label": "severity chip test",
+   "type": "doc",
+   "path": "apps/web/src/components/log/severity-chip.test.ts",
+   "status": "app-only"
+  },
+  {
+   "id": "web-components-medications-medications-screen",
+   "label": "medications screen",
+   "type": "screen",
+   "path": "apps/web/src/components/medications/medications-screen.tsx",
+   "status": "app-only"
+  },
+  {
+   "id": "web-components-menopause-menopause-panel",
+   "label": "menopause panel",
+   "type": "screen",
+   "path": "apps/web/src/components/menopause/menopause-panel.tsx",
+   "status": "app-only"
+  },
+  {
+   "id": "web-components-menopause-mrs-check",
+   "label": "MRS screener",
+   "type": "module",
+   "path": "apps/web/src/components/menopause/mrs-check.tsx",
+   "status": "app-only"
+  },
+  {
+   "id": "web-components-onboarding-onboarding-wizard",
+   "label": "onboarding wizard",
+   "type": "screen",
+   "path": "apps/web/src/components/onboarding/onboarding-wizard.tsx",
+   "status": "app-only"
+  },
+  {
+   "id": "web-components-postpartum-mood-check",
+   "label": "postpartum mood check (EPDS)",
+   "type": "module",
+   "path": "apps/web/src/components/postpartum/mood-check.tsx",
+   "status": "app-only"
+  },
+  {
+   "id": "web-components-pregnancy-pregnancy-panel",
+   "label": "pregnancy panel",
+   "type": "screen",
+   "path": "apps/web/src/components/pregnancy/pregnancy-panel.tsx",
+   "status": "app-only"
+  },
+  {
+   "id": "web-components-pregnancy-contraction-timer",
+   "label": "contraction timer",
+   "type": "module",
+   "path": "apps/web/src/components/pregnancy/contraction-timer.tsx",
+   "status": "app-only"
+  },
+  {
+   "id": "web-components-pregnancy-movement-counter",
+   "label": "movement counter",
+   "type": "module",
+   "path": "apps/web/src/components/pregnancy/movement-counter.tsx",
+   "status": "app-only"
+  },
+  {
+   "id": "web-components-pregnancy-weight-chart",
+   "label": "weight chart",
+   "type": "module",
+   "path": "apps/web/src/components/pregnancy/weight-chart.tsx",
+   "status": "app-only"
+  },
+  {
+   "id": "web-components-screeners-mood-screener",
+   "label": "PHQ-9 and GAD-7 screener",
+   "type": "module",
+   "path": "apps/web/src/components/screeners/mood-screener.tsx",
+   "status": "app-only"
+  },
+  {
+   "id": "web-components-charts-primitives",
+   "label": "chart primitives",
+   "type": "module",
+   "path": "apps/web/src/components/charts/primitives.tsx",
+   "status": "dead"
+  },
+  {
+   "id": "web-app-locale-public-layout",
+   "label": "public layout",
+   "type": "module",
+   "path": "apps/web/src/app/[locale]/(public)/layout.tsx",
+   "status": "live"
+  },
+  {
+   "id": "web-app-locale-components-page",
+   "label": "design gallery route",
+   "type": "screen",
+   "path": "apps/web/src/app/[locale]/components/page.tsx",
+   "status": "unknown"
+  },
+  {
+   "id": "web-app-api-search-index-locale-route",
+   "label": "search index API",
+   "type": "module",
+   "path": "apps/web/src/app/api/search-index/[locale]/route.ts",
+   "status": "live"
+  },
+  {
+   "id": "web-app-api-reading-route",
+   "label": "reading API",
+   "type": "module",
+   "path": "apps/web/src/app/api/reading/route.ts",
+   "status": "app-only"
+  },
+  {
+   "id": "web-lib-web-app",
+   "label": "web app flag",
+   "type": "module",
+   "path": "apps/web/src/lib/web-app.ts",
+   "status": "live"
+  },
+  {
+   "id": "web-lib-calculators",
+   "label": "calculator maths",
+   "type": "module",
+   "path": "apps/web/src/lib/calculators",
+   "status": "live"
+  },
+  {
+   "id": "web-lib-crisis-content",
+   "label": "crisis copy",
+   "type": "module",
+   "path": "apps/web/src/lib/crisis/content.ts",
+   "status": "live"
+  },
+  {
+   "id": "web-lib-supabase-use-query",
+   "label": "Supabase query hook",
+   "type": "module",
+   "path": "apps/web/src/lib/supabase/use-query.ts",
+   "status": "app-only"
+  },
+  {
+   "id": "web-lib-supabase-client",
+   "label": "Supabase browser client",
+   "type": "module",
+   "path": "apps/web/src/lib/supabase/client.ts",
+   "status": "app-only"
+  },
+  {
+   "id": "web-tokens-femio.tailwind.preset",
+   "label": "token to Tailwind preset",
+   "type": "asset",
+   "path": "assets/brand/tokens/femio.tailwind.preset.js",
+   "status": "live"
+  },
+  {
+   "id": "web-tokens-femio.tokens",
+   "label": "token CSS variables",
+   "type": "asset",
+   "path": "assets/brand/tokens/femio.tokens.css",
+   "status": "live"
+  },
+  {
+   "id": "web-tailwind.config",
+   "label": "Tailwind config",
+   "type": "script",
+   "path": "apps/web/tailwind.config.ts",
+   "status": "live"
+  },
+  {
+   "id": "web-components",
+   "label": "shadcn config",
+   "type": "script",
+   "path": "apps/web/components.json",
+   "status": "unknown"
+  },
+  {
+   "id": "web-e2e",
+   "label": "Playwright specs",
+   "type": "fixture",
+   "path": "apps/web/e2e",
+   "status": "live"
+  },
+  {
+   "id": "service-supabase",
+   "label": "Supabase (auth and Postgres)",
+   "type": "service",
+   "path": "supabase",
+   "status": "app-only"
+  },
+  {
+   "id": "service-vercel",
+   "label": "Vercel hosting",
+   "type": "service",
+   "path": "vercel",
+   "status": "unknown"
+  }
+ ],
+ "edges": [
+  {
+   "from": "web-app-locale-public-layout",
+   "to": "web-components-site-site-header",
+   "kind": "renders"
+  },
+  {
+   "from": "web-app-locale-public-layout",
+   "to": "web-components-site-site-footer",
+   "kind": "renders"
+  },
+  {
+   "from": "web-app-locale-public-layout",
+   "to": "web-components-signed-in-tabs",
+   "kind": "renders"
+  },
+  {
+   "from": "web-components-signed-in-tabs",
+   "to": "web-components-app-nav",
+   "kind": "imports"
+  },
+  {
+   "from": "web-components-signed-in-tabs",
+   "to": "web-lib-web-app",
+   "kind": "reads"
+  },
+  {
+   "from": "web-components-signed-in-tabs",
+   "to": "web-lib-supabase-client",
+   "kind": "imports"
+  },
+  {
+   "from": "web-components-calculators-period-calculator",
+   "to": "web-components-calculators-mini-calendar",
+   "kind": "renders"
+  },
+  {
+   "from": "web-components-calculators-ovulation-calculator",
+   "to": "web-components-calculators-mini-calendar",
+   "kind": "renders"
+  },
+  {
+   "from": "web-components-calculators-pregnancy-test-calculator",
+   "to": "web-components-calculators-mini-calendar",
+   "kind": "renders"
+  },
+  {
+   "from": "web-components-calculators-due-date-calculator",
+   "to": "web-components-calculators-pregnancy-progress",
+   "kind": "renders"
+  },
+  {
+   "from": "web-components-calculators-gestational-age-calculator",
+   "to": "web-components-calculators-pregnancy-progress",
+   "kind": "renders"
+  },
+  {
+   "from": "web-components-calculators-period-calculator",
+   "to": "web-lib-calculators",
+   "kind": "imports"
+  },
+  {
+   "from": "web-components-calculators-period-calculator",
+   "to": "web-components-calculators-calculator-layout",
+   "kind": "documents"
+  },
+  {
+   "from": "web-components-calculators-due-date-calculator",
+   "to": "web-lib-calculators",
+   "kind": "imports"
+  },
+  {
+   "from": "web-components-calculators-due-date-calculator",
+   "to": "web-components-calculators-calculator-layout",
+   "kind": "documents"
+  },
+  {
+   "from": "web-components-calculators-gestational-age-calculator",
+   "to": "web-lib-calculators",
+   "kind": "imports"
+  },
+  {
+   "from": "web-components-calculators-gestational-age-calculator",
+   "to": "web-components-calculators-calculator-layout",
+   "kind": "documents"
+  },
+  {
+   "from": "web-components-calculators-ovulation-calculator",
+   "to": "web-lib-calculators",
+   "kind": "imports"
+  },
+  {
+   "from": "web-components-calculators-ovulation-calculator",
+   "to": "web-components-calculators-calculator-layout",
+   "kind": "documents"
+  },
+  {
+   "from": "web-components-calculators-pregnancy-test-calculator",
+   "to": "web-lib-calculators",
+   "kind": "imports"
+  },
+  {
+   "from": "web-components-calculators-pregnancy-test-calculator",
+   "to": "web-components-calculators-calculator-layout",
+   "kind": "documents"
+  },
+  {
+   "from": "web-components-calculators-cycle-length-calculator",
+   "to": "web-lib-calculators",
+   "kind": "imports"
+  },
+  {
+   "from": "web-components-calculators-cycle-length-calculator",
+   "to": "web-components-calculators-calculator-layout",
+   "kind": "documents"
+  },
+  {
+   "from": "web-components-calculators-bmi-calculator",
+   "to": "web-lib-calculators",
+   "kind": "imports"
+  },
+  {
+   "from": "web-components-calculators-bmi-calculator",
+   "to": "web-components-calculators-calculator-layout",
+   "kind": "documents"
+  },
+  {
+   "from": "web-components-calculators-calculator-layout",
+   "to": "web-components-analytics-page-view",
+   "kind": "renders"
+  },
+  {
+   "from": "web-components-calculators-calculator-layout",
+   "to": "web-components-seo-json-ld",
+   "kind": "renders"
+  },
+  {
+   "from": "web-components-calculators-period-calculator",
+   "to": "web-components-ui-input",
+   "kind": "imports"
+  },
+  {
+   "from": "web-components-calculators-period-calculator",
+   "to": "web-components-ui-label",
+   "kind": "imports"
+  },
+  {
+   "from": "web-components-calculators-period-calculator",
+   "to": "web-components-ui-card",
+   "kind": "imports"
+  },
+  {
+   "from": "web-components-calculators-pregnancy-test-calculator",
+   "to": "web-components-ui-chip",
+   "kind": "imports"
+  },
+  {
+   "from": "web-components-calculators-cycle-length-calculator",
+   "to": "web-components-ui-button",
+   "kind": "imports"
+  },
+  {
+   "from": "web-components-calculators-bmi-calculator",
+   "to": "web-components-ui-button",
+   "kind": "imports"
+  },
+  {
+   "from": "web-components-cms-content-article",
+   "to": "web-components-seo-json-ld",
+   "kind": "imports"
+  },
+  {
+   "from": "web-components-cms-content-article",
+   "to": "web-components-ui-alert",
+   "kind": "imports"
+  },
+  {
+   "from": "web-components-cms-content-article",
+   "to": "web-components-ui-badge",
+   "kind": "imports"
+  },
+  {
+   "from": "web-components-cms-content-hub",
+   "to": "web-components-analytics-page-view",
+   "kind": "imports"
+  },
+  {
+   "from": "web-components-learn-learn-hub",
+   "to": "web-components-learn-topic-art",
+   "kind": "renders"
+  },
+  {
+   "from": "web-components-learn-learn-hub",
+   "to": "web-components-analytics-page-view",
+   "kind": "imports"
+  },
+  {
+   "from": "web-components-search-search-screen",
+   "to": "web-app-api-search-index-locale-route",
+   "kind": "reads"
+  },
+  {
+   "from": "web-components-search-search-screen",
+   "to": "web-components-patterns-loading-state",
+   "kind": "renders"
+  },
+  {
+   "from": "web-components-search-search-screen",
+   "to": "web-components-ui-alert",
+   "kind": "imports"
+  },
+  {
+   "from": "web-components-crisis-crisis-help-provider",
+   "to": "web-components-crisis-crisis-content-view",
+   "kind": "renders"
+  },
+  {
+   "from": "web-components-crisis-crisis-help-provider",
+   "to": "web-lib-crisis-content",
+   "kind": "imports"
+  },
+  {
+   "from": "web-components-crisis-crisis-content-view",
+   "to": "web-lib-crisis-content",
+   "kind": "imports"
+  },
+  {
+   "from": "web-components-site-site-header",
+   "to": "web-components-theme-toggle",
+   "kind": "renders"
+  },
+  {
+   "from": "web-components-site-site-header",
+   "to": "web-lib-web-app",
+   "kind": "imports"
+  },
+  {
+   "from": "web-components-site-trust-page",
+   "to": "web-components-analytics-page-view",
+   "kind": "imports"
+  },
+  {
+   "from": "web-components-site-trust-page",
+   "to": "web-components-ui-alert",
+   "kind": "imports"
+  },
+  {
+   "from": "web-components-theme-toggle",
+   "to": "web-components-ui-button",
+   "kind": "imports"
+  },
+  {
+   "from": "web-components-app-nav",
+   "to": "web-components-theme-toggle",
+   "kind": "renders"
+  },
+  {
+   "from": "web-components-site-motifs",
+   "to": "web-tokens-femio.tokens",
+   "kind": "reads"
+  },
+  {
+   "from": "web-components-ui-button",
+   "to": "web-tokens-femio.tailwind.preset",
+   "kind": "reads"
+  },
+  {
+   "from": "web-tailwind.config",
+   "to": "web-tokens-femio.tailwind.preset",
+   "kind": "imports"
+  },
+  {
+   "from": "web-components",
+   "to": "web-tailwind.config",
+   "kind": "documents"
+  },
+  {
+   "from": "web-components-ui-button",
+   "to": "web-components",
+   "kind": "documents"
+  },
+  {
+   "from": "web-components-onboarding-onboarding-wizard",
+   "to": "web-components-ui-choice-row",
+   "kind": "imports"
+  },
+  {
+   "from": "web-components-account-experience-settings",
+   "to": "web-components-ui-choice-row",
+   "kind": "imports"
+  },
+  {
+   "from": "web-components-account-experience-settings",
+   "to": "web-components-account-reanswer-triage",
+   "kind": "renders"
+  },
+  {
+   "from": "web-components-account-settings-screen",
+   "to": "web-components-account-experience-settings",
+   "kind": "renders"
+  },
+  {
+   "from": "web-components-account-settings-screen",
+   "to": "web-components-account-notification-settings",
+   "kind": "renders"
+  },
+  {
+   "from": "web-components-account-settings-screen",
+   "to": "web-components-account-consent-settings",
+   "kind": "renders"
+  },
+  {
+   "from": "web-components-account-settings-screen",
+   "to": "web-components-account-mfa-settings",
+   "kind": "renders"
+  },
+  {
+   "from": "web-components-account-settings-screen",
+   "to": "web-components-account-delete-button",
+   "kind": "renders"
+  },
+  {
+   "from": "web-components-account-settings-screen",
+   "to": "web-components-account-set-password",
+   "kind": "renders"
+  },
+  {
+   "from": "web-components-account-settings-screen",
+   "to": "web-components-account-export-button",
+   "kind": "renders"
+  },
+  {
+   "from": "web-components-account-settings-screen",
+   "to": "web-components-account-sign-out-button",
+   "kind": "renders"
+  },
+  {
+   "from": "web-components-account-sign-out-button",
+   "to": "web-components-experience-persona-offer",
+   "kind": "imports"
+  },
+  {
+   "from": "web-components-experience-persona-offer",
+   "to": "web-components-account-sign-out-button",
+   "kind": "documents"
+  },
+  {
+   "from": "web-components-experience-module-registry",
+   "to": "web-components-experience-v2-module-registry-v2",
+   "kind": "imports"
+  },
+  {
+   "from": "web-components-experience-module-registry",
+   "to": "web-components-experience-v2-home-shell",
+   "kind": "imports"
+  },
+  {
+   "from": "web-components-experience-module-registry",
+   "to": "web-components-experience-cycle-experience",
+   "kind": "imports"
+  },
+  {
+   "from": "web-components-experience-v2-home-shell",
+   "to": "web-components-experience-v2-module-host",
+   "kind": "imports"
+  },
+  {
+   "from": "web-components-experience-v2-module-host",
+   "to": "web-components-experience-v2-module-registry-v2",
+   "kind": "imports"
+  },
+  {
+   "from": "web-components-experience-reading-list",
+   "to": "web-app-api-reading-route",
+   "kind": "reads"
+  },
+  {
+   "from": "web-components-experience-module-registry.test",
+   "to": "web-components-experience-module-registry",
+   "kind": "tested-by"
+  },
+  {
+   "from": "web-components-log-severity-chip.test",
+   "to": "web-components-log-severity-chip",
+   "kind": "tested-by"
+  },
+  {
+   "from": "web-components-patterns-screen-states.test",
+   "to": "web-components-patterns-app-screen",
+   "kind": "tested-by"
+  },
+  {
+   "from": "web-components-cycle-track-screen",
+   "to": "web-components-cycle-log-period",
+   "kind": "renders"
+  },
+  {
+   "from": "web-components-cycle-track-screen",
+   "to": "web-components-cycle-log-symptoms",
+   "kind": "renders"
+  },
+  {
+   "from": "web-components-cycle-track-screen",
+   "to": "web-lib-supabase-use-query",
+   "kind": "imports"
+  },
+  {
+   "from": "web-components-dashboard-dashboard-screen",
+   "to": "web-lib-supabase-use-query",
+   "kind": "imports"
+  },
+  {
+   "from": "web-components-account-summary-screen",
+   "to": "web-lib-supabase-use-query",
+   "kind": "imports"
+  },
+  {
+   "from": "web-components-fertility-fertility-screen",
+   "to": "web-lib-supabase-use-query",
+   "kind": "imports"
+  },
+  {
+   "from": "web-components-appointments-appointments-screen",
+   "to": "web-lib-supabase-use-query",
+   "kind": "imports"
+  },
+  {
+   "from": "web-components-appointments-next-appointment-card",
+   "to": "web-lib-supabase-use-query",
+   "kind": "imports"
+  },
+  {
+   "from": "web-components-medications-medications-screen",
+   "to": "web-lib-supabase-use-query",
+   "kind": "imports"
+  },
+  {
+   "from": "web-components-offline-sync",
+   "to": "web-lib-supabase-use-query",
+   "kind": "imports"
+  },
+  {
+   "from": "web-components-auth-auth-gate",
+   "to": "web-lib-supabase-client",
+   "kind": "imports"
+  },
+  {
+   "from": "web-components-auth-sign-in-form",
+   "to": "web-lib-supabase-client",
+   "kind": "imports"
+  },
+  {
+   "from": "web-lib-supabase-client",
+   "to": "service-supabase",
+   "kind": "calls"
+  },
+  {
+   "from": "web-lib-supabase-use-query",
+   "to": "service-supabase",
+   "kind": "reads"
+  },
+  {
+   "from": "web-e2e",
+   "to": "web-components-search-search-screen",
+   "kind": "tested-by"
+  },
+  {
+   "from": "web-e2e",
+   "to": "web-components-crisis-crisis-help-provider",
+   "kind": "tested-by"
+  },
+  {
+   "from": "web-e2e",
+   "to": "web-components-learn-learn-hub",
+   "kind": "tested-by"
+  },
+  {
+   "from": "web-e2e",
+   "to": "web-components-calculators-calculator-layout",
+   "kind": "tested-by"
+  },
+  {
+   "from": "web-app-locale-components-page",
+   "to": "web-components-patterns-empty-state",
+   "kind": "renders"
+  },
+  {
+   "from": "web-app-locale-components-page",
+   "to": "web-components-patterns-error-state",
+   "kind": "renders"
+  },
+  {
+   "from": "web-app-locale-components-page",
+   "to": "web-components-patterns-loading-state",
+   "kind": "renders"
+  },
+  {
+   "from": "web-app-locale-components-page",
+   "to": "web-components-ui-button",
+   "kind": "renders"
+  }
+ ]
+}
