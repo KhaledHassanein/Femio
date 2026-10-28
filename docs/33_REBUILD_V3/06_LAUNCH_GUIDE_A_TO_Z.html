@@ -1,4 +1,4 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Launching femio, A to Z</title><style>
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Femio launch guide A to Z</title><style>
 :root{--bg:#FBF7F3;--surface:#fff;--ink:#24141F;--muted:#5E4D57;--plum:#8A3572;--rose:#BF2F59;--line:#E9DFD9;--sunken:#F4EDE8}
 @media(prefers-color-scheme:dark){:root{--bg:#140D14;--surface:#1E1520;--ink:#F6EEF2;--muted:#C9B8C2;--plum:#DDA2C8;--line:#33262F;--sunken:#19111A}}
 *{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.6 "Plus Jakarta Sans",system-ui,sans-serif}
@@ -9,7 +9,7 @@ table{border-collapse:collapse;width:100%;font-size:15px;margin:16px 0}th,td{tex
 blockquote{margin:16px 0;padding:12px 16px;border-inline-start:4px solid var(--plum);background:var(--surface);border-radius:0 12px 12px 0}
 hr{border:0;border-top:1px solid var(--line);margin:32px 0}strong{font-weight:600}
 .meta{color:var(--muted);font-size:14px}
-</style></head><body><main><p class="meta">femio · generated 2026-10-27 from 06_LAUNCH_GUIDE_A_TO_Z.md</p><h1>06 — Launching femio, A to Z</h1>
+</style></head><body><main><p class="meta">femio · generated 2026-10-28 from 06_LAUNCH_GUIDE_A_TO_Z.md</p><h1>06 — Launching femio, A to Z</h1>
 <p><strong>For Khaled.</strong> Plain words, in order, with what to paste. Nothing here needs a developer: when a
 step says &quot;a session&quot;, open Claude Code in the repo and paste the line in quotes. Every step says
 how long it takes and what &quot;done&quot; looks like. The texts you paste into Google Play are in
@@ -94,12 +94,12 @@ and restore, airplane mode, both themes). Write what is wrong in one message to 
 <p>Console → <strong>Create app</strong> → name <strong>femio</strong> → default language <strong>Arabic (Saudi Arabia)</strong>, then
 add English, French and Spanish listings → app (not game) → free → accept the declarations.</p>
 <h3>D2 · Store listing (30 min)</h3>
-<p>Open <code>04_GROWTH_PACK.md</code> §4 beside the Console and paste:</p>
+<p>Open <code>docs/store/play-listing.ar.md</code> and <code>docs/store/play-listing.en.md</code> beside the Console and paste:</p>
 <ul>
-<li><strong>Title</strong> (29 chars AR / 28 EN) and <strong>short description</strong> (§4.1).</li>
-<li><strong>Full description</strong> AR (§4.3) and EN (§4.2). Delete every line marked <strong>†</strong> whose feature
-is not in the build you are uploading. Keep the &quot;not a medical device&quot; paragraph; Google
-requires it.</li>
+<li><strong>Title</strong> (29 chars AR / 28 EN) and <strong>short description</strong> from the top of each file.</li>
+<li><strong>Full description</strong> AR and EN. The ship-gated lines are already resolved against the
+build (<code>docs/store/README.md</code> says which); fill the support email first. Keep the &quot;not a
+medical device&quot; paragraph; Google requires it. <code>pnpm store-lint</code> checks the limits.</li>
 <li><strong>Screenshots</strong>: 8 per language, from the real app (a session makes them with
 <code>flutter test --update-goldens</code>; captions in §4.4). The Arabic set first.</li>
 <li><strong>Feature graphic</strong> 1024×500 (§4.5) and the icon (<code>apps/web/public/icons/icon-512.png</code>).</li>

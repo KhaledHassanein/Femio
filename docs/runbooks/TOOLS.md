@@ -30,6 +30,7 @@ still needs the token pass and the logical-property pass (`ms-`/`me-`, never `le
 - `design/tokens-to-dart.mjs` — CSS tokens → `apps/mobile/lib/theme/tokens.g.dart` (`--check` in the gate).
 - `mobile/sync-log-vocabulary.mjs` — log vocabulary and labels → Dart (`--check` in the gate).
 - `mobile/arb-untranslated-lint.mjs` — every ARB value compared with English; cognates allowlisted by key.
+- `store/listing-check.mjs` — the Play listing files in `docs/store` against Play's limits, gate marks, wordmark, disclaimer.
 - `claims-lint.mjs`, `crisis-compliance.mjs` (also checks the app ARB sentences verbatim), `wordmark-lint.mjs`
   (the wordmark is Latin `femio` even in Arabic), `content-lint.mjs`, `i18n/untranslated-lint.mjs`,
   `seo/sitemap-check.mjs` — the guards that have caught real errors. When one fails, fix the code,

@@ -92,11 +92,11 @@ Console → **Create app** → name **femio** → default language **Arabic (Sau
 add English, French and Spanish listings → app (not game) → free → accept the declarations.
 
 ### D2 · Store listing (30 min)
-Open `04_GROWTH_PACK.md` §4 beside the Console and paste:
-- **Title** (29 chars AR / 28 EN) and **short description** (§4.1).
-- **Full description** AR (§4.3) and EN (§4.2). Delete every line marked **†** whose feature
-  is not in the build you are uploading. Keep the "not a medical device" paragraph; Google
-  requires it.
+Open `docs/store/play-listing.ar.md` and `docs/store/play-listing.en.md` beside the Console and paste:
+- **Title** (29 chars AR / 28 EN) and **short description** from the top of each file.
+- **Full description** AR and EN. The ship-gated lines are already resolved against the
+  build (`docs/store/README.md` says which); fill the support email first. Keep the "not a
+  medical device" paragraph; Google requires it. `pnpm store-lint` checks the limits.
 - **Screenshots**: 8 per language, from the real app (a session makes them with
   `flutter test --update-goldens`; captions in §4.4). The Arabic set first.
 - **Feature graphic** 1024×500 (§4.5) and the icon (`apps/web/public/icons/icon-512.png`).

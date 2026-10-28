@@ -58,8 +58,8 @@ Every "done" names its evidence: a test count, a screenshot folder, a deployed U
 
 ## R5 · Launch
 
-- [ ] R5.1 · Play listing AR/EN from `04_GROWTH_PACK.md` §4, feature-gated lines removed for what did not ship
-- [ ] R5.2 · Data safety and Health apps declaration answers from `03_LEGAL_PACK.md` §4
+- [x] R5.1 · Play listing AR/EN as paste-ready files: `docs/store/play-listing.{en,ar}.md` (title 28/29, short 79/68, full 2,722/2,351 chars); every † line resolved against the build (`docs/store/README.md`: appointment reminders → appointments kept on the phone; kick counter → movement log); `pnpm store-lint` guards limits, gate marks, wordmark and the Google disclaimer. Owner placeholder: the support email
+- [x] R5.2 · `docs/store/data-safety-and-declarations.md`: Data safety (No collection, deletion Yes, no data types), Health apps declaration (period tracking; reproductive health; medical reference), disclaimer, 18+, content rating, closed-test rule, each tied to the build's manifest, dependencies and screens
 - [x] R5.3 · `05_RELEASE_RUNBOOK.md`, `06_LAUNCH_GUIDE_A_TO_Z.md` (+ offline `.html`); ASO pack in `04_GROWTH_PACK.md` §4 (`4e4f6d9`)
 - [ ] R5.4 · Closed test (12 testers × 14 days); fix round; production access
 - [ ] R5.5 · Soft launch, first-100-women plan running

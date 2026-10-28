@@ -58,8 +58,8 @@ keep rule to `android/app/proguard-rules.pro` with the reason.
 Play Console → Testing → Closed testing → create a track "femio closed" → upload the `.aab` →
 release notes (EN + AR, two lines) → add the testers' Google emails or a Google Group → start.
 The Data safety form, Health apps declaration, content rating and store listing must be filled
-before the first upload is accepted; the texts are in `03_LEGAL_PACK.md` §4 and
-`04_GROWTH_PACK.md` §4.
+before the first upload is accepted; the paste-ready texts and answers are in `docs/store/`
+(reasoning in `03_LEGAL_PACK.md` §4 and `04_GROWTH_PACK.md` §4).
 
 ## 6 · After each tester round
 
