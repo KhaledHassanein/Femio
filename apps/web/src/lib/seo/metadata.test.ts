@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { localizedAlternates } from "./metadata";
+import { localizedAlternates, socialMetadata } from "./metadata";
 
 describe("localizedAlternates", () => {
   it("advertises every locale for a fully translated UI page", () => {
@@ -38,5 +38,19 @@ describe("localizedAlternates", () => {
     // The page is noindex in that case, but the canonical must not point nowhere.
     const { canonical } = localizedAlternates("ar", "/learn/pcos", ["en"]);
     expect(canonical).toBe("/ar/learn/pcos");
+  });
+});
+
+describe("socialMetadata", () => {
+  it("carries the per-locale share image and the card type with the page's own copy", () => {
+    const m = socialMetadata("ar", "/learn/pcos-signs", "عنوان", "وصف");
+    expect(m.openGraph).toMatchObject({
+      type: "article",
+      title: "عنوان",
+      description: "وصف",
+      url: expect.stringMatching(/\/ar\/learn\/pcos-signs$/),
+      images: [expect.objectContaining({ url: "/og/ar.png", width: 1200, height: 630 })],
+    });
+    expect(m.twitter).toMatchObject({ card: "summary_large_image", title: "عنوان", images: ["/og/ar.png"] });
   });
 });

@@ -4,7 +4,7 @@ import { getTranslations, setRequestLocale } from "next-intl/server";
 import { availableLocales, getContentBySlug, allSlugs } from "@/lib/cms/client";
 import { metaDescription } from "@/lib/cms/format";
 import { ContentArticle } from "@/components/cms/content-article";
-import { localizedAlternates } from "@/lib/seo/metadata";
+import { localizedAlternates, socialMetadata } from "@/lib/seo/metadata";
 
 type PageProps = { params: Promise<{ locale: string; slug: string }> };
 
@@ -42,10 +42,12 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       ? { canonical: seo.canonicalOverride }
       : localizedAlternates(locale, `/conditions/${slug}`, available),
     ...(seo.noIndex || !translated ? { robots: { index: false, follow: true } } : {}),
-    openGraph: {
-      title: seo.socialTitle || seo.seoTitle || doc.title,
-      description: seo.socialDescription || seo.metaDescription || metaDescription(doc),
-    },
+    ...socialMetadata(
+      locale,
+      `/conditions/${slug}`,
+      seo.socialTitle || seo.seoTitle || doc.title,
+      seo.socialDescription || seo.metaDescription || metaDescription(doc),
+    ),
   };
 }
 

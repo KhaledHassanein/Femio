@@ -150,9 +150,9 @@ export function MonthCalendar({
           <span className="size-11" aria-hidden />
         )}
         <div className="flex flex-col items-center">
-          <h3 id={titleId} className="text-lg font-semibold text-text">
+          <h2 id={titleId} className="text-lg font-semibold text-text">
             {title}
-          </h3>
+          </h2>
           {hijriLine ? <p className="text-2xs text-text-subtle">{hijriLine}</p> : null}
         </div>
         {showNav ? (

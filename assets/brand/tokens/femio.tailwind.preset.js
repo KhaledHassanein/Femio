@@ -56,9 +56,12 @@ module.exports = {
         prediction: { band: 'var(--prediction-band)' },
       },
       fontFamily: {
-        sans: ['Inter', 'system-ui', 'sans-serif'],
-        display: ['Fraunces', 'Georgia', 'serif'],
-        arabic: ['IBM Plex Sans Arabic', 'Inter', 'sans-serif'],
+        // Mirrors --font-ui / --font-display / --font-ar in femio.tokens.css. The website
+        // overrides these with next/font variables in its tailwind.config; the names here
+        // are the fallback stack and the one place a second consumer reads the faces from.
+        sans: ['Plus Jakarta Sans', 'IBM Plex Sans Arabic', 'system-ui', 'sans-serif'],
+        display: ['Newsreader', 'Noto Naskh Arabic', 'Georgia', 'serif'],
+        arabic: ['IBM Plex Sans Arabic', 'Plus Jakarta Sans', 'sans-serif'],
         mono: ['JetBrains Mono', 'ui-monospace', 'monospace'],
       },
       fontSize: {

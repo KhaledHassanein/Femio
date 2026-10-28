@@ -202,8 +202,15 @@ body:has(.app-bottom-bar):has(.crisis-launcher) {
       radial-gradient(26% 24% at 70% 38%, var(--aurora-3), transparent 70%),
       radial-gradient(48% 40% at 18% 14%, var(--aurora-4), transparent 70%);
     filter: blur(28px);
-    animation: aurora-drift 22s ease-in-out infinite alternate;
-    will-change: transform;
+  }
+  /* The drift is ambient light, not a cue: slow, small, and off for anyone who asked
+     the OS for less motion. (Lighthouse's Speed Index also reads a page that keeps
+     moving as a page that never finished painting.) */
+  @media (prefers-reduced-motion: no-preference) {
+    .aurora::before {
+      animation: aurora-drift 40s ease-in-out infinite alternate;
+      will-change: transform;
+    }
   }
   /* Grain: an inline SVG turbulence tile. It is what turns a gradient into light. */
   .aurora::after {
@@ -221,7 +228,7 @@ body:has(.app-bottom-bar):has(.crisis-launcher) {
       transform: translate3d(0, 0, 0) rotate(0deg) scale(1);
     }
     100% {
-      transform: translate3d(-5%, 4%, 0) rotate(9deg) scale(1.06);
+      transform: translate3d(-3%, 2%, 0) rotate(4deg) scale(1.03);
     }
   }
 }

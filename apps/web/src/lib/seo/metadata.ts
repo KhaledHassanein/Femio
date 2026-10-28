@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { routing } from "@/i18n/routing";
+import { ogLocale, siteConfig } from "@/lib/seo/config";
 
 /**
  * Self-referencing canonical for the current locale + a full hreflang cluster
@@ -26,4 +27,28 @@ export function localizedAlternates(
   const fallback = locales.includes(routing.defaultLocale) ? routing.defaultLocale : locales[0];
   if (fallback) languages["x-default"] = `/${fallback}${clean}`;
   return { canonical: `/${locale}${clean}`, languages };
+}
+
+/**
+ * The Open Graph and Twitter blocks for a page with its own title and description.
+ * Next.js replaces the layout's `openGraph` and `twitter` objects rather than merging
+ * them, so a page that sets only a title silently drops the share image and the
+ * Twitter card falls back to the site title. Every page that sets social copy goes
+ * through here so the per-locale image and the card type always come with it.
+ */
+export function socialMetadata(locale: string, path: string, title: string, description: string): Pick<Metadata, "openGraph" | "twitter"> {
+  const image = `/og/${locale}.png`;
+  const clean = path === "/" ? "" : path.replace(/\/$/, "");
+  return {
+    openGraph: {
+      type: "article",
+      siteName: siteConfig.name,
+      title,
+      description,
+      url: `${siteConfig.baseUrl}/${locale}${clean}`,
+      locale: ogLocale[locale] ?? locale,
+      images: [{ url: image, width: 1200, height: 630, alt: title }],
+    },
+    twitter: { card: "summary_large_image", title, description, images: [image] },
+  };
 }
