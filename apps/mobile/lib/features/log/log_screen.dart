@@ -17,6 +17,7 @@ import '../../theme/femio_theme.dart';
 import '../../theme/spacing.dart';
 import '../../theme/radii.dart';
 import '../../theme/type_sizes.dart';
+import '../../widgets/tab_header.dart';
 import 'widgets/log_chip.dart';
 import 'widgets/temperature_field.dart';
 
@@ -50,8 +51,8 @@ class LogScreen extends StatelessWidget {
       listenable: controller,
       builder: (context, _) {
         final profile = controller.profile!;
-        final log = profile.logs[date] ??
-            (profile.periodStarts.contains(date) ? const DayLog(flow: 'medium') : const DayLog());
+        final log =
+            profile.logs[date] ?? (profile.periodStarts.contains(date) ? const DayLog(flow: 'medium') : const DayLog());
 
         void save(DayLog next) => controller.setDayLog(date, next);
         void setFlow(String? flow) => save(log.copyWith(flow: flow));
@@ -62,35 +63,38 @@ class LogScreen extends StatelessWidget {
         }
 
         Widget section(String title, List<Widget> chips) => Padding(
-              padding: const EdgeInsets.only(top: space5h),
-              child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-                Semantics(header: true, child: Text(title, style: t.titleMedium)),
-                const SizedBox(height: space2h),
-                Wrap(spacing: space2, runSpacing: space2, children: chips),
-              ]),
-            );
+          padding: const EdgeInsets.only(top: space5h),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Semantics(header: true, child: Text(title, style: t.titleMedium)),
+              const SizedBox(height: space2h),
+              Wrap(spacing: space2, runSpacing: space2, children: chips),
+            ],
+          ),
+        );
 
         Widget termChips(LogDimension d, Color tint, Color ink) => Wrap(
-              spacing: space2,
-              runSpacing: space2,
-              children: [
-                for (final term in logTerms.where((x) => x.dimension == d))
-                  LogChip(
-                    label: logLabel(l, term.key),
-                    selected: log.terms.contains(term.key),
-                    // Elevated terms stay quiet on a shared screen (vocabulary.ts).
-                    tint: term.elevated ? p.surfaceSunken : tint,
-                    ink: term.elevated ? p.text : ink,
-                    onTap: () => toggle(term.key),
-                  ),
-              ],
-            );
+          spacing: space2,
+          runSpacing: space2,
+          children: [
+            for (final term in logTerms.where((x) => x.dimension == d))
+              LogChip(
+                label: logLabel(l, term.key),
+                selected: log.terms.contains(term.key),
+                // Elevated terms stay quiet on a shared screen (vocabulary.ts).
+                tint: term.elevated ? p.surfaceSunken : tint,
+                ink: term.elevated ? p.text : ink,
+                onTap: () => toggle(term.key),
+              ),
+          ],
+        );
 
         return SafeArea(
           child: ListView(
             padding: const EdgeInsets.fromLTRB(space5, space4, space5, space8),
             children: [
-              Semantics(header: true, child: Text(l.logTitle, style: t.headlineMedium)),
+              TabHeader(title: l.logTitle),
               const SizedBox(height: space3),
               Container(
                 decoration: BoxDecoration(
@@ -98,26 +102,29 @@ class LogScreen extends StatelessWidget {
                   borderRadius: BorderRadius.circular(radiusPill),
                   border: Border.all(color: p.border),
                 ),
-                child: Row(children: [
-                  IconButton(
-                    onPressed: () => onDateChanged(addDays(date, -1)),
-                    icon: const Icon(Icons.chevron_left_rounded),
-                    tooltip: l.previousDay,
-                  ),
-                  Expanded(
-                    child: Text(
-                      date == today ? '${l.navToday} · ${DateFormat.MMMd(locale).format(fromISO(date))}'
-                          : DateFormat.MMMMEEEEd(locale).format(fromISO(date)),
-                      textAlign: TextAlign.center,
-                      style: t.titleMedium,
+                child: Row(
+                  children: [
+                    IconButton(
+                      onPressed: () => onDateChanged(addDays(date, -1)),
+                      icon: const Icon(Icons.chevron_left_rounded),
+                      tooltip: l.previousDay,
                     ),
-                  ),
-                  IconButton(
-                    onPressed: date.compareTo(today) >= 0 ? null : () => onDateChanged(addDays(date, 1)),
-                    icon: const Icon(Icons.chevron_right_rounded),
-                    tooltip: l.nextDay,
-                  ),
-                ]),
+                    Expanded(
+                      child: Text(
+                        date == today
+                            ? '${l.navToday} · ${DateFormat.MMMd(locale).format(fromISO(date))}'
+                            : DateFormat.MMMMEEEEd(locale).format(fromISO(date)),
+                        textAlign: TextAlign.center,
+                        style: t.titleMedium,
+                      ),
+                    ),
+                    IconButton(
+                      onPressed: date.compareTo(today) >= 0 ? null : () => onDateChanged(addDays(date, 1)),
+                      icon: const Icon(Icons.chevron_right_rounded),
+                      tooltip: l.nextDay,
+                    ),
+                  ],
+                ),
               ),
               section(l.sectionPeriod, [
                 LogChip(
@@ -163,11 +170,14 @@ class LogScreen extends StatelessWidget {
               ]),
               section(l.sectionMore, [termChips(LogDimension.intercourse, p.surfaceSunken, p.text)]),
               const SizedBox(height: space6),
-              Row(mainAxisAlignment: MainAxisAlignment.center, children: [
-                Icon(Icons.lock_outline_rounded, size: iconSizeInline, color: p.textSubtle),
-                const SizedBox(width: space1h),
-                Flexible(child: Text(l.logSavedNote, style: t.bodySmall)),
-              ]),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Icon(Icons.lock_outline_rounded, size: iconSizeInline, color: p.textSubtle),
+                  const SizedBox(width: space1h),
+                  Flexible(child: Text(l.logSavedNote, style: t.bodySmall)),
+                ],
+              ),
             ],
           ),
         );

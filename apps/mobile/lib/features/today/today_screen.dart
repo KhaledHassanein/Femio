@@ -17,8 +17,8 @@ import '../../theme/spacing.dart';
 import '../../theme/type_sizes.dart';
 import '../../widgets/bloom.dart';
 import '../../widgets/notice_card.dart';
-import '../help/help_now_screen.dart';
 import '../settings/settings_screen.dart';
+import '../../widgets/tab_header.dart';
 import 'pregnancy_tools.dart';
 import 'today_hero.dart';
 
@@ -61,21 +61,19 @@ class TodayScreen extends StatelessWidget {
               children: [
                 const Bloom(size: 28),
                 const SizedBox(width: space2),
-                Text('femio',
-                    textDirection: TextDirection.ltr,
-                    style: t.headlineSmall?.copyWith(color: p.primary)),
-                const Spacer(),
-                IconButton(
-                  tooltip: l.helpNowLauncher,
-                  icon: Icon(Icons.support_outlined, color: p.dangerText),
-                  onPressed: () => Navigator.of(context).push(MaterialPageRoute<void>(builder: (_) => const HelpNowScreen())),
+                Text(
+                  'femio',
+                  textDirection: TextDirection.ltr,
+                  style: t.headlineSmall?.copyWith(color: p.primary),
                 ),
+                const Spacer(),
+                HelpNowButton(color: p.dangerText),
                 IconButton(
                   tooltip: l.settingsTitle,
                   icon: Icon(Icons.settings_outlined, color: p.textMuted),
-                  onPressed: () => Navigator.of(context).push(
-                    MaterialPageRoute<void>(builder: (_) => SettingsScreen(controller: controller)),
-                  ),
+                  onPressed: () =>
+                      Navigator.of(context)
+                          .push(MaterialPageRoute<void>(builder: (_) => SettingsScreen(controller: controller))),
                 ),
               ],
             ),

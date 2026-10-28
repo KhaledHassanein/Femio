@@ -15,6 +15,7 @@ import '../../theme/femio_theme.dart';
 import '../../theme/radii.dart';
 import '../../theme/spacing.dart';
 import '../../theme/type_sizes.dart';
+import '../../widgets/tab_header.dart';
 
 /// Month calendar. What she logged is drawn filled; what Femio estimates is drawn in
 /// outline or tint, never the same way (rule 3). Tapping a day opens its log.
@@ -95,11 +96,10 @@ class _CalendarScreenState extends State<CalendarScreen> {
             child: Stack(
               alignment: Alignment.center,
               children: [
-                Text('$day',
-                    style: t.bodyMedium?.copyWith(
-                      color: text,
-                      fontWeight: isToday ? FontWeight.w700 : FontWeight.w500,
-                    )),
+                Text(
+                  '$day',
+                  style: t.bodyMedium?.copyWith(color: text, fontWeight: isToday ? FontWeight.w700 : FontWeight.w500),
+                ),
                 if (m?.logged ?? false)
                   Positioned(
                     bottom: 5,
@@ -132,7 +132,10 @@ class _CalendarScreenState extends State<CalendarScreen> {
                         number,
                         // Secondary, quiet: 12px in the subtle text colour (spec 2.3).
                         ExcludeSemantics(
-                          child: Text(hijri, style: t.labelSmall?.copyWith(fontSize: fontSizeHijriDay, color: p.textSubtle, height: 1)),
+                          child: Text(
+                            hijri,
+                            style: t.labelSmall?.copyWith(fontSize: fontSizeHijriDay, color: p.textSubtle, height: 1),
+                          ),
                         ),
                       ],
                     ),
@@ -140,26 +143,29 @@ class _CalendarScreenState extends State<CalendarScreen> {
           );
         }
 
-        Widget legend(Widget swatch, String label) => Row(mainAxisSize: MainAxisSize.min, children: [
-              swatch,
-              const SizedBox(width: space1h),
-              Text(label, style: t.bodySmall),
-            ]);
+        Widget legend(Widget swatch, String label) => Row(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            swatch,
+            const SizedBox(width: space1h),
+            Text(label, style: t.bodySmall),
+          ],
+        );
         Widget dot(Color fill, {Color? ring}) => Container(
-              width: 14,
-              height: 14,
-              decoration: BoxDecoration(
-                color: fill,
-                shape: BoxShape.circle,
-                border: ring == null ? null : Border.all(color: ring, width: 1.5),
-              ),
-            );
+          width: 14,
+          height: 14,
+          decoration: BoxDecoration(
+            color: fill,
+            shape: BoxShape.circle,
+            border: ring == null ? null : Border.all(color: ring, width: 1.5),
+          ),
+        );
 
         return SafeArea(
           child: ListView(
             padding: const EdgeInsets.fromLTRB(space5, space4, space5, space6),
             children: [
-              Semantics(header: true, child: Text(l.calendarTitle, style: t.headlineMedium)),
+              TabHeader(title: l.calendarTitle),
               const SizedBox(height: space4),
               Container(
                 padding: const EdgeInsets.fromLTRB(space3, space2, space3, space4),
@@ -168,62 +174,79 @@ class _CalendarScreenState extends State<CalendarScreen> {
                   borderRadius: BorderRadius.circular(radiusLg),
                   border: Border.all(color: p.border),
                 ),
-                child: Column(children: [
-                  Row(children: [
-                    IconButton(
-                      onPressed: () => _shift(-1),
-                      icon: const Icon(Icons.chevron_left_rounded),
-                      tooltip: ml.previousMonthTooltip,
-                    ),
-                    Expanded(
-                      child: Column(mainAxisSize: MainAxisSize.min, children: [
-                        Text(
-                          DateFormat.yMMMM(locale).format(_month),
-                          textAlign: TextAlign.center,
-                          style: t.titleMedium,
+                child: Column(
+                  children: [
+                    Row(
+                      children: [
+                        IconButton(
+                          onPressed: () => _shift(-1),
+                          icon: const Icon(Icons.chevron_left_rounded),
+                          tooltip: ml.previousMonthTooltip,
                         ),
-                        if (hijriLine.isNotEmpty)
-                          Text(
-                            hijriLine,
-                            textAlign: TextAlign.center,
-                            style: t.labelSmall?.copyWith(fontSize: fontSizeHijriDay, color: p.textSubtle),
+                        Expanded(
+                          child: Column(
+                            mainAxisSize: MainAxisSize.min,
+                            children: [
+                              Text(
+                                DateFormat.yMMMM(locale).format(_month),
+                                textAlign: TextAlign.center,
+                                style: t.titleMedium,
+                              ),
+                              if (hijriLine.isNotEmpty)
+                                Text(
+                                  hijriLine,
+                                  textAlign: TextAlign.center,
+                                  style: t.labelSmall?.copyWith(fontSize: fontSizeHijriDay, color: p.textSubtle),
+                                ),
+                            ],
                           ),
-                      ]),
+                        ),
+                        IconButton(
+                          onPressed: () => _shift(1),
+                          icon: const Icon(Icons.chevron_right_rounded),
+                          tooltip: ml.nextMonthTooltip,
+                        ),
+                      ],
                     ),
-                    IconButton(
-                      onPressed: () => _shift(1),
-                      icon: const Icon(Icons.chevron_right_rounded),
-                      tooltip: ml.nextMonthTooltip,
+                    const SizedBox(height: space1),
+                    GridView(
+                      // Square cells normally; a fixed 52px row when the Hijri day sits
+                      // under the number (spec 2.3).
+                      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                        crossAxisCount: 7,
+                        mainAxisExtent: showHijri ? calendarRowHeightWithHijri : null,
+                      ),
+                      shrinkWrap: true,
+                      physics: const NeverScrollableScrollPhysics(),
+                      children: [
+                        for (final h in headers) Center(child: Text(h, style: t.labelMedium)),
+                        for (var i = 0; i < lead; i++) const SizedBox.shrink(),
+                        for (var d = 1; d <= daysInMonth; d++) cell(d),
+                      ],
                     ),
-                  ]),
-                  const SizedBox(height: space1),
-                  GridView(
-                    // Square cells normally; a fixed 52px row when the Hijri day sits
-                    // under the number (spec 2.3).
-                    gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                      crossAxisCount: 7,
-                      mainAxisExtent: showHijri ? calendarRowHeightWithHijri : null,
-                    ),
-                    shrinkWrap: true,
-                    physics: const NeverScrollableScrollPhysics(),
-                    children: [
-                      for (final h in headers)
-                        Center(child: Text(h, style: t.labelMedium)),
-                      for (var i = 0; i < lead; i++) const SizedBox.shrink(),
-                      for (var d = 1; d <= daysInMonth; d++) cell(d),
-                    ],
-                  ),
-                ]),
+                  ],
+                ),
               ),
               const SizedBox(height: space4),
-              Wrap(spacing: space4, runSpacing: space2h, children: [
-                legend(dot(p.logPeriod), l.legendPeriod),
-                legend(dot(Colors.transparent, ring: p.logPeriod), l.legendSpotting),
-                legend(dot(p.predictionBand.withValues(alpha: 0.14), ring: p.predictionBand), l.legendPredicted),
-                legend(dot(p.successSoft), l.legendFertile),
-                legend(dot(p.successSoft, ring: p.successSolid), l.legendOvulation),
-                legend(Container(width: 6, height: 6, decoration: BoxDecoration(color: p.logSymptom, shape: BoxShape.circle)), l.legendLogged),
-              ]),
+              Wrap(
+                spacing: space4,
+                runSpacing: space2h,
+                children: [
+                  legend(dot(p.logPeriod), l.legendPeriod),
+                  legend(dot(Colors.transparent, ring: p.logPeriod), l.legendSpotting),
+                  legend(dot(p.predictionBand.withValues(alpha: 0.14), ring: p.predictionBand), l.legendPredicted),
+                  legend(dot(p.successSoft), l.legendFertile),
+                  legend(dot(p.successSoft, ring: p.successSolid), l.legendOvulation),
+                  legend(
+                    Container(
+                      width: 6,
+                      height: 6,
+                      decoration: BoxDecoration(color: p.logSymptom, shape: BoxShape.circle),
+                    ),
+                    l.legendLogged,
+                  ),
+                ],
+              ),
               const SizedBox(height: space3h),
               Text(l.calendarHint, style: t.bodySmall),
             ],

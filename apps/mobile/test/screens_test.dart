@@ -143,7 +143,10 @@ void main() {
         await tester.tap(find.byIcon(Icons.edit_note_outlined));
         await _shoot(tester, '${lang}_${b.name}_10_log');
         // Logging from the screen saves to the record.
-        await tester.tap(find.text(lang == 'en' ? 'Acne' : 'حبّ الشباب'));
+        final acne = find.text(lang == 'en' ? 'Acne' : 'حبّ الشباب');
+        await tester.ensureVisible(acne);
+        await tester.pumpAndSettle();
+        await tester.tap(acne);
         await tester.pumpAndSettle();
         expect(c.profile!.logs[today]!.terms, contains('acne'));
       });

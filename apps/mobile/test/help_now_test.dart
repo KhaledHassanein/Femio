@@ -4,22 +4,23 @@
 import 'package:femio/features/help/help_now_screen.dart';
 import 'package:femio/l10n/app_localizations.dart';
 import 'package:femio/theme/femio_theme.dart';
+import 'package:femio/widgets/tab_header.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 Widget _app(String locale) => MaterialApp(
-      theme: FemioTheme.light(),
-      locale: Locale(locale),
-      supportedLocales: const [Locale('en'), Locale('ar')],
-      localizationsDelegates: const [
-        L10n.delegate,
-        GlobalMaterialLocalizations.delegate,
-        GlobalWidgetsLocalizations.delegate,
-        GlobalCupertinoLocalizations.delegate,
-      ],
-      home: const HelpNowScreen(),
-    );
+  theme: FemioTheme.light(),
+  locale: Locale(locale),
+  supportedLocales: const [Locale('en'), Locale('ar')],
+  localizationsDelegates: const [
+    L10n.delegate,
+    GlobalMaterialLocalizations.delegate,
+    GlobalWidgetsLocalizations.delegate,
+    GlobalCupertinoLocalizations.delegate,
+  ],
+  home: const HelpNowScreen(),
+);
 
 void main() {
   testWidgets('shows the global guidance first and no number until a country is picked', (tester) async {
@@ -40,5 +41,26 @@ void main() {
     expect(find.text('997'), findsNothing);
     expect(find.text('خدمات الطوارئ'), findsOneWidget);
     expect(find.text('خطوط الدعم'), findsOneWidget);
+  });
+
+  testWidgets('the tab header carries the Help now button and it opens the screen', (tester) async {
+    await tester.pumpWidget(
+      MaterialApp(
+        theme: FemioTheme.light(),
+        localizationsDelegates: const [
+          L10n.delegate,
+          GlobalMaterialLocalizations.delegate,
+          GlobalWidgetsLocalizations.delegate,
+          GlobalCupertinoLocalizations.delegate,
+        ],
+        supportedLocales: const [Locale('en')],
+        home: const Scaffold(body: TabHeader(title: 'Calendar')),
+      ),
+    );
+    await tester.pumpAndSettle();
+    expect(find.text('Calendar'), findsOneWidget);
+    await tester.tap(find.byTooltip('Need help now?'));
+    await tester.pumpAndSettle();
+    expect(find.byType(HelpNowScreen), findsOneWidget);
   });
 }
