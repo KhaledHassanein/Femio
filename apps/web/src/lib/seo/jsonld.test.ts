@@ -40,7 +40,7 @@ describe("personJsonLd", () => {
 
   it("always attributes the person to Femio", () => {
     const data = personJsonLd({ name: "A", url: "https://example.com/x" });
-    expect(data.worksFor).toMatchObject({ "@type": "Organization", name: "Femio" });
+    expect(data.worksFor).toMatchObject({ "@type": "Organization", name: "femio" });
   });
 });
 

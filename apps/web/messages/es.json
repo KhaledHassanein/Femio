@@ -11,7 +11,7 @@
       "stages": {
         "teen": {
           "name": "Primeras reglas",
-          "note": "Qué es lo habitual, en palabras claras"
+          "note": "Guías en palabras claras; aún sin modo de seguimiento"
         },
         "cycle": {
           "name": "Ciclos y condiciones",
@@ -27,7 +27,7 @@
         },
         "postpartum": {
           "name": "Después del parto",
-          "note": "Recuperación y ánimo — la parte que las apps olvidan"
+          "note": "Guías de recuperación y ánimo; aún sin modo de seguimiento"
         },
         "menopause": {
           "name": "Perimenopausia y menopausia",

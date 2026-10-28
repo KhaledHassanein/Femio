@@ -53,6 +53,6 @@ describe("articleJsonLd", () => {
   });
 
   it("always attributes the publisher to Femio", () => {
-    expect(articleJsonLd(base).publisher).toMatchObject({ name: "Femio" });
+    expect(articleJsonLd(base).publisher).toMatchObject({ name: "femio" });
   });
 });

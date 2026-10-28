@@ -70,7 +70,9 @@ function toDoc(entry, id) {
     updatedAt: fm.date_modified ?? fm.date_published ?? null,
     firstPublishedAt: fm.date_published ?? null,
     seo: {
-      seoTitle: fm.meta_title ?? null,
+      // The page template appends the wordmark; a meta title that already ends in
+      // "| Femio" would render as "… | Femio — femio" (56 guides did, 2026-10-28).
+      seoTitle: stripSiteSuffix(fm.meta_title),
       metaDescription: fm.meta_description ?? null,
       canonicalOverride: null,
       noIndex: fm.status !== "published",
@@ -86,6 +88,12 @@ function toDoc(entry, id) {
 const slugify = (s) => s.toLowerCase().replace(/[^a-z0-9؀-ۿ]+/g, "-").replace(/^-|-$/g, "");
 
 /** The body's H1 repeats the title; the page renders the title itself. */
+/** Drop a trailing site name ("| Femio", "— femio") from an authored meta title. */
+function stripSiteSuffix(title) {
+  if (!title) return null;
+  return title.replace(/\s*[|—–-]\s*femio\s*$/i, "").trim() || null;
+}
+
 function stripLeadingH1(body) {
   return body.replace(/^\s*#\s+[^\n]+\n/, "");
 }
@@ -112,6 +120,7 @@ function build() {
     }
     for (const [slug, snap] of fromSnapshot) if (!seen.has(slug)) out.push(snap);
     out.sort((a, b) => a.slug.localeCompare(b.slug));
+    for (const a of out) if (a.seo) a.seo.seoTitle = stripSiteSuffix(a.seo.seoTitle);
     articles[locale] = out;
     appArticles[locale] = out.map((a) => ({
       slug: a.slug,
@@ -129,6 +138,8 @@ function build() {
     builtFrom: { snapshotTakenAt: snapshot.meta.takenAt, markdownDir: "docs/content/articles" },
     summary: { ...snapshot.meta.summary, articles: counts },
   };
+  // The snapshot's condition hubs carried the same authored suffix.
+  for (const list of Object.values(snapshot.conditions ?? {})) for (const c of list ?? []) if (c?.seo) c.seo.seoTitle = stripSiteSuffix(c.seo.seoTitle);
   return { articles, conditions: snapshot.conditions, people: snapshot.people, faqs: snapshot.faqs, glossary: snapshot.glossary, meta, appArticles };
 }
 

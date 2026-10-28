@@ -11,7 +11,7 @@
       "stages": {
         "teen": {
           "name": "First periods",
-          "note": "What is usual, in plain language"
+          "note": "Guides in plain language; no tracking mode yet"
         },
         "cycle": {
           "name": "Cycles & conditions",
@@ -27,7 +27,7 @@
         },
         "postpartum": {
           "name": "After birth",
-          "note": "Recovery and mood — the part apps forget"
+          "note": "Recovery and mood guides; no tracking mode yet"
         },
         "menopause": {
           "name": "Perimenopause & menopause",

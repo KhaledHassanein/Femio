@@ -37,11 +37,14 @@ history and `docs/archive/`.
   screens with twin fixtures (R4.6); the mobile gate with vocabulary, untranslated-copy, claims
   and crisis guards (R4.11); the live-site audit with Lighthouse and the SEO fixes it found
   (R2.6); the reading-level guard over the wedge guides (R3.3); the paste-ready Play listing and
-  data-safety answers in `docs/store/` (R5.1, R5.2). Ledger: `docs/33_REBUILD_V3/PROGRESS.md`.
-- **Open before a release candidate:** R4.12 needs the owner's keystore (owner action 2); R2.7
-  (NVDA pass) needs a screen reader on this PC; R3.5 rest (Arabic editor pass on the ten guides);
-  R2.6 performance to ≥ 95 (calculator hydration); R0.7 dead namespaces.
-- **Health:** `pnpm gate` green (848 web tests + 20 guards); `flutter analyze` clean, 440 Dart tests. Flutter 3.47.8
+  data-safety answers in `docs/store/` (R5.1, R5.2); the calculator pages prerendered and the Arabic UI
+  font preloaded (R2.6 closed); the keyboard pass on the calendar automated (R2.7, NVDA left to the
+  owner); 32 dead message namespaces and 21 orphan web libs deleted with a dead-module guard (R0.7,
+  R0.8). Ledger: `docs/33_REBUILD_V3/PROGRESS.md`.
+- **Open before a release candidate:** R4.12 needs the owner's keystore (owner action 2); the NVDA
+  listening session (owner action 8); R3.5 rest (the Arabic editor pass on the eleven guides, review
+  in `docs/content/reviews/`); Lighthouse re-measure after the next deploy.
+- **Health:** `pnpm gate` green (635 web unit tests + 21 guards, 23 e2e); `flutter analyze` clean, 440 Dart tests. Flutter 3.47.8
   on this PC (upgraded 2026-10-27). Debug APK on the Android 16 emulator: Arabic onboarding → Today →
   Learn → article → Help now walked by hand 2026-10-28 (`testing-results/2026-10-28-app-settings-lock/`).
 - **Supabase project** is still restricted (402) and still exists; the repo no longer references

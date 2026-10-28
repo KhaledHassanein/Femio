@@ -11,7 +11,7 @@
       "stages": {
         "teen": {
           "name": "Premières règles",
-          "note": "Ce qui est habituel, en mots simples"
+          "note": "Des guides en mots simples ; pas encore de mode de suivi"
         },
         "cycle": {
           "name": "Cycles et pathologies",
@@ -27,7 +27,7 @@
         },
         "postpartum": {
           "name": "Après la naissance",
-          "note": "Récupération et humeur — ce que les applications oublient"
+          "note": "Guides sur la récupération et l'humeur ; pas encore de mode de suivi"
         },
         "menopause": {
           "name": "Périménopause et ménopause",

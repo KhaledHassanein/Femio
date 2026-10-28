@@ -2,7 +2,7 @@ import { routing } from "@/i18n/routing";
 import { env } from "@/lib/env";
 
 export const siteConfig = {
-  name: "Femio",
+  name: "femio", // the wordmark: always lowercase Latin (CLAUDE.md rule 6)
   tagline: "One account for a woman's whole health life.",
   baseUrl: env.NEXT_PUBLIC_APP_URL.replace(/\/$/, ""),
   locales: routing.locales,

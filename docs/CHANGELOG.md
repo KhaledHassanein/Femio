@@ -12,6 +12,8 @@ All notable changes to Femio V2.
 - **No fertile window is drawn when Femio cannot name one honestly**: irregular cycles, too few logged cycles, or a cycle length outside 21 to 35 days now show "No confident window this cycle" and how to tell afterwards, instead of a guessed range. If your cycles are irregular and you are trying to conceive, Femio now suggests talking to a clinician now rather than waiting a year.
 - **The wordmark is always "femio"**, also inside Arabic text, on the website, in the app and in the guides.
 - **Sharing a guide now shows its picture.** Guide and condition links carry the share image and the page's own title on WhatsApp, Twitter and the rest.
+- **Page titles read "… — femio" once**, not "… | Femio — Femio"; the site name is the lowercase wordmark everywhere a title, share card or search listing shows it.
+- **The "every stage" list on the home page says which stages are guides only** (first periods, after birth) and which have a tracking mode.
 - **Arabic pages paint their text sooner**: the Arabic typeface now loads with the page instead of after it, and the calculator pages are built ahead of time like every other page.
 - **A calmer home page.** The drifting light behind the hero moves more slowly, and not at all if your phone is set to reduce motion.
 - **Help now is one tap from every tab** in the app, not only from Today.
