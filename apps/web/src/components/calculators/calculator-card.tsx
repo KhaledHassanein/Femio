@@ -31,7 +31,9 @@ export function ResultSentence({
   children?: ReactNode;
 }) {
   return (
-    <div className="flex flex-col gap-2 border-t border-border pt-4">
+    // A status region: a screen reader announces the result when a day is chosen,
+    // without moving focus away from the grid (R2.7).
+    <div role="status" className="flex flex-col gap-2 border-t border-border pt-4">
       <p className="text-sm text-text-muted">{eyebrow}</p>
       <p className="font-display text-xl font-semibold leading-snug text-text">
         <bdi>{headline}</bdi>
