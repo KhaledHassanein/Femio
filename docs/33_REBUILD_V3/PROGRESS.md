@@ -69,4 +69,4 @@ Every "done" names its evidence: a test count, a screenshot folder, a deployed U
 | When | What | Commit |
 |---|---|---|
 | 2026-10-27 | Study, plan, constitution, tracker removal, calendar calculators | see above |
-| 2026-10-28 | Brand surface, article template + legal pages, Flutter refactor, sealed store + backup + lock + Settings, launch guide | see above |
+| 2026-10-28 | Brand surface, article template + legal pages, Flutter refactor, sealed store + backup + lock + Settings, launch guide; **merged to main, v3 site live** | `0965a65` |

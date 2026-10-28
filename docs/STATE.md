@@ -20,8 +20,11 @@ history and `docs/archive/`.
   website (`apps/web`) is a static front door with calendar calculators and the guides. The web
   tracker, Supabase, Payload, Sentry, PostHog and the service worker are **deleted from the tree**;
   the website needs three public env vars and makes no network call of its own.
-- **Branch:** `claude/femio-repo-study-planning-88d7c9` (worktree). Not yet merged to `main`.
-  Vercel deploys `main`, so production is still the 2026-10-08 site until the merge.
+- **Merged to `main` and deployed 2026-10-28** (owner's go-ahead): `femioapp.com` serves the v3
+  site (deployment `dpl_DXjSKZgmrjRp7wP4nNwpF2xJfqND`, commit `0965a65`). The `femio-cms` Vercel
+  project now fails every build because `apps/cms` is gone; deleting it is owner action #4.
+- **The main checkout at `E:\Femio` holds uncommitted edits** to the Android build script,
+  manifest and `MainActivity.kt` that are not from this work. Look before touching them.
 - **Done in v3 so far:** study + knowledge graph; constitution refresh; tracker removal; privacy
   tripwire; calendar calculators (R2.1); article template + legal pages + help-now numbers
   (R2.3, R2.4); Dusk icon set, OG images, Android adaptive icon and splash (R1.1–R1.3); Flutter
