@@ -1,11 +1,10 @@
 /**
- * The vocabulary's invariants — and, most importantly, that unifying three lists
- * into one did not silently drop a term.
+ * The vocabulary's invariants. (The legacy symptom list it was unified from was deleted
+ * with the web tracker on 2026-10-28; the app's generated vocabulary is now the twin.)
  */
 import { describe, expect, it } from "vitest";
 
 import { CM_TYPES } from "../fertility/index.ts";
-import { SYMPTOM_GROUPS } from "../cycle/symptoms.ts";
 import {
   LOG_TERMS,
   LOG_VOCABULARY,
@@ -15,13 +14,6 @@ import {
 } from "./vocabulary.ts";
 
 describe("nothing was lost in the unification", () => {
-  it("carries every key from SYMPTOM_GROUPS", () => {
-    const legacy = SYMPTOM_GROUPS.flatMap((g) => g.symptoms as readonly string[]);
-    const missing = legacy.filter((k) => findTerm(k) === undefined);
-    expect(missing).toEqual([]);
-    expect(legacy).toHaveLength(45);
-  });
-
   it("carries every cervical-mucus type", () => {
     const missing = CM_TYPES.filter((k) => findTerm(k) === undefined);
     expect(missing).toEqual([]);
