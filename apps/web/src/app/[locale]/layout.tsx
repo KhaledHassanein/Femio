@@ -39,12 +39,15 @@ const naskh = Noto_Naskh_Arabic({
   // 8 preloaded font files on every page became 2).
   preload: false,
 });
+// The Arabic UI face is preloaded: Arabic is the first language, and a late swap of the
+// body text was the largest visual change on every Arabic page (Lighthouse Speed Index
+// 4.7 s against 2.2 s for the same page in English, 2026-10-28). Two weights keep that to
+// two files; font-medium and font-bold fall to the nearest.
 const plexArabic = IBM_Plex_Sans_Arabic({
   subsets: ["arabic"],
-  weight: ["400", "500", "600", "700"],
+  weight: ["400", "600"],
   variable: "--font-plex-arabic",
   display: "swap",
-  preload: false,
 });
 
 type LayoutProps = {

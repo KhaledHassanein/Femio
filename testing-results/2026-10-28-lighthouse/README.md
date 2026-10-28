@@ -24,4 +24,23 @@ What the low audits said, and what was done the same day:
 - Article pages had no `og:image` and a Twitter card that fell back to the site title
   (Next replaces the layout's `openGraph`/`twitter` objects). Fixed with `socialMetadata()`.
 
-The `.report.html` files are the full reports.
+## Run 2 — after the fixes (deployment 791d809, same method)
+
+| Page | Perf | A11y | Best practices | SEO | LCP | TBT | Speed Index |
+|---|---|---|---|---|---|---|---|
+| /ar | 93 | 100 | 96 | 100 | 1.13 s | 261 ms | 4.2 s |
+| /ar/calculators/fertile-window | 98 | 100 | 96 | 91 | 1.16 s | 144 ms | 1.8 s |
+| /ar/learn/pcos-and-fertility | 91 | 100 | 96 | 100 | 1.48 s | 269 ms | 4.7 s |
+| /en | 94 | 100 | 100 | 100 | 1.04 s | 284 ms | 2.2 s |
+
+What run 2 showed:
+- The calculator went from 87 to 98 and its heading-order audit is clean.
+- **Arabic pages keep a Speed Index of 4.2–4.7 s while the same page in English is 2.2 s**: the
+  Arabic UI font was not preloaded, so the body text swapped late. Fixed next: preload
+  IBM Plex Sans Arabic (two weights).
+- **The calculator pages were not prerendered at all** (the only routes with no  in the
+  build): the calculators layout read the locale from the request, which makes Next render
+  per request and stream the description tag into the body (the SEO 91). Fixed next:
+  `setRequestLocale` from `params` in that layout.
+
+The `.report.html` files are the full reports for run 1.
