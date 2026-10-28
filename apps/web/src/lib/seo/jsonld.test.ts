@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { personJsonLd } from "./jsonld";
+import { faqPageJsonLd, personJsonLd } from "./jsonld";
 
 describe("personJsonLd", () => {
   it("emits a Person with the E-E-A-T fields that are present", () => {
@@ -41,5 +41,21 @@ describe("personJsonLd", () => {
   it("always attributes the person to Femio", () => {
     const data = personJsonLd({ name: "A", url: "https://example.com/x" });
     expect(data.worksFor).toMatchObject({ "@type": "Organization", name: "Femio" });
+  });
+});
+
+describe("faqPageJsonLd", () => {
+  it("emits a FAQPage with a Question and accepted Answer per item", () => {
+    const data = faqPageJsonLd([
+      { question: "Why a range?", answer: "Ovulation does not fall on the same day every cycle." },
+      { question: "Is it stored?", answer: "No." },
+    ]);
+    expect(data["@type"]).toBe("FAQPage");
+    expect(data.mainEntity).toHaveLength(2);
+    expect(data.mainEntity[0]).toEqual({
+      "@type": "Question",
+      name: "Why a range?",
+      acceptedAnswer: { "@type": "Answer", text: "Ovulation does not fall on the same day every cycle." },
+    });
   });
 });

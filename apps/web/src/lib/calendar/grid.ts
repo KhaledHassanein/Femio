@@ -80,6 +80,17 @@ export function monthsSpanning(fromISO: string, toISO: string, max: number): str
   return out;
 }
 
+/**
+ * The `count` most recent months ending at the month of `today`, oldest first, as
+ * month-start ISO dates. The month strip above the pregnancy calendars (§2.3) is built
+ * from this, so a woman can jump to the month her last period fell in without a dropdown.
+ * A non-positive count gives an empty list.
+ */
+export function recentMonths(today: string, count: number): string[] {
+  const current = monthStart(today);
+  return Array.from({ length: Math.max(0, count) }, (_, i) => shiftMonth(current, i - count + 1));
+}
+
 /** Weekday ISO dates in visual order for a week start; used for the header row. */
 export function weekdayHeaderDates(weekStart: number): string[] {
   // 2026-01-04 is a Sunday (day 0), whatever the locale.
@@ -163,6 +174,27 @@ export function hijriDay(iso: string): string {
     );
   } catch {
     return "";
+  }
+}
+
+/**
+ * Hijri month index (1-12) and year (AH) for an ISO date, Umm al-Qura, as numbers. The
+ * app twin (`domain/hijri.dart`) is bound to this by `fixtures/domain/hijri.json`;
+ * `null` when the date is invalid or the runtime lacks the calendar.
+ */
+export function hijriMonthYear(iso: string): { month: number; year: number } | null {
+  if (!isValidISODate(iso)) return null;
+  try {
+    const at = new Date(`${iso}T00:00:00Z`);
+    const read = (opts: Intl.DateTimeFormatOptions) =>
+      Number(
+        new Intl.DateTimeFormat("en-u-ca-islamic-umalqura-nu-latn", { ...opts, timeZone: "UTC" })
+          .format(at)
+          .replace(/\D/g, ""),
+      );
+    return { month: read({ month: "numeric" }), year: read({ year: "numeric" }) };
+  } catch {
+    return null;
   }
 }
 

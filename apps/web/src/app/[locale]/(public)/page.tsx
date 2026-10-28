@@ -162,7 +162,7 @@ export default async function HomePage({ params }: PageProps) {
                 size="lg"
                 className="w-full border-white/55 bg-transparent text-text-on-brand hover:bg-white/10 sm:w-auto"
               >
-                <Link href="/calculators/period">{t("hero.ctaSecondary")}</Link>
+                <Link href="/calculators/fertile-window">{t("hero.ctaSecondary")}</Link>
               </Button>
             </div>
             <p className="text-2xs opacity-85">

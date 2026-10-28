@@ -20,7 +20,10 @@ test("search finds a condition and its articles, with no database request", asyn
   expect(supabase.filter((u) => u.includes("search_content"))).toEqual([]);
 });
 
-test("arabic search says the results are the English library", async ({ page }) => {
+test("a locale with no translations says the results are the English library; Arabic no longer does", async ({ page }) => {
+  // Arabic has its first translated guides (2026-10-28); French still has none.
+  await page.goto("/fr/search?q=pcos");
+  await expect(page.getByText(/bibliothèque anglaise|en anglais/i)).toBeVisible();
   await page.goto("/ar/search?q=pcos");
-  await expect(page.getByText(/المكتبة الإنجليزية/)).toBeVisible();
+  await expect(page.getByText(/المكتبة الإنجليزية/)).toHaveCount(0);
 });

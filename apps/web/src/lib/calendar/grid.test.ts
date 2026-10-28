@@ -7,6 +7,7 @@ import {
   localTodayISO,
   monthGrid,
   monthsSpanning,
+  recentMonths,
   shiftMonth,
   weekStartFor,
   weekdayHeaderDates,
@@ -65,6 +66,17 @@ describe("months", () => {
     expect(monthsSpanning("2026-10-20", "2026-12-02", 3)).toEqual(["2026-10-01", "2026-11-01", "2026-12-01"]);
     expect(monthsSpanning("2026-10-20", "2027-03-02", 3)).toHaveLength(3);
     expect(monthsSpanning("2026-10-20", "2026-10-25", 3)).toEqual(["2026-10-01"]);
+  });
+
+  it("lists the last months ending at the current one, oldest first, across a year boundary", () => {
+    expect(recentMonths("2026-10-28", 3)).toEqual(["2026-08-01", "2026-09-01", "2026-10-01"]);
+    const ten = recentMonths("2027-02-03", 10);
+    expect(ten).toHaveLength(10);
+    expect(ten[0]).toBe("2026-05-01");
+    expect(ten[9]).toBe("2027-02-01");
+    expect(ten).toContain("2026-12-01");
+    expect(recentMonths("2026-10-28", 1)).toEqual(["2026-10-01"]);
+    expect(recentMonths("2026-10-28", 0)).toEqual([]);
   });
 
   it("builds a weekday header in visual order", () => {

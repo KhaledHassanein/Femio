@@ -1,7 +1,7 @@
 {
   "meta": {
     "title": "Femio",
-    "description": "Your whole health life, from first period to menopause, private on your phone."
+    "description": "The private, Arabic-first companion for trying to conceive and pregnancy. Cited guides, calculators, and records that never leave your phone."
   },
   "home": {
     "rail": {
@@ -72,8 +72,8 @@
           "detail": "— Arabic right-to-left from the first line of code, not a layer added later."
         },
         "reviewed": {
-          "claim": "Reviewed guides say who reviewed them",
-          "detail": "— a named clinician with credentials, linked to their bio, on each page they reviewed."
+          "claim": "Every guide says whether a clinician reviewed it",
+          "detail": "— a named clinician with credentials on the pages they reviewed, and “clinician review pending” on the rest."
         }
       }
     },
@@ -82,13 +82,13 @@
       "heading": "Start reading now."
     },
     "close": {
-      "heading": "Your whole health life, private on your phone."
+      "heading": "Your records never leave your phone."
     },
     "disclaimer": "Femio is for learning and tracking — not medical advice, and not a reliable way to avoid pregnancy. Always speak to your clinician about your care.",
     "sections": {
       "learn": {
         "name": "Learn",
-        "desc": "Clinician-reviewed guides on your cycle, body, and health."
+        "desc": "Cited guides on trying to conceive, PCOS and pregnancy."
       },
       "conditions": {
         "name": "Conditions & topics",
@@ -117,11 +117,11 @@
       "uncertainty": "Uncertainty"
     },
     "hero": {
-      "eyebrow": "Period · Ovulation · Pregnancy",
-      "title": "Know your cycle. Plan your family. Privately.",
-      "body": "Femio is a period, ovulation and pregnancy tracker made for women in Saudi Arabia and Egypt, with clinician-reviewed guides for every stage of life, in Arabic and English.",
+      "eyebrow": "Trying to conceive · Pregnancy · Private",
+      "title": "femio is the private, Arabic-first companion for trying to conceive and pregnancy.",
+      "body": "Honest ranges instead of promises, guides that show their sources, and records that never leave your phone. No account, no cloud, no ads reading your health.",
       "cta": "Get the app",
-      "ctaSecondary": "Try the period calculator"
+      "ctaSecondary": "Try the ovulation calculator"
     },
     "goals": {
       "heading": "What brings you here?",
@@ -231,7 +231,7 @@
       },
       "ovulation": {
         "name": "Ovulation calculator",
-        "desc": "Your fertile window and likely ovulation day."
+        "desc": "Your fertile days as a range, and the likely ovulation day."
       },
       "gestationalAge": {
         "name": "Pregnancy week calculator",
@@ -251,37 +251,82 @@
       },
       "pregnancyTest": {
         "name": "Pregnancy test calculator",
-        "desc": "The day a home test is most reliable."
+        "desc": "The earliest day a home test is likely to be clear."
       }
     },
     "dueDate": {
       "title": "Due date calculator",
-      "intro": "Estimate your due date from the first day of your last period.",
+      "intro": "Tap the first day of your last period to see your estimated due date, your week and your trimester on one calendar. Nothing is stored.",
       "eddLabel": "Estimated due date",
       "termWindowLabel": "Most babies arrive between {start} and {end}.",
       "sentence": "Due date around {date}. Most babies arrive between {start} and {end}.",
-      "around": "Around {date}"
+      "around": "Around {date}",
+      "metaTitle": "Due Date Calculator: Estimate When Your Baby Is Due",
+      "faq": [
+        {
+          "q": "How is the due date worked out?",
+          "a": "It is 280 days (40 weeks) after the first day of your last period, moved earlier or later if your cycle is shorter or longer than 28 days. It is an estimate: babies are not all born on their due date, and term runs from 37 to 42 weeks."
+        },
+        {
+          "q": "What if my cycle is longer or shorter than 28 days?",
+          "a": "Change the cycle length under the calendar. A longer cycle moves the date a little later and a shorter one a little earlier. If your cycles vary a lot, the date is less certain, and your clinician may adjust it."
+        },
+        {
+          "q": "Does the ultrasound date replace this one?",
+          "a": "If a clinician has given you a due date from a scan, follow theirs. This calculator uses only the date you enter, and your clinician may adjust the date after a scan."
+        }
+      ]
     },
     "ovulation": {
-      "title": "Ovulation calculator",
-      "intro": "Estimate your fertile days from your last period and cycle length.",
+      "title": "Ovulation and fertile window calculator",
+      "intro": "Tap the first day of your last period and see your likely fertile days on a calendar, as a range, not one day. Free and private.",
       "windowLabel": "Fertile window",
       "sentence": "Likely fertile window {window}. Ovulation around {ovulation}. Next period around {next}.",
       "ovulationAround": "Ovulation around {date}",
-      "nextPeriodAround": "Next period around {date}"
+      "nextPeriodAround": "Next period around {date}",
+      "metaTitle": "Ovulation Calculator: Your Fertile Days as a Range",
+      "faq": [
+        {
+          "q": "Why does it show a range, not one day?",
+          "a": "Ovulation does not fall on the same day of every cycle, and a calendar can only estimate it. So femio shows your likely fertile days as a range, never as one certain date."
+        },
+        {
+          "q": "Can I use it if my cycles are irregular or I have PCOS?",
+          "a": "You can try it, and it will be honest with you. When your cycles vary too much it says “no confident fertile window this cycle” and explains how to tell afterwards whether you ovulated. With PCOS, ovulation test strips can read positive for much of the cycle, so use them with a second sign and talk to your clinician."
+        },
+        {
+          "q": "What signs can tell me ovulation is near?",
+          "a": "Many women follow changes in cervical mucus, a positive ovulation test strip (a hormone surge, not proof that you ovulated) and their waking temperature, which confirms ovulation afterwards but cannot predict it. These signs work best alongside the calendar estimate."
+        }
+      ]
     },
     "gestationalAge": {
-      "title": "Pregnancy week calculator",
-      "intro": "See how many weeks along you are, counting from your last period.",
+      "title": "How many weeks pregnant am I?",
+      "intro": "Find your pregnancy week and trimester from your last period or due date, shown on a calendar. Free, private, no sign-up.",
       "asOfLabel": "As of",
       "resultLabel": "{weeks} weeks and {days} days",
       "sentence": "{weeks} weeks and {days} days, trimester {trimester}.",
       "eyebrow": "You are about",
-      "trimesterLine": "Trimester {n}"
+      "trimesterLine": "Trimester {n}",
+      "metaTitle": "How Far Along Am I? Pregnancy Week Calculator",
+      "faq": [
+        {
+          "q": "Why are weeks counted from my last period?",
+          "a": "Most women know the first day of their last period and few know the day of conception. So pregnancy is counted from that date, and a full pregnancy is 280 days, or 40 weeks."
+        },
+        {
+          "q": "How do pregnancy weeks turn into months?",
+          "a": "Months differ in length, so clinicians count in weeks. As a rough guide, 40 weeks is a little over nine months. The calculator shows your week and day and your trimester."
+        },
+        {
+          "q": "Which trimester am I in?",
+          "a": "The first trimester runs until 14 weeks, the second from 14 to 28 weeks, and the third from 28 weeks until birth. The calculator shows yours for the date you choose."
+        }
+      ]
     },
     "bmi": {
       "title": "BMI calculator",
-      "intro": "A general estimate of body mass from height and weight.",
+      "intro": "Work out your BMI and what it does and does not tell you before pregnancy. A screening number, not a verdict. Free and private.",
       "unitMetric": "Metric",
       "unitImperial": "Imperial",
       "weightMetric": "Weight (kg)",
@@ -296,11 +341,26 @@
         "overweight": "Overweight",
         "obese": "Obese"
       },
-      "note": "BMI is a general screen with limits — it doesn't reflect muscle, build, or body composition. Discuss what's healthy for you with your clinician."
+      "note": "BMI is a general screen with limits — it doesn't reflect muscle, build, or body composition. Discuss what's healthy for you with your clinician.",
+      "metaTitle": "BMI Calculator for Women Planning Pregnancy",
+      "faq": [
+        {
+          "q": "What does BMI tell me, and what does it miss?",
+          "a": "BMI compares your weight with your height. It does not measure fat, muscle or fitness, and on its own it cannot tell you how healthy you are. Use it as a number to discuss with your clinician, not a verdict."
+        },
+        {
+          "q": "Can weight affect getting pregnant?",
+          "a": "Weight is one of many things a clinician may talk about when you plan a pregnancy, along with your cycles, age and health history. BMI on its own cannot tell you your chances."
+        },
+        {
+          "q": "Is BMI used during pregnancy?",
+          "a": "This calculator is for before pregnancy. Your weight is expected to change during pregnancy, so do not use this number to judge it; your maternity team follows your weight in their own way."
+        }
+      ]
     },
     "cycleLength": {
-      "title": "Cycle length",
-      "intro": "Enter a few period start dates to see your average cycle length.",
+      "title": "How long is my cycle?",
+      "intro": "Count your average cycle length from your last periods and see how much it varies. A first step before talking to your doctor.",
       "averageLabel": "Average cycle length",
       "regular": "Your cycles look regular.",
       "prompt": "Tap the first day of each period you remember",
@@ -309,19 +369,49 @@
       "stripLabel": "Each cycle's length",
       "varies": "Cycles that vary a lot are common and have many causes. If this is usual for you, mention it to a clinician.",
       "irregularLink": "Irregular cycles and timing",
-      "pcosLink": "About PCOS"
+      "pcosLink": "About PCOS",
+      "metaTitle": "Cycle Length Calculator: Is My Cycle Regular?",
+      "faq": [
+        {
+          "q": "What cycle length is typical?",
+          "a": "A cycle runs from the first day of one period to the day before the next. Lengths differ from woman to woman, and your own pattern matters more than any average. femio gives a fertile window for cycles of 21 to 35 days and says “no confident window” outside that range."
+        },
+        {
+          "q": "How do I count my cycle length?",
+          "a": "Count from the first day of one period to the first day of the next. In the calculator, tap the first day of several recent periods, and it works out your average and how much your cycles vary."
+        },
+        {
+          "q": "When should irregular cycles be checked by a doctor?",
+          "a": "If your shortest and longest cycles are far apart, femio calls your cycles irregular. If you go about three months without a period, or you are trying to conceive and your cycles are irregular, it is reasonable to talk to a clinician now rather than wait."
+        }
+      ]
     },
     "period": {
-      "title": "Period calculator",
-      "intro": "See when your next three periods are likely to start, as a range that reflects how much your cycles vary.",
+      "title": "When is my next period due?",
+      "intro": "See when your next period may start, shown as a range from your own cycle length. Works for irregular cycles too. No sign-up.",
       "varyNote": "Cycles normally vary by a few days. Enter your shortest and longest to see an honest range.",
       "resultNote": "Each range widens a little further ahead, because each cycle can vary.",
       "eyebrow": "Your next period may start",
-      "nextLine": "Period {n}: {when}"
+      "nextLine": "Period {n}: {when}",
+      "metaTitle": "Period Calculator: When Is My Next Period Due?",
+      "faq": [
+        {
+          "q": "How is my next period estimated?",
+          "a": "femio starts from the first day of your last period and adds your cycle length. Because cycles shift, it shows a window that reflects how much your own cycles vary, not one date."
+        },
+        {
+          "q": "Is a period a few days late normal?",
+          "a": "Cycles shift by a few days for many ordinary reasons, which is why you see a range and no “late” counter. If your period has not come and you could be pregnant, a test is the first step. If about three months pass with no period, talk to a clinician."
+        },
+        {
+          "q": "What if my cycle changes every month?",
+          "a": "Choose “Irregular / not sure” and enter your shortest and longest cycles, and the window widens to match. If your cycles vary too much, femio says there is no confident window rather than guessing. If your cycles are often irregular, it is reasonable to mention it to a clinician."
+        }
+      ]
     },
     "pregnancyTest": {
-      "title": "Pregnancy test calculator",
-      "intro": "Find the day a home pregnancy test is most reliable.",
+      "title": "When should I take a pregnancy test?",
+      "intro": "Find the earliest day a home pregnancy test is likely to give a clear result, based on your cycle. Free, private, instant.",
       "modeLabel": "What do you know?",
       "modePeriod": "My last period",
       "modeSex": "When we had sex",
@@ -331,7 +421,22 @@
       "source": "Source: NHS, Doing a pregnancy test.",
       "sentence": "A home pregnancy test is most reliable from {date}.",
       "promptSex": "Tap the day you last had unprotected sex",
-      "expectedPeriodLine": "Your period is expected around {date}"
+      "expectedPeriodLine": "Your period is expected around {date}",
+      "metaTitle": "Pregnancy Test Calculator: When to Test",
+      "faq": [
+        {
+          "q": "How soon can a home test show a positive?",
+          "a": "Most home tests work from the first day of a missed period. Testing earlier can give a negative result even if you are pregnant. If you do not know when your period is due, the calculator counts at least 21 days after unprotected sex."
+        },
+        {
+          "q": "Is first-morning urine better?",
+          "a": "Follow the instructions in your test's box, because brands differ. When you test matters more than the time of day: from the first day of a missed period."
+        },
+        {
+          "q": "My test is negative but my period has not come: what next?",
+          "a": "A negative test around the first day of a missed period can still be wrong. Test again later, and see a clinician if your period still has not come or if you are worried."
+        }
+      ]
     },
     "calendar": {
       "prompt": "Tap the day your last period started",
@@ -353,7 +458,8 @@
         "fertile": "likely fertile, estimate",
         "ovulation": "ovulation likely around this day, estimate",
         "nextPeriod": "next period may start, estimate"
-      }
+      },
+      "monthStrip": "Choose a month"
     },
     "legend": {
       "start": "First day you tapped",
@@ -415,7 +521,8 @@
       "getOnPlay": "Get it on Google Play",
       "getTheApp": "Get the app",
       "whatItDoes": "What the app does"
-    }
+    },
+    "faqTitle": "Common questions"
   },
   "onboarding": {
     "baseline": {
@@ -919,7 +1026,7 @@
     "boundaryNote": "Health information for learning and planning — not medical advice, and not a substitute for your own clinician.",
     "byline": "By",
     "title": "Learn",
-    "subtitle": "Referenced guides on your cycle, conditions, fertility, pregnancy and menopause. Each one cites its sources and shows its review status.",
+    "subtitle": "Cited guides, starting with trying to conceive, PCOS and pregnancy. Each one lists its sources and says whether a clinician has reviewed it.",
     "empty": "New guides are on the way — check back soon.",
     "sources": "Sources",
     "footerNote": "This is general wellness information, not a substitute for professional medical advice.",
@@ -1396,7 +1503,7 @@
     },
     "reading": {
       "heading": "Reading for this stage",
-      "pending": "Clinician-reviewed guides for recovery after birth are being written. Everything already published stays searchable in the library."
+      "pending": "Guides for recovery after birth are being written. Everything already published stays searchable in the library."
     },
     "cycleReturnNote": "Femio is not showing a next-period estimate. Your cycle can take months to return and is often irregular at first, so a predicted date now would be a guess dressed up as a number. Log your first period and the cycle tools pick up from there."
   },
@@ -1512,7 +1619,7 @@
   },
   "about": {
     "title": "About Femio",
-    "intro": "Femio is one account for a woman’s whole health life — from puberty and cycles through trying to conceive, pregnancy, postpartum, and menopause.",
+    "intro": "femio is a private companion for trying to conceive and pregnancy: calculators and cited guides on the web, and an Android app that keeps your records on your phone.",
     "points": [
       {
         "heading": "Our mission",
@@ -1523,8 +1630,8 @@
         "body": "Femio helps you understand and track your health. It is a wellness and education tool, not a medical device, and it never replaces your clinician’s care."
       },
       {
-        "heading": "Referenced, reviewed content",
-        "body": "Every guide is sourced from reputable medical bodies and checked by a qualified clinician before it goes live."
+        "heading": "Cited guides, honest review labels",
+        "body": "Every guide cites its sources. A guide names a clinician only after that clinician has reviewed it; the others say “clinician review pending”."
       },
       {
         "heading": "Honest predictions",
@@ -1542,11 +1649,15 @@
   },
   "editorialPolicy": {
     "title": "Editorial policy",
-    "intro": "Every health claim on Femio is traceable to a reputable source, every page is reviewed by a qualified clinician before it goes live, and every language is medically correct — not merely translated.",
+    "intro": "Every guide on femio cites its sources and is editorially checked. As of October 2026, 25 of our 100 guides name the clinician who reviewed them; the rest say “clinician review pending” until a clinician has.",
     "points": [
       {
         "heading": "Evidence over opinion",
         "body": "Every fact traces to a top-tier source such as WHO, CDC, NHS, or ACOG. We never invent statistics or guideline positions; a claim we cannot source is cut."
+      },
+      {
+        "heading": "Honest review labels",
+        "body": "A page says “Reviewed by” and names the clinician only when a clinician has reviewed it. Every other page says “Editorially checked · clinician review pending”. A label never changes without a review."
       },
       {
         "heading": "At least two sources per page",
@@ -1566,29 +1677,29 @@
       },
       {
         "heading": "Kept current",
-        "body": "Every page is re-reviewed at least every 12 months, and sooner whenever guidance changes."
+        "body": "Pages show when they were last updated, and reviewed pages show their review date. We aim to re-check every page at least once a year, and sooner when guidance changes."
       }
     ]
   },
   "medicalReview": {
     "title": "How we review content",
-    "intro": "No health content goes live on Femio until a qualified clinician has reviewed and approved it — our system refuses to publish anything unreviewed.",
+    "intro": "Every guide is editorially checked and cites its sources before it is published. A clinician's name appears on a guide only after that clinician has reviewed it; until then the guide says “clinician review pending”.",
     "points": [
       {
-        "heading": "Draft, review, approve, publish",
-        "body": "An editor writes to our page standard and adds sources; a medical reviewer checks accuracy, source fidelity, and safety framing; only a reviewer can approve, and only approved content can be published."
+        "heading": "Written, checked, published",
+        "body": "An author writes to our page standard and adds at least two sources, one of them from a leading medical body. Automated checks confirm the structure, the sources and the wording rules before a page is published."
       },
       {
-        "heading": "Qualified reviewers",
-        "body": "Reviewers are licensed clinicians appropriate to the topic, such as OB-GYN or family medicine. Their name, credentials, and the last-reviewed date appear on every page they approve."
+        "heading": "Named reviewers, where there is one",
+        "body": "When a clinician has reviewed a guide, their name, credentials and review date appear on that page. As of October 2026, that is 25 of 100 guides."
       },
       {
-        "heading": "Every language reviewed",
-        "body": "A translated page cannot go live without that language’s own medical-reviewer sign-off. Good translation is never a substitute for medical review in that language."
+        "heading": "The rest say so",
+        "body": "A guide with no named reviewer says “Editorially checked · clinician review pending”. We are adding reviews, and a label changes only when a clinician has actually reviewed that page."
       },
       {
-        "heading": "Enforced, not aspirational",
-        "body": "These gates are built into our system: reviewer-only approval, approval before publishing, per-language sign-off, and 12-month re-review dates."
+        "heading": "Other languages",
+        "body": "The guide library is in English today, and Arabic guides are being prepared. The site's screens and tools are in English, Arabic, French and Spanish. A translated guide will carry its own review status, never the English guide's."
       }
     ]
   },
@@ -1972,7 +2083,7 @@
       "basics": "Pregnancy basics",
       "changes": "Early pregnancy changes",
       "appointment": "Your first pregnancy appointment",
-      "pending": "Clinician-reviewed guides for this week are being written. Everything already published stays searchable in the library."
+      "pending": "Guides for this week are being written. Everything already published stays searchable in the library."
     },
     "setup": {
       "heading": "Set up your pregnancy",
@@ -2618,9 +2729,9 @@
   },
   "getApp": {
     "metaTitle": "Get the Femio app",
-    "eyebrow": "Femio for Android",
-    "title": "Your cycle, your plans, your pregnancy. Private, on your phone.",
-    "body": "Track your period, see your fertile window and follow your pregnancy week by week, in Arabic, English, French or Spanish. Your records stay on your phone: no account, and Femio never sees them.",
+    "eyebrow": "femio for Android",
+    "title": "Your records never leave your phone.",
+    "body": "A private Android app for trying to conceive and pregnancy, Arabic first. Your calendar, logs and pregnancy tools stay on your phone, behind a PIN if you choose. No account, no cloud. Coming to Google Play.",
     "android": "Google Play",
     "androidStatus": "Coming soon",
     "ios": "iPhone",
@@ -2628,28 +2739,28 @@
     "featuresTitle": "What the app does",
     "features": {
       "period": {
-        "title": "Period predictions",
-        "body": "Your next period as an honest range that tightens as you log, never a single certain date."
+        "title": "Honest ranges",
+        "body": "Your next period and your fertile days as ranges that adjust as you log, with “no confident window” when your cycles vary too much."
       },
       "fertile": {
-        "title": "Fertile window & ovulation",
-        "body": "Your most fertile days, with ovulation-test and temperature logs for trying to conceive."
+        "title": "Ovulation and temperature logs",
+        "body": "Log ovulation tests and your waking temperature next to your calendar."
       },
       "pregnancy": {
-        "title": "Pregnancy, week by week",
-        "body": "Your week, your baby's size, your due date, a kick counter and a contraction timer."
+        "title": "Pregnancy tools",
+        "body": "Your week and due date, a kick counter, a contraction timer and a weight log."
       },
       "private": {
         "title": "Private by design",
-        "body": "Your records are stored on your phone, not on our servers. Save a backup whenever you like."
+        "body": "Your records are kept on your phone, not on our servers. Add a PIN lock, and save a backup file yourself."
       },
       "arabic": {
         "title": "Arabic first",
         "body": "Written for women in Saudi Arabia and Egypt, in Arabic, with English, French and Spanish."
       },
       "doctor": {
-        "title": "Ready for your doctor",
-        "body": "A one-page summary of your cycles and symptoms to show at your appointment."
+        "title": "Appointments",
+        "body": "Keep your appointments and the questions you want to ask in one place."
       }
     },
     "meanwhileTitle": "Until then",

@@ -1,7 +1,7 @@
 {
   "meta": {
     "title": "Femio",
-    "description": "Toute votre vie de santé, des premières règles à la ménopause, en privé sur votre téléphone."
+    "description": "Le compagnon privé du projet de grossesse et de la grossesse, d'abord en arabe. Des guides sourcés, des calculateurs, et des données qui ne quittent jamais votre téléphone."
   },
   "home": {
     "rail": {
@@ -72,8 +72,8 @@
           "detail": "— l'arabe de droite à gauche dès la première ligne de code, pas une couche ajoutée après."
         },
         "reviewed": {
-          "claim": "Les guides relus indiquent qui les a relus",
-          "detail": "— une clinicienne ou un clinicien nommé, avec ses titres et un lien vers sa biographie, sur chaque page relue."
+          "claim": "Chaque guide indique si un clinicien l'a relu",
+          "detail": "— le nom et les titres du clinicien sur les pages qu'il a relues, et « relecture clinique en attente » sur les autres."
         }
       }
     },
@@ -82,13 +82,13 @@
       "heading": "Commencez à lire maintenant."
     },
     "close": {
-      "heading": "Toute votre vie de santé, en privé sur votre téléphone."
+      "heading": "Vos données ne quittent jamais votre téléphone."
     },
     "disclaimer": "Femio sert à s'informer et à suivre — ce n'est pas un avis médical, ni un moyen fiable d'éviter une grossesse. Parlez toujours de vos soins à votre clinicien.",
     "sections": {
       "learn": {
         "name": "Apprendre",
-        "desc": "Des guides relus par des cliniciens sur votre cycle, votre corps et votre santé."
+        "desc": "Des guides sourcés sur le projet de grossesse, le SOPK et la grossesse."
       },
       "conditions": {
         "name": "Pathologies et sujets",
@@ -117,11 +117,11 @@
       "uncertainty": "Incertitude"
     },
     "hero": {
-      "eyebrow": "Règles · Ovulation · Grossesse",
-      "title": "Comprenez votre cycle. Préparez votre famille. En toute confidentialité.",
-      "body": "Femio est une application de suivi des règles, de l'ovulation et de la grossesse, conçue pour les femmes d'Arabie saoudite et d'Égypte, avec des guides relus par des cliniciens pour chaque étape de la vie, en arabe et en anglais.",
+      "eyebrow": "Projet de grossesse · Grossesse · Confidentialité",
+      "title": "femio est le compagnon privé du projet de grossesse et de la grossesse, d'abord en arabe.",
+      "body": "Des fourchettes honnêtes plutôt que des promesses, des guides qui montrent leurs sources, et des données qui ne quittent jamais votre téléphone. Sans compte, sans cloud, sans publicité qui lise votre santé.",
       "cta": "Obtenir l'app",
-      "ctaSecondary": "Essayer le calculateur de règles"
+      "ctaSecondary": "Essayer le calculateur d'ovulation"
     },
     "goals": {
       "heading": "Qu'est-ce qui vous amène ?",
@@ -231,7 +231,7 @@
       },
       "ovulation": {
         "name": "Calculateur d'ovulation",
-        "desc": "Votre fenêtre de fertilité et le jour probable de l'ovulation."
+        "desc": "Vos jours fertiles en fourchette, et le jour probable de l'ovulation."
       },
       "gestationalAge": {
         "name": "Calculateur de semaines de grossesse",
@@ -251,37 +251,82 @@
       },
       "pregnancyTest": {
         "name": "Calculateur de test de grossesse",
-        "desc": "Le jour où un test à domicile est le plus fiable."
+        "desc": "Le premier jour où un test à domicile devrait être clair."
       }
     },
     "dueDate": {
       "title": "Calculateur de date d'accouchement",
-      "intro": "Estimez votre date à partir du premier jour de vos dernières règles.",
+      "intro": "Touchez le premier jour de vos dernières règles pour voir votre date d'accouchement estimée, votre semaine et votre trimestre sur un seul calendrier. Rien n'est enregistré.",
       "eddLabel": "Date d'accouchement estimée",
       "termWindowLabel": "La plupart des bébés arrivent entre le {start} et le {end}.",
       "sentence": "Terme autour du {date}. La plupart des bébés naissent entre le {start} et le {end}.",
-      "around": "Autour du {date}"
+      "around": "Autour du {date}",
+      "metaTitle": "Date d'accouchement : estimez la date prévue",
+      "faq": [
+        {
+          "q": "Comment la date d'accouchement est-elle calculée ?",
+          "a": "Elle tombe 280 jours (40 semaines) après le premier jour de vos dernières règles, avancée ou reculée si votre cycle est plus court ou plus long que 28 jours. C'est une estimation : tous les bébés ne naissent pas à la date prévue, et le terme s'étend de 37 à 42 semaines."
+        },
+        {
+          "q": "Et si mon cycle dure plus ou moins de 28 jours ?",
+          "a": "Modifiez la durée du cycle sous le calendrier. Un cycle plus long recule un peu la date, un cycle plus court l'avance un peu. Si vos cycles varient beaucoup, la date est moins certaine, et votre clinicien pourra l'ajuster."
+        },
+        {
+          "q": "La date de l'échographie remplace-t-elle celle-ci ?",
+          "a": "Si un clinicien vous a donné une date d'accouchement d'après une échographie, suivez la sienne. Ce calculateur n'utilise que la date que vous saisissez, et votre clinicien peut ajuster la date après une échographie."
+        }
+      ]
     },
     "ovulation": {
-      "title": "Calculateur d'ovulation",
-      "intro": "Estimez vos jours fertiles à partir de vos dernières règles et de la durée du cycle.",
+      "title": "Calculateur d'ovulation et de fenêtre fertile",
+      "intro": "Touchez le premier jour de vos dernières règles pour voir vos jours fertiles probables sur un calendrier, en fourchette et non en un seul jour. Gratuit et privé.",
       "windowLabel": "Fenêtre de fertilité",
       "sentence": "Fenêtre fertile probable {window}. Ovulation autour du {ovulation}. Prochaines règles autour du {next}.",
       "ovulationAround": "Ovulation autour du {date}",
-      "nextPeriodAround": "Prochaines règles autour du {date}"
+      "nextPeriodAround": "Prochaines règles autour du {date}",
+      "metaTitle": "Ovulation : vos jours fertiles en fourchette",
+      "faq": [
+        {
+          "q": "Pourquoi une fourchette et non un seul jour ?",
+          "a": "L'ovulation ne tombe pas le même jour à chaque cycle, et un calendrier ne peut que l'estimer. femio affiche donc vos jours fertiles probables sous forme de fourchette, jamais comme une date certaine."
+        },
+        {
+          "q": "Puis-je l'utiliser si mes cycles sont irréguliers ou si j'ai un SOPK ?",
+          "a": "Vous pouvez l'essayer, et il restera honnête. Quand vos cycles varient trop, il indique « pas de fenêtre fertile fiable ce cycle » et explique comment savoir après coup si vous avez ovulé. Avec un SOPK, les bandelettes d'ovulation peuvent être positives pendant une grande partie du cycle : associez-les à un second signe et parlez-en à votre clinicien."
+        },
+        {
+          "q": "Quels signes indiquent que l'ovulation approche ?",
+          "a": "Beaucoup de femmes suivent les changements de la glaire cervicale, une bandelette d'ovulation positive (un pic hormonal, pas la preuve d'une ovulation) et leur température au réveil, qui confirme l'ovulation après coup mais ne la prédit pas. Ces signes fonctionnent mieux avec l'estimation du calendrier."
+        }
+      ]
     },
     "gestationalAge": {
-      "title": "Calculateur de semaines de grossesse",
-      "intro": "Voyez à combien de semaines vous en êtes, à partir de vos dernières règles.",
+      "title": "À combien de semaines de grossesse suis-je ?",
+      "intro": "Trouvez votre semaine de grossesse et votre trimestre à partir de vos dernières règles ou de la date prévue, sur un calendrier. Gratuit, privé, sans inscription.",
       "asOfLabel": "À la date du",
       "resultLabel": "{weeks} semaines et {days} jours",
       "sentence": "{weeks} semaines et {days} jours, trimestre {trimester}.",
       "eyebrow": "Vous êtes à environ",
-      "trimesterLine": "Trimestre {n}"
+      "trimesterLine": "Trimestre {n}",
+      "metaTitle": "À combien de semaines suis-je ? Calculateur",
+      "faq": [
+        {
+          "q": "Pourquoi compte-t-on les semaines depuis mes dernières règles ?",
+          "a": "La plupart des femmes connaissent le premier jour de leurs dernières règles, et peu connaissent le jour de la conception. La grossesse est donc comptée à partir de cette date, et une grossesse complète dure 280 jours, soit 40 semaines."
+        },
+        {
+          "q": "Comment passer des semaines de grossesse aux mois ?",
+          "a": "Les mois n'ont pas tous la même durée, alors les cliniciens comptent en semaines. En gros, 40 semaines font un peu plus de neuf mois. Le calculateur affiche votre semaine, votre jour et votre trimestre."
+        },
+        {
+          "q": "Dans quel trimestre suis-je ?",
+          "a": "Le premier trimestre va jusqu'à 14 semaines, le deuxième de 14 à 28 semaines, et le troisième de 28 semaines jusqu'à la naissance. Le calculateur affiche le vôtre pour la date choisie."
+        }
+      ]
     },
     "bmi": {
       "title": "Calculateur d'IMC",
-      "intro": "Une estimation générale de la masse corporelle à partir de la taille et du poids.",
+      "intro": "Calculez votre IMC et ce qu'il dit, ou ne dit pas, avant une grossesse. Un chiffre de repère, pas un verdict. Gratuit et privé.",
       "unitMetric": "Métrique",
       "unitImperial": "Impérial",
       "weightMetric": "Poids (kg)",
@@ -296,11 +341,26 @@
         "overweight": "Surpoids",
         "obese": "Obésité"
       },
-      "note": "L'IMC est un indicateur général avec des limites — il ne reflète ni les muscles, ni la morphologie, ni la composition corporelle. Discutez de ce qui est sain pour vous avec votre clinicienne."
+      "note": "L'IMC est un indicateur général avec des limites — il ne reflète ni les muscles, ni la morphologie, ni la composition corporelle. Discutez de ce qui est sain pour vous avec votre clinicienne.",
+      "metaTitle": "Calculateur d'IMC avant une grossesse",
+      "faq": [
+        {
+          "q": "Que m'apprend l'IMC, et que laisse-t-il de côté ?",
+          "a": "L'IMC compare votre poids à votre taille. Il ne mesure ni la masse grasse, ni les muscles, ni la forme physique, et seul il ne dit pas si vous êtes en bonne santé. Servez-vous-en comme d'un chiffre à discuter avec votre clinicien, pas comme d'un verdict."
+        },
+        {
+          "q": "Le poids peut-il influencer les chances de grossesse ?",
+          "a": "Le poids est l'un des nombreux sujets qu'un clinicien peut aborder quand vous préparez une grossesse, avec vos cycles, votre âge et vos antécédents. L'IMC seul ne peut pas vous dire quelles sont vos chances."
+        },
+        {
+          "q": "L'IMC est-il utilisé pendant la grossesse ?",
+          "a": "Ce calculateur est prévu pour avant la grossesse. Votre poids est censé changer pendant la grossesse : ne vous servez pas de ce chiffre pour le juger ; votre équipe de maternité suit votre poids à sa façon."
+        }
+      ]
     },
     "cycleLength": {
-      "title": "Durée du cycle",
-      "intro": "Saisissez quelques dates de début de règles pour voir votre durée moyenne de cycle.",
+      "title": "Quelle est la durée de mon cycle ?",
+      "intro": "Calculez la durée moyenne de votre cycle à partir de vos dernières règles et voyez de combien elle varie. Une première étape avant d'en parler à votre médecin.",
       "averageLabel": "Durée moyenne du cycle",
       "regular": "Vos cycles semblent réguliers.",
       "prompt": "Touchez le premier jour de chaque règles dont vous vous souvenez",
@@ -309,19 +369,49 @@
       "stripLabel": "Durée de chaque cycle",
       "varies": "Des cycles très variables sont fréquents et ont de nombreuses causes. Si c'est habituel pour vous, mentionnez-le à un professionnel de santé.",
       "irregularLink": "Cycles irréguliers et timing",
-      "pcosLink": "À propos du SOPK"
+      "pcosLink": "À propos du SOPK",
+      "metaTitle": "Durée du cycle : mon cycle est-il régulier ?",
+      "faq": [
+        {
+          "q": "Quelle durée de cycle est habituelle ?",
+          "a": "Un cycle va du premier jour d'une période de règles à la veille des suivantes. Les durées diffèrent d'une femme à l'autre, et votre propre schéma compte plus que n'importe quelle moyenne. femio donne une fenêtre fertile pour les cycles de 21 à 35 jours et indique « pas de fenêtre fiable » en dehors."
+        },
+        {
+          "q": "Comment compter la durée de mon cycle ?",
+          "a": "Comptez du premier jour d'une période de règles au premier jour de la suivante. Dans le calculateur, touchez le premier jour de plusieurs règles récentes : il calcule votre moyenne et la variation de vos cycles."
+        },
+        {
+          "q": "Quand faire contrôler des cycles irréguliers par un médecin ?",
+          "a": "Si vos cycles le plus court et le plus long sont très éloignés, femio les considère comme irréguliers. Si environ trois mois passent sans règles, ou si vous essayez de concevoir avec des cycles irréguliers, il est raisonnable d'en parler à un clinicien dès maintenant plutôt que d'attendre."
+        }
+      ]
     },
     "period": {
-      "title": "Calculateur de règles",
-      "intro": "Voyez quand vos trois prochaines règles devraient commencer, sous forme de fourchette qui reflète la variation de vos cycles.",
+      "title": "Quand auront lieu mes prochaines règles ?",
+      "intro": "Voyez quand vos prochaines règles peuvent commencer, sous forme de fourchette calculée à partir de la durée de vos propres cycles, même irréguliers. Sans inscription.",
       "varyNote": "Les cycles varient normalement de quelques jours. Indiquez le plus court et le plus long pour voir une fourchette honnête.",
       "resultNote": "Chaque fourchette s'élargit un peu plus loin, car chaque cycle peut varier.",
       "eyebrow": "Vos prochaines règles peuvent commencer",
-      "nextLine": "Règles {n} : {when}"
+      "nextLine": "Règles {n} : {when}",
+      "metaTitle": "Calculateur de règles : prochaines règles",
+      "faq": [
+        {
+          "q": "Comment sont estimées mes prochaines règles ?",
+          "a": "femio part du premier jour de vos dernières règles et ajoute la durée de votre cycle. Comme les cycles bougent, il affiche une fenêtre qui reflète la variation de vos propres cycles, pas une date unique."
+        },
+        {
+          "q": "Quelques jours de retard, est-ce normal ?",
+          "a": "Les cycles bougent de quelques jours pour de nombreuses raisons ordinaires, c'est pourquoi vous voyez une fourchette et aucun compteur de « retard ». Si vos règles ne sont pas venues et que vous pourriez être enceinte, un test est la première étape. Si environ trois mois passent sans règles, parlez-en à un clinicien."
+        },
+        {
+          "q": "Et si mon cycle change chaque mois ?",
+          "a": "Choisissez « Irrégulier / pas sûre » et saisissez vos cycles le plus court et le plus long : la fenêtre s'élargit en conséquence. Si vos cycles varient trop, femio indique qu'il n'y a pas de fenêtre fiable plutôt que de deviner. Si vos cycles sont souvent irréguliers, il est raisonnable d'en parler à un clinicien."
+        }
+      ]
     },
     "pregnancyTest": {
-      "title": "Calculateur de test de grossesse",
-      "intro": "Trouvez le jour où un test de grossesse à domicile est le plus fiable.",
+      "title": "Quand faire un test de grossesse ?",
+      "intro": "Trouvez le premier jour où un test de grossesse à domicile donne probablement un résultat clair, selon votre cycle. Gratuit, privé, instantané.",
       "modeLabel": "Que savez-vous ?",
       "modePeriod": "Mes dernières règles",
       "modeSex": "La date du rapport",
@@ -331,7 +421,22 @@
       "source": "Source : NHS, faire un test de grossesse.",
       "sentence": "Un test de grossesse à domicile est le plus fiable à partir du {date}.",
       "promptSex": "Touchez le jour de votre dernier rapport non protégé",
-      "expectedPeriodLine": "Vos règles sont attendues autour du {date}"
+      "expectedPeriodLine": "Vos règles sont attendues autour du {date}",
+      "metaTitle": "Test de grossesse : quand le faire ?",
+      "faq": [
+        {
+          "q": "Dès quand un test à domicile peut-il être positif ?",
+          "a": "La plupart des tests à domicile fonctionnent dès le premier jour de retard des règles. Un test plus précoce peut être négatif même en cas de grossesse. Si vous ne savez pas quand vos règles sont attendues, le calculateur compte au moins 21 jours après un rapport non protégé."
+        },
+        {
+          "q": "L'urine du matin est-elle meilleure ?",
+          "a": "Suivez les instructions de la boîte de votre test, car les marques diffèrent. Le moment du test compte plus que l'heure : à partir du premier jour de retard des règles."
+        },
+        {
+          "q": "Mon test est négatif mais mes règles ne sont pas venues : que faire ?",
+          "a": "Un test négatif autour du premier jour de retard peut encore être faux. Refaites-le plus tard, et consultez un clinicien si vos règles ne viennent toujours pas ou si vous êtes inquiète."
+        }
+      ]
     },
     "calendar": {
       "prompt": "Touchez le premier jour de vos dernières règles",
@@ -353,7 +458,8 @@
         "fertile": "probablement fertile, estimation",
         "ovulation": "ovulation probable autour de ce jour, estimation",
         "nextPeriod": "les prochaines règles peuvent commencer, estimation"
-      }
+      },
+      "monthStrip": "Choisir un mois"
     },
     "legend": {
       "start": "Premier jour touché",
@@ -415,7 +521,8 @@
       "getOnPlay": "Disponible sur Google Play",
       "getTheApp": "Obtenir l'application",
       "whatItDoes": "Ce que fait l'application"
-    }
+    },
+    "faqTitle": "Questions fréquentes"
   },
   "onboarding": {
     "baseline": {
@@ -919,7 +1026,7 @@
     "boundaryNote": "Information santé pour s'informer et planifier — pas un avis médical, et pas un substitut à votre clinicien.",
     "byline": "Par",
     "title": "Apprendre",
-    "subtitle": "Des guides référencés sur votre cycle, vos affections, la fertilité, la grossesse et la ménopause. Chacun cite ses sources et indique où en est sa relecture.",
+    "subtitle": "Des guides sourcés, à commencer par le projet de grossesse, le SOPK et la grossesse. Chacun liste ses sources et indique si un clinicien l'a relu.",
     "empty": "De nouveaux guides arrivent — revenez bientôt.",
     "sources": "Sources",
     "footerNote": "Ceci est une information de bien-être générale, pas un substitut à un avis médical professionnel.",
@@ -1396,7 +1503,7 @@
     },
     "reading": {
       "heading": "À lire à cette étape",
-      "pending": "Les guides relus par des cliniciens sur la récupération après la naissance sont en cours d'écriture. Tout ce qui est déjà publié reste consultable dans la bibliothèque."
+      "pending": "Les guides sur la récupération après la naissance sont en cours d'écriture. Tout ce qui est déjà publié reste consultable dans la bibliothèque."
     },
     "cycleReturnNote": "Femio n'affiche pas d'estimation pour vos prochaines règles. Le retour de couches peut prendre des mois et il est souvent irrégulier au début, donc une date prédite maintenant serait une supposition déguisée en chiffre. Notez vos premières règles et les outils de cycle reprendront à partir de là."
   },
@@ -1512,7 +1619,7 @@
   },
   "about": {
     "title": "À propos de Femio",
-    "intro": "Femio, c’est un seul compte pour toute la vie de santé d’une femme — de la puberté et des cycles à la conception, la grossesse, le post-partum et la ménopause.",
+    "intro": "femio est un compagnon privé pour le projet de grossesse et la grossesse : des calculateurs et des guides sourcés sur le web, et une application Android qui garde vos données sur votre téléphone.",
     "points": [
       {
         "heading": "Notre mission",
@@ -1523,8 +1630,8 @@
         "body": "Femio vous aide à comprendre et à suivre votre santé. C’est un outil de bien-être et d’information, pas un dispositif médical, et il ne remplace jamais les soins de votre clinicien."
       },
       {
-        "heading": "Contenu référencé et relu",
-        "body": "Chaque guide s’appuie sur des organismes médicaux reconnus et est vérifié par un clinicien qualifié avant sa mise en ligne."
+        "heading": "Des guides sourcés, des mentions de relecture honnêtes",
+        "body": "Chaque guide cite ses sources. Un guide ne nomme un clinicien qu'une fois que celui-ci l'a relu ; les autres indiquent « relecture clinique en attente »."
       },
       {
         "heading": "Des prévisions honnêtes",
@@ -1542,11 +1649,15 @@
   },
   "editorialPolicy": {
     "title": "Politique éditoriale",
-    "intro": "Chaque affirmation santé sur Femio est traçable jusqu’à une source fiable, chaque page est relue par un clinicien qualifié avant sa mise en ligne, et chaque langue est médicalement correcte — pas seulement traduite.",
+    "intro": "Chaque guide de femio cite ses sources et fait l'objet d'une vérification éditoriale. En octobre 2026, 25 de nos 100 guides nomment le clinicien qui les a relus ; les autres indiquent « relecture clinique en attente » tant qu'aucun clinicien ne l'a fait.",
     "points": [
       {
         "heading": "La preuve avant l’opinion",
         "body": "Chaque fait renvoie à une source de premier plan comme l’OMS, les CDC, le NHS ou l’ACOG. Nous n’inventons ni statistiques ni positions de recommandations ; une affirmation non sourçable est supprimée."
+      },
+      {
+        "heading": "Des mentions de relecture honnêtes",
+        "body": "Une page affiche « Relu par » et nomme le clinicien uniquement lorsqu'un clinicien l'a relue. Toutes les autres affichent « Vérifié par la rédaction · relecture clinique en attente ». Une mention ne change jamais sans relecture."
       },
       {
         "heading": "Au moins deux sources par page",
@@ -1566,29 +1677,29 @@
       },
       {
         "heading": "Tenu à jour",
-        "body": "Chaque page est réexaminée au moins tous les 12 mois, et plus tôt dès que les recommandations changent."
+        "body": "Les pages indiquent leur date de dernière mise à jour, et les pages relues indiquent leur date de relecture. Nous visons à revérifier chaque page au moins une fois par an, et plus tôt dès que les recommandations changent."
       }
     ]
   },
   "medicalReview": {
     "title": "Comment nous relisons le contenu",
-    "intro": "Aucun contenu santé n’est mis en ligne sur Femio tant qu’un clinicien qualifié ne l’a pas relu et approuvé — notre système refuse de publier tout contenu non relu.",
+    "intro": "Chaque guide fait l'objet d'une vérification éditoriale et cite ses sources avant sa publication. Le nom d'un clinicien n'apparaît sur un guide qu'une fois que ce clinicien l'a relu ; d'ici là, le guide indique « relecture clinique en attente ».",
     "points": [
       {
-        "heading": "Brouillon, relecture, approbation, publication",
-        "body": "Un éditeur rédige selon notre standard de page et ajoute les sources ; un relecteur médical vérifie l’exactitude, la fidélité aux sources et le cadrage sécurité ; seul un relecteur peut approuver, et seul le contenu approuvé peut être publié."
+        "heading": "Rédigé, vérifié, publié",
+        "body": "Un auteur rédige selon notre standard de page et ajoute au moins deux sources, dont une d'un organisme médical de référence. Des contrôles automatiques vérifient la structure, les sources et les règles de formulation avant la publication d'une page."
       },
       {
-        "heading": "Des relecteurs qualifiés",
-        "body": "Les relecteurs sont des cliniciens agréés adaptés au sujet, comme en gynécologie-obstétrique ou en médecine générale. Leur nom, leurs titres et la date de dernière relecture figurent sur chaque page qu’ils approuvent."
+        "heading": "Des relecteurs nommés, là où il y en a",
+        "body": "Quand un clinicien a relu un guide, son nom, ses titres et la date de relecture figurent sur cette page. En octobre 2026, c'est le cas de 25 guides sur 100."
       },
       {
-        "heading": "Chaque langue relue",
-        "body": "Une page traduite ne peut être mise en ligne sans la validation d’un relecteur médical dans cette langue. Une bonne traduction ne remplace jamais la relecture médicale dans cette langue."
+        "heading": "Les autres le disent",
+        "body": "Un guide sans relecteur nommé indique « Vérifié par la rédaction · relecture clinique en attente ». Nous ajoutons des relectures, et une mention ne change que lorsqu'un clinicien a réellement relu la page."
       },
       {
-        "heading": "Appliqué, pas déclaratif",
-        "body": "Ces garde-fous sont intégrés à notre système : approbation réservée aux relecteurs, approbation avant publication, validation par langue et réexamen tous les 12 mois."
+        "heading": "Les autres langues",
+        "body": "La bibliothèque de guides est en anglais aujourd'hui, et des guides en arabe sont en préparation. Les écrans et les outils du site existent en anglais, arabe, français et espagnol. Un guide traduit aura son propre statut de relecture, jamais celui du guide anglais."
       }
     ]
   },
@@ -1972,7 +2083,7 @@
       "basics": "Les bases de la grossesse",
       "changes": "Les changements du début de grossesse",
       "appointment": "Votre premier rendez-vous de grossesse",
-      "pending": "Les guides relus par des cliniciens pour cette semaine sont en cours d'écriture. Tout ce qui est déjà publié reste consultable dans la bibliothèque."
+      "pending": "Les guides pour cette semaine sont en cours d'écriture. Tout ce qui est déjà publié reste consultable dans la bibliothèque."
     },
     "setup": {
       "heading": "Configurer votre grossesse",
@@ -2618,9 +2729,9 @@
   },
   "getApp": {
     "metaTitle": "Téléchargez l'application Femio",
-    "eyebrow": "Femio pour Android",
-    "title": "Votre cycle, vos projets, votre grossesse. En privé, sur votre téléphone.",
-    "body": "Suivez vos règles, voyez votre fenêtre de fertilité et suivez votre grossesse semaine après semaine, en arabe, anglais, français ou espagnol. Vos données restent sur votre téléphone : sans compte, et Femio ne les voit jamais.",
+    "eyebrow": "femio pour Android",
+    "title": "Vos données ne quittent jamais votre téléphone.",
+    "body": "Une application Android privée pour le projet de grossesse et la grossesse, d'abord en arabe. Votre calendrier, vos notes et vos outils de grossesse restent sur votre téléphone, derrière un code PIN si vous le souhaitez. Sans compte, sans cloud. Bientôt sur Google Play.",
     "android": "Google Play",
     "androidStatus": "Bientôt",
     "ios": "iPhone",
@@ -2628,28 +2739,28 @@
     "featuresTitle": "Ce que fait l'application",
     "features": {
       "period": {
-        "title": "Prévision des règles",
-        "body": "Vos prochaines règles sous forme de fourchette honnête, qui s'affine à mesure que vous notez, jamais une date unique certaine."
+        "title": "Des fourchettes honnêtes",
+        "body": "Vos prochaines règles et vos jours fertiles sous forme de fourchettes qui s'ajustent à mesure que vous notez, avec « pas de fenêtre fiable » quand vos cycles varient trop."
       },
       "fertile": {
-        "title": "Fenêtre de fertilité et ovulation",
-        "body": "Vos jours les plus fertiles, avec le suivi des tests d'ovulation et de la température pour concevoir."
+        "title": "Suivi de l'ovulation et de la température",
+        "body": "Notez vos tests d'ovulation et votre température au réveil à côté de votre calendrier."
       },
       "pregnancy": {
-        "title": "La grossesse, semaine après semaine",
-        "body": "Votre semaine, la taille de votre bébé, votre date prévue, un compteur de mouvements et un minuteur de contractions."
+        "title": "Outils de grossesse",
+        "body": "Votre semaine et votre date prévue, un compteur de mouvements, un minuteur de contractions et un suivi du poids."
       },
       "private": {
         "title": "Privée par conception",
-        "body": "Vos données sont enregistrées sur votre téléphone, pas sur nos serveurs. Faites une sauvegarde quand vous voulez."
+        "body": "Vos données sont enregistrées sur votre téléphone, pas sur nos serveurs. Ajoutez un verrou PIN et enregistrez vous-même un fichier de sauvegarde."
       },
       "arabic": {
         "title": "L'arabe d'abord",
         "body": "Conçue pour les femmes en Arabie saoudite et en Égypte, en arabe, avec l'anglais, le français et l'espagnol."
       },
       "doctor": {
-        "title": "Prête pour votre médecin",
-        "body": "Un résumé d'une page de vos cycles et symptômes à montrer en consultation."
+        "title": "Rendez-vous",
+        "body": "Gardez vos rendez-vous et les questions que vous voulez poser au même endroit."
       }
     },
     "meanwhileTitle": "En attendant",

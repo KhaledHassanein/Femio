@@ -5,8 +5,9 @@ import { Info } from "lucide-react";
 import { useFormatter, useLocale, useTranslations } from "next-intl";
 import { addDays, diffDays } from "@/lib/calculators/dates";
 import { CYCLE_LOOKBACK_DAYS, DEFAULT_PERIOD_DAYS, MAX_PERIOD, MIN_PERIOD, TERM_END_DAYS } from "@/lib/calculators";
-import { localTodayISO, monthStart, monthsSpanning, shiftMonth, weekStartFor, type Band } from "@/lib/calendar/grid";
+import { localTodayISO, monthStart, monthsSpanning, recentMonths, shiftMonth, weekStartFor, type Band } from "@/lib/calendar/grid";
 import { getDir, type Locale } from "@/i18n/routing";
+import { MonthStrip } from "./month-strip";
 import { MonthCalendar, type DayMarks, type MonthLabels } from "./month-calendar";
 
 export type PickerMode = "period" | "single" | "multi";
@@ -25,6 +26,8 @@ export const EMPTY_SELECTION: PickerSelection = { start: null, periodLength: DEF
 /** How many months a result may stack (02_DESIGN_SPEC §2.3). */
 const MAX_MONTHS = 3;
 const MAX_STARTS = 12;
+/** Month chips shown above the pregnancy calendars (§2.3). */
+const MONTH_STRIP_COUNT = 10;
 
 /**
  * The calendar as the input (02_DESIGN_SPEC §2.2). Owns which month is shown,
@@ -78,6 +81,8 @@ export function CalendarPicker({
     if (!resultEnd || resultEnd < viewMonth) return [viewMonth];
     return monthsSpanning(viewMonth, resultEnd, MAX_MONTHS);
   }, [viewMonth, resultEnd]);
+
+  const stripMonths = useMemo(() => (mode === "single" ? recentMonths(today, MONTH_STRIP_COUNT) : []), [mode, today]);
 
   const say = (text: string | null) => setMessage(text);
 
@@ -152,6 +157,8 @@ export function CalendarPicker({
           <span>{t("promptHelp")}</span>
         </p>
       ) : null}
+
+      {stripMonths.length > 0 ? <MonthStrip months={stripMonths} viewed={viewMonth} onSelect={setViewMonth} /> : null}
 
       <div className="flex flex-col gap-6 md:flex-row md:gap-4">
         {months.map((month, index) => (

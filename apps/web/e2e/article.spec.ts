@@ -44,5 +44,5 @@ test("the Arabic article page keeps the card and the English-only notice", async
 test("the guide and conditions subtitles no longer claim every guide is clinician-reviewed", async ({ page }) => {
   await page.goto("/en/learn");
   await expect(page.getByText(/each reviewed by a clinician/i)).toHaveCount(0);
-  await expect(page.getByText(/shows its review status/i).first()).toBeVisible();
+  await expect(page.getByText(/says whether a clinician has reviewed it/i).first()).toBeVisible();
 });

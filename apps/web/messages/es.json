@@ -1,7 +1,7 @@
 {
   "meta": {
     "title": "Femio",
-    "description": "Toda tu vida de salud, de la primera regla a la menopausia, en privado en tu teléfono."
+    "description": "La compañera privada para buscar un embarazo y vivirlo, primero en árabe. Guías con fuentes, calculadoras y registros que nunca salen de tu teléfono."
   },
   "home": {
     "rail": {
@@ -72,8 +72,8 @@
           "detail": "— el árabe de derecha a izquierda desde la primera línea de código, no una capa añadida después."
         },
         "reviewed": {
-          "claim": "Las guías revisadas dicen quién las revisó",
-          "detail": "— personal clínico con nombre y credenciales, enlazado a su biografía, en cada página que revisó."
+          "claim": "Cada guía dice si la revisó un profesional clínico",
+          "detail": "— el nombre y las credenciales de quien la revisó en las páginas revisadas, y «revisión clínica pendiente» en las demás."
         }
       }
     },
@@ -82,13 +82,13 @@
       "heading": "Empieza a leer ahora."
     },
     "close": {
-      "heading": "Toda tu vida de salud, en privado en tu teléfono."
+      "heading": "Tus registros nunca salen de tu teléfono."
     },
     "disclaimer": "Femio sirve para aprender y llevar un registro — no es consejo médico ni un método fiable para evitar el embarazo. Habla siempre con tu profesional sanitario sobre tu atención.",
     "sections": {
       "learn": {
         "name": "Aprender",
-        "desc": "Guías revisadas por profesionales sobre tu ciclo, tu cuerpo y tu salud."
+        "desc": "Guías con fuentes sobre buscar un embarazo, el SOP y el embarazo."
       },
       "conditions": {
         "name": "Condiciones y temas",
@@ -117,11 +117,11 @@
       "uncertainty": "Incertidumbre"
     },
     "hero": {
-      "eyebrow": "Regla · Ovulación · Embarazo",
-      "title": "Conoce tu ciclo. Planifica tu familia. En privado.",
-      "body": "Femio es una app de seguimiento de la regla, la ovulación y el embarazo, creada para mujeres en Arabia Saudí y Egipto, con guías revisadas por profesionales clínicos para cada etapa de la vida, en árabe e inglés.",
+      "eyebrow": "Buscar un embarazo · Embarazo · Privacidad",
+      "title": "femio es la compañera privada para buscar un embarazo y vivirlo, primero en árabe.",
+      "body": "Rangos honestos en lugar de promesas, guías que muestran sus fuentes y registros que nunca salen de tu teléfono. Sin cuenta, sin nube, sin anuncios que lean tu salud.",
       "cta": "Descargar la app",
-      "ctaSecondary": "Probar la calculadora de la regla"
+      "ctaSecondary": "Probar la calculadora de ovulación"
     },
     "goals": {
       "heading": "¿Qué te trae por aquí?",
@@ -231,7 +231,7 @@
       },
       "ovulation": {
         "name": "Calculadora de ovulación",
-        "desc": "Tu ventana fértil y el día probable de ovulación."
+        "desc": "Tus días fértiles como rango y el día probable de ovulación."
       },
       "gestationalAge": {
         "name": "Calculadora de semanas de embarazo",
@@ -251,37 +251,82 @@
       },
       "pregnancyTest": {
         "name": "Calculadora de prueba de embarazo",
-        "desc": "El día en que una prueba casera es más fiable."
+        "desc": "El primer día en que una prueba casera probablemente sea clara."
       }
     },
     "dueDate": {
       "title": "Calculadora de fecha de parto",
-      "intro": "Estima tu fecha a partir del primer día de tu última menstruación.",
+      "intro": "Toca el primer día de tu última regla para ver tu fecha probable de parto, tu semana y tu trimestre en un solo calendario. No se guarda nada.",
       "eddLabel": "Fecha de parto estimada",
       "termWindowLabel": "La mayoría de los bebés llega entre el {start} y el {end}.",
       "sentence": "Fecha probable de parto alrededor del {date}. La mayoría de los bebés nacen entre el {start} y el {end}.",
-      "around": "Alrededor del {date}"
+      "around": "Alrededor del {date}",
+      "metaTitle": "Fecha de parto: calcula cuándo nacerá tu bebé",
+      "faq": [
+        {
+          "q": "¿Cómo se calcula la fecha de parto?",
+          "a": "Son 280 días (40 semanas) después del primer día de tu última regla, adelantados o retrasados si tu ciclo es más corto o más largo que 28 días. Es una estimación: no todos los bebés nacen en su fecha, y el término va de las 37 a las 42 semanas."
+        },
+        {
+          "q": "¿Y si mi ciclo dura más o menos de 28 días?",
+          "a": "Cambia la duración del ciclo bajo el calendario. Un ciclo más largo retrasa un poco la fecha y uno más corto la adelanta un poco. Si tus ciclos varían mucho, la fecha es menos segura, y tu profesional clínico puede ajustarla."
+        },
+        {
+          "q": "¿La fecha de la ecografía sustituye a esta?",
+          "a": "Si un profesional clínico te ha dado una fecha de parto según una ecografía, sigue la suya. Esta calculadora solo usa la fecha que introduces, y tu profesional clínico puede ajustar la fecha tras una ecografía."
+        }
+      ]
     },
     "ovulation": {
-      "title": "Calculadora de ovulación",
-      "intro": "Estima tus días fértiles a partir de tu última menstruación y la duración del ciclo.",
+      "title": "Calculadora de ovulación y ventana fértil",
+      "intro": "Toca el primer día de tu última regla y mira tus días fértiles probables en un calendario, como un rango y no como un solo día. Gratis y privada.",
       "windowLabel": "Ventana fértil",
       "sentence": "Ventana fértil probable {window}. Ovulación alrededor del {ovulation}. Próxima regla alrededor del {next}.",
       "ovulationAround": "Ovulación alrededor del {date}",
-      "nextPeriodAround": "Próxima regla alrededor del {date}"
+      "nextPeriodAround": "Próxima regla alrededor del {date}",
+      "metaTitle": "Ovulación: tus días fértiles como rango",
+      "faq": [
+        {
+          "q": "¿Por qué muestra un rango y no un solo día?",
+          "a": "La ovulación no cae el mismo día en todos los ciclos, y un calendario solo puede estimarla. Por eso femio muestra tus días fértiles probables como un rango, nunca como una fecha segura."
+        },
+        {
+          "q": "¿Sirve si mis ciclos son irregulares o tengo SOP?",
+          "a": "Puedes probarla, y será honesta contigo. Cuando tus ciclos varían demasiado, dice «no hay una ventana fértil fiable en este ciclo» y explica cómo saber después si ovulaste. Con SOP, las tiras de ovulación pueden dar positivo durante buena parte del ciclo: úsalas junto a un segundo signo y habla con tu profesional clínico."
+        },
+        {
+          "q": "¿Qué signos indican que la ovulación se acerca?",
+          "a": "Muchas mujeres observan los cambios en el moco cervical, una tira de ovulación positiva (un pico hormonal, no una prueba de que ovulaste) y su temperatura al despertar, que confirma la ovulación después pero no la predice. Estos signos funcionan mejor junto a la estimación del calendario."
+        }
+      ]
     },
     "gestationalAge": {
-      "title": "Calculadora de semanas de embarazo",
-      "intro": "Ve de cuántas semanas estás, contando desde tu última menstruación.",
+      "title": "¿De cuántas semanas de embarazo estoy?",
+      "intro": "Descubre tu semana de embarazo y tu trimestre a partir de tu última regla o de la fecha de parto, en un calendario. Gratis, privada y sin registro.",
       "asOfLabel": "A fecha de",
       "resultLabel": "{weeks} semanas y {days} días",
       "sentence": "{weeks} semanas y {days} días, trimestre {trimester}.",
       "eyebrow": "Estás de unas",
-      "trimesterLine": "Trimestre {n}"
+      "trimesterLine": "Trimestre {n}",
+      "metaTitle": "¿De cuántas semanas estoy? Calculadora",
+      "faq": [
+        {
+          "q": "¿Por qué las semanas se cuentan desde mi última regla?",
+          "a": "La mayoría de las mujeres conocen el primer día de su última regla y pocas conocen el día de la concepción. Por eso el embarazo se cuenta desde esa fecha, y un embarazo completo dura 280 días, o sea 40 semanas."
+        },
+        {
+          "q": "¿Cómo se pasan las semanas de embarazo a meses?",
+          "a": "Los meses no duran lo mismo, así que los profesionales cuentan en semanas. Como referencia aproximada, 40 semanas son algo más de nueve meses. La calculadora muestra tu semana, tu día y tu trimestre."
+        },
+        {
+          "q": "¿En qué trimestre estoy?",
+          "a": "El primer trimestre llega hasta las 14 semanas, el segundo va de las 14 a las 28 semanas y el tercero de las 28 semanas hasta el parto. La calculadora muestra el tuyo para la fecha que elijas."
+        }
+      ]
     },
     "bmi": {
       "title": "Calculadora de IMC",
-      "intro": "Una estimación general de la masa corporal a partir de la altura y el peso.",
+      "intro": "Calcula tu IMC y qué dice, y qué no dice, antes del embarazo. Un número de referencia, no un veredicto. Gratis y privada.",
       "unitMetric": "Métrico",
       "unitImperial": "Imperial",
       "weightMetric": "Peso (kg)",
@@ -296,11 +341,26 @@
         "overweight": "Sobrepeso",
         "obese": "Obesidad"
       },
-      "note": "El IMC es un indicador general con límites — no refleja músculo, complexión ni composición corporal. Habla con tu profesional de salud sobre lo que es saludable para ti."
+      "note": "El IMC es un indicador general con límites — no refleja músculo, complexión ni composición corporal. Habla con tu profesional de salud sobre lo que es saludable para ti.",
+      "metaTitle": "Calculadora de IMC antes del embarazo",
+      "faq": [
+        {
+          "q": "¿Qué me dice el IMC y qué se le escapa?",
+          "a": "El IMC compara tu peso con tu altura. No mide la grasa, los músculos ni la forma física, y por sí solo no dice lo saludable que estás. Úsalo como un número para comentar con tu profesional clínico, no como un veredicto."
+        },
+        {
+          "q": "¿Puede el peso influir en quedar embarazada?",
+          "a": "El peso es uno de los muchos temas que un profesional clínico puede tratar cuando planeas un embarazo, junto con tus ciclos, tu edad y tus antecedentes. El IMC por sí solo no puede decirte tus probabilidades."
+        },
+        {
+          "q": "¿Se usa el IMC durante el embarazo?",
+          "a": "Esta calculadora es para antes del embarazo. Es normal que tu peso cambie durante el embarazo, así que no uses este número para juzgarlo; tu equipo de maternidad sigue tu peso a su manera."
+        }
+      ]
     },
     "cycleLength": {
-      "title": "Duración del ciclo",
-      "intro": "Ingresa algunas fechas de inicio de tu menstruación para ver tu duración media de ciclo.",
+      "title": "¿Cuánto dura mi ciclo?",
+      "intro": "Calcula la duración media de tu ciclo con tus últimas reglas y mira cuánto varía. Un primer paso antes de hablar con tu médica o médico.",
       "averageLabel": "Duración media del ciclo",
       "regular": "Tus ciclos parecen regulares.",
       "prompt": "Toca el primer día de cada regla que recuerdes",
@@ -309,19 +369,49 @@
       "stripLabel": "Duración de cada ciclo",
       "varies": "Los ciclos muy variables son frecuentes y tienen muchas causas. Si es lo habitual en ti, coméntalo con una profesional de salud.",
       "irregularLink": "Ciclos irregulares y tiempos",
-      "pcosLink": "Sobre el SOP"
+      "pcosLink": "Sobre el SOP",
+      "metaTitle": "Duración del ciclo: ¿es regular el mío?",
+      "faq": [
+        {
+          "q": "¿Qué duración de ciclo es habitual?",
+          "a": "Un ciclo va desde el primer día de una regla hasta el día anterior al primero de la siguiente. La duración cambia de una mujer a otra, y tu propio patrón importa más que cualquier promedio. femio da una ventana fértil para ciclos de 21 a 35 días y dice «sin ventana fiable» fuera de ese rango."
+        },
+        {
+          "q": "¿Cómo cuento la duración de mi ciclo?",
+          "a": "Cuenta desde el primer día de una regla hasta el primer día de la siguiente. En la calculadora, toca el primer día de varias reglas recientes y calculará tu promedio y cuánto varían tus ciclos."
+        },
+        {
+          "q": "¿Cuándo debe revisar un médico los ciclos irregulares?",
+          "a": "Si tu ciclo más corto y el más largo están muy separados, femio considera tus ciclos irregulares. Si pasan unos tres meses sin regla, o buscas un embarazo con ciclos irregulares, es razonable hablar con un profesional clínico ya, en lugar de esperar."
+        }
+      ]
     },
     "period": {
-      "title": "Calculadora de la regla",
-      "intro": "Mira cuándo es probable que empiecen tus próximas tres reglas, como un rango que refleja cuánto varían tus ciclos.",
+      "title": "¿Cuándo me llegará la próxima regla?",
+      "intro": "Mira cuándo puede empezar tu próxima regla, como un rango calculado con la duración de tus propios ciclos, incluso si son irregulares. Sin registro.",
       "varyNote": "Los ciclos suelen variar unos días. Indica el más corto y el más largo para ver un rango honesto.",
       "resultNote": "Cada rango se amplía un poco más adelante, porque cada ciclo puede variar.",
       "eyebrow": "Tu próxima regla puede empezar",
-      "nextLine": "Regla {n}: {when}"
+      "nextLine": "Regla {n}: {when}",
+      "metaTitle": "Calculadora de la regla: próxima regla",
+      "faq": [
+        {
+          "q": "¿Cómo se estima mi próxima regla?",
+          "a": "femio parte del primer día de tu última regla y suma la duración de tu ciclo. Como los ciclos se mueven, muestra una ventana que refleja cuánto varían tus propios ciclos, no una sola fecha."
+        },
+        {
+          "q": "¿Es normal un retraso de unos días?",
+          "a": "Los ciclos se mueven unos días por muchos motivos corrientes, por eso ves un rango y ningún contador de «retraso». Si tu regla no ha llegado y podrías estar embarazada, una prueba es el primer paso. Si pasan unos tres meses sin regla, habla con un profesional clínico."
+        },
+        {
+          "q": "¿Y si mi ciclo cambia cada mes?",
+          "a": "Elige «Irregular / no estoy segura» e introduce tu ciclo más corto y el más largo: la ventana se ensancha en consecuencia. Si tus ciclos varían demasiado, femio dice que no hay una ventana fiable en lugar de adivinar. Si tus ciclos suelen ser irregulares, es razonable comentarlo con un profesional clínico."
+        }
+      ]
     },
     "pregnancyTest": {
-      "title": "Calculadora de prueba de embarazo",
-      "intro": "Descubre el día en que una prueba de embarazo casera es más fiable.",
+      "title": "¿Cuándo debo hacerme una prueba de embarazo?",
+      "intro": "Descubre el primer día en que una prueba casera probablemente dé un resultado claro, según tu ciclo. Gratis, privada e inmediata.",
       "modeLabel": "¿Qué sabes?",
       "modePeriod": "Mi última regla",
       "modeSex": "Cuándo tuvimos relaciones",
@@ -331,7 +421,22 @@
       "source": "Fuente: NHS, hacer una prueba de embarazo.",
       "sentence": "Una prueba de embarazo casera es más fiable desde el {date}.",
       "promptSex": "Toca el día de tu última relación sin protección",
-      "expectedPeriodLine": "Tu regla se espera alrededor del {date}"
+      "expectedPeriodLine": "Tu regla se espera alrededor del {date}",
+      "metaTitle": "Prueba de embarazo: cuándo hacerla",
+      "faq": [
+        {
+          "q": "¿Cuándo puede dar positivo una prueba casera?",
+          "a": "La mayoría de las pruebas caseras funcionan desde el primer día de retraso de la regla. Hacerla antes puede dar negativo aunque estés embarazada. Si no sabes cuándo te toca la regla, la calculadora cuenta al menos 21 días después de una relación sin protección."
+        },
+        {
+          "q": "¿Es mejor la orina de la primera hora de la mañana?",
+          "a": "Sigue las instrucciones de la caja de tu prueba, porque las marcas difieren. Importa más cuándo la haces que a qué hora: desde el primer día de retraso de la regla."
+        },
+        {
+          "q": "Mi prueba es negativa pero no me ha bajado la regla: ¿qué hago?",
+          "a": "Una prueba negativa hacia el primer día de retraso todavía puede ser errónea. Repítela más tarde, y consulta a un profesional clínico si la regla sigue sin llegar o si estás preocupada."
+        }
+      ]
     },
     "calendar": {
       "prompt": "Toca el día en que empezó tu última regla",
@@ -353,7 +458,8 @@
         "fertile": "probablemente fértil, estimación",
         "ovulation": "ovulación probable alrededor de este día, estimación",
         "nextPeriod": "la próxima regla puede empezar, estimación"
-      }
+      },
+      "monthStrip": "Elegir un mes"
     },
     "legend": {
       "start": "Primer día que tocaste",
@@ -415,7 +521,8 @@
       "getOnPlay": "Consíguela en Google Play",
       "getTheApp": "Descarga la app",
       "whatItDoes": "Qué hace la app"
-    }
+    },
+    "faqTitle": "Preguntas frecuentes"
   },
   "onboarding": {
     "baseline": {
@@ -919,7 +1026,7 @@
     "boundaryNote": "Información de salud para informarte y planificar: no es consejo médico ni sustituye a tu profesional clínico.",
     "byline": "Por",
     "title": "Aprender",
-    "subtitle": "Guías referenciadas sobre tu ciclo, afecciones, fertilidad, embarazo y menopausia. Cada una cita sus fuentes y muestra el estado de su revisión.",
+    "subtitle": "Guías con fuentes, empezando por buscar un embarazo, el SOP y el embarazo. Cada una enumera sus fuentes e indica si la ha revisado un profesional clínico.",
     "empty": "Pronto habrá nuevas guías — vuelve pronto.",
     "sources": "Fuentes",
     "footerNote": "Esta es información general de bienestar, no un sustituto del consejo médico profesional.",
@@ -1396,7 +1503,7 @@
     },
     "reading": {
       "heading": "Lecturas para esta etapa",
-      "pending": "Las guías revisadas por profesionales sobre la recuperación tras el parto se están escribiendo. Todo lo ya publicado sigue disponible en la biblioteca."
+      "pending": "Las guías sobre la recuperación tras el parto se están escribiendo. Todo lo ya publicado sigue disponible en la biblioteca."
     },
     "cycleReturnNote": "Femio no muestra una estimación de tu próxima regla. El ciclo puede tardar meses en volver y al principio suele ser irregular, así que una fecha predicha ahora sería una suposición disfrazada de número. Registra tu primera regla y las herramientas del ciclo continuarán desde ahí."
   },
@@ -1512,7 +1619,7 @@
   },
   "about": {
     "title": "Acerca de Femio",
-    "intro": "Femio es una sola cuenta para toda la vida de salud de una mujer — desde la pubertad y los ciclos hasta la búsqueda de embarazo, el embarazo, el posparto y la menopausia.",
+    "intro": "femio es una compañera privada para buscar un embarazo y vivirlo: calculadoras y guías con fuentes en la web, y una app de Android que guarda tus registros en tu teléfono.",
     "points": [
       {
         "heading": "Nuestra misión",
@@ -1523,8 +1630,8 @@
         "body": "Femio te ayuda a entender y seguir tu salud. Es una herramienta de bienestar e información, no un producto sanitario, y nunca sustituye la atención de tu profesional clínico."
       },
       {
-        "heading": "Contenido referenciado y revisado",
-        "body": "Cada guía se basa en organismos médicos de prestigio y la revisa un profesional clínico cualificado antes de publicarse."
+        "heading": "Guías con fuentes, etiquetas de revisión honestas",
+        "body": "Cada guía cita sus fuentes. Una guía nombra a un profesional clínico solo después de que este la haya revisado; las demás dicen «revisión clínica pendiente»."
       },
       {
         "heading": "Predicciones honestas",
@@ -1542,11 +1649,15 @@
   },
   "editorialPolicy": {
     "title": "Política editorial",
-    "intro": "Cada afirmación de salud en Femio es rastreable hasta una fuente fiable, cada página la revisa un profesional clínico cualificado antes de publicarse, y cada idioma es médicamente correcto — no solo traducido.",
+    "intro": "Cada guía de femio cita sus fuentes y pasa una comprobación editorial. En octubre de 2026, 25 de nuestras 100 guías nombran al profesional clínico que las revisó; las demás dicen «revisión clínica pendiente» hasta que alguien lo haga.",
     "points": [
       {
         "heading": "La evidencia por encima de la opinión",
         "body": "Cada dato remite a una fuente de primer nivel como la OMS, los CDC, el NHS o la ACOG. No inventamos estadísticas ni posiciones de guías; una afirmación que no podemos fundamentar se elimina."
+      },
+      {
+        "heading": "Etiquetas de revisión honestas",
+        "body": "Una página dice «Revisado por» y nombra al profesional clínico solo cuando este la ha revisado. Todas las demás dicen «Comprobado por la redacción · revisión clínica pendiente». Una etiqueta nunca cambia sin una revisión."
       },
       {
         "heading": "Al menos dos fuentes por página",
@@ -1566,29 +1677,29 @@
       },
       {
         "heading": "Siempre al día",
-        "body": "Cada página se vuelve a revisar al menos cada 12 meses, y antes cuando cambian las recomendaciones."
+        "body": "Las páginas muestran cuándo se actualizaron por última vez, y las revisadas muestran su fecha de revisión. Nos proponemos volver a comprobar cada página al menos una vez al año, y antes cuando cambian las recomendaciones."
       }
     ]
   },
   "medicalReview": {
     "title": "Cómo revisamos el contenido",
-    "intro": "Ningún contenido de salud se publica en Femio hasta que un profesional clínico cualificado lo ha revisado y aprobado — nuestro sistema se niega a publicar nada sin revisar.",
+    "intro": "Cada guía pasa una comprobación editorial y cita sus fuentes antes de publicarse. El nombre de un profesional clínico aparece en una guía solo después de que esa persona la haya revisado; hasta entonces la guía dice «revisión clínica pendiente».",
     "points": [
       {
-        "heading": "Borrador, revisión, aprobación, publicación",
-        "body": "Un editor escribe según nuestro estándar de página y añade fuentes; un revisor médico comprueba la exactitud, la fidelidad a las fuentes y el enfoque de seguridad; solo un revisor puede aprobar, y solo el contenido aprobado puede publicarse."
+        "heading": "Escrita, comprobada, publicada",
+        "body": "Una persona autora escribe según nuestro estándar de página y añade al menos dos fuentes, una de ellas de un organismo médico de referencia. Comprobaciones automáticas verifican la estructura, las fuentes y las reglas de redacción antes de publicar una página."
       },
       {
-        "heading": "Revisores cualificados",
-        "body": "Los revisores son profesionales clínicos con licencia adecuados al tema, como ginecología-obstetricia o medicina de familia. Su nombre, sus credenciales y la fecha de última revisión aparecen en cada página que aprueban."
+        "heading": "Revisores con nombre, donde los hay",
+        "body": "Cuando un profesional clínico ha revisado una guía, su nombre, sus credenciales y la fecha de revisión aparecen en esa página. En octubre de 2026, es el caso de 25 guías de 100."
       },
       {
-        "heading": "Cada idioma revisado",
-        "body": "Una página traducida no puede publicarse sin la validación de un revisor médico en ese idioma. Una buena traducción nunca sustituye la revisión médica en ese idioma."
+        "heading": "Las demás lo dicen",
+        "body": "Una guía sin revisor con nombre dice «Comprobado por la redacción · revisión clínica pendiente». Vamos añadiendo revisiones, y una etiqueta solo cambia cuando un profesional clínico ha revisado de verdad esa página."
       },
       {
-        "heading": "Se aplica, no es un ideal",
-        "body": "Estas garantías están integradas en nuestro sistema: aprobación solo por revisores, aprobación antes de publicar, validación por idioma y fechas de re-revisión cada 12 meses."
+        "heading": "Otros idiomas",
+        "body": "La biblioteca de guías está hoy en inglés y se preparan guías en árabe. Las pantallas y herramientas del sitio están en inglés, árabe, francés y español. Una guía traducida tendrá su propio estado de revisión, nunca el de la guía en inglés."
       }
     ]
   },
@@ -1972,7 +2083,7 @@
       "basics": "Lo básico del embarazo",
       "changes": "Cambios del embarazo temprano",
       "appointment": "Tu primera cita de embarazo",
-      "pending": "Las guías revisadas por profesionales para esta semana se están escribiendo. Todo lo ya publicado sigue disponible en la biblioteca."
+      "pending": "Las guías para esta semana se están escribiendo. Todo lo ya publicado sigue disponible en la biblioteca."
     },
     "setup": {
       "heading": "Configura tu embarazo",
@@ -2618,9 +2729,9 @@
   },
   "getApp": {
     "metaTitle": "Descarga la app de Femio",
-    "eyebrow": "Femio para Android",
-    "title": "Tu ciclo, tus planes, tu embarazo. En privado, en tu teléfono.",
-    "body": "Registra tu regla, conoce tu ventana fértil y sigue tu embarazo semana a semana, en árabe, inglés, francés o español. Tus datos se quedan en tu teléfono: sin cuenta, y Femio nunca los ve.",
+    "eyebrow": "femio para Android",
+    "title": "Tus registros nunca salen de tu teléfono.",
+    "body": "Una app de Android privada para buscar un embarazo y vivirlo, primero en árabe. Tu calendario, tus registros y tus herramientas de embarazo se quedan en tu teléfono, tras un PIN si lo eliges. Sin cuenta, sin nube. Muy pronto en Google Play.",
     "android": "Google Play",
     "androidStatus": "Muy pronto",
     "ios": "iPhone",
@@ -2628,28 +2739,28 @@
     "featuresTitle": "Qué hace la app",
     "features": {
       "period": {
-        "title": "Predicción de la regla",
-        "body": "Tu próxima regla como un rango honesto que se ajusta a medida que registras, nunca una única fecha segura."
+        "title": "Rangos honestos",
+        "body": "Tu próxima regla y tus días fértiles como rangos que se ajustan a medida que registras, con «sin ventana fiable» cuando tus ciclos varían demasiado."
       },
       "fertile": {
-        "title": "Ventana fértil y ovulación",
-        "body": "Tus días más fértiles, con registro de pruebas de ovulación y temperatura si buscas embarazo."
+        "title": "Registro de ovulación y temperatura",
+        "body": "Anota tus pruebas de ovulación y tu temperatura al despertar junto a tu calendario."
       },
       "pregnancy": {
-        "title": "El embarazo, semana a semana",
-        "body": "Tu semana, el tamaño de tu bebé, tu fecha probable de parto, un contador de patadas y un cronómetro de contracciones."
+        "title": "Herramientas de embarazo",
+        "body": "Tu semana y tu fecha probable de parto, un contador de patadas, un cronómetro de contracciones y un registro de peso."
       },
       "private": {
         "title": "Privada por diseño",
-        "body": "Tus datos se guardan en tu teléfono, no en nuestros servidores. Haz una copia de seguridad cuando quieras."
+        "body": "Tus registros se guardan en tu teléfono, no en nuestros servidores. Añade un bloqueo con PIN y guarda tú misma un archivo de copia de seguridad."
       },
       "arabic": {
         "title": "Primero en árabe",
         "body": "Pensada para mujeres en Arabia Saudí y Egipto, en árabe, con inglés, francés y español."
       },
       "doctor": {
-        "title": "Lista para tu consulta",
-        "body": "Un resumen de una página de tus ciclos y síntomas para mostrar en tu cita."
+        "title": "Citas",
+        "body": "Guarda tus citas y las preguntas que quieres hacer en un solo lugar."
       }
     },
     "meanwhileTitle": "Mientras tanto",
