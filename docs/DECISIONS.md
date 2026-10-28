@@ -624,3 +624,71 @@ number formatted on the client (calendar aria-labels) may show Arabic-Indic digi
 text is unaffected. Both are correct Arabic; the owner's preference for Western digits holds on
 every current browser. Keep the rule in `docs/STATE.md` traps: never return a formatting tag as
 the locale.
+
+## ADR-075
+**Date:** 2026-10-28 · **Status:** proposed (owner decision; nothing is wired until Khaled says yes) · **Area:** privacy, website, growth, revenue
+
+**Context.** Rule 4 ("the website collects nothing") and ADR-072 §2 (the privacy tripwire fails
+the gate if either product gains an analytics, ads or database client) were written for a launch
+with no revenue and no measurement beyond Play Console and Search Console. On 2026-10-28 the owner
+asked for three things that touch that rule: (1) every visitor action measured "as a Shopify
+store does", with a Google tag and a Meta pixel, with the least coding; (2) ads on the website's
+articles and Learn pages, moderate and not annoying; (3) a premium subscription (about $1 a month
+or $10 a year) that removes ads and unlocks premium content. The study's privacy promise is also
+the wedge's main differentiator (`docs/32_STUDY/00_SYNTHESIS.md`), and Meta restricts what a
+health-and-wellness domain may send through its pixel (domain-level "Core Setup" blocks custom
+events and parameters; its terms forbid sending health information). Google requires a certified
+consent platform for ads in the EEA/UK and Consent Mode v2 for its tags.
+
+**Decision (proposed).** Split the two products cleanly:
+
+1. **The app stays exactly as rule 4 says.** No analytics SDK, no ads SDK, no network permission,
+   no account. The app's numbers come from Play Console (installs, retention, uninstalls, crashes,
+   acquisition by UTM) which needs nothing inside the app. The app never shows ads; that is a
+   store-listing sentence, not a loss.
+2. **The website may measure visits and may carry ads, under consent and without health data.**
+   Rule 4 becomes: "Her records never leave the phone. The website measures visits in aggregate,
+   only after she agrees, and never records what she typed into a calculator." Concretely: one
+   Google Tag Manager container; GA4 and the Meta Pixel load only from it; Consent Mode v2 with
+   every signal defaulted to *denied*; a Google-certified consent banner (AdSense "Privacy &
+   messaging" first, because it is free and certified; a paid CMP only if it proves insufficient);
+   an event list that names pages, language, country, calculator *opened* and "Get the app"
+   *clicked*, and never a date, a cycle length, a symptom, a result or a free-text field. The
+   calculators keep computing in the browser and still send nothing of what she entered.
+3. **Ads only on the website, only on content pages.** AdSense display units: one after the first
+   section of an article and one at the end, none on the calculators' interactive area, none on
+   help-now, legal, privacy or the app hand-off pages, none above the fold on mobile. Google's
+   publisher policies on health content apply; the pages are education, not treatment, so they
+   are eligible, but personalised ads on health pages are limited by Google itself.
+4. **Premium lives in the app through Google Play Billing** (the only billing route open to an
+   Egyptian seller besides PayPal/Paddle, and the only one with no server of ours). Target prices
+   $0.99 a month and $9.99 a year, with Play's local prices in EGP and SAR; the per-country floors
+   are read in Play Console when the subscription is created (not verified from documentation).
+   Premium **adds** (exports for the doctor visit, printable reports, longer history views,
+   extra themes, the in-depth guide series) and never removes a tool or an article (rule 2).
+   Because the app has no ads and the website has no accounts, "premium removes ads" is not
+   something the architecture can offer; the honest promise is "the app never shows ads".
+5. **The tripwire changes deliberately, not by exception.** `scripts/analytics-lint.mjs` keeps
+   failing the gate for the app and for any direct analytics/ads package in `apps/web`; it gains
+   one allowed path: the GTM loader component under `apps/web/src/lib/consent/` plus the AdSense
+   script in the article template, each covered by a test that asserts the default-denied consent
+   state and the absence of health parameters.
+
+**Alternatives.** (a) Keep "collects nothing" and measure with Play Console + Search Console +
+Vercel's cookieless aggregate analytics (the pre-2026-10-28 plan; `04_GROWTH_PACK.md` §5.4):
+cheapest, no banner, but no funnel, no Meta audience, no ads revenue. (b) AdMob in the app with
+premium removing it: rejected as the default because the AdMob SDK collects device identifiers,
+changes the Data safety form from "no data collected", invites Play's health-app review of an
+ads SDK, and breaks the one sentence the wedge is built on. (c) A web paywall for premium
+content: rejected, the static site has no accounts and would need a server, a database and a
+payment processor the owner cannot use. (d) The old Payload CMS for content and SEO: rejected
+again (ADR-072); the Markdown pipeline is the CMS, see `docs/34_GROWTH_OPS/00_GROWTH_OPS_PLAN.md`.
+
+**Consequences.** A consent banner appears on the website for every visitor (not only the EEA;
+one rule is simpler and Saudi PDPL also expects consent for non-essential cookies). The privacy
+notice and the cookie line in `03_LEGAL_PACK.md` are rewritten (website section only). The
+Play Data safety form is unchanged (the app still collects nothing). Lighthouse scores on content
+pages will drop with ads; the budget in `04_GROWTH_PACK.md` §6.5 gets an "ads on" column.
+Revenue, traffic and conversion numbers in `docs/34_GROWTH_OPS/02_MONETIZATION.md` are
+hypotheses until the first month of real data. If the owner declines, alternative (a) stands and
+the growth-ops plan runs without GA4, Meta or AdSense.

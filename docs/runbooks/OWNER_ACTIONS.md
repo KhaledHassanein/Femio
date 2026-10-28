@@ -24,6 +24,22 @@ the recommended default. Do not add a line here unless only a human with Khaled'
 | 9 | **Three Arabic content decisions** from the editor pass (`docs/content/reviews/2026-10-28-arabic-editor-pass.md`): (a) the Arabic guides drop the English lines on donor sperm, same-sex couples, parenting alone and home insemination; keep that for Egypt and Saudi readers (today's default) or restore them; (b) the lay term تكيّس المبايض is used in guides, app and store instead of the glossary's المبيض المتعدد الكيسات; keep the lay term (default) or switch; (c) in the Ramadan guide, "المرجع الديني" or "أهل العلم الشرعي" for the person she asks about fasting. One word each; a session records the ADR and applies it | Register and scope are yours | 5 min |
 | 10 | **Confirm two pregnancy red-flag symptoms** (register MR-29): the app and website list the five ACOG/CDC Hear Her signs (severe headache, vision changes, upper-abdominal pain, swelling of the face or hands, difficulty breathing). Bleeding and reduced movements are standard additions with no source in `docs/compliance/`. Name an NHS or RCOG page and a session adds them to both, or say no | A medical claim needs your source | 10 min |
 
+## Growth (after the release candidate; the interactive checklist mirrors these)
+
+Every step is written click by click in `docs/34_GROWTH_OPS/04_OWNER_GUIDE_GROWTH_A_TO_Z.md`
+(offline copy: `04_OWNER_GUIDE_GROWTH_A_TO_Z.html`). Tick them in the interactive checklist
+(https://claude.ai/artifact/V3exHDJpZasUkRoWuameDp, private to Khaled; ticks and the ADR-075 choice persist and a session reads them back).
+
+| # | What | Why only you | Time |
+|---|---|---|---|
+| 11 | **Decide ADR-075** (`docs/DECISIONS.md`): accept, accept without ads, or decline. It lets the *website* measure visits and carry ads after consent; the app is untouched | Changes a product rule | 15 min to read |
+| 12 | **Create the measurement accounts** you own: Search Console (guide part B, no decision needed), then after 11: GA4 (C), Tag Manager + consent banner (D), Meta Business + Pixel (E). Put the public ids (`G-`, `GTM-`) into Vercel yourself | Google and Meta verify your identity; the ids belong to you | 2 hours over a week |
+| 13 | **Create the Canva account and the social handles** `femioapp` (Instagram, TikTok, Snapchat, X, WhatsApp Channel, Facebook Page) with the bilingual bio (guide part F) | Accounts are in your name | 1 hour over a few days |
+| 14 | **Start the growth routines** ("create the growth routines", part G), then each week: "review this week" and answer publish / fix / hold; drop the Play CSV weekly | Only you can say publish | 45 min a week |
+| 15 | **Apply to AdSense** when the site has steady readers (part H), set the blocking list, give a session only the `pub-` id and slot numbers | Payments and identity | 20 min + waiting |
+| 16 | **Play payments profile and the `femio_plus` subscription** with monthly and yearly plans (part I; February 2027). Read the EGP and SAR rows Play shows and round them | Merchant identity and bank | 30 min |
+| 17 | **Spend 20–60 minutes with Flo, Clue and one Arabic app** on your phone: count ad units on an article and a calculator, note where the paywall appears; write the counts into `docs/34_GROWTH_OPS/reports/2026-10-28-competitor-monetization.md` §2 | Only a phone shows the real units | 1 hour |
+
 ## Decisions already made (unchanged)
 
 D1–D8 and ADR-072 stand: the TTC → pregnancy wedge, Saudi + Egypt, Arabic first, the private

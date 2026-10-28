@@ -43,7 +43,10 @@ history and `docs/archive/`.
   R0.8); the pregnancy warning signs on their own sourced screen and the 18+ gate as a domain rule
   with the D-01 question (R4.8 closed); **every Arabic link on the live site fixed** (R2.8, ADR-074:
   the i18n config had returned `ar-u-nu-latn` as the locale since 2026-08-22). Ledger:
-  `docs/33_REBUILD_V3/PROGRESS.md`.
+  `docs/33_REBUILD_V3/PROGRESS.md`. **Growth operations opened** (R6, `docs/34_GROWTH_OPS/`): the
+  post-launch agent team, measurement and consent design, ads + premium strategy, owner guide A–J,
+  competitor benchmark, interactive owner checklist; **ADR-075 (website analytics and ads under
+  consent) waits for the owner** and nothing that measures or shows ads is wired before that.
 - **Open before a release candidate:** R4.12 needs the owner's keystore (owner action 2); the NVDA
   listening session (owner action 8); R3.5 rest (only the three owner decisions of owner action 9 and the
   clinician sign-off remain; the editor's 99 rows are applied); owner action 10 (a source for bleeding and reduced movements on the

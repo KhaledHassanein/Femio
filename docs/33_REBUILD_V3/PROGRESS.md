@@ -67,9 +67,26 @@ Every "done" names its evidence: a test count, a screenshot folder, a deployed U
 - [ ] R5.4 · Closed test (12 testers × 14 days); fix round; production access
 - [ ] R5.5 · Soft launch, first-100-women plan running
 
+## R6 · Growth operations (post-launch content, measurement, revenue) — `docs/34_GROWTH_OPS/`
+
+Opened 2026-10-28 on the owner's finalization brief. The gate for R6.4–R6.5 and R6.8 is **ADR-075**
+(proposed): nothing that measures or shows ads is wired until Khaled accepts it.
+
+- [x] R6.1 · Plan, analytics design, monetization strategy, automation design, owner guide A–J (+ offline HTML): `00`–`04` in `docs/34_GROWTH_OPS/`; ADR-075 proposed; CMS stays deprecated (the Markdown pipeline is the CMS)
+- [x] R6.2 · Competitor monetization benchmark (Sonnet, 2,283 words, 40 sources, unfetched pages marked not verified): `reports/2026-10-28-competitor-monetization.md`; folded into `02_MONETIZATION.md` §4.3
+- [x] R6.3 · Interactive owner checklist (artifact with a persistent database; 32 steps in parts A–J + the ADR-075 decision): https://claude.ai/artifact/V3exHDJpZasUkRoWuameDp (private); linked from `docs/runbooks/OWNER_ACTIONS.md` §Growth
+- [ ] R6.4 · **Owner decision ADR-075** (accept / accept without ads / decline) — owner action 11
+- [ ] R6.5 · Consent + GTM + GA4 + Meta Pixel on the website per `01_ANALYTICS_AND_PIXELS.md` §6 (tests first; tripwire amended deliberately; legal pack website section rewritten) — after R6.4
+- [ ] R6.6 · Growth routines as files (`routines/R1..R7.md`), report folders, `[NEEDS SOURCE]` publish lint, `social/HASHTAGS.md`, feedback-form link wired (G1, G2, G4, G5)
+- [ ] R6.7 · Canva templates through the connector (G3) — after owner action 13 (Canva account)
+- [ ] R6.8 · AdSense units on article/hub pages behind `NEXT_PUBLIC_ADSENSE_CLIENT`, blocking controls, Lighthouse ≥ 85 — after R6.4 and the owner's AdSense approval
+- [ ] R6.9 · Premium: entitlement domain rule + golden fixture (every route reachable without Plus); Play Billing spike proving no INTERNET permission is needed; then `in_app_purchase` integration (M3–M4) — after owner action 14 (payments profile, `femio_plus`)
+- [ ] R6.10 · First dry run of R1 and R7 against real Search Console data before the soft launch
+
 ## Session log
 
 | When | What | Commit |
 |---|---|---|
 | 2026-10-27 | Study, plan, constitution, tracker removal, calendar calculators | see above |
 | 2026-10-28 | Brand surface, article template + legal pages, Flutter refactor, sealed store + backup + lock + Settings, launch guide; **merged to main, v3 site live** | `0965a65` |
+| 2026-10-28 (late) | Growth operations opened (R6): plan, analytics and consent design, monetization, agent-team automation, owner guide A–J, competitor benchmark, interactive checklist; ADR-075 proposed | see R6 |

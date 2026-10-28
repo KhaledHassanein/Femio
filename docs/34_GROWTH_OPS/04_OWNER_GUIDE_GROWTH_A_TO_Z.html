@@ -1,0 +1,346 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Growing femio after launch, A to Z</title><style>
+:root{--bg:#FBF7F3;--surface:#fff;--ink:#24141F;--muted:#5E4D57;--plum:#8A3572;--rose:#BF2F59;--line:#E9DFD9;--sunken:#F4EDE8}
+@media(prefers-color-scheme:dark){:root{--bg:#140D14;--surface:#1E1520;--ink:#F6EEF2;--muted:#C9B8C2;--plum:#DDA2C8;--line:#33262F;--sunken:#19111A}}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.6 "Plus Jakarta Sans",system-ui,sans-serif}
+main{max-width:760px;margin:0 auto;padding:32px 20px 80px}
+h1,h2,h3{font-family:Newsreader,Georgia,serif;letter-spacing:-.01em;line-height:1.2}h1{font-size:34px;color:var(--plum)}h2{font-size:26px;margin-top:48px;border-top:1px solid var(--line);padding-top:24px}h3{font-size:20px;margin-top:28px}
+a{color:var(--plum)}code{background:var(--sunken);padding:1px 5px;border-radius:6px;font-size:.92em}pre{background:var(--sunken);padding:14px;border-radius:12px;overflow:auto}pre code{background:none;padding:0}
+table{border-collapse:collapse;width:100%;font-size:15px;margin:16px 0}th,td{text-align:start;padding:8px 10px;border-bottom:1px solid var(--line);vertical-align:top}th{color:var(--muted);font-weight:600}
+blockquote{margin:16px 0;padding:12px 16px;border-inline-start:4px solid var(--plum);background:var(--surface);border-radius:0 12px 12px 0}
+hr{border:0;border-top:1px solid var(--line);margin:32px 0}strong{font-weight:600}
+.meta{color:var(--muted);font-size:14px}
+</style></head><body><main><p class="meta">femio · generated 2026-10-28 from 04_OWNER_GUIDE_GROWTH_A_TO_Z.md</p><h1>04 — Growing femio after launch, A to Z: every step you do by hand</h1>
+<p><strong>For Khaled.</strong> This continues <code>docs/33_REBUILD_V3/06_LAUNCH_GUIDE_A_TO_Z.md</code> (accounts, the
+closed test, production). That guide gets the app into Play; this one sets up everything that
+measures, earns and feeds the site afterwards. Same rules: plain words, in order, each step
+says how long, what to click, what to paste and what &quot;done&quot; looks like. When a step says <em>a
+session</em>, open Claude Code in the repo and paste the quoted line. Nothing here needs you to
+write code.</p>
+<p><strong>One decision first, before parts C–E and H:</strong> ADR-075 in <code>docs/DECISIONS.md</code>. It changes
+one sentence of rule 4 so the <em>website</em> may measure visits and carry ads, after consent and
+without anything a woman typed. The app stays untouched. Say <strong>&quot;accept ADR-075&quot;</strong>, <strong>&quot;accept
+without ads&quot;</strong>, or <strong>&quot;decline&quot;</strong> to a session. If you decline, do parts A, B, F, G only.</p>
+<p><strong>The shape of it.</strong> A → repository safety (10 min). B → Search Console (15 min, no decision
+needed). C → Google Analytics 4 (20 min). D → Google Tag Manager + the consent banner
+(40 min, the most careful part). E → Meta Business + Pixel (30 min). F → Canva and the social
+accounts (1 hour over a few days). G → the agent routines (20 min + 45 min a week forever).
+H → AdSense (20 min to apply, then waiting). I → Play payments profile and the premium
+product (30 min, in February). J → ASO upkeep (monthly, 15 min). The interactive checklist
+(<a href="https://claude.ai/artifact/V3exHDJpZasUkRoWuameDp">https://claude.ai/artifact/V3exHDJpZasUkRoWuameDp</a>, private to you) mirrors every step; tick there as
+you go.</p>
+<p><strong>Where things live.</strong> Keep a single page in your password manager called &quot;femio growth&quot; with
+every id this guide produces (Search Console property, GA4 Measurement ID <code>G-…</code>, GTM container
+<code>GTM-…</code>, Meta Pixel ID, AdSense publisher id <code>pub-…</code>). Never paste an id into chat; a session
+only ever needs the public ones (<code>G-</code>, <code>GTM-</code>, <code>pub-</code>), and you put those into Vercel yourself
+(part D step 8 shows how).</p>
+<hr>
+<h2>A · Repository safety (10 min, once)</h2>
+<p>Why: from now on agents open pull requests every week. <code>main</code> must accept nothing without you.</p>
+<ol>
+<li>github.com → your femio repository → <strong>Settings</strong> → <strong>Branches</strong> → <strong>Add branch ruleset</strong>
+(or &quot;Add rule&quot; on older UI). Name: <code>main</code>. Target: <code>main</code>.</li>
+<li>Tick <strong>Require a pull request before merging</strong>, approvals <strong>1</strong>. Tick <strong>Require status
+checks to pass</strong>: search and add the Vercel check (<code>Vercel</code>) and, if the gate runs in
+Actions, <code>gate</code>. Tick <strong>Block force pushes</strong>. Save.</li>
+<li>Settings → <strong>Actions</strong> → <strong>General</strong> → Workflow permissions: <strong>Read repository contents</strong>,
+and tick <strong>Allow GitHub Actions to create and approve pull requests</strong> (routines open PRs).</li>
+<li>Done when: a session says &quot;push to main&quot; and GitHub refuses with &quot;protected branch&quot;; the
+session then opens a PR instead and you press <strong>Merge</strong>.</li>
+</ol>
+<hr>
+<h2>B · Google Search Console (15 min, no decision needed)</h2>
+<p>Why: it is the only place that shows which Google searches show femio, free, no cookie, no
+banner. Routine R1 reads it every Monday.</p>
+<ol>
+<li>search.google.com/search-console → <strong>Add property</strong> → choose <strong>Domain</strong> → type
+<code>femioapp.com</code> → Continue.</li>
+<li>Google shows a TXT record. Open vercel.com → your team → <strong>Domains</strong> → <code>femioapp.com</code> →
+<strong>DNS Records</strong> → <strong>Add</strong>: Type <code>TXT</code>, Name <code>@</code> (leave blank if Vercel says so), Value =
+the string Google showed → Save. Back in Search Console press <strong>Verify</strong> (DNS can take up
+to an hour; press Verify again later if it fails).</li>
+<li>In Search Console → <strong>Sitemaps</strong> → paste <code>https://femioapp.com/sitemap.xml</code> → Submit.</li>
+<li>Settings (gear) → <strong>Users and permissions</strong> → add the Google account you use with the
+Ahrefs connector as <strong>Full</strong> if it is different from the one you used here (R1 reads
+through it).</li>
+<li>Done when: Sitemaps shows &quot;Success&quot; with a page count; after 2–3 days <strong>Performance</strong>
+shows impressions. Tick B in the checklist and write the property name on your
+&quot;femio growth&quot; page.</li>
+</ol>
+<p><em>Alternative if DNS is awkward:</em> URL-prefix property <code>https://femioapp.com</code> → HTML tag method →
+copy only the <code>content=&quot;…&quot;</code> value → Vercel → Project <strong>femio-web</strong> → Settings → Environment
+Variables → <code>NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION</code> = that value → Redeploy (Deployments →
+⋯ → Redeploy). The site already prints the tag when the variable exists.</p>
+<hr>
+<h2>C · Google Analytics 4 (20 min; after &quot;accept ADR-075&quot;)</h2>
+<ol>
+<li>analytics.google.com → <strong>Admin</strong> (gear, bottom left) → <strong>Create</strong> → <strong>Account</strong>. Name
+<code>KM Digital Labs</code>. Data-sharing boxes: untick all except &quot;Technical support&quot;. Next.</li>
+<li><strong>Property</strong>: name <code>femio website</code>, time zone <code>(GMT+02:00) Cairo</code>, currency <code>US Dollar</code>.
+Next. Business details: industry <strong>Health</strong>, size <strong>Small</strong>. Objectives: tick <strong>Examine user
+behavior</strong> only. Create. Accept the terms (Egypt as country). <strong>Also open the &quot;Data
+Processing Terms&quot; and accept them</strong> (needed for EEA visitors).</li>
+<li><strong>Data stream</strong>: Web → URL <code>https://femioapp.com</code>, stream name <code>femioapp.com</code> →
+<strong>Enhanced measurement</strong>: leave ON but open the gear and <strong>untick &quot;Form interactions&quot;
+and &quot;Site search&quot;</strong> (the site has neither; fewer surprises). Create stream.</li>
+<li>Copy the <strong>Measurement ID</strong> (<code>G-XXXXXXXXXX</code>) to your &quot;femio growth&quot; page. Do not install
+the tag Google offers; GTM will carry it (part D).</li>
+<li>Admin → <strong>Data settings</strong> → <strong>Data collection</strong>: <strong>turn OFF &quot;Google signals&quot;</strong> (no
+cross-device profiles; this is a health site). <strong>Data retention</strong>: 14 months. <strong>Data
+collection → Granular location and device data</strong>: untick EEA countries&#39; city precision if
+offered.</li>
+<li>Admin → <strong>Data filters</strong>: the &quot;Internal traffic&quot; filter → set to <strong>Active</strong> and in <strong>Data
+streams → Configure tag settings → Define internal traffic</strong> add your home IP so your own
+visits are excluded.</li>
+<li>Admin → <strong>Property access management</strong> → add the account used by routines as <strong>Viewer</strong>
+(same account as B step 4).</li>
+<li>Done when: Admin → Data streams shows the stream with the <code>G-</code> id; nothing else yet (no
+data until part D is live). Tick C.</li>
+</ol>
+<hr>
+<h2>D · Google Tag Manager and the consent banner (40 min; the careful part)</h2>
+<p>Why: one GTM script in the site carries every tag after it, and a certified banner makes every
+tag wait for consent. The site code for this is built by a session (<code>01_ANALYTICS_AND_PIXELS.md</code>
+§6); your part is the container and the banner.</p>
+<ol>
+<li>tagmanager.google.com → <strong>Create account</strong>: name <code>KM Digital Labs</code>, country Egypt.
+<strong>Container</strong>: name <code>femioapp.com</code>, platform <strong>Web</strong> → Create → accept terms. Copy the
+container id <strong><code>GTM-XXXXXXX</code></strong> from the top bar to your &quot;femio growth&quot; page. Close the
+install dialog (the session installs it).</li>
+<li>Left menu <strong>Admin</strong> → <strong>Container settings</strong> → tick <strong>Enable consent overview</strong>. Save.</li>
+<li><strong>Tags</strong> → <strong>New</strong> → name <code>GA4 · configuration</code> → Tag type <strong>Google Tag</strong> → Tag ID = your
+<code>G-…</code> → <strong>Triggering</strong>: &quot;Initialization – All Pages&quot; → Save.</li>
+<li>Open the tag again → <strong>Advanced settings → Consent settings</strong> → &quot;Require additional consent
+for tag to fire&quot;: add <strong>analytics_storage</strong>. Save. (This is the line that makes GA4 wait.)</li>
+<li><strong>Variables</strong> → <strong>Configure</strong> → tick everything under <strong>Clicks</strong> and <strong>Pages</strong>. Then
+<strong>User-defined variables → New</strong> → <strong>Data Layer Variable</strong> for each: <code>page_type</code>,
+<code>article_slug</code>, <code>calculator_slug</code>, <code>placement</code>, <code>from_locale</code>, <code>to_locale</code>,
+<code>source_host</code>, <code>country</code> (the site pushes these; names must match exactly).</li>
+<li><strong>Triggers → New → Custom Event</strong> for each event in <code>01_ANALYTICS_AND_PIXELS.md</code> §4
+(<code>article_read</code>, <code>calculator_open</code>, <code>calculator_used</code>, <code>get_app_click</code>, <code>help_now_open</code>,
+<code>language_switch</code>, <code>outbound_source_click</code>). Then <strong>Tags → New → Google Analytics: GA4
+Event</strong> for each, event name = the same, parameters = only the ones listed in that table,
+consent setting = analytics_storage, trigger = its custom event. Seven tags. (A session
+can hand you a GTM <strong>container export JSON</strong> with all of this ready; <strong>Admin → Import
+Container → Merge</strong> saves the typing. Ask: <em>&quot;export the GTM container JSON for ADR-075&quot;.</em>)</li>
+<li><strong>The consent banner.</strong> Two routes; use the first:<ul>
+<li><strong>AdSense &quot;Privacy &amp; messaging&quot;</strong> (free, Google-certified, needs the AdSense account from
+part H even before ads are approved): adsense.google.com → <strong>Privacy &amp; messaging</strong> →
+<strong>GDPR</strong> → <strong>Create message</strong> → sites: <code>femioapp.com</code> → languages: English, Arabic,
+French, Spanish → <strong>Consent options</strong>: tick &quot;Do not consent&quot; (so decline is one tap) →
+Styling: match Dusk Bloom (plum <code>#8A3572</code> button, cream <code>#FBF7F3</code> background) → Publish.
+Also create the <strong>US state regulations</strong> message (opt-out) and publish. The message
+tag is served through the AdSense script, which the session adds to the site when
+<code>NEXT_PUBLIC_ADSENSE_CLIENT</code> is set. <strong>Verify in step 9 that it also updates Consent
+Mode for the GA4 tag</strong>; if it does not, use the second route.</li>
+<li><strong>A free certified CMP</strong> (CookieYes, Cookiebot or similar, check the free tier&#39;s page
+limit against about 160 pages): sign up → add <code>femioapp.com</code> → enable <strong>Google Consent
+Mode v2</strong> and <strong>IAB TCF v2.3</strong> → languages EN/AR/FR/ES → copy the script → give the
+session the snippet URL, never a key: <em>&quot;mount this CMP snippet before GTM&quot;</em>.</li>
+</ul>
+</li>
+<li><strong>Put the ids in Vercel yourself:</strong> vercel.com → project <strong>femio-web</strong> → <strong>Settings</strong> →
+<strong>Environment Variables</strong> → Add <code>NEXT_PUBLIC_GTM_ID</code> = <code>GTM-…</code> (Production, Preview) →
+Save → <strong>Deployments</strong> → latest → ⋯ → <strong>Redeploy</strong>. Then tell a session: <em>&quot;GTM id is set
+in Vercel; verify consent on the preview&quot;</em>.</li>
+<li><strong>Verify (10 min, do it yourself once so you understand it).</strong> In GTM press <strong>Preview</strong>
+→ enter <code>https://femioapp.com/ar</code> → Connect. A new tab opens with a &quot;Tag Assistant
+connected&quot; badge. In the Tag Assistant window: the <strong>Consent</strong> tab shows every type
+<strong>Denied</strong> on load; no tag listed under &quot;Tags fired&quot; except nothing (the GA4 tag must sit
+under &quot;Tags not fired&quot;). Press <strong>Allow</strong> on the banner → the Consent tab flips
+<code>analytics_storage: Granted</code> → the GA4 configuration tag appears under &quot;Tags fired&quot;.
+Open a calculator and tap a day → <code>calculator_open</code> then <code>calculator_used</code> events appear
+with only <code>calculator_slug</code>. If any tag fires before Allow, stop and tell a session
+exactly which tag.</li>
+<li>GTM → <strong>Submit</strong> → version name <code>v1 consent + GA4</code> → Publish. In GA4 → <strong>Reports →
+Realtime</strong>: your visit appears within a minute (unless your IP is filtered).</li>
+<li>Done when: step 9 behaves as written and Realtime shows a visit from another device.
+Tick D.</li>
+</ol>
+<hr>
+<h2>E · Meta Business Suite and the Pixel (30 min; after &quot;accept ADR-075&quot;)</h2>
+<p>Why: a pixel on the site builds an audience of visitors for organic reach later and shows
+which Facebook/Instagram posts bring readers. Expect Meta to restrict a health domain to
+&quot;Core Setup&quot;; the plan already assumes it.</p>
+<ol>
+<li>business.facebook.com → <strong>Create a business portfolio</strong>: name <code>KM Digital Labs</code>, your
+name, your business email. Confirm the email.</li>
+<li><strong>Settings → Business assets → Pages</strong>: add or create the <strong>femio</strong> Facebook Page (name
+<code>femio</code>, category <strong>Health &amp; wellness website</strong>, bio from <code>04_GROWTH_PACK.md</code> §1, Arabic
+first). Connect the Instagram account from part F when it exists.</li>
+<li><strong>Settings → Data sources → Datasets</strong> (older UI: Pixels) → <strong>Add</strong> → name
+<code>femioapp.com</code> → <strong>Set up manually</strong> → copy the <strong>Dataset/Pixel ID</strong> (digits) to your
+&quot;femio growth&quot; page. Do not install the code; GTM carries it.</li>
+<li><strong>Events Manager → the dataset → Settings</strong>: <strong>Automatic advanced matching: OFF</strong>.
+<strong>Track events automatically without code: OFF</strong> (we fire exactly three). Under <strong>Data
+sharing restrictions</strong> read what Meta applied; if it says Core Setup, nothing changes.</li>
+<li><strong>Business Settings → Brand safety and suitability → Domains</strong> → <strong>Add</strong> <code>femioapp.com</code>
+→ verify by <strong>DNS TXT</strong> (Vercel → Domains → DNS Records, like part B step 2) or by the
+meta tag (give the <code>content</code> value to a session: <em>&quot;set Meta domain verification tag&quot;</em>).</li>
+<li>In GTM (part D): <strong>Tags → New → Facebook Pixel</strong> template (search the Community Template
+Gallery: &quot;Facebook Pixel&quot; by facebookarchive/Meta, or the official &quot;Meta Pixel&quot; template)
+→ Pixel ID = yours → Event: PageView → trigger All Pages → <strong>Consent settings: require
+ad_storage and ad_user_data</strong>. Two more Pixel tags: <strong>ViewContent</strong> on triggers
+<code>article_read</code> and <code>calculator_open</code>; <strong>Lead</strong> on <code>get_app_click</code>. No parameters. Preview
+as in D9: nothing fires before <strong>Allow</strong>; after it, PageView appears in Events Manager →
+<strong>Test events</strong> within a minute. Submit and publish <code>v2 meta pixel</code>.</li>
+<li>Done when: Events Manager → Overview shows PageView from femioapp.com with &quot;Browser&quot;
+as the source. Tick E.</li>
+</ol>
+<hr>
+<h2>F · Canva and the social accounts (about 1 hour, spread over a few days)</h2>
+<p>Handles: try <strong>femioapp</strong> everywhere (<code>femio</code> is likely taken); keep the same handle on every
+platform. Bio (Arabic first, then English), from <code>04_GROWTH_PACK.md</code> §1: <em>سجلاتكِ لا تغادر
+هاتفكِ — تطبيق خاص لتتبع الدورة والتخطيط للحمل · Your records never leave your phone</em> and the
+site link with <code>?utm_source=&lt;platform&gt;&amp;utm_medium=social</code>.</p>
+<ol>
+<li><strong>Canva</strong> (10 min): canva.com → sign up with the business Google account → Free plan.
+Then tell a session: <em>&quot;build the femio Canva templates (G3)&quot;</em>; it creates the six
+templates through the Canva connector and tells you where they are. Upgrade to Pro only if
+it asks for Brand Kit or Magic Resize.</li>
+<li><strong>Instagram</strong> (10 min): create a <strong>Professional → Creator/Business</strong> account, handle,
+bio, link. Connect it to the Facebook Page (part E step 2).</li>
+<li><strong>TikTok</strong> (10 min): Business account, same bio. Content from R5&#39;s vertical designs.</li>
+<li><strong>Snapchat</strong> (10 min): <strong>Public Profile</strong> for <code>femioapp</code> (highest female share in both
+markets, growth pack §5.1).</li>
+<li><strong>X</strong> (5 min): <code>femioapp</code>, Arabic bio, used for Saudi threads only.</li>
+<li><strong>WhatsApp Channel</strong> (5 min, from your phone): WhatsApp → Updates → <strong>Create channel</strong>
+→ <code>femio</code> → bio → share the invite link; R5 writes a Channel version of each post.</li>
+<li><strong>Facebook groups</strong> (ongoing): join the Egyptian TTC/PCOS/ICSI groups from your personal
+profile as Dr Khaled; read each group&#39;s rules (growth pack §5.1 row 3).</li>
+<li>Write every handle on your &quot;femio growth&quot; page and in <code>docs/34_GROWTH_OPS/social/ACCOUNTS.md</code>
+(public handles only). Tick F.</li>
+</ol>
+<hr>
+<h2>G · The agent routines (20 min once, then about 45 min a week)</h2>
+<ol>
+<li>In Claude Code (desktop app) say: <em>&quot;create the growth routines from docs/34_GROWTH_OPS/
+routines&quot;</em>. The session uses <code>/schedule</code> to create R1 (Mon 07:00 Cairo), R2 (Tue 07:00),
+R5 (Wed 07:00), R6 (first Fri 07:00), R7 (Sun 18:00), each pointing at its file. It shows
+you the list; nothing else happens until the first schedule fires.</li>
+<li>Each Sunday evening you receive R7&#39;s page; each Tuesday a PR. Any evening: open Claude
+Code and say <strong>&quot;review this week&quot;</strong>. Read the paragraphs. Answer each with one word:
+<strong>publish</strong>, <strong>fix</strong> (and what), or <strong>hold</strong>. For posts: <strong>post 1, 2, 3</strong> copies the text
+for you to paste into the platform (Buffer or Meta Business Suite&#39;s planner if you prefer
+to schedule). Fifteen minutes on Tuesday, thirty on Sunday.</li>
+<li>Once a week, drop the Play Console export into the repo for R7: Play Console →
+<strong>Statistics</strong> → <strong>Export report</strong> (installs, retention) → save the CSV as
+<code>docs/34_GROWTH_OPS/reports/play/YYYY-WW.csv</code> (git-ignored; only summaries are committed).
+Or tell a session <em>&quot;here is this week&#39;s Play CSV&quot;</em> and attach it.</li>
+<li>Once a month, paste the one-question feedback answers into
+<code>reports/feedback/YYYY-MM.md</code>, removing any health detail someone typed despite the warning.</li>
+<li>Done when: the first R7 page and the first content PR exist and you have answered them.
+Tick G. Routines you want to stop: say <em>&quot;pause R5&quot;</em>.</li>
+</ol>
+<hr>
+<h2>H · Google AdSense (20 min to apply; then days to weeks of waiting; after &quot;accept ADR-075&quot;)</h2>
+<p>Apply when the site has steady readers (the plan&#39;s threshold: about 1,000 sessions a week or
+eight weeks after launch, whichever comes first).</p>
+<ol>
+<li>adsense.google.com → <strong>Get started</strong> → your site <code>femioapp.com</code> → country Egypt → accept
+terms. Google shows a code snippet with your <strong>publisher id <code>pub-…</code></strong>: write the id on your
+&quot;femio growth&quot; page; do not paste the snippet anywhere.</li>
+<li><strong>Payments → Payments info</strong>: name and address exactly as on your bank account and ID.
+Payment method: add it when AdSense asks (Egypt: wire transfer to your bank; the account
+name must match; AdSense also sends a PIN by post to your address before the first
+payment, so the postal address must be real).</li>
+<li>Tell a session: <em>&quot;AdSense client id is pub-…, mount the verification script&quot;</em>. It sets
+<code>NEXT_PUBLIC_ADSENSE_CLIENT</code> in Vercel through you (same as D8) and the site serves the
+AdSense script on article pages, which also carries the Privacy &amp; messaging banner
+(D7). Back in AdSense press <strong>Verify</strong>. Then wait for the review email (days to weeks).</li>
+<li>When approved: <strong>Ads → By site</strong> → turn <strong>Auto ads OFF</strong> (we place units ourselves) →
+<strong>Ads → By ad unit → Display ads</strong> → create <code>article-mid</code>, <code>article-end</code>, <code>hub-top</code>
+(responsive) → copy only the <strong>slot numbers</strong> (digits) → tell a session <em>&quot;AdSense slots:
+mid …, end …, hub …&quot;</em>. It places the three units per <code>02_MONETIZATION.md</code> §1.1.</li>
+<li><strong>Brand safety → Content → Blocking controls → Sensitive categories</strong>: block Dating,
+Drugs &amp; supplements, Get rich quick, Politics, Religion, Sexual &amp; reproductive health,
+Birth control, Cosmetic procedures, Astrology &amp; esoteric, Weight loss, Significant skin
+exposure. Also <strong>Ad serving → &quot;Ad load&quot;</strong> slider to Low.</li>
+<li>Done when: an article shows two labelled ads below the fold, Lighthouse performance on it
+stays ≥ 85 (the session runs it), and AdSense → Reports shows impressions. Tick H.</li>
+</ol>
+<hr>
+<h2>I · Play payments profile and the premium product (30 min; in February 2027, before app release 2)</h2>
+<ol>
+<li>Play Console → <strong>Setup → Payments profile</strong> → <strong>Create payments profile</strong> → country
+Egypt, business type as your registration (KM Digital Labs), bank account in EGP, tax
+info. Google verifies within days. (Egypt is a supported merchant country.)</li>
+<li>Play Console → your app → <strong>Monetize → Products → Subscriptions</strong> → <strong>Create
+subscription</strong>: Product ID <code>femio_plus</code>, name <code>femio Plus</code> (Arabic: <code>femio Plus</code>, keep the
+Latin wordmark), description from <code>02_MONETIZATION.md</code> §2.4.</li>
+<li><strong>Add base plan</strong> <code>monthly</code>: auto-renewing, 1 month, <strong>Set prices</strong> → base price USD
+<code>0.99</code> → the table shows every country; <strong>read the EGP and SAR rows</strong>: if Play&#39;s minimum
+is above the converted price it will say so; round EGP and SAR to the nearest local
+convention (e.g. 49 EGP, 3.99 SAR) by editing those rows. Grace period 7 days; account
+hold on. Activate.</li>
+<li><strong>Add base plan</strong> <code>yearly</code>: 1 year, USD <code>9.99</code>, same rounding (499 EGP, 37.99 SAR).
+<strong>Add offer</strong> → free trial 7 days → eligibility: new subscribers. Activate.</li>
+<li><strong>Setup → License testing</strong>: add your own Gmail and two testers&#39; Gmails so purchases are
+free during the test. Then tell a session: <em>&quot;premium products exist: femio_plus with
+monthly and yearly; integrate Play Billing (M4)&quot;</em>.</li>
+<li>Done when: in the internal test build, Settings → femio Plus shows both prices in EGP on
+your phone and a test purchase completes and restores after reinstall. Tick I.</li>
+</ol>
+<hr>
+<h2>J · ASO upkeep (15 min a month)</h2>
+<ol>
+<li>Play Console → <strong>Store performance → Store listing acquisition</strong> (and <strong>Search terms</strong> when
+it appears): note the top terms by installs. Tell a session: <em>&quot;ASO monthly: here are the top
+terms&quot;</em>; it proposes changes to <code>docs/store/play-listing.{en,ar}.md</code> (title and short
+description first), you say publish, and you paste the new text into Console → <strong>Store
+presence → Main store listing</strong> → Save → the change goes live with the next review.</li>
+<li>Reply to every review in its language within 48 hours (Console → <strong>Ratings and reviews</strong>).
+R6 drafts replies for the common ones; medical questions always get &quot;talk to your doctor&quot;<ul>
+<li>the article link.</li>
+</ul>
+</li>
+<li>Every quarter: refresh the 8 screenshots if a screen changed (a session renders them at
+1080×1920 from the golden tests) and upload under <strong>Main store listing → Graphics</strong>.</li>
+<li>Tick J monthly in the checklist (it resets each month).</li>
+</ol>
+<hr>
+<h2>If something goes wrong</h2>
+<table>
+<thead>
+<tr>
+<th>Symptom</th>
+<th>Do</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>GA4 Realtime shows nothing after D10</td>
+<td>GTM Preview (D9): is the GA4 tag under &quot;Tags not fired&quot;? Then the consent did not flip; check the banner is published for <code>femioapp.com</code> and that the tag&#39;s consent setting is <code>analytics_storage</code>. Your own IP may be filtered (C6): try your phone on mobile data</td>
+</tr>
+<tr>
+<td>A tag fires before Allow</td>
+<td>Stop; tell a session which tag; it is a missing consent setting on that tag (D4/E6)</td>
+</tr>
+<tr>
+<td>Meta says &quot;Data sharing restrictions: Core Setup&quot;</td>
+<td>Expected; nothing to change</td>
+</tr>
+<tr>
+<td>AdSense: &quot;Site not ready&quot; / &quot;Low value content&quot;</td>
+<td>Wait two weeks of content PRs, then re-apply; the pages are sourced and signed, which is what the review looks for</td>
+</tr>
+<tr>
+<td>AdSense: &quot;Policy violation: sensitive&quot; on a page</td>
+<td>Tell a session the URL; it removes units from that page and appeals with the review trail</td>
+</tr>
+<tr>
+<td>Lighthouse on an article drops below 85</td>
+<td>Tell a session; it lazy-loads or removes the mid unit</td>
+</tr>
+<tr>
+<td>Play: subscription price &quot;below minimum&quot; for a country</td>
+<td>Edit that row to the minimum Play shows; keep USD base as is</td>
+</tr>
+<tr>
+<td>A routine opened a PR you do not want</td>
+<td>Say &quot;hold&quot; or close the PR; nothing is live until merged</td>
+</tr>
+<tr>
+<td>You lost the &quot;femio growth&quot; page</td>
+<td>GA4 id: analytics.google.com → Admin → Data streams; GTM id: tagmanager.google.com top bar; Pixel: Events Manager; AdSense: Account → Settings</td>
+</tr>
+</tbody></table>
+</main></body></html>

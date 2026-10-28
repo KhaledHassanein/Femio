@@ -75,3 +75,6 @@ screenshots/
 # Python bytecode (the ui-ux-pro-max search script)
 __pycache__/
 *.pyc
+
+# Growth-ops raw exports (owner drops; never committed)
+docs/34_GROWTH_OPS/reports/play/
