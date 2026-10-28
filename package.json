@@ -14,7 +14,7 @@
     "lint": "pnpm --filter web lint",
     "typecheck": "pnpm --filter web typecheck",
     "test": "pnpm --filter web test",
-    "gate": "pnpm typecheck && pnpm lint && pnpm test && pnpm claims-lint && pnpm wordmark-lint && pnpm crisis-lint && pnpm analytics-lint && pnpm content-lint && pnpm i18n-client-lint && pnpm i18n-untranslated-lint && pnpm tokens-parity-lint && pnpm tokens-dart-lint && pnpm mobile-vocab-lint && pnpm native-readiness-lint && pnpm chart-literals-lint && pnpm content-build-lint",
+    "gate": "pnpm typecheck && pnpm lint && pnpm test && pnpm claims-lint && pnpm wordmark-lint && pnpm crisis-lint && pnpm analytics-lint && pnpm content-lint && pnpm i18n-client-lint && pnpm i18n-untranslated-lint && pnpm tokens-parity-lint && pnpm tokens-dart-lint && pnpm mobile-vocab-lint && pnpm mobile-untranslated-lint && pnpm native-readiness-lint && pnpm chart-literals-lint && pnpm content-build-lint",
     "claims-lint": "node scripts/claims-lint.mjs",
     "crisis-lint": "node scripts/crisis-compliance.mjs",
     "analytics-lint": "node scripts/analytics-lint.mjs",
@@ -30,12 +30,13 @@
     "sitemap-check": "node scripts/seo/sitemap-check.mjs",
     "content-lint:test": "node scripts/content-lint.test.mjs",
     "audit": "pnpm audit --audit-level high",
-    "gate:mobile": "cd apps/mobile && flutter analyze && flutter test",
+    "gate:mobile": "pnpm mobile-vocab-lint && pnpm mobile-untranslated-lint && pnpm claims-lint && pnpm crisis-lint && cd apps/mobile && flutter analyze && flutter test",
     "brand:icons": "node scripts/brand/generate-icons.mjs",
     "docs:html": "node scripts/docs/md-to-html.mjs",
     "content:build": "node scripts/content/build-content.mjs",
     "content-build-lint": "node scripts/content/build-content.mjs --check",
-    "wordmark-lint": "node scripts/wordmark-lint.mjs"
+    "wordmark-lint": "node scripts/wordmark-lint.mjs",
+    "mobile-untranslated-lint": "node scripts/mobile/arb-untranslated-lint.mjs"
   },
   "devDependencies": {
     "sharp": "0.35.5",
