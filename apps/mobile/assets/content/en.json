@@ -41200,6 +41200,2721 @@
   "disclaimerType": "general"
  },
  {
+  "slug": "pcos-hair-skin-and-mood",
+  "title": "PCOS: Hair, Skin and Mood",
+  "excerpt": "Extra hair, acne, hair thinning and mood changes can come with PCOS. Learn what to note, how screening works and when to get help now.",
+  "body": {
+   "h1": null,
+   "root": {
+    "direction": "ltr",
+    "format": "",
+    "indent": 0,
+    "version": 1,
+    "type": "root",
+    "children": [
+     {
+      "direction": "ltr",
+      "format": "",
+      "indent": 0,
+      "version": 1,
+      "type": "paragraph",
+      "textFormat": 0,
+      "children": [
+       {
+        "type": "text",
+        "text": "Extra hair on the face or body, acne, oily skin and thinning hair on the scalp are possible signs of PCOS (polycystic ovary syndrome). Anxiety and low mood are also linked with PCOS. These changes can affect how you feel about your body and your daily life.",
+        "format": 0,
+        "detail": 0,
+        "mode": "normal",
+        "style": "",
+        "version": 1
+       }
+      ]
+     },
+     {
+      "direction": "ltr",
+      "format": "",
+      "indent": 0,
+      "version": 1,
+      "type": "paragraph",
+      "textFormat": 0,
+      "children": [
+       {
+        "type": "text",
+        "text": "This is health information for learning and planning. It is not medical advice. A screening questionnaire can start a conversation with your clinician. It cannot confirm PCOS or any mood problem.",
+        "format": 0,
+        "detail": 0,
+        "mode": "normal",
+        "style": "",
+        "version": 1
+       }
+      ]
+     },
+     {
+      "direction": "ltr",
+      "format": "",
+      "indent": 0,
+      "version": 1,
+      "type": "quote",
+      "children": [
+       {
+        "type": "text",
+        "text": "Seek care now:",
+        "format": 1,
+        "detail": 0,
+        "mode": "normal",
+        "style": "",
+        "version": 1
+       },
+       {
+        "type": "text",
+        "text": " If you have thoughts of ending your life or of harming yourself, get help now. Visit the ",
+        "format": 0,
+        "detail": 0,
+        "mode": "normal",
+        "style": "",
+        "version": 1
+       },
+       {
+        "type": "link",
+        "fields": {
+         "linkType": "custom",
+         "url": "/en/help-now",
+         "newTab": false
+        },
+        "children": [
+         {
+          "type": "text",
+          "text": "help page",
+          "format": 0,
+          "detail": 0,
+          "mode": "normal",
+          "style": "",
+          "version": 1
+         }
+        ],
+        "direction": "ltr",
+        "format": "",
+        "indent": 0,
+        "version": 3
+       },
+       {
+        "type": "text",
+        "text": " for support routes. You can also contact local emergency services or go to the nearest emergency department.",
+        "format": 0,
+        "detail": 0,
+        "mode": "normal",
+        "style": "",
+        "version": 1
+       }
+      ]
+     },
+     {
+      "direction": "ltr",
+      "format": "",
+      "indent": 0,
+      "version": 1,
+      "type": "heading",
+      "tag": "h2",
+      "children": [
+       {
+        "type": "text",
+        "text": "Extra hair on the face or body",
+        "format": 0,
+        "detail": 0,
+        "mode": "normal",
+        "style": "",
+        "version": 1
+       }
+      ]
+     },
+     {
+      "direction": "ltr",
+      "format": "",
+      "indent": 0,
+      "version": 1,
+      "type": "paragraph",
+      "textFormat": 0,
+      "children": [
+       {
+        "type": "text",
+        "text": "The World Health Organization (WHO) lists excess hair on the face or body among the signs of PCOS. The medical name is hirsutism. The NHS describes it as thick, dark hair on places such as the face, neck, chest or tummy. Lighter, finer hair is usually not hirsutism.",
+        "format": 0,
+        "detail": 0,
+        "mode": "normal",
+        "style": "",
+        "version": 1
+       }
+      ]
+     },
+     {
+      "direction": "ltr",
+      "format": "",
+      "indent": 0,
+      "version": 1,
+      "type": "paragraph",
+      "textFormat": 0,
+      "children": [
+       {
+        "type": "text",
+        "text": "The NHS says hirsutism is usually linked to higher levels of \"male-type\" hormones (androgens), or to the body being more sensitive to them. PCOS is the most common cause. Sometimes no cause is found. Less often, it comes from certain medicines or other hormone conditions.",
+        "format": 0,
+        "detail": 0,
+        "mode": "normal",
+        "style": "",
+        "version": 1
+       }
+      ]
+     },
+     {
+      "direction": "ltr",
+      "format": "",
+      "indent": 0,
+      "version": 1,
+      "type": "paragraph",
+      "textFormat": 0,
+      "children": [
+       {
+        "type": "text",
+        "text": "The 2023 international PCOS guideline says a clinician may score hair growth across several body areas. The cut-off used can vary by ethnic background. The guideline also says extra hair on its own is a stronger clue to PCOS in adults than acne or hair thinning on their own.",
+        "format": 0,
+        "detail": 0,
+        "mode": "normal",
+        "style": "",
+        "version": 1
+       }
+      ]
+     },
+     {
+      "direction": "ltr",
+      "format": "",
+      "indent": 0,
+      "version": 1,
+      "type": "paragraph",
+      "textFormat": 0,
+      "children": [
+       {
+        "type": "text",
+        "text": "Hair removal options include shaving, waxing, creams, electrolysis and laser, the NHS says. Your clinician can talk through these, and medicines for extra hair too. See ",
+        "format": 0,
+        "detail": 0,
+        "mode": "normal",
+        "style": "",
+        "version": 1
+       },
+       {
+        "type": "link",
+        "fields": {
+         "linkType": "custom",
+         "url": "/en/learn/pcos-treatment-options-to-discuss",
+         "newTab": false
+        },
+        "children": [
+         {
+          "type": "text",
+          "text": "treatment options to discuss",
+          "format": 0,
+          "detail": 0,
+          "mode": "normal",
+          "style": "",
+          "version": 1
+         }
+        ],
+        "direction": "ltr",
+        "format": "",
+        "indent": 0,
+        "version": 3
+       },
+       {
+        "type": "text",
+        "text": ".",
+        "format": 0,
+        "detail": 0,
+        "mode": "normal",
+        "style": "",
+        "version": 1
+       }
+      ]
+     },
+     {
+      "direction": "ltr",
+      "format": "",
+      "indent": 0,
+      "version": 1,
+      "type": "heading",
+      "tag": "h2",
+      "children": [
+       {
+        "type": "text",
+        "text": "Acne and oily skin",
+        "format": 0,
+        "detail": 0,
+        "mode": "normal",
+        "style": "",
+        "version": 1
+       }
+      ]
+     },
+     {
+      "direction": "ltr",
+      "format": "",
+      "indent": 0,
+      "version": 1,
+      "type": "paragraph",
+      "textFormat": 0,
+      "children": [
+       {
+        "type": "text",
+        "text": "WHO lists acne and oily skin as possible PCOS signs. The guideline says acne on its own, without extra hair, is a weak clue for PCOS.",
+        "format": 0,
+        "detail": 0,
+        "mode": "normal",
+        "style": "",
+        "version": 1
+       }
+      ]
+     },
+     {
+      "direction": "ltr",
+      "format": "",
+      "indent": 0,
+      "version": 1,
+      "type": "paragraph",
+      "textFormat": 0,
+      "children": [
+       {
+        "type": "text",
+        "text": "Acne has many causes. The NHS lists hormone changes during puberty, periods and pregnancy. It also lists PCOS, some medicines, and skin or hair products that make skin greasy.",
+        "format": 0,
+        "detail": 0,
+        "mode": "normal",
+        "style": "",
+        "version": 1
+       }
+      ]
+     },
+     {
+      "direction": "ltr",
+      "format": "",
+      "indent": 0,
+      "version": 1,
+      "type": "paragraph",
+      "textFormat": 0,
+      "children": [
+       {
+        "type": "text",
+        "text": "The NHS says creams, gels and tablets can help acne. A pharmacist can advise on creams you can buy. Ask your clinician which option suits your skin and health.",
+        "format": 0,
+        "detail": 0,
+        "mode": "normal",
+        "style": "",
+        "version": 1
+       }
+      ]
+     },
+     {
+      "direction": "ltr",
+      "format": "",
+      "indent": 0,
+      "version": 1,
+      "type": "heading",
+      "tag": "h2",
+      "children": [
+       {
+        "type": "text",
+        "text": "Thinning hair on the scalp",
+        "format": 0,
+        "detail": 0,
+        "mode": "normal",
+        "style": "",
+        "version": 1
+       }
+      ]
+     },
+     {
+      "direction": "ltr",
+      "format": "",
+      "indent": 0,
+      "version": 1,
+      "type": "paragraph",
+      "textFormat": 0,
+      "children": [
+       {
+        "type": "text",
+        "text": "WHO also lists female-pattern hair thinning on the scalp as a possible sign. The guideline says hair thinning on its own is a weak clue for PCOS.",
+        "format": 0,
+        "detail": 0,
+        "mode": "normal",
+        "style": "",
+        "version": 1
+       }
+      ]
+     },
+     {
+      "direction": "ltr",
+      "format": "",
+      "indent": 0,
+      "version": 1,
+      "type": "paragraph",
+      "textFormat": 0,
+      "children": [
+       {
+        "type": "text",
+        "text": "Hair loss has other causes too. The NHS lists illness, stress, weight loss, iron deficiency and cancer treatment. Female-pattern hair loss can also run in families. So a clinician may check for other causes.",
+        "format": 0,
+        "detail": 0,
+        "mode": "normal",
+        "style": "",
+        "version": 1
+       }
+      ]
+     },
+     {
+      "direction": "ltr",
+      "format": "",
+      "indent": 0,
+      "version": 1,
+      "type": "paragraph",
+      "textFormat": 0,
+      "children": [
+       {
+        "type": "text",
+        "text": "Note when the thinning started and whether it is getting worse. This helps your visit.",
+        "format": 0,
+        "detail": 0,
+        "mode": "normal",
+        "style": "",
+        "version": 1
+       }
+      ]
+     },
+     {
+      "direction": "ltr",
+      "format": "",
+      "indent": 0,
+      "version": 1,
+      "type": "heading",
+      "tag": "h2",
+      "children": [
+       {
+        "type": "text",
+        "text": "Anxiety, low mood and body image",
+        "format": 0,
+        "detail": 0,
+        "mode": "normal",
+        "style": "",
+        "version": 1
+       }
+      ]
+     },
+     {
+      "direction": "ltr",
+      "format": "",
+      "indent": 0,
+      "version": 1,
+      "type": "paragraph",
+      "textFormat": 0,
+      "children": [
+       {
+        "type": "text",
+        "text": "WHO says people with PCOS may have anxiety, depression, eating disorders and a negative body image. WHO adds that symptoms such as unwanted hair face social stigma in many places.",
+        "format": 0,
+        "detail": 0,
+        "mode": "normal",
+        "style": "",
+        "version": 1
+       }
+      ]
+     },
+     {
+      "direction": "ltr",
+      "format": "",
+      "indent": 0,
+      "version": 1,
+      "type": "paragraph",
+      "textFormat": 0,
+      "children": [
+       {
+        "type": "text",
+        "text": "The guideline says clinicians should screen all adults and teens with PCOS for depression. It says they should screen adults for anxiety too. They should use questionnaires checked for use in your region. A screen is a starting point, not a diagnosis. Share your answers with your clinician.",
+        "format": 0,
+        "detail": 0,
+        "mode": "normal",
+        "style": "",
+        "version": 1
+       }
+      ]
+     },
+     {
+      "direction": "ltr",
+      "format": "",
+      "indent": 0,
+      "version": 1,
+      "type": "paragraph",
+      "textFormat": 0,
+      "children": [
+       {
+        "type": "text",
+        "text": "The guideline says the best gap between repeat screens is not known. One practical approach is a screen at diagnosis, then again based on your clinician's judgement and your life events.",
+        "format": 0,
+        "detail": 0,
+        "mode": "normal",
+        "style": "",
+        "version": 1
+       }
+      ]
+     },
+     {
+      "direction": "ltr",
+      "format": "",
+      "indent": 0,
+      "version": 1,
+      "type": "paragraph",
+      "textFormat": 0,
+      "children": [
+       {
+        "type": "text",
+        "text": "The guideline also says eating disorders should be considered in PCOS, whatever a person's weight. It notes that PCOS features can affect body image.",
+        "format": 0,
+        "detail": 0,
+        "mode": "normal",
+        "style": "",
+        "version": 1
+       }
+      ]
+     },
+     {
+      "direction": "ltr",
+      "format": "",
+      "indent": 0,
+      "version": 1,
+      "type": "heading",
+      "tag": "h2",
+      "children": [
+       {
+        "type": "text",
+        "text": "Support that can help",
+        "format": 0,
+        "detail": 0,
+        "mode": "normal",
+        "style": "",
+        "version": 1
+       }
+      ]
+     },
+     {
+      "direction": "ltr",
+      "format": "",
+      "indent": 0,
+      "version": 1,
+      "type": "paragraph",
+      "textFormat": 0,
+      "children": [
+       {
+        "type": "text",
+        "text": "If depression, anxiety or an eating disorder is found, the guideline says psychological therapy should be offered. It names cognitive behaviour therapy as one option for body image worries and eating problems. The NHS describes it as a talking therapy where a therapist helps you change how you think and act.",
+        "format": 0,
+        "detail": 0,
+        "mode": "normal",
+        "style": "",
+        "version": 1
+       }
+      ]
+     },
+     {
+      "direction": "ltr",
+      "format": "",
+      "indent": 0,
+      "version": 1,
+      "type": "paragraph",
+      "textFormat": 0,
+      "children": [
+       {
+        "type": "text",
+        "text": "The NHS also says talking therapy can help when PCOS symptoms lead to depression or anxiety. You can ask about it at any visit.",
+        "format": 0,
+        "detail": 0,
+        "mode": "normal",
+        "style": "",
+        "version": 1
+       }
+      ]
+     },
+     {
+      "direction": "ltr",
+      "format": "",
+      "indent": 0,
+      "version": 1,
+      "type": "paragraph",
+      "textFormat": 0,
+      "children": [
+       {
+        "type": "text",
+        "text": "You do not have to raise everything at once. Start with the change that worries you most. Your feelings about these changes are valid.",
+        "format": 0,
+        "detail": 0,
+        "mode": "normal",
+        "style": "",
+        "version": 1
+       }
+      ]
+     },
+     {
+      "direction": "ltr",
+      "format": "",
+      "indent": 0,
+      "version": 1,
+      "type": "heading",
+      "tag": "h2",
+      "children": [
+       {
+        "type": "text",
+        "text": "When to see a doctor",
+        "format": 0,
+        "detail": 0,
+        "mode": "normal",
+        "style": "",
+        "version": 1
+       }
+      ]
+     },
+     {
+      "direction": "ltr",
+      "format": "",
+      "indent": 0,
+      "version": 1,
+      "type": "paragraph",
+      "textFormat": 0,
+      "children": [
+       {
+        "type": "text",
+        "text": "Ask for an urgent GP or clinic appointment if new thick, dark hair suddenly starts growing on your face and body. Do the same if your voice is getting deeper or your muscles are getting bigger. The NHS gives this advice. The guideline says changes that start suddenly or get worse quickly need further checks.",
+        "format": 0,
+        "detail": 0,
+        "mode": "normal",
+        "style": "",
+        "version": 1
+       }
+      ]
+     },
+     {
+      "direction": "ltr",
+      "format": "",
+      "indent": 0,
+      "version": 1,
+      "type": "paragraph",
+      "textFormat": 0,
+      "children": [
+       {
+        "type": "text",
+        "text": "Book a visit if acne, hair changes or mood affect your daily life, work or relationships. The NHS uses this same test for when to see a GP about PCOS symptoms. The NHS also advises a GP visit if acne is painful or deep, is leaving scars, or is affecting your mental health.",
+        "format": 0,
+        "detail": 0,
+        "mode": "normal",
+        "style": "",
+        "version": 1
+       }
+      ]
+     },
+     {
+      "direction": "ltr",
+      "format": "",
+      "indent": 0,
+      "version": 1,
+      "type": "paragraph",
+      "textFormat": 0,
+      "children": [
+       {
+        "type": "text",
+        "text": "Book a visit if low mood or worry lasts, or keeps coming back. Book a visit if you have worries about eating or body image.",
+        "format": 0,
+        "detail": 0,
+        "mode": "normal",
+        "style": "",
+        "version": 1
+       }
+      ]
+     },
+     {
+      "direction": "ltr",
+      "format": "",
+      "indent": 0,
+      "version": 1,
+      "type": "heading",
+      "tag": "h2",
+      "children": [
+       {
+        "type": "text",
+        "text": "Questions to ask your clinician",
+        "format": 0,
+        "detail": 0,
+        "mode": "normal",
+        "style": "",
+        "version": 1
+       }
+      ]
+     },
+     {
+      "direction": "ltr",
+      "format": "",
+      "indent": 0,
+      "version": 1,
+      "type": "list",
+      "listType": "bullet",
+      "tag": "ul",
+      "start": 1,
+      "children": [
+       {
+        "direction": "ltr",
+        "format": "",
+        "indent": 0,
+        "version": 1,
+        "type": "listitem",
+        "value": 1,
+        "children": [
+         {
+          "type": "text",
+          "text": "Which hair score or check do you use for me?",
+          "format": 0,
+          "detail": 0,
+          "mode": "normal",
+          "style": "",
+          "version": 1
+         }
+        ]
+       },
+       {
+        "direction": "ltr",
+        "format": "",
+        "indent": 0,
+        "version": 1,
+        "type": "listitem",
+        "value": 2,
+        "children": [
+         {
+          "type": "text",
+          "text": "Could my acne or hair change have another cause we should check?",
+          "format": 0,
+          "detail": 0,
+          "mode": "normal",
+          "style": "",
+          "version": 1
+         }
+        ]
+       },
+       {
+        "direction": "ltr",
+        "format": "",
+        "indent": 0,
+        "version": 1,
+        "type": "listitem",
+        "value": 3,
+        "children": [
+         {
+          "type": "text",
+          "text": "Would a mood check fit this visit?",
+          "format": 0,
+          "detail": 0,
+          "mode": "normal",
+          "style": "",
+          "version": 1
+         }
+        ]
+       },
+       {
+        "direction": "ltr",
+        "format": "",
+        "indent": 0,
+        "version": 1,
+        "type": "listitem",
+        "value": 4,
+        "children": [
+         {
+          "type": "text",
+          "text": "What support is available near me, such as talking therapy?",
+          "format": 0,
+          "detail": 0,
+          "mode": "normal",
+          "style": "",
+          "version": 1
+         }
+        ]
+       },
+       {
+        "direction": "ltr",
+        "format": "",
+        "indent": 0,
+        "version": 1,
+        "type": "listitem",
+        "value": 5,
+        "children": [
+         {
+          "type": "text",
+          "text": "Which hair or skin option fits my goals?",
+          "format": 0,
+          "detail": 0,
+          "mode": "normal",
+          "style": "",
+          "version": 1
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "direction": "ltr",
+      "format": "",
+      "indent": 0,
+      "version": 1,
+      "type": "paragraph",
+      "textFormat": 0,
+      "children": [
+       {
+        "type": "text",
+        "text": "What femio does and does not do.",
+        "format": 1,
+        "detail": 0,
+        "mode": "normal",
+        "style": "",
+        "version": 1
+       },
+       {
+        "type": "text",
+        "text": " femio lets you note hair, skin and mood changes, so your visit is clearer. femio does not confirm PCOS. A screen it offers is a starting point, not a diagnosis. femio is not a crisis service. For urgent help, use the ",
+        "format": 0,
+        "detail": 0,
+        "mode": "normal",
+        "style": "",
+        "version": 1
+       },
+       {
+        "type": "link",
+        "fields": {
+         "linkType": "custom",
+         "url": "/en/help-now",
+         "newTab": false
+        },
+        "children": [
+         {
+          "type": "text",
+          "text": "help page",
+          "format": 0,
+          "detail": 0,
+          "mode": "normal",
+          "style": "",
+          "version": 1
+         }
+        ],
+        "direction": "ltr",
+        "format": "",
+        "indent": 0,
+        "version": 3
+       },
+       {
+        "type": "text",
+        "text": ".",
+        "format": 0,
+        "detail": 0,
+        "mode": "normal",
+        "style": "",
+        "version": 1
+       }
+      ]
+     }
+    ]
+   }
+  },
+  "sources": [
+   {
+    "title": "Teede HJ et al. Recommendations from the 2023 International Evidence-based Guideline for the Assessment and Management of PCOS. Hum Reprod 2023;38(9):1655-1679 (full text also on PMC10477934)",
+    "url": "https://academic.oup.com/humrep/article/38/9/1655/7241786",
+    "tier": "1"
+   },
+   {
+    "title": "WHO fact sheet: Polycystic ovary syndrome (22 January 2026)",
+    "url": "https://www.who.int/news-room/fact-sheets/detail/polycystic-ovary-syndrome",
+    "tier": "1"
+   },
+   {
+    "title": "NHS: Polyendocrine metabolic ovarian syndrome (PMOS, previously PCOS), last reviewed 30 June 2026",
+    "url": "https://www.nhs.uk/conditions/polycystic-ovary-syndrome-pcos/",
+    "tier": "1"
+   },
+   {
+    "title": "NHS: Hirsutism, last reviewed 18 August 2025",
+    "url": "https://www.nhs.uk/conditions/hirsutism/",
+    "tier": "1"
+   },
+   {
+    "title": "NHS: Acne, last reviewed 22 September 2026",
+    "url": "https://www.nhs.uk/conditions/acne/",
+    "tier": "1"
+   },
+   {
+    "title": "NHS: Hair loss, last reviewed 24 January 2024",
+    "url": "https://www.nhs.uk/conditions/hair-loss/",
+    "tier": "1"
+   },
+   {
+    "title": "NHS: Cognitive behavioural therapy (CBT), last reviewed 28 March 2025",
+    "url": "https://www.nhs.uk/mental-health/talking-therapies-medicine-treatments/talking-therapies-and-counselling/cognitive-behavioural-therapy-cbt/overview/",
+    "tier": "1"
+   }
+  ],
+  "reviewer": null,
+  "lastReviewed": null,
+  "disclaimerType": "emergency"
+ },
+ {
+  "slug": "pcos-insulin-resistance",
+  "title": "PCOS and Insulin Resistance, Explained",
+  "excerpt": "What insulin resistance is, why it matters with PCOS, how clinicians check blood sugar, and what metformin is. Explained without any dose.",
+  "body": {
+   "h1": null,
+   "root": {
+    "direction": "ltr",
+    "format": "",
+    "indent": 0,
+    "version": 1,
+    "type": "root",
+    "children": [
+     {
+      "direction": "ltr",
+      "format": "",
+      "indent": 0,
+      "version": 1,
+      "type": "paragraph",
+      "textFormat": 0,
+      "children": [
+       {
+        "type": "text",
+        "text": "Insulin resistance means your body does not respond to insulin as well as it should. Insulin is a hormone that helps sugar (glucose) move from your blood into your cells. The World Health Organization (WHO) says PCOS (polycystic ovary syndrome) is linked with a higher long-term risk of insulin resistance and type 2 diabetes.",
+        "format": 0,
+        "detail": 0,
+        "mode": "normal",
+        "style": "",
+        "version": 1
+       }
+      ]
+     },
+     {
+      "direction": "ltr",
+      "format": "",
+      "indent": 0,
+      "version": 1,
+      "type": "paragraph",
+      "textFormat": 0,
+      "children": [
+       {
+        "type": "text",
+        "text": "This page explains the idea. It is health information for learning and planning, not medical advice. Only your clinician can say what your own blood tests mean.",
+        "format": 0,
+        "detail": 0,
+        "mode": "normal",
+        "style": "",
+        "version": 1
+       }
+      ]
+     },
+     {
+      "direction": "ltr",
+      "format": "",
+      "indent": 0,
+      "version": 1,
+      "type": "quote",
+      "children": [
+       {
+        "type": "text",
+        "text": "Seek care now:",
+        "format": 1,
+        "detail": 0,
+        "mode": "normal",
+        "style": "",
+        "version": 1
+       },
+       {
+        "type": "text",
+        "text": " If you take metformin, call your local emergency number or go to the nearest emergency department if you have signs of too much acid in the blood (lactic acidosis). The NHS lists being sick, stomach pain, muscle cramps, breathing problems and feeling very tired as signs. Do the same for signs of a severe allergic reaction, such as a swollen throat or tongue, a raised itchy rash, or trouble breathing.",
+        "format": 0,
+        "detail": 0,
+        "mode": "normal",
+        "style": "",
+        "version": 1
+       }
+      ]
+     },
+     {
+      "direction": "ltr",
+      "format": "",
+      "indent": 0,
+      "version": 1,
+      "type": "heading",
+      "tag": "h2",
+      "children": [
+       {
+        "type": "text",
+        "text": "What insulin resistance is",
+        "format": 0,
+        "detail": 0,
+        "mode": "normal",
+        "style": "",
+        "version": 1
+       }
+      ]
+     },
+     {
+      "direction": "ltr",
+      "format": "",
+      "indent": 0,
+      "version": 1,
+      "type": "paragraph",
+      "textFormat": 0,
+      "children": [
+       {
+        "type": "text",
+        "text": "The US National Institute of Diabetes and Digestive and Kidney Diseases (NIDDK) describes insulin resistance as a condition where your body does not respond to insulin the way it should. Insulin is made by the pancreas, an organ in your tummy.",
+        "format": 0,
+        "detail": 0,
+        "mode": "normal",
+        "style": "",
+        "version": 1
+       }
+      ]
+     },
+     {
+      "direction": "ltr",
+      "format": "",
+      "indent": 0,
+      "version": 1,
+      "type": "paragraph",
+      "textFormat": 0,
+      "children": [
+       {
+        "type": "text",
+        "text": "When cells do not respond well, more sugar can stay in the blood. Over time, this can lead to higher blood sugar levels. NIDDK lists PCOS among the conditions that raise the chance of insulin resistance and prediabetes. Prediabetes means blood sugar is higher than usual, but not high enough to be type 2 diabetes.",
+        "format": 0,
+        "detail": 0,
+        "mode": "normal",
+        "style": "",
+        "version": 1
+       }
+      ]
+     },
+     {
+      "direction": "ltr",
+      "format": "",
+      "indent": 0,
+      "version": 1,
+      "type": "paragraph",
+      "textFormat": 0,
+      "children": [
+       {
+        "type": "text",
+        "text": "Insulin resistance is not the same as diabetes. NIDDK says people with insulin resistance and prediabetes usually have no symptoms. That is why blood tests matter more than how you feel.",
+        "format": 0,
+        "detail": 0,
+        "mode": "normal",
+        "style": "",
+        "version": 1
+       }
+      ]
+     },
+     {
+      "direction": "ltr",
+      "format": "",
+      "indent": 0,
+      "version": 1,
+      "type": "heading",
+      "tag": "h2",
+      "children": [
+       {
+        "type": "text",
+        "text": "Why it matters with PCOS",
+        "format": 0,
+        "detail": 0,
+        "mode": "normal",
+        "style": "",
+        "version": 1
+       }
+      ]
+     },
+     {
+      "direction": "ltr",
+      "format": "",
+      "indent": 0,
+      "version": 1,
+      "type": "paragraph",
+      "textFormat": 0,
+      "children": [
+       {
+        "type": "text",
+        "text": "WHO says women with PCOS have a higher risk of other health conditions. These include type 2 diabetes, high blood pressure and heart disease. After a PCOS diagnosis, WHO advises further blood tests. These look for insulin resistance and check overall heart and blood vessel risk.",
+        "format": 0,
+        "detail": 0,
+        "mode": "normal",
+        "style": "",
+        "version": 1
+       }
+      ]
+     },
+     {
+      "direction": "ltr",
+      "format": "",
+      "indent": 0,
+      "version": 1,
+      "type": "paragraph",
+      "textFormat": 0,
+      "children": [
+       {
+        "type": "text",
+        "text": "The NHS lists thick, dark patches of skin on the neck or armpits among possible PCOS symptoms. Tell your clinician about any skin change like this.",
+        "format": 0,
+        "detail": 0,
+        "mode": "normal",
+        "style": "",
+        "version": 1
+       }
+      ]
+     },
+     {
+      "direction": "ltr",
+      "format": "",
+      "indent": 0,
+      "version": 1,
+      "type": "heading",
+      "tag": "h2",
+      "children": [
+       {
+        "type": "text",
+        "text": "How a clinician checks blood sugar",
+        "format": 0,
+        "detail": 0,
+        "mode": "normal",
+        "style": "",
+        "version": 1
+       }
+      ]
+     },
+     {
+      "direction": "ltr",
+      "format": "",
+      "indent": 0,
+      "version": 1,
+      "type": "paragraph",
+      "textFormat": 0,
+      "children": [
+       {
+        "type": "text",
+        "text": "Insulin itself is not usually measured. The 2023 international PCOS guideline says insulin tests that clinics can order have limited value and are not recommended in routine care. NIDDK also says the insulin resistance test is mainly used in research.",
+        "format": 0,
+        "detail": 0,
+        "mode": "normal",
+        "style": "",
+        "version": 1
+       }
+      ]
+     },
+     {
+      "direction": "ltr",
+      "format": "",
+      "indent": 0,
+      "version": 1,
+      "type": "paragraph",
+      "textFormat": 0,
+      "children": [
+       {
+        "type": "text",
+        "text": "Instead, the guideline names the 75-gram oral glucose tolerance test (OGTT) as the most accurate way to check blood sugar in PCOS. MedlinePlus, from the US National Library of Medicine, explains how it works:",
+        "format": 0,
+        "detail": 0,
+        "mode": "normal",
+        "style": "",
+        "version": 1
+       }
+      ]
+     },
+     {
+      "direction": "ltr",
+      "format": "",
+      "indent": 0,
+      "version": 1,
+      "type": "list",
+      "listType": "bullet",
+      "tag": "ul",
+      "start": 1,
+      "children": [
+       {
+        "direction": "ltr",
+        "format": "",
+        "indent": 0,
+        "version": 1,
+        "type": "listitem",
+        "value": 1,
+        "children": [
+         {
+          "type": "text",
+          "text": "You do not eat for at least 8 hours before the test.",
+          "format": 0,
+          "detail": 0,
+          "mode": "normal",
+          "style": "",
+          "version": 1
+         }
+        ]
+       },
+       {
+        "direction": "ltr",
+        "format": "",
+        "indent": 0,
+        "version": 1,
+        "type": "listitem",
+        "value": 2,
+        "children": [
+         {
+          "type": "text",
+          "text": "A first blood sample is taken.",
+          "format": 0,
+          "detail": 0,
+          "mode": "normal",
+          "style": "",
+          "version": 1
+         }
+        ]
+       },
+       {
+        "direction": "ltr",
+        "format": "",
+        "indent": 0,
+        "version": 1,
+        "type": "listitem",
+        "value": 3,
+        "children": [
+         {
+          "type": "text",
+          "text": "You drink a sweet liquid that contains a set amount of glucose.",
+          "format": 0,
+          "detail": 0,
+          "mode": "normal",
+          "style": "",
+          "version": 1
+         }
+        ]
+       },
+       {
+        "direction": "ltr",
+        "format": "",
+        "indent": 0,
+        "version": 1,
+        "type": "listitem",
+        "value": 4,
+        "children": [
+         {
+          "type": "text",
+          "text": "More blood samples are taken over the next few hours.",
+          "format": 0,
+          "detail": 0,
+          "mode": "normal",
+          "style": "",
+          "version": 1
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "direction": "ltr",
+      "format": "",
+      "indent": 0,
+      "version": 1,
+      "type": "paragraph",
+      "textFormat": 0,
+      "children": [
+       {
+        "type": "text",
+        "text": "If an OGTT cannot be done, the guideline says two other tests may be used. These are less accurate:",
+        "format": 0,
+        "detail": 0,
+        "mode": "normal",
+        "style": "",
+        "version": 1
+       }
+      ]
+     },
+     {
+      "direction": "ltr",
+      "format": "",
+      "indent": 0,
+      "version": 1,
+      "type": "list",
+      "listType": "bullet",
+      "tag": "ul",
+      "start": 1,
+      "children": [
+       {
+        "direction": "ltr",
+        "format": "",
+        "indent": 0,
+        "version": 1,
+        "type": "listitem",
+        "value": 1,
+        "children": [
+         {
+          "type": "text",
+          "text": "Fasting glucose",
+          "format": 1,
+          "detail": 0,
+          "mode": "normal",
+          "style": "",
+          "version": 1
+         },
+         {
+          "type": "text",
+          "text": " measures blood sugar after you have had nothing but water for at least 8 hours.",
+          "format": 0,
+          "detail": 0,
+          "mode": "normal",
+          "style": "",
+          "version": 1
+         }
+        ]
+       },
+       {
+        "direction": "ltr",
+        "format": "",
+        "indent": 0,
+        "version": 1,
+        "type": "listitem",
+        "value": 2,
+        "children": [
+         {
+          "type": "text",
+          "text": "HbA1c",
+          "format": 1,
+          "detail": 0,
+          "mode": "normal",
+          "style": "",
+          "version": 1
+         },
+         {
+          "type": "text",
+          "text": " shows your average blood sugar over the past two to three months.",
+          "format": 0,
+          "detail": 0,
+          "mode": "normal",
+          "style": "",
+          "version": 1
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "direction": "ltr",
+      "format": "",
+      "indent": 0,
+      "version": 1,
+      "type": "paragraph",
+      "textFormat": 0,
+      "children": [
+       {
+        "type": "text",
+        "text": "The guideline says an OGTT should be offered to all women with PCOS who are planning a pregnancy or seeking fertility treatment.",
+        "format": 0,
+        "detail": 0,
+        "mode": "normal",
+        "style": "",
+        "version": 1
+       }
+      ]
+     },
+     {
+      "direction": "ltr",
+      "format": "",
+      "indent": 0,
+      "version": 1,
+      "type": "heading",
+      "tag": "h2",
+      "children": [
+       {
+        "type": "text",
+        "text": "Lifestyle and blood sugar",
+        "format": 0,
+        "detail": 0,
+        "mode": "normal",
+        "style": "",
+        "version": 1
+       }
+      ]
+     },
+     {
+      "direction": "ltr",
+      "format": "",
+      "indent": 0,
+      "version": 1,
+      "type": "paragraph",
+      "textFormat": 0,
+      "children": [
+       {
+        "type": "text",
+        "text": "NIDDK says healthy food and drinks and being active may help reverse insulin resistance and prediabetes. The PCOS guideline says lifestyle support aims to improve metabolic health, such as blood sugar and blood fat levels. It also says healthy habits help even without weight loss. See the ",
+        "format": 0,
+        "detail": 0,
+        "mode": "normal",
+        "style": "",
+        "version": 1
+       },
+       {
+        "type": "link",
+        "fields": {
+         "linkType": "custom",
+         "url": "/en/learn/pcos-lifestyle-and-weight",
+         "newTab": false
+        },
+        "children": [
+         {
+          "type": "text",
+          "text": "lifestyle and weight guide",
+          "format": 0,
+          "detail": 0,
+          "mode": "normal",
+          "style": "",
+          "version": 1
+         }
+        ],
+        "direction": "ltr",
+        "format": "",
+        "indent": 0,
+        "version": 3
+       },
+       {
+        "type": "text",
+        "text": ".",
+        "format": 0,
+        "detail": 0,
+        "mode": "normal",
+        "style": "",
+        "version": 1
+       }
+      ]
+     },
+     {
+      "direction": "ltr",
+      "format": "",
+      "indent": 0,
+      "version": 1,
+      "type": "heading",
+      "tag": "h2",
+      "children": [
+       {
+        "type": "text",
+        "text": "What metformin is",
+        "format": 0,
+        "detail": 0,
+        "mode": "normal",
+        "style": "",
+        "version": 1
+       }
+      ]
+     },
+     {
+      "direction": "ltr",
+      "format": "",
+      "indent": 0,
+      "version": 1,
+      "type": "paragraph",
+      "textFormat": 0,
+      "children": [
+       {
+        "type": "text",
+        "text": "Metformin is a prescription-only medicine. The NHS says it is used for type 2 diabetes, for gestational diabetes (diabetes that starts in pregnancy) and for PMOS. The NHS now uses the name PMOS (polyendocrine metabolic ovarian syndrome), which it says used to be called PCOS. You may hear both names.",
+        "format": 0,
+        "detail": 0,
+        "mode": "normal",
+        "style": "",
+        "version": 1
+       }
+      ]
+     },
+     {
+      "direction": "ltr",
+      "format": "",
+      "indent": 0,
+      "version": 1,
+      "type": "paragraph",
+      "textFormat": 0,
+      "children": [
+       {
+        "type": "text",
+        "text": "The 2023 guideline says metformin may be considered for some adults with PCOS. Its main use is metabolic health, such as insulin resistance, blood sugar and blood fats. The evidence behind this is limited. For extra hair, the guideline prefers the combined pill over metformin. Your clinician decides with you whether metformin fits your goals.",
+        "format": 0,
+        "detail": 0,
+        "mode": "normal",
+        "style": "",
+        "version": 1
+       }
+      ]
+     },
+     {
+      "direction": "ltr",
+      "format": "",
+      "indent": 0,
+      "version": 1,
+      "type": "paragraph",
+      "textFormat": 0,
+      "children": [
+       {
+        "type": "text",
+        "text": "Like all medicines, metformin can cause side effects. The NHS lists these common ones:",
+        "format": 0,
+        "detail": 0,
+        "mode": "normal",
+        "style": "",
+        "version": 1
+       }
+      ]
+     },
+     {
+      "direction": "ltr",
+      "format": "",
+      "indent": 0,
+      "version": 1,
+      "type": "list",
+      "listType": "bullet",
+      "tag": "ul",
+      "start": 1,
+      "children": [
+       {
+        "direction": "ltr",
+        "format": "",
+        "indent": 0,
+        "version": 1,
+        "type": "listitem",
+        "value": 1,
+        "children": [
+         {
+          "type": "text",
+          "text": "feeling or being sick",
+          "format": 0,
+          "detail": 0,
+          "mode": "normal",
+          "style": "",
+          "version": 1
+         }
+        ]
+       },
+       {
+        "direction": "ltr",
+        "format": "",
+        "indent": 0,
+        "version": 1,
+        "type": "listitem",
+        "value": 2,
+        "children": [
+         {
+          "type": "text",
+          "text": "diarrhoea",
+          "format": 0,
+          "detail": 0,
+          "mode": "normal",
+          "style": "",
+          "version": 1
+         }
+        ]
+       },
+       {
+        "direction": "ltr",
+        "format": "",
+        "indent": 0,
+        "version": 1,
+        "type": "listitem",
+        "value": 3,
+        "children": [
+         {
+          "type": "text",
+          "text": "tummy pain",
+          "format": 0,
+          "detail": 0,
+          "mode": "normal",
+          "style": "",
+          "version": 1
+         }
+        ]
+       },
+       {
+        "direction": "ltr",
+        "format": "",
+        "indent": 0,
+        "version": 1,
+        "type": "listitem",
+        "value": 4,
+        "children": [
+         {
+          "type": "text",
+          "text": "loss of appetite",
+          "format": 0,
+          "detail": 0,
+          "mode": "normal",
+          "style": "",
+          "version": 1
+         }
+        ]
+       },
+       {
+        "direction": "ltr",
+        "format": "",
+        "indent": 0,
+        "version": 1,
+        "type": "listitem",
+        "value": 5,
+        "children": [
+         {
+          "type": "text",
+          "text": "a change in how things taste",
+          "format": 0,
+          "detail": 0,
+          "mode": "normal",
+          "style": "",
+          "version": 1
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "direction": "ltr",
+      "format": "",
+      "indent": 0,
+      "version": 1,
+      "type": "paragraph",
+      "textFormat": 0,
+      "children": [
+       {
+        "type": "text",
+        "text": "The guideline says stomach side effects are often mild and tend to ease over time. Both the NHS and the guideline say metformin can lower vitamin B12 levels, which can make you tired. Serious side effects are rare. The warning signs are in the box near the top of this page.",
+        "format": 0,
+        "detail": 0,
+        "mode": "normal",
+        "style": "",
+        "version": 1
+       }
+      ]
+     },
+     {
+      "direction": "ltr",
+      "format": "",
+      "indent": 0,
+      "version": 1,
+      "type": "heading",
+      "tag": "h2",
+      "children": [
+       {
+        "type": "text",
+        "text": "Questions to ask your clinician",
+        "format": 0,
+        "detail": 0,
+        "mode": "normal",
+        "style": "",
+        "version": 1
+       }
+      ]
+     },
+     {
+      "direction": "ltr",
+      "format": "",
+      "indent": 0,
+      "version": 1,
+      "type": "list",
+      "listType": "bullet",
+      "tag": "ul",
+      "start": 1,
+      "children": [
+       {
+        "direction": "ltr",
+        "format": "",
+        "indent": 0,
+        "version": 1,
+        "type": "listitem",
+        "value": 1,
+        "children": [
+         {
+          "type": "text",
+          "text": "Do I need a sugar drink test (OGTT) or another blood test?",
+          "format": 0,
+          "detail": 0,
+          "mode": "normal",
+          "style": "",
+          "version": 1
+         }
+        ]
+       },
+       {
+        "direction": "ltr",
+        "format": "",
+        "indent": 0,
+        "version": 1,
+        "type": "listitem",
+        "value": 2,
+        "children": [
+         {
+          "type": "text",
+          "text": "What would a result change in my plan?",
+          "format": 0,
+          "detail": 0,
+          "mode": "normal",
+          "style": "",
+          "version": 1
+         }
+        ]
+       },
+       {
+        "direction": "ltr",
+        "format": "",
+        "indent": 0,
+        "version": 1,
+        "type": "listitem",
+        "value": 3,
+        "children": [
+         {
+          "type": "text",
+          "text": "Is metformin an option for my goals, and which side effects matter for me?",
+          "format": 0,
+          "detail": 0,
+          "mode": "normal",
+          "style": "",
+          "version": 1
+         }
+        ]
+       },
+       {
+        "direction": "ltr",
+        "format": "",
+        "indent": 0,
+        "version": 1,
+        "type": "listitem",
+        "value": 4,
+        "children": [
+         {
+          "type": "text",
+          "text": "Should I have my vitamin B12 checked?",
+          "format": 0,
+          "detail": 0,
+          "mode": "normal",
+          "style": "",
+          "version": 1
+         }
+        ]
+       },
+       {
+        "direction": "ltr",
+        "format": "",
+        "indent": 0,
+        "version": 1,
+        "type": "listitem",
+        "value": 5,
+        "children": [
+         {
+          "type": "text",
+          "text": "Should I have a check for heart and blood vessel risk?",
+          "format": 0,
+          "detail": 0,
+          "mode": "normal",
+          "style": "",
+          "version": 1
+         }
+        ]
+       },
+       {
+        "direction": "ltr",
+        "format": "",
+        "indent": 0,
+        "version": 1,
+        "type": "listitem",
+        "value": 6,
+        "children": [
+         {
+          "type": "text",
+          "text": "When should we repeat my blood sugar checks?",
+          "format": 0,
+          "detail": 0,
+          "mode": "normal",
+          "style": "",
+          "version": 1
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "direction": "ltr",
+      "format": "",
+      "indent": 0,
+      "version": 1,
+      "type": "heading",
+      "tag": "h2",
+      "children": [
+       {
+        "type": "text",
+        "text": "When to see a doctor",
+        "format": 0,
+        "detail": 0,
+        "mode": "normal",
+        "style": "",
+        "version": 1
+       }
+      ]
+     },
+     {
+      "direction": "ltr",
+      "format": "",
+      "indent": 0,
+      "version": 1,
+      "type": "paragraph",
+      "textFormat": 0,
+      "children": [
+       {
+        "type": "text",
+        "text": "Book a visit if you have PCOS and have not had any blood sugar checks. If you are planning a pregnancy or fertility treatment, ask about an OGTT.",
+        "format": 0,
+        "detail": 0,
+        "mode": "normal",
+        "style": "",
+        "version": 1
+       }
+      ]
+     },
+     {
+      "direction": "ltr",
+      "format": "",
+      "indent": 0,
+      "version": 1,
+      "type": "paragraph",
+      "textFormat": 0,
+      "children": [
+       {
+        "type": "text",
+        "text": "The NHS lists signs of type 2 diabetes that are worth a GP visit. These include feeling very tired, passing urine more than usual, feeling thirsty all the time, and losing weight without trying. Blurred vision, cuts that heal slowly, and itching around the vagina or repeated thrush are also on the list.",
+        "format": 0,
+        "detail": 0,
+        "mode": "normal",
+        "style": "",
+        "version": 1
+       }
+      ]
+     },
+     {
+      "direction": "ltr",
+      "format": "",
+      "indent": 0,
+      "version": 1,
+      "type": "paragraph",
+      "textFormat": 0,
+      "children": [
+       {
+        "type": "text",
+        "text": "Book a visit if a medicine causes side effects that worry you. Talk to your clinician before you make any change to a prescribed medicine.",
+        "format": 0,
+        "detail": 0,
+        "mode": "normal",
+        "style": "",
+        "version": 1
+       }
+      ]
+     },
+     {
+      "direction": "ltr",
+      "format": "",
+      "indent": 0,
+      "version": 1,
+      "type": "paragraph",
+      "textFormat": 0,
+      "children": [
+       {
+        "type": "text",
+        "text": "What femio does and does not do.",
+        "format": 1,
+        "detail": 0,
+        "mode": "normal",
+        "style": "",
+        "version": 1
+       },
+       {
+        "type": "text",
+        "text": " femio can help you keep notes on cycles, skin changes and questions for your visit. femio does not measure insulin, read your blood tests, or choose a medicine. femio does not diagnose PCOS or insulin resistance, and it is not medical advice.",
+        "format": 0,
+        "detail": 0,
+        "mode": "normal",
+        "style": "",
+        "version": 1
+       }
+      ]
+     }
+    ]
+   }
+  },
+  "sources": [
+   {
+    "title": "Teede HJ et al. Recommendations from the 2023 International Evidence-based Guideline for the Assessment and Management of PCOS. Hum Reprod 2023;38(9):1655-1679 (full text also on PMC10477934)",
+    "url": "https://academic.oup.com/humrep/article/38/9/1655/7241786",
+    "tier": "1"
+   },
+   {
+    "title": "WHO fact sheet: Polycystic ovary syndrome (22 January 2026)",
+    "url": "https://www.who.int/news-room/fact-sheets/detail/polycystic-ovary-syndrome",
+    "tier": "1"
+   },
+   {
+    "title": "NHS: Polyendocrine metabolic ovarian syndrome (PMOS, previously PCOS), last reviewed 30 June 2026",
+    "url": "https://www.nhs.uk/conditions/polycystic-ovary-syndrome-pcos/",
+    "tier": "1"
+   },
+   {
+    "title": "NHS: Metformin (uses, side effects, serious side effects), last reviewed 5 August 2026",
+    "url": "https://www.nhs.uk/medicines/metformin/",
+    "tier": "1"
+   },
+   {
+    "title": "NIDDK (US National Institutes of Health): Insulin Resistance and Prediabetes, last reviewed March 2025",
+    "url": "https://www.niddk.nih.gov/health-information/diabetes/overview/what-is-diabetes/prediabetes-insulin-resistance",
+    "tier": "1"
+   },
+   {
+    "title": "MedlinePlus: Glucose tolerance test, reviewed 10 February 2025",
+    "url": "https://medlineplus.gov/ency/article/003466.htm",
+    "tier": "1"
+   },
+   {
+    "title": "MedlinePlus: Blood Glucose Test (fasting glucose), updated 30 December 2024",
+    "url": "https://medlineplus.gov/lab-tests/blood-glucose-test/",
+    "tier": "1"
+   },
+   {
+    "title": "MedlinePlus: Hemoglobin A1C (HbA1c) Test, updated 20 May 2025",
+    "url": "https://medlineplus.gov/lab-tests/hemoglobin-a1c-hba1c-test/",
+    "tier": "1"
+   },
+   {
+    "title": "NHS: Type 2 diabetes symptoms, last reviewed 10 February 2025",
+    "url": "https://www.nhs.uk/conditions/type-2-diabetes/symptoms/",
+    "tier": "1"
+   }
+  ],
+  "reviewer": null,
+  "lastReviewed": null,
+  "disclaimerType": "emergency"
+ },
+ {
+  "slug": "pcos-lifestyle-and-weight",
+  "title": "PCOS: Food, Movement and Weight, Without the Blame",
+  "excerpt": "What the 2023 international PCOS guideline says about food, movement, sleep and weight. No single diet is proven best, and weight stigma can cause harm.",
+  "body": {
+   "h1": null,
+   "root": {
+    "direction": "ltr",
+    "format": "",
+    "indent": 0,
+    "version": 1,
+    "type": "root",
+    "children": [
+     {
+      "direction": "ltr",
+      "format": "",
+      "indent": 0,
+      "version": 1,
+      "type": "paragraph",
+      "textFormat": 0,
+      "children": [
+       {
+        "type": "text",
+        "text": "Healthy eating, regular movement and good sleep are part of care for PCOS (polycystic ovary syndrome, a hormone condition that can affect periods, skin, hair and fertility). The 2023 international PCOS guideline recommends healthy habits for everyone with PCOS. It does not name one diet as the best. It also says these habits help even when your weight does not change.",
+        "format": 0,
+        "detail": 0,
+        "mode": "normal",
+        "style": "",
+        "version": 1
+       }
+      ]
+     },
+     {
+      "direction": "ltr",
+      "format": "",
+      "indent": 0,
+      "version": 1,
+      "type": "paragraph",
+      "textFormat": 0,
+      "children": [
+       {
+        "type": "text",
+        "text": "femio gives health information for learning and planning. It is not medical advice, and it does not replace your clinician.",
+        "format": 0,
+        "detail": 0,
+        "mode": "normal",
+        "style": "",
+        "version": 1
+       }
+      ]
+     },
+     {
+      "direction": "ltr",
+      "format": "",
+      "indent": 0,
+      "version": 1,
+      "type": "heading",
+      "tag": "h2",
+      "children": [
+       {
+        "type": "text",
+        "text": "What the guideline says about lifestyle",
+        "format": 0,
+        "detail": 0,
+        "mode": "normal",
+        "style": "",
+        "version": 1
+       }
+      ]
+     },
+     {
+      "direction": "ltr",
+      "format": "",
+      "indent": 0,
+      "version": 1,
+      "type": "paragraph",
+      "textFormat": 0,
+      "children": [
+       {
+        "type": "text",
+        "text": "The 2023 guideline calls lifestyle a core part of PCOS care. A lifestyle plan can be exercise alone. It can also mix healthy eating, exercise and support with daily habits.",
+        "format": 0,
+        "detail": 0,
+        "mode": "normal",
+        "style": "",
+        "version": 1
+       }
+      ]
+     },
+     {
+      "direction": "ltr",
+      "format": "",
+      "indent": 0,
+      "version": 1,
+      "type": "paragraph",
+      "textFormat": 0,
+      "children": [
+       {
+        "type": "text",
+        "text": "One aim is better metabolic health. Here, that means things like blood sugar and blood fat levels. Another aim is general health and quality of life.",
+        "format": 0,
+        "detail": 0,
+        "mode": "normal",
+        "style": "",
+        "version": 1
+       }
+      ]
+     },
+     {
+      "direction": "ltr",
+      "format": "",
+      "indent": 0,
+      "version": 1,
+      "type": "paragraph",
+      "textFormat": 0,
+      "children": [
+       {
+        "type": "text",
+        "text": "The guideline is clear on one point. There are benefits to a healthy lifestyle even without weight loss. So a change on the scale is not the only sign that something is working.",
+        "format": 0,
+        "detail": 0,
+        "mode": "normal",
+        "style": "",
+        "version": 1
+       }
+      ]
+     },
+     {
+      "direction": "ltr",
+      "format": "",
+      "indent": 0,
+      "version": 1,
+      "type": "paragraph",
+      "textFormat": 0,
+      "children": [
+       {
+        "type": "text",
+        "text": "The guideline also says your goals should be set with you, not for you. You and your clinician agree on them together.",
+        "format": 0,
+        "detail": 0,
+        "mode": "normal",
+        "style": "",
+        "version": 1
+       }
+      ]
+     },
+     {
+      "direction": "ltr",
+      "format": "",
+      "indent": 0,
+      "version": 1,
+      "type": "heading",
+      "tag": "h2",
+      "children": [
+       {
+        "type": "text",
+        "text": "No single diet is proven best",
+        "format": 0,
+        "detail": 0,
+        "mode": "normal",
+        "style": "",
+        "version": 1
+       }
+      ]
+     },
+     {
+      "direction": "ltr",
+      "format": "",
+      "indent": 0,
+      "version": 1,
+      "type": "paragraph",
+      "textFormat": 0,
+      "children": [
+       {
+        "type": "text",
+        "text": "The guideline found no evidence that one type of diet works better than another for PCOS. Any eating pattern that follows general healthy-eating advice can help your health.",
+        "format": 0,
+        "detail": 0,
+        "mode": "normal",
+        "style": "",
+        "version": 1
+       }
+      ]
+     },
+     {
+      "direction": "ltr",
+      "format": "",
+      "indent": 0,
+      "version": 1,
+      "type": "paragraph",
+      "textFormat": 0,
+      "children": [
+       {
+        "type": "text",
+        "text": "That means you do not need a special \"PCOS diet\". The food you already eat at home can fit, as long as it follows that general advice. The guideline says changes should suit your food likes and your daily life. It also notes that money, culture and family life can make change harder. These are real limits, not personal failings.",
+        "format": 0,
+        "detail": 0,
+        "mode": "normal",
+        "style": "",
+        "version": 1
+       }
+      ]
+     },
+     {
+      "direction": "ltr",
+      "format": "",
+      "indent": 0,
+      "version": 1,
+      "type": "paragraph",
+      "textFormat": 0,
+      "children": [
+       {
+        "type": "text",
+        "text": "The World Health Organization (WHO) also says healthy eating and physical activity matter for all women with PCOS.",
+        "format": 0,
+        "detail": 0,
+        "mode": "normal",
+        "style": "",
+        "version": 1
+       }
+      ]
+     },
+     {
+      "direction": "ltr",
+      "format": "",
+      "indent": 0,
+      "version": 1,
+      "type": "paragraph",
+      "textFormat": 0,
+      "children": [
+       {
+        "type": "text",
+        "text": "Be careful with strong diet claims online. The guideline asks clinicians to warn about wrong health information and to point to trusted sources.",
+        "format": 0,
+        "detail": 0,
+        "mode": "normal",
+        "style": "",
+        "version": 1
+       }
+      ]
+     },
+     {
+      "direction": "ltr",
+      "format": "",
+      "indent": 0,
+      "version": 1,
+      "type": "heading",
+      "tag": "h2",
+      "children": [
+       {
+        "type": "text",
+        "text": "Movement that fits your life",
+        "format": 0,
+        "detail": 0,
+        "mode": "normal",
+        "style": "",
+        "version": 1
+       }
+      ]
+     },
+     {
+      "direction": "ltr",
+      "format": "",
+      "indent": 0,
+      "version": 1,
+      "type": "paragraph",
+      "textFormat": 0,
+      "children": [
+       {
+        "type": "text",
+        "text": "The guideline found no proof that one type or intensity of exercise is best. Any activity that matches general activity advice has health benefits. Doing some activity is better than doing none.",
+        "format": 0,
+        "detail": 0,
+        "mode": "normal",
+        "style": "",
+        "version": 1
+       }
+      ]
+     },
+     {
+      "direction": "ltr",
+      "format": "",
+      "indent": 0,
+      "version": 1,
+      "type": "paragraph",
+      "textFormat": 0,
+      "children": [
+       {
+        "type": "text",
+        "text": "For adults, general advice is 150 to 300 minutes of moderate activity each week. Another option is 75 to 150 minutes of harder activity. Adults are also advised to do muscle-strengthening work on two days that are not back to back. For teens, the advice is at least 60 minutes of activity a day.",
+        "format": 0,
+        "detail": 0,
+        "mode": "normal",
+        "style": "",
+        "version": 1
+       }
+      ]
+     },
+     {
+      "direction": "ltr",
+      "format": "",
+      "indent": 0,
+      "version": 1,
+      "type": "paragraph",
+      "textFormat": 0,
+      "children": [
+       {
+        "type": "text",
+        "text": "Activity is not only sport. The guideline counts walking or cycling to get somewhere, active work and housework. Sitting less also helps.",
+        "format": 0,
+        "detail": 0,
+        "mode": "normal",
+        "style": "",
+        "version": 1
+       }
+      ]
+     },
+     {
+      "direction": "ltr",
+      "format": "",
+      "indent": 0,
+      "version": 1,
+      "type": "paragraph",
+      "textFormat": 0,
+      "children": [
+       {
+        "type": "text",
+        "text": "Support with habits can include setting a small goal, keeping notes and solving problems as they come up. Start at a pace you can keep. Ask your clinician what is safe for you if you have other health conditions.",
+        "format": 0,
+        "detail": 0,
+        "mode": "normal",
+        "style": "",
+        "version": 1
+       }
+      ]
+     },
+     {
+      "direction": "ltr",
+      "format": "",
+      "indent": 0,
+      "version": 1,
+      "type": "heading",
+      "tag": "h2",
+      "children": [
+       {
+        "type": "text",
+        "text": "Sleep and snoring",
+        "format": 0,
+        "detail": 0,
+        "mode": "normal",
+        "style": "",
+        "version": 1
+       }
+      ]
+     },
+     {
+      "direction": "ltr",
+      "format": "",
+      "indent": 0,
+      "version": 1,
+      "type": "paragraph",
+      "textFormat": 0,
+      "children": [
+       {
+        "type": "text",
+        "text": "Sleep matters too. People with PCOS have higher rates of obstructive sleep apnoea. The NHS describes sleep apnoea as breathing that stops and starts while you sleep.",
+        "format": 0,
+        "detail": 0,
+        "mode": "normal",
+        "style": "",
+        "version": 1
+       }
+      ]
+     },
+     {
+      "direction": "ltr",
+      "format": "",
+      "indent": 0,
+      "version": 1,
+      "type": "paragraph",
+      "textFormat": 0,
+      "children": [
+       {
+        "type": "text",
+        "text": "The guideline asks clinicians to check for signs of it. The main sign is snoring, together with waking up unrefreshed, feeling sleepy in the day, or tiredness. A clinician may use a short questionnaire or refer you. Only a formal sleep study can confirm sleep apnoea.",
+        "format": 0,
+        "detail": 0,
+        "mode": "normal",
+        "style": "",
+        "version": 1
+       }
+      ]
+     },
+     {
+      "direction": "ltr",
+      "format": "",
+      "indent": 0,
+      "version": 1,
+      "type": "heading",
+      "tag": "h2",
+      "children": [
+       {
+        "type": "text",
+        "text": "Weight, without blame",
+        "format": 0,
+        "detail": 0,
+        "mode": "normal",
+        "style": "",
+        "version": 1
+       }
+      ]
+     },
+     {
+      "direction": "ltr",
+      "format": "",
+      "indent": 0,
+      "version": 1,
+      "type": "paragraph",
+      "textFormat": 0,
+      "children": [
+       {
+        "type": "text",
+        "text": "Many people with PCOS face weight stigma. Stigma means unfair judgement or blame because of body size. The guideline says many women with PCOS experience weight stigma in healthcare and in other settings. It asks clinicians to be aware of their own weight bias.",
+        "format": 0,
+        "detail": 0,
+        "mode": "normal",
+        "style": "",
+        "version": 1
+       }
+      ]
+     },
+     {
+      "direction": "ltr",
+      "format": "",
+      "indent": 0,
+      "version": 1,
+      "type": "paragraph",
+      "textFormat": 0,
+      "children": [
+       {
+        "type": "text",
+        "text": "WHO notes that symptoms such as weight and unwanted hair face social stigma in many places.",
+        "format": 0,
+        "detail": 0,
+        "mode": "normal",
+        "style": "",
+        "version": 1
+       }
+      ]
+     },
+     {
+      "direction": "ltr",
+      "format": "",
+      "indent": 0,
+      "version": 1,
+      "type": "paragraph",
+      "textFormat": 0,
+      "children": [
+       {
+        "type": "text",
+        "text": "The guideline asks clinicians to offer two options. One is weight-focused care, which aims for weight loss. The other is weight-inclusive care, which does not make weight loss the goal. Your goals decide which approach fits you. The guideline gives one simple example of respectful care: asking your permission before weighing you.",
+        "format": 0,
+        "detail": 0,
+        "mode": "normal",
+        "style": "",
+        "version": 1
+       }
+      ]
+     },
+     {
+      "direction": "ltr",
+      "format": "",
+      "indent": 0,
+      "version": 1,
+      "type": "paragraph",
+      "textFormat": 0,
+      "children": [
+       {
+        "type": "text",
+        "text": "This page sets no weight, calorie or kilogram target. Any weight goal should be a shared decision with your clinician, and only if you want one.",
+        "format": 0,
+        "detail": 0,
+        "mode": "normal",
+        "style": "",
+        "version": 1
+       }
+      ]
+     },
+     {
+      "direction": "ltr",
+      "format": "",
+      "indent": 0,
+      "version": 1,
+      "type": "heading",
+      "tag": "h2",
+      "children": [
+       {
+        "type": "text",
+        "text": "Planning a pregnancy",
+        "format": 0,
+        "detail": 0,
+        "mode": "normal",
+        "style": "",
+        "version": 1
+       }
+      ]
+     },
+     {
+      "direction": "ltr",
+      "format": "",
+      "indent": 0,
+      "version": 1,
+      "type": "paragraph",
+      "textFormat": 0,
+      "children": [
+       {
+        "type": "text",
+        "text": "If you hope to get pregnant, the guideline says healthy habits are worth looking at before pregnancy. This includes activity, sleep and mental health. See ",
+        "format": 0,
+        "detail": 0,
+        "mode": "normal",
+        "style": "",
+        "version": 1
+       },
+       {
+        "type": "link",
+        "fields": {
+         "linkType": "custom",
+         "url": "/en/learn/pcos-and-fertility",
+         "newTab": false
+        },
+        "children": [
+         {
+          "type": "text",
+          "text": "PCOS and fertility",
+          "format": 0,
+          "detail": 0,
+          "mode": "normal",
+          "style": "",
+          "version": 1
+         }
+        ],
+        "direction": "ltr",
+        "format": "",
+        "indent": 0,
+        "version": 3
+       },
+       {
+        "type": "text",
+        "text": " for more on this.",
+        "format": 0,
+        "detail": 0,
+        "mode": "normal",
+        "style": "",
+        "version": 1
+       }
+      ]
+     },
+     {
+      "direction": "ltr",
+      "format": "",
+      "indent": 0,
+      "version": 1,
+      "type": "heading",
+      "tag": "h2",
+      "children": [
+       {
+        "type": "text",
+        "text": "Questions to ask your clinician",
+        "format": 0,
+        "detail": 0,
+        "mode": "normal",
+        "style": "",
+        "version": 1
+       }
+      ]
+     },
+     {
+      "direction": "ltr",
+      "format": "",
+      "indent": 0,
+      "version": 1,
+      "type": "list",
+      "listType": "bullet",
+      "tag": "ul",
+      "start": 1,
+      "children": [
+       {
+        "direction": "ltr",
+        "format": "",
+        "indent": 0,
+        "version": 1,
+        "type": "listitem",
+        "value": 1,
+        "children": [
+         {
+          "type": "text",
+          "text": "Which healthy habits would help my goals most, such as periods, fertility or blood sugar?",
+          "format": 0,
+          "detail": 0,
+          "mode": "normal",
+          "style": "",
+          "version": 1
+         }
+        ]
+       },
+       {
+        "direction": "ltr",
+        "format": "",
+        "indent": 0,
+        "version": 1,
+        "type": "listitem",
+        "value": 2,
+        "children": [
+         {
+          "type": "text",
+          "text": "Would a dietitian or an exercise plan suit me?",
+          "format": 0,
+          "detail": 0,
+          "mode": "normal",
+          "style": "",
+          "version": 1
+         }
+        ]
+       },
+       {
+        "direction": "ltr",
+        "format": "",
+        "indent": 0,
+        "version": 1,
+        "type": "listitem",
+        "value": 3,
+        "children": [
+         {
+          "type": "text",
+          "text": "Should I have a sleep check if I snore and feel tired during the day?",
+          "format": 0,
+          "detail": 0,
+          "mode": "normal",
+          "style": "",
+          "version": 1
+         }
+        ]
+       },
+       {
+        "direction": "ltr",
+        "format": "",
+        "indent": 0,
+        "version": 1,
+        "type": "listitem",
+        "value": 4,
+        "children": [
+         {
+          "type": "text",
+          "text": "Which signs of progress, besides weight, can we track together?",
+          "format": 0,
+          "detail": 0,
+          "mode": "normal",
+          "style": "",
+          "version": 1
+         }
+        ]
+       },
+       {
+        "direction": "ltr",
+        "format": "",
+        "indent": 0,
+        "version": 1,
+        "type": "listitem",
+        "value": 5,
+        "children": [
+         {
+          "type": "text",
+          "text": "Can we talk about weight only when I say yes?",
+          "format": 0,
+          "detail": 0,
+          "mode": "normal",
+          "style": "",
+          "version": 1
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "direction": "ltr",
+      "format": "",
+      "indent": 0,
+      "version": 1,
+      "type": "heading",
+      "tag": "h2",
+      "children": [
+       {
+        "type": "text",
+        "text": "When to see a doctor",
+        "format": 0,
+        "detail": 0,
+        "mode": "normal",
+        "style": "",
+        "version": 1
+       }
+      ]
+     },
+     {
+      "direction": "ltr",
+      "format": "",
+      "indent": 0,
+      "version": 1,
+      "type": "paragraph",
+      "textFormat": 0,
+      "children": [
+       {
+        "type": "text",
+        "text": "Book a visit if you snore and also wake up unrefreshed or feel tired during the day. The NHS also advises seeing a GP if your breathing stops and starts in your sleep, or you are always tired in the day.",
+        "format": 0,
+        "detail": 0,
+        "mode": "normal",
+        "style": "",
+        "version": 1
+       }
+      ]
+     },
+     {
+      "direction": "ltr",
+      "format": "",
+      "indent": 0,
+      "version": 1,
+      "type": "paragraph",
+      "textFormat": 0,
+      "children": [
+       {
+        "type": "text",
+        "text": "Book a visit if worries about eating, exercise or body image affect your daily life. The guideline says eating disorders should be considered in PCOS whatever a person's weight. If an eating problem is suspected, a qualified professional should assess it in full.",
+        "format": 0,
+        "detail": 0,
+        "mode": "normal",
+        "style": "",
+        "version": 1
+       }
+      ]
+     },
+     {
+      "direction": "ltr",
+      "format": "",
+      "indent": 0,
+      "version": 1,
+      "type": "paragraph",
+      "textFormat": 0,
+      "children": [
+       {
+        "type": "text",
+        "text": "Bring your notes on habits, sleep and questions. Ask what each suggestion aims to change, and when you will review it together.",
+        "format": 0,
+        "detail": 0,
+        "mode": "normal",
+        "style": "",
+        "version": 1
+       }
+      ]
+     },
+     {
+      "direction": "ltr",
+      "format": "",
+      "indent": 0,
+      "version": 1,
+      "type": "paragraph",
+      "textFormat": 0,
+      "children": [
+       {
+        "type": "text",
+        "text": "What femio does and does not do.",
+        "format": 1,
+        "detail": 0,
+        "mode": "normal",
+        "style": "",
+        "version": 1
+       },
+       {
+        "type": "text",
+        "text": " femio helps you note cycles, habits and questions, so a visit is clearer. femio does not diagnose PCOS, set food, exercise or weight goals, or choose a treatment. femio is not a substitute for your clinician.",
+        "format": 0,
+        "detail": 0,
+        "mode": "normal",
+        "style": "",
+        "version": 1
+       }
+      ]
+     }
+    ]
+   }
+  },
+  "sources": [
+   {
+    "title": "Teede HJ et al. Recommendations from the 2023 International Evidence-based Guideline for the Assessment and Management of PCOS. Hum Reprod 2023;38(9):1655-1679 (full text also on PMC10477934)",
+    "url": "https://academic.oup.com/humrep/article/38/9/1655/7241786",
+    "tier": "1"
+   },
+   {
+    "title": "WHO fact sheet: Polycystic ovary syndrome (22 January 2026)",
+    "url": "https://www.who.int/news-room/fact-sheets/detail/polycystic-ovary-syndrome",
+    "tier": "1"
+   },
+   {
+    "title": "NHS: Sleep apnoea, last reviewed 11 May 2026",
+    "url": "https://www.nhs.uk/conditions/sleep-apnoea/",
+    "tier": "1"
+   }
+  ],
+  "reviewer": null,
+  "lastReviewed": null,
+  "disclaimerType": "general"
+ },
+ {
   "slug": "pcos-signs",
   "title": "What Are the Common Signs of PCOS?",
   "excerpt": "Learn about common PCOS signs, why they vary, what details may help at an appointment, and when changes need medical care.",
