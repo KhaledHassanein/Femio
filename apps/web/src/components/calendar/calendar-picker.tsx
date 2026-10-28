@@ -58,8 +58,8 @@ export function CalendarPicker({
   resultSentence: string | null;
 }) {
   const locale = useLocale();
-  // next-intl serves Arabic as `ar-u-nu-latn` (Western digits, ADR-069); the
-  // language part is what decides direction, week start and the Hijri line.
+  // The language part decides direction, week start and the Hijri line; splitting
+  // keeps this correct should the locale ever carry a region or extension.
   const language = locale.split("-")[0] as Locale;
   const t = useTranslations("calculators.calendar");
   const format = useFormatter();

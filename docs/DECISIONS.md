@@ -593,3 +593,34 @@ Arabia or Egypt print; it drifts a day from Umm al-Qura regularly).
 upgrade), and re-run both golden suites. Dates after 1500 AH (2077 CE) fall back to no Hijri
 label rather than a guess. A browser's ICU may differ from Node on far-future days; the fixture
 covers 2024–2035.
+
+## ADR-074
+**Date:** 2026-10-28 · **Status:** accepted · **Area:** web, i18n, Arabic
+
+**Context.** Since 2026-08-22 (ADR-069, Western digits) `apps/web/src/i18n/request.ts` handed
+next-intl `ar-u-nu-latn` as the Arabic locale so that every `Intl` call inherited the Latin
+numbering system. next-intl 4 (in use since 2026-07-31) treats the config locale as the routing
+locale: `Link`, `useRouter`, `usePathname` and `getLocale()` build every href from it. Every
+internal link on every Arabic page of the live site therefore pointed at `/ar-u-nu-latn/…`, which
+the middleware sent to `/en/ar-u-nu-latn/…`, a 404. Nothing caught it: the unit tests never
+render a `Link`, the e2e suite navigates by URL, and the hand checks read pages without clicking.
+Lighthouse run 3 surfaced it as three console 404s on each Arabic page.
+
+**Decision.** The config locale is always one of `routing.locales`; the digits decision is pinned
+by tests instead of by the locale tag. `request.test.ts` fails the gate if the config returns a
+locale that is not a route; `numbering.test.ts` (already present) fails it the day Node resolves
+bare `ar` to Arabic-Indic digits (CLDR 42+ resolves it to Latin digits, which is why the site
+rendered Western digits before the tag and still does without it); `e2e/home.spec.ts` asserts that
+every internal href on the Arabic home carries `/ar` and that a click lands. The calendar still
+branches on the language part of the locale, which keeps it correct if a region ever rides along.
+
+**Alternatives.** Wrapping `Link`/`useRouter` to pass the routing locale explicitly (rejected:
+next-intl treats a `locale` prop as a locale switch, disables prefetch and writes the cookie on
+every click). A custom prefix mapping `ar-u-nu-latn` → `/ar` in the routing config (rejected: the
+locale would then leak into `lang=`, hreflang, the sitemap and every catalog lookup).
+
+**Consequences.** On a browser older than CLDR 42 (Chrome 110 / Safari 16.4, early 2023) a
+number formatted on the client (calendar aria-labels) may show Arabic-Indic digits; server-rendered
+text is unaffected. Both are correct Arabic; the owner's preference for Western digits holds on
+every current browser. Keep the rule in `docs/STATE.md` traps: never return a formatting tag as
+the locale.

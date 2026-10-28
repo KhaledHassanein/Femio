@@ -28,6 +28,9 @@ All notable changes to Femio V2.
 - **Femio is becoming an Android app, and your records will stay on your phone.** The website is now where you read the guides and use the free calculators. Signing in on the web is closed, and the app (coming soon to Google Play, with iPhone later) keeps what you log on your device: no account, and Femio never sees it.
 - **A new homepage**, built around what you came for: track your period, get pregnant, follow a pregnancy or understand menopause, each one tap from the tool for it.
 
+### Fixed
+- **Arabic links work again.** Every link on an Arabic page (menu, calculators, guides, footer) led to a "page not found" since late August; they now open the Arabic page they name. Found by the performance audit of 2026-10-28; a test now clicks through from the Arabic home on every build.
+
 ### Added
 - **Two new calculators:** a period calculator that shows your next three periods as honest ranges based on how much your own cycles vary, and a pregnancy test calculator that tells you the day a home test is most reliable (from the NHS's guidance).
 - **Calculator results you can see:** your fertile window, ovulation and next periods are drawn on a calendar, and pregnancy results show your week and trimester on a bar.

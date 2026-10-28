@@ -19,3 +19,19 @@ test("Arabic home renders right-to-left", async ({ page }) => {
   await expect(page.locator("html")).toHaveAttribute("dir", "rtl");
   await expect(page.locator("html")).toHaveAttribute("lang", "ar");
 });
+
+// Regression (ADR-074): from 2026-08-22 to 2026-10-28 the i18n config handed next-intl
+// `ar-u-nu-latn` as the locale and every internal link on Arabic pages pointed at
+// `/ar-u-nu-latn/…`, a 404. Every href must carry a route locale, and a click must land.
+test("Arabic links carry the /ar prefix and lead somewhere", async ({ page }) => {
+  await page.goto("/ar");
+  await expect(page.locator('a[href*="-u-"]')).toHaveCount(0);
+  const internal = page.locator('a[href^="/"]');
+  expect(await internal.count()).toBeGreaterThan(10);
+  for (const href of await internal.evaluateAll((as) => as.map((a) => a.getAttribute("href") ?? ""))) {
+    expect(href, href).toMatch(/^\/ar(\/|$|#)/);
+  }
+  await page.locator('a[href="/ar/calculators"]').first().click();
+  await expect(page).toHaveURL(/\/ar\/calculators$/);
+  await expect(page.getByRole("heading", { level: 1 })).toBeVisible();
+});

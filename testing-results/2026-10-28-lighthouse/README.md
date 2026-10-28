@@ -43,4 +43,22 @@ What run 2 showed:
   per request and stream the description tag into the body (the SEO 91). Fixed next:
   `setRequestLocale` from `params` in that layout.
 
-The `.report.html` files are the full reports for run 1.
+## Run 3 — after the prerender and font fixes (deployment 413bfc3, same method)
+
+| Page | Perf | A11y | Best practices | SEO | LCP | TBT | Speed Index |
+|---|---|---|---|---|---|---|---|
+| /ar | 93 | 100 | 96 | 100 | 1.2 s | 250 ms | 4.4 s |
+| /ar/calculators/fertile-window | 97 | 100 | 96 | 100 | 1.4 s | 150 ms | 3.3 s |
+| /ar/learn/pcos-and-fertility | 100 | 100 | 96 | 100 | 1.2 s | 70 ms | 2.0 s |
+| /en | 96 | 100 | 100 | 100 | 1.0 s | 220 ms | 2.3 s |
+
+What run 3 showed:
+- The calculator's SEO is 100: the description tag is in the head because the page is prerendered.
+- The Arabic article went from 91 to 100 and its Speed Index from 4.7 s to 2.0 s: the font preload did it.
+- The Arabic home stays at 93 with a Speed Index of 4.4 s. The remaining cost is the hero itself
+  (the drifting gradient keeps the trace "changing"); the English home has the same hero at 2.3 s,
+  so the difference is still Arabic text metrics on first paint. Open, low priority.
+- Best practices 96 on Arabic pages is one console error from a third-party font request; not reproduced
+  in a browser by hand. Open.
+
+The `.report.html` files are the full reports for run 1; `run3/*.json` are the raw results of run 3.

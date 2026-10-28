@@ -40,13 +40,20 @@ history and `docs/archive/`.
   data-safety answers in `docs/store/` (R5.1, R5.2); the calculator pages prerendered and the Arabic UI
   font preloaded (R2.6 closed); the keyboard pass on the calendar automated (R2.7, NVDA left to the
   owner); 32 dead message namespaces and 21 orphan web libs deleted with a dead-module guard (R0.7,
-  R0.8). Ledger: `docs/33_REBUILD_V3/PROGRESS.md`.
+  R0.8); the pregnancy warning signs on their own sourced screen and the 18+ gate as a domain rule
+  with the D-01 question (R4.8 closed); **every Arabic link on the live site fixed** (R2.8, ADR-074:
+  the i18n config had returned `ar-u-nu-latn` as the locale since 2026-08-22). Ledger:
+  `docs/33_REBUILD_V3/PROGRESS.md`.
 - **Open before a release candidate:** R4.12 needs the owner's keystore (owner action 2); the NVDA
   listening session (owner action 8); R3.5 rest (the Arabic editor pass on the eleven guides, review
-  in `docs/content/reviews/`); Lighthouse re-measure after the next deploy.
-- **Health:** `pnpm gate` green (635 web unit tests + 21 guards, 23 e2e); `flutter analyze` clean, 440 Dart tests. Flutter 3.47.8
+  in `docs/content/reviews/`); owner action 10 (a source for bleeding and reduced movements on the
+  red-flag list, or leave them off). Lighthouse run 3 (2026-10-28, before the links fix): home 93,
+  calculator 97, article 100, English home 96; SEO 100 on all four.
+- **Health:** `pnpm gate` green (649 web unit tests + 21 guards, 24 e2e); `flutter analyze` clean, 463 Dart tests. Flutter 3.47.8
   on this PC (upgraded 2026-10-27). Debug APK on the Android 16 emulator: Arabic onboarding → Today →
-  Learn → article → Help now walked by hand 2026-10-28 (`testing-results/2026-10-28-app-settings-lock/`).
+  Learn → article → Help now walked by hand 2026-10-28 (`testing-results/2026-10-28-app-settings-lock/`);
+  the 18th-birthday question and the warning-signs screen at 390×844 in both themes and languages
+  (`testing-results/2026-10-28-r48-age-redflags/`, rendered by `test/r48_screenshots_test.dart`).
 - **Supabase project** is still restricted (402) and still exists; the repo no longer references
   it. Pausing it and deleting the CMS Vercel project are owner actions.
 - **Content:** `docs/content/articles/*.md` is the source (103 EN, 10 AR, 4 PCOS); the build writes
@@ -89,8 +96,9 @@ is built, what is not, and the next action. Never commit ungated work to `main`.
   the crisis lifebuoy appears to overlap mid-page content. Artifact, not defect.
 - **Arabic number ranges reverse under bidi** ("20 – 15"): wrap the dash in left-to-right marks
   (`use-calculator-format.ts`). Any new "a – b" string with digits needs the same.
-- **next-intl serves Arabic as `ar-u-nu-latn`** (Western digits). Compare the language part, never
-  the whole locale string, when branching on Arabic.
+- **The i18n config locale must be a route (`ar`, never `ar-u-nu-latn`).** next-intl 4 builds every
+  `Link` href from it; the formatting tag broke every Arabic link for two months (ADR-074). Western
+  digits are pinned by `numbering.test.ts`, not by the locale. Still branch on the language part.
 - **A Tailwind utility with no theme entry emits nothing**, silently (`border-divider` did). Check
   the preset map before anything else.
 - **The i18n catalogs are JSON parsed by every guard**; re-serialising with 2-space indent is
