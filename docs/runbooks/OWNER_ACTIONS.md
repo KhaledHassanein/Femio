@@ -19,7 +19,7 @@ the recommended default. Do not add a line here unless only a human with Khaled'
 |---|---|---|---|
 | 5 | **Install each test APK on your phone** and say what is wrong, in Arabic and English | Real phone, real use | 10 min each |
 | 6 | **Find 12 testers who keep the app installed for 14 days** (Google requires it of a new personal developer account). The recruitment message in Arabic and English is in `docs/33_REBUILD_V3/04_GROWTH_PACK.md` §5 | Your people | messages |
-| 7 | **Say "publish"** on the legal pages and the Arabic articles you are happy with | You are the named reviewer | when you want |
+| 7 | **Say "publish"** on the legal pages and the Arabic articles you are happy with. One guide waits for you specifically: `docs/content/articles/pcos-treatment-options-to-discuss.md` (the AI reviewer would not sign it without a clinician confirming letrozole availability for ovulation induction in Egypt and Saudi Arabia and whether to add an OHSS warning; the note is `docs/content/reviews/2026-10-28-pcos-set.md`). Two cited pages have moved: the ASRM 2021 page in `docs/compliance/FERTILITY_AWARENESS_SAFETY.md` now 404s (a 2026 version replaced it) and the NHS infertility-treatment page passed its review date | You are the named reviewer | when you want |
 
 ## Decisions already made (unchanged)
 
