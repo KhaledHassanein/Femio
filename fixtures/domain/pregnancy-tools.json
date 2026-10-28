@@ -1,0 +1,12 @@
+{
+  "$comment": "MR-31 / A-06 (01_PRODUCT_SCOPE §4): the pregnancy tools are always all listed; from week 36 the contraction timer comes first, before that the movement log. Input: the gestational week, or null while the due date is unknown. Shared by apps/mobile/lib/domain/pregnancy_tools.dart and apps/web/src/lib/pregnancy/tools.ts.",
+  "cases": [
+    { "input": { "weeks": null }, "expected": ["movements", "contractions", "appointments", "weight"] },
+    { "input": { "weeks": 0 }, "expected": ["movements", "contractions", "appointments", "weight"] },
+    { "input": { "weeks": 27 }, "expected": ["movements", "contractions", "appointments", "weight"] },
+    { "input": { "weeks": 35 }, "expected": ["movements", "contractions", "appointments", "weight"] },
+    { "input": { "weeks": 36 }, "expected": ["contractions", "movements", "appointments", "weight"] },
+    { "input": { "weeks": 40 }, "expected": ["contractions", "movements", "appointments", "weight"] },
+    { "input": { "weeks": 42 }, "expected": ["contractions", "movements", "appointments", "weight"] }
+  ]
+}

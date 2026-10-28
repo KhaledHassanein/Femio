@@ -18,6 +18,7 @@ import {
 } from "./appointments";
 import { hijriDay, hijriMonthLine, hijriMonthYear } from "./calendar/grid";
 import { eddFromConception, eddFromLmp, eddFromTransfer, pregnancyProgress } from "./pregnancy";
+import { pregnancyTestDay, pregnancyToolOrder } from "./pregnancy/tools";
 
 /**
  * The golden fixtures (R2.4, `docs/24` §4).
@@ -96,6 +97,8 @@ const RUNNERS: Record<string, (input: never) => unknown> = {
     return window && { ovulation: window.ovulation, windowStart: window.start, windowEnd: window.end };
   },
   "ttc-guidance": (i: { tryingFor: TryingFor | null; age: number | null; irregular: boolean }) => ttcGuidance(i),
+  "pregnancy-tools": (i: { weeks: number | null }) => pregnancyToolOrder(i.weeks),
+  "test-timing": (i: { windowEnd: string; irregular: boolean }) => pregnancyTestDay(i.windowEnd, i.irregular),
   "edd-from": (i: { method: "lmp" | "conception" | "transfer3" | "transfer5"; date: string }) =>
     i.method === "lmp"
       ? eddFromLmp(i.date)

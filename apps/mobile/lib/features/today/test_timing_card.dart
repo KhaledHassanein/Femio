@@ -6,15 +6,15 @@
 import 'package:flutter/material.dart';
 
 import '../../domain/cycle_prediction.dart';
+import '../../domain/test_timing.dart';
 import '../../l10n/app_localizations.dart';
 import '../../theme/femio_theme.dart';
 import '../../theme/spacing.dart';
 import '../../theme/radii.dart';
 import 'hero_card.dart';
 
-/// NHS timing (`calculators/index.ts` `pregnancyTestFromPeriod`): most tests work from the
-/// first day of a missed period. With a range, the end of the window is the honest
-/// "missed" day: testing earlier is what produces false negatives.
+/// The day comes from `domain/test_timing.dart` (MR-21, NHS): the end of the predicted
+/// window, or general advice when cycles are irregular. This card only draws it.
 ///
 /// [prediction] supplies the window; with irregular cycles the card gives general
 /// advice instead of a date. [date] formats the day in her language.
@@ -35,20 +35,25 @@ class TestTimingCard extends StatelessWidget {
         borderRadius: BorderRadius.circular(radiusLg),
         border: Border.all(color: p.border),
       ),
-      child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-        Row(children: [
-          Icon(Icons.science_outlined, color: p.primary),
-          const SizedBox(width: space2),
-          Text(l.testTimingTitle, style: t.titleMedium),
-        ]),
-        const SizedBox(height: space2),
-        Text(
-          prediction.irregular ? l.testTimingGeneral : l.testTimingBody(date(prediction.windowEnd)),
-          style: t.bodyMedium,
-        ),
-        const SizedBox(height: space1h),
-        Text(l.testTimingSource, style: t.bodySmall),
-      ]),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Row(
+            children: [
+              Icon(Icons.science_outlined, color: p.primary),
+              const SizedBox(width: space2),
+              Text(l.testTimingTitle, style: t.titleMedium),
+            ],
+          ),
+          const SizedBox(height: space2),
+          Text(switch (pregnancyTestDay(windowEnd: prediction.windowEnd, irregular: prediction.irregular)) {
+            final day? => l.testTimingBody(date(day)),
+            null => l.testTimingGeneral,
+          }, style: t.bodyMedium),
+          const SizedBox(height: space1h),
+          Text(l.testTimingSource, style: t.bodySmall),
+        ],
+      ),
     );
   }
 }

@@ -9,6 +9,8 @@ import 'package:femio/domain/movements.dart';
 import 'package:femio/domain/cycle_prediction.dart';
 import 'package:femio/domain/fertility.dart';
 import 'package:femio/domain/guidance.dart';
+import 'package:femio/domain/pregnancy_tools.dart';
+import 'package:femio/domain/test_timing.dart';
 import 'package:femio/domain/hijri.dart';
 import 'package:femio/domain/pregnancy.dart';
 import 'package:femio/domain/weight.dart';
@@ -26,10 +28,8 @@ import 'package:flutter_test/flutter_test.dart';
 const dir = '../../fixtures/domain';
 
 final runners = <String, Object? Function(Map<String, dynamic>)>{
-  'cycle-prediction': (i) => predictNextPeriod(
-        List<String>.from(i['starts'] as List),
-        i['statedCycleLength'] as int?,
-      )?.toJson(),
+  'cycle-prediction': (i) =>
+      predictNextPeriod(List<String>.from(i['starts'] as List), i['statedCycleLength'] as int?)?.toJson(),
   'bbt-chart': (i) {
     double r4(double n) => (n * 10000).round() / 10000;
     final chart = bbtChart([
@@ -68,13 +68,13 @@ final runners = <String, Object? Function(Map<String, dynamic>)>{
     return switch (r) {
       InsufficientPattern() => {'status': 'insufficient', 'sessions': r.sessions},
       ComparablePattern() => {
-          'status': 'comparable',
-          'sessions': r.sessions,
-          'typicalMinutesPerMovement': r4(r.typical),
-          'latestMinutesPerMovement': r4(r.latest),
-          'ratio': r4(r.ratio),
-          'slower': r.slower,
-        },
+        'status': 'comparable',
+        'sessions': r.sessions,
+        'typicalMinutesPerMovement': r4(r.typical),
+        'latestMinutesPerMovement': r4(r.latest),
+        'ratio': r4(r.ratio),
+        'slower': r.slower,
+      },
     };
   },
   'weight-chart': (i) {
@@ -96,9 +96,7 @@ final runners = <String, Object? Function(Map<String, dynamic>)>{
   },
   'appointments': (i) {
     final today = i['today'] as String;
-    final list = [
-      for (final a in i['appointments'] as List) Appointment.fromJson(Map<String, Object?>.from(a as Map)),
-    ];
+    final list = [for (final a in i['appointments'] as List) Appointment.fromJson(Map<String, Object?>.from(a as Map))];
     final s = splitAppointments(list, today);
     return {
       'upcoming': [for (final a in s.upcoming) a.id],
@@ -109,16 +107,18 @@ final runners = <String, Object? Function(Map<String, dynamic>)>{
     };
   },
   'fertile-window': (i) => fertileWindowBefore(
-        i['nextPeriod'] as String,
-        cycleLength: i['cycleLength'] as int?,
-        irregular: i['irregular'] as bool,
-        learning: i['learning'] as bool,
-      )?.toJson(),
+    i['nextPeriod'] as String,
+    cycleLength: i['cycleLength'] as int?,
+    irregular: i['irregular'] as bool,
+    learning: i['learning'] as bool,
+  )?.toJson(),
   'ttc-guidance': (i) => ttcGuidance(
-        tryingFor: i['tryingFor'] == null ? null : TryingFor.values.byName(i['tryingFor'] as String),
-        age: i['age'] as int?,
-        irregular: i['irregular'] as bool,
-      ).toJson(),
+    tryingFor: i['tryingFor'] == null ? null : TryingFor.values.byName(i['tryingFor'] as String),
+    age: i['age'] as int?,
+    irregular: i['irregular'] as bool,
+  ).toJson(),
+  'pregnancy-tools': (i) => pregnancyToolOrder(i['weeks'] as int?),
+  'test-timing': (i) => pregnancyTestDay(windowEnd: i['windowEnd'] as String, irregular: i['irregular'] as bool),
   'edd-from': (i) {
     final date = i['date'] as String;
     return switch (i['method']) {
@@ -128,8 +128,7 @@ final runners = <String, Object? Function(Map<String, dynamic>)>{
       _ => eddFromTransfer(date, embryoDays: 5),
     };
   },
-  'gestational-age': (i) =>
-      pregnancyProgress(i['edd'] as String, i['today'] as String)?.toJson(),
+  'gestational-age': (i) => pregnancyProgress(i['edd'] as String, i['today'] as String)?.toJson(),
   // Two kinds of case share the file: an ISO date (day, month index, year) and a
   // Gregorian span (the month line printed under the month title).
   'hijri': (i) {
@@ -146,18 +145,22 @@ final runners = <String, Object? Function(Map<String, dynamic>)>{
 const notYetPorted = <String>{};
 
 void main() {
-  final files = Directory(dir)
-      .listSync()
-      .whereType<File>()
-      .where((f) => f.path.endsWith('.json'))
-      .map((f) => f.uri.pathSegments.last.replaceAll('.json', ''))
-      .toList()
-    ..sort();
+  final files =
+      Directory(dir)
+          .listSync()
+          .whereType<File>()
+          .where((f) => f.path.endsWith('.json'))
+          .map((f) => f.uri.pathSegments.last.replaceAll('.json', ''))
+          .toList()
+        ..sort();
 
   test('every fixture file is either run or explicitly deferred', () {
     for (final name in files) {
-      expect(runners.containsKey(name) || notYetPorted.contains(name), isTrue,
-          reason: '$name.json has no Dart runner and is not listed as deferred');
+      expect(
+        runners.containsKey(name) || notYetPorted.contains(name),
+        isTrue,
+        reason: '$name.json has no Dart runner and is not listed as deferred',
+      );
     }
   });
 

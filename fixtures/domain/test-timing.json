@@ -1,0 +1,9 @@
+{
+  "$comment": "MR-21 (NHS, Doing a pregnancy test): a home test is worth taking from the first day of a missed period; with a predicted range that is the end of the window. With irregular cycles no day is named (null) and the card gives general advice. Shared by apps/mobile/lib/domain/test_timing.dart and apps/web/src/lib/pregnancy/tools.ts.",
+  "cases": [
+    { "input": { "windowEnd": "2026-11-09", "irregular": false }, "expected": "2026-11-09" },
+    { "input": { "windowEnd": "2026-02-28", "irregular": false }, "expected": "2026-02-28" },
+    { "input": { "windowEnd": "2026-11-09", "irregular": true }, "expected": null },
+    { "input": { "windowEnd": "2027-01-01", "irregular": true }, "expected": null }
+  ]
+}
