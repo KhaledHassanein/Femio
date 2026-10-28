@@ -12,7 +12,7 @@ Every "done" names its evidence: a test count, a screenshot folder, a deployed U
 - [x] R0.4 · Role packs: product scope + medical rules register, design spec, legal pack, growth pack (`401c26f`)
 - [x] R0.5 · The closed web tracker, Supabase, Payload, Sentry, PostHog and the service worker removed; privacy tripwire replaces the analytics guard; CI without the CMS job and the live-database run; old tracker URLs redirect to `/app` (`fdbbc1f`). Evidence: `pnpm gate` green (502 tests), `flutter test` 61 passing, `pnpm build` with three env vars
 - [x] R0.6 · `docs/STATE.md` rewritten for v3; ADR-072; changelog; owner actions (`2b5a860`)
-- [ ] R0.7 · Trim the 44 dead message namespaces once the app's ARB strings own their copy (today the vocabulary generator still reads six of them)
+- [x] R0.7 · 32 dead namespaces (1,061 English keys) deleted from the four web catalogs: 21 nothing referenced (sign-in, admin, MFA, screeners, the old tracker shell), 9 only the untranslated-copy allowlist named, 2 whose name only matched a function. Kept: 34 the website reads and 2 the app takes verbatim through the vocabulary generator (`track`, `pregnancyMovements`). Catalogs 596 KB → 338 KB; guards, typecheck and 848 tests green
 
 ## R1 · Brand surface
 

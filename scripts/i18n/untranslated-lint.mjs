@@ -25,7 +25,8 @@ const LOCALES = ["ar", "fr", "es"];
 
 /**
  * Keys whose value legitimately matches English in the given locale: brand names,
- * shared symbols, and words French/Spanish spell the same way. Reviewed 2026-08-07.
+ * shared symbols, and words French/Spanish spell the same way. Reviewed 2026-08-07;
+ * pruned with the dead namespaces 2026-10-28 (R0.7).
  */
 const ALLOWED = {
   "*": [
@@ -34,10 +35,6 @@ const ALLOWED = {
     "footer.rights",
     "calculators.ovulation.rangeValue",
     "calculators.period.rangeValue",
-    // Two ICU placeholders and an em dash. There is no word in it to translate, in
-    // any locale, and inventing a difference to satisfy the guard would be worse
-    // copy in three languages (Phase 4.5).
-    "partnerShared.symptoms.row",
     // Store and device names are trademarks, written the same in every language.
     "getApp.android",
     "getApp.ios",
@@ -47,22 +44,14 @@ const ALLOWED = {
     "search.kinds.article", // "Articles" is the French word too
     "home.chips.accent",
     "home.chips.fertile",
-    "gallery.sections.badges",
     "symptoms.items.constipation",
     "symptoms.items.spotting",
     "symptoms.items.irritable",
     "symptoms.items.fatigue",
-    "dashboard.modeLabel.cycle",
-    // Same reason as dashboard.modeLabel.cycle: "Cycle" is the French word too.
+    // "Cycle" is the French word too.
     "home.shot.app.mode",
-    "visitSummary.cycleHeading",
-    "visitSummary.colDate",
-    // "Note" is the French word, spelled identically.
-    "medications.form.note",
+    // "Sources" is the French word, spelled identically.
     "learn.sources",
-    "experience.modes.cycle.label",
-    "insights.dimensions.persona.title",
-    "pregnancySymptoms.items.constipation",
     // "Guides" is the French plural of "guide", spelled identically to English.
     "tools.learn.label",
     // "{name}, {credentials}" is punctuation around two arguments, the same in French.
@@ -76,12 +65,8 @@ const ALLOWED = {
     // Same: punctuation around two arguments.
     "learn.nameWithCredentials",
     // Spelled identically in Spanish.
-    "onboarding.triage.conditions.endometriosis",
-    "gallery.phases.menstrual",
     "calculators.bmi.unitImperial",
     "symptoms.items.irritable",
-    "dashboard.modeLabel.general",
-    "insights.dimensions.persona.title",
   ],
 };
 
