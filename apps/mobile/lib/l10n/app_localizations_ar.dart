@@ -17,7 +17,7 @@ class L10nAr extends L10n {
 
   @override
   String get welcomeBody =>
-      'سجلاتك تبقى على هذا الهاتف. بلا حساب، ولا تراها فيميو أبدًا.';
+      'تبقى سجلاتكِ على هذا الهاتف. لا حساب، ولا يرى femio سجلاتكِ أبدًا.';
 
   @override
   String get language => 'اللغة';
@@ -69,7 +69,7 @@ class L10nAr extends L10n {
 
   @override
   String get birthYearSub =>
-      'تتغيّر الدورات مع العمر، لذا يساعد هذا فيميو على فهم ما هو متوقّع. السنة فقط.';
+      'تتغيّر الدورات مع العمر، لذا يساعد هذا femio على فهم ما هو متوقّع. السنة فقط.';
 
   @override
   String get under18Title => 'المتابعة للبالغات حاليًا';
@@ -206,14 +206,14 @@ class L10nAr extends L10n {
 
   @override
   String get irregularNote =>
-      'دوراتك متغيّرة، لذا يعرض فيميو نطاقًا أوسع ولا يعدّ أيام التأخير أبدًا.';
+      'دوراتك متغيّرة، لذا يعرض femio نطاقًا أوسع ولا يعدّ أيام التأخير أبدًا.';
 
   @override
   String get noPredictionTitle => 'سجّلي دورتك القادمة';
 
   @override
   String get noPredictionBody =>
-      'عندما تبدأ دورتك، سجّليها وسيتوقّع فيميو الدورة التالية.';
+      'عندما تبدأ دورتك، سجّليها وسيتوقّع femio الدورة التالية.';
 
   @override
   String pregnancyWeek(int weeks, int days) {
@@ -268,7 +268,7 @@ class L10nAr extends L10n {
 
   @override
   String get menoUnknown =>
-      'سجّلي أي نزيف أو أعراض، وسيحتفظ فيميو بالسجل لطبيبتك أو طبيبك.';
+      'سجّلي أي نزيف أو أعراض، وسيحتفظ femio بالسجل لطبيبتك أو طبيبك.';
 
   @override
   String get awarenessNote =>
@@ -590,7 +590,7 @@ class L10nAr extends L10n {
 
   @override
   String get bbtChartNote =>
-      'هذه قياساتكِ كما هي. لا يضع فيميو علامة على تحوّل ولا يسمّي يومًا — فمعنى الرسم حديثٌ بينكِ وبين طبيبكِ.';
+      'هذه قياساتكِ كما هي. لا يضع femio علامة على تحوّل ولا يسمّي يومًا — فمعنى الرسم حديثٌ بينكِ وبين طبيبكِ.';
 
   @override
   String get invalidBbt =>
@@ -652,7 +652,7 @@ class L10nAr extends L10n {
 
   @override
   String get contractionsIntro =>
-      'اضغطي «ابدئي» عند بدء الانقباضة و«خفّت» عند انتهائها. يحتفظ فيميو بالأوقات لتكون بين يديكِ عند الاتصال.';
+      'اضغطي «ابدئي» عند بدء الانقباضة و«خفّت» عند انتهائها. يحتفظ femio بالأوقات لتكون بين يديكِ عند الاتصال.';
 
   @override
   String get contractionsStart => 'ابدئي انقباضة';
@@ -696,7 +696,7 @@ class L10nAr extends L10n {
 
   @override
   String get contractionsSummaryNote =>
-      'هذه أوقاتكِ كما سُجّلت. لا يقرّر فيميو معناها — اقرئيها على القابلة أو وحدة الولادة، فهم من يقرّر.';
+      'هذه أوقاتكِ كما سُجّلت. لا يقرّر femio معناها — اقرئيها على القابلة أو وحدة الولادة، فهم من يقرّر.';
 
   @override
   String get movementsHeading => 'سجل الحركة';
@@ -835,14 +835,14 @@ class L10nAr extends L10n {
 
   @override
   String get apptNoResultsNote =>
-      'يحتفظ فيميو بموعدكِ ومع من هو وبما أردتِ أن تسأليه. ولا يحتفظ بما تبيّن — فذلك يخصّ طبيبكِ وملفكِ الطبي.';
+      'يحتفظ femio بموعدكِ ومع من هو وبما أردتِ أن تسأليه. ولا يحتفظ بما تبيّن — فذلك يخصّ طبيبكِ وملفكِ الطبي.';
 
   @override
   String get apptEmptyHeading => 'لا شيء هنا بعد';
 
   @override
   String get apptEmptyBody =>
-      'أضيفي موعدًا ليحفظ فيميو الأسئلة التي نويتِ طرحها، فهي الجزء الذي يُنسى داخل العيادة.';
+      'أضيفي موعدًا ليحفظ femio الأسئلة التي نويتِ طرحها، فهي الجزء الذي يُنسى داخل العيادة.';
 
   @override
   String get apptAwaitingHeading => 'ألم تصلكِ النتيجة بعد؟';
@@ -877,7 +877,7 @@ class L10nAr extends L10n {
 
   @override
   String get apptFormResultsDueHint =>
-      'اختياري. سيذكّركِ فيميو بالسؤال إذا مرّ التاريخ، ولا يسجّل النتيجة نفسها أبدًا.';
+      'اختياري. سيذكّركِ femio بالسؤال إذا مرّ التاريخ، ولا يسجّل النتيجة نفسها أبدًا.';
 
   @override
   String get apptFormPrep => 'أسئلة تريدين طرحها';
@@ -903,7 +903,7 @@ class L10nAr extends L10n {
 
   @override
   String get weightIntro =>
-      'أضيفي قياسًا وقتما تشائين. يرسمها فيميو ويحتفظ بالأرقام لملفكِ.';
+      'أضيفي قياسًا وقتما تشائين. يرسمها femio ويحتفظ بالأرقام لملفكِ.';
 
   @override
   String get weightValue => 'الوزن';
@@ -925,7 +925,7 @@ class L10nAr extends L10n {
 
   @override
   String get weightNote =>
-      'قياساتكِ كما هي. لا يعرض فيميو نطاقًا مستهدفًا ولا يقول إن كان التغيّر متوقّعًا — فمعنى النمط بينكِ وبين قابلتكِ أو طبيبكِ.';
+      'قياساتكِ كما هي. لا يعرض femio نطاقًا مستهدفًا ولا يقول إن كان التغيّر متوقّعًا — فمعنى النمط بينكِ وبين قابلتكِ أو طبيبكِ.';
 
   @override
   String get weightDate => 'تاريخ القياس';
@@ -1089,4 +1089,179 @@ class L10nAr extends L10n {
   @override
   String get corruptBody =>
       'الملف على هذا الهاتف تالف أو كُتب بإصدار مختلف من femio. تم الاحتفاظ به جانبًا ولم يُحذف. استعيدي ملف نسخة احتياطية إن كان لديكِ، أو ابدئي من جديد.';
+
+  @override
+  String get settingsReminders => 'التذكيرات';
+
+  @override
+  String get reminderLog => 'تذكير بالتسجيل';
+
+  @override
+  String get reminderLogNote =>
+      'تذكير يومي في الوقت الذي تختارينه. ولا يصلكِ في يوم سجّلتِ فيه بالفعل.';
+
+  @override
+  String get reminderLogTime => 'وقت التذكير';
+
+  @override
+  String get reminderPeriod => 'توقّع الدورة';
+
+  @override
+  String get reminderPeriodNote =>
+      'إشعار واحد قبل بدء النافذة المتوقعة بيوم. فقط حين تكون دوراتكِ منتظمة بما يكفي للتقدير.';
+
+  @override
+  String get remindersPrivacyNote =>
+      'يقول التذكير فقط: «femio: افتحي التطبيق». ولا يظهر على شاشة القفل أي شيء عن صحتكِ.';
+
+  @override
+  String get remindersTimingNote =>
+      'قد يصل التذكير متأخرًا بضع دقائق، وبعض الهواتف تؤخّره لتوفير البطارية.';
+
+  @override
+  String get reminderPermissionDenied =>
+      'الإشعارات متوقفة لتطبيق femio. يمكنكِ السماح بها من إعدادات هاتفكِ.';
+
+  @override
+  String get reminderTitle => 'femio';
+
+  @override
+  String get reminderBody => 'افتحي التطبيق';
+
+  @override
+  String get reminderChannelName => 'التذكيرات';
+
+  @override
+  String get reminderChannelDescription =>
+      'تذكيرات فعّلتِها في femio. ولا تذكر صحتكِ أبدًا.';
+
+  @override
+  String calendarDayLabel(String gregorian, String hijri) {
+    return '$gregorian، $hijri';
+  }
+
+  @override
+  String get navLearn => 'تعلّمي';
+
+  @override
+  String get learnTitle => 'تعلّمي';
+
+  @override
+  String get learnSub =>
+      'أدلة موثّقة بكلمات بسيطة. محاولة الحمل والحمل أولًا، وكل شيء يبقى هنا.';
+
+  @override
+  String get learnSearchHint => 'ابحثي في الأدلة';
+
+  @override
+  String get learnNoResults => 'لا يوجد دليل يطابق ذلك بعد.';
+
+  @override
+  String learnReviewedBy(String name) {
+    return 'راجعها $name';
+  }
+
+  @override
+  String learnReviewedOn(String name, String date) {
+    return 'راجعها $name · $date';
+  }
+
+  @override
+  String get learnReviewPending =>
+      'دُقّق تحريريًا · المراجعة الطبية قيد الانتظار';
+
+  @override
+  String get learnEnglishOnly => 'بالإنجليزية';
+
+  @override
+  String get learnEnglishOnlyBody =>
+      'هذا الدليل غير مترجم بعد، لذلك يظهر باللغة الإنجليزية.';
+
+  @override
+  String get learnSeekCareNow => 'اطلبي الرعاية الآن';
+
+  @override
+  String get learnSources => 'المصادر';
+
+  @override
+  String get learnLinkCopied => 'تم نسخ الرابط. الصقيه في المتصفح.';
+
+  @override
+  String get noConfidentWindowTitle =>
+      'لا توجد نافذة خصوبة موثوقة في هذه الدورة';
+
+  @override
+  String get noConfidentWindowBody =>
+      'دوراتكِ متفاوتة أكثر من أن تُحدَّد أيام الخصوبة من تاريخ واحد. تسجيل دوراتكِ واختبارات التبويض وحرارة جسمكِ عند الاستيقاظ هو ما يكشف ذلك لاحقًا.';
+
+  @override
+  String get seeClinicianIrregular =>
+      'لأن دوراتكِ غير منتظمة، من المعقول التحدّث مع طبيبتكِ الآن بدل الانتظار سنة.';
+
+  @override
+  String get helpNowLauncher => 'تحتاجين مساعدة الآن؟';
+
+  @override
+  String get helpNowDialogTitle => 'تحتاجين مساعدة الآن؟';
+
+  @override
+  String get helpNowImmediateHeading => 'إذا كنتِ قد تكونين في خطر';
+
+  @override
+  String get helpNowImmediateLead =>
+      'إذا كنتِ قد تُقدِمين على إيذاء نفسكِ أو إيذاء شخصٍ آخر، أو كنتِ في خطر مباشر، فاتصلي بخدمات الطوارئ المتاحة في المكان الذي أنتِ فيه الآن، أو توجّهي إلى أقرب قسم طوارئ.';
+
+  @override
+  String get helpNowStayWithSomeone =>
+      'إن استطعتِ، ابقي مع شخصٍ تثقين به إلى أن تحصلي على المساعدة.';
+
+  @override
+  String get helpNowWorriedHeading => 'إذا كنتِ قلقة على شخصٍ آخر';
+
+  @override
+  String get helpNowWorriedBody =>
+      'إذا كنتِ ترين أن الشخص في خطر مباشر، فلا تتركيه وحده ما دام البقاء آمنًا لكِ. اتصلي بخدمات الطوارئ المتاحة في المكان الذي هو فيه، أو بخدمة أزمات، أو بعامل صحي، أو بأحد أفراد العائلة موضع الثقة.';
+
+  @override
+  String get helpNowNumber_eg_ambulance => 'الإسعاف (مصر)';
+
+  @override
+  String get helpNowNumber_eg_mental_health =>
+      'الخط الساخن للصحة النفسية، الأمانة العامة للصحة النفسية وعلاج الإدمان';
+
+  @override
+  String get helpNowNumber_eg_ncw => 'مكتب شكاوى المرأة، المجلس القومي للمرأة';
+
+  @override
+  String get helpNowNumber_sa_srca => 'الإسعاف، هيئة الهلال الأحمر السعودي';
+
+  @override
+  String get helpNowNumber_sa_moh => 'مركز اتصال وزارة الصحة';
+
+  @override
+  String get helpNowNumber_sa_moh_mental => 'الاستشارات النفسية، وزارة الصحة';
+
+  @override
+  String get helpNowNumber_sa_hrsd => 'مركز بلاغات العنف الأسري';
+
+  @override
+  String get helpNowCountryPrompt => 'اختاري بلدًا لعرض أرقامه';
+
+  @override
+  String get helpNowEmergency => 'خدمات الطوارئ';
+
+  @override
+  String get helpNowSupport => 'خطوط الدعم';
+
+  @override
+  String get helpNowSource => 'المصدر';
+
+  @override
+  String get helpNowCountryEG => 'مصر';
+
+  @override
+  String get helpNowCountrySA => 'السعودية';
+
+  @override
+  String get helpNowCall => 'اتصال';
 }

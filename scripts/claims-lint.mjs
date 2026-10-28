@@ -13,6 +13,8 @@ import { join } from "node:path";
 
 const MESSAGES_DIR = "apps/web/messages";
 const SCAN_LOCALES = ["en"]; // master locale; translations follow EN meaning.
+// The app's English strings follow the same rule (ARB is Flutter's catalog format).
+const ARB_FILES = ["apps/mobile/lib/l10n/app_en.arb"];
 
 // Whole-word, case-insensitive. These mirror doc 13 §7's forbidden intents.
 const BANNED = [
@@ -39,6 +41,16 @@ function walk(obj, prefix, out) {
 
 const findings = [];
 let scanned = 0;
+for (const file of ARB_FILES) {
+  const arb = JSON.parse(readFileSync(file, "utf8"));
+  for (const [key, value] of Object.entries(arb)) {
+    if (key.startsWith("@") || typeof value !== "string") continue;
+    scanned += 1;
+    for (const re of BANNED) {
+      if (re.test(value)) findings.push(`${file} → ${key}: "${value}" matches ${re}`);
+    }
+  }
+}
 for (const locale of SCAN_LOCALES) {
   let raw;
   try {

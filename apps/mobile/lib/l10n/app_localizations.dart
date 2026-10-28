@@ -116,7 +116,7 @@ abstract class L10n {
   /// No description provided for @welcomeBody.
   ///
   /// In en, this message translates to:
-  /// **'Your records stay on this phone. No account, and Femio never sees them.'**
+  /// **'Your records stay on this phone. No account, and femio never sees them.'**
   String get welcomeBody;
 
   /// No description provided for @language.
@@ -1852,6 +1852,312 @@ abstract class L10n {
   /// In en, this message translates to:
   /// **'The file on this phone is damaged or was written by a different femio. It has been kept aside, not deleted. Restore a backup file if you have one, or start again.'**
   String get corruptBody;
+
+  /// No description provided for @settingsReminders.
+  ///
+  /// In en, this message translates to:
+  /// **'Reminders'**
+  String get settingsReminders;
+
+  /// No description provided for @reminderLog.
+  ///
+  /// In en, this message translates to:
+  /// **'Log reminder'**
+  String get reminderLog;
+
+  /// No description provided for @reminderLogNote.
+  ///
+  /// In en, this message translates to:
+  /// **'A daily nudge at the time you choose. It skips a day you have already logged.'**
+  String get reminderLogNote;
+
+  /// No description provided for @reminderLogTime.
+  ///
+  /// In en, this message translates to:
+  /// **'Reminder time'**
+  String get reminderLogTime;
+
+  /// No description provided for @reminderPeriod.
+  ///
+  /// In en, this message translates to:
+  /// **'Period expected'**
+  String get reminderPeriod;
+
+  /// No description provided for @reminderPeriodNote.
+  ///
+  /// In en, this message translates to:
+  /// **'One notification the day before your expected window opens. Only when your cycles are regular enough to estimate.'**
+  String get reminderPeriodNote;
+
+  /// No description provided for @remindersPrivacyNote.
+  ///
+  /// In en, this message translates to:
+  /// **'A reminder only says \"femio: Open the app\". Nothing about your health appears on your lock screen.'**
+  String get remindersPrivacyNote;
+
+  /// No description provided for @remindersTimingNote.
+  ///
+  /// In en, this message translates to:
+  /// **'Reminders can arrive a few minutes late, and some phones hold them back to save battery.'**
+  String get remindersTimingNote;
+
+  /// No description provided for @reminderPermissionDenied.
+  ///
+  /// In en, this message translates to:
+  /// **'Notifications are turned off for femio. You can allow them in your phone\'s settings.'**
+  String get reminderPermissionDenied;
+
+  /// No description provided for @reminderTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'femio'**
+  String get reminderTitle;
+
+  /// No description provided for @reminderBody.
+  ///
+  /// In en, this message translates to:
+  /// **'Open the app'**
+  String get reminderBody;
+
+  /// No description provided for @reminderChannelName.
+  ///
+  /// In en, this message translates to:
+  /// **'Reminders'**
+  String get reminderChannelName;
+
+  /// No description provided for @reminderChannelDescription.
+  ///
+  /// In en, this message translates to:
+  /// **'Reminders you turned on in femio. They never mention your health.'**
+  String get reminderChannelDescription;
+
+  /// Accessible label of a calendar day when Hijri dates are shown: the Gregorian date, then the Hijri date.
+  ///
+  /// In en, this message translates to:
+  /// **'{gregorian}, {hijri}'**
+  String calendarDayLabel(String gregorian, String hijri);
+
+  /// No description provided for @navLearn.
+  ///
+  /// In en, this message translates to:
+  /// **'Learn'**
+  String get navLearn;
+
+  /// No description provided for @learnTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Learn'**
+  String get learnTitle;
+
+  /// No description provided for @learnSub.
+  ///
+  /// In en, this message translates to:
+  /// **'Cited guides, in plain words. Trying to conceive and pregnancy first; everything stays here.'**
+  String get learnSub;
+
+  /// No description provided for @learnSearchHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Search the guides'**
+  String get learnSearchHint;
+
+  /// No description provided for @learnNoResults.
+  ///
+  /// In en, this message translates to:
+  /// **'No guide matches that yet.'**
+  String get learnNoResults;
+
+  /// No description provided for @learnReviewedBy.
+  ///
+  /// In en, this message translates to:
+  /// **'Reviewed by {name}'**
+  String learnReviewedBy(String name);
+
+  /// No description provided for @learnReviewedOn.
+  ///
+  /// In en, this message translates to:
+  /// **'Reviewed by {name} · {date}'**
+  String learnReviewedOn(String name, String date);
+
+  /// No description provided for @learnReviewPending.
+  ///
+  /// In en, this message translates to:
+  /// **'Editorially checked · clinician review pending'**
+  String get learnReviewPending;
+
+  /// No description provided for @learnEnglishOnly.
+  ///
+  /// In en, this message translates to:
+  /// **'In English'**
+  String get learnEnglishOnly;
+
+  /// No description provided for @learnEnglishOnlyBody.
+  ///
+  /// In en, this message translates to:
+  /// **'This guide is not translated yet, so it is shown in English.'**
+  String get learnEnglishOnlyBody;
+
+  /// No description provided for @learnSeekCareNow.
+  ///
+  /// In en, this message translates to:
+  /// **'Seek care now'**
+  String get learnSeekCareNow;
+
+  /// No description provided for @learnSources.
+  ///
+  /// In en, this message translates to:
+  /// **'Sources'**
+  String get learnSources;
+
+  /// No description provided for @learnLinkCopied.
+  ///
+  /// In en, this message translates to:
+  /// **'Link copied. Paste it in your browser.'**
+  String get learnLinkCopied;
+
+  /// No description provided for @noConfidentWindowTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'No confident window this cycle'**
+  String get noConfidentWindowTitle;
+
+  /// No description provided for @noConfidentWindowBody.
+  ///
+  /// In en, this message translates to:
+  /// **'Your cycles vary too much to name fertile days from one date. Logging your periods, ovulation tests and waking temperature is how to tell afterwards.'**
+  String get noConfidentWindowBody;
+
+  /// No description provided for @seeClinicianIrregular.
+  ///
+  /// In en, this message translates to:
+  /// **'Because your cycles are irregular, it is reasonable to talk to a clinician now rather than wait a year.'**
+  String get seeClinicianIrregular;
+
+  /// No description provided for @helpNowLauncher.
+  ///
+  /// In en, this message translates to:
+  /// **'Need help now?'**
+  String get helpNowLauncher;
+
+  /// No description provided for @helpNowDialogTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Need help now?'**
+  String get helpNowDialogTitle;
+
+  /// No description provided for @helpNowImmediateHeading.
+  ///
+  /// In en, this message translates to:
+  /// **'If you may be in danger'**
+  String get helpNowImmediateHeading;
+
+  /// No description provided for @helpNowImmediateLead.
+  ///
+  /// In en, this message translates to:
+  /// **'If you may act on thoughts of harming yourself or someone else, or you are in immediate danger, contact the emergency services available where you are now or go to the nearest emergency department.'**
+  String get helpNowImmediateLead;
+
+  /// No description provided for @helpNowStayWithSomeone.
+  ///
+  /// In en, this message translates to:
+  /// **'If you can, stay with someone you trust while you get help.'**
+  String get helpNowStayWithSomeone;
+
+  /// No description provided for @helpNowWorriedHeading.
+  ///
+  /// In en, this message translates to:
+  /// **'If you are worried about someone else'**
+  String get helpNowWorriedHeading;
+
+  /// No description provided for @helpNowWorriedBody.
+  ///
+  /// In en, this message translates to:
+  /// **'If you think the person is in immediate danger, do not leave them alone if it is safe for you to stay. Contact the emergency services available where they are, a crisis service, a health worker, or a trusted family member.'**
+  String get helpNowWorriedBody;
+
+  /// No description provided for @helpNowNumber_eg_ambulance.
+  ///
+  /// In en, this message translates to:
+  /// **'Ambulance (Egyptian Ambulance Organization)'**
+  String get helpNowNumber_eg_ambulance;
+
+  /// No description provided for @helpNowNumber_eg_mental_health.
+  ///
+  /// In en, this message translates to:
+  /// **'Mental health hotline (Ministry of Health, mental health secretariat)'**
+  String get helpNowNumber_eg_mental_health;
+
+  /// No description provided for @helpNowNumber_eg_ncw.
+  ///
+  /// In en, this message translates to:
+  /// **'Women’s complaints office (National Council for Women)'**
+  String get helpNowNumber_eg_ncw;
+
+  /// No description provided for @helpNowNumber_sa_srca.
+  ///
+  /// In en, this message translates to:
+  /// **'Ambulance (Saudi Red Crescent Authority)'**
+  String get helpNowNumber_sa_srca;
+
+  /// No description provided for @helpNowNumber_sa_moh.
+  ///
+  /// In en, this message translates to:
+  /// **'Ministry of Health call centre'**
+  String get helpNowNumber_sa_moh;
+
+  /// No description provided for @helpNowNumber_sa_moh_mental.
+  ///
+  /// In en, this message translates to:
+  /// **'Psychological consultations (Ministry of Health)'**
+  String get helpNowNumber_sa_moh_mental;
+
+  /// No description provided for @helpNowNumber_sa_hrsd.
+  ///
+  /// In en, this message translates to:
+  /// **'Family-violence reports centre (Ministry of Human Resources and Social Development)'**
+  String get helpNowNumber_sa_hrsd;
+
+  /// No description provided for @helpNowCountryPrompt.
+  ///
+  /// In en, this message translates to:
+  /// **'Pick a country to see its numbers'**
+  String get helpNowCountryPrompt;
+
+  /// No description provided for @helpNowEmergency.
+  ///
+  /// In en, this message translates to:
+  /// **'Emergency services'**
+  String get helpNowEmergency;
+
+  /// No description provided for @helpNowSupport.
+  ///
+  /// In en, this message translates to:
+  /// **'Support lines'**
+  String get helpNowSupport;
+
+  /// No description provided for @helpNowSource.
+  ///
+  /// In en, this message translates to:
+  /// **'Source'**
+  String get helpNowSource;
+
+  /// No description provided for @helpNowCountryEG.
+  ///
+  /// In en, this message translates to:
+  /// **'Egypt'**
+  String get helpNowCountryEG;
+
+  /// No description provided for @helpNowCountrySA.
+  ///
+  /// In en, this message translates to:
+  /// **'Saudi Arabia'**
+  String get helpNowCountrySA;
+
+  /// No description provided for @helpNowCall.
+  ///
+  /// In en, this message translates to:
+  /// **'Call'**
+  String get helpNowCall;
 }
 
 class _L10nDelegate extends LocalizationsDelegate<L10n> {

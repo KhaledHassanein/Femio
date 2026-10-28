@@ -2,7 +2,7 @@
   "@@locale": "en",
   "appTitle": "femio",
   "welcomeTitle": "Your cycle, your plans, your pregnancy.",
-  "welcomeBody": "Your records stay on this phone. No account, and Femio never sees them.",
+  "welcomeBody": "Your records stay on this phone. No account, and femio never sees them.",
   "language": "Language",
   "getStarted": "Get started",
   "continueLabel": "Continue",
@@ -478,5 +478,84 @@
   "deleteConfirmAction": "Delete everything",
   "deleteConfirmCancel": "Keep my records",
   "corruptTitle": "Your records could not be opened",
-  "corruptBody": "The file on this phone is damaged or was written by a different femio. It has been kept aside, not deleted. Restore a backup file if you have one, or start again."
+  "corruptBody": "The file on this phone is damaged or was written by a different femio. It has been kept aside, not deleted. Restore a backup file if you have one, or start again.",
+  "settingsReminders": "Reminders",
+  "reminderLog": "Log reminder",
+  "reminderLogNote": "A daily nudge at the time you choose. It skips a day you have already logged.",
+  "reminderLogTime": "Reminder time",
+  "reminderPeriod": "Period expected",
+  "reminderPeriodNote": "One notification the day before your expected window opens. Only when your cycles are regular enough to estimate.",
+  "remindersPrivacyNote": "A reminder only says \"femio: Open the app\". Nothing about your health appears on your lock screen.",
+  "remindersTimingNote": "Reminders can arrive a few minutes late, and some phones hold them back to save battery.",
+  "reminderPermissionDenied": "Notifications are turned off for femio. You can allow them in your phone's settings.",
+  "reminderTitle": "femio",
+  "reminderBody": "Open the app",
+  "reminderChannelName": "Reminders",
+  "reminderChannelDescription": "Reminders you turned on in femio. They never mention your health.",
+  "calendarDayLabel": "{gregorian}, {hijri}",
+  "@calendarDayLabel": {
+    "description": "Accessible label of a calendar day when Hijri dates are shown: the Gregorian date, then the Hijri date.",
+    "placeholders": {
+      "gregorian": {
+        "type": "String"
+      },
+      "hijri": {
+        "type": "String"
+      }
+    }
+  },
+  "navLearn": "Learn",
+  "learnTitle": "Learn",
+  "learnSub": "Cited guides, in plain words. Trying to conceive and pregnancy first; everything stays here.",
+  "learnSearchHint": "Search the guides",
+  "learnNoResults": "No guide matches that yet.",
+  "learnReviewedBy": "Reviewed by {name}",
+  "@learnReviewedBy": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "learnReviewedOn": "Reviewed by {name} · {date}",
+  "@learnReviewedOn": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      },
+      "date": {
+        "type": "String"
+      }
+    }
+  },
+  "learnReviewPending": "Editorially checked · clinician review pending",
+  "learnEnglishOnly": "In English",
+  "learnEnglishOnlyBody": "This guide is not translated yet, so it is shown in English.",
+  "learnSeekCareNow": "Seek care now",
+  "learnSources": "Sources",
+  "learnLinkCopied": "Link copied. Paste it in your browser.",
+  "noConfidentWindowTitle": "No confident window this cycle",
+  "noConfidentWindowBody": "Your cycles vary too much to name fertile days from one date. Logging your periods, ovulation tests and waking temperature is how to tell afterwards.",
+  "seeClinicianIrregular": "Because your cycles are irregular, it is reasonable to talk to a clinician now rather than wait a year.",
+  "helpNowLauncher": "Need help now?",
+  "helpNowDialogTitle": "Need help now?",
+  "helpNowImmediateHeading": "If you may be in danger",
+  "helpNowImmediateLead": "If you may act on thoughts of harming yourself or someone else, or you are in immediate danger, contact the emergency services available where you are now or go to the nearest emergency department.",
+  "helpNowStayWithSomeone": "If you can, stay with someone you trust while you get help.",
+  "helpNowWorriedHeading": "If you are worried about someone else",
+  "helpNowWorriedBody": "If you think the person is in immediate danger, do not leave them alone if it is safe for you to stay. Contact the emergency services available where they are, a crisis service, a health worker, or a trusted family member.",
+  "helpNowNumber_eg_ambulance": "Ambulance (Egyptian Ambulance Organization)",
+  "helpNowNumber_eg_mental_health": "Mental health hotline (Ministry of Health, mental health secretariat)",
+  "helpNowNumber_eg_ncw": "Women’s complaints office (National Council for Women)",
+  "helpNowNumber_sa_srca": "Ambulance (Saudi Red Crescent Authority)",
+  "helpNowNumber_sa_moh": "Ministry of Health call centre",
+  "helpNowNumber_sa_moh_mental": "Psychological consultations (Ministry of Health)",
+  "helpNowNumber_sa_hrsd": "Family-violence reports centre (Ministry of Human Resources and Social Development)",
+  "helpNowCountryPrompt": "Pick a country to see its numbers",
+  "helpNowEmergency": "Emergency services",
+  "helpNowSupport": "Support lines",
+  "helpNowSource": "Source",
+  "helpNowCountryEG": "Egypt",
+  "helpNowCountrySA": "Saudi Arabia",
+  "helpNowCall": "Call"
 }

@@ -5,6 +5,7 @@ import 'package:femio/data/profile.dart';
 import 'package:femio/data/store.dart';
 import 'package:femio/domain/appointments.dart';
 import 'package:femio/domain/contractions.dart';
+import 'package:femio/domain/hijri.dart';
 import 'package:femio/domain/movements.dart';
 import 'package:femio/domain/weight.dart';
 import 'package:femio/features/lock/pin_field.dart';
@@ -118,7 +119,14 @@ void main() {
   for (final b in Brightness.values) {
     for (final lang in ['en', 'ar']) {
       testWidgets('calendar and log ($lang, ${b.name})', (tester) async {
-        var p = Profile(goal: Goal.ttc, locale: lang, birthYear: 1994, periodStarts: const ['2026-09-10'], cycleLength: 28);
+        // Arabic turns the Hijri day under each date on, as a new Arabic record does.
+        var p = Profile(
+            goal: Goal.ttc,
+            locale: lang,
+            birthYear: 1994,
+            periodStarts: const ['2026-09-10'],
+            cycleLength: 28,
+            settings: AppSettings.defaultsFor(lang));
         for (final d in ['2026-10-01', '2026-10-02', '2026-10-03', '2026-10-04']) {
           p = p.withDayLog(d, DayLog(flow: d == '2026-10-02' ? 'heavy' : 'medium', terms: d == '2026-10-01' ? const ['cramps', 'fatigue'] : const []));
         }
@@ -128,6 +136,10 @@ void main() {
         await _pump(tester, c, b);
         await tester.tap(find.byIcon(Icons.calendar_month_outlined));
         await _shoot(tester, '${lang}_${b.name}_09_calendar');
+        // The Hijri day sits under the Gregorian one in Arabic, and the month line under the title.
+        // (A Gregorian day can share the digits of a Hijri day, so only the Arabic side asserts the day.)
+        if (lang == 'ar') expect(find.text(hijriDay('2026-10-08')), findsWidgets);
+        expect(find.text(hijriMonthLine('2026-10-01', '2026-10-31', 'ar')), lang == 'ar' ? findsOneWidget : findsNothing);
         await tester.tap(find.byIcon(Icons.edit_note_outlined));
         await _shoot(tester, '${lang}_${b.name}_10_log');
         // Logging from the screen saves to the record.
@@ -281,7 +293,8 @@ void main() {
         await tester.tap(find.byIcon(Icons.settings_outlined));
         await tester.pumpAndSettle();
         await _shoot(tester, '${lang}_${b.name}_13_settings');
-        expect(find.byType(SwitchListTile), findsNWidgets(2));
+        // Hijri, the reminder switches and the lock: the list is lazy, so count what is on screen.
+        expect(find.byType(SwitchListTile), findsAtLeastNWidgets(2));
         // Setting a PIN locks the next launch; the lock screen opens the record again.
         // PBKDF2 yields to the event loop, which testWidgets' fake clock never advances,
         // so the key derivation runs under runAsync (real time).

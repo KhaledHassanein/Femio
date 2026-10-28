@@ -569,3 +569,27 @@ is the product's own language).
 **Consequences.** `main` has no path back to accounts without a new ADR. The `ui_strings` human
 edits, if any were never merged into the JSON catalogs, are lost when the project is paused unless
 the owner exports them first (listed in `OWNER_ACTIONS.md`). FR/ES stay UI-only languages.
+
+## ADR-073
+**Date:** 2026-10-28 · **Status:** accepted · **Area:** app, dates
+
+**Context.** The app shows the Hijri date beside the Gregorian one (rule 6). The pub packages
+`hijri`, `jhijri` and `hijri_calendar` share one hand-typed Umm al-Qura table; sampled against
+ICU (the calendar the phone's own locale data uses, Node 77.1 here) it was off by one day on 22
+of 252 days, including whole months in 2029–2030. A wrong Hijri date on a fertility calendar is a
+wrong fasting or prayer day for the reader.
+
+**Decision.** No Hijri package. `scripts/domain/gen-hijri-fixture.mjs` asks ICU for the Umm
+al-Qura month starts (1356–1500 AH) and writes `apps/mobile/lib/domain/hijri_months.g.dart` and
+`fixtures/domain/hijri.json` (252 day cases + 24 Arabic month-line cases). `lib/domain/hijri.dart`
+converts from that table; the website converts through `Intl.DateTimeFormat` with the
+`islamic-umalqura` calendar. The fixture runs on both sides, so the two cannot drift silently.
+
+**Alternatives.** A pub package (rejected: wrong by a day in sampled months, and nobody audits
+its table). Computing the tabular (arithmetic) Hijri calendar (rejected: it is not what Saudi
+Arabia or Egypt print; it drifts a day from Umm al-Qura regularly).
+
+**Consequences.** Regenerate the table with the script when the ICU data changes (a Node
+upgrade), and re-run both golden suites. Dates after 1500 AH (2077 CE) fall back to no Hijri
+label rather than a guess. A browser's ICU may differ from Node on far-future days; the fixture
+covers 2024–2035.

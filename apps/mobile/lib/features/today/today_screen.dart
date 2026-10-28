@@ -17,6 +17,7 @@ import '../../theme/spacing.dart';
 import '../../theme/type_sizes.dart';
 import '../../widgets/bloom.dart';
 import '../../widgets/notice_card.dart';
+import '../help/help_now_screen.dart';
 import '../settings/settings_screen.dart';
 import 'pregnancy_tools.dart';
 import 'today_hero.dart';
@@ -64,6 +65,11 @@ class TodayScreen extends StatelessWidget {
                     textDirection: TextDirection.ltr,
                     style: t.headlineSmall?.copyWith(color: p.primary)),
                 const Spacer(),
+                IconButton(
+                  tooltip: l.helpNowLauncher,
+                  icon: Icon(Icons.support_outlined, color: p.dangerText),
+                  onPressed: () => Navigator.of(context).push(MaterialPageRoute<void>(builder: (_) => const HelpNowScreen())),
+                ),
                 IconButton(
                   tooltip: l.settingsTitle,
                   icon: Icon(Icons.settings_outlined, color: p.textMuted),

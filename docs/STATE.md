@@ -27,15 +27,24 @@ history and `docs/archive/`.
   manifest and `MainActivity.kt` that are not from this work. Look before touching them.
 - **Done in v3 so far:** study + knowledge graph; constitution refresh; tracker removal; privacy
   tripwire; calendar calculators (R2.1); article template + legal pages + help-now numbers
-  (R2.3, R2.4); Dusk icon set, OG images, Android adaptive icon and splash (R1.1–R1.3); Flutter
-  refactor (R4.10); sealed record, backup, PIN lock, Settings, no-backup rules, release signing
-  from a key outside git (R4.1–R4.3, R4.11 partly). Ledger: `docs/33_REBUILD_V3/PROGRESS.md`.
-- **Health:** `pnpm gate` green (528 web tests), 70 e2e against the built site; `flutter analyze`
-  clean, 75 Dart tests. Flutter 3.47.8 on this PC (upgraded 2026-10-27).
+  (R2.3, R2.4); wedge copy, calculator SEO and FAQ schema (R2.2, R2.5); Dusk icon set, OG images,
+  Android adaptive icon and splash (R1.1–R1.3); the repo-native content pipeline, ten Arabic guides
+  and four PCOS guides (R3.1, R3.2, R3.4, R3.5 part); Flutter refactor (R4.10); sealed record,
+  backup, PIN lock, Settings, no-backup rules, release signing from a key outside git (R4.1–R4.3,
+  R4.11 partly); local reminders (R4.4); Learn tab with the guides offline (R4.5); fertile window
+  and seek-help clock as domain rules with shared fixtures (R4.6 part, R4.7); Help now in the app
+  (R4.8 part); Hijri dates from a generated ICU table, ADR-073 (R4.9). Ledger:
+  `docs/33_REBUILD_V3/PROGRESS.md`.
+- **Health:** `pnpm gate` green (834 web tests + 16 guards); `flutter analyze` clean, 428 Dart tests. Flutter 3.47.8
+  on this PC (upgraded 2026-10-27). Debug APK on the Android 16 emulator: Arabic onboarding → Today →
+  Learn → article → Help now walked by hand 2026-10-28 (`testing-results/2026-10-28-app-settings-lock/`).
 - **Supabase project** is still restricted (402) and still exists; the repo no longer references
   it. Pausing it and deleting the CMS Vercel project are owner actions.
-- **Content:** 100 EN articles in `apps/web/src/content/snapshot` (derived from the CMS before
-  retirement); 0 Arabic. The repo-native content pipeline (R3) is the next large piece.
+- **Content:** `docs/content/articles/*.md` is the source (103 EN, 10 AR, 4 PCOS); the build writes
+  `packages/content` for the web and `apps/mobile/assets/content/<locale>.json` for the app.
+  The PCOS treatment guide waits for the clinician (owner action #7).
+- **Wordmark:** Latin `femio` everywhere, also inside Arabic prose; `scripts/wordmark-lint.mjs`
+  fails the gate on the transliteration.
 
 ## The working loop
 
@@ -56,6 +65,10 @@ is built, what is not, and the next action. Never commit ungated work to `main`.
 
 ## Environment traps that have each cost real time
 
+- **Editing an ARB file by hand leaves the vocabulary guard red.** `scripts/mobile/sync-log-vocabulary.mjs`
+  writes 136 keys into `apps/mobile/lib/l10n/app_*.arb` and its `--check` compares whole files,
+  formatting included. After any ARB edit: run the sync script (it normalises the file), then
+  `flutter gen-l10n`, then `pnpm mobile-vocab-lint`. Same after any edit to the web catalogs it reads.
 - **Line endings are LF everywhere** (`.gitattributes`). If a generator guard fails with no
   visible diff, that is the first thing to check.
 - **`pnpm install` can hang silently on this PC** (two instances were found stuck for an hour).

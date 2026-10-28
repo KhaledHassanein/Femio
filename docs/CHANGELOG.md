@@ -2,7 +2,15 @@
 All notable changes to Femio V2.
 
 ## [Unreleased]
+### Added
+- **The guides are inside the app.** A Learn tab carries every reviewed guide, in Arabic where a translation exists and in English otherwise (marked as such), with the trying-to-conceive, pregnancy and PCOS guides first. It works with no network. "Seek care now" boxes are drawn as warning boxes, as on the website.
+- **Help now in the app.** A button on every screen opens the same reviewed guidance as the website: what to do right now, then emergency and support numbers for Egypt or Saudi Arabia once you choose a country, each with where the number was read. A tap copies the number; the app never dials or opens anything itself.
+- **Reminders, off by default.** Settings > Reminders can nudge you to log at a time you choose, and tell you the day before your period is expected (never when your cycles are irregular). The notification says only "femio" and "Open the app".
+- **Hijri dates in the calendar**, computed from the same Umm al-Qura data your phone uses, when Settings > Hijri is on.
+
 ### Changed
+- **No fertile window is drawn when Femio cannot name one honestly**: irregular cycles, too few logged cycles, or a cycle length outside 21 to 35 days now show "No confident window this cycle" and how to tell afterwards, instead of a guessed range. If your cycles are irregular and you are trying to conceive, Femio now suggests talking to a clinician now rather than waiting a year.
+- **The wordmark is always "femio"**, also inside Arabic text, on the website, in the app and in the guides.
 - **The calculators now work on a calendar.** Tap the day your last period started and your period, fertile days, likely ovulation and next period are drawn on the same month; in Arabic the week starts on Saturday and each day shows its Hijri date. When your cycles vary, or a cycle length is outside 21 to 35 days, Femio says it cannot name a fertile window from one date and shows how to tell afterwards, rather than guessing a day. Due date and pregnancy week show the 37 to 42 week window on a bar that never fills toward a date.
 - **Honest review labels on every guide.** A guide names its reviewer and the review date only where a clinician reviewed it; the rest now say "Editorially checked, clinician review pending". "Seek care now" boxes in guides are drawn as warning boxes.
 - **The privacy policy and terms describe the real product**: an app whose records never leave your phone, and a website that collects nothing. Help now shows emergency and support numbers for Egypt and Saudi Arabia, each with its source.

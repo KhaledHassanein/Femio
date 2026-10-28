@@ -17,7 +17,7 @@ class L10nEn extends L10n {
 
   @override
   String get welcomeBody =>
-      'Your records stay on this phone. No account, and Femio never sees them.';
+      'Your records stay on this phone. No account, and femio never sees them.';
 
   @override
   String get language => 'Language';
@@ -1058,4 +1058,183 @@ class L10nEn extends L10n {
   @override
   String get corruptBody =>
       'The file on this phone is damaged or was written by a different femio. It has been kept aside, not deleted. Restore a backup file if you have one, or start again.';
+
+  @override
+  String get settingsReminders => 'Reminders';
+
+  @override
+  String get reminderLog => 'Log reminder';
+
+  @override
+  String get reminderLogNote =>
+      'A daily nudge at the time you choose. It skips a day you have already logged.';
+
+  @override
+  String get reminderLogTime => 'Reminder time';
+
+  @override
+  String get reminderPeriod => 'Period expected';
+
+  @override
+  String get reminderPeriodNote =>
+      'One notification the day before your expected window opens. Only when your cycles are regular enough to estimate.';
+
+  @override
+  String get remindersPrivacyNote =>
+      'A reminder only says \"femio: Open the app\". Nothing about your health appears on your lock screen.';
+
+  @override
+  String get remindersTimingNote =>
+      'Reminders can arrive a few minutes late, and some phones hold them back to save battery.';
+
+  @override
+  String get reminderPermissionDenied =>
+      'Notifications are turned off for femio. You can allow them in your phone\'s settings.';
+
+  @override
+  String get reminderTitle => 'femio';
+
+  @override
+  String get reminderBody => 'Open the app';
+
+  @override
+  String get reminderChannelName => 'Reminders';
+
+  @override
+  String get reminderChannelDescription =>
+      'Reminders you turned on in femio. They never mention your health.';
+
+  @override
+  String calendarDayLabel(String gregorian, String hijri) {
+    return '$gregorian, $hijri';
+  }
+
+  @override
+  String get navLearn => 'Learn';
+
+  @override
+  String get learnTitle => 'Learn';
+
+  @override
+  String get learnSub =>
+      'Cited guides, in plain words. Trying to conceive and pregnancy first; everything stays here.';
+
+  @override
+  String get learnSearchHint => 'Search the guides';
+
+  @override
+  String get learnNoResults => 'No guide matches that yet.';
+
+  @override
+  String learnReviewedBy(String name) {
+    return 'Reviewed by $name';
+  }
+
+  @override
+  String learnReviewedOn(String name, String date) {
+    return 'Reviewed by $name · $date';
+  }
+
+  @override
+  String get learnReviewPending =>
+      'Editorially checked · clinician review pending';
+
+  @override
+  String get learnEnglishOnly => 'In English';
+
+  @override
+  String get learnEnglishOnlyBody =>
+      'This guide is not translated yet, so it is shown in English.';
+
+  @override
+  String get learnSeekCareNow => 'Seek care now';
+
+  @override
+  String get learnSources => 'Sources';
+
+  @override
+  String get learnLinkCopied => 'Link copied. Paste it in your browser.';
+
+  @override
+  String get noConfidentWindowTitle => 'No confident window this cycle';
+
+  @override
+  String get noConfidentWindowBody =>
+      'Your cycles vary too much to name fertile days from one date. Logging your periods, ovulation tests and waking temperature is how to tell afterwards.';
+
+  @override
+  String get seeClinicianIrregular =>
+      'Because your cycles are irregular, it is reasonable to talk to a clinician now rather than wait a year.';
+
+  @override
+  String get helpNowLauncher => 'Need help now?';
+
+  @override
+  String get helpNowDialogTitle => 'Need help now?';
+
+  @override
+  String get helpNowImmediateHeading => 'If you may be in danger';
+
+  @override
+  String get helpNowImmediateLead =>
+      'If you may act on thoughts of harming yourself or someone else, or you are in immediate danger, contact the emergency services available where you are now or go to the nearest emergency department.';
+
+  @override
+  String get helpNowStayWithSomeone =>
+      'If you can, stay with someone you trust while you get help.';
+
+  @override
+  String get helpNowWorriedHeading => 'If you are worried about someone else';
+
+  @override
+  String get helpNowWorriedBody =>
+      'If you think the person is in immediate danger, do not leave them alone if it is safe for you to stay. Contact the emergency services available where they are, a crisis service, a health worker, or a trusted family member.';
+
+  @override
+  String get helpNowNumber_eg_ambulance =>
+      'Ambulance (Egyptian Ambulance Organization)';
+
+  @override
+  String get helpNowNumber_eg_mental_health =>
+      'Mental health hotline (Ministry of Health, mental health secretariat)';
+
+  @override
+  String get helpNowNumber_eg_ncw =>
+      'Women’s complaints office (National Council for Women)';
+
+  @override
+  String get helpNowNumber_sa_srca =>
+      'Ambulance (Saudi Red Crescent Authority)';
+
+  @override
+  String get helpNowNumber_sa_moh => 'Ministry of Health call centre';
+
+  @override
+  String get helpNowNumber_sa_moh_mental =>
+      'Psychological consultations (Ministry of Health)';
+
+  @override
+  String get helpNowNumber_sa_hrsd =>
+      'Family-violence reports centre (Ministry of Human Resources and Social Development)';
+
+  @override
+  String get helpNowCountryPrompt => 'Pick a country to see its numbers';
+
+  @override
+  String get helpNowEmergency => 'Emergency services';
+
+  @override
+  String get helpNowSupport => 'Support lines';
+
+  @override
+  String get helpNowSource => 'Source';
+
+  @override
+  String get helpNowCountryEG => 'Egypt';
+
+  @override
+  String get helpNowCountrySA => 'Saudi Arabia';
+
+  @override
+  String get helpNowCall => 'Call';
 }

@@ -11,6 +11,7 @@ import '../../domain/bbt.dart';
 import '../../domain/cycle_prediction.dart';
 import '../../domain/dates.dart';
 import '../../domain/fertility.dart';
+import '../../domain/guidance.dart';
 import '../../l10n/app_localizations.dart';
 import '../../widgets/bbt_chart.dart';
 import 'hero_card.dart';
@@ -36,9 +37,6 @@ class PeriodHero extends StatelessWidget {
   final IsoRangeFormatter range;
   final IsoDateFormatter date;
 
-  /// From this age, "six to twelve months of trying" already counts as long enough to
-  /// suggest seeing a clinician; under it, only "over twelve months" does.
-  static const _earlierReferralAge = 35;
 
   @override
   Widget build(BuildContext context) {
@@ -66,22 +64,39 @@ class PeriodHero extends StatelessWidget {
     if (profile.goal == Goal.period) {
       return HeroCard(eyebrow: l.predictionPeriodTitle, headline: period, extra: extra);
     }
-    final fertile = fertileWindowBefore(prediction.predictedStart);
+    // The window and the seek-help clock are domain rules with fixtures (MR-06..08,
+    // MR-13/14); this screen only draws what they return.
+    final fertile = fertileWindowBefore(
+      prediction.predictedStart,
+      cycleLength: profile.cycleLength ?? prediction.averageLength,
+      irregular: prediction.irregular || profile.irregular,
+      learning: prediction.learning && prediction.basis != 'stated',
+    );
     final age = profile.birthYear == null ? null : fromISO(today).year - profile.birthYear!;
-    final longTrying = profile.tryingFor == TryingFor.over12 ||
-        (profile.tryingFor == TryingFor.sixTo12 && (age ?? 0) >= _earlierReferralAge);
+    final guidance = ttcGuidance(tryingFor: profile.tryingFor, age: age, irregular: profile.irregular || prediction.irregular);
     return Column(children: [
-      HeroCard(
-        eyebrow: l.predictionFertileTitle,
-        headline: range(fertile.windowStart, fertile.windowEnd),
-        extra: [
-          HeroLine(l.predictionOvulation(date(fertile.ovulation))),
-          HeroLine(l.predictionNextPeriod(period)),
-          ...extra,
-        ],
-      ),
+      if (fertile != null)
+        HeroCard(
+          eyebrow: l.predictionFertileTitle,
+          headline: range(fertile.windowStart, fertile.windowEnd),
+          extra: [
+            HeroLine(l.predictionOvulation(date(fertile.ovulation))),
+            HeroLine(l.predictionNextPeriod(period)),
+            ...extra,
+          ],
+        )
+      else
+        HeroCard(
+          eyebrow: l.predictionFertileTitle,
+          headline: l.noConfidentWindowTitle,
+          extra: [HeroLine(l.noConfidentWindowBody), HeroLine(l.predictionNextPeriod(period)), ...extra],
+        ),
       HeroNote(l.predictionNote),
-      if (longTrying) HeroNote(l.seeClinicianTtc),
+      if (guidance.suggestClinician)
+        HeroNote(switch (guidance.reason!) {
+          GuidanceReason.irregularCycles => l.seeClinicianIrregular,
+          GuidanceReason.twelveMonths || GuidanceReason.sixMonthsFrom35 => l.seeClinicianTtc,
+        }),
       const SizedBox(height: space3),
       TestTimingCard(prediction: prediction, date: date),
       const SizedBox(height: space3),

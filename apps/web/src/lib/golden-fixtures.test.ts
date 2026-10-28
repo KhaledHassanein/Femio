@@ -2,6 +2,9 @@ import { describe, expect, it } from "vitest";
 import { readFileSync, readdirSync } from "node:fs";
 import { join } from "node:path";
 import { predictNextPeriod } from "./cycle/predict";
+import { fertileWindow } from "./calculators";
+import { addDays } from "./calculators/dates";
+import { ttcGuidance, type TryingFor } from "./fertility/guidance";
 import { bbtChart, type FertilityEntry } from "./fertility";
 import { inProgress, summarize, timeContractions, type Contraction } from "./contractions";
 import { comparePattern, type MovementSession } from "./pregnancy/movements";
@@ -13,6 +16,7 @@ import {
   splitAppointments,
   type Appointment,
 } from "./appointments";
+import { hijriDay, hijriMonthLine, hijriMonthYear } from "./calendar/grid";
 import { eddFromConception, eddFromLmp, eddFromTransfer, pregnancyProgress } from "./pregnancy";
 
 /**
@@ -85,6 +89,13 @@ const RUNNERS: Record<string, (input: never) => unknown> = {
       daysUntil: Object.fromEntries(i.appointments.map((a) => [a.id, daysUntil(a, i.today)])),
     };
   },
+  "fertile-window": (i: { nextPeriod: string; cycleLength: number | null; irregular: boolean; learning: boolean }) => {
+    if (i.irregular || i.learning || i.cycleLength === null) return null;
+    const lmp = addDays(i.nextPeriod, -i.cycleLength);
+    const window = fertileWindow(lmp, i.cycleLength)?.window ?? null;
+    return window && { ovulation: window.ovulation, windowStart: window.start, windowEnd: window.end };
+  },
+  "ttc-guidance": (i: { tryingFor: TryingFor | null; age: number | null; irregular: boolean }) => ttcGuidance(i),
   "edd-from": (i: { method: "lmp" | "conception" | "transfer3" | "transfer5"; date: string }) =>
     i.method === "lmp"
       ? eddFromLmp(i.date)
@@ -92,6 +103,12 @@ const RUNNERS: Record<string, (input: never) => unknown> = {
         ? eddFromConception(i.date)
         : eddFromTransfer(i.date, i.method === "transfer3" ? 3 : 5),
   "gestational-age": (i: { edd: string; today: string }) => pregnancyProgress(i.edd, i.today),
+  // Two kinds of case share the file: an ISO date (day, month index, year) and a
+  // Gregorian span (the Arabic month line under the month title).
+  hijri: (i: { iso?: string; first?: string; last?: string }) =>
+    i.iso !== undefined
+      ? { day: hijriDay(i.iso), ...hijriMonthYear(i.iso) }
+      : { line: hijriMonthLine(i.first as string, i.last as string) },
 };
 
 describe("golden fixtures", () => {

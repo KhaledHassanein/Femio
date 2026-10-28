@@ -1,20 +1,47 @@
+// The fertile window, and when there is honestly none to name.
+//
+// Why it exists: the register (MR-06, MR-07, MR-08) says ovulation is estimated
+// 14 days before the next period and the window is the six days ending on it, and
+// that no window is named when cycles are irregular, still being learned, or outside
+// 21 to 35 days: a day she cannot rely on is worse than no day. Twin of
+// `fertileWindow` in `apps/web/src/lib/calculators/index.ts`, bound by
+// `fixtures/domain/fertile-window.json`. Awareness only (product rule 1): never a
+// way to avoid pregnancy.
+
 import 'dates.dart';
 
-/// Fertile window from a predicted next period. Twin of `fertileWindow` in
-/// `apps/web/src/lib/calculators/index.ts`: ovulation about 14 days before the
-/// next period, the window the five days before it and the day after.
-///
-/// Awareness only (product rule 1): never presented as a way to avoid pregnancy.
+/// The six-day window and the day it ends on.
 class FertileWindow {
   const FertileWindow(this.ovulation, this.windowStart, this.windowEnd);
   final String ovulation;
   final String windowStart;
   final String windowEnd;
+
+  Map<String, Object?> toJson() => {'ovulation': ovulation, 'windowStart': windowStart, 'windowEnd': windowEnd};
 }
 
+/// MR-07: ovulation this many days before the next period.
 const lutealPhaseDays = 14;
 
-FertileWindow fertileWindowBefore(String nextPeriodISO) {
+/// MR-07: the window is this many days, ending on ovulation day.
+const fertileWindowDays = 6;
+
+/// MR-08: a window is named only for cycle lengths in this range.
+const regularCycleMin = 21;
+const regularCycleMax = 35;
+
+/// The window before [nextPeriodISO], or null when none can be named honestly
+/// (MR-06): irregular cycles, a prediction still being learned, or a cycle length
+/// outside the regular range. A null [cycleLength] (she said "not sure") also
+/// withholds the window.
+FertileWindow? fertileWindowBefore(
+  String nextPeriodISO, {
+  required int? cycleLength,
+  required bool irregular,
+  required bool learning,
+}) {
+  if (irregular || learning || cycleLength == null) return null;
+  if (cycleLength < regularCycleMin || cycleLength > regularCycleMax) return null;
   final ovulation = addDays(nextPeriodISO, -lutealPhaseDays);
-  return FertileWindow(ovulation, addDays(ovulation, -5), addDays(ovulation, 1));
+  return FertileWindow(ovulation, addDays(ovulation, -(fertileWindowDays - 1)), ovulation);
 }

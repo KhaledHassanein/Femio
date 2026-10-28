@@ -1,11 +1,15 @@
 import 'dart:convert';
 import 'dart:io';
 
+import 'package:femio/data/profile.dart';
 import 'package:femio/domain/appointments.dart';
 import 'package:femio/domain/bbt.dart';
 import 'package:femio/domain/contractions.dart';
 import 'package:femio/domain/movements.dart';
 import 'package:femio/domain/cycle_prediction.dart';
+import 'package:femio/domain/fertility.dart';
+import 'package:femio/domain/guidance.dart';
+import 'package:femio/domain/hijri.dart';
 import 'package:femio/domain/pregnancy.dart';
 import 'package:femio/domain/weight.dart';
 import 'package:flutter_test/flutter_test.dart';
@@ -104,6 +108,17 @@ final runners = <String, Object? Function(Map<String, dynamic>)>{
       'daysUntil': {for (final a in list) a.id: daysUntil(a, today)},
     };
   },
+  'fertile-window': (i) => fertileWindowBefore(
+        i['nextPeriod'] as String,
+        cycleLength: i['cycleLength'] as int?,
+        irregular: i['irregular'] as bool,
+        learning: i['learning'] as bool,
+      )?.toJson(),
+  'ttc-guidance': (i) => ttcGuidance(
+        tryingFor: i['tryingFor'] == null ? null : TryingFor.values.byName(i['tryingFor'] as String),
+        age: i['age'] as int?,
+        irregular: i['irregular'] as bool,
+      ).toJson(),
   'edd-from': (i) {
     final date = i['date'] as String;
     return switch (i['method']) {
@@ -115,6 +130,15 @@ final runners = <String, Object? Function(Map<String, dynamic>)>{
   },
   'gestational-age': (i) =>
       pregnancyProgress(i['edd'] as String, i['today'] as String)?.toJson(),
+  // Two kinds of case share the file: an ISO date (day, month index, year) and a
+  // Gregorian span (the month line printed under the month title).
+  'hijri': (i) {
+    if (i.containsKey('iso')) {
+      final h = hijriDate(i['iso'] as String)!;
+      return {'day': hijriDay(i['iso'] as String), 'month': h.month, 'year': h.year};
+    }
+    return {'line': hijriMonthLine(i['first'] as String, i['last'] as String, i['locale'] as String)};
+  },
 };
 
 /// Persona and experience-config logic drives the web app's adaptive screens. The

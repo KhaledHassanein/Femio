@@ -2,7 +2,7 @@
   "@@locale": "es",
   "appTitle": "femio",
   "welcomeTitle": "Tu ciclo, tus planes, tu embarazo.",
-  "welcomeBody": "Tus datos se quedan en este teléfono. Sin cuenta, y Femio nunca los ve.",
+  "welcomeBody": "Tus registros se quedan en este teléfono. Sin cuenta, y femio nunca los ve.",
   "language": "Idioma",
   "getStarted": "Empezar",
   "continueLabel": "Continuar",
@@ -298,5 +298,73 @@
   "deleteConfirmAction": "Borrar todo",
   "deleteConfirmCancel": "Conservar mis registros",
   "corruptTitle": "No se pudieron abrir tus registros",
-  "corruptBody": "El archivo de este teléfono está dañado o lo escribió otro femio. Se ha apartado, no borrado. Restaura un archivo de copia de seguridad si lo tienes, o empieza de nuevo."
+  "corruptBody": "El archivo de este teléfono está dañado o lo escribió otro femio. Se ha apartado, no borrado. Restaura un archivo de copia de seguridad si lo tienes, o empieza de nuevo.",
+  "settingsReminders": "Recordatorios",
+  "reminderLog": "Recordatorio de registro",
+  "reminderLogNote": "Un aviso diario a la hora que elijas. Se salta un día en el que ya registraste.",
+  "reminderLogTime": "Hora del recordatorio",
+  "reminderPeriod": "Regla esperada",
+  "reminderPeriodNote": "Un aviso el día antes de que se abra tu ventana estimada. Solo si tus ciclos son lo bastante regulares para estimar.",
+  "remindersPrivacyNote": "Un recordatorio solo dice «femio: Abre la app». Nada sobre tu salud aparece en la pantalla de bloqueo.",
+  "remindersTimingNote": "Un recordatorio puede llegar con unos minutos de retraso, y algunos teléfonos lo retienen para ahorrar batería.",
+  "reminderPermissionDenied": "Las notificaciones están desactivadas para femio. Puedes permitirlas en los ajustes de tu teléfono.",
+  "reminderTitle": "femio",
+  "reminderBody": "Abre la app",
+  "reminderChannelName": "Recordatorios",
+  "reminderChannelDescription": "Recordatorios que activaste en femio. Nunca mencionan tu salud.",
+  "calendarDayLabel": "{gregorian}, {hijri}",
+  "navLearn": "Aprender",
+  "learnTitle": "Aprender",
+  "learnSub": "Guías con fuentes, en palabras sencillas. Primero concebir y el embarazo; todo se queda aquí.",
+  "learnSearchHint": "Buscar en las guías",
+  "learnNoResults": "Ninguna guía coincide todavía.",
+  "learnReviewedBy": "Revisada por {name}",
+  "@learnReviewedBy": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "learnReviewedOn": "Revisada por {name} · {date}",
+  "@learnReviewedOn": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      },
+      "date": {
+        "type": "String"
+      }
+    }
+  },
+  "learnReviewPending": "Revisión editorial hecha · revisión clínica pendiente",
+  "learnEnglishOnly": "En inglés",
+  "learnEnglishOnlyBody": "Esta guía aún no está traducida; se muestra en inglés.",
+  "learnSeekCareNow": "Busca atención ahora",
+  "learnSources": "Fuentes",
+  "learnLinkCopied": "Enlace copiado. Pégalo en tu navegador.",
+  "noConfidentWindowTitle": "No hay una ventana fiable en este ciclo",
+  "noConfidentWindowBody": "Tus ciclos varían demasiado para nombrar días fértiles a partir de una fecha. Registrar tus reglas, tus tests de ovulación y tu temperatura al despertar es cómo saberlo después.",
+  "seeClinicianIrregular": "Como tus ciclos son irregulares, es razonable hablar con una profesional de salud ahora en lugar de esperar un año.",
+  "helpNowLauncher": "¿Necesitas ayuda ahora?",
+  "helpNowDialogTitle": "¿Necesitas ayuda ahora?",
+  "helpNowImmediateHeading": "Si puedes estar en peligro",
+  "helpNowImmediateLead": "Si puedes llegar a hacerte daño a ti misma o a otra persona, o estás en peligro inmediato, contacta con los servicios de emergencia disponibles donde te encuentras ahora o acude al servicio de urgencias más cercano.",
+  "helpNowStayWithSomeone": "Si puedes, quédate con alguien de confianza mientras consigues ayuda.",
+  "helpNowWorriedHeading": "Si te preocupa otra persona",
+  "helpNowWorriedBody": "Si crees que la persona está en peligro inmediato, no la dejes sola siempre que sea seguro para ti quedarte. Contacta con los servicios de emergencia disponibles donde esté, con un servicio de crisis, con un profesional sanitario o con un familiar de confianza.",
+  "helpNowNumber_eg_ambulance": "Ambulancia (Organización Egipcia de Ambulancias)",
+  "helpNowNumber_eg_mental_health": "Línea de salud mental (Ministerio de Salud, secretaría de salud mental)",
+  "helpNowNumber_eg_ncw": "Oficina de quejas de las mujeres (Consejo Nacional de la Mujer)",
+  "helpNowNumber_sa_srca": "Ambulancia (Autoridad de la Media Luna Roja Saudí)",
+  "helpNowNumber_sa_moh": "Centro de llamadas del Ministerio de Salud",
+  "helpNowNumber_sa_moh_mental": "Consultas psicológicas (Ministerio de Salud)",
+  "helpNowNumber_sa_hrsd": "Centro de denuncias de violencia familiar (Ministerio de Recursos Humanos y Desarrollo Social)",
+  "helpNowCountryPrompt": "Elige un país para ver sus números",
+  "helpNowEmergency": "Servicios de emergencia",
+  "helpNowSupport": "Líneas de apoyo",
+  "helpNowSource": "Fuente",
+  "helpNowCountryEG": "Egipto",
+  "helpNowCountrySA": "Arabia Saudita",
+  "helpNowCall": "Llamar"
 }

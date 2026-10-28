@@ -143,9 +143,9 @@ internal_links:
 > - قيء يمنعكِ من إمساك الطعام أو السوائل لمدة 24 ساعة، أو عدم التبول لأكثر من 8 ساعات. [NHS: القيء أثناء الحمل](https://www.nhs.uk/pregnancy/common-symptoms/vomiting-and-morning-sickness/)
 > - عطش شديد جديد، أو كثرة التبول، أو جفاف الفم، أو عدم وضوح الرؤية مع ارتفاع السكر. [NHS: سكري الحمل](https://www.nhs.uk/conditions/gestational-diabetes/)
 >
-> إذا أصابكِ ارتباك، أو لم تستطيعي البقاء مستيقظة، أو تشنج، أو لم تستطيعي الوصول إلى فريقكِ، فاتصلي بخدمات الطوارئ المحلية أو اذهبي إلى أقرب قسم طوارئ. لا تنتظري ردًا من فيميو أو من أي خدمة إلكترونية.
+> إذا أصابكِ ارتباك، أو لم تستطيعي البقاء مستيقظة، أو تشنج، أو لم تستطيعي الوصول إلى فريقكِ، فاتصلي بخدمات الطوارئ المحلية أو اذهبي إلى أقرب قسم طوارئ. لا تنتظري ردًا من femio أو من أي خدمة إلكترونية.
 
-فيميو لا تستطيع تقييم الحالات الطارئة. يمكنكِ الاطلاع على [صفحة المراجعة الطبية](/ar/medical-review) لمعرفة كيف يُراجَع محتوى فيميو الصحي، وعلى [سياسة التحرير](/ar/editorial-policy). وتُشرح المصطلحات مثل "الهبوط" في [المسرد](/ar/glossary). وإذا شعرتِ بعدم الأمان، فاطلعي على [صفحة المساعدة الفورية](/ar/help-now).
+femio لا تستطيع تقييم الحالات الطارئة. يمكنكِ الاطلاع على [صفحة المراجعة الطبية](/ar/medical-review) لمعرفة كيف يُراجَع محتوى femio الصحي، وعلى [سياسة التحرير](/ar/editorial-policy). وتُشرح المصطلحات مثل "الهبوط" في [المسرد](/ar/glossary). وإذا شعرتِ بعدم الأمان، فاطلعي على [صفحة المساعدة الفورية](/ar/help-now).
 
 ## الأسئلة الشائعة
 
@@ -177,7 +177,7 @@ internal_links:
 - The internal link to the English pregnancy-warning-signs article is removed because no Arabic version exists. Links are to Arabic routes only: help-now, medical-review, editorial-policy, glossary.
 - The canonical URL uses /ar/. The brief shows /en/ only, so confirm this with the CMS.
 - The "Seek care now" marker is kept in English so the structural check still finds it.
-- The brand is spelled فيميو in running text.
+- The brand is spelled femio in running text.
 - Glucose unit kept as mmol/L (ملي مول/لتر), as in the NHS source.
 
 **Sources and claims**

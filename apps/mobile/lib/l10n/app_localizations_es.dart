@@ -17,7 +17,7 @@ class L10nEs extends L10n {
 
   @override
   String get welcomeBody =>
-      'Tus datos se quedan en este teléfono. Sin cuenta, y Femio nunca los ve.';
+      'Tus registros se quedan en este teléfono. Sin cuenta, y femio nunca los ve.';
 
   @override
   String get language => 'Idioma';
@@ -1058,4 +1058,185 @@ class L10nEs extends L10n {
   @override
   String get corruptBody =>
       'El archivo de este teléfono está dañado o lo escribió otro femio. Se ha apartado, no borrado. Restaura un archivo de copia de seguridad si lo tienes, o empieza de nuevo.';
+
+  @override
+  String get settingsReminders => 'Recordatorios';
+
+  @override
+  String get reminderLog => 'Recordatorio de registro';
+
+  @override
+  String get reminderLogNote =>
+      'Un aviso diario a la hora que elijas. Se salta un día en el que ya registraste.';
+
+  @override
+  String get reminderLogTime => 'Hora del recordatorio';
+
+  @override
+  String get reminderPeriod => 'Regla esperada';
+
+  @override
+  String get reminderPeriodNote =>
+      'Un aviso el día antes de que se abra tu ventana estimada. Solo si tus ciclos son lo bastante regulares para estimar.';
+
+  @override
+  String get remindersPrivacyNote =>
+      'Un recordatorio solo dice «femio: Abre la app». Nada sobre tu salud aparece en la pantalla de bloqueo.';
+
+  @override
+  String get remindersTimingNote =>
+      'Un recordatorio puede llegar con unos minutos de retraso, y algunos teléfonos lo retienen para ahorrar batería.';
+
+  @override
+  String get reminderPermissionDenied =>
+      'Las notificaciones están desactivadas para femio. Puedes permitirlas en los ajustes de tu teléfono.';
+
+  @override
+  String get reminderTitle => 'femio';
+
+  @override
+  String get reminderBody => 'Abre la app';
+
+  @override
+  String get reminderChannelName => 'Recordatorios';
+
+  @override
+  String get reminderChannelDescription =>
+      'Recordatorios que activaste en femio. Nunca mencionan tu salud.';
+
+  @override
+  String calendarDayLabel(String gregorian, String hijri) {
+    return '$gregorian, $hijri';
+  }
+
+  @override
+  String get navLearn => 'Aprender';
+
+  @override
+  String get learnTitle => 'Aprender';
+
+  @override
+  String get learnSub =>
+      'Guías con fuentes, en palabras sencillas. Primero concebir y el embarazo; todo se queda aquí.';
+
+  @override
+  String get learnSearchHint => 'Buscar en las guías';
+
+  @override
+  String get learnNoResults => 'Ninguna guía coincide todavía.';
+
+  @override
+  String learnReviewedBy(String name) {
+    return 'Revisada por $name';
+  }
+
+  @override
+  String learnReviewedOn(String name, String date) {
+    return 'Revisada por $name · $date';
+  }
+
+  @override
+  String get learnReviewPending =>
+      'Revisión editorial hecha · revisión clínica pendiente';
+
+  @override
+  String get learnEnglishOnly => 'En inglés';
+
+  @override
+  String get learnEnglishOnlyBody =>
+      'Esta guía aún no está traducida; se muestra en inglés.';
+
+  @override
+  String get learnSeekCareNow => 'Busca atención ahora';
+
+  @override
+  String get learnSources => 'Fuentes';
+
+  @override
+  String get learnLinkCopied => 'Enlace copiado. Pégalo en tu navegador.';
+
+  @override
+  String get noConfidentWindowTitle =>
+      'No hay una ventana fiable en este ciclo';
+
+  @override
+  String get noConfidentWindowBody =>
+      'Tus ciclos varían demasiado para nombrar días fértiles a partir de una fecha. Registrar tus reglas, tus tests de ovulación y tu temperatura al despertar es cómo saberlo después.';
+
+  @override
+  String get seeClinicianIrregular =>
+      'Como tus ciclos son irregulares, es razonable hablar con una profesional de salud ahora en lugar de esperar un año.';
+
+  @override
+  String get helpNowLauncher => '¿Necesitas ayuda ahora?';
+
+  @override
+  String get helpNowDialogTitle => '¿Necesitas ayuda ahora?';
+
+  @override
+  String get helpNowImmediateHeading => 'Si puedes estar en peligro';
+
+  @override
+  String get helpNowImmediateLead =>
+      'Si puedes llegar a hacerte daño a ti misma o a otra persona, o estás en peligro inmediato, contacta con los servicios de emergencia disponibles donde te encuentras ahora o acude al servicio de urgencias más cercano.';
+
+  @override
+  String get helpNowStayWithSomeone =>
+      'Si puedes, quédate con alguien de confianza mientras consigues ayuda.';
+
+  @override
+  String get helpNowWorriedHeading => 'Si te preocupa otra persona';
+
+  @override
+  String get helpNowWorriedBody =>
+      'Si crees que la persona está en peligro inmediato, no la dejes sola siempre que sea seguro para ti quedarte. Contacta con los servicios de emergencia disponibles donde esté, con un servicio de crisis, con un profesional sanitario o con un familiar de confianza.';
+
+  @override
+  String get helpNowNumber_eg_ambulance =>
+      'Ambulancia (Organización Egipcia de Ambulancias)';
+
+  @override
+  String get helpNowNumber_eg_mental_health =>
+      'Línea de salud mental (Ministerio de Salud, secretaría de salud mental)';
+
+  @override
+  String get helpNowNumber_eg_ncw =>
+      'Oficina de quejas de las mujeres (Consejo Nacional de la Mujer)';
+
+  @override
+  String get helpNowNumber_sa_srca =>
+      'Ambulancia (Autoridad de la Media Luna Roja Saudí)';
+
+  @override
+  String get helpNowNumber_sa_moh =>
+      'Centro de llamadas del Ministerio de Salud';
+
+  @override
+  String get helpNowNumber_sa_moh_mental =>
+      'Consultas psicológicas (Ministerio de Salud)';
+
+  @override
+  String get helpNowNumber_sa_hrsd =>
+      'Centro de denuncias de violencia familiar (Ministerio de Recursos Humanos y Desarrollo Social)';
+
+  @override
+  String get helpNowCountryPrompt => 'Elige un país para ver sus números';
+
+  @override
+  String get helpNowEmergency => 'Servicios de emergencia';
+
+  @override
+  String get helpNowSupport => 'Líneas de apoyo';
+
+  @override
+  String get helpNowSource => 'Fuente';
+
+  @override
+  String get helpNowCountryEG => 'Egipto';
+
+  @override
+  String get helpNowCountrySA => 'Arabia Saudita';
+
+  @override
+  String get helpNowCall => 'Llamar';
 }

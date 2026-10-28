@@ -113,6 +113,23 @@ const MAX_AGE_DAYS = 365;
   }
 }
 
+// The app's catalogs carry the same approved sentences, verbatim (R4.8). A drift here
+// would be an unreviewed crisis sentence on a phone.
+const ARB_KEYS = { immediateLead: "helpNowImmediateLead", stayWithSomeone: "helpNowStayWithSomeone", worriedBody: "helpNowWorriedBody", immediateHeading: "helpNowImmediateHeading", worriedHeading: "helpNowWorriedHeading" };
+for (const [locale, entry] of Object.entries(locales)) {
+  const arbPath = join(HERE, "..", "apps", "mobile", "lib", "l10n", `app_${locale}.arb`);
+  let arb;
+  try {
+    arb = JSON.parse(readFileSync(arbPath, "utf8"));
+  } catch {
+    errors.push(`${locale}: app catalog ${arbPath} missing or unreadable`);
+    continue;
+  }
+  for (const [crisisKey, arbKey] of Object.entries(ARB_KEYS)) {
+    if (arb[arbKey] !== entry.strings[crisisKey]) errors.push(`${locale}: app string ${arbKey} is not the approved sentence from crisis.json (${crisisKey})`);
+  }
+}
+
 if (errors.length > 0) {
   console.error("✗ Crisis-safety compliance guard failed:\n");
   for (const e of errors) console.error(`  ${e}`);
@@ -120,4 +137,4 @@ if (errors.length > 0) {
   process.exit(1);
 }
 
-console.log("✓ Crisis-safety compliance guard: approved copy in date, metadata complete, keys in parity, country numbers sourced and in date.");
+console.log("✓ Crisis-safety compliance guard: approved copy in date, metadata complete, keys in parity, country numbers sourced and in date, app strings verbatim.");

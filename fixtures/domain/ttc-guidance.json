@@ -1,0 +1,14 @@
+{
+  "$comment": "MR-13, MR-14 (01_PRODUCT_SCOPE §4.2). The seek-help clock: a calm suggestion to talk to a clinician after 12 months of trying under 35, 6 months from 35, and from day one when cycles are irregular or absent (no clock at all; never the word infertile). Inputs: tryingFor is the onboarding band (justStarted | under6 | sixTo12 | over12), age may be unknown. Shared by apps/web/src/lib/fertility/guidance.ts and apps/mobile/lib/domain/guidance.dart.",
+  "cases": [
+    { "input": { "tryingFor": "justStarted", "age": 28, "irregular": false }, "expected": { "suggestClinician": false, "reason": null } },
+    { "input": { "tryingFor": "under6", "age": 38, "irregular": false }, "expected": { "suggestClinician": false, "reason": null } },
+    { "input": { "tryingFor": "sixTo12", "age": 34, "irregular": false }, "expected": { "suggestClinician": false, "reason": null } },
+    { "input": { "tryingFor": "sixTo12", "age": 35, "irregular": false }, "expected": { "suggestClinician": true, "reason": "sixMonthsFrom35" } },
+    { "input": { "tryingFor": "over12", "age": 28, "irregular": false }, "expected": { "suggestClinician": true, "reason": "twelveMonths" } },
+    { "input": { "tryingFor": "over12", "age": null, "irregular": false }, "expected": { "suggestClinician": true, "reason": "twelveMonths" } },
+    { "input": { "tryingFor": "sixTo12", "age": null, "irregular": false }, "expected": { "suggestClinician": false, "reason": null } },
+    { "input": { "tryingFor": "justStarted", "age": 29, "irregular": true }, "expected": { "suggestClinician": true, "reason": "irregularCycles" } },
+    { "input": { "tryingFor": null, "age": 41, "irregular": false }, "expected": { "suggestClinician": false, "reason": null } }
+  ]
+}

@@ -1,0 +1,37 @@
+{
+  "$comment": "MR-06, MR-07, MR-08 (01_PRODUCT_SCOPE §4.1). Ovulation 14 days before the next period; the fertile window is the six days ending on ovulation day. No window (null) when cycles are irregular, still being learned, or the cycle length is outside 21-35 days: the client shows 'no confident window' instead of a day. Shared by apps/web/src/lib/calculators (fertileWindow) and apps/mobile/lib/domain/fertility.dart.",
+  "cases": [
+    {
+      "input": { "nextPeriod": "2026-11-14", "cycleLength": 28, "irregular": false, "learning": false },
+      "expected": { "ovulation": "2026-10-31", "windowStart": "2026-10-26", "windowEnd": "2026-10-31" }
+    },
+    {
+      "input": { "nextPeriod": "2026-11-14", "cycleLength": 21, "irregular": false, "learning": false },
+      "expected": { "ovulation": "2026-10-31", "windowStart": "2026-10-26", "windowEnd": "2026-10-31" }
+    },
+    {
+      "input": { "nextPeriod": "2026-11-14", "cycleLength": 35, "irregular": false, "learning": false },
+      "expected": { "ovulation": "2026-10-31", "windowStart": "2026-10-26", "windowEnd": "2026-10-31" }
+    },
+    {
+      "input": { "nextPeriod": "2026-11-14", "cycleLength": 36, "irregular": false, "learning": false },
+      "expected": null
+    },
+    {
+      "input": { "nextPeriod": "2026-11-14", "cycleLength": 20, "irregular": false, "learning": false },
+      "expected": null
+    },
+    {
+      "input": { "nextPeriod": "2026-11-14", "cycleLength": 28, "irregular": true, "learning": false },
+      "expected": null
+    },
+    {
+      "input": { "nextPeriod": "2026-11-14", "cycleLength": 28, "irregular": false, "learning": true },
+      "expected": null
+    },
+    {
+      "input": { "nextPeriod": "2027-01-03", "cycleLength": 30, "irregular": false, "learning": false },
+      "expected": { "ovulation": "2026-12-20", "windowStart": "2026-12-15", "windowEnd": "2026-12-20" }
+    }
+  ]
+}
