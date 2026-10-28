@@ -13,16 +13,20 @@ environment:
 #   flutter_secure_storage the record's encryption key, in the Android Keystore
 #   cryptography           AES-GCM for the record and backups, PBKDF2 for passphrases and the PIN
 #   file_picker            the backup file she saves and opens herself (Storage Access Framework)
+#   flutter_local_notifications  the optional reminders, scheduled on the phone itself (R4.4)
+#   timezone               the TZDateTime type the notification plugin schedules with (no database loaded)
 dependencies:
   cryptography: 2.9.0
   file_picker: 13.3.0
   flutter:
     sdk: flutter
+  flutter_local_notifications: 22.3.3
   flutter_localizations:
     sdk: flutter
   flutter_secure_storage: 11.2.0
   intl: any # the version flutter_localizations pins
   path_provider: 2.1.6
+  timezone: 0.11.2
 
 dev_dependencies:
   flutter_test:
@@ -32,6 +36,10 @@ dev_dependencies:
 flutter:
   uses-material-design: true
   generate: true
+  # The guide library, built by scripts/content/build-content.mjs from the same
+  # Markdown the website reads (content-build-lint keeps it current).
+  assets:
+    - assets/content/
   # Bundled, never fetched: the app makes no network request for fonts (D7). All OFL;
   # the licences sit beside the files.
   fonts:

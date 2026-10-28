@@ -5,6 +5,7 @@
 // onboarding, a quarantined record, or the home shell, and wires in the theme,
 // languages and localisation delegates.
 
+import 'dart:async';
 import 'dart:typed_data';
 
 import 'package:flutter/material.dart';
@@ -14,10 +15,12 @@ import 'data/app_lock.dart';
 import 'data/backup.dart';
 import 'data/key_vault.dart';
 import 'data/profile.dart';
+import 'data/reminder_scheduler.dart';
 import 'data/store.dart';
 import 'features/home/home_shell.dart';
 import 'features/lock/lock_screen.dart';
 import 'features/onboarding/onboarding_flow.dart';
+import 'domain/reminders.dart';
 import 'features/settings/corrupt_record_screen.dart';
 import 'l10n/app_localizations.dart';
 import 'theme/femio_theme.dart';
@@ -33,14 +36,29 @@ enum RecordState { loading, ready, corrupt }
 /// to by the app, because v1 has a handful of screens and a state library would be weight.
 class FemioController extends ChangeNotifier {
   /// [store] is where her record lives; [vault] holds the lock PIN (a memory vault
-  /// in tests); [initialLocale] is the language to start in before she has chosen one.
-  FemioController(this.store, {KeyVault? vault, String? initialLocale})
-      : _lock = AppLock(vault ?? MemoryKeyVault()),
-        _locale = initialLocale;
+  /// in tests); [initialLocale] is the language to start in before she has chosen one;
+  /// [reminders] shows her reminders (none in tests); [clock] reads "now" for the
+  /// reminder plan (fixed in tests).
+  FemioController(
+    this.store, {
+    KeyVault? vault,
+    String? initialLocale,
+    ReminderScheduler? reminders,
+    DateTime Function()? clock,
+  })  : _lock = AppLock(vault ?? MemoryKeyVault()),
+        _locale = initialLocale,
+        _reminders = reminders ?? const NoReminderScheduler(),
+        _clock = clock ?? DateTime.now;
 
   /// Where her record is saved. Swappable, so tests use memory and the app uses a file.
   final FemioStore store;
   final AppLock _lock;
+  final ReminderScheduler _reminders;
+  final DateTime Function() _clock;
+
+  /// What was last handed to the scheduler, so an unchanged plan is not rescheduled on
+  /// every save. Null forces the next sync (app start, after a failure).
+  ({List<PlannedReminder> plan, ReminderTexts texts})? _scheduled;
 
   /// Her record, or null before she finishes onboarding (or after she starts over).
   Profile? profile;
@@ -86,6 +104,7 @@ class FemioController extends ChangeNotifier {
         this.quarantinedPath = quarantinedPath;
         state = RecordState.corrupt;
     }
+    await _syncReminders(force: true);
     notifyListeners();
   }
 
@@ -102,6 +121,7 @@ class FemioController extends ChangeNotifier {
     profile = p;
     state = RecordState.ready;
     await store.save(p);
+    await _syncReminders();
     notifyListeners();
   }
 
@@ -112,11 +132,75 @@ class FemioController extends ChangeNotifier {
   /// Updates her preferences and saves.
   Future<void> setSettings(AppSettings settings) => save(profile!.copyWith(settings: settings));
 
+  /// Turns reminders on or off, or moves the daily time, then saves and reschedules.
+  /// A null argument leaves that setting alone. Turning one ON first asks the phone for
+  /// notification permission; when she refuses, nothing changes and this returns false
+  /// so Settings can say why. Requires a loaded [profile].
+  Future<bool> updateReminders({bool? log, bool? period, int? logMinutes}) async {
+    final s = profile!.settings;
+    final turningOn = (log == true && !s.logReminder) || (period == true && !s.periodReminder);
+    if (turningOn && !await _reminders.requestPermission()) return false;
+    await setSettings(s.copyWith(logReminder: log, periodReminder: period, logReminderMinutes: logMinutes));
+    return true;
+  }
+
+  /// Makes the scheduler match [planReminders] for the current record. A failure in the
+  /// notification system must never cost her a saved record, so it is swallowed here
+  /// and retried at the next save or app start.
+  Future<void> _syncReminders({bool force = false}) async {
+    final p = profile;
+    try {
+      if (p == null) {
+        if (force) await _reminders.cancelAll();
+        _scheduled = null;
+        return;
+      }
+      final plan = planReminders(p, now: _clock());
+      final texts = _reminderTexts(p.locale);
+      final last = _scheduled;
+      if (!force && last != null && last.texts == texts && _samePlan(last.plan, plan)) return;
+      if (plan.isEmpty) {
+        await _reminders.cancelAll();
+      } else {
+        await _reminders.replaceAll(plan, texts);
+      }
+      _scheduled = (plan: plan, texts: texts);
+    } catch (error) {
+      _scheduled = null;
+      debugPrint('Reminders could not be scheduled: $error');
+    }
+  }
+
+  static bool _samePlan(List<PlannedReminder> a, List<PlannedReminder> b) {
+    if (a.length != b.length) return false;
+    for (var i = 0; i < a.length; i++) {
+      if (a[i] != b[i]) return false;
+    }
+    return true;
+  }
+
+  /// The reminder wording in her language; English when the code is unknown.
+  static ReminderTexts _reminderTexts(String code) {
+    final l = lookupL10n(Locale(supportedLanguages.contains(code) ? code : 'en'));
+    return ReminderTexts(
+      title: l.reminderTitle,
+      body: l.reminderBody,
+      channelName: l.reminderChannelName,
+      channelDescription: l.reminderChannelDescription,
+    );
+  }
+
   /// Deletes her record and the lock from the phone and returns to onboarding.
-  /// Settings confirms first; this method does not ask.
+  /// Settings confirms first; this method does not ask. Pending reminders go too.
   Future<void> deleteEverything() async {
     await store.clear();
     await _lock.clear();
+    try {
+      await _reminders.cancelAll();
+    } catch (error) {
+      debugPrint('Reminders could not be cancelled: $error');
+    }
+    _scheduled = null;
     profile = null;
     quarantinedPath = null;
     state = RecordState.ready;
@@ -154,8 +238,10 @@ class FemioController extends ChangeNotifier {
   }
 
   /// Called by the app on lifecycle changes: the record locks again after
-  /// [relockAfter] in the background.
+  /// [relockAfter] in the background, and the reminders are topped up on return.
   void onLifecycle(AppLifecycleState lifecycle) {
+    // The reminder plan covers a rolling month; each return to the app tops it up.
+    if (lifecycle == AppLifecycleState.resumed && profile != null) unawaited(_syncReminders());
     if (!lockEnabled) return;
     if (lifecycle == AppLifecycleState.paused || lifecycle == AppLifecycleState.hidden) {
       _backgroundedAt ??= DateTime.now();

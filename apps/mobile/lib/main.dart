@@ -9,6 +9,7 @@ import 'package:intl/intl.dart' show DateFormat;
 
 import 'app.dart';
 import 'data/key_vault.dart';
+import 'data/reminder_scheduler.dart';
 import 'data/store.dart';
 
 /// Starts the app: loads her record from the phone first, then draws the first frame.
@@ -16,7 +17,7 @@ Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   configureFormatting();
   final vault = SecureKeyVault();
-  final controller = FemioController(EncryptedFileStore(vault: vault), vault: vault);
+  final controller = FemioController(EncryptedFileStore(vault: vault), vault: vault, reminders: LocalNotificationScheduler());
   await controller.load();
   runApp(FemioApp(controller: controller));
 }

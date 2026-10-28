@@ -1,4 +1,4 @@
-// Settings: language, Hijri dates, the app lock, backup, and deleting everything.
+// Settings: language, Hijri dates, reminders, the app lock, backup, and deleting everything.
 //
 // Why it exists: the app promised "change this any time" with nowhere to do it
 // (study report 04). Everything here is about her phone and her record; nothing
@@ -14,6 +14,7 @@ import '../../theme/spacing.dart';
 import '../lock/pin_field.dart';
 import 'backup_actions.dart';
 import 'delete_dialog.dart';
+import 'reminders_section.dart';
 
 /// The language names, in their own language, so each reader finds hers.
 const _languageNames = {'ar': 'العربية', 'en': 'English', 'fr': 'Français', 'es': 'Español'};
@@ -66,6 +67,7 @@ class SettingsScreen extends StatelessWidget {
               onChanged: (v) => controller.setSettings(settings.copyWith(showHijri: v)),
             ),
           ],
+          if (profile != null) RemindersSection(controller: controller, profile: profile),
           _Section(title: l.settingsPrivacy),
           SwitchListTile(
             value: controller.lockEnabled,

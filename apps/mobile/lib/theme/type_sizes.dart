@@ -21,3 +21,12 @@ const double iconSizeInline = 16;
 
 /// The minus and plus icons of a number stepper.
 const double iconSizeStepper = 28;
+
+/// The Hijri day under a Gregorian day, and the Hijri month line under the month title.
+const double fontSizeHijriDay = 12;
+
+/// The circle that holds a day number on the calendar.
+const double calendarDayDiameter = 36;
+
+/// Calendar row height when the Hijri day is shown: number 36 + Hijri 12 + breathing room.
+const double calendarRowHeightWithHijri = 52;

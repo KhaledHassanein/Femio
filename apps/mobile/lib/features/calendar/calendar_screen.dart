@@ -9,10 +9,12 @@ import 'package:intl/intl.dart' show DateFormat;
 import '../../app.dart';
 import '../../domain/dates.dart';
 import '../../domain/day_marks.dart';
+import '../../domain/hijri.dart';
 import '../../l10n/app_localizations.dart';
 import '../../theme/femio_theme.dart';
 import '../../theme/radii.dart';
 import '../../theme/spacing.dart';
+import '../../theme/type_sizes.dart';
 
 /// Month calendar. What she logged is drawn filled; what Femio estimates is drawn in
 /// outline or tint, never the same way (rule 3). Tapping a day opens its log.
@@ -53,6 +55,8 @@ class _CalendarScreenState extends State<CalendarScreen> {
         final firstWeekday = ml.firstDayOfWeekIndex; // 0 = Sunday
         final lead = (_month.weekday % 7 - firstWeekday + 7) % 7;
         final headers = [for (var i = 0; i < 7; i++) ml.narrowWeekdays[(firstWeekday + i) % 7]];
+        final showHijri = profile.settings.showHijri;
+        final hijriLine = showHijri ? hijriMonthLine(first, last, locale) : '';
 
         Widget cell(int day) {
           final iso = addDays(first, day - 1);
@@ -80,40 +84,58 @@ class _CalendarScreenState extends State<CalendarScreen> {
           }
           if (isToday && border == null) border = Border.all(color: p.primarySolid, width: 2);
 
+          final hijri = showHijri ? hijriDay(iso) : '';
+          // Without Hijri the circle fills its square cell; with it, a fixed circle leaves
+          // room for the Hijri day beneath.
+          final size = hijri.isEmpty ? null : calendarDayDiameter;
+          final number = Container(
+            width: size,
+            height: size,
+            decoration: BoxDecoration(color: fill, shape: BoxShape.circle, border: border),
+            child: Stack(
+              alignment: Alignment.center,
+              children: [
+                Text('$day',
+                    style: t.bodyMedium?.copyWith(
+                      color: text,
+                      fontWeight: isToday ? FontWeight.w700 : FontWeight.w500,
+                    )),
+                if (m?.logged ?? false)
+                  Positioned(
+                    bottom: 5,
+                    child: Container(
+                      width: 5,
+                      height: 5,
+                      decoration: BoxDecoration(
+                        color: (m?.bleed ?? false) ? Colors.white : p.logSymptom,
+                        shape: BoxShape.circle,
+                      ),
+                    ),
+                  ),
+              ],
+            ),
+          );
+          final label = DateFormat.yMMMMd(locale).format(fromISO(iso));
+
           return Semantics(
             button: !future,
-            label: DateFormat.yMMMMd(locale).format(fromISO(iso)),
+            label: hijri.isEmpty ? label : l.calendarDayLabel(label, hijriFullDate(iso, locale)),
             child: InkWell(
-              customBorder: const CircleBorder(),
+              customBorder: hijri.isEmpty ? const CircleBorder() : null,
+              borderRadius: hijri.isEmpty ? null : BorderRadius.circular(radiusMd),
               onTap: future ? null : () => widget.onDay(iso),
-              child: Padding(
-                padding: const EdgeInsets.all(3),
-                child: Container(
-                  decoration: BoxDecoration(color: fill, shape: BoxShape.circle, border: border),
-                  child: Stack(
-                    alignment: Alignment.center,
-                    children: [
-                      Text('$day',
-                          style: t.bodyMedium?.copyWith(
-                            color: text,
-                            fontWeight: isToday ? FontWeight.w700 : FontWeight.w500,
-                          )),
-                      if (m?.logged ?? false)
-                        Positioned(
-                          bottom: 5,
-                          child: Container(
-                            width: 5,
-                            height: 5,
-                            decoration: BoxDecoration(
-                              color: (m?.bleed ?? false) ? Colors.white : p.logSymptom,
-                              shape: BoxShape.circle,
-                            ),
-                          ),
+              child: hijri.isEmpty
+                  ? Padding(padding: const EdgeInsets.all(3), child: number)
+                  : Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        number,
+                        // Secondary, quiet: 12px in the subtle text colour (spec 2.3).
+                        ExcludeSemantics(
+                          child: Text(hijri, style: t.labelSmall?.copyWith(fontSize: fontSizeHijriDay, color: p.textSubtle, height: 1)),
                         ),
-                    ],
-                  ),
-                ),
-              ),
+                      ],
+                    ),
             ),
           );
         }
@@ -154,11 +176,19 @@ class _CalendarScreenState extends State<CalendarScreen> {
                       tooltip: ml.previousMonthTooltip,
                     ),
                     Expanded(
-                      child: Text(
-                        DateFormat.yMMMM(locale).format(_month),
-                        textAlign: TextAlign.center,
-                        style: t.titleMedium,
-                      ),
+                      child: Column(mainAxisSize: MainAxisSize.min, children: [
+                        Text(
+                          DateFormat.yMMMM(locale).format(_month),
+                          textAlign: TextAlign.center,
+                          style: t.titleMedium,
+                        ),
+                        if (hijriLine.isNotEmpty)
+                          Text(
+                            hijriLine,
+                            textAlign: TextAlign.center,
+                            style: t.labelSmall?.copyWith(fontSize: fontSizeHijriDay, color: p.textSubtle),
+                          ),
+                      ]),
                     ),
                     IconButton(
                       onPressed: () => _shift(1),
@@ -167,8 +197,13 @@ class _CalendarScreenState extends State<CalendarScreen> {
                     ),
                   ]),
                   const SizedBox(height: space1),
-                  GridView.count(
-                    crossAxisCount: 7,
+                  GridView(
+                    // Square cells normally; a fixed 52px row when the Hijri day sits
+                    // under the number (spec 2.3).
+                    gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                      crossAxisCount: 7,
+                      mainAxisExtent: showHijri ? calendarRowHeightWithHijri : null,
+                    ),
                     shrinkWrap: true,
                     physics: const NeverScrollableScrollPhysics(),
                     children: [

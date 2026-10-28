@@ -2,6 +2,15 @@
     <!-- Her record never leaves the phone: no Google backup, no device transfer
          (both rule files under res/xml), and no INTERNET permission anywhere in
          this manifest (the privacy tripwire in scripts/analytics-lint.mjs checks). -->
+
+    <!-- Reminders (R4.4). POST_NOTIFICATIONS comes from the notifications plugin and is
+         asked for at run time on Android 13+, only when she turns a reminder on.
+         RECEIVE_BOOT_COMPLETED lets the plugin put the pending reminders back after a
+         restart. There is deliberately NO exact-alarm permission: reminders are inexact
+         (they may arrive a few minutes late), which needs no special access and no Play
+         declaration. -->
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+
     <application
         android:label="femio"
         android:name="${applicationName}"
@@ -36,6 +45,17 @@
         <meta-data
             android:name="flutterEmbedding"
             android:value="2" />
+        <!-- The plugin's alarm receivers: one shows a due reminder, one re-schedules after
+             a restart or an app update. Not exported: only the system may call them. -->
+        <receiver android:exported="false" android:name="com.dexterous.flutterlocalnotifications.ScheduledNotificationReceiver" />
+        <receiver android:exported="false" android:name="com.dexterous.flutterlocalnotifications.ScheduledNotificationBootReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+                <action android:name="android.intent.action.MY_PACKAGE_REPLACED" />
+                <action android:name="android.intent.action.QUICKBOOT_POWERON" />
+                <action android:name="com.htc.intent.action.QUICKBOOT_POWERON" />
+            </intent-filter>
+        </receiver>
     </application>
     <!-- Required to query activities that can process text, see:
          https://developer.android.com/training/package-visibility and

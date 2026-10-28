@@ -27,9 +27,21 @@ Map<String, Object?> migrateRecord(Map<String, Object?> json) {
   return json;
 }
 
+/// Minutes after local midnight for the daily log reminder until she picks a time: 20:00.
+const defaultLogReminderMinutes = 20 * 60;
+
 /// Her preferences, kept with the record so a backup carries them.
+///
+/// The reminder fields are absent in records written before R4.4, and absent means off,
+/// so the schema version stays 2.
 class AppSettings {
-  const AppSettings({this.showHijri = false, this.storageNoticeSeen = false});
+  const AppSettings({
+    this.showHijri = false,
+    this.storageNoticeSeen = false,
+    this.logReminder = false,
+    this.logReminderMinutes = defaultLogReminderMinutes,
+    this.periodReminder = false,
+  });
 
   /// Show Hijri dates beside Gregorian ones (on by default in Arabic, see
   /// [AppSettings.defaultsFor]).
@@ -38,18 +50,53 @@ class AppSettings {
   /// The one-time "your records stay on this phone" notice has been dismissed.
   final bool storageNoticeSeen;
 
+  /// A daily nudge to log, at [logReminderMinutes]. Off until she turns it on (an offer,
+  /// never a score).
+  final bool logReminder;
+
+  /// When the daily nudge fires, in minutes after local midnight (0 to 1439).
+  final int logReminderMinutes;
+
+  /// One notification the day before her predicted period window opens. Off by default.
+  final bool periodReminder;
+
   /// Defaults for a new record in [locale].
   static AppSettings defaultsFor(String locale) => AppSettings(showHijri: locale == 'ar');
 
-  AppSettings copyWith({bool? showHijri, bool? storageNoticeSeen}) =>
-      AppSettings(showHijri: showHijri ?? this.showHijri, storageNoticeSeen: storageNoticeSeen ?? this.storageNoticeSeen);
-
-  Map<String, Object?> toJson() => {'showHijri': showHijri, 'storageNoticeSeen': storageNoticeSeen};
-
-  static AppSettings fromJson(Map<String, Object?>? j) => AppSettings(
-        showHijri: j?['showHijri'] as bool? ?? false,
-        storageNoticeSeen: j?['storageNoticeSeen'] as bool? ?? false,
+  AppSettings copyWith({
+    bool? showHijri,
+    bool? storageNoticeSeen,
+    bool? logReminder,
+    int? logReminderMinutes,
+    bool? periodReminder,
+  }) =>
+      AppSettings(
+        showHijri: showHijri ?? this.showHijri,
+        storageNoticeSeen: storageNoticeSeen ?? this.storageNoticeSeen,
+        logReminder: logReminder ?? this.logReminder,
+        logReminderMinutes: logReminderMinutes ?? this.logReminderMinutes,
+        periodReminder: periodReminder ?? this.periodReminder,
       );
+
+  Map<String, Object?> toJson() => {
+        'showHijri': showHijri,
+        'storageNoticeSeen': storageNoticeSeen,
+        'logReminder': logReminder,
+        'logReminderMinutes': logReminderMinutes,
+        'periodReminder': periodReminder,
+      };
+
+  static AppSettings fromJson(Map<String, Object?>? j) {
+    final minutes = (j?['logReminderMinutes'] as num?)?.toInt();
+    return AppSettings(
+      showHijri: j?['showHijri'] as bool? ?? false,
+      storageNoticeSeen: j?['storageNoticeSeen'] as bool? ?? false,
+      logReminder: j?['logReminder'] as bool? ?? false,
+      // A time outside the clock (a damaged or hand-edited backup) falls back to the default.
+      logReminderMinutes: minutes != null && minutes >= 0 && minutes < 24 * 60 ? minutes : defaultLogReminderMinutes,
+      periodReminder: j?['periodReminder'] as bool? ?? false,
+    );
+  }
 }
 
 enum TryingFor { justStarted, under6, sixTo12, over12 }
