@@ -33,9 +33,15 @@ history and `docs/archive/`.
   backup, PIN lock, Settings, no-backup rules, release signing from a key outside git (R4.1–R4.3,
   R4.11 partly); local reminders (R4.4); Learn tab with the guides offline (R4.5); fertile window
   and seek-help clock as domain rules with shared fixtures (R4.6 part, R4.7); Help now in the app
-  (R4.8 part); Hijri dates from a generated ICU table, ADR-073 (R4.9). Ledger:
-  `docs/33_REBUILD_V3/PROGRESS.md`.
-- **Health:** `pnpm gate` green (834 web tests + 16 guards); `flutter analyze` clean, 428 Dart tests. Flutter 3.47.8
+  (R4.8); Hijri dates from a generated ICU table, ADR-073 (R4.9); every medical rule out of the
+  screens with twin fixtures (R4.6); the mobile gate with vocabulary, untranslated-copy, claims
+  and crisis guards (R4.11); the live-site audit with Lighthouse and the SEO fixes it found
+  (R2.6); the reading-level guard over the wedge guides (R3.3); the paste-ready Play listing and
+  data-safety answers in `docs/store/` (R5.1, R5.2). Ledger: `docs/33_REBUILD_V3/PROGRESS.md`.
+- **Open before a release candidate:** R4.12 needs the owner's keystore (owner action 2); R2.7
+  (NVDA pass) needs a screen reader on this PC; R3.5 rest (Arabic editor pass on the ten guides);
+  R2.6 performance to ≥ 95 (calculator hydration); R0.7 dead namespaces.
+- **Health:** `pnpm gate` green (848 web tests + 20 guards); `flutter analyze` clean, 440 Dart tests. Flutter 3.47.8
   on this PC (upgraded 2026-10-27). Debug APK on the Android 16 emulator: Arabic onboarding → Today →
   Learn → article → Help now walked by hand 2026-10-28 (`testing-results/2026-10-28-app-settings-lock/`).
 - **Supabase project** is still restricted (402) and still exists; the repo no longer references

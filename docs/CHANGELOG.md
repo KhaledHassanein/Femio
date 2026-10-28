@@ -11,6 +11,9 @@ All notable changes to Femio V2.
 ### Changed
 - **No fertile window is drawn when Femio cannot name one honestly**: irregular cycles, too few logged cycles, or a cycle length outside 21 to 35 days now show "No confident window this cycle" and how to tell afterwards, instead of a guessed range. If your cycles are irregular and you are trying to conceive, Femio now suggests talking to a clinician now rather than waiting a year.
 - **The wordmark is always "femio"**, also inside Arabic text, on the website, in the app and in the guides.
+- **Sharing a guide now shows its picture.** Guide and condition links carry the share image and the page's own title on WhatsApp, Twitter and the rest.
+- **A calmer home page.** The drifting light behind the hero moves more slowly, and not at all if your phone is set to reduce motion.
+- **Help now is one tap from every tab** in the app, not only from Today.
 - **The calculators now work on a calendar.** Tap the day your last period started and your period, fertile days, likely ovulation and next period are drawn on the same month; in Arabic the week starts on Saturday and each day shows its Hijri date. When your cycles vary, or a cycle length is outside 21 to 35 days, Femio says it cannot name a fertile window from one date and shows how to tell afterwards, rather than guessing a day. Due date and pregnancy week show the 37 to 42 week window on a bar that never fills toward a date.
 - **Honest review labels on every guide.** A guide names its reviewer and the review date only where a clinician reviewed it; the rest now say "Editorially checked, clinician review pending". "Seek care now" boxes in guides are drawn as warning boxes.
 - **The privacy policy and terms describe the real product**: an app whose records never leave your phone, and a website that collects nothing. Help now shows emergency and support numbers for Egypt and Saudi Arabia, each with its source.
