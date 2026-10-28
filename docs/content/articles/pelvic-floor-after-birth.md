@@ -2,7 +2,7 @@
 title: "Your Pelvic Floor After Birth"
 slug: "pelvic-floor-after-birth"
 locale: "en"
-status: "draft"
+status: "published"
 content_type: "postpartum cluster"
 search_intent: "postnatal pelvic floor recovery and help-seeking"
 primary_query: "pelvic floor after birth"
@@ -23,8 +23,8 @@ open_graph_image: "PENDING"
 open_graph_image_alt: "A woman exercising gently on a mat at home after having a baby"
 written_by: "PENDING"
 medically_reviewed_by: "PENDING"
-date_published: null
-date_modified: null
+date_published: "2026-08-19"
+date_modified: "2026-08-19"
 last_reviewed: null
 next_review_due: null
 reading_level_ok: true

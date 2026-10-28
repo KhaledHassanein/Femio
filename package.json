@@ -2,7 +2,7 @@
   "name": "femio",
   "version": "0.0.0",
   "private": true,
-  "description": "Femio — a private women's-health app (Flutter) and its static front-door website (Next.js).",
+  "description": "Femio \u2014 a private women's-health app (Flutter) and its static front-door website (Next.js).",
   "packageManager": "pnpm@11.16.0",
   "engines": {
     "node": ">=20"
@@ -14,7 +14,7 @@
     "lint": "pnpm --filter web lint",
     "typecheck": "pnpm --filter web typecheck",
     "test": "pnpm --filter web test",
-    "gate": "pnpm typecheck && pnpm lint && pnpm test && pnpm claims-lint && pnpm crisis-lint && pnpm analytics-lint && pnpm content-lint && pnpm i18n-client-lint && pnpm i18n-untranslated-lint && pnpm tokens-parity-lint && pnpm tokens-dart-lint && pnpm mobile-vocab-lint && pnpm native-readiness-lint && pnpm chart-literals-lint",
+    "gate": "pnpm typecheck && pnpm lint && pnpm test && pnpm claims-lint && pnpm crisis-lint && pnpm analytics-lint && pnpm content-lint && pnpm i18n-client-lint && pnpm i18n-untranslated-lint && pnpm tokens-parity-lint && pnpm tokens-dart-lint && pnpm mobile-vocab-lint && pnpm native-readiness-lint && pnpm chart-literals-lint && pnpm content-build-lint",
     "claims-lint": "node scripts/claims-lint.mjs",
     "crisis-lint": "node scripts/crisis-compliance.mjs",
     "analytics-lint": "node scripts/analytics-lint.mjs",
@@ -32,7 +32,9 @@
     "audit": "pnpm audit --audit-level high",
     "gate:mobile": "cd apps/mobile && flutter analyze && flutter test",
     "brand:icons": "node scripts/brand/generate-icons.mjs",
-    "docs:html": "node scripts/docs/md-to-html.mjs"
+    "docs:html": "node scripts/docs/md-to-html.mjs",
+    "content:build": "node scripts/content/build-content.mjs",
+    "content-build-lint": "node scripts/content/build-content.mjs --check"
   },
   "devDependencies": {
     "sharp": "0.35.5",

@@ -2,7 +2,7 @@
 title: "How Does the Menstrual Cycle Work?"
 slug: "menstrual-cycle-basics"
 locale: "en"
-status: "draft"
+status: "published"
 content_type: "life-stage pillar"
 search_intent: "informational"
 primary_query: "how does the menstrual cycle work"
@@ -21,11 +21,11 @@ open_graph_title: "The Menstrual Cycle, Explained in Plain Language"
 open_graph_description: "A clear guide to cycle phases, period tracking, common changes, and when to speak with a doctor."
 open_graph_image: "PENDING"
 open_graph_image_alt: "Simple illustration of the phases of the menstrual cycle"
-written_by: "PENDING"
-medically_reviewed_by: "PENDING"
-date_published: null
-date_modified: null
-last_reviewed: null
+written_by: "Dr. Khaled M."
+medically_reviewed_by: "Dr. Khaled M."
+date_published: "2026-08-15"
+date_modified: "2026-08-15"
+last_reviewed: "2026-08-04"
 next_review_due: null
 reading_level_ok: true
 reading_level_method: "Approximate Flesch-Kincaid grade 7.23 checked 2026-08-03"

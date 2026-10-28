@@ -2,7 +2,7 @@
 title: "What Is Menopause and What Can Change?"
 slug: "menopause-explained"
 locale: "en"
-status: "draft"
+status: "published"
 content_type: "life-stage pillar"
 search_intent: "informational life-stage overview"
 primary_query: "what is menopause"
@@ -21,11 +21,11 @@ open_graph_title: "Menopause: Symptoms, Changes, and Care"
 open_graph_description: "A clear guide to menopause, common changes, clinical assessment, care choices, and signs that need medical attention."
 open_graph_image: "PENDING"
 open_graph_image_alt: "Woman reviewing a menopause symptom record with a healthcare professional"
-written_by: "PENDING"
-medically_reviewed_by: "PENDING"
-date_published: null
-date_modified: null
-last_reviewed: null
+written_by: "Dr. Khaled M."
+medically_reviewed_by: "Dr. Khaled M."
+date_published: "2026-08-15"
+date_modified: "2026-08-15"
+last_reviewed: "2026-08-04"
 next_review_due: null
 reading_level_ok: true
 reading_level_method: "Approximate Flesch-Kincaid grade 7.82 checked 2026-08-03"

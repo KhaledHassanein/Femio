@@ -2,7 +2,7 @@
 title: "What Is the Fertile Window?"
 slug: "fertile-window-explained"
 locale: "en"
-status: "draft"
+status: "published"
 content_type: "cluster article"
 search_intent: "informational definition and planning"
 primary_query: "what is the fertile window"
@@ -21,11 +21,11 @@ open_graph_title: "The Fertile Window: Timing and Estimate Limits"
 open_graph_description: "A clear guide to fertile timing, ovulation, cycle estimates, and conception planning."
 open_graph_image: "PENDING"
 open_graph_image_alt: "Cycle calendar showing an estimated fertile range rather than one exact day"
-written_by: "PENDING"
-medically_reviewed_by: "PENDING"
-date_published: null
-date_modified: null
-last_reviewed: null
+written_by: "Dr. Khaled M."
+medically_reviewed_by: "Dr. Khaled M."
+date_published: "2026-08-15"
+date_modified: "2026-08-15"
+last_reviewed: "2026-08-04"
 next_review_due: null
 reading_level_ok: true
 reading_level_method: "Approximate Flesch-Kincaid grade 7.97 checked 2026-08-03"

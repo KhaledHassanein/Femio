@@ -247,21 +247,34 @@ for (const { file, frontMatter: fm, keyOrder, body } of parsed) {
 
   /* --- fixed values --- */
   if (fm.locale !== locale) add(file, "locale", `locale must be "${locale}", got ${JSON.stringify(fm.locale)}`);
-  if (fm.status !== "draft") {
-    add(file, "status", `status must be "draft" — publication is the CMS review gate's decision (§5, §9)`);
+  // Publication is the repository's decision now (ADR-072; the CMS is retired).
+  // A draft carries no bylines or dates; a published guide carries its dates and,
+  // when a clinician has reviewed it, the reviewer's name. A reviewer may stay
+  // "PENDING" on a published guide: the page then says "clinician review pending".
+  const STATUSES = ["draft", "published"];
+  if (!STATUSES.includes(fm.status)) {
+    add(file, "status", `status must be one of ${STATUSES.join(" | ")} (§5, §9)`);
   }
-  for (const key of ["written_by", "medically_reviewed_by"]) {
-    if (fm[key] !== "PENDING") {
-      add(
-        file,
-        "invented-byline",
-        `${key} must be "PENDING" until a real name is assigned; never invent an author or reviewer (§5, §9). Got ${JSON.stringify(fm[key])}`,
-      );
+  if (fm.status === "draft") {
+    for (const key of ["written_by", "medically_reviewed_by"]) {
+      if (fm[key] !== "PENDING") {
+        add(file, "invented-byline", `${key} must be "PENDING" on a draft; never invent an author or reviewer (§5, §9). Got ${JSON.stringify(fm[key])}`);
+      }
     }
-  }
-  for (const key of ["date_published", "date_modified", "last_reviewed", "next_review_due"]) {
-    if (fm[key] !== null) {
-      add(file, "invented-date", `${key} must be null; the CMS sets it at publication (§5). Got ${JSON.stringify(fm[key])}`);
+    for (const key of ["date_published", "date_modified", "last_reviewed", "next_review_due"]) {
+      if (fm[key] !== null) add(file, "invented-date", `${key} must be null on a draft (§5). Got ${JSON.stringify(fm[key])}`);
+    }
+  } else {
+    const DATE = /^\d{4}-\d{2}-\d{2}$/;
+    if (!DATE.test(String(fm.date_published))) add(file, "publish-date", `a published guide needs date_published as YYYY-MM-DD. Got ${JSON.stringify(fm.date_published)}`);
+    if (!DATE.test(String(fm.date_modified))) add(file, "publish-date", `a published guide needs date_modified as YYYY-MM-DD. Got ${JSON.stringify(fm.date_modified)}`);
+    const reviewed = fm.medically_reviewed_by !== "PENDING";
+    if (reviewed && !DATE.test(String(fm.last_reviewed))) {
+      add(file, "review-date", `a guide that names a reviewer needs last_reviewed as YYYY-MM-DD. Got ${JSON.stringify(fm.last_reviewed)}`);
+    }
+    if (!reviewed && fm.last_reviewed !== null) add(file, "review-date", `last_reviewed must be null while medically_reviewed_by is PENDING`);
+    for (const key of ["written_by", "medically_reviewed_by"]) {
+      if (typeof fm[key] !== "string" || fm[key].trim() === "") add(file, "byline", `${key} must be a name or "PENDING"`);
     }
   }
   const DISCLAIMERS = ["general", "screening", "emergency", "none"];

@@ -2,7 +2,7 @@
 title: "Tracking your cycle without stress"
 slug: "tracking-your-cycle-as-a-teen"
 locale: "en"
-status: "draft"
+status: "published"
 content_type: "teen cluster"
 search_intent: "teen tracking expectations"
 primary_query: "period tracker accuracy for teenagers"
@@ -21,8 +21,8 @@ open_graph_image: "PENDING"
 open_graph_image_alt: "Simple line drawing of a soft band with faded edges"
 written_by: "PENDING"
 medically_reviewed_by: "PENDING"
-date_published: null
-date_modified: null
+date_published: "2026-08-19"
+date_modified: "2026-08-19"
 last_reviewed: null
 next_review_due: null
 reading_level_ok: true

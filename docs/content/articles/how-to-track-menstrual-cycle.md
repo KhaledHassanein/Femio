@@ -2,7 +2,7 @@
 title: "How Should You Track Your Menstrual Cycle?"
 slug: "how-to-track-menstrual-cycle"
 locale: "en"
-status: "draft"
+status: "published"
 content_type: "educational cluster"
 search_intent: "practical cycle tracking guidance"
 primary_query: "how to track menstrual cycle"
@@ -21,11 +21,11 @@ open_graph_title: "How to Track Your Menstrual Cycle"
 open_graph_description: "A practical guide to recording period dates, flow, symptoms, and useful notes without turning estimates into medical conclusions."
 open_graph_image: "PENDING"
 open_graph_image_alt: "Calendar with period dates and symptom notes for menstrual cycle tracking"
-written_by: "PENDING"
-medically_reviewed_by: "PENDING"
-date_published: null
-date_modified: null
-last_reviewed: null
+written_by: "Dr. Khaled M."
+medically_reviewed_by: "Dr. Khaled M."
+date_published: "2026-08-15"
+date_modified: "2026-08-15"
+last_reviewed: "2026-08-04"
 next_review_due: null
 reading_level_ok: true
 reading_level_method: "Approximate Flesch-Kincaid grade 6.54 checked 2026-08-03"

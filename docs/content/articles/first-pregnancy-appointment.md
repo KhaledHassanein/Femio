@@ -2,7 +2,7 @@
 title: "What Happens at Your First Pregnancy Appointment?"
 slug: "first-pregnancy-appointment"
 locale: "en"
-status: "draft"
+status: "published"
 content_type: "pregnancy cluster"
 search_intent: "first prenatal appointment preparation"
 primary_query: "what happens at first pregnancy appointment"
@@ -21,11 +21,11 @@ open_graph_title: "What to Expect at Your First Pregnancy Appointment"
 open_graph_description: "A practical guide to your health history, routine checks, screening choices, consent, support needs, and appointment questions."
 open_graph_image: "PENDING"
 open_graph_image_alt: "Pregnant person discussing health records and questions with a clinician"
-written_by: "PENDING"
-medically_reviewed_by: "PENDING"
-date_published: null
-date_modified: null
-last_reviewed: null
+written_by: "Dr. Khaled M."
+medically_reviewed_by: "Dr. Khaled M."
+date_published: "2026-08-15"
+date_modified: "2026-08-15"
+last_reviewed: "2026-08-04"
 next_review_due: null
 reading_level_ok: true
 reading_level_method: "Approximate Flesch-Kincaid grade 7.98 checked 2026-08-04"

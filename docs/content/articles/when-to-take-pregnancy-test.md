@@ -2,7 +2,7 @@
 title: "When Should You Take a Pregnancy Test?"
 slug: "when-to-take-pregnancy-test"
 locale: "en"
-status: "draft"
+status: "published"
 content_type: "pregnancy cluster"
 search_intent: "pregnancy test timing and interpretation"
 primary_query: "when to take a pregnancy test"
@@ -21,11 +21,11 @@ open_graph_title: "When to Take a Home Pregnancy Test"
 open_graph_description: "A clear guide to test timing, instructions, negative and positive results, repeat testing, and urgent warning signs."
 open_graph_image: "PENDING"
 open_graph_image_alt: "Home pregnancy test beside a calendar showing a missed period"
-written_by: "PENDING"
-medically_reviewed_by: "PENDING"
-date_published: null
-date_modified: null
-last_reviewed: null
+written_by: "Dr. Khaled M."
+medically_reviewed_by: "Dr. Khaled M."
+date_published: "2026-08-05"
+date_modified: "2026-08-04"
+last_reviewed: "2026-08-05"
 next_review_due: null
 reading_level_ok: true
 reading_level_method: "Approximate Flesch-Kincaid grade 7.86 checked 2026-08-04"

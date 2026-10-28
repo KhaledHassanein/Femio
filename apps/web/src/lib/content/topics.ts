@@ -86,6 +86,10 @@ const TOPIC_SLUGS: Record<Exclude<Topic, "weeks" | "more">, readonly string[]> =
   conditions: [
     "pcos-signs",
     "how-pcos-is-assessed",
+    "pcos-lifestyle-and-weight",
+    "pcos-insulin-resistance",
+    "pcos-treatment-options-to-discuss",
+    "pcos-hair-skin-and-mood",
     "endometriosis-signs",
     "how-endometriosis-is-assessed",
   ],

@@ -2,7 +2,7 @@
 title: "Your Baby's First Checks and Vaccinations"
 slug: "newborn-checks-and-vaccinations"
 locale: "en"
-status: "draft"
+status: "published"
 content_type: "newborn cluster"
 search_intent: "newborn checks and immunisation expectations"
 primary_query: "newborn checks and vaccinations"
@@ -22,8 +22,8 @@ open_graph_image: "PENDING"
 open_graph_image_alt: "A clinician examining a newborn baby on a hospital cot"
 written_by: "PENDING"
 medically_reviewed_by: "PENDING"
-date_published: null
-date_modified: null
+date_published: "2026-08-19"
+date_modified: "2026-08-19"
 last_reviewed: null
 next_review_due: null
 reading_level_ok: true

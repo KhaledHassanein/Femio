@@ -2,7 +2,7 @@
 title: "What Care Options Can Help With Period Pain?"
 slug: "period-pain-care-options"
 locale: "en"
-status: "draft"
+status: "published"
 content_type: "condition cluster"
 search_intent: "care options explanation"
 primary_query: "what helps period pain"
@@ -21,11 +21,11 @@ open_graph_title: "Period Pain: Self-Care and Clinical Options"
 open_graph_description: "A practical guide to heat, movement, medicines, hormone options, review, and getting more help for period pain."
 open_graph_image: "PENDING"
 open_graph_image_alt: "Heat pack, symptom diary, and clinician notes for period-pain care"
-written_by: "PENDING"
-medically_reviewed_by: "PENDING"
-date_published: null
-date_modified: null
-last_reviewed: null
+written_by: "Dr. Khaled M."
+medically_reviewed_by: "Dr. Khaled M."
+date_published: "2026-08-15"
+date_modified: "2026-08-15"
+last_reviewed: "2026-08-04"
 next_review_due: null
 reading_level_ok: true
 reading_level_method: "Approximate Flesch-Kincaid grade 7.51 checked 2026-08-04"

@@ -2,7 +2,7 @@
 title: "Meet Femio: Your Women's Health Tracking Companion"
 slug: "meet-femio"
 locale: "en"
-status: "draft"
+status: "published"
 content_type: "product introduction"
 search_intent: "branded informational"
 primary_query: "Femio women's health app"
@@ -21,10 +21,10 @@ open_graph_title: "Meet Femio: Private, Practical Women's Health Tracking"
 open_graph_description: "Track cycles and symptoms, use free health tools, and prepare for clinician visits with honest estimates and privacy controls."
 open_graph_image: "PENDING — upload a crawlable 1200 x 630 px image"
 open_graph_image_alt: "Femio dashboard showing private cycle and symptom tracking tools"
-written_by: "PENDING"
+written_by: "Dr. Khaled M."
 medically_reviewed_by: "PENDING"
-date_published: null
-date_modified: null
+date_published: "2026-08-15"
+date_modified: "2026-08-15"
 last_reviewed: null
 next_review_due: null
 reading_level_ok: true

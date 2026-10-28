@@ -2,7 +2,7 @@
 title: "Your Six-Week Check After Birth"
 slug: "six-week-postnatal-check"
 locale: "en"
-status: "draft"
+status: "published"
 content_type: "postpartum cluster"
 search_intent: "postnatal check preparation"
 primary_query: "six week postnatal check"
@@ -23,8 +23,8 @@ open_graph_image: "PENDING"
 open_graph_image_alt: "A woman with notes at a postnatal appointment with her doctor"
 written_by: "PENDING"
 medically_reviewed_by: "PENDING"
-date_published: null
-date_modified: null
+date_published: "2026-08-19"
+date_modified: "2026-08-19"
 last_reviewed: null
 next_review_due: null
 reading_level_ok: true

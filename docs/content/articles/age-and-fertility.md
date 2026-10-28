@@ -2,7 +2,7 @@
 title: "Age and Fertility: What the Numbers Do and Do Not Say"
 slug: "age-and-fertility"
 locale: "en"
-status: "draft"
+status: "published"
 content_type: "fertility cluster"
 search_intent: "age and conception expectations"
 primary_query: "age and fertility"
@@ -23,8 +23,8 @@ open_graph_image: "PENDING"
 open_graph_image_alt: "A woman in her late thirties looking at a calendar at home"
 written_by: "PENDING"
 medically_reviewed_by: "PENDING"
-date_published: null
-date_modified: null
+date_published: "2026-08-19"
+date_modified: "2026-08-19"
 last_reviewed: null
 next_review_due: null
 reading_level_ok: true

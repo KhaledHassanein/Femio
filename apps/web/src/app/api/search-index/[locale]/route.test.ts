@@ -26,9 +26,10 @@ describe("the search index route", () => {
   });
 
   it("says when a locale has no translations, so the screen can say so too", async () => {
-    // Every article is English today (R3.8). Flips when the first Arabic one publishes.
-    const index = await get("ar");
-    expect(index.englishOnly).toBe(true);
-    expect(index.docs.length).toBe((await get("en")).docs.length);
+    // French has no translated guide yet; Arabic has its first ten (2026-10-28).
+    const fr = await get("fr");
+    expect(fr.englishOnly).toBe(true);
+    expect(fr.docs.length).toBe((await get("en")).docs.length);
+    expect((await get("ar")).englishOnly).toBe(false);
   });
 });

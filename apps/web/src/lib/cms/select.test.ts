@@ -26,11 +26,14 @@ describe("content snapshot client", () => {
     expect(list.every((d) => d.body === undefined && d.slug && d.title)).toBe(true);
   });
 
-  it("falls back to English per document, like Payload's fallback: true", async () => {
-    const en = await getContentBySlug("articles", "en", "pcos-signs");
-    const ar = await getContentBySlug("articles", "ar", "pcos-signs");
+  it("falls back to English per document when no translation exists", async () => {
+    // afterpains-after-birth has no Arabic edition yet; pcos-signs does.
+    const en = await getContentBySlug("articles", "en", "afterpains-after-birth");
+    const ar = await getContentBySlug("articles", "ar", "afterpains-after-birth");
     expect(en?.body).toBeTruthy();
     expect(ar?.title).toBe(en?.title);
+    const arPcos = await getContentBySlug("articles", "ar", "pcos-signs");
+    expect(arPcos?.title).not.toBe((await getContentBySlug("articles", "en", "pcos-signs"))?.title);
   });
 
   it("counts only real translations, so fallbacks are never advertised as Arabic", async () => {

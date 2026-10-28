@@ -2,7 +2,7 @@
 title: "How Do Clinicians Assess PCOS?"
 slug: "how-pcos-is-assessed"
 locale: "en"
-status: "draft"
+status: "published"
 content_type: "condition cluster"
 search_intent: "clinical assessment explanation"
 primary_query: "how is PCOS assessed"
@@ -21,11 +21,11 @@ open_graph_title: "How Clinicians Assess Possible PCOS"
 open_graph_description: "A clear guide to PCOS criteria, history, blood tests, ultrasound, other possible causes, and appointment preparation."
 open_graph_image: "PENDING"
 open_graph_image_alt: "Clinician reviewing a menstrual history and lab notes during a PCOS assessment"
-written_by: "PENDING"
-medically_reviewed_by: "PENDING"
-date_published: null
-date_modified: null
-last_reviewed: null
+written_by: "Dr. Khaled M."
+medically_reviewed_by: "Dr. Khaled M."
+date_published: "2026-08-15"
+date_modified: "2026-08-15"
+last_reviewed: "2026-08-04"
 next_review_due: null
 reading_level_ok: true
 reading_level_method: "Approximate Flesch-Kincaid grade 7.72 checked 2026-08-03"

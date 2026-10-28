@@ -1,8 +1,8 @@
 import { describe, expect, it } from "vitest";
 import { renderToStaticMarkup } from "react-dom/server";
 import { createElement } from "react";
-import articles from "@/content/snapshot/articles.json";
-import conditions from "@/content/snapshot/conditions.json";
+import articles from "@femio/content/articles.json";
+import conditions from "@femio/content/conditions.json";
 import { isRedFlagText } from "./red-flag";
 import { RichText } from "./lexical";
 import type { LexicalNode } from "./client";

@@ -2,7 +2,7 @@
 title: "What Are the Common Signs of Endometriosis?"
 slug: "endometriosis-signs"
 locale: "en"
-status: "draft"
+status: "published"
 content_type: "condition cluster"
 search_intent: "informational symptom overview"
 primary_query: "signs of endometriosis"
@@ -21,11 +21,11 @@ open_graph_title: "Common Endometriosis Signs and When to Seek Care"
 open_graph_description: "A clear guide to possible endometriosis signs, useful symptom tracking, clinical assessment, and reasons to seek care."
 open_graph_image: "PENDING"
 open_graph_image_alt: "Pelvic pain and menstrual symptom notes on a calendar"
-written_by: "PENDING"
-medically_reviewed_by: "PENDING"
-date_published: null
-date_modified: null
-last_reviewed: null
+written_by: "Dr. Khaled M."
+medically_reviewed_by: "Dr. Khaled M."
+date_published: "2026-08-15"
+date_modified: "2026-08-15"
+last_reviewed: "2026-08-04"
 next_review_due: null
 reading_level_ok: true
 reading_level_method: "Approximate Flesch-Kincaid grade 7.69 checked 2026-08-03"

@@ -2,7 +2,7 @@
 title: "Sleep and Exhaustion After Birth"
 slug: "sleep-and-exhaustion-after-birth"
 locale: "en"
-status: "draft"
+status: "published"
 content_type: "postpartum cluster"
 search_intent: "postnatal fatigue coping and escalation"
 primary_query: "exhaustion after birth"
@@ -23,8 +23,8 @@ open_graph_image: "PENDING"
 open_graph_image_alt: "A tired parent resting on a sofa in daylight while the baby sleeps"
 written_by: "PENDING"
 medically_reviewed_by: "PENDING"
-date_published: null
-date_modified: null
+date_published: "2026-08-19"
+date_modified: "2026-08-19"
 last_reviewed: null
 next_review_due: null
 reading_level_ok: true

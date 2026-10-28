@@ -2,7 +2,7 @@
 title: "What Happens at a Preconception Appointment?"
 slug: "preconception-appointment"
 locale: "en"
-status: "draft"
+status: "published"
 content_type: "fertility cluster"
 search_intent: "preconception appointment preparation"
 primary_query: "what happens at a preconception appointment"
@@ -21,11 +21,11 @@ open_graph_title: "How to Prepare for a Preconception Appointment"
 open_graph_description: "A practical guide to health history, medicines, vaccines, folic acid, tests, and questions before pregnancy."
 open_graph_image: "PENDING"
 open_graph_image_alt: "Medicine list and health notes prepared for a preconception appointment"
-written_by: "PENDING"
-medically_reviewed_by: "PENDING"
-date_published: null
-date_modified: null
-last_reviewed: null
+written_by: "Dr. Khaled M."
+medically_reviewed_by: "Dr. Khaled M."
+date_published: "2026-08-15"
+date_modified: "2026-08-15"
+last_reviewed: "2026-08-04"
 next_review_due: null
 reading_level_ok: true
 reading_level_method: "Approximate Flesch-Kincaid grade 8.00 checked 2026-08-04"

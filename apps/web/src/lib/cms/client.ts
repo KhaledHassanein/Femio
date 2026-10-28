@@ -1,21 +1,16 @@
 import { routing } from "@/i18n/routing";
-import articles from "@/content/snapshot/articles.json";
-import conditions from "@/content/snapshot/conditions.json";
-import faqs from "@/content/snapshot/faqs.json";
-import glossary from "@/content/snapshot/glossary.json";
-import people from "@/content/snapshot/people.json";
+import articles from "@femio/content/articles.json";
+import conditions from "@femio/content/conditions.json";
+import faqs from "@femio/content/faqs.json";
+import glossary from "@femio/content/glossary.json";
+import people from "@femio/content/people.json";
 
-// Published content, read from the snapshot committed in `src/content/snapshot/`
-// (D3 step 1, 2026-10-07). This module used to fetch the Payload REST API on every
-// render, and Payload reads Supabase Postgres, which Supabase bills as egress. With
-// bots crawling ~400 article URLs, those reads exhausted the free plan's 5 GB and the
-// project was restricted on 2026-10-06 (every API request answered 402; 8.96 GB used,
-// 0 monthly active users). Now a page view, a crawl or a sitemap build touches no
-// database at all.
-//
-// The function names and return shapes are unchanged, so no page changed with it.
-// Publishing: approve in the CMS as before, then `node scripts/content/snapshot-cms.mjs`
-// and commit the snapshot (OWNER_ACTIONS explains it in plain words).
+// Published content, read from `packages/content/*.json`, which
+// `scripts/content/build-content.mjs` builds from the Markdown guides in
+// `docs/content/articles/` (and, for the English bodies the retired CMS reviewed,
+// from its last export in `src/content/snapshot/`). A page view, a crawl or a
+// sitemap build touches no database. Publishing: set `status: "published"` in the
+// guide's front matter, run `pnpm content:build`, commit.
 
 export type LexicalNode = {
   type?: string;

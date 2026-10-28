@@ -2,7 +2,7 @@
 title: "Which Pregnancy Warning Signs Need Urgent Care?"
 slug: "pregnancy-warning-signs"
 locale: "en"
-status: "draft"
+status: "published"
 content_type: "pregnancy cluster"
 search_intent: "urgent pregnancy care navigation"
 primary_query: "pregnancy warning signs"
@@ -21,11 +21,11 @@ open_graph_title: "Pregnancy Warning Signs: When to Get Urgent Help"
 open_graph_description: "Clear action guidance for severe pain, bleeding, breathing trouble, headache, fever, reduced movement, and mental-health emergencies."
 open_graph_image: "PENDING"
 open_graph_image_alt: "Pregnant person calling for urgent medical help after noticing a warning sign"
-written_by: "PENDING"
-medically_reviewed_by: "PENDING"
-date_published: null
-date_modified: null
-last_reviewed: null
+written_by: "Dr. Khaled M."
+medically_reviewed_by: "Dr. Khaled M."
+date_published: "2026-08-15"
+date_modified: "2026-08-15"
+last_reviewed: "2026-08-04"
 next_review_due: null
 reading_level_ok: true
 reading_level_method: "Approximate Flesch-Kincaid grade 7.82 checked 2026-08-04"

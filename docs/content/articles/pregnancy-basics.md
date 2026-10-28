@@ -2,7 +2,7 @@
 title: "What Can You Expect During a Typical Pregnancy?"
 slug: "pregnancy-basics"
 locale: "en"
-status: "draft"
+status: "published"
 content_type: "life-stage pillar"
 search_intent: "informational pregnancy overview"
 primary_query: "what to expect during pregnancy"
@@ -21,11 +21,11 @@ open_graph_title: "Pregnancy Basics: Trimesters, Care, and Warning Signs"
 open_graph_description: "A clear, sourced guide to pregnancy changes, prenatal care, routine tests, and signs that need urgent help."
 open_graph_image: "PENDING"
 open_graph_image_alt: "Pregnancy timeline showing three trimesters and prenatal visits"
-written_by: "PENDING"
-medically_reviewed_by: "PENDING"
-date_published: null
-date_modified: null
-last_reviewed: null
+written_by: "Dr. Khaled M."
+medically_reviewed_by: "Dr. Khaled M."
+date_published: "2026-08-15"
+date_modified: "2026-08-15"
+last_reviewed: "2026-08-04"
 next_review_due: null
 reading_level_ok: true
 reading_level_method: "Approximate Flesch-Kincaid grade 7.74 checked 2026-08-03"

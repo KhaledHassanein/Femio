@@ -5,6 +5,9 @@ export default defineConfig({
   resolve: {
     alias: {
       "@": fileURLToPath(new URL("./src", import.meta.url)),
+      // The built content lives one level up, in the workspace package the app
+      // and the site share (scripts/content/build-content.mjs).
+      "@femio/content": fileURLToPath(new URL("../../packages/content", import.meta.url)),
       // `next-intl/navigation` does a bare `import "next/navigation"`, which Next
       // resolves through its own bundler and plain Node ESM does not — it wants the
       // `.js`. Any module reaching `@/i18n/navigation` therefore failed to load in
@@ -32,8 +35,6 @@ export default defineConfig({
     // schema-valid placeholders so unit tests never depend on a real .env.local.
     env: {
       NEXT_PUBLIC_APP_URL: "https://femio.test",
-      NEXT_PUBLIC_SUPABASE_URL: "https://project.supabase.co",
-      NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY: "test-publishable-key",
     },
   },
 });

@@ -2,7 +2,7 @@
 title: "Can Heavy Periods Cause Iron-Deficiency Anaemia?"
 slug: "heavy-periods-iron-deficiency-anaemia"
 locale: "en"
-status: "draft"
+status: "published"
 content_type: "condition cluster"
 search_intent: "cause and symptom information"
 primary_query: "heavy periods and iron deficiency anaemia"
@@ -21,11 +21,11 @@ open_graph_title: "Heavy Periods and Iron-Deficiency Anaemia"
 open_graph_description: "A clear guide to heavy menstrual bleeding, low iron, anaemia symptoms, clinical checks, and urgent warning signs."
 open_graph_image: "PENDING"
 open_graph_image_alt: "Menstrual flow record beside notes about tiredness and a blood test"
-written_by: "PENDING"
-medically_reviewed_by: "PENDING"
-date_published: null
-date_modified: null
-last_reviewed: null
+written_by: "Dr. Khaled M."
+medically_reviewed_by: "Dr. Khaled M."
+date_published: "2026-08-15"
+date_modified: "2026-08-15"
+last_reviewed: "2026-08-04"
 next_review_due: null
 reading_level_ok: true
 reading_level_method: "Approximate Flesch-Kincaid grade 7.40 checked 2026-08-03"

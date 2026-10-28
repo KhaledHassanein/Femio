@@ -2,7 +2,7 @@
 title: "Can Endometriosis Affect Fertility?"
 slug: "endometriosis-and-fertility"
 locale: "en"
-status: "draft"
+status: "published"
 content_type: "condition cluster"
 search_intent: "fertility information and care navigation"
 primary_query: "endometriosis and fertility"
@@ -21,11 +21,11 @@ open_graph_title: "Endometriosis and Fertility: A Clear Guide"
 open_graph_description: "A supportive overview of endometriosis, conception, fertility review, surgery questions, and shared care decisions."
 open_graph_image: "PENDING"
 open_graph_image_alt: "Person discussing endometriosis and fertility goals with a clinician"
-written_by: "PENDING"
-medically_reviewed_by: "PENDING"
-date_published: null
-date_modified: null
-last_reviewed: null
+written_by: "Dr. Khaled M."
+medically_reviewed_by: "Dr. Khaled M."
+date_published: "2026-08-15"
+date_modified: "2026-08-15"
+last_reviewed: "2026-08-04"
 next_review_due: null
 reading_level_ok: true
 reading_level_method: "Approximate Flesch-Kincaid grade 7.84 checked 2026-08-03"

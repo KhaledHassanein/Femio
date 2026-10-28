@@ -2,7 +2,7 @@
 title: "What Is Perimenopause and What Can Change?"
 slug: "perimenopause-explained"
 locale: "en"
-status: "draft"
+status: "published"
 content_type: "life-stage pillar"
 search_intent: "informational life-stage overview"
 primary_query: "what is perimenopause"
@@ -21,11 +21,11 @@ open_graph_title: "Perimenopause: Period Changes, Symptoms, and Care"
 open_graph_description: "A clear guide to perimenopause, changing cycles, common symptoms, clinical assessment, and care options."
 open_graph_image: "PENDING"
 open_graph_image_alt: "Calendar and symptom notes showing changing cycles during perimenopause"
-written_by: "PENDING"
-medically_reviewed_by: "PENDING"
-date_published: null
-date_modified: null
-last_reviewed: null
+written_by: "Dr. Khaled M."
+medically_reviewed_by: "Dr. Khaled M."
+date_published: "2026-08-15"
+date_modified: "2026-08-15"
+last_reviewed: "2026-08-04"
 next_review_due: null
 reading_level_ok: true
 reading_level_method: "Approximate Flesch-Kincaid grade 7.82 checked 2026-08-03"
