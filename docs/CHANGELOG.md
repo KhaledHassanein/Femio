@@ -16,6 +16,7 @@ All notable changes to Femio V2.
 - **Sharing a guide now shows its picture.** Guide and condition links carry the share image and the page's own title on WhatsApp, Twitter and the rest.
 - **Page titles read "… — femio" once**, not "… | Femio — Femio"; the site name is the lowercase wordmark everywhere a title, share card or search listing shows it.
 - **The "every stage" list on the home page says which stages are guides only** (first periods, after birth) and which have a tracking mode.
+- **The Arabic guides read more naturally.** A second editor pass on all eleven: plainer sentences, the glossary's terms with the everyday word beside them once, "the syndrome" instead of the Latin PCOS inside Arabic sentences after its first mention, and the Ramadan guide now links to the Arabic warning-signs guide.
 - **Arabic pages paint their text sooner**: the Arabic typeface now loads with the page instead of after it, and the calculator pages are built ahead of time like every other page.
 - **A calmer home page.** The drifting light behind the hero moves more slowly, and not at all if your phone is set to reduce motion.
 - **Help now is one tap from every tab** in the app, not only from Today.

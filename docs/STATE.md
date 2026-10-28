@@ -45,8 +45,8 @@ history and `docs/archive/`.
   the i18n config had returned `ar-u-nu-latn` as the locale since 2026-08-22). Ledger:
   `docs/33_REBUILD_V3/PROGRESS.md`.
 - **Open before a release candidate:** R4.12 needs the owner's keystore (owner action 2); the NVDA
-  listening session (owner action 8); R3.5 rest (the Arabic editor pass on the eleven guides, review
-  in `docs/content/reviews/`); owner action 10 (a source for bleeding and reduced movements on the
+  listening session (owner action 8); R3.5 rest (only the three owner decisions of owner action 9 and the
+  clinician sign-off remain; the editor's 99 rows are applied); owner action 10 (a source for bleeding and reduced movements on the
   red-flag list, or leave them off). Lighthouse run 3 (2026-10-28, before the links fix): home 93,
   calculator 97, article 100, English home 96; SEO 100 on all four.
 - **Health:** `pnpm gate` green (649 web unit tests + 21 guards, 24 e2e); `flutter analyze` clean, 463 Dart tests. Flutter 3.47.8
