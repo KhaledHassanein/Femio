@@ -10,6 +10,8 @@ import { CrisisHelpProvider } from "@/components/crisis/crisis-help-provider";
 import { ogLocale, siteConfig } from "@/lib/seo/config";
 import { localizedAlternates } from "@/lib/seo/metadata";
 import { env } from "@/lib/env";
+import { GtmScript } from "@/lib/consent/gtm-script";
+import { AnalyticsBridge } from "@/lib/consent/analytics-bridge";
 import "@femio/tokens/tokens.css";
 import "../globals.css";
 
@@ -117,6 +119,9 @@ export default async function LocaleLayout({ children, params }: LayoutProps) {
   return (
     <html lang={locale} dir={getDir(locale)} className={fontVars} suppressHydrationWarning>
       <body className={locale === "ar" ? "font-arabic" : "font-sans"}>
+        {/* ADR-075: the consent defaults (every signal denied) and the Tag Manager
+            container, rendered only when NEXT_PUBLIC_GTM_ID is set; nothing otherwise. */}
+        <GtmScript id={env.NEXT_PUBLIC_GTM_ID} />
         {/* `locale` is passed explicitly, and it is not decoration (2026-08-23).
             Without it `useLocale()` in a client component resolves to the default
             locale, and every client component that *branches* on the locale rather
@@ -132,6 +137,7 @@ export default async function LocaleLayout({ children, params }: LayoutProps) {
         <NextIntlClientProvider locale={locale} messages={clientMessages}>
           <ThemeProvider attribute="data-theme" defaultTheme="system" enableSystem disableTransitionOnChange>
             <CrisisHelpProvider>{children}</CrisisHelpProvider>
+            <AnalyticsBridge />
           </ThemeProvider>
         </NextIntlClientProvider>
       </body>

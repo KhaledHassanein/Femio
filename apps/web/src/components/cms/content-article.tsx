@@ -151,7 +151,8 @@ export async function ContentArticle({
         <section className="flex flex-col gap-2 border-t border-border pt-4">
           <h2 className="text-sm font-semibold text-text">{t("sources")}</h2>
           {/* Source titles are English in every locale (they are the guidelines' own titles). */}
-          <ul lang="en" dir="ltr" className="flex flex-col gap-1 text-sm text-text-muted">
+          {/* data-track-sources: the analytics bridge counts clicks on these links by host only (ADR-075). */}
+          <ul lang="en" dir="ltr" data-track-sources className="flex flex-col gap-1 text-sm text-text-muted">
             {doc.sources.map((s, i) => (
               <li key={i}>
                 {s.tier

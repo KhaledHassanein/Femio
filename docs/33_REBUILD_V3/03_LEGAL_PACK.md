@@ -63,8 +63,8 @@ It is **not a new licensing law starting that day.** Law 151/2020 already prohib
 
 **The short version**
 - The femio app keeps your records **on your phone only**. We do not have a server for them. We cannot see them, and we cannot get them back for you.
-- femio has no account, no sign-in, no ads and no analytics. The app does not ask for permission to use the internet.
-- The femio website collects nothing from you except the ordinary technical records every website host keeps.
+- The femio app has no account, no sign-in, no ads and no analytics, and it does not ask for permission to use the internet.
+- The femio website measures visits only if you allow it when asked, and it never records what you type into a calculator. Ads, if shown, appear only on article pages and only after you allow them.
 - femio is for women aged 18 and over. The articles on the website are open to everyone.
 - You can see, copy and delete everything the app holds, yourself, inside the app.
 
@@ -85,7 +85,8 @@ femio can save a backup file when you ask. You choose where it goes: your phone'
 
 **The website (femioapp.com)**
 - **Records kept by our host.** Our host (Vercel) keeps ordinary server logs: your IP address, the time, the page you asked for, your browser type and the website you came from. We use them only to keep the site running and safe. We do not use them for advertising, and we do not combine them with anything else. Our host keeps them for a short period `[CONFIRM retention in Vercel dashboard]`. Our host may process them outside your country, using the legal safeguards it describes in its own privacy notice.
-- **No analytics and no tracking cookies.** `[IF Vercel Web Analytics is switched on, ADD: We count page views without cookies and without storing your IP address.]`
+- **Measurement, only if you allow it.** When you first visit, we ask. If you press Allow, Google Analytics counts which pages are opened, in which language and country, which calculator was opened and whether the app link was clicked, and a Meta pixel counts page views so we can see whether our posts reach readers. We never send a date you tapped, a result you saw or anything you typed. If you press Only necessary, nothing is measured and no measurement cookie is set. To change your choice, clear this site’s cookies in your browser and we will ask again. *(ADR-075, 2026-10-28: Google Tag Manager with Consent Mode v2 defaulted to denied; a Google-certified consent banner; the closed event list in `docs/34_GROWTH_OPS/01_ANALYTICS_AND_PIXELS.md` §4.)*
+- **Ads on article pages.** Some article pages may show ads served by Google AdSense, only after you allow them. We block sensitive categories, and we never place ads on the calculators, the help page or these legal pages.
 - **Your browser's memory.** The site may remember your language and light or dark choice in your browser. It does not track you.
 - **Calculators and search run in your browser.** What you type into a calculator is not sent to us.
 - **Links to others.** Some pages link to other sites, such as medical sources and Find A Helpline. Their own policies apply. Our help link opens without telling the other site which page you came from.
@@ -107,8 +108,8 @@ Because your records are only on your phone, you hold them. In the app you can l
 
 **باختصار**
 - يحفظ تطبيق femio سجلاتكِ **على هاتفكِ فقط**. ليس لدينا خادم لها، ولا نستطيع الاطلاع عليها ولا استرجاعها لكِ.
-- لا يوجد في femio حساب ولا تسجيل دخول ولا إعلانات ولا أدوات تحليل. ولا يطلب التطبيق إذنًا باستخدام الإنترنت.
-- لا يجمع موقع femio عنكِ شيئًا سوى السجلات التقنية المعتادة التي تحتفظ بها كل جهة استضافة.
+- لا يوجد في تطبيق femio حساب ولا تسجيل دخول ولا إعلانات ولا أدوات تحليل، ولا يطلب التطبيق إذنًا باستخدام الإنترنت.
+- لا يقيس موقع femio الزيارات إلا إذا سمحتِ بذلك عند السؤال، ولا يسجّل أبدًا ما تكتبينه في أي حاسبة. والإعلانات، إن ظهرت، تظهر في صفحات المقالات فقط وبعد موافقتكِ.
 - femio مخصص للنساء من عمر 18 عامًا فما فوق. أما المقالات في الموقع فمتاحة للجميع.
 - يمكنكِ بنفسكِ، داخل التطبيق، الاطلاع على كل ما يحفظه وأخذ نسخة منه وحذفه.
 
@@ -129,7 +130,8 @@ Because your records are only on your phone, you hold them. In the app you can l
 
 **الموقع الإلكتروني (femioapp.com)**
 - **سجلات تحتفظ بها جهة الاستضافة.** تحتفظ جهة الاستضافة لدينا (Vercel) بسجلات الخادم المعتادة: عنوان IP، والوقت، والصفحة المطلوبة، ونوع المتصفح، والموقع الذي جئتِ منه. نستخدمها فقط لتشغيل الموقع وحمايته. لا نستخدمها للإعلان ولا نربطها بأي بيانات أخرى. وتحتفظ بها الجهة المضيفة مدة قصيرة `[تأكيد مدة الاحتفاظ من لوحة Vercel]`. وقد تعالجها خارج بلدكِ بالضمانات القانونية التي تصفها في إشعار الخصوصية الخاص بها.
-- **لا أدوات تحليل ولا ملفات تتبّع.** `[إن فُعّل Vercel Web Analytics فأضيفي: نحسب مشاهدات الصفحات دون ملفات تعريف ارتباط ودون حفظ عنوان IP.]`
+- **القياس، فقط إذا سمحتِ به.** عند زيارتكِ الأولى نسألكِ. إذا ضغطتِ «سماح» تحسب أداة Google Analytics الصفحات التي فُتحت، وبأي لغة ومن أي بلد، وأي حاسبة فُتحت، وهل نُقر رابط التطبيق، ويحسب بكسل Meta مشاهدات الصفحات لنعرف هل تصل منشوراتنا إلى القارئات. لا نرسل أبدًا تاريخًا لمستِه ولا نتيجة رأيتِها ولا شيئًا كتبتِه. وإذا ضغطتِ «الضروري فقط» فلا يُقاس شيء ولا يُحفظ أي ملف تعريف ارتباط للقياس. ولتغيير اختياركِ احذفي ملفات تعريف الارتباط لهذا الموقع من متصفحكِ وسنسألكِ مرة أخرى.
+- **إعلانات في صفحات المقالات.** قد تعرض بعض صفحات المقالات إعلانات من Google AdSense، وبعد موافقتكِ فقط. نحجب الفئات الحساسة، ولا نضع إعلانات في الحاسبات ولا في صفحة المساعدة ولا في هذه الصفحات القانونية.
 - **ذاكرة متصفحكِ.** قد يتذكر الموقع لغتكِ واختيار الوضع الفاتح أو الداكن في متصفحكِ، ولا يتتبعكِ.
 - **الحاسبات والبحث تعمل داخل متصفحكِ.** ما تكتبينه في أي حاسبة لا يُرسل إلينا.
 - **روابط إلى جهات أخرى.** تحتوي بعض الصفحات على روابط إلى مواقع أخرى، مثل المصادر الطبية وFind A Helpline. تسري عليها سياساتها الخاصة. ويُفتح رابط المساعدة عندنا دون إخبار الموقع الآخر بالصفحة التي جئتِ منها.
@@ -326,7 +328,7 @@ Legend: **CLOSED** = this pack settles it on paper. **TEXT READY** = the text ex
 | 27 | DPO decision | **PARTLY**: recommendation: none for v1 unless `[ENTITY]` is a legal entity under Egypt Art. 8 [E4] | Owner confirms |
 | 29 | Breach runbook for residual data | **PARTLY**: one-box plan (§1) | Fold into `BREACH_RUNBOOK.md`, fill roles |
 | 30 | Processor register | **PARTLY**: v1 processors are Vercel (logs) and Google Play (totals); none touches health data | Update `PROCESSOR_REGISTER.md`; remove Stripe; confirm Vercel DPA accepted |
-| 33 | Cookies essential only | **PARTLY**: policy states it | Verify the built site sets no cookie (next-intl may set `NEXT_LOCALE`) |
+| 33 | Cookies essential only until consent (ADR-075) | **PARTLY**: policy states it; measurement cookies only after Allow | Verify the built site sets no cookie (next-intl may set `NEXT_LOCALE`) |
 | 34 | Vercel Web Analytics statement | **PARTLY**: optional sentence in §2 | Decide on/off |
 | 38 | Mandated prediction sentence | **TEXT READY** | Add to every fertility surface; extend a guard |
 | 39 | Endometriosis footer | **TEXT READY** | Add where endometriosis content appears |

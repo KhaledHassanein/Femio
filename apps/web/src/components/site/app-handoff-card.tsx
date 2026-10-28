@@ -9,7 +9,8 @@ import { cn } from "@/lib/utils";
  * "Track this in the app" (02_DESIGN_SPEC §2.12): the bridge from a calculator
  * or an article to the product. Sunken, not raised (the calculator card is the
  * page's one raised element); the button is the page's one accent. Neither link
- * carries a date or anything with health meaning.
+ * carries a date or anything with health meaning. `data-track` lets the analytics
+ * bridge count the click (ADR-075); it names the placement, never the result.
  */
 export function AppHandoffCard({ id = "handoff" }: { id?: string }) {
   const t = useTranslations("calculators.handoff");
@@ -26,7 +27,12 @@ export function AppHandoffCard({ id = "handoff" }: { id?: string }) {
         </div>
       </div>
       <div className="flex flex-wrap items-center gap-3">
-        <Link href={playHref} className={cn(buttonVariants({ variant: "accent", size: "lg" }))}>
+        <Link
+          href={playHref}
+          data-track="get_app_click"
+          data-placement="handoff"
+          className={cn(buttonVariants({ variant: "accent", size: "lg" }))}
+        >
           {PLAY_STORE_URL ? t("getOnPlay") : t("getTheApp")}
         </Link>
         <Link href={APP_PAGE} className="text-sm font-semibold text-text-link underline-offset-4 hover:underline">

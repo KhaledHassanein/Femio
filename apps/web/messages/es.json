@@ -985,15 +985,15 @@
   },
   "privacy": {
     "title": "Política de privacidad",
-    "intro": "Cómo trata femio tu información: tus registros se quedan en tu teléfono, y este sitio web no recoge nada sobre ti aparte de los registros técnicos habituales del servidor.",
+    "intro": "Cómo trata femio tu información: tus registros se quedan en tu teléfono, y este sitio web solo mide las visitas con tu permiso, nunca lo que escribes.",
     "effective": "Fecha de entrada en vigor: {date} · Versión {version}",
     "tocLabel": "En esta página",
     "summary": {
       "title": "En resumen",
       "items": [
         "La app femio guarda tus registros solo en tu teléfono. No tenemos un servidor para ellos. No podemos verlos ni podemos recuperarlos por ti.",
-        "femio no tiene cuenta, ni inicio de sesión, ni anuncios, ni analítica. La app no pide permiso para usar internet.",
-        "El sitio web de femio no recoge nada sobre ti, salvo los registros técnicos habituales que guarda cualquier alojamiento web.",
+        "La app femio no tiene cuenta, ni inicio de sesión, ni anuncios, ni analítica, y no pide permiso para usar internet.",
+        "El sitio web de femio solo mide las visitas si lo permites cuando se te pregunta, y nunca registra lo que escribes en una calculadora. Los anuncios, si los hay, aparecen solo en las páginas de artículos y solo después de tu permiso.",
         "femio es para mujeres de 18 años o más. Los artículos del sitio web están abiertos a todo el mundo.",
         "Puedes ver, copiar y borrar tú misma, dentro de la app, todo lo que contiene."
       ]
@@ -1031,8 +1031,12 @@
             "body": "Nuestro alojamiento (Vercel) guarda los registros habituales del servidor: tu dirección IP, la hora, la página que pediste, el tipo de navegador y el sitio del que vienes. Los usamos solo para mantener el sitio en marcha y seguro. No los usamos para publicidad ni los combinamos con nada más. Nuestro alojamiento los conserva durante un periodo corto. Puede tratarlos fuera de tu país, con las garantías legales que describe en su propio aviso de privacidad."
           },
           {
-            "lead": "Sin analítica ni cookies de seguimiento.",
-            "body": "El sitio web no mide ni sigue lo que lees."
+            "lead": "Medición, solo si lo permites.",
+            "body": "En tu primera visita te preguntamos. Si pulsas Permitir, Google Analytics cuenta qué páginas se abren, en qué idioma y país, qué calculadora se abrió y si se pulsó el enlace a la app, y un píxel de Meta cuenta las páginas vistas para saber si nuestras publicaciones llegan a las lectoras. Nunca enviamos una fecha que tocaste, un resultado que viste ni nada que escribieras. Si pulsas Solo lo necesario, no se mide nada y no se guarda ninguna cookie de medición. Para cambiar tu elección, borra las cookies de este sitio en tu navegador y te preguntaremos de nuevo."
+          },
+          {
+            "lead": "Anuncios en las páginas de artículos.",
+            "body": "Algunas páginas de artículos pueden mostrar anuncios servidos por Google AdSense, solo después de tu permiso. Bloqueamos las categorías sensibles y nunca ponemos anuncios en las calculadoras, la página de ayuda ni estas páginas legales."
           },
           {
             "lead": "La memoria de tu navegador.",

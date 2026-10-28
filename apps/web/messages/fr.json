@@ -985,15 +985,15 @@
   },
   "privacy": {
     "title": "Politique de confidentialité",
-    "intro": "Comment femio traite vos informations : vos données restent sur votre téléphone, et ce site ne recueille rien sur vous, hormis les enregistrements techniques ordinaires du serveur.",
+    "intro": "Comment femio traite vos informations : vos données restent sur votre téléphone, et ce site ne mesure les visites qu’avec votre accord, jamais ce que vous saisissez.",
     "effective": "Date d’entrée en vigueur : {date} · Version {version}",
     "tocLabel": "Sur cette page",
     "summary": {
       "title": "En bref",
       "items": [
         "L’application femio conserve vos données uniquement sur votre téléphone. Nous n’avons pas de serveur pour elles. Nous ne pouvons ni les voir, ni vous les rendre.",
-        "femio n’a ni compte, ni connexion, ni publicité, ni outil d’analyse. L’application ne demande pas l’autorisation d’utiliser Internet.",
-        "Le site femio ne recueille rien sur vous, sauf les enregistrements techniques ordinaires que conserve tout hébergeur de site.",
+        "L’application femio n’a ni compte, ni connexion, ni publicité, ni outil d’analyse, et elle ne demande pas l’autorisation d’utiliser Internet.",
+        "Le site femio ne mesure les visites que si vous l’autorisez lorsqu’on vous le demande, et il n’enregistre jamais ce que vous saisissez dans un calculateur. Les publicités, s’il y en a, n’apparaissent que sur les pages d’articles et seulement après votre accord.",
         "femio s’adresse aux femmes de 18 ans et plus. Les articles du site sont ouverts à tout le monde.",
         "Vous pouvez consulter, copier et supprimer vous-même, dans l’application, tout ce qu’elle contient."
       ]
@@ -1031,8 +1031,12 @@
             "body": "Notre hébergeur (Vercel) conserve les journaux ordinaires du serveur : votre adresse IP, l’heure, la page demandée, le type de navigateur et le site d’où vous venez. Nous ne les utilisons que pour faire fonctionner le site et le protéger. Nous ne les utilisons pas pour la publicité et nous ne les croisons avec rien d’autre. Notre hébergeur les conserve pendant une courte durée. Il peut les traiter hors de votre pays, avec les garanties juridiques décrites dans son propre avis de confidentialité."
           },
           {
-            "lead": "Pas d’analyse ni de cookies de suivi.",
-            "body": "Le site ne mesure pas et ne suit pas ce que vous lisez."
+            "lead": "La mesure, seulement si vous l’autorisez.",
+            "body": "Lors de votre première visite, nous vous posons la question. Si vous appuyez sur Autoriser, Google Analytics compte les pages ouvertes, la langue et le pays, le calculateur ouvert et les clics sur le lien de l’application, et un pixel Meta compte les pages vues pour que nous sachions si nos publications atteignent des lectrices. Nous n’envoyons jamais une date touchée, un résultat affiché ni rien de ce que vous saisissez. Si vous appuyez sur Seulement l’essentiel, rien n’est mesuré et aucun cookie de mesure n’est déposé. Pour changer d’avis, effacez les cookies de ce site dans votre navigateur et nous vous reposerons la question."
+          },
+          {
+            "lead": "Des publicités sur les pages d’articles.",
+            "body": "Certaines pages d’articles peuvent afficher des publicités servies par Google AdSense, seulement après votre accord. Nous bloquons les catégories sensibles et ne plaçons jamais de publicité sur les calculateurs, la page d’aide ni ces pages juridiques."
           },
           {
             "lead": "La mémoire de votre navigateur.",

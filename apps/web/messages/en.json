@@ -985,15 +985,15 @@
   },
   "privacy": {
     "title": "Privacy policy",
-    "intro": "How femio handles your information: your records stay on your phone, and this website collects nothing from you beyond ordinary server records.",
+    "intro": "How femio handles your information: your records stay on your phone, and this website measures visits only if you allow it, never what you type.",
     "effective": "Effective date: {date} · Version {version}",
     "tocLabel": "On this page",
     "summary": {
       "title": "The short version",
       "items": [
         "The femio app keeps your records on your phone only. We do not have a server for them. We cannot see them, and we cannot get them back for you.",
-        "femio has no account, no sign-in, no ads and no analytics. The app does not ask for permission to use the internet.",
-        "The femio website collects nothing from you except the ordinary technical records every website host keeps.",
+        "The femio app has no account, no sign-in, no ads and no analytics, and it does not ask for permission to use the internet.",
+        "The femio website measures visits only if you allow it when asked, and it never records what you type into a calculator. Ads, if shown, appear only on article pages and only after you allow them.",
         "femio is for women aged 18 and over. The articles on the website are open to everyone.",
         "You can see, copy and delete everything the app holds, yourself, inside the app."
       ]
@@ -1031,8 +1031,12 @@
             "body": "Our host (Vercel) keeps ordinary server logs: your IP address, the time, the page you asked for, your browser type and the website you came from. We use them only to keep the site running and safe. We do not use them for advertising, and we do not combine them with anything else. Our host keeps them for a short period. Our host may process them outside your country, using the legal safeguards it describes in its own privacy notice."
           },
           {
-            "lead": "No analytics and no tracking cookies.",
-            "body": "The website does not measure or follow what you read."
+            "lead": "Measurement, only if you allow it.",
+            "body": "When you first visit, we ask. If you press Allow, Google Analytics counts which pages are opened, in which language and country, which calculator was opened and whether the app link was clicked, and a Meta pixel counts page views so we can see whether our posts reach readers. We never send a date you tapped, a result you saw or anything you typed. If you press Only necessary, nothing is measured and no measurement cookie is set. To change your choice, clear this site’s cookies in your browser and we will ask again."
+          },
+          {
+            "lead": "Ads on article pages.",
+            "body": "Some article pages may show ads served by Google AdSense, only after you allow them. We block sensitive categories, and we never place ads on the calculators, the help page or these legal pages."
           },
           {
             "lead": "Your browser’s memory.",

@@ -45,8 +45,10 @@ history and `docs/archive/`.
   the i18n config had returned `ar-u-nu-latn` as the locale since 2026-08-22). Ledger:
   `docs/33_REBUILD_V3/PROGRESS.md`. **Growth operations opened** (R6, `docs/34_GROWTH_OPS/`): the
   post-launch agent team, measurement and consent design, ads + premium strategy, owner guide A–J,
-  competitor benchmark, interactive owner checklist; **ADR-075 (website analytics and ads under
-  consent) waits for the owner** and nothing that measures or shows ads is wired before that.
+  competitor benchmark, interactive owner checklist; **ADR-075 accepted 2026-10-28**: the consent
+  defaults + Tag Manager loader + closed event list are built (`apps/web/src/lib/consent/`) and
+  render nothing until the owner sets `NEXT_PUBLIC_GTM_ID` in Vercel (owner guide parts C–E);
+  the routines R1–R7 exist as files (`docs/34_GROWTH_OPS/routines/`).
 - **Open before a release candidate:** R4.12 needs the owner's keystore (owner action 2); the NVDA
   listening session (owner action 8); R3.5 rest (only the three owner decisions of owner action 9 and the
   clinician sign-off remain; the editor's 99 rows are applied); owner action 10 (a source for bleeding and reduced movements on the
@@ -92,6 +94,10 @@ is built, what is not, and the next action. Never commit ungated work to `main`.
   visible diff, that is the first thing to check.
 - **`pnpm install` can hang silently on this PC** (two instances were found stuck for an hour).
   Kill `pnpm.mjs` node processes and re-run with `--reporter=append-only`.
+- **Measurement goes through `lib/consent/events.ts` or not at all.** The tripwire fails any
+  other `dataLayer.push` and any other file naming the Tag Manager host; every event and
+  parameter is on the allow-list in that file, and values that look like dates or prose are
+  refused. Never pass a calendar day, a cycle length or a result to `track()`.
 - **A commit that touches only `docs/content` + `packages/content` must still deploy.** Vercel's
   ignored-build step (`apps/web/vercel.json`) lists the paths the site depends on; `packages` was
   missing until 2026-10-28 and a content release was silently skipped. Check the deployment state,

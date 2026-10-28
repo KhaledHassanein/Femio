@@ -32,8 +32,8 @@ Every step is written click by click in `docs/34_GROWTH_OPS/04_OWNER_GUIDE_GROWT
 
 | # | What | Why only you | Time |
 |---|---|---|---|
-| 11 | **Decide ADR-075** (`docs/DECISIONS.md`): accept, accept without ads, or decline. It lets the *website* measure visits and carry ads after consent; the app is untouched | Changes a product rule | 15 min to read |
-| 12 | **Create the measurement accounts** you own: Search Console (guide part B, no decision needed), then after 11: GA4 (C), Tag Manager + consent banner (D), Meta Business + Pixel (E). Put the public ids (`G-`, `GTM-`) into Vercel yourself | Google and Meta verify your identity; the ids belong to you | 2 hours over a week |
+| 11 | ~~Decide ADR-075~~ **Done 2026-10-28: accepted.** The website may measure visits and carry ads after consent; the app is untouched | — | — |
+| 12 | **Create the measurement accounts** you own: Search Console (guide part B), GA4 (C), Tag Manager + consent banner (D), Meta Business + Pixel (E). Put `NEXT_PUBLIC_GTM_ID` into Vercel yourself (D8); the site sends nothing until you do. Also create the one-question feedback form (any form tool; the form must warn "do not include health details") and give a session its URL | Google and Meta verify your identity; the ids belong to you | 2 hours over a week |
 | 13 | **Create the Canva account and the social handles** `femioapp` (Instagram, TikTok, Snapchat, X, WhatsApp Channel, Facebook Page) with the bilingual bio (guide part F) | Accounts are in your name | 1 hour over a few days |
 | 14 | **Start the growth routines** ("create the growth routines", part G), then each week: "review this week" and answer publish / fix / hold; drop the Play CSV weekly | Only you can say publish | 45 min a week |
 | 15 | **Apply to AdSense** when the site has steady readers (part H), set the blocking list, give a session only the `pub-` id and slot numbers | Payments and identity | 20 min + waiting |

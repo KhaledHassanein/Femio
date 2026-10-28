@@ -273,6 +273,11 @@ for (const { file, frontMatter: fm, keyOrder, body } of parsed) {
       add(file, "review-date", `a guide that names a reviewer needs last_reviewed as YYYY-MM-DD. Got ${JSON.stringify(fm.last_reviewed)}`);
     }
     if (!reviewed && fm.last_reviewed !== null) add(file, "review-date", `last_reviewed must be null while medically_reviewed_by is PENDING`);
+    // A claim the writer could not source is a flag for the reviewer, never a sentence a
+    // reader sees (CLAUDE.md: cite Tier-1/2 or flag). Drafts may carry it; a published
+    // guide may not. Added 2026-10-28 for the post-launch content routines (R6.6).
+    const unsourced = (body.match(/\[NEEDS SOURCE[^\]]*\]/g) ?? []).length;
+    if (unsourced > 0) add(file, "needs-source", `a published guide carries ${unsourced} [NEEDS SOURCE] flag(s); source the claim or set status: draft`);
     for (const key of ["written_by", "medically_reviewed_by"]) {
       if (typeof fm[key] !== "string" || fm[key].trim() === "") add(file, "byline", `${key} must be a name or "PENDING"`);
     }

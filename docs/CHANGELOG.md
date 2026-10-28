@@ -11,6 +11,7 @@ All notable changes to Femio V2.
 - **One question when the year alone cannot tell your age.** If your birth year is exactly eighteen years back, femio asks whether your 18th birthday has passed instead of guessing; no date of birth is collected.
 
 ### Changed
+- The website's privacy notice (EN/AR/FR/ES) now says how visits are measured: only after you press Allow, never what you type into a calculator; ads, if shown, only on article pages after consent (ADR-075). Nothing is measured yet: the Tag Manager container renders only when the owner sets its id.
 - **No fertile window is drawn when Femio cannot name one honestly**: irregular cycles, too few logged cycles, or a cycle length outside 21 to 35 days now show "No confident window this cycle" and how to tell afterwards, instead of a guessed range. If your cycles are irregular and you are trying to conceive, Femio now suggests talking to a clinician now rather than waiting a year.
 - **The wordmark is always "femio"**, also inside Arabic text, on the website, in the app and in the guides.
 - **Sharing a guide now shows its picture.** Guide and condition links carry the share image and the page's own title on WhatsApp, Twitter and the rest.

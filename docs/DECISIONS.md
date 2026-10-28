@@ -626,7 +626,7 @@ every current browser. Keep the rule in `docs/STATE.md` traps: never return a fo
 the locale.
 
 ## ADR-075
-**Date:** 2026-10-28 · **Status:** proposed (owner decision; nothing is wired until Khaled says yes) · **Area:** privacy, website, growth, revenue
+**Date:** 2026-10-28 · **Status:** accepted 2026-10-28 (owner, in chat: "Accept ADR-075: the website may measure visits and carry ads after consent; the app stays untouched") · **Area:** privacy, website, growth, revenue
 
 **Context.** Rule 4 ("the website collects nothing") and ADR-072 §2 (the privacy tripwire fails
 the gate if either product gains an analytics, ads or database client) were written for a launch
@@ -640,7 +640,7 @@ health-and-wellness domain may send through its pixel (domain-level "Core Setup"
 events and parameters; its terms forbid sending health information). Google requires a certified
 consent platform for ads in the EEA/UK and Consent Mode v2 for its tags.
 
-**Decision (proposed).** Split the two products cleanly:
+**Decision.** Split the two products cleanly:
 
 1. **The app stays exactly as rule 4 says.** No analytics SDK, no ads SDK, no network permission,
    no account. The app's numbers come from Play Console (installs, retention, uninstalls, crashes,
