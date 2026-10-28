@@ -14,7 +14,7 @@
     "lint": "pnpm --filter web lint",
     "typecheck": "pnpm --filter web typecheck",
     "test": "pnpm --filter web test",
-    "gate": "pnpm typecheck && pnpm lint && pnpm test && pnpm claims-lint && pnpm wordmark-lint && pnpm store-lint && pnpm crisis-lint && pnpm analytics-lint && pnpm content-lint && pnpm i18n-client-lint && pnpm i18n-untranslated-lint && pnpm tokens-parity-lint && pnpm tokens-dart-lint && pnpm mobile-vocab-lint && pnpm mobile-untranslated-lint && pnpm native-readiness-lint && pnpm chart-literals-lint && pnpm content-build-lint",
+    "gate": "pnpm typecheck && pnpm lint && pnpm test && pnpm claims-lint && pnpm wordmark-lint && pnpm store-lint && pnpm crisis-lint && pnpm analytics-lint && pnpm content-lint && pnpm reading-level-test && pnpm reading-level-lint && pnpm i18n-client-lint && pnpm i18n-untranslated-lint && pnpm tokens-parity-lint && pnpm tokens-dart-lint && pnpm mobile-vocab-lint && pnpm mobile-untranslated-lint && pnpm native-readiness-lint && pnpm chart-literals-lint && pnpm content-build-lint",
     "claims-lint": "node scripts/claims-lint.mjs",
     "crisis-lint": "node scripts/crisis-compliance.mjs",
     "analytics-lint": "node scripts/analytics-lint.mjs",
@@ -37,7 +37,9 @@
     "content-build-lint": "node scripts/content/build-content.mjs --check",
     "wordmark-lint": "node scripts/wordmark-lint.mjs",
     "mobile-untranslated-lint": "node scripts/mobile/arb-untranslated-lint.mjs",
-    "store-lint": "node scripts/store/listing-check.mjs"
+    "store-lint": "node scripts/store/listing-check.mjs",
+    "reading-level-lint": "node scripts/content/reading-level.mjs",
+    "reading-level-test": "node --test scripts/content/reading-level.test.mjs"
   },
   "devDependencies": {
     "sharp": "0.35.5",
