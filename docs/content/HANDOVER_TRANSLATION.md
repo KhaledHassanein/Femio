@@ -123,7 +123,7 @@ glossary, which is currently **empty** (R3.7) and is a real gap in its own right
 > the target.
 >
 > The two fixed labels are written in the target language, exactly as `scripts/content-lint.mjs`
-> checks them: the section heading `## متى تراجعين الطبيب؟` / `## Quand consulter` /
+> checks them: the section heading `## متى تطلبين المشورة الطبية؟` / `## Quand consulter` /
 > `## Cuándo consultar`, and the red-flag box opening `**اطلبي الرعاية الآن:**` /
 > `**Consultez sans attendre :**` / `**Busca atención ya:**`. Canonical URL and internal links
 > use the target prefix (`/ar/…`). (Added 2026-10-08 with the first translation file.)

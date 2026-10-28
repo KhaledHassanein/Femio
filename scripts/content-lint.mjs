@@ -46,7 +46,7 @@ const TRANSLATION_FILE = /^(.+)\.(ar|fr|es)\.md$/;
 /** The two labels the brief fixes (§4, §8), as each locale writes them. */
 const LABELS = {
   en: { doctor: "When to see a doctor", care: "Seek care now:" },
-  ar: { doctor: "متى تراجعين الطبيب؟", care: "اطلبي الرعاية الآن:" },
+  ar: { doctor: "متى تطلبين المشورة الطبية؟", care: "اطلبي الرعاية الآن:" },
   fr: { doctor: "Quand consulter", care: "Consultez sans attendre :" },
   es: { doctor: "Cuándo consultar", care: "Busca atención ya:" },
 };
