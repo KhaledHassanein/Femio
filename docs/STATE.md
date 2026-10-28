@@ -89,6 +89,10 @@ is built, what is not, and the next action. Never commit ungated work to `main`.
   visible diff, that is the first thing to check.
 - **`pnpm install` can hang silently on this PC** (two instances were found stuck for an hour).
   Kill `pnpm.mjs` node processes and re-run with `--reporter=append-only`.
+- **A commit that touches only `docs/content` + `packages/content` must still deploy.** Vercel's
+  ignored-build step (`apps/web/vercel.json`) lists the paths the site depends on; `packages` was
+  missing until 2026-10-28 and a content release was silently skipped. Check the deployment state,
+  not just the push.
 - **Never run `pnpm build` while a server is on :3000**; they share `apps/web/.next`. Check the
   port first (`netstat -ano | grep :3000`). Playwright under `CI=1` starts its own `next start`
   and fails if the port is taken; without `CI` it reuses what is there.

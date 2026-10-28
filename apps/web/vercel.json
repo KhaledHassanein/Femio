@@ -1,6 +1,6 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
-  "ignoreCommand": "sh ../../scripts/vercel/ignore-build.sh . ../../assets/brand ../../pnpm-lock.yaml ../../pnpm-workspace.yaml ../../package.json",
+  "ignoreCommand": "sh ../../scripts/vercel/ignore-build.sh . ../../packages ../../assets/brand ../../pnpm-lock.yaml ../../pnpm-workspace.yaml ../../package.json",
   "regions": [
     "dub1"
   ],
