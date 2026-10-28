@@ -79,6 +79,19 @@ class L10nEs extends L10n {
       'El seguimiento de femio es para mujeres de 18 años o más en esta primera versión. Todas las guías de femioapp.com están abiertas para ti, sin cuenta.';
 
   @override
+  String get eighteenTitle => '¿Ya has cumplido 18 años?';
+
+  @override
+  String get eighteenSub =>
+      'Una comprobación rápida: el seguimiento es para mujeres de 18 años o más. Aquí no se guarda nada.';
+
+  @override
+  String get yesLabel => 'Sí';
+
+  @override
+  String get noNotYetLabel => 'No, todavía no';
+
+  @override
   String get lastPeriodTitle => '¿Cuándo empezó tu última regla?';
 
   @override
@@ -624,7 +637,29 @@ class L10nEs extends L10n {
 
   @override
   String get pregRedFlagsBody =>
-      'El sangrado, el dolor de cabeza intenso, los cambios en la visión, el dolor abdominal fuerte o los movimientos reducidos deben revisarse de inmediato. Contacta con tu unidad de maternidad o con los servicios de emergencia locales — no esperes.';
+      'Busca atención ahora si tienes dolor de cabeza intenso, cambios en la visión, dolor en la parte alta del abdomen, hinchazón de la cara o las manos, o dificultad para respirar. Contacta con tu unidad de maternidad o los servicios de emergencia locales. Si no puedes contactarlos, acude al servicio de urgencias más cercano.';
+
+  @override
+  String get pregRedFlagsMore => 'Ver la lista completa y sus fuentes';
+
+  @override
+  String get redFlagsListHeading =>
+      'Busca atención ahora ante cualquiera de estos síntomas';
+
+  @override
+  String get redFlagHeadache => 'Dolor de cabeza intenso';
+
+  @override
+  String get redFlagVision => 'Cambios en la visión';
+
+  @override
+  String get redFlagUpperAbdomen => 'Dolor en la parte alta del abdomen';
+
+  @override
+  String get redFlagSwelling => 'Hinchazón de la cara o las manos';
+
+  @override
+  String get redFlagBreathing => 'Dificultad para respirar';
 
   @override
   String get contractionsHeading => 'Cronómetro de contracciones';
@@ -1239,4 +1274,7 @@ class L10nEs extends L10n {
 
   @override
   String get helpNowCall => 'Llamar';
+
+  @override
+  String get redFlagsReadGuide => 'Lee las señales de alarma del embarazo';
 }

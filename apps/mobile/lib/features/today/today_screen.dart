@@ -8,6 +8,7 @@ import 'package:flutter/material.dart';
 import 'package:intl/intl.dart' show DateFormat;
 
 import '../../app.dart';
+import '../../data/library.dart';
 import '../../data/profile.dart';
 import '../../domain/dates.dart';
 import '../../domain/pregnancy.dart';
@@ -17,6 +18,7 @@ import '../../theme/spacing.dart';
 import '../../theme/type_sizes.dart';
 import '../../widgets/bloom.dart';
 import '../../widgets/notice_card.dart';
+import '../help/red_flags_screen.dart';
 import '../settings/settings_screen.dart';
 import '../../widgets/tab_header.dart';
 import 'pregnancy_tools.dart';
@@ -29,8 +31,12 @@ import 'today_hero.dart';
 /// [controller] holds her record and must already be loaded (its profile is non-null).
 /// [today] fixes the date in tests. [onLog] opens today's log (the Log tab).
 class TodayScreen extends StatelessWidget {
-  const TodayScreen({super.key, required this.controller, this.today, this.onLog});
+  const TodayScreen({super.key, required this.controller, this.today, this.onLog, this.library});
   final FemioController controller;
+
+  /// The guides, for the link at the foot of the warning-signs screen. Optional so
+  /// tests of Today need no assets.
+  final Library? library;
   final String? today;
 
   /// Opens today's log (the Log tab).
@@ -99,6 +105,15 @@ class TodayScreen extends StatelessWidget {
               Text(l.pregEstimateNote, style: t.bodySmall),
               const SizedBox(height: space4),
               NoticeCard(tone: NoticeTone.urgent, heading: l.pregRedFlagsHeading, body: l.pregRedFlagsBody),
+              Align(
+                alignment: AlignmentDirectional.centerEnd,
+                child: TextButton(
+                  onPressed: () => Navigator.of(context).push(
+                    MaterialPageRoute<void>(builder: (_) => RedFlagsScreen(library: library)),
+                  ),
+                  child: Text(l.pregRedFlagsMore),
+                ),
+              ),
               const SizedBox(height: space5),
               PregnancyTools(
                 controller: controller,

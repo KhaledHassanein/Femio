@@ -1,4 +1,5 @@
-// The notice shown when the birth year says she is under 18.
+// The notice shown when the birth year (or her answer to the 18th-birthday question)
+// says she is under 18.
 //
 // Why it exists: Femio's v1 audience is adults; a kind explanation with a way back is
 // better than a silent dead end. It does not store anything.
@@ -8,7 +9,7 @@ import 'package:flutter/material.dart';
 import '../../../l10n/app_localizations.dart';
 import '../widgets.dart';
 
-/// The under-18 notice. [onBack] returns to the birth-year question (both the arrow
+/// The under-18 notice. [onBack] returns to the question before it (both the arrow
 /// and the button do the same). It has no failure cases.
 class Under18Step extends StatelessWidget {
   const Under18Step({super.key, required this.progress, required this.onBack});

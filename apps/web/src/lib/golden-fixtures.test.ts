@@ -19,6 +19,7 @@ import {
 import { hijriDay, hijriMonthLine, hijriMonthYear } from "./calendar/grid";
 import { eddFromConception, eddFromLmp, eddFromTransfer, pregnancyProgress } from "./pregnancy";
 import { pregnancyTestDay, pregnancyToolOrder } from "./pregnancy/tools";
+import { ageGate } from "./age/gate";
 
 /**
  * The golden fixtures (R2.4, `docs/24` §4).
@@ -98,6 +99,7 @@ const RUNNERS: Record<string, (input: never) => unknown> = {
   },
   "ttc-guidance": (i: { tryingFor: TryingFor | null; age: number | null; irregular: boolean }) => ttcGuidance(i),
   "pregnancy-tools": (i: { weeks: number | null }) => pregnancyToolOrder(i.weeks),
+  "age-gate": (i: { birthYear: number; todayYear: number }) => ageGate(i.birthYear, i.todayYear),
   "test-timing": (i: { windowEnd: string; irregular: boolean }) => pregnancyTestDay(i.windowEnd, i.irregular),
   "edd-from": (i: { method: "lmp" | "conception" | "transfer3" | "transfer5"; date: string }) =>
     i.method === "lmp"

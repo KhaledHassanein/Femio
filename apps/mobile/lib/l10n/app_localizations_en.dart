@@ -80,6 +80,19 @@ class L10nEn extends L10n {
       'femio\'s tracker is for women aged 18 and over in this first version. Every guide on femioapp.com is open to you, with no account.';
 
   @override
+  String get eighteenTitle => 'Has your 18th birthday passed?';
+
+  @override
+  String get eighteenSub =>
+      'One quick check: the tracker is for women aged 18 and over. Nothing here is saved.';
+
+  @override
+  String get yesLabel => 'Yes';
+
+  @override
+  String get noNotYetLabel => 'No, not yet';
+
+  @override
   String get lastPeriodTitle => 'When did your last period start?';
 
   @override
@@ -625,7 +638,28 @@ class L10nEn extends L10n {
 
   @override
   String get pregRedFlagsBody =>
-      'Bleeding, severe headache, vision changes, severe abdominal pain, or reduced movements need to be checked straight away. Contact your maternity unit or local emergency services — do not wait.';
+      'Seek care now if you have a severe headache, changes in your vision, pain in the upper abdomen, swelling of the face or hands, or difficulty breathing. Contact your maternity unit or local emergency services. If you cannot reach them, go to the nearest emergency department.';
+
+  @override
+  String get pregRedFlagsMore => 'See the full list and its sources';
+
+  @override
+  String get redFlagsListHeading => 'Seek care now for any of these';
+
+  @override
+  String get redFlagHeadache => 'A severe headache';
+
+  @override
+  String get redFlagVision => 'Changes in your vision';
+
+  @override
+  String get redFlagUpperAbdomen => 'Pain in the upper abdomen';
+
+  @override
+  String get redFlagSwelling => 'Swelling of the face or hands';
+
+  @override
+  String get redFlagBreathing => 'Difficulty breathing';
 
   @override
   String get contractionsHeading => 'Contraction timer';
@@ -1237,4 +1271,7 @@ class L10nEn extends L10n {
 
   @override
   String get helpNowCall => 'Call';
+
+  @override
+  String get redFlagsReadGuide => 'Read the pregnancy warning signs';
 }

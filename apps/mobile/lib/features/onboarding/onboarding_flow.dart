@@ -9,12 +9,14 @@ import 'package:flutter/material.dart';
 
 import '../../app.dart';
 import '../../data/profile.dart';
+import '../../domain/age_gate.dart';
 import '../../domain/dates.dart';
 import '../../domain/pregnancy.dart';
 import 'steps/birth_year_step.dart';
 import 'steps/cycle_length_step.dart';
 import 'steps/due_date_step.dart';
 import 'steps/due_method_step.dart';
+import 'steps/eighteen_step.dart';
 import 'steps/goal_step.dart';
 import 'steps/last_period_step.dart';
 import 'steps/meno_last_step.dart';
@@ -29,6 +31,7 @@ enum _Step {
   welcome,
   goal,
   birthYear,
+  eighteenCheck,
   under18,
   lastPeriod,
   periodLength,
@@ -98,13 +101,26 @@ class _OnboardingFlowState extends State<OnboardingFlow> {
       };
 
   double get _progress {
-    final i = _path.indexOf(_step);
+    // The 18th-birthday question is part of the birth-year answer, not a step of its own.
+    final i = _path.indexOf(_step == _Step.eighteenCheck ? _Step.birthYear : _step);
     return i < 0 ? 0.1 : (i + 1) / (_path.length + 1);
   }
 
+  /// Routes the birth-year answer through the 18+ gate (MR-48, D-01): adults go on,
+  /// exactly eighteen calendar years asks one question, younger sees the notice.
   void _afterBirthYear() {
-    final age = _today.year - (_birthYear ?? _today.year - 30);
-    if (age < 18) return _go(_Step.under18);
+    switch (ageGate(birthYear: _birthYear ?? _today.year - _defaultAge, todayYear: _today.year)) {
+      case AgeGate.under18:
+        return _go(_Step.under18);
+      case AgeGate.askBirthday:
+        return _go(_Step.eighteenCheck);
+      case AgeGate.adult:
+        return _afterAge();
+    }
+  }
+
+  /// The first question of her goal's path once her age is settled.
+  void _afterAge() {
     _go(switch (_goal!) {
       Goal.period || Goal.ttc => _Step.lastPeriod,
       Goal.pregnant => _Step.dueMethod,
@@ -195,6 +211,9 @@ class _OnboardingFlowState extends State<OnboardingFlow> {
             _afterBirthYear();
           },
         );
+
+      case _Step.eighteenCheck:
+        return EighteenStep(progress: _progress, onBack: _back, onYes: _afterAge, onNo: () => _go(_Step.under18));
 
       case _Step.under18:
         return Under18Step(progress: _progress, onBack: _back);

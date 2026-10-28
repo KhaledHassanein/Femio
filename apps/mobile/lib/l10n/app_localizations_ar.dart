@@ -79,6 +79,19 @@ class L10nAr extends L10n {
       'المتابعة في femio للنساء من عمر 18 عامًا فما فوق في هذا الإصدار الأول. وكل الأدلة على femioapp.com متاحة لكِ بلا حساب.';
 
   @override
+  String get eighteenTitle => 'هل مرّ عيد ميلادكِ الثامن عشر؟';
+
+  @override
+  String get eighteenSub =>
+      'سؤال سريع واحد: المتابعة للنساء من عمر 18 عامًا فما فوق. لا يُحفظ شيء هنا.';
+
+  @override
+  String get yesLabel => 'نعم';
+
+  @override
+  String get noNotYetLabel => 'لا، ليس بعد';
+
+  @override
   String get lastPeriodTitle => 'متى بدأت آخر دورة لكِ؟';
 
   @override
@@ -645,7 +658,28 @@ class L10nAr extends L10n {
 
   @override
   String get pregRedFlagsBody =>
-      'النزيف، أو الصداع الشديد، أو تغيّر الرؤية، أو ألم البطن الشديد، أو قلّة حركة الجنين — كلها تحتاج فحصًا فوريًا. اتّصلي بوحدة الولادة أو بخدمات الطوارئ المحلية، ولا تنتظري.';
+      'اطلبي الرعاية فورًا إذا كان لديكِ صداع شديد، أو تغيّر في الرؤية، أو ألم في أعلى البطن، أو تورّم في الوجه أو اليدين، أو صعوبة في التنفس. تواصلي مع وحدة الولادة أو خدمات الطوارئ المحلية. وإذا تعذّر الوصول إليهم، توجّهي إلى أقرب قسم طوارئ.';
+
+  @override
+  String get pregRedFlagsMore => 'اعرضي القائمة الكاملة ومصادرها';
+
+  @override
+  String get redFlagsListHeading => 'اطلبي الرعاية فورًا عند أي من هذه الأعراض';
+
+  @override
+  String get redFlagHeadache => 'صداع شديد';
+
+  @override
+  String get redFlagVision => 'تغيّر في الرؤية';
+
+  @override
+  String get redFlagUpperAbdomen => 'ألم في أعلى البطن';
+
+  @override
+  String get redFlagSwelling => 'تورّم في الوجه أو اليدين';
+
+  @override
+  String get redFlagBreathing => 'صعوبة في التنفس';
 
   @override
   String get contractionsHeading => 'مؤقّت الانقباضات';
@@ -1264,4 +1298,7 @@ class L10nAr extends L10n {
 
   @override
   String get helpNowCall => 'اتصال';
+
+  @override
+  String get redFlagsReadGuide => 'اقرئي علامات التحذير في الحمل';
 }

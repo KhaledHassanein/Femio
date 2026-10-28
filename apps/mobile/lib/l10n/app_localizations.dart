@@ -233,6 +233,30 @@ abstract class L10n {
   /// **'femio\'s tracker is for women aged 18 and over in this first version. Every guide on femioapp.com is open to you, with no account.'**
   String get under18Body;
 
+  /// No description provided for @eighteenTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Has your 18th birthday passed?'**
+  String get eighteenTitle;
+
+  /// No description provided for @eighteenSub.
+  ///
+  /// In en, this message translates to:
+  /// **'One quick check: the tracker is for women aged 18 and over. Nothing here is saved.'**
+  String get eighteenSub;
+
+  /// No description provided for @yesLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Yes'**
+  String get yesLabel;
+
+  /// No description provided for @noNotYetLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'No, not yet'**
+  String get noNotYetLabel;
+
   /// No description provided for @lastPeriodTitle.
   ///
   /// In en, this message translates to:
@@ -1160,8 +1184,50 @@ abstract class L10n {
   /// No description provided for @pregRedFlagsBody.
   ///
   /// In en, this message translates to:
-  /// **'Bleeding, severe headache, vision changes, severe abdominal pain, or reduced movements need to be checked straight away. Contact your maternity unit or local emergency services — do not wait.'**
+  /// **'Seek care now if you have a severe headache, changes in your vision, pain in the upper abdomen, swelling of the face or hands, or difficulty breathing. Contact your maternity unit or local emergency services. If you cannot reach them, go to the nearest emergency department.'**
   String get pregRedFlagsBody;
+
+  /// No description provided for @pregRedFlagsMore.
+  ///
+  /// In en, this message translates to:
+  /// **'See the full list and its sources'**
+  String get pregRedFlagsMore;
+
+  /// No description provided for @redFlagsListHeading.
+  ///
+  /// In en, this message translates to:
+  /// **'Seek care now for any of these'**
+  String get redFlagsListHeading;
+
+  /// No description provided for @redFlagHeadache.
+  ///
+  /// In en, this message translates to:
+  /// **'A severe headache'**
+  String get redFlagHeadache;
+
+  /// No description provided for @redFlagVision.
+  ///
+  /// In en, this message translates to:
+  /// **'Changes in your vision'**
+  String get redFlagVision;
+
+  /// No description provided for @redFlagUpperAbdomen.
+  ///
+  /// In en, this message translates to:
+  /// **'Pain in the upper abdomen'**
+  String get redFlagUpperAbdomen;
+
+  /// No description provided for @redFlagSwelling.
+  ///
+  /// In en, this message translates to:
+  /// **'Swelling of the face or hands'**
+  String get redFlagSwelling;
+
+  /// No description provided for @redFlagBreathing.
+  ///
+  /// In en, this message translates to:
+  /// **'Difficulty breathing'**
+  String get redFlagBreathing;
 
   /// No description provided for @contractionsHeading.
   ///
@@ -2158,6 +2224,12 @@ abstract class L10n {
   /// In en, this message translates to:
   /// **'Call'**
   String get helpNowCall;
+
+  /// No description provided for @redFlagsReadGuide.
+  ///
+  /// In en, this message translates to:
+  /// **'Read the pregnancy warning signs'**
+  String get redFlagsReadGuide;
 }
 
 class _L10nDelegate extends LocalizationsDelegate<L10n> {

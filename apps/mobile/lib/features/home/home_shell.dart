@@ -49,7 +49,7 @@ class _HomeShellState extends State<HomeShell> {
       body: IndexedStack(
         index: _tab,
         children: [
-          TodayScreen(controller: widget.controller, today: today, onLog: () => _openLog(today)),
+          TodayScreen(controller: widget.controller, today: today, onLog: () => _openLog(today), library: _library),
           CalendarScreen(controller: widget.controller, today: today, onDay: _openLog),
           LogScreen(
             controller: widget.controller,

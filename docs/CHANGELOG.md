@@ -7,6 +7,8 @@ All notable changes to Femio V2.
 - **Help now in the app.** A button on every screen opens the same reviewed guidance as the website: what to do right now, then emergency and support numbers for Egypt or Saudi Arabia once you choose a country, each with where the number was read. A tap copies the number; the app never dials or opens anything itself.
 - **Reminders, off by default.** Settings > Reminders can nudge you to log at a time you choose, and tell you the day before your period is expected (never when your cycles are irregular). The notification says only "femio" and "Open the app".
 - **Hijri dates in the calendar**, computed from the same Umm al-Qura data your phone uses, when Settings > Hijri is on.
+- **Pregnancy warning signs on their own screen.** The red card on Today opens a screen with the same five signs as a list (severe headache, vision changes, upper-abdominal pain, swelling of the face or hands, difficulty breathing), the two sources behind them, and the guide. The card now says exactly what the website's due-date calculator says; the older unsourced list is gone.
+- **One question when the year alone cannot tell your age.** If your birth year is exactly eighteen years back, femio asks whether your 18th birthday has passed instead of guessing; no date of birth is collected.
 
 ### Changed
 - **No fertile window is drawn when Femio cannot name one honestly**: irregular cycles, too few logged cycles, or a cycle length outside 21 to 35 days now show "No confident window this cycle" and how to tell afterwards, instead of a guessed range. If your cycles are irregular and you are trying to conceive, Femio now suggests talking to a clinician now rather than waiting a year.

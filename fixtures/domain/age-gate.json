@@ -1,0 +1,13 @@
+{
+  "$comment": "MR-48 / D-01: the tracker is 18+. A birth-year difference of 19 or more passes (adult); exactly 18 is ambiguous and the app asks whether her 18th birthday has passed (askBirthday); 17 or fewer sees the adults-only notice (under18). Shared by apps/mobile/lib/domain/age_gate.dart and apps/web/src/lib/age/gate.ts.",
+  "cases": [
+    { "input": { "birthYear": 2007, "todayYear": 2026 }, "expected": "adult" },
+    { "input": { "birthYear": 2008, "todayYear": 2026 }, "expected": "askBirthday" },
+    { "input": { "birthYear": 2009, "todayYear": 2026 }, "expected": "under18" },
+    { "input": { "birthYear": 2016, "todayYear": 2026 }, "expected": "under18" },
+    { "input": { "birthYear": 1951, "todayYear": 2026 }, "expected": "adult" },
+    { "input": { "birthYear": 2008, "todayYear": 2027 }, "expected": "adult" },
+    { "input": { "birthYear": 2009, "todayYear": 2027 }, "expected": "askBirthday" },
+    { "input": { "birthYear": 2026, "todayYear": 2026 }, "expected": "under18" }
+  ]
+}

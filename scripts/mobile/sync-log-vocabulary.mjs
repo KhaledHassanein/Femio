@@ -41,7 +41,10 @@ const SHARED = {
   pregTermFrom: "pregnancy.termFrom",
   pregEstimateNote: "pregnancy.estimateNote",
   pregRedFlagsHeading: "pregnancy.redFlags.heading",
-  pregRedFlagsBody: "pregnancy.redFlags.body",
+  // MR-29: the sourced sentence (ACOG, CDC Hear Her) the gestational-age calculator shows,
+  // not the older unsourced list; the app card and screen must say exactly this.
+  pregRedFlagsBody: "calculators.rules.redFlag",
+  redFlagsReadGuide: "pregnancy.redFlags.link",
   contractionsHeading: "contractions.heading",
   contractionsIntro: "contractions.intro",
   contractionsStart: "contractions.start",

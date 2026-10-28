@@ -2,6 +2,7 @@ import 'dart:convert';
 import 'dart:io';
 
 import 'package:femio/data/profile.dart';
+import 'package:femio/domain/age_gate.dart';
 import 'package:femio/domain/appointments.dart';
 import 'package:femio/domain/bbt.dart';
 import 'package:femio/domain/contractions.dart';
@@ -118,6 +119,7 @@ final runners = <String, Object? Function(Map<String, dynamic>)>{
     irregular: i['irregular'] as bool,
   ).toJson(),
   'pregnancy-tools': (i) => pregnancyToolOrder(i['weeks'] as int?),
+  'age-gate': (i) => ageGate(birthYear: i['birthYear'] as int, todayYear: i['todayYear'] as int).name,
   'test-timing': (i) => pregnancyTestDay(windowEnd: i['windowEnd'] as String, irregular: i['irregular'] as bool),
   'edd-from': (i) {
     final date = i['date'] as String;

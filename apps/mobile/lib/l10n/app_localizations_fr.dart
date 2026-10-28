@@ -82,6 +82,19 @@ class L10nFr extends L10n {
       'Le suivi femio est réservé aux femmes de 18 ans et plus dans cette première version. Tous les guides sur femioapp.com vous sont ouverts, sans compte.';
 
   @override
+  String get eighteenTitle => 'Avez-vous déjà fêté vos 18 ans ?';
+
+  @override
+  String get eighteenSub =>
+      'Une seule vérification rapide : le suivi est réservé aux femmes de 18 ans et plus. Rien n\'est enregistré ici.';
+
+  @override
+  String get yesLabel => 'Oui';
+
+  @override
+  String get noNotYetLabel => 'Non, pas encore';
+
+  @override
   String get lastPeriodTitle =>
       'Quand vos dernières règles ont-elles commencé ?';
 
@@ -630,7 +643,29 @@ class L10nFr extends L10n {
 
   @override
   String get pregRedFlagsBody =>
-      'Saignements, maux de tête intenses, troubles de la vision, douleurs abdominales sévères ou mouvements réduits doivent être examinés immédiatement. Contactez votre maternité ou les services d\'urgence locaux — n\'attendez pas.';
+      'Consultez sans attendre en cas de maux de tête sévères, de troubles de la vision, de douleur en haut de l\'abdomen, de gonflement du visage ou des mains, ou de difficulté à respirer. Contactez votre maternité ou les services d\'urgence locaux. Si vous ne les joignez pas, rendez-vous aux urgences les plus proches.';
+
+  @override
+  String get pregRedFlagsMore => 'Voir la liste complète et ses sources';
+
+  @override
+  String get redFlagsListHeading =>
+      'Consultez sans attendre pour l\'un de ces signes';
+
+  @override
+  String get redFlagHeadache => 'Des maux de tête sévères';
+
+  @override
+  String get redFlagVision => 'Des troubles de la vision';
+
+  @override
+  String get redFlagUpperAbdomen => 'Une douleur en haut de l\'abdomen';
+
+  @override
+  String get redFlagSwelling => 'Un gonflement du visage ou des mains';
+
+  @override
+  String get redFlagBreathing => 'Une difficulté à respirer';
 
   @override
   String get contractionsHeading => 'Minuteur de contractions';
@@ -1245,4 +1280,7 @@ class L10nFr extends L10n {
 
   @override
   String get helpNowCall => 'Appeler';
+
+  @override
+  String get redFlagsReadGuide => 'Lire les signes d\'alerte de la grossesse';
 }
