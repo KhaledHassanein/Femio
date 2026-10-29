@@ -3,6 +3,12 @@
   "entries": [
     {
       "at": "2026-10-29",
+      "who": "session",
+      "what": "Deployed to femioapp.com: the privacy notice that names the app's ads (EN/AR/FR/ES) and /app-ads.txt (a comment until your pub- id is in Vercel). Verified live: policy still closed, no ad markup while the ids are unset.",
+      "ref": "main ecfb7a2"
+    },
+    {
+      "at": "2026-10-29",
       "who": "owner",
       "what": "ADR-076 accepted in chat: ads on the app too; her health data never leaves the phone, the ads SDK may.",
       "ref": "docs/DECISIONS.md"
