@@ -1,0 +1,59 @@
+{
+  "about": "What sessions did towards go-live, newest first. One line per thing that changed what the owner must do. Owner ticks are logged by the dashboard itself from the artifact database.",
+  "entries": [
+    {
+      "at": "2026-10-29",
+      "who": "session",
+      "what": "Go-live dashboard built from 69 steps in 9 phases; the earlier checklist's ticks carry over (same step ids).",
+      "ref": "docs/34_GROWTH_OPS/dashboard/"
+    },
+    {
+      "at": "2026-10-29",
+      "who": "session",
+      "what": "AdSense built behind Vercel variables: two units per article, one per hub, filled only after the consent tool grants ad_storage; /ads.txt route; sensitive pages never carry a unit (checked by the gate).",
+      "ref": "apps/web/src/lib/ads/ · R6.8"
+    },
+    {
+      "at": "2026-10-29",
+      "who": "session",
+      "what": "Found and fixed: the live site's Content-Security-Policy would have blocked the Tag Manager loader the day the id was set. The policy now opens the Google, Meta and AdSense hosts only when their ids exist.",
+      "ref": "apps/web/next.config.mjs"
+    },
+    {
+      "at": "2026-10-29",
+      "who": "session",
+      "what": "Play Billing spike: the billing library pulled in telemetry that asks for INTERNET; removed in the manifest, proved in the signed release build (permissions: BILLING, notifications, boot, vibrate). Phone check is yours.",
+      "ref": "testing-results/2026-10-29-play-billing-spike/"
+    },
+    {
+      "at": "2026-10-29",
+      "who": "session",
+      "what": "ADR-076 proposed: ads inside the app are a separate decision with four costs; nothing is wired until you decide.",
+      "ref": "docs/DECISIONS.md"
+    },
+    {
+      "at": "2026-10-29",
+      "who": "session",
+      "what": "Deployed to femioapp.com: the rewritten privacy notice (EN/AR/FR/ES); consent and Tag Manager code present, inert until the id is set.",
+      "ref": "main 56b3374"
+    },
+    {
+      "at": "2026-10-28",
+      "who": "owner",
+      "what": "ADR-075 accepted: the website may measure visits and carry ads after consent; the app stays untouched.",
+      "ref": "docs/DECISIONS.md"
+    },
+    {
+      "at": "2026-10-28",
+      "who": "session",
+      "what": "Growth operations opened: plan, measurement design, monetization, owner guide A–J, routines R1–R7, Tag Manager container export ready to import.",
+      "ref": "docs/34_GROWTH_OPS/"
+    },
+    {
+      "at": "2026-10-28",
+      "who": "session",
+      "what": "Version 3 merged to main and live on femioapp.com.",
+      "ref": "main 0965a65"
+    }
+  ]
+}

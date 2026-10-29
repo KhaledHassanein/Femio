@@ -1,6 +1,6 @@
 # Femio — current state (living document)
 
-**Last updated: 2026-10-28.** Rewrite in place; never add a dated copy. Older versions are in git
+**Last updated: 2026-10-29.** Rewrite in place; never add a dated copy. Older versions are in git
 history and `docs/archive/`.
 
 ## ▶ Resume prompt
@@ -50,12 +50,21 @@ history and `docs/archive/`.
   render nothing until the owner sets `NEXT_PUBLIC_GTM_ID` in Vercel (owner guide parts C–E);
   the routines R1–R7 exist as files (`docs/34_GROWTH_OPS/routines/`). Live on femioapp.com since
   2026-10-29 (`56b3374`): the new privacy notice; measurement stays off until the id is set.
+  **Go-live pass 2026-10-29:** AdSense is built behind `NEXT_PUBLIC_ADSENSE_CLIENT` + three slot ids
+  (`apps/web/src/lib/ads/`, units filled only after `ad_storage` is granted, `/ads.txt`); the CSP now
+  opens the Google/Meta/AdSense hosts only when the ids are set (before this fix the deployed CSP
+  would have blocked the Tag Manager loader the day the id was set); the Play Billing spike proved
+  the app can carry `in_app_purchase` without INTERNET (two `tools:node="remove"` lines; tripwire
+  reads the merged manifest). **Ads inside the app are ADR-076, proposed, owner's call; default
+  is decline for launch.** The owner's whole go-live path is the dashboard
+  (https://claude.ai/artifact/V3exHDJpZasUkRoWuameDp, source in `docs/34_GROWTH_OPS/dashboard/`):
+  68 steps in 9 phases, a "needs from you" queue sessions append to (`requests.json`), a log.
 - **Open before a release candidate:** R4.12 needs the owner's keystore (owner action 2); the NVDA
   listening session (owner action 8); R3.5 rest (only the three owner decisions of owner action 9 and the
   clinician sign-off remain; the editor's 99 rows are applied); owner action 10 (a source for bleeding and reduced movements on the
   red-flag list, or leave them off). Lighthouse run 3 (2026-10-28, before the links fix): home 93,
   calculator 97, article 100, English home 96; SEO 100 on all four.
-- **Health:** `pnpm gate` green (649 web unit tests + 21 guards, 24 e2e); `flutter analyze` clean, 463 Dart tests. Flutter 3.47.8
+- **Health:** `pnpm gate` green (684 web unit tests + 21 guards, 24 e2e); `flutter analyze` clean, 466 Dart tests. Flutter 3.47.8
   on this PC (upgraded 2026-10-27). Debug APK on the Android 16 emulator: Arabic onboarding → Today →
   Learn → article → Help now walked by hand 2026-10-28 (`testing-results/2026-10-28-app-settings-lock/`);
   the 18th-birthday question and the warning-signs screen at 390×844 in both themes and languages

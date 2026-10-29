@@ -692,3 +692,51 @@ pages will drop with ads; the budget in `04_GROWTH_PACK.md` §6.5 gets an "ads o
 Revenue, traffic and conversion numbers in `docs/34_GROWTH_OPS/02_MONETIZATION.md` are
 hypotheses until the first month of real data. If the owner declines, alternative (a) stands and
 the growth-ops plan runs without GA4, Meta or AdSense.
+
+## ADR-076
+**Date:** 2026-10-29 · **Status:** proposed (owner decides on the go-live dashboard, card "ADR-076") · **Area:** app, privacy, revenue
+
+**Context.** On 2026-10-29 the owner asked to "place the ads on website and mobile app". ADR-075
+(accepted the day before) allows ads on the website after consent and keeps the app untouched:
+no analytics, no ads, no network. Ads inside the app contradict that in four concrete ways, so
+they are not wired without a decision of their own.
+
+**The question.** Should the Android app show ads (Google AdMob, the only ads network that
+works with Google Play Billing and an Egyptian seller), with femio Plus removing them?
+
+**What "yes" costs, each one a fact of the SDK, not an opinion.**
+1. **The INTERNET permission.** The AdMob SDK fetches ads over the network. The release manifest
+   must request INTERNET, which the privacy tripwire forbids today and which the R6.9 spike was
+   built to avoid (`testing-results/2026-10-29-play-billing-spike/`).
+2. **The Data safety form changes.** AdMob collects device identifiers and approximate location
+   for ads; the Play form moves from "no data collected" to "data collected and shared with
+   third parties for advertising" (Google's own Data safety guidance for the SDK). The store
+   listing, the privacy notice and the app-side consent screen (UMP / Google's User Messaging
+   Platform) all change with it.
+3. **Her record and the ad request share a process.** The record never leaves the phone, and the
+   ads SDK never reads it; but "the app has no way to send anything" is a sentence the app can
+   no longer say, and it is the sentence the wedge is built on (`docs/32_STUDY/00_SYNTHESIS.md`).
+4. **Health-app review.** Play's health-apps declaration plus an ads SDK invites a closer review
+   of a period-tracking app; the competitors that carry ads (Flo, the Arabic trackers) have
+   compliance teams for it (`docs/34_GROWTH_OPS/reports/2026-10-28-competitor-monetization.md`).
+
+**What "yes" buys.** Revenue from readers who never pay: at the benchmark's rates a health app
+earns in the order of $1–3 per thousand ad impressions in Egypt and Saudi Arabia (benchmark
+report §3, hypothesis until measured). "Premium removes the ads" becomes a real reason to buy,
+which `02_MONETIZATION.md` §2 lists as the weakest part of the current Plus offer.
+
+**Recommended default (what a session builds if the owner says nothing).** Decline for the
+launch: the website carries the ads (R6.8 is built), the app stays sealed, and Plus is sold on
+features, not on removing ads. Revisit after the first month of real revenue data from the
+website, when the number in "what yes buys" is a measurement.
+
+**Alternatives.** (a) Decline, as above. (b) Accept: AdMob with UMP consent, INTERNET permission,
+new Data safety answers, the tripwire rewritten for the app, Plus removes ads; a release of its
+own after the closed test, never in the first upload. (c) House ads only: the app shows its own
+cards for femio Plus and the website guides, no SDK, no permission; this is already the plan
+(`02_MONETIZATION.md` §2.3) and costs nothing to keep.
+
+**Consequences.** Until the owner decides, no ads code enters `apps/mobile`, the tripwire keeps
+forbidding ads packages and INTERNET, and the go-live dashboard shows the decision card with the
+four costs above. If accepted, a session writes the implementation plan as a new R-item with its
+own privacy-notice, listing and Data safety changes before any code.

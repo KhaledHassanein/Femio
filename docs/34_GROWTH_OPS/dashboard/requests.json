@@ -1,0 +1,59 @@
+{
+  "about": "What sessions need from the owner, newest first. A session appends an entry here and rebuilds the dashboard (README.md). The owner ticks it on the dashboard; the tick lives in the artifact database as items/req-<id>. Never put an id, key or password in this file: say where it goes.",
+  "requests": [
+    {
+      "id": "adr-076",
+      "at": "2026-10-29",
+      "from": "session 2026-10-29 (go-live pass)",
+      "title": "Decide ADR-076: ads inside the app?",
+      "detail": "Use the decision card at the top of the dashboard. Default if you say nothing: decline for launch. The website carries the ads; the app stays sealed. The card lists the four costs of yes.",
+      "blocks": ["billing-integrate"],
+      "where": "Dashboard card ADR-076; the text is in docs/DECISIONS.md"
+    },
+    {
+      "id": "billing-probe-phone",
+      "at": "2026-10-29",
+      "from": "session 2026-10-29 (go-live pass)",
+      "title": "Run the Play Billing check once on a real phone",
+      "detail": "The signed build carries the billing library without the INTERNET permission (proved in the build). Only a phone can show whether the library complains. Item billing-probe in phase 6 has the exact steps; send the session the one line the app shows and any SecurityException from adb logcat.",
+      "blocks": ["billing-integrate"],
+      "where": "Dashboard item billing-probe"
+    },
+    {
+      "id": "merge-main-go",
+      "at": "2026-10-29",
+      "from": "session 2026-10-29 (go-live pass)",
+      "title": "Say 'deploy' so main gets the ads code, the CSP fix and the spike",
+      "detail": "Everything is committed on the v3 branch and gated. The deploy changes nothing visible on femioapp.com until ids exist in Vercel; what it fixes is a real bug: the live Content-Security-Policy would have blocked Tag Manager the day you set its id.",
+      "blocks": ["gtm-vercel", "adsense-mount"],
+      "where": "In chat: 'deploy'"
+    },
+    {
+      "id": "feedback-form-url",
+      "at": "2026-10-28",
+      "from": "session 2026-10-28 (routines R6.6)",
+      "title": "Give a session the URL of the one-question feedback form",
+      "detail": "Routine R4 links to it from the weekly posts and the app's store listing reply template. The form must warn 'do not include health details'. Any form tool works; only the URL is needed.",
+      "blocks": ["routines", "data-drops"],
+      "where": "Item feedback-form in phase 2; then tell a session the URL"
+    },
+    {
+      "id": "content-decisions-answers",
+      "at": "2026-10-28",
+      "from": "session 2026-10-28 (Arabic editor pass)",
+      "title": "Answer the four content questions",
+      "detail": "Three Arabic editing decisions in docs/content/reviews/2026-10-28-arabic-editor-pass.md and one clinical one: a source for bleeding and reduced movements on the pregnancy red-flag list, or leave them off. Item content-decisions in phase 2.",
+      "blocks": ["publish-content"],
+      "where": "Dashboard item content-decisions; answers in chat"
+    },
+    {
+      "id": "canva-account",
+      "at": "2026-10-28",
+      "from": "session 2026-10-28 (growth ops)",
+      "title": "Create the Canva account so a session can build the six templates",
+      "detail": "The Canva connector is attached to this project but needs your account signed in. Item canva in phase 7.",
+      "blocks": ["canva"],
+      "where": "Dashboard item canva"
+    }
+  ]
+}

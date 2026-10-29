@@ -29,6 +29,10 @@ the recommended default. Do not add a line here unless only a human with Khaled'
 Every step is written click by click in `docs/34_GROWTH_OPS/04_OWNER_GUIDE_GROWTH_A_TO_Z.md`
 (offline copy: `04_OWNER_GUIDE_GROWTH_A_TO_Z.html`). Tick them in the interactive checklist
 (https://claude.ai/artifact/V3exHDJpZasUkRoWuameDp, private to Khaled; ticks and the ADR-075 choice persist and a session reads them back).
+**Since 2026-10-29 that artifact is the go-live dashboard:** 68 steps in 9 phases (accounts, website, measurement, ads,
+Play Console, first upload, social, premium, upkeep), a "needs from you" queue that sessions append to, the ADR-076
+card (ads inside the app: decide there), and a log. Source: `docs/34_GROWTH_OPS/dashboard/`. The table below stays
+as the short list; the dashboard holds the click-by-click steps.
 
 | # | What | Why only you | Time |
 |---|---|---|---|
@@ -36,8 +40,10 @@ Every step is written click by click in `docs/34_GROWTH_OPS/04_OWNER_GUIDE_GROWT
 | 12 | **Create the measurement accounts** you own: Search Console (guide part B), GA4 (C), Tag Manager + consent banner (D), Meta Business + Pixel (E). Put `NEXT_PUBLIC_GTM_ID` into Vercel yourself (D8); the site sends nothing until you do. Also create the one-question feedback form (any form tool; the form must warn "do not include health details") and give a session its URL | Google and Meta verify your identity; the ids belong to you | 2 hours over a week |
 | 13 | **Create the Canva account and the social handles** `femioapp` (Instagram, TikTok, Snapchat, X, WhatsApp Channel, Facebook Page) with the bilingual bio (guide part F) | Accounts are in your name | 1 hour over a few days |
 | 14 | **Start the growth routines** ("create the growth routines", part G), then each week: "review this week" and answer publish / fix / hold; drop the Play CSV weekly | Only you can say publish | 45 min a week |
-| 15 | **Apply to AdSense** when the site has steady readers (part H), set the blocking list, give a session only the `pub-` id and slot numbers | Payments and identity | 20 min + waiting |
+| 15 | **Apply to AdSense** when the site has steady readers (part H), set the blocking list. The code is built (R6.8): put `NEXT_PUBLIC_ADSENSE_CLIENT` (`ca-pub-…`) and the three slot variables into Vercel yourself (dashboard phase 4); ads fill only after the consent tool grants `ad_storage`, so the consent tool must show to every visitor (the free certified tool in part D7, not AdSense's EEA-only message) or non-EEA readers never see one | Payments and identity | 20 min + waiting |
 | 16 | **Play payments profile and the `femio_plus` subscription** with monthly and yearly plans (part I; February 2027). Read the EGP and SAR rows Play shows and round them | Merchant identity and bank | 30 min |
+| 18 | **Decide ADR-076: ads inside the app?** Read the four costs on the dashboard card (INTERNET permission, Data safety form, the "nothing leaves the phone" sentence, health-app review). Default if you say nothing: decline for launch; the website carries the ads | Product and privacy promise | 10 min |
+| 19 | **Run the Play Billing probe on your phone once** (`flutter run --profile`, Settings → About → *femio Plus · billing check*) and send a session the line it shows plus any `SecurityException` in `adb logcat`; proves the billing library lives without INTERNET on a real device | Needs a phone signed in to Play | 10 min |
 | 17 | **Spend 20–60 minutes with Flo, Clue and one Arabic app** on your phone: count ad units on an article and a calculator, note where the paywall appears; write the counts into `docs/34_GROWTH_OPS/reports/2026-10-28-competitor-monetization.md` §2 | Only a phone shows the real units | 1 hour |
 
 ## Decisions already made (unchanged)

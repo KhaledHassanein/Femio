@@ -1,0 +1,406 @@
+<title>femio Go-Live Dashboard</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,500;0,6..72,600;1,6..72,500&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=IBM+Plex+Sans+Arabic:wght@400;600&display=swap">
+<style>
+/* Layout: a sticky summary strip (progress, next step, sync state), then the queue of what sessions
+   need from the owner, the two decision cards, nine phases of steps, and the log. One column;
+   cards only where an element is acted on. Dusk Bloom tokens (assets/brand/tokens). */
+:root{
+  --bg:#FBF7F3; --surface:#FFFFFF; --sunken:#F4EDE8; --line:#E9DFD9;
+  --ink:#24141F; --muted:#5E4D57; --subtle:#8A7A84; --plum:#8A3572; --plum-soft:#F3E4EE; --plum-ink:#5E2050;
+  --ok:#2F7A4F; --ok-soft:#E3F1E8; --wait:#8A6A1F; --wait-soft:#F6ECD2; --block:#A33A3A; --block-soft:#F7E1E1;
+  --session:#2F5E8A; --session-soft:#E2ECF5;
+  --font-ui:'Plus Jakarta Sans','IBM Plex Sans Arabic',system-ui,-apple-system,'Segoe UI',sans-serif;
+  --font-display:'Newsreader','Noto Naskh Arabic',Georgia,serif;
+  --font-ar:'IBM Plex Sans Arabic','Plus Jakarta Sans',sans-serif;
+  --radius:14px; --shadow:0 1px 2px rgba(36,20,31,.06),0 8px 24px -16px rgba(36,20,31,.25);
+}
+@media (prefers-color-scheme: dark){ :root:not([data-theme="light"]){
+  --bg:#1A1016; --surface:#241821; --sunken:#2D1F29; --line:#3B2A35;
+  --ink:#F6EEF2; --muted:#B9A5B1; --subtle:#8E7B88; --plum:#D787BE; --plum-soft:#3A2335; --plum-ink:#F0C6E3;
+  --ok:#7FD39B; --ok-soft:#1F3A2A; --wait:#E3C26B; --wait-soft:#3A3120; --block:#F09A9A; --block-soft:#44252A;
+  --session:#8FB8E0; --session-soft:#1F2E3D;
+  --shadow:0 1px 2px rgba(0,0,0,.4),0 8px 24px -16px rgba(0,0,0,.6); color-scheme:dark } }
+:root[data-theme="dark"]{
+  --bg:#1A1016; --surface:#241821; --sunken:#2D1F29; --line:#3B2A35;
+  --ink:#F6EEF2; --muted:#B9A5B1; --subtle:#8E7B88; --plum:#D787BE; --plum-soft:#3A2335; --plum-ink:#F0C6E3;
+  --ok:#7FD39B; --ok-soft:#1F3A2A; --wait:#E3C26B; --wait-soft:#3A3120; --block:#F09A9A; --block-soft:#44252A;
+  --session:#8FB8E0; --session-soft:#1F2E3D;
+  --shadow:0 1px 2px rgba(0,0,0,.4),0 8px 24px -16px rgba(0,0,0,.6); color-scheme:dark }
+
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--font-ui);font-size:15px;line-height:1.5;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:0 56px}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--bg)}
+.wrap{max-width:960px;margin:0 auto;min-width:0}
+h1,h2,h3{font-family:var(--font-display);font-weight:600;letter-spacing:-.01em;text-wrap:balance;margin:0}
+h1{font-size:2rem;line-height:1.1}
+h1 .wordmark{color:var(--plum);font-style:italic}
+.ar{font-family:var(--font-ar);direction:rtl;unicode-bidi:plaintext}
+.muted{color:var(--muted)} .subtle{color:var(--subtle)}
+a{color:var(--plum)}
+button{font:inherit;cursor:pointer;color:inherit}
+:focus-visible{outline:2px solid var(--plum);outline-offset:2px;border-radius:6px}
+[hidden]{display:none!important}
+code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.85em;background:var(--sunken);padding:1px 5px;border-radius:4px;overflow-wrap:anywhere}
+
+header.top{padding-block:26px 10px;display:grid;gap:8px}
+.eyebrow{font-size:.74rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);font-weight:600}
+.lede{max-width:66ch;color:var(--muted);margin:0}
+
+/* ---- sticky summary strip ---- */
+.summary{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--bg);padding-block:10px 10px;border-bottom:1px solid var(--line);display:grid;gap:8px}
+.sum-row{display:flex;flex-wrap:wrap;gap:6px 18px;align-items:baseline;justify-content:space-between}
+.sum-row strong{font-variant-numeric:tabular-nums;font-size:1.15rem}
+.bar{height:8px;background:var(--sunken);border-radius:999px;overflow:hidden;display:flex}
+.bar i{display:block;height:100%;background:var(--plum);width:0;transition:width .4s ease}
+.next{display:flex;flex-wrap:wrap;gap:4px 10px;align-items:baseline;background:var(--plum-soft);border-radius:10px;padding:8px 12px;color:var(--ink);min-width:0}
+.next b{color:var(--plum-ink)}
+.next a{text-decoration:none;font-weight:600;color:var(--plum)}
+.status{font-size:.8rem;color:var(--muted)} .status.saving{color:var(--wait)} .status.err{color:var(--block)}
+.counts{display:flex;flex-wrap:wrap;gap:6px 14px;font-size:.82rem;color:var(--muted)}
+.counts b{color:var(--ink);font-variant-numeric:tabular-nums}
+
+nav.chips{display:flex;gap:8px;overflow-x:auto;padding-block:10px;scrollbar-width:thin}
+nav.chips a{flex:0 0 auto;text-decoration:none;color:var(--ink);background:var(--surface);border:1px solid var(--line);border-radius:999px;padding:6px 12px;font-size:.85rem;display:flex;gap:6px;align-items:center;white-space:nowrap}
+nav.chips a span.n{font-variant-numeric:tabular-nums;color:var(--muted)}
+nav.chips a.done-all{border-color:var(--ok);color:var(--ok)}
+
+/* ---- toolbar: filter + search ---- */
+.toolbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;padding-block:4px 10px}
+.seg{display:flex;flex-wrap:wrap;gap:4px;background:var(--sunken);border-radius:999px;padding:3px}
+.seg button{border:0;background:transparent;border-radius:999px;padding:5px 11px;font-size:.84rem;color:var(--muted)}
+.seg button[aria-pressed="true"]{background:var(--surface);color:var(--ink);box-shadow:var(--shadow);font-weight:600}
+.search{flex:1 1 180px;min-width:0;border:1px solid var(--line);border-radius:999px;padding:7px 12px;background:var(--surface);color:var(--ink);font:inherit;font-size:.9rem}
+
+main{display:grid;gap:30px;padding-top:10px}
+section.part{display:grid;gap:12px;scroll-margin-top:150px}
+.part-head{display:grid;gap:4px}
+.part-head .row{display:flex;flex-wrap:wrap;gap:6px 14px;align-items:baseline;justify-content:space-between}
+.part-head h2{font-size:1.35rem}
+.part-head .n{font-size:.85rem;color:var(--muted);font-variant-numeric:tabular-nums}
+.part-head .goal{color:var(--muted);font-size:.92rem;max-width:72ch;margin:0}
+.part-head .bar{height:5px}
+
+/* ---- queue (needs from you) ---- */
+.queue{display:grid;gap:8px}
+.req{background:var(--surface);border:1px solid var(--line);border-inline-start:4px solid var(--plum);border-radius:12px;padding:12px 14px;display:grid;grid-template-columns:28px 1fr;gap:4px 12px;align-items:start}
+.req.done{border-inline-start-color:var(--ok);background:var(--sunken)}
+.req.done .title{text-decoration:line-through;text-decoration-color:var(--ok);color:var(--muted)}
+.req .from{font-size:.78rem;color:var(--subtle)}
+.req .where{font-size:.85rem;color:var(--muted)}
+.req .where b{color:var(--ink);font-weight:600}
+
+/* ---- decision cards ---- */
+.decisions{display:grid;gap:12px}
+.decision{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);padding:18px;display:grid;gap:12px}
+.decision h2{font-size:1.2rem}
+.decision p{margin:0}
+.costs{margin:0;padding-inline-start:20px;display:grid;gap:4px;font-size:.92rem;color:var(--muted)}
+.costs b{color:var(--ink)}
+.choices{display:grid;gap:8px;grid-template-columns:repeat(auto-fit,minmax(210px,1fr))}
+.choice{border:1.5px solid var(--line);background:var(--bg);border-radius:12px;padding:12px 14px;text-align:start;display:grid;gap:4px;color:var(--ink)}
+.choice b{font-size:.95rem} .choice small{color:var(--muted);line-height:1.4}
+.choice[aria-pressed="true"]{border-color:var(--plum);background:var(--plum-soft)}
+.choice[aria-pressed="true"] b{color:var(--plum-ink)}
+.choice:disabled{opacity:.6;cursor:not-allowed}
+.decision .state{font-size:.9rem}
+.recorded{display:inline-flex;gap:6px;align-items:center;background:var(--ok-soft);color:var(--ok);border-radius:999px;padding:2px 10px;font-size:.8rem;font-weight:600}
+
+/* ---- tasks ---- */
+ol.tasks{list-style:none;margin:0;padding:0;display:grid;gap:8px}
+li.task{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:12px 14px;display:grid;grid-template-columns:28px 1fr;gap:4px 12px;align-items:start;scroll-margin-top:150px}
+li.task.done{background:var(--sunken)}
+li.task.done .title{color:var(--muted);text-decoration:line-through;text-decoration-color:var(--ok)}
+li.task.flag{border-color:var(--block)}
+li.task.waiting{border-style:dashed}
+.check{width:24px;height:24px;border:2px solid var(--plum);border-radius:7px;background:var(--surface);display:grid;place-items:center;padding:0;margin-top:1px;color:#fff}
+.check[aria-checked="true"]{background:var(--ok);border-color:var(--ok)}
+.check svg{width:14px;height:14px;display:none}
+.check[aria-checked="true"] svg{display:block}
+.check:disabled{opacity:.5;cursor:not-allowed}
+.task-main{min-width:0;display:grid;gap:4px}
+.title-row{display:flex;flex-wrap:wrap;gap:4px 10px;align-items:baseline}
+.title{font-weight:600}
+.badge{font-size:.72rem;font-weight:600;letter-spacing:.04em;text-transform:uppercase;border-radius:999px;padding:1px 8px;white-space:nowrap}
+.badge.owner{background:var(--plum-soft);color:var(--plum-ink)}
+.badge.session{background:var(--session-soft);color:var(--session)}
+.badge.after{background:var(--wait-soft);color:var(--wait)}
+.time{font-size:.78rem;color:var(--muted);font-variant-numeric:tabular-nums}
+.why{color:var(--muted);font-size:.92rem}
+.deps{font-size:.8rem;color:var(--wait);display:flex;flex-wrap:wrap;gap:4px 6px;align-items:baseline}
+.deps a{color:var(--wait)}
+.deps.met{color:var(--ok)} .deps.met a{color:var(--ok)}
+details{font-size:.92rem;min-width:0}
+details summary{cursor:pointer;color:var(--plum);font-weight:600;list-style:none;display:inline-flex;gap:6px;align-items:center}
+details summary::-webkit-details-marker{display:none}
+details summary::before{content:"▸";transition:transform .15s}
+details[open] summary::before{transform:rotate(90deg)}
+.steps{margin:8px 0 0;padding-inline-start:20px;display:grid;gap:5px}
+.donewhen{margin-top:8px;padding:8px 10px;border-inline-start:3px solid var(--ok);background:var(--ok-soft);border-radius:6px;font-size:.9rem}
+.risk{margin-top:8px;padding:8px 10px;border-inline-start:3px solid var(--wait);background:var(--wait-soft);border-radius:6px;font-size:.9rem}
+.paste{margin-top:8px;display:grid;gap:6px}
+.paste .row{display:flex;flex-wrap:wrap;gap:6px 10px;align-items:center;min-width:0}
+.paste .lbl{font-size:.8rem;color:var(--muted);flex:0 0 100%}
+.paste code{flex:1 1 200px;white-space:pre-wrap;padding:6px 8px;border-radius:6px}
+.copy{background:none;border:1px solid var(--line);color:var(--muted);border-radius:8px;padding:3px 9px;font-size:.78rem}
+.links{margin-top:8px;display:flex;flex-wrap:wrap;gap:6px 14px;font-size:.88rem}
+.ref{margin-top:6px;font-size:.82rem;color:var(--muted)}
+.tools{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-top:6px}
+.tools button{background:none;border:1px solid var(--line);color:var(--muted);border-radius:8px;padding:3px 9px;font-size:.8rem}
+.tools button[aria-pressed="true"]{border-color:var(--block);color:var(--block);background:var(--block-soft)}
+textarea.note{width:100%;min-height:38px;resize:vertical;border:1px solid var(--line);border-radius:8px;padding:6px 8px;background:var(--bg);color:var(--ink);font:inherit;font-size:.88rem}
+.note-row{display:none;margin-top:6px}
+li.task.show-note .note-row,li.task.has-note .note-row,.req.show-note .note-row,.req.has-note .note-row{display:block}
+.doneat{font-size:.78rem;color:var(--ok)}
+.empty{color:var(--muted);font-size:.9rem;padding:10px 12px;border:1px dashed var(--line);border-radius:10px}
+
+/* ---- log ---- */
+.log{display:grid;gap:0;border-top:1px solid var(--line)}
+.log-row{display:grid;grid-template-columns:92px 1fr;gap:4px 12px;padding:9px 0;border-bottom:1px solid var(--line);font-size:.9rem}
+.log-row .d{color:var(--subtle);font-variant-numeric:tabular-nums;font-size:.82rem}
+.log-row .w{min-width:0}
+.log-row .who{font-size:.72rem;font-weight:600;letter-spacing:.04em;text-transform:uppercase;margin-inline-end:6px}
+.log-row .who.session{color:var(--session)} .log-row .who.owner{color:var(--plum)}
+.log-row .r{color:var(--subtle);font-size:.8rem}
+.more{justify-self:start;background:none;border:1px solid var(--line);border-radius:8px;padding:4px 10px;font-size:.84rem;color:var(--muted);margin-top:8px}
+
+footer{margin-top:40px;padding-top:16px;border-top:1px solid var(--line);color:var(--muted);font-size:.85rem;display:grid;gap:6px}
+@media (prefers-reduced-motion: reduce){*{transition:none!important}}
+@media (max-width:480px){h1{font-size:1.6rem} li.task,.req{padding:10px 12px} .log-row{grid-template-columns:1fr}}
+</style>
+
+<div class="wrap">
+<header class="top">
+  <div class="eyebrow">KM Digital Labs · go-live · steps generated <span id="gen"></span></div>
+  <h1><span class="wordmark">femio</span> go-live dashboard</h1>
+  <p class="lede">Every step between today and a live website with ads and a first app upload, in the order it can be done. Tick as you go; ticks, flags and notes stay on every device, and a session reads them before it starts. The “needs from you” list is what sessions are waiting on right now.</p>
+</header>
+
+<div class="summary" id="summary">
+  <div class="sum-row"><div><strong id="count">0 / 0</strong> <span class="muted">of your steps done</span></div><div class="status" id="status">Loading saved ticks…</div></div>
+  <div class="bar" aria-hidden="true"><i id="barfill"></i></div>
+  <div class="counts" id="counts"></div>
+  <div class="next" id="next"><span>Next for you:</span> <a id="nextlink" href="#"></a></div>
+</div>
+
+<nav class="chips" id="chips" aria-label="Phases"></nav>
+
+<div class="toolbar">
+  <div class="seg" role="group" aria-label="Show" id="seg">
+    <button data-f="all" aria-pressed="true">All</button>
+    <button data-f="owner" aria-pressed="false">For me</button>
+    <button data-f="session" aria-pressed="false">For a session</button>
+    <button data-f="ready" aria-pressed="false">Ready now</button>
+    <button data-f="flag" aria-pressed="false">Blocked</button>
+    <button data-f="done" aria-pressed="false">Done</button>
+  </div>
+  <input class="search" id="q" type="search" placeholder="Search steps (title, why, id)" aria-label="Search steps">
+</div>
+
+<main id="main">
+  <section class="part" id="needs">
+    <div class="part-head"><div class="row"><h2>Needs from you</h2><span class="n" id="needs-n"></span></div><p class="goal">What a session is waiting on. Tick an item once you did it or answered in chat.</p></div>
+    <div class="queue" id="queue"></div>
+  </section>
+
+  <section class="part" id="decisions">
+    <div class="part-head"><div class="row"><h2>Decisions</h2></div><p class="goal">Two choices that change what sessions build. Each is recorded here and in <code>docs/DECISIONS.md</code>.</p></div>
+    <div class="decisions" id="decisions-list"></div>
+  </section>
+
+  <div id="phases" style="display:grid;gap:30px"></div>
+
+  <section class="part" id="log">
+    <div class="part-head"><div class="row"><h2>Log</h2><span class="n" id="log-n"></span></div><p class="goal">What sessions did, and what you ticked, newest first.</p></div>
+    <div class="log" id="log-list"></div>
+    <button class="more" id="log-more" hidden>Show everything</button>
+  </section>
+</main>
+
+<footer>
+  <div>Source of this page: <code>docs/34_GROWTH_OPS/dashboard/</code> (<code>items.json</code>, <code>requests.json</code>, <code>log.json</code>; a session rebuilds and republishes it). Guides: <code>docs/33_REBUILD_V3/06_LAUNCH_GUIDE_A_TO_Z.md</code> and <code>docs/34_GROWTH_OPS/04_OWNER_GUIDE_GROWTH_A_TO_Z.md</code>.</div>
+  <div>Nothing here collects anything from users of femio. This page stores only your ticks, flags, notes and the two decisions. Never type an id, key or password into a note.</div>
+</footer>
+</div>
+
+<script>
+/*__DATA__*/
+
+/* State: ticks (items/<id>), request ticks (items/req-<id>) and the two decisions live in the
+   artifact database so every device and every session sees the same thing. The page renders
+   fully without the database and lights up when it resolves. */
+const $ = (s,el=document)=>el.querySelector(s);
+const esc = s=>String(s??"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const state = { items:{}, decisions:{}, db:null, canWrite:true, filter:"all", q:"", logAll:false };
+const tick = '<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8.5l3 3 7-7"/></svg>';
+const ALL = []; const BY = {};
+for (const ph of DATA.phases) for (const it of ph.items) { it.phase = ph.id; ALL.push(it); BY[it.id] = it; }
+try { state.filter = localStorage.getItem("golive.filter") || "all"; state.q = localStorage.getItem("golive.q") || ""; } catch(e) {}
+
+const DECISIONS = [
+  { id:"adr-075", title:"ADR-075 · Measurement and ads on the website",
+    text:"Recorded 28 Oct 2026: accepted. The website may measure visits and carry ads, only after the visitor agrees, never what she typed. The app is untouched. Changing this reverses work already built; say so in chat if you want to.",
+    choices:[{k:"accept",b:"Accept",s:"Consent banner, GA4 and Meta through Tag Manager, AdSense on article and hub pages."},{k:"accept-no-ads",b:"Accept without ads",s:"Measurement under consent, no AdSense units."},{k:"decline",b:"Decline",s:"The website stays collection-free; Play Console and Search Console only."}] },
+  { id:"adr-076", title:"ADR-076 · Ads inside the app?",
+    text:"You asked for ads in the app as well. ADR-075 keeps the app sealed: no analytics, no ads, no network. Ads in the app (AdMob) are a separate decision with four costs. Nothing is wired before you choose; the default if you say nothing is “decline for launch”.",
+    costs:["<b>The INTERNET permission.</b> The ads SDK fetches ads over the network; the release build must ask for it. Today the gate forbids it, and the billing spike was built to avoid it.","<b>The Play Data safety form changes</b> from “no data collected” to “collected and shared for advertising” (device identifiers, approximate location), with the listing and the privacy notice.","<b>“The app has no way to send anything”</b> stops being a true sentence. Her record is never read by the SDK, but the promise the wedge is built on is weaker.","<b>Health-app review.</b> A period tracker with an ads SDK gets a closer look from Play; the competitors that do this have compliance teams."],
+    choices:[{k:"decline-launch",b:"Decline for launch (recommended)",s:"Website ads only; the app stays sealed; revisit after the first month of real ad revenue."},{k:"accept",b:"Accept: AdMob after the closed test",s:"A session plans INTERNET, Data safety, consent screen and “Plus removes ads” as its own release, never the first upload."},{k:"house-only",b:"House cards only",s:"The app shows its own cards for femio Plus and the guides. No SDK, no permission. Already the plan."}] },
+];
+
+function depsOf(it){ return (it.dependsOn||[]).map(id=>BY[id]).filter(Boolean); }
+function isDone(id){ return !!(state.items[id]&&state.items[id].done); }
+function unmet(it){ return depsOf(it).filter(d=>!isDone(d.id)); }
+function status(it){ const st=state.items[it.id]||{}; if(st.done) return "done"; if(st.flag) return "flag"; if(unmet(it).length) return "waiting"; return "ready"; }
+function matches(it){
+  const f=state.filter, s=status(it);
+  if(f==="owner"&&it.owner!=="owner") return false;
+  if(f==="session"&&it.owner!=="session") return false;
+  if(f==="ready"&&!(s==="ready"&&it.owner==="owner")) return false;
+  if(f==="flag"&&s!=="flag") return false;
+  if(f==="done"&&s!=="done") return false;
+  if(state.q){ const q=state.q.toLowerCase(); if(!(it.title+" "+it.why+" "+it.id+" "+(it.steps||[]).join(" ")).toLowerCase().includes(q)) return false; }
+  return true;
+}
+function fmt(iso){ try{ return new Date(iso).toLocaleDateString(undefined,{day:"numeric",month:"short",year:"numeric"}); }catch(e){ return ""; } }
+function setStatus(msg,cls){ const s=$("#status"); s.textContent=msg; s.className="status "+(cls||""); }
+
+function taskHtml(it){
+  const st=state.items[it.id]||{}; const s=status(it); const miss=unmet(it);
+  const after = /^After launch:/.test(it.title);
+  const deps = depsOf(it).length ? `<div class="deps ${miss.length?"":"met"}">${miss.length?"Waits for:":"Ready: earlier steps done ·"} ${depsOf(it).map(d=>`<a href="#${esc(d.id)}">${esc(d.title)}</a>${isDone(d.id)?" ✓":""}`).join(", ")}</div>` : "";
+  const paste = (it.paste||[]).length ? `<div class="paste">${it.paste.map((p,i)=>`<div class="row"><span class="lbl">${esc(p.label)}</span><code id="paste-${esc(it.id)}-${i}">${esc(p.value)}</code><button class="copy" data-copy="paste-${esc(it.id)}-${i}">Copy</button></div>`).join("")}</div>` : "";
+  const links = (it.links||[]).length ? `<div class="links">${it.links.map(l=>`<a href="${esc(l.url)}" target="_blank" rel="noreferrer">${esc(l.label)} ↗</a>`).join("")}</div>` : "";
+  const sources = (it.sources||[]).length ? `<div class="ref">Google's own page: ${it.sources.map(u=>`<a href="${esc(u)}" target="_blank" rel="noreferrer">${esc(u.replace(/^https?:\/\//,""))}</a>`).join(" · ")}</div>` : "";
+  return `<li class="task ${s}${st.note?" has-note":""}" id="${esc(it.id)}" data-id="${esc(it.id)}">
+    <button class="check" role="checkbox" aria-checked="${!!st.done}" aria-label="Mark done: ${esc(it.title)}" ${state.canWrite?"":"disabled"}>${tick}</button>
+    <div class="task-main">
+      <div class="title-row"><span class="title">${esc(it.title)}</span><span class="badge ${it.owner}">${it.owner==="owner"?"you":"a session"}</span>${after?'<span class="badge after">after launch</span>':""}<span class="time">${esc(it.time||"")}</span>${st.done&&st.at?`<span class="doneat">done ${esc(fmt(st.at))}</span>`:""}</div>
+      <div class="why">${esc(it.why)}</div>
+      ${deps}
+      <details><summary>Steps</summary>
+        <ol class="steps">${(it.steps||[]).map(x=>`<li>${esc(x)}</li>`).join("")}</ol>
+        ${paste}${links}
+        <div class="donewhen"><b>Done when:</b> ${esc(it.doneWhen)}</div>
+        ${it.risk?`<div class="risk"><b>Watch out:</b> ${esc(it.risk)}</div>`:""}
+        ${it.guide?`<div class="ref">Written in: <code>${esc(it.guide)}</code></div>`:""}${sources}
+      </details>
+      <div class="tools"><button class="flagbtn" aria-pressed="${!!st.flag}" ${state.canWrite?"":"disabled"}>${st.flag?"Blocked / question raised":"I am blocked / have a question"}</button><button class="notebtn">${st.note?"Edit note":"Add a note"}</button></div>
+      <div class="note-row"><textarea class="note" id="note-${esc(it.id)}" placeholder="A note for yourself or for the next session (no ids, no passwords)" ${state.canWrite?"":"readonly"}>${esc(st.note||"")}</textarea></div>
+    </div></li>`;
+}
+function wireTask(li, id){
+  const st=()=>state.items[id]||{};
+  $(".check",li).addEventListener("click",()=>setItem(id,{done:!st().done, at:new Date().toISOString()}));
+  const fb=$(".flagbtn",li); if(fb) fb.addEventListener("click",()=>setItem(id,{flag:!st().flag}));
+  $(".notebtn",li).addEventListener("click",()=>{li.classList.add("show-note"); $("textarea",li).focus();});
+  const ta=$("textarea",li); let timer; ta.addEventListener("input",()=>{clearTimeout(timer); timer=setTimeout(()=>{ if((st().note||"")!==ta.value) setItem(id,{note:ta.value}); },800);});
+  li.querySelectorAll(".copy").forEach(b=>b.addEventListener("click",async()=>{ const el=document.getElementById(b.dataset.copy); const text=el.textContent; try{ await navigator.clipboard.writeText(text); b.textContent="Copied"; }catch(e){ const r=document.createRange(); r.selectNodeContents(el); const sel=getSelection(); sel.removeAllRanges(); sel.addRange(r); b.textContent="Select and copy"; } setTimeout(()=>b.textContent="Copy",1500); }));
+}
+
+function render(){
+  // ---- queue
+  const queue=$("#queue"); queue.innerHTML="";
+  let openReq=0;
+  for(const r of DATA.requests){
+    const id="req-"+r.id; const st=state.items[id]||{}; if(!st.done) openReq++;
+    const d=document.createElement("div"); d.className="req"+(st.done?" done":"")+(st.note?" has-note":""); d.id="r-"+r.id;
+    d.innerHTML=`<button class="check" role="checkbox" aria-checked="${!!st.done}" aria-label="Done: ${esc(r.title)}" ${state.canWrite?"":"disabled"}>${tick}</button>
+      <div class="task-main"><div class="title-row"><span class="title">${esc(r.title)}</span>${st.done&&st.at?`<span class="doneat">done ${esc(fmt(st.at))}</span>`:""}</div>
+      <div class="from">Asked ${esc(fmt(r.at))} by ${esc(r.from)}</div>
+      <div class="why">${esc(r.detail)}</div>
+      <div class="where"><b>Where:</b> ${esc(r.where)}${(r.blocks||[]).length?` · <b>Unblocks:</b> ${r.blocks.map(b=>BY[b]?`<a href="#${esc(b)}">${esc(BY[b].title)}</a>`:esc(b)).join(", ")}`:""}</div>
+      <div class="tools"><button class="notebtn">${st.note?"Edit answer / note":"Answer or add a note"}</button></div>
+      <div class="note-row"><textarea class="note" id="note-${esc(id)}" placeholder="Your answer or a note for the next session (no ids, no passwords)" ${state.canWrite?"":"readonly"}>${esc(st.note||"")}</textarea></div></div>`;
+    $(".check",d).addEventListener("click",()=>setItem(id,{done:!(state.items[id]||{}).done, at:new Date().toISOString()}));
+    $(".notebtn",d).addEventListener("click",()=>{d.classList.add("show-note"); $("textarea",d).focus();});
+    const ta=$("textarea",d); let timer; ta.addEventListener("input",()=>{clearTimeout(timer); timer=setTimeout(()=>{ if(((state.items[id]||{}).note||"")!==ta.value) setItem(id,{note:ta.value}); },800);});
+    queue.appendChild(d);
+  }
+  if(!DATA.requests.length) queue.innerHTML='<div class="empty">Nothing waiting on you right now.</div>';
+  $("#needs-n").textContent = openReq ? `${openReq} open` : "all answered";
+
+  // ---- decisions
+  const dl=$("#decisions-list"); dl.innerHTML="";
+  for(const D of DECISIONS){
+    const rec=state.decisions[D.id]; const chosen=rec&&rec.choice;
+    const el=document.createElement("article"); el.className="decision"; el.id=D.id;
+    el.innerHTML=`<div class="eyebrow">${chosen?'<span class="recorded">Recorded</span>':"Decision needed"}</div><h2>${esc(D.title)}</h2><p class="muted">${esc(D.text)}</p>
+      ${D.costs?`<ol class="costs">${D.costs.map(c=>`<li>${c}</li>`).join("")}</ol>`:""}
+      <div class="choices">${D.choices.map(c=>`<button class="choice" data-k="${c.k}" aria-pressed="${chosen===c.k}" ${state.canWrite?"":"disabled"}><b>${esc(c.b)}</b><small>${esc(c.s)}</small></button>`).join("")}</div>
+      <div class="state">${chosen?`Recorded: <b>${esc((D.choices.find(c=>c.k===chosen)||{b:chosen}).b)}</b> on ${esc(fmt(rec.at))}. A session reads this before wiring anything. Change it any time.`:"Not decided yet."}</div>`;
+    el.querySelectorAll(".choice").forEach(b=>b.addEventListener("click",()=>setDecision(D.id,b.dataset.k)));
+    dl.appendChild(el);
+  }
+
+  // ---- phases
+  const host=$("#phases"); host.innerHTML=""; const chips=$("#chips"); chips.innerHTML="";
+  let ownerTotal=0, ownerDone=0, sessionTotal=0, sessionDone=0, flagged=0, next=null, shown=0;
+  for(const ph of DATA.phases){
+    const owned=ph.items.filter(i=>i.owner==="owner"); const od=owned.filter(i=>isDone(i.id)).length;
+    ownerTotal+=owned.length; ownerDone+=od;
+    sessionTotal+=ph.items.length-owned.length; sessionDone+=ph.items.filter(i=>i.owner!=="owner"&&isDone(i.id)).length;
+    flagged+=ph.items.filter(i=>status(i)==="flag").length;
+    for(const it of ph.items){ if(!next&&it.owner==="owner"&&status(it)==="ready") next=it; }
+    const visible=ph.items.filter(matches);
+    const s=document.createElement("section"); s.className="part"; s.id=ph.id;
+    s.innerHTML=`<div class="part-head"><div class="row"><h2>${ph.order}. ${esc(ph.title)}</h2><span class="n">${od} / ${owned.length} of yours · ${ph.items.length-owned.length} for sessions</span></div><p class="goal">${esc(ph.goal)}</p><div class="bar" aria-hidden="true"><i style="width:${owned.length?(100*od/owned.length).toFixed(0):0}%"></i></div></div>
+      ${visible.length?`<ol class="tasks">${visible.map(taskHtml).join("")}</ol>`:`<div class="empty">No step in this phase matches the filter.</div>`}`;
+    s.querySelectorAll("li.task").forEach(li=>wireTask(li, li.dataset.id));
+    host.appendChild(s); shown+=visible.length;
+    const a=document.createElement("a"); a.href="#"+ph.id; a.className=od===owned.length&&owned.length?"done-all":""; a.innerHTML=`${ph.order} ${esc(ph.title.split(":")[0].split(" (")[0])} <span class="n">${od}/${owned.length}</span>`; a.title=ph.title; chips.appendChild(a);
+  }
+  $("#count").textContent=`${ownerDone} / ${ownerTotal}`;
+  $("#barfill").style.width=ownerTotal?(100*ownerDone/ownerTotal).toFixed(1)+"%":"0%";
+  $("#counts").innerHTML=`<span><b>${openReq}</b> waiting on you</span><span><b>${flagged}</b> blocked</span><span><b>${sessionDone}</b> / ${sessionTotal} session steps done</span><span><b>${shown}</b> shown</span>`;
+  const nl=$("#nextlink");
+  if(next){ nl.textContent=next.title; nl.href="#"+next.id; } else { nl.textContent=ownerDone===ownerTotal?"Everything of yours is ticked.":"Nothing is ready: every open step waits on another. Check the flags."; nl.removeAttribute("href"); }
+
+  // ---- log
+  const rows=[...DATA.log.entries.map(e=>({at:e.at, who:e.who, what:e.what, ref:e.ref}))];
+  for(const [id,st] of Object.entries(state.items)){ if(st.done&&st.at){ const t=id.startsWith("req-")?(DATA.requests.find(r=>"req-"+r.id===id)||{}).title:(BY[id]||{}).title; if(t) rows.push({at:st.at, who:"owner", what:`Ticked: ${t}`, ref:id}); } }
+  rows.sort((a,b)=>String(b.at).localeCompare(String(a.at)));
+  const list=$("#log-list"); const show=state.logAll?rows:rows.slice(0,12);
+  list.innerHTML=show.map(r=>`<div class="log-row"><span class="d">${esc(fmt(r.at))}</span><div class="w"><span class="who ${esc(r.who)}">${r.who==="owner"?"you":"session"}</span>${esc(r.what)} ${r.ref?`<span class="r">· ${esc(r.ref)}</span>`:""}</div></div>`).join("");
+  $("#log-n").textContent=`${rows.length} entries`; const more=$("#log-more"); more.hidden=state.logAll||rows.length<=12;
+}
+
+const writing={};
+async function setItem(id, patch){
+  const prev=state.items[id]||{}; const nextDoc=Object.assign({},prev,patch,{updatedAt:new Date().toISOString()});
+  if(patch.done===false) delete nextDoc.at;
+  state.items[id]=nextDoc; render();
+  if(!state.db){ setStatus("Not saved in this view (open the page signed in to claude.ai).","err"); return; }
+  if(writing[id]) return; writing[id]=true; setStatus("Saving…","saving");
+  try{ await state.db.collection("items").doc(id).set(nextDoc); setStatus("Saved. Ticks sync to every device and to the next session."); }
+  catch(e){ state.items[id]=prev; render(); if(e&&e.code==="invalid_argument"){ state.canWrite=false; render(); setStatus("You can view this page but not change it.","err"); } else setStatus("Could not save; try again in a moment.","err"); }
+  finally{ writing[id]=false; }
+}
+async function setDecision(id,k){
+  const prev=state.decisions[id]; state.decisions[id]={choice:k, at:new Date().toISOString()}; render();
+  if(!state.db){ setStatus("Decision not saved in this view (database unavailable).","err"); return; }
+  setStatus("Saving decision…","saving");
+  try{ await state.db.doc("decisions/"+id).set(state.decisions[id]); setStatus("Decision recorded. A session reads it before building."); }
+  catch(e){ state.decisions[id]=prev; render(); setStatus("Could not save the decision; try again.","err"); }
+}
+
+$("#gen").textContent=DATA.generated;
+$("#seg").querySelectorAll("button").forEach(b=>{ b.setAttribute("aria-pressed", String(b.dataset.f===state.filter)); b.addEventListener("click",()=>{ state.filter=b.dataset.f; $("#seg").querySelectorAll("button").forEach(x=>x.setAttribute("aria-pressed",String(x===b))); try{localStorage.setItem("golive.filter",state.filter);}catch(e){} render(); }); });
+const q=$("#q"); q.value=state.q; let qt; q.addEventListener("input",()=>{ clearTimeout(qt); qt=setTimeout(()=>{ state.q=q.value.trim(); try{localStorage.setItem("golive.q",state.q);}catch(e){} render(); },250); });
+$("#log-more").addEventListener("click",()=>{ state.logAll=true; render(); });
+render();
+if(location.hash){ const el=document.getElementById(location.hash.slice(1)); if(el) el.scrollIntoView({block:"start"}); }
+
+(async()=>{
+  try{
+    const db=await claude.use("db");
+    if(!db){ setStatus("Open this page signed in to claude.ai to save ticks.","err"); return; }
+    state.db=db;
+    const user=await claude.use("user");
+    if(user&&typeof user.can==="function"){ const w=await user.can("data.write"); if(w===false){ state.canWrite=false; } }
+    db.collection("items").onSnapshot(snap=>{ const m={}; snap.docs.forEach(d=>{ if(d.exists) m[d.id]=d.data(); }); state.items=m; render(); setStatus(snap.metadata&&snap.metadata.fromCache?"Loading saved ticks…":"Saved ticks loaded. Tick as you go."); },
+      e=>setStatus("Live sync stopped ("+((e&&e.code)||"unavailable")+"); reload to resume.","err"));
+    db.collection("decisions").onSnapshot(snap=>{ const m={}; snap.docs.forEach(d=>{ if(d.exists) m[d.id]=d.data(); }); state.decisions=m; render(); }, ()=>{});
+  }catch(e){ setStatus("Database not available in this view.","err"); }
+})();
+</script>
