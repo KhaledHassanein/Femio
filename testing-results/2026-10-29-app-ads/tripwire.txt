@@ -1,0 +1,1 @@
+✓ privacy tripwire: no analytics, error-reporting or database client in either product; website: Tag Manager and AdSense hosts inside lib/consent and lib/ads only, ad units only in the article and hub; app: Google's ads SDK only, imported only under lib/features/ads/, no network code of its own, no personal permission (source and merged manifest, when built).

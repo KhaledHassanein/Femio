@@ -1325,4 +1325,11 @@ class L10nAr extends L10n {
   @override
   String get plusProbeProductMissing =>
       'المنتج femio_plus غير موجود بعد (متوقع حتى يُنشأ في Play Console)';
+
+  @override
+  String get adLabel => 'إعلان';
+
+  @override
+  String get adsNotice =>
+      'تظهر الإعلانات في شاشات الدلائل فقط. لا تطّلع أبدًا على سجلاتكِ، وسيزيلها femio Plus.';
 }

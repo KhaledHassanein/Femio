@@ -385,5 +385,7 @@
   "plusProbeAvailable": "Facturation Play joignable : oui",
   "plusProbeUnavailable": "Facturation Play joignable : non (pas de Play Store sur cet appareil, ou pas connecté)",
   "plusProbeProductFound": "Produit femio_plus trouvé dans la Play Console",
-  "plusProbeProductMissing": "Produit femio_plus introuvable pour l’instant (normal tant qu’il n’est pas créé dans la Play Console)"
+  "plusProbeProductMissing": "Produit femio_plus introuvable pour l’instant (normal tant qu’il n’est pas créé dans la Play Console)",
+  "adLabel": "Publicité",
+  "adsNotice": "Les publicités n’apparaissent que sur les écrans des guides. Elles ne voient jamais vos données, et femio Plus les supprimera."
 }

@@ -17,8 +17,12 @@
  *      AdSense host only in `lib/ads/adsense.ts`, the unit markup only in
  *      `lib/ads/ad-unit.tsx`, and `lib/ads` imported only by the article and hub
  *      components (R6.8: no ad beside a calculator, the help page or a legal page);
- *   3. the app's pubspec.yaml gains an analytics, crash-reporting or ads package;
- *   4. the app's release manifest asks for the INTERNET permission.
+ *   3. the app's pubspec.yaml gains an analytics, crash-reporting or ads-mediation
+ *      package; the one ads package allowed is Google's `google_mobile_ads` (ADR-076);
+ *   4. the app's own code can open a connection (http, dio, sockets): INTERNET exists in
+ *      the release manifest only because the ads SDK declares it, and only while that
+ *      SDK is in pubspec; the merged manifest must carry no location, phone, contacts,
+ *      camera or microphone permission.
  *
  * Adding any of these is a decision for docs/DECISIONS.md and a change to the
  * privacy policy, never a dependency bump.
@@ -118,6 +122,7 @@ const ADS_IMPORT_ALLOWED_IN = new Set([
   "apps/web/src/components/cms/content-hub.tsx",
   "apps/web/src/components/learn/learn-hub.tsx",
   "apps/web/src/app/ads.txt/route.ts",
+  "apps/web/src/app/app-ads.txt/route.ts",
 ]);
 for (const file of files) {
   const rel = relative(process.cwd(), file).replace(/\\/g, "/");
@@ -129,16 +134,24 @@ for (const file of files) {
 
 // 3. App dependencies.
 const PUBSPEC = "apps/mobile/pubspec.yaml";
+// ADR-076 (2026-10-29): Google's own ads SDK is the one ads package allowed; mediation
+// adapters, analytics, crash reporting and attribution SDKs stay forbidden because each
+// adds a second party that sees device identifiers or app events.
+const ADS_SDK_PACKAGE = "google_mobile_ads";
 const FORBIDDEN_DART_PACKAGES = [
-  /firebase/i, /sentry/i, /crashlytics/i, /analytics/i, /admob/i, /google_mobile_ads/i, /facebook/i,
-  /amplitude/i, /mixpanel/i, /posthog/i, /supabase/i, /appsflyer/i, /adjust/i, /onesignal/i,
+  /firebase/i, /sentry/i, /crashlytics/i, /analytics/i, /admob/i, /mediation/i, /applovin/i, /unity_ads/i,
+  /ironsource/i, /facebook/i, /amplitude/i, /mixpanel/i, /posthog/i, /supabase/i, /appsflyer/i, /adjust/i,
+  /onesignal/i, /^http$/i, /^dio$/i, /web_socket/i,
 ];
+let adsSdkInPubspec = false;
 try {
   const pubspec = readFileSync(PUBSPEC, "utf8");
   const depsBlock = pubspec.split(/^dependencies:/m)[1] ?? "";
   for (const line of depsBlock.split("\n")) {
     const name = line.match(/^  ([a-z_0-9]+):/)?.[1];
-    if (name && FORBIDDEN_DART_PACKAGES.some((re) => re.test(name))) {
+    if (!name) continue;
+    if (name === ADS_SDK_PACKAGE) { adsSdkInPubspec = true; continue; }
+    if (FORBIDDEN_DART_PACKAGES.some((re) => re.test(name))) {
       fail(PUBSPEC, `package "${name}" would send her data off the phone`);
     }
   }
@@ -146,32 +159,62 @@ try {
   fail(PUBSPEC, `cannot read: ${error.message}`);
 }
 
-// 4. Release manifest.
+// 3b. The app's own code never opens a connection. With INTERNET in the manifest for the
+// ads SDK, this is what keeps "her record never leaves the phone" checkable: no HTTP client,
+// no socket, no WebSocket anywhere under lib/. (dart:io is allowed: files and the keystore.)
+const APP_LIB = "apps/mobile/lib";
+const NETWORK_CODE = [/\bHttpClient\b/, /\bSocket\.connect\b/, /\bRawSocket\b/, /\bWebSocket\b/, /package:http\//, /package:dio\//, /\bNetworkImage\(/, /\bImage\.network\(/];
+const ADS_IMPORT_DART = /package:google_mobile_ads\//;
+const ADS_IMPORT_DART_ALLOWED_IN = [/^apps\/mobile\/lib\/features\/ads\//];
+try {
+  for (const file of walk(APP_LIB).filter((f) => f.endsWith(".dart"))) {
+    const text = readFileSync(file, "utf8");
+    const rel = relative(process.cwd(), file).replace(/\\/g, "/");
+    for (const re of NETWORK_CODE) {
+      if (re.test(text)) fail(rel, `opens a network connection of its own (${re.source}); only the ads SDK may talk to the network`);
+    }
+    if (ADS_IMPORT_DART.test(text) && !ADS_IMPORT_DART_ALLOWED_IN.some((re) => re.test(rel))) {
+      fail(rel, "imports the ads SDK outside lib/features/ads/; ad surfaces are decided in lib/domain/ads_policy.dart");
+    }
+  }
+} catch (error) {
+  fail(APP_LIB, `cannot scan: ${error.message}`);
+}
+
+// 4. Source manifest: the app itself never asks for INTERNET (the ads SDK's manifest does,
+// and only while the SDK is in pubspec), and never for anything that reads the person.
 const MANIFEST = "apps/mobile/android/app/src/main/AndroidManifest.xml";
+const PERSONAL_PERMISSIONS = [
+  /ACCESS_FINE_LOCATION/, /ACCESS_COARSE_LOCATION/, /ACCESS_BACKGROUND_LOCATION/, /READ_PHONE_STATE/, /READ_CONTACTS/,
+  /CAMERA/, /RECORD_AUDIO/, /READ_SMS/, /READ_CALL_LOG/, /GET_ACCOUNTS/, /BLUETOOTH_SCAN/, /ACTIVITY_RECOGNITION/,
+];
 try {
   const manifest = readFileSync(MANIFEST, "utf8");
-  // A `tools:node="remove"` line names the permission in order to strip it (R6.9).
   const requested = manifest.split("\n").filter((line) => !/tools:node="remove"/.test(line)).join("\n");
   if (/android\.permission\.INTERNET/.test(requested)) {
-    fail(MANIFEST, "the release manifest requests INTERNET; the app must not be able to send anything");
+    fail(MANIFEST, "the app's own manifest requests INTERNET; only the ads SDK may declare it (ADR-076)");
+  }
+  for (const re of PERSONAL_PERMISSIONS) {
+    if (re.test(requested)) fail(MANIFEST, `requests a permission that reads the person (${re.source})`);
   }
 } catch (error) {
   fail(MANIFEST, `cannot read: ${error.message}`);
 }
 
-// 4b. The merged release manifest, when a release build exists locally. The source
-// manifest cannot show what a library adds: the Play Billing library (R6.9 spike,
-// 2026-10-29) pulls in Google's `transport-backend-cct` telemetry, which declares
-// INTERNET and ACCESS_NETWORK_STATE; the source manifest removes both with
-// `tools:node="remove"`, and this check proves the removal held in the real build.
+// 4b. The merged release manifest, when a release build exists locally: what the libraries
+// add. INTERNET and ACCESS_NETWORK_STATE are expected from the ads SDK (ADR-076) and
+// forbidden without it; the personal permissions above are forbidden from any library.
 const MERGED = "apps/mobile/build/app/intermediates/merged_manifests/release/processReleaseManifest/AndroidManifest.xml";
 try {
   const merged = readFileSync(MERGED, "utf8");
-  if (/android\.permission\.INTERNET/.test(merged)) {
-    fail(MERGED, "the MERGED release manifest requests INTERNET: a library added it; see the manifest-merger report");
+  if (!adsSdkInPubspec && /android\.permission\.INTERNET/.test(merged)) {
+    fail(MERGED, "the MERGED release manifest requests INTERNET without the ads SDK: a library added it; see the manifest-merger report");
+  }
+  for (const re of PERSONAL_PERMISSIONS) {
+    if (re.test(merged)) fail(MERGED, `the MERGED release manifest requests a permission that reads the person (${re.source}); a library added it`);
   }
 } catch {
-  // No local release build; the source check above still ran.
+  // No local release build; the source checks above still ran.
 }
 
 if (findings.length > 0) {
@@ -180,4 +223,4 @@ if (findings.length > 0) {
   console.error(`\n${findings.length} finding(s). See docs/33_REBUILD_V3/03_LEGAL_PACK.md.`);
   process.exit(1);
 }
-console.log("✓ privacy tripwire: no analytics, error-reporting, ads or database client in either product; Tag Manager and AdSense hosts stay inside lib/consent and lib/ads, ad units only in the article and hub; release manifest (source and merged, when built) has no INTERNET permission.");
+console.log(`✓ privacy tripwire: no analytics, error-reporting or database client in either product; website: Tag Manager and AdSense hosts inside lib/consent and lib/ads only, ad units only in the article and hub; app: ${adsSdkInPubspec ? "Google's ads SDK only, imported only under lib/features/ads/" : "no ads SDK"}, no network code of its own, no personal permission (source and merged manifest, when built).`);

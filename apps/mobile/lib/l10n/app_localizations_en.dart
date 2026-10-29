@@ -1299,4 +1299,11 @@ class L10nEn extends L10n {
   @override
   String get plusProbeProductMissing =>
       'Product femio_plus not found yet (expected until it is created in Play Console)';
+
+  @override
+  String get adLabel => 'Advertisement';
+
+  @override
+  String get adsNotice =>
+      'Ads appear on guide screens only. They never see your records, and femio Plus will remove them.';
 }

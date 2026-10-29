@@ -16,6 +16,21 @@ val keyProperties = Properties().apply {
 }
 val hasReleaseKey = keyProperties.getProperty("storeFile") != null
 
+// AdMob app id (ADR-076). `apps/mobile/ads.env` (git-ignored, shape in ads.env.example) holds
+// the owner's real ids as KEY=VALUE lines; the Dart side reads the same file through
+// `--dart-define-from-file=ads.env`. Without the file the build uses Google's published TEST app
+// id, so nobody can ship real ads by accident.
+val googleTestAdmobAppId = "ca-app-pub-3940256099942544~3347511713"
+val adsEnv = mutableMapOf<String, String>().apply {
+    val file = rootProject.file("../ads.env")
+    if (file.exists()) {
+        file.readLines()
+            .map { it.trim() }
+            .filter { it.isNotEmpty() && !it.startsWith("#") && it.contains("=") }
+            .forEach { put(it.substringBefore("=").trim(), it.substringAfter("=").trim()) }
+    }
+}
+
 android {
     namespace = "com.femioapp.femio"
     compileSdk = flutter.compileSdkVersion
@@ -53,6 +68,7 @@ android {
         // flag during build.
         versionCode = flutter.versionCode
         versionName = flutter.versionName
+        manifestPlaceholders["admobAppId"] = adsEnv["FEMIO_ADMOB_APP_ID"] ?: googleTestAdmobAppId
     }
 
     buildTypes {

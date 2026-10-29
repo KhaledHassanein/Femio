@@ -385,5 +385,7 @@
   "plusProbeAvailable": "فوترة Play متاحة: نعم",
   "plusProbeUnavailable": "فوترة Play متاحة: لا (لا يوجد متجر Play على هذا الجهاز، أو لم يُسجَّل الدخول)",
   "plusProbeProductFound": "المنتج femio_plus موجود في Play Console",
-  "plusProbeProductMissing": "المنتج femio_plus غير موجود بعد (متوقع حتى يُنشأ في Play Console)"
+  "plusProbeProductMissing": "المنتج femio_plus غير موجود بعد (متوقع حتى يُنشأ في Play Console)",
+  "adLabel": "إعلان",
+  "adsNotice": "تظهر الإعلانات في شاشات الدلائل فقط. لا تطّلع أبدًا على سجلاتكِ، وسيزيلها femio Plus."
 }

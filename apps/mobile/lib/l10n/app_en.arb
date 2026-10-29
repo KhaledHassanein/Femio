@@ -576,5 +576,7 @@
   "plusProbeAvailable": "Play Billing reachable: yes",
   "plusProbeUnavailable": "Play Billing reachable: no (no Play Store on this device, or not signed in)",
   "plusProbeProductFound": "Product femio_plus found in Play Console",
-  "plusProbeProductMissing": "Product femio_plus not found yet (expected until it is created in Play Console)"
+  "plusProbeProductMissing": "Product femio_plus not found yet (expected until it is created in Play Console)",
+  "adLabel": "Advertisement",
+  "adsNotice": "Ads appear on guide screens only. They never see your records, and femio Plus will remove them."
 }

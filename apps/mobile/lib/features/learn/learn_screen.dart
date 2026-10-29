@@ -7,11 +7,14 @@
 import 'package:flutter/material.dart';
 
 import '../../data/library.dart';
+import '../../domain/ads_policy.dart';
 import '../../l10n/app_localizations.dart';
 import '../../theme/femio_theme.dart';
 import '../../theme/radii.dart';
 import '../../theme/spacing.dart';
 import '../../widgets/tab_header.dart';
+import '../ads/ad_banner.dart';
+import '../ads/ad_unit_ids.dart';
 import 'article_screen.dart';
 
 /// The guide list with a search field. [library] is injectable for tests.
@@ -33,6 +36,7 @@ class _LearnScreenState extends State<LearnScreen> {
     final t = Theme.of(context).textTheme;
     final locale = Localizations.localeOf(context).languageCode;
     return Scaffold(
+      bottomNavigationBar: const AdBanner(surface: AdSurface.learnIndex, adUnitId: bannerAdUnitLearn),
       body: SafeArea(
         child: FutureBuilder<List<Article>>(
           future: widget.library.articles(locale),

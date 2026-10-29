@@ -2272,6 +2272,18 @@ abstract class L10n {
   /// In en, this message translates to:
   /// **'Product femio_plus not found yet (expected until it is created in Play Console)'**
   String get plusProbeProductMissing;
+
+  /// No description provided for @adLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Advertisement'**
+  String get adLabel;
+
+  /// No description provided for @adsNotice.
+  ///
+  /// In en, this message translates to:
+  /// **'Ads appear on guide screens only. They never see your records, and femio Plus will remove them.'**
+  String get adsNotice;
 }
 
 class _L10nDelegate extends LocalizationsDelegate<L10n> {

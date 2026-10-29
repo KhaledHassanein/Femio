@@ -385,5 +385,7 @@
   "plusProbeAvailable": "Facturación de Play disponible: sí",
   "plusProbeUnavailable": "Facturación de Play disponible: no (no hay Play Store en este dispositivo o no has iniciado sesión)",
   "plusProbeProductFound": "Producto femio_plus encontrado en Play Console",
-  "plusProbeProductMissing": "Producto femio_plus aún no encontrado (normal hasta que se cree en Play Console)"
+  "plusProbeProductMissing": "Producto femio_plus aún no encontrado (normal hasta que se cree en Play Console)",
+  "adLabel": "Publicidad",
+  "adsNotice": "Los anuncios aparecen solo en las pantallas de las guías. Nunca ven tus registros, y femio Plus los eliminará."
 }

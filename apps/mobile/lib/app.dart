@@ -17,6 +17,8 @@ import 'data/key_vault.dart';
 import 'data/profile.dart';
 import 'data/reminder_scheduler.dart';
 import 'data/store.dart';
+import 'features/ads/ads_runtime.dart';
+import 'features/ads/ads_scope.dart';
 import 'features/home/home_shell.dart';
 import 'features/lock/lock_screen.dart';
 import 'features/onboarding/onboarding_flow.dart';
@@ -74,6 +76,11 @@ class FemioController extends ChangeNotifier {
 
   /// True when a PIN is set.
   bool lockEnabled = false;
+
+  /// True while femio Plus is active, which removes every advertisement (ADR-076). The
+  /// billing integration (R6.9) will set it from the Play purchase; until Plus can be
+  /// bought it stays false and is deliberately not persisted.
+  bool plusActive = false;
 
   /// Convenience for the old call sites: true once [load] has finished.
   bool get loaded => state != RecordState.loading;
@@ -272,8 +279,12 @@ class FemioController extends ChangeNotifier {
 /// onboarding, the recovery screen and the home shell. [controller] is the shared
 /// state; [today] fixes the date in tests.
 class FemioApp extends StatefulWidget {
-  const FemioApp({super.key, required this.controller, this.today});
+  const FemioApp({super.key, required this.controller, this.today, this.adsRuntime = const NoAdsRuntime()});
   final FemioController controller;
+
+  /// Where banners come from. The do-nothing runtime by default, so tests and every
+  /// non-Android host never load an ads SDK; main.dart passes the platform's.
+  final AdsRuntime adsRuntime;
 
   /// Fixed "today" for screenshot tests; the real app reads the clock.
   final String? today;
@@ -320,15 +331,19 @@ class _FemioAppState extends State<FemioApp> with WidgetsBindingObserver {
           ],
           // The lock covers EVERY route, including a Settings page left open when the
           // phone went to sleep; swapping `home` alone would leave pushed routes on top.
-          builder: (context, child) => Stack(
-            children: [
-              // Kept mounted under the lock so she returns exactly where she was;
-              // excluded from focus and the accessibility tree while locked.
-              ExcludeFocus(excluding: controller.locked, child: ExcludeSemantics(excluding: controller.locked, child: child!)),
-              if (controller.locked)
-                // Its own Overlay: the text field needs one and the Navigator's is beneath us.
-                Overlay(initialEntries: [OverlayEntry(builder: (_) => LockScreen(controller: controller))]),
-            ],
+          builder: (context, child) => AdsScope(
+            controller: controller,
+            runtime: widget.adsRuntime,
+            child: Stack(
+              children: [
+                // Kept mounted under the lock so she returns exactly where she was;
+                // excluded from focus and the accessibility tree while locked.
+                ExcludeFocus(excluding: controller.locked, child: ExcludeSemantics(excluding: controller.locked, child: child!)),
+                if (controller.locked)
+                  // Its own Overlay: the text field needs one and the Navigator's is beneath us.
+                  Overlay(initialEntries: [OverlayEntry(builder: (_) => LockScreen(controller: controller))]),
+              ],
+            ),
           ),
           home: switch (controller) {
             FemioController(state: RecordState.loading) => const SizedBox.shrink(),

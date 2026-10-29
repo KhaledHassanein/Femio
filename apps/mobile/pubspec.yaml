@@ -17,6 +17,9 @@ environment:
 #   timezone               the TZDateTime type the notification plugin schedules with (no database loaded)
 #   in_app_purchase        Google Play Billing for femio Plus (R6.9): talks to the Play Store app on the
 #                          device, never to the network; the merged manifest must stay free of INTERNET
+#   google_mobile_ads      the AdMob banners on the guide screens only (ADR-076): non-personalised, no
+#                          keywords or content URL, Google's consent form first; the one package allowed
+#                          to bring INTERNET, and nothing about her record is ever passed to it
 dependencies:
   cryptography: 2.9.0
   file_picker: 13.3.0
@@ -26,6 +29,7 @@ dependencies:
   flutter_localizations:
     sdk: flutter
   flutter_secure_storage: 11.2.0
+  google_mobile_ads: 9.2.0
   in_app_purchase: 3.3.1
   intl: any # the version flutter_localizations pins
   path_provider: 2.1.6
