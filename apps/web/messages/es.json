@@ -172,6 +172,9 @@
     "toDark": "Cambiar a modo oscuro",
     "toLight": "Cambiar a modo claro"
   },
+  "locale": {
+    "label": "Idioma"
+  },
   "calculators": {
     "title": "Calculadoras",
     "subtitle": "Herramientas gratuitas para el ciclo, la fertilidad y el embarazo. Sin cuenta.",
@@ -894,7 +897,7 @@
     "trust": "Confianza",
     "legal": "Aviso legal",
     "tagline": "Toda tu vida de salud, en privado en tu teléfono.",
-    "rights": "© {year} Femio",
+    "rights": "© {year} femio",
     "helpNow": "¿Necesitas ayuda ahora?"
   },
   "about": {

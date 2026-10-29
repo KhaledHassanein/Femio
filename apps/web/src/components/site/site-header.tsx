@@ -1,6 +1,7 @@
 import { getTranslations } from "next-intl/server";
 import { LifeBuoy, Search } from "lucide-react";
 import { Link } from "@/i18n/navigation";
+import { LocaleSwitcher } from "@/components/site/locale-switcher";
 import { ThemeToggle } from "@/components/theme-toggle";
 import { getCrisisContent } from "@/lib/crisis/content";
 import { isUnpublishedSection } from "@/lib/content/unpublished-sections";
@@ -11,6 +12,8 @@ import { APP_PAGE } from "@/lib/site";
 // its own AppNav).
 //
 // v3: one row of actions and one row of sections, never three wrapped rows at 390px.
+// The language button (2026-10-29) made the action row tight at 390px: gaps and the
+// app button's padding shrink below the tablet width so "Get the app" never wraps.
 // The sections scroll sideways when they do not fit, which keeps every one of them one
 // tap away (rule 2) without a hamburger hiding them.
 const LINKS = [
@@ -29,7 +32,7 @@ export async function SiteHeader({ locale }: { locale: string }) {
 
   return (
     <header className="sticky top-0 z-sticky border-b border-border/70 bg-bg/85 backdrop-blur-md supports-[backdrop-filter]:bg-bg/70">
-      <div className="mx-auto flex w-full max-w-5xl items-center gap-2 px-4 pt-3 sm:px-6">
+      <div className="mx-auto flex w-full max-w-5xl items-center gap-1 px-4 pt-3 sm:gap-2 sm:px-6">
         <Link
           href="/"
           className="me-auto font-display text-2xl font-medium lowercase leading-none tracking-tight text-primary"
@@ -55,13 +58,14 @@ export async function SiteHeader({ locale }: { locale: string }) {
           <LifeBuoy className="size-4" aria-hidden />
           {crisis.strings.launcher}
         </Link>
+        <LocaleSwitcher />
         <ThemeToggle />
         {/* One action: the app (D8). */}
         <Link
           href={APP_PAGE}
           data-track="get_app_click"
           data-placement="header"
-          className="inline-flex h-9 items-center rounded-pill bg-primary-solid px-4 text-sm font-semibold text-primary-fg-solid hover:bg-primary-hover"
+          className="inline-flex h-9 items-center whitespace-nowrap rounded-pill bg-primary-solid px-3 text-sm font-semibold text-primary-fg-solid hover:bg-primary-hover sm:px-4"
         >
           {t("getApp")}
         </Link>

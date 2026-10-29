@@ -16,7 +16,7 @@
  */
 import type { AbstractIntlMessages } from "next-intl";
 
-export const PUBLIC_CLIENT_NAMESPACES = ["search", "tools", "notFound", "theme"] as const;
+export const PUBLIC_CLIENT_NAMESPACES = ["search", "tools", "notFound", "theme", "locale"] as const;
 
 export const CALCULATOR_CLIENT_NAMESPACES = ["calculators"] as const;
 

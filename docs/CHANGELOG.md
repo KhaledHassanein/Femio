@@ -3,6 +3,7 @@ All notable changes to Femio V2.
 
 ## [Unreleased]
 ### Added
+- **A language switcher on the website.** A languages button in the header opens the four languages, each written in itself (English, العربية, Français, Español), and the footer lists them as plain links. Switching keeps you on the same page.
 - **The guides are inside the app.** A Learn tab carries every reviewed guide, in Arabic where a translation exists and in English otherwise (marked as such), with the trying-to-conceive, pregnancy and PCOS guides first. It works with no network. "Seek care now" boxes are drawn as warning boxes, as on the website.
 - **Help now in the app.** A button on every screen opens the same reviewed guidance as the website: what to do right now, then emergency and support numbers for Egypt or Saudi Arabia once you choose a country, each with where the number was read. A tap copies the number; the app never dials or opens anything itself.
 - **Reminders, off by default.** Settings > Reminders can nudge you to log at a time you choose, and tell you the day before your period is expected (never when your cycles are irregular). The notification says only "femio" and "Open the app".
@@ -11,6 +12,8 @@ All notable changes to Femio V2.
 - **One question when the year alone cannot tell your age.** If your birth year is exactly eighteen years back, femio asks whether your 18th birthday has passed instead of guessing; no date of birth is collected.
 
 ### Changed
+- **The reviewer's credentials read "MD"** on every byline and author page (no longer "MBBCh, CPC").
+- **The privacy policy and terms now name the company, the contact mailbox (info@femioapp.com) and their effective date** instead of highlighted blanks.
 - **The app shows ads on the guide screens** (the Learn list and an open guide), served by Google, non-personalised, with a small "Advertisement" label, and nowhere else: never on Today, the log, the calendar, Help now or the warning signs. The ads never see your records; what leaves the phone is the ad request (advertising ID, device type, internet address). femio Plus will remove them. The privacy notice and the Play Data safety answers say exactly this (ADR-076).
 - **Ads on article and hub pages, built but off.** Two labelled units per guide (after the first section and after the sources) and one on the Learn and Conditions pages, filled only after you allow ads in the consent dialog; never on the calculators, the help page or the legal pages. Nothing shows until the owner's AdSense account exists and its ids are set.
 - The website's privacy notice (EN/AR/FR/ES) now says how visits are measured: only after you press Allow, never what you type into a calculator; ads, if shown, only on article pages after consent (ADR-075). Nothing is measured yet: the Tag Manager container renders only when the owner sets its id.

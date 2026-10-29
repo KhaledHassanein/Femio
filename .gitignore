@@ -81,3 +81,5 @@ __pycache__/
 docs/34_GROWTH_OPS/reports/play/
 docs/34_GROWTH_OPS/reports/gsc/
 docs/34_GROWTH_OPS/reports/ga4/
+# Playwright MCP output (screenshots, snapshots, console logs); evidence is copied into testing-results/
+.playwright-mcp/

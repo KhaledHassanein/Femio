@@ -5,10 +5,10 @@
     "author",
     "medical_reviewer"
   ],
-  "credentials": "MBBCh, CPC",
+  "credentials": "MD",
   "jobTitle": "Medical Doctor - Co Founder",
   "affiliation": "",
   "sameAs": [],
   "bio": "Dr. Khaled contributes to Femio’s evidence-informed health and wellness content, focusing on clear, practical, and carefully sourced information.\n\nHealth and wellness content across menstrual health, fertility, pregnancy, and menopause. The focus is on making complex topics clear, practical, and respectful while maintaining careful sourcing and transparent safety boundaries. Femio content supports personal awareness and informed conversations with qualified healthcare professionals; it does not replace individual medical advice.",
-  "_notes": "Single reviewer identity. A second record (slug `kh`, \"K.H.\") was published on 2026-08-12 and unpublished the same day — two bios for one person is weaker E-E-A-T than one, and doc 15 §8 wants a named reviewer, not two initialled ones. credentials were \"MD\" in the record created through the admin panel; changed to the answer Khaled gave directly on 2026-08-12. One word reverts it. affiliation is deliberately blank: he is independent, and writing \"Independent\" into the field would make the bio page render it as an organisation and personJsonLd emit schema.org/Organization — a claim that such an org exists."
+  "_notes": "Single reviewer identity. A second record (slug `kh`, \"K.H.\") was published on 2026-08-12 and unpublished the same day — two bios for one person is weaker E-E-A-T than one, and doc 15 §8 wants a named reviewer, not two initialled ones. credentials were \"MD\" in the record created through the admin panel; changed to the answer Khaled gave directly on 2026-08-12. One word reverts it. 2026-10-29: Khaled asked on the go-live dashboard for \"Dr. Khaled M., MD\" with no CPC anywhere, so credentials are \"MD\" again. affiliation is deliberately blank: he is independent, and writing \"Independent\" into the field would make the bio page render it as an organisation and personJsonLd emit schema.org/Organization — a claim that such an org exists."
 }

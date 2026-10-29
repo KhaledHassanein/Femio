@@ -172,6 +172,9 @@
     "toDark": "Switch to dark mode",
     "toLight": "Switch to light mode"
   },
+  "locale": {
+    "label": "Language"
+  },
   "calculators": {
     "title": "Calculators",
     "subtitle": "Free tools for cycle, fertility, and pregnancy planning. No account needed.",
@@ -894,7 +897,7 @@
     "trust": "Trust",
     "legal": "Legal",
     "tagline": "Your whole health life, private on your phone.",
-    "rights": "© {year} Femio",
+    "rights": "© {year} femio",
     "helpNow": "Need help now?"
   },
   "about": {

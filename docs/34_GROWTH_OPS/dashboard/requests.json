@@ -2,6 +2,26 @@
   "about": "What sessions need from the owner, newest first. A session appends an entry here and rebuilds the dashboard (README.md). The owner ticks it on the dashboard; the tick lives in the artifact database as items/req-<id>. Never put an id, key or password in this file: say where it goes.",
   "requests": [
     {
+      "id": "entity-legal-form",
+      "at": "2026-10-29",
+      "from": "session 2026-10-29 (dashboard notes, R6.14)",
+      "title": "Give the legal form and registration number of KM Digital Labs",
+      "detail": "The privacy policy and terms now print 'KM Digital Labs, Cairo, Egypt' and info@femioapp.com. One line in chat with the legal form (for example sole proprietorship) and the commercial-register or tax number, and the session adds it. Also confirm the mailbox info@femioapp.com exists.",
+      "blocks": [
+        "forms"
+      ],
+      "where": "Dashboard item legal-placeholders (you ticked it; this is the last piece)"
+    },
+    {
+      "id": "vercel-delete-two",
+      "at": "2026-10-29",
+      "from": "session 2026-10-29 (dashboard notes, R6.14)",
+      "title": "Delete NEXT_PUBLIC_BETA_INVITE_CODE and NEXT_PUBLIC_ENABLE_GOOGLE_AUTH in Vercel",
+      "detail": "From your note on vercel-env-clean: those two are left from the v2 sign-in era and nothing reads them. Keep NEXT_PUBLIC_APP_URL and NEXT_PUBLIC_CRISIS_DIRECTORY_URL (both in use). The connector cannot delete variables.",
+      "blocks": [],
+      "where": "Vercel → femio-web → Settings → Environment Variables"
+    },
+    {
       "id": "admob-ids",
       "at": "2026-10-29",
       "from": "session 2026-10-29 (app ads, R6.13)",

@@ -172,6 +172,9 @@
     "toDark": "Passer en mode sombre",
     "toLight": "Passer en mode clair"
   },
+  "locale": {
+    "label": "Langue"
+  },
   "calculators": {
     "title": "Calculateurs",
     "subtitle": "Des outils gratuits pour le cycle, la fertilité et la grossesse. Sans compte.",
@@ -894,7 +897,7 @@
     "trust": "Confiance",
     "legal": "Mentions légales",
     "tagline": "Toute votre vie de santé, en privé sur votre téléphone.",
-    "rights": "© {year} Femio",
+    "rights": "© {year} femio",
     "helpNow": "Besoin d’aide maintenant ?"
   },
   "about": {

@@ -4,6 +4,12 @@
     {
       "at": "2026-10-29",
       "who": "session",
+      "what": "Your phone-check notes acted on: a language switcher (header + footer, names in each language, no flags), the reviewer now reads 'Dr. Khaled M., MD' everywhere, the legal pages print KM Digital Labs, info@femioapp.com and the effective date. Branch protection: GitHub's Free plan does not enforce it on a private repo, so it is deferred. Two Vercel variables are yours to delete (request).",
+      "ref": "R6.14"
+    },
+    {
+      "at": "2026-10-29",
+      "who": "session",
       "what": "Deployed to femioapp.com: the privacy notice that names the app's ads (EN/AR/FR/ES) and /app-ads.txt (a comment until your pub- id is in Vercel). Verified live: policy still closed, no ad markup while the ids are unset.",
       "ref": "main ecfb7a2"
     },

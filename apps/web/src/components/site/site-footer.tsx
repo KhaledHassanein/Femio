@@ -1,6 +1,7 @@
 import { getTranslations } from "next-intl/server";
 import { LifeBuoy } from "lucide-react";
 import { Link } from "@/i18n/navigation";
+import { LocaleSwitcher } from "@/components/site/locale-switcher";
 import { isUnpublishedSection } from "@/lib/content/unpublished-sections";
 
 // Persistent public-site footer (P1.9b.1, v3 P1.5). Three short columns on a deep plum
@@ -74,6 +75,7 @@ export async function SiteFooter({ locale }: { locale: string }) {
             <LifeBuoy className="size-4" aria-hidden />
             {t("helpNow")}
           </Link>
+          <LocaleSwitcher variant="inline" />
           <p className="text-2xs text-white/65">{t("rights", { year })}</p>
         </div>
       </div>
