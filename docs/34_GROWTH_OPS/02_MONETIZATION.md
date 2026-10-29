@@ -11,14 +11,21 @@ lead; §4.3 below folds it in). Prices and traffic numbers are *hypotheses* unti
 
 | Page type | Units | Why |
 |---|---|---|
-| Article (`/[locale]/learn/<slug>`) | 2: after the first H2 section; at the end before "Related" | the reader has engaged; the sources box stays ad-free |
-| Learn index and the 5 condition hubs | 1: after the first row of cards | low intrusion on a browsing page |
+| Article (`/[locale]/learn/<slug>`, `/conditions/<slug>`) | 2: `article-mid` between the first H2 section and the second H2 (none when the body has one section); `article-end` after the sources, before the app hand-off | the reader has engaged; the sources box stays ad-free |
+| Learn index and the 5 condition hubs | 1: `hub-top`, on the Learn index after the "start here" row; on a condition hub after the third card (the first card is above the fold on a phone) | low intrusion on a browsing page |
 | Calculators | 0 in the interactive area; 1 under the explanatory text far below the calendar, only on desktop widths | the calendar is the product's promise; nothing competes with it |
 | Home, `/app` hand-off, help-now, legal, privacy, 404 | 0 | trust pages |
 | Any page, above the fold on mobile | 0 | Core Web Vitals and the design language |
 
 Formats: responsive display units only; no anchors, no vignettes (full-screen interstitials),
-no auto ads. Labelled "Ad" in the page's language. Lazy-loaded below the fold.
+no auto ads. Labelled "Advertisement" in the page's language (`ads.label`). **Built 2026-10-29 (R6.8)**
+in `apps/web/src/lib/ads/`: each placement reads its own slot id (`NEXT_PUBLIC_ADSENSE_SLOT_ARTICLE_MID`,
+`…_ARTICLE_END`, `…_HUB_TOP`) beside `NEXT_PUBLIC_ADSENSE_CLIENT`, so one placement can be switched off
+in Vercel without a deploy; a unit stays hidden until the consent tool grants `ad_storage` (the notice
+says "only after you allow them", and the component makes it so); the AdSense script is loaded only by
+the article and hub components, and the tripwire fails the gate if any other file imports `lib/ads`.
+`/ads.txt` is a static route built from the publisher id. The Content-Security-Policy adds the AdSense
+hosts only when the publisher id is set (`apps/web/next.config.mjs`).
 
 ### 1.2 Requirements before the first unit renders
 

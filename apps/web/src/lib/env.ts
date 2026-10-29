@@ -9,8 +9,9 @@ import { isApprovedDirectoryUrl } from "@/lib/crisis/directory";
  * Anything that would send a visitor's request somewhere else (analytics, error
  * reporting, a database) was removed with the web tracker on 2026-10-27; the one
  * exception since is the Tag Manager container (ADR-075, 2026-10-28), loaded only
- * with the consent defaults ahead of it and only when its id is set. Adding anything
- * else back is a decision for `docs/DECISIONS.md`, not a variable here.
+ * with the consent defaults ahead of it and only when its id is set, and the AdSense
+ * units the same decision allows on content pages (R6.8). Adding anything else back
+ * is a decision for `docs/DECISIONS.md`, not a variable here.
  */
 const envSchema = z.object({
   NODE_ENV: z.enum(["development", "test", "production"]).default("development"),
@@ -21,6 +22,13 @@ const envSchema = z.object({
   // script at all. Set → `lib/consent/gtm-script.tsx` renders the consent defaults
   // (every signal denied) and the container; GA4 and the Meta Pixel ride inside it.
   NEXT_PUBLIC_GTM_ID: z.string().regex(/^GTM-[A-Z0-9]{4,12}$/, { message: "must look like GTM-XXXXXXX" }).optional(),
+  // Google AdSense (ADR-075, R6.8). Unset → no ad markup, no ad script, an `ads.txt`
+  // with no sellers. Set → `lib/ads/` renders a unit at each placement whose slot id
+  // is also set (docs/34_GROWTH_OPS/02_MONETIZATION.md §1.1), content pages only.
+  NEXT_PUBLIC_ADSENSE_CLIENT: z.string().regex(/^ca-pub-\d{10,20}$/, { message: "must look like ca-pub-1234567890123456" }).optional(),
+  NEXT_PUBLIC_ADSENSE_SLOT_ARTICLE_MID: z.string().regex(/^\d{6,12}$/).optional(),
+  NEXT_PUBLIC_ADSENSE_SLOT_ARTICLE_END: z.string().regex(/^\d{6,12}$/).optional(),
+  NEXT_PUBLIC_ADSENSE_SLOT_HUB_TOP: z.string().regex(/^\d{6,12}$/).optional(),
   // Optional outbound link to the maintained crisis-helpline directory. Unset →
   // the directory action is hidden and the emergency-services / nearest-ED
   // fallback still works. When set it must be the canonical Find A Helpline host
@@ -42,6 +50,10 @@ const parsed = envSchema.safeParse({
   NEXT_PUBLIC_APP_URL: process.env.NEXT_PUBLIC_APP_URL,
   NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION,
   NEXT_PUBLIC_GTM_ID: process.env.NEXT_PUBLIC_GTM_ID,
+  NEXT_PUBLIC_ADSENSE_CLIENT: process.env.NEXT_PUBLIC_ADSENSE_CLIENT,
+  NEXT_PUBLIC_ADSENSE_SLOT_ARTICLE_MID: process.env.NEXT_PUBLIC_ADSENSE_SLOT_ARTICLE_MID,
+  NEXT_PUBLIC_ADSENSE_SLOT_ARTICLE_END: process.env.NEXT_PUBLIC_ADSENSE_SLOT_ARTICLE_END,
+  NEXT_PUBLIC_ADSENSE_SLOT_HUB_TOP: process.env.NEXT_PUBLIC_ADSENSE_SLOT_HUB_TOP,
   NEXT_PUBLIC_CRISIS_DIRECTORY_URL: process.env.NEXT_PUBLIC_CRISIS_DIRECTORY_URL,
 });
 

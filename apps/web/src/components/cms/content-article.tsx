@@ -1,7 +1,11 @@
 import type { ReactNode } from "react";
 import { getFormatter, getTranslations } from "next-intl/server";
 import type { ContentDoc } from "@/lib/cms/client";
-import { RichText } from "@/lib/cms/lexical";
+import { RichTextNodes, splitAfterFirstSection } from "@/lib/cms/lexical";
+import { AdSenseScript } from "@/lib/ads/adsense-script";
+import { AdUnit } from "@/lib/ads/ad-unit";
+import { adUnitConfig } from "@/lib/ads/placements";
+import { env } from "@/lib/env";
 import { Link } from "@/i18n/navigation";
 import type { Byline } from "@/lib/cms/client";
 import { JsonLd } from "@/components/seo/json-ld";
@@ -48,6 +52,13 @@ export async function ContentArticle({
   contentLocale?: string;
 }) {
   const t = await getTranslations("learn");
+  const tAds = await getTranslations("ads");
+  // R6.8: two placements, each rendered only when its slot and the publisher id are set.
+  // The mid unit sits between the first H2 section and the second H2; a body with one
+  // section renders in one piece and gets no mid unit.
+  const midAd = adUnitConfig("article-mid");
+  const endAd = adUnitConfig("article-end");
+  const { head, rest } = midAd ? splitAfterFirstSection(doc.body ?? null) : { head: doc.body?.root?.children ?? [], rest: [] };
   const disclaimer =
     doc.disclaimerType && doc.disclaimerType !== "none"
       ? t(`disclaimer.${doc.disclaimerType}`)
@@ -138,7 +149,13 @@ export async function ContentArticle({
       </div>
 
       <article {...contentAttrs} className="text-md">
-        <RichText content={doc.body ?? null} />
+        <RichTextNodes nodes={head} />
+        {midAd && rest.length > 0 ? (
+          <div className="my-6">
+            <AdUnit config={midAd} label={tAds("label")} />
+          </div>
+        ) : null}
+        {rest.length > 0 ? <RichTextNodes nodes={rest} /> : null}
       </article>
 
       {disclaimer ? (
@@ -167,6 +184,11 @@ export async function ContentArticle({
           </ul>
         </section>
       ) : null}
+
+      {/* R6.8: the end unit follows the sources and precedes the hand-off, so no ad ever
+          sits between the reader and the article's own evidence. */}
+      <AdUnit config={endAd} label={tAds("label")} />
+      {(midAd || endAd) && <AdSenseScript client={env.NEXT_PUBLIC_ADSENSE_CLIENT} />}
 
       <AppHandoffCard id="article-handoff" />
 

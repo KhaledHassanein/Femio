@@ -119,6 +119,13 @@ Files (all under `apps/web/`):
 | `src/app/[locale]/layout.tsx` | mounts the default snippet then `<Gtm/>` |
 | `docs/33_REBUILD_V3/03_LEGAL_PACK.md` | privacy notice: website section rewritten (what is measured, by whom, how to withdraw: the banner's Settings link); cookie table |
 
+**Content-Security-Policy (found 2026-10-29).** The site's CSP allowed scripts from `'self'` only, so the
+deployed loader would have been blocked the day the id was set. `apps/web/next.config.mjs` now adds the
+Tag Manager, GA4 and Meta hosts to `script-src`, `connect-src`, `img-src` and `frame-src` only when
+`NEXT_PUBLIC_GTM_ID` is set, and the AdSense hosts only when `NEXT_PUBLIC_ADSENSE_CLIENT` is set; a
+preview without the ids keeps the closed policy. If a tag inside the container needs another host,
+the browser console says "Refused to load" and the host is added there, deliberately.
+
 Order: write the tests first (they fail), the component, the lint change, the legal text, then
 the owner creates the container (guide part D) and a session pastes the id into Vercel as
 `NEXT_PUBLIC_GTM_ID`. Verification: GTM Preview mode shows no tag firing before consent;

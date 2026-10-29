@@ -13,7 +13,10 @@
  *   2. website source mentions a tracking host or a third-party beacon anywhere but
  *      `apps/web/src/lib/consent/gtm.ts`, the one module allowed to name the Tag
  *      Manager host, or pushes to `dataLayer` anywhere but `lib/consent/events.ts`
- *      and the consent default (so every event passes the allow-list);
+ *      and the consent default (so every event passes the allow-list); likewise the
+ *      AdSense host only in `lib/ads/adsense.ts`, the unit markup only in
+ *      `lib/ads/ad-unit.tsx`, and `lib/ads` imported only by the article and hub
+ *      components (R6.8: no ad beside a calculator, the help page or a legal page);
  *   3. the app's pubspec.yaml gains an analytics, crash-reporting or ads package;
  *   4. the app's release manifest asks for the INTERNET permission.
  *
@@ -49,8 +52,15 @@ const WEB_SRC = "apps/web/src";
 const TRACKING_PATTERNS = [
   /google-analytics\.com/i, /googletagmanager\.com/i, /connect\.facebook\.net/i, /posthog\.com/i,
   /sentry\.io/i, /hotjar\.com/i, /mixpanel\.com/i, /segment\.io/i, /navigator\.sendBeacon/,
-  /supabase\.co/i,
+  /supabase\.co/i, /googlesyndication\.com/i, /doubleclick\.net/i, /adsbygoogle\.js/i,
 ];
+// R6.8: the AdSense host may appear in exactly one module (plus its test), and the
+// `<ins class="adsbygoogle">` markup in exactly one component, so a unit can never be
+// dropped into a calculator, the help page or a legal page by accident.
+const ADS_HOST_ALLOWED_IN = new Set(["apps/web/src/lib/ads/adsense.ts", "apps/web/src/lib/ads/adsense.test.ts"]);
+const ADS_HOST_PATTERNS = new Set(["googlesyndication\\.com", "doubleclick\\.net", "adsbygoogle\\.js"]);
+const AD_UNIT_MARKUP = /className="adsbygoogle|class="adsbygoogle|adsbygoogle\s*=\s*window\.adsbygoogle|w\.adsbygoogle/;
+const AD_UNIT_ALLOWED_IN = new Set(["apps/web/src/lib/ads/ad-unit.tsx"]);
 // ADR-075: the Tag Manager host may appear in exactly one module, and only pushes to
 // `dataLayer` that go through the allow-list in events.ts (plus the consent default,
 // which pushes the denied state) are permitted. Anything else is a second tracker.
@@ -87,13 +97,35 @@ for (const file of files) {
       gtmModuleSeen = true;
       continue;
     }
+    if (ADS_HOST_PATTERNS.has(re.source) && ADS_HOST_ALLOWED_IN.has(rel)) continue;
     fail(rel, `mentions a tracking or data host (${re.source})`);
   }
   if (DATALAYER_PUSH.test(text) && !DATALAYER_PUSH_ALLOWED_IN.has(rel)) {
     fail(rel, "pushes to dataLayer outside lib/consent/events.ts; every event must pass the allow-list");
   }
+  if (AD_UNIT_MARKUP.test(text) && !AD_UNIT_ALLOWED_IN.has(rel)) {
+    fail(rel, "renders an ad unit outside lib/ads/ad-unit.tsx; placements are decided in lib/ads/placements.ts");
+  }
 }
 if (!gtmModuleSeen) fail("apps/web/src/lib/consent/gtm.ts", "the one allowed Tag Manager module is missing; the allow-list above is stale");
+// 2b. Ads reach the browser only through the content components (02_MONETIZATION.md
+// §1.1): calculators, help-now, legal pages, the home page and the root layout never
+// import the ads module, so the rule "no ad beside a tool or a crisis line" is checked,
+// not remembered.
+const ADS_IMPORT = /from \s*["']@\/lib\/ads\//;
+const ADS_IMPORT_ALLOWED_IN = new Set([
+  "apps/web/src/components/cms/content-article.tsx",
+  "apps/web/src/components/cms/content-hub.tsx",
+  "apps/web/src/components/learn/learn-hub.tsx",
+  "apps/web/src/app/ads.txt/route.ts",
+]);
+for (const file of files) {
+  const rel = relative(process.cwd(), file).replace(/\\/g, "/");
+  if (rel.startsWith("apps/web/src/lib/ads/")) continue;
+  if (ADS_IMPORT.test(readFileSync(file, "utf8")) && !ADS_IMPORT_ALLOWED_IN.has(rel)) {
+    fail(rel, "imports lib/ads; only the article and hub components may carry an ad placement");
+  }
+}
 
 // 3. App dependencies.
 const PUBSPEC = "apps/mobile/pubspec.yaml";
@@ -118,11 +150,28 @@ try {
 const MANIFEST = "apps/mobile/android/app/src/main/AndroidManifest.xml";
 try {
   const manifest = readFileSync(MANIFEST, "utf8");
-  if (/android\.permission\.INTERNET/.test(manifest)) {
+  // A `tools:node="remove"` line names the permission in order to strip it (R6.9).
+  const requested = manifest.split("\n").filter((line) => !/tools:node="remove"/.test(line)).join("\n");
+  if (/android\.permission\.INTERNET/.test(requested)) {
     fail(MANIFEST, "the release manifest requests INTERNET; the app must not be able to send anything");
   }
 } catch (error) {
   fail(MANIFEST, `cannot read: ${error.message}`);
+}
+
+// 4b. The merged release manifest, when a release build exists locally. The source
+// manifest cannot show what a library adds: the Play Billing library (R6.9 spike,
+// 2026-10-29) pulls in Google's `transport-backend-cct` telemetry, which declares
+// INTERNET and ACCESS_NETWORK_STATE; the source manifest removes both with
+// `tools:node="remove"`, and this check proves the removal held in the real build.
+const MERGED = "apps/mobile/build/app/intermediates/merged_manifests/release/processReleaseManifest/AndroidManifest.xml";
+try {
+  const merged = readFileSync(MERGED, "utf8");
+  if (/android\.permission\.INTERNET/.test(merged)) {
+    fail(MERGED, "the MERGED release manifest requests INTERNET: a library added it; see the manifest-merger report");
+  }
+} catch {
+  // No local release build; the source check above still ran.
 }
 
 if (findings.length > 0) {
@@ -131,4 +180,4 @@ if (findings.length > 0) {
   console.error(`\n${findings.length} finding(s). See docs/33_REBUILD_V3/03_LEGAL_PACK.md.`);
   process.exit(1);
 }
-console.log("✓ privacy tripwire: no analytics, error-reporting, ads or database client in either product; the Tag Manager host and dataLayer pushes stay inside lib/consent; release manifest has no INTERNET permission.");
+console.log("✓ privacy tripwire: no analytics, error-reporting, ads or database client in either product; Tag Manager and AdSense hosts stay inside lib/consent and lib/ads, ad units only in the article and hub; release manifest (source and merged, when built) has no INTERNET permission.");

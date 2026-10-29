@@ -5,6 +5,10 @@ import { lede } from "@/lib/cms/format";
 import { Link } from "@/i18n/navigation";
 import { TopicArt } from "@/components/learn/topic-art";
 import { QUESTIONS, START_HERE, groupByTopic, pregnancyWeek, topicOf } from "@/lib/content/topics";
+import { AdSenseScript } from "@/lib/ads/adsense-script";
+import { AdUnit } from "@/lib/ads/ad-unit";
+import { adUnitConfig } from "@/lib/ads/placements";
+import { env } from "@/lib/env";
 
 /**
  * The Learn hub (v3 P2.4, OD-12).
@@ -30,6 +34,10 @@ export async function LearnHub({ locale, articles }: { locale: string; articles:
   const start = START_HERE.map((s) => bySlug.get(s)).filter((a): a is ContentDoc => a != null);
   const questions = QUESTIONS.filter((q) => bySlug.has(q.slug));
   const rows = groupByTopic(articles.filter((a) => a.slug !== "meet-femio"));
+  // R6.8: the one hub placement, after the "start here" row (below the fold on a phone;
+  // the hero, the question chips and the start row come first), only when configured.
+  const hubAd = adUnitConfig("hub-top");
+  const adLabel = hubAd ? (await getTranslations({ locale, namespace: "ads" }))("label") : "";
 
   return (
     <main className="flex flex-col pb-16">
@@ -94,6 +102,13 @@ export async function LearnHub({ locale, articles }: { locale: string; articles:
             <Card key={doc.id} doc={doc} size="lg" />
           ))}
         </Row>
+      ) : null}
+
+      {hubAd ? (
+        <div className="mx-auto w-full max-w-5xl px-4 pt-10 sm:px-6">
+          <AdUnit config={hubAd} label={adLabel} />
+          <AdSenseScript client={env.NEXT_PUBLIC_ADSENSE_CLIENT} />
+        </div>
       ) : null}
 
       {/* ── One row per stage, wedge first ─────────────────────────────────────── */}

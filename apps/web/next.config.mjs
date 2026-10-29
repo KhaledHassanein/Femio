@@ -10,14 +10,51 @@ const isDev = process.env.NODE_ENV === "development";
  * and an unlisted origin (an injected tracker, an exfiltration endpoint) simply
  * cannot be reached from a Femio page.
  */
+// ADR-075 (2026-10-28): the two origins a visitor's browser may be sent to, each only
+// when its id is set in Vercel, so a preview or a site without the ids keeps the
+// closed policy. The hosts are Google's documented sets for Tag Manager with GA4 and
+// the Meta Pixel inside it, and for AdSense (which also serves its consent dialog).
+// The same ids gate the markup (lib/consent, lib/ads); this is the browser-side lock.
+const measurementOn = /^GTM-[A-Z0-9]{4,12}$/.test(process.env.NEXT_PUBLIC_GTM_ID ?? "");
+const adsOn = /^ca-pub-\d{10,20}$/.test(process.env.NEXT_PUBLIC_ADSENSE_CLIENT ?? "");
+
+const MEASUREMENT = {
+  script: ["https://www.googletagmanager.com", "https://connect.facebook.net"],
+  connect: ["https://www.googletagmanager.com", "https://*.google-analytics.com", "https://*.analytics.google.com", "https://www.facebook.com"],
+  img: ["https://www.googletagmanager.com", "https://*.google-analytics.com", "https://www.facebook.com"],
+  frame: ["https://www.googletagmanager.com"],
+};
+const ADS = {
+  script: ["https://pagead2.googlesyndication.com", "https://*.googlesyndication.com", "https://*.doubleclick.net", "https://fundingchoicesmessages.google.com", "https://www.google.com", "https://*.adtrafficquality.google"],
+  connect: ["https://pagead2.googlesyndication.com", "https://*.googlesyndication.com", "https://*.doubleclick.net", "https://fundingchoicesmessages.google.com", "https://www.google.com", "https://*.adtrafficquality.google"],
+  img: ["https://*.googlesyndication.com", "https://*.doubleclick.net", "https://www.google.com", "https://*.adtrafficquality.google"],
+  frame: ["https://*.googlesyndication.com", "https://*.doubleclick.net", "https://www.google.com", "https://fundingchoicesmessages.google.com", "https://*.adtrafficquality.google"],
+};
+
+/** The extra hosts for one directive: none, measurement, ads, or both. */
+function allowed(directive) {
+  return [...(measurementOn ? MEASUREMENT[directive] : []), ...(adsOn ? ADS[directive] : [])];
+}
+
+function scriptSources() {
+  // `'unsafe-inline'` is explained on contentSecurityPolicy() below.
+  return ["'self'", "'unsafe-inline'", ...(isDev ? ["'unsafe-eval'"] : []), ...allowed("script")].join(" ");
+}
+
 function connectSources() {
-  // The site is static and talks to nobody but itself. Any origin added here is
-  // a decision for docs/DECISIONS.md: it means a visitor's request leaves Femio.
-  return "'self'";
+  // The site is static and talks to nobody but itself until an id is set. Any origin
+  // added here is a decision for docs/DECISIONS.md: a visitor's request leaves Femio.
+  return ["'self'", ...allowed("connect")].join(" ");
 }
 
 function imageSources() {
-  return "'self' data: blob:";
+  return ["'self'", "data:", "blob:", ...allowed("img")].join(" ");
+}
+
+function frameSources() {
+  // No frames at all without the ids: a health site must not be framed, and frames nothing.
+  const extra = allowed("frame");
+  return extra.length > 0 ? extra.join(" ") : "'none'";
 }
 
 /**
@@ -36,7 +73,7 @@ function imageSources() {
 function contentSecurityPolicy() {
   return [
     "default-src 'self'",
-    `script-src 'self' 'unsafe-inline'${isDev ? " 'unsafe-eval'" : ""}`,
+    `script-src ${scriptSources()}`,
     "style-src 'self' 'unsafe-inline'",
     `img-src ${imageSources()}`,
     "font-src 'self' data:",
@@ -47,7 +84,7 @@ function contentSecurityPolicy() {
     "object-src 'none'",
     "base-uri 'self'",
     "form-action 'self'",
-    "frame-src 'none'",
+    `frame-src ${frameSources()}`,
     "frame-ancestors 'none'",
     "upgrade-insecure-requests",
   ].join("; ");

@@ -1074,6 +1074,9 @@
       }
     ]
   },
+  "ads": {
+    "label": "Publicidad"
+  },
   "terms": {
     "title": "Condiciones de uso",
     "intro": "Qué es femio y qué no es, y las reglas para usar la app y el sitio web.",

@@ -253,14 +253,18 @@ eight weeks after launch, whichever comes first).
    Payment method: add it when AdSense asks (Egypt: wire transfer to your bank; the account
    name must match; AdSense also sends a PIN by post to your address before the first
    payment, so the postal address must be real).
-3. Tell a session: *"AdSense client id is pub-…, mount the verification script"*. It sets
-   `NEXT_PUBLIC_ADSENSE_CLIENT` in Vercel through you (same as D8) and the site serves the
-   AdSense script on article pages, which also carries the Privacy & messaging banner
-   (D7). Back in AdSense press **Verify**. Then wait for the review email (days to weeks).
+3. The code is already built (R6.8). Put `NEXT_PUBLIC_ADSENSE_CLIENT` = `ca-pub-…` (the id as
+   AdSense prints it in the ad code, with `ca-`) into Vercel yourself (same place as D8) and
+   redeploy: article and hub pages then load the AdSense script, which also carries the
+   Privacy & messaging banner (D7), and `femioapp.com/ads.txt` prints your line. Back in AdSense
+   press **Verify**. Then wait for the review email (days to weeks).
 4. When approved: **Ads → By site** → turn **Auto ads OFF** (we place units ourselves) →
    **Ads → By ad unit → Display ads** → create `article-mid`, `article-end`, `hub-top`
-   (responsive) → copy only the **slot numbers** (digits) → tell a session *"AdSense slots:
-   mid …, end …, hub …"*. It places the three units per `02_MONETIZATION.md` §1.1.
+   (responsive) → copy only the **slot numbers** (digits) → put them into Vercel as
+   `NEXT_PUBLIC_ADSENSE_SLOT_ARTICLE_MID`, `NEXT_PUBLIC_ADSENSE_SLOT_ARTICLE_END` and
+   `NEXT_PUBLIC_ADSENSE_SLOT_HUB_TOP` and redeploy. The placements are already in the code
+   (`02_MONETIZATION.md` §1.1); a unit fills only after a visitor allows ads in the banner, so
+   the banner must show to every visitor (the free certified tool in D7), not only in Europe.
 5. **Brand safety → Content → Blocking controls → Sensitive categories**: block Dating,
    Drugs & supplements, Get rich quick, Politics, Religion, Sexual & reproductive health,
    Birth control, Cosmetic procedures, Astrology & esoteric, Weight loss, Significant skin

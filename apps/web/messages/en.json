@@ -1074,6 +1074,9 @@
       }
     ]
   },
+  "ads": {
+    "label": "Advertisement"
+  },
   "terms": {
     "title": "Terms of use",
     "intro": "What femio is and is not, and the rules for using the app and the website.",

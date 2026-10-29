@@ -130,7 +130,32 @@ function renderNode(node: LexicalNode, key: number): ReactNode {
 }
 
 export function RichText({ content }: { content: RichTextValue }) {
-  const nodes = content?.root?.children ?? [];
+  return <RichTextNodes nodes={content?.root?.children ?? []} />;
+}
+
+/** The same renderer over a slice of top-level nodes, for a body rendered in two parts. */
+export function RichTextNodes({ nodes }: { nodes: LexicalNode[] }) {
   if (nodes.length === 0) return null;
   return <div className="flex flex-col gap-3">{nodes.map((n, i) => renderNode(n, i))}</div>;
+}
+
+/**
+ * Splits a body after its first H2 section, for the mid-article ad placement (R6.8,
+ * 02_MONETIZATION.md §1.1): everything up to the second H2 is the first part, the
+ * second H2 onwards is the rest. A body with fewer than two H2s is one part and an
+ * empty rest, so a short article gets no mid unit. Pure; the renderer above draws
+ * each part, and the split never lands inside a list, a quote or a warning box
+ * because it only ever falls between top-level nodes, right before a heading.
+ */
+export function splitAfterFirstSection(value: RichTextValue): { head: LexicalNode[]; rest: LexicalNode[] } {
+  const nodes = value?.root?.children ?? [];
+  let seen = 0;
+  for (let i = 0; i < nodes.length; i++) {
+    const node = nodes[i];
+    if (node?.type === "heading" && (node.tag ?? "h2") === "h2") {
+      seen += 1;
+      if (seen === 2) return { head: nodes.slice(0, i), rest: nodes.slice(i) };
+    }
+  }
+  return { head: nodes, rest: [] };
 }
