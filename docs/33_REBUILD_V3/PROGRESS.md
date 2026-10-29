@@ -91,3 +91,4 @@ Opened 2026-10-28 on the owner's finalization brief. The gate for R6.4–R6.5 an
 | 2026-10-27 | Study, plan, constitution, tracker removal, calendar calculators | see above |
 | 2026-10-28 | Brand surface, article template + legal pages, Flutter refactor, sealed store + backup + lock + Settings, launch guide; **merged to main, v3 site live** | `0965a65` |
 | 2026-10-28 (late) | Growth operations opened (R6): plan, analytics and consent design, monetization, agent-team automation, owner guide A–J, competitor benchmark, interactive checklist; ADR-075 proposed | see R6 |
+| 2026-10-29 | ADR-075 accepted; consent + Tag Manager code, privacy notice ×4, routines R1–R7, container export; **main fast-forwarded to `56b3374`, deployment READY, privacy notice verified live in AR and EN** (no consent script, no third-party request while the id is unset) | `56b3374`, `8894a91` |

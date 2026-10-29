@@ -48,7 +48,8 @@ history and `docs/archive/`.
   competitor benchmark, interactive owner checklist; **ADR-075 accepted 2026-10-28**: the consent
   defaults + Tag Manager loader + closed event list are built (`apps/web/src/lib/consent/`) and
   render nothing until the owner sets `NEXT_PUBLIC_GTM_ID` in Vercel (owner guide parts C–E);
-  the routines R1–R7 exist as files (`docs/34_GROWTH_OPS/routines/`).
+  the routines R1–R7 exist as files (`docs/34_GROWTH_OPS/routines/`). Live on femioapp.com since
+  2026-10-29 (`56b3374`): the new privacy notice; measurement stays off until the id is set.
 - **Open before a release candidate:** R4.12 needs the owner's keystore (owner action 2); the NVDA
   listening session (owner action 8); R3.5 rest (only the three owner decisions of owner action 9 and the
   clinician sign-off remain; the editor's 99 rows are applied); owner action 10 (a source for bleeding and reduced movements on the
