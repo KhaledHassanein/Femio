@@ -9,7 +9,7 @@ table{border-collapse:collapse;width:100%;font-size:15px;margin:16px 0}th,td{tex
 blockquote{margin:16px 0;padding:12px 16px;border-inline-start:4px solid var(--plum);background:var(--surface);border-radius:0 12px 12px 0}
 hr{border:0;border-top:1px solid var(--line);margin:32px 0}strong{font-weight:600}
 .meta{color:var(--muted);font-size:14px}
-</style></head><body><main><p class="meta">femio · generated 2026-10-28 from 04_OWNER_GUIDE_GROWTH_A_TO_Z.md</p><h1>04 — Growing femio after launch, A to Z: every step you do by hand</h1>
+</style></head><body><main><p class="meta">femio · generated 2026-10-29 from 04_OWNER_GUIDE_GROWTH_A_TO_Z.md</p><h1>04 — Growing femio after launch, A to Z: every step you do by hand</h1>
 <p><strong>For Khaled.</strong> This continues <code>docs/33_REBUILD_V3/06_LAUNCH_GUIDE_A_TO_Z.md</code> (accounts, the
 closed test, production). That guide gets the app into Play; this one sets up everything that
 measures, earns and feeds the site afterwards. Same rules: plain words, in order, each step
@@ -119,9 +119,12 @@ for tag to fire&quot;: add <strong>analytics_storage</strong>. Save. (This is th
 (<code>article_read</code>, <code>calculator_open</code>, <code>calculator_used</code>, <code>get_app_click</code>, <code>help_now_open</code>,
 <code>language_switch</code>, <code>outbound_source_click</code>). Then <strong>Tags → New → Google Analytics: GA4
 Event</strong> for each, event name = the same, parameters = only the ones listed in that table,
-consent setting = analytics_storage, trigger = its custom event. Seven tags. (A session
-can hand you a GTM <strong>container export JSON</strong> with all of this ready; <strong>Admin → Import
-Container → Merge</strong> saves the typing. Ask: <em>&quot;export the GTM container JSON for ADR-075&quot;.</em>)</li>
+consent setting = analytics_storage, trigger = its custom event. Seven tags. <strong>Or skip the
+typing:</strong> the file <code>docs/34_GROWTH_OPS/gtm/femio-container.json</code> holds all of it (GA4
+configuration, the seven event tags, triggers, variables, consent settings). <strong>Admin →
+Import Container → choose the file → Existing workspace → Merge → Rename conflicting</strong>,
+then open <strong>Variables → <code>const · GA4 measurement id</code></strong> and paste your <code>G-…</code> id. The
+README beside the file has the five steps.</li>
 <li><strong>The consent banner.</strong> Two routes; use the first:<ul>
 <li><strong>AdSense &quot;Privacy &amp; messaging&quot;</strong> (free, Google-certified, needs the AdSense account from
 part H even before ads are approved): adsense.google.com → <strong>Privacy &amp; messaging</strong> →

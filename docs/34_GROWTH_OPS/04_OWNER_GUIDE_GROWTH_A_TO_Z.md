@@ -121,9 +121,12 @@ tag wait for consent. The site code for this is built by a session (`01_ANALYTIC
    (`article_read`, `calculator_open`, `calculator_used`, `get_app_click`, `help_now_open`,
    `language_switch`, `outbound_source_click`). Then **Tags → New → Google Analytics: GA4
    Event** for each, event name = the same, parameters = only the ones listed in that table,
-   consent setting = analytics_storage, trigger = its custom event. Seven tags. (A session
-   can hand you a GTM **container export JSON** with all of this ready; **Admin → Import
-   Container → Merge** saves the typing. Ask: *"export the GTM container JSON for ADR-075".*)
+   consent setting = analytics_storage, trigger = its custom event. Seven tags. **Or skip the
+   typing:** the file `docs/34_GROWTH_OPS/gtm/femio-container.json` holds all of it (GA4
+   configuration, the seven event tags, triggers, variables, consent settings). **Admin →
+   Import Container → choose the file → Existing workspace → Merge → Rename conflicting**,
+   then open **Variables → `const · GA4 measurement id`** and paste your `G-…` id. The
+   README beside the file has the five steps.
 7. **The consent banner.** Two routes; use the first:
    - **AdSense "Privacy & messaging"** (free, Google-certified, needs the AdSense account from
      part H even before ads are approved): adsense.google.com → **Privacy & messaging** →
