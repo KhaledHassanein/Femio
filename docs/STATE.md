@@ -49,7 +49,8 @@ history and `docs/archive/`.
   defaults + Tag Manager loader + closed event list are built (`apps/web/src/lib/consent/`) and
   render nothing until the owner sets `NEXT_PUBLIC_GTM_ID` in Vercel (owner guide parts C–E);
   the routines R1–R7 exist as files (`docs/34_GROWTH_OPS/routines/`). Live on femioapp.com since
-  2026-10-29 (`56b3374`): the new privacy notice; measurement stays off until the id is set.
+  2026-10-29 (`ecfb7a2`, after `56b3374` and `b88f2cc`): the privacy notice that names the app's
+  ads, `/ads.txt` and `/app-ads.txt`; measurement and ads stay off until the ids are set.
   **Go-live pass 2026-10-29:** AdSense is built behind `NEXT_PUBLIC_ADSENSE_CLIENT` + three slot ids
   (`apps/web/src/lib/ads/`, units filled only after `ad_storage` is granted, `/ads.txt`); the CSP now
   opens the Google/Meta/AdSense hosts only when the ids are set (before this fix the deployed CSP
