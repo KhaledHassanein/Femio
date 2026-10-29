@@ -36,8 +36,11 @@ upload). Then:
 
 ```bash
 cd apps/mobile
-flutter build appbundle --release           # Play wants an .aab: build/app/outputs/bundle/release/app-release.aab
-flutter build apk --release                 # for the owner's phone and testers outside Play
+flutter build appbundle --release --dart-define-from-file=ads.env   # Play wants an .aab: build/app/outputs/bundle/release/app-release.aab
+flutter build apk --release --dart-define-from-file=ads.env         # for the owner's phone and testers outside Play
+# ads.env (git-ignored, copy of ads.env.example) holds the AdMob app id and the two banner unit
+# ids (ADR-076). Without the file, or without the --dart-define-from-file flag, the build shows
+# Google's TEST ads: harmless on a phone, wrong on Play.
 ```
 
 `isMinifyEnabled` and resource shrinking are on for release; if a plugin breaks under R8, add a

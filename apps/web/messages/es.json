@@ -119,7 +119,7 @@
     "hero": {
       "eyebrow": "Buscar un embarazo · Embarazo · Privacidad",
       "title": "femio es la compañera privada para buscar un embarazo y vivirlo, primero en árabe.",
-      "body": "Rangos honestos en lugar de promesas, guías que muestran sus fuentes y registros que nunca salen de tu teléfono. Sin cuenta, sin nube, sin anuncios que lean tu salud.",
+      "body": "Rangos honestos en lugar de promesas, guías que muestran sus fuentes y registros que nunca salen de tu teléfono. Sin cuenta, sin nube, sin anuncios cerca de tus registros.",
       "cta": "Descargar la app",
       "ctaSecondary": "Probar la calculadora de ovulación"
     },
@@ -992,7 +992,7 @@
       "title": "En resumen",
       "items": [
         "La app femio guarda tus registros solo en tu teléfono. No tenemos un servidor para ellos. No podemos verlos ni podemos recuperarlos por ti.",
-        "La app femio no tiene cuenta, ni inicio de sesión, ni anuncios, ni analítica, y no pide permiso para usar internet.",
+        "La app femio no tiene cuenta ni inicio de sesión. Muestra anuncios solo en las pantallas de las guías, a través de Google, y esos anuncios nunca ven tus registros. La app usa internet para esos anuncios y para nada más.",
         "El sitio web de femio solo mide las visitas si lo permites cuando se te pregunta, y nunca registra lo que escribes en una calculadora. Los anuncios, si los hay, aparecen solo en las páginas de artículos y solo después de tu permiso.",
         "femio es para mujeres de 18 años o más. Los artículos del sitio web están abiertos a todo el mundo.",
         "Puedes ver, copiar y borrar tú misma, dentro de la app, todo lo que contiene."
@@ -1009,7 +1009,7 @@
       },
       {
         "heading": "Qué no recoge la app",
-        "body": "Ningún nombre. Ningún correo. Ningún número de teléfono. Ninguna ubicación. Ningún contacto, foto ni archivo. Ningún identificador publicitario. Ninguna analítica. Ninguna herramienta propia de informes de fallos. femio no envía nada sobre ti fuera de tu teléfono, porque no puede: la app no tiene permiso para usar internet."
+        "body": "Ningún nombre. Ningún correo. Ningún número de teléfono. Ningún contacto, foto ni archivo. Ninguna analítica. Ninguna herramienta propia de informes de fallos. femio nunca envía tus registros fuera de tu teléfono. Lo único que sale de tu teléfono es la solicitud de anuncio en las pantallas de las guías: el software de anuncios de Google le envía a Google tu identificador publicitario, el tipo de dispositivo y tu dirección de internet (que indica aproximadamente dónde estás), y anota qué anuncios se mostraron. Nunca recibe tus registros, las fechas de tu ciclo ni lo que lees, y pedimos anuncios no personalizados. Puedes restablecer o borrar tu identificador publicitario en los ajustes de Android. femio Plus elimina los anuncios."
       },
       {
         "heading": "Las copias de seguridad son archivos que guardas tú",
@@ -1021,7 +1021,7 @@
       },
       {
         "heading": "Qué puede ver Google",
-        "body": "Puedes instalar femio desde Google Play. Google nos da totales, como cuánta gente instaló la app o cuántos fallos hubo, según su propia política. Esos totales no contienen tus registros. femio nunca envía tus registros a Google."
+        "body": "Puedes instalar femio desde Google Play. Google nos da totales, como cuánta gente instaló la app o cuántos fallos hubo, según su propia política. En las pantallas de las guías, Google también muestra los anuncios descritos arriba, según su política publicitaria. Ninguno contiene tus registros; femio nunca envía tus registros a Google."
       },
       {
         "heading": "El sitio web (femioapp.com)",

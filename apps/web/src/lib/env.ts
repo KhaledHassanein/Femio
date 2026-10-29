@@ -29,6 +29,10 @@ const envSchema = z.object({
   NEXT_PUBLIC_ADSENSE_SLOT_ARTICLE_MID: z.string().regex(/^\d{6,12}$/).optional(),
   NEXT_PUBLIC_ADSENSE_SLOT_ARTICLE_END: z.string().regex(/^\d{6,12}$/).optional(),
   NEXT_PUBLIC_ADSENSE_SLOT_HUB_TOP: z.string().regex(/^\d{6,12}$/).optional(),
+  // Google AdMob publisher id (ADR-076, app ads): only used to print `/app-ads.txt`, the
+  // file AdMob reads to confirm the website named in the Play listing authorises the app's
+  // ads. Nothing on the website changes with it.
+  NEXT_PUBLIC_ADMOB_PUBLISHER: z.string().regex(/^pub-\d{10,20}$/, { message: "must look like pub-1234567890123456" }).optional(),
   // Optional outbound link to the maintained crisis-helpline directory. Unset →
   // the directory action is hidden and the emergency-services / nearest-ED
   // fallback still works. When set it must be the canonical Find A Helpline host
@@ -54,6 +58,7 @@ const parsed = envSchema.safeParse({
   NEXT_PUBLIC_ADSENSE_SLOT_ARTICLE_MID: process.env.NEXT_PUBLIC_ADSENSE_SLOT_ARTICLE_MID,
   NEXT_PUBLIC_ADSENSE_SLOT_ARTICLE_END: process.env.NEXT_PUBLIC_ADSENSE_SLOT_ARTICLE_END,
   NEXT_PUBLIC_ADSENSE_SLOT_HUB_TOP: process.env.NEXT_PUBLIC_ADSENSE_SLOT_HUB_TOP,
+  NEXT_PUBLIC_ADMOB_PUBLISHER: process.env.NEXT_PUBLIC_ADMOB_PUBLISHER,
   NEXT_PUBLIC_CRISIS_DIRECTORY_URL: process.env.NEXT_PUBLIC_CRISIS_DIRECTORY_URL,
 });
 

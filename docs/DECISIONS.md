@@ -694,7 +694,7 @@ hypotheses until the first month of real data. If the owner declines, alternativ
 the growth-ops plan runs without GA4, Meta or AdSense.
 
 ## ADR-076
-**Date:** 2026-10-29 · **Status:** proposed (owner decides on the go-live dashboard, card "ADR-076") · **Area:** app, privacy, revenue
+**Date:** 2026-10-29 · **Status:** accepted 2026-10-29 (owner, in chat: "I need ads on both website and app … no health data (user health data) leaves app but ads are ok"; he does not believe readers will pay for premium features alone) · **Area:** app, privacy, revenue
 
 **Context.** On 2026-10-29 the owner asked to "place the ads on website and mobile app". ADR-075
 (accepted the day before) allows ads on the website after consent and keeps the app untouched:
@@ -736,7 +736,29 @@ own after the closed test, never in the first upload. (c) House ads only: the ap
 cards for femio Plus and the website guides, no SDK, no permission; this is already the plan
 (`02_MONETIZATION.md` §2.3) and costs nothing to keep.
 
-**Consequences.** Until the owner decides, no ads code enters `apps/mobile`, the tripwire keeps
-forbidding ads packages and INTERNET, and the go-live dashboard shows the decision card with the
-four costs above. If accepted, a session writes the implementation plan as a new R-item with its
-own privacy-notice, listing and Data safety changes before any code.
+**Decision (2026-10-29).** Accept, with the line drawn where the owner drew it: **her health data
+never leaves the phone; the ads SDK may.** Concretely (R6.13):
+1. Google AdMob through `google_mobile_ads`, the only ads package; no mediation adapters, no
+   analytics, no attribution SDK (the tripwire names them).
+2. Banners on the guide screens only (`lib/domain/ads_policy.dart`: the Learn index and an
+   article); never on Today, the log, the calendar, Help now, the warning signs, Settings,
+   onboarding or the lock. A widget test asserts the absence on each of those screens.
+3. Non-personalised ads everywhere, content rating capped at PG, the UMP consent form where
+   Google requires it; the SDK receives no keywords, no content URL, no events, nothing about her.
+4. INTERNET and ACCESS_NETWORK_STATE enter the merged manifest from the SDK alone. The tripwire
+   now checks the thing that matters instead: no HTTP client, socket or WebSocket anywhere under
+   `lib/`, the SDK imported only under `lib/features/ads/`, no personal permission (location,
+   phone, contacts, camera, microphone) in the source or merged manifest.
+5. The Data safety form says what the SDK sends (device identifiers, inferred approximate
+   location, ad interactions, diagnostics: collected and shared for advertising), and nothing
+   else; the privacy notice (EN/AR/FR/ES), the legal pack, the store listing and rule 4 of the
+   constitution were rewritten the same day. "Ads: yes" in the Play forms.
+6. femio Plus removes the ads: the first honest reason to pay, as the owner argued.
+7. Ids (AdMob app id, unit ids) live in `apps/mobile/ads.env`, git-ignored, read at build time;
+   without it a build shows Google's test ads.
+
+**Consequences.** "The app has no way to send anything" is no longer true and is no longer said
+anywhere; what is said, and checked, is "her records never leave the phone; the only thing that
+does is the ad request, and it carries nothing about her". The Play review of a health app with an
+ads SDK is the owner's accepted risk; the first upload carries the ads so the closed test exercises
+them. Alternative (c), house cards for femio Plus, stays as the ad-free surface on every other screen.

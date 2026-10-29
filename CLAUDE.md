@@ -29,7 +29,9 @@ ambition (one record for her whole health life) stays the direction, not the lau
 3. **Uncertainty-honest predictions.** Ranges + confidence, never a single certain date, never a
    "late" counter in irregular modes, "no confident window" when cycles vary too much.
 4. **Privacy by design.** Health data never leaves the phone. The website measures visits only
-   after consent and never what she typed (ADR-075); the app has no analytics, ads or network.
+   after consent and never what she typed (ADR-075). The app has no analytics and no network
+   code of its own; its only ads are Google's banners on the guide screens, non-personalised,
+   fed nothing about her (ADR-076), and femio Plus removes them.
 5. **One constant record, additive layers.** A life-stage change re-layers the experience over an
    unchanged record; never rebuilds or deletes.
 6. **Arabic and RTL are first-class.** Western digits in Arabic (ADR-069); Hijri shown beside

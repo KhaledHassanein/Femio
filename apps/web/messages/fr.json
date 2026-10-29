@@ -992,7 +992,7 @@
       "title": "En bref",
       "items": [
         "L’application femio conserve vos données uniquement sur votre téléphone. Nous n’avons pas de serveur pour elles. Nous ne pouvons ni les voir, ni vous les rendre.",
-        "L’application femio n’a ni compte, ni connexion, ni publicité, ni outil d’analyse, et elle ne demande pas l’autorisation d’utiliser Internet.",
+        "L’application femio n’a ni compte, ni connexion. Elle affiche des publicités sur les écrans des guides seulement, via Google, et ces publicités ne voient jamais vos données. L’application utilise Internet pour ces publicités et pour rien d’autre.",
         "Le site femio ne mesure les visites que si vous l’autorisez lorsqu’on vous le demande, et il n’enregistre jamais ce que vous saisissez dans un calculateur. Les publicités, s’il y en a, n’apparaissent que sur les pages d’articles et seulement après votre accord.",
         "femio s’adresse aux femmes de 18 ans et plus. Les articles du site sont ouverts à tout le monde.",
         "Vous pouvez consulter, copier et supprimer vous-même, dans l’application, tout ce qu’elle contient."
@@ -1009,7 +1009,7 @@
       },
       {
         "heading": "Ce que l’application ne recueille pas",
-        "body": "Pas de nom. Pas d’e-mail. Pas de numéro de téléphone. Pas de position. Pas de contacts, de photos ni de fichiers. Pas d’identifiant publicitaire. Pas d’outil d’analyse. Pas d’outil de rapport de plantage qui nous soit propre. femio n’envoie rien sur vous hors de votre téléphone, parce qu’il ne le peut pas : l’application n’a pas l’autorisation d’utiliser Internet."
+        "body": "Pas de nom. Pas d’e-mail. Pas de numéro de téléphone. Pas de contacts, de photos ni de fichiers. Pas d’outil d’analyse. Pas d’outil de rapport de plantage qui nous soit propre. femio n’envoie jamais vos données hors de votre téléphone. La seule chose qui quitte votre téléphone est la demande de publicité sur les écrans des guides : le logiciel publicitaire de Google envoie à Google votre identifiant publicitaire, le type de votre appareil et votre adresse Internet (qui indique à peu près où vous êtes), et note quelles publicités ont été affichées. Il ne reçoit jamais vos données, vos dates de cycle ni ce que vous lisez, et nous demandons des publicités non personnalisées. Vous pouvez réinitialiser ou supprimer votre identifiant publicitaire dans les réglages d’Android. femio Plus supprime les publicités."
       },
       {
         "heading": "Les sauvegardes sont des fichiers que vous enregistrez vous-même",
@@ -1021,7 +1021,7 @@
       },
       {
         "heading": "Ce que Google peut voir",
-        "body": "Vous pouvez installer femio depuis Google Play. Google nous communique des totaux, par exemple le nombre d’installations ou de plantages, selon sa propre politique. Ces totaux ne contiennent pas vos données. femio n’envoie jamais vos données à Google."
+        "body": "Vous pouvez installer femio depuis Google Play. Google nous communique des totaux, par exemple le nombre d’installations ou de plantages, selon sa propre politique. Sur les écrans des guides, Google diffuse aussi les publicités décrites ci-dessus, selon sa politique publicitaire. Ni les uns ni les autres ne contiennent vos données ; femio n’envoie jamais vos données à Google."
       },
       {
         "heading": "Le site (femioapp.com)",

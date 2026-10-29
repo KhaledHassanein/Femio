@@ -48,7 +48,7 @@ PREGNANCY
 • Your appointments and the questions you want to ask, kept on your phone
 
 PRIVATE BY DESIGN
-• No account. No ads. No third-party analytics in the app.
+• No account. No third-party analytics. Ads only on the guide screens, never near your records.
 • App lock and encrypted storage on your phone
 • Backup and restore from a file you save yourself
 • Delete everything in one step

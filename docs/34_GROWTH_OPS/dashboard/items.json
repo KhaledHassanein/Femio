@@ -691,8 +691,8 @@
     },
     {
       "id": "website-ads",
-      "title": "Website ads: AdSense, units, blocking list, ads.txt",
-      "goal": "AdSense approves femioapp.com, two labelled ads show below the fold on articles, sensitive ad categories are blocked, and ads.txt is found.",
+      "title": "Ads: AdSense on the website, AdMob in the app, ads.txt and app-ads.txt",
+      "goal": "AdSense approves femioapp.com and two labelled ads show below the fold on articles; AdMob serves banners on the app's guide screens; sensitive categories are blocked on both; ads.txt and app-ads.txt are found.",
       "order": 4,
       "items": [
         {
@@ -915,6 +915,110 @@
           "sources": [
             "https://support.google.com/adsense/answer/142293"
           ]
+        },
+        {
+          "id": "admob-account",
+          "title": "Create the AdMob account and add the app",
+          "owner": "owner",
+          "time": "15 min · free",
+          "why": "The app's ads (ADR-076) are served by Google AdMob, a separate console from AdSense. The account, the app entry and the ad units are yours.",
+          "steps": [
+            "Open admob.google.com and sign in with the same Google account as Play Console.",
+            "Accept the terms; country Egypt; payments details later (AdMob pays like AdSense: threshold $100).",
+            "Apps, Add app, Android, 'No, the app is not listed on a supported app store yet', name femio. Copy the App ID (looks like ca-app-pub-…~…) to your 'femio growth' password-manager page. [verify in console]",
+            "Note the publisher id (pub-…) shown under Settings, Account information."
+          ],
+          "doneWhen": "AdMob lists the app femio with an App ID, and you have the pub- id.",
+          "links": [
+            {
+              "label": "AdMob",
+              "url": "https://admob.google.com"
+            }
+          ],
+          "dependsOn": [
+            "growth-page"
+          ],
+          "guide": "docs/DECISIONS.md ADR-076",
+          "risk": "Never paste the ids into chat or into a note here: they go into ads.env (next item) and Vercel."
+        },
+        {
+          "id": "admob-units",
+          "title": "Create the two banner ad units",
+          "owner": "owner",
+          "time": "10 min · free",
+          "why": "One unit per guide surface, so each can be switched off alone and reads separately in reports.",
+          "steps": [
+            "AdMob, Apps, femio, Ad units, Add ad unit, Banner, name femio-article, Create. [verify in console]",
+            "Repeat with the name femio-learn.",
+            "Copy both Ad unit IDs (ca-app-pub-…/…) to the password-manager page.",
+            "Brand safety, Blocking controls: block the same sensitive categories as on AdSense (dating, drugs and supplements, get rich quick, politics, religion, sexual and reproductive health, birth control, cosmetic procedures, astrology, weight loss, significant skin exposure)."
+          ],
+          "doneWhen": "Two banner units exist and the blocking list is set.",
+          "links": [],
+          "dependsOn": [
+            "admob-account"
+          ],
+          "guide": "docs/DECISIONS.md ADR-076; docs/34_GROWTH_OPS/02_MONETIZATION.md §1.1",
+          "risk": "Banner only. No interstitial, rewarded, app-open or native unit: the design forbids them and the code has no place for them."
+        },
+        {
+          "id": "ads-env",
+          "title": "Put the AdMob ids into the git-ignored ads.env file",
+          "owner": "owner",
+          "time": "5 min · free",
+          "why": "The build reads the app id and the two unit ids from apps/mobile/ads.env. Without it a build shows Google's test ads, which is right on your phone and wrong on Play.",
+          "steps": [
+            "Copy apps/mobile/ads.env.example to apps/mobile/ads.env (same folder).",
+            "Replace the three test values with the App ID and the two Ad unit IDs from AdMob. Keep the variable names.",
+            "Check: git status must not list ads.env (it is ignored).",
+            "Tell a session: 'ads.env is in place; build the release candidate'. The release command carries --dart-define-from-file=ads.env."
+          ],
+          "doneWhen": "ads.env exists with your three ids, git does not see it, and the next release build shows real ads (test ads say 'Test Ad' on them).",
+          "paste": [
+            {
+              "label": "File",
+              "value": "apps/mobile/ads.env"
+            },
+            {
+              "label": "Session sentence",
+              "value": "ads.env is in place; build the release candidate"
+            }
+          ],
+          "links": [],
+          "dependsOn": [
+            "admob-units",
+            "keystore"
+          ],
+          "guide": "docs/33_REBUILD_V3/05_RELEASE_RUNBOOK.md §3",
+          "risk": "A build without the flag ships test ads to Play: the release runbook command includes it; use that command."
+        },
+        {
+          "id": "app-ads-txt",
+          "title": "Put the AdMob publisher id into Vercel and verify app-ads.txt",
+          "owner": "owner",
+          "time": "10 min + a day · free",
+          "why": "AdMob reads femioapp.com/app-ads.txt (the website named in the Play listing) before it serves most ads. The route is built; it needs the pub- id.",
+          "steps": [
+            "vercel.com, Settings, Environment Variables: NEXT_PUBLIC_ADMOB_PUBLISHER = pub-… (digits only after pub-). Save, Redeploy.",
+            "Open femioapp.com/app-ads.txt: it must show 'google.com, pub-…, DIRECT, f08c47fec0942fa0'.",
+            "In Play Console the store listing's website must be https://femioapp.com (the developer website field).",
+            "AdMob, Apps, femio, App settings, app-ads.txt, Check for updates (after the app is live on Play; AdMob crawls within about a day). [verify in console]"
+          ],
+          "doneWhen": "AdMob shows app-ads.txt as Authorized sellers found.",
+          "paste": [
+            {
+              "label": "Variable name",
+              "value": "NEXT_PUBLIC_ADMOB_PUBLISHER"
+            }
+          ],
+          "links": [],
+          "dependsOn": [
+            "admob-account",
+            "merge-main",
+            "production"
+          ],
+          "guide": "apps/web/src/app/app-ads.txt/route.ts",
+          "risk": "AdMob can only crawl it once the app is on Play with the website set; until then the check says 'not found', which is expected."
         }
       ]
     },
@@ -1098,14 +1202,15 @@
           "title": "Fill the simple App content forms (privacy, ads, access, audience, others)",
           "owner": "owner",
           "time": "15 min · free",
-          "why": "Play will not accept an upload until every App content form is complete and true to the build.",
+          "why": "Each form is short. Since ADR-076 the ads answer is YES (AdMob banners on the guide screens); the data safety form has its own item.",
           "steps": [
             "Open the Console, Policy, App content. [verify in console]",
             "Privacy policy: https://femioapp.com/ar/privacy.",
             "Ads: choose 'No, my app does not contain ads'.",
             "App access: all features available without special access or sign-in.",
             "Target audience: 18 and over only; tick 'restrict minor access'; answer No to 'appeals to children'.",
-            "Government apps, Financial features, News: No."
+            "Government apps, Financial features, News: No.",
+            "Ads: answer 'Yes, my app contains ads' (Google AdMob banners on the guide screens only). This changed on 2026-10-29 (ADR-076)."
           ],
           "doneWhen": "Each of these forms shows as complete in App content.",
           "paste": [
@@ -1142,20 +1247,18 @@
         },
         {
           "id": "data-safety",
-          "title": "Fill the Data safety form: nothing collected, nothing shared",
+          "title": "Fill the Data safety form: the ads SDK's data, and nothing about her",
           "owner": "owner",
           "time": "15 min · free",
-          "why": "A mismatch between this form and the app is a rejection and a trust failure. The answers are true only while the app has no INTERNET permission and no data-sending package; the build gate enforces both.",
+          "why": "Her records never leave the phone, but Google's ads SDK transmits device identifiers and ad interactions, and Google counts that as collection. The answers are written row by row in the store file; copy them exactly.",
           "steps": [
-            "In App content open Data safety.",
-            "Does your app collect or share any required user data types? No.",
-            "Data types: select none. Do not tick Health info only because the app is about health.",
-            "Do you provide a way for users to request deletion? Yes: Settings, 'Delete everything on this phone'.",
-            "Independent security review: No.",
-            "Privacy policy URL: https://femioapp.com/en/privacy (Arabic: /ar/privacy).",
-            "Save and submit."
+            "Open docs/store/data-safety-and-declarations.md, section 'Data safety form' (rewritten 2026-10-29 for ADR-076).",
+            "Collects or shares data: Yes. Encrypted in transit: Yes. Deletion request: Yes (Settings, Delete everything).",
+            "Data types: Device or other IDs; Location, Approximate location; App activity, App interactions; App info and performance, Diagnostics. Each: collected Yes, shared Yes, required, purpose Advertising or marketing (plus Analytics and Fraud prevention for interactions and diagnostics).",
+            "Do NOT tick Health and fitness or Personal info: nothing of hers is transmitted; the gate forbids any network code of our own.",
+            "Save and compare the summary preview with the file; if the Console's wording differs, tell a session what it asks."
           ],
-          "doneWhen": "Data safety shows complete with 'No data collected' and 'No data shared'.",
+          "doneWhen": "The Data safety preview lists exactly the four data types above with 'advertising' as the purpose and no Health and fitness row.",
           "paste": [
             {
               "label": "Answers table",
@@ -1166,7 +1269,7 @@
             "create-app"
           ],
           "guide": "docs/33_REBUILD_V3/06_LAUNCH_GUIDE_A_TO_Z.md D3; docs/store/data-safety-and-declarations.md; 03_LEGAL_PACK.md section 4.1",
-          "risk": "If Play later says Data safety mismatch, tell a session: 'Play says Data safety mismatch'; it re-runs the privacy tripwire."
+          "risk": "Under-declaring is the rejection risk. Re-read Google's disclosure page for the ads SDK version in pubspec.lock before each submission."
         },
         {
           "id": "health-apps",
@@ -1289,21 +1392,20 @@
           "title": "Run the Play Billing check once on your phone",
           "owner": "owner",
           "time": "10 min · free",
-          "why": "Premium will be sold through Google Play Billing. A session proved the signed build carries no INTERNET permission even with the billing library inside (its telemetry was stripped). What only a phone can show is whether the library complains about that.",
+          "why": "Premium will be sold through Google Play Billing, and femio Plus is what removes the ads. Only a phone can show that the billing library answers on a real device.",
           "steps": [
             "Connect the phone (USB debugging on), signed in to Google Play.",
             "In the repo: cd apps/mobile, then flutter run --profile.",
             "In the app: Settings, About, tap 'femio Plus · billing check'. Read the line it shows.",
-            "In a second terminal: adb logcat | findstr /i \"billing SecurityException transport\" for 30 seconds while tapping once more.",
-            "Send a session the line the app showed and any SecurityException line, or 'none'."
+            "Send a session the line the app showed."
           ],
-          "doneWhen": "The tile says 'Play Billing reachable: yes' (the product line says 'not found yet' until femio_plus exists) and logcat shows no SecurityException naming INTERNET.",
+          "doneWhen": "The tile says 'Play Billing reachable: yes' (the product line says 'not found yet' until femio_plus exists).",
           "links": [],
           "dependsOn": [
             "install-apk"
           ],
           "guide": "testing-results/2026-10-29-play-billing-spike/README.md",
-          "risk": "A SecurityException naming INTERNET means the billing library cannot live without the permission; premium then moves to the alternatives in ADR-076 and the session tells you."
+          "risk": "If it says 'reachable: no' on a phone signed in to Play, tell a session; premium then waits on a fix before release 2."
         },
         {
           "id": "testers",

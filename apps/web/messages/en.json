@@ -119,7 +119,7 @@
     "hero": {
       "eyebrow": "Trying to conceive · Pregnancy · Private",
       "title": "femio is the private, Arabic-first companion for trying to conceive and pregnancy.",
-      "body": "Honest ranges instead of promises, guides that show their sources, and records that never leave your phone. No account, no cloud, no ads reading your health.",
+      "body": "Honest ranges instead of promises, guides that show their sources, and records that never leave your phone. No account, no cloud, no ads near your records.",
       "cta": "Get the app",
       "ctaSecondary": "Try the ovulation calculator"
     },
@@ -992,7 +992,7 @@
       "title": "The short version",
       "items": [
         "The femio app keeps your records on your phone only. We do not have a server for them. We cannot see them, and we cannot get them back for you.",
-        "The femio app has no account, no sign-in, no ads and no analytics, and it does not ask for permission to use the internet.",
+        "The femio app has no account and no sign-in. It shows ads on the guide screens only, through Google, and those ads never see your records. The app uses the internet for those ads and for nothing else.",
         "The femio website measures visits only if you allow it when asked, and it never records what you type into a calculator. Ads, if shown, appear only on article pages and only after you allow them.",
         "femio is for women aged 18 and over. The articles on the website are open to everyone.",
         "You can see, copy and delete everything the app holds, yourself, inside the app."
@@ -1009,7 +1009,7 @@
       },
       {
         "heading": "What the app does not collect",
-        "body": "No name. No email. No phone number. No location. No contacts, photos or files. No advertising ID. No analytics. No crash-report tool of our own. femio sends nothing about you off your phone, because it cannot: the app has no permission to use the internet."
+        "body": "No name. No email. No phone number. No contacts, photos or files. No analytics. No crash-report tool of our own. femio never sends your records off your phone. The one thing that leaves your phone is the ad request on the guide screens: Google’s ads software sends Google your advertising ID, your device type and your internet address (which shows roughly where you are), and notes which ads were shown. It never receives your records, your cycle dates or what you read, and we ask for non-personalised ads. You can reset or delete your advertising ID in Android’s settings. femio Plus removes the ads."
       },
       {
         "heading": "Backups are files you save yourself",
@@ -1021,7 +1021,7 @@
       },
       {
         "heading": "What Google may see",
-        "body": "You may install femio from Google Play. Google tells us totals, such as how many people installed the app or how many crashes happened, under Google’s own policy. These totals do not contain your records. femio never sends your records to Google."
+        "body": "You may install femio from Google Play. Google tells us totals, such as how many people installed the app or how many crashes happened, under Google’s own policy. On the guide screens Google also serves the ads described above, under Google’s advertising policy. Neither contains your records; femio never sends your records to Google."
       },
       {
         "heading": "The website (femioapp.com)",

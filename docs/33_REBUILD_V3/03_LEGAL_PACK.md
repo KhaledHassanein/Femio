@@ -63,7 +63,7 @@ It is **not a new licensing law starting that day.** Law 151/2020 already prohib
 
 **The short version**
 - The femio app keeps your records **on your phone only**. We do not have a server for them. We cannot see them, and we cannot get them back for you.
-- The femio app has no account, no sign-in, no ads and no analytics, and it does not ask for permission to use the internet.
+- The femio app has no account and no sign-in. It shows ads on the guide screens only, through Google, and those ads never see your records. The app uses the internet for those ads and for nothing else.
 - The femio website measures visits only if you allow it when asked, and it never records what you type into a calculator. Ads, if shown, appear only on article pages and only after you allow them.
 - femio is for women aged 18 and over. The articles on the website are open to everyone.
 - You can see, copy and delete everything the app holds, yourself, inside the app.
@@ -74,14 +74,14 @@ It is **not a new licensing law starting that day.** Law 151/2020 already prohib
 When you use the app you may enter: your birth year (only to check that you are 18 or over), your language, your period and cycle dates, symptoms, mood, notes you type, weight, appointments, pregnancy and baby-movement logs, and contraction timer sessions. This is health information, so we handle it with care. It is kept in a private file that only the femio app can open. `[CONFIRM AT RELEASE: keep this sentence only if the encrypted store ships] The file is encrypted, and the key is held by your phone's secure hardware. [IF NOT SHIPPED, USE: The file is protected by your phone's own storage encryption. We do not add a second lock.]` `[CONFIRM AT RELEASE: only if app lock ships] You can switch on an app lock.`
 
 **What the app does not collect**
-No name. No email. No phone number. No location. No contacts, photos or files. No advertising ID. No analytics. No crash-report tool of our own. femio sends **nothing** about you off your phone, because it cannot: the app has no permission to use the internet.
+No name. No email. No phone number. No contacts, photos or files. No analytics. No crash-report tool of our own. femio **never** sends your records off your phone. The one thing that leaves your phone is the ad request on the guide screens: Google's ads software sends Google your advertising ID, your device type and your internet address (which shows roughly where you are), and notes which ads were shown. It never receives your records, your cycle dates or what you read, and we ask for non-personalised ads. You can reset or delete your advertising ID in Android's settings. femio Plus removes the ads.
 
 **Backups are files you save yourself**
 femio can save a backup file when you ask. You choose where it goes: your phone's files, a cloud drive, an email. After that, the file is in your hands, not ours. It contains your records, so keep it somewhere private. We have switched off Android's automatic cloud backup for femio, so Google does not copy your records. `[CONFIRM: only if dataExtractionRules also set; see §1 risk 5] We have also blocked phone-to-phone transfer of the app's data.` If you lose your phone, or reset it, and you have no backup file, your records are gone. We cannot recover them.
 
 **Reminders** are created on your phone. No server sends them.
 
-**What Google may see.** You may install femio from Google Play. Google tells us totals, such as how many people installed the app or how many crashes happened, under Google's own policy. These totals do not contain your records. femio never sends your records to Google.
+**What Google may see.** You may install femio from Google Play. Google tells us totals, such as how many people installed the app or how many crashes happened, under Google's own policy. On the guide screens Google also serves the ads described above, under Google's advertising policy. Neither contains your records; femio never sends your records to Google.
 
 **The website (femioapp.com)**
 - **Records kept by our host.** Our host (Vercel) keeps ordinary server logs: your IP address, the time, the page you asked for, your browser type and the website you came from. We use them only to keep the site running and safe. We do not use them for advertising, and we do not combine them with anything else. Our host keeps them for a short period `[CONFIRM retention in Vercel dashboard]`. Our host may process them outside your country, using the legal safeguards it describes in its own privacy notice.
@@ -108,7 +108,7 @@ Because your records are only on your phone, you hold them. In the app you can l
 
 **باختصار**
 - يحفظ تطبيق femio سجلاتكِ **على هاتفكِ فقط**. ليس لدينا خادم لها، ولا نستطيع الاطلاع عليها ولا استرجاعها لكِ.
-- لا يوجد في تطبيق femio حساب ولا تسجيل دخول ولا إعلانات ولا أدوات تحليل، ولا يطلب التطبيق إذنًا باستخدام الإنترنت.
+- لا يوجد في تطبيق femio حساب ولا تسجيل دخول. يعرض إعلانات في شاشات الدلائل فقط عبر Google، ولا تطّلع تلك الإعلانات أبدًا على سجلاتكِ. يستخدم التطبيق الإنترنت لهذه الإعلانات ولا لشيء غيرها.
 - لا يقيس موقع femio الزيارات إلا إذا سمحتِ بذلك عند السؤال، ولا يسجّل أبدًا ما تكتبينه في أي حاسبة. والإعلانات، إن ظهرت، تظهر في صفحات المقالات فقط وبعد موافقتكِ.
 - femio مخصص للنساء من عمر 18 عامًا فما فوق. أما المقالات في الموقع فمتاحة للجميع.
 - يمكنكِ بنفسكِ، داخل التطبيق، الاطلاع على كل ما يحفظه وأخذ نسخة منه وحذفه.
@@ -119,14 +119,14 @@ Because your records are only on your phone, you hold them. In the app you can l
 قد تُدخلين أثناء الاستخدام: سنة ميلادكِ (للتحقق فقط من أن عمركِ 18 عامًا أو أكثر)، ولغتكِ، وتواريخ الدورة الشهرية، والأعراض، والمزاج، وملاحظات تكتبينها، والوزن، والمواعيد، وسجلات الحمل وحركة الجنين، وجلسات مؤقّت الانقباضات. هذه معلومات صحية، ولذلك نتعامل معها بعناية. وهي محفوظة في ملف خاص لا يفتحه إلا تطبيق femio. `[تأكيد عند الإصدار: تُبقى الجملة فقط إذا صدر التخزين المشفّر] الملف مشفّر، ومفتاحه محفوظ في عتاد الهاتف الآمن. [وإلا فاستخدمي: الملف محمي بتشفير التخزين في هاتفكِ نفسه، ولا نضيف قفلًا ثانيًا.]` `[تأكيد عند الإصدار: فقط إذا صدر قفل التطبيق] يمكنكِ تفعيل قفل للتطبيق.`
 
 **ما لا يجمعه التطبيق**
-لا اسم، ولا بريد إلكتروني، ولا رقم هاتف، ولا موقع، ولا جهات اتصال، ولا صور أو ملفات، ولا معرّف إعلانات، ولا أدوات تحليل، ولا أداة تقارير أعطال خاصة بنا. لا يرسل femio **أي شيء** عنكِ خارج هاتفكِ، لأنه لا يستطيع: فالتطبيق لا يملك إذنًا باستخدام الإنترنت.
+لا اسم، ولا بريد إلكتروني، ولا رقم هاتف، ولا جهات اتصال، ولا صور أو ملفات، ولا أدوات تحليل، ولا أداة تقارير أعطال خاصة بنا. لا يرسل femio سجلاتكِ خارج هاتفكِ **أبدًا**. الشيء الوحيد الذي يغادر هاتفكِ هو طلب الإعلان في شاشات الدلائل: يرسل برنامج إعلانات Google إلى Google معرّف الإعلانات الخاص بكِ ونوع جهازكِ وعنوان الإنترنت (الذي يدل تقريبًا على مكانكِ)، ويسجّل الإعلانات التي عُرضت. ولا يتلقى أبدًا سجلاتكِ ولا تواريخ دورتكِ ولا ما تقرئينه، ونطلب إعلانات غير مخصّصة. يمكنكِ إعادة تعيين معرّف الإعلانات أو حذفه من إعدادات Android. ويزيل femio Plus الإعلانات.
 
 **النسخ الاحتياطية ملفات تحفظينها بنفسكِ**
 يمكن لـ femio حفظ ملف نسخة احتياطية عندما تطلبين ذلك. وأنتِ من تختارين مكانه: ملفات الهاتف، أو مساحة سحابية، أو بريد إلكتروني. وبعد ذلك يصبح الملف في يدكِ لا في أيدينا. يحتوي الملف على سجلاتكِ، فاحتفظي به في مكان خاص. وقد أوقفنا النسخ الاحتياطي السحابي التلقائي في أندرويد لتطبيق femio، فلا تنسخ Google سجلاتكِ. `[تأكيد: فقط إذا ضُبطت dataExtractionRules أيضًا] كما منعنا نقل بيانات التطبيق من هاتف إلى آخر.` وإذا فُقد هاتفكِ أو أُعيد ضبطه ولم يكن لديكِ ملف نسخة احتياطية فستضيع سجلاتكِ، ولا نستطيع استرجاعها.
 
 **التذكيرات** تُنشأ على هاتفكِ، ولا يرسلها أي خادم.
 
-**ما قد تراه Google.** قد تثبّتين femio من متجر Google Play. تُعطينا Google إجماليات، مثل عدد مرات التثبيت أو عدد الأعطال، وفق سياستها الخاصة. لا تتضمن هذه الإجماليات سجلاتكِ. ولا يرسل femio سجلاتكِ إلى Google أبدًا.
+**ما قد تراه Google.** قد تثبّتين femio من متجر Google Play. تُعطينا Google إجماليات، مثل عدد مرات التثبيت أو عدد الأعطال، وفق سياستها الخاصة. وفي شاشات الدلائل تعرض Google أيضًا الإعلانات الموصوفة أعلاه، وفق سياستها الإعلانية. لا يتضمن أيٌّ منهما سجلاتكِ، ولا يرسل femio سجلاتكِ إلى Google أبدًا.
 
 **الموقع الإلكتروني (femioapp.com)**
 - **سجلات تحتفظ بها جهة الاستضافة.** تحتفظ جهة الاستضافة لدينا (Vercel) بسجلات الخادم المعتادة: عنوان IP، والوقت، والصفحة المطلوبة، ونوع المتصفح، والموقع الذي جئتِ منه. نستخدمها فقط لتشغيل الموقع وحمايته. لا نستخدمها للإعلان ولا نربطها بأي بيانات أخرى. وتحتفظ بها الجهة المضيفة مدة قصيرة `[تأكيد مدة الاحتفاظ من لوحة Vercel]`. وقد تعالجها خارج بلدكِ بالضمانات القانونية التي تصفها في إشعار الخصوصية الخاص بها.
@@ -201,10 +201,10 @@ Definitions (Google): to **collect** is to transmit data off the device, includi
 
 | Console question | Answer for femio | Why |
 |---|---|---|
-| Does your app collect or share any of the required user data types? | **No** | Nothing leaves the device [P2]. Valid only while the release manifest has no `INTERNET` permission and no SDK that sends data. |
-| Is all collected data encrypted in transit? | Not asked / not applicable (no collection). If the Console still asks: no data is transmitted | Encryption in transit may be declared only if it covers all data the app and SDKs transmit [P2]. |
+| Does your app collect or share any of the required user data types? | **Yes** (since ADR-076, 2026-10-29) | Her records never leave the device, but Google's ads SDK transmits the advertising ID, app-set ID, IP address, ad interactions and diagnostics for advertising, analytics and fraud prevention (Google's own disclosure page for the SDK, read 2026-10-29). Google's definition of "collect" includes an SDK's transmission [P2]. The exact rows are in `docs/store/data-safety-and-declarations.md`. |
+| Is all collected data encrypted in transit? | **Yes** | The only transmission is the ads SDK's, which Google documents as TLS-encrypted. |
 | Do you provide a way for users to request data deletion? | **Yes**: Settings, "Delete everything on this phone". No server copy exists | Deletion badge needs a request mechanism [P2]. No account is created, so the account-deletion path rules do not apply [P3]. |
-| Data types (Personal info, Health and fitness, Location, Contacts, Photos, Files, App activity, Device IDs…) | **None selected** | Health entries are processed on the device only [P2]. Do not tick "Health info" just because the app is about health. |
+| Data types (Personal info, Health and fitness, Location, Contacts, Photos, Files, App activity, Device IDs…) | **Device or other IDs**; **Approximate location** (inferred from the IP address, which Play says must be disclosed); **App interactions**; **Diagnostics**: each collected and shared, for advertising (and analytics / fraud prevention for the SDK), required, not optional | What the ads SDK sends. **No Health and fitness, no Personal info**: her entries are processed on the device only [P2] and never given to the SDK; the tripwire forbids any network code of our own. |
 | Security practices: data encrypted at rest | The form has no at-rest question. Say it in the policy only once the encrypted store ships | Policy wording is conditional (§2). |
 | Independent security review | No | None done. |
 | Privacy policy URL | `[URL]` (a web page, not a PDF, readable worldwide without login, also linked inside the app) | Required even when no data is collected [P2][P1]. |
@@ -234,7 +234,7 @@ Apps not regulated as medical devices need a clear disclaimer **in the app descr
 
 - **Target age group: 18 and over only.** Tick "restrict minor access": users Google identifies as under 18 cannot find, download or buy the app [P7]. This keeps femio out of the Families policy. No youthful imagery in the listing (Google may reject it) [P7].
 - **Content rating (IARC questionnaire):** answer literally and completely; misrepresentation can lead to removal [P8]. Hints: no violence, no gambling, no purchases, no user-generated content, no sharing of location, no chat. The health content is educational; answer the sexual-content question about **reproductive-health education**, not sexual content for entertainment. The page gives no expected rating and I do not guess one. [NEEDS SOURCE for which IARC category suits a health-reference app.]
-- **Ads:** declare "No ads". **App access:** all features work without sign-in. **Government, news, financial apps:** no.
+- **Ads:** declare **"Yes, contains ads"** (ADR-076: Google AdMob banners on the guide screens only). **App access:** all features work without sign-in. **Government, news, financial apps:** no.
 - **Closed testing (personal developer accounts created after 13 Nov 2023):** a closed test with **at least 12 testers opted in continuously for at least 14 days** before you may apply for production access; a tester who leaves and rejoins restarts the 14 days. Then press "Apply for production", describing the test, the app and its readiness. Google's review "usually takes about seven days" [P9]. (This closes the plan's `[NEEDS CHECK]` on review time.)
 
 ### 4.5 What commonly rejects health apps (each tied to a source or flagged)
@@ -348,7 +348,7 @@ A privacy policy that is wrong is worse than none (the FTC's Flo and Premom matt
 | Promise in §2 | Check that proves it | Status today |
 |---|---|---|
 | "No permission to use the internet" | `aapt dump permissions` on the release AAB shows no `INTERNET`; CI fails if it appears | Main manifest Checked clean (report 10); release test missing |
-| "No analytics, ads or crash tool" | `pubspec.yaml` lists only `flutter`, `flutter_localizations`, `intl`, `path_provider` (+ the new crypto and share packages, each with a one-line reason) | Checked clean at v0.4; new packages must be reviewed |
+| "No analytics or crash tool; ads only on guide screens, never reading her records" | `pubspec.yaml` carries Google's `google_mobile_ads` and nothing else that sends data; the tripwire forbids analytics, crash, attribution and mediation packages and any network code under `lib/` | Changed by ADR-076 (2026-10-29); the notice was rewritten the same day |
 | "Google does not copy your records" | `allowBackup="false"` and `dataExtractionRules` (cloud and device transfer) in the manifest; install on a test phone, back up, restore, confirm the record is absent [A1] | `allowBackup` not set today (report 04) |
 | "The file is encrypted" / "app lock" | Encrypted store and lock shipped in R4; unit test that the file on disk is not readable JSON | Not built; sentences stay conditional |
 | "Delete everything" works | Widget test: confirm dialog, then store empty, then app returns to onboarding | `clear()` exists; UI unchecked |

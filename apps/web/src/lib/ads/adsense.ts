@@ -59,3 +59,21 @@ export function adsTxt(client: string | undefined): string {
   if (!isAdSenseClient(client)) return "# femio: no advertising configured\n";
   return `google.com, ${client.replace(/^ca-/, "")}, DIRECT, ${ADSENSE_SELLER_ID}\n`;
 }
+
+/** An AdMob publisher id as the AdMob console prints it: `pub-` and 10 to 20 digits. */
+const ADMOB_PUBLISHER_ID = /^pub-\d{10,20}$/;
+
+/** True for a well-formed AdMob publisher id. */
+export function isAdMobPublisher(id: string | undefined | null): id is string {
+  return typeof id === "string" && ADMOB_PUBLISHER_ID.test(id);
+}
+
+/**
+ * The body of `/app-ads.txt` (ADR-076, app ads): the same IAB line, for the app's AdMob
+ * publisher. AdMob reads it from the developer website named in the Play listing and
+ * refuses to serve most ads until it is found. With no publisher id: one comment, no sellers.
+ */
+export function appAdsTxt(publisher: string | undefined): string {
+  if (!isAdMobPublisher(publisher)) return "# femio: no app advertising configured\n";
+  return `google.com, ${publisher}, DIRECT, ${ADSENSE_SELLER_ID}\n`;
+}

@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { ADSENSE_HOST, ADSENSE_SELLER_ID, adsTxt, adsenseScriptSrc, isAdSenseClient, isAdSlot } from "./adsense";
+import { ADSENSE_HOST, ADSENSE_SELLER_ID, adsTxt, adsenseScriptSrc, appAdsTxt, isAdMobPublisher, isAdSenseClient, isAdSlot } from "./adsense";
 import { adUnitConfig, adsEnabled, HUB_UNIT_AFTER_CARDS } from "./placements";
 
 describe("AdSense ids (R6.8)", () => {
@@ -37,6 +37,21 @@ describe("ads.txt", () => {
     expect(body.startsWith("#")).toBe(true);
     expect(body).not.toContain("google.com,");
     expect(adsTxt("garbage")).toBe(body);
+  });
+});
+
+describe("app-ads.txt (ADR-076)", () => {
+  it("accepts the AdMob publisher id form only", () => {
+    expect(isAdMobPublisher("pub-1234567890123456")).toBe(true);
+    expect(isAdMobPublisher("ca-pub-1234567890123456")).toBe(false);
+    expect(isAdMobPublisher("pub-12")).toBe(false);
+    expect(isAdMobPublisher(undefined)).toBe(false);
+  });
+
+  it("names Google as the app's direct seller, and nobody without an id", () => {
+    expect(appAdsTxt("pub-1234567890123456")).toBe(`google.com, pub-1234567890123456, DIRECT, ${ADSENSE_SELLER_ID}\n`);
+    expect(appAdsTxt(undefined).startsWith("#")).toBe(true);
+    expect(appAdsTxt(undefined)).not.toContain("google.com,");
   });
 });
 
