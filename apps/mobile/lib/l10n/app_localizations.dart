@@ -2230,6 +2230,48 @@ abstract class L10n {
   /// In en, this message translates to:
   /// **'Read the pregnancy warning signs'**
   String get redFlagsReadGuide;
+
+  /// No description provided for @plusProbeTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'femio Plus · billing check (test builds only)'**
+  String get plusProbeTitle;
+
+  /// No description provided for @plusProbeSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Tap to ask Google Play whether billing is reachable on this phone. Nothing is bought.'**
+  String get plusProbeSubtitle;
+
+  /// No description provided for @plusProbeRunning.
+  ///
+  /// In en, this message translates to:
+  /// **'Asking Google Play…'**
+  String get plusProbeRunning;
+
+  /// No description provided for @plusProbeAvailable.
+  ///
+  /// In en, this message translates to:
+  /// **'Play Billing reachable: yes'**
+  String get plusProbeAvailable;
+
+  /// No description provided for @plusProbeUnavailable.
+  ///
+  /// In en, this message translates to:
+  /// **'Play Billing reachable: no (no Play Store on this device, or not signed in)'**
+  String get plusProbeUnavailable;
+
+  /// No description provided for @plusProbeProductFound.
+  ///
+  /// In en, this message translates to:
+  /// **'Product femio_plus found in Play Console'**
+  String get plusProbeProductFound;
+
+  /// No description provided for @plusProbeProductMissing.
+  ///
+  /// In en, this message translates to:
+  /// **'Product femio_plus not found yet (expected until it is created in Play Console)'**
+  String get plusProbeProductMissing;
 }
 
 class _L10nDelegate extends LocalizationsDelegate<L10n> {

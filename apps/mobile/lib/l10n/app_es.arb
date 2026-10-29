@@ -378,5 +378,12 @@
   "helpNowCountryEG": "Egipto",
   "helpNowCountrySA": "Arabia Saudita",
   "helpNowCall": "Llamar",
-  "redFlagsReadGuide": "Lee las señales de alarma del embarazo"
+  "redFlagsReadGuide": "Lee las señales de alarma del embarazo",
+  "plusProbeTitle": "femio Plus · comprobación de facturación (solo versiones de prueba)",
+  "plusProbeSubtitle": "Toca para preguntar a Google Play si la facturación está disponible en este teléfono. No se compra nada.",
+  "plusProbeRunning": "Preguntando a Google Play…",
+  "plusProbeAvailable": "Facturación de Play disponible: sí",
+  "plusProbeUnavailable": "Facturación de Play disponible: no (no hay Play Store en este dispositivo o no has iniciado sesión)",
+  "plusProbeProductFound": "Producto femio_plus encontrado en Play Console",
+  "plusProbeProductMissing": "Producto femio_plus aún no encontrado (normal hasta que se cree en Play Console)"
 }

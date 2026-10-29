@@ -378,5 +378,12 @@
   "helpNowCountryEG": "Égypte",
   "helpNowCountrySA": "Arabie saoudite",
   "helpNowCall": "Appeler",
-  "redFlagsReadGuide": "Lire les signes d'alerte de la grossesse"
+  "redFlagsReadGuide": "Lire les signes d'alerte de la grossesse",
+  "plusProbeTitle": "femio Plus · vérification de la facturation (versions de test seulement)",
+  "plusProbeSubtitle": "Touchez pour demander à Google Play si la facturation est joignable sur ce téléphone. Rien n’est acheté.",
+  "plusProbeRunning": "Demande à Google Play…",
+  "plusProbeAvailable": "Facturation Play joignable : oui",
+  "plusProbeUnavailable": "Facturation Play joignable : non (pas de Play Store sur cet appareil, ou pas connecté)",
+  "plusProbeProductFound": "Produit femio_plus trouvé dans la Play Console",
+  "plusProbeProductMissing": "Produit femio_plus introuvable pour l’instant (normal tant qu’il n’est pas créé dans la Play Console)"
 }

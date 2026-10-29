@@ -1301,4 +1301,28 @@ class L10nAr extends L10n {
 
   @override
   String get redFlagsReadGuide => 'اقرئي علامات التحذير في الحمل';
+
+  @override
+  String get plusProbeTitle => 'femio Plus · فحص الفوترة (نسخ الاختبار فقط)';
+
+  @override
+  String get plusProbeSubtitle =>
+      'اضغطي لتسألي Google Play إن كانت الفوترة متاحة على هذا الهاتف. لا يُشترى شيء.';
+
+  @override
+  String get plusProbeRunning => 'جارٍ سؤال Google Play…';
+
+  @override
+  String get plusProbeAvailable => 'فوترة Play متاحة: نعم';
+
+  @override
+  String get plusProbeUnavailable =>
+      'فوترة Play متاحة: لا (لا يوجد متجر Play على هذا الجهاز، أو لم يُسجَّل الدخول)';
+
+  @override
+  String get plusProbeProductFound => 'المنتج femio_plus موجود في Play Console';
+
+  @override
+  String get plusProbeProductMissing =>
+      'المنتج femio_plus غير موجود بعد (متوقع حتى يُنشأ في Play Console)';
 }

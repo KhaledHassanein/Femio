@@ -1,4 +1,5 @@
-<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
     <!-- Her record never leaves the phone: no Google backup, no device transfer
          (both rule files under res/xml), and no INTERNET permission anywhere in
          this manifest (the privacy tripwire in scripts/analytics-lint.mjs checks). -->
@@ -10,6 +11,16 @@
          (they may arrive a few minutes late), which needs no special access and no Play
          declaration. -->
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+
+    <!-- Play Billing (R6.9). The billing library talks to the Play Store app on the
+         device over a bound service, not the network, but its 9.x artifact pulls in
+         Google's transport-backend-cct telemetry, whose manifest declares INTERNET and
+         ACCESS_NETWORK_STATE (manifest-merger report, 2026-10-29). Both are removed here
+         so the merged release manifest stays as the Data safety form describes it; the
+         tripwire checks the merged manifest after every local release build. The
+         telemetry then cannot upload, which is the intended effect. -->
+    <uses-permission android:name="android.permission.INTERNET" tools:node="remove" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" tools:node="remove" />
 
     <application
         android:label="femio"

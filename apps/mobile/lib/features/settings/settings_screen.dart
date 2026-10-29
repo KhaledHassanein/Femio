@@ -12,6 +12,7 @@ import '../../l10n/app_localizations.dart';
 import '../../theme/femio_theme.dart';
 import '../../theme/spacing.dart';
 import '../lock/pin_field.dart';
+import '../plus/billing_probe_tile.dart';
 import 'backup_actions.dart';
 import 'delete_dialog.dart';
 import 'reminders_section.dart';
@@ -88,6 +89,8 @@ class SettingsScreen extends StatelessWidget {
             ListTile(leading: const Icon(Icons.restore_rounded), title: Text(l.importBackup), onTap: () => importBackupFlow(context, controller)),
           ],
           _Section(title: l.aboutSection),
+          // R6.9 spike: visible in debug and profile builds only; a release build renders nothing.
+          const BillingProbeTile(),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: space4),
             child: Text(l.wellnessDisclaimer, style: t.bodySmall?.copyWith(color: p.textMuted)),

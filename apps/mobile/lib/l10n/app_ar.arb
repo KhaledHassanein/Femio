@@ -378,5 +378,12 @@
   "helpNowCountryEG": "مصر",
   "helpNowCountrySA": "السعودية",
   "helpNowCall": "اتصال",
-  "redFlagsReadGuide": "اقرئي علامات التحذير في الحمل"
+  "redFlagsReadGuide": "اقرئي علامات التحذير في الحمل",
+  "plusProbeTitle": "femio Plus · فحص الفوترة (نسخ الاختبار فقط)",
+  "plusProbeSubtitle": "اضغطي لتسألي Google Play إن كانت الفوترة متاحة على هذا الهاتف. لا يُشترى شيء.",
+  "plusProbeRunning": "جارٍ سؤال Google Play…",
+  "plusProbeAvailable": "فوترة Play متاحة: نعم",
+  "plusProbeUnavailable": "فوترة Play متاحة: لا (لا يوجد متجر Play على هذا الجهاز، أو لم يُسجَّل الدخول)",
+  "plusProbeProductFound": "المنتج femio_plus موجود في Play Console",
+  "plusProbeProductMissing": "المنتج femio_plus غير موجود بعد (متوقع حتى يُنشأ في Play Console)"
 }

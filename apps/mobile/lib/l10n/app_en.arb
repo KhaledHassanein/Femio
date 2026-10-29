@@ -569,5 +569,12 @@
   "helpNowCountryEG": "Egypt",
   "helpNowCountrySA": "Saudi Arabia",
   "helpNowCall": "Call",
-  "redFlagsReadGuide": "Read the pregnancy warning signs"
+  "redFlagsReadGuide": "Read the pregnancy warning signs",
+  "plusProbeTitle": "femio Plus · billing check (test builds only)",
+  "plusProbeSubtitle": "Tap to ask Google Play whether billing is reachable on this phone. Nothing is bought.",
+  "plusProbeRunning": "Asking Google Play…",
+  "plusProbeAvailable": "Play Billing reachable: yes",
+  "plusProbeUnavailable": "Play Billing reachable: no (no Play Store on this device, or not signed in)",
+  "plusProbeProductFound": "Product femio_plus found in Play Console",
+  "plusProbeProductMissing": "Product femio_plus not found yet (expected until it is created in Play Console)"
 }

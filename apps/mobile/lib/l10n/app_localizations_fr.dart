@@ -1283,4 +1283,30 @@ class L10nFr extends L10n {
 
   @override
   String get redFlagsReadGuide => 'Lire les signes d\'alerte de la grossesse';
+
+  @override
+  String get plusProbeTitle =>
+      'femio Plus · vérification de la facturation (versions de test seulement)';
+
+  @override
+  String get plusProbeSubtitle =>
+      'Touchez pour demander à Google Play si la facturation est joignable sur ce téléphone. Rien n’est acheté.';
+
+  @override
+  String get plusProbeRunning => 'Demande à Google Play…';
+
+  @override
+  String get plusProbeAvailable => 'Facturation Play joignable : oui';
+
+  @override
+  String get plusProbeUnavailable =>
+      'Facturation Play joignable : non (pas de Play Store sur cet appareil, ou pas connecté)';
+
+  @override
+  String get plusProbeProductFound =>
+      'Produit femio_plus trouvé dans la Play Console';
+
+  @override
+  String get plusProbeProductMissing =>
+      'Produit femio_plus introuvable pour l’instant (normal tant qu’il n’est pas créé dans la Play Console)';
 }

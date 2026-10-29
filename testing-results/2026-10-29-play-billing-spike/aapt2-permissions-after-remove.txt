@@ -1,0 +1,7 @@
+package: com.femioapp.femio
+uses-permission: name='android.permission.RECEIVE_BOOT_COMPLETED'
+uses-permission: name='android.permission.VIBRATE'
+uses-permission: name='android.permission.POST_NOTIFICATIONS'
+uses-permission: name='com.android.vending.BILLING'
+permission: com.femioapp.femio.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION
+uses-permission: name='com.femioapp.femio.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION'

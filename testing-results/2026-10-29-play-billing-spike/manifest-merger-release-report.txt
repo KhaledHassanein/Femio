@@ -1,0 +1,525 @@
+-- Merging decision tree log ---
+application
+INJECTED from E:\Femio\.claude\worktrees\femio-repo-study-planning-88d7c9\apps\mobile\android\app\src\main\AndroidManifest.xml:25:5-70:19
+INJECTED from E:\Femio\.claude\worktrees\femio-repo-study-planning-88d7c9\apps\mobile\android\app\src\main\AndroidManifest.xml:25:5-70:19
+MERGED from [com.android.billingclient:billing:9.1.0] E:\gradle_cache\caches\9.3.1\transforms\aab30d7815453732607f161bfd3bc0f5\workspace\transformed\billing-9.1.0\AndroidManifest.xml:21:5-36:19
+MERGED from [com.android.billingclient:billing:9.1.0] E:\gradle_cache\caches\9.3.1\transforms\aab30d7815453732607f161bfd3bc0f5\workspace\transformed\billing-9.1.0\AndroidManifest.xml:21:5-36:19
+MERGED from [com.google.android.gms:play-services-location:19.0.0] E:\gradle_cache\caches\9.3.1\transforms\f45d4b5275e069dc5b6549a597efba67\workspace\transformed\play-services-location-19.0.0\AndroidManifest.xml:7:5-20
+MERGED from [com.google.android.gms:play-services-location:19.0.0] E:\gradle_cache\caches\9.3.1\transforms\f45d4b5275e069dc5b6549a597efba67\workspace\transformed\play-services-location-19.0.0\AndroidManifest.xml:7:5-20
+MERGED from [com.google.android.gms:play-services-base:18.5.0] E:\gradle_cache\caches\9.3.1\transforms\ab0f8078397fb06edd10d8913f508876\workspace\transformed\play-services-base-18.5.0\AndroidManifest.xml:4:5-6:19
+MERGED from [com.google.android.gms:play-services-base:18.5.0] E:\gradle_cache\caches\9.3.1\transforms\ab0f8078397fb06edd10d8913f508876\workspace\transformed\play-services-base-18.5.0\AndroidManifest.xml:4:5-6:19
+MERGED from [com.google.android.gms:play-services-tasks:18.2.0] E:\gradle_cache\caches\9.3.1\transforms\f727e1ca8a121ba186e1f2d6d87a521d\workspace\transformed\play-services-tasks-18.2.0\AndroidManifest.xml:4:5-20
+MERGED from [com.google.android.gms:play-services-tasks:18.2.0] E:\gradle_cache\caches\9.3.1\transforms\f727e1ca8a121ba186e1f2d6d87a521d\workspace\transformed\play-services-tasks-18.2.0\AndroidManifest.xml:4:5-20
+MERGED from [com.google.android.gms:play-services-places-placereport:17.0.0] E:\gradle_cache\caches\9.3.1\transforms\a9dfc7598289e215f85297319c42bcd0\workspace\transformed\play-services-places-placereport-17.0.0\AndroidManifest.xml:22:5-20
+MERGED from [com.google.android.gms:play-services-places-placereport:17.0.0] E:\gradle_cache\caches\9.3.1\transforms\a9dfc7598289e215f85297319c42bcd0\workspace\transformed\play-services-places-placereport-17.0.0\AndroidManifest.xml:22:5-20
+MERGED from [com.google.android.gms:play-services-basement:18.9.0] E:\gradle_cache\caches\9.3.1\transforms\59165f1f6790c70e356e84ecf56c41d2\workspace\transformed\play-services-basement-18.9.0\AndroidManifest.xml:20:5-24:19
+MERGED from [com.google.android.gms:play-services-basement:18.9.0] E:\gradle_cache\caches\9.3.1\transforms\59165f1f6790c70e356e84ecf56c41d2\workspace\transformed\play-services-basement-18.9.0\AndroidManifest.xml:20:5-24:19
+MERGED from [androidx.lifecycle:lifecycle-process:2.10.0] E:\gradle_cache\caches\9.3.1\transforms\06aa87040e4b39ed5d8d478686f22d34\workspace\transformed\lifecycle-process-2.10.0\AndroidManifest.xml:23:5-33:19
+MERGED from [androidx.lifecycle:lifecycle-process:2.10.0] E:\gradle_cache\caches\9.3.1\transforms\06aa87040e4b39ed5d8d478686f22d34\workspace\transformed\lifecycle-process-2.10.0\AndroidManifest.xml:23:5-33:19
+MERGED from [androidx.window:window:1.2.0] E:\gradle_cache\caches\9.3.1\transforms\3af980662234f52902de775e9c6e354f\workspace\transformed\window-1.2.0\AndroidManifest.xml:22:5-29:19
+MERGED from [androidx.window:window:1.2.0] E:\gradle_cache\caches\9.3.1\transforms\3af980662234f52902de775e9c6e354f\workspace\transformed\window-1.2.0\AndroidManifest.xml:22:5-29:19
+MERGED from [androidx.core:core:1.18.0] E:\gradle_cache\caches\9.3.1\transforms\d093bb2eca2532b7d20813ec3c4a0c68\workspace\transformed\core-1.18.0\AndroidManifest.xml:28:5-89
+MERGED from [androidx.core:core:1.18.0] E:\gradle_cache\caches\9.3.1\transforms\d093bb2eca2532b7d20813ec3c4a0c68\workspace\transformed\core-1.18.0\AndroidManifest.xml:28:5-89
+MERGED from [androidx.profileinstaller:profileinstaller:1.4.0] E:\gradle_cache\caches\9.3.1\transforms\7366a9c8623cf5e0422083d5012d9281\workspace\transformed\profileinstaller-1.4.0\AndroidManifest.xml:23:5-53:19
+MERGED from [androidx.profileinstaller:profileinstaller:1.4.0] E:\gradle_cache\caches\9.3.1\transforms\7366a9c8623cf5e0422083d5012d9281\workspace\transformed\profileinstaller-1.4.0\AndroidManifest.xml:23:5-53:19
+MERGED from [androidx.startup:startup-runtime:1.1.1] E:\gradle_cache\caches\9.3.1\transforms\9b4102c231a6286b797c71f1baf13a34\workspace\transformed\startup-runtime-1.1.1\AndroidManifest.xml:25:5-31:19
+MERGED from [androidx.startup:startup-runtime:1.1.1] E:\gradle_cache\caches\9.3.1\transforms\9b4102c231a6286b797c71f1baf13a34\workspace\transformed\startup-runtime-1.1.1\AndroidManifest.xml:25:5-31:19
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] E:\gradle_cache\caches\9.3.1\transforms\cd2c59b851083326f63879acf62ab040\workspace\transformed\versionedparcelable-1.1.1\AndroidManifest.xml:24:5-25:19
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] E:\gradle_cache\caches\9.3.1\transforms\cd2c59b851083326f63879acf62ab040\workspace\transformed\versionedparcelable-1.1.1\AndroidManifest.xml:24:5-25:19
+MERGED from [com.google.android.datatransport:transport-backend-cct:3.1.8] E:\gradle_cache\caches\9.3.1\transforms\2be894a0483e1b151fc30aeed2ac7543\workspace\transformed\transport-backend-cct-3.1.8\AndroidManifest.xml:27:5-35:19
+MERGED from [com.google.android.datatransport:transport-backend-cct:3.1.8] E:\gradle_cache\caches\9.3.1\transforms\2be894a0483e1b151fc30aeed2ac7543\workspace\transformed\transport-backend-cct-3.1.8\AndroidManifest.xml:27:5-35:19
+MERGED from [com.google.android.datatransport:transport-runtime:3.1.8] E:\gradle_cache\caches\9.3.1\transforms\ce6696293ec594610737f2f8e2736f7b\workspace\transformed\transport-runtime-3.1.8\AndroidManifest.xml:25:5-39:19
+MERGED from [com.google.android.datatransport:transport-runtime:3.1.8] E:\gradle_cache\caches\9.3.1\transforms\ce6696293ec594610737f2f8e2736f7b\workspace\transformed\transport-runtime-3.1.8\AndroidManifest.xml:25:5-39:19
+	android:extractNativeLibs
+		INJECTED from E:\Femio\.claude\worktrees\femio-repo-study-planning-88d7c9\apps\mobile\android\app\src\main\AndroidManifest.xml
+	android:appComponentFactory
+		ADDED from [androidx.core:core:1.18.0] E:\gradle_cache\caches\9.3.1\transforms\d093bb2eca2532b7d20813ec3c4a0c68\workspace\transformed\core-1.18.0\AndroidManifest.xml:28:18-86
+	android:label
+		ADDED from E:\Femio\.claude\worktrees\femio-repo-study-planning-88d7c9\apps\mobile\android\app\src\main\AndroidManifest.xml:26:9-30
+	android:fullBackupContent
+		ADDED from E:\Femio\.claude\worktrees\femio-repo-study-planning-88d7c9\apps\mobile\android\app\src\main\AndroidManifest.xml:30:9-54
+	android:icon
+		ADDED from E:\Femio\.claude\worktrees\femio-repo-study-planning-88d7c9\apps\mobile\android\app\src\main\AndroidManifest.xml:28:9-43
+	android:allowBackup
+		ADDED from E:\Femio\.claude\worktrees\femio-repo-study-planning-88d7c9\apps\mobile\android\app\src\main\AndroidManifest.xml:29:9-36
+	android:dataExtractionRules
+		ADDED from E:\Femio\.claude\worktrees\femio-repo-study-planning-88d7c9\apps\mobile\android\app\src\main\AndroidManifest.xml:31:9-65
+	android:name
+		INJECTED from E:\Femio\.claude\worktrees\femio-repo-study-planning-88d7c9\apps\mobile\android\app\src\main\AndroidManifest.xml
+		ADDED from E:\Femio\.claude\worktrees\femio-repo-study-planning-88d7c9\apps\mobile\android\app\src\main\AndroidManifest.xml:27:9-42
+manifest
+ADDED from E:\Femio\.claude\worktrees\femio-repo-study-planning-88d7c9\apps\mobile\android\app\src\main\AndroidManifest.xml:1:1-82:12
+INJECTED from E:\Femio\.claude\worktrees\femio-repo-study-planning-88d7c9\apps\mobile\android\app\src\main\AndroidManifest.xml:1:1-82:12
+INJECTED from E:\Femio\.claude\worktrees\femio-repo-study-planning-88d7c9\apps\mobile\android\app\src\main\AndroidManifest.xml:1:1-82:12
+INJECTED from E:\Femio\.claude\worktrees\femio-repo-study-planning-88d7c9\apps\mobile\android\app\src\main\AndroidManifest.xml:1:1-82:12
+MERGED from [:android_file_picker] E:\Femio\.claude\worktrees\femio-repo-study-planning-88d7c9\apps\mobile\build\android_file_picker\intermediates\merged_manifest\release\processReleaseManifest\AndroidManifest.xml:2:1-28:12
+MERGED from [:flutter_local_notifications] E:\Femio\.claude\worktrees\femio-repo-study-planning-88d7c9\apps\mobile\build\flutter_local_notifications\intermediates\merged_manifest\release\processReleaseManifest\AndroidManifest.xml:2:1-10:12
+MERGED from [:flutter_secure_storage] E:\Femio\.claude\worktrees\femio-repo-study-planning-88d7c9\apps\mobile\build\flutter_secure_storage\intermediates\merged_manifest\release\processReleaseManifest\AndroidManifest.xml:2:1-7:12
+MERGED from [:in_app_purchase_android] E:\Femio\.claude\worktrees\femio-repo-study-planning-88d7c9\apps\mobile\build\in_app_purchase_android\intermediates\merged_manifest\release\processReleaseManifest\AndroidManifest.xml:2:1-7:12
+MERGED from [:jni_flutter] E:\Femio\.claude\worktrees\femio-repo-study-planning-88d7c9\apps\mobile\build\jni_flutter\intermediates\merged_manifest\release\processReleaseManifest\AndroidManifest.xml:2:1-7:12
+MERGED from [:jni] E:\Femio\.claude\worktrees\femio-repo-study-planning-88d7c9\apps\mobile\build\jni\intermediates\merged_manifest\release\processReleaseManifest\AndroidManifest.xml:2:1-7:12
+MERGED from [com.android.billingclient:billing:9.1.0] E:\gradle_cache\caches\9.3.1\transforms\aab30d7815453732607f161bfd3bc0f5\workspace\transformed\billing-9.1.0\AndroidManifest.xml:2:1-38:12
+MERGED from [com.google.android.gms:play-services-location:19.0.0] E:\gradle_cache\caches\9.3.1\transforms\f45d4b5275e069dc5b6549a597efba67\workspace\transformed\play-services-location-19.0.0\AndroidManifest.xml:2:1-9:12
+MERGED from [com.google.android.gms:play-services-base:18.5.0] E:\gradle_cache\caches\9.3.1\transforms\ab0f8078397fb06edd10d8913f508876\workspace\transformed\play-services-base-18.5.0\AndroidManifest.xml:2:1-7:12
+MERGED from [com.google.android.gms:play-services-tasks:18.2.0] E:\gradle_cache\caches\9.3.1\transforms\f727e1ca8a121ba186e1f2d6d87a521d\workspace\transformed\play-services-tasks-18.2.0\AndroidManifest.xml:2:1-5:12
+MERGED from [com.google.android.gms:play-services-places-placereport:17.0.0] E:\gradle_cache\caches\9.3.1\transforms\a9dfc7598289e215f85297319c42bcd0\workspace\transformed\play-services-places-placereport-17.0.0\AndroidManifest.xml:17:1-24:12
+MERGED from [com.google.android.gms:play-services-basement:18.9.0] E:\gradle_cache\caches\9.3.1\transforms\59165f1f6790c70e356e84ecf56c41d2\workspace\transformed\play-services-basement-18.9.0\AndroidManifest.xml:16:1-26:12
+MERGED from [androidx.fragment:fragment:1.7.1] E:\gradle_cache\caches\9.3.1\transforms\f50199c6f2c0bda4d178780a23cc1f50\workspace\transformed\fragment-1.7.1\AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.loader:loader:1.0.0] E:\gradle_cache\caches\9.3.1\transforms\1910b6d9312a778ba1bce42e0ad447b6\workspace\transformed\loader-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.activity:activity:1.8.1] E:\gradle_cache\caches\9.3.1\transforms\670c42120b4e285772fcf22135293e72\workspace\transformed\activity-1.8.1\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.lifecycle:lifecycle-livedata-core-ktx:2.10.0] E:\gradle_cache\caches\9.3.1\transforms\b556b8bf983e35e9c85f00e34052e117\workspace\transformed\lifecycle-livedata-core-ktx-2.10.0\AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.10.0] E:\gradle_cache\caches\9.3.1\transforms\9588b15be6b376f6fe668218c45df4ae\workspace\transformed\lifecycle-viewmodel-2.10.0\AndroidManifest.xml:2:1-5:12
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-android:2.10.0] E:\gradle_cache\caches\9.3.1\transforms\047ab22f8c2784e2b9872c5af9fcf706\workspace\transformed\lifecycle-viewmodel\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.lifecycle:lifecycle-livedata:2.10.0] E:\gradle_cache\caches\9.3.1\transforms\15d4833e7c016fbb62c87ceab117cc4a\workspace\transformed\lifecycle-livedata-2.10.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.savedstate:savedstate-android:1.4.0] E:\gradle_cache\caches\9.3.1\transforms\e7d823684d6aba311f2fa2327812a00f\workspace\transformed\savedstate\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.10.0] E:\gradle_cache\caches\9.3.1\transforms\1f075e62ff8a345a8bdb0e45f5073b10\workspace\transformed\lifecycle-livedata-core-2.10.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.lifecycle:lifecycle-process:2.10.0] E:\gradle_cache\caches\9.3.1\transforms\06aa87040e4b39ed5d8d478686f22d34\workspace\transformed\lifecycle-process-2.10.0\AndroidManifest.xml:17:1-35:12
+MERGED from [androidx.lifecycle:lifecycle-runtime-android:2.10.0] E:\gradle_cache\caches\9.3.1\transforms\203c0d07577b60d082a9ae8a04586b3f\workspace\transformed\lifecycle-runtime\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-savedstate-android:2.10.0] E:\gradle_cache\caches\9.3.1\transforms\a2f4853fef332ce5d6aa4d3375e1ad8a\workspace\transformed\lifecycle-viewmodel-savedstate\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.core:core-ktx:1.18.0] E:\gradle_cache\caches\9.3.1\transforms\1cb9fa298f2892e5c8bff352cb1bc5e1\workspace\transformed\core-ktx-1.18.0\AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.media:media:1.1.0] E:\gradle_cache\caches\9.3.1\transforms\0921f9df8cf8b539060cb1bd937038e7\workspace\transformed\media-1.1.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.window:window:1.2.0] E:\gradle_cache\caches\9.3.1\transforms\3af980662234f52902de775e9c6e354f\workspace\transformed\window-1.2.0\AndroidManifest.xml:17:1-31:12
+MERGED from [androidx.window:window-java:1.2.0] E:\gradle_cache\caches\9.3.1\transforms\169afe10ff2f01272b137719d317fb78\workspace\transformed\window-java-1.2.0\AndroidManifest.xml:17:1-21:12
+MERGED from [androidx.viewpager:viewpager:1.0.0] E:\gradle_cache\caches\9.3.1\transforms\9c03e2381136b6831b281ff9bd73cf46\workspace\transformed\viewpager-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.customview:customview:1.0.0] E:\gradle_cache\caches\9.3.1\transforms\21a45a15f5191e49ad41c7805a88b8dc\workspace\transformed\customview-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.core:core:1.18.0] E:\gradle_cache\caches\9.3.1\transforms\d093bb2eca2532b7d20813ec3c4a0c68\workspace\transformed\core-1.18.0\AndroidManifest.xml:17:1-30:12
+MERGED from [androidx.annotation:annotation-experimental:1.4.1] E:\gradle_cache\caches\9.3.1\transforms\8ac3dbed3f0f19926fe4f749027dae3f\workspace\transformed\annotation-experimental-1.4.1\AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.core:core-viewtree:1.0.0] E:\gradle_cache\caches\9.3.1\transforms\e81d5eeb13a3223f331ec31d266f9dbb\workspace\transformed\core-viewtree-1.0.0\AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.interpolator:interpolator:1.0.0] E:\gradle_cache\caches\9.3.1\transforms\edd921f3d079cdfa25fa38fcddc7d994\workspace\transformed\interpolator-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.profileinstaller:profileinstaller:1.4.0] E:\gradle_cache\caches\9.3.1\transforms\7366a9c8623cf5e0422083d5012d9281\workspace\transformed\profileinstaller-1.4.0\AndroidManifest.xml:17:1-55:12
+MERGED from [androidx.startup:startup-runtime:1.1.1] E:\gradle_cache\caches\9.3.1\transforms\9b4102c231a6286b797c71f1baf13a34\workspace\transformed\startup-runtime-1.1.1\AndroidManifest.xml:17:1-33:12
+MERGED from [androidx.tracing:tracing:1.2.0] E:\gradle_cache\caches\9.3.1\transforms\b29c715449f72c435a349c85b3d0caea\workspace\transformed\tracing-1.2.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] E:\gradle_cache\caches\9.3.1\transforms\cd2c59b851083326f63879acf62ab040\workspace\transformed\versionedparcelable-1.1.1\AndroidManifest.xml:17:1-27:12
+MERGED from [androidx.exifinterface:exifinterface:1.4.1] E:\gradle_cache\caches\9.3.1\transforms\9742857b1348f9280538369b25be1b97\workspace\transformed\exifinterface-1.4.1\AndroidManifest.xml:2:1-7:12
+MERGED from [com.google.android.datatransport:transport-backend-cct:3.1.8] E:\gradle_cache\caches\9.3.1\transforms\2be894a0483e1b151fc30aeed2ac7543\workspace\transformed\transport-backend-cct-3.1.8\AndroidManifest.xml:15:1-37:12
+MERGED from [com.google.android.datatransport:transport-runtime:3.1.8] E:\gradle_cache\caches\9.3.1\transforms\ce6696293ec594610737f2f8e2736f7b\workspace\transformed\transport-runtime-3.1.8\AndroidManifest.xml:15:1-41:12
+MERGED from [com.google.android.datatransport:transport-api:3.0.0] E:\gradle_cache\caches\9.3.1\transforms\e99f940fcac7777cbf40d4e842c64bb6\workspace\transformed\transport-api-3.0.0\AndroidManifest.xml:15:1-22:12
+MERGED from [androidx.arch.core:core-runtime:2.2.0] E:\gradle_cache\caches\9.3.1\transforms\676a00389ce276119408c3f879732fa3\workspace\transformed\core-runtime-2.2.0\AndroidManifest.xml:17:1-22:12
+MERGED from [com.google.firebase:firebase-encoders-json:18.0.0] E:\gradle_cache\caches\9.3.1\transforms\15455ff291237ae49d4f2c2a4752c5ab\workspace\transformed\firebase-encoders-json-18.0.0\AndroidManifest.xml:15:1-23:12
+MERGED from [androidx.window.extensions.core:core:1.0.0] E:\gradle_cache\caches\9.3.1\transforms\351270bffe273cd281381403a975b48c\workspace\transformed\core-1.0.0\AndroidManifest.xml:2:1-7:12
+MERGED from [com.getkeepsafe.relinker:relinker:1.4.5] E:\gradle_cache\caches\9.3.1\transforms\8ae01703e8ba44e569ce5fa8506d081c\workspace\transformed\relinker-1.4.5\AndroidManifest.xml:2:1-7:12
+	package
+		INJECTED from E:\Femio\.claude\worktrees\femio-repo-study-planning-88d7c9\apps\mobile\android\app\src\main\AndroidManifest.xml
+	android:versionName
+		INJECTED from E:\Femio\.claude\worktrees\femio-repo-study-planning-88d7c9\apps\mobile\android\app\src\main\AndroidManifest.xml
+	xmlns:tools
+		ADDED from E:\Femio\.claude\worktrees\femio-repo-study-planning-88d7c9\apps\mobile\android\app\src\main\AndroidManifest.xml:2:5-51
+	android:versionCode
+		INJECTED from E:\Femio\.claude\worktrees\femio-repo-study-planning-88d7c9\apps\mobile\android\app\src\main\AndroidManifest.xml
+	xmlns:android
+		ADDED from E:\Femio\.claude\worktrees\femio-repo-study-planning-88d7c9\apps\mobile\android\app\src\main\AndroidManifest.xml:1:11-69
+uses-permission#android.permission.RECEIVE_BOOT_COMPLETED
+ADDED from E:\Femio\.claude\worktrees\femio-repo-study-planning-88d7c9\apps\mobile\android\app\src\main\AndroidManifest.xml:13:5-81
+	android:name
+		ADDED from E:\Femio\.claude\worktrees\femio-repo-study-planning-88d7c9\apps\mobile\android\app\src\main\AndroidManifest.xml:13:22-78
+uses-permission#android.permission.INTERNET
+ADDED from E:\Femio\.claude\worktrees\femio-repo-study-planning-88d7c9\apps\mobile\android\app\src\main\AndroidManifest.xml:22:5-87
+REJECTED from [com.google.android.datatransport:transport-backend-cct:3.1.8] E:\gradle_cache\caches\9.3.1\transforms\2be894a0483e1b151fc30aeed2ac7543\workspace\transformed\transport-backend-cct-3.1.8\AndroidManifest.xml:25:5-67
+	tools:node
+		ADDED from E:\Femio\.claude\worktrees\femio-repo-study-planning-88d7c9\apps\mobile\android\app\src\main\AndroidManifest.xml:22:65-84
+	android:name
+		ADDED from E:\Femio\.claude\worktrees\femio-repo-study-planning-88d7c9\apps\mobile\android\app\src\main\AndroidManifest.xml:22:22-64
+uses-permission#android.permission.ACCESS_NETWORK_STATE
+ADDED from E:\Femio\.claude\worktrees\femio-repo-study-planning-88d7c9\apps\mobile\android\app\src\main\AndroidManifest.xml:23:5-99
+REJECTED from [com.google.android.datatransport:transport-backend-cct:3.1.8] E:\gradle_cache\caches\9.3.1\transforms\2be894a0483e1b151fc30aeed2ac7543\workspace\transformed\transport-backend-cct-3.1.8\AndroidManifest.xml:24:5-79
+REJECTED from [com.google.android.datatransport:transport-runtime:3.1.8] E:\gradle_cache\caches\9.3.1\transforms\ce6696293ec594610737f2f8e2736f7b\workspace\transformed\transport-runtime-3.1.8\AndroidManifest.xml:22:5-79
+	tools:node
+		ADDED from E:\Femio\.claude\worktrees\femio-repo-study-planning-88d7c9\apps\mobile\android\app\src\main\AndroidManifest.xml:23:77-96
+	android:name
+		ADDED from E:\Femio\.claude\worktrees\femio-repo-study-planning-88d7c9\apps\mobile\android\app\src\main\AndroidManifest.xml:23:22-76
+queries
+ADDED from E:\Femio\.claude\worktrees\femio-repo-study-planning-88d7c9\apps\mobile\android\app\src\main\AndroidManifest.xml:76:5-81:15
+MERGED from [:android_file_picker] E:\Femio\.claude\worktrees\femio-repo-study-planning-88d7c9\apps\mobile\build\android_file_picker\intermediates\merged_manifest\release\processReleaseManifest\AndroidManifest.xml:7:5-26:15
+MERGED from [:android_file_picker] E:\Femio\.claude\worktrees\femio-repo-study-planning-88d7c9\apps\mobile\build\android_file_picker\intermediates\merged_manifest\release\processReleaseManifest\AndroidManifest.xml:7:5-26:15
+MERGED from [com.android.billingclient:billing:9.1.0] E:\gradle_cache\caches\9.3.1\transforms\aab30d7815453732607f161bfd3bc0f5\workspace\transformed\billing-9.1.0\AndroidManifest.xml:12:5-19:15
+MERGED from [com.android.billingclient:billing:9.1.0] E:\gradle_cache\caches\9.3.1\transforms\aab30d7815453732607f161bfd3bc0f5\workspace\transformed\billing-9.1.0\AndroidManifest.xml:12:5-19:15
+intent#action:name:android.intent.action.PROCESS_TEXT+data:mimeType:text/plain
+ADDED from E:\Femio\.claude\worktrees\femio-repo-study-planning-88d7c9\apps\mobile\android\app\src\main\AndroidManifest.xml:77:9-80:18
+action#android.intent.action.PROCESS_TEXT
+ADDED from E:\Femio\.claude\worktrees\femio-repo-study-planning-88d7c9\apps\mobile\android\app\src\main\AndroidManifest.xml:78:13-72
+	android:name
+		ADDED from E:\Femio\.claude\worktrees\femio-repo-study-planning-88d7c9\apps\mobile\android\app\src\main\AndroidManifest.xml:78:21-70
+data
+ADDED from E:\Femio\.claude\worktrees\femio-repo-study-planning-88d7c9\apps\mobile\android\app\src\main\AndroidManifest.xml:79:13-50
+	android:mimeType
+		ADDED from E:\Femio\.claude\worktrees\femio-repo-study-planning-88d7c9\apps\mobile\android\app\src\main\AndroidManifest.xml:79:19-48
+activity#com.femioapp.femio.MainActivity
+ADDED from E:\Femio\.claude\worktrees\femio-repo-study-planning-88d7c9\apps\mobile\android\app\src\main\AndroidManifest.xml:32:9-53:20
+	android:launchMode
+		ADDED from E:\Femio\.claude\worktrees\femio-repo-study-planning-88d7c9\apps\mobile\android\app\src\main\AndroidManifest.xml:35:13-43
+	android:hardwareAccelerated
+		ADDED from E:\Femio\.claude\worktrees\femio-repo-study-planning-88d7c9\apps\mobile\android\app\src\main\AndroidManifest.xml:39:13-47
+	android:windowSoftInputMode
+		ADDED from E:\Femio\.claude\worktrees\femio-repo-study-planning-88d7c9\apps\mobile\android\app\src\main\AndroidManifest.xml:40:13-55
+	android:exported
+		ADDED from E:\Femio\.claude\worktrees\femio-repo-study-planning-88d7c9\apps\mobile\android\app\src\main\AndroidManifest.xml:34:13-36
+	android:configChanges
+		ADDED from E:\Femio\.claude\worktrees\femio-repo-study-planning-88d7c9\apps\mobile\android\app\src\main\AndroidManifest.xml:38:13-163
+	android:theme
+		ADDED from E:\Femio\.claude\worktrees\femio-repo-study-planning-88d7c9\apps\mobile\android\app\src\main\AndroidManifest.xml:37:13-47
+	android:taskAffinity
+		ADDED from E:\Femio\.claude\worktrees\femio-repo-study-planning-88d7c9\apps\mobile\android\app\src\main\AndroidManifest.xml:36:13-36
+	android:name
+		ADDED from E:\Femio\.claude\worktrees\femio-repo-study-planning-88d7c9\apps\mobile\android\app\src\main\AndroidManifest.xml:33:13-41
+meta-data#io.flutter.embedding.android.NormalTheme
+ADDED from E:\Femio\.claude\worktrees\femio-repo-study-planning-88d7c9\apps\mobile\android\app\src\main\AndroidManifest.xml:45:13-48:17
+	android:resource
+		ADDED from E:\Femio\.claude\worktrees\femio-repo-study-planning-88d7c9\apps\mobile\android\app\src\main\AndroidManifest.xml:47:15-52
+	android:name
+		ADDED from E:\Femio\.claude\worktrees\femio-repo-study-planning-88d7c9\apps\mobile\android\app\src\main\AndroidManifest.xml:46:15-70
+intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
+ADDED from E:\Femio\.claude\worktrees\femio-repo-study-planning-88d7c9\apps\mobile\android\app\src\main\AndroidManifest.xml:49:13-52:29
+action#android.intent.action.MAIN
+ADDED from E:\Femio\.claude\worktrees\femio-repo-study-planning-88d7c9\apps\mobile\android\app\src\main\AndroidManifest.xml:50:17-68
+	android:name
+		ADDED from E:\Femio\.claude\worktrees\femio-repo-study-planning-88d7c9\apps\mobile\android\app\src\main\AndroidManifest.xml:50:25-66
+category#android.intent.category.LAUNCHER
+ADDED from E:\Femio\.claude\worktrees\femio-repo-study-planning-88d7c9\apps\mobile\android\app\src\main\AndroidManifest.xml:51:17-76
+	android:name
+		ADDED from E:\Femio\.claude\worktrees\femio-repo-study-planning-88d7c9\apps\mobile\android\app\src\main\AndroidManifest.xml:51:27-74
+meta-data#flutterEmbedding
+ADDED from E:\Femio\.claude\worktrees\femio-repo-study-planning-88d7c9\apps\mobile\android\app\src\main\AndroidManifest.xml:56:9-58:33
+	android:value
+		ADDED from E:\Femio\.claude\worktrees\femio-repo-study-planning-88d7c9\apps\mobile\android\app\src\main\AndroidManifest.xml:58:13-30
+	android:name
+		ADDED from E:\Femio\.claude\worktrees\femio-repo-study-planning-88d7c9\apps\mobile\android\app\src\main\AndroidManifest.xml:57:13-44
+receiver#com.dexterous.flutterlocalnotifications.ScheduledNotificationReceiver
+ADDED from E:\Femio\.claude\worktrees\femio-repo-study-planning-88d7c9\apps\mobile\android\app\src\main\AndroidManifest.xml:61:9-131
+	android:exported
+		ADDED from E:\Femio\.claude\worktrees\femio-repo-study-planning-88d7c9\apps\mobile\android\app\src\main\AndroidManifest.xml:61:19-43
+	android:name
+		ADDED from E:\Femio\.claude\worktrees\femio-repo-study-planning-88d7c9\apps\mobile\android\app\src\main\AndroidManifest.xml:61:44-128
+receiver#com.dexterous.flutterlocalnotifications.ScheduledNotificationBootReceiver
+ADDED from E:\Femio\.claude\worktrees\femio-repo-study-planning-88d7c9\apps\mobile\android\app\src\main\AndroidManifest.xml:62:9-69:20
+	android:exported
+		ADDED from E:\Femio\.claude\worktrees\femio-repo-study-planning-88d7c9\apps\mobile\android\app\src\main\AndroidManifest.xml:62:19-43
+	android:name
+		ADDED from E:\Femio\.claude\worktrees\femio-repo-study-planning-88d7c9\apps\mobile\android\app\src\main\AndroidManifest.xml:62:44-132
+intent-filter#action:name:android.intent.action.BOOT_COMPLETED+action:name:android.intent.action.MY_PACKAGE_REPLACED+action:name:android.intent.action.QUICKBOOT_POWERON+action:name:com.htc.intent.action.QUICKBOOT_POWERON
+ADDED from E:\Femio\.claude\worktrees\femio-repo-study-planning-88d7c9\apps\mobile\android\app\src\main\AndroidManifest.xml:63:13-68:29
+action#android.intent.action.BOOT_COMPLETED
+ADDED from E:\Femio\.claude\worktrees\femio-repo-study-planning-88d7c9\apps\mobile\android\app\src\main\AndroidManifest.xml:64:17-79
+	android:name
+		ADDED from E:\Femio\.claude\worktrees\femio-repo-study-planning-88d7c9\apps\mobile\android\app\src\main\AndroidManifest.xml:64:25-76
+action#android.intent.action.MY_PACKAGE_REPLACED
+ADDED from E:\Femio\.claude\worktrees\femio-repo-study-planning-88d7c9\apps\mobile\android\app\src\main\AndroidManifest.xml:65:17-84
+	android:name
+		ADDED from E:\Femio\.claude\worktrees\femio-repo-study-planning-88d7c9\apps\mobile\android\app\src\main\AndroidManifest.xml:65:25-81
+action#android.intent.action.QUICKBOOT_POWERON
+ADDED from E:\Femio\.claude\worktrees\femio-repo-study-planning-88d7c9\apps\mobile\android\app\src\main\AndroidManifest.xml:66:17-82
+	android:name
+		ADDED from E:\Femio\.claude\worktrees\femio-repo-study-planning-88d7c9\apps\mobile\android\app\src\main\AndroidManifest.xml:66:25-79
+action#com.htc.intent.action.QUICKBOOT_POWERON
+ADDED from E:\Femio\.claude\worktrees\femio-repo-study-planning-88d7c9\apps\mobile\android\app\src\main\AndroidManifest.xml:67:17-82
+	android:name
+		ADDED from E:\Femio\.claude\worktrees\femio-repo-study-planning-88d7c9\apps\mobile\android\app\src\main\AndroidManifest.xml:67:25-79
+uses-sdk
+INJECTED from E:\Femio\.claude\worktrees\femio-repo-study-planning-88d7c9\apps\mobile\android\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from E:\Femio\.claude\worktrees\femio-repo-study-planning-88d7c9\apps\mobile\android\app\src\main\AndroidManifest.xml
+INJECTED from E:\Femio\.claude\worktrees\femio-repo-study-planning-88d7c9\apps\mobile\android\app\src\main\AndroidManifest.xml
+MERGED from [:android_file_picker] E:\Femio\.claude\worktrees\femio-repo-study-planning-88d7c9\apps\mobile\build\android_file_picker\intermediates\merged_manifest\release\processReleaseManifest\AndroidManifest.xml:5:5-44
+MERGED from [:android_file_picker] E:\Femio\.claude\worktrees\femio-repo-study-planning-88d7c9\apps\mobile\build\android_file_picker\intermediates\merged_manifest\release\processReleaseManifest\AndroidManifest.xml:5:5-44
+MERGED from [:flutter_local_notifications] E:\Femio\.claude\worktrees\femio-repo-study-planning-88d7c9\apps\mobile\build\flutter_local_notifications\intermediates\merged_manifest\release\processReleaseManifest\AndroidManifest.xml:5:5-44
+MERGED from [:flutter_local_notifications] E:\Femio\.claude\worktrees\femio-repo-study-planning-88d7c9\apps\mobile\build\flutter_local_notifications\intermediates\merged_manifest\release\processReleaseManifest\AndroidManifest.xml:5:5-44
+MERGED from [:flutter_secure_storage] E:\Femio\.claude\worktrees\femio-repo-study-planning-88d7c9\apps\mobile\build\flutter_secure_storage\intermediates\merged_manifest\release\processReleaseManifest\AndroidManifest.xml:5:5-44
+MERGED from [:flutter_secure_storage] E:\Femio\.claude\worktrees\femio-repo-study-planning-88d7c9\apps\mobile\build\flutter_secure_storage\intermediates\merged_manifest\release\processReleaseManifest\AndroidManifest.xml:5:5-44
+MERGED from [:in_app_purchase_android] E:\Femio\.claude\worktrees\femio-repo-study-planning-88d7c9\apps\mobile\build\in_app_purchase_android\intermediates\merged_manifest\release\processReleaseManifest\AndroidManifest.xml:5:5-44
+MERGED from [:in_app_purchase_android] E:\Femio\.claude\worktrees\femio-repo-study-planning-88d7c9\apps\mobile\build\in_app_purchase_android\intermediates\merged_manifest\release\processReleaseManifest\AndroidManifest.xml:5:5-44
+MERGED from [:jni_flutter] E:\Femio\.claude\worktrees\femio-repo-study-planning-88d7c9\apps\mobile\build\jni_flutter\intermediates\merged_manifest\release\processReleaseManifest\AndroidManifest.xml:5:5-44
+MERGED from [:jni_flutter] E:\Femio\.claude\worktrees\femio-repo-study-planning-88d7c9\apps\mobile\build\jni_flutter\intermediates\merged_manifest\release\processReleaseManifest\AndroidManifest.xml:5:5-44
+MERGED from [:jni] E:\Femio\.claude\worktrees\femio-repo-study-planning-88d7c9\apps\mobile\build\jni\intermediates\merged_manifest\release\processReleaseManifest\AndroidManifest.xml:5:5-44
+MERGED from [:jni] E:\Femio\.claude\worktrees\femio-repo-study-planning-88d7c9\apps\mobile\build\jni\intermediates\merged_manifest\release\processReleaseManifest\AndroidManifest.xml:5:5-44
+MERGED from [com.android.billingclient:billing:9.1.0] E:\gradle_cache\caches\9.3.1\transforms\aab30d7815453732607f161bfd3bc0f5\workspace\transformed\billing-9.1.0\AndroidManifest.xml:6:5-8:41
+MERGED from [com.android.billingclient:billing:9.1.0] E:\gradle_cache\caches\9.3.1\transforms\aab30d7815453732607f161bfd3bc0f5\workspace\transformed\billing-9.1.0\AndroidManifest.xml:6:5-8:41
+MERGED from [com.google.android.gms:play-services-location:19.0.0] E:\gradle_cache\caches\9.3.1\transforms\f45d4b5275e069dc5b6549a597efba67\workspace\transformed\play-services-location-19.0.0\AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.gms:play-services-location:19.0.0] E:\gradle_cache\caches\9.3.1\transforms\f45d4b5275e069dc5b6549a597efba67\workspace\transformed\play-services-location-19.0.0\AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.gms:play-services-base:18.5.0] E:\gradle_cache\caches\9.3.1\transforms\ab0f8078397fb06edd10d8913f508876\workspace\transformed\play-services-base-18.5.0\AndroidManifest.xml:3:5-44
+MERGED from [com.google.android.gms:play-services-base:18.5.0] E:\gradle_cache\caches\9.3.1\transforms\ab0f8078397fb06edd10d8913f508876\workspace\transformed\play-services-base-18.5.0\AndroidManifest.xml:3:5-44
+MERGED from [com.google.android.gms:play-services-tasks:18.2.0] E:\gradle_cache\caches\9.3.1\transforms\f727e1ca8a121ba186e1f2d6d87a521d\workspace\transformed\play-services-tasks-18.2.0\AndroidManifest.xml:3:5-44
+MERGED from [com.google.android.gms:play-services-tasks:18.2.0] E:\gradle_cache\caches\9.3.1\transforms\f727e1ca8a121ba186e1f2d6d87a521d\workspace\transformed\play-services-tasks-18.2.0\AndroidManifest.xml:3:5-44
+MERGED from [com.google.android.gms:play-services-places-placereport:17.0.0] E:\gradle_cache\caches\9.3.1\transforms\a9dfc7598289e215f85297319c42bcd0\workspace\transformed\play-services-places-placereport-17.0.0\AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-places-placereport:17.0.0] E:\gradle_cache\caches\9.3.1\transforms\a9dfc7598289e215f85297319c42bcd0\workspace\transformed\play-services-places-placereport-17.0.0\AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-basement:18.9.0] E:\gradle_cache\caches\9.3.1\transforms\59165f1f6790c70e356e84ecf56c41d2\workspace\transformed\play-services-basement-18.9.0\AndroidManifest.xml:18:5-43
+MERGED from [com.google.android.gms:play-services-basement:18.9.0] E:\gradle_cache\caches\9.3.1\transforms\59165f1f6790c70e356e84ecf56c41d2\workspace\transformed\play-services-basement-18.9.0\AndroidManifest.xml:18:5-43
+MERGED from [androidx.fragment:fragment:1.7.1] E:\gradle_cache\caches\9.3.1\transforms\f50199c6f2c0bda4d178780a23cc1f50\workspace\transformed\fragment-1.7.1\AndroidManifest.xml:5:5-44
+MERGED from [androidx.fragment:fragment:1.7.1] E:\gradle_cache\caches\9.3.1\transforms\f50199c6f2c0bda4d178780a23cc1f50\workspace\transformed\fragment-1.7.1\AndroidManifest.xml:5:5-44
+MERGED from [androidx.loader:loader:1.0.0] E:\gradle_cache\caches\9.3.1\transforms\1910b6d9312a778ba1bce42e0ad447b6\workspace\transformed\loader-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.loader:loader:1.0.0] E:\gradle_cache\caches\9.3.1\transforms\1910b6d9312a778ba1bce42e0ad447b6\workspace\transformed\loader-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.activity:activity:1.8.1] E:\gradle_cache\caches\9.3.1\transforms\670c42120b4e285772fcf22135293e72\workspace\transformed\activity-1.8.1\AndroidManifest.xml:20:5-44
+MERGED from [androidx.activity:activity:1.8.1] E:\gradle_cache\caches\9.3.1\transforms\670c42120b4e285772fcf22135293e72\workspace\transformed\activity-1.8.1\AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata-core-ktx:2.10.0] E:\gradle_cache\caches\9.3.1\transforms\b556b8bf983e35e9c85f00e34052e117\workspace\transformed\lifecycle-livedata-core-ktx-2.10.0\AndroidManifest.xml:5:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata-core-ktx:2.10.0] E:\gradle_cache\caches\9.3.1\transforms\b556b8bf983e35e9c85f00e34052e117\workspace\transformed\lifecycle-livedata-core-ktx-2.10.0\AndroidManifest.xml:5:5-44
+MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.10.0] E:\gradle_cache\caches\9.3.1\transforms\9588b15be6b376f6fe668218c45df4ae\workspace\transformed\lifecycle-viewmodel-2.10.0\AndroidManifest.xml:4:5-43
+MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.10.0] E:\gradle_cache\caches\9.3.1\transforms\9588b15be6b376f6fe668218c45df4ae\workspace\transformed\lifecycle-viewmodel-2.10.0\AndroidManifest.xml:4:5-43
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-android:2.10.0] E:\gradle_cache\caches\9.3.1\transforms\047ab22f8c2784e2b9872c5af9fcf706\workspace\transformed\lifecycle-viewmodel\AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-android:2.10.0] E:\gradle_cache\caches\9.3.1\transforms\047ab22f8c2784e2b9872c5af9fcf706\workspace\transformed\lifecycle-viewmodel\AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata:2.10.0] E:\gradle_cache\caches\9.3.1\transforms\15d4833e7c016fbb62c87ceab117cc4a\workspace\transformed\lifecycle-livedata-2.10.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata:2.10.0] E:\gradle_cache\caches\9.3.1\transforms\15d4833e7c016fbb62c87ceab117cc4a\workspace\transformed\lifecycle-livedata-2.10.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.savedstate:savedstate-android:1.4.0] E:\gradle_cache\caches\9.3.1\transforms\e7d823684d6aba311f2fa2327812a00f\workspace\transformed\savedstate\AndroidManifest.xml:20:5-44
+MERGED from [androidx.savedstate:savedstate-android:1.4.0] E:\gradle_cache\caches\9.3.1\transforms\e7d823684d6aba311f2fa2327812a00f\workspace\transformed\savedstate\AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.10.0] E:\gradle_cache\caches\9.3.1\transforms\1f075e62ff8a345a8bdb0e45f5073b10\workspace\transformed\lifecycle-livedata-core-2.10.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.10.0] E:\gradle_cache\caches\9.3.1\transforms\1f075e62ff8a345a8bdb0e45f5073b10\workspace\transformed\lifecycle-livedata-core-2.10.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-process:2.10.0] E:\gradle_cache\caches\9.3.1\transforms\06aa87040e4b39ed5d8d478686f22d34\workspace\transformed\lifecycle-process-2.10.0\AndroidManifest.xml:21:5-44
+MERGED from [androidx.lifecycle:lifecycle-process:2.10.0] E:\gradle_cache\caches\9.3.1\transforms\06aa87040e4b39ed5d8d478686f22d34\workspace\transformed\lifecycle-process-2.10.0\AndroidManifest.xml:21:5-44
+MERGED from [androidx.lifecycle:lifecycle-runtime-android:2.10.0] E:\gradle_cache\caches\9.3.1\transforms\203c0d07577b60d082a9ae8a04586b3f\workspace\transformed\lifecycle-runtime\AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-runtime-android:2.10.0] E:\gradle_cache\caches\9.3.1\transforms\203c0d07577b60d082a9ae8a04586b3f\workspace\transformed\lifecycle-runtime\AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-savedstate-android:2.10.0] E:\gradle_cache\caches\9.3.1\transforms\a2f4853fef332ce5d6aa4d3375e1ad8a\workspace\transformed\lifecycle-viewmodel-savedstate\AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-savedstate-android:2.10.0] E:\gradle_cache\caches\9.3.1\transforms\a2f4853fef332ce5d6aa4d3375e1ad8a\workspace\transformed\lifecycle-viewmodel-savedstate\AndroidManifest.xml:20:5-44
+MERGED from [androidx.core:core-ktx:1.18.0] E:\gradle_cache\caches\9.3.1\transforms\1cb9fa298f2892e5c8bff352cb1bc5e1\workspace\transformed\core-ktx-1.18.0\AndroidManifest.xml:5:5-44
+MERGED from [androidx.core:core-ktx:1.18.0] E:\gradle_cache\caches\9.3.1\transforms\1cb9fa298f2892e5c8bff352cb1bc5e1\workspace\transformed\core-ktx-1.18.0\AndroidManifest.xml:5:5-44
+MERGED from [androidx.media:media:1.1.0] E:\gradle_cache\caches\9.3.1\transforms\0921f9df8cf8b539060cb1bd937038e7\workspace\transformed\media-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.media:media:1.1.0] E:\gradle_cache\caches\9.3.1\transforms\0921f9df8cf8b539060cb1bd937038e7\workspace\transformed\media-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.window:window:1.2.0] E:\gradle_cache\caches\9.3.1\transforms\3af980662234f52902de775e9c6e354f\workspace\transformed\window-1.2.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.window:window:1.2.0] E:\gradle_cache\caches\9.3.1\transforms\3af980662234f52902de775e9c6e354f\workspace\transformed\window-1.2.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.window:window-java:1.2.0] E:\gradle_cache\caches\9.3.1\transforms\169afe10ff2f01272b137719d317fb78\workspace\transformed\window-java-1.2.0\AndroidManifest.xml:19:5-44
+MERGED from [androidx.window:window-java:1.2.0] E:\gradle_cache\caches\9.3.1\transforms\169afe10ff2f01272b137719d317fb78\workspace\transformed\window-java-1.2.0\AndroidManifest.xml:19:5-44
+MERGED from [androidx.viewpager:viewpager:1.0.0] E:\gradle_cache\caches\9.3.1\transforms\9c03e2381136b6831b281ff9bd73cf46\workspace\transformed\viewpager-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.viewpager:viewpager:1.0.0] E:\gradle_cache\caches\9.3.1\transforms\9c03e2381136b6831b281ff9bd73cf46\workspace\transformed\viewpager-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.customview:customview:1.0.0] E:\gradle_cache\caches\9.3.1\transforms\21a45a15f5191e49ad41c7805a88b8dc\workspace\transformed\customview-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.customview:customview:1.0.0] E:\gradle_cache\caches\9.3.1\transforms\21a45a15f5191e49ad41c7805a88b8dc\workspace\transformed\customview-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.core:core:1.18.0] E:\gradle_cache\caches\9.3.1\transforms\d093bb2eca2532b7d20813ec3c4a0c68\workspace\transformed\core-1.18.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.core:core:1.18.0] E:\gradle_cache\caches\9.3.1\transforms\d093bb2eca2532b7d20813ec3c4a0c68\workspace\transformed\core-1.18.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.annotation:annotation-experimental:1.4.1] E:\gradle_cache\caches\9.3.1\transforms\8ac3dbed3f0f19926fe4f749027dae3f\workspace\transformed\annotation-experimental-1.4.1\AndroidManifest.xml:5:5-44
+MERGED from [androidx.annotation:annotation-experimental:1.4.1] E:\gradle_cache\caches\9.3.1\transforms\8ac3dbed3f0f19926fe4f749027dae3f\workspace\transformed\annotation-experimental-1.4.1\AndroidManifest.xml:5:5-44
+MERGED from [androidx.core:core-viewtree:1.0.0] E:\gradle_cache\caches\9.3.1\transforms\e81d5eeb13a3223f331ec31d266f9dbb\workspace\transformed\core-viewtree-1.0.0\AndroidManifest.xml:5:5-44
+MERGED from [androidx.core:core-viewtree:1.0.0] E:\gradle_cache\caches\9.3.1\transforms\e81d5eeb13a3223f331ec31d266f9dbb\workspace\transformed\core-viewtree-1.0.0\AndroidManifest.xml:5:5-44
+MERGED from [androidx.interpolator:interpolator:1.0.0] E:\gradle_cache\caches\9.3.1\transforms\edd921f3d079cdfa25fa38fcddc7d994\workspace\transformed\interpolator-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.interpolator:interpolator:1.0.0] E:\gradle_cache\caches\9.3.1\transforms\edd921f3d079cdfa25fa38fcddc7d994\workspace\transformed\interpolator-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.profileinstaller:profileinstaller:1.4.0] E:\gradle_cache\caches\9.3.1\transforms\7366a9c8623cf5e0422083d5012d9281\workspace\transformed\profileinstaller-1.4.0\AndroidManifest.xml:21:5-44
+MERGED from [androidx.profileinstaller:profileinstaller:1.4.0] E:\gradle_cache\caches\9.3.1\transforms\7366a9c8623cf5e0422083d5012d9281\workspace\transformed\profileinstaller-1.4.0\AndroidManifest.xml:21:5-44
+MERGED from [androidx.startup:startup-runtime:1.1.1] E:\gradle_cache\caches\9.3.1\transforms\9b4102c231a6286b797c71f1baf13a34\workspace\transformed\startup-runtime-1.1.1\AndroidManifest.xml:21:5-23:41
+MERGED from [androidx.startup:startup-runtime:1.1.1] E:\gradle_cache\caches\9.3.1\transforms\9b4102c231a6286b797c71f1baf13a34\workspace\transformed\startup-runtime-1.1.1\AndroidManifest.xml:21:5-23:41
+MERGED from [androidx.tracing:tracing:1.2.0] E:\gradle_cache\caches\9.3.1\transforms\b29c715449f72c435a349c85b3d0caea\workspace\transformed\tracing-1.2.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.tracing:tracing:1.2.0] E:\gradle_cache\caches\9.3.1\transforms\b29c715449f72c435a349c85b3d0caea\workspace\transformed\tracing-1.2.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] E:\gradle_cache\caches\9.3.1\transforms\cd2c59b851083326f63879acf62ab040\workspace\transformed\versionedparcelable-1.1.1\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] E:\gradle_cache\caches\9.3.1\transforms\cd2c59b851083326f63879acf62ab040\workspace\transformed\versionedparcelable-1.1.1\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.exifinterface:exifinterface:1.4.1] E:\gradle_cache\caches\9.3.1\transforms\9742857b1348f9280538369b25be1b97\workspace\transformed\exifinterface-1.4.1\AndroidManifest.xml:5:5-44
+MERGED from [androidx.exifinterface:exifinterface:1.4.1] E:\gradle_cache\caches\9.3.1\transforms\9742857b1348f9280538369b25be1b97\workspace\transformed\exifinterface-1.4.1\AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.datatransport:transport-backend-cct:3.1.8] E:\gradle_cache\caches\9.3.1\transforms\2be894a0483e1b151fc30aeed2ac7543\workspace\transformed\transport-backend-cct-3.1.8\AndroidManifest.xml:18:5-20:41
+MERGED from [com.google.android.datatransport:transport-backend-cct:3.1.8] E:\gradle_cache\caches\9.3.1\transforms\2be894a0483e1b151fc30aeed2ac7543\workspace\transformed\transport-backend-cct-3.1.8\AndroidManifest.xml:18:5-20:41
+MERGED from [com.google.android.datatransport:transport-runtime:3.1.8] E:\gradle_cache\caches\9.3.1\transforms\ce6696293ec594610737f2f8e2736f7b\workspace\transformed\transport-runtime-3.1.8\AndroidManifest.xml:18:5-20:41
+MERGED from [com.google.android.datatransport:transport-runtime:3.1.8] E:\gradle_cache\caches\9.3.1\transforms\ce6696293ec594610737f2f8e2736f7b\workspace\transformed\transport-runtime-3.1.8\AndroidManifest.xml:18:5-20:41
+MERGED from [com.google.android.datatransport:transport-api:3.0.0] E:\gradle_cache\caches\9.3.1\transforms\e99f940fcac7777cbf40d4e842c64bb6\workspace\transformed\transport-api-3.0.0\AndroidManifest.xml:18:5-20:41
+MERGED from [com.google.android.datatransport:transport-api:3.0.0] E:\gradle_cache\caches\9.3.1\transforms\e99f940fcac7777cbf40d4e842c64bb6\workspace\transformed\transport-api-3.0.0\AndroidManifest.xml:18:5-20:41
+MERGED from [androidx.arch.core:core-runtime:2.2.0] E:\gradle_cache\caches\9.3.1\transforms\676a00389ce276119408c3f879732fa3\workspace\transformed\core-runtime-2.2.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.arch.core:core-runtime:2.2.0] E:\gradle_cache\caches\9.3.1\transforms\676a00389ce276119408c3f879732fa3\workspace\transformed\core-runtime-2.2.0\AndroidManifest.xml:20:5-44
+MERGED from [com.google.firebase:firebase-encoders-json:18.0.0] E:\gradle_cache\caches\9.3.1\transforms\15455ff291237ae49d4f2c2a4752c5ab\workspace\transformed\firebase-encoders-json-18.0.0\AndroidManifest.xml:19:5-21:41
+MERGED from [com.google.firebase:firebase-encoders-json:18.0.0] E:\gradle_cache\caches\9.3.1\transforms\15455ff291237ae49d4f2c2a4752c5ab\workspace\transformed\firebase-encoders-json-18.0.0\AndroidManifest.xml:19:5-21:41
+MERGED from [androidx.window.extensions.core:core:1.0.0] E:\gradle_cache\caches\9.3.1\transforms\351270bffe273cd281381403a975b48c\workspace\transformed\core-1.0.0\AndroidManifest.xml:5:5-44
+MERGED from [androidx.window.extensions.core:core:1.0.0] E:\gradle_cache\caches\9.3.1\transforms\351270bffe273cd281381403a975b48c\workspace\transformed\core-1.0.0\AndroidManifest.xml:5:5-44
+MERGED from [com.getkeepsafe.relinker:relinker:1.4.5] E:\gradle_cache\caches\9.3.1\transforms\8ae01703e8ba44e569ce5fa8506d081c\workspace\transformed\relinker-1.4.5\AndroidManifest.xml:5:5-43
+MERGED from [com.getkeepsafe.relinker:relinker:1.4.5] E:\gradle_cache\caches\9.3.1\transforms\8ae01703e8ba44e569ce5fa8506d081c\workspace\transformed\relinker-1.4.5\AndroidManifest.xml:5:5-43
+	android:targetSdkVersion
+		INJECTED from E:\Femio\.claude\worktrees\femio-repo-study-planning-88d7c9\apps\mobile\android\app\src\main\AndroidManifest.xml
+	android:minSdkVersion
+		INJECTED from E:\Femio\.claude\worktrees\femio-repo-study-planning-88d7c9\apps\mobile\android\app\src\main\AndroidManifest.xml
+intent#action:name:android.intent.action.GET_CONTENT+data:mimeType:*/*
+ADDED from [:android_file_picker] E:\Femio\.claude\worktrees\femio-repo-study-planning-88d7c9\apps\mobile\build\android_file_picker\intermediates\merged_manifest\release\processReleaseManifest\AndroidManifest.xml:8:9-12:18
+action#android.intent.action.GET_CONTENT
+ADDED from [:android_file_picker] E:\Femio\.claude\worktrees\femio-repo-study-planning-88d7c9\apps\mobile\build\android_file_picker\intermediates\merged_manifest\release\processReleaseManifest\AndroidManifest.xml:9:13-72
+	android:name
+		ADDED from [:android_file_picker] E:\Femio\.claude\worktrees\femio-repo-study-planning-88d7c9\apps\mobile\build\android_file_picker\intermediates\merged_manifest\release\processReleaseManifest\AndroidManifest.xml:9:21-69
+intent#action:name:android.intent.action.OPEN_DOCUMENT+data:mimeType:*/*
+ADDED from [:android_file_picker] E:\Femio\.claude\worktrees\femio-repo-study-planning-88d7c9\apps\mobile\build\android_file_picker\intermediates\merged_manifest\release\processReleaseManifest\AndroidManifest.xml:13:9-17:18
+action#android.intent.action.OPEN_DOCUMENT
+ADDED from [:android_file_picker] E:\Femio\.claude\worktrees\femio-repo-study-planning-88d7c9\apps\mobile\build\android_file_picker\intermediates\merged_manifest\release\processReleaseManifest\AndroidManifest.xml:14:13-74
+	android:name
+		ADDED from [:android_file_picker] E:\Femio\.claude\worktrees\femio-repo-study-planning-88d7c9\apps\mobile\build\android_file_picker\intermediates\merged_manifest\release\processReleaseManifest\AndroidManifest.xml:14:21-71
+intent#action:name:android.intent.action.OPEN_DOCUMENT_TREE
+ADDED from [:android_file_picker] E:\Femio\.claude\worktrees\femio-repo-study-planning-88d7c9\apps\mobile\build\android_file_picker\intermediates\merged_manifest\release\processReleaseManifest\AndroidManifest.xml:18:9-20:18
+action#android.intent.action.OPEN_DOCUMENT_TREE
+ADDED from [:android_file_picker] E:\Femio\.claude\worktrees\femio-repo-study-planning-88d7c9\apps\mobile\build\android_file_picker\intermediates\merged_manifest\release\processReleaseManifest\AndroidManifest.xml:19:13-79
+	android:name
+		ADDED from [:android_file_picker] E:\Femio\.claude\worktrees\femio-repo-study-planning-88d7c9\apps\mobile\build\android_file_picker\intermediates\merged_manifest\release\processReleaseManifest\AndroidManifest.xml:19:21-76
+intent#action:name:android.intent.action.CREATE_DOCUMENT+data:mimeType:*/*
+ADDED from [:android_file_picker] E:\Femio\.claude\worktrees\femio-repo-study-planning-88d7c9\apps\mobile\build\android_file_picker\intermediates\merged_manifest\release\processReleaseManifest\AndroidManifest.xml:21:9-25:18
+action#android.intent.action.CREATE_DOCUMENT
+ADDED from [:android_file_picker] E:\Femio\.claude\worktrees\femio-repo-study-planning-88d7c9\apps\mobile\build\android_file_picker\intermediates\merged_manifest\release\processReleaseManifest\AndroidManifest.xml:22:13-76
+	android:name
+		ADDED from [:android_file_picker] E:\Femio\.claude\worktrees\femio-repo-study-planning-88d7c9\apps\mobile\build\android_file_picker\intermediates\merged_manifest\release\processReleaseManifest\AndroidManifest.xml:22:21-73
+uses-permission#android.permission.VIBRATE
+ADDED from [:flutter_local_notifications] E:\Femio\.claude\worktrees\femio-repo-study-planning-88d7c9\apps\mobile\build\flutter_local_notifications\intermediates\merged_manifest\release\processReleaseManifest\AndroidManifest.xml:7:5-66
+	android:name
+		ADDED from [:flutter_local_notifications] E:\Femio\.claude\worktrees\femio-repo-study-planning-88d7c9\apps\mobile\build\flutter_local_notifications\intermediates\merged_manifest\release\processReleaseManifest\AndroidManifest.xml:7:22-63
+uses-permission#android.permission.POST_NOTIFICATIONS
+ADDED from [:flutter_local_notifications] E:\Femio\.claude\worktrees\femio-repo-study-planning-88d7c9\apps\mobile\build\flutter_local_notifications\intermediates\merged_manifest\release\processReleaseManifest\AndroidManifest.xml:8:5-77
+	android:name
+		ADDED from [:flutter_local_notifications] E:\Femio\.claude\worktrees\femio-repo-study-planning-88d7c9\apps\mobile\build\flutter_local_notifications\intermediates\merged_manifest\release\processReleaseManifest\AndroidManifest.xml:8:22-74
+uses-permission#com.android.vending.BILLING
+ADDED from [com.android.billingclient:billing:9.1.0] E:\gradle_cache\caches\9.3.1\transforms\aab30d7815453732607f161bfd3bc0f5\workspace\transformed\billing-9.1.0\AndroidManifest.xml:10:5-67
+	android:name
+		ADDED from [com.android.billingclient:billing:9.1.0] E:\gradle_cache\caches\9.3.1\transforms\aab30d7815453732607f161bfd3bc0f5\workspace\transformed\billing-9.1.0\AndroidManifest.xml:10:22-64
+intent#action:name:com.android.vending.billing.InAppBillingService.BIND
+ADDED from [com.android.billingclient:billing:9.1.0] E:\gradle_cache\caches\9.3.1\transforms\aab30d7815453732607f161bfd3bc0f5\workspace\transformed\billing-9.1.0\AndroidManifest.xml:13:9-15:18
+action#com.android.vending.billing.InAppBillingService.BIND
+ADDED from [com.android.billingclient:billing:9.1.0] E:\gradle_cache\caches\9.3.1\transforms\aab30d7815453732607f161bfd3bc0f5\workspace\transformed\billing-9.1.0\AndroidManifest.xml:14:13-91
+	android:name
+		ADDED from [com.android.billingclient:billing:9.1.0] E:\gradle_cache\caches\9.3.1\transforms\aab30d7815453732607f161bfd3bc0f5\workspace\transformed\billing-9.1.0\AndroidManifest.xml:14:21-88
+intent#action:name:com.google.android.apps.play.billingtestcompanion.BillingOverrideService.BIND
+ADDED from [com.android.billingclient:billing:9.1.0] E:\gradle_cache\caches\9.3.1\transforms\aab30d7815453732607f161bfd3bc0f5\workspace\transformed\billing-9.1.0\AndroidManifest.xml:16:9-18:18
+action#com.google.android.apps.play.billingtestcompanion.BillingOverrideService.BIND
+ADDED from [com.android.billingclient:billing:9.1.0] E:\gradle_cache\caches\9.3.1\transforms\aab30d7815453732607f161bfd3bc0f5\workspace\transformed\billing-9.1.0\AndroidManifest.xml:17:13-116
+	android:name
+		ADDED from [com.android.billingclient:billing:9.1.0] E:\gradle_cache\caches\9.3.1\transforms\aab30d7815453732607f161bfd3bc0f5\workspace\transformed\billing-9.1.0\AndroidManifest.xml:17:21-113
+meta-data#com.google.android.play.billingclient.version
+ADDED from [com.android.billingclient:billing:9.1.0] E:\gradle_cache\caches\9.3.1\transforms\aab30d7815453732607f161bfd3bc0f5\workspace\transformed\billing-9.1.0\AndroidManifest.xml:22:9-24:37
+	android:value
+		ADDED from [com.android.billingclient:billing:9.1.0] E:\gradle_cache\caches\9.3.1\transforms\aab30d7815453732607f161bfd3bc0f5\workspace\transformed\billing-9.1.0\AndroidManifest.xml:24:13-34
+	android:name
+		ADDED from [com.android.billingclient:billing:9.1.0] E:\gradle_cache\caches\9.3.1\transforms\aab30d7815453732607f161bfd3bc0f5\workspace\transformed\billing-9.1.0\AndroidManifest.xml:23:13-73
+activity#com.android.billingclient.api.ProxyBillingActivity
+ADDED from [com.android.billingclient:billing:9.1.0] E:\gradle_cache\caches\9.3.1\transforms\aab30d7815453732607f161bfd3bc0f5\workspace\transformed\billing-9.1.0\AndroidManifest.xml:26:9-30:75
+	android:exported
+		ADDED from [com.android.billingclient:billing:9.1.0] E:\gradle_cache\caches\9.3.1\transforms\aab30d7815453732607f161bfd3bc0f5\workspace\transformed\billing-9.1.0\AndroidManifest.xml:29:13-37
+	android:configChanges
+		ADDED from [com.android.billingclient:billing:9.1.0] E:\gradle_cache\caches\9.3.1\transforms\aab30d7815453732607f161bfd3bc0f5\workspace\transformed\billing-9.1.0\AndroidManifest.xml:28:13-96
+	android:theme
+		ADDED from [com.android.billingclient:billing:9.1.0] E:\gradle_cache\caches\9.3.1\transforms\aab30d7815453732607f161bfd3bc0f5\workspace\transformed\billing-9.1.0\AndroidManifest.xml:30:13-72
+	android:name
+		ADDED from [com.android.billingclient:billing:9.1.0] E:\gradle_cache\caches\9.3.1\transforms\aab30d7815453732607f161bfd3bc0f5\workspace\transformed\billing-9.1.0\AndroidManifest.xml:27:13-78
+activity#com.android.billingclient.api.ProxyBillingActivityV2
+ADDED from [com.android.billingclient:billing:9.1.0] E:\gradle_cache\caches\9.3.1\transforms\aab30d7815453732607f161bfd3bc0f5\workspace\transformed\billing-9.1.0\AndroidManifest.xml:31:9-35:75
+	android:exported
+		ADDED from [com.android.billingclient:billing:9.1.0] E:\gradle_cache\caches\9.3.1\transforms\aab30d7815453732607f161bfd3bc0f5\workspace\transformed\billing-9.1.0\AndroidManifest.xml:34:13-37
+	android:configChanges
+		ADDED from [com.android.billingclient:billing:9.1.0] E:\gradle_cache\caches\9.3.1\transforms\aab30d7815453732607f161bfd3bc0f5\workspace\transformed\billing-9.1.0\AndroidManifest.xml:33:13-96
+	android:theme
+		ADDED from [com.android.billingclient:billing:9.1.0] E:\gradle_cache\caches\9.3.1\transforms\aab30d7815453732607f161bfd3bc0f5\workspace\transformed\billing-9.1.0\AndroidManifest.xml:35:13-72
+	android:name
+		ADDED from [com.android.billingclient:billing:9.1.0] E:\gradle_cache\caches\9.3.1\transforms\aab30d7815453732607f161bfd3bc0f5\workspace\transformed\billing-9.1.0\AndroidManifest.xml:32:13-80
+activity#com.google.android.gms.common.api.GoogleApiActivity
+ADDED from [com.google.android.gms:play-services-base:18.5.0] E:\gradle_cache\caches\9.3.1\transforms\ab0f8078397fb06edd10d8913f508876\workspace\transformed\play-services-base-18.5.0\AndroidManifest.xml:5:9-173
+	android:exported
+		ADDED from [com.google.android.gms:play-services-base:18.5.0] E:\gradle_cache\caches\9.3.1\transforms\ab0f8078397fb06edd10d8913f508876\workspace\transformed\play-services-base-18.5.0\AndroidManifest.xml:5:146-170
+	android:theme
+		ADDED from [com.google.android.gms:play-services-base:18.5.0] E:\gradle_cache\caches\9.3.1\transforms\ab0f8078397fb06edd10d8913f508876\workspace\transformed\play-services-base-18.5.0\AndroidManifest.xml:5:86-145
+	android:name
+		ADDED from [com.google.android.gms:play-services-base:18.5.0] E:\gradle_cache\caches\9.3.1\transforms\ab0f8078397fb06edd10d8913f508876\workspace\transformed\play-services-base-18.5.0\AndroidManifest.xml:5:19-85
+meta-data#com.google.android.gms.version
+ADDED from [com.google.android.gms:play-services-basement:18.9.0] E:\gradle_cache\caches\9.3.1\transforms\59165f1f6790c70e356e84ecf56c41d2\workspace\transformed\play-services-basement-18.9.0\AndroidManifest.xml:21:9-23:69
+	android:value
+		ADDED from [com.google.android.gms:play-services-basement:18.9.0] E:\gradle_cache\caches\9.3.1\transforms\59165f1f6790c70e356e84ecf56c41d2\workspace\transformed\play-services-basement-18.9.0\AndroidManifest.xml:23:13-66
+	android:name
+		ADDED from [com.google.android.gms:play-services-basement:18.9.0] E:\gradle_cache\caches\9.3.1\transforms\59165f1f6790c70e356e84ecf56c41d2\workspace\transformed\play-services-basement-18.9.0\AndroidManifest.xml:22:13-58
+provider#androidx.startup.InitializationProvider
+ADDED from [androidx.lifecycle:lifecycle-process:2.10.0] E:\gradle_cache\caches\9.3.1\transforms\06aa87040e4b39ed5d8d478686f22d34\workspace\transformed\lifecycle-process-2.10.0\AndroidManifest.xml:24:9-32:20
+MERGED from [androidx.profileinstaller:profileinstaller:1.4.0] E:\gradle_cache\caches\9.3.1\transforms\7366a9c8623cf5e0422083d5012d9281\workspace\transformed\profileinstaller-1.4.0\AndroidManifest.xml:24:9-32:20
+MERGED from [androidx.profileinstaller:profileinstaller:1.4.0] E:\gradle_cache\caches\9.3.1\transforms\7366a9c8623cf5e0422083d5012d9281\workspace\transformed\profileinstaller-1.4.0\AndroidManifest.xml:24:9-32:20
+MERGED from [androidx.startup:startup-runtime:1.1.1] E:\gradle_cache\caches\9.3.1\transforms\9b4102c231a6286b797c71f1baf13a34\workspace\transformed\startup-runtime-1.1.1\AndroidManifest.xml:26:9-30:34
+MERGED from [androidx.startup:startup-runtime:1.1.1] E:\gradle_cache\caches\9.3.1\transforms\9b4102c231a6286b797c71f1baf13a34\workspace\transformed\startup-runtime-1.1.1\AndroidManifest.xml:26:9-30:34
+	tools:node
+		ADDED from [androidx.lifecycle:lifecycle-process:2.10.0] E:\gradle_cache\caches\9.3.1\transforms\06aa87040e4b39ed5d8d478686f22d34\workspace\transformed\lifecycle-process-2.10.0\AndroidManifest.xml:28:13-31
+	android:authorities
+		ADDED from [androidx.lifecycle:lifecycle-process:2.10.0] E:\gradle_cache\caches\9.3.1\transforms\06aa87040e4b39ed5d8d478686f22d34\workspace\transformed\lifecycle-process-2.10.0\AndroidManifest.xml:26:13-68
+	android:exported
+		ADDED from [androidx.lifecycle:lifecycle-process:2.10.0] E:\gradle_cache\caches\9.3.1\transforms\06aa87040e4b39ed5d8d478686f22d34\workspace\transformed\lifecycle-process-2.10.0\AndroidManifest.xml:27:13-37
+	android:name
+		ADDED from [androidx.lifecycle:lifecycle-process:2.10.0] E:\gradle_cache\caches\9.3.1\transforms\06aa87040e4b39ed5d8d478686f22d34\workspace\transformed\lifecycle-process-2.10.0\AndroidManifest.xml:25:13-67
+meta-data#androidx.lifecycle.ProcessLifecycleInitializer
+ADDED from [androidx.lifecycle:lifecycle-process:2.10.0] E:\gradle_cache\caches\9.3.1\transforms\06aa87040e4b39ed5d8d478686f22d34\workspace\transformed\lifecycle-process-2.10.0\AndroidManifest.xml:29:13-31:52
+	android:value
+		ADDED from [androidx.lifecycle:lifecycle-process:2.10.0] E:\gradle_cache\caches\9.3.1\transforms\06aa87040e4b39ed5d8d478686f22d34\workspace\transformed\lifecycle-process-2.10.0\AndroidManifest.xml:31:17-49
+	android:name
+		ADDED from [androidx.lifecycle:lifecycle-process:2.10.0] E:\gradle_cache\caches\9.3.1\transforms\06aa87040e4b39ed5d8d478686f22d34\workspace\transformed\lifecycle-process-2.10.0\AndroidManifest.xml:30:17-78
+uses-library#androidx.window.extensions
+ADDED from [androidx.window:window:1.2.0] E:\gradle_cache\caches\9.3.1\transforms\3af980662234f52902de775e9c6e354f\workspace\transformed\window-1.2.0\AndroidManifest.xml:23:9-25:40
+	android:required
+		ADDED from [androidx.window:window:1.2.0] E:\gradle_cache\caches\9.3.1\transforms\3af980662234f52902de775e9c6e354f\workspace\transformed\window-1.2.0\AndroidManifest.xml:25:13-37
+	android:name
+		ADDED from [androidx.window:window:1.2.0] E:\gradle_cache\caches\9.3.1\transforms\3af980662234f52902de775e9c6e354f\workspace\transformed\window-1.2.0\AndroidManifest.xml:24:13-54
+uses-library#androidx.window.sidecar
+ADDED from [androidx.window:window:1.2.0] E:\gradle_cache\caches\9.3.1\transforms\3af980662234f52902de775e9c6e354f\workspace\transformed\window-1.2.0\AndroidManifest.xml:26:9-28:40
+	android:required
+		ADDED from [androidx.window:window:1.2.0] E:\gradle_cache\caches\9.3.1\transforms\3af980662234f52902de775e9c6e354f\workspace\transformed\window-1.2.0\AndroidManifest.xml:28:13-37
+	android:name
+		ADDED from [androidx.window:window:1.2.0] E:\gradle_cache\caches\9.3.1\transforms\3af980662234f52902de775e9c6e354f\workspace\transformed\window-1.2.0\AndroidManifest.xml:27:13-51
+permission#${applicationId}.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION
+ADDED from [androidx.core:core:1.18.0] E:\gradle_cache\caches\9.3.1\transforms\d093bb2eca2532b7d20813ec3c4a0c68\workspace\transformed\core-1.18.0\AndroidManifest.xml:22:5-24:47
+	android:protectionLevel
+		ADDED from [androidx.core:core:1.18.0] E:\gradle_cache\caches\9.3.1\transforms\d093bb2eca2532b7d20813ec3c4a0c68\workspace\transformed\core-1.18.0\AndroidManifest.xml:24:9-44
+	android:name
+		ADDED from [androidx.core:core:1.18.0] E:\gradle_cache\caches\9.3.1\transforms\d093bb2eca2532b7d20813ec3c4a0c68\workspace\transformed\core-1.18.0\AndroidManifest.xml:23:9-81
+permission#com.femioapp.femio.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION
+ADDED from [androidx.core:core:1.18.0] E:\gradle_cache\caches\9.3.1\transforms\d093bb2eca2532b7d20813ec3c4a0c68\workspace\transformed\core-1.18.0\AndroidManifest.xml:22:5-24:47
+	android:protectionLevel
+		ADDED from [androidx.core:core:1.18.0] E:\gradle_cache\caches\9.3.1\transforms\d093bb2eca2532b7d20813ec3c4a0c68\workspace\transformed\core-1.18.0\AndroidManifest.xml:24:9-44
+	android:name
+		ADDED from [androidx.core:core:1.18.0] E:\gradle_cache\caches\9.3.1\transforms\d093bb2eca2532b7d20813ec3c4a0c68\workspace\transformed\core-1.18.0\AndroidManifest.xml:23:9-81
+uses-permission#${applicationId}.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION
+ADDED from [androidx.core:core:1.18.0] E:\gradle_cache\caches\9.3.1\transforms\d093bb2eca2532b7d20813ec3c4a0c68\workspace\transformed\core-1.18.0\AndroidManifest.xml:26:5-97
+	android:name
+		ADDED from [androidx.core:core:1.18.0] E:\gradle_cache\caches\9.3.1\transforms\d093bb2eca2532b7d20813ec3c4a0c68\workspace\transformed\core-1.18.0\AndroidManifest.xml:26:22-94
+uses-permission#com.femioapp.femio.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION
+ADDED from [androidx.core:core:1.18.0] E:\gradle_cache\caches\9.3.1\transforms\d093bb2eca2532b7d20813ec3c4a0c68\workspace\transformed\core-1.18.0\AndroidManifest.xml:26:5-97
+	android:name
+		ADDED from [androidx.core:core:1.18.0] E:\gradle_cache\caches\9.3.1\transforms\d093bb2eca2532b7d20813ec3c4a0c68\workspace\transformed\core-1.18.0\AndroidManifest.xml:26:22-94
+meta-data#androidx.profileinstaller.ProfileInstallerInitializer
+ADDED from [androidx.profileinstaller:profileinstaller:1.4.0] E:\gradle_cache\caches\9.3.1\transforms\7366a9c8623cf5e0422083d5012d9281\workspace\transformed\profileinstaller-1.4.0\AndroidManifest.xml:29:13-31:52
+	android:value
+		ADDED from [androidx.profileinstaller:profileinstaller:1.4.0] E:\gradle_cache\caches\9.3.1\transforms\7366a9c8623cf5e0422083d5012d9281\workspace\transformed\profileinstaller-1.4.0\AndroidManifest.xml:31:17-49
+	android:name
+		ADDED from [androidx.profileinstaller:profileinstaller:1.4.0] E:\gradle_cache\caches\9.3.1\transforms\7366a9c8623cf5e0422083d5012d9281\workspace\transformed\profileinstaller-1.4.0\AndroidManifest.xml:30:17-85
+receiver#androidx.profileinstaller.ProfileInstallReceiver
+ADDED from [androidx.profileinstaller:profileinstaller:1.4.0] E:\gradle_cache\caches\9.3.1\transforms\7366a9c8623cf5e0422083d5012d9281\workspace\transformed\profileinstaller-1.4.0\AndroidManifest.xml:34:9-52:20
+	android:enabled
+		ADDED from [androidx.profileinstaller:profileinstaller:1.4.0] E:\gradle_cache\caches\9.3.1\transforms\7366a9c8623cf5e0422083d5012d9281\workspace\transformed\profileinstaller-1.4.0\AndroidManifest.xml:37:13-35
+	android:exported
+		ADDED from [androidx.profileinstaller:profileinstaller:1.4.0] E:\gradle_cache\caches\9.3.1\transforms\7366a9c8623cf5e0422083d5012d9281\workspace\transformed\profileinstaller-1.4.0\AndroidManifest.xml:38:13-36
+	android:permission
+		ADDED from [androidx.profileinstaller:profileinstaller:1.4.0] E:\gradle_cache\caches\9.3.1\transforms\7366a9c8623cf5e0422083d5012d9281\workspace\transformed\profileinstaller-1.4.0\AndroidManifest.xml:39:13-57
+	android:directBootAware
+		ADDED from [androidx.profileinstaller:profileinstaller:1.4.0] E:\gradle_cache\caches\9.3.1\transforms\7366a9c8623cf5e0422083d5012d9281\workspace\transformed\profileinstaller-1.4.0\AndroidManifest.xml:36:13-44
+	android:name
+		ADDED from [androidx.profileinstaller:profileinstaller:1.4.0] E:\gradle_cache\caches\9.3.1\transforms\7366a9c8623cf5e0422083d5012d9281\workspace\transformed\profileinstaller-1.4.0\AndroidManifest.xml:35:13-76
+intent-filter#action:name:androidx.profileinstaller.action.INSTALL_PROFILE
+ADDED from [androidx.profileinstaller:profileinstaller:1.4.0] E:\gradle_cache\caches\9.3.1\transforms\7366a9c8623cf5e0422083d5012d9281\workspace\transformed\profileinstaller-1.4.0\AndroidManifest.xml:40:13-42:29
+action#androidx.profileinstaller.action.INSTALL_PROFILE
+ADDED from [androidx.profileinstaller:profileinstaller:1.4.0] E:\gradle_cache\caches\9.3.1\transforms\7366a9c8623cf5e0422083d5012d9281\workspace\transformed\profileinstaller-1.4.0\AndroidManifest.xml:41:17-91
+	android:name
+		ADDED from [androidx.profileinstaller:profileinstaller:1.4.0] E:\gradle_cache\caches\9.3.1\transforms\7366a9c8623cf5e0422083d5012d9281\workspace\transformed\profileinstaller-1.4.0\AndroidManifest.xml:41:25-88
+intent-filter#action:name:androidx.profileinstaller.action.SKIP_FILE
+ADDED from [androidx.profileinstaller:profileinstaller:1.4.0] E:\gradle_cache\caches\9.3.1\transforms\7366a9c8623cf5e0422083d5012d9281\workspace\transformed\profileinstaller-1.4.0\AndroidManifest.xml:43:13-45:29
+action#androidx.profileinstaller.action.SKIP_FILE
+ADDED from [androidx.profileinstaller:profileinstaller:1.4.0] E:\gradle_cache\caches\9.3.1\transforms\7366a9c8623cf5e0422083d5012d9281\workspace\transformed\profileinstaller-1.4.0\AndroidManifest.xml:44:17-85
+	android:name
+		ADDED from [androidx.profileinstaller:profileinstaller:1.4.0] E:\gradle_cache\caches\9.3.1\transforms\7366a9c8623cf5e0422083d5012d9281\workspace\transformed\profileinstaller-1.4.0\AndroidManifest.xml:44:25-82
+intent-filter#action:name:androidx.profileinstaller.action.SAVE_PROFILE
+ADDED from [androidx.profileinstaller:profileinstaller:1.4.0] E:\gradle_cache\caches\9.3.1\transforms\7366a9c8623cf5e0422083d5012d9281\workspace\transformed\profileinstaller-1.4.0\AndroidManifest.xml:46:13-48:29
+action#androidx.profileinstaller.action.SAVE_PROFILE
+ADDED from [androidx.profileinstaller:profileinstaller:1.4.0] E:\gradle_cache\caches\9.3.1\transforms\7366a9c8623cf5e0422083d5012d9281\workspace\transformed\profileinstaller-1.4.0\AndroidManifest.xml:47:17-88
+	android:name
+		ADDED from [androidx.profileinstaller:profileinstaller:1.4.0] E:\gradle_cache\caches\9.3.1\transforms\7366a9c8623cf5e0422083d5012d9281\workspace\transformed\profileinstaller-1.4.0\AndroidManifest.xml:47:25-85
+intent-filter#action:name:androidx.profileinstaller.action.BENCHMARK_OPERATION
+ADDED from [androidx.profileinstaller:profileinstaller:1.4.0] E:\gradle_cache\caches\9.3.1\transforms\7366a9c8623cf5e0422083d5012d9281\workspace\transformed\profileinstaller-1.4.0\AndroidManifest.xml:49:13-51:29
+action#androidx.profileinstaller.action.BENCHMARK_OPERATION
+ADDED from [androidx.profileinstaller:profileinstaller:1.4.0] E:\gradle_cache\caches\9.3.1\transforms\7366a9c8623cf5e0422083d5012d9281\workspace\transformed\profileinstaller-1.4.0\AndroidManifest.xml:50:17-95
+	android:name
+		ADDED from [androidx.profileinstaller:profileinstaller:1.4.0] E:\gradle_cache\caches\9.3.1\transforms\7366a9c8623cf5e0422083d5012d9281\workspace\transformed\profileinstaller-1.4.0\AndroidManifest.xml:50:25-92
+service#com.google.android.datatransport.runtime.backends.TransportBackendDiscovery
+ADDED from [com.google.android.datatransport:transport-backend-cct:3.1.8] E:\gradle_cache\caches\9.3.1\transforms\2be894a0483e1b151fc30aeed2ac7543\workspace\transformed\transport-backend-cct-3.1.8\AndroidManifest.xml:28:9-34:19
+MERGED from [com.google.android.datatransport:transport-runtime:3.1.8] E:\gradle_cache\caches\9.3.1\transforms\ce6696293ec594610737f2f8e2736f7b\workspace\transformed\transport-runtime-3.1.8\AndroidManifest.xml:36:9-38:40
+MERGED from [com.google.android.datatransport:transport-runtime:3.1.8] E:\gradle_cache\caches\9.3.1\transforms\ce6696293ec594610737f2f8e2736f7b\workspace\transformed\transport-runtime-3.1.8\AndroidManifest.xml:36:9-38:40
+	android:exported
+		ADDED from [com.google.android.datatransport:transport-backend-cct:3.1.8] E:\gradle_cache\caches\9.3.1\transforms\2be894a0483e1b151fc30aeed2ac7543\workspace\transformed\transport-backend-cct-3.1.8\AndroidManifest.xml:30:13-37
+	android:name
+		ADDED from [com.google.android.datatransport:transport-backend-cct:3.1.8] E:\gradle_cache\caches\9.3.1\transforms\2be894a0483e1b151fc30aeed2ac7543\workspace\transformed\transport-backend-cct-3.1.8\AndroidManifest.xml:29:13-103
+meta-data#backend:com.google.android.datatransport.cct.CctBackendFactory
+ADDED from [com.google.android.datatransport:transport-backend-cct:3.1.8] E:\gradle_cache\caches\9.3.1\transforms\2be894a0483e1b151fc30aeed2ac7543\workspace\transformed\transport-backend-cct-3.1.8\AndroidManifest.xml:31:13-33:39
+	android:value
+		ADDED from [com.google.android.datatransport:transport-backend-cct:3.1.8] E:\gradle_cache\caches\9.3.1\transforms\2be894a0483e1b151fc30aeed2ac7543\workspace\transformed\transport-backend-cct-3.1.8\AndroidManifest.xml:33:17-36
+	android:name
+		ADDED from [com.google.android.datatransport:transport-backend-cct:3.1.8] E:\gradle_cache\caches\9.3.1\transforms\2be894a0483e1b151fc30aeed2ac7543\workspace\transformed\transport-backend-cct-3.1.8\AndroidManifest.xml:32:17-94
+service#com.google.android.datatransport.runtime.scheduling.jobscheduling.JobInfoSchedulerService
+ADDED from [com.google.android.datatransport:transport-runtime:3.1.8] E:\gradle_cache\caches\9.3.1\transforms\ce6696293ec594610737f2f8e2736f7b\workspace\transformed\transport-runtime-3.1.8\AndroidManifest.xml:26:9-30:19
+	android:exported
+		ADDED from [com.google.android.datatransport:transport-runtime:3.1.8] E:\gradle_cache\caches\9.3.1\transforms\ce6696293ec594610737f2f8e2736f7b\workspace\transformed\transport-runtime-3.1.8\AndroidManifest.xml:28:13-37
+	android:permission
+		ADDED from [com.google.android.datatransport:transport-runtime:3.1.8] E:\gradle_cache\caches\9.3.1\transforms\ce6696293ec594610737f2f8e2736f7b\workspace\transformed\transport-runtime-3.1.8\AndroidManifest.xml:29:13-69
+	android:name
+		ADDED from [com.google.android.datatransport:transport-runtime:3.1.8] E:\gradle_cache\caches\9.3.1\transforms\ce6696293ec594610737f2f8e2736f7b\workspace\transformed\transport-runtime-3.1.8\AndroidManifest.xml:27:13-117
+receiver#com.google.android.datatransport.runtime.scheduling.jobscheduling.AlarmManagerSchedulerBroadcastReceiver
+ADDED from [com.google.android.datatransport:transport-runtime:3.1.8] E:\gradle_cache\caches\9.3.1\transforms\ce6696293ec594610737f2f8e2736f7b\workspace\transformed\transport-runtime-3.1.8\AndroidManifest.xml:32:9-34:40
+	android:exported
+		ADDED from [com.google.android.datatransport:transport-runtime:3.1.8] E:\gradle_cache\caches\9.3.1\transforms\ce6696293ec594610737f2f8e2736f7b\workspace\transformed\transport-runtime-3.1.8\AndroidManifest.xml:34:13-37
+	android:name
+		ADDED from [com.google.android.datatransport:transport-runtime:3.1.8] E:\gradle_cache\caches\9.3.1\transforms\ce6696293ec594610737f2f8e2736f7b\workspace\transformed\transport-runtime-3.1.8\AndroidManifest.xml:33:13-132

@@ -1274,4 +1274,29 @@ class L10nEn extends L10n {
 
   @override
   String get redFlagsReadGuide => 'Read the pregnancy warning signs';
+
+  @override
+  String get plusProbeTitle => 'femio Plus · billing check (test builds only)';
+
+  @override
+  String get plusProbeSubtitle =>
+      'Tap to ask Google Play whether billing is reachable on this phone. Nothing is bought.';
+
+  @override
+  String get plusProbeRunning => 'Asking Google Play…';
+
+  @override
+  String get plusProbeAvailable => 'Play Billing reachable: yes';
+
+  @override
+  String get plusProbeUnavailable =>
+      'Play Billing reachable: no (no Play Store on this device, or not signed in)';
+
+  @override
+  String get plusProbeProductFound =>
+      'Product femio_plus found in Play Console';
+
+  @override
+  String get plusProbeProductMissing =>
+      'Product femio_plus not found yet (expected until it is created in Play Console)';
 }
