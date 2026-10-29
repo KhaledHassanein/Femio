@@ -16,7 +16,7 @@ history and `docs/archive/`.
 
 ## Where things stand (2026-10-28)
 
-- **Sign-off pass 2026-10-30 (ADR-077).** All 121 guides are published and name Dr. Khaled M. as reviewer; no `[NEEDS SOURCE]` remains; the legal pages name the sole proprietorship and register number. Owner actions 3, 7 and 9 are closed. Not yet deployed until the branch is merged to `main`.
+- **Sign-off pass 2026-10-30 (ADR-077).** All 121 guides are published and name Dr. Khaled M. as reviewer; no `[NEEDS SOURCE]` remains; the legal pages name the sole proprietorship and register number. Owner actions 3, 7 and 9 are closed. Live on femioapp.com since 2026-10-30 (`73cb541`, checked: register number on `/en/privacy`, reviewer line and no "review pending" on five sampled guides).
 
 - **Direction (ADR-072, 2026-10-27).** The private Android app (`apps/mobile`) is the product; the
   website (`apps/web`) is a static front door with calendar calculators and the guides. The web
