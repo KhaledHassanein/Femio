@@ -22,11 +22,11 @@ open_graph_description: "دليل داعم عن المتلازمة، وعدم ا
 open_graph_image: "PENDING"
 open_graph_image_alt: "امرأة تراجع تقويم الدورة وهي تخطط لموعد خصوبة بسبب متلازمة تكيّس المبايض"
 written_by: "PENDING"
-medically_reviewed_by: "PENDING"
+medically_reviewed_by: "Dr. Khaled M."
 date_published: "2026-10-28"
 date_modified: "2026-10-28"
-last_reviewed: null
-next_review_due: null
+last_reviewed: "2026-10-30"
+next_review_due: "2027-10-30"
 reading_level_ok: false
 reading_level_method: "Not checked. No Arabic readability formula applied. Needs a native editor's check against grade 6 to 8 level."
 disclaimer_type: "general"

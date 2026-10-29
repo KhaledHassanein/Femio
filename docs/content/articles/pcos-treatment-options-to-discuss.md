@@ -2,7 +2,7 @@
 title: "PCOS: Treatment Options to Discuss With Your Clinician"
 slug: "pcos-treatment-options-to-discuss"
 locale: "en"
-status: "draft"
+status: "published"
 content_type: "condition cluster"
 search_intent: "goal-based overview of PCOS options to discuss with a clinician"
 primary_query: "PCOS treatment options"
@@ -24,11 +24,11 @@ open_graph_description: "A goal-based guide to PCOS options for periods, fertili
 open_graph_image: "PENDING"
 open_graph_image_alt: "Simple checklist beside a notebook and a calendar, with no people shown"
 written_by: "PENDING"
-medically_reviewed_by: "PENDING"
-date_published: null
-date_modified: null
-last_reviewed: null
-next_review_due: null
+medically_reviewed_by: "Dr. Khaled M."
+date_published: "2026-10-30"
+date_modified: "2026-10-30"
+last_reviewed: "2026-10-30"
+next_review_due: "2027-10-30"
 reading_level_ok: true
 reading_level_method: "Approximate Flesch-Kincaid grade 7.39 (scripted syllable estimate, headings excluded) checked 2026-10-28"
 disclaimer_type: "emergency"

@@ -1,6 +1,6 @@
 # Femio — current state (living document)
 
-**Last updated: 2026-10-29.** Rewrite in place; never add a dated copy. Older versions are in git
+**Last updated: 2026-10-30.** Rewrite in place; never add a dated copy. Older versions are in git
 history and `docs/archive/`.
 
 ## ▶ Resume prompt
@@ -15,6 +15,8 @@ history and `docs/archive/`.
 > First, run `git branch --list "wip/*"`. A branch there means the last session stopped mid-item.
 
 ## Where things stand (2026-10-28)
+
+- **Sign-off pass 2026-10-30 (ADR-077).** All 121 guides are published and name Dr. Khaled M. as reviewer; no `[NEEDS SOURCE]` remains; the legal pages name the sole proprietorship and register number. Owner actions 3, 7 and 9 are closed. Not yet deployed until the branch is merged to `main`.
 
 - **Direction (ADR-072, 2026-10-27).** The private Android app (`apps/mobile`) is the product; the
   website (`apps/web`) is a static front door with calendar calculators and the guides. The web

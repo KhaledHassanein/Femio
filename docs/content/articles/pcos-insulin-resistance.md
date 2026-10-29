@@ -23,11 +23,11 @@ open_graph_description: "What insulin resistance is, why it comes up with PCOS, 
 open_graph_image: "PENDING"
 open_graph_image_alt: "Simple diagram of sugar moving from the blood into a cell, with no people shown"
 written_by: "PENDING"
-medically_reviewed_by: "PENDING"
+medically_reviewed_by: "Dr. Khaled M."
 date_published: "2026-10-28"
 date_modified: "2026-10-28"
-last_reviewed: null
-next_review_due: null
+last_reviewed: "2026-10-30"
+next_review_due: "2027-10-30"
 reading_level_ok: true
 reading_level_method: "Approximate Flesch-Kincaid grade 6.63 (scripted syllable estimate, headings excluded) checked 2026-10-28"
 disclaimer_type: "emergency"

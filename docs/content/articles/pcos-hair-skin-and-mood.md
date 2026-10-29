@@ -23,11 +23,11 @@ open_graph_description: "Extra hair, acne, hair thinning and mood changes with P
 open_graph_image: "PENDING"
 open_graph_image_alt: "Calm illustration of a notebook and a hairbrush, with no people shown"
 written_by: "PENDING"
-medically_reviewed_by: "PENDING"
+medically_reviewed_by: "Dr. Khaled M."
 date_published: "2026-10-28"
 date_modified: "2026-10-28"
-last_reviewed: null
-next_review_due: null
+last_reviewed: "2026-10-30"
+next_review_due: "2027-10-30"
 reading_level_ok: true
 reading_level_method: "Approximate Flesch-Kincaid grade 5.79 (scripted syllable estimate, headings excluded) checked 2026-10-28"
 disclaimer_type: "emergency"

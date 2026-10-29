@@ -3,6 +3,8 @@ All notable changes to Femio V2.
 
 ## [Unreleased]
 ### Added
+- **Every guide names its reviewer.** All 121 guides (110 English, 11 Arabic) now show "Reviewed by Dr. Khaled M." with the review date, in place of "clinician review pending". Six condition and period guides and the Ramadan fasting guide, in English and Arabic, are published for the first time. The Ramadan guide now cites the NHS and Egypt's Dar al-Ifta for the two statements that were unsourced, and drops the ones that could not be sourced.
+- **The privacy notice and terms name who is behind femio**: KM Digital Labs, a sole proprietorship in Cairo with its commercial register number, in English, Arabic, French and Spanish.
 - **A language switcher on the website.** A languages button in the header opens the four languages, each written in itself (English, العربية, Français, Español), and the footer lists them as plain links. Switching keeps you on the same page.
 - **The guides are inside the app.** A Learn tab carries every reviewed guide, in Arabic where a translation exists and in English otherwise (marked as such), with the trying-to-conceive, pregnancy and PCOS guides first. It works with no network. "Seek care now" boxes are drawn as warning boxes, as on the website.
 - **Help now in the app.** A button on every screen opens the same reviewed guidance as the website: what to do right now, then emergency and support numbers for Egypt or Saudi Arabia once you choose a country, each with where the number was read. A tap copies the number; the app never dials or opens anything itself.

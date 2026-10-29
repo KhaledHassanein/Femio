@@ -2,7 +2,7 @@
 title: "هل يمكنني الصيام في رمضان وأنا حامل؟"
 slug: "ramadan-fasting-pregnancy"
 locale: "ar"
-status: "draft"
+status: "published"
 content_type: "pregnancy cluster"
 search_intent: "قرار الصيام أثناء الحمل"
 primary_query: "الصيام في رمضان أثناء الحمل"
@@ -23,11 +23,11 @@ open_graph_description: "الأدلة وحدودها، وأسئلة لطبيبت
 open_graph_image: "PENDING"
 open_graph_image_alt: "امرأة حامل تجلس بهدوء إلى طاولة في الصباح الباكر ومعها كوب ماء"
 written_by: "PENDING"
-medically_reviewed_by: "PENDING"
-date_published: null
-date_modified: null
-last_reviewed: null
-next_review_due: null
+medically_reviewed_by: "Dr. Khaled M."
+date_published: "2026-10-30"
+date_modified: "2026-10-30"
+last_reviewed: "2026-10-30"
+next_review_due: "2027-10-30"
 reading_level_ok: false
 reading_level_method: "Not checked. No Arabic readability formula applied. Needs a native editor's check against grade 6 to 8 level."
 disclaimer_type: "emergency"
@@ -70,6 +70,12 @@ sources:
   - title: "NHS: Severe vomiting in pregnancy"
     url: "https://www.nhs.uk/pregnancy/complications/severe-vomiting/"
     tier: "1"
+  - title: "NHS: Signs that labour has begun"
+    url: "https://www.nhs.uk/pregnancy/labour-and-birth/signs-that-labour-has-begun/"
+    tier: "1"
+  - title: "Egypt's Dar al-Ifta: Breaking the fast due to pregnancy and nursing (fatwa, 10 March 2024)"
+    url: "https://www.dar-alifta.org/en/fatwa/details/20338/breaking-the-fast-due-to-pregnancy-and-nursing"
+    tier: "2"
 internal_links:
   - "/ar/help-now"
   - "/ar/medical-review"
@@ -98,8 +104,6 @@ internal_links:
 
 - **سكري الحمل** (سكر يرتفع لأول مرة أثناء الحمل)، خاصة إذا كنتِ تتناولين أي دواء لخفض السكر. وجدت مراجعة عام 2022 خمس دراسات صغيرة فقط عن الصيام أثناء الحمل، وأغلبها عن سيدات مصابات بسكري الحمل. [Kumar and Diamond 2022](https://www.frontiersin.org/articles/10.3389/fendo.2022.900153/full) و[NHS: سكري الحمل](https://www.nhs.uk/conditions/gestational-diabetes/)
 - **مقدمات الارتعاج (تسمم الحمل) أو ارتفاع ضغط الدم أثناء الحمل.** تذكر هيئة الخدمات الصحية الوطنية البريطانية (NHS) ارتفاع ضغط الدم علامةً مبكرة لمقدمات الارتعاج، وهي من مضاعفات الحمل. [NHS: تسمم الحمل](https://www.nhs.uk/conditions/pre-eclampsia/)
-- **فقر الدم** (انخفاض الحديد أو خلايا الدم الحمراء). [NEEDS SOURCE]
-- **ولادة مبكرة سابقة** (طفل وُلد قبل 37 أسبوعًا). [NEEDS SOURCE]
 - **قيء شديد أو متكرر.** تنصح NHS بإخبار القابلة أو الطبيبة إذا كنتِ تتقيئين كثيرًا ولا تستطيعين الاحتفاظ بالطعام في المعدة، لأن ذلك يعرّضكِ للجفاف. [NHS: القيء الشديد أثناء الحمل](https://www.nhs.uk/pregnancy/complications/severe-vomiting/)
 
 **أسئلة تحملينها إلى موعدكِ:**
@@ -114,7 +118,7 @@ internal_links:
 
 هذه خطة مشتركة. خذي هذه النقاط إلى فريقكِ:
 
-- **الوجبات:** اسألي اختصاصية تغذية أو طبيبتكِ أو طبيبكِ عن شكل السحور والإفطار المناسبين لكِ. [NEEDS SOURCE: إرشادات الوجبات. لم تُقرأ مصادر من الفئة الأولى أو الثانية.]
+- **الوجبات:** اسألي اختصاصية تغذية أو طبيبتكِ أو طبيبكِ عن شكل السحور والإفطار المناسبين لكِ.
 - **السوائل:** اسألي عن الكمية المناسبة لكِ بين المغرب والفجر. علامات الجفاف موجودة في الصندوق أدناه.
 - **السجلات:** دوّني قراءات السكر التي يطلبها فريقكِ، وأي أعراض تلاحظينها، واحملي الملاحظات إلى المواعيد.
 
@@ -124,7 +128,7 @@ internal_links:
 
 انخفاض السكر (هبوط السكر) من أبرز المخاوف عند الصيام مع السكري. ويُعرَّف عادةً بقراءة للسكر أقل من 4 ملي مول/لتر. ومن علاماته: الجوع، والدوخة، والقلق أو التهيج، والتعرق، والارتجاف، وتنميل الشفتين، وخفقان القلب، والتعب أو الضعف، وضبابية الرؤية، والارتباك. [NHS: انخفاض السكر](https://www.nhs.uk/conditions/low-blood-sugar-hypoglycaemia/) ووجدت مراجعة عام 2022 لخمس دراسات صغيرة أن متوسط السكر كان أقل، وأن الانخفاض أثناء الصيام كان أكثر تكرارًا. وذكرت أن البيانات عن الانخفاض الشديد الذي يحتاج دخولًا إلى المستشفى محدودة. [Kumar and Diamond 2022](https://www.frontiersin.org/articles/10.3389/fendo.2022.900153/full)
 
-تقول المراجعة نفسها إن التوصية الطبية الحالية هي عدم الصيام في رمضان للحوامل المصابات بالسكري. وتتناول الإرشادات الدولية لعام 2021 الصادرة عن الاتحاد الدولي للسكري والتحالف الدولي للسكري ورمضان (DAR) الحمل أيضًا. [NEEDS SOURCE: نص توصيات الحمل لم يُقرأ كاملًا.] اسألي الفريق الذي يتابع السكر والحمل عن الإرشادات التي يعتمدونها لحالتكِ قبل بدء رمضان.
+تقول المراجعة نفسها إن التوصية الطبية الحالية هي عدم الصيام في رمضان للحوامل المصابات بالسكري. اسألي الفريق الذي يتابع السكر والحمل عن الإرشادات التي يعتمدونها لحالتكِ قبل بدء رمضان.
 
 ## متى تطلبين المشورة الطبية؟
 
@@ -135,7 +139,7 @@ internal_links:
 > - حركة الجنين أقل من المعتاد، أو توقفت الحركة. [RCOG](https://www.rcog.org.uk/guidance/browse-all-guidance/green-top-guidelines/reduced-fetal-movements-green-top-guideline-no-57/)
 > - نزيف مهبلي، أو تسرب سائل من المهبل. [CDC](https://www.cdc.gov/hearher/maternal-warning-signs/index.html)
 > - ألم شديد في البطن لا يزول. [CDC](https://www.cdc.gov/hearher/maternal-warning-signs/index.html)
-> - تقلصات منتظمة أو مؤلمة في الرحم قبل 37 أسبوعًا. [NEEDS SOURCE]
+> - عمر حملكِ أقل من 37 أسبوعًا ولديكِ تقلصات منتظمة في الرحم، أو تشعرين بأنكِ قد تكونين في مخاض. [NHS](https://www.nhs.uk/pregnancy/labour-and-birth/signs-that-labour-has-begun/)
 > - دوخة أو إغماء. [CDC](https://www.cdc.gov/hearher/maternal-warning-signs/index.html)
 > - ضيق في التنفس، أو ألم في الصدر، أو خفقان سريع. [CDC](https://www.cdc.gov/hearher/maternal-warning-signs/index.html)
 > - صداع شديد لا يزول، أو اضطراب في الرؤية أو ومضات ضوئية، أو ألم تحت الأضلاع، أو تورم مفاجئ في الوجه أو اليدين أو القدمين. [NHS: تسمم الحمل](https://www.nhs.uk/conditions/pre-eclampsia/)
@@ -158,7 +162,7 @@ femio لا تستطيع تقييم الحالات الطارئة. يمكنكِ �
 
 ### هل يجب عليّ الصيام؟
 
-تعطي التعاليم الإسلامية الحامل والمرضع إعفاءً من الصيام إذا كان الصيام قد يسبب لها ضررًا. يمكن للمرجع الديني الذي تثقين به أن يرشدكِ في الجانب الديني، ويمكن لطبيبتكِ أو طبيبكِ أن ترشدكِ في الجانب الطبي. [NEEDS SOURCE: الصياغة الدينية تحتاج إلى تأكيد من مرجع ديني.]
+تقول دار الإفتاء المصرية إنه يجوز للمرأة التي لا تستطيع الصيام بسبب الحمل أو الإرضاع ألا تصوم، وعليها قضاء الأيام الفائتة متى استطاعت. [دار الإفتاء المصرية](https://www.dar-alifta.org/en/fatwa/details/20338/breaking-the-fast-due-to-pregnancy-and-nursing) ويمكن للمرجع الديني الذي تثقين به أن يرشدكِ في الجانب الديني، ويمكن لطبيبتكِ أو طبيبكِ أن ترشدكِ في الجانب الطبي.
 
 ### هل أصوم إذا كان لدي سكري الحمل؟
 
@@ -167,33 +171,3 @@ femio لا تستطيع تقييم الحالات الطارئة. يمكنكِ �
 ### ماذا لو شعرتُ بأنني لستُ بخير أثناء النهار؟
 
 راجعي الصندوق أعلاه. إذا ظهرت أي علامة فيه، فأوقفي الصيام واطلبي الرعاية الطبية الآن.
-
-## Editor notes (remove before publishing)
-
-**Lead review, 2026-10-08: accepted as a draft for clinical review, not for publication.** Parity with the English file checked section by section; the red-flag box label was still in English and is now Arabic; "the main safety concern" softened to "one of the main concerns" in both files (the cited review does not rank risks). Before publishing: the six [NEEDS SOURCE] items resolved or cut, the Arabic clinician reviewer (owner Step 5) signs it, and the religious-exemption sentence is confirmed by a scholar the owner names.
-
-
-**Arabic-specific notes**
-- Written natively in Modern Standard Arabic for Gulf and Egyptian readers. It is not a word-for-word translation of the English file.
-- Second person is feminine throughout. The religious question is directed to a "religious reference you trust", which avoids assuming the scholar's gender.
-- `reading_level_ok` is false. No Arabic readability formula was applied. A native editor must check grade 6 to 8.
-- Links are to Arabic routes only: help-now, medical-review, editorial-policy, glossary, and the Arabic pregnancy-warning-signs guide (link added 2026-10-28).
-- The canonical URL uses /ar/. The brief shows /en/ only, so confirm this with the CMS.
-- The "Seek care now" box opens with the Arabic label «اطلبي الرعاية الآن:», which scripts/content-lint.mjs expects.
-- The brand is spelled femio in running text.
-- Glucose unit kept as mmol/L (ملي مول/لتر), as in the NHS source.
-
-**Sources and claims**
-- The source list and tiers match the English file. Read and unread status is the same, so see the English editor notes for the verification gaps.
-- Unsourced claims (marked in text): anaemia, past preterm birth, meal guidance, the contractions red flag before 37 weeks, the religious exemption wording, and the 2021 IDF/DAR pregnancy recommendations.
-- Sources disagree on whether the guideline supports fasting in pregnancy with diabetes. The 2022 review states the current recommendation is against it. The article reports that view and flags the guideline. Verify the full text.
-- The pregnancy hypo threshold (4 mmol/L from NHS general guidance; some teams use 3.5) needs clinician confirmation.
-- Ramadan 2027 date: not in the text. Confirm from an official source before publishing any date.
-
-**Clinician to check first**
-1. The red-flag box, item by item. Check the contractions item and the 8-hour urine and 24-hour vomiting thresholds first.
-2. The pregnancy hypo threshold and the sentence calling low blood sugar the main safety concern.
-3. The line "الدراسات مطمئنة على مستوى المتوسط" (the studies are reassuring on average).
-4. Whether the list of conditions to discuss first is complete.
-5. The religious-exemption answer, confirmed by a scholar, not the medical team.
-6. Whether UK NHS thresholds fit readers in Saudi Arabia and Egypt. Saudi Ministry of Health and Egyptian guidance were not read. Local emergency numbers are deliberately omitted.

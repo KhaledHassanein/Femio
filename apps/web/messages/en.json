@@ -1004,7 +1004,7 @@
     "points": [
       {
         "heading": "Who we are",
-        "body": "femio is made by {entity}, Cairo, Egypt (Dr Khaled Hassanein). Questions about privacy: {email}."
+        "body": "femio is made by {entity}, a sole proprietorship in Cairo, Egypt (commercial register no. {registration}), owned by Dr Khaled Hassanein, who is the data controller. Questions about privacy: {email}."
       },
       {
         "heading": "What the app stores, on your phone",
@@ -1073,7 +1073,7 @@
       },
       {
         "heading": "Contact",
-        "body": "{email} · {entity}, Cairo, Egypt."
+        "body": "{email} · {entity}, Cairo, Egypt · commercial register no. {registration}."
       }
     ]
   },

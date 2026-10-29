@@ -22,11 +22,11 @@ open_graph_description: "Track cycles and symptoms, use free health tools, and p
 open_graph_image: "PENDING — upload a crawlable 1200 x 630 px image"
 open_graph_image_alt: "Femio dashboard showing private cycle and symptom tracking tools"
 written_by: "Dr. Khaled M."
-medically_reviewed_by: "PENDING"
+medically_reviewed_by: "Dr. Khaled M."
 date_published: "2026-08-15"
 date_modified: "2026-08-15"
-last_reviewed: null
-next_review_due: null
+last_reviewed: "2026-10-30"
+next_review_due: "2027-10-30"
 reading_level_ok: true
 reading_level_method: "Approximate Flesch-Kincaid grade 8 or lower on 2026-08-03; confirm in the final CMS copy."
 disclaimer_type: "general"

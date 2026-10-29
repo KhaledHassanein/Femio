@@ -2,7 +2,7 @@
 title: "When Are Heavy Periods Worth Discussing With a Doctor?"
 slug: "heavy-periods"
 locale: "en"
-status: "draft"
+status: "published"
 content_type: "condition pillar"
 search_intent: "informational symptom and care guidance"
 primary_query: "heavy periods"
@@ -22,11 +22,11 @@ open_graph_description: "A clear guide to heavy bleeding, daily impact, possible
 open_graph_image: "PENDING"
 open_graph_image_alt: "Period calendar with flow tracking and notes about daily impact"
 written_by: "PENDING"
-medically_reviewed_by: "PENDING"
-date_published: null
-date_modified: null
-last_reviewed: null
-next_review_due: null
+medically_reviewed_by: "Dr. Khaled M."
+date_published: "2026-10-30"
+date_modified: "2026-10-30"
+last_reviewed: "2026-10-30"
+next_review_due: "2027-10-30"
 reading_level_ok: true
 reading_level_method: "Approximate Flesch-Kincaid grade 7.08 checked 2026-08-03"
 disclaimer_type: "emergency"

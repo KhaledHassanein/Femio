@@ -22,11 +22,11 @@ open_graph_description: "Why it often hurts at first, what helps with dryness an
 open_graph_image: "PENDING"
 open_graph_image_alt: "A couple sitting together at home with a baby asleep nearby"
 written_by: "PENDING"
-medically_reviewed_by: "PENDING"
+medically_reviewed_by: "Dr. Khaled M."
 date_published: "2026-08-19"
 date_modified: "2026-08-19"
-last_reviewed: null
-next_review_due: null
+last_reviewed: "2026-10-30"
+next_review_due: "2027-10-30"
 reading_level_ok: true
 reading_level_method: "Approximate Flesch-Kincaid grade 6.7, checked 2026-08-16"
 disclaimer_type: "general"

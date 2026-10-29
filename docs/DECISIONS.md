@@ -762,3 +762,43 @@ anywhere; what is said, and checked, is "her records never leave the phone; the 
 does is the ad request, and it carries nothing about her". The Play review of a health app with an
 ads SDK is the owner's accepted risk; the first upload carries the ads so the closed test exercises
 them. Alternative (c), house cards for femio Plus, stays as the ad-free surface on every other screen.
+
+
+## ADR-077
+**Date:** 2026-10-30 · **Status:** accepted 2026-10-30 (owner, in chat: "sign off everything and publish all", "no need for something to be still flagged or pending")
+
+**Context.** After the v3 launch every guide still carried `medically_reviewed_by: PENDING` (96 of
+121) or `status: draft` (8), the legal pages waited on one value, and the Arabic set waited on three
+register decisions. The owner is the named reviewer and the controller, and he decided to close the
+queue in one pass.
+
+**Decision.**
+1. **All 121 guides (110 English, 11 Arabic) are published and name Dr. Khaled M. as medical
+   reviewer**, `last_reviewed` 2026-10-30, `next_review_due` 2027-10-30. This is the owner's
+   attestation as a physician; the sessions applied it and did not clinically review the text. The
+   AI source-checks in `docs/content/reviews/` stay as the record of what was checked and how.
+   `written_by` stays `PENDING` on the guides that had no named writer (the owner signed as
+   reviewer, not as author). There are no FR or ES guide files; those locales cover the interface.
+2. **The Ramadan guide (EN + AR) is published with no `[NEEDS SOURCE]` left, by cutting or sourcing,
+   never by deleting a flag over an unsourced claim.** Cut: anaemia and past-preterm-birth bullets,
+   the IDF-DAR 2021 sentence (the full text could not be read). Sourced: the pre-37-weeks tightening
+   bullet to the NHS "Signs that labour has begun" page (read 2026-10-30); the religious-exemption
+   sentence to Egypt's Dar al-Ifta fatwa of 10 March 2024 (read 2026-10-30). The meals line is a
+   question to ask, not a claim, so its flag was dropped. The editor notes were removed.
+3. **The three Arabic decisions take the defaults**: the English inclusion lines (donor sperm,
+   same-sex couples, parenting alone, home insemination) stay out of the Arabic guides; the lay term
+   تكيّس المبايض stays; the Ramadan guide says "المرجع الديني".
+4. **The PCOS treatment guide is published as reviewed**: the owner, as the clinician, accepted the
+   letrozole wording ("off-label in many countries ... availability depends on where you live", with
+   the question for her clinician). An OHSS warning was **not** added because no source was read for
+   it; adding one needs a cited source first.
+5. **Legal entity:** KM Digital Labs is a **sole proprietorship**, commercial register no.
+   682-374-954, owned by Dr Khaled Hassanein, who is the data controller personally. No DPO for
+   version 1 (the owner confirmed). The mandated fertility sentence keeps the reworded default.
+   Written into the privacy and terms text in four languages and `apps/web/src/lib/legal/placeholders.ts`.
+
+**Consequences.** Every guide page now says "Reviewed by Dr. Khaled M., 2026-10-30" instead of
+"clinician review pending". Two cited pages that moved or passed their review date (ASRM 2021 in
+`FERTILITY_AWARENESS_SAFETY.md`, NHS infertility treatment) and the NHS labour page (next review
+due 2026-11-09) are re-checked at the 2027-10-30 review, or sooner by routine R5. The legal pack is
+a drafted pack, not a lawyer's opinion; that stays true and is stated in its first lines.
