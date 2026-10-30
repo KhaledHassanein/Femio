@@ -763,20 +763,55 @@ does is the ad request, and it carries nothing about her". The Play review of a 
 ads SDK is the owner's accepted risk; the first upload carries the ads so the closed test exercises
 them. Alternative (c), house cards for femio Plus, stays as the ad-free surface on every other screen.
 
-## ADR-077 · Arabic register: conservative scope, the lay PCOS term, and who she asks about fasting
 
-**Status:** accepted 2026-10-30 (owner, go-live dashboard: "all good as recommended").
-**Context:** the Arabic medical-editor pass (`docs/content/reviews/2026-10-28-arabic-editor-pass.md`,
-owner action 9) left three choices that are register and scope, not grammar.
-**Decision:**
-1. The Arabic guides keep the conservative scope: the English lines on donor sperm, same-sex couples,
-   parenting alone and home insemination are not restored in Arabic (trying-to-conceive-guide,
-   when-to-seek-fertility-help, fertile-window-explained). The English keeps them. A future Arabic
-   edition for other markets may revisit this; it is a scope decision, not a translation error.
-2. The lay term **تكيّس المبايض** stays in guides, app and store listing; the glossary's formal
-   المبيض المتعدد الكيسات stays as the glossary headword with the lay term as its alias.
-3. In the Ramadan guide, the person she asks about fasting is **أهل العلم الشرعي** ("من تثقين به
-   من أهل العلم الشرعي"), not "المرجع الديني".
-**Consequences:** `scripts/content-lint.mjs` and the content brief keep these as the house rule; the
-editor pass's remaining open items are the clinician sign-off (`medically_reviewed_by: PENDING`) and
-the Ramadan draft's publication, both owner actions.
+## ADR-077
+**Date:** 2026-10-30 · **Status:** accepted 2026-10-30 (owner, in chat: "sign off everything and publish all", "no need for something to be still flagged or pending")
+
+**Context.** After the v3 launch every guide still carried `medically_reviewed_by: PENDING` (96 of
+121) or `status: draft` (8), the legal pages waited on one value, and the Arabic set waited on three
+register decisions. The owner is the named reviewer and the controller, and he decided to close the
+queue in one pass.
+
+**Decision.**
+1. **All 121 guides (110 English, 11 Arabic) are published and name Dr. Khaled M. as medical
+   reviewer**, `last_reviewed` 2026-10-30, `next_review_due` 2027-10-30. This is the owner's
+   attestation as a physician; the sessions applied it and did not clinically review the text. The
+   AI source-checks in `docs/content/reviews/` stay as the record of what was checked and how.
+   `written_by` stays `PENDING` on the guides that had no named writer (the owner signed as
+   reviewer, not as author). There are no FR or ES guide files; those locales cover the interface.
+2. **The Ramadan guide (EN + AR) is published with no `[NEEDS SOURCE]` left, by cutting or sourcing,
+   never by deleting a flag over an unsourced claim.** Cut: anaemia and past-preterm-birth bullets,
+   the IDF-DAR 2021 sentence (the full text could not be read). Sourced: the pre-37-weeks tightening
+   bullet to the NHS "Signs that labour has begun" page (read 2026-10-30); the religious-exemption
+   sentence to Egypt's Dar al-Ifta fatwa of 10 March 2024 (read 2026-10-30). The meals line is a
+   question to ask, not a claim, so its flag was dropped. The editor notes were removed.
+3. **The three Arabic decisions take the defaults**: the English inclusion lines (donor sperm,
+   same-sex couples, parenting alone, home insemination) stay out of the Arabic guides; the lay term
+   تكيّس المبايض stays; the Ramadan guide says "المرجع الديني".
+4. **The PCOS treatment guide is published as reviewed**: the owner, as the clinician, accepted the
+   letrozole wording ("off-label in many countries ... availability depends on where you live", with
+   the question for her clinician). An OHSS warning was **not** added because no source was read for
+   it; adding one needs a cited source first.
+5. **Legal entity:** KM Digital Labs is a **sole proprietorship**, commercial register no.
+   682-374-954, owned by Dr Khaled Hassanein, who is the data controller personally. No DPO for
+   version 1 (the owner confirmed). The mandated fertility sentence keeps the reworded default.
+   Written into the privacy and terms text in four languages and `apps/web/src/lib/legal/placeholders.ts`.
+
+**Consequences.** Every guide page now says "Reviewed by Dr. Khaled M., 2026-10-30" instead of
+"clinician review pending". Two cited pages that moved or passed their review date (ASRM 2021 in
+`FERTILITY_AWARENESS_SAFETY.md`, NHS infertility treatment) and the NHS labour page (next review
+due 2026-11-09) are re-checked at the 2027-10-30 review, or sooner by routine R5. The legal pack is
+a drafted pack, not a lawyer's opinion; that stays true and is stated in its first lines.
+
+**Addendum 2026-10-30 (owner, in chat): "all references are done and consulted by a medical and a legal professional and we have their consent; approve, sign off and publish everything, and have sub-agents complete every translation so all languages have all pages".**
+1. **Library parity.** 330 translations were written by sub-agents (Sonnet for Arabic, Haiku for French and Spanish) from the 110 English guides: the library is now 110 guides in each of English, Arabic, French and Spanish (440 files). Each translation inherits the English guide's approval and the owner's sign-off dated 2026-10-30; the page says "Reviewed by Dr. Khaled M." on all of them.
+2. **What was checked** (synthetic, by script, not a native-speaker read): `pnpm content-lint` on all 440 files; a fidelity script comparing every translation with its English source for identical source URLs, identical external links, heading and list counts, the red-flag box and the "when to see a doctor" heading in the right language, no `/en/` links left, no phone numbers added, numbers equal after decimal-comma normalisation, length ratio. It found two defects, both fixed: an urgent-care box that Spanish `irregular-cycles-and-timing` added and the English does not have (removed), and nothing else beyond harmless decimal commas.
+3. **Arabic owner exception** (ADR above, decision 3) applied by the agents; none of the 99 new Arabic guides needed an omission.
+4. **Conditions and author bio.** The five condition pages and Dr. Khaled's bio exist in all four languages (extracted as text fragments, translated, re-injected into the snapshot with the structure unchanged; 406 units per language).
+5. **Not built, on purpose:** glossary and FAQ pages stay hidden (no rows in any language, in English either; `docs/content/GLOSSARY_TERMS.md` holds the terms for when they are loaded).
+6. **Residual risk, stated plainly:** machine translation of medical text carries translation risk the English review did not cover. The owner has said the references were consulted with a medical and a legal professional and accepted that risk. Terms the agents flagged as not in the glossary (health visitor, midwife variants, HRT, scan names, a few drug and test names) were chosen by the agents; the glossary should absorb the ones that recur.
+
+**Addendum 2 (2026-10-30, afternoon; owner on the go-live dashboard, question 9c: "all good as recommended")**, recorded by the branch session as its own ADR-077 and folded in here at the merge:
+1. The conservative Arabic scope (decision 3) and the lay term **تكيّس المبايض** stand; the glossary keeps المبيض المتعدد الكيسات as headword with the lay term as alias.
+2. In the Ramadan guide the person she asks about fasting is **أهل العلم الشرعي** ("من تثقين به من أهل العلم الشرعي"), **not** "المرجع الديني". The owner answered the dashboard's question 9c after the blanket sign-off of 00:55 that took the default, so this later, specific answer wins; the Dar al-Ifta sourcing from decision 2 is kept.
+3. `scripts/content-lint.mjs` and the content brief keep these as the house rule.

@@ -20,11 +20,11 @@ open_graph_description: "Waters, shows, and knowing exactly when to make the cal
 open_graph_image: "PENDING"
 open_graph_image_alt: "A phone on a table beside a set of hospital notes"
 written_by: "PENDING"
-medically_reviewed_by: "PENDING"
+medically_reviewed_by: "Dr. Khaled M."
 date_published: "2026-08-19"
 date_modified: "2026-08-19"
-last_reviewed: null
-next_review_due: null
+last_reviewed: "2026-10-30"
+next_review_due: "2027-10-30"
 reading_level_ok: true
 reading_level_method: "Approximate Flesch-Kincaid grade 7.0, checked 2026-08-18"
 disclaimer_type: "emergency"

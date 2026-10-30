@@ -2,7 +2,7 @@
 title: "Can I Fast in Ramadan While Pregnant?"
 slug: "ramadan-fasting-pregnancy"
 locale: "en"
-status: "draft"
+status: "published"
 content_type: "pregnancy cluster"
 search_intent: "pregnancy fasting decision support"
 primary_query: "fasting in Ramadan while pregnant"
@@ -23,11 +23,11 @@ open_graph_description: "The evidence and its gaps, questions for your clinician
 open_graph_image: "PENDING"
 open_graph_image_alt: "Pregnant woman sitting quietly at a table in the early morning with a glass of water"
 written_by: "PENDING"
-medically_reviewed_by: "PENDING"
-date_published: null
-date_modified: null
-last_reviewed: null
-next_review_due: null
+medically_reviewed_by: "Dr. Khaled M."
+date_published: "2026-10-30"
+date_modified: "2026-10-30"
+last_reviewed: "2026-10-30"
+next_review_due: "2027-10-30"
 reading_level_ok: true
 reading_level_method: "Approximate Flesch-Kincaid grade 7.2 by script on body text, 2026-10-08 (heuristic syllable count, not a validated tool; clinician and editor to confirm)"
 disclaimer_type: "emergency"
@@ -70,6 +70,12 @@ sources:
   - title: "NHS: Severe vomiting in pregnancy"
     url: "https://www.nhs.uk/pregnancy/complications/severe-vomiting/"
     tier: "1"
+  - title: "NHS: Signs that labour has begun"
+    url: "https://www.nhs.uk/pregnancy/labour-and-birth/signs-that-labour-has-begun/"
+    tier: "1"
+  - title: "Egypt's Dar al-Ifta: Breaking the fast due to pregnancy and nursing (fatwa, 10 March 2024)"
+    url: "https://www.dar-alifta.org/en/fatwa/details/20338/breaking-the-fast-due-to-pregnancy-and-nursing"
+    tier: "2"
 internal_links:
   - "/en/learn/pregnancy-warning-signs"
   - "/en/help-now"
@@ -98,8 +104,6 @@ These situations are not rules. They are reasons to plan with your clinician bef
 
 - **Gestational diabetes** (diabetes that first appears in pregnancy), especially if you take any medicine to lower blood sugar. A 2022 review found only five small studies of fasting in pregnancy. Most of them looked at women with gestational diabetes. [Kumar and Diamond 2022](https://www.frontiersin.org/articles/10.3389/fendo.2022.900153/full) and [NHS: gestational diabetes](https://www.nhs.uk/conditions/gestational-diabetes/)
 - **Pre-eclampsia or high blood pressure in pregnancy.** The NHS lists high blood pressure as an early sign of pre-eclampsia, a pregnancy complication. [NHS: pre-eclampsia](https://www.nhs.uk/conditions/pre-eclampsia/)
-- **Anaemia** (low iron or low red blood cells). [NEEDS SOURCE]
-- **A past preterm birth** (a baby born before 37 weeks). [NEEDS SOURCE]
 - **Severe or repeated vomiting.** The NHS says to tell your midwife or doctor if you are being sick often and cannot keep food down, because of the risk of dehydration. [NHS: severe vomiting in pregnancy](https://www.nhs.uk/pregnancy/complications/severe-vomiting/)
 
 **Questions to bring to your appointment:**
@@ -114,7 +118,7 @@ These situations are not rules. They are reasons to plan with your clinician bef
 
 This is a shared plan. Take these points to your team:
 
-- **Meals:** Ask a dietitian or your clinician what suhoor (the pre-dawn meal) and iftar (the sunset meal) should look like for you. [NEEDS SOURCE: meal guidance. No Tier 1 or 2 source read.]
+- **Meals:** Ask a dietitian or your clinician what suhoor (the pre-dawn meal) and iftar (the sunset meal) should look like for you.
 - **Fluids:** Ask how much fluid is right for you between sunset and dawn. Signs of dehydration are in the box below.
 - **Records:** Note any blood sugar readings your team asks for, and any symptoms. Bring the notes to appointments.
 
@@ -124,7 +128,7 @@ Gestational diabetes usually causes no symptoms. Most cases are found by screeni
 
 Low blood sugar (a hypo) is one of the main concerns. A hypo is usually a blood sugar below 4 mmol/L. Its signs include hunger, dizziness, feeling anxious or irritable, sweating, shaking, tingling lips, a racing heartbeat, tiredness, blurred vision, and confusion. [NHS: low blood sugar](https://www.nhs.uk/conditions/low-blood-sugar-hypoglycaemia/) A 2022 review of five small studies found lower average blood sugar and more frequent low blood sugar during fasting. It said the data on serious low blood sugar needing hospital care were limited. [Kumar and Diamond 2022](https://www.frontiersin.org/articles/10.3389/fendo.2022.900153/full)
 
-The same 2022 review says the current medical recommendation is against Ramadan fasting for pregnant women with diabetes. The 2021 international guideline on diabetes and Ramadan, from the International Diabetes Federation and the DAR International Alliance, also covers pregnancy. [NEEDS SOURCE: pregnancy wording not yet read in full.] Ask your diabetes and maternity team which guidance they follow for you before Ramadan begins.
+The same 2022 review says the current medical recommendation is against Ramadan fasting for pregnant women with diabetes. Ask your diabetes and maternity team which guidance they follow for you before Ramadan begins.
 
 ## When to see a doctor
 
@@ -135,7 +139,7 @@ Contact your midwife or doctor before Ramadan if you are unsure whether fasting 
 > - Your baby moves less than usual, or the movements stop. [RCOG guideline 57](https://www.rcog.org.uk/guidance/browse-all-guidance/green-top-guidelines/reduced-fetal-movements-green-top-guideline-no-57/)
 > - Vaginal bleeding, or fluid leaking from the vagina. [CDC](https://www.cdc.gov/hearher/maternal-warning-signs/index.html)
 > - Severe belly pain that does not go away. [CDC](https://www.cdc.gov/hearher/maternal-warning-signs/index.html)
-> - Regular or painful tightening of the womb before 37 weeks. [NEEDS SOURCE]
+> - You are less than 37 weeks pregnant and have regular tightening of the womb, or think you might be in labour. [NHS: signs that labour has begun](https://www.nhs.uk/pregnancy/labour-and-birth/signs-that-labour-has-begun/)
 > - Dizziness or fainting. [CDC](https://www.cdc.gov/hearher/maternal-warning-signs/index.html)
 > - Trouble breathing, chest pain, or a fast-beating heart. [CDC](https://www.cdc.gov/hearher/maternal-warning-signs/index.html)
 > - A severe headache that does not go away, vision changes or flashing lights, pain below your ribs, or sudden swelling of your face, hands or feet. [NHS: pre-eclampsia](https://www.nhs.uk/conditions/pre-eclampsia/)
@@ -156,7 +160,7 @@ The reviews did not find a clear effect on birth weight or preterm birth. They d
 
 ### Do I have to fast?
 
-Islamic teaching gives pregnant and breastfeeding women an exemption when fasting could cause harm. Your religious scholar can advise on the religious side. Your clinician can advise on the medical side. [NEEDS SOURCE: religious wording to be confirmed by a scholar.]
+Egypt's Dar al-Ifta says a woman who is unable to fast because of pregnancy or nursing may refrain from fasting, and should make up the missed days when she is able. [Dar al-Ifta](https://www.dar-alifta.org/en/fatwa/details/20338/breaking-the-fast-due-to-pregnancy-and-nursing) Your religious scholar can advise on the religious side. Your clinician can advise on the medical side.
 
 ### Can I fast if I have gestational diabetes?
 
@@ -165,47 +169,3 @@ That is a decision to make with your clinician. A 2022 review states that the cu
 ### What if I feel unwell during the day?
 
 Check the box above. If any sign appears, stop fasting and get medical help now.
-
-## Editor notes (remove before publishing)
-
-**Lead review, 2026-10-08: accepted as a draft for clinical review, not for publication.** Parity with the English file checked section by section; "the main safety concern" softened to "one of the main concerns" in both files (the cited review does not rank risks). Before publishing: the six [NEEDS SOURCE] items resolved or cut, the Arabic clinician reviewer (owner Step 5) signs it, and the religious-exemption sentence is confirmed by a scholar the owner names.
-
-
-**Sources read, and how**
-- Glazier et al. 2018 (PMC full-text page): read through extraction. Figures used: 22 studies, 31,374 pregnancies, birth weight SMD 0.03 (95% CI 0.00 to 0.05), preterm OR 0.99 (0.72 to 1.37), no perinatal mortality data. Check these against the paper.
-- Shahawy et al. 2023 (AJOG): read only a summary page (research.bidmc.org), not the paper. Citation details (228(6):689-95, PMID 36940770) come from that page. The DOI is not confirmed. Check the paper before publication.
-- Kumar and Diamond 2022 (Frontiers): full text read in extraction. Wording "only five small-scale studies" and "current medical recommendation is against Ramadan fasting" should be checked against the exact text.
-- RCOG Green-top Guideline 57: the RCOG page was read for edition status only (second edition, last reviewed 29 April 2026). Its recommendations were not on the page. The "report any decrease or stop in movements" advice comes from a secondary summary. Check the full guideline.
-- NHS pages (pre-eclampsia, gestational diabetes, low blood sugar, dehydration, vomiting, severe vomiting): read directly.
-- CDC maternal warning signs: read directly. CDC does not list seizures, and the article does not attribute seizures to CDC.
-
-**Claims I could not source (marked in the text)**
-1. Anaemia as a reason to talk to a clinician first.
-2. A past preterm birth as a reason to talk to a clinician first.
-3. Meal composition for suhoor and iftar.
-4. Regular or painful tightening of the womb before 37 weeks as a red flag. The NHS premature labour page returned 404. Only trust-page search snippets were seen.
-5. The religious exemption wording (body and FAQ). No Tier 1 or 2 source was read. A scholar should confirm the wording. The medical team does not decide this.
-6. The 2021 IDF and DAR International Alliance guideline and its pregnancy recommendations. The full PDF was not reachable: the IDF link redirected in a loop, the S3 copy exceeded the size limit, and PubMed and Elsevier pages returned cookie or redirect pages. The article names the guideline only as a flag.
-7. The hypo threshold of 4 mmol/L is the NHS general definition. A search snippet mentioned 3.5 mmol/L for some pregnancy teams. That was not read. The clinician should confirm the pregnancy threshold.
-8. The definition of gestational diabetes in the first paragraph of that section. It is cited to the NHS page, but the page summary did not quote a definition. Check the wording.
-9. Ramadan 2027, expected around 8 February 2027. This is not in the body because I have no source. Confirm the date from an official source before publishing any date.
-
-**Where sources disagree or are unclear**
-- The 2022 Frontiers review states that the current medical recommendation is against Ramadan fasting for pregnant women with diabetes. Search summaries of the 2021 IDF and DAR guideline suggested pregnant women have a right not to fast regardless of diabetes. I could not verify this in the full guideline. The article reports the review's view and flags the guideline.
-- The 2018 review found a birth weight difference that is very small (SMD 0.03, lower CI 0.00). The authors say fasting "does not adversely affect" birth weight. The article says the difference was "very small" and does not claim no effect.
-- RCOG guidance (via a secondary summary) asks women to report reduced movements but does not support formal counting against set numbers. The article does not give counts.
-- The NHS vomiting advice uses 24 hours without keeping food or fluids down, and 8 hours without urine, as call-now thresholds. Some trusts advise seeking help sooner. The clinician may choose a lower threshold.
-
-**Clinician to check first**
-1. The red-flag box, item by item. Check the unsourced contractions item and the 8-hour urine and 24-hour vomiting thresholds first.
-2. The pregnancy hypo threshold, and the sentence calling low blood sugar "the main safety concern".
-3. The line "On average, the studies are reassuring", and the summary of the evidence.
-4. Whether the list of conditions to discuss first is complete. Secondary sources mention fetal growth restriction, low amniotic fluid, kidney disease, and multiple pregnancy. These are not in the article because I did not read a Tier 1 or 2 source for them.
-5. The FAQ answer on the religious exemption. Confirm with a scholar, not the medical team.
-6. Whether UK NHS thresholds fit readers in Saudi Arabia and Egypt. Saudi Ministry of Health and Egyptian guidance were not read. Local emergency numbers are deliberately omitted.
-
-**Compliance checks**
-- No dosing, drug names, insulin regimens or instructions to fast or not fast.
-- No triage of a reader's own symptoms. The box lists signs and points to care.
-- Forbidden words (diagnose, treat, prevent, contraception, birth control, cure) do not appear in the body.
-- The health-not-medical boundary is stated in the opening section.

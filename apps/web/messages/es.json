@@ -1004,7 +1004,7 @@
     "points": [
       {
         "heading": "Quiénes somos",
-        "body": "femio está hecho por {entity}, El Cairo, Egipto (Dr. Khaled Hassanein). Preguntas sobre privacidad: {email}."
+        "body": "femio está hecho por {entity}, empresa unipersonal en El Cairo, Egipto (registro mercantil n.º {registration}), propiedad del Dr. Khaled Hassanein, responsable del tratamiento de los datos. Preguntas sobre privacidad: {email}."
       },
       {
         "heading": "Qué guarda la app, en tu teléfono",
@@ -1073,7 +1073,7 @@
       },
       {
         "heading": "Contacto",
-        "body": "{email} · {entity}, El Cairo, Egipto."
+        "body": "{email} · {entity}, El Cairo, Egipto · registro mercantil n.º {registration}."
       }
     ]
   },

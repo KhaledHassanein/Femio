@@ -20,11 +20,11 @@ open_graph_description: "The second trimester begins, and the gums start complai
 open_graph_image: "PENDING"
 open_graph_image_alt: "A soft toothbrush and a glass of water on a bathroom shelf"
 written_by: "PENDING"
-medically_reviewed_by: "PENDING"
+medically_reviewed_by: "Dr. Khaled M."
 date_published: "2026-08-19"
 date_modified: "2026-08-19"
-last_reviewed: null
-next_review_due: null
+last_reviewed: "2026-10-30"
+next_review_due: "2027-10-30"
 reading_level_ok: true
 reading_level_method: "Approximate Flesch-Kincaid grade 7.0, checked 2026-08-18"
 disclaimer_type: "emergency"

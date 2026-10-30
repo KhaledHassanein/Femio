@@ -1004,7 +1004,7 @@
     "points": [
       {
         "heading": "Qui nous sommes",
-        "body": "femio est conçu par {entity}, Le Caire, Égypte (Dr Khaled Hassanein). Questions sur la confidentialité : {email}."
+        "body": "femio est conçu par {entity}, entreprise individuelle au Caire, Égypte (registre du commerce n° {registration}), appartenant au Dr Khaled Hassanein, responsable du traitement des données. Questions sur la confidentialité : {email}."
       },
       {
         "heading": "Ce que l’application enregistre, sur votre téléphone",
@@ -1073,7 +1073,7 @@
       },
       {
         "heading": "Contact",
-        "body": "{email} · {entity}, Le Caire, Égypte."
+        "body": "{email} · {entity}, Le Caire, Égypte · registre du commerce n° {registration}."
       }
     ]
   },
