@@ -3,6 +3,7 @@ All notable changes to Femio V2.
 
 ## [Unreleased]
 ### Added
+- **Every guide, in four languages.** The whole library of 110 guides is now in English, Arabic, French and Spanish, and so are the five condition pages and the author's bio, so no page falls back to English any more. Each translation keeps the same sources and the same warning boxes as the English guide.
 - **Every guide names its reviewer.** All 121 guides (110 English, 11 Arabic) now show "Reviewed by Dr. Khaled M." with the review date, in place of "clinician review pending". Six condition and period guides and the Ramadan fasting guide, in English and Arabic, are published for the first time. The Ramadan guide now cites the NHS and Egypt's Dar al-Ifta for the two statements that were unsourced, and drops the ones that could not be sourced.
 - **The privacy notice and terms name who is behind femio**: KM Digital Labs, a sole proprietorship in Cairo with its commercial register number, in English, Arabic, French and Spanish.
 - **A language switcher on the website.** A languages button in the header opens the four languages, each written in itself (English, العربية, Français, Español), and the footer lists them as plain links. Switching keeps you on the same page.

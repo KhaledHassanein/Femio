@@ -26,14 +26,17 @@ describe("content snapshot client", () => {
     expect(list.every((d) => d.body === undefined && d.slug && d.title)).toBe(true);
   });
 
-  it("falls back to English per document when no translation exists", async () => {
-    // afterpains-after-birth has no Arabic edition yet; pcos-signs does.
+  it("serves each locale its own translation, and falls back to English for a locale with none", async () => {
+    // Since 2026-10-30 every guide exists in en, ar, fr and es; a locale outside that set still
+    // falls back per document, which is the path this test keeps honest.
     const en = await getContentBySlug("articles", "en", "afterpains-after-birth");
-    const ar = await getContentBySlug("articles", "ar", "afterpains-after-birth");
     expect(en?.body).toBeTruthy();
-    expect(ar?.title).toBe(en?.title);
-    const arPcos = await getContentBySlug("articles", "ar", "pcos-signs");
-    expect(arPcos?.title).not.toBe((await getContentBySlug("articles", "en", "pcos-signs"))?.title);
+    for (const loc of ["ar", "fr", "es"]) {
+      const tr = await getContentBySlug("articles", loc, "afterpains-after-birth");
+      expect(tr?.title).not.toBe(en?.title);
+    }
+    const other = await getContentBySlug("articles", "de", "afterpains-after-birth");
+    expect(other?.title).toBe(en?.title);
   });
 
   it("counts only real translations, so fallbacks are never advertised as Arabic", async () => {

@@ -26,10 +26,12 @@ describe("the search index route", () => {
   });
 
   it("says when a locale has no translations, so the screen can say so too", async () => {
-    // French has no translated guide yet; Arabic has its first ten (2026-10-28).
-    const fr = await get("fr");
-    expect(fr.englishOnly).toBe(true);
-    expect(fr.docs.length).toBe((await get("en")).docs.length);
-    expect((await get("ar")).englishOnly).toBe(false);
+    // All three translated locales carry the full library since 2026-10-30, so none is English-only.
+    const en = await get("en");
+    for (const loc of ["ar", "fr", "es"]) {
+      const res = await get(loc);
+      expect(res.englishOnly).toBe(false);
+      expect(res.docs.length).toBe(en.docs.length);
+    }
   });
 });

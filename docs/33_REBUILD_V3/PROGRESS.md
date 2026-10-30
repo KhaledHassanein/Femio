@@ -91,6 +91,9 @@ Opened 2026-10-28 on the owner's finalization brief. The gate for R6.4–R6.5 an
 - [x] R6.15 · Sign-off and publish pass (2026-10-30, owner: "sign off everything and publish all"; ADR-077): 96 guides named the reviewer, 8 drafts published (EN: endometriosis, heavy periods, painful periods, PCOS, PMS/PMDD, PCOS treatment options; EN + AR: Ramadan), 0 `[NEEDS SOURCE]` left (2 sourced to NHS and Dar al-Ifta, 3 cut, 1 dropped as a question), editor notes removed; legal pages carry the sole proprietorship and register no. 682-374-954 in 4 languages. Evidence: see the commit; `pnpm gate` result in the session log
 - [ ] R3.7 · Arabic for the rest of the pregnancy top set (new guides; EN + AR, sourced)
 
+- [x] R3.8 · Library parity (2026-10-30, owner: "have sub-agents complete every translation and publish"; ADR-077 addendum): 330 translated guides (ar 99, fr 110, es 110), 5 condition pages and the author bio in ar/fr/es; all published, signed Dr. Khaled M., 440 guides total. Evidence: content-lint 440 conform, fidelity script clean after one fix, `pnpm gate` result in the session log. Open: native-speaker read of the French and Spanish (not required by the owner); glossary and FAQ stay hidden until loaded (R3.9)
+- [ ] R3.9 · Load the glossary (131 terms in `GLOSSARY_TERMS.md`) and FAQs into the snapshot in four languages, then remove `/glossary` and `/faq` from `unpublished-sections.ts`
+
 ## Session log
 
 | When | What | Commit |

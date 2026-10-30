@@ -1,1 +1,262 @@
-{"en":[{"id":2,"name":"Dr. Khaled M.","slug":"khaled-m","roles":["author","medical_reviewer"],"credentials":"MD","jobTitle":"Medical Doctor - Co Founder","affiliation":null,"bio":{"root":{"type":"root","format":"","indent":0,"version":1,"children":[{"type":"paragraph","format":"","indent":0,"version":1,"children":[{"mode":"normal","text":"Dr. Khaled contributes to Femio’s evidence-informed health and wellness content, focusing on clear, practical, and carefully sourced information.","type":"text","style":"","detail":0,"format":0,"version":1}],"direction":"ltr","textFormat":0},{"type":"paragraph","format":"","indent":0,"version":1,"children":[{"mode":"normal","text":"Health and wellness content across menstrual health, fertility, pregnancy, and menopause. The focus is on making complex topics clear, practical, and respectful while maintaining careful sourcing and transparent safety boundaries. Femio content supports personal awareness and informed conversations with qualified healthcare professionals; it does not replace individual medical advice.","type":"text","style":"","detail":0,"format":0,"version":1}],"direction":"ltr","textFormat":0}],"direction":"ltr"}},"updatedAt":"2026-08-15T20:36:08.149Z","sameAs":[]}],"ar":[],"fr":[],"es":[]}
+{
+  "en": [
+    {
+      "id": 2,
+      "name": "Dr. Khaled M.",
+      "slug": "khaled-m",
+      "roles": [
+        "author",
+        "medical_reviewer"
+      ],
+      "credentials": "MD",
+      "jobTitle": "Medical Doctor - Co Founder",
+      "affiliation": null,
+      "bio": {
+        "root": {
+          "type": "root",
+          "format": "",
+          "indent": 0,
+          "version": 1,
+          "children": [
+            {
+              "type": "paragraph",
+              "format": "",
+              "indent": 0,
+              "version": 1,
+              "children": [
+                {
+                  "mode": "normal",
+                  "text": "Dr. Khaled contributes to Femio’s evidence-informed health and wellness content, focusing on clear, practical, and carefully sourced information.",
+                  "type": "text",
+                  "style": "",
+                  "detail": 0,
+                  "format": 0,
+                  "version": 1
+                }
+              ],
+              "direction": "ltr",
+              "textFormat": 0
+            },
+            {
+              "type": "paragraph",
+              "format": "",
+              "indent": 0,
+              "version": 1,
+              "children": [
+                {
+                  "mode": "normal",
+                  "text": "Health and wellness content across menstrual health, fertility, pregnancy, and menopause. The focus is on making complex topics clear, practical, and respectful while maintaining careful sourcing and transparent safety boundaries. Femio content supports personal awareness and informed conversations with qualified healthcare professionals; it does not replace individual medical advice.",
+                  "type": "text",
+                  "style": "",
+                  "detail": 0,
+                  "format": 0,
+                  "version": 1
+                }
+              ],
+              "direction": "ltr",
+              "textFormat": 0
+            }
+          ],
+          "direction": "ltr"
+        }
+      },
+      "updatedAt": "2026-08-15T20:36:08.149Z",
+      "sameAs": []
+    }
+  ],
+  "ar": [
+    {
+      "id": 2,
+      "name": "Dr. Khaled M.",
+      "slug": "khaled-m",
+      "roles": [
+        "author",
+        "medical_reviewer"
+      ],
+      "credentials": "MD",
+      "jobTitle": "طبيب - شريك مؤسس",
+      "affiliation": null,
+      "bio": {
+        "root": {
+          "type": "root",
+          "format": "",
+          "indent": 0,
+          "version": 1,
+          "children": [
+            {
+              "type": "paragraph",
+              "format": "",
+              "indent": 0,
+              "version": 1,
+              "children": [
+                {
+                  "mode": "normal",
+                  "text": "يساهم الدكتور خالد في محتوى femio الصحي المستند إلى الأدلة، مركّزًا على معلومات واضحة وعملية وموثّقة بعناية.",
+                  "type": "text",
+                  "style": "",
+                  "detail": 0,
+                  "format": 0,
+                  "version": 1
+                }
+              ],
+              "direction": "ltr",
+              "textFormat": 0
+            },
+            {
+              "type": "paragraph",
+              "format": "",
+              "indent": 0,
+              "version": 1,
+              "children": [
+                {
+                  "mode": "normal",
+                  "text": "محتوى في الصحة والعافية يشمل صحة الدورة الشهرية والخصوبة والحمل وانقطاع الطمث. ويتركز العمل على جعل الموضوعات المعقدة واضحة وعملية ومحترمة، مع الحرص على توثيق المصادر ووضوح حدود السلامة. ويدعم محتوى femio الوعي الشخصي والحوار المستنير مع المختصين المؤهلين في الرعاية الصحية، ولا يغني عن المشورة الطبية الفردية.",
+                  "type": "text",
+                  "style": "",
+                  "detail": 0,
+                  "format": 0,
+                  "version": 1
+                }
+              ],
+              "direction": "ltr",
+              "textFormat": 0
+            }
+          ],
+          "direction": "ltr"
+        }
+      },
+      "updatedAt": "2026-08-15T20:36:08.149Z",
+      "sameAs": []
+    }
+  ],
+  "fr": [
+    {
+      "id": 2,
+      "name": "Dr. Khaled M.",
+      "slug": "khaled-m",
+      "roles": [
+        "author",
+        "medical_reviewer"
+      ],
+      "credentials": "MD",
+      "jobTitle": "Médecin - Cofondateur",
+      "affiliation": null,
+      "bio": {
+        "root": {
+          "type": "root",
+          "format": "",
+          "indent": 0,
+          "version": 1,
+          "children": [
+            {
+              "type": "paragraph",
+              "format": "",
+              "indent": 0,
+              "version": 1,
+              "children": [
+                {
+                  "mode": "normal",
+                  "text": "Dr. Khaled contribue au contenu de Femio sur la santé et le bien-être fondé sur des données probantes, en mettant l’accent sur une information claire, pratique et soigneusement sourcée.",
+                  "type": "text",
+                  "style": "",
+                  "detail": 0,
+                  "format": 0,
+                  "version": 1
+                }
+              ],
+              "direction": "ltr",
+              "textFormat": 0
+            },
+            {
+              "type": "paragraph",
+              "format": "",
+              "indent": 0,
+              "version": 1,
+              "children": [
+                {
+                  "mode": "normal",
+                  "text": "Contenu sur la santé et le bien-être couvrant la santé menstruelle, la fertilité, la grossesse et la ménopause. L’objectif est de rendre des sujets complexes clairs, pratiques et respectueux, tout en maintenant une sélection rigoureuse des sources et des limites de sécurité transparentes. Le contenu de Femio favorise la connaissance de soi et des échanges éclairés avec des professionnels de santé qualifiés ; il ne remplace pas un avis médical individuel.",
+                  "type": "text",
+                  "style": "",
+                  "detail": 0,
+                  "format": 0,
+                  "version": 1
+                }
+              ],
+              "direction": "ltr",
+              "textFormat": 0
+            }
+          ],
+          "direction": "ltr"
+        }
+      },
+      "updatedAt": "2026-08-15T20:36:08.149Z",
+      "sameAs": []
+    }
+  ],
+  "es": [
+    {
+      "id": 2,
+      "name": "Dr. Khaled M.",
+      "slug": "khaled-m",
+      "roles": [
+        "author",
+        "medical_reviewer"
+      ],
+      "credentials": "MD",
+      "jobTitle": "Médico - cofundador",
+      "affiliation": null,
+      "bio": {
+        "root": {
+          "type": "root",
+          "format": "",
+          "indent": 0,
+          "version": 1,
+          "children": [
+            {
+              "type": "paragraph",
+              "format": "",
+              "indent": 0,
+              "version": 1,
+              "children": [
+                {
+                  "mode": "normal",
+                  "text": "El Dr. Khaled contribuye con el contenido de salud y bienestar basado en evidencia de Femio, con foco en información clara, práctica y cuidadosamente documentada.",
+                  "type": "text",
+                  "style": "",
+                  "detail": 0,
+                  "format": 0,
+                  "version": 1
+                }
+              ],
+              "direction": "ltr",
+              "textFormat": 0
+            },
+            {
+              "type": "paragraph",
+              "format": "",
+              "indent": 0,
+              "version": 1,
+              "children": [
+                {
+                  "mode": "normal",
+                  "text": "Contenido de salud y bienestar sobre la salud menstrual, la fertilidad, el embarazo y la menopausia. El enfoque es explicar temas complejos de forma clara, práctica y respetuosa, con fuentes cuidadosas y límites de seguridad transparentes. El contenido de Femio apoya la conciencia personal y las conversaciones informadas con profesionales de la salud calificados; no sustituye la consulta médica individual.",
+                  "type": "text",
+                  "style": "",
+                  "detail": 0,
+                  "format": 0,
+                  "version": 1
+                }
+              ],
+              "direction": "ltr",
+              "textFormat": 0
+            }
+          ],
+          "direction": "ltr"
+        }
+      },
+      "updatedAt": "2026-08-15T20:36:08.149Z",
+      "sameAs": []
+    }
+  ]
+}
