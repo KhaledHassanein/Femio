@@ -1,6 +1,6 @@
 {
   "exportFormatVersion": 2,
-  "exportTime": "2026-10-28 20:00:00",
+  "exportTime": "2026-10-30 12:00:00",
   "containerVersion": {
     "path": "accounts/0/containers/0/versions/0",
     "accountId": "0",
@@ -123,25 +123,16 @@
           "2147479553"
         ],
         "consentSettings": {
-          "type": "TEMPLATE",
-          "key": "consentSettings",
-          "map": [
-            {
-              "type": "TEMPLATE",
-              "key": "consentStatus",
-              "value": "NEEDED"
-            },
-            {
-              "type": "LIST",
-              "key": "consentType",
-              "list": [
-                {
-                  "type": "TEMPLATE",
-                  "value": "analytics_storage"
-                }
-              ]
-            }
-          ]
+          "consentStatus": "NEEDED",
+          "consentType": {
+            "type": "LIST",
+            "list": [
+              {
+                "type": "TEMPLATE",
+                "value": "analytics_storage"
+              }
+            ]
+          }
         },
         "tagFiringOption": "ONCE_PER_EVENT",
         "notes": "Fires on Initialization – All Pages but waits for analytics_storage (ADR-075). Google signals and ad personalization off: a health site builds no profiles."
@@ -200,34 +191,25 @@
             ]
           },
           {
-            "type": "TAG_REFERENCE",
+            "type": "TEMPLATE",
             "key": "measurementIdOverride",
-            "value": "GA4 · configuration"
+            "value": "{{const · GA4 measurement id}}"
           }
         ],
         "firingTriggerId": [
           "13"
         ],
         "consentSettings": {
-          "type": "TEMPLATE",
-          "key": "consentSettings",
-          "map": [
-            {
-              "type": "TEMPLATE",
-              "key": "consentStatus",
-              "value": "NEEDED"
-            },
-            {
-              "type": "LIST",
-              "key": "consentType",
-              "list": [
-                {
-                  "type": "TEMPLATE",
-                  "value": "analytics_storage"
-                }
-              ]
-            }
-          ]
+          "consentStatus": "NEEDED",
+          "consentType": {
+            "type": "LIST",
+            "list": [
+              {
+                "type": "TEMPLATE",
+                "value": "analytics_storage"
+              }
+            ]
+          }
         },
         "tagFiringOption": "ONCE_PER_EVENT",
         "notes": "Only these parameters exist for article_read: article_slug, article_locale. Adding one here without adding it to events.ts sends nothing (the site never pushes it)."
@@ -271,34 +253,25 @@
             ]
           },
           {
-            "type": "TAG_REFERENCE",
+            "type": "TEMPLATE",
             "key": "measurementIdOverride",
-            "value": "GA4 · configuration"
+            "value": "{{const · GA4 measurement id}}"
           }
         ],
         "firingTriggerId": [
           "14"
         ],
         "consentSettings": {
-          "type": "TEMPLATE",
-          "key": "consentSettings",
-          "map": [
-            {
-              "type": "TEMPLATE",
-              "key": "consentStatus",
-              "value": "NEEDED"
-            },
-            {
-              "type": "LIST",
-              "key": "consentType",
-              "list": [
-                {
-                  "type": "TEMPLATE",
-                  "value": "analytics_storage"
-                }
-              ]
-            }
-          ]
+          "consentStatus": "NEEDED",
+          "consentType": {
+            "type": "LIST",
+            "list": [
+              {
+                "type": "TEMPLATE",
+                "value": "analytics_storage"
+              }
+            ]
+          }
         },
         "tagFiringOption": "ONCE_PER_EVENT",
         "notes": "Only these parameters exist for calculator_open: calculator_slug. Adding one here without adding it to events.ts sends nothing (the site never pushes it)."
@@ -342,34 +315,25 @@
             ]
           },
           {
-            "type": "TAG_REFERENCE",
+            "type": "TEMPLATE",
             "key": "measurementIdOverride",
-            "value": "GA4 · configuration"
+            "value": "{{const · GA4 measurement id}}"
           }
         ],
         "firingTriggerId": [
           "15"
         ],
         "consentSettings": {
-          "type": "TEMPLATE",
-          "key": "consentSettings",
-          "map": [
-            {
-              "type": "TEMPLATE",
-              "key": "consentStatus",
-              "value": "NEEDED"
-            },
-            {
-              "type": "LIST",
-              "key": "consentType",
-              "list": [
-                {
-                  "type": "TEMPLATE",
-                  "value": "analytics_storage"
-                }
-              ]
-            }
-          ]
+          "consentStatus": "NEEDED",
+          "consentType": {
+            "type": "LIST",
+            "list": [
+              {
+                "type": "TEMPLATE",
+                "value": "analytics_storage"
+              }
+            ]
+          }
         },
         "tagFiringOption": "ONCE_PER_EVENT",
         "notes": "Only these parameters exist for calculator_used: calculator_slug. Adding one here without adding it to events.ts sends nothing (the site never pushes it)."
@@ -428,34 +392,25 @@
             ]
           },
           {
-            "type": "TAG_REFERENCE",
+            "type": "TEMPLATE",
             "key": "measurementIdOverride",
-            "value": "GA4 · configuration"
+            "value": "{{const · GA4 measurement id}}"
           }
         ],
         "firingTriggerId": [
           "16"
         ],
         "consentSettings": {
-          "type": "TEMPLATE",
-          "key": "consentSettings",
-          "map": [
-            {
-              "type": "TEMPLATE",
-              "key": "consentStatus",
-              "value": "NEEDED"
-            },
-            {
-              "type": "LIST",
-              "key": "consentType",
-              "list": [
-                {
-                  "type": "TEMPLATE",
-                  "value": "analytics_storage"
-                }
-              ]
-            }
-          ]
+          "consentStatus": "NEEDED",
+          "consentType": {
+            "type": "LIST",
+            "list": [
+              {
+                "type": "TEMPLATE",
+                "value": "analytics_storage"
+              }
+            ]
+          }
         },
         "tagFiringOption": "ONCE_PER_EVENT",
         "notes": "Only these parameters exist for get_app_click: page_type, placement. Adding one here without adding it to events.ts sends nothing (the site never pushes it)."
@@ -499,34 +454,25 @@
             ]
           },
           {
-            "type": "TAG_REFERENCE",
+            "type": "TEMPLATE",
             "key": "measurementIdOverride",
-            "value": "GA4 · configuration"
+            "value": "{{const · GA4 measurement id}}"
           }
         ],
         "firingTriggerId": [
           "17"
         ],
         "consentSettings": {
-          "type": "TEMPLATE",
-          "key": "consentSettings",
-          "map": [
-            {
-              "type": "TEMPLATE",
-              "key": "consentStatus",
-              "value": "NEEDED"
-            },
-            {
-              "type": "LIST",
-              "key": "consentType",
-              "list": [
-                {
-                  "type": "TEMPLATE",
-                  "value": "analytics_storage"
-                }
-              ]
-            }
-          ]
+          "consentStatus": "NEEDED",
+          "consentType": {
+            "type": "LIST",
+            "list": [
+              {
+                "type": "TEMPLATE",
+                "value": "analytics_storage"
+              }
+            ]
+          }
         },
         "tagFiringOption": "ONCE_PER_EVENT",
         "notes": "Only these parameters exist for help_now_open: country. Adding one here without adding it to events.ts sends nothing (the site never pushes it)."
@@ -585,34 +531,25 @@
             ]
           },
           {
-            "type": "TAG_REFERENCE",
+            "type": "TEMPLATE",
             "key": "measurementIdOverride",
-            "value": "GA4 · configuration"
+            "value": "{{const · GA4 measurement id}}"
           }
         ],
         "firingTriggerId": [
           "18"
         ],
         "consentSettings": {
-          "type": "TEMPLATE",
-          "key": "consentSettings",
-          "map": [
-            {
-              "type": "TEMPLATE",
-              "key": "consentStatus",
-              "value": "NEEDED"
-            },
-            {
-              "type": "LIST",
-              "key": "consentType",
-              "list": [
-                {
-                  "type": "TEMPLATE",
-                  "value": "analytics_storage"
-                }
-              ]
-            }
-          ]
+          "consentStatus": "NEEDED",
+          "consentType": {
+            "type": "LIST",
+            "list": [
+              {
+                "type": "TEMPLATE",
+                "value": "analytics_storage"
+              }
+            ]
+          }
         },
         "tagFiringOption": "ONCE_PER_EVENT",
         "notes": "Only these parameters exist for language_switch: from_locale, to_locale. Adding one here without adding it to events.ts sends nothing (the site never pushes it)."
@@ -656,34 +593,25 @@
             ]
           },
           {
-            "type": "TAG_REFERENCE",
+            "type": "TEMPLATE",
             "key": "measurementIdOverride",
-            "value": "GA4 · configuration"
+            "value": "{{const · GA4 measurement id}}"
           }
         ],
         "firingTriggerId": [
           "19"
         ],
         "consentSettings": {
-          "type": "TEMPLATE",
-          "key": "consentSettings",
-          "map": [
-            {
-              "type": "TEMPLATE",
-              "key": "consentStatus",
-              "value": "NEEDED"
-            },
-            {
-              "type": "LIST",
-              "key": "consentType",
-              "list": [
-                {
-                  "type": "TEMPLATE",
-                  "value": "analytics_storage"
-                }
-              ]
-            }
-          ]
+          "consentStatus": "NEEDED",
+          "consentType": {
+            "type": "LIST",
+            "list": [
+              {
+                "type": "TEMPLATE",
+                "value": "analytics_storage"
+              }
+            ]
+          }
         },
         "tagFiringOption": "ONCE_PER_EVENT",
         "notes": "Only these parameters exist for outbound_source_click: source_host. Adding one here without adding it to events.ts sends nothing (the site never pushes it)."

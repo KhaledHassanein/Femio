@@ -33,5 +33,10 @@ template comes from the gallery and carries your Pixel ID. The `femio_page` even
 consumed by the configuration tag through `page_type` and `page_language` as user-visible
 event parameters on `page_view`; no separate tag is needed.
 
-If the import reports a validation error, the export format changed since 2026-10-28: tell a
+**2026-10-30:** the first import failed with "File format is invalid": the event tags referenced the
+configuration tag the retired way (`TAG_REFERENCE` on `measurementIdOverride`) and `consentSettings`
+was shaped like a parameter. Both are fixed; `scripts/gtm-container-lint.mjs` (in `pnpm gate`) now
+checks the shapes Tag Manager accepts. Re-download the file before importing again.
+
+If the import reports a validation error, the export format changed since 2026-10-30: tell a
 session the exact message.
