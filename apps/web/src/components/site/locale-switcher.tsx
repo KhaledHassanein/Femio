@@ -1,20 +1,20 @@
 "use client";
 
 import { useEffect, useId, useRef, useState } from "react";
-import { Check, Languages } from "lucide-react";
+import { Check } from "lucide-react";
 import { useLocale, useTranslations } from "next-intl";
 import { Link, usePathname } from "@/i18n/navigation";
 import { routing, type Locale } from "@/i18n/routing";
-import { LOCALE_NAMES } from "@/lib/locales";
+import { LOCALE_FLAGS, LOCALE_NAMES } from "@/lib/locales";
 import { cn } from "@/lib/utils";
 
 /**
  * The language switcher (owner's go-live note, 2026-10-29): the one component that lists
  * the site's languages, in two shapes so the header and the footer can never disagree.
  *
- *  - "menu": the header control. An icon button (the language name beside it from the
- *    tablet width up) opens a short list under it; Escape, a click outside or a choice
- *    closes it. A disclosure, not an ARIA menu: the items are ordinary links.
+ *  - "menu": the header control. A button showing the current language's flag (and its
+ *    name from the tablet width up) opens a short list under it; Escape, a click outside
+ *    or a choice closes it. A disclosure, not an ARIA menu: the items are ordinary links.
  *  - "inline": the footer row. Four plain links, always visible, for a reader who scrolls
  *    to the end and for crawlers.
  *
@@ -22,7 +22,24 @@ import { cn } from "@/lib/utils";
  * locale prefix; `Link` adds the new one). A guide that is not yet translated falls back
  * to English on that path (lib/cms/client), so a switch never lands on a 404. Each name
  * carries `lang` and `hrefLang`, and the current language is marked with aria-current.
+ * Every entry is flag + name (owner decision, 2026-10-29); the flag is decorative and the
+ * name is the accessible text, see lib/locales.ts.
  */
+
+/** The small flag that sits before a language name. Decorative: the name is the text. */
+function Flag({ locale, className }: { locale: Locale; className?: string }) {
+  return (
+    <img
+      src={`/flags/${LOCALE_FLAGS[locale]}.svg`}
+      alt=""
+      width={20}
+      height={15}
+      loading="lazy"
+      decoding="async"
+      className={cn("h-[15px] w-5 shrink-0 rounded-[2px] shadow-xs", className)}
+    />
+  );
+}
 export function LocaleSwitcher({ variant = "menu" }: { variant?: "menu" | "inline" }) {
   const locale = useLocale() as Locale;
   const pathname = usePathname();
@@ -41,10 +58,11 @@ export function LocaleSwitcher({ variant = "menu" }: { variant?: "menu" | "inlin
                 hrefLang={l}
                 aria-current={l === locale ? "true" : undefined}
                 className={cn(
-                  "inline-flex min-h-11 items-center text-white/70 transition-colors duration-fast hover:text-white",
+                  "inline-flex min-h-11 items-center gap-2 text-white/70 transition-colors duration-fast hover:text-white",
                   l === locale && "font-semibold text-white",
                 )}
               >
+                <Flag locale={l} />
                 {LOCALE_NAMES[l]}
               </Link>
             </li>
@@ -90,7 +108,7 @@ function LocaleMenu({ locale, pathname, label }: { locale: Locale; pathname: str
         onClick={() => setOpen((v) => !v)}
         className="inline-flex h-11 min-w-10 items-center gap-1.5 rounded-pill px-2 text-sm font-medium text-text-muted hover:bg-surface-sunken hover:text-text sm:px-2.5"
       >
-        <Languages className="size-5" aria-hidden />
+        <Flag locale={locale} />
         <span lang={locale} className="hidden sm:inline">
           {LOCALE_NAMES[locale]}
         </span>
@@ -112,11 +130,12 @@ function LocaleMenu({ locale, pathname, label }: { locale: Locale; pathname: str
                 aria-current={l === locale ? "true" : undefined}
                 onClick={() => setOpen(false)}
                 className={cn(
-                  "flex h-11 items-center justify-between rounded-md px-3 text-sm text-text hover:bg-surface-sunken",
+                  "flex h-11 items-center gap-3 rounded-md px-3 text-sm text-text hover:bg-surface-sunken",
                   l === locale && "font-semibold",
                 )}
               >
-                {LOCALE_NAMES[l]}
+                <Flag locale={l} />
+                <span className="flex-1">{LOCALE_NAMES[l]}</span>
                 {l === locale ? <Check className="size-4 text-primary" aria-hidden /> : null}
               </Link>
             </li>

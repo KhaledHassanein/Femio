@@ -1,13 +1,13 @@
 {
   "meta": {
-    "title": "Femio",
-    "description": "The private, Arabic-first companion for trying to conceive and pregnancy. Cited guides, calculators, and records that never leave your phone."
+    "title": "femio",
+    "description": "The private companion for trying to conceive and pregnancy, in Arabic, English, French and Spanish. Cited guides, calculators, and records that never leave your phone."
   },
   "home": {
     "rail": {
       "eyebrow": "Every stage",
       "heading": "Most apps cover one chapter. This one follows the whole book.",
-      "sub": "When your life changes, Femio re-arranges around it — it never starts you over and it never deletes what came before.",
+      "sub": "When your life changes, femio re-arranges around it — it never starts you over and it never deletes what came before.",
       "stages": {
         "teen": {
           "name": "First periods",
@@ -47,7 +47,7 @@
       },
       "late": {
         "title": "No “you are 4 days late”",
-        "body": "Cycles shift for dozens of ordinary reasons. If the window passes, Femio says so and stops — it does not run a counter at you.",
+        "body": "Cycles shift for dozens of ordinary reasons. If the window passes, femio says so and stops — it does not run a counter at you.",
         "notice": "Your window has passed. Cycles shift — this is common and usually not a problem."
       },
       "pattern": {
@@ -84,7 +84,7 @@
     "close": {
       "heading": "Your records never leave your phone."
     },
-    "disclaimer": "Femio is for learning and tracking — not medical advice, and not a reliable way to avoid pregnancy. Always speak to your clinician about your care.",
+    "disclaimer": "femio is for learning and tracking — not medical advice, and not a reliable way to avoid pregnancy. Always speak to your clinician about your care.",
     "sections": {
       "learn": {
         "name": "Learn",
@@ -118,7 +118,7 @@
     },
     "hero": {
       "eyebrow": "Trying to conceive · Pregnancy · Private",
-      "title": "femio is the private, Arabic-first companion for trying to conceive and pregnancy.",
+      "title": "femio is the private companion for trying to conceive and pregnancy.",
       "body": "Honest ranges instead of promises, guides that show their sources, and records that never leave your phone. No account, no cloud, no ads near your records.",
       "cta": "Get the app",
       "ctaSecondary": "Try the ovulation calculator"
@@ -150,14 +150,14 @@
     "privacy": {
       "eyebrow": "Private by design",
       "heading": "Your records stay on your phone.",
-      "body": "The Femio app keeps what you log on your device. We never see it, so there is nothing for anyone to sell, share or lose.",
+      "body": "The femio app keeps what you log on your device. We never see it, so there is nothing for anyone to sell, share or lose.",
       "points": {
         "account": {
           "title": "No account needed",
           "body": "Open the app and start. No email, no password."
         },
         "never": {
-          "title": "Femio never sees your entries",
+          "title": "femio never sees your entries",
           "body": "Your periods, symptoms and pregnancy stay on your phone."
         },
         "backup": {
@@ -667,7 +667,7 @@
       "why": "Cycles jump around a lot in the first few years, so this is a range rather than a date.",
       "passed": "That window has passed. It happens, and on its own it isn’t a sign of anything. Log your period when it starts and the next estimate gets better.",
       "needData": "Log a couple of periods first",
-      "needDataNote": "Femio needs two start dates before it can work out a range for you."
+      "needDataNote": "femio needs two start dates before it can work out a range for you."
     },
     "reassurance": {
       "heading": "You’re normal",
@@ -705,10 +705,10 @@
     "prepHeading": "What you wanted to ask",
     "upcomingHeading": "Coming up",
     "pastHeading": "Past",
-    "noResultsNote": "Femio keeps when it is, who it is with, and what you wanted to ask. It does not keep what was found — that belongs with your clinician, in your notes.",
+    "noResultsNote": "femio keeps when it is, who it is with, and what you wanted to ask. It does not keep what was found — that belongs with your clinician, in your notes.",
     "empty": {
       "heading": "Nothing here yet",
-      "body": "Add an appointment and Femio will hold the questions you meant to ask, which is the part people forget in the room."
+      "body": "Add an appointment and femio will hold the questions you meant to ask, which is the part people forget in the room."
     },
     "awaiting": {
       "heading": "Still waiting to hear?",
@@ -720,13 +720,13 @@
       "clinician": "Who with",
       "datetime": "When",
       "resultsDue": "Told to expect results by",
-      "resultsDueHint": "Optional. Femio will remind you to ask if the date passes — it never records what the result was.",
+      "resultsDueHint": "Optional. femio will remind you to ask if the date passes — it never records what the result was.",
       "prep": "Questions you want to ask",
       "prepPlaceholder": "One per line"
     },
     "card": {
       "eyebrow": "Next appointment",
-      "none": "Nothing booked in Femio yet.",
+      "none": "Nothing booked in femio yet.",
       "all": "All appointments",
       "prepCount": "{count, plural, one {# question saved} other {# questions saved}}"
     }
@@ -736,7 +736,7 @@
     "loading": "Loading your charts",
     "loadError": "We could not load your entries.",
     "retry": "Try again",
-    "boundary": "Charting helps you understand your own pattern and get ready for conversations with a clinician. It is not a reliable way to avoid pregnancy, and Femio never presents it as one.",
+    "boundary": "Charting helps you understand your own pattern and get ready for conversations with a clinician. It is not a reliable way to avoid pregnancy, and femio never presents it as one.",
     "invalidBbt": "That does not look like a thermometer reading. Check the number and try again.",
     "nothingToSave": "Add at least one thing before saving.",
     "saveFailed": "That did not save. Check your connection and try again.",
@@ -749,9 +749,9 @@
       "date": "Day",
       "bbt": "Waking temperature",
       "bbtPlaceholder": "36.50",
-      "bbtHint": "Taken before getting up, at roughly the same time. Celsius or Fahrenheit — Femio works out which.",
+      "bbtHint": "Taken before getting up, at roughly the same time. Celsius or Fahrenheit — femio works out which.",
       "opk": "Ovulation test",
-      "opkHint": "Record what the test said. Femio does not read it for you.",
+      "opkHint": "Record what the test said. femio does not read it for you.",
       "cm": "Cervical mucus",
       "intercourse": "We had sex"
     },
@@ -773,7 +773,7 @@
       "heading": "Your temperatures",
       "alt": "A chart of {count} waking temperatures",
       "needData": "Log three waking temperatures and your chart appears here. Fewer than that is a dot, not a pattern.",
-      "note": "These are your readings, drawn as they are. Femio does not mark a shift or name a day — what a chart means is a conversation for you and your clinician.",
+      "note": "These are your readings, drawn as they are. femio does not mark a shift or name a day — what a chart means is a conversation for you and your clinician.",
       "unit": {
         "c": "{value}°C",
         "f": "{value}°F"
@@ -783,7 +783,7 @@
   },
   "contractions": {
     "heading": "Contraction timer",
-    "intro": "Press start when one begins and stop when it eases. Femio keeps the times so you have them when you call.",
+    "intro": "Press start when one begins and stop when it eases. femio keeps the times so you have them when you call.",
     "start": "Start a contraction",
     "stop": "It has eased",
     "running": "Timing now",
@@ -799,12 +799,12 @@
       "heading": "{count, plural, one {Your last contraction} other {Your last # contractions}}",
       "duration": "Lasting about {value}",
       "interval": "About {value} apart, start to start",
-      "note": "These are your times, as recorded. Femio does not decide what they mean — read them out to your midwife or maternity unit, who can."
+      "note": "These are your times, as recorded. femio does not decide what they mean — read them out to your midwife or maternity unit, who can."
     }
   },
   "weight": {
     "heading": "Weight",
-    "intro": "Add a reading whenever you like. Femio draws them and keeps the numbers for your notes.",
+    "intro": "Add a reading whenever you like. femio draws them and keeps the numbers for your notes.",
     "value": "Weight",
     "date": "Measured on",
     "save": "Save",
@@ -814,7 +814,7 @@
     "needData": "Add a second reading and your chart appears here.",
     "alt": "A chart of {count} weight readings",
     "change": "{value} {unit} since your first entry",
-    "note": "Your readings, drawn as they are. Femio does not show a target range or say whether a change is expected — what a pattern means is for you and your midwife or doctor.",
+    "note": "Your readings, drawn as they are. femio does not show a target range or say whether a change is expected — what a pattern means is for you and your midwife or doctor.",
     "units": {
       "kg": "kg",
       "lb": "lb"
@@ -829,7 +829,7 @@
       "upcoming": "Not yet — worth booking now",
       "open": "This is the window",
       "overdue": "The usual window has passed — worth chasing",
-      "note": "Femio records no result and reads none. Your clinician decides what any of these mean."
+      "note": "femio records no result and reads none. Your clinician decides what any of these mean."
     },
     "moodSupport": {
       "heading": "How you feel is not a verdict on you",
@@ -851,7 +851,7 @@
     "loss": {
       "eyebrow": "After your loss",
       "heading": "However you feel today is okay.",
-      "note": "Nothing here celebrates on your behalf, and nothing counts anything. Femio keeps your record for as long as you want it."
+      "note": "Nothing here celebrates on your behalf, and nothing counts anything. femio keeps your record for as long as you want it."
     },
     "redFlags": {
       "heading": "Signs to get checked now",
@@ -861,7 +861,7 @@
       "heading": "Reading for this stage",
       "pending": "Guides for recovery after birth are being written. Everything already published stays searchable in the library."
     },
-    "cycleReturnNote": "Femio is not showing a next-period estimate. Your cycle can take months to return and is often irregular at first, so a predicted date now would be a guess dressed up as a number. Log your first period and the cycle tools pick up from there."
+    "cycleReturnNote": "femio is not showing a next-period estimate. Your cycle can take months to return and is often irregular at first, so a predicted date now would be a guess dressed up as a number. Log your first period and the cycle tools pick up from there."
   },
   "faq": {
     "title": "Frequently asked questions",
@@ -901,7 +901,7 @@
     "helpNow": "Need help now?"
   },
   "about": {
-    "title": "About Femio",
+    "title": "About femio",
     "intro": "femio is a private companion for trying to conceive and pregnancy: calculators and cited guides on the web, and an Android app that keeps your records on your phone.",
     "points": [
       {
@@ -910,7 +910,7 @@
       },
       {
         "heading": "Learning & tracking",
-        "body": "Femio helps you understand and track your health. It is a wellness and education tool, not a medical device, and it never replaces your clinician’s care."
+        "body": "femio helps you understand and track your health. It is a wellness and education tool, not a medical device, and it never replaces your clinician’s care."
       },
       {
         "heading": "Cited guides, honest review labels",
@@ -926,7 +926,7 @@
       },
       {
         "heading": "Arabic & RTL first-class",
-        "body": "Femio is built for English, Arabic, French, and Spanish, with right-to-left support native throughout."
+        "body": "femio is built for English, Arabic, French, and Spanish, with right-to-left support native throughout."
       }
     ]
   },
@@ -1142,7 +1142,7 @@
   },
   "authors": {
     "title": "Authors & reviewers",
-    "subtitle": "The writers and the clinicians behind Femio’s health content — who they are, what they are qualified in, and what they signed off.",
+    "subtitle": "The writers and the clinicians behind femio’s health content — who they are, what they are qualified in, and what they signed off.",
     "empty": "Author and reviewer bios appear here as our first guides are published.",
     "roles": {
       "author": "Author",
@@ -1160,7 +1160,7 @@
   "search": {
     "englishFallback": "Showing results from the English library — these pages are not translated yet.",
     "title": "Search",
-    "label": "Search Femio",
+    "label": "Search femio",
     "placeholder": "Search articles, conditions and tools",
     "hint": "Results appear as you type. Try a condition, a symptom, or what you want to do.",
     "searching": "Searching",
@@ -1216,7 +1216,7 @@
     },
     "end": {
       "trigger": "This pregnancy has ended",
-      "prompt": "What happened? This only changes what Femio shows you.",
+      "prompt": "What happened? This only changes what femio shows you.",
       "outcome": {
         "completed": "My baby arrived",
         "loss": "I lost my pregnancy",
@@ -1234,13 +1234,13 @@
       },
       "loss": {
         "heading": "Your pregnancy record is closed",
-        "body": "We are very sorry. Nothing has been deleted, and Femio will not show you week counts or reminders about it. Take whatever time you need."
+        "body": "We are very sorry. Nothing has been deleted, and femio will not show you week counts or reminders about it. Take whatever time you need."
       },
       "ended": {
         "heading": "Your pregnancy record is closed",
-        "body": "Nothing has been deleted, and Femio will not show you week counts about it any more."
+        "body": "Nothing has been deleted, and femio will not show you week counts about it any more."
       },
-      "changeFocus": "You can change what Femio focuses on at any time in Settings."
+      "changeFocus": "You can change what femio focuses on at any time in Settings."
     }
   },
   "menopause": {
@@ -1308,7 +1308,7 @@
       "note": "Your cycle month by month"
     },
     "title": "Tools",
-    "intro": "Everything Femio can do, whatever stage you are in. Nothing here is hidden based on what you told us.",
+    "intro": "Everything femio can do, whatever stage you are in. Nothing here is hidden based on what you told us.",
     "recordHeading": "Your record",
     "toolsHeading": "Tools and guides",
     "sharing": {
@@ -1355,7 +1355,7 @@
   "patterns": {
     "dismiss": "Got it — don't show this again",
     "title": "Your patterns",
-    "intro": "What your own entries show, counted. Femio is not interpreting them.",
+    "intro": "What your own entries show, counted. femio is not interpreting them.",
     "loading": "Loading your patterns",
     "loadError": "We couldn't load this. That is our side, not your connection — please try again.",
     "retry": "Try again",
@@ -1366,12 +1366,12 @@
       "low": "Early signal"
     },
     "consent": {
-      "body": "This screen reads your own entries back to you, so it needs the “show me patterns and insights” permission. Nothing leaves Femio either way.",
+      "body": "This screen reads your own entries back to you, so it needs the “show me patterns and insights” permission. Nothing leaves femio either way.",
       "cta": "Turn it on"
     },
     "empty": {
       "heading": "Not enough logged yet",
-      "body": "Femio needs about three cycles of entries before it will say anything about a pattern. Fewer than that is a coincidence, and calling it a pattern would be a guess."
+      "body": "femio needs about three cycles of entries before it will say anything about a pattern. Fewer than that is a coincidence, and calling it a pattern would be a guess."
     },
     "timing": {
       "summary": "{symptom} — usually around day {from}–{to}",
@@ -1382,7 +1382,7 @@
     "together": {
       "summary": "{a} and {b}, on the same day",
       "heading": "What you log on the same day",
-      "note": "These appeared together. Femio is not saying one causes the other — it cannot know that, and neither can a count.",
+      "note": "These appeared together. femio is not saying one causes the other — it cannot know that, and neither can a count.",
       "pair": "{a} and {b}",
       "evidence": "Together in {cycles} of {ofCycles} cycles"
     },
@@ -1433,14 +1433,14 @@
     "retry": "Try again"
   },
   "getApp": {
-    "metaTitle": "Get the Femio app",
+    "metaTitle": "Get the femio app",
     "eyebrow": "femio for Android",
     "title": "Your records never leave your phone.",
-    "body": "A private Android app for trying to conceive and pregnancy, Arabic first. Your calendar, logs and pregnancy tools stay on your phone, behind a PIN if you choose. No account, no cloud. Coming to Google Play.",
+    "body": "A private Android app for trying to conceive and pregnancy, in four languages. Your calendar, logs and pregnancy tools stay on your phone, behind a PIN if you choose. No account, no cloud. Coming to Google Play.",
     "android": "Google Play",
     "androidStatus": "Coming soon",
     "ios": "iPhone",
-    "iosStatus": "Later",
+    "iosStatus": "Coming soon",
     "featuresTitle": "What the app does",
     "features": {
       "period": {
@@ -1460,8 +1460,8 @@
         "body": "Your records are kept on your phone, not on our servers. Add a PIN lock, and save a backup file yourself."
       },
       "arabic": {
-        "title": "Arabic first",
-        "body": "Written for women in Saudi Arabia and Egypt, in Arabic, with English, French and Spanish."
+        "title": "Four languages",
+        "body": "Arabic, English, French and Spanish, with right-to-left Arabic built in from the first line."
       },
       "doctor": {
         "title": "Appointments",
@@ -1472,7 +1472,7 @@
     "meanwhileBody": "Everything on this website is free and needs no account.",
     "meanwhileCalculators": "Try the calculators",
     "meanwhileLearn": "Read the library",
-    "notMedical": "Femio is for tracking and learning, not medical advice, and its estimates are not a reliable way to avoid pregnancy. Talk to your clinician about your health.",
+    "notMedical": "femio is for tracking and learning, not medical advice, and its estimates are not a reliable way to avoid pregnancy. Talk to your clinician about your health.",
     "mock": {
       "day": "Cycle day 12",
       "title": "Fertile window",

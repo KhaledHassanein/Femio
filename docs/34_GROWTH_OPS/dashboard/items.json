@@ -343,19 +343,20 @@
           "id": "feedback-form",
           "title": "Create the one-question feedback form",
           "owner": "owner",
-          "time": "20 min · free",
-          "why": "It is the only feedback channel; the app has no analytics. The Settings link 'Tell us one thing' opens it.",
+          "time": "15 min · free",
+          "why": "It is the only feedback channel: the app has no analytics, so the one way to learn what to fix is a woman telling you in her own words. The Settings link 'Tell us one thing' opens it. Recommended tool: Google Forms (free, no account needed to answer, no e-mail collected when you set it so).",
           "steps": [
-            "Create a form in any form tool you like.",
-            "Add one free-text question: 'What is one thing femio should do better?'",
-            "Add a visible warning above it: 'Please do not include health details.'",
-            "Copy the form's public link.",
-            "Give the link to a session: 'Here is the feedback form URL: ...' so it is wired to the Settings link and the site."
+            "Open forms.google.com with the femio Google account and create a blank form named 'femio – one thing'.",
+            "Settings (gear) → Responses: turn OFF 'Collect email addresses', OFF 'Limit to 1 response', OFF 'Allow response editing'. This keeps the form anonymous.",
+            "Form description (shown above the question), in Arabic and English: 'Please do not include health details or your name.' / 'من فضلكِ لا تكتبي تفاصيل صحية ولا اسمكِ.'",
+            "One question, 'Paragraph' type: 'What is one thing femio should do better?' / 'ما الشيء الواحد الذي يجب أن يحسّنه femio؟' Not required.",
+            "Send → link icon → 'Shorten URL' → copy. Open it in a private window to check it asks for no sign-in.",
+            "Give the link to a session: 'Here is the feedback form URL: ...' and it is wired to the app's Settings link and the site."
           ],
           "doneWhen": "The form opens in a private browser window and its link is wired in the app and site by a session.",
           "dependsOn": [],
           "guide": "docs/runbooks/OWNER_ACTIONS.md row 12 (last sentence); docs/33_REBUILD_V3/04_GROWTH_PACK.md section 5.4",
-          "risk": "The form must warn about health details, or the Data safety answer 'no data collected' is weakened."
+          "risk": "The form must warn about health details, or the Data safety answer weakens. Keep 'Collect email addresses' off: the app promises no account and no e-mail."
         }
       ]
     },
@@ -413,7 +414,8 @@
           "steps": [
             "In Search Console use the search bar at the top (URL Inspection) and paste https://femioapp.com/ar then choose 'Request indexing'.",
             "Repeat for /en, the 7 Arabic calculators, /ar/app, and each Arabic wedge article as it ships. There is a daily quota: do the highest-priority pages first.",
-            "Optional (10 min): in Bing Webmaster Tools choose 'Import from Google Search Console'."
+            "Optional (10 min): in Bing Webmaster Tools choose 'Import from Google Search Console'.",
+            "About auto-indexing every page through the Indexing API (the dev.to article you linked): Google allows that API only for job-posting and live-event pages; using it for ordinary pages breaks its guidelines and brings no faster indexing. The sitemap you submitted is the right channel; the manual requests above are for the dozen pages that matter most."
           ],
           "doneWhen": "Each listed URL shows 'Indexing requested' in Search Console.",
           "dependsOn": [
@@ -503,7 +505,7 @@
           "why": "The file holds the GA4 tag, seven event tags, triggers, variables and consent settings, so you do not type 20 things by hand. It contains none of your ids.",
           "steps": [
             "In Tag Manager open Admin, then Import Container.",
-            "Choose the file docs/34_GROWTH_OPS/gtm/femio-container.json.",
+            "Download the file again from the repository (docs/34_GROWTH_OPS/gtm/femio-container.json, version of 2026-10-30 or later): the 2026-10-28 file fails Tag Manager's validator. If you edited your copy, discard it; the file must not hold your G- id.",
             "Workspace: Existing, Default Workspace. Choose Merge, then 'Rename conflicting'. Confirm.",
             "Open Variables, User-Defined, 'const · GA4 measurement id'. Replace the placeholder value with your G- id from the ga4 item. Save.",
             "Check that the tags list shows 'GA4 · configuration' and seven 'GA4 · ...' event tags."
@@ -520,7 +522,7 @@
             "ga4"
           ],
           "guide": "docs/34_GROWTH_OPS/gtm/README.md; 04_OWNER_GUIDE_GROWTH_A_TO_Z.md D6",
-          "risk": "If the import shows a validation error, the export format changed since 2026-10-28: give a session the exact message. The manual route (guide D3-D6) builds the same things by hand."
+          "risk": "Fixed 2026-10-30 after your 'File format is invalid': the event tags now reference the measurement-id constant the way Tag Manager expects, and consent settings are in the API shape; a gate check keeps it so. If it fails again, give a session the exact message. The manual route (guide D3-D6) builds the same things by hand."
         },
         {
           "id": "consent-banner",

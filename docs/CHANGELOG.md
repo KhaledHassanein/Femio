@@ -3,6 +3,7 @@ All notable changes to Femio V2.
 
 ## [Unreleased]
 ### Added
+- **Flags beside the language names** in the website's language switcher, header and footer.
 - **A language switcher on the website.** A languages button in the header opens the four languages, each written in itself (English, العربية, Français, Español), and the footer lists them as plain links. Switching keeps you on the same page.
 - **The guides are inside the app.** A Learn tab carries every reviewed guide, in Arabic where a translation exists and in English otherwise (marked as such), with the trying-to-conceive, pregnancy and PCOS guides first. It works with no network. "Seek care now" boxes are drawn as warning boxes, as on the website.
 - **Help now in the app.** A button on every screen opens the same reviewed guidance as the website: what to do right now, then emergency and support numbers for Egypt or Saudi Arabia once you choose a country, each with where the number was read. A tap copies the number; the app never dials or opens anything itself.
@@ -12,6 +13,9 @@ All notable changes to Femio V2.
 - **One question when the year alone cannot tell your age.** If your birth year is exactly eighteen years back, femio asks whether your 18th birthday has passed instead of guessing; no date of birth is collected.
 
 ### Changed
+- **The website describes femio for every reader:** "the private companion for trying to conceive and pregnancy, in Arabic, English, French and Spanish"; the home page and the app page no longer say "Arabic-first" or name Saudi Arabia and Egypt.
+- **iPhone: "Coming soon"** on the app page, like Android.
+- **Learn cards show the whole cover art at one size**; no more cut-off crops or uneven boxes in a row.
 - **The reviewer's credentials read "MD"** on every byline and author page (no longer "MBBCh, CPC").
 - **The privacy policy and terms now name the company, the contact mailbox (info@femioapp.com) and their effective date** instead of highlighted blanks.
 - **The app shows ads on the guide screens** (the Learn list and an open guide), served by Google, non-personalised, with a small "Advertisement" label, and nowhere else: never on Today, the log, the calendar, Help now or the warning signs. The ads never see your records; what leaves the phone is the ad request (advertising ID, device type, internet address). femio Plus will remove them. The privacy notice and the Play Data safety answers say exactly this (ADR-076).
@@ -36,6 +40,7 @@ All notable changes to Femio V2.
 - **A new homepage**, built around what you came for: track your period, get pregnant, follow a pregnancy or understand menopause, each one tap from the tool for it.
 
 ### Fixed
+- **The ready-made Tag Manager container imports again**: its event tags referenced the configuration tag in a retired form and the consent block was mis-shaped, so Tag Manager rejected the file.
 - **Arabic links work again.** Every link on an Arabic page (menu, calculators, guides, footer) led to a "page not found" since late August; they now open the Arabic page they name. Found by the performance audit of 2026-10-28; a test now clicks through from the Arabic home on every build.
 
 ### Added

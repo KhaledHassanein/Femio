@@ -70,7 +70,7 @@ class L10nEn extends L10n {
 
   @override
   String get birthYearSub =>
-      'Cycles change with age, so this shapes what Femio expects. Only the year.';
+      'Cycles change with age, so this shapes what femio expects. Only the year.';
 
   @override
   String get under18Title => 'The tracker is for adults, for now';
@@ -220,14 +220,14 @@ class L10nEn extends L10n {
 
   @override
   String get irregularNote =>
-      'Your cycles vary, so Femio shows a wider range and never counts days late.';
+      'Your cycles vary, so femio shows a wider range and never counts days late.';
 
   @override
   String get noPredictionTitle => 'Log your next period';
 
   @override
   String get noPredictionBody =>
-      'When your period starts, log it and Femio will predict the next one.';
+      'When your period starts, log it and femio will predict the next one.';
 
   @override
   String pregnancyWeek(int weeks, int days) {
@@ -270,7 +270,7 @@ class L10nEn extends L10n {
 
   @override
   String get menoUnknown =>
-      'Log any bleeding or symptoms and Femio keeps the record for your clinician.';
+      'Log any bleeding or symptoms and femio keeps the record for your clinician.';
 
   @override
   String get awarenessNote =>
@@ -589,7 +589,7 @@ class L10nEn extends L10n {
 
   @override
   String get bbtChartNote =>
-      'These are your readings, drawn as they are. Femio does not mark a shift or name a day — what a chart means is a conversation for you and your clinician.';
+      'These are your readings, drawn as they are. femio does not mark a shift or name a day — what a chart means is a conversation for you and your clinician.';
 
   @override
   String get invalidBbt =>
@@ -666,7 +666,7 @@ class L10nEn extends L10n {
 
   @override
   String get contractionsIntro =>
-      'Press start when one begins and stop when it eases. Femio keeps the times so you have them when you call.';
+      'Press start when one begins and stop when it eases. femio keeps the times so you have them when you call.';
 
   @override
   String get contractionsStart => 'Start a contraction';
@@ -708,7 +708,7 @@ class L10nEn extends L10n {
 
   @override
   String get contractionsSummaryNote =>
-      'These are your times, as recorded. Femio does not decide what they mean — read them out to your midwife or maternity unit, who can.';
+      'These are your times, as recorded. femio does not decide what they mean — read them out to your midwife or maternity unit, who can.';
 
   @override
   String get movementsHeading => 'Movement log';
@@ -840,14 +840,14 @@ class L10nEn extends L10n {
 
   @override
   String get apptNoResultsNote =>
-      'Femio keeps when it is, who it is with, and what you wanted to ask. It does not keep what was found — that belongs with your clinician, in your notes.';
+      'femio keeps when it is, who it is with, and what you wanted to ask. It does not keep what was found — that belongs with your clinician, in your notes.';
 
   @override
   String get apptEmptyHeading => 'Nothing here yet';
 
   @override
   String get apptEmptyBody =>
-      'Add an appointment and Femio will hold the questions you meant to ask, which is the part people forget in the room.';
+      'Add an appointment and femio will hold the questions you meant to ask, which is the part people forget in the room.';
 
   @override
   String get apptAwaitingHeading => 'Still waiting to hear?';
@@ -880,7 +880,7 @@ class L10nEn extends L10n {
 
   @override
   String get apptFormResultsDueHint =>
-      'Optional. Femio will remind you to ask if the date passes — it never records what the result was.';
+      'Optional. femio will remind you to ask if the date passes — it never records what the result was.';
 
   @override
   String get apptFormPrep => 'Questions you want to ask';
@@ -904,7 +904,7 @@ class L10nEn extends L10n {
 
   @override
   String get weightIntro =>
-      'Add a reading whenever you like. Femio draws them and keeps the numbers for your notes.';
+      'Add a reading whenever you like. femio draws them and keeps the numbers for your notes.';
 
   @override
   String get weightValue => 'Weight';
@@ -927,7 +927,7 @@ class L10nEn extends L10n {
 
   @override
   String get weightNote =>
-      'Your readings, drawn as they are. Femio does not show a target range or say whether a change is expected — what a pattern means is for you and your midwife or doctor.';
+      'Your readings, drawn as they are. femio does not show a target range or say whether a change is expected — what a pattern means is for you and your midwife or doctor.';
 
   @override
   String get weightDate => 'Measured on';

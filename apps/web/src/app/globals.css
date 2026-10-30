@@ -340,12 +340,12 @@ body:has(.app-bottom-bar):has(.crisis-launcher) {
   .learn-card > a {
     @apply flex h-full flex-col overflow-hidden rounded-lg border border-border/70 bg-surface shadow-xs transition-[box-shadow,transform] duration-fast hover:shadow-md motion-safe:hover:-translate-y-0.5;
   }
+  /* The cover art is 480×240 (2:1). The box keeps that ratio and the art fills it exactly,
+     so no card shows a crop and every card in a row has the same art height (owner note,
+     2026-10-29: cut-off images and uneven boxes). Width comes from the card. */
   .learn-card-art {
-    @apply h-28 w-full bg-no-repeat;
-    background-size: 170% auto;
-  }
-  .learn-card-lg .learn-card-art {
-    @apply h-36;
+    @apply aspect-[2/1] w-full bg-no-repeat bg-center;
+    background-size: cover;
   }
   .learn-card > a > div:last-child {
     @apply flex flex-1 flex-col gap-1.5 p-4;

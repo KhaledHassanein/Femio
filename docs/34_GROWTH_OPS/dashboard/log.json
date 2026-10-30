@@ -2,6 +2,24 @@
   "about": "What sessions did towards go-live, newest first. One line per thing that changed what the owner must do. Owner ticks are logged by the dashboard itself from the artifact database.",
   "entries": [
     {
+      "at": "2026-10-30",
+      "who": "session",
+      "what": "Your 'File format is invalid' on the container import was a real defect in the file: event tags referenced the configuration tag the retired way and the consent block was mis-shaped. Fixed, guarded by the gate; download the file again before importing.",
+      "ref": "docs/34_GROWTH_OPS/gtm/ · scripts/gtm-container-lint.mjs"
+    },
+    {
+      "at": "2026-10-30",
+      "who": "session",
+      "what": "Your notes acted on: flags beside the language names in the switcher; the site no longer says 'Arabic-first' or names Saudi Arabia and Egypt (four languages, worldwide); iPhone reads 'Coming soon'; Learn cards show the whole art at one size; the three Arabic content decisions recorded as ADR-077; the two extra pregnancy red flags now have NHS sources (register MR-29) and are queued for the card.",
+      "ref": "R6.15"
+    },
+    {
+      "at": "2026-10-30",
+      "who": "session",
+      "what": "Answers in the items: feedback form → Google Forms with the exact anonymous settings (item feedback-form); auto-indexing via the Indexing API → not allowed for ordinary pages, the sitemap is the channel (item url-inspection).",
+      "ref": "dashboard"
+    },
+    {
       "at": "2026-10-29",
       "who": "session",
       "what": "Deployed to femioapp.com: the language switcher, 'Dr. Khaled M., MD', the legal pages with KM Digital Labs, info@femioapp.com and the effective date. Verified live in English and Arabic.",

@@ -71,7 +71,7 @@ class L10nFr extends L10n {
 
   @override
   String get birthYearSub =>
-      'Les cycles changent avec l\'âge : cela aide Femio à savoir à quoi s\'attendre. L\'année seulement.';
+      'Les cycles changent avec l\'âge : cela aide femio à savoir à quoi s\'attendre. L\'année seulement.';
 
   @override
   String get under18Title =>
@@ -224,14 +224,14 @@ class L10nFr extends L10n {
 
   @override
   String get irregularNote =>
-      'Vos cycles varient : Femio affiche une fourchette plus large et ne compte jamais de jours de retard.';
+      'Vos cycles varient : femio affiche une fourchette plus large et ne compte jamais de jours de retard.';
 
   @override
   String get noPredictionTitle => 'Notez vos prochaines règles';
 
   @override
   String get noPredictionBody =>
-      'Quand vos règles commencent, notez-les et Femio prévoira les suivantes.';
+      'Quand vos règles commencent, notez-les et femio prévoira les suivantes.';
 
   @override
   String pregnancyWeek(int weeks, int days) {
@@ -274,7 +274,7 @@ class L10nFr extends L10n {
 
   @override
   String get menoUnknown =>
-      'Notez les saignements ou symptômes : Femio garde le suivi pour votre soignant.';
+      'Notez les saignements ou symptômes : femio garde le suivi pour votre soignant.';
 
   @override
   String get awarenessNote =>
@@ -593,7 +593,7 @@ class L10nFr extends L10n {
 
   @override
   String get bbtChartNote =>
-      'Ce sont vos mesures, telles quelles. Femio ne signale aucun décalage et ne désigne aucun jour — ce que dit une courbe se discute avec votre clinicien·ne.';
+      'Ce sont vos mesures, telles quelles. femio ne signale aucun décalage et ne désigne aucun jour — ce que dit une courbe se discute avec votre clinicien·ne.';
 
   @override
   String get invalidBbt =>
@@ -672,7 +672,7 @@ class L10nFr extends L10n {
 
   @override
   String get contractionsIntro =>
-      'Appuyez sur démarrer quand une contraction commence et sur arrêter quand elle passe. Femio garde les temps pour que vous les ayez au téléphone.';
+      'Appuyez sur démarrer quand une contraction commence et sur arrêter quand elle passe. femio garde les temps pour que vous les ayez au téléphone.';
 
   @override
   String get contractionsStart => 'Démarrer une contraction';
@@ -714,7 +714,7 @@ class L10nFr extends L10n {
 
   @override
   String get contractionsSummaryNote =>
-      'Ce sont vos temps, tels qu’enregistrés. Femio ne décide pas de ce qu’ils veulent dire — lisez-les à votre sage-femme ou à la maternité, qui le peut.';
+      'Ce sont vos temps, tels qu’enregistrés. femio ne décide pas de ce qu’ils veulent dire — lisez-les à votre sage-femme ou à la maternité, qui le peut.';
 
   @override
   String get movementsHeading => 'Journal des mouvements';
@@ -847,14 +847,14 @@ class L10nFr extends L10n {
 
   @override
   String get apptNoResultsNote =>
-      'Femio retient la date, la personne et ce que vous vouliez demander. Il ne retient pas ce qui a été trouvé — cela appartient à votre dossier et à votre clinicien·ne.';
+      'femio retient la date, la personne et ce que vous vouliez demander. Il ne retient pas ce qui a été trouvé — cela appartient à votre dossier et à votre clinicien·ne.';
 
   @override
   String get apptEmptyHeading => 'Rien pour l’instant';
 
   @override
   String get apptEmptyBody =>
-      'Ajoutez un rendez-vous et Femio gardera les questions que vous vouliez poser — la partie que tout le monde oublie une fois dans la pièce.';
+      'Ajoutez un rendez-vous et femio gardera les questions que vous vouliez poser — la partie que tout le monde oublie une fois dans la pièce.';
 
   @override
   String get apptAwaitingHeading => 'Toujours sans nouvelles ?';
@@ -887,7 +887,7 @@ class L10nFr extends L10n {
 
   @override
   String get apptFormResultsDueHint =>
-      'Facultatif. Femio vous rappellera de relancer si la date passe ; il n’enregistre jamais le résultat lui-même.';
+      'Facultatif. femio vous rappellera de relancer si la date passe ; il n’enregistre jamais le résultat lui-même.';
 
   @override
   String get apptFormPrep => 'Questions à poser';
@@ -911,7 +911,7 @@ class L10nFr extends L10n {
 
   @override
   String get weightIntro =>
-      'Ajoutez une mesure quand vous voulez. Femio les trace et garde les chiffres pour votre dossier.';
+      'Ajoutez une mesure quand vous voulez. femio les trace et garde les chiffres pour votre dossier.';
 
   @override
   String get weightValue => 'Poids';
@@ -934,7 +934,7 @@ class L10nFr extends L10n {
 
   @override
   String get weightNote =>
-      'Vos mesures, telles quelles. Femio n’affiche aucune fourchette cible et ne dit pas si une évolution est attendue — ce que signifie une courbe se discute avec votre sage-femme ou votre médecin.';
+      'Vos mesures, telles quelles. femio n’affiche aucune fourchette cible et ne dit pas si une évolution est attendue — ce que signifie une courbe se discute avec votre sage-femme ou votre médecin.';
 
   @override
   String get weightDate => 'Mesuré le';

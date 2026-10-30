@@ -762,3 +762,21 @@ anywhere; what is said, and checked, is "her records never leave the phone; the 
 does is the ad request, and it carries nothing about her". The Play review of a health app with an
 ads SDK is the owner's accepted risk; the first upload carries the ads so the closed test exercises
 them. Alternative (c), house cards for femio Plus, stays as the ad-free surface on every other screen.
+
+## ADR-077 · Arabic register: conservative scope, the lay PCOS term, and who she asks about fasting
+
+**Status:** accepted 2026-10-30 (owner, go-live dashboard: "all good as recommended").
+**Context:** the Arabic medical-editor pass (`docs/content/reviews/2026-10-28-arabic-editor-pass.md`,
+owner action 9) left three choices that are register and scope, not grammar.
+**Decision:**
+1. The Arabic guides keep the conservative scope: the English lines on donor sperm, same-sex couples,
+   parenting alone and home insemination are not restored in Arabic (trying-to-conceive-guide,
+   when-to-seek-fertility-help, fertile-window-explained). The English keeps them. A future Arabic
+   edition for other markets may revisit this; it is a scope decision, not a translation error.
+2. The lay term **تكيّس المبايض** stays in guides, app and store listing; the glossary's formal
+   المبيض المتعدد الكيسات stays as the glossary headword with the lay term as its alias.
+3. In the Ramadan guide, the person she asks about fasting is **أهل العلم الشرعي** ("من تثقين به
+   من أهل العلم الشرعي"), not "المرجع الديني".
+**Consequences:** `scripts/content-lint.mjs` and the content brief keep these as the house rule; the
+editor pass's remaining open items are the clinician sign-off (`medically_reviewed_by: PENDING`) and
+the Ramadan draft's publication, both owner actions.

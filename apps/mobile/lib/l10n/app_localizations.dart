@@ -218,7 +218,7 @@ abstract class L10n {
   /// No description provided for @birthYearSub.
   ///
   /// In en, this message translates to:
-  /// **'Cycles change with age, so this shapes what Femio expects. Only the year.'**
+  /// **'Cycles change with age, so this shapes what femio expects. Only the year.'**
   String get birthYearSub;
 
   /// No description provided for @under18Title.
@@ -476,7 +476,7 @@ abstract class L10n {
   /// No description provided for @irregularNote.
   ///
   /// In en, this message translates to:
-  /// **'Your cycles vary, so Femio shows a wider range and never counts days late.'**
+  /// **'Your cycles vary, so femio shows a wider range and never counts days late.'**
   String get irregularNote;
 
   /// No description provided for @noPredictionTitle.
@@ -488,7 +488,7 @@ abstract class L10n {
   /// No description provided for @noPredictionBody.
   ///
   /// In en, this message translates to:
-  /// **'When your period starts, log it and Femio will predict the next one.'**
+  /// **'When your period starts, log it and femio will predict the next one.'**
   String get noPredictionBody;
 
   /// No description provided for @pregnancyWeek.
@@ -524,7 +524,7 @@ abstract class L10n {
   /// No description provided for @menoUnknown.
   ///
   /// In en, this message translates to:
-  /// **'Log any bleeding or symptoms and Femio keeps the record for your clinician.'**
+  /// **'Log any bleeding or symptoms and femio keeps the record for your clinician.'**
   String get menoUnknown;
 
   /// No description provided for @awarenessNote.
@@ -1130,7 +1130,7 @@ abstract class L10n {
   /// No description provided for @bbtChartNote.
   ///
   /// In en, this message translates to:
-  /// **'These are your readings, drawn as they are. Femio does not mark a shift or name a day — what a chart means is a conversation for you and your clinician.'**
+  /// **'These are your readings, drawn as they are. femio does not mark a shift or name a day — what a chart means is a conversation for you and your clinician.'**
   String get bbtChartNote;
 
   /// No description provided for @invalidBbt.
@@ -1238,7 +1238,7 @@ abstract class L10n {
   /// No description provided for @contractionsIntro.
   ///
   /// In en, this message translates to:
-  /// **'Press start when one begins and stop when it eases. Femio keeps the times so you have them when you call.'**
+  /// **'Press start when one begins and stop when it eases. femio keeps the times so you have them when you call.'**
   String get contractionsIntro;
 
   /// No description provided for @contractionsStart.
@@ -1292,7 +1292,7 @@ abstract class L10n {
   /// No description provided for @contractionsSummaryNote.
   ///
   /// In en, this message translates to:
-  /// **'These are your times, as recorded. Femio does not decide what they mean — read them out to your midwife or maternity unit, who can.'**
+  /// **'These are your times, as recorded. femio does not decide what they mean — read them out to your midwife or maternity unit, who can.'**
   String get contractionsSummaryNote;
 
   /// No description provided for @movementsHeading.
@@ -1490,7 +1490,7 @@ abstract class L10n {
   /// No description provided for @apptNoResultsNote.
   ///
   /// In en, this message translates to:
-  /// **'Femio keeps when it is, who it is with, and what you wanted to ask. It does not keep what was found — that belongs with your clinician, in your notes.'**
+  /// **'femio keeps when it is, who it is with, and what you wanted to ask. It does not keep what was found — that belongs with your clinician, in your notes.'**
   String get apptNoResultsNote;
 
   /// No description provided for @apptEmptyHeading.
@@ -1502,7 +1502,7 @@ abstract class L10n {
   /// No description provided for @apptEmptyBody.
   ///
   /// In en, this message translates to:
-  /// **'Add an appointment and Femio will hold the questions you meant to ask, which is the part people forget in the room.'**
+  /// **'Add an appointment and femio will hold the questions you meant to ask, which is the part people forget in the room.'**
   String get apptEmptyBody;
 
   /// No description provided for @apptAwaitingHeading.
@@ -1550,7 +1550,7 @@ abstract class L10n {
   /// No description provided for @apptFormResultsDueHint.
   ///
   /// In en, this message translates to:
-  /// **'Optional. Femio will remind you to ask if the date passes — it never records what the result was.'**
+  /// **'Optional. femio will remind you to ask if the date passes — it never records what the result was.'**
   String get apptFormResultsDueHint;
 
   /// No description provided for @apptFormPrep.
@@ -1580,7 +1580,7 @@ abstract class L10n {
   /// No description provided for @weightIntro.
   ///
   /// In en, this message translates to:
-  /// **'Add a reading whenever you like. Femio draws them and keeps the numbers for your notes.'**
+  /// **'Add a reading whenever you like. femio draws them and keeps the numbers for your notes.'**
   String get weightIntro;
 
   /// No description provided for @weightValue.
@@ -1616,7 +1616,7 @@ abstract class L10n {
   /// No description provided for @weightNote.
   ///
   /// In en, this message translates to:
-  /// **'Your readings, drawn as they are. Femio does not show a target range or say whether a change is expected — what a pattern means is for you and your midwife or doctor.'**
+  /// **'Your readings, drawn as they are. femio does not show a target range or say whether a change is expected — what a pattern means is for you and your midwife or doctor.'**
   String get weightNote;
 
   /// No description provided for @weightDate.
