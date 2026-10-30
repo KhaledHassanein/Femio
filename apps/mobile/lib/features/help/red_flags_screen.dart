@@ -1,5 +1,5 @@
 // Pregnancy warning signs as their own screen (MR-29): the sourced sentence, the same
-// five symptoms as a list she can scan, where the list comes from, and the guide.
+// seven symptoms as a list she can scan, where the list comes from, and the guide.
 //
 // Why it exists: a card on Today is read once and scrolls away; a woman who is worried
 // needs the list on one screen she can reach again, with the fallback line and the
@@ -62,6 +62,8 @@ class RedFlagsScreen extends StatelessWidget {
         RedFlagSymptom.upperAbdomen => l.redFlagUpperAbdomen,
         RedFlagSymptom.swelling => l.redFlagSwelling,
         RedFlagSymptom.breathing => l.redFlagBreathing,
+        RedFlagSymptom.bleeding => l.redFlagBleeding,
+        RedFlagSymptom.movements => l.redFlagMovements,
       };
 }
 

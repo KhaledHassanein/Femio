@@ -58,7 +58,7 @@ Every "done" names its evidence: a test count, a screenshot folder, a deployed U
 - [x] R4.10 · Split onboarding (589 lines), Today (478) and Log (317); file headers and docstrings; spacing/radius tokens (flutter analyze clean, 61 tests)
 - [x] R4.11 · Release signing from a git-ignored `key.properties` (debug fallback keeps a test APK buildable), R8 minify on; `pnpm gate:mobile` = vocabulary, untranslated-copy (`scripts/mobile/arb-untranslated-lint.mjs`: 343 keys × 3 locales, values compared, cognates allowlisted), claims and crisis guards, then `flutter analyze && flutter test`; CI runs analyze/test in `verify-mobile` and the guards in the web gate. Release build itself needs the owner's key (R4.12)
 - [ ] R4.12 · Release candidate on the owner's phone (owner action 1)
-- [ ] R4.14 · Pregnancy red-flag card: add bleeding and reduced movements (sourced NHS, MR-29, 2026-10-30) to the website sentence, the app card and screen, fixtures and all four locales; wording must stay a screen, not a verdict
+- [x] R4.14 · Pregnancy red-flag card: vaginal bleeding and a change in the baby's movements (NHS pages in MR-29, read 2026-10-30) join the sentence (`calculators.rules.redFlag`, four locales; the vocabulary sync copies it into the app's card and calculator verbatim), the app's list screen (`RedFlagSymptom.bleeding`, `.movements`, two NHS source rows) and the safety doc; the wording stays "seek care now if", no cause named. No golden fixture holds this sentence: the web↔app sync guard is what binds the two. Evidence: `testing-results/2026-10-30-red-flags-r414/`
 
 ## R5 · Launch
 

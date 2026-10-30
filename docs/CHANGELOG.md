@@ -3,6 +3,7 @@ All notable changes to Femio V2.
 
 ## [Unreleased]
 ### Added
+- **The pregnancy warning-signs card names two more signs**: vaginal bleeding, and the baby's movements slowing down, stopping or changing (NHS pages). On the website's pregnancy calculator and the app's Today card and warning-signs screen, in four languages.
 - **Help now in the app lists the same sixteen countries as the website**, with the same numbers and official sources; a country is chosen before any number appears, as before.
 - **Help now covers sixteen countries on the website.** Pick Egypt, Saudi Arabia, the UAE, Qatar, Kuwait, Bahrain, Oman, Jordan, Lebanon, Morocco, the United Kingdom, France, Spain, the United States, Canada or Mexico and see its emergency number and its mental-health or family-violence lines, each with the official page it was read on. Every other country is pointed to the Find a Helpline directory.
 - **Flags beside the language names** in the website's language switcher, header and footer.

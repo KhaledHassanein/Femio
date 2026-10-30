@@ -16,6 +16,8 @@ Source: [American Heart Association — Home Blood Pressure Monitoring](https://
 - NICE NG133 describes 140/90 mmHg or higher as hypertension in pregnancy, 160/110 mmHg or higher as severe hypertension, and 135/85 mmHg or lower as a treatment target. These are guideline reference points; they are not an app diagnosis.
 - ACOG patient guidance defines severe hypertension in pregnancy as systolic 160 mmHg or higher and/or diastolic 110 mmHg or higher, and lists severe headache, vision changes, upper-abdominal pain, swelling of the face or hands, and difficulty breathing among warning symptoms that require prompt clinician contact.
 
+- NHS patient pages add two signs to Femio's red-flag card (MR-29, owner's go-ahead 2026-10-30): vaginal bleeding in pregnancy should always be checked by a midwife or doctor; and if the baby's movements have slowed down, stopped or changed, contact the midwife or maternity unit immediately. Both are listed as signs to act on, not as a diagnosis of their cause.
+
 Femio may display these as fixed educational references and route users to care. It must not label an entered reading, decide whether a user has pre-eclampsia, or give a start/stop/dose instruction.
 
 Sources:
@@ -25,6 +27,8 @@ Sources:
 - [ACOG — Preeclampsia and High Blood Pressure During Pregnancy](https://www.acog.org/womens-health/faqs/preeclampsia-and-high-blood-pressure-during-pregnancy) (last reviewed April 2025)
 - [NICE NG133 — Hypertension in pregnancy: recommendations](https://www.nice.org.uk/guidance/ng133/chapter/Recommendations) (published June 2019; updated April 2023)
 - [CDC Hear Her — Urgent Maternal Warning Signs](https://www.cdc.gov/hearher/maternal-warning-signs/index.html) (15 May 2024)
+- [NHS — Vaginal bleeding in pregnancy](https://www.nhs.uk/pregnancy/common-symptoms/vaginal-bleeding/) (read 30 October 2026)
+- [NHS — Your baby's movements](https://www.nhs.uk/pregnancy/keeping-well/your-babys-movements/) (read 30 October 2026)
 
 ## Aspirin wording
 

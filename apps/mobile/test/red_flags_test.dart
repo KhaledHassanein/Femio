@@ -1,5 +1,5 @@
-// The pregnancy warning-signs screen (MR-29): the sourced sentence, the five symptoms
-// as a list, both sources, and the link to the guide when the library has it.
+// The pregnancy warning-signs screen (MR-29): the sourced sentence, the seven symptoms
+// as a list, the four sources, and the link to the guide when the library has it.
 
 import 'dart:convert';
 
@@ -43,23 +43,30 @@ Future<void> _pump(WidgetTester tester, Widget app) async {
 }
 
 void main() {
-  testWidgets('English: the sourced sentence, five symptoms and two sources', (tester) async {
+  testWidgets('English: the sourced sentence, seven symptoms and four sources', (tester) async {
     await _pump(tester, _app('en'));
-    expect(find.textContaining('swelling of the face or hands, or difficulty breathing'), findsOneWidget);
-    for (final s in ['A severe headache', 'Changes in your vision', 'Pain in the upper abdomen', 'Swelling of the face or hands', 'Difficulty breathing']) {
+    expect(find.textContaining('vaginal bleeding, or if your baby\'s movements have slowed down, stopped or changed'), findsOneWidget);
+    for (final s in [
+      'A severe headache',
+      'Changes in your vision',
+      'Pain in the upper abdomen',
+      'Swelling of the face or hands',
+      'Difficulty breathing',
+      'Vaginal bleeding',
+      'Your baby\'s movements slowing down, stopping or changing',
+    ]) {
       expect(find.text(s), findsOneWidget);
     }
     expect(find.text('acog.org'), findsOneWidget);
     expect(find.text('cdc.gov'), findsOneWidget);
-    // The unsourced additions are not on the screen.
-    expect(find.textContaining('Bleeding'), findsNothing);
-    expect(find.textContaining('reduced movements'), findsNothing);
+    expect(find.text('nhs.uk'), findsNWidgets(2));
   });
 
   testWidgets('Arabic: the same list in Arabic, no guide link without a library', (tester) async {
     await _pump(tester, _app('ar'));
     expect(find.text('صداع شديد'), findsOneWidget);
     expect(find.text('صعوبة في التنفس'), findsOneWidget);
+    expect(find.text('نزيف مهبلي'), findsOneWidget);
     expect(find.textContaining('اطلبي الرعاية فورًا إذا كان لديكِ'), findsOneWidget);
     expect(find.byType(ListTile), findsNothing);
   });

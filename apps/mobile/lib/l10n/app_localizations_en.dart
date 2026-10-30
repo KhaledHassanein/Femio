@@ -638,7 +638,7 @@ class L10nEn extends L10n {
 
   @override
   String get pregRedFlagsBody =>
-      'Seek care now if you have a severe headache, changes in your vision, pain in the upper abdomen, swelling of the face or hands, or difficulty breathing. Contact your maternity unit or local emergency services. If you cannot reach them, go to the nearest emergency department.';
+      'Seek care now if you have a severe headache, changes in your vision, pain in the upper abdomen, swelling of the face or hands, difficulty breathing, vaginal bleeding, or if your baby\'s movements have slowed down, stopped or changed. Contact your maternity unit or local emergency services. If you cannot reach them, go to the nearest emergency department.';
 
   @override
   String get pregRedFlagsMore => 'See the full list and its sources';
@@ -660,6 +660,13 @@ class L10nEn extends L10n {
 
   @override
   String get redFlagBreathing => 'Difficulty breathing';
+
+  @override
+  String get redFlagBleeding => 'Vaginal bleeding';
+
+  @override
+  String get redFlagMovements =>
+      'Your baby\'s movements slowing down, stopping or changing';
 
   @override
   String get contractionsHeading => 'Contraction timer';

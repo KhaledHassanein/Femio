@@ -643,7 +643,7 @@ class L10nFr extends L10n {
 
   @override
   String get pregRedFlagsBody =>
-      'Consultez sans attendre en cas de maux de tête sévères, de troubles de la vision, de douleur en haut de l\'abdomen, de gonflement du visage ou des mains, ou de difficulté à respirer. Contactez votre maternité ou les services d\'urgence locaux. Si vous ne les joignez pas, rendez-vous aux urgences les plus proches.';
+      'Consultez sans attendre en cas de maux de tête sévères, de troubles de la vision, de douleur en haut de l\'abdomen, de gonflement du visage ou des mains, de difficulté à respirer, de saignements vaginaux, ou si les mouvements de votre bébé ont ralenti, cessé ou changé. Contactez votre maternité ou les services d\'urgence locaux. Si vous ne les joignez pas, rendez-vous aux urgences les plus proches.';
 
   @override
   String get pregRedFlagsMore => 'Voir la liste complète et ses sources';
@@ -666,6 +666,13 @@ class L10nFr extends L10n {
 
   @override
   String get redFlagBreathing => 'Une difficulté à respirer';
+
+  @override
+  String get redFlagBleeding => 'Des saignements vaginaux';
+
+  @override
+  String get redFlagMovements =>
+      'Un ralentissement, un arrêt ou un changement des mouvements de votre bébé';
 
   @override
   String get contractionsHeading => 'Minuteur de contractions';

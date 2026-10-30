@@ -464,7 +464,7 @@
       "estimateNote": "These dates are estimates based on the date you entered. Every body is different.",
       "clinicianAdjust": "Your clinician may adjust the date after a scan.",
       "overTerm": "This date is more than 42 weeks ago, so a week can't be counted from it. If you are pregnant, talk to your midwife or doctor about your dates.",
-      "redFlag": "Seek care now if you have a severe headache, changes in your vision, pain in the upper abdomen, swelling of the face or hands, or difficulty breathing. Contact your maternity unit or local emergency services. If you cannot reach them, go to the nearest emergency department."
+      "redFlag": "Seek care now if you have a severe headache, changes in your vision, pain in the upper abdomen, swelling of the face or hands, difficulty breathing, vaginal bleeding, or if your baby's movements have slowed down, stopped or changed. Contact your maternity unit or local emergency services. If you cannot reach them, go to the nearest emergency department."
     },
     "termBar": {
       "here": "Week {weeks} + {days} days",

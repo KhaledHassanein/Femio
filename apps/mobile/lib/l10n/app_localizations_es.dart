@@ -637,7 +637,7 @@ class L10nEs extends L10n {
 
   @override
   String get pregRedFlagsBody =>
-      'Busca atención ahora si tienes dolor de cabeza intenso, cambios en la visión, dolor en la parte alta del abdomen, hinchazón de la cara o las manos, o dificultad para respirar. Contacta con tu unidad de maternidad o los servicios de emergencia locales. Si no puedes contactarlos, acude al servicio de urgencias más cercano.';
+      'Busca atención ahora si tienes dolor de cabeza intenso, cambios en la visión, dolor en la parte alta del abdomen, hinchazón de la cara o las manos, dificultad para respirar, sangrado vaginal, o si los movimientos de tu bebé han disminuido, se han detenido o han cambiado. Contacta con tu unidad de maternidad o los servicios de emergencia locales. Si no puedes contactarlos, acude al servicio de urgencias más cercano.';
 
   @override
   String get pregRedFlagsMore => 'Ver la lista completa y sus fuentes';
@@ -660,6 +660,13 @@ class L10nEs extends L10n {
 
   @override
   String get redFlagBreathing => 'Dificultad para respirar';
+
+  @override
+  String get redFlagBleeding => 'Sangrado vaginal';
+
+  @override
+  String get redFlagMovements =>
+      'Movimientos de tu bebé que disminuyen, se detienen o cambian';
 
   @override
   String get contractionsHeading => 'Cronómetro de contracciones';

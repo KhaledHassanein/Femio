@@ -1184,7 +1184,7 @@ abstract class L10n {
   /// No description provided for @pregRedFlagsBody.
   ///
   /// In en, this message translates to:
-  /// **'Seek care now if you have a severe headache, changes in your vision, pain in the upper abdomen, swelling of the face or hands, or difficulty breathing. Contact your maternity unit or local emergency services. If you cannot reach them, go to the nearest emergency department.'**
+  /// **'Seek care now if you have a severe headache, changes in your vision, pain in the upper abdomen, swelling of the face or hands, difficulty breathing, vaginal bleeding, or if your baby\'s movements have slowed down, stopped or changed. Contact your maternity unit or local emergency services. If you cannot reach them, go to the nearest emergency department.'**
   String get pregRedFlagsBody;
 
   /// No description provided for @pregRedFlagsMore.
@@ -1228,6 +1228,18 @@ abstract class L10n {
   /// In en, this message translates to:
   /// **'Difficulty breathing'**
   String get redFlagBreathing;
+
+  /// No description provided for @redFlagBleeding.
+  ///
+  /// In en, this message translates to:
+  /// **'Vaginal bleeding'**
+  String get redFlagBleeding;
+
+  /// No description provided for @redFlagMovements.
+  ///
+  /// In en, this message translates to:
+  /// **'Your baby\'s movements slowing down, stopping or changing'**
+  String get redFlagMovements;
 
   /// No description provided for @contractionsHeading.
   ///
