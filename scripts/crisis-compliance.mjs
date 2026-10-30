@@ -12,6 +12,9 @@
  *      an exact parity match with English (the master).
  *   4. Country help numbers (lib/crisis/country-numbers.ts) older than 12 months, or
  *      a number listed without its source URL.
+ *   5. The app's copy of that list (apps/mobile/lib/domain/crisis_numbers.dart) drifting
+ *      from the website's: countries, order, ids, numbers, kinds, source pages or the
+ *      check date (R6.17), or a label missing from one of the four ARB files.
  *
  * Locales marked `pending` are expected to have no `strings` (they render the
  * English fallback at runtime) and are only checked for a valid status value.
@@ -113,6 +116,52 @@ const MAX_AGE_DAYS = 365;
   }
 }
 
+// 5. The app's country list is the website's, entry for entry. The TypeScript file is the
+// source; a session that adds a country there must run the R6.17 generator (or edit the
+// Dart by hand) and the ARB files, or this fails.
+const CRISIS_DART = join(HERE, "..", "apps", "mobile", "lib", "domain", "crisis_numbers.dart");
+{
+  const ts = readFileSync(COUNTRY_NUMBERS_TS, "utf8");
+  const dart = readFileSync(CRISIS_DART, "utf8");
+  const stripComments = (s) => s.split("\n").filter((l) => !l.trim().startsWith("//")).join("\n");
+  const tsBody = stripComments(ts.slice(ts.indexOf("export const COUNTRY_NUMBERS")));
+  const dartBody = stripComments(dart.slice(dart.indexOf("const crisisNumbers")));
+  const tsIds = [...(ts.match(/COUNTRY_IDS = \[([^\]]*)\]/)?.[1] ?? "").matchAll(/"(\w+)"/g)].map((m) => m[1]);
+  const dartIds = [...(dart.match(/crisisCountries = \[([^\]]*)\]/)?.[1] ?? "").matchAll(/'(\w+)'/g)].map((m) => m[1]);
+  const tsRows = [];
+  let country = null;
+  for (const m of tsBody.matchAll(/^  (\w+): \[|\{\s*id: "([\w-]+)",\s*number: "(\d+)",\s*kind: "(\w+)",\s*sourceUrl:\s*"([^"]+)",\s*\}/gms)) {
+    if (m[1]) country = m[1];
+    else tsRows.push(`${country} ${m[2].replaceAll("-", "_")} ${m[3]} ${m[4]} ${m[5]}`);
+  }
+  const dartRows = [];
+  for (const m of dartBody.matchAll(/^  '(\w+)': \[|CrisisNumber\(id: '(\w+)', number: '(\d+)', kind: NumberKind\.(\w+), sourceUrl: '([^']+)'\)/gm)) {
+    if (m[1]) country = m[1];
+    else dartRows.push(`${country} ${m[2]} ${m[3]} ${m[4]} ${m[5]}`);
+  }
+  if (tsIds.length === 0 || tsIds.join() !== dartIds.join()) errors.push(`[app] crisisCountries (${dartIds.join(", ")}) differ from COUNTRY_IDS (${tsIds.join(", ")}).`);
+  if (tsRows.length === 0) errors.push("[app] could not read any number from country-numbers.ts; the guard's parser needs updating.");
+  for (const r of tsRows.filter((r) => !dartRows.includes(r))) errors.push(`[app] crisis_numbers.dart lacks or differs on: ${r}`);
+  for (const r of dartRows.filter((r) => !tsRows.includes(r))) errors.push(`[app] crisis_numbers.dart has a row the website does not: ${r}`);
+  const tsChecked = ts.match(/COUNTRY_NUMBERS_CHECKED\s*=\s*"(\d{4}-\d{2}-\d{2})"/)?.[1];
+  const dartChecked = dart.match(/crisisNumbersChecked\s*=\s*'(\d{4}-\d{2}-\d{2})'/)?.[1];
+  if (tsChecked !== dartChecked) errors.push(`[app] crisisNumbersChecked (${dartChecked}) differs from COUNTRY_NUMBERS_CHECKED (${tsChecked}).`);
+  // Every country and id has its label in all four catalogs.
+  for (const locale of ["en", "ar", "fr", "es"]) {
+    let arb;
+    try {
+      arb = JSON.parse(readFileSync(join(HERE, "..", "apps", "mobile", "lib", "l10n", `app_${locale}.arb`), "utf8"));
+    } catch {
+      continue; // the verbatim-sentence check below reports the unreadable catalog
+    }
+    for (const c of dartIds) if (!arb[`helpNowCountry_${c}`]) errors.push(`[app] ${locale}: helpNowCountry_${c} is missing.`);
+    for (const r of dartRows) {
+      const id = r.split(" ")[1];
+      if (!arb[`helpNowNumber_${id}`]) errors.push(`[app] ${locale}: helpNowNumber_${id} is missing.`);
+    }
+  }
+}
+
 // The app's catalogs carry the same approved sentences, verbatim (R4.8). A drift here
 // would be an unreviewed crisis sentence on a phone.
 const ARB_KEYS = { immediateLead: "helpNowImmediateLead", stayWithSomeone: "helpNowStayWithSomeone", worriedBody: "helpNowWorriedBody", immediateHeading: "helpNowImmediateHeading", worriedHeading: "helpNowWorriedHeading" };
@@ -137,4 +186,4 @@ if (errors.length > 0) {
   process.exit(1);
 }
 
-console.log("✓ Crisis-safety compliance guard: approved copy in date, metadata complete, keys in parity, country numbers sourced and in date, app strings verbatim.");
+console.log("✓ Crisis-safety compliance guard: approved copy in date, metadata complete, keys in parity, country numbers sourced and in date, app list identical to the website's, app strings verbatim.");

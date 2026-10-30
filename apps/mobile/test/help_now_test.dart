@@ -22,6 +22,14 @@ Widget _app(String locale) => MaterialApp(
   home: const HelpNowScreen(),
 );
 
+/// A tall viewport: the ListView is lazy, and with sixteen chips the support lines sit
+/// below the default 600px fold, where a finder would not see them.
+void _tall(WidgetTester tester) {
+  tester.view.physicalSize = const Size(780, 3200);
+  tester.view.devicePixelRatio = 2;
+  addTearDown(tester.view.reset);
+}
+
 void main() {
   testWidgets('shows the global guidance first and no number until a country is picked', (tester) async {
     await tester.pumpWidget(_app('en'));
@@ -32,6 +40,7 @@ void main() {
   });
 
   testWidgets('Egypt shows its ambulance and support numbers, apart', (tester) async {
+    _tall(tester);
     await tester.pumpWidget(_app('ar'));
     await tester.pumpAndSettle();
     await tester.tap(find.text('مصر'));
@@ -41,6 +50,29 @@ void main() {
     expect(find.text('997'), findsNothing);
     expect(find.text('خدمات الطوارئ'), findsOneWidget);
     expect(find.text('خطوط الدعم'), findsOneWidget);
+  });
+
+  testWidgets('sixteen country chips; Lebanon shows the Red Cross line and the lifeline, nothing from Egypt', (tester) async {
+    _tall(tester);
+    await tester.pumpWidget(_app('ar'));
+    await tester.pumpAndSettle();
+    expect(find.byType(ChoiceChip), findsNWidgets(16));
+    await tester.tap(find.text('لبنان'));
+    await tester.pumpAndSettle();
+    expect(find.text('140'), findsOneWidget);
+    expect(find.text('1564'), findsOneWidget);
+    expect(find.text('123'), findsNothing);
+  });
+
+  testWidgets('a country with emergency lines only draws no empty support group', (tester) async {
+    _tall(tester);
+    await tester.pumpWidget(_app('en'));
+    await tester.pumpAndSettle();
+    await tester.tap(find.text('Kuwait'));
+    await tester.pumpAndSettle();
+    expect(find.text('112'), findsOneWidget);
+    expect(find.text('Emergency services'), findsWidgets);
+    expect(find.text('Support lines'), findsNothing);
   });
 
   testWidgets('the tab header carries the Help now button and it opens the screen', (tester) async {

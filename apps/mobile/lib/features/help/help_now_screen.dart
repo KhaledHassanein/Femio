@@ -1,4 +1,5 @@
-// Help now: the approved crisis wording, then the numbers for a country she picks.
+// Help now: the approved crisis wording, then the numbers for a country she picks
+// (sixteen countries, the website's list; R6.17).
 //
 // Why it exists: the website has always carried this page; the app did not (study
 // report 10). The sentences are the reviewed ones from the website's crisis.json,
@@ -6,7 +7,9 @@
 // Rules (docs/compliance/CRISIS_RESOURCES.md): the global guidance first and always;
 // a number only after she picks a country; emergency lines drawn apart from support
 // lines; each number with the page it was read on; no promises about cost, hours
-// or confidentiality. Never gated behind anything.
+// or confidentiality. Never gated behind anything. The country chips wrap rather than
+// scroll so that every listed country is visible at once; a country with no verified
+// official page is not listed (the directory on the website covers it).
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -17,6 +20,7 @@ import '../../theme/femio_theme.dart';
 import '../../theme/radii.dart';
 import '../../theme/spacing.dart';
 import '../../widgets/notice_card.dart';
+import 'help_now_labels.dart';
 
 /// The Help now screen, reached from every tab's header.
 class HelpNowScreen extends StatefulWidget {
@@ -46,20 +50,23 @@ class _HelpNowScreenState extends State<HelpNowScreen> {
           const SizedBox(height: space2),
           Wrap(
             spacing: space2,
+            runSpacing: space1,
             children: [
-              for (final code in crisisCountries)
+              for (final slug in crisisCountries)
                 ChoiceChip(
-                  label: Text(code == 'EG' ? l.helpNowCountryEG : l.helpNowCountrySA),
-                  selected: _country == code,
-                  onSelected: (_) => setState(() => _country = code),
+                  label: Text(helpNowCountryName(l, slug)),
+                  selected: _country == slug,
+                  onSelected: (_) => setState(() => _country = slug),
                 ),
             ],
           ),
           if (numbers.isNotEmpty) ...[
             const SizedBox(height: space4),
             _NumberGroup(title: l.helpNowEmergency, numbers: numbers.where((n) => n.kind == NumberKind.emergency).toList()),
-            const SizedBox(height: space3),
-            _NumberGroup(title: l.helpNowSupport, numbers: numbers.where((n) => n.kind == NumberKind.support).toList()),
+            if (numbers.any((n) => n.kind == NumberKind.support)) ...[
+              const SizedBox(height: space3),
+              _NumberGroup(title: l.helpNowSupport, numbers: numbers.where((n) => n.kind == NumberKind.support).toList()),
+            ],
           ],
           const SizedBox(height: space6),
           Text(l.helpNowWorriedHeading, style: t.titleMedium),
@@ -99,7 +106,7 @@ class _NumberGroup extends StatelessWidget {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text(_label(l, n.id), style: t.bodyMedium),
+                      Text(helpNowNumberLabel(l, n.id), style: t.bodyMedium),
                       Text('${l.helpNowSource}: ${Uri.parse(n.sourceUrl).host}', style: t.labelMedium?.copyWith(color: p.textSubtle)),
                     ],
                   ),
@@ -121,14 +128,4 @@ class _NumberGroup extends StatelessWidget {
     );
   }
 
-  static String _label(L10n l, String id) => switch (id) {
-        'eg_ambulance' => l.helpNowNumber_eg_ambulance,
-        'eg_mental_health' => l.helpNowNumber_eg_mental_health,
-        'eg_ncw' => l.helpNowNumber_eg_ncw,
-        'sa_srca' => l.helpNowNumber_sa_srca,
-        'sa_moh' => l.helpNowNumber_sa_moh,
-        'sa_moh_mental' => l.helpNowNumber_sa_moh_mental,
-        'sa_hrsd' => l.helpNowNumber_sa_hrsd,
-        _ => id,
-      };
 }

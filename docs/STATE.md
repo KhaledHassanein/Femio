@@ -73,7 +73,7 @@ history and `docs/archive/`.
   clinician sign-off remain; the editor's 99 rows are applied); owner action 10 (a source for bleeding and reduced movements on the
   red-flag list, or leave them off). Lighthouse run 3 (2026-10-28, before the links fix): home 93,
   calculator 97, article 100, English home 96; SEO 100 on all four.
-- **Health:** `pnpm gate` green (689 web unit tests + 22 guards, 24 e2e); `flutter analyze` clean, 498 Dart tests. Flutter 3.47.8
+- **Health:** `pnpm gate` green (689 web unit tests + 22 guards, 24 e2e); `flutter analyze` clean, 507 Dart tests. Flutter 3.47.8
   on this PC (upgraded 2026-10-27). Debug APK on the Android 16 emulator: Arabic onboarding → Today →
   Learn → article → Help now walked by hand 2026-10-28 (`testing-results/2026-10-28-app-settings-lock/`);
   the 18th-birthday question and the warning-signs screen at 390×844 in both themes and languages

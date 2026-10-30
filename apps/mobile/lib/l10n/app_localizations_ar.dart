@@ -1257,26 +1257,175 @@ class L10nAr extends L10n {
       'إذا كنتِ ترين أن الشخص في خطر مباشر، فلا تتركيه وحده ما دام البقاء آمنًا لكِ. اتصلي بخدمات الطوارئ المتاحة في المكان الذي هو فيه، أو بخدمة أزمات، أو بعامل صحي، أو بأحد أفراد العائلة موضع الثقة.';
 
   @override
-  String get helpNowNumber_eg_ambulance => 'الإسعاف (مصر)';
+  String get helpNowCountry_egypt => 'مصر';
+
+  @override
+  String get helpNowCountry_saudi => 'المملكة العربية السعودية';
+
+  @override
+  String get helpNowCountry_uae => 'الإمارات العربية المتحدة';
+
+  @override
+  String get helpNowCountry_qatar => 'قطر';
+
+  @override
+  String get helpNowCountry_kuwait => 'الكويت';
+
+  @override
+  String get helpNowCountry_bahrain => 'البحرين';
+
+  @override
+  String get helpNowCountry_oman => 'عُمان';
+
+  @override
+  String get helpNowCountry_jordan => 'الأردن';
+
+  @override
+  String get helpNowCountry_lebanon => 'لبنان';
+
+  @override
+  String get helpNowCountry_morocco => 'المغرب';
+
+  @override
+  String get helpNowCountry_uk => 'المملكة المتحدة';
+
+  @override
+  String get helpNowCountry_france => 'فرنسا';
+
+  @override
+  String get helpNowCountry_spain => 'إسبانيا';
+
+  @override
+  String get helpNowCountry_usa => 'الولايات المتحدة';
+
+  @override
+  String get helpNowCountry_canada => 'كندا';
+
+  @override
+  String get helpNowCountry_mexico => 'المكسيك';
+
+  @override
+  String get helpNowNumber_eg_ambulance => 'الإسعاف (هيئة الإسعاف المصرية)';
 
   @override
   String get helpNowNumber_eg_mental_health =>
-      'الخط الساخن للصحة النفسية، الأمانة العامة للصحة النفسية وعلاج الإدمان';
+      'الخط الساخن للصحة النفسية (وزارة الصحة، الأمانة العامة للصحة النفسية)';
 
   @override
-  String get helpNowNumber_eg_ncw => 'مكتب شكاوى المرأة، المجلس القومي للمرأة';
+  String get helpNowNumber_eg_ncw => 'مكتب شكاوى المرأة (المجلس القومي للمرأة)';
 
   @override
-  String get helpNowNumber_sa_srca => 'الإسعاف، هيئة الهلال الأحمر السعودي';
+  String get helpNowNumber_sa_srca => 'الإسعاف (هيئة الهلال الأحمر السعودي)';
 
   @override
   String get helpNowNumber_sa_moh => 'مركز اتصال وزارة الصحة';
 
   @override
-  String get helpNowNumber_sa_moh_mental => 'الاستشارات النفسية، وزارة الصحة';
+  String get helpNowNumber_sa_moh_mental => 'الاستشارات النفسية (وزارة الصحة)';
 
   @override
-  String get helpNowNumber_sa_hrsd => 'مركز بلاغات العنف الأسري';
+  String get helpNowNumber_sa_hrsd =>
+      'مركز بلاغات العنف الأسري (وزارة الموارد البشرية والتنمية الاجتماعية)';
+
+  @override
+  String get helpNowNumber_ae_ambulance => 'الإسعاف';
+
+  @override
+  String get helpNowNumber_qa_emergency =>
+      'خدمات الطوارئ (الإسعاف، الشرطة، الدفاع المدني)';
+
+  @override
+  String get helpNowNumber_qa_mental =>
+      'خط المساعدة الوطني للصحة النفسية، الخيار 4 (مؤسسة حمد الطبية)';
+
+  @override
+  String get helpNowNumber_kw_emergency => 'خدمات الطوارئ (وزارة الداخلية)';
+
+  @override
+  String get helpNowNumber_bh_emergency => 'خدمات الطوارئ';
+
+  @override
+  String get helpNowNumber_om_emergency =>
+      'خدمات الطوارئ (شرطة عُمان السلطانية)';
+
+  @override
+  String get helpNowNumber_om_dv =>
+      'خط العنف الأسري (مدرج لدى حكومة سلطنة عُمان)';
+
+  @override
+  String get helpNowNumber_jo_emergency => 'خدمات الطوارئ (مديرية الأمن العام)';
+
+  @override
+  String get helpNowNumber_jo_ambulance => 'الإسعاف (الدفاع المدني)';
+
+  @override
+  String get helpNowNumber_jo_family => 'إدارة حماية الأسرة والأحداث';
+
+  @override
+  String get helpNowNumber_lb_redcross => 'الإسعاف (الصليب الأحمر اللبناني)';
+
+  @override
+  String get helpNowNumber_lb_lifeline =>
+      'خط الدعم النفسي (مدرج لدى وزارة الصحة العامة)';
+
+  @override
+  String get helpNowNumber_ma_samu => 'الإنعاش الطبي، SAMU (وزارة الصحة)';
+
+  @override
+  String get helpNowNumber_ma_police => 'الشرطة';
+
+  @override
+  String get helpNowNumber_gb_999 => 'خدمات الطوارئ';
+
+  @override
+  String get helpNowNumber_gb_111 => 'NHS 111، خيار الصحة النفسية';
+
+  @override
+  String get helpNowNumber_gb_refuge =>
+      'خط المساعدة الوطني للعنف الأسري (Refuge)';
+
+  @override
+  String get helpNowNumber_fr_samu => 'الإنعاش الطبي، SAMU';
+
+  @override
+  String get helpNowNumber_fr_3114 => 'الرقم الوطني للوقاية من الانتحار';
+
+  @override
+  String get helpNowNumber_fr_3919 =>
+      'Violences Femmes Info (خط العنف ضد النساء)';
+
+  @override
+  String get helpNowNumber_es_112 => 'خدمات الطوارئ';
+
+  @override
+  String get helpNowNumber_es_024 =>
+      'خط المساعدة للسلوك الانتحاري (وزارة الصحة)';
+
+  @override
+  String get helpNowNumber_es_016 =>
+      'خط معلومات العنف القائم على النوع الاجتماعي 016 (وزارة المساواة)';
+
+  @override
+  String get helpNowNumber_us_911 => 'خدمات الطوارئ';
+
+  @override
+  String get helpNowNumber_us_988 => 'خط الأزمات والوقاية من الانتحار (988)';
+
+  @override
+  String get helpNowNumber_us_ndvh => 'الخط الوطني للعنف الأسري';
+
+  @override
+  String get helpNowNumber_ca_911 => 'خدمات الطوارئ';
+
+  @override
+  String get helpNowNumber_ca_988 => 'خط أزمات الانتحار (988)';
+
+  @override
+  String get helpNowNumber_mx_911 => 'خدمات الطوارئ';
+
+  @override
+  String get helpNowNumber_mx_vida =>
+      'Línea de la Vida (اللجنة الوطنية للصحة النفسية)';
 
   @override
   String get helpNowCountryPrompt => 'اختاري بلدًا لعرض أرقامه';
@@ -1289,12 +1438,6 @@ class L10nAr extends L10n {
 
   @override
   String get helpNowSource => 'المصدر';
-
-  @override
-  String get helpNowCountryEG => 'مصر';
-
-  @override
-  String get helpNowCountrySA => 'السعودية';
 
   @override
   String get helpNowCall => 'اتصال';

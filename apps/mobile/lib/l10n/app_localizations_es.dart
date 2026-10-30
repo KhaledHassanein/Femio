@@ -1227,6 +1227,54 @@ class L10nEs extends L10n {
       'Si crees que la persona está en peligro inmediato, no la dejes sola siempre que sea seguro para ti quedarte. Contacta con los servicios de emergencia disponibles donde esté, con un servicio de crisis, con un profesional sanitario o con un familiar de confianza.';
 
   @override
+  String get helpNowCountry_egypt => 'Egipto';
+
+  @override
+  String get helpNowCountry_saudi => 'Arabia Saudí';
+
+  @override
+  String get helpNowCountry_uae => 'Emiratos Árabes Unidos';
+
+  @override
+  String get helpNowCountry_qatar => 'Catar';
+
+  @override
+  String get helpNowCountry_kuwait => 'Kuwait';
+
+  @override
+  String get helpNowCountry_bahrain => 'Baréin';
+
+  @override
+  String get helpNowCountry_oman => 'Omán';
+
+  @override
+  String get helpNowCountry_jordan => 'Jordania';
+
+  @override
+  String get helpNowCountry_lebanon => 'Líbano';
+
+  @override
+  String get helpNowCountry_morocco => 'Marruecos';
+
+  @override
+  String get helpNowCountry_uk => 'Reino Unido';
+
+  @override
+  String get helpNowCountry_france => 'Francia';
+
+  @override
+  String get helpNowCountry_spain => 'España';
+
+  @override
+  String get helpNowCountry_usa => 'Estados Unidos';
+
+  @override
+  String get helpNowCountry_canada => 'Canadá';
+
+  @override
+  String get helpNowCountry_mexico => 'México';
+
+  @override
   String get helpNowNumber_eg_ambulance =>
       'Ambulancia (Organización Egipcia de Ambulancias)';
 
@@ -1236,7 +1284,7 @@ class L10nEs extends L10n {
 
   @override
   String get helpNowNumber_eg_ncw =>
-      'Oficina de quejas de las mujeres (Consejo Nacional de la Mujer)';
+      'Oficina de quejas de la mujer (Consejo Nacional de la Mujer)';
 
   @override
   String get helpNowNumber_sa_srca =>
@@ -1255,6 +1303,113 @@ class L10nEs extends L10n {
       'Centro de denuncias de violencia familiar (Ministerio de Recursos Humanos y Desarrollo Social)';
 
   @override
+  String get helpNowNumber_ae_ambulance => 'Ambulancia';
+
+  @override
+  String get helpNowNumber_qa_emergency =>
+      'Servicios de emergencia (ambulancia, policía, defensa civil)';
+
+  @override
+  String get helpNowNumber_qa_mental =>
+      'Línea nacional de salud mental, opción 4 (Hamad Medical Corporation)';
+
+  @override
+  String get helpNowNumber_kw_emergency =>
+      'Servicios de emergencia (Ministerio del Interior)';
+
+  @override
+  String get helpNowNumber_bh_emergency => 'Servicios de emergencia';
+
+  @override
+  String get helpNowNumber_om_emergency =>
+      'Servicios de emergencia (Policía Real de Omán)';
+
+  @override
+  String get helpNowNumber_om_dv =>
+      'Línea de violencia doméstica (listada por el Gobierno de Omán)';
+
+  @override
+  String get helpNowNumber_jo_emergency =>
+      'Servicios de emergencia (Dirección de Seguridad Pública)';
+
+  @override
+  String get helpNowNumber_jo_ambulance => 'Ambulancia (Defensa Civil)';
+
+  @override
+  String get helpNowNumber_jo_family =>
+      'Departamento de Protección Familiar y de Menores';
+
+  @override
+  String get helpNowNumber_lb_redcross => 'Ambulancia (Cruz Roja Libanesa)';
+
+  @override
+  String get helpNowNumber_lb_lifeline =>
+      'Línea de apoyo emocional (listada por el Ministerio de Salud Pública)';
+
+  @override
+  String get helpNowNumber_ma_samu =>
+      'Emergencias médicas, SAMU (Ministerio de Salud)';
+
+  @override
+  String get helpNowNumber_ma_police => 'Policía';
+
+  @override
+  String get helpNowNumber_gb_999 => 'Servicios de emergencia';
+
+  @override
+  String get helpNowNumber_gb_111 => 'NHS 111, opción de salud mental';
+
+  @override
+  String get helpNowNumber_gb_refuge =>
+      'Línea nacional de violencia doméstica (Refuge)';
+
+  @override
+  String get helpNowNumber_fr_samu => 'Emergencias médicas, SAMU';
+
+  @override
+  String get helpNowNumber_fr_3114 =>
+      'Número nacional de prevención del suicidio';
+
+  @override
+  String get helpNowNumber_fr_3919 =>
+      'Violences Femmes Info (violencia contra las mujeres)';
+
+  @override
+  String get helpNowNumber_es_112 => 'Servicios de emergencia';
+
+  @override
+  String get helpNowNumber_es_024 =>
+      'Línea de atención a la conducta suicida (Ministerio de Sanidad)';
+
+  @override
+  String get helpNowNumber_es_016 =>
+      'Línea de información sobre violencia de género, 016 (Ministerio de Igualdad)';
+
+  @override
+  String get helpNowNumber_us_911 => 'Servicios de emergencia';
+
+  @override
+  String get helpNowNumber_us_988 =>
+      'Suicide and Crisis Lifeline (línea de crisis)';
+
+  @override
+  String get helpNowNumber_us_ndvh =>
+      'National Domestic Violence Hotline (violencia doméstica)';
+
+  @override
+  String get helpNowNumber_ca_911 => 'Servicios de emergencia';
+
+  @override
+  String get helpNowNumber_ca_988 => 'Línea de ayuda en crisis suicida';
+
+  @override
+  String get helpNowNumber_mx_911 => 'Servicios de emergencia';
+
+  @override
+  String get helpNowNumber_mx_vida =>
+      'Línea de la Vida (Comisión Nacional de Salud Mental)';
+
+  @override
   String get helpNowCountryPrompt => 'Elige un país para ver sus números';
 
   @override
@@ -1265,12 +1420,6 @@ class L10nEs extends L10n {
 
   @override
   String get helpNowSource => 'Fuente';
-
-  @override
-  String get helpNowCountryEG => 'Egipto';
-
-  @override
-  String get helpNowCountrySA => 'Arabia Saudita';
 
   @override
   String get helpNowCall => 'Llamar';

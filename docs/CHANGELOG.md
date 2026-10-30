@@ -3,6 +3,7 @@ All notable changes to Femio V2.
 
 ## [Unreleased]
 ### Added
+- **Help now in the app lists the same sixteen countries as the website**, with the same numbers and official sources; a country is chosen before any number appears, as before.
 - **Help now covers sixteen countries on the website.** Pick Egypt, Saudi Arabia, the UAE, Qatar, Kuwait, Bahrain, Oman, Jordan, Lebanon, Morocco, the United Kingdom, France, Spain, the United States, Canada or Mexico and see its emergency number and its mental-health or family-violence lines, each with the official page it was read on. Every other country is pointed to the Find a Helpline directory.
 - **Flags beside the language names** in the website's language switcher, header and footer.
 - **Every guide, in four languages.** The whole library of 110 guides is now in English, Arabic, French and Spanish, and so are the five condition pages and the author's bio, so no page falls back to English any more. Each translation keeps the same sources and the same warning boxes as the English guide.

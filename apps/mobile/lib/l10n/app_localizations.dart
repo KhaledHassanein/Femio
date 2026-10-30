@@ -2141,6 +2141,102 @@ abstract class L10n {
   /// **'If you think the person is in immediate danger, do not leave them alone if it is safe for you to stay. Contact the emergency services available where they are, a crisis service, a health worker, or a trusted family member.'**
   String get helpNowWorriedBody;
 
+  /// No description provided for @helpNowCountry_egypt.
+  ///
+  /// In en, this message translates to:
+  /// **'Egypt'**
+  String get helpNowCountry_egypt;
+
+  /// No description provided for @helpNowCountry_saudi.
+  ///
+  /// In en, this message translates to:
+  /// **'Saudi Arabia'**
+  String get helpNowCountry_saudi;
+
+  /// No description provided for @helpNowCountry_uae.
+  ///
+  /// In en, this message translates to:
+  /// **'United Arab Emirates'**
+  String get helpNowCountry_uae;
+
+  /// No description provided for @helpNowCountry_qatar.
+  ///
+  /// In en, this message translates to:
+  /// **'Qatar'**
+  String get helpNowCountry_qatar;
+
+  /// No description provided for @helpNowCountry_kuwait.
+  ///
+  /// In en, this message translates to:
+  /// **'Kuwait'**
+  String get helpNowCountry_kuwait;
+
+  /// No description provided for @helpNowCountry_bahrain.
+  ///
+  /// In en, this message translates to:
+  /// **'Bahrain'**
+  String get helpNowCountry_bahrain;
+
+  /// No description provided for @helpNowCountry_oman.
+  ///
+  /// In en, this message translates to:
+  /// **'Oman'**
+  String get helpNowCountry_oman;
+
+  /// No description provided for @helpNowCountry_jordan.
+  ///
+  /// In en, this message translates to:
+  /// **'Jordan'**
+  String get helpNowCountry_jordan;
+
+  /// No description provided for @helpNowCountry_lebanon.
+  ///
+  /// In en, this message translates to:
+  /// **'Lebanon'**
+  String get helpNowCountry_lebanon;
+
+  /// No description provided for @helpNowCountry_morocco.
+  ///
+  /// In en, this message translates to:
+  /// **'Morocco'**
+  String get helpNowCountry_morocco;
+
+  /// No description provided for @helpNowCountry_uk.
+  ///
+  /// In en, this message translates to:
+  /// **'United Kingdom'**
+  String get helpNowCountry_uk;
+
+  /// No description provided for @helpNowCountry_france.
+  ///
+  /// In en, this message translates to:
+  /// **'France'**
+  String get helpNowCountry_france;
+
+  /// No description provided for @helpNowCountry_spain.
+  ///
+  /// In en, this message translates to:
+  /// **'Spain'**
+  String get helpNowCountry_spain;
+
+  /// No description provided for @helpNowCountry_usa.
+  ///
+  /// In en, this message translates to:
+  /// **'United States'**
+  String get helpNowCountry_usa;
+
+  /// No description provided for @helpNowCountry_canada.
+  ///
+  /// In en, this message translates to:
+  /// **'Canada'**
+  String get helpNowCountry_canada;
+
+  /// No description provided for @helpNowCountry_mexico.
+  ///
+  /// In en, this message translates to:
+  /// **'Mexico'**
+  String get helpNowCountry_mexico;
+
   /// No description provided for @helpNowNumber_eg_ambulance.
   ///
   /// In en, this message translates to:
@@ -2183,6 +2279,186 @@ abstract class L10n {
   /// **'Family-violence reports centre (Ministry of Human Resources and Social Development)'**
   String get helpNowNumber_sa_hrsd;
 
+  /// No description provided for @helpNowNumber_ae_ambulance.
+  ///
+  /// In en, this message translates to:
+  /// **'Ambulance'**
+  String get helpNowNumber_ae_ambulance;
+
+  /// No description provided for @helpNowNumber_qa_emergency.
+  ///
+  /// In en, this message translates to:
+  /// **'Emergency services (ambulance, police, civil defence)'**
+  String get helpNowNumber_qa_emergency;
+
+  /// No description provided for @helpNowNumber_qa_mental.
+  ///
+  /// In en, this message translates to:
+  /// **'National mental health helpline, option 4 (Hamad Medical Corporation)'**
+  String get helpNowNumber_qa_mental;
+
+  /// No description provided for @helpNowNumber_kw_emergency.
+  ///
+  /// In en, this message translates to:
+  /// **'Emergency services (Ministry of Interior)'**
+  String get helpNowNumber_kw_emergency;
+
+  /// No description provided for @helpNowNumber_bh_emergency.
+  ///
+  /// In en, this message translates to:
+  /// **'Emergency services'**
+  String get helpNowNumber_bh_emergency;
+
+  /// No description provided for @helpNowNumber_om_emergency.
+  ///
+  /// In en, this message translates to:
+  /// **'Emergency services (Royal Oman Police)'**
+  String get helpNowNumber_om_emergency;
+
+  /// No description provided for @helpNowNumber_om_dv.
+  ///
+  /// In en, this message translates to:
+  /// **'Domestic violence line (listed by the Government of Oman)'**
+  String get helpNowNumber_om_dv;
+
+  /// No description provided for @helpNowNumber_jo_emergency.
+  ///
+  /// In en, this message translates to:
+  /// **'Emergency services (Public Security Directorate)'**
+  String get helpNowNumber_jo_emergency;
+
+  /// No description provided for @helpNowNumber_jo_ambulance.
+  ///
+  /// In en, this message translates to:
+  /// **'Ambulance (Civil Defence)'**
+  String get helpNowNumber_jo_ambulance;
+
+  /// No description provided for @helpNowNumber_jo_family.
+  ///
+  /// In en, this message translates to:
+  /// **'Family Protection and Juvenile Department'**
+  String get helpNowNumber_jo_family;
+
+  /// No description provided for @helpNowNumber_lb_redcross.
+  ///
+  /// In en, this message translates to:
+  /// **'Ambulance (Lebanese Red Cross)'**
+  String get helpNowNumber_lb_redcross;
+
+  /// No description provided for @helpNowNumber_lb_lifeline.
+  ///
+  /// In en, this message translates to:
+  /// **'Emotional support lifeline (listed by the Ministry of Public Health)'**
+  String get helpNowNumber_lb_lifeline;
+
+  /// No description provided for @helpNowNumber_ma_samu.
+  ///
+  /// In en, this message translates to:
+  /// **'Medical emergencies, SAMU (Ministry of Health)'**
+  String get helpNowNumber_ma_samu;
+
+  /// No description provided for @helpNowNumber_ma_police.
+  ///
+  /// In en, this message translates to:
+  /// **'Police'**
+  String get helpNowNumber_ma_police;
+
+  /// No description provided for @helpNowNumber_gb_999.
+  ///
+  /// In en, this message translates to:
+  /// **'Emergency services'**
+  String get helpNowNumber_gb_999;
+
+  /// No description provided for @helpNowNumber_gb_111.
+  ///
+  /// In en, this message translates to:
+  /// **'NHS 111, mental health option'**
+  String get helpNowNumber_gb_111;
+
+  /// No description provided for @helpNowNumber_gb_refuge.
+  ///
+  /// In en, this message translates to:
+  /// **'National domestic abuse helpline (Refuge)'**
+  String get helpNowNumber_gb_refuge;
+
+  /// No description provided for @helpNowNumber_fr_samu.
+  ///
+  /// In en, this message translates to:
+  /// **'Medical emergencies, SAMU'**
+  String get helpNowNumber_fr_samu;
+
+  /// No description provided for @helpNowNumber_fr_3114.
+  ///
+  /// In en, this message translates to:
+  /// **'National suicide prevention number'**
+  String get helpNowNumber_fr_3114;
+
+  /// No description provided for @helpNowNumber_fr_3919.
+  ///
+  /// In en, this message translates to:
+  /// **'Violences Femmes Info'**
+  String get helpNowNumber_fr_3919;
+
+  /// No description provided for @helpNowNumber_es_112.
+  ///
+  /// In en, this message translates to:
+  /// **'Emergency services'**
+  String get helpNowNumber_es_112;
+
+  /// No description provided for @helpNowNumber_es_024.
+  ///
+  /// In en, this message translates to:
+  /// **'Suicidal behaviour helpline (Ministry of Health)'**
+  String get helpNowNumber_es_024;
+
+  /// No description provided for @helpNowNumber_es_016.
+  ///
+  /// In en, this message translates to:
+  /// **'Gender violence information line, 016 (Ministry of Equality)'**
+  String get helpNowNumber_es_016;
+
+  /// No description provided for @helpNowNumber_us_911.
+  ///
+  /// In en, this message translates to:
+  /// **'Emergency services'**
+  String get helpNowNumber_us_911;
+
+  /// No description provided for @helpNowNumber_us_988.
+  ///
+  /// In en, this message translates to:
+  /// **'Suicide and Crisis Lifeline'**
+  String get helpNowNumber_us_988;
+
+  /// No description provided for @helpNowNumber_us_ndvh.
+  ///
+  /// In en, this message translates to:
+  /// **'National Domestic Violence Hotline'**
+  String get helpNowNumber_us_ndvh;
+
+  /// No description provided for @helpNowNumber_ca_911.
+  ///
+  /// In en, this message translates to:
+  /// **'Emergency services'**
+  String get helpNowNumber_ca_911;
+
+  /// No description provided for @helpNowNumber_ca_988.
+  ///
+  /// In en, this message translates to:
+  /// **'Suicide Crisis Helpline'**
+  String get helpNowNumber_ca_988;
+
+  /// No description provided for @helpNowNumber_mx_911.
+  ///
+  /// In en, this message translates to:
+  /// **'Emergency services'**
+  String get helpNowNumber_mx_911;
+
+  /// No description provided for @helpNowNumber_mx_vida.
+  ///
+  /// In en, this message translates to:
+  /// **'Línea de la Vida (National Mental Health Commission)'**
+  String get helpNowNumber_mx_vida;
+
   /// No description provided for @helpNowCountryPrompt.
   ///
   /// In en, this message translates to:
@@ -2206,18 +2482,6 @@ abstract class L10n {
   /// In en, this message translates to:
   /// **'Source'**
   String get helpNowSource;
-
-  /// No description provided for @helpNowCountryEG.
-  ///
-  /// In en, this message translates to:
-  /// **'Egypt'**
-  String get helpNowCountryEG;
-
-  /// No description provided for @helpNowCountrySA.
-  ///
-  /// In en, this message translates to:
-  /// **'Saudi Arabia'**
-  String get helpNowCountrySA;
 
   /// No description provided for @helpNowCall.
   ///
