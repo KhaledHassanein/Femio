@@ -4,7 +4,7 @@
     {
       "at": "2026-10-30",
       "who": "session",
-      "what": "Help now now lists sixteen countries (Gulf, Jordan, Lebanon, Morocco, UK, France, Spain, USA, Canada, Mexico), every number read on an official page; Egypt's Facebook sources are gone. Algeria, Tunisia and Iraq have no official page we could find, so they are pointed to Find a Helpline. On the branch; goes live with the next deploy.",
+      "what": "Help now now lists sixteen countries (Gulf, Jordan, Lebanon, Morocco, UK, France, Spain, USA, Canada, Mexico), every number read on an official page; Egypt's Facebook sources are gone. Algeria, Tunisia and Iraq have no official page we could find, so they are pointed to Find a Helpline. Live on femioapp.com since 2026-10-30 (main c5a3a17), together with the Tag Manager container fix and the flags in the language switcher.",
       "ref": "R6.16 · apps/web/src/lib/crisis/country-numbers.ts"
     },
     {

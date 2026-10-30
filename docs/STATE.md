@@ -51,9 +51,10 @@ history and `docs/archive/`.
   defaults + Tag Manager loader + closed event list are built (`apps/web/src/lib/consent/`) and
   render nothing until the owner sets `NEXT_PUBLIC_GTM_ID` in Vercel (owner guide parts C–E);
   the routines R1–R7 exist as files (`docs/34_GROWTH_OPS/routines/`). Live on femioapp.com since
-  2026-10-29 (`3a8a53a`): the privacy notice that names the app's ads, `/ads.txt`, `/app-ads.txt`,
-  the language switcher, the filled legal values and "MD" credentials; measurement and ads stay
-  off until the ids are set.
+  2026-10-30 (`c5a3a17`, deployment `dpl_8AgkR2SSLRMfofZjw18j4TwvPjfM`): help-now with sixteen
+  countries and official sources (R6.16), the Tag Manager container fix, flags in the switcher and
+  the global positioning copy (R6.15b), on top of the sign-off pass and library parity; measurement
+  and ads stay off until the ids are set.
   **Go-live pass 2026-10-29:** AdSense is built behind `NEXT_PUBLIC_ADSENSE_CLIENT` + three slot ids
   (`apps/web/src/lib/ads/`, units filled only after `ad_storage` is granted, `/ads.txt`); the CSP now
   opens the Google/Meta/AdSense hosts only when the ids are set (before this fix the deployed CSP
@@ -72,7 +73,7 @@ history and `docs/archive/`.
   clinician sign-off remain; the editor's 99 rows are applied); owner action 10 (a source for bleeding and reduced movements on the
   red-flag list, or leave them off). Lighthouse run 3 (2026-10-28, before the links fix): home 93,
   calculator 97, article 100, English home 96; SEO 100 on all four.
-- **Health:** `pnpm gate` green (690 web unit tests + 22 guards, 24 e2e); `flutter analyze` clean, 498 Dart tests. Flutter 3.47.8
+- **Health:** `pnpm gate` green (689 web unit tests + 22 guards, 24 e2e); `flutter analyze` clean, 498 Dart tests. Flutter 3.47.8
   on this PC (upgraded 2026-10-27). Debug APK on the Android 16 emulator: Arabic onboarding → Today →
   Learn → article → Help now walked by hand 2026-10-28 (`testing-results/2026-10-28-app-settings-lock/`);
   the 18th-birthday question and the warning-signs screen at 390×844 in both themes and languages
