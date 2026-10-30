@@ -1487,7 +1487,21 @@
     "regionNote": "El acceso a emergencias varía según la región, así que la orientación de arriba vale dondequiera que estés.",
     "countries": {
       "egypt": "Egipto",
-      "saudi": "Arabia Saudí"
+      "saudi": "Arabia Saudí",
+      "uae": "Emiratos Árabes Unidos",
+      "qatar": "Catar",
+      "kuwait": "Kuwait",
+      "bahrain": "Baréin",
+      "oman": "Omán",
+      "jordan": "Jordania",
+      "lebanon": "Líbano",
+      "morocco": "Marruecos",
+      "uk": "Reino Unido",
+      "france": "Francia",
+      "spain": "España",
+      "usa": "Estados Unidos",
+      "canada": "Canadá",
+      "mexico": "México"
     },
     "groups": {
       "emergency": "Servicios de emergencia",
@@ -1499,11 +1513,42 @@
     "numbers": {
       "eg-ambulance": "Ambulancia (Organización Egipcia de Ambulancias)",
       "eg-mental-health": "Línea de salud mental (Ministerio de Salud, secretaría de salud mental)",
-      "eg-ncw": "Oficina de quejas de las mujeres (Consejo Nacional de la Mujer)",
+      "eg-ncw": "Oficina de quejas de la mujer (Consejo Nacional de la Mujer)",
       "sa-srca": "Ambulancia (Autoridad de la Media Luna Roja Saudí)",
       "sa-moh": "Centro de llamadas del Ministerio de Salud",
       "sa-moh-mental": "Consultas psicológicas (Ministerio de Salud)",
-      "sa-hrsd": "Centro de denuncias de violencia familiar (Ministerio de Recursos Humanos y Desarrollo Social)"
-    }
+      "sa-hrsd": "Centro de denuncias de violencia familiar (Ministerio de Recursos Humanos y Desarrollo Social)",
+      "ae-ambulance": "Ambulancia",
+      "qa-emergency": "Servicios de emergencia (ambulancia, policía, defensa civil)",
+      "qa-mental": "Línea nacional de salud mental, opción 4 (Hamad Medical Corporation)",
+      "kw-emergency": "Servicios de emergencia (Ministerio del Interior)",
+      "bh-emergency": "Servicios de emergencia",
+      "om-emergency": "Servicios de emergencia (Policía Real de Omán)",
+      "om-dv": "Línea de violencia doméstica (listada por el Gobierno de Omán)",
+      "jo-emergency": "Servicios de emergencia (Dirección de Seguridad Pública)",
+      "jo-ambulance": "Ambulancia (Defensa Civil)",
+      "jo-family": "Departamento de Protección Familiar y de Menores",
+      "lb-redcross": "Ambulancia (Cruz Roja Libanesa)",
+      "lb-lifeline": "Línea de apoyo emocional (listada por el Ministerio de Salud Pública)",
+      "ma-samu": "Emergencias médicas, SAMU (Ministerio de Salud)",
+      "ma-police": "Policía",
+      "gb-999": "Servicios de emergencia",
+      "gb-111": "NHS 111, opción de salud mental",
+      "gb-refuge": "Línea nacional de violencia doméstica (Refuge)",
+      "fr-samu": "Emergencias médicas, SAMU",
+      "fr-3114": "Número nacional de prevención del suicidio",
+      "fr-3919": "Violences Femmes Info (violencia contra las mujeres)",
+      "es-112": "Servicios de emergencia",
+      "es-024": "Línea de atención a la conducta suicida (Ministerio de Sanidad)",
+      "es-016": "Línea de información sobre violencia de género, 016 (Ministerio de Igualdad)",
+      "us-911": "Servicios de emergencia",
+      "us-988": "Suicide and Crisis Lifeline (línea de crisis)",
+      "us-ndvh": "National Domestic Violence Hotline (violencia doméstica)",
+      "ca-911": "Servicios de emergencia",
+      "ca-988": "Línea de ayuda en crisis suicida",
+      "mx-911": "Servicios de emergencia",
+      "mx-vida": "Línea de la Vida (Comisión Nacional de Salud Mental)"
+    },
+    "elsewhere": "¿Tu país no aparece? <link>Find a Helpline</link> recoge los servicios por país."
   }
 }

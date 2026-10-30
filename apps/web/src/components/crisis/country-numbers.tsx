@@ -6,9 +6,9 @@ import { chipVariants } from "@/components/ui/chip";
 import { cn } from "@/lib/utils";
 
 /**
- * Country picker for the help-now page: two toggle buttons (Egypt, Saudi Arabia), and
- * that country's numbers only once one is chosen, so a number is never presented as
- * global. All text arrives already translated from the server page (`helpNow`
+ * Country picker for the help-now page: one toggle chip per listed country (sixteen, see
+ * lib/crisis/country-numbers.ts), and that country's numbers only once one is chosen, so a
+ * number is never presented as global. All text arrives already translated from the server page (`helpNow`
  * namespace), so this file holds no copy and needs no message namespace on the client.
  *
  * Emergency services and support lines are drawn apart (docs/compliance/CRISIS_RESOURCES.md):
@@ -16,7 +16,7 @@ import { cn } from "@/lib/utils";
  * Each row is a 56px `tel:` link, number large, service name small, source beside it.
  *
  * The same `CountryList` is also rendered inside `<noscript>` by the page, so a
- * reader without JavaScript sees both countries, each under its own name.
+ * reader without JavaScript sees every country, each under its own name.
  */
 export type NumberRow = {
   id: string;

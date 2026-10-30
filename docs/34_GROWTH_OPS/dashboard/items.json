@@ -239,7 +239,7 @@
           "steps": [
             "On your phone open femioapp.com/ar/calculators/fertile-window. Tap a day: the fertile window draws on the calendar and the Hijri date shows under each day.",
             "Open femioapp.com/ar/privacy: your entity, email and date appear where the highlighted placeholders were.",
-            "Open femioapp.com/en/help-now, choose Egypt: the numbers appear with their sources.",
+            "Open femioapp.com/en/help-now, choose Egypt, then any other of the sixteen countries: the numbers appear with their official sources.",
             "Share any article link in WhatsApp: the preview card shows the plum femio image."
           ],
           "doneWhen": "All four checks look right on your phone.",

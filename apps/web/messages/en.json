@@ -1487,7 +1487,21 @@
     "regionNote": "Emergency access differs by region, so the guidance above applies wherever you are.",
     "countries": {
       "egypt": "Egypt",
-      "saudi": "Saudi Arabia"
+      "saudi": "Saudi Arabia",
+      "uae": "United Arab Emirates",
+      "qatar": "Qatar",
+      "kuwait": "Kuwait",
+      "bahrain": "Bahrain",
+      "oman": "Oman",
+      "jordan": "Jordan",
+      "lebanon": "Lebanon",
+      "morocco": "Morocco",
+      "uk": "United Kingdom",
+      "france": "France",
+      "spain": "Spain",
+      "usa": "United States",
+      "canada": "Canada",
+      "mexico": "Mexico"
     },
     "groups": {
       "emergency": "Emergency services",
@@ -1503,7 +1517,38 @@
       "sa-srca": "Ambulance (Saudi Red Crescent Authority)",
       "sa-moh": "Ministry of Health call centre",
       "sa-moh-mental": "Psychological consultations (Ministry of Health)",
-      "sa-hrsd": "Family-violence reports centre (Ministry of Human Resources and Social Development)"
-    }
+      "sa-hrsd": "Family-violence reports centre (Ministry of Human Resources and Social Development)",
+      "ae-ambulance": "Ambulance",
+      "qa-emergency": "Emergency services (ambulance, police, civil defence)",
+      "qa-mental": "National mental health helpline, option 4 (Hamad Medical Corporation)",
+      "kw-emergency": "Emergency services (Ministry of Interior)",
+      "bh-emergency": "Emergency services",
+      "om-emergency": "Emergency services (Royal Oman Police)",
+      "om-dv": "Domestic violence line (listed by the Government of Oman)",
+      "jo-emergency": "Emergency services (Public Security Directorate)",
+      "jo-ambulance": "Ambulance (Civil Defence)",
+      "jo-family": "Family Protection and Juvenile Department",
+      "lb-redcross": "Ambulance (Lebanese Red Cross)",
+      "lb-lifeline": "Emotional support lifeline (listed by the Ministry of Public Health)",
+      "ma-samu": "Medical emergencies, SAMU (Ministry of Health)",
+      "ma-police": "Police",
+      "gb-999": "Emergency services",
+      "gb-111": "NHS 111, mental health option",
+      "gb-refuge": "National domestic abuse helpline (Refuge)",
+      "fr-samu": "Medical emergencies, SAMU",
+      "fr-3114": "National suicide prevention number",
+      "fr-3919": "Violences Femmes Info",
+      "es-112": "Emergency services",
+      "es-024": "Suicidal behaviour helpline (Ministry of Health)",
+      "es-016": "Gender violence information line, 016 (Ministry of Equality)",
+      "us-911": "Emergency services",
+      "us-988": "Suicide and Crisis Lifeline",
+      "us-ndvh": "National Domestic Violence Hotline",
+      "ca-911": "Emergency services",
+      "ca-988": "Suicide Crisis Helpline",
+      "mx-911": "Emergency services",
+      "mx-vida": "Línea de la Vida (National Mental Health Commission)"
+    },
+    "elsewhere": "Not listed here? <link>Find a Helpline</link> lists services by country."
   }
 }

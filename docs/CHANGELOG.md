@@ -3,6 +3,7 @@ All notable changes to Femio V2.
 
 ## [Unreleased]
 ### Added
+- **Help now covers sixteen countries on the website.** Pick Egypt, Saudi Arabia, the UAE, Qatar, Kuwait, Bahrain, Oman, Jordan, Lebanon, Morocco, the United Kingdom, France, Spain, the United States, Canada or Mexico and see its emergency number and its mental-health or family-violence lines, each with the official page it was read on. Every other country is pointed to the Find a Helpline directory.
 - **Flags beside the language names** in the website's language switcher, header and footer.
 - **A language switcher on the website.** A languages button in the header opens the four languages, each written in itself (English, العربية, Français, Español), and the footer lists them as plain links. Switching keeps you on the same page.
 - **The guides are inside the app.** A Learn tab carries every reviewed guide, in Arabic where a translation exists and in English otherwise (marked as such), with the trying-to-conceive, pregnancy and PCOS guides first. It works with no network. "Seek care now" boxes are drawn as warning boxes, as on the website.

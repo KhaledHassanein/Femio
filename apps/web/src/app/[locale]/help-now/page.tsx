@@ -23,9 +23,11 @@ type PageProps = { params: Promise<{ locale: string }> };
 // from sitemap.ts. Fully server-rendered so it works with JS disabled and offline.
 //
 // Order (02_DESIGN_SPEC section 3): the global guidance first, verbatim from the guarded
-// crisis.json, always visible. Below it, a country block: two buttons (Egypt, Saudi
-// Arabia), and that country's sourced numbers only after a choice, so no number is ever
-// presented as global. Without JavaScript both countries are listed under their own names.
+// crisis.json, always visible. Below it, a country block: one chip per listed country
+// (sixteen, lib/crisis/country-numbers.ts), and that country's sourced numbers only after
+// a choice, so no number is ever presented as global. A line under the chips points every
+// other country to the Find a Helpline directory. Without JavaScript every country is
+// listed under its own name.
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { locale } = await params;
   const content = getCrisisContent(locale);
@@ -90,6 +92,22 @@ export default async function HelpNowPage({ params }: PageProps) {
             ))}
           </div>
         </noscript>
+        {/* A country with no verified official page is not listed; the directory covers it. */}
+        <p className="text-sm text-text-muted">
+          {t.rich("elsewhere", {
+            link: (chunks) => (
+              <a
+                href={env.NEXT_PUBLIC_CRISIS_DIRECTORY_URL}
+                rel="noreferrer"
+                referrerPolicy="no-referrer"
+                target="_blank"
+                className="text-text-link underline"
+              >
+                {chunks}
+              </a>
+            ),
+          })}
+        </p>
         <p className="text-sm text-text-muted">{t("regionNote")}</p>
         <p className="text-2xs text-text-subtle">
           {t("checked", {

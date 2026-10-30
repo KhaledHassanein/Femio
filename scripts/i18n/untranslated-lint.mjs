@@ -60,6 +60,14 @@ const ALLOWED = {
     "privacy.points.11.heading",
     "terms.points.12.heading",
     "helpNow.source",
+    // Country names spelled the same in French (R6.16).
+    "helpNow.countries.qatar",
+    "helpNow.countries.oman",
+    "helpNow.countries.france",
+    "helpNow.countries.canada",
+    // "Police" is the French word; "Violences Femmes Info" is the French service's own name.
+    "helpNow.numbers.ma-police",
+    "helpNow.numbers.fr-3919",
   ],
   es: [
     // Same: punctuation around two arguments.
@@ -67,6 +75,7 @@ const ALLOWED = {
     // Spelled identically in Spanish.
     "calculators.bmi.unitImperial",
     "symptoms.items.irritable",
+    "helpNow.countries.kuwait",
   ],
 };
 
