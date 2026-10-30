@@ -4,6 +4,12 @@
     {
       "at": "2026-10-30",
       "who": "session",
+      "what": "The pregnancy warning-signs sentence now names vaginal bleeding and a change in the baby's movements (your NHS pages), on the website's pregnancy calculator and in the app. The app's Help now screen also carries the sixteen countries. Website live (main 0442199); the app changes ship with the next build.",
+      "ref": "R4.14, R6.17 · apps/web/messages, apps/mobile/lib/domain"
+    },
+    {
+      "at": "2026-10-30",
+      "who": "session",
       "what": "Help now now lists sixteen countries (Gulf, Jordan, Lebanon, Morocco, UK, France, Spain, USA, Canada, Mexico), every number read on an official page; Egypt's Facebook sources are gone. Algeria, Tunisia and Iraq have no official page we could find, so they are pointed to Find a Helpline. Live on femioapp.com since 2026-10-30 (main c5a3a17), together with the Tag Manager container fix and the flags in the language switcher.",
       "ref": "R6.16 · apps/web/src/lib/crisis/country-numbers.ts"
     },

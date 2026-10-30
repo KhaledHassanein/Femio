@@ -51,10 +51,11 @@ history and `docs/archive/`.
   defaults + Tag Manager loader + closed event list are built (`apps/web/src/lib/consent/`) and
   render nothing until the owner sets `NEXT_PUBLIC_GTM_ID` in Vercel (owner guide parts C–E);
   the routines R1–R7 exist as files (`docs/34_GROWTH_OPS/routines/`). Live on femioapp.com since
-  2026-10-30 (`c5a3a17`, deployment `dpl_8AgkR2SSLRMfofZjw18j4TwvPjfM`): help-now with sixteen
-  countries and official sources (R6.16), the Tag Manager container fix, flags in the switcher and
-  the global positioning copy (R6.15b), on top of the sign-off pass and library parity; measurement
-  and ads stay off until the ids are set.
+  2026-10-30 (`0442199`, deployment `dpl_48oj2B9yzdPb6LUFqWaW2bM2RHdF`): the pregnancy red-flag
+  sentence with seven signs (R4.14), help-now with sixteen countries and official sources (R6.16),
+  the Tag Manager container fix, flags in the switcher and the global positioning copy (R6.15b), on
+  top of the sign-off pass and library parity; measurement and ads stay off until the ids are set.
+  The app (R6.17 help screen, R4.14 card) ships with the next app build.
   **Go-live pass 2026-10-29:** AdSense is built behind `NEXT_PUBLIC_ADSENSE_CLIENT` + three slot ids
   (`apps/web/src/lib/ads/`, units filled only after `ad_storage` is granted, `/ads.txt`); the CSP now
   opens the Google/Meta/AdSense hosts only when the ids are set (before this fix the deployed CSP
