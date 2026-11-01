@@ -2,6 +2,47 @@
   "about": "What sessions need from the owner, newest first. A session appends an entry here and rebuilds the dashboard (README.md). The owner ticks it on the dashboard; the tick lives in the artifact database as items/req-<id>. Never put an id, key or password in this file: say where it goes.",
   "requests": [
     {
+      "id": "arabic-flag",
+      "at": "2026-11-01",
+      "from": "session 2026-11-01 (live QA)",
+      "title": "Which flag for Arabic in the language switcher?",
+      "detail": "Your flags are live beside the language names. Arabic shows the Saudi flag today, which sits oddly with your note that femio is not Saudi-centric. Say 'keep', or 'a neutral Arabic badge' (a plain ع mark in the brand colours), or name another flag; a session changes one file.",
+      "blocks": [],
+      "where": "Dashboard item phone-check (checked and archived); the flag map is in apps/web/src (search for /flags/)"
+    },
+    {
+      "id": "rc-install",
+      "at": "2026-11-01",
+      "from": "session 2026-11-01 (dashboard audit)",
+      "title": "Install the release candidate on your phone and run the six checks",
+      "detail": "The signed release APK and the Play bundle were built on 2026-11-01 from the current main (sixteen-country Help now, seven-sign red-flag card, Google test ads since ads.env is absent). Copy apps/mobile/build/app/outputs/flutter-apk/app-release.apk to your phone, install it, and go through the app-checks step; tell a session what is wrong, in one line each.",
+      "blocks": [
+        "install-apk",
+        "app-checks"
+      ],
+      "where": "Dashboard phase 6, items install-apk and app-checks; file paths in build-rc"
+    },
+    {
+      "id": "nvda-notes",
+      "at": "2026-11-01",
+      "from": "session 2026-11-01 (dashboard audit)",
+      "title": "NVDA: you ticked it, but the notes file does not exist",
+      "detail": "testing-results/2026-10-28-calendar-a11y/nvda-notes.md is missing. Write the three things you heard (does it read the full date on each day, the result sentence after Enter, nothing twice?) in the nvda step's note, or say 'skip NVDA'. A session records it either way.",
+      "blocks": [],
+      "where": "Dashboard item nvda (phase 2)"
+    },
+    {
+      "id": "gtm-import-redo",
+      "at": "2026-11-01",
+      "from": "session 2026-11-01 (dashboard audit)",
+      "title": "Import the fixed Tag Manager container file (download it again)",
+      "detail": "Your 2026-10-28 copy fails Tag Manager's validator; the file in the repository was fixed on 2026-10-30 and a gate check keeps its shape. Download docs/34_GROWTH_OPS/gtm/femio-container.json again, import it (Merge, Rename conflicting), then set your G- id in the constant variable. If it fails again, paste the exact message in chat.",
+      "blocks": [
+        "gtm-preview"
+      ],
+      "where": "Dashboard item gtm-import (phase 3)"
+    },
+    {
       "id": "entity-legal-form",
       "at": "2026-10-29",
       "from": "session 2026-10-29 (dashboard notes, R6.14)",

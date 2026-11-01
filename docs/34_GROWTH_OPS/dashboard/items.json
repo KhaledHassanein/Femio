@@ -228,7 +228,7 @@
             "merge-main"
           ],
           "guide": "docs/34_GROWTH_OPS/04_OWNER_GUIDE_GROWTH_A_TO_Z.md A",
-          "risk": "GitHub menu labels change; if a label differs, keep the intent: pull request required, 1 approval, no force push [verify in console]."
+          "risk": "Checked 2026-11-01: GitHub answers 'Upgrade to GitHub Pro or make this repository public' for branch protection on this private repository, so it cannot be enforced on the current plan (owner actions row 22: deferred). The guard today is the session protocol: no push to main without your word. Leave it, or move to GitHub Pro if you want it enforced."
         },
         {
           "id": "phone-check",
@@ -337,14 +337,15 @@
           "dependsOn": [
             "merge-main"
           ],
-          "guide": "docs/runbooks/OWNER_ACTIONS.md row 8"
+          "guide": "docs/runbooks/OWNER_ACTIONS.md row 8",
+          "risk": "Checked 2026-11-01: you ticked this step, but testing-results/2026-10-28-calendar-a11y/nvda-notes.md does not exist. Write the three things you heard in this step's note, or say 'skip NVDA'; a session then records it either way."
         },
         {
           "id": "feedback-form",
           "title": "Create the one-question feedback form",
           "owner": "owner",
           "time": "15 min · free",
-          "why": "It is the only feedback channel: the app has no analytics, so the one way to learn what to fix is a woman telling you in her own words. The Settings link 'Tell us one thing' opens it. Recommended tool: Google Forms (free, no account needed to answer, no e-mail collected when you set it so).",
+          "why": "Your question on this step (\"why, and what service or form?\"), answered: WHY, because the app has no analytics and the website never reads what she typed, so the only way to hear what to fix is a woman telling you in her own words; the app's Settings link 'Tell us one thing' and a line on the site open this form. WHAT, a Google Form under the femio Google account: free, no sign-in for the person answering, and it can be set to collect no email. A session cannot create it (it must live under your Google account); once you paste its link in chat, a session wires it into the app and the site in a few minutes.",
           "steps": [
             "Open forms.google.com with the femio Google account and create a blank form named 'femio – one thing'.",
             "Settings (gear) → Responses: turn OFF 'Collect email addresses', OFF 'Limit to 1 response', OFF 'Allow response editing'. This keeps the form anonymous.",
@@ -1073,13 +1074,11 @@
           "time": "30 min · free",
           "why": "The paste-ready texts still contain the placeholder [SUPPORT EMAIL: owner action 3], and the Console limits are hard (title 30, short 80, full 4,000).",
           "steps": [
-            "Tell a session your support email (the one from legal-placeholders) and ask it to replace the placeholder in docs/store/play-listing.en.md and docs/store/play-listing.ar.md.",
-            "Ask it to run pnpm store-lint; it measures every field, checks the lowercase femio wordmark and the required disclaimer, and fails on a leftover dagger mark.",
-            "D1 of the launch guide also adds French and Spanish listings, but docs/store holds only Arabic and English texts. Ask the session to draft French and Spanish from the English file for your review (translations are drafts until a native reader checks them).",
-            "Ask it to walk the Play reviewer checklist (disclaimer present, Data safety matches behaviour, no unproven claims, no keyword stuffing, no features missing from the build).",
-            "Read the Arabic and English files once yourself."
+            "Done by a session on 2026-11-01: the support email (info@femioapp.com) replaced the placeholder in the Arabic and English listings; French and Spanish listings were drafted from the English (docs/store/play-listing.fr.md and .es.md) and are drafts until a native reader checks them; pnpm store-lint passes.",
+            "Read the Arabic and English files once yourself (docs/store/play-listing.ar.md, play-listing.en.md); say 'fix' with the line if anything reads wrong.",
+            "One question for you: all four listings still open with 'Arabic first' and the README names Egypt and Saudi Arabia as the primary markets, while the website now speaks to the whole world. Say 'go global' and a session rewrites the opening lines of the four files, or 'keep'."
           ],
-          "doneWhen": "pnpm store-lint passes with no placeholder left, and you have read both texts.",
+          "doneWhen": "pnpm store-lint passes with no placeholder left (done), and you have read both texts.",
           "paste": [
             {
               "label": "Lint command",
@@ -1155,11 +1154,11 @@
           "time": "1 hour · free",
           "why": "Most visitors never scroll past the first three screenshots, and they must show only real screens of the real build.",
           "steps": [
-            "Say to a session: 'Make the eight Play screenshots, Arabic set first, from the release candidate'. The launch guide says it renders them with flutter test --update-goldens at 1080x1920 or larger.",
-            "Captions go in the top third in the Dusk Bloom style; real app screens with synthetic data; no photos of people. The eight captions are in docs/store/play-listing.en.md and 04_GROWTH_PACK.md section 4.4.",
-            "Open a few images and check them against the app on your phone."
+            "Done by a session on 2026-11-01: docs/store/screenshots/ar/ and /en/ hold 01..08.png at 1080x1920, captions in the top third in the Dusk Bloom style, synthetic data, no photos.",
+            "To rebuild after a screen changes: flutter test --update-goldens test/store_screenshots_test.dart (in apps/mobile).",
+            "Open two images and check them against the app on your phone (install-apk step)."
           ],
-          "doneWhen": "You have eight Arabic and eight English images that match the shipped app and the captions.",
+          "doneWhen": "Sixteen images exist and match the shipped app and the captions (done); you have compared two with your phone.",
           "paste": [
             {
               "label": "Captions",
@@ -1170,7 +1169,7 @@
             "build-rc"
           ],
           "guide": "docs/33_REBUILD_V3/06_LAUNCH_GUIDE_A_TO_Z.md D2; 04_GROWTH_PACK.md section 4.4",
-          "risk": "docs/store/README.md says screenshots come from a real phone, while the launch guide says golden tests. Pick one: golden renders are quicker; a real phone is more honest. Either way, no feature absent from the build."
+          "risk": "Decided 2026-11-01: the sixteen images are rendered from the real screens by apps/mobile/test/store_screenshots_test.dart (docs/store/README.md says so now); a plain test run fails if a screen drifts from its image. Caption 5 now reads 'Your calendar, with Hijri dates beside each day' because the app's calendar draws no due-date mark. Your part: hold two of them next to the same screens on your phone when you install the candidate."
         },
         {
           "id": "screenshots",
@@ -1729,7 +1728,7 @@
             "branch-protection"
           ],
           "guide": "docs/34_GROWTH_OPS/04_OWNER_GUIDE_GROWTH_A_TO_Z.md G1-G2 and G5; OWNER_ACTIONS.md row 14",
-          "risk": "A routine opened a pull request you do not want: say hold or close it; nothing is live until you merge."
+          "risk": "Not startable by a session on its own (checked 2026-11-01): creating the schedules runs recurring cloud sessions on your account, which is a cost only you can accept, and R7's Search Console input is not reachable from the Ahrefs plan (it answers 'Insufficient plan'), so R7 reads a CSV you export from Search Console. When you want them running, say the session sentence; nothing else is needed first. A routine opened a pull request you do not want: say hold or close it; nothing is live until you merge."
         },
         {
           "id": "competitor-phone",

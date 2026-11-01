@@ -2,6 +2,12 @@
   "about": "What sessions did towards go-live, newest first. One line per thing that changed what the owner must do. Owner ticks are logged by the dashboard itself from the artifact database.",
   "entries": [
     {
+      "at": "2026-11-01",
+      "who": "session",
+      "what": "Dashboard audit: every ticked step was checked against the repository, Vercel and the live site; steps that are done and checked now sit in a collapsed 'archived' block at the foot of their phase (the Done filter still shows them). Session steps done: store listing (support email filled, French and Spanish drafts), release candidate built, store screenshots rendered. Three new requests for you: install the release candidate, the missing NVDA notes, the Tag Manager re-import. Routines wait on your word (a recurring cost).",
+      "ref": "dashboard audit 2026-11-01"
+    },
+    {
       "at": "2026-10-30",
       "who": "session",
       "what": "The pregnancy warning-signs sentence now names vaginal bleeding and a change in the baby's movements (your NHS pages), on the website's pregnancy calculator and in the app. The app's Help now screen also carries the sixteen countries. Website live (main 0442199); the app changes ship with the next build.",

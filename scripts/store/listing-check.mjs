@@ -12,6 +12,8 @@ const LIMITS = { title: 30, short: 80, full: 4000 };
 const FILES = {
   en: { path: "docs/store/play-listing.en.md", disclaimer: "not a medical device and does not diagnose, treat, cure or prevent" },
   ar: { path: "docs/store/play-listing.ar.md", disclaimer: "ليس جهازًا طبيًا" },
+  fr: { path: "docs/store/play-listing.fr.md", disclaimer: "n'est pas un dispositif médical" },
+  es: { path: "docs/store/play-listing.es.md", disclaimer: "No es un producto sanitario" },
 };
 
 const findings = [];
@@ -40,4 +42,4 @@ if (findings.length > 0) {
   for (const f of findings) console.error(`  ${f}`);
   process.exit(1);
 }
-console.log("✓ Store-listing guard: EN and AR listings within Play's limits, no gate marks, wordmark Latin, disclaimer present.");
+console.log("✓ Store-listing guard: EN, AR, FR and ES listings within Play's limits, no gate marks, wordmark Latin, disclaimer present.");

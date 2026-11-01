@@ -56,6 +56,10 @@ history and `docs/archive/`.
   the Tag Manager container fix, flags in the switcher and the global positioning copy (R6.15b), on
   top of the sign-off pass and library parity; measurement and ads stay off until the ids are set.
   The app (R6.17 help screen, R4.14 card) ships with the next app build.
+  **Dashboard audit 2026-11-01 (R6.18):** every ticked step on the go-live dashboard was checked and the
+  checked ones archived (db field `verified`); the Play listing exists in four languages, the sixteen store
+  screenshots render from the real screens (`store_screenshots_test.dart`), the release candidate built and signed with the upload key (0.5.0+5; APK `apps/mobile/build/app/outputs/flutter-apk/app-release.apk`, bundle `…/bundle/release/app-release.aab`, Google test ads since `ads.env` is absent). Waiting on the
+  owner: install the candidate, NVDA notes, Tag Manager re-import, the feedback form link, the routines go-ahead.
   **Go-live pass 2026-10-29:** AdSense is built behind `NEXT_PUBLIC_ADSENSE_CLIENT` + three slot ids
   (`apps/web/src/lib/ads/`, units filled only after `ad_storage` is granted, `/ads.txt`); the CSP now
   opens the Google/Meta/AdSense hosts only when the ids are set (before this fix the deployed CSP

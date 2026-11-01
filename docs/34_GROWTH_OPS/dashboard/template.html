@@ -154,6 +154,12 @@ textarea.note{width:100%;min-height:38px;resize:vertical;border:1px solid var(--
 li.task.show-note .note-row,li.task.has-note .note-row,.req.show-note .note-row,.req.has-note .note-row{display:block}
 .doneat{font-size:.78rem;color:var(--ok)}
 .empty{color:var(--muted);font-size:.9rem;padding:10px 12px;border:1px dashed var(--line);border-radius:10px}
+/* ---- archive: done and checked by a session ---- */
+details.archive{border:1px dashed var(--line);border-radius:10px;padding:8px 12px;color:var(--muted);font-size:.88rem}
+details.archive summary{color:var(--ok)}
+details.archive ul{margin:8px 0 0;padding-inline-start:18px;display:grid;gap:4px}
+details.archive li b{color:var(--ink);font-weight:600}
+details.archive .v{display:block;color:var(--subtle);font-size:.8rem}
 
 /* ---- log ---- */
 .log{display:grid;gap:0;border-top:1px solid var(--line)}
@@ -250,10 +256,12 @@ const DECISIONS = [
 
 function depsOf(it){ return (it.dependsOn||[]).map(id=>BY[id]).filter(Boolean); }
 function isDone(id){ return !!(state.items[id]&&state.items[id].done); }
+function isArchived(id){ const st=state.items[id]||{}; return !!(st.done&&st.verified); }
 function unmet(it){ return depsOf(it).filter(d=>!isDone(d.id)); }
 function status(it){ const st=state.items[it.id]||{}; if(st.done) return "done"; if(st.flag) return "flag"; if(unmet(it).length) return "waiting"; return "ready"; }
 function matches(it){
   const f=state.filter, s=status(it);
+  if(f!=="done"&&isArchived(it.id)) return false;
   if(f==="owner"&&it.owner!=="owner") return false;
   if(f==="session"&&it.owner!=="session") return false;
   if(f==="ready"&&!(s==="ready"&&it.owner==="owner")) return false;
@@ -275,7 +283,7 @@ function taskHtml(it){
   return `<li class="task ${s}${st.note?" has-note":""}" id="${esc(it.id)}" data-id="${esc(it.id)}">
     <button class="check" role="checkbox" aria-checked="${!!st.done}" aria-label="Mark done: ${esc(it.title)}" ${state.canWrite?"":"disabled"}>${tick}</button>
     <div class="task-main">
-      <div class="title-row"><span class="title">${esc(it.title)}</span><span class="badge ${it.owner}">${it.owner==="owner"?"you":"a session"}</span>${after?'<span class="badge after">after launch</span>':""}<span class="time">${esc(it.time||"")}</span>${st.done&&st.at?`<span class="doneat">done ${esc(fmt(st.at))}</span>`:""}</div>
+      <div class="title-row"><span class="title">${esc(it.title)}</span><span class="badge ${it.owner}">${it.owner==="owner"?"you":"a session"}</span>${after?'<span class="badge after">after launch</span>':""}<span class="time">${esc(it.time||"")}</span>${st.done&&st.at?`<span class="doneat">done ${esc(fmt(st.at))}</span>`:""}${st.verified?`<span class="doneat">· checked by a session: ${esc(st.verified)}</span>`:""}</div>
       <div class="why">${esc(it.why)}</div>
       ${deps}
       <details><summary>Steps</summary>
@@ -301,9 +309,10 @@ function wireTask(li, id){
 function render(){
   // ---- queue
   const queue=$("#queue"); queue.innerHTML="";
-  let openReq=0;
+  let openReq=0; const archivedReq=[];
   for(const r of DATA.requests){
     const id="req-"+r.id; const st=state.items[id]||{}; if(!st.done) openReq++;
+    if(isArchived(id)){ archivedReq.push({r,st}); continue; }
     const d=document.createElement("div"); d.className="req"+(st.done?" done":"")+(st.note?" has-note":""); d.id="r-"+r.id;
     d.innerHTML=`<button class="check" role="checkbox" aria-checked="${!!st.done}" aria-label="Done: ${esc(r.title)}" ${state.canWrite?"":"disabled"}>${tick}</button>
       <div class="task-main"><div class="title-row"><span class="title">${esc(r.title)}</span>${st.done&&st.at?`<span class="doneat">done ${esc(fmt(st.at))}</span>`:""}</div>
@@ -317,7 +326,8 @@ function render(){
     const ta=$("textarea",d); let timer; ta.addEventListener("input",()=>{clearTimeout(timer); timer=setTimeout(()=>{ if(((state.items[id]||{}).note||"")!==ta.value) setItem(id,{note:ta.value}); },800);});
     queue.appendChild(d);
   }
-  if(!DATA.requests.length) queue.innerHTML='<div class="empty">Nothing waiting on you right now.</div>';
+  if(!DATA.requests.length||!queue.children.length) queue.innerHTML='<div class="empty">Nothing waiting on you right now.</div>';
+  if(archivedReq.length){ const d=document.createElement("details"); d.className="archive"; d.innerHTML=`<summary>${archivedReq.length} answered and checked by a session (archived)</summary><ul>${archivedReq.map(({r,st})=>`<li><b>${esc(r.title)}</b> · done ${esc(fmt(st.at))}<span class="v">${esc(st.verified)}</span></li>`).join("")}</ul>`; queue.appendChild(d); }
   $("#needs-n").textContent = openReq ? `${openReq} open` : "all answered";
 
   // ---- decisions
@@ -343,9 +353,11 @@ function render(){
     flagged+=ph.items.filter(i=>status(i)==="flag").length;
     for(const it of ph.items){ if(!next&&it.owner==="owner"&&status(it)==="ready") next=it; }
     const visible=ph.items.filter(matches);
+    const archived=state.filter==="done"?[]:ph.items.filter(i=>isArchived(i.id));
     const s=document.createElement("section"); s.className="part"; s.id=ph.id;
     s.innerHTML=`<div class="part-head"><div class="row"><h2>${ph.order}. ${esc(ph.title)}</h2><span class="n">${od} / ${owned.length} of yours · ${ph.items.length-owned.length} for sessions</span></div><p class="goal">${esc(ph.goal)}</p><div class="bar" aria-hidden="true"><i style="width:${owned.length?(100*od/owned.length).toFixed(0):0}%"></i></div></div>
-      ${visible.length?`<ol class="tasks">${visible.map(taskHtml).join("")}</ol>`:`<div class="empty">No step in this phase matches the filter.</div>`}`;
+      ${visible.length?`<ol class="tasks">${visible.map(taskHtml).join("")}</ol>`:`<div class="empty">No step in this phase matches the filter.</div>`}
+      ${archived.length?`<details class="archive"><summary>${archived.length} done and checked by a session (archived)</summary><ul>${archived.map(i=>{const st=state.items[i.id]||{}; return `<li><b>${esc(i.title)}</b> · done ${esc(fmt(st.at))}<span class="v">${esc(st.verified)}</span></li>`;}).join("")}</ul></details>`:""}`;
     s.querySelectorAll("li.task").forEach(li=>wireTask(li, li.dataset.id));
     host.appendChild(s); shown+=visible.length;
     const a=document.createElement("a"); a.href="#"+ph.id; a.className=od===owned.length&&owned.length?"done-all":""; a.innerHTML=`${ph.order} ${esc(ph.title.split(":")[0].split(" (")[0])} <span class="n">${od}/${owned.length}</span>`; a.title=ph.title; chips.appendChild(a);

@@ -65,6 +65,9 @@ temp/
 .seeded-state.json
 **/.seeded-state.json
 screenshots/
+# The Play Store images are a deliverable, rendered by apps/mobile/test/store_screenshots_test.dart
+# from the real screens with synthetic data; they are tracked so the listing can be rebuilt.
+!docs/store/screenshots/
 
 # Per-runtime agent tooling. `.agents/skills` is a mirror of `.claude/skills`,
 # which is tracked (70 files) — committing both would be 3.7MB of near-duplicate

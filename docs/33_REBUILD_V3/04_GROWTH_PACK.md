@@ -421,7 +421,7 @@ Captions sit in the top third, Dusk Bloom tokens, Arabic set right-aligned. The 
 | 2 | Calendar with fertile range | Your fertile days as an honest range | أيام خصوبتكِ كنطاق صادق، لا يوم واحد |
 | 3 | Irregular/PCOS mode home | Irregular cycles or PCOS? No "late" counter | دورة غير منتظمة أو تكيس مبايض؟ بلا عدّاد للتأخير |
 | 4 | Pregnancy week card | Your pregnancy, week by week | حملكِ أسبوعًا بأسبوع |
-| 5 | Due date on calendar + Hijri | Due date on a calendar, with Hijri dates † | موعد الولادة على التقويم، مع التاريخ الهجري † |
+| 5 | Calendar with Hijri on | Your calendar, with Hijri dates beside each day (2026-11-01: the calendar draws no due-date mark, so the caption names what the screen shows) | تقويمكِ، والتاريخ الهجري بجانب كل يوم |
 | 6 | Library article with sources | Physician-written articles, with sources † | مقالات كتبها طبيب، مع مصادرها † |
 | 7 | Kick counter | Kick counter and contraction timer | عدّاد حركة الجنين ومؤقّت الانقباضات |
 | 8 | Backup / settings | App lock, and a backup you keep † | قفل للتطبيق، ونسخة احتياطية بين يديكِ † |

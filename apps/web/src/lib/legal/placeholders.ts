@@ -13,11 +13,11 @@
  * `PLACEHOLDER_PATTERN` highlights it on the page instead of printing a guess.
  */
 export const LEGAL_VALUES = {
-  /** Trading name; the catalogue adds ", Cairo, Egypt". Legal form and registration number: owner action. */
+  /** Trading name; the catalogue adds ", Cairo, Egypt". The legal form (sole proprietorship) is named in the catalogue; the register number is below. */
   entity: "KM Digital Labs",
   /** Commercial register number of the sole proprietorship (owner, 2026-10-30). The catalogue names the legal form in words. */
   registration: "682-374-954",
-  /** The one contact mailbox for the whole site (owner, 2026-10-29). Not yet verified to receive mail. */
+  /** The one contact mailbox for the whole site (owner, 2026-10-29; the owner confirmed it receives mail, 2026-10-30). */
   email: "info@femioapp.com",
   /** Effective date of the current version: the day the notice went live. */
   date: "2026-10-29",

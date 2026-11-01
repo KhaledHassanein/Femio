@@ -56,7 +56,7 @@ PRIVATE BY DESIGN
 IMPORTANT
 femio is for education and tracking. It is not a medical device and does not diagnose, treat, cure or prevent any medical condition. Predictions are estimates, not guarantees, and are not a method of birth control. Always talk to your doctor or midwife about your health. If you have heavy bleeding, severe pain or fewer baby movements, seek medical care right away.
 
-femio is made by KM Digital Labs, founded by a physician in Cairo. Questions or feedback: [SUPPORT EMAIL: owner action 3].
+femio is made by KM Digital Labs, founded by a physician in Cairo. Questions or feedback: info@femioapp.com.
 ```
 
 ## Screenshot captions (top third, Dusk Bloom tokens, real screens with synthetic data, no photos of people)
@@ -67,9 +67,9 @@ femio is made by KM Digital Labs, founded by a physician in Cairo. Questions or 
 | 2 | Calendar with the fertile range | Your fertile days as an honest range |
 | 3 | Today in irregular mode | Irregular cycles or PCOS? No "late" counter |
 | 4 | Pregnancy week card | Your pregnancy, week by week |
-| 5 | Calendar with Hijri on | Due date on a calendar, with Hijri dates |
+| 5 | Calendar with Hijri on | Your calendar, with Hijri dates beside each day |
 | 6 | Learn: an article with its sources | Physician-written guides, with sources |
-| 7 | Movement log / contraction timer | Movement log and contraction timer, no verdicts |
+| 7 | Today: the pregnancy tools list (movement log, contraction timer) | Movement log and contraction timer, no verdicts |
 | 8 | Settings: lock and backup | App lock, and a backup you keep |
 
 ## Feature graphic (1024×500)
