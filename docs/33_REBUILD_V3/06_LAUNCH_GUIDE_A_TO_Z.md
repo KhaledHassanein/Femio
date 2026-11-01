@@ -106,15 +106,19 @@ Open `docs/store/play-listing.ar.md` and `docs/store/play-listing.en.md` beside 
 ### D3 · The forms (30 min, answer exactly as written)
 Console → Policy → App content:
 - **Privacy policy**: the URL above.
-- **Ads**: No.
+- **Ads**: **Yes, my app contains ads** (Google AdMob banners on the guide screens only, ADR-076).
 - **App access**: all features available without special access.
 - **Content rating**: the IARC questionnaire; answer literally (`03_LEGAL_PACK.md` §4.4).
 - **Target audience**: 18 and over; tick "restrict minor access"; no, it does not appeal to
   children.
-- **Data safety**: the answers in `03_LEGAL_PACK.md` §4.1, line by line. Collects: **No**.
-  Shares: **No**. Deletion: **Yes, in Settings**.
+- **Data safety**: paste the answers in `docs/store/data-safety-and-declarations.md` line by line
+  (checked against Google's ads SDK page on 2026-11-01; full table in
+  `docs/store/PLAY_POLICY_CHECK_2026-11.md`). Collects: **Yes**, and only through Google's ads SDK:
+  device or other IDs, approximate location, app interactions, diagnostics. **Nothing from her
+  record.** Deletion: **Yes, in Settings** (her record); the advertising ID is reset in Android
+  settings. (Corrected 2026-11-01: this step said "No" from before ads were added.)
 - **Health apps declaration**: Period tracking; Reproductive and sexual health; Medical
-  reference and education. Nothing under medical device or clinical decision support
+  reference and education; Emergency and first aid (the Help now screen lists emergency numbers). Nothing under medical device or clinical decision support
   (`03_LEGAL_PACK.md` §4.2).
 - **Government apps / Financial features / News**: No.
 

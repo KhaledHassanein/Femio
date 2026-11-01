@@ -62,12 +62,13 @@ class DueDateStep extends StatelessWidget {
       progress: progress,
       title: title,
       onBack: onBack,
+      wideChild: true,
       primaryLabel: l.continueLabel,
       onPrimary: onContinue,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
-          DateCard(first: first, last: last, selected: selected, onChanged: onChanged),
+          DateCard(first: first, last: last, selected: selected, today: today, onChanged: onChanged),
           if (implausible) ...[
             const SizedBox(height: space3),
             Text(l.implausibleDue, style: TextStyle(color: p.dangerText)),

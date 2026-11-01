@@ -46,6 +46,7 @@ class LogScreen extends StatelessWidget {
     final p = context.palette;
     final t = Theme.of(context).textTheme;
     final locale = Localizations.localeOf(context).toLanguageTag();
+    final rtl = Directionality.of(context) == TextDirection.rtl;
 
     return ListenableBuilder(
       listenable: controller,
@@ -106,21 +107,25 @@ class LogScreen extends StatelessWidget {
                   children: [
                     IconButton(
                       onPressed: () => onDateChanged(addDays(date, -1)),
-                      icon: const Icon(Icons.chevron_left_rounded),
+                      icon: Icon(rtl ? Icons.chevron_right_rounded : Icons.chevron_left_rounded),
                       tooltip: l.previousDay,
                     ),
                     Expanded(
-                      child: Text(
-                        date == today
-                            ? '${l.navToday} · ${DateFormat.MMMd(locale).format(fromISO(date))}'
-                            : DateFormat.MMMMEEEEd(locale).format(fromISO(date)),
-                        textAlign: TextAlign.center,
-                        style: t.titleMedium,
+                      // A live region: stepping to another day announces which day it is.
+                      child: Semantics(
+                        liveRegion: true,
+                        child: Text(
+                          date == today
+                              ? '${l.navToday} · ${DateFormat.MMMd(locale).format(fromISO(date))}'
+                              : DateFormat.MMMMEEEEd(locale).format(fromISO(date)),
+                          textAlign: TextAlign.center,
+                          style: t.titleMedium,
+                        ),
                       ),
                     ),
                     IconButton(
                       onPressed: date.compareTo(today) >= 0 ? null : () => onDateChanged(addDays(date, 1)),
-                      icon: const Icon(Icons.chevron_right_rounded),
+                      icon: Icon(rtl ? Icons.chevron_left_rounded : Icons.chevron_right_rounded),
                       tooltip: l.nextDay,
                     ),
                   ],
@@ -160,6 +165,7 @@ class LogScreen extends StatelessWidget {
               section(l.sectionTemperature, [
                 TemperatureField(
                   key: ValueKey('bbt-$date'),
+                  label: l.sectionTemperature,
                   initial: log.bbt,
                   hint: l.temperatureHint,
                   saveLabel: l.temperatureSave,

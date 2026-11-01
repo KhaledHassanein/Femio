@@ -2,10 +2,11 @@
 //
 // Why it exists: v1 keeps one record, sealed with a key from the Android Keystore, in
 // the app's private directory (ADR-070: records never leave the phone). This file
-// owns the three things a private-records app must get right: the record is
-// encrypted, saves never interleave or half-write, and a file that cannot be read is
-// quarantined rather than silently replaced. Cloud sync, if it ever comes, is another
-// implementation of [FemioStore]; no screen would change.
+// owns the things a private-records app must get right: the record is encrypted,
+// saves never interleave or half-write, and a file that cannot be read is kept, never
+// silently replaced. Loading never throws: a failure becomes an [Unavailable] or
+// [Corrupt] outcome that the recovery screens explain. Cloud sync, if it ever comes, is
+// another implementation of [FemioStore]; no screen would change.
 
 import 'dart:convert';
 import 'dart:io';
@@ -39,12 +40,39 @@ class Corrupt extends LoadOutcome {
   final String quarantinedPath;
 }
 
+/// Why a record could not be opened right now.
+enum UnavailableReason {
+  /// The key vault (Android Keystore) threw: the record file may be perfectly fine.
+  vault,
+
+  /// A record file exists but the vault has no key for it (Keystore reset, lock-screen
+  /// change on some phones). The file cannot be opened, but it is kept as it is.
+  keyMissing,
+
+  /// The phone's storage failed (directory missing, read error, cannot move the file).
+  storage,
+}
+
+/// A record file may exist, but it could not be opened right now. Unlike [Corrupt],
+/// nothing is judged about the file: it is left exactly where it is, so "try again" can
+/// still work. The recovery screen offers retry, restore, or start empty.
+class Unavailable extends LoadOutcome {
+  const Unavailable(this.reason);
+  final UnavailableReason reason;
+}
+
 /// Where her record lives. An interface so the app, the tests and a future sync
 /// implementation share the same contract.
 abstract class FemioStore {
+  /// Reads the record. Never throws: every failure is an [Unavailable] or [Corrupt].
   Future<LoadOutcome> load();
   Future<void> save(Profile profile);
   Future<void> clear();
+
+  /// Moves a record file that cannot be opened out of the way, WITHOUT deleting it, so
+  /// the next save cannot bury it. Returns where it went, or null when there was none.
+  /// Throws when the file cannot be moved (then nothing has changed).
+  Future<String?> setAside();
 }
 
 /// The vault key under which the record's encryption key is kept.
@@ -56,16 +84,20 @@ const legacyFileName = 'femio-record.json';
 
 /// A sealed record file in the app's private support directory.
 ///
-/// The key is created on first use and kept in the [KeyVault]. Saves are chained so
+/// The key is created on first save and kept in the [KeyVault]. Saves are chained so
 /// two taps in a row cannot interleave their writes, and each write goes to a
 /// temporary file that is renamed into place, so a crash mid-write leaves the last
 /// good record. A v1 plaintext file is migrated on first load and then deleted.
+///
+/// A load never creates a key and never deletes a file. A record it cannot open is
+/// either moved aside ([Corrupt]: the key is there but the bytes are wrong) or left in
+/// place ([Unavailable]: the key or the storage failed, so a retry may still work).
 class EncryptedFileStore implements FemioStore {
   /// [directory] overrides the support directory (tests); [vault] holds the key.
   EncryptedFileStore({required KeyVault vault, Directory? directory, DateTime Function()? clock})
-      : _vault = vault,
-        _directory = directory,
-        _clock = clock ?? DateTime.now;
+    : _vault = vault,
+      _directory = directory,
+      _clock = clock ?? DateTime.now;
 
   // ignore_for_file: prefer_initializing_formals
   final KeyVault _vault;
@@ -73,38 +105,106 @@ class EncryptedFileStore implements FemioStore {
   final DateTime Function() _clock;
   Future<void> _chain = Future.value();
 
+  /// The record key (base64) once it has been read or created, so a vault that fails
+  /// later in the session cannot stop a save.
+  String? _cachedKey;
+
+  /// True after a load found a record file it could not open. The next save, or an
+  /// explicit [setAside], moves that file aside first so it is never overwritten.
+  bool _unreadableOnDisk = false;
+
   Future<Directory> _dir() async => _directory ?? await getApplicationSupportDirectory();
 
   Future<File> _file() async => File('${(await _dir()).path}/$recordFileName');
 
-  Future<List<int>> _key() async {
-    var stored = await _vault.read(recordKeyName);
-    if (stored == null) {
-      stored = envelope.newRecordKey();
-      await _vault.write(recordKeyName, stored);
+  /// The key to seal a save with: the cached or stored one, else a new one. A vault that
+  /// throws on read is treated as empty here, so a broken Keystore entry can be replaced.
+  /// Only saves come here; a load never creates a key (see [_load]).
+  Future<List<int>> _keyForWrite() async {
+    var text = _cachedKey;
+    if (text == null) {
+      try {
+        text = await _vault.read(recordKeyName);
+      } catch (_) {
+        text = null;
+      }
+      if (text == null) {
+        text = envelope.newRecordKey();
+        await _vault.write(recordKeyName, text);
+      }
+      _cachedKey = text;
     }
-    return base64Decode(stored);
+    return base64Decode(text);
+  }
+
+  /// Moves [file] to `<name>.<label>-<time>` and returns the new path.
+  Future<String> _moveAside(File file, String label) async {
+    final stamp = _clock().toIso8601String().replaceAll(':', '-');
+    final target = '${file.path}.$label-$stamp';
+    await file.rename(target);
+    return target;
   }
 
   @override
   Future<LoadOutcome> load() async {
-    final file = await _file();
-    if (!await file.exists()) {
-      final migrated = await _migrateLegacy();
-      if (migrated != null) return Loaded(migrated);
-      return const Empty();
+    try {
+      return await _load();
+    } catch (_) {
+      // Anything unforeseen is "not now", never a crash and never a verdict on her file.
+      return const Unavailable(UnavailableReason.storage);
+    }
+  }
+
+  Future<LoadOutcome> _load() async {
+    final File file;
+    try {
+      file = await _file();
+      if (!await file.exists()) {
+        final migrated = await _migrateLegacy();
+        return migrated == null ? const Empty() : Loaded(migrated);
+      }
+    } catch (_) {
+      return const Unavailable(UnavailableReason.storage);
+    }
+
+    // A record exists. Read the key WITHOUT creating one: a fresh key could not open this
+    // file, and writing it would overwrite the old key that a retry might still find.
+    final String? keyText;
+    try {
+      keyText = await _vault.read(recordKeyName);
+    } catch (_) {
+      _unreadableOnDisk = true;
+      return const Unavailable(UnavailableReason.vault);
+    }
+    if (keyText == null) {
+      _unreadableOnDisk = true;
+      return const Unavailable(UnavailableReason.keyMissing);
+    }
+
+    final List<int> sealed;
+    try {
+      sealed = await file.readAsBytes();
+    } catch (_) {
+      _unreadableOnDisk = true;
+      return const Unavailable(UnavailableReason.storage);
     }
     try {
-      final clear = await envelope.open(await _key(), await file.readAsBytes());
+      final clear = await envelope.open(base64Decode(keyText), sealed);
       final json = jsonDecode(utf8.decode(clear)) as Map<String, Object?>;
-      return Loaded(Profile.fromJson(migrateRecord(json)));
+      final profile = Profile.fromJson(migrateRecord(json));
+      _cachedKey = keyText;
+      _unreadableOnDisk = false;
+      return Loaded(profile);
     } catch (_) {
-      // Unreadable: wrong key, truncated, tampered, or a schema this build cannot
-      // parse. Keep the bytes under another name; never let the next save bury them.
-      final stamp = _clock().toIso8601String().replaceAll(':', '-');
-      final quarantined = '${file.path}.corrupt-$stamp';
-      await file.rename(quarantined);
-      return Corrupt(quarantined);
+      // Unreadable under the key we hold: truncated, tampered, written by another build,
+      // or a schema this build cannot parse. Keep the bytes under another name; never let
+      // the next save bury them. If even the move fails, say "not now" and touch nothing.
+      try {
+        return Corrupt(await _moveAside(file, 'corrupt'));
+      } catch (_) {
+        _unreadableOnDisk = true;
+        return const Unavailable(UnavailableReason.storage);
+      }
     }
   }
 
@@ -113,15 +213,16 @@ class EncryptedFileStore implements FemioStore {
   Future<Profile?> _migrateLegacy() async {
     final legacy = File('${(await _dir()).path}/$legacyFileName');
     if (!await legacy.exists()) return null;
+    final Profile profile;
     try {
       final json = jsonDecode(await legacy.readAsString()) as Map<String, Object?>;
-      final profile = Profile.fromJson(migrateRecord(json));
-      await save(profile);
-      await legacy.delete();
-      return profile;
-    } on FormatException {
+      profile = Profile.fromJson(migrateRecord(json));
+    } catch (_) {
       return null;
     }
+    await save(profile);
+    await legacy.delete();
+    return profile;
   }
 
   @override
@@ -134,10 +235,29 @@ class EncryptedFileStore implements FemioStore {
 
   Future<void> _write(Profile profile) async {
     final file = await _file();
-    final sealed = await envelope.seal(await _key(), utf8.encode(jsonEncode(profile.toJson())));
+    if (_unreadableOnDisk) {
+      // A record we could not open is still there: set it aside before writing, so the
+      // rename below cannot replace it. This is the only way a save follows a failed load.
+      if (await file.exists()) await _moveAside(file, 'set-aside');
+      _unreadableOnDisk = false;
+    }
+    final sealed = await envelope.seal(await _keyForWrite(), utf8.encode(jsonEncode(profile.toJson())));
     final tmp = File('${file.path}.tmp');
     await tmp.writeAsBytes(sealed, flush: true);
     await tmp.rename(file.path);
+  }
+
+  @override
+  Future<String?> setAside() async {
+    await _chain.catchError((_) {});
+    final file = await _file();
+    if (!await file.exists()) {
+      _unreadableOnDisk = false;
+      return null;
+    }
+    final moved = await _moveAside(file, 'set-aside');
+    _unreadableOnDisk = false;
+    return moved;
   }
 
   @override
@@ -148,6 +268,8 @@ class EncryptedFileStore implements FemioStore {
     final legacy = File('${(await _dir()).path}/$legacyFileName');
     if (await legacy.exists()) await legacy.delete();
     await _vault.delete(recordKeyName);
+    _cachedKey = null;
+    _unreadableOnDisk = false;
   }
 }
 
@@ -164,4 +286,10 @@ class MemoryStore implements FemioStore {
 
   @override
   Future<void> clear() async => _profile = null;
+
+  @override
+  Future<String?> setAside() async {
+    _profile = null;
+    return null;
+  }
 }

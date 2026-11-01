@@ -31,7 +31,7 @@ Play uses Play App Signing: the upload key signs what you send; Google re-signs 
 
 ## 3 · Version and build
 
-Bump `version:` in `apps/mobile/pubspec.yaml` (`0.5.0+5` → name+code; the code must rise every
+Bump `version:` in `apps/mobile/pubspec.yaml` (`0.5.1+6` → name+code; the code must rise every
 upload). Then:
 
 ```bash
@@ -45,6 +45,16 @@ flutter build apk --release --dart-define-from-file=ads.env         # for the ow
 
 `isMinifyEnabled` and resource shrinking are on for release; if a plugin breaks under R8, add a
 keep rule to `android/app/proguard-rules.pro` with the reason.
+
+**Then, before the APK or bundle goes anywhere, run the release smoke test** with an emulator
+booted (Android Studio → Device Manager, or `emulator -avd Medium_Phone_API_36.1`):
+
+```bash
+pnpm mobile-release-smoke     # installs the release APK clean, launches it, fails on any crash
+```
+
+Why: R8 only runs in release builds, so `flutter test` and debug runs cannot see what it removes.
+0.5.0+5 passed every test and died at launch on the owner's phone (R4.15, 2026-11-01).
 
 ## 4 · What to check on a real phone before uploading
 

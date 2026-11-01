@@ -2,7 +2,10 @@
 //
 // Why it exists: both goals start from the same next-period prediction, and trying to
 // conceive adds the fertile window, test timing and the temperature chart on top. One
-// file keeps that shared start and its one difference side by side.
+// file keeps that shared start and its one difference side by side. Trying to conceive
+// with irregular or "not sure" cycles has no prediction at all; it still gets the honest
+// "no confident window" hero, the clinician line and the tools (MR-06, MR-14), never a
+// single date and never a late count.
 
 import 'package:flutter/material.dart';
 
@@ -25,34 +28,34 @@ import '../../theme/spacing.dart';
 /// is a range with a confidence (rule 3). With no prediction yet it says so and, when
 /// she called her cycles irregular, explains why.
 class PeriodHero extends StatelessWidget {
-  const PeriodHero({
-    super.key,
-    required this.profile,
-    required this.today,
-    required this.range,
-    required this.date,
-  });
+  const PeriodHero({super.key, required this.profile, required this.today, required this.range, required this.date});
   final Profile profile;
   final String today;
   final IsoRangeFormatter range;
   final IsoDateFormatter date;
 
-
   @override
   Widget build(BuildContext context) {
     final l = L10n.of(context);
     String confidence(Confidence c) => switch (c) {
-          Confidence.low => l.confidenceLow,
-          Confidence.medium => l.confidenceMedium,
-          Confidence.high => l.confidenceHigh,
-        };
+      Confidence.low => l.confidenceLow,
+      Confidence.medium => l.confidenceMedium,
+      Confidence.high => l.confidenceHigh,
+    };
 
     final prediction = predictNextPeriod(profile.periodStarts, profile.cycleLength);
     if (prediction == null) {
-      return Column(children: [
-        HeroCard(eyebrow: l.predictionPeriodTitle, headline: l.noPredictionTitle, extra: [HeroLine(l.noPredictionBody)]),
-        if (profile.irregular) HeroNote(l.irregularNote),
-      ]);
+      if (profile.goal == Goal.ttc && _noConfidentWindow(profile)) return _tryingWithoutWindow(l);
+      return Column(
+        children: [
+          HeroCard(
+            eyebrow: l.predictionPeriodTitle,
+            headline: l.noPredictionTitle,
+            extra: [HeroLine(l.noPredictionBody)],
+          ),
+          if (profile.irregular) HeroNote(l.irregularNote),
+        ],
+      );
     }
     final period = range(prediction.windowStart, prediction.windowEnd);
     final extra = <Widget>[
@@ -73,35 +76,60 @@ class PeriodHero extends StatelessWidget {
       learning: prediction.learning && prediction.basis != 'stated',
     );
     final age = profile.birthYear == null ? null : fromISO(today).year - profile.birthYear!;
-    final guidance = ttcGuidance(tryingFor: profile.tryingFor, age: age, irregular: profile.irregular || prediction.irregular);
-    return Column(children: [
-      if (fertile != null)
-        HeroCard(
-          eyebrow: l.predictionFertileTitle,
-          headline: range(fertile.windowStart, fertile.windowEnd),
-          extra: [
-            HeroLine(l.predictionOvulation(date(fertile.ovulation))),
-            HeroLine(l.predictionNextPeriod(period)),
-            ...extra,
-          ],
-        )
-      else
+    final guidance = ttcGuidance(
+      tryingFor: profile.tryingFor,
+      age: age,
+      irregular: profile.irregular || prediction.irregular,
+    );
+    return Column(
+      children: [
+        if (fertile != null)
+          HeroCard(
+            eyebrow: l.predictionFertileTitle,
+            headline: range(fertile.windowStart, fertile.windowEnd),
+            extra: [
+              HeroLine(l.predictionOvulation(date(fertile.ovulation))),
+              HeroLine(l.predictionNextPeriod(period)),
+              ...extra,
+            ],
+          )
+        else
+          HeroCard(
+            eyebrow: l.predictionFertileTitle,
+            headline: l.noConfidentWindowTitle,
+            extra: [HeroLine(l.noConfidentWindowBody), HeroLine(l.predictionNextPeriod(period)), ...extra],
+          ),
+        HeroNote(l.predictionNote),
+        if (guidance.suggestClinician) HeroNote(_clinicianLine(l, guidance)),
+        const SizedBox(height: space3),
+        TestTimingCard(prediction: prediction, date: date),
+        const SizedBox(height: space3),
+        BbtChartCard(chart: _cycleBbt(profile)),
+      ],
+    );
+  }
+
+  /// Trying to conceive, no prediction: the honest "no confident window" hero, the
+  /// estimates note, the clinician line when the rule asks for it, the general test
+  /// advice and the temperature chart. Every string already exists in all four languages.
+  Widget _tryingWithoutWindow(L10n l) {
+    final age = profile.birthYear == null ? null : fromISO(today).year - profile.birthYear!;
+    final guidance = ttcGuidance(tryingFor: profile.tryingFor, age: age, irregular: profile.irregular);
+    return Column(
+      children: [
         HeroCard(
           eyebrow: l.predictionFertileTitle,
           headline: l.noConfidentWindowTitle,
-          extra: [HeroLine(l.noConfidentWindowBody), HeroLine(l.predictionNextPeriod(period)), ...extra],
+          extra: [HeroLine(l.noConfidentWindowBody)],
         ),
-      HeroNote(l.predictionNote),
-      if (guidance.suggestClinician)
-        HeroNote(switch (guidance.reason!) {
-          GuidanceReason.irregularCycles => l.seeClinicianIrregular,
-          GuidanceReason.twelveMonths || GuidanceReason.sixMonthsFrom35 => l.seeClinicianTtc,
-        }),
-      const SizedBox(height: space3),
-      TestTimingCard(prediction: prediction, date: date),
-      const SizedBox(height: space3),
-      BbtChartCard(chart: _cycleBbt(profile)),
-    ]);
+        HeroNote(l.predictionNote),
+        if (guidance.suggestClinician) HeroNote(_clinicianLine(l, guidance)),
+        const SizedBox(height: space3),
+        const TestTimingCard(prediction: null, date: null),
+        const SizedBox(height: space3),
+        BbtChartCard(chart: _cycleBbt(profile)),
+      ],
+    );
   }
 }
 
@@ -111,7 +139,19 @@ BbtChart? _cycleBbt(Profile profile) {
   final since = starts.isEmpty ? null : starts.last;
   return bbtChart([
     for (final e in profile.logs.entries)
-      if (e.value.bbt != null && (since == null || e.key.compareTo(since) >= 0))
-        BbtEntry(e.key, e.key, e.value.bbt!),
+      if (e.value.bbt != null && (since == null || e.key.compareTo(since) >= 0)) BbtEntry(e.key, e.key, e.value.bbt!),
   ], since);
 }
+
+/// With no prediction, trying-to-conceive shows the "no confident window" hero when she
+/// said her cycles are irregular or that she is not sure, or when she has logged a
+/// period but the length cannot be read from it. Only a regular woman who has logged
+/// nothing yet is asked to log her first period.
+bool _noConfidentWindow(Profile profile) =>
+    profile.irregular || profile.cycleLength == null || profile.periodStarts.isNotEmpty;
+
+/// The seek-help sentence for [guidance] (MR-13, MR-14). Only called when it suggests one.
+String _clinicianLine(L10n l, TtcGuidance guidance) => switch (guidance.reason!) {
+  GuidanceReason.irregularCycles => l.seeClinicianIrregular,
+  GuidanceReason.twelveMonths || GuidanceReason.sixMonthsFrom35 => l.seeClinicianTtc,
+};

@@ -36,9 +36,7 @@ const SHARED = {
   testTimingSource: "calculators.pregnancyTest.source",
   // Pregnancy (P3.6): the website's reviewed contraction timer, movement log and
   // red-flag wording, so the app says exactly what the clinician-reviewed site says.
-  pregDaysToGo: "pregnancy.daysToGo",
-  pregOverdue: "pregnancy.overdue",
-  pregTermFrom: "pregnancy.termFrom",
+  // (No daysToGo / overdue / termFrom: the app shows the term window instead, MR-02.)
   pregEstimateNote: "pregnancy.estimateNote",
   pregRedFlagsHeading: "pregnancy.redFlags.heading",
   // MR-29: the sourced sentence (ACOG, CDC Hear Her) the gestational-age calculator shows,

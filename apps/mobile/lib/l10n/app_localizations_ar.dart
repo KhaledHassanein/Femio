@@ -192,7 +192,7 @@ class L10nAr extends L10n {
 
   @override
   String predictionOvulation(String date) {
-    return 'الإباضة المرجّحة: $date';
+    return 'الإباضة المرجّحة حوالي $date';
   }
 
   @override
@@ -576,7 +576,7 @@ class L10nAr extends L10n {
 
   @override
   String testTimingBody(String date) {
-    return 'إذا لم تبدأ دورتك بحلول $date، يكون اختبار الحمل المنزلي موثوقًا ابتداءً من ذلك اليوم.';
+    return 'إذا لم تبدأ دورتك بحلول $date، يمكن لمعظم اختبارات الحمل المنزلية أن تعطي نتيجة دقيقة ابتداءً من ذلك اليوم.';
   }
 
   @override
@@ -616,38 +616,6 @@ class L10nAr extends L10n {
   @override
   String get testTimingSource =>
       'المصدر: هيئة الخدمات الصحية البريطانية (NHS)، إجراء اختبار الحمل.';
-
-  @override
-  String pregDaysToGo(int days) {
-    String _temp0 = intl.Intl.pluralLogic(
-      days,
-      locale: localeName,
-      other: 'بقي $days يومًا',
-      few: 'بقي $days أيام',
-      two: 'بقي يومان',
-      one: 'بقي يوم واحد',
-      zero: 'اليوم موعد الولادة المتوقّع',
-    );
-    return '$_temp0';
-  }
-
-  @override
-  String pregOverdue(int days) {
-    String _temp0 = intl.Intl.pluralLogic(
-      days,
-      locale: localeName,
-      other: 'مضى $days يومًا على موعد الولادة المتوقّع',
-      few: 'مضت $days أيام على موعد الولادة المتوقّع',
-      two: 'مضى يومان على موعد الولادة المتوقّع',
-      one: 'مضى يوم واحد على موعد الولادة المتوقّع',
-    );
-    return '$_temp0';
-  }
-
-  @override
-  String pregTermFrom(String date) {
-    return 'الحمل تامّ المدة اعتبارًا من $date';
-  }
 
   @override
   String get pregEstimateNote =>
@@ -1131,6 +1099,48 @@ class L10nAr extends L10n {
       'الملف على هذا الهاتف تالف أو كُتب بإصدار مختلف من femio. تم الاحتفاظ به جانبًا ولم يُحذف. استعيدي ملف نسخة احتياطية إن كان لديكِ، أو ابدئي من جديد.';
 
   @override
+  String get recoveryTitle => 'تعذّر على femio فتح سجلاتكِ الآن';
+
+  @override
+  String get recoveryBody =>
+      'سجلاتكِ محفوظة على هذا الهاتف، ولم يُحذف منها شيء ولم يتغيّر. قد يحدث هذا بعد تحديث الهاتف أو تغيير قفل الشاشة أو استعادة الهاتف. وغالبًا ما تنجح المحاولة مرة أخرى.';
+
+  @override
+  String get recoveryTryAgain => 'حاولي مرة أخرى';
+
+  @override
+  String get recoveryStillClosed =>
+      'ما زال فتحها متعذّرًا. لم يتغيّر شيء على هاتفكِ.';
+
+  @override
+  String get recoveryRestoreNote =>
+      'هل لديكِ ملف نسخة احتياطية حفظتِه سابقًا؟ يمكنكِ استعادته من هنا.';
+
+  @override
+  String get recoveryActionFailed =>
+      'لم تنجح العملية، ولم يتغيّر شيء على هاتفكِ. حاولي مرة أخرى.';
+
+  @override
+  String get recoveryStartFresh => 'البدء بسجلات فارغة';
+
+  @override
+  String get recoveryFreshTitle => 'البدء بسجلات فارغة؟';
+
+  @override
+  String get recoveryFreshBody =>
+      'سيفتح femio بلا أي سجلات. ملفكِ القديم لا يُحذف: يبقى على هذا الهاتف محفوظًا جانبًا. ويمكنكِ استعادة ملف نسخة احتياطية لاحقًا من الإعدادات.';
+
+  @override
+  String get recoveryFreshConfirm => 'ابدئي بسجلات فارغة';
+
+  @override
+  String get recoveryFreshCancel => 'ليس الآن';
+
+  @override
+  String get saveFailedBanner =>
+      'تعذّر على femio حفظ آخر تغيير على هذا الهاتف. سجلاتكِ السابقة بأمان. حاولي مرة أخرى، واحفظي ملف نسخة احتياطية حين تستطيعين.';
+
+  @override
   String get settingsReminders => 'التذكيرات';
 
   @override
@@ -1476,9 +1486,86 @@ class L10nAr extends L10n {
       'المنتج femio_plus غير موجود بعد (متوقع حتى يُنشأ في Play Console)';
 
   @override
+  String calendarDayStates(String date, String states) {
+    return '$date، $states';
+  }
+
+  @override
+  String get calendarStateToday => 'اليوم';
+
+  @override
+  String get calendarStatePeriod => 'يوم من الدورة';
+
+  @override
+  String get calendarStateSpotting => 'تنقيط';
+
+  @override
+  String get calendarStatePredicted => 'قد تبدأ الدورة (تقدير)';
+
+  @override
+  String get calendarStateFertile => 'ضمن أيام الخصوبة (تقدير)';
+
+  @override
+  String get calendarStateOvulation => 'الإباضة المرجّحة (تقدير)';
+
+  @override
+  String get calendarStateLogged => 'سجّلتِ شيئًا';
+
+  @override
+  String get a11yListSeparator => '، ';
+
+  @override
+  String get onboardingProgress => 'التقدّم';
+
+  @override
   String get adLabel => 'إعلان';
 
   @override
   String get adsNotice =>
-      'تظهر الإعلانات في شاشات الدلائل فقط. لا تطّلع أبدًا على سجلاتكِ، وسيزيلها femio Plus.';
+      'تظهر الإعلانات في شاشات الدلائل فقط وتعرضها Google. تتلقى Google معرّف الإعلانات الخاص بكِ وعنوان الإنترنت وكيفية تفاعلكِ مع الإعلان، ولا تتلقى أبدًا سجلاتكِ. وسيزيلها femio Plus.';
+
+  @override
+  String pregTermWindow(String due, String start, String end) {
+    return 'موعد الولادة حوالي $due · يصل معظم المواليد بين $start و$end';
+  }
+
+  @override
+  String get pregPastTerm =>
+      'بحسب موعد الولادة هذا مضى على حملكِ أكثر من 42 أسبوعًا. تحدّثي مع طبيبتكِ أو القابلة عن مواعيدكِ.';
+
+  @override
+  String get settingsMyDetails => 'بياناتي';
+
+  @override
+  String get settingsGoal => 'هدفكِ';
+
+  @override
+  String get settingsGoalNote =>
+      'تغيير هدفكِ يغيّر ما يعرضه femio. وتبقى سجلاتكِ كما هي تمامًا.';
+
+  @override
+  String get settingsDueDate => 'موعد الولادة المتوقع';
+
+  @override
+  String get saveLabel => 'حفظ';
+
+  @override
+  String get undoAction => 'تراجع';
+
+  @override
+  String get privacyPolicyTitle => 'سياسة الخصوصية';
+
+  @override
+  String get privacyPolicySubtitle =>
+      'كيف يتعامل femio مع معلوماتكِ. يفتح موقع femioapp.com في المتصفح.';
+
+  @override
+  String get privacyPolicyOpenFailed =>
+      'تعذّر على femio فتح المتصفح. انسخي هذا العنوان وافتحيه هناك.';
+
+  @override
+  String get copyLabel => 'نسخ';
+
+  @override
+  String get closeLabel => 'إغلاق';
 }

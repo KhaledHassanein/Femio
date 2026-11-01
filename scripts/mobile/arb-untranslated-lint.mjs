@@ -22,10 +22,12 @@ const ALLOWED = {
     "reminderTitle", // the notification title is only the wordmark
     "rangeValue", // two placeholders and a dash; nothing to translate
     "calendarDayLabel", // two placeholders and a comma
+    "calendarDayStates", // two placeholders and a comma (screen-reader label of a day)
+    "a11yListSeparator", // a comma and a space, read by a screen reader between list items
   ],
   ar: [],
   fr: [
-    "logIrritable", "logConstipation", "logFatigue", "logSpotting", "legendSpotting", "weightUnitKg", "weightUnitLb", "settingsDates", "learnSources", "helpNowSource",
+    "logIrritable", "logConstipation", "logFatigue", "logSpotting", "legendSpotting", "calendarStateSpotting", "weightUnitKg", "weightUnitLb", "settingsDates", "learnSources", "helpNowSource",
     // Help now (R6.17): country names and service names spelt the same in French.
     "helpNowCountry_canada", "helpNowCountry_france", "helpNowCountry_oman", "helpNowCountry_qatar", "helpNowNumber_fr_3919", "helpNowNumber_ma_police",
   ],

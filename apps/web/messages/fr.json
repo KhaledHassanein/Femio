@@ -65,7 +65,7 @@
         },
         "ads": {
           "claim": "Aucune donnée de santé n'atteint un annonceur",
-          "detail": "— jamais. Ce n'est pas un réglage ; il n'existe aucun canal."
+          "detail": "— jamais. La demande de publicité ne contient rien de vos données, et l'application ne transmet jamais vos données au logiciel publicitaire."
         },
         "languages": {
           "claim": "Anglais, arabe, français et espagnol",
@@ -1008,15 +1008,15 @@
       },
       {
         "heading": "Ce que l’application enregistre, sur votre téléphone",
-        "body": "En utilisant l’application, vous pouvez saisir : votre année de naissance (uniquement pour vérifier que vous avez 18 ans ou plus), votre langue, les dates de vos règles et de vos cycles, vos symptômes, votre humeur, les notes que vous écrivez, votre poids, vos rendez-vous, vos suivis de grossesse et de mouvements du bébé, et les séances du minuteur de contractions. Ce sont des informations de santé, nous les traitons donc avec soin. Elles sont conservées dans un fichier privé que seule l’application femio peut ouvrir. Le fichier est protégé par le chiffrement du stockage de votre téléphone. Nous n’ajoutons pas de second verrou."
+        "body": "En utilisant l’application, vous pouvez saisir : votre année de naissance (uniquement pour vérifier que vous avez 18 ans ou plus), votre langue, votre objectif (par exemple, concevoir), les dates de vos règles et de vos cycles et vos saignements, vos symptômes, votre humeur, vos pertes, votre activité sexuelle, vos résultats de tests d’ovulation, votre température au réveil, votre date d’accouchement prévue, les notes que vous écrivez, votre poids, vos rendez-vous, vos suivis de grossesse et de mouvements du bébé, et les séances du minuteur de contractions. Ce sont des informations de santé, nous les traitons donc avec soin. Elles sont conservées dans un fichier privé que seule l’application femio peut ouvrir. Le fichier est chiffré par femio, et sa clé est conservée dans le magasin de clés sécurisé d’Android (Keystore), pas à côté du fichier. Vous pouvez aussi activer un verrouillage de l’application par code PIN."
       },
       {
         "heading": "Ce que l’application ne recueille pas",
-        "body": "Pas de nom. Pas d’e-mail. Pas de numéro de téléphone. Pas de contacts, de photos ni de fichiers. Pas d’outil d’analyse. Pas d’outil de rapport de plantage qui nous soit propre. femio n’envoie jamais vos données hors de votre téléphone. La seule chose qui quitte votre téléphone est la demande de publicité sur les écrans des guides : le logiciel publicitaire de Google envoie à Google votre identifiant publicitaire, le type de votre appareil et votre adresse Internet (qui indique à peu près où vous êtes), et note quelles publicités ont été affichées. Il ne reçoit jamais vos données, vos dates de cycle ni ce que vous lisez, et nous demandons des publicités non personnalisées. Vous pouvez réinitialiser ou supprimer votre identifiant publicitaire dans les réglages d’Android. femio Plus supprime les publicités."
+        "body": "Pas de nom. Pas d’e-mail. Pas de numéro de téléphone. Pas de contacts, de photos ni de fichiers. Pas d’outil d’analyse. Pas d’outil de rapport de plantage qui nous soit propre. femio n’envoie jamais vos données hors de votre téléphone. La seule chose qui quitte votre téléphone est la demande de publicité sur les écrans des guides : le logiciel publicitaire de Google envoie à Google votre identifiant publicitaire et l’identifiant d’ensemble d’applications (app-set ID), le type de votre appareil, votre adresse Internet (qui indique à peu près où vous êtes), la façon dont vous utilisez les publicités (par exemple, les appuis) et des informations de performance de base (par exemple, le temps de démarrage de l’application). Google s’en sert pour afficher les publicités, les mesurer et lutter contre la fraude, et ces informations sont envoyées chiffrées. Il ne reçoit jamais vos données, vos dates de cycle ni ce que vous lisez, et nous demandons des publicités non personnalisées. Vous pouvez réinitialiser ou supprimer votre identifiant publicitaire dans les réglages d’Android. femio Plus, lorsqu’il sera disponible, supprimera les publicités."
       },
       {
         "heading": "Les sauvegardes sont des fichiers que vous enregistrez vous-même",
-        "body": "femio peut enregistrer un fichier de sauvegarde quand vous le demandez. Vous choisissez où il va : les fichiers de votre téléphone, un espace en ligne, un e-mail. Ensuite, le fichier est entre vos mains, pas entre les nôtres. Il contient vos données, gardez-le donc dans un endroit privé. Nous avons désactivé la sauvegarde automatique d’Android dans le cloud pour femio, afin que Google ne copie pas vos données. Si vous perdez votre téléphone ou le réinitialisez sans avoir de fichier de sauvegarde, vos données sont perdues. Nous ne pouvons pas les récupérer."
+        "body": "femio peut enregistrer un fichier de sauvegarde quand vous le demandez. Vous choisissez où il va : les fichiers de votre téléphone, un espace en ligne, un e-mail. Ensuite, le fichier est entre vos mains, pas entre les nôtres. Il contient vos données, gardez-le donc dans un endroit privé. Nous avons désactivé la sauvegarde automatique d’Android dans le cloud pour femio, afin que Google ne copie pas vos données ; nous avons aussi exclu les données de l’application du transfert de téléphone à téléphone. Pour passer à un nouveau téléphone, utilisez votre fichier de sauvegarde. Si vous perdez votre téléphone ou le réinitialisez sans avoir de fichier de sauvegarde, vos données sont perdues. Nous ne pouvons pas les récupérer."
       },
       {
         "heading": "Rappels",
@@ -1024,7 +1024,7 @@
       },
       {
         "heading": "Ce que Google peut voir",
-        "body": "Vous pouvez installer femio depuis Google Play. Google nous communique des totaux, par exemple le nombre d’installations ou de plantages, selon sa propre politique. Sur les écrans des guides, Google diffuse aussi les publicités décrites ci-dessus, selon sa politique publicitaire. Ni les uns ni les autres ne contiennent vos données ; femio n’envoie jamais vos données à Google."
+        "body": "Vous pouvez installer femio depuis Google Play. Google nous communique des totaux, par exemple le nombre d’installations ou de plantages, selon sa propre politique. Sur les écrans des guides, Google diffuse aussi les publicités décrites ci-dessus, selon sa politique publicitaire. Ni les uns ni les autres ne contiennent vos données ; femio n’envoie jamais vos données à Google. Google traite les données publicitaires selon sa propre politique de confidentialité et peut les traiter dans d’autres pays que le vôtre. Dans certains pays, Google affiche d’abord un formulaire de consentement ; ailleurs, les publicités restent non personnalisées. femio conserve vos données jusqu’à ce que vous les supprimiez."
       },
       {
         "heading": "Le site (femioapp.com)",
@@ -1065,7 +1065,7 @@
       },
       {
         "heading": "Vos droits et comment les exercer",
-        "body": "Vos données n’étant que sur votre téléphone, vous les détenez. Dans l’application, vous pouvez les consulter, les modifier, en enregistrer une copie (export) et tout supprimer (Réglages, « Tout supprimer sur ce téléphone »). Pour les journaux du serveur du site, écrivez à {email} et nous répondrons sous 30 jours. Vous pouvez aussi déposer une plainte auprès de votre autorité de protection des données : le Centre de protection des données personnelles (Égypte), la SDAIA (Arabie saoudite), l’ICO (Royaume-Uni) ou l’autorité de votre pays dans l’Union européenne."
+        "body": "Vos données n’étant que sur votre téléphone, vous les détenez. Dans l’application, vous pouvez les consulter, les modifier, en enregistrer une copie (export) et tout supprimer (Réglages, « Tout supprimer sur ce téléphone »). Pour les journaux du serveur du site, écrivez à {email} et nous répondrons sous 30 jours. Vous pouvez aussi déposer une plainte auprès de votre autorité de protection des données : le Centre de protection des données personnelles (Égypte), la SDAIA (Arabie saoudite), l’ICO (Royaume-Uni) ou l’autorité de votre pays dans l’Union européenne. Vous pouvez aussi nous demander de corriger, de limiter ou de cesser d’utiliser ces données, et retirer tout consentement donné. Tout supprimer dans l’application n’efface pas ce que Google détient déjà des demandes de publicité ; vous pouvez réinitialiser ou supprimer votre identifiant publicitaire dans les réglages d’Android, et les contrôles de confidentialité de Google s’appliquent au reste."
       },
       {
         "heading": "Si cela change",

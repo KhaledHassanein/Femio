@@ -38,6 +38,7 @@
     "content-build-lint": "node scripts/content/build-content.mjs --check",
     "wordmark-lint": "node scripts/wordmark-lint.mjs",
     "mobile-untranslated-lint": "node scripts/mobile/arb-untranslated-lint.mjs",
+    "mobile-release-smoke": "node scripts/mobile/release-smoke.mjs",
     "store-lint": "node scripts/store/listing-check.mjs",
     "reading-level-lint": "node scripts/content/reading-level.mjs",
     "reading-level-test": "node --test scripts/content/reading-level.test.mjs",

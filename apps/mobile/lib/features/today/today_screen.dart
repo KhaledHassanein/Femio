@@ -46,6 +46,29 @@ class TodayScreen extends StatelessWidget {
   Widget build(BuildContext context) =>
       ListenableBuilder(listenable: controller, builder: (context, _) => _build(context));
 
+  /// How long the Undo stays on screen after "My period started today".
+  static const _undoDuration = Duration(seconds: 8);
+
+  /// Writes a medium flow on [day], keeping everything else she logged that day (her
+  /// symptoms, ovulation test and temperature), and offers Undo. Undo puts the day back
+  /// exactly as it was (its log and whether it counted as a period start).
+  Future<void> _logPeriodToday(BuildContext context, String day) async {
+    final messenger = ScaffoldMessenger.of(context);
+    final l = L10n.of(context);
+    final before = controller.profile!;
+    await controller.setDayLog(day, (before.logs[day] ?? const DayLog()).copyWith(flow: 'medium'));
+    messenger.hideCurrentSnackBar();
+    messenger.showSnackBar(
+      SnackBar(
+        content: Text(l.loggedToday),
+        duration: _undoDuration,
+        // A snackbar with an action stays until dismissed unless told otherwise; this one times out.
+        persist: false,
+        action: SnackBarAction(label: l.undoAction, onPressed: () => controller.restoreDay(day, before)),
+      ),
+    );
+  }
+
   Widget _build(BuildContext context) {
     final profile = controller.profile!;
     final l = L10n.of(context);
@@ -108,9 +131,9 @@ class TodayScreen extends StatelessWidget {
               Align(
                 alignment: AlignmentDirectional.centerEnd,
                 child: TextButton(
-                  onPressed: () => Navigator.of(context).push(
-                    MaterialPageRoute<void>(builder: (_) => RedFlagsScreen(library: library)),
-                  ),
+                  onPressed: () =>
+                      Navigator.of(context)
+                          .push(MaterialPageRoute<void>(builder: (_) => RedFlagsScreen(library: library))),
                   child: Text(l.pregRedFlagsMore),
                 ),
               ),
@@ -124,13 +147,7 @@ class TodayScreen extends StatelessWidget {
             if (canLog) ...[
               const SizedBox(height: space4),
               FilledButton.icon(
-                onPressed: () async {
-                  final existing = profile.logs[now];
-                  await controller.setDayLog(now, DayLog(flow: 'medium', terms: existing?.terms ?? const []));
-                  if (context.mounted) {
-                    ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(l.loggedToday)));
-                  }
-                },
+                onPressed: () => _logPeriodToday(context, now),
                 icon: const Icon(Icons.water_drop_rounded),
                 label: Text(l.logPeriodToday),
               ),

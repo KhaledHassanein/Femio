@@ -65,7 +65,7 @@
         },
         "ads": {
           "claim": "No health data reaches an advertiser",
-          "detail": "— ever. It is not a setting; there is no channel."
+          "detail": "— ever. The ad request carries nothing from your record, and the app never hands the ads software your data."
         },
         "languages": {
           "claim": "English, Arabic, French and Spanish",
@@ -1008,15 +1008,15 @@
       },
       {
         "heading": "What the app stores, on your phone",
-        "body": "When you use the app you may enter: your birth year (only to check that you are 18 or over), your language, your period and cycle dates, symptoms, mood, notes you type, weight, appointments, pregnancy and baby-movement logs, and contraction timer sessions. This is health information, so we handle it with care. It is kept in a private file that only the femio app can open. The file is protected by your phone’s own storage encryption. We do not add a second lock."
+        "body": "When you use the app you may enter: your birth year (only to check that you are 18 or over), your language, your goal (for example, trying to conceive), your period and cycle dates and bleeding, symptoms, mood, discharge, sexual activity, ovulation-test results, waking temperature, your due date, notes you type, weight, appointments, pregnancy and baby-movement logs, and contraction timer sessions. This is health information, so we handle it with care. It is kept in a private file that only the femio app can open. The file is encrypted by femio, and the key is kept in Android’s secure key store (the Keystore), not beside the file. You can also switch on an app lock with a PIN."
       },
       {
         "heading": "What the app does not collect",
-        "body": "No name. No email. No phone number. No contacts, photos or files. No analytics. No crash-report tool of our own. femio never sends your records off your phone. The one thing that leaves your phone is the ad request on the guide screens: Google’s ads software sends Google your advertising ID, your device type and your internet address (which shows roughly where you are), and notes which ads were shown. It never receives your records, your cycle dates or what you read, and we ask for non-personalised ads. You can reset or delete your advertising ID in Android’s settings. femio Plus removes the ads."
+        "body": "No name. No email. No phone number. No contacts, photos or files. No analytics. No crash-report tool of our own. femio never sends your records off your phone. The one thing that leaves your phone is the ad request on the guide screens: Google’s ads software sends Google your advertising ID and app-set ID, your device type, your internet address (which shows roughly where you are), how you used the ads (for example, taps) and basic performance information (for example, how long the app took to start). Google uses this to show ads, to measure them and to detect fraud, and it is sent encrypted. It never receives your records, your cycle dates or what you read, and we ask for non-personalised ads. You can reset or delete your advertising ID in Android’s settings. femio Plus, when it is available, will remove the ads."
       },
       {
         "heading": "Backups are files you save yourself",
-        "body": "femio can save a backup file when you ask. You choose where it goes: your phone’s files, a cloud drive, an email. After that, the file is in your hands, not ours. It contains your records, so keep it somewhere private. We have switched off Android’s automatic cloud backup for femio, so Google does not copy your records. If you lose your phone, or reset it, and you have no backup file, your records are gone. We cannot recover them."
+        "body": "femio can save a backup file when you ask. You choose where it goes: your phone’s files, a cloud drive, an email. After that, the file is in your hands, not ours. It contains your records, so keep it somewhere private. We have switched off Android’s automatic cloud backup for femio, so Google does not copy your records, and we have excluded the app’s data from phone-to-phone transfer too. To move to a new phone, use your backup file. If you lose your phone, or reset it, and you have no backup file, your records are gone. We cannot recover them."
       },
       {
         "heading": "Reminders",
@@ -1024,7 +1024,7 @@
       },
       {
         "heading": "What Google may see",
-        "body": "You may install femio from Google Play. Google tells us totals, such as how many people installed the app or how many crashes happened, under Google’s own policy. On the guide screens Google also serves the ads described above, under Google’s advertising policy. Neither contains your records; femio never sends your records to Google."
+        "body": "You may install femio from Google Play. Google tells us totals, such as how many people installed the app or how many crashes happened, under Google’s own policy. On the guide screens Google also serves the ads described above, under Google’s advertising policy. Neither contains your records; femio never sends your records to Google. Google handles ad data under its own privacy policy and may process it in countries other than yours. In some countries Google first shows a consent form; in the others, the ads are still non-personalised. femio keeps your records until you delete them."
       },
       {
         "heading": "The website (femioapp.com)",
@@ -1065,7 +1065,7 @@
       },
       {
         "heading": "Your rights, and how to use them",
-        "body": "Because your records are only on your phone, you hold them. In the app you can look at them, change them, save a copy (export) and delete everything (Settings, “Delete everything on this phone”). For the website’s server logs, write to {email} and we will answer within 30 days. You may also complain to your data protection authority: the Personal Data Protection Centre (Egypt), SDAIA (Saudi Arabia), the ICO (United Kingdom) or the authority in your EU country."
+        "body": "Because your records are only on your phone, you hold them. In the app you can look at them, change them, save a copy (export) and delete everything (Settings, “Delete everything on this phone”). For the website’s server logs, write to {email} and we will answer within 30 days. You may also complain to your data protection authority: the Personal Data Protection Centre (Egypt), SDAIA (Saudi Arabia), the ICO (United Kingdom) or the authority in your EU country. You may also ask us to correct, limit or stop using that data, and you may withdraw any consent you gave. Deleting everything in the app does not reach data Google already holds from ad requests; you can reset or delete your advertising ID in Android’s settings, and Google’s own privacy controls apply to the rest."
       },
       {
         "heading": "If this changes",

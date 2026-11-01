@@ -2,6 +2,47 @@
   "about": "What sessions need from the owner, newest first. A session appends an entry here and rebuilds the dashboard (README.md). The owner ticks it on the dashboard; the tick lives in the artifact database as items/req-<id>. Never put an id, key or password in this file: say where it goes.",
   "requests": [
     {
+      "id": "sign-privacy-v2",
+      "at": "2026-11-02",
+      "from": "session 2026-11-01 (specialist pass)",
+      "title": "Sign privacy policy version 2 before the next website deploy",
+      "detail": "The live policy says femio adds no lock of its own (false) and lists only part of what Google's ads SDK sends. The corrected text is in the repository in four languages (docs/compliance/PRIVACY_COHERENCE_2026-11.md section 4). Say 'sign privacy v2' or name the line to change.",
+      "blocks": [],
+      "where": "Owner actions row 23"
+    },
+    {
+      "id": "play-countries",
+      "at": "2026-11-02",
+      "from": "session 2026-11-01 (specialist pass)",
+      "title": "Play countries: Egypt and Saudi Arabia only, for the test and the first release",
+      "detail": "Google requires a certified consent message for ads in the EEA, UK and Switzerland, set up in your AdMob account. Until then, list only Egypt and Saudi Arabia (one setting covers every track).",
+      "blocks": [
+        "closed-test"
+      ],
+      "where": "Owner actions row 24; docs/store/PLAY_POLICY_CHECK_2026-11.md section 6"
+    },
+    {
+      "id": "tester-rule",
+      "at": "2026-11-02",
+      "from": "session 2026-11-01 (specialist pass)",
+      "title": "Check whether the 12-tester rule applies to femio",
+      "detail": "Google ties it to personal accounts created after 13 Nov 2023 and names no exemption for an account that already has a published app. Open femio's Dashboard in Play Console: if it offers Production without a closed test, skip it; otherwise 16 testers in Egypt and Saudi Arabia, 12 opted in for 14 days.",
+      "blocks": [
+        "testers",
+        "closed-test-window"
+      ],
+      "where": "Owner actions row 6"
+    },
+    {
+      "id": "legal-three",
+      "at": "2026-11-02",
+      "from": "session 2026-11-01 (specialist pass)",
+      "title": "Three legal questions from the privacy review",
+      "detail": "An explicit ads consent step in Egypt and Saudi Arabia (Google shows none there), whether Egypt's data-protection licence applies to femio, and the Data safety deletion answer. Recommendation: nothing extra for the test; ask a lawyer about the licence before the paid launch.",
+      "blocks": [],
+      "where": "Owner actions row 26; docs/compliance/PRIVACY_COHERENCE_2026-11.md section 7"
+    },
+    {
       "id": "arabic-flag",
       "at": "2026-11-01",
       "from": "session 2026-11-01 (live QA)",
@@ -14,8 +55,8 @@
       "id": "rc-install",
       "at": "2026-11-01",
       "from": "session 2026-11-01 (dashboard audit)",
-      "title": "Install the release candidate on your phone and run the six checks",
-      "detail": "The signed release APK and the Play bundle were built on 2026-11-01 from the current main (sixteen-country Help now, seven-sign red-flag card, Google test ads since ads.env is absent). Copy apps/mobile/build/app/outputs/flutter-apk/app-release.apk to your phone, install it, and go through the app-checks step; tell a session what is wrong, in one line each.",
+      "title": "Install release candidate 0.5.2 (the launch crash is fixed) and run the six checks",
+      "detail": "0.5.0+5 crashed on opening: the release shrinker removed a class Google's ads SDK needs. 0.5.2 fixes it, guards start-up (a damaged file or key now shows a recovery screen, never a crash), and adds the design fixes, accessibility work and the in-app privacy policy link. It opened cleanly on an Android 16 emulator. Install E:/Femio/apps/mobile/build/app/outputs/flutter-apk/app-release.apk over the old one (same key), then the app-checks step; tell a session what is wrong, one line each.",
       "blocks": [
         "install-apk",
         "app-checks"

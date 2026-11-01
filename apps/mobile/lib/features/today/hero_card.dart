@@ -46,9 +46,12 @@ class HeroCard extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text(eyebrow.toUpperCase(), style: t.labelMedium?.copyWith(color: _onHero.withValues(alpha: 0.85))),
+          Text(eyebrow.toUpperCase(), style: t.labelMedium?.copyWith(color: _onHero.withValues(alpha: 0.95))),
           const SizedBox(height: space2),
-          Text(headline, style: t.displaySmall?.copyWith(color: _onHero, fontSize: fontSizeHeroHeadline)),
+          Text(
+            headline,
+            style: t.displaySmall?.copyWith(color: _onHero, fontSize: fontSizeHeroHeadline),
+          ),
           ...extra,
         ],
       ),

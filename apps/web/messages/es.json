@@ -65,7 +65,7 @@
         },
         "ads": {
           "claim": "Ningún dato de salud llega a un anunciante",
-          "detail": "— nunca. No es un ajuste; no existe el canal."
+          "detail": "— nunca. La solicitud de anuncio no lleva nada de tus registros, y la app nunca entrega tus datos al software de anuncios."
         },
         "languages": {
           "claim": "Inglés, árabe, francés y español",
@@ -1008,15 +1008,15 @@
       },
       {
         "heading": "Qué guarda la app, en tu teléfono",
-        "body": "Al usar la app puedes introducir: tu año de nacimiento (solo para comprobar que tienes 18 años o más), tu idioma, las fechas de tu regla y de tus ciclos, síntomas, estado de ánimo, notas que escribas, peso, citas, registros de embarazo y de movimientos del bebé, y sesiones del cronómetro de contracciones. Es información de salud, así que la tratamos con cuidado. Se guarda en un archivo privado que solo la app femio puede abrir. El archivo está protegido por el cifrado de almacenamiento de tu propio teléfono. No añadimos un segundo bloqueo."
+        "body": "Al usar la app puedes introducir: tu año de nacimiento (solo para comprobar que tienes 18 años o más), tu idioma, tu objetivo (por ejemplo, buscar un embarazo), las fechas de tu regla y de tus ciclos y el sangrado, síntomas, estado de ánimo, flujo, actividad sexual, resultados de pruebas de ovulación, temperatura al despertar, la fecha prevista del parto, notas que escribas, peso, citas, registros de embarazo y de movimientos del bebé, y sesiones del cronómetro de contracciones. Es información de salud, así que la tratamos con cuidado. Se guarda en un archivo privado que solo la app femio puede abrir. femio cifra el archivo y guarda su clave en el almacén seguro de claves de Android (Keystore), no junto al archivo. También puedes activar un bloqueo de la app con un PIN."
       },
       {
         "heading": "Qué no recoge la app",
-        "body": "Ningún nombre. Ningún correo. Ningún número de teléfono. Ningún contacto, foto ni archivo. Ninguna analítica. Ninguna herramienta propia de informes de fallos. femio nunca envía tus registros fuera de tu teléfono. Lo único que sale de tu teléfono es la solicitud de anuncio en las pantallas de las guías: el software de anuncios de Google le envía a Google tu identificador publicitario, el tipo de dispositivo y tu dirección de internet (que indica aproximadamente dónde estás), y anota qué anuncios se mostraron. Nunca recibe tus registros, las fechas de tu ciclo ni lo que lees, y pedimos anuncios no personalizados. Puedes restablecer o borrar tu identificador publicitario en los ajustes de Android. femio Plus elimina los anuncios."
+        "body": "Ningún nombre. Ningún correo. Ningún número de teléfono. Ningún contacto, foto ni archivo. Ninguna analítica. Ninguna herramienta propia de informes de fallos. femio nunca envía tus registros fuera de tu teléfono. Lo único que sale de tu teléfono es la solicitud de anuncio en las pantallas de las guías: el software de anuncios de Google le envía a Google tu identificador publicitario y el identificador de conjunto de apps (app-set ID), el tipo de dispositivo, tu dirección de internet (que indica aproximadamente dónde estás), cómo usas los anuncios (por ejemplo, los toques) e información básica de rendimiento (por ejemplo, cuánto tardó en abrirse la app). Google lo usa para mostrar los anuncios, medirlos y detectar el fraude, y se envía cifrado. Nunca recibe tus registros, las fechas de tu ciclo ni lo que lees, y pedimos anuncios no personalizados. Puedes restablecer o borrar tu identificador publicitario en los ajustes de Android. femio Plus, cuando esté disponible, eliminará los anuncios."
       },
       {
         "heading": "Las copias de seguridad son archivos que guardas tú",
-        "body": "femio puede guardar un archivo de copia de seguridad cuando se lo pidas. Tú eliges dónde va: los archivos del teléfono, una unidad en la nube, un correo. Después, el archivo está en tus manos, no en las nuestras. Contiene tus registros, así que guárdalo en un lugar privado. Hemos desactivado la copia de seguridad automática de Android en la nube para femio, de modo que Google no copia tus registros. Si pierdes el teléfono o lo restableces y no tienes un archivo de copia, tus registros se pierden. No podemos recuperarlos."
+        "body": "femio puede guardar un archivo de copia de seguridad cuando se lo pidas. Tú eliges dónde va: los archivos del teléfono, una unidad en la nube, un correo. Después, el archivo está en tus manos, no en las nuestras. Contiene tus registros, así que guárdalo en un lugar privado. Hemos desactivado la copia de seguridad automática de Android en la nube para femio, de modo que Google no copia tus registros, y también hemos excluido los datos de la app de la transferencia de teléfono a teléfono. Para pasar a un teléfono nuevo, usa tu archivo de copia de seguridad. Si pierdes el teléfono o lo restableces y no tienes un archivo de copia, tus registros se pierden. No podemos recuperarlos."
       },
       {
         "heading": "Recordatorios",
@@ -1024,7 +1024,7 @@
       },
       {
         "heading": "Qué puede ver Google",
-        "body": "Puedes instalar femio desde Google Play. Google nos da totales, como cuánta gente instaló la app o cuántos fallos hubo, según su propia política. En las pantallas de las guías, Google también muestra los anuncios descritos arriba, según su política publicitaria. Ninguno contiene tus registros; femio nunca envía tus registros a Google."
+        "body": "Puedes instalar femio desde Google Play. Google nos da totales, como cuánta gente instaló la app o cuántos fallos hubo, según su propia política. En las pantallas de las guías, Google también muestra los anuncios descritos arriba, según su política publicitaria. Ninguno contiene tus registros; femio nunca envía tus registros a Google. Google trata los datos de los anuncios según su propia política de privacidad y puede tratarlos en países distintos del tuyo. En algunos países Google muestra primero un formulario de consentimiento; en los demás, los anuncios siguen siendo no personalizados. femio conserva tus registros hasta que los borres."
       },
       {
         "heading": "El sitio web (femioapp.com)",
@@ -1065,7 +1065,7 @@
       },
       {
         "heading": "Tus derechos y cómo ejercerlos",
-        "body": "Como tus registros están solo en tu teléfono, los tienes tú. En la app puedes verlos, cambiarlos, guardar una copia (exportar) y borrar todo (Ajustes, «Borrar todo de este teléfono»). Para los registros del servidor del sitio web, escribe a {email} y responderemos en 30 días. También puedes reclamar ante tu autoridad de protección de datos: el Centro de Protección de Datos Personales (Egipto), la SDAIA (Arabia Saudí), la ICO (Reino Unido) o la autoridad de tu país de la UE."
+        "body": "Como tus registros están solo en tu teléfono, los tienes tú. En la app puedes verlos, cambiarlos, guardar una copia (exportar) y borrar todo (Ajustes, «Borrar todo de este teléfono»). Para los registros del servidor del sitio web, escribe a {email} y responderemos en 30 días. También puedes reclamar ante tu autoridad de protección de datos: el Centro de Protección de Datos Personales (Egipto), la SDAIA (Arabia Saudí), la ICO (Reino Unido) o la autoridad de tu país de la UE. También puedes pedirnos que corrijamos, limitemos o dejemos de usar esos datos, y retirar cualquier consentimiento que hayas dado. Borrar todo en la app no alcanza lo que Google ya tiene de las solicitudes de anuncios; puedes restablecer o borrar tu identificador publicitario en los ajustes de Android, y los controles de privacidad de Google se aplican al resto."
       },
       {
         "heading": "Si esto cambia",

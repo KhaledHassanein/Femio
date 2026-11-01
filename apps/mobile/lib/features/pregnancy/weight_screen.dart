@@ -92,57 +92,66 @@ class _WeightScreenState extends State<WeightScreen> {
                   borderRadius: BorderRadius.circular(radiusLg),
                   border: Border.all(color: p.border),
                 ),
-                child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-                  if (chart == null)
-                    Text(l.weightNeedData, style: t.bodySmall)
-                  else ...[
-                    ReadingsChart(
-                      ys: [for (final x in chart.points) x.y],
-                      low: chart.low,
-                      high: chart.high,
-                      unit: ' ${unitLabel(chart.unit)}',
-                      decimals: 1,
-                      semanticsLabel:
-                          '${l.weightHeading}: ${chart.points.map((x) => '${fmt(x.value)} ${unitLabel(x.unit)}').join(', ')}',
-                    ),
-                    const SizedBox(height: space2),
-                    if (chart.changeSinceFirst != null)
-                      Text(
-                        l.weightChange(
-                          '${chart.changeSinceFirst! > 0 ? '+' : ''}${fmt(chart.changeSinceFirst!)}',
-                          unitLabel(chart.unit),
-                        ),
-                        style: t.titleMedium,
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    if (chart == null)
+                      Text(l.weightNeedData, style: t.bodySmall)
+                    else ...[
+                      ReadingsChart(
+                        ys: [for (final x in chart.points) x.y],
+                        low: chart.low,
+                        high: chart.high,
+                        unit: ' ${unitLabel(chart.unit)}',
+                        decimals: 1,
+                        semanticsLabel:
+                            '${l.weightHeading}: ${chart.points.map((x) => '${fmt(x.value)} ${unitLabel(x.unit)}').join(', ')}',
                       ),
-                    const SizedBox(height: space1h),
-                    Text(l.weightNote, style: t.bodySmall),
+                      const SizedBox(height: space2),
+                      if (chart.changeSinceFirst != null)
+                        Semantics(
+                          liveRegion: true,
+                          child: Text(
+                            l.weightChange(
+                              '${chart.changeSinceFirst! > 0 ? '+' : ''}${fmt(chart.changeSinceFirst!)}',
+                              unitLabel(chart.unit),
+                            ),
+                            style: t.titleMedium,
+                          ),
+                        ),
+                      const SizedBox(height: space1h),
+                      Text(l.weightNote, style: t.bodySmall),
+                    ],
                   ],
-                ]),
+                ),
               ),
               const SizedBox(height: space5),
-              Row(crossAxisAlignment: CrossAxisAlignment.center, children: [
-                Expanded(
-                  child: TextField(
-                    controller: _value,
-                    keyboardType: const TextInputType.numberWithOptions(decimal: true),
-                    textDirection: TextDirection.ltr,
-                    decoration: InputDecoration(
-                      labelText: l.weightValue,
-                      filled: true,
-                      fillColor: p.surface,
-                      border: OutlineInputBorder(borderRadius: BorderRadius.circular(radiusMd)),
+              Row(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  Expanded(
+                    child: TextField(
+                      controller: _value,
+                      keyboardType: const TextInputType.numberWithOptions(decimal: true),
+                      textDirection: TextDirection.ltr,
+                      decoration: InputDecoration(
+                        labelText: l.weightValue,
+                        filled: true,
+                        fillColor: p.surface,
+                        border: OutlineInputBorder(borderRadius: BorderRadius.circular(radiusMd)),
+                      ),
+                      onSubmitted: (_) => _save(),
                     ),
-                    onSubmitted: (_) => _save(),
                   ),
-                ),
-                const SizedBox(width: space2),
-                SegmentedButton<String>(
-                  showSelectedIcon: false,
-                  segments: [for (final u in weightUnits) ButtonSegment(value: u, label: Text(unitLabel(u)))],
-                  selected: {_unit},
-                  onSelectionChanged: (s) => setState(() => _unit = s.first),
-                ),
-              ]),
+                  const SizedBox(width: space2),
+                  SegmentedButton<String>(
+                    showSelectedIcon: false,
+                    segments: [for (final u in weightUnits) ButtonSegment(value: u, label: Text(unitLabel(u)))],
+                    selected: {_unit},
+                    onSelectionChanged: (s) => setState(() => _unit = s.first),
+                  ),
+                ],
+              ),
               const SizedBox(height: space2),
               TextButton.icon(
                 onPressed: _pickDate,
@@ -152,29 +161,42 @@ class _WeightScreenState extends State<WeightScreen> {
               if (_error != null)
                 Padding(
                   padding: const EdgeInsetsDirectional.only(start: space3, bottom: space1h),
-                  child: Text(_error!, style: t.bodySmall?.copyWith(color: Theme.of(context).colorScheme.error)),
+                  child: Semantics(
+                    liveRegion: true,
+                    child: Text(_error!, style: t.bodySmall?.copyWith(color: Theme.of(context).colorScheme.error)),
+                  ),
                 ),
               FilledButton(onPressed: _save, child: Text(l.weightSave)),
               const SizedBox(height: space5),
               for (final w in sorted)
                 Container(
                   padding: const EdgeInsets.symmetric(vertical: space1),
-                  decoration: BoxDecoration(border: Border(bottom: BorderSide(color: p.border))),
-                  child: Row(children: [
-                    Expanded(child: Text(DateFormat.yMMMd(locale).format(fromISO(w.measuredOn)), style: t.bodyMedium)),
-                    Text('${fmt(w.value)} ${unitLabel(w.unit)}', style: t.titleMedium),
-                    IconButton(
-                      tooltip: l.apptDelete,
-                      icon: Icon(Icons.close_rounded, size: 20, color: p.textSubtle),
-                      onPressed: () {
-                        final profile = widget.controller.profile!;
-                        widget.controller.save(profile.copyWith(weights: [
-                          for (final x in profile.weights)
-                            if (x.id != w.id) x,
-                        ]));
-                      },
-                    ),
-                  ]),
+                  decoration: BoxDecoration(
+                    border: Border(bottom: BorderSide(color: p.border)),
+                  ),
+                  child: Row(
+                    children: [
+                      Expanded(
+                        child: Text(DateFormat.yMMMd(locale).format(fromISO(w.measuredOn)), style: t.bodyMedium),
+                      ),
+                      Text('${fmt(w.value)} ${unitLabel(w.unit)}', style: t.titleMedium),
+                      IconButton(
+                        tooltip: l.apptDelete,
+                        icon: Icon(Icons.close_rounded, size: 20, color: p.textSubtle),
+                        onPressed: () {
+                          final profile = widget.controller.profile!;
+                          widget.controller.save(
+                            profile.copyWith(
+                              weights: [
+                                for (final x in profile.weights)
+                                  if (x.id != w.id) x,
+                              ],
+                            ),
+                          );
+                        },
+                      ),
+                    ],
+                  ),
                 ),
             ],
           ),

@@ -1,7 +1,7 @@
 name: femio
 description: "Femio: your cycle, your plans, your pregnancy. Private, on your phone."
 publish_to: 'none'
-version: 0.5.0+5
+version: 0.5.2+7
 
 environment:
   sdk: ^3.13.4
@@ -34,6 +34,9 @@ dependencies:
   intl: any # the version flutter_localizations pins
   path_provider: 2.1.6
   timezone: 0.11.2
+  # Opens the privacy policy (a Play requirement inside the app) and guide sources in her browser;
+  # flutter.dev's own package, adds no permission, the browser makes the request (2026-11-01).
+  url_launcher: 6.3.2
 
 dev_dependencies:
   flutter_test:

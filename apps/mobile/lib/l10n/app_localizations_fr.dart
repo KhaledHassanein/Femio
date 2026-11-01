@@ -196,7 +196,7 @@ class L10nFr extends L10n {
 
   @override
   String predictionOvulation(String date) {
-    return 'Ovulation probable : $date';
+    return 'Ovulation probable vers le $date';
   }
 
   @override
@@ -566,7 +566,7 @@ class L10nFr extends L10n {
 
   @override
   String testTimingBody(String date) {
-    return 'Si vos règles ne sont pas arrivées d\'ici le $date, un test de grossesse à domicile est fiable à partir de ce jour.';
+    return 'Si vos règles ne sont pas arrivées d\'ici le $date, la plupart des tests de grossesse à domicile peuvent donner un résultat précis à partir de ce jour.';
   }
 
   @override
@@ -605,33 +605,6 @@ class L10nFr extends L10n {
 
   @override
   String get testTimingSource => 'Source : NHS, faire un test de grossesse.';
-
-  @override
-  String pregDaysToGo(int days) {
-    String _temp0 = intl.Intl.pluralLogic(
-      days,
-      locale: localeName,
-      other: 'Encore $days jours',
-      one: 'Encore $days jour',
-    );
-    return '$_temp0';
-  }
-
-  @override
-  String pregOverdue(int days) {
-    String _temp0 = intl.Intl.pluralLogic(
-      days,
-      locale: localeName,
-      other: '$days jours après la date prévue',
-      one: '$days jour après la date prévue',
-    );
-    return '$_temp0';
-  }
-
-  @override
-  String pregTermFrom(String date) {
-    return 'À terme à partir du $date';
-  }
 
   @override
   String get pregEstimateNote =>
@@ -1109,6 +1082,49 @@ class L10nFr extends L10n {
       'Le fichier sur ce téléphone est endommagé ou a été écrit par un autre femio. Il a été mis de côté, pas supprimé. Restaurez un fichier de sauvegarde si vous en avez un, ou recommencez.';
 
   @override
+  String get recoveryTitle =>
+      'femio ne peut pas ouvrir vos données pour le moment';
+
+  @override
+  String get recoveryBody =>
+      'Vos données sont conservées sur ce téléphone, et rien n\'a été supprimé ni modifié. Cela peut arriver après une mise à jour du téléphone, un changement de verrouillage d\'écran ou une restauration. Réessayer fonctionne souvent.';
+
+  @override
+  String get recoveryTryAgain => 'Réessayer';
+
+  @override
+  String get recoveryStillClosed =>
+      'Toujours impossible de les ouvrir. Rien n\'a été modifié sur votre téléphone.';
+
+  @override
+  String get recoveryRestoreNote =>
+      'Vous avez un fichier de sauvegarde enregistré plus tôt ? Vous pouvez le restaurer ici.';
+
+  @override
+  String get recoveryActionFailed =>
+      'Cela n\'a pas fonctionné, et rien n\'a été modifié sur votre téléphone. Veuillez réessayer.';
+
+  @override
+  String get recoveryStartFresh => 'Commencer avec un femio vide';
+
+  @override
+  String get recoveryFreshTitle => 'Commencer avec un femio vide ?';
+
+  @override
+  String get recoveryFreshBody =>
+      'femio s\'ouvrira sans aucune donnée. Votre ancien fichier n\'est pas supprimé : il reste sur ce téléphone, mis de côté. Vous pourrez restaurer un fichier de sauvegarde plus tard depuis les Réglages.';
+
+  @override
+  String get recoveryFreshConfirm => 'Commencer à vide';
+
+  @override
+  String get recoveryFreshCancel => 'Pas maintenant';
+
+  @override
+  String get saveFailedBanner =>
+      'femio n\'a pas pu enregistrer votre dernière modification sur ce téléphone. Vos données précédentes sont en sécurité. Réessayez, et enregistrez un fichier de sauvegarde dès que possible.';
+
+  @override
   String get settingsReminders => 'Rappels';
 
   @override
@@ -1466,9 +1482,87 @@ class L10nFr extends L10n {
       'Produit femio_plus introuvable pour l’instant (normal tant qu’il n’est pas créé dans la Play Console)';
 
   @override
+  String calendarDayStates(String date, String states) {
+    return '$date, $states';
+  }
+
+  @override
+  String get calendarStateToday => 'aujourd’hui';
+
+  @override
+  String get calendarStatePeriod => 'jour de règles';
+
+  @override
+  String get calendarStateSpotting => 'spotting';
+
+  @override
+  String get calendarStatePredicted =>
+      'les règles peuvent commencer (estimation)';
+
+  @override
+  String get calendarStateFertile => 'fenêtre de fertilité (estimation)';
+
+  @override
+  String get calendarStateOvulation => 'ovulation probable (estimation)';
+
+  @override
+  String get calendarStateLogged => 'quelque chose noté';
+
+  @override
+  String get a11yListSeparator => ', ';
+
+  @override
+  String get onboardingProgress => 'Progression';
+
+  @override
   String get adLabel => 'Publicité';
 
   @override
   String get adsNotice =>
-      'Les publicités n’apparaissent que sur les écrans des guides. Elles ne voient jamais vos données, et femio Plus les supprimera.';
+      'Les publicités n’apparaissent que sur les écrans des guides et sont servies par Google. Google reçoit votre identifiant publicitaire, votre adresse Internet et la façon dont vous utilisez la publicité, jamais vos données. femio Plus les supprimera.';
+
+  @override
+  String pregTermWindow(String due, String start, String end) {
+    return 'Terme prévu vers le $due · la plupart des bébés naissent entre le $start et le $end';
+  }
+
+  @override
+  String get pregPastTerm =>
+      'Selon cette date prévue, vous avez dépassé 42 semaines. Parlez de vos dates à votre sage-femme ou à votre médecin.';
+
+  @override
+  String get settingsMyDetails => 'Mes informations';
+
+  @override
+  String get settingsGoal => 'Votre objectif';
+
+  @override
+  String get settingsGoalNote =>
+      'Changer d\'objectif change ce que femio affiche. Vos données restent exactement comme elles sont.';
+
+  @override
+  String get settingsDueDate => 'Date prévue';
+
+  @override
+  String get saveLabel => 'Enregistrer';
+
+  @override
+  String get undoAction => 'Annuler';
+
+  @override
+  String get privacyPolicyTitle => 'Politique de confidentialité';
+
+  @override
+  String get privacyPolicySubtitle =>
+      'Comment femio traite vos informations. Ouvre femioapp.com dans votre navigateur.';
+
+  @override
+  String get privacyPolicyOpenFailed =>
+      'femio n\'a pas pu ouvrir votre navigateur. Copiez cette adresse et ouvrez-la dans votre navigateur.';
+
+  @override
+  String get copyLabel => 'Copier';
+
+  @override
+  String get closeLabel => 'Fermer';
 }

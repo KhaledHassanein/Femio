@@ -1,4 +1,5 @@
-// Settings: language, Hijri dates, reminders, the app lock, backup, and deleting everything.
+// Settings: language, my details (goal, due date), Hijri dates, reminders, the app lock,
+// the privacy policy, backup, and deleting everything.
 //
 // Why it exists: the app promised "change this any time" with nowhere to do it
 // (study report 04). Everything here is about her phone and her record; nothing
@@ -15,6 +16,8 @@ import '../lock/pin_field.dart';
 import '../plus/billing_probe_tile.dart';
 import 'backup_actions.dart';
 import 'delete_dialog.dart';
+import 'my_details_section.dart';
+import 'privacy_policy_link.dart';
 import 'reminders_section.dart';
 
 /// The language names, in their own language, so each reader finds hers.
@@ -22,11 +25,15 @@ const _languageNames = {'ar': 'العربية', 'en': 'English', 'fr': 'Françai
 
 /// The Settings screen, reached from the header gear.
 class SettingsScreen extends StatelessWidget {
-  const SettingsScreen({super.key, required this.controller});
+  const SettingsScreen({super.key, required this.controller, this.today});
   final FemioController controller;
 
+  /// Fixes the date in tests (the due date calendar); the app reads the clock.
+  final String? today;
+
   @override
-  Widget build(BuildContext context) => ListenableBuilder(listenable: controller, builder: (context, _) => _build(context));
+  Widget build(BuildContext context) =>
+      ListenableBuilder(listenable: controller, builder: (context, _) => _build(context));
 
   Widget _build(BuildContext context) {
     final l = L10n.of(context);
@@ -54,11 +61,18 @@ class SettingsScreen extends StatelessWidget {
                 for (final code in supportedLanguages)
                   RadioListTile<String>(
                     value: code,
-                    title: Text(_languageNames[code]!, textDirection: code == 'ar' ? TextDirection.rtl : TextDirection.ltr),
+                    title: Text(
+                      _languageNames[code]!,
+                      textDirection: code == 'ar' ? TextDirection.rtl : TextDirection.ltr,
+                    ),
                   ),
               ],
             ),
           ),
+          if (profile != null) ...[
+            _Section(title: l.settingsMyDetails),
+            MyDetailsRows(controller: controller, profile: profile, today: today),
+          ],
           if (settings != null) ...[
             _Section(title: l.settingsDates),
             SwitchListTile(
@@ -77,7 +91,13 @@ class SettingsScreen extends StatelessWidget {
             onChanged: (on) => on ? _setPin(context) : _removePin(context),
           ),
           if (controller.lockEnabled)
-            ListTile(leading: const Icon(Icons.pin_outlined), title: Text(l.changePin), onTap: () => _changePin(context)),
+            ListTile(
+              leading: const Icon(Icons.pin_outlined),
+              title: Text(l.changePin),
+              onTap: () => _changePin(context),
+            ),
+          // Google Play asks for the policy inside the app: a row that opens the website's page.
+          const PrivacyPolicyTile(),
           if (profile != null) ...[
             _Section(title: l.backupSection),
             ListTile(
@@ -86,11 +106,18 @@ class SettingsScreen extends StatelessWidget {
               subtitle: Text(l.backupHonesty, style: t.bodySmall?.copyWith(color: p.textMuted)),
               onTap: () => exportBackupFlow(context, controller),
             ),
-            ListTile(leading: const Icon(Icons.restore_rounded), title: Text(l.importBackup), onTap: () => importBackupFlow(context, controller)),
+            ListTile(
+              leading: const Icon(Icons.restore_rounded),
+              title: Text(l.importBackup),
+              onTap: () => importBackupFlow(context, controller),
+            ),
           ],
           _Section(title: l.aboutSection),
           // ADR-076: say plainly where ads appear and what they never see.
-          ListTile(leading: const Icon(Icons.info_outline_rounded), title: Text(l.adsNotice, style: t.bodyMedium)),
+          ListTile(
+            leading: const Icon(Icons.info_outline_rounded),
+            title: Text(l.adsNotice, style: t.bodyMedium),
+          ),
           // R6.9 spike: visible in debug and profile builds only; a release build renders nothing.
           const BillingProbeTile(),
           Padding(
@@ -129,7 +156,15 @@ class SettingsScreen extends StatelessWidget {
           content: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
-              if (error != null) Padding(padding: const EdgeInsets.only(bottom: space2), child: Text(error!, style: TextStyle(color: Theme.of(context).colorScheme.error))),
+              if (error != null)
+                Padding(
+                  padding: const EdgeInsets.only(bottom: space2),
+                  // A live region: the mismatch is announced as it appears.
+                  child: Semantics(
+                    liveRegion: true,
+                    child: Text(error!, style: TextStyle(color: Theme.of(context).colorScheme.error)),
+                  ),
+                ),
               PinField(
                 key: ValueKey('$first$error'),
                 label: l.enterPin,
@@ -187,7 +222,7 @@ class _Section extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => Padding(
-        padding: const EdgeInsets.fromLTRB(space4, space4, space4, space1),
-        child: Text(title, style: Theme.of(context).textTheme.labelLarge?.copyWith(color: context.palette.textMuted)),
-      );
+    padding: const EdgeInsets.fromLTRB(space4, space4, space4, space1),
+    child: Text(title, style: Theme.of(context).textTheme.labelLarge?.copyWith(color: context.palette.textMuted)),
+  );
 }

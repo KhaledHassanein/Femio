@@ -110,15 +110,14 @@ medical device&quot; paragraph; Google requires it. <code>pnpm store-lint</code>
 <p>Console → Policy → App content:</p>
 <ul>
 <li><strong>Privacy policy</strong>: the URL above.</li>
-<li><strong>Ads</strong>: No.</li>
+<li><strong>Ads</strong>: <strong>Yes, my app contains ads</strong> (Google AdMob banners on the guide screens only, ADR-076).</li>
 <li><strong>App access</strong>: all features available without special access.</li>
 <li><strong>Content rating</strong>: the IARC questionnaire; answer literally (<code>03_LEGAL_PACK.md</code> §4.4).</li>
 <li><strong>Target audience</strong>: 18 and over; tick &quot;restrict minor access&quot;; no, it does not appeal to
 children.</li>
-<li><strong>Data safety</strong>: the answers in <code>03_LEGAL_PACK.md</code> §4.1, line by line. Collects: <strong>No</strong>.
-Shares: <strong>No</strong>. Deletion: <strong>Yes, in Settings</strong>.</li>
+<li><strong>Data safety</strong>: paste the answers in <code>docs/store/data-safety-and-declarations.md</code> line by line (checked against Google's ads SDK page on 2026-11-01; full table in <code>docs/store/PLAY_POLICY_CHECK_2026-11.md</code>). Collects: <strong>Yes</strong>, and only through Google's ads SDK: device or other IDs, approximate location, app interactions, diagnostics. <strong>Nothing from her record.</strong> Deletion: <strong>Yes, in Settings</strong> (her record); the advertising ID is reset in Android settings. (Corrected 2026-11-01: this step said "No" from before ads were added.)</li>
 <li><strong>Health apps declaration</strong>: Period tracking; Reproductive and sexual health; Medical
-reference and education. Nothing under medical device or clinical decision support
+reference and education; Emergency and first aid (the Help now screen lists emergency numbers). Nothing under medical device or clinical decision support
 (<code>03_LEGAL_PACK.md</code> §4.2).</li>
 <li><strong>Government apps / Financial features / News</strong>: No.</li>
 </ul>

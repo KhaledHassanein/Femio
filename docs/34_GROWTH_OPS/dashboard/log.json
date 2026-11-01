@@ -2,6 +2,12 @@
   "about": "What sessions did towards go-live, newest first. One line per thing that changed what the owner must do. Owner ticks are logged by the dashboard itself from the artifact database.",
   "entries": [
     {
+      "at": "2026-11-02",
+      "who": "session",
+      "what": "Launch crash fixed: the release shrinker had removed a class Google's ads SDK needs (0.5.0+5 died before drawing). A smoke test now installs every release build on an emulator first. A specialist team (Play policy, release hardening, accessibility, design director, store graphics, privacy) reviewed the app; their fixes are in 0.5.2: start-up recovery screen, 133 accessibility checks, no days-to-go counter, help from the lock screen, change goal and due date in Settings, undo, in-app privacy policy link. Paste-ready Play form answers, store icon and feature graphic are ready. Four new asks for you.",
+      "ref": "R4.15, R4.16"
+    },
+    {
       "at": "2026-11-01",
       "who": "session",
       "what": "Dashboard audit: every ticked step was checked against the repository, Vercel and the live site; steps that are done and checked now sit in a collapsed 'archived' block at the foot of their phase (the Done filter still shows them). Session steps done: store listing (support email filled, French and Spanish drafts), release candidate built, store screenshots rendered. Three new requests for you: install the release candidate, the missing NVDA notes, the Tag Manager re-import. Routines wait on your word (a recurring cost).",

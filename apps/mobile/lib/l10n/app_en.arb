@@ -55,7 +55,7 @@
   "menoOverYear": "Over a year ago",
   "predictionPeriodTitle": "Your next period",
   "predictionFertileTitle": "Your fertile window",
-  "predictionOvulation": "Likely ovulation: {date}",
+  "predictionOvulation": "Ovulation likely around {date}",
   "predictionNextPeriod": "Next period around {range}",
   "rangeValue": "{start} – {end}",
   "confidenceLow": "Low confidence: it sharpens as you log your periods",
@@ -90,7 +90,8 @@
       "date": {
         "type": "String"
       }
-    }
+    },
+    "description": "Likely day of ovulation inside the fertile window. Always \"around\": it is an estimate, never one certain day (design spec 2.5, rule 3)."
   },
   "@predictionNextPeriod": {
     "placeholders": {
@@ -239,13 +240,14 @@
   "temperatureSave": "Save",
   "temperatureClear": "Clear",
   "testTimingTitle": "When to test",
-  "testTimingBody": "If your period hasn't started by {date}, a home pregnancy test is reliable from that day.",
+  "testTimingBody": "If your period hasn't started by {date}, most home pregnancy tests can give an accurate result from that day.",
   "@testTimingBody": {
     "placeholders": {
       "date": {
         "type": "String"
       }
-    }
+    },
+    "description": "Trying-to-conceive Today: the first honest day for a home pregnancy test. Source: NHS, 'Doing a pregnancy test' (most tests can be used from the first day of a missed period). Never promise reliability (MR-21)."
   },
   "opkNegative": "Negative",
   "opkLow": "Low",
@@ -258,30 +260,6 @@
   "invalidBbt": "That does not look like a thermometer reading. Check the number and try again.",
   "testTimingGeneral": "Most home tests work from the first day of a missed period. Testing earlier can give a negative result even if you are pregnant.",
   "testTimingSource": "Source: NHS, Doing a pregnancy test.",
-  "pregDaysToGo": "{days, plural, one {{days} day to go} other {{days} days to go}}",
-  "@pregDaysToGo": {
-    "placeholders": {
-      "days": {
-        "type": "int"
-      }
-    }
-  },
-  "pregOverdue": "{days, plural, one {{days} day past your due date} other {{days} days past your due date}}",
-  "@pregOverdue": {
-    "placeholders": {
-      "days": {
-        "type": "int"
-      }
-    }
-  },
-  "pregTermFrom": "Full term from {date}",
-  "@pregTermFrom": {
-    "placeholders": {
-      "date": {
-        "type": "String"
-      }
-    }
-  },
   "pregEstimateNote": "These dates are estimates based on the due date you entered. Your clinician may adjust it after a scan.",
   "pregRedFlagsHeading": "Some symptoms need urgent care",
   "pregRedFlagsBody": "Seek care now if you have a severe headache, changes in your vision, pain in the upper abdomen, swelling of the face or hands, difficulty breathing, vaginal bleeding, or if your baby's movements have slowed down, stopped or changed. Contact your maternity unit or local emergency services. If you cannot reach them, go to the nearest emergency department.",
@@ -492,6 +470,54 @@
   "deleteConfirmCancel": "Keep my records",
   "corruptTitle": "Your records could not be opened",
   "corruptBody": "The file on this phone is damaged or was written by a different femio. It has been kept aside, not deleted. Restore a backup file if you have one, or start again.",
+  "recoveryTitle": "femio could not open your records right now",
+  "@recoveryTitle": {
+    "description": "Heading of the recovery screen shown when the phone's secure storage or file storage fails at start-up. The record file was not changed."
+  },
+  "recoveryBody": "Your records are kept on this phone, and nothing has been deleted or changed. This can happen after a phone update, a change to the screen lock, or a restore. Trying again often works.",
+  "@recoveryBody": {
+    "description": "Recovery screen explanation. Must say plainly that nothing was deleted or changed."
+  },
+  "recoveryTryAgain": "Try again",
+  "@recoveryTryAgain": {
+    "description": "Recovery screen button that reads the record again."
+  },
+  "recoveryStillClosed": "Still could not open them. Nothing on your phone has been changed.",
+  "@recoveryStillClosed": {
+    "description": "Shown under the Try again button when the retry failed too."
+  },
+  "recoveryRestoreNote": "Have a backup file you saved earlier? You can restore it here.",
+  "@recoveryRestoreNote": {
+    "description": "Recovery screen line above the Restore from a backup file button."
+  },
+  "recoveryActionFailed": "That did not work, and nothing on your phone was changed. Please try again.",
+  "@recoveryActionFailed": {
+    "description": "Shown on the recovery screen when restoring a backup or starting empty failed. Reassures that nothing changed."
+  },
+  "recoveryStartFresh": "Start with an empty femio",
+  "@recoveryStartFresh": {
+    "description": "Recovery screen text button that opens a confirmation before starting with no records."
+  },
+  "recoveryFreshTitle": "Start with an empty femio?",
+  "@recoveryFreshTitle": {
+    "description": "Title of the confirmation dialog for starting empty from the recovery screen."
+  },
+  "recoveryFreshBody": "femio will open with no records. Your old file is not deleted: it stays on this phone, set aside. You can restore a backup file later from Settings.",
+  "@recoveryFreshBody": {
+    "description": "Body of the start-empty confirmation. Must say the old file stays on the phone and is not deleted."
+  },
+  "recoveryFreshConfirm": "Start empty",
+  "@recoveryFreshConfirm": {
+    "description": "Confirm button of the start-empty dialog."
+  },
+  "recoveryFreshCancel": "Not now",
+  "@recoveryFreshCancel": {
+    "description": "Cancel button of the start-empty dialog."
+  },
+  "saveFailedBanner": "femio could not save your last change on this phone. Your earlier records are safe. Please try again, and save a backup file when you can.",
+  "@saveFailedBanner": {
+    "description": "Banner shown at the top of the app when writing the record to the phone failed. The earlier record is intact."
+  },
   "settingsReminders": "Reminders",
   "reminderLog": "Log reminder",
   "reminderLogNote": "A daily nudge at the time you choose. It skips a day you have already logged.",
@@ -623,6 +649,120 @@
   "plusProbeUnavailable": "Play Billing reachable: no (no Play Store on this device, or not signed in)",
   "plusProbeProductFound": "Product femio_plus found in Play Console",
   "plusProbeProductMissing": "Product femio_plus not found yet (expected until it is created in Play Console)",
+  "calendarDayStates": "{date}, {states}",
+  "@calendarDayStates": {
+    "description": "Screen-reader label of a calendar day: the full date, then what is marked on that day. Estimates are always called estimates.",
+    "placeholders": {
+      "date": {
+        "type": "String"
+      },
+      "states": {
+        "type": "String"
+      }
+    }
+  },
+  "calendarStateToday": "today",
+  "@calendarStateToday": {
+    "description": "Screen-reader word added to the calendar day that is today."
+  },
+  "calendarStatePeriod": "period day",
+  "@calendarStatePeriod": {
+    "description": "Screen-reader phrase for a calendar day on which she logged her period."
+  },
+  "calendarStateSpotting": "spotting",
+  "@calendarStateSpotting": {
+    "description": "Screen-reader phrase for a calendar day with logged spotting."
+  },
+  "calendarStatePredicted": "period may start (estimate)",
+  "@calendarStatePredicted": {
+    "description": "Screen-reader phrase for a day inside the estimated window in which the next period may start. Never a single certain date."
+  },
+  "calendarStateFertile": "fertile window (estimate)",
+  "@calendarStateFertile": {
+    "description": "Screen-reader phrase for a day inside the estimated fertile window."
+  },
+  "calendarStateOvulation": "likely ovulation (estimate)",
+  "@calendarStateOvulation": {
+    "description": "Screen-reader phrase for the day marked as likely ovulation. Hedged: it is an estimate, not a result."
+  },
+  "calendarStateLogged": "something logged",
+  "@calendarStateLogged": {
+    "description": "Screen-reader phrase for a calendar day on which she logged symptoms or notes."
+  },
+  "a11yListSeparator": ", ",
+  "@a11yListSeparator": {
+    "description": "Separator placed between the parts of a spoken label (Arabic uses its own comma)."
+  },
+  "onboardingProgress": "Progress",
+  "@onboardingProgress": {
+    "description": "Screen-reader name of the progress bar at the top of each setup question; the percentage is read after it."
+  },
   "adLabel": "Advertisement",
-  "adsNotice": "Ads appear on guide screens only. They never see your records, and femio Plus will remove them."
+  "adsNotice": "Ads appear on guide screens only and are served by Google. Google receives your advertising ID, your internet address and how you use the ad, never your records. femio Plus will remove them.",
+  "pregTermWindow": "Due around {due} · most babies arrive between {start} and {end}",
+  "@pregTermWindow": {
+    "description": "Pregnancy Today hero: the single sentence that replaces any days-to-go or days-overdue counter (MR-02, design spec 2.7). Shows the due date and the 37w0d to 42w0d window as dates. Dates are already formatted for her language.",
+    "placeholders": {
+      "due": {
+        "type": "String"
+      },
+      "start": {
+        "type": "String"
+      },
+      "end": {
+        "type": "String"
+      }
+    }
+  },
+  "pregPastTerm": "By this due date you are past 42 weeks. Talk to your midwife or doctor about your dates.",
+  "@pregPastTerm": {
+    "description": "Pregnancy Today hero, shown instead of the term-window sentence once she is past 42 weeks by her due date. No count of days; it sends her to her midwife or doctor (design spec 2.7; same advice as the website over-term message)."
+  },
+  "settingsMyDetails": "My details",
+  "@settingsMyDetails": {
+    "description": "Settings section heading above the rows where she changes her goal and due date."
+  },
+  "settingsGoal": "Your goal",
+  "@settingsGoal": {
+    "description": "Settings row and sheet title for her goal (track my period, get pregnant, pregnant, menopause). Same options as the second question in onboarding."
+  },
+  "settingsGoalNote": "Changing your goal changes what femio shows. Your records stay exactly as they are.",
+  "@settingsGoalNote": {
+    "description": "Shown under the goal choices. Reassures her that a change of goal never deletes or rebuilds her records (product rule 5)."
+  },
+  "settingsDueDate": "Due date",
+  "@settingsDueDate": {
+    "description": "Settings row for the estimated due date, shown only while she is pregnant."
+  },
+  "saveLabel": "Save",
+  "@saveLabel": {
+    "description": "Generic Save button (the due date screen in Settings)."
+  },
+  "undoAction": "Undo",
+  "@undoAction": {
+    "description": "SnackBar action after My period started today. Restores the day exactly as it was before the tap."
+  },
+  "privacyPolicyTitle": "Privacy policy",
+  "@privacyPolicyTitle": {
+    "description": "Settings, Privacy section: row that opens the privacy policy on the website in her browser. Google Play requires a link or text inside the app."
+  },
+  "privacyPolicySubtitle": "How femio handles your information. Opens femioapp.com in your browser.",
+  "@privacyPolicySubtitle": {
+    "description": "Subtitle of the privacy policy row. Says the website opens in her browser."
+  },
+  "privacyPolicyOpenFailed": "femio could not open your browser. Copy this address and open it there.",
+  "@privacyPolicyOpenFailed": {
+    "description": "Shown in a dialog when the phone could not open a browser for the privacy policy. The address appears below as selectable text with a Copy button."
+  },
+  "copyLabel": "Copy",
+  "@copyLabel": {
+    "description": "Generic Copy button (the privacy policy address dialog)."
+  },
+  "closeLabel": "Close",
+  "@closeLabel": {
+    "description": "Generic Close button for a dialog."
+  },
+  "@adsNotice": {
+    "description": "Settings, About: where ads appear and what Google receives (PRIVACY_COHERENCE_2026-11 A2; ADR-076)."
+  }
 }

@@ -431,10 +431,10 @@ abstract class L10n {
   /// **'Your fertile window'**
   String get predictionFertileTitle;
 
-  /// No description provided for @predictionOvulation.
+  /// Likely day of ovulation inside the fertile window. Always "around": it is an estimate, never one certain day (design spec 2.5, rule 3).
   ///
   /// In en, this message translates to:
-  /// **'Likely ovulation: {date}'**
+  /// **'Ovulation likely around {date}'**
   String predictionOvulation(String date);
 
   /// No description provided for @predictionNextPeriod.
@@ -1079,10 +1079,10 @@ abstract class L10n {
   /// **'When to test'**
   String get testTimingTitle;
 
-  /// No description provided for @testTimingBody.
+  /// Trying-to-conceive Today: the first honest day for a home pregnancy test. Source: NHS, 'Doing a pregnancy test' (most tests can be used from the first day of a missed period). Never promise reliability (MR-21).
   ///
   /// In en, this message translates to:
-  /// **'If your period hasn\'t started by {date}, a home pregnancy test is reliable from that day.'**
+  /// **'If your period hasn\'t started by {date}, most home pregnancy tests can give an accurate result from that day.'**
   String testTimingBody(String date);
 
   /// No description provided for @opkNegative.
@@ -1150,24 +1150,6 @@ abstract class L10n {
   /// In en, this message translates to:
   /// **'Source: NHS, Doing a pregnancy test.'**
   String get testTimingSource;
-
-  /// No description provided for @pregDaysToGo.
-  ///
-  /// In en, this message translates to:
-  /// **'{days, plural, one {{days} day to go} other {{days} days to go}}'**
-  String pregDaysToGo(int days);
-
-  /// No description provided for @pregOverdue.
-  ///
-  /// In en, this message translates to:
-  /// **'{days, plural, one {{days} day past your due date} other {{days} days past your due date}}'**
-  String pregOverdue(int days);
-
-  /// No description provided for @pregTermFrom.
-  ///
-  /// In en, this message translates to:
-  /// **'Full term from {date}'**
-  String pregTermFrom(String date);
 
   /// No description provided for @pregEstimateNote.
   ///
@@ -1931,6 +1913,78 @@ abstract class L10n {
   /// **'The file on this phone is damaged or was written by a different femio. It has been kept aside, not deleted. Restore a backup file if you have one, or start again.'**
   String get corruptBody;
 
+  /// Heading of the recovery screen shown when the phone's secure storage or file storage fails at start-up. The record file was not changed.
+  ///
+  /// In en, this message translates to:
+  /// **'femio could not open your records right now'**
+  String get recoveryTitle;
+
+  /// Recovery screen explanation. Must say plainly that nothing was deleted or changed.
+  ///
+  /// In en, this message translates to:
+  /// **'Your records are kept on this phone, and nothing has been deleted or changed. This can happen after a phone update, a change to the screen lock, or a restore. Trying again often works.'**
+  String get recoveryBody;
+
+  /// Recovery screen button that reads the record again.
+  ///
+  /// In en, this message translates to:
+  /// **'Try again'**
+  String get recoveryTryAgain;
+
+  /// Shown under the Try again button when the retry failed too.
+  ///
+  /// In en, this message translates to:
+  /// **'Still could not open them. Nothing on your phone has been changed.'**
+  String get recoveryStillClosed;
+
+  /// Recovery screen line above the Restore from a backup file button.
+  ///
+  /// In en, this message translates to:
+  /// **'Have a backup file you saved earlier? You can restore it here.'**
+  String get recoveryRestoreNote;
+
+  /// Shown on the recovery screen when restoring a backup or starting empty failed. Reassures that nothing changed.
+  ///
+  /// In en, this message translates to:
+  /// **'That did not work, and nothing on your phone was changed. Please try again.'**
+  String get recoveryActionFailed;
+
+  /// Recovery screen text button that opens a confirmation before starting with no records.
+  ///
+  /// In en, this message translates to:
+  /// **'Start with an empty femio'**
+  String get recoveryStartFresh;
+
+  /// Title of the confirmation dialog for starting empty from the recovery screen.
+  ///
+  /// In en, this message translates to:
+  /// **'Start with an empty femio?'**
+  String get recoveryFreshTitle;
+
+  /// Body of the start-empty confirmation. Must say the old file stays on the phone and is not deleted.
+  ///
+  /// In en, this message translates to:
+  /// **'femio will open with no records. Your old file is not deleted: it stays on this phone, set aside. You can restore a backup file later from Settings.'**
+  String get recoveryFreshBody;
+
+  /// Confirm button of the start-empty dialog.
+  ///
+  /// In en, this message translates to:
+  /// **'Start empty'**
+  String get recoveryFreshConfirm;
+
+  /// Cancel button of the start-empty dialog.
+  ///
+  /// In en, this message translates to:
+  /// **'Not now'**
+  String get recoveryFreshCancel;
+
+  /// Banner shown at the top of the app when writing the record to the phone failed. The earlier record is intact.
+  ///
+  /// In en, this message translates to:
+  /// **'femio could not save your last change on this phone. Your earlier records are safe. Please try again, and save a backup file when you can.'**
+  String get saveFailedBanner;
+
   /// No description provided for @settingsReminders.
   ///
   /// In en, this message translates to:
@@ -2549,17 +2603,155 @@ abstract class L10n {
   /// **'Product femio_plus not found yet (expected until it is created in Play Console)'**
   String get plusProbeProductMissing;
 
+  /// Screen-reader label of a calendar day: the full date, then what is marked on that day. Estimates are always called estimates.
+  ///
+  /// In en, this message translates to:
+  /// **'{date}, {states}'**
+  String calendarDayStates(String date, String states);
+
+  /// Screen-reader word added to the calendar day that is today.
+  ///
+  /// In en, this message translates to:
+  /// **'today'**
+  String get calendarStateToday;
+
+  /// Screen-reader phrase for a calendar day on which she logged her period.
+  ///
+  /// In en, this message translates to:
+  /// **'period day'**
+  String get calendarStatePeriod;
+
+  /// Screen-reader phrase for a calendar day with logged spotting.
+  ///
+  /// In en, this message translates to:
+  /// **'spotting'**
+  String get calendarStateSpotting;
+
+  /// Screen-reader phrase for a day inside the estimated window in which the next period may start. Never a single certain date.
+  ///
+  /// In en, this message translates to:
+  /// **'period may start (estimate)'**
+  String get calendarStatePredicted;
+
+  /// Screen-reader phrase for a day inside the estimated fertile window.
+  ///
+  /// In en, this message translates to:
+  /// **'fertile window (estimate)'**
+  String get calendarStateFertile;
+
+  /// Screen-reader phrase for the day marked as likely ovulation. Hedged: it is an estimate, not a result.
+  ///
+  /// In en, this message translates to:
+  /// **'likely ovulation (estimate)'**
+  String get calendarStateOvulation;
+
+  /// Screen-reader phrase for a calendar day on which she logged symptoms or notes.
+  ///
+  /// In en, this message translates to:
+  /// **'something logged'**
+  String get calendarStateLogged;
+
+  /// Separator placed between the parts of a spoken label (Arabic uses its own comma).
+  ///
+  /// In en, this message translates to:
+  /// **', '**
+  String get a11yListSeparator;
+
+  /// Screen-reader name of the progress bar at the top of each setup question; the percentage is read after it.
+  ///
+  /// In en, this message translates to:
+  /// **'Progress'**
+  String get onboardingProgress;
+
   /// No description provided for @adLabel.
   ///
   /// In en, this message translates to:
   /// **'Advertisement'**
   String get adLabel;
 
-  /// No description provided for @adsNotice.
+  /// Settings, About: where ads appear and what Google receives (PRIVACY_COHERENCE_2026-11 A2; ADR-076).
   ///
   /// In en, this message translates to:
-  /// **'Ads appear on guide screens only. They never see your records, and femio Plus will remove them.'**
+  /// **'Ads appear on guide screens only and are served by Google. Google receives your advertising ID, your internet address and how you use the ad, never your records. femio Plus will remove them.'**
   String get adsNotice;
+
+  /// Pregnancy Today hero: the single sentence that replaces any days-to-go or days-overdue counter (MR-02, design spec 2.7). Shows the due date and the 37w0d to 42w0d window as dates. Dates are already formatted for her language.
+  ///
+  /// In en, this message translates to:
+  /// **'Due around {due} · most babies arrive between {start} and {end}'**
+  String pregTermWindow(String due, String start, String end);
+
+  /// Pregnancy Today hero, shown instead of the term-window sentence once she is past 42 weeks by her due date. No count of days; it sends her to her midwife or doctor (design spec 2.7; same advice as the website over-term message).
+  ///
+  /// In en, this message translates to:
+  /// **'By this due date you are past 42 weeks. Talk to your midwife or doctor about your dates.'**
+  String get pregPastTerm;
+
+  /// Settings section heading above the rows where she changes her goal and due date.
+  ///
+  /// In en, this message translates to:
+  /// **'My details'**
+  String get settingsMyDetails;
+
+  /// Settings row and sheet title for her goal (track my period, get pregnant, pregnant, menopause). Same options as the second question in onboarding.
+  ///
+  /// In en, this message translates to:
+  /// **'Your goal'**
+  String get settingsGoal;
+
+  /// Shown under the goal choices. Reassures her that a change of goal never deletes or rebuilds her records (product rule 5).
+  ///
+  /// In en, this message translates to:
+  /// **'Changing your goal changes what femio shows. Your records stay exactly as they are.'**
+  String get settingsGoalNote;
+
+  /// Settings row for the estimated due date, shown only while she is pregnant.
+  ///
+  /// In en, this message translates to:
+  /// **'Due date'**
+  String get settingsDueDate;
+
+  /// Generic Save button (the due date screen in Settings).
+  ///
+  /// In en, this message translates to:
+  /// **'Save'**
+  String get saveLabel;
+
+  /// SnackBar action after My period started today. Restores the day exactly as it was before the tap.
+  ///
+  /// In en, this message translates to:
+  /// **'Undo'**
+  String get undoAction;
+
+  /// Settings, Privacy section: row that opens the privacy policy on the website in her browser. Google Play requires a link or text inside the app.
+  ///
+  /// In en, this message translates to:
+  /// **'Privacy policy'**
+  String get privacyPolicyTitle;
+
+  /// Subtitle of the privacy policy row. Says the website opens in her browser.
+  ///
+  /// In en, this message translates to:
+  /// **'How femio handles your information. Opens femioapp.com in your browser.'**
+  String get privacyPolicySubtitle;
+
+  /// Shown in a dialog when the phone could not open a browser for the privacy policy. The address appears below as selectable text with a Copy button.
+  ///
+  /// In en, this message translates to:
+  /// **'femio could not open your browser. Copy this address and open it there.'**
+  String get privacyPolicyOpenFailed;
+
+  /// Generic Copy button (the privacy policy address dialog).
+  ///
+  /// In en, this message translates to:
+  /// **'Copy'**
+  String get copyLabel;
+
+  /// Generic Close button for a dialog.
+  ///
+  /// In en, this message translates to:
+  /// **'Close'**
+  String get closeLabel;
 }
 
 class _L10nDelegate extends LocalizationsDelegate<L10n> {

@@ -228,9 +228,9 @@ Profile _profile(String lang, int index) {
         p = p.withDayLog(d, DayLog(flow: d == '2026-10-02' ? 'heavy' : 'medium', terms: d == '2026-10-01' ? const ['cramps'] : const []));
       }
       return p.withDayLog('2026-10-06', const DayLog(terms: ['happy']));
-    case 2: // irregular mode: one start so far, so no date is named and the note says why
+    case 2: // trying to conceive with irregular cycles: no date is named, the hero says why
       return Profile(
-        goal: Goal.period,
+        goal: Goal.ttc,
         locale: lang,
         birthYear: 1998,
         periodStarts: const ['2026-09-21'],
@@ -323,7 +323,7 @@ Future<void> _shoot(WidgetTester tester, String lang, _Shot shot, int index) asy
       await start();
       expect(find.byIcon(Icons.settings_outlined), findsOneWidget);
       if (index == 0) expect(find.text(l.firstRunStorageTitle), findsOneWidget);
-      if (index == 2) expect(find.text(l.irregularNote), findsOneWidget);
+      if (index == 2) expect(find.text(l.noConfidentWindowTitle), findsOneWidget);
       if (index == 3) expect(find.text(l.trimesterLabel(2).toUpperCase()), findsOneWidget);
     case 1 || 4: // Calendar
       await start();

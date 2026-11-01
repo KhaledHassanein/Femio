@@ -14,6 +14,7 @@ import '../../theme/femio_theme.dart';
 import '../../theme/spacing.dart';
 import '../../widgets/lexical_view.dart';
 import '../../widgets/notice_card.dart';
+import '../../widgets/preview_lines.dart';
 import '../ads/ad_banner.dart';
 import '../ads/ad_unit_ids.dart';
 
@@ -40,7 +41,9 @@ class ArticleScreen extends StatelessWidget {
         Semantics(header: true, child: Text(article.title, style: t.headlineMedium)),
         const SizedBox(height: space2),
         Text(
-          article.reviewer != null ? l.learnReviewedOn(article.reviewer!, article.lastReviewed ?? '') : l.learnReviewPending,
+          article.reviewer != null
+              ? l.learnReviewedOn(article.reviewer!, article.lastReviewed ?? '')
+              : l.learnReviewPending,
           style: t.labelMedium?.copyWith(color: p.textSubtle),
         ),
         const SizedBox(height: space4),
@@ -55,7 +58,9 @@ class ArticleScreen extends StatelessWidget {
               dense: true,
               leading: Icon(Icons.menu_book_outlined, color: p.textSubtle),
               title: Text(s.title, style: t.bodyMedium),
-              subtitle: s.url == null ? null : Text(s.url!, style: t.labelMedium?.copyWith(color: p.textSubtle), maxLines: 1, overflow: TextOverflow.ellipsis),
+              subtitle: s.url == null
+                  ? null
+                  : PreviewText(s.url!, style: t.labelMedium?.copyWith(color: p.textSubtle), lines: 1),
               onLongPress: s.url == null
                   ? null
                   : () {

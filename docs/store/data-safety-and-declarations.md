@@ -1,5 +1,10 @@
 # Google Play: Data safety, Health apps declaration, content rating — answers for the build on `main`
 
+> **Changed 2026-11-01 (session check, full evidence in `PLAY_POLICY_CHECK_2026-11.md`):**
+> 1. Data types row: the purposes for **Device or other IDs** and **Approximate location** were "Advertising or marketing" only. Google's SDK page (https://developers.google.com/admob/android/privacy/play-data-disclosure, read 2026-11-01, covers SDK 25.5.0 = the version `google_mobile_ads 9.2.0` pulls) lists advertising, analytics and fraud prevention for all four data types, so all four now carry all three purposes.
+> 2. Closed-testing section: the rule is tied by Google to personal accounts created **after 13 Nov 2023**, and the page is silent on a second app; the text now says so and tells the owner to check the account date.
+> 3. "Re-read" evidence date for the SDK page moved to 2026-11-01. Nothing else changed.
+
 Source of the reasoning: `docs/33_REBUILD_V3/03_LEGAL_PACK.md` §4 (Google pages P1–P9 read 2026-10-27).
 This file states the answers for the **actual build** and the evidence that makes them true.
 Re-check the Console's wording on the day; Google changes the form.
@@ -24,9 +29,9 @@ Re-check the Console's wording on the day; Google changes the form.
 | Does your app collect or share any of the required user data types? | **Yes** | Google's ads SDK transmits device identifiers and ad interactions; Google counts an SDK's transmission as collection. Her health entries are processed on the device only and are never given to the SDK |
 | Is all of the user data collected by your app encrypted in transit? | **Yes** | The only transmission is the ads SDK's, which Google documents as TLS-encrypted |
 | Do you provide a way for users to request that their data is deleted? | **Yes** | Settings → Delete everything. No account exists, so account-deletion rules do not apply |
-| Data types | **Device or other IDs** (advertising ID, app-set ID) · **Location → Approximate location** (inferred from the IP address; Play requires inferred location to be disclosed) · **App activity → App interactions** · **App info and performance → Diagnostics**. For each: Collected **Yes**, Shared **Yes** (Google serves the ads for its own purposes), Processed ephemerally **No**, Required (not optional), Purposes: **Advertising or marketing**; for App interactions and Diagnostics also **Analytics** and **Fraud prevention, security and compliance** | Exactly what Google's disclosure page lists for the ads SDK. **Do not tick Health and fitness or Personal info**: her entries are never transmitted; the gate forbids any network code of our own |
+| Data types | **Device or other IDs** (advertising ID, app-set ID) · **Location → Approximate location** (inferred from the IP address; Play requires inferred location to be disclosed) · **App activity → App interactions** · **App info and performance → Diagnostics**. For each: Collected **Yes**, Shared **Yes** (Google serves the ads for its own purposes), Processed ephemerally **No**, Required (not optional), Purposes for **all four**: **Advertising or marketing**, **Analytics**, **Fraud prevention, security and compliance** (Google's SDK page gives the same three for every type) | Exactly what Google's disclosure page lists for the ads SDK. **Do not tick Health and fitness or Personal info**: her entries are never transmitted; the gate forbids any network code of our own |
 | Independent security review | **No** | None done |
-| Privacy policy URL | `https://femioapp.com/en/privacy` (Arabic: `/ar/privacy`) | Live web page, readable worldwide, also linked inside the app (Settings) |
+| Privacy policy URL | `https://femioapp.com/en/privacy` (Arabic: `/ar/privacy`) | Live web page, readable worldwide. **Now linked inside the app: Settings → Privacy → "Privacy policy" opens it in her browser (with the address as copyable text if no browser opens); built 2026-11-02, not yet seen on a device.** (Before that, checked in code 2026-11-01: Settings had no policy link or policy text; Google's User Data policy asks for "a privacy policy link or text within the app itself", https://support.google.com/googleplay/android-developer/answer/9888076). Closes `PRIVACY_COHERENCE_2026-11.md`, row 1 |
 
 Validity: these answers describe one SDK, Google's ads SDK, and nothing else. They stay true while the gate holds: no analytics, crash, attribution or mediation package, no network code under `lib/`, the SDK imported only under `lib/features/ads/`, and no personal permission in the merged manifest. Re-read Google's disclosure page for the SDK version in `pubspec.lock` before each submission; it changes.
 
@@ -59,4 +64,4 @@ The Google sentence contains words the claims guard bans on purpose; it lives on
 
 ## Closed testing (personal developer account)
 
-At least **12 testers opted in continuously for 14 days** before applying for production access; a tester who leaves and rejoins restarts the clock (P9). Recruitment message and tester brief: `docs/33_REBUILD_V3/06_LAUNCH_GUIDE_A_TO_Z.md`.
+Google's page (https://support.google.com/googleplay/android-developer/answer/14151465, read 2026-11-01) says personal accounts **created after 13 November 2023** must run a closed test with at least **12 testers opted in continuously for 14 days** before applying for production access; a tester who leaves restarts that tester's count. The page does not say whether an account that already has a published app is exempt for a second app. **Owner: check when the account was created.** After 13 Nov 2023 → plan for the rule. On or before → the page does not apply it. If unsure, run the test. Recruitment message and tester brief: `docs/33_REBUILD_V3/06_LAUNCH_GUIDE_A_TO_Z.md`.

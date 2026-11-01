@@ -16,15 +16,17 @@ import 'package:femio/data/store.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 Profile _sample() => Profile(
-      goal: Goal.ttc,
-      locale: 'ar',
-      birthYear: 1996,
-      periodStarts: const ['2026-09-01', '2026-09-29'],
-      periodLength: 5,
-      cycleLength: 28,
-      logs: const {'2026-09-29': DayLog(flow: 'medium', terms: ['cramps'])},
-      settings: const AppSettings(showHijri: true, storageNoticeSeen: true),
-    );
+  goal: Goal.ttc,
+  locale: 'ar',
+  birthYear: 1996,
+  periodStarts: const ['2026-09-01', '2026-09-29'],
+  periodLength: 5,
+  cycleLength: 28,
+  logs: const {
+    '2026-09-29': DayLog(flow: 'medium', terms: ['cramps']),
+  },
+  settings: const AppSettings(showHijri: true, storageNoticeSeen: true),
+);
 
 void main() {
   group('envelope', () {
@@ -55,8 +57,14 @@ void main() {
       final bytes = await encodeBackup(_sample(), 'ward al nil');
       final restored = await decodeBackup(bytes, 'ward al nil');
       expect(restored.toJson(), _sample().toJson());
-      expect(() => decodeBackup(bytes, 'wrong one'), throwsA(predicate((e) => e is BackupError && e.failure == BackupFailure.wrongPassphrase)));
-      expect(() => decodeBackup(utf8.encode('{}'), 'ward al nil'), throwsA(predicate((e) => e is BackupError && e.failure == BackupFailure.notAFemioFile)));
+      expect(
+        () => decodeBackup(bytes, 'wrong one'),
+        throwsA(predicate((e) => e is BackupError && e.failure == BackupFailure.wrongPassphrase)),
+      );
+      expect(
+        () => decodeBackup(utf8.encode('{}'), 'ward al nil'),
+        throwsA(predicate((e) => e is BackupError && e.failure == BackupFailure.notAFemioFile)),
+      );
     });
 
     test('refuses a short passphrase and names the file without personal detail', () {
@@ -121,13 +129,24 @@ void main() {
 
     test('a record sealed under another key is treated as damaged, not as empty', () async {
       await EncryptedFileStore(vault: vault, directory: dir).save(_sample());
-      final outcome = await EncryptedFileStore(vault: MemoryKeyVault(), directory: dir).load();
+      final other = MemoryKeyVault();
+      await other.write(recordKeyName, envelope.newRecordKey());
+      final outcome = await EncryptedFileStore(vault: other, directory: dir).load();
       expect(outcome, isA<Corrupt>());
+    });
+
+    test('a record whose key is gone is left in place as unavailable, not quarantined', () async {
+      await EncryptedFileStore(vault: vault, directory: dir).save(_sample());
+      final outcome = await EncryptedFileStore(vault: MemoryKeyVault(), directory: dir).load();
+      expect(outcome, isA<Unavailable>());
+      expect(File('${dir.path}/$recordFileName').existsSync(), isTrue);
     });
 
     test('serialises saves: the last call wins and nothing interleaves', () async {
       final store = EncryptedFileStore(vault: vault, directory: dir);
-      final futures = [for (var i = 0; i < 5; i += 1) store.save(_sample().copyWith(periodStarts: ['2026-01-0${i + 1}']))];
+      final futures = [
+        for (var i = 0; i < 5; i += 1) store.save(_sample().copyWith(periodStarts: ['2026-01-0${i + 1}'])),
+      ];
       await Future.wait(futures);
       final loaded = await store.load() as Loaded;
       expect(loaded.profile.periodStarts, ['2026-01-05']);

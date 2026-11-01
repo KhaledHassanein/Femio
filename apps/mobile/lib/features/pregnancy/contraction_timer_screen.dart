@@ -128,24 +128,30 @@ class _ContractionTimerScreenState extends State<ContractionTimerScreen> with Si
                     foregroundColor: running ? p.onAccentSolid : p.onPrimarySolid,
                   ),
                   onPressed: _toggle,
-                  child: Column(mainAxisSize: MainAxisSize.min, children: [
-                    if (running) ...[
-                      Text(
-                        formatDuration(_shownSeconds ?? 0),
-                        textDirection: TextDirection.ltr,
-                        style: t.displaySmall?.copyWith(color: p.onAccentSolid, fontFeatures: const [FontFeature.tabularFigures()]),
+                  child: Column(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      if (running) ...[
+                        Text(
+                          formatDuration(_shownSeconds ?? 0),
+                          textDirection: TextDirection.ltr,
+                          style: t.displaySmall?.copyWith(
+                            color: p.onAccentSolid,
+                            fontFeatures: const [FontFeature.tabularFigures()],
+                          ),
+                        ),
+                        const SizedBox(height: space1),
+                      ],
+                      Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: space5),
+                        child: Text(
+                          running ? l.contractionsStop : l.contractionsStart,
+                          textAlign: TextAlign.center,
+                          style: t.titleMedium?.copyWith(color: running ? p.onAccentSolid : p.onPrimarySolid),
+                        ),
                       ),
-                      const SizedBox(height: space1),
                     ],
-                    Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: space5),
-                      child: Text(
-                        running ? l.contractionsStop : l.contractionsStart,
-                        textAlign: TextAlign.center,
-                        style: t.titleMedium?.copyWith(color: running ? p.onAccentSolid : p.onPrimarySolid),
-                      ),
-                    ),
-                  ]),
+                  ),
                 ),
               ),
             ),
@@ -156,12 +162,29 @@ class _ContractionTimerScreenState extends State<ContractionTimerScreen> with Si
           ],
           if (summary.counted > 0) ...[
             const SizedBox(height: space7),
-            Text(l.contractionsSummaryHeading(summary.counted), style: t.titleMedium),
-            const SizedBox(height: space2),
-            if (summary.averageDurationSeconds != null)
-              Text(l.contractionsSummaryDuration(formatDuration(summary.averageDurationSeconds!)), style: t.bodyLarge),
-            if (summary.averageIntervalSeconds != null)
-              Text(l.contractionsSummaryInterval(formatDuration(summary.averageIntervalSeconds!)), style: t.bodyLarge),
+            // A live region: when a contraction is stopped the new averages are announced,
+            // once, as one sentence. The running seconds are deliberately not announced.
+            Semantics(
+              liveRegion: true,
+              container: true,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(l.contractionsSummaryHeading(summary.counted), style: t.titleMedium),
+                  const SizedBox(height: space2),
+                  if (summary.averageDurationSeconds != null)
+                    Text(
+                      l.contractionsSummaryDuration(formatDuration(summary.averageDurationSeconds!)),
+                      style: t.bodyLarge,
+                    ),
+                  if (summary.averageIntervalSeconds != null)
+                    Text(
+                      l.contractionsSummaryInterval(formatDuration(summary.averageIntervalSeconds!)),
+                      style: t.bodyLarge,
+                    ),
+                ],
+              ),
+            ),
             const SizedBox(height: space2),
             Text(l.contractionsSummaryNote, style: t.bodySmall),
             const SizedBox(height: space4),
@@ -199,19 +222,29 @@ class _Row extends StatelessWidget {
     final p = context.palette;
     final t = Theme.of(context).textTheme;
     Widget cell(String label, String value) => Expanded(
-          child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-            Text(label, style: t.bodySmall),
-            Text(value, textDirection: TextDirection.ltr, style: t.titleMedium),
-          ]),
-        );
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(label, style: t.bodySmall),
+          Text(value, textDirection: TextDirection.ltr, style: t.titleMedium),
+        ],
+      ),
+    );
     return Container(
       padding: const EdgeInsets.symmetric(vertical: space2h),
-      decoration: BoxDecoration(border: Border(bottom: BorderSide(color: p.border))),
-      child: Row(children: [
-        SizedBox(width: 72, child: Text(time, textDirection: TextDirection.ltr, style: t.titleMedium)),
-        cell(lengthLabel, length),
-        cell(apartLabel, apart),
-      ]),
+      decoration: BoxDecoration(
+        border: Border(bottom: BorderSide(color: p.border)),
+      ),
+      child: Row(
+        children: [
+          SizedBox(
+            width: 72,
+            child: Text(time, textDirection: TextDirection.ltr, style: t.titleMedium),
+          ),
+          cell(lengthLabel, length),
+          cell(apartLabel, apart),
+        ],
+      ),
     );
   }
 }

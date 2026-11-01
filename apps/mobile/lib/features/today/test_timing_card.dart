@@ -16,12 +16,13 @@ import 'hero_card.dart';
 /// The day comes from `domain/test_timing.dart` (MR-21, NHS): the end of the predicted
 /// window, or general advice when cycles are irregular. This card only draws it.
 ///
-/// [prediction] supplies the window; with irregular cycles the card gives general
-/// advice instead of a date. [date] formats the day in her language.
+/// [prediction] supplies the window; with irregular cycles, or no prediction at all
+/// (null), the card gives general advice instead of a date. [date] formats the day in
+/// her language and is only needed when a date is named.
 class TestTimingCard extends StatelessWidget {
   const TestTimingCard({super.key, required this.prediction, required this.date});
-  final CyclePrediction prediction;
-  final IsoDateFormatter date;
+  final CyclePrediction? prediction;
+  final IsoDateFormatter? date;
 
   @override
   Widget build(BuildContext context) {
@@ -46,14 +47,19 @@ class TestTimingCard extends StatelessWidget {
             ],
           ),
           const SizedBox(height: space2),
-          Text(switch (pregnancyTestDay(windowEnd: prediction.windowEnd, irregular: prediction.irregular)) {
-            final day? => l.testTimingBody(date(day)),
-            null => l.testTimingGeneral,
-          }, style: t.bodyMedium),
+          Text(_body(l), style: t.bodyMedium),
           const SizedBox(height: space1h),
           Text(l.testTimingSource, style: t.bodySmall),
         ],
       ),
     );
+  }
+
+  /// The sentence: the first honest day when the domain names one, else general advice.
+  String _body(L10n l) {
+    final p = prediction;
+    final format = date;
+    final day = p == null ? null : pregnancyTestDay(windowEnd: p.windowEnd, irregular: p.irregular);
+    return day == null || format == null ? l.testTimingGeneral : l.testTimingBody(format(day));
   }
 }

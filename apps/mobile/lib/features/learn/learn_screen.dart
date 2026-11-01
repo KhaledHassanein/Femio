@@ -12,6 +12,7 @@ import '../../l10n/app_localizations.dart';
 import '../../theme/femio_theme.dart';
 import '../../theme/radii.dart';
 import '../../theme/spacing.dart';
+import '../../widgets/preview_lines.dart';
 import '../../widgets/tab_header.dart';
 import '../ads/ad_banner.dart';
 import '../ads/ad_unit_ids.dart';
@@ -106,11 +107,10 @@ class _ArticleTile extends StatelessWidget {
               children: [
                 Text(article.title, style: t.titleMedium, textDirection: foreignLanguage ? TextDirection.ltr : null),
                 const SizedBox(height: space1),
-                Text(
+                PreviewText(
                   article.excerpt,
                   style: t.bodySmall?.copyWith(color: p.textMuted),
-                  maxLines: 2,
-                  overflow: TextOverflow.ellipsis,
+                  lines: 2,
                   textDirection: foreignLanguage ? TextDirection.ltr : null,
                 ),
                 const SizedBox(height: space2),

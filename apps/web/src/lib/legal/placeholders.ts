@@ -20,11 +20,11 @@ export const LEGAL_VALUES = {
   /** The one contact mailbox for the whole site (owner, 2026-10-29; the owner confirmed it receives mail, 2026-10-30). */
   email: "info@femioapp.com",
   /** Effective date of the current version: the day the notice went live. */
-  date: "2026-10-29",
+  date: "2026-11-01",
   /** Address of the privacy policy. Not printed in the text today. */
   url: "https://femioapp.com/privacy",
   /** Policy and terms version. */
-  version: "1",
+  version: "2",
 } as const;
 
 /** Matches any of the unfilled markers, so the page can highlight them. */

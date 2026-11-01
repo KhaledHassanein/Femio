@@ -42,6 +42,7 @@ class LastPeriodStep extends StatelessWidget {
       title: l.lastPeriodTitle,
       subtitle: l.lastPeriodSub,
       onBack: onBack,
+      wideChild: true,
       primaryLabel: l.continueLabel,
       onPrimary: onContinue,
       secondary: [TextButton(onPressed: onDontRemember, child: Text(l.dontRemember))],
@@ -49,6 +50,7 @@ class LastPeriodStep extends StatelessWidget {
         first: today.subtract(const Duration(days: lookBackDays)),
         last: today,
         selected: selected,
+        today: today,
         onChanged: onChanged,
       ),
     );

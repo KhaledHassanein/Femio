@@ -61,6 +61,13 @@ history and `docs/archive/`.
   screenshots render from the real screens (`store_screenshots_test.dart`); main is at `0d2bf25`
   (deployment `dpl_A4VaNqccj2yWUPKGN3SjLh6HKJur`, no visible site change), the release candidate built and signed with the upload key (0.5.0+5; APK `apps/mobile/build/app/outputs/flutter-apk/app-release.apk`, bundle `…/bundle/release/app-release.aab`, Google test ads since `ads.env` is absent). Waiting on the
   owner: install the candidate, NVDA notes, Tag Manager re-import, the feedback form link, the routines go-ahead.
+  **Launch crash and specialist pass 2026-11-02 (R4.15, R4.16):** 0.5.0+5 died on the owner's phone before
+  drawing (R8 removed `WorkDatabase_Impl`, which the ads SDK's WorkManager creates by name); Room keep rules fix
+  it and `pnpm mobile-release-smoke` now installs every release build on an emulator first. The candidate is
+  **0.5.2+7** (0.5.2+7 signed with the upload key, target API 36, 16 KB aligned; `pnpm mobile-release-smoke` green twice on an Android 16 emulator (first frame 15.6 s cold, 3.4 s), screenshot `docs/33_REBUILD_V3/reviews/2026-11-02-rc-0.5.2-first-frame.png`; flutter analyze clean, 724 app tests, `pnpm gate` 689 web tests (synthetic fixtures; not yet on a real phone)), with start-up recovery, the accessibility pass, the design fixes and the in-app
+  privacy link. The website privacy policy v2 is in the repo, not deployed: it waits for owner action 23. Owner
+  rows 23–26 (sign v2, Play countries Egypt and Saudi Arabia, paste the App content answers, three legal
+  questions) and row 6 (does the 12-tester rule apply) are the next owner steps.
   **Go-live pass 2026-10-29:** AdSense is built behind `NEXT_PUBLIC_ADSENSE_CLIENT` + three slot ids
   (`apps/web/src/lib/ads/`, units filled only after `ad_storage` is granted, `/ads.txt`); the CSP now
   opens the Google/Meta/AdSense hosts only when the ids are set (before this fix the deployed CSP

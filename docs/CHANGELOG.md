@@ -3,6 +3,12 @@ All notable changes to Femio V2.
 
 ## [Unreleased]
 ### Added
+- **The app opens again in its release build.** Version 0.5.0 closed itself on opening; 0.5.2 fixes it, and every release build is now started on a test phone before it reaches anyone.
+- **femio never crashes on a damaged file.** If the saved record or its key cannot be read, the app shows a recovery screen (restore a backup or start again) and keeps the unreadable file aside instead of overwriting it. If a save fails, a banner says so.
+- **Help now from the lock screen**, without unlocking.
+- **Change your goal and due date in Settings**, and **Undo** for eight seconds after tapping "My period started today".
+- **The privacy policy opens from Settings** in your browser.
+- **Screen-reader labels** on every calendar day, onboarding step and log chip; larger touch targets on the log chips.
 - **The pregnancy warning-signs card names two more signs**: vaginal bleeding, and the baby's movements slowing down, stopping or changing (NHS pages). On the website's pregnancy calculator and the app's Today card and warning-signs screen, in four languages.
 - **Help now in the app lists the same sixteen countries as the website**, with the same numbers and official sources; a country is chosen before any number appears, as before.
 - **Help now covers sixteen countries on the website.** Pick Egypt, Saudi Arabia, the UAE, Qatar, Kuwait, Bahrain, Oman, Jordan, Lebanon, Morocco, the United Kingdom, France, Spain, the United States, Canada or Mexico and see its emergency number and its mental-health or family-violence lines, each with the official page it was read on. Every other country is pointed to the Find a Helpline directory.
@@ -19,6 +25,9 @@ All notable changes to Femio V2.
 - **One question when the year alone cannot tell your age.** If your birth year is exactly eighteen years back, femio asks whether your 18th birthday has passed instead of guessing; no date of birth is collected.
 
 ### Changed
+- **Pregnancy shows a term window, not a countdown.** Instead of "N days to go" or "N days past your due date", the pregnancy card says when the usual term window runs (three weeks before to two weeks after the due date).
+- **Trying to conceive without enough data says so**: "no confident window" in place of an empty card.
+- **The privacy policy, version 2 (waiting for sign-off):** says femio has its own optional PIN lock, lists everything Google's ads SDK sends from the app, and describes femio Plus as planned, in four languages.
 - **The website describes femio for every reader:** "the private companion for trying to conceive and pregnancy, in Arabic, English, French and Spanish"; the home page and the app page no longer say "Arabic-first" or name Saudi Arabia and Egypt.
 - **iPhone: "Coming soon"** on the app page, like Android.
 - **Learn cards show the whole cover art at one size**; no more cut-off crops or uneven boxes in a row.

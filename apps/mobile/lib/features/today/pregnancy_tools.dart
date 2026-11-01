@@ -19,6 +19,7 @@ import '../pregnancy/contraction_timer_screen.dart';
 import '../pregnancy/movement_log_screen.dart';
 import '../pregnancy/weight_screen.dart';
 import '../../domain/pregnancy_tools.dart';
+import '../../widgets/preview_lines.dart';
 
 /// The pregnancy tools, all always listed (rule 2). The order comes from
 /// `domain/pregnancy_tools.dart` (contraction timer first from week 36, MR-31).
@@ -64,7 +65,7 @@ class PregnancyTools extends StatelessWidget {
                     children: [
                       Text(title, style: t.titleMedium),
                       const SizedBox(height: space1),
-                      Text(body, style: t.bodySmall, maxLines: 2, overflow: TextOverflow.ellipsis),
+                      PreviewText(body, style: t.bodySmall, lines: 2),
                     ],
                   ),
                 ),

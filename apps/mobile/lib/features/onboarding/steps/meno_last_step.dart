@@ -43,6 +43,7 @@ class MenoLastStep extends StatelessWidget {
       progress: progress,
       title: l.menoLastTitle,
       onBack: onBack,
+      wideChild: true,
       primaryLabel: l.continueLabel,
       onPrimary: onContinue,
       secondary: [
@@ -53,6 +54,7 @@ class MenoLastStep extends StatelessWidget {
         first: today.subtract(const Duration(days: lookBackDays)),
         last: today,
         selected: selected,
+        today: today,
         onChanged: onChanged,
       ),
     );

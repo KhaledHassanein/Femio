@@ -6,10 +6,13 @@
 
 import 'package:flutter/material.dart';
 
+import '../../l10n/app_localizations.dart';
 import '../../theme/femio_theme.dart';
 import '../../theme/radii.dart';
 import '../../theme/spacing.dart';
 import '../../theme/type_sizes.dart';
+
+export 'date_card.dart';
 
 /// One onboarding question: a progress bar, the question, its answers, and the
 /// actions pinned to the bottom where a thumb reaches them.
@@ -28,6 +31,7 @@ class StepScaffold extends StatelessWidget {
     this.onPrimary,
     this.secondary = const [],
     this.onBack,
+    this.wideChild = false,
   });
 
   final double progress;
@@ -38,6 +42,10 @@ class StepScaffold extends StatelessWidget {
   final VoidCallback? onPrimary;
   final List<Widget> secondary;
   final VoidCallback? onBack;
+
+  /// True for a child that needs the full width (the date grid, whose seven columns must
+  /// each be 48dp): the title keeps its margin, the child gets only [space2] at each side.
+  final bool wideChild;
 
   @override
   Widget build(BuildContext context) {
@@ -65,6 +73,8 @@ class StepScaffold extends StatelessWidget {
                     child: ClipRRect(
                       borderRadius: BorderRadius.circular(radiusPill),
                       child: LinearProgressIndicator(
+                        semanticsLabel: L10n.of(context).onboardingProgress,
+                        semanticsValue: '${(progress * 100).round()}%',
                         value: progress,
                         minHeight: 6,
                         backgroundColor: p.surfaceSunken,
@@ -77,14 +87,20 @@ class StepScaffold extends StatelessWidget {
             ),
             Expanded(
               child: SingleChildScrollView(
-                padding: const EdgeInsets.fromLTRB(space6, space7, space6, space4),
+                padding: EdgeInsets.fromLTRB(wideChild ? space2 : space6, space7, wideChild ? space2 : space6, space4),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.stretch,
                   children: [
-                    Semantics(header: true, child: Text(title, style: t.headlineMedium)),
+                    Padding(
+                      padding: EdgeInsets.symmetric(horizontal: wideChild ? space6 - space2 : 0),
+                      child: Semantics(header: true, child: Text(title, style: t.headlineMedium)),
+                    ),
                     if (subtitle != null) ...[
                       const SizedBox(height: space2),
-                      Text(subtitle!, style: t.bodyMedium),
+                      Padding(
+                        padding: EdgeInsets.symmetric(horizontal: wideChild ? space6 - space2 : 0),
+                        child: Text(subtitle!, style: t.bodyMedium),
+                      ),
                     ],
                     const SizedBox(height: space6),
                     child,
@@ -98,8 +114,7 @@ class StepScaffold extends StatelessWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.stretch,
                   children: [
-                    if (primaryLabel != null)
-                      FilledButton(onPressed: onPrimary, child: Text(primaryLabel!)),
+                    if (primaryLabel != null) FilledButton(onPressed: onPrimary, child: Text(primaryLabel!)),
                     for (final w in secondary) ...[const SizedBox(height: space1), w],
                   ],
                 ),
@@ -154,10 +169,7 @@ class OptionTile extends StatelessWidget {
                 Container(
                   width: 48,
                   height: 48,
-                  decoration: BoxDecoration(
-                    color: tint ?? p.primarySoft,
-                    shape: BoxShape.circle,
-                  ),
+                  decoration: BoxDecoration(color: tint ?? p.primarySoft, shape: BoxShape.circle),
                   child: Icon(icon, color: p.primarySoftText),
                 ),
                 const SizedBox(width: space4),
@@ -208,16 +220,16 @@ class NumberStepper extends StatelessWidget {
     final p = context.palette;
     final t = Theme.of(context).textTheme;
     Widget round(IconData icon, VoidCallback? onTap, String tooltip) => IconButton.filledTonal(
-          onPressed: onTap,
-          icon: Icon(icon),
-          iconSize: iconSizeStepper,
-          tooltip: tooltip,
-          style: IconButton.styleFrom(
-            minimumSize: const Size(56, 56),
-            backgroundColor: p.primarySoft,
-            foregroundColor: p.primarySoftText,
-          ),
-        );
+      onPressed: onTap,
+      icon: Icon(icon),
+      iconSize: iconSizeStepper,
+      tooltip: tooltip,
+      style: IconButton.styleFrom(
+        minimumSize: const Size(56, 56),
+        backgroundColor: p.primarySoft,
+        foregroundColor: p.primarySoftText,
+      ),
+    );
     return Container(
       padding: const EdgeInsets.symmetric(vertical: space7, horizontal: space4),
       decoration: BoxDecoration(
@@ -236,44 +248,6 @@ class NumberStepper extends StatelessWidget {
           ),
           round(Icons.add_rounded, value < max ? () => onChanged(value + 1) : null, '+'),
         ],
-      ),
-    );
-  }
-}
-
-/// A month calendar in a card. Nothing is selected until she taps a day.
-///
-/// Days from [first] to [last] can be picked; [last] is also drawn as today.
-class DateCard extends StatelessWidget {
-  const DateCard({
-    super.key,
-    required this.first,
-    required this.last,
-    required this.selected,
-    required this.onChanged,
-  });
-
-  final DateTime first;
-  final DateTime last;
-  final DateTime? selected;
-  final ValueChanged<DateTime> onChanged;
-
-  @override
-  Widget build(BuildContext context) {
-    final p = context.palette;
-    return Container(
-      decoration: BoxDecoration(
-        color: p.surface,
-        borderRadius: BorderRadius.circular(radiusLg),
-        border: Border.all(color: p.border),
-      ),
-      child: CalendarDatePicker(
-        initialDate: selected,
-        currentDate: last,
-        firstDate: first,
-        lastDate: last,
-        initialCalendarMode: DatePickerMode.day,
-        onDateChanged: onChanged,
       ),
     );
   }

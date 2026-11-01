@@ -14,7 +14,7 @@ import '../../../theme/type_sizes.dart';
 ///
 /// [selected] draws it filled with [tint] and outlined in [ink], with a leading [icon]
 /// (a check when none is given); unselected it is a plain outlined pill. [onTap] runs on
-/// every tap. Its minimum height is 44px, the touch-target floor.
+/// every tap. Its minimum height is 48px, the Android touch-target floor.
 class LogChip extends StatelessWidget {
   const LogChip({
     super.key,
@@ -40,26 +40,36 @@ class LogChip extends StatelessWidget {
       button: true,
       child: Material(
         color: selected ? tint : p.surface,
-        shape: StadiumBorder(side: BorderSide(color: selected ? ink : p.border, width: selected ? 1.5 : 1)),
+        shape: StadiumBorder(
+          side: BorderSide(color: selected ? ink : p.border, width: selected ? 1.5 : 1),
+        ),
         child: InkWell(
           customBorder: const StadiumBorder(),
           onTap: onTap,
           child: ConstrainedBox(
-            constraints: const BoxConstraints(minHeight: 44),
+            constraints: const BoxConstraints(minHeight: 48, minWidth: 48),
             child: Padding(
               padding: const EdgeInsets.symmetric(horizontal: space3h, vertical: space2h),
-              child: Row(mainAxisSize: MainAxisSize.min, children: [
-                if (selected) ...[
-                  Icon(icon ?? Icons.check_rounded, size: iconSizeInline, color: ink),
-                  const SizedBox(width: space1h),
+              child: Row(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  if (selected) ...[
+                    Icon(icon ?? Icons.check_rounded, size: iconSizeInline, color: ink),
+                    const SizedBox(width: space1h),
+                  ],
+                  // Flexible, so a long label wraps inside the chip at a large text size.
+                  Flexible(
+                    child: Text(
+                      label,
+                      style: TextStyle(
+                        color: selected ? ink : p.text,
+                        fontWeight: selected ? FontWeight.w600 : FontWeight.w500,
+                        fontSize: fontSizeChip,
+                      ),
+                    ),
+                  ),
                 ],
-                Text(label,
-                    style: TextStyle(
-                      color: selected ? ink : p.text,
-                      fontWeight: selected ? FontWeight.w600 : FontWeight.w500,
-                      fontSize: fontSizeChip,
-                    )),
-              ]),
+              ),
             ),
           ),
         ),

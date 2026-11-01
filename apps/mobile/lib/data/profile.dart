@@ -69,22 +69,21 @@ class AppSettings {
     bool? logReminder,
     int? logReminderMinutes,
     bool? periodReminder,
-  }) =>
-      AppSettings(
-        showHijri: showHijri ?? this.showHijri,
-        storageNoticeSeen: storageNoticeSeen ?? this.storageNoticeSeen,
-        logReminder: logReminder ?? this.logReminder,
-        logReminderMinutes: logReminderMinutes ?? this.logReminderMinutes,
-        periodReminder: periodReminder ?? this.periodReminder,
-      );
+  }) => AppSettings(
+    showHijri: showHijri ?? this.showHijri,
+    storageNoticeSeen: storageNoticeSeen ?? this.storageNoticeSeen,
+    logReminder: logReminder ?? this.logReminder,
+    logReminderMinutes: logReminderMinutes ?? this.logReminderMinutes,
+    periodReminder: periodReminder ?? this.periodReminder,
+  );
 
   Map<String, Object?> toJson() => {
-        'showHijri': showHijri,
-        'storageNoticeSeen': storageNoticeSeen,
-        'logReminder': logReminder,
-        'logReminderMinutes': logReminderMinutes,
-        'periodReminder': periodReminder,
-      };
+    'showHijri': showHijri,
+    'storageNoticeSeen': storageNoticeSeen,
+    'logReminder': logReminder,
+    'logReminderMinutes': logReminderMinutes,
+    'periodReminder': periodReminder,
+  };
 
   static AppSettings fromJson(Map<String, Object?>? j) {
     final minutes = (j?['logReminderMinutes'] as num?)?.toInt();
@@ -117,29 +116,23 @@ class DayLog {
 
   bool get isEmpty => flow == null && terms.isEmpty && opk == null && bbt == null;
 
-  DayLog copyWith({
-    Object? flow = _keep,
-    List<String>? terms,
-    Object? opk = _keep,
-    Object? bbt = _keep,
-  }) =>
-      DayLog(
-        flow: identical(flow, _keep) ? this.flow : flow as String?,
-        terms: terms ?? this.terms,
-        opk: identical(opk, _keep) ? this.opk : opk as String?,
-        bbt: identical(bbt, _keep) ? this.bbt : bbt as double?,
-      );
+  DayLog copyWith({Object? flow = _keep, List<String>? terms, Object? opk = _keep, Object? bbt = _keep}) => DayLog(
+    flow: identical(flow, _keep) ? this.flow : flow as String?,
+    terms: terms ?? this.terms,
+    opk: identical(opk, _keep) ? this.opk : opk as String?,
+    bbt: identical(bbt, _keep) ? this.bbt : bbt as double?,
+  );
 
   /// Spotting is logged but is not a period: it never starts a cycle.
   bool get isBleed => flow != null && flow != 'spotting';
 
   Map<String, Object?> toJson() => {'flow': flow, 'terms': terms, 'opk': opk, 'bbt': bbt};
   static DayLog fromJson(Map<String, Object?> j) => DayLog(
-        flow: j['flow'] as String?,
-        terms: List<String>.from((j['terms'] as List?) ?? const []),
-        opk: j['opk'] as String?,
-        bbt: (j['bbt'] as num?)?.toDouble(),
-      );
+    flow: j['flow'] as String?,
+    terms: List<String>.from((j['terms'] as List?) ?? const []),
+    opk: j['opk'] as String?,
+    bbt: (j['bbt'] as num?)?.toDouble(),
+  );
 }
 
 const _keep = Object();
@@ -207,7 +200,14 @@ class Profile {
   /// Menopause only: her last period was over a year ago and she does not know when.
   final bool lastPeriodOverYear;
 
+  /// A copy with the given fields changed. [goal], [edd] and [birthDate] are the stage
+  /// of her life, not her records: changing them re-layers what femio shows over the
+  /// same logs, periods, readings and appointments (product rule 5). [edd] and
+  /// [birthDate] accept null to clear them; leaving them out keeps them.
   Profile copyWith({
+    Goal? goal,
+    Object? edd = _keep,
+    Object? birthDate = _keep,
     List<String>? periodStarts,
     String? locale,
     Map<String, DayLog>? logs,
@@ -216,26 +216,47 @@ class Profile {
     List<WeightEntry>? weights,
     List<Appointment>? appointments,
     AppSettings? settings,
-  }) =>
-      Profile(
-        goal: goal,
-        locale: locale ?? this.locale,
-        birthYear: birthYear,
-        periodStarts: periodStarts ?? this.periodStarts,
-        periodLength: periodLength,
-        cycleLength: cycleLength,
-        irregular: irregular,
-        tryingFor: tryingFor,
-        edd: edd,
-        birthDate: birthDate,
-        lastPeriodOverYear: lastPeriodOverYear,
-        logs: logs ?? this.logs,
-        contractions: contractions ?? this.contractions,
-        movements: movements ?? this.movements,
-        weights: weights ?? this.weights,
-        appointments: appointments ?? this.appointments,
-        settings: settings ?? this.settings,
-      );
+  }) => Profile(
+    goal: goal ?? this.goal,
+    locale: locale ?? this.locale,
+    birthYear: birthYear,
+    periodStarts: periodStarts ?? this.periodStarts,
+    periodLength: periodLength,
+    cycleLength: cycleLength,
+    irregular: irregular,
+    tryingFor: tryingFor,
+    edd: identical(edd, _keep) ? this.edd : edd as String?,
+    birthDate: identical(birthDate, _keep) ? this.birthDate : birthDate as String?,
+    lastPeriodOverYear: lastPeriodOverYear,
+    logs: logs ?? this.logs,
+    contractions: contractions ?? this.contractions,
+    movements: movements ?? this.movements,
+    weights: weights ?? this.weights,
+    appointments: appointments ?? this.appointments,
+    settings: settings ?? this.settings,
+  );
+
+  /// Puts one day back exactly as it was in [before] (an earlier copy of this record):
+  /// the same [DayLog] or none, and the same membership of [periodStarts]. Every other
+  /// day and every other field stays as it is now. This is what Undo needs: the day may
+  /// have been a period start from onboarding with no log, which [withDayLog] alone
+  /// would drop.
+  Profile restoringDay(String date, Profile before) {
+    final nextLogs = {...logs};
+    final old = before.logs[date];
+    if (old == null) {
+      nextLogs.remove(date);
+    } else {
+      nextLogs[date] = old;
+    }
+    final bleeds = {...periodStarts};
+    if (before.periodStarts.contains(date)) {
+      bleeds.add(date);
+    } else {
+      bleeds.remove(date);
+    }
+    return copyWith(logs: nextLogs, periodStarts: bleeds.toList()..sort());
+  }
 
   /// Set or clear one day's log, keeping [periodStarts] in step with its flow.
   Profile withDayLog(String date, DayLog log) {
@@ -255,57 +276,57 @@ class Profile {
   }
 
   Map<String, Object?> toJson() => {
-        'v': schemaVersion,
-        'goal': goal.name,
-        'locale': locale,
-        'birthYear': birthYear,
-        'periodStarts': periodStarts,
-        'periodLength': periodLength,
-        'cycleLength': cycleLength,
-        'irregular': irregular,
-        'tryingFor': tryingFor?.name,
-        'edd': edd,
-        'birthDate': birthDate,
-        'lastPeriodOverYear': lastPeriodOverYear,
-        'logs': {for (final e in logs.entries) e.key: e.value.toJson()},
-        'contractions': [for (final c in contractions) c.toJson()],
-        'movements': [for (final m in movements) m.toJson()],
-        'weights': [for (final w in weights) w.toJson()],
-        'appointments': [for (final a in appointments) a.toJson()],
-        'settings': settings.toJson(),
-      };
+    'v': schemaVersion,
+    'goal': goal.name,
+    'locale': locale,
+    'birthYear': birthYear,
+    'periodStarts': periodStarts,
+    'periodLength': periodLength,
+    'cycleLength': cycleLength,
+    'irregular': irregular,
+    'tryingFor': tryingFor?.name,
+    'edd': edd,
+    'birthDate': birthDate,
+    'lastPeriodOverYear': lastPeriodOverYear,
+    'logs': {for (final e in logs.entries) e.key: e.value.toJson()},
+    'contractions': [for (final c in contractions) c.toJson()],
+    'movements': [for (final m in movements) m.toJson()],
+    'weights': [for (final w in weights) w.toJson()],
+    'appointments': [for (final a in appointments) a.toJson()],
+    'settings': settings.toJson(),
+  };
 
   static Profile fromJson(Map<String, Object?> j) => Profile(
-        goal: Goal.values.byName(j['goal'] as String),
-        locale: j['locale'] as String? ?? 'en',
-        birthYear: j['birthYear'] as int?,
-        periodStarts: List<String>.from((j['periodStarts'] as List?) ?? const []),
-        periodLength: j['periodLength'] as int?,
-        cycleLength: j['cycleLength'] as int?,
-        irregular: j['irregular'] as bool? ?? false,
-        tryingFor: j['tryingFor'] == null ? null : TryingFor.values.byName(j['tryingFor'] as String),
-        edd: j['edd'] as String?,
-        birthDate: j['birthDate'] as String?,
-        lastPeriodOverYear: j['lastPeriodOverYear'] as bool? ?? false,
-        logs: {
-          for (final e in ((j['logs'] as Map?) ?? const {}).entries)
-            e.key as String: DayLog.fromJson(Map<String, Object?>.from(e.value as Map)),
-        },
-        contractions: [
-          for (final c in (j['contractions'] as List?) ?? const [])
-            Contraction.fromJson(Map<String, Object?>.from(c as Map)),
-        ],
-        movements: [
-          for (final m in (j['movements'] as List?) ?? const [])
-            MovementSession.fromJson(Map<String, Object?>.from(m as Map)),
-        ],
-        weights: [
-          for (final w in (j['weights'] as List?) ?? const []) WeightEntry.fromJson(Map<String, Object?>.from(w as Map)),
-        ],
-        appointments: [
-          for (final a in (j['appointments'] as List?) ?? const [])
-            Appointment.fromJson(Map<String, Object?>.from(a as Map)),
-        ],
-        settings: AppSettings.fromJson(j['settings'] == null ? null : Map<String, Object?>.from(j['settings'] as Map)),
-      );
+    goal: Goal.values.byName(j['goal'] as String),
+    locale: j['locale'] as String? ?? 'en',
+    birthYear: j['birthYear'] as int?,
+    periodStarts: List<String>.from((j['periodStarts'] as List?) ?? const []),
+    periodLength: j['periodLength'] as int?,
+    cycleLength: j['cycleLength'] as int?,
+    irregular: j['irregular'] as bool? ?? false,
+    tryingFor: j['tryingFor'] == null ? null : TryingFor.values.byName(j['tryingFor'] as String),
+    edd: j['edd'] as String?,
+    birthDate: j['birthDate'] as String?,
+    lastPeriodOverYear: j['lastPeriodOverYear'] as bool? ?? false,
+    logs: {
+      for (final e in ((j['logs'] as Map?) ?? const {}).entries)
+        e.key as String: DayLog.fromJson(Map<String, Object?>.from(e.value as Map)),
+    },
+    contractions: [
+      for (final c in (j['contractions'] as List?) ?? const [])
+        Contraction.fromJson(Map<String, Object?>.from(c as Map)),
+    ],
+    movements: [
+      for (final m in (j['movements'] as List?) ?? const [])
+        MovementSession.fromJson(Map<String, Object?>.from(m as Map)),
+    ],
+    weights: [
+      for (final w in (j['weights'] as List?) ?? const []) WeightEntry.fromJson(Map<String, Object?>.from(w as Map)),
+    ],
+    appointments: [
+      for (final a in (j['appointments'] as List?) ?? const [])
+        Appointment.fromJson(Map<String, Object?>.from(a as Map)),
+    ],
+    settings: AppSettings.fromJson(j['settings'] == null ? null : Map<String, Object?>.from(j['settings'] as Map)),
+  );
 }

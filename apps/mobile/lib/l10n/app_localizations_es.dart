@@ -190,7 +190,7 @@ class L10nEs extends L10n {
 
   @override
   String predictionOvulation(String date) {
-    return 'Ovulación probable: $date';
+    return 'Ovulación probable alrededor del $date';
   }
 
   @override
@@ -560,7 +560,7 @@ class L10nEs extends L10n {
 
   @override
   String testTimingBody(String date) {
-    return 'Si para el $date tu regla aún no ha empezado, una prueba de embarazo casera es fiable desde ese día.';
+    return 'Si para el $date tu regla aún no ha empezado, la mayoría de las pruebas de embarazo caseras pueden dar un resultado preciso desde ese día.';
   }
 
   @override
@@ -599,33 +599,6 @@ class L10nEs extends L10n {
 
   @override
   String get testTimingSource => 'Fuente: NHS, hacer una prueba de embarazo.';
-
-  @override
-  String pregDaysToGo(int days) {
-    String _temp0 = intl.Intl.pluralLogic(
-      days,
-      locale: localeName,
-      other: 'Quedan $days días',
-      one: 'Queda $days día',
-    );
-    return '$_temp0';
-  }
-
-  @override
-  String pregOverdue(int days) {
-    String _temp0 = intl.Intl.pluralLogic(
-      days,
-      locale: localeName,
-      other: '$days días después de la fecha prevista',
-      one: '$days día después de la fecha prevista',
-    );
-    return '$_temp0';
-  }
-
-  @override
-  String pregTermFrom(String date) {
-    return 'A término desde el $date';
-  }
 
   @override
   String get pregEstimateNote =>
@@ -1102,6 +1075,48 @@ class L10nEs extends L10n {
       'El archivo de este teléfono está dañado o lo escribió otro femio. Se ha apartado, no borrado. Restaura un archivo de copia de seguridad si lo tienes, o empieza de nuevo.';
 
   @override
+  String get recoveryTitle => 'femio no puede abrir tus registros ahora';
+
+  @override
+  String get recoveryBody =>
+      'Tus registros están guardados en este teléfono y no se ha borrado ni cambiado nada. Puede ocurrir tras una actualización del teléfono, un cambio en el bloqueo de pantalla o una restauración. Volver a intentarlo suele funcionar.';
+
+  @override
+  String get recoveryTryAgain => 'Intentar de nuevo';
+
+  @override
+  String get recoveryStillClosed =>
+      'Sigue sin poder abrirse. No se ha cambiado nada en tu teléfono.';
+
+  @override
+  String get recoveryRestoreNote =>
+      '¿Tienes un archivo de copia de seguridad guardado antes? Puedes restaurarlo aquí.';
+
+  @override
+  String get recoveryActionFailed =>
+      'No funcionó, y no se ha cambiado nada en tu teléfono. Inténtalo de nuevo.';
+
+  @override
+  String get recoveryStartFresh => 'Empezar con femio vacío';
+
+  @override
+  String get recoveryFreshTitle => '¿Empezar con femio vacío?';
+
+  @override
+  String get recoveryFreshBody =>
+      'femio se abrirá sin registros. Tu archivo anterior no se borra: se queda en este teléfono, apartado. Puedes restaurar un archivo de copia de seguridad más tarde desde Ajustes.';
+
+  @override
+  String get recoveryFreshConfirm => 'Empezar vacío';
+
+  @override
+  String get recoveryFreshCancel => 'Ahora no';
+
+  @override
+  String get saveFailedBanner =>
+      'femio no pudo guardar tu último cambio en este teléfono. Tus registros anteriores están a salvo. Inténtalo de nuevo y guarda un archivo de copia de seguridad en cuanto puedas.';
+
+  @override
   String get settingsReminders => 'Recordatorios';
 
   @override
@@ -1461,9 +1476,86 @@ class L10nEs extends L10n {
       'Producto femio_plus aún no encontrado (normal hasta que se cree en Play Console)';
 
   @override
+  String calendarDayStates(String date, String states) {
+    return '$date, $states';
+  }
+
+  @override
+  String get calendarStateToday => 'hoy';
+
+  @override
+  String get calendarStatePeriod => 'día de regla';
+
+  @override
+  String get calendarStateSpotting => 'manchado';
+
+  @override
+  String get calendarStatePredicted => 'la regla puede empezar (estimación)';
+
+  @override
+  String get calendarStateFertile => 'ventana fértil (estimación)';
+
+  @override
+  String get calendarStateOvulation => 'ovulación probable (estimación)';
+
+  @override
+  String get calendarStateLogged => 'algo registrado';
+
+  @override
+  String get a11yListSeparator => ', ';
+
+  @override
+  String get onboardingProgress => 'Progreso';
+
+  @override
   String get adLabel => 'Publicidad';
 
   @override
   String get adsNotice =>
-      'Los anuncios aparecen solo en las pantallas de las guías. Nunca ven tus registros, y femio Plus los eliminará.';
+      'Los anuncios aparecen solo en las pantallas de las guías y los sirve Google. Google recibe tu identificador publicitario, tu dirección de internet y cómo usas el anuncio, nunca tus registros. femio Plus los eliminará.';
+
+  @override
+  String pregTermWindow(String due, String start, String end) {
+    return 'Fecha probable de parto alrededor del $due · la mayoría de los bebés nacen entre el $start y el $end';
+  }
+
+  @override
+  String get pregPastTerm =>
+      'Según esta fecha prevista, llevas más de 42 semanas. Habla de tus fechas con tu matrona o tu médica.';
+
+  @override
+  String get settingsMyDetails => 'Mis datos';
+
+  @override
+  String get settingsGoal => 'Tu objetivo';
+
+  @override
+  String get settingsGoalNote =>
+      'Cambiar tu objetivo cambia lo que muestra femio. Tus registros se quedan exactamente como están.';
+
+  @override
+  String get settingsDueDate => 'Fecha probable de parto';
+
+  @override
+  String get saveLabel => 'Guardar';
+
+  @override
+  String get undoAction => 'Deshacer';
+
+  @override
+  String get privacyPolicyTitle => 'Política de privacidad';
+
+  @override
+  String get privacyPolicySubtitle =>
+      'Cómo trata femio tu información. Abre femioapp.com en tu navegador.';
+
+  @override
+  String get privacyPolicyOpenFailed =>
+      'femio no pudo abrir tu navegador. Copia esta dirección y ábrela en tu navegador.';
+
+  @override
+  String get copyLabel => 'Copiar';
+
+  @override
+  String get closeLabel => 'Cerrar';
 }
