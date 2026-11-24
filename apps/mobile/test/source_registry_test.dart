@@ -67,6 +67,19 @@ void main() {
       );
     });
 
+    test('accepts the NIH publishers added in 2026-11 and Saudi MOH as a link only', () {
+      for (final p in ['NIA (NIH)', 'NIMH (NIH)', 'NHLBI (NIH)', 'NIH ODS', 'NIAMS (NIH)']) {
+        expect(SourceEntry.fromJson(entry('passage', p)).publisher, p);
+      }
+      expect(SourceEntry.fromJson({...entry('link', 'Saudi MOH'), 'lang': 'ar'}).lang, 'ar');
+      expect(() => SourceEntry.fromJson(entry('passage', 'Saudi MOH')), throwsFormatException);
+    });
+
+    test('a missing language means English; an unknown one is rejected', () {
+      expect(SourceEntry.fromJson(entry('passage', 'CDC')).lang, 'en');
+      expect(() => SourceEntry.fromJson({...entry('passage', 'CDC'), 'lang': 'de'}), throwsFormatException);
+    });
+
     test('rejects a repeated id', () {
       final e = entry('passage', 'CDC');
       expect(

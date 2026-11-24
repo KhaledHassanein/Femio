@@ -109,6 +109,9 @@ void main() {
         'ازاي اعرف الايام الامنة',
         'pilule du lendemain',
         'días seguros',
+        // Missed before the coverage pass of 2026-11-24 ("I avoid", not "avoiding").
+        'ازاي اتجنب الحمل بطريقة طبيعية؟',
+        'ازاي امنع الحمل؟',
       ]) {
         expect(
           safetySignal(t, pregnant: false),

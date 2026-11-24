@@ -3,6 +3,7 @@ All notable changes to Femio V2.
 
 ## [Unreleased]
 ### Changed
+- **Ask femio answers far more questions.** Its library of trusted sources grew from 89 to 286 entries: more passages from the US Office on Women's Health, CDC and NIH on trying to conceive, each stage of pregnancy, breastfeeding and the months after birth, periods, menopause and everyday health, plus NHS reading and Saudi Ministry of Health pages in Arabic. It also understands more ways of asking, in all four languages. More birth-control phrasings in Egyptian Arabic, French and Spanish now get the fixed answer.
 - **No ads in the app, and no Google Analytics or Meta pixel on the website** (ADR-080). The app no longer contains an ads SDK or uses the advertising ID. The website counts visits with Vercel Web Analytics, which sets no cookie and stores no internet address; ads on article and topic pages still appear only after you allow them.
 - **Cloud boost asks for consent per use and keeps a dated record.** One box for general questions and one for tips from four broad facts, nothing pre-ticked; the screen says who receives the information, where, for how long, and what Google still sees. The app keeps the date and the version of what you agreed to, shows it, and records when you turn it off. A restored backup asks again.
 - **A rewritten privacy policy and a new consumer health data policy**, in four languages, listing everything that can leave your phone.
