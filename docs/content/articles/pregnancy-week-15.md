@@ -44,6 +44,7 @@ sources:
     url: "https://www.nichd.nih.gov/health/topics/pregnancy/conditioninfo"
     tier: "1"
 internal_links:
+  - "/en/help-now"
   - "/en/learn/pregnancy-week-14"
   - "/en/learn/pregnancy-week-16"
   - "/en/learn/pregnancy-warning-signs"
@@ -58,7 +59,7 @@ Week 15 brings more discharge for most women, which is ordinary and worth knowin
 
 There is more blood flowing around the pelvic area, and one effect is more of the milky fluid that keeps the vagina clean. The NHS calls it leucorrhoea, and an increase in it is expected rather than a problem.
 
-Four changes are worth a call: if it changes colour from clear, white or creamy; if it smells strongly of anything; if it changes texture, going frothy or looking like cottage cheese; or if it comes with itching, soreness or pain when you pee. Thrush is common in pregnancy and is treated by a clinician rather than by guesswork at a pharmacy shelf.
+Four changes are worth a call: if it changes colour from clear, white or creamy; if it smells strongly of anything; if it changes texture, going frothy or looking like cottage cheese; or if it comes with itching, soreness or pain when you pee. Thrush is common in pregnancy and should be checked and treated on advice from a pharmacist, midwife or doctor rather than by guesswork.
 
 Round ligament pain — a jabbing ache at the sides of the bump — often starts around now. Resting with your feet up helps. Itchy skin is common too, and unperfumed moisturiser, loose cotton and a cool bath are the usual advice. Itching that gets worse at night is different: the NHS says to tell a midwife or doctor about that specifically.
 
@@ -72,7 +73,7 @@ Being unsteady on your feet is a real and under-discussed part of this stage. On
 
 Around week 15, the figure quoted is about 10.1cm from head to bottom, which the NHS compares to an apple. It is an average across many pregnancies rather than a measurement of one.
 
-A soft layer of hair called lanugo is growing across the body, eyebrows and eyelashes are starting, and the eyes are becoming sensitive to light. Hearing begins around now: heartbeat, digestion, and voices from outside.
+A soft layer of hair called lanugo is growing across the body, eyebrows and eyelashes are starting, and the eyes are becoming sensitive to light. Hearing starts to develop around now; over the next weeks sounds such as your heartbeat, digestion and voices from outside reach the baby.
 
 ## What care usually happens around now
 
@@ -82,13 +83,13 @@ The anomaly scan is the next fixed point for most women, offered between 18 and 
 
 ## This week's tip
 
-Switch to cotton underwear and unperfumed soap this week. It sounds trivial and it is the single change that most reduces itching, thrush and general discomfort through the second trimester — and it is far easier to do now than after something has already started.
+Switch to cotton underwear and unperfumed soap this week. It sounds trivial and it may help reduce itching and general discomfort — and it is far easier to do now than after something has already started.
 
 ## When to see a doctor
 
 Contact a midwife or GP if discharge changes colour, smell or texture, if you are itchy or sore, if it burns to pee, or if itching all over is worse at night. Any bleeding is a call. [Pregnancy warning signs](/en/learn/pregnancy-warning-signs) covers the rest.
 
-> **Seek care now:** Contact your local emergency services or go to your nearest emergency department if you have heavy bleeding, severe or one-sided tummy pain, a severe headache with vision changes, sudden swelling of the face or hands, a fever, fluid leaking from the vagina, chest pain, trouble breathing, fainting, or a seizure. femio cannot assess a pregnancy.
+> **Seek care now:** Contact your local emergency services or go to your nearest emergency department if you have heavy bleeding, severe or one-sided tummy pain, a severe headache with vision changes, sudden swelling of the face or hands, a fever, fluid leaking from the vagina, chest pain, trouble breathing, fainting, a seizure, or thoughts of harming yourself or the baby ([help now](/en/help-now)). femio cannot assess a pregnancy.
 
 ## Frequently asked questions
 

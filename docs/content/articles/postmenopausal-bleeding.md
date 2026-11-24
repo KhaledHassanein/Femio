@@ -109,7 +109,7 @@ The sample and the camera can be uncomfortable, and you can say so. Ask what pai
 
 ## What to say when you book
 
-Say: **"I have had bleeding after menopause."** That sentence moves an appointment on its own, because services are set up to prioritise it.
+Say: **"I have had bleeding after menopause."** Saying it plainly helps the person booking see that you need to be seen promptly.
 
 Add when your periods stopped, when the bleeding happened, how much, whether it has happened before, and any hormone therapy you take.
 

@@ -67,7 +67,7 @@ This surprises people, and it can make early feeds harder than expected. It usua
 
 ## Why they are worse after a second baby
 
-A womb that has stretched before tends to contract in stronger waves rather than a steady tightening. Many people describe first-baby afterpains as mild and second-baby afterpains as genuinely painful.
+Afterpains are commonly reported as stronger after a second or later birth. Many people describe first-baby afterpains as mild and second-baby afterpains as genuinely painful.
 
 If nobody warned you, that is a gap in what people are told, not a sign that something is wrong.
 
@@ -128,7 +128,7 @@ Feeding releases a hormone that makes the womb contract, so cramps often begin a
 
 ### Are they worse with each baby?
 
-Often, yes. A womb that has been stretched before tends to contract in stronger waves.
+Often, yes. Afterpains are commonly reported as stronger after a second or later birth.
 
 ### How long should they last?
 

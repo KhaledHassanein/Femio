@@ -57,7 +57,7 @@ internal_links:
 
 # Safer Sleep for Your Baby
 
-Safer sleep guidance around the world agrees on the core: babies sleep on their backs, on a firm flat surface, in their own clear sleep space, in the same room as an adult for the early months. Countries differ on bed sharing, and that difference is real rather than a translation problem, so this page describes both positions and points you to the advice where you live. This is health information for learning and it is not medical advice about your baby. Anything about your own baby's sleep, breathing or health belongs with a health visitor, paediatrician or emergency service.
+Safer sleep guidance around the world agrees on the core: babies sleep on their backs, on a firm flat surface, in their own clear sleep space, in the same room as an adult for the early months. Countries differ on bed sharing, so this page describes both positions and points you to the advice where you live. This is health information for learning and it is not medical advice about your baby. Anything about your own baby's sleep, breathing or health belongs with a health visitor, paediatrician or emergency service.
 
 ## What the guidance is for
 

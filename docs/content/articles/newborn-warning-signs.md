@@ -131,7 +131,7 @@ Seek urgent care for any sign in the box below. Seek same-day advice for jaundic
 
 Your own warning signs are separate and just as urgent. See [postpartum warning signs](/en/learn/postpartum-warning-signs) for yours, and [your newborn in the first two weeks](/en/learn/newborn-first-two-weeks) for what is usual.
 
-> **Seek care now:** Contact your local emergency services or go to your nearest emergency department if a baby under three months old has a temperature of 38C or higher, is breathing fast, working hard to breathe or grunting, has blue, grey, pale or mottled skin, is floppy, is difficult to wake, is refusing feeds, has far fewer wet nappies or none in the past 12 hours, has a bulging or sunken soft spot on the head, has a rash that does not fade when you press it, or has a fit. femio cannot assess a baby.
+> **Seek care now:** Contact your local emergency services or go to your nearest emergency department if a baby under three months old has a temperature of 38C or higher, is breathing fast, working hard to breathe or grunting, has blue, grey, pale or mottled skin, is floppy, is difficult to wake, is refusing feeds, has far fewer wet nappies or none in the past 12 hours, has a bulging or sunken soft spot on the head, has a rash that does not fade when you press it, has a temperature under 36C, has a weak, high-pitched or continuous cry that is not their usual cry, or has a fit. femio cannot assess a baby.
 
 ## Frequently asked questions
 

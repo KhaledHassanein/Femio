@@ -44,6 +44,7 @@ sources:
     url: "https://www.acog.org/womens-health/faqs/preeclampsia-and-high-blood-pressure-during-pregnancy"
     tier: "1"
 internal_links:
+  - "/en/help-now"
   - "/en/learn/pregnancy-week-24"
   - "/en/learn/pregnancy-week-26"
   - "/en/learn/pregnancy-warning-signs"
@@ -58,7 +59,7 @@ Week 25 usually brings some puffiness in the face, hands and feet. Most of it is
 
 Swelling is common and usually caused by fluid retention. The NHS advice is still to mention it, because blood pressure needs checking alongside it.
 
-Pre-eclampsia is a condition of the second half of pregnancy, and both the NHS and ACOG describe the signs to act on: a severe headache that does not go, vision problems such as blurring or flashing lights, pain just below the ribs, vomiting, and sudden swelling of the face, hands or feet. Those together are an emergency, and a woman can feel well shortly before them.
+Pre-eclampsia is a condition of the second half of pregnancy, and both the NHS and ACOG describe the signs to act on: a severe headache that does not go, vision problems such as blurring or flashing lights, pain just below the ribs, vomiting, and sudden swelling of the face, hands or feet. Any of these needs urgent advice, and a woman can feel well shortly before they appear.
 
 That is the whole reason blood pressure and urine are checked at every appointment from here on. It is picked up on a machine long before it is felt.
 
@@ -88,7 +89,7 @@ Take your rings off now rather than later. Fingers swell gradually through the t
 
 Mention any swelling at your next appointment. Contact a service today for a severe headache, vision changes, pain below the ribs, vomiting with swelling, or sudden swelling of the face and hands. [Pregnancy warning signs](/en/learn/pregnancy-warning-signs) has the full list.
 
-> **Seek care now:** Contact your local emergency services or go to your nearest emergency department if you have heavy bleeding, severe or one-sided tummy pain, a severe headache with vision changes, sudden swelling of the face or hands, a fever, fluid leaking from the vagina, chest pain, trouble breathing, fainting, or a seizure. Contact your maternity service the same day for any reduction in your baby's usual pattern of movement. femio cannot assess a pregnancy.
+> **Seek care now:** Contact your local emergency services or go to your nearest emergency department if you have heavy bleeding, severe or one-sided tummy pain, a severe headache with vision changes, sudden swelling of the face or hands, a fever, fluid leaking from the vagina, chest pain, trouble breathing, fainting, a seizure, or thoughts of harming yourself or the baby ([help now](/en/help-now)). Contact your maternity service straight away if your baby's movements slow down, stop or change. femio cannot assess a pregnancy.
 
 ## Frequently asked questions
 

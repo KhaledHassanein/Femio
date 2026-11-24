@@ -44,6 +44,7 @@ sources:
     url: "https://www.cdc.gov/vaccines-pregnancy/about/index.html"
     tier: "1"
 internal_links:
+  - "/en/help-now"
   - "/en/learn/pregnancy-week-19"
   - "/en/learn/pregnancy-week-21"
   - "/en/learn/pregnancy-warning-signs"
@@ -86,7 +87,7 @@ Ask for your MAT B1 form at your next appointment, or the equivalent where you l
 
 Report bleeding, severe pain, a fever, or a headache with vision changes. Sudden swelling of the face or hands needs care today. [Pregnancy warning signs](/en/learn/pregnancy-warning-signs) has the full list.
 
-> **Seek care now:** Contact your local emergency services or go to your nearest emergency department if you have heavy bleeding, severe or one-sided tummy pain, a severe headache with vision changes, sudden swelling of the face or hands, a fever, fluid leaking from the vagina, chest pain, trouble breathing, fainting, or a seizure. femio cannot assess a pregnancy.
+> **Seek care now:** Contact your local emergency services or go to your nearest emergency department if you have heavy bleeding, severe or one-sided tummy pain, a severe headache with vision changes, sudden swelling of the face or hands, a fever, fluid leaking from the vagina, chest pain, trouble breathing, fainting, a seizure, or thoughts of harming yourself or the baby ([help now](/en/help-now)). femio cannot assess a pregnancy.
 
 ## Frequently asked questions
 

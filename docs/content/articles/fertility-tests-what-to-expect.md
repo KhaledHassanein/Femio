@@ -54,7 +54,7 @@ internal_links:
 
 # Fertility Tests: What an Assessment Usually Involves
 
-A fertility assessment is a set of ordinary tests, usually spread over a cycle or two: blood tests for you, a semen analysis for a male partner, and a scan or a check that the fallopian tubes are open. **Both partners are assessed, always**, because a cause is found on either side or on both roughly as often. Being referred is not a verdict about whether you will have a baby. This page explains the usual shape so the first appointment is less unknown, and it is not a substitute for your own clinician.
+A fertility assessment is a set of ordinary tests, usually spread over a cycle or two: blood tests for you, a semen analysis for a male partner, and a scan or a check that the fallopian tubes are open. **Both partners are usually assessed**, because a cause is found on either side or on both roughly as often. Being referred is not a verdict about whether you will have a baby. This page explains the usual shape so the first appointment is less unknown, and it is not a substitute for your own clinician.
 
 ## When an assessment is usually offered
 
@@ -90,7 +90,7 @@ That waiting is the part people find hardest and it is rarely explained. Ask at 
 
 ## What the results do and do not say
 
-Tests describe what is happening now. They do not predict whether you will have a baby, and a result outside a reference range is a finding for a clinician to interpret alongside everything else, never a conclusion on its own.
+Tests describe what is happening now. They do not predict whether you will have a baby, and a result outside the usual range is a finding for a clinician to interpret alongside everything else, never a conclusion on its own.
 
 Sometimes nothing abnormal is found on either side. That is a recognised outcome rather than a failure of the tests, and options are still discussed.
 

@@ -76,7 +76,7 @@ Guidance about tampons for younger teenagers differs between countries. Some nat
 
 A cup is a small, flexible silicone or rubber cup that sits inside the vagina and **collects** the blood rather than absorbing it. You empty it, rinse it, and put it back in.
 
-It lasts for years, which makes it much cheaper over time, and it can usually stay in longer than a tampon. The trade-offs are real: it takes practice to fold and place, emptying it needs a sink or at least some privacy, and it costs money up front. A shared or school toilet with no basin in the cubicle makes it harder.
+It lasts for years, which makes it much cheaper over time. The maker's instructions say how long it can stay in, so follow them. The trade-offs are real: it takes practice to fold and place, emptying it needs a sink or at least some privacy, and it costs money up front. A shared or school toilet with no basin in the cubicle makes it harder.
 
 ## Period underwear
 
@@ -103,4 +103,4 @@ Choosing a product does not need a doctor. You or a trusted adult can arrange to
 - you cannot get a tampon out, or you cannot find the string
 - bleeding soaks through the biggest pad or tampon every hour or two
 
-If you feel suddenly very unwell with a high temperature, a rash, being sick or feeling faint while a tampon is in, take it out and get seen the same day [NHS].
+If you feel suddenly very unwell with a high temperature, a rash, being sick or feeling faint while a tampon is in, take it out and get urgent medical help straight away [NHS].

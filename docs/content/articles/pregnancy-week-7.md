@@ -44,6 +44,7 @@ sources:
     url: "https://www.nichd.nih.gov/health/topics/pregnancy/conditioninfo"
     tier: "1"
 internal_links:
+  - "/en/help-now"
   - "/en/learn/pregnancy-week-6"
   - "/en/learn/pregnancy-week-8"
   - "/en/learn/first-pregnancy-appointment"
@@ -91,7 +92,7 @@ Fill a bottle in the morning and finish it by evening. Thirst in early pregnancy
 
 Report any bleeding, severe or one-sided pain, itching all over, or dizziness that does not settle when you sit. [Pregnancy warning signs](/en/learn/pregnancy-warning-signs) lists the rest.
 
-> **Seek care now:** Contact your local emergency services or go to your nearest emergency department if you have heavy bleeding, severe or one-sided tummy pain, pain in the tip of your shoulder, a severe headache with vision changes, sudden swelling of the face or hands, a fever, chest pain, trouble breathing, fainting, or a seizure. femio cannot assess a pregnancy.
+> **Seek care now:** Contact your local emergency services or go to your nearest emergency department if you have heavy bleeding, severe or one-sided tummy pain, pain in the tip of your shoulder, a severe headache with vision changes, sudden swelling of the face or hands, a fever, chest pain, trouble breathing, fainting, a seizure, or thoughts of harming yourself or the baby ([help now](/en/help-now)). femio cannot assess a pregnancy.
 
 ## Frequently asked questions
 

@@ -82,9 +82,9 @@ The [preconception appointment](/en/learn/preconception-appointment) guide cover
 
 Usually two things: your medicine may need reviewing quickly, and your testing becomes more frequent. Many clinicians give people a plan in advance precisely so nothing waits on an appointment slot.
 
-If you were not given one, contact whoever manages your thyroid as soon as you have a positive test. Say that you are pregnant and that you take thyroid medicine — that sentence usually moves the appointment.
+If you were not given one, contact whoever manages your thyroid as soon as you have a positive test. Say that you are pregnant and that you take thyroid medicine — that helps the team see how urgent it is.
 
-Do not stop taking your medicine because you are pregnant. That is a common and understandable fear, and it is the opposite of what guidance describes.
+Do not stop your medicine on your own because you are pregnant; your prescriber decides any change. That is a common and understandable fear, and it is the opposite of what guidance describes.
 
 ## Thyroid problems and conceiving
 

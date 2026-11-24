@@ -88,7 +88,7 @@ Screening is not the same as a diagnostic test. A result that needs following up
 
 ## Vitamin K
 
-NICE's postnatal care guideline recommends that parents are offered vitamin K for their baby to protect against vitamin K deficiency bleeding, which is rare and serious. Practice varies between countries in how it is given.
+Newborns are usually offered vitamin K to protect against vitamin K deficiency bleeding, which is rare and serious. Practice varies between countries in how it is given.
 
 You can ask what your service offers, and ask questions before you decide. This is a discussion with a clinician, not a form to sign quickly.
 
@@ -102,7 +102,7 @@ Take that record to every appointment if you are given one, and add to it yourse
 
 Routine immunisation schedules are set nationally, using WHO's recommendations as a base and then adapting them to the diseases that are common locally. WHO publishes summary tables of routine immunisation recommendations that national programmes build on.
 
-The differences are real. The NHS schedule gives the first routine baby vaccines at eight weeks, and offers BCG for tuberculosis and hepatitis B vaccination to babies at higher risk rather than to everyone. CDC's schedule for the United States begins at birth, with a first hepatitis B dose given before a baby leaves hospital.
+The differences are real. The NHS schedule gives the first routine baby vaccines at eight weeks, including hepatitis B protection in the combined vaccine, and offers BCG for tuberculosis and an earlier hepatitis B dose to babies at higher risk rather than to everyone. CDC's schedule for the United States begins at birth, with a first hepatitis B dose given before a baby leaves hospital.
 
 So a schedule from one country is not advice for another. Ask your own service for its schedule, keep the record, and ask about catch-up if an appointment is missed.
 

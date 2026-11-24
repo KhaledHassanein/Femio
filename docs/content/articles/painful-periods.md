@@ -56,7 +56,7 @@ Periods can hurt because the womb tightens to help shed its lining. Mild cramps 
 
 ## Why are periods painful?
 
-Period pain is called dysmenorrhea. The womb (uterus) is a muscle. During a period, it contracts, or tightens, as the lining leaves the body.
+Period pain is called dysmenorrhoea. The womb (uterus) is a muscle. During a period, it contracts, or tightens, as the lining leaves the body.
 
 Chemicals called prostaglandins help trigger these contractions. Higher prostaglandin activity can be linked with stronger cramps, nausea, loose stools, headaches, or dizziness. The [ACOG painful-period guide](https://www.acog.org/womens-health/faqs/dysmenorrhea-painful-periods) explains that cramps may begin before bleeding and often feel strongest near the start of a period.
 
@@ -64,9 +64,9 @@ Pain is personal, but impact is observable. Missing school, cancelling work, wak
 
 ## What are primary and secondary period pain?
 
-Primary dysmenorrhea means period pain without another pelvic condition found as the cause. It often starts in the teen years after cycles begin to include ovulation.
+Primary dysmenorrhoea means period pain without another pelvic condition found as the cause. It often starts in the teen years after cycles begin to include ovulation.
 
-Secondary dysmenorrhea means pain linked with another condition. It may begin later, become worse over time, last beyond the first days of bleeding, or occur at other points in the cycle.
+Secondary dysmenorrhoea means pain linked with another condition. It may begin later, become worse over time, last beyond the first days of bleeding, or occur at other points in the cycle.
 
 Possible causes of secondary pain include:
 

@@ -36,6 +36,9 @@ structured_data_required:
   - "BreadcrumbList"
   - "FAQPage"
 sources:
+  - title: "WHO: Periconceptional folic acid supplementation to prevent neural tube defects"
+    url: "https://www.who.int/tools/elena/interventions/folate-periconceptional"
+    tier: "1"
   - title: "ACOG: Good Health Before Pregnancy: Prepregnancy Care"
     url: "https://www.acog.org/womens-health/faqs/good-health-before-pregnancy-prepregnancy-care"
     tier: "1"
@@ -90,7 +93,7 @@ Tell the clinician about medicines used only sometimes. Include pain, skin, slee
 
 ## What may be discussed about folic acid?
 
-Folic acid is a B vitamin needed early in a baby's growth. [CDC](https://www.cdc.gov/pregnancy/about/index.html) advises 400 micrograms each day for most people who could become pregnant. It advises starting at least one month before pregnancy.
+Folic acid is a B vitamin needed early in a baby's growth. [CDC](https://www.cdc.gov/pregnancy/about/index.html) advises 400 micrograms each day for most people who could become pregnant. It advises starting at least one month before pregnancy. [WHO](https://www.who.int/tools/elena/interventions/folate-periconceptional) advises 400 micrograms a day from when you start trying to conceive until 12 weeks of pregnancy.
 
 Some people may need a different plan based on medicines, health history, or an earlier pregnancy. Ask a clinician which plan fits you. Follow personal advice rather than taking extra on your own.
 

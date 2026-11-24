@@ -44,6 +44,7 @@ sources:
     url: "https://www.nhs.uk/pregnancy/keeping-well/vaccinations/"
     tier: "1"
 internal_links:
+  - "/en/help-now"
   - "/en/learn/pregnancy-week-31"
   - "/en/learn/pregnancy-week-33"
   - "/en/learn/pregnancy-warning-signs"
@@ -76,9 +77,9 @@ Structurally, development is largely done. What the remaining weeks are for is w
 
 ## What care usually happens around now
 
-Week 32 closes the UK window for the whooping cough vaccination, which is usually offered from week 16 and is most useful before week 33.
+Week 32 is the end of the usual UK window for the whooping cough vaccination, which is offered from week 16. It can still be given after that, though protection for the baby may be lower.
 
-Vitamin K is usually explained around now. The NHS describes it being offered for all babies within 24 hours of birth, given by injection or by mouth, and it is a choice that is yours to make — which is far easier to think about now than in the hour after a birth.
+Vitamin K is usually explained around now. The NHS describes it being offered to all babies soon after birth, given by injection or by mouth, and it is a choice that is yours to make — which is far easier to think about now than in the hour after a birth.
 
 If a caesarean is planned, this is when practical arrangements are usually discussed, including how long a hospital stay tends to be. All of this varies by country and by service.
 
@@ -88,9 +89,9 @@ Decide about vitamin K this week, with whoever will be with you at the birth. It
 
 ## When to see a doctor
 
-Contact your maternity service the same day for any change in movement, leaking fluid, regular or painful tightenings, or bleeding. [Pregnancy warning signs](/en/learn/pregnancy-warning-signs) has the full list.
+Contact your maternity service straight away for any change in movement, leaking fluid, regular or painful tightenings, or bleeding. [Pregnancy warning signs](/en/learn/pregnancy-warning-signs) has the full list.
 
-> **Seek care now:** Contact your local emergency services or go to your nearest emergency department if you have heavy bleeding, severe or one-sided tummy pain, a severe headache with vision changes, sudden swelling of the face or hands, a fever, fluid leaking from the vagina, chest pain, trouble breathing, fainting, or a seizure. Contact your maternity service the same day for any reduction in your baby's usual pattern of movement. femio cannot assess a pregnancy.
+> **Seek care now:** Contact your local emergency services or go to your nearest emergency department if you have heavy bleeding, severe or one-sided tummy pain, a severe headache with vision changes, sudden swelling of the face or hands, a fever, fluid leaking from the vagina, chest pain, trouble breathing, fainting, a seizure, or thoughts of harming yourself or the baby ([help now](/en/help-now)). Contact your maternity service straight away if your baby's movements slow down, stop or change. femio cannot assess a pregnancy.
 
 ## Frequently asked questions
 

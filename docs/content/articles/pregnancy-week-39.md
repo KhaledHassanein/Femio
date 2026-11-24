@@ -44,6 +44,7 @@ sources:
     url: "https://www.acog.org/womens-health/faqs/how-to-tell-when-labor-begins"
     tier: "1"
 internal_links:
+  - "/en/help-now"
   - "/en/learn/pregnancy-week-38"
   - "/en/learn/pregnancy-week-40"
   - "/en/learn/pregnancy-warning-signs"
@@ -52,7 +53,7 @@ internal_links:
 
 # Week 39 of Pregnancy: What to Expect
 
-Week 39 is when most women go into labour within a week either side of their due date. Waters can break at any time, and almost never the way films show it. What is worth knowing precisely this week is when to pick up the phone.
+Labour often starts around the due date, but the due date is an estimate, so it may come earlier or later. Waters can break at any time, and almost never the way films show it. What is worth knowing precisely this week is when to pick up the phone.
 
 ## Your body this week
 
@@ -78,7 +79,7 @@ The skin has grown a tougher outer layer that protects and helps with temperatur
 
 Nothing is routinely scheduled for most women this week, and appointments resume at 40 and 41 weeks in the UK for a first baby.
 
-Two lists are worth reading before the birth rather than after. The NHS names nine signs that should be treated as an emergency at this stage: any bleeding, brown or pink discharge, severe itching particularly at night, a headache that will not go, vision problems, pain just below the ribs, extreme swelling of the feet, ankles, hands and face, persistent stomach pains, and a temperature above 37.5C with no cold or flu symptoms. The second list is what a newborn is actually like in the first minutes — often quiet before crying, blue hands and feet, irregular breathing — because knowing that in advance prevents a great deal of fright.
+Two lists are worth reading before the birth rather than after. The NHS names nine signs that need contact with your maternity unit straight away at this stage: any bleeding, brown or pink discharge, severe itching particularly at night, a headache that will not go, vision problems, pain just below the ribs, extreme swelling of the feet, ankles, hands and face, persistent stomach pains, and a temperature above 37.5C with no cold or flu symptoms. The second list is what a newborn is actually like in the first minutes — often quiet before crying, blue hands and feet, irregular breathing — because knowing that in advance prevents a great deal of fright.
 
 ## This week's tip
 
@@ -88,7 +89,7 @@ Agree with your birth partner tonight who calls the unit and who drives. It soun
 
 Call your maternity unit when contractions last 60 seconds and come every five minutes, or at any time if waters break, movements change, or you have bleeding. [Pregnancy warning signs](/en/learn/pregnancy-warning-signs) has the full list.
 
-> **Seek care now:** Contact your local emergency services or go to your nearest emergency department if you have heavy bleeding, severe or one-sided tummy pain, pain just below the ribs, a severe headache with vision changes, sudden swelling of the face or hands, a fever, fluid leaking from the vagina, chest pain, trouble breathing, fainting, or a seizure. Contact your maternity service the same day for any reduction in your baby's usual pattern of movement. femio cannot assess a pregnancy.
+> **Seek care now:** Contact your local emergency services or go to your nearest emergency department if you have heavy bleeding, severe or one-sided tummy pain, pain just below the ribs, a severe headache with vision changes, sudden swelling of the face or hands, a fever, fluid leaking from the vagina, chest pain, trouble breathing, fainting, a seizure, or thoughts of harming yourself or the baby ([help now](/en/help-now)). Contact your maternity service straight away if your baby's movements slow down, stop or change. femio cannot assess a pregnancy.
 
 ## Frequently asked questions
 

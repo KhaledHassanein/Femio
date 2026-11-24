@@ -66,7 +66,7 @@ femio's cycle predictions are estimates from the cycles it has recorded, and aft
 
 ## Breastfeeding and fertility
 
-Frequent breastfeeding delays ovulation for many people, but not for everyone and not predictably. There is a clinically defined method built on this, called the lactational amenorrhoea method, and it only applies under strict conditions — exclusive feeding, no periods, and a baby under six months.
+Frequent breastfeeding delays ovulation for many people, but not for everyone and not predictably. There is a clinically defined method built on this, called the lactational amenorrhoea method, and it only applies under strict conditions — fully or nearly fully breastfeeding with short gaps between feeds, no periods, and a baby under six months.
 
 Those conditions break easily, often without you noticing, once the baby sleeps longer, takes solids, or a feed is skipped. Discuss it with a clinician rather than assuming it applies to you.
 
@@ -83,7 +83,7 @@ Broadly, the conversation covers:
 - **Combined methods** (containing oestrogen) — pills, patch, ring. Timing is more restricted after birth because of clot risk, and more restricted again while breastfeeding in the early weeks.
 - **Barrier methods.** Available at any time. A diaphragm or cap needs refitting after a birth.
 - **Permanent methods.** Sometimes done at the time of a caesarean, or arranged later.
-- **Emergency methods.** Available after birth, though which one suits depends on feeding and timing, so ask a pharmacist or clinician.
+- **Emergency methods.** Available after birth and time-sensitive, so ask a pharmacist or clinician promptly. Which one suits depends on feeding and timing.
 
 Which of these fits you depends on your health, how you gave birth, whether you are feeding, and what you want next. That is a conversation, not a list to pick from alone.
 

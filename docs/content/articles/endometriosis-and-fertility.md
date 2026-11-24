@@ -61,7 +61,7 @@ Age and ovarian function can matter. So can the fallopian tubes, sperm health, o
 
 ## How may endometriosis affect fertility?
 
-Endometriosis may cause swelling or scar tissue. It may also change the area around the fallopian tubes and ovaries. Some people have an ovarian cyst called an endometrioma.
+Endometriosis may cause inflammation (irritation and swelling) or scar tissue. It may also change the area around the fallopian tubes and ovaries. Some people have an ovarian cyst called an endometrioma.
 
 These changes may affect how an egg is released. They may affect how egg and sperm meet. The organs may not work together as well. Yet the link is not simple. The amount seen cannot predict one person's chance of pregnancy.
 
@@ -69,7 +69,7 @@ These changes may affect how an egg is released. They may affect how egg and spe
 
 ## Can you become pregnant naturally?
 
-Yes. Some people learn they may have endometriosis after a past pregnancy. Others conceive while living with symptoms. Some seek medical support.
+Yes. Some people first learn they may have endometriosis during a fertility review. Others conceive while living with symptoms. Some seek medical support.
 
 No app, scan, or symptom list can promise an outcome. [ACOG](https://www.acog.org/womens-health/faqs/endometriosis) says fertility plans should be part of care talks.
 

@@ -124,7 +124,7 @@ The [NICE menopause guidance](https://www.nice.org.uk/guidance/ng23/chapter/Reco
 
 ## How can femio estimates change?
 
-Cycle estimates become less certain when periods vary. femio should show a range rather than claim one exact future date. A “late” label cannot explain why a period did not arrive.
+Cycle estimates become less certain when periods vary. femio shows a range rather than claiming one exact future date. A “late” label cannot explain why a period did not arrive.
 
 Pregnancy can still occur during perimenopause. A calendar cannot confirm whether ovulation happened.
 

@@ -109,7 +109,7 @@ The right length depends on the question. A few cycles can help show a repeating
 
 Track sooner and seek advice when bleeding is new, very heavy, happens between periods, occurs after sex, or follows menopause. The [ACOG abnormal-bleeding guide](https://www.acog.org/womens-health/faqs/abnormal-uterine-bleeding) describes patterns worth discussing with a clinician.
 
-For symptoms linked to the weeks before a period, daily notes across at least two cycles may help a clinician compare timing. The guide to [tracking PMS and PMDD symptoms](/en/learn/track-pms-pmdd-symptoms) explains a focused approach.
+For symptoms linked to the weeks before a period, daily notes across a few cycles may help a clinician compare timing. The guide to [tracking PMS and PMDD symptoms](/en/learn/track-pms-pmdd-symptoms) explains a focused approach.
 
 ## How to review a cycle pattern
 

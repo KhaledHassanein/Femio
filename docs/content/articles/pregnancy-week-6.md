@@ -44,6 +44,7 @@ sources:
     url: "https://www.nhs.uk/pregnancy/common-symptoms/"
     tier: "1"
 internal_links:
+  - "/en/help-now"
   - "/en/learn/pregnancy-week-5"
   - "/en/learn/pregnancy-week-7"
   - "/en/learn/pregnancy-warning-signs"
@@ -88,7 +89,7 @@ Eat something before you get out of bed — literally before your feet touch the
 
 Contact a midwife or GP if you cannot keep fluids down, if you are losing weight, if you feel dizzy on standing, or if you are passing very little urine. Any bleeding should be reported. [Pregnancy warning signs](/en/learn/pregnancy-warning-signs) has the full list.
 
-> **Seek care now:** Contact your local emergency services or go to your nearest emergency department if you have heavy bleeding, severe or one-sided tummy pain, pain in the tip of your shoulder, a severe headache with vision changes, sudden swelling of the face or hands, a fever, chest pain, trouble breathing, fainting, or a seizure. femio cannot assess a pregnancy.
+> **Seek care now:** Contact your local emergency services or go to your nearest emergency department if you have heavy bleeding, severe or one-sided tummy pain, pain in the tip of your shoulder, a severe headache with vision changes, sudden swelling of the face or hands, a fever, chest pain, trouble breathing, fainting, a seizure, or thoughts of harming yourself or the baby ([help now](/en/help-now)). femio cannot assess a pregnancy.
 
 ## Frequently asked questions
 

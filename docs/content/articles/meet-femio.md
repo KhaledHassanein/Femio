@@ -85,7 +85,7 @@ femio may show an estimated fertile window based on the cycle dates you record. 
 
 ### Use pregnancy tools
 
-In pregnancy, femio shows your week and estimated due date. It has a kick counter, a contraction timer and a weight log, and keeps the pregnancy warning signs one tap away.
+In pregnancy, femio shows your week and estimated due date. It has a movement log, a contraction timer and a weight log, and keeps the pregnancy warning signs one tap away.
 
 ### Prepare for a clinician visit
 

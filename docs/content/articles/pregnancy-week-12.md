@@ -44,6 +44,7 @@ sources:
     url: "https://www.acog.org/womens-health/faqs/ultrasound-exams"
     tier: "1"
 internal_links:
+  - "/en/help-now"
   - "/en/learn/pregnancy-week-11"
   - "/en/learn/pregnancy-week-13"
   - "/en/learn/pregnancy-basics"
@@ -57,7 +58,7 @@ Week 12 closes the first trimester for most women, and it usually brings the sca
 
 ## Your body this week
 
-The placenta is probably feeding the pregnancy by now, having taken over from the yolk sac, and hormone levels settle somewhat once that has happened. That is the reason sickness commonly eases in the weeks after this one.
+The placenta is probably feeding the pregnancy by now, having taken over from the yolk sac, and hormone levels settle somewhat once that has happened. Sickness commonly eases in the weeks after this one, though the exact reason is not certain.
 
 Your waist is thickening and your breasts are larger. As the sickness fades, appetite often returns, and with it the worry about whether you are eating enough or too much.
 
@@ -89,7 +90,7 @@ Ask for a printed scan photograph and ask what the measurements were. Not for th
 
 Any bleeding, severe pain, a fever, or a headache with vision changes needs same-day contact. [Pregnancy basics](/en/learn/pregnancy-basics) covers the shape of the whole pregnancy, and [pregnancy warning signs](/en/learn/pregnancy-warning-signs) covers what not to wait on.
 
-> **Seek care now:** Contact your local emergency services or go to your nearest emergency department if you have heavy bleeding, severe or one-sided tummy pain, pain in the tip of your shoulder, a severe headache with vision changes, sudden swelling of the face or hands, a fever, chest pain, trouble breathing, fainting, or a seizure. femio cannot assess a pregnancy.
+> **Seek care now:** Contact your local emergency services or go to your nearest emergency department if you have heavy bleeding, severe or one-sided tummy pain, pain in the tip of your shoulder, a severe headache with vision changes, sudden swelling of the face or hands, a fever, chest pain, trouble breathing, fainting, a seizure, or thoughts of harming yourself or the baby ([help now](/en/help-now)). femio cannot assess a pregnancy.
 
 ## Frequently asked questions
 

@@ -44,6 +44,7 @@ sources:
     url: "https://www.acog.org/womens-health/faqs/when-pregnancy-goes-past-your-due-date"
     tier: "1"
 internal_links:
+  - "/en/help-now"
   - "/en/learn/pregnancy-week-39"
   - "/en/learn/postpartum-recovery-first-six-weeks"
   - "/en/learn/pregnancy-warning-signs"
@@ -52,7 +53,7 @@ internal_links:
 
 # Week 40 of Pregnancy: What to Expect
 
-Week 40 contains the due date, and the due date is an estimate rather than a deadline. Term runs from 37 to 42 weeks, which means a birth anywhere in that five-week band is on time. Nothing about week 41 makes a pregnancy late.
+Week 40 contains the due date, and the due date is an estimate rather than a deadline. Term runs from 37 to 42 weeks, which means a birth anywhere in that five-week band is on time. A birth from 37 to 42 weeks is within term, although from 41 weeks your service will discuss induction and extra monitoring.
 
 ## Your body this week
 
@@ -60,7 +61,7 @@ In a first pregnancy there is usually an antenatal appointment this week: blood 
 
 Practice contractions are frequent and should not hurt. Real contractions do: the bump goes tight and painful, then the pain goes as the muscles relax.
 
-The NHS describes labour in three stages — contractions opening the cervix to about 10cm, the birth itself, and the placenta being delivered — and puts the first stage at roughly 6 to 12 hours, often less for women who have given birth before.
+The NHS describes labour in three stages — contractions opening the cervix to about 10cm, the birth itself, and the placenta being delivered — and says the first stage can take many hours, and is often shorter for women who have given birth before.
 
 ## What you may notice
 
@@ -90,13 +91,13 @@ Stop counting days past the due date and start counting weeks of term. The due d
 
 Call the maternity unit for contractions lasting 60 seconds every five minutes, for waters breaking, for bleeding, or for any change in movement. [Pregnancy warning signs](/en/learn/pregnancy-warning-signs) has the full list, and [postpartum recovery in the first six weeks](/en/learn/postpartum-recovery-first-six-weeks) covers what comes next.
 
-> **Seek care now:** Contact your local emergency services or go to your nearest emergency department if you have heavy bleeding, severe or one-sided tummy pain, pain just below the ribs, a severe headache with vision changes, sudden swelling of the face or hands, a fever, fluid leaking from the vagina, chest pain, trouble breathing, fainting, or a seizure. Contact your maternity service the same day for any reduction in your baby's usual pattern of movement. femio cannot assess a pregnancy.
+> **Seek care now:** Contact your local emergency services or go to your nearest emergency department if you have heavy bleeding, severe or one-sided tummy pain, pain just below the ribs, a severe headache with vision changes, sudden swelling of the face or hands, a fever, fluid leaking from the vagina, chest pain, trouble breathing, fainting, a seizure, or thoughts of harming yourself or the baby ([help now](/en/help-now)). Contact your maternity service straight away if your baby's movements slow down, stop or change. femio cannot assess a pregnancy.
 
 ## Frequently asked questions
 
 ### Is my baby late?
 
-No. Term is 37 to 42 weeks, and a due date is a single estimated point inside a five-week band. Most women give birth in the week either side of it.
+Not necessarily. Term is 37 to 42 weeks, and a due date is a single estimated point inside a five-week band; if you go past 41 weeks your service will discuss next steps. Most women give birth in the week either side of it.
 
 ### Can I do anything to bring on labour?
 

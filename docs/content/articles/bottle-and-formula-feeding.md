@@ -56,7 +56,7 @@ internal_links:
 
 # Bottles and Formula: Preparing and Feeding Safely
 
-Powdered infant formula is not a sterile product, which is why every national guideline spends most of its words on cleaning, water and timing rather than on brands. The steps that matter are washing and sterilising the bottle and teat, making feeds one at a time, following the manufacturer's instructions on the tin exactly, and cooling the feed before it is given. This page is health information for learning and it is not medical advice about your baby. How much your own baby needs, and any concern about feeding, belongs with a midwife, health visitor or doctor.
+Powdered infant formula is not a sterile product, which is why guidance focuses on cleaning, water and timing rather than on brands. The steps that matter are washing and sterilising the bottle and teat, making feeds one at a time, following the manufacturer's instructions on the tin exactly, and cooling the feed before it is given. This page is health information for learning and it is not medical advice about your baby. How much your own baby needs, and any concern about feeding, belongs with a midwife, health visitor or doctor.
 
 ## Why preparation matters at all
 

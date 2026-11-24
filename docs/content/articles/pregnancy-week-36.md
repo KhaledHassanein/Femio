@@ -44,6 +44,7 @@ sources:
     url: "https://www.acog.org/womens-health/faqs/preeclampsia-and-high-blood-pressure-during-pregnancy"
     tier: "1"
 internal_links:
+  - "/en/help-now"
   - "/en/learn/pregnancy-week-35"
   - "/en/learn/pregnancy-week-37"
   - "/en/learn/pregnancy-warning-signs"
@@ -72,7 +73,7 @@ Movements should not be reducing. This is the point in pregnancy where reduced m
 
 Around week 36, the figure given is about 47.4cm from head to heel — romaine lettuce, in the NHS's comparison. It is a population average, and not a measurement of your own pregnancy.
 
-Lungs are usually mature enough to breathe without help by now, and sucking and digesting are ready for feeding.
+Lungs are well developed by now, although some babies born before 37 weeks still need breathing support, and sucking and digesting are ready for feeding.
 
 ## What care usually happens around now
 
@@ -88,7 +89,7 @@ Go to this appointment even if you feel fine, and especially if getting there is
 
 Contact your maternity service the same day for any change in movement, leaking fluid, regular or painful tightenings, or bleeding. [Pregnancy warning signs](/en/learn/pregnancy-warning-signs) has the full list.
 
-> **Seek care now:** Contact your local emergency services or go to your nearest emergency department if you have heavy bleeding, severe or one-sided tummy pain, pain just below the ribs, a severe headache with vision changes, sudden swelling of the face or hands, a fever, fluid leaking from the vagina, chest pain, trouble breathing, fainting, or a seizure. Contact your maternity service the same day for any reduction in your baby's usual pattern of movement. femio cannot assess a pregnancy.
+> **Seek care now:** Contact your local emergency services or go to your nearest emergency department if you have heavy bleeding, severe or one-sided tummy pain, pain just below the ribs, a severe headache with vision changes, sudden swelling of the face or hands, a fever, fluid leaking from the vagina, chest pain, trouble breathing, fainting, a seizure, or thoughts of harming yourself or the baby ([help now](/en/help-now)). Contact your maternity service straight away if your baby's movements slow down, stop or change. femio cannot assess a pregnancy.
 
 ## Frequently asked questions
 

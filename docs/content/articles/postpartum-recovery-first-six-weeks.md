@@ -80,7 +80,7 @@ Hair shedding, night sweats, sore wrists, and feet that no longer fit old shoes 
 
 Bleeding after birth is called lochia. It changes colour from red to pink to brown to pale over days and weeks, and it can pause and restart.
 
-Soaking a maternity pad in an hour, passing clots larger than a plum, or bleeding that suddenly becomes heavier again all need urgent advice. [CDC](https://www.cdc.gov/hearher/maternal-warning-signs/index.html) lists heavy bleeding among the signs that need immediate care after birth.
+Soaking a maternity pad in an hour, or passing clots the size of an egg or larger, needs emergency help. Clots larger than a plum, or bleeding that suddenly becomes heavier again, need same-day advice. [CDC](https://www.cdc.gov/hearher/maternal-warning-signs/index.html) lists heavy bleeding among the signs that need immediate care after birth.
 
 Read [bleeding after birth](/en/learn/bleeding-after-birth) for what each stage usually looks like.
 

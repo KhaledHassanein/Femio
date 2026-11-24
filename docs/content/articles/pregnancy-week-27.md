@@ -44,6 +44,7 @@ sources:
     url: "https://www.nhs.uk/pregnancy/common-symptoms/"
     tier: "1"
 internal_links:
+  - "/en/help-now"
   - "/en/learn/pregnancy-week-26"
   - "/en/learn/pregnancy-week-28"
   - "/en/learn/pregnancy-warning-signs"
@@ -72,7 +73,7 @@ Movements are strong and regular for most women. Any change from what has become
 
 Around week 27, the length given is about 36.6cm from head to heel — the NHS compares it to a head of cauliflower. Population averages, and not a description of any particular pregnancy.
 
-The lungs are now capable of breathing, and fat is filling out folds of skin that looked wrinkled a few weeks ago. Organs continue to mature.
+The lungs are maturing; a baby born now would need specialist help to breathe, and fat is filling out folds of skin that looked wrinkled a few weeks ago. Organs continue to mature.
 
 ## What care usually happens around now
 
@@ -82,13 +83,13 @@ On travel: the NHS notes this is usually the last week you can fly without a let
 
 ## This week's tip
 
-If you are flying, get the letter now and check your airline's cut-off in writing. Airlines refuse boarding on their own rules, not on how you feel or how far along you say you are, and a letter obtained at 27 weeks is straightforward while one obtained at 34 weeks may be impossible.
+If you are flying, get the letter now and check your airline's cut-off in writing. Airlines refuse boarding on their own rules, not on how you feel or how far along you say you are, and getting the letter earlier leaves time to sort out any airline questions.
 
 ## When to see a doctor
 
-Contact your maternity service the same day for any change in movement. Report bleeding, severe pain, a fever, or a headache with vision changes. [Pregnancy warning signs](/en/learn/pregnancy-warning-signs) has the full list.
+Contact your maternity service straight away for any change in movement. Report bleeding, severe pain, a fever, or a headache with vision changes. [Pregnancy warning signs](/en/learn/pregnancy-warning-signs) has the full list.
 
-> **Seek care now:** Contact your local emergency services or go to your nearest emergency department if you have heavy bleeding, severe or one-sided tummy pain, a severe headache with vision changes, sudden swelling of the face or hands, a fever, fluid leaking from the vagina, chest pain, trouble breathing, fainting, or a seizure. Contact your maternity service the same day for any reduction in your baby's usual pattern of movement. femio cannot assess a pregnancy.
+> **Seek care now:** Contact your local emergency services or go to your nearest emergency department if you have heavy bleeding, severe or one-sided tummy pain, a severe headache with vision changes, sudden swelling of the face or hands, a fever, fluid leaking from the vagina, chest pain, trouble breathing, fainting, a seizure, or thoughts of harming yourself or the baby ([help now](/en/help-now)). Contact your maternity service straight away if your baby's movements slow down, stop or change. femio cannot assess a pregnancy.
 
 ## Frequently asked questions
 

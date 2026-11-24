@@ -52,7 +52,7 @@ internal_links:
 
 # What Menopause Care Options Can a Clinician Discuss?
 
-Menopause care may include HRT or non-hormonal medicines. A structured approach may help with thoughts, actions, and coping. Vaginal moisturisers, lubricants, or local oestrogen may also help. Support can cover sleep, mood, sex, bladder health, or bones. Choices should fit your symptoms, health, goals, and wishes.
+Menopause care may include hormone replacement therapy (HRT) or non-hormonal medicines. A structured approach may help with thoughts, actions, and coping. Vaginal moisturisers, lubricants, or local oestrogen may also help. Support can cover sleep, mood, sex, bladder health, or bones. Choices should fit your symptoms, health, goals, and wishes.
 
 No single plan is best for everyone. A clinician should explain benefits, risks, limits, and review timing.
 

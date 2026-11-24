@@ -44,6 +44,7 @@ sources:
     url: "https://www.acog.org/womens-health/faqs/group-b-strep-and-pregnancy"
     tier: "1"
 internal_links:
+  - "/en/help-now"
   - "/en/learn/pregnancy-week-34"
   - "/en/learn/pregnancy-week-36"
   - "/en/learn/breastfeeding-first-two-weeks"
@@ -87,7 +88,7 @@ Write down two things about pain relief: what you would like to try first, and w
 
 Contact your maternity service the same day for any change in movement, leaking fluid, regular or painful tightenings, or bleeding. Pain under the ribs, a severe headache or vision changes need care now. [Pregnancy warning signs](/en/learn/pregnancy-warning-signs) has the full list, and [breastfeeding in the first two weeks](/en/learn/breastfeeding-first-two-weeks) covers what comes after.
 
-> **Seek care now:** Contact your local emergency services or go to your nearest emergency department if you have heavy bleeding, severe or one-sided tummy pain, pain just below the ribs, a severe headache with vision changes, sudden swelling of the face or hands, a fever, fluid leaking from the vagina, chest pain, trouble breathing, fainting, or a seizure. Contact your maternity service the same day for any reduction in your baby's usual pattern of movement. femio cannot assess a pregnancy.
+> **Seek care now:** Contact your local emergency services or go to your nearest emergency department if you have heavy bleeding, severe or one-sided tummy pain, pain just below the ribs, a severe headache with vision changes, sudden swelling of the face or hands, a fever, fluid leaking from the vagina, chest pain, trouble breathing, fainting, a seizure, or thoughts of harming yourself or the baby ([help now](/en/help-now)). Contact your maternity service straight away if your baby's movements slow down, stop or change. femio cannot assess a pregnancy.
 
 ## Frequently asked questions
 

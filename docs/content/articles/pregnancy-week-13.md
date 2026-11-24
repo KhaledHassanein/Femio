@@ -44,6 +44,7 @@ sources:
     url: "https://www.nichd.nih.gov/health/topics/pregnancy/conditioninfo"
     tier: "1"
 internal_links:
+  - "/en/help-now"
   - "/en/learn/pregnancy-week-12"
   - "/en/learn/pregnancy-week-14"
   - "/en/learn/pregnancy-warning-signs"
@@ -74,7 +75,7 @@ Burning when you pee, or needing to go urgently and often, is a reason to be see
 
 Around week 13, the figure quoted is about 7.4cm — peach-sized, in the NHS's comparison. It describes a population, and no individual pregnancy has to match it.
 
-Movement is happening: at first jerky and random, later more deliberate. Most women do not feel anything until around week 17 or later. Some babies suck their thumb at this stage, which develops the sucking reflex needed for feeding after birth.
+Movement is happening: at first jerky and random, later more deliberate. Most women do not feel movement until somewhere between weeks 17 and 24. Some babies suck their thumb at this stage, which develops the sucking reflex needed for feeding after birth.
 
 ## What care usually happens around now
 
@@ -90,7 +91,7 @@ Book a dental check-up this week. Pregnancy makes gum problems more likely, dent
 
 Report any bleeding, severe pain, burning when you pee, a fever, or a headache with vision changes. [Pregnancy warning signs](/en/learn/pregnancy-warning-signs) covers the whole set, and it is worth reading once properly at the start of this trimester.
 
-> **Seek care now:** Contact your local emergency services or go to your nearest emergency department if you have heavy bleeding, severe or one-sided tummy pain, a severe headache with vision changes, sudden swelling of the face or hands, a fever, fluid leaking from the vagina, chest pain, trouble breathing, fainting, or a seizure. femio cannot assess a pregnancy.
+> **Seek care now:** Contact your local emergency services or go to your nearest emergency department if you have heavy bleeding, severe or one-sided tummy pain, a severe headache with vision changes, sudden swelling of the face or hands, a fever, fluid leaking from the vagina, chest pain, trouble breathing, fainting, a seizure, or thoughts of harming yourself or the baby ([help now](/en/help-now)). femio cannot assess a pregnancy.
 
 ## Frequently asked questions
 

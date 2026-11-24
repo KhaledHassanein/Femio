@@ -60,7 +60,7 @@ Bring questions and records if you have them, but missing information should not
 
 Contact local pregnancy services after a positive test or when you think you may be pregnant. Some systems begin with a phone or online intake before an in-person visit.
 
-The [ACOG prenatal-care guide](https://www.acog.org/womens-health/faqs/prenatal-care) recommends starting care in the first trimester. ACOG notes that before 10 weeks from the last period is ideal when possible, though access and personal needs vary.
+The [ACOG prenatal-care guide](https://www.acog.org/womens-health/faqs/prenatal-care) recommends starting care in the first trimester. ACOG notes that ideally the first visit happens before 10 weeks of pregnancy, counted from the last period, though access and personal needs vary.
 
 Do not wait for a routine visit when you have urgent symptoms or a medicine that needs prompt review.
 

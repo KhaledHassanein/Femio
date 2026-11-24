@@ -44,6 +44,7 @@ sources:
     url: "https://www.acog.org/womens-health/faqs/ultrasound-exams"
     tier: "1"
 internal_links:
+  - "/en/help-now"
   - "/en/learn/pregnancy-week-17"
   - "/en/learn/pregnancy-week-19"
   - "/en/learn/pregnancy-warning-signs"
@@ -88,9 +89,9 @@ Decide before the appointment whether you want to be told the sex, and tell the 
 
 ## When to see a doctor
 
-Report bleeding, severe pain, a fever, or a headache with vision changes. If movements have started and then reduce or change, contact your maternity service the same day. [Pregnancy warning signs](/en/learn/pregnancy-warning-signs) has the full list.
+Report bleeding, severe pain, a fever, or a headache with vision changes. If movements have started and then reduce or change, contact your maternity service straight away. [Pregnancy warning signs](/en/learn/pregnancy-warning-signs) has the full list.
 
-> **Seek care now:** Contact your local emergency services or go to your nearest emergency department if you have heavy bleeding, severe or one-sided tummy pain, a severe headache with vision changes, sudden swelling of the face or hands, a fever, fluid leaking from the vagina, chest pain, trouble breathing, fainting, or a seizure. femio cannot assess a pregnancy.
+> **Seek care now:** Contact your local emergency services or go to your nearest emergency department if you have heavy bleeding, severe or one-sided tummy pain, a severe headache with vision changes, sudden swelling of the face or hands, a fever, fluid leaking from the vagina, chest pain, trouble breathing, fainting, a seizure, or thoughts of harming yourself or the baby ([help now](/en/help-now)). femio cannot assess a pregnancy.
 
 ## Frequently asked questions
 

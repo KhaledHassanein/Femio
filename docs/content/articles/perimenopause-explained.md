@@ -168,7 +168,7 @@ If mood changes are part of the picture, include their timing and daily impact i
 
 Record period dates, flow, hot flushes, night sweats, sleep, mood, headaches, vaginal or urinary symptoms, and notes about daily impact. Choose only the details useful to you.
 
-Cycle estimates become less certain when periods vary. femio should show wider ranges rather than an exact predicted day or a “late” counter.
+Cycle estimates become less certain when periods vary. femio shows wider ranges rather than an exact predicted day or a “late” counter.
 
 Tracking cannot confirm perimenopause or rule out another cause. The guide to [tracking perimenopause symptoms](/en/learn/track-perimenopause-symptoms) shows how to make a useful summary. Read the [heavy-period guide](/en/conditions/heavy-periods) when bleeding is the main concern. You can also learn [what menopause means](/en/learn/menopause-explained) and which [menopause care options](/en/learn/menopause-care-options) may be discussed.
 

@@ -96,7 +96,7 @@ After a feed the nipple should look round, not flattened, creased or wedge-shape
 
 ## Sore nipples
 
-Some tenderness in the first days is common. Cracked, bleeding or severely painful nipples are a latch problem, and they are the reason many people stop feeding before they wanted to.
+Some tenderness in the first days is common. Cracked, bleeding or severely painful nipples are often caused by a latch problem, and they are a common reason people stop feeding earlier than they wanted to.
 
 Ask for a feed to be watched by someone skilled — a midwife, health visitor, feeding specialist or peer supporter. [NICE's postnatal guidance](https://www.nice.org.uk/guidance/ng194) expects feeding support to be available rather than something you have to chase.
 
@@ -116,7 +116,7 @@ Set up a spot with cushions, a drink and a charger. You will spend a lot of hour
 - The baby will not latch, or falls asleep at every feed without feeding.
 - Nappies are fewer than expected, or the baby is very sleepy and hard to rouse.
 - A breast is red, hot and painful, or you have a fever.
-- The baby has not returned to birth weight by around two weeks.
+- The baby is not back to birth weight when your midwife or health visitor expected.
 
 A red, hot, painful breast with fever needs same-day advice, and [postpartum warning signs](/en/learn/postpartum-warning-signs) covers the wider list.
 

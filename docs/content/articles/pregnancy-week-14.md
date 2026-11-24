@@ -44,6 +44,7 @@ sources:
     url: "https://www.nhs.uk/pregnancy/your-pregnancy-care/screening-tests/"
     tier: "1"
 internal_links:
+  - "/en/help-now"
   - "/en/learn/pregnancy-week-13"
   - "/en/learn/pregnancy-week-15"
   - "/en/learn/pregnancy-warning-signs"
@@ -58,7 +59,7 @@ Week 14 is often the week the fog lifts a little. Tiredness and sickness ease fo
 
 The placenta is now doing the work: pumping nutrients, oxygen and hormones across, and carrying waste away. It is firmly attached to the womb and connected to the pregnancy through the umbilical cord.
 
-Your blood and the pregnancy's blood come into close contact inside the placenta but do not mix. That separation matters clinically, and it is the reason blood group is checked early in pregnancy.
+Your blood and the pregnancy's blood come into close contact inside the placenta but do not mix. Blood group is checked early in pregnancy so that care can be planned if the mother's and baby's blood groups differ.
 
 Some women notice yellow stains inside a bra around now. That is usually colostrum, the first milk, and it can appear weeks or months before a birth. It is worth mentioning to a midwife if any breast change worries you, but its arrival is not unusual.
 
@@ -80,7 +81,7 @@ The head is rounding out and coming into proportion. A midwife may be able to he
 
 For women who missed the first-trimester screening window, the second-trimester blood screening test in the UK is offered from around 14 weeks and up to 20 weeks. It screens for Down's syndrome only, rather than the three conditions the combined test covers.
 
-Nothing else is routinely scheduled this week in the UK. Antenatal schedules differ between countries, and a country with more frequent visits is not offering better care, only a different pattern.
+Nothing else is routinely scheduled this week in the UK. Antenatal schedules differ between countries, and some countries offer more frequent visits, and that is a different pattern rather than a measure of quality.
 
 ## This week's tip
 
@@ -90,7 +91,7 @@ Ignore "eating for two" and change what is within reach instead. ACOG puts the e
 
 Report bleeding, severe pain, a fever, burning when you pee, or a headache with vision changes. [Pregnancy warning signs](/en/learn/pregnancy-warning-signs) has the full list.
 
-> **Seek care now:** Contact your local emergency services or go to your nearest emergency department if you have heavy bleeding, severe or one-sided tummy pain, a severe headache with vision changes, sudden swelling of the face or hands, a fever, fluid leaking from the vagina, chest pain, trouble breathing, fainting, or a seizure. femio cannot assess a pregnancy.
+> **Seek care now:** Contact your local emergency services or go to your nearest emergency department if you have heavy bleeding, severe or one-sided tummy pain, a severe headache with vision changes, sudden swelling of the face or hands, a fever, fluid leaking from the vagina, chest pain, trouble breathing, fainting, a seizure, or thoughts of harming yourself or the baby ([help now](/en/help-now)). femio cannot assess a pregnancy.
 
 ## Frequently asked questions
 
