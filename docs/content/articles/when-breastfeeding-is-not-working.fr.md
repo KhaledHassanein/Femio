@@ -24,7 +24,7 @@ open_graph_image_alt: "Une femme tenant un biberon et un bébé, d'un air serein
 written_by: "PENDING"
 medically_reviewed_by: "Dr. Khaled M."
 date_published: "2026-10-30"
-date_modified: "2026-11-24"
+date_modified: "2026-11-25"
 last_reviewed: "2026-10-30"
 next_review_due: "2027-10-30"
 reading_level_ok: false
@@ -58,7 +58,7 @@ Si l'allaitement vous fait mal, si la production de lait vous inquiète, ou si v
 
 ## D'abord : faire observer une tétée
 
-Presque tous les problèmes d'allaitement des premiers jours sont évalués par une personne qui observe une tétée complète. C'est l'étape qui vaut la peine d'être demandée.
+Presque tous les problèmes d'allaitement des premiers jours sont mieux évalués par une personne qui observe une tétée complète. C'est l'étape qui vaut la peine d'être demandée.
 
 Demandez à votre sage-femme, à votre infirmière de santé publique, à un spécialiste de l'alimentation du nourrisson, à une consultante en lactation ou à un service de soutien entre pairs. [Les recommandations du NICE sur les soins postnatals](https://www.nice.org.uk/guidance/ng194) prévoient qu'un soutien à l'allaitement soit proposé dans le cadre des soins postnatals.
 
@@ -66,7 +66,7 @@ Apportez des éléments précis : ce qui fait mal, à quel moment, à quoi resse
 
 ## La douleur
 
-Une douleur pendant toute la tétée signifie généralement que la prise du sein doit être ajustée, et la forme du mamelon après la tétée est un indice. Un mamelon aplati, plissé ou en forme de coin signifie que le bébé ne prend pas assez de tissu mammaire.
+Une douleur pendant toute la tétée signifie généralement que la prise du sein doit être ajustée, et la forme du mamelon après la tétée est un indice. Un mamelon aplati, plissé ou en forme de coin peut signifier que le bébé ne prend pas assez de tissu mammaire.
 
 D'autres causes existent et doivent être examinées plutôt que devinées : une peau abîmée, un muguet, un vasospasme, ou les mouvements de la langue du bébé. Une douleur profonde et lancinante après les tétées, ou des mamelons qui blanchissent puis font mal, mérite d'être décrite précisément.
 
@@ -74,7 +74,7 @@ Ne tenez pas pendant des semaines avec des mamelons fissurés et qui saignent. C
 
 ## Inquiétudes sur la production de lait
 
-La plupart des personnes qui s'inquiètent de la production de lait en ont suffisamment. Les indicateurs rassurants sont les couches, la couleur des selles et la prise de poids, et non la sensation de plénitude du sein ou la quantité obtenue au tire-lait. Un tire-lait n'est pas une mesure de la production de lait.
+Beaucoup de personnes qui s'inquiètent de la production de lait en ont suffisamment. Les indicateurs rassurants sont les couches, la couleur des selles et la prise de poids, et non la sensation de plénitude du sein ou la quantité obtenue au tire-lait. Un tire-lait n'est pas une mesure de la production de lait.
 
 Une production réellement faible existe aussi. Elle peut suivre un accouchement difficile, une perte de sang importante, des problèmes thyroïdiens, certains médicaments, une rétention placentaire ou une chirurgie du sein. Elle mérite une évaluation plutôt que davantage d'efforts.
 
@@ -104,7 +104,7 @@ Arrêter est une décision légitime, et la raison n'a pas besoin d'être médic
 
 **Attendez-vous à un coup de blues.** Certaines personnes se sentent déprimées pendant quelques jours à la fin de l'allaitement, et savoir que cela peut arriver rend la période plus facile. Si la baisse de moral persiste, lisez [votre humeur après l'accouchement](/fr/learn/mood-after-birth).
 
-**Attendez-vous à un changement de votre cycle.** Les règles reviennent souvent quelques semaines après la diminution des tétées : voir [quand vos règles reviennent](/fr/learn/periods-after-birth).
+**Attendez-vous à un changement de votre cycle.** Les règles peuvent revenir plus tôt lorsque vous diminuez les tétées : voir [quand vos règles reviennent](/fr/learn/periods-after-birth).
 
 ## La culpabilité, et à qui elle appartient
 
@@ -142,4 +142,4 @@ Progressivement, en supprimant une tétée tous les deux ou trois jours lorsque 
 
 ### L'arrêt de l'allaitement fera-t-il revenir mes règles ?
 
-Souvent, quelques semaines après la diminution des tétées. Les cycles sont en général irréguliers au début.
+Cela peut arriver, parfois quelques semaines après la diminution des tétées. Les cycles sont en général irréguliers au début.

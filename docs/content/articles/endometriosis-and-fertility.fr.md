@@ -24,7 +24,7 @@ open_graph_image_alt: "Personne discutant de ses objectifs de fertilité avec un
 written_by: "PENDING"
 medically_reviewed_by: "Dr. Khaled M."
 date_published: "2026-10-30"
-date_modified: "2026-11-24"
+date_modified: "2026-11-25"
 last_reviewed: "2026-10-30"
 next_review_due: "2027-10-30"
 reading_level_ok: false
@@ -61,7 +61,7 @@ L'âge et le fonctionnement des ovaires peuvent compter. Il en va de même des t
 
 ## Comment l'endométriose peut-elle affecter la fertilité ?
 
-L'endométriose peut provoquer un gonflement ou du tissu cicatriciel. Elle peut aussi modifier la zone autour des trompes de Fallope et des ovaires. Certaines personnes ont un kyste ovarien appelé endométriome.
+L'endométriose peut provoquer une inflammation (irritation et gonflement) ou du tissu cicatriciel. Elle peut aussi modifier la zone autour des trompes de Fallope et des ovaires. Certaines personnes ont un kyste ovarien appelé endométriome.
 
 Ces modifications peuvent affecter la libération d'un ovocyte. Elles peuvent influencer la rencontre entre l'ovocyte et le spermatozoïde. Les organes peuvent moins bien fonctionner ensemble. Pourtant, le lien n'est pas simple. L'étendue observée ne permet pas de prédire la chance de grossesse d'une personne donnée.
 
@@ -69,7 +69,7 @@ Ces modifications peuvent affecter la libération d'un ovocyte. Elles peuvent in
 
 ## Peut-on tomber enceinte naturellement ?
 
-Oui. Certaines personnes apprennent qu'elles ont peut-être une endométriose après une grossesse passée. D'autres conçoivent en vivant avec des symptômes. Certaines demandent un soutien médical.
+Oui. Certaines personnes apprennent pour la première fois qu'elles ont peut-être une endométriose lors d'un bilan de fertilité. D'autres conçoivent en vivant avec des symptômes. Certaines demandent un soutien médical.
 
 Aucune application, aucun examen ni aucune liste de symptômes ne peut promettre un résultat. [L'ACOG](https://www.acog.org/womens-health/faqs/endometriosis) indique que les projets de grossesse doivent faire partie des échanges de soins.
 

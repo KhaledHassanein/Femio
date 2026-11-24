@@ -11,7 +11,7 @@ secondary_topics:
   - "fin du premier trimestre"
 excerpt: "La semaine 12 clôt le premier trimestre pour la plupart des femmes, et c'est la semaine où l'échographie et la question de l'annonce aux proches arrivent généralement ensemble."
 meta_title: "12 semaines de grossesse : échographie et annonce | femio"
-meta_description: "La semaine 12 apporte souvent l'échographie et la question de l'annonce. Ce que signifie le relais du placenta, et pourquoi la taille du ventre ne prouve rien."
+meta_description: "Semaine 12 : souvent l'échographie et la question de l'annonce. Pourquoi les nausées s'atténuent souvent, et pourquoi la taille du ventre ne prouve rien."
 canonical_url: "https://femioapp.com/fr/learn/pregnancy-week-12"
 robots_while_draft: "noindex,nofollow"
 robots_when_published: "index,follow,max-image-preview:large"
@@ -58,7 +58,7 @@ La semaine 12 clôt le premier trimestre pour la plupart des femmes, et elle app
 
 ## Votre corps cette semaine
 
-Le placenta assure probablement déjà l'apport nutritif de la grossesse, ayant pris le relais de la vésicule vitelline, et les taux hormonaux se stabilisent quelque peu une fois que cela s'est produit. C'est la raison pour laquelle les nausées s'atténuent généralement dans les semaines qui suivent.
+Le placenta assure probablement déjà l'apport nutritif de la grossesse, ayant pris le relais de la vésicule vitelline, et les taux hormonaux se stabilisent quelque peu une fois que cela s'est produit. Les nausées s'atténuent généralement dans les semaines qui suivent, bien que la raison exacte ne soit pas certaine.
 
 Votre taille s'épaissit et vos seins grossissent. Lorsque les nausées disparaissent, l'appétit revient souvent, avec lui l'inquiétude de savoir si vous mangez trop ou pas assez.
 

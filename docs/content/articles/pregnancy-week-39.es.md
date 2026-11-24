@@ -53,7 +53,7 @@ internal_links:
 
 # Semana 39 del embarazo: qué esperar
 
-La semana 39 es cuando la mayoría de las mujeres entran en parto dentro de una semana antes o después de la fecha prevista. Las aguas pueden romperse en cualquier momento, y casi nunca de la forma que muestran las películas. Lo que conviene saber con precisión esta semana es cuándo descolgar el teléfono.
+El trabajo de parto suele empezar alrededor de la fecha probable de parto, pero esa fecha es una estimación, así que el parto puede llegar antes o después. Las aguas pueden romperse en cualquier momento, y casi nunca de la forma que muestran las películas. Lo que conviene saber con precisión esta semana es cuándo descolgar el teléfono.
 
 ## Tu cuerpo esta semana
 
@@ -79,7 +79,7 @@ La piel ha desarrollado una capa externa más resistente que la protege y ayuda 
 
 Nada se programa de forma rutinaria para la mayoría de las mujeres esta semana, y las citas se reanudan a las 40 y 41 semanas en el Reino Unido para un primer bebé.
 
-Hay dos listas que conviene leer antes del parto y no después. El NHS señala nueve signos que deben tratarse como una emergencia en esta etapa: cualquier sangrado, flujo marrón o rosado, picor intenso sobre todo por la noche, un dolor de cabeza que no cede, problemas de visión, dolor justo debajo de las costillas, hinchazón extrema de los pies, tobillos, manos y cara, dolores de estómago persistentes, y una temperatura superior a 37,5 °C sin síntomas de resfriado ni gripe. La segunda lista describe cómo es realmente un recién nacido en los primeros minutos —a menudo silencioso antes de llorar, con manos y pies azulados y respiración irregular—, porque saberlo de antemano evita un gran susto.
+Hay dos listas que conviene leer antes del parto y no después. El NHS señala nueve signos que requieren contactar con tu unidad de maternidad de inmediato en esta etapa: cualquier sangrado, flujo marrón o rosado, picor intenso sobre todo por la noche, un dolor de cabeza que no cede, problemas de visión, dolor justo debajo de las costillas, hinchazón extrema de los pies, tobillos, manos y cara, dolores de estómago persistentes, y una temperatura superior a 37,5 °C sin síntomas de resfriado ni gripe. La segunda lista describe cómo es realmente un recién nacido en los primeros minutos —a menudo silencioso antes de llorar, con manos y pies azulados y respiración irregular—, porque saberlo de antemano evita un gran susto.
 
 ## El consejo de esta semana
 

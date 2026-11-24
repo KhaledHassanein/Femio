@@ -73,7 +73,7 @@ Les mouvements doivent rester aussi forts et réguliers qu'auparavant. Toute dim
 
 Vers la semaine 28, la longueur donnée est d'environ 37,6 cm de la tête aux talons, que le NHS compare à une aubergine. Il s'agit de moyennes sur une population, et non de la mesure de votre propre grossesse.
 
-Le rythme cardiaque évolue au cours de la grossesse : le NHS décrit environ 110 battements par minute lorsque le cœur du bébé est détecté pour la première fois, environ 170 aux semaines 9 et 10, environ 140 à ce stade, et environ 130 à la naissance. Ces chiffres sont tous plus rapides que chez un adulte, car les petits cœurs pompent moins de sang à chaque battement.
+Le rythme cardiaque évolue au cours de la grossesse : le NHS décrit environ 110 battements par minute lorsque le cœur du bébé est détecté pour la première fois, environ 170 à 180 aux semaines 9 et 10, environ 140 à ce stade, et environ 130 à la naissance. Ces chiffres sont tous plus rapides que chez un adulte.
 
 ## Les soins habituellement prévus à cette période
 
@@ -87,7 +87,7 @@ Demandez à ce rendez-vous si vous êtes de rhésus D négatif, et ce que cela i
 
 ## Quand consulter
 
-Contactez votre service de maternité le jour même en cas de mouvements réduits, de fuite de liquide, de contractions qui deviennent régulières, ou de saignement. Un mal de tête avec troubles de la vision ou un gonflement soudain nécessite des soins d'urgence. [Les signes d'alerte de la grossesse](/fr/learn/pregnancy-warning-signs) donnent la liste.
+Contactez votre service de maternité sans attendre en cas de mouvements réduits, de fuite de liquide, de contractions qui deviennent régulières, ou de saignement. Un mal de tête avec troubles de la vision ou un gonflement soudain nécessite des soins d'urgence. [Les signes d'alerte de la grossesse](/fr/learn/pregnancy-warning-signs) donnent la liste.
 
 > **Consultez sans attendre :** Contactez les services d'urgence de votre région ou rendez-vous au service des urgences le plus proche si vous avez un saignement abondant, une douleur intense ou d'un seul côté du ventre, un mal de tête sévère avec troubles de la vision, un gonflement soudain du visage ou des mains, une fièvre, une fuite de liquide par le vagin, une douleur thoracique, des difficultés à respirer, un malaise, une crise convulsive ou des pensées de vous faire du mal ou de faire du mal à votre bébé ([aide immédiate](/fr/help-now)). Contactez votre service de maternité sans attendre si les mouvements de votre bébé ralentissent, s’arrêtent ou changent. femio ne peut pas évaluer une grossesse.
 

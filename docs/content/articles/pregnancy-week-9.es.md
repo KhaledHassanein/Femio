@@ -57,7 +57,7 @@ Para muchas mujeres, la semana 9 es el punto más bajo. Los niveles de las hormo
 
 ## Tu cuerpo esta semana
 
-La gonadotropina coriónica humana (hCG) se ha ido duplicando aproximadamente cada dos o tres días, y el NHS sitúa su pico hacia la semana 9. Los estrógenos y la progesterona también están altos, y juntos aumentan el suministro de sangre al útero.
+La gonadotropina coriónica humana (hCG) ha subido con rapidez en las primeras semanas, y el NHS sitúa su pico hacia la semana 9. Los estrógenos y la progesterona también están altos, y juntos aumentan el suministro de sangre al útero.
 
 Los senos están más grandes y la cintura puede engrosarse un poco, aunque nada parezca obviamente embarazado todavía. Algunas mujeres describen este periodo como una montaña rusa emocional, que es una descripción y no un diagnóstico, y es algo que el NHS repite porque se informa mucho.
 

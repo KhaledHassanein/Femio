@@ -83,7 +83,7 @@ Si l’échographie morphologique a révélé quelque chose d’inattendu, cette
 
 ## Conseil de la semaine
 
-Montez les escaliers une marche à la fois, et tenez la rampe — à chaque fois, et pas seulement lorsque vous vous sentez instable. Les chutes pendant la grossesse surviennent en général dans des escaliers ordinaires, lors d’une journée ordinaire, et ce réflexe doit devenir automatique pour être utile.
+Montez les escaliers une marche à la fois, et tenez la rampe — à chaque fois, et pas seulement lorsque vous vous sentez instable. Les escaliers sont un lieu fréquent de chutes, et tenir la rampe à chaque fois est une bonne habitude.
 
 ## Quand consulter
 

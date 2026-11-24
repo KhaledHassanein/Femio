@@ -24,7 +24,7 @@ open_graph_image_alt: "Une femme se reposant à domicile dans les semaines qui s
 written_by: "PENDING"
 medically_reviewed_by: "Dr. Khaled M."
 date_published: "2026-10-30"
-date_modified: "2026-10-30"
+date_modified: "2026-11-25"
 last_reviewed: "2026-10-30"
 next_review_due: "2027-10-30"
 reading_level_ok: false
@@ -80,7 +80,7 @@ La chute de cheveux, les sueurs nocturnes, les poignets douloureux et les pieds 
 
 Les saignements après la naissance s'appellent les lochies. Leur couleur passe du rouge au rose, puis au brun et au blanchâtre, au fil des jours et des semaines, et ils peuvent s'interrompre puis reprendre.
 
-Imbiber une serviette de maternité en moins d'une heure, rendre des caillots plus gros qu'une prune, ou des saignements qui redeviennent soudainement plus abondants nécessitent un avis urgent. Les [CDC](https://www.cdc.gov/hearher/maternal-warning-signs/index.html) citent les saignements abondants parmi les signes qui exigent des soins immédiats après l'accouchement.
+Imbiber une serviette de maternité en moins d'une heure, ou rendre des caillots de la taille d'un œuf ou plus gros, nécessite une prise en charge d'urgence. Des caillots plus gros qu'une prune, ou des saignements qui redeviennent soudainement plus abondants, nécessitent un avis le jour même. Les [CDC](https://www.cdc.gov/hearher/maternal-warning-signs/index.html) citent les saignements abondants parmi les signes qui exigent des soins immédiats après l'accouchement.
 
 Lisez [les saignements après l'accouchement](/fr/learn/bleeding-after-birth) pour savoir à quoi ressemble chaque étape.
 

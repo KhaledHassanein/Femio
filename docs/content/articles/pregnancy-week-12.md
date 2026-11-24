@@ -11,7 +11,7 @@ secondary_topics:
   - "end of the first trimester"
 excerpt: "Week 12 closes the first trimester for most women, and it is the week the scan and the telling-people question usually arrive together."
 meta_title: "12 Weeks Pregnant: The Scan and the Telling"
-meta_description: "Week 12 usually brings the scan and the question of who to tell. What the placenta takeover means for symptoms, and why bump size proves nothing."
+meta_description: "Week 12 usually brings the scan and the question of who to tell. Why nausea often eases from here, and why bump size proves nothing."
 canonical_url: "https://femioapp.com/en/learn/pregnancy-week-12"
 robots_while_draft: "noindex,nofollow"
 robots_when_published: "index,follow,max-image-preview:large"

@@ -75,7 +75,7 @@ Une brûlure en urinant, ou un besoin urgent et fréquent d'uriner, est une rais
 
 Vers la semaine 13, la taille donnée est d'environ 7,4 cm, de la taille d'une pêche selon la comparaison du NHS. Il s'agit d'une moyenne pour une population, et aucune grossesse n'a à correspondre exactement à ce chiffre.
 
-Il y a du mouvement : d'abord saccadé et aléatoire, puis plus délibéré. La plupart des femmes ne sentent rien avant environ la semaine 17 ou plus tard. Certains bébés sucent leur pouce à ce stade, ce qui développe le réflexe de succion nécessaire à l'alimentation après la naissance.
+Il y a du mouvement : d'abord saccadé et aléatoire, puis plus délibéré. La plupart des femmes ne sentent pas les mouvements avant une période comprise entre les semaines 17 et 24. Certains bébés sucent leur pouce à ce stade, ce qui développe le réflexe de succion nécessaire à l'alimentation après la naissance.
 
 ## Quels soins sont généralement prévus à ce moment
 

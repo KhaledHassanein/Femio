@@ -24,7 +24,7 @@ open_graph_image_alt: "Una mujer comentando los resultados de un análisis de sa
 written_by: "PENDING"
 medically_reviewed_by: "Dr. Khaled M."
 date_published: "2026-10-30"
-date_modified: "2026-11-24"
+date_modified: "2026-11-25"
 last_reviewed: "2026-10-30"
 next_review_due: "2027-10-30"
 reading_level_ok: false
@@ -82,9 +82,9 @@ La guía sobre [la cita preconcepcional](/es/learn/preconception-appointment) cu
 
 Normalmente, dos cosas: tu medicación puede necesitar revisión rápida, y los análisis se vuelven más frecuentes. Muchos profesionales dan un plan por adelantado precisamente para que nada espere a que haya un hueco en la agenda.
 
-Si no te han dado uno, contacta con quien controla tu tiroides en cuanto tengas una prueba positiva. Di que estás embarazada y que tomas medicación para la tiroides: esa frase suele acelerar la cita.
+Si no te han dado uno, contacta con quien controla tu tiroides en cuanto tengas una prueba positiva. Di que estás embarazada y que tomas medicación para la tiroides: esa frase ayuda al equipo a ver lo urgente que es tu caso.
 
-No dejes de tomar tu medicación porque estés embarazada. Es un temor común y comprensible, y es lo contrario de lo que describe la guía.
+No dejes de tomar tu medicación por tu cuenta porque estés embarazada; quien te la receta decide cualquier cambio. Es un temor común y comprensible, y es lo contrario de lo que describe la guía.
 
 ## Los problemas de tiroides y la concepción
 

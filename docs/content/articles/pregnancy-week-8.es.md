@@ -74,9 +74,9 @@ El sangrado, el dolor intenso o el dolor de un solo lado siguen siendo asuntos d
 
 ## Tu bebé esta semana
 
-Hacia la semana 8, la medida que se da es de unos 16 mm de cabeza a nalgas, del tamaño de una frambuesa en la ilustración del NHS, y se espera que se duplique aproximadamente en la semana siguiente. Son promedios de población, no una descripción de un embarazo concreto.
+Hacia la semana 8, la medida que se da es de unos 16 mm de cabeza a nalgas, del tamaño de una frambuesa en la ilustración del NHS, y crece con rapidez en las semanas siguientes. Son promedios de población, no una descripción de un embarazo concreto.
 
-La cabeza empieza a desenrollarse. Los brazos crecen más deprisa que las piernas, porque la parte superior del cuerpo se desarrolla primero. Hacia este momento, el embrión empieza a llamarse feto.
+La cabeza empieza a desenrollarse. Los brazos crecen más deprisa que las piernas, porque la parte superior del cuerpo se desarrolla primero. Más adelante en el primer trimestre, el embrión empieza a llamarse feto.
 
 ## Qué cuidados suelen producirse por estas fechas
 

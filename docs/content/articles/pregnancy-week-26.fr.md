@@ -61,7 +61,7 @@ Porter un poids supplémentaire avec un centre de gravité modifié affecte l'é
 
 Les crampes dans les jambes s'aggravent souvent la nuit. Le NHS suggère des exercices des pieds et des chevilles, de ramener les orteils vers le haut, et de masser le muscle à l'endroit où il fait mal.
 
-Les oublis sont largement rapportés et souvent appelés « baby brain ». Le NHS est prudent à ce sujet : ce n'est pas une affection médicale et ce n'est pas scientifiquement établi, et la fatigue ainsi qu'une charge mentale importante expliquent l'essentiel. Ce n'est pas dédaigneux. C'est la différence entre une expérience réelle et un diagnostic, et seule la première est avancée ici.
+Les oublis sont largement rapportés et souvent appelés « baby brain ». Le NHS est prudent à ce sujet : ce n'est pas une affection médicale, et la fatigue ainsi qu'une charge mentale importante expliquent l'essentiel. Ce n'est pas dédaigneux. C'est la différence entre une expérience réelle et un diagnostic, et seule la première est avancée ici.
 
 ## Ce que vous pourriez remarquer
 
@@ -83,7 +83,7 @@ Si la vaccination contre la coqueluche n'a pas été faite, la période court ju
 
 ## Le conseil de cette semaine
 
-Faites des cercles avec les chevilles et des tractions sur les orteils avant de vous mettre au lit : dix de chaque, pour les deux pieds. C'est la seule chose qui réduit les crampes nocturnes pour beaucoup de femmes. Cela ne prend qu'une minute, et contrairement à la plupart des conseils contre les crampes, cela se fait au moment où c'est utile, plutôt qu'au milieu de la nuit sur une seule jambe.
+Faites des cercles avec les chevilles et des tractions sur les orteils avant de vous mettre au lit. Répétez-les quelques fois sur chaque pied, ce qui peut aider. C'est l'un des conseils que le NHS propose pour les crampes nocturnes. Cela ne prend qu'une minute, et contrairement à la plupart des conseils contre les crampes, cela se fait au moment où c'est utile, plutôt qu'au milieu de la nuit sur une seule jambe.
 
 ## Quand consulter
 

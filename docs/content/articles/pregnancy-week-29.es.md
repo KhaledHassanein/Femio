@@ -77,7 +77,7 @@ El desarrollo en cuanto a estructura está en gran parte completo; las semanas q
 
 ## Qué atención suele darse en estas semanas
 
-En el Reino Unido, para la mayoría de las mujeres no hay nada programado de forma rutinaria esta semana. La vacuna de la tos ferina conviene administrarla antes de la semana 33 para que la protección llegue al bebé, y la vacuna frente al VRS (virus respiratorio sincitial) puede ponerse desde alrededor de la semana 28 hasta el parto.
+En el Reino Unido, para la mayoría de las mujeres no hay nada programado de forma rutinaria esta semana. La vacuna de la tos ferina suele ofrecerse hasta la semana 32 para que la protección llegue al bebé, y todavía puede ponerse después, y la vacuna frente al VRS (virus respiratorio sincitial) puede ponerse desde alrededor de la semana 28 hasta el parto.
 
 El NHS también enumera lo que no puede decirte el sexo del bebé, y conviene leerlo antes de que alguien en el trabajo insista en lo contrario: la posición o la forma de la barriga, el ritmo cardíaco, los kits de predicción caseros y un anillo de boda colgado de un hilo. La forma de la barriga refleja tu altura, tus músculos, cuántos bebés has tenido y lo que has comido.
 
@@ -87,7 +87,7 @@ Pon una almohada bajo la barriga además de entre las rodillas. La mayoría de l
 
 ## Cuándo consultar
 
-Contacta con tu servicio de maternidad el mismo día si hay movimientos reducidos o cambiados, pérdida de líquido, contracciones regulares o sangrado. La falta de aire que aparece de repente, o con dolor en el pecho, necesita atención de urgencia. [Señales de alarma del embarazo](/es/learn/pregnancy-warning-signs) tiene la lista completa.
+Contacta con tu servicio de maternidad de inmediato si hay movimientos reducidos o cambiados, pérdida de líquido, contracciones regulares o sangrado. La falta de aire que aparece de repente, o con dolor en el pecho, necesita atención de urgencia. [Señales de alarma del embarazo](/es/learn/pregnancy-warning-signs) tiene la lista completa.
 
 > **Busca atención ya:** Contacta con los servicios de emergencia de tu zona o acude al servicio de urgencias más cercano si tienes sangrado abundante, dolor abdominal intenso o de un solo lado, un dolor de cabeza fuerte con cambios en la visión, hinchazón repentina de la cara o las manos, fiebre, pérdida de líquido por la vagina, dolor en el pecho, dificultad para respirar, desmayo, una convulsión o pensamientos de hacerte daño a ti misma o a tu bebé ([ayuda ahora](/es/help-now)). Contacta con tu servicio de maternidad de inmediato si los movimientos de tu bebé se vuelven más lentos, se detienen o cambian. femio no puede valorar un embarazo.
 

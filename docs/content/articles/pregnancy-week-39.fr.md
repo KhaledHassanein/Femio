@@ -53,7 +53,7 @@ internal_links:
 
 # Semaine 39 de grossesse : à quoi s'attendre
 
-La semaine 39 est celle où la plupart des femmes entrent en travail dans la semaine qui précède ou suit leur date prévue. La poche des eaux peut se rompre à tout moment, et presque jamais de la façon dont le cinéma la montre. Ce qu'il vaut la peine de savoir précisément cette semaine, c'est quand décrocher le téléphone.
+Le travail commence souvent autour de la date prévue, mais celle-ci est une estimation : il peut donc arriver plus tôt ou plus tard. La poche des eaux peut se rompre à tout moment, et presque jamais de la façon dont le cinéma la montre. Ce qu'il vaut la peine de savoir précisément cette semaine, c'est quand décrocher le téléphone.
 
 ## Votre corps cette semaine
 
@@ -79,7 +79,7 @@ La peau a développé une couche externe plus résistante qui la protège et aid
 
 Rien n'est systématiquement programmé cette semaine pour la plupart des femmes, et les rendez-vous reprennent à 40 et 41 semaines au Royaume-Uni pour un premier bébé.
 
-Deux listes sont à lire avant la naissance plutôt qu'après. Le NHS en cite neuf signes à traiter comme une urgence à ce stade : tout saignement, des pertes brunes ou roses, des démangeaisons intenses surtout la nuit, un mal de tête qui ne passe pas, des troubles de la vision, une douleur juste sous les côtes, un gonflement extrême des pieds, des chevilles, des mains et du visage, des douleurs persistantes au ventre, et une température supérieure à 37,5 °C sans symptômes de rhume ou de grippe. La seconde liste concerne ce à quoi ressemble réellement un nouveau-né pendant les premières minutes : souvent calme avant de pleurer, mains et pieds bleus, respiration irrégulière. Le savoir à l'avance évite beaucoup de frayeurs.
+Deux listes sont à lire avant la naissance plutôt qu'après. Le NHS en cite neuf signes qui nécessitent de contacter votre service de maternité sans attendre à ce stade : tout saignement, des pertes brunes ou roses, des démangeaisons intenses surtout la nuit, un mal de tête qui ne passe pas, des troubles de la vision, une douleur juste sous les côtes, un gonflement extrême des pieds, des chevilles, des mains et du visage, des douleurs persistantes au ventre, et une température supérieure à 37,5 °C sans symptômes de rhume ou de grippe. La seconde liste concerne ce à quoi ressemble réellement un nouveau-né pendant les premières minutes : souvent calme avant de pleurer, mains et pieds bleus, respiration irrégulière. Le savoir à l'avance évite beaucoup de frayeurs.
 
 ## Le conseil de cette semaine
 

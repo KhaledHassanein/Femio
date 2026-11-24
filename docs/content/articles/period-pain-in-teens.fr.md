@@ -22,7 +22,7 @@ open_graph_image_alt: "Dessin au trait simple d'un cercle chaud au-dessus d'une 
 written_by: "PENDING"
 medically_reviewed_by: "Dr. Khaled M."
 date_published: "2026-10-30"
-date_modified: "2026-10-30"
+date_modified: "2026-11-25"
 last_reviewed: "2026-10-30"
 next_review_due: "2027-10-30"
 reading_level_ok: false
@@ -74,7 +74,7 @@ Rien de cette liste n'est un traitement miracle, et rien n'est garanti. Essayer 
 
 ## Ce qui n'aide pas, quoi qu'on vous ait dit
 
-Sauter des repas, serrer les dents au-delà de ce qui est supportable, ou attendre que la douleur soit insupportable avant d'agir. Une douleur se calme plus facilement tôt que tard.
+Attendre que la douleur soit insupportable avant d'agir. Une douleur se calme souvent plus facilement tôt que tard.
 
 Manquer l'école à répétition sans rien dire n'aide pas non plus. C'est très fréquent, et c'est exactement la situation qui s'améliore une fois qu'un adulte est au courant.
 

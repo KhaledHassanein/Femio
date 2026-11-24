@@ -24,7 +24,7 @@ open_graph_image_alt: "Una persona cansada descansando en un sofá a la luz del 
 written_by: "PENDING"
 medically_reviewed_by: "Dr. Khaled M."
 date_published: "2026-10-30"
-date_modified: "2026-10-30"
+date_modified: "2026-11-25"
 last_reviewed: "2026-10-30"
 next_review_due: "2027-10-30"
 reading_level_ok: false
@@ -66,7 +66,7 @@ El dolor, la cicatrización de las heridas y la enorme carga mental de ser respo
 
 ## Qué ayuda de verdad
 
-La mayoría de los consejos de sueño para madres y padres primerizos no son realistas. Estas son las cosas que marcan una diferencia medible:
+La mayoría de los consejos de sueño para madres y padres primerizos no son realistas. Estas son las cosas que suelen ayudar:
 
 - **Duerme cuando puedas, no cuando sea de noche.** Una siesta de 40 minutos de día es sueño de verdad.
 - **Divide la noche si son dos.** Una persona se encarga del primer tramo y la otra del segundo, de modo que cada una tenga un bloque ininterrumpido.
@@ -88,13 +88,13 @@ Parte del agotamiento no tiene nada que ver con el sueño. Coméntalo con un pro
 - Dormir y despertarse sin descanso durante semanas.
 - No poder dormir ni siquiera cuando duerme el bebé.
 
-El hierro bajo tras una pérdida de sangre abundante es frecuente y tratable, y un análisis de sangre lo confirma. [Menstruaciones abundantes y anemia por deficiencia de hierro](/es/learn/heavy-periods-iron-deficiency-anaemia) explica cómo se siente un hierro bajo.
+El hierro bajo tras una pérdida de sangre abundante es frecuente y tratable, y un análisis de sangre puede comprobarlo. [Menstruaciones abundantes y anemia por deficiencia de hierro](/es/learn/heavy-periods-iron-deficiency-anaemia) explica cómo se siente un hierro bajo.
 
 Los problemas de tiroides pueden aparecer en los meses posteriores al parto y causar agotamiento, y la [guía de atención posparto de ACOG](https://www.acog.org/clinical/clinical-guidance/committee-opinion/articles/2018/05/optimizing-postpartum-care) plantea el periodo posnatal como una atención continua y no como una sola visita, que es el momento en que se detectan estas cosas.
 
 ## Agotamiento y estado de ánimo
 
-No dormir y el ánimo bajo se alimentan mutuamente, y es difícil separarlos desde dentro. Una señal útil: no poder dormir cuando el bebé duerme, noche tras noche, apunta a un problema de ánimo o de ansiedad más que a la privación de sueño por sí sola.
+No dormir y el ánimo bajo se alimentan mutuamente, y es difícil separarlos desde dentro. Una señal útil: no poder dormir cuando el bebé duerme, noche tras noche, puede ser señal de ansiedad o de ánimo bajo además del cansancio, así que vale la pena comentarlo con un profesional sanitario.
 
 Si pasas la noche en vela comprobando que el bebé respira, o si temes la noche, lee [tu estado de ánimo después del parto](/es/learn/mood-after-birth). Vale la pena comentarlo con un profesional.
 
@@ -126,7 +126,7 @@ Pide un análisis de sangre si tuviste una hemorragia abundante durante el parto
 
 ### ¿Cuánto dura el agotamiento por el recién nacido?
 
-Las tomas suelen espaciarse durante los primeros meses, y la mayoría de las personas notan una mejoría real en la segunda mitad del primer año.
+Las tomas suelen espaciarse durante los primeros meses, y el cansancio suele aliviarse a medida que el sueño se hace menos partido, aunque cuánto tarda varía mucho.
 
 ### ¿Es normal sentir falta de aire por el cansancio?
 
@@ -142,4 +142,4 @@ No. Las tomas frecuentes a esta edad son normales, y los métodos que prometen l
 
 ### ¿Por qué no puedo dormir cuando el bebé duerme?
 
-Ese patrón apunta a ansiedad o a ánimo bajo más que solo a la privación de sueño, y vale la pena comentarlo con un profesional.
+Ese patrón puede ser señal de ansiedad o de ánimo bajo además del cansancio, y vale la pena comentarlo con un profesional sanitario.

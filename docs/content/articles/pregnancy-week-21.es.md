@@ -83,7 +83,7 @@ Si la ecografía de anomalías planteó algo inesperado, suele ser la semana en 
 
 ## Consejo de esta semana
 
-Sube y baja las escaleras de una en una y agárrate al pasamanos, siempre, no solo cuando te sientas inestable. Las caídas en el embarazo suelen ocurrir en escaleras normales en un día normal, y el hábito tiene que ser automático para que sea útil.
+Sube y baja las escaleras de una en una y agárrate al pasamanos, siempre, no solo cuando te sientas inestable. Las escaleras son un lugar frecuente para las caídas, así que agarrarte al pasamanos cada vez es un buen hábito.
 
 ## Cuándo consultar
 

@@ -23,7 +23,7 @@ open_graph_image_alt: "Un bebé dormido boca arriba en una cuna vacía con una s
 written_by: "PENDING"
 medically_reviewed_by: "Dr. Khaled M."
 date_published: "2026-10-30"
-date_modified: "2026-11-24"
+date_modified: "2026-11-25"
 last_reviewed: "2026-10-30"
 next_review_due: "2027-10-30"
 reading_level_ok: false
@@ -57,7 +57,7 @@ internal_links:
 
 # Un sueño más seguro para tu bebé
 
-Las guías de sueño seguro de todo el mundo coinciden en lo esencial: los bebés duermen boca arriba, sobre una superficie firme y plana, en su propio espacio de sueño despejado, y en la misma habitación que un adulto durante los primeros meses. Los países difieren en cuanto a compartir cama, y esa diferencia es real y no un problema de traducción, así que esta página describe ambas posturas y te remite al consejo de tu lugar de residencia. Es información para aprender y no un consejo médico sobre tu bebé. Cualquier cuestión sobre el sueño, la respiración o la salud de tu propio bebé corresponde a la enfermera de salud infantil, al pediatra o a los servicios de emergencia.
+Las guías de sueño seguro de todo el mundo coinciden en lo esencial: los bebés duermen boca arriba, sobre una superficie firme y plana, en su propio espacio de sueño despejado, y en la misma habitación que un adulto durante los primeros meses. Los países difieren en cuanto a compartir cama, así que esta página describe ambas posturas y te remite al consejo de tu lugar de residencia. Es información para aprender y no un consejo médico sobre tu bebé. Cualquier cuestión sobre el sueño, la respiración o la salud de tu propio bebé corresponde a la enfermera de salud infantil, al pediatra o a los servicios de emergencia.
 
 ## Para qué sirve la guía
 

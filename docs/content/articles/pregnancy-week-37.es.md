@@ -9,14 +9,14 @@ primary_query: "37 semanas de embarazo"
 secondary_topics:
   - "término completo a las 37 semanas"
   - "señales de que empieza el parto"
-excerpt: "La semana 37 es ya a término. Un parto a partir de aquí no es prematuro, y conviene conocer de memoria las señales de que el parto ha empezado."
+excerpt: "Desde la semana 37 un parto se describe como a término, y conviene saberse de memoria las señales de que el parto ha empezado."
 meta_title: "37 semanas de embarazo: aquí empieza el término"
-meta_description: "A partir de las 37 semanas el parto no es prematuro. Señales de que empieza el parto, qué es el tapón mucoso y por qué el término es un margen de cinco semanas."
+meta_description: "Desde las 37 semanas un parto es a término. Las señales del inicio del parto, qué es el tapón mucoso y por qué el término es un margen de cinco semanas."
 canonical_url: "https://femioapp.com/es/learn/pregnancy-week-37"
 robots_while_draft: "noindex,nofollow"
 robots_when_published: "index,follow,max-image-preview:large"
 open_graph_title: "Semana 37 de embarazo"
-open_graph_description: "Empieza el término completo, y las señales del parto conviene conocerlas de memoria."
+open_graph_description: "Empieza el término, y conviene saberse de memoria las señales del parto."
 open_graph_image: "PENDING"
 open_graph_image_alt: "Silla de bebé para el coche y una bolsa preparadas junto a la puerta de casa"
 written_by: "PENDING"
@@ -54,7 +54,7 @@ internal_links:
 
 # Semana 37 de embarazo: qué esperar
 
-La semana 37 es ya a término. Un parto a partir de esta semana no se considera prematuro, y el término abarca un margen de cinco semanas y no una única fecha. Es la semana para conocer bien las señales del parto, lo suficiente como para no tener que buscarlas.
+La semana 37 es ya a término. A partir de esta semana, un parto se describe como a término, y el término abarca un margen de cinco semanas y no una única fecha. Es la semana para conocer bien las señales del parto, lo suficiente como para no tener que buscarlas.
 
 ## Tu cuerpo esta semana
 
@@ -62,7 +62,7 @@ Hacia la semana 37, alrededor del 95 % de los bebés están ya con la cabeza aba
 
 Suele haber más flujo vaginal, y contracciones de Braxton Hicks que pueden resultar incómodas sin ser dolorosas. El impulso repentino de limpiar la casa es el instinto de anidación, y la respuesta sensata es no excederse.
 
-El estado de ánimo merece una mención ahora y no más tarde. El bajón tras el parto es frecuente, y es una enfermedad, no un fracaso personal. [El estado de ánimo tras el parto](/es/learn/mood-after-birth) explica cómo se reconoce y a quién avisar. Leerlo antes del parto es más fácil que leerlo después.
+El estado de ánimo merece una mención ahora y no más tarde. El bajón tras el parto es frecuente, y cuando dura o es intenso puede ser depresión posparto, una enfermedad y no un fracaso personal. [El estado de ánimo tras el parto](/es/learn/mood-after-birth) explica cómo se reconoce y a quién avisar. Leerlo antes del parto es más fácil que leerlo después.
 
 ## Lo que podrías notar
 

@@ -24,7 +24,7 @@ open_graph_image_alt: "Un couple parlant avec un professionnel de santé lors d'
 written_by: "PENDING"
 medically_reviewed_by: "Dr. Khaled M."
 date_published: "2026-10-30"
-date_modified: "2026-10-30"
+date_modified: "2026-11-25"
 last_reviewed: "2026-10-30"
 next_review_due: "2027-10-30"
 reading_level_ok: false
@@ -54,7 +54,7 @@ internal_links:
 
 # Tests de fertilité : en quoi consiste généralement un bilan
 
-Un bilan de fertilité est un ensemble d'examens courants, souvent répartis sur un cycle ou deux : des prises de sang pour vous, un spermogramme pour votre partenaire, et une échographie ou un contrôle de la perméabilité des trompes de Fallope. **Les deux partenaires sont toujours évalués**, car une cause est trouvée d'un côté, de l'autre ou des deux, à peu près aussi souvent. Être orienté vers un bilan ne signifie pas un verdict sur la possibilité d'avoir un enfant. Cette page explique la forme habituelle du bilan pour que le premier rendez-vous soit moins inconnu. Elle ne remplace pas l'avis de votre propre professionnel de santé.
+Un bilan de fertilité est un ensemble d'examens courants, souvent répartis sur un cycle ou deux : des prises de sang pour vous, un spermogramme pour votre partenaire, et une échographie ou un contrôle de la perméabilité des trompes de Fallope. **Les deux partenaires sont en général évalués**, car une cause est trouvée d'un côté, de l'autre ou des deux, à peu près aussi souvent. Être orienté vers un bilan ne signifie pas un verdict sur la possibilité d'avoir un enfant. Cette page explique la forme habituelle du bilan pour que le premier rendez-vous soit moins inconnu. Elle ne remplace pas l'avis de votre propre professionnel de santé.
 
 ## Quand un bilan est-il généralement proposé ?
 
@@ -90,7 +90,7 @@ Cette attente est la partie la plus difficile pour beaucoup de personnes, et ell
 
 ## Ce que disent et ne disent pas les résultats
 
-Les examens décrivent ce qui se passe maintenant. Ils ne prédisent pas si vous aurez un enfant. Un résultat hors des valeurs de référence est une constatation qu'un professionnel de santé doit interpréter avec tout le reste, jamais une conclusion à lui seul.
+Les examens décrivent ce qui se passe maintenant. Ils ne prédisent pas si vous aurez un enfant. Un résultat hors des valeurs habituelles est une constatation qu'un professionnel de santé doit interpréter avec tout le reste, jamais une conclusion à lui seul.
 
 Parfois, rien d'anormal n'est trouvé de part et d'autre. C'est un résultat reconnu, et non un échec des examens. Les options restent discutées.
 

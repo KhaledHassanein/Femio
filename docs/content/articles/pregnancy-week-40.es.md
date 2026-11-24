@@ -53,7 +53,7 @@ internal_links:
 
 # Semana 40 del embarazo: qué esperar
 
-La semana 40 contiene la fecha probable de parto, y esa fecha es una estimación y no un plazo. El embarazo a término va de la semana 37 a la 42, lo que significa que un parto en cualquier punto de esa franja de cinco semanas está dentro de lo previsto. Nada de la semana 41 hace que un embarazo sea tardío.
+La semana 40 contiene la fecha probable de parto, y esa fecha es una estimación y no un plazo. El embarazo a término va de la semana 37 a la 42, lo que significa que un parto en cualquier punto de esa franja de cinco semanas está dentro de lo previsto. Un parto entre las semanas 37 y 42 está dentro del término, aunque a partir de la semana 41 tu servicio hablará de la inducción del parto y de una vigilancia reforzada.
 
 ## Tu cuerpo esta semana
 
@@ -61,7 +61,7 @@ En un primer embarazo suele haber una cita prenatal esta semana: presión arteri
 
 Las contracciones de Braxton Hicks (de práctica) son frecuentes y no deberían doler. Las contracciones reales sí duelen: la barriga se pone dura y dolorosa, y luego el dolor desaparece cuando los músculos se relajan.
 
-El NHS describe el parto en tres etapas: las contracciones que dilatan el cuello uterino hasta unos 10 cm, el parto en sí y la expulsión de la placenta. Sitúa la primera etapa en unas 6 a 12 horas, y a menudo menos en mujeres que ya han dado a luz antes.
+El NHS describe el parto en tres etapas: las contracciones que dilatan el cuello uterino hasta unos 10 cm, el parto en sí y la expulsión de la placenta. Dice que la primera etapa puede durar muchas horas, y suele ser más corta en mujeres que ya han dado a luz antes.
 
 ## Lo que puedes notar
 
@@ -97,7 +97,7 @@ Llama a la unidad de maternidad por contracciones que duren 60 segundos cada cin
 
 ### ¿Mi bebé viene tarde?
 
-No. El término va de la semana 37 a la 42, y una fecha probable es un único punto estimado dentro de una franja de cinco semanas. La mayoría de las mujeres dan a luz en la semana anterior o posterior a ella.
+No necesariamente. El término va de la semana 37 a la 42, y una fecha probable es un único punto estimado dentro de una franja de cinco semanas; si pasas de las 41 semanas, tu servicio hablará de los siguientes pasos. La mayoría de las mujeres dan a luz en la semana anterior o posterior a ella.
 
 ### ¿Puedo hacer algo para provocar el parto?
 

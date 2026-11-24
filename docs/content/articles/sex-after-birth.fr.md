@@ -24,7 +24,7 @@ open_graph_image_alt: "Un couple assis à la maison, un bébé endormi à proxim
 written_by: "PENDING"
 medically_reviewed_by: "Dr. Khaled M."
 date_published: "2026-10-30"
-date_modified: "2026-10-30"
+date_modified: "2026-11-25"
 last_reviewed: "2026-10-30"
 next_review_due: "2027-10-30"
 reading_level_ok: false
@@ -55,19 +55,19 @@ internal_links:
 
 # Rapports sexuels après l'accouchement : à quoi s'attendre
 
-Il n'existe pas de date fixe à partir de laquelle les rapports après l'accouchement redeviennent possibles. La plupart des recommandations suggèrent d'attendre que les saignements aient cessé et que les points ou les plaies soient cicatrisés. Au-delà, cela dépend de votre envie et de votre confort. La sécheresse, la sensation de serrement et la douleur de la cicatrice sont très fréquentes au début, et il existe des solutions qui aident. Cette page est une information de santé à but de préparation, et elle ne remplace pas l'avis de votre propre professionnel de santé.
+Il n'existe pas de date fixe à partir de laquelle les rapports après l'accouchement redeviennent possibles. De nombreux professionnels de santé suggèrent d'attendre que les saignements aient cessé et que les points ou les plaies soient cicatrisés. Au-delà, cela dépend de votre envie et de votre confort. La sécheresse, la sensation de serrement et la douleur de la cicatrice sont très fréquentes au début, et il existe des solutions qui aident. Cette page est une information de santé à but de préparation, et elle ne remplace pas l'avis de votre propre professionnel de santé.
 
 ## La règle des six semaines n'est pas une règle
 
 Six semaines est le repère habituel parce qu'il correspond à la consultation post-partum, et non parce qu'un changement se produit ce jour-là. Certaines personnes se sentent prêtes plus tôt, et beaucoup se sentent prêtes bien plus tard.
 
-Attendre que les saignements aient cessé et que les plaies aient cicatrisé réduit le risque d'infection et de gêne. Au-delà, la disponibilité est à vous de la juger, y compris sur le plan émotionnel.
+Attendre que les saignements aient cessé et que les plaies aient cicatrisé peut réduire le risque d'infection et de gêne. Au-delà, la disponibilité est à vous de la juger, y compris sur le plan émotionnel.
 
 La grossesse est possible avant vos premières règles. La discussion sur la contraception passe donc avant celle sur les rapports. Voir [la contraception après l'accouchement](/fr/learn/contraception-after-birth).
 
 ## Pourquoi cela fait souvent mal au début
 
-**Sécheresse.** Les œstrogènes sont bas après l'accouchement, et encore plus pendant l'allaitement, ce qui amincit et assèche les tissus vaginaux. C'est la cause la plus fréquente de douleur, et elle est temporaire.
+**Sécheresse.** Les œstrogènes sont bas après l'accouchement, et encore plus pendant l'allaitement, ce qui amincit et assèche les tissus vaginaux. C'est une cause très fréquente de douleur, et elle s'améliore généralement avec le temps.
 
 **Tissu cicatriciel.** Une déchirure périnéale, une épisiotomie ou une cicatrice de césarienne peut paraître serrée ou sensible pendant des mois. Voir [la cicatrisation après l'accouchement](/fr/learn/postpartum-wound-healing).
 
@@ -123,7 +123,7 @@ Consultez en urgence pour des saignements abondants, une douleur intense, ou une
 
 ### Combien de temps dois-je attendre avant d'avoir des rapports après l'accouchement ?
 
-La plupart des recommandations suggèrent d'attendre que les saignements aient cessé et que les plaies soient cicatrisées. Après cela, cela dépend du confort et de votre envie.
+De nombreux professionnels de santé suggèrent d'attendre que les saignements aient cessé et que les plaies soient cicatrisées. Après cela, cela dépend du confort et de votre envie.
 
 ### Pourquoi est-ce si sec ?
 

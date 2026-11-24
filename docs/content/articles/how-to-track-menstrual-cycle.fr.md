@@ -24,7 +24,7 @@ open_graph_image_alt: "Calendrier avec les dates de règles et des notes sur les
 written_by: "PENDING"
 medically_reviewed_by: "Dr. Khaled M."
 date_published: "2026-10-30"
-date_modified: "2026-10-30"
+date_modified: "2026-11-25"
 last_reviewed: "2026-10-30"
 next_review_due: "2027-10-30"
 reading_level_ok: false
@@ -109,7 +109,7 @@ La durée dépend de la question. Quelques cycles peuvent aider à montrer une r
 
 Consultez plus tôt, et demandez un avis, lorsque le saignement est nouveau, très abondant, survient entre les règles, apparaît après un rapport sexuel, ou survient après la ménopause. Le [guide ACOG sur les saignements anormaux](https://www.acog.org/womens-health/faqs/abnormal-uterine-bleeding) décrit les schémas à discuter avec un médecin.
 
-Pour les symptômes qui reviennent dans les semaines précédant les règles (syndrome prémenstruel, SPM, ou trouble dysphorique prémenstruel, TDPM), des notes quotidiennes sur au moins deux cycles peuvent aider un médecin à comparer leur calendrier. Le guide pour [suivre les symptômes du SPM et du TDPM](/fr/learn/track-pms-pmdd-symptoms) explique une démarche ciblée.
+Pour les symptômes qui reviennent dans les semaines précédant les règles (syndrome prémenstruel, SPM, ou trouble dysphorique prémenstruel, TDPM), des notes quotidiennes sur quelques cycles peuvent aider un médecin à comparer leur calendrier. Le guide pour [suivre les symptômes du SPM et du TDPM](/fr/learn/track-pms-pmdd-symptoms) explique une démarche ciblée.
 
 ## Comment repérer une régularité dans le cycle
 

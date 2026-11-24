@@ -24,7 +24,7 @@ open_graph_image_alt: "Persona hablando con un clínico sobre sus objetivos de f
 written_by: "PENDING"
 medically_reviewed_by: "Dr. Khaled M."
 date_published: "2026-10-30"
-date_modified: "2026-10-30"
+date_modified: "2026-11-25"
 last_reviewed: "2026-10-30"
 next_review_due: "2027-10-30"
 reading_level_ok: false
@@ -61,7 +61,7 @@ La edad y la función ovárica pueden importar. También pueden hacerlo las trom
 
 ## ¿Cómo puede afectar la endometriosis a la fertilidad?
 
-La endometriosis puede causar inflamación o tejido cicatricial. También puede alterar la zona alrededor de las trompas de Falopio y de los ovarios. Algunas personas tienen un quiste ovárico llamado endometrioma.
+La endometriosis puede causar inflamación (irritación e hinchazón) o tejido cicatricial. También puede alterar la zona alrededor de las trompas de Falopio y de los ovarios. Algunas personas tienen un quiste ovárico llamado endometrioma.
 
 Estos cambios pueden afectar a cómo se libera un óvulo. Pueden afectar a cómo se encuentran el óvulo y el espermatozoide. Es posible que los órganos no funcionen tan bien juntos. Aun así, la relación no es simple. La cantidad que se ve no puede predecir la probabilidad de embarazo de una persona concreta.
 
@@ -69,7 +69,7 @@ Estos cambios pueden afectar a cómo se libera un óvulo. Pueden afectar a cómo
 
 ## ¿Puedes quedarte embarazada de forma natural?
 
-Sí. Algunas personas descubren que podrían tener endometriosis después de un embarazo anterior. Otras conciben mientras viven con síntomas. Algunas buscan apoyo médico.
+Sí. Algunas personas descubren por primera vez que podrían tener endometriosis durante una evaluación de fertilidad. Otras conciben mientras viven con síntomas. Algunas buscan apoyo médico.
 
 Ninguna aplicación, ecografía ni lista de síntomas puede garantizar un resultado. [ACOG](https://www.acog.org/womens-health/faqs/endometriosis) dice que los planes de fertilidad deben formar parte de las conversaciones sobre la atención.
 

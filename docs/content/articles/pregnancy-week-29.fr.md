@@ -77,7 +77,7 @@ Le développement de la structure est en grande partie achevé ; les semaines qu
 
 ## Ce qui se passe généralement autour de cette période
 
-Rien n’est systématiquement programmé cette semaine pour la plupart des femmes au Royaume-Uni. Le vaccin contre la coqueluche est idéalement administré avant la semaine 33 pour que la protection atteigne le bébé, et le vaccin contre le virus respiratoire syncytial (VRS) peut être administré à partir d’environ la semaine 28, et jusqu’au travail.
+Rien n’est systématiquement programmé cette semaine pour la plupart des femmes au Royaume-Uni. Le vaccin contre la coqueluche est généralement proposé jusqu’à la semaine 32 pour que la protection atteigne le bébé, et il peut encore être administré plus tard, et le vaccin contre le virus respiratoire syncytial (VRS) peut être administré à partir d’environ la semaine 28, et jusqu’au travail.
 
 Le NHS indique aussi ce qui ne peut pas dire le sexe du bébé, ce qui vaut la peine d’être lu avant que quelqu’un au travail n’insiste sur le contraire : la position ou la forme du ventre, la fréquence cardiaque, les kits de prédiction à domicile, et une alliance suspendue à un fil. La forme du ventre dépend de votre taille, de vos muscles, du nombre de vos grossesses et de ce que vous avez mangé.
 
@@ -87,7 +87,7 @@ Placez un oreiller sous le ventre en plus d’un oreiller entre les genoux. La p
 
 ## Quand consulter
 
-Contactez votre service de maternité le jour même en cas de mouvements réduits ou modifiés, de perte de liquide, de contractions régulières ou de saignements. Un essoufflement qui survient brusquement, ou qui s’accompagne d’une douleur thoracique, nécessite des soins d’urgence. La page [signes d’alerte de la grossesse](/fr/learn/pregnancy-warning-signs) contient la liste complète.
+Contactez votre service de maternité sans attendre en cas de mouvements réduits ou modifiés, de perte de liquide, de contractions régulières ou de saignements. Un essoufflement qui survient brusquement, ou qui s’accompagne d’une douleur thoracique, nécessite des soins d’urgence. La page [signes d’alerte de la grossesse](/fr/learn/pregnancy-warning-signs) contient la liste complète.
 
 > **Consultez sans attendre :** Contactez les services d’urgence locaux ou rendez-vous aux urgences les plus proches si vous avez un saignement abondant, une douleur intense ou d’un seul côté du ventre, un mal de tête sévère avec troubles de la vue, un gonflement soudain du visage ou des mains, une fièvre, un écoulement de liquide par le vagin, une douleur thoracique, des difficultés respiratoires, un malaise, une crise convulsive ou des pensées de vous faire du mal ou de faire du mal à votre bébé ([aide immédiate](/fr/help-now)). Contactez votre service de maternité sans attendre si les mouvements de votre bébé ralentissent, s’arrêtent ou changent. femio ne peut pas évaluer une grossesse.
 

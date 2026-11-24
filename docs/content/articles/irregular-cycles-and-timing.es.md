@@ -24,7 +24,7 @@ open_graph_image_alt: "Un calendario con los días del ciclo marcados a interval
 written_by: "PENDING"
 medically_reviewed_by: "Dr. Khaled M."
 date_published: "2026-10-30"
-date_modified: "2026-11-24"
+date_modified: "2026-11-25"
 last_reviewed: "2026-10-30"
 next_review_due: "2027-10-30"
 reading_level_ok: false
@@ -54,7 +54,7 @@ internal_links:
 
 # Intentar concebir con ciclos irregulares
 
-Casi todo el consejo sobre el momento supone en silencio un ciclo de 28 días, y deja de ser útil en cuanto el tuyo varía. Si tus ciclos son largos, impredecibles o a veces no aparecen, la respuesta honesta es que ninguna app puede decirte qué día importa, y la respuesta práctica es tener relaciones sexuales con regularidad a lo largo del ciclo en lugar de apuntar a una fecha. Los ciclos irregulares también son motivo para pedir ayuda antes, en lugar de esperar un año completo. Esto es información de salud para planificar, no un sustituto de tu propio clínico.
+Casi todo el consejo sobre el momento supone en silencio un ciclo de 28 días, y deja de ser útil en cuanto el tuyo varía. Si tus ciclos son largos, impredecibles o a veces no aparecen, ninguna app puede decirte honestamente qué día importa. La respuesta práctica es tener relaciones sexuales con regularidad a lo largo del ciclo en lugar de apuntar a una fecha. Los ciclos irregulares también son motivo para pedir ayuda antes, en lugar de esperar un año completo. Esto es información de salud para planificar, no un sustituto de tu propio clínico.
 
 ## Por qué no encaja el consejo habitual
 
@@ -74,7 +74,7 @@ femio amplía su ventana de predicción cuando tus ciclos varían, y deja de mos
 
 ## Si tienes síndrome de ovario poliquístico (SOP)
 
-El SOP es una de las causas más comunes de ovulación irregular o ausente, y también es una de las más manejables. [ACOG](https://www.acog.org/womens-health/faqs/polycystic-ovary-syndrome-pcos) y el [NHS](https://www.nhs.uk/conditions/polycystic-ovary-syndrome-pcos/) describen ambos medicamentos que un clínico puede comentar para favorecer la ovulación, junto con otros enfoques.
+El SOP es una de las causas más comunes de ovulación irregular o ausente, y existen opciones de atención que un profesional sanitario puede comentar. [ACOG](https://www.acog.org/womens-health/faqs/polycystic-ovary-syndrome-pcos) y el [NHS](https://www.nhs.uk/conditions/polycystic-ovary-syndrome-pcos/) describen ambos medicamentos que un clínico puede comentar para favorecer la ovulación, junto con otros enfoques.
 
 Dos cosas que conviene saber antes de esa cita. Muchas personas con SOP se quedan embarazadas, con o sin ayuda. Y la ovulación puede producirse de forma impredecible, lo que significa que los ciclos que parecen silenciosos no siempre lo son.
 
@@ -84,7 +84,7 @@ Dos cosas que conviene saber antes de esa cita. Muchas personas con SOP se queda
 
 Las menstruaciones que se han detenido, o que llegan solo unas pocas veces al año, son motivo para consultar en lugar de un patrón que seguir registrando con más empeño. Lo mismo ocurre con las menstruaciones que eran regulares y se han vuelto irregulares, y con cualquier sangrado entre menstruaciones o después de las relaciones sexuales.
 
-Hay varias causas posibles, y se distinguen mediante pruebas, no por los síntomas. Esperar doce meses para plantearlo cuesta esos doce meses.
+Hay varias causas posibles, y un profesional sanitario las distingue con una evaluación y pruebas, no solo por los síntomas. Esperar doce meses para plantearlo cuesta esos doce meses.
 
 ## Cuándo dejar de esperar y pedir ayuda
 
@@ -98,11 +98,11 @@ Pide una derivación en lugar de esperar a que te la ofrezcan.
 
 Puede guardar cada sangrado, síntoma y registro en un solo lugar, mostrarte el rango en el que caen realmente tus ciclos y entregar a un clínico fechas reales en lugar de un recuerdo.
 
-No puede decirte cuándo ovulaste, y no fingirá que sí. No hay día de ovulación en la lógica de femio y no lo habrá: leer un cambio a partir de una medición casera es una inferencia clínica, y la función construida sobre ella es siempre «días que podrías evitar», una línea que este producto no cruza.
+No puede decirte cuándo ovulaste, y no fingirá que sí. femio muestra un rango a partir de tus fechas registradas, nunca un único día de ovulación, y nunca marca días en los que no puede producirse un embarazo.
 
 ## Cuándo consultar
 
-Contacta con tu médico si tus menstruaciones son irregulares, ausentes o han cambiado; si llevas seis meses intentándolo y no identificas ningún patrón; o a los doce meses de intentos en cualquier caso. Pide cita antes, a cualquier edad, si tienes dolor pélvico, sangrado entre menstruaciones o después de las relaciones sexuales, o una enfermedad conocida. Busca atención pronta por dolor pélvico intenso o sangrado abundante.
+Contacta con tu médico si tus menstruaciones son irregulares, ausentes o han cambiado; o si llevas doce meses intentándolo, o seis si tienes alrededor de 35 años o más. Pide cita antes, a cualquier edad, si tienes dolor pélvico, sangrado entre menstruaciones o después de las relaciones sexuales, o una enfermedad conocida. Busca atención pronta por dolor pélvico intenso o sangrado abundante.
 
 Di con claridad lo variables que son tus ciclos y durante cuánto tiempo. «Entre 24 y 61 días en los últimos seis meses» es una frase que cambia una cita.
 

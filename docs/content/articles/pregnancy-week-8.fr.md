@@ -74,9 +74,9 @@ Un saignement, une douleur intense ou une douleur d'un seul côté relèvent enc
 
 ## Votre bébé cette semaine
 
-Vers la semaine 8, la mesure indiquée est d'environ 16 mm du sommet de la tête au siège : la taille d'une framboise sur l'illustration du NHS, et l'on s'attend à ce qu'elle double à peu près la semaine suivante. Il s'agit de moyennes de population, et non d'une description d'une grossesse en particulier.
+Vers la semaine 8, la mesure indiquée est d'environ 16 mm du sommet de la tête au siège : la taille d'une framboise sur l'illustration du NHS, et elle grandit vite au cours des semaines suivantes. Il s'agit de moyennes de population, et non d'une description d'une grossesse en particulier.
 
-La tête commence à se redresser. Les bras s'allongent plus vite que les jambes, car le haut du corps se développe en premier. À ce stade environ, l'embryon commence à être appelé fœtus.
+La tête commence à se redresser. Les bras s'allongent plus vite que les jambes, car le haut du corps se développe en premier. Plus tard au premier trimestre, l'embryon commence à être appelé fœtus.
 
 ## Les soins habituellement prévus à cette période
 

@@ -24,7 +24,7 @@ open_graph_image_alt: "Un parent fatigué se repose sur un canapé, en pleine jo
 written_by: "PENDING"
 medically_reviewed_by: "Dr. Khaled M."
 date_published: "2026-10-30"
-date_modified: "2026-10-30"
+date_modified: "2026-11-25"
 last_reviewed: "2026-10-30"
 next_review_due: "2027-10-30"
 reading_level_ok: false
@@ -66,7 +66,7 @@ La douleur, la cicatrisation et la charge mentale liée à la responsabilité d�
 
 ## Ce qui aide réellement
 
-La plupart des conseils de sommeil pour les nouveaux parents sont irréalistes. Voici les mesures qui font une différence mesurable :
+La plupart des conseils de sommeil pour les nouveaux parents sont irréalistes. Voici les mesures qui aident souvent :
 
 - **Dormez quand vous le pouvez, pas seulement la nuit.** Une sieste de 40 minutes en journée est un vrai sommeil.
 - **Partagez la nuit si vous êtes deux.** Une personne prend le premier temps, l’autre le second, pour que chacune bénéficie d’un bloc de sommeil ininterrompu.
@@ -88,13 +88,13 @@ Une partie de l’épuisement n’a rien à voir avec le sommeil. Signalez-le à
 - Un sommeil et des réveils sans récupération pendant des semaines.
 - Une incapacité à dormir même lorsque le bébé dort.
 
-Un taux de fer bas après une perte de sang importante est fréquent et se traite ; une analyse de sang permet de le confirmer. Le guide [règles abondantes et anémie ferriprive](/fr/learn/heavy-periods-iron-deficiency-anaemia) explique ce que ressent une personne qui manque de fer.
+Un taux de fer bas après une perte de sang importante est fréquent et se traite ; une analyse de sang peut permettre de le vérifier. Le guide [règles abondantes et anémie ferriprive](/fr/learn/heavy-periods-iron-deficiency-anaemia) explique ce que ressent une personne qui manque de fer.
 
 Des troubles thyroïdiens peuvent apparaître dans les mois suivant la naissance et provoquer un épuisement. Les [recommandations de l’ACOG sur les soins postnatals](https://www.acog.org/clinical/clinical-guidance/committee-opinion/articles/2018/05/optimizing-postpartum-care) présentent la période postnatale comme un suivi continu, et non comme une seule consultation ; c’est à ce moment-là que ces problèmes sont repérés.
 
 ## Épuisement et humeur
 
-Le manque de sommeil et la baisse d’humeur se nourrissent l’un l’autre, et il est difficile de les démêler de l’intérieur. Un signal utile : ne pas réussir à dormir alors que le bébé dort, nuit après nuit, indique plutôt une humeur ou une anxiété qu’un simple manque de sommeil.
+Le manque de sommeil et la baisse d’humeur se nourrissent l’un l’autre, et il est difficile de les démêler de l’intérieur. Un signal utile : ne pas réussir à dormir alors que le bébé dort, nuit après nuit, peut être le signe d’une anxiété ou d’une baisse d’humeur, en plus de la fatigue, et il vaut la peine d’en parler à un professionnel de santé.
 
 Si vous passez des nuits à vérifier que le bébé respire, ou si vous redoutez la nuit, lisez [votre humeur après l’accouchement](/fr/learn/mood-after-birth). Cela vaut la peine d’en parler à un professionnel de santé.
 
@@ -126,7 +126,7 @@ Demandez une analyse de sang si vous avez eu une perte de sang importante à la 
 
 ### Combien de temps dure l’épuisement du nouveau-né ?
 
-Les tétées s’espacent généralement pendant les premiers mois, et la plupart des personnes constatent une vraie amélioration au cours du second semestre de la première année.
+Les tétées s’espacent généralement pendant les premiers mois, et la fatigue s’atténue souvent à mesure que le sommeil se fait moins haché, mais la durée varie beaucoup.
 
 ### Est-il normal d’avoir le souffle court à cause de la fatigue ?
 
@@ -142,4 +142,4 @@ Non. Les tétées fréquentes à cet âge sont normales, et les méthodes qui pr
 
 ### Pourquoi reste-t-on éveillé alors que le bébé dort ?
 
-Ce schéma évoque plutôt une anxiété ou une baisse d’humeur qu’un simple manque de sommeil, et il vaut la peine d’en parler à un professionnel de santé.
+Ce schéma peut être le signe d’une anxiété ou d’une baisse d’humeur, en plus de la fatigue, et il vaut la peine d’en parler à un professionnel de santé.

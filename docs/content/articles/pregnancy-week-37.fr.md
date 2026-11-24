@@ -9,14 +9,14 @@ primary_query: "37 semaines de grossesse"
 secondary_topics:
   - "terme à 37 semaines"
   - "signes du début du travail"
-excerpt: "La semaine 37 marque le terme. Un accouchement à partir de cette semaine n'est pas prématuré, et les signes du début du travail valent la peine d'être connus par cœur."
+excerpt: "À partir de la semaine 37, une naissance est dite à terme, et les signes du début du travail méritent d'être connus par cœur."
 meta_title: "37 semaines de grossesse : le terme commence ici | femio"
-meta_description: "À partir de 37 semaines, l'accouchement n'est pas prématuré. Les signes du début du travail, le bouchon muqueux, et le terme comme fourchette."
+meta_description: "Dès 37 semaines, une naissance est dite à terme. Les signes du travail, la perte du bouchon, et pourquoi le terme est une plage de cinq semaines."
 canonical_url: "https://femioapp.com/fr/learn/pregnancy-week-37"
 robots_while_draft: "noindex,nofollow"
 robots_when_published: "index,follow,max-image-preview:large"
 open_graph_title: "Semaine 37 de grossesse"
-open_graph_description: "Le terme commence, et les signes du travail valent la peine d'être connus par cœur."
+open_graph_description: "Le terme commence, et les signes du travail méritent d'être connus par cœur."
 open_graph_image: "PENDING"
 open_graph_image_alt: "Siège auto pour bébé et sac prêts près de la porte d'entrée"
 written_by: "PENDING"
@@ -54,7 +54,7 @@ internal_links:
 
 # Semaine 37 de grossesse : à quoi s'attendre
 
-La semaine 37 marque le terme. Un accouchement à partir de cette semaine n'est pas considéré comme prématuré, et le terme couvre une fourchette de cinq semaines plutôt qu'une date unique. C'est la semaine où il faut bien connaître les signes du travail, pour ne pas avoir à les chercher.
+La semaine 37 marque le terme. À partir de cette semaine, un accouchement est décrit comme étant à terme, et le terme couvre une fourchette de cinq semaines plutôt qu'une date unique. C'est la semaine où il faut bien connaître les signes du travail, pour ne pas avoir à les chercher.
 
 ## Votre corps cette semaine
 
@@ -62,7 +62,7 @@ Environ 95 % des bébés sont désormais tête en bas, en général face à votr
 
 Il y a souvent davantage de pertes vaginales, ainsi que des Braxton Hicks qui peuvent être inconfortables sans être douloureux. L'envie soudaine de tout nettoyer relève de l'instinct de nidification, et la réponse raisonnable est de ne pas en faire trop.
 
-L'humeur mérite d'être évoquée dès maintenant plutôt que plus tard. Une baisse de moral après un accouchement est fréquente, et c'est une maladie plutôt qu'un échec : [l'humeur après l'accouchement](/fr/learn/mood-after-birth) explique à quoi elle ressemble et à qui en parler. La lire avant la naissance est plus facile que de la lire après.
+L'humeur mérite d'être évoquée dès maintenant plutôt que plus tard. Une baisse de moral après un accouchement est fréquente ; lorsqu'elle dure ou qu'elle est sévère, elle peut être une dépression post-partum, une maladie plutôt qu'un échec : [l'humeur après l'accouchement](/fr/learn/mood-after-birth) explique à quoi elle ressemble et à qui en parler. La lire avant la naissance est plus facile que de la lire après.
 
 ## Ce que vous pourriez remarquer
 

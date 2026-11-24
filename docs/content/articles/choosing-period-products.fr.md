@@ -22,7 +22,7 @@ open_graph_image_alt: "Dessin au trait simple de quatre petites formes côte à 
 written_by: "PENDING"
 medically_reviewed_by: "Dr. Khaled M."
 date_published: "2026-10-30"
-date_modified: "2026-11-24"
+date_modified: "2026-11-25"
 last_reviewed: "2026-10-30"
 next_review_due: "2027-10-30"
 reading_level_ok: false
@@ -76,7 +76,7 @@ Les recommandations sur les tampons pour les plus jeunes adolescentes diffèrent
 
 Une cup est une petite coupelle souple en silicone ou en caoutchouc qui se place à l'intérieur du vagin et **recueille** le sang au lieu de l'absorber. Vous la videz, la rincez, puis la remettez en place.
 
-Elle dure des années, ce qui la rend beaucoup moins chère à long terme, et elle peut en général rester en place plus longtemps qu'un tampon. Les inconvénients sont réels : il faut de la pratique pour la plier et la mettre en place, la vider demande un lavabo ou au moins un peu d'intimité, et elle coûte cher au départ. Des toilettes partagées ou scolaires sans lavabo dans le cabinet rendent la chose plus difficile.
+Elle dure des années, ce qui la rend beaucoup moins chère à long terme. Les instructions du fabricant indiquent combien de temps elle peut rester en place, alors suivez-les. Les inconvénients sont réels : il faut de la pratique pour la plier et la mettre en place, la vider demande un lavabo ou au moins un peu d'intimité, et elle coûte cher au départ. Des toilettes partagées ou scolaires sans lavabo dans le cabinet rendent la chose plus difficile.
 
 ## Culottes menstruelles
 
@@ -103,4 +103,4 @@ Le choix d'une protection ne nécessite pas de médecin. Vous-même ou un adulte
 - vous n'arrivez pas à retirer un tampon, ou vous ne trouvez pas la ficelle
 - le sang traverse la plus grande serviette ou le plus grand tampon toutes les heures ou toutes les deux heures
 
-Si vous vous sentez soudainement très mal, avec forte fièvre, éruption cutanée, vomissements ou sensation de malaise pendant qu'un tampon est en place, retirez-le et consultez le jour même [NHS].
+Si vous vous sentez soudainement très mal, avec forte fièvre, éruption cutanée, vomissements ou sensation de malaise pendant qu'un tampon est en place, retirez-le et demandez immédiatement une aide médicale urgente [NHS].

@@ -57,7 +57,7 @@ La semaine 9 est, pour beaucoup de femmes, le point bas. Les taux d'hormones de 
 
 ## Votre corps cette semaine
 
-La gonadotrophine chorionique humaine (hCG) double environ tous les deux à trois jours, et le NHS situe son pic vers la semaine 9. Les œstrogènes et la progestérone sont également élevés, et ensemble ils augmentent l'apport sanguin à l'utérus.
+La gonadotrophine chorionique humaine (hCG) augmente fortement pendant les premières semaines, et le NHS situe son pic vers la semaine 9. Les œstrogènes et la progestérone sont également élevés, et ensemble ils augmentent l'apport sanguin à l'utérus.
 
 Les seins sont plus gros et la taille s'épaissit peut-être un peu, même si rien n'est encore visiblement celui d'une grossesse. Certaines femmes décrivent cette période comme des montagnes russes émotionnelles ; c'est une description, non un diagnostic, et le NHS la reprend car elle est très souvent rapportée.
 

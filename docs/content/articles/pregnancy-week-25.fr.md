@@ -59,7 +59,7 @@ La semaine 25 apporte généralement un léger gonflement du visage, des mains e
 
 Le gonflement est fréquent et provient généralement d’une rétention d’eau. Le NHS conseille néanmoins de le signaler, car la tension artérielle doit être contrôlée en parallèle.
 
-La pré-éclampsie est une affection de la seconde moitié de la grossesse. Le NHS comme l’ACOG décrivent les signes sur lesquels il faut agir : maux de tête intenses qui ne passent pas, troubles de la vision tels que flou ou éclairs lumineux, douleur juste sous les côtes, vomissements, et gonflement soudain du visage, des mains ou des pieds. L’ensemble de ces signes constitue une urgence, et une femme peut se sentir bien juste avant qu’ils apparaissent.
+La pré-éclampsie est une affection de la seconde moitié de la grossesse. Le NHS comme l’ACOG décrivent les signes sur lesquels il faut agir : maux de tête intenses qui ne passent pas, troubles de la vision tels que flou ou éclairs lumineux, douleur juste sous les côtes, vomissements, et gonflement soudain du visage, des mains ou des pieds. Chacun de ces signes nécessite un avis urgent, et une femme peut se sentir bien juste avant qu’ils apparaissent.
 
 C’est précisément la raison pour laquelle la tension artérielle et les urines sont contrôlées à chaque consultation à partir de maintenant. Cette affection est détectée à l’aide d’un appareil bien avant d’être ressentie.
 

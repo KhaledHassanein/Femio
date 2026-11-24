@@ -24,7 +24,7 @@ open_graph_image_alt: "Diario de síntomas de la perimenopausia con notas de men
 written_by: "PENDING"
 medically_reviewed_by: "Dr. Khaled M."
 date_published: "2026-10-30"
-date_modified: "2026-11-24"
+date_modified: "2026-11-25"
 last_reviewed: "2026-10-30"
 next_review_due: "2027-10-30"
 reading_level_ok: false
@@ -124,7 +124,7 @@ La [guía de NICE sobre la menopausia](https://www.nice.org.uk/guidance/ng23/cha
 
 ## ¿Cómo pueden cambiar las estimaciones de femio?
 
-Las estimaciones del ciclo son menos seguras cuando las menstruaciones varían. femio debe mostrar un rango en lugar de afirmar una única fecha futura exacta. Una etiqueta de «retraso» no puede explicar por qué no ha llegado la menstruación.
+Las estimaciones del ciclo son menos seguras cuando las menstruaciones varían. femio muestra un rango en lugar de afirmar una única fecha futura exacta. Una etiqueta de «retraso» no puede explicar por qué no ha llegado la menstruación.
 
 Puede seguir produciéndose un embarazo durante la perimenopausia. Un calendario no puede confirmar si hubo ovulación.
 

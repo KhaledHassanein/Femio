@@ -59,7 +59,7 @@ La semaine 14 est souvent celle où le brouillard se dissipe un peu. La fatigue 
 
 Le placenta fait désormais son travail : il transfère les nutriments, l'oxygène et les hormones, et évacue les déchets. Il est solidement attaché à l'utérus et relié à la grossesse par le cordon ombilical.
 
-Votre sang et celui du bébé se trouvent en contact étroit à l'intérieur du placenta, sans se mélanger. Cette séparation a une importance clinique, et c'est la raison pour laquelle le groupe sanguin est vérifié tôt pendant la grossesse.
+Votre sang et celui du bébé se trouvent en contact étroit à l'intérieur du placenta, sans se mélanger. Le groupe sanguin est vérifié tôt pendant la grossesse afin que les soins puissent être planifiés si les groupes sanguins de la mère et du bébé diffèrent.
 
 Certaines femmes remarquent vers cette période des taches jaunes à l'intérieur du soutien-gorge. Il s'agit généralement de colostrum, le premier lait, qui peut apparaître des semaines ou des mois avant l'accouchement. Il vaut la peine d'en parler à une sage-femme si un changement de vos seins vous inquiète, mais son apparition n'a rien d'inhabituel.
 
@@ -81,7 +81,7 @@ La tête s'arrondit et prend ses proportions. Une sage-femme peut parfois entend
 
 Pour les femmes qui ont manqué la période de dépistage du premier trimestre, le test sanguin de dépistage du deuxième trimestre est proposé au Royaume-Uni à partir d'environ 14 semaines et jusqu'à 20 semaines. Il ne dépiste que la trisomie 21 (syndrome de Down), contrairement au test combiné qui couvre les trois affections.
 
-Aucun autre examen n'est systématiquement prévu cette semaine au Royaume-Uni. Les calendriers prénataux diffèrent d'un pays à l'autre, et un pays qui prévoit des consultations plus fréquentes n'offre pas de meilleurs soins, seulement un schéma différent.
+Aucun autre examen n'est systématiquement prévu cette semaine au Royaume-Uni. Les calendriers prénataux diffèrent d'un pays à l'autre, et certains pays proposent des consultations plus fréquentes : il s'agit d'un schéma différent, et non d'une mesure de la qualité.
 
 ## Le conseil de cette semaine
 

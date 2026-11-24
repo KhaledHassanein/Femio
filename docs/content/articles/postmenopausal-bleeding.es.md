@@ -24,7 +24,7 @@ open_graph_image_alt: "Una mujer pidiendo cita al médico en su teléfono"
 written_by: "PENDING"
 medically_reviewed_by: "Dr. Khaled M."
 date_published: "2026-10-30"
-date_modified: "2026-11-24"
+date_modified: "2026-11-25"
 last_reviewed: "2026-10-30"
 next_review_due: "2027-10-30"
 reading_level_ok: false
@@ -109,7 +109,7 @@ La muestra y la cámara pueden resultar incómodas, y puedes decirlo. Pregunta a
 
 ## Qué decir al pedir la cita
 
-Di: **«He tenido sangrado después de la menopausia».** Esa frase por sí sola agiliza la cita, porque los servicios están organizados para darle prioridad.
+Di: **«He tenido sangrado después de la menopausia».** Decirlo con claridad ayuda a quien gestiona la cita a ver que necesitas que te atiendan con prontitud.
 
 Añade cuándo dejaron de venir tus menstruaciones, cuándo ocurrió el sangrado, cuánto fue, si ya te había pasado antes y qué terapia hormonal tomas.
 

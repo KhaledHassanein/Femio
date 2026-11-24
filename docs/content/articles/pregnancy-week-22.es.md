@@ -83,7 +83,7 @@ Es también el momento en que muchos servicios esperan que comience una conversa
 
 ## El consejo de esta semana
 
-No hagas fuerza al ir al baño y pon un taburete bajo los pies. Es un consejo poco vistoso, y es el que de verdad evita que las almorranas empeoren, porque el esfuerzo es el mecanismo y la postura es lo que elimina la necesidad de hacerlo.
+No hagas fuerza al ir al baño y pon un taburete bajo los pies. Es un consejo poco vistoso, y puede ayudar a reducir el esfuerzo, que puede empeorar las almorranas.
 
 ## Cuándo consultar
 

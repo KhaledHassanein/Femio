@@ -24,7 +24,7 @@ open_graph_image_alt: "Une femme assise calmement près d'une fenêtre, son béb
 written_by: "PENDING"
 medically_reviewed_by: "Dr. Khaled M."
 date_published: "2026-10-30"
-date_modified: "2026-11-24"
+date_modified: "2026-11-25"
 last_reviewed: "2026-10-30"
 next_review_due: "2027-10-30"
 reading_level_ok: false
@@ -85,7 +85,7 @@ Deux semaines est le repère habituel. Vous n'avez pas à attendre deux semaines
 
 ## L'anxiété après l'accouchement
 
-L'anxiété est au moins aussi fréquente que l'humeur basse, et on en parle moins. Elle peut prendre la forme d'une inquiétude constante pour la respiration du bébé, de vérifications répétées pendant la nuit, de battements de cœur rapides, d'une oppression thoracique, de nausées, ou d'une incapacité à laisser quelqu'un d'autre tenir le bébé.
+L'anxiété est fréquente après la naissance, et on en parle moins. Elle peut prendre la forme d'une inquiétude constante pour la respiration du bébé, de vérifications répétées pendant la nuit, de battements de cœur rapides, d'une oppression thoracique, de nausées, ou d'une incapacité à laisser quelqu'un d'autre tenir le bébé.
 
 Des crises de panique peuvent survenir pour la première fois après l'accouchement. Il en va de même pour des vérifications ou des comptages obsessionnels.
 
@@ -123,7 +123,7 @@ Parlez-en à votre sage-femme, à votre puéricultrice, à votre médecin ou au 
 
 Le soutien va de l'aide pratique et des thérapies par la parole jusqu'aux médicaments, et il existe des options compatibles avec l'allaitement. Demandez précisément à ce sujet si cela compte pour vous.
 
-[Sommeil et épuisement après l'accouchement](/fr/learn/sleep-and-exhaustion-after-birth) traite de la part de ces difficultés qui relève réellement du sommeil, et [votre bilan des six semaines](/fr/learn/six-week-postnatal-check) est un moment garanti pour aborder l'humeur.
+[Sommeil et épuisement après l'accouchement](/fr/learn/sleep-and-exhaustion-after-birth) traite de la part de ces difficultés qui relève réellement du sommeil, et [votre bilan des six semaines](/fr/learn/six-week-postnatal-check) est un bon moment pour aborder l'humeur.
 
 ## Ce que femio peut conserver
 
@@ -135,7 +135,7 @@ femio ne pose aucun diagnostic et ne peut pas vous dire ce que vous avez. Ce qu'
 
 Contactez un professionnel de santé si une humeur basse, de l'anxiété ou un engourdissement dure au-delà de deux semaines, si vous ne parvenez pas à fonctionner, si vous vous sentez détachée de votre bébé, ou si l'anxiété dirige vos journées. N'hésitez pas à demander plus tôt si vous le souhaitez. Consultez en urgence pour des pensées de vous faire du mal ou de faire du mal à votre bébé, un sentiment de ne pas pouvoir rester en sécurité, une confusion, une agitation, ou voir ou entendre des choses que les autres ne perçoivent pas.
 
-Vous n'exagérez pas, et l'on ne vous retirera pas votre bébé parce que vous dites que vous traversez une période difficile. Le fait qu'on vous interroge sur votre humeur est une démarche de routine après une naissance.
+Vous n'exagérez pas. Demander de l'aide n'est pas le signe que vous échouez en tant que parent. Le fait qu'on vous interroge sur votre humeur est une démarche de routine après une naissance.
 
 > **Consultez sans attendre :** Si vous avez des pensées de vous faire du mal ou de faire du mal à votre bébé, si vous ne vous sentez pas en sécurité, ou si vous constatez une confusion, une agitation, ou que vous voyez ou entendez des choses que les autres ne perçoivent pas, contactez les services d'urgence locaux ou rendez-vous au service des urgences le plus proche. La page mondiale de femio [Besoin d'aide maintenant](/fr/help-now) peut vous aider à trouver la prochaine étape sûre. Restez avec une personne de confiance pendant que l'aide est organisée.
 

@@ -24,7 +24,7 @@ open_graph_image_alt: "Un calendrier sur lequel un cycle est suivi après la nai
 written_by: "PENDING"
 medically_reviewed_by: "Dr. Khaled M."
 date_published: "2026-10-30"
-date_modified: "2026-10-30"
+date_modified: "2026-11-25"
 last_reviewed: "2026-10-30"
 next_review_due: "2027-10-30"
 reading_level_ok: false
@@ -55,7 +55,7 @@ internal_links:
 
 # Le retour de vos règles après l’accouchement
 
-Les règles reviennent généralement dans un délai d’environ six à douze semaines si vous n’allaitez pas, et souvent plus tard, parfois plusieurs mois plus tard, si vous allaitez fréquemment. Les premiers cycles sont souvent irréguliers, plus abondants ou moins abondants qu’auparavant, et difficiles à prévoir. L’ovulation peut survenir avant la première règle : une grossesse est donc possible avant même tout saignement. Il s’agit d’informations destinées à vous aider à planifier, et non d’un substitut à l’avis de votre médecin.
+Les règles reviennent souvent dans un délai d’environ six à douze semaines si vous n’allaitez pas, et souvent plus tard, parfois plusieurs mois plus tard, si vous allaitez fréquemment. Les premiers cycles sont souvent irréguliers, plus abondants ou moins abondants qu’auparavant, et difficiles à prévoir. L’ovulation peut survenir avant la première règle : une grossesse est donc possible avant même tout saignement. Il s’agit d’informations destinées à vous aider à planifier, et non d’un substitut à l’avis de votre médecin.
 
 ## Distinguer une règle des saignements après l’accouchement
 
@@ -67,9 +67,9 @@ Si vous avez un doute, c’est l’interruption qui est l’indice. Lisez [les s
 
 **L’allaitement.** Un allaitement fréquent, y compris la nuit, retarde le retour des règles chez de nombreuses personnes. Ce délai n’est pas fixe et varie énormément d’une personne à l’autre ; il ne peut donc pas être prévu à partir du seul allaitement.
 
-**La diminution des tétées.** Les règles reviennent souvent dans les semaines qui suivent la diminution des tétées, l’introduction des aliments solides ou un bébé qui dort plus longtemps la nuit.
+**La diminution des tétées.** Les règles peuvent revenir plus tôt après la diminution des tétées, l’introduction des aliments solides ou un bébé qui dort plus longtemps la nuit.
 
-**L’absence d’allaitement.** Les cycles reprennent généralement dans un délai d’environ six à douze semaines.
+**L’absence d’allaitement.** Les cycles reprennent souvent dans un délai d’environ six à douze semaines.
 
 Les [recommandations postnatales de l’WHO](https://www.who.int/publications/i/item/9789240045989) considèrent le retour de la fertilité après la naissance comme un sujet à aborder tôt, précisément parce qu’il varie beaucoup.
 
@@ -90,7 +90,7 @@ Attendez-vous à de l’imprévisibilité. Les premiers cycles après la naissan
 - Plus ou moins douloureux que dans votre souvenir.
 - Espacés de façon irrégulière, avec un intervalle, puis deux règles rapprochées.
 
-Beaucoup de personnes constatent que leur rythme se stabilise au bout de trois à six cycles. D’autres trouvent que leurs règles sont durablement différentes d’avant, et pour certaines c’est une amélioration.
+Beaucoup de personnes constatent que leur rythme se stabilise au bout de plusieurs cycles. D’autres trouvent que leurs règles sont durablement différentes d’avant, et pour certaines c’est une amélioration.
 
 Les [bases du cycle menstruel](/fr/learn/menstrual-cycle-basics) expliquent ce que fait le cycle, et [comment suivre votre cycle](/fr/learn/how-to-track-menstrual-cycle) indique ce qu’il vaut la peine de noter pendant que la situation reste instable.
 
@@ -98,8 +98,8 @@ Les [bases du cycle menstruel](/fr/learn/menstrual-cycle-basics) expliquent ce q
 
 - Des saignements assez abondants pour traverser une serviette hygiénique ou un tampon toutes les heures ou deux, ou de gros caillots.
 - Des saignements entre les règles, ou après un rapport sexuel.
-- Des règles qui ne sont pas revenues vers trois mois après l’arrêt de l’allaitement.
-- Des règles qui ne sont pas revenues vers six mois si vous n’avez jamais allaité.
+- Des règles qui ne sont pas revenues quelques mois après l’arrêt de l’allaitement.
+- Des règles qui ne sont pas revenues plusieurs mois après la naissance si vous n’avez pas allaité.
 - Une douleur bien plus forte qu’avant la grossesse, ou une douleur qui vous empêche de fonctionner.
 - Tout saignement qui redevient plus abondant après s’être stabilisé pendant les premières semaines.
 
@@ -113,7 +113,7 @@ N’attendez pas d’une application une date précise dès le début. femio aff
 
 ## Quand consulter
 
-Contactez votre médecin en cas de saignements très abondants, de saignements entre les règles ou après un rapport sexuel, de douleur intense, de règles qui ne sont pas revenues environ trois mois après l’arrêt de l’allaitement, ou de règles qui ne sont jamais revenues vers six mois si vous n’avez pas allaité. Consultez en urgence pour un saignement qui imbibe une serviette en moins d’une heure, ou pour un saignement accompagné d’un évanouissement ou d’un essoufflement.
+Contactez votre médecin en cas de saignements très abondants, de saignements entre les règles ou après un rapport sexuel, de douleur intense, de règles qui ne sont pas revenues quelques mois après l’arrêt de l’allaitement, ou de règles qui ne sont pas revenues plusieurs mois après la naissance si vous n’avez pas allaité. Consultez en urgence pour un saignement qui imbibe une serviette en moins d’une heure, ou pour un saignement accompagné d’un évanouissement ou d’un essoufflement.
 
 Précisez la date de votre accouchement, si vous allaitez, et à quoi ressemblaient vos cycles avant la grossesse.
 
@@ -137,4 +137,4 @@ Il les retarde chez de nombreuses personnes, de façon imprévisible, et ce n’
 
 ### Mes règles ne sont pas revenues et j’ai arrêté d’allaiter il y a des mois. Est-ce un problème ?
 
-Cela mérite vérification. Parlez-en à votre médecin, surtout si cela dure au-delà d’environ trois mois après l’arrêt de l’allaitement.
+Cela mérite vérification. Parlez-en à votre médecin, surtout si cela fait quelques mois que vous avez arrêté d’allaiter.

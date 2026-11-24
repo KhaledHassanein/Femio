@@ -62,7 +62,7 @@ Il n'y a encore rien à voir. Ce qui est présent, c'est la fatigue, une fatigue
 
 Les taux hormonaux augmentent fortement, et ils sont à l'origine de la plupart de ce que vous ressentez. Certaines femmes remarquent à cette période de légers saignements et supposent qu'il s'agit de règles qui arrivent en retard. Il peut aussi s'agir de saignements de nidation, lorsque l'embryon se fixe à la paroi de l'utérus.
 
-L'inquiétude est assez fréquente pour mériter d'être nommée. Les recommandations du NHS indiquent qu'environ une femme sur cinq se sent anxieuse ou stressée pendant la grossesse, et conseillent d'en parler à une sage-femme ou à un médecin plutôt que de rester seule avec ce sentiment. Ce n'est pas le signe d'une mauvaise gestion. C'est le sentiment le plus souvent signalé au premier trimestre, après la fatigue.
+L'inquiétude est assez fréquente pour mériter d'être nommée. Les recommandations du NHS indiquent qu'environ une femme sur cinq se sent anxieuse ou stressée pendant la grossesse, et conseillent d'en parler à une sage-femme ou à un médecin plutôt que de rester seule avec ce sentiment. Ce n'est pas le signe d'une mauvaise gestion.
 
 ## Ce que vous pouvez remarquer
 

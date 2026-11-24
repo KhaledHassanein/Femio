@@ -24,7 +24,7 @@ open_graph_image_alt: "Relevé du flux menstruel à côté de notes sur la fatig
 written_by: "PENDING"
 medically_reviewed_by: "Dr. Khaled M."
 date_published: "2026-10-30"
-date_modified: "2026-11-24"
+date_modified: "2026-11-25"
 last_reviewed: "2026-10-30"
 next_review_due: "2027-10-30"
 reading_level_ok: false
@@ -98,7 +98,7 @@ Une douleur thoracique, un évanouissement, un essoufflement sévère ou une fai
 
 Un professionnel de santé peut proposer une numération formule sanguine complète. Elle mesure l'hémoglobine et d'autres détails des cellules sanguines. La ferritine, un marqueur des réserves de fer, peut être dosée selon les symptômes, les résultats et les recommandations locales.
 
-Une hémoglobine basse peut signaler une anémie, mais la cause doit encore être recherchée. Une inflammation de l'organisme peut modifier la ferritine, donc le contexte compte. Le professionnel peut envisager la grossesse, l'alimentation, des symptômes digestifs ou l'effet de médicaments. Un saignement d'une autre origine ou une maladie du sang peuvent aussi nécessiter un contrôle.
+Une hémoglobine basse peut signaler une anémie, mais la cause doit encore être recherchée. Une inflammation de l'organisme peut modifier les résultats de la ferritine, donc le contexte compte. Le professionnel peut envisager la grossesse, l'alimentation, des symptômes digestifs ou l'effet de médicaments. Un saignement d'une autre origine ou une maladie du sang peuvent aussi nécessiter un contrôle.
 
 Demandez ce que signifie chaque résultat, ce qui a causé la baisse de fer, et quand il faudra refaire l'examen. Utilisez le [glossaire](/fr/glossary) pour des définitions simples des termes de santé.
 

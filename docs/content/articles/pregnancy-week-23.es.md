@@ -95,7 +95,7 @@ Contacta con tu servicio de maternidad de inmediato si los movimientos se hacen 
 
 ### ¿Cuántos movimientos debería notar?
 
-No existe un número, y cualquier aplicación o folleto que te dé uno se equivoca. Lo que los profesionales preguntan es si hay un cambio respecto a tu patrón habitual.
+No hay un número fijo, según el RCOG, así que desconfía de cualquier aplicación o folleto que te dé uno. Lo que los profesionales preguntan es si hay un cambio respecto a tu patrón habitual.
 
 ### ¿Por qué me duelen las costillas?
 

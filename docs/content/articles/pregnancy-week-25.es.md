@@ -59,7 +59,7 @@ La semana 25 suele traer algo de hinchazón en la cara, las manos y los pies. La
 
 La hinchazón es frecuente y suele deberse a retención de líquido. El NHS aconseja mencionarla de todos modos, porque la presión arterial debe revisarse junto con ella.
 
-La preeclampsia es una afección de la segunda mitad del embarazo, y tanto el NHS como ACOG describen los signos a los que hay que actuar: un dolor de cabeza intenso que no se va, problemas de visión como visión borrosa o destellos de luz, dolor justo debajo de las costillas, vómitos y hinchazón repentina de la cara, las manos o los pies. Juntos son una emergencia, y una mujer puede sentirse bien justo antes de que aparezcan.
+La preeclampsia es una afección de la segunda mitad del embarazo, y tanto el NHS como ACOG describen los signos a los que hay que actuar: un dolor de cabeza intenso que no se va, problemas de visión como visión borrosa o destellos de luz, dolor justo debajo de las costillas, vómitos y hinchazón repentina de la cara, las manos o los pies. Cualquiera de estos signos necesita consejo urgente, y una mujer puede sentirse bien poco antes de que aparezcan.
 
 Esa es la razón por la que la presión arterial y la orina se controlan en cada cita a partir de ahora. Se detecta con un aparato mucho antes de que se note.
 

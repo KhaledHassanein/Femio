@@ -24,7 +24,7 @@ open_graph_image_alt: "Une femme tenant le bas de son ventre pendant qu’elle a
 written_by: "PENDING"
 medically_reviewed_by: "Dr. Khaled M."
 date_published: "2026-10-30"
-date_modified: "2026-10-30"
+date_modified: "2026-11-25"
 last_reviewed: "2026-10-30"
 next_review_due: "2027-10-30"
 reading_level_ok: false
@@ -67,7 +67,7 @@ Cela surprend beaucoup de femmes, et peut rendre les premières tétées plus di
 
 ## Pourquoi elles sont plus fortes après un deuxième bébé
 
-Un utérus déjà distendu a tendance à se contracter par vagues plus marquées plutôt que par un resserrement régulier. Beaucoup de femmes décrivent les tranchées du premier bébé comme légères, et celles du deuxième comme vraiment douloureuses.
+Les tranchées sont couramment décrites comme plus fortes après une deuxième naissance ou une naissance ultérieure. Beaucoup de femmes décrivent les tranchées du premier bébé comme légères, et celles du deuxième comme vraiment douloureuses.
 
 Si personne ne vous en a prévenue, c’est une lacune dans ce que l’on dit aux femmes, et non le signe que quelque chose ne va pas.
 

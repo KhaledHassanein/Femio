@@ -24,7 +24,7 @@ open_graph_image_alt: "Serviettes de maternité et un calendrier marquant les se
 written_by: "PENDING"
 medically_reviewed_by: "Dr. Khaled M."
 date_published: "2026-10-30"
-date_modified: "2026-10-30"
+date_modified: "2026-11-25"
 last_reviewed: "2026-10-30"
 next_review_due: "2027-10-30"
 reading_level_ok: false
@@ -54,7 +54,7 @@ internal_links:
 
 # Saignements après l’accouchement : ce qui est normal et ce qui ne l’est pas
 
-Les saignements après l’accouchement, appelés lochies, sont les plus abondants pendant les premiers jours, puis s’atténuent sur plusieurs semaines. Ils passent en général du rouge vif au rose ou au brun, puis à un écoulement pâle. Un saignement qui augmente au lieu de diminuer, qui imbibe une serviette de maternité en moins d’une heure, ou qui sent mauvais ne fait pas partie de ce schéma et nécessite un avis urgent. Ces informations visent à vous aider à repérer les changements ; elles ne remplacent pas votre sage-femme ni votre médecin.
+Les saignements après l’accouchement, appelés lochies, sont les plus abondants pendant les premiers jours, puis s’atténuent sur plusieurs semaines. Ils passent en général du rouge vif au rose ou au brun, puis à un écoulement pâle. Un saignement qui augmente au lieu de diminuer, ou qui sent mauvais, ne fait pas partie de ce schéma et nécessite un avis urgent. Un saignement qui imbibe une serviette de maternité en moins d’une heure nécessite des soins d’urgence. Ces informations visent à vous aider à repérer les changements ; elles ne remplacent pas votre sage-femme ni votre médecin.
 
 ## Ce que sont ces saignements
 

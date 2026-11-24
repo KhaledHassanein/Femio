@@ -24,7 +24,7 @@ open_graph_image_alt: "Persona embarazada hablando con un profesional sanitario 
 written_by: "PENDING"
 medically_reviewed_by: "Dr. Khaled M."
 date_published: "2026-10-30"
-date_modified: "2026-11-24"
+date_modified: "2026-11-25"
 last_reviewed: "2026-10-30"
 next_review_due: "2027-10-30"
 reading_level_ok: false
@@ -60,7 +60,7 @@ Lleva preguntas y documentos si los tienes, pero la falta de información no deb
 
 Ponte en contacto con los servicios de atención al embarazo de tu zona tras una prueba positiva o cuando creas que puedes estar embarazada. Algunos sistemas empiezan con una consulta telefónica o en línea antes de la visita presencial.
 
-La [guía de ACOG sobre atención prenatal](https://www.acog.org/womens-health/faqs/prenatal-care) recomienda empezar la atención en el primer trimestre. ACOG señala que lo ideal, cuando es posible, es antes de las 10 semanas desde la última menstruación, aunque el acceso y las necesidades personales varían.
+La [guía de ACOG sobre atención prenatal](https://www.acog.org/womens-health/faqs/prenatal-care) recomienda empezar la atención en el primer trimestre. ACOG señala que lo ideal es que la primera cita sea antes de las 10 semanas de embarazo, contadas desde la última menstruación, aunque el acceso y las necesidades personales varían.
 
 No esperes a una visita rutinaria si tienes síntomas urgentes o un medicamento que requiere revisión pronta.
 

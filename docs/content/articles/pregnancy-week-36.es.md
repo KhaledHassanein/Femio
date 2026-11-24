@@ -73,7 +73,7 @@ Los movimientos no deberían estar disminuyendo. Este es el momento del embarazo
 
 Hacia la semana 36, la cifra que se indica es de unos 47,4 cm de la cabeza al talón, comparable a una lechuga romana según la comparación del NHS. Es un promedio de población, no una medición de tu embarazo.
 
-Los pulmones suelen estar ya lo bastante maduros para respirar sin ayuda, y la succión y la digestión están listas para la alimentación.
+Los pulmones ya están bien desarrollados, aunque algunos bebés nacidos antes de las 37 semanas todavía necesitan ayuda para respirar, y la succión y la digestión están listas para la alimentación.
 
 ## ¿Qué cuidados suelen producirse por estas fechas?
 

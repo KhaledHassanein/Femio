@@ -24,7 +24,7 @@ open_graph_image_alt: "Personne enceinte discutant de ses dossiers de santé et 
 written_by: "PENDING"
 medically_reviewed_by: "Dr. Khaled M."
 date_published: "2026-10-30"
-date_modified: "2026-11-24"
+date_modified: "2026-11-25"
 last_reviewed: "2026-10-30"
 next_review_due: "2027-10-30"
 reading_level_ok: false
@@ -60,7 +60,7 @@ Apportez vos questions et vos documents si vous les avez, mais l'absence d'une i
 
 Contactez les services de suivi de grossesse de votre région après un test positif, ou lorsque vous pensez être enceinte. Certains systèmes commencent par un entretien téléphonique ou en ligne avant la consultation en personne.
 
-Le [guide de l'ACOG sur le suivi prénatal](https://www.acog.org/womens-health/faqs/prenatal-care) recommande de commencer le suivi au cours du premier trimestre. L'ACOG indique qu'idéalement, il faut consulter avant 10 semaines à compter des dernières règles lorsque c'est possible, même si l'accès et les besoins personnels varient.
+Le [guide de l'ACOG sur le suivi prénatal](https://www.acog.org/womens-health/faqs/prenatal-care) recommande de commencer le suivi au cours du premier trimestre. L'ACOG indique qu'idéalement, la première consultation a lieu avant 10 semaines de grossesse, comptées à partir des dernières règles, même si l'accès et les besoins personnels varient.
 
 N'attendez pas une consultation de routine si vous avez des symptômes urgents ou un médicament qui nécessite un examen rapide.
 

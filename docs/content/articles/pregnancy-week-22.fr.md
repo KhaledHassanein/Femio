@@ -83,7 +83,7 @@ C'est aussi à ce moment que de nombreux services s'attendent à ce qu'une discu
 
 ## Le conseil de cette semaine
 
-Ne forcez pas aux toilettes, et placez un petit tabouret sous vos pieds. C'est un conseil peu glamour, et c'est celui qui empêche réellement les hémorroïdes de s'aggraver, car la poussée est le mécanisme en cause, et la posture supprime le besoin de pousser.
+Ne forcez pas aux toilettes, et placez un petit tabouret sous vos pieds. C'est un conseil peu glamour, et il peut aider à réduire la poussée, qui peut aggraver les hémorroïdes.
 
 ## Quand consulter
 

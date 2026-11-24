@@ -24,7 +24,7 @@ open_graph_image_alt: "Une femme discutant de résultats d'analyses de sang avec
 written_by: "PENDING"
 medically_reviewed_by: "Dr. Khaled M."
 date_published: "2026-10-30"
-date_modified: "2026-11-24"
+date_modified: "2026-11-25"
 last_reviewed: "2026-10-30"
 next_review_due: "2027-10-30"
 reading_level_ok: false
@@ -82,9 +82,9 @@ Le guide sur la [consultation préconceptionnelle](/fr/learn/preconception-appoi
 
 En général, deux choses : votre traitement peut devoir être revu rapidement, et les contrôles deviennent plus fréquents. De nombreux professionnels remettent un plan à l'avance, précisément pour que rien n'attende un créneau de rendez-vous.
 
-Si l'on ne vous en a pas remis, contactez la personne qui suit votre thyroïde dès que vous avez un test positif. Dites que vous êtes enceinte et que vous prenez un traitement thyroïdien : cette phrase permet généralement d'obtenir un rendez-vous plus rapidement.
+Si l'on ne vous en a pas remis, contactez la personne qui suit votre thyroïde dès que vous avez un test positif. Dites que vous êtes enceinte et que vous prenez un traitement thyroïdien : cette phrase aide l'équipe à évaluer le degré d'urgence.
 
-N'arrêtez pas votre traitement parce que vous êtes enceinte. C'est une crainte fréquente et compréhensible, et c'est le contraire de ce que recommandent les directives.
+N'arrêtez pas votre traitement de vous-même parce que vous êtes enceinte ; votre prescripteur décide de tout changement. C'est une crainte fréquente et compréhensible, et c'est le contraire de ce que recommandent les directives.
 
 ## Les problèmes de thyroïde et la conception
 

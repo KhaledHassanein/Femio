@@ -24,7 +24,7 @@ open_graph_image_alt: "Une femme parlant avec un clinicien lors d'un rendez-vous
 written_by: "PENDING"
 medically_reviewed_by: "Dr. Khaled M."
 date_published: "2026-10-30"
-date_modified: "2026-11-24"
+date_modified: "2026-11-25"
 last_reviewed: "2026-10-30"
 next_review_due: "2027-10-30"
 reading_level_ok: false
@@ -66,7 +66,7 @@ Les prévisions de cycle de femio sont des estimations fondées sur les cycles e
 
 ## L'allaitement et la fertilité
 
-Un allaitement fréquent retarde l'ovulation chez de nombreuses personnes, mais pas chez toutes, et pas de façon prévisible. Il existe une méthode cliniquement définie fondée sur ce principe, appelée méthode de l'aménorrhée lactationnelle (MAMA). Elle ne s'applique que dans des conditions strictes : allaitement exclusif, absence de règles, et bébé de moins de six mois.
+Un allaitement fréquent retarde l'ovulation chez de nombreuses personnes, mais pas chez toutes, et pas de façon prévisible. Il existe une méthode cliniquement définie fondée sur ce principe, appelée méthode de l'aménorrhée lactationnelle (MAMA). Elle ne s'applique que dans des conditions strictes : allaitement complet ou presque complet, avec des intervalles courts entre les tétées, absence de règles, et bébé de moins de six mois.
 
 Ces conditions se rompent facilement, souvent sans que vous vous en rendiez compte, dès que le bébé dort plus longtemps, qu'il commence les aliments solides, ou qu'une tétée est sautée. Parlez-en avec un clinicien plutôt que de supposer que cela s'applique à vous.
 
@@ -83,7 +83,7 @@ En règle générale, la discussion porte sur :
 - **Les méthodes combinées** (contenant des œstrogènes) : pilules, patch, anneau. Le délai est plus strict après l'accouchement en raison du risque de caillot, et plus strict encore pendant l'allaitement dans les premières semaines.
 - **Les méthodes barrières.** Disponibles à tout moment. Un diaphragme ou une cape doit être réajusté après un accouchement.
 - **Les méthodes définitives.** Parfois réalisées au moment d'une césarienne, ou organisées plus tard.
-- **Les méthodes d'urgence.** Disponibles après l'accouchement, mais le choix dépend de l'allaitement et du calendrier ; demandez conseil à un pharmacien ou à un clinicien.
+- **Les méthodes d'urgence.** Disponibles après l'accouchement, et le délai compte, donc demandez rapidement conseil à un pharmacien ou à un clinicien. Le choix dépend de l'allaitement et du calendrier.
 
 Celle qui vous convient dépend de votre santé, de la façon dont vous avez accouché, de votre allaitement et de vos projets pour la suite. C'est une discussion, et non une liste dans laquelle choisir seul.
 

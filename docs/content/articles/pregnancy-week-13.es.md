@@ -75,7 +75,7 @@ Sentir ardor al orinar, o necesitar ir con urgencia y con frecuencia, es motivo 
 
 Alrededor de la semana 13, la cifra que se menciona es de unos 7,4 cm, del tamaño de un durazno, según la comparación del NHS. Describe a una población, y ningún embarazo individual tiene que coincidir con ella.
 
-Ya hay movimiento: al principio es brusco y aleatorio, y después más deliberado. La mayoría de las mujeres no siente nada hasta alrededor de la semana 17 o más tarde. Algunos bebés se chupan el pulgar en esta etapa, lo que desarrolla el reflejo de succión necesario para alimentarse después del nacimiento.
+Ya hay movimiento: al principio es brusco y aleatorio, y después más deliberado. La mayoría de las mujeres no siente el movimiento hasta algún momento entre las semanas 17 y 24. Algunos bebés se chupan el pulgar en esta etapa, lo que desarrolla el reflejo de succión necesario para alimentarse después del nacimiento.
 
 ## Qué atención suele ocurrir en esta etapa
 

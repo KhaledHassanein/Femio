@@ -23,7 +23,7 @@ open_graph_image_alt: "Un profesional sanitario examinando a un recién nacido e
 written_by: "PENDING"
 medically_reviewed_by: "Dr. Khaled M."
 date_published: "2026-10-30"
-date_modified: "2026-11-24"
+date_modified: "2026-11-25"
 last_reviewed: "2026-10-30"
 next_review_due: "2027-10-30"
 reading_level_ok: false
@@ -88,7 +88,7 @@ El cribado no es lo mismo que una prueba diagnóstica. Un resultado que requiere
 
 ## Vitamina K
 
-Las guías de atención posnatal del NICE recomiendan que se ofrezca a los padres vitamina K para su bebé, para proteger contra la hemorragia por deficiencia de vitamina K, que es rara y grave. La práctica varía entre países en cuanto a cómo se administra.
+Normalmente se ofrece a los recién nacidos vitamina K, para proteger contra la hemorragia por deficiencia de vitamina K, que es rara y grave. La práctica varía entre países en cuanto a cómo se administra.
 
 Puedes preguntar qué ofrece tu servicio y hacer preguntas antes de decidir. Es una conversación con un profesional sanitario, no un formulario que se firma deprisa.
 
@@ -102,7 +102,7 @@ Lleva esa cartilla a todas las citas si te la han entregado, y añade tú los da
 
 Los calendarios de vacunación sistemática se establecen a nivel nacional, tomando como base las recomendaciones de la OMS y adaptándolas a las enfermedades que son comunes en cada lugar. La OMS publica tablas resumen de las recomendaciones de inmunización sistemática en las que se apoyan los programas nacionales.
 
-Las diferencias son reales. El calendario del NHS pone las primeras vacunas sistemáticas del bebé a las ocho semanas, y ofrece la BCG contra la tuberculosis y la vacuna contra la hepatitis B a los bebés con mayor riesgo, en lugar de a todos. El calendario del CDC para Estados Unidos empieza al nacer, con una primera dosis de hepatitis B antes de que el bebé salga del hospital.
+Las diferencias son reales. El calendario del NHS pone las primeras vacunas sistemáticas del bebé a las ocho semanas, incluida la protección contra la hepatitis B en la vacuna combinada, y ofrece la BCG contra la tuberculosis y una dosis de hepatitis B más temprana a los bebés con mayor riesgo, en lugar de a todos. El calendario del CDC para Estados Unidos empieza al nacer, con una primera dosis de hepatitis B antes de que el bebé salga del hospital.
 
 Por tanto, el calendario de un país no es un consejo para otro. Pide a tu servicio su calendario, guarda la cartilla y pregunta por la puesta al día si pierdes una cita.
 

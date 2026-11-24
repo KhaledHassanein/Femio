@@ -59,7 +59,7 @@ internal_links:
 
 Un afflux de sang plus important circule dans la région pelvienne, et l'une de ses conséquences est une plus grande quantité de liquide laiteux qui maintient le vagin propre. Le NHS appelle cela la leucorrhée, et une augmentation est attendue plutôt que préoccupante.
 
-Quatre changements méritent un appel : si la couleur n'est plus claire, blanche ou crémeuse ; si l'odeur est forte ; si la texture change, devenant mousseuse ou ressemblant à du fromage blanc ; ou s'ils s'accompagnent de démangeaisons, de douleurs ou de brûlures en urinant. Les mycoses vaginales (muguet) sont fréquentes pendant la grossesse et se traitent sur avis d'un professionnel, et non au hasard à partir du rayon de la pharmacie.
+Quatre changements méritent un appel : si la couleur n'est plus claire, blanche ou crémeuse ; si l'odeur est forte ; si la texture change, devenant mousseuse ou ressemblant à du fromage blanc ; ou s'ils s'accompagnent de démangeaisons, de douleurs ou de brûlures en urinant. Les mycoses vaginales (muguet) sont fréquentes pendant la grossesse ; elles doivent être vérifiées et traitées sur avis d'un pharmacien, d'une sage-femme ou d'un médecin, et non au hasard.
 
 La douleur des ligaments ronds, une sensation vive sur les côtés du ventre, commence souvent autour de maintenant. Se reposer, les pieds surélevés, aide. Les démangeaisons de la peau sont fréquentes aussi, et les conseils habituels sont un hydratant non parfumé, des vêtements en coton légers et un bain frais. Des démangeaisons qui s'aggravent la nuit sont différentes : le NHS demande de le signaler spécifiquement à une sage-femme ou à un médecin.
 
@@ -73,7 +73,7 @@ Gencives sensibles, douleurs des ligaments ronds, maux de tête, saignements de 
 
 Vers la semaine 15, la mesure donnée est d'environ 10,1 cm du sommet de la tête aux fesses, que le NHS compare à une pomme. Il s'agit d'une moyenne calculée sur de nombreuses grossesses, et non de la mesure d'une grossesse en particulier.
 
-Un fin duvet de cheveux appelé lanugo recouvre le corps, les sourcils et les cils commencent à apparaître, et les yeux deviennent sensibles à la lumière. L'audition commence à se mettre en place vers cette période : le battement du cœur, la digestion et les voix extérieures.
+Un fin duvet de cheveux appelé lanugo recouvre le corps, les sourcils et les cils commencent à apparaître, et les yeux deviennent sensibles à la lumière. L'audition commence à se mettre en place vers cette période ; au cours des semaines suivantes, des sons comme votre battement de cœur, la digestion et les voix extérieures parviennent au bébé.
 
 ## Les soins habituellement prévus à cette période
 
@@ -83,7 +83,7 @@ L'échographie de dépistage des anomalies est le rendez-vous fixe suivant pour 
 
 ## Le conseil de cette semaine
 
-Passez cette semaine aux sous-vêtements en coton et à un savon non parfumé. Cela paraît anodin, et c'est le changement qui réduit le plus les démangeaisons, les mycoses et l'inconfort général tout au long du deuxième trimestre. Il est bien plus facile à faire maintenant qu'après que quelque chose a déjà commencé.
+Passez cette semaine aux sous-vêtements en coton et à un savon non parfumé. Cela paraît anodin, et cela peut aider à réduire les démangeaisons et l'inconfort général. Il est bien plus facile à faire maintenant qu'après que quelque chose a déjà commencé.
 
 ## Quand consulter
 

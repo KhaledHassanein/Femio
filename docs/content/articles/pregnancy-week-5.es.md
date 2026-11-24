@@ -62,7 +62,7 @@ Todavía no hay nada que ver. Lo que hay es cansancio: el tipo de cansancio que 
 
 Los niveles hormonales suben con rapidez, y están detrás de la mayoría de las sensaciones. Algunas mujeres notan un sangrado leve por estas fechas y suponen que es la menstruación con retraso. También puede ser un sangrado de implantación, cuando el embrión se fija al revestimiento del útero.
 
-La preocupación es lo bastante común como para mencionarla. La guía del NHS señala que alrededor de una de cada cinco mujeres se siente ansiosa o estresada durante el embarazo, y aconseja hablarlo con una matrona o con un médico en lugar de aguantarlo en silencio. No es señal de que se afronte mal. Es el sentimiento más comunicado del primer trimestre después del cansancio.
+La preocupación es lo bastante común como para mencionarla. La guía del NHS señala que alrededor de una de cada cinco mujeres se siente ansiosa o estresada durante el embarazo, y aconseja hablarlo con una matrona o con un médico en lugar de aguantarlo en silencio. No es señal de que se afronte mal.
 
 ## Lo que puedes notar
 

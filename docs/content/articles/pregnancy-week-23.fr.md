@@ -95,7 +95,7 @@ Contactez immédiatement votre service de maternité si les mouvements ralentiss
 
 ### Combien de mouvements dois-je ressentir ?
 
-Il n’existe pas de nombre, et toute application ou brochure qui en donne un est erronée. Ce qu’évaluent les professionnels, c’est un changement par rapport à votre propre rythme habituel.
+Il n’existe pas de nombre fixe, selon le RCOG, alors méfiez-vous de toute application ou brochure qui en donne un. Ce qu’évaluent les professionnels, c’est un changement par rapport à votre propre rythme habituel.
 
 ### Pourquoi mes côtes me font-elles mal ?
 

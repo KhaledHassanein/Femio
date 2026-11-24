@@ -73,7 +73,7 @@ Les mouvements ne doivent pas diminuer. C'est à ce stade de la grossesse que la
 
 Vers la semaine 36, la valeur indiquée est d'environ 47,4 cm de la tête aux talons, soit la taille d'une laitue romaine, selon la comparaison du NHS. Il s'agit d'une moyenne pour la population, et non d'une mesure de votre propre grossesse.
 
-Les poumons sont en général suffisamment matures pour respirer sans aide à ce stade, et la succion et la digestion sont prêtes pour l'allaitement ou l'alimentation.
+Les poumons sont en général bien développés à ce stade, même si certains bébés nés avant 37 semaines ont encore besoin d'une aide respiratoire, et la succion et la digestion sont prêtes pour l'allaitement ou l'alimentation.
 
 ## Les soins habituellement prévus à cette période
 

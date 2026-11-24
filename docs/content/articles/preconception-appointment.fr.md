@@ -24,7 +24,7 @@ open_graph_image_alt: "Liste de médicaments et notes de santé préparées pour
 written_by: "PENDING"
 medically_reviewed_by: "Dr. Khaled M."
 date_published: "2026-10-30"
-date_modified: "2026-10-30"
+date_modified: "2026-11-25"
 last_reviewed: "2026-10-30"
 next_review_due: "2027-10-30"
 reading_level_ok: false
@@ -36,6 +36,9 @@ structured_data_required:
   - "BreadcrumbList"
   - "FAQPage"
 sources:
+  - title: "WHO: Periconceptional folic acid supplementation to prevent neural tube defects"
+    url: "https://www.who.int/tools/elena/interventions/folate-periconceptional"
+    tier: "1"
   - title: "ACOG: Good Health Before Pregnancy: Prepregnancy Care"
     url: "https://www.acog.org/womens-health/faqs/good-health-before-pregnancy-prepregnancy-care"
     tier: "1"
@@ -90,7 +93,7 @@ Signalez aussi les médicaments pris seulement de temps en temps. Incluez les pr
 
 ## Que peut-on dire de l'acide folique ?
 
-L'acide folique est une vitamine B nécessaire tôt dans la croissance du bébé. Les [CDC](https://www.cdc.gov/pregnancy/about/index.html) recommandent 400 microgrammes par jour pour la plupart des personnes qui pourraient devenir enceintes. Ils conseillent de commencer au moins un mois avant la grossesse.
+L'acide folique est une vitamine B nécessaire tôt dans la croissance du bébé. Les [CDC](https://www.cdc.gov/pregnancy/about/index.html) recommandent 400 microgrammes par jour pour la plupart des personnes qui pourraient devenir enceintes. Ils conseillent de commencer au moins un mois avant la grossesse. [OMS](https://www.who.int/tools/elena/interventions/folate-periconceptional) recommande 400 microgrammes par jour à partir du moment où vous commencez à essayer de concevoir et jusqu'à 12 semaines de grossesse.
 
 Certaines personnes peuvent avoir besoin d'un plan différent selon leurs médicaments, leurs antécédents de santé ou une grossesse antérieure. Demandez à un professionnel de santé quel plan vous convient. Suivez un conseil personnalisé plutôt que de prendre des doses supplémentaires de votre propre initiative.
 

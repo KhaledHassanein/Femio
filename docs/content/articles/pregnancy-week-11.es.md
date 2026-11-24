@@ -9,7 +9,7 @@ primary_query: "11 semanas de embarazo"
 secondary_topics:
   - "ecografía de datación en la semana 11"
   - "cribado de translucencia nucal"
-excerpt: "La semana 11 suele abrir la ventana de la ecografía de datación y, con ella, las primeras decisiones de cribado del embarazo."
+excerpt: "La semana 11 es cuando la mayoría de las mujeres se hacen la ecografía de datación y, con ella, llegan las primeras decisiones de cribado del embarazo."
 meta_title: "11 semanas de embarazo: se abre la ecografía de datación"
 meta_description: "La ventana de la ecografía de datación se abre hacia la semana 11, con las primeras opciones de cribado. Qué mide la ecografía y qué significa un resultado."
 canonical_url: "https://femioapp.com/es/learn/pregnancy-week-11"
@@ -53,7 +53,7 @@ internal_links:
 
 # Semana 11 de embarazo: qué esperar
 
-La semana 11 suele abrir la ventana de la ecografía de datación y, con ella, las primeras decisiones de cribado que te ofrecen. Hay mucho papeleo asociado a una semana en la que todavía no se te nota el embarazo. Merece la pena leerlo antes de la cita y no en la sala de espera.
+La semana 11 es cuando la mayoría de las mujeres tiene la ecografía de datación y, con ella, las primeras decisiones de cribado que te ofrecen. Hay mucho papeleo asociado a una semana en la que todavía no se te nota el embarazo. Merece la pena leerlo antes de la cita y no en la sala de espera.
 
 ## Tu cuerpo esta semana
 

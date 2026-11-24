@@ -24,7 +24,7 @@ open_graph_image_alt: "Una mujer descansando en casa en las semanas posteriores 
 written_by: "PENDING"
 medically_reviewed_by: "Dr. Khaled M."
 date_published: "2026-10-30"
-date_modified: "2026-11-24"
+date_modified: "2026-11-25"
 last_reviewed: "2026-10-30"
 next_review_due: "2027-10-30"
 reading_level_ok: false
@@ -80,7 +80,7 @@ La caída del cabello, los sudores nocturnos, las muñecas doloridas y los pies 
 
 El sangrado después del parto se llama loquios. Cambia de color, de rojo a rosado, a marrón y a pálido, a lo largo de días y semanas, y puede detenerse y volver a empezar.
 
-Empapar una compresa de maternidad en una hora, expulsar coágulos más grandes que una ciruela, o un sangrado que de repente vuelve a ser abundante requieren consejo urgente. Los [CDC](https://www.cdc.gov/hearher/maternal-warning-signs/index.html) incluyen el sangrado abundante entre las señales que necesitan atención inmediata después del parto.
+Empapar una compresa de maternidad en una hora, o expulsar coágulos del tamaño de un huevo o más grandes, requiere atención de emergencia. Los coágulos más grandes que una ciruela, o un sangrado que de repente vuelve a ser abundante, requieren consejo el mismo día. Los [CDC](https://www.cdc.gov/hearher/maternal-warning-signs/index.html) incluyen el sangrado abundante entre las señales que necesitan atención inmediata después del parto.
 
 Lee [el sangrado después del parto](/es/learn/bleeding-after-birth) para saber cómo suele verse cada etapa.
 

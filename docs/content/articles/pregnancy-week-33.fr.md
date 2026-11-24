@@ -73,7 +73,7 @@ Les mouvements ne devraient pas diminuer. Tout changement dans votre propre ryth
 
 Vers la semaine 33, la longueur indiquée est d'environ 43,7 cm de la tête aux talons ; le NHS la compare à un ananas. Ce sont des moyennes décrivant une population, et non une mesure d'une grossesse individuelle.
 
-Le cerveau et le système nerveux sont entièrement développés. Les os durcissent, à l'exception des os du crâne, qui restent souples et séparés jusque vers 12 à 18 mois : cette souplesse rend possible le passage par le canal de l'accouchement.
+Le cerveau et le système nerveux sont bien développés, et ils continuent de mûrir après la naissance. Les os durcissent, à l'exception des os du crâne, qui restent souples et séparés jusque vers 12 à 18 mois : cette souplesse rend possible le passage par le canal de l'accouchement.
 
 ## Quels soins ont généralement lieu à cette période
 

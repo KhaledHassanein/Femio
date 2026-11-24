@@ -24,7 +24,7 @@ open_graph_image_alt: "Professionnel de santé et personne en consultation compa
 written_by: "PENDING"
 medically_reviewed_by: "Dr. Khaled M."
 date_published: "2026-10-30"
-date_modified: "2026-10-30"
+date_modified: "2026-11-25"
 last_reviewed: "2026-10-30"
 next_review_due: "2027-10-30"
 reading_level_ok: false
@@ -52,7 +52,7 @@ internal_links:
 
 # Quelles options de prise en charge de la ménopause un clinicien peut-il évoquer ?
 
-La prise en charge de la ménopause peut inclure un THM ou des médicaments non hormonaux. Une démarche structurée peut aider à travailler sur les pensées, les actions et la gestion du quotidien. Des hydratants vaginaux, des lubrifiants ou des œstrogènes locaux peuvent aussi aider. Le soutien peut porter sur le sommeil, l'humeur, la sexualité, la santé de la vessie ou des os. Les choix doivent correspondre à vos symptômes, à votre santé, à vos objectifs et à vos souhaits.
+La prise en charge de la ménopause peut inclure un traitement hormonal de la ménopause (THM) ou des médicaments non hormonaux. Une démarche structurée peut aider à travailler sur les pensées, les actions et la gestion du quotidien. Des hydratants vaginaux, des lubrifiants ou des œstrogènes locaux peuvent aussi aider. Le soutien peut porter sur le sommeil, l'humeur, la sexualité, la santé de la vessie ou des os. Les choix doivent correspondre à vos symptômes, à votre santé, à vos objectifs et à vos souhaits.
 
 Aucun plan unique n'est le meilleur pour tout le monde. Un clinicien doit expliquer les bénéfices, les risques, les limites et le calendrier de réévaluation.
 

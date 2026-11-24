@@ -59,7 +59,7 @@ En la semana 15, la mayoría de las mujeres tienen más flujo, algo normal cuyos
 
 Hay más sangre circulando por la zona pélvica, y uno de los efectos es más de ese líquido lechoso que mantiene limpia la vagina. La NHS lo llama leucorrea, y que aumente es lo esperable, no un problema.
 
-Hay cuatro cambios que merecen una llamada: si el flujo cambia de color y deja de ser transparente, blanco o cremoso; si huele fuertemente a algo; si cambia de textura, volviéndose espumoso o pareciéndose al requesón; o si viene con picor, escozor o dolor al orinar. La candidiasis es frecuente en el embarazo, y la trata un profesional sanitario en lugar de hacerlo a partir de una suposición ante la estantería de la farmacia.
+Hay cuatro cambios que merecen una llamada: si el flujo cambia de color y deja de ser transparente, blanco o cremoso; si huele fuertemente a algo; si cambia de textura, volviéndose espumoso o pareciéndose al requesón; o si viene con picor, escozor o dolor al orinar. La candidiasis es frecuente en el embarazo y debe comprobarse y tratarse siguiendo el consejo de un farmacéutico, una matrona o un médico, en lugar de hacerlo por suposición.
 
 El dolor del ligamento redondo, un pinchazo a los lados de la barriga, suele empezar por estas fechas. Ayuda descansar con los pies elevados. El picor de piel también es frecuente, y los consejos habituales son una crema hidratante sin perfume, ropa de algodón holgada y un baño fresco. El picor que empeora por la noche es distinto: la NHS indica que hay que avisar específicamente a la matrona o al médico.
 
@@ -73,7 +73,7 @@ Sentirte inestable al caminar es una parte real y poco comentada de esta etapa. 
 
 Alrededor de la semana 15, la cifra que se da es de unos 10,1 cm de la cabeza a las nalgas, que la NHS compara con una manzana. Es un promedio de muchos embarazos y no la medida de uno solo.
 
-Un suave vello llamado lanugo se extiende por el cuerpo; las cejas y las pestañas empiezan a formarse, y los ojos se vuelven sensibles a la luz. La audición empieza por estas fechas: el latido del corazón, la digestión y las voces del exterior.
+Un suave vello llamado lanugo se extiende por el cuerpo; las cejas y las pestañas empiezan a formarse, y los ojos se vuelven sensibles a la luz. La audición empieza a desarrollarse por estas fechas; en las semanas siguientes, sonidos como tu latido, la digestión y las voces del exterior llegan al bebé.
 
 ## Qué cuidados suelen producirse por estas fechas
 
@@ -83,7 +83,7 @@ La ecografía de detección de anomalías es el siguiente punto fijo para la may
 
 ## El consejo de esta semana
 
-Cambia a ropa interior de algodón y a un jabón sin perfume esta semana. Suena trivial, y es el único cambio que más reduce el picor, la candidiasis y las molestias generales durante el segundo trimestre. Además, es mucho más fácil hacerlo ahora que cuando algo ya haya empezado.
+Cambia a ropa interior de algodón y a un jabón sin perfume esta semana. Suena trivial, y puede ayudar a reducir el picor y las molestias generales. Además, es mucho más fácil hacerlo ahora que cuando algo ya haya empezado.
 
 ## Cuándo consultar
 

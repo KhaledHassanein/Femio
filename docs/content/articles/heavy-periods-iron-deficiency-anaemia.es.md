@@ -24,7 +24,7 @@ open_graph_image_alt: "Registro del flujo menstrual junto a notas sobre cansanci
 written_by: "PENDING"
 medically_reviewed_by: "Dr. Khaled M."
 date_published: "2026-10-30"
-date_modified: "2026-10-30"
+date_modified: "2026-11-25"
 last_reviewed: "2026-10-30"
 next_review_due: "2027-10-30"
 reading_level_ok: false
@@ -98,7 +98,7 @@ El dolor en el pecho, el desmayo, la falta de aire intensa o una debilidad marca
 
 Un clínico puede sugerir un hemograma completo. Este mide la hemoglobina y otros detalles de las células de la sangre. La ferritina, un marcador del hierro almacenado, puede medirse según los síntomas, los resultados y la guía local.
 
-Un nivel bajo de hemoglobina puede indicar anemia, pero la causa aún debe evaluarse. La inflamación en el organismo puede afectar a la ferritina, así que el contexto importa. Un clínico puede considerar el embarazo, la alimentación, los síntomas digestivos o el efecto de algún medicamento. También puede ser necesario revisar un sangrado en otra zona o una enfermedad de la sangre.
+Un nivel bajo de hemoglobina puede indicar anemia, pero la causa aún debe evaluarse. La inflamación en el organismo puede afectar a los resultados de la ferritina, así que el contexto importa. Un clínico puede considerar el embarazo, la alimentación, los síntomas digestivos o el efecto de algún medicamento. También puede ser necesario revisar un sangrado en otra zona o una enfermedad de la sangre.
 
 Pregunta qué significa cada resultado, qué causó el hierro bajo y cuándo debe repetirse. Usa el [glosario](/es/glossary) para conocer definiciones sencillas de los términos de salud.
 

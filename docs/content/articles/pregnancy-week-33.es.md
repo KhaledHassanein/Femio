@@ -73,7 +73,7 @@ Los movimientos no deberían disminuir. Un cambio en tu propio patrón es motivo
 
 Alrededor de la semana 33, la longitud que se da es de unos 43,7 cm de la cabeza a los talones, que el NHS compara con una piña. Son promedios que describen a una población, no una medida de un embarazo individual.
 
-El cerebro y el sistema nervioso están completamente desarrollados. Los huesos se están endureciendo, salvo los del cráneo, que siguen blandos y separados hasta alrededor de los 12 a 18 meses de edad: esa flexibilidad es la que hace posible el paso por el canal del parto.
+El cerebro y el sistema nervioso están bien desarrollados, y siguen madurando después del parto. Los huesos se están endureciendo, salvo los del cráneo, que siguen blandos y separados hasta alrededor de los 12 a 18 meses de edad: esa flexibilidad es la que hace posible el paso por el canal del parto.
 
 ## Qué atención suele darse por estas fechas
 

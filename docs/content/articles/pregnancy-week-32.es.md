@@ -77,9 +77,9 @@ Estructuralmente, el desarrollo está en gran parte terminado. Lo que hacen las 
 
 ## Qué atención suele ocurrir en esta etapa
 
-La semana 32 cierra la ventana en el Reino Unido para la vacuna contra la tos ferina, que normalmente se ofrece desde la semana 16 y es más útil antes de la semana 33.
+La semana 32 es el final de la ventana habitual en el Reino Unido para la vacuna contra la tos ferina, que se ofrece desde la semana 16. Todavía puede ponerse después, aunque la protección para el bebé puede ser menor.
 
-La vitamina K suele explicarse alrededor de ahora. El NHS indica que se ofrece a todos los bebés dentro de las 24 horas posteriores al parto, por inyección o por boca, y que es una decisión que te corresponde a ti. Es mucho más fácil pensarla ahora que en la hora posterior a un parto.
+La vitamina K suele explicarse alrededor de ahora. El NHS indica que se ofrece a todos los bebés poco después del parto, por inyección o por boca, y que es una decisión que te corresponde a ti. Es mucho más fácil pensarla ahora que en la hora posterior a un parto.
 
 Si está planificada una cesárea, es cuando normalmente se hablan los arreglos prácticos, incluida la duración habitual de la estancia en el hospital. Todo esto varía según el país y el servicio.
 
@@ -89,7 +89,7 @@ Decide sobre la vitamina K esta semana, junto con quien vaya a estar contigo en 
 
 ## Cuándo consultar
 
-Contacta a tu servicio de maternidad el mismo día ante cualquier cambio en los movimientos, pérdida de líquido, contracciones regulares o dolorosas, o sangrado. Los [signos de alarma del embarazo](/es/learn/pregnancy-warning-signs) tienen la lista completa.
+Contacta con tu servicio de maternidad de inmediato ante cualquier cambio en los movimientos, pérdida de líquido, contracciones regulares o dolorosas, o sangrado. Los [signos de alarma del embarazo](/es/learn/pregnancy-warning-signs) tienen la lista completa.
 
 > **Busca atención ya:** Contacta a los servicios de emergencia de tu zona o acude al servicio de urgencias más cercano si tienes sangrado abundante, dolor intenso o de un solo lado en el vientre, un dolor de cabeza intenso con cambios en la visión, hinchazón repentina de la cara o las manos, fiebre, pérdida de líquido por la vagina, dolor en el pecho, dificultad para respirar, desmayo, convulsión o pensamientos de hacerte daño a ti misma o a tu bebé ([ayuda ahora](/es/help-now)). Contacta con tu servicio de maternidad de inmediato si los movimientos de tu bebé se vuelven más lentos, se detienen o cambian. femio no puede evaluar un embarazo.
 

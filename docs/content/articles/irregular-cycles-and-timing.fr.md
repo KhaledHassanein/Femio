@@ -24,7 +24,7 @@ open_graph_image_alt: "Un calendrier avec des jours de cycle marqués à interva
 written_by: "PENDING"
 medically_reviewed_by: "Dr. Khaled M."
 date_published: "2026-10-30"
-date_modified: "2026-11-24"
+date_modified: "2026-11-25"
 last_reviewed: "2026-10-30"
 next_review_due: "2027-10-30"
 reading_level_ok: false
@@ -54,7 +54,7 @@ internal_links:
 
 # Essayer d'avoir un enfant avec des cycles irréguliers
 
-Presque tous les conseils sur le bon moment supposent implicitement un cycle de 28 jours, et ils cessent d'être utiles dès que le vôtre varie. Si vos cycles sont longs, imprévisibles ou parfois absents, la réponse honnête est qu'aucune application ne peut vous indiquer quel jour compte vraiment, et la réponse pratique est d'avoir des rapports sexuels régulièrement tout au long du cycle plutôt que de viser une date précise. Des cycles irréguliers sont aussi une raison de demander de l'aide plus tôt, plutôt que d'attendre une année entière. Ce sont des informations de santé destinées à la planification, et elles ne remplacent pas l'avis de votre propre clinicien.
+Presque tous les conseils sur le bon moment supposent implicitement un cycle de 28 jours, et ils cessent d'être utiles dès que le vôtre varie. Si vos cycles sont longs, imprévisibles ou parfois absents, aucune application ne peut honnêtement vous indiquer quel jour compte. La réponse pratique est d'avoir des rapports sexuels régulièrement tout au long du cycle plutôt que de viser une date précise. Des cycles irréguliers sont aussi une raison de demander de l'aide plus tôt, plutôt que d'attendre une année entière. Ce sont des informations de santé destinées à la planification, et elles ne remplacent pas l'avis de votre propre clinicien.
 
 ## Pourquoi les conseils habituels ne conviennent pas
 
@@ -74,7 +74,7 @@ femio élargit sa fenêtre de prévision quand vos cycles varient, et n'en affic
 
 ## Si vous avez un SOPK
 
-Le SOPK est l'une des causes les plus fréquentes d'ovulation irrégulière ou absente, et c'est aussi l'une des plus faciles à prendre en charge. [L'ACOG](https://www.acog.org/womens-health/faqs/polycystic-ovary-syndrome-pcos) et le [NHS](https://www.nhs.uk/conditions/polycystic-ovary-syndrome-pcos/) décrivent tous deux des médicaments qu'un clinicien peut discuter pour favoriser l'ovulation, à côté d'autres approches.
+Le SOPK est l'une des causes les plus fréquentes d'ovulation irrégulière ou absente, et il existe des options de prise en charge dont un clinicien peut discuter. [L'ACOG](https://www.acog.org/womens-health/faqs/polycystic-ovary-syndrome-pcos) et le [NHS](https://www.nhs.uk/conditions/polycystic-ovary-syndrome-pcos/) décrivent tous deux des médicaments qu'un clinicien peut discuter pour favoriser l'ovulation, à côté d'autres approches.
 
 Deux points utiles à connaître avant ce rendez-vous. Beaucoup de personnes qui ont un SOPK conçoivent, avec ou sans aide. Et l'ovulation peut survenir de façon imprévisible, ce qui signifie que des cycles qui paraissent silencieux ne le sont pas toujours.
 
@@ -84,7 +84,7 @@ Deux points utiles à connaître avant ce rendez-vous. Beaucoup de personnes qui
 
 Des règles qui se sont arrêtées, ou qui ne surviennent que quelques fois par an, sont une raison de consulter plutôt qu'un schéma à suivre de plus près. Il en va de même pour des règles qui étaient régulières et sont devenues irrégulières, et pour tout saignement entre les règles ou après un rapport sexuel.
 
-Plusieurs causes sont possibles, et elles se distinguent par des examens, et non par des symptômes. Attendre douze mois avant d'en parler, c'est perdre douze mois.
+Plusieurs causes sont possibles, et un clinicien les distingue grâce à une évaluation et à des examens, et non à partir des seuls symptômes. Attendre douze mois avant d'en parler, c'est perdre douze mois.
 
 ## Quand arrêter d'attendre et demander de l'aide
 
@@ -98,11 +98,11 @@ Demandez une orientation plutôt que d'attendre qu'on vous la propose.
 
 Il peut regrouper chaque saignement, chaque symptôme et chaque note en un seul endroit, montrer la plage dans laquelle se situent réellement vos cycles, et remettre à un clinicien des dates réelles au lieu d'un souvenir approximatif.
 
-Il ne peut pas vous dire quand vous avez ovulé, et il ne prétendra pas le faire. La logique de femio ne contient pas de jour d'ovulation et n'en contiendra pas : déduire un changement à partir d'une mesure faite à domicile relève d'une inférence clinique, et la fonction construite sur une telle inférence est toujours « les jours que vous pourriez éviter », ce qui est une limite que ce produit ne franchit pas.
+Il ne peut pas vous dire quand vous avez ovulé, et il ne prétendra pas le faire. femio affiche une fourchette à partir de vos dates enregistrées, jamais un jour d'ovulation unique, et il ne marque jamais les jours où une grossesse ne peut pas survenir.
 
 ## Quand consulter
 
-Contactez votre médecin si vos règles sont irrégulières, absentes ou ont changé ; si vous essayez depuis six mois sans pouvoir identifier de schéma ; ou à douze mois d'essais, quoi qu'il en soit. Consultez plus tôt, quel que soit votre âge, si vous avez des douleurs pelviennes, des saignements entre les règles ou après un rapport sexuel, ou une maladie connue. Demandez rapidement un avis en cas de douleur pelvienne intense ou de saignement abondant.
+Contactez votre médecin si vos règles sont irrégulières, absentes ou ont changé ; ou si vous essayez depuis douze mois, ou six mois si vous avez environ 35 ans ou plus. Consultez plus tôt, quel que soit votre âge, si vous avez des douleurs pelviennes, des saignements entre les règles ou après un rapport sexuel, ou une maladie connue. Demandez rapidement un avis en cas de douleur pelvienne intense ou de saignement abondant.
 
 Dites clairement à quel point vos cycles varient et sur quelle durée. « Entre 24 et 61 jours au cours des six derniers mois » est une phrase qui change un rendez-vous.
 

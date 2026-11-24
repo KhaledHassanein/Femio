@@ -24,7 +24,7 @@ open_graph_image_alt: "Una pareja sentada junta en casa con un bebé dormido cer
 written_by: "PENDING"
 medically_reviewed_by: "Dr. Khaled M."
 date_published: "2026-10-30"
-date_modified: "2026-10-30"
+date_modified: "2026-11-25"
 last_reviewed: "2026-10-30"
 next_review_due: "2027-10-30"
 reading_level_ok: false
@@ -55,19 +55,19 @@ internal_links:
 
 # Las relaciones sexuales después del parto: qué esperar
 
-No hay una fecha fija en la que las relaciones sexuales después del parto se vuelvan permitidas. La mayoría de las guías sugieren esperar hasta que el sangrado haya parado y cualquier punto o herida haya sanado, y más allá de eso depende de si lo deseas y de si es cómodo. La sequedad, la sensación de estrechez y el dolor de la cicatriz son muy comunes al principio, y hay cosas que ayudan. Esta es información de salud para planificar, no un sustituto del consejo de tu propio profesional de la salud.
+No hay una fecha fija en la que las relaciones sexuales después del parto se vuelvan permitidas. Muchos profesionales sanitarios sugieren esperar hasta que el sangrado haya parado y cualquier punto o herida haya sanado, y más allá de eso depende de si lo deseas y de si es cómodo. La sequedad, la sensación de estrechez y el dolor de la cicatriz son muy comunes al principio, y hay cosas que ayudan. Esta es información de salud para planificar, no un sustituto del consejo de tu propio profesional de la salud.
 
 ## La regla de las seis semanas no es una regla
 
 Seis semanas es la cifra habitual porque coincide con la revisión posnatal, no porque algo cambie ese día. Algunas personas se sienten listas antes, y muchas se sienten listas mucho después.
 
-Esperar hasta que el sangrado haya parado y las heridas hayan sanado reduce el riesgo de infección y de molestias. Más allá de eso, la disposición es decisión tuya, incluida la parte emocional.
+Esperar hasta que el sangrado haya parado y las heridas hayan sanado puede reducir el riesgo de infección y de molestias. Más allá de eso, la disposición es decisión tuya, incluida la parte emocional.
 
 Puede haber embarazo antes de tu primera menstruación, así que la conversación sobre anticoncepción va antes que la conversación sobre las relaciones sexuales. Consulta [anticoncepción después del parto](/es/learn/contraception-after-birth).
 
 ## Por qué a menudo duele al principio
 
-**Sequedad.** Los niveles de estrógeno son bajos después del parto, y todavía más bajos mientras se amamanta, lo que vuelve el tejido vaginal más delgado y seco. Es la causa más común de dolor, y es temporal.
+**Sequedad.** Los niveles de estrógeno son bajos después del parto, y todavía más bajos mientras se amamanta, lo que vuelve el tejido vaginal más delgado y seco. Es una causa muy común de dolor, y suele mejorar con el tiempo.
 
 **Tejido cicatricial.** Un desgarro perineal, una episiotomía o una cicatriz de cesárea pueden sentirse tirantes o sensibles durante meses. Consulta [la cicatrización de la herida después del parto](/es/learn/postpartum-wound-healing).
 
@@ -123,7 +123,7 @@ Busca atención urgente por sangrado abundante, dolor intenso o una herida que p
 
 ### ¿Cuánto tiempo debo esperar antes de tener relaciones después del parto?
 
-La mayoría de las guías sugieren esperar hasta que el sangrado haya parado y cualquier herida haya sanado. Después de eso, depende de la comodidad y de si lo deseas.
+Muchos profesionales sanitarios sugieren esperar hasta que el sangrado haya parado y cualquier herida haya sanado. Después de eso, depende de la comodidad y de si lo deseas.
 
 ### ¿Por qué está tan seca?
 

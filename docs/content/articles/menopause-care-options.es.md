@@ -24,7 +24,7 @@ open_graph_image_alt: "Profesional sanitaria y paciente comparando opciones de a
 written_by: "PENDING"
 medically_reviewed_by: "Dr. Khaled M."
 date_published: "2026-10-30"
-date_modified: "2026-11-24"
+date_modified: "2026-11-25"
 last_reviewed: "2026-10-30"
 next_review_due: "2027-10-30"
 reading_level_ok: false
@@ -52,7 +52,7 @@ internal_links:
 
 # ¿Qué opciones de atención para la menopausia puede comentar el profesional sanitario?
 
-La atención a la menopausia puede incluir terapia hormonal (HRT) o medicamentos no hormonales. Un enfoque estructurado puede ayudar con los pensamientos, las conductas y el afrontamiento. Las cremas hidratantes vaginales, los lubricantes o el estrógeno local también pueden ayudar. El apoyo puede abarcar el sueño, el ánimo, la vida sexual, la salud de la vejiga o los huesos. Las opciones deben encajar con tus síntomas, tu salud, tus objetivos y tus deseos.
+La atención a la menopausia puede incluir terapia hormonal para la menopausia (HRT) o medicamentos no hormonales. Un enfoque estructurado puede ayudar con los pensamientos, las conductas y el afrontamiento. Las cremas hidratantes vaginales, los lubricantes o el estrógeno local también pueden ayudar. El apoyo puede abarcar el sueño, el ánimo, la vida sexual, la salud de la vejiga o los huesos. Las opciones deben encajar con tus síntomas, tu salud, tus objetivos y tus deseos.
 
 No existe un plan único que sirva para todas las personas. Un profesional sanitario debe explicarte los beneficios, los riesgos, los límites y cuándo conviene revisarlo.
 

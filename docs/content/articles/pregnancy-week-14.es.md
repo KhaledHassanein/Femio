@@ -59,7 +59,7 @@ La semana 14 suele ser la semana en que la niebla se levanta un poco. El cansanc
 
 La placenta ahora hace el trabajo: transporta nutrientes, oxígeno y hormonas, y se lleva los desechos. Está firmemente unida al útero y conectada al embarazo a través del cordón umbilical.
 
-Tu sangre y la del embarazo se acercan mucho dentro de la placenta, pero no se mezclan. Esa separación importa clínicamente, y es la razón por la que se comprueba el grupo sanguíneo al principio del embarazo.
+Tu sangre y la del embarazo se acercan mucho dentro de la placenta, pero no se mezclan. Se comprueba el grupo sanguíneo al principio del embarazo para que la atención pueda planificarse si los grupos sanguíneos de la madre y del bebé son distintos.
 
 Algunas mujeres notan manchas amarillas dentro del sujetador por estas fechas. Suele ser calostro, la primera leche, y puede aparecer semanas o meses antes del parto. Vale la pena mencionarlo a una matrona si algún cambio en los senos te preocupa, pero su aparición no es inusual.
 
@@ -81,7 +81,7 @@ La cabeza se redondea y se va proporcionando. Una matrona puede llegar a oír el
 
 Para las mujeres que se perdieron la ventana del cribado del primer trimestre, el cribado en sangre del segundo trimestre que se ofrece en el Reino Unido está disponible desde aproximadamente la semana 14 hasta la 20. Solo cribla el síndrome de Down, en lugar de los tres trastornos que cubre la prueba combinada.
 
-Nada más se programa de forma rutinaria esta semana en el Reino Unido. Los calendarios prenatales difieren entre países, y un país con visitas más frecuentes no ofrece una mejor atención, solo un patrón diferente.
+Nada más se programa de forma rutinaria esta semana en el Reino Unido. Los calendarios prenatales difieren entre países. Algunos ofrecen visitas más frecuentes, y eso es un patrón diferente, no una medida de calidad.
 
 ## El consejo de esta semana
 

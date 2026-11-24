@@ -11,7 +11,7 @@ secondary_topics:
   - "final del primer trimestre"
 excerpt: "La semana 12 cierra el primer trimestre para la mayoría de las mujeres, y es la semana en que suelen llegar juntas la ecografía y la pregunta de a quién contárselo."
 meta_title: "12 semanas de embarazo: la ecografía y el anuncio | femio"
-meta_description: "La semana 12 suele traer la ecografía y la pregunta de a quién contárselo. Qué significa la placenta para los síntomas y por qué la barriga no indica nada."
+meta_description: "La semana 12 suele traer la ecografía y la duda de a quién contarlo. Por qué las náuseas suelen aliviarse y por qué el tamaño de la tripa no prueba nada."
 canonical_url: "https://femioapp.com/es/learn/pregnancy-week-12"
 robots_while_draft: "noindex,nofollow"
 robots_when_published: "index,follow,max-image-preview:large"
@@ -58,7 +58,7 @@ La semana 12 cierra el primer trimestre para la mayoría de las mujeres, y suele
 
 ## Tu cuerpo esta semana
 
-Es probable que la placenta ya esté nutriendo el embarazo, después de haber tomado el relevo del saco vitelino, y los niveles hormonales se estabilizan en cierta medida una vez que eso ocurre. Esa es la razón por la que las náuseas suelen aliviarse en las semanas siguientes.
+Es probable que la placenta ya esté nutriendo el embarazo, después de haber tomado el relevo del saco vitelino, y los niveles hormonales se estabilizan en cierta medida una vez que eso ocurre. Las náuseas suelen aliviarse en las semanas siguientes, aunque la razón exacta no es segura.
 
 La cintura se va engrosando y los senos están más grandes. A medida que las náuseas desaparecen, el apetito suele volver, y con él la preocupación por si comes lo suficiente o demasiado.
 

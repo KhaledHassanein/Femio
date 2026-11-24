@@ -23,7 +23,7 @@ open_graph_image_alt: "Un clinicien examinant un nouveau-né sur un lit de mater
 written_by: "PENDING"
 medically_reviewed_by: "Dr. Khaled M."
 date_published: "2026-10-30"
-date_modified: "2026-11-24"
+date_modified: "2026-11-25"
 last_reviewed: "2026-10-30"
 next_review_due: "2027-10-30"
 reading_level_ok: false
@@ -88,7 +88,7 @@ Le dépistage n’est pas un test diagnostique. Un résultat qui nécessite un s
 
 ## Vitamine K
 
-Les recommandations du NICE sur les soins postnatals préconisent de proposer aux parents de la vitamine K pour leur bébé, afin de prévenir la maladie hémorragique par carence en vitamine K, qui est rare mais grave. La pratique varie selon les pays quant à la manière de l’administrer.
+Les nouveau-nés se voient en général proposer de la vitamine K, pour les protéger de la maladie hémorragique par carence en vitamine K, qui est rare mais grave. La pratique varie selon les pays quant à la manière de l’administrer.
 
 Vous pouvez demander ce que votre service propose et poser vos questions avant de décider. Il s’agit d’un échange avec un clinicien, et non d’un formulaire à signer rapidement.
 
@@ -102,7 +102,7 @@ Apportez ce carnet à chaque rendez-vous si on vous le remet, et complétez-le v
 
 Les calendriers de vaccination de routine sont fixés au niveau national, en s’appuyant sur les recommandations de l’OMS, puis adaptés aux maladies qui sont fréquentes localement. L’OMS publie des tableaux récapitulatifs des recommandations de vaccination de routine sur lesquels les programmes nationaux s’appuient.
 
-Les différences sont réelles. Le calendrier du NHS prévoit les premiers vaccins de routine du bébé à huit semaines, et propose le BCG contre la tuberculose ainsi que la vaccination contre l’hépatite B aux bébés à risque plus élevé, plutôt qu’à tous. Le calendrier du CDC pour les États-Unis commence à la naissance, avec une première dose d’hépatite B administrée avant la sortie de la maternité.
+Les différences sont réelles. Le calendrier du NHS prévoit les premiers vaccins de routine du bébé à huit semaines, y compris la protection contre l’hépatite B assurée par le vaccin combiné, et propose le BCG contre la tuberculose ainsi qu’une dose d’hépatite B plus précoce aux bébés à risque plus élevé, plutôt qu’à tous. Le calendrier du CDC pour les États-Unis commence à la naissance, avec une première dose d’hépatite B administrée avant la sortie de la maternité.
 
 Un calendrier d’un pays n’est donc pas un conseil pour un autre. Demandez à votre propre service son calendrier, conservez le carnet, et demandez comment rattraper un rendez-vous manqué.
 

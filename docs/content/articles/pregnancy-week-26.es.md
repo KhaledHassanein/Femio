@@ -61,7 +61,7 @@ Cargar peso extra con un centro de gravedad distinto afecta al equilibrio y a la
 
 Los calambres en las piernas suelen empeorar por la noche. El NHS sugiere ejercicios de pies y tobillos, llevar los dedos de los pies hacia arriba y frotar el músculo donde duele.
 
-Los olvidos se comentan mucho y a menudo se llaman «cerebro de bebé». El NHS es cuidadoso con esto: no es una afección médica y no está científicamente establecido, y el cansancio junto con tener mucho en la cabeza explica la mayor parte. Eso no es restar importancia: es la diferencia entre una experiencia real y un diagnóstico, y solo uno de los dos se está afirmando.
+Los olvidos se comentan mucho y a menudo se llaman «cerebro de bebé». El NHS es cuidadoso con esto: no es una afección médica, y el cansancio junto con tener mucho en la cabeza explica la mayor parte. Eso no es restar importancia: es la diferencia entre una experiencia real y un diagnóstico, y solo uno de los dos se está afirmando.
 
 ## Lo que quizá notes
 
@@ -83,7 +83,7 @@ Si no se ha puesto la vacuna contra la tos ferina, el plazo en el Reino Unido ll
 
 ## El consejo de esta semana
 
-Haz círculos con los tobillos y estira los dedos de los pies hacia ti antes de meterte en la cama. Diez de cada movimiento, en ambos pies. Es lo único que reduce los calambres nocturnos para muchas mujeres, cuesta un minuto y, a diferencia de la mayoría de consejos para calambres, puede hacerse en el momento en que más importa, en lugar de en plena noche, de pie sobre una sola pierna.
+Haz círculos con los tobillos y estira los dedos de los pies hacia ti antes de meterte en la cama. Repítelos unas cuantas veces en cada pie, lo que puede ayudar. Es uno de los consejos que el NHS sugiere para los calambres nocturnos, cuesta un minuto y, a diferencia de la mayoría de consejos para calambres, puede hacerse en el momento en que más importa, en lugar de en plena noche, de pie sobre una sola pierna.
 
 ## Cuándo consultar
 

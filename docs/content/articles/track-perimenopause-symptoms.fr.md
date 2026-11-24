@@ -24,7 +24,7 @@ open_graph_image_alt: "Journal des symptômes de la périménopause avec notes s
 written_by: "PENDING"
 medically_reviewed_by: "Dr. Khaled M."
 date_published: "2026-10-30"
-date_modified: "2026-11-24"
+date_modified: "2026-11-25"
 last_reviewed: "2026-10-30"
 next_review_due: "2027-10-30"
 reading_level_ok: false
@@ -124,7 +124,7 @@ Conservez le relevé complet, mais rédigez un résumé d’une page comprenant 
 
 ## Comment les estimations de femio peuvent-elles changer ?
 
-Les estimations de cycle deviennent moins certaines lorsque les règles varient. femio doit afficher une fourchette plutôt que d’affirmer une date future exacte. Une étiquette « en retard » ne peut pas expliquer pourquoi les règles ne sont pas arrivées.
+Les estimations de cycle deviennent moins certaines lorsque les règles varient. femio affiche une fourchette plutôt que d’affirmer une date future exacte. Une étiquette « en retard » ne peut pas expliquer pourquoi les règles ne sont pas arrivées.
 
 Une grossesse reste possible pendant la périménopause. Un calendrier ne peut pas confirmer si une ovulation a eu lieu.
 

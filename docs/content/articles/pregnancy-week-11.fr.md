@@ -9,7 +9,7 @@ primary_query: "11 semaines de grossesse"
 secondary_topics:
   - "échographie de datation semaine 11"
   - "dépistage par mesure de la clarté nucale"
-excerpt: "La semaine 11 ouvre généralement la période de l'échographie de datation, et avec elle les premiers choix de dépistage de la grossesse."
+excerpt: "La semaine 11 est le moment où la plupart des femmes passent l'échographie de datation, et avec elle les premiers choix de dépistage de la grossesse."
 meta_title: "11 semaines de grossesse : échographie de datation"
 meta_description: "La période de l'échographie de datation s'ouvre vers la semaine 11, avec les premiers choix de dépistage et ce qu'un résultat signifie vraiment."
 canonical_url: "https://femioapp.com/fr/learn/pregnancy-week-11"
@@ -53,7 +53,7 @@ internal_links:
 
 # Semaine 11 de grossesse : à quoi s'attendre
 
-La semaine 11 ouvre généralement la période de l'échographie de datation, et avec elle les premiers choix de dépistage qui vous sont proposés. Cette semaine comporte beaucoup de formalités, alors que l'on ne se voit pas encore enceinte. Il vaut la peine de la lire avant le rendez-vous plutôt que dans la salle d'attente.
+La semaine 11 est celle où la plupart des femmes ont l'échographie de datation, et avec elle les premiers choix de dépistage qui vous sont proposés. Cette semaine comporte beaucoup de formalités, alors que l'on ne se voit pas encore enceinte. Il vaut la peine de la lire avant le rendez-vous plutôt que dans la salle d'attente.
 
 ## Votre corps cette semaine
 

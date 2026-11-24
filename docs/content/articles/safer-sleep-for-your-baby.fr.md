@@ -23,7 +23,7 @@ open_graph_image_alt: "Bébé couché sur le dos dans un lit vide, sur un drap-h
 written_by: "PENDING"
 medically_reviewed_by: "Dr. Khaled M."
 date_published: "2026-10-30"
-date_modified: "2026-11-24"
+date_modified: "2026-11-25"
 last_reviewed: "2026-10-30"
 next_review_due: "2027-10-30"
 reading_level_ok: false
@@ -57,7 +57,7 @@ internal_links:
 
 # Un sommeil plus sûr pour votre bébé
 
-Les recommandations de sommeil sûr dans le monde s'accordent sur l'essentiel : les bébés dorment sur le dos, sur une surface plane et ferme, dans leur propre espace de sommeil dégagé, et dans la même pièce qu'un adulte pendant les premiers mois. Les pays divergent sur le partage du lit, et cette différence est réelle et non un problème de traduction. Cette page présente donc les deux positions et vous oriente vers les conseils en vigueur là où vous vivez. Il s'agit d'informations de santé à titre éducatif, et non d'un avis médical sur votre bébé. Tout ce qui concerne le sommeil, la respiration ou la santé de votre propre bébé relève d'une infirmière de suivi de l'enfant, d'un pédiatre ou des services d'urgence.
+Les recommandations de sommeil sûr dans le monde s'accordent sur l'essentiel : les bébés dorment sur le dos, sur une surface plane et ferme, dans leur propre espace de sommeil dégagé, et dans la même pièce qu'un adulte pendant les premiers mois. Les pays divergent sur le partage du lit. Cette page présente donc les deux positions et vous oriente vers les conseils en vigueur là où vous vivez. Il s'agit d'informations de santé à titre éducatif, et non d'un avis médical sur votre bébé. Tout ce qui concerne le sommeil, la respiration ou la santé de votre propre bébé relève d'une infirmière de suivi de l'enfant, d'un pédiatre ou des services d'urgence.
 
 ## À quoi servent ces recommandations
 
