@@ -1,6 +1,18 @@
 import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
-import { Baby, CalendarHeart, Flower2, Languages, ShieldCheck, Stethoscope } from "lucide-react";
+import {
+  Baby,
+  CalendarRange,
+  ClipboardList,
+  Languages,
+  LayoutDashboard,
+  Lightbulb,
+  MessageCircleQuestion,
+  PenLine,
+  ShieldCheck,
+} from "lucide-react";
+
+import { AppTourSection, TryDemosSection, WhatCanLeaveSection } from "@/components/demos/demo-sections";
 
 import { PhoneMock } from "@/components/site/phone-mock";
 import { Button } from "@/components/ui/button";
@@ -20,12 +32,15 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 }
 
 const FEATURES = [
-  { key: "period", Icon: CalendarHeart },
-  { key: "fertile", Icon: Flower2 },
+  { key: "today", Icon: LayoutDashboard },
+  { key: "calendar", Icon: CalendarRange },
+  { key: "ask", Icon: MessageCircleQuestion },
+  { key: "sayIt", Icon: PenLine },
+  { key: "tips", Icon: Lightbulb },
+  { key: "visit", Icon: ClipboardList },
   { key: "pregnancy", Icon: Baby },
   { key: "private", Icon: ShieldCheck },
-  { key: "arabic", Icon: Languages },
-  { key: "doctor", Icon: Stethoscope },
+  { key: "languages", Icon: Languages },
 ] as const;
 
 /**
@@ -34,6 +49,10 @@ const FEATURES = [
  *
  * The store row says "coming soon" because there is no listing yet. It must not look
  * like Google's official badge, nor link to a listing that does not exist.
+ *
+ * R2.10 (2026-11-24): the page shows the app as built: the feature list follows the app's
+ * screens, a tour of real app screens, three demos on sample data, and "what can leave
+ * this phone", which restates the privacy policy's complete list.
  */
 export default async function GetAppPage({ params }: PageProps) {
   const { locale } = await params;
@@ -80,7 +99,7 @@ export default async function GetAppPage({ params }: PageProps) {
       </section>
 
       <section className="mx-auto flex w-full max-w-5xl flex-col gap-6 px-6 py-14">
-        <h2 className="font-display text-xl text-text">{t("featuresTitle")}</h2>
+        <h2 className="font-display text-xl text-text rtl:font-bold">{t("featuresTitle")}</h2>
         <ul className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {FEATURES.map(({ key, Icon }) => (
             <li key={key} className="flex gap-4 rounded-lg border border-border bg-surface p-5">
@@ -96,9 +115,16 @@ export default async function GetAppPage({ params }: PageProps) {
             </li>
           ))}
         </ul>
+        <p className="rounded-md bg-primary-soft px-4 py-3 text-xs leading-relaxed text-primary-soft-text">
+          {t("companion")}
+        </p>
       </section>
 
-      <section className="mx-auto mb-16 flex w-full max-w-5xl flex-col gap-4 px-6">
+      <AppTourSection locale={locale} />
+      <TryDemosSection locale={locale} />
+      <WhatCanLeaveSection locale={locale} />
+
+      <section className="mx-auto my-16 flex w-full max-w-5xl flex-col gap-4 px-6">
         <div className="flex flex-col gap-4 rounded-lg bg-accent-soft p-6 text-accent-soft-text sm:flex-row sm:items-center">
           <div className="flex flex-1 flex-col gap-1">
             <h2 className="font-display text-lg">{t("meanwhileTitle")}</h2>

@@ -361,3 +361,34 @@ body:has(.app-bottom-bar):has(.crisis-launcher) {
   }
 }
 
+
+/* ---------------------------------------------------------------------------
+   The app tour (R2.10, components/demos/app-tour.tsx). A screen taller than the
+   drawn phone pans from its top to its bottom once per step (--tour-pan is the
+   distance, set per screen), and the active step's tab fills a thin progress line.
+   Both are movement only and both stop under reduced motion, where the phone
+   screen scrolls by hand instead. */
+@media (prefers-reduced-motion: no-preference) {
+  .tour-pan {
+    animation: tour-pan 6s 0.8s ease-in-out both;
+  }
+  .tour-progress {
+    animation: tour-progress linear both;
+  }
+}
+@keyframes tour-pan {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(var(--tour-pan, 0%));
+  }
+}
+@keyframes tour-progress {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
