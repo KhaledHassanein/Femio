@@ -38,6 +38,13 @@ const ALLOWED = {
     // Store and device names are trademarks, written the same in every language.
     "getApp.android",
     "getApp.ios",
+    // R2.10: "Cloud boost" is the feature's name in every language of the app (ARB), "Google
+    // Play" is a trademark, and "Period Pain" is the English title of the cited MedlinePlus
+    // page, shown as published (marked lang="en").
+    "appDemo.tour.steps.boost.label",
+    "appDemo.app.boostTitle",
+    "appDemo.privacy.items.play.title",
+    "appDemo.ask.sourceTitle",
   ],
   ar: [],
   fr: [
@@ -56,6 +63,9 @@ const ALLOWED = {
     "tools.learn.label",
     // "{name}, {credentials}" is punctuation around two arguments, the same in French.
     "learn.nameWithCredentials",
+    // The app's own French words (synced from app_fr.arb): "Sources", "Fatigue".
+    "appDemo.app.askSourcesTitle",
+    "appDemo.app.logFatigue",
     // "Contact" and "Source" are the French words too.
     "privacy.points.11.heading",
     "terms.points.12.heading",

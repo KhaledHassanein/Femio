@@ -117,9 +117,9 @@
       "uncertainty": "Incertitude"
     },
     "hero": {
-      "eyebrow": "Projet de grossesse · Grossesse · Confidentialité",
+      "eyebrow": "Santé et bien-être des femmes, assistés par l'IA",
       "title": "femio est le compagnon privé du projet de grossesse et de la grossesse.",
-      "body": "Des fourchettes honnêtes plutôt que des promesses, des guides qui montrent leurs sources, et des données qui ne quittent jamais votre téléphone. Sans compte, sans cloud, sans publicité qui lise votre santé.",
+      "body": "Des fourchettes honnêtes plutôt que des promesses, des guides qui montrent leurs sources, un assistant qui fonctionne sur votre téléphone, et des données qui ne le quittent jamais. Sans compte, et sans publicité dans l'application.",
       "cta": "Obtenir l'app",
       "ctaSecondary": "Essayer le calculateur d'ovulation"
     },
@@ -1544,38 +1544,50 @@
   },
   "getApp": {
     "metaTitle": "Téléchargez l'application femio",
-    "eyebrow": "femio pour Android",
+    "eyebrow": "Santé et bien-être des femmes, assistés par l'IA",
     "title": "Vos données ne quittent jamais votre téléphone.",
-    "body": "Une application Android privée pour le projet de grossesse et la grossesse, en quatre langues. Votre calendrier, vos notes et vos outils de grossesse restent sur votre téléphone, derrière un code PIN si vous le souhaitez. Sans compte, sans cloud. Bientôt sur Google Play.",
+    "body": "Une application Android privée pour le projet de grossesse et la grossesse, avec un assistant qui fonctionne sur votre téléphone. Votre calendrier, vos notes et vos outils de grossesse restent sur votre téléphone, derrière un code PIN si vous le souhaitez. Sans compte, et rien ne part dans le cloud sauf si vous activez Cloud boost. Bientôt sur Google Play.",
     "android": "Google Play",
     "androidStatus": "Bientôt",
     "ios": "iPhone",
     "iosStatus": "Bientôt",
     "featuresTitle": "Ce que fait l'application",
     "features": {
-      "period": {
-        "title": "Des fourchettes honnêtes",
-        "body": "Vos prochaines règles et vos jours fertiles sous forme de fourchettes qui s'ajustent à mesure que vous notez, avec « pas de fenêtre fiable » quand vos cycles varient trop."
+      "today": {
+        "title": "Aujourd'hui, en un coup d'œil",
+        "body": "Votre fenêtre fertile et vos prochaines règles en fourchettes avec un degré de confiance, le bon jour pour un test, et vos températures."
       },
-      "fertile": {
-        "title": "Suivi de l'ovulation et de la température",
-        "body": "Notez vos tests d'ovulation et votre température au réveil à côté de votre calendrier."
+      "calendar": {
+        "title": "Les trois prochaines règles",
+        "body": "Chaque période suivante est une fourchette plus large, avec « pas de fenêtre fiable » quand vos cycles varient trop."
+      },
+      "ask": {
+        "title": "Demandez à femio",
+        "body": "Des réponses santé tirées uniquement de sources fiables gardées sur votre téléphone, chaque phrase numérotée vers sa source."
+      },
+      "sayIt": {
+        "title": "Dites-le pour noter",
+        "body": "Écrivez ce que vous ressentez avec vos mots, et femio en fait des entrées que vous confirmez."
+      },
+      "tips": {
+        "title": "Conseils pour vous",
+        "body": "Des phrases relues avec leur source, choisies sur votre téléphone d'après ce que vous notez."
+      },
+      "visit": {
+        "title": "Résumé de consultation",
+        "body": "Une page pour votre médecin : vos cycles, ce que vous avez le plus noté, et des questions à poser."
       },
       "pregnancy": {
         "title": "Outils de grossesse",
-        "body": "Votre semaine et votre date prévue, un compteur de mouvements, un minuteur de contractions et un suivi du poids."
+        "body": "Votre semaine et votre date prévue d'accouchement, un compteur de mouvements, un minuteur de contractions et un suivi du poids."
       },
       "private": {
-        "title": "Privée par conception",
-        "body": "Vos données sont enregistrées sur votre téléphone, pas sur nos serveurs. Ajoutez un verrou PIN et enregistrez vous-même un fichier de sauvegarde."
+        "title": "Confidentiel par conception",
+        "body": "Vos données restent sur votre téléphone, pas sur nos serveurs. Ajoutez un code PIN et enregistrez vous-même une sauvegarde."
       },
-      "arabic": {
+      "languages": {
         "title": "Quatre langues",
-        "body": "Arabe, anglais, français et espagnol, avec l'arabe de droite à gauche dès la première ligne."
-      },
-      "doctor": {
-        "title": "Rendez-vous",
-        "body": "Gardez vos rendez-vous et les questions que vous voulez poser au même endroit."
+        "body": "Anglais, arabe, français et espagnol, chacune mise en page dans son sens de lecture."
       }
     },
     "meanwhileTitle": "En attendant",
@@ -1589,6 +1601,187 @@
       "range": "Aujourd'hui – dans 4 jours",
       "note": "Estimation · confiance moyenne",
       "period": "Prochaines règles dans 15 à 18 jours"
+    },
+    "companion": "L'assistant est un compagnon, pas le moteur : chaque fonction marche quand il est désactivé, et il n'ajoute jamais rien à votre suivi sans vous."
+  },
+  "appDemo": {
+    "tour": {
+      "eyebrow": "Découvrez l'app",
+      "heading": "femio, écran par écran.",
+      "sub": "De vrais écrans de l'application, remplis de données d'exemple. Choisissez un écran ou laissez-les défiler.",
+      "pause": "Mettre la visite en pause",
+      "play": "Lancer la visite",
+      "languagesNote": "Écrans en anglais ; l'application existe en anglais, arabe, français et espagnol.",
+      "synthetic": "Données d'exemple, pas celles d'une vraie personne.",
+      "steps": {
+        "today": {
+          "label": "Aujourd'hui",
+          "title": "Aujourd'hui, en tableau de bord",
+          "body": "Votre fenêtre fertile et vos prochaines règles en fourchettes avec un degré de confiance, le bon jour pour un test, vos températures et des conseils choisis sur votre téléphone. Les avis viennent en dernier.",
+          "alt": "L'écran Aujourd'hui de femio : une fourchette de fenêtre fertile, une carte sur le moment du test, des boutons pour noter et trois conseils avec leurs sources."
+        },
+        "calendar": {
+          "label": "Calendrier",
+          "title": "Les trois prochaines règles",
+          "body": "Chaque période suivante est une fourchette plus large, et celle de faible confiance est tracée en pointillés. Quand vos cycles varient, seule la prochaine est affichée.",
+          "alt": "Le calendrier de femio avec les jours prévus en contour et une carte listant les trois prochaines règles, chacune avec un degré de confiance."
+        },
+        "ask": {
+          "label": "Demandez à femio",
+          "title": "Des réponses qui montrent leurs sources",
+          "body": "femio répond uniquement à partir de sources santé gardées sur votre téléphone et numérote chacune. Quand elles ne couvrent pas une question, il le dit au lieu de deviner.",
+          "alt": "Demandez à femio répondant à une question sur les crampes de règles, avec des sources MedlinePlus numérotées."
+        },
+        "boost": {
+          "label": "Cloud boost",
+          "title": "Cloud boost reste désactivé sans votre accord",
+          "body": "Pour les téléphones sans IA intégrée. Vous acceptez chaque usage séparément, et vous voyez exactement ce qui serait envoyé avant tout envoi.",
+          "alt": "L'écran Cloud boost avec deux cases de consentement séparées et les quatre informations générales qui peuvent être envoyées."
+        },
+        "visit": {
+          "label": "Résumé de consultation",
+          "title": "Une page pour votre médecin",
+          "body": "Faite à partir de ce que vous avez noté, avec des questions à poser. Elle reste sur votre téléphone sauf si vous la copiez.",
+          "alt": "Le résumé de consultation : cycles notés, ce qui a été le plus noté en 90 jours, et questions à poser."
+        }
+      }
+    },
+    "periods": {
+      "eyebrow": "Essayez",
+      "heading": "Honnête sur ce qu'il peut prévoir.",
+      "body": "Choisissez un profil. Les prochaines règles sont calculées avec la même règle que dans l'application.",
+      "patternsLabel": "Profil d'exemple",
+      "patterns": {
+        "regular": "Cycles réguliers",
+        "varies": "Cycles variables",
+        "new": "Premiers jours"
+      },
+      "notes": {
+        "regular": "Quatre règles notées, à 28 ou 29 jours d'intervalle.",
+        "varies": "Quatre règles notées, à 24 à 35 jours d'intervalle.",
+        "new": "Une seule règle notée, et un cycle habituel de 28 jours."
+      },
+      "lastLogged": "Dernières règles notées : {date}",
+      "caption": "Dates d'exemple. Rien de ce que vous touchez ici n'est enregistré ni envoyé."
+    },
+    "sayIt": {
+      "eyebrow": "Essayez",
+      "heading": "Dites-le, et c'est noté.",
+      "body": "Écrivez ce que vous ressentez avec vos mots. femio en fait les mêmes choix que vous auriez touchés, et vous décochez ce qui est faux.",
+      "samplesLabel": "Choisissez une phrase",
+      "samples": {
+        "cramps": "Grosses crampes et mal de tête aujourd'hui, très fatiguée",
+        "bloated": "Ballonnée avec des nausées ce matin",
+        "back": "Mal de dos et anxieuse"
+      },
+      "demoNote": "Une démo avec des phrases d'exemple. Elle fonctionne dans votre navigateur et n'enregistre rien.",
+      "again": "Essayer une autre phrase"
+    },
+    "ask": {
+      "eyebrow": "Essayez",
+      "heading": "Demandez à femio, et voyez d'où vient chaque phrase.",
+      "questionsLabel": "Choisissez une question",
+      "questions": {
+        "cramps": "Qu'est-ce qui soulage les crampes de règles ?",
+        "bleeding": "Saignements abondants et vertiges",
+        "uncovered": "Quelle est la capitale de la France ?"
+      },
+      "crampsAnswer": "La chaleur sur le bas du ventre et un peu d'exercice peuvent soulager les douleurs de règles [1]. Consultez un médecin si les soins à la maison n'aident pas et que la douleur gêne votre vie [2].",
+      "sourceTitle": "Period Pain",
+      "rulesFirst": "Les règles de sécurité passent avant toute IA. Ici, femio n'a même pas interrogé l'IA : les signes de danger ouvrent d'abord l'aide.",
+      "demoNote": "Une démo avec une réponse d'exemple. Dans l'application, Gemini Nano la rédige sur votre téléphone à partir des textes que femio contient."
+    },
+    "privacy": {
+      "eyebrow": "Ce qui peut quitter ce téléphone",
+      "heading": "Vos données restent sur votre téléphone. Voici tout le reste.",
+      "body": "L'application n'a ni publicité, ni outil d'analyse, ni traceur. Voici la liste complète de ce qui peut quitter votre téléphone, et quand.",
+      "items": {
+        "cloud": {
+          "title": "Cloud boost, seulement avec votre accord",
+          "body": "Sur un téléphone sans IA intégrée, et seulement pour les usages cochés : une question générale que vous approuvez, après que femio a retiré nombres, dates, noms et coordonnées, envoyée avec les sources publiques trouvées ; ou quatre informations générales qui vous sont montrées d'abord : votre étape de vie, la régularité de vos cycles, les types de symptômes notés et depuis combien de temps vous notez."
+        },
+        "check": {
+          "title": "Un contrôle d'authenticité, avec chaque demande Cloud boost",
+          "body": "Google Play vérifie que la demande vient de la vraie application femio sur un vrai téléphone. Comme toute connexion internet, la demande montre l'adresse internet de votre téléphone à Google."
+        },
+        "model": {
+          "title": "Le modèle d'IA du téléphone",
+          "body": "Si vous touchez Télécharger, le service d'IA d'Android (AICore, géré par Google) télécharge Gemini Nano et le met à jour. Les logiciels d'IA de Google peuvent aussi envoyer à Google des informations techniques, comme les erreurs et les performances. femio n'y ajoute aucune de vos données."
+        },
+        "play": {
+          "title": "Google Play",
+          "body": "Vous installez femio depuis Google Play, qui nous donne des totaux comme les installations et les plantages. Si vous achetez femio Plus, Google Play gère le paiement."
+        },
+        "links": {
+          "title": "Les liens que vous ouvrez",
+          "body": "Un lien vers une source ou une aide s'ouvre dans votre navigateur, sous la politique de ce site."
+        },
+        "backup": {
+          "title": "Des sauvegardes que vous faites vous-même",
+          "body": "Un fichier de sauvegarde est chiffré avec une phrase secrète que vous choisissez, et ne va que là où vous le mettez."
+        }
+      },
+      "policyLink": "Lire la politique de confidentialité complète",
+      "homeLink": "Voir ce qui peut quitter ce téléphone"
+    },
+    "app": {
+      "todayTitle": "Aujourd'hui",
+      "calendarTitle": "Calendrier",
+      "predictionNote": "Les prédictions sont des estimations, pas des garanties, et ne doivent pas servir à éviter une grossesse.",
+      "privacyLine": "Enregistré sur ce téléphone uniquement.",
+      "legendPredicted": "Les règles peuvent commencer",
+      "legendPossible": "Règles possibles (confiance faible)",
+      "confidenceHigh": "Confiance élevée",
+      "confidenceMedium": "Confiance moyenne",
+      "confidenceLowShort": "Confiance faible",
+      "upcomingPeriodsTitle": "Prochaines règles",
+      "upcomingPeriodsWider": "Chaque période suivante a une fourchette plus large : plus c'est loin, moins c'est sûr.",
+      "upcomingPeriodsOnlyNext": "Seules les prochaines règles sont affichées : vos cycles notés varient trop, ou sont encore trop peu nombreux, pour aller plus loin.",
+      "askTitle": "Demander à femio",
+      "askIntro": "Posez une question de santé. femio répond uniquement à partir de sources de santé fiables qu’il garde sur votre téléphone, comme les CDC, MedlinePlus et l’Office on Women’s Health, et montre d’où vient chaque phrase.",
+      "askAction": "Demander",
+      "askSearching": "Lecture des sources fiables…",
+      "askAnswerOnPhone": "Résumé sur votre téléphone par Gemini Nano, à partir des sources ci-dessous",
+      "askClinicianLine": "Ceci est une information générale, pas un conseil pour vous. Pour votre situation, parlez à votre médecin ou à votre sage-femme.",
+      "askSourcesTitle": "Sources",
+      "askSourceReviewed": "{publisher} · revu le {date}",
+      "askNotCoveredHeading": "Pas encore couvert",
+      "askNotCovered": "Les sources fiables de femio ne répondent pas à cela, donc femio ne devine pas. Essayez d’autres mots, lisez les liens ci-dessous ou demandez à votre médecin.",
+      "askSearchAgain": "Poser une autre question",
+      "safetyHeavyBleedingHeading": "Saignement abondant avec vertiges",
+      "safetyHeavyBleedingBody": "L’ACOG (collège américain des gynécologues-obstétriciens) dit : « Si vous changez de serviette ou de tampon toutes les heures pendant plus de 2 heures d’affilée, et que vous avez aussi une douleur thoracique, un essoufflement et une sensation de tête légère ou de vertige, consultez les urgences tout de suite. » (Traduction femio.) Si c’est votre cas, appelez le numéro d’urgence local maintenant. Si un saignement abondant vous inquiète, parlez-en à votre médecin.",
+      "helpNowLauncher": "Besoin d'aide maintenant ?",
+      "sayItButton": "Dites-le avec vos mots",
+      "sayItTitle": "Comment vous sentez-vous ?",
+      "sayItAction": "Transformer en notes du jour",
+      "sayItFound": "femio a trouvé ceci. Décochez ce qui est faux.",
+      "sayItAdd": "Ajouter au journal de ce jour",
+      "sayItAdded": "Ajouté à votre journal.",
+      "assistantPrivateNote": "Cela se passe sur votre téléphone. Vos mots ne sont ni enregistrés ni envoyés.",
+      "logCramps": "Crampes",
+      "logHeadache": "Mal de tête",
+      "logFatigue": "Fatigue",
+      "logBloating": "Ballonnements",
+      "logNausea": "Nausées",
+      "logBackache": "Mal de dos",
+      "logAnxious": "Anxieuse",
+      "tipsTitle": "Pour vous",
+      "tipsChosenOnPhone": "Choisis sur votre téléphone à partir de votre journal. Chaque conseil est une phrase relue, avec sa source.",
+      "tip_folicAcidBeforePregnancy": "L'acide folique, une vitamine B, est recommandé au moins un mois avant la grossesse. Demandez à un professionnel de santé comment en avoir assez.",
+      "tip_regularSexTakesTime": "La plupart des couples dont la femme a moins de 40 ans conçoivent en moins d'un an avec des rapports réguliers tous les 2 à 3 jours. Cela peut prendre du temps.",
+      "tip_testingTooEarly": "Un test très précoce peut donner un faux négatif, car l'hormone de grossesse peut ne pas encore être assez présente. Suivez les instructions du test.",
+      "visitTitle": "Résumé pour la consultation",
+      "visitIntro": "Une page à montrer à votre médecin, faite à partir de votre journal. Elle reste sur votre téléphone, sauf si vous la copiez.",
+      "boostTitle": "Cloud boost",
+      "boostIntro": "Certains téléphones n’ont pas d’IA intégrée. Sur ces téléphones, Cloud boost permet à l’IA cloud de Google de résumer des sources fiables pour une question que vous approuvez, ou d’ordonner vos conseils. C’est facultatif et cela reste désactivé tant que vous n’acceptez pas ci-dessous. Tout le reste de femio fonctionne sans.",
+      "boostStageLabel": "Étape de vie",
+      "boostRegularityLabel": "Régularité du cycle",
+      "boostCategoriesLabel": "Types de symptômes notés le mois dernier",
+      "boostStreakLabel": "Suivi continu",
+      "boostNeverHeading": "Ce qui n’est jamais envoyé",
+      "boostNever": "Vos notes, dates, entrées du journal, durées de cycle, votre nom, votre e-mail, vos contacts ou votre identifiant publicitaire.",
+      "boostAlsoSeen": "Comme pour toute connexion à Internet, Google voit aussi l’adresse Internet de votre téléphone, et une vérification de Google Play confirmant que la demande vient de la vraie application femio.",
+      "boostWithdrawEffect": "La désactiver arrête tout nouvel envoi. Cela ne peut pas rappeler ce qui a déjà été envoyé."
     }
   },
   "helpNow": {

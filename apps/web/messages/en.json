@@ -117,9 +117,9 @@
       "uncertainty": "Uncertainty"
     },
     "hero": {
-      "eyebrow": "Trying to conceive · Pregnancy · Private",
+      "eyebrow": "AI-assisted women's health & wellness",
       "title": "femio is the private companion for trying to conceive and pregnancy.",
-      "body": "Honest ranges instead of promises, guides that show their sources, and records that never leave your phone. No account, no cloud, no ads near your records.",
+      "body": "Honest ranges instead of promises, guides that show their sources, an assistant that runs on your phone, and records that never leave it. No account, and no ads in the app.",
       "cta": "Get the app",
       "ctaSecondary": "Try the ovulation calculator"
     },
@@ -1544,22 +1544,38 @@
   },
   "getApp": {
     "metaTitle": "Get the femio app",
-    "eyebrow": "femio for Android",
+    "eyebrow": "AI-assisted women's health & wellness",
     "title": "Your records never leave your phone.",
-    "body": "A private Android app for trying to conceive and pregnancy, in four languages. Your calendar, logs and pregnancy tools stay on your phone, behind a PIN if you choose. No account, no cloud. Coming to Google Play.",
+    "body": "A private Android app for trying to conceive and pregnancy, with an assistant that runs on your phone. Your calendar, logs and pregnancy tools stay on your phone, behind a PIN if you choose. No account, and nothing goes to the cloud unless you turn on Cloud boost. Coming to Google Play.",
     "android": "Google Play",
     "androidStatus": "Coming soon",
     "ios": "iPhone",
     "iosStatus": "Coming soon",
     "featuresTitle": "What the app does",
     "features": {
-      "period": {
-        "title": "Honest ranges",
-        "body": "Your next period and your fertile days as ranges that adjust as you log, with “no confident window” when your cycles vary too much."
+      "today": {
+        "title": "Today, at a glance",
+        "body": "Your fertile window and next period as ranges with a confidence word, when to test, and your temperatures."
       },
-      "fertile": {
-        "title": "Ovulation and temperature logs",
-        "body": "Log ovulation tests and your waking temperature next to your calendar."
+      "calendar": {
+        "title": "The next three periods",
+        "body": "Each later period is a wider range, with “no confident window” when your cycles vary too much."
+      },
+      "ask": {
+        "title": "Ask femio",
+        "body": "Health answers only from trusted sources carried on your phone, each sentence numbered to its source."
+      },
+      "sayIt": {
+        "title": "Say it to log",
+        "body": "Write how you feel in your own words, and femio turns it into log entries you confirm."
+      },
+      "tips": {
+        "title": "Tips for you",
+        "body": "Reviewed sentences with their source, chosen on your phone from what you log."
+      },
+      "visit": {
+        "title": "Visit summary",
+        "body": "A page for your doctor: your cycles, what you logged most, and questions you could ask."
       },
       "pregnancy": {
         "title": "Pregnancy tools",
@@ -1569,13 +1585,9 @@
         "title": "Private by design",
         "body": "Your records are kept on your phone, not on our servers. Add a PIN lock, and save a backup file yourself."
       },
-      "arabic": {
+      "languages": {
         "title": "Four languages",
-        "body": "Arabic, English, French and Spanish, with right-to-left Arabic built in from the first line."
-      },
-      "doctor": {
-        "title": "Appointments",
-        "body": "Keep your appointments and the questions you want to ask in one place."
+        "body": "English, Arabic, French and Spanish, each laid out the way it reads."
       }
     },
     "meanwhileTitle": "Until then",
@@ -1589,6 +1601,187 @@
       "range": "Today – in 4 days",
       "note": "Estimate · medium confidence",
       "period": "Next period in 15–18 days"
+    },
+    "companion": "The assistant is a companion, not the engine: every feature works with it switched off, and it never adds anything to your log without you."
+  },
+  "appDemo": {
+    "tour": {
+      "eyebrow": "See the app",
+      "heading": "femio, screen by screen.",
+      "sub": "Real screens from the app, filled with sample data. Pick a screen, or let them play.",
+      "pause": "Pause the tour",
+      "play": "Play the tour",
+      "languagesNote": "The app is in English, Arabic, French and Spanish.",
+      "synthetic": "Sample data, not a real person's.",
+      "steps": {
+        "today": {
+          "label": "Today",
+          "title": "Today, as a dashboard",
+          "body": "Your fertile window and next period as ranges with a confidence word, when to test, your temperatures, and tips chosen on your phone. Notices come last.",
+          "alt": "The femio Today screen: a fertile-window range, a when-to-test card, buttons to log, and three tips with their sources."
+        },
+        "calendar": {
+          "label": "Calendar",
+          "title": "The next three periods",
+          "body": "Each later period is a wider range, and a low-confidence one is drawn dashed. When your cycles vary, only the next one is shown.",
+          "alt": "The femio calendar with predicted days in outline and a card listing the next three periods, each with a confidence word."
+        },
+        "ask": {
+          "label": "Ask femio",
+          "title": "Answers that show their sources",
+          "body": "femio answers only from health sources it carries on your phone and numbers each one. When they do not cover a question, it says so instead of guessing.",
+          "alt": "Ask femio answering a question about period cramps, with numbered MedlinePlus sources."
+        },
+        "boost": {
+          "label": "Cloud boost",
+          "title": "Cloud boost stays off unless you agree",
+          "body": "For phones without on-phone AI. You agree to each use separately, and you see exactly what would be sent before anything is.",
+          "alt": "The Cloud boost screen with two separate consent boxes and the four broad facts that may be sent."
+        },
+        "visit": {
+          "label": "Visit summary",
+          "title": "A page for your doctor",
+          "body": "Made from what you logged, with questions you could ask. It stays on your phone unless you copy it.",
+          "alt": "The visit summary: cycles logged, what was logged most in 90 days, and questions to ask."
+        }
+      }
+    },
+    "periods": {
+      "eyebrow": "Try it",
+      "heading": "Honest about how far ahead it can see.",
+      "body": "Pick a pattern. This works out the next periods with the same rule the app uses.",
+      "patternsLabel": "Sample pattern",
+      "patterns": {
+        "regular": "Regular cycles",
+        "varies": "Cycles that vary",
+        "new": "Just started"
+      },
+      "notes": {
+        "regular": "Four periods logged, 28 or 29 days apart.",
+        "varies": "Four periods logged, between 24 and 35 days apart.",
+        "new": "One period logged, and a usual cycle of 28 days."
+      },
+      "lastLogged": "Last period logged: {date}",
+      "caption": "Sample dates. Nothing you tap here is saved or sent."
+    },
+    "sayIt": {
+      "eyebrow": "Try it",
+      "heading": "Say it, and it becomes your log.",
+      "body": "Write how you feel in your own words. femio turns it into the same chips you would tap, and you untick anything that is wrong.",
+      "samplesLabel": "Pick a sentence",
+      "samples": {
+        "cramps": "Bad cramps and a headache today, so tired",
+        "bloated": "Feeling bloated and nauseous this morning",
+        "back": "Back pain and I feel anxious"
+      },
+      "demoNote": "A demo with sample sentences. It runs in your browser and saves nothing.",
+      "again": "Try another sentence"
+    },
+    "ask": {
+      "eyebrow": "Try it",
+      "heading": "Ask femio, and see where every sentence comes from.",
+      "questionsLabel": "Pick a question",
+      "questions": {
+        "cramps": "What helps with period cramps?",
+        "bleeding": "Heavy bleeding and I feel dizzy",
+        "uncovered": "What is the capital of France?"
+      },
+      "crampsAnswer": "Heat on your lower belly and some exercise may ease period pain [1]. Contact a doctor if self-care does not help and the pain gets in the way of your life [2].",
+      "sourceTitle": "Period Pain",
+      "rulesFirst": "Safety rules run before any AI. Here femio did not ask the AI at all: signs of danger open help first.",
+      "demoNote": "A demo with a sample answer. In the app, Gemini Nano writes it on your phone from the passages femio carries."
+    },
+    "privacy": {
+      "eyebrow": "What can leave this phone",
+      "heading": "Your records stay on your phone. Here is everything else.",
+      "body": "The app has no ads, no analytics and no tracking tools. This is the complete list of what can ever leave your phone, and when.",
+      "items": {
+        "cloud": {
+          "title": "Cloud boost, only if you agree",
+          "body": "On a phone without on-phone AI, and only for the uses you ticked: a general question you approve, after femio removes numbers, dates, names and contacts, sent with the public sources it found; or four broad facts shown to you first: your life stage, whether your cycles are regular, the kinds of symptom you logged, and how long you have been logging."
+        },
+        "check": {
+          "title": "A genuineness check, with each Cloud boost request",
+          "body": "Google Play confirms the request comes from the real femio app on a real phone. Like any internet connection, the request shows your phone's internet address to Google."
+        },
+        "model": {
+          "title": "The on-phone AI model",
+          "body": "If you tap Download, Android's AI service (AICore, run by Google) downloads Gemini Nano and keeps it up to date. Google's AI software may also send Google technical information, such as errors and performance. femio adds none of your records to it."
+        },
+        "play": {
+          "title": "Google Play",
+          "body": "You install femio from Google Play, which tells us totals such as installs and crashes. If you buy femio Plus, Google Play handles the payment."
+        },
+        "links": {
+          "title": "Links you open",
+          "body": "A source or help link opens in your browser, under that website's own policy."
+        },
+        "backup": {
+          "title": "Backups you save yourself",
+          "body": "A backup file is encrypted with a passphrase you choose, and goes only where you put it."
+        }
+      },
+      "policyLink": "Read the full privacy policy",
+      "homeLink": "See what can leave this phone"
+    },
+    "app": {
+      "todayTitle": "Today",
+      "calendarTitle": "Calendar",
+      "predictionNote": "Predictions are estimates, not guarantees, and must not be relied on to avoid pregnancy.",
+      "privacyLine": "Stored on this phone only.",
+      "legendPredicted": "Period may start",
+      "legendPossible": "Period possible (low confidence)",
+      "confidenceHigh": "High confidence",
+      "confidenceMedium": "Medium confidence",
+      "confidenceLowShort": "Low confidence",
+      "upcomingPeriodsTitle": "Next periods",
+      "upcomingPeriodsWider": "Each later period is a wider range: the further ahead, the less certain.",
+      "upcomingPeriodsOnlyNext": "Only the next period is shown: your logged cycles vary too much, or there are too few yet, to reach further ahead.",
+      "askTitle": "Ask femio",
+      "askIntro": "Ask a health question. femio answers only from trusted health sources it carries on your phone, such as CDC, MedlinePlus and the Office on Women's Health, and shows where every sentence came from.",
+      "askAction": "Ask",
+      "askSearching": "Reading trusted sources…",
+      "askAnswerOnPhone": "Summarised on your phone by Gemini Nano, from the sources below",
+      "askClinicianLine": "This is general information, not advice for you. For your own situation, talk to your doctor or midwife.",
+      "askSourcesTitle": "Sources",
+      "askSourceReviewed": "{publisher} · reviewed {date}",
+      "askNotCoveredHeading": "Not covered yet",
+      "askNotCovered": "femio's trusted sources don't answer this, so femio won't guess. Try other words, read the links below, or ask your doctor.",
+      "askSearchAgain": "Ask another question",
+      "safetyHeavyBleedingHeading": "Heavy bleeding with dizziness",
+      "safetyHeavyBleedingBody": "ACOG says: “If you are changing pads or tampons every hour for more than 2 hours in a row, and you also have chest pain, have shortness of breath, and are lightheaded or dizzy, seek emergency medical care right away.” If that is you, call your local emergency number now. If heavy bleeding worries you, talk to your doctor.",
+      "helpNowLauncher": "Need help now?",
+      "sayItButton": "Say it in your words",
+      "sayItTitle": "How are you feeling?",
+      "sayItAction": "Turn into log entries",
+      "sayItFound": "femio found these. Untick anything that is wrong.",
+      "sayItAdd": "Add to this day's log",
+      "sayItAdded": "Added to your log.",
+      "assistantPrivateNote": "This runs on your phone. Your words are not saved or sent anywhere.",
+      "logCramps": "Cramps",
+      "logHeadache": "Headache",
+      "logFatigue": "Fatigue",
+      "logBloating": "Bloating",
+      "logNausea": "Nausea",
+      "logBackache": "Backache",
+      "logAnxious": "Anxious",
+      "tipsTitle": "For you",
+      "tipsChosenOnPhone": "Chosen on your phone from your log. Each tip is a reviewed sentence with its source.",
+      "tip_folicAcidBeforePregnancy": "Folic acid, a B vitamin, is advised from at least a month before pregnancy. Ask a clinician how to get enough.",
+      "tip_regularSexTakesTime": "Most couples where the woman is under 40 conceive within a year of regular sex every 2 to 3 days. It can take time.",
+      "tip_testingTooEarly": "Testing very early can give a false negative, because the pregnancy hormone may not have built up yet. Follow the test's own instructions.",
+      "visitTitle": "Visit summary",
+      "visitIntro": "A page to show your doctor, made from what you logged. It stays on your phone unless you copy it.",
+      "boostTitle": "Cloud boost",
+      "boostIntro": "Some phones have no on-phone AI. On those phones, Cloud boost lets Google's cloud AI summarise trusted sources for a question you approve, or put your tips in order. It is optional and stays off unless you agree below. Everything else in femio works without it.",
+      "boostStageLabel": "Life stage",
+      "boostRegularityLabel": "Cycle regularity",
+      "boostCategoriesLabel": "Kinds of symptom logged in the last month",
+      "boostStreakLabel": "Logging streak",
+      "boostNeverHeading": "What is never sent",
+      "boostNever": "Your notes, dates, log entries, cycle lengths, name, email, contacts or advertising ID.",
+      "boostAlsoSeen": "Like any internet connection, Google also sees your phone's internet address, and a check from Google Play that the request comes from the real femio app.",
+      "boostWithdrawEffect": "Turning it off stops anything new being sent. It cannot recall what was already sent."
     }
   },
   "helpNow": {
