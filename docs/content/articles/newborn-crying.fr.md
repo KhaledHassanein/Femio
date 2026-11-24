@@ -11,7 +11,7 @@ secondary_topics:
   - "coliques du nourrisson"
   - "tenir le coup quand un bébé ne se calme pas"
 excerpt: "Pourquoi les pleurs du nouveau-né culminent pendant les premières semaines, ce que l'on conseille d'essayer, et ce qu'il faut faire lorsque vous êtes à bout."
-meta_title: "Les pleurs du nouveau-né et ce qui aide | Femio"
+meta_title: "Les pleurs du nouveau-né et ce qui aide | femio"
 meta_description: "Pourquoi les pleurs culminent pendant les premiers mois, quoi essayer quand un nouveau-né ne se calme pas, et que faire quand l'aidant est à bout."
 canonical_url: "https://femioapp.com/fr/learn/newborn-crying"
 robots_while_draft: "noindex,nofollow"
@@ -23,7 +23,7 @@ open_graph_image_alt: "Un parent épuisé tenant contre son épaule un nouveau-n
 written_by: "PENDING"
 medically_reviewed_by: "Dr. Khaled M."
 date_published: "2026-10-30"
-date_modified: "2026-10-30"
+date_modified: "2026-11-24"
 last_reviewed: "2026-10-30"
 next_review_due: "2027-10-30"
 reading_level_ok: false
@@ -92,7 +92,7 @@ Si personne ne peut prendre le relais et que les pleurs vous submergent, les con
 
 Un bébé est plus en sécurité seul dans son berceau pendant dix minutes que tenu par quelqu'un au bout de sa patience. Ne secouez jamais un bébé. Le CDC décrit les secousses comme une cause de saignements autour du cerveau et de lésions durables, et indique que secouer, lancer ou frapper n'est jamais une réponse aux pleurs.
 
-Si vous sentez que vous ne pouvez pas assurer la sécurité de votre bébé, ou la vôtre, [la page d'aide internationale de Femio](/fr/help-now) indique les moyens de joindre du soutien et les services d'urgence là où vous vivez. Demander de l'aide est la chose responsable à faire, et non une honte.
+Si vous sentez que vous ne pouvez pas assurer la sécurité de votre bébé, ou la vôtre, [la page d'aide internationale de femio](/fr/help-now) indique les moyens de joindre du soutien et les services d'urgence là où vous vivez. Demander de l'aide est la chose responsable à faire, et non une honte.
 
 ## Pleurs et votre propre santé
 
@@ -112,7 +112,7 @@ Demandez des soins urgents si les pleurs s'accompagnent de l'un des signes figur
 
 Demandez de l'aide tôt plutôt qu'à la fin. [Les signes d'alerte chez le nouveau-né](/fr/learn/newborn-warning-signs) énumère ce qui nécessite des soins d'urgence, et [votre nouveau-né pendant les deux premières semaines](/fr/learn/newborn-first-two-weeks) décrit ce qui est habituel.
 
-> **Consultez sans attendre :** Contactez les services d'urgence de votre région ou rendez-vous au service des urgences le plus proche si un bébé de moins de trois mois a une température de 38 °C ou plus, respire vite, fournit un effort pour respirer ou grogne, a la peau bleue, grise, pâle ou marbrée, est mou, est difficile à réveiller, refuse les tétées, a beaucoup moins de couches mouillées, voire aucune depuis 12 heures, a la fontanelle bombée ou creusée, a une éruption cutanée qui ne disparaît pas quand on appuie dessus, a une crise convulsive, ou a un cri faible, aigu ou continu qui n'est pas son cri habituel. Femio ne peut pas évaluer un bébé.
+> **Consultez sans attendre :** Contactez les services d'urgence de votre région ou rendez-vous au service des urgences le plus proche si un bébé de moins de trois mois a une température de 38 °C ou plus, respire vite, fournit un effort pour respirer ou grogne, a la peau bleue, grise, pâle ou marbrée, est mou, est difficile à réveiller, refuse les tétées, a beaucoup moins de couches mouillées, voire aucune depuis 12 heures, a la fontanelle bombée ou creusée, a une éruption cutanée qui ne disparaît pas quand on appuie dessus, a une crise convulsive, ou a un cri faible, aigu ou continu qui n'est pas son cri habituel. femio ne peut pas évaluer un bébé.
 
 ## Questions fréquentes
 

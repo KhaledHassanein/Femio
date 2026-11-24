@@ -24,7 +24,7 @@ open_graph_image_alt: "A couple talking with a clinician at a fertility appointm
 written_by: "PENDING"
 medically_reviewed_by: "Dr. Khaled M."
 date_published: "2026-08-19"
-date_modified: "2026-08-19"
+date_modified: "2026-11-24"
 last_reviewed: "2026-10-30"
 next_review_due: "2027-10-30"
 reading_level_ok: true
@@ -94,7 +94,7 @@ Tests describe what is happening now. They do not predict whether you will have 
 
 Sometimes nothing abnormal is found on either side. That is a recognised outcome rather than a failure of the tests, and options are still discussed.
 
-Femio does not interpret any of this. It holds your cycles, your logs and your questions so the person who can interpret them has the full picture in front of them.
+femio does not interpret any of this. It holds your cycles, your logs and your questions so the person who can interpret them has the full picture in front of them.
 
 ## What to ask at the first appointment
 
@@ -136,6 +136,6 @@ Not necessarily. Sometimes no cause is found on either side, which is a recognis
 
 It can be crampy and it is short. Ask about pain relief beforehand, and you can ask to stop.
 
-### Can Femio tell me whether I need tests?
+### Can femio tell me whether I need tests?
 
 No. It can show your clinician what your cycles have actually done, which is often the most useful thing you bring.

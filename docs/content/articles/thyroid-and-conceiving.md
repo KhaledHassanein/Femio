@@ -24,7 +24,7 @@ open_graph_image_alt: "A woman discussing blood test results with her doctor"
 written_by: "PENDING"
 medically_reviewed_by: "Dr. Khaled M."
 date_published: "2026-08-19"
-date_modified: "2026-08-19"
+date_modified: "2026-11-24"
 last_reviewed: "2026-10-30"
 next_review_due: "2027-10-30"
 reading_level_ok: true
@@ -98,7 +98,7 @@ Being managed for a thyroid condition is not itself a reason to expect difficult
 
 Your own results, with dates. Your current medicine and any changes to it. Symptoms that are new or changing — tiredness, weight change, feeling cold or hot, palpitations, hair changes — with when they started.
 
-Femio can hold that record and show it as a timeline. It does **not** interpret a result: a number sits with the laboratory's own reference range and nothing else, because reading it against a target is a clinical judgement, and the targets differ between guidelines and between stages of pregnancy.
+femio can hold that record and show it as a timeline. It does **not** interpret a result: a number sits with the laboratory's own reference range and nothing else, because reading it against a target is a clinical judgement, and the targets differ between guidelines and between stages of pregnancy.
 
 ## When to see a doctor
 
@@ -124,6 +124,6 @@ No. Contact your prescriber promptly, and do not stop on your own.
 
 It can affect cycles, which is one reason thyroid tests are part of a standard assessment. Being managed for one is not itself a reason to expect difficulty.
 
-### Can Femio tell me if my result is normal?
+### Can femio tell me if my result is normal?
 
 No. It shows your results with the laboratory's own reference range and no verdict, because interpreting them is a clinical judgement and the targets differ between guidelines.

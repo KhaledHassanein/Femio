@@ -11,7 +11,7 @@ secondary_topics:
   - "patrones de alimentación y sueño del recién nacido"
   - "peso, pañales y cordón umbilical del recién nacido"
 excerpt: "Qué es habitual en los recién nacidos durante la primera quincena: alimentación, sueño, peso, pañales, muñón del cordón e ictericia, y a quién consultar sobre tu bebé."
-meta_title: "Tu recién nacido en las dos primeras semanas | Femio"
+meta_title: "Tu recién nacido en las dos primeras semanas | femio"
 meta_description: "Qué hacen habitualmente los recién nacidos en las dos primeras semanas: alimentación, sueño, peso, pañales, cordón, ictericia y cuándo buscar ayuda urgente."
 canonical_url: "https://femioapp.com/es/learn/newborn-first-two-weeks"
 robots_while_draft: "noindex,nofollow"
@@ -23,7 +23,7 @@ open_graph_image_alt: "Un recién nacido dormido boca arriba en una cuna transpa
 written_by: "PENDING"
 medically_reviewed_by: "Dr. Khaled M."
 date_published: "2026-10-30"
-date_modified: "2026-10-30"
+date_modified: "2026-11-24"
 last_reviewed: "2026-10-30"
 next_review_due: "2027-10-30"
 reading_level_ok: false
@@ -136,7 +136,7 @@ Busca atención urgente ante cualquiera de los signos del recuadro siguiente, o 
 
 Pide consejo cuanto antes, sin esperar, por ictericia, por una alimentación que no va bien, por un muñón del cordón que se ve rojo o que huele, y por cualquier cosa que te preocupe a las dos de la madrugada. La [lista de señales de alarma en el recién nacido](/es/learn/newborn-warning-signs) es la lista completa.
 
-> **Busca atención ya:** Contacta con los servicios de emergencia de tu zona o acude al servicio de urgencias más cercano si un bebé menor de tres meses tiene una temperatura de 38 °C o más, respira rápido, se esfuerza para respirar o emite gruñidos, tiene la piel azulada, grisácea, pálida o moteada, está flácido, cuesta despertarlo, rechaza las tomas, tiene muy pocos pañales mojados o ninguno en las últimas 12 horas, tiene la fontanela abultada o hundida, tiene una erupción que no desaparece al presionarla, o sufre una convulsión. Femio no puede valorar a un bebé.
+> **Busca atención ya:** Contacta con los servicios de emergencia de tu zona o acude al servicio de urgencias más cercano si un bebé menor de tres meses tiene una temperatura de 38 °C o más, respira rápido, se esfuerza para respirar o emite gruñidos, tiene la piel azulada, grisácea, pálida o moteada, está flácido, cuesta despertarlo, rechaza las tomas, tiene muy pocos pañales mojados o ninguno en las últimas 12 horas, tiene la fontanela abultada o hundida, tiene una erupción que no desaparece al presionarla, o sufre una convulsión. femio no puede valorar a un bebé.
 
 ## Preguntas frecuentes
 

@@ -12,7 +12,7 @@ secondary_topics:
   - "medicines for period pain"
   - "ongoing care for painful periods"
 excerpt: "Learn which self-care and clinician-discussed options may ease period pain, how choices depend on the cause, and when pain needs further assessment."
-meta_title: "What Can Help With Period Pain? | Femio"
+meta_title: "What Can Help With Period Pain? | femio"
 meta_description: "Explore self-care and clinician-discussed options for period pain, important medicine cautions, review questions, and when to seek further care."
 canonical_url: "https://femioapp.com/en/learn/period-pain-care-options"
 robots_while_draft: "noindex,nofollow"
@@ -24,7 +24,7 @@ open_graph_image_alt: "Heat pack, symptom diary, and clinician notes for period-
 written_by: "Dr. Khaled M."
 medically_reviewed_by: "Dr. Khaled M."
 date_published: "2026-08-15"
-date_modified: "2026-08-15"
+date_modified: "2026-11-24"
 last_reviewed: "2026-08-04"
 next_review_due: null
 reading_level_ok: true
@@ -86,7 +86,7 @@ Hormone medicines can make periods lighter or ease cramps for some people. Optio
 
 These medicines can have effects beyond pain and are not right for everyone. The decision may depend on migraine, blood-clot history, smoking, other health issues, pregnancy goals, and personal preference.
 
-If avoiding pregnancy is also a goal, ask a qualified clinician which method is suitable and how to use it. Femio's cycle estimates are not a reliable way to avoid pregnancy.
+If avoiding pregnancy is also a goal, ask a qualified clinician which method is suitable and how to use it. femio's cycle estimates are not a reliable way to avoid pregnancy.
 
 The [NHS period-problems guide](https://www.nhs.uk/conditions/periods/period-problems/) describes medicine and hormone options that may reduce period pain.
 

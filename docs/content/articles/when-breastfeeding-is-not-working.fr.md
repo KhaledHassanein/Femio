@@ -12,7 +12,7 @@ secondary_topics:
   - "alimentation mixte"
   - "arrêt de l'allaitement"
 excerpt: "Que faire lorsque l'allaitement fait mal, que la production de lait semble faible, ou que vous voulez arrêter : quelle aide existe, à quoi ressemble une mastite, et comment modifier votre façon de nourrir."
-meta_title: "Quand l'allaitement ne fonctionne pas : que faire | Femio"
+meta_title: "Quand l'allaitement ne fonctionne pas : que faire | femio"
 meta_description: "Douleur, production de lait faible, mastite, alimentation mixte et arrêt : une aide pratique, et comment décider sans culpabilité."
 canonical_url: "https://femioapp.com/fr/learn/when-breastfeeding-is-not-working"
 robots_while_draft: "noindex,nofollow"
@@ -24,7 +24,7 @@ open_graph_image_alt: "Une femme tenant un biberon et un bébé, d'un air serein
 written_by: "PENDING"
 medically_reviewed_by: "Dr. Khaled M."
 date_published: "2026-10-30"
-date_modified: "2026-10-30"
+date_modified: "2026-11-24"
 last_reviewed: "2026-10-30"
 next_review_due: "2027-10-30"
 reading_level_ok: false
@@ -120,7 +120,7 @@ Contactez votre sage-femme, votre infirmière de santé publique ou votre médec
 
 Demandez un avis urgent concernant votre bébé en cas de mollesse, de difficulté à le réveiller, de respiration rapide ou laborieuse, de fièvre, ou de refus de téter.
 
-> **Consultez sans attendre :** Demandez des soins urgents en cas de forte fièvre avec un sein rouge, chaud et douloureux et un sentiment de malaise intense, en cas d'abcès du sein ou de zone rouge qui s'étend, ou pour tout bébé mou, difficile à réveiller, qui respire avec difficulté ou qui refuse de téter. Femio ne peut pas évaluer un sein ni un bébé.
+> **Consultez sans attendre :** Demandez des soins urgents en cas de forte fièvre avec un sein rouge, chaud et douloureux et un sentiment de malaise intense, en cas d'abcès du sein ou de zone rouge qui s'étend, ou pour tout bébé mou, difficile à réveiller, qui respire avec difficulté ou qui refuse de téter. femio ne peut pas évaluer un sein ni un bébé.
 
 ## Questions fréquentes
 

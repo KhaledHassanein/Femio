@@ -24,7 +24,7 @@ open_graph_image_alt: "A calendar with cycle days marked at uneven intervals"
 written_by: "PENDING"
 medically_reviewed_by: "Dr. Khaled M."
 date_published: "2026-08-19"
-date_modified: "2026-08-19"
+date_modified: "2026-11-24"
 last_reviewed: "2026-10-30"
 next_review_due: "2027-10-30"
 reading_level_ok: true
@@ -60,7 +60,7 @@ Almost every piece of timing advice quietly assumes a 28-day cycle, and it stops
 
 Standard advice works backwards from a predictable period: if the next one is due on a known day, the days before it can be estimated. When cycle length swings by a week or more, that arithmetic has nothing stable to stand on.
 
-Femio widens its prediction window when your cycles vary, and stops showing one entirely when there is nothing honest to predict from. That is not the app failing; a confident date built on unstable data would be an invention, and acting on it is what wastes months.
+femio widens its prediction window when your cycles vary, and stops showing one entirely when there is nothing honest to predict from. That is not the app failing; a confident date built on unstable data would be an invention, and acting on it is what wastes months.
 
 ## What actually helps
 
@@ -78,7 +78,7 @@ PCOS is one of the most common reasons for irregular or absent ovulation, and it
 
 Two things worth knowing before that appointment. Many people with PCOS conceive, with or without help. And ovulation can happen unpredictably, which means cycles that look silent are not always silent.
 
-[PCOS and fertility](/en/learn/pcos-and-fertility) covers the condition side in more depth. Nothing on this page is a way of finding out whether you have it — that is an assessment, and Femio does not make one.
+[PCOS and fertility](/en/learn/pcos-and-fertility) covers the condition side in more depth. Nothing on this page is a way of finding out whether you have it — that is an assessment, and femio does not make one.
 
 ## When cycles are absent rather than long
 
@@ -94,11 +94,11 @@ Bring your cycle record. [What a fertility assessment involves](/en/learn/fertil
 
 Ask for a referral rather than waiting to be offered one.
 
-## What Femio can and cannot do here
+## What femio can and cannot do here
 
 It can hold every bleed, symptom and log in one place, show you the range your cycles actually fall in, and hand a clinician real dates instead of a recollection.
 
-It cannot tell you when you ovulated, and it will not pretend to. There is no ovulation day in Femio's logic and there is not going to be one: reading a shift from a home measurement is a clinical inference, and the feature built on top of one is always "days you could avoid" — which is a line this product does not cross.
+It cannot tell you when you ovulated, and it will not pretend to. There is no ovulation day in femio's logic and there is not going to be one: reading a shift from a home measurement is a clinical inference, and the feature built on top of one is always "days you could avoid" — which is a line this product does not cross.
 
 ## When to see a doctor
 

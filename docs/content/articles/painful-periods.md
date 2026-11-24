@@ -12,7 +12,7 @@ secondary_topics:
   - "severe period cramps"
   - "when to see a doctor for period pain"
 excerpt: "Learn why periods can hurt, which patterns are worth discussing, what clinical assessment may involve, and when pain needs urgent care."
-meta_title: "Why Are My Periods So Painful? Causes & Care | Femio"
+meta_title: "Why Are My Periods So Painful? Causes & Care | femio"
 meta_description: "Understand period pain, possible causes, signs worth discussing, clinical care options, and when severe pain needs urgent help."
 canonical_url: "https://femioapp.com/en/conditions/painful-periods"
 robots_while_draft: "noindex,nofollow"
@@ -24,7 +24,7 @@ open_graph_image_alt: "Person using a heat pack while recording period pain in a
 written_by: "PENDING"
 medically_reviewed_by: "Dr. Khaled M."
 date_published: "2026-10-30"
-date_modified: "2026-10-30"
+date_modified: "2026-11-24"
 last_reviewed: "2026-10-30"
 next_review_due: "2027-10-30"
 reading_level_ok: true
@@ -78,7 +78,7 @@ Possible causes of secondary pain include:
 - Structural differences in the womb or reproductive tract.
 - A copper intrauterine device in some people.
 
-The pattern offers clues, but it cannot confirm the cause. Read the Femio guide to [endometriosis](/en/conditions/endometriosis) if pain occurs with sex, bowel movements, urination, or at other times of the month.
+The pattern offers clues, but it cannot confirm the cause. Read the femio guide to [endometriosis](/en/conditions/endometriosis) if pain occurs with sex, bowel movements, urination, or at other times of the month.
 
 ## Which symptoms are useful to notice?
 
@@ -137,7 +137,7 @@ For cramps without an urgent cause, a clinician or pharmacist may discuss:
 - Support for sleep and coping with persistent pain.
 - Specialist review or surgery when another condition is suspected or found.
 
-Do not use a medicine that is unsafe for your age, pregnancy status, allergies, stomach, kidney, liver, heart, or other health needs. Follow the label and ask a pharmacist or clinician when unsure. Femio does not provide medicine doses.
+Do not use a medicine that is unsafe for your age, pregnancy status, allergies, stomach, kidney, liver, heart, or other health needs. Follow the label and ask a pharmacist or clinician when unsure. femio does not provide medicine doses.
 
 The [NHS period-problems guide](https://www.nhs.uk/conditions/periods/period-problems/) recommends seeing a doctor when pain is severe enough to affect daily life.
 
@@ -157,11 +157,11 @@ Ask school or work for practical adjustments when needed. Flexible breaks, bathr
 
 Persistent pain can affect mood, sleep, sex, and relationships. Support for these effects belongs in your care plan too.
 
-## How to track painful periods in Femio
+## How to track painful periods in femio
 
 Log when pain begins, where it occurs, severity, other symptoms, and its effect on daily life. Add period flow and any pain outside the period.
 
-Femio can place symptoms beside cycle dates and create a summary. It cannot confirm the cause or decide whether pain is safe to manage at home.
+femio can place symptoms beside cycle dates and create a summary. It cannot confirm the cause or decide whether pain is safe to manage at home.
 
 Related guides cover [heavy periods](/en/conditions/heavy-periods) and [menstrual-cycle basics](/en/learn/menstrual-cycle-basics). You can also read [how painful periods are assessed](/en/learn/how-painful-periods-are-assessed) and which [period-pain care options](/en/learn/period-pain-care-options) a clinician may discuss.
 

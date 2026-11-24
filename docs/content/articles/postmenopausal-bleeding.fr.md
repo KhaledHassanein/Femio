@@ -24,7 +24,7 @@ open_graph_image_alt: "Une personne prenant un rendez-vous médical sur son tél
 written_by: "PENDING"
 medically_reviewed_by: "Dr. Khaled M."
 date_published: "2026-10-30"
-date_modified: "2026-10-30"
+date_modified: "2026-11-24"
 last_reviewed: "2026-10-30"
 next_review_due: "2027-10-30"
 reading_level_ok: false
@@ -86,7 +86,7 @@ Un clinicien tiendra compte de plusieurs éléments. Cette liste est là pour qu
 - certains médicaments, notamment des anticoagulants
 - un cancer de la muqueuse utérine, ou plus rarement du col
 
-Femio n'évalue aucune de ces causes et ne peut pas vous dire laquelle s'applique. Ce qu'il peut faire, c'est conserver les dates et les détails que vous avez remarqués, afin que la personne qui vous examine dispose d'un récit clair plutôt que d'un souvenir flou.
+femio n'évalue aucune de ces causes et ne peut pas vous dire laquelle s'applique. Ce qu'il peut faire, c'est conserver les dates et les détails que vous avez remarqués, afin que la personne qui vous examine dispose d'un récit clair plutôt que d'un souvenir flou.
 
 ## Si vous suivez un traitement hormonal
 

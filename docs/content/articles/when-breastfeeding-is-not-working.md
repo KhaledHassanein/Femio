@@ -24,7 +24,7 @@ open_graph_image_alt: "A woman holding a bottle and a baby, looking calm"
 written_by: "PENDING"
 medically_reviewed_by: "Dr. Khaled M."
 date_published: "2026-08-19"
-date_modified: "2026-08-19"
+date_modified: "2026-11-24"
 last_reviewed: "2026-10-30"
 next_review_due: "2027-10-30"
 reading_level_ok: true
@@ -120,7 +120,7 @@ Contact your midwife, health visitor or doctor for pain through feeds, damaged n
 
 Seek urgent advice about your baby for floppiness, difficulty waking, fast or laboured breathing, fever, or refusing feeds.
 
-> **Seek care now:** Get urgent care for a high fever with a red, hot, painful breast and feeling very unwell, for a breast abscess or a spreading red area, or for any baby who is floppy, hard to wake, breathing with difficulty or refusing feeds. Femio cannot assess a breast or a baby.
+> **Seek care now:** Get urgent care for a high fever with a red, hot, painful breast and feeling very unwell, for a breast abscess or a spreading red area, or for any baby who is floppy, hard to wake, breathing with difficulty or refusing feeds. femio cannot assess a breast or a baby.
 
 ## Frequently asked questions
 

@@ -24,7 +24,7 @@ open_graph_image_alt: "A woman exercising gently on a mat at home after having a
 written_by: "PENDING"
 medically_reviewed_by: "Dr. Khaled M."
 date_published: "2026-08-19"
-date_modified: "2026-08-19"
+date_modified: "2026-11-24"
 last_reviewed: "2026-10-30"
 next_review_due: "2027-10-30"
 reading_level_ok: true
@@ -110,11 +110,11 @@ Support the lower tummy when you cough or sneeze. Break big lifts into smaller o
 
 Return to running and jumping gradually and after advice, particularly if you have leaking or heaviness. [Wound healing after birth](/en/learn/postpartum-wound-healing) covers scars and stitches, and [sex after birth](/en/learn/sex-after-birth) covers discomfort that is often pelvic floor related.
 
-## What Femio can hold
+## What femio can hold
 
 Logging leaks, urgency, heaviness and pain gives you something specific to describe. "Leaking most days when I cough, six weeks on" gets a referral faster than "things are a bit off".
 
-Femio does not assess pelvic floor strength and cannot tell you whether you have a prolapse, which needs an examination. See [the first six weeks after birth](/en/learn/postpartum-recovery-first-six-weeks) for what else is going on.
+femio does not assess pelvic floor strength and cannot tell you whether you have a prolapse, which needs an examination. See [the first six weeks after birth](/en/learn/postpartum-recovery-first-six-weeks) for what else is going on.
 
 ## When to see a doctor
 

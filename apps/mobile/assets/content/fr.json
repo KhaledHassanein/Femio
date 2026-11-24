@@ -1504,7 +1504,7 @@
       "children": [
        {
         "type": "text",
-        "text": "Elle ne vous dira pas quelles sont vos chances. Femio ne calcule pas de probabilité personnelle de concevoir, et aucune application honnête ne peut le faire à partir des informations qu’elle détient.",
+        "text": "Elle ne vous dira pas quelles sont vos chances. femio ne calcule pas de probabilité personnelle de concevoir, et aucune application honnête ne peut le faire à partir des informations qu’elle détient.",
         "format": 0,
         "detail": 0,
         "mode": "normal",
@@ -1541,7 +1541,7 @@
        },
        {
         "type": "text",
-        "text": " serait une prédiction individuelle faite à partir de données de groupe. C’est la même raison pour laquelle Femio affiche une fenêtre plutôt qu’une date pour les règles, et refuse de porter un jugement à partir d’une température corporelle relevée à la maison. Ce qu’il peut faire, c’est conserver vos cycles et vos notes, pour qu’un clinicien qui vous examine dispose de véritables informations plutôt que de souvenirs.",
+        "text": " serait une prédiction individuelle faite à partir de données de groupe. C’est la même raison pour laquelle femio affiche une fenêtre plutôt qu’une date pour les règles, et refuse de porter un jugement à partir d’une température corporelle relevée à la maison. Ce qu’il peut faire, c’est conserver vos cycles et vos notes, pour qu’un clinicien qui vous examine dispose de véritables informations plutôt que de souvenirs.",
         "format": 0,
         "detail": 0,
         "mode": "normal",
@@ -2202,7 +2202,7 @@
       "children": [
        {
         "type": "text",
-        "text": "Femio peut-il estimer mes chances ?",
+        "text": "femio peut-il estimer mes chances ?",
         "format": 0,
         "detail": 0,
         "mode": "normal",
@@ -3990,7 +3990,7 @@
        },
        {
         "type": "text",
-        "text": " Contactez les services d'urgence de votre région ou rendez-vous au service des urgences le plus proche si un bébé de moins de trois mois a une température de 38 °C ou plus, respire vite, fournit un effort pour respirer ou grogne, a la peau bleue, grise, pâle ou marbrée, est mou, est difficile à réveiller, refuse les tétées, a beaucoup moins de couches mouillées, voire aucune depuis 12 heures, a la fontanelle bombée ou creusée, a une éruption cutanée qui ne disparaît pas quand on appuie dessus, ou a une crise convulsive. Femio ne peut pas évaluer un bébé.",
+        "text": " Contactez les services d'urgence de votre région ou rendez-vous au service des urgences le plus proche si un bébé de moins de trois mois a une température de 38 °C ou plus, respire vite, fournit un effort pour respirer ou grogne, a la peau bleue, grise, pâle ou marbrée, est mou, est difficile à réveiller, refuse les tétées, a beaucoup moins de couches mouillées, voire aucune depuis 12 heures, a la fontanelle bombée ou creusée, a une éruption cutanée qui ne disparaît pas quand on appuie dessus, ou a une crise convulsive. femio ne peut pas évaluer un bébé.",
         "format": 0,
         "detail": 0,
         "mode": "normal",
@@ -6089,7 +6089,7 @@
       "children": [
        {
         "type": "text",
-        "text": "Vous pouvez les combiner. La plupart des personnes le font, et changent de protection d'un jour à l'autre. Femio ne recommande ni ne vend de produit, et rien ici ne désigne une marque. Des mots comme vulve et vagin sont expliqués dans le ",
+        "text": "Vous pouvez les combiner. La plupart des personnes le font, et changent de protection d'un jour à l'autre. femio ne recommande ni ne vend de produit, et rien ici ne désigne une marque. Des mots comme vulve et vagin sont expliqués dans le ",
         "format": 0,
         "detail": 0,
         "mode": "normal",
@@ -6453,7 +6453,7 @@
       "children": [
        {
         "type": "text",
-        "text": "Les prévisions de cycle de Femio sont des estimations fondées sur les cycles enregistrés, et après un accouchement il n'y en a généralement aucun. Femio n'est pas un moyen fiable d'éviter une grossesse et ne vous indique pas quand vous pouvez ou ne pouvez pas concevoir.",
+        "text": "Les prévisions de cycle de femio sont des estimations fondées sur les cycles enregistrés, et après un accouchement il n'y en a généralement aucun. femio n'est pas un moyen fiable d'éviter une grossesse et ne vous indique pas quand vous pouvez ou ne pouvez pas concevoir.",
         "format": 0,
         "detail": 0,
         "mode": "normal",
@@ -7373,7 +7373,7 @@
       "children": [
        {
         "type": "text",
-        "text": "Femio peut-il me dire quand je redeviens fertile ?",
+        "text": "femio peut-il me dire quand je redeviens fertile ?",
         "format": 0,
         "detail": 0,
         "mode": "normal",
@@ -7392,7 +7392,7 @@
       "children": [
        {
         "type": "text",
-        "text": "Non. Femio établit ses prévisions à partir des cycles enregistrés, et après un accouchement il n'y en a généralement aucun. Ce n'est pas un moyen fiable d'éviter une grossesse.",
+        "text": "Non. femio établit ses prévisions à partir des cycles enregistrés, et après un accouchement il n'y en a généralement aucun. Ce n'est pas un moyen fiable d'éviter une grossesse.",
         "format": 0,
         "detail": 0,
         "mode": "normal",
@@ -9818,7 +9818,7 @@
       "children": [
        {
         "type": "text",
-        "text": "Comment suivre l’endométriose dans Femio",
+        "text": "Comment suivre l’endométriose dans femio",
         "format": 0,
         "detail": 0,
         "mode": "normal",
@@ -9856,7 +9856,7 @@
       "children": [
        {
         "type": "text",
-        "text": "Recherchez une régularité dans le temps, et non un verdict. Un motif qui se répète peut vous aider à décrire vos symptômes, mais Femio ne peut ni confirmer une endométriose ni juger de sa gravité. Exportez ou imprimez un résumé si vous souhaitez le partager avec un clinicien.",
+        "text": "Recherchez une régularité dans le temps, et non un verdict. Un motif qui se répète peut vous aider à décrire vos symptômes, mais femio ne peut ni confirmer une endométriose ni juger de sa gravité. Exportez ou imprimez un résumé si vous souhaitez le partager avec un clinicien.",
         "format": 0,
         "detail": 0,
         "mode": "normal",
@@ -9875,7 +9875,7 @@
       "children": [
        {
         "type": "text",
-        "text": "Les guides Femio associés couvrent les ",
+        "text": "Les guides femio associés couvrent les ",
         "format": 0,
         "detail": 0,
         "mode": "normal",
@@ -13500,7 +13500,7 @@
        },
        {
         "type": "text",
-        "text": " Contactez les services d'urgence de votre région ou rendez-vous au service des urgences le plus proche si un bébé de moins de trois mois a une température de 38 °C ou plus, respire vite, fait des efforts respiratoires ou gémit en respirant, a la peau bleue, grise, pâle ou marbrée, est mou, est difficile à réveiller, refuse de téter, a nettement moins de couches mouillées, ou n'en a aucune depuis 12 heures, a une fontanelle bombée ou creusée, a une éruption qui ne disparaît pas à la pression, ou a une crise convulsive. Femio ne peut pas évaluer un bébé.",
+        "text": " Contactez les services d'urgence de votre région ou rendez-vous au service des urgences le plus proche si un bébé de moins de trois mois a une température de 38 °C ou plus, respire vite, fait des efforts respiratoires ou gémit en respirant, a la peau bleue, grise, pâle ou marbrée, est mou, est difficile à réveiller, refuse de téter, a nettement moins de couches mouillées, ou n'en a aucune depuis 12 heures, a une fontanelle bombée ou creusée, a une éruption qui ne disparaît pas à la pression, ou a une crise convulsive. femio ne peut pas évaluer un bébé.",
         "format": 0,
         "detail": 0,
         "mode": "normal",
@@ -14056,7 +14056,7 @@
        },
        {
         "type": "text",
-        "text": " de Femio affiche une estimation générale. Si vous suivez plusieurs cycles, comparez le résultat avec l'ampleur des variations de la durée de vos cycles.",
+        "text": " de femio affiche une estimation générale. Si vous suivez plusieurs cycles, comparez le résultat avec l'ampleur des variations de la durée de vos cycles.",
         "format": 0,
         "detail": 0,
         "mode": "normal",
@@ -14716,7 +14716,7 @@
       "children": [
        {
         "type": "text",
-        "text": "Comment Femio estime une fenêtre de fertilité",
+        "text": "Comment femio estime une fenêtre de fertilité",
         "format": 0,
         "detail": 0,
         "mode": "normal",
@@ -14735,7 +14735,7 @@
       "children": [
        {
         "type": "text",
-        "text": "Femio utilise les dates de cycle que vous saisissez pour créer une fourchette estimée. Il peut élargir la fourchette lorsque vos cycles enregistrés varient, et peut afficher un niveau de confiance lorsque les données sont suffisantes.",
+        "text": "femio utilise les dates de cycle que vous saisissez pour créer une fourchette estimée. Il peut élargir la fourchette lorsque vos cycles enregistrés varient, et peut afficher un niveau de confiance lorsque les données sont suffisantes.",
         "format": 0,
         "detail": 0,
         "mode": "normal",
@@ -14754,7 +14754,7 @@
       "children": [
        {
         "type": "text",
-        "text": "Femio ne peut pas confirmer l'ovulation ni identifier un jour où une grossesse serait impossible. Il ne remplace pas un clinicien ni un service de fertilité.",
+        "text": "femio ne peut pas confirmer l'ovulation ni identifier un jour où une grossesse serait impossible. Il ne remplace pas un clinicien ni un service de fertilité.",
         "format": 0,
         "detail": 0,
         "mode": "normal",
@@ -16970,7 +16970,7 @@
        },
        {
         "type": "text",
-        "text": " de Femio donne une estimation. Un clinicien peut la réviser après avoir examiné les dates ou une échographie.",
+        "text": " de femio donne une estimation. Un clinicien peut la réviser après avoir examiné les dates ou une échographie.",
         "format": 0,
         "detail": 0,
         "mode": "normal",
@@ -21749,7 +21749,7 @@
         "children": [
          {
           "type": "text",
-          "text": "page de relecture clinique de Femio",
+          "text": "page de relecture clinique de femio",
           "format": 0,
           "detail": 0,
           "mode": "normal",
@@ -21764,7 +21764,7 @@
        },
        {
         "type": "text",
-        "text": " explique comment nos contenus de santé sont vérifiés. Femio ne peut pas mesurer les pertes de sang ni le taux de fer.",
+        "text": " explique comment nos contenus de santé sont vérifiés. femio ne peut pas mesurer les pertes de sang ni le taux de fer.",
         "format": 0,
         "detail": 0,
         "mode": "normal",
@@ -23242,7 +23242,7 @@
        },
        {
         "type": "text",
-        "text": " de Femio.",
+        "text": " de femio.",
         "format": 0,
         "detail": 0,
         "mode": "normal",
@@ -26162,7 +26162,7 @@
        },
        {
         "type": "text",
-        "text": " de Femio explique comment nos contenus de santé sont vérifiés.",
+        "text": " de femio explique comment nos contenus de santé sont vérifiés.",
         "format": 0,
         "detail": 0,
         "mode": "normal",
@@ -28220,7 +28220,7 @@
       "children": [
        {
         "type": "text",
-        "text": "Femio élargit sa fenêtre de prévision quand vos cycles varient, et n'en affiche plus du tout lorsqu'il n'y a rien d'honnête à prévoir. Ce n'est pas une défaillance de l'application : une date précise fondée sur des données instables serait une invention, et c'est en s'y fiant que l'on perd des mois.",
+        "text": "femio élargit sa fenêtre de prévision quand vos cycles varient, et n'en affiche plus du tout lorsqu'il n'y a rien d'honnête à prévoir. Ce n'est pas une défaillance de l'application : une date précise fondée sur des données instables serait une invention, et c'est en s'y fiant que l'on perd des mois.",
         "format": 0,
         "detail": 0,
         "mode": "normal",
@@ -28578,7 +28578,7 @@
        },
        {
         "type": "text",
-        "text": " approfondit l'aspect lié à la maladie. Rien sur cette page ne permet de savoir si vous en êtes atteinte : cela relève d'une évaluation, que Femio ne réalise pas.",
+        "text": " approfondit l'aspect lié à la maladie. Rien sur cette page ne permet de savoir si vous en êtes atteinte : cela relève d'une évaluation, que femio ne réalise pas.",
         "format": 0,
         "detail": 0,
         "mode": "normal",
@@ -28812,7 +28812,7 @@
       "children": [
        {
         "type": "text",
-        "text": "Ce que Femio peut et ne peut pas faire ici",
+        "text": "Ce que femio peut et ne peut pas faire ici",
         "format": 0,
         "detail": 0,
         "mode": "normal",
@@ -28850,7 +28850,7 @@
       "children": [
        {
         "type": "text",
-        "text": "Il ne peut pas vous dire quand vous avez ovulé, et il ne prétendra pas le faire. La logique de Femio ne contient pas de jour d'ovulation et n'en contiendra pas : déduire un changement à partir d'une mesure faite à domicile relève d'une inférence clinique, et la fonction construite sur une telle inférence est toujours « les jours que vous pourriez éviter », ce qui est une limite que ce produit ne franchit pas.",
+        "text": "Il ne peut pas vous dire quand vous avez ovulé, et il ne prétendra pas le faire. La logique de femio ne contient pas de jour d'ovulation et n'en contiendra pas : déduire un changement à partir d'une mesure faite à domicile relève d'une inférence clinique, et la fonction construite sur une telle inférence est toujours « les jours que vous pourriez éviter », ce qui est une limite que ce produit ne franchit pas.",
         "format": 0,
         "detail": 0,
         "mode": "normal",
@@ -29381,7 +29381,7 @@
       "children": [
        {
         "type": "text",
-        "text": "C'est pourquoi Femio affiche une fenêtre plutôt qu'une date, et pourquoi la fenêtre est plus large pour les plus jeunes utilisatrices. Une fenêtre large est la preuve que l'application est honnête, et non qu'elle dysfonctionne. Vous trouverez davantage d'explications dans ",
+        "text": "C'est pourquoi femio affiche une fenêtre plutôt qu'une date, et pourquoi la fenêtre est plus large pour les plus jeunes utilisatrices. Une fenêtre large est la preuve que l'application est honnête, et non qu'elle dysfonctionne. Vous trouverez davantage d'explications dans ",
         "format": 0,
         "detail": 0,
         "mode": "normal",
@@ -29973,10 +29973,10 @@
  },
  {
   "slug": "meet-femio",
-  "title": "Découvrir Femio : votre compagnon de suivi de santé féminine",
-  "excerpt": "Découvrez Femio, une application de santé féminine pour le suivi du cycle et des symptômes, des calculateurs gratuits, des journaux de santé privés et des consultations mieux préparées.",
+  "title": "Découvrir femio : votre compagnon de suivi de santé féminine",
+  "excerpt": "Découvrez femio, une application de santé féminine pour le suivi du cycle et des symptômes, des calculateurs gratuits, des journaux de santé privés et des consultations mieux préparées.",
   "body": {
-   "h1": "Découvrir Femio : votre compagnon de suivi de santé féminine",
+   "h1": "Découvrir femio : votre compagnon de suivi de santé féminine",
    "root": {
     "direction": "ltr",
     "format": "",
@@ -29994,7 +29994,7 @@
       "children": [
        {
         "type": "text",
-        "text": "L'application de santé féminine Femio réunit dans un seul espace privé et simple d'utilisation le suivi du cycle et des symptômes, des calculateurs de santé gratuits, des guides clairs et la préparation des consultations. Elle vous aide à noter ce qui se passe, à repérer des tendances au fil du temps et à avoir des échanges plus utiles avec votre équipe de soins. Femio est destiné au bien-être et à l'information. Un professionnel de santé qualifié peut évaluer vos préoccupations de santé et discuter des options de soins.",
+        "text": "L'application de santé féminine femio réunit dans un seul espace privé et simple d'utilisation le suivi du cycle et des symptômes, des calculateurs de santé gratuits, des guides clairs et la préparation des consultations. Elle vous aide à noter ce qui se passe, à repérer des tendances au fil du temps et à avoir des échanges plus utiles avec votre équipe de soins. femio est destiné au bien-être et à l'information. Un professionnel de santé qualifié peut évaluer vos préoccupations de santé et discuter des options de soins.",
         "format": 0,
         "detail": 0,
         "mode": "normal",
@@ -30013,7 +30013,7 @@
       "children": [
        {
         "type": "text",
-        "text": "Qu'est-ce que Femio ?",
+        "text": "Qu'est-ce que femio ?",
         "format": 0,
         "detail": 0,
         "mode": "normal",
@@ -30032,7 +30032,7 @@
       "children": [
        {
         "type": "text",
-        "text": "Femio est un site web et une application de suivi de santé féminine conçus pour les différentes étapes de la vie. Vous pouvez utiliser les guides et les calculateurs publics sans compte. Vous pouvez aussi commencer un suivi privé sans adresse e-mail, puis créer un compte plus tard si vous souhaitez synchroniser vos données entre plusieurs appareils.",
+        "text": "femio est un site web et une application de suivi de santé féminine conçus pour les différentes étapes de la vie. Vous pouvez utiliser les guides et les calculateurs publics sans compte. Vous pouvez aussi commencer un suivi privé sans adresse e-mail, puis créer un compte plus tard si vous souhaitez synchroniser vos données entre plusieurs appareils.",
         "format": 0,
         "detail": 0,
         "mode": "normal",
@@ -30070,7 +30070,7 @@
       "children": [
        {
         "type": "text",
-        "text": "Femio est actuellement une application web qui peut être ajoutée à votre appareil comme une application. Des applications natives pour iOS et Android sont prévues pour une version ultérieure.",
+        "text": "femio est actuellement une application web qui peut être ajoutée à votre appareil comme une application. Des applications natives pour iOS et Android sont prévues pour une version ultérieure.",
         "format": 0,
         "detail": 0,
         "mode": "normal",
@@ -30089,7 +30089,7 @@
       "children": [
        {
         "type": "text",
-        "text": "Que pouvez-vous faire avec Femio aujourd'hui ?",
+        "text": "Que pouvez-vous faire avec femio aujourd'hui ?",
         "format": 0,
         "detail": 0,
         "mode": "normal",
@@ -30127,7 +30127,7 @@
       "children": [
        {
         "type": "text",
-        "text": "Utilisez le calendrier mensuel pour noter les dates et l'abondance des règles. Femio utilise les dates que vous saisissez pour afficher une fourchette estimée de vos prochaines règles. Lorsque suffisamment d'informations sont disponibles, il indique aussi le degré de fiabilité de l'estimation.",
+        "text": "Utilisez le calendrier mensuel pour noter les dates et l'abondance des règles. femio utilise les dates que vous saisissez pour afficher une fourchette estimée de vos prochaines règles. Lorsque suffisamment d'informations sont disponibles, il indique aussi le degré de fiabilité de l'estimation.",
         "format": 0,
         "detail": 0,
         "mode": "normal",
@@ -30146,7 +30146,7 @@
       "children": [
        {
         "type": "text",
-        "text": "Si vos cycles varient, Femio utilise une fourchette plus large plutôt que de vous imposer un calendrier fixe. Il évite aussi un compteur de « retard » peu utile lorsque votre cycle est irrégulier.",
+        "text": "Si vos cycles varient, femio utilise une fourchette plus large plutôt que de vous imposer un calendrier fixe. Il évite aussi un compteur de « retard » peu utile lorsque votre cycle est irrégulier.",
         "format": 0,
         "detail": 0,
         "mode": "normal",
@@ -30241,7 +30241,7 @@
       "children": [
        {
         "type": "text",
-        "text": "Femio peut afficher une fenêtre fertile estimée et une fourchette d'ovulation, à partir des dates de cycle que vous enregistrez. Ces dates sont des estimations, et non des garanties. Les recommandations du ",
+        "text": "femio peut afficher une fenêtre fertile estimée et une fourchette d'ovulation, à partir des dates de cycle que vous enregistrez. Ces dates sont des estimations, et non des garanties. Les recommandations du ",
         "format": 0,
         "detail": 0,
         "mode": "normal",
@@ -30362,7 +30362,7 @@
       "children": [
        {
         "type": "text",
-        "text": "Femio peut transformer les dates de cycle, les symptômes et les notes que vous avez sélectionnés en un résumé clair pour votre consultation. Vous pouvez l'imprimer ou l'enregistrer au format PDF, puis choisir de le partager ou non avec un professionnel de santé.",
+        "text": "femio peut transformer les dates de cycle, les symptômes et les notes que vous avez sélectionnés en un résumé clair pour votre consultation. Vous pouvez l'imprimer ou l'enregistrer au format PDF, puis choisir de le partager ou non avec un professionnel de santé.",
         "format": 0,
         "detail": 0,
         "mode": "normal",
@@ -30419,7 +30419,7 @@
       "children": [
        {
         "type": "text",
-        "text": "Femio propose des outils gratuits pour :",
+        "text": "femio propose des outils gratuits pour :",
         "format": 0,
         "detail": 0,
         "mode": "normal",
@@ -30602,7 +30602,7 @@
       "children": [
        {
         "type": "text",
-        "text": "La politique de Femio est que les données de santé ne sont jamais vendues ni partagées avec des annonceurs. Lisez la Politique de confidentialité en vigueur avant de saisir des informations de santé. Elle explique ce que Femio collecte, pourquoi ces données sont utilisées, quels prestataires de services interviennent et quels contrôles sont à votre disposition. Vous pouvez aussi ",
+        "text": "La politique de femio est que les données de santé ne sont jamais vendues ni partagées avec des annonceurs. Lisez la Politique de confidentialité en vigueur avant de saisir des informations de santé. Elle explique ce que femio collecte, pourquoi ces données sont utilisées, quels prestataires de services interviennent et quels contrôles sont à votre disposition. Vous pouvez aussi ",
         "format": 0,
         "detail": 0,
         "mode": "normal",
@@ -30619,7 +30619,7 @@
         "children": [
          {
           "type": "text",
-          "text": "en savoir plus sur Femio",
+          "text": "en savoir plus sur femio",
           "format": 0,
           "detail": 0,
           "mode": "normal",
@@ -30653,7 +30653,7 @@
       "children": [
        {
         "type": "text",
-        "text": "Utiliser Femio dans votre langue",
+        "text": "Utiliser femio dans votre langue",
         "format": 0,
         "detail": 0,
         "mode": "normal",
@@ -30672,7 +30672,7 @@
       "children": [
        {
         "type": "text",
-        "text": "Femio est disponible en anglais, en arabe, en français et en espagnol. L'arabe comprend une mise en page de droite à gauche. Le contenu de santé dans chaque langue doit faire l'objet de sa propre relecture avant publication, afin que la formulation traduite reste exacte et claire. Consultez les ",
+        "text": "femio est disponible en anglais, en arabe, en français et en espagnol. L'arabe comprend une mise en page de droite à gauche. Le contenu de santé dans chaque langue doit faire l'objet de sa propre relecture avant publication, afin que la formulation traduite reste exacte et claire. Consultez les ",
         "format": 0,
         "detail": 0,
         "mode": "normal",
@@ -30704,7 +30704,7 @@
        },
        {
         "type": "text",
-        "text": " de Femio et son ",
+        "text": " de femio et son ",
         "format": 0,
         "detail": 0,
         "mode": "normal",
@@ -30755,7 +30755,7 @@
       "children": [
        {
         "type": "text",
-        "text": "Comment tirer le meilleur parti de Femio",
+        "text": "Comment tirer le meilleur parti de femio",
         "format": 0,
         "detail": 0,
         "mode": "normal",
@@ -30983,7 +30983,7 @@
       "children": [
        {
         "type": "text",
-        "text": "Revoyez vos choix lorsque vos besoins changent. Exportez une copie si vous le souhaitez, et supprimez les informations que vous ne voulez plus que Femio conserve. Si vous utilisez un appareil partagé, protégez l'accès à l'appareil et déconnectez-vous de votre compte lorsque c'est approprié.",
+        "text": "Revoyez vos choix lorsque vos besoins changent. Exportez une copie si vous le souhaitez, et supprimez les informations que vous ne voulez plus que femio conserve. Si vous utilisez un appareil partagé, protégez l'accès à l'appareil et déconnectez-vous de votre compte lorsque c'est approprié.",
         "format": 0,
         "detail": 0,
         "mode": "normal",
@@ -31053,7 +31053,7 @@
        },
        {
         "type": "text",
-        "text": " et les calculateurs de Femio pour comprendre les termes courants et préparer vos questions. Ils constituent un point de départ pour un échange sur votre santé, et non un moyen de décider quelle affection vous avez ou quelle option de soins vous est nécessaire.",
+        "text": " et les calculateurs de femio pour comprendre les termes courants et préparer vos questions. Ils constituent un point de départ pour un échange sur votre santé, et non un moyen de décider quelle affection vous avez ou quelle option de soins vous est nécessaire.",
         "format": 0,
         "detail": 0,
         "mode": "normal",
@@ -31091,7 +31091,7 @@
       "children": [
        {
         "type": "text",
-        "text": "Femio se construit par étapes. Des outils plus complets pour un projet de grossesse, la grossesse, le post-partum, la périménopause et la ménopause sont prévus, ainsi que d'autres fonctions à venir. Certaines étapes de la vie peuvent déjà apparaître lors de la configuration afin que Femio comprenne ce dont les personnes ont besoin, mais cela ne signifie pas que chaque outil de suivi associé est disponible aujourd'hui.",
+        "text": "femio se construit par étapes. Des outils plus complets pour un projet de grossesse, la grossesse, le post-partum, la périménopause et la ménopause sont prévus, ainsi que d'autres fonctions à venir. Certaines étapes de la vie peuvent déjà apparaître lors de la configuration afin que femio comprenne ce dont les personnes ont besoin, mais cela ne signifie pas que chaque outil de suivi associé est disponible aujourd'hui.",
         "format": 0,
         "detail": 0,
         "mode": "normal",
@@ -31110,7 +31110,7 @@
       "children": [
        {
         "type": "text",
-        "text": "Les projets pour l'application peuvent changer. Consultez l'application et les mises à jour officielles de Femio pour connaître les fonctions disponibles les plus récentes.",
+        "text": "Les projets pour l'application peuvent changer. Consultez l'application et les mises à jour officielles de femio pour connaître les fonctions disponibles les plus récentes.",
         "format": 0,
         "detail": 0,
         "mode": "normal",
@@ -31158,7 +31158,7 @@
         "children": [
          {
           "type": "text",
-          "text": "Femio assure le suivi du bien-être, l'information et l'organisation des informations que vous saisissez.",
+          "text": "femio assure le suivi du bien-être, l'information et l'organisation des informations que vous saisissez.",
           "format": 0,
           "detail": 0,
           "mode": "normal",
@@ -31177,7 +31177,7 @@
         "children": [
          {
           "type": "text",
-          "text": "Femio ne peut ni confirmer, ni classer, ni exclure une affection médicale.",
+          "text": "femio ne peut ni confirmer, ni classer, ni exclure une affection médicale.",
           "format": 0,
           "detail": 0,
           "mode": "normal",
@@ -31253,7 +31253,7 @@
         "children": [
          {
           "type": "text",
-          "text": "Un résumé de consultation Femio n'est pas un dossier médical et ne crée pas de relation clinicien-patient.",
+          "text": "Un résumé de consultation femio n'est pas un dossier médical et ne crée pas de relation clinicien-patient.",
           "format": 0,
           "detail": 0,
           "mode": "normal",
@@ -31272,7 +31272,7 @@
         "children": [
          {
           "type": "text",
-          "text": "Femio n'est pas un service d'urgence. Si vous pouvez être en danger immédiat ou si vous avez des symptômes graves ou soudains, contactez les services d'urgence de votre région ou rendez-vous au service des urgences le plus proche.",
+          "text": "femio n'est pas un service d'urgence. Si vous pouvez être en danger immédiat ou si vous avez des symptômes graves ou soudains, contactez les services d'urgence de votre région ou rendez-vous au service des urgences le plus proche.",
           "format": 0,
           "detail": 0,
           "mode": "normal",
@@ -31312,7 +31312,7 @@
       "children": [
        {
         "type": "text",
-        "text": "Femio est-il une application médicale ?",
+        "text": "femio est-il une application médicale ?",
         "format": 0,
         "detail": 0,
         "mode": "normal",
@@ -31331,7 +31331,7 @@
       "children": [
        {
         "type": "text",
-        "text": "Femio est un service de bien-être, d'information et de suivi. Ce n'est pas un dispositif médical. Un professionnel de santé qualifié peut évaluer vos préoccupations de santé et discuter des soins cliniques.",
+        "text": "femio est un service de bien-être, d'information et de suivi. Ce n'est pas un dispositif médical. Un professionnel de santé qualifié peut évaluer vos préoccupations de santé et discuter des soins cliniques.",
         "format": 0,
         "detail": 0,
         "mode": "normal",
@@ -31388,7 +31388,7 @@
       "children": [
        {
         "type": "text",
-        "text": "Femio peut-il me dire exactement quand mes prochaines règles commenceront ?",
+        "text": "femio peut-il me dire exactement quand mes prochaines règles commenceront ?",
         "format": 0,
         "detail": 0,
         "mode": "normal",
@@ -31407,7 +31407,7 @@
       "children": [
        {
         "type": "text",
-        "text": "Non. Femio affiche une fourchette estimée à partir des dates que vous saisissez. Votre cycle peut changer, de sorte que la date réelle peut se situer en dehors de cette fourchette.",
+        "text": "Non. femio affiche une fourchette estimée à partir des dates que vous saisissez. Votre cycle peut changer, de sorte que la date réelle peut se situer en dehors de cette fourchette.",
         "format": 0,
         "detail": 0,
         "mode": "normal",
@@ -31426,7 +31426,7 @@
       "children": [
        {
         "type": "text",
-        "text": "Puis-je utiliser l'estimation de la fenêtre fertile de Femio pour éviter une grossesse ?",
+        "text": "Puis-je utiliser l'estimation de la fenêtre fertile de femio pour éviter une grossesse ?",
         "format": 0,
         "detail": 0,
         "mode": "normal",
@@ -31464,7 +31464,7 @@
       "children": [
        {
         "type": "text",
-        "text": "Femio fonctionne-t-il pour les cycles irréguliers ?",
+        "text": "femio fonctionne-t-il pour les cycles irréguliers ?",
         "format": 0,
         "detail": 0,
         "mode": "normal",
@@ -31483,7 +31483,7 @@
       "children": [
        {
         "type": "text",
-        "text": "Vous pouvez tout de même noter vos règles et vos symptômes. Lorsque les cycles varient, Femio utilise des fourchettes de prévision plus larges et n'affiche pas de compteur de « retard ». Les estimations peuvent être moins certaines lorsque les variations sont plus importantes.",
+        "text": "Vous pouvez tout de même noter vos règles et vos symptômes. Lorsque les cycles varient, femio utilise des fourchettes de prévision plus larges et n'affiche pas de compteur de « retard ». Les estimations peuvent être moins certaines lorsque les variations sont plus importantes.",
         "format": 0,
         "detail": 0,
         "mode": "normal",
@@ -31521,7 +31521,7 @@
       "children": [
        {
         "type": "text",
-        "text": "Pas encore. Les parcours plus complets pour la grossesse, le post-partum, la périménopause et la ménopause sont prévus pour des versions ultérieures. Les outils actuels de Femio comprennent le suivi du cycle et des symptômes, des calculateurs gratuits et des résumés de consultation.",
+        "text": "Pas encore. Les parcours plus complets pour la grossesse, le post-partum, la périménopause et la ménopause sont prévus pour des versions ultérieures. Les outils actuels de femio comprennent le suivi du cycle et des symptômes, des calculateurs gratuits et des résumés de consultation.",
         "format": 0,
         "detail": 0,
         "mode": "normal",
@@ -31540,7 +31540,7 @@
       "children": [
        {
         "type": "text",
-        "text": "Puis-je partager mes informations Femio avec un professionnel de santé ?",
+        "text": "Puis-je partager mes informations femio avec un professionnel de santé ?",
         "format": 0,
         "detail": 0,
         "mode": "normal",
@@ -31578,7 +31578,7 @@
       "children": [
        {
         "type": "text",
-        "text": "Commencer avec Femio",
+        "text": "Commencer avec femio",
         "format": 0,
         "detail": 0,
         "mode": "normal",
@@ -31661,7 +31661,7 @@
        },
        {
         "type": "text",
-        "text": " pour en savoir plus sur Femio.",
+        "text": " pour en savoir plus sur femio.",
         "format": 0,
         "detail": 0,
         "mode": "normal",
@@ -34403,7 +34403,7 @@
       "children": [
        {
         "type": "text",
-        "text": "Demandez quelle autre cause pourrait expliquer ces changements. Demandez à quoi chaque option peut servir, quels risques s'appliquent à vous, et quand le plan devra être revu. Femio explique comment les contenus de santé sont vérifiés sur la ",
+        "text": "Demandez quelle autre cause pourrait expliquer ces changements. Demandez à quoi chaque option peut servir, quels risques s'appliquent à vous, et quand le plan devra être revu. femio explique comment les contenus de santé sont vérifiés sur la ",
         "format": 0,
         "detail": 0,
         "mode": "normal",
@@ -34549,7 +34549,7 @@
       "children": [
        {
         "type": "text",
-        "text": "Comment suivre les symptômes de la ménopause dans Femio",
+        "text": "Comment suivre les symptômes de la ménopause dans femio",
         "format": 0,
         "detail": 0,
         "mode": "normal",
@@ -36404,7 +36404,7 @@
       "children": [
        {
         "type": "text",
-        "text": "Si vous avez des pensées de vous faire du mal ou de faire du mal à votre bébé, c'est urgent. La page mondiale de Femio ",
+        "text": "Si vous avez des pensées de vous faire du mal ou de faire du mal à votre bébé, c'est urgent. La page mondiale de femio ",
         "format": 0,
         "detail": 0,
         "mode": "normal",
@@ -37375,7 +37375,7 @@
       "children": [
        {
         "type": "text",
-        "text": "Ce que Femio peut conserver",
+        "text": "Ce que femio peut conserver",
         "format": 0,
         "detail": 0,
         "mode": "normal",
@@ -37394,7 +37394,7 @@
       "children": [
        {
         "type": "text",
-        "text": "Femio peut conserver une note quotidienne sur l'humeur, le sommeil et ce qui a aidé, ce qui rend un schéma visible sur plusieurs semaines. Ce relevé est bien plus facile à montrer qu'à décrire de mémoire lors d'un rendez-vous de dix minutes.",
+        "text": "femio peut conserver une note quotidienne sur l'humeur, le sommeil et ce qui a aidé, ce qui rend un schéma visible sur plusieurs semaines. Ce relevé est bien plus facile à montrer qu'à décrire de mémoire lors d'un rendez-vous de dix minutes.",
         "format": 0,
         "detail": 0,
         "mode": "normal",
@@ -37413,7 +37413,7 @@
       "children": [
        {
         "type": "text",
-        "text": "Femio ne pose aucun diagnostic et ne peut pas vous dire ce que vous avez. Ce qu'il peut faire, c'est s'assurer que la mauvaise quinzaine ne soit pas oubliée au moment où quelqu'un pose la question.",
+        "text": "femio ne pose aucun diagnostic et ne peut pas vous dire ce que vous avez. Ce qu'il peut faire, c'est s'assurer que la mauvaise quinzaine ne soit pas oubliée au moment où quelqu'un pose la question.",
         "format": 0,
         "detail": 0,
         "mode": "normal",
@@ -37497,7 +37497,7 @@
        },
        {
         "type": "text",
-        "text": " Si vous avez des pensées de vous faire du mal ou de faire du mal à votre bébé, si vous ne vous sentez pas en sécurité, ou si vous constatez une confusion, une agitation, ou que vous voyez ou entendez des choses que les autres ne perçoivent pas, contactez les services d'urgence locaux ou rendez-vous au service des urgences le plus proche. La page mondiale de Femio ",
+        "text": " Si vous avez des pensées de vous faire du mal ou de faire du mal à votre bébé, si vous ne vous sentez pas en sécurité, ou si vous constatez une confusion, une agitation, ou que vous voyez ou entendez des choses que les autres ne perçoivent pas, contactez les services d'urgence locaux ou rendez-vous au service des urgences le plus proche. La page mondiale de femio ",
         "format": 0,
         "detail": 0,
         "mode": "normal",
@@ -38526,7 +38526,7 @@
        },
        {
         "type": "text",
-        "text": " Contactez les services d’urgence de votre région ou rendez-vous au service des urgences le plus proche si un bébé de moins de trois mois a une température de 38 °C ou plus, respire vite, fournit un effort important pour respirer ou geint, a la peau bleutée, grise, pâle ou marbrée, est mou, est difficile à réveiller, refuse les tétées, a beaucoup moins de couches mouillées, voire aucune depuis 12 heures, présente une fontanelle bombée ou creusée, a une éruption cutanée qui ne disparaît pas à la pression, ou fait une crise convulsive. Femio ne peut pas évaluer un bébé.",
+        "text": " Contactez les services d’urgence de votre région ou rendez-vous au service des urgences le plus proche si un bébé de moins de trois mois a une température de 38 °C ou plus, respire vite, fournit un effort important pour respirer ou geint, a la peau bleutée, grise, pâle ou marbrée, est mou, est difficile à réveiller, refuse les tétées, a beaucoup moins de couches mouillées, voire aucune depuis 12 heures, présente une fontanelle bombée ou creusée, a une éruption cutanée qui ne disparaît pas à la pression, ou fait une crise convulsive. femio ne peut pas évaluer un bébé.",
         "format": 0,
         "detail": 0,
         "mode": "normal",
@@ -39146,7 +39146,7 @@
         "children": [
          {
           "type": "text",
-          "text": "la page d'aide internationale de Femio",
+          "text": "la page d'aide internationale de femio",
           "format": 0,
           "detail": 0,
           "mode": "normal",
@@ -39487,7 +39487,7 @@
        },
        {
         "type": "text",
-        "text": " Contactez les services d'urgence de votre région ou rendez-vous au service des urgences le plus proche si un bébé de moins de trois mois a une température de 38 °C ou plus, respire vite, fournit un effort pour respirer ou grogne, a la peau bleue, grise, pâle ou marbrée, est mou, est difficile à réveiller, refuse les tétées, a beaucoup moins de couches mouillées, voire aucune depuis 12 heures, a la fontanelle bombée ou creusée, a une éruption cutanée qui ne disparaît pas quand on appuie dessus, a une crise convulsive, ou a un cri faible, aigu ou continu qui n'est pas son cri habituel. Femio ne peut pas évaluer un bébé.",
+        "text": " Contactez les services d'urgence de votre région ou rendez-vous au service des urgences le plus proche si un bébé de moins de trois mois a une température de 38 °C ou plus, respire vite, fournit un effort pour respirer ou grogne, a la peau bleue, grise, pâle ou marbrée, est mou, est difficile à réveiller, refuse les tétées, a beaucoup moins de couches mouillées, voire aucune depuis 12 heures, a la fontanelle bombée ou creusée, a une éruption cutanée qui ne disparaît pas quand on appuie dessus, a une crise convulsive, ou a un cri faible, aigu ou continu qui n'est pas son cri habituel. femio ne peut pas évaluer un bébé.",
         "format": 0,
         "detail": 0,
         "mode": "normal",
@@ -40646,7 +40646,7 @@
        },
        {
         "type": "text",
-        "text": " Contactez les services d'urgence de votre région ou rendez-vous au service des urgences le plus proche si un bébé de moins de trois mois a une température de 38 °C ou plus, ou respire vite, fait des efforts respiratoires importants ou émet des gémissements, a la peau bleue, grise, pâle ou marbrée, est mou, est difficile à réveiller, refuse les tétées, a beaucoup moins de couches mouillées ou aucune au cours des 12 dernières heures, a la fontanelle bombée ou creusée, a une éruption qui ne s'efface pas quand on appuie dessus, ou a une crise convulsive. Femio ne peut pas évaluer un bébé.",
+        "text": " Contactez les services d'urgence de votre région ou rendez-vous au service des urgences le plus proche si un bébé de moins de trois mois a une température de 38 °C ou plus, ou respire vite, fait des efforts respiratoires importants ou émet des gémissements, a la peau bleue, grise, pâle ou marbrée, est mou, est difficile à réveiller, refuse les tétées, a beaucoup moins de couches mouillées ou aucune au cours des 12 dernières heures, a la fontanelle bombée ou creusée, a une éruption qui ne s'efface pas quand on appuie dessus, ou a une crise convulsive. femio ne peut pas évaluer un bébé.",
         "format": 0,
         "detail": 0,
         "mode": "normal",
@@ -41489,7 +41489,7 @@
        },
        {
         "type": "text",
-        "text": " Contactez les services d'urgence de votre région ou rendez-vous au service des urgences le plus proche si un bébé de moins de trois mois a une température de 38 °C ou plus, respire vite, a du mal à respirer ou gémit à chaque expiration, a la peau bleue, grise, pâle ou marbrée, est mou, est difficile à réveiller, refuse les tétées, a beaucoup moins de couches mouillées ou aucune depuis 12 heures, a une fontanelle bombée ou creusée, a une éruption qui ne s'efface pas à la pression, ou a une crise convulsive. Femio ne peut pas évaluer un bébé.",
+        "text": " Contactez les services d'urgence de votre région ou rendez-vous au service des urgences le plus proche si un bébé de moins de trois mois a une température de 38 °C ou plus, respire vite, a du mal à respirer ou gémit à chaque expiration, a la peau bleue, grise, pâle ou marbrée, est mou, est difficile à réveiller, refuse les tétées, a beaucoup moins de couches mouillées ou aucune depuis 12 heures, a une fontanelle bombée ou creusée, a une éruption qui ne s'efface pas à la pression, ou a une crise convulsive. femio ne peut pas évaluer un bébé.",
         "format": 0,
         "detail": 0,
         "mode": "normal",
@@ -42704,7 +42704,7 @@
        },
        {
         "type": "text",
-        "text": " Contactez les services d’urgence de votre région ou rendez-vous au service des urgences le plus proche si un bébé de moins de trois mois a une température de 38 °C ou plus, respire vite, fournit un effort important pour respirer ou geint, a la peau bleutée, grise, pâle ou marbrée, est mou, est difficile à réveiller, refuse les tétées, a beaucoup moins de couches mouillées, voire aucune depuis 12 heures, présente une fontanelle bombée ou creusée, a une éruption cutanée qui ne disparaît pas à la pression, ou fait une crise convulsive. Femio ne peut pas évaluer un bébé.",
+        "text": " Contactez les services d’urgence de votre région ou rendez-vous au service des urgences le plus proche si un bébé de moins de trois mois a une température de 38 °C ou plus, respire vite, fournit un effort important pour respirer ou geint, a la peau bleutée, grise, pâle ou marbrée, est mou, est difficile à réveiller, refuse les tétées, a beaucoup moins de couches mouillées, voire aucune depuis 12 heures, présente une fontanelle bombée ou creusée, a une éruption cutanée qui ne disparaît pas à la pression, ou fait une crise convulsive. femio ne peut pas évaluer un bébé.",
         "format": 0,
         "detail": 0,
         "mode": "normal",
@@ -43284,7 +43284,7 @@
       "children": [
        {
         "type": "text",
-        "text": "Le schéma donne des indices, mais il ne peut pas confirmer la cause. Lisez le guide Femio sur l'",
+        "text": "Le schéma donne des indices, mais il ne peut pas confirmer la cause. Lisez le guide femio sur l'",
         "format": 0,
         "detail": 0,
         "mode": "normal",
@@ -44074,7 +44074,7 @@
       "children": [
        {
         "type": "text",
-        "text": "N'utilisez pas un médicament qui n'est pas sans danger pour votre âge, votre éventuelle grossesse, vos allergies, votre estomac, vos reins, votre foie, votre cœur ou vos autres besoins de santé. Suivez la notice et demandez à un pharmacien ou à un clinicien en cas de doute. Femio ne fournit pas de posologies de médicaments.",
+        "text": "N'utilisez pas un médicament qui n'est pas sans danger pour votre âge, votre éventuelle grossesse, vos allergies, votre estomac, vos reins, votre foie, votre cœur ou vos autres besoins de santé. Suivez la notice et demandez à un pharmacien ou à un clinicien en cas de doute. femio ne fournit pas de posologies de médicaments.",
         "format": 0,
         "detail": 0,
         "mode": "normal",
@@ -44304,7 +44304,7 @@
       "children": [
        {
         "type": "text",
-        "text": "Comment suivre les règles douloureuses dans Femio",
+        "text": "Comment suivre les règles douloureuses dans femio",
         "format": 0,
         "detail": 0,
         "mode": "normal",
@@ -44342,7 +44342,7 @@
       "children": [
        {
         "type": "text",
-        "text": "Femio peut placer les symptômes à côté des dates de cycle et produire un résumé. Il ne peut pas confirmer la cause, ni décider si la douleur peut être gérée à domicile en toute sécurité.",
+        "text": "femio peut placer les symptômes à côté des dates de cycle et produire un résumé. Il ne peut pas confirmer la cause, ni décider si la douleur peut être gérée à domicile en toute sécurité.",
         "format": 0,
         "detail": 0,
         "mode": "normal",
@@ -45768,7 +45768,7 @@
       "children": [
        {
         "type": "text",
-        "text": "Comment suivre le SOPK dans Femio",
+        "text": "Comment suivre le SOPK dans femio",
         "format": 0,
         "detail": 0,
         "mode": "normal",
@@ -45806,7 +45806,7 @@
       "children": [
        {
         "type": "text",
-        "text": "Femio peut afficher les estimations du cycle sous forme de plages et créer un résumé de visite à partir de vos saisies. Un journal peut montrer le calendrier et les tendances, mais il ne peut ni confirmer le SOPK ni choisir une prise en charge médicale.",
+        "text": "femio peut afficher les estimations du cycle sous forme de plages et créer un résumé de visite à partir de vos saisies. Un journal peut montrer le calendrier et les tendances, mais il ne peut ni confirmer le SOPK ni choisir une prise en charge médicale.",
         "format": 0,
         "detail": 0,
         "mode": "normal",
@@ -53435,7 +53435,7 @@
       "children": [
        {
         "type": "text",
-        "text": "Femio n'évalue pas la force du plancher pelvien et ne peut pas vous dire si vous avez un prolapsus, ce qui nécessite un examen. Voir ",
+        "text": "femio n'évalue pas la force du plancher pelvien et ne peut pas vous dire si vous avez un prolapsus, ce qui nécessite un examen. Voir ",
         "format": 0,
         "detail": 0,
         "mode": "normal",
@@ -57634,7 +57634,7 @@
       "children": [
        {
         "type": "text",
-        "text": "Si éviter une grossesse est aussi un objectif, demandez à un professionnel qualifié quelle méthode convient et comment l'utiliser. Les estimations de cycle de Femio ne constituent pas un moyen fiable d'éviter une grossesse.",
+        "text": "Si éviter une grossesse est aussi un objectif, demandez à un professionnel qualifié quelle méthode convient et comment l'utiliser. Les estimations de cycle de femio ne constituent pas un moyen fiable d'éviter une grossesse.",
         "format": 0,
         "detail": 0,
         "mode": "normal",
@@ -62882,7 +62882,7 @@
       "children": [
        {
         "type": "text",
-        "text": "Femio n'évalue aucune de ces causes et ne peut pas vous dire laquelle s'applique. Ce qu'il peut faire, c'est conserver les dates et les détails que vous avez remarqués, afin que la personne qui vous examine dispose d'un récit clair plutôt que d'un souvenir flou.",
+        "text": "femio n'évalue aucune de ces causes et ne peut pas vous dire laquelle s'applique. Ce qu'il peut faire, c'est conserver les dates et les détails que vous avez remarqués, afin que la personne qui vous examine dispose d'un récit clair plutôt que d'un souvenir flou.",
         "format": 0,
         "detail": 0,
         "mode": "normal",
@@ -65748,7 +65748,7 @@
        },
        {
         "type": "text",
-        "text": " de Femio peut vous aider à trouver la prochaine étape sûre. Si vous risquez d'agir dès maintenant, contactez les services d'urgence de votre région ou rendez-vous au service des urgences le plus proche, et restez avec une personne de confiance pendant que l'aide est organisée.",
+        "text": " de femio peut vous aider à trouver la prochaine étape sûre. Si vous risquez d'agir dès maintenant, contactez les services d'urgence de votre région ou rendez-vous au service des urgences le plus proche, et restez avec une personne de confiance pendant que l'aide est organisée.",
         "format": 0,
         "detail": 0,
         "mode": "normal",
@@ -65963,7 +65963,7 @@
        },
        {
         "type": "text",
-        "text": " Contactez les services d'urgence de votre région ou rendez-vous au service des urgences le plus proche pour un saignement abondant, une douleur thoracique, des difficultés à respirer, un malaise, une crise convulsive, un mal de tête intense avec troubles de la vision, une douleur ou un gonflement intense d'une seule jambe, ou des pensées de vous faire du mal ou de faire du mal à votre bébé. Femio ne peut pas évaluer une urgence.",
+        "text": " Contactez les services d'urgence de votre région ou rendez-vous au service des urgences le plus proche pour un saignement abondant, une douleur thoracique, des difficultés à respirer, un malaise, une crise convulsive, un mal de tête intense avec troubles de la vision, une douleur ou un gonflement intense d'une seule jambe, ou des pensées de vous faire du mal ou de faire du mal à votre bébé. femio ne peut pas évaluer une urgence.",
         "format": 0,
         "detail": 0,
         "mode": "normal",
@@ -67060,7 +67060,7 @@
        },
        {
         "type": "text",
-        "text": " Contactez les services d'urgence de votre région ou rendez-vous au service des urgences le plus proche pour une douleur abdominale ou de plaie sévère, une plaie qui s'est ouverte, un saignement abondant provenant d'une plaie, ou une fièvre avec confusion, un cœur qui s'emballe ou un grand malaise. Femio ne peut pas examiner une plaie.",
+        "text": " Contactez les services d'urgence de votre région ou rendez-vous au service des urgences le plus proche pour une douleur abdominale ou de plaie sévère, une plaie qui s'est ouverte, un saignement abondant provenant d'une plaie, ou une fièvre avec confusion, un cœur qui s'emballe ou un grand malaise. femio ne peut pas examiner une plaie.",
         "format": 0,
         "detail": 0,
         "mode": "normal",
@@ -71457,7 +71457,7 @@
        },
        {
         "type": "text",
-        "text": " de Femio pour trouver des options de soutien immédiat. Si vous risquez de passer à l'acte maintenant ou si vous ne pouvez pas rester en sécurité, contactez les services d'urgence de votre région ou rendez-vous au service des urgences le plus proche. Si possible, restez avec une personne de confiance pendant que l'aide est organisée.",
+        "text": " de femio pour trouver des options de soutien immédiat. Si vous risquez de passer à l'acte maintenant ou si vous ne pouvez pas rester en sécurité, contactez les services d'urgence de votre région ou rendez-vous au service des urgences le plus proche. Si possible, restez avec une personne de confiance pendant que l'aide est organisée.",
         "format": 0,
         "detail": 0,
         "mode": "normal",
@@ -71671,7 +71671,7 @@
        },
        {
         "type": "text",
-        "text": " de Femio. Femio ne peut pas évaluer une urgence.",
+        "text": " de femio. femio ne peut pas évaluer une urgence.",
         "format": 0,
         "detail": 0,
         "mode": "normal",
@@ -71736,7 +71736,7 @@
        },
        {
         "type": "text",
-        "text": " Contactez les services d'urgence de votre région ou rendez-vous au service des urgences le plus proche en cas de douleur intense, de saignement abondant, de malaise, de crises convulsives, de douleur thoracique, de difficultés à respirer, de mal de tête sévère avec troubles de la vision, ou de pensées de vous faire du mal ou de faire du mal au bébé. N'attendez pas une réponse de Femio ou d'un autre service en ligne.",
+        "text": " Contactez les services d'urgence de votre région ou rendez-vous au service des urgences le plus proche en cas de douleur intense, de saignement abondant, de malaise, de crises convulsives, de douleur thoracique, de difficultés à respirer, de mal de tête sévère avec troubles de la vision, ou de pensées de vous faire du mal ou de faire du mal au bébé. N'attendez pas une réponse de femio ou d'un autre service en ligne.",
         "format": 0,
         "detail": 0,
         "mode": "normal",
@@ -72372,7 +72372,7 @@
        },
        {
         "type": "text",
-        "text": " Contactez les services d'urgence de votre région ou rendez-vous au service des urgences le plus proche si vous avez un saignement abondant, une douleur intense ou d'un seul côté du ventre, une douleur au bout de l'épaule, un mal de tête intense avec troubles de la vision, un gonflement soudain du visage ou des mains, de la fièvre, une douleur thoracique, des difficultés à respirer, un malaise ou une crise convulsive. Femio ne peut pas évaluer une grossesse.",
+        "text": " Contactez les services d'urgence de votre région ou rendez-vous au service des urgences le plus proche si vous avez un saignement abondant, une douleur intense ou d'un seul côté du ventre, une douleur au bout de l'épaule, un mal de tête intense avec troubles de la vision, un gonflement soudain du visage ou des mains, de la fièvre, une douleur thoracique, des difficultés à respirer, un malaise ou une crise convulsive. femio ne peut pas évaluer une grossesse.",
         "format": 0,
         "detail": 0,
         "mode": "normal",
@@ -72969,7 +72969,7 @@
        },
        {
         "type": "text",
-        "text": " Contactez les services d'urgence de votre région ou rendez-vous au service des urgences le plus proche en cas de saignement abondant, de douleur abdominale intense ou d'un seul côté, de douleur à la pointe de l'épaule, de mal de tête sévère avec troubles de la vision, de gonflement soudain du visage ou des mains, de fièvre, de douleur thoracique, de difficultés à respirer, de malaise ou de crise convulsive. Femio ne peut pas évaluer une grossesse.",
+        "text": " Contactez les services d'urgence de votre région ou rendez-vous au service des urgences le plus proche en cas de saignement abondant, de douleur abdominale intense ou d'un seul côté, de douleur à la pointe de l'épaule, de mal de tête sévère avec troubles de la vision, de gonflement soudain du visage ou des mains, de fièvre, de douleur thoracique, de difficultés à respirer, de malaise ou de crise convulsive. femio ne peut pas évaluer une grossesse.",
         "format": 0,
         "detail": 0,
         "mode": "normal",
@@ -73630,7 +73630,7 @@
        },
        {
         "type": "text",
-        "text": " Contactez les services d'urgence de votre région ou rendez-vous au service des urgences le plus proche si vous avez des saignements abondants, une douleur abdominale intense ou d'un seul côté, une douleur au bout de l'épaule, un mal de tête intense accompagné de troubles de la vue, un gonflement soudain du visage ou des mains, de la fièvre, une douleur thoracique, des difficultés respiratoires, un malaise ou une crise convulsive. Femio ne peut pas évaluer une grossesse.",
+        "text": " Contactez les services d'urgence de votre région ou rendez-vous au service des urgences le plus proche si vous avez des saignements abondants, une douleur abdominale intense ou d'un seul côté, une douleur au bout de l'épaule, un mal de tête intense accompagné de troubles de la vue, un gonflement soudain du visage ou des mains, de la fièvre, une douleur thoracique, des difficultés respiratoires, un malaise ou une crise convulsive. femio ne peut pas évaluer une grossesse.",
         "format": 0,
         "detail": 0,
         "mode": "normal",
@@ -74862,7 +74862,7 @@
        },
        {
         "type": "text",
-        "text": " Contactez les services d'urgence de votre région ou rendez-vous au service des urgences le plus proche si vous avez des saignements abondants, une douleur abdominale intense ou d'un seul côté, un mal de tête intense accompagné de troubles de la vue, un gonflement soudain du visage ou des mains, de la fièvre, une perte de liquide par le vagin, une douleur thoracique, des difficultés respiratoires, un malaise ou une crise convulsive. Femio ne peut pas évaluer une grossesse.",
+        "text": " Contactez les services d'urgence de votre région ou rendez-vous au service des urgences le plus proche si vous avez des saignements abondants, une douleur abdominale intense ou d'un seul côté, un mal de tête intense accompagné de troubles de la vue, un gonflement soudain du visage ou des mains, de la fièvre, une perte de liquide par le vagin, une douleur thoracique, des difficultés respiratoires, un malaise ou une crise convulsive. femio ne peut pas évaluer une grossesse.",
         "format": 0,
         "detail": 0,
         "mode": "normal",
@@ -75459,7 +75459,7 @@
        },
        {
         "type": "text",
-        "text": " Contactez les services d'urgence de votre région ou rendez-vous au service des urgences le plus proche si vous avez un saignement abondant, une douleur intense ou d'un seul côté du ventre, un mal de tête sévère avec troubles de la vision, un gonflement soudain du visage ou des mains, une fièvre, une fuite de liquide par le vagin, une douleur thoracique, des difficultés à respirer, un malaise ou une crise convulsive. Femio ne peut pas évaluer une grossesse.",
+        "text": " Contactez les services d'urgence de votre région ou rendez-vous au service des urgences le plus proche si vous avez un saignement abondant, une douleur intense ou d'un seul côté du ventre, un mal de tête sévère avec troubles de la vision, un gonflement soudain du visage ou des mains, une fièvre, une fuite de liquide par le vagin, une douleur thoracique, des difficultés à respirer, un malaise ou une crise convulsive. femio ne peut pas évaluer une grossesse.",
         "format": 0,
         "detail": 0,
         "mode": "normal",
@@ -76672,7 +76672,7 @@
        },
        {
         "type": "text",
-        "text": " Contactez les services d’urgence de votre région ou rendez-vous au service des urgences le plus proche si vous avez des saignements abondants, une douleur abdominale intense ou unilatérale, un mal de tête intense accompagné de troubles de la vision, un gonflement soudain du visage ou des mains, de la fièvre, une perte de liquide par le vagin, une douleur thoracique, une difficulté à respirer, un malaise ou une crise convulsive. Femio ne peut pas évaluer une grossesse.",
+        "text": " Contactez les services d’urgence de votre région ou rendez-vous au service des urgences le plus proche si vous avez des saignements abondants, une douleur abdominale intense ou unilatérale, un mal de tête intense accompagné de troubles de la vision, un gonflement soudain du visage ou des mains, de la fièvre, une perte de liquide par le vagin, une douleur thoracique, une difficulté à respirer, un malaise ou une crise convulsive. femio ne peut pas évaluer une grossesse.",
         "format": 0,
         "detail": 0,
         "mode": "normal",
@@ -77288,7 +77288,7 @@
        },
        {
         "type": "text",
-        "text": " Contactez les services d'urgence de votre région ou rendez-vous au service des urgences le plus proche en cas de saignement abondant, de douleur abdominale intense ou d'un seul côté, de mal de tête sévère avec troubles de la vision, de gonflement soudain du visage ou des mains, de fièvre, de perte de liquide par le vagin, de douleur thoracique, de difficultés à respirer, de malaise ou de crise convulsive. Femio ne peut pas évaluer une grossesse.",
+        "text": " Contactez les services d'urgence de votre région ou rendez-vous au service des urgences le plus proche en cas de saignement abondant, de douleur abdominale intense ou d'un seul côté, de mal de tête sévère avec troubles de la vision, de gonflement soudain du visage ou des mains, de fièvre, de perte de liquide par le vagin, de douleur thoracique, de difficultés à respirer, de malaise ou de crise convulsive. femio ne peut pas évaluer une grossesse.",
         "format": 0,
         "detail": 0,
         "mode": "normal",
@@ -78463,7 +78463,7 @@
        },
        {
         "type": "text",
-        "text": " Contactez les services d'urgence de votre région ou rendez-vous au service des urgences le plus proche si vous avez un saignement abondant, une douleur intense ou d'un seul côté du ventre, un mal de tête sévère avec troubles de la vision, un gonflement soudain du visage ou des mains, une fièvre, un liquide qui s'écoule du vagin, une douleur thoracique, des difficultés à respirer, un malaise, ou une crise convulsive. Femio ne peut pas évaluer une grossesse.",
+        "text": " Contactez les services d'urgence de votre région ou rendez-vous au service des urgences le plus proche si vous avez un saignement abondant, une douleur intense ou d'un seul côté du ventre, un mal de tête sévère avec troubles de la vision, un gonflement soudain du visage ou des mains, une fièvre, un liquide qui s'écoule du vagin, une douleur thoracique, des difficultés à respirer, un malaise, ou une crise convulsive. femio ne peut pas évaluer une grossesse.",
         "format": 0,
         "detail": 0,
         "mode": "normal",
@@ -79657,7 +79657,7 @@
        },
        {
         "type": "text",
-        "text": " Contactez les services d'urgence de votre région ou rendez-vous au service des urgences le plus proche si vous avez des saignements abondants, une douleur abdominale intense ou d'un seul côté, un mal de tête intense accompagné de troubles de la vue, un gonflement soudain du visage ou des mains, de la fièvre, une perte de liquide par le vagin, une douleur thoracique, des difficultés respiratoires, un malaise ou une crise convulsive. Femio ne peut pas évaluer une grossesse.",
+        "text": " Contactez les services d'urgence de votre région ou rendez-vous au service des urgences le plus proche si vous avez des saignements abondants, une douleur abdominale intense ou d'un seul côté, un mal de tête intense accompagné de troubles de la vue, un gonflement soudain du visage ou des mains, de la fièvre, une perte de liquide par le vagin, une douleur thoracique, des difficultés respiratoires, un malaise ou une crise convulsive. femio ne peut pas évaluer une grossesse.",
         "format": 0,
         "detail": 0,
         "mode": "normal",
@@ -80851,7 +80851,7 @@
        },
        {
         "type": "text",
-        "text": " Contactez les services d’urgence de votre région ou rendez-vous au service des urgences le plus proche si vous avez des saignements abondants, une douleur abdominale intense ou unilatérale, un mal de tête intense accompagné de troubles de la vision, un gonflement soudain du visage ou des mains, de la fièvre, une perte de liquide par le vagin, une douleur thoracique, une difficulté à respirer, un malaise ou une crise convulsive. Contactez votre service de maternité le jour même pour toute diminution de la séquence habituelle des mouvements de votre bébé. Femio ne peut pas évaluer une grossesse.",
+        "text": " Contactez les services d’urgence de votre région ou rendez-vous au service des urgences le plus proche si vous avez des saignements abondants, une douleur abdominale intense ou unilatérale, un mal de tête intense accompagné de troubles de la vision, un gonflement soudain du visage ou des mains, de la fièvre, une perte de liquide par le vagin, une douleur thoracique, une difficulté à respirer, un malaise ou une crise convulsive. Contactez votre service de maternité le jour même pour toute diminution de la séquence habituelle des mouvements de votre bébé. femio ne peut pas évaluer une grossesse.",
         "format": 0,
         "detail": 0,
         "mode": "normal",
@@ -81448,7 +81448,7 @@
        },
        {
         "type": "text",
-        "text": " Contactez les services d’urgence de votre région ou rendez-vous au service des urgences le plus proche si vous avez des saignements abondants, une douleur abdominale intense ou unilatérale, un mal de tête intense accompagné de troubles de la vision, un gonflement soudain du visage ou des mains, de la fièvre, une perte de liquide par le vagin, une douleur thoracique, une difficulté à respirer, un malaise ou une crise convulsive. Contactez votre service de maternité le jour même pour toute diminution de la séquence habituelle des mouvements de votre bébé. Femio ne peut pas évaluer une grossesse.",
+        "text": " Contactez les services d’urgence de votre région ou rendez-vous au service des urgences le plus proche si vous avez des saignements abondants, une douleur abdominale intense ou unilatérale, un mal de tête intense accompagné de troubles de la vision, un gonflement soudain du visage ou des mains, de la fièvre, une perte de liquide par le vagin, une douleur thoracique, une difficulté à respirer, un malaise ou une crise convulsive. Contactez votre service de maternité le jour même pour toute diminution de la séquence habituelle des mouvements de votre bébé. femio ne peut pas évaluer une grossesse.",
         "format": 0,
         "detail": 0,
         "mode": "normal",
@@ -82045,7 +82045,7 @@
        },
        {
         "type": "text",
-        "text": " Contactez les services d'urgence de votre région ou rendez-vous au service des urgences le plus proche si vous avez un saignement abondant, une douleur intense ou d'un seul côté du ventre, un mal de tête intense avec troubles de la vision, un gonflement soudain du visage ou des mains, de la fièvre, une perte de liquide par le vagin, une douleur thoracique, des difficultés à respirer, un malaise ou une crise convulsive. Contactez votre service de maternité le jour même pour toute diminution du rythme habituel des mouvements de votre bébé. Femio ne peut pas évaluer une grossesse.",
+        "text": " Contactez les services d'urgence de votre région ou rendez-vous au service des urgences le plus proche si vous avez un saignement abondant, une douleur intense ou d'un seul côté du ventre, un mal de tête intense avec troubles de la vision, un gonflement soudain du visage ou des mains, de la fièvre, une perte de liquide par le vagin, une douleur thoracique, des difficultés à respirer, un malaise ou une crise convulsive. Contactez votre service de maternité le jour même pour toute diminution du rythme habituel des mouvements de votre bébé. femio ne peut pas évaluer une grossesse.",
         "format": 0,
         "detail": 0,
         "mode": "normal",
@@ -83239,7 +83239,7 @@
        },
        {
         "type": "text",
-        "text": " Contactez les services d'urgence de votre région ou rendez-vous au service des urgences le plus proche si vous avez un saignement abondant, une douleur intense ou d'un seul côté du ventre, un mal de tête sévère avec troubles de la vision, un gonflement soudain du visage ou des mains, une fièvre, une fuite de liquide par le vagin, une douleur thoracique, des difficultés à respirer, un malaise ou une crise convulsive. Contactez votre service de maternité le jour même pour toute diminution du rythme habituel des mouvements de votre bébé. Femio ne peut pas évaluer une grossesse.",
+        "text": " Contactez les services d'urgence de votre région ou rendez-vous au service des urgences le plus proche si vous avez un saignement abondant, une douleur intense ou d'un seul côté du ventre, un mal de tête sévère avec troubles de la vision, un gonflement soudain du visage ou des mains, une fièvre, une fuite de liquide par le vagin, une douleur thoracique, des difficultés à respirer, un malaise ou une crise convulsive. Contactez votre service de maternité le jour même pour toute diminution du rythme habituel des mouvements de votre bébé. femio ne peut pas évaluer une grossesse.",
         "format": 0,
         "detail": 0,
         "mode": "normal",
@@ -84433,7 +84433,7 @@
        },
        {
         "type": "text",
-        "text": " Contactez les services d'urgence de votre région ou rendez-vous au service des urgences le plus proche si vous avez un saignement abondant, une douleur intense ou d'un seul côté du ventre, un mal de tête sévère avec troubles de la vision, un gonflement soudain du visage ou des mains, une fièvre, une fuite de liquide par le vagin, une douleur thoracique, des difficultés à respirer, un malaise ou une crise convulsive. Contactez votre service de maternité le jour même pour toute diminution du rythme habituel des mouvements de votre bébé. Femio ne peut pas évaluer une grossesse.",
+        "text": " Contactez les services d'urgence de votre région ou rendez-vous au service des urgences le plus proche si vous avez un saignement abondant, une douleur intense ou d'un seul côté du ventre, un mal de tête sévère avec troubles de la vision, un gonflement soudain du visage ou des mains, une fièvre, une fuite de liquide par le vagin, une douleur thoracique, des difficultés à respirer, un malaise ou une crise convulsive. Contactez votre service de maternité le jour même pour toute diminution du rythme habituel des mouvements de votre bébé. femio ne peut pas évaluer une grossesse.",
         "format": 0,
         "detail": 0,
         "mode": "normal",
@@ -85062,7 +85062,7 @@
        },
        {
         "type": "text",
-        "text": " Contactez les services d'urgence locaux ou rendez-vous au service des urgences le plus proche en cas de saignement abondant, de douleur ventrale intense ou d'un seul côté, de maux de tête violents avec troubles de la vision, de gonflement soudain du visage ou des mains, de fièvre, de perte de liquide par le vagin, de douleur thoracique, de difficultés respiratoires, d'évanouissement ou de crise convulsive. Contactez votre service de maternité le jour même pour toute diminution du schéma habituel de mouvements de votre bébé. Femio ne peut pas évaluer une grossesse.",
+        "text": " Contactez les services d'urgence locaux ou rendez-vous au service des urgences le plus proche en cas de saignement abondant, de douleur ventrale intense ou d'un seul côté, de maux de tête violents avec troubles de la vision, de gonflement soudain du visage ou des mains, de fièvre, de perte de liquide par le vagin, de douleur thoracique, de difficultés respiratoires, d'évanouissement ou de crise convulsive. Contactez votre service de maternité le jour même pour toute diminution du schéma habituel de mouvements de votre bébé. femio ne peut pas évaluer une grossesse.",
         "format": 0,
         "detail": 0,
         "mode": "normal",
@@ -86275,7 +86275,7 @@
        },
        {
         "type": "text",
-        "text": " Contactez les services d'urgence de votre région ou rendez-vous au service des urgences le plus proche si vous avez un saignement abondant, une douleur intense ou d'un seul côté du ventre, un mal de tête intense avec troubles de la vision, un gonflement soudain du visage ou des mains, de la fièvre, une perte de liquide par le vagin, une douleur thoracique, des difficultés à respirer, un malaise ou une crise convulsive. Contactez votre service de maternité le jour même pour toute diminution du rythme habituel des mouvements de votre bébé. Femio ne peut pas évaluer une grossesse.",
+        "text": " Contactez les services d'urgence de votre région ou rendez-vous au service des urgences le plus proche si vous avez un saignement abondant, une douleur intense ou d'un seul côté du ventre, un mal de tête intense avec troubles de la vision, un gonflement soudain du visage ou des mains, de la fièvre, une perte de liquide par le vagin, une douleur thoracique, des difficultés à respirer, un malaise ou une crise convulsive. Contactez votre service de maternité le jour même pour toute diminution du rythme habituel des mouvements de votre bébé. femio ne peut pas évaluer une grossesse.",
         "format": 0,
         "detail": 0,
         "mode": "normal",
@@ -86872,7 +86872,7 @@
        },
        {
         "type": "text",
-        "text": " Contactez les services d'urgence locaux ou rendez-vous au service des urgences le plus proche en cas de saignement abondant, de douleur ventrale intense ou d'un seul côté, de maux de tête violents avec troubles de la vision, de gonflement soudain du visage ou des mains, de fièvre, de perte de liquide par le vagin, de douleur thoracique, de difficultés respiratoires, d'évanouissement ou de crise convulsive. Contactez votre service de maternité le jour même pour toute diminution du schéma habituel de mouvements de votre bébé. Femio ne peut pas évaluer une grossesse.",
+        "text": " Contactez les services d'urgence locaux ou rendez-vous au service des urgences le plus proche en cas de saignement abondant, de douleur ventrale intense ou d'un seul côté, de maux de tête violents avec troubles de la vision, de gonflement soudain du visage ou des mains, de fièvre, de perte de liquide par le vagin, de douleur thoracique, de difficultés respiratoires, d'évanouissement ou de crise convulsive. Contactez votre service de maternité le jour même pour toute diminution du schéma habituel de mouvements de votre bébé. femio ne peut pas évaluer une grossesse.",
         "format": 0,
         "detail": 0,
         "mode": "normal",
@@ -88079,7 +88079,7 @@
        },
        {
         "type": "text",
-        "text": " Contactez les services d'urgence de votre région ou rendez-vous au service des urgences le plus proche en cas de saignement abondant, de douleur abdominale intense ou d'un seul côté, de douleur juste sous les côtes, de mal de tête sévère avec troubles de la vision, de gonflement soudain du visage ou des mains, de fièvre, de perte de liquide par le vagin, de douleur thoracique, de difficultés à respirer, de malaise ou de crise convulsive. Contactez votre service de maternité le jour même pour toute diminution du rythme habituel des mouvements de votre bébé. Femio ne peut pas évaluer une grossesse.",
+        "text": " Contactez les services d'urgence de votre région ou rendez-vous au service des urgences le plus proche en cas de saignement abondant, de douleur abdominale intense ou d'un seul côté, de douleur juste sous les côtes, de mal de tête sévère avec troubles de la vision, de gonflement soudain du visage ou des mains, de fièvre, de perte de liquide par le vagin, de douleur thoracique, de difficultés à respirer, de malaise ou de crise convulsive. Contactez votre service de maternité le jour même pour toute diminution du rythme habituel des mouvements de votre bébé. femio ne peut pas évaluer une grossesse.",
         "format": 0,
         "detail": 0,
         "mode": "normal",
@@ -88708,7 +88708,7 @@
        },
        {
         "type": "text",
-        "text": " Contactez les services d'urgence de votre région ou rendez-vous au service des urgences le plus proche en cas de saignement abondant, de douleur abdominale intense ou d'un seul côté, de douleur juste sous les côtes, de mal de tête sévère avec troubles de la vision, de gonflement soudain du visage ou des mains, de fièvre, de perte de liquide par le vagin, de douleur thoracique, de difficultés à respirer, de malaise ou de crise convulsive. Contactez votre service de maternité le jour même pour toute diminution du rythme habituel des mouvements de votre bébé. Femio ne peut pas évaluer une grossesse.",
+        "text": " Contactez les services d'urgence de votre région ou rendez-vous au service des urgences le plus proche en cas de saignement abondant, de douleur abdominale intense ou d'un seul côté, de douleur juste sous les côtes, de mal de tête sévère avec troubles de la vision, de gonflement soudain du visage ou des mains, de fièvre, de perte de liquide par le vagin, de douleur thoracique, de difficultés à respirer, de malaise ou de crise convulsive. Contactez votre service de maternité le jour même pour toute diminution du rythme habituel des mouvements de votre bébé. femio ne peut pas évaluer une grossesse.",
         "format": 0,
         "detail": 0,
         "mode": "normal",
@@ -89305,7 +89305,7 @@
        },
        {
         "type": "text",
-        "text": " Contactez les services d'urgence de votre région ou rendez-vous au service des urgences le plus proche si vous avez un saignement abondant, une douleur intense ou d'un seul côté du ventre, une douleur juste sous les côtes, un mal de tête sévère avec troubles de la vision, un gonflement soudain du visage ou des mains, une fièvre, un liquide qui s'écoule du vagin, une douleur thoracique, des difficultés à respirer, un malaise, ou une crise convulsive. Contactez votre service de maternité le jour même pour toute diminution du rythme habituel des mouvements de votre bébé. Femio ne peut pas évaluer une grossesse.",
+        "text": " Contactez les services d'urgence de votre région ou rendez-vous au service des urgences le plus proche si vous avez un saignement abondant, une douleur intense ou d'un seul côté du ventre, une douleur juste sous les côtes, un mal de tête sévère avec troubles de la vision, un gonflement soudain du visage ou des mains, une fièvre, un liquide qui s'écoule du vagin, une douleur thoracique, des difficultés à respirer, un malaise, ou une crise convulsive. Contactez votre service de maternité le jour même pour toute diminution du rythme habituel des mouvements de votre bébé. femio ne peut pas évaluer une grossesse.",
         "format": 0,
         "detail": 0,
         "mode": "normal",
@@ -89902,7 +89902,7 @@
        },
        {
         "type": "text",
-        "text": " Contactez les services d'urgence de votre région ou rendez-vous au service des urgences le plus proche si vous avez un saignement abondant, une douleur intense ou d'un seul côté du ventre, une douleur juste sous les côtes, un mal de tête intense avec troubles de la vision, un gonflement soudain du visage ou des mains, de la fièvre, une perte de liquide par le vagin, une douleur thoracique, des difficultés à respirer, un malaise ou une crise convulsive. Contactez votre service de maternité le jour même pour toute diminution du rythme habituel des mouvements de votre bébé. Femio ne peut pas évaluer une grossesse.",
+        "text": " Contactez les services d'urgence de votre région ou rendez-vous au service des urgences le plus proche si vous avez un saignement abondant, une douleur intense ou d'un seul côté du ventre, une douleur juste sous les côtes, un mal de tête intense avec troubles de la vision, un gonflement soudain du visage ou des mains, de la fièvre, une perte de liquide par le vagin, une douleur thoracique, des difficultés à respirer, un malaise ou une crise convulsive. Contactez votre service de maternité le jour même pour toute diminution du rythme habituel des mouvements de votre bébé. femio ne peut pas évaluer une grossesse.",
         "format": 0,
         "detail": 0,
         "mode": "normal",
@@ -90601,7 +90601,7 @@
        },
        {
         "type": "text",
-        "text": " Contactez les services d'urgence de votre région ou rendez-vous au service des urgences le plus proche en cas de saignement abondant, de douleur abdominale intense ou d'un seul côté, de douleur à la pointe de l'épaule, de mal de tête sévère avec troubles de la vision, de gonflement soudain du visage ou des mains, de fièvre, de douleur thoracique, de difficultés à respirer, de malaise ou de crise convulsive. Femio ne peut pas évaluer une grossesse.",
+        "text": " Contactez les services d'urgence de votre région ou rendez-vous au service des urgences le plus proche en cas de saignement abondant, de douleur abdominale intense ou d'un seul côté, de douleur à la pointe de l'épaule, de mal de tête sévère avec troubles de la vision, de gonflement soudain du visage ou des mains, de fièvre, de douleur thoracique, de difficultés à respirer, de malaise ou de crise convulsive. femio ne peut pas évaluer une grossesse.",
         "format": 0,
         "detail": 0,
         "mode": "normal",
@@ -91217,7 +91217,7 @@
        },
        {
         "type": "text",
-        "text": " Contactez les services d’urgence de votre région ou rendez-vous au service des urgences le plus proche si vous avez des saignements abondants, une douleur abdominale intense ou unilatérale, une douleur juste sous les côtes, un mal de tête intense accompagné de troubles de la vision, un gonflement soudain du visage ou des mains, de la fièvre, une perte de liquide par le vagin, une douleur thoracique, une difficulté à respirer, un malaise ou une crise convulsive. Contactez votre service de maternité le jour même pour toute diminution de la séquence habituelle des mouvements de votre bébé. Femio ne peut pas évaluer une grossesse.",
+        "text": " Contactez les services d’urgence de votre région ou rendez-vous au service des urgences le plus proche si vous avez des saignements abondants, une douleur abdominale intense ou unilatérale, une douleur juste sous les côtes, un mal de tête intense accompagné de troubles de la vision, un gonflement soudain du visage ou des mains, de la fièvre, une perte de liquide par le vagin, une douleur thoracique, une difficulté à respirer, un malaise ou une crise convulsive. Contactez votre service de maternité le jour même pour toute diminution de la séquence habituelle des mouvements de votre bébé. femio ne peut pas évaluer une grossesse.",
         "format": 0,
         "detail": 0,
         "mode": "normal",
@@ -91833,7 +91833,7 @@
        },
        {
         "type": "text",
-        "text": " Contactez les services d'urgence de votre région ou rendez-vous au service des urgences le plus proche si vous avez des saignements abondants, une douleur abdominale intense ou d'un seul côté, une douleur au bout de l'épaule, un mal de tête intense accompagné de troubles de la vue, un gonflement soudain du visage ou des mains, de la fièvre, une douleur thoracique, des difficultés respiratoires, un malaise ou une crise convulsive. Femio ne peut pas évaluer une grossesse.",
+        "text": " Contactez les services d'urgence de votre région ou rendez-vous au service des urgences le plus proche si vous avez des saignements abondants, une douleur abdominale intense ou d'un seul côté, une douleur au bout de l'épaule, un mal de tête intense accompagné de troubles de la vue, un gonflement soudain du visage ou des mains, de la fièvre, une douleur thoracique, des difficultés respiratoires, un malaise ou une crise convulsive. femio ne peut pas évaluer une grossesse.",
         "format": 0,
         "detail": 0,
         "mode": "normal",
@@ -93078,7 +93078,7 @@
        },
        {
         "type": "text",
-        "text": " Contactez les services d'urgence locaux ou rendez-vous au service des urgences le plus proche en cas de saignement abondant, de douleur ventrale intense ou d'un seul côté, de douleur à la pointe de l'épaule, de maux de tête violents avec troubles de la vision, de gonflement soudain du visage ou des mains, de fièvre, de douleur thoracique, de difficultés respiratoires, d'évanouissement ou de crise convulsive. Femio ne peut pas évaluer une grossesse.",
+        "text": " Contactez les services d'urgence locaux ou rendez-vous au service des urgences le plus proche en cas de saignement abondant, de douleur ventrale intense ou d'un seul côté, de douleur à la pointe de l'épaule, de maux de tête violents avec troubles de la vision, de gonflement soudain du visage ou des mains, de fièvre, de douleur thoracique, de difficultés respiratoires, d'évanouissement ou de crise convulsive. femio ne peut pas évaluer une grossesse.",
         "format": 0,
         "detail": 0,
         "mode": "normal",
@@ -93694,7 +93694,7 @@
        },
        {
         "type": "text",
-        "text": " Contactez les services d'urgence de votre région ou rendez-vous au service des urgences le plus proche si vous avez un saignement abondant, une douleur intense ou d'un seul côté du ventre, une douleur au bout de l'épaule, un mal de tête sévère avec troubles de la vision, un gonflement soudain du visage ou des mains, une fièvre, une douleur thoracique, des difficultés à respirer, un malaise, ou une crise convulsive. Femio ne peut pas évaluer une grossesse.",
+        "text": " Contactez les services d'urgence de votre région ou rendez-vous au service des urgences le plus proche si vous avez un saignement abondant, une douleur intense ou d'un seul côté du ventre, une douleur au bout de l'épaule, un mal de tête sévère avec troubles de la vision, un gonflement soudain du visage ou des mains, une fièvre, une douleur thoracique, des difficultés à respirer, un malaise, ou une crise convulsive. femio ne peut pas évaluer une grossesse.",
         "format": 0,
         "detail": 0,
         "mode": "normal",
@@ -94291,7 +94291,7 @@
        },
        {
         "type": "text",
-        "text": " Contactez les services d'urgence locaux ou rendez-vous au service des urgences le plus proche en cas de saignement abondant, de douleur ventrale intense ou d'un seul côté, de douleur à la pointe de l'épaule, de maux de tête violents avec troubles de la vision, de gonflement soudain du visage ou des mains, de fièvre, de douleur thoracique, de difficultés respiratoires, d'évanouissement ou de crise convulsive. Femio ne peut pas évaluer une grossesse.",
+        "text": " Contactez les services d'urgence locaux ou rendez-vous au service des urgences le plus proche en cas de saignement abondant, de douleur ventrale intense ou d'un seul côté, de douleur à la pointe de l'épaule, de maux de tête violents avec troubles de la vision, de gonflement soudain du visage ou des mains, de fièvre, de douleur thoracique, de difficultés respiratoires, d'évanouissement ou de crise convulsive. femio ne peut pas évaluer une grossesse.",
         "format": 0,
         "detail": 0,
         "mode": "normal",
@@ -94477,1779 +94477,6 @@
     "title": "NHS: Pregnancy symptoms",
     "url": "https://www.nhs.uk/pregnancy/common-symptoms/",
     "tier": "1"
-   }
-  ],
-  "reviewer": "Dr. Khaled M.",
-  "lastReviewed": "2026-10-30",
-  "disclaimerType": "emergency"
- },
- {
-  "slug": "ramadan-fasting-pregnancy",
-  "title": "Puis-je jeûner pendant le Ramadan pendant la grossesse ?",
-  "excerpt": "Ce que disent les études sur le jeûne pendant le Ramadan pendant la grossesse, qui doit d'abord consulter un clinicien, et les signes d'alerte qui signifient qu'il faut arrêter de jeûner et obtenir de l'aide.",
-  "body": {
-   "h1": null,
-   "root": {
-    "direction": "ltr",
-    "format": "",
-    "indent": 0,
-    "version": 1,
-    "type": "root",
-    "children": [
-     {
-      "direction": "ltr",
-      "format": "",
-      "indent": 0,
-      "version": 1,
-      "type": "paragraph",
-      "textFormat": 0,
-      "children": [
-       {
-        "type": "text",
-        "text": "Il n'existe pas de réponse unique pour toutes les femmes enceintes. Une revue de 2018 portant sur 22 études n'a pas montré de lien clair entre le jeûne du Ramadan et un poids de naissance plus faible ou une naissance prématurée, mais les données présentent des lacunes, en particulier pour les femmes diabétiques. Décider si le jeûne vous convient est une décision à prendre avec votre clinicien, et votre autorité religieuse peut vous conseiller sur l'aspect religieux.",
-        "format": 0,
-        "detail": 0,
-        "mode": "normal",
-        "style": "",
-        "version": 1
-       }
-      ]
-     },
-     {
-      "direction": "ltr",
-      "format": "",
-      "indent": 0,
-      "version": 1,
-      "type": "paragraph",
-      "textFormat": 0,
-      "children": [
-       {
-        "type": "text",
-        "text": "Il s'agit d'une information de santé destinée à vous aider à comprendre et à planifier. Elle ne remplace pas votre propre clinicien. Si vous remarquez un signe d'alerte, demandez des soins sans attendre.",
-        "format": 0,
-        "detail": 0,
-        "mode": "normal",
-        "style": "",
-        "version": 1
-       }
-      ]
-     },
-     {
-      "direction": "ltr",
-      "format": "",
-      "indent": 0,
-      "version": 1,
-      "type": "heading",
-      "tag": "h2",
-      "children": [
-       {
-        "type": "text",
-        "text": "Que dit la recherche ?",
-        "format": 0,
-        "detail": 0,
-        "mode": "normal",
-        "style": "",
-        "version": 1
-       }
-      ]
-     },
-     {
-      "direction": "ltr",
-      "format": "",
-      "indent": 0,
-      "version": 1,
-      "type": "paragraph",
-      "textFormat": 0,
-      "children": [
-       {
-        "type": "text",
-        "text": "La revue de 2018 a regroupé 22 études couvrant 31 374 grossesses. La différence de poids de naissance entre les mères qui jeûnaient et celles qui ne jeûnaient pas était très faible. La prématurité était à peu près la même dans les deux groupes (odds ratio 0,99, IC à 95 % : de 0,72 à 1,37). Les auteurs ont indiqué que les données sur d'autres issues n'étaient pas suffisantes. Aucune étude incluse ne rapportait de décès autour de la naissance. ",
-        "format": 0,
-        "detail": 0,
-        "mode": "normal",
-        "style": "",
-        "version": 1
-       },
-       {
-        "type": "link",
-        "fields": {
-         "linkType": "custom",
-         "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6202808",
-         "newTab": true
-        },
-        "children": [
-         {
-          "type": "text",
-          "text": "Glazier et al. 2018",
-          "format": 0,
-          "detail": 0,
-          "mode": "normal",
-          "style": "",
-          "version": 1
-         }
-        ],
-        "direction": "ltr",
-        "format": "",
-        "indent": 0,
-        "version": 3
-       }
-      ]
-     },
-     {
-      "direction": "ltr",
-      "format": "",
-      "indent": 0,
-      "version": 1,
-      "type": "paragraph",
-      "textFormat": 0,
-      "children": [
-       {
-        "type": "text",
-        "text": "Une revue de 2023, rédigée à l'intention des obstétriciens, est arrivée à des conclusions similaires sur le poids de naissance et la prématurité. Elle a constaté que le jeûne est surtout lié à la fatigue et à la déshydratation, avec une petite baisse de la prise de poids. Elle a aussi relevé des données contradictoires sur le diabète gestationnel, des données insuffisantes sur l'hypertension artérielle pendant la grossesse, et des modifications possibles de certains examens fœtaux. ",
-        "format": 0,
-        "detail": 0,
-        "mode": "normal",
-        "style": "",
-        "version": 1
-       },
-       {
-        "type": "link",
-        "fields": {
-         "linkType": "custom",
-         "url": "https://www.ncbi.nlm.nih.gov/pubmed/36940770",
-         "newTab": true
-        },
-        "children": [
-         {
-          "type": "text",
-          "text": "Shahawy et al. 2023",
-          "format": 0,
-          "detail": 0,
-          "mode": "normal",
-          "style": "",
-          "version": 1
-         }
-        ],
-        "direction": "ltr",
-        "format": "",
-        "indent": 0,
-        "version": 3
-       }
-      ]
-     },
-     {
-      "direction": "ltr",
-      "format": "",
-      "indent": 0,
-      "version": 1,
-      "type": "paragraph",
-      "textFormat": 0,
-      "children": [
-       {
-        "type": "text",
-        "text": "Ce que cela signifie :",
-        "format": 1,
-        "detail": 0,
-        "mode": "normal",
-        "style": "",
-        "version": 1
-       },
-       {
-        "type": "text",
-        "text": " En moyenne, les études sont rassurantes. Elles ne peuvent pas prédire ce qui se passera dans votre grossesse. Certaines questions restent ouvertes.",
-        "format": 0,
-        "detail": 0,
-        "mode": "normal",
-        "style": "",
-        "version": 1
-       }
-      ]
-     },
-     {
-      "direction": "ltr",
-      "format": "",
-      "indent": 0,
-      "version": 1,
-      "type": "heading",
-      "tag": "h2",
-      "children": [
-       {
-        "type": "text",
-        "text": "Qui doit consulter un clinicien avant de décider ?",
-        "format": 0,
-        "detail": 0,
-        "mode": "normal",
-        "style": "",
-        "version": 1
-       }
-      ]
-     },
-     {
-      "direction": "ltr",
-      "format": "",
-      "indent": 0,
-      "version": 1,
-      "type": "paragraph",
-      "textFormat": 0,
-      "children": [
-       {
-        "type": "text",
-        "text": "Ces situations ne sont pas des règles. Ce sont des raisons de planifier avec votre clinicien avant de décider.",
-        "format": 0,
-        "detail": 0,
-        "mode": "normal",
-        "style": "",
-        "version": 1
-       }
-      ]
-     },
-     {
-      "direction": "ltr",
-      "format": "",
-      "indent": 0,
-      "version": 1,
-      "type": "list",
-      "listType": "bullet",
-      "tag": "ul",
-      "start": 1,
-      "children": [
-       {
-        "direction": "ltr",
-        "format": "",
-        "indent": 0,
-        "version": 1,
-        "type": "listitem",
-        "value": 1,
-        "children": [
-         {
-          "type": "text",
-          "text": "Diabète gestationnel",
-          "format": 1,
-          "detail": 0,
-          "mode": "normal",
-          "style": "",
-          "version": 1
-         },
-         {
-          "type": "text",
-          "text": " (diabète qui apparaît pour la première fois pendant la grossesse), surtout si vous prenez un médicament pour abaisser la glycémie. Une revue de 2022 n'a trouvé que cinq petites études sur le jeûne pendant la grossesse ; la plupart portaient sur des femmes ayant un diabète gestationnel. ",
-          "format": 0,
-          "detail": 0,
-          "mode": "normal",
-          "style": "",
-          "version": 1
-         },
-         {
-          "type": "link",
-          "fields": {
-           "linkType": "custom",
-           "url": "https://www.frontiersin.org/articles/10.3389/fendo.2022.900153/full",
-           "newTab": true
-          },
-          "children": [
-           {
-            "type": "text",
-            "text": "Kumar et Diamond 2022",
-            "format": 0,
-            "detail": 0,
-            "mode": "normal",
-            "style": "",
-            "version": 1
-           }
-          ],
-          "direction": "ltr",
-          "format": "",
-          "indent": 0,
-          "version": 3
-         },
-         {
-          "type": "text",
-          "text": " et ",
-          "format": 0,
-          "detail": 0,
-          "mode": "normal",
-          "style": "",
-          "version": 1
-         },
-         {
-          "type": "link",
-          "fields": {
-           "linkType": "custom",
-           "url": "https://www.nhs.uk/conditions/gestational-diabetes/",
-           "newTab": true
-          },
-          "children": [
-           {
-            "type": "text",
-            "text": "NHS : diabète gestationnel",
-            "format": 0,
-            "detail": 0,
-            "mode": "normal",
-            "style": "",
-            "version": 1
-           }
-          ],
-          "direction": "ltr",
-          "format": "",
-          "indent": 0,
-          "version": 3
-         }
-        ]
-       },
-       {
-        "direction": "ltr",
-        "format": "",
-        "indent": 0,
-        "version": 1,
-        "type": "listitem",
-        "value": 2,
-        "children": [
-         {
-          "type": "text",
-          "text": "Pré-éclampsie ou hypertension artérielle pendant la grossesse.",
-          "format": 1,
-          "detail": 0,
-          "mode": "normal",
-          "style": "",
-          "version": 1
-         },
-         {
-          "type": "text",
-          "text": " Le NHS indique que l'hypertension artérielle est un signe précoce de pré-éclampsie, une complication de la grossesse. ",
-          "format": 0,
-          "detail": 0,
-          "mode": "normal",
-          "style": "",
-          "version": 1
-         },
-         {
-          "type": "link",
-          "fields": {
-           "linkType": "custom",
-           "url": "https://www.nhs.uk/conditions/pre-eclampsia/",
-           "newTab": true
-          },
-          "children": [
-           {
-            "type": "text",
-            "text": "NHS : pré-éclampsie",
-            "format": 0,
-            "detail": 0,
-            "mode": "normal",
-            "style": "",
-            "version": 1
-           }
-          ],
-          "direction": "ltr",
-          "format": "",
-          "indent": 0,
-          "version": 3
-         }
-        ]
-       },
-       {
-        "direction": "ltr",
-        "format": "",
-        "indent": 0,
-        "version": 1,
-        "type": "listitem",
-        "value": 3,
-        "children": [
-         {
-          "type": "text",
-          "text": "Vomissements sévères ou répétés.",
-          "format": 1,
-          "detail": 0,
-          "mode": "normal",
-          "style": "",
-          "version": 1
-         },
-         {
-          "type": "text",
-          "text": " Le NHS demande de prévenir votre sage-femme ou votre médecin si vous vomissez souvent et ne pouvez pas garder d'aliments, en raison du risque de déshydratation. ",
-          "format": 0,
-          "detail": 0,
-          "mode": "normal",
-          "style": "",
-          "version": 1
-         },
-         {
-          "type": "link",
-          "fields": {
-           "linkType": "custom",
-           "url": "https://www.nhs.uk/pregnancy/complications/severe-vomiting/",
-           "newTab": true
-          },
-          "children": [
-           {
-            "type": "text",
-            "text": "NHS : vomissements sévères pendant la grossesse",
-            "format": 0,
-            "detail": 0,
-            "mode": "normal",
-            "style": "",
-            "version": 1
-           }
-          ],
-          "direction": "ltr",
-          "format": "",
-          "indent": 0,
-          "version": 3
-         }
-        ]
-       }
-      ]
-     },
-     {
-      "direction": "ltr",
-      "format": "",
-      "indent": 0,
-      "version": 1,
-      "type": "paragraph",
-      "textFormat": 0,
-      "children": [
-       {
-        "type": "text",
-        "text": "Questions à apporter à votre rendez-vous :",
-        "format": 1,
-        "detail": 0,
-        "mode": "normal",
-        "style": "",
-        "version": 1
-       }
-      ]
-     },
-     {
-      "direction": "ltr",
-      "format": "",
-      "indent": 0,
-      "version": 1,
-      "type": "list",
-      "listType": "bullet",
-      "tag": "ul",
-      "start": 1,
-      "children": [
-       {
-        "direction": "ltr",
-        "format": "",
-        "indent": 0,
-        "version": 1,
-        "type": "listitem",
-        "value": 1,
-        "children": [
-         {
-          "type": "text",
-          "text": "Mon historique de santé ou cette grossesse rend-il le jeûne préoccupant pour moi ?",
-          "format": 0,
-          "detail": 0,
-          "mode": "normal",
-          "style": "",
-          "version": 1
-         }
-        ]
-       },
-       {
-        "direction": "ltr",
-        "format": "",
-        "indent": 0,
-        "version": 1,
-        "type": "listitem",
-        "value": 2,
-        "children": [
-         {
-          "type": "text",
-          "text": "Si je jeûne, quand et à quelle fréquence dois-je vérifier ma glycémie ?",
-          "format": 0,
-          "detail": 0,
-          "mode": "normal",
-          "style": "",
-          "version": 1
-         }
-        ]
-       },
-       {
-        "direction": "ltr",
-        "format": "",
-        "indent": 0,
-        "version": 1,
-        "type": "listitem",
-        "value": 3,
-        "children": [
-         {
-          "type": "text",
-          "text": "Quels symptômes signifient que je dois arrêter de jeûner et vous appeler ?",
-          "format": 0,
-          "detail": 0,
-          "mode": "normal",
-          "style": "",
-          "version": 1
-         }
-        ]
-       },
-       {
-        "direction": "ltr",
-        "format": "",
-        "indent": 0,
-        "version": 1,
-        "type": "listitem",
-        "value": 4,
-        "children": [
-         {
-          "type": "text",
-          "text": "Qui dois-je contacter en dehors des heures de consultation ?",
-          "format": 0,
-          "detail": 0,
-          "mode": "normal",
-          "style": "",
-          "version": 1
-         }
-        ]
-       },
-       {
-        "direction": "ltr",
-        "format": "",
-        "indent": 0,
-        "version": 1,
-        "type": "listitem",
-        "value": 5,
-        "children": [
-         {
-          "type": "text",
-          "text": "Mon test de dépistage de la glycémie pourrait tomber pendant le Ramadan : que dois-je faire ? Le NHS indique que le test de glycémie nécessite de ne rien manger ni boire pendant 8 à 10 heures, alors signalez à votre équipe tout jeûne. ",
-          "format": 0,
-          "detail": 0,
-          "mode": "normal",
-          "style": "",
-          "version": 1
-         },
-         {
-          "type": "link",
-          "fields": {
-           "linkType": "custom",
-           "url": "https://www.nhs.uk/conditions/gestational-diabetes/",
-           "newTab": true
-          },
-          "children": [
-           {
-            "type": "text",
-            "text": "NHS : diabète gestationnel",
-            "format": 0,
-            "detail": 0,
-            "mode": "normal",
-            "style": "",
-            "version": 1
-           }
-          ],
-          "direction": "ltr",
-          "format": "",
-          "indent": 0,
-          "version": 3
-         }
-        ]
-       }
-      ]
-     },
-     {
-      "direction": "ltr",
-      "format": "",
-      "indent": 0,
-      "version": 1,
-      "type": "heading",
-      "tag": "h2",
-      "children": [
-       {
-        "type": "text",
-        "text": "Si vous et votre clinicien décidez de jeûner",
-        "format": 0,
-        "detail": 0,
-        "mode": "normal",
-        "style": "",
-        "version": 1
-       }
-      ]
-     },
-     {
-      "direction": "ltr",
-      "format": "",
-      "indent": 0,
-      "version": 1,
-      "type": "paragraph",
-      "textFormat": 0,
-      "children": [
-       {
-        "type": "text",
-        "text": "C'est un plan partagé. Présentez ces points à votre équipe :",
-        "format": 0,
-        "detail": 0,
-        "mode": "normal",
-        "style": "",
-        "version": 1
-       }
-      ]
-     },
-     {
-      "direction": "ltr",
-      "format": "",
-      "indent": 0,
-      "version": 1,
-      "type": "list",
-      "listType": "bullet",
-      "tag": "ul",
-      "start": 1,
-      "children": [
-       {
-        "direction": "ltr",
-        "format": "",
-        "indent": 0,
-        "version": 1,
-        "type": "listitem",
-        "value": 1,
-        "children": [
-         {
-          "type": "text",
-          "text": "Repas :",
-          "format": 1,
-          "detail": 0,
-          "mode": "normal",
-          "style": "",
-          "version": 1
-         },
-         {
-          "type": "text",
-          "text": " Demandez à un diététicien ou à votre clinicien à quoi doivent ressembler le sohour (le repas d'avant l'aube) et l'iftar (le repas du coucher du soleil) pour vous.",
-          "format": 0,
-          "detail": 0,
-          "mode": "normal",
-          "style": "",
-          "version": 1
-         }
-        ]
-       },
-       {
-        "direction": "ltr",
-        "format": "",
-        "indent": 0,
-        "version": 1,
-        "type": "listitem",
-        "value": 2,
-        "children": [
-         {
-          "type": "text",
-          "text": "Liquides :",
-          "format": 1,
-          "detail": 0,
-          "mode": "normal",
-          "style": "",
-          "version": 1
-         },
-         {
-          "type": "text",
-          "text": " Demandez quelle quantité de liquide vous convient entre le coucher et l'aube. Les signes de déshydratation figurent dans l'encadré ci-dessous.",
-          "format": 0,
-          "detail": 0,
-          "mode": "normal",
-          "style": "",
-          "version": 1
-         }
-        ]
-       },
-       {
-        "direction": "ltr",
-        "format": "",
-        "indent": 0,
-        "version": 1,
-        "type": "listitem",
-        "value": 3,
-        "children": [
-         {
-          "type": "text",
-          "text": "Relevés :",
-          "format": 1,
-          "detail": 0,
-          "mode": "normal",
-          "style": "",
-          "version": 1
-         },
-         {
-          "type": "text",
-          "text": " Notez les mesures de glycémie que votre équipe demande, ainsi que tout symptôme. Apportez ces notes aux rendez-vous.",
-          "format": 0,
-          "detail": 0,
-          "mode": "normal",
-          "style": "",
-          "version": 1
-         }
-        ]
-       }
-      ]
-     },
-     {
-      "direction": "ltr",
-      "format": "",
-      "indent": 0,
-      "version": 1,
-      "type": "heading",
-      "tag": "h2",
-      "children": [
-       {
-        "type": "text",
-        "text": "Diabète gestationnel et Ramadan",
-        "format": 0,
-        "detail": 0,
-        "mode": "normal",
-        "style": "",
-        "version": 1
-       }
-      ]
-     },
-     {
-      "direction": "ltr",
-      "format": "",
-      "indent": 0,
-      "version": 1,
-      "type": "paragraph",
-      "textFormat": 0,
-      "children": [
-       {
-        "type": "text",
-        "text": "Le diabète gestationnel ne provoque généralement aucun symptôme. La plupart des cas sont découverts grâce aux prises de sang de dépistage. Certaines femmes remarquent des signes d'une glycémie élevée : soif accrue, besoin d'uriner plus souvent, bouche sèche, fatigue, vision floue ou démangeaisons génitales. Beaucoup de ces signes sont fréquents pendant la grossesse de toute façon. ",
-        "format": 0,
-        "detail": 0,
-        "mode": "normal",
-        "style": "",
-        "version": 1
-       },
-       {
-        "type": "link",
-        "fields": {
-         "linkType": "custom",
-         "url": "https://www.nhs.uk/conditions/gestational-diabetes/",
-         "newTab": true
-        },
-        "children": [
-         {
-          "type": "text",
-          "text": "NHS : diabète gestationnel",
-          "format": 0,
-          "detail": 0,
-          "mode": "normal",
-          "style": "",
-          "version": 1
-         }
-        ],
-        "direction": "ltr",
-        "format": "",
-        "indent": 0,
-        "version": 3
-       }
-      ]
-     },
-     {
-      "direction": "ltr",
-      "format": "",
-      "indent": 0,
-      "version": 1,
-      "type": "paragraph",
-      "textFormat": 0,
-      "children": [
-       {
-        "type": "text",
-        "text": "L'hypoglycémie (une « hypo ») est l'un des principaux risques. Une hypo correspond généralement à une glycémie inférieure à 4 mmol/L. Ses signes comprennent la faim, des vertiges, une sensation d'anxiété ou d'irritabilité, des sueurs, des tremblements, des picotements des lèvres, un cœur qui s'emballe, la fatigue, une vision floue et la confusion. ",
-        "format": 0,
-        "detail": 0,
-        "mode": "normal",
-        "style": "",
-        "version": 1
-       },
-       {
-        "type": "link",
-        "fields": {
-         "linkType": "custom",
-         "url": "https://www.nhs.uk/conditions/low-blood-sugar-hypoglycaemia/",
-         "newTab": true
-        },
-        "children": [
-         {
-          "type": "text",
-          "text": "NHS : hypoglycémie",
-          "format": 0,
-          "detail": 0,
-          "mode": "normal",
-          "style": "",
-          "version": 1
-         }
-        ],
-        "direction": "ltr",
-        "format": "",
-        "indent": 0,
-        "version": 3
-       },
-       {
-        "type": "text",
-        "text": " Une revue de 2022 portant sur cinq petites études a constaté une glycémie moyenne plus basse et des hypoglycémies plus fréquentes pendant le jeûne. Elle a indiqué que les données sur les hypoglycémies graves nécessitant une hospitalisation étaient limitées. ",
-        "format": 0,
-        "detail": 0,
-        "mode": "normal",
-        "style": "",
-        "version": 1
-       },
-       {
-        "type": "link",
-        "fields": {
-         "linkType": "custom",
-         "url": "https://www.frontiersin.org/articles/10.3389/fendo.2022.900153/full",
-         "newTab": true
-        },
-        "children": [
-         {
-          "type": "text",
-          "text": "Kumar et Diamond 2022",
-          "format": 0,
-          "detail": 0,
-          "mode": "normal",
-          "style": "",
-          "version": 1
-         }
-        ],
-        "direction": "ltr",
-        "format": "",
-        "indent": 0,
-        "version": 3
-       }
-      ]
-     },
-     {
-      "direction": "ltr",
-      "format": "",
-      "indent": 0,
-      "version": 1,
-      "type": "paragraph",
-      "textFormat": 0,
-      "children": [
-       {
-        "type": "text",
-        "text": "La même revue de 2022 indique que la recommandation médicale actuelle déconseille le jeûne du Ramadan aux femmes enceintes diabétiques. Demandez à votre équipe de diabétologie et de maternité quelles recommandations elle suit pour vous avant le début du Ramadan.",
-        "format": 0,
-        "detail": 0,
-        "mode": "normal",
-        "style": "",
-        "version": 1
-       }
-      ]
-     },
-     {
-      "direction": "ltr",
-      "format": "",
-      "indent": 0,
-      "version": 1,
-      "type": "heading",
-      "tag": "h2",
-      "children": [
-       {
-        "type": "text",
-        "text": "Quand consulter",
-        "format": 0,
-        "detail": 0,
-        "mode": "normal",
-        "style": "",
-        "version": 1
-       }
-      ]
-     },
-     {
-      "direction": "ltr",
-      "format": "",
-      "indent": 0,
-      "version": 1,
-      "type": "paragraph",
-      "textFormat": 0,
-      "children": [
-       {
-        "type": "text",
-        "text": "Contactez votre sage-femme ou votre médecin avant le Ramadan si vous avez un doute sur la sécurité du jeûne pour vous. Contactez-les si vous vous inquiétez d'un symptôme quel qu'il soit. ",
-        "format": 0,
-        "detail": 0,
-        "mode": "normal",
-        "style": "",
-        "version": 1
-       },
-       {
-        "type": "link",
-        "fields": {
-         "linkType": "custom",
-         "url": "https://www.nhs.uk/conditions/gestational-diabetes/",
-         "newTab": true
-        },
-        "children": [
-         {
-          "type": "text",
-          "text": "NHS : diabète gestationnel",
-          "format": 0,
-          "detail": 0,
-          "mode": "normal",
-          "style": "",
-          "version": 1
-         }
-        ],
-        "direction": "ltr",
-        "format": "",
-        "indent": 0,
-        "version": 3
-       }
-      ]
-     },
-     {
-      "direction": "ltr",
-      "format": "",
-      "indent": 0,
-      "version": 1,
-      "type": "quote",
-      "children": [
-       {
-        "type": "text",
-        "text": "Consultez sans attendre :",
-        "format": 1,
-        "detail": 0,
-        "mode": "normal",
-        "style": "",
-        "version": 1
-       },
-       {
-        "type": "text",
-        "text": " Arrêtez de jeûner et demandez une aide médicale immédiatement si vous présentez l'un de ces signes :  - Votre bébé bouge moins que d'habitude, ou les mouvements s'arrêtent. ",
-        "format": 0,
-        "detail": 0,
-        "mode": "normal",
-        "style": "",
-        "version": 1
-       },
-       {
-        "type": "link",
-        "fields": {
-         "linkType": "custom",
-         "url": "https://www.rcog.org.uk/guidance/browse-all-guidance/green-top-guidelines/reduced-fetal-movements-green-top-guideline-no-57/",
-         "newTab": true
-        },
-        "children": [
-         {
-          "type": "text",
-          "text": "RCOG guideline 57",
-          "format": 0,
-          "detail": 0,
-          "mode": "normal",
-          "style": "",
-          "version": 1
-         }
-        ],
-        "direction": "ltr",
-        "format": "",
-        "indent": 0,
-        "version": 3
-       },
-       {
-        "type": "text",
-        "text": " - Saignement vaginal, ou fuite de liquide par le vagin. ",
-        "format": 0,
-        "detail": 0,
-        "mode": "normal",
-        "style": "",
-        "version": 1
-       },
-       {
-        "type": "link",
-        "fields": {
-         "linkType": "custom",
-         "url": "https://www.cdc.gov/hearher/maternal-warning-signs/index.html",
-         "newTab": true
-        },
-        "children": [
-         {
-          "type": "text",
-          "text": "CDC",
-          "format": 0,
-          "detail": 0,
-          "mode": "normal",
-          "style": "",
-          "version": 1
-         }
-        ],
-        "direction": "ltr",
-        "format": "",
-        "indent": 0,
-        "version": 3
-       },
-       {
-        "type": "text",
-        "text": " - Douleur intense au ventre qui ne passe pas. ",
-        "format": 0,
-        "detail": 0,
-        "mode": "normal",
-        "style": "",
-        "version": 1
-       },
-       {
-        "type": "link",
-        "fields": {
-         "linkType": "custom",
-         "url": "https://www.cdc.gov/hearher/maternal-warning-signs/index.html",
-         "newTab": true
-        },
-        "children": [
-         {
-          "type": "text",
-          "text": "CDC",
-          "format": 0,
-          "detail": 0,
-          "mode": "normal",
-          "style": "",
-          "version": 1
-         }
-        ],
-        "direction": "ltr",
-        "format": "",
-        "indent": 0,
-        "version": 3
-       },
-       {
-        "type": "text",
-        "text": " - Vous êtes à moins de 37 semaines de grossesse et vous avez des contractions régulières de l'utérus, ou vous pensez être en travail. ",
-        "format": 0,
-        "detail": 0,
-        "mode": "normal",
-        "style": "",
-        "version": 1
-       },
-       {
-        "type": "link",
-        "fields": {
-         "linkType": "custom",
-         "url": "https://www.nhs.uk/pregnancy/labour-and-birth/signs-that-labour-has-begun/",
-         "newTab": true
-        },
-        "children": [
-         {
-          "type": "text",
-          "text": "NHS : signes que le travail a commencé",
-          "format": 0,
-          "detail": 0,
-          "mode": "normal",
-          "style": "",
-          "version": 1
-         }
-        ],
-        "direction": "ltr",
-        "format": "",
-        "indent": 0,
-        "version": 3
-       },
-       {
-        "type": "text",
-        "text": " - Vertiges ou malaise. ",
-        "format": 0,
-        "detail": 0,
-        "mode": "normal",
-        "style": "",
-        "version": 1
-       },
-       {
-        "type": "link",
-        "fields": {
-         "linkType": "custom",
-         "url": "https://www.cdc.gov/hearher/maternal-warning-signs/index.html",
-         "newTab": true
-        },
-        "children": [
-         {
-          "type": "text",
-          "text": "CDC",
-          "format": 0,
-          "detail": 0,
-          "mode": "normal",
-          "style": "",
-          "version": 1
-         }
-        ],
-        "direction": "ltr",
-        "format": "",
-        "indent": 0,
-        "version": 3
-       },
-       {
-        "type": "text",
-        "text": " - Difficultés à respirer, douleur thoracique ou cœur qui bat très vite. ",
-        "format": 0,
-        "detail": 0,
-        "mode": "normal",
-        "style": "",
-        "version": 1
-       },
-       {
-        "type": "link",
-        "fields": {
-         "linkType": "custom",
-         "url": "https://www.cdc.gov/hearher/maternal-warning-signs/index.html",
-         "newTab": true
-        },
-        "children": [
-         {
-          "type": "text",
-          "text": "CDC",
-          "format": 0,
-          "detail": 0,
-          "mode": "normal",
-          "style": "",
-          "version": 1
-         }
-        ],
-        "direction": "ltr",
-        "format": "",
-        "indent": 0,
-        "version": 3
-       },
-       {
-        "type": "text",
-        "text": " - Un mal de tête sévère qui ne passe pas, des troubles de la vision ou des éclairs lumineux, une douleur sous les côtes, ou un gonflement soudain du visage, des mains ou des pieds. ",
-        "format": 0,
-        "detail": 0,
-        "mode": "normal",
-        "style": "",
-        "version": 1
-       },
-       {
-        "type": "link",
-        "fields": {
-         "linkType": "custom",
-         "url": "https://www.nhs.uk/conditions/pre-eclampsia/",
-         "newTab": true
-        },
-        "children": [
-         {
-          "type": "text",
-          "text": "NHS : pré-éclampsie",
-          "format": 0,
-          "detail": 0,
-          "mode": "normal",
-          "style": "",
-          "version": 1
-         }
-        ],
-        "direction": "ltr",
-        "format": "",
-        "indent": 0,
-        "version": 3
-       },
-       {
-        "type": "text",
-        "text": " - Symptômes d'hypoglycémie avec confusion, crise convulsive ou perte de connaissance. ",
-        "format": 0,
-        "detail": 0,
-        "mode": "normal",
-        "style": "",
-        "version": 1
-       },
-       {
-        "type": "link",
-        "fields": {
-         "linkType": "custom",
-         "url": "https://www.nhs.uk/conditions/low-blood-sugar-hypoglycaemia/",
-         "newTab": true
-        },
-        "children": [
-         {
-          "type": "text",
-          "text": "NHS : hypoglycémie",
-          "format": 0,
-          "detail": 0,
-          "mode": "normal",
-          "style": "",
-          "version": 1
-         }
-        ],
-        "direction": "ltr",
-        "format": "",
-        "indent": 0,
-        "version": 3
-       },
-       {
-        "type": "text",
-        "text": " - Signes de déshydratation : urines foncées ou à odeur forte, urines beaucoup moins abondantes, vertiges au lever qui ne passent pas, ou fatigue inhabituelle. ",
-        "format": 0,
-        "detail": 0,
-        "mode": "normal",
-        "style": "",
-        "version": 1
-       },
-       {
-        "type": "link",
-        "fields": {
-         "linkType": "custom",
-         "url": "https://www.nhs.uk/conditions/dehydration/",
-         "newTab": true
-        },
-        "children": [
-         {
-          "type": "text",
-          "text": "NHS : déshydratation",
-          "format": 0,
-          "detail": 0,
-          "mode": "normal",
-          "style": "",
-          "version": 1
-         }
-        ],
-        "direction": "ltr",
-        "format": "",
-        "indent": 0,
-        "version": 3
-       },
-       {
-        "type": "text",
-        "text": " - Vomissements qui vous empêchent de garder aliments ou liquides pendant 24 heures, ou absence d'urine depuis plus de 8 heures. ",
-        "format": 0,
-        "detail": 0,
-        "mode": "normal",
-        "style": "",
-        "version": 1
-       },
-       {
-        "type": "link",
-        "fields": {
-         "linkType": "custom",
-         "url": "https://www.nhs.uk/pregnancy/common-symptoms/vomiting-and-morning-sickness/",
-         "newTab": true
-        },
-        "children": [
-         {
-          "type": "text",
-          "text": "NHS : vomissements et nausées matinales",
-          "format": 0,
-          "detail": 0,
-          "mode": "normal",
-          "style": "",
-          "version": 1
-         }
-        ],
-        "direction": "ltr",
-        "format": "",
-        "indent": 0,
-        "version": 3
-       },
-       {
-        "type": "text",
-        "text": " - Soif nouvelle ou aggravée, mictions fréquentes, bouche sèche, ou vision floue avec une glycémie élevée. ",
-        "format": 0,
-        "detail": 0,
-        "mode": "normal",
-        "style": "",
-        "version": 1
-       },
-       {
-        "type": "link",
-        "fields": {
-         "linkType": "custom",
-         "url": "https://www.nhs.uk/conditions/gestational-diabetes/",
-         "newTab": true
-        },
-        "children": [
-         {
-          "type": "text",
-          "text": "NHS : diabète gestationnel",
-          "format": 0,
-          "detail": 0,
-          "mode": "normal",
-          "style": "",
-          "version": 1
-         }
-        ],
-        "direction": "ltr",
-        "format": "",
-        "indent": 0,
-        "version": 3
-       },
-       {
-        "type": "text",
-        "text": "  En cas de confusion, de crise convulsive, si vous n'arrivez pas à rester éveillée, ou si vous ne pouvez pas joindre votre équipe, contactez les services d'urgence locaux ou rendez-vous au service des urgences le plus proche. N'attendez pas que femio ou un autre service en ligne vous réponde.",
-        "format": 0,
-        "detail": 0,
-        "mode": "normal",
-        "style": "",
-        "version": 1
-       }
-      ]
-     },
-     {
-      "direction": "ltr",
-      "format": "",
-      "indent": 0,
-      "version": 1,
-      "type": "paragraph",
-      "textFormat": 0,
-      "children": [
-       {
-        "type": "text",
-        "text": "Femio ne peut pas évaluer une urgence. Lisez-en davantage sur ",
-        "format": 0,
-        "detail": 0,
-        "mode": "normal",
-        "style": "",
-        "version": 1
-       },
-       {
-        "type": "link",
-        "fields": {
-         "linkType": "custom",
-         "url": "/fr/learn/pregnancy-warning-signs",
-         "newTab": false
-        },
-        "children": [
-         {
-          "type": "text",
-          "text": "les signes d'alerte de la grossesse qui nécessitent des soins urgents",
-          "format": 0,
-          "detail": 0,
-          "mode": "normal",
-          "style": "",
-          "version": 1
-         }
-        ],
-        "direction": "ltr",
-        "format": "",
-        "indent": 0,
-        "version": 3
-       },
-       {
-        "type": "text",
-        "text": ". Découvrez comment le contenu de santé de femio est vérifié sur la ",
-        "format": 0,
-        "detail": 0,
-        "mode": "normal",
-        "style": "",
-        "version": 1
-       },
-       {
-        "type": "link",
-        "fields": {
-         "linkType": "custom",
-         "url": "/fr/medical-review",
-         "newTab": false
-        },
-        "children": [
-         {
-          "type": "text",
-          "text": "page de relecture clinique",
-          "format": 0,
-          "detail": 0,
-          "mode": "normal",
-          "style": "",
-          "version": 1
-         }
-        ],
-        "direction": "ltr",
-        "format": "",
-        "indent": 0,
-        "version": 3
-       },
-       {
-        "type": "text",
-        "text": " et dans la ",
-        "format": 0,
-        "detail": 0,
-        "mode": "normal",
-        "style": "",
-        "version": 1
-       },
-       {
-        "type": "link",
-        "fields": {
-         "linkType": "custom",
-         "url": "/fr/editorial-policy",
-         "newTab": false
-        },
-        "children": [
-         {
-          "type": "text",
-          "text": "politique éditoriale",
-          "format": 0,
-          "detail": 0,
-          "mode": "normal",
-          "style": "",
-          "version": 1
-         }
-        ],
-        "direction": "ltr",
-        "format": "",
-        "indent": 0,
-        "version": 3
-       },
-       {
-        "type": "text",
-        "text": ". Les termes comme « hypo » sont expliqués dans le ",
-        "format": 0,
-        "detail": 0,
-        "mode": "normal",
-        "style": "",
-        "version": 1
-       },
-       {
-        "type": "link",
-        "fields": {
-         "linkType": "custom",
-         "url": "/fr/glossary",
-         "newTab": false
-        },
-        "children": [
-         {
-          "type": "text",
-          "text": "lexique",
-          "format": 0,
-          "detail": 0,
-          "mode": "normal",
-          "style": "",
-          "version": 1
-         }
-        ],
-        "direction": "ltr",
-        "format": "",
-        "indent": 0,
-        "version": 3
-       },
-       {
-        "type": "text",
-        "text": ". Si vous vous sentez en danger, utilisez la ",
-        "format": 0,
-        "detail": 0,
-        "mode": "normal",
-        "style": "",
-        "version": 1
-       },
-       {
-        "type": "link",
-        "fields": {
-         "linkType": "custom",
-         "url": "/fr/help-now",
-         "newTab": false
-        },
-        "children": [
-         {
-          "type": "text",
-          "text": "page d'aide immédiate",
-          "format": 0,
-          "detail": 0,
-          "mode": "normal",
-          "style": "",
-          "version": 1
-         }
-        ],
-        "direction": "ltr",
-        "format": "",
-        "indent": 0,
-        "version": 3
-       },
-       {
-        "type": "text",
-        "text": ".",
-        "format": 0,
-        "detail": 0,
-        "mode": "normal",
-        "style": "",
-        "version": 1
-       }
-      ]
-     },
-     {
-      "direction": "ltr",
-      "format": "",
-      "indent": 0,
-      "version": 1,
-      "type": "heading",
-      "tag": "h2",
-      "children": [
-       {
-        "type": "text",
-        "text": "Questions fréquentes",
-        "format": 0,
-        "detail": 0,
-        "mode": "normal",
-        "style": "",
-        "version": 1
-       }
-      ]
-     },
-     {
-      "direction": "ltr",
-      "format": "",
-      "indent": 0,
-      "version": 1,
-      "type": "heading",
-      "tag": "h3",
-      "children": [
-       {
-        "type": "text",
-        "text": "Le jeûne nuit-il au bébé ?",
-        "format": 0,
-        "detail": 0,
-        "mode": "normal",
-        "style": "",
-        "version": 1
-       }
-      ]
-     },
-     {
-      "direction": "ltr",
-      "format": "",
-      "indent": 0,
-      "version": 1,
-      "type": "paragraph",
-      "textFormat": 0,
-      "children": [
-       {
-        "type": "text",
-        "text": "Les revues n'ont pas montré d'effet clair sur le poids de naissance ou la prématurité. Elles ne disposaient pas de données suffisantes sur chaque issue, y compris les décès autour de la naissance. Parlez-en à votre clinicien au sujet de votre propre grossesse.",
-        "format": 0,
-        "detail": 0,
-        "mode": "normal",
-        "style": "",
-        "version": 1
-       }
-      ]
-     },
-     {
-      "direction": "ltr",
-      "format": "",
-      "indent": 0,
-      "version": 1,
-      "type": "heading",
-      "tag": "h3",
-      "children": [
-       {
-        "type": "text",
-        "text": "Suis-je obligée de jeûner ?",
-        "format": 0,
-        "detail": 0,
-        "mode": "normal",
-        "style": "",
-        "version": 1
-       }
-      ]
-     },
-     {
-      "direction": "ltr",
-      "format": "",
-      "indent": 0,
-      "version": 1,
-      "type": "paragraph",
-      "textFormat": 0,
-      "children": [
-       {
-        "type": "text",
-        "text": "Le Dar al-Ifta égyptien indique qu'une femme qui ne peut pas jeûner à cause de la grossesse ou de l'allaitement peut s'abstenir de jeûner, et qu'elle doit rattraper les jours manqués lorsqu'elle le peut. ",
-        "format": 0,
-        "detail": 0,
-        "mode": "normal",
-        "style": "",
-        "version": 1
-       },
-       {
-        "type": "link",
-        "fields": {
-         "linkType": "custom",
-         "url": "https://www.dar-alifta.org/en/fatwa/details/20338/breaking-the-fast-due-to-pregnancy-and-nursing",
-         "newTab": true
-        },
-        "children": [
-         {
-          "type": "text",
-          "text": "Dar al-Ifta",
-          "format": 0,
-          "detail": 0,
-          "mode": "normal",
-          "style": "",
-          "version": 1
-         }
-        ],
-        "direction": "ltr",
-        "format": "",
-        "indent": 0,
-        "version": 3
-       },
-       {
-        "type": "text",
-        "text": " Votre autorité religieuse peut vous conseiller sur l'aspect religieux, et votre clinicien sur l'aspect médical.",
-        "format": 0,
-        "detail": 0,
-        "mode": "normal",
-        "style": "",
-        "version": 1
-       }
-      ]
-     },
-     {
-      "direction": "ltr",
-      "format": "",
-      "indent": 0,
-      "version": 1,
-      "type": "heading",
-      "tag": "h3",
-      "children": [
-       {
-        "type": "text",
-        "text": "Puis-je jeûner si j'ai un diabète gestationnel ?",
-        "format": 0,
-        "detail": 0,
-        "mode": "normal",
-        "style": "",
-        "version": 1
-       }
-      ]
-     },
-     {
-      "direction": "ltr",
-      "format": "",
-      "indent": 0,
-      "version": 1,
-      "type": "paragraph",
-      "textFormat": 0,
-      "children": [
-       {
-        "type": "text",
-        "text": "C'est une décision à prendre avec votre clinicien. Une revue de 2022 indique que la recommandation médicale actuelle déconseille le jeûne du Ramadan aux femmes enceintes diabétiques. Votre équipe peut mettre cela en balance avec vos mesures de glycémie et votre état de santé. ",
-        "format": 0,
-        "detail": 0,
-        "mode": "normal",
-        "style": "",
-        "version": 1
-       },
-       {
-        "type": "link",
-        "fields": {
-         "linkType": "custom",
-         "url": "https://www.frontiersin.org/articles/10.3389/fendo.2022.900153/full",
-         "newTab": true
-        },
-        "children": [
-         {
-          "type": "text",
-          "text": "Kumar et Diamond 2022",
-          "format": 0,
-          "detail": 0,
-          "mode": "normal",
-          "style": "",
-          "version": 1
-         }
-        ],
-        "direction": "ltr",
-        "format": "",
-        "indent": 0,
-        "version": 3
-       }
-      ]
-     },
-     {
-      "direction": "ltr",
-      "format": "",
-      "indent": 0,
-      "version": 1,
-      "type": "heading",
-      "tag": "h3",
-      "children": [
-       {
-        "type": "text",
-        "text": "Que faire si je me sens mal pendant la journée ?",
-        "format": 0,
-        "detail": 0,
-        "mode": "normal",
-        "style": "",
-        "version": 1
-       }
-      ]
-     },
-     {
-      "direction": "ltr",
-      "format": "",
-      "indent": 0,
-      "version": 1,
-      "type": "paragraph",
-      "textFormat": 0,
-      "children": [
-       {
-        "type": "text",
-        "text": "Consultez l'encadré ci-dessus. Si un signe apparaît, arrêtez de jeûner et demandez une aide médicale immédiatement.",
-        "format": 0,
-        "detail": 0,
-        "mode": "normal",
-        "style": "",
-        "version": 1
-       }
-      ]
-     }
-    ]
-   }
-  },
-  "sources": [
-   {
-    "title": "Glazier JD et al. (2018). The effect of Ramadan fasting during pregnancy on perinatal outcomes: a systematic review and meta-analysis. BMC Pregnancy and Childbirth",
-    "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6202808",
-    "tier": "2"
-   },
-   {
-    "title": "Shahawy S et al. (2023). Ramadan fasting and pregnancy: an evidence-based guide for the obstetrician. American Journal of Obstetrics and Gynecology",
-    "url": "https://www.ncbi.nlm.nih.gov/pubmed/36940770",
-    "tier": "2"
-   },
-   {
-    "title": "Kumar S and Diamond T (2022). Ramadan Fasting and Maternal and Fetal Outcomes in Pregnant Women with Diabetes Mellitus: Literature Review. Frontiers in Endocrinology",
-    "url": "https://www.frontiersin.org/articles/10.3389/fendo.2022.900153/full",
-    "tier": "2"
-   },
-   {
-    "title": "RCOG: Reduced Fetal Movements, Green-top Guideline No. 57",
-    "url": "https://www.rcog.org.uk/guidance/browse-all-guidance/green-top-guidelines/reduced-fetal-movements-green-top-guideline-no-57/",
-    "tier": "1"
-   },
-   {
-    "title": "CDC: Urgent Maternal Warning Signs and Symptoms",
-    "url": "https://www.cdc.gov/hearher/maternal-warning-signs/index.html",
-    "tier": "1"
-   },
-   {
-    "title": "NHS: Pre-eclampsia",
-    "url": "https://www.nhs.uk/conditions/pre-eclampsia/",
-    "tier": "1"
-   },
-   {
-    "title": "NHS: Gestational diabetes",
-    "url": "https://www.nhs.uk/conditions/gestational-diabetes/",
-    "tier": "1"
-   },
-   {
-    "title": "NHS: Low blood sugar (hypoglycaemia)",
-    "url": "https://www.nhs.uk/conditions/low-blood-sugar-hypoglycaemia/",
-    "tier": "1"
-   },
-   {
-    "title": "NHS: Dehydration",
-    "url": "https://www.nhs.uk/conditions/dehydration/",
-    "tier": "1"
-   },
-   {
-    "title": "NHS: Vomiting and morning sickness in pregnancy",
-    "url": "https://www.nhs.uk/pregnancy/common-symptoms/vomiting-and-morning-sickness/",
-    "tier": "1"
-   },
-   {
-    "title": "NHS: Severe vomiting in pregnancy",
-    "url": "https://www.nhs.uk/pregnancy/complications/severe-vomiting/",
-    "tier": "1"
-   },
-   {
-    "title": "NHS: Signs that labour has begun",
-    "url": "https://www.nhs.uk/pregnancy/labour-and-birth/signs-that-labour-has-begun/",
-    "tier": "1"
-   },
-   {
-    "title": "Egypt's Dar al-Ifta: Breaking the fast due to pregnancy and nursing (fatwa, 10 March 2024)",
-    "url": "https://www.dar-alifta.org/en/fatwa/details/20338/breaking-the-fast-due-to-pregnancy-and-nursing",
-    "tier": "2"
    }
   ],
   "reviewer": "Dr. Khaled M.",
@@ -96941,7 +95168,7 @@
        },
        {
         "type": "text",
-        "text": " Contactez les services d'urgence de votre région ou rendez-vous au service des urgences le plus proche si un bébé de moins de trois mois a une température de 38 °C ou plus, respire vite, fait des efforts respiratoires importants ou émet des gémissements, a la peau bleue, grise, pâle ou marbrée, est mou, est difficile à réveiller, refuse les tétées, a beaucoup moins de couches mouillées ou aucune au cours des 12 dernières heures, a la fontanelle bombée ou creusée, a une éruption qui ne s'efface pas quand on appuie dessus, ou a une crise convulsive. Femio ne peut pas évaluer un bébé.",
+        "text": " Contactez les services d'urgence de votre région ou rendez-vous au service des urgences le plus proche si un bébé de moins de trois mois a une température de 38 °C ou plus, respire vite, fait des efforts respiratoires importants ou émet des gémissements, a la peau bleue, grise, pâle ou marbrée, est mou, est difficile à réveiller, refuse les tétées, a beaucoup moins de couches mouillées ou aucune au cours des 12 dernières heures, a la fontanelle bombée ou creusée, a une éruption qui ne s'efface pas quand on appuie dessus, ou a une crise convulsive. femio ne peut pas évaluer un bébé.",
         "format": 0,
         "detail": 0,
         "mode": "normal",
@@ -99240,7 +97467,7 @@
       "children": [
        {
         "type": "text",
-        "text": "Apportez des notes sur vos symptômes, vos saignements, votre humeur et votre sommeil. Si vous les avez notés dans Femio, apportez-les. Un relevé de trois semaines difficiles est bien plus parlant que d'essayer de vous rappeler un mardi difficile.",
+        "text": "Apportez des notes sur vos symptômes, vos saignements, votre humeur et votre sommeil. Si vous les avez notés dans femio, apportez-les. Un relevé de trois semaines difficiles est bien plus parlant que d'essayer de vous rappeler un mardi difficile.",
         "format": 0,
         "detail": 0,
         "mode": "normal",
@@ -99498,7 +97725,7 @@
        },
        {
         "type": "text",
-        "text": " de Femio si vous vous sentez incapable de rester en sécurité.",
+        "text": " de femio si vous vous sentez incapable de rester en sécurité.",
         "format": 0,
         "detail": 0,
         "mode": "normal",
@@ -101712,7 +99939,7 @@
       "children": [
        {
         "type": "text",
-        "text": "Femio peut conserver ce relevé et l'afficher sous forme de chronologie. Femio n'interprète ",
+        "text": "femio peut conserver ce relevé et l'afficher sous forme de chronologie. femio n'interprète ",
         "format": 0,
         "detail": 0,
         "mode": "normal",
@@ -101977,7 +100204,7 @@
       "children": [
        {
         "type": "text",
-        "text": "Femio peut-il me dire si mon résultat est normal ?",
+        "text": "femio peut-il me dire si mon résultat est normal ?",
         "format": 0,
         "detail": 0,
         "mode": "normal",
@@ -101996,7 +100223,7 @@
       "children": [
        {
         "type": "text",
-        "text": "Non. Femio affiche vos résultats avec les valeurs de référence du laboratoire, sans verdict, car les interpréter relève d'un jugement clinique et les cibles diffèrent selon les recommandations.",
+        "text": "Non. femio affiche vos résultats avec les valeurs de référence du laboratoire, sans verdict, car les interpréter relève d'un jugement clinique et les cibles diffèrent selon les recommandations.",
         "format": 0,
         "detail": 0,
         "mode": "normal",
@@ -103066,7 +101293,7 @@
       "children": [
        {
         "type": "text",
-        "text": "Comment les estimations de Femio peuvent-elles changer ?",
+        "text": "Comment les estimations de femio peuvent-elles changer ?",
         "format": 0,
         "detail": 0,
         "mode": "normal",
@@ -103085,7 +101312,7 @@
       "children": [
        {
         "type": "text",
-        "text": "Les estimations de cycle deviennent moins certaines lorsque les règles varient. Femio doit afficher une fourchette plutôt que d’affirmer une date future exacte. Une étiquette « en retard » ne peut pas expliquer pourquoi les règles ne sont pas arrivées.",
+        "text": "Les estimations de cycle deviennent moins certaines lorsque les règles varient. femio doit afficher une fourchette plutôt que d’affirmer une date future exacte. Une étiquette « en retard » ne peut pas expliquer pourquoi les règles ne sont pas arrivées.",
         "format": 0,
         "detail": 0,
         "mode": "normal",
@@ -104762,7 +102989,7 @@
        },
        {
         "type": "text",
-        "text": " de Femio explique comment nos contenus de santé sont vérifiés.",
+        "text": " de femio explique comment nos contenus de santé sont vérifiés.",
         "format": 0,
         "detail": 0,
         "mode": "normal",
@@ -104870,7 +103097,7 @@
        },
        {
         "type": "text",
-        "text": " de Femio pour trouver des ressources de soutien immédiat. Le suivi peut attendre que vous soyez en sécurité.",
+        "text": " de femio pour trouver des ressources de soutien immédiat. Le suivi peut attendre que vous soyez en sécurité.",
         "format": 0,
         "detail": 0,
         "mode": "normal",
@@ -105106,7 +103333,7 @@
       "children": [
        {
         "type": "text",
-        "text": "Femio peut-il confirmer un TDPM ?",
+        "text": "femio peut-il confirmer un TDPM ?",
         "format": 0,
         "detail": 0,
         "mode": "normal",
@@ -105125,7 +103352,7 @@
       "children": [
        {
         "type": "text",
-        "text": "Non. Femio peut organiser un relevé de symptômes, mais un clinicien qualifié doit évaluer l’ensemble du schéma.",
+        "text": "Non. femio peut organiser un relevé de symptômes, mais un clinicien qualifié doit évaluer l’ensemble du schéma.",
         "format": 0,
         "detail": 0,
         "mode": "normal",
@@ -105328,7 +103555,7 @@
       "children": [
        {
         "type": "text",
-        "text": "C'est pourquoi Femio affiche une plage plutôt qu'une date, et pourquoi cette plage est plus large pour les utilisateurs plus jeunes et ne se resserre que lorsque votre propre relevé le permet. C'est aussi pourquoi il n'y a ni compte à rebours ni message « vous êtes en retard » nulle part dans l'application pour vous. « En retard » n'a de sens que par rapport à une date certaine, et il n'existe pas ici de date certaine par rapport à laquelle être en retard.",
+        "text": "C'est pourquoi femio affiche une plage plutôt qu'une date, et pourquoi cette plage est plus large pour les utilisateurs plus jeunes et ne se resserre que lorsque votre propre relevé le permet. C'est aussi pourquoi il n'y a ni compte à rebours ni message « vous êtes en retard » nulle part dans l'application pour vous. « En retard » n'a de sens que par rapport à une date certaine, et il n'existe pas ici de date certaine par rapport à laquelle être en retard.",
         "format": 0,
         "detail": 0,
         "mode": "normal",
@@ -106599,7 +104826,7 @@
        },
        {
         "type": "text",
-        "text": " de Femio comme outil général de planification.",
+        "text": " de femio comme outil général de planification.",
         "format": 0,
         "detail": 0,
         "mode": "normal",
@@ -107618,7 +105845,7 @@
       "children": [
        {
         "type": "text",
-        "text": "Comment Femio peut soutenir la planification de la conception",
+        "text": "Comment femio peut soutenir la planification de la conception",
         "format": 0,
         "detail": 0,
         "mode": "normal",
@@ -107637,7 +105864,7 @@
       "children": [
        {
         "type": "text",
-        "text": "Femio vous permet d'enregistrer cycles, symptômes et notes, puis de consulter des plages de dates estimées. Vous pouvez imprimer un résumé pour une consultation et choisir les détails à partager.",
+        "text": "femio vous permet d'enregistrer cycles, symptômes et notes, puis de consulter des plages de dates estimées. Vous pouvez imprimer un résumé pour une consultation et choisir les détails à partager.",
         "format": 0,
         "detail": 0,
         "mode": "normal",
@@ -107656,7 +105883,7 @@
       "children": [
        {
         "type": "text",
-        "text": "Femio ne confirme pas l'ovulation, n'explique pas un problème de fertilité, et ne promet pas de grossesse. Les estimations ne doivent rester qu'une partie de la planification, et non un test du bon fonctionnement de votre corps.",
+        "text": "femio ne confirme pas l'ovulation, n'explique pas un problème de fertilité, et ne promet pas de grossesse. Les estimations ne doivent rester qu'une partie de la planification, et non un test du bon fonctionnement de votre corps.",
         "format": 0,
         "detail": 0,
         "mode": "normal",
@@ -110266,7 +108493,7 @@
        },
        {
         "type": "text",
-        "text": " Demandez des soins urgents en cas de forte fièvre avec un sein rouge, chaud et douloureux et un sentiment de malaise intense, en cas d'abcès du sein ou de zone rouge qui s'étend, ou pour tout bébé mou, difficile à réveiller, qui respire avec difficulté ou qui refuse de téter. Femio ne peut pas évaluer un sein ni un bébé.",
+        "text": " Demandez des soins urgents en cas de forte fièvre avec un sein rouge, chaud et douloureux et un sentiment de malaise intense, en cas d'abcès du sein ou de zone rouge qui s'étend, ou pour tout bébé mou, difficile à réveiller, qui respire avec difficulté ou qui refuse de téter. femio ne peut pas évaluer un sein ni un bébé.",
         "format": 0,
         "detail": 0,
         "mode": "normal",
@@ -112137,7 +110364,7 @@
       "children": [
        {
         "type": "text",
-        "text": "Les estimations de date de Femio ne peuvent pas savoir quand l'ovulation ou la conception ont eu lieu. Ne vous fiez pas à une étiquette « en retard » d'une application comme preuve de grossesse.",
+        "text": "Les estimations de date de femio ne peuvent pas savoir quand l'ovulation ou la conception ont eu lieu. Ne vous fiez pas à une étiquette « en retard » d'une application comme preuve de grossesse.",
         "format": 0,
         "detail": 0,
         "mode": "normal",
@@ -112366,7 +110593,7 @@
        },
        {
         "type": "text",
-        "text": " de Femio donne une estimation, non une date certaine.",
+        "text": " de femio donne une estimation, non une date certaine.",
         "format": 0,
         "detail": 0,
         "mode": "normal",
@@ -112926,7 +111153,7 @@
       "children": [
        {
         "type": "text",
-        "text": "Femio peut-il confirmer une grossesse ?",
+        "text": "femio peut-il confirmer une grossesse ?",
         "format": 0,
         "detail": 0,
         "mode": "normal",
@@ -112945,7 +111172,7 @@
       "children": [
        {
         "type": "text",
-        "text": "Non. Femio organise des dates et fait des estimations ; il ne peut pas confirmer une grossesse.",
+        "text": "Non. femio organise des dates et fait des estimations ; il ne peut pas confirmer une grossesse.",
         "format": 0,
         "detail": 0,
         "mode": "normal",

@@ -12,7 +12,7 @@ secondary_topics:
   - "laparoscopy for endometriosis"
   - "pelvic pain assessment"
 excerpt: "Learn how clinicians assess possible endometriosis using symptom history, exams, imaging, and sometimes laparoscopy, plus how to prepare."
-meta_title: "How Is Endometriosis Assessed? | Femio"
+meta_title: "How Is Endometriosis Assessed? | femio"
 meta_description: "Learn how clinicians assess possible endometriosis using symptom history, exams, ultrasound, MRI, and sometimes laparoscopy."
 canonical_url: "https://femioapp.com/en/learn/how-endometriosis-is-assessed"
 robots_while_draft: "noindex,nofollow"
@@ -24,7 +24,7 @@ open_graph_image_alt: "Clinician and patient reviewing pelvic pain notes and ima
 written_by: "Dr. Khaled M."
 medically_reviewed_by: "Dr. Khaled M."
 date_published: "2026-08-15"
-date_modified: "2026-08-15"
+date_modified: "2026-11-24"
 last_reviewed: "2026-08-04"
 next_review_due: null
 reading_level_ok: true
@@ -132,7 +132,7 @@ Useful questions include:
 - How do my fertility goals affect the plan?
 - When should we review progress?
 
-Is pregnancy a goal? Read [endometriosis and fertility](/en/learn/endometriosis-and-fertility). The main [endometriosis guide](/en/conditions/endometriosis) covers care choices. How is this content checked? See Femio's [clinician review page](/en/medical-review).
+Is pregnancy a goal? Read [endometriosis and fertility](/en/learn/endometriosis-and-fertility). The main [endometriosis guide](/en/conditions/endometriosis) covers care choices. How is this content checked? See femio's [clinician review page](/en/medical-review).
 
 ## When to see a doctor
 

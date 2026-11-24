@@ -24,7 +24,7 @@ open_graph_image_alt: "Une femme parlant avec un clinicien lors d'un rendez-vous
 written_by: "PENDING"
 medically_reviewed_by: "Dr. Khaled M."
 date_published: "2026-10-30"
-date_modified: "2026-10-30"
+date_modified: "2026-11-24"
 last_reviewed: "2026-10-30"
 next_review_due: "2027-10-30"
 reading_level_ok: false
@@ -62,7 +62,7 @@ L'ovulation a lieu avant l'arrivée des règles. Il est donc possible de tomber 
 
 [L'ACOG](https://www.acog.org/womens-health/faqs/postpartum-birth-control) recommande de prévoir ce point pendant la grossesse ou immédiatement après l'accouchement, plutôt que d'attendre les règles ou le contrôle postnatal.
 
-Les prévisions de cycle de Femio sont des estimations fondées sur les cycles enregistrés, et après un accouchement il n'y en a généralement aucun. Femio n'est pas un moyen fiable d'éviter une grossesse et ne vous indique pas quand vous pouvez ou ne pouvez pas concevoir.
+Les prévisions de cycle de femio sont des estimations fondées sur les cycles enregistrés, et après un accouchement il n'y en a généralement aucun. femio n'est pas un moyen fiable d'éviter une grossesse et ne vous indique pas quand vous pouvez ou ne pouvez pas concevoir.
 
 ## L'allaitement et la fertilité
 
@@ -131,6 +131,6 @@ Souvent dans les 48 heures suivant la naissance, ou à partir d'environ quatre s
 
 Le délai est plus strict après l'accouchement et pendant l'allaitement. Un clinicien vérifiera ce qui s'applique à vous.
 
-### Femio peut-il me dire quand je redeviens fertile ?
+### femio peut-il me dire quand je redeviens fertile ?
 
-Non. Femio établit ses prévisions à partir des cycles enregistrés, et après un accouchement il n'y en a généralement aucun. Ce n'est pas un moyen fiable d'éviter une grossesse.
+Non. femio établit ses prévisions à partir des cycles enregistrés, et après un accouchement il n'y en a généralement aucun. Ce n'est pas un moyen fiable d'éviter une grossesse.

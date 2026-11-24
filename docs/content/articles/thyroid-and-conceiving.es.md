@@ -12,7 +12,7 @@ secondary_topics:
   - "anticuerpos tiroideos y fertilidad"
   - "objetivos de TSH antes de la concepción"
 excerpt: "Por qué conviene revisar una afección de tiroides antes de concebir y no después, qué suele comprobarse y qué cambia en cuanto una prueba es positiva."
-meta_title: "Afecciones de la tiroides y el intento de concebir | Femio"
+meta_title: "Afecciones de la tiroides y el intento de concebir | femio"
 meta_description: "Por qué la revisión de la tiroides corresponde antes de la concepción, qué se suele comprobar y qué cambia el día en que una prueba de embarazo es positiva."
 canonical_url: "https://femioapp.com/es/learn/thyroid-and-conceiving"
 robots_while_draft: "noindex,nofollow"
@@ -24,7 +24,7 @@ open_graph_image_alt: "Una mujer comentando los resultados de un análisis de sa
 written_by: "PENDING"
 medically_reviewed_by: "Dr. Khaled M."
 date_published: "2026-10-30"
-date_modified: "2026-10-30"
+date_modified: "2026-11-24"
 last_reviewed: "2026-10-30"
 next_review_due: "2027-10-30"
 reading_level_ok: false
@@ -98,7 +98,7 @@ Estar en tratamiento por una afección de tiroides no es, por sí mismo, motivo 
 
 Tus propios resultados, con fechas. Tu medicación actual y cualquier cambio. Los síntomas nuevos o que cambian —cansancio, cambios de peso, sensación de frío o de calor, palpitaciones, cambios en el cabello— con la fecha en que empezaron.
 
-Femio puede guardar ese registro y mostrarlo como una línea de tiempo. **No** interpreta un resultado: un número se acompaña únicamente del rango de referencia del propio laboratorio, porque compararlo con un objetivo es un juicio clínico, y los objetivos difieren entre guías y entre etapas del embarazo.
+femio puede guardar ese registro y mostrarlo como una línea de tiempo. **No** interpreta un resultado: un número se acompaña únicamente del rango de referencia del propio laboratorio, porque compararlo con un objetivo es un juicio clínico, y los objetivos difieren entre guías y entre etapas del embarazo.
 
 ## Cuándo consultar
 
@@ -124,6 +124,6 @@ No. Contacta con quien te la receta sin demora, y no la dejes por tu cuenta.
 
 Puede afectar a los ciclos, y por eso los análisis de tiroides forman parte de una evaluación estándar. Estar en tratamiento por una afección no es, por sí mismo, motivo para esperar dificultades.
 
-### ¿Puede Femio decirme si mi resultado es normal?
+### ¿Puede femio decirme si mi resultado es normal?
 
 No. Muestra tus resultados con el rango de referencia del propio laboratorio y sin veredicto, porque interpretarlos es un juicio clínico y los objetivos difieren entre guías.

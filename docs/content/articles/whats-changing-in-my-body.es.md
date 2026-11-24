@@ -10,7 +10,7 @@ secondary_topics:
   - "orden de los cambios de la pubertad"
   - "cuándo empieza la pubertad"
 excerpt: "La pubertad sigue un orden aproximado y empieza a una edad distinta para cada persona. Esto es lo que suele cambiar y cuándo consultar a un médico."
-meta_title: "Lo que cambia en mi cuerpo: la pubertad | Femio"
+meta_title: "Lo que cambia en mi cuerpo: la pubertad | femio"
 meta_description: "Los cambios de la pubertad siguen un orden aproximado y empiezan a edades distintas. Qué esperar, con palabras sencillas y sin objetivos."
 canonical_url: "https://femioapp.com/es/learn/whats-changing-in-my-body"
 robots_while_draft: "noindex,nofollow"
@@ -22,7 +22,7 @@ open_graph_image_alt: "Dibujo sencillo de una planta creciendo sobre un fondo su
 written_by: "PENDING"
 medically_reviewed_by: "Dr. Khaled M."
 date_published: "2026-10-30"
-date_modified: "2026-10-30"
+date_modified: "2026-11-24"
 last_reviewed: "2026-10-30"
 next_review_due: "2027-10-30"
 reading_level_ok: false

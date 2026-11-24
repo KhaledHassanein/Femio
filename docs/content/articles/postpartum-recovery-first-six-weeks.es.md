@@ -12,7 +12,7 @@ secondary_topics:
   - "cicatrización después del parto"
   - "primeras semanas con un recién nacido"
 excerpt: "Qué cambia en las primeras seis semanas después del parto: sangrado, cólicos, cicatrices, senos, vejiga, estado de ánimo y sueño, y las señales que necesitan atención."
-meta_title: "Tu cuerpo en las seis semanas tras el parto | Femio"
+meta_title: "Tu cuerpo en las seis semanas tras el parto | femio"
 meta_description: "Una guía clara de las primeras seis semanas después del parto: sangrado, entuertos, cicatrización, senos, vejiga, estado de ánimo y sueño, y cuándo pedir ayuda."
 canonical_url: "https://femioapp.com/es/learn/postpartum-recovery-first-six-weeks"
 robots_while_draft: "noindex,nofollow"
@@ -24,7 +24,7 @@ open_graph_image_alt: "Una mujer descansando en casa en las semanas posteriores 
 written_by: "PENDING"
 medically_reviewed_by: "Dr. Khaled M."
 date_published: "2026-10-30"
-date_modified: "2026-10-30"
+date_modified: "2026-11-24"
 last_reviewed: "2026-10-30"
 next_review_due: "2027-10-30"
 reading_level_ok: false
@@ -96,7 +96,7 @@ Sentir ganas de llorar, sensibilidad y sentirse desbordada en las primeras dos s
 
 No hay premio por sobrellevarlo en silencio. [Tu estado de ánimo después del parto](/es/learn/mood-after-birth) explica qué observar y a quién contarlo.
 
-Si tienes pensamientos de hacerte daño o de hacerle daño al bebé, trátalo como una emergencia. La página global de [Necesito ayuda ahora](/es/help-now) de Femio puede ayudarte a encontrar el siguiente paso seguro.
+Si tienes pensamientos de hacerte daño o de hacerle daño al bebé, trátalo como una emergencia. La página global de [Necesito ayuda ahora](/es/help-now) de femio puede ayudarte a encontrar el siguiente paso seguro.
 
 ## Comer, moverte y levantar peso
 
@@ -104,9 +104,9 @@ Come y bebe según tu apetito. No hay una dieta de recuperación que seguir, y e
 
 Caminar suavemente suele estar bien al principio, si te sientes bien. La [guía posnatal del NICE](https://www.nice.org.uk/guidance/ng194) dirige las preguntas sobre volver al ejercicio, levantar peso y conducir a tu propio equipo de atención, porque la respuesta depende de cómo fue tu parto y de cómo avanza tu recuperación.
 
-## Qué puede y qué no puede hacer Femio aquí
+## Qué puede y qué no puede hacer femio aquí
 
-Femio puede registrar lo que notas —sangrado, dolor, estado de ánimo, lactancia, sueño— para que el patrón esté frente a ti y frente a tu profesional en la próxima cita. Femio no puede examinarte, no puede confirmar qué causa un síntoma y no puede decirte si algo es grave.
+femio puede registrar lo que notas —sangrado, dolor, estado de ánimo, lactancia, sueño— para que el patrón esté frente a ti y frente a tu profesional en la próxima cita. femio no puede examinarte, no puede confirmar qué causa un síntoma y no puede decirte si algo es grave.
 
 Lleva lo que has registrado a [tu revisión de las seis semanas](/es/learn/six-week-postnatal-check). Una nota escrita de una semana difícil es mucho más fácil de explicar que un recuerdo de ella.
 

@@ -82,7 +82,6 @@ const wedgeSlugs = [
   'early-pregnancy-changes',
   'first-pregnancy-appointment',
   'pregnancy-warning-signs',
-  'ramadan-fasting-pregnancy',
   'pcos-signs',
   'how-pcos-is-assessed',
   'pcos-lifestyle-and-weight',

@@ -12,7 +12,7 @@ secondary_topics:
   - "irregular cycles postpartum"
   - "ovulation before first period"
 excerpt: "When periods usually return after birth, how feeding changes the timing, why the first cycles are irregular, and what is worth reporting."
-meta_title: "When Your Periods Come Back After Birth | Femio"
+meta_title: "When Your Periods Come Back After Birth | femio"
 meta_description: "When periods return after birth, how breastfeeding changes the timing, why early cycles are irregular, and which bleeding needs checking."
 canonical_url: "https://femioapp.com/en/learn/periods-after-birth"
 robots_while_draft: "noindex,nofollow"
@@ -24,7 +24,7 @@ open_graph_image_alt: "A calendar with a cycle tracked after the birth of a baby
 written_by: "PENDING"
 medically_reviewed_by: "Dr. Khaled M."
 date_published: "2026-08-19"
-date_modified: "2026-08-19"
+date_modified: "2026-11-24"
 last_reviewed: "2026-10-30"
 next_review_due: "2027-10-30"
 reading_level_ok: true
@@ -79,7 +79,7 @@ The egg is released before a period, so the first ovulation after birth happens 
 
 If you do not want to be pregnant again soon, discuss options at a postnatal appointment rather than waiting for a period to arrive. See [contraception after birth](/en/learn/contraception-after-birth).
 
-Femio's predictions are estimates built on the cycles it has seen. With no cycles recorded since the birth, Femio has nothing to predict from, and it will say so rather than guess.
+femio's predictions are estimates built on the cycles it has seen. With no cycles recorded since the birth, femio has nothing to predict from, and it will say so rather than guess.
 
 ## What the first periods are like
 
@@ -109,7 +109,7 @@ Many people find their pattern settles over three to six cycles. Some find their
 
 Log the first day of each bleed, how heavy it is, and pain. Three or four cycles is usually enough for a shape to appear.
 
-Do not expect an app to give you a confident date early on. Femio shows ranges rather than a single day, and it widens them when cycles are irregular, because a precise-looking prediction from two data points would be false confidence dressed up as help.
+Do not expect an app to give you a confident date early on. femio shows ranges rather than a single day, and it widens them when cycles are irregular, because a precise-looking prediction from two data points would be false confidence dressed up as help.
 
 ## When to see a doctor
 

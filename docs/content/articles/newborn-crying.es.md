@@ -11,7 +11,7 @@ secondary_topics:
   - "cólicos en recién nacidos"
   - "cómo afrontar un bebé que no para de llorar"
 excerpt: "Por qué el llanto del recién nacido alcanza su punto máximo en las primeras semanas, qué se aconseja probar y qué hacer con seguridad cuando ya no puedes más."
-meta_title: "Llanto del recién nacido y qué ayuda | Femio"
+meta_title: "Llanto del recién nacido y qué ayuda | femio"
 meta_description: "Por qué el llanto alcanza su punto máximo en los primeros meses, qué probar si el bebé no se calma y qué hacer cuando ya no puedes más."
 canonical_url: "https://femioapp.com/es/learn/newborn-crying"
 robots_while_draft: "noindex,nofollow"
@@ -23,7 +23,7 @@ open_graph_image_alt: "Una persona cansada sujeta contra su hombro a un recién 
 written_by: "PENDING"
 medically_reviewed_by: "Dr. Khaled M."
 date_published: "2026-10-30"
-date_modified: "2026-10-30"
+date_modified: "2026-11-24"
 last_reviewed: "2026-10-30"
 next_review_due: "2027-10-30"
 reading_level_ok: false
@@ -92,7 +92,7 @@ Si nadie puede relevarte y el llanto te desborda, tanto la guía del NHS como la
 
 Un bebé está más seguro solo en la cuna durante diez minutos que en brazos de alguien al límite de su paciencia. Nunca sacudas a un bebé. Los CDC describen las sacudidas como causa de sangrado alrededor del cerebro y de lesiones duraderas, y señalan que sacudir, lanzar o pegar nunca es una respuesta al llanto.
 
-Si sientes que no puedes mantener a tu bebé a salvo, o que tú misma o tú mismo no estás a salvo, [la página de ayuda global de Femio](/es/help-now) indica cómo contactar con apoyo y con los servicios de emergencia de tu zona. Buscar ese apoyo es lo responsable, no lo vergonzoso.
+Si sientes que no puedes mantener a tu bebé a salvo, o que tú misma o tú mismo no estás a salvo, [la página de ayuda global de femio](/es/help-now) indica cómo contactar con apoyo y con los servicios de emergencia de tu zona. Buscar ese apoyo es lo responsable, no lo vergonzoso.
 
 ## El llanto y tu propia salud
 
@@ -112,7 +112,7 @@ Busca atención urgente si el llanto va acompañado de cualquier signo de la caj
 
 Pide ayuda pronto, no al final. [Señales de alarma del recién nacido](/es/learn/newborn-warning-signs) enumera lo que necesita atención de urgencia, y [tu recién nacido en las dos primeras semanas](/es/learn/newborn-first-two-weeks) explica lo que es habitual.
 
-> **Busca atención ya:** Contacta con los servicios de emergencia de tu zona o acude al servicio de urgencias más cercano si un bebé menor de tres meses tiene una temperatura de 38 °C o más, respira deprisa, se esfuerza para respirar o gruñe, tiene la piel azulada, grisácea, pálida o con manchas, está flácido, cuesta despertarlo, rechaza las tomas, moja muchos menos pañales o ninguno en las últimas 12 horas, tiene la fontanela abombada o hundida, tiene una erupción que no desaparece al presionarla, tiene una convulsión o tiene un llanto débil, agudo o continuo que no es su llanto habitual. Femio no puede evaluar a un bebé.
+> **Busca atención ya:** Contacta con los servicios de emergencia de tu zona o acude al servicio de urgencias más cercano si un bebé menor de tres meses tiene una temperatura de 38 °C o más, respira deprisa, se esfuerza para respirar o gruñe, tiene la piel azulada, grisácea, pálida o con manchas, está flácido, cuesta despertarlo, rechaza las tomas, moja muchos menos pañales o ninguno en las últimas 12 horas, tiene la fontanela abombada o hundida, tiene una erupción que no desaparece al presionarla, tiene una convulsión o tiene un llanto débil, agudo o continuo que no es su llanto habitual. femio no puede evaluar a un bebé.
 
 ## Preguntas frecuentes
 

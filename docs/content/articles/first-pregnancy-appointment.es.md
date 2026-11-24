@@ -12,7 +12,7 @@ secondary_topics:
   - "análisis de sangre al inicio del embarazo"
   - "qué llevar a la cita del embarazo"
 excerpt: "Descubre qué puede ocurrir en la primera cita del embarazo, qué preguntas y controles pueden comentarse, qué llevar y cómo expresar tus necesidades."
-meta_title: "Tu primera cita del embarazo | Femio"
+meta_title: "Tu primera cita del embarazo | femio"
 meta_description: "Descubre qué puede ocurrir en tu primera cita del embarazo, qué datos de salud llevar, qué controles pueden ofrecerte y qué preguntas hacer."
 canonical_url: "https://femioapp.com/es/learn/first-pregnancy-appointment"
 robots_while_draft: "noindex,nofollow"
@@ -24,7 +24,7 @@ open_graph_image_alt: "Persona embarazada hablando con un profesional sanitario 
 written_by: "PENDING"
 medically_reviewed_by: "Dr. Khaled M."
 date_published: "2026-10-30"
-date_modified: "2026-10-30"
+date_modified: "2026-11-24"
 last_reviewed: "2026-10-30"
 next_review_due: "2027-10-30"
 reading_level_ok: false
@@ -114,7 +114,7 @@ Tienes derecho a recibir información clara y a disponer de tiempo para decidir 
 
 El primer día de la última menstruación se usa a menudo para calcular cuántas semanas de embarazo llevas y la fecha probable de parto. Esto puede ser menos preciso si los ciclos son irregulares, si has usado hormonas recientemente o si las fechas no están claras.
 
-La [calculadora de fecha probable de parto de Femio](/es/calculators/due-date) ofrece una estimación. Un profesional sanitario puede revisarla tras estudiar las fechas o una ecografía.
+La [calculadora de fecha probable de parto de femio](/es/calculators/due-date) ofrece una estimación. Un profesional sanitario puede revisarla tras estudiar las fechas o una ecografía.
 
 ## ¿Qué debes llevar?
 

@@ -12,7 +12,7 @@ secondary_topics:
   - "colocación de un DIU después del parto"
   - "espaciar los embarazos"
 excerpt: "Cuándo vuelve la fertilidad después del parto, qué métodos suelen comentarse durante la lactancia y cuándo puede empezar cada uno."
-meta_title: "Anticoncepción tras el parto: lo que conviene saber | Femio"
+meta_title: "Anticoncepción tras el parto: lo que conviene saber | femio"
 meta_description: "Cuándo vuelve la fertilidad tras tener un bebé, qué métodos suelen comentar los clínicos durante la lactancia y cuándo puede empezar cada uno."
 canonical_url: "https://femioapp.com/es/learn/contraception-after-birth"
 robots_while_draft: "noindex,nofollow"
@@ -24,7 +24,7 @@ open_graph_image_alt: "Una mujer hablando con una profesional sanitaria en una c
 written_by: "PENDING"
 medically_reviewed_by: "Dr. Khaled M."
 date_published: "2026-10-30"
-date_modified: "2026-10-30"
+date_modified: "2026-11-24"
 last_reviewed: "2026-10-30"
 next_review_due: "2027-10-30"
 reading_level_ok: false
@@ -62,7 +62,7 @@ La ovulación ocurre antes de que llegue la menstruación. Por eso es posible qu
 
 [ACOG](https://www.acog.org/womens-health/faqs/postpartum-birth-control) aconseja planificarlo durante el embarazo o justo después del parto, en lugar de esperar a la menstruación o a la revisión posnatal.
 
-Las predicciones del ciclo de Femio son estimaciones basadas en los ciclos que ha registrado, y después del parto normalmente no hay ninguno. Femio no es una forma fiable de evitar el embarazo y no te dice cuándo puedes o no puedes concebir.
+Las predicciones del ciclo de femio son estimaciones basadas en los ciclos que ha registrado, y después del parto normalmente no hay ninguno. femio no es una forma fiable de evitar el embarazo y no te dice cuándo puedes o no puedes concebir.
 
 ## Lactancia y fertilidad
 
@@ -131,6 +131,6 @@ A menudo dentro de las 48 horas posteriores al parto, o a partir de unas cuatro 
 
 El momento es más restringido después del parto y durante la lactancia. Un clínico revisará qué aplica a tu caso.
 
-### ¿Puede Femio decirme cuándo vuelvo a ser fértil?
+### ¿Puede femio decirme cuándo vuelvo a ser fértil?
 
-No. Femio predice a partir de los ciclos que ha registrado, y después del parto normalmente no hay ninguno. No es una forma fiable de evitar el embarazo.
+No. femio predice a partir de los ciclos que ha registrado, y después del parto normalmente no hay ninguno. No es una forma fiable de evitar el embarazo.

@@ -12,7 +12,7 @@ secondary_topics:
   - "blood tests for anaemia"
   - "when heavy bleeding is urgent"
 excerpt: "Learn how heavy periods can lead to iron-deficiency anaemia, which symptoms to notice, what tests may be discussed, and when to seek care."
-meta_title: "Heavy Periods and Iron-Deficiency Anaemia | Femio"
+meta_title: "Heavy Periods and Iron-Deficiency Anaemia | femio"
 meta_description: "Learn how heavy periods can lead to low iron and anaemia, which symptoms to track, what blood tests may be used, and when to seek care."
 canonical_url: "https://femioapp.com/en/learn/heavy-periods-iron-deficiency-anaemia"
 robots_while_draft: "noindex,nofollow"
@@ -24,7 +24,7 @@ open_graph_image_alt: "Menstrual flow record beside notes about tiredness and a 
 written_by: "Dr. Khaled M."
 medically_reviewed_by: "Dr. Khaled M."
 date_published: "2026-08-15"
-date_modified: "2026-08-15"
+date_modified: "2026-11-24"
 last_reviewed: "2026-08-04"
 next_review_due: null
 reading_level_ok: true
@@ -138,7 +138,7 @@ Useful questions include:
 - How will we know whether iron stores recover?
 - Which bleeding changes need urgent care?
 
-Femio's [clinician review page](/en/medical-review) explains how our health content is checked. Femio cannot measure blood loss or iron levels.
+femio's [clinician review page](/en/medical-review) explains how our health content is checked. femio cannot measure blood loss or iron levels.
 
 ## When to see a doctor
 

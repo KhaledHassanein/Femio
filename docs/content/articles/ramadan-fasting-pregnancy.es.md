@@ -2,7 +2,7 @@
 title: "¿Puedo ayunar en Ramadán estando embarazada?"
 slug: "ramadan-fasting-pregnancy"
 locale: "es"
-status: "published"
+status: "draft"
 content_type: "pregnancy cluster"
 search_intent: "apoyo para decidir sobre el ayuno en el embarazo"
 primary_query: "ayunar en Ramadán estando embarazada"
@@ -23,11 +23,11 @@ open_graph_description: "La evidencia y sus lagunas, preguntas para tu profesion
 open_graph_image: "PENDING"
 open_graph_image_alt: "Mujer embarazada sentada en silencio a una mesa temprano por la mañana con un vaso de agua"
 written_by: "PENDING"
-medically_reviewed_by: "Dr. Khaled M."
-date_published: "2026-10-30"
-date_modified: "2026-10-30"
-last_reviewed: "2026-10-30"
-next_review_due: "2027-10-30"
+medically_reviewed_by: "PENDING"
+date_published: null
+date_modified: null
+last_reviewed: null
+next_review_due: null
 reading_level_ok: false
 reading_level_method: "Not checked. Translation of the English guide; readability formula applied to the English source only."
 disclaimer_type: "emergency"
@@ -148,9 +148,9 @@ Contacta con tu matrona o con tu médico antes del Ramadán si no tienes claro s
 > - Vómitos que te impiden retener comida o líquidos durante 24 horas, o no orinar en más de 8 horas. [NHS: vómitos y náuseas del embarazo](https://www.nhs.uk/pregnancy/common-symptoms/vomiting-and-morning-sickness/)
 > - Sed nueva o aumentada, orinar con más frecuencia, boca seca o visión borrosa junto con azúcar alto en sangre. [NHS: diabetes gestacional](https://www.nhs.uk/conditions/gestational-diabetes/)
 >
-> Si hay confusión, una convulsión, o si no puedes mantenerte despierta, o no logras contactar con tu equipo, contacta con los servicios de emergencia de tu zona o acude al servicio de urgencias más cercano. No esperes a Femio ni a otro servicio en línea para responder.
+> Si hay confusión, una convulsión, o si no puedes mantenerte despierta, o no logras contactar con tu equipo, contacta con los servicios de emergencia de tu zona o acude al servicio de urgencias más cercano. No esperes a femio ni a otro servicio en línea para responder.
 
-Femio no puede evaluar una emergencia. Lee más sobre las [señales de alarma del embarazo que requieren atención urgente](/es/learn/pregnancy-warning-signs). Consulta cómo se revisa el contenido de salud de Femio en la [página de revisión clínica](/es/medical-review) y en la [política editorial](/es/editorial-policy). Términos como «hipoglucemia» se explican en el [glosario](/es/glossary). Si te sientes en peligro, usa la [página de ayuda inmediata](/es/help-now).
+femio no puede evaluar una emergencia. Lee más sobre las [señales de alarma del embarazo que requieren atención urgente](/es/learn/pregnancy-warning-signs). Consulta cómo se revisa el contenido de salud de femio en la [página de revisión clínica](/es/medical-review) y en la [política editorial](/es/editorial-policy). Términos como «hipoglucemia» se explican en el [glosario](/es/glossary). Si te sientes en peligro, usa la [página de ayuda inmediata](/es/help-now).
 
 ## Preguntas frecuentes
 

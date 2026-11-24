@@ -12,7 +12,7 @@ secondary_topics:
   - "irregular periods and fertility help"
   - "what happens at a fertility appointment"
 excerpt: "Learn when to ask for fertility support, which factors may call for an earlier review, what an initial assessment can involve, and how to prepare."
-meta_title: "When Should You Seek Fertility Help? | Femio"
+meta_title: "When Should You Seek Fertility Help? | femio"
 meta_description: "Learn when to request fertility support, which concerns may need an earlier review, what an initial assessment can include, and how to prepare."
 canonical_url: "https://femioapp.com/en/learn/when-to-seek-fertility-help"
 robots_while_draft: "noindex,nofollow"
@@ -24,7 +24,7 @@ open_graph_image_alt: "Couple reviewing a cycle record before a fertility appoin
 written_by: "Dr. Khaled M."
 medically_reviewed_by: "Dr. Khaled M."
 date_published: "2026-08-15"
-date_modified: "2026-08-15"
+date_modified: "2026-11-24"
 last_reviewed: "2026-08-04"
 next_review_due: null
 reading_level_ok: true

@@ -12,7 +12,7 @@ secondary_topics:
   - "échographie dans le SOPK"
   - "affections proches du SOPK"
 excerpt: "Découvrez comment les cliniciens évaluent un SOPK possible, quels critères et contrôles peuvent être utilisés, quelles autres causes sont examinées, et comment vous préparer."
-meta_title: "Comment évalue-t-on le SOPK ? Critères et contrôles | Femio"
+meta_title: "Comment évalue-t-on le SOPK ? Critères et contrôles | femio"
 meta_description: "Découvrez comment les cliniciens évaluent un SOPK possible : historique du cycle, signes d'androgènes, analyses de sang, échographie et autres causes."
 canonical_url: "https://femioapp.com/fr/learn/how-pcos-is-assessed"
 robots_while_draft: "noindex,nofollow"
@@ -24,7 +24,7 @@ open_graph_image_alt: "Clinicienne examinant l'historique menstruel et les résu
 written_by: "PENDING"
 medically_reviewed_by: "Dr. Khaled M."
 date_published: "2026-10-30"
-date_modified: "2026-10-30"
+date_modified: "2026-11-24"
 last_reviewed: "2026-10-30"
 next_review_due: "2027-10-30"
 reading_level_ok: false
@@ -141,7 +141,7 @@ Parmi les questions utiles :
 - Quels contrôles de santé à long terme me concernent ?
 - Quand reverrons-nous les résultats ?
 
-Si la fertilité est un objectif, lisez [SOPK et fertilité](/fr/learn/pcos-and-fertility) et mentionnez votre calendrier. Le [processus de relecture clinique](/fr/medical-review) de Femio explique comment nos contenus de santé sont vérifiés.
+Si la fertilité est un objectif, lisez [SOPK et fertilité](/fr/learn/pcos-and-fertility) et mentionnez votre calendrier. Le [processus de relecture clinique](/fr/medical-review) de femio explique comment nos contenus de santé sont vérifiés.
 
 ## Quand consulter
 

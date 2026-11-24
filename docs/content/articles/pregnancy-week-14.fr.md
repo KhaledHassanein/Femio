@@ -10,7 +10,7 @@ secondary_topics:
   - "retour de l'appétit pendant la grossesse"
   - "colostrum au deuxième trimestre"
 excerpt: "L'appétit revient souvent à la semaine 14, et c'est désormais le placenta qui assure l'essentiel du travail. Certaines femmes remarquent les premières traces de colostrum."
-meta_title: "14 semaines de grossesse : le retour de l'appétit | Femio"
+meta_title: "14 semaines de grossesse : le retour de l'appétit | femio"
 meta_description: "L'énergie et l'appétit reviennent souvent vers la semaine 14. Ce que fait le placenta, pourquoi le colostrum peut apparaître, et combien manger."
 canonical_url: "https://femioapp.com/fr/learn/pregnancy-week-14"
 robots_while_draft: "noindex,nofollow"
@@ -22,7 +22,7 @@ open_graph_image_alt: "Une assiette de fruits et de yaourt sur une table de cuis
 written_by: "PENDING"
 medically_reviewed_by: "Dr. Khaled M."
 date_published: "2026-10-30"
-date_modified: "2026-10-30"
+date_modified: "2026-11-24"
 last_reviewed: "2026-10-30"
 next_review_due: "2027-10-30"
 reading_level_ok: false
@@ -90,7 +90,7 @@ Oubliez « manger pour deux » et modifiez plutôt ce qui est à portée de main
 
 Signalez tout saignement, toute douleur intense, toute fièvre, une sensation de brûlure en urinant, ou un mal de tête accompagné de troubles de la vue. [Les signes d'alerte pendant la grossesse](/fr/learn/pregnancy-warning-signs) donnent la liste complète.
 
-> **Consultez sans attendre :** Contactez les services d'urgence de votre région ou rendez-vous au service des urgences le plus proche si vous avez des saignements abondants, une douleur abdominale intense ou d'un seul côté, un mal de tête intense accompagné de troubles de la vue, un gonflement soudain du visage ou des mains, de la fièvre, une perte de liquide par le vagin, une douleur thoracique, des difficultés respiratoires, un malaise ou une crise convulsive. Femio ne peut pas évaluer une grossesse.
+> **Consultez sans attendre :** Contactez les services d'urgence de votre région ou rendez-vous au service des urgences le plus proche si vous avez des saignements abondants, une douleur abdominale intense ou d'un seul côté, un mal de tête intense accompagné de troubles de la vue, un gonflement soudain du visage ou des mains, de la fièvre, une perte de liquide par le vagin, une douleur thoracique, des difficultés respiratoires, un malaise ou une crise convulsive. femio ne peut pas évaluer une grossesse.
 
 ## Questions fréquentes
 

@@ -12,7 +12,7 @@ secondary_topics:
   - "opciones de atención para el SOP"
   - "SOP y ciclos irregulares"
 excerpt: "Conoce qué es el SOP, las señales que puede causar, cómo lo valoran los profesionales y las opciones de atención que pueden comentarte."
-meta_title: "¿Qué es el SOP? Señales, valoración y atención | Femio"
+meta_title: "¿Qué es el SOP? Señales, valoración y atención | femio"
 meta_description: "Conoce qué es el SOP, sus señales más comunes, cómo lo valoran los profesionales, las opciones de atención y la salud a lo largo del tiempo."
 canonical_url: "https://femioapp.com/es/conditions/pcos"
 robots_while_draft: "noindex,nofollow"
@@ -24,7 +24,7 @@ open_graph_image_alt: "Ilustración que muestra las señales habituales del SOP 
 written_by: "PENDING"
 medically_reviewed_by: "Dr. Khaled M."
 date_published: "2026-10-30"
-date_modified: "2026-10-30"
+date_modified: "2026-11-24"
 last_reviewed: "2026-10-30"
 next_review_due: "2027-10-30"
 reading_level_ok: false
@@ -136,11 +136,11 @@ Escribe las preguntas antes de una cita. Pregunta qué cree el profesional que c
 
 Evita compararte con imágenes de antes y después o con planes estrictos en internet. El SOP varía mucho, y un plan que le sirve a otra persona puede no ajustarse a tu salud, tu cultura, tu presupuesto o tus objetivos.
 
-## Cómo registrar el SOP en Femio
+## Cómo registrar el SOP en femio
 
 Registra las fechas de inicio y fin de la menstruación, el flujo, los síntomas y notas breves. El contexto útil puede incluir cambios de acné, vello no deseado, cambios del cabello del cuero cabelludo, sueño, estado de ánimo o cuándo los síntomas afectan a la vida diaria. Tú decides qué anotar.
 
-Femio puede mostrar las estimaciones del ciclo como rangos y crear un resumen para la visita a partir de tus registros. Un registro puede mostrar el momento y los patrones, pero no puede confirmar el SOP ni elegir la atención clínica.
+femio puede mostrar las estimaciones del ciclo como rangos y crear un resumen para la visita a partir de tus registros. Un registro puede mostrar el momento y los patrones, pero no puede confirmar el SOP ni elegir la atención clínica.
 
 Aprende más sobre [cómo funciona el ciclo menstrual](/es/learn/menstrual-cycle-basics). Las guías relacionadas cubren [señales comunes del SOP](/es/learn/pcos-signs), [cómo se valora el SOP](/es/learn/how-pcos-is-assessed) y [SOP y fertilidad](/es/learn/pcos-and-fertility).
 

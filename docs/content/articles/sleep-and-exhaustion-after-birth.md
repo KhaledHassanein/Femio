@@ -24,7 +24,7 @@ open_graph_image_alt: "A tired parent resting on a sofa in daylight while the ba
 written_by: "PENDING"
 medically_reviewed_by: "Dr. Khaled M."
 date_published: "2026-08-19"
-date_modified: "2026-08-19"
+date_modified: "2026-11-24"
 last_reviewed: "2026-10-30"
 next_review_due: "2027-10-30"
 reading_level_ok: true
@@ -110,11 +110,11 @@ Many people find the tiredness peaks again around returning to work, when the da
 
 [NICE's postnatal guidance](https://www.nice.org.uk/guidance/ng194) expects wellbeing to be asked about at postnatal contacts, so use them. Bring it up at [your six-week check](/en/learn/six-week-postnatal-check) even if it feels like complaining about something ordinary.
 
-## What Femio can hold
+## What femio can hold
 
 Logging sleep, mood and energy for a week gives you a real picture instead of an impression. "Longest stretch was 90 minutes, five nights running, and I am breathless on the stairs" is a sentence that gets a blood test.
 
-Femio does not diagnose anaemia, thyroid problems or anything else. It holds what you noticed so someone qualified can act on it. See also [the first six weeks after birth](/en/learn/postpartum-recovery-first-six-weeks).
+femio does not diagnose anaemia, thyroid problems or anything else. It holds what you noticed so someone qualified can act on it. See also [the first six weeks after birth](/en/learn/postpartum-recovery-first-six-weeks).
 
 ## When to see a doctor
 

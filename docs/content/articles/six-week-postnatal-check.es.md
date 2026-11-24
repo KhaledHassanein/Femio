@@ -12,7 +12,7 @@ secondary_topics:
   - "preparación de la cita posparto"
   - "revisión materna de las seis semanas"
 excerpt: "Para qué sirve la revisión posparto, qué suele ocurrir y cómo lograr que tu propia salud esté en la agenda, y no solo la del bebé."
-meta_title: "Revisión de las seis semanas tras el parto | Femio"
+meta_title: "Revisión de las seis semanas tras el parto | femio"
 meta_description: "Qué ocurre en la revisión posparto de las seis semanas, qué plantear y cómo hacer que la cita también hable de tu salud, no solo de la del bebé."
 canonical_url: "https://femioapp.com/es/learn/six-week-postnatal-check"
 robots_while_draft: "noindex,nofollow"
@@ -24,7 +24,7 @@ open_graph_image_alt: "Una mujer con notas en una cita posparto con su médico"
 written_by: "PENDING"
 medically_reviewed_by: "Dr. Khaled M."
 date_published: "2026-10-30"
-date_modified: "2026-10-30"
+date_modified: "2026-11-24"
 last_reviewed: "2026-10-30"
 next_review_due: "2027-10-30"
 reading_level_ok: false
@@ -100,7 +100,7 @@ La [guía de NICE sobre atención posnatal](https://www.nice.org.uk/guidance/ng1
 
 Escribe las tres cosas que más quieres que te respondan, por orden, y dilas al principio. Las citas se desvían, y el último punto de una lista suele no llegar a tratarse.
 
-Lleva notas sobre síntomas, sangrado, estado de ánimo y sueño. Si lo has registrado en Femio, llévalo. Un registro de tres semanas difíciles es más convincente que intentar recordar un mal martes.
+Lleva notas sobre síntomas, sangrado, estado de ánimo y sueño. Si lo has registrado en femio, llévalo. Un registro de tres semanas difíciles es más convincente que intentar recordar un mal martes.
 
 Lleva a alguien contigo si puedes, sobre todo para una conversación difícil. Y pide la cita para un momento en que el bebé suela estar tranquilo, o lleva a alguien que pueda sostenerlo.
 
@@ -118,7 +118,7 @@ Las seis semanas no son el final de la recuperación. La fuerza del suelo pélvi
 
 ## Cuándo consultar
 
-No esperes a la revisión de las seis semanas si el sangrado aumenta, si una herida duele más o está roja, si tienes fiebre, dolor o hinchazón en la pantorrilla, dolor de cabeza intenso, un estado de ánimo bajo que dura más de dos semanas, o cualquier pensamiento de hacerte daño a ti o al bebé. Busca atención urgente ante las señales de emergencia de la guía de señales de alarma, y usa la página global [Pedir ayuda ahora](/es/help-now) de Femio si sientes que no puedes mantenerte a salvo.
+No esperes a la revisión de las seis semanas si el sangrado aumenta, si una herida duele más o está roja, si tienes fiebre, dolor o hinchazón en la pantorrilla, dolor de cabeza intenso, un estado de ánimo bajo que dura más de dos semanas, o cualquier pensamiento de hacerte daño a ti o al bebé. Busca atención urgente ante las señales de emergencia de la guía de señales de alarma, y usa la página global [Pedir ayuda ahora](/es/help-now) de femio si sientes que no puedes mantenerte a salvo.
 
 Pide una cita anticipada si tuviste un parto complicado, presión arterial elevada, diabetes gestacional, pérdida de sangre abundante o un problema de salud mental previo.
 

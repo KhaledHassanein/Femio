@@ -12,7 +12,7 @@ secondary_topics:
   - "premenstrual mood changes"
   - "tracking PMS and PMDD"
 excerpt: "Learn how PMS and PMDD differ, which symptom patterns matter, how clinicians assess them, and when to seek urgent support."
-meta_title: "PMS vs PMDD: Symptoms and Differences | Femio"
+meta_title: "PMS vs PMDD: Symptoms and Differences | femio"
 meta_description: "Compare PMS and PMDD, learn which symptom patterns matter, what clinical assessment can involve, and when to seek support."
 canonical_url: "https://femioapp.com/en/conditions/pms-pmdd"
 robots_while_draft: "noindex,nofollow"
@@ -24,7 +24,7 @@ open_graph_image_alt: "Cycle timeline showing when PMS and PMDD symptoms may occ
 written_by: "PENDING"
 medically_reviewed_by: "Dr. Khaled M."
 date_published: "2026-10-30"
-date_modified: "2026-10-30"
+date_modified: "2026-11-24"
 last_reviewed: "2026-10-30"
 next_review_due: "2027-10-30"
 reading_level_ok: true
@@ -154,7 +154,7 @@ Book an appointment if premenstrual symptoms disrupt work, school, sleep, relati
 
 Bring your daily record if you have one. You do not need to wait several cycles before asking for help when symptoms are severe.
 
-> **Seek care now:** If you may harm yourself or someone else, feel unable to stay safe, or are in immediate danger, contact local emergency services or go to the nearest emergency department. Femio's global [Need help now](/en/help-now) page can help you find the next safe step. Do not wait for a period to start or for the feeling to pass.
+> **Seek care now:** If you may harm yourself or someone else, feel unable to stay safe, or are in immediate danger, contact local emergency services or go to the nearest emergency department. femio's global [Need help now](/en/help-now) page can help you find the next safe step. Do not wait for a period to start or for the feeling to pass.
 
 ## Living with premenstrual symptoms
 
@@ -164,13 +164,13 @@ Reduce avoidable conflict by naming the pattern without dismissing the feeling. 
 
 If tracking increases anxiety, record fewer items or pause. Your safety and well-being matter more than a complete chart.
 
-## How to track PMS and PMDD in Femio
+## How to track PMS and PMDD in femio
 
-Log symptoms every day, not only before a period. Add severity and a short note about daily impact. Femio can place those entries beside period dates and create a summary you choose to share.
+Log symptoms every day, not only before a period. Add severity and a short note about daily impact. femio can place those entries beside period dates and create a summary you choose to share.
 
-Femio cannot confirm PMS or PMDD from a pattern. A qualified clinician reviews timing, severity, other possible causes, and your wider health.
+femio cannot confirm PMS or PMDD from a pattern. A qualified clinician reviews timing, severity, other possible causes, and your wider health.
 
-Use the guide to [tracking PMS and PMDD symptoms](/en/learn/track-pms-pmdd-symptoms), or read about [painful periods](/en/conditions/painful-periods). You can also read how Femio's [clinician review process](/en/medical-review) works.
+Use the guide to [tracking PMS and PMDD symptoms](/en/learn/track-pms-pmdd-symptoms), or read about [painful periods](/en/conditions/painful-periods). You can also read how femio's [clinician review process](/en/medical-review) works.
 
 ## Frequently asked questions
 

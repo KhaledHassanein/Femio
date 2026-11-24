@@ -22,7 +22,7 @@ open_graph_image_alt: "Dessin au trait simple d'une bande souple aux bords estom
 written_by: "PENDING"
 medically_reviewed_by: "Dr. Khaled M."
 date_published: "2026-10-30"
-date_modified: "2026-10-30"
+date_modified: "2026-11-24"
 last_reviewed: "2026-10-30"
 next_review_due: "2027-10-30"
 reading_level_ok: false
@@ -65,7 +65,7 @@ Une application établit son estimation à partir des cycles que vous avez déj�
 
 À votre âge, les cycles sont censés varier. Chez les adolescentes, un intervalle d'environ 21 à 45 jours entre deux règles entre dans la norme [ACOG]. Une large fourchette, c'est l'application qui vous dit la vérité sur ce qu'elle sait.
 
-C'est pourquoi Femio affiche une plage plutôt qu'une date, et pourquoi cette plage est plus large pour les utilisateurs plus jeunes et ne se resserre que lorsque votre propre relevé le permet. C'est aussi pourquoi il n'y a ni compte à rebours ni message « vous êtes en retard » nulle part dans l'application pour vous. « En retard » n'a de sens que par rapport à une date certaine, et il n'existe pas ici de date certaine par rapport à laquelle être en retard.
+C'est pourquoi femio affiche une plage plutôt qu'une date, et pourquoi cette plage est plus large pour les utilisateurs plus jeunes et ne se resserre que lorsque votre propre relevé le permet. C'est aussi pourquoi il n'y a ni compte à rebours ni message « vous êtes en retard » nulle part dans l'application pour vous. « En retard » n'a de sens que par rapport à une date certaine, et il n'existe pas ici de date certaine par rapport à laquelle être en retard.
 
 Si vos règles n'arrivent pas dans la fourchette, l'application n'est pas défectueuse, et vous non plus. Lisez [mes règles sont-elles normales ?](/fr/learn/is-my-period-normal) pour savoir à quoi ressemblent réellement les premières années.
 

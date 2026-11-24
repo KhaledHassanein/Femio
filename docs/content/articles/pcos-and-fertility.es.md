@@ -12,7 +12,7 @@ secondary_topics:
   - "evaluación de la fertilidad en el SOP"
   - "cuándo buscar ayuda para la fertilidad"
 excerpt: "Descubre cómo puede afectar el SOP a la ovulación y a la fertilidad, qué registrar mientras intentas concebir y cuándo puede ayudar una revisión clínica de la fertilidad."
-meta_title: "SOP y fertilidad: ovulación y apoyo | Femio"
+meta_title: "SOP y fertilidad: ovulación y apoyo | femio"
 meta_description: "Descubre cómo el SOP puede afectar a la ovulación y a la fertilidad, qué registrar al intentar concebir y cuándo pedir a un profesional sanitario apoyo."
 canonical_url: "https://femioapp.com/es/learn/pcos-and-fertility"
 robots_while_draft: "noindex,nofollow"
@@ -24,7 +24,7 @@ open_graph_image_alt: "Persona revisando un calendario de ciclos mientras planif
 written_by: "PENDING"
 medically_reviewed_by: "Dr. Khaled M."
 date_published: "2026-10-30"
-date_modified: "2026-10-30"
+date_modified: "2026-11-24"
 last_reviewed: "2026-10-30"
 next_review_due: "2027-10-30"
 reading_level_ok: false

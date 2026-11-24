@@ -12,7 +12,7 @@ secondary_topics:
   - "ecografía en el SOP"
   - "afecciones parecidas al SOP"
 excerpt: "Descubre cómo valoran los profesionales el posible SOP, qué criterios y controles pueden usarse, qué otras causas se consideran y cómo prepararte."
-meta_title: "Cómo se valora el SOP: criterios y pruebas | Femio"
+meta_title: "Cómo se valora el SOP: criterios y pruebas | femio"
 meta_description: "Descubre cómo se valora un posible SOP: historial del ciclo, signos de andrógenos, análisis de sangre, ecografía y búsqueda de otras causas."
 canonical_url: "https://femioapp.com/es/learn/how-pcos-is-assessed"
 robots_while_draft: "noindex,nofollow"
@@ -24,7 +24,7 @@ open_graph_image_alt: "Profesional sanitario revisando el historial menstrual y 
 written_by: "PENDING"
 medically_reviewed_by: "Dr. Khaled M."
 date_published: "2026-10-30"
-date_modified: "2026-10-30"
+date_modified: "2026-11-24"
 last_reviewed: "2026-10-30"
 next_review_due: "2027-10-30"
 reading_level_ok: false
@@ -141,7 +141,7 @@ Preguntas útiles:
 - ¿Qué controles de salud a largo plazo son relevantes para mí?
 - ¿Cuándo revisaremos los resultados?
 
-Si la fertilidad es un objetivo, lee [el SOP y la fertilidad](/es/learn/pcos-and-fertility) y menciona tu calendario. El [proceso de revisión clínica](/es/medical-review) de Femio explica cómo se revisa nuestro contenido de salud.
+Si la fertilidad es un objetivo, lee [el SOP y la fertilidad](/es/learn/pcos-and-fertility) y menciona tu calendario. El [proceso de revisión clínica](/es/medical-review) de femio explica cómo se revisa nuestro contenido de salud.
 
 ## Cuándo consultar
 

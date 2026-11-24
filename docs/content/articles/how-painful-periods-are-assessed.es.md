@@ -12,7 +12,7 @@ secondary_topics:
   - "ecografía pélvica para el dolor menstrual"
   - "cuándo el dolor menstrual necesita atención"
 excerpt: "Descubre cómo los profesionales sanitarios evalúan los dolores menstruales: con tu historial de síntomas, una exploración o una imagen cuando es útil, y comprobando posibles causas de fondo."
-meta_title: "¿Cómo se evalúan los dolores menstruales? | Femio"
+meta_title: "¿Cómo se evalúan los dolores menstruales? | femio"
 meta_description: "Cómo evalúan los profesionales el dolor menstrual, qué preguntas y pruebas pueden ser útiles, qué causas consideran y cómo prepararte para la consulta."
 canonical_url: "https://femioapp.com/es/learn/how-painful-periods-are-assessed"
 robots_while_draft: "noindex,nofollow"
@@ -24,7 +24,7 @@ open_graph_image_alt: "Profesional sanitaria revisando un diario de dolor menstr
 written_by: "PENDING"
 medically_reviewed_by: "Dr. Khaled M."
 date_published: "2026-10-30"
-date_modified: "2026-10-30"
+date_modified: "2026-11-24"
 last_reviewed: "2026-10-30"
 next_review_due: "2027-10-30"
 reading_level_ok: false
@@ -80,7 +80,7 @@ El dolor menstrual secundario tiene detrás otro problema de salud. El profesion
 
 Entre las posibles causas están la [endometriosis](/es/conditions/endometriosis), la adenomiosis, los miomas, los quistes de ovario, una infección pélvica o una diferencia de estructura presente desde el nacimiento. Los problemas intestinales, de vejiga, musculares y nerviosos también pueden causar dolor pélvico.
 
-La [guía de la NHS sobre problemas menstruales](https://www.nhs.uk/conditions/periods/period-problems/) describe los problemas más frecuentes y cuándo conviene pedir consejo. Lee la [guía principal de Femio sobre el dolor menstrual](/es/conditions/painful-periods) si quieres una visión más amplia.
+La [guía de la NHS sobre problemas menstruales](https://www.nhs.uk/conditions/periods/period-problems/) describe los problemas más frecuentes y cuándo conviene pedir consejo. Lee la [guía principal de femio sobre el dolor menstrual](/es/conditions/painful-periods) si quieres una visión más amplia.
 
 ## ¿Hace falta siempre una exploración física?
 

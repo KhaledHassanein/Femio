@@ -24,7 +24,7 @@ open_graph_image_alt: "A woman with notes at a postnatal appointment with her do
 written_by: "PENDING"
 medically_reviewed_by: "Dr. Khaled M."
 date_published: "2026-08-19"
-date_modified: "2026-08-19"
+date_modified: "2026-11-24"
 last_reviewed: "2026-10-30"
 next_review_due: "2027-10-30"
 reading_level_ok: true
@@ -100,7 +100,7 @@ Bring these up yourself. They are the most commonly missed:
 
 Write three things you most want answered, in order, and say them at the start. Appointments drift, and the last item on a list often does not get reached.
 
-Bring notes on symptoms, bleeding, mood and sleep. If you have logged them in Femio, bring that. A record of three bad weeks is more persuasive than trying to remember a bad Tuesday.
+Bring notes on symptoms, bleeding, mood and sleep. If you have logged them in femio, bring that. A record of three bad weeks is more persuasive than trying to remember a bad Tuesday.
 
 Take someone with you if you can, especially for a difficult conversation. And arrange the appointment for a time when the baby is usually settled, or take someone who can hold them.
 
@@ -118,7 +118,7 @@ Six weeks is not the end of recovery. Pelvic floor strength, scar comfort, sleep
 
 ## When to see a doctor
 
-Do not wait for the six-week check for bleeding that is getting heavier, a wound that is more painful or red, a fever, calf pain or swelling, a severe headache, low mood lasting beyond two weeks, or any thought of harming yourself or your baby. Seek urgent care for the emergency signs in the warning-signs guide, and use Femio's global [Need help now](/en/help-now) page if you feel unable to stay safe.
+Do not wait for the six-week check for bleeding that is getting heavier, a wound that is more painful or red, a fever, calf pain or swelling, a severe headache, low mood lasting beyond two weeks, or any thought of harming yourself or your baby. Seek urgent care for the emergency signs in the warning-signs guide, and use femio's global [Need help now](/en/help-now) page if you feel unable to stay safe.
 
 Ask for an earlier appointment if you had a complicated birth, raised blood pressure, gestational diabetes, heavy blood loss, or a previous mental health condition.
 

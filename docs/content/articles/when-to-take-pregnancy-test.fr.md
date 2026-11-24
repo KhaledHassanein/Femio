@@ -12,7 +12,7 @@ secondary_topics:
   - "test de grossesse positif : les étapes suivantes"
   - "fiabilité des tests de grossesse à domicile"
 excerpt: "Découvrez quand un test de grossesse à domicile est le plus utile, pourquoi un résultat précoce peut être négatif, comment suivre les instructions, et quoi faire ensuite."
-meta_title: "Quand faire un test de grossesse ? | Femio"
+meta_title: "Quand faire un test de grossesse ? | femio"
 meta_description: "Quand utiliser un test de grossesse à domicile, pourquoi un test trop précoce peut être négatif, comment lire le résultat et quand demander un avis médical."
 canonical_url: "https://femioapp.com/fr/learn/when-to-take-pregnancy-test"
 robots_while_draft: "noindex,nofollow"
@@ -24,7 +24,7 @@ open_graph_image_alt: "Test de grossesse à domicile à côté d'un calendrier m
 written_by: "PENDING"
 medically_reviewed_by: "Dr. Khaled M."
 date_published: "2026-10-30"
-date_modified: "2026-10-30"
+date_modified: "2026-11-24"
 last_reviewed: "2026-10-30"
 next_review_due: "2027-10-30"
 reading_level_ok: false
@@ -68,7 +68,7 @@ Vérifiez la notice, car les marques diffèrent. En général, faire le test à 
 
 Si les cycles sont irréguliers, il peut être difficile de déterminer la date attendue des règles. Pensez à la date du rapport sexuel susceptible d'avoir conduit à une grossesse, et suivez les instructions du test ou le conseil d'un pharmacien ou d'un professionnel de santé.
 
-Les estimations de date de Femio ne peuvent pas savoir quand l'ovulation ou la conception ont eu lieu. Ne vous fiez pas à une étiquette « en retard » d'une application comme preuve de grossesse.
+Les estimations de date de femio ne peuvent pas savoir quand l'ovulation ou la conception ont eu lieu. Ne vous fiez pas à une étiquette « en retard » d'une application comme preuve de grossesse.
 
 ## Le moment de la journée compte-t-il ?
 
@@ -82,7 +82,7 @@ Un résultat positif à domicile signifie en général une grossesse lorsque le 
 
 Passez en revue tous vos médicaments et compléments avec un professionnel de santé ou un pharmacien. Ne cessez pas brusquement un médicament prescrit. Organisez des soins plus rapidement si vous avez une maladie chronique ou un médicament qui pourrait nécessiter une révision rapide.
 
-Lisez [les bases de la grossesse](/fr/learn/pregnancy-basics). Puis renseignez-vous sur ce qui peut se passer lors de la [première consultation de grossesse](/fr/learn/first-pregnancy-appointment). Le [calculateur de date prévue d'accouchement](/fr/calculators/due-date) de Femio donne une estimation, non une date certaine.
+Lisez [les bases de la grossesse](/fr/learn/pregnancy-basics). Puis renseignez-vous sur ce qui peut se passer lors de la [première consultation de grossesse](/fr/learn/first-pregnancy-appointment). Le [calculateur de date prévue d'accouchement](/fr/calculators/due-date) de femio donne une estimation, non une date certaine.
 
 ## Que signifie un résultat négatif ?
 
@@ -130,6 +130,6 @@ Cela peut aider lors d'un test précoce. Suivez les indications de votre produit
 
 Pas toujours. Refaites le test après l'intervalle conseillé si une grossesse est encore possible.
 
-### Femio peut-il confirmer une grossesse ?
+### femio peut-il confirmer une grossesse ?
 
-Non. Femio organise des dates et fait des estimations ; il ne peut pas confirmer une grossesse.
+Non. femio organise des dates et fait des estimations ; il ne peut pas confirmer une grossesse.

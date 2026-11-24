@@ -24,7 +24,7 @@ open_graph_image_alt: "لوحة femio تعرض أدوات خاصة لتتبّع 
 written_by: "PENDING"
 medically_reviewed_by: "Dr. Khaled M."
 date_published: "2026-10-30"
-date_modified: "2026-10-30"
+date_modified: "2026-11-24"
 last_reviewed: "2026-10-30"
 next_review_due: "2027-10-30"
 reading_level_ok: false
@@ -60,7 +60,7 @@ PUBLICATION GATE — remove this comment only after completion:
 6. Do not publish until Payload's review gate allows it.
 
 Suggested canonical URL: https://femioapp.com/ar/learn/meet-femio
-Suggested social description: Meet Femio, a private and practical way to track cycles and symptoms, explore free tools, and prepare for better health conversations.
+Suggested social description: Meet femio, a private and practical way to track cycles and symptoms, explore free tools, and prepare for better health conversations.
 -->
 
 # تعرّفي إلى femio: رفيقكِ في تتبّع صحة المرأة

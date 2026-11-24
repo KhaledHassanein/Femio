@@ -12,7 +12,7 @@ secondary_topics:
   - "endometriosis surgery and fertility"
   - "when to seek fertility help"
 excerpt: "Learn how endometriosis may affect fertility, what a clinical review may include, and how care choices can reflect your conception goals."
-meta_title: "Endometriosis and Fertility: What to Know | Femio"
+meta_title: "Endometriosis and Fertility: What to Know | femio"
 meta_description: "Learn how endometriosis may affect fertility, what a fertility review can include, and how to discuss timing, surgery, and support."
 canonical_url: "https://femioapp.com/en/learn/endometriosis-and-fertility"
 robots_while_draft: "noindex,nofollow"
@@ -24,7 +24,7 @@ open_graph_image_alt: "Person discussing endometriosis and fertility goals with 
 written_by: "Dr. Khaled M."
 medically_reviewed_by: "Dr. Khaled M."
 date_published: "2026-08-15"
-date_modified: "2026-08-15"
+date_modified: "2026-11-24"
 last_reviewed: "2026-08-04"
 next_review_due: null
 reading_level_ok: true

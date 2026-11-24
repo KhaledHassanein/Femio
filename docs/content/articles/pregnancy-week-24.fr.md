@@ -22,7 +22,7 @@ open_graph_image_alt: "Un couloir d’hôpital avec une enseigne de néonatologi
 written_by: "PENDING"
 medically_reviewed_by: "Dr. Khaled M."
 date_published: "2026-10-30"
-date_modified: "2026-10-30"
+date_modified: "2026-11-24"
 last_reviewed: "2026-10-30"
 next_review_due: "2027-10-30"
 reading_level_ok: false
@@ -88,7 +88,7 @@ Cette semaine, enregistrez dans votre téléphone le numéro de la maternité, j
 
 Contactez votre service de maternité le jour même pour toute diminution ou tout changement des mouvements. Appelez pour des contractions régulières, une perte de liquide, une lombalgie basse avec pression, des saignements, ou de la fièvre. [Les signes d’alerte pendant la grossesse](/fr/learn/pregnancy-warning-signs) donne la liste complète.
 
-> **Consultez sans attendre :** Contactez les services d’urgence de votre région ou rendez-vous au service des urgences le plus proche si vous avez des saignements abondants, une douleur abdominale intense ou unilatérale, un mal de tête intense accompagné de troubles de la vision, un gonflement soudain du visage ou des mains, de la fièvre, une perte de liquide par le vagin, une douleur thoracique, une difficulté à respirer, un malaise ou une crise convulsive. Contactez votre service de maternité le jour même pour toute diminution de la séquence habituelle des mouvements de votre bébé. Femio ne peut pas évaluer une grossesse.
+> **Consultez sans attendre :** Contactez les services d’urgence de votre région ou rendez-vous au service des urgences le plus proche si vous avez des saignements abondants, une douleur abdominale intense ou unilatérale, un mal de tête intense accompagné de troubles de la vision, un gonflement soudain du visage ou des mains, de la fièvre, une perte de liquide par le vagin, une douleur thoracique, une difficulté à respirer, un malaise ou une crise convulsive. Contactez votre service de maternité le jour même pour toute diminution de la séquence habituelle des mouvements de votre bébé. femio ne peut pas évaluer une grossesse.
 
 ## Questions fréquentes
 

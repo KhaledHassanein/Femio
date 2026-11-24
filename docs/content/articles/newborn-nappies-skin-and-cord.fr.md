@@ -23,7 +23,7 @@ open_graph_image_alt: "Un nouveau-né allongé sur une table à langer pendant l
 written_by: "PENDING"
 medically_reviewed_by: "Dr. Khaled M."
 date_published: "2026-10-30"
-date_modified: "2026-10-30"
+date_modified: "2026-11-24"
 last_reviewed: "2026-10-30"
 next_review_due: "2027-10-30"
 reading_level_ok: false
@@ -109,7 +109,7 @@ Demandez des soins urgents pour tout signe de la boîte ci-dessous, ainsi que po
 
 Demandez un avis le jour même ou dans la semaine pour un moignon qui sent mauvais, qui fuit ou dont la peau est rouge autour, pour un érythème fessier qui s'étend ou ne s'améliore pas, pour des selles dures ou du sang dans la couche, et pour toute éruption que vous ne pouvez pas expliquer. [Votre nouveau-né pendant les deux premières semaines](/fr/learn/newborn-first-two-weeks) décrit ce qui est habituel, et [les premiers contrôles et vaccinations de votre bébé](/fr/learn/newborn-checks-and-vaccinations) indique quand un professionnel de santé examinera votre bébé de toute façon.
 
-> **Consultez sans attendre :** Contactez les services d'urgence de votre région ou rendez-vous au service des urgences le plus proche si un bébé de moins de trois mois a une température de 38 °C ou plus, respire vite, a du mal à respirer ou gémit à chaque expiration, a la peau bleue, grise, pâle ou marbrée, est mou, est difficile à réveiller, refuse les tétées, a beaucoup moins de couches mouillées ou aucune depuis 12 heures, a une fontanelle bombée ou creusée, a une éruption qui ne s'efface pas à la pression, ou a une crise convulsive. Femio ne peut pas évaluer un bébé.
+> **Consultez sans attendre :** Contactez les services d'urgence de votre région ou rendez-vous au service des urgences le plus proche si un bébé de moins de trois mois a une température de 38 °C ou plus, respire vite, a du mal à respirer ou gémit à chaque expiration, a la peau bleue, grise, pâle ou marbrée, est mou, est difficile à réveiller, refuse les tétées, a beaucoup moins de couches mouillées ou aucune depuis 12 heures, a une fontanelle bombée ou creusée, a une éruption qui ne s'efface pas à la pression, ou a une crise convulsive. femio ne peut pas évaluer un bébé.
 
 ## Questions fréquentes
 

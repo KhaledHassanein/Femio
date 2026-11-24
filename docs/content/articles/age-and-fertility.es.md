@@ -24,7 +24,7 @@ open_graph_image_alt: "Una mujer de unos treinta y tantos años mirando un calen
 written_by: "PENDING"
 medically_reviewed_by: "Dr. Khaled M."
 date_published: "2026-10-30"
-date_modified: "2026-10-30"
+date_modified: "2026-11-24"
 last_reviewed: "2026-10-30"
 next_review_due: "2027-10-30"
 reading_level_ok: false
@@ -78,9 +78,9 @@ Dos personas de la misma edad pueden estar en situaciones muy distintas, y nada 
 
 ## Lo que la página no hará
 
-No te dirá tus probabilidades. Femio no calcula la probabilidad personal de concebir, y ninguna aplicación honesta puede hacerlo con la información que maneja.
+No te dirá tus probabilidades. femio no calcula la probabilidad personal de concebir, y ninguna aplicación honesta puede hacerlo con la información que maneja.
 
-Una cifra asociada a *ti* sería una predicción sobre una persona hecha a partir de datos de grupo, la misma razón por la que Femio muestra una ventana y no una fecha para la menstruación, y se niega a emitir un veredicto con una lectura de temperatura hecha en casa. Lo que sí puede hacer es guardar tus ciclos y tus registros para que el profesional sanitario que te examine tenga información real y no solo recuerdos.
+Una cifra asociada a *ti* sería una predicción sobre una persona hecha a partir de datos de grupo, la misma razón por la que femio muestra una ventana y no una fecha para la menstruación, y se niega a emitir un veredicto con una lectura de temperatura hecha en casa. Lo que sí puede hacer es guardar tus ciclos y tus registros para que el profesional sanitario que te examine tenga información real y no solo recuerdos.
 
 ## Lo que realmente cambia con la edad: el momento de pedir ayuda
 
@@ -128,6 +128,6 @@ Las guías generalmente sugieren seis meses a esa edad, y antes si hay un motivo
 
 Sí, de forma más gradual. Ambos miembros de la pareja se evalúan en cualquier estudio de fertilidad.
 
-### ¿Puede Femio estimar mis probabilidades?
+### ¿Puede femio estimar mis probabilidades?
 
 No. Guarda lo que tus ciclos han hecho realmente para que un profesional sanitario tenga información real, y no convierte estadísticas de grupo en una cifra sobre ti.

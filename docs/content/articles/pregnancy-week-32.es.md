@@ -22,7 +22,7 @@ open_graph_image_alt: "Una bolsa de maternidad preparada junto a una silla"
 written_by: "PENDING"
 medically_reviewed_by: "Dr. Khaled M."
 date_published: "2026-10-30"
-date_modified: "2026-10-30"
+date_modified: "2026-11-24"
 last_reviewed: "2026-10-30"
 next_review_due: "2027-10-30"
 reading_level_ok: false
@@ -90,7 +90,7 @@ Decide sobre la vitamina K esta semana, junto con quien vaya a estar contigo en 
 
 Contacta a tu servicio de maternidad el mismo día ante cualquier cambio en los movimientos, pérdida de líquido, contracciones regulares o dolorosas, o sangrado. Los [signos de alarma del embarazo](/es/learn/pregnancy-warning-signs) tienen la lista completa.
 
-> **Busca atención ya:** Contacta a los servicios de emergencia de tu zona o acude al servicio de urgencias más cercano si tienes sangrado abundante, dolor intenso o de un solo lado en el vientre, un dolor de cabeza intenso con cambios en la visión, hinchazón repentina de la cara o las manos, fiebre, pérdida de líquido por la vagina, dolor en el pecho, dificultad para respirar, desmayo o convulsión. Contacta a tu servicio de maternidad el mismo día ante cualquier reducción del patrón habitual de movimientos de tu bebé. Femio no puede evaluar un embarazo.
+> **Busca atención ya:** Contacta a los servicios de emergencia de tu zona o acude al servicio de urgencias más cercano si tienes sangrado abundante, dolor intenso o de un solo lado en el vientre, un dolor de cabeza intenso con cambios en la visión, hinchazón repentina de la cara o las manos, fiebre, pérdida de líquido por la vagina, dolor en el pecho, dificultad para respirar, desmayo o convulsión. Contacta a tu servicio de maternidad el mismo día ante cualquier reducción del patrón habitual de movimientos de tu bebé. femio no puede evaluar un embarazo.
 
 ## Preguntas frecuentes
 

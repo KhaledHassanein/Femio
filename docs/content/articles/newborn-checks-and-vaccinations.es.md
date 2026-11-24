@@ -11,7 +11,7 @@ secondary_topics:
   - "cribado de la prueba del talón y de la audición"
   - "calendarios de vacunación infantil por país"
 excerpt: "Los controles que suelen ofrecerse a un recién nacido, qué examina cada uno y por qué los calendarios de vacunación difieren entre países."
-meta_title: "Controles y vacunas del recién nacido explicados | Femio"
+meta_title: "Controles y vacunas del recién nacido explicados | femio"
 meta_description: "La exploración del recién nacido, el cribado auditivo, la prueba del talón y las primeras vacunas: qué suele ofrecerse y por qué los calendarios varían."
 canonical_url: "https://femioapp.com/es/learn/newborn-checks-and-vaccinations"
 robots_while_draft: "noindex,nofollow"
@@ -23,7 +23,7 @@ open_graph_image_alt: "Un profesional sanitario examinando a un recién nacido e
 written_by: "PENDING"
 medically_reviewed_by: "Dr. Khaled M."
 date_published: "2026-10-30"
-date_modified: "2026-10-30"
+date_modified: "2026-11-24"
 last_reviewed: "2026-10-30"
 next_review_due: "2027-10-30"
 reading_level_ok: false
@@ -120,7 +120,7 @@ Busca atención urgente ante cualquier signo de la caja siguiente, sea cual sea 
 
 Contacta con tu matrona, enfermera de salud infantil o médico si no se te ha ofrecido un control cuando lo esperabas, si no te han dado un resultado o si tienes una duda sobre la vacunación. [Tu recién nacido en las dos primeras semanas](/es/learn/newborn-first-two-weeks) explica qué es lo habitual, y [los signos de alarma en el recién nacido](/es/learn/newborn-warning-signs) explican qué no lo es.
 
-> **Busca atención ya:** Contacta con los servicios de emergencia de tu zona o acude al servicio de urgencias más cercano si un bebé menor de tres meses tiene una temperatura de 38 °C o más, respira deprisa, se esfuerza para respirar o emite gruñidos, tiene la piel azulada, grisácea, pálida o moteada, está flácido, cuesta despertarlo, rechaza las tomas, tiene muchos menos pañales mojados o ninguno en las últimas 12 horas, tiene la fontanela abultada o hundida, tiene una erupción que no desaparece al presionarla o sufre una convulsión. Femio no puede evaluar a un bebé.
+> **Busca atención ya:** Contacta con los servicios de emergencia de tu zona o acude al servicio de urgencias más cercano si un bebé menor de tres meses tiene una temperatura de 38 °C o más, respira deprisa, se esfuerza para respirar o emite gruñidos, tiene la piel azulada, grisácea, pálida o moteada, está flácido, cuesta despertarlo, rechaza las tomas, tiene muchos menos pañales mojados o ninguno en las últimas 12 horas, tiene la fontanela abultada o hundida, tiene una erupción que no desaparece al presionarla o sufre una convulsión. femio no puede evaluar a un bebé.
 
 ## Preguntas frecuentes
 

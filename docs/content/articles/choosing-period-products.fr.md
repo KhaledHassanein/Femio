@@ -22,7 +22,7 @@ open_graph_image_alt: "Dessin au trait simple de quatre petites formes côte à 
 written_by: "PENDING"
 medically_reviewed_by: "Dr. Khaled M."
 date_published: "2026-10-30"
-date_modified: "2026-10-30"
+date_modified: "2026-11-24"
 last_reviewed: "2026-10-30"
 next_review_due: "2027-10-30"
 reading_level_ok: false
@@ -92,7 +92,7 @@ Elles conviennent bien à elles seules pour les jours légers, et en protection 
 - **Pas de salle de bain privée ?** Les serviettes et les culottes menstruelles demandent le moins d'intimité.
 - **Vous craignez les fuites la nuit ?** Une serviette plus longue, ou une culotte menstruelle, ou les deux ensemble.
 
-Vous pouvez les combiner. La plupart des personnes le font, et changent de protection d'un jour à l'autre. Femio ne recommande ni ne vend de produit, et rien ici ne désigne une marque. Des mots comme vulve et vagin sont expliqués dans le [glossaire](/fr/glossary), et [les idées reçues sur les règles, vérifiées](/fr/learn/period-myths-checked) passe en revue ce qu'on vous raconte et qui n'est pas vrai.
+Vous pouvez les combiner. La plupart des personnes le font, et changent de protection d'un jour à l'autre. femio ne recommande ni ne vend de produit, et rien ici ne désigne une marque. Des mots comme vulve et vagin sont expliqués dans le [glossaire](/fr/glossary), et [les idées reçues sur les règles, vérifiées](/fr/learn/period-myths-checked) passe en revue ce qu'on vous raconte et qui n'est pas vrai.
 
 ## Quand consulter
 

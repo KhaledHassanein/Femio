@@ -12,7 +12,7 @@ secondary_topics:
   - "vaccines before pregnancy"
   - "preconception health questions"
 excerpt: "Learn what a clinician may discuss before pregnancy, including health history, medicines, vaccines, folic acid, tests, and personal pregnancy goals."
-meta_title: "What Happens at a Preconception Appointment? | Femio"
+meta_title: "What Happens at a Preconception Appointment? | femio"
 meta_description: "Learn what a clinician may discuss before pregnancy, what records to bring, which checks may be useful, and how to prepare your questions."
 canonical_url: "https://femioapp.com/en/learn/preconception-appointment"
 robots_while_draft: "noindex,nofollow"
@@ -24,7 +24,7 @@ open_graph_image_alt: "Medicine list and health notes prepared for a preconcepti
 written_by: "Dr. Khaled M."
 medically_reviewed_by: "Dr. Khaled M."
 date_published: "2026-08-15"
-date_modified: "2026-08-15"
+date_modified: "2026-11-24"
 last_reviewed: "2026-08-04"
 next_review_due: null
 reading_level_ok: true

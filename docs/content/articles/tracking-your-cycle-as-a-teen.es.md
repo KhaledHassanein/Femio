@@ -10,7 +10,7 @@ secondary_topics:
   - "por qué una app de seguimiento muestra una ventana amplia"
   - "cómo registrar la menstruación siendo adolescente"
 excerpt: "Por qué una app te muestra una ventana amplia a tu edad, por qué eso es honesto y no un fallo, y cómo registrar sin que se convierta en otra preocupación."
-meta_title: "Registrar tu ciclo sin el estrés | Femio"
+meta_title: "Registrar tu ciclo sin el estrés | femio"
 meta_description: "Por qué una app de seguimiento muestra una ventana amplia a tu edad, por qué es honesto y no un fallo, y cómo registrar sin que sea otra preocupación."
 canonical_url: "https://femioapp.com/es/learn/tracking-your-cycle-as-a-teen"
 robots_while_draft: "noindex,nofollow"
@@ -22,7 +22,7 @@ open_graph_image_alt: "Dibujo lineal sencillo de una banda suave con bordes desv
 written_by: "PENDING"
 medically_reviewed_by: "Dr. Khaled M."
 date_published: "2026-10-30"
-date_modified: "2026-10-30"
+date_modified: "2026-11-24"
 last_reviewed: "2026-10-30"
 next_review_due: "2027-10-30"
 reading_level_ok: false
@@ -65,7 +65,7 @@ Una app calcula su estimación a partir de los ciclos que ya has registrado. Si 
 
 A tu edad se supone que los ciclos varían. En la adolescencia, entre unos 21 y 45 días de separación entre una menstruación y otra está dentro del rango habitual [ACOG]. Una ventana amplia es la app diciéndote la verdad sobre lo que sabe.
 
-Por eso Femio muestra un rango en lugar de una fecha, y por eso el rango es más amplio para los usuarios más jóvenes y solo se estrecha cuando tu propio registro lo respalda. También por eso no hay cuenta atrás ni mensaje de «vas tarde» en ningún lugar de la app para ti. «Tarde» solo significa algo frente a una fecha segura, y aquí no hay una fecha segura con la que compararse.
+Por eso femio muestra un rango en lugar de una fecha, y por eso el rango es más amplio para los usuarios más jóvenes y solo se estrecha cuando tu propio registro lo respalda. También por eso no hay cuenta atrás ni mensaje de «vas tarde» en ningún lugar de la app para ti. «Tarde» solo significa algo frente a una fecha segura, y aquí no hay una fecha segura con la que compararse.
 
 Si tu menstruación no llega dentro de la ventana, la app no estaba rota y tú tampoco. Lee [¿es normal mi menstruación?](/es/learn/is-my-period-normal) para saber cómo son realmente los primeros años.
 

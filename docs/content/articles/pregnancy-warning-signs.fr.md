@@ -12,7 +12,7 @@ secondary_topics:
   - "maux de tête sévères pendant la grossesse"
   - "quand appeler les services d'urgence pendant la grossesse"
 excerpt: "Découvrez quels symptômes de grossesse nécessitent des soins médicaux urgents, notamment les douleurs intenses, les saignements, les difficultés respiratoires, les maux de tête, la diminution des mouvements du bébé et les problèmes de sécurité."
-meta_title: "Signes d'alerte de grossesse nécessitant des soins | Femio"
+meta_title: "Signes d'alerte de grossesse nécessitant des soins | femio"
 meta_description: "Symptômes de grossesse nécessitant des soins urgents : douleurs intenses, saignements, difficultés respiratoires, maux de tête, fièvre et baisse des mouvements."
 canonical_url: "https://femioapp.com/fr/learn/pregnancy-warning-signs"
 robots_while_draft: "noindex,nofollow"
@@ -24,7 +24,7 @@ open_graph_image_alt: "Personne enceinte appelant les secours après avoir remar
 written_by: "PENDING"
 medically_reviewed_by: "Dr. Khaled M."
 date_published: "2026-10-30"
-date_modified: "2026-10-30"
+date_modified: "2026-11-24"
 last_reviewed: "2026-10-30"
 next_review_due: "2027-10-30"
 reading_level_ok: false
@@ -117,7 +117,7 @@ N'attendez pas le lendemain. Une boisson fraîche ne remplace pas un avis médic
 
 Les pensées de vous faire du mal ou de faire du mal au bébé nécessitent un soutien immédiat. Il s'agit d'une urgence de santé, et non d'un échec personnel.
 
-Utilisez la [page d'aide immédiate](/fr/help-now) de Femio pour trouver des options de soutien immédiat. Si vous risquez de passer à l'acte maintenant ou si vous ne pouvez pas rester en sécurité, contactez les services d'urgence de votre région ou rendez-vous au service des urgences le plus proche. Si possible, restez avec une personne de confiance pendant que l'aide est organisée.
+Utilisez la [page d'aide immédiate](/fr/help-now) de femio pour trouver des options de soutien immédiat. Si vous risquez de passer à l'acte maintenant ou si vous ne pouvez pas rester en sécurité, contactez les services d'urgence de votre région ou rendez-vous au service des urgences le plus proche. Si possible, restez avec une personne de confiance pendant que l'aide est organisée.
 
 ## Comment exprimer votre inquiétude
 
@@ -127,13 +127,13 @@ Apportez vos notes de grossesse et la liste de vos médicaments si vous pouvez l
 
 [L'ACOG](https://www.acog.org/womens-health/faqs/prenatal-care) explique pourquoi les soins doivent être adaptés à votre santé et à votre risque pendant la grossesse. Après une prise en charge urgente, lisez [les bases de la grossesse](/fr/learn/pregnancy-basics). Le [guide du premier rendez-vous de grossesse](/fr/learn/first-pregnancy-appointment) explique le suivi de routine.
 
-Comment ce contenu de sécurité est-il vérifié ? Voir la [page de relecture clinique](/fr/medical-review) de Femio. Femio ne peut pas évaluer une urgence.
+Comment ce contenu de sécurité est-il vérifié ? Voir la [page de relecture clinique](/fr/medical-review) de femio. femio ne peut pas évaluer une urgence.
 
 ## Quand consulter
 
 Contactez un professionnel du suivi de grossesse lorsqu'un nouveau symptôme vous inquiète. Demandez des soins le jour même en cas de saignement ou de fièvre. Des vomissements répétés, une perte de liquides, une diminution des mouvements ou un mal de tête persistant nécessitent aussi des soins. Utilisez les services d'urgence pour les symptômes sévères ou en cas de danger immédiat.
 
-> **Consultez sans attendre :** Contactez les services d'urgence de votre région ou rendez-vous au service des urgences le plus proche en cas de douleur intense, de saignement abondant, de malaise, de crises convulsives, de douleur thoracique, de difficultés à respirer, de mal de tête sévère avec troubles de la vision, ou de pensées de vous faire du mal ou de faire du mal au bébé. N'attendez pas une réponse de Femio ou d'un autre service en ligne.
+> **Consultez sans attendre :** Contactez les services d'urgence de votre région ou rendez-vous au service des urgences le plus proche en cas de douleur intense, de saignement abondant, de malaise, de crises convulsives, de douleur thoracique, de difficultés à respirer, de mal de tête sévère avec troubles de la vision, ou de pensées de vous faire du mal ou de faire du mal au bébé. N'attendez pas une réponse de femio ou d'un autre service en ligne.
 
 ## Questions fréquentes
 

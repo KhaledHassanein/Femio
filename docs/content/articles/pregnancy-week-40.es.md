@@ -22,7 +22,7 @@ open_graph_image_alt: "Una hoja de calendario sin ninguna fecha marcada"
 written_by: "PENDING"
 medically_reviewed_by: "Dr. Khaled M."
 date_published: "2026-10-30"
-date_modified: "2026-10-30"
+date_modified: "2026-11-24"
 last_reviewed: "2026-10-30"
 next_review_due: "2027-10-30"
 reading_level_ok: false
@@ -90,7 +90,7 @@ Deja de contar los días pasados la fecha probable de parto y empieza a contar s
 
 Llama a la unidad de maternidad por contracciones que duren 60 segundos cada cinco minutos, por rotura de aguas, por sangrado o por cualquier cambio en los movimientos. [Los signos de alarma en el embarazo](/es/learn/pregnancy-warning-signs) tienen la lista completa, y [la recuperación posparto en las primeras seis semanas](/es/learn/postpartum-recovery-first-six-weeks) explica lo que viene después.
 
-> **Busca atención ya:** Contacta con los servicios de emergencia de tu zona o acude al servicio de urgencias más cercano si tienes un sangrado abundante, dolor abdominal intenso o de un solo lado, dolor justo debajo de las costillas, dolor de cabeza intenso con cambios en la visión, hinchazón repentina de la cara o las manos, fiebre, pérdida de líquido por la vagina, dolor en el pecho, dificultad para respirar, desmayo o convulsión. Contacta con tu servicio de maternidad el mismo día ante cualquier disminución en el patrón de movimiento habitual de tu bebé. Femio no puede evaluar un embarazo.
+> **Busca atención ya:** Contacta con los servicios de emergencia de tu zona o acude al servicio de urgencias más cercano si tienes un sangrado abundante, dolor abdominal intenso o de un solo lado, dolor justo debajo de las costillas, dolor de cabeza intenso con cambios en la visión, hinchazón repentina de la cara o las manos, fiebre, pérdida de líquido por la vagina, dolor en el pecho, dificultad para respirar, desmayo o convulsión. Contacta con tu servicio de maternidad el mismo día ante cualquier disminución en el patrón de movimiento habitual de tu bebé. femio no puede evaluar un embarazo.
 
 ## Preguntas frecuentes
 

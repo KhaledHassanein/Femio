@@ -11,7 +11,7 @@ secondary_topics:
   - "compartir habitación y compartir cama"
   - "reducción del riesgo de muerte súbita del lactante"
 excerpt: "Qué cubre la guía de sueño seguro, dónde coinciden las recomendaciones nacionales, dónde difieren en cuanto a compartir cama y cómo encontrar el consejo que se aplica donde vives."
-meta_title: "Sueño seguro para tu bebé: qué dice la guía | Femio"
+meta_title: "Sueño seguro para tu bebé: qué dice la guía | femio"
 meta_description: "Dormir boca arriba, sobre una superficie firme y compartir habitación son recomendaciones comunes. Compartir cama varía según el país. Qué leer donde vives."
 canonical_url: "https://femioapp.com/es/learn/safer-sleep-for-your-baby"
 robots_while_draft: "noindex,nofollow"
@@ -23,7 +23,7 @@ open_graph_image_alt: "Un bebé dormido boca arriba en una cuna vacía con una s
 written_by: "PENDING"
 medically_reviewed_by: "Dr. Khaled M."
 date_published: "2026-10-30"
-date_modified: "2026-10-30"
+date_modified: "2026-11-24"
 last_reviewed: "2026-10-30"
 next_review_due: "2027-10-30"
 reading_level_ok: false
@@ -109,7 +109,7 @@ Busca atención urgente ante cualquier signo del recuadro, a cualquier hora. Nin
 
 Pide consejo a la enfermera de salud infantil o al médico sobre el sueño si tu bebé solo duerme incorporado, si la respiración durante el sueño te preocupa, o si tu bebé nació pronto o tiene una afección de salud y no tienes claro qué consejo aplica. Consulta [tu recién nacido en las dos primeras semanas](/es/learn/newborn-first-two-weeks) para saber qué es lo habitual, y [señales de alarma en el recién nacido](/es/learn/newborn-warning-signs) para lo que no lo es.
 
-> **Busca atención ya:** Contacta con los servicios de emergencia de tu zona o acude al servicio de urgencias más cercano si un bebé menor de tres meses tiene una temperatura de 38 °C o más, respira rápido, se esfuerza para respirar o emite gruñidos, tiene la piel azulada, grisácea, pálida o moteada, está flácido, cuesta despertarlo, rechaza las tomas, tiene muy pocos pañales mojados o ninguno en las últimas 12 horas, tiene la fontanela abultada o hundida, tiene una erupción que no desaparece al presionarla, o sufre una convulsión. Femio no puede valorar a un bebé.
+> **Busca atención ya:** Contacta con los servicios de emergencia de tu zona o acude al servicio de urgencias más cercano si un bebé menor de tres meses tiene una temperatura de 38 °C o más, respira rápido, se esfuerza para respirar o emite gruñidos, tiene la piel azulada, grisácea, pálida o moteada, está flácido, cuesta despertarlo, rechaza las tomas, tiene muy pocos pañales mojados o ninguno en las últimas 12 horas, tiene la fontanela abultada o hundida, tiene una erupción que no desaparece al presionarla, o sufre una convulsión. femio no puede valorar a un bebé.
 
 ## Preguntas frecuentes
 

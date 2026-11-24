@@ -12,7 +12,7 @@ secondary_topics:
   - "dolor de cabeza intenso en el embarazo"
   - "cuándo llamar a los servicios de emergencia en el embarazo"
 excerpt: "Descubre qué síntomas del embarazo requieren atención médica urgente, como el dolor intenso, el sangrado, las dificultades para respirar, el dolor de cabeza, la reducción de movimientos y las situaciones de seguridad."
-meta_title: "Señales de alarma en el embarazo | Femio"
+meta_title: "Señales de alarma en el embarazo | femio"
 meta_description: "Qué síntomas del embarazo requieren atención urgente: dolor intenso, sangrado, dificultad para respirar, dolor de cabeza, fiebre y menos movimientos del bebé."
 canonical_url: "https://femioapp.com/es/learn/pregnancy-warning-signs"
 robots_while_draft: "noindex,nofollow"
@@ -24,7 +24,7 @@ open_graph_image_alt: "Persona embarazada llamando pidiendo ayuda médica urgent
 written_by: "PENDING"
 medically_reviewed_by: "Dr. Khaled M."
 date_published: "2026-10-30"
-date_modified: "2026-10-30"
+date_modified: "2026-11-24"
 last_reviewed: "2026-10-30"
 next_review_due: "2027-10-30"
 reading_level_ok: false
@@ -117,7 +117,7 @@ No esperes hasta el día siguiente. Tomar algo frío no sustituye a un consejo p
 
 Los pensamientos de autolesión o de hacer daño al bebé necesitan apoyo inmediato. Son una emergencia de salud, no un fallo personal.
 
-Usa la [página de ayuda inmediata de Femio](/es/help-now) para encontrar opciones de apoyo inmediato. Si podrías actuar ahora mismo o no puedes mantenerte a salvo, contacta con los servicios de emergencia de tu zona o acude al servicio de urgencias más cercano. Si es posible, quédate con una persona de confianza mientras se organiza la ayuda.
+Usa la [página de ayuda inmediata de femio](/es/help-now) para encontrar opciones de apoyo inmediato. Si podrías actuar ahora mismo o no puedes mantenerte a salvo, contacta con los servicios de emergencia de tu zona o acude al servicio de urgencias más cercano. Si es posible, quédate con una persona de confianza mientras se organiza la ayuda.
 
 ## Cómo comunicar la preocupación
 
@@ -127,13 +127,13 @@ Lleva tus notas del embarazo y tu lista de medicamentos si es fácil tenerlos a 
 
 [ACOG](https://www.acog.org/womens-health/faqs/prenatal-care) explica por qué la atención debe adaptarse a tu salud y al riesgo del embarazo. Tras la atención urgente, lee [lo básico sobre el embarazo](/es/learn/pregnancy-basics). La [guía de la primera cita del embarazo](/es/learn/first-pregnancy-appointment) explica la atención de rutina.
 
-¿Cómo se revisa este contenido de seguridad? Consulta la [página de revisión clínica](/es/medical-review) de Femio. Femio no puede valorar una emergencia.
+¿Cómo se revisa este contenido de seguridad? Consulta la [página de revisión clínica](/es/medical-review) de femio. femio no puede valorar una emergencia.
 
 ## Cuándo consultar
 
 Contacta con un profesional de la atención al embarazo cuando un síntoma nuevo te preocupe. Busca atención el mismo día si hay sangrado o fiebre. También requieren atención los vómitos repetidos, la pérdida de líquidos, la disminución de los movimientos del bebé o un dolor de cabeza persistente. Usa los servicios de emergencia para síntomas graves o peligro inmediato.
 
-> **Busca atención ya:** Contacta con los servicios de emergencia de tu zona o acude al servicio de urgencias más cercano si tienes dolor intenso, sangrado abundante, desmayo, convulsiones, dolor en el pecho, dificultad para respirar, un dolor de cabeza intenso con alteraciones de la visión, o pensamientos de autolesión o de hacer daño al bebé. No esperes a que Femio u otro servicio en línea responda.
+> **Busca atención ya:** Contacta con los servicios de emergencia de tu zona o acude al servicio de urgencias más cercano si tienes dolor intenso, sangrado abundante, desmayo, convulsiones, dolor en el pecho, dificultad para respirar, un dolor de cabeza intenso con alteraciones de la visión, o pensamientos de autolesión o de hacer daño al bebé. No esperes a que femio u otro servicio en línea responda.
 
 ## Preguntas frecuentes
 

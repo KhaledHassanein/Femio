@@ -12,7 +12,7 @@ secondary_topics:
   - "patrón del SPM"
   - "cuándo buscar ayuda para el TDPM"
 excerpt: "Aprende a llevar un registro diario de síntomas del SPM o del TDPM, a identificar el momento del ciclo, a resumir el impacto diario y a saber cuándo buscar ayuda."
-meta_title: "Cómo registrar los síntomas del SPM y el TDPM | Femio"
+meta_title: "Cómo registrar los síntomas del SPM y el TDPM | femio"
 meta_description: "Aprende a registrar cada día los síntomas del SPM y el TDPM, a comparar su momento con la menstruación y a preparar un resumen para la cita."
 canonical_url: "https://femioapp.com/es/learn/track-pms-pmdd-symptoms"
 robots_while_draft: "noindex,nofollow"
@@ -24,7 +24,7 @@ open_graph_image_alt: "Registro diario de síntomas de ánimo y del cuerpo aline
 written_by: "PENDING"
 medically_reviewed_by: "Dr. Khaled M."
 date_published: "2026-10-30"
-date_modified: "2026-10-30"
+date_modified: "2026-11-24"
 last_reviewed: "2026-10-30"
 next_review_due: "2027-10-30"
 reading_level_ok: false
@@ -134,7 +134,7 @@ Lleva el registro diario y un resumen de una página. Incluye:
 
 Pregunta qué patrones encajan con el SPM o el TDPM y qué más puede necesitar evaluación. Pregunta cómo podría ayudar cada opción de atención, qué riesgos te afectan y cuándo revisar el progreso. La [guía principal sobre el SPM y el TDPM](/es/conditions/pms-pmdd) explica las opciones de atención habituales.
 
-La [página de revisión clínica de Femio](/es/medical-review) explica cómo se revisa nuestro contenido de salud.
+La [página de revisión clínica de femio](/es/medical-review) explica cómo se revisa nuestro contenido de salud.
 
 ## Elabora un plan de seguridad para síntomas graves de ánimo
 
@@ -142,7 +142,7 @@ No te fíes solo de una aplicación cuando haya síntomas como desesperanza, pen
 
 Un plan de seguridad personal puede incluir señales de alarma, pasos para calmarte, personas a las que puedes contactar, lugares más seguros y formas de reducir el acceso a cualquier cosa con la que podrías hacerte daño. Elabóralo con un profesional cualificado cuando sea posible.
 
-Usa la [página de ayuda inmediata de Femio](/es/help-now) para encontrar opciones de apoyo inmediato. El registro puede esperar hasta que estés a salvo.
+Usa la [página de ayuda inmediata de femio](/es/help-now) para encontrar opciones de apoyo inmediato. El registro puede esperar hasta que estés a salvo.
 
 ## Cuándo consultar
 
@@ -166,6 +166,6 @@ Al menos dos ciclos pueden ayudar a mostrar un patrón, pero no retrases la aten
 
 Díselo a un profesional sanitario. Otra preocupación, o una adicional, puede necesitar evaluación.
 
-### ¿Puede Femio confirmar el TDPM?
+### ¿Puede femio confirmar el TDPM?
 
-No. Femio puede organizar un registro de síntomas, pero un profesional sanitario cualificado debe evaluar el patrón completo.
+No. femio puede organizar un registro de síntomas, pero un profesional sanitario cualificado debe evaluar el patrón completo.

@@ -11,7 +11,7 @@ secondary_topics:
   - "colic in newborns"
   - "coping when a baby will not stop crying"
 excerpt: "Why newborn crying peaks in the early weeks, what parents are advised to try, and the safe thing to do when you have had enough."
-meta_title: "Newborn Crying and What Helps | Femio"
+meta_title: "Newborn Crying and What Helps | femio"
 meta_description: "Why crying peaks in the first months, what to try when a newborn will not settle, and the safe thing to do when a carer has had enough."
 canonical_url: "https://femioapp.com/en/learn/newborn-crying"
 robots_while_draft: "noindex,nofollow"
@@ -23,7 +23,7 @@ open_graph_image_alt: "A tired parent holding a crying newborn baby against thei
 written_by: "PENDING"
 medically_reviewed_by: "Dr. Khaled M."
 date_published: "2026-08-19"
-date_modified: "2026-08-19"
+date_modified: "2026-11-24"
 last_reviewed: "2026-10-30"
 next_review_due: "2027-10-30"
 reading_level_ok: true
@@ -92,7 +92,7 @@ If nobody can take over and the crying is overwhelming you, both NHS and CDC adv
 
 A baby is safer alone in a cot for ten minutes than held by someone at the end of their rope. Never shake a baby. CDC describes shaking as a cause of bleeding around the brain and lasting injury, and says shaking, throwing or hitting is never a response to crying.
 
-If you feel unable to keep your baby safe, or unable to keep yourself safe, [Femio's global help page](/en/help-now) points to ways to reach support and emergency services where you are. Reaching for that is the responsible thing, not the shameful one.
+If you feel unable to keep your baby safe, or unable to keep yourself safe, [femio's global help page](/en/help-now) points to ways to reach support and emergency services where you are. Reaching for that is the responsible thing, not the shameful one.
 
 ## Crying and your own health
 
@@ -112,7 +112,7 @@ Seek urgent care if crying comes with any sign in the box below, or if the cry i
 
 Ask for help early rather than at the end. [Newborn warning signs](/en/learn/newborn-warning-signs) lists what needs emergency care, and [your newborn in the first two weeks](/en/learn/newborn-first-two-weeks) sets out what is usual.
 
-> **Seek care now:** Contact your local emergency services or go to your nearest emergency department if a baby under three months old has a temperature of 38C or higher, is breathing fast, working hard to breathe or grunting, has blue, grey, pale or mottled skin, is floppy, is difficult to wake, is refusing feeds, has far fewer wet nappies or none in the past 12 hours, has a bulging or sunken soft spot on the head, has a rash that does not fade when you press it, has a fit, or has a weak, high-pitched or continuous cry that is not their usual cry. Femio cannot assess a baby.
+> **Seek care now:** Contact your local emergency services or go to your nearest emergency department if a baby under three months old has a temperature of 38C or higher, is breathing fast, working hard to breathe or grunting, has blue, grey, pale or mottled skin, is floppy, is difficult to wake, is refusing feeds, has far fewer wet nappies or none in the past 12 hours, has a bulging or sunken soft spot on the head, has a rash that does not fade when you press it, has a fit, or has a weak, high-pitched or continuous cry that is not their usual cry. femio cannot assess a baby.
 
 ## Frequently asked questions
 

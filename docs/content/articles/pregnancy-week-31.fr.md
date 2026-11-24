@@ -22,7 +22,7 @@ open_graph_image_alt: "Un mètre ruban de sage-femme sur un bureau de consultati
 written_by: "PENDING"
 medically_reviewed_by: "Dr. Khaled M."
 date_published: "2026-10-30"
-date_modified: "2026-10-30"
+date_modified: "2026-11-24"
 last_reviewed: "2026-10-30"
 next_review_due: "2027-10-30"
 reading_level_ok: false
@@ -89,7 +89,7 @@ Demandez quelle était votre mesure du ventre, en centimètres, et notez-la. Ell
 
 Contactez votre service de maternité le jour même en cas de mouvements réduits, de perte de liquide, de contractions douloureuses ou régulières, ou de saignement. [Les signes d'alerte de la grossesse](/fr/learn/pregnancy-warning-signs) donnent la liste complète.
 
-> **Consultez sans attendre :** Contactez les services d'urgence locaux ou rendez-vous au service des urgences le plus proche en cas de saignement abondant, de douleur ventrale intense ou d'un seul côté, de maux de tête violents avec troubles de la vision, de gonflement soudain du visage ou des mains, de fièvre, de perte de liquide par le vagin, de douleur thoracique, de difficultés respiratoires, d'évanouissement ou de crise convulsive. Contactez votre service de maternité le jour même pour toute diminution du schéma habituel de mouvements de votre bébé. Femio ne peut pas évaluer une grossesse.
+> **Consultez sans attendre :** Contactez les services d'urgence locaux ou rendez-vous au service des urgences le plus proche en cas de saignement abondant, de douleur ventrale intense ou d'un seul côté, de maux de tête violents avec troubles de la vision, de gonflement soudain du visage ou des mains, de fièvre, de perte de liquide par le vagin, de douleur thoracique, de difficultés respiratoires, d'évanouissement ou de crise convulsive. Contactez votre service de maternité le jour même pour toute diminution du schéma habituel de mouvements de votre bébé. femio ne peut pas évaluer une grossesse.
 
 ## Questions fréquentes
 

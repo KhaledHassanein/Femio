@@ -12,7 +12,7 @@ secondary_topics:
   - "opciones de atención para la endometriosis"
   - "seguimiento de la endometriosis"
 excerpt: "Descubre qué es la endometriosis, los signos que puede causar, cómo la evalúan los profesionales sanitarios y en qué pueden consistir la atención y el apoyo del día a día."
-meta_title: "¿Qué es la endometriosis? Signos y atención | Femio"
+meta_title: "¿Qué es la endometriosis? Signos y atención | femio"
 meta_description: "Entiende los signos de la endometriosis, la evaluación clínica, las opciones de atención, las preguntas sobre fertilidad y qué registrar antes de una cita."
 canonical_url: "https://femioapp.com/es/conditions/endometriosis"
 robots_while_draft: "noindex,nofollow"
@@ -24,7 +24,7 @@ open_graph_image_alt: "Ilustración anatómica que muestra las zonas en las que 
 written_by: "PENDING"
 medically_reviewed_by: "Dr. Khaled M."
 date_published: "2026-10-30"
-date_modified: "2026-10-30"
+date_modified: "2026-11-24"
 last_reviewed: "2026-10-30"
 next_review_due: "2027-10-30"
 reading_level_ok: false
@@ -154,13 +154,13 @@ Tu dolor sigue importando.
 
 Sigue pidiendo ayuda.
 
-## Cómo registrar la endometriosis en Femio
+## Cómo registrar la endometriosis en femio
 
 Registra las fechas de la menstruación, el flujo, el dolor, los síntomas intestinales o urinarios, el dolor durante las relaciones sexuales, el cansancio y breves notas sobre el impacto diario. Registra solo lo que resulte útil y seguro.
 
-Busca patrones en el tiempo, no un veredicto. Un patrón que se repite puede ayudarte a describir los síntomas, pero Femio no puede confirmar la endometriosis ni juzgar su gravedad. Exporta o imprime un resumen si quieres compartirlo con un profesional sanitario.
+Busca patrones en el tiempo, no un veredicto. Un patrón que se repite puede ayudarte a describir los síntomas, pero femio no puede confirmar la endometriosis ni juzgar su gravedad. Exporta o imprime un resumen si quieres compartirlo con un profesional sanitario.
 
-Las guías de Femio relacionadas tratan sobre las [menstruaciones dolorosas](/es/conditions/painful-periods), las [menstruaciones abundantes](/es/conditions/heavy-periods), los [signos comunes de la endometriosis](/es/learn/endometriosis-signs), [cómo se evalúa la endometriosis](/es/learn/how-endometriosis-is-assessed) y la [endometriosis y la fertilidad](/es/learn/endometriosis-and-fertility).
+Las guías de femio relacionadas tratan sobre las [menstruaciones dolorosas](/es/conditions/painful-periods), las [menstruaciones abundantes](/es/conditions/heavy-periods), los [signos comunes de la endometriosis](/es/learn/endometriosis-signs), [cómo se evalúa la endometriosis](/es/learn/how-endometriosis-is-assessed) y la [endometriosis y la fertilidad](/es/learn/endometriosis-and-fertility).
 
 ## Preguntas frecuentes
 

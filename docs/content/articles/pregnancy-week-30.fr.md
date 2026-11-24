@@ -22,7 +22,7 @@ open_graph_image_alt: "Un carnet ouvert et un stylo sur une table de chevet, la 
 written_by: "PENDING"
 medically_reviewed_by: "Dr. Khaled M."
 date_published: "2026-10-30"
-date_modified: "2026-10-30"
+date_modified: "2026-11-24"
 last_reviewed: "2026-10-30"
 next_review_due: "2027-10-30"
 reading_level_ok: false
@@ -88,7 +88,7 @@ Lisez cette semaine sur les trois stades du travail, et lisez-le avec la personn
 
 Contactez votre service de maternité le jour même en cas de mouvements réduits, de fuite de liquide, de contractions régulières ou de saignement. Dites-le si vous n'arrivez pas à faire face. [Les signes d'alerte de la grossesse](/fr/learn/pregnancy-warning-signs) donnent la liste complète.
 
-> **Consultez sans attendre :** Contactez les services d'urgence de votre région ou rendez-vous au service des urgences le plus proche si vous avez un saignement abondant, une douleur intense ou d'un seul côté du ventre, un mal de tête sévère avec troubles de la vision, un gonflement soudain du visage ou des mains, une fièvre, une fuite de liquide par le vagin, une douleur thoracique, des difficultés à respirer, un malaise ou une crise convulsive. Contactez votre service de maternité le jour même pour toute diminution du rythme habituel des mouvements de votre bébé. Femio ne peut pas évaluer une grossesse.
+> **Consultez sans attendre :** Contactez les services d'urgence de votre région ou rendez-vous au service des urgences le plus proche si vous avez un saignement abondant, une douleur intense ou d'un seul côté du ventre, un mal de tête sévère avec troubles de la vision, un gonflement soudain du visage ou des mains, une fièvre, une fuite de liquide par le vagin, une douleur thoracique, des difficultés à respirer, un malaise ou une crise convulsive. Contactez votre service de maternité le jour même pour toute diminution du rythme habituel des mouvements de votre bébé. femio ne peut pas évaluer une grossesse.
 
 ## Questions fréquentes
 

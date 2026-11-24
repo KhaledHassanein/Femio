@@ -12,7 +12,7 @@ secondary_topics:
   - "anticorps thyroïdiens et fertilité"
   - "valeurs cibles de TSH avant la conception"
 excerpt: "Pourquoi une affection de la thyroïde mérite d'être évaluée avant la conception plutôt qu'après, ce qui est généralement contrôlé, et ce qui change dès qu'un test est positif."
-meta_title: "Affections de la thyroïde et désir de conception | Femio"
+meta_title: "Affections de la thyroïde et désir de conception | femio"
 meta_description: "Pourquoi un bilan thyroïdien doit précéder la conception, ce qui est généralement contrôlé, et ce qui change le jour où le test est positif."
 canonical_url: "https://femioapp.com/fr/learn/thyroid-and-conceiving"
 robots_while_draft: "noindex,nofollow"
@@ -24,7 +24,7 @@ open_graph_image_alt: "Une femme discutant de résultats d'analyses de sang avec
 written_by: "PENDING"
 medically_reviewed_by: "Dr. Khaled M."
 date_published: "2026-10-30"
-date_modified: "2026-10-30"
+date_modified: "2026-11-24"
 last_reviewed: "2026-10-30"
 next_review_due: "2027-10-30"
 reading_level_ok: false
@@ -98,7 +98,7 @@ Si vous avez une affection de la thyroïde et que vous essayez depuis un certain
 
 Vos propres résultats, avec leurs dates. Votre traitement actuel et tout changement qui lui a été apporté. Les symptômes nouveaux ou changeants, comme la fatigue, une variation de poids, la sensation d'avoir froid ou chaud, les palpitations ou les changements de cheveux, avec la date de leur apparition.
 
-Femio peut conserver ce relevé et l'afficher sous forme de chronologie. Femio n'interprète **pas** un résultat : une valeur est présentée avec les valeurs de référence du laboratoire et rien d'autre, car la comparer à une cible relève d'un jugement clinique, et les cibles diffèrent selon les recommandations et selon les étapes de la grossesse.
+femio peut conserver ce relevé et l'afficher sous forme de chronologie. femio n'interprète **pas** un résultat : une valeur est présentée avec les valeurs de référence du laboratoire et rien d'autre, car la comparer à une cible relève d'un jugement clinique, et les cibles diffèrent selon les recommandations et selon les étapes de la grossesse.
 
 ## Quand consulter
 
@@ -124,6 +124,6 @@ Non. Contactez rapidement votre prescripteur, et n'arrêtez pas de vous-même.
 
 Il peut affecter les cycles, ce qui est l'une des raisons pour lesquelles les examens de la thyroïde font partie d'un bilan standard. Être prise en charge pour une affection thyroïdienne n'est pas en soi une raison de s'attendre à des difficultés.
 
-### Femio peut-il me dire si mon résultat est normal ?
+### femio peut-il me dire si mon résultat est normal ?
 
-Non. Femio affiche vos résultats avec les valeurs de référence du laboratoire, sans verdict, car les interpréter relève d'un jugement clinique et les cibles diffèrent selon les recommandations.
+Non. femio affiche vos résultats avec les valeurs de référence du laboratoire, sans verdict, car les interpréter relève d'un jugement clinique et les cibles diffèrent selon les recommandations.

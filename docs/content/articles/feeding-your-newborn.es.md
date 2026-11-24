@@ -11,7 +11,7 @@ secondary_topics:
   - "pañales mojados y deposiciones del recién nacido"
   - "controles de peso del recién nacido"
 excerpt: "Con qué frecuencia maman los recién nacidos, cómo son sus señales de hambre y qué revisan la matrona o la enfermera de salud infantil cuando se valora la alimentación."
-meta_title: "Cada cuánto alimentar a un recién nacido | Femio"
+meta_title: "Cada cuánto alimentar a un recién nacido | femio"
 meta_description: "Con qué frecuencia maman los recién nacidos, cómo son sus señales de hambre y qué revisan las matronas cuando se valora la alimentación."
 canonical_url: "https://femioapp.com/es/learn/feeding-your-newborn"
 robots_while_draft: "noindex,nofollow"
@@ -23,7 +23,7 @@ open_graph_image_alt: "Una persona alimenta a su recién nacido, sostenido muy c
 written_by: "PENDING"
 medically_reviewed_by: "Dr. Khaled M."
 date_published: "2026-10-30"
-date_modified: "2026-10-30"
+date_modified: "2026-11-24"
 last_reviewed: "2026-10-30"
 next_review_due: "2027-10-30"
 reading_level_ok: false
@@ -109,7 +109,7 @@ Busca atención urgente para un recién nacido que no quiere comer, al que cuest
 
 Pide una revisión de la alimentación esa misma semana si hay dolor al amamantar, si el bebé come sin parar sin calmarse o si te preocupa su peso. [Señales de alarma en el recién nacido](/es/learn/newborn-warning-signs) enumera las señales que requieren atención de urgencias, y [tu recién nacido en las primeras dos semanas](/es/learn/newborn-first-two-weeks) explica qué es lo habitual.
 
-> **Busca atención ya:** Contacta con los servicios de emergencia de tu zona o acude al servicio de urgencias más cercano si un bebé menor de tres meses tiene una temperatura de 38 °C o más, respira deprisa, se esfuerza mucho para respirar o emite gruñidos, tiene la piel azulada, grisácea, pálida o moteada, está flácido, cuesta despertarlo, rechaza las tomas, tiene muchos menos pañales mojados o ninguno en las últimas 12 horas, tiene la fontanela abultada o hundida, tiene una erupción que no desaparece al presionarla, o tiene una convulsión. Femio no puede evaluar a un bebé.
+> **Busca atención ya:** Contacta con los servicios de emergencia de tu zona o acude al servicio de urgencias más cercano si un bebé menor de tres meses tiene una temperatura de 38 °C o más, respira deprisa, se esfuerza mucho para respirar o emite gruñidos, tiene la piel azulada, grisácea, pálida o moteada, está flácido, cuesta despertarlo, rechaza las tomas, tiene muchos menos pañales mojados o ninguno en las últimas 12 horas, tiene la fontanela abultada o hundida, tiene una erupción que no desaparece al presionarla, o tiene una convulsión. femio no puede evaluar a un bebé.
 
 ## Preguntas frecuentes
 

@@ -12,7 +12,7 @@ secondary_topics:
   - "chirurgie de l'endométriose et fertilité"
   - "quand demander une aide à la fertilité"
 excerpt: "Comprendre comment l'endométriose peut affecter la fertilité, ce qu'un bilan clinique peut comporter, et comment les choix de soins peuvent refléter vos projets de conception."
-meta_title: "Endométriose et fertilité : ce qu'il faut savoir | Femio"
+meta_title: "Endométriose et fertilité : ce qu'il faut savoir | femio"
 meta_description: "Comment l'endométriose peut affecter la fertilité, ce que peut comporter un bilan, et comment discuter du calendrier, de la chirurgie et du soutien."
 canonical_url: "https://femioapp.com/fr/learn/endometriosis-and-fertility"
 robots_while_draft: "noindex,nofollow"
@@ -24,7 +24,7 @@ open_graph_image_alt: "Personne discutant de ses objectifs de fertilité avec un
 written_by: "PENDING"
 medically_reviewed_by: "Dr. Khaled M."
 date_published: "2026-10-30"
-date_modified: "2026-10-30"
+date_modified: "2026-11-24"
 last_reviewed: "2026-10-30"
 next_review_due: "2027-10-30"
 reading_level_ok: false

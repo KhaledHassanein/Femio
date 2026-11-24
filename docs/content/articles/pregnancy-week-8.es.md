@@ -10,7 +10,7 @@ secondary_topics:
   - "el periodo para la cita de inscripción"
   - "estado de ánimo al inicio del embarazo"
 excerpt: "La semana 8 suele abrir el periodo para la cita de inscripción, y a menudo es la semana en que los cambios de humor se vuelven el síntoma más intenso."
-meta_title: "8 semanas de embarazo: la cita de inscripción | Femio"
+meta_title: "8 semanas de embarazo: la cita de inscripción | femio"
 meta_description: "La semana 8 suele abrir la cita de inscripción. Qué incluye esa hora, por qué el ánimo suele alterarse ahora y qué decir si lo estás pasando mal."
 canonical_url: "https://femioapp.com/es/learn/pregnancy-week-8"
 robots_while_draft: "noindex,nofollow"
@@ -22,7 +22,7 @@ open_graph_image_alt: "Notas de una matrona y un tensiómetro sobre un escritori
 written_by: "PENDING"
 medically_reviewed_by: "Dr. Khaled M."
 date_published: "2026-10-30"
-date_modified: "2026-10-30"
+date_modified: "2026-11-24"
 last_reviewed: "2026-10-30"
 next_review_due: "2027-10-30"
 reading_level_ok: false
@@ -91,7 +91,7 @@ Escribe tus preguntas antes de la cita de inscripción y llévalas contigo. Una 
 
 Contacta con una matrona o con tu médico de cabecera por cualquier sangrado, dolor intenso o de un solo lado, imposibilidad de retener líquidos o fiebre. Si sientes que no puedes con todo, dilo también. [Qué ocurre en la primera cita del embarazo](/es/learn/first-pregnancy-appointment) explica la visita en sí.
 
-> **Busca atención ya:** Contacta con los servicios de emergencia de tu zona o acude al servicio de urgencias más cercano si tienes sangrado abundante, dolor abdominal intenso o de un solo lado, dolor en la punta del hombro, dolor de cabeza fuerte con alteraciones visuales, hinchazón repentina de la cara o las manos, fiebre, dolor en el pecho, dificultad para respirar, desmayo o convulsión. Femio no puede evaluar un embarazo.
+> **Busca atención ya:** Contacta con los servicios de emergencia de tu zona o acude al servicio de urgencias más cercano si tienes sangrado abundante, dolor abdominal intenso o de un solo lado, dolor en la punta del hombro, dolor de cabeza fuerte con alteraciones visuales, hinchazón repentina de la cara o las manos, fiebre, dolor en el pecho, dificultad para respirar, desmayo o convulsión. femio no puede evaluar un embarazo.
 
 ## Preguntas frecuentes
 

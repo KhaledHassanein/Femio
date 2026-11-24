@@ -12,7 +12,7 @@ secondary_topics:
   - "recuperación de un desgarro perineal"
   - "señales de infección de la herida tras el parto"
 excerpt: "Cómo suelen cicatrizar los puntos perineales y las heridas de cesárea, qué ayuda en el día a día y las señales que indican que una herida necesita revisión."
-meta_title: "Cicatrización tras puntos o cesárea | Femio"
+meta_title: "Cicatrización tras puntos o cesárea | femio"
 meta_description: "Cómo cicatrizan semana a semana los puntos y las heridas de cesárea, qué ayuda con el dolor y la higiene, y cuándo una herida necesita revisión."
 canonical_url: "https://femioapp.com/es/learn/postpartum-wound-healing"
 robots_while_draft: "noindex,nofollow"
@@ -24,7 +24,7 @@ open_graph_image_alt: "Una persona descansando con cojines mientras se recupera 
 written_by: "PENDING"
 medically_reviewed_by: "Dr. Khaled M."
 date_published: "2026-10-30"
-date_modified: "2026-10-30"
+date_modified: "2026-11-24"
 last_reviewed: "2026-10-30"
 next_review_due: "2027-10-30"
 reading_level_ok: false
@@ -114,7 +114,7 @@ Contacta con tu matrona, tu médico o tu unidad de maternidad si una herida est�
 
 Haz una fotografía si no puedes ver la zona tú misma. Es mucho más fácil que describirla.
 
-> **Busca atención ya:** Contacta con los servicios de emergencia de tu zona o acude al servicio de urgencias más cercano por dolor abdominal o de la herida intenso, si una herida se ha abierto, si hay sangrado abundante desde una herida, o si tienes fiebre con confusión, latidos del corazón muy acelerados o te encuentras muy mal. Femio no puede examinar una herida.
+> **Busca atención ya:** Contacta con los servicios de emergencia de tu zona o acude al servicio de urgencias más cercano por dolor abdominal o de la herida intenso, si una herida se ha abierto, si hay sangrado abundante desde una herida, o si tienes fiebre con confusión, latidos del corazón muy acelerados o te encuentras muy mal. femio no puede examinar una herida.
 
 ## Preguntas frecuentes
 

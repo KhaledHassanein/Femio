@@ -12,7 +12,7 @@ secondary_topics:
   - "cólicos menstruales intensos"
   - "cuándo consultar por dolor menstrual"
 excerpt: "Por qué la menstruación puede doler, qué patrones merece la pena comentar, qué puede implicar la evaluación clínica y cuándo el dolor necesita atención urgente."
-meta_title: "¿Por qué duelen tanto las menstruaciones? | Femio"
+meta_title: "¿Por qué duelen tanto las menstruaciones? | femio"
 meta_description: "Entiende el dolor menstrual, sus posibles causas, qué síntomas conviene comentar, las opciones de atención y cuándo necesita ayuda urgente."
 canonical_url: "https://femioapp.com/es/conditions/painful-periods"
 robots_while_draft: "noindex,nofollow"
@@ -24,7 +24,7 @@ open_graph_image_alt: "Persona usando una bolsa de calor mientras registra el do
 written_by: "PENDING"
 medically_reviewed_by: "Dr. Khaled M."
 date_published: "2026-10-30"
-date_modified: "2026-10-30"
+date_modified: "2026-11-24"
 last_reviewed: "2026-10-30"
 next_review_due: "2027-10-30"
 reading_level_ok: false
@@ -78,7 +78,7 @@ Las posibles causas del dolor secundario incluyen:
 - Diferencias estructurales en el útero o en el tracto reproductivo.
 - Un DIU de cobre en algunas personas.
 
-El patrón da pistas, pero no puede confirmar la causa. Lee la guía de Femio sobre [endometriosis](/es/conditions/endometriosis) si el dolor aparece con las relaciones sexuales, al defecar, al orinar o en otros momentos del mes.
+El patrón da pistas, pero no puede confirmar la causa. Lee la guía de femio sobre [endometriosis](/es/conditions/endometriosis) si el dolor aparece con las relaciones sexuales, al defecar, al orinar o en otros momentos del mes.
 
 ## ¿Qué síntomas conviene notar?
 
@@ -137,7 +137,7 @@ Para cólicos sin una causa urgente, un clínico o un farmacéutico puede coment
 - Apoyo para el sueño y para sobrellevar el dolor persistente.
 - Revisión por un especialista o cirugía cuando se sospecha o se encuentra otra enfermedad.
 
-No uses un medicamento que no sea seguro para tu edad, tu embarazo, tus alergias, tu estómago, tus riñones, tu hígado, tu corazón u otras necesidades de salud. Sigue la etiqueta y pregunta a un farmacéutico o a un clínico cuando tengas dudas. Femio no indica dosis de medicamentos.
+No uses un medicamento que no sea seguro para tu edad, tu embarazo, tus alergias, tu estómago, tus riñones, tu hígado, tu corazón u otras necesidades de salud. Sigue la etiqueta y pregunta a un farmacéutico o a un clínico cuando tengas dudas. femio no indica dosis de medicamentos.
 
 La [guía del NHS sobre problemas menstruales](https://www.nhs.uk/conditions/periods/period-problems/) recomienda consultar a un médico cuando el dolor es lo bastante intenso como para afectar a la vida diaria.
 
@@ -157,11 +157,11 @@ Pide ajustes prácticos en el colegio o en el trabajo cuando los necesites. Las 
 
 El dolor persistente puede afectar al estado de ánimo, al sueño, a las relaciones sexuales y a las relaciones con los demás. El apoyo para estos efectos también forma parte de tu plan de atención.
 
-## Cómo registrar las menstruaciones dolorosas en Femio
+## Cómo registrar las menstruaciones dolorosas en femio
 
 Registra cuándo empieza el dolor, dónde aparece, su intensidad, otros síntomas y su efecto en la vida diaria. Añade el flujo menstrual y cualquier dolor fuera de la menstruación.
 
-Femio puede situar los síntomas junto a las fechas del ciclo y crear un resumen. No puede confirmar la causa ni decidir si el dolor es seguro de manejar en casa.
+femio puede situar los síntomas junto a las fechas del ciclo y crear un resumen. No puede confirmar la causa ni decidir si el dolor es seguro de manejar en casa.
 
 Otras guías relacionadas tratan sobre las [menstruaciones abundantes](/es/conditions/heavy-periods) y los [conceptos básicos del ciclo menstrual](/es/learn/menstrual-cycle-basics). También puedes leer [cómo se valoran las menstruaciones dolorosas](/es/learn/how-painful-periods-are-assessed) y las [opciones de atención para el dolor menstrual](/es/learn/period-pain-care-options) que puede comentar un clínico.
 

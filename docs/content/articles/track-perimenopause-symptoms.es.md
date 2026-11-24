@@ -12,7 +12,7 @@ secondary_topics:
   - "cambios en la menstruación durante la perimenopausia"
   - "resumen para la cita sobre la perimenopausia"
 excerpt: "Aprende a registrar los cambios en la menstruación, los sofocos, el sueño, el estado de ánimo y el impacto diario durante la perimenopausia, sin tomar las estimaciones de la aplicación como conclusiones médicas."
-meta_title: "Cómo registrar los síntomas de la perimenopausia | Femio"
+meta_title: "Cómo registrar los síntomas de la perimenopausia | femio"
 meta_description: "Aprende a registrar la menstruación, los sofocos, el sueño y el ánimo, a preparar un resumen útil para la cita y a saber cuándo buscar atención."
 canonical_url: "https://femioapp.com/es/learn/track-perimenopause-symptoms"
 robots_while_draft: "noindex,nofollow"
@@ -24,7 +24,7 @@ open_graph_image_alt: "Diario de síntomas de la perimenopausia con notas de men
 written_by: "PENDING"
 medically_reviewed_by: "Dr. Khaled M."
 date_published: "2026-10-30"
-date_modified: "2026-10-30"
+date_modified: "2026-11-24"
 last_reviewed: "2026-10-30"
 next_review_due: "2027-10-30"
 reading_level_ok: false
@@ -122,9 +122,9 @@ Guarda el registro completo, pero prepara un resumen de una página con:
 
 La [guía de NICE sobre la menopausia](https://www.nice.org.uk/guidance/ng23/chapter/Recommendations) dice que la atención debe adaptarse a la persona y ajustarse a medida que cambien los síntomas. Tu resumen debe mostrar lo que te importa, no solo una lista de puntuaciones.
 
-## ¿Cómo pueden cambiar las estimaciones de Femio?
+## ¿Cómo pueden cambiar las estimaciones de femio?
 
-Las estimaciones del ciclo son menos seguras cuando las menstruaciones varían. Femio debe mostrar un rango en lugar de afirmar una única fecha futura exacta. Una etiqueta de «retraso» no puede explicar por qué no ha llegado la menstruación.
+Las estimaciones del ciclo son menos seguras cuando las menstruaciones varían. femio debe mostrar un rango en lugar de afirmar una única fecha futura exacta. Una etiqueta de «retraso» no puede explicar por qué no ha llegado la menstruación.
 
 Puede seguir produciéndose un embarazo durante la perimenopausia. Un calendario no puede confirmar si hubo ovulación.
 

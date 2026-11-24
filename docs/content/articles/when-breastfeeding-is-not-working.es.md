@@ -12,7 +12,7 @@ secondary_topics:
   - "alimentación combinada"
   - "dejar la lactancia"
 excerpt: "Qué hacer cuando la toma duele, la producción parece baja o quieres dejarlo: qué ayuda existe, cómo es la mastitis y cómo cambiar la forma de alimentar."
-meta_title: "Cuando la lactancia materna no funciona: qué hacer | Femio"
+meta_title: "Cuando la lactancia materna no funciona: qué hacer | femio"
 meta_description: "Dolor, producción baja, mastitis, alimentación mixta y dejar la lactancia: ayuda práctica cuando la lactancia no funciona, y cómo decidir sin culpa."
 canonical_url: "https://femioapp.com/es/learn/when-breastfeeding-is-not-working"
 robots_while_draft: "noindex,nofollow"
@@ -24,7 +24,7 @@ open_graph_image_alt: "Una mujer sosteniendo un biberón y a su bebé, con gesto
 written_by: "PENDING"
 medically_reviewed_by: "Dr. Khaled M."
 date_published: "2026-10-30"
-date_modified: "2026-10-30"
+date_modified: "2026-11-24"
 last_reviewed: "2026-10-30"
 next_review_due: "2027-10-30"
 reading_level_ok: false
@@ -120,7 +120,7 @@ Contacta con tu matrona, tu enfermera de salud infantil o tu médico por dolor d
 
 Pide atención urgente sobre tu bebé si está flácido, cuesta despertarlo, respira rápido o con esfuerzo, tiene fiebre o rechaza las tomas.
 
-> **Busca atención ya:** Pide atención urgente si tienes fiebre alta con un pecho rojo, caliente y doloroso y te sientes muy mal, un absceso mamario o una zona roja que se extiende, o si tu bebé está flácido, cuesta despertarlo, respira con dificultad o rechaza las tomas. Femio no puede evaluar un pecho ni a un bebé.
+> **Busca atención ya:** Pide atención urgente si tienes fiebre alta con un pecho rojo, caliente y doloroso y te sientes muy mal, un absceso mamario o una zona roja que se extiende, o si tu bebé está flácido, cuesta despertarlo, respira con dificultad o rechaza las tomas. femio no puede evaluar un pecho ni a un bebé.
 
 ## Preguntas frecuentes
 

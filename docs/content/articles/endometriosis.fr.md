@@ -12,7 +12,7 @@ secondary_topics:
   - "options de prise en charge de l’endométriose"
   - "suivi de l’endométriose"
 excerpt: "Découvrez ce qu’est l’endométriose, les signes qu’elle peut provoquer, la façon dont les cliniciens l’évaluent, et ce que peuvent comporter les soins et le soutien au quotidien."
-meta_title: "Endométriose : signes et prise en charge | Femio"
+meta_title: "Endométriose : signes et prise en charge | femio"
 meta_description: "Comprendre les signes de l’endométriose, le bilan clinique, les options de soins, la fertilité et ce qu’il faut suivre avant un rendez-vous."
 canonical_url: "https://femioapp.com/fr/conditions/endometriosis"
 robots_while_draft: "noindex,nofollow"
@@ -24,7 +24,7 @@ open_graph_image_alt: "Illustration anatomique montrant les zones où l’endom�
 written_by: "PENDING"
 medically_reviewed_by: "Dr. Khaled M."
 date_published: "2026-10-30"
-date_modified: "2026-10-30"
+date_modified: "2026-11-24"
 last_reviewed: "2026-10-30"
 next_review_due: "2027-10-30"
 reading_level_ok: false
@@ -154,13 +154,13 @@ Votre douleur compte toujours.
 
 Continuez à demander de l’aide.
 
-## Comment suivre l’endométriose dans Femio
+## Comment suivre l’endométriose dans femio
 
 Notez les dates de règles, leur abondance, la douleur, les symptômes urinaires ou intestinaux, la douleur pendant les rapports sexuels, la fatigue et de brèves notes sur l’impact au quotidien. Ne suivez que ce qui vous paraît utile et sans risque.
 
-Recherchez une régularité dans le temps, et non un verdict. Un motif qui se répète peut vous aider à décrire vos symptômes, mais Femio ne peut ni confirmer une endométriose ni juger de sa gravité. Exportez ou imprimez un résumé si vous souhaitez le partager avec un clinicien.
+Recherchez une régularité dans le temps, et non un verdict. Un motif qui se répète peut vous aider à décrire vos symptômes, mais femio ne peut ni confirmer une endométriose ni juger de sa gravité. Exportez ou imprimez un résumé si vous souhaitez le partager avec un clinicien.
 
-Les guides Femio associés couvrent les [règles douloureuses](/fr/conditions/painful-periods), les [règles abondantes](/fr/conditions/heavy-periods), les [signes courants de l’endométriose](/fr/learn/endometriosis-signs), [la manière dont l’endométriose est évaluée](/fr/learn/how-endometriosis-is-assessed) et [l’endométriose et la fertilité](/fr/learn/endometriosis-and-fertility).
+Les guides femio associés couvrent les [règles douloureuses](/fr/conditions/painful-periods), les [règles abondantes](/fr/conditions/heavy-periods), les [signes courants de l’endométriose](/fr/learn/endometriosis-signs), [la manière dont l’endométriose est évaluée](/fr/learn/how-endometriosis-is-assessed) et [l’endométriose et la fertilité](/fr/learn/endometriosis-and-fertility).
 
 ## Questions fréquentes
 

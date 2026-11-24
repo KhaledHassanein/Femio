@@ -24,7 +24,7 @@ open_graph_image_alt: "Une femme de fin de trentaine regardant un calendrier che
 written_by: "PENDING"
 medically_reviewed_by: "Dr. Khaled M."
 date_published: "2026-10-30"
-date_modified: "2026-10-30"
+date_modified: "2026-11-24"
 last_reviewed: "2026-10-30"
 next_review_due: "2027-10-30"
 reading_level_ok: false
@@ -78,9 +78,9 @@ Deux personnes du même âge peuvent se trouver dans des situations très diffé
 
 ## La seule chose que cette page ne fera pas
 
-Elle ne vous dira pas quelles sont vos chances. Femio ne calcule pas de probabilité personnelle de concevoir, et aucune application honnête ne peut le faire à partir des informations qu’elle détient.
+Elle ne vous dira pas quelles sont vos chances. femio ne calcule pas de probabilité personnelle de concevoir, et aucune application honnête ne peut le faire à partir des informations qu’elle détient.
 
-Un chiffre rattaché à *vous* serait une prédiction individuelle faite à partir de données de groupe. C’est la même raison pour laquelle Femio affiche une fenêtre plutôt qu’une date pour les règles, et refuse de porter un jugement à partir d’une température corporelle relevée à la maison. Ce qu’il peut faire, c’est conserver vos cycles et vos notes, pour qu’un clinicien qui vous examine dispose de véritables informations plutôt que de souvenirs.
+Un chiffre rattaché à *vous* serait une prédiction individuelle faite à partir de données de groupe. C’est la même raison pour laquelle femio affiche une fenêtre plutôt qu’une date pour les règles, et refuse de porter un jugement à partir d’une température corporelle relevée à la maison. Ce qu’il peut faire, c’est conserver vos cycles et vos notes, pour qu’un clinicien qui vous examine dispose de véritables informations plutôt que de souvenirs.
 
 ## Ce qui change réellement avec l’âge : le moment de demander de l’aide
 
@@ -128,6 +128,6 @@ Les recommandations suggèrent généralement six mois à cet âge, et plus tôt
 
 Oui, mais plus progressivement. Les deux partenaires sont évalués dans tout bilan de fertilité.
 
-### Femio peut-il estimer mes chances ?
+### femio peut-il estimer mes chances ?
 
 Non. Il conserve ce que vos cycles ont réellement donné, pour qu’un clinicien dispose d’informations fiables, et il ne transforme pas des statistiques de groupe en chiffre vous concernant.

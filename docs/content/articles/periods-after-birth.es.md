@@ -12,7 +12,7 @@ secondary_topics:
   - "ciclos irregulares después del parto"
   - "ovulación antes de la primera menstruación"
 excerpt: "Cuándo suele volver la menstruación después del parto, cómo la lactancia cambia el momento, por qué los primeros ciclos son irregulares y qué conviene comunicar."
-meta_title: "Cuándo vuelve la menstruación después del parto | Femio"
+meta_title: "Cuándo vuelve la menstruación después del parto | femio"
 meta_description: "Cuándo regresa la menstruación tras el parto, cómo cambia con la lactancia, por qué los primeros ciclos son irregulares y qué sangrado conviene revisar."
 canonical_url: "https://femioapp.com/es/learn/periods-after-birth"
 robots_while_draft: "noindex,nofollow"
@@ -24,7 +24,7 @@ open_graph_image_alt: "Un calendario con un ciclo registrado después del nacimi
 written_by: "PENDING"
 medically_reviewed_by: "Dr. Khaled M."
 date_published: "2026-10-30"
-date_modified: "2026-10-30"
+date_modified: "2026-11-24"
 last_reviewed: "2026-10-30"
 next_review_due: "2027-10-30"
 reading_level_ok: false

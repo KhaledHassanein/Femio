@@ -10,7 +10,7 @@ secondary_topics:
   - "test de grossesse positif à la semaine 5"
   - "fatigue en début de grossesse"
 excerpt: "La semaine 5 est celle où la plupart des femmes l'apprennent. La fatigue arrive souvent en premier, pendant que le cœur et le système nerveux commencent à se former."
-meta_title: "5 semaines de grossesse : la semaine du test | Femio"
+meta_title: "5 semaines de grossesse : la semaine du test | femio"
 meta_description: "À 5 semaines, un test est généralement fiable et la fatigue arrive souvent en premier. Ce qui se forme, et ce que signifient les petits saignements."
 canonical_url: "https://femioapp.com/fr/learn/pregnancy-week-5"
 robots_while_draft: "noindex,nofollow"
@@ -22,7 +22,7 @@ open_graph_image_alt: "Une femme assise au bord d'un lit, dans la lumière du ma
 written_by: "PENDING"
 medically_reviewed_by: "Dr. Khaled M."
 date_published: "2026-10-30"
-date_modified: "2026-10-30"
+date_modified: "2026-11-24"
 last_reviewed: "2026-10-30"
 next_review_due: "2027-10-30"
 reading_level_ok: false
@@ -91,7 +91,7 @@ Prenez rendez-vous avec la sage-femme ou le médecin généraliste aujourd'hui p
 
 Tout saignement doit être signalé, même s'il s'arrête. Il en va de même pour une douleur intense, une douleur d'un seul côté, une douleur au bout de l'épaule, ou une sensation de malaise. [Les modifications du début de grossesse](/fr/learn/early-pregnancy-changes) présente ce qui est normal à ce stade précoce, et [les signes d'alerte pendant la grossesse](/fr/learn/pregnancy-warning-signs) présente ce qui ne l'est pas.
 
-> **Consultez sans attendre :** Contactez les services d'urgence de votre région ou rendez-vous au service des urgences le plus proche si vous avez des saignements abondants, une douleur abdominale intense ou d'un seul côté, une douleur au bout de l'épaule, un mal de tête intense accompagné de troubles de la vue, un gonflement soudain du visage ou des mains, de la fièvre, une douleur thoracique, des difficultés respiratoires, un malaise ou une crise convulsive. Femio ne peut pas évaluer une grossesse.
+> **Consultez sans attendre :** Contactez les services d'urgence de votre région ou rendez-vous au service des urgences le plus proche si vous avez des saignements abondants, une douleur abdominale intense ou d'un seul côté, une douleur au bout de l'épaule, un mal de tête intense accompagné de troubles de la vue, un gonflement soudain du visage ou des mains, de la fièvre, une douleur thoracique, des difficultés respiratoires, un malaise ou une crise convulsive. femio ne peut pas évaluer une grossesse.
 
 ## Questions fréquentes
 

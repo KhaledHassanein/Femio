@@ -10,7 +10,7 @@ secondary_topics:
   - "la mitad del embarazo"
   - "vacunación contra la tos ferina durante el embarazo"
 excerpt: "La semana 20 es la mitad del embarazo. La ecografía de detección de anomalías suele hacerse en esta época, y la vacuna contra la tos ferina se ofrece por estas fechas."
-meta_title: "20 semanas de embarazo: la mitad y una vacuna | Femio"
+meta_title: "20 semanas de embarazo: la mitad y una vacuna | femio"
 meta_description: "La semana 20 es la mitad del embarazo y suele ser cuando se ofrece la vacuna contra la tos ferina. Cambia también la forma de medir al bebé."
 canonical_url: "https://femioapp.com/es/learn/pregnancy-week-20"
 robots_while_draft: "noindex,nofollow"
@@ -22,7 +22,7 @@ open_graph_image_alt: "Una cita de vacunación escrita en una tarjeta sobre una 
 written_by: "PENDING"
 medically_reviewed_by: "Dr. Khaled M."
 date_published: "2026-10-30"
-date_modified: "2026-10-30"
+date_modified: "2026-11-24"
 last_reviewed: "2026-10-30"
 next_review_due: "2027-10-30"
 reading_level_ok: false
@@ -86,7 +86,7 @@ Pide tu formulario MAT B1 en la próxima cita, o el equivalente de tu país. Las
 
 Comunica cualquier sangrado, dolor intenso, fiebre o dolor de cabeza con alteraciones visuales. La hinchazón repentina de la cara o las manos requiere atención el mismo día. [Señales de alarma en el embarazo](/es/learn/pregnancy-warning-signs) tiene la lista completa.
 
-> **Busca atención ya:** Contacta con los servicios de emergencia de tu zona o acude al servicio de urgencias más cercano si tienes sangrado abundante, dolor abdominal intenso o de un solo lado, un dolor de cabeza fuerte con alteraciones visuales, hinchazón repentina de la cara o las manos, fiebre, pérdida de líquido por la vagina, dolor en el pecho, dificultad para respirar, desmayo o convulsión. Femio no puede evaluar un embarazo.
+> **Busca atención ya:** Contacta con los servicios de emergencia de tu zona o acude al servicio de urgencias más cercano si tienes sangrado abundante, dolor abdominal intenso o de un solo lado, un dolor de cabeza fuerte con alteraciones visuales, hinchazón repentina de la cara o las manos, fiebre, pérdida de líquido por la vagina, dolor en el pecho, dificultad para respirar, desmayo o convulsión. femio no puede evaluar un embarazo.
 
 ## Preguntas frecuentes
 

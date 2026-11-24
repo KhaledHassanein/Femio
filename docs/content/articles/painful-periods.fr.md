@@ -24,7 +24,7 @@ open_graph_image_alt: "Une personne utilisant une bouillotte tout en notant sa d
 written_by: "PENDING"
 medically_reviewed_by: "Dr. Khaled M."
 date_published: "2026-10-30"
-date_modified: "2026-10-30"
+date_modified: "2026-11-24"
 last_reviewed: "2026-10-30"
 next_review_due: "2027-10-30"
 reading_level_ok: false
@@ -78,7 +78,7 @@ Les causes possibles d'une douleur secondaire comprennent :
 - Des différences de structure de l'utérus ou de l'appareil génital.
 - Un dispositif intra-utérin (DIU) au cuivre chez certaines personnes.
 
-Le schéma donne des indices, mais il ne peut pas confirmer la cause. Lisez le guide Femio sur l'[endométriose](/fr/conditions/endometriosis) si la douleur survient pendant les rapports, lors des selles ou de la miction, ou à d'autres moments du mois.
+Le schéma donne des indices, mais il ne peut pas confirmer la cause. Lisez le guide femio sur l'[endométriose](/fr/conditions/endometriosis) si la douleur survient pendant les rapports, lors des selles ou de la miction, ou à d'autres moments du mois.
 
 ## Quels symptômes il est utile de remarquer ?
 
@@ -137,7 +137,7 @@ Pour des crampes sans cause urgente, un clinicien ou un pharmacien peut discuter
 - Un soutien pour le sommeil et pour faire face à une douleur persistante.
 - Un avis spécialisé ou une chirurgie lorsqu'une autre affection est suspectée ou découverte.
 
-N'utilisez pas un médicament qui n'est pas sans danger pour votre âge, votre éventuelle grossesse, vos allergies, votre estomac, vos reins, votre foie, votre cœur ou vos autres besoins de santé. Suivez la notice et demandez à un pharmacien ou à un clinicien en cas de doute. Femio ne fournit pas de posologies de médicaments.
+N'utilisez pas un médicament qui n'est pas sans danger pour votre âge, votre éventuelle grossesse, vos allergies, votre estomac, vos reins, votre foie, votre cœur ou vos autres besoins de santé. Suivez la notice et demandez à un pharmacien ou à un clinicien en cas de doute. femio ne fournit pas de posologies de médicaments.
 
 Le [guide du NHS sur les problèmes de règles](https://www.nhs.uk/conditions/periods/period-problems/) recommande de consulter un médecin lorsque la douleur est assez intense pour affecter la vie quotidienne.
 
@@ -157,11 +157,11 @@ Demandez à l'école ou au travail des aménagements pratiques si nécessaire. D
 
 Une douleur persistante peut affecter l'humeur, le sommeil, la vie sexuelle et les relations. Le soutien pour ces effets a aussi sa place dans votre plan de soins.
 
-## Comment suivre les règles douloureuses dans Femio
+## Comment suivre les règles douloureuses dans femio
 
 Notez quand la douleur commence, où elle se situe, son intensité, les autres symptômes et son effet sur la vie quotidienne. Ajoutez le flux menstruel et toute douleur survenant en dehors des règles.
 
-Femio peut placer les symptômes à côté des dates de cycle et produire un résumé. Il ne peut pas confirmer la cause, ni décider si la douleur peut être gérée à domicile en toute sécurité.
+femio peut placer les symptômes à côté des dates de cycle et produire un résumé. Il ne peut pas confirmer la cause, ni décider si la douleur peut être gérée à domicile en toute sécurité.
 
 D'autres guides sont liés : les [règles abondantes](/fr/conditions/heavy-periods) et les [bases du cycle menstruel](/fr/learn/menstrual-cycle-basics). Vous pouvez aussi lire [comment les règles douloureuses sont évaluées](/fr/learn/how-painful-periods-are-assessed) et les [options de soins contre la douleur des règles](/fr/learn/period-pain-care-options) qu'un clinicien peut discuter.
 

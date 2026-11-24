@@ -24,7 +24,7 @@ open_graph_image_alt: "Une femme assise calmement près d'une fenêtre, son béb
 written_by: "PENDING"
 medically_reviewed_by: "Dr. Khaled M."
 date_published: "2026-10-30"
-date_modified: "2026-10-30"
+date_modified: "2026-11-24"
 last_reviewed: "2026-10-30"
 next_review_due: "2027-10-30"
 reading_level_ok: false
@@ -57,7 +57,7 @@ internal_links:
 
 Se sentir larmoyante, à vif et submergée pendant les deux premières semaines après l'accouchement est très courant, et cela passe en général de soi-même. Une humeur basse, de l'anxiété ou un engourdissement qui dure plus de deux semaines, ou qui vous empêche de fonctionner, est une autre situation, et elle répond bien à un soutien. Rien de tout cela n'est un échec, et rien de tout cela ne fait de vous un mauvais parent. Cette page est une information de santé pour vous aider à nommer ce qui se passe ; elle ne remplace pas un échange avec un professionnel de santé.
 
-Si vous avez des pensées de vous faire du mal ou de faire du mal à votre bébé, c'est urgent. La page mondiale de Femio [Besoin d'aide maintenant](/fr/help-now) peut vous aider à trouver la prochaine étape sûre.
+Si vous avez des pensées de vous faire du mal ou de faire du mal à votre bébé, c'est urgent. La page mondiale de femio [Besoin d'aide maintenant](/fr/help-now) peut vous aider à trouver la prochaine étape sûre.
 
 ## Le baby blues
 
@@ -125,11 +125,11 @@ Le soutien va de l'aide pratique et des thérapies par la parole jusqu'aux médi
 
 [Sommeil et épuisement après l'accouchement](/fr/learn/sleep-and-exhaustion-after-birth) traite de la part de ces difficultés qui relève réellement du sommeil, et [votre bilan des six semaines](/fr/learn/six-week-postnatal-check) est un moment garanti pour aborder l'humeur.
 
-## Ce que Femio peut conserver
+## Ce que femio peut conserver
 
-Femio peut conserver une note quotidienne sur l'humeur, le sommeil et ce qui a aidé, ce qui rend un schéma visible sur plusieurs semaines. Ce relevé est bien plus facile à montrer qu'à décrire de mémoire lors d'un rendez-vous de dix minutes.
+femio peut conserver une note quotidienne sur l'humeur, le sommeil et ce qui a aidé, ce qui rend un schéma visible sur plusieurs semaines. Ce relevé est bien plus facile à montrer qu'à décrire de mémoire lors d'un rendez-vous de dix minutes.
 
-Femio ne pose aucun diagnostic et ne peut pas vous dire ce que vous avez. Ce qu'il peut faire, c'est s'assurer que la mauvaise quinzaine ne soit pas oubliée au moment où quelqu'un pose la question.
+femio ne pose aucun diagnostic et ne peut pas vous dire ce que vous avez. Ce qu'il peut faire, c'est s'assurer que la mauvaise quinzaine ne soit pas oubliée au moment où quelqu'un pose la question.
 
 ## Quand consulter
 
@@ -137,7 +137,7 @@ Contactez un professionnel de santé si une humeur basse, de l'anxiété ou un e
 
 Vous n'exagérez pas, et l'on ne vous retirera pas votre bébé parce que vous dites que vous traversez une période difficile. Le fait qu'on vous interroge sur votre humeur est une démarche de routine après une naissance.
 
-> **Consultez sans attendre :** Si vous avez des pensées de vous faire du mal ou de faire du mal à votre bébé, si vous ne vous sentez pas en sécurité, ou si vous constatez une confusion, une agitation, ou que vous voyez ou entendez des choses que les autres ne perçoivent pas, contactez les services d'urgence locaux ou rendez-vous au service des urgences le plus proche. La page mondiale de Femio [Besoin d'aide maintenant](/fr/help-now) peut vous aider à trouver la prochaine étape sûre. Restez avec une personne de confiance pendant que l'aide est organisée.
+> **Consultez sans attendre :** Si vous avez des pensées de vous faire du mal ou de faire du mal à votre bébé, si vous ne vous sentez pas en sécurité, ou si vous constatez une confusion, une agitation, ou que vous voyez ou entendez des choses que les autres ne perçoivent pas, contactez les services d'urgence locaux ou rendez-vous au service des urgences le plus proche. La page mondiale de femio [Besoin d'aide maintenant](/fr/help-now) peut vous aider à trouver la prochaine étape sûre. Restez avec une personne de confiance pendant que l'aide est organisée.
 
 ## Questions fréquentes
 

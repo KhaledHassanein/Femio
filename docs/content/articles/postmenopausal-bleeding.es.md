@@ -24,7 +24,7 @@ open_graph_image_alt: "Una mujer pidiendo cita al médico en su teléfono"
 written_by: "PENDING"
 medically_reviewed_by: "Dr. Khaled M."
 date_published: "2026-10-30"
-date_modified: "2026-10-30"
+date_modified: "2026-11-24"
 last_reviewed: "2026-10-30"
 next_review_due: "2027-10-30"
 reading_level_ok: false
@@ -86,7 +86,7 @@ Un profesional sanitario considerará varias cosas. Esta lista está aquí para 
 - Algunos medicamentos, entre ellos los anticoagulantes.
 - Cáncer de endometrio o, con menos frecuencia, de cuello uterino.
 
-Femio no evalúa ninguna de estas causas y no puede decirte cuál aplica. Lo que sí puede hacer es guardar las fechas y los detalles que anotaste, para que quien te examine tenga un relato claro en lugar de un recuerdo.
+femio no evalúa ninguna de estas causas y no puede decirte cuál aplica. Lo que sí puede hacer es guardar las fechas y los detalles que anotaste, para que quien te examine tenga un relato claro en lugar de un recuerdo.
 
 ## Si estás con terapia hormonal
 

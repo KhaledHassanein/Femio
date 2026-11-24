@@ -11,7 +11,7 @@ secondary_topics:
   - "dépistage néonatal sanguin et auditif"
   - "calendriers de vaccination du bébé selon les pays"
 excerpt: "Les examens habituellement proposés au nouveau-né, ce que chacun examine, et pourquoi les calendriers de vaccination diffèrent d’un pays à l’autre."
-meta_title: "Examens et vaccinations du nouveau-né expliqués | Femio"
+meta_title: "Examens et vaccinations du nouveau-né expliqués | femio"
 meta_description: "Examen du nouveau-né, dépistage auditif, test du talon et premières vaccinations : ce qui est proposé, et pourquoi les calendriers diffèrent."
 canonical_url: "https://femioapp.com/fr/learn/newborn-checks-and-vaccinations"
 robots_while_draft: "noindex,nofollow"
@@ -23,7 +23,7 @@ open_graph_image_alt: "Un clinicien examinant un nouveau-né sur un lit de mater
 written_by: "PENDING"
 medically_reviewed_by: "Dr. Khaled M."
 date_published: "2026-10-30"
-date_modified: "2026-10-30"
+date_modified: "2026-11-24"
 last_reviewed: "2026-10-30"
 next_review_due: "2027-10-30"
 reading_level_ok: false
@@ -120,7 +120,7 @@ Demandez des soins urgents pour tout signe figurant dans l’encadré ci-dessous
 
 Contactez votre sage-femme, votre *health visitor* ou votre médecin si un examen ne vous a pas été proposé au moment attendu, si vous n’avez pas reçu un résultat, ou si vous avez une question sur la vaccination. [Votre nouveau-né pendant les deux premières semaines](/fr/learn/newborn-first-two-weeks) décrit ce qui est habituel, et [les signes d’alerte chez le nouveau-né](/fr/learn/newborn-warning-signs) décrit ce qui ne l’est pas.
 
-> **Consultez sans attendre :** Contactez les services d’urgence de votre région ou rendez-vous au service des urgences le plus proche si un bébé de moins de trois mois a une température de 38 °C ou plus, respire vite, fournit un effort important pour respirer ou geint, a la peau bleutée, grise, pâle ou marbrée, est mou, est difficile à réveiller, refuse les tétées, a beaucoup moins de couches mouillées, voire aucune depuis 12 heures, présente une fontanelle bombée ou creusée, a une éruption cutanée qui ne disparaît pas à la pression, ou fait une crise convulsive. Femio ne peut pas évaluer un bébé.
+> **Consultez sans attendre :** Contactez les services d’urgence de votre région ou rendez-vous au service des urgences le plus proche si un bébé de moins de trois mois a une température de 38 °C ou plus, respire vite, fournit un effort important pour respirer ou geint, a la peau bleutée, grise, pâle ou marbrée, est mou, est difficile à réveiller, refuse les tétées, a beaucoup moins de couches mouillées, voire aucune depuis 12 heures, présente une fontanelle bombée ou creusée, a une éruption cutanée qui ne disparaît pas à la pression, ou fait une crise convulsive. femio ne peut pas évaluer un bébé.
 
 ## Questions fréquentes
 

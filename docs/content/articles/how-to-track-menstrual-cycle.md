@@ -12,7 +12,7 @@ secondary_topics:
   - "period symptom diary"
   - "cycle length record"
 excerpt: "Learn which cycle dates, bleeding details, and symptoms are useful to track, how to spot patterns, and how to prepare a clear health summary."
-meta_title: "How to Track Your Menstrual Cycle | Femio"
+meta_title: "How to Track Your Menstrual Cycle | femio"
 meta_description: "Learn what to record in a menstrual cycle tracker, how to count cycle days, notice patterns, protect privacy, and prepare for an appointment."
 canonical_url: "https://femioapp.com/en/learn/how-to-track-menstrual-cycle"
 robots_while_draft: "noindex,nofollow"
@@ -24,7 +24,7 @@ open_graph_image_alt: "Calendar with period dates and symptom notes for menstrua
 written_by: "Dr. Khaled M."
 medically_reviewed_by: "Dr. Khaled M."
 date_published: "2026-08-15"
-date_modified: "2026-08-15"
+date_modified: "2026-11-24"
 last_reviewed: "2026-08-04"
 next_review_due: null
 reading_level_ok: true
@@ -149,7 +149,7 @@ Cycle records may contain sensitive health and sexual information. Use a secure 
 
 Share only the details needed for your purpose. Before sending an export, check what it contains and who will receive it. Delete downloaded copies from shared devices when you no longer need them.
 
-Femio estimates and summaries do not replace clinical advice. They help organise information for your own awareness and for a health conversation.
+femio estimates and summaries do not replace clinical advice. They help organise information for your own awareness and for a health conversation.
 
 ## When to see a doctor
 

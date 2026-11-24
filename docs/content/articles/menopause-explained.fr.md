@@ -12,7 +12,7 @@ secondary_topics:
   - "options de prise en charge de la ménopause"
   - "saignements après la ménopause"
 excerpt: "Découvrez ce que signifie la ménopause, quels changements peuvent survenir, comment les professionnels évaluent les symptômes, et quand des saignements ou d'autres symptômes nécessitent des soins médicaux."
-meta_title: "Qu'est-ce que la ménopause ? Symptômes | Femio"
+meta_title: "Qu'est-ce que la ménopause ? Symptômes | femio"
 meta_description: "Comprendre la ménopause, les symptômes fréquents, l'évaluation clinique, les options de prise en charge et quand demander un avis médical."
 canonical_url: "https://femioapp.com/fr/learn/menopause-explained"
 robots_while_draft: "noindex,nofollow"
@@ -24,7 +24,7 @@ open_graph_image_alt: "Femme examinant un relevé de symptômes de la ménopause
 written_by: "PENDING"
 medically_reviewed_by: "Dr. Khaled M."
 date_published: "2026-10-30"
-date_modified: "2026-10-30"
+date_modified: "2026-11-24"
 last_reviewed: "2026-10-30"
 next_review_due: "2027-10-30"
 reading_level_ok: false
@@ -146,7 +146,7 @@ Des notes utiles peuvent porter sur :
 - Tout saignement ou toute perte légère.
 - La façon dont les symptômes affectent le travail, la maison ou les relations.
 
-Demandez quelle autre cause pourrait expliquer ces changements. Demandez à quoi chaque option peut servir, quels risques s'appliquent à vous, et quand le plan devra être revu. Femio explique comment les contenus de santé sont vérifiés sur la [page de relecture clinique](/fr/medical-review).
+Demandez quelle autre cause pourrait expliquer ces changements. Demandez à quoi chaque option peut servir, quels risques s'appliquent à vous, et quand le plan devra être revu. femio explique comment les contenus de santé sont vérifiés sur la [page de relecture clinique](/fr/medical-review).
 
 ## Vivre la ménopause au quotidien
 
@@ -158,7 +158,7 @@ La sécheresse vaginale et les rapports douloureux méritent de l'attention. Des
 
 Les changements d'humeur peuvent affecter la confiance en soi et les relations. Demandez de l'aide lorsque la baisse de moral, l'anxiété ou l'irritabilité sont difficiles à gérer. Au travail, des aménagements pratiques peuvent inclure des pauses, une bonne aération, des horaires flexibles ou la rédaction de notes écrites après les réunions.
 
-## Comment suivre les symptômes de la ménopause dans Femio
+## Comment suivre les symptômes de la ménopause dans femio
 
 Ne suivez que les détails qui vous sont utiles. Vous pouvez noter le sommeil, les bouffées de chaleur, l'humeur, les maux de tête, les symptômes vaginaux ou urinaires, et leur effet sur les tâches quotidiennes.
 

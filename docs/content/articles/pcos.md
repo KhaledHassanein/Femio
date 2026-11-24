@@ -12,7 +12,7 @@ secondary_topics:
   - "PCOS care options"
   - "PCOS and irregular periods"
 excerpt: "Understand what PCOS is, the signs it can cause, how clinicians assess it, and the care options they may discuss with you."
-meta_title: "What Is PCOS? Signs, Assessment & Care | Femio"
+meta_title: "What Is PCOS? Signs, Assessment & Care | femio"
 meta_description: "Learn what PCOS is, common signs, how clinicians assess it, care options, what to track before an appointment, and health over time."
 canonical_url: "https://femioapp.com/en/conditions/pcos"
 robots_while_draft: "noindex,nofollow"
@@ -24,7 +24,7 @@ open_graph_image_alt: "Illustration showing common PCOS signs and cycle changes"
 written_by: "PENDING"
 medically_reviewed_by: "Dr. Khaled M."
 date_published: "2026-10-30"
-date_modified: "2026-10-30"
+date_modified: "2026-11-24"
 last_reviewed: "2026-10-30"
 next_review_due: "2027-10-30"
 reading_level_ok: true
@@ -136,11 +136,11 @@ Write down questions before an appointment. Ask what the clinician thinks is cau
 
 Avoid comparing your body with before-and-after images or strict plans online. PCOS varies widely, and a plan that fits someone else may not fit your health, culture, budget, or goals.
 
-## How to track PCOS in Femio
+## How to track PCOS in femio
 
 Track period start and end dates, flow, symptoms, and short notes. Useful context might include acne changes, unwanted hair growth, scalp hair changes, sleep, mood, or when symptoms affect daily life. You choose what to record.
 
-Femio can show cycle estimates as ranges and create a visit summary from your entries. A log can show timing and patterns, but it cannot confirm PCOS or choose clinical care.
+femio can show cycle estimates as ranges and create a visit summary from your entries. A log can show timing and patterns, but it cannot confirm PCOS or choose clinical care.
 
 Learn more about [how the menstrual cycle works](/en/learn/menstrual-cycle-basics). Related guides cover [common PCOS signs](/en/learn/pcos-signs), [how PCOS is assessed](/en/learn/how-pcos-is-assessed), and [PCOS and fertility](/en/learn/pcos-and-fertility).
 

@@ -12,7 +12,7 @@ secondary_topics:
   - "laparoscopia en la endometriosis"
   - "evaluación del dolor pélvico"
 excerpt: "Cómo evalúan los profesionales una posible endometriosis mediante el historial de síntomas, las exploraciones, las pruebas de imagen y, a veces, la laparoscopia, y cómo prepararte."
-meta_title: "¿Cómo se evalúa la endometriosis? | Femio"
+meta_title: "¿Cómo se evalúa la endometriosis? | femio"
 meta_description: "Cómo evalúan los profesionales una posible endometriosis: historial de síntomas, exploraciones, ecografía, resonancia magnética y, a veces, laparoscopia."
 canonical_url: "https://femioapp.com/es/learn/how-endometriosis-is-assessed"
 robots_while_draft: "noindex,nofollow"
@@ -24,7 +24,7 @@ open_graph_image_alt: "Profesional sanitaria y paciente revisando notas sobre do
 written_by: "PENDING"
 medically_reviewed_by: "Dr. Khaled M."
 date_published: "2026-10-30"
-date_modified: "2026-10-30"
+date_modified: "2026-11-24"
 last_reviewed: "2026-10-30"
 next_review_due: "2027-10-30"
 reading_level_ok: false
@@ -132,7 +132,7 @@ Preguntas útiles:
 - ¿Cómo afectan mis objetivos de fertilidad al plan?
 - ¿Cuándo revisamos la evolución?
 
-¿Buscas un embarazo? Lee [endometriosis y fertilidad](/es/learn/endometriosis-and-fertility). La [guía principal sobre la endometriosis](/es/conditions/endometriosis) recoge las opciones de atención. ¿Cómo se revisa este contenido? Consulta la [página de revisión clínica](/es/medical-review) de Femio.
+¿Buscas un embarazo? Lee [endometriosis y fertilidad](/es/learn/endometriosis-and-fertility). La [guía principal sobre la endometriosis](/es/conditions/endometriosis) recoge las opciones de atención. ¿Cómo se revisa este contenido? Consulta la [página de revisión clínica](/es/medical-review) de femio.
 
 ## Cuándo consultar
 

@@ -12,7 +12,7 @@ secondary_topics:
   - "heavy period care options"
   - "when to see a doctor for heavy bleeding"
 excerpt: "Learn what heavy periods can look like, possible causes, how clinicians assess bleeding, and when urgent or routine care is needed."
-meta_title: "Heavy Periods: Signs and When to Seek Care | Femio"
+meta_title: "Heavy Periods: Signs and When to Seek Care | femio"
 meta_description: "Understand heavy periods, signs worth tracking, possible causes, clinical assessment, care options, and when to seek urgent help."
 canonical_url: "https://femioapp.com/en/conditions/heavy-periods"
 robots_while_draft: "noindex,nofollow"
@@ -24,7 +24,7 @@ open_graph_image_alt: "Period calendar with flow tracking and notes about daily 
 written_by: "PENDING"
 medically_reviewed_by: "Dr. Khaled M."
 date_published: "2026-10-30"
-date_modified: "2026-10-30"
+date_modified: "2026-11-24"
 last_reviewed: "2026-10-30"
 next_review_due: "2027-10-30"
 reading_level_ok: true
@@ -171,13 +171,13 @@ For each period, record:
 - Missed work, school, sleep, or activities.
 - Bleeding between periods or after sex.
 
-Use Femio's [cycle-length calculator](/en/calculators/cycle-length) if you want an average across several cycles. The guide to [menstrual-cycle basics](/en/learn/menstrual-cycle-basics) explains how to count Day 1.
+Use femio's [cycle-length calculator](/en/calculators/cycle-length) if you want an average across several cycles. The guide to [menstrual-cycle basics](/en/learn/menstrual-cycle-basics) explains how to count Day 1.
 
-## How to track heavy periods in Femio
+## How to track heavy periods in femio
 
 Log flow in terms that make sense to you and add a short note when bleeding changes plans or sleep. Include dizziness, tiredness, pain, and any bleeding outside the period.
 
-Femio can create a summary from what you enter. It cannot measure blood loss, confirm a cause, or decide how urgent bleeding is. Use the red-flag advice above when symptoms are severe.
+femio can create a summary from what you enter. It cannot measure blood loss, confirm a cause, or decide how urgent bleeding is. Use the red-flag advice above when symptoms are severe.
 
 If pain is also a major concern, read the guide to [painful periods](/en/conditions/painful-periods).
 

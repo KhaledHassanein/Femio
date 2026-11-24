@@ -22,7 +22,7 @@ open_graph_image_alt: "Simple line drawing of a wide, soft band with no hard edg
 written_by: "PENDING"
 medically_reviewed_by: "Dr. Khaled M."
 date_published: "2026-08-19"
-date_modified: "2026-08-19"
+date_modified: "2026-11-24"
 last_reviewed: "2026-10-30"
 next_review_due: "2027-10-30"
 reading_level_ok: true
@@ -74,7 +74,7 @@ Neither.
 
 An app works out its guess from the cycles you have already logged. When those cycles vary — which is exactly what they are supposed to do right now — the honest answer is a wide range rather than a single day. Any app that shows you one confident date at this age is telling you something it does not actually know.
 
-That is why Femio shows a window rather than a date, and why the window is wide for younger users. A wide window is the app being honest with you, not the app failing. There is more about this in [tracking your cycle without stress](/en/learn/tracking-your-cycle-as-a-teen).
+That is why femio shows a window rather than a date, and why the window is wide for younger users. A wide window is the app being honest with you, not the app failing. There is more about this in [tracking your cycle without stress](/en/learn/tracking-your-cycle-as-a-teen).
 
 You are not late. "Late" only makes sense against a date that was certain, and at this stage there is no certain date to be late against.
 

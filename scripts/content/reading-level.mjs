@@ -85,7 +85,9 @@ export function proseOf(markdown) {
 
 /** Flesch-Kincaid grade level of a prose string. Returns null when there is no prose. */
 export function fleschKincaidGrade(prose) {
-  const sentences = prose.split(/(?<=[.!?])\s+(?=[A-Z"“(])/).filter((s) => /[a-zA-Z]/.test(s));
+  // The wordmark is always lowercase "femio" (CLAUDE.md rule 6), also at the start of a
+  // sentence, so it opens a sentence like a capital letter does.
+  const sentences = prose.split(/(?<=[.!?])\s+(?=[A-Z"“(]|femio\b)/).filter((s) => /[a-zA-Z]/.test(s));
   const words = prose.match(/[A-Za-z][A-Za-z'’-]*/g) ?? [];
   if (sentences.length === 0 || words.length === 0) return null;
   const syl = words.reduce((sum, w) => sum + syllables(w), 0);

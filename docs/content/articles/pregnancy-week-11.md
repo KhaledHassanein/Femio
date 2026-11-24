@@ -22,7 +22,7 @@ open_graph_image_alt: "An ultrasound room with a screen turned towards a chair"
 written_by: "PENDING"
 medically_reviewed_by: "Dr. Khaled M."
 date_published: "2026-08-19"
-date_modified: "2026-08-19"
+date_modified: "2026-11-24"
 last_reviewed: "2026-10-30"
 next_review_due: "2027-10-30"
 reading_level_ok: true
@@ -88,7 +88,7 @@ Decide, before the scan, whether you want screening — and talk it through with
 
 Report bleeding, severe or one-sided pain, or pain around the bump that is more than an ache. Dizziness that comes with a headache or vision changes needs care today. [Pregnancy warning signs](/en/learn/pregnancy-warning-signs) has the list.
 
-> **Seek care now:** Contact your local emergency services or go to your nearest emergency department if you have heavy bleeding, severe or one-sided tummy pain, pain in the tip of your shoulder, a severe headache with vision changes, sudden swelling of the face or hands, a fever, chest pain, trouble breathing, fainting, or a seizure. Femio cannot assess a pregnancy.
+> **Seek care now:** Contact your local emergency services or go to your nearest emergency department if you have heavy bleeding, severe or one-sided tummy pain, pain in the tip of your shoulder, a severe headache with vision changes, sudden swelling of the face or hands, a fever, chest pain, trouble breathing, fainting, or a seizure. femio cannot assess a pregnancy.
 
 ## Frequently asked questions
 

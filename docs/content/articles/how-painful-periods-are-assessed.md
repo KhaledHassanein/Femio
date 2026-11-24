@@ -12,7 +12,7 @@ secondary_topics:
   - "pelvic ultrasound for period pain"
   - "when period pain needs care"
 excerpt: "Learn how clinicians assess painful periods using your symptom history, an exam or imaging when useful, and checks for possible underlying causes."
-meta_title: "How Are Painful Periods Assessed? | Femio"
+meta_title: "How Are Painful Periods Assessed? | femio"
 meta_description: "Learn how clinicians assess painful periods, what questions and tests may be useful, which causes they consider, and how to prepare for a visit."
 canonical_url: "https://femioapp.com/en/learn/how-painful-periods-are-assessed"
 robots_while_draft: "noindex,nofollow"
@@ -24,7 +24,7 @@ open_graph_image_alt: "Clinician reviewing a period-pain diary and menstrual cal
 written_by: "Dr. Khaled M."
 medically_reviewed_by: "Dr. Khaled M."
 date_published: "2026-08-15"
-date_modified: "2026-08-15"
+date_modified: "2026-11-24"
 last_reviewed: "2026-08-04"
 next_review_due: null
 reading_level_ok: true
@@ -80,7 +80,7 @@ Secondary period pain has another health issue behind it. A clinician may think 
 
 Possible causes include [endometriosis](/en/conditions/endometriosis), adenomyosis, fibroids, ovarian cysts, pelvic infection, or a structural difference present from birth. Bowel, bladder, muscle, and nerve concerns can also cause pelvic pain.
 
-The [NHS period-problems guide](https://www.nhs.uk/conditions/periods/period-problems/) describes common period concerns and when to seek advice. Read Femio's main [painful-period guide](/en/conditions/painful-periods) for a wider overview.
+The [NHS period-problems guide](https://www.nhs.uk/conditions/periods/period-problems/) describes common period concerns and when to seek advice. Read femio's main [painful-period guide](/en/conditions/painful-periods) for a wider overview.
 
 ## Is a physical exam always needed?
 

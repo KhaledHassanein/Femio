@@ -10,7 +10,7 @@ secondary_topics:
   - "rotura de aguas"
   - "cuándo llamar a la unidad de maternidad"
 excerpt: "En la semana 39 pueden romperse las aguas, y saber exactamente cuándo llamar a la unidad de maternidad importa más que cualquier otra cosa."
-meta_title: "39 semanas: aguas, tapón mucoso y cuándo llamar | Femio"
+meta_title: "39 semanas: aguas, tapón mucoso y cuándo llamar | femio"
 meta_description: "Las aguas pueden romperse desde la semana 39, casi nunca de forma abundante. Cuándo llamar a maternidad, qué es el tapón mucoso y qué esperar."
 canonical_url: "https://femioapp.com/es/learn/pregnancy-week-39"
 robots_while_draft: "noindex,nofollow"
@@ -22,7 +22,7 @@ open_graph_image_alt: "Un teléfono sobre una mesa junto a un conjunto de histor
 written_by: "PENDING"
 medically_reviewed_by: "Dr. Khaled M."
 date_published: "2026-10-30"
-date_modified: "2026-10-30"
+date_modified: "2026-11-24"
 last_reviewed: "2026-10-30"
 next_review_due: "2027-10-30"
 reading_level_ok: false
@@ -88,7 +88,7 @@ Acuerda esta noche con quien te acompañe al parto quién llama a la unidad y qu
 
 Llama a tu unidad de maternidad cuando las contracciones duren 60 segundos y se repitan cada cinco minutos, o en cualquier momento si se rompen las aguas, cambian los movimientos o tienes sangrado. [Señales de alarma en el embarazo](/es/learn/pregnancy-warning-signs) tiene la lista completa.
 
-> **Busca atención ya:** Contacta con los servicios de emergencia locales o ve al servicio de urgencias más cercano si tienes sangrado abundante, dolor abdominal intenso o de un solo lado, dolor justo debajo de las costillas, dolor de cabeza intenso con alteraciones de la visión, hinchazón repentina de la cara o las manos, fiebre, pérdida de líquido por la vagina, dolor de pecho, dificultad para respirar, desmayo o convulsión. Contacta con tu servicio de maternidad el mismo día ante cualquier disminución del patrón habitual de movimientos del bebé. Femio no puede valorar un embarazo.
+> **Busca atención ya:** Contacta con los servicios de emergencia locales o ve al servicio de urgencias más cercano si tienes sangrado abundante, dolor abdominal intenso o de un solo lado, dolor justo debajo de las costillas, dolor de cabeza intenso con alteraciones de la visión, hinchazón repentina de la cara o las manos, fiebre, pérdida de líquido por la vagina, dolor de pecho, dificultad para respirar, desmayo o convulsión. Contacta con tu servicio de maternidad el mismo día ante cualquier disminución del patrón habitual de movimientos del bebé. femio no puede valorar un embarazo.
 
 ## Preguntas frecuentes
 

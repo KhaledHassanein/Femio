@@ -12,7 +12,7 @@ secondary_topics:
   - "period tracking"
   - "cycle length changes"
 excerpt: "Learn how the menstrual cycle works, how to count cycle days, what can vary, and which changes are worth discussing with a doctor."
-meta_title: "How Does the Menstrual Cycle Work? | Femio"
+meta_title: "How Does the Menstrual Cycle Work? | femio"
 meta_description: "Learn the menstrual cycle phases, how to count cycle days, what can vary, and how tracking can help you prepare for a doctor visit."
 canonical_url: "https://femioapp.com/en/learn/menstrual-cycle-basics"
 robots_while_draft: "noindex,nofollow"
@@ -24,7 +24,7 @@ open_graph_image_alt: "Simple illustration of the phases of the menstrual cycle"
 written_by: "Dr. Khaled M."
 medically_reviewed_by: "Dr. Khaled M."
 date_published: "2026-08-15"
-date_modified: "2026-08-15"
+date_modified: "2026-11-24"
 last_reviewed: "2026-08-04"
 next_review_due: null
 reading_level_ok: true
@@ -95,7 +95,7 @@ Some people notice breast tenderness, bloating, headaches, skin changes, tiredne
 
 Count the first day of full period bleeding as Day 1. Continue counting each day until the day before the next period begins. The number of days between those two start dates is your cycle length.
 
-For example, if one period starts on 1 May and the next starts on 29 May, the cycle is 28 days. You can use Femio's [cycle-length calculator](/en/calculators/cycle-length) to work out an average from several cycles.
+For example, if one period starts on 1 May and the next starts on 29 May, the cycle is 28 days. You can use femio's [cycle-length calculator](/en/calculators/cycle-length) to work out an average from several cycles.
 
 An average can be useful, but it does not mean every cycle will match it. Illness, stress, travel, life-stage changes, and some medicines can coincide with a different cycle. A clinician can help assess a change that persists or worries you.
 
@@ -105,7 +105,7 @@ There is no single cycle length that fits everyone. [ACOG](https://www.acog.org/
 
 Look beyond one number. Notice whether the time between periods, the number of bleeding days, the amount of bleeding, pain, or other symptoms have changed. A sudden or lasting shift is more useful to discuss than whether you match a textbook average.
 
-If your dates vary, prediction windows should become wider. Femio does not label a period as “late” when the logged pattern is irregular.
+If your dates vary, prediction windows should become wider. femio does not label a period as “late” when the logged pattern is irregular.
 
 ## How can cycles change across life stages?
 
@@ -136,9 +136,9 @@ Bring your dates and notes if you have them. The doctor may ask about pregnancy 
 
 > **Seek care now:** Get urgent medical help for very heavy bleeding with fainting, dizziness, chest pain, trouble breathing, or severe weakness. Sudden severe pelvic pain also needs urgent assessment. If you are unsure how urgent it is, contact local urgent care or emergency services.
 
-## How Femio can help you track your cycle
+## How femio can help you track your cycle
 
-Femio lets you log period dates, flow, symptoms, and notes in one calendar. It shows future dates as ranges and adjusts confidence to the data you enter. You can also make a printable summary for a doctor visit.
+femio lets you log period dates, flow, symptoms, and notes in one calendar. It shows future dates as ranges and adjusts confidence to the data you enter. You can also make a printable summary for a doctor visit.
 
 Use the practical guide to [tracking your menstrual cycle](/en/learn/how-to-track-menstrual-cycle) for a focused record. If mood or body symptoms repeat before periods, see [how to track PMS and PMDD symptoms](/en/learn/track-pms-pmdd-symptoms). Many different things can cause cycle changes, so tracking cannot tell you which one applies.
 

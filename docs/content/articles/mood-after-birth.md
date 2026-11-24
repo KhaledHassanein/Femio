@@ -24,7 +24,7 @@ open_graph_image_alt: "A woman sitting quietly by a window with her baby nearby"
 written_by: "PENDING"
 medically_reviewed_by: "Dr. Khaled M."
 date_published: "2026-08-19"
-date_modified: "2026-08-19"
+date_modified: "2026-11-24"
 last_reviewed: "2026-10-30"
 next_review_due: "2027-10-30"
 reading_level_ok: true
@@ -57,7 +57,7 @@ internal_links:
 
 Feeling weepy, raw and overwhelmed in the first two weeks after birth is very common, and it usually passes on its own. Low mood, anxiety or numbness that lasts longer than two weeks, or that stops you functioning, is a different thing and responds well to support. Neither one is a failure, and neither one means you are a bad parent. This page is health information to help you name what is happening, and it is not a substitute for talking to a clinician.
 
-If you are having thoughts of harming yourself or your baby, that is urgent. Femio's global [Need help now](/en/help-now) page can help you find the next safe step.
+If you are having thoughts of harming yourself or your baby, that is urgent. femio's global [Need help now](/en/help-now) page can help you find the next safe step.
 
 ## The baby blues
 
@@ -125,11 +125,11 @@ Support ranges from practical help and talking therapies to medicines, and optio
 
 [Sleep and exhaustion after birth](/en/learn/sleep-and-exhaustion-after-birth) covers the part of this that is genuinely sleep, and [your six-week check](/en/learn/six-week-postnatal-check) is one guaranteed moment to raise mood.
 
-## What Femio can hold
+## What femio can hold
 
-Femio can hold a daily note of mood, sleep and what helped, which makes a pattern visible over weeks. That record is far easier to show than to describe from memory in a ten-minute appointment.
+femio can hold a daily note of mood, sleep and what helped, which makes a pattern visible over weeks. That record is far easier to show than to describe from memory in a ten-minute appointment.
 
-Femio does not diagnose anything and cannot tell you what you have. What it can do is make sure the bad fortnight is not forgotten by the time someone asks.
+femio does not diagnose anything and cannot tell you what you have. What it can do is make sure the bad fortnight is not forgotten by the time someone asks.
 
 ## When to see a doctor
 
@@ -137,7 +137,7 @@ Contact a clinician if low mood, anxiety or numbness lasts beyond two weeks, if 
 
 You are not being dramatic and you will not have your baby taken away for saying you are struggling. Being asked about mood is routine after birth.
 
-> **Seek care now:** If you have thoughts of harming yourself or your baby, feel unable to stay safe, or are confused, agitated or seeing or hearing things others do not, contact local emergency services or go to the nearest emergency department. Femio's global [Need help now](/en/help-now) page can help you find the next safe step. Stay with someone you trust while help is arranged.
+> **Seek care now:** If you have thoughts of harming yourself or your baby, feel unable to stay safe, or are confused, agitated or seeing or hearing things others do not, contact local emergency services or go to the nearest emergency department. femio's global [Need help now](/en/help-now) page can help you find the next safe step. Stay with someone you trust while help is arranged.
 
 ## Frequently asked questions
 

@@ -22,7 +22,7 @@ open_graph_image_alt: "Une page de calendrier sans date entourée"
 written_by: "PENDING"
 medically_reviewed_by: "Dr. Khaled M."
 date_published: "2026-10-30"
-date_modified: "2026-10-30"
+date_modified: "2026-11-24"
 last_reviewed: "2026-10-30"
 next_review_due: "2027-10-30"
 reading_level_ok: false
@@ -90,7 +90,7 @@ Arrêtez de compter les jours après la date prévue, et commencez à compter le
 
 Appelez la maternité pour des contractions durant 60 secondes et revenant toutes les cinq minutes, pour une rupture de la poche des eaux, pour des saignements, ou pour tout changement des mouvements. [Les signes d’alerte pendant la grossesse](/fr/learn/pregnancy-warning-signs) donne la liste complète, et [la récupération après l’accouchement pendant les six premières semaines](/fr/learn/postpartum-recovery-first-six-weeks) couvre la suite.
 
-> **Consultez sans attendre :** Contactez les services d’urgence de votre région ou rendez-vous au service des urgences le plus proche si vous avez des saignements abondants, une douleur abdominale intense ou unilatérale, une douleur juste sous les côtes, un mal de tête intense accompagné de troubles de la vision, un gonflement soudain du visage ou des mains, de la fièvre, une perte de liquide par le vagin, une douleur thoracique, une difficulté à respirer, un malaise ou une crise convulsive. Contactez votre service de maternité le jour même pour toute diminution de la séquence habituelle des mouvements de votre bébé. Femio ne peut pas évaluer une grossesse.
+> **Consultez sans attendre :** Contactez les services d’urgence de votre région ou rendez-vous au service des urgences le plus proche si vous avez des saignements abondants, une douleur abdominale intense ou unilatérale, une douleur juste sous les côtes, un mal de tête intense accompagné de troubles de la vision, un gonflement soudain du visage ou des mains, de la fièvre, une perte de liquide par le vagin, une douleur thoracique, une difficulté à respirer, un malaise ou une crise convulsive. Contactez votre service de maternité le jour même pour toute diminution de la séquence habituelle des mouvements de votre bébé. femio ne peut pas évaluer une grossesse.
 
 ## Questions fréquentes
 

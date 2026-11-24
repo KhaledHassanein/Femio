@@ -24,7 +24,7 @@ open_graph_image_alt: "Un calendrier avec des jours de cycle marqués à interva
 written_by: "PENDING"
 medically_reviewed_by: "Dr. Khaled M."
 date_published: "2026-10-30"
-date_modified: "2026-10-30"
+date_modified: "2026-11-24"
 last_reviewed: "2026-10-30"
 next_review_due: "2027-10-30"
 reading_level_ok: false
@@ -60,7 +60,7 @@ Presque tous les conseils sur le bon moment supposent implicitement un cycle de 
 
 Les conseils habituels partent d'une date de règles prévisible : si les prochaines règles sont attendues un jour connu, les jours qui précèdent peuvent être estimés. Quand la durée du cycle varie d'une semaine ou plus, ce calcul ne repose sur rien de stable.
 
-Femio élargit sa fenêtre de prévision quand vos cycles varient, et n'en affiche plus du tout lorsqu'il n'y a rien d'honnête à prévoir. Ce n'est pas une défaillance de l'application : une date précise fondée sur des données instables serait une invention, et c'est en s'y fiant que l'on perd des mois.
+femio élargit sa fenêtre de prévision quand vos cycles varient, et n'en affiche plus du tout lorsqu'il n'y a rien d'honnête à prévoir. Ce n'est pas une défaillance de l'application : une date précise fondée sur des données instables serait une invention, et c'est en s'y fiant que l'on perd des mois.
 
 ## Ce qui aide vraiment
 
@@ -78,7 +78,7 @@ Le SOPK est l'une des causes les plus fréquentes d'ovulation irrégulière ou a
 
 Deux points utiles à connaître avant ce rendez-vous. Beaucoup de personnes qui ont un SOPK conçoivent, avec ou sans aide. Et l'ovulation peut survenir de façon imprévisible, ce qui signifie que des cycles qui paraissent silencieux ne le sont pas toujours.
 
-[Le SOPK et la fertilité](/fr/learn/pcos-and-fertility) approfondit l'aspect lié à la maladie. Rien sur cette page ne permet de savoir si vous en êtes atteinte : cela relève d'une évaluation, que Femio ne réalise pas.
+[Le SOPK et la fertilité](/fr/learn/pcos-and-fertility) approfondit l'aspect lié à la maladie. Rien sur cette page ne permet de savoir si vous en êtes atteinte : cela relève d'une évaluation, que femio ne réalise pas.
 
 ## Quand les cycles sont absents plutôt que longs
 
@@ -94,11 +94,11 @@ Apportez votre relevé de cycles. [Ce qu'implique un bilan de fertilité](/fr/le
 
 Demandez une orientation plutôt que d'attendre qu'on vous la propose.
 
-## Ce que Femio peut et ne peut pas faire ici
+## Ce que femio peut et ne peut pas faire ici
 
 Il peut regrouper chaque saignement, chaque symptôme et chaque note en un seul endroit, montrer la plage dans laquelle se situent réellement vos cycles, et remettre à un clinicien des dates réelles au lieu d'un souvenir approximatif.
 
-Il ne peut pas vous dire quand vous avez ovulé, et il ne prétendra pas le faire. La logique de Femio ne contient pas de jour d'ovulation et n'en contiendra pas : déduire un changement à partir d'une mesure faite à domicile relève d'une inférence clinique, et la fonction construite sur une telle inférence est toujours « les jours que vous pourriez éviter », ce qui est une limite que ce produit ne franchit pas.
+Il ne peut pas vous dire quand vous avez ovulé, et il ne prétendra pas le faire. La logique de femio ne contient pas de jour d'ovulation et n'en contiendra pas : déduire un changement à partir d'une mesure faite à domicile relève d'une inférence clinique, et la fonction construite sur une telle inférence est toujours « les jours que vous pourriez éviter », ce qui est une limite que ce produit ne franchit pas.
 
 ## Quand consulter
 

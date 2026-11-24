@@ -12,7 +12,7 @@ secondary_topics:
   - "blood clot signs after birth"
   - "when to call maternity services after birth"
 excerpt: "The symptoms that need urgent care in the weeks after birth, why late signs are missed, and exactly what to say when you call."
-meta_title: "Postpartum Warning Signs That Need Urgent Care | Femio"
+meta_title: "Postpartum Warning Signs That Need Urgent Care | femio"
 meta_description: "Which symptoms need urgent care after birth: heavy bleeding, chest pain, severe headache, fever, calf pain, and thoughts of self-harm."
 canonical_url: "https://femioapp.com/en/learn/postpartum-warning-signs"
 robots_while_draft: "noindex,nofollow"
@@ -24,7 +24,7 @@ open_graph_image_alt: "A new mother phoning a maternity service about a symptom"
 written_by: "PENDING"
 medically_reviewed_by: "Dr. Khaled M."
 date_published: "2026-08-19"
-date_modified: "2026-08-19"
+date_modified: "2026-11-24"
 last_reviewed: "2026-10-30"
 next_review_due: "2027-10-30"
 reading_level_ok: true
@@ -116,7 +116,7 @@ A home reading that looks fine does not cancel severe symptoms. [NICE's postnata
 
 Thoughts of harming yourself or the baby, hearing or seeing things others do not, or feeling confused, agitated or unable to sleep at all can be a mental health emergency after birth. This needs care today, not at the next appointment.
 
-Femio's global [Need help now](/en/help-now) page can help you find the next safe step. If you may act now, contact local emergency services or go to the nearest emergency department, and stay with someone you trust while help is arranged.
+femio's global [Need help now](/en/help-now) page can help you find the next safe step. If you may act now, contact local emergency services or go to the nearest emergency department, and stay with someone you trust while help is arranged.
 
 [Your mood after birth](/en/learn/mood-after-birth) covers the wider picture, including the difference between the common early weeks and something that needs treatment.
 
@@ -132,7 +132,7 @@ Seek urgent care for any of the emergency signs above. Seek same-day advice for 
 
 Being wrong about a symptom costs one appointment. Waiting on a serious one costs much more. See [the first six weeks after birth](/en/learn/postpartum-recovery-first-six-weeks) for the ordinary version of recovery.
 
-> **Seek care now:** Contact local emergency services or go to the nearest emergency department for heavy bleeding, chest pain, trouble breathing, fainting, a seizure, severe headache with vision changes, severe one-sided leg pain or swelling, or thoughts of harming yourself or your baby. Femio cannot assess an emergency.
+> **Seek care now:** Contact local emergency services or go to the nearest emergency department for heavy bleeding, chest pain, trouble breathing, fainting, a seizure, severe headache with vision changes, severe one-sided leg pain or swelling, or thoughts of harming yourself or your baby. femio cannot assess an emergency.
 
 ## Frequently asked questions
 

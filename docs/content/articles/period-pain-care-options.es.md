@@ -12,7 +12,7 @@ secondary_topics:
   - "medicamentos para el dolor menstrual"
   - "atención continuada para menstruaciones dolorosas"
 excerpt: "Conoce qué opciones de autocuidado y de las que puede hablar un profesional pueden aliviar el dolor menstrual, cómo depende la elección de la causa y cuándo el dolor necesita más valoración."
-meta_title: "¿Qué puede ayudar con el dolor menstrual? | Femio"
+meta_title: "¿Qué puede ayudar con el dolor menstrual? | femio"
 meta_description: "Opciones de autocuidado y clínicas para el dolor menstrual, precauciones con los medicamentos, preguntas para revisar y cuándo buscar más atención."
 canonical_url: "https://femioapp.com/es/learn/period-pain-care-options"
 robots_while_draft: "noindex,nofollow"
@@ -24,7 +24,7 @@ open_graph_image_alt: "Bolsa de calor, diario de síntomas y notas clínicas par
 written_by: "PENDING"
 medically_reviewed_by: "Dr. Khaled M."
 date_published: "2026-10-30"
-date_modified: "2026-10-30"
+date_modified: "2026-11-24"
 last_reviewed: "2026-10-30"
 next_review_due: "2027-10-30"
 reading_level_ok: false
@@ -86,7 +86,7 @@ Los medicamentos hormonales pueden hacer las menstruaciones más ligeras o alivi
 
 Estos medicamentos pueden tener efectos más allá del dolor y no son adecuados para todo el mundo. La decisión puede depender de la migraña, de antecedentes de coágulos de sangre, del tabaquismo, de otros problemas de salud, de los objetivos de embarazo y de las preferencias personales.
 
-Si también quieres evitar el embarazo, pregunta a un profesional cualificado qué método es adecuado y cómo usarlo. Las estimaciones del ciclo de Femio no son una forma fiable de evitar el embarazo.
+Si también quieres evitar el embarazo, pregunta a un profesional cualificado qué método es adecuado y cómo usarlo. Las estimaciones del ciclo de femio no son una forma fiable de evitar el embarazo.
 
 La [guía del NHS sobre problemas menstruales](https://www.nhs.uk/conditions/periods/period-problems/) describe las opciones de medicamentos y hormonas que pueden reducir el dolor menstrual.
 

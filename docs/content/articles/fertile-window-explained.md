@@ -12,7 +12,7 @@ secondary_topics:
   - "fertile window calculator limits"
   - "conception planning"
 excerpt: "Learn what the fertile window means, why it spans several days, how estimates are made, and why calendar dates cannot guarantee ovulation."
-meta_title: "What Is the Fertile Window? Timing Explained | Femio"
+meta_title: "What Is the Fertile Window? Timing Explained | femio"
 meta_description: "Learn what the fertile window means, how ovulation timing is estimated, what can change it, and the limits of calendar-based predictions."
 canonical_url: "https://femioapp.com/en/learn/fertile-window-explained"
 robots_while_draft: "noindex,nofollow"
@@ -24,7 +24,7 @@ open_graph_image_alt: "Cycle calendar showing an estimated fertile range rather 
 written_by: "Dr. Khaled M."
 medically_reviewed_by: "Dr. Khaled M."
 date_published: "2026-08-15"
-date_modified: "2026-08-15"
+date_modified: "2026-11-24"
 last_reviewed: "2026-08-04"
 next_review_due: null
 reading_level_ok: true
@@ -76,7 +76,7 @@ A calendar calculator usually asks for the first day of the last period and an a
 
 This can be useful for planning, but the result depends on the information entered and assumptions about future timing. An average hides variation between cycles.
 
-Femio's [fertile-window calculator](/en/calculators/fertile-window) shows a general estimate. If you track several cycles, compare the result with how much your cycle lengths vary.
+femio's [fertile-window calculator](/en/calculators/fertile-window) shows a general estimate. If you track several cycles, compare the result with how much your cycle lengths vary.
 
 **These dates support conception planning and awareness. They are estimates, not a reliable way to avoid pregnancy.**
 
@@ -132,11 +132,11 @@ You do not have to record sex or insemination dates in an app. Choose what feels
 
 Learn [how to count cycle days](/en/learn/menstrual-cycle-basics) before relying on an average.
 
-## How Femio estimates a fertile window
+## How femio estimates a fertile window
 
-Femio uses the cycle dates you enter to create an estimated range. It may widen the range when your logged cycles vary and may show a confidence level when enough data is available.
+femio uses the cycle dates you enter to create an estimated range. It may widen the range when your logged cycles vary and may show a confidence level when enough data is available.
 
-Femio cannot confirm ovulation or identify a day when pregnancy is impossible. It does not replace a clinician or a fertility service.
+femio cannot confirm ovulation or identify a day when pregnancy is impossible. It does not replace a clinician or a fertility service.
 
 ## Frequently asked questions
 

@@ -24,7 +24,7 @@ open_graph_image_alt: "A woman in her late thirties looking at a calendar at hom
 written_by: "PENDING"
 medically_reviewed_by: "Dr. Khaled M."
 date_published: "2026-08-19"
-date_modified: "2026-08-19"
+date_modified: "2026-11-24"
 last_reviewed: "2026-10-30"
 next_review_due: "2027-10-30"
 reading_level_ok: true
@@ -78,9 +78,9 @@ Two people the same age can be in very different positions, and nothing about a 
 
 ## The one thing this page will not do
 
-It will not tell you your chances. Femio does not calculate a personal likelihood of conceiving, and no honest product can from the information an app holds.
+It will not tell you your chances. femio does not calculate a personal likelihood of conceiving, and no honest product can from the information an app holds.
 
-A number attached to *you* would be a prediction about an individual made from group data — the same reason Femio shows a window rather than a date for a period, and refuses a verdict on a home temperature reading. What it can do is hold your cycles and your logs so a clinician who examines you has real information rather than recollection.
+A number attached to *you* would be a prediction about an individual made from group data — the same reason femio shows a window rather than a date for a period, and refuses a verdict on a home temperature reading. What it can do is hold your cycles and your logs so a clinician who examines you has real information rather than recollection.
 
 ## What actually changes with age: the timing of asking
 
@@ -128,6 +128,6 @@ Guidance generally suggests six months at that age, and sooner if there is a kno
 
 Yes, more gradually. Both partners are assessed in any fertility work-up.
 
-### Can Femio estimate my chances?
+### Can femio estimate my chances?
 
 No. It holds what your cycles have actually done so a clinician has real information, and it does not turn group statistics into a number about you.

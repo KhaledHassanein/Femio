@@ -12,7 +12,7 @@ secondary_topics:
   - "vacunas antes del embarazo"
   - "preguntas de salud preconcepcionales"
 excerpt: "Conoce lo que un profesional de la salud puede revisar antes del embarazo, incluidos el historial de salud, los medicamentos, las vacunas, el ácido fólico, las pruebas y tus objetivos personales de embarazo."
-meta_title: "¿Qué pasa en una cita preconcepcional? | Femio"
+meta_title: "¿Qué pasa en una cita preconcepcional? | femio"
 meta_description: "Conoce lo que un profesional de la salud puede revisar antes del embarazo, qué registros llevar, qué controles pueden ser útiles y cómo preparar tus preguntas."
 canonical_url: "https://femioapp.com/es/learn/preconception-appointment"
 robots_while_draft: "noindex,nofollow"
@@ -24,7 +24,7 @@ open_graph_image_alt: "Lista de medicamentos y notas de salud preparadas para un
 written_by: "PENDING"
 medically_reviewed_by: "Dr. Khaled M."
 date_published: "2026-10-30"
-date_modified: "2026-10-30"
+date_modified: "2026-11-24"
 last_reviewed: "2026-10-30"
 next_review_due: "2027-10-30"
 reading_level_ok: false

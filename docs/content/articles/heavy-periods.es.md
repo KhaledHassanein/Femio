@@ -12,7 +12,7 @@ secondary_topics:
   - "opciones de atención para menstruaciones abundantes"
   - "cuándo consultar a un médico por sangrado abundante"
 excerpt: "Conoce cómo pueden ser las menstruaciones abundantes, sus posibles causas, cómo las evalúan los profesionales y cuándo se necesita atención urgente o de rutina."
-meta_title: "Menstruaciones abundantes: señales y atención | Femio"
+meta_title: "Menstruaciones abundantes: señales y atención | femio"
 meta_description: "Señales de menstruaciones abundantes que vale la pena registrar, causas posibles, evaluación clínica, opciones de atención y cuándo pedir ayuda urgente."
 canonical_url: "https://femioapp.com/es/conditions/heavy-periods"
 robots_while_draft: "noindex,nofollow"
@@ -24,7 +24,7 @@ open_graph_image_alt: "Calendario de la menstruación con registro del flujo y n
 written_by: "PENDING"
 medically_reviewed_by: "Dr. Khaled M."
 date_published: "2026-10-30"
-date_modified: "2026-10-30"
+date_modified: "2026-11-24"
 last_reviewed: "2026-10-30"
 next_review_due: "2027-10-30"
 reading_level_ok: false
@@ -171,13 +171,13 @@ Para cada menstruación, anota:
 - Trabajo, escuela, sueño o actividades que se han perdido.
 - Sangrado entre menstruaciones o después de las relaciones sexuales.
 
-Usa la [calculadora de duración del ciclo](/es/calculators/cycle-length) de Femio si quieres un promedio de varios ciclos. La guía sobre [lo básico del ciclo menstrual](/es/learn/menstrual-cycle-basics) explica cómo contar el Día 1.
+Usa la [calculadora de duración del ciclo](/es/calculators/cycle-length) de femio si quieres un promedio de varios ciclos. La guía sobre [lo básico del ciclo menstrual](/es/learn/menstrual-cycle-basics) explica cómo contar el Día 1.
 
-## Cómo registrar las menstruaciones abundantes en Femio
+## Cómo registrar las menstruaciones abundantes en femio
 
 Registra el flujo en términos que tengan sentido para ti, y añade una nota breve cuando el sangrado cambie tus planes o tu sueño. Incluye el mareo, el cansancio, el dolor y cualquier sangrado fuera de la menstruación.
 
-Femio puede crear un resumen con lo que escribes. No puede medir la pérdida de sangre, confirmar una causa ni decidir qué tan urgente es el sangrado. Usa las indicaciones de alarma de arriba cuando los síntomas sean graves.
+femio puede crear un resumen con lo que escribes. No puede medir la pérdida de sangre, confirmar una causa ni decidir qué tan urgente es el sangrado. Usa las indicaciones de alarma de arriba cuando los síntomas sean graves.
 
 Si el dolor también es una preocupación importante, lee la guía sobre [menstruaciones dolorosas](/es/conditions/painful-periods).
 

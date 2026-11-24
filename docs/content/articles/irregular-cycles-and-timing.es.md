@@ -12,7 +12,7 @@ secondary_topics:
   - "cuando las apps no pueden predecir la ovulación"
   - "buscar ayuda para reglas irregulares"
 excerpt: "Por qué el consejo sobre el momento basado en un ciclo de 28 días no sirve cuando el tuyo varía, qué merece la pena registrar en su lugar y cuándo pedir ayuda en lugar de esperar."
-meta_title: "Intentar concebir con ciclos irregulares | Femio"
+meta_title: "Intentar concebir con ciclos irregulares | femio"
 meta_description: "Por qué el consejo sobre el momento falla con ciclos irregulares, qué merece la pena registrar y cuándo pedir ayuda antes de lo habitual."
 canonical_url: "https://femioapp.com/es/learn/irregular-cycles-and-timing"
 robots_while_draft: "noindex,nofollow"
@@ -24,7 +24,7 @@ open_graph_image_alt: "Un calendario con los días del ciclo marcados a interval
 written_by: "PENDING"
 medically_reviewed_by: "Dr. Khaled M."
 date_published: "2026-10-30"
-date_modified: "2026-10-30"
+date_modified: "2026-11-24"
 last_reviewed: "2026-10-30"
 next_review_due: "2027-10-30"
 reading_level_ok: false
@@ -60,7 +60,7 @@ Casi todo el consejo sobre el momento supone en silencio un ciclo de 28 días, y
 
 El consejo habitual parte de una menstruación predecible: si la siguiente toca en un día conocido, pueden estimarse los días anteriores. Cuando la duración del ciclo oscila una semana o más, esa cuenta no tiene nada estable en que apoyarse.
 
-Femio amplía su ventana de predicción cuando tus ciclos varían, y deja de mostrar una por completo cuando no hay nada honesto que predecir. Eso no es un fallo de la app: una fecha segura basada en datos inestables sería una invención, y actuar según ella es lo que hace perder meses.
+femio amplía su ventana de predicción cuando tus ciclos varían, y deja de mostrar una por completo cuando no hay nada honesto que predecir. Eso no es un fallo de la app: una fecha segura basada en datos inestables sería una invención, y actuar según ella es lo que hace perder meses.
 
 ## Lo que de verdad ayuda
 
@@ -78,7 +78,7 @@ El SOP es una de las causas más comunes de ovulación irregular o ausente, y ta
 
 Dos cosas que conviene saber antes de esa cita. Muchas personas con SOP se quedan embarazadas, con o sin ayuda. Y la ovulación puede producirse de forma impredecible, lo que significa que los ciclos que parecen silenciosos no siempre lo son.
 
-[SOP y fertilidad](/es/learn/pcos-and-fertility) cubre el lado de la enfermedad con más profundidad. Nada de esta página sirve para averiguar si lo tienes: eso es una evaluación, y Femio no la hace.
+[SOP y fertilidad](/es/learn/pcos-and-fertility) cubre el lado de la enfermedad con más profundidad. Nada de esta página sirve para averiguar si lo tienes: eso es una evaluación, y femio no la hace.
 
 ## Cuando los ciclos están ausentes en lugar de ser largos
 
@@ -94,11 +94,11 @@ Lleva tu registro de ciclos. [Qué implica una evaluación de fertilidad](/es/le
 
 Pide una derivación en lugar de esperar a que te la ofrezcan.
 
-## Lo que Femio puede y no puede hacer aquí
+## Lo que femio puede y no puede hacer aquí
 
 Puede guardar cada sangrado, síntoma y registro en un solo lugar, mostrarte el rango en el que caen realmente tus ciclos y entregar a un clínico fechas reales en lugar de un recuerdo.
 
-No puede decirte cuándo ovulaste, y no fingirá que sí. No hay día de ovulación en la lógica de Femio y no lo habrá: leer un cambio a partir de una medición casera es una inferencia clínica, y la función construida sobre ella es siempre «días que podrías evitar», una línea que este producto no cruza.
+No puede decirte cuándo ovulaste, y no fingirá que sí. No hay día de ovulación en la lógica de femio y no lo habrá: leer un cambio a partir de una medición casera es una inferencia clínica, y la función construida sobre ella es siempre «días que podrías evitar», una línea que este producto no cruza.
 
 ## Cuándo consultar
 

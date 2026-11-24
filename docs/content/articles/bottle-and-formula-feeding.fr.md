@@ -11,7 +11,7 @@ secondary_topics:
   - "hygiène de la poudre de lait infantile"
   - "alimentation au biberon adaptée au bébé"
 excerpt: "Pourquoi la poudre de lait infantile n'est pas stérile, ce que disent les recommandations de préparation, les différences entre les pays sur la température de l'eau, et comment donner le biberon en toute sécurité."
-meta_title: "Préparer le biberon en toute sécurité | Femio"
+meta_title: "Préparer le biberon en toute sécurité | femio"
 meta_description: "La poudre de lait infantile n'est pas stérile. Nettoyage, stérilisation, préparation, différences entre pays et manière plus sûre de donner le biberon."
 canonical_url: "https://femioapp.com/fr/learn/bottle-and-formula-feeding"
 robots_while_draft: "noindex,nofollow"
@@ -23,7 +23,7 @@ open_graph_image_alt: "Biberons et tétines propres qui sèchent à côté d'une
 written_by: "PENDING"
 medically_reviewed_by: "Dr. Khaled M."
 date_published: "2026-10-30"
-date_modified: "2026-10-30"
+date_modified: "2026-11-24"
 last_reviewed: "2026-10-30"
 next_review_due: "2027-10-30"
 reading_level_ok: false
@@ -120,7 +120,7 @@ Consultez sans attendre pour tout signe figurant dans l'encadré ci-dessous, ain
 
 Demandez à une sage-femme, à une puéricultrice ou à un médecin si les tétées sont constamment difficiles, si un bébé est très agité après les tétées, et avant tout changement de lait infantile, qui est une décision médicale et non un choix de courses. [Votre nouveau-né pendant les deux premières semaines](/fr/learn/newborn-first-two-weeks) décrit ce qui est habituel, et [les signes d'alerte chez le nouveau-né](/fr/learn/newborn-warning-signs) décrit ce qui ne l'est pas.
 
-> **Consultez sans attendre :** Contactez les services d'urgence de votre région ou rendez-vous au service des urgences le plus proche si un bébé de moins de trois mois a une température de 38 °C ou plus, respire vite, fournit un effort pour respirer ou grogne, a la peau bleue, grise, pâle ou marbrée, est mou, est difficile à réveiller, refuse les tétées, a beaucoup moins de couches mouillées, voire aucune depuis 12 heures, a la fontanelle bombée ou creusée, a une éruption cutanée qui ne disparaît pas quand on appuie dessus, ou a une crise convulsive. Femio ne peut pas évaluer un bébé.
+> **Consultez sans attendre :** Contactez les services d'urgence de votre région ou rendez-vous au service des urgences le plus proche si un bébé de moins de trois mois a une température de 38 °C ou plus, respire vite, fournit un effort pour respirer ou grogne, a la peau bleue, grise, pâle ou marbrée, est mou, est difficile à réveiller, refuse les tétées, a beaucoup moins de couches mouillées, voire aucune depuis 12 heures, a la fontanelle bombée ou creusée, a une éruption cutanée qui ne disparaît pas quand on appuie dessus, ou a une crise convulsive. femio ne peut pas évaluer un bébé.
 
 ## Questions fréquentes
 

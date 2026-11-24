@@ -12,7 +12,7 @@ secondary_topics:
   - "postnatal coil fitting"
   - "spacing pregnancies"
 excerpt: "When fertility returns after birth, which methods are usually discussed while breastfeeding, and when each can be started."
-meta_title: "Contraception After Birth: What to Know | Femio"
+meta_title: "Contraception After Birth: What to Know | femio"
 meta_description: "When fertility returns after having a baby, which methods clinicians discuss while breastfeeding, and when each can usually be started."
 canonical_url: "https://femioapp.com/en/learn/contraception-after-birth"
 robots_while_draft: "noindex,nofollow"
@@ -24,7 +24,7 @@ open_graph_image_alt: "A woman talking with a clinician at a postnatal appointme
 written_by: "PENDING"
 medically_reviewed_by: "Dr. Khaled M."
 date_published: "2026-08-19"
-date_modified: "2026-08-19"
+date_modified: "2026-11-24"
 last_reviewed: "2026-10-30"
 next_review_due: "2027-10-30"
 reading_level_ok: true
@@ -62,7 +62,7 @@ Ovulation happens before a period arrives. So it is possible to become pregnant 
 
 [ACOG](https://www.acog.org/womens-health/faqs/postpartum-birth-control) advises planning for this during pregnancy or immediately after the birth, rather than waiting for a period or for the postnatal check.
 
-Femio's cycle predictions are estimates from the cycles it has recorded, and after a birth there usually are none. Femio is not a reliable way to avoid pregnancy and does not tell you when you can and cannot conceive.
+femio's cycle predictions are estimates from the cycles it has recorded, and after a birth there usually are none. femio is not a reliable way to avoid pregnancy and does not tell you when you can and cannot conceive.
 
 ## Breastfeeding and fertility
 
@@ -131,6 +131,6 @@ Often within 48 hours of the birth, or from around four weeks. Ask during pregna
 
 Timing is more restricted after birth and while feeding. A clinician will check what applies to you.
 
-### Can Femio tell me when I am fertile again?
+### Can femio tell me when I am fertile again?
 
-No. Femio predicts from cycles it has recorded, and after a birth there usually are none. It is not a reliable way to avoid pregnancy.
+No. femio predicts from cycles it has recorded, and after a birth there usually are none. It is not a reliable way to avoid pregnancy.

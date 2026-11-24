@@ -11,7 +11,7 @@ secondary_topics:
   - "rythmes d'alimentation et de sommeil du nouveau-né"
   - "poids, couches et cordon du nouveau-né"
 excerpt: "Ce qui est habituel chez le nouveau-né pendant la première quinzaine : alimentation, sommeil, poids, couches, moignon du cordon et ictère, et à qui poser vos questions sur votre propre bébé."
-meta_title: "Votre nouveau-né pendant les deux premières semaines | Femio"
+meta_title: "Votre nouveau-né pendant les deux premières semaines | femio"
 meta_description: "Ce qui est habituel pendant les deux premières semaines : alimentation, sommeil, poids, couches, cordon, ictère, et quand consulter en urgence."
 canonical_url: "https://femioapp.com/fr/learn/newborn-first-two-weeks"
 robots_while_draft: "noindex,nofollow"
@@ -23,7 +23,7 @@ open_graph_image_alt: "Nouveau-né endormi sur le dos dans un berceau transparen
 written_by: "PENDING"
 medically_reviewed_by: "Dr. Khaled M."
 date_published: "2026-10-30"
-date_modified: "2026-10-30"
+date_modified: "2026-11-24"
 last_reviewed: "2026-10-30"
 next_review_due: "2027-10-30"
 reading_level_ok: false
@@ -136,7 +136,7 @@ Consultez en urgence pour l'un des signes présentés dans l'encadré ci-dessous
 
 Demandez un avis plus tôt que plus tard en cas d'ictère, de tétées qui se passent mal, de moignon de cordon rouge ou malodorant, et pour tout ce qui vous inquiète à deux heures du matin. [Les signes d'alerte chez le nouveau-né](/fr/learn/newborn-warning-signs) donnent la liste complète.
 
-> **Consultez sans attendre :** Contactez les services d'urgence de votre région ou rendez-vous au service des urgences le plus proche si un bébé de moins de trois mois a une température de 38 °C ou plus, ou respire vite, fait des efforts respiratoires importants ou émet des gémissements, a la peau bleue, grise, pâle ou marbrée, est mou, est difficile à réveiller, refuse les tétées, a beaucoup moins de couches mouillées ou aucune au cours des 12 dernières heures, a la fontanelle bombée ou creusée, a une éruption qui ne s'efface pas quand on appuie dessus, ou a une crise convulsive. Femio ne peut pas évaluer un bébé.
+> **Consultez sans attendre :** Contactez les services d'urgence de votre région ou rendez-vous au service des urgences le plus proche si un bébé de moins de trois mois a une température de 38 °C ou plus, ou respire vite, fait des efforts respiratoires importants ou émet des gémissements, a la peau bleue, grise, pâle ou marbrée, est mou, est difficile à réveiller, refuse les tétées, a beaucoup moins de couches mouillées ou aucune au cours des 12 dernières heures, a la fontanelle bombée ou creusée, a une éruption qui ne s'efface pas quand on appuie dessus, ou a une crise convulsive. femio ne peut pas évaluer un bébé.
 
 ## Questions fréquentes
 

@@ -10,7 +10,7 @@ secondary_topics:
   - "terme à 37 semaines"
   - "signes du début du travail"
 excerpt: "La semaine 37 marque le terme. Un accouchement à partir de cette semaine n'est pas prématuré, et les signes du début du travail valent la peine d'être connus par cœur."
-meta_title: "37 semaines de grossesse : le terme commence ici | Femio"
+meta_title: "37 semaines de grossesse : le terme commence ici | femio"
 meta_description: "À partir de 37 semaines, l'accouchement n'est pas prématuré. Les signes du début du travail, le bouchon muqueux, et le terme comme fourchette."
 canonical_url: "https://femioapp.com/fr/learn/pregnancy-week-37"
 robots_while_draft: "noindex,nofollow"
@@ -22,7 +22,7 @@ open_graph_image_alt: "Siège auto pour bébé et sac prêts près de la porte d
 written_by: "PENDING"
 medically_reviewed_by: "Dr. Khaled M."
 date_published: "2026-10-30"
-date_modified: "2026-10-30"
+date_modified: "2026-11-24"
 last_reviewed: "2026-10-30"
 next_review_due: "2027-10-30"
 reading_level_ok: false
@@ -89,7 +89,7 @@ Appelez votre maternité pour tout ce qui vous semble incertain, et faites-le sa
 
 Contactez votre service de maternité le jour même pour tout changement de mouvements, toute perte de liquide, toute contraction régulière ou douloureuse, ou tout saignement. [Les signes d'alerte de la grossesse](/fr/learn/pregnancy-warning-signs) donnent la liste complète.
 
-> **Consultez sans attendre :** Contactez les services d'urgence de votre région ou rendez-vous au service des urgences le plus proche en cas de saignement abondant, de douleur abdominale intense ou d'un seul côté, de douleur juste sous les côtes, de mal de tête sévère avec troubles de la vision, de gonflement soudain du visage ou des mains, de fièvre, de perte de liquide par le vagin, de douleur thoracique, de difficultés à respirer, de malaise ou de crise convulsive. Contactez votre service de maternité le jour même pour toute diminution du rythme habituel des mouvements de votre bébé. Femio ne peut pas évaluer une grossesse.
+> **Consultez sans attendre :** Contactez les services d'urgence de votre région ou rendez-vous au service des urgences le plus proche en cas de saignement abondant, de douleur abdominale intense ou d'un seul côté, de douleur juste sous les côtes, de mal de tête sévère avec troubles de la vision, de gonflement soudain du visage ou des mains, de fièvre, de perte de liquide par le vagin, de douleur thoracique, de difficultés à respirer, de malaise ou de crise convulsive. Contactez votre service de maternité le jour même pour toute diminution du rythme habituel des mouvements de votre bébé. femio ne peut pas évaluer une grossesse.
 
 ## Questions fréquentes
 

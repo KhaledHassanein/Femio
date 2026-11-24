@@ -22,7 +22,7 @@ open_graph_image_alt: "Two people looking at a scan picture together"
 written_by: "PENDING"
 medically_reviewed_by: "Dr. Khaled M."
 date_published: "2026-08-19"
-date_modified: "2026-08-19"
+date_modified: "2026-11-24"
 last_reviewed: "2026-10-30"
 next_review_due: "2027-10-30"
 reading_level_ok: true
@@ -89,7 +89,7 @@ Ask for a printed scan photograph and ask what the measurements were. Not for th
 
 Any bleeding, severe pain, a fever, or a headache with vision changes needs same-day contact. [Pregnancy basics](/en/learn/pregnancy-basics) covers the shape of the whole pregnancy, and [pregnancy warning signs](/en/learn/pregnancy-warning-signs) covers what not to wait on.
 
-> **Seek care now:** Contact your local emergency services or go to your nearest emergency department if you have heavy bleeding, severe or one-sided tummy pain, pain in the tip of your shoulder, a severe headache with vision changes, sudden swelling of the face or hands, a fever, chest pain, trouble breathing, fainting, or a seizure. Femio cannot assess a pregnancy.
+> **Seek care now:** Contact your local emergency services or go to your nearest emergency department if you have heavy bleeding, severe or one-sided tummy pain, pain in the tip of your shoulder, a severe headache with vision changes, sudden swelling of the face or hands, a fever, chest pain, trouble breathing, fainting, or a seizure. femio cannot assess a pregnancy.
 
 ## Frequently asked questions
 

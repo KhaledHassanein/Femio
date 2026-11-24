@@ -22,7 +22,7 @@ open_graph_image_alt: "Pantalla de ecografía con una exploración en curso"
 written_by: "PENDING"
 medically_reviewed_by: "Dr. Khaled M."
 date_published: "2026-10-30"
-date_modified: "2026-10-30"
+date_modified: "2026-11-24"
 last_reviewed: "2026-10-30"
 next_review_due: "2027-10-30"
 reading_level_ok: false
@@ -90,7 +90,7 @@ Decide antes de la cita si quieres que te digan el sexo del bebé, y díselo a l
 
 Comunica cualquier sangrado, dolor intenso, fiebre o dolor de cabeza con alteraciones de la visión. Si los movimientos han empezado y luego disminuyen o cambian, contacta con tu servicio de maternidad el mismo día. [Señales de alarma en el embarazo](/es/learn/pregnancy-warning-signs) tiene la lista completa.
 
-> **Busca atención ya:** Contacta con los servicios de emergencia de tu zona o acude al servicio de urgencias más cercano si tienes sangrado abundante, dolor intenso o de un solo lado en el abdomen, un dolor de cabeza intenso con alteraciones de la visión, hinchazón repentina de la cara o las manos, fiebre, pérdida de líquido por la vagina, dolor en el pecho, dificultad para respirar, desmayo o convulsión. Femio no puede valorar un embarazo.
+> **Busca atención ya:** Contacta con los servicios de emergencia de tu zona o acude al servicio de urgencias más cercano si tienes sangrado abundante, dolor intenso o de un solo lado en el abdomen, un dolor de cabeza intenso con alteraciones de la visión, hinchazón repentina de la cara o las manos, fiebre, pérdida de líquido por la vagina, dolor en el pecho, dificultad para respirar, desmayo o convulsión. femio no puede valorar un embarazo.
 
 ## Preguntas frecuentes
 

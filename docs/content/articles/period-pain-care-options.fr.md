@@ -12,7 +12,7 @@ secondary_topics:
   - "médicaments contre les douleurs de règles"
   - "prise en charge au long cours des règles douloureuses"
 excerpt: "Découvrez quelles mesures d'auto-soin et quelles options discutées avec un professionnel peuvent atténuer les douleurs de règles, comment les choix dépendent de la cause, et quand la douleur nécessite un examen plus approfondi."
-meta_title: "Qu'est-ce qui peut soulager les douleurs de règles ? | Femio"
+meta_title: "Qu'est-ce qui peut soulager les douleurs de règles ? | femio"
 meta_description: "Auto-soins et options discutées avec un professionnel pour les douleurs de règles, précautions sur les médicaments et quand consulter."
 canonical_url: "https://femioapp.com/fr/learn/period-pain-care-options"
 robots_while_draft: "noindex,nofollow"
@@ -24,7 +24,7 @@ open_graph_image_alt: "Poche chaude, carnet de suivi des symptômes et notes du 
 written_by: "PENDING"
 medically_reviewed_by: "Dr. Khaled M."
 date_published: "2026-10-30"
-date_modified: "2026-10-30"
+date_modified: "2026-11-24"
 last_reviewed: "2026-10-30"
 next_review_due: "2027-10-30"
 reading_level_ok: false
@@ -86,7 +86,7 @@ Les traitements hormonaux peuvent rendre les règles moins abondantes ou atténu
 
 Ces traitements peuvent avoir des effets au-delà de la douleur et ne conviennent pas à tout le monde. La décision peut dépendre de migraines, d'antécédents de caillots sanguins, du tabagisme, d'autres problèmes de santé, de vos projets de grossesse et de vos préférences personnelles.
 
-Si éviter une grossesse est aussi un objectif, demandez à un professionnel qualifié quelle méthode convient et comment l'utiliser. Les estimations de cycle de Femio ne constituent pas un moyen fiable d'éviter une grossesse.
+Si éviter une grossesse est aussi un objectif, demandez à un professionnel qualifié quelle méthode convient et comment l'utiliser. Les estimations de cycle de femio ne constituent pas un moyen fiable d'éviter une grossesse.
 
 Le [guide du NHS sur les problèmes de règles](https://www.nhs.uk/conditions/periods/period-problems/) décrit les options médicamenteuses et hormonales qui peuvent réduire la douleur des règles.
 

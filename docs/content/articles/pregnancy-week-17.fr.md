@@ -22,7 +22,7 @@ open_graph_image_alt: "Une femme posant une main sur le bas de son ventre"
 written_by: "PENDING"
 medically_reviewed_by: "Dr. Khaled M."
 date_published: "2026-10-30"
-date_modified: "2026-10-30"
+date_modified: "2026-11-24"
 last_reviewed: "2026-10-30"
 next_review_due: "2027-10-30"
 reading_level_ok: false
@@ -88,7 +88,7 @@ Ne commencez pas encore à compter les mouvements : remarquez simplement quand v
 
 Signalez tout saignement, douleur intense, fièvre, ou maux de tête accompagnés de troubles de la vision. Si les mouvements ont commencé puis changent ou diminuent nettement, contactez votre service de maternité — et non une application ni un tableau. [Les signes d’alerte pendant la grossesse](/fr/learn/pregnancy-warning-signs) couvre le reste.
 
-> **Consultez sans attendre :** Contactez les services d’urgence de votre région ou rendez-vous au service des urgences le plus proche si vous avez des saignements abondants, une douleur abdominale intense ou unilatérale, un mal de tête intense accompagné de troubles de la vision, un gonflement soudain du visage ou des mains, de la fièvre, une perte de liquide par le vagin, une douleur thoracique, une difficulté à respirer, un malaise ou une crise convulsive. Femio ne peut pas évaluer une grossesse.
+> **Consultez sans attendre :** Contactez les services d’urgence de votre région ou rendez-vous au service des urgences le plus proche si vous avez des saignements abondants, une douleur abdominale intense ou unilatérale, un mal de tête intense accompagné de troubles de la vision, un gonflement soudain du visage ou des mains, de la fièvre, une perte de liquide par le vagin, une douleur thoracique, une difficulté à respirer, un malaise ou une crise convulsive. femio ne peut pas évaluer une grossesse.
 
 ## Questions fréquentes
 

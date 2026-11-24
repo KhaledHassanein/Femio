@@ -22,7 +22,7 @@ open_graph_image_alt: "Sous-vêtements en coton pliés sur une étagère"
 written_by: "PENDING"
 medically_reviewed_by: "Dr. Khaled M."
 date_published: "2026-10-30"
-date_modified: "2026-10-30"
+date_modified: "2026-11-24"
 last_reviewed: "2026-10-30"
 next_review_due: "2027-10-30"
 reading_level_ok: false
@@ -88,7 +88,7 @@ Passez cette semaine aux sous-vêtements en coton et à un savon non parfumé. C
 
 Contactez une sage-femme ou votre médecin généraliste si les pertes changent de couleur, d'odeur ou de texture, si vous avez des démangeaisons ou des douleurs, si cela brûle en urinant, ou si les démangeaisons sur tout le corps sont pires la nuit. Tout saignement doit faire l'objet d'un appel. [Les signes d'alerte de la grossesse](/fr/learn/pregnancy-warning-signs) couvrent le reste.
 
-> **Consultez sans attendre :** Contactez les services d'urgence de votre région ou rendez-vous au service des urgences le plus proche si vous avez un saignement abondant, une douleur intense ou d'un seul côté du ventre, un mal de tête sévère avec troubles de la vision, un gonflement soudain du visage ou des mains, une fièvre, une fuite de liquide par le vagin, une douleur thoracique, des difficultés à respirer, un malaise ou une crise convulsive. Femio ne peut pas évaluer une grossesse.
+> **Consultez sans attendre :** Contactez les services d'urgence de votre région ou rendez-vous au service des urgences le plus proche si vous avez un saignement abondant, une douleur intense ou d'un seul côté du ventre, un mal de tête sévère avec troubles de la vision, un gonflement soudain du visage ou des mains, une fièvre, une fuite de liquide par le vagin, une douleur thoracique, des difficultés à respirer, un malaise ou une crise convulsive. femio ne peut pas évaluer une grossesse.
 
 ## Questions fréquentes
 

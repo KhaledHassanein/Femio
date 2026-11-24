@@ -11,7 +11,7 @@ secondary_topics:
   - "wet nappies and newborn stools"
   - "newborn weight checks"
 excerpt: "How often newborns feed, what feeding cues look like, and what a midwife or health visitor checks when feeding is being looked at."
-meta_title: "How Often to Feed a Newborn Baby | Femio"
+meta_title: "How Often to Feed a Newborn Baby | femio"
 meta_description: "How often newborns feed, what hunger cues look like, and what midwives and health visitors check when feeding is being looked at."
 canonical_url: "https://femioapp.com/en/learn/feeding-your-newborn"
 robots_while_draft: "noindex,nofollow"
@@ -23,7 +23,7 @@ open_graph_image_alt: "A parent feeding a newborn baby held close in their arms"
 written_by: "PENDING"
 medically_reviewed_by: "Dr. Khaled M."
 date_published: "2026-08-19"
-date_modified: "2026-08-19"
+date_modified: "2026-11-24"
 last_reviewed: "2026-10-30"
 next_review_due: "2027-10-30"
 reading_level_ok: true
@@ -109,7 +109,7 @@ Seek urgent care for a newborn who will not feed, who is difficult to wake for f
 
 Ask for a feeding review the same week for painful feeding, for a baby who feeds constantly without settling, or for worry about weight. [Newborn warning signs](/en/learn/newborn-warning-signs) lists the signs that need emergency care, and [your newborn in the first two weeks](/en/learn/newborn-first-two-weeks) sets out what is usual.
 
-> **Seek care now:** Contact your local emergency services or go to your nearest emergency department if a baby under three months old has a temperature of 38C or higher, is breathing fast, working hard to breathe or grunting, has blue, grey, pale or mottled skin, is floppy, is difficult to wake, is refusing feeds, has far fewer wet nappies or none in the past 12 hours, has a bulging or sunken soft spot on the head, has a rash that does not fade when you press it, or has a fit. Femio cannot assess a baby.
+> **Seek care now:** Contact your local emergency services or go to your nearest emergency department if a baby under three months old has a temperature of 38C or higher, is breathing fast, working hard to breathe or grunting, has blue, grey, pale or mottled skin, is floppy, is difficult to wake, is refusing feeds, has far fewer wet nappies or none in the past 12 hours, has a bulging or sunken soft spot on the head, has a rash that does not fade when you press it, or has a fit. femio cannot assess a baby.
 
 ## Frequently asked questions
 

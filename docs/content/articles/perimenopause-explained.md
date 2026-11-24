@@ -12,7 +12,7 @@ secondary_topics:
   - "perimenopause assessment"
   - "perimenopause care options"
 excerpt: "Learn what perimenopause is, how periods and symptoms can change, how clinicians assess it, and which bleeding needs medical attention."
-meta_title: "What Is Perimenopause? Symptoms and Changes | Femio"
+meta_title: "What Is Perimenopause? Symptoms and Changes | femio"
 meta_description: "Understand perimenopause, changes in periods and symptoms, how clinicians assess it, care options, and when to seek medical advice."
 canonical_url: "https://femioapp.com/en/learn/perimenopause-explained"
 robots_while_draft: "noindex,nofollow"
@@ -24,7 +24,7 @@ open_graph_image_alt: "Calendar and symptom notes showing changing cycles during
 written_by: "Dr. Khaled M."
 medically_reviewed_by: "Dr. Khaled M."
 date_published: "2026-08-15"
-date_modified: "2026-08-15"
+date_modified: "2026-11-24"
 last_reviewed: "2026-08-04"
 next_review_due: null
 reading_level_ok: true
@@ -164,11 +164,11 @@ Mood or concentration changes can affect confidence at work and home. Ask for pr
 
 If mood changes are part of the picture, include their timing and daily impact in your notes.
 
-## How to track perimenopause in Femio
+## How to track perimenopause in femio
 
 Record period dates, flow, hot flushes, night sweats, sleep, mood, headaches, vaginal or urinary symptoms, and notes about daily impact. Choose only the details useful to you.
 
-Cycle estimates become less certain when periods vary. Femio should show wider ranges rather than an exact predicted day or a “late” counter.
+Cycle estimates become less certain when periods vary. femio should show wider ranges rather than an exact predicted day or a “late” counter.
 
 Tracking cannot confirm perimenopause or rule out another cause. The guide to [tracking perimenopause symptoms](/en/learn/track-perimenopause-symptoms) shows how to make a useful summary. Read the [heavy-period guide](/en/conditions/heavy-periods) when bleeding is the main concern. You can also learn [what menopause means](/en/learn/menopause-explained) and which [menopause care options](/en/learn/menopause-care-options) may be discussed.
 

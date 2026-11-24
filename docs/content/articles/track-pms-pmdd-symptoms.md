@@ -12,7 +12,7 @@ secondary_topics:
   - "PMS pattern"
   - "when to seek help for PMDD"
 excerpt: "Learn how to keep a daily PMS or PMDD symptom record, identify cycle timing, summarise daily impact, and know when to seek help."
-meta_title: "How to Track PMS and PMDD Symptoms | Femio"
+meta_title: "How to Track PMS and PMDD Symptoms | femio"
 meta_description: "Learn how to track PMS and PMDD symptoms each day, compare timing with periods, prepare an appointment summary, and seek help when needed."
 canonical_url: "https://femioapp.com/en/learn/track-pms-pmdd-symptoms"
 robots_while_draft: "noindex,nofollow"
@@ -24,7 +24,7 @@ open_graph_image_alt: "Daily mood and body symptom diary aligned with menstrual 
 written_by: "Dr. Khaled M."
 medically_reviewed_by: "Dr. Khaled M."
 date_published: "2026-08-15"
-date_modified: "2026-08-15"
+date_modified: "2026-11-24"
 last_reviewed: "2026-08-04"
 next_review_due: null
 reading_level_ok: true
@@ -134,7 +134,7 @@ Bring the daily record and a one-page summary. Include:
 
 Ask which patterns fit PMS or PMDD and what else may need assessment. Ask how each care option could help, what risks apply, and when to review progress. The main [PMS and PMDD guide](/en/conditions/pms-pmdd) explains common care options.
 
-Femio's [clinician review page](/en/medical-review) explains how our health content is checked.
+femio's [clinician review page](/en/medical-review) explains how our health content is checked.
 
 ## Build a safety plan for severe mood symptoms
 
@@ -142,7 +142,7 @@ Do not rely on an app alone when symptoms include hopelessness, thoughts of self
 
 A personal safety plan may list warning signs, calming steps, people you can contact, safer places, and ways to reduce access to anything you might use to hurt yourself. Make it with a qualified professional when possible.
 
-Use Femio's [help-now page](/en/help-now) to find immediate support options. Tracking can wait until you are safe.
+Use femio's [help-now page](/en/help-now) to find immediate support options. Tracking can wait until you are safe.
 
 ## When to see a doctor
 
@@ -166,6 +166,6 @@ At least two cycles can help show a pattern, but do not delay care for severe sy
 
 Tell a clinician. Another or added health concern may need assessment.
 
-### Can Femio confirm PMDD?
+### Can femio confirm PMDD?
 
-No. Femio can organise a symptom record, but a qualified clinician must assess the full pattern.
+No. femio can organise a symptom record, but a qualified clinician must assess the full pattern.
