@@ -1,0 +1,3173 @@
+[
+  {
+    "persona": "C12",
+    "name": "TTC with anxiety (Nadia, 31)",
+    "goal": "ttc",
+    "aiJobs": [
+      "Log: take a one-line note ('stressed, tired, period came') into the few mood chips she keeps on, never prompting symptom-hunting in the two-week wait.",
+      "Insights: stay quiet by default (Calm Mode); show one static, gentle line about testing from the first day of a missed period if she logs early tests.",
+      "Ask: answer 'can symptoms tell me yet?', test timing and 'is stress stopping me?' from trusted sources in a non-blaming register.",
+      "Visit prep: reuse the seek-help clock as routing, and add a gentle 'my worry is hard to carry' question for her clinician."
+    ],
+    "covered": [
+      "visit_summary.dart: ttcTests / ovulation / folicAcid / moodCycle questions for goal ttc",
+      "log_phrases.dart: anxious, panicFeelings, tearfulness, sad in four languages",
+      "safety.dart: crisis phrases open Help now before any model",
+      "trusted_sources.dart: womenshealth.gov and medlineplus.gov allowlisted for Ask",
+      "test_timing.dart exists in the domain layer (not verified as wired into the assistant)"
+    ],
+    "gaps": [
+      "No Calm Mode switch: visit_summary.dart always emits 'ovulation' and 'folicAcid' for ttc, which can read as pressure for an anxious user; nothing suppresses them.",
+      "answerInstruction in prompts.dart has no register for TTC anxiety: nothing forbids 'just relax' or 'stress is stopping you' (MR-20).",
+      "No over-testing guardrail and no two-week-wait companion in the assistant.",
+      "No mood check-in or screening route for ttc (only the keyword crisis rule).",
+      "No 'period arrived' gentle handling: assistant has no state for the cycle-start let-down."
+    ],
+    "logPhrases": [
+      {
+        "termKey": "anxious",
+        "en": [
+          "obsessing over symptoms",
+          "cant stop googling symptoms",
+          "stressed about testing",
+          "anxious about the wait"
+        ],
+        "ar": [
+          "مشغوله بالاعراض",
+          "مش قادره ابطل افكر في الحمل",
+          "قلقانه من الانتظار",
+          "قلقانه من التحليل"
+        ],
+        "fr": [
+          "obsedee par les symptomes",
+          "stressee par le test",
+          "angoissee par l attente"
+        ],
+        "es": [
+          "obsesionada con los sintomas",
+          "estresada por la prueba",
+          "ansiosa por la espera"
+        ]
+      },
+      {
+        "termKey": "sad",
+        "en": [
+          "period came and im sad",
+          "disappointed this month",
+          "negative test and sad"
+        ],
+        "ar": [
+          "الدوره جت وزعلانه",
+          "النتيجه سلبيه وزعلانه",
+          "محبطه الشهر ده"
+        ],
+        "fr": [
+          "mes regles sont arrivees et je suis triste",
+          "decue ce mois ci"
+        ],
+        "es": [
+          "me llego la regla y estoy triste",
+          "decepcionada este mes"
+        ]
+      }
+    ],
+    "visitQuestions": [
+      {
+        "id": "ttcWorryHard",
+        "en": "Trying to conceive is weighing on me. Can we talk about ways to cope, and where to find support?",
+        "when": "goal ttc and she logged anxious, sad or tearfulness on 3 or more days in 90 days",
+        "source": "https://www.hfea.gov.uk/treatments/explore-all-treatments/getting-emotional-support/"
+      },
+      {
+        "id": "ttcTestingTiming",
+        "en": "When is a pregnancy test most reliable, and what should I do if it is negative but my period has not come?",
+        "when": "goal ttc and she logged a negative test before the expected period",
+        "source": "https://womenshealth.gov/a-z-topics/pregnancy-tests"
+      }
+    ],
+    "tips": [
+      {
+        "id": "symptomsCannotConfirm",
+        "en": "Early pregnancy symptoms overlap with symptoms before a period, so they cannot tell you yet. A pregnancy test is the way to check.",
+        "trigger": "goal ttc and she logs symptoms in the two weeks after ovulation",
+        "source": {
+          "publisher": "Office on Women's Health",
+          "url": "https://womenshealth.gov/a-z-topics/pregnancy-tests"
+        }
+      },
+      {
+        "id": "testTooEarly",
+        "en": "Testing very early can give a false negative because the pregnancy hormone may still be too low to show. Follow the test's own instructions.",
+        "trigger": "goal ttc and she logged a negative test before her expected period",
+        "source": {
+          "publisher": "MedlinePlus",
+          "url": "https://medlineplus.gov/lab-tests/pregnancy-test/"
+        }
+      },
+      {
+        "id": "ttcAnxietySupport",
+        "en": "Feeling anxious while trying to conceive is common and does not mean you are doing anything wrong. Support and talking therapies are available; you can ask your clinician.",
+        "trigger": "goal ttc and anxious logged on 3 or more days",
+        "source": {
+          "publisher": "HFEA",
+          "url": "https://www.hfea.gov.uk/treatments/explore-all-treatments/getting-emotional-support/"
+        }
+      }
+    ],
+    "askTopics": [
+      "Can early pregnancy symptoms tell me whether I am pregnant?",
+      "When should I take a pregnancy test and what if it is negative?",
+      "Does stress affect my chances of conceiving? (answer must not blame her)",
+      "How long should I try before seeing a clinician?",
+      "How do I cope with the two-week wait?",
+      "Is my anxiety normal and when should I get help?"
+    ],
+    "redFlags": [
+      {
+        "symptom": "Thoughts of harming herself or her baby",
+        "action": "emergency",
+        "sourceUrl": "https://www.cdc.gov/hearher/maternal-warning-signs/index.html",
+        "quote": "Feel very sad, hopeless, or not good enough."
+      }
+    ],
+    "missingVocab": [
+      "period arrived / negative test as a day event (not a symptom)",
+      "intrusive thoughts about conceiving (use the existing anxious chip; screen route needed)"
+    ],
+    "suppress": "Suppress countdowns, 'days until test', cheerful week cards, and the folicAcid/ovulation questions when Calm Mode is on. When state is ambiguous, choose the gentlest surface."
+  },
+  {
+    "persona": "C13",
+    "name": "TTC with donor sperm, couple or solo (Alex & Sam)",
+    "goal": "ttc",
+    "aiJobs": [
+      "Log: take insemination or IUI notes in her words ('IUI today, frozen vial') onto a day note, and keep the OPK result she already has.",
+      "Ask: explain IUI, reciprocal IVF and donor screening from NHS and HFEA, with inclusive wording and no 'husband' or 'intercourse' defaults.",
+      "Visit prep: build a clinic list for a donor or reciprocal-IVF consultation from her log.",
+      "Insights: show cycle observations as ranges only; never convert a natural-intercourse window into a donor-sperm timing."
+    ],
+    "covered": [
+      "visit_summary.dart: ovulation, ttcTests and folicAcid for goal ttc",
+      "log_phrases.dart: OPK negative and positive phrases (phraseOpkResults)",
+      "safety.dart: crisis phrases open Help now",
+      "trusted_sources.dart: nhs.uk and the NHS family allowlisted for Ask (hfea.gov.uk is not on the list)"
+    ],
+    "gaps": [
+      "hfea.gov.uk is not in trusted_sources.dart, so an HFEA-grounded Ask answer on donor rules would show as untrusted.",
+      "ttcGuidance (visit_summary.dart) counts months of 'trying for' with an intercourse assumption; there is no donor or insemination route to the seek-help clock.",
+      "Profile has no field for treatment type (home insemination, IUI, reciprocal IVF) or for a second parent; Today and Learn copy may assume one partner.",
+      "'ovulation' visit question is asked as if she must find out whether she ovulates; a clinic-monitored cycle needs a different question.",
+      "No place to record a bank's instructions or a vial reference (data minimisation: keep to a free-text day note)."
+    ],
+    "logPhrases": [
+      {
+        "termKey": "anxious",
+        "en": [
+          "worried about the donor",
+          "nervous about insemination day"
+        ],
+        "ar": [
+          "قلقانه من يوم التلقيح",
+          "متوتره من الحقن"
+        ],
+        "fr": [
+          "inquiete pour l insemination",
+          "stressee le jour de l insemination"
+        ],
+        "es": [
+          "nerviosa por la inseminacion",
+          "preocupada por el dia de la inseminacion"
+        ]
+      },
+      {
+        "termKey": "cramps",
+        "en": [
+          "cramping after insemination",
+          "cramps after iui"
+        ],
+        "ar": [
+          "مغص بعد التلقيح",
+          "مغص بعد الحقن"
+        ],
+        "fr": [
+          "crampes apres l insemination",
+          "crampes apres iui"
+        ],
+        "es": [
+          "calambres tras la inseminacion",
+          "calambres despues de iui"
+        ]
+      }
+    ],
+    "visitQuestions": [
+      {
+        "id": "donorTimingPlan",
+        "en": "How will we time insemination in my cycle, and which signs will you monitor?",
+        "when": "goal ttc and she marked donor or clinic insemination (new profile field)",
+        "source": "https://www.nhs.uk/tests-and-treatments/intrauterine-insemination-iui/"
+      },
+      {
+        "id": "donorScreening",
+        "en": "What screening has the donor sperm had, and what should I keep on file?",
+        "when": "goal ttc and donor route marked",
+        "source": "https://www.nhs.uk/tests-and-treatments/intrauterine-insemination-iui/"
+      },
+      {
+        "id": "reciprocalPlan",
+        "en": "If we choose reciprocal IVF, how are our two cycles lined up and who carries?",
+        "when": "she marked reciprocal IVF",
+        "source": "https://www.hfea.gov.uk/treatments/explore-all-treatments/reciprocal-ivf/"
+      }
+    ],
+    "tips": [
+      {
+        "id": "iuiWhatItIs",
+        "en": "In IUI, prepared donor sperm is placed into the uterus around ovulation. It is a short clinic procedure, usually with mild cramping.",
+        "trigger": "she marked IUI as the route",
+        "source": {
+          "publisher": "NHS",
+          "url": "https://www.nhs.uk/tests-and-treatments/intrauterine-insemination-iui/"
+        }
+      },
+      {
+        "id": "donorScreened",
+        "en": "Sperm from a licensed bank is screened and quarantined before release. Unscreened sperm can carry infections, so ask the clinic what testing is advised.",
+        "trigger": "she marked a known donor or home insemination",
+        "source": {
+          "publisher": "NHS",
+          "url": "https://www.nhs.uk/tests-and-treatments/intrauterine-insemination-iui/"
+        }
+      },
+      {
+        "id": "clinicSetsTiming",
+        "en": "Timing for donor insemination depends on how the sample was stored and your clinic's instructions. Femio records your clinic's plan and does not set a day.",
+        "trigger": "she marked donor route and views the fertile window",
+        "source": {
+          "publisher": "NHS",
+          "url": "https://www.nhs.uk/tests-and-treatments/intrauterine-insemination-iui/"
+        }
+      }
+    ],
+    "askTopics": [
+      "What is IUI and how is it done?",
+      "What is reciprocal IVF?",
+      "How is donor sperm screened?",
+      "Are outcomes different for same-sex couples?",
+      "When should I move from home insemination to a clinic?",
+      "What are the legal steps for parenthood after donor conception? (route to a legal professional, UK pages only if she names the UK)"
+    ],
+    "redFlags": [
+      {
+        "symptom": "Worsening tummy swelling after egg collection or transfer",
+        "action": "same-day",
+        "sourceUrl": "https://www.leedsth.nhs.uk/patients/resources/ovarian-hyperstimulation-syndrome-ohss/",
+        "quote": "Swelling and discomfort in your tummy that does not seem to be getting better or is clearly getting worse"
+      },
+      {
+        "symptom": "Sudden shortness of breath after fertility treatment",
+        "action": "emergency",
+        "sourceUrl": "https://www.leedsth.nhs.uk/patients/resources/ovarian-hyperstimulation-syndrome-ohss/",
+        "quote": "shortness of breath, especially coming on suddenly"
+      }
+    ],
+    "missingVocab": [
+      "insemination event as a day marker (type, fresh or frozen) without a sexual-wellness term"
+    ]
+  },
+  {
+    "persona": "C14",
+    "name": "Single mother by choice (Dana, 37)",
+    "goal": "ttc",
+    "aiJobs": [
+      "Ask: explain IUI versus IVF with donor sperm and the shortened help-seeking window at 35 and over, without implying a fertility problem because she is single.",
+      "Visit prep: prepare a consultation page that records plan questions (cycles, monitoring, when to review the plan).",
+      "Log: take cycle and treatment notes in her words; keep OPK and period starts.",
+      "Insights: show 'time is short' only as a neutral routing line, never as pressure."
+    ],
+    "covered": [
+      "visit_summary.dart: ttcTests uses ttcGuidance(age, tryingFor), so age 35 and over already shortens the clock",
+      "safety.dart: crisis route; log_phrases.dart: anxious, sad, tearfulness",
+      "trusted_sources.dart: nhs.uk and nih.gov allowlisted (hfea.gov.uk and asrm.org: asrm.org yes, hfea.gov.uk no)"
+    ],
+    "gaps": [
+      "tryingFor (justStarted, under6, sixTo12, over12) assumes unprotected intercourse; a solo donor route has no equivalent clock, so ttcTests can mislead.",
+      "Visit questions ask 'how long we have been trying', plural and couple-framed (visitQuestionEnglish 'ttcTests').",
+      "No treatment-plan or cost-planning notes field (kept off by privacy; free-text day note is the only place).",
+      "hfea.gov.uk missing from trusted_sources.dart.",
+      "No wording rule that bans inferring impairment from single status."
+    ],
+    "logPhrases": [
+      {
+        "termKey": "anxious",
+        "en": [
+          "worried about time",
+          "worried about my age",
+          "scared it will not work"
+        ],
+        "ar": [
+          "قلقانه من الوقت",
+          "قلقانه من سني",
+          "خايفه ما ينفعش"
+        ],
+        "fr": [
+          "inquiete pour le temps",
+          "inquiete pour mon age",
+          "peur que ca ne marche pas"
+        ],
+        "es": [
+          "preocupada por el tiempo",
+          "preocupada por mi edad",
+          "miedo de que no funcione"
+        ]
+      },
+      {
+        "termKey": "tearfulness",
+        "en": [
+          "cried after the clinic",
+          "cried at the scan"
+        ],
+        "ar": [
+          "عيطت بعد العياده",
+          "عيطت بعد السونار"
+        ],
+        "fr": [
+          "j ai pleure apres la clinique",
+          "j ai pleure a l echographie"
+        ],
+        "es": [
+          "llore despues de la clinica",
+          "llore en la ecografia"
+        ]
+      }
+    ],
+    "visitQuestions": [
+      {
+        "id": "soloPlanReview",
+        "en": "When will we review this plan, and what would make us consider a different treatment?",
+        "when": "goal ttc and she marked a solo donor route",
+        "source": "https://www.nhs.uk/conditions/infertility/treatment/"
+      },
+      {
+        "id": "soloMonitoring",
+        "en": "How will my cycles be monitored for insemination, and what do I need to track at home?",
+        "when": "goal ttc and she logged OPK or period starts",
+        "source": "https://www.nhs.uk/tests-and-treatments/intrauterine-insemination-iui/"
+      },
+      {
+        "id": "soloSupport",
+        "en": "Are there counselling or peer-support options for single parents by choice at this clinic?",
+        "when": "goal ttc and she marked a solo route",
+        "source": "https://www.hfea.gov.uk/i-am/single-women/"
+      }
+    ],
+    "tips": [
+      {
+        "id": "soloNoJudgement",
+        "en": "Fertility services are meant to be offered equally whatever your relationship status. A clinic can explain donor insemination and IVF options for you.",
+        "trigger": "she marked a solo donor route",
+        "source": {
+          "publisher": "HFEA",
+          "url": "https://www.hfea.gov.uk/i-am/single-women/"
+        }
+      },
+      {
+        "id": "iuiFirstLine",
+        "en": "For a woman without a known fertility problem, IUI with donor sperm is usually tried first; IVF is used when there is a reason or IUI has not worked.",
+        "trigger": "she marked a solo donor route",
+        "source": {
+          "publisher": "NHS",
+          "url": "https://www.nhs.uk/conditions/infertility/treatment/"
+        }
+      },
+      {
+        "id": "over35SoonerCheckIn",
+        "en": "At 35 and over, guidelines advise seeing a clinician after 6 months of trying, and sooner if there is a known reason. This is routing, not a verdict.",
+        "trigger": "goal ttc, age 35 or over",
+        "source": {
+          "publisher": "NHS",
+          "url": "https://www.nhs.uk/conditions/infertility/treatment/"
+        }
+      }
+    ],
+    "askTopics": [
+      "IUI or IVF with donor sperm, which first?",
+      "How is donor sperm screened?",
+      "What can I ask about donor information and the law where I live?",
+      "How many IUI cycles before reviewing the plan? (answer: the clinician reviews; no Femio number)",
+      "Does being single affect my fertility? (no)"
+    ],
+    "redFlags": [
+      {
+        "symptom": "Worsening tummy swelling after egg collection or transfer",
+        "action": "same-day",
+        "sourceUrl": "https://www.leedsth.nhs.uk/patients/resources/ovarian-hyperstimulation-syndrome-ohss/",
+        "quote": "Swelling and discomfort in your tummy that does not seem to be getting better or is clearly getting worse"
+      },
+      {
+        "symptom": "Sudden shortness of breath after fertility treatment",
+        "action": "emergency",
+        "sourceUrl": "https://www.leedsth.nhs.uk/patients/resources/ovarian-hyperstimulation-syndrome-ohss/",
+        "quote": "shortness of breath, especially coming on suddenly"
+      }
+    ],
+    "missingVocab": [
+      "treatment cycle marker (IUI, IVF) for the day log"
+    ]
+  },
+  {
+    "persona": "C15",
+    "name": "Fertility preservation, elective or medical (Nadia 34 / Salma 31)",
+    "goal": "any",
+    "aiJobs": [
+      "Log: take stimulation-cycle symptoms in her words ('bloated, tender, injections today') as day notes; never dose or time a medicine.",
+      "Ask: explain egg, embryo and ovarian-tissue freezing and random-start from trusted sources, and route every instruction to her clinic.",
+      "Visit prep: build the questions list for the fertility or oncology team before the clock-sensitive start.",
+      "Insights: watch her own logged bloating and feeling unwell, and point to the clinic's OHSS signs; never grade."
+    ],
+    "covered": [
+      "log_phrases.dart: bloating, nausea, cramps, fatigue, moodSwings exist",
+      "safety.dart: urgent phrases (cannot breathe, chest pain) open Help now",
+      "visit_summary.dart: 'anythingElse' only; no preservation question",
+      "Goal enum has no preservation state; period is the nearest default"
+    ],
+    "gaps": [
+      "Profile has no oncofertility or preservation flag, so none of the assistant's tone or question rules can adapt; this persona is invisible.",
+      "No OHSS-aware rule: worsening bloating plus nausea plus breathlessness has no route (safety.dart only catches breathing words, which do open Help now).",
+      "Tips on dates and medicines must be suppressed: the clinic gives every date and dose, so the assistant needs a hard 'no schedule, no dose' rule for this profile.",
+      "Visit question bank has nothing for storage, cost, or what happens after retrieval.",
+      "Medical path needs gentle cancer-care register and a 'time is short' sensitivity; no gentle mode exists."
+    ],
+    "logPhrases": [
+      {
+        "termKey": "bloating",
+        "en": [
+          "swollen belly after injections",
+          "tummy swollen",
+          "belly feels tight and swollen"
+        ],
+        "ar": [
+          "بطني منفوخه",
+          "بطني مورمه",
+          "بطني مشدوده"
+        ],
+        "fr": [
+          "ventre gonfle",
+          "ventre tendu apres les injections"
+        ],
+        "es": [
+          "barriga hinchada",
+          "abdomen hinchado tras las inyecciones"
+        ]
+      },
+      {
+        "termKey": "moodSwings",
+        "en": [
+          "hormone mood swings from the injections",
+          "emotional on the injections"
+        ],
+        "ar": [
+          "مزاجي متقلب من الحقن",
+          "حساسه من الحقن"
+        ],
+        "fr": [
+          "humeur changeante avec les injections",
+          "emotive avec les injections"
+        ],
+        "es": [
+          "cambios de humor por las inyecciones",
+          "emotiva con las inyecciones"
+        ]
+      },
+      {
+        "termKey": "anxious",
+        "en": [
+          "worried before retrieval",
+          "scared of the procedure"
+        ],
+        "ar": [
+          "قلقانه قبل سحب البويضات",
+          "خايفه من العمليه"
+        ],
+        "fr": [
+          "inquiete avant le prelevement",
+          "peur de l intervention"
+        ],
+        "es": [
+          "preocupada antes de la extraccion",
+          "miedo al procedimiento"
+        ]
+      }
+    ],
+    "visitQuestions": [
+      {
+        "id": "preserveWhatChoices",
+        "en": "Which options suit my situation: freezing eggs, embryos or ovarian tissue, and what does each involve?",
+        "when": "she marked fertility preservation (new profile field)",
+        "source": "https://www.cancer.gov/about-cancer/treatment/side-effects/fertility-women"
+      },
+      {
+        "id": "preserveTimeline",
+        "en": "How soon can this start, and does it need to fit around other treatment?",
+        "when": "she marked a medical reason",
+        "source": "https://www.cancer.gov/about-cancer/treatment/side-effects/fertility-women"
+      },
+      {
+        "id": "preserveWarningSigns",
+        "en": "Which symptoms after the injections or retrieval should make me call you straight away?",
+        "when": "she logged bloating or nausea during a cycle",
+        "source": "https://www.leedsth.nhs.uk/patients/resources/ovarian-hyperstimulation-syndrome-ohss/"
+      },
+      {
+        "id": "preserveStorage",
+        "en": "How long can my eggs or embryos be stored, and what are the costs and consent steps?",
+        "when": "she marked fertility preservation",
+        "source": "[NEEDS SOURCE]"
+      }
+    ],
+    "tips": [
+      {
+        "id": "clinicSetsEveryDate",
+        "en": "Your clinic sets every date and dose in a preservation cycle. Femio only records what the clinic told you and can help you write questions for them.",
+        "trigger": "she marked fertility preservation",
+        "source": {
+          "publisher": "NCI",
+          "url": "https://www.cancer.gov/about-cancer/treatment/side-effects/fertility-women"
+        }
+      },
+      {
+        "id": "ohssAwareness",
+        "en": "Worsening tummy swelling, less urine than expected, sickness or breathlessness after egg collection should be reported to the clinic. If breathlessness starts suddenly, go to A&E.",
+        "trigger": "she logged bloating or nausea in an active cycle",
+        "source": {
+          "publisher": "NHS (Leeds Teaching Hospitals)",
+          "url": "https://www.leedsth.nhs.uk/patients/resources/ovarian-hyperstimulation-syndrome-ohss/"
+        }
+      },
+      {
+        "id": "noTransferThisCycle",
+        "en": "In a freezing cycle there is no embryo transfer and no two-week wait. The eggs or embryos are frozen and stored for later.",
+        "trigger": "she marked elective egg freezing",
+        "source": {
+          "publisher": "NCI",
+          "url": "https://www.cancer.gov/about-cancer/treatment/side-effects/fertility-women"
+        }
+      }
+    ],
+    "askTopics": [
+      "What is egg freezing and how does it work?",
+      "What is random-start stimulation?",
+      "Which preservation option is used when time is short?",
+      "What is OHSS and which signs should I report?",
+      "How long can eggs or embryos be stored?",
+      "Can I freeze eggs before gender-affirming treatment?"
+    ],
+    "redFlags": [
+      {
+        "symptom": "Worsening tummy swelling after egg collection or transfer",
+        "action": "same-day",
+        "sourceUrl": "https://www.leedsth.nhs.uk/patients/resources/ovarian-hyperstimulation-syndrome-ohss/",
+        "quote": "Swelling and discomfort in your tummy that does not seem to be getting better or is clearly getting worse"
+      },
+      {
+        "symptom": "Sudden shortness of breath after fertility treatment",
+        "action": "emergency",
+        "sourceUrl": "https://www.leedsth.nhs.uk/patients/resources/ovarian-hyperstimulation-syndrome-ohss/",
+        "quote": "shortness of breath, especially coming on suddenly"
+      }
+    ],
+    "missingVocab": [
+      "injection-site soreness",
+      "abdominal swelling after retrieval (bloating exists; swelling is a different reading)",
+      "reduced urine / dark urine (OHSS sign)"
+    ],
+    "suppress": "Suppress any date, dose, trigger-time or schedule tip. Medical path: suppress fertility-statistics tips and celebratory content; keep a gentle register."
+  },
+  {
+    "persona": "C16",
+    "name": "Premature ovarian insufficiency (Yara, 31)",
+    "goal": "any",
+    "aiJobs": [
+      "Log: take menopause-type symptoms (hot flushes, night sweats, sleep, mood, dryness) in her words with no 'late' or 'irregular' shaming.",
+      "Ask: explain that POI is not the same as menopause, that periods and pregnancy can still happen, and what a clinician evaluation involves.",
+      "Visit prep: summarise her logged symptoms and cycle gaps for the specialist; add bone-health and hormone-therapy questions.",
+      "Insights: show cycle waves as awareness only, never a prediction or a fertility verdict."
+    ],
+    "covered": [
+      "log_phrases.dart: hotFlashes, nightSweats, insomnia, brainFog, jointPain, dryItchySkin, hairThinning, bladderUrgency",
+      "visit_summary.dart: 'menopause' question fires when goal is menopause or hotFlashes/nightSweats are logged often; 'cycleSpread' for irregular",
+      "Goal.menopause exists, but its copy and the 'menopause' question assume midlife"
+    ],
+    "gaps": [
+      "visit_summary.dart question 'menopause' says 'Could my symptoms be linked to perimenopause': wrong for a woman under 40 who may already carry a POI label; no POI visit question exists.",
+      "No profile age or POI flag: birthYear is the only age signal, and nothing asks 'under 40 with menopausal symptoms' to be routed gently.",
+      "Resolver risk: 'menopause' and 'infertile' labels must never be applied (MR-46); the assistant has no negative list for these words.",
+      "vaginalDryness and libidoDown are elevated terms with no phrases in log_phrases.dart; clinical symptom names are allowed by OD-5 but need an owner decision.",
+      "No suppression of pregnancy-possibility or fertility-percentage tips; no fertility-grief gentle mode."
+    ],
+    "logPhrases": [
+      {
+        "termKey": "vaginalDryness",
+        "en": [
+          "vaginal dryness"
+        ],
+        "ar": [
+          "جفاف المهبل"
+        ],
+        "fr": [
+          "secheresse vaginale"
+        ],
+        "es": [
+          "sequedad vaginal"
+        ]
+      },
+      {
+        "termKey": "bladderLeaks",
+        "en": [
+          "urine leaks",
+          "leak when i laugh"
+        ],
+        "ar": [
+          "بول بينزل لما اضحك",
+          "تسريب بول"
+        ],
+        "fr": [
+          "fuites urinaires en riant"
+        ],
+        "es": [
+          "pierdo orina al reir"
+        ]
+      },
+      {
+        "termKey": "lowMotivation",
+        "en": [
+          "grieving my fertility",
+          "feel empty about my body"
+        ],
+        "ar": [
+          "حزينه على قدرتي على الانجاب",
+          "حاسه بفراغ"
+        ],
+        "fr": [
+          "je fais le deuil de ma fertilite"
+        ],
+        "es": [
+          "lloro mi fertilidad"
+        ]
+      }
+    ],
+    "visitQuestions": [
+      {
+        "id": "poiBoneHeart",
+        "en": "Which checks do you suggest for my bones and heart health, given my hormone levels?",
+        "when": "she is under 40 and logged hotFlashes, nightSweats or irregular cycles",
+        "source": "https://www.nice.org.uk/guidance/ng23/chapter/Recommendations"
+      },
+      {
+        "id": "poiCause",
+        "en": "Are any tests worth doing to look for a cause?",
+        "when": "she is under 40 and reports absent or very irregular periods",
+        "source": "https://www.nichd.nih.gov/health/topics/poi"
+      },
+      {
+        "id": "poiFertilityChoices",
+        "en": "What are my options if I want children, and could I still ovulate sometimes?",
+        "when": "she is under 40 and has irregular cycles",
+        "source": "https://www.eshre.eu/-/media/sitecore-files/Guidelines/POI/2024/POI-GUIDELINE_Patient-version_2024dec.pdf"
+      },
+      {
+        "id": "poiTherapy",
+        "en": "What are the options for managing symptoms in the long term, and what do the guidelines say?",
+        "when": "she logged hotFlashes or nightSweats on 3 or more days",
+        "source": "https://www.nice.org.uk/guidance/ng23/chapter/Recommendations"
+      }
+    ],
+    "tips": [
+      {
+        "id": "poiNotMenopause",
+        "en": "Premature ovarian insufficiency means the ovaries are not working normally before age 40. Periods and even pregnancy can still happen sometimes, so it is not the same as menopause.",
+        "trigger": "she is under 40 and logged irregular or absent periods with hot flushes",
+        "source": {
+          "publisher": "NICHD",
+          "url": "https://www.nichd.nih.gov/health/topics/poi"
+        }
+      },
+      {
+        "id": "poiGetSupport",
+        "en": "Many women feel grief and worry after a POI diagnosis. Counselling and peer support are part of care and you can ask your specialist about them.",
+        "trigger": "she marked POI or logged tearfulness, low motivation or sad",
+        "source": {
+          "publisher": "NICHD",
+          "url": "https://www.nichd.nih.gov/health/topics/poi"
+        }
+      },
+      {
+        "id": "poiBoneHeart",
+        "en": "With lower estrogen over many years, bone and heart health matter. Ask your specialist which checks and care options are right for you.",
+        "trigger": "she marked POI",
+        "source": {
+          "publisher": "MedlinePlus",
+          "url": "https://medlineplus.gov/primaryovarianinsufficiency.html"
+        }
+      }
+    ],
+    "askTopics": [
+      "What is POI and is it the same as menopause?",
+      "Can I still get pregnant with POI?",
+      "What causes POI?",
+      "Which tests do clinicians use? (no interpretation of her values)",
+      "Why do bones and heart matter with POI?",
+      "What are the long-term treatment options?"
+    ],
+    "redFlags": [
+      {
+        "symptom": "Thoughts of harming herself or her baby",
+        "action": "emergency",
+        "sourceUrl": "https://www.cdc.gov/hearher/maternal-warning-signs/index.html",
+        "quote": "Feel very sad, hopeless, or not good enough."
+      }
+    ],
+    "missingVocab": [
+      "period came after a long gap (awareness, not 'irregular')",
+      "bone or joint pain distinct from jointPain (use jointPain meanwhile)",
+      "grief or loss of fertility feelings (nearest mood chips: sad, lowMotivation)"
+    ],
+    "suppress": "Suppress 'perimenopause', 'infertile' and any spontaneous-conception percentage. No fertility-window tips by default."
+  },
+  {
+    "persona": "D1",
+    "name": "Uncomplicated pregnancy",
+    "goal": "pregnant",
+    "aiJobs": [
+      "Log: turn 'morning sickness, backache, so tired' into the chips she would tap, in four languages.",
+      "Insights: show what her week means and one useful next step (movement awareness from week 28, appointments), never a verdict.",
+      "Ask: answer 'is this normal?' questions from NHS, CDC and ACOG, and route danger signs to the red-flag card.",
+      "Visit prep: build her midwife page: weight trend, symptoms, her own questions."
+    ],
+    "covered": [
+      "visit_summary.dart: pregnancyNext and pregnancyMovements questions; 'folicAcid' etc. suppressed when pregnant",
+      "safety.dart: pregnancyWarning phrases (MR-29 list in four languages) while goal is pregnant",
+      "red_flags.dart + red_flags_screen: seven sourced signs (ACOG, CDC Hear Her, NHS bleeding and movements)",
+      "pregnancy.dart / contractions.dart / movements.dart / weight.dart: due date, week, kick and contraction tools",
+      "log_phrases.dart: fatigue, nausea, headache, backache, constipation, insomnia, cravings, dizziness"
+    ],
+    "gaps": [
+      "Nausea phrases miss 'vomiting', 'morning sickness', 'ترجيع' (checked in log_phrases.dart): the commonest pregnancy symptom partly unmapped.",
+      "Only two pregnancy visit questions exist (pregnancyNext, pregnancyMovements); nothing on screening choices, anatomy scan, glucose test timing or birth preferences.",
+      "No pregnancy-week logic in visit_summary.dart: 'pregnancyMovements' is asked from week 1 although movement tracking is a week-28 tool (MR-30).",
+      "Ask prompt has no stage context: answerInstruction in prompts.dart does not know she is pregnant, so grounding is not steered to antenatal pages.",
+      "No vocabulary for heartburn, swelling, round-ligament pain, tightenings, reduced appetite, frequent urination (only bladderUrgency)."
+    ],
+    "logPhrases": [
+      {
+        "termKey": "nausea",
+        "en": [
+          "morning sickness",
+          "vomiting",
+          "threw up",
+          "throwing up",
+          "sick every morning"
+        ],
+        "ar": [
+          "ترجيع",
+          "استفراغ",
+          "بترجع",
+          "رجعت",
+          "وحم",
+          "وحام"
+        ],
+        "fr": [
+          "nausees matinales",
+          "vomissements",
+          "je vomis",
+          "j ai vomi"
+        ],
+        "es": [
+          "nauseas matutinas",
+          "vomitos",
+          "vomitando",
+          "vomite"
+        ]
+      },
+      {
+        "termKey": "bladderUrgency",
+        "en": [
+          "peeing a lot",
+          "frequent urination",
+          "need to pee all the time",
+          "keep needing the toilet"
+        ],
+        "ar": [
+          "بدخل الحمام كتير",
+          "كتر الحمام",
+          "تبول كثير",
+          "كثره التبول",
+          "كل شويه اروح الحمام"
+        ],
+        "fr": [
+          "envie d uriner souvent",
+          "uriner souvent",
+          "urines frequentes"
+        ],
+        "es": [
+          "orino mucho",
+          "ganas de orinar",
+          "orinar con frecuencia"
+        ]
+      },
+      {
+        "termKey": "tingling",
+        "en": [
+          "tingling",
+          "pins and needles",
+          "numb hands",
+          "numbness"
+        ],
+        "ar": [
+          "تنميل",
+          "خدر",
+          "ايدي نايمه",
+          "ايدي مخدره"
+        ],
+        "fr": [
+          "fourmillements",
+          "engourdissement",
+          "mains engourdies"
+        ],
+        "es": [
+          "hormigueo",
+          "adormecimiento",
+          "manos dormidas"
+        ]
+      },
+      {
+        "termKey": "bladderLeaks",
+        "en": [
+          "leaking urine",
+          "bladder leaks",
+          "leak when i cough",
+          "leak when i sneeze"
+        ],
+        "ar": [
+          "تسريب بول",
+          "بول بينزل مني لما اكح",
+          "نزول بول لا ارادي"
+        ],
+        "fr": [
+          "fuites urinaires",
+          "perte d urine"
+        ],
+        "es": [
+          "perdidas de orina",
+          "pierdo orina"
+        ]
+      },
+      {
+        "termKey": "anxious",
+        "en": [
+          "scared for the baby",
+          "afraid something will go wrong",
+          "worried about the baby",
+          "worried about the scan"
+        ],
+        "ar": [
+          "خايفه على البيبي",
+          "خايفه على الجنين",
+          "قلقانه على الحمل",
+          "قلقانه من الفحص",
+          "خايفه من الموعد"
+        ],
+        "fr": [
+          "peur pour le bebe",
+          "inquiete pour le bebe",
+          "inquiete pour l echographie"
+        ],
+        "es": [
+          "miedo por el bebe",
+          "preocupada por el bebe",
+          "preocupada por la ecografia"
+        ]
+      },
+      {
+        "termKey": "jointPain",
+        "en": [
+          "pelvic pain",
+          "hip pain",
+          "pubic bone pain"
+        ],
+        "ar": [
+          "وجع في الحوض",
+          "الم في الورك",
+          "وجع عظمه الحوض"
+        ],
+        "fr": [
+          "douleur au bassin",
+          "douleur a la hanche"
+        ],
+        "es": [
+          "dolor pelvico",
+          "dolor de cadera"
+        ]
+      },
+      {
+        "termKey": "brainFog",
+        "en": [
+          "pregnancy brain",
+          "forgetful"
+        ],
+        "ar": [
+          "نسيان",
+          "بنسي كتير",
+          "ناسيه كل حاجه"
+        ],
+        "fr": [
+          "trous de memoire",
+          "oublis frequents"
+        ],
+        "es": [
+          "olvidos",
+          "falta de memoria"
+        ]
+      }
+    ],
+    "visitQuestions": [
+      {
+        "id": "screeningChoices",
+        "en": "Which screening tests are offered in my pregnancy, and what does each one tell me?",
+        "when": "pregnant and week 8 to 20",
+        "source": "https://www.acog.org/advocacy/policy-priorities/non-invasive-prenatal-testing/current-acog-guidance"
+      },
+      {
+        "id": "anatomyScan",
+        "en": "When is my main scan and what does it look at?",
+        "when": "pregnant and week 14 to 22",
+        "source": "https://www.acog.org/advocacy/policy-priorities/non-invasive-prenatal-testing/current-acog-guidance"
+      },
+      {
+        "id": "movementsChange",
+        "en": "What should I do if my baby's usual movements change, and who do I call at night?",
+        "when": "pregnant and week 24 or later",
+        "source": "https://www.nhs.uk/pregnancy/keeping-well/your-babys-movements/"
+      },
+      {
+        "id": "scheduleYours",
+        "en": "How many visits will I have, and which ones can be by phone or video?",
+        "when": "pregnant and a first appointment is logged",
+        "source": "https://www.who.int/publications/i/item/9789241549912"
+      },
+      {
+        "id": "vitaminsAsk",
+        "en": "Which vitamins or supplements are right for me in pregnancy?",
+        "when": "pregnant and week under 14",
+        "source": "https://www.nhs.uk/pregnancy/keeping-well/pregnancy-vitamins-and-supplements/"
+      }
+    ],
+    "tips": [
+      {
+        "id": "movementsPattern",
+        "en": "There is no set number of movements each day. Get to know your baby's usual pattern; if it changes or slows, call your midwife or maternity unit straight away.",
+        "trigger": "pregnant, week 24 or later",
+        "source": {
+          "publisher": "NHS",
+          "url": "https://www.nhs.uk/pregnancy/keeping-well/your-babys-movements/"
+        }
+      },
+      {
+        "id": "warningSignsAnytime",
+        "en": "Severe headache, vision changes, severe belly pain, fever, extreme swelling or trouble breathing need urgent care at any point in pregnancy and for a year after birth.",
+        "trigger": "goal pregnant, any week",
+        "source": {
+          "publisher": "CDC Hear Her",
+          "url": "https://www.cdc.gov/hearher/maternal-warning-signs/index.html"
+        }
+      },
+      {
+        "id": "scheduleIsTypical",
+        "en": "A typical antenatal schedule is only a guide. Your maternity team sets the visits that fit your pregnancy, and some can be by phone or video.",
+        "trigger": "pregnant and she opens appointments",
+        "source": {
+          "publisher": "WHO",
+          "url": "https://www.who.int/publications/i/item/9789241549912"
+        }
+      },
+      {
+        "id": "screeningIsNotDiagnosis",
+        "en": "Screening tests estimate a chance. They are not a diagnosis. If a screen is positive, you will be offered counselling and the option of a diagnostic test.",
+        "trigger": "pregnant, week 8 to 22",
+        "source": {
+          "publisher": "ACOG",
+          "url": "https://www.acog.org/advocacy/policy-priorities/non-invasive-prenatal-testing/current-acog-guidance"
+        }
+      }
+    ],
+    "askTopics": [
+      "Is this symptom normal in pregnancy? (route to red flags first)",
+      "What do the screening tests mean?",
+      "When should I feel movements?",
+      "What foods and supplements should I ask about?",
+      "How much weight gain is typical and why? (guidance band only)",
+      "What happens at each appointment?",
+      "How do I know I am in labour?"
+    ],
+    "redFlags": [
+      {
+        "symptom": "Headache that will not go away or gets worse",
+        "action": "emergency",
+        "sourceUrl": "https://www.cdc.gov/hearher/maternal-warning-signs/index.html",
+        "quote": "Headache that won’t go away or gets worse over time"
+      },
+      {
+        "symptom": "Vision changes (blurring, flashes, spots, double vision)",
+        "action": "emergency",
+        "sourceUrl": "https://www.cdc.gov/hearher/maternal-warning-signs/index.html",
+        "quote": "Your vision is blurry, you can't focus, or you're seeing double."
+      },
+      {
+        "symptom": "Severe belly pain that does not go away",
+        "action": "emergency",
+        "sourceUrl": "https://www.cdc.gov/hearher/maternal-warning-signs/index.html",
+        "quote": "Your belly pain starts suddenly and is severe, or gets worse over time."
+      },
+      {
+        "symptom": "Vaginal bleeding more than spotting",
+        "action": "emergency",
+        "sourceUrl": "https://www.cdc.gov/hearher/maternal-warning-signs/index.html",
+        "quote": "You have any bleeding from your vagina that is more than spotting—like a period."
+      },
+      {
+        "symptom": "Fluid leaking from the vagina",
+        "action": "emergency",
+        "sourceUrl": "https://www.cdc.gov/hearher/maternal-warning-signs/index.html",
+        "quote": "You have fluid leaking out of your vagina."
+      },
+      {
+        "symptom": "Baby moving less than usual or a change in pattern",
+        "action": "emergency",
+        "sourceUrl": "https://www.nhs.uk/pregnancy/keeping-well/your-babys-movements/",
+        "quote": "Do not wait until the next day – call immediately, even if it's the middle of the night."
+      },
+      {
+        "symptom": "Trouble breathing",
+        "action": "emergency",
+        "sourceUrl": "https://www.cdc.gov/hearher/maternal-warning-signs/index.html",
+        "quote": "You feel short of breath suddenly or over time, as if you can't breathe deeply enough to get enough air in your lungs."
+      },
+      {
+        "symptom": "Fever of 38 C or higher",
+        "action": "same-day",
+        "sourceUrl": "https://www.cdc.gov/hearher/maternal-warning-signs/index.html",
+        "quote": "You have a temperature of 100.4°F (38°C) or higher."
+      },
+      {
+        "symptom": "Extreme swelling of face or hands",
+        "action": "emergency",
+        "sourceUrl": "https://www.cdc.gov/hearher/maternal-warning-signs/index.html",
+        "quote": "Swelling in your face makes it hard to open your eyes all the way—they feel and look puffy."
+      },
+      {
+        "symptom": "Thoughts of harming herself or her baby",
+        "action": "emergency",
+        "sourceUrl": "https://www.cdc.gov/hearher/maternal-warning-signs/index.html",
+        "quote": "Feel very sad, hopeless, or not good enough."
+      }
+    ],
+    "missingVocab": [
+      "heartburn / reflux",
+      "swelling of feet, hands or face (neutral log, distinct from the red-flag sign)",
+      "round-ligament or pelvic girdle pain",
+      "Braxton Hicks / tightenings",
+      "restless legs",
+      "reduced appetite or food aversions",
+      "vaginal discharge change in pregnancy (existing discharge terms are cycle-based)"
+    ]
+  },
+  {
+    "persona": "D2",
+    "name": "Pregnancy after loss (Salma, 34)",
+    "goal": "pregnant",
+    "aiJobs": [
+      "Log: accept 'scared today, no spotting' as a gentle note; never celebrate or count down for her.",
+      "Insights: show her own milestone (her last loss gestation) only if she sets it; otherwise no week cards.",
+      "Ask: answer questions about early scans, anxiety after loss and movements honestly, with no promises.",
+      "Visit prep: add 'extra support after loss' questions for her midwife or early pregnancy unit."
+    ],
+    "covered": [
+      "safety.dart: pregnancyWarning including bleeding in four languages; crisis rule",
+      "log_phrases.dart: anxious, tearfulness, panicFeelings",
+      "visit_summary.dart: pregnancyNext, pregnancyMovements, moodCycle (if mood logged often)"
+    ],
+    "gaps": [
+      "No loss state at all: Profile has no loss or gentle-mode field, and MR-35 ('no pregnancy-week card, stop reminders') is marked 'No' in the register.",
+      "pregnancyMovements question fires from the first week and its text ('When should I start paying attention to the baby's movements?') can hit a woman whose earlier loss was a late one.",
+      "Ask answer has no register for loss: no rule to avoid 'chance' and 'normal' wording; bleeding phrases open the red-flag card, which may be the right route, but nothing says 'I am sorry' first.",
+      "Reminders and log prompts cannot be suppressed on loss; no 'end of pregnancy' path that keeps her data (MR-35).",
+      "No anxiety check-in in the assistant; mood chips only."
+    ],
+    "logPhrases": [
+      {
+        "termKey": "anxious",
+        "en": [
+          "scared for the baby",
+          "afraid something will go wrong",
+          "worried about the baby",
+          "worried about the scan"
+        ],
+        "ar": [
+          "خايفه على البيبي",
+          "خايفه على الجنين",
+          "قلقانه على الحمل",
+          "قلقانه من الفحص",
+          "خايفه من الموعد"
+        ],
+        "fr": [
+          "peur pour le bebe",
+          "inquiete pour le bebe",
+          "inquiete pour l echographie"
+        ],
+        "es": [
+          "miedo por el bebe",
+          "preocupada por el bebe",
+          "preocupada por la ecografia"
+        ]
+      },
+      {
+        "termKey": "anxious",
+        "en": [
+          "scared of the scan",
+          "terrified of spotting again",
+          "cant relax until the scan",
+          "afraid it will happen again"
+        ],
+        "ar": [
+          "خايفه من السونار",
+          "خايفه يتكرر اللي حصل",
+          "مش مرتاحه لحد السونار",
+          "خايفه يحصل تاني"
+        ],
+        "fr": [
+          "peur de l echographie",
+          "j ai peur que ca recommence",
+          "je ne peux pas me detendre avant l echographie"
+        ],
+        "es": [
+          "miedo a la ecografia",
+          "tengo miedo de que vuelva a pasar",
+          "no puedo relajarme hasta la ecografia"
+        ]
+      },
+      {
+        "termKey": "sad",
+        "en": [
+          "thinking about my loss",
+          "anniversary of my loss",
+          "missing the baby we lost"
+        ],
+        "ar": [
+          "بفكر في اللي فقدته",
+          "ذكرى الفقد",
+          "وحشني اللي راح"
+        ],
+        "fr": [
+          "je pense a ma perte",
+          "anniversaire de ma perte"
+        ],
+        "es": [
+          "pienso en mi perdida",
+          "aniversario de mi perdida"
+        ]
+      }
+    ],
+    "visitQuestions": [
+      {
+        "id": "afterLossExtraSupport",
+        "en": "Given my history, what extra checks, scans or support can I be offered in this pregnancy?",
+        "when": "pregnant and she marked an earlier loss (new profile field)",
+        "source": "[NEEDS SOURCE] (persona cites Tommy's; find an NHS or RCOG page)"
+      },
+      {
+        "id": "afterLossEarlyScan",
+        "en": "Can I have an early scan for reassurance, and what is offered where I live?",
+        "when": "pregnant, week under 12 and earlier loss marked",
+        "source": "[NEEDS SOURCE] (NHS early pregnancy unit page)"
+      },
+      {
+        "id": "afterLossFeelings",
+        "en": "I feel very anxious in this pregnancy. Who can I talk to about it?",
+        "when": "pregnant and anxious or tearfulness logged on 3 or more days",
+        "source": "https://www.acog.org/clinical/clinical-guidance/clinical-practice-guideline/articles/2023/06/screening-and-diagnosis-of-mental-health-conditions-during-pregnancy-and-postpartum"
+      },
+      {
+        "id": "afterLossMovementsPlan",
+        "en": "What is my plan if I am worried about movements, and who do I call?",
+        "when": "pregnant, week 24 or later and earlier loss marked",
+        "source": "https://www.nhs.uk/pregnancy/keeping-well/your-babys-movements/"
+      }
+    ],
+    "tips": [
+      {
+        "id": "afterLossAnxietyCommon",
+        "en": "Feeling more anxious in a pregnancy after loss is common and understandable. You can tell your midwife or doctor; support is part of care.",
+        "trigger": "pregnant and she marked an earlier loss",
+        "source": {
+          "publisher": "ACOG",
+          "url": "https://www.acog.org/clinical/clinical-guidance/clinical-practice-guideline/articles/2023/06/screening-and-diagnosis-of-mental-health-conditions-during-pregnancy-and-postpartum"
+        }
+      },
+      {
+        "id": "movementChangeCallToday",
+        "en": "If your baby's movements change, call your midwife or maternity unit straight away, even at night. There is no set number of movements.",
+        "trigger": "pregnant, week 24 or later, shown only if she turned this tool on",
+        "source": {
+          "publisher": "NHS",
+          "url": "https://www.nhs.uk/pregnancy/keeping-well/your-babys-movements/"
+        }
+      },
+      {
+        "id": "mentalHealthScreeningRoutine",
+        "en": "Doctors are advised to ask about mood and anxiety in pregnancy, at the first visit and later on. It is routine, not a sign something is wrong.",
+        "trigger": "pregnant and she opens the check-in",
+        "source": {
+          "publisher": "ACOG",
+          "url": "https://www.acog.org/clinical/clinical-guidance/clinical-practice-guideline/articles/2023/06/screening-and-diagnosis-of-mental-health-conditions-during-pregnancy-and-postpartum"
+        }
+      }
+    ],
+    "askTopics": [
+      "Can I have an early scan after a miscarriage?",
+      "Are there special clinics for pregnancy after loss?",
+      "How do I cope with anxiety in this pregnancy?",
+      "What do movements mean after a stillbirth? (route, no promises)",
+      "What are my chances? (answer without numbers unless sourced; no promise)"
+    ],
+    "redFlags": [
+      {
+        "symptom": "Vaginal bleeding more than spotting",
+        "action": "emergency",
+        "sourceUrl": "https://www.cdc.gov/hearher/maternal-warning-signs/index.html",
+        "quote": "You have any bleeding from your vagina that is more than spotting—like a period."
+      },
+      {
+        "symptom": "Fluid leaking from the vagina",
+        "action": "emergency",
+        "sourceUrl": "https://www.cdc.gov/hearher/maternal-warning-signs/index.html",
+        "quote": "You have fluid leaking out of your vagina."
+      },
+      {
+        "symptom": "Baby moving less than usual or a change in pattern",
+        "action": "emergency",
+        "sourceUrl": "https://www.nhs.uk/pregnancy/keeping-well/your-babys-movements/",
+        "quote": "Do not wait until the next day – call immediately, even if it's the middle of the night."
+      },
+      {
+        "symptom": "Severe belly pain that does not go away",
+        "action": "emergency",
+        "sourceUrl": "https://www.cdc.gov/hearher/maternal-warning-signs/index.html",
+        "quote": "Your belly pain starts suddenly and is severe, or gets worse over time."
+      },
+      {
+        "symptom": "Thoughts of harming herself or her baby",
+        "action": "emergency",
+        "sourceUrl": "https://www.cdc.gov/hearher/maternal-warning-signs/index.html",
+        "quote": "Feel very sad, hopeless, or not good enough."
+      }
+    ],
+    "missingVocab": [
+      "loss or pregnancy-ending as a day event with her own term (MR-35)",
+      "spotting during pregnancy (existing 'spotting' is a cycle term)"
+    ],
+    "suppress": "Gentle register: suppress week-by-week fruit or size cards, celebratory copy, countdowns, 'baby is fine' language, statistics unless asked, and all reminders if she marks a loss; keep her data. Show the red-flag card for bleeding with kind wording, not a cheerful tip."
+  },
+  {
+    "persona": "D3",
+    "name": "Gestational diabetes",
+    "goal": "pregnant",
+    "aiJobs": [
+      "Log: take 'felt shaky after lunch', 'so thirsty', 'tired' into chips; keep a glucose note as free text only.",
+      "Ask: explain screening versus diagnosis, why GDM happens (not her fault) and what a dietitian does, from trusted sources.",
+      "Visit prep: bring her diary: weight trend, symptoms, her own glucose notes, and a question list for the diabetes team.",
+      "Insights: describe her own readings back as numbers, never as good or bad, and keep the pre-eclampsia signs visible."
+    ],
+    "covered": [
+      "red_flags.dart / safety.dart pregnancy warning list (also needed for GDM overlap with pre-eclampsia)",
+      "weight.dart weight log; appointments.dart",
+      "visit_summary.dart: pregnancyNext, tiredness, anythingElse",
+      "log_phrases.dart: fatigue, dizziness, cravings"
+    ],
+    "gaps": [
+      "No glucose log: Profile has no glucose entry type, so readings can only be a free-text note; the assistant cannot show a trend or an educational band.",
+      "No profile flag for GDM, so no GDM question or tip can be selected; tips cannot trigger on a diagnosis she has not entered.",
+      "Meal and carbohydrate notes, medication notes (record-only) and postpartum screening reminder are absent.",
+      "Hypoglycaemia-type words (shaky, sweaty, very thirsty) have no chip and are not in safety.dart.",
+      "Ask prompt forbids doses (good) but has nothing to stop a diet-plan answer that sounds prescriptive."
+    ],
+    "logPhrases": [
+      {
+        "termKey": "dizziness",
+        "en": [
+          "shaky",
+          "shaky after eating",
+          "feel faint when hungry"
+        ],
+        "ar": [
+          "رجفه",
+          "مرتعشه",
+          "دايخه لما بجوع"
+        ],
+        "fr": [
+          "tremblements",
+          "etourdie quand j ai faim"
+        ],
+        "es": [
+          "temblorosa",
+          "mareada cuando tengo hambre"
+        ]
+      },
+      {
+        "termKey": "fatigue",
+        "en": [
+          "tired after meals",
+          "wiped out after lunch"
+        ],
+        "ar": [
+          "تعبانه بعد الاكل",
+          "خاملة بعد الغدا"
+        ],
+        "fr": [
+          "fatiguee apres les repas"
+        ],
+        "es": [
+          "cansada despues de comer"
+        ]
+      },
+      {
+        "termKey": "cravings",
+        "en": [
+          "craving sweets",
+          "craving sugar"
+        ],
+        "ar": [
+          "نفسي في سكريات",
+          "نفسي في حلويات"
+        ],
+        "fr": [
+          "envie de sucre",
+          "envie de sucreries"
+        ],
+        "es": [
+          "antojo de dulces",
+          "antojo de azucar"
+        ]
+      }
+    ],
+    "visitQuestions": [
+      {
+        "id": "gdmDietitian",
+        "en": "Can I see a dietitian to talk about meals that fit my culture and my day?",
+        "when": "pregnant and she marked gestational diabetes (new profile field)",
+        "source": "https://www.acog.org/topics/gestational-diabetes"
+      },
+      {
+        "id": "gdmTargetsYours",
+        "en": "What are my own glucose targets and how often should I check?",
+        "when": "pregnant and gdm marked",
+        "source": "https://www.nice.org.uk/guidance/ng3"
+      },
+      {
+        "id": "gdmGrowthScans",
+        "en": "Will I have extra growth scans or visits, and when?",
+        "when": "pregnant and gdm marked",
+        "source": "https://www.nice.org.uk/guidance/ng3"
+      },
+      {
+        "id": "gdmAfterBirth",
+        "en": "What checks will I have after the baby is born to see if my sugar levels have settled?",
+        "when": "pregnant and gdm marked, week 28 or later",
+        "source": "https://www.acog.org/topics/gestational-diabetes"
+      }
+    ],
+    "tips": [
+      {
+        "id": "gdmNotYourFault",
+        "en": "Gestational diabetes is caused largely by pregnancy hormones affecting insulin. It is common, treatable and not caused by anything you did.",
+        "trigger": "pregnant and gdm marked",
+        "source": {
+          "publisher": "MedlinePlus",
+          "url": "https://medlineplus.gov/genetics/condition/gestational-diabetes/"
+        }
+      },
+      {
+        "id": "gdmTargetsAreYours",
+        "en": "Glucose targets come from your own care team. The numbers you log are for you and them to look at together; Femio does not judge them.",
+        "trigger": "pregnant, gdm marked and a glucose note logged",
+        "source": {
+          "publisher": "WHO",
+          "url": "https://www.who.int/publications/b/81691"
+        }
+      },
+      {
+        "id": "gdmWarningSignsStay",
+        "en": "Gestational diabetes raises the chance of pre-eclampsia, so the urgent warning signs, such as a severe headache or vision changes, still need prompt care.",
+        "trigger": "pregnant and gdm marked",
+        "source": {
+          "publisher": "NHS",
+          "url": "https://www.nhs.uk/conditions/pre-eclampsia/"
+        }
+      }
+    ],
+    "askTopics": [
+      "What is gestational diabetes and why me?",
+      "How is it tested?",
+      "What can I eat? (general carbohydrate education, no plan)",
+      "Will I need insulin or tablets? (what clinicians consider; no doses)",
+      "What happens after the baby is born?",
+      "Can I exercise?"
+    ],
+    "redFlags": [
+      {
+        "symptom": "Pre-eclampsia symptoms (severe headache, vision problems, pain below the ribs, sudden swelling)",
+        "action": "emergency",
+        "sourceUrl": "https://www.nhs.uk/conditions/pre-eclampsia/",
+        "quote": "Any of these symptoms can be serious and need to be checked immediately."
+      },
+      {
+        "symptom": "Headache that will not go away or gets worse",
+        "action": "emergency",
+        "sourceUrl": "https://www.cdc.gov/hearher/maternal-warning-signs/index.html",
+        "quote": "Headache that won’t go away or gets worse over time"
+      },
+      {
+        "symptom": "Vision changes (blurring, flashes, spots, double vision)",
+        "action": "emergency",
+        "sourceUrl": "https://www.cdc.gov/hearher/maternal-warning-signs/index.html",
+        "quote": "Your vision is blurry, you can't focus, or you're seeing double."
+      },
+      {
+        "symptom": "Severe belly pain that does not go away",
+        "action": "emergency",
+        "sourceUrl": "https://www.cdc.gov/hearher/maternal-warning-signs/index.html",
+        "quote": "Your belly pain starts suddenly and is severe, or gets worse over time."
+      },
+      {
+        "symptom": "Baby moving less than usual or a change in pattern",
+        "action": "emergency",
+        "sourceUrl": "https://www.nhs.uk/pregnancy/keeping-well/your-babys-movements/",
+        "quote": "Do not wait until the next day – call immediately, even if it's the middle of the night."
+      }
+    ],
+    "missingVocab": [
+      "excessive thirst",
+      "blood glucose reading as a number with context (needs a typed log, not a term)",
+      "shakiness or sweating (hypoglycaemia-type; nearest chip dizziness)"
+    ]
+  },
+  {
+    "persona": "D4",
+    "name": "Pregnancy with pre-existing diabetes",
+    "goal": "pregnant",
+    "aiJobs": [
+      "Log: take 'low this morning, treated', 'sensor alarm all night' as notes, never advising any change.",
+      "Ask: explain preconception and pregnancy goals as 'what teams usually aim for', always 'your team sets yours'.",
+      "Visit prep: summarise her log for a combined diabetes and antenatal visit.",
+      "Insights: keep warning signs visible; never compute a time-in-range verdict."
+    ],
+    "covered": [
+      "red_flags.dart / safety.dart pregnancy warning signs",
+      "visit_summary.dart: pregnancyNext, tiredness, anythingElse",
+      "weight.dart; appointments.dart",
+      "safety.dart urgent phrases (fainted, passed out) route to Help now"
+    ],
+    "gaps": [
+      "No diabetes-in-pregnancy profile flag and no preconception path: Goal ttc has no diabetes-aware questions (folicAcid fires, but 'blood sugar before pregnancy' does not).",
+      "No glucose or CGM note type; assistant cannot summarise readings.",
+      "No hypoglycaemia or ketone-related urgent phrases in safety.dart: 'cannot keep fluids down', 'vomiting and very thirsty', 'confused after a low' are not matched.",
+      "No medication-review prompt (route only: 'tell your team you are pregnant or planning'), and the assistant must not name a drug.",
+      "Visit bank has no diabetes questions."
+    ],
+    "logPhrases": [
+      {
+        "termKey": "dizziness",
+        "en": [
+          "had a low",
+          "low blood sugar",
+          "hypo in the night",
+          "sensor alarm"
+        ],
+        "ar": [
+          "هبوط في السكر",
+          "سكري نزل",
+          "الجهاز بيزن"
+        ],
+        "fr": [
+          "hypoglycemie",
+          "sucre trop bas"
+        ],
+        "es": [
+          "hipoglucemia",
+          "azucar baja"
+        ]
+      },
+      {
+        "termKey": "fatigue",
+        "en": [
+          "high sugar tired",
+          "worn out from the alarms"
+        ],
+        "ar": [
+          "تعبانه من السكر العالي",
+          "مرهقه من الانذارات"
+        ],
+        "fr": [
+          "fatiguee par la glycemie haute"
+        ],
+        "es": [
+          "cansada por el azucar alto"
+        ]
+      }
+    ],
+    "visitQuestions": [
+      {
+        "id": "t1PrePregnancyPlan",
+        "en": "Before or early in pregnancy, which medicines and checks should we review together?",
+        "when": "goal ttc or pregnant and she marked diabetes (new profile field)",
+        "source": "https://www.nice.org.uk/guidance/ng3"
+      },
+      {
+        "id": "diabetesTargetsPregnancy",
+        "en": "What glucose targets should I aim for in pregnancy, and what do I do about lows?",
+        "when": "pregnant and diabetes marked",
+        "source": "https://www.nice.org.uk/guidance/ng3"
+      },
+      {
+        "id": "diabetesEyesKidneys",
+        "en": "Which eye and kidney checks do I need in this pregnancy?",
+        "when": "pregnant and diabetes marked",
+        "source": "https://www.nice.org.uk/guidance/ng3"
+      },
+      {
+        "id": "diabetesBirthPlan",
+        "en": "Where and when is my birth likely to be planned, and how will my diabetes be managed during labour?",
+        "when": "pregnant and diabetes marked, week 28 or later",
+        "source": "https://www.nice.org.uk/guidance/ng3"
+      }
+    ],
+    "tips": [
+      {
+        "id": "diabetesPrePregnancyWindow",
+        "en": "Getting glucose as close to your target as safely possible before pregnancy lowers the chance of problems. Tell your diabetes team early if you plan a pregnancy.",
+        "trigger": "goal ttc and she marked diabetes",
+        "source": {
+          "publisher": "NICE",
+          "url": "https://www.nice.org.uk/guidance/ng3"
+        }
+      },
+      {
+        "id": "diabetesTeamSetsTargets",
+        "en": "Pregnancy targets are tighter than usual and vary by country and person. Your team confirms yours; Femio only records what you enter.",
+        "trigger": "pregnant and diabetes marked",
+        "source": {
+          "publisher": "NICE",
+          "url": "https://www.nice.org.uk/guidance/ng3"
+        }
+      },
+      {
+        "id": "diabetesWarningSigns",
+        "en": "If you are vomiting and cannot keep fluids down, or you feel very unwell, contact your care team the same day.",
+        "trigger": "pregnant and diabetes marked",
+        "source": {
+          "publisher": "CDC Hear Her",
+          "url": "https://www.cdc.gov/hearher/maternal-warning-signs/index.html"
+        }
+      }
+    ],
+    "askTopics": [
+      "Can I plan a pregnancy with type 1 or type 2 diabetes?",
+      "How will my medicines be reviewed? (route; no names)",
+      "How do pregnancy hormones change glucose?",
+      "What is time in range? (education only)",
+      "How are birth and the baby's first hours managed?"
+    ],
+    "redFlags": [
+      {
+        "symptom": "Cannot keep fluids down",
+        "action": "same-day",
+        "sourceUrl": "https://www.cdc.gov/hearher/maternal-warning-signs/index.html",
+        "quote": "You are unable to drink for more than 8 hours or eat for more than 24 hours."
+      },
+      {
+        "symptom": "Pre-eclampsia symptoms (severe headache, vision problems, pain below the ribs, sudden swelling)",
+        "action": "emergency",
+        "sourceUrl": "https://www.nhs.uk/conditions/pre-eclampsia/",
+        "quote": "Any of these symptoms can be serious and need to be checked immediately."
+      },
+      {
+        "symptom": "Trouble breathing",
+        "action": "emergency",
+        "sourceUrl": "https://www.cdc.gov/hearher/maternal-warning-signs/index.html",
+        "quote": "You feel short of breath suddenly or over time, as if you can't breathe deeply enough to get enough air in your lungs."
+      },
+      {
+        "symptom": "Fever of 38 C or higher",
+        "action": "same-day",
+        "sourceUrl": "https://www.cdc.gov/hearher/maternal-warning-signs/index.html",
+        "quote": "You have a temperature of 100.4°F (38°C) or higher."
+      },
+      {
+        "symptom": "Baby moving less than usual or a change in pattern",
+        "action": "emergency",
+        "sourceUrl": "https://www.nhs.uk/pregnancy/keeping-well/your-babys-movements/",
+        "quote": "Do not wait until the next day – call immediately, even if it's the middle of the night."
+      }
+    ],
+    "missingVocab": [
+      "low blood sugar episode",
+      "high blood sugar day",
+      "sensor alarm / CGM gap (a day note only)",
+      "excessive thirst"
+    ],
+    "suppress": "Never state a glucose range as her pass or fail; never tell her to change medication or insulin."
+  },
+  {
+    "persona": "D5",
+    "name": "Chronic hypertension in pregnancy (Rania, 37)",
+    "goal": "pregnant",
+    "aiJobs": [
+      "Log: take 'headache since morning, seeing spots' and route it to the warning card before logging.",
+      "Ask: explain why blood pressure is checked more often and what clinicians act on, with 'your clinician decides what your reading means'.",
+      "Visit prep: bring her notes and appointment reminders; add a medicines-review question.",
+      "Insights: describe her own logged readings with no threshold applied by the app."
+    ],
+    "covered": [
+      "safety.dart: severe headache, blurred vision, upper abdominal pain, swelling phrases in four languages route to the warning card when pregnant",
+      "red_flags.dart sourced list (ACOG and CDC Hear Her)",
+      "visit_summary.dart: pregnancyNext; log_phrases.dart: headache, dizziness"
+    ],
+    "gaps": [
+      "No blood-pressure log in Profile (only weights, contractions, movements, appointments), so MR-32 reference text has nowhere to sit and no BP note can be summarised.",
+      "No chronic-condition flag, so superimposed pre-eclampsia vigilance cannot be raised for her more than for D1.",
+      "'severe headache' triggers the warning card, but 'headache' alone logs a chip with no prompt; with chronic hypertension that deserves one gentle line.",
+      "No medicines-review question (drugs must not be named; only 'tell your team you are pregnant').",
+      "No postpartum blood-pressure check reminder."
+    ],
+    "logPhrases": [
+      {
+        "termKey": "headache",
+        "en": [
+          "headache that wont go away",
+          "headache all day"
+        ],
+        "ar": [
+          "صداع مش بيروح",
+          "صداع طول اليوم"
+        ],
+        "fr": [
+          "mal de tete qui ne passe pas",
+          "mal de tete toute la journee"
+        ],
+        "es": [
+          "dolor de cabeza que no se quita",
+          "dolor de cabeza todo el dia"
+        ]
+      },
+      {
+        "termKey": "heartFlutters",
+        "en": [
+          "heart pounding",
+          "racing heart"
+        ],
+        "ar": [
+          "قلبي بيدق جامد",
+          "قلبي سريع"
+        ],
+        "fr": [
+          "coeur qui bat fort",
+          "coeur rapide"
+        ],
+        "es": [
+          "corazon acelerado",
+          "latidos fuertes"
+        ]
+      }
+    ],
+    "visitQuestions": [
+      {
+        "id": "chtnMedicinesReview",
+        "en": "I have high blood pressure and I am pregnant. Should any of my medicines be reviewed?",
+        "when": "pregnant and chronic hypertension marked (new profile field)",
+        "source": "https://www.nice.org.uk/guidance/ng133"
+      },
+      {
+        "id": "chtnPreeclampsiaWatch",
+        "en": "How will you watch for pre-eclampsia, and which signs should make me call you the same day?",
+        "when": "pregnant and chronic hypertension marked",
+        "source": "https://www.nhs.uk/conditions/pre-eclampsia/"
+      },
+      {
+        "id": "chtnHomeBp",
+        "en": "Should I check my blood pressure at home, and what readings should make me call?",
+        "when": "pregnant and chronic hypertension marked",
+        "source": "https://www.nice.org.uk/guidance/ng133"
+      },
+      {
+        "id": "chtnGrowthScans",
+        "en": "Will I have extra growth scans?",
+        "when": "pregnant and chronic hypertension marked",
+        "source": "https://www.nice.org.uk/guidance/ng133"
+      }
+    ],
+    "tips": [
+      {
+        "id": "chtnWhyWatched",
+        "en": "With high blood pressure before pregnancy, the chance of pre-eclampsia is higher, so you get extra checks. The checks are a safety net, not a verdict.",
+        "trigger": "pregnant and chronic hypertension marked",
+        "source": {
+          "publisher": "NHS",
+          "url": "https://www.nhs.uk/conditions/pre-eclampsia/"
+        }
+      },
+      {
+        "id": "chtnWarningSigns",
+        "en": "A severe headache that will not go away, vision changes, pain under the ribs or sudden swelling need urgent assessment. Call your maternity unit.",
+        "trigger": "pregnant and chronic hypertension marked, week 20 or later",
+        "source": {
+          "publisher": "NHS",
+          "url": "https://www.nhs.uk/conditions/pre-eclampsia/"
+        }
+      },
+      {
+        "id": "chtnAppointments",
+        "en": "Keep every antenatal appointment. Blood pressure and urine checks pick up changes you cannot feel.",
+        "trigger": "pregnant and chronic hypertension marked",
+        "source": {
+          "publisher": "NHS",
+          "url": "https://www.nhs.uk/conditions/pre-eclampsia/"
+        }
+      }
+    ],
+    "askTopics": [
+      "Which blood pressure numbers do doctors act on in pregnancy? (education; never applied to hers)",
+      "Why do some blood pressure medicines change in pregnancy? (route; no names)",
+      "What is superimposed pre-eclampsia?",
+      "Do I need home monitoring?",
+      "When might I be induced?"
+    ],
+    "redFlags": [
+      {
+        "symptom": "Pre-eclampsia symptoms (severe headache, vision problems, pain below the ribs, sudden swelling)",
+        "action": "emergency",
+        "sourceUrl": "https://www.nhs.uk/conditions/pre-eclampsia/",
+        "quote": "Any of these symptoms can be serious and need to be checked immediately."
+      },
+      {
+        "symptom": "Headache that will not go away or gets worse",
+        "action": "emergency",
+        "sourceUrl": "https://www.cdc.gov/hearher/maternal-warning-signs/index.html",
+        "quote": "Headache that won’t go away or gets worse over time"
+      },
+      {
+        "symptom": "Vision changes (blurring, flashes, spots, double vision)",
+        "action": "emergency",
+        "sourceUrl": "https://www.cdc.gov/hearher/maternal-warning-signs/index.html",
+        "quote": "Your vision is blurry, you can't focus, or you're seeing double."
+      },
+      {
+        "symptom": "Extreme swelling of face or hands",
+        "action": "emergency",
+        "sourceUrl": "https://www.cdc.gov/hearher/maternal-warning-signs/index.html",
+        "quote": "Swelling in your face makes it hard to open your eyes all the way—they feel and look puffy."
+      },
+      {
+        "symptom": "Severe belly pain that does not go away",
+        "action": "emergency",
+        "sourceUrl": "https://www.cdc.gov/hearher/maternal-warning-signs/index.html",
+        "quote": "Your belly pain starts suddenly and is severe, or gets worse over time."
+      },
+      {
+        "symptom": "Trouble breathing",
+        "action": "emergency",
+        "sourceUrl": "https://www.cdc.gov/hearher/maternal-warning-signs/index.html",
+        "quote": "You feel short of breath suddenly or over time, as if you can't breathe deeply enough to get enough air in your lungs."
+      },
+      {
+        "symptom": "Baby moving less than usual or a change in pattern",
+        "action": "emergency",
+        "sourceUrl": "https://www.nhs.uk/pregnancy/keeping-well/your-babys-movements/",
+        "quote": "Do not wait until the next day – call immediately, even if it's the middle of the night."
+      }
+    ],
+    "missingVocab": [
+      "blood pressure reading with context (typed entry, not a term)",
+      "swelling (neutral log)",
+      "visual disturbance (spots, flashes) as a log term separate from headache"
+    ],
+    "suppress": "Never say her reading is 'normal' or 'fine'; never name or advise a blood pressure medicine."
+  },
+  {
+    "persona": "D6",
+    "name": "Pre-eclampsia / gestational hypertension (Mona, 34)",
+    "goal": "pregnant",
+    "aiJobs": [
+      "Log: catch 'bad headache, eyes blurry, ribs hurt' and put the warning card first.",
+      "Ask: explain what pre-eclampsia is, why checks are frequent and what the severe signs are, without reassuring.",
+      "Visit prep: summarise symptom days and weight changes for the day-assessment unit.",
+      "Insights: remind her that any warning sign means a call now, however well she feels."
+    ],
+    "covered": [
+      "safety.dart: the MR-29 list (headache, vision, upper abdomen, swelling, breathing) triggers the pregnancy warning route",
+      "red_flags.dart seven signs with ACOG, CDC Hear Her, NHS sources",
+      "log_phrases.dart: headache, nausea; visit_summary.dart pregnancyNext"
+    ],
+    "gaps": [
+      "No BP log (MR-32: reference text only), no symptom group 'warning signs' to log them for the clinic.",
+      "'heartburn that does not go away' and 'being sick' (NHS pre-eclampsia list) are not in safety.dart's pregnancyWarning phrases; no 'feeling very unwell' phrase either.",
+      "No high-risk flag, so the NHS risk factors (first pregnancy, 40+, BMI, twins, 10-year gap) cannot raise the warning card prominence.",
+      "No postpartum extension: pre-eclampsia can start after birth; the card is shown only while goal is pregnant.",
+      "No seizure phrasing check in all languages beyond 'تشنج' and 'seizure' (present in urgent list: ok)."
+    ],
+    "logPhrases": [
+      {
+        "termKey": "headache",
+        "en": [
+          "severe headache not going away",
+          "worst headache"
+        ],
+        "ar": [
+          "صداع شديد مش بيروح",
+          "اسوأ صداع"
+        ],
+        "fr": [
+          "mal de tete intense qui ne passe pas"
+        ],
+        "es": [
+          "dolor de cabeza intenso que no se quita"
+        ]
+      },
+      {
+        "termKey": "nausea",
+        "en": [
+          "feeling very unwell",
+          "heartburn that wont go away"
+        ],
+        "ar": [
+          "حرقان مش بيروح",
+          "تعبانه جدا"
+        ],
+        "fr": [
+          "brulures d estomac qui ne passent pas",
+          "tres mal en point"
+        ],
+        "es": [
+          "ardor que no se quita",
+          "me siento muy mal"
+        ]
+      }
+    ],
+    "visitQuestions": [
+      {
+        "id": "preeclampsiaWhatNext",
+        "en": "What is my plan if my blood pressure goes up, and how often will I be checked?",
+        "when": "pregnant and high blood pressure marked",
+        "source": "https://www.nice.org.uk/guidance/ng133"
+      },
+      {
+        "id": "preeclampsiaCallPlan",
+        "en": "Which symptoms should make me call you straight away, day or night?",
+        "when": "pregnant and high blood pressure marked",
+        "source": "https://www.nhs.uk/conditions/pre-eclampsia/"
+      },
+      {
+        "id": "preeclampsiaBirthTiming",
+        "en": "How might this affect when and how my baby is born?",
+        "when": "pregnant and high blood pressure marked, week 28 or later",
+        "source": "https://www.nhs.uk/conditions/pre-eclampsia/"
+      },
+      {
+        "id": "preeclampsiaAfterBirth",
+        "en": "What checks will I need after the birth?",
+        "when": "pregnant and high blood pressure marked, week 28 or later",
+        "source": "https://www.nhs.uk/conditions/pre-eclampsia/"
+      }
+    ],
+    "tips": [
+      {
+        "id": "preeclampsiaSigns",
+        "en": "A severe headache, vision problems, pain below the ribs, sudden swelling or feeling very unwell need to be checked immediately. Call your maternity unit.",
+        "trigger": "pregnant, week 20 or later",
+        "source": {
+          "publisher": "NHS",
+          "url": "https://www.nhs.uk/conditions/pre-eclampsia/"
+        }
+      },
+      {
+        "id": "preeclampsiaAfterBirth",
+        "en": "Pre-eclampsia can start in the days or weeks after birth. The same warning signs still mean you should get help.",
+        "trigger": "pregnant, week 36 or later",
+        "source": {
+          "publisher": "NHS",
+          "url": "https://www.nhs.uk/conditions/pre-eclampsia/"
+        }
+      },
+      {
+        "id": "preeclampsiaAttend",
+        "en": "Attend your antenatal appointments. Blood pressure and urine checks are how pre-eclampsia is found early.",
+        "trigger": "pregnant, any week",
+        "source": {
+          "publisher": "NHS",
+          "url": "https://www.nhs.uk/conditions/pre-eclampsia/"
+        }
+      }
+    ],
+    "askTopics": [
+      "What is pre-eclampsia and what are its warning signs?",
+      "What blood pressure counts as severe? (education only)",
+      "Why might my baby be born early?",
+      "What is HELLP? (what clinicians look for; no self-diagnosis)",
+      "What happens after the birth?"
+    ],
+    "redFlags": [
+      {
+        "symptom": "Pre-eclampsia symptoms (severe headache, vision problems, pain below the ribs, sudden swelling)",
+        "action": "emergency",
+        "sourceUrl": "https://www.nhs.uk/conditions/pre-eclampsia/",
+        "quote": "Any of these symptoms can be serious and need to be checked immediately."
+      },
+      {
+        "symptom": "Headache that will not go away or gets worse",
+        "action": "emergency",
+        "sourceUrl": "https://www.cdc.gov/hearher/maternal-warning-signs/index.html",
+        "quote": "Headache that won’t go away or gets worse over time"
+      },
+      {
+        "symptom": "Vision changes (blurring, flashes, spots, double vision)",
+        "action": "emergency",
+        "sourceUrl": "https://www.cdc.gov/hearher/maternal-warning-signs/index.html",
+        "quote": "Your vision is blurry, you can't focus, or you're seeing double."
+      },
+      {
+        "symptom": "Extreme swelling of face or hands",
+        "action": "emergency",
+        "sourceUrl": "https://www.cdc.gov/hearher/maternal-warning-signs/index.html",
+        "quote": "Swelling in your face makes it hard to open your eyes all the way—they feel and look puffy."
+      },
+      {
+        "symptom": "Severe belly pain that does not go away",
+        "action": "emergency",
+        "sourceUrl": "https://www.cdc.gov/hearher/maternal-warning-signs/index.html",
+        "quote": "Your belly pain starts suddenly and is severe, or gets worse over time."
+      },
+      {
+        "symptom": "Trouble breathing",
+        "action": "emergency",
+        "sourceUrl": "https://www.cdc.gov/hearher/maternal-warning-signs/index.html",
+        "quote": "You feel short of breath suddenly or over time, as if you can't breathe deeply enough to get enough air in your lungs."
+      },
+      {
+        "symptom": "Baby moving less than usual or a change in pattern",
+        "action": "emergency",
+        "sourceUrl": "https://www.nhs.uk/pregnancy/keeping-well/your-babys-movements/",
+        "quote": "Do not wait until the next day – call immediately, even if it's the middle of the night."
+      }
+    ],
+    "missingVocab": [
+      "heartburn that does not settle",
+      "visual disturbance (spots, flashes)",
+      "swelling log",
+      "feeling very unwell"
+    ],
+    "suppress": "Never reassure ('probably normal'); every warning sign gets the same call-now line."
+  },
+  {
+    "persona": "D7",
+    "name": "Thyroid condition in pregnancy (Nour, 33)",
+    "goal": "pregnant",
+    "aiJobs": [
+      "Log: take 'heart racing, cold all the time, hair falling' as chips for her notes.",
+      "Ask: explain why thyroid tests are checked more often in pregnancy, with no value interpreted.",
+      "Visit prep: add a thyroid-lab question and bring her appointment dates.",
+      "Insights: remind her to tell her clinician as soon as she knows she is pregnant (route), never a dose."
+    ],
+    "covered": [
+      "log_phrases.dart: hairThinning, heartFlutters, weightChange, constipation, fatigue",
+      "visit_summary.dart: tiredness, pregnancyNext",
+      "safety.dart pregnancy warning list"
+    ],
+    "gaps": [
+      "No lab log: Profile cannot store TSH or free T4 values with their ranges; 'record only' (MR-18) has no home.",
+      "No thyroid flag, so a 'tell your clinician now' tip at a positive test cannot fire; for goal ttc with thyroid disease there is no preconception question.",
+      "Persona's levothyroxine self-adjustment advice must NOT be copied into any tip (names a medicine and a dose); no rule in prompts.dart enforces a named-drug ban, only 'no dose'.",
+      "No vocabulary for feeling cold or hot, tremor, or neck swelling.",
+      "Sources: ATA is not on trusted_sources.dart, so a thyroid answer grounded on thyroid.org would show as untrusted."
+    ],
+    "logPhrases": [
+      {
+        "termKey": "heartFlutters",
+        "en": [
+          "racing heart",
+          "palpitations",
+          "heart pounding"
+        ],
+        "ar": [
+          "قلبي بيدق بسرعه",
+          "دقات قلبي سريعه"
+        ],
+        "fr": [
+          "coeur qui s emballe",
+          "palpitations"
+        ],
+        "es": [
+          "corazon acelerado",
+          "palpitaciones"
+        ]
+      },
+      {
+        "termKey": "hairThinning",
+        "en": [
+          "hair falling out",
+          "losing lots of hair"
+        ],
+        "ar": [
+          "شعري بيقع",
+          "شعري بيتساقط"
+        ],
+        "fr": [
+          "perte de cheveux",
+          "cheveux qui tombent"
+        ],
+        "es": [
+          "se me cae el pelo",
+          "caida de cabello"
+        ]
+      },
+      {
+        "termKey": "weightChange",
+        "en": [
+          "gaining weight fast",
+          "losing weight without trying"
+        ],
+        "ar": [
+          "وزني بيزيد بسرعه",
+          "وزني بينزل من غير سبب"
+        ],
+        "fr": [
+          "prise de poids rapide",
+          "perte de poids involontaire"
+        ],
+        "es": [
+          "subo de peso rapido",
+          "bajo de peso sin querer"
+        ]
+      }
+    ],
+    "visitQuestions": [
+      {
+        "id": "thyroidTellEarly",
+        "en": "I have a thyroid condition and I am pregnant. When should my thyroid tests be done, and who adjusts my treatment?",
+        "when": "pregnant and thyroid condition marked (new profile field)",
+        "source": "[NEEDS SOURCE] (persona cites ATA; not on the Tier 1/2 list)"
+      },
+      {
+        "id": "thyroidPlanningPregnancy",
+        "en": "I have a thyroid condition and plan to become pregnant. What should we do before I conceive?",
+        "when": "goal ttc and thyroid condition marked",
+        "source": "[NEEDS SOURCE]"
+      },
+      {
+        "id": "thyroidAfterBirth",
+        "en": "What thyroid checks will I have after the birth?",
+        "when": "pregnant and thyroid condition marked, week 28 or later",
+        "source": "[NEEDS SOURCE]"
+      }
+    ],
+    "tips": [
+      {
+        "id": "thyroidTellClinician",
+        "en": "If you have a thyroid condition, tell your clinician as soon as you know you are pregnant; your thyroid care may need an early check. Change nothing without their advice.",
+        "trigger": "she marked a thyroid condition and goal is pregnant or ttc",
+        "source": {
+          "publisher": "[NEEDS SOURCE]",
+          "url": "[NEEDS SOURCE]"
+        }
+      },
+      {
+        "id": "thyroidResultsAreYours",
+        "en": "Thyroid results are read against pregnancy ranges that your lab sets. Femio records what you enter and cannot say whether a result is in range.",
+        "trigger": "she logs a thyroid test note",
+        "source": {
+          "publisher": "[NEEDS SOURCE]",
+          "url": "[NEEDS SOURCE]"
+        }
+      }
+    ],
+    "askTopics": [
+      "Why does thyroid care change in pregnancy?",
+      "What are the risks of an untreated thyroid condition in pregnancy? (education, with 'treatment helps')",
+      "How often are thyroid tests checked? (route)",
+      "Postpartum thyroid changes"
+    ],
+    "redFlags": [
+      {
+        "symptom": "Trouble breathing",
+        "action": "emergency",
+        "sourceUrl": "https://www.cdc.gov/hearher/maternal-warning-signs/index.html",
+        "quote": "You feel short of breath suddenly or over time, as if you can't breathe deeply enough to get enough air in your lungs."
+      },
+      {
+        "symptom": "Baby moving less than usual or a change in pattern",
+        "action": "emergency",
+        "sourceUrl": "https://www.nhs.uk/pregnancy/keeping-well/your-babys-movements/",
+        "quote": "Do not wait until the next day – call immediately, even if it's the middle of the night."
+      }
+    ],
+    "missingVocab": [
+      "feeling cold or heat intolerance",
+      "tremor or shakiness",
+      "neck swelling or lump (urgent routing phrase also missing)",
+      "thyroid lab value as a typed entry"
+    ],
+    "suppress": "Never copy the persona's levothyroxine self-adjustment line; no medicine name and no dose in any tip."
+  },
+  {
+    "persona": "D8",
+    "name": "Prior preterm birth (Rana, 31)",
+    "goal": "pregnant",
+    "aiJobs": [
+      "Log: take 'tightenings, low backache, pressure' and show the preterm-labour signs card when she is before 37 weeks.",
+      "Ask: explain cervical-length scans and what clinicians discuss, without saying whether her cervix is short.",
+      "Visit prep: list scan dates and symptoms for the preterm clinic.",
+      "Insights: gentle awareness near the gestation of her last birth, never a countdown."
+    ],
+    "covered": [
+      "contractions.dart timer from week 36 (too late for this persona)",
+      "safety.dart: leaking fluid, bleeding in four languages; MR-29 list",
+      "log_phrases.dart: cramps, backache, spotting",
+      "visit_summary.dart: pregnancyNext"
+    ],
+    "gaps": [
+      "Contraction timer unlocks at week 36 (MR-31) while preterm labour signs matter from 16 weeks; no earlier 'tightenings' log for her.",
+      "safety.dart pregnancyWarning has no 'pelvic pressure', 'low dull backache' or 'period-like cramps' phrases (MedlinePlus preterm labor list), and no 'before 37 weeks' variant of the card.",
+      "No history flag (prior preterm or late loss): cervical-length questions cannot be selected.",
+      "Visit bank has no question about scan schedule or options.",
+      "Gentle handling of her last birth gestation anniversary is absent."
+    ],
+    "logPhrases": [
+      {
+        "termKey": "cramps",
+        "en": [
+          "period like cramps",
+          "tightenings",
+          "belly tightening",
+          "pressure in my pelvis"
+        ],
+        "ar": [
+          "تقلصات زي الدوره",
+          "بطني بتشد",
+          "ضغط في الحوض"
+        ],
+        "fr": [
+          "crampes comme des regles",
+          "ventre qui se contracte",
+          "pression dans le bassin"
+        ],
+        "es": [
+          "calambres como de regla",
+          "tension en la barriga",
+          "presion en la pelvis"
+        ]
+      },
+      {
+        "termKey": "backache",
+        "en": [
+          "low dull backache",
+          "dull ache low in my back"
+        ],
+        "ar": [
+          "وجع تحت في الضهر",
+          "وجع ضهر مستمر"
+        ],
+        "fr": [
+          "douleur sourde en bas du dos"
+        ],
+        "es": [
+          "dolor sordo en la parte baja de la espalda"
+        ]
+      }
+    ],
+    "visitQuestions": [
+      {
+        "id": "pretermScanSchedule",
+        "en": "Because I had an early birth before, when will my cervix be measured and how often?",
+        "when": "pregnant and prior preterm birth marked (new profile field)",
+        "source": "https://www.nice.org.uk/guidance/ng25"
+      },
+      {
+        "id": "pretermOptions",
+        "en": "If my cervix measures short, what options will we discuss?",
+        "when": "pregnant and prior preterm birth marked, week 12 to 24",
+        "source": "https://www.nice.org.uk/guidance/ng25"
+      },
+      {
+        "id": "pretermCallPlan",
+        "en": "Which signs should make me call or come in, and where do I go out of hours?",
+        "when": "pregnant and prior preterm birth marked",
+        "source": "https://medlineplus.gov/pretermlabor.html"
+      },
+      {
+        "id": "pretermBirthPlace",
+        "en": "Where would I give birth if labour starts early?",
+        "when": "pregnant and prior preterm birth marked, week 24 or later",
+        "source": "https://www.nice.org.uk/guidance/ng25"
+      }
+    ],
+    "tips": [
+      {
+        "id": "pretermSignsKnow",
+        "en": "Signs of preterm labour include regular contractions, leaking fluid or bleeding, pelvic pressure, a low dull backache and period-like cramps. Contact your provider if you notice them.",
+        "trigger": "pregnant, under 37 weeks and prior preterm birth marked",
+        "source": {
+          "publisher": "MedlinePlus",
+          "url": "https://medlineplus.gov/pretermlabor.html"
+        }
+      },
+      {
+        "id": "pretermWatchedNotVerdict",
+        "en": "A higher chance of early birth is not a verdict. It is the reason you are being watched more closely.",
+        "trigger": "pregnant and prior preterm birth marked",
+        "source": {
+          "publisher": "NICE",
+          "url": "https://www.nice.org.uk/guidance/ng25"
+        }
+      },
+      {
+        "id": "pretermScanIsHers",
+        "en": "Cervical-length scans measure how long your cervix is. Only your clinician can say what a result means for you; Femio just keeps your dates.",
+        "trigger": "pregnant, week 14 to 24 and prior preterm birth marked",
+        "source": {
+          "publisher": "NICE",
+          "url": "https://www.nice.org.uk/guidance/ng25"
+        }
+      }
+    ],
+    "askTopics": [
+      "What is a cervical-length scan?",
+      "What options exist if my cervix is short? (names of options only, no doses)",
+      "What are the signs of preterm labour?",
+      "Where will I give birth if early?",
+      "Can I exercise or travel?"
+    ],
+    "redFlags": [
+      {
+        "symptom": "Regular contractions before 37 weeks",
+        "action": "same-day",
+        "sourceUrl": "https://medlineplus.gov/pretermlabor.html",
+        "quote": "Contractions every 10 minutes or more often"
+      },
+      {
+        "symptom": "Leaking fluid or bleeding before 37 weeks",
+        "action": "same-day",
+        "sourceUrl": "https://medlineplus.gov/pretermlabor.html",
+        "quote": "Leaking fluid or bleeding from the vagina"
+      },
+      {
+        "symptom": "Pelvic pressure, low dull backache, period-like cramps",
+        "action": "same-day",
+        "sourceUrl": "https://medlineplus.gov/pretermlabor.html",
+        "quote": "Feeling of pressure in the pelvis"
+      },
+      {
+        "symptom": "Vaginal bleeding more than spotting",
+        "action": "emergency",
+        "sourceUrl": "https://www.cdc.gov/hearher/maternal-warning-signs/index.html",
+        "quote": "You have any bleeding from your vagina that is more than spotting—like a period."
+      },
+      {
+        "symptom": "Baby moving less than usual or a change in pattern",
+        "action": "emergency",
+        "sourceUrl": "https://www.nhs.uk/pregnancy/keeping-well/your-babys-movements/",
+        "quote": "Do not wait until the next day – call immediately, even if it's the middle of the night."
+      }
+    ],
+    "missingVocab": [
+      "tightenings / Braxton Hicks",
+      "pelvic pressure",
+      "fluid leaking (as a log term; safety.dart catches it in free text)",
+      "vaginal discharge change in pregnancy"
+    ],
+    "suppress": "Gentle register near the gestation of her previous birth; no countdown to 37 weeks; no outcome statistics."
+  },
+  {
+    "persona": "D9",
+    "name": "Pregnant with twins or more",
+    "goal": "pregnant",
+    "aiJobs": [
+      "Log: take symptoms in her words and let her note which baby a movement belongs to as free text.",
+      "Insights: build a shorter timeline: do not show a 40-week countdown for twins.",
+      "Ask: explain placenta type, why scans are frequent, and why birth is often planned earlier, from NHS and NICE.",
+      "Visit prep: add twin-specific questions and bring her scan dates."
+    ],
+    "covered": [
+      "pregnancy.dart: due date and trimester (singleton 40-week frame)",
+      "safety.dart and red_flags.dart: MR-29 list",
+      "log_phrases.dart: nausea, fatigue, backache, constipation",
+      "visit_summary.dart: pregnancyNext, pregnancyMovements"
+    ],
+    "gaps": [
+      "No baby-count or chorionicity field: Today shows a singleton 40-week frame and term at 37w0d (MR-25); for twins NHS offers planned birth at 36 to 37 weeks, so the term message can mislead.",
+      "pregnancyMovements question and the movement tool assume one baby; no per-baby note.",
+      "Visit bank has no question about placenta type, scan frequency or birth planning.",
+      "Higher pre-eclampsia and anaemia risk is not reflected: no extra prompt to keep appointments or watch signs.",
+      "Preterm-labour awareness (D8 blend) has no trigger from a multiples flag."
+    ],
+    "logPhrases": [
+      {
+        "termKey": "nausea",
+        "en": [
+          "morning sickness",
+          "vomiting",
+          "threw up",
+          "throwing up",
+          "sick every morning"
+        ],
+        "ar": [
+          "ترجيع",
+          "استفراغ",
+          "بترجع",
+          "رجعت",
+          "وحم",
+          "وحام"
+        ],
+        "fr": [
+          "nausees matinales",
+          "vomissements",
+          "je vomis",
+          "j ai vomi"
+        ],
+        "es": [
+          "nauseas matutinas",
+          "vomitos",
+          "vomitando",
+          "vomite"
+        ]
+      },
+      {
+        "termKey": "fatigue",
+        "en": [
+          "twin tired",
+          "so exhausted carrying twins"
+        ],
+        "ar": [
+          "تعبانه جدا بسبب التوأم",
+          "مرهقه من الحمل في توأم"
+        ],
+        "fr": [
+          "epuisee avec des jumeaux"
+        ],
+        "es": [
+          "agotada con gemelos"
+        ]
+      },
+      {
+        "termKey": "backache",
+        "en": [
+          "back and hips ache from twins",
+          "belly too heavy"
+        ],
+        "ar": [
+          "ضهري ووركي بيوجعوني من التوأم",
+          "بطني تقيله"
+        ],
+        "fr": [
+          "dos et hanches douloureux avec les jumeaux",
+          "ventre trop lourd"
+        ],
+        "es": [
+          "espalda y caderas duelen con gemelos",
+          "barriga muy pesada"
+        ]
+      }
+    ],
+    "visitQuestions": [
+      {
+        "id": "twinsPlacentaType",
+        "en": "What type of twins do I have: do they share a placenta or a sac, and what does that mean for my care?",
+        "when": "pregnant and twins marked (new profile field)",
+        "source": "https://www.nhs.uk/pregnancy/your-pregnancy-care/antenatal-care-with-twins/"
+      },
+      {
+        "id": "twinsScanPlan",
+        "en": "How often will I be scanned and who will look after me?",
+        "when": "pregnant and twins marked",
+        "source": "https://www.nhs.uk/pregnancy/your-pregnancy-care/antenatal-care-with-twins/"
+      },
+      {
+        "id": "twinsBirthPlan",
+        "en": "When and where is my birth likely to be planned?",
+        "when": "pregnant and twins marked, week 24 or later",
+        "source": "https://www.nhs.uk/pregnancy/your-pregnancy-care/antenatal-care-with-twins/"
+      },
+      {
+        "id": "twinsWarningSigns",
+        "en": "Which signs should make me call straight away with twins?",
+        "when": "pregnant and twins marked",
+        "source": "https://www.nhs.uk/pregnancy/your-pregnancy-care/antenatal-care-with-twins/"
+      }
+    ],
+    "tips": [
+      {
+        "id": "twinsAttendAll",
+        "en": "With twins or triplets, attend every appointment because the chance of some problems is higher. Extra scans are there to pick up changes early.",
+        "trigger": "pregnant and twins marked",
+        "source": {
+          "publisher": "NHS",
+          "url": "https://www.nhs.uk/pregnancy/your-pregnancy-care/antenatal-care-with-twins/"
+        }
+      },
+      {
+        "id": "twinsShorterPregnancy",
+        "en": "Twin pregnancies are usually shorter. Many twins are born before 37 weeks, and a planned birth is often offered at 36 or 37 weeks.",
+        "trigger": "pregnant and twins marked",
+        "source": {
+          "publisher": "NHS",
+          "url": "https://www.nhs.uk/pregnancy/your-pregnancy-care/antenatal-care-with-twins/"
+        }
+      },
+      {
+        "id": "twinsPreeclampsiaAware",
+        "en": "Pre-eclampsia is more common with twins. A severe headache, vision problems, pain below the ribs or sudden swelling need to be checked immediately.",
+        "trigger": "pregnant and twins marked, week 20 or later",
+        "source": {
+          "publisher": "NHS",
+          "url": "https://www.nhs.uk/conditions/pre-eclampsia/"
+        }
+      }
+    ],
+    "askTopics": [
+      "What are the types of twins?",
+      "Why do I have so many scans?",
+      "What is twin-to-twin transfusion syndrome? (awareness)",
+      "When will my twins be born?",
+      "How do I know about movements with two babies? (call if the pattern changes)"
+    ],
+    "redFlags": [
+      {
+        "symptom": "Pre-eclampsia symptoms (severe headache, vision problems, pain below the ribs, sudden swelling)",
+        "action": "emergency",
+        "sourceUrl": "https://www.nhs.uk/conditions/pre-eclampsia/",
+        "quote": "Any of these symptoms can be serious and need to be checked immediately."
+      },
+      {
+        "symptom": "Regular contractions before 37 weeks",
+        "action": "same-day",
+        "sourceUrl": "https://medlineplus.gov/pretermlabor.html",
+        "quote": "Contractions every 10 minutes or more often"
+      },
+      {
+        "symptom": "Leaking fluid or bleeding before 37 weeks",
+        "action": "same-day",
+        "sourceUrl": "https://medlineplus.gov/pretermlabor.html",
+        "quote": "Leaking fluid or bleeding from the vagina"
+      },
+      {
+        "symptom": "Baby moving less than usual or a change in pattern",
+        "action": "emergency",
+        "sourceUrl": "https://www.nhs.uk/pregnancy/keeping-well/your-babys-movements/",
+        "quote": "Do not wait until the next day – call immediately, even if it's the middle of the night."
+      },
+      {
+        "symptom": "Vaginal bleeding more than spotting",
+        "action": "emergency",
+        "sourceUrl": "https://www.cdc.gov/hearher/maternal-warning-signs/index.html",
+        "quote": "You have any bleeding from your vagina that is more than spotting—like a period."
+      }
+    ],
+    "missingVocab": [
+      "per-baby movement note",
+      "rapid belly growth or tightening as a neutral log (TTTS awareness; not a diagnosis)",
+      "breathlessness from a large uterus (urgent phrase already routes)"
+    ],
+    "suppress": "No 40-week countdown and no 'term at 37 weeks' message for a multiple pregnancy."
+  },
+  {
+    "persona": "D10",
+    "name": "Anaemia or low iron in pregnancy",
+    "goal": "pregnant",
+    "aiJobs": [
+      "Log: take 'so pale and dizzy, can barely climb stairs, craving ice' into chips and a note.",
+      "Ask: explain iron stores, ferritin and why bloods are repeated, with no result interpreted.",
+      "Visit prep: bring her tiredness and dizziness days and a question list about tablet side effects.",
+      "Insights: describe her own tiredness days back to her without saying 'anaemic'."
+    ],
+    "covered": [
+      "visit_summary.dart: tiredness fires if fatigue is logged on 3 or more days",
+      "log_phrases.dart: fatigue, dizziness, hairThinning, brittleNails (key only), constipation",
+      "safety.dart urgent phrases: short of breath, fainted, passed out route to Help now"
+    ],
+    "gaps": [
+      "No lab entry (Hb, ferritin, units, lab range) in Profile, so MR-33-style 'record only' cannot be done.",
+      "Breathlessness on stairs is not logged as a symptom: 'short of breath' routes to the urgent screen even when it is mild exertion, which may over-alarm; no mild option.",
+      "Pica (craving ice or non-food) is not mapped to cravings in log_phrases.dart; no visit question about it.",
+      "No iron-tablet side-effect chips (dark stools, stomach upset) and no pharmacist question.",
+      "Dietary education in Learn is not tied to a food-pattern flag (vegetarian, MENA diets)."
+    ],
+    "logPhrases": [
+      {
+        "termKey": "cravings",
+        "en": [
+          "craving ice",
+          "chewing ice",
+          "craving non food",
+          "craving clay"
+        ],
+        "ar": [
+          "نفسي في تلج",
+          "باكل تلج",
+          "نفسي في تراب"
+        ],
+        "fr": [
+          "envie de glace",
+          "envie de manger de la glace"
+        ],
+        "es": [
+          "antojo de hielo",
+          "ganas de comer hielo"
+        ]
+      },
+      {
+        "termKey": "fatigue",
+        "en": [
+          "pale and tired",
+          "weak and pale",
+          "no strength"
+        ],
+        "ar": [
+          "شاحبه وتعبانه",
+          "ضعيفه",
+          "مفيش قوه"
+        ],
+        "fr": [
+          "pale et fatiguee",
+          "sans force"
+        ],
+        "es": [
+          "palida y cansada",
+          "sin fuerzas"
+        ]
+      },
+      {
+        "termKey": "constipation",
+        "en": [
+          "constipated from iron",
+          "dark stools"
+        ],
+        "ar": [
+          "امساك من الحديد",
+          "براز غامق"
+        ],
+        "fr": [
+          "constipee a cause du fer",
+          "selles foncees"
+        ],
+        "es": [
+          "estrenida por el hierro",
+          "heces oscuras"
+        ]
+      }
+    ],
+    "visitQuestions": [
+      {
+        "id": "anaemiaResultsExplain",
+        "en": "Can you explain my blood results and what the iron or haemoglobin figures mean for me?",
+        "when": "pregnant and she logged fatigue or dizziness on 3 or more days",
+        "source": "https://www.who.int/news-room/fact-sheets/detail/anaemia"
+      },
+      {
+        "id": "anaemiaSideEffects",
+        "en": "The iron makes me feel unwell. Who can I ask about options?",
+        "when": "pregnant and she logged constipation or nausea on 3 or more days",
+        "source": "[NEEDS SOURCE]"
+      },
+      {
+        "id": "anaemiaRecheck",
+        "en": "When will my blood be checked again, and what happens if it stays low?",
+        "when": "pregnant and fatigue logged, week 20 or later",
+        "source": "[NEEDS SOURCE]"
+      },
+      {
+        "id": "anaemiaBirthPlan",
+        "en": "Does low iron change my birth plan?",
+        "when": "pregnant, week 28 or later and anaemia marked",
+        "source": "[NEEDS SOURCE]"
+      }
+    ],
+    "tips": [
+      {
+        "id": "anaemiaCommon",
+        "en": "Anaemia in pregnancy is common worldwide, with several possible causes. Your clinician works out the cause; Femio cannot tell from your symptoms.",
+        "trigger": "pregnant and fatigue logged on 3 or more days",
+        "source": {
+          "publisher": "WHO",
+          "url": "https://www.who.int/news-room/fact-sheets/detail/anaemia"
+        }
+      },
+      {
+        "id": "anaemiaBloodsRepeat",
+        "en": "Blood tests for iron and haemoglobin are usually done at booking and again around 28 weeks. Ask your midwife to explain your results.",
+        "trigger": "pregnant, any week",
+        "source": {
+          "publisher": "NICE",
+          "url": "https://www.nice.org.uk/guidance/ng201"
+        }
+      }
+    ],
+    "askTopics": [
+      "What is anaemia and why is it common in pregnancy?",
+      "What is ferritin?",
+      "Iron-rich foods in my cuisine (education, no plan)",
+      "Why do iron tablets upset my stomach? (route to pharmacist or clinician)",
+      "What if iron tablets are not enough? (what clinicians may consider)"
+    ],
+    "redFlags": [
+      {
+        "symptom": "Trouble breathing",
+        "action": "emergency",
+        "sourceUrl": "https://www.cdc.gov/hearher/maternal-warning-signs/index.html",
+        "quote": "You feel short of breath suddenly or over time, as if you can't breathe deeply enough to get enough air in your lungs."
+      },
+      {
+        "symptom": "Fainting or passing out",
+        "action": "emergency",
+        "sourceUrl": "https://www.cdc.gov/hearher/maternal-warning-signs/index.html",
+        "quote": "You faint or pass out."
+      },
+      {
+        "symptom": "Baby moving less than usual or a change in pattern",
+        "action": "emergency",
+        "sourceUrl": "https://www.nhs.uk/pregnancy/keeping-well/your-babys-movements/",
+        "quote": "Do not wait until the next day – call immediately, even if it's the middle of the night."
+      }
+    ],
+    "missingVocab": [
+      "breathless on exertion (mild, separate from the urgent phrase)",
+      "pale skin",
+      "pica (craving non-food)",
+      "restless legs",
+      "palpitations on exertion"
+    ],
+    "suppress": "Never call her anaemic or iron deficient from a symptom; never advise tablets, doses or timing."
+  },
+  {
+    "persona": "D11",
+    "name": "Antenatal depression or anxiety",
+    "goal": "pregnant",
+    "aiJobs": [
+      "Log: take 'cannot stop crying, no joy, so scared' into mood chips with no pressure to elaborate.",
+      "Safety: widen the keyword net so 'hopeless', 'not good enough' or scary thoughts about the baby open Help now, not just suicide words.",
+      "Ask: normalise antenatal mood problems and say help works, with a route to a clinician.",
+      "Visit prep: bring her mood and sleep days to the visit, with a question about talking to someone."
+    ],
+    "covered": [
+      "log_phrases.dart: sad, anxious, tearfulness, panicFeelings, lowMotivation, moodSwings",
+      "visit_summary.dart: moodCycle question when mood chips are logged on 3 or more days (wording is about 'around my period', wrong for pregnancy)",
+      "safety.dart: crisis phrases; Help now with country numbers (crisis_numbers.dart)"
+    ],
+    "gaps": [
+      "visit_summary.dart 'moodCycle' text: 'My mood changes a lot around my period' fires for pregnant users who log mood; wrong frame, and the pregnant check only suppresses some ids.",
+      "safety.dart crisis list misses CDC Hear Her wording: 'not good enough', 'hopeless', 'scary thoughts about my baby', 'thoughts of hurting my baby'; no intrusive-thought phrases in any language.",
+      "No screening or check-in step (EPDS) in the assistant: the register defers EPDS to v1.1 (MR-36); until then there is no gentle 'how are you really' route.",
+      "No sleep, appetite, or enjoyment chips together; only mood chips.",
+      "Ask prompt does not steer toward perinatal-mental-health pages (nimh.nih.gov is allowlisted via nih.gov)."
+    ],
+    "logPhrases": [
+      {
+        "termKey": "tearfulness",
+        "en": [
+          "weepy",
+          "crying all the time",
+          "cry over everything"
+        ],
+        "ar": [
+          "بعيط كل شويه",
+          "دموعي بتنزل",
+          "دموعي نازله"
+        ],
+        "fr": [
+          "pleurs faciles",
+          "je pleure tout le temps"
+        ],
+        "es": [
+          "lloro por todo",
+          "lloro todo el tiempo"
+        ]
+      },
+      {
+        "termKey": "anxious",
+        "en": [
+          "scared for the baby",
+          "afraid something will go wrong",
+          "worried about the baby",
+          "worried about the scan"
+        ],
+        "ar": [
+          "خايفه على البيبي",
+          "خايفه على الجنين",
+          "قلقانه على الحمل",
+          "قلقانه من الفحص",
+          "خايفه من الموعد"
+        ],
+        "fr": [
+          "peur pour le bebe",
+          "inquiete pour le bebe",
+          "inquiete pour l echographie"
+        ],
+        "es": [
+          "miedo por el bebe",
+          "preocupada por el bebe",
+          "preocupada por la ecografia"
+        ]
+      },
+      {
+        "termKey": "sad",
+        "en": [
+          "feel hopeless",
+          "nothing feels good",
+          "no joy in the pregnancy",
+          "disconnected from the baby"
+        ],
+        "ar": [
+          "حاسه بيأس",
+          "مش مبسوطه بالحمل",
+          "مش حاسه بالبيبي"
+        ],
+        "fr": [
+          "je me sens desesperee",
+          "aucune joie pour la grossesse"
+        ],
+        "es": [
+          "me siento sin esperanza",
+          "no disfruto del embarazo"
+        ]
+      },
+      {
+        "termKey": "lowMotivation",
+        "en": [
+          "cant get out of bed",
+          "no interest in anything"
+        ],
+        "ar": [
+          "مش قادره اقوم من السرير",
+          "مليش اهتمام بحاجه"
+        ],
+        "fr": [
+          "je n arrive pas a me lever",
+          "plus d interet pour rien"
+        ],
+        "es": [
+          "no puedo levantarme",
+          "sin interes por nada"
+        ]
+      }
+    ],
+    "visitQuestions": [
+      {
+        "id": "antenatalMoodTalk",
+        "en": "I have felt low or very worried for a while. Can we talk about how I am, and what support is available?",
+        "when": "pregnant and sad, anxious or tearfulness logged on 3 or more days",
+        "source": "https://www.nhs.uk/pregnancy/mental-health-in-pregnancy-and-after-the-birth/mental-health/"
+      },
+      {
+        "id": "antenatalMoodScreen",
+        "en": "Could I have a mood and anxiety check as part of my pregnancy care?",
+        "when": "pregnant and mood chips logged on 3 or more days",
+        "source": "https://www.acog.org/clinical/clinical-guidance/clinical-practice-guideline/articles/2023/06/screening-and-diagnosis-of-mental-health-conditions-during-pregnancy-and-postpartum"
+      },
+      {
+        "id": "antenatalSleepSupport",
+        "en": "My sleep and appetite have changed a lot. Is that part of this?",
+        "when": "pregnant and insomnia and mood chips logged",
+        "source": "https://www.nimh.nih.gov/health/publications/perinatal-depression"
+      }
+    ],
+    "tips": [
+      {
+        "id": "antenatalMoodCommon",
+        "en": "Low mood and anxiety in pregnancy are common and treatable. Help works, and your midwife or doctor can talk it through with you.",
+        "trigger": "pregnant and sad, anxious or tearfulness logged on 3 or more days",
+        "source": {
+          "publisher": "NIMH",
+          "url": "https://www.nimh.nih.gov/health/publications/perinatal-depression"
+        }
+      },
+      {
+        "id": "antenatalScreeningRoutine",
+        "en": "Doctors are advised to ask about mood and anxiety at your first pregnancy visit and later. It is routine care, not a judgement.",
+        "trigger": "pregnant and mood chips logged",
+        "source": {
+          "publisher": "ACOG",
+          "url": "https://www.acog.org/clinical/clinical-guidance/clinical-practice-guideline/articles/2023/06/screening-and-diagnosis-of-mental-health-conditions-during-pregnancy-and-postpartum"
+        }
+      },
+      {
+        "id": "antenatalHarmThoughtsHelp",
+        "en": "If you have thoughts of harming yourself or your baby, get help straight away: use Help now, tell someone near you and contact your maternity unit or emergency services.",
+        "trigger": "pregnant and a mood note matches a harm-thought phrase",
+        "source": {
+          "publisher": "CDC Hear Her",
+          "url": "https://www.cdc.gov/hearher/maternal-warning-signs/index.html"
+        }
+      }
+    ],
+    "askTopics": [
+      "Is it normal to feel anxious or sad in pregnancy?",
+      "How do I know if it is more than worry?",
+      "What treatment options exist? (route to clinician; no medicine names)",
+      "Will it affect my baby? (honest, with 'help works')",
+      "How do I tell my partner or family?"
+    ],
+    "redFlags": [
+      {
+        "symptom": "Thoughts of harming herself or her baby",
+        "action": "emergency",
+        "sourceUrl": "https://www.cdc.gov/hearher/maternal-warning-signs/index.html",
+        "quote": "Feel very sad, hopeless, or not good enough."
+      },
+      {
+        "symptom": "Scary thoughts that are hard to get rid of",
+        "action": "emergency",
+        "sourceUrl": "https://www.cdc.gov/hearher/maternal-warning-signs/index.html",
+        "quote": "you may have scary thoughts that come when you don’t want or that are hard to get rid of."
+      },
+      {
+        "symptom": "Baby moving less than usual or a change in pattern",
+        "action": "emergency",
+        "sourceUrl": "https://www.nhs.uk/pregnancy/keeping-well/your-babys-movements/",
+        "quote": "Do not wait until the next day – call immediately, even if it's the middle of the night."
+      }
+    ],
+    "missingVocab": [
+      "intrusive or scary thoughts (route only, never a chip)",
+      "loss of enjoyment",
+      "feeling disconnected from the pregnancy",
+      "sleep and appetite change together",
+      "thoughts of self-harm (never a chip: safety route)"
+    ],
+    "suppress": "Never store a harm-thought phrase as a mood chip; open Help now and show the crisis numbers. No jokes, no 'cheer up', no countdown cards."
+  },
+  {
+    "persona": "D12",
+    "name": "Pregnancy with a higher BMI",
+    "goal": "pregnant",
+    "aiJobs": [
+      "Log: take symptoms in her words; show weight gain as a trend against the guidance band only if she asks.",
+      "Ask: explain extra scans, glucose testing and anaesthetic review as 'your team is looking closely', in weight-inclusive words.",
+      "Visit prep: add questions about extra scans and early glucose testing.",
+      "Insights: describe her weight entries as numbers, never as too fast or too slow."
+    ],
+    "covered": [
+      "weight.dart weight log (MR-28, no pass or fail)",
+      "visit_summary.dart: pregnancyNext; safety.dart pregnancy warning list",
+      "log_phrases.dart: backache, fatigue, insomnia"
+    ],
+    "gaps": [
+      "Profile has no pre-pregnancy BMI or weight, so the guidance band cannot be shown (MR-28 'no bands'); the assistant would have to infer risk, which it must not.",
+      "No weight-inclusive wording rule in prompts.dart: an Ask answer could use 'obese' or 'overweight' as a verdict.",
+      "No visit question about early glucose testing, extra scans or anaesthetic review.",
+      "No VTE-sign phrases in safety.dart: 'one-sided calf pain or swelling' (CDC Hear Her) is not matched, and BMI raises clot chance (persona).",
+      "Aspirin question must route to a clinician; no medicine rule beyond 'no doses'."
+    ],
+    "logPhrases": [
+      {
+        "termKey": "jointPain",
+        "en": [
+          "knee pain from the weight",
+          "hip and pelvic pain"
+        ],
+        "ar": [
+          "وجع ركبي من الوزن",
+          "وجع في الحوض"
+        ],
+        "fr": [
+          "douleur aux genoux",
+          "douleur a la hanche"
+        ],
+        "es": [
+          "dolor de rodilla",
+          "dolor de cadera y pelvis"
+        ]
+      },
+      {
+        "termKey": "fatigue",
+        "en": [
+          "out of breath easily",
+          "tired climbing stairs"
+        ],
+        "ar": [
+          "بتعب بسرعه",
+          "بتعب لما اطلع السلم"
+        ],
+        "fr": [
+          "essoufflee facilement"
+        ],
+        "es": [
+          "me canso con facilidad"
+        ]
+      }
+    ],
+    "visitQuestions": [
+      {
+        "id": "bmiExtraScans",
+        "en": "Will I have extra scans to check the baby's growth and position, and when?",
+        "when": "pregnant and she entered a pre-pregnancy weight or higher BMI (new profile field)",
+        "source": "https://www.rcog.org.uk/for-the-public/browse-our-patient-information/being-overweight-in-pregnancy-and-after-birth/"
+      },
+      {
+        "id": "bmiGlucoseTest",
+        "en": "When will I be offered a glucose test and could it be earlier for me?",
+        "when": "pregnant and higher BMI marked",
+        "source": "https://www.acog.org/womens-health/faqs/obesity-and-pregnancy"
+      },
+      {
+        "id": "bmiAnaesthetic",
+        "en": "Can I meet the anaesthetic team before the birth to talk through options?",
+        "when": "pregnant, week 28 or later and higher BMI marked",
+        "source": "https://www.nhs.uk/pregnancy/keeping-well/overweight/"
+      },
+      {
+        "id": "bmiPreeclampsiaWatch",
+        "en": "Is there anything I can ask about to lower my chance of pre-eclampsia?",
+        "when": "pregnant and higher BMI marked",
+        "source": "https://www.nhs.uk/conditions/pre-eclampsia/"
+      }
+    ],
+    "tips": [
+      {
+        "id": "bmiWatchedNotJudged",
+        "en": "A higher BMI means your team may offer extra scans and checks. Most women with a higher BMI have healthy pregnancies and babies.",
+        "trigger": "pregnant and higher BMI marked",
+        "source": {
+          "publisher": "NHS",
+          "url": "https://www.nhs.uk/pregnancy/keeping-well/overweight/"
+        }
+      },
+      {
+        "id": "bmiWeightGuideNotGrade",
+        "en": "Weight guidance ranges are a guide to talk through with your clinician, not a grade. They are the same across higher BMI classes, which is a known limit.",
+        "trigger": "pregnant, higher BMI marked and a weight is logged",
+        "source": {
+          "publisher": "ACOG",
+          "url": "https://www.acog.org/clinical/clinical-guidance/committee-opinion/articles/2013/01/weight-gain-during-pregnancy"
+        }
+      },
+      {
+        "id": "bmiClotSigns",
+        "en": "Swelling, pain or redness in one leg, or sudden breathlessness, need urgent care at any time in pregnancy.",
+        "trigger": "pregnant and higher BMI marked",
+        "source": {
+          "publisher": "CDC Hear Her",
+          "url": "https://www.cdc.gov/hearher/maternal-warning-signs/index.html"
+        }
+      }
+    ],
+    "askTopics": [
+      "What extra care will I have with a higher BMI?",
+      "How much weight gain is suggested and why does it differ?",
+      "What is gestational diabetes and when am I tested?",
+      "Can I exercise safely?",
+      "What about aspirin? (what clinicians consider; no dose)",
+      "What happens at birth?"
+    ],
+    "redFlags": [
+      {
+        "symptom": "One-sided leg or arm swelling, pain or redness",
+        "action": "emergency",
+        "sourceUrl": "https://www.cdc.gov/hearher/maternal-warning-signs/index.html",
+        "quote": "You have swelling, pain, or tenderness in your leg—usually your calf or in one leg."
+      },
+      {
+        "symptom": "Trouble breathing",
+        "action": "emergency",
+        "sourceUrl": "https://www.cdc.gov/hearher/maternal-warning-signs/index.html",
+        "quote": "You feel short of breath suddenly or over time, as if you can't breathe deeply enough to get enough air in your lungs."
+      },
+      {
+        "symptom": "Pre-eclampsia symptoms (severe headache, vision problems, pain below the ribs, sudden swelling)",
+        "action": "emergency",
+        "sourceUrl": "https://www.nhs.uk/conditions/pre-eclampsia/",
+        "quote": "Any of these symptoms can be serious and need to be checked immediately."
+      },
+      {
+        "symptom": "Baby moving less than usual or a change in pattern",
+        "action": "emergency",
+        "sourceUrl": "https://www.nhs.uk/pregnancy/keeping-well/your-babys-movements/",
+        "quote": "Do not wait until the next day – call immediately, even if it's the middle of the night."
+      }
+    ],
+    "missingVocab": [
+      "one-sided leg swelling or pain",
+      "breathless on mild exertion",
+      "reflux",
+      "heat or skin-fold irritation"
+    ],
+    "suppress": "No 'obese' or 'overweight' as labels; no 'gaining too fast' nudge; no calorie targets."
+  },
+  {
+    "persona": "D13",
+    "name": "Pregnancy at 35 or over",
+    "goal": "pregnant",
+    "aiJobs": [
+      "Ask: explain screening versus diagnostic tests neutrally (NIPT, CVS, amniocentesis) and that every pregnant woman is offered the same menu.",
+      "Visit prep: a non-directive question builder for the genetic-counselling visit, with no option recommended.",
+      "Log: take symptoms as for D1, with no age labels in her view.",
+      "Insights: say '35 is a line clinicians use to offer options, not a cliff', never 'geriatric'."
+    ],
+    "covered": [
+      "visit_summary.dart computes age from birthYear (used by ttcGuidance only); pregnancy branch ignores age",
+      "safety.dart and red_flags.dart for warning signs",
+      "age_gate.dart is unrelated to this (18 plus gate)"
+    ],
+    "gaps": [
+      "visit_summary.dart does not use age for pregnancy: no screening-literacy question for 35 and over, and none for anyone.",
+      "No screening-results note (which test, when, her recorded result) and no 'screening, not diagnosis' wording rule in the assistant output.",
+      "Ask answer on test risks (procedure risk numbers) could quote percentages without a source; allowlist checks the host, not the number.",
+      "Wording ban on 'geriatric pregnancy' and 'advanced maternal age' in model output is not enforced in prompts.dart.",
+      "Risk-awareness for pre-eclampsia and gestational diabetes at 40 and over is not tied to age."
+    ],
+    "logPhrases": [
+      {
+        "termKey": "anxious",
+        "en": [
+          "scared for the baby",
+          "afraid something will go wrong",
+          "worried about the baby",
+          "worried about the scan"
+        ],
+        "ar": [
+          "خايفه على البيبي",
+          "خايفه على الجنين",
+          "قلقانه على الحمل",
+          "قلقانه من الفحص",
+          "خايفه من الموعد"
+        ],
+        "fr": [
+          "peur pour le bebe",
+          "inquiete pour le bebe",
+          "inquiete pour l echographie"
+        ],
+        "es": [
+          "miedo por el bebe",
+          "preocupada por el bebe",
+          "preocupada por la ecografia"
+        ]
+      },
+      {
+        "termKey": "anxious",
+        "en": [
+          "waiting for screening results",
+          "worried about my results"
+        ],
+        "ar": [
+          "مستنيه نتيجه الفحص",
+          "قلقانه من النتيجه"
+        ],
+        "fr": [
+          "j attends les resultats du depistage",
+          "inquiete pour mes resultats"
+        ],
+        "es": [
+          "esperando resultados del cribado",
+          "preocupada por mis resultados"
+        ]
+      }
+    ],
+    "visitQuestions": [
+      {
+        "id": "screeningMenuAge",
+        "en": "Which screening and diagnostic tests could I choose, and what does each one tell me and not tell me?",
+        "when": "pregnant and age 35 or over from birthYear, week 6 to 20",
+        "source": "https://www.acog.org/clinical/clinical-guidance/obstetric-care-consensus/articles/2022/08/pregnancy-at-age-35-years-or-older"
+      },
+      {
+        "id": "screeningNoCall",
+        "en": "If a test result is unclear or needs repeating, what happens next?",
+        "when": "pregnant and she logged a screening test",
+        "source": "https://www.acog.org/advocacy/policy-priorities/non-invasive-prenatal-testing/current-acog-guidance"
+      },
+      {
+        "id": "diagnosticRiskChoice",
+        "en": "What are the chances of a procedure causing a problem, and how do people usually decide?",
+        "when": "pregnant and age 35 or over",
+        "source": "https://www.nhs.uk/tests-and-treatments/amniocentesis/"
+      },
+      {
+        "id": "ageExtraChecks",
+        "en": "Does my age change any of my checks or scans in this pregnancy?",
+        "when": "pregnant and age 40 or over",
+        "source": "https://www.acog.org/clinical/clinical-guidance/obstetric-care-consensus/articles/2022/08/pregnancy-at-age-35-years-or-older"
+      }
+    ],
+    "tips": [
+      {
+        "id": "screeningIsOfferedToAll",
+        "en": "Screening and diagnostic tests are offered to every pregnant woman whatever her age. They are choices to make with your clinician or a genetic counsellor.",
+        "trigger": "pregnant, week 6 to 20",
+        "source": {
+          "publisher": "ACOG",
+          "url": "https://www.acog.org/advocacy/policy-priorities/non-invasive-prenatal-testing/current-acog-guidance"
+        }
+      },
+      {
+        "id": "screenNotDiagnosis",
+        "en": "A screening test estimates a chance. It is not a diagnosis, and results can be unclear. A positive screen leads to counselling and a choice of further testing.",
+        "trigger": "pregnant and she logged a screening test",
+        "source": {
+          "publisher": "ACOG",
+          "url": "https://www.acog.org/advocacy/policy-priorities/non-invasive-prenatal-testing/current-acog-guidance"
+        }
+      },
+      {
+        "id": "ageIsALineNotACliff",
+        "en": "35 is a line clinicians use to offer extra options, not a cliff. Many women over 35 have healthy pregnancies.",
+        "trigger": "pregnant and age 35 or over",
+        "source": {
+          "publisher": "ACOG",
+          "url": "https://www.acog.org/clinical/clinical-guidance/obstetric-care-consensus/articles/2022/08/pregnancy-at-age-35-years-or-older"
+        }
+      }
+    ],
+    "askTopics": [
+      "What is NIPT and what can it tell me?",
+      "What is the difference between screening and diagnosis?",
+      "What is amniocentesis and its risks? (sourced numbers only)",
+      "What does 'no call' mean?",
+      "Are there other risks at my age? (route to clinician)",
+      "Do I have to have these tests? (no)"
+    ],
+    "redFlags": [
+      {
+        "symptom": "Pre-eclampsia symptoms (severe headache, vision problems, pain below the ribs, sudden swelling)",
+        "action": "emergency",
+        "sourceUrl": "https://www.nhs.uk/conditions/pre-eclampsia/",
+        "quote": "Any of these symptoms can be serious and need to be checked immediately."
+      },
+      {
+        "symptom": "Vaginal bleeding more than spotting",
+        "action": "emergency",
+        "sourceUrl": "https://www.cdc.gov/hearher/maternal-warning-signs/index.html",
+        "quote": "You have any bleeding from your vagina that is more than spotting—like a period."
+      },
+      {
+        "symptom": "Baby moving less than usual or a change in pattern",
+        "action": "emergency",
+        "sourceUrl": "https://www.nhs.uk/pregnancy/keeping-well/your-babys-movements/",
+        "quote": "Do not wait until the next day – call immediately, even if it's the middle of the night."
+      },
+      {
+        "symptom": "Trouble breathing",
+        "action": "emergency",
+        "sourceUrl": "https://www.cdc.gov/hearher/maternal-warning-signs/index.html",
+        "quote": "You feel short of breath suddenly or over time, as if you can't breathe deeply enough to get enough air in your lungs."
+      }
+    ],
+    "missingVocab": [
+      "screening result entry (typed note with date, not a term)",
+      "worry while waiting for results (existing anxious chip)"
+    ],
+    "suppress": "No 'geriatric' or 'advanced maternal age' labels; no age-to-risk tables; no recommending any test."
+  }
+]

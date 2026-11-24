@@ -1,4 +1,7 @@
-# #BuildHybridAI submission: femio (texts to paste into Devpost)
+# #BuildHybridAI submission: femio (SUPERSEDED)
+
+> **Superseded 2026-11-24 by `DEVPOST_SUBMISSION.md`** (ADR-079: registry answers replaced Google Search
+> grounding, Cloud boost added). Do not paste from this file; it is kept for the record only.
 
 Agent doc: the owner reads these through the hackathon pack page; a session keeps them in step
 with the code. Every claim below is checked against the repository at the commit named in the

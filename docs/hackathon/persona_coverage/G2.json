@@ -1,0 +1,2212 @@
+[
+ {
+  "persona": "B13",
+  "name": "Contraception method user (adherence and side-effect tracking)",
+  "goal": "period",
+  "aiJobs": [
+   "Log: turn 'spotting again, mild headache since the new pill' into spotting and headache chips so she can see the first-three-months pattern herself.",
+   "Insights: lay her own headache, mood and bleeding logs against the method start date she enters, as counts only, no cause claimed.",
+   "Visit prep: one-page list of symptoms that lasted past about three to four months, for a pharmacist or clinician.",
+   "Ask (boundary): refuse missed-dose, safe-day and protection questions with the fixed sentence and point to the product leaflet and a pharmacist."
+  ],
+  "covered": [
+   "safety.dart SafetySignal.birthControl gives the fixed 'femio is not a method of birth control' answer and never reaches a model.",
+   "log_phrases.dart already maps headache, nausea, breast tenderness, bloating, mood terms and spotting.",
+   "visit_summary.dart offers moodCycle, painfulPeriods and heavyPeriods when logs show them."
+  ],
+  "gaps": [
+   "No profile field for 'current method and start date' (Goal enum has only period, ttc, pregnant, menopause), so 'first three months' prompts cannot trigger.",
+   "Adherence reminders are the persona's #1 need and are out of scope by rule (not birth control); assistant must decline and route, not improvise.",
+   "safety.dart catches birth-control questions by phrase; colloquial pill/patch/ring/injection wording in AR/FR/ES is not verified.",
+   "No visit question about combined methods and migraine with aura (CDC category 4)."
+  ],
+  "logPhrases": [
+   {
+    "termKey": "spotting",
+    "en": [
+     "breakthrough bleeding",
+     "bleeding between periods",
+     "light bleeding on the pill"
+    ],
+    "ar": [
+     "نزول دم بسيط بين الدورتين",
+     "نقط دم خفيفه",
+     "بقع دم بين الدورتين",
+     "تبقيع"
+    ],
+    "fr": [
+     "saignements entre les regles",
+     "petites pertes de sang"
+    ],
+    "es": [
+     "sangrado entre periodos",
+     "manchado"
+    ]
+   },
+   {
+    "termKey": "moodSwings",
+    "en": [
+     "mood changes since starting the pill",
+     "emotional since new method"
+    ],
+    "ar": [
+     "مزاجي اتغير من ساعه ما بدات الحبوب",
+     "مزاجي متقلب من الحبوب"
+    ],
+    "fr": [
+     "humeur changeante depuis la pilule"
+    ],
+    "es": [
+     "cambios de humor desde la pastilla"
+    ]
+   },
+   {
+    "termKey": "nausea",
+    "en": [
+     "queasy after taking my pill"
+    ],
+    "ar": [
+     "غثيان بعد الحبايه",
+     "نفسي مغموم بعد الحبوب"
+    ],
+    "fr": [
+     "nausee apres ma pilule"
+    ],
+    "es": [
+     "nauseas despues de la pastilla"
+    ]
+   }
+  ],
+  "visitQuestions": [
+   {
+    "id": "methodSideEffectsPersist",
+    "en": "My method's side effects are still here after several months. Is it worth reviewing the method?",
+    "when": "spotting, headache, mood or bloating terms logged on 6+ days in the last 90 days",
+    "source": "https://www.nhs.uk/contraception/methods-of-contraception/combined-pill/side-effects/"
+   },
+   {
+    "id": "headacheAuraMethod",
+    "en": "I get headaches with visual changes. Does that affect which methods are suitable for me?",
+    "when": "headache logged often",
+    "source": "https://www.cdc.gov/contraception/hcp/usspr/classifications-mec-contraception.html"
+   },
+   {
+    "id": "bleedingPatternMethod",
+    "en": "My bleeding pattern has changed since starting my method. Is that expected for this method?",
+    "when": "spotting logged on 5+ days in a month",
+    "source": "https://www.nhs.uk/contraception/methods-of-contraception/combined-pill/side-effects/"
+   }
+  ],
+  "tips": [
+   {
+    "id": "newMethodSettling",
+    "en": "Spotting and mild side effects are common in a new method's first months. Your log can show if yours are easing; if not, tell a clinician or pharmacist.",
+    "trigger": "spotting or headache logged within ~90 days of method start (needs profile field)",
+    "source": {
+     "publisher": "NHS",
+     "url": "https://www.nhs.uk/contraception/methods-of-contraception/combined-pill/side-effects/"
+    }
+   }
+  ],
+  "askTopics": [
+   "What bleeding changes are common on each method?",
+   "Why did my period stop on a hormonal coil or implant?",
+   "What is a withdrawal bleed?",
+   "BOUNDARY: missed pill, safe days, emergency contraception: route to leaflet, pharmacist, clinician; no model answer."
+  ],
+  "redFlags": [
+   {
+    "symptom": "Sudden severe abdominal pain, chest pain, severe headache, eye symptoms or leg pain/swelling on a combined hormonal method (ACHES list in persona spec)",
+    "action": "emergency",
+    "sourceUrl": "https://www.nhs.uk/contraception/methods-of-contraception/combined-pill/side-effects/",
+    "quote": "[VERBATIM NOT CAPTURED - re-fetch page before shipping] (NHS page only links to its blood-clot page; fetch that page)"
+   }
+  ],
+  "missingVocab": [
+   "leg swelling or leg pain (red-flag, no term key)",
+   "visual disturbance before headache (aura)",
+   "method change date / pill taken are profile or adherence events, out of scope"
+  ]
+ },
+ {
+  "persona": "B14",
+  "name": "Coming off contraception for cycle recovery (not TTC)",
+  "goal": "period",
+  "aiJobs": [
+   "Log: capture returning acne, cramps, mood and spotting in her own words after she stops a method.",
+   "Insights: show days since her first logged bleed and the spread of her next cycles as a range with 'still learning' wording.",
+   "Ask: explain withdrawal bleed versus a true period and that ovulation can come before the first bleed; avoiding pregnancy is a clinician or pharmacist conversation.",
+   "Visit prep: list cycle lengths, any long gap, and acne or hair changes she logged."
+  ],
+  "covered": [
+   "safety.dart refuses birth-control questions with the fixed sentence.",
+   "log_phrases.dart covers acne, cramps, moodSwings, hairThinning, weightChange, spotting.",
+   "visit_summary.dart gives cycleSpread and skinHair when irregular."
+  ],
+  "gaps": [
+   "No 'recently stopped a method' profile state; goal=period gives no post-stop education sequence.",
+   "MR-10 pregnancy-first prompt for a long gap exists in rules, not in the assistant.",
+   "Visit bank lacks 'did the method hide irregular cycles'.",
+   "DMPA 'up to about a year' education cannot be targeted without a method field."
+  ],
+  "logPhrases": [
+   {
+    "termKey": "acne",
+    "en": [
+     "breakouts since I stopped the pill",
+     "skin broke out after pill"
+    ],
+    "ar": [
+     "حبوب وشي رجعت",
+     "وشي طلع حبوب بعد ما وقفت الحبوب"
+    ],
+    "fr": [
+     "boutons depuis l arret de la pilule"
+    ],
+    "es": [
+     "granos desde que deje la pastilla"
+    ]
+   },
+   {
+    "termKey": "spotting",
+    "en": [
+     "random bleeding since stopping",
+     "bleeding but not sure its a period"
+    ],
+    "ar": [
+     "نزل دم بس مش عارفه دورة ولا لا",
+     "نقط دم بعد وقف الحبوب"
+    ],
+    "fr": [
+     "saignement apres arret de la pilule"
+    ],
+    "es": [
+     "sangrado tras dejar la pastilla"
+    ]
+   },
+   {
+    "termKey": "cramps",
+    "en": [
+     "period pain came back"
+    ],
+    "ar": [
+     "المغص رجع بعد وقف الحبوب",
+     "وجع الدورة رجع"
+    ],
+    "fr": [
+     "douleurs de regles revenues"
+    ],
+    "es": [
+     "el dolor menstrual volvio"
+    ]
+   }
+  ],
+  "visitQuestions": [
+   {
+    "id": "noPeriodAfterStopping",
+    "en": "I stopped my method and have not had a bleed. When should we look into it, and should I test for pregnancy first?",
+    "when": "last period start >90 days ago, or no bleed 90+ days after profile says method stopped (needs field)",
+    "source": "https://www.nhs.uk/conditions/contraception/when-periods-after-stopping-pill/ (page gives no deadline; follow MR-10)"
+   },
+   {
+    "id": "pillMaskedCycles",
+    "en": "My cycles were irregular before I started the pill. Could the pill have been hiding something?",
+    "when": "irregular flag true and acne or hairThinning logged",
+    "source": "[NEEDS SOURCE] persona cites https://www.nhs.uk/contraception/methods-of-contraception/combined-pill/what-is-it/"
+   },
+   {
+    "id": "injectionReturn",
+    "en": "I stopped the injection. How long can my cycle take to return?",
+    "when": "profile says injection stopped (needs field)",
+    "source": "https://www.nhs.uk/contraception/methods-of-contraception/contraceptive-injection/what-is-it/"
+   }
+  ],
+  "tips": [
+   {
+    "id": "withdrawalBleedFirst",
+    "en": "After stopping the combined pill, the first bleed may not be a true period. Your log can show when your cycles settle into a pattern of their own.",
+    "trigger": "method stopped within 90 days (needs field)",
+    "source": {
+     "publisher": "NHS",
+     "url": "https://www.nhs.uk/conditions/contraception/when-periods-after-stopping-pill/"
+    }
+   },
+   {
+    "id": "ovulationBeforeBleed",
+    "en": "Ovulation can happen before your first period returns. If pregnancy is not wanted, talk to a clinician or pharmacist about options.",
+    "trigger": "method stopped (needs field)",
+    "source": {
+     "publisher": "NHS",
+     "url": "https://www.nhs.uk/pregnancy/trying-for-a-baby/planning-your-pregnancy/"
+    }
+   }
+  ],
+  "askTopics": [
+   "When does my real period return after pill, coil, implant or injection?",
+   "Is post-pill acne normal?",
+   "Is 'post-birth-control syndrome' real? (persona says do not validate; answer from trusted sources only)",
+   "Do I need a detox?"
+  ],
+  "redFlags": [
+   {
+    "symptom": "Possible pregnancy with sudden severe abdominal pain or fainting",
+    "action": "emergency",
+    "sourceUrl": "https://www.nhs.uk/conditions/ectopic-pregnancy/",
+    "quote": "Call 999 for an ambulance or go to your nearest accident and emergency (A&E) department immediately"
+   }
+  ],
+  "missingVocab": [
+   "method stopped date and type (profile, not a log term)",
+   "first bleed after stopping (a bleed marker, not a term)"
+  ]
+ },
+ {
+  "persona": "B15",
+  "name": "Menstrual migraine",
+  "goal": "period",
+  "aiJobs": [
+   "Log: 'migraine, first day of my period, light hurts' into headache plus nausea chips.",
+   "Insights: lay headache days on cycle days (counts, no cause claimed) and say whether they cluster around her period start.",
+   "Visit prep: one-page headache-versus-cycle diary for the neurologist or GP.",
+   "Ask: general estrogen-fall questions from trusted pages; never medicine choice or timing."
+  ],
+  "covered": [
+   "log_phrases.dart maps headache/migraine/وجع راس/شقيقه in four languages.",
+   "safety.dart treats 'severe headache' and 'blurred vision' as pregnancy warnings and seizure as urgent.",
+   "visit_summary.dart has no headache-specific question."
+  ],
+  "gaps": [
+   "No headache-by-cycle-day insight; visit_summary only counts terms, not cycle position.",
+   "No question on migraine with aura and combined hormonal contraception.",
+   "No term for aura, light or sound sensitivity.",
+   "A non-pregnant 'sudden worst headache' or 'weakness on one side' may not trigger urgent help in safety.dart (not verified)."
+  ],
+  "logPhrases": [
+   {
+    "termKey": "headache",
+    "en": [
+     "period migraine",
+     "migraine again with my period",
+     "pounding head before my period",
+     "pulsing headache"
+    ],
+    "ar": [
+     "صداع الدورة",
+     "شقيقه مع الدورة",
+     "راسي بيدق",
+     "صداع نابض",
+     "صداع نصفي"
+    ],
+    "fr": [
+     "migraine menstruelle",
+     "mal de tete pulsatile"
+    ],
+    "es": [
+     "migrana menstrual",
+     "dolor de cabeza pulsatil"
+    ]
+   },
+   {
+    "termKey": "nausea",
+    "en": [
+     "sick with the migraine",
+     "nauseous with the headache"
+    ],
+    "ar": [
+     "غثيان مع الصداع",
+     "نفسي تغم مع وجع الراس"
+    ],
+    "fr": [
+     "nausee avec la migraine"
+    ],
+    "es": [
+     "nauseas con la migrana"
+    ]
+   },
+   {
+    "termKey": "dizziness",
+    "en": [
+     "lightheaded with migraine"
+    ],
+    "ar": [
+     "دوخه مع الصداع"
+    ],
+    "fr": [
+     "etourdie avec la migraine"
+    ],
+    "es": [
+     "mareo con la migrana"
+    ]
+   }
+  ],
+  "visitQuestions": [
+   {
+    "id": "migraineCycleLink",
+    "en": "My headaches seem to cluster around my period. Can we look at my diary together?",
+    "when": "headache logged on 3+ days around period starts over 2+ cycles",
+    "source": "[NEEDS SOURCE] persona cites https://americanmigrainefoundation.org/resource-library/hormonal-menstrual-migraine/"
+   },
+   {
+    "id": "auraAndMethods",
+    "en": "I sometimes see flashing lights or zigzags before a headache. How does that affect contraception choices?",
+    "when": "headache logged and she notes aura (needs term)",
+    "source": "https://www.cdc.gov/contraception/hcp/usspr/classifications-mec-contraception.html"
+   },
+   {
+    "id": "headacheChange",
+    "en": "My headaches are longer or different from before. Is anything worth checking?",
+    "when": "headache days rising across 3 cycles",
+    "source": "[NEEDS SOURCE]"
+   }
+  ],
+  "tips": [
+   {
+    "id": "migrainePattern",
+    "en": "A headache diary beside your cycle can show whether attacks cluster around your period. Bring the pattern to your clinician; it helps more than memory.",
+    "trigger": "headache logged on 3+ days in a cycle",
+    "source": {
+     "publisher": "NHS",
+     "url": "https://www.nhs.uk/conditions/migraine/"
+    }
+   }
+  ],
+  "askTopics": [
+   "Why are period migraines worse?",
+   "Do migraines change in perimenopause or pregnancy?",
+   "What is aura?",
+   "Which self-care habits do guidelines mention?"
+  ],
+  "redFlags": [
+   {
+    "symptom": "Sudden intensely painful headache, trouble speaking, vision loss, weakness on one side, seizure, confusion",
+    "action": "emergency",
+    "sourceUrl": "https://www.nhs.uk/conditions/migraine/",
+    "quote": "Immediate action required: Call 999 if you or your child:"
+   }
+  ],
+  "missingVocab": [
+   "aura (visual or sensory)",
+   "sensitivity to light or sound",
+   "vomiting",
+   "'acute treatment taken' marker (no medicine names stored)"
+  ]
+ },
+ {
+  "persona": "B16",
+  "name": "Hypothalamic amenorrhea / athlete, absent period",
+  "goal": "period",
+  "aiJobs": [
+   "Log: capture stress, fatigue, dizziness and injuries in her words, plus the no-period gap, with no food or weight target.",
+   "Insights: state the length of her gap since the last logged period and say a clinician review is reasonable at about 3 months, pregnancy test first.",
+   "Visit prep: gap timeline with fatigue, dizziness, mood and injury terms (qualitative only).",
+   "Ask: 'is losing my period normal for athletes' answered from sourced pages, routed to a clinician."
+  ],
+  "covered": [
+   "log_phrases.dart covers fatigue, dizziness, insomnia, moodSwings, anxious, weightChange.",
+   "visit_summary.dart gives tiredness and cycleSpread, nothing for a long gap.",
+   "MR-10 (90-day prompt) is in the rules but not wired into the assistant."
+  ],
+  "gaps": [
+   "No visit question for 'no period for 3+ months'.",
+   "Insights need cycles observed; a long gap gives zero or one, so nothing is said.",
+   "No terms for bone or stress-fracture pain, feeling cold, or training load.",
+   "weightChange phrases need a guard so the assistant never gives a calorie or weight target."
+  ],
+  "logPhrases": [
+   {
+    "termKey": "fatigue",
+    "en": [
+     "wiped out after training",
+     "exhausted all the time since training"
+    ],
+    "ar": [
+     "مرهقه من التمرين",
+     "تعبانه طول الوقت",
+     "خلصانه من التمرين"
+    ],
+    "fr": [
+     "epuisee apres l entrainement"
+    ],
+    "es": [
+     "agotada por el entrenamiento"
+    ]
+   },
+   {
+    "termKey": "dizziness",
+    "en": [
+     "dizzy when I stand",
+     "light headed after workout"
+    ],
+    "ar": [
+     "بدوخ لما اقف",
+     "دوخه بعد التمرين"
+    ],
+    "fr": [
+     "etourdie en me levant"
+    ],
+    "es": [
+     "mareada al levantarme"
+    ]
+   },
+   {
+    "termKey": "musclePain",
+    "en": [
+     "sore bones or shins",
+     "stress injury pain"
+    ],
+    "ar": [
+     "وجع في العضم",
+     "وجع في السمانه"
+    ],
+    "fr": [
+     "douleur aux tibias"
+    ],
+    "es": [
+     "dolor en las espinillas"
+    ]
+   }
+  ],
+  "visitQuestions": [
+   {
+    "id": "noPeriodThreeMonths",
+    "en": "I have not had a period for about three months and I am not pregnant. What checks would you suggest?",
+    "when": "last period start more than 90 days ago",
+    "source": "https://medlineplus.gov/ency/article/001219.htm"
+   },
+   {
+    "id": "bonesAfterAbsentPeriods",
+    "en": "Should my bone health be looked at after months without a period?",
+    "when": "last period start more than 180 days ago",
+    "source": "[NEEDS SOURCE] persona cites Endocrine Society https://www.endocrine.org/clinical-practice-guidelines/hypothalamic-amenorrhea"
+   },
+   {
+    "id": "trainingAndCycle",
+    "en": "My training load and stress have been high. Can we talk about what that does to my cycle?",
+    "when": "fatigue or dizziness logged often with a long gap",
+    "source": "[NEEDS SOURCE]"
+   }
+  ],
+  "tips": [
+   {
+    "id": "longGapCheckIn",
+    "en": "A gap of about three months without a period is worth mentioning to a clinician. If pregnancy is possible, a test comes first. Your log gives them the dates.",
+    "trigger": "last period start >90 days ago",
+    "source": {
+     "publisher": "MedlinePlus",
+     "url": "https://medlineplus.gov/ency/article/001219.htm"
+    }
+   }
+  ],
+  "askTopics": [
+   "Why can my period stop with hard training or stress?",
+   "Is an absent period harmless?",
+   "What does a clinician check?",
+   "Who can help (dietitian, sports medicine, mental health)?"
+  ],
+  "redFlags": [
+   {
+    "symptom": "No period for about three months",
+    "action": "see GP",
+    "sourceUrl": "https://medlineplus.gov/ency/article/001219.htm",
+    "quote": "[VERBATIM NOT CAPTURED - re-fetch page before shipping]"
+   },
+   {
+    "symptom": "Fainting, chest pain or thoughts of self-harm",
+    "action": "emergency",
+    "sourceUrl": "https://womenshealth.gov/nedaw",
+    "quote": "[VERBATIM NOT CAPTURED - re-fetch page before shipping] (existing safety.dart urgent and crisis signals already catch the phrases)"
+   }
+  ],
+  "missingVocab": [
+   "bone or stress-fracture pain",
+   "feeling cold all the time",
+   "training load or rest-day marker"
+  ]
+ },
+ {
+  "persona": "B17",
+  "name": "Thyroid condition and the cycle (not TTC)",
+  "goal": "period",
+  "aiJobs": [
+   "Log: map fatigue, hair loss, brittle nails, brain fog, weight change, heart flutters and heavy flow in her words.",
+   "Insights: show her own heavy-flow days and symptom counts beside test dates she types in (lab range as written; Femio never interprets).",
+   "Visit prep: one page for the endocrinologist with symptoms, bleeding changes and test dates.",
+   "Ask: general thyroid-and-period questions from trusted pages; never a TSH target or dose."
+  ],
+  "covered": [
+   "log_phrases.dart covers fatigue, hairThinning, brainFog, weightChange, heartFlutters, hotFlashes, heavy flow.",
+   "visit_summary.dart gives heavyPeriods, tiredness, skinHair."
+  ],
+  "gaps": [
+   "Keys brittleNails and tingling exist but have no phrases in log_phrases.dart.",
+   "No lab-date or result store reachable by the assistant (profile lacks it).",
+   "No visit question 'could these be thyroid-related'; skinHair needs the irregular flag.",
+   "Medicine-timing questions must route to the leaflet and pharmacist; handling not verified."
+  ],
+  "logPhrases": [
+   {
+    "termKey": "brittleNails",
+    "en": [
+     "nails breaking",
+     "brittle nails",
+     "nails splitting"
+    ],
+    "ar": [
+     "ضوافري بتتكسر",
+     "ضوافري ضعيفه",
+     "ضفري بيتقصف"
+    ],
+    "fr": [
+     "ongles cassants"
+    ],
+    "es": [
+     "unas quebradizas"
+    ]
+   },
+   {
+    "termKey": "hairThinning",
+    "en": [
+     "hair coming out in clumps",
+     "hair falling out a lot"
+    ],
+    "ar": [
+     "شعري بيقع كتير",
+     "شعري بيتساقط"
+    ],
+    "fr": [
+     "perte de cheveux importante"
+    ],
+    "es": [
+     "se me cae mucho el pelo"
+    ]
+   },
+   {
+    "termKey": "heartFlutters",
+    "en": [
+     "heart racing at rest",
+     "pounding heart"
+    ],
+    "ar": [
+     "قلبي بيدق بسرعه",
+     "خفقان"
+    ],
+    "fr": [
+     "coeur qui bat vite"
+    ],
+    "es": [
+     "corazon acelerado"
+    ]
+   },
+   {
+    "termKey": "tingling",
+    "en": [
+     "pins and needles in hands"
+    ],
+    "ar": [
+     "تنميل في ايدي",
+     "خدر في ايدي"
+    ],
+    "fr": [
+     "fourmillements dans les mains"
+    ],
+    "es": [
+     "hormigueo en las manos"
+    ]
+   }
+  ],
+  "visitQuestions": [
+   {
+    "id": "thyroidAndPeriods",
+    "en": "My periods have changed along with other thyroid-type symptoms. Could we review my thyroid follow-up?",
+    "when": "heavy flow or irregular flag plus fatigue, hairThinning or weightChange logged",
+    "source": "[NEEDS SOURCE] persona cites https://www.niddk.nih.gov/health-information/endocrine-diseases/hypothyroidism"
+   },
+   {
+    "id": "thyroidRecheckTiming",
+    "en": "When should my next thyroid blood test be?",
+    "when": "profile says thyroid condition (needs field)",
+    "source": "https://medlineplus.gov/hypothyroidism.html"
+   },
+   {
+    "id": "heavyBleedingThyroid",
+    "en": "My periods are heavy and I feel exhausted. Is it worth checking my blood count as well?",
+    "when": "heavy flow on 2+ days and fatigue often",
+    "source": "https://www.nhs.uk/conditions/heavy-periods/"
+   }
+  ],
+  "tips": [
+   {
+    "id": "thyroidSeeSymptomsTogether",
+    "en": "Fatigue, hair changes and period changes can have several causes. Logging them together lets your clinician see the pattern; Femio cannot say what causes it.",
+    "trigger": "fatigue, hairThinning and a bleeding change logged in the same month",
+    "source": {
+     "publisher": "MedlinePlus",
+     "url": "https://medlineplus.gov/hypothyroidism.html"
+    }
+   }
+  ],
+  "askTopics": [
+   "Can thyroid problems change my periods?",
+   "Why are my periods heavy?",
+   "What do thyroid results mean in general (never mine)?",
+   "Does thyroid medicine clash with coffee, iron or calcium? (route to leaflet)"
+  ],
+  "redFlags": [
+   {
+    "symptom": "Heavy periods affecting daily life, bleeding between periods or after sex",
+    "action": "see GP",
+    "sourceUrl": "https://www.nhs.uk/conditions/heavy-periods/",
+    "quote": "Non-urgent advice: See a GP if:"
+   }
+  ],
+  "missingVocab": [
+   "cold or heat intolerance",
+   "palpitations at rest (heartFlutters closest)",
+   "thyroid medicine taken marker (no names stored)"
+  ]
+ },
+ {
+  "persona": "B18",
+  "name": "Cancer screening and prevention awareness",
+  "goal": "any",
+  "aiJobs": [
+   "Log: accept 'smear done today' or 'mammogram booked' as dated screening notes (needs a screening entry type).",
+   "Insights: show 'last recorded cervical screening' and the interval her national programme names, as a prompt to ask her clinician.",
+   "Visit prep: family-history checklist as questions to raise, never a risk score.",
+   "Learn: explain Pap versus HPV test and why longer intervals follow a more sensitive test."
+  ],
+  "covered": [
+   "No screening log or reminder exists in the assistant code.",
+   "visit_summary.dart anythingElse is the only generic prompt."
+  ],
+  "gaps": [
+   "No visit question on cervical or breast screening or family history.",
+   "No age or country awareness (NHS 25-64, WHO 30+, USPSTF 21+); tips need locale-aware sources.",
+   "'I found a lump' is not in safety.dart urgent phrases (not verified).",
+   "No term for bleeding after sex."
+  ],
+  "logPhrases": [
+   {
+    "termKey": "spotting",
+    "en": [
+     "bleeding after sex",
+     "bleeding between periods again"
+    ],
+    "ar": [
+     "دم بعد العلاقه",
+     "دم بين الدورتين"
+    ],
+    "fr": [
+     "saignement apres rapport",
+     "saignements entre les regles"
+    ],
+    "es": [
+     "sangrado despues de relaciones",
+     "sangrado entre periodos"
+    ]
+   }
+  ],
+  "visitQuestions": [
+   {
+    "id": "cervicalScreeningDue",
+    "en": "Am I due for cervical screening, and which test does your service use?",
+    "when": "age 21-65 and no screening date recorded",
+    "source": "https://www.who.int/activities/screening-for-cervical-cancer"
+   },
+   {
+    "id": "breastScreeningAge",
+    "en": "At what age should I start breast screening, and does my family history change that?",
+    "when": "age 40+ or family history noted",
+    "source": "https://www.nhs.uk/tests-and-treatments/breast-screening-mammogram/who-breast-screening-is-for/"
+   },
+   {
+    "id": "hpvVaccineAdult",
+    "en": "I am over 26 and not vaccinated against HPV. Is vaccination worth discussing?",
+    "when": "age 27-45 and no vaccine noted",
+    "source": "https://www.cdc.gov/hpv/hcp/vaccination-considerations/index.html"
+   },
+   {
+    "id": "familyHistoryGenetic",
+    "en": "Several relatives had breast or ovarian cancer. Should I see genetic counselling?",
+    "when": "family history noted (needs field)",
+    "source": "[NEEDS SOURCE] persona cites USPSTF BRCA recommendation"
+   }
+  ],
+  "tips": [
+   {
+    "id": "longerIntervalHpv",
+    "en": "Some cervical screening intervals are now longer because the HPV test is more sensitive, not because care is reduced. Ask your clinic which interval applies to you.",
+    "trigger": "age 25-49 and a screening date recorded",
+    "source": {
+     "publisher": "NHS",
+     "url": "https://www.england.nhs.uk/south-east/info-professionals/public-health/cervical-screening/6374-2/introduction-2/the-nhs-cervical-screening-programme/"
+    }
+   }
+  ],
+  "askTopics": [
+   "Pap versus HPV test",
+   "What happens at a mammogram?",
+   "How often is screening in my country?",
+   "Is HPV vaccination useful after 26?",
+   "What is a family-history check?"
+  ],
+  "redFlags": [
+   {
+    "symptom": "Heavy periods affecting daily life, bleeding between periods or after sex",
+    "action": "see GP",
+    "sourceUrl": "https://www.nhs.uk/conditions/heavy-periods/",
+    "quote": "Non-urgent advice: See a GP if:"
+   },
+   {
+    "symptom": "New breast lump or change",
+    "action": "see GP",
+    "sourceUrl": "[NEEDS SOURCE]",
+    "quote": "[VERBATIM NOT CAPTURED - re-fetch page before shipping]"
+   }
+  ],
+  "missingVocab": [
+   "breast lump or change",
+   "bleeding after sex (spotting only)",
+   "screening done date (entry type, not a term)"
+  ]
+ },
+ {
+  "persona": "B19",
+  "name": "Gynaecological cancer survivor, treatment-induced menopause",
+  "goal": "menopause",
+  "aiJobs": [
+   "Log: hot flushes, night sweats, sleep, fatigue, brain fog, mood and joint aches in her words.",
+   "Insights: show symptom counts over time to bring to her team; no statement on recurrence or safety of any treatment.",
+   "Visit prep: surveillance dates she typed in and a question list; sexual-health topics stay as a prompt to raise with her team only (conservative register).",
+   "Ask: survivorship and menopause education from NCI, ACS and NICE, always 'bring this to your team'."
+  ],
+  "covered": [
+   "log_phrases.dart covers hotFlashes, nightSweats, insomnia, brainFog, fatigue, jointPain, heartFlutters, bladder terms.",
+   "visit_summary.dart gives a menopause question when goal is menopause."
+  ],
+  "gaps": [
+   "No survivorship profile field or surveillance-date store reachable by the assistant.",
+   "No visit question about menopause options after cancer (must be a team question, not an answer).",
+   "Fear of recurrence: crisis phrases exist but there is no supportive route to cancer-support pages.",
+   "Persona's sexual-health content is excluded by OD-5; elevated keys vaginalDryness and painDuringSex have no assistant phrases by design."
+  ],
+  "logPhrases": [
+   {
+    "termKey": "hotFlashes",
+    "en": [
+     "sudden heat since surgery",
+     "flushes after treatment"
+    ],
+    "ar": [
+     "سخونيه مفاجئه",
+     "موجات حر بعد العمليه",
+     "هبات حر بعد العلاج"
+    ],
+    "fr": [
+     "bouffees de chaleur apres traitement"
+    ],
+    "es": [
+     "sofocos tras el tratamiento"
+    ]
+   },
+   {
+    "termKey": "fatigue",
+    "en": [
+     "cancer tiredness",
+     "bone tired after treatment"
+    ],
+    "ar": [
+     "ارهاق بعد العلاج",
+     "تعب مش بيروح"
+    ],
+    "fr": [
+     "fatigue apres traitement"
+    ],
+    "es": [
+     "cansancio tras el tratamiento"
+    ]
+   },
+   {
+    "termKey": "brainFog",
+    "en": [
+     "chemo brain",
+     "cant concentrate since treatment"
+    ],
+    "ar": [
+     "مخي مش مركز بعد الكيماوي",
+     "ذهني مشتت"
+    ],
+    "fr": [
+     "brouillard cerebral apres chimio"
+    ],
+    "es": [
+     "niebla mental tras quimio"
+    ]
+   },
+   {
+    "termKey": "jointPain",
+    "en": [
+     "aching joints on my tablets"
+    ],
+    "ar": [
+     "مفاصلي بتوجعني من العلاج"
+    ],
+    "fr": [
+     "articulations douloureuses"
+    ],
+    "es": [
+     "dolor de articulaciones"
+    ]
+   }
+  ],
+  "visitQuestions": [
+   {
+    "id": "menopauseAfterCancer",
+    "en": "Which options for menopause symptoms are suitable given my cancer history?",
+    "when": "goal=menopause and survivorship flag (needs field)",
+    "source": "https://www.nice.org.uk/guidance/ng23/chapter/Recommendations"
+   },
+   {
+    "id": "surveillanceSchedule",
+    "en": "What follow-up schedule do you recommend for me, and when is my next check?",
+    "when": "survivorship flag (needs field)",
+    "source": "https://www.cancer.org/cancer/types/endometrial-cancer/after-treatment/follow-up.html"
+   },
+   {
+    "id": "lateEffectsBones",
+    "en": "Should my bone health or heart health be monitored after my treatment?",
+    "when": "survivorship flag and jointPain or fatigue logged",
+    "source": "https://www.cancer.gov/about-cancer/coping/survivorship/late-effects"
+   },
+   {
+    "id": "raiseIntimateHealth",
+    "en": "I would like to talk about intimate health changes but find it hard to start. Can we set time for it?",
+    "when": "survivorship flag (needs field)",
+    "source": "https://www.cancer.gov/about-cancer/treatment/side-effects/sexuality-women"
+   }
+  ],
+  "tips": [
+   {
+    "id": "lateEffectsLog",
+    "en": "Fatigue, brain fog and sleep changes can continue months or years after treatment. Logging them gives your team facts to work with.",
+    "trigger": "fatigue or brainFog logged on 8+ days a month",
+    "source": {
+     "publisher": "NCI",
+     "url": "https://www.cancer.gov/about-cancer/coping/survivorship/late-effects"
+    }
+   },
+   {
+    "id": "suddenMenopause",
+    "en": "Menopause after treatment can come on suddenly and feel stronger than the natural transition. Options depend on your cancer type, so ask your team.",
+    "trigger": "goal=menopause and survivorship flag (needs field)",
+    "source": {
+     "publisher": "NICE",
+     "url": "https://www.nice.org.uk/guidance/ng23/chapter/Recommendations"
+    }
+   }
+  ],
+  "askTopics": [
+   "What are late effects of treatment?",
+   "Why does treatment bring on menopause?",
+   "Non-hormonal options to ask about",
+   "Coping with fear of recurrence",
+   "How to raise concerns with my team"
+  ],
+  "redFlags": [
+   {
+    "symptom": "New or returning symptoms she fears may be recurrence (bleeding, new lump, pain, unexplained weight loss)",
+    "action": "see GP",
+    "sourceUrl": "https://www.cancer.org/cancer/types/endometrial-cancer/after-treatment/follow-up.html",
+    "quote": "[VERBATIM NOT CAPTURED - re-fetch page before shipping]"
+   }
+  ],
+  "missingVocab": [
+   "limb swelling (lymphoedema)",
+   "bone pain",
+   "worry about recurrence (anxious closest)",
+   "bleeding after menopause (spotting closest)"
+  ]
+ },
+ {
+  "persona": "C1",
+  "name": "TTC general, early journey",
+  "goal": "ttc",
+  "aiJobs": [
+   "Log: 'positive OPK today, egg white mucus' into discharge and OPK chips; intercourse stays tap-only.",
+   "Insights: show a fertile window as a range only when MR-06 passes, otherwise 'no confident window' and how to confirm ovulation afterwards.",
+   "Ask: answer 'when to see a doctor' from the 12 or 6 month rule and two-week-wait questions without calling any symptom a sign.",
+   "Visit prep: ttcTests and folicAcid appear when the clock is reached."
+  ],
+  "covered": [
+   "visit_summary.dart: ttcTests, ovulation, folicAcid for goal=ttc; guidance.dart ttcGuidance (12 months, 6 months from 35, irregular).",
+   "log_phrases.dart: eggWhite, watery, creamy, sticky, OPK positive/negative, breast tenderness, nausea."
+  ],
+  "gaps": [
+   "No tips layer yet (the tips proposed here are new content).",
+   "No term for ovulation pain, so a mid-cycle one-sided ache has no chip.",
+   "Banned lines MR-20 ('just relax') need a model-output guard (not verified).",
+   "No home pregnancy-test entry by phrase."
+  ],
+  "logPhrases": [
+   {
+    "termKey": "eggWhite",
+    "en": [
+     "stretchy clear mucus",
+     "like raw egg white"
+    ],
+    "ar": [
+     "افرازات زي بياض البيض",
+     "افرازات شفافه ومطاطه"
+    ],
+    "fr": [
+     "glaire elastique",
+     "blanc d oeuf"
+    ],
+    "es": [
+     "moco elastico",
+     "clara de huevo"
+    ]
+   },
+   {
+    "termKey": "cramps",
+    "en": [
+     "twinge on one side mid cycle",
+     "ovulation pain"
+    ],
+    "ar": [
+     "وجع في جنب البطن في نص الدوره",
+     "الم التبويض"
+    ],
+    "fr": [
+     "douleur d ovulation"
+    ],
+    "es": [
+     "dolor de ovulacion"
+    ]
+   },
+   {
+    "termKey": "breastTenderness",
+    "en": [
+     "breasts sore after ovulation"
+    ],
+    "ar": [
+     "صدري واجعني بعد التبويض"
+    ],
+    "fr": [
+     "seins sensibles apres ovulation"
+    ],
+    "es": [
+     "pechos sensibles tras ovulacion"
+    ]
+   }
+  ],
+  "visitQuestions": [
+   {
+    "id": "ttcPreconceptionReview",
+    "en": "We are planning pregnancy. Is there anything in my health or medicines to review first?",
+    "when": "goal=ttc and trying under 12 months",
+    "source": "https://www.acog.org/clinical/clinical-guidance/committee-opinion/articles/2019/01/prepregnancy-counseling"
+   },
+   {
+    "id": "ttcEarlyCheckAge",
+    "en": "I am 35 or older and we have tried for six months. Which checks come first?",
+    "when": "age 35+ and tryingFor 6+ months",
+    "source": "https://www.asrm.org/practice-guidance/practice-committee-documents/fertility-evaluation-of-infertile-women-a-committee-opinion-2021/"
+   }
+  ],
+  "tips": [
+   {
+    "id": "timingFrequency",
+    "en": "Intercourse every one to two days in the fertile window gives the best odds; two to three times a week is nearly as good. No single day decides a cycle.",
+    "trigger": "goal=ttc and a window shown or mucus logged",
+    "source": {
+     "publisher": "ASRM",
+     "url": "https://www.asrm.org/practice-guidance/practice-committee-documents/optimizing-natural-fertility-a-committee-opinion-2021/"
+    }
+   },
+   {
+    "id": "bbtLooksBack",
+    "en": "A sustained temperature rise suggests ovulation has already happened. It does not predict the next one, so use it with mucus or ovulation tests.",
+    "trigger": "BBT logged on 3+ days",
+    "source": {
+     "publisher": "ASRM",
+     "url": "https://www.asrm.org/practice-guidance/practice-committee-documents/optimizing-natural-fertility-a-committee-opinion-2021/"
+    }
+   },
+   {
+    "id": "opkSurgeOnly",
+    "en": "A positive ovulation strip shows a hormone surge. It does not prove an egg was released.",
+    "trigger": "OPK positive logged",
+    "source": {
+     "publisher": "ASRM",
+     "url": "https://www.asrm.org/practice-guidance/practice-committee-documents/optimizing-natural-fertility-a-committee-opinion-2021/"
+    }
+   },
+   {
+    "id": "whenToSeekHelp",
+    "en": "Evaluation is usually advised after 12 months of trying under 35, and after 6 months from 35. Sooner is reasonable if cycles are irregular.",
+    "trigger": "tryingFor 12+ months (under 35) or 6+ months (35+)",
+    "source": {
+     "publisher": "ASRM",
+     "url": "https://www.asrm.org/practice-guidance/practice-committee-documents/fertility-evaluation-of-infertile-women-a-committee-opinion-2021/"
+    }
+   }
+  ],
+  "askTopics": [
+   "When is my fertile window?",
+   "How do I read an ovulation test?",
+   "What does egg-white mucus look like?",
+   "Does lubricant, caffeine or position matter?",
+   "When should we see a doctor?",
+   "Two-week-wait symptoms"
+  ],
+  "redFlags": [
+   {
+    "symptom": "Sudden severe tummy pain, dizziness or fainting while pregnant or after a positive test (possible ectopic pregnancy)",
+    "action": "emergency",
+    "sourceUrl": "https://www.nhs.uk/conditions/ectopic-pregnancy/",
+    "quote": "Call 999 for an ambulance or go to your nearest accident and emergency (A&E) department immediately"
+   },
+   {
+    "symptom": "Heavy bleeding or severe pain after a positive test",
+    "action": "emergency",
+    "sourceUrl": "https://www.nhs.uk/conditions/miscarriage/",
+    "quote": "[VERBATIM NOT CAPTURED - re-fetch page before shipping] (page says to call 999 for heavy bleeding or severe pain)"
+   }
+  ],
+  "missingVocab": [
+   "ovulation pain (one-sided mid-cycle ache)",
+   "home pregnancy-test result"
+  ]
+ },
+ {
+  "persona": "C2",
+  "name": "Primary infertility, under 35, in workup",
+  "goal": "ttc",
+  "aiJobs": [
+   "Visit prep: build the consult list (cycle lengths, tests done, questions) so nothing is forgotten in 15 minutes.",
+   "Learn: explain in plain words what an HSG, semen analysis or ovarian-reserve test is for, without interpreting her results.",
+   "Log: keep daily logging light and opt-out friendly; capture mood and anxiety in her words.",
+   "Ask: 'unexplained infertility' and 'what is the usual order of tests' from NICE, ASRM and WHO."
+  ],
+  "covered": [
+   "visit_summary.dart ttcTests/ovulation/folicAcid; guidance.dart 12-month rule.",
+   "log_phrases.dart anxious, sad, tearfulness, panicFeelings."
+  ],
+  "gaps": [
+   "No result or appointment store the assistant can summarise.",
+   "No visit question for 'order of tests' or 'when do we get referred'.",
+   "Distress support beyond crisis phrases is prompt-only (not verified).",
+   "Assistant must refuse 'is my AMH low' (MR-18, MR-33); refusal not verified."
+  ],
+  "logPhrases": [
+   {
+    "termKey": "sad",
+    "en": [
+     "grieving another negative",
+     "heartbroken after my period came"
+    ],
+    "ar": [
+     "زعلانه عشان الدوره نزلت",
+     "قلبي مكسور"
+    ],
+    "fr": [
+     "triste apres mes regles"
+    ],
+    "es": [
+     "triste porque me vino la regla"
+    ]
+   },
+   {
+    "termKey": "anxious",
+    "en": [
+     "waiting for results",
+     "anxious about the tests"
+    ],
+    "ar": [
+     "قلقانه من التحاليل",
+     "مستنيه النتيجه"
+    ],
+    "fr": [
+     "angoissee par les resultats"
+    ],
+    "es": [
+     "ansiosa por los resultados"
+    ]
+   }
+  ],
+  "visitQuestions": [
+   {
+    "id": "workupOrder",
+    "en": "What tests do you suggest for us and in what order?",
+    "when": "goal=ttc and tryingFor 12+ months",
+    "source": "https://www.asrm.org/practice-guidance/practice-committee-documents/fertility-evaluation-of-infertile-women-a-committee-opinion-2021/"
+   },
+   {
+    "id": "tubalCheck",
+    "en": "Should we check that my fallopian tubes are open, and how is that done?",
+    "when": "goal=ttc and tryingFor 12+ months",
+    "source": "https://www.asrm.org/practice-guidance/practice-committee-documents/fertility-evaluation-of-infertile-women-a-committee-opinion-2021/"
+   },
+   {
+    "id": "partnerSemenAnalysis",
+    "en": "Should my partner have a semen analysis now, alongside my tests?",
+    "when": "goal=ttc and tryingFor 12+ months",
+    "source": "https://www.asrm.org/practice-guidance/practice-committee-documents/diagnosis-and-treatment-of-infertility-in-men-auaasrm-guideline-part-i-2020/"
+   },
+   {
+    "id": "specialistReferral",
+    "en": "At what point would you refer us to a fertility specialist?",
+    "when": "tests done or tryingFor 12+ months",
+    "source": "https://www.nice.org.uk/guidance/ng257/chapter/Investigation-of-fertility-problems-and-management-strategies"
+   }
+  ],
+  "tips": [
+   {
+    "id": "bothPartnersChecked",
+    "en": "Fertility checks usually include both partners. Causes may involve ovulation, the tubes, sperm, more than one factor, or stay unexplained.",
+    "trigger": "tryingFor 12+ months",
+    "source": {
+     "publisher": "ASRM",
+     "url": "https://www.asrm.org/practice-guidance/practice-committee-documents/fertility-evaluation-of-infertile-women-a-committee-opinion-2021/"
+    }
+   },
+   {
+    "id": "reserveNotNatural",
+    "en": "Ovarian-reserve tests show response to stimulation, not whether you can conceive naturally. A result is for your clinician to interpret.",
+    "trigger": "she enters or asks about AMH",
+    "source": {
+     "publisher": "ASRM",
+     "url": "https://www.asrm.org/practice-guidance/practice-committee-documents/testing-and-interpreting-measures-of-ovarian-reserve-a-committee-opinion-2020/"
+    }
+   }
+  ],
+  "askTopics": [
+   "What is an HSG?",
+   "What is unexplained infertility?",
+   "What do semen results mean in general?",
+   "Which test happens on which cycle day (route to clinician)",
+   "Coping with the wait"
+  ],
+  "redFlags": [
+   {
+    "symptom": "Sudden severe tummy pain, dizziness or fainting while pregnant or after a positive test (possible ectopic pregnancy)",
+    "action": "emergency",
+    "sourceUrl": "https://www.nhs.uk/conditions/ectopic-pregnancy/",
+    "quote": "Call 999 for an ambulance or go to your nearest accident and emergency (A&E) department immediately"
+   }
+  ],
+  "missingVocab": [
+   "appointment-done markers are an entry type, not a term"
+  ]
+ },
+ {
+  "persona": "C3",
+  "name": "Primary infertility, age 35 and over",
+  "goal": "ttc",
+  "aiJobs": [
+   "Ask: answer 'am I too late' honestly from ACOG/ASRM: earlier evaluation, no countdown, no personal probability.",
+   "Visit prep: age-aware list: evaluation after 6 months, parallel tests, ovarian-reserve caveat.",
+   "Insights: show months trying with the 6- and 12-month markers from her birth year.",
+   "Learn: what AMH, AFC and FSH are for, never her value."
+  ],
+  "covered": [
+   "guidance.dart sixMonthsFrom35 reason; visit_summary.dart ttcTests.",
+   "log_phrases.dart anxious, sad."
+  ],
+  "gaps": [
+   "No visit question on ovarian-reserve meaning or on moving to assisted treatment sooner.",
+   "'Is my AMH 0.8 bad' must be refused; not verified in prompts.dart.",
+   "Age-40 'do not wait' wording absent from the visit bank.",
+   "Loss branch (to C5) has no link in the assistant."
+  ],
+  "logPhrases": [
+   {
+    "termKey": "anxious",
+    "en": [
+     "scared time is running out",
+     "worried about my age"
+    ],
+    "ar": [
+     "خايفه الوقت بيجري",
+     "قلقانه من سني"
+    ],
+    "fr": [
+     "peur que le temps passe"
+    ],
+    "es": [
+     "miedo a que se acabe el tiempo"
+    ]
+   }
+  ],
+  "visitQuestions": [
+   {
+    "id": "ttcOver35Timing",
+    "en": "I am over 35. Should we start checks now rather than wait?",
+    "when": "age 35+ and tryingFor 6+ months, or age 40+",
+    "source": "https://www.asrm.org/practice-guidance/practice-committee-documents/fertility-evaluation-of-infertile-women-a-committee-opinion-2021/"
+   },
+   {
+    "id": "reserveMeaning",
+    "en": "What does an ovarian-reserve test tell us, and what does it not?",
+    "when": "age 35+ and goal=ttc",
+    "source": "https://www.asrm.org/practice-guidance/practice-committee-documents/testing-and-interpreting-measures-of-ovarian-reserve-a-committee-opinion-2020/"
+   },
+   {
+    "id": "parallelTests",
+    "en": "Can some tests run in parallel so we do not lose cycles?",
+    "when": "age 35+ and tryingFor 6+ months",
+    "source": "https://www.asrm.org/practice-guidance/practice-committee-documents/fertility-evaluation-of-infertile-women-a-committee-opinion-2021/"
+   },
+   {
+    "id": "artTimingAge",
+    "en": "At my age, when would you consider moving to assisted treatment?",
+    "when": "age 38+ and checks started",
+    "source": "https://www.nice.org.uk/guidance/ng257/chapter/Investigation-of-fertility-problems-and-management-strategies"
+   }
+  ],
+  "tips": [
+   {
+    "id": "age35SixMonths",
+    "en": "At 35 or older, evaluation is advised after six months of trying. From 40, clinicians may suggest not waiting at all.",
+    "trigger": "age 35+ and goal=ttc",
+    "source": {
+     "publisher": "ASRM",
+     "url": "https://www.asrm.org/practice-guidance/practice-committee-documents/fertility-evaluation-of-infertile-women-a-committee-opinion-2021/"
+    }
+   },
+   {
+    "id": "reserveAdjunct",
+    "en": "Ovarian-reserve tests help plan treatment. A low-for-age value does not mean natural pregnancy is impossible.",
+    "trigger": "age 35+ and she mentions a reserve test",
+    "source": {
+     "publisher": "ASRM",
+     "url": "https://www.asrm.org/practice-guidance/practice-committee-documents/testing-and-interpreting-measures-of-ovarian-reserve-a-committee-opinion-2020/"
+    }
+   }
+  ],
+  "askTopics": [
+   "Does fertility drop at 35?",
+   "AMH versus AFC versus FSH",
+   "Do we skip IUI and go to IVF?",
+   "Egg freezing (education)",
+   "Miscarriage risk with age"
+  ],
+  "redFlags": [
+   {
+    "symptom": "Sudden severe tummy pain, dizziness or fainting while pregnant or after a positive test (possible ectopic pregnancy)",
+    "action": "emergency",
+    "sourceUrl": "https://www.nhs.uk/conditions/ectopic-pregnancy/",
+    "quote": "Call 999 for an ambulance or go to your nearest accident and emergency (A&E) department immediately"
+   }
+  ],
+  "missingVocab": [
+   "none beyond C2"
+  ]
+ },
+ {
+  "persona": "C4",
+  "name": "Secondary infertility",
+  "goal": "ttc",
+  "aiJobs": [
+   "Log: quick-entry for a mother with a small child; short chips, no streak guilt.",
+   "Visit prep: include prior pregnancy and delivery history, cycle change since birth, and what she logged.",
+   "Ask: 'what changed since last time' and 'do I need checking if I already have a child' from NICE and ASRM.",
+   "Insights: apply the 12 or 6 month clock from the date she restarted trying."
+  ],
+  "covered": [
+   "guidance.dart rules apply; visit_summary.dart ttcTests.",
+   "log_phrases.dart fatigue, insomnia."
+  ],
+  "gaps": [
+   "No profile data for previous pregnancies or last delivery; the clock may start at the wrong date.",
+   "No visit question about prior delivery or surgery history.",
+   "No breastfeeding-aware cycle education.",
+   "Blame-free tone (MR-20) is lint-on-content only (model output not verified)."
+  ],
+  "logPhrases": [
+   {
+    "termKey": "fatigue",
+    "en": [
+     "exhausted with a baby and trying",
+     "no energy with a toddler"
+    ],
+    "ar": [
+     "تعبانه من الطفل",
+     "مفيش طاقه مع البيبي"
+    ],
+    "fr": [
+     "epuisee avec un bebe"
+    ],
+    "es": [
+     "agotada con un bebe"
+    ]
+   },
+   {
+    "termKey": "insomnia",
+    "en": [
+     "up with the baby at night"
+    ],
+    "ar": [
+     "صاحيه بالليل مع الطفل"
+    ],
+    "fr": [
+     "reveillee la nuit par bebe"
+    ],
+    "es": [
+     "despierta de noche con el bebe"
+    ]
+   }
+  ],
+  "visitQuestions": [
+   {
+    "id": "pastPregnancyHistory",
+    "en": "Could anything from my last pregnancy or delivery matter for trying again?",
+    "when": "goal=ttc and previous pregnancy noted (needs field)",
+    "source": "https://www.nice.org.uk/guidance/ng257/chapter/Investigation-of-fertility-problems-and-management-strategies"
+   },
+   {
+    "id": "secondaryTiming",
+    "en": "Since I already have a child, when is it reasonable to be checked?",
+    "when": "tryingFor 6+ months and age 35+, or 12+ months",
+    "source": "https://www.nhs.uk/conditions/infertility/"
+   },
+   {
+    "id": "postpartumCycles",
+    "en": "My cycles are different since the baby. Should I be concerned?",
+    "when": "irregular flag after birth",
+    "source": "[NEEDS SOURCE]"
+   }
+  ],
+  "tips": [
+   {
+    "id": "secondarySameRule",
+    "en": "Having had a baby does not change when to seek help: 12 months of trying under 35, six months from 35.",
+    "trigger": "goal=ttc and a previous pregnancy",
+    "source": {
+     "publisher": "NHS",
+     "url": "https://www.nhs.uk/conditions/infertility/"
+    }
+   }
+  ],
+  "askTopics": [
+   "Why is it harder this time?",
+   "Do I need tests if I have a child?",
+   "Can a past C-section or infection matter?",
+   "Cycles while breastfeeding"
+  ],
+  "redFlags": [
+   {
+    "symptom": "Sudden severe tummy pain, dizziness or fainting while pregnant or after a positive test (possible ectopic pregnancy)",
+    "action": "emergency",
+    "sourceUrl": "https://www.nhs.uk/conditions/ectopic-pregnancy/",
+    "quote": "Call 999 for an ambulance or go to your nearest accident and emergency (A&E) department immediately"
+   }
+  ],
+  "missingVocab": [
+   "breastfeeding status (profile)",
+   "postpartum bleeding (spotting closest)"
+  ]
+ },
+ {
+  "persona": "C5",
+  "name": "Recurrent pregnancy loss",
+  "goal": "ttc",
+  "aiJobs": [
+   "Visit prep: loss history (dates, weeks, tests) she typed in, and questions for the recurrent-loss clinic.",
+   "Ask: causes map and that about half stay unexplained, never a cause for her.",
+   "Log: gentle tracking with an off switch for countdowns (MR-35: her own words, stop pregnancy-week cards after a loss).",
+   "Safety: bleeding or severe pain in a new pregnancy opens urgent help."
+  ],
+  "covered": [
+   "safety.dart pregnancyWarning phrases include bleeding, blood and waters breaking.",
+   "visit_summary.dart pregnancyNext when goal=pregnant."
+  ],
+  "gaps": [
+   "No loss-history entry or MR-35 handling in the assistant (no stop-reminders path seen).",
+   "No visit question about the loss work-up (clotting, thyroid, uterine, genetic).",
+   "Tone around self-blame is prompt-only (not verified).",
+   "Goal enum has no post-loss state; ttc is used."
+  ],
+  "logPhrases": [
+   {
+    "termKey": "tearfulness",
+    "en": [
+     "crying about the loss",
+     "grieving"
+    ],
+    "ar": [
+     "بعيط على اللي حصل",
+     "حزينه على الحمل اللي راح"
+    ],
+    "fr": [
+     "je pleure la perte"
+    ],
+    "es": [
+     "lloro por mi perdida"
+    ]
+   },
+   {
+    "termKey": "anxious",
+    "en": [
+     "scared it will happen again"
+    ],
+    "ar": [
+     "خايفه يتكرر"
+    ],
+    "fr": [
+     "peur que ca recommence"
+    ],
+    "es": [
+     "miedo a que se repita"
+    ]
+   },
+   {
+    "termKey": "spotting",
+    "en": [
+     "bleeding in early pregnancy"
+    ],
+    "ar": [
+     "نزول دم في اول الحمل"
+    ],
+    "fr": [
+     "saignement en debut de grossesse"
+    ],
+    "es": [
+     "sangrado al inicio del embarazo"
+    ]
+   }
+  ],
+  "visitQuestions": [
+   {
+    "id": "lossWorkup",
+    "en": "After more than one loss, which tests do you suggest?",
+    "when": "loss count 2+ entered (needs field)",
+    "source": "https://www.rcog.org.uk/for-the-public/browse-our-patient-information/recurrent-miscarriage/"
+   },
+   {
+    "id": "nextPregnancySupport",
+    "en": "If I become pregnant again, what early monitoring or support is available?",
+    "when": "goal=ttc after a loss (needs field)",
+    "source": "https://www.rcog.org.uk/for-the-public/browse-our-patient-information/recurrent-miscarriage/"
+   },
+   {
+    "id": "lossThyroidClot",
+    "en": "Should thyroid and clotting tests be part of my review?",
+    "when": "loss count 2+ entered",
+    "source": "https://www.rcog.org.uk/for-the-public/browse-our-patient-information/recurrent-miscarriage/"
+   }
+  ],
+  "tips": [
+   {
+    "id": "lossNotYourFault",
+    "en": "Most losses come from chromosome changes in the embryo, not from anything you did. Many people go on to a healthy pregnancy.",
+    "trigger": "a loss entered",
+    "source": {
+     "publisher": "NHS",
+     "url": "https://www.nhs.uk/conditions/miscarriage/"
+    }
+   }
+  ],
+  "askTopics": [
+   "Why does recurrent miscarriage happen?",
+   "What are the tests?",
+   "Is it my fault?",
+   "What do clinicians offer next time (education only)",
+   "Coping with pregnancy after loss"
+  ],
+  "redFlags": [
+   {
+    "symptom": "Heavy bleeding or severe pain in early pregnancy",
+    "action": "emergency",
+    "sourceUrl": "https://www.nhs.uk/conditions/miscarriage/",
+    "quote": "[VERBATIM NOT CAPTURED - re-fetch page before shipping] (page says to call 999 for heavy bleeding or severe pain)"
+   },
+   {
+    "symptom": "Sudden severe tummy pain, dizziness or fainting while pregnant or after a positive test (possible ectopic pregnancy)",
+    "action": "emergency",
+    "sourceUrl": "https://www.nhs.uk/conditions/ectopic-pregnancy/",
+    "quote": "Call 999 for an ambulance or go to your nearest accident and emergency (A&E) department immediately"
+   }
+  ],
+  "missingVocab": [
+   "home pregnancy-test result",
+   "loss entry (an event, not a term)",
+   "passing clots or tissue (urgent; no key)"
+  ]
+ },
+ {
+  "persona": "C6",
+  "name": "TTC with PCOS",
+  "goal": "ttc",
+  "aiJobs": [
+   "Insights: say 'no confident window this cycle' for long or varying cycles (MR-06) and how to confirm ovulation afterwards.",
+   "Log: OPK results, temperature and mucus together; a positive strip is a surge only.",
+   "Visit prep: no 12-month clock; evaluation prep now (cycle lengths, OPK pattern, acne, hair).",
+   "Ask: why strips can read positive for long in PCOS, from the 2023 guideline, without drug advice."
+  ],
+  "covered": [
+   "visit_summary.dart: cycleSpread, ovulation, skinHair, folicAcid; guidance.dart irregular reason.",
+   "log_phrases.dart acne, hairThinning, weightChange, opk."
+  ],
+  "gaps": [
+   "Repeated positive OPKs get no assistant message (MR-16 not wired in).",
+   "No visit question on glucose testing in pregnancy (MR-34) or on ovulation-induction discussion.",
+   "MR-33: refusal for 'should I take letrozole' not verified.",
+   "weightChange phrases need a non-shaming tone guard."
+  ],
+  "logPhrases": [
+   {
+    "termKey": "acne",
+    "en": [
+     "chin breakouts",
+     "jawline acne"
+    ],
+    "ar": [
+     "حبوب الدقن",
+     "حبوب الفك"
+    ],
+    "fr": [
+     "acne du menton"
+    ],
+    "es": [
+     "acne en la barbilla"
+    ]
+   },
+   {
+    "termKey": "weightChange",
+    "en": [
+     "weight gain around the waist"
+    ],
+    "ar": [
+     "وزني زاد في البطن"
+    ],
+    "fr": [
+     "prise de poids au ventre"
+    ],
+    "es": [
+     "aumento de peso en la cintura"
+    ]
+   }
+  ],
+  "visitQuestions": [
+   {
+    "id": "pcosTtcNow",
+    "en": "My cycles are long and irregular and we are trying. Should we talk about help now instead of waiting a year?",
+    "when": "irregular flag true and goal=ttc",
+    "source": "https://www.asrm.org/practice-guidance/practice-committee-documents/recommendations-from-the-2023-international-evidence-based-guideline-for-the-assessment-and-management-of-polycystic-ovary-syndrome/"
+   },
+   {
+    "id": "confirmOvulationPcos",
+    "en": "How can we confirm whether I ovulate when strips read positive often?",
+    "when": "OPK positive on 5+ days in one cycle",
+    "source": "https://www.asrm.org/practice-guidance/practice-committee-documents/recommendations-from-the-2023-international-evidence-based-guideline-for-the-assessment-and-management-of-polycystic-ovary-syndrome/"
+   },
+   {
+    "id": "pcosGlucosePregnancy",
+    "en": "If I become pregnant, when should a glucose test happen with PCOS?",
+    "when": "PCOS flag (needs field) and goal=ttc or pregnant",
+    "source": "https://www.asrm.org/practice-guidance/practice-committee-documents/recommendations-from-the-2023-international-evidence-based-guideline-for-the-assessment-and-management-of-polycystic-ovary-syndrome/"
+   }
+  ],
+  "tips": [
+   {
+    "id": "pcosNoWait",
+    "en": "With irregular or absent cycles, guidelines advise not waiting 12 months to talk to a clinician about trying to conceive.",
+    "trigger": "irregular flag and goal=ttc",
+    "source": {
+     "publisher": "ASRM",
+     "url": "https://www.asrm.org/practice-guidance/practice-committee-documents/fertility-evaluation-of-infertile-women-a-committee-opinion-2021/"
+    }
+   },
+   {
+    "id": "opkPcosPair",
+    "en": "With PCOS, ovulation strips can read positive often. Guidelines suggest pairing a strip with temperature or mucus.",
+    "trigger": "OPK positive on 5+ days in a cycle",
+    "source": {
+     "publisher": "ASRM",
+     "url": "https://www.asrm.org/practice-guidance/practice-committee-documents/recommendations-from-the-2023-international-evidence-based-guideline-for-the-assessment-and-management-of-polycystic-ovary-syndrome/"
+    }
+   }
+  ],
+  "askTopics": [
+   "Why are my OPKs always positive?",
+   "Am I ovulating?",
+   "Lifestyle and PCOS without shame",
+   "What treatments do guidelines describe (education only)",
+   "PCOS and pregnancy"
+  ],
+  "redFlags": [
+   {
+    "symptom": "Sudden severe tummy pain, dizziness or fainting while pregnant or after a positive test (possible ectopic pregnancy)",
+    "action": "emergency",
+    "sourceUrl": "https://www.nhs.uk/conditions/ectopic-pregnancy/",
+    "quote": "Call 999 for an ambulance or go to your nearest accident and emergency (A&E) department immediately"
+   }
+  ],
+  "missingVocab": [
+   "excess hair growth (hairThinning is the opposite direction)",
+   "skin darkening patches"
+  ]
+ },
+ {
+  "persona": "C7",
+  "name": "TTC with endometriosis",
+  "goal": "ttc",
+  "aiJobs": [
+   "Log: pelvic pain, period pain, bowel and bladder symptoms as a pain diary (NICE suggests one).",
+   "Visit prep: pain-versus-fertility priorities and symptom diary for the specialist.",
+   "Ask: how endometriosis can affect fertility without personal prognosis; MR-42 footer on the answer.",
+   "Insights: no stage or EFI probabilities, ever."
+  ],
+  "covered": [
+   "log_phrases.dart cramps, backache, bloating, diarrhea, constipation, fatigue.",
+   "visit_summary.dart painfulPeriods, ttcTests."
+  ],
+  "gaps": [
+   "MR-42 footer on assistant answers about endometriosis not verified.",
+   "No term for pelvic pain outside the period, or pain on bowel movement or passing urine.",
+   "No visit question on surgery versus assisted treatment or pain priorities.",
+   "Painful intercourse key is elevated and phrases are absent by design; assistant should not ask about it."
+  ],
+  "logPhrases": [
+   {
+    "termKey": "cramps",
+    "en": [
+     "pelvic pain",
+     "stabbing pelvic pain",
+     "pain worse than usual period"
+    ],
+    "ar": [
+     "وجع في الحوض",
+     "وجع حوض جامد",
+     "مغص اقوى من العاده"
+    ],
+    "fr": [
+     "douleur pelvienne",
+     "douleurs pelviennes aigues"
+    ],
+    "es": [
+     "dolor pelvico",
+     "dolor pelvico intenso"
+    ]
+   },
+   {
+    "termKey": "backache",
+    "en": [
+     "pain down my legs with period"
+    ],
+    "ar": [
+     "وجع بينزل في رجلي مع الدوره"
+    ],
+    "fr": [
+     "douleur dans les jambes pendant les regles"
+    ],
+    "es": [
+     "dolor en las piernas con la regla"
+    ]
+   },
+   {
+    "termKey": "bladderUrgency",
+    "en": [
+     "painful peeing during period"
+    ],
+    "ar": [
+     "حرقان وقت الدوره"
+    ],
+    "fr": [
+     "douleur en urinant pendant les regles"
+    ],
+    "es": [
+     "dolor al orinar con la regla"
+    ]
+   }
+  ],
+  "visitQuestions": [
+   {
+    "id": "endoFertilityPlan",
+    "en": "With endometriosis, what are our options and in what order, given my age and priorities?",
+    "when": "endometriosis flag (needs field) and goal=ttc",
+    "source": "https://www.nice.org.uk/guidance/ng73"
+   },
+   {
+    "id": "endoPainDiary",
+    "en": "Can we use my pain diary to decide what to prioritise?",
+    "when": "cramps or backache logged often",
+    "source": "https://www.nice.org.uk/guidance/ng73"
+   },
+   {
+    "id": "endoSurgeryFertility",
+    "en": "Would surgery change our chances, or should we consider assisted conception first?",
+    "when": "endometriosis flag and tryingFor 6+ months",
+    "source": "https://www.nice.org.uk/guidance/ng73"
+   }
+  ],
+  "tips": [
+   {
+    "id": "endoPainDiary",
+    "en": "A pain and symptom diary helps your clinician talk with you about endometriosis. Femio helps you track and prepare; it does not diagnose or stage.",
+    "trigger": "cramps or backache on 5+ days",
+    "source": {
+     "publisher": "NICE",
+     "url": "https://www.nice.org.uk/guidance/ng73"
+    }
+   }
+  ],
+  "askTopics": [
+   "How does endometriosis affect fertility?",
+   "Is this pain a flare?",
+   "Does surgery help fertility?",
+   "Does endo make IVF less likely to work?"
+  ],
+  "redFlags": [
+   {
+    "symptom": "Sudden severe pelvic pain with fainting while pregnancy is possible",
+    "action": "emergency",
+    "sourceUrl": "https://www.nhs.uk/conditions/ectopic-pregnancy/",
+    "quote": "Call 999 for an ambulance or go to your nearest accident and emergency (A&E) department immediately"
+   }
+  ],
+  "missingVocab": [
+   "pelvic pain outside periods (cramps closest)",
+   "pain with bowel movements",
+   "pain on urination during period"
+  ]
+ },
+ {
+  "persona": "C8",
+  "name": "TTC with thyroid disease",
+  "goal": "ttc",
+  "aiJobs": [
+   "Visit prep: ask the clinician about thyroid review before and in early pregnancy; store lab values with the lab's own range only.",
+   "Safety: on a positive test, prompt contact with the thyroid or pregnancy clinician promptly (no dose advice).",
+   "Log: fatigue, hair and cycle changes beside test dates she enters.",
+   "Ask: general thyroid-and-fertility information from trusted pages."
+  ],
+  "covered": [
+   "visit_summary.dart folicAcid, tiredness, ttcTests.",
+   "log_phrases.dart fatigue, hairThinning, weightChange."
+  ],
+  "gaps": [
+   "No thyroid flag in profile; no 'on a positive test, contact your thyroid clinician' step.",
+   "Refusal of 'how much levothyroxine now' is not verified (MR-33).",
+   "No visit question about thyroid antibodies and loss risk.",
+   "No lab-date store."
+  ],
+  "logPhrases": [
+   {
+    "termKey": "brittleNails",
+    "en": [
+     "nails breaking easily"
+    ],
+    "ar": [
+     "ضوافري بتتكسر"
+    ],
+    "fr": [
+     "ongles cassants"
+    ],
+    "es": [
+     "unas quebradizas"
+    ]
+   },
+   {
+    "termKey": "fatigue",
+    "en": [
+     "so tired, thyroid again"
+    ],
+    "ar": [
+     "تعبانه من الغده"
+    ],
+    "fr": [
+     "fatiguee thyroide"
+    ],
+    "es": [
+     "cansada por la tiroides"
+    ]
+   }
+  ],
+  "visitQuestions": [
+   {
+    "id": "thyroidBeforeTtc",
+    "en": "We are planning pregnancy. Should my thyroid be reviewed first?",
+    "when": "thyroid flag (needs field) and goal=ttc",
+    "source": "https://www.reproductivefacts.org/news-and-publications/fact-sheets-and-infographics/hypothyroidism-and-pregnancy-what-should-i-know/"
+   },
+   {
+    "id": "thyroidPositiveTest",
+    "en": "If my pregnancy test is positive, what should I do about my thyroid care, and how fast?",
+    "when": "thyroid flag and goal=ttc",
+    "source": "https://www.reproductivefacts.org/news-and-publications/fact-sheets-and-infographics/hypothyroidism-and-pregnancy-what-should-i-know/"
+   },
+   {
+    "id": "thyroidAntibodies",
+    "en": "I have thyroid antibodies. What does that mean for pregnancy and loss risk?",
+    "when": "antibody flag (needs field)",
+    "source": "[NEEDS SOURCE]"
+   }
+  ],
+  "tips": [
+   {
+    "id": "thyroidTellClinicEarly",
+    "en": "If you have a thyroid condition and a positive pregnancy test, contact the team that manages your thyroid promptly; needs often change in pregnancy.",
+    "trigger": "thyroid flag and a positive test noted",
+    "source": {
+     "publisher": "ASRM ReproductiveFacts",
+     "url": "https://www.reproductivefacts.org/news-and-publications/fact-sheets-and-infographics/hypothyroidism-and-pregnancy-what-should-i-know/"
+    }
+   }
+  ],
+  "askTopics": [
+   "Does thyroid disease affect fertility?",
+   "What does a TSH target mean (general, not mine)",
+   "Why do needs change in pregnancy?",
+   "Do antibodies matter?"
+  ],
+  "redFlags": [
+   {
+    "symptom": "Sudden severe tummy pain, dizziness or fainting while pregnant or after a positive test (possible ectopic pregnancy)",
+    "action": "emergency",
+    "sourceUrl": "https://www.nhs.uk/conditions/ectopic-pregnancy/",
+    "quote": "Call 999 for an ambulance or go to your nearest accident and emergency (A&E) department immediately"
+   }
+  ],
+  "missingVocab": [
+   "cold or heat intolerance",
+   "thyroid medicine taken marker"
+  ]
+ },
+ {
+  "persona": "C9",
+  "name": "TTC with male-factor result (her side)",
+  "goal": "ttc",
+  "aiJobs": [
+   "Learn: plain-language semen analysis glossary, the repeat-test principle, and 'infertility is a couple issue'.",
+   "Visit prep: shared list of questions for the urologist or fertility clinic.",
+   "Log: keep timing logs useful for natural or IUI attempts.",
+   "Ask: supporting a partner and answering family pressure from trusted pages."
+  ],
+  "covered": [
+   "visit_summary.dart ttcTests, ovulation.",
+   "log_phrases.dart anxious, sad."
+  ],
+  "gaps": [
+   "No visit question about the semen result, repeat testing, varicocele or IUI versus ICSI.",
+   "Couple-level framing in assistant prompts not verified.",
+   "No store for partner's result (should be user-entered, lab-ranged).",
+   "Social-pressure questions (MENA) rely on the general library."
+  ],
+  "logPhrases": [
+   {
+    "termKey": "sad",
+    "en": [
+     "blaming myself even though its him",
+     "sad about his result"
+    ],
+    "ar": [
+     "زعلانه على نتيجته",
+     "الناس بتلومني"
+    ],
+    "fr": [
+     "triste pour ses resultats"
+    ],
+    "es": [
+     "triste por su resultado"
+    ]
+   }
+  ],
+  "visitQuestions": [
+   {
+    "id": "repeatSemenAnalysis",
+    "en": "Should his semen test be repeated, and when?",
+    "when": "partner result entered (needs field)",
+    "source": "https://www.asrm.org/practice-guidance/practice-committee-documents/diagnosis-and-treatment-of-infertility-in-men-auaasrm-guideline-part-i-2020/"
+   },
+   {
+    "id": "maleCausesLifestyle",
+    "en": "Is there anything we can look at on his side, such as lifestyle or a physical cause?",
+    "when": "partner result entered (needs field)",
+    "source": "https://www.asrm.org/practice-guidance/practice-committee-documents/diagnosis-and-treatment-of-infertility-in-men-auaasrm-guideline-part-i-2020/"
+   },
+   {
+    "id": "iuiOrIcsi",
+    "en": "What is the difference between IUI and ICSI, and which fits our situation?",
+    "when": "partner result abnormal entered (needs field)",
+    "source": "https://medlineplus.gov/maleinfertility.html"
+   }
+  ],
+  "tips": [
+   {
+    "id": "coupleIssue",
+    "en": "Male factor plays a role in a large share of couples who struggle to conceive. Both partners are usually checked together.",
+    "trigger": "goal=ttc and tryingFor 12+ months",
+    "source": {
+     "publisher": "ASRM",
+     "url": "https://www.asrm.org/practice-guidance/practice-committee-documents/diagnosis-and-treatment-of-infertility-in-men-auaasrm-guideline-part-i-2020/"
+    }
+   }
+  ],
+  "askTopics": [
+   "What do semen analysis numbers mean?",
+   "Is it fixable?",
+   "IUI versus ICSI",
+   "How to support him",
+   "Should I keep tracking?"
+  ],
+  "redFlags": [
+   {
+    "symptom": "Sudden severe tummy pain, dizziness or fainting while pregnant or after a positive test (possible ectopic pregnancy)",
+    "action": "emergency",
+    "sourceUrl": "https://www.nhs.uk/conditions/ectopic-pregnancy/",
+    "quote": "Call 999 for an ambulance or go to your nearest accident and emergency (A&E) department immediately"
+   }
+  ],
+  "missingVocab": [
+   "partner data (not logged by Femio today)"
+  ]
+ },
+ {
+  "persona": "C10",
+  "name": "ART / IVF / IUI cycle",
+  "goal": "ttc",
+  "aiJobs": [
+   "Visit prep: one place for appointment dates, results she types in with the clinic's units, and questions.",
+   "Learn: step-by-step IVF education (stimulation, monitoring, retrieval, transfer, two-week wait) with no dates or doses of its own.",
+   "Log: injection-site soreness, bloating, mood; mirror only what the clinic wrote if she enters instructions.",
+   "Safety: bloating with rapid swelling, severe pain or breathlessness opens urgent help."
+  ],
+  "covered": [
+   "log_phrases.dart bloating, nausea, mood terms.",
+   "safety.dart urgent phrases for breathlessness and chest pain."
+  ],
+  "gaps": [
+   "No OHSS warning phrases in safety.dart (rapid swelling, severe abdominal pain, passing little urine).",
+   "No visit questions for the ART consult (transfer plan, freeze-all, add-ons).",
+   "No injection or protocol store; mirroring clinic text is not built.",
+   "No pregnancy blood-test entry or two-week-wait supportive routing."
+  ],
+  "logPhrases": [
+   {
+    "termKey": "bloating",
+    "en": [
+     "swollen belly from stimulation",
+     "very bloated on stims"
+    ],
+    "ar": [
+     "بطني منفوخه من الحقن",
+     "انتفاخ شديد من الحقن"
+    ],
+    "fr": [
+     "ventre gonfle sous stimulation"
+    ],
+    "es": [
+     "hinchada por la estimulacion"
+    ]
+   },
+   {
+    "termKey": "cramps",
+    "en": [
+     "pain after egg retrieval",
+     "cramping after transfer"
+    ],
+    "ar": [
+     "وجع بعد سحب البويضات",
+     "مغص بعد النقل"
+    ],
+    "fr": [
+     "douleur apres ponction"
+    ],
+    "es": [
+     "dolor tras la puncion"
+    ]
+   },
+   {
+    "termKey": "moodSwings",
+    "en": [
+     "emotional on injections"
+    ],
+    "ar": [
+     "مزاجي متقلب من الحقن"
+    ],
+    "fr": [
+     "humeur changeante sous traitement"
+    ],
+    "es": [
+     "cambios de humor por el tratamiento"
+    ]
+   }
+  ],
+  "visitQuestions": [
+   {
+    "id": "artTransferPlan",
+    "en": "What is the plan for transfer, and what happens if we freeze embryos?",
+    "when": "goal=ttc and ART flag (needs field)",
+    "source": "https://www.hfea.gov.uk/treatments/treatment-add-ons/elective-freeze-all-cycles/"
+   },
+   {
+    "id": "ohssWatch",
+    "en": "Which symptoms after stimulation should make me call the clinic urgently?",
+    "when": "ART flag (needs field) and bloating logged",
+    "source": "https://www.rcog.org.uk/for-the-public/browse-our-patient-information/ovarian-hyperstimulation-syndrome/"
+   },
+   {
+    "id": "artSupportCounselling",
+    "en": "Is counselling or support available alongside treatment?",
+    "when": "ART flag and tearfulness or anxious logged",
+    "source": "https://www.asrm.org/topics/topics-index/psychological-counseling"
+   }
+  ],
+  "tips": [
+   {
+    "id": "ohssAwareness",
+    "en": "Mild bloating is common during stimulation. Severe pain, fast swelling or breathlessness need urgent medical help.",
+    "trigger": "ART flag (needs field) and bloating logged",
+    "source": {
+     "publisher": "RCOG",
+     "url": "https://www.rcog.org.uk/for-the-public/browse-our-patient-information/ovarian-hyperstimulation-syndrome/"
+    }
+   }
+  ],
+  "askTopics": [
+   "What happens in an IVF cycle?",
+   "What are stims, antagonist, trigger (education, not dosing)",
+   "What is OHSS?",
+   "What is the two-week wait before the blood test?"
+  ],
+  "redFlags": [
+   {
+    "symptom": "Severe abdominal pain, rapid swelling or breathlessness after ovarian stimulation (possible OHSS)",
+    "action": "emergency",
+    "sourceUrl": "https://www.rcog.org.uk/for-the-public/browse-our-patient-information/ovarian-hyperstimulation-syndrome/",
+    "quote": "[VERBATIM NOT CAPTURED - re-fetch page before shipping]"
+   }
+  ],
+  "missingVocab": [
+   "injection-site bruising or soreness",
+   "rapid weight gain or abdominal swelling",
+   "passing little urine (OHSS sign)",
+   "pregnancy blood-test result"
+  ]
+ },
+ {
+  "persona": "C11",
+  "name": "TTC after stopping contraception",
+  "goal": "ttc",
+  "aiJobs": [
+   "Log: start mucus and OPK tracking now, before the first period returns.",
+   "Ask: answer the 'post-pill infertility' and detox myths from NHS and MedlinePlus pages.",
+   "Insights: say 'still learning' until enough cycles are logged; no window if cycles vary.",
+   "Visit prep: injection users get a question about return timing."
+  ],
+  "covered": [
+   "guidance.dart rules; visit_summary.dart folicAcid, ovulation.",
+   "log_phrases.dart discharge terms and OPK."
+  ],
+  "gaps": [
+   "No profile field for method stopped and date; injection-specific wording cannot target.",
+   "No tip that ovulation precedes the first bleed.",
+   "No visit question about slow cycle return.",
+   "MR-10 long-gap prompt not wired in."
+  ],
+  "logPhrases": [
+   {
+    "termKey": "eggWhite",
+    "en": [
+     "first fertile mucus since stopping"
+    ],
+    "ar": [
+     "اول افرازات خصبه بعد وقف الحبوب"
+    ],
+    "fr": [
+     "premiere glaire fertile apres arret"
+    ],
+    "es": [
+     "primer moco fertil tras dejar el metodo"
+    ]
+   },
+   {
+    "termKey": "spotting",
+    "en": [
+     "first bleed after coil removal",
+     "bleeding after stopping injection"
+    ],
+    "ar": [
+     "اول نزول بعد شيل اللولب",
+     "نزول بعد وقف الابره"
+    ],
+    "fr": [
+     "premier saignement apres retrait du sterilet"
+    ],
+    "es": [
+     "primer sangrado tras retirar el diu"
+    ]
+   }
+  ],
+  "visitQuestions": [
+   {
+    "id": "cycleReturnAfterMethod",
+    "en": "My cycle has not settled since stopping my method. When should we look into it?",
+    "when": "method stopped (needs field) and no bleed in 90 days or irregular",
+    "source": "https://www.nhs.uk/conditions/contraception/when-periods-after-stopping-pill/"
+   },
+   {
+    "id": "injectionReturnTtc",
+    "en": "I stopped the injection and want to conceive. How long might that take?",
+    "when": "injection stopped flag (needs field)",
+    "source": "https://www.nhs.uk/contraception/methods-of-contraception/contraceptive-injection/what-is-it/"
+   },
+   {
+    "id": "folicAcidNow",
+    "en": "Should I start folic acid now, before my period returns?",
+    "when": "goal=ttc and method stopped",
+    "source": "https://www.cdc.gov/folic-acid/about/index.html"
+   }
+  ],
+  "tips": [
+   {
+    "id": "startNowNoWait",
+    "en": "You do not need to wait for a period or a detox to try. Ovulation can come before the first bleed, so mucus and strip tracking can start now.",
+    "trigger": "goal=ttc and method stopped (needs field)",
+    "source": {
+     "publisher": "ASRM",
+     "url": "https://www.asrm.org/practice-guidance/practice-committee-documents/optimizing-natural-fertility-a-committee-opinion-2021/"
+    }
+   },
+   {
+    "id": "noDetox",
+    "en": "Reversible contraception does not cause long-term infertility, and no waiting period or detox is needed before trying.",
+    "trigger": "goal=ttc and method stopped (needs field)",
+    "source": {
+     "publisher": "NHS",
+     "url": "https://www.nhs.uk/conditions/contraception/when-periods-after-stopping-pill/"
+    }
+   },
+   {
+    "id": "injectionDelay",
+    "en": "After the contraceptive injection, return of fertility can take up to about a year. That is a delay, not permanent infertility.",
+    "trigger": "injection stopped flag (needs field)",
+    "source": {
+     "publisher": "NHS",
+     "url": "https://www.nhs.uk/contraception/methods-of-contraception/contraceptive-injection/what-is-it/"
+    }
+   }
+  ],
+  "askTopics": [
+   "How long until my period returns?",
+   "Is post-pill infertility real?",
+   "Do I need to detox?",
+   "How do I start tracking if I never did?",
+   "Folic acid timing (CDC)"
+  ],
+  "redFlags": [
+   {
+    "symptom": "Sudden severe tummy pain, dizziness or fainting while pregnant or after a positive test (possible ectopic pregnancy)",
+    "action": "emergency",
+    "sourceUrl": "https://www.nhs.uk/conditions/ectopic-pregnancy/",
+    "quote": "Call 999 for an ambulance or go to your nearest accident and emergency (A&E) department immediately"
+   }
+  ],
+  "missingVocab": [
+   "method stopped date and type (profile, not a term)"
+  ]
+ }
+]

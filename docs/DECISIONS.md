@@ -873,3 +873,45 @@ she types into Ask femio may be processed by Google to answer them, not stored b
 her"; the privacy notice ×4 and the store listing change before a release that enables the cloud path
 (R7.6). OD-9 is lifted for the assistant described here; free chat and community stay deferred (OD-8).
 The app's minimum Android version rises to 8.0 (API 26), which `firebase-ai-ondevice` requires.
+
+## ADR-079
+**Date:** 2026-11-24 · **Status:** accepted 2026-11-24 (owner, in chat, answering four questions: "Yes, opt-in, off by default (Recommended)", "Bundled registry (Recommended)", "NHS Heavy periods page (Recommended)", "Keep notifications neutral, cut medication (Recommended)") · **Area:** app, privacy, AI, medical content · **Amends:** ADR-078 §1, §2, §3
+
+**Context.** ADR-078 answered Ask femio with Grounding with Google Search, filtered by a host allowlist.
+That shows whatever the search returns, needs the network for every answer, and puts a third party's
+ranking between her and the source. The owner also asked for the assistant to serve all 73 personas,
+not one or two, and for an opt-in way to personalise on phones without Gemini Nano.
+
+**Decision.**
+1. **Answers come only from a bundled registry** (`apps/mobile/assets/trusted_sources/registry.json`,
+   versioned): verbatim passages copied only from US federal public-domain publishers (CDC,
+   MedlinePlus/NLM, Office on Women's Health, NICHD, NIDDK, NCI; enforced in `SourceEntry.fromJson`), and
+   link-only entries for WHO, NHS, ACOG, RCOG and NICE, whose text Femio does not copy. Retrieval is a
+   four-language topic lexicon on the phone. No passage, no answer: she sees "Not covered yet", links and
+   guides. It works offline. Google Search grounding is removed (the tripwire forbids it).
+2. **Gemini Nano summarises on the phone** (`ONLY_ON_DEVICE`), even for a question about her. The
+   summary must cite passage numbers; a reply that cites nothing, or a passage that does not exist, is
+   discarded and the passages are shown word for word.
+3. **Cloud boost: opt-in, off by default.** Only on a phone without Nano, and only after she agrees on a
+   consent screen that shows her own values, the hybrid call (`PREFER_ON_DEVICE`) may receive either a
+   `CloudSafeText` general question she approved, with the public passages, or her
+   `PseudonymisedProfile`: four coarse bands (life stage, cycle regularity, kinds of symptom logged on
+   two or more days in 30, logging streak), no dates, no free text, no identifier, intimate terms
+   excluded. The channel accepts only a `CloudPrompt`, whose factories take only those two types; for
+   tips the cloud is offered every tip for her life stage, never the subset that fits her. One tap
+   turns it off.
+4. **The model reads; Femio speaks**, extended to personal tips and persona visit questions: 51 tips and
+   35 questions, each a reviewed sentence in four languages with its source, kept in
+   `docs/content/assistant/catalogue.json` and generated into code. On-device triggers (stage, logged
+   terms, pregnancy or postpartum week, time trying, irregular, age) choose them; a model may only order
+   ids. Notifications stay neutral; medication logging is not added.
+5. **Two red flags added** (register MR-49, MR-50): heavy bleeding with dizziness shows ACOG's emergency
+   sentence word for word (the NHS "Heavy periods" page has no urgent wording, so the owner's first
+   choice could not be used); in the year after birth, CDC Hear Her urgent warning signs open Help now,
+   and thoughts of harming the baby are a crisis.
+
+**Consequences.** Rule 4 in CLAUDE.md is reworded. The privacy notice ×4 and the Play Data safety form
+must describe Cloud boost before any Play release that ships it (owner action). The registry needs a
+dated refresh and a clinician sample review before release. Persona gaps that need new record state
+(diagnoses, loss history, minors, partner modes) are listed in `docs/hackathon/persona_coverage/` and
+stay out of scope.

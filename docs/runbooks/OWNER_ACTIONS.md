@@ -4,7 +4,9 @@
 is unchanged: Khaled is the only person in every role; sessions do everything else and proceed on
 the recommended default. Do not add a line here unless only a human with Khaled's identity can do it.
 
-## Hackathon: #BuildHybridAI (deadline Sunday 30 November 2026, 2 pm Pacific = midnight Cairo)
+## Hackathon: #BuildHybridAI (deadline Monday 30 November 2026, 2 pm Pacific = 00:00 Cairo on Tuesday 1 December)
+
+Step-by-step guide with screenshots of what you should see: `docs/hackathon/OWNER_GUIDE.html` (open it in a browser).
 
 Added 2026-11-24 (ADR-078). Steps 23 to 25 unlock the AI; without them the app still works on rules.
 
@@ -13,9 +15,9 @@ Added 2026-11-24 (ADR-078). Steps 23 to 25 unlock the AI; without them the app s
 | 23 | **Firebase project on the paid plan.** console.firebase.google.com → Add project `femio` (no Google Analytics) → Build → AI Logic → Get started → **Gemini Developer API** → upgrade to **Blaze** and set a **$10 budget alert** (Google Cloud → Billing → Budgets & alerts). The paid tier keeps her questions out of Google's training | A billing account is yours | 15 min |
 | 24 | **Register the Android app** in that project: package `com.femioapp.femio`. Copy the three ids (App ID, API key, project ID) from Project settings → Your apps into `apps/mobile/assistant.env` (copy of `assistant.env.example`, git-ignored; never into chat). Skip google-services.json | Console access | 5 min |
 | 25 | **App Check.** Install the debug build (a session builds it), open Ask femio once, then in `adb logcat` find the line with the debug token, and add it at App Check → Apps → Manage debug tokens. Then turn **enforcement on** for AI Logic | Console access | 10 min |
-| 26 | **Name the demo phone.** It must be on Google's AICore supported-device list (Gemini Nano); Settings → Assistant in femio says "Ready" when it is | Your phone | 2 min |
+| 26 | **Name the demo phone.** It must be on Google's AICore supported-device list (Gemini Nano); Settings → Assistant in femio says "Ready" when it is. Without Nano the demo still works: turn on Cloud boost there | Your phone | 2 min |
 | 27 | **Say "make it public"** and a session creates the public GitHub repository `femio-app` (Apache-2.0, app only, made by `scripts/hackathon/export-public-app.mjs`; the monorepo stays private) | Publishing is yours to approve | 1 min |
-| 28 | **Record the video** (script on the hackathon pack page), upload it to YouTube (public or unlisted), then **submit on Devpost** with the pasted texts, the repo link and the video link | Your account and voice | 1 hour |
+| 28 | **Record the video** (script on the hackathon pack page), upload it to YouTube (public or unlisted), then **submit on Devpost** with the texts in `docs/hackathon/DEVPOST_SUBMISSION.md`, the repo link and the video link | Your account and voice | 1 hour |
 
 ## Now (before the release candidate)
 

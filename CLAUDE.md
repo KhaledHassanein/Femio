@@ -16,8 +16,8 @@ else and proceed on the recommended default.
    Every page sends her to the app for the full product.
 3. **One content source** (`docs/content/articles/*.md` → `packages/content` JSON) read by both.
 
-**Wedge:** Arabic-first, **trying to conceive → pregnancy**, with **PCOS** depth, **Saudi Arabia +
-Egypt**. **Positioning (ADR-078 §8, 2026-11-24):** "femio: AI-assisted women's health &
+**Wedge:** **trying to conceive → pregnancy**, with **PCOS** depth, **Saudi Arabia + Egypt**
+(owner 2026-11-24: never pitch Femio as "Arabic-first"; languages are one line; no Ramadan content). **Positioning (ADR-078 §8, 2026-11-24):** "femio: AI-assisted women's health &
 wellness" across every life stage; the wedge is the build order, not the limit. Four UI languages (EN/AR/FR/ES, RTL-native); new content ships EN + AR. The long-term
 ambition (one record for her whole health life) stays the direction, not the launch scope.
 
@@ -32,12 +32,13 @@ ambition (one record for her whole health life) stays the direction, not the lau
 4. **Privacy by design.** Health data never leaves the phone. The website measures visits only
    after consent and never what she typed (ADR-075). The app has no analytics and no network
    code of its own; its only ads are Google's banners on the guide screens, non-personalised,
-   fed nothing about her (ADR-076), and femio Plus removes them. The assistant (ADR-078) runs
-   on the phone (Gemini Nano, `ONLY_ON_DEVICE`) for anything that touches her record; only a
-   question with no personal details, redacted on the phone first, may reach Google's cloud
-   model through Firebase AI Logic on the paid tier, grounded in trusted health sources
-   (an allowlist decides what is shown). Rules (red flags, contraception refusal)
-   always run before the model and always win.
+   fed nothing about her (ADR-076), and femio Plus removes them. The assistant (ADR-078,
+   ADR-079) runs on the phone (Gemini Nano, `ONLY_ON_DEVICE`) for anything that touches her
+   record, and answers only from the bundled trusted-source registry, with citations. Only if
+   she turns on **Cloud boost** (off by default, consent screen) may a phone without Nano send
+   a `CloudPrompt` to Google's cloud model through Firebase AI Logic on the paid tier: a
+   redacted general question she approved, or her four-band `PseudonymisedProfile`, nothing
+   else. Rules (red flags, contraception refusal) always run before the model and always win.
 5. **One constant record, additive layers.** A life-stage change re-layers the experience over an
    unchanged record; never rebuilds or deletes.
 6. **Arabic and RTL are first-class.** Western digits in Arabic (ADR-069); Hijri shown beside

@@ -1,0 +1,4612 @@
+{
+ "tips": [
+  {
+   "id": "trackDatesHelps",
+   "personas": [
+    "B1",
+    "B5"
+   ],
+   "trigger": {
+    "stage": [
+     "period"
+    ]
+   },
+   "en": "Noting your period dates in the app helps you see your own pattern and gives a clinician clear facts.",
+   "ar": "تسجيل مواعيد دورتك الشهرية في التطبيق يساعدك على رؤية نمطك الخاص، ويمنح الطبيب أو الطبيبة معلومات واضحة.",
+   "fr": "Noter les dates de vos règles dans l'application vous aide à voir votre propre rythme et donne des repères clairs à un professionnel de santé.",
+   "es": "Anotar las fechas de tu regla en la aplicación te ayuda a ver tu propio patrón y da datos claros a un profesional de la salud.",
+   "source": {
+    "publisher": "NHS",
+    "url": "https://www.nhs.uk/symptoms/irregular-periods/",
+    "quote": "Using an app or a diary to keep track of your periods can help you see if they're irregular."
+   }
+  },
+  {
+   "id": "periodLongerThanSeven",
+   "personas": [
+    "B1",
+    "B4"
+   ],
+   "trigger": {
+    "stage": [
+     "period"
+    ]
+   },
+   "en": "A period that lasts longer than 7 days is worth mentioning to a clinician.",
+   "ar": "الدورة الشهرية التي تستمر أكثر من 7 أيام تستحق أن تخبري بها الطبيب أو الطبيبة.",
+   "fr": "Des règles qui durent plus de 7 jours méritent d'être signalées à un professionnel de santé.",
+   "es": "Una regla que dura más de 7 días merece comentarse con un profesional de la salud.",
+   "source": {
+    "publisher": "NHS",
+    "url": "https://www.nhs.uk/symptoms/irregular-periods/",
+    "quote": "your periods are irregular your periods last longer than 7 days"
+   }
+  },
+  {
+   "id": "bleedingBetweenPeriods",
+   "personas": [
+    "B1",
+    "B4"
+   ],
+   "trigger": {
+    "stage": [
+     "period"
+    ],
+    "term": {
+     "key": "spotting",
+     "minDays": 2,
+     "windowDays": 90
+    }
+   },
+   "en": "Bleeding between periods is worth mentioning to a clinician, so the cause can be looked into.",
+   "ar": "النزف بين الدورات الشهرية يستحق أن تخبري به الطبيب أو الطبيبة ليُبحث عن سببه.",
+   "fr": "Les saignements entre les règles méritent d'être signalés à un professionnel de santé, afin d'en chercher la cause.",
+   "es": "El sangrado entre reglas merece comentarse con un profesional de la salud para buscar su causa.",
+   "source": {
+    "publisher": "NHS",
+    "url": "https://www.nhs.uk/conditions/heavy-periods/",
+    "quote": "you bleed between periods or after sex"
+   }
+  },
+  {
+   "id": "irregularCheckIn",
+   "personas": [
+    "B5",
+    "B6",
+    "B14",
+    "B17",
+    "C16"
+   ],
+   "trigger": {
+    "stage": [
+     "period"
+    ],
+    "irregular": true
+   },
+   "en": "Cycles shorter than 21 or longer than 35 days are called irregular. Mention this to a clinician, who can look at your dates with you.",
+   "ar": "تُسمّى الدورات التي تقل عن 21 يومًا أو تزيد على 35 يومًا دورات غير منتظمة. أخبري الطبيب أو الطبيبة بذلك ليراجع مواعيدك معك.",
+   "fr": "Les cycles de moins de 21 jours ou de plus de 35 jours sont dits irréguliers. Parlez-en à un professionnel de santé, qui pourra examiner vos dates avec vous.",
+   "es": "Los ciclos de menos de 21 días o de más de 35 días se consideran irregulares. Coméntalo con un profesional de la salud, que podrá revisar tus fechas contigo.",
+   "source": {
+    "publisher": "NHS",
+    "url": "https://www.nhs.uk/symptoms/irregular-periods/",
+    "quote": "A woman's periods are irregular if the gap between them is less than 21 days or more than 35 days."
+   }
+  },
+  {
+   "id": "stoppedThreeMonths",
+   "personas": [
+    "B5",
+    "B6",
+    "B14",
+    "B16",
+    "C16"
+   ],
+   "trigger": {
+    "stage": [
+     "period"
+    ],
+    "irregular": true
+   },
+   "en": "A period that stops for more than three months without a clear reason is worth a clinician's check, whatever your age.",
+   "ar": "انقطاع الدورة الشهرية أكثر من ثلاثة أشهر دون سبب واضح يستحق فحص الطبيب أو الطبيبة، مهما كان عمرك.",
+   "fr": "Des règles qui s'arrêtent plus de trois mois sans raison claire méritent l'avis d'un professionnel de santé, quel que soit votre âge.",
+   "es": "Una regla que se interrumpe más de tres meses sin una razón clara merece la revisión de un profesional de la salud, sea cual sea tu edad.",
+   "source": {
+    "publisher": "ACOG",
+    "url": "https://www.acog.org/womens-health/faqs/amenorrhea-absence-of-periods",
+    "quote": "No matter your age, you should be evaluated for amenorrhea if your period stops for more than 3 months without explanation."
+   }
+  },
+  {
+   "id": "irregularWithOtherSigns",
+   "personas": [
+    "B6",
+    "B17"
+   ],
+   "trigger": {
+    "stage": [
+     "period"
+    ],
+    "term": {
+     "key": "acne",
+     "minDays": 3,
+     "windowDays": 90
+    },
+    "irregular": true
+   },
+   "en": "Irregular periods together with other changes, such as acne or extra hair growth, are worth mentioning to a clinician.",
+   "ar": "الدورة غير المنتظمة مع تغيّرات أخرى، مثل حب الشباب أو زيادة نمو الشعر، تستحق أن تخبري بها الطبيب أو الطبيبة.",
+   "fr": "Des règles irrégulières associées à d'autres changements, comme l'acné ou une pilosité accrue, méritent d'être signalées à un professionnel de santé.",
+   "es": "Las reglas irregulares junto con otros cambios, como acné o más vello, merecen comentarse con un profesional de la salud.",
+   "source": {
+    "publisher": "NHS",
+    "url": "https://www.nhs.uk/symptoms/irregular-periods/",
+    "quote": "you have irregular periods and other symptoms like weight gain, tiredness, hair growth on your face, and dry or oily skin"
+   }
+  },
+  {
+   "id": "periodPainSeeClinician",
+   "personas": [
+    "B3",
+    "B4",
+    "B7",
+    "B8",
+    "B9"
+   ],
+   "trigger": {
+    "stage": [
+     "period"
+    ],
+    "term": {
+     "key": "cramps",
+     "minDays": 3,
+     "windowDays": 90
+    }
+   },
+   "en": "Period pain that stops you doing your usual daily activities is a reason to see a clinician.",
+   "ar": "ألم الدورة الشهرية الذي يمنعك من ممارسة أنشطتك اليومية المعتادة سبب لمراجعة الطبيب أو الطبيبة.",
+   "fr": "Des douleurs de règles qui vous empêchent de faire vos activités habituelles sont une raison de consulter un professionnel de santé.",
+   "es": "El dolor de regla que te impide hacer tus actividades diarias habituales es un motivo para consultar a un profesional de la salud.",
+   "source": {
+    "publisher": "NHS",
+    "url": "https://www.nhs.uk/conditions/period-pain/",
+    "quote": "your period pain is stopping you doing your usual daily activities"
+   }
+  },
+  {
+   "id": "severePainUrgent",
+   "personas": [
+    "B3",
+    "B7",
+    "B9"
+   ],
+   "trigger": {
+    "stage": [
+     "period"
+    ],
+    "term": {
+     "key": "cramps",
+     "minDays": 5,
+     "windowDays": 30
+    }
+   },
+   "en": "If pelvic or period pain is severe or worse than usual and painkillers have not helped, ask for urgent medical advice.",
+   "ar": "إذا كان ألم الحوض أو الدورة شديدًا أو أسوأ من المعتاد ولم تُخفّفه المسكّنات، فاطلبي مشورة طبية عاجلة.",
+   "fr": "Si la douleur pelvienne ou des règles est forte ou pire que d'habitude et que les antalgiques n'ont pas aidé, demandez un avis médical urgent.",
+   "es": "Si el dolor pélvico o de la regla es intenso o peor de lo habitual y los analgésicos no han ayudado, pide atención médica urgente.",
+   "source": {
+    "publisher": "NHS",
+    "url": "https://www.nhs.uk/conditions/period-pain/",
+    "quote": "your pelvic pain or period pain is severe or worse than usual, and painkillers have not helped"
+   }
+  },
+  {
+   "id": "symptomDiaryBeforeVisit",
+   "personas": [
+    "B2",
+    "B3",
+    "B5",
+    "B7",
+    "B9",
+    "B15"
+   ],
+   "trigger": {
+    "stage": [
+     "period"
+    ],
+    "term": {
+     "key": "backache",
+     "minDays": 3,
+     "windowDays": 90
+    }
+   },
+   "en": "Before a visit about period problems, a diary of your symptoms across the whole cycle gives your clinician a detailed picture of what happens and when.",
+   "ar": "قبل زيارة بسبب مشكلات الدورة الشهرية، يمنح سجلّ أعراضك على مدار الدورة كلها الطبيبَ أو الطبيبة صورة مفصّلة عمّا يحدث ومتى.",
+   "fr": "Avant une consultation pour des problèmes de règles, un journal de vos symptômes sur tout le cycle donne à un professionnel de santé une image détaillée de ce qui se passe et quand.",
+   "es": "Antes de una consulta por problemas de regla, un diario de tus síntomas durante todo el ciclo da al profesional de la salud una imagen detallada de lo que ocurre y cuándo.",
+   "source": {
+    "publisher": "NHS",
+    "url": "https://www.nhs.uk/conditions/periods/period-problems/",
+    "quote": "Before you see your GP about period problems, it can be useful to keep a diary of your symptoms throughout the menstrual cycle."
+   }
+  },
+  {
+   "id": "heavyOrTired",
+   "personas": [
+    "B4",
+    "B8",
+    "B9",
+    "B17"
+   ],
+   "trigger": {
+    "stage": [
+     "period"
+    ],
+    "term": {
+     "key": "fatigue",
+     "minDays": 3,
+     "windowDays": 90
+    }
+   },
+   "en": "Periods that keep you from daily activities, or leave you tired or short of breath a lot, can be signs of heavy periods. A clinician can help.",
+   "ar": "الدورات التي تعيقك عن أنشطتك اليومية أو تتركك متعبة أو ضيقة النَّفَس كثيرًا قد تكون علامة على غزارة الطمث. يستطيع الطبيب أو الطبيبة مساعدتك.",
+   "fr": "Des règles qui vous empêchent de mener vos activités, ou vous laissent souvent fatiguée ou essoufflée, peuvent être le signe de règles abondantes. Un professionnel de santé peut vous aider.",
+   "es": "Las reglas que te impiden hacer tus actividades, o te dejan muy cansada o sin aliento, pueden ser señal de reglas abundantes. Un profesional de la salud puede ayudarte.",
+   "source": {
+    "publisher": "NHS",
+    "url": "https://www.nhs.uk/conditions/heavy-periods/",
+    "quote": "avoid daily activities, like exercise, or take time off work because of your periods feel tired or short of breath a lot"
+   }
+  },
+  {
+   "id": "pmsDiary",
+   "personas": [
+    "B2"
+   ],
+   "trigger": {
+    "stage": [
+     "period"
+    ],
+    "term": {
+     "key": "moodSwings",
+     "minDays": 3,
+     "windowDays": 90
+    }
+   },
+   "en": "Keeping a diary of your symptoms for at least two cycles helps a clinician see whether they follow your period.",
+   "ar": "تسجيل أعراضك يوميًا لدورتين على الأقل يساعد الطبيب أو الطبيبة على معرفة ما إذا كانت ترتبط بدورتك الشهرية.",
+   "fr": "Tenir un journal de vos symptômes pendant au moins deux cycles aide un professionnel de santé à voir s'ils suivent vos règles.",
+   "es": "Llevar un diario de tus síntomas durante al menos dos ciclos ayuda a un profesional de la salud a ver si siguen a tu regla.",
+   "source": {
+    "publisher": "NHS",
+    "url": "https://www.nhs.uk/conditions/pre-menstrual-syndrome/",
+    "quote": "keep a diary of your symptoms for at least 2 menstrual cycles"
+   }
+  },
+  {
+   "id": "headachesAroundPeriod",
+   "personas": [
+    "B13",
+    "B15"
+   ],
+   "trigger": {
+    "stage": [
+     "period"
+    ],
+    "term": {
+     "key": "headache",
+     "minDays": 3,
+     "windowDays": 30
+    }
+   },
+   "en": "Headaches that come regularly before or during your period are worth mentioning to a clinician. A headache diary next to your period dates helps.",
+   "ar": "الصداع الذي يتكرر قبل الدورة الشهرية أو خلالها يستحق أن تخبري به الطبيب أو الطبيبة. ويساعد تسجيل الصداع بجانب مواعيد دورتك.",
+   "fr": "Les maux de tête qui reviennent avant ou pendant vos règles méritent d'être signalés à un professionnel de santé. Un journal des maux de tête à côté de vos dates de règles aide.",
+   "es": "Los dolores de cabeza que aparecen con regularidad antes o durante la regla merecen comentarse con un profesional de la salud. Un diario de cefaleas junto a las fechas de tu regla ayuda.",
+   "source": {
+    "publisher": "NHS",
+    "url": "https://www.nhs.uk/conditions/migraine/",
+    "quote": "you regularly get migraine before or during your period"
+   }
+  },
+  {
+   "id": "urineInfectionSeeClinician",
+   "personas": [
+    "B10",
+    "F6"
+   ],
+   "trigger": {
+    "stage": [
+     "period",
+     "ttc",
+     "postpartum",
+     "menopause"
+    ],
+    "term": {
+     "key": "bladderUrgency",
+     "minDays": 2,
+     "windowDays": 30
+    }
+   },
+   "en": "If you think you may have a urine infection, it is important to see a clinician. A urine test can tell.",
+   "ar": "إذا ظننتِ أنك مصابة بالتهاب في المسالك البولية فمن المهم مراجعة الطبيب أو الطبيبة. يمكن لفحص البول أن يوضّح ذلك.",
+   "fr": "Si vous pensez avoir une infection urinaire, il est important de consulter un professionnel de santé. Un test d'urine peut le confirmer.",
+   "es": "Si crees que puedes tener una infección de orina, es importante consultar a un profesional de la salud. Un análisis de orina puede confirmarlo.",
+   "source": {
+    "publisher": "MedlinePlus",
+    "url": "https://medlineplus.gov/urinarytractinfections.html",
+    "quote": "If you think you have a UTI it is important to see your doctor. Your doctor can tell if you have a UTI with a urine test."
+   }
+  },
+  {
+   "id": "leakingUrineTellClinician",
+   "personas": [
+    "E1",
+    "E4",
+    "F1",
+    "F2",
+    "F6"
+   ],
+   "trigger": {
+    "stage": [
+     "period",
+     "ttc",
+     "pregnant",
+     "postpartum",
+     "menopause"
+    ],
+    "term": {
+     "key": "bladderLeaks",
+     "minDays": 3,
+     "windowDays": 30
+    }
+   },
+   "en": "If you leak urine, it is worth telling a clinician, whatever the type or cause.",
+   "ar": "إذا كنتِ تعانين من تسرّب البول فمن المفيد إخبار الطبيب أو الطبيبة، أيًّا كان نوعه أو سببه.",
+   "fr": "Si vous avez des fuites urinaires, il vaut la peine d'en parler à un professionnel de santé, quel qu'en soit le type ou la cause.",
+   "es": "Si tienes pérdidas de orina, conviene contárselo a un profesional de la salud, sea cual sea el tipo o la causa.",
+   "source": {
+    "publisher": "NHS",
+    "url": "https://www.nhs.uk/conditions/urinary-incontinence/",
+    "quote": "See a GP if you have any type of urinary incontinence."
+   }
+  },
+  {
+   "id": "cervicalScreeningTip",
+   "personas": [
+    "B11",
+    "B18"
+   ],
+   "trigger": {
+    "stage": [
+     "period",
+     "ttc",
+     "menopause"
+    ],
+    "ageFrom": 35
+   },
+   "en": "Cervical screening can find changes early and, with timely treatment, help prevent cervical cancer. Ask your clinic whether you are due.",
+   "ar": "يمكن للفحص الدوري لعنق الرحم كشف التغيّرات مبكرًا، ومع العلاج في الوقت المناسب يساعد على الوقاية من سرطان عنق الرحم. اسألي عيادتك إن كان موعده قد حان.",
+   "fr": "Le dépistage du col de l'utérus peut repérer des changements tôt et, avec un traitement rapide, aider à prévenir le cancer du col. Demandez à votre clinique si vous êtes concernée.",
+   "es": "El cribado de cuello uterino puede detectar cambios a tiempo y, con tratamiento oportuno, ayuda a prevenir el cáncer de cuello uterino. Pregunta en tu clínica si te toca.",
+   "source": {
+    "publisher": "WHO",
+    "url": "https://www.who.int/news-room/fact-sheets/detail/cervical-cancer",
+    "quote": "can detect cervical precancer, and when coupled with timely treatment can prevent progression to cervical cancer."
+   }
+  },
+  {
+   "id": "ttcOneYear",
+   "personas": [
+    "C1",
+    "C2",
+    "C4",
+    "C7",
+    "C9",
+    "C10",
+    "C13",
+    "C14"
+   ],
+   "trigger": {
+    "stage": [
+     "ttc"
+    ],
+    "tryingFor": [
+     "over12"
+    ]
+   },
+   "en": "If a year of trying has passed without a pregnancy, it is a good idea to see a clinician and have the common causes checked.",
+   "ar": "إذا مرّت سنة وأنتما تحاولان دون حدوث حمل، فمن الأفضل مراجعة الطبيب أو الطبيبة لفحص الأسباب الشائعة.",
+   "fr": "Si cela fait un an que vous essayez sans grossesse, il est conseillé de consulter un professionnel de santé pour vérifier les causes fréquentes.",
+   "es": "Si llevas un año intentándolo sin embarazo, es buena idea consultar a un profesional de la salud para revisar las causas más comunes.",
+   "source": {
+    "publisher": "NHS",
+    "url": "https://www.nhs.uk/conditions/infertility/",
+    "quote": "It's a good idea to see a GP if you have not conceived after a year of trying."
+   }
+  },
+  {
+   "id": "ttcAgeSixMonths",
+   "personas": [
+    "C3",
+    "C14"
+   ],
+   "trigger": {
+    "stage": [
+     "ttc"
+    ],
+    "tryingFor": [
+     "sixTo12",
+     "over12"
+    ],
+    "ageFrom": 35
+   },
+   "en": "At 35 or older, it is advised to see a clinician after six months of trying, not twelve.",
+   "ar": "في سن 35 فما فوق يُنصح بمراجعة الطبيب أو الطبيبة بعد ستة أشهر من المحاولة، لا بعد اثني عشر شهرًا.",
+   "fr": "À partir de 35 ans, il est conseillé de consulter un professionnel de santé après six mois d'essais, et non douze.",
+   "es": "A partir de los 35 años se aconseja consultar a un profesional de la salud tras seis meses de intentos, no doce.",
+   "source": {
+    "publisher": "Office on Women's Health",
+    "url": "https://womenshealth.gov/a-z-topics/infertility",
+    "quote": "Women 35 or older should see their doctors after six months of trying."
+   }
+  },
+  {
+   "id": "ttcIrregularNoWait",
+   "personas": [
+    "B6",
+    "C6"
+   ],
+   "trigger": {
+    "stage": [
+     "ttc"
+    ],
+    "irregular": true
+   },
+   "en": "With irregular or no periods, it is worth talking to a clinician about trying to conceive without waiting a full year.",
+   "ar": "مع الدورات غير المنتظمة أو غيابها، من المفيد التحدث إلى الطبيب أو الطبيبة بشأن محاولة الحمل دون انتظار سنة كاملة.",
+   "fr": "Avec des règles irrégulières ou absentes, il vaut la peine d'en parler à un professionnel de santé sans attendre une année entière.",
+   "es": "Con reglas irregulares o ausentes, conviene hablar con un profesional de la salud sobre el deseo de embarazo sin esperar un año completo.",
+   "source": {
+    "publisher": "Office on Women's Health",
+    "url": "https://womenshealth.gov/a-z-topics/infertility",
+    "quote": "women should talk to their doctors if they have: Irregular periods or no menstrual periods"
+   }
+  },
+  {
+   "id": "regularSexTakesTime",
+   "personas": [
+    "C1",
+    "C4",
+    "C11",
+    "C12",
+    "C13"
+   ],
+   "trigger": {
+    "stage": [
+     "ttc"
+    ]
+   },
+   "en": "Most couples where the woman is under 40 conceive within a year of regular sex every 2 to 3 days. It can take time.",
+   "ar": "تحمل أغلب الأزواج الذين تقل عمر الزوجة لديهم عن 40 سنة خلال سنة من الجماع المنتظم كل 2 إلى 3 أيام. وقد يستغرق الأمر وقتًا.",
+   "fr": "La plupart des couples dont la femme a moins de 40 ans conçoivent en moins d'un an avec des rapports réguliers tous les 2 à 3 jours. Cela peut prendre du temps.",
+   "es": "La mayoría de las parejas en las que la mujer tiene menos de 40 años logra el embarazo en un año con relaciones regulares cada 2 o 3 días. Puede llevar tiempo.",
+   "source": {
+    "publisher": "NHS",
+    "url": "https://www.nhs.uk/conditions/infertility/",
+    "quote": "will conceive naturally within a year if they have regular unprotected sex (every 2 or 3 days)"
+   }
+  },
+  {
+   "id": "testingTooEarly",
+   "personas": [
+    "C1",
+    "C11",
+    "C12"
+   ],
+   "trigger": {
+    "stage": [
+     "ttc"
+    ]
+   },
+   "en": "Testing very early can give a false negative, because the pregnancy hormone may not have built up yet. Follow the test's own instructions.",
+   "ar": "قد يعطي الفحص المبكر جدًا نتيجة سلبية كاذبة لأن هرمون الحمل قد لا يكون قد ارتفع بعد. اتبعي تعليمات الاختبار نفسه.",
+   "fr": "Un test très précoce peut donner un faux négatif, car l'hormone de grossesse peut ne pas encore être assez présente. Suivez les instructions du test.",
+   "es": "Hacer la prueba demasiado pronto puede dar un falso negativo, porque la hormona del embarazo quizá aún no haya aumentado. Sigue las instrucciones de la prueba.",
+   "source": {
+    "publisher": "Office on Women's Health",
+    "url": "https://womenshealth.gov/a-z-topics/pregnancy-tests",
+    "quote": "Sometimes women get false-negative results when they test too early in the pregnancy."
+   }
+  },
+  {
+   "id": "folicAcidBeforePregnancy",
+   "personas": [
+    "C1",
+    "C4",
+    "C5",
+    "C11",
+    "C13",
+    "C14"
+   ],
+   "trigger": {
+    "stage": [
+     "ttc"
+    ]
+   },
+   "en": "Folic acid, a B vitamin, is advised from at least a month before pregnancy. Ask a clinician how to get enough.",
+   "ar": "حمض الفوليك، وهو أحد فيتامينات ب، يُنصح به قبل الحمل بشهر على الأقل. اسألي الطبيب أو الطبيبة عن أفضل طريقة للحصول على ما يكفيك.",
+   "fr": "L'acide folique, une vitamine B, est recommandé au moins un mois avant la grossesse. Demandez à un professionnel de santé comment en avoir assez.",
+   "es": "El ácido fólico, una vitamina B, se aconseja desde al menos un mes antes del embarazo. Pregunta a un profesional de la salud cómo obtener lo suficiente.",
+   "source": {
+    "publisher": "CDC",
+    "url": "https://www.cdc.gov/folic-acid/about/index.html",
+    "quote": "If you're thinking about becoming pregnant, start taking folic acid at least 1 month before conception."
+   }
+  },
+  {
+   "id": "talkBeforeTrying",
+   "personas": [
+    "C1",
+    "C4",
+    "C5",
+    "C7",
+    "C8",
+    "C11",
+    "C13",
+    "C14"
+   ],
+   "trigger": {
+    "stage": [
+     "ttc"
+    ]
+   },
+   "en": "It is a good idea to talk to a clinician before trying to get pregnant. They can help you get your body ready.",
+   "ar": "من الجيد التحدث إلى الطبيب أو الطبيبة قبل محاولة الحمل، فيمكنه مساعدتك على تهيئة جسمك.",
+   "fr": "Il est conseillé d'en parler à un professionnel de santé avant d'essayer de concevoir. Il peut vous aider à préparer votre corps.",
+   "es": "Es buena idea hablar con un profesional de la salud antes de intentar el embarazo. Puede ayudarte a preparar tu cuerpo.",
+   "source": {
+    "publisher": "Office on Women's Health",
+    "url": "https://womenshealth.gov/a-z-topics/infertility",
+    "quote": "It is a good idea for any woman to talk to a doctor before trying to get pregnant."
+   }
+  },
+  {
+   "id": "tryingIsStressful",
+   "personas": [
+    "C2",
+    "C3",
+    "C10",
+    "C12",
+    "C13",
+    "C14"
+   ],
+   "trigger": {
+    "stage": [
+     "ttc"
+    ],
+    "term": {
+     "key": "anxious",
+     "minDays": 3,
+     "windowDays": 90
+    }
+   },
+   "en": "Trying to conceive can be stressful. Counselling and support groups may help you cope; you can ask a clinician about them.",
+   "ar": "قد تكون محاولة الحمل مُجهِدة. قد تساعدك الاستشارة النفسية ومجموعات الدعم على التأقلم، ويمكنك سؤال الطبيب أو الطبيبة عنها.",
+   "fr": "Essayer de concevoir peut être source de stress. Un accompagnement psychologique et des groupes de soutien peuvent aider ; demandez à un professionnel de santé.",
+   "es": "Intentar el embarazo puede ser estresante. El apoyo psicológico y los grupos de apoyo pueden ayudarte a sobrellevarlo; puedes preguntar a un profesional de la salud.",
+   "source": {
+    "publisher": "MedlinePlus",
+    "url": "https://medlineplus.gov/infertility.html",
+    "quote": "Infertility can be stressful. Counseling and support groups may help you and your partner cope."
+   }
+  },
+  {
+   "id": "movementsChangeCallNow",
+   "personas": [
+    "D1",
+    "D2",
+    "D3",
+    "D4",
+    "D5",
+    "D6",
+    "D8",
+    "D9",
+    "D10",
+    "D12",
+    "D13",
+    "D14",
+    "D16",
+    "D17"
+   ],
+   "trigger": {
+    "stage": [
+     "pregnant"
+    ],
+    "pregnancyWeeks": [
+     24,
+     42
+    ]
+   },
+   "en": "If your baby moves less than usual or the usual pattern changes, call your midwife or maternity unit at once, even in the middle of the night.",
+   "ar": "إذا قلّت حركة طفلك عن المعتاد أو تغيّر نمطها المعتاد، فاتصلي بالقابلة أو وحدة الولادة فورًا، حتى في منتصف الليل.",
+   "fr": "Si votre bébé bouge moins que d'habitude ou si son rythme habituel change, appelez tout de suite votre sage-femme ou la maternité, même au milieu de la nuit.",
+   "es": "Si tu bebé se mueve menos de lo habitual o cambia su patrón, llama de inmediato a tu matrona o a la maternidad, incluso a mitad de la noche.",
+   "source": {
+    "publisher": "NHS",
+    "url": "https://www.nhs.uk/pregnancy/keeping-well/your-babys-movements/",
+    "quote": "Do not wait until the next day – call immediately, even if it's the middle of the night."
+   }
+  },
+  {
+   "id": "firstMovementsBy24",
+   "personas": [
+    "D1"
+   ],
+   "trigger": {
+    "stage": [
+     "pregnant"
+    ],
+    "pregnancyWeeks": [
+     20,
+     26
+    ]
+   },
+   "en": "You should start to feel your baby move between 16 and 24 weeks. If there has been no movement by 24 weeks, tell your midwife.",
+   "ar": "يُفترض أن تشعري بحركة طفلك بين الأسبوع 16 والأسبوع 24. إذا لم تشعري بأي حركة بحلول الأسبوع 24 فأخبري القابلة.",
+   "fr": "Vous devriez commencer à sentir bouger votre bébé entre 16 et 24 semaines. Si vous n'avez rien senti à 24 semaines, prévenez votre sage-femme.",
+   "es": "Deberías empezar a notar a tu bebé entre las semanas 16 y 24. Si a las 24 semanas aún no lo has notado, díselo a tu matrona.",
+   "source": {
+    "publisher": "NHS",
+    "url": "https://www.nhs.uk/pregnancy/keeping-well/your-babys-movements/",
+    "quote": "If you have not felt your baby move by 24 weeks, tell your midwife."
+   }
+  },
+  {
+   "id": "preeclampsiaSigns",
+   "personas": [
+    "D1",
+    "D3",
+    "D4",
+    "D5",
+    "D6",
+    "D9",
+    "D12"
+   ],
+   "trigger": {
+    "stage": [
+     "pregnant"
+    ],
+    "pregnancyWeeks": [
+     20,
+     42
+    ]
+   },
+   "en": "A severe headache that painkillers do not ease, vision problems, pain below the ribs or sudden swelling need checking at once. Call your maternity unit.",
+   "ar": "الصداع الشديد الذي لا تُخفّفه المسكّنات، أو مشكلات الرؤية، أو الألم تحت الأضلاع، أو التورّم المفاجئ تحتاج إلى فحص فوري. اتصلي بوحدة الولادة.",
+   "fr": "Un mal de tête sévère que les antalgiques ne soulagent pas, des troubles de la vue, une douleur sous les côtes ou un gonflement soudain doivent être vérifiés tout de suite. Appelez la maternité.",
+   "es": "Un dolor de cabeza intenso que los analgésicos no alivian, problemas de visión, dolor bajo las costillas o hinchazón repentina requieren revisión inmediata. Llama a la maternidad.",
+   "source": {
+    "publisher": "NHS",
+    "url": "https://www.nhs.uk/conditions/pre-eclampsia/",
+    "quote": "a severe headache that does not go away with simple painkillers vision problems, such as blurred vision or seeing flashing lights pain below the ribs"
+   }
+  },
+  {
+   "id": "antenatalChecksMatter",
+   "personas": [
+    "D1",
+    "D5",
+    "D6",
+    "D9",
+    "D12",
+    "D13"
+   ],
+   "trigger": {
+    "stage": [
+     "pregnant"
+    ]
+   },
+   "en": "Blood pressure and urine checks at antenatal visits can find changes you cannot feel, so try to keep every appointment.",
+   "ar": "تكشف فحوص ضغط الدم والبول في زيارات متابعة الحمل تغيّرات لا تشعرين بها، لذا حاولي ألا تفوّتي أي موعد.",
+   "fr": "Les contrôles de tension et d'urine lors des visites prénatales repèrent des changements que vous ne sentez pas : essayez de ne manquer aucun rendez-vous.",
+   "es": "Los controles de tensión y de orina en las visitas prenatales detectan cambios que no notas, así que intenta no faltar a ninguna cita.",
+   "source": {
+    "publisher": "NHS",
+    "url": "https://www.nhs.uk/conditions/pre-eclampsia/",
+    "quote": "It's unlikely that you'll notice these signs, so you'll be offered regular blood pressure and pee checks at your routine antenatal (pregnancy) appointments."
+   }
+  },
+  {
+   "id": "screeningVersusDiagnostic",
+   "personas": [
+    "D1",
+    "D13"
+   ],
+   "trigger": {
+    "stage": [
+     "pregnant"
+    ],
+    "pregnancyWeeks": [
+     6,
+     22
+    ]
+   },
+   "en": "Screening tests and diagnostic tests are both offered to every pregnant woman. A screening result is a chance, not a diagnosis.",
+   "ar": "تُعرض فحوص الكشف والفحوص التشخيصية على كل امرأة حامل. ونتيجة فحص الكشف تعبّر عن احتمال، لا عن تشخيص.",
+   "fr": "Les tests de dépistage et les tests diagnostiques sont proposés à toute femme enceinte. Un résultat de dépistage est une probabilité, pas un diagnostic.",
+   "es": "Las pruebas de cribado y las pruebas diagnósticas se ofrecen a toda mujer embarazada. Un resultado de cribado es una probabilidad, no un diagnóstico.",
+   "source": {
+    "publisher": "ACOG",
+    "url": "https://www.acog.org/womens-health/faqs/prenatal-genetic-screening-tests",
+    "quote": "Both screening and diagnostic testing are offered to all pregnant women."
+   }
+  },
+  {
+   "id": "glucoseScreening",
+   "personas": [
+    "D3",
+    "D4",
+    "D12"
+   ],
+   "trigger": {
+    "stage": [
+     "pregnant"
+    ],
+    "pregnancyWeeks": [
+     20,
+     28
+    ]
+   },
+   "en": "All pregnant women should be screened for gestational diabetes. Ask your midwife or doctor when yours is planned.",
+   "ar": "ينبغي إجراء فحص الكشف عن سكري الحمل لكل امرأة حامل. اسألي القابلة أو الطبيب عن موعد فحصك.",
+   "fr": "Toutes les femmes enceintes devraient être dépistées pour le diabète gestationnel. Demandez à votre sage-femme ou médecin quand le vôtre est prévu.",
+   "es": "Todas las embarazadas deben someterse al cribado de diabetes gestacional. Pregunta a tu matrona o médico cuándo está previsto el tuyo.",
+   "source": {
+    "publisher": "ACOG",
+    "url": "https://www.acog.org/womens-health/faqs/gestational-diabetes",
+    "quote": "All pregnant women should be screened for GD."
+   }
+  },
+  {
+   "id": "rhBloodGroup",
+   "personas": [
+    "D17"
+   ],
+   "trigger": {
+    "stage": [
+     "pregnant"
+    ],
+    "pregnancyWeeks": [
+     4,
+     16
+    ]
+   },
+   "en": "A simple blood test shows your blood type and Rh status, usually at your first antenatal visit. Ask what yours is and whether it matters for your care.",
+   "ar": "يُظهر فحص دم بسيط فصيلة دمك والعامل الريصي، وغالبًا في أول زيارة لمتابعة الحمل. اسألي عن نتيجتك وهل تؤثر في رعايتك.",
+   "fr": "Une simple prise de sang indique votre groupe sanguin et votre statut Rhésus, en général à la première visite prénatale. Demandez le vôtre et s'il compte pour vos soins.",
+   "es": "Un simple análisis de sangre muestra tu grupo sanguíneo y tu factor Rh, normalmente en la primera visita prenatal. Pregunta cuál es el tuyo y si influye en tu atención.",
+   "source": {
+    "publisher": "ACOG",
+    "url": "https://www.acog.org/womens-health/faqs/the-rh-factor-how-it-can-affect-your-pregnancy",
+    "quote": "This sample is usually taken during the first prenatal care visit."
+   }
+  },
+  {
+   "id": "mainScanBetween18And21",
+   "personas": [
+    "D1"
+   ],
+   "trigger": {
+    "stage": [
+     "pregnant"
+    ],
+    "pregnancyWeeks": [
+     16,
+     22
+    ]
+   },
+   "en": "A detailed scan is usually done between 18 and 21 weeks. It checks your baby's growth and looks for certain conditions.",
+   "ar": "يُجرى عادةً فحص تفصيلي بالموجات فوق الصوتية بين الأسبوع 18 والأسبوع 21. يتحقق من نمو طفلك ويبحث عن حالات معيّنة.",
+   "fr": "Une échographie détaillée est généralement faite entre 18 et 21 semaines. Elle vérifie la croissance du bébé et recherche certaines anomalies.",
+   "es": "Suele hacerse una ecografía detallada entre las semanas 18 y 21. Comprueba el crecimiento del bebé y busca ciertas afecciones.",
+   "source": {
+    "publisher": "NHS",
+    "url": "https://www.nhs.uk/pregnancy/your-pregnancy-care/20-week-scan/",
+    "quote": "The 20-week screening scan, also called the anomaly scan, is an ultrasound scan to look for 11 different conditions in your baby. It also checks your baby's growth."
+   }
+  },
+  {
+   "id": "severeSicknessTellEarly",
+   "personas": [
+    "D15"
+   ],
+   "trigger": {
+    "stage": [
+     "pregnant"
+    ],
+    "term": {
+     "key": "nausea",
+     "minDays": 7,
+     "windowDays": 30
+    }
+   },
+   "en": "If you are being sick often and cannot keep food down, tell your midwife or doctor early. Getting help early can prevent dehydration.",
+   "ar": "إذا كنتِ تتقيئين كثيرًا ولا تحتفظين بالطعام، فأخبري القابلة أو الطبيب مبكرًا. فطلب المساعدة مبكرًا قد يمنع الجفاف.",
+   "fr": "Si vous vomissez souvent et ne gardez pas la nourriture, prévenez tôt votre sage-femme ou médecin. Une aide précoce peut éviter la déshydratation.",
+   "es": "Si vomitas con frecuencia y no retienes la comida, díselo pronto a tu matrona o médico. Pedir ayuda a tiempo puede evitar la deshidratación.",
+   "source": {
+    "publisher": "NHS",
+    "url": "https://www.nhs.uk/pregnancy/complications/severe-vomiting/",
+    "quote": "If you are being sick frequently and cannot keep food down, tell your midwife or doctor, or contact the hospital as soon as possible."
+   }
+  },
+  {
+   "id": "itchTellMidwife",
+   "personas": [
+    "D16"
+   ],
+   "trigger": {
+    "stage": [
+     "pregnant"
+    ],
+    "term": {
+     "key": "dryItchySkin",
+     "minDays": 2,
+     "windowDays": 30
+    },
+    "pregnancyWeeks": [
+     20,
+     42
+    ]
+   },
+   "en": "Itching is common in pregnancy and is usually not serious. Still, tell your midwife or doctor about it so it can be checked.",
+   "ar": "الحكّة شائعة في الحمل وغالبًا لا تكون خطيرة. ومع ذلك أخبري القابلة أو الطبيب بها ليجري فحصها.",
+   "fr": "Les démangeaisons sont fréquentes pendant la grossesse et rarement graves. Signalez-les quand même à votre sage-femme ou médecin pour les faire vérifier.",
+   "es": "El picor es frecuente en el embarazo y casi siempre no es grave. Aun así, cuéntaselo a tu matrona o médico para que lo revisen.",
+   "source": {
+    "publisher": "RCOG",
+    "url": "https://www.rcog.org.uk/for-the-public/browse-our-patient-information/intrahepatic-cholestasis-of-pregnancy/",
+    "quote": "However, itching can be the first sign of ICP and if you experience this, you should tell your healthcare professional."
+   }
+  },
+  {
+   "id": "pretermLabourSigns",
+   "personas": [
+    "D8",
+    "D9"
+   ],
+   "trigger": {
+    "stage": [
+     "pregnant"
+    ],
+    "pregnancyWeeks": [
+     20,
+     37
+    ]
+   },
+   "en": "Signs of early labour include contractions every 10 minutes or more often, leaking fluid or bleeding, pelvic pressure and a low, dull backache. Contact your provider.",
+   "ar": "من علامات الولادة المبكرة انقباضات كل 10 دقائق أو أقل، أو تسرّب سائل أو نزف، أو ضغط في الحوض، أو ألم ظهر خفيف في أسفله. اتصلي بمقدّم الرعاية.",
+   "fr": "Les signes d'un travail prématuré comprennent des contractions toutes les 10 minutes ou plus rapprochées, une perte de liquide ou des saignements, une pression pelvienne et un mal de dos bas et sourd. Contactez votre soignant.",
+   "es": "Los signos de parto prematuro incluyen contracciones cada 10 minutos o menos, pérdida de líquido o sangrado, presión pélvica y un dolor sordo en la parte baja de la espalda. Contacta con tu profesional.",
+   "source": {
+    "publisher": "MedlinePlus",
+    "url": "https://medlineplus.gov/pretermlabor.html",
+    "quote": "Symptoms of preterm labor include: Contractions every 10 minutes or more often Leaking fluid or bleeding from the vagina Feeling of pressure in the pelvis Low, dull backache"
+   }
+  },
+  {
+   "id": "tirednessInPregnancy",
+   "personas": [
+    "D10"
+   ],
+   "trigger": {
+    "stage": [
+     "pregnant"
+    ],
+    "term": {
+     "key": "fatigue",
+     "minDays": 3,
+     "windowDays": 30
+    }
+   },
+   "en": "Tiredness in pregnancy has many causes. Anaemia is one, and it is common; mention ongoing tiredness to your midwife or doctor.",
+   "ar": "للتعب في الحمل أسباب كثيرة، منها فقر الدم وهو شائع. أخبري القابلة أو الطبيب إذا استمر التعب.",
+   "fr": "La fatigue pendant la grossesse a de nombreuses causes. L'anémie en est une, et elle est fréquente ; signalez une fatigue persistante à votre sage-femme ou médecin.",
+   "es": "El cansancio en el embarazo tiene muchas causas. La anemia es una y es frecuente; comenta el cansancio persistente a tu matrona o médico.",
+   "source": {
+    "publisher": "WHO",
+    "url": "https://www.who.int/news-room/fact-sheets/detail/anaemia",
+    "quote": "Anaemia causes symptoms such as fatigue, reduced physical work capacity, and shortness of breath."
+   }
+  },
+  {
+   "id": "lowMoodPerinatal",
+   "personas": [
+    "D2",
+    "D11",
+    "D15",
+    "E1",
+    "E3",
+    "E6"
+   ],
+   "trigger": {
+    "stage": [
+     "pregnant",
+     "postpartum"
+    ],
+    "term": {
+     "key": "sad",
+     "minDays": 3,
+     "windowDays": 30
+    }
+   },
+   "en": "Feeling low is common in pregnancy and after birth, and support is available. Tell your midwife, doctor or health visitor, even if you only have some of the signs.",
+   "ar": "الشعور بالحزن شائع أثناء الحمل وبعد الولادة، والدعم متاح. أخبري القابلة أو الطبيب أو الزائرة الصحية حتى لو كانت لديك بعض العلامات فقط.",
+   "fr": "Se sentir déprimée est fréquent pendant la grossesse et après la naissance, et du soutien existe. Parlez-en à votre sage-femme, médecin ou puéricultrice, même si vous n'avez que quelques signes.",
+   "es": "Sentirse decaída es frecuente en el embarazo y tras el parto, y hay apoyo disponible. Díselo a tu matrona, médico o enfermera, aunque solo tengas algunos de los signos.",
+   "source": {
+    "publisher": "NHS",
+    "url": "https://www.nhs.uk/mental-health/conditions/post-natal-depression/overview/",
+    "quote": "It's important to get help even if you only have some of the signs."
+   }
+  },
+  {
+   "id": "anxietyInPregnancy",
+   "personas": [
+    "D2",
+    "D11",
+    "D15"
+   ],
+   "trigger": {
+    "stage": [
+     "pregnant"
+    ],
+    "term": {
+     "key": "anxious",
+     "minDays": 3,
+     "windowDays": 30
+    }
+   },
+   "en": "Anxiety in pregnancy can often be helped with talking therapy. Tell your midwife or doctor how you really feel.",
+   "ar": "يمكن في كثير من الأحيان تخفيف القلق أثناء الحمل بالعلاج الحواري. أخبري القابلة أو الطبيب بما تشعرين به فعلًا.",
+   "fr": "L'anxiété pendant la grossesse peut souvent être soulagée par une thérapie par la parole. Dites à votre sage-femme ou médecin ce que vous ressentez vraiment.",
+   "es": "La ansiedad en el embarazo muchas veces mejora con terapia de conversación. Cuéntale a tu matrona o médico cómo te sientes de verdad.",
+   "source": {
+    "publisher": "NHS",
+    "url": "https://www.nhs.uk/pregnancy/keeping-well/mental-health/",
+    "quote": "Depression and anxiety in pregnancy can often be helped with a talking therapy, like cognitive behavioural therapy (CBT)."
+   }
+  },
+  {
+   "id": "warningSignsPregnancyAndYear",
+   "personas": [
+    "D1",
+    "D2",
+    "D5",
+    "D6",
+    "D9",
+    "D12",
+    "D14",
+    "E1",
+    "E4"
+   ],
+   "trigger": {
+    "stage": [
+     "pregnant",
+     "postpartum"
+    ]
+   },
+   "en": "Some warning signs need care at once, in pregnancy and for a year after birth: a headache that will not go away, vision changes, fever, trouble breathing, severe belly pain.",
+   "ar": "بعض علامات الخطر تستدعي رعاية فورية أثناء الحمل وخلال سنة بعد الولادة: صداع لا يزول، أو تغيّر في الرؤية، أو حمّى، أو صعوبة في التنفس، أو ألم شديد في البطن.",
+   "fr": "Certains signes d'alerte exigent des soins immédiats, pendant la grossesse et un an après la naissance : mal de tête persistant, troubles de la vue, fièvre, difficulté à respirer ou douleur abdominale sévère.",
+   "es": "Algunas señales de alarma requieren atención inmediata, durante el embarazo y un año después del parto: dolor de cabeza que no se va, cambios en la visión, fiebre, dificultad para respirar o dolor abdominal intenso.",
+   "source": {
+    "publisher": "CDC",
+    "url": "https://www.cdc.gov/hearher/maternal-warning-signs/index.html",
+    "quote": "Be aware of urgent maternal warning signs and symptoms during pregnancy and in the year after delivery."
+   }
+  },
+  {
+   "id": "postnatalCheckSixToEight",
+   "personas": [
+    "E1",
+    "E2",
+    "E3",
+    "E4",
+    "E7"
+   ],
+   "trigger": {
+    "stage": [
+     "postpartum"
+    ],
+    "postpartumWeeks": [
+     3,
+     12
+    ]
+   },
+   "en": "A postnatal check around 6 to 8 weeks after birth makes sure you feel well and are recovering. Write down your questions to take along.",
+   "ar": "يهدف فحص ما بعد الولادة بعد نحو 6 إلى 8 أسابيع إلى التأكد من أنك بخير وتتعافين جيدًا. دوّني أسئلتك لتأخذيها معك.",
+   "fr": "Un bilan postnatal environ 6 à 8 semaines après la naissance vérifie que vous allez bien et récupérez bien. Notez vos questions pour les emporter.",
+   "es": "Una revisión posparto hacia las 6 a 8 semanas comprueba que te encuentras bien y te recuperas. Apunta tus preguntas para llevarlas.",
+   "source": {
+    "publisher": "NHS",
+    "url": "https://www.nhs.uk/baby/support-and-services/your-6-week-postnatal-check/",
+    "quote": "You should have your postnatal check 6 to 8 weeks after your baby's birth to make sure you feel well and are recovering properly."
+   }
+  },
+  {
+   "id": "painfulFeedsGetHelp",
+   "personas": [
+    "E2"
+   ],
+   "trigger": {
+    "stage": [
+     "postpartum"
+    ],
+    "term": {
+     "key": "breastTenderness",
+     "minDays": 3,
+     "windowDays": 30
+    }
+   },
+   "en": "If you are putting off feeds because breastfeeding hurts, get help from a lactation consultant.",
+   "ar": "إذا كنتِ تؤجّلين الرضعات لأن الرضاعة مؤلمة، فاطلبي مساعدة استشارية رضاعة.",
+   "fr": "Si vous repoussez les tétées parce que l'allaitement fait mal, demandez l'aide d'une consultante en lactation.",
+   "es": "Si retrasas las tomas porque amamantar duele, pide ayuda a una asesora de lactancia.",
+   "source": {
+    "publisher": "Office on Women's Health",
+    "url": "https://womenshealth.gov/breastfeeding/breastfeeding-challenges/common-breastfeeding-challenges",
+    "quote": "If you find yourself putting off feedings because breastfeeding is painful, get help from a lactation consultant."
+   }
+  },
+  {
+   "id": "tirednessAfterBirthThyroid",
+   "personas": [
+    "E1",
+    "E3",
+    "E7"
+   ],
+   "trigger": {
+    "stage": [
+     "postpartum"
+    ],
+    "term": {
+     "key": "fatigue",
+     "minDays": 5,
+     "windowDays": 30
+    }
+   },
+   "en": "Tiredness after birth has many causes. Thyroid inflammation affects about 1 in 20 women in the first year after birth, so mention lasting tiredness to a clinician.",
+   "ar": "للتعب بعد الولادة أسباب كثيرة. يصيب التهاب الغدة الدرقية نحو امرأة من كل 20 في السنة الأولى بعد الولادة، لذا أخبري الطبيب أو الطبيبة إن استمر التعب.",
+   "fr": "La fatigue après la naissance a de nombreuses causes. L'inflammation de la thyroïde touche environ 1 femme sur 20 la première année ; signalez une fatigue persistante à un professionnel de santé.",
+   "es": "El cansancio tras el parto tiene muchas causas. La inflamación de la tiroides afecta a cerca de 1 de cada 20 mujeres el primer año; comenta el cansancio persistente a un profesional de la salud.",
+   "source": {
+    "publisher": "NIDDK (NIH)",
+    "url": "https://www.niddk.nih.gov/health-information/endocrine-diseases/pregnancy-thyroid-disease",
+    "quote": "Postpartum thyroiditis is an inflammation of the thyroid that affects about 1 in 20 women during the first year after giving birth"
+   }
+  },
+  {
+   "id": "bleedingUpToSixWeeks",
+   "personas": [
+    "E1",
+    "E4",
+    "E5"
+   ],
+   "trigger": {
+    "stage": [
+     "postpartum"
+    ],
+    "postpartumWeeks": [
+     0,
+     8
+    ]
+   },
+   "en": "Spotting or bleeding like a period, on and off, can last up to six weeks after birth. Tell a clinician if you are worried.",
+   "ar": "قد يستمر التبقّع أو النزف الشبيه بالدورة الشهرية، بشكل متقطع، حتى ستة أسابيع بعد الولادة. أخبري الطبيب أو الطبيبة إذا كنتِ قلقة.",
+   "fr": "Des pertes ou des saignements comme des règles, par intermittence, peuvent durer jusqu'à six semaines après la naissance. Parlez-en à un professionnel de santé si vous êtes inquiète.",
+   "es": "El manchado o sangrado parecido a una regla, de forma intermitente, puede durar hasta seis semanas tras el parto. Cuéntaselo a un profesional de la salud si te preocupa.",
+   "source": {
+    "publisher": "MedlinePlus",
+    "url": "https://medlineplus.gov/postpartumcare.html",
+    "quote": "You will have spotting or bleeding, like a menstrual period, off and on for up to six weeks."
+   }
+  },
+  {
+   "id": "babyBluesPassing",
+   "personas": [
+    "E1",
+    "E3"
+   ],
+   "trigger": {
+    "stage": [
+     "postpartum"
+    ],
+    "term": {
+     "key": "sad",
+     "minDays": 2,
+     "windowDays": 30
+    },
+    "postpartumWeeks": [
+     0,
+     4
+    ]
+   },
+   "en": "Feeling down, anxious or irritable for a few days after birth is very common and usually passes within 2 weeks. If it lasts longer, tell a clinician.",
+   "ar": "الشعور بالحزن أو القلق أو التوتر لبضعة أيام بعد الولادة شائع جدًا وعادةً يزول خلال أسبوعين. إذا استمر أطول فأخبري الطبيب أو الطبيبة.",
+   "fr": "Se sentir abattue, anxieuse ou irritable quelques jours après la naissance est très fréquent et passe en général en 2 semaines. Si cela dure plus longtemps, parlez-en à un professionnel de santé.",
+   "es": "Sentirse decaída, ansiosa o irritable unos días tras el parto es muy frecuente y suele pasar en 2 semanas. Si dura más, díselo a un profesional de la salud.",
+   "source": {
+    "publisher": "NHS",
+    "url": "https://www.nhs.uk/mental-health/conditions/post-natal-depression/overview/",
+    "quote": "This is sometimes called the baby blues, and it usually goes away within 2 weeks of the birth."
+   }
+  },
+  {
+   "id": "periodChangesFirstSign",
+   "personas": [
+    "F1",
+    "F4",
+    "F5"
+   ],
+   "trigger": {
+    "stage": [
+     "menopause"
+    ]
+   },
+   "en": "A change in your periods is usually one of the first signs of perimenopause. They may come more or less often, and be heavier or lighter.",
+   "ar": "تغيّر الدورة الشهرية عادةً من أولى علامات مرحلة ما قبل انقطاع الطمث. قد تأتي أكثر أو أقل تكرارًا، وقد تصبح أغزر أو أخف.",
+   "fr": "Un changement des règles est en général l'un des premiers signes de la périménopause. Elles peuvent venir plus ou moins souvent, être plus abondantes ou plus légères.",
+   "es": "Un cambio en la regla suele ser una de las primeras señales de la perimenopausia. Puede venir con más o menos frecuencia, y ser más abundante o más leve.",
+   "source": {
+    "publisher": "NHS",
+    "url": "https://www.nhs.uk/conditions/menopause/symptoms/",
+    "quote": "One of the first signs of perimenopause is usually a change to your periods. They may happen more often or less often, and bleeding may get heavier or lighter."
+   }
+  },
+  {
+   "id": "twelveMonthsMeansMenopause",
+   "personas": [
+    "F1",
+    "F2"
+   ],
+   "trigger": {
+    "stage": [
+     "menopause"
+    ]
+   },
+   "en": "Menopause means 12 months without a period. In the years before, cycles often vary, with longer or shorter gaps.",
+   "ar": "يُقصد بانقطاع الطمث مرور 12 شهرًا بلا دورة. وفي السنوات التي تسبقه كثيرًا ما تتفاوت الدورات بفواصل أطول أو أقصر.",
+   "fr": "La ménopause correspond à 12 mois sans règles. Dans les années qui précèdent, les cycles varient souvent, avec des intervalles plus longs ou plus courts.",
+   "es": "La menopausia significa 12 meses sin regla. En los años previos los ciclos suelen variar, con intervalos más largos o más cortos.",
+   "source": {
+    "publisher": "NHS",
+    "url": "https://www.nhs.uk/conditions/menopause/symptoms/",
+    "quote": "Menopause is when you have not had a period for 12 months."
+   }
+  },
+  {
+   "id": "bleedingAfterMenopause",
+   "personas": [
+    "F1",
+    "F2",
+    "F6"
+   ],
+   "trigger": {
+    "stage": [
+     "menopause"
+    ],
+    "term": {
+     "key": "spotting",
+     "minDays": 1,
+     "windowDays": 90
+    }
+   },
+   "en": "Bleeding after menopause, meaning 12 months with no period, is important to tell a clinician about, so the cause can be found.",
+   "ar": "النزف بعد انقطاع الطمث، أي بعد 12 شهرًا بلا دورة، من المهم إخبار الطبيب أو الطبيبة به ليُعرف سببه.",
+   "fr": "Un saignement après la ménopause, c'est-à-dire après 12 mois sans règles, est important à signaler à un professionnel de santé afin d'en trouver la cause.",
+   "es": "El sangrado tras la menopausia, es decir, tras 12 meses sin regla, es importante comentarlo con un profesional de la salud para encontrar su causa.",
+   "source": {
+    "publisher": "ACOG",
+    "url": "https://www.acog.org/womens-health/faqs/perimenopausal-bleeding-and-bleeding-after-menopause",
+    "quote": "It’s especially important to tell your ob-gyn if you have bleeding after menopause."
+   }
+  },
+  {
+   "id": "hotFlushesTalkOptions",
+   "personas": [
+    "B19",
+    "F1",
+    "F2",
+    "F3",
+    "F4",
+    "F5"
+   ],
+   "trigger": {
+    "stage": [
+     "menopause"
+    ],
+    "term": {
+     "key": "hotFlashes",
+     "minDays": 5,
+     "windowDays": 30
+    }
+   },
+   "en": "If lifestyle changes are not enough for hot flushes, contact a clinician. They will talk through your symptoms, history and preferences.",
+   "ar": "إذا لم تكفِ تغييرات نمط الحياة لتخفيف الهبّات الساخنة، فتواصلي مع الطبيب أو الطبيبة. سيناقش معك أعراضك وتاريخك الصحي وتفضيلاتك.",
+   "fr": "Si les changements de mode de vie ne suffisent pas pour les bouffées de chaleur, contactez un professionnel de santé. Il discutera de vos symptômes, de vos antécédents et de vos préférences.",
+   "es": "Si los cambios de estilo de vida no bastan para los sofocos, contacta con un profesional de la salud. Hablará contigo de tus síntomas, tu historial y tus preferencias.",
+   "source": {
+    "publisher": "MedlinePlus",
+    "url": "https://medlineplus.gov/menopause.html",
+    "quote": "If lifestyle changes are not enough to improve your symptoms, you may want to contact your health care provider."
+   }
+  },
+  {
+   "id": "boneStrengthMenopause",
+   "personas": [
+    "B19",
+    "F1",
+    "F2",
+    "F3",
+    "F4",
+    "F5"
+   ],
+   "trigger": {
+    "stage": [
+     "menopause"
+    ]
+   },
+   "en": "Loss of bone density is more likely around menopause. Ask a clinician about bone health and what suits you.",
+   "ar": "فقدان كثافة العظام أكثر احتمالًا في فترة انقطاع الطمث. اسألي الطبيب أو الطبيبة عن صحة العظام وما يناسبك.",
+   "fr": "La perte de densité osseuse est plus probable autour de la ménopause. Interrogez un professionnel de santé sur la santé des os et ce qui vous convient.",
+   "es": "La pérdida de densidad ósea es más probable en torno a la menopausia. Pregunta a un profesional de la salud por la salud de tus huesos y qué te conviene.",
+   "source": {
+    "publisher": "WHO",
+    "url": "https://www.who.int/news-room/fact-sheets/detail/menopause",
+    "quote": "Loss of bone density at menopause is a significant contributor to higher rates of osteoporosis and fractures."
+   }
+  },
+  {
+   "id": "drynessManyTreatments",
+   "personas": [
+    "F6"
+   ],
+   "trigger": {
+    "stage": [
+     "menopause"
+    ],
+    "term": {
+     "key": "vaginalDryness",
+     "minDays": 3,
+     "windowDays": 30
+    }
+   },
+   "en": "There are many treatments for vaginal dryness. It is worth asking a clinician what could suit you.",
+   "ar": "هناك علاجات كثيرة لجفاف المهبل. من المفيد سؤال الطبيب أو الطبيبة عمّا قد يناسبك.",
+   "fr": "Il existe de nombreux traitements contre la sécheresse vaginale. Il vaut la peine de demander à un professionnel de santé ce qui peut vous convenir.",
+   "es": "Hay muchos tratamientos para la sequedad vaginal. Conviene preguntar a un profesional de la salud cuál puede irte bien.",
+   "source": {
+    "publisher": "MedlinePlus",
+    "url": "https://medlineplus.gov/ency/article/000892.htm",
+    "quote": "There are many treatments for vaginal dryness."
+   }
+  },
+  {
+   "id": "heartbeatAroundMenopause",
+   "personas": [
+    "F3"
+   ],
+   "trigger": {
+    "stage": [
+     "menopause"
+    ],
+    "term": {
+     "key": "heartFlutters",
+     "minDays": 3,
+     "windowDays": 30
+    }
+   },
+   "en": "A faster or more noticeable heartbeat can be part of perimenopause and menopause. Note when it happens and tell a clinician.",
+   "ar": "قد يكون تسارع نبضات القلب أو الإحساس بها جزءًا من مرحلة ما قبل انقطاع الطمث وانقطاعه. دوّني متى يحدث وأخبري الطبيب أو الطبيبة.",
+   "fr": "Un cœur qui bat plus vite ou plus fort peut faire partie de la périménopause et de la ménopause. Notez quand cela arrive et parlez-en à un professionnel de santé.",
+   "es": "Un latido más rápido o más notorio puede formar parte de la perimenopausia y la menopausia. Anota cuándo ocurre y cuéntaselo a un profesional de la salud.",
+   "source": {
+    "publisher": "NHS",
+    "url": "https://www.nhs.uk/conditions/menopause/symptoms/",
+    "quote": "a faster, slower or more noticeable heartbeat (palpitations)"
+   }
+  },
+  {
+   "id": "lowMoodMenopause",
+   "personas": [
+    "F1",
+    "F4",
+    "F5"
+   ],
+   "trigger": {
+    "stage": [
+     "menopause"
+    ],
+    "term": {
+     "key": "anxious",
+     "minDays": 5,
+     "windowDays": 30
+    }
+   },
+   "en": "Low mood and anxiety can be part of the menopause transition. If they are hard to manage, talk to a clinician.",
+   "ar": "قد يكون انخفاض المزاج والقلق جزءًا من مرحلة انقطاع الطمث. إذا صعُب التعامل معهما فتحدثي إلى الطبيب أو الطبيبة.",
+   "fr": "La baisse de moral et l'anxiété peuvent faire partie de la transition vers la ménopause. Si elles sont difficiles à gérer, parlez-en à un professionnel de santé.",
+   "es": "El ánimo bajo y la ansiedad pueden formar parte de la transición a la menopausia. Si cuesta manejarlos, habla con un profesional de la salud.",
+   "source": {
+    "publisher": "NHS",
+    "url": "https://www.nhs.uk/conditions/menopause/symptoms/",
+    "quote": "you may get hot flushes and night sweats for a while, but they may improve and be replaced by other symptoms such as low mood and anxiety."
+   }
+  }
+ ],
+ "visitQuestions": [
+  {
+   "id": "periodsStoppedChecks",
+   "personas": [
+    "B5",
+    "B6",
+    "B14",
+    "B16",
+    "C16"
+   ],
+   "trigger": {
+    "stage": [
+     "period"
+    ],
+    "irregular": true
+   },
+   "en": "My periods have become very infrequent or have stopped. Which checks could find out why?",
+   "ar": "أصبحت دورتي الشهرية متباعدة جدًا أو توقفت. ما الفحوصات التي يمكن أن تكشف السبب؟",
+   "fr": "Mes règles sont devenues très espacées ou se sont arrêtées. Quels examens pourraient en trouver la raison ?",
+   "es": "Mi regla se ha vuelto muy espaciada o se ha detenido. ¿Qué pruebas podrían averiguar el motivo?",
+   "source": {
+    "publisher": "ACOG",
+    "url": "https://www.acog.org/womens-health/faqs/amenorrhea-absence-of-periods",
+    "quote": "This could include blood tests to check your hormone levels or an ultrasound exam."
+   }
+  },
+  {
+   "id": "irregularCauses",
+   "personas": [
+    "B5",
+    "B6",
+    "B17",
+    "C16"
+   ],
+   "trigger": {
+    "stage": [
+     "period"
+    ],
+    "irregular": true
+   },
+   "en": "What could explain my irregular cycles, and would any tests or scans help?",
+   "ar": "ما الذي قد يفسّر عدم انتظام دوراتي، وهل ستفيد بعض الفحوصات أو الأشعة؟",
+   "fr": "Qu'est-ce qui pourrait expliquer mes cycles irréguliers, et des examens ou une échographie seraient-ils utiles ?",
+   "es": "¿Qué podría explicar mis ciclos irregulares y ayudarían algunas pruebas o ecografías?",
+   "source": {
+    "publisher": "NHS",
+    "url": "https://www.nhs.uk/symptoms/irregular-periods/",
+    "quote": "The GP may refer you to a specialist if you need tests to find out what's causing your irregular periods."
+   }
+  },
+  {
+   "id": "irregularAcneChecks",
+   "personas": [
+    "B6"
+   ],
+   "trigger": {
+    "stage": [
+     "period"
+    ],
+    "term": {
+     "key": "acne",
+     "minDays": 3,
+     "windowDays": 90
+    },
+    "irregular": true
+   },
+   "en": "I have irregular periods and acne. Which checks could look for a cause?",
+   "ar": "دورتي غير منتظمة ولديّ حب شباب. ما الفحوصات التي يمكن أن تبحث عن السبب؟",
+   "fr": "J'ai des règles irrégulières et de l'acné. Quels examens pourraient en chercher la cause ?",
+   "es": "Tengo reglas irregulares y acné. ¿Qué pruebas podrían buscar la causa?",
+   "source": {
+    "publisher": "Office on Women's Health",
+    "url": "https://womenshealth.gov/a-z-topics/polycystic-ovary-syndrome",
+    "quote": "your doctor may talk to you about your medical history and do a physical exam and different tests"
+   }
+  },
+  {
+   "id": "painCauseChecks",
+   "personas": [
+    "B3",
+    "B7",
+    "B8",
+    "B9"
+   ],
+   "trigger": {
+    "stage": [
+     "period"
+    ],
+    "term": {
+     "key": "cramps",
+     "minDays": 6,
+     "windowDays": 90
+    }
+   },
+   "en": "My period pain keeps getting in the way of my days. Which checks could find out why?",
+   "ar": "ألم دورتي الشهرية يعطّل أيامي باستمرار. ما الفحوصات التي يمكن أن تكشف السبب؟",
+   "fr": "Mes douleurs de règles perturbent sans cesse mes journées. Quels examens pourraient en trouver la raison ?",
+   "es": "El dolor de mi regla me estorba en el día a día. ¿Qué pruebas podrían averiguar el motivo?",
+   "source": {
+    "publisher": "NHS",
+    "url": "https://www.nhs.uk/conditions/period-pain/",
+    "quote": "You might need tests, such as an ultrasound scan, to find out what's causing your period pain."
+   }
+  },
+  {
+   "id": "heavyAndTiredBloodTest",
+   "personas": [
+    "B4",
+    "B8",
+    "B9",
+    "B17"
+   ],
+   "trigger": {
+    "stage": [
+     "period"
+    ],
+    "term": {
+     "key": "fatigue",
+     "minDays": 3,
+     "windowDays": 90
+    }
+   },
+   "en": "My periods may be heavy and I feel tired a lot. Should I have blood tests, for example for iron?",
+   "ar": "قد تكون دورتي غزيرة وأشعر بالتعب كثيرًا. هل أحتاج إلى فحوصات دم، مثل فحص الحديد؟",
+   "fr": "Mes règles sont peut-être abondantes et je suis souvent fatiguée. Dois-je faire des analyses de sang, par exemple pour le fer ?",
+   "es": "Mis reglas pueden ser abundantes y me siento muy cansada. ¿Debería hacerme análisis de sangre, por ejemplo de hierro?",
+   "source": {
+    "publisher": "NHS",
+    "url": "https://www.nhs.uk/conditions/heavy-periods/",
+    "quote": "You may have a series of blood tests to check if you have any underlying conditions, such as iron deficiency anaemia."
+   }
+  },
+  {
+   "id": "diaryReviewCycle",
+   "personas": [
+    "B2"
+   ],
+   "trigger": {
+    "stage": [
+     "period"
+    ],
+    "term": {
+     "key": "moodSwings",
+     "minDays": 3,
+     "windowDays": 90
+    }
+   },
+   "en": "Can we go through my symptom diary to see whether my symptoms follow my cycle?",
+   "ar": "هل يمكننا مراجعة سجلّ أعراضي لنرى إن كانت ترتبط بدورتي الشهرية؟",
+   "fr": "Pouvons-nous parcourir mon journal de symptômes pour voir s'ils suivent mon cycle ?",
+   "es": "¿Podemos repasar mi diario de síntomas para ver si siguen mi ciclo?",
+   "source": {
+    "publisher": "NHS",
+    "url": "https://www.nhs.uk/conditions/pre-menstrual-syndrome/",
+    "quote": "keep a diary of your symptoms for at least 2 menstrual cycles"
+   }
+  },
+  {
+   "id": "headacheDiaryReview",
+   "personas": [
+    "B13",
+    "B15"
+   ],
+   "trigger": {
+    "stage": [
+     "period"
+    ],
+    "term": {
+     "key": "headache",
+     "minDays": 3,
+     "windowDays": 30
+    }
+   },
+   "en": "My headaches often come around my period. Can we look at my diary together?",
+   "ar": "يأتيني الصداع كثيرًا حول موعد دورتي. هل يمكننا النظر في سجلّي معًا؟",
+   "fr": "Mes maux de tête reviennent souvent autour de mes règles. Pouvons-nous regarder mon journal ensemble ?",
+   "es": "Mis dolores de cabeza aparecen a menudo alrededor de mi regla. ¿Podemos mirar mi diario juntos?",
+   "source": {
+    "publisher": "NHS",
+    "url": "https://www.nhs.uk/conditions/migraine/",
+    "quote": "you regularly get migraine before or during your period"
+   }
+  },
+  {
+   "id": "cervicalScreeningDue",
+   "personas": [
+    "B11",
+    "B18"
+   ],
+   "trigger": {
+    "stage": [
+     "period",
+     "ttc",
+     "menopause"
+    ],
+    "ageFrom": 35
+   },
+   "en": "Am I up to date with cervical screening, and which test does your clinic use?",
+   "ar": "هل فحص عنق الرحم الدوري لديّ محدّث، وأي اختبار تستخدمه عيادتكم؟",
+   "fr": "Suis-je à jour pour le dépistage du col de l'utérus, et quel test utilise votre clinique ?",
+   "es": "¿Estoy al día con el cribado de cuello uterino y qué prueba usa su clínica?",
+   "source": {
+    "publisher": "WHO",
+    "url": "https://www.who.int/news-room/fact-sheets/detail/cervical-cancer",
+    "quote": "Women should be screened for cervical cancer with a high-performance test every 5–10 years starting at age 30."
+   }
+  },
+  {
+   "id": "checksForCouple",
+   "personas": [
+    "C2",
+    "C3",
+    "C4",
+    "C7",
+    "C9",
+    "C13",
+    "C14"
+   ],
+   "trigger": {
+    "stage": [
+     "ttc"
+    ],
+    "tryingFor": [
+     "sixTo12",
+     "over12"
+    ]
+   },
+   "en": "Which fertility checks do you suggest for me, and for a partner if I have one?",
+   "ar": "ما فحوصات الخصوبة التي تقترحونها لي، ولشريك إن كان لديّ؟",
+   "fr": "Quels examens de fertilité me conseillez-vous, et pour un partenaire si j'en ai un ?",
+   "es": "¿Qué pruebas de fertilidad me sugiere, y para una pareja si la tengo?",
+   "source": {
+    "publisher": "ACOG",
+    "url": "https://www.acog.org/womens-health/faqs/evaluating-infertility",
+    "quote": "An infertility evaluation includes exams and tests to try to find the reason why you and your partner have not gotten pregnant."
+   }
+  },
+  {
+   "id": "ttcOverThirtyFiveSooner",
+   "personas": [
+    "C3",
+    "C14"
+   ],
+   "trigger": {
+    "stage": [
+     "ttc"
+    ],
+    "tryingFor": [
+     "sixTo12",
+     "over12"
+    ],
+    "ageFrom": 35
+   },
+   "en": "I am 35 or older and we have been trying for about six months or more. Should we start fertility checks now?",
+   "ar": "عمري 35 سنة فأكثر ونحاول منذ نحو ستة أشهر أو أكثر. هل نبدأ فحوصات الخصوبة الآن؟",
+   "fr": "J'ai 35 ans ou plus et nous essayons depuis environ six mois ou plus. Devons-nous commencer les examens de fertilité maintenant ?",
+   "es": "Tengo 35 años o más y llevamos unos seis meses o más intentándolo. ¿Empezamos ya las pruebas de fertilidad?",
+   "source": {
+    "publisher": "ACOG",
+    "url": "https://www.acog.org/womens-health/faqs/evaluating-infertility",
+    "quote": "If you are older than 35, an evaluation is recommended after 6 months of trying."
+   }
+  },
+  {
+   "id": "irregularTryingNow",
+   "personas": [
+    "B5",
+    "C6"
+   ],
+   "trigger": {
+    "stage": [
+     "ttc"
+    ],
+    "irregular": true
+   },
+   "en": "My cycles are irregular and we are trying to conceive. Should we talk about help now rather than waiting a year?",
+   "ar": "دوراتي غير منتظمة ونحاول الحمل. هل نتحدث عن المساعدة الآن بدل انتظار سنة؟",
+   "fr": "Mes cycles sont irréguliers et nous essayons de concevoir. Devrions-nous parler d'aide dès maintenant plutôt que d'attendre un an ?",
+   "es": "Mis ciclos son irregulares y estamos intentando el embarazo. ¿Hablamos de ayuda ya, en lugar de esperar un año?",
+   "source": {
+    "publisher": "Office on Women's Health",
+    "url": "https://womenshealth.gov/a-z-topics/infertility",
+    "quote": "women should talk to their doctors if they have: Irregular periods or no menstrual periods"
+   }
+  },
+  {
+   "id": "preconceptionReview",
+   "personas": [
+    "C1",
+    "C4",
+    "C5",
+    "C7",
+    "C8",
+    "C11",
+    "C13",
+    "C14"
+   ],
+   "trigger": {
+    "stage": [
+     "ttc"
+    ]
+   },
+   "en": "We are planning a pregnancy. Is there anything in my health or medicines to review first?",
+   "ar": "نخطط لحمل. هل هناك شيء في صحتي أو أدويتي يجب مراجعته أولًا؟",
+   "fr": "Nous prévoyons une grossesse. Y a-t-il quelque chose à revoir d'abord dans ma santé ou mes médicaments ?",
+   "es": "Estamos planeando un embarazo. ¿Hay algo de mi salud o de mis medicamentos que convenga revisar antes?",
+   "source": {
+    "publisher": "Office on Women's Health",
+    "url": "https://womenshealth.gov/a-z-topics/infertility",
+    "quote": "Doctors can help you get your body ready for a healthy baby."
+   }
+  },
+  {
+   "id": "ttcSupportOptions",
+   "personas": [
+    "C2",
+    "C3",
+    "C10",
+    "C12"
+   ],
+   "trigger": {
+    "stage": [
+     "ttc"
+    ],
+    "term": {
+     "key": "anxious",
+     "minDays": 3,
+     "windowDays": 90
+    }
+   },
+   "en": "Trying to conceive is weighing on me. Where can I find counselling or support?",
+   "ar": "محاولة الحمل تثقل عليّ. أين أجد استشارة نفسية أو دعمًا؟",
+   "fr": "Essayer de concevoir me pèse. Où puis-je trouver un accompagnement psychologique ou du soutien ?",
+   "es": "Intentar el embarazo me pesa. ¿Dónde puedo encontrar apoyo psicológico o grupos de apoyo?",
+   "source": {
+    "publisher": "MedlinePlus",
+    "url": "https://medlineplus.gov/infertility.html",
+    "quote": "Infertility can be stressful. Counseling and support groups may help you and your partner cope."
+   }
+  },
+  {
+   "id": "pregnancyTestsOffered",
+   "personas": [
+    "D1",
+    "D13"
+   ],
+   "trigger": {
+    "stage": [
+     "pregnant"
+    ],
+    "pregnancyWeeks": [
+     6,
+     20
+    ]
+   },
+   "en": "Which screening and diagnostic tests are offered in my pregnancy, and what does each one tell me?",
+   "ar": "ما فحوصات الكشف والفحوصات التشخيصية المتاحة في حملي، وماذا تخبرني كل واحدة منها؟",
+   "fr": "Quels tests de dépistage et tests diagnostiques me sont proposés pendant ma grossesse, et que m'apprend chacun ?",
+   "es": "¿Qué pruebas de cribado y diagnósticas se ofrecen en mi embarazo y qué me dice cada una?",
+   "source": {
+    "publisher": "ACOG",
+    "url": "https://www.acog.org/womens-health/faqs/prenatal-genetic-screening-tests",
+    "quote": "Both screening and diagnostic testing are offered to all pregnant women."
+   }
+  },
+  {
+   "id": "glucoseTestWhen",
+   "personas": [
+    "D3",
+    "D4",
+    "D12"
+   ],
+   "trigger": {
+    "stage": [
+     "pregnant"
+    ],
+    "pregnancyWeeks": [
+     18,
+     30
+    ]
+   },
+   "en": "When will I be tested for gestational diabetes, and could it be earlier for me?",
+   "ar": "متى سيُجرى لي فحص سكري الحمل، وهل يمكن أن يكون أبكر في حالتي؟",
+   "fr": "Quand serai-je testée pour le diabète gestationnel, et cela pourrait-il être plus tôt pour moi ?",
+   "es": "¿Cuándo me harán la prueba de diabetes gestacional y podría ser antes en mi caso?",
+   "source": {
+    "publisher": "ACOG",
+    "url": "https://www.acog.org/womens-health/faqs/gestational-diabetes",
+    "quote": "If you have risk factors, your blood sugar will be tested early in pregnancy."
+   }
+  },
+  {
+   "id": "movementsCallWho",
+   "personas": [
+    "D1",
+    "D2",
+    "D8",
+    "D9",
+    "D14",
+    "D16"
+   ],
+   "trigger": {
+    "stage": [
+     "pregnant"
+    ],
+    "pregnancyWeeks": [
+     24,
+     42
+    ]
+   },
+   "en": "Who do I call if my baby's movements change, including at night?",
+   "ar": "بمن أتصل إذا تغيّرت حركة طفلي، بما في ذلك ليلًا؟",
+   "fr": "Qui dois-je appeler si les mouvements de mon bébé changent, y compris la nuit ?",
+   "es": "¿A quién llamo si cambian los movimientos de mi bebé, también por la noche?",
+   "source": {
+    "publisher": "NHS",
+    "url": "https://www.nhs.uk/pregnancy/keeping-well/your-babys-movements/",
+    "quote": "Call your midwife or maternity unit immediately if: your baby is moving less than usual"
+   }
+  },
+  {
+   "id": "sameDayWarningSigns",
+   "personas": [
+    "D5",
+    "D6",
+    "D9",
+    "D12"
+   ],
+   "trigger": {
+    "stage": [
+     "pregnant"
+    ],
+    "pregnancyWeeks": [
+     20,
+     42
+    ]
+   },
+   "en": "Which signs should make me call the maternity unit the same day?",
+   "ar": "ما العلامات التي تستدعي أن أتصل بوحدة الولادة في اليوم نفسه؟",
+   "fr": "Quels signes doivent me faire appeler la maternité le jour même ?",
+   "es": "¿Qué señales deben hacerme llamar a la maternidad el mismo día?",
+   "source": {
+    "publisher": "NHS",
+    "url": "https://www.nhs.uk/conditions/pre-eclampsia/",
+    "quote": "Any of these symptoms can be serious and need to be checked immediately."
+   }
+  },
+  {
+   "id": "rhFactorChecked",
+   "personas": [
+    "D17"
+   ],
+   "trigger": {
+    "stage": [
+     "pregnant"
+    ],
+    "pregnancyWeeks": [
+     4,
+     28
+    ]
+   },
+   "en": "Has my blood group and Rh factor been checked, and does it change anything in my care?",
+   "ar": "هل فُحصت فصيلة دمي والعامل الريصي، وهل يغيّر ذلك شيئًا في رعايتي؟",
+   "fr": "Mon groupe sanguin et mon facteur Rhésus ont-ils été vérifiés, et cela change-t-il quelque chose à mes soins ?",
+   "es": "¿Se han comprobado mi grupo sanguíneo y mi factor Rh y cambia algo en mi atención?",
+   "source": {
+    "publisher": "ACOG",
+    "url": "https://www.acog.org/womens-health/faqs/the-rh-factor-how-it-can-affect-your-pregnancy",
+    "quote": "A simple blood test can determine your blood type and Rh status."
+   }
+  },
+  {
+   "id": "pregnancyLowMoodSupport",
+   "personas": [
+    "D2",
+    "D11",
+    "D15"
+   ],
+   "trigger": {
+    "stage": [
+     "pregnant"
+    ],
+    "term": {
+     "key": "sad",
+     "minDays": 3,
+     "windowDays": 30
+    }
+   },
+   "en": "I have felt low or very worried for a while. What support is available?",
+   "ar": "أشعر بالحزن أو القلق الشديد منذ مدة. ما الدعم المتاح لي؟",
+   "fr": "Je me sens déprimée ou très inquiète depuis un moment. Quel soutien existe ?",
+   "es": "Llevo un tiempo decaída o muy preocupada. ¿Qué apoyo hay disponible?",
+   "source": {
+    "publisher": "NHS",
+    "url": "https://www.nhs.uk/pregnancy/keeping-well/mental-health/",
+    "quote": "Speak to your maternity unit or GP if: you’re worried about your mental health"
+   }
+  },
+  {
+   "id": "severeSicknessHelp",
+   "personas": [
+    "D15"
+   ],
+   "trigger": {
+    "stage": [
+     "pregnant"
+    ],
+    "term": {
+     "key": "nausea",
+     "minDays": 7,
+     "windowDays": 30
+    }
+   },
+   "en": "My sickness makes it hard to keep food and drink down. What help is available?",
+   "ar": "الغثيان والقيء يصعّبان عليّ الاحتفاظ بالطعام والشراب. ما المساعدة المتاحة؟",
+   "fr": "Mes nausées et vomissements m'empêchent de garder aliments et boissons. Quelle aide existe ?",
+   "es": "Las náuseas y vómitos me impiden retener comida y bebida. ¿Qué ayuda hay disponible?",
+   "source": {
+    "publisher": "NHS",
+    "url": "https://www.nhs.uk/pregnancy/complications/severe-vomiting/",
+    "quote": "See your GP or midwife if you have severe nausea and vomiting."
+   }
+  },
+  {
+   "id": "itchBloodTests",
+   "personas": [
+    "D16"
+   ],
+   "trigger": {
+    "stage": [
+     "pregnant"
+    ],
+    "term": {
+     "key": "dryItchySkin",
+     "minDays": 2,
+     "windowDays": 30
+    },
+    "pregnancyWeeks": [
+     20,
+     42
+    ]
+   },
+   "en": "I have had itching in pregnancy. Should I have blood tests to check my liver?",
+   "ar": "أعاني من حكّة في الحمل. هل أحتاج إلى فحوصات دم لفحص الكبد؟",
+   "fr": "J'ai des démangeaisons pendant ma grossesse. Dois-je faire des analyses de sang pour vérifier mon foie ?",
+   "es": "Tengo picor en el embarazo. ¿Debería hacerme análisis de sangre para revisar el hígado?",
+   "source": {
+    "publisher": "RCOG",
+    "url": "https://www.rcog.org.uk/for-the-public/browse-our-patient-information/intrahepatic-cholestasis-of-pregnancy/",
+    "quote": "You will be offered blood tests to help diagnose ICP."
+   }
+  },
+  {
+   "id": "pretermSignsPlan",
+   "personas": [
+    "D8",
+    "D9"
+   ],
+   "trigger": {
+    "stage": [
+     "pregnant"
+    ],
+    "pregnancyWeeks": [
+     20,
+     37
+    ]
+   },
+   "en": "Which signs of early labour should make me call or come in, and where do I go out of hours?",
+   "ar": "ما علامات الولادة المبكرة التي تستدعي أن أتصل أو أحضر، وإلى أين أذهب خارج ساعات العمل؟",
+   "fr": "Quels signes de travail prématuré doivent me faire appeler ou venir, et où aller en dehors des heures d'ouverture ?",
+   "es": "¿Qué signos de parto prematuro deben hacerme llamar o acudir y adónde voy fuera de horario?",
+   "source": {
+    "publisher": "MedlinePlus",
+    "url": "https://medlineplus.gov/pretermlabor.html",
+    "quote": "If you think you might be having preterm labor, contact your health care provider."
+   }
+  },
+  {
+   "id": "postnatalCheckTalk",
+   "personas": [
+    "E1",
+    "E2",
+    "E4",
+    "E5",
+    "E7"
+   ],
+   "trigger": {
+    "stage": [
+     "postpartum"
+    ],
+    "postpartumWeeks": [
+     1,
+     12
+    ]
+   },
+   "en": "Can we go through how I am recovering, including bleeding, pain, mood and bladder changes?",
+   "ar": "هل يمكننا مراجعة كيف أتعافى، بما في ذلك النزف والألم والمزاج وتغيّرات المثانة؟",
+   "fr": "Pouvons-nous faire le point sur ma récupération, y compris saignements, douleurs, moral et changements de vessie ?",
+   "es": "¿Podemos repasar cómo me estoy recuperando, incluyendo sangrado, dolor, ánimo y cambios en la vejiga?",
+   "source": {
+    "publisher": "NHS",
+    "url": "https://www.nhs.uk/baby/support-and-services/your-6-week-postnatal-check/",
+    "quote": "It's a good idea to make a list of questions to take along with you."
+   }
+  },
+  {
+   "id": "postnatalMoodHelp",
+   "personas": [
+    "E1",
+    "E3"
+   ],
+   "trigger": {
+    "stage": [
+     "postpartum"
+    ],
+    "term": {
+     "key": "sad",
+     "minDays": 5,
+     "windowDays": 30
+    }
+   },
+   "en": "I have felt low or anxious since the birth. What help is there?",
+   "ar": "أشعر بالحزن أو القلق منذ الولادة. ما المساعدة المتاحة؟",
+   "fr": "Je me sens déprimée ou anxieuse depuis la naissance. Quelle aide existe ?",
+   "es": "Me siento decaída o ansiosa desde el parto. ¿Qué ayuda hay?",
+   "source": {
+    "publisher": "NHS",
+    "url": "https://www.nhs.uk/mental-health/conditions/post-natal-depression/overview/",
+    "quote": "Speak to your GP, midwife or health visitor if: you think you might have postnatal depression"
+   }
+  },
+  {
+   "id": "latchCheck",
+   "personas": [
+    "E2"
+   ],
+   "trigger": {
+    "stage": [
+     "postpartum"
+    ],
+    "term": {
+     "key": "breastTenderness",
+     "minDays": 3,
+     "windowDays": 30
+    }
+   },
+   "en": "Feeding hurts. Could someone watch a feed and check how my baby latches?",
+   "ar": "الرضاعة مؤلمة. هل يمكن لأحد أن يراقب رضعة ويتحقق من كيفية التقام طفلي للثدي؟",
+   "fr": "Les tétées font mal. Quelqu'un pourrait-il observer une tétée et vérifier la prise du sein ?",
+   "es": "Amamantar duele. ¿Podría alguien observar una toma y comprobar cómo se agarra mi bebé?",
+   "source": {
+    "publisher": "Office on Women's Health",
+    "url": "https://womenshealth.gov/breastfeeding/breastfeeding-challenges/common-breastfeeding-challenges",
+    "quote": "If you find yourself putting off feedings because breastfeeding is painful, get help from a lactation consultant."
+   }
+  },
+  {
+   "id": "warningSignsYearAfter",
+   "personas": [
+    "E1",
+    "E4",
+    "E5",
+    "E7"
+   ],
+   "trigger": {
+    "stage": [
+     "postpartum"
+    ],
+    "postpartumWeeks": [
+     0,
+     52
+    ]
+   },
+   "en": "Which symptoms in the year after birth should make me seek care at once?",
+   "ar": "ما الأعراض في السنة التي تلي الولادة التي تستدعي طلب الرعاية فورًا؟",
+   "fr": "Quels symptômes, dans l'année suivant la naissance, doivent me faire consulter tout de suite ?",
+   "es": "¿Qué síntomas en el año posterior al parto deben hacerme buscar atención de inmediato?",
+   "source": {
+    "publisher": "CDC",
+    "url": "https://www.cdc.gov/hearher/maternal-warning-signs/index.html",
+    "quote": "Did you know some problems due to pregnancy can happen up to a year after delivery?"
+   }
+  },
+  {
+   "id": "thyroidAfterBirth",
+   "personas": [
+    "E1",
+    "E3",
+    "E7"
+   ],
+   "trigger": {
+    "stage": [
+     "postpartum"
+    ],
+    "term": {
+     "key": "fatigue",
+     "minDays": 5,
+     "windowDays": 30
+    }
+   },
+   "en": "I have felt very tired since the birth. Should my thyroid be checked with a blood test?",
+   "ar": "أشعر بتعب شديد منذ الولادة. هل يُفحص أداء الغدة الدرقية بتحليل دم؟",
+   "fr": "Je suis très fatiguée depuis la naissance. Ma thyroïde devrait-elle être vérifiée par une prise de sang ?",
+   "es": "Me siento muy cansada desde el parto. ¿Deberían revisarme la tiroides con un análisis de sangre?",
+   "source": {
+    "publisher": "NIDDK (NIH)",
+    "url": "https://www.niddk.nih.gov/health-information/endocrine-diseases/pregnancy-thyroid-disease",
+    "quote": "Your doctor will review your symptoms and do some blood tests to measure your thyroid hormone levels."
+   }
+  },
+  {
+   "id": "urineLeaksHelp",
+   "personas": [
+    "E1",
+    "E4",
+    "F1",
+    "F2",
+    "F6"
+   ],
+   "trigger": {
+    "stage": [
+     "period",
+     "postpartum",
+     "menopause"
+    ],
+    "term": {
+     "key": "bladderLeaks",
+     "minDays": 3,
+     "windowDays": 30
+    }
+   },
+   "en": "I leak urine. What can help, and would pelvic floor exercises suit me?",
+   "ar": "يتسرّب مني البول. ما الذي يمكن أن يساعد، وهل تناسبني تمارين قاع الحوض؟",
+   "fr": "J'ai des fuites urinaires. Qu'est-ce qui peut aider, et des exercices du plancher pelvien me conviendraient-ils ?",
+   "es": "Tengo pérdidas de orina. ¿Qué puede ayudar y me convendrían los ejercicios del suelo pélvico?",
+   "source": {
+    "publisher": "NHS",
+    "url": "https://www.nhs.uk/conditions/urinary-incontinence/",
+    "quote": "See a GP if you have any type of urinary incontinence."
+   }
+  },
+  {
+   "id": "hotFlushOptions",
+   "personas": [
+    "B19",
+    "F1",
+    "F2",
+    "F3",
+    "F4",
+    "F5"
+   ],
+   "trigger": {
+    "stage": [
+     "menopause"
+    ],
+    "term": {
+     "key": "hotFlashes",
+     "minDays": 5,
+     "windowDays": 30
+    }
+   },
+   "en": "Hot flushes or night sweats are affecting my days. What options could we talk through?",
+   "ar": "الهبّات الساخنة أو التعرّق الليلي تؤثر في أيامي. ما الخيارات التي يمكن أن نناقشها؟",
+   "fr": "Les bouffées de chaleur ou sueurs nocturnes perturbent mes journées. De quelles options pourrions-nous parler ?",
+   "es": "Los sofocos o sudores nocturnos afectan a mis días. ¿Qué opciones podemos hablar?",
+   "source": {
+    "publisher": "MedlinePlus",
+    "url": "https://medlineplus.gov/menopause.html",
+    "quote": "If lifestyle changes are not enough to improve your symptoms, you may want to contact your health care provider."
+   }
+  },
+  {
+   "id": "changedBleedingChecks",
+   "personas": [
+    "F1",
+    "F5"
+   ],
+   "trigger": {
+    "stage": [
+     "menopause"
+    ],
+    "irregular": true
+   },
+   "en": "My bleeding pattern has changed. Which checks are worth doing?",
+   "ar": "تغيّر نمط نزفي. ما الفحوصات التي تستحق الإجراء؟",
+   "fr": "Mon schéma de saignements a changé. Quels examens valent la peine d'être faits ?",
+   "es": "Mi patrón de sangrado ha cambiado. ¿Qué pruebas merece la pena hacer?",
+   "source": {
+    "publisher": "ACOG",
+    "url": "https://www.acog.org/womens-health/faqs/perimenopausal-bleeding-and-bleeding-after-menopause",
+    "quote": "Although it’s normal for periods to change as you near menopause, you should still talk with your obstetrician–gynecologist (ob-gyn) about bleeding changes."
+   }
+  },
+  {
+   "id": "bleedingAfterMenopauseChecks",
+   "personas": [
+    "F1",
+    "F2",
+    "F6"
+   ],
+   "trigger": {
+    "stage": [
+     "menopause"
+    ],
+    "term": {
+     "key": "spotting",
+     "minDays": 1,
+     "windowDays": 90
+    }
+   },
+   "en": "I have had bleeding or spotting at this stage. What checks do I need, and how soon?",
+   "ar": "حدث لديّ نزف أو تبقّع في هذه المرحلة. ما الفحوصات التي أحتاجها، وخلال كم من الوقت؟",
+   "fr": "J'ai eu des saignements ou des pertes à ce stade. De quels examens ai-je besoin, et dans quel délai ?",
+   "es": "He tenido sangrado o manchado en esta etapa. ¿Qué pruebas necesito y con qué urgencia?",
+   "source": {
+    "publisher": "ACOG",
+    "url": "https://www.acog.org/womens-health/faqs/perimenopausal-bleeding-and-bleeding-after-menopause",
+    "quote": "It’s especially important to tell your ob-gyn if you have bleeding after menopause."
+   }
+  },
+  {
+   "id": "boneAndHeartHealth",
+   "personas": [
+    "B19",
+    "F1",
+    "F2",
+    "F3",
+    "F4",
+    "F5"
+   ],
+   "trigger": {
+    "stage": [
+     "menopause"
+    ]
+   },
+   "en": "What can I do to protect my bone and heart health at this stage?",
+   "ar": "ماذا يمكنني أن أفعل لحماية صحة عظامي وقلبي في هذه المرحلة؟",
+   "fr": "Que puis-je faire pour protéger la santé de mes os et de mon cœur à ce stade ?",
+   "es": "¿Qué puedo hacer para proteger la salud de mis huesos y de mi corazón en esta etapa?",
+   "source": {
+    "publisher": "MedlinePlus",
+    "url": "https://medlineplus.gov/menopause.html",
+    "quote": "Raise your cholesterol levels and increase your risk of heart disease and stroke."
+   }
+  },
+  {
+   "id": "drynessWhatHelps",
+   "personas": [
+    "F6"
+   ],
+   "trigger": {
+    "stage": [
+     "menopause"
+    ],
+    "term": {
+     "key": "vaginalDryness",
+     "minDays": 3,
+     "windowDays": 30
+    }
+   },
+   "en": "I have vaginal dryness or discomfort. What can help, and what needs checking?",
+   "ar": "أعاني من جفاف أو انزعاج في المهبل. ما الذي يمكن أن يساعد، وما الذي يحتاج إلى فحص؟",
+   "fr": "J'ai une sécheresse ou une gêne vaginale. Qu'est-ce qui peut aider, et que faut-il vérifier ?",
+   "es": "Tengo sequedad o molestias vaginales. ¿Qué puede ayudar y qué conviene revisar?",
+   "source": {
+    "publisher": "MedlinePlus",
+    "url": "https://medlineplus.gov/ency/article/000892.htm",
+    "quote": "There are many treatments for vaginal dryness."
+   }
+  },
+  {
+   "id": "urineTestAgain",
+   "personas": [
+    "B10",
+    "F6"
+   ],
+   "trigger": {
+    "stage": [
+     "period",
+     "ttc",
+     "postpartum",
+     "menopause"
+    ],
+    "term": {
+     "key": "bladderUrgency",
+     "minDays": 5,
+     "windowDays": 90
+    }
+   },
+   "en": "My urine symptoms keep coming back. Should I have a urine test, and how can we find the cause?",
+   "ar": "أعراض البول تعود إليّ باستمرار. هل أحتاج إلى فحص بول، وكيف نجد السبب؟",
+   "fr": "Mes symptômes urinaires reviennent sans cesse. Dois-je faire un test d'urine, et comment en trouver la cause ?",
+   "es": "Mis síntomas urinarios siguen volviendo. ¿Debería hacerme un análisis de orina y cómo podemos hallar la causa?",
+   "source": {
+    "publisher": "MedlinePlus",
+    "url": "https://medlineplus.gov/urinarytractinfections.html",
+    "quote": "Your doctor can tell if you have a UTI with a urine test."
+   }
+  },
+  {
+   "id": "thyroidCheckIrregular",
+   "personas": [
+    "B17"
+   ],
+   "trigger": {
+    "stage": [
+     "period"
+    ],
+    "term": {
+     "key": "hairThinning",
+     "minDays": 3,
+     "windowDays": 90
+    },
+    "irregular": true
+   },
+   "en": "My periods are irregular and my hair is thinning. Should my thyroid be checked with a blood test?",
+   "ar": "دورتي غير منتظمة وشعري يتساقط. هل يجب فحص الغدة الدرقية بتحليل دم؟",
+   "fr": "Mes règles sont irrégulières et mes cheveux s'éclaircissent. Ma thyroïde devrait-elle être vérifiée par une prise de sang ?",
+   "es": "Mis reglas son irregulares y se me adelgaza el pelo. ¿Deberían revisarme la tiroides con un análisis de sangre?",
+   "source": {
+    "publisher": "MedlinePlus",
+    "url": "https://medlineplus.gov/hypothyroidism.html",
+    "quote": "Thyroid tests, such as TSH, T3, T4, and thyroid antibody blood tests."
+   }
+  }
+ ],
+ "coverage": {
+  "A1": {
+   "tips": [],
+   "visitQuestions": []
+  },
+  "A2": {
+   "tips": [],
+   "visitQuestions": []
+  },
+  "A3": {
+   "tips": [],
+   "visitQuestions": []
+  },
+  "A4": {
+   "tips": [],
+   "visitQuestions": []
+  },
+  "A5": {
+   "tips": [],
+   "visitQuestions": []
+  },
+  "A6": {
+   "tips": [],
+   "visitQuestions": []
+  },
+  "B1": {
+   "tips": [
+    "trackDatesHelps",
+    "periodLongerThanSeven",
+    "bleedingBetweenPeriods"
+   ],
+   "visitQuestions": []
+  },
+  "B10": {
+   "tips": [
+    "urineInfectionSeeClinician"
+   ],
+   "visitQuestions": [
+    "urineTestAgain"
+   ]
+  },
+  "B11": {
+   "tips": [
+    "cervicalScreeningTip"
+   ],
+   "visitQuestions": [
+    "cervicalScreeningDue"
+   ]
+  },
+  "B12": {
+   "tips": [],
+   "visitQuestions": []
+  },
+  "B13": {
+   "tips": [
+    "headachesAroundPeriod"
+   ],
+   "visitQuestions": [
+    "headacheDiaryReview"
+   ]
+  },
+  "B14": {
+   "tips": [
+    "irregularCheckIn",
+    "stoppedThreeMonths"
+   ],
+   "visitQuestions": [
+    "periodsStoppedChecks"
+   ]
+  },
+  "B15": {
+   "tips": [
+    "symptomDiaryBeforeVisit",
+    "headachesAroundPeriod"
+   ],
+   "visitQuestions": [
+    "headacheDiaryReview"
+   ]
+  },
+  "B16": {
+   "tips": [
+    "stoppedThreeMonths"
+   ],
+   "visitQuestions": [
+    "periodsStoppedChecks"
+   ]
+  },
+  "B17": {
+   "tips": [
+    "irregularCheckIn",
+    "irregularWithOtherSigns",
+    "heavyOrTired"
+   ],
+   "visitQuestions": [
+    "irregularCauses",
+    "heavyAndTiredBloodTest",
+    "thyroidCheckIrregular"
+   ]
+  },
+  "B18": {
+   "tips": [
+    "cervicalScreeningTip"
+   ],
+   "visitQuestions": [
+    "cervicalScreeningDue"
+   ]
+  },
+  "B19": {
+   "tips": [
+    "hotFlushesTalkOptions",
+    "boneStrengthMenopause"
+   ],
+   "visitQuestions": [
+    "hotFlushOptions",
+    "boneAndHeartHealth"
+   ]
+  },
+  "B2": {
+   "tips": [
+    "symptomDiaryBeforeVisit",
+    "pmsDiary"
+   ],
+   "visitQuestions": [
+    "diaryReviewCycle"
+   ]
+  },
+  "B3": {
+   "tips": [
+    "periodPainSeeClinician",
+    "severePainUrgent",
+    "symptomDiaryBeforeVisit"
+   ],
+   "visitQuestions": [
+    "painCauseChecks"
+   ]
+  },
+  "B4": {
+   "tips": [
+    "periodLongerThanSeven",
+    "bleedingBetweenPeriods",
+    "periodPainSeeClinician",
+    "heavyOrTired"
+   ],
+   "visitQuestions": [
+    "heavyAndTiredBloodTest"
+   ]
+  },
+  "B5": {
+   "tips": [
+    "trackDatesHelps",
+    "irregularCheckIn",
+    "stoppedThreeMonths",
+    "symptomDiaryBeforeVisit"
+   ],
+   "visitQuestions": [
+    "periodsStoppedChecks",
+    "irregularCauses",
+    "irregularTryingNow"
+   ]
+  },
+  "B6": {
+   "tips": [
+    "irregularCheckIn",
+    "stoppedThreeMonths",
+    "irregularWithOtherSigns",
+    "ttcIrregularNoWait"
+   ],
+   "visitQuestions": [
+    "periodsStoppedChecks",
+    "irregularCauses",
+    "irregularAcneChecks"
+   ]
+  },
+  "B7": {
+   "tips": [
+    "periodPainSeeClinician",
+    "severePainUrgent",
+    "symptomDiaryBeforeVisit"
+   ],
+   "visitQuestions": [
+    "painCauseChecks"
+   ]
+  },
+  "B8": {
+   "tips": [
+    "periodPainSeeClinician",
+    "heavyOrTired"
+   ],
+   "visitQuestions": [
+    "painCauseChecks",
+    "heavyAndTiredBloodTest"
+   ]
+  },
+  "B9": {
+   "tips": [
+    "periodPainSeeClinician",
+    "severePainUrgent",
+    "symptomDiaryBeforeVisit",
+    "heavyOrTired"
+   ],
+   "visitQuestions": [
+    "painCauseChecks",
+    "heavyAndTiredBloodTest"
+   ]
+  },
+  "C1": {
+   "tips": [
+    "ttcOneYear",
+    "regularSexTakesTime",
+    "testingTooEarly",
+    "folicAcidBeforePregnancy",
+    "talkBeforeTrying"
+   ],
+   "visitQuestions": [
+    "preconceptionReview"
+   ]
+  },
+  "C10": {
+   "tips": [
+    "ttcOneYear",
+    "tryingIsStressful"
+   ],
+   "visitQuestions": [
+    "ttcSupportOptions"
+   ]
+  },
+  "C11": {
+   "tips": [
+    "regularSexTakesTime",
+    "testingTooEarly",
+    "folicAcidBeforePregnancy",
+    "talkBeforeTrying"
+   ],
+   "visitQuestions": [
+    "preconceptionReview"
+   ]
+  },
+  "C12": {
+   "tips": [
+    "regularSexTakesTime",
+    "testingTooEarly",
+    "tryingIsStressful"
+   ],
+   "visitQuestions": [
+    "ttcSupportOptions"
+   ]
+  },
+  "C13": {
+   "tips": [
+    "ttcOneYear",
+    "regularSexTakesTime",
+    "folicAcidBeforePregnancy",
+    "talkBeforeTrying",
+    "tryingIsStressful"
+   ],
+   "visitQuestions": [
+    "checksForCouple",
+    "preconceptionReview"
+   ]
+  },
+  "C14": {
+   "tips": [
+    "ttcOneYear",
+    "ttcAgeSixMonths",
+    "folicAcidBeforePregnancy",
+    "talkBeforeTrying",
+    "tryingIsStressful"
+   ],
+   "visitQuestions": [
+    "checksForCouple",
+    "ttcOverThirtyFiveSooner",
+    "preconceptionReview"
+   ]
+  },
+  "C15": {
+   "tips": [],
+   "visitQuestions": []
+  },
+  "C16": {
+   "tips": [
+    "irregularCheckIn",
+    "stoppedThreeMonths"
+   ],
+   "visitQuestions": [
+    "periodsStoppedChecks",
+    "irregularCauses"
+   ]
+  },
+  "C2": {
+   "tips": [
+    "ttcOneYear",
+    "tryingIsStressful"
+   ],
+   "visitQuestions": [
+    "checksForCouple",
+    "ttcSupportOptions"
+   ]
+  },
+  "C3": {
+   "tips": [
+    "ttcAgeSixMonths",
+    "tryingIsStressful"
+   ],
+   "visitQuestions": [
+    "checksForCouple",
+    "ttcOverThirtyFiveSooner",
+    "ttcSupportOptions"
+   ]
+  },
+  "C4": {
+   "tips": [
+    "ttcOneYear",
+    "regularSexTakesTime",
+    "folicAcidBeforePregnancy",
+    "talkBeforeTrying"
+   ],
+   "visitQuestions": [
+    "checksForCouple",
+    "preconceptionReview"
+   ]
+  },
+  "C5": {
+   "tips": [
+    "folicAcidBeforePregnancy",
+    "talkBeforeTrying"
+   ],
+   "visitQuestions": [
+    "preconceptionReview"
+   ]
+  },
+  "C6": {
+   "tips": [
+    "ttcIrregularNoWait"
+   ],
+   "visitQuestions": [
+    "irregularTryingNow"
+   ]
+  },
+  "C7": {
+   "tips": [
+    "ttcOneYear",
+    "talkBeforeTrying"
+   ],
+   "visitQuestions": [
+    "checksForCouple",
+    "preconceptionReview"
+   ]
+  },
+  "C8": {
+   "tips": [
+    "talkBeforeTrying"
+   ],
+   "visitQuestions": [
+    "preconceptionReview"
+   ]
+  },
+  "C9": {
+   "tips": [
+    "ttcOneYear"
+   ],
+   "visitQuestions": [
+    "checksForCouple"
+   ]
+  },
+  "D1": {
+   "tips": [
+    "movementsChangeCallNow",
+    "firstMovementsBy24",
+    "preeclampsiaSigns",
+    "antenatalChecksMatter",
+    "screeningVersusDiagnostic",
+    "mainScanBetween18And21",
+    "warningSignsPregnancyAndYear"
+   ],
+   "visitQuestions": [
+    "pregnancyTestsOffered",
+    "movementsCallWho"
+   ]
+  },
+  "D10": {
+   "tips": [
+    "movementsChangeCallNow",
+    "tirednessInPregnancy"
+   ],
+   "visitQuestions": []
+  },
+  "D11": {
+   "tips": [
+    "lowMoodPerinatal",
+    "anxietyInPregnancy"
+   ],
+   "visitQuestions": [
+    "pregnancyLowMoodSupport"
+   ]
+  },
+  "D12": {
+   "tips": [
+    "movementsChangeCallNow",
+    "preeclampsiaSigns",
+    "antenatalChecksMatter",
+    "glucoseScreening",
+    "warningSignsPregnancyAndYear"
+   ],
+   "visitQuestions": [
+    "glucoseTestWhen",
+    "sameDayWarningSigns"
+   ]
+  },
+  "D13": {
+   "tips": [
+    "movementsChangeCallNow",
+    "antenatalChecksMatter",
+    "screeningVersusDiagnostic"
+   ],
+   "visitQuestions": [
+    "pregnancyTestsOffered"
+   ]
+  },
+  "D14": {
+   "tips": [
+    "movementsChangeCallNow",
+    "warningSignsPregnancyAndYear"
+   ],
+   "visitQuestions": [
+    "movementsCallWho"
+   ]
+  },
+  "D15": {
+   "tips": [
+    "severeSicknessTellEarly",
+    "lowMoodPerinatal",
+    "anxietyInPregnancy"
+   ],
+   "visitQuestions": [
+    "pregnancyLowMoodSupport",
+    "severeSicknessHelp"
+   ]
+  },
+  "D16": {
+   "tips": [
+    "movementsChangeCallNow",
+    "itchTellMidwife"
+   ],
+   "visitQuestions": [
+    "movementsCallWho",
+    "itchBloodTests"
+   ]
+  },
+  "D17": {
+   "tips": [
+    "movementsChangeCallNow",
+    "rhBloodGroup"
+   ],
+   "visitQuestions": [
+    "rhFactorChecked"
+   ]
+  },
+  "D2": {
+   "tips": [
+    "movementsChangeCallNow",
+    "lowMoodPerinatal",
+    "anxietyInPregnancy",
+    "warningSignsPregnancyAndYear"
+   ],
+   "visitQuestions": [
+    "movementsCallWho",
+    "pregnancyLowMoodSupport"
+   ]
+  },
+  "D3": {
+   "tips": [
+    "movementsChangeCallNow",
+    "preeclampsiaSigns",
+    "glucoseScreening"
+   ],
+   "visitQuestions": [
+    "glucoseTestWhen"
+   ]
+  },
+  "D4": {
+   "tips": [
+    "movementsChangeCallNow",
+    "preeclampsiaSigns",
+    "glucoseScreening"
+   ],
+   "visitQuestions": [
+    "glucoseTestWhen"
+   ]
+  },
+  "D5": {
+   "tips": [
+    "movementsChangeCallNow",
+    "preeclampsiaSigns",
+    "antenatalChecksMatter",
+    "warningSignsPregnancyAndYear"
+   ],
+   "visitQuestions": [
+    "sameDayWarningSigns"
+   ]
+  },
+  "D6": {
+   "tips": [
+    "movementsChangeCallNow",
+    "preeclampsiaSigns",
+    "antenatalChecksMatter",
+    "warningSignsPregnancyAndYear"
+   ],
+   "visitQuestions": [
+    "sameDayWarningSigns"
+   ]
+  },
+  "D7": {
+   "tips": [],
+   "visitQuestions": []
+  },
+  "D8": {
+   "tips": [
+    "movementsChangeCallNow",
+    "pretermLabourSigns"
+   ],
+   "visitQuestions": [
+    "movementsCallWho",
+    "pretermSignsPlan"
+   ]
+  },
+  "D9": {
+   "tips": [
+    "movementsChangeCallNow",
+    "preeclampsiaSigns",
+    "antenatalChecksMatter",
+    "pretermLabourSigns",
+    "warningSignsPregnancyAndYear"
+   ],
+   "visitQuestions": [
+    "movementsCallWho",
+    "sameDayWarningSigns",
+    "pretermSignsPlan"
+   ]
+  },
+  "E1": {
+   "tips": [
+    "leakingUrineTellClinician",
+    "lowMoodPerinatal",
+    "warningSignsPregnancyAndYear",
+    "postnatalCheckSixToEight",
+    "tirednessAfterBirthThyroid",
+    "bleedingUpToSixWeeks",
+    "babyBluesPassing"
+   ],
+   "visitQuestions": [
+    "postnatalCheckTalk",
+    "postnatalMoodHelp",
+    "warningSignsYearAfter",
+    "thyroidAfterBirth",
+    "urineLeaksHelp"
+   ]
+  },
+  "E2": {
+   "tips": [
+    "postnatalCheckSixToEight",
+    "painfulFeedsGetHelp"
+   ],
+   "visitQuestions": [
+    "postnatalCheckTalk",
+    "latchCheck"
+   ]
+  },
+  "E3": {
+   "tips": [
+    "lowMoodPerinatal",
+    "postnatalCheckSixToEight",
+    "tirednessAfterBirthThyroid",
+    "babyBluesPassing"
+   ],
+   "visitQuestions": [
+    "postnatalMoodHelp",
+    "thyroidAfterBirth"
+   ]
+  },
+  "E4": {
+   "tips": [
+    "leakingUrineTellClinician",
+    "warningSignsPregnancyAndYear",
+    "postnatalCheckSixToEight",
+    "bleedingUpToSixWeeks"
+   ],
+   "visitQuestions": [
+    "postnatalCheckTalk",
+    "warningSignsYearAfter",
+    "urineLeaksHelp"
+   ]
+  },
+  "E5": {
+   "tips": [
+    "bleedingUpToSixWeeks"
+   ],
+   "visitQuestions": [
+    "postnatalCheckTalk",
+    "warningSignsYearAfter"
+   ]
+  },
+  "E6": {
+   "tips": [
+    "lowMoodPerinatal"
+   ],
+   "visitQuestions": []
+  },
+  "E7": {
+   "tips": [
+    "postnatalCheckSixToEight",
+    "tirednessAfterBirthThyroid"
+   ],
+   "visitQuestions": [
+    "postnatalCheckTalk",
+    "warningSignsYearAfter",
+    "thyroidAfterBirth"
+   ]
+  },
+  "F1": {
+   "tips": [
+    "leakingUrineTellClinician",
+    "periodChangesFirstSign",
+    "twelveMonthsMeansMenopause",
+    "bleedingAfterMenopause",
+    "hotFlushesTalkOptions",
+    "boneStrengthMenopause",
+    "lowMoodMenopause"
+   ],
+   "visitQuestions": [
+    "urineLeaksHelp",
+    "hotFlushOptions",
+    "changedBleedingChecks",
+    "bleedingAfterMenopauseChecks",
+    "boneAndHeartHealth"
+   ]
+  },
+  "F2": {
+   "tips": [
+    "leakingUrineTellClinician",
+    "twelveMonthsMeansMenopause",
+    "bleedingAfterMenopause",
+    "hotFlushesTalkOptions",
+    "boneStrengthMenopause"
+   ],
+   "visitQuestions": [
+    "urineLeaksHelp",
+    "hotFlushOptions",
+    "bleedingAfterMenopauseChecks",
+    "boneAndHeartHealth"
+   ]
+  },
+  "F3": {
+   "tips": [
+    "hotFlushesTalkOptions",
+    "boneStrengthMenopause",
+    "heartbeatAroundMenopause"
+   ],
+   "visitQuestions": [
+    "hotFlushOptions",
+    "boneAndHeartHealth"
+   ]
+  },
+  "F4": {
+   "tips": [
+    "periodChangesFirstSign",
+    "hotFlushesTalkOptions",
+    "boneStrengthMenopause",
+    "lowMoodMenopause"
+   ],
+   "visitQuestions": [
+    "hotFlushOptions",
+    "boneAndHeartHealth"
+   ]
+  },
+  "F5": {
+   "tips": [
+    "periodChangesFirstSign",
+    "hotFlushesTalkOptions",
+    "boneStrengthMenopause",
+    "lowMoodMenopause"
+   ],
+   "visitQuestions": [
+    "hotFlushOptions",
+    "changedBleedingChecks",
+    "boneAndHeartHealth"
+   ]
+  },
+  "F6": {
+   "tips": [
+    "urineInfectionSeeClinician",
+    "leakingUrineTellClinician",
+    "bleedingAfterMenopause",
+    "drynessManyTreatments"
+   ],
+   "visitQuestions": [
+    "urineLeaksHelp",
+    "bleedingAfterMenopauseChecks",
+    "drynessWhatHelps",
+    "urineTestAgain"
+   ]
+  },
+  "X1": {
+   "tips": [],
+   "visitQuestions": []
+  },
+  "X2": {
+   "tips": [],
+   "visitQuestions": []
+  }
+ },
+ "dropped": [
+  {
+   "id": "A1.pubertyWideNormal",
+   "reason": "needs state: minor (under 18 gets no tracker, MR-48); persona is a girl or teen"
+  },
+  {
+   "id": "A1.firstPeriodKit",
+   "reason": "needs state: minor (under 18 gets no tracker, MR-48); persona is a girl or teen"
+  },
+  {
+   "id": "A1.earlyPubertySigns",
+   "reason": "needs state: minor (under 18 gets no tracker, MR-48); persona is a girl or teen"
+  },
+  {
+   "id": "A1.noBreastDevelopment13",
+   "reason": "needs state: minor (under 18 gets no tracker, MR-48); persona is a girl or teen"
+  },
+  {
+   "id": "A2.earlyCyclesVary",
+   "reason": "needs state: minor (under 18 gets no tracker, MR-48); persona is a girl or teen"
+  },
+  {
+   "id": "A2.cycleAsVitalSign",
+   "reason": "needs state: minor (under 18 gets no tracker, MR-48); persona is a girl or teen"
+  },
+  {
+   "id": "A2.ninetyDayGap",
+   "reason": "needs state: minor (under 18 gets no tracker, MR-48); persona is a girl or teen"
+  },
+  {
+   "id": "A2.teenHeavyBleeding",
+   "reason": "needs state: minor (under 18 gets no tracker, MR-48); persona is a girl or teen"
+  },
+  {
+   "id": "A3.heavySignsToNote",
+   "reason": "needs state: minor (under 18 gets no tracker, MR-48); persona is a girl or teen"
+  },
+  {
+   "id": "A3.painMissingSchool",
+   "reason": "needs state: minor (under 18 gets no tracker, MR-48); persona is a girl or teen"
+  },
+  {
+   "id": "A3.bleedingDisorderCues",
+   "reason": "needs state: minor (under 18 gets no tracker, MR-48); persona is a girl or teen"
+  },
+  {
+   "id": "A3.ferritinCheck",
+   "reason": "needs state: minor (under 18 gets no tracker, MR-48); persona is a girl or teen"
+  },
+  {
+   "id": "A3.painNotImproving",
+   "reason": "needs state: minor (under 18 gets no tracker, MR-48); persona is a girl or teen"
+  },
+  {
+   "id": "A4.teenNoLabelYet",
+   "reason": "needs state: minor (under 18 gets no tracker, MR-48); persona is a girl or teen"
+  },
+  {
+   "id": "A4.acneHairTalk",
+   "reason": "needs state: minor (under 18 gets no tracker, MR-48); persona is a girl or teen"
+  },
+  {
+   "id": "A4.teenIrregularAndSigns",
+   "reason": "needs state: minor (under 18 gets no tracker, MR-48); persona is a girl or teen"
+  },
+  {
+   "id": "A4.teenMoodCheck",
+   "reason": "needs state: minor (under 18 gets no tracker, MR-48); persona is a girl or teen"
+  },
+  {
+   "id": "A5.gapNotLate",
+   "reason": "needs state: minor (under 18 gets no tracker, MR-48); persona is a girl or teen"
+  },
+  {
+   "id": "A5.noPeriodBy15",
+   "reason": "needs state: minor (under 18 gets no tracker, MR-48); persona is a girl or teen"
+  },
+  {
+   "id": "A5.threeMonthGap",
+   "reason": "needs state: minor (under 18 gets no tracker, MR-48); persona is a girl or teen"
+  },
+  {
+   "id": "A5.whatVisitInvolves",
+   "reason": "needs state: minor (under 18 gets no tracker, MR-48); persona is a girl or teen"
+  },
+  {
+   "id": "A6.periodNotFitness",
+   "reason": "needs state: minor (under 18 gets no tracker, MR-48); persona is a girl or teen"
+  },
+  {
+   "id": "A6.athletePeriodsStopped",
+   "reason": "needs state: minor (under 18 gets no tracker, MR-48); persona is a girl or teen"
+  },
+  {
+   "id": "A6.athleteBone",
+   "reason": "needs state: minor (under 18 gets no tracker, MR-48); persona is a girl or teen"
+  },
+  {
+   "id": "B1.cycleSpreadWindow",
+   "reason": "needs state: cycle-gap or spread counts (only the irregular flag is available)"
+  },
+  {
+   "id": "B1.periodLength",
+   "reason": "merged: covered by a broader catalogue item for this persona (see coverage)"
+  },
+  {
+   "id": "B1.cycleChanged",
+   "reason": "needs state: cycle-gap or spread counts (only the irregular flag is available)"
+  },
+  {
+   "id": "B1.bleedingBetween",
+   "reason": "merged: covered by a broader catalogue item for this persona (see coverage)"
+  },
+  {
+   "id": "B2.keepTwoCycleDiary",
+   "reason": "merged: covered by a broader catalogue item for this persona (see coverage)"
+  },
+  {
+   "id": "B2.premenstrualDiary",
+   "reason": "merged: covered by a broader catalogue item for this persona (see coverage)"
+  },
+  {
+   "id": "B2.premenstrualDaily",
+   "reason": "merged: covered by a broader catalogue item for this persona (see coverage)"
+  },
+  {
+   "id": "B3.painPatternNote",
+   "reason": "merged: covered by a broader catalogue item for this persona (see coverage)"
+  },
+  {
+   "id": "B3.severePainSeeGp",
+   "reason": "merged: covered by a broader catalogue item for this persona (see coverage)"
+  },
+  {
+   "id": "B3.painPersists",
+   "reason": "merged: covered by a broader catalogue item for this persona (see coverage)"
+  },
+  {
+   "id": "B3.painOutsidePeriod",
+   "reason": "merged: covered by a broader catalogue item for this persona (see coverage)"
+  },
+  {
+   "id": "B4.hmbSignsToNote",
+   "reason": "needs state: heavy-flow days (flow is not a term key)"
+  },
+  {
+   "id": "B4.tiredAndHeavy",
+   "reason": "needs state: heavy-flow days (flow is not a term key)"
+  },
+  {
+   "id": "B4.ironAndBloodCount",
+   "reason": "needs state: heavy-flow days (flow is not a term key)"
+  },
+  {
+   "id": "B4.heavyCauseWork",
+   "reason": "needs state: heavy-flow days (flow is not a term key)"
+  },
+  {
+   "id": "B4.heavyOver7",
+   "reason": "merged: covered by a broader catalogue item for this persona (see coverage)"
+  },
+  {
+   "id": "B5.threeMonthNoPeriod",
+   "reason": "needs state: cycle-gap or spread counts (only the irregular flag is available)"
+  },
+  {
+   "id": "B5.patternHelpsDoctor",
+   "reason": "needs state: cycle-gap or spread counts (only the irregular flag is available)"
+  },
+  {
+   "id": "B5.gapThreeMonths",
+   "reason": "needs state: cycle-gap or spread counts (only the irregular flag is available)"
+  },
+  {
+   "id": "B5.irregularWorkup",
+   "reason": "needs state: cycle-gap or spread counts (only the irregular flag is available)"
+  },
+  {
+   "id": "B5.whichSpecialist",
+   "reason": "unverified source: marked [NEEDS SOURCE] in the audit and no verified Tier-1/2 page was used"
+  },
+  {
+   "id": "B6.pcosLongCycles",
+   "reason": "needs state: cycle-gap or spread counts (only the irregular flag is available)"
+  },
+  {
+   "id": "B6.pcosSignsRecord",
+   "reason": "merged: covered by a broader catalogue item for this persona (see coverage)"
+  },
+  {
+   "id": "B6.pcosMetabolicChecks",
+   "reason": "unverified source: marked [NEEDS SOURCE] in the audit and no verified Tier-1/2 page was used"
+  },
+  {
+   "id": "B6.pcosLongGaps",
+   "reason": "needs state: cycle-gap or spread counts (only the irregular flag is available)"
+  },
+  {
+   "id": "B7.endoPainDiary",
+   "reason": "needs state: an endometriosis diagnosis or suspicion (the phone holds no such field)"
+  },
+  {
+   "id": "B7.chronicPelvicPain",
+   "reason": "needs state: an endometriosis diagnosis or suspicion (the phone holds no such field)"
+  },
+  {
+   "id": "B7.bowelBladderCycle",
+   "reason": "needs state: an endometriosis diagnosis or suspicion (the phone holds no such field)"
+  },
+  {
+   "id": "B7.endoNextSteps",
+   "reason": "needs state: an endometriosis diagnosis or suspicion (the phone holds no such field)"
+  },
+  {
+   "id": "B8.fibroidCommon",
+   "reason": "needs state: a fibroid diagnosis (the phone holds no such field)"
+  },
+  {
+   "id": "B8.fibroidBleedingNote",
+   "reason": "needs state: a fibroid diagnosis (the phone holds no such field)"
+  },
+  {
+   "id": "B8.fibroidPressure",
+   "reason": "needs state: a fibroid diagnosis (the phone holds no such field)"
+  },
+  {
+   "id": "B8.fibroidOptions",
+   "reason": "needs state: a fibroid diagnosis (the phone holds no such field)"
+  },
+  {
+   "id": "B9.adenoOverlap",
+   "reason": "needs state: an adenomyosis diagnosis (the phone holds no such field)"
+  },
+  {
+   "id": "B9.heavyAndPainful",
+   "reason": "needs state: an adenomyosis diagnosis (the phone holds no such field)"
+  },
+  {
+   "id": "B9.adenoOptions",
+   "reason": "needs state: an adenomyosis diagnosis (the phone holds no such field)"
+  },
+  {
+   "id": "B10.noDouche",
+   "reason": "merged: covered by a broader catalogue item for this persona (see coverage)"
+  },
+  {
+   "id": "B10.seeDoctorUti",
+   "reason": "merged: covered by a broader catalogue item for this persona (see coverage)"
+  },
+  {
+   "id": "B10.recurrentInfections",
+   "reason": "merged: covered by a broader catalogue item for this persona (see coverage)"
+  },
+  {
+   "id": "B10.urineSymptomsReturn",
+   "reason": "merged: covered by a broader catalogue item for this persona (see coverage)"
+  },
+  {
+   "id": "B11.noSymptomsStillTest",
+   "reason": "merged: covered by a broader catalogue item for this persona (see coverage)"
+  },
+  {
+   "id": "B11.stiTesting",
+   "reason": "excluded by product rule: contraception or sexual-wellness content"
+  },
+  {
+   "id": "B11.hpvScreening",
+   "reason": "merged: covered by a broader catalogue item for this persona (see coverage)"
+  },
+  {
+   "id": "B12.painNotToEndure",
+   "reason": "excluded by product rule: contraception or sexual-wellness content"
+  },
+  {
+   "id": "B12.painfulSex",
+   "reason": "excluded by product rule: contraception or sexual-wellness content"
+  },
+  {
+   "id": "B12.drynessQuestion",
+   "reason": "merged: covered by a broader catalogue item for this persona (see coverage)"
+  },
+  {
+   "id": "B13.newMethodSettling",
+   "reason": "excluded by product rule: contraception or sexual-wellness content"
+  },
+  {
+   "id": "B13.methodSideEffectsPersist",
+   "reason": "excluded by product rule: contraception or sexual-wellness content"
+  },
+  {
+   "id": "B13.headacheAuraMethod",
+   "reason": "excluded by product rule: contraception or sexual-wellness content"
+  },
+  {
+   "id": "B13.bleedingPatternMethod",
+   "reason": "excluded by product rule: contraception or sexual-wellness content"
+  },
+  {
+   "id": "B14.withdrawalBleedFirst",
+   "reason": "excluded by product rule: contraception or sexual-wellness content"
+  },
+  {
+   "id": "B14.ovulationBeforeBleed",
+   "reason": "excluded by product rule: contraception or sexual-wellness content"
+  },
+  {
+   "id": "B14.noPeriodAfterStopping",
+   "reason": "excluded by product rule: contraception or sexual-wellness content"
+  },
+  {
+   "id": "B14.pillMaskedCycles",
+   "reason": "unverified source: marked [NEEDS SOURCE] in the audit and no verified Tier-1/2 page was used"
+  },
+  {
+   "id": "B14.injectionReturn",
+   "reason": "excluded by product rule: contraception or sexual-wellness content"
+  },
+  {
+   "id": "B15.migrainePattern",
+   "reason": "merged: covered by a broader catalogue item for this persona (see coverage)"
+  },
+  {
+   "id": "B15.migraineCycleLink",
+   "reason": "unverified source: marked [NEEDS SOURCE] in the audit and no verified Tier-1/2 page was used"
+  },
+  {
+   "id": "B15.auraAndMethods",
+   "reason": "excluded by product rule: contraception or sexual-wellness content"
+  },
+  {
+   "id": "B15.headacheChange",
+   "reason": "unverified source: marked [NEEDS SOURCE] in the audit and no verified Tier-1/2 page was used"
+  },
+  {
+   "id": "B16.longGapCheckIn",
+   "reason": "needs state: cycle-gap or spread counts (only the irregular flag is available)"
+  },
+  {
+   "id": "B16.noPeriodThreeMonths",
+   "reason": "merged: covered by a broader catalogue item for this persona (see coverage)"
+  },
+  {
+   "id": "B16.bonesAfterAbsentPeriods",
+   "reason": "unverified source: marked [NEEDS SOURCE] in the audit and no verified Tier-1/2 page was used"
+  },
+  {
+   "id": "B16.trainingAndCycle",
+   "reason": "unverified source: marked [NEEDS SOURCE] in the audit and no verified Tier-1/2 page was used"
+  },
+  {
+   "id": "B17.thyroidSeeSymptomsTogether",
+   "reason": "merged: covered by a broader catalogue item for this persona (see coverage)"
+  },
+  {
+   "id": "B17.thyroidAndPeriods",
+   "reason": "unverified source: marked [NEEDS SOURCE] in the audit and no verified Tier-1/2 page was used"
+  },
+  {
+   "id": "B17.thyroidRecheckTiming",
+   "reason": "needs state: a condition, history or note the phone does not hold (profile has no such field)"
+  },
+  {
+   "id": "B17.heavyBleedingThyroid",
+   "reason": "needs state: heavy-flow days (flow is not a term key)"
+  },
+  {
+   "id": "B18.longerIntervalHpv",
+   "reason": "needs state: an age band not expressible with the single ageFrom 35 trigger"
+  },
+  {
+   "id": "B18.cervicalScreeningDue",
+   "reason": "needs state: an age band not expressible with the single ageFrom 35 trigger"
+  },
+  {
+   "id": "B18.breastScreeningAge",
+   "reason": "needs state: an age band not expressible with the single ageFrom 35 trigger"
+  },
+  {
+   "id": "B18.hpvVaccineAdult",
+   "reason": "needs state: an age band not expressible with the single ageFrom 35 trigger"
+  },
+  {
+   "id": "B18.familyHistoryGenetic",
+   "reason": "unverified source: marked [NEEDS SOURCE] in the audit and no verified Tier-1/2 page was used"
+  },
+  {
+   "id": "B19.lateEffectsLog",
+   "reason": "unverified source: publisher not on the Tier-1/2 list (cancer.gov)"
+  },
+  {
+   "id": "B19.suddenMenopause",
+   "reason": "needs state: a cancer-survivorship flag (the phone holds no such field)"
+  },
+  {
+   "id": "B19.menopauseAfterCancer",
+   "reason": "needs state: a cancer-survivorship flag (the phone holds no such field)"
+  },
+  {
+   "id": "B19.surveillanceSchedule",
+   "reason": "unverified source: publisher not on the Tier-1/2 list (cancer.org)"
+  },
+  {
+   "id": "B19.lateEffectsBones",
+   "reason": "unverified source: publisher not on the Tier-1/2 list (cancer.gov)"
+  },
+  {
+   "id": "B19.raiseIntimateHealth",
+   "reason": "unverified source: publisher not on the Tier-1/2 list (cancer.gov)"
+  },
+  {
+   "id": "C1.timingFrequency",
+   "reason": "unverified source: publisher not on the Tier-1/2 list (asrm.org)"
+  },
+  {
+   "id": "C1.bbtLooksBack",
+   "reason": "unverified source: publisher not on the Tier-1/2 list (asrm.org)"
+  },
+  {
+   "id": "C1.opkSurgeOnly",
+   "reason": "unverified source: publisher not on the Tier-1/2 list (asrm.org)"
+  },
+  {
+   "id": "C1.whenToSeekHelp",
+   "reason": "unverified source: publisher not on the Tier-1/2 list (asrm.org)"
+  },
+  {
+   "id": "C1.ttcPreconceptionReview",
+   "reason": "needs state: a diagnosis, obstetric history, treatment route or medicine list the phone does not hold"
+  },
+  {
+   "id": "C1.ttcEarlyCheckAge",
+   "reason": "unverified source: publisher not on the Tier-1/2 list (asrm.org)"
+  },
+  {
+   "id": "C2.bothPartnersChecked",
+   "reason": "unverified source: publisher not on the Tier-1/2 list (asrm.org)"
+  },
+  {
+   "id": "C2.reserveNotNatural",
+   "reason": "unverified source: publisher not on the Tier-1/2 list (asrm.org)"
+  },
+  {
+   "id": "C2.workupOrder",
+   "reason": "unverified source: publisher not on the Tier-1/2 list (asrm.org)"
+  },
+  {
+   "id": "C2.tubalCheck",
+   "reason": "unverified source: publisher not on the Tier-1/2 list (asrm.org)"
+  },
+  {
+   "id": "C2.partnerSemenAnalysis",
+   "reason": "unverified source: publisher not on the Tier-1/2 list (asrm.org)"
+  },
+  {
+   "id": "C2.specialistReferral",
+   "reason": "merged: covered by a broader catalogue item for this persona (see coverage)"
+  },
+  {
+   "id": "C3.age35SixMonths",
+   "reason": "unverified source: publisher not on the Tier-1/2 list (asrm.org)"
+  },
+  {
+   "id": "C3.reserveAdjunct",
+   "reason": "unverified source: publisher not on the Tier-1/2 list (asrm.org)"
+  },
+  {
+   "id": "C3.ttcOver35Timing",
+   "reason": "unverified source: publisher not on the Tier-1/2 list (asrm.org)"
+  },
+  {
+   "id": "C3.reserveMeaning",
+   "reason": "unverified source: publisher not on the Tier-1/2 list (asrm.org)"
+  },
+  {
+   "id": "C3.parallelTests",
+   "reason": "unverified source: publisher not on the Tier-1/2 list (asrm.org)"
+  },
+  {
+   "id": "C3.artTimingAge",
+   "reason": "needs state: an age band not expressible with the single ageFrom 35 trigger"
+  },
+  {
+   "id": "C4.secondarySameRule",
+   "reason": "needs state: a diagnosis, obstetric history, treatment route or medicine list the phone does not hold"
+  },
+  {
+   "id": "C4.pastPregnancyHistory",
+   "reason": "needs state: a condition, history or note the phone does not hold (profile has no such field)"
+  },
+  {
+   "id": "C4.secondaryTiming",
+   "reason": "merged: covered by a broader catalogue item for this persona (see coverage)"
+  },
+  {
+   "id": "C4.postpartumCycles",
+   "reason": "unverified source: marked [NEEDS SOURCE] in the audit and no verified Tier-1/2 page was used"
+  },
+  {
+   "id": "C5.lossNotYourFault",
+   "reason": "needs state: a recurrent-loss history (the phone holds no such field)"
+  },
+  {
+   "id": "C5.lossWorkup",
+   "reason": "needs state: a recurrent-loss history (the phone holds no such field)"
+  },
+  {
+   "id": "C5.nextPregnancySupport",
+   "reason": "needs state: a recurrent-loss history (the phone holds no such field)"
+  },
+  {
+   "id": "C5.lossThyroidClot",
+   "reason": "needs state: a recurrent-loss history (the phone holds no such field)"
+  },
+  {
+   "id": "C6.pcosNoWait",
+   "reason": "unverified source: publisher not on the Tier-1/2 list (asrm.org)"
+  },
+  {
+   "id": "C6.opkPcosPair",
+   "reason": "unverified source: publisher not on the Tier-1/2 list (asrm.org)"
+  },
+  {
+   "id": "C6.pcosTtcNow",
+   "reason": "unverified source: publisher not on the Tier-1/2 list (asrm.org)"
+  },
+  {
+   "id": "C6.confirmOvulationPcos",
+   "reason": "unverified source: publisher not on the Tier-1/2 list (asrm.org)"
+  },
+  {
+   "id": "C6.pcosGlucosePregnancy",
+   "reason": "unverified source: publisher not on the Tier-1/2 list (asrm.org)"
+  },
+  {
+   "id": "C7.endoPainDiary",
+   "reason": "needs state: an endometriosis diagnosis (the phone holds no such field)"
+  },
+  {
+   "id": "C7.endoFertilityPlan",
+   "reason": "needs state: an endometriosis diagnosis (the phone holds no such field)"
+  },
+  {
+   "id": "C7.endoPainDiary",
+   "reason": "needs state: an endometriosis diagnosis (the phone holds no such field)"
+  },
+  {
+   "id": "C7.endoSurgeryFertility",
+   "reason": "needs state: an endometriosis diagnosis (the phone holds no such field)"
+  },
+  {
+   "id": "C8.thyroidTellClinicEarly",
+   "reason": "unverified source: publisher not on the Tier-1/2 list (reproductivefacts.org)"
+  },
+  {
+   "id": "C8.thyroidBeforeTtc",
+   "reason": "unverified source: publisher not on the Tier-1/2 list (reproductivefacts.org)"
+  },
+  {
+   "id": "C8.thyroidPositiveTest",
+   "reason": "unverified source: publisher not on the Tier-1/2 list (reproductivefacts.org)"
+  },
+  {
+   "id": "C8.thyroidAntibodies",
+   "reason": "unverified source: marked [NEEDS SOURCE] in the audit and no verified Tier-1/2 page was used"
+  },
+  {
+   "id": "C9.coupleIssue",
+   "reason": "unverified source: publisher not on the Tier-1/2 list (asrm.org)"
+  },
+  {
+   "id": "C9.repeatSemenAnalysis",
+   "reason": "unverified source: publisher not on the Tier-1/2 list (asrm.org)"
+  },
+  {
+   "id": "C9.maleCausesLifestyle",
+   "reason": "unverified source: publisher not on the Tier-1/2 list (asrm.org)"
+  },
+  {
+   "id": "C9.iuiOrIcsi",
+   "reason": "needs state: a partner test result (the phone holds no such field)"
+  },
+  {
+   "id": "C10.ohssAwareness",
+   "reason": "needs state: an assisted-conception cycle (the phone holds no such field)"
+  },
+  {
+   "id": "C10.artTransferPlan",
+   "reason": "unverified source: publisher not on the Tier-1/2 list (hfea.gov.uk)"
+  },
+  {
+   "id": "C10.ohssWatch",
+   "reason": "needs state: an assisted-conception cycle (the phone holds no such field)"
+  },
+  {
+   "id": "C10.artSupportCounselling",
+   "reason": "unverified source: publisher not on the Tier-1/2 list (asrm.org)"
+  },
+  {
+   "id": "C11.startNowNoWait",
+   "reason": "unverified source: publisher not on the Tier-1/2 list (asrm.org)"
+  },
+  {
+   "id": "C11.noDetox",
+   "reason": "excluded by product rule: contraception or sexual-wellness content"
+  },
+  {
+   "id": "C11.injectionDelay",
+   "reason": "excluded by product rule: contraception or sexual-wellness content"
+  },
+  {
+   "id": "C11.cycleReturnAfterMethod",
+   "reason": "excluded by product rule: contraception or sexual-wellness content"
+  },
+  {
+   "id": "C11.injectionReturnTtc",
+   "reason": "excluded by product rule: contraception or sexual-wellness content"
+  },
+  {
+   "id": "C11.folicAcidNow",
+   "reason": "excluded by product rule: contraception or sexual-wellness content"
+  },
+  {
+   "id": "C12.symptomsCannotConfirm",
+   "reason": "merged: covered by a broader catalogue item for this persona (see coverage)"
+  },
+  {
+   "id": "C12.testTooEarly",
+   "reason": "merged: covered by a broader catalogue item for this persona (see coverage)"
+  },
+  {
+   "id": "C12.ttcAnxietySupport",
+   "reason": "unverified source: publisher not on the Tier-1/2 list (hfea.gov.uk)"
+  },
+  {
+   "id": "C12.ttcWorryHard",
+   "reason": "unverified source: publisher not on the Tier-1/2 list (hfea.gov.uk)"
+  },
+  {
+   "id": "C12.ttcTestingTiming",
+   "reason": "merged: covered by a broader catalogue item for this persona (see coverage)"
+  },
+  {
+   "id": "C13.iuiWhatItIs",
+   "reason": "needs state: a donor-insemination route (the phone holds no such field)"
+  },
+  {
+   "id": "C13.donorScreened",
+   "reason": "needs state: a donor-insemination route (the phone holds no such field)"
+  },
+  {
+   "id": "C13.clinicSetsTiming",
+   "reason": "needs state: a donor-insemination route (the phone holds no such field)"
+  },
+  {
+   "id": "C13.donorTimingPlan",
+   "reason": "needs state: a donor-insemination route (the phone holds no such field)"
+  },
+  {
+   "id": "C13.donorScreening",
+   "reason": "needs state: a donor-insemination route (the phone holds no such field)"
+  },
+  {
+   "id": "C13.reciprocalPlan",
+   "reason": "unverified source: publisher not on the Tier-1/2 list (hfea.gov.uk)"
+  },
+  {
+   "id": "C14.soloNoJudgement",
+   "reason": "unverified source: publisher not on the Tier-1/2 list (hfea.gov.uk)"
+  },
+  {
+   "id": "C14.iuiFirstLine",
+   "reason": "needs state: a solo donor route (the phone holds no such field)"
+  },
+  {
+   "id": "C14.over35SoonerCheckIn",
+   "reason": "needs state: a solo donor route (the phone holds no such field)"
+  },
+  {
+   "id": "C14.soloPlanReview",
+   "reason": "needs state: a solo donor route (the phone holds no such field)"
+  },
+  {
+   "id": "C14.soloMonitoring",
+   "reason": "needs state: a solo donor route (the phone holds no such field)"
+  },
+  {
+   "id": "C14.soloSupport",
+   "reason": "unverified source: publisher not on the Tier-1/2 list (hfea.gov.uk)"
+  },
+  {
+   "id": "C15.clinicSetsEveryDate",
+   "reason": "unverified source: publisher not on the Tier-1/2 list (cancer.gov)"
+  },
+  {
+   "id": "C15.ohssAwareness",
+   "reason": "needs state: a fertility-preservation route (the phone holds no such field)"
+  },
+  {
+   "id": "C15.noTransferThisCycle",
+   "reason": "unverified source: publisher not on the Tier-1/2 list (cancer.gov)"
+  },
+  {
+   "id": "C15.preserveWhatChoices",
+   "reason": "unverified source: publisher not on the Tier-1/2 list (cancer.gov)"
+  },
+  {
+   "id": "C15.preserveTimeline",
+   "reason": "unverified source: publisher not on the Tier-1/2 list (cancer.gov)"
+  },
+  {
+   "id": "C15.preserveWarningSigns",
+   "reason": "excluded by product rule: contraception or sexual-wellness content"
+  },
+  {
+   "id": "C15.preserveStorage",
+   "reason": "unverified source: marked [NEEDS SOURCE] in the audit and no verified Tier-1/2 page was used"
+  },
+  {
+   "id": "C16.poiNotMenopause",
+   "reason": "needs state: a POI diagnosis with age under 40 (the phone holds no such field)"
+  },
+  {
+   "id": "C16.poiGetSupport",
+   "reason": "needs state: a POI diagnosis with age under 40 (the phone holds no such field)"
+  },
+  {
+   "id": "C16.poiBoneHeart",
+   "reason": "needs state: a POI diagnosis with age under 40 (the phone holds no such field)"
+  },
+  {
+   "id": "C16.poiBoneHeart",
+   "reason": "needs state: a POI diagnosis with age under 40 (the phone holds no such field)"
+  },
+  {
+   "id": "C16.poiCause",
+   "reason": "needs state: a POI diagnosis with age under 40 (the phone holds no such field)"
+  },
+  {
+   "id": "C16.poiFertilityChoices",
+   "reason": "unverified source: publisher not on the Tier-1/2 list (eshre.eu)"
+  },
+  {
+   "id": "C16.poiTherapy",
+   "reason": "needs state: a POI diagnosis with age under 40 (the phone holds no such field)"
+  },
+  {
+   "id": "D1.movementsPattern",
+   "reason": "merged: covered by a broader catalogue item for this persona (see coverage)"
+  },
+  {
+   "id": "D1.warningSignsAnytime",
+   "reason": "merged: covered by a broader catalogue item for this persona (see coverage)"
+  },
+  {
+   "id": "D1.scheduleIsTypical",
+   "reason": "merged: covered by a broader catalogue item for this persona (see coverage)"
+  },
+  {
+   "id": "D1.screeningIsNotDiagnosis",
+   "reason": "merged: covered by a broader catalogue item for this persona (see coverage)"
+  },
+  {
+   "id": "D1.screeningChoices",
+   "reason": "merged: covered by a broader catalogue item for this persona (see coverage)"
+  },
+  {
+   "id": "D1.anatomyScan",
+   "reason": "merged: covered by a broader catalogue item for this persona (see coverage)"
+  },
+  {
+   "id": "D1.movementsChange",
+   "reason": "merged: covered by a broader catalogue item for this persona (see coverage)"
+  },
+  {
+   "id": "D1.scheduleYours",
+   "reason": "merged: covered by a broader catalogue item for this persona (see coverage)"
+  },
+  {
+   "id": "D1.vitaminsAsk",
+   "reason": "merged: covered by a broader catalogue item for this persona (see coverage)"
+  },
+  {
+   "id": "D2.afterLossAnxietyCommon",
+   "reason": "needs state: an earlier pregnancy loss (the phone holds no such field)"
+  },
+  {
+   "id": "D2.movementChangeCallToday",
+   "reason": "needs state: an earlier pregnancy loss (the phone holds no such field)"
+  },
+  {
+   "id": "D2.mentalHealthScreeningRoutine",
+   "reason": "needs state: an earlier pregnancy loss (the phone holds no such field)"
+  },
+  {
+   "id": "D2.afterLossExtraSupport",
+   "reason": "unverified source: marked [NEEDS SOURCE] in the audit and no verified Tier-1/2 page was used"
+  },
+  {
+   "id": "D2.afterLossEarlyScan",
+   "reason": "unverified source: marked [NEEDS SOURCE] in the audit and no verified Tier-1/2 page was used"
+  },
+  {
+   "id": "D2.afterLossFeelings",
+   "reason": "needs state: an earlier pregnancy loss (the phone holds no such field)"
+  },
+  {
+   "id": "D2.afterLossMovementsPlan",
+   "reason": "needs state: an earlier pregnancy loss (the phone holds no such field)"
+  },
+  {
+   "id": "D3.gdmNotYourFault",
+   "reason": "needs state: a gestational diabetes diagnosis (the phone holds no such field)"
+  },
+  {
+   "id": "D3.gdmTargetsAreYours",
+   "reason": "needs state: a gestational diabetes diagnosis (the phone holds no such field)"
+  },
+  {
+   "id": "D3.gdmWarningSignsStay",
+   "reason": "needs state: a gestational diabetes diagnosis (the phone holds no such field)"
+  },
+  {
+   "id": "D3.gdmDietitian",
+   "reason": "needs state: a gestational diabetes diagnosis (the phone holds no such field)"
+  },
+  {
+   "id": "D3.gdmTargetsYours",
+   "reason": "needs state: a gestational diabetes diagnosis (the phone holds no such field)"
+  },
+  {
+   "id": "D3.gdmGrowthScans",
+   "reason": "needs state: a gestational diabetes diagnosis (the phone holds no such field)"
+  },
+  {
+   "id": "D3.gdmAfterBirth",
+   "reason": "needs state: a gestational diabetes diagnosis (the phone holds no such field)"
+  },
+  {
+   "id": "D4.diabetesPrePregnancyWindow",
+   "reason": "needs state: pre-existing diabetes (the phone holds no such field)"
+  },
+  {
+   "id": "D4.diabetesTeamSetsTargets",
+   "reason": "needs state: pre-existing diabetes (the phone holds no such field)"
+  },
+  {
+   "id": "D4.diabetesWarningSigns",
+   "reason": "needs state: pre-existing diabetes (the phone holds no such field)"
+  },
+  {
+   "id": "D4.t1PrePregnancyPlan",
+   "reason": "needs state: pre-existing diabetes (the phone holds no such field)"
+  },
+  {
+   "id": "D4.diabetesTargetsPregnancy",
+   "reason": "needs state: pre-existing diabetes (the phone holds no such field)"
+  },
+  {
+   "id": "D4.diabetesEyesKidneys",
+   "reason": "needs state: pre-existing diabetes (the phone holds no such field)"
+  },
+  {
+   "id": "D4.diabetesBirthPlan",
+   "reason": "needs state: pre-existing diabetes (the phone holds no such field)"
+  },
+  {
+   "id": "D5.chtnWhyWatched",
+   "reason": "needs state: chronic hypertension (the phone holds no such field)"
+  },
+  {
+   "id": "D5.chtnWarningSigns",
+   "reason": "needs state: chronic hypertension (the phone holds no such field)"
+  },
+  {
+   "id": "D5.chtnAppointments",
+   "reason": "needs state: chronic hypertension (the phone holds no such field)"
+  },
+  {
+   "id": "D5.chtnMedicinesReview",
+   "reason": "needs state: chronic hypertension (the phone holds no such field)"
+  },
+  {
+   "id": "D5.chtnPreeclampsiaWatch",
+   "reason": "needs state: chronic hypertension (the phone holds no such field)"
+  },
+  {
+   "id": "D5.chtnHomeBp",
+   "reason": "needs state: chronic hypertension (the phone holds no such field)"
+  },
+  {
+   "id": "D5.chtnGrowthScans",
+   "reason": "needs state: chronic hypertension (the phone holds no such field)"
+  },
+  {
+   "id": "D6.preeclampsiaSigns",
+   "reason": "needs state: a high blood pressure diagnosis (the phone holds no such field)"
+  },
+  {
+   "id": "D6.preeclampsiaAfterBirth",
+   "reason": "needs state: a high blood pressure diagnosis (the phone holds no such field)"
+  },
+  {
+   "id": "D6.preeclampsiaAttend",
+   "reason": "needs state: a high blood pressure diagnosis (the phone holds no such field)"
+  },
+  {
+   "id": "D6.preeclampsiaWhatNext",
+   "reason": "needs state: a high blood pressure diagnosis (the phone holds no such field)"
+  },
+  {
+   "id": "D6.preeclampsiaCallPlan",
+   "reason": "needs state: a high blood pressure diagnosis (the phone holds no such field)"
+  },
+  {
+   "id": "D6.preeclampsiaBirthTiming",
+   "reason": "needs state: a high blood pressure diagnosis (the phone holds no such field)"
+  },
+  {
+   "id": "D6.preeclampsiaAfterBirth",
+   "reason": "needs state: a high blood pressure diagnosis (the phone holds no such field)"
+  },
+  {
+   "id": "D7.thyroidTellClinician",
+   "reason": "unverified source: marked [NEEDS SOURCE] in the audit and no verified Tier-1/2 page was used"
+  },
+  {
+   "id": "D7.thyroidResultsAreYours",
+   "reason": "unverified source: marked [NEEDS SOURCE] in the audit and no verified Tier-1/2 page was used"
+  },
+  {
+   "id": "D7.thyroidTellEarly",
+   "reason": "unverified source: marked [NEEDS SOURCE] in the audit and no verified Tier-1/2 page was used"
+  },
+  {
+   "id": "D7.thyroidPlanningPregnancy",
+   "reason": "unverified source: marked [NEEDS SOURCE] in the audit and no verified Tier-1/2 page was used"
+  },
+  {
+   "id": "D7.thyroidAfterBirth",
+   "reason": "unverified source: marked [NEEDS SOURCE] in the audit and no verified Tier-1/2 page was used"
+  },
+  {
+   "id": "D8.pretermSignsKnow",
+   "reason": "needs state: a prior preterm birth (the phone holds no such field)"
+  },
+  {
+   "id": "D8.pretermWatchedNotVerdict",
+   "reason": "needs state: a prior preterm birth (the phone holds no such field)"
+  },
+  {
+   "id": "D8.pretermScanIsHers",
+   "reason": "needs state: a prior preterm birth (the phone holds no such field)"
+  },
+  {
+   "id": "D8.pretermScanSchedule",
+   "reason": "needs state: a prior preterm birth (the phone holds no such field)"
+  },
+  {
+   "id": "D8.pretermOptions",
+   "reason": "needs state: a prior preterm birth (the phone holds no such field)"
+  },
+  {
+   "id": "D8.pretermCallPlan",
+   "reason": "needs state: a prior preterm birth (the phone holds no such field)"
+  },
+  {
+   "id": "D8.pretermBirthPlace",
+   "reason": "needs state: a prior preterm birth (the phone holds no such field)"
+  },
+  {
+   "id": "D9.twinsAttendAll",
+   "reason": "needs state: a twin or multiple pregnancy (the phone holds no such field)"
+  },
+  {
+   "id": "D9.twinsShorterPregnancy",
+   "reason": "needs state: a twin or multiple pregnancy (the phone holds no such field)"
+  },
+  {
+   "id": "D9.twinsPreeclampsiaAware",
+   "reason": "needs state: a twin or multiple pregnancy (the phone holds no such field)"
+  },
+  {
+   "id": "D9.twinsPlacentaType",
+   "reason": "needs state: a twin or multiple pregnancy (the phone holds no such field)"
+  },
+  {
+   "id": "D9.twinsScanPlan",
+   "reason": "needs state: a twin or multiple pregnancy (the phone holds no such field)"
+  },
+  {
+   "id": "D9.twinsBirthPlan",
+   "reason": "needs state: a twin or multiple pregnancy (the phone holds no such field)"
+  },
+  {
+   "id": "D9.twinsWarningSigns",
+   "reason": "needs state: a twin or multiple pregnancy (the phone holds no such field)"
+  },
+  {
+   "id": "D10.anaemiaCommon",
+   "reason": "merged: covered by a broader catalogue item for this persona (see coverage)"
+  },
+  {
+   "id": "D10.anaemiaBloodsRepeat",
+   "reason": "merged: covered by a broader catalogue item for this persona (see coverage)"
+  },
+  {
+   "id": "D10.anaemiaResultsExplain",
+   "reason": "merged: covered by a broader catalogue item for this persona (see coverage)"
+  },
+  {
+   "id": "D10.anaemiaSideEffects",
+   "reason": "unverified source: marked [NEEDS SOURCE] in the audit and no verified Tier-1/2 page was used"
+  },
+  {
+   "id": "D10.anaemiaRecheck",
+   "reason": "unverified source: marked [NEEDS SOURCE] in the audit and no verified Tier-1/2 page was used"
+  },
+  {
+   "id": "D10.anaemiaBirthPlan",
+   "reason": "unverified source: marked [NEEDS SOURCE] in the audit and no verified Tier-1/2 page was used"
+  },
+  {
+   "id": "D11.antenatalMoodCommon",
+   "reason": "merged: covered by a broader catalogue item for this persona (see coverage)"
+  },
+  {
+   "id": "D11.antenatalScreeningRoutine",
+   "reason": "merged: covered by a broader catalogue item for this persona (see coverage)"
+  },
+  {
+   "id": "D11.antenatalHarmThoughtsHelp",
+   "reason": "merged: covered by a broader catalogue item for this persona (see coverage)"
+  },
+  {
+   "id": "D11.antenatalMoodTalk",
+   "reason": "merged: covered by a broader catalogue item for this persona (see coverage)"
+  },
+  {
+   "id": "D11.antenatalMoodScreen",
+   "reason": "merged: covered by a broader catalogue item for this persona (see coverage)"
+  },
+  {
+   "id": "D11.antenatalSleepSupport",
+   "reason": "merged: covered by a broader catalogue item for this persona (see coverage)"
+  },
+  {
+   "id": "D12.bmiWatchedNotJudged",
+   "reason": "needs state: a higher BMI (the phone holds no such field)"
+  },
+  {
+   "id": "D12.bmiWeightGuideNotGrade",
+   "reason": "needs state: a higher BMI (the phone holds no such field)"
+  },
+  {
+   "id": "D12.bmiClotSigns",
+   "reason": "needs state: a higher BMI (the phone holds no such field)"
+  },
+  {
+   "id": "D12.bmiExtraScans",
+   "reason": "needs state: a higher BMI (the phone holds no such field)"
+  },
+  {
+   "id": "D12.bmiGlucoseTest",
+   "reason": "needs state: a higher BMI (the phone holds no such field)"
+  },
+  {
+   "id": "D12.bmiAnaesthetic",
+   "reason": "needs state: a higher BMI (the phone holds no such field)"
+  },
+  {
+   "id": "D12.bmiPreeclampsiaWatch",
+   "reason": "needs state: a higher BMI (the phone holds no such field)"
+  },
+  {
+   "id": "D13.screeningIsOfferedToAll",
+   "reason": "merged: covered by a broader catalogue item for this persona (see coverage)"
+  },
+  {
+   "id": "D13.screenNotDiagnosis",
+   "reason": "merged: covered by a broader catalogue item for this persona (see coverage)"
+  },
+  {
+   "id": "D13.ageIsALineNotACliff",
+   "reason": "merged: covered by a broader catalogue item for this persona (see coverage)"
+  },
+  {
+   "id": "D13.screeningMenuAge",
+   "reason": "merged: covered by a broader catalogue item for this persona (see coverage)"
+  },
+  {
+   "id": "D13.screeningNoCall",
+   "reason": "merged: covered by a broader catalogue item for this persona (see coverage)"
+  },
+  {
+   "id": "D13.diagnosticRiskChoice",
+   "reason": "merged: covered by a broader catalogue item for this persona (see coverage)"
+  },
+  {
+   "id": "D13.ageExtraChecks",
+   "reason": "needs state: an age band not expressible with the single ageFrom 35 trigger"
+  },
+  {
+   "id": "D14.vbacBothOptions",
+   "reason": "needs state: a prior caesarean (the phone holds no such field)"
+  },
+  {
+   "id": "D14.vbacListQuestions",
+   "reason": "needs state: a prior caesarean (the phone holds no such field)"
+  },
+  {
+   "id": "D14.vbacMovements",
+   "reason": "needs state: a prior caesarean (the phone holds no such field)"
+  },
+  {
+   "id": "D14.birthAfterCaesareanOptions",
+   "reason": "needs state: a prior caesarean (the phone holds no such field)"
+  },
+  {
+   "id": "D14.birthAfterCaesareanSupport",
+   "reason": "needs state: a prior caesarean (the phone holds no such field)"
+  },
+  {
+   "id": "D14.birthAfterCaesareanInduction",
+   "reason": "needs state: a prior caesarean (the phone holds no such field)"
+  },
+  {
+   "id": "D14.birthAfterCaesareanPlanB",
+   "reason": "needs state: a prior caesarean (the phone holds no such field)"
+  },
+  {
+   "id": "D15.sicknessNotWeakness",
+   "reason": "merged: covered by a broader catalogue item for this persona (see coverage)"
+  },
+  {
+   "id": "D15.sicknessShareLog",
+   "reason": "merged: covered by a broader catalogue item for this persona (see coverage)"
+  },
+  {
+   "id": "D15.sicknessMoodWatch",
+   "reason": "merged: covered by a broader catalogue item for this persona (see coverage)"
+  },
+  {
+   "id": "D15.severeSickness",
+   "reason": "merged: covered by a broader catalogue item for this persona (see coverage)"
+  },
+  {
+   "id": "D15.severeSicknessWeight",
+   "reason": "merged: covered by a broader catalogue item for this persona (see coverage)"
+  },
+  {
+   "id": "D15.severeSicknessMood",
+   "reason": "merged: covered by a broader catalogue item for this persona (see coverage)"
+  },
+  {
+   "id": "D15.severeSicknessDayUnit",
+   "reason": "merged: covered by a broader catalogue item for this persona (see coverage)"
+  },
+  {
+   "id": "D16.itchTellTeam",
+   "reason": "needs state: an ICP diagnosis (the phone holds no such field)"
+  },
+  {
+   "id": "D16.itchNotAMeasure",
+   "reason": "needs state: an ICP diagnosis (the phone holds no such field)"
+  },
+  {
+   "id": "D16.itchMovements",
+   "reason": "needs state: an ICP diagnosis (the phone holds no such field)"
+  },
+  {
+   "id": "D16.itchTestRequest",
+   "reason": "needs state: an ICP diagnosis (the phone holds no such field)"
+  },
+  {
+   "id": "D16.itchMonitoringPlan",
+   "reason": "needs state: an ICP diagnosis (the phone holds no such field)"
+  },
+  {
+   "id": "D16.itchBirthTiming",
+   "reason": "needs state: an ICP diagnosis (the phone holds no such field)"
+  },
+  {
+   "id": "D16.itchAfterBirth",
+   "reason": "needs state: an ICP diagnosis (the phone holds no such field)"
+  },
+  {
+   "id": "D17.rhTellTeamBleed",
+   "reason": "needs state: Rh-negative status (the phone holds no such field)"
+  },
+  {
+   "id": "D17.rhAround28",
+   "reason": "needs state: Rh-negative status (the phone holds no such field)"
+  },
+  {
+   "id": "D17.rhAfterBirth",
+   "reason": "needs state: Rh-negative status (the phone holds no such field)"
+  },
+  {
+   "id": "D17.rhNegativePlan",
+   "reason": "excluded by product rule: contraception or sexual-wellness content"
+  },
+  {
+   "id": "D17.rhNegativeEvents",
+   "reason": "needs state: Rh-negative status (the phone holds no such field)"
+  },
+  {
+   "id": "D17.rhNegativeBabyBlood",
+   "reason": "needs state: Rh-negative status (the phone holds no such field)"
+  },
+  {
+   "id": "D17.rhNegativeAntibodies",
+   "reason": "needs state: Rh-negative status (the phone holds no such field)"
+  },
+  {
+   "id": "E1.postpartumContact3w",
+   "reason": "merged: covered by a broader catalogue item for this persona (see coverage)"
+  },
+  {
+   "id": "E1.postpartumFullVisit12w",
+   "reason": "merged: covered by a broader catalogue item for this persona (see coverage)"
+  },
+  {
+   "id": "E1.postpartumWarningYear",
+   "reason": "merged: covered by a broader catalogue item for this persona (see coverage)"
+  },
+  {
+   "id": "E1.postpartumCheck",
+   "reason": "merged: covered by a broader catalogue item for this persona (see coverage)"
+  },
+  {
+   "id": "E1.postpartumMood",
+   "reason": "merged: covered by a broader catalogue item for this persona (see coverage)"
+  },
+  {
+   "id": "E1.postpartumSleep",
+   "reason": "merged: covered by a broader catalogue item for this persona (see coverage)"
+  },
+  {
+   "id": "E1.postpartumLongTermHealth",
+   "reason": "needs state: a condition, history or note the phone does not hold (profile has no such field)"
+  },
+  {
+   "id": "E2.feedingGoodLatch",
+   "reason": "merged: covered by a broader catalogue item for this persona (see coverage)"
+  },
+  {
+   "id": "E2.feedingKeepGoing",
+   "reason": "merged: covered by a broader catalogue item for this persona (see coverage)"
+  },
+  {
+   "id": "E2.feedingMilkStorage",
+   "reason": "needs state: OPK or temperature fields, which are not term keys"
+  },
+  {
+   "id": "E2.feedingPain",
+   "reason": "merged: covered by a broader catalogue item for this persona (see coverage)"
+  },
+  {
+   "id": "E2.feedingEnough",
+   "reason": "needs state: a condition, history or note the phone does not hold (profile has no such field)"
+  },
+  {
+   "id": "E2.feedingMedicines",
+   "reason": "needs state: a condition, history or note the phone does not hold (profile has no such field)"
+  },
+  {
+   "id": "E2.feedingBreastSymptoms",
+   "reason": "merged: covered by a broader catalogue item for this persona (see coverage)"
+  },
+  {
+   "id": "E3.moodNotAlone",
+   "reason": "merged: covered by a broader catalogue item for this persona (see coverage)"
+  },
+  {
+   "id": "E3.moodTalkSoon",
+   "reason": "merged: covered by a broader catalogue item for this persona (see coverage)"
+  },
+  {
+   "id": "E3.moodShareLog",
+   "reason": "merged: covered by a broader catalogue item for this persona (see coverage)"
+  },
+  {
+   "id": "E3.postnatalMoodSupport",
+   "reason": "merged: covered by a broader catalogue item for this persona (see coverage)"
+  },
+  {
+   "id": "E3.postnatalMoodTwoWeeks",
+   "reason": "merged: covered by a broader catalogue item for this persona (see coverage)"
+  },
+  {
+   "id": "E3.postnatalAnger",
+   "reason": "merged: covered by a broader catalogue item for this persona (see coverage)"
+  },
+  {
+   "id": "E3.postnatalPartnerHelp",
+   "reason": "merged: covered by a broader catalogue item for this persona (see coverage)"
+  },
+  {
+   "id": "E4.postGdmTestReminder",
+   "reason": "needs state: a pregnancy complication history (the phone holds no such field)"
+  },
+  {
+   "id": "E4.postBpWarning",
+   "reason": "needs state: a pregnancy complication history (the phone holds no such field)"
+  },
+  {
+   "id": "E4.postNicuCareForYou",
+   "reason": "needs state: a pregnancy complication history (the phone holds no such field)"
+  },
+  {
+   "id": "E4.postGdmGlucoseTest",
+   "reason": "needs state: a pregnancy complication history (the phone holds no such field)"
+  },
+  {
+   "id": "E4.postHypertensionCheck",
+   "reason": "needs state: a pregnancy complication history (the phone holds no such field)"
+  },
+  {
+   "id": "E4.postComplicationLongTerm",
+   "reason": "needs state: a pregnancy complication history (the phone holds no such field)"
+  },
+  {
+   "id": "E4.nextPregnancyPlanning",
+   "reason": "needs state: a pregnancy complication history (the phone holds no such field)"
+  },
+  {
+   "id": "E5.fertilityCanReturn",
+   "reason": "merged: covered by a broader catalogue item for this persona (see coverage)"
+  },
+  {
+   "id": "E5.spacingInfo",
+   "reason": "merged: covered by a broader catalogue item for this persona (see coverage)"
+  },
+  {
+   "id": "E5.postpartumPeriodReturn",
+   "reason": "merged: covered by a broader catalogue item for this persona (see coverage)"
+  },
+  {
+   "id": "E5.postpartumSpacing",
+   "reason": "merged: covered by a broader catalogue item for this persona (see coverage)"
+  },
+  {
+   "id": "E5.postpartumPelvicBleeding",
+   "reason": "merged: covered by a broader catalogue item for this persona (see coverage)"
+  },
+  {
+   "id": "E6.lossNotYourFault",
+   "reason": "unverified source: publisher not on the Tier-1/2 list (nhsinform.scot)"
+  },
+  {
+   "id": "E6.lossBodyRecovery",
+   "reason": "unverified source: publisher not on the Tier-1/2 list (nhsinform.scot)"
+  },
+  {
+   "id": "E6.lossGriefWaves",
+   "reason": "needs state: a loss history (the phone holds no such field)"
+  },
+  {
+   "id": "E6.lossFollowUp",
+   "reason": "needs state: a loss history (the phone holds no such field)"
+  },
+  {
+   "id": "E6.lossWhatHappened",
+   "reason": "needs state: a loss history (the phone holds no such field)"
+  },
+  {
+   "id": "E6.lossBreastsMilk",
+   "reason": "needs state: a loss history (the phone holds no such field)"
+  },
+  {
+   "id": "E6.lossWhenReady",
+   "reason": "needs state: a loss history (the phone holds no such field)"
+  },
+  {
+   "id": "E7.thyroidOverlap",
+   "reason": "unverified source: publisher not on the Tier-1/2 list (thyroid.org)"
+  },
+  {
+   "id": "E7.thyroidMostRecover",
+   "reason": "unverified source: publisher not on the Tier-1/2 list (thyroid.org)"
+  },
+  {
+   "id": "E7.thyroidMoodBoth",
+   "reason": "merged: covered by a broader catalogue item for this persona (see coverage)"
+  },
+  {
+   "id": "E7.postpartumThyroidTest",
+   "reason": "unverified source: publisher not on the Tier-1/2 list (thyroid.org)"
+  },
+  {
+   "id": "E7.postpartumThyroidPriorRisk",
+   "reason": "needs state: a condition, history or note the phone does not hold (profile has no such field)"
+  },
+  {
+   "id": "E7.postpartumThyroidOneYear",
+   "reason": "unverified source: publisher not on the Tier-1/2 list (thyroid.org)"
+  },
+  {
+   "id": "E7.postpartumThyroidMedicationReview",
+   "reason": "needs state: a condition, history or note the phone does not hold (profile has no such field)"
+  },
+  {
+   "id": "F1.periChangesFirst",
+   "reason": "needs state: an age band not expressible with the single ageFrom 35 trigger"
+  },
+  {
+   "id": "F1.periTwelveMonths",
+   "reason": "needs state: cycle-gap or spread counts (only the irregular flag is available)"
+  },
+  {
+   "id": "F1.periVisitPrep",
+   "reason": "merged: covered by a broader catalogue item for this persona (see coverage)"
+  },
+  {
+   "id": "F1.perimenopauseHeavyBleeding",
+   "reason": "needs state: heavy-flow days (flow is not a term key)"
+  },
+  {
+   "id": "F1.perimenopauseNightSleep",
+   "reason": "merged: covered by a broader catalogue item for this persona (see coverage)"
+  },
+  {
+   "id": "F1.perimenopauseMood",
+   "reason": "needs state: an age band not expressible with the single ageFrom 35 trigger"
+  },
+  {
+   "id": "F1.perimenopauseBones",
+   "reason": "needs state: an age band not expressible with the single ageFrom 35 trigger"
+  },
+  {
+   "id": "F2.pmbAlwaysCheck",
+   "reason": "needs state: cycle-gap or spread counts (only the irregular flag is available)"
+  },
+  {
+   "id": "F2.menoSymptomsLast",
+   "reason": "unverified source: publisher not on the Tier-1/2 list (menopause.org)"
+  },
+  {
+   "id": "F2.menoBoneHeart",
+   "reason": "needs state: a diagnosis, obstetric history, treatment route or medicine list the phone does not hold"
+  },
+  {
+   "id": "F2.postmenopauseBleeding",
+   "reason": "needs state: cycle-gap or spread counts (only the irregular flag is available)"
+  },
+  {
+   "id": "F2.postmenopauseBones",
+   "reason": "merged: covered by a broader catalogue item for this persona (see coverage)"
+  },
+  {
+   "id": "F2.postmenopauseHeart",
+   "reason": "merged: covered by a broader catalogue item for this persona (see coverage)"
+  },
+  {
+   "id": "F2.postmenopauseBladder",
+   "reason": "merged: covered by a broader catalogue item for this persona (see coverage)"
+  },
+  {
+   "id": "F3.overlapSymptoms",
+   "reason": "merged: covered by a broader catalogue item for this persona (see coverage)"
+  },
+  {
+   "id": "F3.bringMedicineList",
+   "reason": "needs state: a condition, history or note the phone does not hold (profile has no such field)"
+  },
+  {
+   "id": "F3.menopauseWithBreastHistory",
+   "reason": "merged: covered by a broader catalogue item for this persona (see coverage)"
+  },
+  {
+   "id": "F3.menopauseOtherConditions",
+   "reason": "merged: covered by a broader catalogue item for this persona (see coverage)"
+  },
+  {
+   "id": "F3.menopauseMedicineReview",
+   "reason": "needs state: a diagnosis, obstetric history, treatment route or medicine list the phone does not hold"
+  },
+  {
+   "id": "F3.menopausePalpitations",
+   "reason": "merged: covered by a broader catalogue item for this persona (see coverage)"
+  },
+  {
+   "id": "F3.menopauseBreastHistory",
+   "reason": "needs state: a condition, history or note the phone does not hold (profile has no such field)"
+  },
+  {
+   "id": "F4.inducedNoCycle",
+   "reason": "needs state: a surgical or treatment menopause cause (the phone holds no such field)"
+  },
+  {
+   "id": "F4.inducedBonesHeart",
+   "reason": "needs state: a surgical or treatment menopause cause (the phone holds no such field)"
+  },
+  {
+   "id": "F4.inducedFeelings",
+   "reason": "needs state: a surgical or treatment menopause cause (the phone holds no such field)"
+  },
+  {
+   "id": "F4.inducedMenopauseOptions",
+   "reason": "needs state: a surgical or treatment menopause cause (the phone holds no such field)"
+  },
+  {
+   "id": "F4.inducedMenopauseBones",
+   "reason": "needs state: a surgical or treatment menopause cause (the phone holds no such field)"
+  },
+  {
+   "id": "F4.inducedMenopauseSymptoms",
+   "reason": "needs state: a surgical or treatment menopause cause (the phone holds no such field)"
+  },
+  {
+   "id": "F4.inducedMenopauseFertility",
+   "reason": "needs state: a surgical or treatment menopause cause (the phone holds no such field)"
+  },
+  {
+   "id": "F5.earlyMeaning",
+   "reason": "needs state: an age under 45 (the phone holds no such field)"
+  },
+  {
+   "id": "F5.earlyLongTerm",
+   "reason": "needs state: an age under 45 (the phone holds no such field)"
+  },
+  {
+   "id": "F5.earlyNotAlone",
+   "reason": "needs state: an age under 45 (the phone holds no such field)"
+  },
+  {
+   "id": "F5.earlyMenopauseOptions",
+   "reason": "needs state: an age under 45 (the phone holds no such field)"
+  },
+  {
+   "id": "F5.earlyMenopauseBonesHeart",
+   "reason": "needs state: an age under 45 (the phone holds no such field)"
+  },
+  {
+   "id": "F5.earlyMenopauseFertility",
+   "reason": "unverified source: publisher not on the Tier-1/2 list (asrm.org)"
+  },
+  {
+   "id": "F5.earlyMenopauseSupport",
+   "reason": "needs state: an age under 45 (the phone holds no such field)"
+  },
+  {
+   "id": "F6.gsmCommonTreatable",
+   "reason": "merged: covered by a broader catalogue item for this persona (see coverage)"
+  },
+  {
+   "id": "F6.gsmNotAging",
+   "reason": "merged: covered by a broader catalogue item for this persona (see coverage)"
+  },
+  {
+   "id": "F6.gsmBleedingFirst",
+   "reason": "needs state: cycle-gap or spread counts (only the irregular flag is available)"
+  },
+  {
+   "id": "F6.gsmDiscuss",
+   "reason": "merged: covered by a broader catalogue item for this persona (see coverage)"
+  },
+  {
+   "id": "F6.gsmRepeatUTI",
+   "reason": "needs state: a condition, history or note the phone does not hold (profile has no such field)"
+  },
+  {
+   "id": "F6.gsmPelvicFloor",
+   "reason": "merged: covered by a broader catalogue item for this persona (see coverage)"
+  },
+  {
+   "id": "F6.gsmBreastHistory",
+   "reason": "merged: covered by a broader catalogue item for this persona (see coverage)"
+  },
+  {
+   "id": "X1.parentTalkEarly",
+   "reason": "needs state: parent/guardian or partner mode, which the phone does not hold"
+  },
+  {
+   "id": "X1.parentFirstVisit",
+   "reason": "needs state: parent/guardian or partner mode, which the phone does not hold"
+  },
+  {
+   "id": "X1.parentHerChoice",
+   "reason": "needs state: parent/guardian or partner mode, which the phone does not hold"
+  },
+  {
+   "id": "X1.daughterFirstVisit",
+   "reason": "needs state: parent/guardian or partner mode, which the phone does not hold"
+  },
+  {
+   "id": "X1.daughterCycleWhatIsNormal",
+   "reason": "needs state: parent/guardian or partner mode, which the phone does not hold"
+  },
+  {
+   "id": "X1.daughterHeavyPeriods",
+   "reason": "needs state: parent/guardian or partner mode, which the phone does not hold"
+  },
+  {
+   "id": "X1.daughterLateFirstPeriod",
+   "reason": "needs state: parent/guardian or partner mode, which the phone does not hold"
+  },
+  {
+   "id": "X2.partnerAskDontAssume",
+   "reason": "needs state: parent/guardian or partner mode, which the phone does not hold"
+  },
+  {
+   "id": "X2.partnerCanGetLow",
+   "reason": "needs state: parent/guardian or partner mode, which the phone does not hold"
+  },
+  {
+   "id": "X2.partnerDangerSigns",
+   "reason": "needs state: parent/guardian or partner mode, which the phone does not hold"
+  },
+  {
+   "id": "X2.partnerHowToHelp",
+   "reason": "needs state: parent/guardian or partner mode, which the phone does not hold"
+  },
+  {
+   "id": "X2.partnerScanDay",
+   "reason": "needs state: parent/guardian or partner mode, which the phone does not hold"
+  },
+  {
+   "id": "X2.partnerOwnWellbeing",
+   "reason": "needs state: parent/guardian or partner mode, which the phone does not hold"
+  },
+  {
+   "id": "X2.partnerSemenAnalysis",
+   "reason": "needs state: parent/guardian or partner mode, which the phone does not hold"
+  }
+ ]
+}

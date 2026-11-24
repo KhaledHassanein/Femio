@@ -1,0 +1,5924 @@
+[
+ {
+  "persona": "D14",
+  "name": "Pregnant with a prior caesarean (planning VBAC or repeat caesarean)",
+  "goal": "pregnant",
+  "aiJobs": [
+   "Ask: answer 'what is VBAC/TOLAC/repeat caesarean, what are the chances and risks' evenly from RCOG/NICE only, never steering and never producing a personal success percentage or a calculator verdict.",
+   "Visit prep: build a two-path question list for the maternity team (candidacy, hospital support, induction, what if a planned labour becomes a caesarean) from her own 'prior caesarean' flag.",
+   "Insights: from the movement log (week 28+) and contraction timer (week 36+) repeat that only a change from her own pattern matters; never say a scar is fine.",
+   "Learn: route to the neutral birth-after-caesarean guide and the pregnancy warning-signs guide at the right trimester."
+  ],
+  "covered": [
+   "safety.dart pregnancyWarning catches 'bleeding', 'baby moving less', 'severe headache' etc. and opens the warning-signs screen (only while goal=pregnant).",
+   "visit_summary.dart gives 'pregnancyNext' and 'pregnancyMovements' to every pregnant user.",
+   "red_flags.dart sentence names bleeding and movements (MR-29)."
+  ],
+  "gaps": [
+   "Profile has no 'prior caesarean' / 'previous births' field, so nothing can route her; the assistant treats her as D1.",
+   "No visit question about mode of birth; visitQuestionEnglish has nothing for TOLAC vs repeat caesarean.",
+   "safety.dart has no phrases for pain over the scar, constant belly pain between contractions or contractions stopping; 'upper belly pain' is the only pain phrase.",
+   "No neutral 'birth after caesarean' guide confirmed in the guide search index; Ask must refuse to quote a personal VBAC percentage (needs a prompts.dart rule).",
+   "Never-steer rule is absent from prompts.dart for birth-mode questions."
+  ],
+  "logPhrases": [
+   {
+    "termKey": "cramps",
+    "en": [
+     "afterpains",
+     "after pains",
+     "womb cramps after birth",
+     "contractions after birth"
+    ],
+    "ar": [
+     "مغص الرحم بعد الولاده",
+     "تقلصات بعد الولاده",
+     "مغص بعد الولاده",
+     "مغص بعد الاجهاض"
+    ],
+    "fr": [
+     "tranchees",
+     "contractions apres l accouchement",
+     "crampes apres l accouchement"
+    ],
+    "es": [
+     "entuertos",
+     "contracciones postparto",
+     "colicos tras el parto",
+     "colicos tras el aborto"
+    ]
+   },
+   {
+    "termKey": "dizziness",
+    "en": [
+     "head spinning",
+     "feel faint",
+     "about to faint",
+     "woozy",
+     "lightheaded when standing"
+    ],
+    "ar": [
+     "راسي بتلف",
+     "حاسه اني هقع",
+     "راسي بيلف",
+     "دوخه لما اقف",
+     "دوخه لما اقوم"
+    ],
+    "fr": [
+     "tete qui tourne",
+     "sur le point de m evanouir",
+     "etourdissements en me levant"
+    ],
+    "es": [
+     "la cabeza me da vueltas",
+     "mareo al levantarme",
+     "a punto de desmayarme"
+    ]
+   }
+  ],
+  "visitQuestions": [
+   {
+    "id": "birthAfterCaesareanOptions",
+    "en": "Am I a candidate for a planned labour after my caesarean, and what would make you advise a repeat caesarean?",
+    "when": "profile.priorCesarean = true and pregnant",
+    "source": "https://www.rcog.org.uk/for-the-public/browse-our-patient-information/birth-after-previous-caesarean/"
+   },
+   {
+    "id": "birthAfterCaesareanSupport",
+    "en": "How does this hospital support labour after a caesarean, and how do you work out my individual chances?",
+    "when": "profile.priorCesarean = true and gestation >= 24 weeks",
+    "source": "https://www.rcog.org.uk/for-the-public/browse-our-patient-information/birth-after-previous-caesarean/"
+   },
+   {
+    "id": "birthAfterCaesareanInduction",
+    "en": "If I go past my due date or need an induction, how would that change my options?",
+    "when": "profile.priorCesarean = true and gestation >= 34 weeks",
+    "source": "https://www.nice.org.uk/guidance/ng192/chapter/recommendations"
+   },
+   {
+    "id": "birthAfterCaesareanPlanB",
+    "en": "If I plan a labour and it ends in a caesarean, or I plan a caesarean, what will happen on the day?",
+    "when": "profile.priorCesarean = true and gestation >= 32 weeks",
+    "source": "https://www.rcog.org.uk/for-the-public/browse-our-patient-information/birth-after-previous-caesarean/"
+   }
+  ],
+  "tips": [
+   {
+    "id": "vbacBothOptions",
+    "en": "With one earlier caesarean, many people can choose between planning a labour or a repeat caesarean. Both have low absolute risk. Your team will go through your own situation.",
+    "trigger": "prior caesarean flag set and gestation >= 12 weeks",
+    "source": {
+     "publisher": "RCOG",
+     "url": "https://www.rcog.org.uk/for-the-public/browse-our-patient-information/birth-after-previous-caesarean/"
+    }
+   },
+   {
+    "id": "vbacListQuestions",
+    "en": "Around the start of the third trimester is a good time to write down your questions about birth after a caesarean for your next appointment.",
+    "trigger": "prior caesarean flag set and gestation >= 26 weeks",
+    "source": {
+     "publisher": "NICE",
+     "url": "https://www.nice.org.uk/guidance/ng192/chapter/recommendations"
+    }
+   },
+   {
+    "id": "vbacMovements",
+    "en": "There is no normal number of movements. If your baby's usual pattern changes, call your maternity unit straight away.",
+    "trigger": "movement log has at least 1 session and gestation >= 28 weeks",
+    "source": {
+     "publisher": "NHS",
+     "url": "https://www.nhs.uk/pregnancy/keeping-well/your-babys-movements/"
+    }
+   }
+  ],
+  "askTopics": [
+   "VBAC vs TOLAC vs elective repeat caesarean (terms)",
+   "chances a labour after caesarean ends in a vaginal birth, as a range",
+   "what uterine rupture is and how rare, in plain numbers",
+   "does induction change the risk",
+   "recovery differences between the two paths",
+   "what a repeat caesarean means for future pregnancies (placenta problems awareness)",
+   "what makes a hospital supportive of labour after caesarean"
+  ],
+  "redFlags": [
+   {
+    "symptom": "Baby moving less or a change in the usual pattern",
+    "action": "emergency",
+    "sourceUrl": "https://www.nhs.uk/pregnancy/keeping-well/your-babys-movements/",
+    "quote": "Do not wait until the next day – call immediately, even if it's the middle of the night."
+   },
+   {
+    "symptom": "Constant or severe belly pain, pain over the caesarean scar, or vaginal bleeding in labour after a caesarean",
+    "action": "emergency",
+    "sourceUrl": "https://www.rcog.org.uk/for-the-public/browse-our-patient-information/birth-after-previous-caesarean/",
+    "quote": "[NEEDS VERIFIED QUOTE]"
+   },
+   {
+    "symptom": "Severe headache, vision changes, upper belly pain, sudden swelling, breathing trouble",
+    "action": "emergency",
+    "sourceUrl": "https://www.cdc.gov/hearher/maternal-warning-signs/index.html",
+    "quote": "Seek medical care immediately if you experience any signs or symptoms that are listed below."
+   }
+  ],
+  "missingVocab": [
+   "scar pain / pain over caesarean scar",
+   "constant belly pain between contractions",
+   "vaginal bleeding (pregnancy; not a period flow)"
+  ]
+ },
+ {
+  "persona": "D15",
+  "name": "Pregnant with severe sickness (hyperemesis gravidarum)",
+  "goal": "pregnant",
+  "aiJobs": [
+   "Log: turn 'threw up 6 times, cant keep water down' into the nausea chip plus an episode count she confirms; never a severity verdict.",
+   "Insights: show her own vomiting and intake trend, with 'cannot keep food or fluids down' always routing to same-day contact.",
+   "Visit prep: summarise days with nausea, weight change from her own weight log, and her questions for the midwife or day unit.",
+   "Ask: explain the difference between ordinary pregnancy sickness and severe sickness, with no medicine names or doses."
+  ],
+  "covered": [
+   "log_phrases.dart maps nausea/غثيان/لوعه to the nausea chip.",
+   "weight.dart/weight log exists (pre-pregnancy baseline not confirmed).",
+   "safety.dart crisis list covers self-harm phrases (D15 mental-health watch)."
+  ],
+  "gaps": [
+   "No 'vomiting' term key: 'I vomited' only becomes the nausea chip, losing the count that matters.",
+   "safety.dart has no phrase for cannot keep fluids down, dark/no urine, vomiting blood, so a dehydration danger sign never opens the same-day card; 'blood' only fires under pregnancyWarning and is a false-positive risk.",
+   "No visit question for severe sickness; visit_summary only reads the nausea chip count (tiredness/moodCycle may fire instead).",
+   "No fluid-intake or weight-loss-from-baseline insight; weight log is gain-framed.",
+   "No postpartum/pregnancy-end handoff: Goal.pregnant stays on after delivery or loss."
+  ],
+  "logPhrases": [
+   {
+    "termKey": "nausea",
+    "en": [
+     "vomiting",
+     "vomited",
+     "throwing up",
+     "threw up",
+     "sick all day",
+     "cant keep food down",
+     "cant keep water down"
+    ],
+    "ar": [
+     "بستفرغ",
+     "استفراغ",
+     "رجعت",
+     "بترجع",
+     "مش بقدر اكل",
+     "مش بقدر اشرب",
+     "قيء",
+     "اتقيا"
+    ],
+    "fr": [
+     "vomissements",
+     "je vomis",
+     "j ai vomi"
+    ],
+    "es": [
+     "vomitos",
+     "vomitando",
+     "vomite",
+     "no retengo nada"
+    ]
+   },
+   {
+    "termKey": "dizziness",
+    "en": [
+     "head spinning",
+     "feel faint",
+     "about to faint",
+     "woozy",
+     "lightheaded when standing"
+    ],
+    "ar": [
+     "راسي بتلف",
+     "حاسه اني هقع",
+     "راسي بيلف",
+     "دوخه لما اقف",
+     "دوخه لما اقوم"
+    ],
+    "fr": [
+     "tete qui tourne",
+     "sur le point de m evanouir",
+     "etourdissements en me levant"
+    ],
+    "es": [
+     "la cabeza me da vueltas",
+     "mareo al levantarme",
+     "a punto de desmayarme"
+    ]
+   },
+   {
+    "termKey": "fatigue",
+    "en": [
+     "wiped out",
+     "running on empty",
+     "so sleepy",
+     "cant keep my eyes open",
+     "exhaustion"
+    ],
+    "ar": [
+     "مفيش طاقه",
+     "مش قادره اقوم",
+     "منهكه",
+     "تعبانه جدا",
+     "نعسانه طول اليوم",
+     "ما عندي طاقه"
+    ],
+    "fr": [
+     "crevee",
+     "videe",
+     "epuisement",
+     "plus d energie"
+    ],
+    "es": [
+     "sin energia",
+     "molida",
+     "agotamiento"
+    ]
+   }
+  ],
+  "visitQuestions": [
+   {
+    "id": "severeSickness",
+    "en": "My sickness is making it hard to keep food and drink down. Which checks and support can I have?",
+    "when": "nausea logged on >= 10 of the last 14 days, or vomiting phrases logged",
+    "source": "https://www.rcog.org.uk/guidance/browse-all-guidance/green-top-guidelines/the-management-of-nausea-and-vomiting-of-pregnancy-and-hyperemesis-gravidarum-green-top-guideline-no-69/"
+   },
+   {
+    "id": "severeSicknessWeight",
+    "en": "I have lost weight since before pregnancy. Can we look at my weight together?",
+    "when": "weight log shows a fall from the first entry",
+    "source": "https://www.rcog.org.uk/guidance/browse-all-guidance/green-top-guidelines/the-management-of-nausea-and-vomiting-of-pregnancy-and-hyperemesis-gravidarum-green-top-guideline-no-69/"
+   },
+   {
+    "id": "severeSicknessMood",
+    "en": "This has been very hard on my mood. Who can I talk to about that?",
+    "when": "nausea on >= 10 days and any mood chip on >= 5 days",
+    "source": "https://www.rcog.org.uk/guidance/browse-all-guidance/green-top-guidelines/the-management-of-nausea-and-vomiting-of-pregnancy-and-hyperemesis-gravidarum-green-top-guideline-no-69/"
+   },
+   {
+    "id": "severeSicknessDayUnit",
+    "en": "If I cannot keep fluids down, who do I call and where do I go, day or night?",
+    "when": "nausea on >= 10 of the last 14 days",
+    "source": "https://www.nhs.uk/pregnancy/complications/severe-vomiting/"
+   }
+  ],
+  "tips": [
+   {
+    "id": "sicknessNotWeakness",
+    "en": "Severe sickness in pregnancy is a real medical condition, not weakness. Tell your midwife or doctor early if you cannot keep food down.",
+    "trigger": "nausea chip on >= 7 days in 14 while pregnant",
+    "source": {
+     "publisher": "NHS",
+     "url": "https://www.nhs.uk/pregnancy/complications/severe-vomiting/"
+    }
+   },
+   {
+    "id": "sicknessShareLog",
+    "en": "Your daily nausea log can go in your visit summary so your clinician can see how the days have been.",
+    "trigger": "nausea chip on >= 5 days in 14",
+    "source": {
+     "publisher": "RCOG",
+     "url": "https://www.rcog.org.uk/guidance/browse-all-guidance/green-top-guidelines/the-management-of-nausea-and-vomiting-of-pregnancy-and-hyperemesis-gravidarum-green-top-guideline-no-69/"
+    }
+   },
+   {
+    "id": "sicknessMoodWatch",
+    "en": "Long spells of sickness can weigh on mood. If you feel low or hopeless, tell your midwife or doctor.",
+    "trigger": "nausea >= 10 days and sad or anxious chip >= 3 days in 14",
+    "source": {
+     "publisher": "RCOG",
+     "url": "https://www.rcog.org.uk/guidance/browse-all-guidance/green-top-guidelines/the-management-of-nausea-and-vomiting-of-pregnancy-and-hyperemesis-gravidarum-green-top-guideline-no-69/"
+    }
+   }
+  ],
+  "askTopics": [
+   "morning sickness vs severe sickness",
+   "when does it usually ease (without promising an end date)",
+   "signs of dehydration",
+   "what treatment pathway a clinician may describe (no doses)",
+   "will it come back next pregnancy",
+   "eating and drinking small amounts, general comfort measures from NHS",
+   "mental health after severe sickness"
+  ],
+  "redFlags": [
+   {
+    "symptom": "Cannot keep food or fluids down, being sick very often",
+    "action": "same-day",
+    "sourceUrl": "https://www.nhs.uk/pregnancy/complications/severe-vomiting/",
+    "quote": "If you are being sick frequently and cannot keep food down, tell your midwife or doctor, or contact the hospital as soon as possible."
+   },
+   {
+    "symptom": "Dark, very little or no urine; dizzy or faint; fast heartbeat",
+    "action": "same-day",
+    "sourceUrl": "https://www.rcog.org.uk/guidance/browse-all-guidance/green-top-guidelines/the-management-of-nausea-and-vomiting-of-pregnancy-and-hyperemesis-gravidarum-green-top-guideline-no-69/",
+    "quote": "[NEEDS VERIFIED QUOTE]"
+   },
+   {
+    "symptom": "Vomiting blood or severe tummy pain",
+    "action": "emergency",
+    "sourceUrl": "https://www.rcog.org.uk/guidance/browse-all-guidance/green-top-guidelines/the-management-of-nausea-and-vomiting-of-pregnancy-and-hyperemesis-gravidarum-green-top-guideline-no-69/",
+    "quote": "[NEEDS VERIFIED QUOTE]"
+   },
+   {
+    "symptom": "Thoughts of harming yourself",
+    "action": "emergency",
+    "sourceUrl": "https://www.cdc.gov/hearher/maternal-warning-signs/index.html",
+    "quote": "Seek medical care immediately if you experience any signs or symptoms that are listed below."
+   }
+  ],
+  "missingVocab": [
+   "vomiting (count)",
+   "dark / very little urine",
+   "dry mouth / thirst",
+   "unable to keep fluids down",
+   "retching"
+  ]
+ },
+ {
+  "persona": "D16",
+  "name": "Pregnant with intrahepatic cholestasis (ICP)",
+  "goal": "pregnant",
+  "aiJobs": [
+   "Log: map 'itchy hands and feet at night' to an itch entry she confirms; never score it.",
+   "Insights: when itch is logged in pregnancy, show a calm 'tell your maternity team so they can test' card once; never link itch severity to risk (it does not track it).",
+   "Visit prep: bring itch days, sleep disruption, movement-log notes and her lab values as entered by her, uninterpreted.",
+   "Ask: explain what ICP is and why monitoring and earlier birth are discussed, with no bile-acid verdicts or medicine doses."
+  ],
+  "covered": [
+   "safety.dart pregnancyWarning covers 'baby moving less' and 'upper belly pain' in four languages.",
+   "movements.dart and red_flags.dart foreground movement change (MR-30)."
+  ],
+  "gaps": [
+   "No itch term key; dryItchySkin is the nearest chip but means a different thing and would not trigger a maternity-team card.",
+   "safety.dart has no phrases for yellow skin/eyes (jaundice), very dark urine, pale stools, so these never escalate.",
+   "No rule says 'itching with no rash in pregnancy: contact the maternity team' (a same-day-to-soon routing, not an emergency).",
+   "No lab-value entry (bile acids, liver tests); nothing stores raw values uninterpreted.",
+   "Insight engine could wrongly say 'itch is improving'; itch trend must never carry a better/worse label."
+  ],
+  "logPhrases": [
+   {
+    "termKey": "dryItchySkin",
+    "en": [
+     "itchy palms",
+     "itchy hands",
+     "itchy feet",
+     "itching at night",
+     "itchy all over",
+     "itchy soles"
+    ],
+    "ar": [
+     "حكه في ايدي ورجلي",
+     "حكه في كف ايدي",
+     "كف ايدي بيهرش",
+     "بتهرش",
+     "جلدي ياكلني",
+     "ايدي بتاكلني",
+     "هرش"
+    ],
+    "fr": [
+     "demangeaisons",
+     "mains qui demangent",
+     "pieds qui demangent",
+     "demangeaisons la nuit"
+    ],
+    "es": [
+     "picazon en manos y pies",
+     "picor en las palmas",
+     "picor por la noche",
+     "picazon"
+    ]
+   },
+   {
+    "termKey": "insomnia",
+    "en": [
+     "broken sleep",
+     "waking up a lot",
+     "wide awake at night",
+     "up at 3am",
+     "lying awake",
+     "cant fall back asleep"
+    ],
+    "ar": [
+     "نومي متقطع",
+     "بصحي كتير",
+     "مبنامش",
+     "ما انام",
+     "سهرانه",
+     "نومي مو زين",
+     "صاحيه طول الليل"
+    ],
+    "fr": [
+     "je dors mal",
+     "reveils nocturnes",
+     "je ne dors pas",
+     "reveillee la nuit"
+    ],
+    "es": [
+     "duermo mal",
+     "me despierto de madrugada",
+     "despertares nocturnos",
+     "no concilio el sueno"
+    ]
+   },
+   {
+    "termKey": "dizziness",
+    "en": [
+     "head spinning",
+     "feel faint",
+     "about to faint",
+     "woozy",
+     "lightheaded when standing"
+    ],
+    "ar": [
+     "راسي بتلف",
+     "حاسه اني هقع",
+     "راسي بيلف",
+     "دوخه لما اقف",
+     "دوخه لما اقوم"
+    ],
+    "fr": [
+     "tete qui tourne",
+     "sur le point de m evanouir",
+     "etourdissements en me levant"
+    ],
+    "es": [
+     "la cabeza me da vueltas",
+     "mareo al levantarme",
+     "a punto de desmayarme"
+    ]
+   }
+  ],
+  "visitQuestions": [
+   {
+    "id": "itchTestRequest",
+    "en": "I have had itching, especially on my hands and feet. Could I have blood tests to check my liver and bile acids?",
+    "when": "itch phrases logged on >= 3 days while pregnant",
+    "source": "https://www.rcog.org.uk/for-the-public/browse-our-patient-information/intrahepatic-cholestasis-of-pregnancy/"
+   },
+   {
+    "id": "itchMonitoringPlan",
+    "en": "What monitoring will I have, and how often, while we find out the cause?",
+    "when": "itch logged and user marks 'ICP diagnosed'",
+    "source": "https://www.rcog.org.uk/for-the-public/browse-our-patient-information/intrahepatic-cholestasis-of-pregnancy/"
+   },
+   {
+    "id": "itchBirthTiming",
+    "en": "How will you decide the timing of my birth, and what would change the plan?",
+    "when": "ICP flag set and gestation >= 30 weeks",
+    "source": "https://www.rcog.org.uk/for-the-public/browse-our-patient-information/intrahepatic-cholestasis-of-pregnancy/"
+   },
+   {
+    "id": "itchAfterBirth",
+    "en": "What follow-up should I have after the birth to check my liver tests have settled?",
+    "when": "ICP flag set and gestation >= 34 weeks",
+    "source": "https://www.rcog.org.uk/for-the-public/browse-our-patient-information/intrahepatic-cholestasis-of-pregnancy/"
+   }
+  ],
+  "tips": [
+   {
+    "id": "itchTellTeam",
+    "en": "Itching without a rash in pregnancy, especially on palms and soles, is worth telling your maternity team so they can offer a blood test.",
+    "trigger": "itch logged on >= 2 days in 7 while pregnant, gestation >= 20 weeks",
+    "source": {
+     "publisher": "RCOG",
+     "url": "https://www.rcog.org.uk/for-the-public/browse-our-patient-information/intrahepatic-cholestasis-of-pregnancy/"
+    }
+   },
+   {
+    "id": "itchNotAMeasure",
+    "en": "How strong the itch feels does not show how serious cholestasis is. Only blood tests can tell your clinician that.",
+    "trigger": "ICP flag set or itch logged on >= 5 days in 14",
+    "source": {
+     "publisher": "RCOG",
+     "url": "https://www.rcog.org.uk/for-the-public/browse-our-patient-information/intrahepatic-cholestasis-of-pregnancy/"
+    }
+   },
+   {
+    "id": "itchMovements",
+    "en": "If your baby moves less or differently, call your maternity unit at once, whatever the time.",
+    "trigger": "ICP flag set or itch logged, gestation >= 24 weeks",
+    "source": {
+     "publisher": "NHS",
+     "url": "https://www.nhs.uk/pregnancy/keeping-well/your-babys-movements/"
+    }
+   }
+  ],
+  "askTopics": [
+   "what is obstetric cholestasis",
+   "symptoms (itch, dark urine, pale stools)",
+   "why blood tests are repeated",
+   "why early birth is often discussed",
+   "does the itch go after birth",
+   "recurrence in a future pregnancy",
+   "baby's movements and what to do"
+  ],
+  "redFlags": [
+   {
+    "symptom": "Baby moving less or differently than usual",
+    "action": "emergency",
+    "sourceUrl": "https://www.nhs.uk/pregnancy/keeping-well/your-babys-movements/",
+    "quote": "Do not wait until the next day – call immediately, even if it's the middle of the night."
+   },
+   {
+    "symptom": "Yellow skin or eyes, very dark urine or pale stools",
+    "action": "same-day",
+    "sourceUrl": "https://www.rcog.org.uk/for-the-public/browse-our-patient-information/intrahepatic-cholestasis-of-pregnancy/",
+    "quote": "[NEEDS VERIFIED QUOTE]"
+   },
+   {
+    "symptom": "Severe or sudden upper belly or right-rib pain",
+    "action": "emergency",
+    "sourceUrl": "https://www.cdc.gov/hearher/maternal-warning-signs/index.html",
+    "quote": "Seek medical care immediately if you experience any signs or symptoms that are listed below."
+   },
+   {
+    "symptom": "Thoughts of harming yourself",
+    "action": "emergency",
+    "sourceUrl": "https://www.cdc.gov/hearher/maternal-warning-signs/index.html",
+    "quote": "Seek medical care immediately if you experience any signs or symptoms that are listed below."
+   }
+  ],
+  "missingVocab": [
+   "itching (pruritus) with body area palms/soles",
+   "jaundice / yellow skin or eyes",
+   "dark urine",
+   "pale stools",
+   "right upper rib pain"
+  ]
+ },
+ {
+  "persona": "D17",
+  "name": "Pregnant and Rh-negative",
+  "goal": "pregnant",
+  "aiJobs": [
+   "Insights: show an 'Rh-negative' card with a one-line education note around week 28 and after any bleed, bump or procedure she logs, always routing to her maternity team.",
+   "Visit prep: list 'tell your team about any bleeding, injury to the bump or procedure' and ask about the routine Rh-negative injection plan.",
+   "Ask: explain what Rh-negative means, what sensitisation is and what the injection is for, with no regimen or dose figures.",
+   "Postnatal bridge: remind that her baby's blood group is checked after birth and the team will confirm the next step."
+  ],
+  "covered": [
+   "safety.dart pregnancyWarning triggers on bleeding words (and 'blood'), opening the warning-signs screen.",
+   "red_flags.dart names bleeding."
+  ],
+  "gaps": [
+   "Profile has no blood-group / Rh status field, so nothing personalises her.",
+   "The bleeding card says 'seek care' but not 'tell your team you are Rh-negative so they can decide about anti-D'.",
+   "No phrases for a fall, knock to the bump or car accident (potentially sensitising events); no 'injury' term.",
+   "safety.dart 'blood' matches 'blood test' and 'blood group' in Ask, giving false warning-sign screens for exactly this persona's questions.",
+   "No visit question for Rh-negative status; no logging of injection dates."
+  ],
+  "logPhrases": [
+   {
+    "termKey": "cramps",
+    "en": [
+     "afterpains",
+     "after pains",
+     "womb cramps after birth",
+     "contractions after birth"
+    ],
+    "ar": [
+     "مغص الرحم بعد الولاده",
+     "تقلصات بعد الولاده",
+     "مغص بعد الولاده",
+     "مغص بعد الاجهاض"
+    ],
+    "fr": [
+     "tranchees",
+     "contractions apres l accouchement",
+     "crampes apres l accouchement"
+    ],
+    "es": [
+     "entuertos",
+     "contracciones postparto",
+     "colicos tras el parto",
+     "colicos tras el aborto"
+    ]
+   }
+  ],
+  "visitQuestions": [
+   {
+    "id": "rhNegativePlan",
+    "en": "I am Rh-negative. What is the plan for the routine anti-D injection during this pregnancy?",
+    "when": "profile.rhNegative = true and pregnant",
+    "source": "https://www.acog.org/womens-health/faqs/the-rh-factor-how-it-can-affect-your-pregnancy"
+   },
+   {
+    "id": "rhNegativeEvents",
+    "en": "If I have bleeding, a fall or a procedure, who should I tell and how fast?",
+    "when": "profile.rhNegative = true and pregnant",
+    "source": "https://www.acog.org/clinical/clinical-guidance/practice-bulletin/articles/2017/08/prevention-of-rh-d-alloimmunization"
+   },
+   {
+    "id": "rhNegativeBabyBlood",
+    "en": "How will my baby's blood group be checked after birth, and what happens next?",
+    "when": "profile.rhNegative = true and gestation >= 30 weeks",
+    "source": "https://www.nhs.uk/conditions/rhesus-disease/prevention/"
+   },
+   {
+    "id": "rhNegativeAntibodies",
+    "en": "Have I been tested for antibodies, and what would the results mean for this pregnancy?",
+    "when": "profile.rhNegative = true and first visit",
+    "source": "https://www.acog.org/clinical/clinical-guidance/practice-bulletin/articles/2017/08/prevention-of-rh-d-alloimmunization"
+   }
+  ],
+  "tips": [
+   {
+    "id": "rhTellTeamBleed",
+    "en": "Because you are Rh-negative, tell your midwife as soon as possible about any bleeding, a fall or a knock to your bump, or a procedure.",
+    "trigger": "bleeding or injury phrase logged while pregnant and rhNegative flag set",
+    "source": {
+     "publisher": "ACOG",
+     "url": "https://www.acog.org/clinical/clinical-guidance/practice-bulletin/articles/2017/08/prevention-of-rh-d-alloimmunization"
+    }
+   },
+   {
+    "id": "rhAround28",
+    "en": "Around week 28 your clinic may talk to you about Rh-negative care. Worth asking at your next appointment.",
+    "trigger": "rhNegative flag set and gestation 26 to 29 weeks",
+    "source": {
+     "publisher": "ACOG",
+     "url": "https://www.acog.org/womens-health/faqs/the-rh-factor-how-it-can-affect-your-pregnancy"
+    }
+   },
+   {
+    "id": "rhAfterBirth",
+    "en": "After birth your baby's blood group is checked and your team will tell you if you need anything more.",
+    "trigger": "rhNegative flag set and gestation >= 36 weeks",
+    "source": {
+     "publisher": "NHS",
+     "url": "https://www.nhs.uk/conditions/rhesus-disease/prevention/"
+    }
+   }
+  ],
+  "askTopics": [
+   "what Rh-negative means",
+   "why it matters in pregnancy and what sensitisation is",
+   "what the injection is for and when it is usually offered (described by NHS/ACOG)",
+   "events to tell the team about",
+   "fetal RhD blood test availability varies",
+   "what happens if antibodies already exist",
+   "does Rh-negative cause miscarriage (myth)"
+  ],
+  "redFlags": [
+   {
+    "symptom": "Any vaginal bleeding in pregnancy (also tell team you are Rh-negative)",
+    "action": "same-day",
+    "sourceUrl": "https://www.cdc.gov/hearher/maternal-warning-signs/index.html",
+    "quote": "Seek medical care immediately if you experience any signs or symptoms that are listed below."
+   },
+   {
+    "symptom": "A fall, knock or injury to the bump, or a car accident",
+    "action": "same-day",
+    "sourceUrl": "https://www.acog.org/clinical/clinical-guidance/practice-bulletin/articles/2017/08/prevention-of-rh-d-alloimmunization",
+    "quote": "[NEEDS VERIFIED QUOTE]"
+   },
+   {
+    "symptom": "Baby moving less than usual",
+    "action": "emergency",
+    "sourceUrl": "https://www.nhs.uk/pregnancy/keeping-well/your-babys-movements/",
+    "quote": "Do not wait until the next day – call immediately, even if it's the middle of the night."
+   }
+  ],
+  "missingVocab": [
+   "injury or fall to the abdomen",
+   "vaginal bleeding (pregnancy)",
+   "procedure (amniocentesis / CVS / version) as a logged event"
+  ]
+ },
+ {
+  "persona": "E1",
+  "name": "Postpartum recovery (fourth trimester)",
+  "goal": "any",
+  "aiJobs": [
+   "Layer: with a 'gave birth on' date (additive, per product rule 5) switch the home and assistant to postpartum for 12 months without touching her record; Goal stays period/ttc/menopause or 'pregnant' flips off.",
+   "Safety: run the Hear Her signs in the postpartum window (heavy bleeding, fever, severe headache, leg swelling, thoughts of harming herself or the baby) before any model.",
+   "Log/insights: map everyday words (afterpains, engorged, cant sleep) to chips; show her own sleep, mood and bleeding trend; nudge the 3-week contact and the 12-week comprehensive visit.",
+   "Visit prep: summarise recovery notes, mood, sleep and questions for the postpartum visit."
+  ],
+  "covered": [
+   "safety.dart crisis phrases and urgent phrases (chest pain, cannot breathe, fainted) work for any goal.",
+   "log_phrases.dart covers fatigue, insomnia, tearfulness, anxious, constipation, backache, hairThinning.",
+   "visit_summary.dart gives tiredness and moodCycle questions on log counts."
+  ],
+  "gaps": [
+   "Goal enum has no postpartum: when she delivers, goal=pregnant keeps showing pregnancy cards and the pregnancy-only safety set stops matching nothing useful, so bleeding/fever/leg swelling after birth are not matched at all (pregnancyWarning needs pregnant=true; there is no postpartum flag).",
+   "safety.dart has no postpartum phrases: soaking a pad in an hour, large clots, fever, calf pain/swelling, wound hot or leaking.",
+   "safety.dart crisis phrases cover self-harm only; 'thoughts of harming my baby' / 'afraid I will hurt the baby' (EN/AR/FR/ES) are not in the crisis list and should open Help now in the postpartum layer (CDC Hear Her lists them).",
+   "visit_summary.dart has no postpartum question ids.",
+   "Cannot tell postpartum bleeding (lochia) from a period: flow levels only, no lochia state."
+  ],
+  "logPhrases": [
+   {
+    "termKey": "cramps",
+    "en": [
+     "afterpains",
+     "after pains",
+     "womb cramps after birth",
+     "contractions after birth"
+    ],
+    "ar": [
+     "مغص الرحم بعد الولاده",
+     "تقلصات بعد الولاده",
+     "مغص بعد الولاده",
+     "مغص بعد الاجهاض"
+    ],
+    "fr": [
+     "tranchees",
+     "contractions apres l accouchement",
+     "crampes apres l accouchement"
+    ],
+    "es": [
+     "entuertos",
+     "contracciones postparto",
+     "colicos tras el parto",
+     "colicos tras el aborto"
+    ]
+   },
+   {
+    "termKey": "fatigue",
+    "en": [
+     "wiped out",
+     "running on empty",
+     "so sleepy",
+     "cant keep my eyes open",
+     "exhaustion"
+    ],
+    "ar": [
+     "مفيش طاقه",
+     "مش قادره اقوم",
+     "منهكه",
+     "تعبانه جدا",
+     "نعسانه طول اليوم",
+     "ما عندي طاقه"
+    ],
+    "fr": [
+     "crevee",
+     "videe",
+     "epuisement",
+     "plus d energie"
+    ],
+    "es": [
+     "sin energia",
+     "molida",
+     "agotamiento"
+    ]
+   },
+   {
+    "termKey": "insomnia",
+    "en": [
+     "broken sleep",
+     "waking up a lot",
+     "wide awake at night",
+     "up at 3am",
+     "lying awake",
+     "cant fall back asleep"
+    ],
+    "ar": [
+     "نومي متقطع",
+     "بصحي كتير",
+     "مبنامش",
+     "ما انام",
+     "سهرانه",
+     "نومي مو زين",
+     "صاحيه طول الليل"
+    ],
+    "fr": [
+     "je dors mal",
+     "reveils nocturnes",
+     "je ne dors pas",
+     "reveillee la nuit"
+    ],
+    "es": [
+     "duermo mal",
+     "me despierto de madrugada",
+     "despertares nocturnos",
+     "no concilio el sueno"
+    ]
+   },
+   {
+    "termKey": "tearfulness",
+    "en": [
+     "want to cry",
+     "tears all the time",
+     "burst into tears",
+     "cry for no reason"
+    ],
+    "ar": [
+     "عايزه اعيط",
+     "دموعي نازله",
+     "بعيط من غير سبب",
+     "ابكي بدون سبب",
+     "دمعتي قريبه"
+    ],
+    "fr": [
+     "envie de pleurer",
+     "je pleure pour rien",
+     "larmes tout le temps"
+    ],
+    "es": [
+     "ganas de llorar",
+     "lloro sin motivo",
+     "lloro por todo"
+    ]
+   },
+   {
+    "termKey": "anxious",
+    "en": [
+     "on edge",
+     "jittery",
+     "cant relax",
+     "constant worry",
+     "dread"
+    ],
+    "ar": [
+     "قلبي مقبوض",
+     "حاسه بخوف",
+     "مرعوبه",
+     "قلقانه جدا",
+     "مش مرتاحه",
+     "قلقانه على البيبي"
+    ],
+    "fr": [
+     "angoissee",
+     "a bout de nerfs",
+     "je m inquiete tout le temps"
+    ],
+    "es": [
+     "agobiada",
+     "angustiada",
+     "con ansiedad",
+     "muy nerviosa"
+    ]
+   },
+   {
+    "termKey": "constipation",
+    "en": [
+     "hard stools",
+     "cant poo",
+     "cant poop",
+     "straining on the toilet"
+    ],
+    "ar": [
+     "مش بعرف اخرج",
+     "براز ناشف",
+     "صعوبه في التبرز",
+     "بتعب في الحمام"
+    ],
+    "fr": [
+     "selles dures",
+     "je n arrive pas a aller a la selle",
+     "poussees difficiles"
+    ],
+    "es": [
+     "heces duras",
+     "no puedo ir al bano",
+     "estrenimiento fuerte"
+    ]
+   },
+   {
+    "termKey": "hairThinning",
+    "en": [
+     "clumps of hair",
+     "shedding hair",
+     "hair coming out in handfuls",
+     "postpartum hair loss"
+    ],
+    "ar": [
+     "تساقط شعر",
+     "شعري بيتساقط بعد الولاده",
+     "شعري بيقع كتير",
+     "شعر كتير في الفرشه"
+    ],
+    "fr": [
+     "perte de cheveux apres bebe",
+     "cheveux qui tombent par poignees",
+     "chute de cheveux importante"
+    ],
+    "es": [
+     "se me cae el pelo",
+     "caida de cabello postparto",
+     "me caen mechones"
+    ]
+   },
+   {
+    "termKey": "breastTenderness",
+    "en": [
+     "engorged",
+     "breasts hard",
+     "breasts rock hard",
+     "sore nipples",
+     "cracked nipples",
+     "milk coming in",
+     "painful latch"
+    ],
+    "ar": [
+     "الثدي متحجر",
+     "حلماتي بتوجعني",
+     "حلمات مشققه",
+     "احتقان الثدي",
+     "ثديي قاسي",
+     "وجع الرضاعه",
+     "نزول اللبن"
+    ],
+    "fr": [
+     "montee de lait",
+     "seins engorges",
+     "gercures aux seins",
+     "mamelons douloureux",
+     "seins durs"
+    ],
+    "es": [
+     "pechos duros",
+     "pezones agrietados",
+     "pezones doloridos",
+     "congestion mamaria",
+     "subida de la leche"
+    ]
+   },
+   {
+    "termKey": "dizziness",
+    "en": [
+     "head spinning",
+     "feel faint",
+     "about to faint",
+     "woozy",
+     "lightheaded when standing"
+    ],
+    "ar": [
+     "راسي بتلف",
+     "حاسه اني هقع",
+     "راسي بيلف",
+     "دوخه لما اقف",
+     "دوخه لما اقوم"
+    ],
+    "fr": [
+     "tete qui tourne",
+     "sur le point de m evanouir",
+     "etourdissements en me levant"
+    ],
+    "es": [
+     "la cabeza me da vueltas",
+     "mareo al levantarme",
+     "a punto de desmayarme"
+    ]
+   },
+   {
+    "termKey": "bladderLeaks",
+    "en": [
+     "leak when i cough",
+     "leak when i sneeze",
+     "leaking urine",
+     "wet myself",
+     "stress incontinence",
+     "leak when i laugh"
+    ],
+    "ar": [
+     "بنزل بول لما اكح",
+     "بنزل بول وانا بعطس",
+     "تسريب بول",
+     "سلس بول",
+     "البول بيفلت مني",
+     "نقط بول"
+    ],
+    "fr": [
+     "fuites urinaires",
+     "je fais pipi en toussant",
+     "incontinence",
+     "perte d urine"
+    ],
+    "es": [
+     "pierdo orina",
+     "fuga de orina al toser",
+     "incontinencia",
+     "se me escapa el pis"
+    ]
+   },
+   {
+    "termKey": "brainFog",
+    "en": [
+     "forgetful",
+     "cant think straight",
+     "mum brain",
+     "mommy brain",
+     "memory lapses",
+     "losing words"
+    ],
+    "ar": [
+     "نسيانه",
+     "بنسى كتير",
+     "دماغي مشوش",
+     "ذاكرتي ضعيفه",
+     "مش قادره افكر",
+     "تشوش ذهني"
+    ],
+    "fr": [
+     "trous de memoire",
+     "tete dans le brouillard",
+     "j oublie tout"
+    ],
+    "es": [
+     "olvidadiza",
+     "no puedo pensar",
+     "mente nublada",
+     "se me olvida todo"
+    ]
+   },
+   {
+    "termKey": "headache",
+    "en": [
+     "pounding head",
+     "head is splitting",
+     "tension headache",
+     "headache every day"
+    ],
+    "ar": [
+     "صداع كل يوم",
+     "راسي هتنفجر",
+     "صداع نابض",
+     "صداع نصفي"
+    ],
+    "fr": [
+     "mal de tete tous les jours",
+     "tete qui martele"
+    ],
+    "es": [
+     "dolor de cabeza todos los dias",
+     "cabeza a punto de estallar"
+    ]
+   }
+  ],
+  "visitQuestions": [
+   {
+    "id": "postpartumCheck",
+    "en": "Can we go through how I am recovering, including bleeding, pain and bladder or bowel changes?",
+    "when": "postpartum layer active (delivery date within 12 weeks)",
+    "source": "https://www.acog.org/clinical/clinical-guidance/committee-opinion/articles/2018/05/optimizing-postpartum-care"
+   },
+   {
+    "id": "postpartumMood",
+    "en": "My mood has been up and down since the birth. How can I tell whether I need more support?",
+    "when": "tearfulness, sad or anxious logged on >= 5 days in 14 postpartum",
+    "source": "https://www.nhs.uk/mental-health/conditions/post-natal-depression/overview/"
+   },
+   {
+    "id": "postpartumSleep",
+    "en": "Sleep is very broken. What help or ideas are there?",
+    "when": "insomnia/fatigue logged on >= 7 days in 14 postpartum",
+    "source": "https://www.acog.org/clinical/clinical-guidance/committee-opinion/articles/2018/05/optimizing-postpartum-care"
+   },
+   {
+    "id": "postpartumLongTermHealth",
+    "en": "If I had a complication in pregnancy, what follow-up checks do I need later on?",
+    "when": "user flagged GDM/high blood pressure/preterm in the pregnancy",
+    "source": "https://www.acog.org/clinical/clinical-guidance/committee-opinion/articles/2018/05/optimizing-postpartum-care"
+   }
+  ],
+  "tips": [
+   {
+    "id": "postpartumContact3w",
+    "en": "Contact with your care provider within the first 3 weeks after birth is recommended, not only one visit at 6 weeks.",
+    "trigger": "postpartum layer active, 7 to 21 days after birth",
+    "source": {
+     "publisher": "ACOG",
+     "url": "https://www.acog.org/clinical/clinical-guidance/committee-opinion/articles/2018/05/optimizing-postpartum-care"
+    }
+   },
+   {
+    "id": "postpartumFullVisit12w",
+    "en": "A full postpartum check is recommended no later than 12 weeks after birth. Bring your notes and questions.",
+    "trigger": "postpartum layer active, 6 to 12 weeks after birth",
+    "source": {
+     "publisher": "ACOG",
+     "url": "https://www.acog.org/clinical/clinical-guidance/committee-opinion/articles/2018/05/optimizing-postpartum-care"
+    }
+   },
+   {
+    "id": "postpartumWarningYear",
+    "en": "Warning signs can appear up to a year after birth. If something feels wrong, get checked, and tell them you recently gave birth.",
+    "trigger": "postpartum layer active, any day within 12 months",
+    "source": {
+     "publisher": "CDC Hear Her",
+     "url": "https://www.cdc.gov/hearher/maternal-warning-signs/index.html"
+    }
+   }
+  ],
+  "askTopics": [
+   "what is normal bleeding after birth and for how long",
+   "perineal healing and stitches",
+   "caesarean wound care (NHS recovery page)",
+   "pelvic floor exercises",
+   "when to seek help (Hear Her signs)",
+   "baby blues vs postnatal depression",
+   "first period and return of fertility",
+   "sleep and recovery"
+  ],
+  "redFlags": [
+   {
+    "symptom": "Heavy vaginal bleeding after birth, or soaking a pad in an hour",
+    "action": "emergency",
+    "sourceUrl": "https://www.cdc.gov/hearher/maternal-warning-signs/index.html",
+    "quote": "Seek medical care immediately if you experience any signs or symptoms that are listed below."
+   },
+   {
+    "symptom": "Fever of 100.4 F (38 C) or higher",
+    "action": "same-day",
+    "sourceUrl": "https://www.cdc.gov/hearher/maternal-warning-signs/index.html",
+    "quote": "Seek medical care immediately if you experience any signs or symptoms that are listed below."
+   },
+   {
+    "symptom": "Severe or worsening headache, vision changes, trouble breathing or chest pain",
+    "action": "emergency",
+    "sourceUrl": "https://www.cdc.gov/hearher/maternal-warning-signs/index.html",
+    "quote": "Seek medical care immediately if you experience any signs or symptoms that are listed below."
+   },
+   {
+    "symptom": "Thoughts of harming yourself or your baby",
+    "action": "emergency",
+    "sourceUrl": "https://www.cdc.gov/hearher/maternal-warning-signs/index.html",
+    "quote": "Seek medical care immediately if you experience any signs or symptoms that are listed below."
+   },
+   {
+    "symptom": "Swelling, redness or pain in one leg",
+    "action": "same-day",
+    "sourceUrl": "https://www.cdc.gov/hearher/maternal-warning-signs/index.html",
+    "quote": "Seek medical care immediately if you experience any signs or symptoms that are listed below."
+   }
+  ],
+  "missingVocab": [
+   "lochia / postnatal bleeding amount",
+   "perineal or wound pain",
+   "fever",
+   "calf pain or swelling",
+   "heavy clots",
+   "breast lump or red patch",
+   "intrusive thoughts"
+  ]
+ },
+ {
+  "persona": "E2",
+  "name": "Breastfeeding and lactation",
+  "goal": "any",
+  "aiJobs": [
+   "Log: turn 'cracked nipples, engorged, fever' into breastTenderness plus a prompt to say whether she has a fever, never naming mastitis.",
+   "Ask: answer latch, 'is my baby getting enough', pumping and milk storage, weaning from womenshealth.gov/CDC/NHS only.",
+   "Safety: breast pain with fever or feeling unwell routes to a same-day contact card; keep feeding unless her clinician says otherwise (NHS).",
+   "Visit prep: bring feeding worries and any medicine questions (LactMed link, clinician decides)."
+  ],
+  "covered": [
+   "log_phrases.dart has breastTenderness phrases (sore/tender breasts), fatigue and insomnia.",
+   "safety.dart urgent list catches 'fainted', 'chest pain'."
+  ],
+  "gaps": [
+   "No postpartum/breastfeeding profile flag, so nothing separates her from a cycle tracker.",
+   "No nipple pain, engorgement, hot red patch or fever terms; breastTenderness collapses them.",
+   "No feeding log (side, time) that could power the LAM-criteria display (and the owner rule forbids contraception advice, so LAM must stay education-only).",
+   "Ask needs a trusted-source rule: medicine-while-breastfeeding questions go to 'ask your pharmacist or clinician, LactMed', never a yes/no.",
+   "Birth-control phrases in safety.dart will block LAM questions with the fixed sentence; the persona needs a gentler 'ask your clinician' line."
+  ],
+  "logPhrases": [
+   {
+    "termKey": "breastTenderness",
+    "en": [
+     "engorged",
+     "breasts hard",
+     "breasts rock hard",
+     "sore nipples",
+     "cracked nipples",
+     "milk coming in",
+     "painful latch"
+    ],
+    "ar": [
+     "الثدي متحجر",
+     "حلماتي بتوجعني",
+     "حلمات مشققه",
+     "احتقان الثدي",
+     "ثديي قاسي",
+     "وجع الرضاعه",
+     "نزول اللبن"
+    ],
+    "fr": [
+     "montee de lait",
+     "seins engorges",
+     "gercures aux seins",
+     "mamelons douloureux",
+     "seins durs"
+    ],
+    "es": [
+     "pechos duros",
+     "pezones agrietados",
+     "pezones doloridos",
+     "congestion mamaria",
+     "subida de la leche"
+    ]
+   },
+   {
+    "termKey": "fatigue",
+    "en": [
+     "wiped out",
+     "running on empty",
+     "so sleepy",
+     "cant keep my eyes open",
+     "exhaustion"
+    ],
+    "ar": [
+     "مفيش طاقه",
+     "مش قادره اقوم",
+     "منهكه",
+     "تعبانه جدا",
+     "نعسانه طول اليوم",
+     "ما عندي طاقه"
+    ],
+    "fr": [
+     "crevee",
+     "videe",
+     "epuisement",
+     "plus d energie"
+    ],
+    "es": [
+     "sin energia",
+     "molida",
+     "agotamiento"
+    ]
+   },
+   {
+    "termKey": "insomnia",
+    "en": [
+     "broken sleep",
+     "waking up a lot",
+     "wide awake at night",
+     "up at 3am",
+     "lying awake",
+     "cant fall back asleep"
+    ],
+    "ar": [
+     "نومي متقطع",
+     "بصحي كتير",
+     "مبنامش",
+     "ما انام",
+     "سهرانه",
+     "نومي مو زين",
+     "صاحيه طول الليل"
+    ],
+    "fr": [
+     "je dors mal",
+     "reveils nocturnes",
+     "je ne dors pas",
+     "reveillee la nuit"
+    ],
+    "es": [
+     "duermo mal",
+     "me despierto de madrugada",
+     "despertares nocturnos",
+     "no concilio el sueno"
+    ]
+   },
+   {
+    "termKey": "headache",
+    "en": [
+     "pounding head",
+     "head is splitting",
+     "tension headache",
+     "headache every day"
+    ],
+    "ar": [
+     "صداع كل يوم",
+     "راسي هتنفجر",
+     "صداع نابض",
+     "صداع نصفي"
+    ],
+    "fr": [
+     "mal de tete tous les jours",
+     "tete qui martele"
+    ],
+    "es": [
+     "dolor de cabeza todos los dias",
+     "cabeza a punto de estallar"
+    ]
+   },
+   {
+    "termKey": "dizziness",
+    "en": [
+     "head spinning",
+     "feel faint",
+     "about to faint",
+     "woozy",
+     "lightheaded when standing"
+    ],
+    "ar": [
+     "راسي بتلف",
+     "حاسه اني هقع",
+     "راسي بيلف",
+     "دوخه لما اقف",
+     "دوخه لما اقوم"
+    ],
+    "fr": [
+     "tete qui tourne",
+     "sur le point de m evanouir",
+     "etourdissements en me levant"
+    ],
+    "es": [
+     "la cabeza me da vueltas",
+     "mareo al levantarme",
+     "a punto de desmayarme"
+    ]
+   },
+   {
+    "termKey": "tearfulness",
+    "en": [
+     "want to cry",
+     "tears all the time",
+     "burst into tears",
+     "cry for no reason"
+    ],
+    "ar": [
+     "عايزه اعيط",
+     "دموعي نازله",
+     "بعيط من غير سبب",
+     "ابكي بدون سبب",
+     "دمعتي قريبه"
+    ],
+    "fr": [
+     "envie de pleurer",
+     "je pleure pour rien",
+     "larmes tout le temps"
+    ],
+    "es": [
+     "ganas de llorar",
+     "lloro sin motivo",
+     "lloro por todo"
+    ]
+   }
+  ],
+  "visitQuestions": [
+   {
+    "id": "feedingPain",
+    "en": "Feeding hurts. Can someone watch a feed and check the latch?",
+    "when": "breastTenderness logged on >= 5 days in 14 postpartum",
+    "source": "https://womenshealth.gov/breastfeeding/learning-breastfeed/getting-good-latch"
+   },
+   {
+    "id": "feedingEnough",
+    "en": "How can I tell my baby is getting enough milk?",
+    "when": "user records a supply worry in notes or Ask",
+    "source": "https://womenshealth.gov/breastfeeding/breastfeeding-challenges/common-breastfeeding-challenges"
+   },
+   {
+    "id": "feedingMedicines",
+    "en": "I take a medicine. Can we check it is suitable while I breastfeed?",
+    "when": "user states she takes any medicine while breastfeeding",
+    "source": "https://womenshealth.gov/breastfeeding/breastfeeding-challenges/common-breastfeeding-challenges"
+   },
+   {
+    "id": "feedingBreastSymptoms",
+    "en": "I had a sore, red area on my breast. What should I do if it comes back?",
+    "when": "breastTenderness logged with 'fever' phrase",
+    "source": "https://www.nhs.uk/conditions/mastitis/"
+   }
+  ],
+  "tips": [
+   {
+    "id": "feedingGoodLatch",
+    "en": "A good latch has a wide open mouth and should not stay painful. Early help from a feeding specialist can make a big difference.",
+    "trigger": "breastTenderness logged on >= 3 days postpartum",
+    "source": {
+     "publisher": "womenshealth.gov",
+     "url": "https://womenshealth.gov/breastfeeding/learning-breastfeed/getting-good-latch"
+    }
+   },
+   {
+    "id": "feedingKeepGoing",
+    "en": "For a sore, tender area, NHS advice is usually to keep feeding as normal and rest. Contact a clinician if you have a fever or it is not improving.",
+    "trigger": "breastTenderness plus a fever phrase in the same week",
+    "source": {
+     "publisher": "NHS",
+     "url": "https://www.nhs.uk/conditions/mastitis/"
+    }
+   },
+   {
+    "id": "feedingMilkStorage",
+    "en": "Freshly expressed milk can be kept at room temperature for up to 4 hours or in the fridge for up to 4 days, per CDC.",
+    "trigger": "user opens the pumping guide or asks about storing milk",
+    "source": {
+     "publisher": "womenshealth.gov",
+     "url": "https://womenshealth.gov/breastfeeding/breastfeeding-challenges/common-breastfeeding-challenges"
+    }
+   }
+  ],
+  "askTopics": [
+   "latch and positions",
+   "how often babies feed and enough-milk signs",
+   "engorgement and sore nipples",
+   "mastitis signs and when to call",
+   "pumping and milk storage",
+   "weaning gradually",
+   "medicines while breastfeeding (LactMed)",
+   "when periods return while breastfeeding (education only)"
+  ],
+  "redFlags": [
+   {
+    "symptom": "Hot, red, painful area on the breast with fever, chills or flu-like aching",
+    "action": "same-day",
+    "sourceUrl": "https://www.nhs.uk/conditions/mastitis/",
+    "quote": "Urgent advice: Ask for an urgent GP appointment or get help from NHS 111 if:"
+   },
+   {
+    "symptom": "Feeling seriously unwell, confused, or racing heart with breast symptoms",
+    "action": "emergency",
+    "sourceUrl": "https://www.nhs.uk/conditions/mastitis/",
+    "quote": "[NEEDS VERIFIED QUOTE]"
+   },
+   {
+    "symptom": "Fever of 100.4 F or higher after birth",
+    "action": "same-day",
+    "sourceUrl": "https://www.cdc.gov/hearher/maternal-warning-signs/index.html",
+    "quote": "Seek medical care immediately if you experience any signs or symptoms that are listed below."
+   }
+  ],
+  "missingVocab": [
+   "nipple pain / cracked nipple",
+   "engorgement",
+   "red hot patch on breast",
+   "fever / chills",
+   "milk supply worry (note, not a score)"
+  ]
+ },
+ {
+  "persona": "E3",
+  "name": "Postpartum mood (baby blues, depression, anxiety, rare psychosis)",
+  "goal": "any",
+  "aiJobs": [
+   "Safety first: any self-harm or 'harm my baby' wording opens Help now before any model; psychosis wording (hearing things, no sleep for days) opens a same-day card.",
+   "Log: map her words to existing mood chips (tearfulness, anxious, irritable, sad, panicFeelings) and suggest a calm check-in, never a label.",
+   "Insights: show her own mood-chip days over the weeks, and say clearly when it is worth speaking to a clinician (more than 2 weeks, affecting daily life).",
+   "Visit prep: summarise mood days and sleep, plus one question to ask her GP or health visitor."
+  ],
+  "covered": [
+   "safety.dart crisis phrases in four languages (suicide, hurt myself, want to die).",
+   "log_phrases.dart has tearfulness, anxious, sad, irritable, panicFeelings, lowMotivation.",
+   "visit_summary.dart 'moodCycle' fires on mood chips (wording is cycle-based, not postpartum)."
+  ],
+  "gaps": [
+   "safety.dart crisis phrases cover self-harm only; 'thoughts of harming my baby' / 'afraid I will hurt the baby' (EN/AR/FR/ES) are not in the crisis list and should open Help now in the postpartum layer (CDC Hear Her lists them).",
+   "No psychosis phrases (hearing/seeing things, not sleeping for days, confusion) in safety.dart; NHS treats this as an emergency.",
+   "visit question 'moodCycle' says 'around my period', which is wrong for her; needs a postpartum id.",
+   "No EPDS in the app (MR-36: no screener in v1); assistant must not improvise a score or a label.",
+   "No 'intrusive thoughts' handling: the assistant must not call a thought harmless or dangerous."
+  ],
+  "logPhrases": [
+   {
+    "termKey": "tearfulness",
+    "en": [
+     "want to cry",
+     "tears all the time",
+     "burst into tears",
+     "cry for no reason"
+    ],
+    "ar": [
+     "عايزه اعيط",
+     "دموعي نازله",
+     "بعيط من غير سبب",
+     "ابكي بدون سبب",
+     "دمعتي قريبه"
+    ],
+    "fr": [
+     "envie de pleurer",
+     "je pleure pour rien",
+     "larmes tout le temps"
+    ],
+    "es": [
+     "ganas de llorar",
+     "lloro sin motivo",
+     "lloro por todo"
+    ]
+   },
+   {
+    "termKey": "sad",
+    "en": [
+     "hopeless",
+     "empty inside",
+     "numb",
+     "feel like a failure",
+     "no joy"
+    ],
+    "ar": [
+     "مكتئبه",
+     "فاضيه من جوه",
+     "حاسه بفراغ",
+     "يائسه",
+     "مش طايقه نفسي",
+     "كل حاجه سوده"
+    ],
+    "fr": [
+     "vide",
+     "desesperee",
+     "triste tout le temps",
+     "plus de joie"
+    ],
+    "es": [
+     "vacia",
+     "sin esperanza",
+     "muy triste",
+     "sin alegria"
+    ]
+   },
+   {
+    "termKey": "anxious",
+    "en": [
+     "on edge",
+     "jittery",
+     "cant relax",
+     "constant worry",
+     "dread"
+    ],
+    "ar": [
+     "قلبي مقبوض",
+     "حاسه بخوف",
+     "مرعوبه",
+     "قلقانه جدا",
+     "مش مرتاحه",
+     "قلقانه على البيبي"
+    ],
+    "fr": [
+     "angoissee",
+     "a bout de nerfs",
+     "je m inquiete tout le temps"
+    ],
+    "es": [
+     "agobiada",
+     "angustiada",
+     "con ansiedad",
+     "muy nerviosa"
+    ]
+   },
+   {
+    "termKey": "irritable",
+    "en": [
+     "snapping at everyone",
+     "angry all the time",
+     "rage",
+     "short fused",
+     "furious"
+    ],
+    "ar": [
+     "بزعق",
+     "بتعصب على اي حاجه",
+     "هتجنن",
+     "غضبانه",
+     "ضيق خلق",
+     "اعصابي تعبانه"
+    ],
+    "fr": [
+     "en colere",
+     "je m emporte",
+     "a cran",
+     "je crie sur tout le monde"
+    ],
+    "es": [
+     "enojada",
+     "furiosa",
+     "de mal humor",
+     "exploto por todo"
+    ]
+   },
+   {
+    "termKey": "lowMotivation",
+    "en": [
+     "cant be bothered",
+     "dont enjoy anything",
+     "nothing feels good",
+     "no interest in anything"
+    ],
+    "ar": [
+     "مفيش حاجه بتفرحني",
+     "مش مستمتعه بحاجه",
+     "مليش رغبه في حاجه",
+     "ما اشتهي شي"
+    ],
+    "fr": [
+     "plus envie de rien",
+     "rien ne me fait plaisir",
+     "aucun interet"
+    ],
+    "es": [
+     "nada me ilusiona",
+     "no disfruto nada",
+     "sin interes por nada"
+    ]
+   },
+   {
+    "termKey": "insomnia",
+    "en": [
+     "broken sleep",
+     "waking up a lot",
+     "wide awake at night",
+     "up at 3am",
+     "lying awake",
+     "cant fall back asleep"
+    ],
+    "ar": [
+     "نومي متقطع",
+     "بصحي كتير",
+     "مبنامش",
+     "ما انام",
+     "سهرانه",
+     "نومي مو زين",
+     "صاحيه طول الليل"
+    ],
+    "fr": [
+     "je dors mal",
+     "reveils nocturnes",
+     "je ne dors pas",
+     "reveillee la nuit"
+    ],
+    "es": [
+     "duermo mal",
+     "me despierto de madrugada",
+     "despertares nocturnos",
+     "no concilio el sueno"
+    ]
+   },
+   {
+    "termKey": "brainFog",
+    "en": [
+     "forgetful",
+     "cant think straight",
+     "mum brain",
+     "mommy brain",
+     "memory lapses",
+     "losing words"
+    ],
+    "ar": [
+     "نسيانه",
+     "بنسى كتير",
+     "دماغي مشوش",
+     "ذاكرتي ضعيفه",
+     "مش قادره افكر",
+     "تشوش ذهني"
+    ],
+    "fr": [
+     "trous de memoire",
+     "tete dans le brouillard",
+     "j oublie tout"
+    ],
+    "es": [
+     "olvidadiza",
+     "no puedo pensar",
+     "mente nublada",
+     "se me olvida todo"
+    ]
+   },
+   {
+    "termKey": "heartFlutters",
+    "en": [
+     "heart pounding",
+     "heart skipping",
+     "racing heart",
+     "fluttering in my chest"
+    ],
+    "ar": [
+     "قلبي بيخبط",
+     "قلبي بيرفرف",
+     "ضربات قلب سريعه",
+     "دقات قلبي سريعه",
+     "قلبي يدق بقوه"
+    ],
+    "fr": [
+     "coeur qui s emballe",
+     "coeur qui bat vite",
+     "coeur qui palpite"
+    ],
+    "es": [
+     "corazon acelerado",
+     "latidos fuertes",
+     "taquicardia",
+     "el corazon me late rapido"
+    ]
+   }
+  ],
+  "visitQuestions": [
+   {
+    "id": "postnatalMoodSupport",
+    "en": "I have felt low or anxious since the birth. Could this be postnatal depression, and what help is there?",
+    "when": "sad, tearful or anxious chips on >= 7 days in 14 postpartum",
+    "source": "https://www.nhs.uk/mental-health/conditions/post-natal-depression/overview/"
+   },
+   {
+    "id": "postnatalMoodTwoWeeks",
+    "en": "My low mood has lasted more than two weeks. What happens next?",
+    "when": "sad/tearful chips on >= 10 days across 3 weeks postpartum",
+    "source": "https://medlineplus.gov/postpartumdepression.html"
+   },
+   {
+    "id": "postnatalAnger",
+    "en": "I feel angry or on edge a lot. Is this part of how I am coping, and who can help?",
+    "when": "irritable chip on >= 5 days in 14 postpartum",
+    "source": "https://medlineplus.gov/postpartumdepression.html"
+   },
+   {
+    "id": "postnatalPartnerHelp",
+    "en": "How can my partner or family support me, and what should they watch for?",
+    "when": "postpartum layer active",
+    "source": "https://www.nhs.uk/mental-health/conditions/post-natal-depression/overview/"
+   }
+  ],
+  "tips": [
+   {
+    "id": "moodNotAlone",
+    "en": "Many new mothers feel low or anxious. It can start in pregnancy or up to a year after birth, and help is available.",
+    "trigger": "tearfulness, sad or anxious logged on >= 3 days postpartum",
+    "source": {
+     "publisher": "NHS",
+     "url": "https://www.nhs.uk/mental-health/conditions/post-natal-depression/overview/"
+    }
+   },
+   {
+    "id": "moodTalkSoon",
+    "en": "If low mood has lasted more than two weeks, or makes daily life hard, speak to your GP, midwife or health visitor.",
+    "trigger": "mood chips on >= 10 days across 3 weeks postpartum",
+    "source": {
+     "publisher": "NHS",
+     "url": "https://www.nhs.uk/mental-health/conditions/post-natal-depression/overview/"
+    }
+   },
+   {
+    "id": "moodShareLog",
+    "en": "Your mood log can go in your visit summary so you do not have to remember how the weeks went.",
+    "trigger": "mood chips on >= 5 days in 14",
+    "source": {
+     "publisher": "womenshealth.gov",
+     "url": "https://womenshealth.gov/mental-health/mental-health-conditions/postpartum-depression"
+    }
+   }
+  ],
+  "askTopics": [
+   "baby blues vs postnatal depression",
+   "when to get help",
+   "anxiety and intrusive thoughts (never judge; route to clinician)",
+   "postnatal psychosis awareness",
+   "treatments exist, decided with a clinician",
+   "how partners can help",
+   "where to call in a crisis (country list)"
+  ],
+  "redFlags": [
+   {
+    "symptom": "Thoughts of harming yourself or your baby",
+    "action": "emergency",
+    "sourceUrl": "https://www.cdc.gov/hearher/maternal-warning-signs/index.html",
+    "quote": "Seek medical care immediately if you experience any signs or symptoms that are listed below."
+   },
+   {
+    "symptom": "Seeing or hearing things, strong beliefs that do not match reality, severe confusion, not sleeping for days",
+    "action": "emergency",
+    "sourceUrl": "https://www.nhs.uk/mental-health/conditions/post-partum-psychosis/",
+    "quote": "Postpartum psychosis is a serious mental illness that should be treated as a medical emergency."
+   },
+   {
+    "symptom": "Severe or worsening headache, vision changes, trouble breathing, chest pain after birth",
+    "action": "emergency",
+    "sourceUrl": "https://www.cdc.gov/hearher/maternal-warning-signs/index.html",
+    "quote": "Seek medical care immediately if you experience any signs or symptoms that are listed below."
+   }
+  ],
+  "missingVocab": [
+   "intrusive or scary thoughts (separate from self-harm)",
+   "anger / rage",
+   "not bonding",
+   "not sleeping even when baby sleeps"
+  ]
+ },
+ {
+  "persona": "E4",
+  "name": "Postpartum after a complicated pregnancy (GDM, high blood pressure, preterm/NICU)",
+  "goal": "any",
+  "aiJobs": [
+   "Layer: carry the pregnancy flags (GDM, high BP, preterm) into the postpartum layer so reminders and questions are condition-aware without a new record.",
+   "Safety: postpartum pre-eclampsia signs (severe headache, vision change, upper belly pain, swelling, breathlessness) open the warning card; mention it can start after normal pregnancies too.",
+   "Visit prep: add 'blood sugar test after birth', 'blood pressure check in the first days' and 'long-term heart health' questions only when the flag is set.",
+   "Ask: explain follow-up tests and why they matter, with no result interpretation."
+  ],
+  "covered": [
+   "safety.dart urgent phrases (chest pain, cannot breathe, fainted) apply to any goal.",
+   "safety.dart pregnancyWarning has headache/vision/upper belly phrases but only while pregnant.",
+   "No condition flags in profile.dart."
+  ],
+  "gaps": [
+   "Profile has no complication flags (GDM, hypertension, preterm), so no condition-specific postpartum routing exists.",
+   "Postpartum headache/vision/upper-belly/swelling phrases are ignored because pregnancyWarning needs pregnant=true.",
+   "No visit questions for post-GDM glucose test, post-preeclampsia BP follow-up or NICU maternal wellbeing.",
+   "No BP or glucose entry; assistant must never interpret readings, only route.",
+   "No NICU context in mood handling (NICU mothers have high mental-health load per persona)."
+  ],
+  "logPhrases": [
+   {
+    "termKey": "headache",
+    "en": [
+     "pounding head",
+     "head is splitting",
+     "tension headache",
+     "headache every day"
+    ],
+    "ar": [
+     "صداع كل يوم",
+     "راسي هتنفجر",
+     "صداع نابض",
+     "صداع نصفي"
+    ],
+    "fr": [
+     "mal de tete tous les jours",
+     "tete qui martele"
+    ],
+    "es": [
+     "dolor de cabeza todos los dias",
+     "cabeza a punto de estallar"
+    ]
+   },
+   {
+    "termKey": "dizziness",
+    "en": [
+     "head spinning",
+     "feel faint",
+     "about to faint",
+     "woozy",
+     "lightheaded when standing"
+    ],
+    "ar": [
+     "راسي بتلف",
+     "حاسه اني هقع",
+     "راسي بيلف",
+     "دوخه لما اقف",
+     "دوخه لما اقوم"
+    ],
+    "fr": [
+     "tete qui tourne",
+     "sur le point de m evanouir",
+     "etourdissements en me levant"
+    ],
+    "es": [
+     "la cabeza me da vueltas",
+     "mareo al levantarme",
+     "a punto de desmayarme"
+    ]
+   },
+   {
+    "termKey": "fatigue",
+    "en": [
+     "wiped out",
+     "running on empty",
+     "so sleepy",
+     "cant keep my eyes open",
+     "exhaustion"
+    ],
+    "ar": [
+     "مفيش طاقه",
+     "مش قادره اقوم",
+     "منهكه",
+     "تعبانه جدا",
+     "نعسانه طول اليوم",
+     "ما عندي طاقه"
+    ],
+    "fr": [
+     "crevee",
+     "videe",
+     "epuisement",
+     "plus d energie"
+    ],
+    "es": [
+     "sin energia",
+     "molida",
+     "agotamiento"
+    ]
+   },
+   {
+    "termKey": "heartFlutters",
+    "en": [
+     "heart pounding",
+     "heart skipping",
+     "racing heart",
+     "fluttering in my chest"
+    ],
+    "ar": [
+     "قلبي بيخبط",
+     "قلبي بيرفرف",
+     "ضربات قلب سريعه",
+     "دقات قلبي سريعه",
+     "قلبي يدق بقوه"
+    ],
+    "fr": [
+     "coeur qui s emballe",
+     "coeur qui bat vite",
+     "coeur qui palpite"
+    ],
+    "es": [
+     "corazon acelerado",
+     "latidos fuertes",
+     "taquicardia",
+     "el corazon me late rapido"
+    ]
+   },
+   {
+    "termKey": "tearfulness",
+    "en": [
+     "want to cry",
+     "tears all the time",
+     "burst into tears",
+     "cry for no reason"
+    ],
+    "ar": [
+     "عايزه اعيط",
+     "دموعي نازله",
+     "بعيط من غير سبب",
+     "ابكي بدون سبب",
+     "دمعتي قريبه"
+    ],
+    "fr": [
+     "envie de pleurer",
+     "je pleure pour rien",
+     "larmes tout le temps"
+    ],
+    "es": [
+     "ganas de llorar",
+     "lloro sin motivo",
+     "lloro por todo"
+    ]
+   },
+   {
+    "termKey": "anxious",
+    "en": [
+     "on edge",
+     "jittery",
+     "cant relax",
+     "constant worry",
+     "dread"
+    ],
+    "ar": [
+     "قلبي مقبوض",
+     "حاسه بخوف",
+     "مرعوبه",
+     "قلقانه جدا",
+     "مش مرتاحه",
+     "قلقانه على البيبي"
+    ],
+    "fr": [
+     "angoissee",
+     "a bout de nerfs",
+     "je m inquiete tout le temps"
+    ],
+    "es": [
+     "agobiada",
+     "angustiada",
+     "con ansiedad",
+     "muy nerviosa"
+    ]
+   },
+   {
+    "termKey": "insomnia",
+    "en": [
+     "broken sleep",
+     "waking up a lot",
+     "wide awake at night",
+     "up at 3am",
+     "lying awake",
+     "cant fall back asleep"
+    ],
+    "ar": [
+     "نومي متقطع",
+     "بصحي كتير",
+     "مبنامش",
+     "ما انام",
+     "سهرانه",
+     "نومي مو زين",
+     "صاحيه طول الليل"
+    ],
+    "fr": [
+     "je dors mal",
+     "reveils nocturnes",
+     "je ne dors pas",
+     "reveillee la nuit"
+    ],
+    "es": [
+     "duermo mal",
+     "me despierto de madrugada",
+     "despertares nocturnos",
+     "no concilio el sueno"
+    ]
+   }
+  ],
+  "visitQuestions": [
+   {
+    "id": "postGdmGlucoseTest",
+    "en": "I had gestational diabetes. When should I have my blood sugar test after birth, and how often later?",
+    "when": "user flagged GDM in pregnancy; postpartum",
+    "source": "https://www.nice.org.uk/guidance/ng3/chapter/recommendations"
+   },
+   {
+    "id": "postHypertensionCheck",
+    "en": "I had high blood pressure in pregnancy. When is my blood pressure check, and what readings should make me call?",
+    "when": "user flagged high BP / pre-eclampsia in pregnancy; postpartum",
+    "source": "https://www.acog.org/clinical/clinical-guidance/committee-opinion/articles/2018/05/optimizing-postpartum-care"
+   },
+   {
+    "id": "postComplicationLongTerm",
+    "en": "What should I keep checking over the years because of what happened in my pregnancy?",
+    "when": "any complication flag set; postpartum",
+    "source": "https://www.acog.org/womens-health/faqs/preeclampsia-and-high-blood-pressure-during-pregnancy"
+   },
+   {
+    "id": "nextPregnancyPlanning",
+    "en": "If we think about another pregnancy, what should we plan for first?",
+    "when": "complication flag set and user marks 'another child later'",
+    "source": "https://www.acog.org/clinical/clinical-guidance/obstetric-care-consensus/articles/2019/01/interpregnancy-care"
+   }
+  ],
+  "tips": [
+   {
+    "id": "postGdmTestReminder",
+    "en": "After gestational diabetes, a blood sugar test is advised after birth, then regularly. Ask your clinic when yours is.",
+    "trigger": "GDM flag set; 1 to 12 weeks postpartum",
+    "source": {
+     "publisher": "NICE",
+     "url": "https://www.nice.org.uk/guidance/ng3/chapter/recommendations"
+    }
+   },
+   {
+    "id": "postBpWarning",
+    "en": "High blood pressure problems can start after birth, most often in the first week. Severe headache, vision changes or upper belly pain need care now.",
+    "trigger": "pre-eclampsia/high BP flag set; 0 to 6 weeks postpartum",
+    "source": {
+     "publisher": "ACOG",
+     "url": "https://www.acog.org/womens-health/faqs/preeclampsia-and-high-blood-pressure-during-pregnancy"
+    }
+   },
+   {
+    "id": "postNicuCareForYou",
+    "en": "Your own checkup and mood matter too while your baby is in hospital. Tell your team how you are.",
+    "trigger": "user marks 'baby in NICU' postpartum",
+    "source": {
+     "publisher": "ACOG",
+     "url": "https://www.acog.org/clinical/clinical-guidance/committee-opinion/articles/2018/05/optimizing-postpartum-care"
+    }
+   }
+  ],
+  "askTopics": [
+   "follow-up blood sugar tests after GDM",
+   "blood pressure after birth and postpartum pre-eclampsia signs",
+   "long-term heart and diabetes risk awareness (population, not personal)",
+   "gap between pregnancies",
+   "breastfeeding with these conditions (clinician decides)",
+   "mood after a hard pregnancy or NICU stay"
+  ],
+  "redFlags": [
+   {
+    "symptom": "Severe or persistent headache, vision changes, upper belly pain, sudden swelling, trouble breathing, seizure",
+    "action": "emergency",
+    "sourceUrl": "https://www.acog.org/womens-health/faqs/preeclampsia-and-high-blood-pressure-during-pregnancy",
+    "quote": "[NEEDS VERIFIED QUOTE]"
+   },
+   {
+    "symptom": "Chest pain, fainting or a fast heartbeat after birth",
+    "action": "emergency",
+    "sourceUrl": "https://www.cdc.gov/hearher/maternal-warning-signs/index.html",
+    "quote": "Seek medical care immediately if you experience any signs or symptoms that are listed below."
+   },
+   {
+    "symptom": "Thoughts of harming yourself or your baby",
+    "action": "emergency",
+    "sourceUrl": "https://www.cdc.gov/hearher/maternal-warning-signs/index.html",
+    "quote": "Seek medical care immediately if you experience any signs or symptoms that are listed below."
+   }
+  ],
+  "missingVocab": [
+   "home blood pressure reading (entry only)",
+   "blood glucose reading (entry only)",
+   "swelling of face or hands",
+   "visual disturbance (spots/flashing)"
+  ]
+ },
+ {
+  "persona": "E5",
+  "name": "Postpartum: return of fertility and what comes next",
+  "goal": "any",
+  "aiJobs": [
+   "Ask: explain facts only, such as 'you can get pregnant from about 3 weeks after birth, even while breastfeeding and before a first period' (NHS), then route method questions to a clinician or pharmacist.",
+   "Insights: show first postpartum bleed and cycle spread as a range; never 'safe days', never a fertility prediction in the postpartum layer.",
+   "Visit prep: add 'return of periods', 'plans for another child and spacing' as questions; contraception choice stays with the clinician.",
+   "Boundary: the fixed birth-control sentence always runs; the assistant adds 'ask your clinician or pharmacist about options'."
+  ],
+  "covered": [
+   "safety.dart birthControl phrases return the fixed 'femio is not a method of birth control' sentence and never reach a model.",
+   "visit_summary.dart has cycleSpread for irregular cycles."
+  ],
+  "gaps": [
+   "CONFLICT: the persona asks for method-timing and LAM education, but the owner rule is no contraception advice and safety.dart blocks every such question with the fixed sentence. Recommend: block advice, allow the fact that fertility can return early and the gentle routing line (needs owner OK).",
+   "No postpartum flag, so fertile-window and prediction cards could appear to a woman 6 weeks after birth.",
+   "Emergency-contraception questions are only blocked; the assistant should add 'time matters, ask a pharmacist or clinician today' (NHS) once the owner approves.",
+   "No visit question about return of periods or interpregnancy spacing.",
+   "No postpartum bleed vs period tag."
+  ],
+  "logPhrases": [
+   {
+    "termKey": "cramps",
+    "en": [
+     "afterpains",
+     "after pains",
+     "womb cramps after birth",
+     "contractions after birth"
+    ],
+    "ar": [
+     "مغص الرحم بعد الولاده",
+     "تقلصات بعد الولاده",
+     "مغص بعد الولاده",
+     "مغص بعد الاجهاض"
+    ],
+    "fr": [
+     "tranchees",
+     "contractions apres l accouchement",
+     "crampes apres l accouchement"
+    ],
+    "es": [
+     "entuertos",
+     "contracciones postparto",
+     "colicos tras el parto",
+     "colicos tras el aborto"
+    ]
+   },
+   {
+    "termKey": "tearfulness",
+    "en": [
+     "want to cry",
+     "tears all the time",
+     "burst into tears",
+     "cry for no reason"
+    ],
+    "ar": [
+     "عايزه اعيط",
+     "دموعي نازله",
+     "بعيط من غير سبب",
+     "ابكي بدون سبب",
+     "دمعتي قريبه"
+    ],
+    "fr": [
+     "envie de pleurer",
+     "je pleure pour rien",
+     "larmes tout le temps"
+    ],
+    "es": [
+     "ganas de llorar",
+     "lloro sin motivo",
+     "lloro por todo"
+    ]
+   },
+   {
+    "termKey": "insomnia",
+    "en": [
+     "broken sleep",
+     "waking up a lot",
+     "wide awake at night",
+     "up at 3am",
+     "lying awake",
+     "cant fall back asleep"
+    ],
+    "ar": [
+     "نومي متقطع",
+     "بصحي كتير",
+     "مبنامش",
+     "ما انام",
+     "سهرانه",
+     "نومي مو زين",
+     "صاحيه طول الليل"
+    ],
+    "fr": [
+     "je dors mal",
+     "reveils nocturnes",
+     "je ne dors pas",
+     "reveillee la nuit"
+    ],
+    "es": [
+     "duermo mal",
+     "me despierto de madrugada",
+     "despertares nocturnos",
+     "no concilio el sueno"
+    ]
+   },
+   {
+    "termKey": "fatigue",
+    "en": [
+     "wiped out",
+     "running on empty",
+     "so sleepy",
+     "cant keep my eyes open",
+     "exhaustion"
+    ],
+    "ar": [
+     "مفيش طاقه",
+     "مش قادره اقوم",
+     "منهكه",
+     "تعبانه جدا",
+     "نعسانه طول اليوم",
+     "ما عندي طاقه"
+    ],
+    "fr": [
+     "crevee",
+     "videe",
+     "epuisement",
+     "plus d energie"
+    ],
+    "es": [
+     "sin energia",
+     "molida",
+     "agotamiento"
+    ]
+   }
+  ],
+  "visitQuestions": [
+   {
+    "id": "postpartumPeriodReturn",
+    "en": "When might my periods come back, and what is normal while I breastfeed?",
+    "when": "postpartum layer active, 4+ weeks after birth",
+    "source": "https://www.nhs.uk/baby/support-and-services/sex-and-contraception-after-birth/"
+   },
+   {
+    "id": "postpartumSpacing",
+    "en": "If we want another baby, how long is it advisable to wait, and what should I do first?",
+    "when": "user marks 'another child' as yes-soon or yes-later",
+    "source": "https://www.acog.org/clinical/clinical-guidance/obstetric-care-consensus/articles/2019/01/interpregnancy-care"
+   },
+   {
+    "id": "postpartumPelvicBleeding",
+    "en": "I have bleeding and I am not sure if it is my period. How do I tell?",
+    "when": "bleeding logged 6+ weeks after birth",
+    "source": "https://www.acog.org/clinical/clinical-guidance/committee-opinion/articles/2018/05/optimizing-postpartum-care"
+   }
+  ],
+  "tips": [
+   {
+    "id": "fertilityCanReturn",
+    "en": "You can get pregnant from about 3 weeks after birth, even if you are breastfeeding and have had no period. Ask your clinician about your options.",
+    "trigger": "postpartum layer active, 18 to 28 days after birth",
+    "source": {
+     "publisher": "NHS",
+     "url": "https://www.nhs.uk/baby/support-and-services/sex-and-contraception-after-birth/"
+    }
+   },
+   {
+    "id": "spacingInfo",
+    "en": "Guidance describes at least 6 months between a birth and the next pregnancy as a minimum, and WHO suggests 24 months. Your plan is yours to make with your clinician.",
+    "trigger": "user marks 'another child' yes-soon or yes-later",
+    "source": {
+     "publisher": "ACOG",
+     "url": "https://www.acog.org/clinical/clinical-guidance/obstetric-care-consensus/articles/2019/01/interpregnancy-care"
+    }
+   }
+  ],
+  "askTopics": [
+   "when do periods return after birth",
+   "can I get pregnant before my first period (education fact)",
+   "what is LAM and its three conditions (education only, no 'protected' verdict)",
+   "waiting time between pregnancies",
+   "emergency contraception: route to a pharmacist today (policy decision)",
+   "painful or difficult sex after birth (clinical wording, route to GP)"
+  ],
+  "redFlags": [
+   {
+    "symptom": "Soaking a pad in an hour or heavy bleeding after birth",
+    "action": "emergency",
+    "sourceUrl": "https://www.cdc.gov/hearher/maternal-warning-signs/index.html",
+    "quote": "Seek medical care immediately if you experience any signs or symptoms that are listed below."
+   },
+   {
+    "symptom": "Fever of 100.4 F or higher",
+    "action": "same-day",
+    "sourceUrl": "https://www.cdc.gov/hearher/maternal-warning-signs/index.html",
+    "quote": "Seek medical care immediately if you experience any signs or symptoms that are listed below."
+   }
+  ],
+  "missingVocab": [
+   "first postpartum period vs lochia tag",
+   "feeding pattern (exclusive/partial/formula) as a profile fact, not a symptom"
+  ]
+ },
+ {
+  "persona": "E6",
+  "name": "Pregnancy loss and grief (miscarriage, stillbirth, neonatal)",
+  "goal": "any",
+  "aiJobs": [
+   "Quiet mode: when she marks a loss, stop every pregnancy card and reminder at once (MR-35), keep her data, and let the assistant answer in her own words for the loss; it never starts a conversation.",
+   "Safety: self-harm wording opens Help now; heavy bleeding, fever, foul discharge or severe pain opens a same-day card.",
+   "Ask: explain physical recovery (bleeding, milk coming in after later loss), that it is not her fault, and grief that comes in waves.",
+   "Visit prep: a gentle question list for her follow-up (results, what happened, when she can try again, if she wants to)."
+  ],
+  "covered": [
+   "safety.dart crisis and urgent phrases work for any goal.",
+   "red_flags.dart / pregnancyWarning stop applying when goal is not pregnant, but there is no 'loss' state, so the pregnancy home stays."
+  ],
+  "gaps": [
+   "No pregnancy-loss state in profile.dart: Goal.pregnant continues to show weeks, kicks and cheerful cards after a loss (violates MR-35, which is 'No (A-07)').",
+   "Assistant has no quiet-mode rule: prompts.dart does not stop proactive tips, anniversaries or 'tip of the day'.",
+   "safety.dart crisis phrases cover self-harm only; 'thoughts of harming my baby' / 'afraid I will hurt the baby' (EN/AR/FR/ES) are not in the crisis list and should open Help now in the postpartum layer (CDC Hear Her lists them).",
+   "No phrases for loss words (miscarried, lost the baby, stillbirth) in any language, so the assistant cannot detect it and switch tone.",
+   "No lactation-after-loss heads-up and no visit questions for follow-up."
+  ],
+  "logPhrases": [
+   {
+    "termKey": "cramps",
+    "en": [
+     "afterpains",
+     "after pains",
+     "womb cramps after birth",
+     "contractions after birth"
+    ],
+    "ar": [
+     "مغص الرحم بعد الولاده",
+     "تقلصات بعد الولاده",
+     "مغص بعد الولاده",
+     "مغص بعد الاجهاض"
+    ],
+    "fr": [
+     "tranchees",
+     "contractions apres l accouchement",
+     "crampes apres l accouchement"
+    ],
+    "es": [
+     "entuertos",
+     "contracciones postparto",
+     "colicos tras el parto",
+     "colicos tras el aborto"
+    ]
+   },
+   {
+    "termKey": "tearfulness",
+    "en": [
+     "want to cry",
+     "tears all the time",
+     "burst into tears",
+     "cry for no reason"
+    ],
+    "ar": [
+     "عايزه اعيط",
+     "دموعي نازله",
+     "بعيط من غير سبب",
+     "ابكي بدون سبب",
+     "دمعتي قريبه"
+    ],
+    "fr": [
+     "envie de pleurer",
+     "je pleure pour rien",
+     "larmes tout le temps"
+    ],
+    "es": [
+     "ganas de llorar",
+     "lloro sin motivo",
+     "lloro por todo"
+    ]
+   },
+   {
+    "termKey": "sad",
+    "en": [
+     "hopeless",
+     "empty inside",
+     "numb",
+     "feel like a failure",
+     "no joy"
+    ],
+    "ar": [
+     "مكتئبه",
+     "فاضيه من جوه",
+     "حاسه بفراغ",
+     "يائسه",
+     "مش طايقه نفسي",
+     "كل حاجه سوده"
+    ],
+    "fr": [
+     "vide",
+     "desesperee",
+     "triste tout le temps",
+     "plus de joie"
+    ],
+    "es": [
+     "vacia",
+     "sin esperanza",
+     "muy triste",
+     "sin alegria"
+    ]
+   },
+   {
+    "termKey": "insomnia",
+    "en": [
+     "broken sleep",
+     "waking up a lot",
+     "wide awake at night",
+     "up at 3am",
+     "lying awake",
+     "cant fall back asleep"
+    ],
+    "ar": [
+     "نومي متقطع",
+     "بصحي كتير",
+     "مبنامش",
+     "ما انام",
+     "سهرانه",
+     "نومي مو زين",
+     "صاحيه طول الليل"
+    ],
+    "fr": [
+     "je dors mal",
+     "reveils nocturnes",
+     "je ne dors pas",
+     "reveillee la nuit"
+    ],
+    "es": [
+     "duermo mal",
+     "me despierto de madrugada",
+     "despertares nocturnos",
+     "no concilio el sueno"
+    ]
+   },
+   {
+    "termKey": "fatigue",
+    "en": [
+     "wiped out",
+     "running on empty",
+     "so sleepy",
+     "cant keep my eyes open",
+     "exhaustion"
+    ],
+    "ar": [
+     "مفيش طاقه",
+     "مش قادره اقوم",
+     "منهكه",
+     "تعبانه جدا",
+     "نعسانه طول اليوم",
+     "ما عندي طاقه"
+    ],
+    "fr": [
+     "crevee",
+     "videe",
+     "epuisement",
+     "plus d energie"
+    ],
+    "es": [
+     "sin energia",
+     "molida",
+     "agotamiento"
+    ]
+   },
+   {
+    "termKey": "breastTenderness",
+    "en": [
+     "engorged",
+     "breasts hard",
+     "breasts rock hard",
+     "sore nipples",
+     "cracked nipples",
+     "milk coming in",
+     "painful latch"
+    ],
+    "ar": [
+     "الثدي متحجر",
+     "حلماتي بتوجعني",
+     "حلمات مشققه",
+     "احتقان الثدي",
+     "ثديي قاسي",
+     "وجع الرضاعه",
+     "نزول اللبن"
+    ],
+    "fr": [
+     "montee de lait",
+     "seins engorges",
+     "gercures aux seins",
+     "mamelons douloureux",
+     "seins durs"
+    ],
+    "es": [
+     "pechos duros",
+     "pezones agrietados",
+     "pezones doloridos",
+     "congestion mamaria",
+     "subida de la leche"
+    ]
+   },
+   {
+    "termKey": "dizziness",
+    "en": [
+     "head spinning",
+     "feel faint",
+     "about to faint",
+     "woozy",
+     "lightheaded when standing"
+    ],
+    "ar": [
+     "راسي بتلف",
+     "حاسه اني هقع",
+     "راسي بيلف",
+     "دوخه لما اقف",
+     "دوخه لما اقوم"
+    ],
+    "fr": [
+     "tete qui tourne",
+     "sur le point de m evanouir",
+     "etourdissements en me levant"
+    ],
+    "es": [
+     "la cabeza me da vueltas",
+     "mareo al levantarme",
+     "a punto de desmayarme"
+    ]
+   },
+   {
+    "termKey": "anxious",
+    "en": [
+     "on edge",
+     "jittery",
+     "cant relax",
+     "constant worry",
+     "dread"
+    ],
+    "ar": [
+     "قلبي مقبوض",
+     "حاسه بخوف",
+     "مرعوبه",
+     "قلقانه جدا",
+     "مش مرتاحه",
+     "قلقانه على البيبي"
+    ],
+    "fr": [
+     "angoissee",
+     "a bout de nerfs",
+     "je m inquiete tout le temps"
+    ],
+    "es": [
+     "agobiada",
+     "angustiada",
+     "con ansiedad",
+     "muy nerviosa"
+    ]
+   }
+  ],
+  "visitQuestions": [
+   {
+    "id": "lossFollowUp",
+    "en": "What follow-up will I have, and who do I call if I am worried about bleeding or my mood?",
+    "when": "user marked a loss",
+    "source": "https://www.nice.org.uk/guidance/ng126"
+   },
+   {
+    "id": "lossWhatHappened",
+    "en": "Is there anything we can find out about what happened, and what would you suggest?",
+    "when": "user marked a loss",
+    "source": "https://www.rcog.org.uk/guidance/browse-all-guidance/green-top-guidelines/care-of-late-intrauterine-fetal-death-and-stillbirth-green-top-guideline-no-55/"
+   },
+   {
+    "id": "lossBreastsMilk",
+    "en": "My breasts feel full or sore. What can I do, and who can help?",
+    "when": "breastTenderness logged within 2 weeks of a later loss",
+    "source": "https://www.acog.org/womens-health/experts-and-stories/the-latest/finding-emotional-support-after-pregnancy-loss"
+   },
+   {
+    "id": "lossWhenReady",
+    "en": "When I feel ready, what should I know about trying again?",
+    "when": "user opts in to 'trying again' content",
+    "source": "https://www.nice.org.uk/guidance/ng126"
+   }
+  ],
+  "tips": [
+   {
+    "id": "lossNotYourFault",
+    "en": "Most early miscarriages happen by chance, because of the baby's chromosomes. They are not caused by anything you did.",
+    "trigger": "user marked a miscarriage and opens loss support",
+    "source": {
+     "publisher": "NHS inform",
+     "url": "https://www.nhsinform.scot/illnesses-and-conditions/pregnancy-and-childbirth/losing-a-baby/early-miscarriage/"
+    }
+   },
+   {
+    "id": "lossBodyRecovery",
+    "en": "Bleeding can last a couple of weeks after a miscarriage. If it gets heavier, or you have fever or severe pain, contact your doctor or midwife.",
+    "trigger": "user marked a loss within the last 3 weeks",
+    "source": {
+     "publisher": "NHS inform",
+     "url": "https://www.nhsinform.scot/illnesses-and-conditions/pregnancy-and-childbirth/losing-a-baby/early-miscarriage/"
+    }
+   },
+   {
+    "id": "lossGriefWaves",
+    "en": "Grief often comes in waves and dates can be hard. Tell your doctor or midwife if it feels too much.",
+    "trigger": "user marked a loss and tearfulness/sad logged on >= 5 days in 14",
+    "source": {
+     "publisher": "ACOG",
+     "url": "https://www.acog.org/womens-health/experts-and-stories/the-latest/finding-emotional-support-after-pregnancy-loss"
+    }
+   }
+  ],
+  "askTopics": [
+   "what happens to my body after miscarriage or stillbirth",
+   "options after miscarriage (expectant, medicine, surgery) as a glossary",
+   "milk coming in after later loss",
+   "why it happened, not my fault",
+   "grief, anniversaries and partners grieving differently",
+   "when to try again is individual",
+   "support options (country list)"
+  ],
+  "redFlags": [
+   {
+    "symptom": "Very heavy bleeding, large clots, severe pain, or faint",
+    "action": "emergency",
+    "sourceUrl": "https://www.nhsinform.scot/illnesses-and-conditions/pregnancy-and-childbirth/losing-a-baby/early-miscarriage/",
+    "quote": "[NEEDS VERIFIED QUOTE]"
+   },
+   {
+    "symptom": "Fever or foul-smelling discharge after a loss",
+    "action": "same-day",
+    "sourceUrl": "https://www.nhsinform.scot/illnesses-and-conditions/pregnancy-and-childbirth/losing-a-baby/early-miscarriage/",
+    "quote": "[NEEDS VERIFIED QUOTE]"
+   },
+   {
+    "symptom": "Thoughts of harming yourself",
+    "action": "emergency",
+    "sourceUrl": "https://www.cdc.gov/hearher/maternal-warning-signs/index.html",
+    "quote": "Seek medical care immediately if you experience any signs or symptoms that are listed below."
+   }
+  ],
+  "missingVocab": [
+   "loss event (date, type) as a profile fact, not a log term",
+   "milk coming in / breast fullness after loss",
+   "grief (no chip; sad/tearfulness only)"
+  ]
+ },
+ {
+  "persona": "E7",
+  "name": "Postpartum thyroiditis",
+  "goal": "any",
+  "aiJobs": [
+   "Insights: show how many days she logged heart-flutter, fatigue, brain fog, hair loss, anxiety and low mood in the postpartum months, as counts only, and say these overlap with thyroid problems and with ordinary postpartum life.",
+   "Visit prep: add 'could a thyroid blood test explain these symptoms' when a cluster is logged, and 'what is the plan for my thyroid check in a year' after she records a thyroid result.",
+   "Ask: explain the phases (fast then slow) and that most people recover, with no TSH interpretation.",
+   "Safety: severe palpitations, chest pain or breathing trouble open the urgent card; mood symptoms route to the postpartum mood layer too."
+  ],
+  "covered": [
+   "log_phrases.dart has heartFlutters, hairThinning, fatigue, brainFog, anxious, weightChange, constipation.",
+   "visit_summary.dart 'tiredness' fires on fatigue days."
+  ],
+  "gaps": [
+   "No thyroid lab entry (TSH, free T4, TPO) and no 'on levothyroxine' flag; assistant must stay entry-only if added.",
+   "No visit question ids about thyroid testing; 'tiredness' only says 'is anything worth checking'.",
+   "No heat/cold intolerance or tremor terms.",
+   "No postpartum flag, so nothing times the 1-to-12-month window.",
+   "Mood overlap: the assistant must route to both a thyroid question and the postpartum mood question, never either/or."
+  ],
+  "logPhrases": [
+   {
+    "termKey": "heartFlutters",
+    "en": [
+     "heart pounding",
+     "heart skipping",
+     "racing heart",
+     "fluttering in my chest"
+    ],
+    "ar": [
+     "قلبي بيخبط",
+     "قلبي بيرفرف",
+     "ضربات قلب سريعه",
+     "دقات قلبي سريعه",
+     "قلبي يدق بقوه"
+    ],
+    "fr": [
+     "coeur qui s emballe",
+     "coeur qui bat vite",
+     "coeur qui palpite"
+    ],
+    "es": [
+     "corazon acelerado",
+     "latidos fuertes",
+     "taquicardia",
+     "el corazon me late rapido"
+    ]
+   },
+   {
+    "termKey": "fatigue",
+    "en": [
+     "wiped out",
+     "running on empty",
+     "so sleepy",
+     "cant keep my eyes open",
+     "exhaustion"
+    ],
+    "ar": [
+     "مفيش طاقه",
+     "مش قادره اقوم",
+     "منهكه",
+     "تعبانه جدا",
+     "نعسانه طول اليوم",
+     "ما عندي طاقه"
+    ],
+    "fr": [
+     "crevee",
+     "videe",
+     "epuisement",
+     "plus d energie"
+    ],
+    "es": [
+     "sin energia",
+     "molida",
+     "agotamiento"
+    ]
+   },
+   {
+    "termKey": "hairThinning",
+    "en": [
+     "clumps of hair",
+     "shedding hair",
+     "hair coming out in handfuls",
+     "postpartum hair loss"
+    ],
+    "ar": [
+     "تساقط شعر",
+     "شعري بيتساقط بعد الولاده",
+     "شعري بيقع كتير",
+     "شعر كتير في الفرشه"
+    ],
+    "fr": [
+     "perte de cheveux apres bebe",
+     "cheveux qui tombent par poignees",
+     "chute de cheveux importante"
+    ],
+    "es": [
+     "se me cae el pelo",
+     "caida de cabello postparto",
+     "me caen mechones"
+    ]
+   },
+   {
+    "termKey": "brainFog",
+    "en": [
+     "forgetful",
+     "cant think straight",
+     "mum brain",
+     "mommy brain",
+     "memory lapses",
+     "losing words"
+    ],
+    "ar": [
+     "نسيانه",
+     "بنسى كتير",
+     "دماغي مشوش",
+     "ذاكرتي ضعيفه",
+     "مش قادره افكر",
+     "تشوش ذهني"
+    ],
+    "fr": [
+     "trous de memoire",
+     "tete dans le brouillard",
+     "j oublie tout"
+    ],
+    "es": [
+     "olvidadiza",
+     "no puedo pensar",
+     "mente nublada",
+     "se me olvida todo"
+    ]
+   },
+   {
+    "termKey": "anxious",
+    "en": [
+     "on edge",
+     "jittery",
+     "cant relax",
+     "constant worry",
+     "dread"
+    ],
+    "ar": [
+     "قلبي مقبوض",
+     "حاسه بخوف",
+     "مرعوبه",
+     "قلقانه جدا",
+     "مش مرتاحه",
+     "قلقانه على البيبي"
+    ],
+    "fr": [
+     "angoissee",
+     "a bout de nerfs",
+     "je m inquiete tout le temps"
+    ],
+    "es": [
+     "agobiada",
+     "angustiada",
+     "con ansiedad",
+     "muy nerviosa"
+    ]
+   },
+   {
+    "termKey": "tearfulness",
+    "en": [
+     "want to cry",
+     "tears all the time",
+     "burst into tears",
+     "cry for no reason"
+    ],
+    "ar": [
+     "عايزه اعيط",
+     "دموعي نازله",
+     "بعيط من غير سبب",
+     "ابكي بدون سبب",
+     "دمعتي قريبه"
+    ],
+    "fr": [
+     "envie de pleurer",
+     "je pleure pour rien",
+     "larmes tout le temps"
+    ],
+    "es": [
+     "ganas de llorar",
+     "lloro sin motivo",
+     "lloro por todo"
+    ]
+   },
+   {
+    "termKey": "constipation",
+    "en": [
+     "hard stools",
+     "cant poo",
+     "cant poop",
+     "straining on the toilet"
+    ],
+    "ar": [
+     "مش بعرف اخرج",
+     "براز ناشف",
+     "صعوبه في التبرز",
+     "بتعب في الحمام"
+    ],
+    "fr": [
+     "selles dures",
+     "je n arrive pas a aller a la selle",
+     "poussees difficiles"
+    ],
+    "es": [
+     "heces duras",
+     "no puedo ir al bano",
+     "estrenimiento fuerte"
+    ]
+   },
+   {
+    "termKey": "insomnia",
+    "en": [
+     "broken sleep",
+     "waking up a lot",
+     "wide awake at night",
+     "up at 3am",
+     "lying awake",
+     "cant fall back asleep"
+    ],
+    "ar": [
+     "نومي متقطع",
+     "بصحي كتير",
+     "مبنامش",
+     "ما انام",
+     "سهرانه",
+     "نومي مو زين",
+     "صاحيه طول الليل"
+    ],
+    "fr": [
+     "je dors mal",
+     "reveils nocturnes",
+     "je ne dors pas",
+     "reveillee la nuit"
+    ],
+    "es": [
+     "duermo mal",
+     "me despierto de madrugada",
+     "despertares nocturnos",
+     "no concilio el sueno"
+    ]
+   },
+   {
+    "termKey": "jointPain",
+    "en": [
+     "achy joints",
+     "stiff joints",
+     "morning stiffness",
+     "stiff in the morning"
+    ],
+    "ar": [
+     "مفاصلي بتوجعني",
+     "تيبس المفاصل",
+     "مفاصلي يابسه",
+     "مفاصلي تعورني"
+    ],
+    "fr": [
+     "articulations raides",
+     "raideur le matin",
+     "articulations douloureuses"
+    ],
+    "es": [
+     "articulaciones rigidas",
+     "rigidez matutina",
+     "me duelen las articulaciones"
+    ]
+   }
+  ],
+  "visitQuestions": [
+   {
+    "id": "postpartumThyroidTest",
+    "en": "I have had several symptoms since the birth, like tiredness, palpitations or mood changes. Could a thyroid blood test help explain them?",
+    "when": "heartFlutters/fatigue/brainFog/hairThinning/anxious >= 3 of those logged on >= 5 days in 30, postpartum",
+    "source": "https://www.thyroid.org/postpartum-thyroiditis/"
+   },
+   {
+    "id": "postpartumThyroidPriorRisk",
+    "en": "I have thyroid antibodies or a past thyroid problem. When should my thyroid be checked after the birth?",
+    "when": "user flagged thyroid history or antibodies; postpartum",
+    "source": "https://www.niddk.nih.gov/health-information/endocrine-diseases/pregnancy-thyroid-disease"
+   },
+   {
+    "id": "postpartumThyroidOneYear",
+    "en": "After my thyroid settled, when should it be checked again?",
+    "when": "user recorded a past postpartum thyroid episode",
+    "source": "https://www.thyroid.org/postpartum-thyroiditis/"
+   },
+   {
+    "id": "postpartumThyroidMedicationReview",
+    "en": "My thyroid medicine may need to change after the birth. What is the plan?",
+    "when": "user flagged thyroid medicine in pregnancy; postpartum",
+    "source": "https://www.niddk.nih.gov/health-information/endocrine-diseases/pregnancy-thyroid-disease"
+   }
+  ],
+  "tips": [
+   {
+    "id": "thyroidOverlap",
+    "en": "Tiredness, mood changes, palpitations and hair loss are common after birth and can also be linked to the thyroid. A blood test can help your clinician tell.",
+    "trigger": "at least 3 of fatigue, heartFlutters, brainFog, hairThinning, anxious logged on >= 5 days in 30, postpartum",
+    "source": {
+     "publisher": "American Thyroid Association",
+     "url": "https://www.thyroid.org/postpartum-thyroiditis/"
+    }
+   },
+   {
+    "id": "thyroidMostRecover",
+    "en": "Thyroid inflammation after birth often settles within about 12 to 18 months, but it is worth a follow-up check.",
+    "trigger": "user marks a postpartum thyroid episode",
+    "source": {
+     "publisher": "American Thyroid Association",
+     "url": "https://www.thyroid.org/postpartum-thyroiditis/"
+    }
+   },
+   {
+    "id": "thyroidMoodBoth",
+    "en": "Thyroid problems and postnatal depression can feel alike. If mood is low, tell your clinician, who can look at both.",
+    "trigger": "mood chips >= 5 days and thyroid-cluster symptoms >= 5 days in 30",
+    "source": {
+     "publisher": "NIDDK (NIH)",
+     "url": "https://www.niddk.nih.gov/health-information/endocrine-diseases/pregnancy-thyroid-disease"
+    }
+   }
+  ],
+  "askTopics": [
+   "what is postpartum thyroiditis",
+   "the fast phase then slow phase",
+   "who is more at risk (antibodies, type 1 diabetes, past episode)",
+   "does it go away",
+   "levothyroxine and breastfeeding (clinician decides)",
+   "overlap with postnatal depression",
+   "will it come back next pregnancy"
+  ],
+  "redFlags": [
+   {
+    "symptom": "Racing or pounding heartbeat that will not settle, chest pain, or trouble breathing",
+    "action": "emergency",
+    "sourceUrl": "https://www.cdc.gov/hearher/maternal-warning-signs/index.html",
+    "quote": "Seek medical care immediately if you experience any signs or symptoms that are listed below."
+   },
+   {
+    "symptom": "Severe neck pain or a rapidly swelling neck",
+    "action": "same-day",
+    "sourceUrl": "https://www.thyroid.org/postpartum-thyroiditis/",
+    "quote": "[NEEDS VERIFIED QUOTE]"
+   },
+   {
+    "symptom": "Confusion or extreme agitation",
+    "action": "emergency",
+    "sourceUrl": "https://www.niddk.nih.gov/health-information/endocrine-diseases/pregnancy-thyroid-disease",
+    "quote": "[NEEDS VERIFIED QUOTE]"
+   },
+   {
+    "symptom": "Thoughts of harming yourself or your baby",
+    "action": "emergency",
+    "sourceUrl": "https://www.cdc.gov/hearher/maternal-warning-signs/index.html",
+    "quote": "Seek medical care immediately if you experience any signs or symptoms that are listed below."
+   }
+  ],
+  "missingVocab": [
+   "heat intolerance",
+   "cold intolerance",
+   "tremor / shaky hands",
+   "neck swelling or pain",
+   "lab values (TSH, T4, TPO) as entry-only fields, not log terms"
+  ]
+ },
+ {
+  "persona": "F1",
+  "name": "Perimenopause",
+  "goal": "menopause",
+  "aiJobs": [
+   "Log: map 'woke drenched', 'face goes red hot', 'cant think straight', 'my heart pounds' to hotFlashes, nightSweats, brainFog, heartFlutters.",
+   "Insights: show her cycle length range and symptom days, say that fertility is reduced but not gone (fixed sentence, no contraception advice), and show the 12-months-without-a-period milestone as 'a good time to check in'.",
+   "Visit prep: build the 'could this be perimenopause, what are my options' question plus a symptom timeline; never say she has perimenopause.",
+   "Ask: explain staging in plain words and that diagnosis is usually from symptoms and age, with no hormone therapy advice."
+  ],
+  "covered": [
+   "log_phrases.dart: hotFlashes, nightSweats, heartFlutters, insomnia, brainFog, hairThinning, dryItchySkin, bladderUrgency, moodSwings.",
+   "visit_summary.dart: 'menopause' question when goal=menopause or hot flashes/night sweats on >= oftenLoggedDays.",
+   "profile.dart Goal.menopause exists; cycleSpread question fires for irregular cycles."
+  ],
+  "gaps": [
+   "Colloquial Arabic and French/Spanish for hot flushes (سخونيه, chaleur soudaine, calor repentino) are thin.",
+   "Many perimenopause terms exist as keys but have no phrases: tingling, electricShocks, tinnitus, burningMouth, gumSoreness, brittleNails, bodyOdourChange, bladderLeaks.",
+   "No visit question for heavy or very frequent bleeding in the 40s, or for 'bleeding after 12 months without a period'.",
+   "safety.dart has no phrase for 'flooding' bleeding or bleeding after no periods.",
+   "Libido/painDuringSex are tap-only (elevated) with no phrase route; keep as a deliberate owner decision."
+  ],
+  "logPhrases": [
+   {
+    "termKey": "hotFlashes",
+    "en": [
+     "flushes",
+     "flushing",
+     "sudden heat",
+     "burning up",
+     "face goes red hot",
+     "waves of heat"
+    ],
+    "ar": [
+     "سخونيه",
+     "موجه حر",
+     "موجات سخونيه",
+     "بتسخن فجاه",
+     "وجهي بيسخن",
+     "حر مفاجئ",
+     "حراره مفاجئه"
+    ],
+    "fr": [
+     "chaleur soudaine",
+     "montees de chaleur",
+     "chaud d un coup"
+    ],
+    "es": [
+     "calor repentino",
+     "oleadas de calor",
+     "calores"
+    ]
+   },
+   {
+    "termKey": "nightSweats",
+    "en": [
+     "wake up drenched",
+     "soaked sheets",
+     "sweating in my sleep",
+     "drenched at night"
+    ],
+    "ar": [
+     "بصحي غرقانه عرق",
+     "اتعرق وانا نايمه",
+     "عرق بالليل كتير",
+     "ملايات مبلوله"
+    ],
+    "fr": [
+     "me reveille trempee",
+     "transpiration la nuit",
+     "draps trempes"
+    ],
+    "es": [
+     "me despierto empapada",
+     "sudo por la noche",
+     "sabanas empapadas"
+    ]
+   },
+   {
+    "termKey": "heartFlutters",
+    "en": [
+     "heart pounding",
+     "heart skipping",
+     "racing heart",
+     "fluttering in my chest"
+    ],
+    "ar": [
+     "قلبي بيخبط",
+     "قلبي بيرفرف",
+     "ضربات قلب سريعه",
+     "دقات قلبي سريعه",
+     "قلبي يدق بقوه"
+    ],
+    "fr": [
+     "coeur qui s emballe",
+     "coeur qui bat vite",
+     "coeur qui palpite"
+    ],
+    "es": [
+     "corazon acelerado",
+     "latidos fuertes",
+     "taquicardia",
+     "el corazon me late rapido"
+    ]
+   },
+   {
+    "termKey": "insomnia",
+    "en": [
+     "broken sleep",
+     "waking up a lot",
+     "wide awake at night",
+     "up at 3am",
+     "lying awake",
+     "cant fall back asleep"
+    ],
+    "ar": [
+     "نومي متقطع",
+     "بصحي كتير",
+     "مبنامش",
+     "ما انام",
+     "سهرانه",
+     "نومي مو زين",
+     "صاحيه طول الليل"
+    ],
+    "fr": [
+     "je dors mal",
+     "reveils nocturnes",
+     "je ne dors pas",
+     "reveillee la nuit"
+    ],
+    "es": [
+     "duermo mal",
+     "me despierto de madrugada",
+     "despertares nocturnos",
+     "no concilio el sueno"
+    ]
+   },
+   {
+    "termKey": "brainFog",
+    "en": [
+     "forgetful",
+     "cant think straight",
+     "mum brain",
+     "mommy brain",
+     "memory lapses",
+     "losing words"
+    ],
+    "ar": [
+     "نسيانه",
+     "بنسى كتير",
+     "دماغي مشوش",
+     "ذاكرتي ضعيفه",
+     "مش قادره افكر",
+     "تشوش ذهني"
+    ],
+    "fr": [
+     "trous de memoire",
+     "tete dans le brouillard",
+     "j oublie tout"
+    ],
+    "es": [
+     "olvidadiza",
+     "no puedo pensar",
+     "mente nublada",
+     "se me olvida todo"
+    ]
+   },
+   {
+    "termKey": "anxious",
+    "en": [
+     "on edge",
+     "jittery",
+     "cant relax",
+     "constant worry",
+     "dread"
+    ],
+    "ar": [
+     "قلبي مقبوض",
+     "حاسه بخوف",
+     "مرعوبه",
+     "قلقانه جدا",
+     "مش مرتاحه",
+     "قلقانه على البيبي"
+    ],
+    "fr": [
+     "angoissee",
+     "a bout de nerfs",
+     "je m inquiete tout le temps"
+    ],
+    "es": [
+     "agobiada",
+     "angustiada",
+     "con ansiedad",
+     "muy nerviosa"
+    ]
+   },
+   {
+    "termKey": "irritable",
+    "en": [
+     "snapping at everyone",
+     "angry all the time",
+     "rage",
+     "short fused",
+     "furious"
+    ],
+    "ar": [
+     "بزعق",
+     "بتعصب على اي حاجه",
+     "هتجنن",
+     "غضبانه",
+     "ضيق خلق",
+     "اعصابي تعبانه"
+    ],
+    "fr": [
+     "en colere",
+     "je m emporte",
+     "a cran",
+     "je crie sur tout le monde"
+    ],
+    "es": [
+     "enojada",
+     "furiosa",
+     "de mal humor",
+     "exploto por todo"
+    ]
+   },
+   {
+    "termKey": "jointPain",
+    "en": [
+     "achy joints",
+     "stiff joints",
+     "morning stiffness",
+     "stiff in the morning"
+    ],
+    "ar": [
+     "مفاصلي بتوجعني",
+     "تيبس المفاصل",
+     "مفاصلي يابسه",
+     "مفاصلي تعورني"
+    ],
+    "fr": [
+     "articulations raides",
+     "raideur le matin",
+     "articulations douloureuses"
+    ],
+    "es": [
+     "articulaciones rigidas",
+     "rigidez matutina",
+     "me duelen las articulaciones"
+    ]
+   },
+   {
+    "termKey": "tingling",
+    "en": [
+     "pins and needles",
+     "tingling hands",
+     "numb fingers",
+     "crawling skin",
+     "tingling feet"
+    ],
+    "ar": [
+     "تنميل",
+     "خدر",
+     "ايدي بتنمل",
+     "نمله في ايدي",
+     "وخز في جسمي"
+    ],
+    "fr": [
+     "fourmillements",
+     "picotements",
+     "engourdissement",
+     "doigts engourdis"
+    ],
+    "es": [
+     "hormigueo",
+     "adormecimiento",
+     "cosquilleo",
+     "manos dormidas"
+    ]
+   },
+   {
+    "termKey": "electricShocks",
+    "en": [
+     "electric shocks",
+     "electric shock feeling",
+     "zaps"
+    ],
+    "ar": [
+     "صعقات كهربائيه",
+     "احساس كهرباء",
+     "كهربا في جسمي",
+     "ماس كهربائي"
+    ],
+    "fr": [
+     "decharges electriques",
+     "sensation d electrocution"
+    ],
+    "es": [
+     "descargas electricas",
+     "sensacion de descarga"
+    ]
+   },
+   {
+    "termKey": "tinnitus",
+    "en": [
+     "ringing in ears",
+     "ringing in my ears",
+     "buzzing in my ears"
+    ],
+    "ar": [
+     "طنين في ودني",
+     "طنين الاذن",
+     "رنين في ودني",
+     "طنين في اذني"
+    ],
+    "fr": [
+     "acouphenes",
+     "sifflements dans les oreilles",
+     "bourdonnements"
+    ],
+    "es": [
+     "zumbido en los oidos",
+     "acufenos",
+     "pitido en los oidos"
+    ]
+   },
+   {
+    "termKey": "burningMouth",
+    "en": [
+     "burning mouth",
+     "burning tongue",
+     "mouth burns"
+    ],
+    "ar": [
+     "حرقان في الفم",
+     "لساني بيحرق",
+     "حرقان اللسان",
+     "حرقه في فمي"
+    ],
+    "fr": [
+     "bouche qui brule",
+     "langue qui brule",
+     "brulures dans la bouche"
+    ],
+    "es": [
+     "ardor en la boca",
+     "lengua ardiente",
+     "me arde la boca"
+    ]
+   },
+   {
+    "termKey": "gumSoreness",
+    "en": [
+     "sore gums",
+     "bleeding gums",
+     "gum pain"
+    ],
+    "ar": [
+     "وجع اللثه",
+     "التهاب اللثه",
+     "لثتي بتوجعني",
+     "لثتي بتنزف",
+     "لثتي تنزف"
+    ],
+    "fr": [
+     "gencives douloureuses",
+     "gencives qui saignent"
+    ],
+    "es": [
+     "encias doloridas",
+     "encias sangran",
+     "dolor de encias"
+    ]
+   },
+   {
+    "termKey": "brittleNails",
+    "en": [
+     "brittle nails",
+     "nails breaking",
+     "nails splitting",
+     "weak nails"
+    ],
+    "ar": [
+     "اضافري بتتكسر",
+     "اظافر هشه",
+     "اظافر ضعيفه",
+     "اظافري تتكسر"
+    ],
+    "fr": [
+     "ongles cassants",
+     "ongles qui se dedoublent"
+    ],
+    "es": [
+     "unas quebradizas",
+     "unas fragiles",
+     "unas que se rompen"
+    ]
+   },
+   {
+    "termKey": "bodyOdourChange",
+    "en": [
+     "body odour",
+     "body odor",
+     "smell different",
+     "sweat smells different"
+    ],
+    "ar": [
+     "ريحه جسمي اتغيرت",
+     "ريحه عرقي",
+     "رايحه الجسم",
+     "ريحتي اتغيرت"
+    ],
+    "fr": [
+     "odeur corporelle",
+     "transpiration qui sent",
+     "je sens different"
+    ],
+    "es": [
+     "olor corporal",
+     "huelo diferente",
+     "cambio de olor"
+    ]
+   },
+   {
+    "termKey": "bladderLeaks",
+    "en": [
+     "leak when i cough",
+     "leak when i sneeze",
+     "leaking urine",
+     "wet myself",
+     "stress incontinence",
+     "leak when i laugh"
+    ],
+    "ar": [
+     "بنزل بول لما اكح",
+     "بنزل بول وانا بعطس",
+     "تسريب بول",
+     "سلس بول",
+     "البول بيفلت مني",
+     "نقط بول"
+    ],
+    "fr": [
+     "fuites urinaires",
+     "je fais pipi en toussant",
+     "incontinence",
+     "perte d urine"
+    ],
+    "es": [
+     "pierdo orina",
+     "fuga de orina al toser",
+     "incontinencia",
+     "se me escapa el pis"
+    ]
+   },
+   {
+    "termKey": "bladderUrgency",
+    "en": [
+     "waking to pee",
+     "cant hold it",
+     "constant urge to pee",
+     "pee all the time"
+    ],
+    "ar": [
+     "مش قادره امسك البول",
+     "بقوم بالليل اتبول",
+     "حاسه اني عايزه اتبول على طول",
+     "اتبول كتير"
+    ],
+    "fr": [
+     "besoin urgent d uriner",
+     "impossible de me retenir",
+     "je me leve la nuit pour uriner"
+    ],
+    "es": [
+     "urgencia urinaria",
+     "no me aguanto",
+     "me levanto a orinar"
+    ]
+   },
+   {
+    "termKey": "headache",
+    "en": [
+     "pounding head",
+     "head is splitting",
+     "tension headache",
+     "headache every day"
+    ],
+    "ar": [
+     "صداع كل يوم",
+     "راسي هتنفجر",
+     "صداع نابض",
+     "صداع نصفي"
+    ],
+    "fr": [
+     "mal de tete tous les jours",
+     "tete qui martele"
+    ],
+    "es": [
+     "dolor de cabeza todos los dias",
+     "cabeza a punto de estallar"
+    ]
+   },
+   {
+    "termKey": "fatigue",
+    "en": [
+     "wiped out",
+     "running on empty",
+     "so sleepy",
+     "cant keep my eyes open",
+     "exhaustion"
+    ],
+    "ar": [
+     "مفيش طاقه",
+     "مش قادره اقوم",
+     "منهكه",
+     "تعبانه جدا",
+     "نعسانه طول اليوم",
+     "ما عندي طاقه"
+    ],
+    "fr": [
+     "crevee",
+     "videe",
+     "epuisement",
+     "plus d energie"
+    ],
+    "es": [
+     "sin energia",
+     "molida",
+     "agotamiento"
+    ]
+   }
+  ],
+  "visitQuestions": [
+   {
+    "id": "perimenopauseHeavyBleeding",
+    "en": "My bleeding has become heavy or very frequent. What checks are worth doing?",
+    "when": "heavy flow on >= 2 days in 90 or cycle shorter than 21 days, goal=menopause",
+    "source": "https://www.nice.org.uk/guidance/ng23/chapter/recommendations"
+   },
+   {
+    "id": "perimenopauseNightSleep",
+    "en": "Hot flushes and night sweats are breaking my sleep. What options are there to talk through?",
+    "when": "hotFlashes/nightSweats/insomnia on >= 10 days in 30",
+    "source": "https://www.nice.org.uk/guidance/ng23/chapter/recommendations"
+   },
+   {
+    "id": "perimenopauseMood",
+    "en": "My mood and anxiety have changed with my cycles. Could this be linked, and what support is there?",
+    "when": "anxious/irritable/sad logged on >= 7 days in 30 and age >= 40",
+    "source": "https://www.nice.org.uk/guidance/ng23/chapter/recommendations"
+   },
+   {
+    "id": "perimenopauseBones",
+    "en": "What should I know about bone and heart health at this stage?",
+    "when": "goal=menopause and age >= 45",
+    "source": "https://medlineplus.gov/menopause.html"
+   }
+  ],
+  "tips": [
+   {
+    "id": "periChangesFirst",
+    "en": "A change in your periods is usually the first sign of perimenopause. Cycles that vary a lot are common at this stage.",
+    "trigger": "cycle spread > 9 days over the last 4 cycles and age >= 40",
+    "source": {
+     "publisher": "NHS",
+     "url": "https://www.nhs.uk/conditions/menopause-and-perimenopause/symptoms/"
+    }
+   },
+   {
+    "id": "periTwelveMonths",
+    "en": "Menopause is confirmed after 12 months with no period. If any bleeding appears after that, see a GP.",
+    "trigger": "no period logged for >= 300 days, goal=menopause",
+    "source": {
+     "publisher": "WHO",
+     "url": "https://www.who.int/news-room/fact-sheets/detail/menopause"
+    }
+   },
+   {
+    "id": "periVisitPrep",
+    "en": "Your symptom log can go in your visit summary, so you can describe hot flushes, sleep and mood with dates.",
+    "trigger": "hotFlashes or nightSweats logged on >= 5 days in 30",
+    "source": {
+     "publisher": "NICE",
+     "url": "https://www.nice.org.uk/guidance/ng23/chapter/recommendations"
+    }
+   }
+  ],
+  "askTopics": [
+   "what is perimenopause and how long does it last",
+   "symptoms beyond hot flushes (mood, sleep, joints, memory)",
+   "irregular periods at 40+ and when to be seen",
+   "is a blood test needed (NICE: often not at 45+)",
+   "what options a clinician may describe (hormonal and non-hormonal) with no advice",
+   "CBT and sleep help",
+   "bone and heart health"
+  ],
+  "redFlags": [
+   {
+    "symptom": "Bleeding after 12 months with no period",
+    "action": "see GP",
+    "sourceUrl": "https://www.nhs.uk/conditions/menopause-and-perimenopause/symptoms/",
+    "quote": "Postmenopausal bleeding is not usually serious but can be a sign of cancer."
+   },
+   {
+    "symptom": "Very heavy bleeding (flooding) or very frequent periods",
+    "action": "see GP",
+    "sourceUrl": "https://www.nice.org.uk/guidance/ng23/chapter/recommendations",
+    "quote": "[NEEDS VERIFIED QUOTE]"
+   },
+   {
+    "symptom": "Chest pain, trouble breathing or a fast heartbeat that will not settle",
+    "action": "emergency",
+    "sourceUrl": "https://www.nhs.uk/conditions/menopause-and-perimenopause/symptoms/",
+    "quote": "[NEEDS VERIFIED QUOTE]"
+   }
+  ],
+  "missingVocab": [
+   "flooding (heavy bleeding burst)",
+   "formication / crawling skin",
+   "painful intercourse and dryness are tap-only (elevated)"
+  ]
+ },
+ {
+  "persona": "F2",
+  "name": "Menopause and postmenopause",
+  "goal": "menopause",
+  "aiJobs": [
+   "Safety: any bleeding or spotting logged after 12 months without a period shows a 'tell a clinician promptly' card every time; never 'probably nothing'.",
+   "Insights: long-horizon symptom days (hot flushes, sleep, mood, joints) and neutral bone and heart awareness nudges (ask about screening), with no risk scores.",
+   "Visit prep: symptom timeline plus bone, heart and urinary questions and any bleeding note.",
+   "Ask: explain that flushes can last years, that dryness and bladder symptoms tend to persist, and what a clinician may discuss."
+  ],
+  "covered": [
+   "profile.dart Goal.menopause; visit_summary.dart adds 'menopause' question.",
+   "log_phrases.dart covers hotFlashes, nightSweats, insomnia, jointPain, brainFog, bladderUrgency, hairThinning, dryItchySkin."
+  ],
+  "gaps": [
+   "No postmenopausal bleeding rule: safety.dart has no bleeding rule outside pregnancy and the spotting chip is a period concept; after 12 months without a period it must trigger the PMB card.",
+   "No visit questions for bone health, heart health or bladder/dryness (GSM) beyond the generic 'menopause' one.",
+   "Missing phrases for tingling, electric shocks, tinnitus, burning mouth, sore gums, brittle nails, body odour, bladder leaks.",
+   "Days-without-period counter is not exposed to the assistant; cannot say 'it has been 12 months'.",
+   "No years-since-menopause field to shape emphasis."
+  ],
+  "logPhrases": [
+   {
+    "termKey": "hotFlashes",
+    "en": [
+     "flushes",
+     "flushing",
+     "sudden heat",
+     "burning up",
+     "face goes red hot",
+     "waves of heat"
+    ],
+    "ar": [
+     "سخونيه",
+     "موجه حر",
+     "موجات سخونيه",
+     "بتسخن فجاه",
+     "وجهي بيسخن",
+     "حر مفاجئ",
+     "حراره مفاجئه"
+    ],
+    "fr": [
+     "chaleur soudaine",
+     "montees de chaleur",
+     "chaud d un coup"
+    ],
+    "es": [
+     "calor repentino",
+     "oleadas de calor",
+     "calores"
+    ]
+   },
+   {
+    "termKey": "nightSweats",
+    "en": [
+     "wake up drenched",
+     "soaked sheets",
+     "sweating in my sleep",
+     "drenched at night"
+    ],
+    "ar": [
+     "بصحي غرقانه عرق",
+     "اتعرق وانا نايمه",
+     "عرق بالليل كتير",
+     "ملايات مبلوله"
+    ],
+    "fr": [
+     "me reveille trempee",
+     "transpiration la nuit",
+     "draps trempes"
+    ],
+    "es": [
+     "me despierto empapada",
+     "sudo por la noche",
+     "sabanas empapadas"
+    ]
+   },
+   {
+    "termKey": "insomnia",
+    "en": [
+     "broken sleep",
+     "waking up a lot",
+     "wide awake at night",
+     "up at 3am",
+     "lying awake",
+     "cant fall back asleep"
+    ],
+    "ar": [
+     "نومي متقطع",
+     "بصحي كتير",
+     "مبنامش",
+     "ما انام",
+     "سهرانه",
+     "نومي مو زين",
+     "صاحيه طول الليل"
+    ],
+    "fr": [
+     "je dors mal",
+     "reveils nocturnes",
+     "je ne dors pas",
+     "reveillee la nuit"
+    ],
+    "es": [
+     "duermo mal",
+     "me despierto de madrugada",
+     "despertares nocturnos",
+     "no concilio el sueno"
+    ]
+   },
+   {
+    "termKey": "jointPain",
+    "en": [
+     "achy joints",
+     "stiff joints",
+     "morning stiffness",
+     "stiff in the morning"
+    ],
+    "ar": [
+     "مفاصلي بتوجعني",
+     "تيبس المفاصل",
+     "مفاصلي يابسه",
+     "مفاصلي تعورني"
+    ],
+    "fr": [
+     "articulations raides",
+     "raideur le matin",
+     "articulations douloureuses"
+    ],
+    "es": [
+     "articulaciones rigidas",
+     "rigidez matutina",
+     "me duelen las articulaciones"
+    ]
+   },
+   {
+    "termKey": "brainFog",
+    "en": [
+     "forgetful",
+     "cant think straight",
+     "mum brain",
+     "mommy brain",
+     "memory lapses",
+     "losing words"
+    ],
+    "ar": [
+     "نسيانه",
+     "بنسى كتير",
+     "دماغي مشوش",
+     "ذاكرتي ضعيفه",
+     "مش قادره افكر",
+     "تشوش ذهني"
+    ],
+    "fr": [
+     "trous de memoire",
+     "tete dans le brouillard",
+     "j oublie tout"
+    ],
+    "es": [
+     "olvidadiza",
+     "no puedo pensar",
+     "mente nublada",
+     "se me olvida todo"
+    ]
+   },
+   {
+    "termKey": "tingling",
+    "en": [
+     "pins and needles",
+     "tingling hands",
+     "numb fingers",
+     "crawling skin",
+     "tingling feet"
+    ],
+    "ar": [
+     "تنميل",
+     "خدر",
+     "ايدي بتنمل",
+     "نمله في ايدي",
+     "وخز في جسمي"
+    ],
+    "fr": [
+     "fourmillements",
+     "picotements",
+     "engourdissement",
+     "doigts engourdis"
+    ],
+    "es": [
+     "hormigueo",
+     "adormecimiento",
+     "cosquilleo",
+     "manos dormidas"
+    ]
+   },
+   {
+    "termKey": "electricShocks",
+    "en": [
+     "electric shocks",
+     "electric shock feeling",
+     "zaps"
+    ],
+    "ar": [
+     "صعقات كهربائيه",
+     "احساس كهرباء",
+     "كهربا في جسمي",
+     "ماس كهربائي"
+    ],
+    "fr": [
+     "decharges electriques",
+     "sensation d electrocution"
+    ],
+    "es": [
+     "descargas electricas",
+     "sensacion de descarga"
+    ]
+   },
+   {
+    "termKey": "tinnitus",
+    "en": [
+     "ringing in ears",
+     "ringing in my ears",
+     "buzzing in my ears"
+    ],
+    "ar": [
+     "طنين في ودني",
+     "طنين الاذن",
+     "رنين في ودني",
+     "طنين في اذني"
+    ],
+    "fr": [
+     "acouphenes",
+     "sifflements dans les oreilles",
+     "bourdonnements"
+    ],
+    "es": [
+     "zumbido en los oidos",
+     "acufenos",
+     "pitido en los oidos"
+    ]
+   },
+   {
+    "termKey": "burningMouth",
+    "en": [
+     "burning mouth",
+     "burning tongue",
+     "mouth burns"
+    ],
+    "ar": [
+     "حرقان في الفم",
+     "لساني بيحرق",
+     "حرقان اللسان",
+     "حرقه في فمي"
+    ],
+    "fr": [
+     "bouche qui brule",
+     "langue qui brule",
+     "brulures dans la bouche"
+    ],
+    "es": [
+     "ardor en la boca",
+     "lengua ardiente",
+     "me arde la boca"
+    ]
+   },
+   {
+    "termKey": "gumSoreness",
+    "en": [
+     "sore gums",
+     "bleeding gums",
+     "gum pain"
+    ],
+    "ar": [
+     "وجع اللثه",
+     "التهاب اللثه",
+     "لثتي بتوجعني",
+     "لثتي بتنزف",
+     "لثتي تنزف"
+    ],
+    "fr": [
+     "gencives douloureuses",
+     "gencives qui saignent"
+    ],
+    "es": [
+     "encias doloridas",
+     "encias sangran",
+     "dolor de encias"
+    ]
+   },
+   {
+    "termKey": "brittleNails",
+    "en": [
+     "brittle nails",
+     "nails breaking",
+     "nails splitting",
+     "weak nails"
+    ],
+    "ar": [
+     "اضافري بتتكسر",
+     "اظافر هشه",
+     "اظافر ضعيفه",
+     "اظافري تتكسر"
+    ],
+    "fr": [
+     "ongles cassants",
+     "ongles qui se dedoublent"
+    ],
+    "es": [
+     "unas quebradizas",
+     "unas fragiles",
+     "unas que se rompen"
+    ]
+   },
+   {
+    "termKey": "bodyOdourChange",
+    "en": [
+     "body odour",
+     "body odor",
+     "smell different",
+     "sweat smells different"
+    ],
+    "ar": [
+     "ريحه جسمي اتغيرت",
+     "ريحه عرقي",
+     "رايحه الجسم",
+     "ريحتي اتغيرت"
+    ],
+    "fr": [
+     "odeur corporelle",
+     "transpiration qui sent",
+     "je sens different"
+    ],
+    "es": [
+     "olor corporal",
+     "huelo diferente",
+     "cambio de olor"
+    ]
+   },
+   {
+    "termKey": "bladderLeaks",
+    "en": [
+     "leak when i cough",
+     "leak when i sneeze",
+     "leaking urine",
+     "wet myself",
+     "stress incontinence",
+     "leak when i laugh"
+    ],
+    "ar": [
+     "بنزل بول لما اكح",
+     "بنزل بول وانا بعطس",
+     "تسريب بول",
+     "سلس بول",
+     "البول بيفلت مني",
+     "نقط بول"
+    ],
+    "fr": [
+     "fuites urinaires",
+     "je fais pipi en toussant",
+     "incontinence",
+     "perte d urine"
+    ],
+    "es": [
+     "pierdo orina",
+     "fuga de orina al toser",
+     "incontinencia",
+     "se me escapa el pis"
+    ]
+   },
+   {
+    "termKey": "bladderUrgency",
+    "en": [
+     "waking to pee",
+     "cant hold it",
+     "constant urge to pee",
+     "pee all the time"
+    ],
+    "ar": [
+     "مش قادره امسك البول",
+     "بقوم بالليل اتبول",
+     "حاسه اني عايزه اتبول على طول",
+     "اتبول كتير"
+    ],
+    "fr": [
+     "besoin urgent d uriner",
+     "impossible de me retenir",
+     "je me leve la nuit pour uriner"
+    ],
+    "es": [
+     "urgencia urinaria",
+     "no me aguanto",
+     "me levanto a orinar"
+    ]
+   },
+   {
+    "termKey": "vaginalDryness",
+    "en": [
+     "vaginal dryness",
+     "dry vaginally",
+     "vaginal irritation",
+     "vaginal soreness"
+    ],
+    "ar": [
+     "جفاف المهبل",
+     "جفاف مهبلي",
+     "حرقان المهبل",
+     "تهيج المهبل"
+    ],
+    "fr": [
+     "secheresse vaginale",
+     "irritation vaginale"
+    ],
+    "es": [
+     "sequedad vaginal",
+     "irritacion vaginal",
+     "escozor vaginal"
+    ]
+   },
+   {
+    "termKey": "hairThinning",
+    "en": [
+     "clumps of hair",
+     "shedding hair",
+     "hair coming out in handfuls",
+     "postpartum hair loss"
+    ],
+    "ar": [
+     "تساقط شعر",
+     "شعري بيتساقط بعد الولاده",
+     "شعري بيقع كتير",
+     "شعر كتير في الفرشه"
+    ],
+    "fr": [
+     "perte de cheveux apres bebe",
+     "cheveux qui tombent par poignees",
+     "chute de cheveux importante"
+    ],
+    "es": [
+     "se me cae el pelo",
+     "caida de cabello postparto",
+     "me caen mechones"
+    ]
+   },
+   {
+    "termKey": "heartFlutters",
+    "en": [
+     "heart pounding",
+     "heart skipping",
+     "racing heart",
+     "fluttering in my chest"
+    ],
+    "ar": [
+     "قلبي بيخبط",
+     "قلبي بيرفرف",
+     "ضربات قلب سريعه",
+     "دقات قلبي سريعه",
+     "قلبي يدق بقوه"
+    ],
+    "fr": [
+     "coeur qui s emballe",
+     "coeur qui bat vite",
+     "coeur qui palpite"
+    ],
+    "es": [
+     "corazon acelerado",
+     "latidos fuertes",
+     "taquicardia",
+     "el corazon me late rapido"
+    ]
+   }
+  ],
+  "visitQuestions": [
+   {
+    "id": "postmenopauseBleeding",
+    "en": "I had bleeding after my periods had stopped. What checks do I need, and how soon?",
+    "when": "bleeding/spotting logged after >= 365 days with no period",
+    "source": "https://www.acog.org/womens-health/faqs/perimenopausal-bleeding-and-bleeding-after-menopause"
+   },
+   {
+    "id": "postmenopauseBones",
+    "en": "Should I have a bone density scan, and when?",
+    "when": "goal=menopause and age >= 50",
+    "source": "https://medlineplus.gov/menopause.html"
+   },
+   {
+    "id": "postmenopauseHeart",
+    "en": "Which heart health checks should I have now that my periods have stopped?",
+    "when": "goal=menopause and age >= 50",
+    "source": "https://medlineplus.gov/menopause.html"
+   },
+   {
+    "id": "postmenopauseBladder",
+    "en": "I have bladder or vaginal symptoms. What can help, and what should be checked?",
+    "when": "bladderUrgency/bladderLeaks/vaginalDryness logged on >= 5 days in 30",
+    "source": "https://medlineplus.gov/ency/article/000892.htm"
+   }
+  ],
+  "tips": [
+   {
+    "id": "pmbAlwaysCheck",
+    "en": "Bleeding after menopause is not usually serious, but it should always be checked. Contact a GP promptly.",
+    "trigger": "bleeding or spotting logged after >= 365 days with no period",
+    "source": {
+     "publisher": "NHS",
+     "url": "https://www.nhs.uk/conditions/menopause-and-perimenopause/symptoms/"
+    }
+   },
+   {
+    "id": "menoSymptomsLast",
+    "en": "Hot flushes can last for years after your last period. If they disturb your life, your clinician can talk through options.",
+    "trigger": "hotFlashes logged on >= 10 days in 30 and goal=menopause",
+    "source": {
+     "publisher": "The Menopause Society",
+     "url": "https://menopause.org/wp-content/uploads/professional/nams-2022-hormone-therapy-position-statement.pdf"
+    }
+   },
+   {
+    "id": "menoBoneHeart",
+    "en": "Bone loss and heart risk rise after menopause. Ask your clinician whether a bone scan or heart checks are right for you.",
+    "trigger": "goal=menopause and age >= 50",
+    "source": {
+     "publisher": "MedlinePlus",
+     "url": "https://medlineplus.gov/menopause.html"
+    }
+   }
+  ],
+  "askTopics": [
+   "how long do hot flushes last",
+   "bleeding after menopause",
+   "bone health and when to ask about a scan",
+   "heart health after menopause",
+   "dryness and urinary symptoms",
+   "sleep, mood and memory",
+   "what options a clinician may describe (no advice)"
+  ],
+  "redFlags": [
+   {
+    "symptom": "Any vaginal bleeding or spotting after 12 months with no period",
+    "action": "see GP",
+    "sourceUrl": "https://www.nhs.uk/conditions/menopause-and-perimenopause/symptoms/",
+    "quote": "Postmenopausal bleeding is not usually serious but can be a sign of cancer."
+   },
+   {
+    "symptom": "Chest pain, severe breathlessness, fainting",
+    "action": "emergency",
+    "sourceUrl": "https://www.cdc.gov/hearher/maternal-warning-signs/index.html",
+    "quote": "Seek medical care immediately if you experience any signs or symptoms that are listed below."
+   }
+  ],
+  "missingVocab": [
+   "postmenopausal bleeding as an event (not a period flow)",
+   "bone fracture or height loss",
+   "urinary burning (dysuria)"
+  ]
+ },
+ {
+  "persona": "F3",
+  "name": "Menopause with other conditions (heart, diabetes, breast cancer history, thyroid, polypharmacy)",
+  "goal": "menopause",
+  "aiJobs": [
+   "Insights: when palpitations, breathlessness and hot flushes are all logged, say these symptoms overlap with heart, thyroid and anxiety, and suggest noting them for her clinician; never say which it is.",
+   "Visit prep: one question list per specialist plus 'review my full medicine list'; the assistant never judges a medicine or an interaction.",
+   "Ask: explain that her other conditions change which menopause options are suitable, and route every option question to her clinicians.",
+   "Safety: chest pain, breathlessness, fainting open the urgent card regardless of 'it is just menopause'."
+  ],
+  "covered": [
+   "safety.dart urgent phrases (chest pain, cannot breathe, fainted) work for any goal.",
+   "visit_summary.dart 'menopause' and 'tiredness' ids.",
+   "log_phrases.dart heartFlutters, hotFlashes, weightChange."
+  ],
+  "gaps": [
+   "Profile has no condition list (heart, diabetes, breast cancer history, thyroid), so no condition-aware routing.",
+   "No visit question ids for multi-condition menopause or medicine review.",
+   "No symptom-overlap insight; an on-device model could wrongly reassure 'this is just menopause'.",
+   "Prompts must forbid any hormone-therapy suitability statement for breast cancer history or clot risk.",
+   "Missing phrases for tingling, shocks, bladder leaks, tinnitus etc. as in F1."
+  ],
+  "logPhrases": [
+   {
+    "termKey": "heartFlutters",
+    "en": [
+     "heart pounding",
+     "heart skipping",
+     "racing heart",
+     "fluttering in my chest"
+    ],
+    "ar": [
+     "قلبي بيخبط",
+     "قلبي بيرفرف",
+     "ضربات قلب سريعه",
+     "دقات قلبي سريعه",
+     "قلبي يدق بقوه"
+    ],
+    "fr": [
+     "coeur qui s emballe",
+     "coeur qui bat vite",
+     "coeur qui palpite"
+    ],
+    "es": [
+     "corazon acelerado",
+     "latidos fuertes",
+     "taquicardia",
+     "el corazon me late rapido"
+    ]
+   },
+   {
+    "termKey": "hotFlashes",
+    "en": [
+     "flushes",
+     "flushing",
+     "sudden heat",
+     "burning up",
+     "face goes red hot",
+     "waves of heat"
+    ],
+    "ar": [
+     "سخونيه",
+     "موجه حر",
+     "موجات سخونيه",
+     "بتسخن فجاه",
+     "وجهي بيسخن",
+     "حر مفاجئ",
+     "حراره مفاجئه"
+    ],
+    "fr": [
+     "chaleur soudaine",
+     "montees de chaleur",
+     "chaud d un coup"
+    ],
+    "es": [
+     "calor repentino",
+     "oleadas de calor",
+     "calores"
+    ]
+   },
+   {
+    "termKey": "nightSweats",
+    "en": [
+     "wake up drenched",
+     "soaked sheets",
+     "sweating in my sleep",
+     "drenched at night"
+    ],
+    "ar": [
+     "بصحي غرقانه عرق",
+     "اتعرق وانا نايمه",
+     "عرق بالليل كتير",
+     "ملايات مبلوله"
+    ],
+    "fr": [
+     "me reveille trempee",
+     "transpiration la nuit",
+     "draps trempes"
+    ],
+    "es": [
+     "me despierto empapada",
+     "sudo por la noche",
+     "sabanas empapadas"
+    ]
+   },
+   {
+    "termKey": "insomnia",
+    "en": [
+     "broken sleep",
+     "waking up a lot",
+     "wide awake at night",
+     "up at 3am",
+     "lying awake",
+     "cant fall back asleep"
+    ],
+    "ar": [
+     "نومي متقطع",
+     "بصحي كتير",
+     "مبنامش",
+     "ما انام",
+     "سهرانه",
+     "نومي مو زين",
+     "صاحيه طول الليل"
+    ],
+    "fr": [
+     "je dors mal",
+     "reveils nocturnes",
+     "je ne dors pas",
+     "reveillee la nuit"
+    ],
+    "es": [
+     "duermo mal",
+     "me despierto de madrugada",
+     "despertares nocturnos",
+     "no concilio el sueno"
+    ]
+   },
+   {
+    "termKey": "anxious",
+    "en": [
+     "on edge",
+     "jittery",
+     "cant relax",
+     "constant worry",
+     "dread"
+    ],
+    "ar": [
+     "قلبي مقبوض",
+     "حاسه بخوف",
+     "مرعوبه",
+     "قلقانه جدا",
+     "مش مرتاحه",
+     "قلقانه على البيبي"
+    ],
+    "fr": [
+     "angoissee",
+     "a bout de nerfs",
+     "je m inquiete tout le temps"
+    ],
+    "es": [
+     "agobiada",
+     "angustiada",
+     "con ansiedad",
+     "muy nerviosa"
+    ]
+   },
+   {
+    "termKey": "dizziness",
+    "en": [
+     "head spinning",
+     "feel faint",
+     "about to faint",
+     "woozy",
+     "lightheaded when standing"
+    ],
+    "ar": [
+     "راسي بتلف",
+     "حاسه اني هقع",
+     "راسي بيلف",
+     "دوخه لما اقف",
+     "دوخه لما اقوم"
+    ],
+    "fr": [
+     "tete qui tourne",
+     "sur le point de m evanouir",
+     "etourdissements en me levant"
+    ],
+    "es": [
+     "la cabeza me da vueltas",
+     "mareo al levantarme",
+     "a punto de desmayarme"
+    ]
+   },
+   {
+    "termKey": "tingling",
+    "en": [
+     "pins and needles",
+     "tingling hands",
+     "numb fingers",
+     "crawling skin",
+     "tingling feet"
+    ],
+    "ar": [
+     "تنميل",
+     "خدر",
+     "ايدي بتنمل",
+     "نمله في ايدي",
+     "وخز في جسمي"
+    ],
+    "fr": [
+     "fourmillements",
+     "picotements",
+     "engourdissement",
+     "doigts engourdis"
+    ],
+    "es": [
+     "hormigueo",
+     "adormecimiento",
+     "cosquilleo",
+     "manos dormidas"
+    ]
+   },
+   {
+    "termKey": "jointPain",
+    "en": [
+     "achy joints",
+     "stiff joints",
+     "morning stiffness",
+     "stiff in the morning"
+    ],
+    "ar": [
+     "مفاصلي بتوجعني",
+     "تيبس المفاصل",
+     "مفاصلي يابسه",
+     "مفاصلي تعورني"
+    ],
+    "fr": [
+     "articulations raides",
+     "raideur le matin",
+     "articulations douloureuses"
+    ],
+    "es": [
+     "articulaciones rigidas",
+     "rigidez matutina",
+     "me duelen las articulaciones"
+    ]
+   },
+   {
+    "termKey": "fatigue",
+    "en": [
+     "wiped out",
+     "running on empty",
+     "so sleepy",
+     "cant keep my eyes open",
+     "exhaustion"
+    ],
+    "ar": [
+     "مفيش طاقه",
+     "مش قادره اقوم",
+     "منهكه",
+     "تعبانه جدا",
+     "نعسانه طول اليوم",
+     "ما عندي طاقه"
+    ],
+    "fr": [
+     "crevee",
+     "videe",
+     "epuisement",
+     "plus d energie"
+    ],
+    "es": [
+     "sin energia",
+     "molida",
+     "agotamiento"
+    ]
+   },
+   {
+    "termKey": "brainFog",
+    "en": [
+     "forgetful",
+     "cant think straight",
+     "mum brain",
+     "mommy brain",
+     "memory lapses",
+     "losing words"
+    ],
+    "ar": [
+     "نسيانه",
+     "بنسى كتير",
+     "دماغي مشوش",
+     "ذاكرتي ضعيفه",
+     "مش قادره افكر",
+     "تشوش ذهني"
+    ],
+    "fr": [
+     "trous de memoire",
+     "tete dans le brouillard",
+     "j oublie tout"
+    ],
+    "es": [
+     "olvidadiza",
+     "no puedo pensar",
+     "mente nublada",
+     "se me olvida todo"
+    ]
+   }
+  ],
+  "visitQuestions": [
+   {
+    "id": "menopauseOtherConditions",
+    "en": "How do my other health conditions change what we should consider for my menopause symptoms?",
+    "when": "condition flag set and goal=menopause",
+    "source": "https://www.nice.org.uk/guidance/ng23/chapter/recommendations"
+   },
+   {
+    "id": "menopauseMedicineReview",
+    "en": "Can we review all my medicines together, including how they fit with my menopause symptoms?",
+    "when": "user lists >= 5 medicines or marks several specialists",
+    "source": "https://www.nice.org.uk/guidance/ng23/chapter/recommendations"
+   },
+   {
+    "id": "menopausePalpitations",
+    "en": "I get palpitations and flushes. How do we tell menopause apart from a heart or thyroid problem?",
+    "when": "heartFlutters and hotFlashes both logged on >= 3 days in 30",
+    "source": "https://www.nhs.uk/conditions/menopause-and-perimenopause/symptoms/"
+   },
+   {
+    "id": "menopauseBreastHistory",
+    "en": "I have had breast cancer. Which menopause symptoms options are suitable for me, and who should I ask?",
+    "when": "profile flag breast cancer history",
+    "source": "https://www.acog.org/clinical/clinical-guidance/clinical-consensus/articles/2021/12/treatment-of-urogenital-symptoms-in-individuals-with-a-history-of-estrogen-dependent-breast-cancer"
+   }
+  ],
+  "tips": [
+   {
+    "id": "overlapSymptoms",
+    "en": "Hot flushes, palpitations and anxiety can feel alike. Note them with dates for your clinician rather than guessing the cause.",
+    "trigger": "hotFlashes and heartFlutters both on >= 3 days in 30",
+    "source": {
+     "publisher": "NHS",
+     "url": "https://www.nhs.uk/conditions/menopause-and-perimenopause/symptoms/"
+    }
+   },
+   {
+    "id": "bringMedicineList",
+    "en": "Many people find it useful to bring a full medicine list to each appointment, so every clinician sees the same picture.",
+    "trigger": "user records >= 3 medicines or conditions",
+    "source": {
+     "publisher": "NICE",
+     "url": "https://www.nice.org.uk/guidance/ng23/chapter/recommendations"
+    }
+   },
+   {
+    "id": "menopauseWithBreastHistory",
+    "en": "After breast cancer, ask your cancer team before using any menopause treatment. There are non-hormonal options to talk about.",
+    "trigger": "breast cancer history flag set",
+    "source": {
+     "publisher": "ACOG",
+     "url": "https://www.acog.org/clinical/clinical-guidance/clinical-consensus/articles/2021/12/treatment-of-urogenital-symptoms-in-individuals-with-a-history-of-estrogen-dependent-breast-cancer"
+    }
+   }
+  ],
+  "askTopics": [
+   "menopause symptoms with heart disease or high blood pressure",
+   "menopause with diabetes and sleep",
+   "menopause after breast cancer (route to oncology team)",
+   "thyroid vs menopause symptoms",
+   "bone health with other conditions",
+   "weight and menopause without shaming",
+   "medicine review with a pharmacist"
+  ],
+  "redFlags": [
+   {
+    "symptom": "Chest pain, breathlessness or fainting",
+    "action": "emergency",
+    "sourceUrl": "https://www.nhs.uk/conditions/menopause-and-perimenopause/symptoms/",
+    "quote": "[NEEDS VERIFIED QUOTE]"
+   },
+   {
+    "symptom": "Bleeding after 12 months with no period",
+    "action": "see GP",
+    "sourceUrl": "https://www.nhs.uk/conditions/menopause-and-perimenopause/symptoms/",
+    "quote": "Postmenopausal bleeding is not usually serious but can be a sign of cancer."
+   }
+  ],
+  "missingVocab": [
+   "breathlessness on effort",
+   "blood pressure / glucose readings as entry-only, not log terms"
+  ]
+ },
+ {
+  "persona": "F4",
+  "name": "Surgical or treatment-induced menopause",
+  "goal": "menopause",
+  "aiJobs": [
+   "Profile: cause and date (ovary removal, chemotherapy, radiation, GnRH medicine) as a fact; switch off all cycle, fertile-window and period cards for her.",
+   "Insights: symptom days with the start date she entered; neutral prompts to discuss bone, heart and sleep; if on a time-limited medicine, 'what to expect when it ends' education.",
+   "Visit prep: cause-aware questions (replacement therapy decision, bone checks, fertility questions) for her treating clinician.",
+   "Support: grief and identity messages; mood chips route to support and Help now when needed."
+  ],
+  "covered": [
+   "profile.dart Goal.menopause; log_phrases.dart covers the standard menopause chips.",
+   "No cycle cards fire if there are no period starts (not verified)."
+  ],
+  "gaps": [
+   "No 'menopause cause / date' field, so the assistant treats her like a natural-menopause user and may say 'cycles vary'.",
+   "No visit questions for after ovary removal or cancer treatment.",
+   "No GSM-clinical phrasing support; libido/pain with intimacy are tap-only.",
+   "Reversibility messaging for GnRH medicine could drift into certainty; prompts need a never-promise rule.",
+   "Cancer-related questions must always route to oncology, not to Ask."
+  ],
+  "logPhrases": [
+   {
+    "termKey": "hotFlashes",
+    "en": [
+     "flushes",
+     "flushing",
+     "sudden heat",
+     "burning up",
+     "face goes red hot",
+     "waves of heat"
+    ],
+    "ar": [
+     "سخونيه",
+     "موجه حر",
+     "موجات سخونيه",
+     "بتسخن فجاه",
+     "وجهي بيسخن",
+     "حر مفاجئ",
+     "حراره مفاجئه"
+    ],
+    "fr": [
+     "chaleur soudaine",
+     "montees de chaleur",
+     "chaud d un coup"
+    ],
+    "es": [
+     "calor repentino",
+     "oleadas de calor",
+     "calores"
+    ]
+   },
+   {
+    "termKey": "nightSweats",
+    "en": [
+     "wake up drenched",
+     "soaked sheets",
+     "sweating in my sleep",
+     "drenched at night"
+    ],
+    "ar": [
+     "بصحي غرقانه عرق",
+     "اتعرق وانا نايمه",
+     "عرق بالليل كتير",
+     "ملايات مبلوله"
+    ],
+    "fr": [
+     "me reveille trempee",
+     "transpiration la nuit",
+     "draps trempes"
+    ],
+    "es": [
+     "me despierto empapada",
+     "sudo por la noche",
+     "sabanas empapadas"
+    ]
+   },
+   {
+    "termKey": "insomnia",
+    "en": [
+     "broken sleep",
+     "waking up a lot",
+     "wide awake at night",
+     "up at 3am",
+     "lying awake",
+     "cant fall back asleep"
+    ],
+    "ar": [
+     "نومي متقطع",
+     "بصحي كتير",
+     "مبنامش",
+     "ما انام",
+     "سهرانه",
+     "نومي مو زين",
+     "صاحيه طول الليل"
+    ],
+    "fr": [
+     "je dors mal",
+     "reveils nocturnes",
+     "je ne dors pas",
+     "reveillee la nuit"
+    ],
+    "es": [
+     "duermo mal",
+     "me despierto de madrugada",
+     "despertares nocturnos",
+     "no concilio el sueno"
+    ]
+   },
+   {
+    "termKey": "sad",
+    "en": [
+     "hopeless",
+     "empty inside",
+     "numb",
+     "feel like a failure",
+     "no joy"
+    ],
+    "ar": [
+     "مكتئبه",
+     "فاضيه من جوه",
+     "حاسه بفراغ",
+     "يائسه",
+     "مش طايقه نفسي",
+     "كل حاجه سوده"
+    ],
+    "fr": [
+     "vide",
+     "desesperee",
+     "triste tout le temps",
+     "plus de joie"
+    ],
+    "es": [
+     "vacia",
+     "sin esperanza",
+     "muy triste",
+     "sin alegria"
+    ]
+   },
+   {
+    "termKey": "anxious",
+    "en": [
+     "on edge",
+     "jittery",
+     "cant relax",
+     "constant worry",
+     "dread"
+    ],
+    "ar": [
+     "قلبي مقبوض",
+     "حاسه بخوف",
+     "مرعوبه",
+     "قلقانه جدا",
+     "مش مرتاحه",
+     "قلقانه على البيبي"
+    ],
+    "fr": [
+     "angoissee",
+     "a bout de nerfs",
+     "je m inquiete tout le temps"
+    ],
+    "es": [
+     "agobiada",
+     "angustiada",
+     "con ansiedad",
+     "muy nerviosa"
+    ]
+   },
+   {
+    "termKey": "brainFog",
+    "en": [
+     "forgetful",
+     "cant think straight",
+     "mum brain",
+     "mommy brain",
+     "memory lapses",
+     "losing words"
+    ],
+    "ar": [
+     "نسيانه",
+     "بنسى كتير",
+     "دماغي مشوش",
+     "ذاكرتي ضعيفه",
+     "مش قادره افكر",
+     "تشوش ذهني"
+    ],
+    "fr": [
+     "trous de memoire",
+     "tete dans le brouillard",
+     "j oublie tout"
+    ],
+    "es": [
+     "olvidadiza",
+     "no puedo pensar",
+     "mente nublada",
+     "se me olvida todo"
+    ]
+   },
+   {
+    "termKey": "jointPain",
+    "en": [
+     "achy joints",
+     "stiff joints",
+     "morning stiffness",
+     "stiff in the morning"
+    ],
+    "ar": [
+     "مفاصلي بتوجعني",
+     "تيبس المفاصل",
+     "مفاصلي يابسه",
+     "مفاصلي تعورني"
+    ],
+    "fr": [
+     "articulations raides",
+     "raideur le matin",
+     "articulations douloureuses"
+    ],
+    "es": [
+     "articulaciones rigidas",
+     "rigidez matutina",
+     "me duelen las articulaciones"
+    ]
+   },
+   {
+    "termKey": "vaginalDryness",
+    "en": [
+     "vaginal dryness",
+     "dry vaginally",
+     "vaginal irritation",
+     "vaginal soreness"
+    ],
+    "ar": [
+     "جفاف المهبل",
+     "جفاف مهبلي",
+     "حرقان المهبل",
+     "تهيج المهبل"
+    ],
+    "fr": [
+     "secheresse vaginale",
+     "irritation vaginale"
+    ],
+    "es": [
+     "sequedad vaginal",
+     "irritacion vaginal",
+     "escozor vaginal"
+    ]
+   },
+   {
+    "termKey": "bladderLeaks",
+    "en": [
+     "leak when i cough",
+     "leak when i sneeze",
+     "leaking urine",
+     "wet myself",
+     "stress incontinence",
+     "leak when i laugh"
+    ],
+    "ar": [
+     "بنزل بول لما اكح",
+     "بنزل بول وانا بعطس",
+     "تسريب بول",
+     "سلس بول",
+     "البول بيفلت مني",
+     "نقط بول"
+    ],
+    "fr": [
+     "fuites urinaires",
+     "je fais pipi en toussant",
+     "incontinence",
+     "perte d urine"
+    ],
+    "es": [
+     "pierdo orina",
+     "fuga de orina al toser",
+     "incontinencia",
+     "se me escapa el pis"
+    ]
+   },
+   {
+    "termKey": "heartFlutters",
+    "en": [
+     "heart pounding",
+     "heart skipping",
+     "racing heart",
+     "fluttering in my chest"
+    ],
+    "ar": [
+     "قلبي بيخبط",
+     "قلبي بيرفرف",
+     "ضربات قلب سريعه",
+     "دقات قلبي سريعه",
+     "قلبي يدق بقوه"
+    ],
+    "fr": [
+     "coeur qui s emballe",
+     "coeur qui bat vite",
+     "coeur qui palpite"
+    ],
+    "es": [
+     "corazon acelerado",
+     "latidos fuertes",
+     "taquicardia",
+     "el corazon me late rapido"
+    ]
+   },
+   {
+    "termKey": "fatigue",
+    "en": [
+     "wiped out",
+     "running on empty",
+     "so sleepy",
+     "cant keep my eyes open",
+     "exhaustion"
+    ],
+    "ar": [
+     "مفيش طاقه",
+     "مش قادره اقوم",
+     "منهكه",
+     "تعبانه جدا",
+     "نعسانه طول اليوم",
+     "ما عندي طاقه"
+    ],
+    "fr": [
+     "crevee",
+     "videe",
+     "epuisement",
+     "plus d energie"
+    ],
+    "es": [
+     "sin energia",
+     "molida",
+     "agotamiento"
+    ]
+   },
+   {
+    "termKey": "tearfulness",
+    "en": [
+     "want to cry",
+     "tears all the time",
+     "burst into tears",
+     "cry for no reason"
+    ],
+    "ar": [
+     "عايزه اعيط",
+     "دموعي نازله",
+     "بعيط من غير سبب",
+     "ابكي بدون سبب",
+     "دمعتي قريبه"
+    ],
+    "fr": [
+     "envie de pleurer",
+     "je pleure pour rien",
+     "larmes tout le temps"
+    ],
+    "es": [
+     "ganas de llorar",
+     "lloro sin motivo",
+     "lloro por todo"
+    ]
+   }
+  ],
+  "visitQuestions": [
+   {
+    "id": "inducedMenopauseOptions",
+    "en": "I went into menopause because of surgery or treatment. What should we discuss about replacing hormones, and how long?",
+    "when": "profile.menopauseCause is set (surgery/treatment)",
+    "source": "https://www.nice.org.uk/guidance/ng23/chapter/recommendations"
+   },
+   {
+    "id": "inducedMenopauseBones",
+    "en": "What bone and heart checks do I need after early menopause?",
+    "when": "profile.menopauseCause is set and age < 45",
+    "source": "https://www.nice.org.uk/guidance/ng23/chapter/recommendations"
+   },
+   {
+    "id": "inducedMenopauseSymptoms",
+    "en": "My flushes, sleep and mood have changed a lot since the surgery. What support is there?",
+    "when": "hotFlashes/nightSweats/insomnia/sad on >= 10 days in 30",
+    "source": "https://www.nice.org.uk/guidance/ng23/chapter/recommendations"
+   },
+   {
+    "id": "inducedMenopauseFertility",
+    "en": "I am grieving my fertility. Who can I talk to?",
+    "when": "profile.menopauseCause is set and age < 45",
+    "source": "https://www.nhs.uk/conditions/early-menopause/"
+   }
+  ],
+  "tips": [
+   {
+    "id": "inducedNoCycle",
+    "en": "After surgery that removes both ovaries, periods stop right away and menopause symptoms may start suddenly. Talk to your clinician about support.",
+    "trigger": "profile.menopauseCause = ovary removal",
+    "source": {
+     "publisher": "NHS",
+     "url": "https://www.nhs.uk/conditions/early-menopause/"
+    }
+   },
+   {
+    "id": "inducedBonesHeart",
+    "en": "Earlier menopause can affect bone and heart health over the long term. Ask your clinician which checks suit you.",
+    "trigger": "profile.menopauseCause set and age < 45",
+    "source": {
+     "publisher": "NICE",
+     "url": "https://www.nice.org.uk/guidance/ng23/chapter/recommendations"
+    }
+   },
+   {
+    "id": "inducedFeelings",
+    "en": "It is normal to feel grief or shock after an early, sudden menopause. Support is available.",
+    "trigger": "sad/tearful logged on >= 5 days in 14",
+    "source": {
+     "publisher": "NHS",
+     "url": "https://www.nhs.uk/conditions/early-menopause/"
+    }
+   }
+  ],
+  "askTopics": [
+   "what is surgical menopause",
+   "how it differs from natural menopause",
+   "replacement hormones: what guidelines describe for early menopause (no advice)",
+   "bone and heart health",
+   "emotional support and grief",
+   "GnRH medicine and what happens when it ends",
+   "cancer-related questions: go to your oncology team"
+  ],
+  "redFlags": [
+   {
+    "symptom": "Chest pain, severe breathlessness, fainting",
+    "action": "emergency",
+    "sourceUrl": "https://www.cdc.gov/hearher/maternal-warning-signs/index.html",
+    "quote": "Seek medical care immediately if you experience any signs or symptoms that are listed below."
+   },
+   {
+    "symptom": "Thoughts of harming yourself",
+    "action": "emergency",
+    "sourceUrl": "https://www.cdc.gov/hearher/maternal-warning-signs/index.html",
+    "quote": "Seek medical care immediately if you experience any signs or symptoms that are listed below."
+   },
+   {
+    "symptom": "Any vaginal bleeding after surgery that is heavy or lasts",
+    "action": "same-day",
+    "sourceUrl": "https://www.nhs.uk/conditions/early-menopause/",
+    "quote": "[NEEDS VERIFIED QUOTE]"
+   }
+  ],
+  "missingVocab": [
+   "menopause cause/date as profile fields",
+   "vaginal dryness and painful intimacy (tap-only, elevated)"
+  ]
+ },
+ {
+  "persona": "F5",
+  "name": "Premature or early menopause (before 45)",
+  "goal": "menopause",
+  "aiJobs": [
+   "Insights: cycle-gap range, symptom days and the 12-month milestone, in uncertainty-first wording; never 'you are in menopause'.",
+   "Ask: explain early vs premature menopause, long-term bone, heart and brain health awareness, and that pregnancy can still happen before 40 (fixed fact, no advice).",
+   "Visit prep: questions about checks, treatments for early menopause and emotional support.",
+   "Support: identity and grief messages; mood chips route to support."
+  ],
+  "covered": [
+   "profile.dart Goal.menopause; visit_summary 'menopause' question.",
+   "log_phrases.dart menopause chips (hotFlashes, nightSweats, insomnia, brainFog)."
+  ],
+  "gaps": [
+   "No age-band logic in the assistant: under-40 users get the same menopause tone as 55-year-olds.",
+   "safety.dart blocks pregnancy-avoidance questions; she also needs 'pregnancy is still possible before 40' as a fixed, non-advice fact (owner decision).",
+   "No visit question for early menopause bone/heart checks or support.",
+   "No 'diagnosed premature ovarian insufficiency' flag, so wording cannot differ from a general user.",
+   "Missing colloquial phrases as in F1; fertility-grief phrases not detected."
+  ],
+  "logPhrases": [
+   {
+    "termKey": "hotFlashes",
+    "en": [
+     "flushes",
+     "flushing",
+     "sudden heat",
+     "burning up",
+     "face goes red hot",
+     "waves of heat"
+    ],
+    "ar": [
+     "سخونيه",
+     "موجه حر",
+     "موجات سخونيه",
+     "بتسخن فجاه",
+     "وجهي بيسخن",
+     "حر مفاجئ",
+     "حراره مفاجئه"
+    ],
+    "fr": [
+     "chaleur soudaine",
+     "montees de chaleur",
+     "chaud d un coup"
+    ],
+    "es": [
+     "calor repentino",
+     "oleadas de calor",
+     "calores"
+    ]
+   },
+   {
+    "termKey": "nightSweats",
+    "en": [
+     "wake up drenched",
+     "soaked sheets",
+     "sweating in my sleep",
+     "drenched at night"
+    ],
+    "ar": [
+     "بصحي غرقانه عرق",
+     "اتعرق وانا نايمه",
+     "عرق بالليل كتير",
+     "ملايات مبلوله"
+    ],
+    "fr": [
+     "me reveille trempee",
+     "transpiration la nuit",
+     "draps trempes"
+    ],
+    "es": [
+     "me despierto empapada",
+     "sudo por la noche",
+     "sabanas empapadas"
+    ]
+   },
+   {
+    "termKey": "insomnia",
+    "en": [
+     "broken sleep",
+     "waking up a lot",
+     "wide awake at night",
+     "up at 3am",
+     "lying awake",
+     "cant fall back asleep"
+    ],
+    "ar": [
+     "نومي متقطع",
+     "بصحي كتير",
+     "مبنامش",
+     "ما انام",
+     "سهرانه",
+     "نومي مو زين",
+     "صاحيه طول الليل"
+    ],
+    "fr": [
+     "je dors mal",
+     "reveils nocturnes",
+     "je ne dors pas",
+     "reveillee la nuit"
+    ],
+    "es": [
+     "duermo mal",
+     "me despierto de madrugada",
+     "despertares nocturnos",
+     "no concilio el sueno"
+    ]
+   },
+   {
+    "termKey": "brainFog",
+    "en": [
+     "forgetful",
+     "cant think straight",
+     "mum brain",
+     "mommy brain",
+     "memory lapses",
+     "losing words"
+    ],
+    "ar": [
+     "نسيانه",
+     "بنسى كتير",
+     "دماغي مشوش",
+     "ذاكرتي ضعيفه",
+     "مش قادره افكر",
+     "تشوش ذهني"
+    ],
+    "fr": [
+     "trous de memoire",
+     "tete dans le brouillard",
+     "j oublie tout"
+    ],
+    "es": [
+     "olvidadiza",
+     "no puedo pensar",
+     "mente nublada",
+     "se me olvida todo"
+    ]
+   },
+   {
+    "termKey": "anxious",
+    "en": [
+     "on edge",
+     "jittery",
+     "cant relax",
+     "constant worry",
+     "dread"
+    ],
+    "ar": [
+     "قلبي مقبوض",
+     "حاسه بخوف",
+     "مرعوبه",
+     "قلقانه جدا",
+     "مش مرتاحه",
+     "قلقانه على البيبي"
+    ],
+    "fr": [
+     "angoissee",
+     "a bout de nerfs",
+     "je m inquiete tout le temps"
+    ],
+    "es": [
+     "agobiada",
+     "angustiada",
+     "con ansiedad",
+     "muy nerviosa"
+    ]
+   },
+   {
+    "termKey": "sad",
+    "en": [
+     "hopeless",
+     "empty inside",
+     "numb",
+     "feel like a failure",
+     "no joy"
+    ],
+    "ar": [
+     "مكتئبه",
+     "فاضيه من جوه",
+     "حاسه بفراغ",
+     "يائسه",
+     "مش طايقه نفسي",
+     "كل حاجه سوده"
+    ],
+    "fr": [
+     "vide",
+     "desesperee",
+     "triste tout le temps",
+     "plus de joie"
+    ],
+    "es": [
+     "vacia",
+     "sin esperanza",
+     "muy triste",
+     "sin alegria"
+    ]
+   },
+   {
+    "termKey": "tearfulness",
+    "en": [
+     "want to cry",
+     "tears all the time",
+     "burst into tears",
+     "cry for no reason"
+    ],
+    "ar": [
+     "عايزه اعيط",
+     "دموعي نازله",
+     "بعيط من غير سبب",
+     "ابكي بدون سبب",
+     "دمعتي قريبه"
+    ],
+    "fr": [
+     "envie de pleurer",
+     "je pleure pour rien",
+     "larmes tout le temps"
+    ],
+    "es": [
+     "ganas de llorar",
+     "lloro sin motivo",
+     "lloro por todo"
+    ]
+   },
+   {
+    "termKey": "jointPain",
+    "en": [
+     "achy joints",
+     "stiff joints",
+     "morning stiffness",
+     "stiff in the morning"
+    ],
+    "ar": [
+     "مفاصلي بتوجعني",
+     "تيبس المفاصل",
+     "مفاصلي يابسه",
+     "مفاصلي تعورني"
+    ],
+    "fr": [
+     "articulations raides",
+     "raideur le matin",
+     "articulations douloureuses"
+    ],
+    "es": [
+     "articulaciones rigidas",
+     "rigidez matutina",
+     "me duelen las articulaciones"
+    ]
+   },
+   {
+    "termKey": "heartFlutters",
+    "en": [
+     "heart pounding",
+     "heart skipping",
+     "racing heart",
+     "fluttering in my chest"
+    ],
+    "ar": [
+     "قلبي بيخبط",
+     "قلبي بيرفرف",
+     "ضربات قلب سريعه",
+     "دقات قلبي سريعه",
+     "قلبي يدق بقوه"
+    ],
+    "fr": [
+     "coeur qui s emballe",
+     "coeur qui bat vite",
+     "coeur qui palpite"
+    ],
+    "es": [
+     "corazon acelerado",
+     "latidos fuertes",
+     "taquicardia",
+     "el corazon me late rapido"
+    ]
+   },
+   {
+    "termKey": "vaginalDryness",
+    "en": [
+     "vaginal dryness",
+     "dry vaginally",
+     "vaginal irritation",
+     "vaginal soreness"
+    ],
+    "ar": [
+     "جفاف المهبل",
+     "جفاف مهبلي",
+     "حرقان المهبل",
+     "تهيج المهبل"
+    ],
+    "fr": [
+     "secheresse vaginale",
+     "irritation vaginale"
+    ],
+    "es": [
+     "sequedad vaginal",
+     "irritacion vaginal",
+     "escozor vaginal"
+    ]
+   },
+   {
+    "termKey": "headache",
+    "en": [
+     "pounding head",
+     "head is splitting",
+     "tension headache",
+     "headache every day"
+    ],
+    "ar": [
+     "صداع كل يوم",
+     "راسي هتنفجر",
+     "صداع نابض",
+     "صداع نصفي"
+    ],
+    "fr": [
+     "mal de tete tous les jours",
+     "tete qui martele"
+    ],
+    "es": [
+     "dolor de cabeza todos los dias",
+     "cabeza a punto de estallar"
+    ]
+   }
+  ],
+  "visitQuestions": [
+   {
+    "id": "earlyMenopauseOptions",
+    "en": "At my age, what treatment options and follow-up do the guidelines describe for early menopause?",
+    "when": "profile.age < 45 and goal=menopause",
+    "source": "https://www.nice.org.uk/guidance/ng23/chapter/recommendations"
+   },
+   {
+    "id": "earlyMenopauseBonesHeart",
+    "en": "What bone, heart and cholesterol checks should I have, and how often?",
+    "when": "profile.age < 45 and goal=menopause",
+    "source": "https://womenshealth.gov/menopause/early-or-premature-menopause"
+   },
+   {
+    "id": "earlyMenopauseFertility",
+    "en": "Can we talk about my fertility and what I can still do if I want a child?",
+    "when": "profile.age < 40 and goal=menopause",
+    "source": "https://www.asrm.org/practice-guidance/practice-committee-documents/evidence-based-guideline-premature-ovarian-insufficiency--2024/"
+   },
+   {
+    "id": "earlyMenopauseSupport",
+    "en": "Is there support for how I am feeling about this at my age?",
+    "when": "sad/tearful/anxious on >= 7 days in 30",
+    "source": "https://www.nhs.uk/conditions/early-menopause/"
+   }
+  ],
+  "tips": [
+   {
+    "id": "earlyMeaning",
+    "en": "Menopause before 45 is early, and before 40 it is premature. Your clinician can explain what this means for your health.",
+    "trigger": "age < 45 and goal=menopause",
+    "source": {
+     "publisher": "womenshealth.gov",
+     "url": "https://womenshealth.gov/menopause/early-or-premature-menopause"
+    }
+   },
+   {
+    "id": "earlyLongTerm",
+    "en": "More years without estrogen can affect bone, heart and brain health. Ask your clinician about checks that suit you.",
+    "trigger": "age < 45 and goal=menopause",
+    "source": {
+     "publisher": "NICE",
+     "url": "https://www.nice.org.uk/guidance/ng23/chapter/recommendations"
+    }
+   },
+   {
+    "id": "earlyNotAlone",
+    "en": "Many women feel grief or isolation with early menopause. Support and age-matched groups can help.",
+    "trigger": "sad/tearful logged on >= 5 days in 14 and age < 45",
+    "source": {
+     "publisher": "NHS",
+     "url": "https://www.nhs.uk/conditions/early-menopause/"
+    }
+   }
+  ],
+  "askTopics": [
+   "early vs premature menopause",
+   "why it happens (category level)",
+   "long-term health at an earlier age",
+   "what treatment guidelines describe for early menopause (no advice)",
+   "pregnancy can still occur before 40 (education fact)",
+   "emotional support and fertility grief",
+   "talking to family and work"
+  ],
+  "redFlags": [
+   {
+    "symptom": "Chest pain, severe breathlessness, fainting",
+    "action": "emergency",
+    "sourceUrl": "https://www.cdc.gov/hearher/maternal-warning-signs/index.html",
+    "quote": "Seek medical care immediately if you experience any signs or symptoms that are listed below."
+   },
+   {
+    "symptom": "Thoughts of harming yourself",
+    "action": "emergency",
+    "sourceUrl": "https://www.cdc.gov/hearher/maternal-warning-signs/index.html",
+    "quote": "Seek medical care immediately if you experience any signs or symptoms that are listed below."
+   },
+   {
+    "symptom": "New bleeding after 12 months with no period",
+    "action": "see GP",
+    "sourceUrl": "https://www.nhs.uk/conditions/menopause-and-perimenopause/symptoms/",
+    "quote": "Postmenopausal bleeding is not usually serious but can be a sign of cancer."
+   }
+  ],
+  "missingVocab": [
+   "age-of-onset as a profile fact",
+   "premature_aging distress (mood note, not a chip)"
+  ]
+ },
+ {
+  "persona": "F6",
+  "name": "Genitourinary symptoms of menopause (GSM)",
+  "goal": "menopause",
+  "aiJobs": [
+   "Log (discreet): clinical-name chips only (vaginal dryness, pain with intimacy, bladder urgency/leaks), tap-first; nothing echoed on a shared screen and neutral notification text.",
+   "Insights: count days of urinary and dryness symptoms and any repeat urinary infections she records; suggest 'worth raising with a clinician' wording.",
+   "Visit prep: conversation-starter sentences and a neutral checklist, exported under a neutral filename.",
+   "Ask: explain that these symptoms are common and treatable, in clinical language and with no product or dose advice."
+  ],
+  "covered": [
+   "log_phrases.dart bladderUrgency and dryItchySkin phrases.",
+   "log_vocabulary.g.dart has vaginalDryness and painDuringSex (elevated, hidden on shared screens); visit_summary.dart excludes elevated terms from the top-term list."
+  ],
+  "gaps": [
+   "No phrases for vaginalDryness, bladderLeaks; painDuringSex and libido stay tap-only by the conservative rule (OD-5), so a typed note about them is dropped (decision for owner).",
+   "No urinary infection log or repeat-infection counter; no 'burning when passing urine' term.",
+   "No visit question for dryness/urinary symptoms; no discreet-export setting.",
+   "safety.dart has no phrase for fever with back or flank pain, or blood in urine.",
+   "Postmenopausal bleeding must never be explained as dryness (rule in prompts.dart needed)."
+  ],
+  "logPhrases": [
+   {
+    "termKey": "vaginalDryness",
+    "en": [
+     "vaginal dryness",
+     "dry vaginally",
+     "vaginal irritation",
+     "vaginal soreness"
+    ],
+    "ar": [
+     "جفاف المهبل",
+     "جفاف مهبلي",
+     "حرقان المهبل",
+     "تهيج المهبل"
+    ],
+    "fr": [
+     "secheresse vaginale",
+     "irritation vaginale"
+    ],
+    "es": [
+     "sequedad vaginal",
+     "irritacion vaginal",
+     "escozor vaginal"
+    ]
+   },
+   {
+    "termKey": "bladderLeaks",
+    "en": [
+     "leak when i cough",
+     "leak when i sneeze",
+     "leaking urine",
+     "wet myself",
+     "stress incontinence",
+     "leak when i laugh"
+    ],
+    "ar": [
+     "بنزل بول لما اكح",
+     "بنزل بول وانا بعطس",
+     "تسريب بول",
+     "سلس بول",
+     "البول بيفلت مني",
+     "نقط بول"
+    ],
+    "fr": [
+     "fuites urinaires",
+     "je fais pipi en toussant",
+     "incontinence",
+     "perte d urine"
+    ],
+    "es": [
+     "pierdo orina",
+     "fuga de orina al toser",
+     "incontinencia",
+     "se me escapa el pis"
+    ]
+   },
+   {
+    "termKey": "bladderUrgency",
+    "en": [
+     "waking to pee",
+     "cant hold it",
+     "constant urge to pee",
+     "pee all the time"
+    ],
+    "ar": [
+     "مش قادره امسك البول",
+     "بقوم بالليل اتبول",
+     "حاسه اني عايزه اتبول على طول",
+     "اتبول كتير"
+    ],
+    "fr": [
+     "besoin urgent d uriner",
+     "impossible de me retenir",
+     "je me leve la nuit pour uriner"
+    ],
+    "es": [
+     "urgencia urinaria",
+     "no me aguanto",
+     "me levanto a orinar"
+    ]
+   },
+   {
+    "termKey": "fatigue",
+    "en": [
+     "wiped out",
+     "running on empty",
+     "so sleepy",
+     "cant keep my eyes open",
+     "exhaustion"
+    ],
+    "ar": [
+     "مفيش طاقه",
+     "مش قادره اقوم",
+     "منهكه",
+     "تعبانه جدا",
+     "نعسانه طول اليوم",
+     "ما عندي طاقه"
+    ],
+    "fr": [
+     "crevee",
+     "videe",
+     "epuisement",
+     "plus d energie"
+    ],
+    "es": [
+     "sin energia",
+     "molida",
+     "agotamiento"
+    ]
+   }
+  ],
+  "visitQuestions": [
+   {
+    "id": "gsmDiscuss",
+    "en": "I have vaginal dryness or discomfort, and bladder symptoms. What can help, and what needs checking?",
+    "when": "vaginalDryness or bladderUrgency/bladderLeaks on >= 5 days in 30",
+    "source": "https://medlineplus.gov/ency/article/000892.htm"
+   },
+   {
+    "id": "gsmRepeatUTI",
+    "en": "I keep getting urinary infections. Can we look for a cause and a way to prevent them?",
+    "when": "user records >= 2 urinary infections in 6 months",
+    "source": "https://medlineplus.gov/urinarytractinfections.html"
+   },
+   {
+    "id": "gsmPelvicFloor",
+    "en": "Would pelvic floor physiotherapy help with my symptoms?",
+    "when": "bladderLeaks logged on >= 5 days in 30",
+    "source": "https://medlineplus.gov/ency/article/000892.htm"
+   },
+   {
+    "id": "gsmBreastHistory",
+    "en": "I have had breast cancer. Which treatments for these symptoms are suitable, and who should decide?",
+    "when": "breast cancer history flag",
+    "source": "https://www.acog.org/clinical/clinical-guidance/clinical-consensus/articles/2021/12/treatment-of-urogenital-symptoms-in-individuals-with-a-history-of-estrogen-dependent-breast-cancer"
+   }
+  ],
+  "tips": [
+   {
+    "id": "gsmCommonTreatable",
+    "en": "Dryness, discomfort and bladder symptoms after menopause are common and treatable. It is worth raising them with a clinician.",
+    "trigger": "vaginalDryness or bladder terms logged on >= 5 days in 30",
+    "source": {
+     "publisher": "MedlinePlus",
+     "url": "https://medlineplus.gov/ency/article/000892.htm"
+    }
+   },
+   {
+    "id": "gsmNotAging",
+    "en": "These symptoms tend to continue or get worse without help, so they do not need to be put up with.",
+    "trigger": "same trigger, goal=menopause",
+    "source": {
+     "publisher": "MedlinePlus",
+     "url": "https://medlineplus.gov/ency/article/000892.htm"
+    }
+   },
+   {
+    "id": "gsmBleedingFirst",
+    "en": "Bleeding after menopause should never be put down to dryness. See a GP promptly.",
+    "trigger": "bleeding logged after >= 365 days with no period",
+    "source": {
+     "publisher": "NHS",
+     "url": "https://www.nhs.uk/conditions/menopause-and-perimenopause/symptoms/"
+    }
+   }
+  ],
+  "askTopics": [
+   "what is GSM (clinical term)",
+   "difference between lubricants and moisturisers (education, no brands)",
+   "local vs whole-body treatment as categories a clinician discusses",
+   "recurrent urinary infections and menopause",
+   "pelvic floor physiotherapy",
+   "after breast cancer (route to oncology team)",
+   "how to start the conversation with a clinician"
+  ],
+  "redFlags": [
+   {
+    "symptom": "Any bleeding after menopause",
+    "action": "see GP",
+    "sourceUrl": "https://www.nhs.uk/conditions/menopause-and-perimenopause/symptoms/",
+    "quote": "Postmenopausal bleeding is not usually serious but can be a sign of cancer."
+   },
+   {
+    "symptom": "Urinary infection with fever, flank or back pain, or blood in the urine",
+    "action": "same-day",
+    "sourceUrl": "https://medlineplus.gov/urinarytractinfections.html",
+    "quote": "[NEEDS VERIFIED QUOTE]"
+   },
+   {
+    "symptom": "Pain that is severe or sudden in the pelvis",
+    "action": "same-day",
+    "sourceUrl": "https://medlineplus.gov/ency/article/000892.htm",
+    "quote": "[NEEDS VERIFIED QUOTE]"
+   }
+  ],
+  "missingVocab": [
+   "burning when passing urine",
+   "recurrent urinary infection episode counter (entry), not a log term",
+   "painful intimacy and desire (tap-only, elevated)"
+  ]
+ },
+ {
+  "persona": "X1",
+  "name": "Parent or guardian mode (supporting a daughter)",
+  "goal": "any",
+  "aiJobs": [
+   "Education: help her talk about puberty and periods with scripts and stage-matched guides from ACOG/NHS/AAP, in plain language.",
+   "Visit prep: the first gynecologic visit explainer and her own question list (age 13 to 15 per ACOG), merged with her daughter's list only if the daughter shares it.",
+   "Ask: answer 'what is normal at this age' and 'when should I be concerned' generally, never from her daughter's data.",
+   "Wall: refuse any request to see the daughter's logs, notes or Ask history; explain that sharing is the daughter's choice."
+  ],
+  "covered": [
+   "Product is single-person and local (no accounts), so no parent link exists; the daughter's data cannot leak, but there is no parent mode either.",
+   "safety.dart works without a record and gives no data away."
+  ],
+  "gaps": [
+   "No parent mode at all, and the assistant's context builder (prompts.dart, guide_search.dart) is built for the account owner's own record; it would answer about the daughter as if the parent were her if the parent used the same phone.",
+   "Must NOT reveal from her daughter's record: any log, flow, symptom or mood term, cycle dates or predictions, notes, screener answers, what she read or asked, whether she has logged at all, why sharing changed.",
+   "No under-18 rule in the assistant (MR-48 age gate exists for the app but not in assistant prompts).",
+   "Assistant must keep the same on-device rule for minors: nothing about a minor goes to the cloud model; the redaction.dart list does not cover 'my daughter' phrases.",
+   "No parent-facing guides confirmed in the guide index for 'how to talk about periods'."
+  ],
+  "logPhrases": [],
+  "visitQuestions": [
+   {
+    "id": "daughterFirstVisit",
+    "en": "When should my daughter have a first gynecologic visit, and what happens at it?",
+    "when": "parent mode active, daughter age 12 to 15",
+    "source": "https://www.acog.org/womens-health/faqs/your-first-gynecologic-visit"
+   },
+   {
+    "id": "daughterCycleWhatIsNormal",
+    "en": "What is normal for periods at her age, and which signs should make us see a doctor?",
+    "when": "parent mode active, daughter age 9 to 15",
+    "source": "https://www.nhs.uk/conditions/periods/starting-periods/"
+   },
+   {
+    "id": "daughterHeavyPeriods",
+    "en": "How heavy is too heavy, and what checks might be suggested?",
+    "when": "parent asks about heavy or painful periods",
+    "source": "https://www.nhs.uk/conditions/heavy-periods/"
+   },
+   {
+    "id": "daughterLateFirstPeriod",
+    "en": "My daughter has no period yet. When is it worth asking?",
+    "when": "parent mode active, daughter age 14 to 16",
+    "source": "https://www.healthychildren.org/English/ages-stages/gradeschool/puberty/Pages/Physical-Development-Girls-What-to-Expect.aspx"
+   }
+  ],
+  "tips": [
+   {
+    "id": "parentTalkEarly",
+    "en": "Talking about puberty in small, calm conversations before the first period helps girls feel ready.",
+    "trigger": "parent mode active, daughter age 8 to 12",
+    "source": {
+     "publisher": "HealthyChildren.org (AAP)",
+     "url": "https://www.healthychildren.org/English/ages-stages/gradeschool/puberty/Pages/Physical-Development-Girls-What-to-Expect.aspx"
+    }
+   },
+   {
+    "id": "parentFirstVisit",
+    "en": "A first visit to a women's health clinician can be a talk only, with no exam. ACOG suggests ages 13 to 15.",
+    "trigger": "parent mode active, daughter age 12 to 15",
+    "source": {
+     "publisher": "ACOG",
+     "url": "https://www.acog.org/womens-health/faqs/your-first-gynecologic-visit"
+    }
+   },
+   {
+    "id": "parentHerChoice",
+    "en": "What your daughter logs is hers. She decides what to share, and you can still offer support.",
+    "trigger": "parent mode first open",
+    "source": {
+     "publisher": "HealthyChildren.org (AAP)",
+     "url": "https://www.healthychildren.org/English/ages-stages/gradeschool/puberty/Pages/Physical-Development-Girls-What-to-Expect.aspx"
+    }
+   }
+  ],
+  "askTopics": [
+   "how to talk about periods and puberty",
+   "what are normal ages and timing for periods",
+   "what to put in a first-period kit",
+   "when to see a doctor for pain, heavy bleeding or a late first period",
+   "what to expect at a first gynecologic visit",
+   "how to be supportive without checking her data",
+   "cultural shame and how to speak about it calmly"
+  ],
+  "redFlags": [
+   {
+    "symptom": "Very heavy bleeding (soaking a pad every hour for several hours)",
+    "action": "same-day",
+    "sourceUrl": "https://www.nhs.uk/conditions/heavy-periods/",
+    "quote": "[NEEDS VERIFIED QUOTE]"
+   },
+   {
+    "symptom": "Severe pain with fainting, or fever with abdominal pain",
+    "action": "emergency",
+    "sourceUrl": "https://www.nhs.uk/conditions/periods/starting-periods/",
+    "quote": "[NEEDS VERIFIED QUOTE]"
+   },
+   {
+    "symptom": "Talk of self-harm",
+    "action": "emergency",
+    "sourceUrl": "https://www.cdc.gov/hearher/maternal-warning-signs/index.html",
+    "quote": "Seek medical care immediately if you experience any signs or symptoms that are listed below."
+   }
+  ],
+  "missingVocab": []
+ },
+ {
+  "persona": "X2",
+  "name": "Partner mode (supporting a woman through trying, pregnancy or postpartum)",
+  "goal": "any",
+  "aiJobs": [
+   "Education: plain, short guides for a partner on supporting someone who is trying, pregnant or recovering, including his own wellbeing (partners can get postnatal depression too).",
+   "Support cues: a calm daily 'how can I help' prompt that does not reveal cycle phase, test results or symptoms.",
+   "Visit prep: shared appointment lists and a question list for him, nothing from her log unless she shared it.",
+   "Safety: if he describes danger signs about her (bleeding, severe headache), show the general warning card and 'call emergency services', without any record access."
+  ],
+  "covered": [
+   "Product has no accounts and keeps her record on her phone, so there is no remote way for him to see anything.",
+   "safety.dart danger-sign rules can run on text he types without any record."
+  ],
+  "gaps": [
+   "No partner mode exists; the assistant has no concept of whose record is open, so if he uses her phone he would see her Ask history and log.",
+   "Must NOT reveal from her record: cycle day or phase, fertile window, ovulation tests, intercourse log, pregnancy test results (until she announces), symptoms, moods, notes, screener answers, anything she asked the assistant, or whether she has logged.",
+   "No coercion-aware rule: assistant should never help someone obtain another person's health data or advise on pressuring conception (ACOG reproductive coercion).",
+   "Elevated terms (libido, intercourse, painDuringSex, vaginalDryness) already hide on shared screens, but assistant answers and visit summaries could still echo them; needs a shared-screen guard.",
+   "No degendered copy for same-sex or single-parent households."
+  ],
+  "logPhrases": [],
+  "visitQuestions": [
+   {
+    "id": "partnerHowToHelp",
+    "en": "How can I best support her through this stage, and what should I avoid doing?",
+    "when": "partner mode active",
+    "source": "https://www.acog.org/clinical/clinical-guidance/committee-opinion/articles/2018/05/optimizing-postpartum-care"
+   },
+   {
+    "id": "partnerScanDay",
+    "en": "Can I come to appointments and scans, and what should I know before I do?",
+    "when": "partner mode active and an appointment is shared",
+    "source": "https://www.acog.org/clinical/clinical-guidance/committee-opinion/articles/2018/05/optimizing-postpartum-care"
+   },
+   {
+    "id": "partnerOwnWellbeing",
+    "en": "I am finding this stage hard myself. Where can I get support?",
+    "when": "partner mode active, postpartum period",
+    "source": "https://www.nhs.uk/mental-health/conditions/post-natal-depression/overview/"
+   },
+   {
+    "id": "partnerSemenAnalysis",
+    "en": "We are trying for a baby. Should I have my own checks, such as a semen test?",
+    "when": "partner mode, couple trying 12+ months or earlier if age or history",
+    "source": "https://medlineplus.gov/maleinfertility.html"
+   }
+  ],
+  "tips": [
+   {
+    "id": "partnerAskDontAssume",
+    "en": "Ask her what would help today instead of guessing. Small practical help counts.",
+    "trigger": "partner mode active",
+    "source": {
+     "publisher": "NHS",
+     "url": "https://www.nhs.uk/mental-health/conditions/post-natal-depression/overview/"
+    }
+   },
+   {
+    "id": "partnerCanGetLow",
+    "en": "Fathers and partners can also feel low after a baby arrives. If you do, speak to your GP.",
+    "trigger": "partner mode active, postpartum layer",
+    "source": {
+     "publisher": "NHS",
+     "url": "https://www.nhs.uk/mental-health/conditions/post-natal-depression/overview/"
+    }
+   },
+   {
+    "id": "partnerDangerSigns",
+    "en": "If she has heavy bleeding, a severe headache, vision changes or trouble breathing, get emergency help straight away.",
+    "trigger": "partner mode opens warning-signs guide",
+    "source": {
+     "publisher": "CDC Hear Her",
+     "url": "https://www.cdc.gov/hearher/maternal-warning-signs/index.html"
+    }
+   }
+  ],
+  "askTopics": [
+   "what happens at each stage (trying, pregnancy, birth, postpartum)",
+   "how partners can help without pressure",
+   "male fertility basics and semen analysis (MedlinePlus)",
+   "partner mental health after birth",
+   "supporting after a loss",
+   "warning signs to know",
+   "how to talk to her about what she wants to share"
+  ],
+  "redFlags": [
+   {
+    "symptom": "Her heavy bleeding, severe headache, vision changes, trouble breathing, or baby moving less",
+    "action": "emergency",
+    "sourceUrl": "https://www.cdc.gov/hearher/maternal-warning-signs/index.html",
+    "quote": "Seek medical care immediately if you experience any signs or symptoms that are listed below."
+   },
+   {
+    "symptom": "Her thoughts of harming herself or the baby",
+    "action": "emergency",
+    "sourceUrl": "https://www.cdc.gov/hearher/maternal-warning-signs/index.html",
+    "quote": "Seek medical care immediately if you experience any signs or symptoms that are listed below."
+   },
+   {
+    "symptom": "Postpartum psychosis signs: hearing things, confusion, not sleeping for days",
+    "action": "emergency",
+    "sourceUrl": "https://www.nhs.uk/mental-health/conditions/post-partum-psychosis/",
+    "quote": "Postpartum psychosis is a serious mental illness that should be treated as a medical emergency."
+   }
+  ],
+  "missingVocab": []
+ }
+]
