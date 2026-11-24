@@ -45,7 +45,7 @@ class L10nFr extends L10n {
 
   @override
   String get goalPeriodDesc =>
-      'Savoir quand elles arrivent, et ce qui est habituel pour vous.';
+      'Une fourchette pour le moment où elles arrivent, et ce qui est habituel pour vous.';
 
   @override
   String get goalTtc => 'Tomber enceinte';
@@ -566,7 +566,7 @@ class L10nFr extends L10n {
 
   @override
   String testTimingBody(String date) {
-    return 'Si vos règles ne sont pas arrivées d\'ici le $date, un test de grossesse à domicile est fiable à partir de ce jour.';
+    return 'Si vos règles ne sont pas arrivées d\'ici le $date, un test de grossesse à domicile est le plus fiable à partir de ce jour.';
   }
 
   @override
@@ -878,7 +878,7 @@ class L10nFr extends L10n {
   }
 
   @override
-  String get apptFormType => 'De quoi s’agit-il';
+  String get apptFormType => 'Type de rendez-vous';
 
   @override
   String get apptFormTypePlaceholder => 'Échographie, prise de sang, contrôle…';
@@ -1166,7 +1166,7 @@ class L10nFr extends L10n {
 
   @override
   String get learnSub =>
-      'Des guides sourcés, en mots simples. La conception et la grossesse d\'abord ; tout reste ici.';
+      'Des guides sourcés, en mots simples. La conception et la grossesse d’abord.';
 
   @override
   String get learnSearchHint => 'Rechercher dans les guides';
@@ -1209,7 +1209,7 @@ class L10nFr extends L10n {
 
   @override
   String get noConfidentWindowBody =>
-      'Vos cycles varient trop pour nommer des jours fertiles à partir d\'une date. Noter vos règles, vos tests d\'ovulation et votre température au réveil permet de le savoir après coup.';
+      'Vos cycles varient trop pour nommer des jours fertiles à partir d\'une date. Noter vos règles, vos tests d\'ovulation et votre température au réveil vous aide à savoir, après coup, si vous avez ovulé.';
 
   @override
   String get seeClinicianIrregular =>
@@ -1488,7 +1488,7 @@ class L10nFr extends L10n {
 
   @override
   String get sayItNothing =>
-      'femio n’a rien trouvé à noter. Essayez d’autres mots ou touchez les choix de l’écran Journal.';
+      'femio n’a rien trouvé à noter. Essayez d’autres mots ou touchez les symptômes sur l’écran Journal.';
 
   @override
   String get sayItFound => 'femio a trouvé ceci. Décochez ce qui est faux.';
@@ -1569,7 +1569,7 @@ class L10nFr extends L10n {
 
   @override
   String get askClinicianLine =>
-      'Ceci est une information générale, pas un conseil pour vous. Pour votre situation, parlez à votre médecin ou à votre sage-femme.';
+      'Ceci est une information générale, pas un conseil pour vous. Pour votre situation, parlez à votre professionnel de santé.';
 
   @override
   String get askRelatedGuides => 'Guides femio sur ce sujet';
@@ -1600,7 +1600,7 @@ class L10nFr extends L10n {
 
   @override
   String get askNotCovered =>
-      'Les sources fiables de femio ne répondent pas à cela, donc femio ne devine pas. Essayez d’autres mots, lisez les liens ci-dessous ou demandez à votre médecin.';
+      'Les sources fiables de femio ne répondent pas à cela, donc femio ne devine pas. Essayez d’autres mots, lisez les liens ci-dessous ou demandez à votre professionnel de santé.';
 
   @override
   String askRegistryVersion(String version) {
@@ -1643,7 +1643,7 @@ class L10nFr extends L10n {
 
   @override
   String get visitIntro =>
-      'Une page à montrer à votre médecin, faite à partir de votre journal. Elle reste sur votre téléphone, sauf si vous la copiez.';
+      'Une page à montrer à votre professionnel de santé, faite à partir de votre journal. Elle reste sur votre téléphone, sauf si vous la copiez.';
 
   @override
   String visitCycles(int count, int longest, int shortest) {
@@ -1706,7 +1706,7 @@ class L10nFr extends L10n {
 
   @override
   String get visitQ_ttcTests =>
-      'Vu le temps depuis lequel nous essayons, quels examens proposeriez-vous ?';
+      'Vu le temps depuis lequel j’essaie, quels examens proposeriez-vous ?';
 
   @override
   String get visitQ_ovulation => 'Comment savoir si j’ovule ?';
@@ -1774,7 +1774,7 @@ class L10nFr extends L10n {
 
   @override
   String get assistantOnDeviceUnavailable =>
-      'Indisponible sur ce téléphone. femio utilise sa propre liste de mots, elle aussi sur le téléphone.';
+      'Indisponible sur ce téléphone. femio utilise à la place sa propre liste de mots, sur le téléphone.';
 
   @override
   String get assistantDownload => 'Télécharger';
@@ -1971,7 +1971,7 @@ class L10nFr extends L10n {
 
   @override
   String get tip_irregularWithOtherSigns =>
-      'Des règles irrégulières associées à d\'autres changements, comme l\'acné ou une pilosité accrue, méritent d\'être signalées à un professionnel de santé.';
+      'Des règles irrégulières associées à d\'autres changements, comme une prise de poids, une pilosité accrue du visage, ou une peau sèche ou grasse, méritent d\'être signalées à un professionnel de santé.';
 
   @override
   String get tip_periodPainSeeClinician =>
@@ -1995,7 +1995,7 @@ class L10nFr extends L10n {
 
   @override
   String get tip_headachesAroundPeriod =>
-      'Les maux de tête qui reviennent avant ou pendant vos règles méritent d\'être signalés à un professionnel de santé. Un journal des maux de tête à côté de vos dates de règles aide.';
+      'Les migraines qui reviennent régulièrement avant ou pendant vos règles méritent d\'être signalées à un professionnel de santé. Un journal à côté de vos dates de règles aide.';
 
   @override
   String get tip_urineInfectionSeeClinician =>
@@ -2007,7 +2007,7 @@ class L10nFr extends L10n {
 
   @override
   String get tip_cervicalScreeningTip =>
-      'Le dépistage du col de l’utérus recherche des changements précoces dans les cellules du col. Demandez à votre cabinet si c’est le moment pour vous.';
+      'L’OMS recommande un dépistage du col de l’utérus tous les 5 à 10 ans à partir de 30 ans ; les programmes varient selon les pays. Demandez à votre cabinet si c’est le moment pour vous.';
 
   @override
   String get tip_ttcOneYear =>
@@ -2027,7 +2027,7 @@ class L10nFr extends L10n {
 
   @override
   String get tip_testingTooEarly =>
-      'Un test très précoce peut donner un faux négatif, car l\'hormone de grossesse peut ne pas encore être assez présente. Suivez les instructions du test.';
+      'Un test très précoce peut donner un faux négatif. Suivez les instructions du test.';
 
   @override
   String get tip_folicAcidBeforePregnancy =>
@@ -2079,11 +2079,11 @@ class L10nFr extends L10n {
 
   @override
   String get tip_itchTellMidwife =>
-      'Les démangeaisons sont fréquentes pendant la grossesse et rarement graves. Signalez-les quand même à votre sage-femme ou médecin pour les faire vérifier.';
+      'Les démangeaisons sont fréquentes pendant la grossesse, mais elles peuvent être le premier signe d’une affection du foie appelée cholestase gravidique. Signalez-les à votre sage-femme ou à votre médecin pour les faire vérifier.';
 
   @override
   String get tip_pretermLabourSigns =>
-      'Les signes d\'un travail prématuré comprennent des contractions toutes les 10 minutes ou plus rapprochées, une perte de liquide ou des saignements, une pression pelvienne et un mal de dos bas et sourd. Contactez votre soignant.';
+      'Les signes d\'un travail prématuré comprennent des contractions toutes les 10 minutes ou plus rapprochées, une perte de liquide ou des saignements, une pression pelvienne et un mal de dos bas et sourd. Contactez votre sage-femme, votre médecin ou la maternité.';
 
   @override
   String get tip_tirednessInPregnancy =>
@@ -2091,7 +2091,7 @@ class L10nFr extends L10n {
 
   @override
   String get tip_lowMoodPerinatal =>
-      'Se sentir déprimée est fréquent pendant la grossesse et après la naissance, et du soutien existe. Parlez-en à votre sage-femme, médecin ou puéricultrice, même si vous n\'avez que quelques signes.';
+      'Se sentir déprimée est fréquent pendant la grossesse et après la naissance, et du soutien existe. Parlez-en à votre sage-femme ou à votre médecin, même si vous n\'avez que quelques signes.';
 
   @override
   String get tip_anxietyInPregnancy =>
@@ -2179,7 +2179,7 @@ class L10nFr extends L10n {
 
   @override
   String get visitQ_headacheDiaryReview =>
-      'Mes maux de tête reviennent souvent autour de mes règles. Pouvons-nous regarder mon journal ensemble ?';
+      'Mes migraines reviennent souvent autour de mes règles. Pouvons-nous regarder mon journal ensemble ?';
 
   @override
   String get visitQ_cervicalScreeningDue =>
@@ -2191,11 +2191,11 @@ class L10nFr extends L10n {
 
   @override
   String get visitQ_ttcOverThirtyFiveSooner =>
-      'J\'ai 35 ans ou plus et nous essayons depuis environ six mois ou plus. Devons-nous commencer les examens de fertilité maintenant ?';
+      'J’ai 35 ans ou plus et j’essaie de concevoir depuis environ six mois ou plus. Dois-je commencer les examens de fertilité maintenant ?';
 
   @override
   String get visitQ_irregularTryingNow =>
-      'Mes cycles sont irréguliers et nous essayons de concevoir. Devrions-nous parler d\'aide dès maintenant plutôt que d\'attendre un an ?';
+      'Mes cycles sont irréguliers et j’essaie de concevoir. Devrions-nous parler d’aide dès maintenant plutôt que d’attendre un an ?';
 
   @override
   String get visitQ_preconceptionReview =>

@@ -44,7 +44,7 @@ class L10nAr extends L10n {
   String get goalPeriod => 'متابعة دورتي';
 
   @override
-  String get goalPeriodDesc => 'اعرفي متى تأتي، وما المعتاد بالنسبة لكِ.';
+  String get goalPeriodDesc => 'نطاق لموعد قدومها، وما المعتاد بالنسبة لكِ.';
 
   @override
   String get goalTtc => 'أريد الحمل';
@@ -576,7 +576,7 @@ class L10nAr extends L10n {
 
   @override
   String testTimingBody(String date) {
-    return 'إذا لم تبدأ دورتك بحلول $date، يكون اختبار الحمل المنزلي موثوقًا ابتداءً من ذلك اليوم.';
+    return 'إذا لم تبدأ دورتكِ بحلول $date، يكون اختبار الحمل المنزلي أكثر موثوقية ابتداءً من ذلك اليوم.';
   }
 
   @override
@@ -646,7 +646,7 @@ class L10nAr extends L10n {
 
   @override
   String pregTermFrom(String date) {
-    return 'الحمل تامّ المدة اعتبارًا من $date';
+    return 'الحمل مكتمل المدة اعتبارًا من $date';
   }
 
   @override
@@ -901,7 +901,7 @@ class L10nAr extends L10n {
   }
 
   @override
-  String get apptFormType => 'ما هو';
+  String get apptFormType => 'نوع الموعد';
 
   @override
   String get apptFormTypePlaceholder => 'أشعة، تحليل دم، متابعة…';
@@ -1187,8 +1187,7 @@ class L10nAr extends L10n {
   String get learnTitle => 'تعلّمي';
 
   @override
-  String get learnSub =>
-      'أدلة موثّقة بكلمات بسيطة. محاولة الحمل والحمل أولًا، وكل شيء يبقى هنا.';
+  String get learnSub => 'أدلة موثّقة بكلمات بسيطة. محاولة الحمل والحمل أولًا.';
 
   @override
   String get learnSearchHint => 'ابحثي في الأدلة';
@@ -1232,7 +1231,7 @@ class L10nAr extends L10n {
 
   @override
   String get noConfidentWindowBody =>
-      'دوراتكِ متفاوتة أكثر من أن تُحدَّد أيام الخصوبة من تاريخ واحد. تسجيل دوراتكِ واختبارات التبويض وحرارة جسمكِ عند الاستيقاظ هو ما يكشف ذلك لاحقًا.';
+      'دوراتكِ متفاوتة أكثر من أن تُحدَّد أيام الخصوبة من تاريخ واحد. تسجيل دوراتكِ واختبارات التبويض وحرارة جسمكِ عند الاستيقاظ يساعدكِ على معرفة هل حدث التبويض لاحقًا.';
 
   @override
   String get seeClinicianIrregular =>
@@ -1497,7 +1496,7 @@ class L10nAr extends L10n {
 
   @override
   String get sayItNothing =>
-      'لم يجد femio شيئاً لتسجيله. جرّبي كلمات أخرى أو اختاري من شاشة التسجيل.';
+      'لم يجد femio شيئًا لتسجيله. جرّبي كلمات أخرى، أو اختاري الأعراض من شاشة التسجيل.';
 
   @override
   String get sayItFound => 'وجد femio هذه. ألغي اختيار أي شيء غير صحيح.';
@@ -1576,7 +1575,7 @@ class L10nAr extends L10n {
 
   @override
   String get askClinicianLine =>
-      'هذه معلومات عامة وليست نصيحة خاصة بكِ. لحالتكِ أنتِ، تحدّثي مع طبيبكِ أو قابلتكِ.';
+      'هذه معلومات عامة وليست نصيحة خاصة بكِ. لحالتكِ أنتِ، تحدّثي مع مقدّم الرعاية الصحية لكِ.';
 
   @override
   String get askRelatedGuides => 'أدلة femio عن هذا';
@@ -1607,7 +1606,7 @@ class L10nAr extends L10n {
 
   @override
   String get askNotCovered =>
-      'مصادر femio الموثوقة لا تجيب عن هذا، لذلك لن يُخمّن femio. جرّبي كلمات أخرى، أو اقرئي الروابط أدناه، أو اسألي طبيبكِ.';
+      'مصادر femio الموثوقة لا تجيب عن هذا، لذلك لن يُخمّن femio. جرّبي كلمات أخرى، أو اقرئي الروابط أدناه، أو اسألي مقدّم الرعاية الصحية لكِ.';
 
   @override
   String askRegistryVersion(String version) {
@@ -1650,7 +1649,7 @@ class L10nAr extends L10n {
 
   @override
   String get visitIntro =>
-      'صفحة تعرضينها على طبيبكِ، من تسجيلاتكِ أنتِ. تبقى على هاتفكِ إلا إذا نسختِها.';
+      'صفحة تعرضينها على مقدّم الرعاية الصحية لكِ، من تسجيلاتكِ أنتِ. تبقى على هاتفكِ إلا إذا نسختِها.';
 
   @override
   String visitCycles(int count, int longest, int shortest) {
@@ -1718,10 +1717,10 @@ class L10nAr extends L10n {
 
   @override
   String get visitQ_ttcTests =>
-      'بالنظر إلى مدة محاولتنا، ما الفحوصات التي تقترحها؟';
+      'بالنظر إلى مدة محاولتي، ما الفحوصات التي تقترحها؟';
 
   @override
-  String get visitQ_ovulation => 'كيف نعرف إن كنت أبيض؟';
+  String get visitQ_ovulation => 'كيف أعرف إن كانت الإباضة تحدث عندي؟';
 
   @override
   String get visitQ_folicAcid => 'هل يجب أن آخذ حمض الفوليك الآن؟';
@@ -1782,7 +1781,7 @@ class L10nAr extends L10n {
 
   @override
   String get assistantOnDeviceUnavailable =>
-      'غير متاح على هذا الهاتف. يستخدم femio قائمة كلماته الخاصة بدلاً منه، على الهاتف أيضاً.';
+      'غير متاح على هذا الهاتف. يستخدم femio قائمة كلماته الخاصة على الهاتف بدلًا منه.';
 
   @override
   String get assistantDownload => 'تنزيل';
@@ -1977,7 +1976,7 @@ class L10nAr extends L10n {
 
   @override
   String get tip_irregularWithOtherSigns =>
-      'الدورة غير المنتظمة مع تغيّرات أخرى، مثل حب الشباب أو زيادة نمو الشعر، تستحق أن تخبري بها الطبيب أو الطبيبة.';
+      'الدورة غير المنتظمة مع تغيّرات أخرى، مثل زيادة الوزن، أو نمو شعر زائد على الوجه، أو جفاف الجلد أو دهنيته، تستحق أن تخبري بها الطبيب أو الطبيبة.';
 
   @override
   String get tip_periodPainSeeClinician =>
@@ -2001,7 +2000,7 @@ class L10nAr extends L10n {
 
   @override
   String get tip_headachesAroundPeriod =>
-      'الصداع الذي يتكرر قبل الدورة الشهرية أو خلالها يستحق أن تخبري به الطبيب أو الطبيبة. ويساعد تسجيل الصداع بجانب مواعيد دورتك.';
+      'الصداع النصفي الذي يتكرر قبل الدورة الشهرية أو خلالها يستحق أن تخبري به الطبيب أو الطبيبة. ويساعد تسجيله بجانب مواعيد دورتكِ.';
 
   @override
   String get tip_urineInfectionSeeClinician =>
@@ -2013,7 +2012,7 @@ class L10nAr extends L10n {
 
   @override
   String get tip_cervicalScreeningTip =>
-      'فحص عنق الرحم يبحث عن تغيّرات مبكرة في خلايا عنق الرحم. اسألي عيادتكِ إن كان موعد فحصكِ قد حان.';
+      'توصي منظمة الصحة العالمية بفحص عنق الرحم كل 5 إلى 10 سنوات ابتداءً من سن 30، وتختلف البرامج من بلد لآخر. اسألي عيادتكِ إن كان موعد فحصكِ قد حان.';
 
   @override
   String get tip_ttcOneYear =>
@@ -2033,7 +2032,7 @@ class L10nAr extends L10n {
 
   @override
   String get tip_testingTooEarly =>
-      'قد يعطي الفحص المبكر جدًا نتيجة سلبية كاذبة لأن هرمون الحمل قد لا يكون قد ارتفع بعد. اتبعي تعليمات الاختبار نفسه.';
+      'قد يعطي الفحص المبكر جدًا نتيجة سلبية كاذبة. اتبعي تعليمات الاختبار نفسه.';
 
   @override
   String get tip_folicAcidBeforePregnancy =>
@@ -2085,11 +2084,11 @@ class L10nAr extends L10n {
 
   @override
   String get tip_itchTellMidwife =>
-      'الحكّة شائعة في الحمل وغالبًا لا تكون خطيرة. ومع ذلك أخبري القابلة أو الطبيب بها ليجري فحصها.';
+      'الحكّة شائعة في الحمل، لكنها قد تكون أول علامة على حالة في الكبد تُسمّى الركود الصفراوي الحملي. أخبري القابلة أو الطبيب بها ليجري فحصها.';
 
   @override
   String get tip_pretermLabourSigns =>
-      'من علامات الولادة المبكرة انقباضات كل 10 دقائق أو أقل، أو تسرّب سائل أو نزف، أو ضغط في الحوض، أو ألم ظهر خفيف في أسفله. اتصلي بمقدّم الرعاية.';
+      'من علامات الولادة المبكرة انقباضات كل 10 دقائق أو أكثر تقاربًا، أو تسرّب سائل أو نزف، أو ضغط في الحوض، أو ألم ظهر خفيف في أسفله. اتصلي بالقابلة أو الطبيب أو وحدة الولادة.';
 
   @override
   String get tip_tirednessInPregnancy =>
@@ -2097,7 +2096,7 @@ class L10nAr extends L10n {
 
   @override
   String get tip_lowMoodPerinatal =>
-      'الشعور بالحزن شائع أثناء الحمل وبعد الولادة، والدعم متاح. أخبري القابلة أو الطبيب أو الزائرة الصحية حتى لو كانت لديك بعض العلامات فقط.';
+      'الشعور بالحزن شائع أثناء الحمل وبعد الولادة، والدعم متاح. أخبري القابلة أو الطبيب حتى لو كانت لديكِ بعض العلامات فقط.';
 
   @override
   String get tip_anxietyInPregnancy =>
@@ -2185,7 +2184,7 @@ class L10nAr extends L10n {
 
   @override
   String get visitQ_headacheDiaryReview =>
-      'يأتيني الصداع كثيرًا حول موعد دورتي. هل يمكننا النظر في سجلّي معًا؟';
+      'يأتيني الصداع النصفي كثيرًا حول موعد دورتي. هل يمكننا النظر في سجلّي معًا؟';
 
   @override
   String get visitQ_cervicalScreeningDue =>
@@ -2197,11 +2196,11 @@ class L10nAr extends L10n {
 
   @override
   String get visitQ_ttcOverThirtyFiveSooner =>
-      'عمري 35 سنة فأكثر ونحاول منذ نحو ستة أشهر أو أكثر. هل نبدأ فحوصات الخصوبة الآن؟';
+      'عمري 35 سنة فأكثر وأحاول منذ نحو ستة أشهر أو أكثر. هل أبدأ فحوصات الخصوبة الآن؟';
 
   @override
   String get visitQ_irregularTryingNow =>
-      'دوراتي غير منتظمة ونحاول الحمل. هل نتحدث عن المساعدة الآن بدل انتظار سنة؟';
+      'دوراتي غير منتظمة وأحاول الحمل. هل نتحدّث عن المساعدة الآن بدل انتظار سنة؟';
 
   @override
   String get visitQ_preconceptionReview =>

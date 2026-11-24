@@ -138,9 +138,9 @@
         "irregular": true
       },
       "en": "Irregular periods together with other changes, such as weight gain, extra hair on your face, or dry or oily skin, are worth mentioning to a clinician.",
-      "ar": "الدورة غير المنتظمة مع تغيّرات أخرى، مثل حب الشباب أو زيادة نمو الشعر، تستحق أن تخبري بها الطبيب أو الطبيبة.",
-      "fr": "Des règles irrégulières associées à d'autres changements, comme l'acné ou une pilosité accrue, méritent d'être signalées à un professionnel de santé.",
-      "es": "Las reglas irregulares junto con otros cambios, como acné o más vello, merecen comentarse con un profesional de la salud.",
+      "ar": "الدورة غير المنتظمة مع تغيّرات أخرى، مثل زيادة الوزن، أو نمو شعر زائد على الوجه، أو جفاف الجلد أو دهنيته، تستحق أن تخبري بها الطبيب أو الطبيبة.",
+      "fr": "Des règles irrégulières associées à d'autres changements, comme une prise de poids, une pilosité accrue du visage, ou une peau sèche ou grasse, méritent d'être signalées à un professionnel de santé.",
+      "es": "Las reglas irregulares junto con otros cambios, como aumento de peso, más vello en la cara o piel seca o grasa, merecen comentarse con un profesional de la salud.",
       "source": {
         "publisher": "NHS",
         "url": "https://www.nhs.uk/symptoms/irregular-periods/",
@@ -303,9 +303,9 @@
         }
       },
       "en": "Migraines that come regularly before or during your period are worth mentioning to a clinician. A diary next to your period dates helps.",
-      "ar": "الصداع الذي يتكرر قبل الدورة الشهرية أو خلالها يستحق أن تخبري به الطبيب أو الطبيبة. ويساعد تسجيل الصداع بجانب مواعيد دورتك.",
-      "fr": "Les maux de tête qui reviennent avant ou pendant vos règles méritent d'être signalés à un professionnel de santé. Un journal des maux de tête à côté de vos dates de règles aide.",
-      "es": "Los dolores de cabeza que aparecen con regularidad antes o durante la regla merecen comentarse con un profesional de la salud. Un diario de cefaleas junto a las fechas de tu regla ayuda.",
+      "ar": "الصداع النصفي الذي يتكرر قبل الدورة الشهرية أو خلالها يستحق أن تخبري به الطبيب أو الطبيبة. ويساعد تسجيله بجانب مواعيد دورتكِ.",
+      "fr": "Les migraines qui reviennent régulièrement avant ou pendant vos règles méritent d'être signalées à un professionnel de santé. Un journal à côté de vos dates de règles aide.",
+      "es": "Las migrañas que aparecen con regularidad antes o durante la regla merecen comentarse con un profesional de la salud. Un diario junto a las fechas de tu regla ayuda.",
       "source": {
         "publisher": "NHS",
         "url": "https://www.nhs.uk/conditions/migraine/",
@@ -389,9 +389,9 @@
         "ageFrom": 30
       },
       "en": "WHO advises cervical screening every 5 to 10 years from age 30; local programmes vary. Ask your clinic whether you are due.",
-      "ar": "فحص عنق الرحم يبحث عن تغيّرات مبكرة في خلايا عنق الرحم. اسألي عيادتكِ إن كان موعد فحصكِ قد حان.",
-      "fr": "Le dépistage du col de l’utérus recherche des changements précoces dans les cellules du col. Demandez à votre cabinet si c’est le moment pour vous.",
-      "es": "El cribado de cuello uterino busca cambios tempranos en las células del cuello del útero. Pregunta en tu centro si te toca.",
+      "ar": "توصي منظمة الصحة العالمية بفحص عنق الرحم كل 5 إلى 10 سنوات ابتداءً من سن 30، وتختلف البرامج من بلد لآخر. اسألي عيادتكِ إن كان موعد فحصكِ قد حان.",
+      "fr": "L’OMS recommande un dépistage du col de l’utérus tous les 5 à 10 ans à partir de 30 ans ; les programmes varient selon les pays. Demandez à votre cabinet si c’est le moment pour vous.",
+      "es": "La OMS recomienda hacer el cribado de cuello uterino cada 5 a 10 años a partir de los 30 años; los programas locales varían. Pregunta en tu centro si te toca.",
       "source": {
         "publisher": "WHO",
         "url": "https://www.who.int/news-room/fact-sheets/detail/cervical-cancer",
@@ -513,9 +513,9 @@
         ]
       },
       "en": "Testing very early can give a false negative. Follow the test's own instructions.",
-      "ar": "قد يعطي الفحص المبكر جدًا نتيجة سلبية كاذبة لأن هرمون الحمل قد لا يكون قد ارتفع بعد. اتبعي تعليمات الاختبار نفسه.",
-      "fr": "Un test très précoce peut donner un faux négatif, car l'hormone de grossesse peut ne pas encore être assez présente. Suivez les instructions du test.",
-      "es": "Hacer la prueba demasiado pronto puede dar un falso negativo, porque la hormona del embarazo quizá aún no haya aumentado. Sigue las instrucciones de la prueba.",
+      "ar": "قد يعطي الفحص المبكر جدًا نتيجة سلبية كاذبة. اتبعي تعليمات الاختبار نفسه.",
+      "fr": "Un test très précoce peut donner un faux négatif. Suivez les instructions du test.",
+      "es": "Hacer la prueba demasiado pronto puede dar un falso negativo. Sigue las instrucciones de la prueba.",
       "source": {
         "publisher": "Office on Women's Health",
         "url": "https://womenshealth.gov/a-z-topics/pregnancy-tests",
@@ -864,9 +864,9 @@
         ]
       },
       "en": "Itching is common in pregnancy, but it can be the first sign of a liver condition called ICP. Tell your midwife or doctor so it can be checked.",
-      "ar": "الحكّة شائعة في الحمل وغالبًا لا تكون خطيرة. ومع ذلك أخبري القابلة أو الطبيب بها ليجري فحصها.",
-      "fr": "Les démangeaisons sont fréquentes pendant la grossesse et rarement graves. Signalez-les quand même à votre sage-femme ou médecin pour les faire vérifier.",
-      "es": "El picor es frecuente en el embarazo y casi siempre no es grave. Aun así, cuéntaselo a tu matrona o médico para que lo revisen.",
+      "ar": "الحكّة شائعة في الحمل، لكنها قد تكون أول علامة على حالة في الكبد تُسمّى الركود الصفراوي الحملي. أخبري القابلة أو الطبيب بها ليجري فحصها.",
+      "fr": "Les démangeaisons sont fréquentes pendant la grossesse, mais elles peuvent être le premier signe d’une affection du foie appelée cholestase gravidique. Signalez-les à votre sage-femme ou à votre médecin pour les faire vérifier.",
+      "es": "El picor es frecuente en el embarazo, pero puede ser el primer signo de una afección del hígado llamada colestasis intrahepática del embarazo. Cuéntaselo a tu matrona o médico para que lo revisen.",
       "source": {
         "publisher": "RCOG",
         "url": "https://www.rcog.org.uk/for-the-public/browse-our-patient-information/intrahepatic-cholestasis-of-pregnancy/",
@@ -889,9 +889,9 @@
         ]
       },
       "en": "Signs of early labour include contractions every 10 minutes or more often, leaking fluid or bleeding, pelvic pressure and a low, dull backache. Contact your midwife, doctor or maternity unit.",
-      "ar": "من علامات الولادة المبكرة انقباضات كل 10 دقائق أو أقل، أو تسرّب سائل أو نزف، أو ضغط في الحوض، أو ألم ظهر خفيف في أسفله. اتصلي بمقدّم الرعاية.",
-      "fr": "Les signes d'un travail prématuré comprennent des contractions toutes les 10 minutes ou plus rapprochées, une perte de liquide ou des saignements, une pression pelvienne et un mal de dos bas et sourd. Contactez votre soignant.",
-      "es": "Los signos de parto prematuro incluyen contracciones cada 10 minutos o menos, pérdida de líquido o sangrado, presión pélvica y un dolor sordo en la parte baja de la espalda. Contacta con tu profesional.",
+      "ar": "من علامات الولادة المبكرة انقباضات كل 10 دقائق أو أكثر تقاربًا، أو تسرّب سائل أو نزف، أو ضغط في الحوض، أو ألم ظهر خفيف في أسفله. اتصلي بالقابلة أو الطبيب أو وحدة الولادة.",
+      "fr": "Les signes d'un travail prématuré comprennent des contractions toutes les 10 minutes ou plus rapprochées, une perte de liquide ou des saignements, une pression pelvienne et un mal de dos bas et sourd. Contactez votre sage-femme, votre médecin ou la maternité.",
+      "es": "Los signos de parto prematuro incluyen contracciones cada 10 minutos o con más frecuencia, pérdida de líquido o sangrado, presión pélvica y un dolor sordo en la parte baja de la espalda. Contacta con tu matrona, tu médico o la unidad de maternidad.",
       "source": {
         "publisher": "MedlinePlus",
         "url": "https://medlineplus.gov/pretermlabor.html",
@@ -945,9 +945,9 @@
         }
       },
       "en": "Feeling low is common in pregnancy and after birth, and support is available. Tell your midwife or doctor, even if you only have some of the signs.",
-      "ar": "الشعور بالحزن شائع أثناء الحمل وبعد الولادة، والدعم متاح. أخبري القابلة أو الطبيب أو الزائرة الصحية حتى لو كانت لديك بعض العلامات فقط.",
-      "fr": "Se sentir déprimée est fréquent pendant la grossesse et après la naissance, et du soutien existe. Parlez-en à votre sage-femme, médecin ou puéricultrice, même si vous n'avez que quelques signes.",
-      "es": "Sentirse decaída es frecuente en el embarazo y tras el parto, y hay apoyo disponible. Díselo a tu matrona, médico o enfermera, aunque solo tengas algunos de los signos.",
+      "ar": "الشعور بالحزن شائع أثناء الحمل وبعد الولادة، والدعم متاح. أخبري القابلة أو الطبيب حتى لو كانت لديكِ بعض العلامات فقط.",
+      "fr": "Se sentir déprimée est fréquent pendant la grossesse et après la naissance, et du soutien existe. Parlez-en à votre sage-femme ou à votre médecin, même si vous n'avez que quelques signes.",
+      "es": "Sentirse decaída es frecuente en el embarazo y tras el parto, y hay apoyo disponible. Díselo a tu matrona o médico, aunque solo tengas algunos de los signos.",
       "source": {
         "publisher": "NHS",
         "url": "https://www.nhs.uk/mental-health/conditions/post-natal-depression/overview/",
@@ -1523,9 +1523,9 @@
         }
       },
       "en": "My migraines often come around my period. Can we look at my diary together?",
-      "ar": "يأتيني الصداع كثيرًا حول موعد دورتي. هل يمكننا النظر في سجلّي معًا؟",
-      "fr": "Mes maux de tête reviennent souvent autour de mes règles. Pouvons-nous regarder mon journal ensemble ?",
-      "es": "Mis dolores de cabeza aparecen a menudo alrededor de mi regla. ¿Podemos mirar mi diario juntos?",
+      "ar": "يأتيني الصداع النصفي كثيرًا حول موعد دورتي. هل يمكننا النظر في سجلّي معًا؟",
+      "fr": "Mes migraines reviennent souvent autour de mes règles. Pouvons-nous regarder mon journal ensemble ?",
+      "es": "Mis migrañas aparecen a menudo alrededor de mi regla. ¿Podemos mirar mi diario juntos?",
       "source": {
         "publisher": "NHS",
         "url": "https://www.nhs.uk/conditions/migraine/",
@@ -1603,9 +1603,9 @@
         "ageFrom": 35
       },
       "en": "I am 35 or older and have been trying for about six months or more. Should I start fertility checks now?",
-      "ar": "عمري 35 سنة فأكثر ونحاول منذ نحو ستة أشهر أو أكثر. هل نبدأ فحوصات الخصوبة الآن؟",
-      "fr": "J'ai 35 ans ou plus et nous essayons depuis environ six mois ou plus. Devons-nous commencer les examens de fertilité maintenant ?",
-      "es": "Tengo 35 años o más y llevamos unos seis meses o más intentándolo. ¿Empezamos ya las pruebas de fertilidad?",
+      "ar": "عمري 35 سنة فأكثر وأحاول منذ نحو ستة أشهر أو أكثر. هل أبدأ فحوصات الخصوبة الآن؟",
+      "fr": "J’ai 35 ans ou plus et j’essaie de concevoir depuis environ six mois ou plus. Dois-je commencer les examens de fertilité maintenant ?",
+      "es": "Tengo 35 años o más y llevo unos seis meses o más intentándolo. ¿Empiezo ya las pruebas de fertilidad?",
       "source": {
         "publisher": "ACOG",
         "url": "https://www.acog.org/womens-health/faqs/evaluating-infertility",
@@ -1625,9 +1625,9 @@
         "irregular": true
       },
       "en": "My cycles are irregular and I am trying to conceive. Should we talk about help now rather than waiting a year?",
-      "ar": "دوراتي غير منتظمة ونحاول الحمل. هل نتحدث عن المساعدة الآن بدل انتظار سنة؟",
-      "fr": "Mes cycles sont irréguliers et nous essayons de concevoir. Devrions-nous parler d'aide dès maintenant plutôt que d'attendre un an ?",
-      "es": "Mis ciclos son irregulares y estamos intentando el embarazo. ¿Hablamos de ayuda ya, en lugar de esperar un año?",
+      "ar": "دوراتي غير منتظمة وأحاول الحمل. هل نتحدّث عن المساعدة الآن بدل انتظار سنة؟",
+      "fr": "Mes cycles sont irréguliers et j’essaie de concevoir. Devrions-nous parler d’aide dès maintenant plutôt que d’attendre un an ?",
+      "es": "Mis ciclos son irregulares y estoy intentando el embarazo. ¿Hablamos de ayuda ya, en lugar de esperar un año?",
       "source": {
         "publisher": "Office on Women's Health",
         "url": "https://womenshealth.gov/a-z-topics/infertility",
