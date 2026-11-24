@@ -1,7 +1,7 @@
 {
   "meta": {
     "title": "femio",
-    "description": "The private companion for trying to conceive and pregnancy, in Arabic, English, French and Spanish. Cited guides, calculators, and records that never leave your phone."
+    "description": "The private companion for trying to conceive and pregnancy, in English, Arabic, French and Spanish. Cited guides, calculators, and records that never leave your phone."
   },
   "home": {
     "rail": {
@@ -48,11 +48,11 @@
       "late": {
         "title": "No “you are 4 days late”",
         "body": "Cycles shift for dozens of ordinary reasons. If the window passes, femio says so and stops — it does not run a counter at you.",
-        "notice": "Your window has passed. Cycles shift — this is common and usually not a problem."
+        "notice": "Your window has passed. Cycles shift for many ordinary reasons."
       },
       "pattern": {
         "title": "Your own pattern, not an average",
-        "body": "Everything is compared against your history — including when your cycles are irregular, which is exactly where other apps give up."
+        "body": "Everything is compared against your history, including when your cycles are irregular."
       }
     },
     "trust": {
@@ -69,7 +69,7 @@
         },
         "languages": {
           "claim": "English, Arabic, French and Spanish",
-          "detail": "— Arabic right-to-left from the first line of code, not a layer added later."
+          "detail": "— with right-to-left layout built in for Arabic."
         },
         "reviewed": {
           "claim": "Every guide says whether a clinician reviewed it",
@@ -84,7 +84,7 @@
     "close": {
       "heading": "Your records never leave your phone."
     },
-    "disclaimer": "femio is for learning and tracking — not medical advice, and not a reliable way to avoid pregnancy. Always speak to your clinician about your care.",
+    "disclaimer": "femio is for learning and tracking — not medical advice, and not a way to avoid pregnancy. Always speak to your clinician about your care.",
     "sections": {
       "learn": {
         "name": "Learn",
@@ -119,7 +119,7 @@
     "hero": {
       "eyebrow": "Trying to conceive · Pregnancy · Private",
       "title": "femio is the private companion for trying to conceive and pregnancy.",
-      "body": "Honest ranges instead of promises, guides that show their sources, and records that never leave your phone. No account, no cloud, no ads near your records.",
+      "body": "Honest ranges instead of promises, guides that show their sources, and records that never leave your phone. No account, and no ads near your records.",
       "cta": "Get the app",
       "ctaSecondary": "Try the ovulation calculator"
     },
@@ -127,11 +127,11 @@
       "heading": "What brings you here?",
       "period": {
         "title": "Track my period",
-        "body": "Know when your next period is coming."
+        "body": "See a range for when your next period may start."
       },
       "ttc": {
         "title": "Get pregnant",
-        "body": "Find your most fertile days."
+        "body": "See your likely fertile days."
       },
       "pregnant": {
         "title": "I'm pregnant",
@@ -150,7 +150,7 @@
     "privacy": {
       "eyebrow": "Private by design",
       "heading": "Your records stay on your phone.",
-      "body": "The femio app keeps what you log on your device. We never see it, so there is nothing for anyone to sell, share or lose.",
+      "body": "The femio app keeps what you log on your device. We never see it, so there is nothing for us to sell or share.",
       "points": {
         "account": {
           "title": "No account needed",
@@ -254,7 +254,7 @@
         },
         {
           "q": "What signs can tell me ovulation is near?",
-          "a": "Many women follow changes in cervical mucus, a positive ovulation test strip (a hormone surge, not proof that you ovulated) and their waking temperature, which confirms ovulation afterwards but cannot predict it. These signs work best alongside the calendar estimate."
+          "a": "Many women follow changes in cervical mucus, a positive ovulation test strip (a hormone surge, not proof that you ovulated) and their waking temperature, which can show afterwards that ovulation probably happened but cannot predict it. These signs work best alongside the calendar estimate."
         }
       ]
     },
@@ -475,7 +475,7 @@
     },
     "handoff": {
       "title": "Track this automatically in the femio app.",
-      "body": "It stays on your phone, learns your real cycle as you log, and nothing is uploaded. Android only for now.",
+      "body": "It stays on your phone, learns your real cycle as you log, and your records are never uploaded. Android only for now.",
       "getOnPlay": "Get it on Google Play",
       "getTheApp": "Get the app",
       "whatItDoes": "What the app does"
@@ -502,7 +502,7 @@
       "legendFertile": "Fertile window",
       "legendOvulation": "Estimated ovulation",
       "legendToday": "Today",
-      "awarenessNote": "Fertile-window dates support conception planning and awareness only — they're estimates, not a reliable way to avoid pregnancy."
+      "awarenessNote": "Fertile-window dates support conception planning and awareness only — they're estimates, not a way to avoid pregnancy."
     },
     "title": "Your cycle",
     "dateStripLabel": "Choose a day to log",
@@ -630,9 +630,9 @@
     "subtitle": "Cited guides, starting with trying to conceive, PCOS and pregnancy. Each one lists its sources and says whether a clinician has reviewed it.",
     "empty": "New guides are on the way — check back soon.",
     "sources": "Sources",
-    "footerNote": "This is general wellness information, not a substitute for professional medical advice.",
+    "footerNote": "This is general wellness information — not medical advice and not a substitute for your own clinician.",
     "disclaimer": {
-      "general": "General wellness information — not a substitute for professional medical care.",
+      "general": "General wellness information — not medical advice and not a substitute for your own clinician.",
       "screening": "Screening information only. Discuss any concerns and next steps with your clinician.",
       "emergency": "If you notice severe or sudden warning signs, seek urgent medical care."
     },
@@ -715,7 +715,7 @@
       "body": "{count, plural, one {You were expecting a result back by now for one of these.} other {You were expecting results back by now for # of these.}} It may be worth asking — results run late for all sorts of ordinary reasons."
     },
     "form": {
-      "type": "What is it",
+      "type": "Type of appointment",
       "typePlaceholder": "Scan, blood test, check-up…",
       "clinician": "Who with",
       "datetime": "When",
@@ -736,7 +736,7 @@
     "loading": "Loading your charts",
     "loadError": "We could not load your entries.",
     "retry": "Try again",
-    "boundary": "Charting helps you understand your own pattern and get ready for conversations with a clinician. It is not a reliable way to avoid pregnancy, and femio never presents it as one.",
+    "boundary": "Charting helps you understand your own pattern and get ready for conversations with a clinician. It is not a way to avoid pregnancy, and femio never presents it as one.",
     "invalidBbt": "That does not look like a thermometer reading. Check the number and try again.",
     "nothingToSave": "Add at least one thing before saving.",
     "saveFailed": "That did not save. Check your connection and try again.",
@@ -933,7 +933,7 @@
   },
   "editorialPolicy": {
     "title": "Editorial policy",
-    "intro": "Every guide on femio cites its sources and is editorially checked. As of October 2026, 25 of our 100 guides name the clinician who reviewed them; the rest say “clinician review pending” until a clinician has.",
+    "intro": "Every guide on femio cites its sources and is editorially checked. A guide names its clinician reviewer only after a clinician has reviewed it; the rest say “clinician review pending” until one has.",
     "points": [
       {
         "heading": "Evidence over opinion",
@@ -975,7 +975,7 @@
       },
       {
         "heading": "Named reviewers, where there is one",
-        "body": "When a clinician has reviewed a guide, their name, credentials and review date appear on that page. As of October 2026, that is 25 of 100 guides."
+        "body": "When a clinician has reviewed a guide, their name, credentials and review date appear on that page."
       },
       {
         "heading": "The rest say so",
@@ -983,7 +983,7 @@
       },
       {
         "heading": "Other languages",
-        "body": "The guide library is in English today, and Arabic guides are being prepared. The site's screens and tools are in English, Arabic, French and Spanish. A translated guide will carry its own review status, never the English guide's."
+        "body": "Guides are published in English, Arabic, French and Spanish, and the site's screens and tools are in all four languages. A translated guide carries its own review status, never the English guide's."
       }
     ]
   },
@@ -1198,7 +1198,7 @@
     "points": [
       {
         "heading": "What femio is",
-        "body": "femio gives you information and tools to record and understand your own health: a cycle and pregnancy tracker and a library of articles and calculators. It is for wellness, education and tracking."
+        "body": "femio gives you information and tools to record and understand your own health: a cycle and pregnancy tracker and a library of guides and calculators. It is for wellness, education and tracking."
       },
       {
         "heading": "What femio is not",
@@ -1210,7 +1210,7 @@
       },
       {
         "heading": "Estimates, with ranges",
-        "body": "Predictions are shown as ranges because bodies vary and your entries may be incomplete. A prediction can be wrong. Late or irregular cycles can have many causes; talk to a clinician if you are worried."
+        "body": "Predictions are shown as ranges because bodies vary and your entries may be incomplete. A prediction can be wrong. Changes in the timing of your period can have many causes; talk to a clinician if you are worried."
       },
       {
         "heading": "Emergencies",
@@ -1218,7 +1218,7 @@
       },
       {
         "heading": "Who may use the app",
-        "body": "You must be 18 or older to use the tracker. The articles on the website are open to everyone."
+        "body": "You must be 18 or older to use the tracker. The guides on the website are open to everyone."
       },
       {
         "heading": "Your responsibilities",
@@ -1230,7 +1230,7 @@
       },
       {
         "heading": "What we own",
-        "body": "The femio name, logo, software, design and original articles belong to {entity}. Guidance we cite from medical bodies belongs to them and is credited. You may read and use femio for yourself; you may not copy our content for commercial use without written permission."
+        "body": "The femio name, logo, software, design and original guides belong to {entity}. Guidance we cite from medical bodies belongs to them and is credited. You may read and use femio for yourself; you may not copy our content for commercial use without written permission."
       },
       {
         "heading": "Limits",
@@ -1263,7 +1263,7 @@
   "notFound": {
     "code": "404",
     "title": "We couldn’t find that page",
-    "body": "The link may be old, or the page may have moved. The health library and your tracker are both still here.",
+    "body": "The link may be old, or the page may have moved. The guides and calculators are still here.",
     "home": "Go to the homepage",
     "learn": "Browse the library"
   },
@@ -1271,7 +1271,7 @@
     "englishFallback": "Showing results from the English library — these pages are not translated yet.",
     "title": "Search",
     "label": "Search femio",
-    "placeholder": "Search articles, conditions and tools",
+    "placeholder": "Search guides, conditions and tools",
     "hint": "Results appear as you type. Try a condition, a symptom, or what you want to do.",
     "searching": "Searching",
     "failed": "Search could not run just now. Please try again.",
@@ -1279,7 +1279,7 @@
     "noResultsHint": "Try a shorter word, or the name of a symptom or condition.",
     "kinds": {
       "condition": "Conditions ({count})",
-      "article": "Articles ({count})",
+      "article": "Guides ({count})",
       "glossary": "Glossary ({count})",
       "calculator": "Tools ({count})"
     }
@@ -1294,7 +1294,7 @@
     "due": "Due date: {date}",
     "daysToGo": "{days, plural, one {# day to go} other {# days to go}}",
     "overdue": "{days, plural, one {# day past your due date} other {# days past your due date}}",
-    "termFrom": "Full term from {date}",
+    "termFrom": "Term from {date}",
     "estimateNote": "These dates are estimates based on the due date you entered. Your clinician may adjust it after a scan.",
     "redFlags": {
       "heading": "Some symptoms need urgent care",
@@ -1426,7 +1426,7 @@
       "note": "Choose exactly what someone else can see"
     },
     "summary": {
-      "label": "Doctor-visit summary",
+      "label": "Visit summary",
       "note": "A printable page of your record, with your questions"
     },
     "track": {
@@ -1459,7 +1459,7 @@
     },
     "learn": {
       "label": "Guides",
-      "note": "Referenced articles; each shows its review status"
+      "note": "Referenced guides; each shows its review status"
     }
   },
   "patterns": {
@@ -1546,7 +1546,7 @@
     "metaTitle": "Get the femio app",
     "eyebrow": "femio for Android",
     "title": "Your records never leave your phone.",
-    "body": "A private Android app for trying to conceive and pregnancy, in four languages. Your calendar, logs and pregnancy tools stay on your phone, behind a PIN if you choose. No account, no cloud. Coming to Google Play.",
+    "body": "A private Android app for trying to conceive and pregnancy, in four languages. Your calendar, logs and pregnancy tools stay on your phone, behind a PIN if you choose. No account. Coming to Google Play.",
     "android": "Google Play",
     "androidStatus": "Coming soon",
     "ios": "iPhone",
@@ -1563,7 +1563,7 @@
       },
       "pregnancy": {
         "title": "Pregnancy tools",
-        "body": "Your week and due date, a kick counter, a contraction timer and a weight log."
+        "body": "Your week and due date, a movement log, a contraction timer and a weight log."
       },
       "private": {
         "title": "Private by design",
@@ -1571,7 +1571,7 @@
       },
       "arabic": {
         "title": "Four languages",
-        "body": "Arabic, English, French and Spanish, with right-to-left Arabic built in from the first line."
+        "body": "English, Arabic, French and Spanish, with right-to-left layout built in for Arabic."
       },
       "doctor": {
         "title": "Appointments",
@@ -1582,7 +1582,7 @@
     "meanwhileBody": "Everything on this website is free and needs no account.",
     "meanwhileCalculators": "Try the calculators",
     "meanwhileLearn": "Read the library",
-    "notMedical": "femio is for tracking and learning, not medical advice, and its estimates are not a reliable way to avoid pregnancy. Talk to your clinician about your health.",
+    "notMedical": "femio is for tracking and learning, not medical advice, and its estimates are not a way to avoid pregnancy. Talk to your clinician about your health.",
     "mock": {
       "day": "Cycle day 12",
       "title": "Fertile window",

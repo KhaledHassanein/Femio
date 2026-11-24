@@ -170,7 +170,7 @@ abstract class L10n {
   /// No description provided for @goalPeriodDesc.
   ///
   /// In en, this message translates to:
-  /// **'Know when it\'s coming, and what\'s usual for you.'**
+  /// **'A range for when it\'s coming, and what\'s usual for you.'**
   String get goalPeriodDesc;
 
   /// No description provided for @goalTtc.
@@ -1082,7 +1082,7 @@ abstract class L10n {
   /// No description provided for @testTimingBody.
   ///
   /// In en, this message translates to:
-  /// **'If your period hasn\'t started by {date}, a home pregnancy test is reliable from that day.'**
+  /// **'If your period hasn\'t started by {date}, a home pregnancy test is most reliable from that day.'**
   String testTimingBody(String date);
 
   /// No description provided for @opkNegative.
@@ -1166,7 +1166,7 @@ abstract class L10n {
   /// No description provided for @pregTermFrom.
   ///
   /// In en, this message translates to:
-  /// **'Full term from {date}'**
+  /// **'Term from {date}'**
   String pregTermFrom(String date);
 
   /// No description provided for @pregEstimateNote.
@@ -1532,7 +1532,7 @@ abstract class L10n {
   /// No description provided for @apptFormType.
   ///
   /// In en, this message translates to:
-  /// **'What is it'**
+  /// **'Type of appointment'**
   String get apptFormType;
 
   /// No description provided for @apptFormTypePlaceholder.
@@ -2030,7 +2030,7 @@ abstract class L10n {
   /// No description provided for @learnSub.
   ///
   /// In en, this message translates to:
-  /// **'Cited guides, in plain words. Trying to conceive and pregnancy first; everything stays here.'**
+  /// **'Cited guides, in plain words. Trying to conceive and pregnancy first.'**
   String get learnSub;
 
   /// No description provided for @learnSearchHint.
@@ -2102,7 +2102,7 @@ abstract class L10n {
   /// No description provided for @noConfidentWindowBody.
   ///
   /// In en, this message translates to:
-  /// **'Your cycles vary too much to name fertile days from one date. Logging your periods, ovulation tests and waking temperature is how to tell afterwards.'**
+  /// **'Your cycles vary too much to name fertile days from one date. Logging your periods, ovulation tests and waking temperature helps you tell afterwards whether you ovulated.'**
   String get noConfidentWindowBody;
 
   /// No description provided for @seeClinicianIrregular.
@@ -2588,7 +2588,7 @@ abstract class L10n {
   /// No description provided for @sayItNothing.
   ///
   /// In en, this message translates to:
-  /// **'femio found nothing to log in that. Try other words, or tap the chips on the Log screen.'**
+  /// **'femio found nothing to log in that. Try other words, or tap the symptoms on the Log screen.'**
   String get sayItNothing;
 
   /// No description provided for @sayItFound.
@@ -2726,7 +2726,7 @@ abstract class L10n {
   /// No description provided for @askClinicianLine.
   ///
   /// In en, this message translates to:
-  /// **'This is general information, not advice for you. For your own situation, talk to your doctor or midwife.'**
+  /// **'This is general information, not advice for you. For your own situation, talk to your clinician.'**
   String get askClinicianLine;
 
   /// No description provided for @askRelatedGuides.
@@ -2780,7 +2780,7 @@ abstract class L10n {
   /// No description provided for @askNotCovered.
   ///
   /// In en, this message translates to:
-  /// **'femio\'s trusted sources don\'t answer this, so femio won\'t guess. Try other words, read the links below, or ask your doctor.'**
+  /// **'femio\'s trusted sources don\'t answer this, so femio won\'t guess. Try other words, read the links below, or ask your clinician.'**
   String get askNotCovered;
 
   /// No description provided for @askRegistryVersion.
@@ -2846,7 +2846,7 @@ abstract class L10n {
   /// No description provided for @visitIntro.
   ///
   /// In en, this message translates to:
-  /// **'A page to show your doctor, made from what you logged. It stays on your phone unless you copy it.'**
+  /// **'A page to show your clinician, made from what you logged. It stays on your phone unless you copy it.'**
   String get visitIntro;
 
   /// No description provided for @visitCycles.
@@ -2930,13 +2930,13 @@ abstract class L10n {
   /// No description provided for @visitQ_ttcTests.
   ///
   /// In en, this message translates to:
-  /// **'Given how long we have been trying, which checks would you suggest?'**
+  /// **'Given how long I have been trying, which checks would you suggest?'**
   String get visitQ_ttcTests;
 
   /// No description provided for @visitQ_ovulation.
   ///
   /// In en, this message translates to:
-  /// **'How can we find out whether I am ovulating?'**
+  /// **'How can I find out whether I am ovulating?'**
   String get visitQ_ovulation;
 
   /// No description provided for @visitQ_folicAcid.
@@ -3038,7 +3038,7 @@ abstract class L10n {
   /// No description provided for @assistantOnDeviceUnavailable.
   ///
   /// In en, this message translates to:
-  /// **'Not available on this phone. femio uses its own word list instead, also on the phone.'**
+  /// **'Not available on this phone. femio uses its own word list on the phone instead.'**
   String get assistantOnDeviceUnavailable;
 
   /// No description provided for @assistantDownload.
@@ -3128,7 +3128,7 @@ abstract class L10n {
   /// No description provided for @boostCategory.
   ///
   /// In en, this message translates to:
-  /// **'{value, select, pain{Pain} mood{Mood} digestion{Digestion} sleepAndEnergy{Sleep and energy} skinAndHair{Skin and hair} hotFlashes{Hot flashes} bladder{Bladder} other{Other}}'**
+  /// **'{value, select, pain{Pain} mood{Mood} digestion{Digestion} sleepAndEnergy{Sleep and energy} skinAndHair{Skin and hair} hotFlashes{Hot flushes} bladder{Bladder} other{Other}}'**
   String boostCategory(String value);
 
   /// No description provided for @boostNone.
@@ -3308,7 +3308,7 @@ abstract class L10n {
   /// No description provided for @tip_irregularWithOtherSigns.
   ///
   /// In en, this message translates to:
-  /// **'Irregular periods together with other changes, such as acne or extra hair growth, are worth mentioning to a clinician.'**
+  /// **'Irregular periods together with other changes, such as weight gain, extra hair on your face, or dry or oily skin, are worth mentioning to a clinician.'**
   String get tip_irregularWithOtherSigns;
 
   /// No description provided for @tip_periodPainSeeClinician.
@@ -3344,7 +3344,7 @@ abstract class L10n {
   /// No description provided for @tip_headachesAroundPeriod.
   ///
   /// In en, this message translates to:
-  /// **'Headaches that come regularly before or during your period are worth mentioning to a clinician. A headache diary next to your period dates helps.'**
+  /// **'Migraines that come regularly before or during your period are worth mentioning to a clinician. A diary next to your period dates helps.'**
   String get tip_headachesAroundPeriod;
 
   /// No description provided for @tip_urineInfectionSeeClinician.
@@ -3362,7 +3362,7 @@ abstract class L10n {
   /// No description provided for @tip_cervicalScreeningTip.
   ///
   /// In en, this message translates to:
-  /// **'Cervical screening looks for early cell changes in the cervix. Ask your clinic whether you are due.'**
+  /// **'WHO advises cervical screening every 5 to 10 years from age 30; local programmes vary. Ask your clinic whether you are due.'**
   String get tip_cervicalScreeningTip;
 
   /// No description provided for @tip_ttcOneYear.
@@ -3392,7 +3392,7 @@ abstract class L10n {
   /// No description provided for @tip_testingTooEarly.
   ///
   /// In en, this message translates to:
-  /// **'Testing very early can give a false negative, because the pregnancy hormone may not have built up yet. Follow the test\'s own instructions.'**
+  /// **'Testing very early can give a false negative. Follow the test\'s own instructions.'**
   String get tip_testingTooEarly;
 
   /// No description provided for @tip_folicAcidBeforePregnancy.
@@ -3470,13 +3470,13 @@ abstract class L10n {
   /// No description provided for @tip_itchTellMidwife.
   ///
   /// In en, this message translates to:
-  /// **'Itching is common in pregnancy and is usually not serious. Still, tell your midwife or doctor about it so it can be checked.'**
+  /// **'Itching is common in pregnancy, but it can be the first sign of a liver condition called ICP. Tell your midwife or doctor so it can be checked.'**
   String get tip_itchTellMidwife;
 
   /// No description provided for @tip_pretermLabourSigns.
   ///
   /// In en, this message translates to:
-  /// **'Signs of early labour include contractions every 10 minutes or more often, leaking fluid or bleeding, pelvic pressure and a low, dull backache. Contact your provider.'**
+  /// **'Signs of early labour include contractions every 10 minutes or more often, leaking fluid or bleeding, pelvic pressure and a low, dull backache. Contact your midwife, doctor or maternity unit.'**
   String get tip_pretermLabourSigns;
 
   /// No description provided for @tip_tirednessInPregnancy.
@@ -3488,7 +3488,7 @@ abstract class L10n {
   /// No description provided for @tip_lowMoodPerinatal.
   ///
   /// In en, this message translates to:
-  /// **'Feeling low is common in pregnancy and after birth, and support is available. Tell your midwife, doctor or health visitor, even if you only have some of the signs.'**
+  /// **'Feeling low is common in pregnancy and after birth, and support is available. Tell your midwife or doctor, even if you only have some of the signs.'**
   String get tip_lowMoodPerinatal;
 
   /// No description provided for @tip_anxietyInPregnancy.
@@ -3620,7 +3620,7 @@ abstract class L10n {
   /// No description provided for @visitQ_headacheDiaryReview.
   ///
   /// In en, this message translates to:
-  /// **'My headaches often come around my period. Can we look at my diary together?'**
+  /// **'My migraines often come around my period. Can we look at my diary together?'**
   String get visitQ_headacheDiaryReview;
 
   /// No description provided for @visitQ_cervicalScreeningDue.
@@ -3638,13 +3638,13 @@ abstract class L10n {
   /// No description provided for @visitQ_ttcOverThirtyFiveSooner.
   ///
   /// In en, this message translates to:
-  /// **'I am 35 or older and we have been trying for about six months or more. Should we start fertility checks now?'**
+  /// **'I am 35 or older and have been trying for about six months or more. Should I start fertility checks now?'**
   String get visitQ_ttcOverThirtyFiveSooner;
 
   /// No description provided for @visitQ_irregularTryingNow.
   ///
   /// In en, this message translates to:
-  /// **'My cycles are irregular and we are trying to conceive. Should we talk about help now rather than waiting a year?'**
+  /// **'My cycles are irregular and I am trying to conceive. Should we talk about help now rather than waiting a year?'**
   String get visitQ_irregularTryingNow;
 
   /// No description provided for @visitQ_preconceptionReview.
