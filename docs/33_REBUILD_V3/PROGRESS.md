@@ -114,18 +114,39 @@ Opened 2026-10-28 on the owner's finalization brief. The gate for R6.4–R6.5 an
 - [ ] R7.6 · Before a store release with the cloud path on: privacy notice ×4, Data safety row, listing (ADR-078 consequences)
 - [ ] R7.7 · Listing and in-app positioning "femio: AI-assisted women's health & wellness" across every life stage, four languages (ADR-078 §8, owner 2026-11-24)
 
-## R8 · Persona views and the AI front door (owner 2026-11-24) — Stitch round 2: `docs/design/STITCH_PROMPTS_2026-11-24.md`; round 1 comparison `testing-results/2026-11-24-stitch-compare/` (https://claude.ai/artifact/2wbNyvPh6eVLDkUUoMpvRT)
-- [ ] R8.1 · Owner runs Stitch prompts 0–5 and drops the export in Downloads; a session renders and compares it like round 1
-- [ ] R8.2 · Today order in every mode: dashboard blocks on top, quick log, "Tips for you", then the privacy note and the Help now card at the bottom
-- [ ] R8.3 · Pregnancy calendar: current week highlighted as a row band with week numbers; the week turns over on the weekday of her last period (or derived from the due date); appointments and due date (estimate) shown; no period, ovulation or fertile items anywhere in pregnancy mode
-- [ ] R8.4 · "This week" page for pregnancy: for you, for baby, what to expect, questions for the visit, every section sourced (content work, physician review)
-- [ ] R8.5 · Cycle calendar: likely ovulation day always inside the fertile window (golden-fixture rule); the next two predicted periods shown as ranges after her entries; three looks (logged, likely, possible)
-- [ ] R8.6 · Mode-aware placeholders and labels everywhere (log fields, hints, empty states) for each stage
-- [ ] R8.7 · The AI made prominent: Ask femio card and a floating Ask/Say-it pill; first use opens an intro, then a full per-purpose consent (on-phone questions, log from words, Cloud boost apart) with a dated receipt; switches in Settings → Assistant (extends ADR-080 `CloudConsent`)
-- [ ] R8.8 · Patterns screen (cycle-length bars in one colour, symptoms by phase "seen in X of Y cycles", temperature chart, doctor pack); minimum-cycles rule goes in the medical rules register first
-- [ ] R8.9 · Stitch round 1 small wins: ovulation-evidence card (TTC), Say it as a sheet with a counted save, refusal card with "Prepare doctor-visit pack", next-appointment card (pregnancy), visit pack as a one-page document with the system share sheet
-- [~] R8.10 · Persona feature research (market + business development agents), session "Persona feature research" started 2026-11-24
-- [~] R8.11 · Trusted-source registry coverage (about 150-question test set, before/after), session "Widen the trusted-source registry" started 2026-11-24
+## R8 · Persona views and the AI front door (owner 2026-11-24) — `research/PERSONA_FEATURES_2026-11.md`; Stitch prompts `docs/design/STITCH_PROMPTS_2026-11-24.md`; round 1 comparison `testing-results/2026-11-24-stitch-compare/` (https://claude.ai/artifact/2wbNyvPh6eVLDkUUoMpvRT)
+
+Accepted features from the persona-driven review (market researcher + business development + lead synthesis; owner's requests O1–O10). Waves: A = owner requests, mostly reuse; B = record state; C = depth. Each line names its rules; medical content only from reviewed guides or the register, otherwise `[NEEDS SOURCE]`.
+
+- [x] R8.0 · Persona feature review: `research/2026-11-persona-review/01_MARKET_RESEARCH.md` (22 pages read, 14 not verified), `02_BUSINESS_DEVELOPMENT.md` (~20 claims verified, ~20 hypotheses), lead synthesis `research/PERSONA_FEATURES_2026-11.md`; lead spot-checks: Clue Plus page, Sahiba and Flo KSA App Store listings match; Luni price mis-cited (not verified)
+- [ ] R8.1 · (B) View registry per stage (cycle, TTC, pregnancy, postpartum, loss, perimenopause) + overlays (PCOS); "All tools" sheet keeps every block reachable (rule 2, 5; owner O1)
+- [ ] R8.2 · (A) Today order: dashboard blocks → "Tips for you" → privacy and emergency notices at the bottom; Help now stays in every header (MR-38; owner O9)
+- [ ] R8.3 · (A) AI prominence: entry card on Today and a floating Ask femio / Say it pill on every main tab, mic field on Log; first-use sheet says what runs on the phone and offers Cloud boost through the ADR-080 consent (boxes unticked); choice mirrored in Settings > Assistant (owner O10; ADR-079/080)
+- [ ] R8.4 · (A) Mode-aware placeholders for Say it, Ask femio, log fields, hints and empty states, four locales (owner O6)
+- [ ] R8.5 · (B) Patterns screen: cycle-length history with range, symptoms by phase "seen in N of M cycles", per-cycle BBT/OPK/mucus, pregnancy weight and movements, menopause symptom frequency; counts only, no verdicts, free; the minimum-cycles rule goes in the medical rules register first (rule 1, 3; Stitch gap)
+- [ ] R8.6 · (A) Pregnancy weekly view: calendar by week with the current week ringed; "This week" card with Baby / Your body / What you may notice / Care around now / Tip taken verbatim from the 37 reviewed week guides in her language (owner O2, O3)
+- [ ] R8.7 · (A) Pregnancy mode cleanup: one week function on every surface with a fixture (turnover on the LMP weekday); no fertile, OPK, BBT or period items; "bleeding or spotting" links to the warning signs (MR-29); hidden items under "All log items" (owner O4, O5)
+- [ ] R8.8 · (B) Signs this cycle: BBT shift, OPK and mucus side by side per cycle, never "you ovulated" (MR-16/17/18)
+- [ ] R8.9 · (A) Fertile-window invariant in `fixtures/domain/fertile-window.json` (window contains ovulation, every case) + calendar and website-calculator screenshot audit (MR-07; owner O7)
+- [ ] R8.10 · (A) Next 3 predicted periods as widening ranges after every log; none when irregular or no confident window (MR-01, MR-06; owner O8)
+- [ ] R8.11 · (B) "My health" switch (PCOS, irregular cycles, thyroid, endometriosis; self-reported): window and seek-help rules (MR-14), tips triggers, Patterns emphasis, B6 overlay with no TTC nudges (scope A-05)
+- [ ] R8.12 · (C) Two-week-wait card: days since her logged signs, test-day rule (MR-21), no counter on an assumed ovulation (MR-20)
+- [ ] R8.13 · (C) Lab entries in the lab's units (progesterone, PdG, HbA1c, AMH, TSH), never labelled, never "day 21" (MR-18)
+- [ ] R8.14 · (B) Pregnancy ended: "I had my baby" → postpartum view; "My pregnancy has ended" → her own words, kind screen, reminders stopped, data kept (MR-35, scope A-07)
+- [ ] R8.15 · (C) Weekly pregnancy reminder, neutral text (scope A-11; ADR-079 §4)
+- [ ] R8.16 · (C) Pregnancy checklists: hospital bag, birth-plan questions, questions for this visit from the catalogue (items `[NEEDS SOURCE]`)
+- [ ] R8.17 · (C) Baby size by week: only what the reviewed week guide states, drawn object, no photos of people (`[NEEDS SOURCE]` otherwise)
+- [ ] R8.18 · (C) Ultrasound dating overrides other methods when her clinician gave it (MR-27)
+- [ ] R8.19 · (B) Postpartum view: onboarding "I recently had a baby" (writes `birthDate`), weeks since birth, recovery guide of the week, after-birth warning signs (MR-50), mood check-in, bleeding log; first period after birth restarts ranges (no ovulation-return detection)
+- [ ] R8.20 · (C) Perimenopause view: irregular cycles stay visible as ranges, monthly symptom frequency, visit pack ≥ Balance's free report, add "palpitations" to the vocabulary (four locales, sync script)
+- [ ] R8.21 · (A) "What can leave this phone" page in Settings: every network path listed (Cloud boost only), link to the privacy policy (rule 4)
+- [ ] R8.22 · (C) "What you usually notice in this phase" card from her own logs, worded as past pattern (rule 3)
+- [ ] R8.23 · (C) Custom tags, local, mappable by Say it (MR-47 register check)
+- [ ] R8.24 · Owner decision (feeds R7.12): femio Plus sells convenience, never access — PDF export of visit pack and Patterns, widget, themes and discreet icon, extra reminders, Cloud boost above a free allowance; price test yearly SAR 49.99 / EGP 249.99 or lifetime SAR 99 / EGP 399 (hypotheses)
+- [DEFERRED] R8.25 · Partner follow-along (no-server design), wearable/Health Connect import, LH photo reading, bump diary, baby feeding log, BP log (v1.1 order), teen mode (MR-48, owner + legal)
+- [~] R8.26 · Stitch round 2 (owner export 2026-11-24, `Downloads/stitch2_femio_women_s_health_app`): render, compare with the app and R8, adopt what is clearer and accessible
+- [ ] R8.27 · Stitch round 1 small wins: ovulation-evidence card (TTC), Say it as a sheet with a counted save, refusal card with "Prepare doctor-visit pack", next-appointment card (pregnancy), visit pack as a one-page document with the system share sheet
+- [~] R8.28 · Competitor APK teardown (three Play apps the owner supplied: a pregnancy tracker and two period trackers): features only, our design kept; session started 2026-11-24
 
 ## Session log
 
