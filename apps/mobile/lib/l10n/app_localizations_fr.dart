@@ -1466,13 +1466,6 @@ class L10nFr extends L10n {
       'Produit femio_plus introuvable pour l’instant (normal tant qu’il n’est pas créé dans la Play Console)';
 
   @override
-  String get adLabel => 'Publicité';
-
-  @override
-  String get adsNotice =>
-      'Les publicités n’apparaissent que sur les écrans des guides. Elles ne voient jamais vos données, et femio Plus les supprimera.';
-
-  @override
   String get assistantPrivateNote =>
       'Cela se passe sur votre téléphone. Vos mots ne sont ni enregistrés ni envoyés.';
 
@@ -1798,7 +1791,7 @@ class L10nFr extends L10n {
 
   @override
   String get assistantHowItWorks =>
-      'Tout ce qui vous concerne reste sur votre téléphone. Vos notes et votre journal sont lus par les règles de femio et, si votre téléphone l’a, par Gemini Nano sur le téléphone. Les règles de sécurité passent toujours en premier : un signe de danger ouvre la page d’aide, et femio ne conseille jamais sur la façon d’éviter une grossesse. Demander à femio répond uniquement à partir de sources de santé fiables intégrées à l’application et les montre avec chaque réponse. Cloud boost reste désactivé sauf si vous l’activez.';
+      'Votre journal reste sur votre téléphone. Vos notes et votre journal sont lus par les règles de femio et, si votre téléphone l’a, par Gemini Nano sur le téléphone. Les règles de sécurité passent toujours en premier : un signe de danger ouvre la page d’aide, et femio ne conseille jamais sur la façon d’éviter une grossesse. Demander à femio répond uniquement à partir de sources de santé fiables intégrées à l’application et les montre avec chaque réponse. Cloud boost reste désactivé sauf si vous l’acceptez ; alors seul ce que son écran énumère est envoyé à Google.';
 
   @override
   String get assistantCloudNotBuilt =>
@@ -1809,18 +1802,10 @@ class L10nFr extends L10n {
 
   @override
   String get boostIntro =>
-      'Certains téléphones n’ont pas d’IA intégrée. Sur ces téléphones, Cloud boost permet à l’IA cloud de Google, via Firebase, de résumer des sources fiables et d’ordonner vos conseils. Il reste désactivé sauf si vous l’activez, et vous pouvez l’arrêter à tout moment.';
+      'Certains téléphones n’ont pas d’IA intégrée. Sur ces téléphones, Cloud boost permet à l’IA cloud de Google de résumer des sources fiables pour une question que vous approuvez, ou d’ordonner vos conseils. C’est facultatif et cela reste désactivé tant que vous n’acceptez pas ci-dessous. Tout le reste de femio fonctionne sans.';
 
   @override
   String get boostSendsHeading => 'Ce qui peut être envoyé';
-
-  @override
-  String get boostSendsQuestion =>
-      'Des questions générales sans détail personnel, que vous voyez et validez avant tout envoi.';
-
-  @override
-  String get boostSendsBands =>
-      'Ces informations générales, exactement comme affichées, pour choisir vos conseils :';
 
   @override
   String get boostStageLabel => 'Étape de vie';
@@ -1894,16 +1879,75 @@ class L10nFr extends L10n {
 
   @override
   String get boostNever =>
-      'Vos notes, dates, entrées du journal, durées de cycle, votre nom, vos contacts, ni rien qui vous identifie ou identifie ce téléphone.';
-
-  @override
-  String get boostTurnOn => 'Activer Cloud boost';
+      'Vos notes, dates, entrées du journal, durées de cycle, votre nom, votre e-mail, vos contacts ou votre identifiant publicitaire.';
 
   @override
   String get boostTurnOff => 'Désactiver Cloud boost';
 
   @override
   String get boostNotNow => 'Pas maintenant';
+
+  @override
+  String get boostAgreeQuestions =>
+      'J’accepte que femio envoie une question générale que j’approuve, une à la fois, avec les sources publiques trouvées, pour que l’IA cloud de Google les résume. femio retire d’abord les nombres, les dates, les noms et les coordonnées, et je vois le texte exact avant son envoi.';
+
+  @override
+  String get boostAgreeTips =>
+      'J’accepte que femio envoie ces quatre informations générales sur ma santé, exactement comme affichées, pour que l’IA cloud de Google ordonne mes conseils. Cela se fait en arrière-plan tant que Cloud boost est activé.';
+
+  @override
+  String get boostPurposeQuestions => 'Questions générales';
+
+  @override
+  String get boostPurposeTips =>
+      'Conseils à partir de quatre informations générales';
+
+  @override
+  String get boostWhoHeading => 'Qui les reçoit, et où';
+
+  @override
+  String get boostWho =>
+      'Google les traite pour femio via Firebase AI Logic (la Gemini Developer API, offre payante). Google peut les traiter aux États-Unis ou dans d’autres pays où il a des serveurs, selon ses conditions de traitement des données. femio (KM Digital Labs, Le Caire, Égypte) décide de ce qui est envoyé et en est responsable.';
+
+  @override
+  String get boostKeptHeading => 'Durée de conservation';
+
+  @override
+  String get boostKept =>
+      'femio n’a pas de serveur et n’en garde rien. Selon les conditions payantes utilisées par femio, Google ne s’en sert pas pour améliorer ses produits. Google les conserve jusqu’à 55 jours pour détecter les abus, et des personnes chez Google peuvent examiner un contenu que ses systèmes signalent comme abusif.';
+
+  @override
+  String get boostAlsoSeen =>
+      'Comme pour toute connexion à Internet, Google voit aussi l’adresse Internet de votre téléphone, et une vérification de Google Play confirmant que la demande vient de la vraie application femio.';
+
+  @override
+  String get boostChoiceHeading => 'Votre choix';
+
+  @override
+  String get boostChoice =>
+      'Accepter est facultatif, et vous pouvez accepter un usage sans l’autre. Vous pouvez désactiver Cloud boost à tout moment, ici ou dans Réglages › Assistant, aussi facilement que vous l’avez activé. Chaque téléphone redemande : une sauvegarde restaurée ne transporte pas votre accord.';
+
+  @override
+  String get boostReadNotice => 'Lire l’avis de confidentialité';
+
+  @override
+  String get boostExplicit =>
+      'Ces informations et questions concernent votre santé. En cochant une case et en appuyant sur J’accepte, vous donnez votre consentement explicite à cet usage seulement. femio garde sur ce téléphone une trace datée de votre choix, que vous pouvez voir ici.';
+
+  @override
+  String get boostAgree => 'J’accepte';
+
+  @override
+  String get boostReceiptHeading => 'Votre accord';
+
+  @override
+  String boostReceipt(String date, String purposes) {
+    return 'Vous avez accepté le $date : $purposes.';
+  }
+
+  @override
+  String get boostWithdrawEffect =>
+      'La désactiver arrête tout nouvel envoi. Cela ne peut pas rappeler ce qui a déjà été envoyé.';
 
   @override
   String get tip_trackDatesHelps =>

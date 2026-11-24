@@ -2,6 +2,18 @@
   "about": "What sessions need from the owner, newest first. A session appends an entry here and rebuilds the dashboard (README.md). The owner ticks it on the dashboard; the tick lives in the artifact database as items/req-<id>. Never put an id, key or password in this file: say where it goes.",
   "requests": [
     {
+      "id": "privacy-adr080",
+      "at": "2026-11-24",
+      "from": "session 2026-11-24 (privacy review, ADR-080)",
+      "title": "Privacy switch-offs and one lawyer review before the Play release",
+      "detail": "The app no longer has ads, and the website no longer uses GA4, Tag Manager or the Meta pixel. Cloud boost now asks for consent per purpose and keeps a dated record of it. Your part: turn off Gemini request logging; untick Firebase data sharing; enable Vercel Web Analytics; delete the GTM container, the Meta pixel and the NEXT_PUBLIC_GTM_ID variable; retire the AdMob app. Before the Play release: capture the app's traffic on a real phone, and book one privacy-lawyer review covering the EU/UK representative and the Egypt PDPC licence. Decide what femio Plus sells.",
+      "blocks": [
+        "data-safety",
+        "production"
+      ],
+      "where": "docs/runbooks/OWNER_ACTIONS.md rows 29-36; docs/compliance/PRIVACY_REVIEW_2026-11-24.md"
+    },
+    {
       "id": "arabic-flag",
       "at": "2026-11-01",
       "from": "session 2026-11-01 (live QA)",

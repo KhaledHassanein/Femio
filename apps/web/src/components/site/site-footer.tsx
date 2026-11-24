@@ -24,6 +24,7 @@ const TRUST = [
 const LEGAL = [
   { href: "/privacy", key: "privacy" },
   { href: "/terms", key: "terms" },
+  { href: "/consumer-health-data", key: "healthData" },
 ] as const;
 
 const linkClass = "text-white/70 transition-colors duration-fast hover:text-white";

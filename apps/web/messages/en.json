@@ -890,7 +890,8 @@
     "faq": "FAQ",
     "glossary": "Glossary",
     "signIn": "Sign in",
-    "getApp": "Get the app"
+    "getApp": "Get the app",
+    "healthData": "Consumer health data"
   },
   "footer": {
     "explore": "Explore",
@@ -988,72 +989,123 @@
   },
   "privacy": {
     "title": "Privacy policy",
-    "intro": "How femio handles your information: your records stay on your phone, and this website measures visits only if you allow it, never what you type.",
+    "intro": "How femio handles your information. Your records stay on your phone. The app has no ads and no tracking. Two optional AI features may use the internet, and this page lists every piece of information that ever leaves your phone or reaches us.",
     "effective": "Effective date: {date} · Version {version}",
     "tocLabel": "On this page",
     "summary": {
       "title": "The short version",
       "items": [
-        "The femio app keeps your records on your phone only. We do not have a server for them. We cannot see them, and we cannot get them back for you.",
-        "The femio app has no account and no sign-in. It shows ads on the guide screens only, through Google, and those ads never see your records. The app uses the internet for those ads and for nothing else.",
-        "The femio website measures visits only if you allow it when asked, and it never records what you type into a calculator. Ads, if shown, appear only on article pages and only after you allow them.",
-        "femio is for women aged 18 and over. The articles on the website are open to everyone.",
-        "You can see, copy and delete everything the app holds, yourself, inside the app."
+        "The femio app keeps your records on your phone only, in a file encrypted with a key held by your phone’s secure hardware. There is no account and no femio server. We cannot see your records, and we cannot get them back for you.",
+        "The app has no ads, no analytics and no tracking tools. It uses the internet only for its AI features: to download Google’s on-phone AI model, and for Cloud boost if you agree to it.",
+        "Cloud boost is off unless you agree. If you do, a general question you approve, or four broad facts about your health shown to you first, are sent to Google’s cloud AI for femio. The app keeps a dated record of your choice, and you can turn it off at any time.",
+        "The website counts visits without cookies and without Google Analytics or Meta. Ads appear only on article and topic pages, and only after you allow them.",
+        "femio is for women aged 18 and over. You can see, copy and delete everything the app holds, yourself, inside the app."
       ]
     },
     "points": [
       {
         "heading": "Who we are",
-        "body": "femio is made by {entity}, a sole proprietorship in Cairo, Egypt (commercial register no. {registration}), owned by Dr Khaled Hassanein, who is the data controller. Questions about privacy: {email}."
+        "body": "femio is made by {entity}, a sole proprietorship in Cairo, Egypt (commercial register no. {registration}), owned by Dr Khaled Hassanein, who is the data controller: the person who decides why and how information is used. Questions about privacy, or to use your rights: {email}."
       },
       {
         "heading": "What the app stores, on your phone",
-        "body": "When you use the app you may enter: your birth year (only to check that you are 18 or over), your language, your period and cycle dates, symptoms, mood, notes you type, weight, appointments, pregnancy and baby-movement logs, and contraction timer sessions. This is health information, so we handle it with care. It is kept in a private file that only the femio app can open. The file is protected by your phone’s own storage encryption. We do not add a second lock."
+        "body": "When you use the app you may enter: your birth year (only to check that you are 18 or over), your language, your period and cycle dates, symptoms, mood, notes you type, weight, appointments, pregnancy and baby-movement logs, and contraction timer sessions. This is health information. It is kept in a private file that only the femio app can open, encrypted with a key held by your phone’s secure hardware (the Android Keystore). You can also turn on an app lock with a PIN. Nothing in this file is sent to us or to anyone else."
       },
       {
-        "heading": "What the app does not collect",
-        "body": "No name. No email. No phone number. No contacts, photos or files. No analytics. No crash-report tool of our own. femio never sends your records off your phone. The one thing that leaves your phone is the ad request on the guide screens: Google’s ads software sends Google your advertising ID, your device type and your internet address (which shows roughly where you are), and notes which ads were shown. It never receives your records, your cycle dates or what you read, and we ask for non-personalised ads. You can reset or delete your advertising ID in Android’s settings. femio Plus removes the ads."
+        "heading": "What the app never does",
+        "body": "No account, no sign-in, no name, email or phone number. No contacts, photos, location or files. No ads and no advertising ID. No analytics, no crash-report tool of its own, no tracking pixel and no data broker. We do not sell or share your information for advertising, and we never use health information for advertising."
+      },
+      {
+        "heading": "Everything that can leave your phone",
+        "body": "This is the complete list. Each item happens only in the situation described.",
+        "items": [
+          {
+            "lead": "Cloud boost, only if you agree.",
+            "body": "On a phone without on-phone AI, and only for the uses you ticked: a general question you approve, with the public source passages it found, after femio removes numbers, dates, names and contacts; or four broad facts about you, shown to you before you agree: your life stage (for example trying to conceive or pregnant), whether your cycles are regular, the kinds of symptom you logged on two or more days in the last month, and how long you have been logging. The details are in the next section."
+          },
+          {
+            "lead": "A genuineness check, with each Cloud boost request.",
+            "body": "Google Play checks that the request comes from the real femio app on a real phone (Firebase App Check with Play Integrity), so nobody can use femio’s AI service from a copied key. Google’s software also adds the names and versions of its own libraries to the request. Like any internet connection, the request shows your phone’s internet address to Google."
+          },
+          {
+            "lead": "The on-phone AI model.",
+            "body": "If your phone supports Gemini Nano and you tap Download, Android’s AI system service (AICore, run by Google) downloads the model and keeps it up to date, under Google’s terms. Google’s AI software in the app may also send Google technical information about how the AI service runs, such as errors and performance. femio does not add your records to it."
+          },
+          {
+            "lead": "Google Play.",
+            "body": "You install femio from Google Play, which tells us totals such as installs and crashes, under Google’s own policy. If you buy femio Plus, Google Play handles the payment; femio learns only whether you have Plus."
+          },
+          {
+            "lead": "Links you open.",
+            "body": "When you tap a source or a help link, it opens in your browser, and that website’s own policy applies."
+          }
+        ]
+      },
+      {
+        "heading": "Cloud boost in detail",
+        "items": [
+          {
+            "lead": "Why, and on what legal basis.",
+            "body": "To summarise trusted sources for your question, and to put your tips in order, on phones that cannot do it on the phone. Because the four facts and your questions are about your health, we use them only with your explicit consent, given separately for each use on the Cloud boost screen."
+          },
+          {
+            "lead": "Who receives it, and where.",
+            "body": "Google processes it for us through Firebase AI Logic (the Gemini Developer API, on the paid tier), under Google’s data processing terms. Google may process it in the United States or other countries where it has servers. Google relies on the EU–US Data Privacy Framework and standard contractual clauses for these transfers."
+          },
+          {
+            "lead": "How long it is kept.",
+            "body": "femio has no server and keeps none of it. Under the paid terms we use, Google does not use it to improve its products. Google keeps it for up to 55 days to detect misuse, and people at Google may review content that its systems flag as misuse. We keep Google’s optional request logging switched off."
+          },
+          {
+            "lead": "Your record of consent.",
+            "body": "The app keeps a dated record of what you agreed to, and to which version of the consent screen, on your phone. You can see it on the Cloud boost screen. A restored backup keeps the record but does not carry the agreement: each phone asks again."
+          },
+          {
+            "lead": "Turning it off.",
+            "body": "One tap, on the Cloud boost screen or in Settings, Assistant. That stops anything new being sent. Nothing sent carries your name or an account, so neither we nor Google can find your past requests to delete them; Google deletes them within 55 days."
+          }
+        ]
       },
       {
         "heading": "Backups are files you save yourself",
-        "body": "femio can save a backup file when you ask. You choose where it goes: your phone’s files, a cloud drive, an email. After that, the file is in your hands, not ours. It contains your records, so keep it somewhere private. We have switched off Android’s automatic cloud backup for femio, so Google does not copy your records. If you lose your phone, or reset it, and you have no backup file, your records are gone. We cannot recover them."
+        "body": "femio can save a backup file when you ask. It is encrypted with a passphrase you choose; without that passphrase nobody, including us, can open it or recover it. You choose where it goes: your phone’s files, a cloud drive, an email. After that the file is in your hands, not ours. We have switched off Android’s automatic cloud backup and phone-to-phone transfer for femio, so Google does not copy your records. If you lose or reset your phone and have no backup file, your records are gone. We cannot recover them."
       },
       {
         "heading": "Reminders",
-        "body": "Reminders are created on your phone. No server sends them."
-      },
-      {
-        "heading": "What Google may see",
-        "body": "You may install femio from Google Play. Google tells us totals, such as how many people installed the app or how many crashes happened, under Google’s own policy. On the guide screens Google also serves the ads described above, under Google’s advertising policy. Neither contains your records; femio never sends your records to Google."
+        "body": "Reminders are created on your phone. No server sends them, and a notification shows only “femio”."
       },
       {
         "heading": "The website (femioapp.com)",
         "items": [
           {
             "lead": "Records kept by our host.",
-            "body": "Our host (Vercel) keeps ordinary server logs: your IP address, the time, the page you asked for, your browser type and the website you came from. We use them only to keep the site running and safe. We do not use them for advertising, and we do not combine them with anything else. Our host keeps them for a short period. Our host may process them outside your country, using the legal safeguards it describes in its own privacy notice."
+            "body": "Our host (Vercel) keeps ordinary server logs: your internet address, the time, the page you asked for, your browser type and the website you came from. We use them only to keep the site running and safe (our legitimate interest in security). We do not use them for advertising or combine them with anything else. Vercel keeps them for a short period and may process them outside your country under standard contractual clauses."
           },
           {
-            "lead": "Measurement, only if you allow it.",
-            "body": "When you first visit, we ask. If you press Allow, Google Analytics counts which pages are opened, in which language and country, which calculator was opened and whether the app link was clicked, and a Meta pixel counts page views so we can see whether our posts reach readers. We never send a date you tapped, a result you saw or anything you typed. If you press Only necessary, nothing is measured and no measurement cookie is set. To change your choice, clear this site’s cookies in your browser and we will ask again."
+            "lead": "Visit counts, without cookies.",
+            "body": "We count visits with Vercel Web Analytics. It sets no cookie and stores no internet address. It records the page address without anything after it, the website you came from, your country, and your device, system and browser type. Visits are grouped using a code that is deleted after 24 hours, so a visitor cannot be followed from one day to the next. We use the totals to improve the site. We do not use Google Analytics, a Meta pixel or any other tracking tool."
           },
           {
-            "lead": "Ads on article pages.",
-            "body": "Some article pages may show ads served by Google AdSense, only after you allow them. We block sensitive categories, and we never place ads on the calculators, the help page or these legal pages."
+            "lead": "Ads on article and topic pages, only if you allow them.",
+            "body": "Some article pages, condition pages and the guide index may show ads from Google AdSense. Google’s consent message asks you first; until you allow ads, no ad is shown and no ad cookie is set, although your browser still loads Google’s ad script and so shows Google your internet address. If you allow ads, Google acts as a separate controller under its own policy. We ask Google to block ads in sensitive categories, and we never place ads on the calculators, the help page or these legal pages. You can change your choice at any time from the privacy settings link Google shows on the page."
           },
           {
             "lead": "Your browser’s memory.",
-            "body": "The site may remember your language and light or dark choice in your browser. It does not track you."
+            "body": "The site may remember your language and your light or dark choice in your browser. It does not track you."
           },
           {
             "lead": "Calculators and search run in your browser.",
-            "body": "What you type into a calculator is not sent to us."
+            "body": "What you type into a calculator is not sent to us or to anyone else."
           },
           {
             "lead": "Links to others.",
-            "body": "Some pages link to other sites, such as medical sources and Find A Helpline. Their own policies apply. Our help link opens without telling the other site which page you came from."
+            "body": "Some pages link to other sites, such as medical sources and Find A Helpline. Their own policies apply. Our links send the other site only our address, never the page you were reading."
           }
         ]
+      },
+      {
+        "heading": "Health information and US state laws",
+        "body": "Your cycle, pregnancy and symptom records are health information under laws such as the EU and UK GDPR, Saudi Arabia’s PDPL, Egypt’s Law 151 of 2020 and US state consumer health data laws. Our consumer health data policy, linked at the foot of every page, sets out what Washington’s My Health My Data Act and similar laws ask us to say. In short: we collect health information only on your phone, we share it with no one, and only Cloud boost, with your consent, sends it to Google as our processor."
       },
       {
         "heading": "If you need urgent help",
@@ -1061,19 +1113,77 @@
       },
       {
         "heading": "Age",
-        "body": "femio’s tracker is for women aged 18 and over. The app asks your birth year once and stops if you are under 18. We do not knowingly collect information from anyone under 18."
+        "body": "femio’s tracker and Cloud boost are for women aged 18 and over. The app asks your birth year once and stops if you are under 18. We do not knowingly collect information from anyone under 18."
       },
       {
         "heading": "Your rights, and how to use them",
-        "body": "Because your records are only on your phone, you hold them. In the app you can look at them, change them, save a copy (export) and delete everything (Settings, “Delete everything on this phone”). For the website’s server logs, write to {email} and we will answer within 30 days. You may also complain to your data protection authority: the Personal Data Protection Centre (Egypt), SDAIA (Saudi Arabia), the ICO (United Kingdom) or the authority in your EU country."
+        "body": "Depending on where you live, you may have the right to see, correct, delete, restrict or move your information, to object, and to withdraw consent at any time without affecting what happened before. Because your records are only on your phone, you hold them: in the app you can look at them, change them, save an encrypted copy and delete everything (Settings, “Delete everything on this phone”). Turn Cloud boost off on its screen. For the website’s server logs, or anything else, write to {email} and we will answer within 30 days. You may also complain to your data protection authority, for example the Personal Data Protection Centre (Egypt), SDAIA (Saudi Arabia), the ICO (United Kingdom), the authority in your EU country, or your state attorney general in the United States."
+      },
+      {
+        "heading": "If something goes wrong",
+        "body": "If information we are responsible for is ever exposed, we will tell the authorities and the people affected within the time the law sets, for example 72 hours for the authority in Egypt, Saudi Arabia, the EU and the UK."
       },
       {
         "heading": "If this changes",
-        "body": "If we ever add online features that store anything about you, we will update this page first, tell you in the app, and ask you before anything is stored. We will keep old versions available."
+        "body": "If we change what leaves your phone or who receives it, we will update this page first and tell you in the app. A change to Cloud boost asks for your consent again before anything new is sent. Earlier versions stay available on request."
       },
       {
         "heading": "Contact",
         "body": "{email} · {entity}, Cairo, Egypt · commercial register no. {registration}."
+      }
+    ]
+  },
+  "healthData": {
+    "title": "Consumer health data policy",
+    "intro": "What femio does with consumer health data, written for Washington’s My Health My Data Act and similar US state laws. It adds to our privacy policy and does not replace it.",
+    "effective": "Effective date: {date} · Version {version}",
+    "tocLabel": "On this page",
+    "summary": {
+      "title": "The short version",
+      "items": [
+        "We collect consumer health data only on your phone, inside the femio app, and it stays there.",
+        "We do not sell consumer health data, and we do not share it for advertising.",
+        "Only if you agree to Cloud boost, a general question you approve or four broad facts about your health are sent to Google, which processes them for us.",
+        "The website collects no consumer health data: calculators run in your browser, and visit counts use no cookies."
+      ]
+    },
+    "points": [
+      {
+        "heading": "Who we are",
+        "body": "{entity}, a sole proprietorship in Cairo, Egypt (commercial register no. {registration}). Contact: {email}."
+      },
+      {
+        "heading": "Consumer health data we collect, and why",
+        "items": [
+          {
+            "lead": "In the app, on your phone.",
+            "body": "Period and cycle dates, symptoms, mood, notes, weight, pregnancy and baby-movement logs, contraction timings, appointments, your life stage (such as trying to conceive or pregnant) and your birth year. Purpose: to show you your own tracking, predictions as ranges, tips, visit summaries and answers. It is stored encrypted on your phone; we never receive it."
+          },
+          {
+            "lead": "Through Cloud boost, only with your consent.",
+            "body": "A general question you approve, with numbers, dates, names and contacts removed; or four broad facts: life stage, cycle regularity, kinds of symptom logged in the last month, and how long you have been logging. Purpose: to summarise trusted sources and order your tips on phones without on-phone AI."
+          }
+        ]
+      },
+      {
+        "heading": "Where it comes from",
+        "body": "Only from you: what you enter in the app. We buy no data and receive none from other companies."
+      },
+      {
+        "heading": "Who receives it",
+        "body": "Nobody, except Cloud boost: Google LLC, through Firebase AI Logic (Gemini Developer API, paid tier), as our processor, only after your consent and only for the uses you ticked. Google’s privacy contact: policies.google.com/privacy. We have no affiliates that receive it. We do not sell it, and we do not share it with advertisers, data brokers or analytics companies. Requests sent to Google carry no name or account, so a deletion request cannot be matched to them; Google deletes them within 55 days."
+      },
+      {
+        "heading": "Your consent",
+        "body": "Collection happens only when you enter information in the app, for the service you asked for. Sending to Google needs your separate consent on the Cloud boost screen, one box per use, and the app keeps a dated record of it. You can withdraw it at any time with one tap."
+      },
+      {
+        "heading": "Your rights",
+        "body": "You can confirm whether we collect or share your consumer health data, see it, get the list of everyone who received it and how to contact them, withdraw consent, and have it deleted. Your records are on your phone, so you can see, export and delete them in the app (Settings, “Delete everything on this phone”). For anything else, write to {email}. We answer within 45 days (once extended by up to 45 more if needed, and we tell you why), free of charge up to twice a year. If we refuse, you can appeal by replying to our answer; we reply in writing within 45 days, and if we still refuse we tell you how to complain to the Washington State Attorney General."
+      },
+      {
+        "heading": "Location",
+        "body": "femio never uses your location and never sets a geofence."
       }
     ]
   },

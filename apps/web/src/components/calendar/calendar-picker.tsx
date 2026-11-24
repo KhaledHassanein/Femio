@@ -1,7 +1,6 @@
 "use client";
 
 import { useMemo, useState } from "react";
-import { trackCalculatorUsed } from "@/lib/consent/calculator-used";
 import { Info } from "lucide-react";
 import { useFormatter, useLocale, useTranslations } from "next-intl";
 import { addDays, diffDays } from "@/lib/calculators/dates";
@@ -88,9 +87,6 @@ export function CalendarPicker({
   const say = (text: string | null) => setMessage(text);
 
   const onTap = (iso: string) => {
-    // ADR-075: counts that a calculator was used, once per page view. The slug comes
-    // from the URL; the day she tapped never leaves this function.
-    trackCalculatorUsed();
     if (iso > maxISO) return say(t("futureDay"));
     if (iso < minISO) return say(mode === "single" ? t("overTerm") : t("tooOld"));
     say(null);

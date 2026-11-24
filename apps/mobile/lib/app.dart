@@ -18,8 +18,6 @@ import 'data/key_vault.dart';
 import 'data/profile.dart';
 import 'data/reminder_scheduler.dart';
 import 'data/store.dart';
-import 'features/ads/ads_runtime.dart';
-import 'features/ads/ads_scope.dart';
 import 'features/assistant/assistant_scope.dart';
 import 'features/home/home_shell.dart';
 import 'features/lock/lock_screen.dart';
@@ -78,11 +76,6 @@ class FemioController extends ChangeNotifier {
 
   /// True when a PIN is set.
   bool lockEnabled = false;
-
-  /// True while femio Plus is active, which removes every advertisement (ADR-076). The
-  /// billing integration (R6.9) will set it from the Play purchase; until Plus can be
-  /// bought it stays false and is deliberately not persisted.
-  bool plusActive = false;
 
   /// Convenience for the old call sites: true once [load] has finished.
   bool get loaded => state != RecordState.loading;
@@ -285,7 +278,6 @@ class FemioApp extends StatefulWidget {
     super.key,
     required this.controller,
     this.today,
-    this.adsRuntime = const NoAdsRuntime(),
     this.assistant = const OfflineAssistant(),
   });
   final FemioController controller;
@@ -293,10 +285,6 @@ class FemioApp extends StatefulWidget {
   /// The assistant bridge (ADR-078). Offline by default, so tests never touch a model;
   /// main.dart passes the method-channel bridge.
   final AssistantBridge assistant;
-
-  /// Where banners come from. The do-nothing runtime by default, so tests and every
-  /// non-Android host never load an ads SDK; main.dart passes the platform's.
-  final AdsRuntime adsRuntime;
 
   /// Fixed "today" for screenshot tests; the real app reads the clock.
   final String? today;
@@ -343,10 +331,7 @@ class _FemioAppState extends State<FemioApp> with WidgetsBindingObserver {
           ],
           // The lock covers EVERY route, including a Settings page left open when the
           // phone went to sleep; swapping `home` alone would leave pushed routes on top.
-          builder: (context, child) => AdsScope(
-            controller: controller,
-            runtime: widget.adsRuntime,
-            child: AssistantScope(
+          builder: (context, child) => AssistantScope(
               bridge: widget.assistant,
               child: Stack(
               children: [
@@ -357,7 +342,6 @@ class _FemioAppState extends State<FemioApp> with WidgetsBindingObserver {
                   // Its own Overlay: the text field needs one and the Navigator's is beneath us.
                   Overlay(initialEntries: [OverlayEntry(builder: (_) => LockScreen(controller: controller))]),
               ],
-            ),
             ),
           ),
           home: switch (controller) {

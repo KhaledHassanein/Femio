@@ -915,3 +915,45 @@ must describe Cloud boost before any Play release that ships it (owner action). 
 dated refresh and a clinician sample review before release. Persona gaps that need new record state
 (diagnoses, loss history, minors, partner modes) are listed in `docs/hackathon/persona_coverage/` and
 stay out of scope.
+
+## ADR-080
+**Date:** 2026-11-24 · **Status:** accepted 2026-11-24 (owner, in chat, answering three questions: website "Remove both, use Vercel"; app ads "Remove in-app ads (Recommended)"; Cloud boost "in play, it can be opt-in after a comprehensive consent that is recorded according to the laws") · **Area:** privacy, app, website, legal · **Reverses:** ADR-076 · **Amends:** ADR-075 §2, ADR-079 §3
+
+**Context.** The owner asked for the privacy notice and every related item to be made safe for GDPR
+and similar laws, citing the Flo case: an app promised privacy while SDK events told ad and
+analytics companies about pregnancies (FTC, 2021). A code audit (2026-11-24) found the notice
+false in places ("the app uses the internet for those ads and for nothing else"; "femio never
+sends your records to Google") once Cloud boost existed; the website sent health page addresses
+and article and calculator slugs to GA4 and, by design, page views to a Meta pixel; the app's
+ad requests carried the advertising ID from a fertility app. Research with primary sources
+(GDPR Arts. 7, 9, 13, 27, 35; EDPB 05/2020; CJEU C-252/21; FTC HBNR 16 CFR 318 and the Flo,
+GoodRx, Premom and BetterHelp cases; RCW 19.373; Saudi PDPL and its Implementing and Transfer
+Regulations; Egypt Law 151/2020) is summarised in `docs/compliance/PRIVACY_REVIEW_2026-11-24.md`.
+
+**Decision.**
+1. **No ads in the app.** `google_mobile_ads`, the ads feature and the ads policy are deleted; the
+   manifest removes `AD_ID` and the `ACCESS_ADSERVICES_*` permissions; the tripwire fails on any
+   ads, analytics or attribution package or on an ad-ID permission in the merged manifest.
+   `INTERNET` is declared for Firebase AI Logic only. femio Plus stays a Play Billing probe with
+   no features until the owner decides what it sells.
+2. **No Google Analytics, Tag Manager or Meta pixel on the website.** Visits are counted with
+   Vercel Web Analytics (cookieless, aggregate, page path without query). AdSense stays on content
+   pages behind Consent Mode defaults and Google's certified consent message.
+3. **Cloud boost ships in the Play release, opt-in, with recorded explicit consent.** One unticked
+   box per purpose (general questions; tips from four bands), an "I agree" button, the screen
+   naming Google as processor, the United States as a possible location, Google's paid-tier
+   retention (up to 55 days, abuse monitoring, no product improvement), what is never sent and what
+   Google still sees (internet address, Play Integrity check). The choice is stored as a receipt
+   in her record (`CloudConsent`: purposes, UTC time, consent-text version, at most 20 entries,
+   withdrawals included), shown on the screen, invalid when the consent text version changes, and
+   not carried by a restored backup.
+4. **One honest notice.** The privacy policy (four languages) lists everything that can leave the
+   phone; a separate consumer health data policy covers Washington's My Health My Data Act.
+   Play Data safety declares Health info and user content for Cloud boost.
+
+**Consequences.** The owner must: switch off Gemini request logging and Firebase AI monitoring
+prompts, untick Firebase data sharing, enable Vercel Web Analytics, delete the GTM container,
+the GA4 property link and the Meta pixel, and get one privacy-lawyer review before the Play
+release, including whether an EU and UK representative (GDPR Art. 27) and an Egypt PDPC licence
+for sensitive data (Law 151 Art. 12) are needed for Cloud boost (owner actions 29 to 36). Revenue
+from in-app ads is gone; website ads remain.

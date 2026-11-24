@@ -114,7 +114,11 @@ class _AssistantSettingsScreenState extends State<AssistantSettingsScreen> {
                                     ),
                                   )
                                 : widget.controller.setSettings(
-                                    settings.copyWith(cloudBoost: false),
+                                    settings.copyWith(
+                                      cloud: settings.cloud.withdraw(
+                                        DateTime.now().toUtc().toIso8601String(),
+                                      ),
+                                    ),
                                   ),
                     );
                   },

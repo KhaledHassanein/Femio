@@ -20,8 +20,8 @@ export default async function Page({ params }: PageProps) {
       locale={locale}
       namespace="privacy"
       related={[
+        { href: "/consumer-health-data", label: nav("healthData") },
         { href: "/terms", label: nav("terms") },
-        { href: "/about", label: nav("about") },
       ]}
     />
   );

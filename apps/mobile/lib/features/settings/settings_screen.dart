@@ -97,8 +97,6 @@ class SettingsScreen extends StatelessWidget {
             onTap: () => Navigator.of(context).push(MaterialPageRoute<void>(builder: (_) => AssistantSettingsScreen(controller: controller))),
           ),
           _Section(title: l.aboutSection),
-          // ADR-076: say plainly where ads appear and what they never see.
-          ListTile(leading: const Icon(Icons.info_outline_rounded), title: Text(l.adsNotice, style: t.bodyMedium)),
           // R6.9 spike: visible in debug and profile builds only; a release build renders nothing.
           const BillingProbeTile(),
           Padding(

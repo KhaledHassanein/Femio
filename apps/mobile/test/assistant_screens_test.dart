@@ -14,6 +14,7 @@ import 'package:femio/app.dart';
 import 'package:femio/data/assistant_channel.dart';
 import 'package:femio/data/profile.dart';
 import 'package:femio/data/store.dart';
+import 'package:femio/domain/assistant/cloud_consent.dart';
 import 'package:femio/domain/assistant/cloud_prompt.dart';
 import 'package:femio/domain/assistant/source_registry.dart';
 import 'package:femio/features/assistant/ask_screen.dart';
@@ -127,7 +128,13 @@ Widget _app(String locale, Brightness b, AssistantBridge bridge, Widget home) =>
     );
 
 Future<FemioController> _controller(Profile p, {bool boost = false}) async {
-  if (boost) p = p.copyWith(settings: p.settings.copyWith(cloudBoost: true));
+  if (boost) {
+    p = p.copyWith(
+      settings: p.settings.copyWith(
+        cloud: const CloudConsent().grant(CloudPurpose.values.toSet(), '2026-11-24T10:00:00Z'),
+      ),
+    );
+  }
   final c = FemioController(MemoryStore(p));
   await c.load();
   return c;
@@ -556,16 +563,39 @@ void main() {
       expect(find.text('What may be sent'), findsOneWidget);
       expect(find.text('Trying to conceive'), findsOneWidget);
       await _shoot('en_light_cloud_boost_consent');
-      await tester.scrollUntilVisible(find.text('Turn on Cloud boost'), 200);
-      await tester.tap(find.text('Turn on Cloud boost'));
+      final agree = find.widgetWithText(FilledButton, 'I agree');
+      await tester.scrollUntilVisible(agree, 200);
+      expect(
+        tester.widget<FilledButton>(agree).onPressed,
+        isNull,
+        reason: 'nothing is pre-ticked, so there is nothing to agree to yet',
+      );
+      await tester.scrollUntilVisible(find.textContaining('may send a general question'), -200);
+      await tester.ensureVisible(find.textContaining('may send a general question'));
       await tester.pumpAndSettle();
-      expect(c.profile!.settings.cloudBoost, isTrue);
+      await tester.tap(find.textContaining('may send a general question'));
+      await tester.pumpAndSettle();
+      await tester.scrollUntilVisible(agree, 200);
+      await tester.ensureVisible(agree);
+      await tester.pumpAndSettle();
+      await tester.tap(agree);
+      await tester.pumpAndSettle();
+      final consent = c.profile!.settings.cloud;
+      expect(consent.allows(CloudPurpose.questions), isTrue);
+      expect(consent.allows(CloudPurpose.tips), isFalse, reason: 'each purpose is its own choice');
+      expect(consent.current!.version, cloudConsentVersion);
+      expect(DateTime.tryParse(consent.grantedAt!), isNotNull, reason: 'the receipt is dated');
       await tester.tap(find.byType(Switch));
       await tester.pumpAndSettle();
       expect(
         c.profile!.settings.cloudBoost,
         isFalse,
         reason: 'turning it off is one tap',
+      );
+      expect(
+        c.profile!.settings.cloud.current!.isWithdrawal,
+        isTrue,
+        reason: 'the withdrawal is recorded too',
       );
     },
   );

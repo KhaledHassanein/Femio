@@ -202,7 +202,7 @@ summary{cursor:pointer;font-weight:600}
   <div class="step"><h3><span class="n">2</span>Get the debug SHA-256</h3>
     <div class="row"><div class="lbl">Do</div><div>Ask the build tool to print the fingerprints.</div></div>
     <div class="row"><div class="lbl">Where</div><div>In PowerShell:
-<pre><code>cd E:\Femio\apps\mobile\android
+<pre><code>cd E:\Femio\.claude\worktrees\firebase-hackathon-eligibility-833c52\apps\mobile\android
 .\gradlew signingReport</code></pre>
 In Git Bash use <code>./gradlew signingReport</code>. (Use the folder where your working copy of the repo lives; the path above is the normal one.)</div></div>
     <div class="row see"><div class="lbl">You should see</div><div>A long printout. Find the block headed <code>Variant: debug</code> and the line starting <code>SHA-256:</code> (colon-separated pairs of letters and digits).</div></div>
@@ -226,7 +226,7 @@ In Git Bash use <code>./gradlew signingReport</code>. (Use the folder where your
   <div class="step"><h3><span class="n">1</span>Make your copy of the example</h3>
     <div class="row"><div class="lbl">Do</div><div>Copy <code>assistant.env.example</code> to <code>assistant.env</code> in the same folder.</div></div>
     <div class="row"><div class="lbl">Where</div><div>
-<pre><code>cd E:\Femio\apps\mobile
+<pre><code>cd E:\Femio\.claude\worktrees\firebase-hackathon-eligibility-833c52\apps\mobile
 copy assistant.env.example assistant.env</code></pre>
 (Git Bash: <code>cp assistant.env.example assistant.env</code>.)</div></div>
     <div class="row see"><div class="lbl">You should see</div><div>A new file <code>apps/mobile/assistant.env</code> next to the example.</div></div>
@@ -254,7 +254,7 @@ copy assistant.env.example assistant.env</code></pre>
 
   <div class="step"><h3><span class="n">1</span>Build</h3>
     <div class="row"><div class="lbl">Do</div><div>
-<pre><code>cd E:\Femio\apps\mobile
+<pre><code>cd E:\Femio\.claude\worktrees\firebase-hackathon-eligibility-833c52\apps\mobile
 flutter build apk --debug</code></pre></div></div>
     <div class="row see"><div class="lbl">You should see</div><div>"Built build/app/outputs/flutter-apk/app-debug.apk" (full path: <code>apps/mobile/build/app/outputs/flutter-apk/app-debug.apk</code>) at the end.</div></div>
     <div class="row fail"><div class="lbl">If it fails</div><div>Run <code>flutter clean</code>, then build again. Still failing: run <code>flutter doctor</code> and fix what it flags with a cross.</div></div>
@@ -344,7 +344,7 @@ adb install -r build/app/outputs/flutter-apk/app-debug.apk</code></pre>
     <tr><th>Feature</th><th>How to turn it on or reach it</th><th>What it should show</th></tr>
     <tr><td>Ask femio</td><td>Today &rarr; Ask femio. Ask "How long should we try to conceive before seeing a doctor?"</td><td>A short answer built only from trusted sources, each numbered with its source; works offline. A question the registry cannot answer says "Not covered yet". With Nano Ready, the summary is written on the phone.</td></tr>
     <tr><td>Safety rules</td><td>In Ask femio type "heavy bleeding and dizzy"; then "safe days to avoid pregnancy"</td><td>Heavy bleeding with dizziness shows ACOG's emergency sentence; danger signs open Help now; after birth, the CDC Hear Her warning signs; the birth-control question gets a fixed answer. No model runs first.</td></tr>
-    <tr><td>Cloud boost</td><td>Settings &rarr; Assistant &rarr; switch Cloud boost on (it is off by default)</td><td>A consent screen opens showing the four broad facts that may be sent (life stage, cycle regularity, kinds of symptom logged in the last month, logging streak) and a "what is never sent" list. It is used only when the phone has no Nano. A general question is sent only after she approves its exact text.</td></tr>
+    <tr><td>Cloud boost</td><td>Settings &rarr; Assistant &rarr; switch Cloud boost on (it is off by default)</td><td>A consent screen opens showing the four broad facts that may be sent (life stage, cycle regularity, kinds of symptom logged in the last month, logging streak) and a "what is never sent" list. Tick one or both boxes (general questions, tips), then tap I agree; the screen then shows the date you agreed. It is used only when the phone has no Nano. A general question is sent only after she approves its exact text.</td></tr>
     <tr><td>"For you" tips</td><td>Today screen</td><td>Short reviewed sentences, each with a source, chosen on the phone.</td></tr>
     <tr><td>Visit summary</td><td>Today &rarr; Visit summary</td><td>A page for her doctor counted from her own log, with questions in order. Copy works.</td></tr>
     <tr><td>Say it in your words</td><td>Log &rarr; Say it in your words. Type "bad cramps, light bleeding and so tired", tap Turn into log entries</td><td>Log entries she can check, then tap Add. The sentence itself is not saved or sent.</td></tr>
@@ -373,7 +373,7 @@ adb install -r build/app/outputs/flutter-apk/app-debug.apk</code></pre>
   </div>
   <div class="step"><h3><span class="n">2</span>Build the release APK</h3>
     <div class="row"><div class="lbl">Do</div><div>
-<pre><code>cd E:\Femio\apps\mobile
+<pre><code>cd E:\Femio\.claude\worktrees\firebase-hackathon-eligibility-833c52\apps\mobile
 flutter build apk --release --dart-define-from-file=ads.env</code></pre>
 <code>ads.env</code> holds the ads ids (copy of <code>ads.env.example</code>; see the runbook section 3 for what happens without it).</div></div>
     <div class="row see"><div class="lbl">You should see</div><div><code>apps/mobile/build/app/outputs/flutter-apk/app-release.apk</code>.</div></div>

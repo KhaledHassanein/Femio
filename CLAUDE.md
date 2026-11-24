@@ -29,13 +29,15 @@ ambition (one record for her whole health life) stays the direction, not the lau
    stays reachable.
 3. **Uncertainty-honest predictions.** Ranges + confidence, never a single certain date, never a
    "late" counter in irregular modes, "no confident window" when cycles vary too much.
-4. **Privacy by design.** Health data never leaves the phone. The website measures visits only
-   after consent and never what she typed (ADR-075). The app has no analytics and no network
-   code of its own; its only ads are Google's banners on the guide screens, non-personalised,
-   fed nothing about her (ADR-076), and femio Plus removes them. The assistant (ADR-078,
+4. **Privacy by design.** Her records never leave the phone. The app has no ads, no analytics,
+   no tracking SDK and no network code of its own (ADR-080). The website counts visits with
+   cookieless Vercel Web Analytics only (no GA4, no Tag Manager, no Meta pixel) and shows AdSense
+   on content pages only after consent; it never records what she typed. Every privacy sentence
+   must match what the code sends: the notice lists everything that can leave the phone. The assistant (ADR-078,
    ADR-079) runs on the phone (Gemini Nano, `ONLY_ON_DEVICE`) for anything that touches her
    record, and answers only from the bundled trusted-source registry, with citations. Only if
-   she turns on **Cloud boost** (off by default, consent screen) may a phone without Nano send
+   she agrees to **Cloud boost** (off by default; explicit consent per purpose, stored as a dated,
+   versioned receipt, ADR-080) may a phone without Nano send
    a `CloudPrompt` to Google's cloud model through Firebase AI Logic on the paid tier: a
    redacted general question she approved, or her four-band `PseudonymisedProfile`, nothing
    else. Rules (red flags, contraception refusal) always run before the model and always win.

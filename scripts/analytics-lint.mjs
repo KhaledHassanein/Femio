@@ -2,32 +2,35 @@
 /**
  * Privacy tripwire (replaces the analytics-catalog guard on 2026-10-27).
  *
- * The app sends nothing, and the website measures visits only after consent and never
- * what she typed (CLAUDE.md rule 4 as amended by ADR-075, 2026-10-28; legal position in
+ * The app sends nothing, and the website counts visits with Vercel Web Analytics only
+ * (cookieless, path only; owner decision 2026-11-24, which removed Tag Manager, GA4 and
+ * the Meta pixel: no tracking tool may learn which health page a visitor opened;
+ * CLAUDE.md rule 4 as amended by ADR-075; legal position in
  * docs/33_REBUILD_V3/03_LEGAL_PACK.md: the Play Data safety answer "no data collected"
  * holds only while nothing leaves the device). A promise nobody checks drifts, so this
  * fails the gate when:
  *
  *   1. the website's package.json gains an analytics, error-reporting, tag-manager
- *      or database client (the container is loaded by a plain script, no package);
- *   2. website source mentions a tracking host or a third-party beacon anywhere but
- *      `apps/web/src/lib/consent/gtm.ts`, the one module allowed to name the Tag
- *      Manager host, or pushes to `dataLayer` anywhere but `lib/consent/events.ts`
- *      and the consent default (so every event passes the allow-list); likewise the
+ *      or database client; the one analytics package allowed is `@vercel/analytics`;
+ *   2. website source mentions Google Tag Manager, GA4, a gtag config or event call,
+ *      the Meta pixel (`fbq`, facebook.net) or any other tracking host, anywhere; the
+ *      only analytics import is `@vercel/analytics` from `lib/analytics/`; `dataLayer`
+ *      is pushed only by the AdSense consent-default snippet (`lib/ads/`); likewise the
  *      AdSense host only in `lib/ads/adsense.ts`, the unit markup only in
  *      `lib/ads/ad-unit.tsx`, and `lib/ads` imported only by the article and hub
  *      components (R6.8: no ad beside a calculator, the help page or a legal page);
- *   3. the app's pubspec.yaml gains an analytics, crash-reporting or ads-mediation
- *      package; the one ads package allowed is Google's `google_mobile_ads` (ADR-076);
- *   4. the app's own code can open a connection (http, dio, sockets): INTERNET exists in
- *      the release manifest only because the ads SDK declares it, and only while that
- *      SDK is in pubspec; the merged manifest must carry no location, phone, contacts,
- *      camera or microphone permission.
+ *   3. the app's pubspec.yaml gains an analytics, crash-reporting, attribution or ads
+ *      package (google_mobile_ads included: the app ships no ads SDK at all, owner
+ *      decision 2026-11-24), any Dart file imports one, or `lib/features/ads` exists;
+ *   4. the app's own code can open a connection (http, dio, sockets): INTERNET is declared
+ *      in the app's manifest only for Firebase AI Logic (ADR-079); the merged manifest must
+ *      carry no ad-ID or ad-services permission (AD_ID, ACCESS_ADSERVICES_*) and no
+ *      location, phone, contacts, camera or microphone permission.
  *
  * Adding any of these is a decision for docs/DECISIONS.md and a change to the
  * privacy policy, never a dependency bump.
  */
-import { readFileSync, readdirSync, statSync } from "node:fs";
+import { existsSync, readFileSync, readdirSync, statSync } from "node:fs";
 import { join, relative } from "node:path";
 
 const findings = [];
@@ -36,7 +39,7 @@ const fail = (file, message) => findings.push(`${file}: ${message}`);
 // 1. Web dependencies.
 const WEB_PKG = "apps/web/package.json";
 const FORBIDDEN_WEB_PACKAGES = [
-  /posthog/i, /@sentry\//i, /segment/i, /mixpanel/i, /amplitude/i, /hotjar/i, /@vercel\/analytics/i,
+  /posthog/i, /@sentry\//i, /segment/i, /mixpanel/i, /amplitude/i, /hotjar/i,
   /gtag/i, /google-tag/i, /firebase/i, /@supabase\//i, /plausible/i, /fathom/i, /fullstory/i,
 ];
 try {
@@ -57,6 +60,10 @@ const TRACKING_PATTERNS = [
   /google-analytics\.com/i, /googletagmanager\.com/i, /connect\.facebook\.net/i, /posthog\.com/i,
   /sentry\.io/i, /hotjar\.com/i, /mixpanel\.com/i, /segment\.io/i, /navigator\.sendBeacon/,
   /supabase\.co/i, /googlesyndication\.com/i, /doubleclick\.net/i, /adsbygoogle\.js/i,
+  // Owner decision 2026-11-24: no Google Tag Manager, GA4 or Meta pixel, in any form.
+  /googletagmanager/i, /\bGTM-[A-Z0-9]{4,}/, /NEXT_PUBLIC_GTM/, /gtm\.js/i, /analytics\.google\.com/i,
+  /gtag\s*\(\s*['"](config|event|js|set|get)['"]/, /gtag\/js/i, /['"]G-[A-Z0-9]{8,}['"]/,
+  /\bfbq\b/, /facebook\.net/i, /facebook\.com\/tr/i, /fbevents/i,
 ];
 // R6.8: the AdSense host may appear in exactly one module (plus its test), and the
 // `<ins class="adsbygoogle">` markup in exactly one component, so a unit can never be
@@ -65,15 +72,17 @@ const ADS_HOST_ALLOWED_IN = new Set(["apps/web/src/lib/ads/adsense.ts", "apps/we
 const ADS_HOST_PATTERNS = new Set(["googlesyndication\\.com", "doubleclick\\.net", "adsbygoogle\\.js"]);
 const AD_UNIT_MARKUP = /className="adsbygoogle|class="adsbygoogle|adsbygoogle\s*=\s*window\.adsbygoogle|w\.adsbygoogle/;
 const AD_UNIT_ALLOWED_IN = new Set(["apps/web/src/lib/ads/ad-unit.tsx"]);
-// ADR-075: the Tag Manager host may appear in exactly one module, and only pushes to
-// `dataLayer` that go through the allow-list in events.ts (plus the consent default,
-// which pushes the denied state) are permitted. Anything else is a second tracker.
-const GTM_HOST_ALLOWED_IN = new Set(["apps/web/src/lib/consent/gtm.ts", "apps/web/src/lib/consent/gtm.test.ts"]);
+// Owner decision 2026-11-24: the only `dataLayer` writer left is the AdSense Consent Mode
+// default (denied) snippet; nothing may push events. `@vercel/analytics` may be imported
+// from exactly one component, which strips the query and hash before anything is sent.
 const DATALAYER_PUSH_ALLOWED_IN = new Set([
-  "apps/web/src/lib/consent/events.ts",
-  "apps/web/src/lib/consent/events.test.ts",
-  "apps/web/src/lib/consent/consent-default.ts",
-  "apps/web/src/lib/consent/gtm.ts",
+  "apps/web/src/lib/ads/consent-mode-default.ts",
+  "apps/web/src/lib/ads/consent-mode-default.test.ts",
+]);
+const VERCEL_ANALYTICS_IMPORT = /["']@vercel\/(analytics|speed-insights)/;
+const VERCEL_ANALYTICS_ALLOWED_IN = new Set([
+  "apps/web/src/lib/analytics/visit-measurement.tsx",
+  "apps/web/src/lib/analytics/visit-measurement.test.ts",
 ]);
 const DATALAYER_PUSH = /dataLayer(\s*\]?\s*)?\.push\s*\(|w\[l\]\.push/;
 function walk(dir, out = []) {
@@ -91,27 +100,27 @@ try {
   fail(WEB_SRC, "cannot scan the website source");
 }
 if (files.length === 0) fail(WEB_SRC, "no source files found; refusing to pass on nothing");
-let gtmModuleSeen = false;
+let visitMeasurementSeen = false;
 for (const file of files) {
   const text = readFileSync(file, "utf8");
   const rel = relative(process.cwd(), file).replace(/\\/g, "/");
   for (const re of TRACKING_PATTERNS) {
     if (!re.test(text)) continue;
-    if (re.source === "googletagmanager\\.com" && GTM_HOST_ALLOWED_IN.has(rel)) {
-      gtmModuleSeen = true;
-      continue;
-    }
     if (ADS_HOST_PATTERNS.has(re.source) && ADS_HOST_ALLOWED_IN.has(rel)) continue;
     fail(rel, `mentions a tracking or data host (${re.source})`);
   }
   if (DATALAYER_PUSH.test(text) && !DATALAYER_PUSH_ALLOWED_IN.has(rel)) {
-    fail(rel, "pushes to dataLayer outside lib/consent/events.ts; every event must pass the allow-list");
+    fail(rel, "pushes to dataLayer; only the AdSense consent-default snippet in lib/ads may (no event layer, 2026-11-24)");
+  }
+  if (VERCEL_ANALYTICS_IMPORT.test(text)) {
+    if (VERCEL_ANALYTICS_ALLOWED_IN.has(rel)) visitMeasurementSeen = true;
+    else fail(rel, "imports @vercel/analytics outside lib/analytics/visit-measurement.tsx");
   }
   if (AD_UNIT_MARKUP.test(text) && !AD_UNIT_ALLOWED_IN.has(rel)) {
     fail(rel, "renders an ad unit outside lib/ads/ad-unit.tsx; placements are decided in lib/ads/placements.ts");
   }
 }
-if (!gtmModuleSeen) fail("apps/web/src/lib/consent/gtm.ts", "the one allowed Tag Manager module is missing; the allow-list above is stale");
+if (!visitMeasurementSeen) fail("apps/web/src/lib/analytics/visit-measurement.tsx", "the one allowed analytics module is missing; the allow-list above is stale");
 // 2b. Ads reach the browser only through the content components (02_MONETIZATION.md
 // §1.1): calculators, help-now, legal pages, the home page and the root layout never
 // import the ads module, so the rule "no ad beside a tool or a crisis line" is checked,
@@ -134,23 +143,21 @@ for (const file of files) {
 
 // 3. App dependencies.
 const PUBSPEC = "apps/mobile/pubspec.yaml";
-// ADR-076 (2026-10-29): Google's own ads SDK is the one ads package allowed; mediation
-// adapters, analytics, crash reporting and attribution SDKs stay forbidden because each
-// adds a second party that sees device identifiers or app events.
-const ADS_SDK_PACKAGE = "google_mobile_ads";
+// Owner decision 2026-11-24 (reverses ADR-076): the app ships no ads SDK, Google's included.
+// Ads, mediation, analytics, crash reporting and attribution packages are all forbidden
+// because each adds a second party that sees device identifiers or app events.
 const FORBIDDEN_DART_PACKAGES = [
+  /mobile_ads/i, /^ads?$/i, /_ads?$/i, /^ads?_/i, /adsense/i, /attribution/i, /branch/i, /adservices/i,
   /firebase/i, /sentry/i, /crashlytics/i, /analytics/i, /admob/i, /mediation/i, /applovin/i, /unity_ads/i,
   /ironsource/i, /facebook/i, /amplitude/i, /mixpanel/i, /posthog/i, /supabase/i, /appsflyer/i, /adjust/i,
   /onesignal/i, /^http$/i, /^dio$/i, /web_socket/i,
 ];
-let adsSdkInPubspec = false;
 try {
   const pubspec = readFileSync(PUBSPEC, "utf8");
   const depsBlock = pubspec.split(/^dependencies:/m)[1] ?? "";
   for (const line of depsBlock.split("\n")) {
     const name = line.match(/^  ([a-z_0-9]+):/)?.[1];
     if (!name) continue;
-    if (name === ADS_SDK_PACKAGE) { adsSdkInPubspec = true; continue; }
     if (FORBIDDEN_DART_PACKAGES.some((re) => re.test(name))) {
       fail(PUBSPEC, `package "${name}" would send her data off the phone`);
     }
@@ -159,22 +166,25 @@ try {
   fail(PUBSPEC, `cannot read: ${error.message}`);
 }
 
-// 3b. The app's own code never opens a connection. With INTERNET in the manifest for the
-// ads SDK, this is what keeps "her record never leaves the phone" checkable: no HTTP client,
-// no socket, no WebSocket anywhere under lib/. (dart:io is allowed: files and the keystore.)
+// 3b. The app's own code never opens a connection. With INTERNET in the manifest for
+// Firebase AI Logic, this is what keeps "her record never leaves the phone" checkable: no HTTP
+// client, no socket, no WebSocket anywhere under lib/. (dart:io is allowed: files and the keystore.)
 const APP_LIB = "apps/mobile/lib";
 const NETWORK_CODE = [/\bHttpClient\b/, /\bSocket\.connect\b/, /\bRawSocket\b/, /\bWebSocket\b/, /package:http\//, /package:dio\//, /\bNetworkImage\(/, /\bImage\.network\(/];
-const ADS_IMPORT_DART = /package:google_mobile_ads\//;
-const ADS_IMPORT_DART_ALLOWED_IN = [/^apps\/mobile\/lib\/features\/ads\//];
+// Any import of an ads, analytics or attribution package, by name, whatever pubspec says.
+const TRACKING_IMPORT_DART = /package:(google_mobile_ads|[a-z_0-9]*(admob|mobile_ads|analytics|crashlytics|sentry|attribution|appsflyer|adjust|mixpanel|amplitude|posthog|onesignal|applovin|unity_ads|ironsource)[a-z_0-9]*)\//;
 try {
+  if (existsSync("apps/mobile/lib/features/ads")) {
+    fail("apps/mobile/lib/features/ads", "the ads feature folder exists; the app ships no ads (owner decision 2026-11-24)");
+  }
   for (const file of walk(APP_LIB).filter((f) => f.endsWith(".dart"))) {
     const text = readFileSync(file, "utf8");
     const rel = relative(process.cwd(), file).replace(/\\/g, "/");
     for (const re of NETWORK_CODE) {
-      if (re.test(text)) fail(rel, `opens a network connection of its own (${re.source}); only the ads SDK may talk to the network`);
+      if (re.test(text)) fail(rel, `opens a network connection of its own (${re.source}); the app's Dart code must not talk to the network`);
     }
-    if (ADS_IMPORT_DART.test(text) && !ADS_IMPORT_DART_ALLOWED_IN.some((re) => re.test(rel))) {
-      fail(rel, "imports the ads SDK outside lib/features/ads/; ad surfaces are decided in lib/domain/ads_policy.dart");
+    if (TRACKING_IMPORT_DART.test(text)) {
+      fail(rel, "imports an ads, analytics or attribution package; the app ships none (owner decision 2026-11-24)");
     }
   }
 } catch (error) {
@@ -257,9 +267,13 @@ try {
   fail(ASSISTANT_CHANNEL_DART, `cannot read: ${error.message}`);
 }
 
-// 4. Source manifest: the app itself never asks for INTERNET (the ads SDK's manifest does,
-// and only while the SDK is in pubspec), and never for anything that reads the person.
+// 4. Source manifest: INTERNET is declared here only for Firebase AI Logic (ADR-079); the ad-ID
+// and ad-services permissions must be explicitly removed; nothing may read the person.
 const MANIFEST = "apps/mobile/android/app/src/main/AndroidManifest.xml";
+const AD_PERMISSIONS = [
+  "com.google.android.gms.permission.AD_ID", "android.permission.ACCESS_ADSERVICES_AD_ID",
+  "android.permission.ACCESS_ADSERVICES_TOPICS", "android.permission.ACCESS_ADSERVICES_ATTRIBUTION",
+];
 const PERSONAL_PERMISSIONS = [
   /ACCESS_FINE_LOCATION/, /ACCESS_COARSE_LOCATION/, /ACCESS_BACKGROUND_LOCATION/, /READ_PHONE_STATE/, /READ_CONTACTS/,
   /CAMERA/, /RECORD_AUDIO/, /READ_SMS/, /READ_CALL_LOG/, /GET_ACCOUNTS/, /BLUETOOTH_SCAN/, /ACTIVITY_RECOGNITION/,
@@ -267,8 +281,10 @@ const PERSONAL_PERMISSIONS = [
 try {
   const manifest = readFileSync(MANIFEST, "utf8");
   const requested = manifest.split("\n").filter((line) => !/tools:node="remove"/.test(line)).join("\n");
-  if (/android\.permission\.INTERNET/.test(requested)) {
-    fail(MANIFEST, "the app's own manifest requests INTERNET; only the ads SDK may declare it (ADR-076)");
+  for (const id of AD_PERMISSIONS) {
+    if (!new RegExp(`${id}"[^>]*tools:node="remove"`).test(manifest)) {
+      fail(MANIFEST, `does not remove ${id} with tools:node="remove"; the app has no ads`);
+    }
   }
   for (const re of PERSONAL_PERMISSIONS) {
     if (re.test(requested)) fail(MANIFEST, `requests a permission that reads the person (${re.source})`);
@@ -277,20 +293,27 @@ try {
   fail(MANIFEST, `cannot read: ${error.message}`);
 }
 
-// 4b. The merged release manifest, when a release build exists locally: what the libraries
-// add. INTERNET and ACCESS_NETWORK_STATE are expected from the ads SDK (ADR-076) and
-// forbidden without it; the personal permissions above are forbidden from any library.
-const MERGED = "apps/mobile/build/app/intermediates/merged_manifests/release/processReleaseManifest/AndroidManifest.xml";
-try {
-  const merged = readFileSync(MERGED, "utf8");
-  if (!adsSdkInPubspec && /android\.permission\.INTERNET/.test(merged)) {
-    fail(MERGED, "the MERGED release manifest requests INTERNET without the ads SDK: a library added it; see the manifest-merger report");
+// 4b. The merged release and debug manifests, when built locally: what the libraries add.
+// The ad-ID and ad-services permissions and the personal permissions are forbidden from any
+// library. (INTERNET is expected: Firebase AI Logic, ADR-079.)
+const MERGED_MANIFESTS = [
+  "apps/mobile/build/app/intermediates/merged_manifests/release/processReleaseManifest/AndroidManifest.xml",
+  "apps/mobile/build/app/intermediates/merged_manifests/debug/processDebugManifest/AndroidManifest.xml",
+  "apps/mobile/build/app/intermediates/merged_manifests/debug/AndroidManifest.xml",
+];
+for (const MERGED of MERGED_MANIFESTS) {
+  let merged;
+  try {
+    merged = readFileSync(MERGED, "utf8");
+  } catch {
+    continue; // Not built locally; the source checks above still ran.
+  }
+  for (const id of AD_PERMISSIONS) {
+    if (merged.includes(id)) fail(MERGED, `the MERGED manifest contains ${id}; a library added it (the app has no ads)`);
   }
   for (const re of PERSONAL_PERMISSIONS) {
-    if (re.test(merged)) fail(MERGED, `the MERGED release manifest requests a permission that reads the person (${re.source}); a library added it`);
+    if (re.test(merged)) fail(MERGED, `the MERGED manifest requests a permission that reads the person (${re.source}); a library added it`);
   }
-} catch {
-  // No local release build; the source checks above still ran.
 }
 
 if (findings.length > 0) {
@@ -299,4 +322,4 @@ if (findings.length > 0) {
   console.error(`\n${findings.length} finding(s). See docs/33_REBUILD_V3/03_LEGAL_PACK.md.`);
   process.exit(1);
 }
-console.log(`✓ privacy tripwire: no analytics, error-reporting or database client in either product; website: Tag Manager and AdSense hosts inside lib/consent and lib/ads only, ad units only in the article and hub; app: ${adsSdkInPubspec ? "Google's ads SDK only, imported only under lib/features/ads/" : "no ads SDK"}, no network code of its own, Firebase AI Logic only inside the Kotlin assistant behind CloudPrompt (CloudSafeText or PseudonymisedProfile only), no search grounding, no personal permission (source and merged manifest, when built).`);
+console.log(`✓ privacy tripwire: no analytics, error-reporting or database client in either product; website: no Tag Manager, GA4 or Meta pixel, Vercel Web Analytics (cookieless, path only) the only measurement, AdSense host inside lib/ads only, ad units only in the article and hub; app: no ads, analytics or attribution package and no ad-ID permission (source and merged manifest), no network code of its own, Firebase AI Logic only inside the Kotlin assistant behind CloudPrompt (CloudSafeText or PseudonymisedProfile only), no search grounding, no personal permission (source and merged manifest, when built).`);

@@ -8,14 +8,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 import '../../data/library.dart';
-import '../../domain/ads_policy.dart';
 import '../../l10n/app_localizations.dart';
 import '../../theme/femio_theme.dart';
 import '../../theme/spacing.dart';
 import '../../widgets/lexical_view.dart';
 import '../../widgets/notice_card.dart';
-import '../ads/ad_banner.dart';
-import '../ads/ad_unit_ids.dart';
 
 /// Reads [article]. Links are not opened by the app (it has no network and asks for
 /// none); a long press on a source copies its address for her browser.
@@ -70,8 +67,6 @@ class ArticleScreen extends StatelessWidget {
     );
     return Scaffold(
       appBar: AppBar(title: Text(l.navLearn)),
-      // At the bottom edge so it never scrolls over the sources or the disclaimer.
-      bottomNavigationBar: const AdBanner(surface: AdSurface.article, adUnitId: bannerAdUnitArticle),
       body: foreign ? Directionality(textDirection: TextDirection.ltr, child: body) : body,
     );
   }

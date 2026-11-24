@@ -1,5 +1,5 @@
 /**
- * Consent Mode v2 defaults (ADR-075, docs/34_GROWTH_OPS/01_ANALYTICS_AND_PIXELS.md §3).
+ * Consent Mode v2 defaults for AdSense (ADR-075, amended 2026-11-24).
  *
  * Every Google consent signal starts DENIED. Only the certified banner (AdSense
  * "Privacy & messaging", or a certified CMP) may flip a signal, and only after the
@@ -8,9 +8,9 @@
  * the site has neither, so granting it changes nothing while keeping the tag's
  * built-in checks consistent.
  *
- * This file is a string on purpose: it is rendered inline BEFORE the Tag Manager
- * loader, and `consent-default.test.ts` reads the object below to assert that every
- * signal is denied. Change the object, never the string; the string is derived.
+ * This file is a string on purpose: `adsense-script.tsx` renders it inline just BEFORE
+ * the AdSense script, on content pages only, and `consent-mode-default.test.ts` reads
+ * the object below to assert that every signal is denied. Change the object, never the string; the string is derived.
  */
 export const CONSENT_DEFAULTS = {
   ad_storage: "denied",
@@ -25,7 +25,7 @@ export const CONSENT_DEFAULTS = {
 /** How long (ms) tags wait for the banner's update before reading the defaults. */
 export const CONSENT_WAIT_FOR_UPDATE_MS = 500;
 
-/** The inline script that must run before any Google tag. */
+/** The inline script that sets the defaults ahead of the AdSense script. */
 export const CONSENT_DEFAULT_SNIPPET = [
   "window.dataLayer=window.dataLayer||[];",
   "function gtag(){dataLayer.push(arguments);}",

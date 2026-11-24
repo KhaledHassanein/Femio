@@ -16,21 +16,6 @@ val keyProperties = Properties().apply {
 }
 val hasReleaseKey = keyProperties.getProperty("storeFile") != null
 
-// AdMob app id (ADR-076). `apps/mobile/ads.env` (git-ignored, shape in ads.env.example) holds
-// the owner's real ids as KEY=VALUE lines; the Dart side reads the same file through
-// `--dart-define-from-file=ads.env`. Without the file the build uses Google's published TEST app
-// id, so nobody can ship real ads by accident.
-val googleTestAdmobAppId = "ca-app-pub-3940256099942544~3347511713"
-val adsEnv = mutableMapOf<String, String>().apply {
-    val file = rootProject.file("../ads.env")
-    if (file.exists()) {
-        file.readLines()
-            .map { it.trim() }
-            .filter { it.isNotEmpty() && !it.startsWith("#") && it.contains("=") }
-            .forEach { put(it.substringBefore("=").trim(), it.substringAfter("=").trim()) }
-    }
-}
-
 // Firebase AI Logic config for the assistant (ADR-078). `apps/mobile/assistant.env` (git-ignored,
 // shape in assistant.env.example) holds the owner's Firebase ids. Without it the fields are empty
 // and the assistant reports "not configured": every feature runs on the phone's rules.
@@ -83,7 +68,6 @@ android {
         // flag during build.
         versionCode = flutter.versionCode
         versionName = flutter.versionName
-        manifestPlaceholders["admobAppId"] = adsEnv["FEMIO_ADMOB_APP_ID"] ?: googleTestAdmobAppId
         buildConfigField("String", "FEMIO_FIREBASE_APP_ID", assistantField("FEMIO_FIREBASE_APP_ID"))
         buildConfigField("String", "FEMIO_FIREBASE_API_KEY", assistantField("FEMIO_FIREBASE_API_KEY"))
         buildConfigField("String", "FEMIO_FIREBASE_PROJECT_ID", assistantField("FEMIO_FIREBASE_PROJECT_ID"))

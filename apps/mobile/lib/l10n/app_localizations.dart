@@ -2549,18 +2549,6 @@ abstract class L10n {
   /// **'Product femio_plus not found yet (expected until it is created in Play Console)'**
   String get plusProbeProductMissing;
 
-  /// No description provided for @adLabel.
-  ///
-  /// In en, this message translates to:
-  /// **'Advertisement'**
-  String get adLabel;
-
-  /// No description provided for @adsNotice.
-  ///
-  /// In en, this message translates to:
-  /// **'Ads appear on guide screens only. They never see your records, and femio Plus will remove them.'**
-  String get adsNotice;
-
   /// No description provided for @assistantPrivateNote.
   ///
   /// In en, this message translates to:
@@ -3080,7 +3068,7 @@ abstract class L10n {
   /// No description provided for @assistantHowItWorks.
   ///
   /// In en, this message translates to:
-  /// **'Everything about you stays on your phone. Your notes and your log are read by femio\'s rules and, where your phone has it, by Gemini Nano on the phone. Safety rules always come first: signs of danger open the help page, and femio never advises on avoiding pregnancy. Ask femio answers only from trusted health sources carried in the app and shows them with every answer. Cloud boost is off unless you turn it on.'**
+  /// **'Your log stays on your phone. Your notes and your log are read by femio\'s rules and, where your phone has it, by Gemini Nano on the phone. Safety rules always come first: signs of danger open the help page, and femio never advises on avoiding pregnancy. Ask femio answers only from trusted health sources carried in the app and shows them with every answer. Cloud boost is off unless you agree to it; then only what its screen lists is sent to Google.'**
   String get assistantHowItWorks;
 
   /// No description provided for @assistantCloudNotBuilt.
@@ -3098,7 +3086,7 @@ abstract class L10n {
   /// No description provided for @boostIntro.
   ///
   /// In en, this message translates to:
-  /// **'Some phones have no on-phone AI. On those phones, Cloud boost lets Google\'s cloud AI, through Firebase, summarise trusted sources and put your tips in order. It is off unless you turn it on, and you can turn it off at any time.'**
+  /// **'Some phones have no on-phone AI. On those phones, Cloud boost lets Google\'s cloud AI summarise trusted sources for a question you approve, or put your tips in order. It is optional and stays off unless you agree below. Everything else in femio works without it.'**
   String get boostIntro;
 
   /// No description provided for @boostSendsHeading.
@@ -3106,18 +3094,6 @@ abstract class L10n {
   /// In en, this message translates to:
   /// **'What may be sent'**
   String get boostSendsHeading;
-
-  /// No description provided for @boostSendsQuestion.
-  ///
-  /// In en, this message translates to:
-  /// **'General questions with no personal details, which you see and approve before anything is sent.'**
-  String get boostSendsQuestion;
-
-  /// No description provided for @boostSendsBands.
-  ///
-  /// In en, this message translates to:
-  /// **'These broad facts, exactly as shown, to choose tips for you:'**
-  String get boostSendsBands;
 
   /// No description provided for @boostStageLabel.
   ///
@@ -3182,14 +3158,8 @@ abstract class L10n {
   /// No description provided for @boostNever.
   ///
   /// In en, this message translates to:
-  /// **'Your notes, dates, log entries, cycle lengths, name, contacts, or anything that identifies you or this phone.'**
+  /// **'Your notes, dates, log entries, cycle lengths, name, email, contacts or advertising ID.'**
   String get boostNever;
-
-  /// No description provided for @boostTurnOn.
-  ///
-  /// In en, this message translates to:
-  /// **'Turn on Cloud boost'**
-  String get boostTurnOn;
 
   /// No description provided for @boostTurnOff.
   ///
@@ -3202,6 +3172,108 @@ abstract class L10n {
   /// In en, this message translates to:
   /// **'Not now'**
   String get boostNotNow;
+
+  /// No description provided for @boostAgreeQuestions.
+  ///
+  /// In en, this message translates to:
+  /// **'I agree that femio may send a general question I approve, one at a time, with the public sources it found, so Google\'s cloud AI can summarise them. femio removes numbers, dates, names and contacts first, and I see the exact text before it goes.'**
+  String get boostAgreeQuestions;
+
+  /// No description provided for @boostAgreeTips.
+  ///
+  /// In en, this message translates to:
+  /// **'I agree that femio may send these four broad facts about my health, exactly as shown, so Google\'s cloud AI can put my tips in order. This happens in the background while Cloud boost is on.'**
+  String get boostAgreeTips;
+
+  /// No description provided for @boostPurposeQuestions.
+  ///
+  /// In en, this message translates to:
+  /// **'General questions'**
+  String get boostPurposeQuestions;
+
+  /// No description provided for @boostPurposeTips.
+  ///
+  /// In en, this message translates to:
+  /// **'Tips from four broad facts'**
+  String get boostPurposeTips;
+
+  /// No description provided for @boostWhoHeading.
+  ///
+  /// In en, this message translates to:
+  /// **'Who receives it, and where'**
+  String get boostWhoHeading;
+
+  /// No description provided for @boostWho.
+  ///
+  /// In en, this message translates to:
+  /// **'Google processes it for femio through Firebase AI Logic (the Gemini Developer API, paid tier). Google may process it in the United States or other countries where it has servers, under its data processing terms. femio (KM Digital Labs, Cairo, Egypt) decides what is sent and is responsible for it.'**
+  String get boostWho;
+
+  /// No description provided for @boostKeptHeading.
+  ///
+  /// In en, this message translates to:
+  /// **'How long it is kept'**
+  String get boostKeptHeading;
+
+  /// No description provided for @boostKept.
+  ///
+  /// In en, this message translates to:
+  /// **'femio has no server and keeps none of it. Under the paid terms femio uses, Google does not use it to improve its products. Google keeps it for up to 55 days to detect misuse, and people at Google may review content that its systems flag as misuse.'**
+  String get boostKept;
+
+  /// No description provided for @boostAlsoSeen.
+  ///
+  /// In en, this message translates to:
+  /// **'Like any internet connection, Google also sees your phone\'s internet address, and a check from Google Play that the request comes from the real femio app.'**
+  String get boostAlsoSeen;
+
+  /// No description provided for @boostChoiceHeading.
+  ///
+  /// In en, this message translates to:
+  /// **'Your choice'**
+  String get boostChoiceHeading;
+
+  /// No description provided for @boostChoice.
+  ///
+  /// In en, this message translates to:
+  /// **'Agreeing is optional, and you can agree to one use and not the other. You can turn Cloud boost off at any time, here or in Settings › Assistant, as easily as you turned it on. Each phone asks again: a restored backup does not carry your agreement.'**
+  String get boostChoice;
+
+  /// No description provided for @boostReadNotice.
+  ///
+  /// In en, this message translates to:
+  /// **'Read the privacy notice'**
+  String get boostReadNotice;
+
+  /// No description provided for @boostExplicit.
+  ///
+  /// In en, this message translates to:
+  /// **'These facts and questions are about your health. By ticking a box and pressing I agree, you give your explicit consent to that use only. femio keeps a dated record of your choice on this phone, which you can see here.'**
+  String get boostExplicit;
+
+  /// No description provided for @boostAgree.
+  ///
+  /// In en, this message translates to:
+  /// **'I agree'**
+  String get boostAgree;
+
+  /// No description provided for @boostReceiptHeading.
+  ///
+  /// In en, this message translates to:
+  /// **'Your agreement'**
+  String get boostReceiptHeading;
+
+  /// No description provided for @boostReceipt.
+  ///
+  /// In en, this message translates to:
+  /// **'You agreed on {date} to: {purposes}.'**
+  String boostReceipt(String date, String purposes);
+
+  /// No description provided for @boostWithdrawEffect.
+  ///
+  /// In en, this message translates to:
+  /// **'Turning it off stops anything new being sent. It cannot recall what was already sent.'**
+  String get boostWithdrawEffect;
 
   /// No description provided for @tip_trackDatesHelps.
   ///

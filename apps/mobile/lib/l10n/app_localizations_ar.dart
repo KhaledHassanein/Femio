@@ -1476,13 +1476,6 @@ class L10nAr extends L10n {
       'المنتج femio_plus غير موجود بعد (متوقع حتى يُنشأ في Play Console)';
 
   @override
-  String get adLabel => 'إعلان';
-
-  @override
-  String get adsNotice =>
-      'تظهر الإعلانات في شاشات الدلائل فقط. لا تطّلع أبدًا على سجلاتكِ، وسيزيلها femio Plus.';
-
-  @override
   String get assistantPrivateNote =>
       'يتم هذا على هاتفك. كلماتك لا تُحفظ ولا تُرسل إلى أي مكان.';
 
@@ -1806,7 +1799,7 @@ class L10nAr extends L10n {
 
   @override
   String get assistantHowItWorks =>
-      'كل ما يخصكِ يبقى على هاتفكِ. تقرأ قواعد femio ملاحظاتكِ وتسجيلاتكِ، ويساعد Gemini Nano على الهاتف إن كان متاحاً. قواعد السلامة تأتي أولاً دائماً: علامات الخطر تفتح صفحة المساعدة، ولا يقدّم femio نصائح عن تجنّب الحمل. يجيب «اسألي femio» فقط من مصادر صحية موثوقة يحملها التطبيق، ويعرضها مع كل إجابة. Cloud boost متوقف إلا إذا فعّلتِه.';
+      'تبقى تسجيلاتكِ على هاتفكِ. تقرأ قواعد femio ملاحظاتكِ وتسجيلاتكِ، ويساعد Gemini Nano على الهاتف إن كان متاحاً. قواعد السلامة تأتي أولاً دائماً: علامات الخطر تفتح صفحة المساعدة، ولا يقدّم femio نصائح عن تجنّب الحمل. يجيب «اسألي femio» فقط من مصادر صحية موثوقة يحملها التطبيق، ويعرضها مع كل إجابة. Cloud boost متوقف ما لم توافقي عليه؛ وعندها لا يُرسَل إلى Google إلا ما تذكره شاشته.';
 
   @override
   String get assistantCloudNotBuilt => 'غير متاح في هذه النسخة من التطبيق.';
@@ -1816,18 +1809,10 @@ class L10nAr extends L10n {
 
   @override
   String get boostIntro =>
-      'بعض الهواتف ليس عليها ذكاء اصطناعي. على هذه الهواتف، يسمح Cloud boost لذكاء Google السحابي، عبر Firebase، بتلخيص المصادر الموثوقة وترتيب نصائحكِ. هو متوقف إلا إذا فعّلتِه، ويمكنكِ إيقافه في أي وقت.';
+      'بعض الهواتف ليس عليها ذكاء اصطناعي. على هذه الهواتف، يسمح Cloud boost لذكاء Google السحابي بتلخيص المصادر الموثوقة لسؤال توافقين عليه، أو بترتيب نصائحكِ. هو اختياري، ويبقى متوقفاً ما لم توافقي أدناه. وكل ما عداه في femio يعمل من دونه.';
 
   @override
   String get boostSendsHeading => 'ما قد يُرسل';
-
-  @override
-  String get boostSendsQuestion =>
-      'أسئلة عامة بلا تفاصيل شخصية، ترينها وتوافقين عليها قبل إرسال أي شيء.';
-
-  @override
-  String get boostSendsBands =>
-      'هذه المعلومات العامة، كما تظهر بالضبط، لاختيار نصائح لكِ:';
 
   @override
   String get boostStageLabel => 'المرحلة';
@@ -1901,16 +1886,74 @@ class L10nAr extends L10n {
 
   @override
   String get boostNever =>
-      'ملاحظاتكِ، والتواريخ، والتسجيلات، وأطوال الدورات، واسمكِ، وجهات اتصالكِ، وأي شيء يعرّف بكِ أو بهذا الهاتف.';
-
-  @override
-  String get boostTurnOn => 'فعّلي Cloud boost';
+      'ملاحظاتكِ، والتواريخ، والتسجيلات، وأطوال الدورات، واسمكِ، وبريدكِ الإلكتروني، وجهات اتصالكِ، ومعرّف الإعلانات.';
 
   @override
   String get boostTurnOff => 'أوقفي Cloud boost';
 
   @override
   String get boostNotNow => 'ليس الآن';
+
+  @override
+  String get boostAgreeQuestions =>
+      'أوافق على أن يرسل femio سؤالاً عاماً أوافق عليه، سؤالاً واحداً في كل مرة، مع المصادر العامة التي وجدها، ليلخّصها ذكاء Google السحابي. يحذف femio الأرقام والتواريخ والأسماء وبيانات الاتصال أولاً، وأرى النص كما هو قبل إرساله.';
+
+  @override
+  String get boostAgreeTips =>
+      'أوافق على أن يرسل femio هذه الحقائق العامة الأربع عن صحتي، كما تظهر هنا تماماً، ليرتّب ذكاء Google السحابي نصائحي. يحدث ذلك في الخلفية ما دام Cloud boost مفعّلاً.';
+
+  @override
+  String get boostPurposeQuestions => 'الأسئلة العامة';
+
+  @override
+  String get boostPurposeTips => 'النصائح من أربع حقائق عامة';
+
+  @override
+  String get boostWhoHeading => 'من يستلمها، وأين';
+
+  @override
+  String get boostWho =>
+      'تعالجها Google لصالح femio عبر Firebase AI Logic (واجهة Gemini Developer API، الفئة المدفوعة). وقد تعالجها Google في الولايات المتحدة أو في دول أخرى لديها فيها خوادم، وفق شروطها لمعالجة البيانات. ويحدّد femio (KM Digital Labs، القاهرة، مصر) ما يُرسَل، وهو المسؤول عنه.';
+
+  @override
+  String get boostKeptHeading => 'كم تُحفظ';
+
+  @override
+  String get boostKept =>
+      'ليس لدى femio خادم، ولا يحتفظ بشيء منها. وبموجب الشروط المدفوعة التي يستخدمها femio، لا تستخدمها Google لتحسين منتجاتها. وتحتفظ بها Google مدة أقصاها 55 يوماً لكشف إساءة الاستخدام، وقد يراجع موظفون في Google المحتوى الذي تعلّمه أنظمتها على أنه إساءة استخدام.';
+
+  @override
+  String get boostAlsoSeen =>
+      'وكأي اتصال بالإنترنت، ترى Google أيضاً عنوان الإنترنت لهاتفكِ، وفحصاً من Google Play يؤكد أن الطلب صادر من تطبيق femio الحقيقي.';
+
+  @override
+  String get boostChoiceHeading => 'اختياركِ';
+
+  @override
+  String get boostChoice =>
+      'الموافقة اختيارية، ويمكنكِ الموافقة على استخدام واحد دون الآخر. ويمكنكِ إيقاف Cloud boost في أي وقت، هنا أو في الإعدادات › المساعد، بالسهولة نفسها التي فعّلتِه بها. ويسألكِ كل هاتف من جديد: النسخة الاحتياطية المستعادة لا تنقل موافقتكِ.';
+
+  @override
+  String get boostReadNotice => 'اقرئي إشعار الخصوصية';
+
+  @override
+  String get boostExplicit =>
+      'هذه الحقائق والأسئلة تخص صحتكِ. بوضع علامة في خانة والضغط على «أوافق»، تمنحين موافقتكِ الصريحة على ذلك الاستخدام وحده. ويحتفظ femio على هذا الهاتف بسجل مؤرّخ لاختياركِ، يمكنكِ رؤيته هنا.';
+
+  @override
+  String get boostAgree => 'أوافق';
+
+  @override
+  String get boostReceiptHeading => 'موافقتكِ';
+
+  @override
+  String boostReceipt(String date, String purposes) {
+    return 'وافقتِ في $date على: $purposes.';
+  }
+
+  @override
+  String get boostWithdrawEffect =>
+      'إيقافه يمنع إرسال أي شيء جديد، لكنه لا يستعيد ما أُرسل من قبل.';
 
   @override
   String get tip_trackDatesHelps =>

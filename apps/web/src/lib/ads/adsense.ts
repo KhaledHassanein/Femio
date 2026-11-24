@@ -3,8 +3,7 @@
  *
  * Pure functions, no DOM, so the components that render ads stay a few lines and the
  * markup is testable in the unit runner. This is the one module allowed to name the
- * AdSense host (scripts/analytics-lint.mjs), the same rule the Tag Manager loader
- * follows in `lib/consent/gtm.ts`.
+ * AdSense host (scripts/analytics-lint.mjs).
  *
  * Where ads appear is decided in docs/34_GROWTH_OPS/02_MONETIZATION.md §1.1 and encoded
  * in `./placements.ts`; this file only knows how to talk to AdSense. With no publisher
@@ -12,8 +11,8 @@
  * sellers, so previews, tests and a site awaiting approval stay ad-free without a code
  * change.
  *
- * Consent: the AdSense script reads the same Consent Mode defaults the Tag Manager
- * loader sets (every signal denied, `lib/consent/consent-default.ts`), so before a
+ * Consent: the AdSense script reads the Consent Mode defaults that `adsense-script.tsx`
+ * sets just ahead of it (every signal denied, `./consent-mode-default.ts`), so before a
  * visitor consents it can only request non-personalised ads. The consent dialog itself
  * is AdSense's own "Privacy & messaging" (owner guide part E).
  */

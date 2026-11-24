@@ -7,6 +7,7 @@
 library;
 
 import '../domain/appointments.dart';
+import '../domain/assistant/cloud_consent.dart';
 import '../domain/contractions.dart';
 import '../domain/movements.dart';
 import '../domain/weight.dart';
@@ -41,7 +42,7 @@ class AppSettings {
     this.logReminder = false,
     this.logReminderMinutes = defaultLogReminderMinutes,
     this.periodReminder = false,
-    this.cloudBoost = false,
+    this.cloud = const CloudConsent(),
   });
 
   /// Show Hijri dates beside Gregorian ones (on by default in Arabic, see
@@ -61,10 +62,13 @@ class AppSettings {
   /// One notification the day before her predicted period window opens. Off by default.
   final bool periodReminder;
 
-  /// Cloud boost (ADR-079): she agreed that, on a phone without Gemini Nano, coarse bands of
-  /// her record and redacted general questions may use Google's cloud model. Off by default;
-  /// only the consent screen turns it on.
-  final bool cloudBoost;
+  /// Cloud boost consent with its receipts (ADR-079, ADR-080): which purposes she agreed to,
+  /// when, and on which consent text. Nothing is allowed by default; only the consent screen
+  /// grants, and an older consent text or a restored backup allows nothing.
+  final CloudConsent cloud;
+
+  /// Whether Cloud boost is on for any purpose.
+  bool get cloudBoost => cloud.any;
 
   /// Defaults for a new record in [locale].
   static AppSettings defaultsFor(String locale) => AppSettings(showHijri: locale == 'ar');
@@ -75,7 +79,7 @@ class AppSettings {
     bool? logReminder,
     int? logReminderMinutes,
     bool? periodReminder,
-    bool? cloudBoost,
+    CloudConsent? cloud,
   }) =>
       AppSettings(
         showHijri: showHijri ?? this.showHijri,
@@ -83,7 +87,7 @@ class AppSettings {
         logReminder: logReminder ?? this.logReminder,
         logReminderMinutes: logReminderMinutes ?? this.logReminderMinutes,
         periodReminder: periodReminder ?? this.periodReminder,
-        cloudBoost: cloudBoost ?? this.cloudBoost,
+        cloud: cloud ?? this.cloud,
       );
 
   Map<String, Object?> toJson() => {
@@ -92,7 +96,7 @@ class AppSettings {
         'logReminder': logReminder,
         'logReminderMinutes': logReminderMinutes,
         'periodReminder': periodReminder,
-        'cloudBoost': cloudBoost,
+        'cloudConsent': cloud.toJson(),
       };
 
   static AppSettings fromJson(Map<String, Object?>? j) {
@@ -104,8 +108,9 @@ class AppSettings {
       // A time outside the clock (a damaged or hand-edited backup) falls back to the default.
       logReminderMinutes: minutes != null && minutes >= 0 && minutes < 24 * 60 ? minutes : defaultLogReminderMinutes,
       periodReminder: j?['periodReminder'] as bool? ?? false,
-      // Only an explicit true counts as consent; anything else keeps the cloud off.
-      cloudBoost: j?['cloudBoost'] == true,
+      // Only a receipt on today's consent text counts; the bare `cloudBoost: true` of the
+      // hackathon build carried no receipt, so it reads as no consent and she is asked again.
+      cloud: CloudConsent.fromJson(j?['cloudConsent']),
     );
   }
 }

@@ -10,20 +10,14 @@ const isDev = process.env.NODE_ENV === "development";
  * and an unlisted origin (an injected tracker, an exfiltration endpoint) simply
  * cannot be reached from a Femio page.
  */
-// ADR-075 (2026-10-28): the two origins a visitor's browser may be sent to, each only
-// when its id is set in Vercel, so a preview or a site without the ids keeps the
-// closed policy. The hosts are Google's documented sets for Tag Manager with GA4 and
-// the Meta Pixel inside it, and for AdSense (which also serves its consent dialog).
-// The same ids gate the markup (lib/consent, lib/ads); this is the browser-side lock.
-const measurementOn = /^GTM-[A-Z0-9]{4,12}$/.test(process.env.NEXT_PUBLIC_GTM_ID ?? "");
+// ADR-075 (amended 2026-11-24): the only third-party origins a visitor's browser may be
+// sent to are Google's AdSense hosts (which also serve its consent dialog), and only when
+// the publisher id is set in Vercel, so a preview or a site without it keeps the closed
+// policy. Visit counting is Vercel Web Analytics, served from this site's own origin
+// (`/_vercel/insights/*`), so it needs no entry here. The id gates the markup (lib/ads);
+// this is the browser-side lock.
 const adsOn = /^ca-pub-\d{10,20}$/.test(process.env.NEXT_PUBLIC_ADSENSE_CLIENT ?? "");
 
-const MEASUREMENT = {
-  script: ["https://www.googletagmanager.com", "https://connect.facebook.net"],
-  connect: ["https://www.googletagmanager.com", "https://*.google-analytics.com", "https://*.analytics.google.com", "https://www.facebook.com"],
-  img: ["https://www.googletagmanager.com", "https://*.google-analytics.com", "https://www.facebook.com"],
-  frame: ["https://www.googletagmanager.com"],
-};
 const ADS = {
   script: ["https://pagead2.googlesyndication.com", "https://*.googlesyndication.com", "https://*.doubleclick.net", "https://fundingchoicesmessages.google.com", "https://www.google.com", "https://*.adtrafficquality.google"],
   connect: ["https://pagead2.googlesyndication.com", "https://*.googlesyndication.com", "https://*.doubleclick.net", "https://fundingchoicesmessages.google.com", "https://www.google.com", "https://*.adtrafficquality.google"],
@@ -31,9 +25,9 @@ const ADS = {
   frame: ["https://*.googlesyndication.com", "https://*.doubleclick.net", "https://www.google.com", "https://fundingchoicesmessages.google.com", "https://*.adtrafficquality.google"],
 };
 
-/** The extra hosts for one directive: none, measurement, ads, or both. */
+/** The extra hosts for one directive: none, or the ad hosts when ads are on. */
 function allowed(directive) {
-  return [...(measurementOn ? MEASUREMENT[directive] : []), ...(adsOn ? ADS[directive] : [])];
+  return adsOn ? ADS[directive] : [];
 }
 
 function scriptSources() {

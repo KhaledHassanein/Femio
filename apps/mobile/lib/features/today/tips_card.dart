@@ -13,6 +13,7 @@ import 'package:flutter/material.dart';
 
 import '../../app.dart';
 import '../../data/profile.dart';
+import '../../domain/assistant/cloud_consent.dart';
 import '../../domain/assistant/cloud_prompt.dart';
 import '../../domain/assistant/personal_triggers.dart';
 import '../../domain/assistant/prompts.dart';
@@ -66,7 +67,7 @@ class _TipsCardState extends State<TipsCard> {
     if (profile == null) return;
     _fits = fitting(tipCatalogue, triggerContext(profile, widget.today));
     final key =
-        '${widget.today}|${_fits.map((f) => f.id).join(',')}|${profile.settings.cloudBoost}';
+        '${widget.today}|${_fits.map((f) => f.id).join(',')}|${profile.settings.cloud.allows(CloudPurpose.tips)}';
     if (key == _orderedFor) return;
     _orderedFor = key;
     _order = null;
@@ -90,7 +91,7 @@ class _TipsCardState extends State<TipsCard> {
         ),
       );
       if (reply != null) order = parseQuestionIds(reply, ids, tipsShown);
-    } else if (profile.settings.cloudBoost && status.canRunHybrid) {
+    } else if (profile.settings.cloud.allows(CloudPurpose.tips) && status.canRunHybrid) {
       final reply = await bridge.runHybrid(CloudPrompt.tips(bands, tipsShown));
       if (reply != null) {
         order = parseQuestionIds(reply.text, ids, tipsShown);

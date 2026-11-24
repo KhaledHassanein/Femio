@@ -623,8 +623,6 @@
   "plusProbeUnavailable": "Play Billing reachable: no (no Play Store on this device, or not signed in)",
   "plusProbeProductFound": "Product femio_plus found in Play Console",
   "plusProbeProductMissing": "Product femio_plus not found yet (expected until it is created in Play Console)",
-  "adLabel": "Advertisement",
-  "adsNotice": "Ads appear on guide screens only. They never see your records, and femio Plus will remove them.",
   "assistantPrivateNote": "This runs on your phone. Your words are not saved or sent anywhere.",
   "assistantModelNote": "Gemini Nano, the AI on your phone, helped with this.",
   "sayItButton": "Say it in your words",
@@ -765,13 +763,11 @@
   "assistantCloudTitle": "Cloud boost",
   "assistantCloudOn": "On. Used only when this phone has no on-phone AI.",
   "assistantCloudOff": "Off. Everything is done on this phone.",
-  "assistantHowItWorks": "Everything about you stays on your phone. Your notes and your log are read by femio's rules and, where your phone has it, by Gemini Nano on the phone. Safety rules always come first: signs of danger open the help page, and femio never advises on avoiding pregnancy. Ask femio answers only from trusted health sources carried in the app and shows them with every answer. Cloud boost is off unless you turn it on.",
+  "assistantHowItWorks": "Your log stays on your phone. Your notes and your log are read by femio's rules and, where your phone has it, by Gemini Nano on the phone. Safety rules always come first: signs of danger open the help page, and femio never advises on avoiding pregnancy. Ask femio answers only from trusted health sources carried in the app and shows them with every answer. Cloud boost is off unless you agree to it; then only what its screen lists is sent to Google.",
   "assistantCloudNotBuilt": "Not available in this version of the app.",
   "boostTitle": "Cloud boost",
-  "boostIntro": "Some phones have no on-phone AI. On those phones, Cloud boost lets Google's cloud AI, through Firebase, summarise trusted sources and put your tips in order. It is off unless you turn it on, and you can turn it off at any time.",
+  "boostIntro": "Some phones have no on-phone AI. On those phones, Cloud boost lets Google's cloud AI summarise trusted sources for a question you approve, or put your tips in order. It is optional and stays off unless you agree below. Everything else in femio works without it.",
   "boostSendsHeading": "What may be sent",
-  "boostSendsQuestion": "General questions with no personal details, which you see and approve before anything is sent.",
-  "boostSendsBands": "These broad facts, exactly as shown, to choose tips for you:",
   "boostStageLabel": "Life stage",
   "boostStage": "{value, select, period{Tracking periods} ttc{Trying to conceive} pregnant{Pregnant} postpartum{After birth} menopause{Menopause} other{Not set}}",
   "@boostStage": {
@@ -810,10 +806,36 @@
     }
   },
   "boostNeverHeading": "What is never sent",
-  "boostNever": "Your notes, dates, log entries, cycle lengths, name, contacts, or anything that identifies you or this phone.",
-  "boostTurnOn": "Turn on Cloud boost",
+  "boostNever": "Your notes, dates, log entries, cycle lengths, name, email, contacts or advertising ID.",
   "boostTurnOff": "Turn off Cloud boost",
   "boostNotNow": "Not now",
+  "boostAgreeQuestions": "I agree that femio may send a general question I approve, one at a time, with the public sources it found, so Google's cloud AI can summarise them. femio removes numbers, dates, names and contacts first, and I see the exact text before it goes.",
+  "boostAgreeTips": "I agree that femio may send these four broad facts about my health, exactly as shown, so Google's cloud AI can put my tips in order. This happens in the background while Cloud boost is on.",
+  "boostPurposeQuestions": "General questions",
+  "boostPurposeTips": "Tips from four broad facts",
+  "boostWhoHeading": "Who receives it, and where",
+  "boostWho": "Google processes it for femio through Firebase AI Logic (the Gemini Developer API, paid tier). Google may process it in the United States or other countries where it has servers, under its data processing terms. femio (KM Digital Labs, Cairo, Egypt) decides what is sent and is responsible for it.",
+  "boostKeptHeading": "How long it is kept",
+  "boostKept": "femio has no server and keeps none of it. Under the paid terms femio uses, Google does not use it to improve its products. Google keeps it for up to 55 days to detect misuse, and people at Google may review content that its systems flag as misuse.",
+  "boostAlsoSeen": "Like any internet connection, Google also sees your phone's internet address, and a check from Google Play that the request comes from the real femio app.",
+  "boostChoiceHeading": "Your choice",
+  "boostChoice": "Agreeing is optional, and you can agree to one use and not the other. You can turn Cloud boost off at any time, here or in Settings › Assistant, as easily as you turned it on. Each phone asks again: a restored backup does not carry your agreement.",
+  "boostReadNotice": "Read the privacy notice",
+  "boostExplicit": "These facts and questions are about your health. By ticking a box and pressing I agree, you give your explicit consent to that use only. femio keeps a dated record of your choice on this phone, which you can see here.",
+  "boostAgree": "I agree",
+  "boostReceiptHeading": "Your agreement",
+  "boostReceipt": "You agreed on {date} to: {purposes}.",
+  "@boostReceipt": {
+    "placeholders": {
+      "date": {
+        "type": "String"
+      },
+      "purposes": {
+        "type": "String"
+      }
+    }
+  },
+  "boostWithdrawEffect": "Turning it off stops anything new being sent. It cannot recall what was already sent.",
   "tip_trackDatesHelps": "Noting your period dates in the app helps you see your own pattern and gives a clinician clear facts.",
   "tip_periodLongerThanSeven": "A period that lasts longer than 7 days is worth mentioning to a clinician.",
   "tip_bleedingBetweenPeriods": "Bleeding between periods is worth mentioning to a clinician, so the cause can be looked into.",

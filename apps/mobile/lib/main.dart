@@ -12,7 +12,6 @@ import 'data/assistant_channel.dart';
 import 'data/key_vault.dart';
 import 'data/reminder_scheduler.dart';
 import 'data/store.dart';
-import 'features/ads/ads_runtime.dart';
 
 /// Starts the app: loads her record from the phone first, then draws the first frame.
 Future<void> main() async {
@@ -21,7 +20,7 @@ Future<void> main() async {
   final vault = SecureKeyVault();
   final controller = FemioController(EncryptedFileStore(vault: vault), vault: vault, reminders: LocalNotificationScheduler());
   await controller.load();
-  runApp(FemioApp(controller: controller, adsRuntime: platformAdsRuntime(), assistant: const MethodChannelAssistant()));
+  runApp(FemioApp(controller: controller, assistant: const MethodChannelAssistant()));
 }
 
 /// Arabic uses the same digits as English (ADR-069, owner direction). intl defaults

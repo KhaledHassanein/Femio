@@ -1453,13 +1453,6 @@ class L10nEn extends L10n {
       'Product femio_plus not found yet (expected until it is created in Play Console)';
 
   @override
-  String get adLabel => 'Advertisement';
-
-  @override
-  String get adsNotice =>
-      'Ads appear on guide screens only. They never see your records, and femio Plus will remove them.';
-
-  @override
   String get assistantPrivateNote =>
       'This runs on your phone. Your words are not saved or sent anywhere.';
 
@@ -1782,7 +1775,7 @@ class L10nEn extends L10n {
 
   @override
   String get assistantHowItWorks =>
-      'Everything about you stays on your phone. Your notes and your log are read by femio\'s rules and, where your phone has it, by Gemini Nano on the phone. Safety rules always come first: signs of danger open the help page, and femio never advises on avoiding pregnancy. Ask femio answers only from trusted health sources carried in the app and shows them with every answer. Cloud boost is off unless you turn it on.';
+      'Your log stays on your phone. Your notes and your log are read by femio\'s rules and, where your phone has it, by Gemini Nano on the phone. Safety rules always come first: signs of danger open the help page, and femio never advises on avoiding pregnancy. Ask femio answers only from trusted health sources carried in the app and shows them with every answer. Cloud boost is off unless you agree to it; then only what its screen lists is sent to Google.';
 
   @override
   String get assistantCloudNotBuilt =>
@@ -1793,18 +1786,10 @@ class L10nEn extends L10n {
 
   @override
   String get boostIntro =>
-      'Some phones have no on-phone AI. On those phones, Cloud boost lets Google\'s cloud AI, through Firebase, summarise trusted sources and put your tips in order. It is off unless you turn it on, and you can turn it off at any time.';
+      'Some phones have no on-phone AI. On those phones, Cloud boost lets Google\'s cloud AI summarise trusted sources for a question you approve, or put your tips in order. It is optional and stays off unless you agree below. Everything else in femio works without it.';
 
   @override
   String get boostSendsHeading => 'What may be sent';
-
-  @override
-  String get boostSendsQuestion =>
-      'General questions with no personal details, which you see and approve before anything is sent.';
-
-  @override
-  String get boostSendsBands =>
-      'These broad facts, exactly as shown, to choose tips for you:';
 
   @override
   String get boostStageLabel => 'Life stage';
@@ -1879,16 +1864,74 @@ class L10nEn extends L10n {
 
   @override
   String get boostNever =>
-      'Your notes, dates, log entries, cycle lengths, name, contacts, or anything that identifies you or this phone.';
-
-  @override
-  String get boostTurnOn => 'Turn on Cloud boost';
+      'Your notes, dates, log entries, cycle lengths, name, email, contacts or advertising ID.';
 
   @override
   String get boostTurnOff => 'Turn off Cloud boost';
 
   @override
   String get boostNotNow => 'Not now';
+
+  @override
+  String get boostAgreeQuestions =>
+      'I agree that femio may send a general question I approve, one at a time, with the public sources it found, so Google\'s cloud AI can summarise them. femio removes numbers, dates, names and contacts first, and I see the exact text before it goes.';
+
+  @override
+  String get boostAgreeTips =>
+      'I agree that femio may send these four broad facts about my health, exactly as shown, so Google\'s cloud AI can put my tips in order. This happens in the background while Cloud boost is on.';
+
+  @override
+  String get boostPurposeQuestions => 'General questions';
+
+  @override
+  String get boostPurposeTips => 'Tips from four broad facts';
+
+  @override
+  String get boostWhoHeading => 'Who receives it, and where';
+
+  @override
+  String get boostWho =>
+      'Google processes it for femio through Firebase AI Logic (the Gemini Developer API, paid tier). Google may process it in the United States or other countries where it has servers, under its data processing terms. femio (KM Digital Labs, Cairo, Egypt) decides what is sent and is responsible for it.';
+
+  @override
+  String get boostKeptHeading => 'How long it is kept';
+
+  @override
+  String get boostKept =>
+      'femio has no server and keeps none of it. Under the paid terms femio uses, Google does not use it to improve its products. Google keeps it for up to 55 days to detect misuse, and people at Google may review content that its systems flag as misuse.';
+
+  @override
+  String get boostAlsoSeen =>
+      'Like any internet connection, Google also sees your phone\'s internet address, and a check from Google Play that the request comes from the real femio app.';
+
+  @override
+  String get boostChoiceHeading => 'Your choice';
+
+  @override
+  String get boostChoice =>
+      'Agreeing is optional, and you can agree to one use and not the other. You can turn Cloud boost off at any time, here or in Settings › Assistant, as easily as you turned it on. Each phone asks again: a restored backup does not carry your agreement.';
+
+  @override
+  String get boostReadNotice => 'Read the privacy notice';
+
+  @override
+  String get boostExplicit =>
+      'These facts and questions are about your health. By ticking a box and pressing I agree, you give your explicit consent to that use only. femio keeps a dated record of your choice on this phone, which you can see here.';
+
+  @override
+  String get boostAgree => 'I agree';
+
+  @override
+  String get boostReceiptHeading => 'Your agreement';
+
+  @override
+  String boostReceipt(String date, String purposes) {
+    return 'You agreed on $date to: $purposes.';
+  }
+
+  @override
+  String get boostWithdrawEffect =>
+      'Turning it off stops anything new being sent. It cannot recall what was already sent.';
 
   @override
   String get tip_trackDatesHelps =>

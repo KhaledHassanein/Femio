@@ -1,8 +1,8 @@
 import { describe, expect, it } from "vitest";
-import { CONSENT_DEFAULTS, CONSENT_DEFAULT_SNIPPET, CONSENT_WAIT_FOR_UPDATE_MS } from "./consent-default";
+import { CONSENT_DEFAULTS, CONSENT_DEFAULT_SNIPPET, CONSENT_WAIT_FOR_UPDATE_MS } from "./consent-mode-default";
 
-// ADR-075: a tag may only fire after the visitor agrees. These tests pin the default
-// state so a "helpful" edit that grants analytics by default fails the gate.
+// ADR-075: an ad may only be personalised after the visitor agrees. These tests pin the
+// default state so a "helpful" edit that grants a signal by default fails the gate.
 describe("consent defaults", () => {
   it("denies every signal that could identify or follow a visitor", () => {
     const identifying = [

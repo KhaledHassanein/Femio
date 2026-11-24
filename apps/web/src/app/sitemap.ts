@@ -25,6 +25,7 @@ const STATIC_PATHS = [
   "/medical-review",
   "/privacy",
   "/terms",
+  "/consumer-health-data",
   "/authors",
   "/calculators",
   "/app",

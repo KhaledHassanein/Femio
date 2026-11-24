@@ -19,6 +19,7 @@ import '../../data/library.dart';
 import '../../data/profile.dart';
 import '../../data/trusted_registry.dart';
 import '../../domain/dates.dart';
+import '../../domain/assistant/cloud_consent.dart';
 import '../../domain/assistant/cloud_prompt.dart';
 import '../../domain/assistant/guide_search.dart';
 import '../../domain/assistant/prompts.dart';
@@ -120,7 +121,7 @@ class _AskScreenState extends State<AskScreen> {
       });
       return;
     }
-    final boost = profile?.settings.cloudBoost ?? false;
+    final boost = profile?.settings.cloud.allows(CloudPurpose.questions) ?? false;
     final safe = toCloudSafe(q);
     if (!mounted) return;
     setState(() {
