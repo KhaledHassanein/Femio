@@ -271,7 +271,48 @@ and a Firebase Realtime Database; C `period-calendar.com` subdomains, `partner.s
 4. P's weekly card shows a crown-to-rump to head-to-toe switch at week 20 with an explainer; if
    R8.17 shows lengths, the same switch needs saying, sourced `[NEEDS SOURCE]`.
 
-## 7 · What this teardown did not do
+## 7 · AI companion opportunities (for R10, not R9)
+
+Owner rule, 2026-11-24: list every AI or "smart" feature in the three apps, what it seems to send
+and where, and how femio could give the same benefit as a privacy-preserving companion. The design
+of the companion itself is `research/AI_COMPANION_2026-11.md` (separate work); this section only
+feeds it. Every row below is an **R10 candidate**. None is added to PROGRESS here.
+
+**What is actually inside.** None of the three APKs bundles a machine-learning model: no TensorFlow
+Lite, ML Kit, ONNX or model file, and no native library beyond CameraX, crash, ads and security
+libraries **[code: file and library listing]**. Their "smart" features are rules on the phone,
+plus servers for partner sync, remote configuration and ads.
+
+**Companion limits applied to every row** (ADR-079/080). Anything drawn from her record runs on the
+phone (Gemini Nano `ONLY_ON_DEVICE`, or the rules fallback). Cloud boost sees only a general
+question she approved (redacted `CloudPrompt`) or the four-band `PseudonymisedProfile`, under a
+recorded per-purpose consent. The companion explains and drafts; it never changes a prediction,
+a log, a reminder or a rule, and it never receives the whole record.
+
+| Their feature | App | What it seems to send, and where | femio companion version | Where it runs |
+|---|---|---|---|---|
+| "Smart prediction": a switch, an algorithm that drops outlier cycles, an adjustable luteal phase | C, T | Nothing for the prediction itself **[inferred: computed from local logs]**; C also syncs history, phase and predictions to its partner server when partner mode is on **[code: partner sync workers, strings]** | The prediction stays the register rule (core, untouched). The companion answers "why is my range wide?" from `PredictionEvidence` (cycles used, spread, rule) in plain words. Pairs with R9.6 | Phone only |
+| Personalised cycle and symptom analysis, with encouragement lines and "see a doctor" nudges | C, T | Nothing **[inferred: local; analysis unlocks after 3 cycles]** | Companion turns R8.5 Patterns counts into a short spoken or written summary ("seen in 4 of 6 cycles"), no cause words, seek-help only through the register rules | Phone only (counts come from her record) |
+| "Analyse discharge changes" | T | Nothing **[inferred]** | Companion explains her own mucus, OPK and BBT entries side by side (R8.8) and never says "you ovulated" | Phone only |
+| Ovulation-strip scanner: camera photo → high or low fertility | T | Nothing found **[inferred: the result class takes a bitmap and returns a high/low type; no network import in the scanner package; strings obfuscated]** | **No image reading** (MR-16, rule 1). Companion can walk her through reading her own kit's leaflet and logging the result she sees; Say it can log "my test was positive" | Phone; leaflet guidance from the trusted registry |
+| Insight stories "recommended for you", with a feedback form | T, C | Recommendation basis **[not verified]**; feedback text to the publisher **[inferred]** | Already designed: tips and guides chosen on the phone from her stage (ADR-079 catalogue). Companion adds "read this next" from Ask femio history kept on the phone | Phone only |
+| Partner notices: phase changes, daily logs, "her period is late" pushed to the partner | C | Cycle history, phase, predictions and daily logs to the publisher's partner server; push through Firebase Messaging **[code: partner workers, strings, FCM permission]** | Companion drafts a message she chooses to send ("this week I may be more tired"), shown to her first, sent by her through the share sheet. Nothing automatic, nothing scheduled to another person | Draft on phone; she sends it herself |
+| Conception chance high / medium / low | C, T | Nothing **[inferred]** | **Skip** (rule 3). The companion may explain what a fertile-window range means, from the registry | — |
+| Remote Config and A/B experiments deciding what she sees | P | Device and usage data to Firebase **[code: Remote Config, A/B testing registrars]** | **Skip**. femio has no server-driven UI | — |
+| Personalised ads | P, C, T | Advertising ID and device data to ad networks **[code: AD_ID, ad SDKs]** | **Skip** (ADR-080) | — |
+| Expected pregnancy weight gain from BMI | P | Nothing **[inferred: formula on the phone]** | A rule, not AI (R9.3). Companion may explain the band once it is sourced | Phone only |
+
+**Where Cloud boost fits.** Only for general questions with no record data: for example "why can
+cycles vary after stopping the pill?" as a redacted, approved `CloudPrompt` when the phone has no
+Nano. Every row above that reads her logs stays on the phone; with no Nano it falls back to fixed,
+reviewed templates, never to the cloud.
+
+**What femio can claim against these three.** None of them offers an assistant. Their
+"intelligence" is rules plus servers. femio would be the only one of the four that explains her own
+data in her language without the data leaving the phone (claim to verify against their latest
+store listings before use in marketing).
+
+## 8 · What this teardown did not do
 
 - Run any app (August's rule: binary ≠ reach). Reminder texts, paywall contents, RTL quality and
   the number of future periods drawn by C and T are **not verified**.
