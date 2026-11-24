@@ -916,6 +916,18 @@ dated refresh and a clinician sample review before release. Persona gaps that ne
 (diagnoses, loss history, minors, partner modes) are listed in `docs/hackathon/persona_coverage/` and
 stay out of scope.
 
+**Addendum 2026-11-24 (R7.13, registry coverage).** The owner reported that many questions got no
+answer. Measured on a synthetic set of 419 question runs, strong answers rose from 45% to 87% and
+"not covered" fell from 82 to 8 (`docs/33_REBUILD_V3/research/REGISTRY_COVERAGE_2026-11.md`).
+(a) NIA, NIMH, NHLBI, NIH ODS and NIAMS join the public-domain passage publishers (NIH institutes, US
+federal works); MedlinePlus `/ency/` stays banned (A.D.A.M., copyrighted). Saudi MOH joins the
+link-only publishers. (b) Every entry has a `lang` (missing means `en`); a link in her language ranks
+first. (c) Ranking: ties go to the entry with fewer topics she did not ask about, and an entry gains up
+to 2 points for uncommon words it shares with her question; topics still decide relevance. (d)
+`registry_coverage_test.dart` fails below 85% strong, above 8% "not covered", or if any birth-control
+question reaches the registry. A future session must not lower these floors to pass; widen the
+registry or fix ranking instead.
+
 ## ADR-080
 **Date:** 2026-11-24 · **Status:** accepted 2026-11-24 (owner, in chat, answering three questions: website "Remove both, use Vercel"; app ads "Remove in-app ads (Recommended)"; Cloud boost "in play, it can be opt-in after a comprehensive consent that is recorded according to the laws") · **Area:** privacy, app, website, legal · **Reverses:** ADR-076 · **Amends:** ADR-075 §2, ADR-079 §3
 

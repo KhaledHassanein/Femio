@@ -102,7 +102,7 @@ class _AskScreenState extends State<AskScreen> {
     setState(() => _stage = _Stage.working);
     final registry = widget.registry ?? await loadTrustedRegistry();
     _registryVersion = registry.version;
-    final found = searchRegistry(q, registry, goal: profile?.goal.name);
+    final found = searchRegistry(q, registry, goal: profile?.goal.name, lang: lang);
     if (found.notCovered) {
       if (mounted) setState(() => (_found = found, _stage = _Stage.answered));
       return;
