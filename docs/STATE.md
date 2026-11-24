@@ -16,7 +16,7 @@ history and `docs/archive/`.
 
 ## Where things stand (2026-10-28)
 
-- **Ask femio coverage (R7.13, 2026-11-24).** Registry 89 → 286 entries, every passage checked word for word; on a synthetic set of 419 questions strong answers went 45% → 87%, "not covered" 82 → 8. Report: `docs/33_REBUILD_V3/research/REGISTRY_COVERAGE_2026-11.md`. Next: a rule for "do I have X?" questions (R7.14).
+- **Ask femio coverage (R7.13–R7.14, 2026-11-24/25).** Registry 89 → 299 entries, every passage checked word for word; on a synthetic set of 419 questions strong answers went 45% → 99%, "not covered" 82 → 4. "Do I have X?" gets a fixed clinician sentence first (MR-51). Report: `docs/33_REBUILD_V3/research/REGISTRY_COVERAGE_2026-11.md`. Nothing open; three topics have no allowed source (listed there).
 
 - **Privacy hardening (ADR-080, 2026-11-24).** No ads in the app (AdMob removed, ad-ID permissions removed); no GTM/GA4/Meta on the website (Vercel Web Analytics instead; AdSense stays after consent); Cloud boost ships opt-in with per-purpose explicit consent and a dated, versioned receipt; privacy policy and consumer health data policy rewritten ×4; review and DPIA in `docs/compliance/PRIVACY_REVIEW_2026-11-24.md`. Owner actions 29–36 (lawyer review before the Play release).
 

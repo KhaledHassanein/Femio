@@ -351,6 +351,33 @@ void main() {
     }
   });
 
+  group('Ask femio: "do I have X?" (R7.14)', () {
+    for (final (lang, b) in [
+      ('en', Brightness.light),
+      ('ar', Brightness.dark),
+      ('ar', Brightness.light),
+    ]) {
+      testWidgets('screenshot: only a clinician can tell ($lang, ${b.name})', (tester) async {
+        await _size(tester);
+        final arabic = lang == 'ar';
+        final bridge = FakeAssistant();
+        final c = await _controller(_ttc(lang));
+        await tester.pumpWidget(
+          _app(lang, b, bridge, AskScreen(controller: c, registry: _registry, today: _today)),
+        );
+        await tester.enterText(find.byType(TextField).first, arabic ? 'هل عندي تكيس مبايض؟' : 'Do I have PCOS?');
+        await tester.tap(find.byIcon(Icons.search_rounded));
+        await tester.pumpAndSettle();
+        expect(
+          find.text(arabic ? 'الطبيب وحده يستطيع أن يحدّد' : 'Only a clinician can tell'),
+          findsOneWidget,
+        );
+        expect(find.text('Not covered yet'), findsNothing);
+        await _shoot('${lang}_${b.name}_ask_diagnosis');
+      });
+    }
+  });
+
   group('Say it in your words', () {
     for (final (lang, b) in [
       ('en', Brightness.light),

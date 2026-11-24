@@ -91,7 +91,8 @@ def main() -> None:
     print(table("Language", s["langs"], {"en": "English", "ar": "Arabic", "fr": "French", "es": "Spanish"}) + "\n")
     print("Rules group:")
     for r in s["rules"]:
-        print(f"  {r['id']} {r['lang']} [{r['rule']}] -> {r['grade']} {r['passages']}")
+        notice = " +clinician notice" if r.get("diagnosisNotice") else ""
+        print(f"  {r['id']} {r['lang']} [{r['rule']}] -> {r['grade']}{notice} {r['passages']}")
     print("\nNot strong:")
     for r in s["open"]:
         print(f"  {r['id']} {r['lang']} {r['grade']:6} {r['question']}  -> {r['passages']}")

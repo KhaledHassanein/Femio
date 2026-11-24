@@ -638,6 +638,8 @@
   "safetyUrgentHeading": "This may need urgent care",
   "safetyUrgentBody": "Chest pain, trouble breathing, fainting or a seizure need medical help now. Call your local emergency number.",
   "safetyBirthControl": "femio is not a way to avoid pregnancy and can't advise on it. A doctor, pharmacist or family-planning clinic can help you choose a method.",
+  "askDiagnosisHeading": "Only a clinician can tell",
+  "askDiagnosisBody": "femio can't tell whether you have a condition. A doctor can, after talking with you and, if needed, an examination or tests. Here is what trusted sources say about it.",
   "safetyHeavyBleedingHeading": "Heavy bleeding with dizziness",
   "safetyHeavyBleedingBody": "ACOG says: “If you are changing pads or tampons every hour for more than 2 hours in a row, and you also have chest pain, have shortness of breath, and are lightheaded or dizzy, seek emergency medical care right away.” If that is you, call your local emergency number now. If heavy bleeding worries you, talk to your doctor.",
   "safetyPostpartumHeading": "A warning sign after birth",

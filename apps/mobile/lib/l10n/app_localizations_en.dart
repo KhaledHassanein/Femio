@@ -1505,6 +1505,13 @@ class L10nEn extends L10n {
       'femio is not a way to avoid pregnancy and can\'t advise on it. A doctor, pharmacist or family-planning clinic can help you choose a method.';
 
   @override
+  String get askDiagnosisHeading => 'Only a clinician can tell';
+
+  @override
+  String get askDiagnosisBody =>
+      'femio can\'t tell whether you have a condition. A doctor can, after talking with you and, if needed, an examination or tests. Here is what trusted sources say about it.';
+
+  @override
   String get safetyHeavyBleedingHeading => 'Heavy bleeding with dizziness';
 
   @override

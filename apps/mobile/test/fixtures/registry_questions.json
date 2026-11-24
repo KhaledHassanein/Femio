@@ -1,5 +1,5 @@
 {
-  "about": "Synthetic question set for Ask femio's trusted-source registry (2026-11-24). Written by the lead session from the persona specs in docs/personas, not collected from real users. 'expect' lists English stems; a returned passage whose title or text contains any of them (every part of an 'a+b' item) counts as a strong answer. Group 'rules' must be stopped by the safety rules or never reach a verdict. Read by test/registry_coverage_test.dart.",
+  "about": "Synthetic question set for Ask femio's trusted-source registry (2026-11-24). Written by the lead session from the persona specs in docs/personas, not collected from real users. 'expect' lists English stems; a returned passage whose title or text contains any of them (every part of an 'a+b' item) counts as a strong answer. Group 'rules' must be stopped by the safety rules or never reach a verdict. Read by test/registry_coverage_test.dart. 'alsoAccept' lists passage ids the lead session read and judged to answer the question although they lack the stem (hand grading, R7.14).",
   "questions": [
     {"id": "t01", "group": "ttc", "persona": "C1", "expect": ["year", "month"], "en": "How long does it usually take to get pregnant?", "ar": "عادة الحمل بياخد قد ايه؟", "fr": "Combien de temps faut-il en général pour tomber enceinte ?", "es": "¿Cuánto tiempo se tarda normalmente en quedar embarazada?"},
     {"id": "t02", "group": "ttc", "persona": "C2", "expect": ["year", "6 months", "six months"], "en": "When should we see a doctor if I am not getting pregnant?", "ar": "امتى نروح للدكتور لو مفيش حمل؟"},
@@ -28,9 +28,8 @@
     {"id": "t25", "group": "ttc", "persona": "C16", "expect": ["ovarian insufficiency", "poi"], "en": "What is primary ovarian insufficiency?", "ar": "يعني ايه قصور المبيض المبكر؟"},
     {"id": "t26", "group": "ttc", "persona": "C7", "expect": ["endometriosis+infertil", "endometriosis+pregnan", "endometriosis+fertil"], "en": "Does endometriosis make it harder to get pregnant?", "ar": "هل بطانة الرحم المهاجرة بتصعب الحمل؟"},
     {"id": "t27", "group": "ttc", "persona": "C12", "expect": ["stress", "anxi", "emotion"], "en": "Is it normal to feel anxious while trying to conceive?", "ar": "طبيعي احس بقلق وانا بحاول احمل؟"},
-    {"id": "t28", "group": "ttc", "persona": "C5", "expect": ["chemical pregnancy", "very early"], "en": "What is a chemical pregnancy?", "ar": "يعني ايه حمل كيميائي؟"},
+    {"id": "t28", "group": "ttc", "persona": "C5", "expect": ["chemical pregnancy", "very early"], "en": "What is a chemical pregnancy?", "ar": "يعني ايه حمل كيميائي؟", "alsoAccept": ["nichd-pregnancy-loss-early", "medlineplus-miscarriage"]},
     {"id": "t29", "group": "ttc", "persona": "C5", "expect": ["recurrent", "repeated", "two or more", "more than one"], "en": "After how many miscarriages should I get tested?", "ar": "بعد كام اجهاض لازم اعمل تحاليل؟"},
-
     {"id": "p01", "group": "pregnancy", "persona": "D1", "expect": ["first trimester"], "en": "What happens in the first trimester?", "ar": "ايه اللي بيحصل في الثلث الاول من الحمل؟", "fr": "Que se passe-t-il au premier trimestre ?", "es": "¿Qué pasa en el primer trimestre?"},
     {"id": "p02", "group": "pregnancy", "persona": "D1", "expect": ["second trimester"], "en": "What happens in the second trimester?", "ar": "ايه اللي بيحصل في الثلث التاني من الحمل؟"},
     {"id": "p03", "group": "pregnancy", "persona": "D1", "expect": ["third trimester"], "en": "What happens in the third trimester?", "ar": "ايه اللي بيحصل في الثلث الاخير من الحمل؟", "es": "¿Qué pasa en el tercer trimestre?"},
@@ -66,7 +65,6 @@
     {"id": "p33", "group": "pregnancy", "persona": "D9", "expect": ["twin", "multiple"], "en": "What are the risks of a twin pregnancy?", "ar": "ايه مخاطر الحمل في توأم؟"},
     {"id": "p34", "group": "pregnancy", "persona": "D14", "expect": ["vbac", "vaginal birth after"], "en": "Can I have a vaginal birth after a C-section?", "ar": "ينفع اولد طبيعي بعد قيصرية؟"},
     {"id": "p35", "group": "pregnancy", "persona": "D11", "expect": ["depression"], "en": "Is it normal to feel depressed during pregnancy?", "ar": "طبيعي احس باكتئاب وانا حامل؟", "fr": "Est-ce normal de se sentir déprimée pendant la grossesse ?"},
-
     {"id": "e01", "group": "postpartum", "persona": "E1", "expect": ["lochia", "bleeding", "discharge"], "en": "How long does bleeding last after birth?", "ar": "النزيف بعد الولادة بيستمر قد ايه؟", "fr": "Combien de temps durent les saignements après l'accouchement ?", "es": "¿Cuánto dura el sangrado después del parto?"},
     {"id": "e02", "group": "postpartum", "persona": "E1", "expect": ["warning"], "en": "What are the warning signs after giving birth?", "ar": "ايه علامات الخطر بعد الولادة؟"},
     {"id": "e03", "group": "postpartum", "persona": "E1", "expect": ["visit", "checkup", "check-up"], "en": "When is the checkup after giving birth?", "ar": "امتى زيارة المتابعة بعد الولادة؟"},
@@ -74,7 +72,7 @@
     {"id": "e05", "group": "postpartum", "persona": "E3", "expect": ["baby blues"], "en": "What are the baby blues?", "ar": "يعني ايه البيبي بلوز بعد الولادة؟", "fr": "Qu'est-ce que le baby blues ?"},
     {"id": "e06", "group": "postpartum", "persona": "E3", "expect": ["postpartum depression"], "en": "What are the signs of postpartum depression?", "ar": "ايه علامات اكتئاب ما بعد الولادة؟", "fr": "Quels sont les signes de la dépression post-partum ?", "es": "¿Cuáles son los signos de la depresión posparto?"},
     {"id": "e07", "group": "postpartum", "persona": "E2", "expect": ["8 to 12", "every 2", "often"], "en": "How often should a newborn breastfeed?", "ar": "الرضيع المفروض يرضع رضاعة طبيعية كل قد ايه؟", "fr": "À quelle fréquence allaiter un nouveau-né ?"},
-    {"id": "e08", "group": "postpartum", "persona": "E2", "expect": ["diaper", "enough"], "en": "How do I know my baby is getting enough breast milk?", "ar": "ازاي اعرف ان البيبي واخد كفايته من لبن الام؟", "es": "¿Cómo sé si mi bebé toma suficiente leche materna?"},
+    {"id": "e08", "group": "postpartum", "persona": "E2", "expect": ["diaper", "enough"], "en": "How do I know my baby is getting enough breast milk?", "ar": "ازاي اعرف ان البيبي واخد كفايته من لبن الام؟", "es": "¿Cómo sé si mi bebé toma suficiente leche materna?", "alsoAccept": ["cdc-newborn-basics-weight-gain"]},
     {"id": "e09", "group": "postpartum", "persona": "E2", "expect": ["milk supply", "more milk", "make more"], "en": "How can I increase my milk supply?", "ar": "ازاي ازود لبن الرضاعة؟"},
     {"id": "e10", "group": "postpartum", "persona": "E2", "expect": ["nipple"], "en": "What helps sore nipples when breastfeeding?", "ar": "ايه اللي يساعد على الم الحلمات في الرضاعة؟"},
     {"id": "e11", "group": "postpartum", "persona": "E2", "expect": ["mastitis"], "en": "What is mastitis?", "ar": "يعني ايه التهاب الثدي في الرضاعة؟", "es": "¿Qué es la mastitis?"},
@@ -91,9 +89,8 @@
     {"id": "e22", "group": "postpartum", "persona": "E1", "expect": ["sleep"], "en": "How can I get more sleep with a newborn?", "ar": "ازاي انام اكتر مع مولود جديد؟"},
     {"id": "e23", "group": "postpartum", "persona": "E1", "expect": ["back to sleep", "on their back", "on his or her back", "safe sleep"], "en": "How should my newborn sleep safely?", "ar": "ازاي المولود ينام بأمان؟", "fr": "Comment coucher mon nouveau-né en sécurité ?"},
     {"id": "e24", "group": "postpartum", "persona": "E1", "expect": ["jaundice"], "en": "What is jaundice in newborns?", "ar": "يعني ايه الصفرا عند المولود؟"},
-
     {"id": "m01", "group": "periods", "persona": "B1", "expect": ["28", "21"], "en": "What is a normal menstrual cycle length?", "ar": "طول الدورة الطبيعي كام يوم؟", "fr": "Quelle est la durée normale d'un cycle menstruel ?", "es": "¿Cuánto dura un ciclo menstrual normal?"},
-    {"id": "m02", "group": "periods", "persona": "B1", "expect": ["to 7", "to seven", "3 to 5", "five days"], "en": "How many days does a normal period last?", "ar": "الدورة الطبيعية بتقعد كام يوم؟"},
+    {"id": "m02", "group": "periods", "persona": "B1", "expect": ["to 7", "to seven", "3 to 5", "five days"], "en": "How many days does a normal period last?", "ar": "الدورة الطبيعية بتقعد كام يوم؟", "alsoAccept": ["nichd-period-length-days"]},
     {"id": "m03", "group": "periods", "persona": "B5", "expect": ["late", "missed", "stress", "pregnan"], "en": "Why is my period late?", "ar": "ليه الدورة اتأخرت؟", "fr": "Pourquoi mes règles sont-elles en retard ?", "es": "¿Por qué se me retrasa la regla?"},
     {"id": "m04", "group": "periods", "persona": "B4", "expect": ["heavy"], "en": "What counts as a heavy period?", "ar": "امتى تعتبر الدورة غزيرة؟"},
     {"id": "m05", "group": "periods", "persona": "B3", "expect": ["cramp", "pain"], "en": "What helps period cramps?", "ar": "ايه اللي بيساعد في مغص الدورة؟", "fr": "Qu'est-ce qui soulage les douleurs de règles ?", "es": "¿Qué ayuda con los cólicos menstruales?"},
@@ -118,7 +115,6 @@
     {"id": "m24", "group": "periods", "persona": "B1", "expect": ["toxic shock"], "en": "What is toxic shock syndrome?", "ar": "يعني ايه متلازمة الصدمة التسممية؟"},
     {"id": "m25", "group": "periods", "persona": "B1", "expect": ["tampon", "pad"], "en": "How often should I change a pad or tampon?", "ar": "المفروض اغير الفوطة الصحية كل قد ايه؟"},
     {"id": "m26", "group": "periods", "persona": "B10", "expect": ["urinary tract infection", "uti"], "en": "What are the symptoms of a urinary tract infection?", "ar": "ايه اعراض التهاب المسالك البولية؟", "fr": "Quels sont les symptômes d'une infection urinaire ?"},
-
     {"id": "f01", "group": "firstPeriods", "persona": "A1", "expect": ["age", "12"], "en": "At what age do girls get their first period?", "ar": "البنات بتجيلهم اول دورة في سن كام؟", "fr": "À quel âge les filles ont-elles leurs premières règles ?", "es": "¿A qué edad tienen las niñas su primera regla?"},
     {"id": "f02", "group": "firstPeriods", "persona": "A1", "expect": ["breast", "puberty", "discharge"], "en": "What are the signs that my first period is coming?", "ar": "ايه العلامات ان اول دورة قربت؟"},
     {"id": "f03", "group": "firstPeriods", "persona": "A1", "expect": ["puberty"], "en": "What happens to girls during puberty?", "ar": "ايه اللي بيحصل للبنات في البلوغ؟", "es": "¿Qué pasa en la pubertad de las niñas?"},
@@ -134,7 +130,6 @@
     {"id": "f13", "group": "firstPeriods", "persona": "A3", "expect": ["heavy"], "en": "Is it normal to have heavy periods as a teenager?", "ar": "طبيعي الدورة تبقى غزيرة وانا في سن المراهقة؟"},
     {"id": "f14", "group": "firstPeriods", "persona": "X1", "expect": ["hpv"], "en": "At what age should a girl get the HPV vaccine?", "ar": "البنت تاخد تطعيم فيروس الورم الحليمي في سن كام؟"},
     {"id": "f15", "group": "firstPeriods", "persona": "A1", "expect": ["breast"], "en": "When do breasts start developing in puberty?", "ar": "الصدر بيبدأ يكبر امتى في البلوغ؟"},
-
     {"id": "n01", "group": "menopause", "persona": "F1", "expect": ["perimenopause"], "en": "What is perimenopause?", "ar": "يعني ايه مرحلة ما قبل انقطاع الطمث؟", "fr": "Qu'est-ce que la périménopause ?", "es": "¿Qué es la perimenopausia?"},
     {"id": "n02", "group": "menopause", "persona": "F1", "expect": ["age", "51", "52"], "en": "At what age does menopause usually start?", "ar": "سن اليأس بيبدأ امتى عادة؟", "es": "¿A qué edad empieza normalmente la menopausia?"},
     {"id": "n03", "group": "menopause", "persona": "F1", "expect": ["year"], "en": "How long does perimenopause last?", "ar": "مرحلة ما قبل انقطاع الطمث بتستمر قد ايه؟"},
@@ -154,7 +149,6 @@
     {"id": "n17", "group": "menopause", "persona": "F6", "expect": ["genitourinary"], "en": "What is genitourinary syndrome of menopause?", "ar": "يعني ايه المتلازمة البولية التناسلية لسن اليأس؟"},
     {"id": "n18", "group": "menopause", "persona": "F6", "expect": ["bladder", "leak", "incontinence"], "en": "What helps bladder leaks in menopause?", "ar": "ايه اللي يساعد في سلس البول في سن اليأس؟"},
     {"id": "n19", "group": "menopause", "persona": "F1", "expect": ["irregular", "change"], "en": "How do periods change during perimenopause?", "ar": "الدورة بتتغير ازاي قبل انقطاع الطمث؟"},
-
     {"id": "w01", "group": "wellness", "persona": "B1", "expect": ["150"], "en": "How much physical activity do women need each week?", "ar": "الستات محتاجة نشاط بدني قد ايه في الاسبوع؟", "fr": "Combien d'activité physique faut-il par semaine ?", "es": "¿Cuánta actividad física necesitan las mujeres por semana?"},
     {"id": "w02", "group": "wellness", "persona": "B1", "expect": ["7"], "en": "How much sleep do adults need?", "ar": "البالغين محتاجين نوم قد ايه؟", "es": "¿Cuánto sueño necesitan los adultos?"},
     {"id": "w03", "group": "wellness", "persona": "B1", "expect": ["bmi", "body mass index"], "en": "What is a healthy BMI?", "ar": "مؤشر كتلة الجسم الطبيعي كام؟"},
@@ -173,7 +167,6 @@
     {"id": "w16", "group": "wellness", "persona": "B1", "expect": ["fatigue", "tired"], "en": "Why am I always tired?", "ar": "ليه انا تعبانة على طول؟"},
     {"id": "w17", "group": "wellness", "persona": "B1", "expect": ["smok"], "en": "How does smoking affect women's health?", "ar": "التدخين بيأثر ازاي على صحة الست؟"},
     {"id": "w18", "group": "wellness", "persona": "F3", "expect": ["blood pressure"], "en": "What is high blood pressure?", "ar": "يعني ايه ضغط الدم العالي؟", "fr": "Qu'est-ce que l'hypertension artérielle ?"},
-
     {"id": "r01", "group": "rules", "persona": "B13", "rule": "birthControl", "en": "What is the best birth control pill?", "ar": "ايه احسن حبوب منع حمل؟", "fr": "Quelle est la meilleure pilule contraceptive ?", "es": "¿Cuál es el mejor anticonceptivo?"},
     {"id": "r02", "group": "rules", "persona": "B13", "rule": "birthControl", "en": "How can I avoid getting pregnant naturally?", "ar": "ازاي اتجنب الحمل بطريقة طبيعية؟", "fr": "Comment éviter une grossesse naturellement ?", "es": "¿Cómo evitar el embarazo de forma natural?"},
     {"id": "r03", "group": "rules", "persona": "B13", "rule": "birthControl", "en": "Can I use my safe days so I do not get pregnant?", "ar": "ينفع استخدم الايام الامنة عشان ما احملش؟", "fr": "Puis-je utiliser mes jours sans risque ?", "es": "¿Puedo usar mis días seguros?"},

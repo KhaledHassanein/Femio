@@ -24,6 +24,7 @@ import '../../domain/assistant/cloud_prompt.dart';
 import '../../domain/assistant/guide_search.dart';
 import '../../domain/assistant/prompts.dart';
 import '../../domain/assistant/redaction.dart';
+import '../../domain/assistant/diagnosis.dart';
 import '../../domain/assistant/safety.dart';
 import '../../domain/assistant/source_registry.dart';
 import '../../l10n/app_localizations.dart';
@@ -63,6 +64,10 @@ class _AskScreenState extends State<AskScreen> {
   final _outgoing = TextEditingController();
   _Stage _stage = _Stage.asking;
   SafetySignal _signal = SafetySignal.none;
+
+  /// She asked whether she has a condition: the fixed "only a clinician can tell" sentence
+  /// comes before the passages (R7.14). The search still runs.
+  bool _diagnosis = false;
   String? _note;
   RegistryAnswer? _found;
   CitedAnswer? _summary;
@@ -89,6 +94,7 @@ class _AskScreenState extends State<AskScreen> {
     final profile = _profile;
     setState(() {
       _signal = profile == null ? safetySignal(q, pregnant: false) : safetySignalFor(q, profile, _today());
+      _diagnosis = asksForDiagnosis(q);
       _found = null;
       _summary = null;
       _note = null;
@@ -191,6 +197,7 @@ class _AskScreenState extends State<AskScreen> {
   void _reset() => setState(() {
     _stage = _Stage.asking;
     _signal = SafetySignal.none;
+    _diagnosis = false;
     _found = null;
     _summary = null;
     _note = null;
@@ -255,6 +262,15 @@ class _AskScreenState extends State<AskScreen> {
               const Center(child: CircularProgressIndicator()),
               const SizedBox(height: space3),
               Center(child: Text(l.askSearching, style: t.bodyMedium)),
+            ],
+            if (_diagnosis && _stage == _Stage.answered) ...[
+              const SizedBox(height: space4),
+              NoticeCard(
+                tone: NoticeTone.caution,
+                icon: Icons.medical_information_outlined,
+                heading: l.askDiagnosisHeading,
+                body: l.askDiagnosisBody,
+              ),
             ],
             if (_note != null && _stage == _Stage.answered) ...[
               const SizedBox(height: space4),
