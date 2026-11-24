@@ -17,6 +17,8 @@
 package com.femioapp.femio.assistant
 
 import android.content.Context
+import android.content.Intent
+import android.net.Uri
 import com.femioapp.femio.BuildConfig
 import com.google.firebase.Firebase
 import com.google.firebase.FirebaseApp
@@ -158,4 +160,15 @@ class FemioAssistant(private val context: Context, messenger: BinaryMessenger) :
         app = created
         return created
     }
+}
+
+/**
+ * Opens a source page in her browser. Only https links are opened; anything else is refused, so
+ * a bad registry entry cannot launch another app. Returns whether a page was opened.
+ */
+fun openInBrowser(context: Context, url: String): Boolean {
+    val uri = Uri.parse(url)
+    if (uri.scheme != "https") return false
+    context.startActivity(Intent(Intent.ACTION_VIEW, uri).addFlags(Intent.FLAG_ACTIVITY_NEW_TASK))
+    return true
 }
