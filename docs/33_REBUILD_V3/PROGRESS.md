@@ -213,3 +213,14 @@ typed context, writes only through a confirmed draft, and runs the safety rules 
 - [ ] R10.16 · (C) Reminder wording coach for custom reminders (after R8.24), postpartum check-in (after R8.19), perimenopause monthly story (after R8.20), quiet mode on loss (with R8.14) (U35, U31, U32, U33)
 - [DEFERRED] R10.17 · femio's own on-device speech (ML Kit GenAI; RECORD_AUDIO needs an ADR and a scoped tripwire exception), "Explain simpler" (English only), onboarding in her words, partner card, website AI (U20, U03, U36, U38)
 - [x] R10.0 · Research: `research/AI_COMPANION_2026-11.md` (36 uses, boundary architecture, rejected list; lead checked the `runPrivate(String)` call sites and the Firebase "English and Korean only" on-device limit, 2026-11-24)
+
+## R11 · Calculators and mini tools (2026-11-24) — branch `claude/calculators-mini-tools-8afeee`
+
+Ranked for the wedge (TTC → pregnancy, PCOS depth, Saudi Arabia + Egypt) against the APK teardown and `docs/28_TEARDOWN`. Every tool returns a typed result (no prose) so a later "AI view" (R10.1) can read it beside the rules answer; no model is called.
+
+- [~] R11.0 · Ranking (built: due date by every method incl. scan; pregnancy week-by-week calendar; IOM weight-gain range; website contraction timer. Not built, with reason: website kick counter (MR-30 needs her own pattern over 3 sessions; a page that saves nothing can only give a false "fine"; the app's movement log is the honest tool), PCOS symptom screener (D-04 and §5: no screener in v1; a no-score "PCOS visit checklist" needs an owner decision), folic-acid and water reminders (R9.4 builds her own-label supplement reminder; water is out of the wedge), cycle-variability checker (exists: `/calculators/cycle-length`), ovulation-test log helper (the app's OPK chips exist), conception-date estimator (repeats the ovulation window for a past cycle; low value, sensitive)
+- [ ] R11.1 · Due date by method on the website (last period, conception, IVF day-3/day-5 transfer, dating scan) and in the app's Tools; MR-52 scan dating with fixture cases
+- [ ] R11.2 · Pregnancy week-by-week calendar (website page + app Tools): week rows with dates, trimester, term window, the week guide (MR-53, `pregnancy-calendar.json`)
+- [ ] R11.3 · Pregnancy weight-gain range, IOM 2009 (website page + app Tools): MR-54, `weight-gain.json`
+- [ ] R11.4 · Contraction timer on the website (session only, MR-31, existing `lib/contractions`); app already has one (R4)
+- [ ] R11.5 · App Tools hub (from the Learn tab): the three calculators plus the existing pregnancy tools, four locales
