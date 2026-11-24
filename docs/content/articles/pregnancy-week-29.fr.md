@@ -22,7 +22,7 @@ open_graph_image_alt: "Oreillers empilés sur un lit dans une faible lumière du
 written_by: "PENDING"
 medically_reviewed_by: "Dr. Khaled M."
 date_published: "2026-10-30"
-date_modified: "2026-10-30"
+date_modified: "2026-11-25"
 last_reviewed: "2026-10-30"
 next_review_due: "2027-10-30"
 reading_level_ok: false
@@ -48,6 +48,7 @@ internal_links:
   - "/fr/learn/pregnancy-week-30"
   - "/fr/learn/pregnancy-warning-signs"
   - "/fr/calculators/gestational-age"
+  - "/fr/help-now"
 ---
 
 # Semaine 29 de grossesse : à quoi s’attendre
@@ -88,7 +89,7 @@ Placez un oreiller sous le ventre en plus d’un oreiller entre les genoux. La p
 
 Contactez votre service de maternité le jour même en cas de mouvements réduits ou modifiés, de perte de liquide, de contractions régulières ou de saignements. Un essoufflement qui survient brusquement, ou qui s’accompagne d’une douleur thoracique, nécessite des soins d’urgence. La page [signes d’alerte de la grossesse](/fr/learn/pregnancy-warning-signs) contient la liste complète.
 
-> **Consultez sans attendre :** Contactez les services d’urgence locaux ou rendez-vous aux urgences les plus proches si vous avez un saignement abondant, une douleur intense ou d’un seul côté du ventre, un mal de tête sévère avec troubles de la vue, un gonflement soudain du visage ou des mains, une fièvre, un écoulement de liquide par le vagin, une douleur thoracique, des difficultés respiratoires, un malaise ou une crise convulsive. Contactez votre service de maternité le jour même pour toute diminution du rythme habituel des mouvements de votre bébé. femio ne peut pas évaluer une grossesse.
+> **Consultez sans attendre :** Contactez les services d’urgence locaux ou rendez-vous aux urgences les plus proches si vous avez un saignement abondant, une douleur intense ou d’un seul côté du ventre, un mal de tête sévère avec troubles de la vue, un gonflement soudain du visage ou des mains, une fièvre, un écoulement de liquide par le vagin, une douleur thoracique, des difficultés respiratoires, un malaise, une crise convulsive ou des pensées de vous faire du mal ou de faire du mal à votre bébé ([aide immédiate](/fr/help-now)). Contactez votre service de maternité sans attendre si les mouvements de votre bébé ralentissent, s’arrêtent ou changent. femio ne peut pas évaluer une grossesse.
 
 ## Questions fréquentes
 

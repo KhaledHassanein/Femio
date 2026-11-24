@@ -22,7 +22,7 @@ open_graph_image_alt: "Tubes de prélèvement sanguin sur un plateau de clinique
 written_by: "PENDING"
 medically_reviewed_by: "Dr. Khaled M."
 date_published: "2026-10-30"
-date_modified: "2026-11-24"
+date_modified: "2026-11-25"
 last_reviewed: "2026-10-30"
 next_review_due: "2027-10-30"
 reading_level_ok: false
@@ -48,6 +48,7 @@ internal_links:
   - "/fr/learn/pregnancy-week-29"
   - "/fr/learn/pregnancy-warning-signs"
   - "/fr/calculators/gestational-age"
+  - "/fr/help-now"
 ---
 
 # Semaine 28 de grossesse : à quoi s'attendre
@@ -88,7 +89,7 @@ Demandez à ce rendez-vous si vous êtes de rhésus D négatif, et ce que cela i
 
 Contactez votre service de maternité le jour même en cas de mouvements réduits, de fuite de liquide, de contractions qui deviennent régulières, ou de saignement. Un mal de tête avec troubles de la vision ou un gonflement soudain nécessite des soins d'urgence. [Les signes d'alerte de la grossesse](/fr/learn/pregnancy-warning-signs) donnent la liste.
 
-> **Consultez sans attendre :** Contactez les services d'urgence de votre région ou rendez-vous au service des urgences le plus proche si vous avez un saignement abondant, une douleur intense ou d'un seul côté du ventre, un mal de tête sévère avec troubles de la vision, un gonflement soudain du visage ou des mains, une fièvre, une fuite de liquide par le vagin, une douleur thoracique, des difficultés à respirer, un malaise ou une crise convulsive. Contactez votre service de maternité le jour même pour toute diminution du rythme habituel des mouvements de votre bébé. femio ne peut pas évaluer une grossesse.
+> **Consultez sans attendre :** Contactez les services d'urgence de votre région ou rendez-vous au service des urgences le plus proche si vous avez un saignement abondant, une douleur intense ou d'un seul côté du ventre, un mal de tête sévère avec troubles de la vision, un gonflement soudain du visage ou des mains, une fièvre, une fuite de liquide par le vagin, une douleur thoracique, des difficultés à respirer, un malaise, une crise convulsive ou des pensées de vous faire du mal ou de faire du mal à votre bébé ([aide immédiate](/fr/help-now)). Contactez votre service de maternité sans attendre si les mouvements de votre bébé ralentissent, s’arrêtent ou changent. femio ne peut pas évaluer une grossesse.
 
 ## Questions fréquentes
 

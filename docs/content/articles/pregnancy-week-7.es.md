@@ -22,7 +22,7 @@ open_graph_image_alt: "Un vaso grande de agua sobre un escritorio junto a una li
 written_by: "PENDING"
 medically_reviewed_by: "Dr. Khaled M."
 date_published: "2026-10-30"
-date_modified: "2026-10-30"
+date_modified: "2026-11-25"
 last_reviewed: "2026-10-30"
 next_review_due: "2027-10-30"
 reading_level_ok: false
@@ -49,6 +49,7 @@ internal_links:
   - "/es/learn/first-pregnancy-appointment"
   - "/es/learn/pregnancy-warning-signs"
   - "/es/calculators/gestational-age"
+  - "/es/help-now"
 ---
 
 # Semana 7 de embarazo: qué esperar
@@ -91,7 +92,7 @@ Llena una botella por la mañana y acábala antes de la noche. La sed en el emba
 
 Comunica cualquier sangrado, dolor intenso o de un solo lado, picor en todo el cuerpo o mareo que no se alivia al sentarte. [Señales de alarma en el embarazo](/es/learn/pregnancy-warning-signs) recoge el resto.
 
-> **Busca atención ya:** Contacta con los servicios de emergencia de tu zona o acude al servicio de urgencias más cercano si tienes sangrado abundante, dolor abdominal intenso o de un solo lado, dolor en la punta del hombro, un dolor de cabeza fuerte con alteraciones de la visión, hinchazón repentina de la cara o las manos, fiebre, dolor en el pecho, dificultad para respirar, desmayo o convulsión. femio no puede evaluar un embarazo.
+> **Busca atención ya:** Contacta con los servicios de emergencia de tu zona o acude al servicio de urgencias más cercano si tienes sangrado abundante, dolor abdominal intenso o de un solo lado, dolor en la punta del hombro, un dolor de cabeza fuerte con alteraciones de la visión, hinchazón repentina de la cara o las manos, fiebre, dolor en el pecho, dificultad para respirar, desmayo, convulsión o pensamientos de hacerte daño a ti misma o a tu bebé ([ayuda ahora](/es/help-now)). femio no puede evaluar un embarazo.
 
 ## Preguntas frecuentes
 

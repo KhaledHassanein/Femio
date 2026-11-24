@@ -22,7 +22,7 @@ open_graph_image_alt: "Un passeport et une carte d’embarquement posés sur une
 written_by: "PENDING"
 medically_reviewed_by: "Dr. Khaled M."
 date_published: "2026-10-30"
-date_modified: "2026-10-30"
+date_modified: "2026-11-25"
 last_reviewed: "2026-10-30"
 next_review_due: "2027-10-30"
 reading_level_ok: false
@@ -48,6 +48,7 @@ internal_links:
   - "/fr/learn/pregnancy-week-28"
   - "/fr/learn/pregnancy-warning-signs"
   - "/fr/calculators/gestational-age"
+  - "/fr/help-now"
 ---
 
 # Semaine 27 de grossesse : à quoi s’attendre
@@ -88,7 +89,7 @@ Si vous voyagez, obtenez l’attestation dès maintenant et vérifiez par écrit
 
 Contactez votre service de maternité le jour même pour tout changement des mouvements. Signalez tout saignement, douleur intense, fièvre, ou maux de tête accompagnés de troubles de la vision. Les [signes d’alerte de la grossesse](/fr/learn/pregnancy-warning-signs) donnent la liste complète.
 
-> **Consultez sans attendre :** Contactez les services d’urgence locaux ou rendez-vous au service des urgences le plus proche en cas de saignement abondant, de douleur intense ou située d’un seul côté du ventre, de maux de tête violents accompagnés de troubles de la vision, de gonflement soudain du visage ou des mains, de fièvre, de fuite de liquide par le vagin, de douleur thoracique, de difficultés respiratoires, d’évanouissement ou de crise convulsive. Contactez votre service de maternité le jour même pour toute diminution du rythme habituel des mouvements de votre bébé. femio ne peut pas évaluer une grossesse.
+> **Consultez sans attendre :** Contactez les services d’urgence locaux ou rendez-vous au service des urgences le plus proche en cas de saignement abondant, de douleur intense ou située d’un seul côté du ventre, de maux de tête violents accompagnés de troubles de la vision, de gonflement soudain du visage ou des mains, de fièvre, de fuite de liquide par le vagin, de douleur thoracique, de difficultés respiratoires, d’évanouissement, de crise convulsive ou de pensées de vous faire du mal ou de faire du mal à votre bébé ([aide immédiate](/fr/help-now)). Contactez votre service de maternité sans attendre si les mouvements de votre bébé ralentissent, s’arrêtent ou changent. femio ne peut pas évaluer une grossesse.
 
 ## Questions fréquentes
 

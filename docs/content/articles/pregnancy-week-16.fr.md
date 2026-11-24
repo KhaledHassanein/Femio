@@ -22,7 +22,7 @@ open_graph_image_alt: "Un tensiomètre et des notes sur le bureau d’une sage-f
 written_by: "PENDING"
 medically_reviewed_by: "Dr. Khaled M."
 date_published: "2026-10-30"
-date_modified: "2026-10-30"
+date_modified: "2026-11-25"
 last_reviewed: "2026-10-30"
 next_review_due: "2027-10-30"
 reading_level_ok: false
@@ -48,6 +48,7 @@ internal_links:
   - "/fr/learn/pregnancy-week-17"
   - "/fr/learn/pregnancy-warning-signs"
   - "/fr/calculators/gestational-age"
+  - "/fr/help-now"
 ---
 
 # Semaine 16 de grossesse : à quoi s’attendre
@@ -90,7 +91,7 @@ Demandez ce que disaient réellement les résultats de vos analyses sanguines, e
 
 Contactez une sage-femme ou un médecin généraliste en cas de saignement, de douleur intense, de fièvre, de sensation de brûlure en urinant, ou de constipation qui ne cède pas. Un mal de tête associé à des troubles de la vue, ou un gonflement soudain du visage et des mains, nécessite une consultation dès aujourd’hui. La page [signes d’alerte de la grossesse](/fr/learn/pregnancy-warning-signs) contient la liste complète.
 
-> **Consultez sans attendre :** Contactez les services d’urgence locaux ou rendez-vous aux urgences les plus proches si vous avez un saignement abondant, une douleur intense ou d’un seul côté du ventre, un mal de tête sévère avec troubles de la vue, un gonflement soudain du visage ou des mains, une fièvre, un écoulement de liquide par le vagin, une douleur thoracique, des difficultés respiratoires, un malaise ou une crise convulsive. femio ne peut pas évaluer une grossesse.
+> **Consultez sans attendre :** Contactez les services d’urgence locaux ou rendez-vous aux urgences les plus proches si vous avez un saignement abondant, une douleur intense ou d’un seul côté du ventre, un mal de tête sévère avec troubles de la vue, un gonflement soudain du visage ou des mains, une fièvre, un écoulement de liquide par le vagin, une douleur thoracique, des difficultés respiratoires, un malaise, une crise convulsive ou des pensées de vous faire du mal ou de faire du mal à votre bébé ([aide immédiate](/fr/help-now)). femio ne peut pas évaluer une grossesse.
 
 ## Questions fréquentes
 

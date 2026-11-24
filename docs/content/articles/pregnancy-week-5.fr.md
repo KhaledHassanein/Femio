@@ -22,7 +22,7 @@ open_graph_image_alt: "Une femme assise au bord d'un lit, dans la lumière du ma
 written_by: "PENDING"
 medically_reviewed_by: "Dr. Khaled M."
 date_published: "2026-10-30"
-date_modified: "2026-11-24"
+date_modified: "2026-11-25"
 last_reviewed: "2026-10-30"
 next_review_due: "2027-10-30"
 reading_level_ok: false
@@ -49,6 +49,7 @@ internal_links:
   - "/fr/learn/early-pregnancy-changes"
   - "/fr/learn/pregnancy-warning-signs"
   - "/fr/calculators/gestational-age"
+  - "/fr/help-now"
 ---
 
 # Semaine 5 de grossesse : à quoi s'attendre
@@ -91,7 +92,7 @@ Prenez rendez-vous avec la sage-femme ou le médecin généraliste aujourd'hui p
 
 Tout saignement doit être signalé, même s'il s'arrête. Il en va de même pour une douleur intense, une douleur d'un seul côté, une douleur au bout de l'épaule, ou une sensation de malaise. [Les modifications du début de grossesse](/fr/learn/early-pregnancy-changes) présente ce qui est normal à ce stade précoce, et [les signes d'alerte pendant la grossesse](/fr/learn/pregnancy-warning-signs) présente ce qui ne l'est pas.
 
-> **Consultez sans attendre :** Contactez les services d'urgence de votre région ou rendez-vous au service des urgences le plus proche si vous avez des saignements abondants, une douleur abdominale intense ou d'un seul côté, une douleur au bout de l'épaule, un mal de tête intense accompagné de troubles de la vue, un gonflement soudain du visage ou des mains, de la fièvre, une douleur thoracique, des difficultés respiratoires, un malaise ou une crise convulsive. femio ne peut pas évaluer une grossesse.
+> **Consultez sans attendre :** Contactez les services d'urgence de votre région ou rendez-vous au service des urgences le plus proche si vous avez des saignements abondants, une douleur abdominale intense ou d'un seul côté, une douleur au bout de l'épaule, un mal de tête intense accompagné de troubles de la vue, un gonflement soudain du visage ou des mains, de la fièvre, une douleur thoracique, des difficultés respiratoires, un malaise, une crise convulsive ou des pensées de vous faire du mal ou de faire du mal à votre bébé ([aide immédiate](/fr/help-now)). femio ne peut pas évaluer une grossesse.
 
 ## Questions fréquentes
 

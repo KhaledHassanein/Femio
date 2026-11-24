@@ -22,7 +22,7 @@ open_graph_image_alt: "Un calendario con una fecha marcada junto a una taza de t
 written_by: "PENDING"
 medically_reviewed_by: "Dr. Khaled M."
 date_published: "2026-10-30"
-date_modified: "2026-11-24"
+date_modified: "2026-11-25"
 last_reviewed: "2026-10-30"
 next_review_due: "2027-10-30"
 reading_level_ok: false
@@ -48,6 +48,7 @@ internal_links:
   - "/es/learn/pregnancy-week-5"
   - "/es/learn/pregnancy-warning-signs"
   - "/es/calculators/gestational-age"
+  - "/es/help-now"
 ---
 
 # Semana 4 de embarazo: qué esperar
@@ -92,7 +93,7 @@ Anota la fecha del primer día de tu última menstruación y guárdala en un lug
 
 Contacta con una matrona, con el médico de cabecera o con el servicio de maternidad si tienes cualquier sangrado, si el dolor es intenso o de un solo lado, o si tienes sensación de desmayo. [Señales de alarma en el embarazo](/es/learn/pregnancy-warning-signs) recoge la lista completa. Si una prueba positiva aún no se ha confirmado, [cuándo hacerse una prueba de embarazo](/es/learn/when-to-take-pregnancy-test) explica el momento adecuado.
 
-> **Busca atención ya:** Contacta con los servicios de emergencia de tu zona o acude al servicio de urgencias más cercano si tienes sangrado abundante, dolor intenso o de un solo lado en el abdomen, dolor en la punta del hombro, un dolor de cabeza intenso con alteraciones de la visión, hinchazón repentina de la cara o las manos, fiebre, dolor en el pecho, dificultad para respirar, desmayo o convulsión. femio no puede valorar un embarazo.
+> **Busca atención ya:** Contacta con los servicios de emergencia de tu zona o acude al servicio de urgencias más cercano si tienes sangrado abundante, dolor intenso o de un solo lado en el abdomen, dolor en la punta del hombro, un dolor de cabeza intenso con alteraciones de la visión, hinchazón repentina de la cara o las manos, fiebre, dolor en el pecho, dificultad para respirar, desmayo, convulsión o pensamientos de hacerte daño a ti misma o a tu bebé ([ayuda ahora](/es/help-now)). femio no puede valorar un embarazo.
 
 ## Preguntas frecuentes
 

@@ -22,7 +22,7 @@ open_graph_image_alt: "Una mujer sentada al borde de una cama con luz de la mañ
 written_by: "PENDING"
 medically_reviewed_by: "Dr. Khaled M."
 date_published: "2026-10-30"
-date_modified: "2026-11-24"
+date_modified: "2026-11-25"
 last_reviewed: "2026-10-30"
 next_review_due: "2027-10-30"
 reading_level_ok: false
@@ -49,6 +49,7 @@ internal_links:
   - "/es/learn/early-pregnancy-changes"
   - "/es/learn/pregnancy-warning-signs"
   - "/es/calculators/gestational-age"
+  - "/es/help-now"
 ---
 
 # Semana 5 de embarazo: qué esperar
@@ -91,7 +92,7 @@ Pide cita con la matrona o con el médico de cabecera hoy, no después del fin d
 
 Cualquier sangrado debe comunicarse, incluso si cesa. Lo mismo con dolor intenso, dolor de un solo lado, dolor en la punta del hombro o sensación de desmayo. [Cambios al inicio del embarazo](/es/learn/early-pregnancy-changes) explica lo que es normal en esta etapa, y [señales de alarma en el embarazo](/es/learn/pregnancy-warning-signs) explica lo que no lo es.
 
-> **Busca atención ya:** Contacta con los servicios de emergencia de tu zona o acude al servicio de urgencias más cercano si tienes sangrado abundante, dolor abdominal intenso o de un solo lado, dolor en la punta del hombro, dolor de cabeza intenso con alteraciones de la visión, hinchazón repentina de la cara o las manos, fiebre, dolor en el pecho, dificultad para respirar, desmayo o convulsión. femio no puede evaluar un embarazo.
+> **Busca atención ya:** Contacta con los servicios de emergencia de tu zona o acude al servicio de urgencias más cercano si tienes sangrado abundante, dolor abdominal intenso o de un solo lado, dolor en la punta del hombro, dolor de cabeza intenso con alteraciones de la visión, hinchazón repentina de la cara o las manos, fiebre, dolor en el pecho, dificultad para respirar, desmayo, convulsión o pensamientos de hacerte daño a ti misma o a tu bebé ([ayuda ahora](/es/help-now)). femio no puede evaluar un embarazo.
 
 ## Preguntas frecuentes
 

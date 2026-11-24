@@ -22,7 +22,7 @@ open_graph_image_alt: "Une femme boutonnant un pantalon ample dans une chambre"
 written_by: "PENDING"
 medically_reviewed_by: "Dr. Khaled M."
 date_published: "2026-10-30"
-date_modified: "2026-11-24"
+date_modified: "2026-11-25"
 last_reviewed: "2026-10-30"
 next_review_due: "2027-10-30"
 reading_level_ok: false
@@ -49,6 +49,7 @@ internal_links:
   - "/fr/learn/first-pregnancy-appointment"
   - "/fr/learn/pregnancy-warning-signs"
   - "/fr/calculators/gestational-age"
+  - "/fr/help-now"
 ---
 
 # Semaine 10 de grossesse : à quoi s'attendre
@@ -89,7 +90,7 @@ Achetez ou empruntez une paire de pantalons qui vous va dès maintenant : pas de
 
 Contactez une sage-femme ou votre médecin traitant pour tout saignement, une douleur intense ou d'un seul côté, des vertiges qui ne passent pas, ou des brûlures d'estomac assez fortes pour vous empêcher de manger ou de dormir. [Les signes d'alerte pendant la grossesse](/fr/learn/pregnancy-warning-signs) donnent la liste complète, et [le premier rendez-vous](/fr/learn/first-pregnancy-appointment) explique ce que comprend l'inscription.
 
-> **Consultez sans attendre :** Contactez les services d'urgence de votre région ou rendez-vous au service des urgences le plus proche si vous avez un saignement abondant, une douleur intense ou d'un seul côté du ventre, une douleur au bout de l'épaule, un mal de tête intense avec troubles de la vision, un gonflement soudain du visage ou des mains, de la fièvre, une douleur thoracique, des difficultés à respirer, un malaise ou une crise convulsive. femio ne peut pas évaluer une grossesse.
+> **Consultez sans attendre :** Contactez les services d'urgence de votre région ou rendez-vous au service des urgences le plus proche si vous avez un saignement abondant, une douleur intense ou d'un seul côté du ventre, une douleur au bout de l'épaule, un mal de tête intense avec troubles de la vision, un gonflement soudain du visage ou des mains, de la fièvre, une douleur thoracique, des difficultés à respirer, un malaise, une crise convulsive ou des pensées de vous faire du mal ou de faire du mal à votre bébé ([aide immédiate](/fr/help-now)). femio ne peut pas évaluer une grossesse.
 
 ## Questions fréquentes
 
