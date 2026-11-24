@@ -181,6 +181,60 @@ try {
   fail(APP_LIB, `cannot scan: ${error.message}`);
 }
 
+// 3c. The assistant (ADR-078): model calls live in Kotlin only, under one package, and only
+// Firebase AI Logic and App Check may be added to Gradle; analytics, Crashlytics, messaging
+// and the rest of Firebase stay out. Dart reaches the bridge only through
+// lib/data/assistant_channel.dart, which takes a CloudSafeText for anything bound for the cloud.
+const GRADLE = "apps/mobile/android/app/build.gradle.kts";
+const ALLOWED_FIREBASE = /com\.google\.firebase:firebase-(ai|ai-ondevice|appcheck-debug|appcheck-playintegrity):/;
+try {
+  for (const line of readFileSync(GRADLE, "utf8").split("\n")) {
+    if (/^\s*\/\//.test(line)) continue;
+    if (/com\.google\.firebase:/.test(line) && !ALLOWED_FIREBASE.test(line)) {
+      fail(GRADLE, `adds a Firebase library outside AI Logic and App Check: ${line.trim()}`);
+    }
+    if (/google-services|crashlytics|firebase-analytics|firebase-messaging/i.test(line)) {
+      fail(GRADLE, `adds a tracking or messaging plugin: ${line.trim()}`);
+    }
+  }
+} catch (error) {
+  fail(GRADLE, `cannot read: ${error.message}`);
+}
+const KOTLIN_SRC = "apps/mobile/android/app/src";
+const FIREBASE_KOTLIN_ALLOWED = /\/kotlin\/com\/femioapp\/femio\/assistant\//;
+try {
+  const kotlinFiles = [];
+  (function walkKt(dir) {
+    for (const entry of readdirSync(dir)) {
+      const full = join(dir, entry);
+      if (statSync(full).isDirectory()) walkKt(full);
+      else if (entry.endsWith(".kt")) kotlinFiles.push(full);
+    }
+  })(KOTLIN_SRC);
+  for (const file of kotlinFiles) {
+    const rel = relative(process.cwd(), file).replace(/\\/g, "/");
+    if (/import com\.google\.firebase\./.test(readFileSync(file, "utf8")) && !FIREBASE_KOTLIN_ALLOWED.test(rel)) {
+      fail(rel, "uses Firebase outside the assistant package (ADR-078 §5)");
+    }
+  }
+} catch (error) {
+  fail(KOTLIN_SRC, `cannot scan: ${error.message}`);
+}
+const ASSISTANT_CHANNEL_DART = "apps/mobile/lib/data/assistant_channel.dart";
+try {
+  for (const file of walk(APP_LIB).filter((f) => f.endsWith(".dart"))) {
+    const rel = relative(process.cwd(), file).replace(/\\/g, "/");
+    if (/com\.femioapp\.femio\/assistant/.test(readFileSync(file, "utf8")) && rel !== ASSISTANT_CHANNEL_DART) {
+      fail(rel, "names the assistant channel; only lib/data/assistant_channel.dart may (ADR-078 §5)");
+    }
+  }
+  if (!/askGrounded\(CloudSafeText /.test(readFileSync(ASSISTANT_CHANNEL_DART, "utf8"))) {
+    fail(ASSISTANT_CHANNEL_DART, "the cloud call no longer requires a CloudSafeText (ADR-078 §3)");
+  }
+} catch (error) {
+  fail(ASSISTANT_CHANNEL_DART, `cannot read: ${error.message}`);
+}
+
 // 4. Source manifest: the app itself never asks for INTERNET (the ads SDK's manifest does,
 // and only while the SDK is in pubspec), and never for anything that reads the person.
 const MANIFEST = "apps/mobile/android/app/src/main/AndroidManifest.xml";
@@ -223,4 +277,4 @@ if (findings.length > 0) {
   console.error(`\n${findings.length} finding(s). See docs/33_REBUILD_V3/03_LEGAL_PACK.md.`);
   process.exit(1);
 }
-console.log(`✓ privacy tripwire: no analytics, error-reporting or database client in either product; website: Tag Manager and AdSense hosts inside lib/consent and lib/ads only, ad units only in the article and hub; app: ${adsSdkInPubspec ? "Google's ads SDK only, imported only under lib/features/ads/" : "no ads SDK"}, no network code of its own, no personal permission (source and merged manifest, when built).`);
+console.log(`✓ privacy tripwire: no analytics, error-reporting or database client in either product; website: Tag Manager and AdSense hosts inside lib/consent and lib/ads only, ad units only in the article and hub; app: ${adsSdkInPubspec ? "Google's ads SDK only, imported only under lib/features/ads/" : "no ads SDK"}, no network code of its own, Firebase AI Logic only inside the Kotlin assistant behind CloudSafeText, no personal permission (source and merged manifest, when built).`);

@@ -31,6 +31,20 @@ val adsEnv = mutableMapOf<String, String>().apply {
     }
 }
 
+// Firebase AI Logic config for the assistant (ADR-078). `apps/mobile/assistant.env` (git-ignored,
+// shape in assistant.env.example) holds the owner's Firebase ids. Without it the fields are empty
+// and the assistant reports "not configured": every feature runs on the phone's rules.
+val assistantEnv = mutableMapOf<String, String>().apply {
+    val file = rootProject.file("../assistant.env")
+    if (file.exists()) {
+        file.readLines()
+            .map { it.trim() }
+            .filter { it.isNotEmpty() && !it.startsWith("#") && it.contains("=") }
+            .forEach { put(it.substringBefore("=").trim(), it.substringAfter("=").trim()) }
+    }
+}
+fun assistantField(key: String, fallback: String = "") = "\"" + (assistantEnv[key] ?: fallback) + "\""
+
 android {
     namespace = "com.femioapp.femio"
     compileSdk = flutter.compileSdkVersion
@@ -60,7 +74,8 @@ android {
         applicationId = "com.femioapp.femio"
         // You can update the following values to match your application needs.
         // For more information, see: https://flutter.dev/to/review-gradle-config.
-        minSdk = flutter.minSdkVersion
+        // Android 8.0 (API 26) at least: firebase-ai-ondevice requires it (ADR-078).
+        minSdk = maxOf(26, flutter.minSdkVersion)
         targetSdk = flutter.targetSdkVersion
         // Uses the version code from pubspec.yaml. When using split APKs, 1000 * ABI_VERSION
         // is added automatically by Flutter. (https://developer.android.com/studio/build/configure-apk-splits#configure-APK-versions)
@@ -69,6 +84,14 @@ android {
         versionCode = flutter.versionCode
         versionName = flutter.versionName
         manifestPlaceholders["admobAppId"] = adsEnv["FEMIO_ADMOB_APP_ID"] ?: googleTestAdmobAppId
+        buildConfigField("String", "FEMIO_FIREBASE_APP_ID", assistantField("FEMIO_FIREBASE_APP_ID"))
+        buildConfigField("String", "FEMIO_FIREBASE_API_KEY", assistantField("FEMIO_FIREBASE_API_KEY"))
+        buildConfigField("String", "FEMIO_FIREBASE_PROJECT_ID", assistantField("FEMIO_FIREBASE_PROJECT_ID"))
+        buildConfigField("String", "FEMIO_AI_CLOUD_MODEL", assistantField("FEMIO_AI_CLOUD_MODEL", "gemini-3.5-flash-lite"))
+    }
+
+    buildFeatures {
+        buildConfig = true
     }
 
     buildTypes {
@@ -89,6 +112,13 @@ kotlin {
 
 dependencies {
     coreLibraryDesugaring("com.android.tools:desugar_jdk_libs:2.1.4")
+    // The assistant (ADR-078): Firebase AI Logic with on-device Gemini Nano. The on-device
+    // library is not in the Firebase BoM yet, so both are pinned here.
+    implementation("com.google.firebase:firebase-ai:18.2.0")
+    implementation("com.google.firebase:firebase-ai-ondevice:16.0.0-beta08")
+    // App Check: the debug provider in debug builds only, Play Integrity in store builds.
+    debugImplementation("com.google.firebase:firebase-appcheck-debug:20.1.0")
+    implementation("com.google.firebase:firebase-appcheck-playintegrity:20.1.0")
 }
 
 flutter {

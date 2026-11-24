@@ -2560,6 +2560,462 @@ abstract class L10n {
   /// In en, this message translates to:
   /// **'Ads appear on guide screens only. They never see your records, and femio Plus will remove them.'**
   String get adsNotice;
+
+  /// No description provided for @assistantPrivateNote.
+  ///
+  /// In en, this message translates to:
+  /// **'This runs on your phone. Your words are not saved or sent anywhere.'**
+  String get assistantPrivateNote;
+
+  /// No description provided for @assistantModelNote.
+  ///
+  /// In en, this message translates to:
+  /// **'Gemini Nano, the AI on your phone, helped with this.'**
+  String get assistantModelNote;
+
+  /// No description provided for @sayItButton.
+  ///
+  /// In en, this message translates to:
+  /// **'Say it in your words'**
+  String get sayItButton;
+
+  /// No description provided for @sayItTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'How are you feeling?'**
+  String get sayItTitle;
+
+  /// No description provided for @sayItHint.
+  ///
+  /// In en, this message translates to:
+  /// **'For example: bad cramps, light bleeding and so tired'**
+  String get sayItHint;
+
+  /// No description provided for @sayItAction.
+  ///
+  /// In en, this message translates to:
+  /// **'Turn into log entries'**
+  String get sayItAction;
+
+  /// No description provided for @sayItNothing.
+  ///
+  /// In en, this message translates to:
+  /// **'femio found nothing to log in that. Try other words, or tap the chips on the Log screen.'**
+  String get sayItNothing;
+
+  /// No description provided for @sayItFound.
+  ///
+  /// In en, this message translates to:
+  /// **'femio found these. Untick anything that is wrong.'**
+  String get sayItFound;
+
+  /// No description provided for @sayItAdd.
+  ///
+  /// In en, this message translates to:
+  /// **'Add to this day\'s log'**
+  String get sayItAdd;
+
+  /// No description provided for @sayItAdded.
+  ///
+  /// In en, this message translates to:
+  /// **'Added to your log.'**
+  String get sayItAdded;
+
+  /// No description provided for @safetyCrisisHeading.
+  ///
+  /// In en, this message translates to:
+  /// **'You don\'t have to face this alone'**
+  String get safetyCrisisHeading;
+
+  /// No description provided for @safetyCrisisBody.
+  ///
+  /// In en, this message translates to:
+  /// **'If you are thinking about harming yourself, please reach out now. The help page lists crisis lines for your country.'**
+  String get safetyCrisisBody;
+
+  /// No description provided for @safetyUrgentHeading.
+  ///
+  /// In en, this message translates to:
+  /// **'This may need urgent care'**
+  String get safetyUrgentHeading;
+
+  /// No description provided for @safetyUrgentBody.
+  ///
+  /// In en, this message translates to:
+  /// **'Chest pain, trouble breathing, fainting or a seizure need medical help now. Call your local emergency number.'**
+  String get safetyUrgentBody;
+
+  /// No description provided for @safetyBirthControl.
+  ///
+  /// In en, this message translates to:
+  /// **'femio is not a way to avoid pregnancy and can\'t advise on it. A doctor, pharmacist or family-planning clinic can help you choose a method.'**
+  String get safetyBirthControl;
+
+  /// No description provided for @askTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Ask femio'**
+  String get askTitle;
+
+  /// No description provided for @askIntro.
+  ///
+  /// In en, this message translates to:
+  /// **'Ask a health question. femio looks for the answer in trusted sources such as WHO, NHS and CDC, and shows you where it came from.'**
+  String get askIntro;
+
+  /// No description provided for @askHint.
+  ///
+  /// In en, this message translates to:
+  /// **'For example: what helps with period cramps?'**
+  String get askHint;
+
+  /// No description provided for @askAction.
+  ///
+  /// In en, this message translates to:
+  /// **'Ask'**
+  String get askAction;
+
+  /// No description provided for @askPersonalRewritten.
+  ///
+  /// In en, this message translates to:
+  /// **'Your question is about you, so only a general version with no personal details may leave your phone. Check it below.'**
+  String get askPersonalRewritten;
+
+  /// No description provided for @askPersonalSelf.
+  ///
+  /// In en, this message translates to:
+  /// **'Your question is about you. Rewrite it below as a general question, without “I”, “my” or personal details, and femio will look it up.'**
+  String get askPersonalSelf;
+
+  /// No description provided for @askWillSend.
+  ///
+  /// In en, this message translates to:
+  /// **'This is exactly what will be sent to Google to search trusted sources:'**
+  String get askWillSend;
+
+  /// No description provided for @askSend.
+  ///
+  /// In en, this message translates to:
+  /// **'Search trusted sources'**
+  String get askSend;
+
+  /// No description provided for @askStillPersonal.
+  ///
+  /// In en, this message translates to:
+  /// **'This still mentions you. Remove words like “I” or “my” and any personal details.'**
+  String get askStillPersonal;
+
+  /// No description provided for @askCloudPrivacy.
+  ///
+  /// In en, this message translates to:
+  /// **'Only the question shown is sent. Nothing from your log is.'**
+  String get askCloudPrivacy;
+
+  /// No description provided for @askSearching.
+  ///
+  /// In en, this message translates to:
+  /// **'Searching trusted sources…'**
+  String get askSearching;
+
+  /// No description provided for @askFailed.
+  ///
+  /// In en, this message translates to:
+  /// **'femio couldn\'t reach the sources right now. Try again later.'**
+  String get askFailed;
+
+  /// No description provided for @askNotSetUp.
+  ///
+  /// In en, this message translates to:
+  /// **'Searching trusted sources isn\'t switched on in this version. Here are femio\'s guides on the topic.'**
+  String get askNotSetUp;
+
+  /// No description provided for @askNoTrusted.
+  ///
+  /// In en, this message translates to:
+  /// **'femio found no answer from a trusted health source, so it won\'t show one. Try asking another way, or talk to your doctor.'**
+  String get askNoTrusted;
+
+  /// No description provided for @askAnswerLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'From trusted sources, found with Google'**
+  String get askAnswerLabel;
+
+  /// No description provided for @askSourcesTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Sources'**
+  String get askSourcesTitle;
+
+  /// No description provided for @askTrustedBadge.
+  ///
+  /// In en, this message translates to:
+  /// **'Trusted source'**
+  String get askTrustedBadge;
+
+  /// No description provided for @askOtherSource.
+  ///
+  /// In en, this message translates to:
+  /// **'Not on femio\'s trusted list'**
+  String get askOtherSource;
+
+  /// No description provided for @askClinicianLine.
+  ///
+  /// In en, this message translates to:
+  /// **'This is general information, not advice for you. For your own situation, talk to your doctor or midwife.'**
+  String get askClinicianLine;
+
+  /// No description provided for @askRelatedGuides.
+  ///
+  /// In en, this message translates to:
+  /// **'femio guides on this'**
+  String get askRelatedGuides;
+
+  /// No description provided for @askSearchAgain.
+  ///
+  /// In en, this message translates to:
+  /// **'Ask another question'**
+  String get askSearchAgain;
+
+  /// No description provided for @visitButton.
+  ///
+  /// In en, this message translates to:
+  /// **'Visit summary'**
+  String get visitButton;
+
+  /// No description provided for @visitTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Visit summary'**
+  String get visitTitle;
+
+  /// No description provided for @visitIntro.
+  ///
+  /// In en, this message translates to:
+  /// **'A page to show your doctor, made from what you logged. It stays on your phone unless you copy it.'**
+  String get visitIntro;
+
+  /// No description provided for @visitCycles.
+  ///
+  /// In en, this message translates to:
+  /// **'{count, plural, =0{No complete cycle logged yet} =1{1 cycle logged: {shortest} days} other{{count} cycles logged: {shortest} to {longest} days}}'**
+  String visitCycles(int count, int longest, int shortest);
+
+  /// No description provided for @visitLastPeriod.
+  ///
+  /// In en, this message translates to:
+  /// **'Last period started {date}'**
+  String visitLastPeriod(String date);
+
+  /// No description provided for @visitIrregular.
+  ///
+  /// In en, this message translates to:
+  /// **'Cycles described as irregular'**
+  String get visitIrregular;
+
+  /// No description provided for @visitTopTerms.
+  ///
+  /// In en, this message translates to:
+  /// **'Logged most in the last 90 days'**
+  String get visitTopTerms;
+
+  /// No description provided for @visitDays.
+  ///
+  /// In en, this message translates to:
+  /// **'{days, plural, =1{1 day} other{{days} days}}'**
+  String visitDays(int days);
+
+  /// No description provided for @visitHeavyDays.
+  ///
+  /// In en, this message translates to:
+  /// **'Days with heavy flow'**
+  String get visitHeavyDays;
+
+  /// No description provided for @visitOpkPositive.
+  ///
+  /// In en, this message translates to:
+  /// **'Positive ovulation tests'**
+  String get visitOpkPositive;
+
+  /// No description provided for @visitTemperatureDays.
+  ///
+  /// In en, this message translates to:
+  /// **'Days with a waking temperature'**
+  String get visitTemperatureDays;
+
+  /// No description provided for @visitTryingFor.
+  ///
+  /// In en, this message translates to:
+  /// **'Trying to conceive'**
+  String get visitTryingFor;
+
+  /// No description provided for @visitQuestionsTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Questions you could ask'**
+  String get visitQuestionsTitle;
+
+  /// No description provided for @visitCopy.
+  ///
+  /// In en, this message translates to:
+  /// **'Copy as text'**
+  String get visitCopy;
+
+  /// No description provided for @visitCopied.
+  ///
+  /// In en, this message translates to:
+  /// **'Copied. Paste it into a message or your notes.'**
+  String get visitCopied;
+
+  /// No description provided for @visitQ_cycleSpread.
+  ///
+  /// In en, this message translates to:
+  /// **'My cycle lengths vary. Is that worth looking into?'**
+  String get visitQ_cycleSpread;
+
+  /// No description provided for @visitQ_ttcTests.
+  ///
+  /// In en, this message translates to:
+  /// **'Given how long we have been trying, which checks would you suggest?'**
+  String get visitQ_ttcTests;
+
+  /// No description provided for @visitQ_ovulation.
+  ///
+  /// In en, this message translates to:
+  /// **'How can we find out whether I am ovulating?'**
+  String get visitQ_ovulation;
+
+  /// No description provided for @visitQ_folicAcid.
+  ///
+  /// In en, this message translates to:
+  /// **'Should I be taking folic acid now?'**
+  String get visitQ_folicAcid;
+
+  /// No description provided for @visitQ_painfulPeriods.
+  ///
+  /// In en, this message translates to:
+  /// **'My period pain affects my days. What can help?'**
+  String get visitQ_painfulPeriods;
+
+  /// No description provided for @visitQ_heavyPeriods.
+  ///
+  /// In en, this message translates to:
+  /// **'My periods are heavy. Is a blood test worth doing?'**
+  String get visitQ_heavyPeriods;
+
+  /// No description provided for @visitQ_moodCycle.
+  ///
+  /// In en, this message translates to:
+  /// **'My mood changes a lot around my period. Can we talk about it?'**
+  String get visitQ_moodCycle;
+
+  /// No description provided for @visitQ_skinHair.
+  ///
+  /// In en, this message translates to:
+  /// **'I have skin or hair changes along with irregular cycles. Should these be checked together?'**
+  String get visitQ_skinHair;
+
+  /// No description provided for @visitQ_tiredness.
+  ///
+  /// In en, this message translates to:
+  /// **'I often feel tired. Is anything worth checking?'**
+  String get visitQ_tiredness;
+
+  /// No description provided for @visitQ_menopause.
+  ///
+  /// In en, this message translates to:
+  /// **'Could my symptoms be linked to perimenopause, and what are my options?'**
+  String get visitQ_menopause;
+
+  /// No description provided for @visitQ_pregnancyNext.
+  ///
+  /// In en, this message translates to:
+  /// **'What should I look out for before our next visit?'**
+  String get visitQ_pregnancyNext;
+
+  /// No description provided for @visitQ_pregnancyMovements.
+  ///
+  /// In en, this message translates to:
+  /// **'When should I start paying attention to the baby\'s movements?'**
+  String get visitQ_pregnancyMovements;
+
+  /// No description provided for @visitQ_anythingElse.
+  ///
+  /// In en, this message translates to:
+  /// **'Is there anything in my log you would like to look at more closely?'**
+  String get visitQ_anythingElse;
+
+  /// No description provided for @assistantSettingsTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Assistant'**
+  String get assistantSettingsTitle;
+
+  /// No description provided for @assistantSettingsSub.
+  ///
+  /// In en, this message translates to:
+  /// **'AI on your phone, and answers from trusted sources'**
+  String get assistantSettingsSub;
+
+  /// No description provided for @assistantOnDeviceTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'AI on your phone (Gemini Nano)'**
+  String get assistantOnDeviceTitle;
+
+  /// No description provided for @assistantOnDeviceAvailable.
+  ///
+  /// In en, this message translates to:
+  /// **'Ready. It reads your notes on the phone; nothing is sent.'**
+  String get assistantOnDeviceAvailable;
+
+  /// No description provided for @assistantOnDeviceDownloadable.
+  ///
+  /// In en, this message translates to:
+  /// **'Can be downloaded to this phone.'**
+  String get assistantOnDeviceDownloadable;
+
+  /// No description provided for @assistantOnDeviceDownloading.
+  ///
+  /// In en, this message translates to:
+  /// **'Downloading…'**
+  String get assistantOnDeviceDownloading;
+
+  /// No description provided for @assistantOnDeviceUnavailable.
+  ///
+  /// In en, this message translates to:
+  /// **'Not available on this phone. femio uses its own word list instead, also on the phone.'**
+  String get assistantOnDeviceUnavailable;
+
+  /// No description provided for @assistantDownload.
+  ///
+  /// In en, this message translates to:
+  /// **'Download'**
+  String get assistantDownload;
+
+  /// No description provided for @assistantCloudTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Answers from trusted sources'**
+  String get assistantCloudTitle;
+
+  /// No description provided for @assistantCloudOn.
+  ///
+  /// In en, this message translates to:
+  /// **'On. Only general questions you approve are sent to Google, never your log.'**
+  String get assistantCloudOn;
+
+  /// No description provided for @assistantCloudOff.
+  ///
+  /// In en, this message translates to:
+  /// **'Not switched on in this version.'**
+  String get assistantCloudOff;
+
+  /// No description provided for @assistantHowItWorks.
+  ///
+  /// In en, this message translates to:
+  /// **'Everything about you stays on your phone. Your notes and your log are read by femio\'s rules and, where your phone has it, by Gemini Nano on the phone. Safety rules always come first: signs of danger open the help page, and femio never advises on avoiding pregnancy. A general question you approve may be sent to Google to find an answer from trusted health sources; femio shows those sources with every answer.'**
+  String get assistantHowItWorks;
 }
 
 class _L10nDelegate extends LocalizationsDelegate<L10n> {

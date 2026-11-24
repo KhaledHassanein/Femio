@@ -101,11 +101,11 @@ Opened 2026-10-28 on the owner's finalization brief. The gate for R6.4–R6.5 an
 
 ## R7 · Hybrid assistant (#BuildHybridAI, deadline 2026-11-30) — ADR-078, review https://claude.ai/artifact/XvN1K1NWw2YvP17LjKtndP
 
-- [~] R7.1 · Assistant core in `lib/domain/assistant/`: phrase lexicon (EN/AR incl. Egyptian and Gulf, FR, ES) → log terms, safety rules (red flags, birth control), redaction into `CloudSafeText`, trusted-source allowlist, prompts, related-guide search, visit summary and question bank; unit tests
-- [ ] R7.2 · Kotlin bridge (`assistant/FemioAssistant.kt`): Firebase AI Logic hybrid, `ONLY_ON_DEVICE` for private calls, `ONLY_IN_CLOUD` + Google Search grounding for redacted questions (returns sources and search suggestions), App Check (debug / Play Integrity), model status and download; config from git-ignored `assistant.env`; tripwire updated
-- [ ] R7.3 · Screens: "Say it in your words" on Log, "Ask femio" from Today and Learn, "Visit summary" from Today, assistant status in Settings; four locales
-- [ ] R7.4 · Gate green, screenshots 390×844 light/dark/Arabic, debug APK
-- [ ] R7.5 · Public repo (Apache-2.0), Devpost write-up, 3-minute video script; owner records the video on a Nano phone
+- [x] R7.1 · Assistant core in `lib/domain/assistant/`: phrase lexicon (EN/AR incl. Egyptian and Gulf, FR, ES) → log terms, safety rules (red flags, birth control), redaction into `CloudSafeText`, trusted-source allowlist, prompts, related-guide search, visit summary and question bank; unit tests
+- [x] R7.2 · Kotlin bridge (`assistant/FemioAssistant.kt`): Firebase AI Logic hybrid, `ONLY_ON_DEVICE` for private calls, `ONLY_IN_CLOUD` + Google Search grounding for redacted questions (returns sources and search suggestions), App Check (debug / Play Integrity), model status and download; config from git-ignored `assistant.env`; tripwire updated
+- [x] R7.3 · Screens: "Say it in your words" on Log, "Ask femio" from Today and Learn, "Visit summary" from Today, assistant status in Settings; four locales
+- [x] R7.4 · Gate green, screenshots 390×844 light/dark/Arabic, debug APK (flutter analyze clean, 569 tests; 13 screenshots in `testing-results/2026-11-24-r7-assistant/` from a fake bridge, synthetic; debug APK builds; not yet run against real Firebase or Nano: owner actions 23–26)
+- [~] R7.5 · Public repo (Apache-2.0), Devpost write-up, 3-minute video script; owner records the video on a Nano phone. Done: `scripts/hackathon/export-public-app.mjs` (the export passes all 569 tests on its own), `docs/hackathon/DEVPOST.md`, `docs/hackathon/VIDEO_SCRIPT.md`. Open: owner actions 23–28
 - [ ] R7.6 · Before a store release with the cloud path on: privacy notice ×4, Data safety row, listing (ADR-078 consequences)
 - [ ] R7.7 · Listing and in-app positioning "femio: AI-assisted women's health & wellness" across every life stage, four languages (ADR-078 §8, owner 2026-11-24)
 

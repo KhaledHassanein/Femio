@@ -7,6 +7,7 @@
 import 'package:flutter/material.dart';
 
 import '../../app.dart';
+import '../assistant/assistant_settings_screen.dart';
 import '../../data/app_lock.dart';
 import '../../l10n/app_localizations.dart';
 import '../../theme/femio_theme.dart';
@@ -88,6 +89,13 @@ class SettingsScreen extends StatelessWidget {
             ),
             ListTile(leading: const Icon(Icons.restore_rounded), title: Text(l.importBackup), onTap: () => importBackupFlow(context, controller)),
           ],
+          _Section(title: l.assistantSettingsTitle),
+          ListTile(
+            leading: const Icon(Icons.auto_awesome_rounded),
+            title: Text(l.assistantSettingsTitle),
+            subtitle: Text(l.assistantSettingsSub, style: t.bodySmall?.copyWith(color: p.textMuted)),
+            onTap: () => Navigator.of(context).push(MaterialPageRoute<void>(builder: (_) => const AssistantSettingsScreen())),
+          ),
           _Section(title: l.aboutSection),
           // ADR-076: say plainly where ads appear and what they never see.
           ListTile(leading: const Icon(Icons.info_outline_rounded), title: Text(l.adsNotice, style: t.bodyMedium)),

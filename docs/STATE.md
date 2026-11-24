@@ -1,6 +1,6 @@
 # Femio — current state (living document)
 
-**Last updated: 2026-10-30.** Rewrite in place; never add a dated copy. Older versions are in git
+**Last updated: 2026-11-24.** Rewrite in place; never add a dated copy. Older versions are in git
 history and `docs/archive/`.
 
 ## ▶ Resume prompt
@@ -15,6 +15,8 @@ history and `docs/archive/`.
 > First, run `git branch --list "wip/*"`. A branch there means the last session stopped mid-item.
 
 ## Where things stand (2026-10-28)
+
+- **Hybrid AI assistant for #BuildHybridAI (ADR-078, 2026-11-24; deadline 2026-11-30).** On branch `claude/firebase-hackathon-eligibility-833c52`, not merged. Built: domain core (`lib/domain/assistant/`), Kotlin bridge to Firebase AI Logic with App Check, Say it / Ask femio / Visit summary / Settings → Assistant in four languages, tripwire rules, public export script, Devpost texts. Ask femio answers from trusted sources via Google Search grounding, not from femio's guides (owner direction). Positioning is now "AI-assisted women's health & wellness" across life stages (ADR-078 §8, R7.7). **Not yet run against real Firebase or Gemini Nano:** owner actions 23–28 first.
 
 - **Sign-off pass 2026-10-30 (ADR-077).** All 121 guides are published and name Dr. Khaled M. as reviewer; no `[NEEDS SOURCE]` remains; the legal pages name the sole proprietorship and register number. Owner actions 3, 7 and 9 are closed. **Library parity 2026-10-30:** 110 guides in each of EN, AR, FR and ES, plus the five condition pages and the author bio in all four; glossary and FAQ pages are still hidden (R3.9). Live on femioapp.com since 2026-10-30 (`73cb541`, checked: register number on `/en/privacy`, reviewer line and no "review pending" on five sampled guides).
 

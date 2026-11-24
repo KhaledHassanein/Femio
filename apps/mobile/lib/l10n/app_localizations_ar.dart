@@ -1481,4 +1481,287 @@ class L10nAr extends L10n {
   @override
   String get adsNotice =>
       'تظهر الإعلانات في شاشات الدلائل فقط. لا تطّلع أبدًا على سجلاتكِ، وسيزيلها femio Plus.';
+
+  @override
+  String get assistantPrivateNote =>
+      'يتم هذا على هاتفك. كلماتك لا تُحفظ ولا تُرسل إلى أي مكان.';
+
+  @override
+  String get assistantModelNote =>
+      'ساعد في ذلك Gemini Nano، الذكاء الاصطناعي الموجود على هاتفك.';
+
+  @override
+  String get sayItButton => 'قوليها بكلماتك';
+
+  @override
+  String get sayItTitle => 'بماذا تشعرين؟';
+
+  @override
+  String get sayItHint => 'مثلاً: مغص جامد ونزول خفيف وتعبانة جداً';
+
+  @override
+  String get sayItAction => 'حوّليها إلى تسجيل';
+
+  @override
+  String get sayItNothing =>
+      'لم يجد femio شيئاً لتسجيله. جرّبي كلمات أخرى أو اختاري من شاشة التسجيل.';
+
+  @override
+  String get sayItFound => 'وجد femio هذه. ألغي اختيار أي شيء غير صحيح.';
+
+  @override
+  String get sayItAdd => 'أضيفي إلى تسجيل هذا اليوم';
+
+  @override
+  String get sayItAdded => 'تمت الإضافة إلى تسجيلك.';
+
+  @override
+  String get safetyCrisisHeading => 'لستِ وحدكِ في هذا';
+
+  @override
+  String get safetyCrisisBody =>
+      'إذا كنتِ تفكرين في إيذاء نفسكِ، تواصلي مع أحد الآن. صفحة المساعدة فيها أرقام الدعم في بلدكِ.';
+
+  @override
+  String get safetyUrgentHeading => 'قد يحتاج هذا إلى رعاية عاجلة';
+
+  @override
+  String get safetyUrgentBody =>
+      'ألم الصدر أو صعوبة التنفس أو الإغماء أو التشنج تحتاج إلى مساعدة طبية الآن. اتصلي برقم الطوارئ في بلدكِ.';
+
+  @override
+  String get safetyBirthControl =>
+      'femio ليس وسيلة لمنع الحمل ولا يقدّم نصائح لتجنّب الحمل. يمكن للطبيب أو الصيدلي أو عيادة تنظيم الأسرة مساعدتكِ في اختيار وسيلة.';
+
+  @override
+  String get askTitle => 'اسألي femio';
+
+  @override
+  String get askIntro =>
+      'اسألي سؤالاً صحياً. يبحث femio عن الإجابة في مصادر موثوقة مثل منظمة الصحة العالمية وNHS وCDC، ويُريكِ مصدرها.';
+
+  @override
+  String get askHint => 'مثلاً: ما الذي يخفف مغص الدورة؟';
+
+  @override
+  String get askAction => 'اسألي';
+
+  @override
+  String get askPersonalRewritten =>
+      'سؤالكِ عنكِ، لذلك لا يخرج من هاتفكِ إلا نسخة عامة بلا تفاصيل شخصية. راجعيها بالأسفل.';
+
+  @override
+  String get askPersonalSelf =>
+      'سؤالكِ عنكِ. أعيدي كتابته بالأسفل كسؤال عام بدون «أنا» أو «عندي» أو تفاصيل شخصية، وسيبحث عنه femio.';
+
+  @override
+  String get askWillSend =>
+      'هذا بالضبط ما سيُرسل إلى Google للبحث في المصادر الموثوقة:';
+
+  @override
+  String get askSend => 'ابحثي في المصادر الموثوقة';
+
+  @override
+  String get askStillPersonal =>
+      'ما زال هذا يتحدث عنكِ. احذفي كلمات مثل «أنا» أو «عندي» وأي تفاصيل شخصية.';
+
+  @override
+  String get askCloudPrivacy =>
+      'لا يُرسل إلا السؤال المعروض. لا شيء من تسجيلاتكِ.';
+
+  @override
+  String get askSearching => 'جارٍ البحث في المصادر الموثوقة…';
+
+  @override
+  String get askFailed =>
+      'تعذّر على femio الوصول إلى المصادر الآن. حاولي لاحقاً.';
+
+  @override
+  String get askNotSetUp =>
+      'البحث في المصادر الموثوقة غير مفعّل في هذا الإصدار. إليكِ أدلة femio عن الموضوع.';
+
+  @override
+  String get askNoTrusted =>
+      'لم يجد femio إجابة من مصدر صحي موثوق، لذلك لن يعرض إجابة. جرّبي صياغة أخرى أو تحدّثي مع طبيبكِ.';
+
+  @override
+  String get askAnswerLabel => 'من مصادر موثوقة، عبر بحث Google';
+
+  @override
+  String get askSourcesTitle => 'المصادر';
+
+  @override
+  String get askTrustedBadge => 'مصدر موثوق';
+
+  @override
+  String get askOtherSource => 'ليس ضمن قائمة femio الموثوقة';
+
+  @override
+  String get askClinicianLine =>
+      'هذه معلومات عامة وليست نصيحة خاصة بكِ. لحالتكِ أنتِ، تحدّثي مع طبيبكِ أو قابلتكِ.';
+
+  @override
+  String get askRelatedGuides => 'أدلة femio عن هذا';
+
+  @override
+  String get askSearchAgain => 'اسألي سؤالاً آخر';
+
+  @override
+  String get visitButton => 'ملخص للزيارة';
+
+  @override
+  String get visitTitle => 'ملخص للزيارة';
+
+  @override
+  String get visitIntro =>
+      'صفحة تعرضينها على طبيبكِ، من تسجيلاتكِ أنتِ. تبقى على هاتفكِ إلا إذا نسختِها.';
+
+  @override
+  String visitCycles(int count, int longest, int shortest) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count دورة مسجّلة: من $shortest إلى $longest يوماً',
+      many: '$count دورة مسجّلة: من $shortest إلى $longest يوماً',
+      few: '$count دورات مسجّلة: من $shortest إلى $longest يوماً',
+      two: 'دورتان مسجّلتان: من $shortest إلى $longest يوماً',
+      one: 'دورة واحدة مسجّلة: $shortest يوماً',
+      zero: 'لا توجد دورة كاملة مسجّلة بعد',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String visitLastPeriod(String date) {
+    return 'بدأت آخر دورة في $date';
+  }
+
+  @override
+  String get visitIrregular => 'الدورات موصوفة بأنها غير منتظمة';
+
+  @override
+  String get visitTopTerms => 'الأكثر تسجيلاً في آخر 90 يوماً';
+
+  @override
+  String visitDays(int days) {
+    String _temp0 = intl.Intl.pluralLogic(
+      days,
+      locale: localeName,
+      other: '$days يوم',
+      many: '$days يوماً',
+      few: '$days أيام',
+      two: 'يومان',
+      one: 'يوم واحد',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get visitHeavyDays => 'أيام النزول الغزير';
+
+  @override
+  String get visitOpkPositive => 'اختبارات تبويض إيجابية';
+
+  @override
+  String get visitTemperatureDays => 'أيام مسجّل فيها حرارة الاستيقاظ';
+
+  @override
+  String get visitTryingFor => 'محاولة الحمل';
+
+  @override
+  String get visitQuestionsTitle => 'أسئلة يمكنكِ طرحها';
+
+  @override
+  String get visitCopy => 'انسخي كنص';
+
+  @override
+  String get visitCopied => 'تم النسخ. الصقيه في رسالة أو في ملاحظاتكِ.';
+
+  @override
+  String get visitQ_cycleSpread => 'أطوال دوراتي تتغير. هل يستحق ذلك الفحص؟';
+
+  @override
+  String get visitQ_ttcTests =>
+      'بالنظر إلى مدة محاولتنا، ما الفحوصات التي تقترحها؟';
+
+  @override
+  String get visitQ_ovulation => 'كيف نعرف إن كنت أبيض؟';
+
+  @override
+  String get visitQ_folicAcid => 'هل يجب أن آخذ حمض الفوليك الآن؟';
+
+  @override
+  String get visitQ_painfulPeriods =>
+      'ألم الدورة يؤثر على يومي. ما الذي يمكن أن يساعد؟';
+
+  @override
+  String get visitQ_heavyPeriods => 'دورتي غزيرة. هل يستحق الأمر تحليل دم؟';
+
+  @override
+  String get visitQ_moodCycle =>
+      'مزاجي يتغير كثيراً حول موعد الدورة. هل يمكن أن نتحدث عن ذلك؟';
+
+  @override
+  String get visitQ_skinHair =>
+      'عندي تغيّرات في البشرة أو الشعر مع دورات غير منتظمة. هل يجب فحصها معاً؟';
+
+  @override
+  String get visitQ_tiredness => 'أشعر بالتعب كثيراً. هل هناك ما يستحق الفحص؟';
+
+  @override
+  String get visitQ_menopause =>
+      'هل يمكن أن تكون أعراضي مرتبطة بما قبل انقطاع الطمث، وما خياراتي؟';
+
+  @override
+  String get visitQ_pregnancyNext =>
+      'ما الذي يجب أن أنتبه له قبل زيارتنا القادمة؟';
+
+  @override
+  String get visitQ_pregnancyMovements => 'متى أبدأ في الانتباه لحركات الجنين؟';
+
+  @override
+  String get visitQ_anythingElse =>
+      'هل في تسجيلاتي شيء تودّ النظر إليه عن قرب؟';
+
+  @override
+  String get assistantSettingsTitle => 'المساعد';
+
+  @override
+  String get assistantSettingsSub =>
+      'ذكاء اصطناعي على هاتفكِ، وإجابات من مصادر موثوقة';
+
+  @override
+  String get assistantOnDeviceTitle =>
+      'الذكاء الاصطناعي على هاتفكِ (Gemini Nano)';
+
+  @override
+  String get assistantOnDeviceAvailable =>
+      'جاهز. يقرأ ملاحظاتكِ على الهاتف، ولا يُرسل شيئاً.';
+
+  @override
+  String get assistantOnDeviceDownloadable => 'يمكن تنزيله على هذا الهاتف.';
+
+  @override
+  String get assistantOnDeviceDownloading => 'جارٍ التنزيل…';
+
+  @override
+  String get assistantOnDeviceUnavailable =>
+      'غير متاح على هذا الهاتف. يستخدم femio قائمة كلماته الخاصة بدلاً منه، على الهاتف أيضاً.';
+
+  @override
+  String get assistantDownload => 'تنزيل';
+
+  @override
+  String get assistantCloudTitle => 'إجابات من مصادر موثوقة';
+
+  @override
+  String get assistantCloudOn =>
+      'مفعّل. لا يُرسل إلى Google إلا الأسئلة العامة التي توافقين عليها، وليس تسجيلاتكِ أبداً.';
+
+  @override
+  String get assistantCloudOff => 'غير مفعّل في هذا الإصدار.';
+
+  @override
+  String get assistantHowItWorks =>
+      'كل ما يخصكِ يبقى على هاتفكِ. تقرأ قواعد femio ملاحظاتكِ وتسجيلاتكِ، ويساعد Gemini Nano على الهاتف إن كان متاحاً. قواعد السلامة تأتي أولاً دائماً: علامات الخطر تفتح صفحة المساعدة، ولا يقدّم femio نصائح عن منع الحمل. قد يُرسل سؤال عام توافقين عليه إلى Google للعثور على إجابة من مصادر صحية موثوقة، ويعرض femio هذه المصادر مع كل إجابة.';
 }

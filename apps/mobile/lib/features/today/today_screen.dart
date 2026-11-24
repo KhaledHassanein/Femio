@@ -18,6 +18,8 @@ import '../../theme/spacing.dart';
 import '../../theme/type_sizes.dart';
 import '../../widgets/bloom.dart';
 import '../../widgets/notice_card.dart';
+import '../assistant/ask_screen.dart';
+import '../assistant/visit_summary_screen.dart';
 import '../help/red_flags_screen.dart';
 import '../settings/settings_screen.dart';
 import '../../widgets/tab_header.dart';
@@ -147,6 +149,31 @@ class TodayScreen extends StatelessWidget {
                 l.loggedTodayCount((profile.logs[now]?.terms.length ?? 0) + (profile.logs[now]?.flow != null ? 1 : 0)),
                 style: t.bodySmall,
               ),
+            ),
+            const SizedBox(height: space4),
+            // ADR-078: the assistant's two doors from Today.
+            Row(
+              children: [
+                Expanded(
+                  child: OutlinedButton.icon(
+                    onPressed: () => Navigator.of(context).push(
+                      MaterialPageRoute<void>(builder: (_) => AskScreen(controller: controller, library: library)),
+                    ),
+                    icon: const Icon(Icons.travel_explore_rounded),
+                    label: Text(l.askTitle),
+                  ),
+                ),
+                const SizedBox(width: space2),
+                Expanded(
+                  child: OutlinedButton.icon(
+                    onPressed: () => Navigator.of(context).push(
+                      MaterialPageRoute<void>(builder: (_) => VisitSummaryScreen(controller: controller, today: now)),
+                    ),
+                    icon: const Icon(Icons.assignment_outlined),
+                    label: Text(l.visitButton),
+                  ),
+                ),
+              ],
             ),
             const SizedBox(height: space7),
             Row(

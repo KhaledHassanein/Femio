@@ -15,12 +15,17 @@ import '../../theme/spacing.dart';
 import '../../widgets/tab_header.dart';
 import '../ads/ad_banner.dart';
 import '../ads/ad_unit_ids.dart';
+import '../../app.dart';
+import '../assistant/ask_screen.dart';
 import 'article_screen.dart';
 
 /// The guide list with a search field. [library] is injectable for tests.
 class LearnScreen extends StatefulWidget {
-  const LearnScreen({super.key, required this.library});
+  const LearnScreen({super.key, required this.library, this.controller});
   final Library library;
+
+  /// Her record, for Ask femio's safety rules. Optional so tests of Learn need none.
+  final FemioController? controller;
 
   @override
   State<LearnScreen> createState() => _LearnScreenState();
@@ -60,6 +65,22 @@ class _LearnScreenState extends State<LearnScreen> {
                   ),
                   onChanged: (v) => setState(() => _query = v),
                 ),
+                if (widget.controller != null) ...[
+                  const SizedBox(height: space2),
+                  // ADR-078: an answer from trusted sources when no guide fits.
+                  Align(
+                    alignment: AlignmentDirectional.centerStart,
+                    child: TextButton.icon(
+                      onPressed: () => Navigator.of(context).push(
+                        MaterialPageRoute<void>(
+                          builder: (_) => AskScreen(controller: widget.controller!, library: widget.library),
+                        ),
+                      ),
+                      icon: const Icon(Icons.travel_explore_rounded),
+                      label: Text(l.askTitle),
+                    ),
+                  ),
+                ],
                 const SizedBox(height: space4),
                 if (snapshot.connectionState != ConnectionState.done)
                   const Center(

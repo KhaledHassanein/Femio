@@ -1458,4 +1458,286 @@ class L10nEn extends L10n {
   @override
   String get adsNotice =>
       'Ads appear on guide screens only. They never see your records, and femio Plus will remove them.';
+
+  @override
+  String get assistantPrivateNote =>
+      'This runs on your phone. Your words are not saved or sent anywhere.';
+
+  @override
+  String get assistantModelNote =>
+      'Gemini Nano, the AI on your phone, helped with this.';
+
+  @override
+  String get sayItButton => 'Say it in your words';
+
+  @override
+  String get sayItTitle => 'How are you feeling?';
+
+  @override
+  String get sayItHint =>
+      'For example: bad cramps, light bleeding and so tired';
+
+  @override
+  String get sayItAction => 'Turn into log entries';
+
+  @override
+  String get sayItNothing =>
+      'femio found nothing to log in that. Try other words, or tap the chips on the Log screen.';
+
+  @override
+  String get sayItFound => 'femio found these. Untick anything that is wrong.';
+
+  @override
+  String get sayItAdd => 'Add to this day\'s log';
+
+  @override
+  String get sayItAdded => 'Added to your log.';
+
+  @override
+  String get safetyCrisisHeading => 'You don\'t have to face this alone';
+
+  @override
+  String get safetyCrisisBody =>
+      'If you are thinking about harming yourself, please reach out now. The help page lists crisis lines for your country.';
+
+  @override
+  String get safetyUrgentHeading => 'This may need urgent care';
+
+  @override
+  String get safetyUrgentBody =>
+      'Chest pain, trouble breathing, fainting or a seizure need medical help now. Call your local emergency number.';
+
+  @override
+  String get safetyBirthControl =>
+      'femio is not a way to avoid pregnancy and can\'t advise on it. A doctor, pharmacist or family-planning clinic can help you choose a method.';
+
+  @override
+  String get askTitle => 'Ask femio';
+
+  @override
+  String get askIntro =>
+      'Ask a health question. femio looks for the answer in trusted sources such as WHO, NHS and CDC, and shows you where it came from.';
+
+  @override
+  String get askHint => 'For example: what helps with period cramps?';
+
+  @override
+  String get askAction => 'Ask';
+
+  @override
+  String get askPersonalRewritten =>
+      'Your question is about you, so only a general version with no personal details may leave your phone. Check it below.';
+
+  @override
+  String get askPersonalSelf =>
+      'Your question is about you. Rewrite it below as a general question, without “I”, “my” or personal details, and femio will look it up.';
+
+  @override
+  String get askWillSend =>
+      'This is exactly what will be sent to Google to search trusted sources:';
+
+  @override
+  String get askSend => 'Search trusted sources';
+
+  @override
+  String get askStillPersonal =>
+      'This still mentions you. Remove words like “I” or “my” and any personal details.';
+
+  @override
+  String get askCloudPrivacy =>
+      'Only the question shown is sent. Nothing from your log is.';
+
+  @override
+  String get askSearching => 'Searching trusted sources…';
+
+  @override
+  String get askFailed =>
+      'femio couldn\'t reach the sources right now. Try again later.';
+
+  @override
+  String get askNotSetUp =>
+      'Searching trusted sources isn\'t switched on in this version. Here are femio\'s guides on the topic.';
+
+  @override
+  String get askNoTrusted =>
+      'femio found no answer from a trusted health source, so it won\'t show one. Try asking another way, or talk to your doctor.';
+
+  @override
+  String get askAnswerLabel => 'From trusted sources, found with Google';
+
+  @override
+  String get askSourcesTitle => 'Sources';
+
+  @override
+  String get askTrustedBadge => 'Trusted source';
+
+  @override
+  String get askOtherSource => 'Not on femio\'s trusted list';
+
+  @override
+  String get askClinicianLine =>
+      'This is general information, not advice for you. For your own situation, talk to your doctor or midwife.';
+
+  @override
+  String get askRelatedGuides => 'femio guides on this';
+
+  @override
+  String get askSearchAgain => 'Ask another question';
+
+  @override
+  String get visitButton => 'Visit summary';
+
+  @override
+  String get visitTitle => 'Visit summary';
+
+  @override
+  String get visitIntro =>
+      'A page to show your doctor, made from what you logged. It stays on your phone unless you copy it.';
+
+  @override
+  String visitCycles(int count, int longest, int shortest) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count cycles logged: $shortest to $longest days',
+      one: '1 cycle logged: $shortest days',
+      zero: 'No complete cycle logged yet',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String visitLastPeriod(String date) {
+    return 'Last period started $date';
+  }
+
+  @override
+  String get visitIrregular => 'Cycles described as irregular';
+
+  @override
+  String get visitTopTerms => 'Logged most in the last 90 days';
+
+  @override
+  String visitDays(int days) {
+    String _temp0 = intl.Intl.pluralLogic(
+      days,
+      locale: localeName,
+      other: '$days days',
+      one: '1 day',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get visitHeavyDays => 'Days with heavy flow';
+
+  @override
+  String get visitOpkPositive => 'Positive ovulation tests';
+
+  @override
+  String get visitTemperatureDays => 'Days with a waking temperature';
+
+  @override
+  String get visitTryingFor => 'Trying to conceive';
+
+  @override
+  String get visitQuestionsTitle => 'Questions you could ask';
+
+  @override
+  String get visitCopy => 'Copy as text';
+
+  @override
+  String get visitCopied => 'Copied. Paste it into a message or your notes.';
+
+  @override
+  String get visitQ_cycleSpread =>
+      'My cycle lengths vary. Is that worth looking into?';
+
+  @override
+  String get visitQ_ttcTests =>
+      'Given how long we have been trying, which checks would you suggest?';
+
+  @override
+  String get visitQ_ovulation => 'How can we find out whether I am ovulating?';
+
+  @override
+  String get visitQ_folicAcid => 'Should I be taking folic acid now?';
+
+  @override
+  String get visitQ_painfulPeriods =>
+      'My period pain affects my days. What can help?';
+
+  @override
+  String get visitQ_heavyPeriods =>
+      'My periods are heavy. Is a blood test worth doing?';
+
+  @override
+  String get visitQ_moodCycle =>
+      'My mood changes a lot around my period. Can we talk about it?';
+
+  @override
+  String get visitQ_skinHair =>
+      'I have skin or hair changes along with irregular cycles. Should these be checked together?';
+
+  @override
+  String get visitQ_tiredness =>
+      'I often feel tired. Is anything worth checking?';
+
+  @override
+  String get visitQ_menopause =>
+      'Could my symptoms be linked to perimenopause, and what are my options?';
+
+  @override
+  String get visitQ_pregnancyNext =>
+      'What should I look out for before our next visit?';
+
+  @override
+  String get visitQ_pregnancyMovements =>
+      'When should I start paying attention to the baby\'s movements?';
+
+  @override
+  String get visitQ_anythingElse =>
+      'Is there anything in my log you would like to look at more closely?';
+
+  @override
+  String get assistantSettingsTitle => 'Assistant';
+
+  @override
+  String get assistantSettingsSub =>
+      'AI on your phone, and answers from trusted sources';
+
+  @override
+  String get assistantOnDeviceTitle => 'AI on your phone (Gemini Nano)';
+
+  @override
+  String get assistantOnDeviceAvailable =>
+      'Ready. It reads your notes on the phone; nothing is sent.';
+
+  @override
+  String get assistantOnDeviceDownloadable =>
+      'Can be downloaded to this phone.';
+
+  @override
+  String get assistantOnDeviceDownloading => 'Downloading…';
+
+  @override
+  String get assistantOnDeviceUnavailable =>
+      'Not available on this phone. femio uses its own word list instead, also on the phone.';
+
+  @override
+  String get assistantDownload => 'Download';
+
+  @override
+  String get assistantCloudTitle => 'Answers from trusted sources';
+
+  @override
+  String get assistantCloudOn =>
+      'On. Only general questions you approve are sent to Google, never your log.';
+
+  @override
+  String get assistantCloudOff => 'Not switched on in this version.';
+
+  @override
+  String get assistantHowItWorks =>
+      'Everything about you stays on your phone. Your notes and your log are read by femio\'s rules and, where your phone has it, by Gemini Nano on the phone. Safety rules always come first: signs of danger open the help page, and femio never advises on avoiding pregnancy. A general question you approve may be sent to Google to find an answer from trusted health sources; femio shows those sources with every answer.';
 }

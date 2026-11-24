@@ -12,6 +12,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 
 import 'data/app_lock.dart';
+import 'data/assistant_channel.dart';
 import 'data/backup.dart';
 import 'data/key_vault.dart';
 import 'data/profile.dart';
@@ -19,6 +20,7 @@ import 'data/reminder_scheduler.dart';
 import 'data/store.dart';
 import 'features/ads/ads_runtime.dart';
 import 'features/ads/ads_scope.dart';
+import 'features/assistant/assistant_scope.dart';
 import 'features/home/home_shell.dart';
 import 'features/lock/lock_screen.dart';
 import 'features/onboarding/onboarding_flow.dart';
@@ -279,8 +281,18 @@ class FemioController extends ChangeNotifier {
 /// onboarding, the recovery screen and the home shell. [controller] is the shared
 /// state; [today] fixes the date in tests.
 class FemioApp extends StatefulWidget {
-  const FemioApp({super.key, required this.controller, this.today, this.adsRuntime = const NoAdsRuntime()});
+  const FemioApp({
+    super.key,
+    required this.controller,
+    this.today,
+    this.adsRuntime = const NoAdsRuntime(),
+    this.assistant = const OfflineAssistant(),
+  });
   final FemioController controller;
+
+  /// The assistant bridge (ADR-078). Offline by default, so tests never touch a model;
+  /// main.dart passes the method-channel bridge.
+  final AssistantBridge assistant;
 
   /// Where banners come from. The do-nothing runtime by default, so tests and every
   /// non-Android host never load an ads SDK; main.dart passes the platform's.
@@ -334,7 +346,9 @@ class _FemioAppState extends State<FemioApp> with WidgetsBindingObserver {
           builder: (context, child) => AdsScope(
             controller: controller,
             runtime: widget.adsRuntime,
-            child: Stack(
+            child: AssistantScope(
+              bridge: widget.assistant,
+              child: Stack(
               children: [
                 // Kept mounted under the lock so she returns exactly where she was;
                 // excluded from focus and the accessibility tree while locked.
@@ -343,6 +357,7 @@ class _FemioAppState extends State<FemioApp> with WidgetsBindingObserver {
                   // Its own Overlay: the text field needs one and the Navigator's is beneath us.
                   Overlay(initialEntries: [OverlayEntry(builder: (_) => LockScreen(controller: controller))]),
               ],
+            ),
             ),
           ),
           home: switch (controller) {

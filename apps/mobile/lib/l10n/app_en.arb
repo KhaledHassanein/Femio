@@ -624,5 +624,108 @@
   "plusProbeProductFound": "Product femio_plus found in Play Console",
   "plusProbeProductMissing": "Product femio_plus not found yet (expected until it is created in Play Console)",
   "adLabel": "Advertisement",
-  "adsNotice": "Ads appear on guide screens only. They never see your records, and femio Plus will remove them."
+  "adsNotice": "Ads appear on guide screens only. They never see your records, and femio Plus will remove them.",
+  "assistantPrivateNote": "This runs on your phone. Your words are not saved or sent anywhere.",
+  "assistantModelNote": "Gemini Nano, the AI on your phone, helped with this.",
+  "sayItButton": "Say it in your words",
+  "sayItTitle": "How are you feeling?",
+  "sayItHint": "For example: bad cramps, light bleeding and so tired",
+  "sayItAction": "Turn into log entries",
+  "sayItNothing": "femio found nothing to log in that. Try other words, or tap the chips on the Log screen.",
+  "sayItFound": "femio found these. Untick anything that is wrong.",
+  "sayItAdd": "Add to this day's log",
+  "sayItAdded": "Added to your log.",
+  "safetyCrisisHeading": "You don't have to face this alone",
+  "safetyCrisisBody": "If you are thinking about harming yourself, please reach out now. The help page lists crisis lines for your country.",
+  "safetyUrgentHeading": "This may need urgent care",
+  "safetyUrgentBody": "Chest pain, trouble breathing, fainting or a seizure need medical help now. Call your local emergency number.",
+  "safetyBirthControl": "femio is not a way to avoid pregnancy and can't advise on it. A doctor, pharmacist or family-planning clinic can help you choose a method.",
+  "askTitle": "Ask femio",
+  "askIntro": "Ask a health question. femio looks for the answer in trusted sources such as WHO, NHS and CDC, and shows you where it came from.",
+  "askHint": "For example: what helps with period cramps?",
+  "askAction": "Ask",
+  "askPersonalRewritten": "Your question is about you, so only a general version with no personal details may leave your phone. Check it below.",
+  "askPersonalSelf": "Your question is about you. Rewrite it below as a general question, without “I”, “my” or personal details, and femio will look it up.",
+  "askWillSend": "This is exactly what will be sent to Google to search trusted sources:",
+  "askSend": "Search trusted sources",
+  "askStillPersonal": "This still mentions you. Remove words like “I” or “my” and any personal details.",
+  "askCloudPrivacy": "Only the question shown is sent. Nothing from your log is.",
+  "askSearching": "Searching trusted sources…",
+  "askFailed": "femio couldn't reach the sources right now. Try again later.",
+  "askNotSetUp": "Searching trusted sources isn't switched on in this version. Here are femio's guides on the topic.",
+  "askNoTrusted": "femio found no answer from a trusted health source, so it won't show one. Try asking another way, or talk to your doctor.",
+  "askAnswerLabel": "From trusted sources, found with Google",
+  "askSourcesTitle": "Sources",
+  "askTrustedBadge": "Trusted source",
+  "askOtherSource": "Not on femio's trusted list",
+  "askClinicianLine": "This is general information, not advice for you. For your own situation, talk to your doctor or midwife.",
+  "askRelatedGuides": "femio guides on this",
+  "askSearchAgain": "Ask another question",
+  "visitButton": "Visit summary",
+  "visitTitle": "Visit summary",
+  "visitIntro": "A page to show your doctor, made from what you logged. It stays on your phone unless you copy it.",
+  "visitCycles": "{count, plural, =0{No complete cycle logged yet} =1{1 cycle logged: {shortest} days} other{{count} cycles logged: {shortest} to {longest} days}}",
+  "@visitCycles": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      },
+      "longest": {
+        "type": "int"
+      },
+      "shortest": {
+        "type": "int"
+      }
+    }
+  },
+  "visitLastPeriod": "Last period started {date}",
+  "@visitLastPeriod": {
+    "placeholders": {
+      "date": {
+        "type": "String"
+      }
+    }
+  },
+  "visitIrregular": "Cycles described as irregular",
+  "visitTopTerms": "Logged most in the last 90 days",
+  "visitDays": "{days, plural, =1{1 day} other{{days} days}}",
+  "@visitDays": {
+    "placeholders": {
+      "days": {
+        "type": "int"
+      }
+    }
+  },
+  "visitHeavyDays": "Days with heavy flow",
+  "visitOpkPositive": "Positive ovulation tests",
+  "visitTemperatureDays": "Days with a waking temperature",
+  "visitTryingFor": "Trying to conceive",
+  "visitQuestionsTitle": "Questions you could ask",
+  "visitCopy": "Copy as text",
+  "visitCopied": "Copied. Paste it into a message or your notes.",
+  "visitQ_cycleSpread": "My cycle lengths vary. Is that worth looking into?",
+  "visitQ_ttcTests": "Given how long we have been trying, which checks would you suggest?",
+  "visitQ_ovulation": "How can we find out whether I am ovulating?",
+  "visitQ_folicAcid": "Should I be taking folic acid now?",
+  "visitQ_painfulPeriods": "My period pain affects my days. What can help?",
+  "visitQ_heavyPeriods": "My periods are heavy. Is a blood test worth doing?",
+  "visitQ_moodCycle": "My mood changes a lot around my period. Can we talk about it?",
+  "visitQ_skinHair": "I have skin or hair changes along with irregular cycles. Should these be checked together?",
+  "visitQ_tiredness": "I often feel tired. Is anything worth checking?",
+  "visitQ_menopause": "Could my symptoms be linked to perimenopause, and what are my options?",
+  "visitQ_pregnancyNext": "What should I look out for before our next visit?",
+  "visitQ_pregnancyMovements": "When should I start paying attention to the baby's movements?",
+  "visitQ_anythingElse": "Is there anything in my log you would like to look at more closely?",
+  "assistantSettingsTitle": "Assistant",
+  "assistantSettingsSub": "AI on your phone, and answers from trusted sources",
+  "assistantOnDeviceTitle": "AI on your phone (Gemini Nano)",
+  "assistantOnDeviceAvailable": "Ready. It reads your notes on the phone; nothing is sent.",
+  "assistantOnDeviceDownloadable": "Can be downloaded to this phone.",
+  "assistantOnDeviceDownloading": "Downloading…",
+  "assistantOnDeviceUnavailable": "Not available on this phone. femio uses its own word list instead, also on the phone.",
+  "assistantDownload": "Download",
+  "assistantCloudTitle": "Answers from trusted sources",
+  "assistantCloudOn": "On. Only general questions you approve are sent to Google, never your log.",
+  "assistantCloudOff": "Not switched on in this version.",
+  "assistantHowItWorks": "Everything about you stays on your phone. Your notes and your log are read by femio's rules and, where your phone has it, by Gemini Nano on the phone. Safety rules always come first: signs of danger open the help page, and femio never advises on avoiding pregnancy. A general question you approve may be sent to Google to find an answer from trusted health sources; femio shows those sources with every answer."
 }

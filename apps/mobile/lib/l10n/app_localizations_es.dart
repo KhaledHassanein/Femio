@@ -1466,4 +1466,287 @@ class L10nEs extends L10n {
   @override
   String get adsNotice =>
       'Los anuncios aparecen solo en las pantallas de las guías. Nunca ven tus registros, y femio Plus los eliminará.';
+
+  @override
+  String get assistantPrivateNote =>
+      'Esto ocurre en tu teléfono. Tus palabras no se guardan ni se envían.';
+
+  @override
+  String get assistantModelNote =>
+      'Gemini Nano, la IA de tu teléfono, ayudó con esto.';
+
+  @override
+  String get sayItButton => 'Dilo con tus palabras';
+
+  @override
+  String get sayItTitle => '¿Cómo te sientes?';
+
+  @override
+  String get sayItHint =>
+      'Por ejemplo: cólicos fuertes, sangrado leve y muy cansada';
+
+  @override
+  String get sayItAction => 'Convertir en registro';
+
+  @override
+  String get sayItNothing =>
+      'femio no encontró nada que registrar. Prueba otras palabras o toca las opciones de la pantalla Registro.';
+
+  @override
+  String get sayItFound =>
+      'femio encontró esto. Desmarca lo que no sea correcto.';
+
+  @override
+  String get sayItAdd => 'Añadir al registro de este día';
+
+  @override
+  String get sayItAdded => 'Añadido a tu registro.';
+
+  @override
+  String get safetyCrisisHeading => 'No tienes que pasar por esto sola';
+
+  @override
+  String get safetyCrisisBody =>
+      'Si piensas en hacerte daño, busca ayuda ahora. La página de ayuda muestra las líneas de crisis de tu país.';
+
+  @override
+  String get safetyUrgentHeading => 'Esto puede necesitar atención urgente';
+
+  @override
+  String get safetyUrgentBody =>
+      'El dolor en el pecho, la dificultad para respirar, un desmayo o una convulsión necesitan ayuda médica ya. Llama al número de emergencias.';
+
+  @override
+  String get safetyBirthControl =>
+      'femio no es un método anticonceptivo y no aconseja sobre cómo evitar un embarazo. Un médico, farmacéutico o centro de planificación familiar puede ayudarte a elegir.';
+
+  @override
+  String get askTitle => 'Pregunta a femio';
+
+  @override
+  String get askIntro =>
+      'Haz una pregunta de salud. femio busca la respuesta en fuentes fiables como la OMS, el NHS y los CDC, y te muestra de dónde viene.';
+
+  @override
+  String get askHint => 'Por ejemplo: ¿qué ayuda con los cólicos menstruales?';
+
+  @override
+  String get askAction => 'Preguntar';
+
+  @override
+  String get askPersonalRewritten =>
+      'Tu pregunta habla de ti, así que solo una versión general, sin datos personales, puede salir de tu teléfono. Revísala abajo.';
+
+  @override
+  String get askPersonalSelf =>
+      'Tu pregunta habla de ti. Reescríbela abajo como una pregunta general, sin «yo», «mi» ni datos personales, y femio la buscará.';
+
+  @override
+  String get askWillSend =>
+      'Esto es exactamente lo que se enviará a Google para buscar en fuentes fiables:';
+
+  @override
+  String get askSend => 'Buscar en fuentes fiables';
+
+  @override
+  String get askStillPersonal =>
+      'Esto todavía habla de ti. Quita palabras como «yo» o «mi» y cualquier dato personal.';
+
+  @override
+  String get askCloudPrivacy =>
+      'Solo se envía la pregunta mostrada. Nada de tu registro.';
+
+  @override
+  String get askSearching => 'Buscando en fuentes fiables…';
+
+  @override
+  String get askFailed =>
+      'femio no pudo llegar a las fuentes ahora. Inténtalo más tarde.';
+
+  @override
+  String get askNotSetUp =>
+      'La búsqueda en fuentes fiables no está activada en esta versión. Aquí tienes las guías de femio sobre el tema.';
+
+  @override
+  String get askNoTrusted =>
+      'femio no encontró una respuesta de una fuente de salud fiable, así que no muestra ninguna. Pregunta de otra forma o habla con tu médico.';
+
+  @override
+  String get askAnswerLabel => 'De fuentes fiables, encontrado con Google';
+
+  @override
+  String get askSourcesTitle => 'Fuentes';
+
+  @override
+  String get askTrustedBadge => 'Fuente fiable';
+
+  @override
+  String get askOtherSource => 'Fuera de la lista fiable de femio';
+
+  @override
+  String get askClinicianLine =>
+      'Esto es información general, no un consejo para ti. Para tu situación, habla con tu médico o matrona.';
+
+  @override
+  String get askRelatedGuides => 'Guías de femio sobre esto';
+
+  @override
+  String get askSearchAgain => 'Hacer otra pregunta';
+
+  @override
+  String get visitButton => 'Resumen para la consulta';
+
+  @override
+  String get visitTitle => 'Resumen para la consulta';
+
+  @override
+  String get visitIntro =>
+      'Una página para mostrar a tu médico, hecha con lo que registraste. Se queda en tu teléfono salvo que la copies.';
+
+  @override
+  String visitCycles(int count, int longest, int shortest) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count ciclos registrados: de $shortest a $longest días',
+      one: '1 ciclo registrado: $shortest días',
+      zero: 'Aún no hay ningún ciclo completo registrado',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String visitLastPeriod(String date) {
+    return 'La última regla empezó el $date';
+  }
+
+  @override
+  String get visitIrregular => 'Ciclos descritos como irregulares';
+
+  @override
+  String get visitTopTerms => 'Lo más registrado en los últimos 90 días';
+
+  @override
+  String visitDays(int days) {
+    String _temp0 = intl.Intl.pluralLogic(
+      days,
+      locale: localeName,
+      other: '$days días',
+      one: '1 día',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get visitHeavyDays => 'Días de flujo abundante';
+
+  @override
+  String get visitOpkPositive => 'Tests de ovulación positivos';
+
+  @override
+  String get visitTemperatureDays => 'Días con temperatura al despertar';
+
+  @override
+  String get visitTryingFor => 'Buscando embarazo';
+
+  @override
+  String get visitQuestionsTitle => 'Preguntas que podrías hacer';
+
+  @override
+  String get visitCopy => 'Copiar como texto';
+
+  @override
+  String get visitCopied => 'Copiado. Pégalo en un mensaje o en tus notas.';
+
+  @override
+  String get visitQ_cycleSpread =>
+      'La duración de mis ciclos varía. ¿Vale la pena revisarlo?';
+
+  @override
+  String get visitQ_ttcTests =>
+      'Por el tiempo que llevamos intentándolo, ¿qué pruebas sugerirías?';
+
+  @override
+  String get visitQ_ovulation => '¿Cómo podemos saber si estoy ovulando?';
+
+  @override
+  String get visitQ_folicAcid => '¿Debería tomar ácido fólico ahora?';
+
+  @override
+  String get visitQ_painfulPeriods =>
+      'El dolor de la regla afecta mis días. ¿Qué puede ayudar?';
+
+  @override
+  String get visitQ_heavyPeriods =>
+      'Mis reglas son abundantes. ¿Vale la pena un análisis de sangre?';
+
+  @override
+  String get visitQ_moodCycle =>
+      'Mi ánimo cambia mucho alrededor de la regla. ¿Podemos hablarlo?';
+
+  @override
+  String get visitQ_skinHair =>
+      'Tengo cambios en la piel o el cabello junto con ciclos irregulares. ¿Deberían revisarse juntos?';
+
+  @override
+  String get visitQ_tiredness =>
+      'Me siento cansada a menudo. ¿Hay algo que valga la pena revisar?';
+
+  @override
+  String get visitQ_menopause =>
+      '¿Podrían mis síntomas estar ligados a la perimenopausia, y qué opciones tengo?';
+
+  @override
+  String get visitQ_pregnancyNext =>
+      '¿A qué debo estar atenta antes de nuestra próxima visita?';
+
+  @override
+  String get visitQ_pregnancyMovements =>
+      '¿Cuándo debo empezar a prestar atención a los movimientos del bebé?';
+
+  @override
+  String get visitQ_anythingElse =>
+      '¿Hay algo en mi registro que quieras mirar con más detalle?';
+
+  @override
+  String get assistantSettingsTitle => 'Asistente';
+
+  @override
+  String get assistantSettingsSub =>
+      'IA en tu teléfono y respuestas de fuentes fiables';
+
+  @override
+  String get assistantOnDeviceTitle => 'IA en tu teléfono (Gemini Nano)';
+
+  @override
+  String get assistantOnDeviceAvailable =>
+      'Lista. Lee tus notas en el teléfono; no se envía nada.';
+
+  @override
+  String get assistantOnDeviceDownloadable =>
+      'Se puede descargar en este teléfono.';
+
+  @override
+  String get assistantOnDeviceDownloading => 'Descargando…';
+
+  @override
+  String get assistantOnDeviceUnavailable =>
+      'No disponible en este teléfono. femio usa su propia lista de palabras, también en el teléfono.';
+
+  @override
+  String get assistantDownload => 'Descargar';
+
+  @override
+  String get assistantCloudTitle => 'Respuestas de fuentes fiables';
+
+  @override
+  String get assistantCloudOn =>
+      'Activado. Solo se envían a Google las preguntas generales que apruebas, nunca tu registro.';
+
+  @override
+  String get assistantCloudOff => 'No activado en esta versión.';
+
+  @override
+  String get assistantHowItWorks =>
+      'Todo lo tuyo se queda en tu teléfono. Las reglas de femio y, si tu teléfono lo tiene, Gemini Nano en el teléfono leen tus notas y tu registro. Las reglas de seguridad van siempre primero: las señales de peligro abren la página de ayuda, y femio nunca aconseja sobre anticoncepción. Una pregunta general que apruebes puede enviarse a Google para encontrar una respuesta en fuentes de salud fiables; femio muestra esas fuentes con cada respuesta.';
 }

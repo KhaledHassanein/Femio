@@ -872,3 +872,4 @@ abuse checks.
 she types into Ask femio may be processed by Google to answer them, not stored by femio, not linked to
 her"; the privacy notice ×4 and the store listing change before a release that enables the cloud path
 (R7.6). OD-9 is lifted for the assistant described here; free chat and community stay deferred (OD-8).
+The app's minimum Android version rises to 8.0 (API 26), which `firebase-ai-ondevice` requires.
