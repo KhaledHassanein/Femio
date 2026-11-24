@@ -127,7 +127,7 @@ Accepted features from the persona-driven review (market researcher + business d
 - [ ] R8.4 · (A) Mode-aware placeholders for Say it, Ask femio, log fields, hints and empty states, four locales (owner O6)
 - [ ] R8.5 · (B) Patterns screen: cycle-length history with range, symptoms by phase "seen in N of M cycles", per-cycle BBT/OPK/mucus, pregnancy weight and movements, menopause symptom frequency; counts only, no verdicts, free; the minimum-cycles rule goes in the medical rules register first (rule 1, 3; Stitch gap)
 - [ ] R8.6 · (A) Pregnancy weekly view: calendar by week with the current week ringed; "This week" card with Baby / Your body / What you may notice / Care around now / Tip taken verbatim from the 37 reviewed week guides in her language (owner O2, O3)
-- [ ] R8.7 · (A) Pregnancy mode cleanup: one week function on every surface with a fixture (turnover on the LMP weekday); no fertile, OPK, BBT or period items; "bleeding or spotting" links to the warning signs (MR-29); hidden items under "All log items" (owner O4, O5)
+- [ ] R8.7 · (A) Pregnancy mode cleanup: one week function on every surface with a fixture (turnover on the LMP weekday); no fertile, OPK, BBT or period items; "bleeding or spotting" links to the warning signs (MR-29); hidden items under "All log items" (owner O4, O5). APK teardown: the competitor counts weeks the same way (completed weeks, turnover on the last-period weekday); the fixture must also pin which week guide shows at 4w0d and the week label in each language
 - [ ] R8.8 · (B) Signs this cycle: BBT shift, OPK and mucus side by side per cycle, never "you ovulated" (MR-16/17/18)
 - [x] R8.9 · (A) Fertile-window invariant in `fixtures/domain/fertile-window.json` (window contains ovulation, every case) + calendar and website-calculator screenshot audit (MR-07; owner O7) — done 2026-11-24: invariant asserted on every recorded case and for every cycle length 21–35 in both Dart and TS; one ovulation function per client (`fertility.dart`, `calculators/index.ts`). Not verified: website calculator screenshot
 - [x] R8.10 · (A) Next 3 predicted periods as widening ranges after every log; none when irregular or no confident window (MR-01, MR-06; owner O8) — done 2026-11-24: MR-51 + `fixtures/domain/upcoming-periods.json` (expected values computed independently), `upcomingPeriods` in Dart and TS, calendar draws all three (low confidence dashed) + "Next periods" card ×4 locales; screenshots `testing-results/2026-11-24-r8-calendar/`. The website calculators do not use it yet (R8.10a)
@@ -135,21 +135,39 @@ Accepted features from the persona-driven review (market researcher + business d
 - [ ] R8.11 · (B) "My health" switch (PCOS, irregular cycles, thyroid, endometriosis; self-reported): window and seek-help rules (MR-14), tips triggers, Patterns emphasis, B6 overlay with no TTC nudges (scope A-05)
 - [ ] R8.12 · (C) Two-week-wait card: days since her logged signs, test-day rule (MR-21), no counter on an assumed ovulation (MR-20)
 - [ ] R8.13 · (C) Lab entries in the lab's units (progesterone, PdG, HbA1c, AMH, TSH), never labelled, never "day 21" (MR-18)
-- [ ] R8.14 · (B) Pregnancy ended: "I had my baby" → postpartum view; "My pregnancy has ended" → her own words, kind screen, reminders stopped, data kept (MR-35, scope A-07)
+- [ ] R8.14 · (B) Pregnancy ended: "I had my baby" → postpartum view; "My pregnancy has ended" → her own words, kind screen, reminders stopped, data kept (MR-35, scope A-07). APK teardown: one competitor already offers a delivery-or-miscarriage end choice, so femio leads on how it is done, not on having it (corrects PERSONA_FEATURES §3.2/§3.3)
 - [ ] R8.15 · (C) Weekly pregnancy reminder, neutral text (scope A-11; ADR-079 §4)
-- [ ] R8.16 · (C) Pregnancy checklists: hospital bag, birth-plan questions, questions for this visit from the catalogue (items `[NEEDS SOURCE]`)
-- [ ] R8.17 · (C) Baby size by week: only what the reviewed week guide states, drawn object, no photos of people (`[NEEDS SOURCE]` otherwise)
+- [ ] R8.16 · (C) Pregnancy checklists: hospital bag, birth-plan questions, questions for this visit from the catalogue (items `[NEEDS SOURCE]`); APK teardown: never affiliate or shop links (a competitor embeds them in its lists)
+- [ ] R8.17 · (C) Baby size by week: only what the reviewed week guide states, drawn object, no photos of people (`[NEEDS SOURCE]` otherwise); APK teardown: if lengths are shown, the crown-to-rump → head-to-toe switch at week 20 needs saying, sourced
 - [ ] R8.18 · (C) Ultrasound dating overrides other methods when her clinician gave it (MR-27)
 - [ ] R8.19 · (B) Postpartum view: onboarding "I recently had a baby" (writes `birthDate`), weeks since birth, recovery guide of the week, after-birth warning signs (MR-50), mood check-in, bleeding log; first period after birth restarts ranges (no ovulation-return detection)
 - [ ] R8.20 · (C) Perimenopause view: irregular cycles stay visible as ranges, monthly symptom frequency, visit pack ≥ Balance's free report, add "palpitations" to the vocabulary (four locales, sync script)
 - [ ] R8.21 · (A) "What can leave this phone" page in Settings: every network path listed (Cloud boost only), link to the privacy policy (rule 4)
 - [ ] R8.22 · (C) "What you usually notice in this phase" card from her own logs, worded as past pattern (rule 3)
 - [ ] R8.23 · (C) Custom tags, local, mappable by Say it (MR-47 register check)
-- [ ] R8.24 · Owner decision (feeds R7.12): femio Plus sells convenience, never access — PDF export of visit pack and Patterns, widget, themes and discreet icon, extra reminders, Cloud boost above a free allowance; price test yearly SAR 49.99 / EGP 249.99 or lifetime SAR 99 / EGP 399 (hypotheses)
-- [DEFERRED] R8.25 · Partner follow-along (no-server design), wearable/Health Connect import, LH photo reading, bump diary, baby feeding log, BP log (v1.1 order), teen mode (MR-48, owner + legal)
+- [ ] R8.24 · Owner decision (feeds R7.12): femio Plus sells convenience, never access — PDF export of visit pack and Patterns, widget, themes and discreet icon, extra reminders, Cloud boost above a free allowance; price test yearly SAR 49.99 / EGP 249.99 or lifetime SAR 99 / EGP 399 (hypotheses). APK teardown: all three competitors ship widgets, themes and a lock; the builds are R9.4, R9.11, R9.13
+- [DEFERRED] R8.25 · Partner follow-along (no-server design), wearable/Health Connect import, LH photo reading, bump diary, baby feeding log, BP log (v1.1 order), teen mode (MR-48, owner + legal). APK teardown: the competitor's partner mode needs an account and pushes her phases, logs and a late period to the partner; a no-server design stays the only option
 - [x] R8.26 · Stitch round 2 (owner export 2026-11-24, 99 screens): reviewed, `testing-results/2026-11-24-stitch-compare/round2/FINDINGS.md` (adopt table mapped to R8 lines, 7 fixes, 0 text-contrast failures); built through R8.2–R8.27
 - [ ] R8.27 · Stitch round 1 small wins: ovulation-evidence card (TTC), Say it as a sheet with a counted save, refusal card with "Prepare doctor-visit pack", next-appointment card (pregnancy), visit pack as a one-page document with the system share sheet
-- [~] R8.28 · Competitor APK teardown (three Play apps the owner supplied: a pregnancy tracker and two period trackers): features only, our design kept; session started 2026-11-24
+- [x] R8.28 · Competitor APK teardown (bf7db98): `com.easymobs.pregnancy` 1.4.75, `com.popularapp.periodcalendar` 1.80.370, `periodtracker.pregnancy.ovulationtracker` 1.122 decompiled with jadx, never run; doc `research/APK_TEARDOWN_2026-11.md` (inventory, gap table, top 15, privacy contrast; claims marked code / inferred / not verified); evidence outside the repo in `E:\re\2026-11-apk\`; owner page https://claude.ai/artifact/ByzRH6dzJtFJq9TpHwMNuM; new lines R9.1–R9.13
+
+## R9 · Competitor APK teardown (2026-11-24) — `research/APK_TEARDOWN_2026-11.md`
+
+Only items no R8 line covers; notes on R8.7, R8.14, R8.16, R8.17, R8.24 and R8.25 carry the rest. Nothing from the three apps is copied; medical content only from reviewed guides or the register, otherwise `[NEEDS SOURCE]`.
+
+- [ ] R9.1 · (A) Pregnancy daily line: one short line a day inside the "This week" card, drawn in turn from that week's reviewed guide sections (no new medical text), changing on the last-period weekday through the R8.7 week function; four locales (rule 1, 2; builds on R8.6)
+- [ ] R9.2 · (A) Owner decision, then build: replace the "N days past your due date" counter (`pregOverdue`) with an estimate sentence and the red-flag entry, no number; register row first (rule 3)
+- [ ] R9.3 · (C) Pregnancy weight: a reference band by pre-pregnancy BMI on the weight screen, only after a register row cites the source `[NEEDS SOURCE]`; band shown as a range, no verdict colour (rule 1, 3)
+- [ ] R9.4 · (B) Reminders: a saved appointment can remind her; a supplement or own-medicine reminder with her own label; neutral notification text; never a contraceptive schedule (rule 1, 4; free vs Plus per R8.24)
+- [ ] R9.5 · (C) Pelvic-floor (Kegel) guided timer from a sourced instruction set `[NEEDS SOURCE]`; no levels, streaks or birth promises (rule 1)
+- [ ] R9.6 · (A) "Why this range / why no window" sheet from her own prediction evidence (cycles used, spread, rule); sits beside R8.10 on the calendar and Today (rule 3)
+- [ ] R9.7 · (B) Register check: a cycle-variability seek-help wording with its source, used by R8.5 Patterns; no "abnormal" label (rule 1, 3)
+- [ ] R9.8 · (B) Free-text note on a day, stored in the sealed record and backup, readable by Say it on the phone (rule 4)
+- [ ] R9.9 · (C) Content: a breast-awareness guide (EN + AR first) instead of a self-exam tracker `[NEEDS SOURCE]` (rule 1)
+- [ ] R9.10 · (B) Spreadsheet (CSV) export of her own logs through the system share sheet, beside the sealed backup; she chooses where it goes (rule 4)
+- [ ] R9.11 · (B) Home-screen widget: neutral by default (no health words on the home or lock screen until she turns them on); pregnancy week or cycle range (rule 3, 4; Plus or free per R8.24)
+- [ ] R9.12 · (C) Feedback path: "this was unclear" on guides and "report a wording problem" for translations, opened in her mail app; no rating nag, no network code (rule 4)
+- [ ] R9.13 · (C) Fingerprint unlock beside the PIN (rule 4)
 
 ## Session log
 

@@ -1,0 +1,161 @@
+<title>Three Rival Apps, Opened</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,500;6..72,600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap">
+<style>
+/* Layout: one reading column; a three-app strip, then adopt / do better / skip as stacked bands; a privacy table. Dusk Bloom tokens (femio.tokens.css). */
+:root {
+  --bg: #FBF7FA; --surface: #FFFFFF; --sunken: #F4EDF2; --text: #2A1E27; --muted: #5E4F59;
+  --line: #E6DAE2; --plum: #8A3572; --plum-soft: #F5E3EF; --rose: #BF2F59; --rose-soft: #FFE0E7;
+  --sage: #3E6B57; --sage-soft: #E2EFE8;
+  --font-display: 'Newsreader', 'Noto Naskh Arabic', Georgia, serif;
+  --font-ui: 'Plus Jakarta Sans', system-ui, -apple-system, 'Segoe UI', sans-serif;
+}
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
+  --bg: #150E15; --surface: #1F1520; --sunken: #19111A; --text: #F6EEF2; --muted: #C9B8C2;
+  --line: #3A2B38; --plum: #DDA2C8; --plum-soft: #3F1534; --rose: #F996AE; --rose-soft: #3D0919;
+  --sage: #9FD0B8; --sage-soft: #16291F; color-scheme: dark } }
+:root[data-theme="dark"] {
+  --bg: #150E15; --surface: #1F1520; --sunken: #19111A; --text: #F6EEF2; --muted: #C9B8C2;
+  --line: #3A2B38; --plum: #DDA2C8; --plum-soft: #3F1534; --rose: #F996AE; --rose-soft: #3D0919;
+  --sage: #9FD0B8; --sage-soft: #16291F; color-scheme: dark }
+body { background: var(--bg); color: var(--text); font: 16px/1.6 var(--font-ui); }
+.wrap { max-width: 46rem; margin: 0 auto; padding-block: 2.5rem 4rem;
+  padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px));
+  display: grid; gap: 2.5rem; }
+h1, h2 { font-family: var(--font-display); font-weight: 600; text-wrap: balance; line-height: 1.15; margin: 0; }
+h1 { font-size: clamp(2rem, 6vw, 2.75rem); }
+h2 { font-size: 1.5rem; }
+h3 { font-size: 1rem; margin: 0; }
+p { margin: 0; }
+.eyebrow { font-size: .75rem; letter-spacing: .08em; text-transform: uppercase; color: var(--plum); font-weight: 600; }
+.lede { color: var(--muted); font-size: 1.0625rem; max-width: 62ch; }
+header { display: grid; gap: .75rem; }
+section { display: grid; gap: 1rem; }
+.apps { display: grid; grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr)); gap: .75rem; }
+.app { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 1rem; display: grid; gap: .35rem; min-width: 0; }
+.app .tag { font-size: .8rem; color: var(--muted); }
+.app .pkg { font-size: .75rem; color: var(--muted); overflow-wrap: anywhere; }
+ol.find { margin: 0; padding-inline-start: 1.25rem; display: grid; gap: .75rem; }
+ol.find li { padding-inline-start: .25rem; }
+.band { border-radius: 14px; padding: 1.25rem; display: grid; gap: .85rem; }
+.band.adopt { background: var(--sage-soft); }
+.band.better { background: var(--plum-soft); }
+.band.skip { background: var(--rose-soft); }
+.band h2 { font-size: 1.25rem; }
+.band ul { margin: 0; padding-inline-start: 1.1rem; display: grid; gap: .5rem; }
+.band li span { color: var(--muted); }
+.ask { background: var(--surface); border: 2px solid var(--plum); border-radius: 14px; padding: 1.25rem; display: grid; gap: .6rem; }
+.tbl { overflow-x: auto; border: 1px solid var(--line); border-radius: 12px; background: var(--surface); }
+table { border-collapse: collapse; width: 100%; min-width: 36rem; font-size: .9rem; }
+th, td { text-align: start; padding: .6rem .75rem; border-bottom: 1px solid var(--line); vertical-align: top; }
+th { background: var(--sunken); font-weight: 600; }
+tr:last-child td { border-bottom: 0; }
+td.us { font-weight: 600; color: var(--sage); }
+.foot { color: var(--muted); font-size: .85rem; display: grid; gap: .4rem; }
+code { font-size: .85em; }
+</style>
+
+<div class="wrap">
+  <header>
+    <p class="eyebrow">Competitor teardown · 24 Nov 2026</p>
+    <h1>Three rival apps, opened up</h1>
+    <p class="lede">I unpacked the three apps you downloaded and read what is inside them, without installing them. Here is what they do, what femio should take, and what femio must never copy.</p>
+  </header>
+
+  <section aria-labelledby="apps">
+    <h2 id="apps">The three apps</h2>
+    <div class="apps">
+      <div class="app"><h3>Pregnancy tracker</h3><p class="tag">Week-by-week pregnancy, 27 languages</p><p class="pkg">com.easymobs.pregnancy 1.4.75</p></div>
+      <div class="app"><h3>Period Calendar</h3><p class="tag">Big all-in-one cycle app, 44 languages</p><p class="pkg">com.popularapp.periodcalendar 1.80.370</p></div>
+      <div class="app"><h3>Period Tracker</h3><p class="tag">Same company family as Period Calendar</p><p class="pkg">periodtracker.pregnancy.ovulationtracker 1.122</p></div>
+    </div>
+  </section>
+
+  <section aria-labelledby="top">
+    <h2 id="top">What I found</h2>
+    <ol class="find">
+      <li><b>Their health content has no sources.</b> The pregnancy app's week cards have no citation, no reviewer and no review date. femio's 37 week guides have all three. That is our biggest edge, so the weekly view should show it.</li>
+      <li><b>The pregnancy app gives a new short card every day</b> and turns the week over on the weekday of her last period. femio already counts weeks the same way. We can add a daily line taken from our own reviewed guides, with no new medical text.</li>
+      <li><b>Both period apps show a "days late" counter</b> and call some days high or low chance of pregnancy. femio's rules forbid both.</li>
+      <li><b>The period apps carry seven or eight advertising networks each, the pregnancy app two,</b> and all three ask for the advertising ID. The pregnancy app's own privacy text says it collects her due date, kicks and weight and uses data for targeted ads. femio carries none.</li>
+      <li><b>Period Calendar already lets a pregnancy end with "delivery or miscarriage".</b> Our persona review said no rival had a loss path; that was wrong. femio can still do it far more kindly.</li>
+      <li><b>femio itself shows "N days past your due date".</b> That is a late counter for pregnancy. I suggest replacing the number with a calm sentence. This needs your decision.</li>
+    </ol>
+  </section>
+
+  <section class="band adopt" aria-labelledby="adopt">
+    <h2 id="adopt">Adopt</h2>
+    <ul>
+      <li>A daily line in the pregnancy week, from our reviewed guides. <span>R9.1</span></li>
+      <li>A note she can write on any day, kept inside her locked record. <span>R9.8</span></li>
+      <li>Reminders for a saved appointment and for her own supplement or medicine (never birth control). <span>R9.4</span></li>
+      <li>A home-screen widget that shows nothing private unless she turns it on. <span>R9.11</span></li>
+      <li>Export her logs as a spreadsheet through the phone's share menu. <span>R9.10</span></li>
+      <li>Fingerprint unlock beside the PIN. <span>R9.13</span></li>
+      <li>A pelvic-floor exercise timer, once we have a trusted source for the steps. <span>R9.5</span></li>
+    </ul>
+  </section>
+
+  <section class="band better" aria-labelledby="better">
+    <h2 id="better">Do better than them</h2>
+    <ul>
+      <li><b>Predictions.</b> They show one date and count days late. femio shows the next three periods as ranges, plus a short "why this range" sheet built from her own numbers. <span>R8.10, R9.6</span></li>
+      <li><b>Pregnancy weight.</b> They draw an "expected" band. femio can show a reference range only after a cited source, with no warning colours. <span>R9.3</span></li>
+      <li><b>Baby size.</b> They use fruit pictures and photos. femio uses only what our guide states, as a drawn object. <span>R8.17</span></li>
+      <li><b>Checklists.</b> Theirs carry Amazon links. Ours never carry shop links. <span>R8.16</span></li>
+      <li><b>Patterns.</b> They label cycles "abnormal". femio counts what happened ("seen in 4 of 6 cycles") and points to the seek-help rules. <span>R8.5, R9.7</span></li>
+      <li><b>Wording feedback.</b> A "this was unclear" link on guides and a way to report a translation problem, through her own mail app. <span>R9.12</span></li>
+    </ul>
+  </section>
+
+  <section class="band skip" aria-labelledby="skip">
+    <h2 id="skip">Skip, and why</h2>
+    <ul>
+      <li>Days-late counters and high/low pregnancy chance. <span>Rule: ranges, never verdicts.</span></li>
+      <li>Birth-control pill, ring, patch and injection schedules. <span>Rule: never a way to avoid pregnancy.</span></li>
+      <li>A camera that "reads" an ovulation strip. <span>Rule: no diagnosis.</span></li>
+      <li>Partner mode through an account that sends her cycle and a late period to the partner. <span>Rule: her records never leave the phone.</span></li>
+      <li>Forums, couple quizzes, intercourse charts, sexual moods. <span>Your rulings: no chat, conservative register.</span></li>
+      <li>Ads, rewarded ads, virtual pets, recipes, cloud accounts. <span>Privacy rule; unsourced advice.</span></li>
+    </ul>
+  </section>
+
+  <section class="band better" aria-labelledby="ai">
+    <h2 id="ai">Their "smart" features, and femio's private version</h2>
+    <p>None of the three has a real AI model inside. Their "smart" parts are simple rules on the phone, plus servers for partner sharing and ads. The ideas below go to the AI companion plan (R10).</p>
+    <ul>
+      <li><b>"Smart" predictions.</b> femio's assistant can explain, on the phone, why her range is wide, using her own numbers. It never changes the prediction.</li>
+      <li><b>Cycle and symptom analysis.</b> The assistant can read her Patterns back to her in plain words, on the phone, with no verdicts.</li>
+      <li><b>Strip-photo scanner.</b> femio will not read photos. The assistant can help her read her own test's leaflet and log what she sees.</li>
+      <li><b>Partner alerts sent through their server.</b> femio's assistant can draft a message she chooses to send herself. Nothing goes out on its own.</li>
+      <li><b>Cloud boost</b> stays for general questions she approves, never for her logs.</li>
+    </ul>
+  </section>
+
+  <section class="ask" aria-labelledby="decide">
+    <p class="eyebrow">Your decision</p>
+    <h2 id="decide">Replace "days past your due date"?</h2>
+    <p>Today femio counts the days after the due date. I recommend a sentence such as "Your estimated due date has passed" with the full-term dates and the warning-signs link, and no number. Say yes or no in the lead session. Line R9.2.</p>
+  </section>
+
+  <section aria-labelledby="privacy">
+    <h2 id="privacy">Privacy, side by side</h2>
+    <div class="tbl">
+      <table>
+        <thead><tr><th scope="col"></th><th scope="col">Pregnancy tracker</th><th scope="col">Period Calendar</th><th scope="col">Period Tracker</th><th scope="col">femio</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">Ad networks</th><td>2</td><td>8</td><td>7</td><td class="us">0</td></tr>
+          <tr><th scope="row">Advertising ID</th><td>Yes</td><td>Yes</td><td>Yes</td><td class="us">No</td></tr>
+          <tr><th scope="row">Analytics</th><td>Google Firebase</td><td>Firebase, TikTok events</td><td>Firebase, TikTok events</td><td class="us">None</td></tr>
+          <tr><th scope="row">Account or cloud</th><td>No account</td><td>Account, Drive, Dropbox</td><td>Cloud account, Drive</td><td class="us">None; she keeps a locked file</td></tr>
+          <tr><th scope="row">Minimum age</th><td>16</td><td>Asks birth year</td><td>Not found</td><td class="us">18</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <footer class="foot">
+    <p>Read from the app files only; none of the apps was run, so a few things (reminder wording, what premium unlocks) are not confirmed. Nothing was copied into femio. Full working notes for the team: <code>docs/33_REBUILD_V3/research/APK_TEARDOWN_2026-11.md</code>.</p>
+  </footer>
+</div>
