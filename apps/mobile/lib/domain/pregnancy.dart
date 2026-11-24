@@ -75,3 +75,23 @@ bool isPlausibleEdd(String eddISO, String today) {
 /// days). ACOG Committee Opinion 700, "Methods for Estimating the Due Date".
 String? eddFromTransfer(String iso, {required int embryoDays}) =>
     isValidISODate(iso) ? addDays(iso, 266 - embryoDays) : null;
+
+/// MR-52: the gestation on a scan report is accepted from 4w0d to 41w6d (the
+/// engine's sanity range, like MR-26).
+const scanMinGestationDays = 28;
+const scanMaxGestationDays = 293;
+
+/// Estimated due date from a dating scan (MR-52): the scan date plus what is left of
+/// 280 days after the gestation the report gives ([weeks] completed weeks and [days]
+/// extra days, 0-6). femio never re-dates or compares methods; the report is taken as
+/// written (ACOG Committee Opinion 700 leaves re-dating to the clinician).
+///
+/// Returns null for an invalid date, days outside 0-6, or a gestation outside
+/// 4w0d-41w6d, so the screen asks her to check the report. Twin of `eddFromScan` in
+/// `apps/web/src/lib/pregnancy/index.ts` (fixture `edd-from.json`).
+String? eddFromScan(String scanISO, int weeks, int days) {
+  if (!isValidISODate(scanISO) || weeks < 0 || days < 0 || days > 6) return null;
+  final total = weeks * 7 + days;
+  if (total < scanMinGestationDays || total > scanMaxGestationDays) return null;
+  return addDays(scanISO, gestationDays - total);
+}

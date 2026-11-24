@@ -8,6 +8,7 @@ import 'package:femio/domain/bbt.dart';
 import 'package:femio/domain/contractions.dart';
 import 'package:femio/domain/movements.dart';
 import 'package:femio/domain/cycle_prediction.dart';
+import 'package:femio/domain/due_date.dart';
 import 'package:femio/domain/fertility.dart';
 import 'package:femio/domain/guidance.dart';
 import 'package:femio/domain/pregnancy_tools.dart';
@@ -15,6 +16,8 @@ import 'package:femio/domain/test_timing.dart';
 import 'package:femio/domain/upcoming_periods.dart';
 import 'package:femio/domain/hijri.dart';
 import 'package:femio/domain/pregnancy.dart';
+import 'package:femio/domain/pregnancy_calendar.dart';
+import 'package:femio/domain/weight_gain.dart';
 import 'package:femio/domain/weight.dart';
 import 'package:flutter_test/flutter_test.dart';
 
@@ -176,9 +179,24 @@ final runners = <String, Object? Function(Map<String, dynamic>)>{
       'lmp' => eddFromLmp(date),
       'conception' => eddFromConception(date),
       'transfer3' => eddFromTransfer(date, embryoDays: 3),
+      'scan' => eddFromScan(date, i['gaWeeks'] as int, i['gaDays'] as int),
       _ => eddFromTransfer(date, embryoDays: 5),
     };
   },
+  'due-date': (i) => dueDateFrom(
+        DueDateMethod.values.byName(i['method'] as String),
+        i['date'] as String,
+        cycleLength: (i['cycleLength'] as int?) ?? dueTypicalCycle,
+        scanWeeks: (i['scanWeeks'] as int?) ?? -1,
+        scanDays: (i['scanDays'] as int?) ?? -1,
+      )?.toJson(),
+  'pregnancy-calendar': (i) =>
+      pregnancyCalendar(i['edd'] as String, i['today'] as String)?.toJson(),
+  'weight-gain': (i) => weightGainRange(
+        (i['weightKg'] as num).toDouble(),
+        (i['heightCm'] as num).toDouble(),
+        i['babies'] as int,
+      )?.toJson(),
   'gestational-age': (i) =>
       pregnancyProgress(i['edd'] as String, i['today'] as String)?.toJson(),
   // Two kinds of case share the file: an ISO date (day, month index, year) and a
