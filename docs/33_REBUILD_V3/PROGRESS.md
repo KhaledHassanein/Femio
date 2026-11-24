@@ -146,7 +146,7 @@ Accepted features from the persona-driven review (market researcher + business d
 - [ ] R8.23 · (C) Custom tags, local, mappable by Say it (MR-47 register check)
 - [ ] R8.24 · Owner decision (feeds R7.12): femio Plus sells convenience, never access — PDF export of visit pack and Patterns, widget, themes and discreet icon, extra reminders, Cloud boost above a free allowance; price test yearly SAR 49.99 / EGP 249.99 or lifetime SAR 99 / EGP 399 (hypotheses)
 - [DEFERRED] R8.25 · Partner follow-along (no-server design), wearable/Health Connect import, LH photo reading, bump diary, baby feeding log, BP log (v1.1 order), teen mode (MR-48, owner + legal)
-- [~] R8.26 · Stitch round 2 (owner export 2026-11-24, `Downloads/stitch2_femio_women_s_health_app`): render, compare with the app and R8, adopt what is clearer and accessible
+- [x] R8.26 · Stitch round 2 (owner export 2026-11-24, 99 screens): reviewed, `testing-results/2026-11-24-stitch-compare/round2/FINDINGS.md` (adopt table mapped to R8 lines, 7 fixes, 0 text-contrast failures); built through R8.2–R8.27
 - [ ] R8.27 · Stitch round 1 small wins: ovulation-evidence card (TTC), Say it as a sheet with a counted save, refusal card with "Prepare doctor-visit pack", next-appointment card (pregnancy), visit pack as a one-page document with the system share sheet
 - [~] R8.28 · Competitor APK teardown (three Play apps the owner supplied: a pregnancy tracker and two period trackers): features only, our design kept; session started 2026-11-24
 
