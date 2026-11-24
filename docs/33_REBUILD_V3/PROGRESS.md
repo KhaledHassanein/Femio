@@ -116,6 +116,11 @@ Opened 2026-10-28 on the owner's finalization brief. The gate for R6.4–R6.5 an
 - [ ] R7.6 · Before a store release with the cloud path on: privacy notice ×4, Data safety row, listing (ADR-078 consequences)
 - [ ] R7.7 · Listing and in-app positioning "femio: AI-assisted women's health & wellness" across every life stage, four languages (ADR-078 §8, owner 2026-11-24)
 
+## Build order 2026-11-24 (R8 + R9 + R10; owner page https://claude.ai/artifact/5Ygqh8JKgxeQN2buhTjbAe)
+Wave 1: R10.1 boundary → R8.3 AI front door → R8.7 + R8.6 pregnancy → R9.1 daily line → R8.4 stage wording → R9.6 + R10.13 explainers → R10.2 + R8.27 visit companion → R10.3 transparency → R10.7 Say it multi-day.
+Wave 2: R8.5 + R10.4, R8.8, R8.19 + R8.20, R10.5 + R10.6, R8.21, R9.4 / R9.8 / R9.10 / R9.11.
+Wave 3: the rest of R8.11–R8.18, R9, R10, each waiting on a source, a review or an owner decision (R9.2, R8.24, R10.15, R10.17, R7.14, feeding log).
+
 ## R8 · Persona views and the AI front door (owner 2026-11-24) — `research/PERSONA_FEATURES_2026-11.md`; Stitch prompts `docs/design/STITCH_PROMPTS_2026-11-24.md`; round 1 comparison `testing-results/2026-11-24-stitch-compare/` (https://claude.ai/artifact/2wbNyvPh6eVLDkUUoMpvRT)
 
 Accepted features from the persona-driven review (market researcher + business development + lead synthesis; owner's requests O1–O10). Waves: A = owner requests, mostly reuse; B = record state; C = depth. Each line names its rules; medical content only from reviewed guides or the register, otherwise `[NEEDS SOURCE]`.
@@ -185,5 +190,26 @@ Only items no R8 line covers; notes on R8.7, R8.14, R8.16, R8.17, R8.24 and R8.2
 | 2026-11-01 | Dashboard audit (R6.18): 18 ticked steps verified and archived; store listing in four languages; sixteen store screenshots; the release candidate built and signed with the upload key (0.5.0+5; APK `apps/mobile/build/app/outputs/flutter-apk/app-release.apk`, bundle `…/bundle/release/app-release.aab`, Google test ads since `ads.env` is absent); four owner requests posted on the dashboard; **main fast-forwarded to `0d2bf25` and deployed** (owner: "Yes, deploy"; Vercel `dpl_A4VaNqccj2yWUPKGN3SjLh6HKJur` READY, femioapp.com 200; no visible site change in this commit) | `docs/store/screenshots/`, dashboard db `verified` fields |
 | 2026-10-30 (night) | R6.17 (app help screen, sixteen countries, drift guard) and R4.14 (red-flag card: bleeding and movements) done; **main deployed at `0442199`** (owner: "Yes, deploy"; Vercel `dpl_48oj2B9yzdPb6LUFqWaW2bM2RHdF` READY; the calculator sentence checked live in EN and AR) | `testing-results/2026-10-30-help-now-app/`, `testing-results/2026-10-30-red-flags-r414/` | `pnpm gate` 688+ tests, see `testing-results/2026-10-30-help-now-countries/` |
 
-## R10 · AI companion (owner 2026-11-24: hybrid AI for privacy; a companion on every surface, Learn included, that never touches core functions or sees the whole record; CLAUDE.md rule 7)
-- [~] R10.0 · Research: companion uses per stage and surface, pain points, data-minimisation per use, boundary architecture → `research/AI_COMPANION_2026-11.md` (agent started 2026-11-24); AI items from the APK teardown (R8.28) feed here
+## R10 · AI companion (owner 2026-11-24: "a surgical operation") — `research/AI_COMPANION_2026-11.md`
+
+The companion picks, orders, extracts and cites; femio speaks. Every use works with AI off, reads one
+typed context, writes only through a confirmed draft, and runs the safety rules first (ADR-078/079/080).
+
+- [ ] R10.1 · Boundary: `uses.dart` policy table, typed contexts with manifests, `PrivatePrompt` (runPrivate no longer takes a String), `outputs.dart` parsers, `drafts.dart` + confirm sheet, `gate.dart`, `assistant_gateway.dart` (switch, build flag, consent, timeout, BUSY retry, circuit breaker), ledger; prompts moved out of tips_card/ask/say-it/visit screens; tripwire §3c extended; manifest, fuzz, drafts and offline-parity tests (needs an ADR: "the companion boundary")
+- [ ] R10.2 · (A) Visit companion: her worry → catalogue question ids + her own sentence (confirmed into `Appointment.prep`); visit pack in two languages chosen by her, shared via the system sheet (U25, U26; ADR-069)
+- [ ] R10.3 · (A) Transparency: "Why am I seeing this?" on tips, digests and reading suggestions; Settings > "What the AI can see" generated from the manifest; local AI ledger (cloud text kept as her receipt; cleared by delete-everything; not restored from backup) (U12, U34; folds into R8.21)
+- [ ] R10.4 · (B) Patterns in plain words: template statements "seen in N of M cycles", top 3 picked on the phone; "Ask my patterns" answers with one statement or "not in your log"; no cause words; after R8.5 and its register row (U22, U23)
+- [ ] R10.5 · (B) Weekly digests built on the phone: pregnancy (R8.6 sections verbatim + her week's counts + saved questions + red-flag entry, stops on loss MR-35) and cycle (counts, next-period range MR-51); neutral notification (U13, U14)
+- [ ] R10.6 · (A) Learn helpers: glossary on tap from the reviewed glossary (needs R3.9), "In short" three lines per guide drafted at authoring time and reviewed, ×4 languages, reading-level gate (U01, U02)
+- [ ] R10.7 · (A) Say it, several days in one note (each day a draft) + keyboard-dictation hint; four locales; synthetic phrase tests incl. Egyptian and Gulf Arabic (U18, U19)
+- [ ] R10.8 · (C) Two-week-wait companion lines and cycle-end kindness, reviewed and sourced, MR-20/21, no counter on assumed ovulation; with R8.12 (U29, U30) — lines `[NEEDS SOURCE]` until sourced
+- [ ] R10.9 · (A) Question generaliser: topic → reviewed general question ×4 languages; she approves the exact text before Cloud boost; fixes the ADR-078 §3 path on phones without Nano (U09)
+- [ ] R10.10 · (A) Myth check in Ask femio: "What trusted sources say", cited or "not covered", no verdict words (U07)
+- [ ] R10.11 · (C) After-visit capture into appointment date, results-due date and follow-up questions; never a result or diagnosis; draft and confirm (U27)
+- [ ] R10.12 · (B) "Your next read": trigger-ordered guides; on-device order; Cloud boost order over the whole stage list only after a consent-text version bump (U06)
+- [ ] R10.13 · (A) Calendar explainers: "Explain this day" and "What changed after my log", rules only (U16, U17)
+- [ ] R10.14 · (C) Guide follow-ups: three reviewed questions per guide → Ask femio; "Ask about this guide" uses the guide's topics as a retrieval hint and answers from the registry (U04, U05)
+- [ ] R10.15 · (C) Reflective journal: reviewed prompt bank; new encrypted note field (schema v3, migration, backup); never read by a model unless she asks for log entries; Help now on crisis words (U37) — owner check on scope
+- [ ] R10.16 · (C) Reminder wording coach for custom reminders (after R8.24), postpartum check-in (after R8.19), perimenopause monthly story (after R8.20), quiet mode on loss (with R8.14) (U35, U31, U32, U33)
+- [DEFERRED] R10.17 · femio's own on-device speech (ML Kit GenAI; RECORD_AUDIO needs an ADR and a scoped tripwire exception), "Explain simpler" (English only), onboarding in her words, partner card, website AI (U20, U03, U36, U38)
+- [x] R10.0 · Research: `research/AI_COMPANION_2026-11.md` (36 uses, boundary architecture, rejected list; lead checked the `runPrivate(String)` call sites and the Firebase "English and Korean only" on-device limit, 2026-11-24)
