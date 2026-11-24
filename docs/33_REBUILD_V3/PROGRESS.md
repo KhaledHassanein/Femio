@@ -151,7 +151,7 @@ Accepted features from the persona-driven review (market researcher + business d
 - [ ] R8.21 · (A) "What can leave this phone" page in Settings: every network path listed (Cloud boost only), link to the privacy policy (rule 4)
 - [ ] R8.22 · (C) "What you usually notice in this phase" card from her own logs, worded as past pattern (rule 3)
 - [ ] R8.23 · (C) Custom tags, local, mappable by Say it (MR-47 register check)
-- [ ] R8.24 · Owner decision (feeds R7.12): femio Plus sells convenience, never access — PDF export of visit pack and Patterns, widget, themes and discreet icon, extra reminders, Cloud boost above a free allowance; price test yearly SAR 49.99 / EGP 249.99 or lifetime SAR 99 / EGP 399 (hypotheses). APK teardown: all three competitors ship widgets, themes and a lock; the builds are R9.4, R9.11, R9.13
+- [ ] R8.24 · Owner decision (feeds R7.12; owner 2026-11-25: the visit-pack PDF is free at launch, Plus features come later): femio Plus sells convenience, never access — PDF export of visit pack and Patterns, widget, themes and discreet icon, extra reminders, Cloud boost above a free allowance; price test yearly SAR 49.99 / EGP 249.99 or lifetime SAR 99 / EGP 399 (hypotheses). APK teardown: all three competitors ship widgets, themes and a lock; the builds are R9.4, R9.11, R9.13
 - [DEFERRED] R8.25 · Partner follow-along (no-server design), wearable/Health Connect import, LH photo reading, bump diary, baby feeding log, BP log (v1.1 order), teen mode (MR-48, owner + legal). APK teardown: the competitor's partner mode needs an account and pushes her phases, logs and a late period to the partner; a no-server design stays the only option
 - [x] R8.26 · Stitch round 2 (owner export 2026-11-24, 99 screens): reviewed, `testing-results/2026-11-24-stitch-compare/round2/FINDINGS.md` (adopt table mapped to R8 lines, 7 fixes, 0 text-contrast failures); built through R8.2–R8.27
 - [ ] R8.27 · Stitch round 1 small wins: ovulation-evidence card (TTC), Say it as a sheet with a counted save, refusal card with "Prepare doctor-visit pack", next-appointment card (pregnancy), visit pack as a one-page document with the system share sheet
@@ -221,7 +221,7 @@ Her own medical file, kept like a professional record, on her phone only. The ru
 - Every entry carries two times: when it happened (the date printed on the report, or the day of the visit) and when it entered femio. It also carries its source (typed, scanned, from Ask femio, imported) and an edit trail.
 - She can add, edit or remove anything by hand.
 - The AI only drafts; she confirms each line (rule 7, ADR-081).
-- Nothing from the record goes to the cloud. Cloud boost still takes only an approved general question or the four bands (ADR-080), so scanning runs on the phone.
+- Hybrid AI (owner 2026-11-25): the phone does the work (scanning, reading, filing, charts, drafts, answers about her record). The cloud may answer only an abstract question the phone builds, which carries nothing about her (R11.10). Scanning never leaves the phone.
 - femio stores, dates and draws her data. It never interprets: no "normal" or "abnormal", and a reference range only as printed on her own report (rule 1).
 - [ ] R11.0 · ADR-082 "her health record". Contents:
   - schema v3: typed entries with happened-on and added-on, source and edit history;
@@ -265,12 +265,23 @@ Her own medical file, kept like a professional record, on her phone only. The ru
   - The visit pack draws from the record: she picks entries, a date range and documents.
   - A PDF made on the phone, in her language plus one for the clinic (R8.27), with the date it was made and each entry's dates.
   - Print or share through the system sheet; nothing is uploaded.
-  - Owner decision: basic PDF free or in femio Plus (R8.24 lists PDF export as Plus; recommended free for the visit pack, since it is access to her own file).
+  - Free at launch (owner 2026-11-25). A femio Plus split comes later, with R8.24.
 - [ ] R11.8 · Time awareness everywhere.
   - Logs, notes, entries and AI drafts show "happened on" and "added on".
   - The AI's replies that use her record name each entry's date and age ("your TSH from 2 November, 23 days ago").
   - An older entry is shown with its date, never hidden or judged.
   - Hijri beside Gregorian as elsewhere.
+- [ ] R11.10 · Cloud help for a test, knowing nothing about her (owner 2026-11-25).
+  - When the phone has no Nano, or she asks "what does this test mean?", the phone builds an abstract question: the test name from a reviewed list, the value and unit, and the range printed on the report.
+  - It never carries: a date, her name, age, stage or any other entry, the document or photo, or free text from her record.
+  - She sees the exact text and approves it before it is sent.
+  - The answer comes only from the trusted-source registry, with citations. It explains what the test measures and what sources say. It never gives a verdict on her result or a diagnosis ("discuss with your clinician"; rule 1). Rules run first.
+  - Built as:
+    - a new `CloudPrompt` factory taking only an `AbstractLabQuestion`, a typed value made on the phone (redaction strips numbers today, so the existing question path cannot carry a value);
+    - a new Cloud boost purpose, "questions about a test result", with a consent-text version bump (ADR-080 §3);
+    - a tripwire update to the allowed factory set;
+    - an amendment in ADR-082.
+  - Fuzz test: no date, name or extra entry can reach the prompt.
 - [ ] R11.9 · Guards and tests:
   - `scanDocument` is phone-only in `usePolicies`;
   - tripwire: attachments and record entries can never reach a `CloudPrompt`;
