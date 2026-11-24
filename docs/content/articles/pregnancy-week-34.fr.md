@@ -87,7 +87,7 @@ Fixez votre date de début de congé de maternité cette semaine, et prévenez v
 
 ## Quand consulter
 
-Contactez votre service de maternité le jour même pour tout changement de mouvements, perte de liquide, contractions régulières ou douloureuses, ou saignement. [Les signes d'alerte de la grossesse](/fr/learn/pregnancy-warning-signs) donnent la liste complète.
+Contactez votre service de maternité le jour même en cas de perte de liquide, de contractions régulières ou douloureuses, ou de saignement. [Les signes d'alerte de la grossesse](/fr/learn/pregnancy-warning-signs) donnent la liste complète.
 
 > **Consultez sans attendre :** Contactez les services d'urgence locaux ou rendez-vous au service des urgences le plus proche en cas de saignement abondant, de douleur ventrale intense ou d'un seul côté, de maux de tête violents avec troubles de la vision, de gonflement soudain du visage ou des mains, de fièvre, de perte de liquide par le vagin, de douleur thoracique, de difficultés respiratoires, d'évanouissement, de crise convulsive ou de pensées de vous faire du mal ou de faire du mal à votre bébé ([aide immédiate](/fr/help-now)). Contactez votre service de maternité sans attendre si les mouvements de votre bébé ralentissent, s’arrêtent ou changent. femio ne peut pas évaluer une grossesse.
 

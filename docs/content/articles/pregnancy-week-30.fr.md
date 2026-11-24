@@ -87,7 +87,7 @@ Lisez cette semaine sur les trois stades du travail, et lisez-le avec la personn
 
 ## Quand consulter
 
-Contactez votre service de maternité le jour même en cas de mouvements réduits, de fuite de liquide, de contractions régulières ou de saignement. Dites-le si vous n'arrivez pas à faire face. [Les signes d'alerte de la grossesse](/fr/learn/pregnancy-warning-signs) donnent la liste complète.
+Contactez votre service de maternité le jour même en cas de fuite de liquide, de contractions régulières ou de saignement. Dites-le si vous n'arrivez pas à faire face. [Les signes d'alerte de la grossesse](/fr/learn/pregnancy-warning-signs) donnent la liste complète.
 
 > **Consultez sans attendre :** Contactez les services d'urgence de votre région ou rendez-vous au service des urgences le plus proche si vous avez un saignement abondant, une douleur intense ou d'un seul côté du ventre, un mal de tête sévère avec troubles de la vision, un gonflement soudain du visage ou des mains, une fièvre, une fuite de liquide par le vagin, une douleur thoracique, des difficultés à respirer, un malaise, une crise convulsive ou des pensées de vous faire du mal ou de faire du mal à votre bébé ([aide immédiate](/fr/help-now)). Contactez votre service de maternité sans attendre si les mouvements de votre bébé ralentissent, s’arrêtent ou changent. femio ne peut pas évaluer une grossesse.
 
