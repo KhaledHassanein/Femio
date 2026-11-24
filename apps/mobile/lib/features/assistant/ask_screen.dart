@@ -14,13 +14,13 @@
 import 'package:flutter/material.dart';
 
 import '../../app.dart';
+import '../../data/assistant_gateway.dart';
 import '../../data/guide_text.dart';
 import '../../data/library.dart';
 import '../../data/profile.dart';
 import '../../data/trusted_registry.dart';
 import '../../domain/dates.dart';
 import '../../domain/assistant/cloud_consent.dart';
-import '../../domain/assistant/cloud_prompt.dart';
 import '../../domain/assistant/guide_search.dart';
 import '../../domain/assistant/prompts.dart';
 import '../../domain/assistant/redaction.dart';
@@ -84,7 +84,7 @@ class _AskScreenState extends State<AskScreen> {
     final q = _question.text.trim();
     if (q.isEmpty) return;
     final l = L10n.of(context);
-    final bridge = AssistantScope.of(context);
+    final gateway = AssistantScope.gatewayOf(context);
     final lang = Localizations.localeOf(context).languageCode;
     final profile = _profile;
     setState(() {
@@ -107,11 +107,10 @@ class _AskScreenState extends State<AskScreen> {
       if (mounted) setState(() => (_found = found, _stage = _Stage.answered));
       return;
     }
-    final status = await bridge.status();
+    final status = await gateway.status();
     if (status.canRunPrivate) {
       // Her own words may be read here: ONLY_ON_DEVICE, nothing leaves the phone.
-      final reply = await bridge.runPrivate(answerPrompt(q, _numbered(found), lang));
-      final parsed = reply == null ? null : parseAnswer(reply, found.passages.length);
+      final parsed = (await gateway.answerOnPhone(q, found.passages, lang)).value;
       if (!mounted) return;
       setState(() {
         _found = found;
@@ -153,15 +152,18 @@ class _AskScreenState extends State<AskScreen> {
       setState(() => _note = l.askStillPersonal);
       return;
     }
-    final bridge = AssistantScope.of(context);
+    final gateway = AssistantScope.gatewayOf(context);
     final lang = Localizations.localeOf(context).languageCode;
     setState(() => _stage = _Stage.working);
-    final reply = await bridge.runHybrid(CloudPrompt.answer(safe, found.passages, lang));
-    final parsed = reply == null ? null : parseAnswer(reply.text, found.passages.length);
+    final consent = _profile?.settings.cloud ?? const CloudConsent();
+    final result = await gateway.answerWithBoost(safe, found.passages, lang, consent);
+    final parsed = result.value;
     if (!mounted) return;
     setState(() {
       _summary = parsed;
-      _origin = parsed == null ? AnswerOrigin.verbatim : (reply!.onDevice ? AnswerOrigin.onPhone : AnswerOrigin.cloud);
+      _origin = parsed == null
+          ? AnswerOrigin.verbatim
+          : (result.ranOn == RanOn.cloud ? AnswerOrigin.cloud : AnswerOrigin.onPhone);
       if (parsed == null) _note = l.askModelFellBack;
       _stage = _Stage.answered;
     });
@@ -169,10 +171,6 @@ class _AskScreenState extends State<AskScreen> {
 
   /// Shows the passages word for word instead of sending anything.
   void _skipCloud() => setState(() => _stage = _Stage.answered);
-
-  List<({String publisher, String text})> _numbered(RegistryAnswer a) => [
-    for (final p in a.passages) (publisher: p.publisher, text: p.text),
-  ];
 
   String _today() => widget.today ?? todayISO();
 

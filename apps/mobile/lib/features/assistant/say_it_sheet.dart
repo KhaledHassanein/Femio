@@ -10,7 +10,6 @@ import 'package:flutter/material.dart';
 import '../../app.dart';
 import '../../data/profile.dart';
 import '../../domain/assistant/log_phrases.dart';
-import '../../domain/assistant/prompts.dart';
 import '../../domain/assistant/safety.dart';
 import '../../domain/dates.dart';
 import '../../l10n/app_localizations.dart';
@@ -66,12 +65,9 @@ class _SayItSheetState extends State<SayItSheet> {
       _usedModel = false;
     });
     var draft = draftFromNote(note);
-    final bridge = AssistantScope.of(context);
-    final status = await bridge.status();
-    if (status.canRunPrivate) {
-      final reply = await bridge.runPrivate(extractionPrompt(note));
-      if (reply != null) {
-        final s = parseExtraction(reply);
+    final s = (await AssistantScope.gatewayOf(context).readNote(note)).value;
+    {
+      if (s != null) {
         final merged = mergeDrafts(draft, modelTerms: s.terms, modelFlow: s.flow, modelOpk: s.opk);
         _usedModel = merged.terms.length != draft.terms.length || merged.flow != draft.flow || merged.opk != draft.opk;
         draft = merged;

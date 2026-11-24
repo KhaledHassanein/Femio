@@ -12,11 +12,10 @@
 import 'package:flutter/material.dart';
 
 import '../../app.dart';
+import '../../data/assistant_gateway.dart';
 import '../../data/profile.dart';
 import '../../domain/assistant/cloud_consent.dart';
-import '../../domain/assistant/cloud_prompt.dart';
 import '../../domain/assistant/personal_triggers.dart';
-import '../../domain/assistant/prompts.dart';
 import '../../domain/assistant/pseudonymised_profile.dart';
 import '../../domain/assistant/tip_catalogue.g.dart';
 import '../../l10n/app_localizations.dart';
@@ -76,28 +75,14 @@ class _TipsCardState extends State<TipsCard> {
   }
 
   Future<void> _orderWithModel(Profile profile, String key) async {
-    final bridge = AssistantScope.of(context);
-    final status = await bridge.status();
-    final bands = pseudonymise(profile, widget.today);
-    final ids = [for (final f in _fits) f.id];
-    List<String> order = const [];
-    var cloud = false;
-    if (status.canRunPrivate) {
-      final reply = await bridge.runPrivate(
-        tipsPrompt(
-          [for (final e in bands.features.entries) '${e.key}: ${e.value}'],
-          {for (final id in ids) id: tipEnglish[id]!},
-          tipsShown,
-        ),
-      );
-      if (reply != null) order = parseQuestionIds(reply, ids, tipsShown);
-    } else if (profile.settings.cloud.allows(CloudPurpose.tips) && status.canRunHybrid) {
-      final reply = await bridge.runHybrid(CloudPrompt.tips(bands, tipsShown));
-      if (reply != null) {
-        order = parseQuestionIds(reply.text, ids, tipsShown);
-        cloud = !reply.onDevice;
-      }
-    }
+    final result = await AssistantScope.gatewayOf(context).orderTips(
+      pseudonymise(profile, widget.today),
+      [for (final f in _fits) f.id],
+      tipsShown,
+      profile.settings.cloud,
+    );
+    final order = result.value ?? const <String>[];
+    final cloud = result.ranOn == RanOn.cloud;
     if (!mounted || key != _orderedFor || order.isEmpty) return;
     setState(() {
       _order = order;

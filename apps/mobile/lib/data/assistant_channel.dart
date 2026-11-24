@@ -3,14 +3,16 @@
 // Why it exists: model calls run in Kotlin (`assistant/FemioAssistant.kt`), so the Dart code
 // holds no network client. This file is the only Dart code allowed to name the channel (the
 // privacy tripwire checks it), and its two model calls keep the line ADR-078 and ADR-079 draw:
-// [runPrivate] accepts any text but runs only on the phone (ONLY_ON_DEVICE); [runHybrid] may
+// [runPrivate] accepts only a [PrivatePrompt] and runs only on the phone (ONLY_ON_DEVICE); [runHybrid] may
 // run in the cloud (PREFER_ON_DEVICE) and so accepts only a [CloudPrompt], which can be built
 // only from a CloudSafeText or a PseudonymisedProfile plus public data. Every failure returns
-// null, so a screen falls back to its rules and never shows an error from a model.
+// null, so a screen falls back to its rules and never shows an error from a model. Screens never
+// call these two methods: they go through `assistant_gateway.dart` (ADR-081).
 
 import 'package:flutter/services.dart';
 
 import '../domain/assistant/cloud_prompt.dart';
+import '../domain/assistant/private_prompt.dart';
 
 /// Where Gemini Nano stands on this phone.
 enum OnDeviceModel { unavailable, downloadable, downloading, available }
@@ -49,7 +51,7 @@ abstract class AssistantBridge {
   Future<bool> downloadModel();
 
   /// Runs [prompt] with Gemini Nano on the phone only. Null when the model is absent or fails.
-  Future<String?> runPrivate(String prompt);
+  Future<String?> runPrivate(PrivatePrompt prompt);
 
   /// Runs [prompt] on the phone when Gemini Nano is ready, otherwise in the cloud. Callers use
   /// it only when she has switched Cloud boost on. Null on any failure.
@@ -92,9 +94,9 @@ class MethodChannelAssistant implements AssistantBridge {
   }
 
   @override
-  Future<String?> runPrivate(String prompt) async {
+  Future<String?> runPrivate(PrivatePrompt prompt) async {
     try {
-      final m = await _channel.invokeMapMethod<String, Object?>('private', {'prompt': prompt});
+      final m = await _channel.invokeMapMethod<String, Object?>('private', {'prompt': prompt.text});
       // Belt and braces: a private call that somehow ran in the cloud is discarded.
       if (m == null || m['source'] != 'ON_DEVICE') return null;
       return m['text'] as String?;

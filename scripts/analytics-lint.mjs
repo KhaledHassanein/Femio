@@ -89,7 +89,7 @@ function walk(dir, out = []) {
   for (const entry of readdirSync(dir)) {
     const full = join(dir, entry);
     if (statSync(full).isDirectory()) walk(full, out);
-    else if (/\.(ts|tsx|mjs|js)$/.test(entry)) out.push(full);
+    else if (/\.(ts|tsx|mjs|js|dart)$/.test(entry)) out.push(full);
   }
   return out;
 }
@@ -261,6 +261,29 @@ try {
     const rel = relative(process.cwd(), file).replace(/\\/g, "/");
     if (rel !== CLOUD_PROMPT && /CloudPrompt\._\(/.test(readFileSync(file, "utf8"))) {
       fail(rel, "builds a CloudPrompt outside cloud_prompt.dart (ADR-079)");
+    }
+  }
+  // The companion boundary (ADR-081): one gateway calls the model; the on-phone call takes
+  // only a PrivatePrompt; only the prompt files call the prompt builders.
+  const GATEWAY = "apps/mobile/lib/data/assistant_gateway.dart";
+  const PRIVATE_PROMPT = "apps/mobile/lib/domain/assistant/private_prompt.dart";
+  const PROMPT_FILES = new Set([
+    "apps/mobile/lib/domain/assistant/prompts.dart", PRIVATE_PROMPT, CLOUD_PROMPT,
+  ]);
+  if (!/runPrivate\(PrivatePrompt /.test(readFileSync(ASSISTANT_CHANNEL_DART, "utf8"))) {
+    fail(ASSISTANT_CHANNEL_DART, "the on-phone call no longer requires a PrivatePrompt (ADR-081)");
+  }
+  for (const file of walk(APP_LIB).filter((f) => f.endsWith(".dart"))) {
+    const rel = relative(process.cwd(), file).replace(/\\/g, "/");
+    const src = readFileSync(file, "utf8");
+    if (rel !== GATEWAY && /\.run(Private|Hybrid)\(/.test(src)) {
+      fail(rel, "calls the model directly; only lib/data/assistant_gateway.dart may (ADR-081)");
+    }
+    if (rel !== PRIVATE_PROMPT && /PrivatePrompt\._\(/.test(src)) {
+      fail(rel, "builds a PrivatePrompt outside private_prompt.dart (ADR-081)");
+    }
+    if (!PROMPT_FILES.has(rel) && /\b(answerPrompt|extractionPrompt|tipsPrompt|visitQuestionsPrompt)\(/.test(src)) {
+      fail(rel, "builds a model prompt in a screen; prompts are made only by PrivatePrompt or CloudPrompt (ADR-081)");
     }
   }
 } catch (error) {

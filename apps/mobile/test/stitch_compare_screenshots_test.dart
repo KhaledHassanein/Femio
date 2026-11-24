@@ -14,6 +14,7 @@ import 'package:femio/data/assistant_channel.dart';
 import 'package:femio/data/profile.dart';
 import 'package:femio/data/store.dart';
 import 'package:femio/domain/assistant/cloud_prompt.dart';
+import 'package:femio/domain/assistant/private_prompt.dart';
 import 'package:femio/domain/assistant/source_registry.dart';
 import 'package:femio/features/assistant/ask_screen.dart';
 import 'package:femio/features/assistant/assistant_scope.dart';
@@ -48,7 +49,7 @@ class _FakeAssistant implements AssistantBridge {
   @override
   Future<bool> downloadModel() async => true;
   @override
-  Future<String?> runPrivate(String prompt) async => privateReply;
+  Future<String?> runPrivate(PrivatePrompt prompt) async => privateReply;
   @override
   Future<HybridReply?> runHybrid(CloudPrompt prompt) async => null;
   @override

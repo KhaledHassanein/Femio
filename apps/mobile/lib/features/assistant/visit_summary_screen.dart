@@ -11,7 +11,6 @@ import 'package:intl/intl.dart' show DateFormat;
 
 import '../../app.dart';
 import '../../data/profile.dart';
-import '../../domain/assistant/prompts.dart';
 import '../../domain/assistant/visit_summary.dart';
 import '../../domain/dates.dart';
 import '../../l10n/app_localizations.dart';
@@ -73,22 +72,8 @@ class _VisitSummaryScreenState extends State<VisitSummaryScreen> {
 
   Future<void> _orderOnDevice() async {
     _ordered = true;
-    final bridge = AssistantScope.of(context);
-    if (!(await bridge.status()).canRunPrivate) return;
-    final candidates = {
-      for (final id in _summary.questionIds)
-        if (id != 'anythingElse') id: questionEnglish(id)!,
-    };
-    final reply = await bridge.runPrivate(
-      visitQuestionsPrompt(
-        _summary.factsInEnglish(),
-        candidates,
-        candidates.length,
-      ),
-    );
-    if (reply == null || !mounted) return;
-    final order = parseQuestionIds(reply, candidates.keys, candidates.length);
-    if (order.isEmpty) return;
+    final order = (await AssistantScope.gatewayOf(context).orderVisitQuestions(_summary)).value;
+    if (order == null || !mounted) return;
     setState(() => _questions = reorderQuestions(_summary.questionIds, order));
   }
 

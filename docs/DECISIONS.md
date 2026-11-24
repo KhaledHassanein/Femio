@@ -969,3 +969,34 @@ the GA4 property link and the Meta pixel, and get one privacy-lawyer review befo
 release, including whether an EU and UK representative (GDPR Art. 27) and an Egypt PDPC licence
 for sensitive data (Law 151 Art. 12) are needed for Cloud boost (owner actions 29 to 36). Revenue
 from in-app ads is gone; website ads remain.
+
+## ADR-081
+**Date:** 2026-11-24 · **Status:** accepted 2026-11-24 (owner rule 7 in `CLAUDE.md`, given in chat the same day: "the AI works as a companion but without touching the main functionality, sections or getting the sensitive data and whole context") · **Area:** app, assistant, privacy · **Builds on:** ADR-078, ADR-079, ADR-080
+
+**Context.** The AI companion study (`docs/33_REBUILD_V3/research/AI_COMPANION_2026-11.md`)
+found that four screens (Ask femio, Say it, Tips, Visit pack) each built their own prompt and
+called the on-phone model with any string. Her data stayed on the phone, but nothing stopped a
+screen from handing the model more than its use needed, and each screen handled timeouts and bad
+replies its own way. The owner wants the AI everywhere as a companion, kept apart from the core
+"like a surgical operation".
+
+**Decision. The companion boundary.**
+1. **One table of uses** (`lib/domain/assistant/uses.dart`): each use names where it may run
+   (phone, or hybrid under Cloud boost), the consent purpose it needs, whether it may offer a
+   draft for her record (only Say it, and only as a draft she ticks), and an off switch.
+2. **Typed prompts only.** The on-phone call takes a `PrivatePrompt`, made only by factories
+   that receive the narrow inputs their use needs (her question and registry passages; her note;
+   four bands and reviewed tip ids; the visit summary's facts and reviewed question ids). The
+   cloud call keeps taking only a `CloudPrompt` (ADR-079).
+3. **One gateway** (`lib/data/assistant_gateway.dart`) is the only caller of the model. It checks
+   the build switch (`FEMIO_ASSISTANT`), the use's policy and consent, waits at most 20 seconds,
+   parses replies against the ids that were offered, and after three unusable replies in a row
+   runs that use on rules for the rest of the session. Every failure returns the rules answer.
+4. **The tripwire enforces it** (`scripts/analytics-lint.mjs` §3c): no `runPrivate`/`runHybrid`
+   call outside the gateway, no `PrivatePrompt` built outside its file, no prompt builder called
+   from a screen.
+
+**Consequences.** A new AI use costs a policy row, a prompt factory, a gateway method and a test,
+and cannot see more than its factory takes. Later R10.1 slices add typed contexts with manifests,
+an on-phone ledger of AI calls, a master switch in Settings, and the shared draft-and-confirm
+sheet. The AI view toggle for calculators and insights (R10.18) plugs into the same gateway.
