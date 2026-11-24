@@ -114,6 +114,37 @@ Opened 2026-10-28 on the owner's finalization brief. The gate for R6.4–R6.5 an
 - [ ] R7.6 · Before a store release with the cloud path on: privacy notice ×4, Data safety row, listing (ADR-078 consequences)
 - [ ] R7.7 · Listing and in-app positioning "femio: AI-assisted women's health & wellness" across every life stage, four languages (ADR-078 §8, owner 2026-11-24)
 
+## R8 · Persona views (review 2026-11-24) — `research/PERSONA_FEATURES_2026-11.md`
+
+Accepted features from the persona-driven review (market researcher + business development + lead synthesis; owner's requests O1–O10). Waves: A = owner requests, mostly reuse; B = record state; C = depth. Each line names its rules; medical content only from reviewed guides or the register, otherwise `[NEEDS SOURCE]`.
+
+- [x] R8.0 · Persona feature review: `research/2026-11-persona-review/01_MARKET_RESEARCH.md` (22 pages read, 14 not verified), `02_BUSINESS_DEVELOPMENT.md` (~20 claims verified, ~20 hypotheses), lead synthesis `research/PERSONA_FEATURES_2026-11.md`; lead spot-checks: Clue Plus page, Sahiba and Flo KSA App Store listings match; Luni price mis-cited (not verified)
+- [ ] R8.1 · (B) View registry per stage (cycle, TTC, pregnancy, postpartum, loss, perimenopause) + overlays (PCOS); "All tools" sheet keeps every block reachable (rule 2, 5; owner O1)
+- [ ] R8.2 · (A) Today order: dashboard blocks → "Tips for you" → privacy and emergency notices at the bottom; Help now stays in every header (MR-38; owner O9)
+- [ ] R8.3 · (A) AI prominence: entry card on Today, mic field on Log; first-use sheet says what runs on the phone and offers Cloud boost through the ADR-080 consent (boxes unticked); choice mirrored in Settings > Assistant (owner O10; ADR-079/080)
+- [ ] R8.4 · (A) Mode-aware placeholders for Say it and Ask femio, four locales (owner O6)
+- [ ] R8.5 · (B) Patterns screen: cycle-length history with range, symptoms by phase "seen in N of M cycles", per-cycle BBT/OPK/mucus, pregnancy weight and movements, menopause symptom frequency; counts only, no verdicts, free (rule 1, 3; Stitch gap)
+- [ ] R8.6 · (A) Pregnancy weekly view: calendar by week with the current week ringed; "This week" card with Baby / Your body / What you may notice / Care around now / Tip taken verbatim from the 37 reviewed week guides in her language (owner O2, O3)
+- [ ] R8.7 · (A) Pregnancy mode cleanup: one week function on every surface with a fixture (turnover on the LMP weekday); no fertile, OPK, BBT or period items; "bleeding or spotting" links to the warning signs (MR-29); hidden items under "All log items" (owner O4, O5)
+- [ ] R8.8 · (B) Signs this cycle: BBT shift, OPK and mucus side by side per cycle, never "you ovulated" (MR-16/17/18)
+- [ ] R8.9 · (A) Fertile-window invariant in `fixtures/domain/fertile-window.json` (window contains ovulation, every case) + calendar and website-calculator screenshot audit (MR-07; owner O7)
+- [ ] R8.10 · (A) Next 3 predicted periods as widening ranges after every log; none when irregular or no confident window (MR-01, MR-06; owner O8)
+- [ ] R8.11 · (B) "My health" switch (PCOS, irregular cycles, thyroid, endometriosis; self-reported): window and seek-help rules (MR-14), tips triggers, Patterns emphasis, B6 overlay with no TTC nudges (scope A-05)
+- [ ] R8.12 · (C) Two-week-wait card: days since her logged signs, test-day rule (MR-21), no counter on an assumed ovulation (MR-20)
+- [ ] R8.13 · (C) Lab entries in the lab's units (progesterone, PdG, HbA1c, AMH, TSH), never labelled, never "day 21" (MR-18)
+- [ ] R8.14 · (B) Pregnancy ended: "I had my baby" → postpartum view; "My pregnancy has ended" → her own words, kind screen, reminders stopped, data kept (MR-35, scope A-07)
+- [ ] R8.15 · (C) Weekly pregnancy reminder, neutral text (scope A-11; ADR-079 §4)
+- [ ] R8.16 · (C) Pregnancy checklists: hospital bag, birth-plan questions, questions for this visit from the catalogue (items `[NEEDS SOURCE]`)
+- [ ] R8.17 · (C) Baby size by week: only what the reviewed week guide states, drawn object, no photos of people (`[NEEDS SOURCE]` otherwise)
+- [ ] R8.18 · (C) Ultrasound dating overrides other methods when her clinician gave it (MR-27)
+- [ ] R8.19 · (B) Postpartum view: onboarding "I recently had a baby" (writes `birthDate`), weeks since birth, recovery guide of the week, after-birth warning signs (MR-50), mood check-in, bleeding log; first period after birth restarts ranges (no ovulation-return detection)
+- [ ] R8.20 · (C) Perimenopause view: irregular cycles stay visible as ranges, monthly symptom frequency, visit pack ≥ Balance's free report, add "palpitations" to the vocabulary (four locales, sync script)
+- [ ] R8.21 · (A) "What can leave this phone" page in Settings: every network path listed (Cloud boost only), link to the privacy policy (rule 4)
+- [ ] R8.22 · (C) "What you usually notice in this phase" card from her own logs, worded as past pattern (rule 3)
+- [ ] R8.23 · (C) Custom tags, local, mappable by Say it (MR-47 register check)
+- [ ] R8.24 · Owner decision (feeds R7.12): femio Plus sells convenience, never access — PDF export of visit pack and Patterns, widget, themes and discreet icon, extra reminders, Cloud boost above a free allowance; price test yearly SAR 49.99 / EGP 249.99 or lifetime SAR 99 / EGP 399 (hypotheses)
+- [DEFERRED] R8.25 · Partner follow-along (no-server design), wearable/Health Connect import, LH photo reading, bump diary, baby feeding log, BP log (v1.1 order), teen mode (MR-48, owner + legal)
+
 ## Session log
 
 | When | What | Commit |
