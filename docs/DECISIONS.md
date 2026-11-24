@@ -815,3 +815,60 @@ a drafted pack, not a lawyer's opinion; that stays true and is stated in its fir
 1. The conservative Arabic scope (decision 3) and the lay term **تكيّس المبايض** stand; the glossary keeps المبيض المتعدد الكيسات as headword with the lay term as alias.
 2. In the Ramadan guide the person she asks about fasting is **أهل العلم الشرعي** ("من تثقين به من أهل العلم الشرعي"), **not** "المرجع الديني". The owner answered the dashboard's question 9c after the blanket sign-off of 00:55 that took the default, so this later, specific answer wins; the Dar al-Ifta sourcing from decision 2 is kept.
 3. `scripts/content-lint.mjs` and the content brief keep these as the house rule.
+
+
+## ADR-078
+**Date:** 2026-11-24 · **Status:** accepted 2026-11-24 (owner, in chat: "Yes, start", accepting the five recommended decisions on the review page https://claude.ai/artifact/XvN1K1NWw2YvP17LjKtndP) · **Area:** app, privacy, AI
+
+**Context.** The owner entered Femio in Google's #BuildHybridAI hackathon (Firebase AI Logic hybrid
+inference; deadline 2026-11-30) and asked for an assistant that makes the app useful rather than
+informative only. OD-9 (2026-08-23) put any AI assistant after V1; rule 4 and ADR-076 say the app has no
+network code of its own. Both are reversed in part here, so the line is drawn explicitly.
+
+**Facts the design rests on** (Firebase docs read 2026-11-24): on-device inference through
+`firebase-ai-ondevice` (beta) is single-turn, about 4,000 tokens in, short output recommended,
+foreground only, on supported phones only, and **validated for English and Korean only**. On the
+Gemini Developer API's unpaid tier Google may use prompts to improve products and human reviewers may
+read them; on the paid tier prompts are not used for training and are logged for a limited time for
+abuse checks.
+
+**Decision.**
+1. **The model reads; Femio speaks** for everything built from her record: the model classifies,
+   extracts and picks (log terms, question ids) and what she reads is Femio's reviewed text in four
+   languages. **"Ask femio" answers from trusted health sources, not from Femio's guides** (owner,
+   2026-11-24: "I need the AI to get from trusted sources and not the 110 cited articles"): the cloud
+   model answers with Grounding with Google Search, steered to Tier 1 and Tier 2 sources
+   (docs/15 §4, docs/04), and the phone shows the answer only when at least one grounding source is
+   on the allowlist in `lib/domain/assistant/trusted_sources.dart`; otherwise she sees "no trusted
+   source found". Every source is listed, trusted ones marked, with Google's search suggestions, as
+   the grounding terms require. Femio's own guides appear under the answer as related reading.
+2. **Anything that touches her record runs `ONLY_ON_DEVICE`.** If Nano is absent the feature falls
+   back to rules on the phone, never to the cloud.
+3. **Only a question with no personal details may use the cloud** (`ONLY_IN_CLOUD` with Google
+   Search grounding). A question about her is first rewritten as a general one by Gemini Nano on the
+   phone (or by her, where Nano is absent); she sees the exact text that will be sent and can edit or
+   cancel it. The phone then strips numbers, dates, contacts and links and refuses any first-person
+   wording. Nothing from her record is ever attached. The Dart type `CloudSafeText` can only be made
+   by that step, so no other code path can reach the cloud call.
+4. **Rules always first:** red-flag wording opens Help now; birth-control questions get the fixed
+   "femio is not a method of birth control" answer; neither ever reaches a model.
+5. **Firebase lives in Kotlin only** (`android/app/src/main/kotlin/.../assistant/`), called over one
+   method channel; no Firebase package in `pubspec.yaml`, no network code under `lib/` (the tripwire
+   checks both). App Check is on: the debug provider in debug builds, Play Integrity in release.
+   Config ids live in git-ignored `apps/mobile/assistant.env`; without it the assistant reports
+   "not set up" and every feature runs on rules.
+6. **Paid tier only for cloud calls** (Blaze plan with a budget alert, owner action).
+7. **Open source for the hackathon:** a public copy of the app (`apps/mobile` plus what it needs to
+   build) under Apache-2.0; the monorepo stays private.
+
+8. **Positioning** (owner, 2026-11-24: "I need the app to be Femio: AI Assisted Female Health &
+   Wellness App - comprehensively"): the store title and listing become "femio: AI-assisted women's
+   health & wellness" in four languages, covering every life stage (periods, trying to conceive,
+   pregnancy, postpartum, perimenopause and menopause, general wellness), not the conceive-and-pregnancy
+   wedge alone. The wedge stays the build order of the rebuild phases (R1-R4); the wordmark stays the
+   Latin lowercase **femio**. Rule 1 is unchanged: education and tracking only.
+
+**Consequences.** The Data safety form gains "App activity / other user-generated content: questions
+she types into Ask femio may be processed by Google to answer them, not stored by femio, not linked to
+her"; the privacy notice ×4 and the store listing change before a release that enables the cloud path
+(R7.6). OD-9 is lifted for the assistant described here; free chat and community stay deferred (OD-8).

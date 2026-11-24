@@ -99,6 +99,16 @@ Opened 2026-10-28 on the owner's finalization brief. The gate for R6.4–R6.5 an
 - [x] R6.18 · Dashboard audit (2026-11-01, owner: "double check the artifact, archive what is done, do what a session can, leave me the rest"): every ticked step checked against the repository, Vercel and the live site (a Sonnet agent re-ran the nine live checks: all pass); 18 ticked steps now carry a `verified` note in the dashboard's database and sit in a collapsed archive block at the foot of their phase (`template.html`: `isArchived`, the Done filter still shows them). Session-doable steps done: store listing (support email filled in AR/EN, FR and ES drafted by Haiku from the English, `store-lint` now measures four languages), the sixteen Play screenshots rendered from the real screens (`apps/mobile/test/store_screenshots_test.dart`, `docs/store/screenshots/`, un-ignored in git), the release candidate built and signed with the upload key (0.5.0+5; APK `apps/mobile/build/app/outputs/flutter-apk/app-release.apk`, bundle `…/bundle/release/app-release.aab`, Google test ads since `ads.env` is absent). Findings for the owner (dashboard requests): NVDA ticked but no notes file; Tag Manager container to re-import; install the release candidate; branch protection stays deferred (plan); routines wait on the owner's word (a recurring cost). The Ramadan guide's "who to ask" wording clash was found earlier and is ADR-077 addendum 2
 - [ ] R3.9 · Load the glossary (131 terms in `GLOSSARY_TERMS.md`) and FAQs into the snapshot in four languages, then remove `/glossary` and `/faq` from `unpublished-sections.ts`
 
+## R7 · Hybrid assistant (#BuildHybridAI, deadline 2026-11-30) — ADR-078, review https://claude.ai/artifact/XvN1K1NWw2YvP17LjKtndP
+
+- [~] R7.1 · Assistant core in `lib/domain/assistant/`: phrase lexicon (EN/AR incl. Egyptian and Gulf, FR, ES) → log terms, safety rules (red flags, birth control), redaction into `CloudSafeText`, trusted-source allowlist, prompts, related-guide search, visit summary and question bank; unit tests
+- [ ] R7.2 · Kotlin bridge (`assistant/FemioAssistant.kt`): Firebase AI Logic hybrid, `ONLY_ON_DEVICE` for private calls, `ONLY_IN_CLOUD` + Google Search grounding for redacted questions (returns sources and search suggestions), App Check (debug / Play Integrity), model status and download; config from git-ignored `assistant.env`; tripwire updated
+- [ ] R7.3 · Screens: "Say it in your words" on Log, "Ask femio" from Today and Learn, "Visit summary" from Today, assistant status in Settings; four locales
+- [ ] R7.4 · Gate green, screenshots 390×844 light/dark/Arabic, debug APK
+- [ ] R7.5 · Public repo (Apache-2.0), Devpost write-up, 3-minute video script; owner records the video on a Nano phone
+- [ ] R7.6 · Before a store release with the cloud path on: privacy notice ×4, Data safety row, listing (ADR-078 consequences)
+- [ ] R7.7 · Listing and in-app positioning "femio: AI-assisted women's health & wellness" across every life stage, four languages (ADR-078 §8, owner 2026-11-24)
+
 ## Session log
 
 | When | What | Commit |
