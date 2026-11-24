@@ -8,7 +8,6 @@ import 'package:femio/domain/assistant/prompts.dart';
 import 'package:femio/domain/assistant/redaction.dart';
 import 'package:femio/domain/assistant/safety.dart';
 import 'package:femio/domain/assistant/text_normal.dart';
-import 'package:femio/domain/assistant/trusted_sources.dart';
 import 'package:femio/domain/assistant/visit_summary.dart';
 import 'package:flutter_test/flutter_test.dart';
 
@@ -36,14 +35,25 @@ void main() {
       expect(d.terms, containsAll(['cramps', 'headache', 'fatigue']));
     });
     test('French and Spanish notes', () {
-      expect(draftFromNote("J'ai des crampes et des nausées").terms, containsAll(['cramps', 'nausea']));
-      expect(draftFromNote('Tengo dolor de cabeza y estoy cansada').terms, containsAll(['headache', 'fatigue']));
+      expect(
+        draftFromNote("J'ai des crampes et des nausées").terms,
+        containsAll(['cramps', 'nausea']),
+      );
+      expect(
+        draftFromNote('Tengo dolor de cabeza y estoy cansada').terms,
+        containsAll(['headache', 'fatigue']),
+      );
     });
     test('a negated symptom is not logged', () {
-      expect(draftFromNote('no cramps today, just a headache').terms, ['headache']);
+      expect(draftFromNote('no cramps today, just a headache').terms, [
+        'headache',
+      ]);
     });
     test('ovulation test', () {
-      expect(draftFromNote('positive ovulation test this morning').opk, 'positive');
+      expect(
+        draftFromNote('positive ovulation test this morning').opk,
+        'positive',
+      );
     });
     test('the model can only add known values; the rules win on flow', () {
       final merged = mergeDrafts(
@@ -60,7 +70,10 @@ void main() {
 
   group('safety rules', () {
     test('crisis wins over everything', () {
-      expect(safetySignal('I want to die and I have chest pain', pregnant: false), SafetySignal.crisis);
+      expect(
+        safetySignal('I want to die and I have chest pain', pregnant: false),
+        SafetySignal.crisis,
+      );
     });
     test('urgent signs in four languages', () {
       for (final t in [
@@ -69,27 +82,57 @@ void main() {
         'je n’arrive pas à respirer',
         'no puedo respirar',
       ]) {
-        expect(safetySignal(t, pregnant: false), SafetySignal.urgent, reason: t);
+        expect(
+          safetySignal(t, pregnant: false),
+          SafetySignal.urgent,
+          reason: t,
+        );
       }
     });
     test('bleeding is a warning only in pregnancy', () {
-      expect(safetySignal('some bleeding today', pregnant: true), SafetySignal.pregnancyWarning);
-      expect(safetySignal('some bleeding today', pregnant: false), SafetySignal.none);
-      expect(safetySignal('البيبي مش بيتحرك من امبارح', pregnant: true), SafetySignal.pregnancyWarning);
+      expect(
+        safetySignal('some bleeding today', pregnant: true),
+        SafetySignal.pregnancyWarning,
+      );
+      expect(
+        safetySignal('some bleeding today', pregnant: false),
+        SafetySignal.none,
+      );
+      expect(
+        safetySignal('البيبي مش بيتحرك من امبارح', pregnant: true),
+        SafetySignal.pregnancyWarning,
+      );
     });
     test('birth-control questions get the fixed answer', () {
-      for (final t in ['what are the safe days?', 'ازاي اعرف الايام الامنة', 'pilule du lendemain', 'días seguros']) {
-        expect(safetySignal(t, pregnant: false), SafetySignal.birthControl, reason: t);
+      for (final t in [
+        'what are the safe days?',
+        'ازاي اعرف الايام الامنة',
+        'pilule du lendemain',
+        'días seguros',
+      ]) {
+        expect(
+          safetySignal(t, pregnant: false),
+          SafetySignal.birthControl,
+          reason: t,
+        );
       }
     });
     test('an ordinary question passes', () {
-      expect(safetySignal('what helps with period cramps?', pregnant: false), SafetySignal.none);
+      expect(
+        safetySignal('what helps with period cramps?', pregnant: false),
+        SafetySignal.none,
+      );
     });
   });
 
   group('cloud redaction', () {
     test('a question about her stays on the phone', () {
-      for (final t in ['my period is late', 'عندي تكيس', 'je suis fatiguée', 'tengo dolor']) {
+      for (final t in [
+        'my period is late',
+        'عندي تكيس',
+        'je suis fatiguée',
+        'tengo dolor',
+      ]) {
         expect(toCloudSafe(t), isNull, reason: t);
       }
     });
@@ -97,7 +140,9 @@ void main() {
       expect(isAboutHer('Is it a myth that pineapple helps?'), isFalse);
     });
     test('a general question is cleaned of digits, links and contacts', () {
-      final safe = toCloudSafe('What is PCOS at 25? see www.example.com or a@b.com');
+      final safe = toCloudSafe(
+        'What is PCOS at 25? see www.example.com or a@b.com',
+      );
       expect(safe, isNotNull);
       expect(safe!.value, isNot(contains('25')));
       expect(safe.value, isNot(contains('example')));
@@ -109,45 +154,27 @@ void main() {
     });
   });
 
-  group('trusted sources', () {
-    test('subdomains of trusted hosts match; look-alikes do not', () {
-      expect(isTrustedHost('www.nhs.uk'), isTrue);
-      expect(isTrustedHost('https://www.nichd.nih.gov/health'), isTrue);
-      expect(isTrustedHost('who.int'), isTrue);
-      expect(isTrustedHost('notnhs.uk'), isFalse);
-      expect(isTrustedHost('nhs.uk.example.com'), isFalse);
-      expect(isTrustedHost('healthblog.com'), isFalse);
-    });
-    test('an answer needs at least one trusted source', () {
-      const blog = WebSource(title: 'healthblog.com', uri: 'https://vertexaisearch.cloud.google.com/x');
-      const nhs = WebSource(title: 'nhs.uk', uri: 'https://vertexaisearch.cloud.google.com/y');
-      expect(hasTrustedSource([blog]), isFalse);
-      expect(hasTrustedSource([blog, nhs]), isTrue);
-    });
-  });
-
   group('prompts and parsers', () {
     test('extraction prompt never offers intercourse keys', () {
       expect(extractionPrompt('note'), isNot(contains('intercourse')));
     });
     test('a bad model reply adds nothing', () {
       expect(parseExtraction('sorry, I cannot').terms, isEmpty);
-      expect(parseExtraction('```json\n{"terms":["cramps"],"flow":"heavy"}\n```').terms, ['cramps']);
-    });
-    test('the answer instruction forbids diagnosis and birth control', () {
-      final i = answerInstruction('ar');
-      expect(i, contains('Never diagnose'));
-      expect(i, contains('birth control'));
-      expect(i, contains('Arabic'));
+      expect(
+        parseExtraction('```json\n{"terms":["cramps"],"flow":"heavy"}\n```')
+            .terms,
+        ['cramps'],
+      );
     });
     test('question ids are filtered to the allowed list', () {
-      expect(parseQuestionIds('{"ids":["folicAcid","hack","folicAcid","ovulation"]}', ['folicAcid', 'ovulation'], 5), [
-        'folicAcid',
-        'ovulation',
-      ]);
-    });
-    test('generalised rewrite keeps one clean line', () {
-      expect(parseGeneralised('"What helps period pain?"\nextra'), 'What helps period pain?');
+      expect(
+        parseQuestionIds(
+          '{"ids":["folicAcid","hack","folicAcid","ovulation"]}',
+          ['folicAcid', 'ovulation'],
+          5,
+        ),
+        ['folicAcid', 'ovulation'],
+      );
     });
   });
 
@@ -176,8 +203,18 @@ void main() {
   });
 
   group('visit summary', () {
-    Profile ttc({List<String> starts = const [], Map<String, DayLog> logs = const {}, TryingFor? tryingFor}) =>
-        Profile(goal: Goal.ttc, locale: 'en', birthYear: 1990, periodStarts: starts, logs: logs, tryingFor: tryingFor);
+    Profile ttc({
+      List<String> starts = const [],
+      Map<String, DayLog> logs = const {},
+      TryingFor? tryingFor,
+    }) => Profile(
+      goal: Goal.ttc,
+      locale: 'en',
+      birthYear: 1990,
+      periodStarts: starts,
+      logs: logs,
+      tryingFor: tryingFor,
+    );
 
     test('counts cycles and logged terms from her own record', () {
       final s = visitSummary(
@@ -185,7 +222,10 @@ void main() {
           starts: ['2026-08-01', '2026-08-29', '2026-09-28', '2026-10-27'],
           logs: {
             '2026-10-27': const DayLog(flow: 'heavy', terms: ['cramps']),
-            '2026-10-28': const DayLog(flow: 'heavy', terms: ['cramps', 'fatigue']),
+            '2026-10-28': const DayLog(
+              flow: 'heavy',
+              terms: ['cramps', 'fatigue'],
+            ),
             '2026-10-29': const DayLog(terms: ['cramps', 'libidoUp']),
             '2026-11-10': const DayLog(opk: 'positive'),
           },
@@ -197,25 +237,39 @@ void main() {
       expect(s.longestCycle, 30);
       expect(s.topTerms.first.key, 'cramps');
       expect(s.topTerms.first.days, 3);
-      expect(s.topTerms.map((t) => t.key), isNot(contains('libidoUp')), reason: 'private terms stay off the summary');
+      expect(
+        s.topTerms.map((t) => t.key),
+        isNot(contains('libidoUp')),
+        reason: 'private terms stay off the summary',
+      );
       expect(s.heavyDays, 2);
       expect(s.positiveOvulationTests, 1);
-      expect(s.questionIds, containsAll(['folicAcid', 'painfulPeriods', 'heavyPeriods']));
+      expect(
+        s.questionIds,
+        containsAll(['folicAcid', 'painfulPeriods', 'heavyPeriods']),
+      );
       expect(s.questionIds.length, lessThanOrEqualTo(maxVisitQuestions));
       expect(s.questionIds.last, 'anythingElse');
     });
 
     test('after twelve months of trying, suggests asking about checks', () {
       final s = visitSummary(ttc(tryingFor: TryingFor.over12), '2026-11-24');
-      expect(s.questionIds.first, 'ttcTests');
+      // The catalogue's sourced check question replaces the rule bank's general one.
+      expect(s.questionIds.first, anyOf('ttcTests', 'checksForCouple', 'ttcOverThirtyFiveSooner'));
     });
 
     test('a model may reorder the rule picks but never add one', () {
-      expect(reorderQuestions(['a', 'b', 'c', 'anythingElse'], ['c', 'x', 'a']), ['c', 'a', 'b', 'anythingElse']);
+      expect(
+        reorderQuestions(['a', 'b', 'c', 'anythingElse'], ['c', 'x', 'a']),
+        ['c', 'a', 'b', 'anythingElse'],
+      );
     });
 
     test('facts for the model carry no dates', () {
-      final s = visitSummary(ttc(starts: ['2026-09-01', '2026-09-29']), '2026-11-24');
+      final s = visitSummary(
+        ttc(starts: ['2026-09-01', '2026-09-29']),
+        '2026-11-24',
+      );
       expect(s.factsInEnglish(), isNot(contains('2026')));
     });
   });

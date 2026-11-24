@@ -94,7 +94,7 @@ class SettingsScreen extends StatelessWidget {
             leading: const Icon(Icons.auto_awesome_rounded),
             title: Text(l.assistantSettingsTitle),
             subtitle: Text(l.assistantSettingsSub, style: t.bodySmall?.copyWith(color: p.textMuted)),
-            onTap: () => Navigator.of(context).push(MaterialPageRoute<void>(builder: (_) => const AssistantSettingsScreen())),
+            onTap: () => Navigator.of(context).push(MaterialPageRoute<void>(builder: (_) => AssistantSettingsScreen(controller: controller))),
           ),
           _Section(title: l.aboutSection),
           // ADR-076: say plainly where ads appear and what they never see.

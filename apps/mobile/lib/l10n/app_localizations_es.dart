@@ -1521,11 +1521,25 @@ class L10nEs extends L10n {
       'femio no es un método anticonceptivo y no aconseja sobre cómo evitar un embarazo. Un médico, farmacéutico o centro de planificación familiar puede ayudarte a elegir.';
 
   @override
+  String get safetyHeavyBleedingHeading => 'Sangrado abundante con mareo';
+
+  @override
+  String get safetyHeavyBleedingBody =>
+      'El ACOG (colegio estadounidense de ginecólogos y obstetras) dice: «Si cambias de compresa o tampón cada hora durante más de 2 horas seguidas, y además tienes dolor en el pecho, falta de aire y te sientes aturdida o mareada, busca atención médica de urgencia de inmediato». (Traducción de femio.) Si es tu caso, llama ahora al número de emergencias. Si un sangrado abundante te preocupa, habla con tu médico.';
+
+  @override
+  String get safetyPostpartumHeading => 'Una señal de alerta después del parto';
+
+  @override
+  String get safetyPostpartumBody =>
+      'En el año después del parto, la campaña Hear Her de los CDC dice que busques atención médica de inmediato ante una señal de alerta urgente, como sangrado abundante, fiebre, un dolor de cabeza que no se quita o una pierna hinchada. Llama ahora a tu médico o matrona, o al número de emergencias.';
+
+  @override
   String get askTitle => 'Pregunta a femio';
 
   @override
   String get askIntro =>
-      'Haz una pregunta de salud. femio busca la respuesta en fuentes fiables como la OMS, el NHS y los CDC, y te muestra de dónde viene.';
+      'Haz una pregunta de salud. femio responde solo con fuentes de salud fiables que lleva en tu teléfono, como los CDC, MedlinePlus y la Office on Women’s Health, y muestra de dónde viene cada frase.';
 
   @override
   String get askHint => 'Por ejemplo: ¿qué ayuda con los cólicos menstruales?';
@@ -1534,19 +1548,11 @@ class L10nEs extends L10n {
   String get askAction => 'Preguntar';
 
   @override
-  String get askPersonalRewritten =>
-      'Tu pregunta habla de ti, así que solo una versión general, sin datos personales, puede salir de tu teléfono. Revísala abajo.';
-
-  @override
-  String get askPersonalSelf =>
-      'Tu pregunta habla de ti. Reescríbela abajo como una pregunta general, sin «yo», «mi» ni datos personales, y femio la buscará.';
-
-  @override
   String get askWillSend =>
-      'Esto es exactamente lo que se enviará a Google para buscar en fuentes fiables:';
+      'Esta es exactamente la pregunta que se enviará, con las fuentes públicas:';
 
   @override
-  String get askSend => 'Buscar en fuentes fiables';
+  String get askSend => 'Resumir con Cloud boost';
 
   @override
   String get askStillPersonal =>
@@ -1554,34 +1560,13 @@ class L10nEs extends L10n {
 
   @override
   String get askCloudPrivacy =>
-      'Solo se envía la pregunta mostrada. Nada de tu registro.';
+      'Solo se envían esta pregunta y las fuentes públicas. Nada de tu registro.';
 
   @override
-  String get askSearching => 'Buscando en fuentes fiables…';
-
-  @override
-  String get askFailed =>
-      'femio no pudo llegar a las fuentes ahora. Inténtalo más tarde.';
-
-  @override
-  String get askNotSetUp =>
-      'La búsqueda en fuentes fiables no está activada en esta versión. Aquí tienes las guías de femio sobre el tema.';
-
-  @override
-  String get askNoTrusted =>
-      'femio no encontró una respuesta de una fuente de salud fiable, así que no muestra ninguna. Pregunta de otra forma o habla con tu médico.';
-
-  @override
-  String get askAnswerLabel => 'De fuentes fiables, encontrado con Google';
+  String get askSearching => 'Leyendo fuentes fiables…';
 
   @override
   String get askSourcesTitle => 'Fuentes';
-
-  @override
-  String get askTrustedBadge => 'Fuente fiable';
-
-  @override
-  String get askOtherSource => 'Fuera de la lista fiable de femio';
 
   @override
   String get askClinicianLine =>
@@ -1592,6 +1577,64 @@ class L10nEs extends L10n {
 
   @override
   String get askSearchAgain => 'Hacer otra pregunta';
+
+  @override
+  String get askAboutYouStays =>
+      'Tu pregunta habla de ti, así que se queda en este teléfono. Aquí tienes las fuentes palabra por palabra.';
+
+  @override
+  String get askModelFellBack =>
+      'La IA no pudo escribir una respuesta que cite sus fuentes, así que aquí están palabra por palabra.';
+
+  @override
+  String get askBoostHeading => 'Cloud boost';
+
+  @override
+  String get askBoostConfirm =>
+      'Este teléfono no tiene IA integrada. Con Cloud boost, la IA en la nube de Google puede resumirte estas fuentes públicas. Revisa primero la pregunta.';
+
+  @override
+  String get askReadSourcesInstead => 'Leer las fuentes en su lugar';
+
+  @override
+  String get askNotCoveredHeading => 'Aún no cubierto';
+
+  @override
+  String get askNotCovered =>
+      'Las fuentes fiables de femio no responden a esto, así que femio no adivina. Prueba con otras palabras, lee los enlaces de abajo o pregunta a tu médico.';
+
+  @override
+  String askRegistryVersion(String version) {
+    return 'Biblioteca de fuentes fiables $version';
+  }
+
+  @override
+  String get askAnswerOnPhone =>
+      'Resumido en tu teléfono por Gemini Nano, con las fuentes de abajo';
+
+  @override
+  String get askAnswerCloud =>
+      'Resumido por la IA en la nube de Google (Cloud boost), con las fuentes de abajo';
+
+  @override
+  String get askVerbatimLabel => 'Palabra por palabra, de fuentes fiables';
+
+  @override
+  String get askEnglishNote =>
+      'Estas fuentes están en inglés. femio las muestra palabra por palabra para que nada se pierda en la traducción.';
+
+  @override
+  String get askReadMore => 'Lee más de organizaciones fiables';
+
+  @override
+  String askSourceCopied(String publisher, String date) {
+    return '$publisher · copiado el $date';
+  }
+
+  @override
+  String askSourceReviewed(String publisher, String date) {
+    return '$publisher · revisado el $date';
+  }
 
   @override
   String get visitButton => 'Resumen para la consulta';
@@ -1713,7 +1756,7 @@ class L10nEs extends L10n {
 
   @override
   String get assistantSettingsSub =>
-      'IA en tu teléfono y respuestas de fuentes fiables';
+      'IA en tu teléfono, fuentes fiables y Cloud boost';
 
   @override
   String get assistantOnDeviceTitle => 'IA en tu teléfono (Gemini Nano)';
@@ -1737,16 +1780,482 @@ class L10nEs extends L10n {
   String get assistantDownload => 'Descargar';
 
   @override
-  String get assistantCloudTitle => 'Respuestas de fuentes fiables';
+  String get assistantCloudTitle => 'Cloud boost';
 
   @override
   String get assistantCloudOn =>
-      'Activado. Solo se envían a Google las preguntas generales que apruebas, nunca tu registro.';
+      'Activado. Solo se usa si este teléfono no tiene IA integrada.';
 
   @override
-  String get assistantCloudOff => 'No activado en esta versión.';
+  String get assistantCloudOff => 'Desactivado. Todo se hace en este teléfono.';
 
   @override
   String get assistantHowItWorks =>
-      'Todo lo tuyo se queda en tu teléfono. Las reglas de femio y, si tu teléfono lo tiene, Gemini Nano en el teléfono leen tus notas y tu registro. Las reglas de seguridad van siempre primero: las señales de peligro abren la página de ayuda, y femio nunca aconseja sobre anticoncepción. Una pregunta general que apruebes puede enviarse a Google para encontrar una respuesta en fuentes de salud fiables; femio muestra esas fuentes con cada respuesta.';
+      'Todo lo tuyo se queda en tu teléfono. Las reglas de femio y, si tu teléfono lo tiene, Gemini Nano en el teléfono leen tus notas y tu registro. Las reglas de seguridad van siempre primero: las señales de peligro abren la página de ayuda, y femio nunca aconseja sobre cómo evitar un embarazo. Pregúntale a femio responde solo con fuentes de salud fiables incluidas en la app y las muestra con cada respuesta. Cloud boost está desactivado salvo que lo actives.';
+
+  @override
+  String get assistantCloudNotBuilt =>
+      'No disponible en esta versión de la app.';
+
+  @override
+  String get boostTitle => 'Cloud boost';
+
+  @override
+  String get boostIntro =>
+      'Algunos teléfonos no tienen IA integrada. En esos teléfonos, Cloud boost permite que la IA en la nube de Google, a través de Firebase, resuma fuentes fiables y ordene tus consejos. Está desactivado salvo que lo actives, y puedes desactivarlo cuando quieras.';
+
+  @override
+  String get boostSendsHeading => 'Qué se puede enviar';
+
+  @override
+  String get boostSendsQuestion =>
+      'Preguntas generales sin datos personales, que ves y apruebas antes de que se envíe nada.';
+
+  @override
+  String get boostSendsBands =>
+      'Estos datos generales, exactamente como se muestran, para elegir consejos para ti:';
+
+  @override
+  String get boostStageLabel => 'Etapa de vida';
+
+  @override
+  String boostStage(String value) {
+    String _temp0 = intl.Intl.selectLogic(value, {
+      'period': 'Seguimiento de la regla',
+      'ttc': 'Buscando embarazo',
+      'pregnant': 'Embarazada',
+      'postpartum': 'Después del parto',
+      'menopause': 'Menopausia',
+      'other': 'Sin definir',
+    });
+    return '$_temp0';
+  }
+
+  @override
+  String get boostRegularityLabel => 'Regularidad del ciclo';
+
+  @override
+  String boostRegularity(String value) {
+    String _temp0 = intl.Intl.selectLogic(value, {
+      'regular': 'Regular',
+      'variable': 'Variable',
+      'unknown': 'Aún no se sabe',
+      'notApplicable': 'Sin seguimiento ahora',
+      'other': 'Aún no se sabe',
+    });
+    return '$_temp0';
+  }
+
+  @override
+  String get boostCategoriesLabel =>
+      'Tipos de síntomas registrados el último mes';
+
+  @override
+  String boostCategory(String value) {
+    String _temp0 = intl.Intl.selectLogic(value, {
+      'pain': 'Dolor',
+      'mood': 'Ánimo',
+      'digestion': 'Digestión',
+      'sleepAndEnergy': 'Sueño y energía',
+      'skinAndHair': 'Piel y cabello',
+      'hotFlashes': 'Sofocos',
+      'bladder': 'Vejiga',
+      'other': 'Otros',
+    });
+    return '$_temp0';
+  }
+
+  @override
+  String get boostNone => 'Ninguno';
+
+  @override
+  String get boostStreakLabel => 'Registro continuo';
+
+  @override
+  String boostStreak(String value) {
+    String _temp0 = intl.Intl.selectLogic(value, {
+      'none': 'Ninguno',
+      'underAWeek': 'Menos de una semana',
+      'weeks': 'Unas semanas',
+      'overAMonth': 'Más de un mes',
+      'other': 'Ninguno',
+    });
+    return '$_temp0';
+  }
+
+  @override
+  String get boostNeverHeading => 'Qué no se envía nunca';
+
+  @override
+  String get boostNever =>
+      'Tus notas, fechas, registros, duración de ciclos, tu nombre, tus contactos ni nada que te identifique a ti o a este teléfono.';
+
+  @override
+  String get boostTurnOn => 'Activar Cloud boost';
+
+  @override
+  String get boostTurnOff => 'Desactivar Cloud boost';
+
+  @override
+  String get boostNotNow => 'Ahora no';
+
+  @override
+  String get tip_trackDatesHelps =>
+      'Anotar las fechas de tu regla en la aplicación te ayuda a ver tu propio patrón y da datos claros a un profesional de la salud.';
+
+  @override
+  String get tip_periodLongerThanSeven =>
+      'Una regla que dura más de 7 días merece comentarse con un profesional de la salud.';
+
+  @override
+  String get tip_bleedingBetweenPeriods =>
+      'El sangrado entre reglas merece comentarse con un profesional de la salud para buscar su causa.';
+
+  @override
+  String get tip_irregularCheckIn =>
+      'Los ciclos de menos de 21 días o de más de 35 días se consideran irregulares. Coméntalo con un profesional de la salud, que podrá revisar tus fechas contigo.';
+
+  @override
+  String get tip_stoppedThreeMonths =>
+      'Una regla que se interrumpe más de tres meses sin una razón clara merece la revisión de un profesional de la salud, sea cual sea tu edad.';
+
+  @override
+  String get tip_irregularWithOtherSigns =>
+      'Las reglas irregulares junto con otros cambios, como acné o más vello, merecen comentarse con un profesional de la salud.';
+
+  @override
+  String get tip_periodPainSeeClinician =>
+      'El dolor de regla que te impide hacer tus actividades diarias habituales es un motivo para consultar a un profesional de la salud.';
+
+  @override
+  String get tip_severePainUrgent =>
+      'Si el dolor pélvico o de la regla es intenso o peor de lo habitual y los analgésicos no han ayudado, pide atención médica urgente.';
+
+  @override
+  String get tip_symptomDiaryBeforeVisit =>
+      'Antes de una consulta por problemas de regla, un diario de tus síntomas durante todo el ciclo da al profesional de la salud una imagen detallada de lo que ocurre y cuándo.';
+
+  @override
+  String get tip_heavyOrTired =>
+      'Las reglas que te impiden hacer tus actividades, o te dejan muy cansada o sin aliento, pueden ser señal de reglas abundantes. Un profesional de la salud puede ayudarte.';
+
+  @override
+  String get tip_pmsDiary =>
+      'Llevar un diario de tus síntomas durante al menos dos ciclos ayuda a un profesional de la salud a ver si siguen a tu regla.';
+
+  @override
+  String get tip_headachesAroundPeriod =>
+      'Los dolores de cabeza que aparecen con regularidad antes o durante la regla merecen comentarse con un profesional de la salud. Un diario de cefaleas junto a las fechas de tu regla ayuda.';
+
+  @override
+  String get tip_urineInfectionSeeClinician =>
+      'Si crees que puedes tener una infección de orina, es importante consultar a un profesional de la salud. Un análisis de orina puede confirmarlo.';
+
+  @override
+  String get tip_leakingUrineTellClinician =>
+      'Si tienes pérdidas de orina, conviene contárselo a un profesional de la salud, sea cual sea el tipo o la causa.';
+
+  @override
+  String get tip_cervicalScreeningTip =>
+      'El cribado de cuello uterino busca cambios tempranos en las células del cuello del útero. Pregunta en tu centro si te toca.';
+
+  @override
+  String get tip_ttcOneYear =>
+      'Si llevas un año intentándolo sin embarazo, es buena idea consultar a un profesional de la salud para revisar las causas más comunes.';
+
+  @override
+  String get tip_ttcAgeSixMonths =>
+      'A partir de los 35 años se aconseja consultar a un profesional de la salud tras seis meses de intentos, no doce.';
+
+  @override
+  String get tip_ttcIrregularNoWait =>
+      'Con reglas irregulares o ausentes, conviene hablar con un profesional de la salud sobre el deseo de embarazo sin esperar un año completo.';
+
+  @override
+  String get tip_regularSexTakesTime =>
+      'La mayoría de las parejas en las que la mujer tiene menos de 40 años logra el embarazo en un año con relaciones regulares cada 2 o 3 días. Puede llevar tiempo.';
+
+  @override
+  String get tip_testingTooEarly =>
+      'Hacer la prueba demasiado pronto puede dar un falso negativo, porque la hormona del embarazo quizá aún no haya aumentado. Sigue las instrucciones de la prueba.';
+
+  @override
+  String get tip_folicAcidBeforePregnancy =>
+      'El ácido fólico, una vitamina B, se aconseja desde al menos un mes antes del embarazo. Pregunta a un profesional de la salud cómo obtener lo suficiente.';
+
+  @override
+  String get tip_talkBeforeTrying =>
+      'Es buena idea hablar con un profesional de la salud antes de intentar el embarazo. Puede ayudarte a preparar tu cuerpo.';
+
+  @override
+  String get tip_tryingIsStressful =>
+      'Intentar el embarazo puede ser estresante. El apoyo psicológico y los grupos de apoyo pueden ayudarte a sobrellevarlo; puedes preguntar a un profesional de la salud.';
+
+  @override
+  String get tip_movementsChangeCallNow =>
+      'Si tu bebé se mueve menos de lo habitual o cambia su patrón, llama de inmediato a tu matrona o a la maternidad, incluso a mitad de la noche.';
+
+  @override
+  String get tip_firstMovementsBy24 =>
+      'Deberías empezar a notar a tu bebé entre las semanas 16 y 24. Si a las 24 semanas aún no lo has notado, díselo a tu matrona.';
+
+  @override
+  String get tip_preeclampsiaSigns =>
+      'Un dolor de cabeza intenso que los analgésicos no alivian, problemas de visión, dolor bajo las costillas o hinchazón repentina requieren revisión inmediata. Llama a la maternidad.';
+
+  @override
+  String get tip_antenatalChecksMatter =>
+      'Los controles de tensión y de orina en las visitas prenatales detectan cambios que no notas, así que intenta no faltar a ninguna cita.';
+
+  @override
+  String get tip_screeningVersusDiagnostic =>
+      'A todas las embarazadas se les ofrecen dos tipos de pruebas: las de cribado, que muestran una probabilidad, y las de seguimiento, que dan una respuesta más clara. Pregunta cuáles te convienen.';
+
+  @override
+  String get tip_glucoseScreening =>
+      'Todas las embarazadas deben someterse al cribado de diabetes gestacional. Pregunta a tu matrona o médico cuándo está previsto el tuyo.';
+
+  @override
+  String get tip_rhBloodGroup =>
+      'Un simple análisis de sangre muestra tu grupo sanguíneo y tu factor Rh, normalmente en la primera visita prenatal. Pregunta cuál es el tuyo y si influye en tu atención.';
+
+  @override
+  String get tip_mainScanBetween18And21 =>
+      'Suele hacerse una ecografía detallada entre las semanas 18 y 21. Comprueba el crecimiento del bebé y busca ciertas afecciones.';
+
+  @override
+  String get tip_severeSicknessTellEarly =>
+      'Si vomitas a menudo y no retienes la comida, díselo a tu matrona o médico cuanto antes, para que te ayuden a retener los líquidos.';
+
+  @override
+  String get tip_itchTellMidwife =>
+      'El picor es frecuente en el embarazo y casi siempre no es grave. Aun así, cuéntaselo a tu matrona o médico para que lo revisen.';
+
+  @override
+  String get tip_pretermLabourSigns =>
+      'Los signos de parto prematuro incluyen contracciones cada 10 minutos o menos, pérdida de líquido o sangrado, presión pélvica y un dolor sordo en la parte baja de la espalda. Contacta con tu profesional.';
+
+  @override
+  String get tip_tirednessInPregnancy =>
+      'El cansancio en el embarazo tiene muchas causas, y la anemia es una de ellas. Comenta el cansancio persistente a tu matrona o médico.';
+
+  @override
+  String get tip_lowMoodPerinatal =>
+      'Sentirse decaída es frecuente en el embarazo y tras el parto, y hay apoyo disponible. Díselo a tu matrona, médico o enfermera, aunque solo tengas algunos de los signos.';
+
+  @override
+  String get tip_anxietyInPregnancy =>
+      'La ansiedad en el embarazo muchas veces mejora con terapia de conversación. Cuéntale a tu matrona o médico cómo te sientes de verdad.';
+
+  @override
+  String get tip_warningSignsPregnancyAndYear =>
+      'Algunas señales de alarma requieren atención inmediata, durante el embarazo y un año después del parto: dolor de cabeza que no se va, cambios en la visión, fiebre, dificultad para respirar o dolor abdominal intenso.';
+
+  @override
+  String get tip_postnatalCheckSixToEight =>
+      'Una revisión posparto hacia las 6 a 8 semanas comprueba que te encuentras bien y te recuperas. Apunta tus preguntas para llevarlas.';
+
+  @override
+  String get tip_painfulFeedsGetHelp =>
+      'Si retrasas las tomas porque amamantar duele, pide ayuda a una asesora de lactancia.';
+
+  @override
+  String get tip_tirednessAfterBirthThyroid =>
+      'El cansancio tras el parto tiene muchas causas. La inflamación de la tiroides afecta a cerca de 1 de cada 20 mujeres el primer año; comenta el cansancio persistente a un profesional de la salud.';
+
+  @override
+  String get tip_bleedingUpToSixWeeks =>
+      'El manchado o sangrado parecido a una regla, de forma intermitente, puede durar hasta seis semanas tras el parto. Cuéntaselo a un profesional de la salud si te preocupa.';
+
+  @override
+  String get tip_babyBluesPassing =>
+      'Sentirse decaída, ansiosa o irritable unos días tras el parto es muy frecuente y suele pasar en 2 semanas. Si dura más, díselo a un profesional de la salud.';
+
+  @override
+  String get tip_periodChangesFirstSign =>
+      'Un cambio en la regla suele ser una de las primeras señales de la perimenopausia. Puede venir con más o menos frecuencia, y ser más abundante o más leve.';
+
+  @override
+  String get tip_twelveMonthsMeansMenopause =>
+      'La menopausia significa 12 meses sin regla. En los años previos los ciclos suelen variar, con intervalos más largos o más cortos.';
+
+  @override
+  String get tip_bleedingAfterMenopause =>
+      'El sangrado tras la menopausia, es decir, tras 12 meses sin regla, es importante comentarlo con un profesional de la salud para encontrar su causa.';
+
+  @override
+  String get tip_hotFlushesTalkOptions =>
+      'Si los cambios de estilo de vida no bastan para los sofocos, contacta con un profesional de la salud. Hablará contigo de tus síntomas, tu historial y tus preferencias.';
+
+  @override
+  String get tip_boneStrengthMenopause =>
+      'La pérdida de densidad ósea es más probable en torno a la menopausia. Pregunta a un profesional de la salud por la salud de tus huesos y qué te conviene.';
+
+  @override
+  String get tip_drynessManyTreatments =>
+      'Hay muchos tratamientos para la sequedad vaginal. Conviene preguntar a un profesional de la salud cuál puede irte bien.';
+
+  @override
+  String get tip_heartbeatAroundMenopause =>
+      'Un latido más rápido o más notorio puede formar parte de la perimenopausia y la menopausia. Anota cuándo ocurre y cuéntaselo a un profesional de la salud.';
+
+  @override
+  String get tip_lowMoodMenopause =>
+      'El ánimo bajo y la ansiedad pueden formar parte de la transición a la menopausia. Si cuesta manejarlos, habla con un profesional de la salud.';
+
+  @override
+  String get visitQ_periodsStoppedChecks =>
+      'Mi regla se ha vuelto muy espaciada o se ha detenido. ¿Qué pruebas podrían averiguar el motivo?';
+
+  @override
+  String get visitQ_irregularCauses =>
+      '¿Qué podría explicar mis ciclos irregulares y ayudarían algunas pruebas o ecografías?';
+
+  @override
+  String get visitQ_irregularAcneChecks =>
+      'Tengo reglas irregulares y acné. ¿Qué pruebas podrían buscar la causa?';
+
+  @override
+  String get visitQ_painCauseChecks =>
+      'El dolor de mi regla me estorba en el día a día. ¿Qué pruebas podrían averiguar el motivo?';
+
+  @override
+  String get visitQ_heavyAndTiredBloodTest =>
+      'Mis reglas pueden ser abundantes y me siento muy cansada. ¿Debería hacerme análisis de sangre, por ejemplo de hierro?';
+
+  @override
+  String get visitQ_diaryReviewCycle =>
+      '¿Podemos repasar mi diario de síntomas para ver si siguen mi ciclo?';
+
+  @override
+  String get visitQ_headacheDiaryReview =>
+      'Mis dolores de cabeza aparecen a menudo alrededor de mi regla. ¿Podemos mirar mi diario juntos?';
+
+  @override
+  String get visitQ_cervicalScreeningDue =>
+      '¿Estoy al día con el cribado de cuello uterino y qué prueba usa su clínica?';
+
+  @override
+  String get visitQ_checksForCouple =>
+      '¿Qué pruebas de fertilidad me sugiere, y para una pareja si la tengo?';
+
+  @override
+  String get visitQ_ttcOverThirtyFiveSooner =>
+      'Tengo 35 años o más y llevamos unos seis meses o más intentándolo. ¿Empezamos ya las pruebas de fertilidad?';
+
+  @override
+  String get visitQ_irregularTryingNow =>
+      'Mis ciclos son irregulares y estamos intentando el embarazo. ¿Hablamos de ayuda ya, en lugar de esperar un año?';
+
+  @override
+  String get visitQ_preconceptionReview =>
+      'Estamos planeando un embarazo. ¿Hay algo de mi salud o de mis medicamentos que convenga revisar antes?';
+
+  @override
+  String get visitQ_ttcSupportOptions =>
+      'Intentar el embarazo me pesa. ¿Dónde puedo encontrar apoyo psicológico o grupos de apoyo?';
+
+  @override
+  String get visitQ_pregnancyTestsOffered =>
+      '¿Qué pruebas de cribado y de seguimiento se ofrecen en mi embarazo, y qué me dice cada una?';
+
+  @override
+  String get visitQ_glucoseTestWhen =>
+      '¿Cuándo me harán la prueba de diabetes gestacional y podría ser antes en mi caso?';
+
+  @override
+  String get visitQ_movementsCallWho =>
+      '¿A quién llamo si cambian los movimientos de mi bebé, también por la noche?';
+
+  @override
+  String get visitQ_sameDayWarningSigns =>
+      '¿Qué señales deben hacerme llamar a la maternidad el mismo día?';
+
+  @override
+  String get visitQ_rhFactorChecked =>
+      '¿Se han comprobado mi grupo sanguíneo y mi factor Rh y cambia algo en mi atención?';
+
+  @override
+  String get visitQ_pregnancyLowMoodSupport =>
+      'Llevo un tiempo decaída o muy preocupada. ¿Qué apoyo hay disponible?';
+
+  @override
+  String get visitQ_severeSicknessHelp =>
+      'Las náuseas y vómitos me impiden retener comida y bebida. ¿Qué ayuda hay disponible?';
+
+  @override
+  String get visitQ_itchBloodTests =>
+      'Tengo picor en el embarazo. ¿Debería hacerme análisis de sangre para revisar el hígado?';
+
+  @override
+  String get visitQ_pretermSignsPlan =>
+      '¿Qué signos de parto prematuro deben hacerme llamar o acudir y adónde voy fuera de horario?';
+
+  @override
+  String get visitQ_postnatalCheckTalk =>
+      '¿Podemos repasar cómo me estoy recuperando, incluyendo sangrado, dolor, ánimo y cambios en la vejiga?';
+
+  @override
+  String get visitQ_postnatalMoodHelp =>
+      'Me siento decaída o ansiosa desde el parto. ¿Qué ayuda hay?';
+
+  @override
+  String get visitQ_latchCheck =>
+      'Amamantar duele. ¿Podría alguien observar una toma y comprobar cómo se agarra mi bebé?';
+
+  @override
+  String get visitQ_warningSignsYearAfter =>
+      '¿Qué síntomas en el año posterior al parto deben hacerme buscar atención de inmediato?';
+
+  @override
+  String get visitQ_thyroidAfterBirth =>
+      'Me siento muy cansada desde el parto. ¿Deberían revisarme la tiroides con un análisis de sangre?';
+
+  @override
+  String get visitQ_urineLeaksHelp =>
+      'Tengo pérdidas de orina. ¿Qué puede ayudar y me convendrían los ejercicios del suelo pélvico?';
+
+  @override
+  String get visitQ_hotFlushOptions =>
+      'Los sofocos o sudores nocturnos afectan a mis días. ¿Qué opciones podemos hablar?';
+
+  @override
+  String get visitQ_changedBleedingChecks =>
+      'Mi patrón de sangrado ha cambiado. ¿Qué pruebas merece la pena hacer?';
+
+  @override
+  String get visitQ_bleedingAfterMenopauseChecks =>
+      'He tenido sangrado o manchado en esta etapa. ¿Qué pruebas necesito y con qué urgencia?';
+
+  @override
+  String get visitQ_boneAndHeartHealth =>
+      '¿Qué puedo hacer para proteger la salud de mis huesos y de mi corazón en esta etapa?';
+
+  @override
+  String get visitQ_drynessWhatHelps =>
+      'Tengo sequedad o molestias vaginales. ¿Qué puede ayudar y qué conviene revisar?';
+
+  @override
+  String get visitQ_urineTestAgain =>
+      'Mis síntomas urinarios siguen volviendo. ¿Debería hacerme un análisis de orina y cómo podemos hallar la causa?';
+
+  @override
+  String get visitQ_thyroidCheckIrregular =>
+      'Mis reglas son irregulares y se me adelgaza el pelo. ¿Deberían revisarme la tiroides con un análisis de sangre?';
+
+  @override
+  String get tipsTitle => 'Para ti';
+
+  @override
+  String tipsSource(String publisher) {
+    return 'Fuente: $publisher';
+  }
+
+  @override
+  String get tipsChosenOnPhone =>
+      'Elegidos en tu teléfono a partir de tu registro. Cada consejo es una frase revisada, con su fuente.';
+
+  @override
+  String get tipsOrderedCloud =>
+      'Ordenados con Cloud boost, solo a partir de datos generales.';
 }

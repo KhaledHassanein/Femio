@@ -21,6 +21,7 @@ import '../../theme/radii.dart';
 import '../../theme/spacing.dart';
 import '../../theme/type_sizes.dart';
 import 'assistant_scope.dart';
+import 'catalogue_text.g.dart';
 
 /// The reviewed wording of question [id] in her language.
 String visitQuestionText(L10n l, String id) => switch (id) {
@@ -36,7 +37,7 @@ String visitQuestionText(L10n l, String id) => switch (id) {
   'menopause' => l.visitQ_menopause,
   'pregnancyNext' => l.visitQ_pregnancyNext,
   'pregnancyMovements' => l.visitQ_pregnancyMovements,
-  _ => l.visitQ_anythingElse,
+  _ => catalogueQuestionText(l, id) ?? l.visitQ_anythingElse,
 };
 
 String _tryingLabel(L10n l, TryingFor f) => switch (f) {
@@ -57,7 +58,10 @@ class VisitSummaryScreen extends StatefulWidget {
 }
 
 class _VisitSummaryScreenState extends State<VisitSummaryScreen> {
-  late final VisitSummary _summary = visitSummary(widget.controller.profile!, widget.today ?? todayISO());
+  late final VisitSummary _summary = visitSummary(
+    widget.controller.profile!,
+    widget.today ?? todayISO(),
+  );
   late List<String> _questions = _summary.questionIds;
   bool _ordered = false;
 
@@ -73,10 +77,14 @@ class _VisitSummaryScreenState extends State<VisitSummaryScreen> {
     if (!(await bridge.status()).canRunPrivate) return;
     final candidates = {
       for (final id in _summary.questionIds)
-        if (id != 'anythingElse') id: visitQuestionEnglish[id]!,
+        if (id != 'anythingElse') id: questionEnglish(id)!,
     };
     final reply = await bridge.runPrivate(
-      visitQuestionsPrompt(_summary.factsInEnglish(), candidates, candidates.length),
+      visitQuestionsPrompt(
+        _summary.factsInEnglish(),
+        candidates,
+        candidates.length,
+      ),
     );
     if (reply == null || !mounted) return;
     final order = parseQuestionIds(reply, candidates.keys, candidates.length);
@@ -91,12 +99,18 @@ class _VisitSummaryScreenState extends State<VisitSummaryScreen> {
       s.cyclesObserved == 0
           ? l.visitCycles(0, 0, 0)
           : l.visitCycles(s.cyclesObserved, s.longestCycle!, s.shortestCycle!),
-      if (s.lastPeriodStart != null) l.visitLastPeriod(DateFormat.yMMMd(locale).format(fromISO(s.lastPeriodStart!))),
+      if (s.lastPeriodStart != null)
+        l.visitLastPeriod(
+          DateFormat.yMMMd(locale).format(fromISO(s.lastPeriodStart!)),
+        ),
       if (s.irregular) l.visitIrregular,
-      if (s.tryingFor != null) '${l.visitTryingFor}: ${_tryingLabel(l, s.tryingFor!)}',
+      if (s.tryingFor != null)
+        '${l.visitTryingFor}: ${_tryingLabel(l, s.tryingFor!)}',
       if (s.heavyDays > 0) '${l.visitHeavyDays}: ${s.heavyDays}',
-      if (s.positiveOvulationTests > 0) '${l.visitOpkPositive}: ${s.positiveOvulationTests}',
-      if (s.temperatureDays > 0) '${l.visitTemperatureDays}: ${s.temperatureDays}',
+      if (s.positiveOvulationTests > 0)
+        '${l.visitOpkPositive}: ${s.positiveOvulationTests}',
+      if (s.temperatureDays > 0)
+        '${l.visitTemperatureDays}: ${s.temperatureDays}',
     ];
   }
 
@@ -106,11 +120,13 @@ class _VisitSummaryScreenState extends State<VisitSummaryScreen> {
     if (_summary.topTerms.isNotEmpty) ...[
       '',
       l.visitTopTerms,
-      for (final term in _summary.topTerms) '- ${logLabel(l, term.key)}: ${l.visitDays(term.days)}',
+      for (final term in _summary.topTerms)
+        '- ${logLabel(l, term.key)}: ${l.visitDays(term.days)}',
     ],
     '',
     l.visitQuestionsTitle,
-    for (final (i, id) in _questions.indexed) '${i + 1}. ${visitQuestionText(l, id)}',
+    for (final (i, id) in _questions.indexed)
+      '${i + 1}. ${visitQuestionText(l, id)}',
   ].join('\n');
 
   @override
@@ -127,7 +143,10 @@ class _VisitSummaryScreenState extends State<VisitSummaryScreen> {
         borderRadius: BorderRadius.circular(radiusMd),
         border: Border.all(color: p.border),
       ),
-      child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: children),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: children,
+      ),
     );
 
     return Scaffold(
@@ -147,7 +166,10 @@ class _VisitSummaryScreenState extends State<VisitSummaryScreen> {
             ]),
             if (_summary.topTerms.isNotEmpty) ...[
               const SizedBox(height: space4),
-              Semantics(header: true, child: Text(l.visitTopTerms, style: t.titleMedium)),
+              Semantics(
+                header: true,
+                child: Text(l.visitTopTerms, style: t.titleMedium),
+              ),
               const SizedBox(height: space2),
               card([
                 for (final term in _summary.topTerms)
@@ -155,7 +177,12 @@ class _VisitSummaryScreenState extends State<VisitSummaryScreen> {
                     padding: const EdgeInsets.only(bottom: space2),
                     child: Row(
                       children: [
-                        Expanded(child: Text(logLabel(l, term.key), style: t.bodyLarge)),
+                        Expanded(
+                          child: Text(
+                            logLabel(l, term.key),
+                            style: t.bodyLarge,
+                          ),
+                        ),
                         Text(l.visitDays(term.days), style: t.bodyMedium),
                       ],
                     ),
@@ -163,7 +190,10 @@ class _VisitSummaryScreenState extends State<VisitSummaryScreen> {
               ]),
             ],
             const SizedBox(height: space4),
-            Semantics(header: true, child: Text(l.visitQuestionsTitle, style: t.titleMedium)),
+            Semantics(
+              header: true,
+              child: Text(l.visitQuestionsTitle, style: t.titleMedium),
+            ),
             const SizedBox(height: space2),
             card([
               for (final (i, id) in _questions.indexed)
@@ -172,9 +202,17 @@ class _VisitSummaryScreenState extends State<VisitSummaryScreen> {
                   child: Row(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text('${i + 1}.', style: t.titleSmall?.copyWith(color: p.primary)),
+                      Text(
+                        '${i + 1}.',
+                        style: t.titleSmall?.copyWith(color: p.primary),
+                      ),
                       const SizedBox(width: space2),
-                      Expanded(child: Text(visitQuestionText(l, id), style: t.bodyLarge)),
+                      Expanded(
+                        child: Text(
+                          visitQuestionText(l, id),
+                          style: t.bodyLarge,
+                        ),
+                      ),
                     ],
                   ),
                 ),
@@ -182,9 +220,12 @@ class _VisitSummaryScreenState extends State<VisitSummaryScreen> {
             const SizedBox(height: space5),
             FilledButton.icon(
               onPressed: () async {
-                await Clipboard.setData(ClipboardData(text: _asText(l, locale)));
+                await Clipboard.setData(
+                  ClipboardData(text: _asText(l, locale)),
+                );
                 if (context.mounted) {
-                  ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(l.visitCopied)));
+                  ScaffoldMessenger.of(context)
+                      .showSnackBar(SnackBar(content: Text(l.visitCopied)));
                 }
               },
               icon: const Icon(Icons.copy_rounded),
@@ -193,9 +234,15 @@ class _VisitSummaryScreenState extends State<VisitSummaryScreen> {
             const SizedBox(height: space4),
             Row(
               children: [
-                Icon(Icons.lock_outline_rounded, size: iconSizeInline, color: p.textSubtle),
+                Icon(
+                  Icons.lock_outline_rounded,
+                  size: iconSizeInline,
+                  color: p.textSubtle,
+                ),
                 const SizedBox(width: space1h),
-                Expanded(child: Text(l.assistantPrivateNote, style: t.bodySmall)),
+                Expanded(
+                  child: Text(l.assistantPrivateNote, style: t.bodySmall),
+                ),
               ],
             ),
           ],

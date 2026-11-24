@@ -58,44 +58,71 @@ ModelLogSuggestion parseExtraction(String reply) {
   );
 }
 
-/// Instruction for rewriting a personal question as a general one. Runs only on the phone,
-/// so her own words never leave it; she sees and can edit the result before it is sent.
-String generalisePrompt(String question) => '''
-Rewrite the question below as a short, general women's health question that a public health
-website could answer. Remove every personal detail: names, ages, dates, numbers, places,
-her own symptoms as "I/my", partners and family. Keep the topic. Keep the language of the
-original question. Reply with the rewritten question only.
-
-Question: """$question"""''';
-
-/// Cleans the model's rewrite: first line only, quotes trimmed, at most 300 characters.
-String parseGeneralised(String reply) {
-  var line = reply.trim().split('\n').firstWhere((l) => l.trim().isNotEmpty, orElse: () => '').trim();
-  for (final q in ['"', '“', '”', '«', '»', "'"]) {
-    if (line.startsWith(q)) line = line.substring(1);
-    if (line.endsWith(q)) line = line.substring(0, line.length - 1);
-  }
-  return line.length > 300 ? line.substring(0, 300) : line.trim();
-}
-
 /// English names of the app's languages, for telling a model which language to answer in.
 const languageNames = {'en': 'English', 'ar': 'Arabic', 'fr': 'French', 'es': 'Spanish'};
 
-/// The system instruction for the cloud answer, grounded with Google Search. The trusted
-/// source list is checked again on the phone (`trusted_sources.dart`); this only steers the
-/// search toward it.
-String answerInstruction(String languageCode) =>
-    '''
-You are femio's health information assistant for women and girls. You give general,
-educational information only.
-- Base every statement on reputable public health sources: WHO, NHS, CDC, NIH and
-  MedlinePlus, Office on Women's Health, NICE, ACOG, RCOG, ASRM, ESHRE, FIGO, The Menopause
-  Society, and the health ministries of Saudi Arabia and Egypt. Prefer them in your search.
-- Never diagnose, never tell her what she has, never give a medicine dose, never interpret a
-  test result, and never give any advice on avoiding pregnancy or on birth control.
-- If the question needs a clinician, say so plainly and kindly.
-- Answer in ${languageNames[languageCode] ?? 'English'}, in plain words, in at most 120 words.
-- Do not mention that you are an AI model and do not add a disclaimer; the app adds one.''';
+/// What a model must reply when the passages do not answer the question.
+const notCoveredReply = 'NOT_COVERED';
+
+/// The most words an answer may have.
+const maxAnswerWords = 110;
+
+/// Instruction for answering [question] from the numbered registry [passages] only. Used on the
+/// phone with her own words, and (through `CloudPrompt.answer`) in the cloud with a redacted
+/// question. The model may only select and restate; every sentence must cite a passage number.
+String answerPrompt(String question, List<({String publisher, String text})> passages, String languageCode) {
+  final numbered = [
+    for (var i = 0; i < passages.length; i++) '[${i + 1}] (${passages[i].publisher}) ${passages[i].text}',
+  ].join('\n');
+  return '''
+Answer the health question using ONLY the numbered passages from trusted health sources below.
+- Use only facts stated in the passages. Add nothing from your own knowledge.
+- End every sentence with the number of the passage it comes from, like [1].
+- Never diagnose, never say what she has, never give a medicine or dose, never advise on avoiding pregnancy.
+- If the passages do not answer the question, reply exactly: $notCoveredReply
+- Answer in ${languageNames[languageCode] ?? 'English'}, in plain words, in at most $maxAnswerWords words.
+
+Passages:
+$numbered
+
+Question: """$question"""''';
+}
+
+/// A model's answer with the passage numbers it cited (1-based).
+class CitedAnswer {
+  const CitedAnswer(this.text, this.cited);
+  final String text;
+  final Set<int> cited;
+}
+
+final _citation = RegExp(r'\[(\d{1,2})\]');
+
+/// Reads a reply to [answerPrompt] over [passageCount] passages. Returns null when the model
+/// said it is not covered, cited nothing, or cited a passage that does not exist: an answer that
+/// cannot show where it came from is not shown.
+CitedAnswer? parseAnswer(String reply, int passageCount) {
+  final text = reply.trim();
+  if (text.isEmpty || text.contains(notCoveredReply)) return null;
+  final cited = {for (final m in _citation.allMatches(text)) int.parse(m.group(1)!)};
+  if (cited.isEmpty || cited.any((n) => n < 1 || n > passageCount)) return null;
+  final words = text.split(RegExp(r'\s+'));
+  final cut = words.length > maxAnswerWords * 1.3 ? '${words.take((maxAnswerWords * 1.3).round()).join(' ')}…' : text;
+  return CitedAnswer(cut, cited);
+}
+
+/// Instruction for putting reviewed tips in order for her. [facts] are plain English lines;
+/// [candidates] maps tip id to its reviewed English text. Reply: JSON ids only.
+String tipsPrompt(List<String> facts, Map<String, String> candidates, int pick) {
+  final list = candidates.entries.map((e) => '- ${e.key}: ${e.value}').join('\n');
+  return '''
+Facts about a woman using a health tracker:
+${facts.map((f) => '- $f').join('\n')}
+
+Choose the $pick tips from this list that would help her most, most helpful first.
+$list
+
+Reply with JSON only: {"ids": ["id"]}''';
+}
 
 /// The visit-summary question ids a model may choose from, with their English text, so the
 /// on-device model can pick the most relevant ones. The text she reads comes from the ARB

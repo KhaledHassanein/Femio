@@ -1512,11 +1512,25 @@ class L10nEn extends L10n {
       'femio is not a way to avoid pregnancy and can\'t advise on it. A doctor, pharmacist or family-planning clinic can help you choose a method.';
 
   @override
+  String get safetyHeavyBleedingHeading => 'Heavy bleeding with dizziness';
+
+  @override
+  String get safetyHeavyBleedingBody =>
+      'ACOG says: “If you are changing pads or tampons every hour for more than 2 hours in a row, and you also have chest pain, have shortness of breath, and are lightheaded or dizzy, seek emergency medical care right away.” If that is you, call your local emergency number now. If heavy bleeding worries you, talk to your doctor.';
+
+  @override
+  String get safetyPostpartumHeading => 'A warning sign after birth';
+
+  @override
+  String get safetyPostpartumBody =>
+      'In the year after birth, CDC\'s Hear Her campaign says to get medical care immediately for an urgent warning sign, such as heavy bleeding, a fever, a headache that won\'t go away or a swollen leg. Call your doctor or midwife now, or your local emergency number.';
+
+  @override
   String get askTitle => 'Ask femio';
 
   @override
   String get askIntro =>
-      'Ask a health question. femio looks for the answer in trusted sources such as WHO, NHS and CDC, and shows you where it came from.';
+      'Ask a health question. femio answers only from trusted health sources it carries on your phone, such as CDC, MedlinePlus and the Office on Women\'s Health, and shows where every sentence came from.';
 
   @override
   String get askHint => 'For example: what helps with period cramps?';
@@ -1525,19 +1539,11 @@ class L10nEn extends L10n {
   String get askAction => 'Ask';
 
   @override
-  String get askPersonalRewritten =>
-      'Your question is about you, so only a general version with no personal details may leave your phone. Check it below.';
-
-  @override
-  String get askPersonalSelf =>
-      'Your question is about you. Rewrite it below as a general question, without “I”, “my” or personal details, and femio will look it up.';
-
-  @override
   String get askWillSend =>
-      'This is exactly what will be sent to Google to search trusted sources:';
+      'This is exactly the question that will be sent, with the public sources:';
 
   @override
-  String get askSend => 'Search trusted sources';
+  String get askSend => 'Summarise with Cloud boost';
 
   @override
   String get askStillPersonal =>
@@ -1545,34 +1551,13 @@ class L10nEn extends L10n {
 
   @override
   String get askCloudPrivacy =>
-      'Only the question shown is sent. Nothing from your log is.';
+      'Only this question and the public sources are sent. Nothing from your log is.';
 
   @override
-  String get askSearching => 'Searching trusted sources…';
-
-  @override
-  String get askFailed =>
-      'femio couldn\'t reach the sources right now. Try again later.';
-
-  @override
-  String get askNotSetUp =>
-      'Searching trusted sources isn\'t switched on in this version. Here are femio\'s guides on the topic.';
-
-  @override
-  String get askNoTrusted =>
-      'femio found no answer from a trusted health source, so it won\'t show one. Try asking another way, or talk to your doctor.';
-
-  @override
-  String get askAnswerLabel => 'From trusted sources, found with Google';
+  String get askSearching => 'Reading trusted sources…';
 
   @override
   String get askSourcesTitle => 'Sources';
-
-  @override
-  String get askTrustedBadge => 'Trusted source';
-
-  @override
-  String get askOtherSource => 'Not on femio\'s trusted list';
 
   @override
   String get askClinicianLine =>
@@ -1583,6 +1568,64 @@ class L10nEn extends L10n {
 
   @override
   String get askSearchAgain => 'Ask another question';
+
+  @override
+  String get askAboutYouStays =>
+      'Your question is about you, so it stays on this phone. Here are the sources word for word.';
+
+  @override
+  String get askModelFellBack =>
+      'The AI could not write an answer that cites its sources, so here they are word for word.';
+
+  @override
+  String get askBoostHeading => 'Cloud boost';
+
+  @override
+  String get askBoostConfirm =>
+      'This phone has no on-phone AI. With Cloud boost, Google\'s cloud AI can summarise these public sources for you. Check the question first.';
+
+  @override
+  String get askReadSourcesInstead => 'Read the sources instead';
+
+  @override
+  String get askNotCoveredHeading => 'Not covered yet';
+
+  @override
+  String get askNotCovered =>
+      'femio\'s trusted sources don\'t answer this, so femio won\'t guess. Try other words, read the links below, or ask your doctor.';
+
+  @override
+  String askRegistryVersion(String version) {
+    return 'Trusted sources library $version';
+  }
+
+  @override
+  String get askAnswerOnPhone =>
+      'Summarised on your phone by Gemini Nano, from the sources below';
+
+  @override
+  String get askAnswerCloud =>
+      'Summarised by Google\'s cloud AI (Cloud boost), from the sources below';
+
+  @override
+  String get askVerbatimLabel => 'Word for word from trusted sources';
+
+  @override
+  String get askEnglishNote =>
+      'These sources are in English. femio shows them word for word so nothing is lost in translation.';
+
+  @override
+  String get askReadMore => 'Read more from trusted organisations';
+
+  @override
+  String askSourceCopied(String publisher, String date) {
+    return '$publisher · copied $date';
+  }
+
+  @override
+  String askSourceReviewed(String publisher, String date) {
+    return '$publisher · reviewed $date';
+  }
 
   @override
   String get visitButton => 'Visit summary';
@@ -1704,7 +1747,7 @@ class L10nEn extends L10n {
 
   @override
   String get assistantSettingsSub =>
-      'AI on your phone, and answers from trusted sources';
+      'AI on your phone, trusted sources and Cloud boost';
 
   @override
   String get assistantOnDeviceTitle => 'AI on your phone (Gemini Nano)';
@@ -1728,16 +1771,482 @@ class L10nEn extends L10n {
   String get assistantDownload => 'Download';
 
   @override
-  String get assistantCloudTitle => 'Answers from trusted sources';
+  String get assistantCloudTitle => 'Cloud boost';
 
   @override
   String get assistantCloudOn =>
-      'On. Only general questions you approve are sent to Google, never your log.';
+      'On. Used only when this phone has no on-phone AI.';
 
   @override
-  String get assistantCloudOff => 'Not switched on in this version.';
+  String get assistantCloudOff => 'Off. Everything is done on this phone.';
 
   @override
   String get assistantHowItWorks =>
-      'Everything about you stays on your phone. Your notes and your log are read by femio\'s rules and, where your phone has it, by Gemini Nano on the phone. Safety rules always come first: signs of danger open the help page, and femio never advises on avoiding pregnancy. A general question you approve may be sent to Google to find an answer from trusted health sources; femio shows those sources with every answer.';
+      'Everything about you stays on your phone. Your notes and your log are read by femio\'s rules and, where your phone has it, by Gemini Nano on the phone. Safety rules always come first: signs of danger open the help page, and femio never advises on avoiding pregnancy. Ask femio answers only from trusted health sources carried in the app and shows them with every answer. Cloud boost is off unless you turn it on.';
+
+  @override
+  String get assistantCloudNotBuilt =>
+      'Not available in this version of the app.';
+
+  @override
+  String get boostTitle => 'Cloud boost';
+
+  @override
+  String get boostIntro =>
+      'Some phones have no on-phone AI. On those phones, Cloud boost lets Google\'s cloud AI, through Firebase, summarise trusted sources and put your tips in order. It is off unless you turn it on, and you can turn it off at any time.';
+
+  @override
+  String get boostSendsHeading => 'What may be sent';
+
+  @override
+  String get boostSendsQuestion =>
+      'General questions with no personal details, which you see and approve before anything is sent.';
+
+  @override
+  String get boostSendsBands =>
+      'These broad facts, exactly as shown, to choose tips for you:';
+
+  @override
+  String get boostStageLabel => 'Life stage';
+
+  @override
+  String boostStage(String value) {
+    String _temp0 = intl.Intl.selectLogic(value, {
+      'period': 'Tracking periods',
+      'ttc': 'Trying to conceive',
+      'pregnant': 'Pregnant',
+      'postpartum': 'After birth',
+      'menopause': 'Menopause',
+      'other': 'Not set',
+    });
+    return '$_temp0';
+  }
+
+  @override
+  String get boostRegularityLabel => 'Cycle regularity';
+
+  @override
+  String boostRegularity(String value) {
+    String _temp0 = intl.Intl.selectLogic(value, {
+      'regular': 'Regular',
+      'variable': 'Varies',
+      'unknown': 'Not known yet',
+      'notApplicable': 'Not tracked now',
+      'other': 'Not known yet',
+    });
+    return '$_temp0';
+  }
+
+  @override
+  String get boostCategoriesLabel =>
+      'Kinds of symptom logged in the last month';
+
+  @override
+  String boostCategory(String value) {
+    String _temp0 = intl.Intl.selectLogic(value, {
+      'pain': 'Pain',
+      'mood': 'Mood',
+      'digestion': 'Digestion',
+      'sleepAndEnergy': 'Sleep and energy',
+      'skinAndHair': 'Skin and hair',
+      'hotFlashes': 'Hot flashes',
+      'bladder': 'Bladder',
+      'other': 'Other',
+    });
+    return '$_temp0';
+  }
+
+  @override
+  String get boostNone => 'None';
+
+  @override
+  String get boostStreakLabel => 'Logging streak';
+
+  @override
+  String boostStreak(String value) {
+    String _temp0 = intl.Intl.selectLogic(value, {
+      'none': 'None',
+      'underAWeek': 'Under a week',
+      'weeks': 'A few weeks',
+      'overAMonth': 'Over a month',
+      'other': 'None',
+    });
+    return '$_temp0';
+  }
+
+  @override
+  String get boostNeverHeading => 'What is never sent';
+
+  @override
+  String get boostNever =>
+      'Your notes, dates, log entries, cycle lengths, name, contacts, or anything that identifies you or this phone.';
+
+  @override
+  String get boostTurnOn => 'Turn on Cloud boost';
+
+  @override
+  String get boostTurnOff => 'Turn off Cloud boost';
+
+  @override
+  String get boostNotNow => 'Not now';
+
+  @override
+  String get tip_trackDatesHelps =>
+      'Noting your period dates in the app helps you see your own pattern and gives a clinician clear facts.';
+
+  @override
+  String get tip_periodLongerThanSeven =>
+      'A period that lasts longer than 7 days is worth mentioning to a clinician.';
+
+  @override
+  String get tip_bleedingBetweenPeriods =>
+      'Bleeding between periods is worth mentioning to a clinician, so the cause can be looked into.';
+
+  @override
+  String get tip_irregularCheckIn =>
+      'Cycles shorter than 21 or longer than 35 days are called irregular. Mention this to a clinician, who can look at your dates with you.';
+
+  @override
+  String get tip_stoppedThreeMonths =>
+      'A period that stops for more than three months without a clear reason is worth a clinician\'s check, whatever your age.';
+
+  @override
+  String get tip_irregularWithOtherSigns =>
+      'Irregular periods together with other changes, such as acne or extra hair growth, are worth mentioning to a clinician.';
+
+  @override
+  String get tip_periodPainSeeClinician =>
+      'Period pain that stops you doing your usual daily activities is a reason to see a clinician.';
+
+  @override
+  String get tip_severePainUrgent =>
+      'If pelvic or period pain is severe or worse than usual and painkillers have not helped, ask for urgent medical advice.';
+
+  @override
+  String get tip_symptomDiaryBeforeVisit =>
+      'Before a visit about period problems, a diary of your symptoms across the whole cycle gives your clinician a detailed picture of what happens and when.';
+
+  @override
+  String get tip_heavyOrTired =>
+      'Periods that keep you from daily activities, or leave you tired or short of breath a lot, can be signs of heavy periods. A clinician can help.';
+
+  @override
+  String get tip_pmsDiary =>
+      'Keeping a diary of your symptoms for at least two cycles helps a clinician see whether they follow your period.';
+
+  @override
+  String get tip_headachesAroundPeriod =>
+      'Headaches that come regularly before or during your period are worth mentioning to a clinician. A headache diary next to your period dates helps.';
+
+  @override
+  String get tip_urineInfectionSeeClinician =>
+      'If you think you may have a urine infection, it is important to see a clinician. A urine test can tell.';
+
+  @override
+  String get tip_leakingUrineTellClinician =>
+      'If you leak urine, it is worth telling a clinician, whatever the type or cause.';
+
+  @override
+  String get tip_cervicalScreeningTip =>
+      'Cervical screening looks for early cell changes in the cervix. Ask your clinic whether you are due.';
+
+  @override
+  String get tip_ttcOneYear =>
+      'If a year of trying has passed without a pregnancy, it is a good idea to see a clinician and have the common causes checked.';
+
+  @override
+  String get tip_ttcAgeSixMonths =>
+      'At 35 or older, it is advised to see a clinician after six months of trying, not twelve.';
+
+  @override
+  String get tip_ttcIrregularNoWait =>
+      'With irregular or no periods, it is worth talking to a clinician about trying to conceive without waiting a full year.';
+
+  @override
+  String get tip_regularSexTakesTime =>
+      'Most couples where the woman is under 40 conceive within a year of regular sex every 2 to 3 days. It can take time.';
+
+  @override
+  String get tip_testingTooEarly =>
+      'Testing very early can give a false negative, because the pregnancy hormone may not have built up yet. Follow the test\'s own instructions.';
+
+  @override
+  String get tip_folicAcidBeforePregnancy =>
+      'Folic acid, a B vitamin, is advised from at least a month before pregnancy. Ask a clinician how to get enough.';
+
+  @override
+  String get tip_talkBeforeTrying =>
+      'It is a good idea to talk to a clinician before trying to get pregnant. They can help you get your body ready.';
+
+  @override
+  String get tip_tryingIsStressful =>
+      'Trying to conceive can be stressful. Counselling and support groups may help you cope; you can ask a clinician about them.';
+
+  @override
+  String get tip_movementsChangeCallNow =>
+      'If your baby moves less than usual or the usual pattern changes, call your midwife or maternity unit at once, even in the middle of the night.';
+
+  @override
+  String get tip_firstMovementsBy24 =>
+      'You should start to feel your baby move between 16 and 24 weeks. If there has been no movement by 24 weeks, tell your midwife.';
+
+  @override
+  String get tip_preeclampsiaSigns =>
+      'A severe headache that painkillers do not ease, vision problems, pain below the ribs or sudden swelling need checking at once. Call your maternity unit.';
+
+  @override
+  String get tip_antenatalChecksMatter =>
+      'Blood pressure and urine checks at antenatal visits can find changes you cannot feel, so try to keep every appointment.';
+
+  @override
+  String get tip_screeningVersusDiagnostic =>
+      'Two kinds of tests are offered to every pregnant woman: screening tests, which show a chance, and follow-up tests, which give a firmer answer. Ask which suit you.';
+
+  @override
+  String get tip_glucoseScreening =>
+      'All pregnant women should be screened for gestational diabetes. Ask your midwife or doctor when yours is planned.';
+
+  @override
+  String get tip_rhBloodGroup =>
+      'A simple blood test shows your blood type and Rh status, usually at your first antenatal visit. Ask what yours is and whether it matters for your care.';
+
+  @override
+  String get tip_mainScanBetween18And21 =>
+      'A detailed scan is usually done between 18 and 21 weeks. It checks your baby\'s growth and looks for certain conditions.';
+
+  @override
+  String get tip_severeSicknessTellEarly =>
+      'If you are being sick often and cannot keep food down, tell your midwife or doctor as soon as you can, so they can help you keep fluids down.';
+
+  @override
+  String get tip_itchTellMidwife =>
+      'Itching is common in pregnancy and is usually not serious. Still, tell your midwife or doctor about it so it can be checked.';
+
+  @override
+  String get tip_pretermLabourSigns =>
+      'Signs of early labour include contractions every 10 minutes or more often, leaking fluid or bleeding, pelvic pressure and a low, dull backache. Contact your provider.';
+
+  @override
+  String get tip_tirednessInPregnancy =>
+      'Tiredness in pregnancy has many causes, and anaemia is one of them. Mention ongoing tiredness to your midwife or doctor.';
+
+  @override
+  String get tip_lowMoodPerinatal =>
+      'Feeling low is common in pregnancy and after birth, and support is available. Tell your midwife, doctor or health visitor, even if you only have some of the signs.';
+
+  @override
+  String get tip_anxietyInPregnancy =>
+      'Anxiety in pregnancy can often be helped with talking therapy. Tell your midwife or doctor how you really feel.';
+
+  @override
+  String get tip_warningSignsPregnancyAndYear =>
+      'Some warning signs need care at once, in pregnancy and for a year after birth: a headache that will not go away, vision changes, fever, trouble breathing, severe belly pain.';
+
+  @override
+  String get tip_postnatalCheckSixToEight =>
+      'A postnatal check around 6 to 8 weeks after birth makes sure you feel well and are recovering. Write down your questions to take along.';
+
+  @override
+  String get tip_painfulFeedsGetHelp =>
+      'If you are putting off feeds because breastfeeding hurts, get help from a lactation consultant.';
+
+  @override
+  String get tip_tirednessAfterBirthThyroid =>
+      'Tiredness after birth has many causes. Thyroid inflammation affects about 1 in 20 women in the first year after birth, so mention lasting tiredness to a clinician.';
+
+  @override
+  String get tip_bleedingUpToSixWeeks =>
+      'Spotting or bleeding like a period, on and off, can last up to six weeks after birth. Tell a clinician if you are worried.';
+
+  @override
+  String get tip_babyBluesPassing =>
+      'Feeling down, anxious or irritable for a few days after birth is very common and usually passes within 2 weeks. If it lasts longer, tell a clinician.';
+
+  @override
+  String get tip_periodChangesFirstSign =>
+      'A change in your periods is usually one of the first signs of perimenopause. They may come more or less often, and be heavier or lighter.';
+
+  @override
+  String get tip_twelveMonthsMeansMenopause =>
+      'Menopause means 12 months without a period. In the years before, cycles often vary, with longer or shorter gaps.';
+
+  @override
+  String get tip_bleedingAfterMenopause =>
+      'Bleeding after menopause, meaning 12 months with no period, is important to tell a clinician about, so the cause can be found.';
+
+  @override
+  String get tip_hotFlushesTalkOptions =>
+      'If lifestyle changes are not enough for hot flushes, contact a clinician. They will talk through your symptoms, history and preferences.';
+
+  @override
+  String get tip_boneStrengthMenopause =>
+      'Loss of bone density is more likely around menopause. Ask a clinician about bone health and what suits you.';
+
+  @override
+  String get tip_drynessManyTreatments =>
+      'There are many treatments for vaginal dryness. It is worth asking a clinician what could suit you.';
+
+  @override
+  String get tip_heartbeatAroundMenopause =>
+      'A faster or more noticeable heartbeat can be part of perimenopause and menopause. Note when it happens and tell a clinician.';
+
+  @override
+  String get tip_lowMoodMenopause =>
+      'Low mood and anxiety can be part of the menopause transition. If they are hard to manage, talk to a clinician.';
+
+  @override
+  String get visitQ_periodsStoppedChecks =>
+      'My periods have become very infrequent or have stopped. Which checks could find out why?';
+
+  @override
+  String get visitQ_irregularCauses =>
+      'What could explain my irregular cycles, and would any tests or scans help?';
+
+  @override
+  String get visitQ_irregularAcneChecks =>
+      'I have irregular periods and acne. Which checks could look for a cause?';
+
+  @override
+  String get visitQ_painCauseChecks =>
+      'My period pain keeps getting in the way of my days. Which checks could find out why?';
+
+  @override
+  String get visitQ_heavyAndTiredBloodTest =>
+      'My periods may be heavy and I feel tired a lot. Should I have blood tests, for example for iron?';
+
+  @override
+  String get visitQ_diaryReviewCycle =>
+      'Can we go through my symptom diary to see whether my symptoms follow my cycle?';
+
+  @override
+  String get visitQ_headacheDiaryReview =>
+      'My headaches often come around my period. Can we look at my diary together?';
+
+  @override
+  String get visitQ_cervicalScreeningDue =>
+      'Am I up to date with cervical screening, and which test does your clinic use?';
+
+  @override
+  String get visitQ_checksForCouple =>
+      'Which fertility checks do you suggest for me, and for a partner if I have one?';
+
+  @override
+  String get visitQ_ttcOverThirtyFiveSooner =>
+      'I am 35 or older and we have been trying for about six months or more. Should we start fertility checks now?';
+
+  @override
+  String get visitQ_irregularTryingNow =>
+      'My cycles are irregular and we are trying to conceive. Should we talk about help now rather than waiting a year?';
+
+  @override
+  String get visitQ_preconceptionReview =>
+      'We are planning a pregnancy. Is there anything in my health or medicines to review first?';
+
+  @override
+  String get visitQ_ttcSupportOptions =>
+      'Trying to conceive is weighing on me. Where can I find counselling or support?';
+
+  @override
+  String get visitQ_pregnancyTestsOffered =>
+      'Which screening tests and follow-up tests are offered in my pregnancy, and what does each one tell me?';
+
+  @override
+  String get visitQ_glucoseTestWhen =>
+      'When will I be tested for gestational diabetes, and could it be earlier for me?';
+
+  @override
+  String get visitQ_movementsCallWho =>
+      'Who do I call if my baby\'s movements change, including at night?';
+
+  @override
+  String get visitQ_sameDayWarningSigns =>
+      'Which signs should make me call the maternity unit the same day?';
+
+  @override
+  String get visitQ_rhFactorChecked =>
+      'Has my blood group and Rh factor been checked, and does it change anything in my care?';
+
+  @override
+  String get visitQ_pregnancyLowMoodSupport =>
+      'I have felt low or very worried for a while. What support is available?';
+
+  @override
+  String get visitQ_severeSicknessHelp =>
+      'My sickness makes it hard to keep food and drink down. What help is available?';
+
+  @override
+  String get visitQ_itchBloodTests =>
+      'I have had itching in pregnancy. Should I have blood tests to check my liver?';
+
+  @override
+  String get visitQ_pretermSignsPlan =>
+      'Which signs of early labour should make me call or come in, and where do I go out of hours?';
+
+  @override
+  String get visitQ_postnatalCheckTalk =>
+      'Can we go through how I am recovering, including bleeding, pain, mood and bladder changes?';
+
+  @override
+  String get visitQ_postnatalMoodHelp =>
+      'I have felt low or anxious since the birth. What help is there?';
+
+  @override
+  String get visitQ_latchCheck =>
+      'Feeding hurts. Could someone watch a feed and check how my baby latches?';
+
+  @override
+  String get visitQ_warningSignsYearAfter =>
+      'Which symptoms in the year after birth should make me seek care at once?';
+
+  @override
+  String get visitQ_thyroidAfterBirth =>
+      'I have felt very tired since the birth. Should my thyroid be checked with a blood test?';
+
+  @override
+  String get visitQ_urineLeaksHelp =>
+      'I leak urine. What can help, and would pelvic floor exercises suit me?';
+
+  @override
+  String get visitQ_hotFlushOptions =>
+      'Hot flushes or night sweats are affecting my days. What options could we talk through?';
+
+  @override
+  String get visitQ_changedBleedingChecks =>
+      'My bleeding pattern has changed. Which checks are worth doing?';
+
+  @override
+  String get visitQ_bleedingAfterMenopauseChecks =>
+      'I have had bleeding or spotting at this stage. What checks do I need, and how soon?';
+
+  @override
+  String get visitQ_boneAndHeartHealth =>
+      'What can I do to protect my bone and heart health at this stage?';
+
+  @override
+  String get visitQ_drynessWhatHelps =>
+      'I have vaginal dryness or discomfort. What can help, and what needs checking?';
+
+  @override
+  String get visitQ_urineTestAgain =>
+      'My urine symptoms keep coming back. Should I have a urine test, and how can we find the cause?';
+
+  @override
+  String get visitQ_thyroidCheckIrregular =>
+      'My periods are irregular and my hair is thinning. Should my thyroid be checked with a blood test?';
+
+  @override
+  String get tipsTitle => 'For you';
+
+  @override
+  String tipsSource(String publisher) {
+    return 'Source: $publisher';
+  }
+
+  @override
+  String get tipsChosenOnPhone =>
+      'Chosen on your phone from your log. Each tip is a reviewed sentence with its source.';
+
+  @override
+  String get tipsOrderedCloud =>
+      'Put in order with Cloud boost, from broad facts only.';
 }

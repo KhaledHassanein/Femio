@@ -49,6 +49,16 @@ class SafetyNotice extends StatelessWidget {
         l.helpNowLauncher,
         () => open(const HelpNowScreen()),
       ),
+      SafetySignal.heavyBleeding => withAction(
+        NoticeCard(tone: NoticeTone.urgent, heading: l.safetyHeavyBleedingHeading, body: l.safetyHeavyBleedingBody),
+        l.helpNowLauncher,
+        () => open(const HelpNowScreen()),
+      ),
+      SafetySignal.postpartumWarning => withAction(
+        NoticeCard(tone: NoticeTone.urgent, heading: l.safetyPostpartumHeading, body: l.safetyPostpartumBody),
+        l.helpNowLauncher,
+        () => open(const HelpNowScreen()),
+      ),
       SafetySignal.pregnancyWarning => withAction(
         NoticeCard(tone: NoticeTone.urgent, heading: l.pregRedFlagsHeading, body: l.pregRedFlagsBody),
         l.pregRedFlagsMore,

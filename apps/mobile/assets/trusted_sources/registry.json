@@ -1,0 +1,2391 @@
+{
+  "version": "2026-11-24.2",
+  "note": "Generated from docs/hackathon/registry_drafts by scripts; passages verbatim from US federal public-domain pages; links are WHO/NHS/ACOG/RCOG/NICE pages Femio does not copy.",
+  "entries": [
+    {
+      "id": "medlineplus-menstruation-cycle",
+      "kind": "passage",
+      "publisher": "MedlinePlus (NLM)",
+      "title": "Menstruation",
+      "url": "https://medlineplus.gov/menstruation.html",
+      "retrieved": "2026-11-24",
+      "reviewed": "2026-05-28",
+      "licence": "US federal government work, public domain (17 U.S.C. §105)",
+      "topics": [
+        "period",
+        "menstruation",
+        "menstrual cycle",
+        "cycle length",
+        "how long is a cycle",
+        "normal cycle",
+        "28 days"
+      ],
+      "goals": [
+        "period",
+        "ttc"
+      ],
+      "personas": [
+        "B1",
+        "A2"
+      ],
+      "text": "The menstrual cycle is the monthly process the body goes through to prepare for pregnancy. It is counted from the first day of one period to the first day of the next. Most menstrual cycles last about 28 days, but cycles can be shorter or longer and still be normal."
+    },
+    {
+      "id": "medlineplus-first-period-age",
+      "kind": "passage",
+      "publisher": "MedlinePlus (NLM)",
+      "title": "Menstruation",
+      "url": "https://medlineplus.gov/menstruation.html",
+      "retrieved": "2026-11-24",
+      "reviewed": "2026-05-28",
+      "licence": "US federal government work, public domain (17 U.S.C. §105)",
+      "topics": [
+        "first period",
+        "age of first period",
+        "menarche",
+        "period length",
+        "how long does a period last",
+        "irregular first years",
+        "regular periods"
+      ],
+      "goals": [
+        "period"
+      ],
+      "personas": [
+        "A1",
+        "A2",
+        "B1"
+      ],
+      "text": "Most girls start having a period between ages 9 and 15, but some may start earlier or later. A period usually lasts three to seven days and can be light or heavy. It may take a few years to become regular. Your period may change during times that affect hormones, such as after childbirth or while breastfeeding. Periods usually continue until menopause, which most often happens between ages 45 and 55."
+    },
+    {
+      "id": "medlineplus-puberty-girls",
+      "kind": "passage",
+      "publisher": "MedlinePlus (NLM)",
+      "title": "Puberty",
+      "url": "https://medlineplus.gov/puberty.html",
+      "retrieved": "2026-11-24",
+      "reviewed": "2026-06-09",
+      "licence": "US federal government work, public domain (17 U.S.C. §105)",
+      "topics": [
+        "puberty",
+        "breast development",
+        "growing up",
+        "body changes",
+        "when does puberty start",
+        "first period"
+      ],
+      "goals": [
+        "period"
+      ],
+      "personas": [
+        "A1"
+      ],
+      "text": "Puberty is the time in life when a boy or girl becomes sexually mature. It is a process that usually happens between ages 8 and 13 for girls and ages 9 and 14 for boys. It causes physical changes and affects boys and girls differently. In girls: The first sign of puberty is usually breast development. Then hair grows in the pubic area and armpits. Menstruation (or a period) usually happens last."
+    },
+    {
+      "id": "medlineplus-pcos-overview",
+      "kind": "passage",
+      "publisher": "MedlinePlus (NLM)",
+      "title": "Polycystic Ovary Syndrome",
+      "url": "https://medlineplus.gov/polycysticovarysyndrome.html",
+      "retrieved": "2026-11-24",
+      "reviewed": "2026-09-22",
+      "licence": "US federal government work, public domain (17 U.S.C. §105)",
+      "topics": [
+        "pcos",
+        "polycystic ovary syndrome",
+        "pmos",
+        "irregular periods",
+        "no ovulation",
+        "androgens",
+        "extra hair",
+        "hirsutism",
+        "ovarian cysts"
+      ],
+      "goals": [
+        "period",
+        "ttc"
+      ],
+      "personas": [
+        "A4",
+        "B6",
+        "B5"
+      ],
+      "text": "Polycystic ovary syndrome (PCOS), also known as polyendocrine metabolic ovary syndrome (PMOS), is the name of a hormonal disorder. PCOS affects the ovaries, as well as many other parts of the body. If you have PCOS, you usually have at least two of these problems: Not ovulating. Normally, your ovaries make the egg that is released each month as part of a healthy menstrual cycle. This is called ovulation. But with PCOS, the egg may not develop as it should, or it may not be released during ovulation. Your periods may be irregular, or you may not have them at all."
+    },
+    {
+      "id": "medlineplus-endometriosis-overview",
+      "kind": "passage",
+      "publisher": "MedlinePlus (NLM)",
+      "title": "Endometriosis",
+      "url": "https://medlineplus.gov/endometriosis.html",
+      "retrieved": "2026-11-24",
+      "reviewed": "2025-03-27",
+      "licence": "US federal government work, public domain (17 U.S.C. §105)",
+      "topics": [
+        "endometriosis",
+        "endo",
+        "pelvic pain",
+        "painful periods",
+        "womb lining tissue outside uterus",
+        "implants"
+      ],
+      "goals": [
+        "period",
+        "ttc"
+      ],
+      "personas": [
+        "B7",
+        "B3"
+      ],
+      "text": "Endometriosis is a disease in which tissue like the lining of the uterus grows in other places in your body. These patches of tissue are called \"implants,\" \"nodules,\" or \"lesions.\" They are most often found: On or under the ovaries On the fallopian tubes, which carry eggs from the ovaries to the uterus Behind the uterus On the tissues that hold the uterus in place On the bowels or bladder"
+    },
+    {
+      "id": "medlineplus-uterine-fibroids",
+      "kind": "passage",
+      "publisher": "MedlinePlus (NLM)",
+      "title": "Uterine Fibroids",
+      "url": "https://medlineplus.gov/uterinefibroids.html",
+      "retrieved": "2026-11-24",
+      "reviewed": "2025-03-24",
+      "licence": "US federal government work, public domain (17 U.S.C. §105)",
+      "topics": [
+        "fibroids",
+        "uterine fibroids",
+        "leiomyoma",
+        "myoma",
+        "benign tumours",
+        "womb growths",
+        "heavy periods"
+      ],
+      "goals": [
+        "period",
+        "ttc",
+        "menopause"
+      ],
+      "personas": [
+        "B8"
+      ],
+      "text": "Uterine fibroids are the most common noncancerous (benign) tumors in women of childbearing age. You may have uterine fibroids and not even know it since they often don't cause any symptoms. Fibroids are made of muscle cells and other tissues that grow in and around the wall of the uterus, or womb. They can vary in number and size and grow as one tumor or in clusters."
+    },
+    {
+      "id": "medlineplus-pms-pmdd",
+      "kind": "passage",
+      "publisher": "MedlinePlus (NLM)",
+      "title": "Premenstrual Syndrome",
+      "url": "https://medlineplus.gov/premenstrualsyndrome.html",
+      "retrieved": "2026-11-24",
+      "reviewed": "2024-01-11",
+      "licence": "US federal government work, public domain (17 U.S.C. §105)",
+      "topics": [
+        "pms",
+        "premenstrual syndrome",
+        "pmdd",
+        "premenstrual dysphoric disorder",
+        "mood swings before period",
+        "irritability",
+        "bloating before period"
+      ],
+      "goals": [
+        "period"
+      ],
+      "personas": [
+        "B2"
+      ],
+      "text": "Premenstrual syndrome, or PMS, is a group of physical and emotional symptoms that start one to two weeks before your period. Most women have at least some symptoms of PMS, and the symptoms go away after their periods start. The symptoms may range from mild to severe. What is premenstrual dysphoric disorder (PMDD)? Premenstrual dysphoric disorder (PMDD) is a severe type of PMS. With PMDD, the symptoms are severe enough to interfere with your life. PMDD much less common than PMS."
+    },
+    {
+      "id": "medlineplus-thyroid-diseases",
+      "kind": "passage",
+      "publisher": "MedlinePlus (NLM)",
+      "title": "Thyroid Diseases",
+      "url": "https://medlineplus.gov/thyroiddiseases.html",
+      "retrieved": "2026-11-24",
+      "reviewed": "2024-04-22",
+      "licence": "US federal government work, public domain (17 U.S.C. §105)",
+      "topics": [
+        "thyroid",
+        "hypothyroidism",
+        "underactive thyroid",
+        "hyperthyroidism",
+        "overactive thyroid",
+        "thyroid hormones",
+        "goiter"
+      ],
+      "goals": [
+        "period",
+        "ttc",
+        "pregnant",
+        "menopause"
+      ],
+      "personas": [
+        "B17"
+      ],
+      "text": "Your thyroid is a small, butterfly-shaped gland in the front of your neck. It makes hormones that control the way the body uses energy. These hormones affect nearly every organ in your body and control many of your body's most important functions. For example, they affect your breathing, heart rate, weight, digestion, and moods. Thyroid diseases cause your thyroid to make either too much or too little of the hormones. Some of the different thyroid diseases include: Goiter, an enlargement of the thyroid gland Hyperthyroidism, which happens when your thyroid gland makes more thyroid hormones than your body needs Hypothyroidism, which happens when your thyroid gland does not make enough thyroid hormones"
+    },
+    {
+      "id": "medlineplus-vaginitis",
+      "kind": "passage",
+      "publisher": "MedlinePlus (NLM)",
+      "title": "Vaginitis",
+      "url": "https://medlineplus.gov/vaginitis.html",
+      "retrieved": "2026-11-24",
+      "reviewed": "2024-08-05",
+      "licence": "US federal government work, public domain (17 U.S.C. §105)",
+      "topics": [
+        "vaginitis",
+        "vaginal itching",
+        "vaginal discharge",
+        "vaginal odor",
+        "vaginal infection",
+        "yeast",
+        "bacterial vaginosis",
+        "vulvovaginitis",
+        "vaginal pain"
+      ],
+      "goals": [
+        "period",
+        "ttc",
+        "pregnant",
+        "menopause"
+      ],
+      "personas": [
+        "B10"
+      ],
+      "text": "Vaginitis, also called vulvovaginitis, is an inflammation or infection of the vagina. It can also affect the vulva, which is the external part of a woman's genitals. Vaginitis can cause itching, pain, discharge, and odor. Vaginitis is common, especially in women in their reproductive years. It usually happens when there is a change in the balance of bacteria or yeast that are normally found in your vagina. There are different types of vaginitis, and they have different causes, symptoms, and treatments."
+    },
+    {
+      "id": "medlineplus-menopause-overview",
+      "kind": "passage",
+      "publisher": "MedlinePlus (NLM)",
+      "title": "Menopause",
+      "url": "https://medlineplus.gov/menopause.html",
+      "retrieved": "2026-11-24",
+      "reviewed": "2026-08-03",
+      "licence": "US federal government work, public domain (17 U.S.C. §105)",
+      "topics": [
+        "menopause",
+        "perimenopause",
+        "menopausal transition",
+        "12 months without a period",
+        "age of menopause",
+        "stopped having periods",
+        "change of life"
+      ],
+      "goals": [
+        "menopause"
+      ],
+      "personas": [
+        "F1",
+        "F2"
+      ],
+      "text": "Menopause is the time in your life when you stop having your period and can no longer get pregnant. You have reached menopause when you have not had a period for 12 months. The time leading up to menopause is called the menopausal transition, or perimenopause. This transition usually begins when you are in your 40s, but sometimes it can start earlier. It can last for several years. The most common age for reaching menopause is between 45 and 55 years old."
+    },
+    {
+      "id": "medlineplus-early-premature-menopause",
+      "kind": "passage",
+      "publisher": "MedlinePlus (NLM)",
+      "title": "Menopause",
+      "url": "https://medlineplus.gov/menopause.html",
+      "retrieved": "2026-11-24",
+      "reviewed": "2026-08-03",
+      "licence": "US federal government work, public domain (17 U.S.C. §105)",
+      "topics": [
+        "early menopause",
+        "premature menopause",
+        "menopause before 40",
+        "menopause before 45",
+        "ovaries stop working early",
+        "surgical menopause",
+        "ovary removal"
+      ],
+      "goals": [
+        "menopause",
+        "ttc"
+      ],
+      "personas": [
+        "F5",
+        "F4"
+      ],
+      "text": "Early and premature menopause happens when your ovaries stop making hormones and your periods stop at a younger age than usual. When menopause happens before age 40, it's called premature menopause. If menopause happens before age 45, it's called early menopause."
+    },
+    {
+      "id": "medlineplus-primary-ovarian-insufficiency",
+      "kind": "passage",
+      "publisher": "MedlinePlus (NLM)",
+      "title": "Primary Ovarian Insufficiency",
+      "url": "https://medlineplus.gov/primaryovarianinsufficiency.html",
+      "retrieved": "2026-11-24",
+      "reviewed": "2026-05-21",
+      "licence": "US federal government work, public domain (17 U.S.C. §105)",
+      "topics": [
+        "poi",
+        "primary ovarian insufficiency",
+        "premature ovarian failure",
+        "early menopause",
+        "periods stop before 40",
+        "irregular periods young"
+      ],
+      "goals": [
+        "menopause",
+        "ttc",
+        "period"
+      ],
+      "personas": [
+        "F5",
+        "B5"
+      ],
+      "text": "Primary ovarian insufficiency (POI) happens when your ovaries stop working normally before you are 40. As you get older, fertility naturally decreases. This usually starts around age 40 or later. Menstrual periods may also become irregular as you transition to menopause. If you have POI, these changes happen earlier, before age 40. Sometimes POI can start as early as the teenage years."
+    },
+    {
+      "id": "medlineplus-anemia-overview",
+      "kind": "passage",
+      "publisher": "MedlinePlus (NLM)",
+      "title": "Anemia",
+      "url": "https://medlineplus.gov/anemia.html",
+      "retrieved": "2026-11-24",
+      "reviewed": "2025-06-03",
+      "licence": "US federal government work, public domain (17 U.S.C. §105)",
+      "topics": [
+        "anaemia",
+        "anemia",
+        "iron deficiency",
+        "low iron",
+        "tired",
+        "fatigue",
+        "low haemoglobin",
+        "heavy periods",
+        "blood loss"
+      ],
+      "goals": [
+        "period",
+        "pregnant"
+      ],
+      "personas": [
+        "B4",
+        "A3"
+      ],
+      "text": "If you have anemia, your blood does not carry enough oxygen to the rest of your body. The most common cause of anemia is not having enough iron. Your body needs iron to make hemoglobin. Hemoglobin is an iron-rich protein that gives the red color to blood. It carries oxygen from the lungs to the rest of the body. Anemia has three main causes: blood loss, lack of red blood cell production, and high rates of red blood cell destruction."
+    },
+    {
+      "id": "medlineplus-sleep-disorders",
+      "kind": "passage",
+      "publisher": "MedlinePlus (NLM)",
+      "title": "Sleep Disorders",
+      "url": "https://medlineplus.gov/sleepdisorders.html",
+      "retrieved": "2026-11-24",
+      "reviewed": "2025-12-04",
+      "licence": "US federal government work, public domain (17 U.S.C. §105)",
+      "topics": [
+        "sleep",
+        "poor sleep",
+        "insomnia",
+        "sleep quality",
+        "trouble sleeping",
+        "sleep problems",
+        "tired all the time"
+      ],
+      "goals": [
+        "period",
+        "ttc",
+        "pregnant",
+        "menopause"
+      ],
+      "personas": [
+        "F1",
+        "F2",
+        "B1"
+      ],
+      "text": "While you are sleeping your brain and body functions are still active. Sleep is a natural process that helps your body restore energy, supports learning and memory, and keeps you healthy. It's not just the number of hours of sleep you get that matters. The quality of your sleep is also important. During the night, your brain cycles through different stages of non-rapid eye movement (non-REM) sleep and rapid eye movement (REM) sleep. If your sleep is often interrupted, you may not get enough time in certain stages of sleep. Poor-quality sleep does more than make you feel tired. It can affect your physical and mental health, thinking, and daily functioning."
+    },
+    {
+      "id": "medlineplus-fatigue",
+      "kind": "passage",
+      "publisher": "MedlinePlus (NLM)",
+      "title": "Fatigue",
+      "url": "https://medlineplus.gov/fatigue.html",
+      "retrieved": "2026-11-24",
+      "reviewed": "2024-08-08",
+      "licence": "US federal government work, public domain (17 U.S.C. §105)",
+      "topics": [
+        "fatigue",
+        "tiredness",
+        "exhaustion",
+        "low energy",
+        "always tired",
+        "weariness"
+      ],
+      "goals": [
+        "period",
+        "ttc",
+        "pregnant",
+        "menopause"
+      ],
+      "personas": [
+        "B1",
+        "B17",
+        "F1"
+      ],
+      "text": "Fatigue is a feeling of weariness, tiredness, or lack of energy. It can interfere with your usual daily activities. Fatigue can be a normal response to physical activity, emotional stress, boredom, or lack of sleep. But sometimes it can be a sign of a mental or physical condition. If you have been feeling tired for weeks, contact your health care provider."
+    },
+    {
+      "id": "owh-your-menstrual-cycle",
+      "kind": "passage",
+      "publisher": "Office on Women's Health (womenshealth.gov)",
+      "title": "Your menstrual cycle",
+      "url": "https://www.womenshealth.gov/menstrual-cycle/your-menstrual-cycle",
+      "retrieved": "2026-11-24",
+      "reviewed": "2025-01-13",
+      "licence": "US federal government work, public domain (17 U.S.C. §105)",
+      "topics": [
+        "menstrual cycle",
+        "period",
+        "cycle length",
+        "normal cycle",
+        "24 to 38 days",
+        "hormones",
+        "first day of period"
+      ],
+      "goals": [
+        "period",
+        "ttc"
+      ],
+      "personas": [
+        "B1",
+        "A2"
+      ],
+      "text": "A menstrual cycle begins with the first day of your period, or menstruation [MEN-stroo-AY-shuhn] and starts over again when the next period begins. Throughout a monthly menstrual cycle, your body makes different amounts of chemicals called hormones to prepare for pregnancy. These changing hormone levels can cause menstrual symptoms. Menstrual cycles often change as a woman gets older. A normal cycle lasts between 24 and 38 days."
+    },
+    {
+      "id": "owh-period-problems-when-to-call",
+      "kind": "passage",
+      "publisher": "Office on Women's Health (womenshealth.gov)",
+      "title": "Period problems",
+      "url": "https://www.womenshealth.gov/menstrual-cycle/period-problems",
+      "retrieved": "2026-11-24",
+      "reviewed": "2025-09-26",
+      "licence": "US federal government work, public domain (17 U.S.C. §105)",
+      "topics": [
+        "heavy period",
+        "heavy bleeding",
+        "soaking pads",
+        "bleeding through pads",
+        "long period",
+        "dizzy",
+        "lightheaded",
+        "when to see a doctor",
+        "anaemia symptoms"
+      ],
+      "goals": [
+        "period"
+      ],
+      "personas": [
+        "B4",
+        "A3"
+      ],
+      "text": "Your period lasts longer than eight days. You bleed through one or more pads or tampons every one to two hours. You feel dizzy, lightheaded, weak, or tired, or if you have chest pain or trouble breathing during or after your period. These can be symptoms of anemia."
+    },
+    {
+      "id": "owh-pcos",
+      "kind": "passage",
+      "publisher": "Office on Women's Health (womenshealth.gov)",
+      "title": "Polycystic ovary syndrome",
+      "url": "https://www.womenshealth.gov/a-z-topics/polycystic-ovary-syndrome",
+      "retrieved": "2026-11-24",
+      "reviewed": "2025-10-24",
+      "licence": "US federal government work, public domain (17 U.S.C. §105)",
+      "topics": [
+        "pcos",
+        "polycystic ovary syndrome",
+        "hormonal imbalance",
+        "infertility",
+        "irregular periods",
+        "missed periods",
+        "metabolism"
+      ],
+      "goals": [
+        "period",
+        "ttc"
+      ],
+      "personas": [
+        "A4",
+        "B6"
+      ],
+      "text": "Polycystic ovary syndrome (PCOS) is a health problem that affects 1 in 10 women of childbearing age. Women with PCOS have a hormonal imbalance and metabolism problems that may affect their overall health and appearance. PCOS is also a common and treatable cause of infertility."
+    },
+    {
+      "id": "owh-menopause-basics",
+      "kind": "passage",
+      "publisher": "Office on Women's Health (womenshealth.gov)",
+      "title": "Menopause basics",
+      "url": "https://www.womenshealth.gov/menopause/menopause-basics",
+      "retrieved": "2026-11-24",
+      "reviewed": "2026-10-19",
+      "licence": "US federal government work, public domain (17 U.S.C. §105)",
+      "topics": [
+        "menopause",
+        "12 months no period",
+        "age at menopause",
+        "average age menopause 52",
+        "estrogen",
+        "ovaries stop releasing eggs",
+        "normal stage of life"
+      ],
+      "goals": [
+        "menopause"
+      ],
+      "personas": [
+        "F1",
+        "F2"
+      ],
+      "text": "You reach menopause after 12 months in a row with no period, including no spotting. After menopause, your ovaries make very little estrogen and progesterone, and they stop releasing eggs. The transition into menopause usually happens between ages 45 and 55. In the United States, the average age of menopause is 52."
+    },
+    {
+      "id": "owh-menopause-symptoms",
+      "kind": "passage",
+      "publisher": "Office on Women's Health (womenshealth.gov)",
+      "title": "Menopause symptoms and relief",
+      "url": "https://www.womenshealth.gov/menopause/menopause-symptoms-and-relief",
+      "retrieved": "2026-11-24",
+      "reviewed": "2026-10-19",
+      "licence": "US federal government work, public domain (17 U.S.C. §105)",
+      "topics": [
+        "menopause symptoms",
+        "perimenopause symptoms",
+        "hot flashes",
+        "night sweats",
+        "brain fog",
+        "mood changes",
+        "joint pain",
+        "sleep problems",
+        "changes in periods"
+      ],
+      "goals": [
+        "menopause"
+      ],
+      "personas": [
+        "F1",
+        "F2",
+        "F3"
+      ],
+      "text": "Menopause symptoms go beyond hot flashes. They can affect your sleep, thinking, mood, joints, and bladder and genital health. Treatments can help. What symptoms can you have? Symptoms can begin in perimenopause. They can be mild, moderate, or severe. You may have: Not feeling like yourself (NFLM) Hot flashes and night sweats Sleep problems Brain fog and memory changes Mood changes, anxiety, and depression Joint and muscle pain Genital and urinary symptoms, called genitourinary syndrome of menopause (GSM) Changes in your periods Changes in sexual desire"
+    },
+    {
+      "id": "owh-genitourinary-syndrome-of-menopause",
+      "kind": "passage",
+      "publisher": "Office on Women's Health (womenshealth.gov)",
+      "title": "Menopause symptoms and relief",
+      "url": "https://www.womenshealth.gov/menopause/menopause-symptoms-and-relief",
+      "retrieved": "2026-11-24",
+      "reviewed": "2026-10-19",
+      "licence": "US federal government work, public domain (17 U.S.C. §105)",
+      "topics": [
+        "gsm",
+        "genitourinary syndrome of menopause",
+        "vaginal dryness",
+        "painful sex",
+        "urinary tract infections",
+        "vaginal irritation",
+        "urgency to urinate",
+        "bladder symptoms"
+      ],
+      "goals": [
+        "menopause"
+      ],
+      "personas": [
+        "F6",
+        "F2"
+      ],
+      "text": "Lower levels of estrogen can affect the tissues of your vagina, vulva, bladder, and urinary tract. Health care providers call this genitourinary syndrome of menopause, or GSM. Symptoms include repeat urinary tract infections (UTIs); pain during sex; burning, itching, or irritation of the vagina and vulva; a sudden or frequent need to urinate; and vaginal dryness."
+    },
+    {
+      "id": "owh-early-premature-menopause",
+      "kind": "passage",
+      "publisher": "Office on Women's Health (womenshealth.gov)",
+      "title": "Early or premature menopause",
+      "url": "https://www.womenshealth.gov/menopause/early-or-premature-menopause",
+      "retrieved": "2026-11-24",
+      "reviewed": "2026-10-19",
+      "licence": "US federal government work, public domain (17 U.S.C. §105)",
+      "topics": [
+        "early menopause",
+        "premature menopause",
+        "poi",
+        "primary ovarian insufficiency",
+        "periods stop before 45",
+        "irregular periods before 45",
+        "blood tests"
+      ],
+      "goals": [
+        "menopause",
+        "ttc"
+      ],
+      "personas": [
+        "F5"
+      ],
+      "text": "Menopause between ages 40 and 44 is early menopause. Menopause before age 40 is premature menopause, also called primary ovarian insufficiency (POI). Treatment can help relieve symptoms and protect your bones. What is the difference between early and premature menopause? Early menopause happens between ages 40 and 44. Premature menopause happens before age 40. Both can happen on their own or after medical treatment, such as surgery to remove both ovaries."
+    },
+    {
+      "id": "owh-bacterial-vaginosis",
+      "kind": "passage",
+      "publisher": "Office on Women's Health (womenshealth.gov)",
+      "title": "Bacterial vaginosis",
+      "url": "https://www.womenshealth.gov/a-z-topics/bacterial-vaginosis",
+      "retrieved": "2026-11-24",
+      "reviewed": "2022-05-31",
+      "licence": "US federal government work, public domain (17 U.S.C. §105)",
+      "topics": [
+        "bacterial vaginosis",
+        "bv",
+        "vaginal bacteria",
+        "fishy odor",
+        "vaginal discharge",
+        "vaginal infection"
+      ],
+      "goals": [
+        "period",
+        "ttc",
+        "pregnant"
+      ],
+      "personas": [
+        "B10"
+      ],
+      "text": "Bacterial vaginosis (BV) is a condition caused by changes in the amount of certain types of bacteria in your vagina. BV is common, and any woman can get it. BV is easily treatable with medicine from your doctor or nurse. If left untreated, it can raise your risk for sexually transmitted infections (STIs) and cause problems during pregnancy."
+    },
+    {
+      "id": "owh-vaginal-yeast-infections",
+      "kind": "passage",
+      "publisher": "Office on Women's Health (womenshealth.gov)",
+      "title": "Vaginal yeast infections",
+      "url": "https://www.womenshealth.gov/a-z-topics/vaginal-yeast-infections",
+      "retrieved": "2026-11-24",
+      "reviewed": "2025-10-24",
+      "licence": "US federal government work, public domain (17 U.S.C. §105)",
+      "topics": [
+        "yeast infection",
+        "thrush",
+        "candida",
+        "vaginal itching",
+        "burning",
+        "thick white discharge",
+        "vulvovaginal candidiasis"
+      ],
+      "goals": [
+        "period",
+        "ttc",
+        "pregnant",
+        "menopause"
+      ],
+      "personas": [
+        "B10"
+      ],
+      "text": "Most women will get a vaginal yeast infection at some point in their life. Symptoms of vaginal yeast infections include burning, itching, and thick, white discharge. Yeast infections are easy to treat, but it is important to see your doctor or nurse if you think you have an infection. Yeast infection symptoms are similar to other vaginal infections and sexually transmitted infections (STIs)."
+    },
+    {
+      "id": "owh-thyroid-and-periods",
+      "kind": "passage",
+      "publisher": "Office on Women's Health (womenshealth.gov)",
+      "title": "Thyroid disease",
+      "url": "https://www.womenshealth.gov/a-z-topics/thyroid-disease",
+      "retrieved": "2026-11-24",
+      "reviewed": "2026-05-29",
+      "licence": "US federal government work, public domain (17 U.S.C. §105)",
+      "topics": [
+        "thyroid",
+        "hypothyroidism",
+        "hyperthyroidism",
+        "periods and thyroid",
+        "missed periods",
+        "heavy periods",
+        "irregular periods",
+        "amenorrhea"
+      ],
+      "goals": [
+        "period",
+        "ttc"
+      ],
+      "personas": [
+        "B17",
+        "B5"
+      ],
+      "text": "Problems with your menstrual period. Your thyroid helps control your menstrual cycle. Too much or too little thyroid hormone can make your periods very light, heavy, or irregular. Thyroid disease also can cause your periods to stop for several months or longer, a condition called amenorrhea."
+    },
+    {
+      "id": "owh-iron-deficiency-anemia",
+      "kind": "passage",
+      "publisher": "Office on Women's Health (womenshealth.gov)",
+      "title": "Iron-deficiency anemia",
+      "url": "https://www.womenshealth.gov/a-z-topics/anemia",
+      "retrieved": "2026-11-24",
+      "reviewed": "2025-10-24",
+      "licence": "US federal government work, public domain (17 U.S.C. §105)",
+      "topics": [
+        "iron deficiency",
+        "anaemia",
+        "low iron",
+        "tired",
+        "fatigue",
+        "hemoglobin",
+        "oxygen in blood"
+      ],
+      "goals": [
+        "period",
+        "pregnant"
+      ],
+      "personas": [
+        "B4",
+        "A3"
+      ],
+      "text": "Iron-deficiency anemia means that your body does not have enough iron. Your body needs iron to help carry oxygen through your blood to all parts of your body. Iron-deficiency anemia affects more women than men and is more common during pregnancy."
+    },
+    {
+      "id": "owh-migraine-menstrual",
+      "kind": "passage",
+      "publisher": "Office on Women's Health (womenshealth.gov)",
+      "title": "Migraine",
+      "url": "https://www.womenshealth.gov/a-z-topics/migraine",
+      "retrieved": "2026-11-24",
+      "reviewed": "2021-02-22",
+      "licence": "US federal government work, public domain (17 U.S.C. §105)",
+      "topics": [
+        "migraine",
+        "menstrual migraine",
+        "headache before period",
+        "period headache",
+        "hormone drop",
+        "estrogen",
+        "premenstrual headache"
+      ],
+      "goals": [
+        "period",
+        "menopause"
+      ],
+      "personas": [
+        "B15"
+      ],
+      "text": "More than half of migraines in women occur right before, during, or after a woman has her period. This often is called \"menstrual migraine.\" But, just a small fraction of women who have migraine around their period only have migraine at this time. Most have migraine headaches at other times of the month as well. How the menstrual cycle and migraine are linked is still unclear. We know that just before the cycle begins, levels of the female hormones, estrogen and progesterone, go down sharply. This drop in hormones may trigger a migraine, because estrogen controls chemicals in the brain that affect a woman's pain sensation."
+    },
+    {
+      "id": "nichd-amenorrhea",
+      "kind": "passage",
+      "publisher": "NICHD (NIH)",
+      "title": "Amenorrhea",
+      "url": "https://www.nichd.nih.gov/health/topics/amenorrhea",
+      "retrieved": "2026-11-24",
+      "reviewed": "2017-01-31",
+      "licence": "US federal government work, public domain (17 U.S.C. §105)",
+      "topics": [
+        "amenorrhea",
+        "no period",
+        "missed periods",
+        "absent periods",
+        "periods stopped",
+        "first period late",
+        "primary amenorrhea",
+        "secondary amenorrhea"
+      ],
+      "goals": [
+        "period",
+        "ttc"
+      ],
+      "personas": [
+        "A5",
+        "B5",
+        "B16"
+      ],
+      "text": "Amenorrhea (pronounced ey-men-uh-REE-uh or uh-men-uh-REE-uh) is the medical term for the lack of a menstrual period. Amenorrhea is not a disease, but it can be a symptom of another condition. Primary amenorrhea occurs when a girl has not had her first period by age 16. Secondary amenorrhea describes women who experience an absence of more than three menstrual cycles after having regular periods."
+    },
+    {
+      "id": "nichd-menstruation-and-menstrual-problems",
+      "kind": "passage",
+      "publisher": "NICHD (NIH)",
+      "title": "Menstruation and Menstrual Problems",
+      "url": "https://www.nichd.nih.gov/health/topics/menstruation",
+      "retrieved": "2026-11-24",
+      "reviewed": "2017-01-31",
+      "licence": "US federal government work, public domain (17 U.S.C. §105)",
+      "topics": [
+        "menstruation",
+        "menstrual irregularities",
+        "heavy periods",
+        "painful periods",
+        "infrequent periods",
+        "prolonged periods",
+        "absent periods",
+        "cramps"
+      ],
+      "goals": [
+        "period"
+      ],
+      "personas": [
+        "B1",
+        "B5",
+        "B4",
+        "B3"
+      ],
+      "text": "The primary sign of menstruation is bleeding from the vagina. Additional signs include cramping, lower back pain, bloating, sore breasts, food cravings, irritability, headache, and fatigue."
+    },
+    {
+      "id": "nci-cervical-cancer-screening",
+      "kind": "passage",
+      "publisher": "NCI (NIH)",
+      "title": "Cervical Cancer Screening",
+      "url": "https://www.cancer.gov/types/cervical/screening",
+      "retrieved": "2026-11-24",
+      "reviewed": "2025-02-13",
+      "licence": "US federal government work, public domain (17 U.S.C. §105)",
+      "topics": [
+        "cervical screening",
+        "smear test",
+        "pap test",
+        "pap smear",
+        "hpv test",
+        "precancer",
+        "cervix",
+        "cervical cancer screening"
+      ],
+      "goals": [
+        "period",
+        "ttc",
+        "menopause"
+      ],
+      "personas": [
+        "B18"
+      ],
+      "text": "The goal of screening for cervical cancer is to find precancerous cervical cell changes, when treatment can prevent cervical cancer from developing. Sometimes, cancer is found during cervical screening. Cervical cancer found at an early stage is usually easier to treat."
+    },
+    {
+      "id": "nci-mammograms",
+      "kind": "passage",
+      "publisher": "NCI (NIH)",
+      "title": "Mammograms",
+      "url": "https://www.cancer.gov/types/breast/screening/mammograms",
+      "retrieved": "2026-11-24",
+      "reviewed": "2025-12-02",
+      "licence": "US federal government work, public domain (17 U.S.C. §105)",
+      "topics": [
+        "mammogram",
+        "mammography",
+        "breast screening",
+        "breast cancer screening",
+        "breast x-ray"
+      ],
+      "goals": [
+        "menopause",
+        "period"
+      ],
+      "personas": [
+        "B18",
+        "F2"
+      ],
+      "text": "Mammography is an imaging test that uses low-dose x-rays to create pictures of the breast. It is used both to screen for breast cancer and diagnose breast conditions."
+    },
+    {
+      "id": "cdc-cervical-cancer-screening",
+      "kind": "passage",
+      "publisher": "CDC",
+      "title": "Screening for Cervical Cancer",
+      "url": "https://www.cdc.gov/cervical-cancer/screening/index.html",
+      "retrieved": "2026-11-24",
+      "reviewed": "2024-12-11",
+      "licence": "US federal government work, public domain (17 U.S.C. §105)",
+      "topics": [
+        "cervical screening",
+        "smear test",
+        "pap test",
+        "pap smear",
+        "hpv test",
+        "precancer",
+        "cervix"
+      ],
+      "goals": [
+        "period",
+        "ttc",
+        "menopause"
+      ],
+      "personas": [
+        "B18"
+      ],
+      "text": "The HPV test and the Pap test can help prevent cervical cancer or find it early. The HPV test looks for the virus (human papillomavirus) that can cause cell changes on the cervix. The Pap test (or Pap smear) looks for precancers, cell changes on the cervix that might become cervical cancer if they are not treated appropriately."
+    },
+    {
+      "id": "who-menopause-fact-sheet",
+      "kind": "link",
+      "publisher": "WHO",
+      "title": "Menopause",
+      "url": "https://www.who.int/news-room/fact-sheets/detail/menopause",
+      "retrieved": "2026-11-24",
+      "topics": [
+        "menopause",
+        "perimenopause",
+        "hot flashes",
+        "symptoms"
+      ],
+      "goals": [
+        "menopause"
+      ],
+      "personas": [
+        "F1",
+        "F2"
+      ],
+      "summaryEn": "WHO fact sheet on what menopause is, common symptoms and the health issues that can follow it."
+    },
+    {
+      "id": "who-endometriosis-fact-sheet",
+      "kind": "link",
+      "publisher": "WHO",
+      "title": "Endometriosis",
+      "url": "https://www.who.int/news-room/fact-sheets/detail/endometriosis",
+      "retrieved": "2026-11-24",
+      "topics": [
+        "endometriosis",
+        "pelvic pain",
+        "painful periods"
+      ],
+      "goals": [
+        "period",
+        "ttc"
+      ],
+      "personas": [
+        "B7",
+        "B3"
+      ],
+      "summaryEn": "WHO fact sheet on endometriosis: what it is, who is affected, symptoms and why diagnosis is often delayed."
+    },
+    {
+      "id": "who-pcos-fact-sheet",
+      "kind": "link",
+      "publisher": "WHO",
+      "title": "Polycystic ovary syndrome",
+      "url": "https://www.who.int/news-room/fact-sheets/detail/polycystic-ovary-syndrome",
+      "retrieved": "2026-11-24",
+      "topics": [
+        "pcos",
+        "polycystic ovary syndrome",
+        "irregular periods"
+      ],
+      "goals": [
+        "period",
+        "ttc"
+      ],
+      "personas": [
+        "A4",
+        "B6"
+      ],
+      "summaryEn": "WHO fact sheet on PCOS covering symptoms, how common it is and the long-term health risks to discuss with a clinician."
+    },
+    {
+      "id": "nhs-adenomyosis",
+      "kind": "link",
+      "publisher": "NHS",
+      "title": "Adenomyosis",
+      "url": "https://www.nhs.uk/conditions/adenomyosis/",
+      "retrieved": "2026-11-24",
+      "topics": [
+        "adenomyosis",
+        "heavy periods",
+        "painful periods",
+        "enlarged uterus"
+      ],
+      "goals": [
+        "period"
+      ],
+      "personas": [
+        "B9",
+        "B4"
+      ],
+      "summaryEn": "NHS page explaining adenomyosis, its symptoms (heavy or painful periods) and when to see a GP."
+    },
+    {
+      "id": "nhs-heavy-periods",
+      "kind": "link",
+      "publisher": "NHS",
+      "title": "Heavy periods",
+      "url": "https://www.nhs.uk/conditions/heavy-periods/",
+      "retrieved": "2026-11-24",
+      "topics": [
+        "heavy periods",
+        "heavy bleeding",
+        "menorrhagia",
+        "clots",
+        "flooding"
+      ],
+      "goals": [
+        "period"
+      ],
+      "personas": [
+        "B4",
+        "A3"
+      ],
+      "summaryEn": "NHS guide to what counts as a heavy period, common causes and when to see a GP."
+    },
+    {
+      "id": "nhs-pms",
+      "kind": "link",
+      "publisher": "NHS",
+      "title": "PMS (premenstrual syndrome)",
+      "url": "https://www.nhs.uk/conditions/pre-menstrual-syndrome/",
+      "retrieved": "2026-11-24",
+      "topics": [
+        "pms",
+        "premenstrual syndrome",
+        "mood swings",
+        "pmdd"
+      ],
+      "goals": [
+        "period"
+      ],
+      "personas": [
+        "B2"
+      ],
+      "summaryEn": "NHS overview of PMS symptoms, self-help ideas and when to seek help."
+    },
+    {
+      "id": "nhs-period-pain",
+      "kind": "link",
+      "publisher": "NHS",
+      "title": "Period pain",
+      "url": "https://www.nhs.uk/conditions/period-pain/",
+      "retrieved": "2026-11-24",
+      "topics": [
+        "period pain",
+        "cramps",
+        "dysmenorrhea",
+        "painful periods"
+      ],
+      "goals": [
+        "period"
+      ],
+      "personas": [
+        "B3",
+        "A3"
+      ],
+      "summaryEn": "NHS page on period pain: usual causes, ways to ease it and signs that need a GP visit."
+    },
+    {
+      "id": "acog-abnormal-uterine-bleeding",
+      "kind": "link",
+      "publisher": "ACOG",
+      "title": "Abnormal Uterine Bleeding",
+      "url": "https://www.acog.org/womens-health/faqs/abnormal-uterine-bleeding",
+      "retrieved": "2026-11-24",
+      "topics": [
+        "abnormal bleeding",
+        "irregular periods",
+        "bleeding between periods",
+        "heavy bleeding"
+      ],
+      "goals": [
+        "period",
+        "menopause"
+      ],
+      "personas": [
+        "B4",
+        "B5",
+        "A3",
+        "F1"
+      ],
+      "summaryEn": "ACOG patient FAQ on irregular, heavy or unexpected bleeding, its causes and when to get care."
+    },
+    {
+      "id": "acog-your-first-period",
+      "kind": "link",
+      "publisher": "ACOG",
+      "title": "Your First Period",
+      "url": "https://www.acog.org/womens-health/faqs/your-first-period",
+      "retrieved": "2026-11-24",
+      "topics": [
+        "first period",
+        "menarche",
+        "teen periods",
+        "puberty"
+      ],
+      "goals": [
+        "period"
+      ],
+      "personas": [
+        "A1",
+        "A2"
+      ],
+      "summaryEn": "ACOG FAQ for teens on what to expect from a first period, normal patterns and warning signs."
+    },
+    {
+      "id": "acog-premenstrual-syndrome",
+      "kind": "link",
+      "publisher": "ACOG",
+      "title": "Premenstrual Syndrome (PMS)",
+      "url": "https://www.acog.org/womens-health/faqs/premenstrual-syndrome",
+      "retrieved": "2026-11-24",
+      "topics": [
+        "pms",
+        "pmdd",
+        "premenstrual syndrome",
+        "mood"
+      ],
+      "goals": [
+        "period"
+      ],
+      "personas": [
+        "B2"
+      ],
+      "summaryEn": "ACOG FAQ on PMS and PMDD: symptoms, how they are recognised and options to discuss with a clinician."
+    },
+    {
+      "id": "rcog-menopause-and-later-life",
+      "kind": "link",
+      "publisher": "RCOG",
+      "title": "Menopause and later life",
+      "url": "https://www.rcog.org.uk/for-the-public/menopause-and-later-life/",
+      "retrieved": "2026-11-24",
+      "topics": [
+        "menopause",
+        "perimenopause",
+        "later life",
+        "gynaecology"
+      ],
+      "goals": [
+        "menopause"
+      ],
+      "personas": [
+        "F1",
+        "F2",
+        "F3"
+      ],
+      "summaryEn": "RCOG public hub linking to patient information on menopause, symptoms and later-life gynaecological health."
+    },
+    {
+      "id": "nice-ng88-heavy-menstrual-bleeding",
+      "kind": "link",
+      "publisher": "NICE",
+      "title": "Heavy menstrual bleeding: assessment and management",
+      "url": "https://www.nice.org.uk/guidance/ng88",
+      "retrieved": "2026-11-24",
+      "topics": [
+        "heavy menstrual bleeding",
+        "heavy periods",
+        "guideline",
+        "assessment"
+      ],
+      "goals": [
+        "period"
+      ],
+      "personas": [
+        "B4"
+      ],
+      "summaryEn": "NICE guideline NG88 on how clinicians in the UK assess and manage heavy menstrual bleeding (professional guidance)."
+    },
+    {
+      "id": "cdc-hearher-warning-signs-overview",
+      "kind": "passage",
+      "publisher": "CDC",
+      "title": "Urgent Maternal Warning Signs and Symptoms | HEAR HER Campaign | CDC",
+      "url": "https://www.cdc.gov/hearher/maternal-warning-signs/index.html",
+      "retrieved": "2026-11-24",
+      "reviewed": "2023-12-15",
+      "licence": "US federal government work, public domain (17 U.S.C. §105); CDC notes the list was developed by the Alliance for Innovation on Maternal Health",
+      "topics": [
+        "urgent warning signs",
+        "emergency",
+        "when to call",
+        "pregnancy danger signs",
+        "postpartum warning signs",
+        "life-threatening",
+        "get help now"
+      ],
+      "goals": [
+        "pregnant",
+        "ttc"
+      ],
+      "personas": [
+        "D1",
+        "E1",
+        "E4",
+        "D6",
+        "X2"
+      ],
+      "text": "Be aware of urgent maternal warning signs and symptoms during pregnancy and in the year after delivery. Seek medical care immediately if you experience any signs or symptoms that are listed below. The symptoms below can be a sign of a life-threatening condition."
+    },
+    {
+      "id": "cdc-hearher-bleeding-pregnancy-postpartum",
+      "kind": "passage",
+      "publisher": "CDC",
+      "title": "Urgent Maternal Warning Signs and Symptoms | HEAR HER Campaign | CDC",
+      "url": "https://www.cdc.gov/hearher/maternal-warning-signs/index.html",
+      "retrieved": "2026-11-24",
+      "reviewed": "2023-12-15",
+      "licence": "US federal government work, public domain (17 U.S.C. §105); CDC notes the list was developed by the Alliance for Innovation on Maternal Health",
+      "topics": [
+        "postpartum heavy bleeding",
+        "heavy bleeding after birth",
+        "soaking pads",
+        "clots",
+        "hemorrhage",
+        "bleeding during pregnancy",
+        "fluid leaking",
+        "smelly discharge",
+        "warning sign"
+      ],
+      "goals": [
+        "pregnant"
+      ],
+      "personas": [
+        "E1",
+        "E4",
+        "D1",
+        "E6"
+      ],
+      "text": "Vaginal bleeding or fluid leaking during pregnancy You have any bleeding from your vagina that is more than spotting—like a period. You have fluid leaking out of your vagina. You have vaginal discharge that smells bad. Vaginal bleeding or discharge after pregnancy You have heavy bleeding—soaking through one or more pads in an hour. You pass clots bigger than an egg or you pass tissue. You have vaginal discharge that smells bad."
+    },
+    {
+      "id": "cdc-hearher-headache-dizziness-fainting",
+      "kind": "passage",
+      "publisher": "CDC",
+      "title": "Urgent Maternal Warning Signs and Symptoms | HEAR HER Campaign | CDC",
+      "url": "https://www.cdc.gov/hearher/maternal-warning-signs/index.html",
+      "retrieved": "2026-11-24",
+      "reviewed": "2023-12-15",
+      "licence": "US federal government work, public domain (17 U.S.C. §105); CDC notes the list was developed by the Alliance for Innovation on Maternal Health",
+      "topics": [
+        "severe headache",
+        "headache that will not go away",
+        "dizziness",
+        "fainting",
+        "blurred vision",
+        "preeclampsia warning sign",
+        "warning sign"
+      ],
+      "goals": [
+        "pregnant"
+      ],
+      "personas": [
+        "D1",
+        "D5",
+        "D6",
+        "E1",
+        "E4"
+      ],
+      "text": "Headache that won’t go away or gets worse over time Feels like the worst headache of your life. Lasts even after treatment with medication and fluid intake. Starts suddenly with severe pain—like a clap of thunder. Throbs and is on one side of your head above your ear. Comes with blurred vision or dizziness. Dizziness or fainting You faint or pass out. You have dizziness and lightheadedness that's ongoing, or comes and goes over many days. You experience a gap in time of which you have no memory."
+    },
+    {
+      "id": "cdc-hearher-thoughts-of-harming",
+      "kind": "passage",
+      "publisher": "CDC",
+      "title": "Urgent Maternal Warning Signs and Symptoms | HEAR HER Campaign | CDC",
+      "url": "https://www.cdc.gov/hearher/maternal-warning-signs/index.html",
+      "retrieved": "2026-11-24",
+      "reviewed": "2023-12-15",
+      "licence": "US federal government work, public domain (17 U.S.C. §105); CDC notes the list was developed by the Alliance for Innovation on Maternal Health",
+      "topics": [
+        "thoughts of harming myself",
+        "thoughts of harming baby",
+        "suicidal thoughts",
+        "intrusive thoughts",
+        "postpartum depression warning sign",
+        "hopeless",
+        "get help now"
+      ],
+      "goals": [
+        "pregnant"
+      ],
+      "personas": [
+        "E3",
+        "D11",
+        "E4"
+      ],
+      "text": "Thoughts about harming yourself or your baby You may think about hurting yourself because you: Feel very sad, hopeless, or not good enough. Don't feel that you have control over your life. Feel extremely worried all the time. You may think about hurting your baby and/or you may have scary thoughts that come when you don’t want or that are hard to get rid of."
+    },
+    {
+      "id": "cdc-folic-acid-why-important",
+      "kind": "passage",
+      "publisher": "CDC",
+      "title": "About Folic Acid | Folic Acid | CDC",
+      "url": "https://www.cdc.gov/folic-acid/about/index.html",
+      "retrieved": "2026-11-24",
+      "reviewed": "2026-09-18",
+      "licence": "US federal government work, public domain (17 U.S.C. §105)",
+      "topics": [
+        "folic acid",
+        "folate",
+        "vitamin B9",
+        "neural tube defects",
+        "spina bifida",
+        "prenatal vitamin",
+        "before pregnancy",
+        "preconception"
+      ],
+      "goals": [
+        "ttc",
+        "pregnant"
+      ],
+      "personas": [
+        "C1",
+        "C2",
+        "C6",
+        "C11",
+        "D1"
+      ],
+      "text": "NTDs happen in the first few weeks of pregnancy, often before you know you are pregnant. By the time you realize you're pregnant, it might be too late to prevent an NTD. That is why getting 400 mcg of folic acid before and during early pregnancy is important to help prevent NTDs."
+    },
+    {
+      "id": "cdc-art-what-is-art",
+      "kind": "passage",
+      "publisher": "CDC",
+      "title": "About ART | ART | CDC",
+      "url": "https://www.cdc.gov/art/about/index.html",
+      "retrieved": "2026-11-24",
+      "reviewed": "2024-11-22",
+      "licence": "US federal government work, public domain (17 U.S.C. §105)",
+      "topics": [
+        "IVF",
+        "in vitro fertilization",
+        "assisted reproductive technology",
+        "ART",
+        "egg freezing",
+        "embryo",
+        "fertility treatment",
+        "test tube baby"
+      ],
+      "goals": [
+        "ttc"
+      ],
+      "personas": [
+        "C10",
+        "C13",
+        "C14",
+        "C15",
+        "C3"
+      ],
+      "text": "In general, ART procedures involve surgically removing eggs from a woman's ovaries, combining them with sperm in the laboratory, and returning them to a female patient or a gestational carrier. ART also includes egg and embryo cryopreservation (freezing) and egg and embryo donation. The most common type of ART is in vitro fertilization (IVF)."
+    },
+    {
+      "id": "medlineplus-folic-acid-summary",
+      "kind": "passage",
+      "publisher": "MedlinePlus (NLM)",
+      "title": "Folic Acid | Folate | MedlinePlus",
+      "url": "https://medlineplus.gov/folicacid.html",
+      "retrieved": "2026-11-24",
+      "reviewed": "2023-07-13",
+      "licence": "US federal government work, public domain (17 U.S.C. §105)",
+      "topics": [
+        "folic acid",
+        "folate",
+        "birth defects",
+        "foods with folic acid",
+        "supplement",
+        "before pregnancy"
+      ],
+      "goals": [
+        "ttc",
+        "pregnant"
+      ],
+      "personas": [
+        "C1",
+        "C11",
+        "D1"
+      ],
+      "text": "Folic acid is a B vitamin. It helps the body make healthy new cells. Everyone needs folic acid. For women who may get pregnant, it is really important. Getting enough folic acid before and during pregnancy can prevent major birth defects of her baby's brain or spine. Foods with folic acid in them include: Leafy green vegetables Fruits Dried beans, peas, and nuts Enriched breads, cereals and other grain products If you don't get enough folic acid from the foods you eat, you can also take it as a dietary supplement."
+    },
+    {
+      "id": "medlineplus-infertility-definition",
+      "kind": "passage",
+      "publisher": "MedlinePlus (NLM)",
+      "title": "Infertility | Infertility Treatments | MedlinePlus",
+      "url": "https://medlineplus.gov/infertility.html",
+      "retrieved": "2026-11-24",
+      "reviewed": "2026-09-14",
+      "licence": "US federal government work, public domain (17 U.S.C. §105)",
+      "topics": [
+        "how long to try",
+        "how long should we try",
+        "see a doctor",
+        "12 months",
+        "6 months over 35",
+        "infertility definition",
+        "not getting pregnant",
+        "fertility",
+        "trying to conceive"
+      ],
+      "goals": [
+        "ttc"
+      ],
+      "personas": [
+        "C1",
+        "C2",
+        "C3",
+        "C4",
+        "C12"
+      ],
+      "text": "Infertility means not becoming pregnant after having frequent, unprotected sex for one year or longer. If you are age 35 or older, infertility can be diagnosed after six months. Infertility also includes situations where you can get pregnant, but the pregnancy ends in repeated miscarriage or stillbirth. Infertility is common. It can affect both men and women. Sometimes both partners contribute to the cause."
+    },
+    {
+      "id": "medlineplus-male-infertility",
+      "kind": "passage",
+      "publisher": "MedlinePlus (NLM)",
+      "title": "Male Infertility | Infertility | MedlinePlus",
+      "url": "https://medlineplus.gov/maleinfertility.html",
+      "retrieved": "2026-11-24",
+      "reviewed": "2024-08-07",
+      "licence": "US federal government work, public domain (17 U.S.C. §105)",
+      "topics": [
+        "male infertility",
+        "male factor",
+        "sperm",
+        "husband fertility",
+        "semen test",
+        "low sperm count",
+        "infertility in men",
+        "partner"
+      ],
+      "goals": [
+        "ttc"
+      ],
+      "personas": [
+        "C9",
+        "C2",
+        "C3",
+        "X2"
+      ],
+      "text": "Infertility is a term doctors use if a man hasn't been able to get a woman pregnant after at least one year of trying. Causes of male infertility include: Physical problems with the testicles Blockages in the ducts that carry sperm Hormone problems A history of high fevers or mumps Genetic disorders Lifestyle or environmental factors About a third of the time, infertility is because of a problem with the man. One third of the time, it is a problem with the woman. Sometimes no cause can be found."
+    },
+    {
+      "id": "medlineplus-gestational-diabetes",
+      "kind": "passage",
+      "publisher": "MedlinePlus (NLM)",
+      "title": "Gestational Diabetes | MedlinePlus",
+      "url": "https://medlineplus.gov/diabetesandpregnancy.html",
+      "retrieved": "2026-11-24",
+      "reviewed": "2024-10-29",
+      "licence": "US federal government work, public domain (17 U.S.C. §105)",
+      "topics": [
+        "gestational diabetes",
+        "GDM",
+        "pregnancy diabetes",
+        "glucose test",
+        "24 to 28 weeks",
+        "blood sugar in pregnancy",
+        "risk factors"
+      ],
+      "goals": [
+        "pregnant"
+      ],
+      "personas": [
+        "D3",
+        "D4",
+        "D12"
+      ],
+      "text": "What is gestational diabetes? Some people already have diabetes before they get pregnant. But others may develop diabetes during pregnancy. This type of diabetes is called gestational diabetes. It usually develops around the 24th week of pregnancy. It happens when your body can't make the extra insulin it needs during pregnancy."
+    },
+    {
+      "id": "medlineplus-preeclampsia-symptoms",
+      "kind": "passage",
+      "publisher": "MedlinePlus (NLM)",
+      "title": "High Blood Pressure in Pregnancy | MedlinePlus",
+      "url": "https://medlineplus.gov/highbloodpressureinpregnancy.html",
+      "retrieved": "2026-11-24",
+      "reviewed": "2024-05-29",
+      "licence": "US federal government work, public domain (17 U.S.C. §105)",
+      "topics": [
+        "preeclampsia symptoms",
+        "swelling face hands",
+        "headache that does not go away",
+        "vision problems",
+        "upper right abdominal pain",
+        "protein in urine",
+        "toxemia"
+      ],
+      "goals": [
+        "pregnant"
+      ],
+      "personas": [
+        "D6",
+        "D5",
+        "D1"
+      ],
+      "text": "Preeclampsia can cause other symptoms, including: Too much protein in your urine (called proteinuria). Swelling (edema) in your face and hands. Your feet may also swell, but many women have swollen feet during pregnancy. So swollen feet by themselves may not be a sign of a problem. A headache that does not go away. Vision problems, including blurred vision or seeing spots. Pain in your upper right abdomen (belly). Trouble breathing."
+    },
+    {
+      "id": "medlineplus-miscarriage",
+      "kind": "passage",
+      "publisher": "MedlinePlus (NLM)",
+      "title": "Miscarriage | Miscarriage Symptoms | MedlinePlus",
+      "url": "https://medlineplus.gov/pregnancyloss.html",
+      "retrieved": "2026-11-24",
+      "reviewed": "2025-07-02",
+      "licence": "US federal government work, public domain (17 U.S.C. §105)",
+      "topics": [
+        "miscarriage",
+        "what is a miscarriage",
+        "pregnancy loss",
+        "causes of miscarriage",
+        "before 20 weeks"
+      ],
+      "goals": [
+        "pregnant",
+        "ttc"
+      ],
+      "personas": [
+        "E6",
+        "C5",
+        "D2"
+      ],
+      "text": "A miscarriage is an unexpected loss of pregnancy before the 20th week. Most miscarriages happen very early in the pregnancy, often before a woman even knows she is pregnant. What causes a miscarriage? A miscarriage can happen in any pregnancy. Most miscarriages occur because the fetus doesn't develop properly. This is often linked to a genetic problem with the fetus, such as an extra or missing chromosome."
+    },
+    {
+      "id": "medlineplus-miscarriage-signs",
+      "kind": "passage",
+      "publisher": "MedlinePlus (NLM)",
+      "title": "Miscarriage | Miscarriage Symptoms | MedlinePlus",
+      "url": "https://medlineplus.gov/pregnancyloss.html",
+      "retrieved": "2026-11-24",
+      "reviewed": "2025-07-02",
+      "licence": "US federal government work, public domain (17 U.S.C. §105)",
+      "topics": [
+        "signs of miscarriage",
+        "bleeding in early pregnancy",
+        "spotting",
+        "cramping",
+        "miscarriage symptoms",
+        "when to call"
+      ],
+      "goals": [
+        "pregnant",
+        "ttc"
+      ],
+      "personas": [
+        "E6",
+        "C5",
+        "D2",
+        "D1"
+      ],
+      "text": "The signs of a miscarriage may be different for everyone and can vary based on how far along you are in your pregnancy. Signs of a miscarriage can include: Vaginal spotting or bleeding with or without pain. Some women may have some spotting in early pregnancy and don't miscarry. To be sure, contact your provider right away if you have any bleeding."
+    },
+    {
+      "id": "medlineplus-postpartum-care-recovery",
+      "kind": "passage",
+      "publisher": "MedlinePlus (NLM)",
+      "title": "Postpartum Care: MedlinePlus",
+      "url": "https://medlineplus.gov/postpartumcare.html",
+      "retrieved": "2026-11-24",
+      "reviewed": "2024-07-30",
+      "licence": "US federal government work, public domain (17 U.S.C. §105)",
+      "topics": [
+        "postpartum recovery",
+        "after birth",
+        "bleeding after birth",
+        "lochia",
+        "rest",
+        "swelling",
+        "cramping",
+        "milk leaking",
+        "six weeks"
+      ],
+      "goals": [
+        "pregnant"
+      ],
+      "personas": [
+        "E1",
+        "E4"
+      ],
+      "text": "Get as much rest as possible. You may find that all you can do is eat, sleep, and care for your baby. And that is perfectly okay. You will have spotting or bleeding, like a menstrual period, off and on for up to six weeks. You might also have swelling in your legs and feet, feel constipated, have menstrual-like cramping. Even if you are not breastfeeding, you can have milk leaking from your nipples, and your breasts might feel full, tender, or uncomfortable. Follow your doctor's instructions on how much activity, like climbing stairs or walking, you can do for the next few weeks."
+    },
+    {
+      "id": "medlineplus-breastfeeding-basics",
+      "kind": "passage",
+      "publisher": "MedlinePlus (NLM)",
+      "title": "Breastfeeding | Benefits of Breastfeeding | MedlinePlus",
+      "url": "https://medlineplus.gov/breastfeeding.html",
+      "retrieved": "2026-11-24",
+      "reviewed": "2026-10-01",
+      "licence": "US federal government work, public domain (17 U.S.C. §105)",
+      "topics": [
+        "breastfeeding",
+        "breast milk",
+        "nursing",
+        "six months",
+        "lactation consultant",
+        "benefits of breastfeeding",
+        "breastfeeding problems"
+      ],
+      "goals": [
+        "pregnant"
+      ],
+      "personas": [
+        "E2",
+        "E1"
+      ],
+      "text": "Women who don't have health problems should try to give their babies breast milk for at least the first six months of life. Most women with health problems can breastfeed. There are rare exceptions when women are advised not to breastfeed because they have certain illnesses. Some medicines, illegal drugs, and alcohol can also pass through the breast milk and cause harm to your baby. Check with your health care provider if you have concerns about whether you should breastfeed."
+    },
+    {
+      "id": "medlineplus-postpartum-depression",
+      "kind": "passage",
+      "publisher": "MedlinePlus (NLM)",
+      "title": "Postpartum Depression: MedlinePlus",
+      "url": "https://medlineplus.gov/postpartumdepression.html",
+      "retrieved": "2026-11-24",
+      "reviewed": "2025-12-09",
+      "licence": "US federal government work, public domain (17 U.S.C. §105)",
+      "topics": [
+        "postpartum depression",
+        "baby blues",
+        "PPD",
+        "mood after birth",
+        "two weeks",
+        "sad after baby",
+        "anxiety after birth"
+      ],
+      "goals": [
+        "pregnant"
+      ],
+      "personas": [
+        "E3",
+        "E4",
+        "D11"
+      ],
+      "text": "Having a baby can be exciting, but it can also be stressful and bring many strong emotions. During the postpartum period, which is the time after you give birth, you may have mood swings, crying spells, or feel anxious. These feelings are common and are often called the postpartum \"baby blues\". The baby blues usually go away within a few days to a week. If your symptoms are more severe and last longer than two weeks, you may have postpartum depression. Postpartum depression is a common but serious mood disorder that can begin anytime within the first year after childbirth."
+    },
+    {
+      "id": "medlineplus-pregnancy-weight-gain",
+      "kind": "passage",
+      "publisher": "MedlinePlus (NLM)",
+      "title": "Pregnancy and Nutrition | MedlinePlus",
+      "url": "https://medlineplus.gov/pregnancyandnutrition.html",
+      "retrieved": "2026-11-24",
+      "reviewed": "2024-04-30",
+      "licence": "US federal government work, public domain (17 U.S.C. §105)",
+      "topics": [
+        "weight gain in pregnancy",
+        "how much weight",
+        "how much should I gain",
+        "healthy weight gain",
+        "25 to 35 pounds",
+        "BMI"
+      ],
+      "goals": [
+        "pregnant"
+      ],
+      "personas": [
+        "D1",
+        "D12"
+      ],
+      "text": "How much weight you should gain depends on your health and how much you weighed before pregnancy: If you were at a normal weight before pregnancy, you should gain about 25 to 35 pounds If you were underweight before pregnancy, you should gain more If you were overweight or had obesity before you became pregnant, you should gain less Check with your provider to find out how much weight gain during pregnancy is healthy for you. You should gain the weight gradually during your pregnancy, with most of the weight gained in the last trimester."
+    },
+    {
+      "id": "medlineplus-pregnancy-healthy-habits",
+      "kind": "passage",
+      "publisher": "MedlinePlus (NLM)",
+      "title": "Pregnancy | Pregnant | Prenatal Care | MedlinePlus",
+      "url": "https://medlineplus.gov/pregnancy.html",
+      "retrieved": "2026-11-24",
+      "reviewed": "2025-06-09",
+      "licence": "US federal government work, public domain (17 U.S.C. §105)",
+      "topics": [
+        "healthy pregnancy",
+        "prenatal care",
+        "prenatal vitamins",
+        "medicines in pregnancy",
+        "staying active",
+        "alcohol",
+        "tobacco",
+        "what to eat"
+      ],
+      "goals": [
+        "pregnant"
+      ],
+      "personas": [
+        "D1",
+        "D2",
+        "D13"
+      ],
+      "text": "Take prenatal vitamins. During pregnancy, you need higher amounts of certain vitamins and minerals, such as folic acid and iron. Be careful with medicines. Always check with your provider before you start or stop any medicine. This includes over-the-counter medicines and dietary or herbal supplements. Stay active. Physical activity can help you stay strong, feel and sleep better, and prepare your body for birth. Check with your provider about which types of activities are right for you. Avoid substances that could hurt your baby, including alcohol, drugs, and tobacco."
+    },
+    {
+      "id": "owh-ttc-when-to-see-doctor",
+      "kind": "passage",
+      "publisher": "Office on Women's Health (womenshealth.gov)",
+      "title": "Trying to conceive",
+      "url": "https://www.womenshealth.gov/pregnancy/you-get-pregnant/trying-conceive",
+      "retrieved": "2026-11-24",
+      "reviewed": "2025-09-26",
+      "licence": "US federal government work, public domain (17 U.S.C. §105)",
+      "topics": [
+        "how long to try",
+        "how long should we try to conceive",
+        "when to see a doctor",
+        "fertility",
+        "12 months",
+        "one year",
+        "6 months if 35 or older",
+        "not pregnant yet",
+        "trying to conceive",
+        "infertility"
+      ],
+      "goals": [
+        "ttc"
+      ],
+      "personas": [
+        "C1",
+        "C2",
+        "C3",
+        "C12",
+        "C4"
+      ],
+      "text": "You should talk to your doctor about your fertility if: You are younger than 35 and have not been able to conceive after one year of frequent sex without birth control. You are age 35 or older and have not been able to conceive after six months of frequent sex without birth control. You believe you or your partner might have fertility problems in the future (even before you begin trying to get pregnant). You or your partner has a problem with sexual function or libido."
+    },
+    {
+      "id": "owh-ttc-fertile-window",
+      "kind": "passage",
+      "publisher": "Office on Women's Health (womenshealth.gov)",
+      "title": "Trying to conceive",
+      "url": "https://www.womenshealth.gov/pregnancy/you-get-pregnant/trying-conceive",
+      "retrieved": "2026-11-24",
+      "reviewed": "2025-09-26",
+      "licence": "US federal government work, public domain (17 U.S.C. §105)",
+      "topics": [
+        "fertile window",
+        "most fertile days",
+        "ovulation",
+        "when to have sex to conceive",
+        "sperm lifespan",
+        "basal body temperature",
+        "trying to conceive"
+      ],
+      "goals": [
+        "ttc"
+      ],
+      "personas": [
+        "C1",
+        "C6",
+        "C12",
+        "C11"
+      ],
+      "text": "You are most fertile and most likely to get pregnant: Two to three days before your temperature hits the highest point (ovulation) and 12 to 24 hours after ovulation A man's sperm can live for up to three days in a woman's body. The sperm can fertilize an egg at any point during that time. So if you have unprotected sex a few days before ovulation, you could get pregnant."
+    },
+    {
+      "id": "owh-pcos-can-i-get-pregnant",
+      "kind": "passage",
+      "publisher": "Office on Women's Health (womenshealth.gov)",
+      "title": "Polycystic ovary syndrome",
+      "url": "https://www.womenshealth.gov/a-z-topics/polycystic-ovary-syndrome",
+      "retrieved": "2026-11-24",
+      "reviewed": "2025-10-24",
+      "licence": "US federal government work, public domain (17 U.S.C. §105)",
+      "topics": [
+        "PCOS",
+        "can I get pregnant with PCOS",
+        "ovulation",
+        "infertility",
+        "treatable"
+      ],
+      "goals": [
+        "ttc",
+        "period"
+      ],
+      "personas": [
+        "C6"
+      ],
+      "text": "Yes. Having PCOS does not mean you can't get pregnant. PCOS is one of the most common, but treatable, causes of infertility in women. In women with PCOS, the hormonal imbalance interferes with the growth and release of eggs from the ovaries (ovulation). If you don't ovulate, you can't get pregnant. Your doctor can talk with you about ways to help you ovulate and to raise your chance of getting pregnant."
+    },
+    {
+      "id": "owh-preconception-five-things",
+      "kind": "passage",
+      "publisher": "Office on Women's Health (womenshealth.gov)",
+      "title": "Preconception health",
+      "url": "https://www.womenshealth.gov/pregnancy/you-get-pregnant/preconception-health",
+      "retrieved": "2026-11-24",
+      "reviewed": "2025-09-26",
+      "licence": "US federal government work, public domain (17 U.S.C. §105)",
+      "topics": [
+        "preconception health",
+        "before pregnancy",
+        "folic acid",
+        "prepare for pregnancy",
+        "stop smoking",
+        "medicines",
+        "vaccinations",
+        "planning pregnancy"
+      ],
+      "goals": [
+        "ttc"
+      ],
+      "personas": [
+        "C1",
+        "C11",
+        "C12",
+        "C8"
+      ],
+      "text": "The five most important things you can do for preconception health are: Take 400 to 800 micrograms (400 to 800 mcg or 0.4 to 0.8 mg) of folic acid every day if you are planning or capable of pregnancy to lower your risk of some birth defects of the brain and spine, including spina bifida. All women need folic acid every day. Talk to your doctor about your folic acid needs. Some doctors prescribe prenatal vitamins that contain higher amounts of folic acid. Stop smoking and drinking alcohol."
+    },
+    {
+      "id": "owh-partner-role-preconception",
+      "kind": "passage",
+      "publisher": "Office on Women's Health (womenshealth.gov)",
+      "title": "Preconception health",
+      "url": "https://www.womenshealth.gov/pregnancy/you-get-pregnant/preconception-health",
+      "retrieved": "2026-11-24",
+      "reviewed": "2025-09-26",
+      "licence": "US federal government work, public domain (17 U.S.C. §105)",
+      "topics": [
+        "partner support",
+        "husband role",
+        "male fertility",
+        "sperm health",
+        "preparing for pregnancy together",
+        "support"
+      ],
+      "goals": [
+        "ttc"
+      ],
+      "personas": [
+        "X2",
+        "C9",
+        "C1"
+      ],
+      "text": "Your partner can do a lot to support and encourage you in every aspect of preparing for pregnancy. Here are some ways: Make the decision about pregnancy together. When both partners intend for pregnancy, a woman is more likely to get early prenatal care and avoid risky behaviors such as smoking and drinking alcohol. Screening for and treating sexually transmitted infections (STIs) can help make sure infections are not passed to female partners. Male partners can improve their own reproductive health and overall health by limiting alcohol, quitting smoking or illegal drug use, making healthy food choices, and reducing stress. Studies show that men who drink a lot, smoke, or use drugs can have problems with their sperm."
+    },
+    {
+      "id": "owh-first-trimester-discomforts",
+      "kind": "passage",
+      "publisher": "Office on Women's Health (womenshealth.gov)",
+      "title": "Stages of pregnancy",
+      "url": "https://www.womenshealth.gov/pregnancy/youre-pregnant-now-what/stages-pregnancy",
+      "retrieved": "2026-11-24",
+      "reviewed": "2025-09-26",
+      "licence": "US federal government work, public domain (17 U.S.C. §105)",
+      "topics": [
+        "first trimester symptoms",
+        "morning sickness",
+        "nausea",
+        "tiredness",
+        "heartburn",
+        "constipation",
+        "pregnancy discomforts",
+        "early pregnancy"
+      ],
+      "goals": [
+        "pregnant"
+      ],
+      "personas": [
+        "D1",
+        "D15"
+      ],
+      "text": "During the first trimester your body undergoes many changes. Hormonal changes affect almost every organ system in your body. These changes can trigger symptoms even in the very first weeks of pregnancy. Your period stopping is a clear sign that you are pregnant. Other changes may include: Extreme tiredness Tender, swollen breasts. Your nipples might also stick out. Upset stomach with or without throwing up (morning sickness) Cravings or distaste for certain foods Mood swings Constipation (trouble having bowel movements) Need to pass urine more often Headache Heartburn Weight gain or loss"
+    },
+    {
+      "id": "owh-pregnancy-caffeine",
+      "kind": "passage",
+      "publisher": "Office on Women's Health (womenshealth.gov)",
+      "title": "Staying healthy and safe",
+      "url": "https://www.womenshealth.gov/pregnancy/youre-pregnant-now-what/staying-healthy-and-safe",
+      "retrieved": "2026-11-24",
+      "reviewed": "2025-09-26",
+      "licence": "US federal government work, public domain (17 U.S.C. §105)",
+      "topics": [
+        "caffeine",
+        "coffee",
+        "tea",
+        "200 mg",
+        "how much coffee",
+        "caffeine and miscarriage"
+      ],
+      "goals": [
+        "pregnant",
+        "ttc"
+      ],
+      "personas": [
+        "D1",
+        "D2"
+      ],
+      "text": "Moderate amounts of caffeine appear to be safe during pregnancy. Moderate means less than 200 mg of caffeine per day, which is the amount in about 12 ounces of coffee. Most caffeinated teas and soft drinks have much less caffeine. Some studies have shown a link between higher amounts of caffeine and miscarriage and preterm birth. But there is no solid proof that caffeine causes these problems."
+    },
+    {
+      "id": "owh-pregnancy-physical-activity",
+      "kind": "passage",
+      "publisher": "Office on Women's Health (womenshealth.gov)",
+      "title": "Staying healthy and safe",
+      "url": "https://www.womenshealth.gov/pregnancy/youre-pregnant-now-what/staying-healthy-and-safe",
+      "retrieved": "2026-11-24",
+      "reviewed": "2025-09-26",
+      "licence": "US federal government work, public domain (17 U.S.C. §105)",
+      "topics": [
+        "exercise in pregnancy",
+        "physical activity",
+        "safe exercise",
+        "walking",
+        "backache",
+        "sleep",
+        "gestational diabetes prevention"
+      ],
+      "goals": [
+        "pregnant"
+      ],
+      "personas": [
+        "D1",
+        "D3",
+        "D12"
+      ],
+      "text": "Special benefits of physical activity during pregnancy: Exercise can ease and prevent aches and pains of pregnancy including constipation, varicose veins, backaches, and exhaustion. Active women seem to be better prepared for labor and delivery and recover more quickly. Exercise may lower the risk of preeclampsia and gestational diabetes during pregnancy. Fit women have an easier time getting back to a healthy weight after delivery. Regular exercise may improve sleep during pregnancy. Staying active can protect your emotional health. Pregnant women who exercise seem to have better self-esteem and a lower risk of depression and anxiety."
+    },
+    {
+      "id": "owh-pregnancy-anemia-iron",
+      "kind": "passage",
+      "publisher": "Office on Women's Health (womenshealth.gov)",
+      "title": "Iron-deficiency anemia",
+      "url": "https://www.womenshealth.gov/a-z-topics/iron-deficiency-anemia",
+      "retrieved": "2026-11-24",
+      "reviewed": "2025-10-24",
+      "licence": "US federal government work, public domain (17 U.S.C. §105)",
+      "topics": [
+        "anemia in pregnancy",
+        "iron deficiency",
+        "low iron",
+        "iron needs",
+        "premature birth",
+        "low birth weight"
+      ],
+      "goals": [
+        "pregnant"
+      ],
+      "personas": [
+        "D10",
+        "D1"
+      ],
+      "text": "Do I need more iron during pregnancy? Yes. During pregnancy, your body needs more iron to support your growing baby. In fact, pregnant women need almost twice as much iron as women who are not pregnant do. Not getting enough iron during pregnancy raises your risk for premature birth or a low-birth-weight baby (less than 5 ½ pounds). Premature birth is the most common cause of infant death. Both premature birth and low birth weight raise your baby's risk for health and developmental problems at birth and during childhood."
+    },
+    {
+      "id": "owh-pregnancy-loss-coping",
+      "kind": "passage",
+      "publisher": "Office on Women's Health (womenshealth.gov)",
+      "title": "Pregnancy loss",
+      "url": "https://www.womenshealth.gov/pregnancy/youre-pregnant-now-what/pregnancy-loss",
+      "retrieved": "2026-11-24",
+      "reviewed": "2021-02-22",
+      "licence": "US federal government work, public domain (17 U.S.C. §105)",
+      "topics": [
+        "pregnancy loss grief",
+        "coping after miscarriage",
+        "grief",
+        "support group",
+        "counselor",
+        "stillbirth",
+        "feelings after loss"
+      ],
+      "goals": [
+        "pregnant",
+        "ttc"
+      ],
+      "personas": [
+        "E6",
+        "C5",
+        "D2"
+      ],
+      "text": "Turn to loved ones and friends for support. Share your feelings and ask for help when you need it. Talk to your partner about your loss. Keep in mind that men and women cope with loss in different ways. Take care of yourself. Eating healthy foods, keeping active, and getting enough sleep will help restore energy and well-being. Join a support group. A support group might help you to feel less alone. Do something in remembrance of your baby. Seek help from a grief counselor, especially if your grief doesn't ease with time."
+    },
+    {
+      "id": "owh-breastfeeding-partner-support",
+      "kind": "passage",
+      "publisher": "Office on Women's Health (womenshealth.gov)",
+      "title": "Preparing to breastfeed",
+      "url": "https://www.womenshealth.gov/breastfeeding/learning-breastfeed/preparing-breastfeed",
+      "retrieved": "2026-11-24",
+      "reviewed": "2021-02-22",
+      "licence": "US federal government work, public domain (17 U.S.C. §105)",
+      "topics": [
+        "partner support",
+        "husband help",
+        "family support",
+        "breastfeeding help",
+        "new parents"
+      ],
+      "goals": [
+        "pregnant"
+      ],
+      "personas": [
+        "X2",
+        "E2",
+        "E1"
+      ],
+      "text": "Talk to fathers, partners, and other family members about how they can help support your breastfeeding. Partners and family members can: Support your breastfeeding by being kind and encouraging Show their love and appreciation for all of the work that goes into breastfeeding Be good listeners if you need to talk about any breastfeeding concerns you might have Help make sure you have enough to eat and drink and get enough rest Help around the house Take care of any other children who are at home Give the baby love through playing, talking, and cuddling"
+    },
+    {
+      "id": "nichd-preeclampsia-overview",
+      "kind": "passage",
+      "publisher": "NICHD (NIH)",
+      "title": "Preeclampsia and Eclampsia | NICHD - Eunice Kennedy Shriver National Institute of Child Health and Human Development",
+      "url": "https://www.nichd.nih.gov/health/topics/preeclampsia",
+      "retrieved": "2026-11-24",
+      "reviewed": "2017-01-31",
+      "licence": "US federal government work, public domain (17 U.S.C. §105)",
+      "topics": [
+        "preeclampsia",
+        "eclampsia",
+        "high blood pressure disorders",
+        "pregnancy hypertension"
+      ],
+      "goals": [
+        "pregnant"
+      ],
+      "personas": [
+        "D6",
+        "D5"
+      ],
+      "text": "Preeclampsia (pree-i-KLAMP-see-uh) and eclampsia (ih-KLAMP-see-uh) are pregnancy-related high blood pressure disorders. In preeclampsia, the mother’s high blood pressure reduces the blood supply to the fetus, which may get less oxygen and fewer nutrients. Eclampsia is when pregnant women with preeclampsia develop seizures or coma. NICHD and other agencies are working to understand what causes these conditions and how they can be prevented and better treated."
+    },
+    {
+      "id": "niddk-gestational-diabetes-testing",
+      "kind": "passage",
+      "publisher": "NIDDK (NIH)",
+      "title": "Gestational Diabetes - NIDDK",
+      "url": "https://www.niddk.nih.gov/health-information/diabetes/overview/what-is-diabetes/gestational",
+      "retrieved": "2026-11-24",
+      "reviewed": "2017-05",
+      "licence": "US federal government work, public domain (17 U.S.C. §105)",
+      "topics": [
+        "gestational diabetes",
+        "glucose challenge test",
+        "OGTT",
+        "screening",
+        "24 to 28 weeks"
+      ],
+      "goals": [
+        "pregnant"
+      ],
+      "personas": [
+        "D3",
+        "D4"
+      ],
+      "text": "Your doctor will test you for gestational diabetes between 24 and 28 weeks of pregnancy. Tests include the glucose challenge test and the oral glucose tolerance test (OGTT). If the results of the glucose challenge test show high blood glucose, you will return for an OGTT test to confirm the diagnosis of gestational diabetes."
+    },
+    {
+      "id": "who-infertility-fact-sheet",
+      "kind": "link",
+      "publisher": "WHO",
+      "title": "Infertility",
+      "url": "https://www.who.int/news-room/fact-sheets/detail/infertility",
+      "retrieved": "2026-11-24",
+      "topics": [
+        "infertility",
+        "fertility",
+        "male factor",
+        "global statistics",
+        "causes"
+      ],
+      "goals": [
+        "ttc"
+      ],
+      "personas": [
+        "C2",
+        "C3",
+        "C9"
+      ],
+      "summaryEn": "WHO fact sheet on how common infertility is worldwide, its causes in women and men, and access to care."
+    },
+    {
+      "id": "who-infant-young-child-feeding",
+      "kind": "link",
+      "publisher": "WHO",
+      "title": "Infant and young child feeding",
+      "url": "https://www.who.int/news-room/fact-sheets/detail/infant-and-young-child-feeding",
+      "retrieved": "2026-11-24",
+      "topics": [
+        "breastfeeding",
+        "exclusive breastfeeding",
+        "infant feeding",
+        "weaning"
+      ],
+      "goals": [
+        "pregnant"
+      ],
+      "personas": [
+        "E2"
+      ],
+      "summaryEn": "WHO fact sheet with its breastfeeding and complementary-feeding recommendations and the evidence behind them."
+    },
+    {
+      "id": "nhs-infertility",
+      "kind": "link",
+      "publisher": "NHS",
+      "title": "Infertility - NHS",
+      "url": "https://www.nhs.uk/conditions/infertility/",
+      "retrieved": "2026-11-24",
+      "topics": [
+        "infertility",
+        "how long to try",
+        "see a doctor",
+        "IVF",
+        "fertility tests"
+      ],
+      "goals": [
+        "ttc"
+      ],
+      "personas": [
+        "C1",
+        "C2",
+        "C3",
+        "C10"
+      ],
+      "summaryEn": "NHS overview of when to see a GP about difficulty conceiving, common causes and the tests and treatments offered."
+    },
+    {
+      "id": "nhs-pre-eclampsia",
+      "kind": "link",
+      "publisher": "NHS",
+      "title": "Pre-eclampsia - NHS",
+      "url": "https://www.nhs.uk/conditions/pre-eclampsia/",
+      "retrieved": "2026-11-24",
+      "topics": [
+        "pre-eclampsia",
+        "preeclampsia",
+        "high blood pressure in pregnancy",
+        "warning signs"
+      ],
+      "goals": [
+        "pregnant"
+      ],
+      "personas": [
+        "D6",
+        "D5"
+      ],
+      "summaryEn": "NHS page on pre-eclampsia symptoms, who is at risk, and when to get urgent help."
+    },
+    {
+      "id": "nhs-gestational-diabetes",
+      "kind": "link",
+      "publisher": "NHS",
+      "title": "Gestational diabetes - NHS",
+      "url": "https://www.nhs.uk/conditions/gestational-diabetes/",
+      "retrieved": "2026-11-24",
+      "topics": [
+        "gestational diabetes",
+        "GDM",
+        "glucose test",
+        "blood sugar"
+      ],
+      "goals": [
+        "pregnant"
+      ],
+      "personas": [
+        "D3"
+      ],
+      "summaryEn": "NHS guide to testing for, managing and living with diabetes that starts in pregnancy."
+    },
+    {
+      "id": "nhs-postnatal-depression",
+      "kind": "link",
+      "publisher": "NHS",
+      "title": "Postnatal depression - NHS",
+      "url": "https://www.nhs.uk/mental-health/conditions/post-natal-depression/overview/",
+      "retrieved": "2026-11-24",
+      "topics": [
+        "postnatal depression",
+        "postpartum depression",
+        "baby blues",
+        "mood after birth"
+      ],
+      "goals": [
+        "pregnant"
+      ],
+      "personas": [
+        "E3",
+        "E4"
+      ],
+      "summaryEn": "NHS overview of postnatal depression symptoms, how it differs from the baby blues, and where to get help."
+    },
+    {
+      "id": "acog-evaluating-infertility",
+      "kind": "link",
+      "publisher": "ACOG",
+      "title": "Evaluating Infertility | ACOG",
+      "url": "https://www.acog.org/womens-health/faqs/evaluating-infertility",
+      "retrieved": "2026-11-24",
+      "topics": [
+        "infertility tests",
+        "fertility evaluation",
+        "semen analysis",
+        "ovulation tests"
+      ],
+      "goals": [
+        "ttc"
+      ],
+      "personas": [
+        "C2",
+        "C3",
+        "C9"
+      ],
+      "summaryEn": "ACOG patient FAQ on how infertility is evaluated in women and men and which tests to expect."
+    },
+    {
+      "id": "acog-preeclampsia-high-blood-pressure",
+      "kind": "link",
+      "publisher": "ACOG",
+      "title": "Preeclampsia and High Blood Pressure During Pregnancy | ACOG",
+      "url": "https://www.acog.org/womens-health/faqs/preeclampsia-and-high-blood-pressure-during-pregnancy",
+      "retrieved": "2026-11-24",
+      "topics": [
+        "preeclampsia",
+        "high blood pressure in pregnancy",
+        "gestational hypertension",
+        "warning signs"
+      ],
+      "goals": [
+        "pregnant"
+      ],
+      "personas": [
+        "D5",
+        "D6"
+      ],
+      "summaryEn": "ACOG patient FAQ on types of high blood pressure in pregnancy, warning signs and how they are monitored."
+    },
+    {
+      "id": "rcog-heavy-bleeding-after-birth",
+      "kind": "link",
+      "publisher": "RCOG",
+      "title": "Heavy bleeding after birth (postpartum haemorrhage) | RCOG",
+      "url": "https://www.rcog.org.uk/for-the-public/browse-our-patient-information/heavy-bleeding-after-birth-postpartum-haemorrhage/",
+      "retrieved": "2026-11-24",
+      "topics": [
+        "postpartum haemorrhage",
+        "heavy bleeding after birth",
+        "recovery after birth"
+      ],
+      "goals": [
+        "pregnant"
+      ],
+      "personas": [
+        "E1",
+        "E4"
+      ],
+      "summaryEn": "RCOG patient leaflet on postpartum haemorrhage: who is at risk, how it is treated and recovery afterwards."
+    },
+    {
+      "id": "rcog-healthy-eating-vitamins-pregnancy",
+      "kind": "link",
+      "publisher": "RCOG",
+      "title": "Healthy eating and vitamin supplements in pregnancy | RCOG",
+      "url": "https://www.rcog.org.uk/for-the-public/browse-our-patient-information/healthy-eating-and-vitamin-supplements-in-pregnancy/",
+      "retrieved": "2026-11-24",
+      "topics": [
+        "nutrition in pregnancy",
+        "folic acid",
+        "vitamin D",
+        "foods to avoid",
+        "healthy eating"
+      ],
+      "goals": [
+        "ttc",
+        "pregnant"
+      ],
+      "personas": [
+        "D1",
+        "D10"
+      ],
+      "summaryEn": "RCOG patient leaflet on eating well, foods to avoid and which vitamin supplements are advised in pregnancy."
+    },
+    {
+      "id": "nice-fertility-problems-cg156",
+      "kind": "link",
+      "publisher": "NICE",
+      "title": "Fertility problems: assessment and treatment | Guidance | NICE",
+      "url": "https://www.nice.org.uk/guidance/cg156",
+      "retrieved": "2026-11-24",
+      "topics": [
+        "fertility problems",
+        "IVF",
+        "when to refer",
+        "how long to try",
+        "fertility assessment"
+      ],
+      "goals": [
+        "ttc"
+      ],
+      "personas": [
+        "C1",
+        "C2",
+        "C3",
+        "C10"
+      ],
+      "summaryEn": "NICE clinical guideline on assessing and treating fertility problems, including when to refer and what IVF involves."
+    },
+    {
+      "id": "nice-postnatal-care-ng194",
+      "kind": "link",
+      "publisher": "NICE",
+      "title": "Overview | Postnatal care | Guidance | NICE",
+      "url": "https://www.nice.org.uk/guidance/ng194",
+      "retrieved": "2026-11-24",
+      "topics": [
+        "postnatal care",
+        "postpartum recovery",
+        "warning signs after birth",
+        "breastfeeding support"
+      ],
+      "goals": [
+        "pregnant"
+      ],
+      "personas": [
+        "E1",
+        "E2",
+        "E4"
+      ],
+      "summaryEn": "NICE guideline on routine care for mothers and babies in the first weeks after birth and recognising complications."
+    },
+    {
+      "id": "medlineplus-period-pain-self-care",
+      "kind": "passage",
+      "publisher": "MedlinePlus (NLM)",
+      "title": "Period Pain",
+      "url": "https://medlineplus.gov/periodpain.html",
+      "retrieved": "2026-11-24",
+      "reviewed": "2024-08-12",
+      "licence": "US federal government work, public domain (17 U.S.C. §105)",
+      "topics": [
+        "period pain",
+        "cramps",
+        "menstrual cramps",
+        "painful periods",
+        "dysmenorrhea",
+        "what helps period pain",
+        "ease cramps",
+        "heating pad"
+      ],
+      "goals": [
+        "period",
+        "ttc"
+      ],
+      "personas": [
+        "B3",
+        "B1",
+        "B7"
+      ],
+      "text": "Many women have painful periods, also called dysmenorrhea. The pain is most often menstrual cramps, which are a throbbing, cramping pain in your lower abdomen. To help ease your period pain, you can try:\n- Using a heating pad or hot water bottle on your lower abdomen\n- Getting some exercise\n- Taking a hot bath\n- Doing relaxation techniques, including yoga and meditation\nIt may also help to get enough rest and avoid using alcohol and tobacco."
+    },
+    {
+      "id": "medlineplus-period-pain-when-to-call",
+      "kind": "passage",
+      "publisher": "MedlinePlus (NLM)",
+      "title": "Period Pain",
+      "url": "https://medlineplus.gov/periodpain.html",
+      "retrieved": "2026-11-24",
+      "reviewed": "2024-08-12",
+      "licence": "US federal government work, public domain (17 U.S.C. §105)",
+      "topics": [
+        "period pain",
+        "cramps",
+        "menstrual cramps",
+        "painful periods",
+        "severe cramps",
+        "when to see a doctor",
+        "fever with period"
+      ],
+      "goals": [
+        "period",
+        "ttc"
+      ],
+      "personas": [
+        "B3",
+        "B7"
+      ],
+      "text": "For many women, some pain during your period is normal. However, you should contact your health care provider if:\n- NSAIDs and self-care measures don't help, and the pain interferes with your life\n- Your cramps suddenly get worse\n- You are over 25 and you get severe cramps for the first time\n- You have a fever with your period pain\n- You have the pain even when you are not getting your period"
+    }
+  ]
+}

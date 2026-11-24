@@ -3,7 +3,8 @@
 //
 // Why it exists: the most common thing a tracker owes her is a clear page to show a doctor.
 // Every number here is counted from what she logged; nothing is interpreted. The questions
-// come from a fixed, reviewed bank (ARB keys `visitQ_<id>`), chosen by rules; on a phone with
+// come from fixed, reviewed banks (ARB keys `visitQ_<id>`): the rule bank below and the sourced
+// persona catalogue (`tip_catalogue.g.dart`, ADR-079), chosen on the phone; on a phone with
 // Gemini Nano the model may reorder the rule picks, never add to them. No threshold is new:
 // the TTC suggestion reuses the seek-help clock (MR-13, MR-14) and "irregular" is the
 // prediction's own flag.
@@ -13,6 +14,8 @@ import '../cycle_prediction.dart';
 import '../dates.dart';
 import '../guidance.dart';
 import '../log_vocabulary.g.dart';
+import 'personal_triggers.dart';
+import 'tip_catalogue.g.dart';
 
 /// How far back the summary looks at symptoms and moods.
 const visitWindowDays = 90;
@@ -31,7 +34,8 @@ const maxVisitQuestions = 5;
 /// in the ARB files (`visitQ_<id>`); [visitQuestionEnglish] is the same text for the model.
 const visitQuestionEnglish = <String, String>{
   'cycleSpread': 'My cycle lengths vary. Is that worth looking into?',
-  'ttcTests': 'Given how long we have been trying, which checks would you suggest?',
+  'ttcTests':
+      'Given how long we have been trying, which checks would you suggest?',
   'ovulation': 'How can we find out whether I am ovulating?',
   'folicAcid': 'Should I be taking folic acid now?',
   'painfulPeriods': 'My period pain affects my days. What can help?',
@@ -39,11 +43,35 @@ const visitQuestionEnglish = <String, String>{
   'moodCycle': 'My mood changes a lot around my period. Can we talk about it?',
   'skinHair': 'I have skin or hair changes along with irregular cycles. Should these be checked together?',
   'tiredness': 'I often feel tired. Is anything worth checking?',
-  'menopause': 'Could my symptoms be linked to perimenopause, and what are my options?',
+  'menopause':
+      'Could my symptoms be linked to perimenopause, and what are my options?',
   'pregnancyNext': 'What should I look out for before our next visit?',
-  'pregnancyMovements': "When should I start paying attention to the baby's movements?",
-  'anythingElse': 'Is there anything in my log you would like to look at more closely?',
+  'pregnancyMovements':
+      "When should I start paying attention to the baby's movements?",
+  'anythingElse':
+      'Is there anything in my log you would like to look at more closely?',
 };
+
+/// A catalogue question that, when chosen, replaces the questions that ask the same thing.
+const _supersedes = <String, List<String>>{
+  'ttcOverThirtyFiveSooner': ['ttcTests', 'checksForCouple'],
+  'checksForCouple': ['ttcTests'],
+  'irregularTryingNow': ['ttcTests'],
+  'painCauseChecks': ['painfulPeriods'],
+  'heavyAndTiredBloodTest': ['heavyPeriods', 'tiredness'],
+  'irregularCauses': ['cycleSpread'],
+  'periodsStoppedChecks': ['cycleSpread'],
+  'irregularAcneChecks': ['skinHair'],
+  'thyroidCheckIrregular': ['skinHair'],
+  'diaryReviewCycle': ['moodCycle'],
+  'movementsCallWho': ['pregnancyMovements'],
+  'hotFlushOptions': ['menopause'],
+  'thyroidAfterBirth': ['tiredness'],
+};
+
+/// The English text of any question id, from either bank, for the model that orders them.
+String? questionEnglish(String id) =>
+    visitQuestionEnglish[id] ?? catalogueQuestionEnglish[id];
 
 /// One term and on how many days in the window she logged it.
 class TermCount {
@@ -93,29 +121,36 @@ class VisitSummary {
   final int temperatureDays;
   final TryingFor? tryingFor;
 
-  /// Suggested question ids from [visitQuestionEnglish], at most [maxVisitQuestions].
+  /// Suggested question ids from either bank (see [questionEnglish]), at most
+  /// [maxVisitQuestions].
   final List<String> questionIds;
 
   /// The facts as short English lines, for the on-device model that orders the questions.
   /// Counts and keys only; no date, no name.
   String factsInEnglish() => [
     'Goal: ${goal.name}.',
-    if (cyclesObserved > 0) 'Cycles logged: $cyclesObserved, from $shortestCycle to $longestCycle days.',
+    if (cyclesObserved > 0)
+      'Cycles logged: $cyclesObserved, from $shortestCycle to $longestCycle days.',
     if (irregular) 'Cycles described as irregular.',
     if (tryingFor != null) 'Trying to conceive for: ${tryingFor!.name}.',
-    if (topTerms.isNotEmpty) 'Logged often: ${topTerms.map((t) => '${t.key} (${t.days} days)').join(', ')}.',
+    if (topTerms.isNotEmpty)
+      'Logged often: ${topTerms.map((t) => '${t.key} (${t.days} days)').join(', ')}.',
     if (heavyDays > 0) 'Heavy flow days: $heavyDays.',
-    if (positiveOvulationTests > 0) 'Positive ovulation tests: $positiveOvulationTests.',
+    if (positiveOvulationTests > 0)
+      'Positive ovulation tests: $positiveOvulationTests.',
   ].join('\n');
 }
 
 /// Builds the summary from [profile] as of [today] (ISO date).
 VisitSummary visitSummary(Profile profile, String today) {
   final starts = bleedStarts(profile.periodStarts);
-  final lengths = <int>[for (var i = 1; i < starts.length; i++) diffDays(starts[i - 1], starts[i])]
-      .where((d) => d > 0)
-      .toList();
-  final prediction = predictNextPeriod(profile.periodStarts, profile.cycleLength);
+  final lengths = <int>[
+    for (var i = 1; i < starts.length; i++) diffDays(starts[i - 1], starts[i]),
+  ].where((d) => d > 0).toList();
+  final prediction = predictNextPeriod(
+    profile.periodStarts,
+    profile.cycleLength,
+  );
   final irregular = profile.irregular || (prediction?.irregular ?? false);
 
   final from = addDays(today, -visitWindowDays);
@@ -135,38 +170,81 @@ VisitSummary visitSummary(Profile profile, String today) {
     for (final t in logTerms)
       if (t.elevated || t.dimension == LogDimension.intercourse) t.key,
   };
-  final top = counts.entries.where((e) => order.containsKey(e.key) && !elevated.contains(e.key)).toList()
-    ..sort((a, b) => b.value != a.value ? b.value.compareTo(a.value) : order[a.key]!.compareTo(order[b.key]!));
+  final top =
+      counts.entries
+          .where((e) => order.containsKey(e.key) && !elevated.contains(e.key))
+          .toList()
+        ..sort(
+          (a, b) => b.value != a.value
+              ? b.value.compareTo(a.value)
+              : order[a.key]!.compareTo(order[b.key]!),
+        );
 
   int days(String key) => counts[key] ?? 0;
-  bool often(List<String> keys) => keys.fold<int>(0, (s, k) => s + days(k)) >= oftenLoggedDays;
-  final age = profile.birthYear == null ? null : int.parse(today.substring(0, 4)) - profile.birthYear!;
+  bool often(List<String> keys) =>
+      keys.fold<int>(0, (s, k) => s + days(k)) >= oftenLoggedDays;
+  final age = profile.birthYear == null
+      ? null
+      : int.parse(today.substring(0, 4)) - profile.birthYear!;
   final ttc = profile.goal == Goal.ttc;
-  final pregnant = profile.goal == Goal.pregnant;
-  final ids = <String>[
-    if (!pregnant && irregular) 'cycleSpread',
-    if (ttc && ttcGuidance(tryingFor: profile.tryingFor, age: age, irregular: irregular).suggestClinician) 'ttcTests',
+  final pregnant = profile.goal == Goal.pregnant && profile.birthDate == null;
+  final afterBirth = profile.goal == Goal.pregnant && profile.birthDate != null;
+  final cycling = !pregnant && !afterBirth;
+  final fits = fitting(visitQuestionCatalogue, triggerContext(profile, today));
+  final rules = <String>[
+    if (cycling && irregular) 'cycleSpread',
+    if (ttc &&
+        ttcGuidance(
+          tryingFor: profile.tryingFor,
+          age: age,
+          irregular: irregular,
+        ).suggestClinician)
+      'ttcTests',
     if (ttc && (irregular || positive == 0)) 'ovulation',
     if (ttc) 'folicAcid',
     if (pregnant) 'pregnancyNext',
     if (pregnant) 'pregnancyMovements',
-    if (!pregnant && often(['cramps', 'backache'])) 'painfulPeriods',
-    if (!pregnant && heavy >= 2) 'heavyPeriods',
-    if (often(['moodSwings', 'irritable', 'sad', 'anxious', 'tearfulness'])) 'moodCycle',
-    if (!pregnant && irregular && often(['acne', 'hairThinning', 'weightChange'])) 'skinHair',
+    if (cycling && often(['cramps', 'backache'])) 'painfulPeriods',
+    if (cycling && heavy >= 2) 'heavyPeriods',
+    if (cycling &&
+        often(['moodSwings', 'irritable', 'sad', 'anxious', 'tearfulness']))
+      'moodCycle',
+    if (cycling && irregular && often(['acne', 'hairThinning', 'weightChange']))
+      'skinHair',
     if (often(['fatigue'])) 'tiredness',
-    if (profile.goal == Goal.menopause || often(['hotFlashes', 'nightSweats'])) 'menopause',
+    if (profile.goal == Goal.menopause ||
+        (cycling && often(['hotFlashes', 'nightSweats'])))
+      'menopause',
   ];
-  final questions = [...ids.take(maxVisitQuestions - 1), 'anythingElse'];
+  // Catalogue questions with a personal condition first, then the rule bank, then the
+  // catalogue's general questions for her stage.
+  final ids = <String>{
+    for (final f in fits)
+      if (f.trigger.specificity > 0) f.id,
+    ...rules,
+    for (final f in fits)
+      if (f.trigger.specificity == 0) f.id,
+  };
+  final replaced = {for (final id in ids) ...?_supersedes[id]};
+  final questions = [
+    ...ids.where((id) => !replaced.contains(id)).take(maxVisitQuestions - 1),
+    'anythingElse',
+  ];
 
   return VisitSummary(
     goal: profile.goal,
     cyclesObserved: lengths.length,
-    shortestCycle: lengths.isEmpty ? null : lengths.reduce((a, b) => a < b ? a : b),
-    longestCycle: lengths.isEmpty ? null : lengths.reduce((a, b) => a > b ? a : b),
+    shortestCycle: lengths.isEmpty
+        ? null
+        : lengths.reduce((a, b) => a < b ? a : b),
+    longestCycle: lengths.isEmpty
+        ? null
+        : lengths.reduce((a, b) => a > b ? a : b),
     lastPeriodStart: starts.isEmpty ? null : starts.last,
     irregular: irregular,
-    topTerms: [for (final e in top.take(maxListedTerms)) TermCount(e.key, e.value)],
+    topTerms: [
+      for (final e in top.take(maxListedTerms)) TermCount(e.key, e.value),
+    ],
     heavyDays: heavy,
     positiveOvulationTests: positive,
     temperatureDays: temps,
@@ -184,5 +262,9 @@ List<String> reorderQuestions(List<String> ruleIds, List<String> modelOrder) {
     for (final id in modelOrder)
       if (core.contains(id)) id,
   ];
-  return [...ranked, ...core.where((id) => !ranked.contains(id)), if (ruleIds.contains('anythingElse')) 'anythingElse'];
+  return [
+    ...ranked,
+    ...core.where((id) => !ranked.contains(id)),
+    if (ruleIds.contains('anythingElse')) 'anythingElse',
+  ];
 }

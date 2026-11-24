@@ -1,46 +1,57 @@
-// "Ask femio": a health question answered from trusted sources (ADR-078 §1, §3).
+// "Ask femio": a health question answered only from trusted sources (ADR-078 §1, ADR-079).
 //
 // Why it exists: she wants answers, not only articles, and the owner ruled the answers must come
-// from trusted sources (WHO, NHS, CDC, the societies), not from femio's own guides. The flow:
+// from trusted sources, not from a model's memory. The flow, all decided on the phone:
 //   1. the safety rules run first (danger signs open help; birth control gets the fixed answer);
-//   2. a question about her is rewritten as a general one on the phone (Gemini Nano), or by her;
-//   3. she sees, can edit, and approves the exact text before it leaves the phone;
-//   4. only a [CloudSafeText] reaches the cloud model, which searches Google;
-//   5. the answer shows only when a source is on femio's trusted list, with every source and
-//      Google's search suggestions listed, plus femio's own guides as related reading.
+//   2. the bundled registry is searched on the phone; if no passage answers, femio says
+//      "not covered" and shows trusted links and guides instead of guessing;
+//   3. with Gemini Nano, the passages are summarised on the phone (ONLY_ON_DEVICE), even for a
+//      question about her, because nothing leaves the phone;
+//   4. without Nano, and only if she switched Cloud boost on, a general question she approves
+//      (a CloudSafeText) and the public passages may go to the hybrid call;
+//   5. otherwise she reads the passages word for word. Every answer lists its sources.
 
 import 'package:flutter/material.dart';
 
 import '../../app.dart';
-import '../../data/assistant_channel.dart';
 import '../../data/guide_text.dart';
 import '../../data/library.dart';
 import '../../data/profile.dart';
+import '../../data/trusted_registry.dart';
+import '../../domain/dates.dart';
+import '../../domain/assistant/cloud_prompt.dart';
 import '../../domain/assistant/guide_search.dart';
 import '../../domain/assistant/prompts.dart';
 import '../../domain/assistant/redaction.dart';
 import '../../domain/assistant/safety.dart';
-import '../../domain/assistant/trusted_sources.dart';
+import '../../domain/assistant/source_registry.dart';
 import '../../l10n/app_localizations.dart';
 import '../../theme/femio_theme.dart';
-import '../../theme/radii.dart';
 import '../../theme/spacing.dart';
-import '../../theme/tokens.g.dart' show FemioPalette;
-import '../../theme/type_sizes.dart';
 import '../../widgets/notice_card.dart';
 import '../learn/article_screen.dart';
+import 'answer_card.dart';
 import 'assistant_scope.dart';
 import 'safety_notice.dart';
-import 'search_suggestions.dart';
 
-enum _Stage { asking, confirming, searching, answered }
+enum _Stage { asking, confirming, working, answered }
 
-/// The Ask femio screen. [library] supplies the related guides; [controller] tells the safety
-/// rules whether she is pregnant.
+/// Wraps [s] in a left-to-right isolate (U+2066 … U+2069) so Arabic text around it does not
+/// reorder its digits and dots.
+String _ltrIsolate(String s) => '${String.fromCharCode(0x2066)}$s${String.fromCharCode(0x2069)}';
+
+/// The Ask femio screen. [library] supplies the related guides; [controller] supplies her life
+/// stage (for the safety rules and ranking) and her Cloud boost choice.
 class AskScreen extends StatefulWidget {
-  const AskScreen({super.key, required this.controller, this.library});
+  const AskScreen({super.key, required this.controller, this.library, this.registry, this.today});
   final FemioController controller;
   final Library? library;
+
+  /// The registry to search; tests pass one, the app loads the bundled file.
+  final SourceRegistry? registry;
+
+  /// Fixes the date in tests; the app reads the clock.
+  final String? today;
 
   @override
   State<AskScreen> createState() => _AskScreenState();
@@ -52,10 +63,12 @@ class _AskScreenState extends State<AskScreen> {
   _Stage _stage = _Stage.asking;
   SafetySignal _signal = SafetySignal.none;
   String? _note;
-  String? _error;
-  bool _cloud = false;
-  GroundedAnswer? _answer;
+  RegistryAnswer? _found;
+  CitedAnswer? _summary;
+  AnswerOrigin _origin = AnswerOrigin.verbatim;
+  String _registryVersion = '';
   List<GuideHit> _guides = const [];
+  Map<String, Article> _articles = const {};
 
   @override
   void dispose() {
@@ -64,7 +77,7 @@ class _AskScreenState extends State<AskScreen> {
     super.dispose();
   }
 
-  bool get _pregnant => widget.controller.profile?.goal == Goal.pregnant;
+  Profile? get _profile => widget.controller.profile;
 
   Future<void> _ask() async {
     final q = _question.text.trim();
@@ -72,44 +85,64 @@ class _AskScreenState extends State<AskScreen> {
     final l = L10n.of(context);
     final bridge = AssistantScope.of(context);
     final lang = Localizations.localeOf(context).languageCode;
+    final profile = _profile;
     setState(() {
-      _signal = safetySignal(q, pregnant: _pregnant);
-      _answer = null;
-      _error = null;
+      _signal = profile == null ? safetySignal(q, pregnant: false) : safetySignalFor(q, profile, _today());
+      _found = null;
+      _summary = null;
       _note = null;
+      _origin = AnswerOrigin.verbatim;
     });
     _guides = await _related(q, lang);
     if (_signal != SafetySignal.none) {
-      setState(() => _stage = _Stage.asking);
+      if (mounted) setState(() => _stage = _Stage.asking);
+      return;
+    }
+    setState(() => _stage = _Stage.working);
+    final registry = widget.registry ?? await loadTrustedRegistry();
+    _registryVersion = registry.version;
+    final found = searchRegistry(q, registry, goal: profile?.goal.name);
+    if (found.notCovered) {
+      if (mounted) setState(() => (_found = found, _stage = _Stage.answered));
       return;
     }
     final status = await bridge.status();
-    _cloud = status.canAskCloud;
-    if (!_cloud) {
+    if (status.canRunPrivate) {
+      // Her own words may be read here: ONLY_ON_DEVICE, nothing leaves the phone.
+      final reply = await bridge.runPrivate(answerPrompt(q, _numbered(found), lang));
+      final parsed = reply == null ? null : parseAnswer(reply, found.passages.length);
+      if (!mounted) return;
       setState(() {
+        _found = found;
+        _summary = parsed;
+        _origin = parsed == null ? AnswerOrigin.verbatim : AnswerOrigin.onPhone;
         _stage = _Stage.answered;
-        _error = l.askNotSetUp;
       });
       return;
     }
-    var outgoing = q;
-    if (isAboutHer(q)) {
-      final rewrite = status.canRunPrivate ? await bridge.runPrivate(generalisePrompt(q)) : null;
-      final general = rewrite == null ? '' : parseGeneralised(rewrite);
-      outgoing = general.isNotEmpty && !isAboutHer(general) ? general : q;
-      _note = general.isNotEmpty && !isAboutHer(general) ? l.askPersonalRewritten : l.askPersonalSelf;
-    }
+    final boost = profile?.settings.cloudBoost ?? false;
+    final safe = toCloudSafe(q);
     if (!mounted) return;
     setState(() {
-      _outgoing.text = outgoing;
-      _stage = _Stage.confirming;
+      _found = found;
+      if (boost && status.canRunHybrid && safe != null) {
+        _outgoing.text = safe.value;
+        _stage = _Stage.confirming;
+      } else {
+        if (boost && safe == null) _note = l.askAboutYouStays;
+        _stage = _Stage.answered;
+      }
     });
   }
 
+  /// Sends the general question she approved, with the public passages, to the hybrid call.
   Future<void> _send() async {
     final l = L10n.of(context);
+    final found = _found;
+    if (found == null) return;
     final text = _outgoing.text.trim();
-    final signal = safetySignal(text, pregnant: _pregnant);
+    final profile = _profile;
+    final signal = profile == null ? safetySignal(text, pregnant: false) : safetySignalFor(text, profile, _today());
     if (signal != SafetySignal.none) {
       setState(() => _signal = signal);
       return;
@@ -121,41 +154,44 @@ class _AskScreenState extends State<AskScreen> {
     }
     final bridge = AssistantScope.of(context);
     final lang = Localizations.localeOf(context).languageCode;
-    setState(() => _stage = _Stage.searching);
-    final answer = await bridge.askGrounded(safe, instruction: answerInstruction(lang));
+    setState(() => _stage = _Stage.working);
+    final reply = await bridge.runHybrid(CloudPrompt.answer(safe, found.passages, lang));
+    final parsed = reply == null ? null : parseAnswer(reply.text, found.passages.length);
     if (!mounted) return;
     setState(() {
+      _summary = parsed;
+      _origin = parsed == null ? AnswerOrigin.verbatim : (reply!.onDevice ? AnswerOrigin.onPhone : AnswerOrigin.cloud);
+      if (parsed == null) _note = l.askModelFellBack;
       _stage = _Stage.answered;
-      if (answer == null) {
-        _error = l.askFailed;
-      } else if (!hasTrustedSource(answer.sources)) {
-        _error = l.askNoTrusted;
-      } else {
-        _answer = answer;
-      }
     });
   }
+
+  /// Shows the passages word for word instead of sending anything.
+  void _skipCloud() => setState(() => _stage = _Stage.answered);
+
+  List<({String publisher, String text})> _numbered(RegistryAnswer a) => [
+    for (final p in a.passages) (publisher: p.publisher, text: p.text),
+  ];
+
+  String _today() => widget.today ?? todayISO();
 
   Future<List<GuideHit>> _related(String q, String lang) async {
     final library = widget.library;
     if (library == null) return const [];
     try {
       final articles = await library.articles(lang);
-      final byText = {for (final a in articles) a.slug: a};
-      _articles = byText;
+      _articles = {for (final a in articles) a.slug: a};
       return searchGuides(q, [for (final a in articles) guideTextOf(a)]);
     } on Object {
       return const [];
     }
   }
 
-  Map<String, Article> _articles = const {};
-
   void _reset() => setState(() {
     _stage = _Stage.asking;
     _signal = SafetySignal.none;
-    _answer = null;
-    _error = null;
+    _found = null;
+    _summary = null;
     _note = null;
     _guides = const [];
     _question.clear();
@@ -166,7 +202,8 @@ class _AskScreenState extends State<AskScreen> {
     final l = L10n.of(context);
     final p = context.palette;
     final t = Theme.of(context).textTheme;
-    final bridge = AssistantScope.of(context);
+    final found = _found;
+    final done = _stage == _Stage.answered || _signal != SafetySignal.none;
 
     return Scaffold(
       appBar: AppBar(title: Text(l.askTitle)),
@@ -194,11 +231,9 @@ class _AskScreenState extends State<AskScreen> {
               SafetyNotice(signal: _signal, library: widget.library),
             ],
             if (_stage == _Stage.confirming) ...[
-              if (_note != null) ...[
-                const SizedBox(height: space4),
-                NoticeCard(tone: NoticeTone.quiet, heading: l.askTitle, body: _note!),
-              ],
               const SizedBox(height: space4),
+              NoticeCard(tone: NoticeTone.quiet, heading: l.askBoostHeading, body: l.askBoostConfirm),
+              const SizedBox(height: space3),
               Text(l.askWillSend, style: t.titleSmall),
               const SizedBox(height: space2),
               TextField(
@@ -208,26 +243,30 @@ class _AskScreenState extends State<AskScreen> {
                 decoration: const InputDecoration(border: OutlineInputBorder()),
               ),
               const SizedBox(height: space2),
-              _privacyRow(p, t, l.askCloudPrivacy),
+              PrivacyRow(text: l.askCloudPrivacy),
               const SizedBox(height: space3),
-              FilledButton.icon(
-                onPressed: _send,
-                icon: const Icon(Icons.travel_explore_rounded),
-                label: Text(l.askSend),
-              ),
+              FilledButton.icon(onPressed: _send, icon: const Icon(Icons.cloud_outlined), label: Text(l.askSend)),
+              const SizedBox(height: space2),
+              OutlinedButton(onPressed: _skipCloud, child: Text(l.askReadSourcesInstead)),
             ],
-            if (_stage == _Stage.searching) ...[
+            if (_stage == _Stage.working) ...[
               const SizedBox(height: space6),
               const Center(child: CircularProgressIndicator()),
               const SizedBox(height: space3),
               Center(child: Text(l.askSearching, style: t.bodyMedium)),
             ],
-            if (_stage == _Stage.answered && _error != null) ...[
+            if (_note != null && _stage == _Stage.answered) ...[
               const SizedBox(height: space4),
-              NoticeCard(tone: NoticeTone.caution, heading: l.askTitle, body: _error!),
+              NoticeCard(tone: NoticeTone.quiet, heading: l.askTitle, body: _note!),
             ],
-            if (_answer != null) ..._answerBlock(context, _answer!, bridge),
-            if (_guides.isNotEmpty && (_stage == _Stage.answered || _signal != SafetySignal.none)) ...[
+            if (_stage == _Stage.answered && found != null && found.notCovered) ...[
+              const SizedBox(height: space4),
+              NoticeCard(tone: NoticeTone.caution, heading: l.askNotCoveredHeading, body: l.askNotCovered),
+            ],
+            if (_stage == _Stage.answered && found != null && !found.notCovered)
+              AnswerCard(answer: found, summary: _summary, origin: _origin),
+            if (_stage == _Stage.answered && found != null && found.links.isNotEmpty) LinksBlock(links: found.links),
+            if (_guides.isNotEmpty && done) ...[
               const SizedBox(height: space5),
               Semantics(header: true, child: Text(l.askRelatedGuides, style: t.titleMedium)),
               for (final g in _guides)
@@ -243,7 +282,12 @@ class _AskScreenState extends State<AskScreen> {
                         ),
                 ),
             ],
-            if (_stage == _Stage.answered || _signal != SafetySignal.none) ...[
+            if (_stage == _Stage.answered && _registryVersion.isNotEmpty) ...[
+              const SizedBox(height: space3),
+              // The version is Latin digits and dots; isolate it so Arabic text does not reorder it.
+              Text(l.askRegistryVersion(_ltrIsolate(_registryVersion)), style: t.bodySmall),
+            ],
+            if (done) ...[
               const SizedBox(height: space4),
               OutlinedButton(onPressed: _reset, child: Text(l.askSearchAgain)),
             ],
@@ -252,62 +296,4 @@ class _AskScreenState extends State<AskScreen> {
       ),
     );
   }
-
-  List<Widget> _answerBlock(BuildContext context, GroundedAnswer a, AssistantBridge bridge) {
-    final l = L10n.of(context);
-    final p = context.palette;
-    final t = Theme.of(context).textTheme;
-    return [
-      const SizedBox(height: space4),
-      Container(
-        padding: const EdgeInsets.all(space4),
-        decoration: BoxDecoration(
-          color: p.surface,
-          borderRadius: BorderRadius.circular(radiusMd),
-          border: Border.all(color: p.border),
-        ),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Row(
-              children: [
-                Icon(Icons.verified_rounded, size: iconSizeInline, color: p.successText),
-                const SizedBox(width: space1h),
-                Expanded(child: Text(l.askAnswerLabel, style: t.labelMedium)),
-              ],
-            ),
-            const SizedBox(height: space2),
-            SelectableText(a.text, style: t.bodyLarge),
-            const SizedBox(height: space3),
-            Text(l.askClinicianLine, style: t.bodySmall),
-          ],
-        ),
-      ),
-      if (a.suggestionsHtml != null && a.suggestionsHtml!.isNotEmpty) ...[
-        const SizedBox(height: space3),
-        SearchSuggestions(html: a.suggestionsHtml!),
-      ],
-      const SizedBox(height: space4),
-      Semantics(header: true, child: Text(l.askSourcesTitle, style: t.titleMedium)),
-      for (final s in a.sources)
-        ListTile(
-          contentPadding: EdgeInsets.zero,
-          leading: Icon(
-            s.trusted ? Icons.verified_outlined : Icons.public_rounded,
-            color: s.trusted ? p.successText : p.textSubtle,
-          ),
-          title: Text(s.title, textDirection: TextDirection.ltr),
-          subtitle: Text(s.trusted ? l.askTrustedBadge : l.askOtherSource),
-          onTap: () => bridge.openSource(s.uri),
-        ),
-    ];
-  }
-
-  Widget _privacyRow(FemioPalette p, TextTheme t, String text) => Row(
-    children: [
-      Icon(Icons.lock_outline_rounded, size: iconSizeInline, color: p.textSubtle),
-      const SizedBox(width: space1h),
-      Expanded(child: Text(text, style: t.bodySmall)),
-    ],
-  );
 }

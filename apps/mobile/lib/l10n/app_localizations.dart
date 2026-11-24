@@ -2651,6 +2651,30 @@ abstract class L10n {
   /// **'femio is not a way to avoid pregnancy and can\'t advise on it. A doctor, pharmacist or family-planning clinic can help you choose a method.'**
   String get safetyBirthControl;
 
+  /// No description provided for @safetyHeavyBleedingHeading.
+  ///
+  /// In en, this message translates to:
+  /// **'Heavy bleeding with dizziness'**
+  String get safetyHeavyBleedingHeading;
+
+  /// No description provided for @safetyHeavyBleedingBody.
+  ///
+  /// In en, this message translates to:
+  /// **'ACOG says: “If you are changing pads or tampons every hour for more than 2 hours in a row, and you also have chest pain, have shortness of breath, and are lightheaded or dizzy, seek emergency medical care right away.” If that is you, call your local emergency number now. If heavy bleeding worries you, talk to your doctor.'**
+  String get safetyHeavyBleedingBody;
+
+  /// No description provided for @safetyPostpartumHeading.
+  ///
+  /// In en, this message translates to:
+  /// **'A warning sign after birth'**
+  String get safetyPostpartumHeading;
+
+  /// No description provided for @safetyPostpartumBody.
+  ///
+  /// In en, this message translates to:
+  /// **'In the year after birth, CDC\'s Hear Her campaign says to get medical care immediately for an urgent warning sign, such as heavy bleeding, a fever, a headache that won\'t go away or a swollen leg. Call your doctor or midwife now, or your local emergency number.'**
+  String get safetyPostpartumBody;
+
   /// No description provided for @askTitle.
   ///
   /// In en, this message translates to:
@@ -2660,7 +2684,7 @@ abstract class L10n {
   /// No description provided for @askIntro.
   ///
   /// In en, this message translates to:
-  /// **'Ask a health question. femio looks for the answer in trusted sources such as WHO, NHS and CDC, and shows you where it came from.'**
+  /// **'Ask a health question. femio answers only from trusted health sources it carries on your phone, such as CDC, MedlinePlus and the Office on Women\'s Health, and shows where every sentence came from.'**
   String get askIntro;
 
   /// No description provided for @askHint.
@@ -2675,28 +2699,16 @@ abstract class L10n {
   /// **'Ask'**
   String get askAction;
 
-  /// No description provided for @askPersonalRewritten.
-  ///
-  /// In en, this message translates to:
-  /// **'Your question is about you, so only a general version with no personal details may leave your phone. Check it below.'**
-  String get askPersonalRewritten;
-
-  /// No description provided for @askPersonalSelf.
-  ///
-  /// In en, this message translates to:
-  /// **'Your question is about you. Rewrite it below as a general question, without “I”, “my” or personal details, and femio will look it up.'**
-  String get askPersonalSelf;
-
   /// No description provided for @askWillSend.
   ///
   /// In en, this message translates to:
-  /// **'This is exactly what will be sent to Google to search trusted sources:'**
+  /// **'This is exactly the question that will be sent, with the public sources:'**
   String get askWillSend;
 
   /// No description provided for @askSend.
   ///
   /// In en, this message translates to:
-  /// **'Search trusted sources'**
+  /// **'Summarise with Cloud boost'**
   String get askSend;
 
   /// No description provided for @askStillPersonal.
@@ -2708,56 +2720,20 @@ abstract class L10n {
   /// No description provided for @askCloudPrivacy.
   ///
   /// In en, this message translates to:
-  /// **'Only the question shown is sent. Nothing from your log is.'**
+  /// **'Only this question and the public sources are sent. Nothing from your log is.'**
   String get askCloudPrivacy;
 
   /// No description provided for @askSearching.
   ///
   /// In en, this message translates to:
-  /// **'Searching trusted sources…'**
+  /// **'Reading trusted sources…'**
   String get askSearching;
-
-  /// No description provided for @askFailed.
-  ///
-  /// In en, this message translates to:
-  /// **'femio couldn\'t reach the sources right now. Try again later.'**
-  String get askFailed;
-
-  /// No description provided for @askNotSetUp.
-  ///
-  /// In en, this message translates to:
-  /// **'Searching trusted sources isn\'t switched on in this version. Here are femio\'s guides on the topic.'**
-  String get askNotSetUp;
-
-  /// No description provided for @askNoTrusted.
-  ///
-  /// In en, this message translates to:
-  /// **'femio found no answer from a trusted health source, so it won\'t show one. Try asking another way, or talk to your doctor.'**
-  String get askNoTrusted;
-
-  /// No description provided for @askAnswerLabel.
-  ///
-  /// In en, this message translates to:
-  /// **'From trusted sources, found with Google'**
-  String get askAnswerLabel;
 
   /// No description provided for @askSourcesTitle.
   ///
   /// In en, this message translates to:
   /// **'Sources'**
   String get askSourcesTitle;
-
-  /// No description provided for @askTrustedBadge.
-  ///
-  /// In en, this message translates to:
-  /// **'Trusted source'**
-  String get askTrustedBadge;
-
-  /// No description provided for @askOtherSource.
-  ///
-  /// In en, this message translates to:
-  /// **'Not on femio\'s trusted list'**
-  String get askOtherSource;
 
   /// No description provided for @askClinicianLine.
   ///
@@ -2776,6 +2752,96 @@ abstract class L10n {
   /// In en, this message translates to:
   /// **'Ask another question'**
   String get askSearchAgain;
+
+  /// No description provided for @askAboutYouStays.
+  ///
+  /// In en, this message translates to:
+  /// **'Your question is about you, so it stays on this phone. Here are the sources word for word.'**
+  String get askAboutYouStays;
+
+  /// No description provided for @askModelFellBack.
+  ///
+  /// In en, this message translates to:
+  /// **'The AI could not write an answer that cites its sources, so here they are word for word.'**
+  String get askModelFellBack;
+
+  /// No description provided for @askBoostHeading.
+  ///
+  /// In en, this message translates to:
+  /// **'Cloud boost'**
+  String get askBoostHeading;
+
+  /// No description provided for @askBoostConfirm.
+  ///
+  /// In en, this message translates to:
+  /// **'This phone has no on-phone AI. With Cloud boost, Google\'s cloud AI can summarise these public sources for you. Check the question first.'**
+  String get askBoostConfirm;
+
+  /// No description provided for @askReadSourcesInstead.
+  ///
+  /// In en, this message translates to:
+  /// **'Read the sources instead'**
+  String get askReadSourcesInstead;
+
+  /// No description provided for @askNotCoveredHeading.
+  ///
+  /// In en, this message translates to:
+  /// **'Not covered yet'**
+  String get askNotCoveredHeading;
+
+  /// No description provided for @askNotCovered.
+  ///
+  /// In en, this message translates to:
+  /// **'femio\'s trusted sources don\'t answer this, so femio won\'t guess. Try other words, read the links below, or ask your doctor.'**
+  String get askNotCovered;
+
+  /// No description provided for @askRegistryVersion.
+  ///
+  /// In en, this message translates to:
+  /// **'Trusted sources library {version}'**
+  String askRegistryVersion(String version);
+
+  /// No description provided for @askAnswerOnPhone.
+  ///
+  /// In en, this message translates to:
+  /// **'Summarised on your phone by Gemini Nano, from the sources below'**
+  String get askAnswerOnPhone;
+
+  /// No description provided for @askAnswerCloud.
+  ///
+  /// In en, this message translates to:
+  /// **'Summarised by Google\'s cloud AI (Cloud boost), from the sources below'**
+  String get askAnswerCloud;
+
+  /// No description provided for @askVerbatimLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Word for word from trusted sources'**
+  String get askVerbatimLabel;
+
+  /// No description provided for @askEnglishNote.
+  ///
+  /// In en, this message translates to:
+  /// **'These sources are in English. femio shows them word for word so nothing is lost in translation.'**
+  String get askEnglishNote;
+
+  /// No description provided for @askReadMore.
+  ///
+  /// In en, this message translates to:
+  /// **'Read more from trusted organisations'**
+  String get askReadMore;
+
+  /// No description provided for @askSourceCopied.
+  ///
+  /// In en, this message translates to:
+  /// **'{publisher} · copied {date}'**
+  String askSourceCopied(String publisher, String date);
+
+  /// No description provided for @askSourceReviewed.
+  ///
+  /// In en, this message translates to:
+  /// **'{publisher} · reviewed {date}'**
+  String askSourceReviewed(String publisher, String date);
 
   /// No description provided for @visitButton.
   ///
@@ -2954,7 +3020,7 @@ abstract class L10n {
   /// No description provided for @assistantSettingsSub.
   ///
   /// In en, this message translates to:
-  /// **'AI on your phone, and answers from trusted sources'**
+  /// **'AI on your phone, trusted sources and Cloud boost'**
   String get assistantSettingsSub;
 
   /// No description provided for @assistantOnDeviceTitle.
@@ -2996,26 +3062,686 @@ abstract class L10n {
   /// No description provided for @assistantCloudTitle.
   ///
   /// In en, this message translates to:
-  /// **'Answers from trusted sources'**
+  /// **'Cloud boost'**
   String get assistantCloudTitle;
 
   /// No description provided for @assistantCloudOn.
   ///
   /// In en, this message translates to:
-  /// **'On. Only general questions you approve are sent to Google, never your log.'**
+  /// **'On. Used only when this phone has no on-phone AI.'**
   String get assistantCloudOn;
 
   /// No description provided for @assistantCloudOff.
   ///
   /// In en, this message translates to:
-  /// **'Not switched on in this version.'**
+  /// **'Off. Everything is done on this phone.'**
   String get assistantCloudOff;
 
   /// No description provided for @assistantHowItWorks.
   ///
   /// In en, this message translates to:
-  /// **'Everything about you stays on your phone. Your notes and your log are read by femio\'s rules and, where your phone has it, by Gemini Nano on the phone. Safety rules always come first: signs of danger open the help page, and femio never advises on avoiding pregnancy. A general question you approve may be sent to Google to find an answer from trusted health sources; femio shows those sources with every answer.'**
+  /// **'Everything about you stays on your phone. Your notes and your log are read by femio\'s rules and, where your phone has it, by Gemini Nano on the phone. Safety rules always come first: signs of danger open the help page, and femio never advises on avoiding pregnancy. Ask femio answers only from trusted health sources carried in the app and shows them with every answer. Cloud boost is off unless you turn it on.'**
   String get assistantHowItWorks;
+
+  /// No description provided for @assistantCloudNotBuilt.
+  ///
+  /// In en, this message translates to:
+  /// **'Not available in this version of the app.'**
+  String get assistantCloudNotBuilt;
+
+  /// No description provided for @boostTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Cloud boost'**
+  String get boostTitle;
+
+  /// No description provided for @boostIntro.
+  ///
+  /// In en, this message translates to:
+  /// **'Some phones have no on-phone AI. On those phones, Cloud boost lets Google\'s cloud AI, through Firebase, summarise trusted sources and put your tips in order. It is off unless you turn it on, and you can turn it off at any time.'**
+  String get boostIntro;
+
+  /// No description provided for @boostSendsHeading.
+  ///
+  /// In en, this message translates to:
+  /// **'What may be sent'**
+  String get boostSendsHeading;
+
+  /// No description provided for @boostSendsQuestion.
+  ///
+  /// In en, this message translates to:
+  /// **'General questions with no personal details, which you see and approve before anything is sent.'**
+  String get boostSendsQuestion;
+
+  /// No description provided for @boostSendsBands.
+  ///
+  /// In en, this message translates to:
+  /// **'These broad facts, exactly as shown, to choose tips for you:'**
+  String get boostSendsBands;
+
+  /// No description provided for @boostStageLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Life stage'**
+  String get boostStageLabel;
+
+  /// No description provided for @boostStage.
+  ///
+  /// In en, this message translates to:
+  /// **'{value, select, period{Tracking periods} ttc{Trying to conceive} pregnant{Pregnant} postpartum{After birth} menopause{Menopause} other{Not set}}'**
+  String boostStage(String value);
+
+  /// No description provided for @boostRegularityLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Cycle regularity'**
+  String get boostRegularityLabel;
+
+  /// No description provided for @boostRegularity.
+  ///
+  /// In en, this message translates to:
+  /// **'{value, select, regular{Regular} variable{Varies} unknown{Not known yet} notApplicable{Not tracked now} other{Not known yet}}'**
+  String boostRegularity(String value);
+
+  /// No description provided for @boostCategoriesLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Kinds of symptom logged in the last month'**
+  String get boostCategoriesLabel;
+
+  /// No description provided for @boostCategory.
+  ///
+  /// In en, this message translates to:
+  /// **'{value, select, pain{Pain} mood{Mood} digestion{Digestion} sleepAndEnergy{Sleep and energy} skinAndHair{Skin and hair} hotFlashes{Hot flashes} bladder{Bladder} other{Other}}'**
+  String boostCategory(String value);
+
+  /// No description provided for @boostNone.
+  ///
+  /// In en, this message translates to:
+  /// **'None'**
+  String get boostNone;
+
+  /// No description provided for @boostStreakLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Logging streak'**
+  String get boostStreakLabel;
+
+  /// No description provided for @boostStreak.
+  ///
+  /// In en, this message translates to:
+  /// **'{value, select, none{None} underAWeek{Under a week} weeks{A few weeks} overAMonth{Over a month} other{None}}'**
+  String boostStreak(String value);
+
+  /// No description provided for @boostNeverHeading.
+  ///
+  /// In en, this message translates to:
+  /// **'What is never sent'**
+  String get boostNeverHeading;
+
+  /// No description provided for @boostNever.
+  ///
+  /// In en, this message translates to:
+  /// **'Your notes, dates, log entries, cycle lengths, name, contacts, or anything that identifies you or this phone.'**
+  String get boostNever;
+
+  /// No description provided for @boostTurnOn.
+  ///
+  /// In en, this message translates to:
+  /// **'Turn on Cloud boost'**
+  String get boostTurnOn;
+
+  /// No description provided for @boostTurnOff.
+  ///
+  /// In en, this message translates to:
+  /// **'Turn off Cloud boost'**
+  String get boostTurnOff;
+
+  /// No description provided for @boostNotNow.
+  ///
+  /// In en, this message translates to:
+  /// **'Not now'**
+  String get boostNotNow;
+
+  /// No description provided for @tip_trackDatesHelps.
+  ///
+  /// In en, this message translates to:
+  /// **'Noting your period dates in the app helps you see your own pattern and gives a clinician clear facts.'**
+  String get tip_trackDatesHelps;
+
+  /// No description provided for @tip_periodLongerThanSeven.
+  ///
+  /// In en, this message translates to:
+  /// **'A period that lasts longer than 7 days is worth mentioning to a clinician.'**
+  String get tip_periodLongerThanSeven;
+
+  /// No description provided for @tip_bleedingBetweenPeriods.
+  ///
+  /// In en, this message translates to:
+  /// **'Bleeding between periods is worth mentioning to a clinician, so the cause can be looked into.'**
+  String get tip_bleedingBetweenPeriods;
+
+  /// No description provided for @tip_irregularCheckIn.
+  ///
+  /// In en, this message translates to:
+  /// **'Cycles shorter than 21 or longer than 35 days are called irregular. Mention this to a clinician, who can look at your dates with you.'**
+  String get tip_irregularCheckIn;
+
+  /// No description provided for @tip_stoppedThreeMonths.
+  ///
+  /// In en, this message translates to:
+  /// **'A period that stops for more than three months without a clear reason is worth a clinician\'s check, whatever your age.'**
+  String get tip_stoppedThreeMonths;
+
+  /// No description provided for @tip_irregularWithOtherSigns.
+  ///
+  /// In en, this message translates to:
+  /// **'Irregular periods together with other changes, such as acne or extra hair growth, are worth mentioning to a clinician.'**
+  String get tip_irregularWithOtherSigns;
+
+  /// No description provided for @tip_periodPainSeeClinician.
+  ///
+  /// In en, this message translates to:
+  /// **'Period pain that stops you doing your usual daily activities is a reason to see a clinician.'**
+  String get tip_periodPainSeeClinician;
+
+  /// No description provided for @tip_severePainUrgent.
+  ///
+  /// In en, this message translates to:
+  /// **'If pelvic or period pain is severe or worse than usual and painkillers have not helped, ask for urgent medical advice.'**
+  String get tip_severePainUrgent;
+
+  /// No description provided for @tip_symptomDiaryBeforeVisit.
+  ///
+  /// In en, this message translates to:
+  /// **'Before a visit about period problems, a diary of your symptoms across the whole cycle gives your clinician a detailed picture of what happens and when.'**
+  String get tip_symptomDiaryBeforeVisit;
+
+  /// No description provided for @tip_heavyOrTired.
+  ///
+  /// In en, this message translates to:
+  /// **'Periods that keep you from daily activities, or leave you tired or short of breath a lot, can be signs of heavy periods. A clinician can help.'**
+  String get tip_heavyOrTired;
+
+  /// No description provided for @tip_pmsDiary.
+  ///
+  /// In en, this message translates to:
+  /// **'Keeping a diary of your symptoms for at least two cycles helps a clinician see whether they follow your period.'**
+  String get tip_pmsDiary;
+
+  /// No description provided for @tip_headachesAroundPeriod.
+  ///
+  /// In en, this message translates to:
+  /// **'Headaches that come regularly before or during your period are worth mentioning to a clinician. A headache diary next to your period dates helps.'**
+  String get tip_headachesAroundPeriod;
+
+  /// No description provided for @tip_urineInfectionSeeClinician.
+  ///
+  /// In en, this message translates to:
+  /// **'If you think you may have a urine infection, it is important to see a clinician. A urine test can tell.'**
+  String get tip_urineInfectionSeeClinician;
+
+  /// No description provided for @tip_leakingUrineTellClinician.
+  ///
+  /// In en, this message translates to:
+  /// **'If you leak urine, it is worth telling a clinician, whatever the type or cause.'**
+  String get tip_leakingUrineTellClinician;
+
+  /// No description provided for @tip_cervicalScreeningTip.
+  ///
+  /// In en, this message translates to:
+  /// **'Cervical screening looks for early cell changes in the cervix. Ask your clinic whether you are due.'**
+  String get tip_cervicalScreeningTip;
+
+  /// No description provided for @tip_ttcOneYear.
+  ///
+  /// In en, this message translates to:
+  /// **'If a year of trying has passed without a pregnancy, it is a good idea to see a clinician and have the common causes checked.'**
+  String get tip_ttcOneYear;
+
+  /// No description provided for @tip_ttcAgeSixMonths.
+  ///
+  /// In en, this message translates to:
+  /// **'At 35 or older, it is advised to see a clinician after six months of trying, not twelve.'**
+  String get tip_ttcAgeSixMonths;
+
+  /// No description provided for @tip_ttcIrregularNoWait.
+  ///
+  /// In en, this message translates to:
+  /// **'With irregular or no periods, it is worth talking to a clinician about trying to conceive without waiting a full year.'**
+  String get tip_ttcIrregularNoWait;
+
+  /// No description provided for @tip_regularSexTakesTime.
+  ///
+  /// In en, this message translates to:
+  /// **'Most couples where the woman is under 40 conceive within a year of regular sex every 2 to 3 days. It can take time.'**
+  String get tip_regularSexTakesTime;
+
+  /// No description provided for @tip_testingTooEarly.
+  ///
+  /// In en, this message translates to:
+  /// **'Testing very early can give a false negative, because the pregnancy hormone may not have built up yet. Follow the test\'s own instructions.'**
+  String get tip_testingTooEarly;
+
+  /// No description provided for @tip_folicAcidBeforePregnancy.
+  ///
+  /// In en, this message translates to:
+  /// **'Folic acid, a B vitamin, is advised from at least a month before pregnancy. Ask a clinician how to get enough.'**
+  String get tip_folicAcidBeforePregnancy;
+
+  /// No description provided for @tip_talkBeforeTrying.
+  ///
+  /// In en, this message translates to:
+  /// **'It is a good idea to talk to a clinician before trying to get pregnant. They can help you get your body ready.'**
+  String get tip_talkBeforeTrying;
+
+  /// No description provided for @tip_tryingIsStressful.
+  ///
+  /// In en, this message translates to:
+  /// **'Trying to conceive can be stressful. Counselling and support groups may help you cope; you can ask a clinician about them.'**
+  String get tip_tryingIsStressful;
+
+  /// No description provided for @tip_movementsChangeCallNow.
+  ///
+  /// In en, this message translates to:
+  /// **'If your baby moves less than usual or the usual pattern changes, call your midwife or maternity unit at once, even in the middle of the night.'**
+  String get tip_movementsChangeCallNow;
+
+  /// No description provided for @tip_firstMovementsBy24.
+  ///
+  /// In en, this message translates to:
+  /// **'You should start to feel your baby move between 16 and 24 weeks. If there has been no movement by 24 weeks, tell your midwife.'**
+  String get tip_firstMovementsBy24;
+
+  /// No description provided for @tip_preeclampsiaSigns.
+  ///
+  /// In en, this message translates to:
+  /// **'A severe headache that painkillers do not ease, vision problems, pain below the ribs or sudden swelling need checking at once. Call your maternity unit.'**
+  String get tip_preeclampsiaSigns;
+
+  /// No description provided for @tip_antenatalChecksMatter.
+  ///
+  /// In en, this message translates to:
+  /// **'Blood pressure and urine checks at antenatal visits can find changes you cannot feel, so try to keep every appointment.'**
+  String get tip_antenatalChecksMatter;
+
+  /// No description provided for @tip_screeningVersusDiagnostic.
+  ///
+  /// In en, this message translates to:
+  /// **'Two kinds of tests are offered to every pregnant woman: screening tests, which show a chance, and follow-up tests, which give a firmer answer. Ask which suit you.'**
+  String get tip_screeningVersusDiagnostic;
+
+  /// No description provided for @tip_glucoseScreening.
+  ///
+  /// In en, this message translates to:
+  /// **'All pregnant women should be screened for gestational diabetes. Ask your midwife or doctor when yours is planned.'**
+  String get tip_glucoseScreening;
+
+  /// No description provided for @tip_rhBloodGroup.
+  ///
+  /// In en, this message translates to:
+  /// **'A simple blood test shows your blood type and Rh status, usually at your first antenatal visit. Ask what yours is and whether it matters for your care.'**
+  String get tip_rhBloodGroup;
+
+  /// No description provided for @tip_mainScanBetween18And21.
+  ///
+  /// In en, this message translates to:
+  /// **'A detailed scan is usually done between 18 and 21 weeks. It checks your baby\'s growth and looks for certain conditions.'**
+  String get tip_mainScanBetween18And21;
+
+  /// No description provided for @tip_severeSicknessTellEarly.
+  ///
+  /// In en, this message translates to:
+  /// **'If you are being sick often and cannot keep food down, tell your midwife or doctor as soon as you can, so they can help you keep fluids down.'**
+  String get tip_severeSicknessTellEarly;
+
+  /// No description provided for @tip_itchTellMidwife.
+  ///
+  /// In en, this message translates to:
+  /// **'Itching is common in pregnancy and is usually not serious. Still, tell your midwife or doctor about it so it can be checked.'**
+  String get tip_itchTellMidwife;
+
+  /// No description provided for @tip_pretermLabourSigns.
+  ///
+  /// In en, this message translates to:
+  /// **'Signs of early labour include contractions every 10 minutes or more often, leaking fluid or bleeding, pelvic pressure and a low, dull backache. Contact your provider.'**
+  String get tip_pretermLabourSigns;
+
+  /// No description provided for @tip_tirednessInPregnancy.
+  ///
+  /// In en, this message translates to:
+  /// **'Tiredness in pregnancy has many causes, and anaemia is one of them. Mention ongoing tiredness to your midwife or doctor.'**
+  String get tip_tirednessInPregnancy;
+
+  /// No description provided for @tip_lowMoodPerinatal.
+  ///
+  /// In en, this message translates to:
+  /// **'Feeling low is common in pregnancy and after birth, and support is available. Tell your midwife, doctor or health visitor, even if you only have some of the signs.'**
+  String get tip_lowMoodPerinatal;
+
+  /// No description provided for @tip_anxietyInPregnancy.
+  ///
+  /// In en, this message translates to:
+  /// **'Anxiety in pregnancy can often be helped with talking therapy. Tell your midwife or doctor how you really feel.'**
+  String get tip_anxietyInPregnancy;
+
+  /// No description provided for @tip_warningSignsPregnancyAndYear.
+  ///
+  /// In en, this message translates to:
+  /// **'Some warning signs need care at once, in pregnancy and for a year after birth: a headache that will not go away, vision changes, fever, trouble breathing, severe belly pain.'**
+  String get tip_warningSignsPregnancyAndYear;
+
+  /// No description provided for @tip_postnatalCheckSixToEight.
+  ///
+  /// In en, this message translates to:
+  /// **'A postnatal check around 6 to 8 weeks after birth makes sure you feel well and are recovering. Write down your questions to take along.'**
+  String get tip_postnatalCheckSixToEight;
+
+  /// No description provided for @tip_painfulFeedsGetHelp.
+  ///
+  /// In en, this message translates to:
+  /// **'If you are putting off feeds because breastfeeding hurts, get help from a lactation consultant.'**
+  String get tip_painfulFeedsGetHelp;
+
+  /// No description provided for @tip_tirednessAfterBirthThyroid.
+  ///
+  /// In en, this message translates to:
+  /// **'Tiredness after birth has many causes. Thyroid inflammation affects about 1 in 20 women in the first year after birth, so mention lasting tiredness to a clinician.'**
+  String get tip_tirednessAfterBirthThyroid;
+
+  /// No description provided for @tip_bleedingUpToSixWeeks.
+  ///
+  /// In en, this message translates to:
+  /// **'Spotting or bleeding like a period, on and off, can last up to six weeks after birth. Tell a clinician if you are worried.'**
+  String get tip_bleedingUpToSixWeeks;
+
+  /// No description provided for @tip_babyBluesPassing.
+  ///
+  /// In en, this message translates to:
+  /// **'Feeling down, anxious or irritable for a few days after birth is very common and usually passes within 2 weeks. If it lasts longer, tell a clinician.'**
+  String get tip_babyBluesPassing;
+
+  /// No description provided for @tip_periodChangesFirstSign.
+  ///
+  /// In en, this message translates to:
+  /// **'A change in your periods is usually one of the first signs of perimenopause. They may come more or less often, and be heavier or lighter.'**
+  String get tip_periodChangesFirstSign;
+
+  /// No description provided for @tip_twelveMonthsMeansMenopause.
+  ///
+  /// In en, this message translates to:
+  /// **'Menopause means 12 months without a period. In the years before, cycles often vary, with longer or shorter gaps.'**
+  String get tip_twelveMonthsMeansMenopause;
+
+  /// No description provided for @tip_bleedingAfterMenopause.
+  ///
+  /// In en, this message translates to:
+  /// **'Bleeding after menopause, meaning 12 months with no period, is important to tell a clinician about, so the cause can be found.'**
+  String get tip_bleedingAfterMenopause;
+
+  /// No description provided for @tip_hotFlushesTalkOptions.
+  ///
+  /// In en, this message translates to:
+  /// **'If lifestyle changes are not enough for hot flushes, contact a clinician. They will talk through your symptoms, history and preferences.'**
+  String get tip_hotFlushesTalkOptions;
+
+  /// No description provided for @tip_boneStrengthMenopause.
+  ///
+  /// In en, this message translates to:
+  /// **'Loss of bone density is more likely around menopause. Ask a clinician about bone health and what suits you.'**
+  String get tip_boneStrengthMenopause;
+
+  /// No description provided for @tip_drynessManyTreatments.
+  ///
+  /// In en, this message translates to:
+  /// **'There are many treatments for vaginal dryness. It is worth asking a clinician what could suit you.'**
+  String get tip_drynessManyTreatments;
+
+  /// No description provided for @tip_heartbeatAroundMenopause.
+  ///
+  /// In en, this message translates to:
+  /// **'A faster or more noticeable heartbeat can be part of perimenopause and menopause. Note when it happens and tell a clinician.'**
+  String get tip_heartbeatAroundMenopause;
+
+  /// No description provided for @tip_lowMoodMenopause.
+  ///
+  /// In en, this message translates to:
+  /// **'Low mood and anxiety can be part of the menopause transition. If they are hard to manage, talk to a clinician.'**
+  String get tip_lowMoodMenopause;
+
+  /// No description provided for @visitQ_periodsStoppedChecks.
+  ///
+  /// In en, this message translates to:
+  /// **'My periods have become very infrequent or have stopped. Which checks could find out why?'**
+  String get visitQ_periodsStoppedChecks;
+
+  /// No description provided for @visitQ_irregularCauses.
+  ///
+  /// In en, this message translates to:
+  /// **'What could explain my irregular cycles, and would any tests or scans help?'**
+  String get visitQ_irregularCauses;
+
+  /// No description provided for @visitQ_irregularAcneChecks.
+  ///
+  /// In en, this message translates to:
+  /// **'I have irregular periods and acne. Which checks could look for a cause?'**
+  String get visitQ_irregularAcneChecks;
+
+  /// No description provided for @visitQ_painCauseChecks.
+  ///
+  /// In en, this message translates to:
+  /// **'My period pain keeps getting in the way of my days. Which checks could find out why?'**
+  String get visitQ_painCauseChecks;
+
+  /// No description provided for @visitQ_heavyAndTiredBloodTest.
+  ///
+  /// In en, this message translates to:
+  /// **'My periods may be heavy and I feel tired a lot. Should I have blood tests, for example for iron?'**
+  String get visitQ_heavyAndTiredBloodTest;
+
+  /// No description provided for @visitQ_diaryReviewCycle.
+  ///
+  /// In en, this message translates to:
+  /// **'Can we go through my symptom diary to see whether my symptoms follow my cycle?'**
+  String get visitQ_diaryReviewCycle;
+
+  /// No description provided for @visitQ_headacheDiaryReview.
+  ///
+  /// In en, this message translates to:
+  /// **'My headaches often come around my period. Can we look at my diary together?'**
+  String get visitQ_headacheDiaryReview;
+
+  /// No description provided for @visitQ_cervicalScreeningDue.
+  ///
+  /// In en, this message translates to:
+  /// **'Am I up to date with cervical screening, and which test does your clinic use?'**
+  String get visitQ_cervicalScreeningDue;
+
+  /// No description provided for @visitQ_checksForCouple.
+  ///
+  /// In en, this message translates to:
+  /// **'Which fertility checks do you suggest for me, and for a partner if I have one?'**
+  String get visitQ_checksForCouple;
+
+  /// No description provided for @visitQ_ttcOverThirtyFiveSooner.
+  ///
+  /// In en, this message translates to:
+  /// **'I am 35 or older and we have been trying for about six months or more. Should we start fertility checks now?'**
+  String get visitQ_ttcOverThirtyFiveSooner;
+
+  /// No description provided for @visitQ_irregularTryingNow.
+  ///
+  /// In en, this message translates to:
+  /// **'My cycles are irregular and we are trying to conceive. Should we talk about help now rather than waiting a year?'**
+  String get visitQ_irregularTryingNow;
+
+  /// No description provided for @visitQ_preconceptionReview.
+  ///
+  /// In en, this message translates to:
+  /// **'We are planning a pregnancy. Is there anything in my health or medicines to review first?'**
+  String get visitQ_preconceptionReview;
+
+  /// No description provided for @visitQ_ttcSupportOptions.
+  ///
+  /// In en, this message translates to:
+  /// **'Trying to conceive is weighing on me. Where can I find counselling or support?'**
+  String get visitQ_ttcSupportOptions;
+
+  /// No description provided for @visitQ_pregnancyTestsOffered.
+  ///
+  /// In en, this message translates to:
+  /// **'Which screening tests and follow-up tests are offered in my pregnancy, and what does each one tell me?'**
+  String get visitQ_pregnancyTestsOffered;
+
+  /// No description provided for @visitQ_glucoseTestWhen.
+  ///
+  /// In en, this message translates to:
+  /// **'When will I be tested for gestational diabetes, and could it be earlier for me?'**
+  String get visitQ_glucoseTestWhen;
+
+  /// No description provided for @visitQ_movementsCallWho.
+  ///
+  /// In en, this message translates to:
+  /// **'Who do I call if my baby\'s movements change, including at night?'**
+  String get visitQ_movementsCallWho;
+
+  /// No description provided for @visitQ_sameDayWarningSigns.
+  ///
+  /// In en, this message translates to:
+  /// **'Which signs should make me call the maternity unit the same day?'**
+  String get visitQ_sameDayWarningSigns;
+
+  /// No description provided for @visitQ_rhFactorChecked.
+  ///
+  /// In en, this message translates to:
+  /// **'Has my blood group and Rh factor been checked, and does it change anything in my care?'**
+  String get visitQ_rhFactorChecked;
+
+  /// No description provided for @visitQ_pregnancyLowMoodSupport.
+  ///
+  /// In en, this message translates to:
+  /// **'I have felt low or very worried for a while. What support is available?'**
+  String get visitQ_pregnancyLowMoodSupport;
+
+  /// No description provided for @visitQ_severeSicknessHelp.
+  ///
+  /// In en, this message translates to:
+  /// **'My sickness makes it hard to keep food and drink down. What help is available?'**
+  String get visitQ_severeSicknessHelp;
+
+  /// No description provided for @visitQ_itchBloodTests.
+  ///
+  /// In en, this message translates to:
+  /// **'I have had itching in pregnancy. Should I have blood tests to check my liver?'**
+  String get visitQ_itchBloodTests;
+
+  /// No description provided for @visitQ_pretermSignsPlan.
+  ///
+  /// In en, this message translates to:
+  /// **'Which signs of early labour should make me call or come in, and where do I go out of hours?'**
+  String get visitQ_pretermSignsPlan;
+
+  /// No description provided for @visitQ_postnatalCheckTalk.
+  ///
+  /// In en, this message translates to:
+  /// **'Can we go through how I am recovering, including bleeding, pain, mood and bladder changes?'**
+  String get visitQ_postnatalCheckTalk;
+
+  /// No description provided for @visitQ_postnatalMoodHelp.
+  ///
+  /// In en, this message translates to:
+  /// **'I have felt low or anxious since the birth. What help is there?'**
+  String get visitQ_postnatalMoodHelp;
+
+  /// No description provided for @visitQ_latchCheck.
+  ///
+  /// In en, this message translates to:
+  /// **'Feeding hurts. Could someone watch a feed and check how my baby latches?'**
+  String get visitQ_latchCheck;
+
+  /// No description provided for @visitQ_warningSignsYearAfter.
+  ///
+  /// In en, this message translates to:
+  /// **'Which symptoms in the year after birth should make me seek care at once?'**
+  String get visitQ_warningSignsYearAfter;
+
+  /// No description provided for @visitQ_thyroidAfterBirth.
+  ///
+  /// In en, this message translates to:
+  /// **'I have felt very tired since the birth. Should my thyroid be checked with a blood test?'**
+  String get visitQ_thyroidAfterBirth;
+
+  /// No description provided for @visitQ_urineLeaksHelp.
+  ///
+  /// In en, this message translates to:
+  /// **'I leak urine. What can help, and would pelvic floor exercises suit me?'**
+  String get visitQ_urineLeaksHelp;
+
+  /// No description provided for @visitQ_hotFlushOptions.
+  ///
+  /// In en, this message translates to:
+  /// **'Hot flushes or night sweats are affecting my days. What options could we talk through?'**
+  String get visitQ_hotFlushOptions;
+
+  /// No description provided for @visitQ_changedBleedingChecks.
+  ///
+  /// In en, this message translates to:
+  /// **'My bleeding pattern has changed. Which checks are worth doing?'**
+  String get visitQ_changedBleedingChecks;
+
+  /// No description provided for @visitQ_bleedingAfterMenopauseChecks.
+  ///
+  /// In en, this message translates to:
+  /// **'I have had bleeding or spotting at this stage. What checks do I need, and how soon?'**
+  String get visitQ_bleedingAfterMenopauseChecks;
+
+  /// No description provided for @visitQ_boneAndHeartHealth.
+  ///
+  /// In en, this message translates to:
+  /// **'What can I do to protect my bone and heart health at this stage?'**
+  String get visitQ_boneAndHeartHealth;
+
+  /// No description provided for @visitQ_drynessWhatHelps.
+  ///
+  /// In en, this message translates to:
+  /// **'I have vaginal dryness or discomfort. What can help, and what needs checking?'**
+  String get visitQ_drynessWhatHelps;
+
+  /// No description provided for @visitQ_urineTestAgain.
+  ///
+  /// In en, this message translates to:
+  /// **'My urine symptoms keep coming back. Should I have a urine test, and how can we find the cause?'**
+  String get visitQ_urineTestAgain;
+
+  /// No description provided for @visitQ_thyroidCheckIrregular.
+  ///
+  /// In en, this message translates to:
+  /// **'My periods are irregular and my hair is thinning. Should my thyroid be checked with a blood test?'**
+  String get visitQ_thyroidCheckIrregular;
+
+  /// No description provided for @tipsTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'For you'**
+  String get tipsTitle;
+
+  /// No description provided for @tipsSource.
+  ///
+  /// In en, this message translates to:
+  /// **'Source: {publisher}'**
+  String tipsSource(String publisher);
+
+  /// No description provided for @tipsChosenOnPhone.
+  ///
+  /// In en, this message translates to:
+  /// **'Chosen on your phone from your log. Each tip is a reviewed sentence with its source.'**
+  String get tipsChosenOnPhone;
+
+  /// No description provided for @tipsOrderedCloud.
+  ///
+  /// In en, this message translates to:
+  /// **'Put in order with Cloud boost, from broad facts only.'**
+  String get tipsOrderedCloud;
 }
 
 class _L10nDelegate extends LocalizationsDelegate<L10n> {

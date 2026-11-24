@@ -8,7 +8,7 @@
 import 'package:flutter/widgets.dart';
 
 import '../../data/assistant_channel.dart';
-import '../../domain/assistant/redaction.dart';
+import '../../domain/assistant/cloud_prompt.dart';
 
 /// A bridge with no model and no cloud: every call reports "not available".
 class OfflineAssistant implements AssistantBridge {
@@ -24,7 +24,7 @@ class OfflineAssistant implements AssistantBridge {
   Future<String?> runPrivate(String prompt) async => null;
 
   @override
-  Future<GroundedAnswer?> askGrounded(CloudSafeText question, {required String instruction}) async => null;
+  Future<HybridReply?> runHybrid(CloudPrompt prompt) async => null;
 
   @override
   Future<bool> openSource(String url) async => false;

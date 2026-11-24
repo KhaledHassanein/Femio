@@ -12,6 +12,7 @@ import '../../data/profile.dart';
 import '../../domain/assistant/log_phrases.dart';
 import '../../domain/assistant/prompts.dart';
 import '../../domain/assistant/safety.dart';
+import '../../domain/dates.dart';
 import '../../l10n/app_localizations.dart';
 import '../../l10n/log_labels.g.dart';
 import '../../theme/femio_theme.dart';
@@ -56,10 +57,10 @@ class _SayItSheetState extends State<SayItSheet> {
   Future<void> _read() async {
     final note = _text.text.trim();
     if (note.isEmpty) return;
-    final pregnant = widget.controller.profile?.goal == Goal.pregnant;
+    final profile = widget.controller.profile;
     setState(() {
       _busy = true;
-      _signal = safetySignal(note, pregnant: pregnant);
+      _signal = profile == null ? safetySignal(note, pregnant: false) : safetySignalFor(note, profile, todayISO());
       _draft = null;
       _unticked.clear();
       _usedModel = false;

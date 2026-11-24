@@ -1,23 +1,28 @@
 // Settings > Assistant: what the AI can do on this phone, and how her data is handled (ADR-078).
 //
-// Why it exists: on-device AI depends on the phone (Gemini Nano through Android AICore), and the
-// cloud search depends on the build. She should see both plainly, download Nano when her phone
-// offers it, and read in one paragraph what stays on the phone and what may leave it.
+// Why it exists: on-device AI depends on the phone (Gemini Nano through Android AICore), and
+// Cloud boost (ADR-079) depends on the build and on her choice. She should see both plainly,
+// download Nano when her phone offers it, switch Cloud boost on only through its consent screen
+// (or off in one tap), and read in one paragraph what stays on the phone and what may leave it.
 
 import 'package:flutter/material.dart';
 
+import '../../app.dart';
 import '../../data/assistant_channel.dart';
 import '../../l10n/app_localizations.dart';
 import '../../theme/femio_theme.dart';
 import '../../theme/spacing.dart';
 import 'assistant_scope.dart';
+import 'cloud_boost_screen.dart';
 
 /// The assistant's status page.
 class AssistantSettingsScreen extends StatefulWidget {
-  const AssistantSettingsScreen({super.key});
+  const AssistantSettingsScreen({super.key, required this.controller});
+  final FemioController controller;
 
   @override
-  State<AssistantSettingsScreen> createState() => _AssistantSettingsScreenState();
+  State<AssistantSettingsScreen> createState() =>
+      _AssistantSettingsScreenState();
 }
 
 class _AssistantSettingsScreenState extends State<AssistantSettingsScreen> {
@@ -56,7 +61,12 @@ class _AssistantSettingsScreenState extends State<AssistantSettingsScreen> {
       body: s == null
           ? const Center(child: CircularProgressIndicator())
           : ListView(
-              padding: const EdgeInsets.fromLTRB(space5, space3, space5, space8),
+              padding: const EdgeInsets.fromLTRB(
+                space5,
+                space3,
+                space5,
+                space8,
+              ),
               children: [
                 ListTile(
                   contentPadding: EdgeInsets.zero,
@@ -64,19 +74,50 @@ class _AssistantSettingsScreenState extends State<AssistantSettingsScreen> {
                   title: Text(l.assistantOnDeviceTitle),
                   subtitle: Text(switch (onDevice!) {
                     OnDeviceModel.available => l.assistantOnDeviceAvailable,
-                    OnDeviceModel.downloadable => l.assistantOnDeviceDownloadable,
+                    OnDeviceModel.downloadable =>
+                      l.assistantOnDeviceDownloadable,
                     OnDeviceModel.downloading => l.assistantOnDeviceDownloading,
                     OnDeviceModel.unavailable => l.assistantOnDeviceUnavailable,
                   }),
                   trailing: onDevice == OnDeviceModel.downloadable
-                      ? FilledButton(onPressed: _download, child: Text(l.assistantDownload))
+                      ? FilledButton(
+                          onPressed: _download,
+                          child: Text(l.assistantDownload),
+                        )
                       : null,
                 ),
-                ListTile(
-                  contentPadding: EdgeInsets.zero,
-                  leading: Icon(Icons.travel_explore_rounded, color: p.primary),
-                  title: Text(l.assistantCloudTitle),
-                  subtitle: Text(s.canAskCloud ? l.assistantCloudOn : l.assistantCloudOff),
+                ListenableBuilder(
+                  listenable: widget.controller,
+                  builder: (context, _) {
+                    final settings = widget.controller.profile?.settings;
+                    final on = settings?.cloudBoost ?? false;
+                    return SwitchListTile(
+                      contentPadding: EdgeInsets.zero,
+                      secondary: Icon(Icons.cloud_outlined, color: p.primary),
+                      title: Text(l.assistantCloudTitle),
+                      subtitle: Text(
+                        !s.canRunHybrid
+                            ? l.assistantCloudNotBuilt
+                            : on
+                            ? l.assistantCloudOn
+                            : l.assistantCloudOff,
+                      ),
+                      value: on,
+                      onChanged: settings == null || (!s.canRunHybrid && !on)
+                          ? null
+                          : (value) => value
+                                ? Navigator.of(context).push(
+                                    MaterialPageRoute<void>(
+                                      builder: (_) => CloudBoostScreen(
+                                        controller: widget.controller,
+                                      ),
+                                    ),
+                                  )
+                                : widget.controller.setSettings(
+                                    settings.copyWith(cloudBoost: false),
+                                  ),
+                    );
+                  },
                 ),
                 const SizedBox(height: space4),
                 Text(l.assistantHowItWorks, style: t.bodyMedium),

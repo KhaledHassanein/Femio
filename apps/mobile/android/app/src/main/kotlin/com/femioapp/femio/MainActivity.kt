@@ -4,8 +4,6 @@
 package com.femioapp.femio
 
 import com.femioapp.femio.assistant.FemioAssistant
-import com.femioapp.femio.assistant.SEARCH_SUGGESTIONS_VIEW
-import com.femioapp.femio.assistant.SearchSuggestionsFactory
 import io.flutter.embedding.android.FlutterActivity
 import io.flutter.embedding.engine.FlutterEngine
 
@@ -15,8 +13,6 @@ class MainActivity : FlutterActivity() {
     override fun configureFlutterEngine(flutterEngine: FlutterEngine) {
         super.configureFlutterEngine(flutterEngine)
         assistant = FemioAssistant(applicationContext, flutterEngine.dartExecutor.binaryMessenger)
-        flutterEngine.platformViewsController.registry
-            .registerViewFactory(SEARCH_SUGGESTIONS_VIEW, SearchSuggestionsFactory())
     }
 
     override fun cleanUpFlutterEngine(flutterEngine: FlutterEngine) {

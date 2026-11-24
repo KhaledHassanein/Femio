@@ -2,15 +2,15 @@
 //
 // Why it exists: model calls run in Kotlin (`assistant/FemioAssistant.kt`), so the Dart code
 // holds no network client. This file is the only Dart code allowed to name the channel (the
-// privacy tripwire checks it), and its two calls keep the line ADR-078 draws: [runPrivate]
-// accepts any text but runs only on the phone; [askGrounded] runs in the cloud and accepts only
-// a [CloudSafeText], which only the redaction step can make. Every failure returns null, so a
-// screen falls back to its rules and never shows an error from a model.
+// privacy tripwire checks it), and its two model calls keep the line ADR-078 and ADR-079 draw:
+// [runPrivate] accepts any text but runs only on the phone (ONLY_ON_DEVICE); [runHybrid] may
+// run in the cloud (PREFER_ON_DEVICE) and so accepts only a [CloudPrompt], which can be built
+// only from a CloudSafeText or a PseudonymisedProfile plus public data. Every failure returns
+// null, so a screen falls back to its rules and never shows an error from a model.
 
 import 'package:flutter/services.dart';
 
-import '../domain/assistant/redaction.dart';
-import '../domain/assistant/trusted_sources.dart';
+import '../domain/assistant/cloud_prompt.dart';
 
 /// Where Gemini Nano stands on this phone.
 enum OnDeviceModel { unavailable, downloadable, downloading, available }
@@ -26,20 +26,19 @@ class AssistantStatus {
   /// Private features (say-it-to-log, visit questions) can use the model.
   bool get canRunPrivate => configured && onDevice == OnDeviceModel.available;
 
-  /// "Ask femio" can reach trusted sources.
-  bool get canAskCloud => configured;
+  /// The hybrid call can run at all (on the phone or, with Cloud boost, in the cloud).
+  bool get canRunHybrid => configured;
 
   static const offline = AssistantStatus(configured: false, onDevice: OnDeviceModel.unavailable);
 }
 
-/// A grounded answer with what the grounding terms require the app to show alongside it.
-class GroundedAnswer {
-  const GroundedAnswer({required this.text, required this.sources, required this.suggestionsHtml});
+/// A hybrid reply and where it ran, so the screen can say so.
+class HybridReply {
+  const HybridReply({required this.text, required this.onDevice});
   final String text;
-  final List<WebSource> sources;
 
-  /// Google's search-suggestions chip, as HTML/CSS to render unchanged (may be null).
-  final String? suggestionsHtml;
+  /// True when Gemini Nano answered on the phone; false when the cloud model did.
+  final bool onDevice;
 }
 
 /// The channel, behind an interface so tests and screenshots can use a fake.
@@ -52,8 +51,9 @@ abstract class AssistantBridge {
   /// Runs [prompt] with Gemini Nano on the phone only. Null when the model is absent or fails.
   Future<String?> runPrivate(String prompt);
 
-  /// Answers [question] in the cloud with Google Search grounding. Null on any failure.
-  Future<GroundedAnswer?> askGrounded(CloudSafeText question, {required String instruction});
+  /// Runs [prompt] on the phone when Gemini Nano is ready, otherwise in the cloud. Callers use
+  /// it only when she has switched Cloud boost on. Null on any failure.
+  Future<HybridReply?> runHybrid(CloudPrompt prompt);
 
   /// Opens an https source in her browser; false when it cannot.
   Future<bool> openSource(String url);
@@ -104,19 +104,12 @@ class MethodChannelAssistant implements AssistantBridge {
   }
 
   @override
-  Future<GroundedAnswer?> askGrounded(CloudSafeText question, {required String instruction}) async {
+  Future<HybridReply?> runHybrid(CloudPrompt prompt) async {
     try {
-      final m = await _channel.invokeMapMethod<String, Object?>('grounded', {
-        'question': question.value,
-        'instruction': instruction,
-      });
+      final m = await _channel.invokeMapMethod<String, Object?>('hybrid', {'prompt': prompt.text});
       final text = m?['text'] as String?;
       if (m == null || text == null || text.trim().isEmpty) return null;
-      final sources = [
-        for (final s in (m['sources'] as List?) ?? const [])
-          if (s is Map) WebSource(title: '${s['title'] ?? ''}', uri: '${s['uri'] ?? ''}'),
-      ];
-      return GroundedAnswer(text: text.trim(), sources: sources, suggestionsHtml: m['suggestionsHtml'] as String?);
+      return HybridReply(text: text.trim(), onDevice: m['source'] == 'ON_DEVICE');
     } on Object {
       return null;
     }

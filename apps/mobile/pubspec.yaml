@@ -47,6 +47,7 @@ flutter:
   # Markdown the website reads (content-build-lint keeps it current).
   assets:
     - assets/content/
+    - assets/trusted_sources/
   # Bundled, never fetched: the app makes no network request for fonts (D7). All OFL;
   # the licences sit beside the files.
   fonts:

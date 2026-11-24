@@ -24,6 +24,7 @@ import '../help/red_flags_screen.dart';
 import '../settings/settings_screen.dart';
 import '../../widgets/tab_header.dart';
 import 'pregnancy_tools.dart';
+import 'tips_card.dart';
 import 'today_hero.dart';
 
 /// Today, v0: her first prediction, the moment onboarding ends (spec §3 step 5), and
@@ -150,6 +151,7 @@ class TodayScreen extends StatelessWidget {
                 style: t.bodySmall,
               ),
             ),
+            TipsCard(controller: controller, today: now),
             const SizedBox(height: space4),
             // ADR-078: the assistant's two doors from Today.
             Row(
@@ -157,7 +159,7 @@ class TodayScreen extends StatelessWidget {
                 Expanded(
                   child: OutlinedButton.icon(
                     onPressed: () => Navigator.of(context).push(
-                      MaterialPageRoute<void>(builder: (_) => AskScreen(controller: controller, library: library)),
+                      MaterialPageRoute<void>(builder: (_) => AskScreen(controller: controller, library: library, today: now)),
                     ),
                     icon: const Icon(Icons.travel_explore_rounded),
                     label: Text(l.askTitle),
