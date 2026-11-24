@@ -185,7 +185,7 @@
     "list": {
       "dueDate": {
         "name": "Calculadora de fecha de parto",
-        "desc": "Calcula tu fecha probable de parto a partir de tu última regla."
+        "desc": "Según tu última regla, la concepción, una transferencia de FIV o una ecografía."
       },
       "ovulation": {
         "name": "Calculadora de ovulación",
@@ -210,11 +210,23 @@
       "pregnancyTest": {
         "name": "Calculadora de prueba de embarazo",
         "desc": "El primer día en que una prueba casera probablemente sea clara."
+      },
+      "pregnancyCalendar": {
+        "name": "Calendario del embarazo",
+        "desc": "Las fechas de cada semana del embarazo, con la guía de cada semana."
+      },
+      "weightGain": {
+        "name": "Aumento de peso en el embarazo",
+        "desc": "El rango de referencia según tu IMC antes del embarazo."
+      },
+      "contractionTimer": {
+        "name": "Temporizador de contracciones",
+        "desc": "Cronometra las contracciones y lee las cifras a tu maternidad."
       }
     },
     "dueDate": {
       "title": "Calculadora de fecha de parto",
-      "intro": "Toca el primer día de tu última regla para ver tu fecha probable de parto, tu semana y tu trimestre en un solo calendario. No se guarda nada.",
+      "intro": "Toca el primer día de tu última regla, o elige concepción, transferencia de FIV o ecografía de datación, para ver tu fecha probable de parto y tu semana en un mismo calendario. No se guarda nada.",
       "eddLabel": "Fecha de parto estimada",
       "termWindowLabel": "La mayoría de los bebés llega entre el {start} y el {end}.",
       "sentence": "Fecha probable de parto alrededor del {date}. La mayoría de los bebés nacen entre el {start} y el {end}.",
@@ -231,9 +243,35 @@
         },
         {
           "q": "¿La fecha de la ecografía sustituye a esta?",
-          "a": "Si un profesional clínico te ha dado una fecha de parto según una ecografía, sigue la suya. Esta calculadora solo usa la fecha que introduces, y tu profesional clínico puede ajustar la fecha tras una ecografía."
+          "a": "Si un profesional sanitario te ha dado una fecha de parto según una ecografía, sigue la suya. También puedes elegir «Ecografía de datación» e introducir las semanas y los días de tu informe; la calculadora los toma tal cual y no los compara con tu regla."
         }
-      ]
+      ],
+      "methodLabel": "¿De dónde sale tu fecha?",
+      "method": {
+        "lmp": "Última regla",
+        "conception": "Concepción",
+        "transfer": "Transferencia FIV",
+        "scan": "Ecografía de datación"
+      },
+      "embryoLabel": "Edad del embrión al transferirlo",
+      "embryo": {
+        "day3": "Día 3",
+        "day5": "Día 5"
+      },
+      "prompt": {
+        "conception": "Toca el día de la concepción",
+        "transfer": "Toca el día de la transferencia de embriones",
+        "scan": "Toca el día de tu ecografía"
+      },
+      "scanWeeksLabel": "Semanas en el informe de la ecografía",
+      "scanDaysLabel": "Días de más en el informe",
+      "weeksUnit": "semanas",
+      "weeks": "{count, plural, one {# semana} other {# semanas}}",
+      "fewerWeeks": "Menos semanas",
+      "moreWeeks": "Más semanas",
+      "fewerDays": "Menos días",
+      "moreDays": "Más días",
+      "scanNote": "Se usan las semanas y los días de tu informe tal como aparecen. Si tu profesional sanitario te ha dado una fecha de parto, sigue la suya."
     },
     "ovulation": {
       "title": "Calculadora de ovulación y ventana fértil",
@@ -430,7 +468,11 @@
       "cycleSpan": "Días entre reglas",
       "lmp": "Primer día de tu última regla",
       "sexDay": "El día que tocaste",
-      "periodStart": "Inicio de la regla"
+      "periodStart": "Inicio de la regla",
+      "conception": "El día de la concepción",
+      "transfer": "Día de la transferencia",
+      "scan": "Día de la ecografía",
+      "due": "Fecha de parto"
     },
     "stepper": {
       "cycleLabel": "Duración del ciclo",
@@ -480,7 +522,101 @@
       "getTheApp": "Descarga la app",
       "whatItDoes": "Qué hace la app"
     },
-    "faqTitle": "Preguntas frecuentes"
+    "faqTitle": "Preguntas frecuentes",
+    "pregnancyCalendar": {
+      "title": "Calendario del embarazo, semana a semana",
+      "intro": "Toca tu fecha probable de parto o el primer día de tu última regla para ver las fechas de cada semana del embarazo, los trimestres y la guía de cada semana. No se guarda nada.",
+      "metaTitle": "Calendario del embarazo: tu embarazo semana a semana, con fechas",
+      "methodLabel": "¿Qué fecha conoces?",
+      "method": {
+        "edd": "Fecha de parto",
+        "lmp": "Última regla"
+      },
+      "promptEdd": "Toca tu fecha probable de parto",
+      "eyebrow": "Tu embarazo, semana a semana",
+      "headline": "Fecha de parto hacia el {date}",
+      "trimesterLine": "Segundo trimestre desde el {second}; tercer trimestre desde el {third}.",
+      "week": "Semana {week}",
+      "current": "Esta semana",
+      "readGuide": "Leer la guía de la semana {week}",
+      "noGuide": "No hay guía aparte para esta semana",
+      "faq": [
+        {
+          "q": "¿Cómo se cuentan las semanas de embarazo?",
+          "a": "Desde el primer día de la última regla, que es 280 días (40 semanas) antes de la fecha de parto. «24 semanas» significa 24 semanas cumplidas: de 24 semanas y 0 días a 24 semanas y 6 días."
+        },
+        {
+          "q": "¿Cuándo cambian los trimestres?",
+          "a": "El segundo trimestre empieza a las 14 semanas y el tercero a las 28. El calendario muestra la fecha de inicio de cada uno según tu fecha de parto."
+        },
+        {
+          "q": "Mi ecografía dio otra fecha. ¿Cuál uso?",
+          "a": "Usa la fecha de parto que te dé tu profesional sanitario. Elige «Fecha de parto» y tócala: todas las semanas siguen esa fecha."
+        }
+      ]
+    },
+    "weightGain": {
+      "title": "Calculadora de aumento de peso en el embarazo",
+      "intro": "Introduce tu peso antes del embarazo y tu estatura para ver el rango de referencia del aumento de peso total durante el embarazo, según el Institute of Medicine (2009). No se guarda nada.",
+      "metaTitle": "Aumento de peso en el embarazo: el rango del IOM según el IMC",
+      "weightMetric": "Peso antes del embarazo (kg)",
+      "weightImperial": "Peso antes del embarazo (lb)",
+      "babiesLabel": "¿Cuántos bebés?",
+      "babies": {
+        "one": "Uno",
+        "two": "Gemelos",
+        "more": "Tres o más"
+      },
+      "bmiLine": "IMC antes del embarazo: {value} ({band})",
+      "eyebrow": "Rango de referencia del aumento total durante todo el embarazo",
+      "rangeKg": "De {low} a {high} kg",
+      "rangeLb": "De {low} a {high} lb",
+      "otherUnit": "Es decir, {range}.",
+      "noRangeTwinsUnderweight": "El Institute of Medicine no da un rango para gemelos cuando el IMC antes del embarazo es inferior a 18,5. Tu profesional sanitario te orientará.",
+      "noRangeMultiples": "El Institute of Medicine no da un rango para tres o más bebés. Tu profesional sanitario te orientará.",
+      "note": "Es un rango de referencia para tu categoría de IMC antes del embarazo, no un objetivo ni un juicio. Tu profesional sanitario puede proponerte un rango distinto.",
+      "source": "Fuente: Institute of Medicine (2009), «Weight Gain During Pregnancy»; los CDC y el ACOG usan los mismos rangos.",
+      "outOfRange": "Introduce un peso de {minW} a {maxW} kg y una estatura de {minH} a {maxH} cm.",
+      "faq": [
+        {
+          "q": "¿Cómo se elige el rango?",
+          "a": "Depende de tu IMC antes del embarazo, según los rangos que publicó en 2009 el Institute of Medicine de EE. UU. Los CDC y el ACOG usan los mismos."
+        },
+        {
+          "q": "¿Y si espero gemelos?",
+          "a": "El Institute of Medicine da rangos provisionales para gemelos cuando el IMC antes del embarazo era de 18,5 o más. Si era menor, o para tres o más bebés, no da ninguno, y tu profesional sanitario te orientará."
+        },
+        {
+          "q": "¿Puede mi profesional sanitario proponer otro rango?",
+          "a": "Sí. Son rangos de referencia para grupos de mujeres. Tu profesional conoce tu salud y puede proponerte un rango distinto."
+        }
+      ]
+    },
+    "contractionTimer": {
+      "title": "Temporizador de contracciones",
+      "intro": "Pulsa empezar cuando empiece una contracción y parar cuando ceda. Obtienes la duración de cada una y el tiempo entre ellas, listos para leer cuando llames.",
+      "metaTitle": "Temporizador de contracciones: cronométralas gratis, sin registro",
+      "sessionNote": "No se guarda nada: cerrar o recargar esta página borra los tiempos.",
+      "clear": "Borrar estos tiempos",
+      "listHeading": "Tus tiempos",
+      "length": "Duración",
+      "apart": "Intervalo",
+      "startedAt": "Empezó {time}",
+      "faq": [
+        {
+          "q": "¿Qué mide el temporizador?",
+          "a": "Cuánto dura cada contracción y el tiempo desde el inicio de una hasta el inicio de la siguiente, con la media de las últimas cinco."
+        },
+        {
+          "q": "¿Me dice cuándo ir al hospital?",
+          "a": "No. Muestra tus tiempos para que se los leas a tu maternidad, que te dirá qué hacer. Llama siempre que estés preocupada; no hace falta llegar a ninguna cifra antes."
+        },
+        {
+          "q": "¿Se guardan mis tiempos?",
+          "a": "No. Se quedan en esta página solo mientras está abierta. La app femio los guarda en tu teléfono."
+        }
+      ]
+    }
   },
   "track": {
     "loadError": "No pudimos cargar tu historial. Puedes registrar abajo de todos modos.",

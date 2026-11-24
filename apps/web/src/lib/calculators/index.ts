@@ -11,7 +11,7 @@
  * (§5: "a cycle length outside the range silently clamped" is a must-not).
  */
 import { addDays, diffDays, isValidISODate } from "./dates";
-import { eddFromLmp, GESTATION_DAYS } from "@/lib/pregnancy";
+import { eddFromConception, eddFromLmp, eddFromScan, eddFromTransfer, GESTATION_DAYS } from "@/lib/pregnancy";
 
 /** MR-03: a stated cycle length is accepted from 21 days. */
 export const MIN_CYCLE = 21;
@@ -83,6 +83,57 @@ export function estimateDueDate(lmpISO: string, cycleLength = DEFAULT_CYCLE_DAYS
     edd: addDays(edd, adjust),
     termStart: addDays(lmpISO, TERM_START_DAYS + adjust),
     termEnd: addDays(lmpISO, TERM_END_DAYS + adjust),
+  };
+}
+
+/** How she knows the date she taps (MR-23, MR-52). */
+export type DueMethod = "lmp" | "conception" | "transfer3" | "transfer5" | "scan";
+
+export type DueDateByMethod = DueDateEstimate & {
+  /** The last-period date the due date implies (due date − 280), for the week marker. */
+  lmp: string;
+};
+
+/** How far ahead a due date may be tapped: a full pregnancy and a little more (MR-26). */
+export const DUE_DATE_LOOKAHEAD_DAYS = 300;
+
+/** MR-52: the scan-report steppers run 4–41 weeks; the untouched value is a typical dating scan week. */
+export const SCAN_MIN_WEEKS = 4;
+export const SCAN_MAX_WEEKS = 41;
+export const SCAN_DEFAULT_WEEKS = 12;
+
+/** MR-24: the term window is 21 days before to 14 days after the due date (37w0d–42w0d). */
+const TERM_BEFORE_EDD_DAYS = GESTATION_DAYS - TERM_START_DAYS;
+const TERM_AFTER_EDD_DAYS = TERM_END_DAYS - GESTATION_DAYS;
+
+/**
+ * Due date from any of the methods (R11.1): last period (with her cycle length),
+ * conception, an IVF transfer of a day-3 or day-5 embryo, or a dating scan's weeks and
+ * days. The window is 37w0d–42w0d around the result (MR-24). `null` when the shared
+ * function refuses the input (an invalid date, a cycle length outside 21–45, a scan
+ * gestation outside 4w0d–41w6d).
+ */
+export function estimateDueDateFrom(
+  method: DueMethod,
+  dateISO: string,
+  options: { cycleLength?: number; scanWeeks?: number; scanDays?: number } = {},
+): DueDateByMethod | null {
+  if (method === "lmp") {
+    const r = estimateDueDate(dateISO, options.cycleLength ?? DEFAULT_CYCLE_DAYS);
+    return r && { ...r, lmp: addDays(r.edd, -GESTATION_DAYS) };
+  }
+  const edd =
+    method === "conception"
+      ? eddFromConception(dateISO)
+      : method === "scan"
+        ? eddFromScan(dateISO, options.scanWeeks ?? -1, options.scanDays ?? -1)
+        : eddFromTransfer(dateISO, method === "transfer3" ? 3 : 5);
+  if (!edd) return null;
+  return {
+    edd,
+    termStart: addDays(edd, -TERM_BEFORE_EDD_DAYS),
+    termEnd: addDays(edd, TERM_AFTER_EDD_DAYS),
+    lmp: addDays(edd, -GESTATION_DAYS),
   };
 }
 

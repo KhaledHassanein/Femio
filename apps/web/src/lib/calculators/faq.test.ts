@@ -5,7 +5,7 @@ import frMessages from "../../../messages/fr.json";
 import esMessages from "../../../messages/es.json";
 import { calculatorFaqJsonLd, readFaqMessages } from "./faq";
 
-const TOOLS = ["ovulation", "dueDate", "gestationalAge", "period", "pregnancyTest", "cycleLength", "bmi"] as const;
+const TOOLS = ["ovulation", "dueDate", "gestationalAge", "period", "pregnancyTest", "cycleLength", "bmi", "pregnancyCalendar", "weightGain", "contractionTimer"] as const;
 
 describe("readFaqMessages", () => {
   it("keeps well-formed entries and drops everything else", () => {

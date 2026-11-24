@@ -18,7 +18,8 @@ import type { AbstractIntlMessages } from "next-intl";
 
 export const PUBLIC_CLIENT_NAMESPACES = ["search", "tools", "notFound", "theme", "locale"] as const;
 
-export const CALCULATOR_CLIENT_NAMESPACES = ["calculators"] as const;
+// "contractions" (~1 KB): the website contraction timer (R11.4) shares the app's reviewed timer wording.
+export const CALCULATOR_CLIENT_NAMESPACES = ["calculators", "contractions"] as const;
 
 export const CLIENT_NAMESPACES = [...PUBLIC_CLIENT_NAMESPACES, ...CALCULATOR_CLIENT_NAMESPACES] as const;
 

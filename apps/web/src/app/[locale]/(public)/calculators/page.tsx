@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
-import { Baby, CalendarHeart, CalendarRange, Flower2, Ruler, TestTube, Timer } from "lucide-react";
+import { Baby, CalendarDays, CalendarHeart, CalendarRange, Flower2, Hourglass, Ruler, Scale, TestTube, Timer } from "lucide-react";
 import { Link } from "@/i18n/navigation";
 import { localizedAlternates } from "@/lib/seo/metadata";
 
@@ -14,6 +14,9 @@ const TOOLS = [
   { slug: "pregnancy-test", key: "pregnancyTest", Icon: TestTube },
   { slug: "due-date", key: "dueDate", Icon: Baby },
   { slug: "gestational-age", key: "gestationalAge", Icon: Timer },
+  { slug: "pregnancy-calendar", key: "pregnancyCalendar", Icon: CalendarDays },
+  { slug: "pregnancy-weight-gain", key: "weightGain", Icon: Scale },
+  { slug: "contraction-timer", key: "contractionTimer", Icon: Hourglass },
   { slug: "cycle-length", key: "cycleLength", Icon: CalendarRange },
   { slug: "bmi", key: "bmi", Icon: Ruler },
 ] as const;

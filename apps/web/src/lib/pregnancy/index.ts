@@ -96,6 +96,31 @@ export function eddFromTransfer(transferISO: string, embryoDays: 3 | 5): string 
   return addDays(transferISO, GESTATION_DAYS - 14 - embryoDays);
 }
 
+/** MR-52: the gestation on a scan report is accepted from 4w0d … */
+export const SCAN_MIN_GESTATION_DAYS = 28;
+/** … to 41w6d (the engine's sanity range, like MR-26). */
+export const SCAN_MAX_GESTATION_DAYS = 293;
+
+/**
+ * Estimated due date from a dating scan (MR-52): the scan date plus what is left of
+ * 280 days after the gestation the report gives. femio never re-dates or compares
+ * methods; the report's weeks and days are taken as written (ACOG Committee Opinion
+ * 700 leaves re-dating to the clinician). Twin of `eddFromScan` in the Dart app.
+ *
+ * @param scanISO the day of the scan.
+ * @param weeks completed weeks on the report.
+ * @param days extra days on the report, 0–6.
+ * @returns the due date, or `null` for an invalid date, days outside 0–6, or a
+ *   gestation outside 4w0d–41w6d (she is asked to check the report).
+ */
+export function eddFromScan(scanISO: string, weeks: number, days: number): string | null {
+  if (!isValidISODate(scanISO)) return null;
+  if (!Number.isInteger(weeks) || !Number.isInteger(days) || weeks < 0 || days < 0 || days > 6) return null;
+  const total = weeks * 7 + days;
+  if (total < SCAN_MIN_GESTATION_DAYS || total > SCAN_MAX_GESTATION_DAYS) return null;
+  return addDays(scanISO, GESTATION_DAYS - total);
+}
+
 /**
  * Is this a date someone could plausibly be pregnant against today?
  * Guards the setup form: a due date years out or long past is a typo, and a week
