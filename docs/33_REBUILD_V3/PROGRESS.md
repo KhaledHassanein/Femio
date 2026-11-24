@@ -114,6 +114,19 @@ Opened 2026-10-28 on the owner's finalization brief. The gate for R6.4–R6.5 an
 - [ ] R7.6 · Before a store release with the cloud path on: privacy notice ×4, Data safety row, listing (ADR-078 consequences)
 - [ ] R7.7 · Listing and in-app positioning "femio: AI-assisted women's health & wellness" across every life stage, four languages (ADR-078 §8, owner 2026-11-24)
 
+## R8 · Persona views and the AI front door (owner 2026-11-24) — Stitch round 2: `docs/design/STITCH_PROMPTS_2026-11-24.md`; round 1 comparison `testing-results/2026-11-24-stitch-compare/` (https://claude.ai/artifact/2wbNyvPh6eVLDkUUoMpvRT)
+- [ ] R8.1 · Owner runs Stitch prompts 0–5 and drops the export in Downloads; a session renders and compares it like round 1
+- [ ] R8.2 · Today order in every mode: dashboard blocks on top, quick log, "Tips for you", then the privacy note and the Help now card at the bottom
+- [ ] R8.3 · Pregnancy calendar: current week highlighted as a row band with week numbers; the week turns over on the weekday of her last period (or derived from the due date); appointments and due date (estimate) shown; no period, ovulation or fertile items anywhere in pregnancy mode
+- [ ] R8.4 · "This week" page for pregnancy: for you, for baby, what to expect, questions for the visit, every section sourced (content work, physician review)
+- [ ] R8.5 · Cycle calendar: likely ovulation day always inside the fertile window (golden-fixture rule); the next two predicted periods shown as ranges after her entries; three looks (logged, likely, possible)
+- [ ] R8.6 · Mode-aware placeholders and labels everywhere (log fields, hints, empty states) for each stage
+- [ ] R8.7 · The AI made prominent: Ask femio card and a floating Ask/Say-it pill; first use opens an intro, then a full per-purpose consent (on-phone questions, log from words, Cloud boost apart) with a dated receipt; switches in Settings → Assistant (extends ADR-080 `CloudConsent`)
+- [ ] R8.8 · Patterns screen (cycle-length bars in one colour, symptoms by phase "seen in X of Y cycles", temperature chart, doctor pack); minimum-cycles rule goes in the medical rules register first
+- [ ] R8.9 · Stitch round 1 small wins: ovulation-evidence card (TTC), Say it as a sheet with a counted save, refusal card with "Prepare doctor-visit pack", next-appointment card (pregnancy), visit pack as a one-page document with the system share sheet
+- [~] R8.10 · Persona feature research (market + business development agents), session "Persona feature research" started 2026-11-24
+- [~] R8.11 · Trusted-source registry coverage (about 150-question test set, before/after), session "Widen the trusted-source registry" started 2026-11-24
+
 ## Session log
 
 | When | What | Commit |
