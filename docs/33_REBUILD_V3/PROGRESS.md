@@ -119,6 +119,7 @@ Opened 2026-10-28 on the owner's finalization brief. The gate for R6.4–R6.5 an
 ## Build order 2026-11-24 (R8 + R9 + R10; owner page https://claude.ai/artifact/5Ygqh8JKgxeQN2buhTjbAe)
 Wave 1: R10.1 boundary → R8.3 AI front door → R8.7 + R8.6 pregnancy → R9.1 daily line → R8.4 stage wording → R9.6 + R10.13 explainers → R10.2 + R8.27 visit companion → R10.3 transparency → R10.7 Say it multi-day.
 Wave 2: R8.5 + R10.4, R8.8, R8.19 + R8.20, R10.5 + R10.6, R8.21, R9.4 / R9.8 / R9.10 / R9.11.
+Added 2026-11-25: R12.2 rating prompt and R12.3 update prompt at the end of wave 1 (small); R11.0–R11.2 record, documents and timeline, plus R11.6 medicines, in wave 2; R11.3–R11.5 and R11.7 scan, chat-to-record, charts and visit PDF after the R10.1 slices; R12.1 notification consent with R11.6, remote push deferred.
 Wave 3: the rest of R8.11–R8.18, R9, R10, each waiting on a source, a review or an owner decision (R9.2, R8.24, R10.15, R10.17, R7.14, feeding log).
 
 ## R8 · Persona views and the AI front door (owner 2026-11-24) — `research/PERSONA_FEATURES_2026-11.md`; Stitch prompts `docs/design/STITCH_PROMPTS_2026-11-24.md`; round 1 comparison `testing-results/2026-11-24-stitch-compare/` (https://claude.ai/artifact/2wbNyvPh6eVLDkUUoMpvRT)
@@ -171,7 +172,7 @@ Only items no R8 line covers; notes on R8.7, R8.14, R8.16, R8.17, R8.24 and R8.2
 - [ ] R9.9 · (C) Content: a breast-awareness guide (EN + AR first) instead of a self-exam tracker `[NEEDS SOURCE]` (rule 1)
 - [ ] R9.10 · (B) Spreadsheet (CSV) export of her own logs through the system share sheet, beside the sealed backup; she chooses where it goes (rule 4)
 - [ ] R9.11 · (B) Home-screen widget: neutral by default (no health words on the home or lock screen until she turns them on); pregnancy week or cycle range (rule 3, 4; Plus or free per R8.24)
-- [ ] R9.12 · (C) Feedback path: "this was unclear" on guides and "report a wording problem" for translations, opened in her mail app; no rating nag, no network code (rule 4)
+- [ ] R9.12 · (C) Feedback path: "this was unclear" on guides and "report a wording problem" for translations, opened in her mail app; no network code (rule 4). The "no rating nag" clause is superseded by R12.2 (owner 2026-11-25)
 - [ ] R9.13 · (C) Fingerprint unlock beside the PIN (rule 4)
 
 ## Session log
@@ -195,7 +196,7 @@ Only items no R8 line covers; notes on R8.7, R8.14, R8.16, R8.17, R8.24 and R8.2
 The companion picks, orders, extracts and cites; femio speaks. Every use works with AI off, reads one
 typed context, writes only through a confirmed draft, and runs the safety rules first (ADR-078/079/080).
 
-- [ ] R10.1 · Boundary: `uses.dart` policy table, typed contexts with manifests, `PrivatePrompt` (runPrivate no longer takes a String), `outputs.dart` parsers, `drafts.dart` + confirm sheet, `gate.dart`, `assistant_gateway.dart` (switch, build flag, consent, timeout, BUSY retry, circuit breaker), ledger; prompts moved out of tips_card/ask/say-it/visit screens; tripwire §3c extended; manifest, fuzz, drafts and offline-parity tests (needs an ADR: "the companion boundary")
+- [~] R10.1 · Boundary (slice 1 done 2026-11-24: `uses.dart`, `PrivatePrompt`, `assistant_gateway.dart` with build switch, consent, timeout and circuit breaker; four screens moved to the gateway; tripwire §3c; ADR-081; `test/assistant_gateway_test.dart`. Next: typed contexts with manifests, ledger, master switch, drafts + confirm sheet, `gate.dart`, fuzz and offline-parity tests): `uses.dart` policy table, typed contexts with manifests, `PrivatePrompt` (runPrivate no longer takes a String), `outputs.dart` parsers, `drafts.dart` + confirm sheet, `gate.dart`, `assistant_gateway.dart` (switch, build flag, consent, timeout, BUSY retry, circuit breaker), ledger; prompts moved out of tips_card/ask/say-it/visit screens; tripwire §3c extended; manifest, fuzz, drafts and offline-parity tests (needs an ADR: "the companion boundary")
 - [ ] R10.2 · (A) Visit companion: her worry → catalogue question ids + her own sentence (confirmed into `Appointment.prep`); visit pack in two languages chosen by her, shared via the system sheet (U25, U26; ADR-069)
 - [ ] R10.3 · (A) Transparency: "Why am I seeing this?" on tips, digests and reading suggestions; Settings > "What the AI can see" generated from the manifest; local AI ledger (cloud text kept as her receipt; cleared by delete-everything; not restored from backup) (U12, U34; folds into R8.21)
 - [ ] R10.4 · (B) Patterns in plain words: template statements "seen in N of M cycles", top 3 picked on the phone; "Ask my patterns" answers with one statement or "not in your log"; no cause words; after R8.5 and its register row (U22, U23)
@@ -211,5 +212,87 @@ typed context, writes only through a confirmed draft, and runs the safety rules 
 - [ ] R10.14 · (C) Guide follow-ups: three reviewed questions per guide → Ask femio; "Ask about this guide" uses the guide's topics as a retrieval hint and answers from the registry (U04, U05)
 - [ ] R10.15 · (C) Reflective journal: reviewed prompt bank; new encrypted note field (schema v3, migration, backup); never read by a model unless she asks for log entries; Help now on crisis words (U37) — owner check on scope
 - [ ] R10.16 · (C) Reminder wording coach for custom reminders (after R8.24), postpartum check-in (after R8.19), perimenopause monthly story (after R8.20), quiet mode on loss (with R8.14) (U35, U31, U32, U33)
+- [ ] R10.18 · AI view toggle (owner 2026-11-24): on calculators, predictions, insights and explanations, a switch from the normal view to an "AI view" that adds an explanation or insight beside the rules result, never replacing it. A clear way back; every refresh or reopen starts in the normal view (the toggle is never saved). While on, an "AI can make mistakes" note is always visible. Runs through the gateway (ADR-081): on the phone from typed context; Cloud boost only with consent and the four bands. Arabic text from reviewed templates (on-device model validated for English and Korean only). Web calculators: rules-only explanations until an ADR allows a web model call
 - [DEFERRED] R10.17 · femio's own on-device speech (ML Kit GenAI; RECORD_AUDIO needs an ADR and a scoped tripwire exception), "Explain simpler" (English only), onboarding in her words, partner card, website AI (U20, U03, U36, U38)
 - [x] R10.0 · Research: `research/AI_COMPANION_2026-11.md` (36 uses, boundary architecture, rejected list; lead checked the `runPrivate(String)` call sites and the Firebase "English and Korean only" on-device limit, 2026-11-24)
+
+## R11 · Her health record (owner 2026-11-25)
+Her own medical file, kept like a professional record, on her phone only. The rules for every line:
+- Every entry carries two times: when it happened (the date printed on the report, or the day of the visit) and when it entered femio. It also carries its source (typed, scanned, from Ask femio, imported) and an edit trail.
+- She can add, edit or remove anything by hand.
+- The AI only drafts; she confirms each line (rule 7, ADR-081).
+- Nothing from the record goes to the cloud. Cloud boost still takes only an approved general question or the four bands (ADR-080), so scanning runs on the phone.
+- femio stores, dates and draws her data. It never interprets: no "normal" or "abnormal", and a reference range only as printed on her own report (rule 1).
+- [ ] R11.0 · ADR-082 "her health record". Contents:
+  - schema v3: typed entries with happened-on and added-on, source and edit history;
+  - attachments encrypted in app storage and inside the sealed backup, with size limits;
+  - migration from v2;
+  - the medical-device check (stores and displays her own documents; no interpretation, no dose or interaction advice);
+  - the privacy notice line.
+  Owner check on scope. Shares the schema bump with R10.15.
+- [ ] R11.1 · "My record" screen.
+  - Sections: visits, labs, imaging, prescriptions and medicines, conditions and history, allergies, procedures, pregnancies, documents.
+  - A timeline sorted by happened-on, each row showing added-on, its source and an "edited" mark.
+  - Add, edit and remove by hand, with a calendar you tap for dates.
+  - Takes over R8.13 lab entries: the lab's units, never labelled.
+- [ ] R11.2 · Documents: attach a PDF or a photo through the system document picker or the system camera intent. No CAMERA or storage permission; the tripwire checks. Each file is stored encrypted, shown as a thumbnail, and can be opened, renamed, linked to entries, shared through the share sheet or deleted.
+- [ ] R11.3 · Scan with AI.
+  - On-phone text recognition (ML Kit, bundled model, offline), then extraction through the gateway:
+    - with Gemini Nano: a new use `scanDocument`, phone tier, draft she confirms;
+    - without it: a rules parser.
+  - It reads test name, value, unit, the report's own range, and the collection or report date. Never a guessed date: if none is printed, she picks it.
+  - Result: a draft table beside the photo, checked line by line before anything is saved.
+  - Never sent to the cloud.
+  - To verify first: which scripts ML Kit text recognition reads (Arabic-script reports), and whether Nano takes an image on her phone.
+- [ ] R11.4 · "Add to my record" from Ask femio.
+  - When her own message holds a fact ("my TSH was 3.1 on 2 November"), the answer shows a button that opens the confirm sheet, with the date it happened (read or asked) and added-on stamped now.
+  - Registry text is general information and is never filed as her data.
+  - Builds on R10.7 multi-day drafts.
+- [ ] R11.5 · Charts built from what she has, appearing only when there are at least two readings.
+  - Readings: blood pressure, glucose (fasting or after a meal, as she entered it), weight, temperature, HbA1c, and hormones (LH, FSH, estradiol, progesterone, AMH, TSH, prolactin, testosterone, an hCG series).
+  - The x-axis is happened-on. The lab's own printed range is drawn as a band.
+  - Units stay as entered, converted only with a cited factor and a fixture.
+  - No verdict words and no good/bad arrows.
+  - In pregnancy, blood pressure and glucose come first. Any seek-help line comes only from a register rule with a citation, through the warning-signs entry, never as a chart label [NEEDS SOURCE per threshold].
+- [ ] R11.6 · Medicines and prescriptions.
+  - Typed or scanned prescription → a medicine list: name, dose as written, how often, start and end, prescriber, the linked document.
+  - Pill tracker: taken, skipped or late, each with its time.
+  - An end-date and refill note.
+  - Reminders through local notifications with neutral text she can label.
+  - Never a contraceptive schedule or missed-pill advice (rule 1). No dose advice and no interaction checker (owner check; recommended no).
+  - Takes over R9.4's medicine reminder.
+- [ ] R11.7 · Prepare the next visit, print and share.
+  - The visit pack draws from the record: she picks entries, a date range and documents.
+  - A PDF made on the phone, in her language plus one for the clinic (R8.27), with the date it was made and each entry's dates.
+  - Print or share through the system sheet; nothing is uploaded.
+  - Owner decision: basic PDF free or in femio Plus (R8.24 lists PDF export as Plus; recommended free for the visit pack, since it is access to her own file).
+- [ ] R11.8 · Time awareness everywhere.
+  - Logs, notes, entries and AI drafts show "happened on" and "added on".
+  - The AI's replies that use her record name each entry's date and age ("your TSH from 2 November, 23 days ago").
+  - An older entry is shown with its date, never hidden or judged.
+  - Hijri beside Gregorian as elsewhere.
+- [ ] R11.9 · Guards and tests:
+  - `scanDocument` is phone-only in `usePolicies`;
+  - tripwire: attachments and record entries can never reach a `CloudPrompt`;
+  - a backup round trip with attachments;
+  - unit-conversion fixtures in Dart;
+  - screenshots at 390×844 in light, dark and Arabic.
+
+## R12 · App lifecycle (owner 2026-11-25)
+- [ ] R12.1 · Notifications with consent.
+  - One screen before the first notification says what she will receive. It asks for the Android 13+ notification permission, with a switch for each kind (log, period range, medicine, appointment, weekly digest).
+  - Today every notification is scheduled on the phone (R4.4).
+  - Remote push is prepared but not built: a `NotificationPort` seam, so a later ADR can add Firebase Cloud Messaging. That needs a device token to leave the phone, which ADR-080 does not allow today.
+  - DEFERRED half: remote push.
+- [ ] R12.2 · Rating prompt.
+  - After she has opened femio on 6 different days (counted on the phone), one Google Play in-app review request (`in_app_review`).
+  - Only at a calm moment, after a save. Never after a warning sign, Help now, a loss, or within a session that showed a safety notice.
+  - At most once per app version; Play decides whether it shows.
+  - Privacy notice line: Google Play handles the review, femio sends nothing.
+  - Supersedes R9.12's "no rating nag".
+- [ ] R12.3 · Update prompt through Google Play in-app updates (`in_app_update`).
+  - A quiet banner with "Update" when Play reports a newer version.
+  - A full-screen update only for a release given high priority in the Play Console.
+  - No server of our own.
+  - Owner action: set update priority when uploading a release (05_RELEASE_RUNBOOK).
+
