@@ -2329,4 +2329,237 @@ class L10nFr extends L10n {
   @override
   String get todayUrgentBody =>
       'Si quelque chose vous semble grave ou soudain, consultez maintenant. Les numéros d\'urgence de votre pays sont à portée d\'un geste.';
+
+  @override
+  String get toolsTitle => 'Calculateurs';
+
+  @override
+  String get toolsSub =>
+      'Ces calculateurs donnent des estimations générales pour vous informer et planifier, pas un avis médical. Parlez de votre santé avec votre clinicienne.';
+
+  @override
+  String get toolDueTitle => 'Calculateur de date d\'accouchement';
+
+  @override
+  String get toolDueDesc =>
+      'D\'après vos dernières règles, la conception, un transfert de FIV ou une échographie.';
+
+  @override
+  String get toolCalTitle => 'Calendrier de grossesse';
+
+  @override
+  String get toolCalDesc =>
+      'Les dates de chaque semaine de grossesse, avec le guide de la semaine.';
+
+  @override
+  String get toolGainTitle => 'Prise de poids pendant la grossesse';
+
+  @override
+  String get toolGainDesc =>
+      'La fourchette de référence selon votre IMC avant la grossesse.';
+
+  @override
+  String get toolDueMethodLabel => 'D\'où vient votre date ?';
+
+  @override
+  String get toolDueMethodLmp => 'Dernières règles';
+
+  @override
+  String get toolDueMethodConception => 'Conception';
+
+  @override
+  String get toolDueMethodTransfer => 'Transfert FIV';
+
+  @override
+  String get toolDueMethodScan => 'Échographie de datation';
+
+  @override
+  String get toolEmbryoLabel => 'Âge de l\'embryon au transfert';
+
+  @override
+  String get toolEmbryo3 => 'Jour 3';
+
+  @override
+  String get toolEmbryo5 => 'Jour 5';
+
+  @override
+  String get toolPromptLmp => 'Touchez le premier jour de vos dernières règles';
+
+  @override
+  String get toolPromptConception => 'Touchez le jour de la conception';
+
+  @override
+  String get toolPromptTransfer => 'Touchez le jour du transfert d\'embryon';
+
+  @override
+  String get toolPromptScan => 'Touchez le jour de votre échographie';
+
+  @override
+  String get toolCycleLabel => 'Durée du cycle';
+
+  @override
+  String toolDays(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count jours',
+      one: '$count jour',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get toolScanWeeksLabel => 'Semaines sur le compte rendu';
+
+  @override
+  String get toolScanDaysLabel => 'Jours en plus sur le compte rendu';
+
+  @override
+  String toolWeeks(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count semaines',
+      one: '$count semaine',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String toolTermWindow(String start, String end) {
+    return 'La plupart des bébés arrivent entre le $start et le $end.';
+  }
+
+  @override
+  String get toolScanNote =>
+      'Le calcul reprend les semaines et les jours de votre compte rendu tels quels. Si votre soignant vous a donné une date prévue, suivez la sienne.';
+
+  @override
+  String get toolEstimateNote =>
+      'Ces dates sont des estimations fondées sur la date saisie. Chaque corps est différent.';
+
+  @override
+  String get toolClinicianAdjust =>
+      'Votre professionnel de santé pourra ajuster la date après une échographie.';
+
+  @override
+  String get toolCalMethodLabel => 'Quelle date connaissez-vous ?';
+
+  @override
+  String get toolCalMethodEdd => 'Date prévue';
+
+  @override
+  String get toolCalMethodLmp => 'Dernières règles';
+
+  @override
+  String get toolCalPromptEdd => 'Touchez votre date prévue';
+
+  @override
+  String get toolCalEyebrow => 'Votre grossesse, semaine par semaine';
+
+  @override
+  String toolCalTrimesterLine(String second, String third) {
+    return 'Deuxième trimestre à partir du $second ; troisième trimestre à partir du $third.';
+  }
+
+  @override
+  String toolCalWeek(String week) {
+    return 'Semaine $week';
+  }
+
+  @override
+  String get toolCalCurrent => 'Cette semaine';
+
+  @override
+  String toolCalReadGuide(String week) {
+    return 'Lire le guide de la semaine $week';
+  }
+
+  @override
+  String get toolGainIntro =>
+      'Saisissez votre poids avant la grossesse et votre taille pour voir la fourchette de référence de prise de poids totale pendant la grossesse, selon l\'Institute of Medicine (2009). Rien n\'est enregistré.';
+
+  @override
+  String get toolGainWeight => 'Poids avant la grossesse (kg)';
+
+  @override
+  String get toolGainHeight => 'Taille (cm)';
+
+  @override
+  String get toolGainBabiesLabel => 'Combien de bébés ?';
+
+  @override
+  String get toolGainBabiesOne => 'Un';
+
+  @override
+  String get toolGainBabiesTwo => 'Des jumeaux';
+
+  @override
+  String get toolGainBabiesMore => 'Trois ou plus';
+
+  @override
+  String toolGainBmiLine(String value, String band) {
+    return 'IMC avant la grossesse : $value ($band)';
+  }
+
+  @override
+  String get toolBandUnderweight => 'Insuffisance pondérale';
+
+  @override
+  String get toolBandNormal => 'Plage saine';
+
+  @override
+  String get toolBandOverweight => 'Surpoids';
+
+  @override
+  String get toolBandObese => 'Obésité';
+
+  @override
+  String get toolGainEyebrow =>
+      'Fourchette de référence pour la prise totale sur toute la grossesse';
+
+  @override
+  String toolGainRangeKg(String low, String high) {
+    return 'De $low à $high kg';
+  }
+
+  @override
+  String toolGainRangeLb(String low, String high) {
+    return 'De $low à $high lb';
+  }
+
+  @override
+  String toolGainOtherUnit(String range) {
+    return 'Soit $range.';
+  }
+
+  @override
+  String get toolGainNoRangeTwins =>
+      'L\'Institute of Medicine ne donne pas de fourchette pour des jumeaux quand l\'IMC avant la grossesse est inférieur à 18,5. Votre soignant vous conseillera.';
+
+  @override
+  String get toolGainNoRangeMultiples =>
+      'L\'Institute of Medicine ne donne pas de fourchette pour trois bébés ou plus. Votre soignant vous conseillera.';
+
+  @override
+  String get toolGainNote =>
+      'C\'est une fourchette de référence pour votre catégorie d\'IMC avant la grossesse, pas un objectif ni un jugement. Votre soignant peut vous proposer une autre fourchette.';
+
+  @override
+  String get toolGainSource =>
+      'Source : Institute of Medicine (2009), « Weight Gain During Pregnancy » ; les CDC et l\'ACOG utilisent les mêmes fourchettes.';
+
+  @override
+  String toolGainOutOfRange(
+    String minW,
+    String maxW,
+    String minH,
+    String maxH,
+  ) {
+    return 'Saisissez un poids de $minW à $maxW kg et une taille de $minH à $maxH cm.';
+  }
+
+  @override
+  String get toolNothingSaved =>
+      'Rien de ce que vous saisissez ici n\'est enregistré.';
 }

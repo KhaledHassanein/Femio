@@ -14,6 +14,7 @@ import '../../theme/spacing.dart';
 import '../../widgets/tab_header.dart';
 import '../../app.dart';
 import '../assistant/ask_screen.dart';
+import '../tools/tools_screen.dart';
 import 'article_screen.dart';
 
 /// The guide list with a search field. [library] is injectable for tests.
@@ -61,22 +62,31 @@ class _LearnScreenState extends State<LearnScreen> {
                   ),
                   onChanged: (v) => setState(() => _query = v),
                 ),
-                if (widget.controller != null) ...[
-                  const SizedBox(height: space2),
-                  // ADR-078: an answer from trusted sources when no guide fits.
-                  Align(
-                    alignment: AlignmentDirectional.centerStart,
-                    child: TextButton.icon(
-                      onPressed: () => Navigator.of(context).push(
-                        MaterialPageRoute<void>(
-                          builder: (_) => AskScreen(controller: widget.controller!, library: widget.library),
+                const SizedBox(height: space2),
+                Wrap(
+                  spacing: space2,
+                  children: [
+                    if (widget.controller != null)
+                      // ADR-078: an answer from trusted sources when no guide fits.
+                      TextButton.icon(
+                        onPressed: () => Navigator.of(context).push(
+                          MaterialPageRoute<void>(
+                            builder: (_) => AskScreen(controller: widget.controller!, library: widget.library),
+                          ),
                         ),
+                        icon: const Icon(Icons.travel_explore_rounded),
+                        label: Text(l.askTitle),
                       ),
-                      icon: const Icon(Icons.travel_explore_rounded),
-                      label: Text(l.askTitle),
+                    // R11.5: the calculators that save nothing, open to everyone.
+                    TextButton.icon(
+                      onPressed: () => Navigator.of(context).push(
+                        MaterialPageRoute<void>(builder: (_) => ToolsScreen(library: widget.library)),
+                      ),
+                      icon: const Icon(Icons.calculate_outlined),
+                      label: Text(l.toolsTitle),
                     ),
-                  ),
-                ],
+                  ],
+                ),
                 const SizedBox(height: space4),
                 if (snapshot.connectionState != ConnectionState.done)
                   const Center(
