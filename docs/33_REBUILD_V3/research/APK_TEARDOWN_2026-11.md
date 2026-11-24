@@ -222,7 +222,7 @@ only where femio can be clearly better while keeping its rules.
    from her own numbers, where they offer one date and a days-late counter.
 4. **Pregnancy end done kindly (R8.14).** C has the choice buried in a menu; femio gives her own
    words, a quiet screen, reminders stopped and data kept.
-5. **Privacy you can check (R8.21).** Their APKs carry six to ten ad networks each; femio's "what can
+5. **Privacy you can check (R8.21).** Their APKs carry two (P), eight (C) and seven (T) ad networks; femio's "what can
    leave this phone" page lists one opt-in path.
 6. **Postpartum view (R8.19)** where all three simply stop.
 7. **Signs side by side (R8.8)** instead of a camera that "reads" a strip.
