@@ -13,6 +13,9 @@ const SLUGS = readdirSync(DIR)
   // article of its own: it shares the English file's slug and topic.
   .filter((f) => !/\.(ar|fr|es)\.md$/.test(f))
   .filter((f) => !/^content_type: "condition pillar"$/m.test(readFileSync(join(DIR, f), "utf8")))
+  // A draft is withdrawn or unfinished and never reaches the hub (the content build
+  // drops it), so it needs no topic.
+  .filter((f) => !/^status: "draft"$/m.test(readFileSync(join(DIR, f), "utf8")))
   .map((f) => f.replace(/\.md$/, ""));
 
 describe("Learn hub topics", () => {

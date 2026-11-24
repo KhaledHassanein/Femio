@@ -97,7 +97,7 @@ Llama a la unidad de maternidad por contracciones que duren 60 segundos cada cin
 
 ### ¿Mi bebé viene tarde?
 
-No necesariamente. El término va de la semana 37 a la 42, y una fecha probable es un único punto estimado dentro de una franja de cinco semanas; si pasas de las 41 semanas, tu servicio hablará de los siguientes pasos. La mayoría de las mujeres dan a luz en la semana anterior o posterior a ella.
+No necesariamente. El término va de la semana 37 a la 42, y una fecha probable es un único punto estimado dentro de una franja de cinco semanas; si pasas de las 41 semanas, tu servicio hablará de los siguientes pasos.
 
 ### ¿Puedo hacer algo para provocar el parto?
 

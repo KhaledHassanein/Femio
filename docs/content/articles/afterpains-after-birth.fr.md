@@ -128,7 +128,7 @@ L’allaitement libère une hormone qui fait se contracter l’utérus ; les cra
 
 ### Sont-elles pires à chaque bébé ?
 
-Souvent, oui. Un utérus déjà distendu a tendance à se contracter par vagues plus fortes.
+Souvent, oui. Elles sont souvent décrites comme plus fortes après une deuxième naissance ou les suivantes.
 
 ### Combien de temps doivent-elles durer ?
 

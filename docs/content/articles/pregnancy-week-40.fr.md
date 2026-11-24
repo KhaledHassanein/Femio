@@ -97,7 +97,7 @@ Appelez la maternité pour des contractions durant 60 secondes et revenant toute
 
 ### Mon bébé est-il en retard ?
 
-Pas nécessairement. Le terme se situe entre 37 et 42 semaines, et la date prévue est un seul point estimé à l’intérieur d’une fourchette de cinq semaines ; si vous dépassez 41 semaines, votre service discutera des étapes suivantes. La plupart des femmes accouchent dans la semaine qui précède ou suit cette date.
+Pas nécessairement. Le terme se situe entre 37 et 42 semaines, et la date prévue est un seul point estimé à l’intérieur d’une fourchette de cinq semaines ; si vous dépassez 41 semaines, votre service discutera des étapes suivantes.
 
 ### Puis-je faire quelque chose pour déclencher le travail ?
 

@@ -97,7 +97,7 @@ Call the maternity unit for contractions lasting 60 seconds every five minutes, 
 
 ### Is my baby late?
 
-Not necessarily. Term is 37 to 42 weeks, and a due date is a single estimated point inside a five-week band; if you go past 41 weeks your service will discuss next steps. Most women give birth in the week either side of it.
+Not necessarily. Term is 37 to 42 weeks, and a due date is a single estimated point inside a five-week band; if you go past 41 weeks your service will discuss next steps.
 
 ### Can I do anything to bring on labour?
 

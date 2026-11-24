@@ -128,7 +128,7 @@ Al amamantar se libera una hormona que hace que el útero se contraiga, así que
 
 ### ¿Son peores con cada bebé?
 
-A menudo, sí. Un útero que ya se ha estirado antes tiende a contraerse en oleadas más fuertes.
+A menudo, sí. Se suelen describir como más fuertes tras un segundo parto o los siguientes.
 
 ### ¿Cuánto deberían durar?
 
