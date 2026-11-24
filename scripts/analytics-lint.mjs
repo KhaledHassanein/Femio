@@ -184,7 +184,9 @@ try {
 // 3c. The assistant (ADR-078): model calls live in Kotlin only, under one package, and only
 // Firebase AI Logic and App Check may be added to Gradle; analytics, Crashlytics, messaging
 // and the rest of Firebase stay out. Dart reaches the bridge only through
-// lib/data/assistant_channel.dart, which takes a CloudSafeText for anything bound for the cloud.
+// lib/data/assistant_channel.dart, whose cloud-capable call takes only a CloudPrompt (ADR-079).
+// A CloudPrompt is built only in cloud_prompt.dart, only from a CloudSafeText question or a
+// PseudonymisedProfile, and no Google Search grounding tool may be wired in anywhere.
 const GRADLE = "apps/mobile/android/app/build.gradle.kts";
 const ALLOWED_FIREBASE = /com\.google\.firebase:firebase-(ai|ai-ondevice|appcheck-debug|appcheck-playintegrity):/;
 try {
@@ -213,8 +215,12 @@ try {
   })(KOTLIN_SRC);
   for (const file of kotlinFiles) {
     const rel = relative(process.cwd(), file).replace(/\\/g, "/");
-    if (/import com\.google\.firebase\./.test(readFileSync(file, "utf8")) && !FIREBASE_KOTLIN_ALLOWED.test(rel)) {
+    const kt = readFileSync(file, "utf8");
+    if (/import com\.google\.firebase\./.test(kt) && !FIREBASE_KOTLIN_ALLOWED.test(rel)) {
       fail(rel, "uses Firebase outside the assistant package (ADR-078 §5)");
+    }
+    if (/googleSearch|GoogleSearch/.test(kt)) {
+      fail(rel, "wires Google Search grounding; answers come only from the bundled registry (ADR-079)");
     }
   }
 } catch (error) {
@@ -228,8 +234,24 @@ try {
       fail(rel, "names the assistant channel; only lib/data/assistant_channel.dart may (ADR-078 §5)");
     }
   }
-  if (!/askGrounded\(CloudSafeText /.test(readFileSync(ASSISTANT_CHANNEL_DART, "utf8"))) {
-    fail(ASSISTANT_CHANNEL_DART, "the cloud call no longer requires a CloudSafeText (ADR-078 §3)");
+  if (!/runHybrid\(CloudPrompt /.test(readFileSync(ASSISTANT_CHANNEL_DART, "utf8"))) {
+    fail(ASSISTANT_CHANNEL_DART, "the cloud-capable call no longer requires a CloudPrompt (ADR-079)");
+  }
+  const CLOUD_PROMPT = "apps/mobile/lib/domain/assistant/cloud_prompt.dart";
+  const cp = readFileSync(CLOUD_PROMPT, "utf8");
+  const factories = [...cp.matchAll(/factory CloudPrompt\.(\w+)\(([^,)]+)/g)].map((m) => `${m[1]}(${m[2].trim().split(/\s+/)[0]}`);
+  const allowed = new Set(["answer(CloudSafeText", "tips(PseudonymisedProfile"]);
+  if (factories.length !== 2 || factories.some((f) => !allowed.has(f))) {
+    fail(CLOUD_PROMPT, `CloudPrompt may be built only from CloudSafeText or PseudonymisedProfile; found ${factories.join(", ") || "none"} (ADR-079)`);
+  }
+  if (/CloudPrompt\s*\(|const CloudPrompt\.(?!_\()/.test(cp.replace(/const CloudPrompt\._\(/, ""))) {
+    fail(CLOUD_PROMPT, "CloudPrompt has a public constructor (ADR-079)");
+  }
+  for (const file of walk(APP_LIB).filter((f) => f.endsWith(".dart"))) {
+    const rel = relative(process.cwd(), file).replace(/\\/g, "/");
+    if (rel !== CLOUD_PROMPT && /CloudPrompt\._\(/.test(readFileSync(file, "utf8"))) {
+      fail(rel, "builds a CloudPrompt outside cloud_prompt.dart (ADR-079)");
+    }
   }
 } catch (error) {
   fail(ASSISTANT_CHANNEL_DART, `cannot read: ${error.message}`);
@@ -277,4 +299,4 @@ if (findings.length > 0) {
   console.error(`\n${findings.length} finding(s). See docs/33_REBUILD_V3/03_LEGAL_PACK.md.`);
   process.exit(1);
 }
-console.log(`✓ privacy tripwire: no analytics, error-reporting or database client in either product; website: Tag Manager and AdSense hosts inside lib/consent and lib/ads only, ad units only in the article and hub; app: ${adsSdkInPubspec ? "Google's ads SDK only, imported only under lib/features/ads/" : "no ads SDK"}, no network code of its own, Firebase AI Logic only inside the Kotlin assistant behind CloudSafeText, no personal permission (source and merged manifest, when built).`);
+console.log(`✓ privacy tripwire: no analytics, error-reporting or database client in either product; website: Tag Manager and AdSense hosts inside lib/consent and lib/ads only, ad units only in the article and hub; app: ${adsSdkInPubspec ? "Google's ads SDK only, imported only under lib/features/ads/" : "no ads SDK"}, no network code of its own, Firebase AI Logic only inside the Kotlin assistant behind CloudPrompt (CloudSafeText or PseudonymisedProfile only), no search grounding, no personal permission (source and merged manifest, when built).`);
