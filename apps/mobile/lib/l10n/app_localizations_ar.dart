@@ -2313,4 +2313,21 @@ class L10nAr extends L10n {
 
   @override
   String get tipsOrderedCloud => 'رُتّبت بـ Cloud boost، من معلومات عامة فقط.';
+
+  @override
+  String get legendPossible => 'دورة محتملة (ثقة منخفضة)';
+
+  @override
+  String get confidenceLowShort => 'ثقة منخفضة';
+
+  @override
+  String get upcomingPeriodsTitle => 'الدورات القادمة';
+
+  @override
+  String get upcomingPeriodsWider =>
+      'كل دورة لاحقة نطاقها أوسع: كلما ابتعد الموعد قلّ اليقين.';
+
+  @override
+  String get upcomingPeriodsOnlyNext =>
+      'تظهر الدورة القادمة فقط: دوراتك المسجّلة تتفاوت كثيرًا، أو ما زالت قليلة، فلا يمكن التقدير لأبعد من ذلك.';
 }

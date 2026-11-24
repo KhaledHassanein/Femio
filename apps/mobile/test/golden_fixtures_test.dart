@@ -12,6 +12,7 @@ import 'package:femio/domain/fertility.dart';
 import 'package:femio/domain/guidance.dart';
 import 'package:femio/domain/pregnancy_tools.dart';
 import 'package:femio/domain/test_timing.dart';
+import 'package:femio/domain/upcoming_periods.dart';
 import 'package:femio/domain/hijri.dart';
 import 'package:femio/domain/pregnancy.dart';
 import 'package:femio/domain/weight.dart';
@@ -29,13 +30,19 @@ import 'package:flutter_test/flutter_test.dart';
 const dir = '../../fixtures/domain';
 
 final runners = <String, Object? Function(Map<String, dynamic>)>{
-  'cycle-prediction': (i) =>
-      predictNextPeriod(List<String>.from(i['starts'] as List), i['statedCycleLength'] as int?)?.toJson(),
+  'cycle-prediction': (i) => predictNextPeriod(
+    List<String>.from(i['starts'] as List),
+    i['statedCycleLength'] as int?,
+  )?.toJson(),
   'bbt-chart': (i) {
     double r4(double n) => (n * 10000).round() / 10000;
     final chart = bbtChart([
       for (final e in i['entries'] as List)
-        BbtEntry(e['id'] as String, e['loggedAt'] as String, (e['bbt'] as num).toDouble()),
+        BbtEntry(
+          e['id'] as String,
+          e['loggedAt'] as String,
+          (e['bbt'] as num).toDouble(),
+        ),
     ], i['cycleStart'] as String?);
     if (chart == null) return null;
     return {
@@ -44,18 +51,29 @@ final runners = <String, Object? Function(Map<String, dynamic>)>{
       'high': r4(chart.high),
       'points': [
         for (final p in chart.points)
-          {'entryId': p.entryId, 'loggedAt': p.loggedAt, 'cycleDay': p.cycleDay, 'bbt': p.bbt, 'y': r4(p.y)},
+          {
+            'entryId': p.entryId,
+            'loggedAt': p.loggedAt,
+            'cycleDay': p.cycleDay,
+            'bbt': p.bbt,
+            'y': r4(p.y),
+          },
       ],
     };
   },
   'contractions': (i) {
     final timed = timeContractions([
-      for (final c in i['contractions'] as List) Contraction.fromJson(Map<String, Object?>.from(c as Map)),
+      for (final c in i['contractions'] as List)
+        Contraction.fromJson(Map<String, Object?>.from(c as Map)),
     ]);
     return {
       'timed': [
         for (final t in timed)
-          {'id': t.contraction.id, 'durationSeconds': t.durationSeconds, 'intervalSeconds': t.intervalSeconds},
+          {
+            'id': t.contraction.id,
+            'durationSeconds': t.durationSeconds,
+            'intervalSeconds': t.intervalSeconds,
+          },
       ],
       'summary': summarize(timed).toJson(),
       'inProgress': inProgress(timed)?.contraction.id,
@@ -64,10 +82,14 @@ final runners = <String, Object? Function(Map<String, dynamic>)>{
   'movement-pattern': (i) {
     double r4(double n) => (n * 10000).round() / 10000;
     final r = comparePattern([
-      for (final s in i['sessions'] as List) MovementSession.fromJson(Map<String, Object?>.from(s as Map)),
+      for (final s in i['sessions'] as List)
+        MovementSession.fromJson(Map<String, Object?>.from(s as Map)),
     ]);
     return switch (r) {
-      InsufficientPattern() => {'status': 'insufficient', 'sessions': r.sessions},
+      InsufficientPattern() => {
+        'status': 'insufficient',
+        'sessions': r.sessions,
+      },
       ComparablePattern() => {
         'status': 'comparable',
         'sessions': r.sessions,
@@ -81,7 +103,8 @@ final runners = <String, Object? Function(Map<String, dynamic>)>{
   'weight-chart': (i) {
     double r4(double n) => (n * 10000).round() / 10000;
     final c = weightChart([
-      for (final e in i['entries'] as List) WeightEntry.fromJson(Map<String, Object?>.from(e as Map)),
+      for (final e in i['entries'] as List)
+        WeightEntry.fromJson(Map<String, Object?>.from(e as Map)),
     ]);
     if (c == null) return null;
     return {
@@ -91,13 +114,22 @@ final runners = <String, Object? Function(Map<String, dynamic>)>{
       'changeSinceFirst': c.changeSinceFirst,
       'points': [
         for (final p in c.points)
-          {'entryId': p.entryId, 'measuredOn': p.measuredOn, 'value': p.value, 'unit': p.unit, 'y': r4(p.y)},
+          {
+            'entryId': p.entryId,
+            'measuredOn': p.measuredOn,
+            'value': p.value,
+            'unit': p.unit,
+            'y': r4(p.y),
+          },
       ],
     };
   },
   'appointments': (i) {
     final today = i['today'] as String;
-    final list = [for (final a in i['appointments'] as List) Appointment.fromJson(Map<String, Object?>.from(a as Map))];
+    final list = [
+      for (final a in i['appointments'] as List)
+        Appointment.fromJson(Map<String, Object?>.from(a as Map)),
+    ];
     final s = splitAppointments(list, today);
     return {
       'upcoming': [for (final a in s.upcoming) a.id],
@@ -107,6 +139,15 @@ final runners = <String, Object? Function(Map<String, dynamic>)>{
       'daysUntil': {for (final a in list) a.id: daysUntil(a, today)},
     };
   },
+  'upcoming-periods': (i) => [
+    for (final u in upcomingPeriods(
+      predictNextPeriod(
+        List<String>.from(i['starts'] as List),
+        i['statedCycleLength'] as int?,
+      ),
+    ))
+      u.toJson(),
+  ],
   'fertile-window': (i) => fertileWindowBefore(
     i['nextPeriod'] as String,
     cycleLength: i['cycleLength'] as int?,
@@ -114,13 +155,21 @@ final runners = <String, Object? Function(Map<String, dynamic>)>{
     learning: i['learning'] as bool,
   )?.toJson(),
   'ttc-guidance': (i) => ttcGuidance(
-    tryingFor: i['tryingFor'] == null ? null : TryingFor.values.byName(i['tryingFor'] as String),
+    tryingFor: i['tryingFor'] == null
+        ? null
+        : TryingFor.values.byName(i['tryingFor'] as String),
     age: i['age'] as int?,
     irregular: i['irregular'] as bool,
   ).toJson(),
   'pregnancy-tools': (i) => pregnancyToolOrder(i['weeks'] as int?),
-  'age-gate': (i) => ageGate(birthYear: i['birthYear'] as int, todayYear: i['todayYear'] as int).name,
-  'test-timing': (i) => pregnancyTestDay(windowEnd: i['windowEnd'] as String, irregular: i['irregular'] as bool),
+  'age-gate': (i) => ageGate(
+    birthYear: i['birthYear'] as int,
+    todayYear: i['todayYear'] as int,
+  ).name,
+  'test-timing': (i) => pregnancyTestDay(
+    windowEnd: i['windowEnd'] as String,
+    irregular: i['irregular'] as bool,
+  ),
   'edd-from': (i) {
     final date = i['date'] as String;
     return switch (i['method']) {
@@ -130,15 +179,26 @@ final runners = <String, Object? Function(Map<String, dynamic>)>{
       _ => eddFromTransfer(date, embryoDays: 5),
     };
   },
-  'gestational-age': (i) => pregnancyProgress(i['edd'] as String, i['today'] as String)?.toJson(),
+  'gestational-age': (i) =>
+      pregnancyProgress(i['edd'] as String, i['today'] as String)?.toJson(),
   // Two kinds of case share the file: an ISO date (day, month index, year) and a
   // Gregorian span (the month line printed under the month title).
   'hijri': (i) {
     if (i.containsKey('iso')) {
       final h = hijriDate(i['iso'] as String)!;
-      return {'day': hijriDay(i['iso'] as String), 'month': h.month, 'year': h.year};
+      return {
+        'day': hijriDay(i['iso'] as String),
+        'month': h.month,
+        'year': h.year,
+      };
     }
-    return {'line': hijriMonthLine(i['first'] as String, i['last'] as String, i['locale'] as String)};
+    return {
+      'line': hijriMonthLine(
+        i['first'] as String,
+        i['last'] as String,
+        i['locale'] as String,
+      ),
+    };
   },
 };
 
@@ -167,15 +227,58 @@ void main() {
   });
 
   for (final entry in runners.entries) {
-    final json = jsonDecode(File('$dir/${entry.key}.json').readAsStringSync()) as Map;
+    final json =
+        jsonDecode(File('$dir/${entry.key}.json').readAsStringSync()) as Map;
     final cases = json['cases'] as List;
     group(entry.key, () {
       for (var i = 0; i < cases.length; i++) {
         final c = cases[i] as Map<String, dynamic>;
         test('case $i', () {
-          expect(entry.value(c['input'] as Map<String, dynamic>), c['expected']);
+          expect(
+            entry.value(c['input'] as Map<String, dynamic>),
+            c['expected'],
+          );
         });
       }
     });
   }
+
+  // R8.9 (owner 2026-11-24): the likely ovulation day is always inside the fertile
+  // window, in the recorded answers and for every cycle length a window is named for.
+  test('fertile-window: every recorded window contains its ovulation day', () {
+    final json =
+        jsonDecode(File('$dir/fertile-window.json').readAsStringSync()) as Map;
+    for (final c in json['cases'] as List) {
+      final e = c['expected'] as Map?;
+      if (e == null) continue;
+      expect(
+        (e['windowStart'] as String).compareTo(e['ovulation'] as String) <= 0,
+        isTrue,
+      );
+      expect(
+        (e['ovulation'] as String).compareTo(e['windowEnd'] as String) <= 0,
+        isTrue,
+      );
+    }
+  });
+
+  test(
+    'fertile-window: ovulation inside the window for every named cycle length',
+    () {
+      for (var len = regularCycleMin; len <= regularCycleMax; len++) {
+        final w = fertileWindowBefore(
+          '2027-03-01',
+          cycleLength: len,
+          irregular: false,
+          learning: false,
+        )!;
+        expect(
+          w.windowStart.compareTo(w.ovulation) <= 0 &&
+              w.ovulation.compareTo(w.windowEnd) <= 0,
+          isTrue,
+          reason: 'cycle length $len',
+        );
+      }
+    },
+  );
 }

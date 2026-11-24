@@ -932,5 +932,10 @@
         "type": "String"
       }
     }
-  }
+  },
+  "legendPossible": "Period possible (low confidence)",
+  "confidenceLowShort": "Low confidence",
+  "upcomingPeriodsTitle": "Next periods",
+  "upcomingPeriodsWider": "Each later period is a wider range: the further ahead, the less certain.",
+  "upcomingPeriodsOnlyNext": "Only the next period is shown: your logged cycles vary too much, or there are too few yet, to reach further ahead."
 }

@@ -642,5 +642,10 @@
   "tipsTitle": "Para ti",
   "tipsSource": "Fuente: {publisher}",
   "tipsChosenOnPhone": "Elegidos en tu teléfono a partir de tu registro. Cada consejo es una frase revisada, con su fuente.",
-  "tipsOrderedCloud": "Ordenados con Cloud boost, solo a partir de datos generales."
+  "tipsOrderedCloud": "Ordenados con Cloud boost, solo a partir de datos generales.",
+  "legendPossible": "Regla posible (confianza baja)",
+  "confidenceLowShort": "Confianza baja",
+  "upcomingPeriodsTitle": "Próximas reglas",
+  "upcomingPeriodsWider": "Cada regla siguiente tiene un margen más amplio: cuanto más lejos, menos certeza.",
+  "upcomingPeriodsOnlyNext": "Solo se muestra la próxima regla: tus ciclos registrados varían demasiado, o todavía son pocos, para llegar más lejos."
 }

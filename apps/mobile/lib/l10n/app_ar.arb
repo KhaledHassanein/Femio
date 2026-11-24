@@ -642,5 +642,10 @@
   "tipsTitle": "لكِ",
   "tipsSource": "المصدر: {publisher}",
   "tipsChosenOnPhone": "اختيرت على هاتفكِ من تسجيلاتكِ. كل نصيحة جملة مُراجعة مع مصدرها.",
-  "tipsOrderedCloud": "رُتّبت بـ Cloud boost، من معلومات عامة فقط."
+  "tipsOrderedCloud": "رُتّبت بـ Cloud boost، من معلومات عامة فقط.",
+  "legendPossible": "دورة محتملة (ثقة منخفضة)",
+  "confidenceLowShort": "ثقة منخفضة",
+  "upcomingPeriodsTitle": "الدورات القادمة",
+  "upcomingPeriodsWider": "كل دورة لاحقة نطاقها أوسع: كلما ابتعد الموعد قلّ اليقين.",
+  "upcomingPeriodsOnlyNext": "تظهر الدورة القادمة فقط: دوراتك المسجّلة تتفاوت كثيرًا، أو ما زالت قليلة، فلا يمكن التقدير لأبعد من ذلك."
 }

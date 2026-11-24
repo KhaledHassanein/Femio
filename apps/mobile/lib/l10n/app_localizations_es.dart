@@ -2301,4 +2301,21 @@ class L10nEs extends L10n {
   @override
   String get tipsOrderedCloud =>
       'Ordenados con Cloud boost, solo a partir de datos generales.';
+
+  @override
+  String get legendPossible => 'Regla posible (confianza baja)';
+
+  @override
+  String get confidenceLowShort => 'Confianza baja';
+
+  @override
+  String get upcomingPeriodsTitle => 'Próximas reglas';
+
+  @override
+  String get upcomingPeriodsWider =>
+      'Cada regla siguiente tiene un margen más amplio: cuanto más lejos, menos certeza.';
+
+  @override
+  String get upcomingPeriodsOnlyNext =>
+      'Solo se muestra la próxima regla: tus ciclos registrados varían demasiado, o todavía son pocos, para llegar más lejos.';
 }

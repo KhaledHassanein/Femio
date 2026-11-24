@@ -2292,4 +2292,21 @@ class L10nEn extends L10n {
   @override
   String get tipsOrderedCloud =>
       'Put in order with Cloud boost, from broad facts only.';
+
+  @override
+  String get legendPossible => 'Period possible (low confidence)';
+
+  @override
+  String get confidenceLowShort => 'Low confidence';
+
+  @override
+  String get upcomingPeriodsTitle => 'Next periods';
+
+  @override
+  String get upcomingPeriodsWider =>
+      'Each later period is a wider range: the further ahead, the less certain.';
+
+  @override
+  String get upcomingPeriodsOnlyNext =>
+      'Only the next period is shown: your logged cycles vary too much, or there are too few yet, to reach further ahead.';
 }

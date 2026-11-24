@@ -3814,6 +3814,36 @@ abstract class L10n {
   /// In en, this message translates to:
   /// **'Put in order with Cloud boost, from broad facts only.'**
   String get tipsOrderedCloud;
+
+  /// No description provided for @legendPossible.
+  ///
+  /// In en, this message translates to:
+  /// **'Period possible (low confidence)'**
+  String get legendPossible;
+
+  /// No description provided for @confidenceLowShort.
+  ///
+  /// In en, this message translates to:
+  /// **'Low confidence'**
+  String get confidenceLowShort;
+
+  /// No description provided for @upcomingPeriodsTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Next periods'**
+  String get upcomingPeriodsTitle;
+
+  /// No description provided for @upcomingPeriodsWider.
+  ///
+  /// In en, this message translates to:
+  /// **'Each later period is a wider range: the further ahead, the less certain.'**
+  String get upcomingPeriodsWider;
+
+  /// No description provided for @upcomingPeriodsOnlyNext.
+  ///
+  /// In en, this message translates to:
+  /// **'Only the next period is shown: your logged cycles vary too much, or there are too few yet, to reach further ahead.'**
+  String get upcomingPeriodsOnlyNext;
 }
 
 class _L10nDelegate extends LocalizationsDelegate<L10n> {

@@ -3,17 +3,34 @@ import 'package:femio/domain/day_marks.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 void main() {
-  const base = Profile(goal: Goal.ttc, locale: 'en', periodStarts: ['2026-10-01'], cycleLength: 28);
+  const base = Profile(
+    goal: Goal.ttc,
+    locale: 'en',
+    periodStarts: ['2026-10-01'],
+    cycleLength: 28,
+  );
 
   test('logged bleeding, spotting and symptoms are facts; the window is an estimate', () {
     final p = base
         .withDayLog('2026-10-02', const DayLog(flow: 'medium'))
-        .withDayLog('2026-10-12', const DayLog(flow: 'spotting', terms: ['cramps']));
-    final m = dayMarks(p, today: '2026-10-14', from: '2026-10-01', to: '2026-11-30');
+        .withDayLog(
+          '2026-10-12',
+          const DayLog(flow: 'spotting', terms: ['cramps']),
+        );
+    final m = dayMarks(
+      p,
+      today: '2026-10-14',
+      from: '2026-10-01',
+      to: '2026-11-30',
+    );
     expect(m['2026-10-02']!.bleed, isTrue);
     expect(m['2026-10-12']!.spotting, isTrue);
     expect(m['2026-10-12']!.logged, isTrue);
-    expect(m['2026-10-12']!.bleed, isFalse, reason: 'spotting never counts as a period');
+    expect(
+      m['2026-10-12']!.bleed,
+      isFalse,
+      reason: 'spotting never counts as a period',
+    );
     // Stated 28 days from 1 Oct → 29 Oct ± 4; ovulation 14 days before.
     expect(m['2026-10-25']!.predicted, isTrue);
     expect(m['2026-11-02']!.predicted, isTrue);
@@ -21,7 +38,12 @@ void main() {
   });
 
   test('no estimate is drawn on a day already lived', () {
-    final m = dayMarks(base, today: '2026-10-20', from: '2026-10-01', to: '2026-10-31');
+    final m = dayMarks(
+      base,
+      today: '2026-10-20',
+      from: '2026-10-01',
+      to: '2026-10-31',
+    );
     expect(m['2026-10-15']?.ovulation ?? false, isFalse);
     expect(m['2026-10-27']!.predicted, isTrue);
   });
@@ -35,9 +57,81 @@ void main() {
   });
 
   test('the record survives a save and load', () {
-    final p = base.withDayLog('2026-10-03', const DayLog(flow: 'light', terms: ['headache', 'calm']));
+    final p = base.withDayLog(
+      '2026-10-03',
+      const DayLog(flow: 'light', terms: ['headache', 'calm']),
+    );
     final back = Profile.fromJson(p.toJson());
     expect(back.logs['2026-10-03']!.terms, ['headache', 'calm']);
     expect(back.periodStarts, p.periodStarts);
+  });
+
+  // R8.10 / MR-51: after steady cycles the next three periods are drawn as widening
+  // ranges; the low-confidence one is "possible" (dashed). R8.9: ovulation sits in the window.
+  test('steady cycles show the next three periods, the last as possible', () {
+    const p = Profile(
+      goal: Goal.ttc,
+      locale: 'en',
+      periodStarts: [
+        '2026-01-01',
+        '2026-01-29',
+        '2026-02-26',
+        '2026-03-26',
+        '2026-04-23',
+        '2026-05-21',
+        '2026-06-18',
+      ],
+    );
+    final m = dayMarks(
+      p,
+      today: '2026-06-20',
+      from: '2026-06-20',
+      to: '2026-09-30',
+    );
+    for (final d in [
+      '2026-07-14',
+      '2026-07-18',
+      '2026-08-10',
+      '2026-08-16',
+      '2026-09-06',
+      '2026-09-14',
+    ]) {
+      expect(m[d]?.predicted ?? false, isTrue, reason: d);
+    }
+    expect(m['2026-07-16']!.possible, isFalse, reason: 'high confidence');
+    expect(m['2026-08-13']!.possible, isFalse, reason: 'medium confidence');
+    expect(m['2026-09-10']!.possible, isTrue, reason: 'low confidence');
+    expect(m['2026-09-15']?.predicted ?? false, isFalse);
+    final ovulation = m.entries
+        .where((e) => e.value.ovulation)
+        .map((e) => e.key)
+        .toList();
+    expect(ovulation, ['2026-07-02']);
+    expect(
+      m['2026-07-02']!.fertile,
+      isTrue,
+      reason: 'the ovulation day is inside the fertile window',
+    );
+  });
+
+  test('irregular cycles show only the next period', () {
+    const p = Profile(
+      goal: Goal.period,
+      locale: 'en',
+      periodStarts: ['2026-03-01', '2026-03-27', '2026-05-04', '2026-06-02'],
+    );
+    final m = dayMarks(
+      p,
+      today: '2026-06-05',
+      from: '2026-06-05',
+      to: '2026-10-31',
+    );
+    expect(m['2026-07-03']!.predicted, isTrue);
+    expect(
+      m.entries.where(
+        (e) => e.value.predicted && e.key.compareTo('2026-07-20') > 0,
+      ),
+      isEmpty,
+    );
   });
 }

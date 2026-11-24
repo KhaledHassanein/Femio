@@ -2308,4 +2308,21 @@ class L10nFr extends L10n {
   @override
   String get tipsOrderedCloud =>
       'Mis en ordre avec Cloud boost, à partir d’informations générales seulement.';
+
+  @override
+  String get legendPossible => 'Règles possibles (confiance faible)';
+
+  @override
+  String get confidenceLowShort => 'Confiance faible';
+
+  @override
+  String get upcomingPeriodsTitle => 'Prochaines règles';
+
+  @override
+  String get upcomingPeriodsWider =>
+      'Chaque période suivante a une fourchette plus large : plus c\'est loin, moins c\'est sûr.';
+
+  @override
+  String get upcomingPeriodsOnlyNext =>
+      'Seules les prochaines règles sont affichées : vos cycles notés varient trop, ou sont encore trop peu nombreux, pour aller plus loin.';
 }
