@@ -1,6 +1,6 @@
 # Femio — current state (living document)
 
-**Last updated: 2026-11-24.** Rewrite in place; never add a dated copy. Older versions are in git
+**Last updated: 2026-11-25.** Rewrite in place; never add a dated copy. Older versions are in git
 history and `docs/archive/`.
 
 ## ▶ Resume prompt
@@ -15,6 +15,8 @@ history and `docs/archive/`.
 > First, run `git branch --list "wip/*"`. A branch there means the last session stopped mid-item.
 
 ## Where things stand (2026-10-28)
+
+- **Calculators and mini tools (R11, 2026-11-25).** Branch `claude/calculators-mini-tools-8afeee`, not merged. Website: due date by every method (last period with cycle length, conception, IVF day 3/5, dating scan), a pregnancy week-by-week calendar, the IOM weight-gain range and a session-only contraction timer. App: the first three under Learn > Calculators, saving nothing. New rules MR-52 (scan dating), MR-53 (calendar), MR-54 (IOM 2009) with shared fixtures `due-date`, `pregnancy-calendar`, `weight-gain` and scan cases in `edd-from`. Not built, with reasons: PROGRESS R11.0. Open for the owner: a no-score "PCOS visit checklist" (D-04 bars a screener).
 
 - **Persona feature review (2026-11-24).** Market researcher + business development + lead synthesis in `docs/33_REBUILD_V3/research/PERSONA_FEATURES_2026-11.md` (owner page https://claude.ai/artifact/6debjUMkBygKcNuQntDW8T). 23 accepted features are `R8.1`–`R8.23` in PROGRESS (waves A/B/C; wave A = the owner's ten requests); R8.24 = the femio Plus decision (feeds R7.12). Key finding: the 37 week-by-week pregnancy guides already exist in four languages with fixed sections, so the weekly view is assembly. No code changed.
 

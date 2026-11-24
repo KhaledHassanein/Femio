@@ -27,6 +27,13 @@ Added 2026-11-24 (ADR-078). Steps 23 to 25 unlock the AI; without them the app s
 | 35 | **Egypt PDPC licence** (Law 151 Art. 12): ask the lawyer whether Cloud boost needs the sensitive-data licence and a transfer permit; the grace period ended about 1 Nov 2026 | Your decision | — |
 | 36 | **One privacy-lawyer review before the Play release**, with `docs/compliance/PRIVACY_REVIEW_2026-11-24.md`, the privacy policy and the consumer health data policy pages | Paid, yours | 1–2 h |
 
+## Calculators (R11, 2026-11-25)
+
+| # | What | Why only you | Time |
+|---|---|---|---|
+| 37 | **PCOS visit checklist: yes or no?** A page or app tool that lists PCOS symptoms and questions to bring to a clinician, with no score and no "you may have PCOS" (D-04 bars a screener in v1). Say yes and a session builds it from the cited PCOS guide (PROGRESS R11.6) | A product and regulatory call | 2 min |
+| 38 | **Read the new Arabic calculator wording** on `/ar/calculators/due-date`, `/pregnancy-calendar`, `/pregnancy-weight-gain`, `/contraction-timer` (screenshots in `testing-results/2026-11-25-r11-calculators/`); note any line to change (PROGRESS R11.7) | Clinical Arabic register | 15 min |
+
 ## Now (before the release candidate)
 
 | # | What | Why only you | Time |
