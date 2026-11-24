@@ -16,6 +16,8 @@ history and `docs/archive/`.
 
 ## Where things stand (2026-10-28)
 
+- **Website shows the app as it stands (R2.10, 2026-11-25).** On branch `claude/web-demos-upgrade-f52169` (built on the hackathon branch), not merged. `/app` and home gain a tour of real app screens, three demos on synthetic data (next periods, Say it, Ask femio) and "what can leave this phone"; app sentences are synced from the ARB (`app-strings-lint` in the gate). Production needs both branches merged into `main` (owner).
+
 - **Persona feature review (2026-11-24).** Market researcher + business development + lead synthesis in `docs/33_REBUILD_V3/research/PERSONA_FEATURES_2026-11.md` (owner page https://claude.ai/artifact/6debjUMkBygKcNuQntDW8T). 23 accepted features are `R8.1`–`R8.23` in PROGRESS (waves A/B/C; wave A = the owner's ten requests); R8.24 = the femio Plus decision (feeds R7.12). Key finding: the 37 week-by-week pregnancy guides already exist in four languages with fixed sections, so the weekly view is assembly. No code changed.
 
 - **Ask femio coverage (R7.13, 2026-11-24).** Registry 89 → 286 entries, every passage checked word for word; on a synthetic set of 419 questions strong answers went 45% → 87%, "not covered" 82 → 8. Report: `docs/33_REBUILD_V3/research/REGISTRY_COVERAGE_2026-11.md`. Next: a rule for "do I have X?" questions (R7.14).
