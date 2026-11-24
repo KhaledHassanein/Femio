@@ -2309,4 +2309,8 @@ class L10nEn extends L10n {
   @override
   String get upcomingPeriodsOnlyNext =>
       'Only the next period is shown: your logged cycles vary too much, or there are too few yet, to reach further ahead.';
+
+  @override
+  String get todayUrgentBody =>
+      'If something feels severe or sudden, get care now. The emergency numbers for your country are one tap away.';
 }

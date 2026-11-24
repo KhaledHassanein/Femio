@@ -2318,4 +2318,8 @@ class L10nEs extends L10n {
   @override
   String get upcomingPeriodsOnlyNext =>
       'Solo se muestra la próxima regla: tus ciclos registrados varían demasiado, o todavía son pocos, para llegar más lejos.';
+
+  @override
+  String get todayUrgentBody =>
+      'Si algo te parece grave o repentino, busca atención ahora. Los números de emergencia de tu país están a un toque.';
 }

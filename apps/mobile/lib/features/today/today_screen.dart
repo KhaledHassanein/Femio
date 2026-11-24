@@ -20,6 +20,7 @@ import '../../widgets/bloom.dart';
 import '../../widgets/notice_card.dart';
 import '../assistant/ask_screen.dart';
 import '../assistant/visit_summary_screen.dart';
+import '../help/help_now_screen.dart';
 import '../help/red_flags_screen.dart';
 import '../settings/settings_screen.dart';
 import '../../widgets/tab_header.dart';
@@ -34,7 +35,13 @@ import 'today_hero.dart';
 /// [controller] holds her record and must already be loaded (its profile is non-null).
 /// [today] fixes the date in tests. [onLog] opens today's log (the Log tab).
 class TodayScreen extends StatelessWidget {
-  const TodayScreen({super.key, required this.controller, this.today, this.onLog, this.library});
+  const TodayScreen({
+    super.key,
+    required this.controller,
+    this.today,
+    this.onLog,
+    this.library,
+  });
   final FemioController controller;
 
   /// The guides, for the link at the foot of the warning-signs screen. Optional so
@@ -46,8 +53,10 @@ class TodayScreen extends StatelessWidget {
   final VoidCallback? onLog;
 
   @override
-  Widget build(BuildContext context) =>
-      ListenableBuilder(listenable: controller, builder: (context, _) => _build(context));
+  Widget build(BuildContext context) => ListenableBuilder(
+    listenable: controller,
+    builder: (context, _) => _build(context),
+  );
 
   Widget _build(BuildContext context) {
     final profile = controller.profile!;
@@ -80,23 +89,34 @@ class TodayScreen extends StatelessWidget {
                 IconButton(
                   tooltip: l.settingsTitle,
                   icon: Icon(Icons.settings_outlined, color: p.textMuted),
-                  onPressed: () =>
-                      Navigator.of(context)
-                          .push(MaterialPageRoute<void>(builder: (_) => SettingsScreen(controller: controller))),
+                  onPressed: () => Navigator.of(context).push(
+                    MaterialPageRoute<void>(
+                      builder: (_) => SettingsScreen(controller: controller),
+                    ),
+                  ),
                 ),
               ],
             ),
             const SizedBox(height: space1),
-            Semantics(header: true, child: Text(l.todayTitle, style: t.headlineMedium)),
+            Semantics(
+              header: true,
+              child: Text(l.todayTitle, style: t.headlineMedium),
+            ),
             const SizedBox(height: space4),
             if (!profile.settings.storageNoticeSeen) ...[
               // Shown once, instead of a consent step: there is nothing to consent to
               // because nothing leaves the phone (03_LEGAL_PACK §5, §7 row 21).
-              NoticeCard(tone: NoticeTone.quiet, heading: l.firstRunStorageTitle, body: l.firstRunStorageNotice),
+              NoticeCard(
+                tone: NoticeTone.quiet,
+                heading: l.firstRunStorageTitle,
+                body: l.firstRunStorageNotice,
+              ),
               Align(
                 alignment: AlignmentDirectional.centerEnd,
                 child: TextButton(
-                  onPressed: () => controller.setSettings(profile.settings.copyWith(storageNoticeSeen: true)),
+                  onPressed: () => controller.setSettings(
+                    profile.settings.copyWith(storageNoticeSeen: true),
+                  ),
                   child: Text(l.dismiss),
                 ),
               ),
@@ -107,21 +127,12 @@ class TodayScreen extends StatelessWidget {
               const SizedBox(height: space3),
               Text(l.pregEstimateNote, style: t.bodySmall),
               const SizedBox(height: space4),
-              NoticeCard(tone: NoticeTone.urgent, heading: l.pregRedFlagsHeading, body: l.pregRedFlagsBody),
-              Align(
-                alignment: AlignmentDirectional.centerEnd,
-                child: TextButton(
-                  onPressed: () => Navigator.of(context).push(
-                    MaterialPageRoute<void>(builder: (_) => RedFlagsScreen(library: library)),
-                  ),
-                  child: Text(l.pregRedFlagsMore),
-                ),
-              ),
-              const SizedBox(height: space5),
               PregnancyTools(
                 controller: controller,
                 today: now,
-                progress: profile.edd == null ? null : pregnancyProgress(profile.edd!, now),
+                progress: profile.edd == null
+                    ? null
+                    : pregnancyProgress(profile.edd!, now),
               ),
             ],
             if (canLog) ...[
@@ -129,9 +140,13 @@ class TodayScreen extends StatelessWidget {
               FilledButton.icon(
                 onPressed: () async {
                   final existing = profile.logs[now];
-                  await controller.setDayLog(now, DayLog(flow: 'medium', terms: existing?.terms ?? const []));
+                  await controller.setDayLog(
+                    now,
+                    DayLog(flow: 'medium', terms: existing?.terms ?? const []),
+                  );
                   if (context.mounted) {
-                    ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(l.loggedToday)));
+                    ScaffoldMessenger.of(context)
+                        .showSnackBar(SnackBar(content: Text(l.loggedToday)));
                   }
                 },
                 icon: const Icon(Icons.water_drop_rounded),
@@ -147,11 +162,13 @@ class TodayScreen extends StatelessWidget {
             const SizedBox(height: space2),
             Center(
               child: Text(
-                l.loggedTodayCount((profile.logs[now]?.terms.length ?? 0) + (profile.logs[now]?.flow != null ? 1 : 0)),
+                l.loggedTodayCount(
+                  (profile.logs[now]?.terms.length ?? 0) +
+                      (profile.logs[now]?.flow != null ? 1 : 0),
+                ),
                 style: t.bodySmall,
               ),
             ),
-            TipsCard(controller: controller, today: now),
             const SizedBox(height: space4),
             // ADR-078: the assistant's two doors from Today.
             Row(
@@ -159,7 +176,13 @@ class TodayScreen extends StatelessWidget {
                 Expanded(
                   child: OutlinedButton.icon(
                     onPressed: () => Navigator.of(context).push(
-                      MaterialPageRoute<void>(builder: (_) => AskScreen(controller: controller, library: library, today: now)),
+                      MaterialPageRoute<void>(
+                        builder: (_) => AskScreen(
+                          controller: controller,
+                          library: library,
+                          today: now,
+                        ),
+                      ),
                     ),
                     icon: const Icon(Icons.travel_explore_rounded),
                     label: Text(l.askTitle),
@@ -169,7 +192,12 @@ class TodayScreen extends StatelessWidget {
                 Expanded(
                   child: OutlinedButton.icon(
                     onPressed: () => Navigator.of(context).push(
-                      MaterialPageRoute<void>(builder: (_) => VisitSummaryScreen(controller: controller, today: now)),
+                      MaterialPageRoute<void>(
+                        builder: (_) => VisitSummaryScreen(
+                          controller: controller,
+                          today: now,
+                        ),
+                      ),
                     ),
                     icon: const Icon(Icons.assignment_outlined),
                     label: Text(l.visitButton),
@@ -177,11 +205,55 @@ class TodayScreen extends StatelessWidget {
                 ),
               ],
             ),
+            TipsCard(controller: controller, today: now),
             const SizedBox(height: space7),
+            // R8.2 (owner 2026-11-24): the two notices sit at the bottom, under the dashboard,
+            // the log and the tips. Help now also stays in the header on every tab (MR-38).
+            if (profile.goal == Goal.pregnant && profile.birthDate == null) ...[
+              const SizedBox(height: space4),
+              NoticeCard(
+                tone: NoticeTone.urgent,
+                heading: l.pregRedFlagsHeading,
+                body: l.pregRedFlagsBody,
+              ),
+              Align(
+                alignment: AlignmentDirectional.centerEnd,
+                child: TextButton(
+                  onPressed: () => Navigator.of(context).push(
+                    MaterialPageRoute<void>(
+                      builder: (_) => RedFlagsScreen(library: library),
+                    ),
+                  ),
+                  child: Text(l.pregRedFlagsMore),
+                ),
+              ),
+            ] else ...[
+              NoticeCard(
+                tone: NoticeTone.urgent,
+                heading: l.pregRedFlagsHeading,
+                body: l.todayUrgentBody,
+              ),
+              Align(
+                alignment: AlignmentDirectional.centerEnd,
+                child: TextButton(
+                  onPressed: () => Navigator.of(context).push(
+                    MaterialPageRoute<void>(
+                      builder: (_) => const HelpNowScreen(),
+                    ),
+                  ),
+                  child: Text(l.helpNowLauncher),
+                ),
+              ),
+            ],
+            const SizedBox(height: space4),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Icon(Icons.lock_outline_rounded, size: iconSizeInline, color: p.textSubtle),
+                Icon(
+                  Icons.lock_outline_rounded,
+                  size: iconSizeInline,
+                  color: p.textSubtle,
+                ),
                 const SizedBox(width: space1h),
                 Text(l.privacyLine, style: t.bodySmall),
               ],

@@ -2330,4 +2330,8 @@ class L10nAr extends L10n {
   @override
   String get upcomingPeriodsOnlyNext =>
       'تظهر الدورة القادمة فقط: دوراتك المسجّلة تتفاوت كثيرًا، أو ما زالت قليلة، فلا يمكن التقدير لأبعد من ذلك.';
+
+  @override
+  String get todayUrgentBody =>
+      'إذا شعرتِ بشيء شديد أو مفاجئ، اطلبي الرعاية الآن. أرقام الطوارئ في بلدك على بُعد لمسة واحدة.';
 }

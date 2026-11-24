@@ -46,6 +46,14 @@ ambition (one record for her whole health life) stays the direction, not the lau
 6. **Arabic and RTL are first-class.** Western digits in Arabic (ADR-069); Hijri shown beside
    Gregorian where dates appear (stored Gregorian); the wordmark is always the Latin **femio**, also
    inside Arabic prose.
+7. **The AI is a companion, never the engine (owner 2026-11-24).**
+   - Hybrid AI exists *for* privacy. It brings personalised help to every surface, Learn included; be creative.
+   - It never touches core functions, and it never sees the sensitive record or the whole context.
+   - Every feature works with AI off.
+   - The AI reads only through a narrow, typed context: on the phone for anything from her record; Cloud boost only with a question she approved or the four bands (ADR-079/080).
+   - It never writes to her record without her confirming.
+   - Rules always run first.
+   - Every agent keeps looking for new companion uses and pain points (plan: PROGRESS R10).
 
 ## The architecture rule (ADR-070)
 **The specification owns decisions; the clients run it.** Every medical threshold, wording rule and

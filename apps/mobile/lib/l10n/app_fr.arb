@@ -647,5 +647,6 @@
   "confidenceLowShort": "Confiance faible",
   "upcomingPeriodsTitle": "Prochaines règles",
   "upcomingPeriodsWider": "Chaque période suivante a une fourchette plus large : plus c'est loin, moins c'est sûr.",
-  "upcomingPeriodsOnlyNext": "Seules les prochaines règles sont affichées : vos cycles notés varient trop, ou sont encore trop peu nombreux, pour aller plus loin."
+  "upcomingPeriodsOnlyNext": "Seules les prochaines règles sont affichées : vos cycles notés varient trop, ou sont encore trop peu nombreux, pour aller plus loin.",
+  "todayUrgentBody": "Si quelque chose vous semble grave ou soudain, consultez maintenant. Les numéros d'urgence de votre pays sont à portée d'un geste."
 }

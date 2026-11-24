@@ -1,8 +1,6 @@
 // R8.9 and R8.10 proof screenshots: the calendar with steady cycles shows the next three
 // periods as widening ranges (the last dashed, "possible") and the ovulation day inside the
 // fertile window. Written only with --update-goldens, to testing-results/2026-11-24-r8-calendar/.
-import 'dart:io';
-
 import 'package:femio/app.dart';
 import 'package:femio/data/profile.dart';
 import 'package:femio/data/store.dart';
@@ -11,40 +9,17 @@ import 'package:femio/l10n/app_localizations.dart';
 import 'package:femio/main.dart' show configureFormatting;
 import 'package:femio/theme/femio_theme.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_test/flutter_test.dart';
+
+import 'support/app_fonts.dart';
 
 const _out = '../../../testing-results/2026-11-24-r8-calendar';
 const _today = '2026-06-20';
 
-Future<void> _loadFonts() async {
-  Future<void> load(String family, List<String> files) async {
-    final loader = FontLoader(family);
-    for (final f in files) {
-      final bytes = File(f).readAsBytesSync();
-      loader.addFont(Future.value(ByteData.view(bytes.buffer)));
-    }
-    await loader.load();
-  }
-
-  await load('Newsreader', ['assets/fonts/Newsreader.ttf']);
-  await load('PlusJakartaSans', ['assets/fonts/PlusJakartaSans.ttf']);
-  await load('IBMPlexSansArabic', [
-    'assets/fonts/IBMPlexSansArabic-Regular.ttf',
-    'assets/fonts/IBMPlexSansArabic-Medium.ttf',
-    'assets/fonts/IBMPlexSansArabic-SemiBold.ttf',
-    'assets/fonts/IBMPlexSansArabic-Bold.ttf',
-  ]);
-  final sdk = Platform.environment['FLUTTER_ROOT'] ?? '/root/sdk/flutter';
-  await load('MaterialIcons', [
-    '$sdk/bin/cache/artifacts/material_fonts/MaterialIcons-Regular.otf',
-  ]);
-}
-
 void main() {
   setUpAll(() async {
-    await _loadFonts();
+    await loadAppFonts();
     configureFormatting();
   });
 

@@ -3844,6 +3844,12 @@ abstract class L10n {
   /// In en, this message translates to:
   /// **'Only the next period is shown: your logged cycles vary too much, or there are too few yet, to reach further ahead.'**
   String get upcomingPeriodsOnlyNext;
+
+  /// No description provided for @todayUrgentBody.
+  ///
+  /// In en, this message translates to:
+  /// **'If something feels severe or sudden, get care now. The emergency numbers for your country are one tap away.'**
+  String get todayUrgentBody;
 }
 
 class _L10nDelegate extends LocalizationsDelegate<L10n> {

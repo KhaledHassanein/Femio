@@ -2325,4 +2325,8 @@ class L10nFr extends L10n {
   @override
   String get upcomingPeriodsOnlyNext =>
       'Seules les prochaines règles sont affichées : vos cycles notés varient trop, ou sont encore trop peu nombreux, pour aller plus loin.';
+
+  @override
+  String get todayUrgentBody =>
+      'Si quelque chose vous semble grave ou soudain, consultez maintenant. Les numéros d\'urgence de votre pays sont à portée d\'un geste.';
 }
