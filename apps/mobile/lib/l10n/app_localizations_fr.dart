@@ -2753,4 +2753,60 @@ class L10nFr extends L10n {
   @override
   String get assistDoorVisitSub =>
       'Un résumé de votre suivi et des questions à emporter';
+
+  @override
+  String thisWeekTitle(int week) {
+    return 'Cette semaine : semaine $week';
+  }
+
+  @override
+  String weekGuideTitle(int week) {
+    return 'Semaine $week';
+  }
+
+  @override
+  String get weekSecBaby => 'Bébé';
+
+  @override
+  String get weekSecBody => 'Votre corps';
+
+  @override
+  String get weekSecNotice => 'Ce que vous pourriez remarquer';
+
+  @override
+  String get weekSecCare => 'Les soins à cette période';
+
+  @override
+  String get weekSecTip => 'Conseil';
+
+  @override
+  String weekReadFull(int week) {
+    return 'Lire le guide de la semaine $week';
+  }
+
+  @override
+  String get pregWeeksTitle => 'Votre grossesse semaine par semaine';
+
+  @override
+  String get pregWeeksHint =>
+      'Calculées à partir de votre date prévue d\'accouchement. Touchez une semaine pour lire son guide.';
+
+  @override
+  String pregWeekCurrentLabel(int week) {
+    return 'Semaine $week, votre semaine actuelle';
+  }
+
+  @override
+  String get sectionBleedingPregnant => 'Saignements ou spotting';
+
+  @override
+  String get bleedingPregnantNote =>
+      'Les saignements pendant la grossesse sont fréquents, mais ils peuvent être le signe d\'un problème grave. Signalez tout saignement à votre sage-femme ou à votre médecin.';
+
+  @override
+  String get logAllItems => 'Tous les éléments de suivi';
+
+  @override
+  String get logAllItemsSub =>
+      'Test d\'ovulation et température, masqués pendant la grossesse';
 }

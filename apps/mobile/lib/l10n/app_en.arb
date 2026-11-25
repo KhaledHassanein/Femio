@@ -1178,5 +1178,52 @@
   "assistDoorVisitSub": "A summary of your log and questions to take along",
   "@assistIntroTitle": {
     "description": "R8.3 first-use sheet before the assistant's doors (ADR-079/080)."
-  }
+  },
+  "thisWeekTitle": "This week: week {week}",
+  "@thisWeekTitle": {
+    "description": "R8.6 Today card title; week is completed weeks (the guide's number).",
+    "placeholders": {
+      "week": {
+        "type": "int"
+      }
+    }
+  },
+  "weekGuideTitle": "Week {week}",
+  "@weekGuideTitle": {
+    "placeholders": {
+      "week": {
+        "type": "int"
+      }
+    }
+  },
+  "weekSecBaby": "Baby",
+  "weekSecBody": "Your body",
+  "weekSecNotice": "What you may notice",
+  "weekSecCare": "Care around now",
+  "weekSecTip": "Tip",
+  "weekReadFull": "Read the week {week} guide",
+  "@weekReadFull": {
+    "placeholders": {
+      "week": {
+        "type": "int"
+      }
+    }
+  },
+  "pregWeeksTitle": "Your pregnancy by week",
+  "pregWeeksHint": "Counted from your due date. Tap a week to read its guide.",
+  "pregWeekCurrentLabel": "Week {week}, your week now",
+  "@pregWeekCurrentLabel": {
+    "placeholders": {
+      "week": {
+        "type": "int"
+      }
+    }
+  },
+  "sectionBleedingPregnant": "Bleeding or spotting",
+  "bleedingPregnantNote": "Bleeding in pregnancy is common, but it can be a sign of something serious. Tell your midwife or doctor about any bleeding.",
+  "@bleedingPregnantNote": {
+    "description": "R8.7, MR-29: NHS 'Vaginal bleeding in pregnancy' (read 2026-10-30). Arabic wording is the owner's to confirm (D-10)."
+  },
+  "logAllItems": "All log items",
+  "logAllItemsSub": "Ovulation test and temperature, hidden in pregnancy"
 }

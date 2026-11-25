@@ -761,5 +761,20 @@
   "assistDoorAskSub": "إجابات من مصادر موثوقة، مع الروابط",
   "assistDoorSayIt": "قولي كيف كان يومكِ",
   "assistDoorSayItSub": "تتحول جملة واحدة إلى سجل اليوم؛ وتراجعينه أولًا",
-  "assistDoorVisitSub": "ملخص لسجلكِ وأسئلة تأخذينها معكِ"
+  "assistDoorVisitSub": "ملخص لسجلكِ وأسئلة تأخذينها معكِ",
+  "thisWeekTitle": "هذا الأسبوع: الأسبوع {week}",
+  "weekGuideTitle": "الأسبوع {week}",
+  "weekSecBaby": "الجنين",
+  "weekSecBody": "جسمكِ",
+  "weekSecNotice": "ما قد تلاحظينه",
+  "weekSecCare": "الرعاية في هذه الفترة",
+  "weekSecTip": "نصيحة",
+  "weekReadFull": "اقرئي دليل الأسبوع {week}",
+  "pregWeeksTitle": "حملكِ أسبوعًا بأسبوع",
+  "pregWeeksHint": "محسوبة من موعد ولادتكِ المتوقع. اضغطي على أسبوع لقراءة دليله.",
+  "pregWeekCurrentLabel": "الأسبوع {week}، أسبوعكِ الحالي",
+  "sectionBleedingPregnant": "نزيف أو تبقّع",
+  "bleedingPregnantNote": "النزيف أثناء الحمل شائع، لكنه قد يكون علامة على أمر خطير. أخبري القابلة أو الطبيب عن أي نزيف.",
+  "logAllItems": "كل عناصر السجل",
+  "logAllItemsSub": "اختبار التبويض ودرجة الحرارة، مخفيّان أثناء الحمل"
 }

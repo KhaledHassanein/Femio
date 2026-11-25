@@ -171,8 +171,12 @@ def main() -> None:
     cal_inputs = [
         {"edd": "2027-03-01", "today": "2026-09-14"},  # mid second trimester
         {"edd": "2027-03-01", "today": "2026-06-08"},  # 2w0d: before the first row, no current week
+        # R8.7: the week turns over on the last-period weekday (LMP 2026-05-25, a Monday).
+        {"edd": "2027-03-01", "today": "2026-06-21"},  # 3w6d: the day before the first guide, no current week
+        {"edd": "2027-03-01", "today": "2026-06-22"},  # 4w0d: the first guide (pregnancy-week-4) shows
+        {"edd": "2027-03-01", "today": "2026-09-13"},  # 15w6d (a Sunday): still week 15; 16w0d is the Monday case above
         {"edd": "2026-12-25", "today": "2026-11-24"},  # late third trimester
-        {"edd": "2027-07-10", "today": "2026-11-24"},  # before week 4: no current row
+        {"edd": "2027-07-10", "today": "2026-11-24"},  # 7w3d
         {"edd": "2026-11-01", "today": "2026-11-24"},  # past the due date, inside week 43? -> null
         {"edd": "2026-11-20", "today": "2026-11-24"},  # 40w4d
         {"edd": "2028-02-29", "today": "2027-08-01"},  # leap day due date

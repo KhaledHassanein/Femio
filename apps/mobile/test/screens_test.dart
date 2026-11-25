@@ -11,6 +11,11 @@ import 'package:femio/domain/movements.dart';
 import 'package:femio/domain/store_prompts.dart';
 import 'package:femio/domain/weight.dart';
 import 'package:femio/features/assistant/assistant_pill.dart';
+import 'package:femio/features/log/log_screen.dart';
+import 'package:femio/features/pregnancy/this_week_card.dart';
+import 'package:femio/features/today/today_screen.dart';
+import 'package:femio/features/pregnancy/week_strip.dart';
+import 'package:femio/l10n/app_localizations.dart';
 import 'package:femio/features/lock/pin_field.dart';
 import 'package:femio/features/onboarding/widgets.dart';
 import 'package:femio/features/settings/leaving_phone_screen.dart';
@@ -339,6 +344,43 @@ void main() {
       });
     }
   }
+
+  group('Pregnancy by week (R8.6, R8.7, R9.1)', () {
+    Finder listOf(Type screen) => find.descendant(of: find.byType(screen), matching: find.byType(Scrollable)).first;
+
+    for (final (lang, b) in [('en', Brightness.light), ('en', Brightness.dark), ('ar', Brightness.light), ('ar', Brightness.dark)]) {
+      testWidgets('this week on Today, the weeks on Calendar, bleeding on Log ($lang, ${b.name})', (tester) async {
+        // Due 2027-02-10, today 2026-10-08: 22w1d.
+        final p = Profile(goal: Goal.pregnant, locale: lang, birthYear: 1993, edd: '2027-02-10');
+        final c = FemioController(MemoryStore(p));
+        await _pump(tester, c, b);
+        final l = await L10n.delegate.load(Locale(lang));
+        // The card's content is tested with a pre-loaded library (pregnancy_week_screens_test);
+        // here: Today places it for week 22.
+        await tester.scrollUntilVisible(find.byType(ThisWeekCard, skipOffstage: false), 200, scrollable: listOf(TodayScreen));
+        final card = tester.widget<ThisWeekCard>(find.byType(ThisWeekCard, skipOffstage: false));
+        expect((card.week, card.totalDays), (22, 155));
+
+        await tester.tap(find.byIcon(Icons.calendar_month_outlined));
+        await tester.pumpAndSettle();
+        expect(find.byType(PregnancyWeekStrip), findsOneWidget);
+        expect(find.bySemanticsLabel(l.pregWeekCurrentLabel(22)), findsOneWidget, reason: 'her week is marked');
+        await _shoot(tester, '${lang}_${b.name}_20_pregnancy_weeks');
+        await tester.tap(find.byIcon(Icons.edit_note_outlined));
+        await tester.pumpAndSettle();
+        expect(find.text(l.sectionBleedingPregnant), findsOneWidget);
+        expect(find.text(l.sectionPeriod), findsNothing);
+        expect(find.text(l.sectionOvulationTest, skipOffstage: false), findsNothing, reason: 'folded under All log items');
+        await _shoot(tester, '${lang}_${b.name}_22_log_pregnant');
+        await tester.scrollUntilVisible(find.text(l.logAllItems, skipOffstage: false), 300, scrollable: listOf(LogScreen));
+        await tester.ensureVisible(find.text(l.logAllItems, skipOffstage: false));
+        await tester.pumpAndSettle();
+        await tester.tap(find.text(l.logAllItems));
+        await tester.pumpAndSettle();
+        expect(find.text(l.sectionOvulationTest, skipOffstage: false), findsOneWidget, reason: 'still reachable (rule 2)');
+      });
+    }
+  });
 
   group('Assistant front door (R8.3)', () {
     for (final (lang, b) in [('en', Brightness.light), ('en', Brightness.dark), ('ar', Brightness.light), ('ar', Brightness.dark)]) {

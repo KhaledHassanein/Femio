@@ -2730,4 +2730,60 @@ class L10nEn extends L10n {
   @override
   String get assistDoorVisitSub =>
       'A summary of your log and questions to take along';
+
+  @override
+  String thisWeekTitle(int week) {
+    return 'This week: week $week';
+  }
+
+  @override
+  String weekGuideTitle(int week) {
+    return 'Week $week';
+  }
+
+  @override
+  String get weekSecBaby => 'Baby';
+
+  @override
+  String get weekSecBody => 'Your body';
+
+  @override
+  String get weekSecNotice => 'What you may notice';
+
+  @override
+  String get weekSecCare => 'Care around now';
+
+  @override
+  String get weekSecTip => 'Tip';
+
+  @override
+  String weekReadFull(int week) {
+    return 'Read the week $week guide';
+  }
+
+  @override
+  String get pregWeeksTitle => 'Your pregnancy by week';
+
+  @override
+  String get pregWeeksHint =>
+      'Counted from your due date. Tap a week to read its guide.';
+
+  @override
+  String pregWeekCurrentLabel(int week) {
+    return 'Week $week, your week now';
+  }
+
+  @override
+  String get sectionBleedingPregnant => 'Bleeding or spotting';
+
+  @override
+  String get bleedingPregnantNote =>
+      'Bleeding in pregnancy is common, but it can be a sign of something serious. Tell your midwife or doctor about any bleeding.';
+
+  @override
+  String get logAllItems => 'All log items';
+
+  @override
+  String get logAllItemsSub =>
+      'Ovulation test and temperature, hidden in pregnancy';
 }

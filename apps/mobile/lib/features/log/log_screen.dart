@@ -19,6 +19,7 @@ import '../../theme/radii.dart';
 import '../../theme/type_sizes.dart';
 import '../../widgets/tab_header.dart';
 import '../assistant/say_it_sheet.dart';
+import '../help/red_flags_screen.dart';
 import 'widgets/log_chip.dart';
 import 'widgets/temperature_field.dart';
 
@@ -91,6 +92,33 @@ class LogScreen extends StatelessWidget {
           ],
         );
 
+        // R8.7: in pregnancy, bleeding is a warning sign, not a period, and the ovulation test
+        // and temperature fold under "All log items" (still reachable, rule 2).
+        final pregnant = profile.goal == Goal.pregnant && profile.birthDate == null;
+        final fertilityItems = [
+          section(l.sectionOvulationTest, [
+            for (final r in opkResults)
+              LogChip(
+                label: opkLabel(l, r),
+                selected: log.opk == r,
+                tint: p.successSoft,
+                ink: p.successText,
+                onTap: () => save(log.copyWith(opk: log.opk == r ? null : r)),
+              ),
+          ]),
+          section(l.sectionTemperature, [
+            TemperatureField(
+              key: ValueKey('bbt-$date'),
+              initial: log.bbt,
+              hint: l.temperatureHint,
+              saveLabel: l.temperatureSave,
+              clearLabel: l.temperatureClear,
+              invalid: l.invalidBbt,
+              onSave: (v) => save(log.copyWith(bbt: v)),
+            ),
+          ]),
+        ];
+
         return SafeArea(
           child: ListView(
             padding: const EdgeInsets.fromLTRB(space5, space4, space5, fabClearance),
@@ -134,7 +162,7 @@ class LogScreen extends StatelessWidget {
                 icon: const Icon(Icons.auto_awesome_rounded),
                 label: Text(l.sayItButton),
               ),
-              section(l.sectionPeriod, [
+              section(pregnant ? l.sectionBleedingPregnant : l.sectionPeriod, [
                 LogChip(
                   label: l.flowNone,
                   selected: log.flow == null,
@@ -152,31 +180,36 @@ class LogScreen extends StatelessWidget {
                     onTap: () => setFlow(f),
                   ),
               ]),
+              if (pregnant) ...[
+                const SizedBox(height: space2),
+                Text(l.bleedingPregnantNote, style: t.bodySmall),
+                Align(
+                  alignment: AlignmentDirectional.centerStart,
+                  child: TextButton(
+                    onPressed: () => Navigator.of(context).push(
+                      MaterialPageRoute<void>(builder: (_) => const RedFlagsScreen()),
+                    ),
+                    child: Text(l.pregRedFlagsMore),
+                  ),
+                ),
+              ],
               section(l.sectionMood, [termChips(LogDimension.mood, p.logMoodAlt, p.logMood)]),
               section(l.sectionSymptoms, [termChips(LogDimension.symptom, p.logSymptomAlt, p.logSymptom)]),
               section(l.sectionDischarge, [termChips(LogDimension.discharge, p.logDischargeAlt, p.logDischarge)]),
-              section(l.sectionOvulationTest, [
-                for (final r in opkResults)
-                  LogChip(
-                    label: opkLabel(l, r),
-                    selected: log.opk == r,
-                    tint: p.successSoft,
-                    ink: p.successText,
-                    onTap: () => save(log.copyWith(opk: log.opk == r ? null : r)),
-                  ),
-              ]),
-              section(l.sectionTemperature, [
-                TemperatureField(
-                  key: ValueKey('bbt-$date'),
-                  initial: log.bbt,
-                  hint: l.temperatureHint,
-                  saveLabel: l.temperatureSave,
-                  clearLabel: l.temperatureClear,
-                  invalid: l.invalidBbt,
-                  onSave: (v) => save(log.copyWith(bbt: v)),
-                ),
-              ]),
+              if (!pregnant) ...fertilityItems,
               section(l.sectionMore, [termChips(LogDimension.intercourse, p.surfaceSunken, p.text)]),
+              if (pregnant)
+                Padding(
+                  padding: const EdgeInsets.only(top: space4),
+                  child: ExpansionTile(
+                    tilePadding: EdgeInsets.zero,
+                    childrenPadding: EdgeInsets.zero,
+                    expandedCrossAxisAlignment: CrossAxisAlignment.start,
+                    title: Text(l.logAllItems, style: t.titleMedium),
+                    subtitle: Text(l.logAllItemsSub, style: t.bodySmall),
+                    children: fertilityItems,
+                  ),
+                ),
               const SizedBox(height: space6),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,

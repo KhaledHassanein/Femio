@@ -12,6 +12,7 @@ import '../../domain/dates.dart';
 import '../../domain/day_marks.dart';
 import '../../domain/hijri.dart';
 import '../../domain/upcoming_periods.dart';
+import '../../data/library.dart';
 import '../../data/profile.dart';
 import '../../l10n/app_localizations.dart';
 import '../../theme/femio_theme.dart';
@@ -20,6 +21,7 @@ import '../../theme/spacing.dart';
 import '../../theme/type_sizes.dart';
 import '../../widgets/dashed_ring.dart';
 import '../../widgets/tab_header.dart';
+import '../pregnancy/week_strip.dart';
 import 'upcoming_periods_card.dart';
 
 /// Month calendar. What she logged is drawn filled; what Femio estimates is drawn in
@@ -33,10 +35,14 @@ class CalendarScreen extends StatefulWidget {
     required this.controller,
     required this.today,
     required this.onDay,
+    this.library,
   });
   final FemioController controller;
   final String today;
   final ValueChanged<String> onDay;
+
+  /// The guides, for the pregnancy week strip's week sheet (R8.6).
+  final Library? library;
 
   @override
   State<CalendarScreen> createState() => _CalendarScreenState();
@@ -76,7 +82,10 @@ class _CalendarScreenState extends State<CalendarScreen> {
           DateFormat.MMMd(locale).format(fromISO(a)),
           DateFormat.MMMd(locale).format(fromISO(b)),
         );
-        final upcoming = profile.goal == Goal.period || profile.goal == Goal.ttc
+        final predicts = profile.goal == Goal.period || profile.goal == Goal.ttc;
+        // R8.6/R8.7: in pregnancy the week is the unit; nothing about periods or fertility.
+        final pregnant = profile.goal == Goal.pregnant && profile.birthDate == null && profile.edd != null;
+        final upcoming = predicts
             ? upcomingPeriods(
                 predictNextPeriod(profile.periodStarts, profile.cycleLength),
               )
@@ -225,6 +234,10 @@ class _CalendarScreenState extends State<CalendarScreen> {
             children: [
               TabHeader(title: l.calendarTitle),
               const SizedBox(height: space4),
+              if (pregnant) ...[
+                PregnancyWeekStrip(edd: profile.edd!, today: widget.today, library: widget.library ?? Library()),
+                const SizedBox(height: space5),
+              ],
               Container(
                 padding: const EdgeInsets.fromLTRB(
                   space3,
@@ -306,6 +319,7 @@ class _CalendarScreenState extends State<CalendarScreen> {
                     dot(Colors.transparent, ring: p.logPeriod),
                     l.legendSpotting,
                   ),
+                  if (predicts) ...[
                   legend(
                     dot(
                       p.predictionBand.withValues(alpha: 0.14),
@@ -328,6 +342,7 @@ class _CalendarScreenState extends State<CalendarScreen> {
                     dot(p.successSoft, ring: p.successSolid),
                     l.legendOvulation,
                   ),
+                  ],
                   legend(
                     Container(
                       width: 6,

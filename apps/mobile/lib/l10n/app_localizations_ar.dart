@@ -2751,4 +2751,60 @@ class L10nAr extends L10n {
 
   @override
   String get assistDoorVisitSub => 'ملخص لسجلكِ وأسئلة تأخذينها معكِ';
+
+  @override
+  String thisWeekTitle(int week) {
+    return 'هذا الأسبوع: الأسبوع $week';
+  }
+
+  @override
+  String weekGuideTitle(int week) {
+    return 'الأسبوع $week';
+  }
+
+  @override
+  String get weekSecBaby => 'الجنين';
+
+  @override
+  String get weekSecBody => 'جسمكِ';
+
+  @override
+  String get weekSecNotice => 'ما قد تلاحظينه';
+
+  @override
+  String get weekSecCare => 'الرعاية في هذه الفترة';
+
+  @override
+  String get weekSecTip => 'نصيحة';
+
+  @override
+  String weekReadFull(int week) {
+    return 'اقرئي دليل الأسبوع $week';
+  }
+
+  @override
+  String get pregWeeksTitle => 'حملكِ أسبوعًا بأسبوع';
+
+  @override
+  String get pregWeeksHint =>
+      'محسوبة من موعد ولادتكِ المتوقع. اضغطي على أسبوع لقراءة دليله.';
+
+  @override
+  String pregWeekCurrentLabel(int week) {
+    return 'الأسبوع $week، أسبوعكِ الحالي';
+  }
+
+  @override
+  String get sectionBleedingPregnant => 'نزيف أو تبقّع';
+
+  @override
+  String get bleedingPregnantNote =>
+      'النزيف أثناء الحمل شائع، لكنه قد يكون علامة على أمر خطير. أخبري القابلة أو الطبيب عن أي نزيف.';
+
+  @override
+  String get logAllItems => 'كل عناصر السجل';
+
+  @override
+  String get logAllItemsSub =>
+      'اختبار التبويض ودرجة الحرارة، مخفيّان أثناء الحمل';
 }

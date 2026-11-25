@@ -2745,4 +2745,60 @@ class L10nEs extends L10n {
   @override
   String get assistDoorVisitSub =>
       'Un resumen de tu registro y preguntas para llevar';
+
+  @override
+  String thisWeekTitle(int week) {
+    return 'Esta semana: semana $week';
+  }
+
+  @override
+  String weekGuideTitle(int week) {
+    return 'Semana $week';
+  }
+
+  @override
+  String get weekSecBaby => 'Bebé';
+
+  @override
+  String get weekSecBody => 'Tu cuerpo';
+
+  @override
+  String get weekSecNotice => 'Lo que puedes notar';
+
+  @override
+  String get weekSecCare => 'La atención en esta etapa';
+
+  @override
+  String get weekSecTip => 'Consejo';
+
+  @override
+  String weekReadFull(int week) {
+    return 'Leer la guía de la semana $week';
+  }
+
+  @override
+  String get pregWeeksTitle => 'Tu embarazo semana a semana';
+
+  @override
+  String get pregWeeksHint =>
+      'Contadas desde tu fecha probable de parto. Toca una semana para leer su guía.';
+
+  @override
+  String pregWeekCurrentLabel(int week) {
+    return 'Semana $week, tu semana actual';
+  }
+
+  @override
+  String get sectionBleedingPregnant => 'Sangrado o manchado';
+
+  @override
+  String get bleedingPregnantNote =>
+      'El sangrado en el embarazo es frecuente, pero puede ser señal de algo grave. Cuéntale cualquier sangrado a tu matrona o a tu médico.';
+
+  @override
+  String get logAllItems => 'Todos los elementos del registro';
+
+  @override
+  String get logAllItemsSub =>
+      'Test de ovulación y temperatura, ocultos en el embarazo';
 }

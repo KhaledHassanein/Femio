@@ -117,7 +117,7 @@ class _HomeShellState extends State<HomeShell> {
         index: _tab,
         children: [
           TodayScreen(controller: widget.controller, today: today, onLog: () => _openLog(today), library: _library),
-          CalendarScreen(controller: widget.controller, today: today, onDay: _openLog),
+          CalendarScreen(controller: widget.controller, today: today, onDay: _openLog, library: _library),
           LogScreen(
             controller: widget.controller,
             today: today,

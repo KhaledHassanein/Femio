@@ -761,5 +761,20 @@
   "assistDoorAskSub": "Des réponses issues de sources fiables, avec les liens",
   "assistDoorSayIt": "Dire comment s'est passée la journée",
   "assistDoorSayItSub": "Une phrase devient le suivi du jour ; vous le vérifiez d'abord",
-  "assistDoorVisitSub": "Un résumé de votre suivi et des questions à emporter"
+  "assistDoorVisitSub": "Un résumé de votre suivi et des questions à emporter",
+  "thisWeekTitle": "Cette semaine : semaine {week}",
+  "weekGuideTitle": "Semaine {week}",
+  "weekSecBaby": "Bébé",
+  "weekSecBody": "Votre corps",
+  "weekSecNotice": "Ce que vous pourriez remarquer",
+  "weekSecCare": "Les soins à cette période",
+  "weekSecTip": "Conseil",
+  "weekReadFull": "Lire le guide de la semaine {week}",
+  "pregWeeksTitle": "Votre grossesse semaine par semaine",
+  "pregWeeksHint": "Calculées à partir de votre date prévue d'accouchement. Touchez une semaine pour lire son guide.",
+  "pregWeekCurrentLabel": "Semaine {week}, votre semaine actuelle",
+  "sectionBleedingPregnant": "Saignements ou spotting",
+  "bleedingPregnantNote": "Les saignements pendant la grossesse sont fréquents, mais ils peuvent être le signe d'un problème grave. Signalez tout saignement à votre sage-femme ou à votre médecin.",
+  "logAllItems": "Tous les éléments de suivi",
+  "logAllItemsSub": "Test d'ovulation et température, masqués pendant la grossesse"
 }

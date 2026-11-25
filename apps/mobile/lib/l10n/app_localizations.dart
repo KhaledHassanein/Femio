@@ -4528,6 +4528,96 @@ abstract class L10n {
   /// In en, this message translates to:
   /// **'A summary of your log and questions to take along'**
   String get assistDoorVisitSub;
+
+  /// R8.6 Today card title; week is completed weeks (the guide's number).
+  ///
+  /// In en, this message translates to:
+  /// **'This week: week {week}'**
+  String thisWeekTitle(int week);
+
+  /// No description provided for @weekGuideTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Week {week}'**
+  String weekGuideTitle(int week);
+
+  /// No description provided for @weekSecBaby.
+  ///
+  /// In en, this message translates to:
+  /// **'Baby'**
+  String get weekSecBaby;
+
+  /// No description provided for @weekSecBody.
+  ///
+  /// In en, this message translates to:
+  /// **'Your body'**
+  String get weekSecBody;
+
+  /// No description provided for @weekSecNotice.
+  ///
+  /// In en, this message translates to:
+  /// **'What you may notice'**
+  String get weekSecNotice;
+
+  /// No description provided for @weekSecCare.
+  ///
+  /// In en, this message translates to:
+  /// **'Care around now'**
+  String get weekSecCare;
+
+  /// No description provided for @weekSecTip.
+  ///
+  /// In en, this message translates to:
+  /// **'Tip'**
+  String get weekSecTip;
+
+  /// No description provided for @weekReadFull.
+  ///
+  /// In en, this message translates to:
+  /// **'Read the week {week} guide'**
+  String weekReadFull(int week);
+
+  /// No description provided for @pregWeeksTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Your pregnancy by week'**
+  String get pregWeeksTitle;
+
+  /// No description provided for @pregWeeksHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Counted from your due date. Tap a week to read its guide.'**
+  String get pregWeeksHint;
+
+  /// No description provided for @pregWeekCurrentLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Week {week}, your week now'**
+  String pregWeekCurrentLabel(int week);
+
+  /// No description provided for @sectionBleedingPregnant.
+  ///
+  /// In en, this message translates to:
+  /// **'Bleeding or spotting'**
+  String get sectionBleedingPregnant;
+
+  /// R8.7, MR-29: NHS 'Vaginal bleeding in pregnancy' (read 2026-10-30). Arabic wording is the owner's to confirm (D-10).
+  ///
+  /// In en, this message translates to:
+  /// **'Bleeding in pregnancy is common, but it can be a sign of something serious. Tell your midwife or doctor about any bleeding.'**
+  String get bleedingPregnantNote;
+
+  /// No description provided for @logAllItems.
+  ///
+  /// In en, this message translates to:
+  /// **'All log items'**
+  String get logAllItems;
+
+  /// No description provided for @logAllItemsSub.
+  ///
+  /// In en, this message translates to:
+  /// **'Ovulation test and temperature, hidden in pregnancy'**
+  String get logAllItemsSub;
 }
 
 class _L10nDelegate extends LocalizationsDelegate<L10n> {

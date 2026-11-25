@@ -569,6 +569,855 @@
     },
     {
       "input": {
+        "edd": "2027-03-01",
+        "today": "2026-06-21"
+      },
+      "expected": {
+        "lmp": "2026-05-25",
+        "edd": "2027-03-01",
+        "secondTrimester": "2026-08-31",
+        "thirdTrimester": "2026-12-07",
+        "termStart": "2027-02-08",
+        "termEnd": "2027-03-15",
+        "currentWeek": null,
+        "weeks": [
+          {
+            "week": 4,
+            "start": "2026-06-22",
+            "end": "2026-06-28",
+            "trimester": 1,
+            "guide": "pregnancy-week-4"
+          },
+          {
+            "week": 5,
+            "start": "2026-06-29",
+            "end": "2026-07-05",
+            "trimester": 1,
+            "guide": "pregnancy-week-5"
+          },
+          {
+            "week": 6,
+            "start": "2026-07-06",
+            "end": "2026-07-12",
+            "trimester": 1,
+            "guide": "pregnancy-week-6"
+          },
+          {
+            "week": 7,
+            "start": "2026-07-13",
+            "end": "2026-07-19",
+            "trimester": 1,
+            "guide": "pregnancy-week-7"
+          },
+          {
+            "week": 8,
+            "start": "2026-07-20",
+            "end": "2026-07-26",
+            "trimester": 1,
+            "guide": "pregnancy-week-8"
+          },
+          {
+            "week": 9,
+            "start": "2026-07-27",
+            "end": "2026-08-02",
+            "trimester": 1,
+            "guide": "pregnancy-week-9"
+          },
+          {
+            "week": 10,
+            "start": "2026-08-03",
+            "end": "2026-08-09",
+            "trimester": 1,
+            "guide": "pregnancy-week-10"
+          },
+          {
+            "week": 11,
+            "start": "2026-08-10",
+            "end": "2026-08-16",
+            "trimester": 1,
+            "guide": "pregnancy-week-11"
+          },
+          {
+            "week": 12,
+            "start": "2026-08-17",
+            "end": "2026-08-23",
+            "trimester": 1,
+            "guide": "pregnancy-week-12"
+          },
+          {
+            "week": 13,
+            "start": "2026-08-24",
+            "end": "2026-08-30",
+            "trimester": 1,
+            "guide": "pregnancy-week-13"
+          },
+          {
+            "week": 14,
+            "start": "2026-08-31",
+            "end": "2026-09-06",
+            "trimester": 2,
+            "guide": "pregnancy-week-14"
+          },
+          {
+            "week": 15,
+            "start": "2026-09-07",
+            "end": "2026-09-13",
+            "trimester": 2,
+            "guide": "pregnancy-week-15"
+          },
+          {
+            "week": 16,
+            "start": "2026-09-14",
+            "end": "2026-09-20",
+            "trimester": 2,
+            "guide": "pregnancy-week-16"
+          },
+          {
+            "week": 17,
+            "start": "2026-09-21",
+            "end": "2026-09-27",
+            "trimester": 2,
+            "guide": "pregnancy-week-17"
+          },
+          {
+            "week": 18,
+            "start": "2026-09-28",
+            "end": "2026-10-04",
+            "trimester": 2,
+            "guide": "pregnancy-week-18"
+          },
+          {
+            "week": 19,
+            "start": "2026-10-05",
+            "end": "2026-10-11",
+            "trimester": 2,
+            "guide": "pregnancy-week-19"
+          },
+          {
+            "week": 20,
+            "start": "2026-10-12",
+            "end": "2026-10-18",
+            "trimester": 2,
+            "guide": "pregnancy-week-20"
+          },
+          {
+            "week": 21,
+            "start": "2026-10-19",
+            "end": "2026-10-25",
+            "trimester": 2,
+            "guide": "pregnancy-week-21"
+          },
+          {
+            "week": 22,
+            "start": "2026-10-26",
+            "end": "2026-11-01",
+            "trimester": 2,
+            "guide": "pregnancy-week-22"
+          },
+          {
+            "week": 23,
+            "start": "2026-11-02",
+            "end": "2026-11-08",
+            "trimester": 2,
+            "guide": "pregnancy-week-23"
+          },
+          {
+            "week": 24,
+            "start": "2026-11-09",
+            "end": "2026-11-15",
+            "trimester": 2,
+            "guide": "pregnancy-week-24"
+          },
+          {
+            "week": 25,
+            "start": "2026-11-16",
+            "end": "2026-11-22",
+            "trimester": 2,
+            "guide": "pregnancy-week-25"
+          },
+          {
+            "week": 26,
+            "start": "2026-11-23",
+            "end": "2026-11-29",
+            "trimester": 2,
+            "guide": "pregnancy-week-26"
+          },
+          {
+            "week": 27,
+            "start": "2026-11-30",
+            "end": "2026-12-06",
+            "trimester": 2,
+            "guide": "pregnancy-week-27"
+          },
+          {
+            "week": 28,
+            "start": "2026-12-07",
+            "end": "2026-12-13",
+            "trimester": 3,
+            "guide": "pregnancy-week-28"
+          },
+          {
+            "week": 29,
+            "start": "2026-12-14",
+            "end": "2026-12-20",
+            "trimester": 3,
+            "guide": "pregnancy-week-29"
+          },
+          {
+            "week": 30,
+            "start": "2026-12-21",
+            "end": "2026-12-27",
+            "trimester": 3,
+            "guide": "pregnancy-week-30"
+          },
+          {
+            "week": 31,
+            "start": "2026-12-28",
+            "end": "2027-01-03",
+            "trimester": 3,
+            "guide": "pregnancy-week-31"
+          },
+          {
+            "week": 32,
+            "start": "2027-01-04",
+            "end": "2027-01-10",
+            "trimester": 3,
+            "guide": "pregnancy-week-32"
+          },
+          {
+            "week": 33,
+            "start": "2027-01-11",
+            "end": "2027-01-17",
+            "trimester": 3,
+            "guide": "pregnancy-week-33"
+          },
+          {
+            "week": 34,
+            "start": "2027-01-18",
+            "end": "2027-01-24",
+            "trimester": 3,
+            "guide": "pregnancy-week-34"
+          },
+          {
+            "week": 35,
+            "start": "2027-01-25",
+            "end": "2027-01-31",
+            "trimester": 3,
+            "guide": "pregnancy-week-35"
+          },
+          {
+            "week": 36,
+            "start": "2027-02-01",
+            "end": "2027-02-07",
+            "trimester": 3,
+            "guide": "pregnancy-week-36"
+          },
+          {
+            "week": 37,
+            "start": "2027-02-08",
+            "end": "2027-02-14",
+            "trimester": 3,
+            "guide": "pregnancy-week-37"
+          },
+          {
+            "week": 38,
+            "start": "2027-02-15",
+            "end": "2027-02-21",
+            "trimester": 3,
+            "guide": "pregnancy-week-38"
+          },
+          {
+            "week": 39,
+            "start": "2027-02-22",
+            "end": "2027-02-28",
+            "trimester": 3,
+            "guide": "pregnancy-week-39"
+          },
+          {
+            "week": 40,
+            "start": "2027-03-01",
+            "end": "2027-03-07",
+            "trimester": 3,
+            "guide": "pregnancy-week-40"
+          },
+          {
+            "week": 41,
+            "start": "2027-03-08",
+            "end": "2027-03-14",
+            "trimester": 3,
+            "guide": null
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "edd": "2027-03-01",
+        "today": "2026-06-22"
+      },
+      "expected": {
+        "lmp": "2026-05-25",
+        "edd": "2027-03-01",
+        "secondTrimester": "2026-08-31",
+        "thirdTrimester": "2026-12-07",
+        "termStart": "2027-02-08",
+        "termEnd": "2027-03-15",
+        "currentWeek": 4,
+        "weeks": [
+          {
+            "week": 4,
+            "start": "2026-06-22",
+            "end": "2026-06-28",
+            "trimester": 1,
+            "guide": "pregnancy-week-4"
+          },
+          {
+            "week": 5,
+            "start": "2026-06-29",
+            "end": "2026-07-05",
+            "trimester": 1,
+            "guide": "pregnancy-week-5"
+          },
+          {
+            "week": 6,
+            "start": "2026-07-06",
+            "end": "2026-07-12",
+            "trimester": 1,
+            "guide": "pregnancy-week-6"
+          },
+          {
+            "week": 7,
+            "start": "2026-07-13",
+            "end": "2026-07-19",
+            "trimester": 1,
+            "guide": "pregnancy-week-7"
+          },
+          {
+            "week": 8,
+            "start": "2026-07-20",
+            "end": "2026-07-26",
+            "trimester": 1,
+            "guide": "pregnancy-week-8"
+          },
+          {
+            "week": 9,
+            "start": "2026-07-27",
+            "end": "2026-08-02",
+            "trimester": 1,
+            "guide": "pregnancy-week-9"
+          },
+          {
+            "week": 10,
+            "start": "2026-08-03",
+            "end": "2026-08-09",
+            "trimester": 1,
+            "guide": "pregnancy-week-10"
+          },
+          {
+            "week": 11,
+            "start": "2026-08-10",
+            "end": "2026-08-16",
+            "trimester": 1,
+            "guide": "pregnancy-week-11"
+          },
+          {
+            "week": 12,
+            "start": "2026-08-17",
+            "end": "2026-08-23",
+            "trimester": 1,
+            "guide": "pregnancy-week-12"
+          },
+          {
+            "week": 13,
+            "start": "2026-08-24",
+            "end": "2026-08-30",
+            "trimester": 1,
+            "guide": "pregnancy-week-13"
+          },
+          {
+            "week": 14,
+            "start": "2026-08-31",
+            "end": "2026-09-06",
+            "trimester": 2,
+            "guide": "pregnancy-week-14"
+          },
+          {
+            "week": 15,
+            "start": "2026-09-07",
+            "end": "2026-09-13",
+            "trimester": 2,
+            "guide": "pregnancy-week-15"
+          },
+          {
+            "week": 16,
+            "start": "2026-09-14",
+            "end": "2026-09-20",
+            "trimester": 2,
+            "guide": "pregnancy-week-16"
+          },
+          {
+            "week": 17,
+            "start": "2026-09-21",
+            "end": "2026-09-27",
+            "trimester": 2,
+            "guide": "pregnancy-week-17"
+          },
+          {
+            "week": 18,
+            "start": "2026-09-28",
+            "end": "2026-10-04",
+            "trimester": 2,
+            "guide": "pregnancy-week-18"
+          },
+          {
+            "week": 19,
+            "start": "2026-10-05",
+            "end": "2026-10-11",
+            "trimester": 2,
+            "guide": "pregnancy-week-19"
+          },
+          {
+            "week": 20,
+            "start": "2026-10-12",
+            "end": "2026-10-18",
+            "trimester": 2,
+            "guide": "pregnancy-week-20"
+          },
+          {
+            "week": 21,
+            "start": "2026-10-19",
+            "end": "2026-10-25",
+            "trimester": 2,
+            "guide": "pregnancy-week-21"
+          },
+          {
+            "week": 22,
+            "start": "2026-10-26",
+            "end": "2026-11-01",
+            "trimester": 2,
+            "guide": "pregnancy-week-22"
+          },
+          {
+            "week": 23,
+            "start": "2026-11-02",
+            "end": "2026-11-08",
+            "trimester": 2,
+            "guide": "pregnancy-week-23"
+          },
+          {
+            "week": 24,
+            "start": "2026-11-09",
+            "end": "2026-11-15",
+            "trimester": 2,
+            "guide": "pregnancy-week-24"
+          },
+          {
+            "week": 25,
+            "start": "2026-11-16",
+            "end": "2026-11-22",
+            "trimester": 2,
+            "guide": "pregnancy-week-25"
+          },
+          {
+            "week": 26,
+            "start": "2026-11-23",
+            "end": "2026-11-29",
+            "trimester": 2,
+            "guide": "pregnancy-week-26"
+          },
+          {
+            "week": 27,
+            "start": "2026-11-30",
+            "end": "2026-12-06",
+            "trimester": 2,
+            "guide": "pregnancy-week-27"
+          },
+          {
+            "week": 28,
+            "start": "2026-12-07",
+            "end": "2026-12-13",
+            "trimester": 3,
+            "guide": "pregnancy-week-28"
+          },
+          {
+            "week": 29,
+            "start": "2026-12-14",
+            "end": "2026-12-20",
+            "trimester": 3,
+            "guide": "pregnancy-week-29"
+          },
+          {
+            "week": 30,
+            "start": "2026-12-21",
+            "end": "2026-12-27",
+            "trimester": 3,
+            "guide": "pregnancy-week-30"
+          },
+          {
+            "week": 31,
+            "start": "2026-12-28",
+            "end": "2027-01-03",
+            "trimester": 3,
+            "guide": "pregnancy-week-31"
+          },
+          {
+            "week": 32,
+            "start": "2027-01-04",
+            "end": "2027-01-10",
+            "trimester": 3,
+            "guide": "pregnancy-week-32"
+          },
+          {
+            "week": 33,
+            "start": "2027-01-11",
+            "end": "2027-01-17",
+            "trimester": 3,
+            "guide": "pregnancy-week-33"
+          },
+          {
+            "week": 34,
+            "start": "2027-01-18",
+            "end": "2027-01-24",
+            "trimester": 3,
+            "guide": "pregnancy-week-34"
+          },
+          {
+            "week": 35,
+            "start": "2027-01-25",
+            "end": "2027-01-31",
+            "trimester": 3,
+            "guide": "pregnancy-week-35"
+          },
+          {
+            "week": 36,
+            "start": "2027-02-01",
+            "end": "2027-02-07",
+            "trimester": 3,
+            "guide": "pregnancy-week-36"
+          },
+          {
+            "week": 37,
+            "start": "2027-02-08",
+            "end": "2027-02-14",
+            "trimester": 3,
+            "guide": "pregnancy-week-37"
+          },
+          {
+            "week": 38,
+            "start": "2027-02-15",
+            "end": "2027-02-21",
+            "trimester": 3,
+            "guide": "pregnancy-week-38"
+          },
+          {
+            "week": 39,
+            "start": "2027-02-22",
+            "end": "2027-02-28",
+            "trimester": 3,
+            "guide": "pregnancy-week-39"
+          },
+          {
+            "week": 40,
+            "start": "2027-03-01",
+            "end": "2027-03-07",
+            "trimester": 3,
+            "guide": "pregnancy-week-40"
+          },
+          {
+            "week": 41,
+            "start": "2027-03-08",
+            "end": "2027-03-14",
+            "trimester": 3,
+            "guide": null
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "edd": "2027-03-01",
+        "today": "2026-09-13"
+      },
+      "expected": {
+        "lmp": "2026-05-25",
+        "edd": "2027-03-01",
+        "secondTrimester": "2026-08-31",
+        "thirdTrimester": "2026-12-07",
+        "termStart": "2027-02-08",
+        "termEnd": "2027-03-15",
+        "currentWeek": 15,
+        "weeks": [
+          {
+            "week": 4,
+            "start": "2026-06-22",
+            "end": "2026-06-28",
+            "trimester": 1,
+            "guide": "pregnancy-week-4"
+          },
+          {
+            "week": 5,
+            "start": "2026-06-29",
+            "end": "2026-07-05",
+            "trimester": 1,
+            "guide": "pregnancy-week-5"
+          },
+          {
+            "week": 6,
+            "start": "2026-07-06",
+            "end": "2026-07-12",
+            "trimester": 1,
+            "guide": "pregnancy-week-6"
+          },
+          {
+            "week": 7,
+            "start": "2026-07-13",
+            "end": "2026-07-19",
+            "trimester": 1,
+            "guide": "pregnancy-week-7"
+          },
+          {
+            "week": 8,
+            "start": "2026-07-20",
+            "end": "2026-07-26",
+            "trimester": 1,
+            "guide": "pregnancy-week-8"
+          },
+          {
+            "week": 9,
+            "start": "2026-07-27",
+            "end": "2026-08-02",
+            "trimester": 1,
+            "guide": "pregnancy-week-9"
+          },
+          {
+            "week": 10,
+            "start": "2026-08-03",
+            "end": "2026-08-09",
+            "trimester": 1,
+            "guide": "pregnancy-week-10"
+          },
+          {
+            "week": 11,
+            "start": "2026-08-10",
+            "end": "2026-08-16",
+            "trimester": 1,
+            "guide": "pregnancy-week-11"
+          },
+          {
+            "week": 12,
+            "start": "2026-08-17",
+            "end": "2026-08-23",
+            "trimester": 1,
+            "guide": "pregnancy-week-12"
+          },
+          {
+            "week": 13,
+            "start": "2026-08-24",
+            "end": "2026-08-30",
+            "trimester": 1,
+            "guide": "pregnancy-week-13"
+          },
+          {
+            "week": 14,
+            "start": "2026-08-31",
+            "end": "2026-09-06",
+            "trimester": 2,
+            "guide": "pregnancy-week-14"
+          },
+          {
+            "week": 15,
+            "start": "2026-09-07",
+            "end": "2026-09-13",
+            "trimester": 2,
+            "guide": "pregnancy-week-15"
+          },
+          {
+            "week": 16,
+            "start": "2026-09-14",
+            "end": "2026-09-20",
+            "trimester": 2,
+            "guide": "pregnancy-week-16"
+          },
+          {
+            "week": 17,
+            "start": "2026-09-21",
+            "end": "2026-09-27",
+            "trimester": 2,
+            "guide": "pregnancy-week-17"
+          },
+          {
+            "week": 18,
+            "start": "2026-09-28",
+            "end": "2026-10-04",
+            "trimester": 2,
+            "guide": "pregnancy-week-18"
+          },
+          {
+            "week": 19,
+            "start": "2026-10-05",
+            "end": "2026-10-11",
+            "trimester": 2,
+            "guide": "pregnancy-week-19"
+          },
+          {
+            "week": 20,
+            "start": "2026-10-12",
+            "end": "2026-10-18",
+            "trimester": 2,
+            "guide": "pregnancy-week-20"
+          },
+          {
+            "week": 21,
+            "start": "2026-10-19",
+            "end": "2026-10-25",
+            "trimester": 2,
+            "guide": "pregnancy-week-21"
+          },
+          {
+            "week": 22,
+            "start": "2026-10-26",
+            "end": "2026-11-01",
+            "trimester": 2,
+            "guide": "pregnancy-week-22"
+          },
+          {
+            "week": 23,
+            "start": "2026-11-02",
+            "end": "2026-11-08",
+            "trimester": 2,
+            "guide": "pregnancy-week-23"
+          },
+          {
+            "week": 24,
+            "start": "2026-11-09",
+            "end": "2026-11-15",
+            "trimester": 2,
+            "guide": "pregnancy-week-24"
+          },
+          {
+            "week": 25,
+            "start": "2026-11-16",
+            "end": "2026-11-22",
+            "trimester": 2,
+            "guide": "pregnancy-week-25"
+          },
+          {
+            "week": 26,
+            "start": "2026-11-23",
+            "end": "2026-11-29",
+            "trimester": 2,
+            "guide": "pregnancy-week-26"
+          },
+          {
+            "week": 27,
+            "start": "2026-11-30",
+            "end": "2026-12-06",
+            "trimester": 2,
+            "guide": "pregnancy-week-27"
+          },
+          {
+            "week": 28,
+            "start": "2026-12-07",
+            "end": "2026-12-13",
+            "trimester": 3,
+            "guide": "pregnancy-week-28"
+          },
+          {
+            "week": 29,
+            "start": "2026-12-14",
+            "end": "2026-12-20",
+            "trimester": 3,
+            "guide": "pregnancy-week-29"
+          },
+          {
+            "week": 30,
+            "start": "2026-12-21",
+            "end": "2026-12-27",
+            "trimester": 3,
+            "guide": "pregnancy-week-30"
+          },
+          {
+            "week": 31,
+            "start": "2026-12-28",
+            "end": "2027-01-03",
+            "trimester": 3,
+            "guide": "pregnancy-week-31"
+          },
+          {
+            "week": 32,
+            "start": "2027-01-04",
+            "end": "2027-01-10",
+            "trimester": 3,
+            "guide": "pregnancy-week-32"
+          },
+          {
+            "week": 33,
+            "start": "2027-01-11",
+            "end": "2027-01-17",
+            "trimester": 3,
+            "guide": "pregnancy-week-33"
+          },
+          {
+            "week": 34,
+            "start": "2027-01-18",
+            "end": "2027-01-24",
+            "trimester": 3,
+            "guide": "pregnancy-week-34"
+          },
+          {
+            "week": 35,
+            "start": "2027-01-25",
+            "end": "2027-01-31",
+            "trimester": 3,
+            "guide": "pregnancy-week-35"
+          },
+          {
+            "week": 36,
+            "start": "2027-02-01",
+            "end": "2027-02-07",
+            "trimester": 3,
+            "guide": "pregnancy-week-36"
+          },
+          {
+            "week": 37,
+            "start": "2027-02-08",
+            "end": "2027-02-14",
+            "trimester": 3,
+            "guide": "pregnancy-week-37"
+          },
+          {
+            "week": 38,
+            "start": "2027-02-15",
+            "end": "2027-02-21",
+            "trimester": 3,
+            "guide": "pregnancy-week-38"
+          },
+          {
+            "week": 39,
+            "start": "2027-02-22",
+            "end": "2027-02-28",
+            "trimester": 3,
+            "guide": "pregnancy-week-39"
+          },
+          {
+            "week": 40,
+            "start": "2027-03-01",
+            "end": "2027-03-07",
+            "trimester": 3,
+            "guide": "pregnancy-week-40"
+          },
+          {
+            "week": 41,
+            "start": "2027-03-08",
+            "end": "2027-03-14",
+            "trimester": 3,
+            "guide": null
+          }
+        ]
+      }
+    },
+    {
+      "input": {
         "edd": "2026-12-25",
         "today": "2026-11-24"
       },

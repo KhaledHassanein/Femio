@@ -12,6 +12,7 @@ import '../../data/library.dart';
 import '../../data/profile.dart';
 import '../../domain/dates.dart';
 import '../../domain/pregnancy.dart';
+import '../../domain/pregnancy_calendar.dart' show firstGuideWeek, lastGuideWeek;
 import '../../l10n/app_localizations.dart';
 import '../../theme/femio_theme.dart';
 import '../../theme/spacing.dart';
@@ -22,6 +23,7 @@ import '../assistant/ask_screen.dart';
 import '../assistant/visit_summary_screen.dart';
 import '../help/help_now_screen.dart';
 import '../help/red_flags_screen.dart';
+import '../pregnancy/this_week_card.dart';
 import '../settings/settings_screen.dart';
 import '../../widgets/tab_header.dart';
 import 'pregnancy_tools.dart';
@@ -134,6 +136,18 @@ class TodayScreen extends StatelessWidget {
                     ? null
                     : pregnancyProgress(profile.edd!, now),
               ),
+              // R8.6/R9.1: this week's reviewed guide, one section at a time, and a daily line.
+              if (profile.edd != null)
+                if (pregnancyProgress(profile.edd!, now) case final progress?
+                    when progress.weeks >= firstGuideWeek && progress.weeks <= lastGuideWeek) ...[
+                  const SizedBox(height: space4),
+                  ThisWeekCard(
+                    key: ValueKey('week-${progress.weeks}'),
+                    library: library ?? Library(),
+                    week: progress.weeks,
+                    totalDays: progress.totalDays,
+                  ),
+                ],
             ],
             if (canLog) ...[
               const SizedBox(height: space4),

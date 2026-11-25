@@ -761,5 +761,20 @@
   "assistDoorAskSub": "Respuestas de fuentes de confianza, con enlaces",
   "assistDoorSayIt": "Cuenta cómo fue hoy",
   "assistDoorSayItSub": "Una frase se convierte en el registro de hoy; lo revisas primero",
-  "assistDoorVisitSub": "Un resumen de tu registro y preguntas para llevar"
+  "assistDoorVisitSub": "Un resumen de tu registro y preguntas para llevar",
+  "thisWeekTitle": "Esta semana: semana {week}",
+  "weekGuideTitle": "Semana {week}",
+  "weekSecBaby": "Bebé",
+  "weekSecBody": "Tu cuerpo",
+  "weekSecNotice": "Lo que puedes notar",
+  "weekSecCare": "La atención en esta etapa",
+  "weekSecTip": "Consejo",
+  "weekReadFull": "Leer la guía de la semana {week}",
+  "pregWeeksTitle": "Tu embarazo semana a semana",
+  "pregWeeksHint": "Contadas desde tu fecha probable de parto. Toca una semana para leer su guía.",
+  "pregWeekCurrentLabel": "Semana {week}, tu semana actual",
+  "sectionBleedingPregnant": "Sangrado o manchado",
+  "bleedingPregnantNote": "El sangrado en el embarazo es frecuente, pero puede ser señal de algo grave. Cuéntale cualquier sangrado a tu matrona o a tu médico.",
+  "logAllItems": "Todos los elementos del registro",
+  "logAllItemsSub": "Test de ovulación y temperatura, ocultos en el embarazo"
 }
