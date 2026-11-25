@@ -16,6 +16,8 @@ history and `docs/archive/`.
 
 ## Where things stand (2026-10-28)
 
+- **Deploy 2026-11-25 (main 2bdbe7c).** The registry (R7.14), content revision (R3.10) and calculators (R13) branches merged on top of the website upgrade; gate green (app 735 tests, web 751 + all guards); live on femioapp.com: home, /app and the four new calculator pages return 200 in en, ar, fr and es (24 pages checked). Renumbered on merge: calculators R11→R13, MR-52..54→MR-53..55, content owner action 37→39.
+
 - **Website shows the app as it stands (R2.10, 2026-11-25).** Merged into `main` with the hackathon branch (b09bf3f, owner's go-ahead) and live on femioapp.com since 2026-11-25 (dpl_8U7STc8dKH3SCBcLnX7s6wYbkvJp). `/app` and home gain a tour of real app screens, three demos on synthetic data (next periods, Say it, Ask femio) and "what can leave this phone"; app sentences are synced from the ARB (`app-strings-lint` in the gate). Until owner action 31 (enable Vercel Web Analytics) is done, pages log a 404 for the analytics script.
 
 - **Content revision (R3.10, 2026-11-25).** Merged 2026-11-25 from `claude/content-revision-i18n-9938ae`. Every guide and UI string revised in English (plain words, wellness-only, femio wordmark, Ramadan guide withdrawn, stricter safety boxes) and carried into AR/FR/ES; no catalogue keys changed. Record and the owner's clinical list: `docs/33_REBUILD_V3/research/CONTENT_REVISION_2026-11.md` (owner action 39).
