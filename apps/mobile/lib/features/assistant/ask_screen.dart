@@ -226,6 +226,9 @@ class _AskScreenState extends State<AskScreen> {
               minLines: 1,
               maxLines: 4,
               enabled: _stage == _Stage.asking,
+              // Her question stays in full colour above the answer; a disabled grey reads as
+              // if it were a hint she has not typed.
+              style: t.bodyLarge?.copyWith(color: p.text),
               textInputAction: TextInputAction.search,
               onSubmitted: (_) => _ask(),
               decoration: InputDecoration(hintText: askHintFor(l, hintStage(_profile)), border: const OutlineInputBorder()),
