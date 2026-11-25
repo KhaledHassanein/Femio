@@ -1534,6 +1534,49 @@ class L10nEn extends L10n {
   String get sayItAdded => 'Added to your log.';
 
   @override
+  String get sayItDictationHint =>
+      'Tip: tap the microphone on your keyboard to speak instead of typing.';
+
+  @override
+  String get sayItFoundDays =>
+      'femio found these days. Untick anything that is wrong, or remove a whole day. Nothing is saved until you tap the button below.';
+
+  @override
+  String get sayItRemoveDay => 'Remove this day';
+
+  @override
+  String sayItSaveCount(int entries, int days) {
+    String _temp0 = intl.Intl.pluralLogic(
+      entries,
+      locale: localeName,
+      other: '$entries entries',
+      one: '1 entry',
+    );
+    String _temp1 = intl.Intl.pluralLogic(
+      days,
+      locale: localeName,
+      other: '$days days',
+      one: '1 day',
+    );
+    return 'Save $_temp0 on $_temp1';
+  }
+
+  @override
+  String get sayItFuture =>
+      'femio can\'t log a day that hasn\'t happened yet, so that part of your note was left out.';
+
+  @override
+  String sayItTooOld(int days) {
+    String _temp0 = intl.Intl.pluralLogic(
+      days,
+      locale: localeName,
+      other: '$days days',
+      one: '1 day',
+    );
+    return 'femio logs up to $_temp0 back, so older days in your note were left out.';
+  }
+
+  @override
   String get safetyCrisisHeading => 'You don\'t have to face this alone';
 
   @override
@@ -3191,4 +3234,9 @@ class L10nEn extends L10n {
   @override
   String get signsNote =>
       'Each sign is shown as you logged it. femio does not say whether or when you ovulated; that is a conversation for you and your clinician.';
+
+  @override
+  String sayItChipWithSection(String section, String value) {
+    return '$section: $value';
+  }
 }

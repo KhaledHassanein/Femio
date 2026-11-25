@@ -2693,6 +2693,42 @@ abstract class L10n {
   /// **'Added to your log.'**
   String get sayItAdded;
 
+  /// No description provided for @sayItDictationHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Tip: tap the microphone on your keyboard to speak instead of typing.'**
+  String get sayItDictationHint;
+
+  /// No description provided for @sayItFoundDays.
+  ///
+  /// In en, this message translates to:
+  /// **'femio found these days. Untick anything that is wrong, or remove a whole day. Nothing is saved until you tap the button below.'**
+  String get sayItFoundDays;
+
+  /// No description provided for @sayItRemoveDay.
+  ///
+  /// In en, this message translates to:
+  /// **'Remove this day'**
+  String get sayItRemoveDay;
+
+  /// No description provided for @sayItSaveCount.
+  ///
+  /// In en, this message translates to:
+  /// **'Save {entries, plural, one{1 entry} other{{entries} entries}} on {days, plural, one{1 day} other{{days} days}}'**
+  String sayItSaveCount(int entries, int days);
+
+  /// No description provided for @sayItFuture.
+  ///
+  /// In en, this message translates to:
+  /// **'femio can\'t log a day that hasn\'t happened yet, so that part of your note was left out.'**
+  String get sayItFuture;
+
+  /// No description provided for @sayItTooOld.
+  ///
+  /// In en, this message translates to:
+  /// **'femio logs up to {days, plural, one{1 day} other{{days} days}} back, so older days in your note were left out.'**
+  String sayItTooOld(int days);
+
   /// No description provided for @safetyCrisisHeading.
   ///
   /// In en, this message translates to:
@@ -5188,6 +5224,12 @@ abstract class L10n {
   /// In en, this message translates to:
   /// **'Each sign is shown as you logged it. femio does not say whether or when you ovulated; that is a conversation for you and your clinician.'**
   String get signsNote;
+
+  /// A Say it chip for a period flow or a test result, so "Light" or "High" says what it is.
+  ///
+  /// In en, this message translates to:
+  /// **'{section}: {value}'**
+  String sayItChipWithSection(String section, String value);
 }
 
 class _L10nDelegate extends LocalizationsDelegate<L10n> {

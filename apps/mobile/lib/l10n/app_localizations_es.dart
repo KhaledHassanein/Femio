@@ -1545,6 +1545,49 @@ class L10nEs extends L10n {
   String get sayItAdded => 'Añadido a tu registro.';
 
   @override
+  String get sayItDictationHint =>
+      'Consejo: toca el micrófono de tu teclado para dictar en lugar de escribir.';
+
+  @override
+  String get sayItFoundDays =>
+      'femio encontró estos días. Desmarca lo que no sea correcto o quita un día entero. No se guarda nada hasta que toques el botón de abajo.';
+
+  @override
+  String get sayItRemoveDay => 'Quitar este día';
+
+  @override
+  String sayItSaveCount(int entries, int days) {
+    String _temp0 = intl.Intl.pluralLogic(
+      entries,
+      locale: localeName,
+      other: '$entries entradas',
+      one: '1 entrada',
+    );
+    String _temp1 = intl.Intl.pluralLogic(
+      days,
+      locale: localeName,
+      other: '$days días',
+      one: '1 día',
+    );
+    return 'Guardar $_temp0 en $_temp1';
+  }
+
+  @override
+  String get sayItFuture =>
+      'femio no puede registrar un día que aún no ha pasado, así que esa parte de tu nota se dejó fuera.';
+
+  @override
+  String sayItTooOld(int days) {
+    String _temp0 = intl.Intl.pluralLogic(
+      days,
+      locale: localeName,
+      other: '$days días',
+      one: '1 día',
+    );
+    return 'femio registra hasta $_temp0 atrás, así que se dejaron fuera los días más antiguos de tu nota.';
+  }
+
+  @override
   String get safetyCrisisHeading => 'No tienes que pasar por esto sola';
 
   @override
@@ -3210,4 +3253,9 @@ class L10nEs extends L10n {
   @override
   String get signsNote =>
       'Cada señal aparece tal como la anotaste. femio no dice si ovulaste ni cuándo; eso se habla contigo y tu profesional.';
+
+  @override
+  String sayItChipWithSection(String section, String value) {
+    return '$section: $value';
+  }
 }
