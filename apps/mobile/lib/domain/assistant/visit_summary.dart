@@ -53,7 +53,7 @@ const visitQuestionEnglish = <String, String>{
 };
 
 /// A catalogue question that, when chosen, replaces the questions that ask the same thing.
-const _supersedes = <String, List<String>>{
+const questionSupersedes = <String, List<String>>{
   'ttcOverThirtyFiveSooner': ['ttcTests', 'checksForCouple'],
   'checksForCouple': ['ttcTests'],
   'irregularTryingNow': ['ttcTests'],
@@ -225,7 +225,7 @@ VisitSummary visitSummary(Profile profile, String today) {
     for (final f in fits)
       if (f.trigger.specificity == 0) f.id,
   };
-  final replaced = {for (final id in ids) ...?_supersedes[id]};
+  final replaced = {for (final id in ids) ...?questionSupersedes[id]};
   final questions = [
     ...ids.where((id) => !replaced.contains(id)).take(maxVisitQuestions - 1),
     'anythingElse',

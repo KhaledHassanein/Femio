@@ -18,9 +18,9 @@ import 'backup_actions.dart';
 import 'delete_dialog.dart';
 import 'leaving_phone_screen.dart';
 import 'reminders_section.dart';
+import '../../l10n/language_names.dart';
 
 /// The language names, in their own language, so each reader finds hers.
-const _languageNames = {'ar': 'العربية', 'en': 'English', 'fr': 'Français', 'es': 'Español'};
 
 /// The Settings screen, reached from the header gear.
 class SettingsScreen extends StatelessWidget {
@@ -56,7 +56,7 @@ class SettingsScreen extends StatelessWidget {
                 for (final code in supportedLanguages)
                   RadioListTile<String>(
                     value: code,
-                    title: Text(_languageNames[code]!, textDirection: code == 'ar' ? TextDirection.rtl : TextDirection.ltr),
+                    title: Text(nativeLanguageNames[code]!, textDirection: code == 'ar' ? TextDirection.rtl : TextDirection.ltr),
                   ),
               ],
             ),

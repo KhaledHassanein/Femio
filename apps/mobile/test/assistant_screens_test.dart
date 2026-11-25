@@ -325,6 +325,12 @@ void main() {
       await askIt(tester, 'what is the capital of France?');
       expect(find.text('Not covered yet'), findsOneWidget);
       expect(bridge.privatePrompts, isEmpty);
+      // R8.27: the not-covered card offers the visit pack, starting from her question.
+      await tester.ensureVisible(find.text('Prepare a visit pack'));
+      await tester.tap(find.text('Prepare a visit pack'));
+      await tester.pumpAndSettle();
+      expect(find.byType(VisitSummaryScreen), findsOneWidget);
+      expect(find.text('what is the capital of France?'), findsOneWidget, reason: 'her question is the worry');
     });
 
     for (final (lang, b) in [
@@ -581,7 +587,14 @@ void main() {
           await _shoot('${lang}_${b.name}_visit_summary');
           if (lang == 'en') {
             expect(find.text('3 cycles logged: 28 to 32 days'), findsOneWidget);
-            // The on-device order is applied: pain first, then folic acid.
+            // The on-device order is applied: pain first, then folic acid. The worry box
+            // (R10.2) sits above the list, so scroll to it first.
+            await tester.dragUntilVisible(
+              find.text('Should I be taking folic acid now?'),
+              find.byType(ListView),
+              const Offset(0, -300),
+            );
+            await tester.pumpAndSettle();
             final pain = tester.getTopLeft(
               find.text('My period pain affects my days. What can help?'),
             );

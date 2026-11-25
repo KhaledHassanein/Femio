@@ -1656,7 +1656,7 @@ class L10nAr extends L10n {
 
   @override
   String get visitIntro =>
-      'صفحة تعرضينها على مقدّم الرعاية الصحية لكِ، من تسجيلاتكِ أنتِ. تبقى على هاتفكِ إلا إذا نسختِها.';
+      'صفحة تعرضينها على مقدّم الرعاية الصحية لكِ، من تسجيلاتكِ أنتِ. تبقى على هاتفكِ إلا إذا شاركتِها أو نسختِها.';
 
   @override
   String visitCycles(int count, int longest, int shortest) {
@@ -2986,4 +2986,62 @@ class L10nAr extends L10n {
 
   @override
   String get predictionWhy => 'لماذا؟';
+
+  @override
+  String get visitWorryTitle => 'ما الذي تريدين طرحه في هذه الزيارة؟';
+
+  @override
+  String get visitWorryHint => 'بكلماتكِ، مثلًا: مغص الدورة صار أقوى';
+
+  @override
+  String get visitWorryFind => 'ابحثي عن أسئلة';
+
+  @override
+  String get visitWorrySuggested => 'أسئلة تناسب ما كتبتِه';
+
+  @override
+  String get visitWorryNone =>
+      'لا يوجد سؤال في قائمة femio يناسب هذا بعد. ستُضاف كلماتكِ كما كتبتِها.';
+
+  @override
+  String get visitWorryOwnWords => 'أضيفي كلماتكِ أيضًا';
+
+  @override
+  String get visitWorryAdd => 'أضيفيها إلى زيارتكِ';
+
+  @override
+  String visitWorryAddedTo(String date) {
+    return 'أُضيفت إلى أسئلتكِ لموعد $date.';
+  }
+
+  @override
+  String get visitWorryAddedNext => 'أُضيفت إلى أسئلتكِ لزيارتكِ القادمة.';
+
+  @override
+  String get visitYourQuestions => 'أسئلتكِ';
+
+  @override
+  String visitInMyWords(String text) {
+    return 'بكلماتي: $text';
+  }
+
+  @override
+  String get visitRemoveQuestion => 'احذفي هذا السؤال';
+
+  @override
+  String get visitSecondLanguage => 'أضيفي الصفحة بلغة ثانية للعيادة';
+
+  @override
+  String get visitNoSecondLanguage => 'بدون';
+
+  @override
+  String get visitShare => 'مشاركة';
+
+  @override
+  String visitMadeOn(String date) {
+    return 'أُعدّت في $date مما سجّلته في femio. وهي ليست تشخيصًا.';
+  }
+
+  @override
+  String get askVisitPack => 'جهّزي ملف الزيارة';
 }

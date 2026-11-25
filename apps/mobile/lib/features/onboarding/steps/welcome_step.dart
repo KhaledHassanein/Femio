@@ -13,6 +13,7 @@ import '../../../theme/femio_theme.dart';
 import '../../../theme/spacing.dart';
 import '../../../theme/type_sizes.dart';
 import '../../../widgets/bloom.dart';
+import '../../../l10n/language_names.dart';
 
 /// Welcome screen on the aurora background.
 ///
@@ -24,7 +25,6 @@ class WelcomeStep extends StatelessWidget {
   final VoidCallback onStart;
 
   /// Each language is named in itself, so she can find hers whatever the screen shows.
-  static const _names = {'ar': 'العربية', 'en': 'English', 'fr': 'Français', 'es': 'Español'};
 
   @override
   Widget build(BuildContext context) {
@@ -74,7 +74,7 @@ class WelcomeStep extends StatelessWidget {
                     children: [
                       for (final code in supportedLanguages)
                         _LanguagePill(
-                          label: _names[code]!,
+                          label: nativeLanguageNames[code]!,
                           selected: current == code,
                           selectedText: p.auroraGround, // always on white, in both themes
                           onTap: () => controller.setLanguage(code),

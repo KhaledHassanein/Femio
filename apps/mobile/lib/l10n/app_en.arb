@@ -701,7 +701,7 @@
   },
   "visitButton": "Visit summary",
   "visitTitle": "Visit summary",
-  "visitIntro": "A page to show your clinician, made from what you logged. It stays on your phone unless you copy it.",
+  "visitIntro": "A page to show your clinician, made from what you logged. It stays on your phone unless you share or copy it.",
   "visitCycles": "{count, plural, =0{No complete cycle logged yet} =1{1 cycle logged: {shortest} days} other{{count} cycles logged: {shortest} to {longest} days}}",
   "@visitCycles": {
     "placeholders": {
@@ -1400,5 +1400,50 @@
       }
     }
   },
-  "predictionWhy": "Why?"
+  "predictionWhy": "Why?",
+  "visitWorryTitle": "What do you want to raise at this visit?",
+  "@visitWorryTitle": {
+    "description": "R10.2: she writes what she wants to raise; the rules suggest reviewed questions."
+  },
+  "visitWorryHint": "In your own words, for example: my period pain is getting worse",
+  "visitWorryFind": "Find questions",
+  "visitWorrySuggested": "Questions that fit what you wrote",
+  "visitWorryNone": "No question in femio's list fits this yet. Your own words will be added as you wrote them.",
+  "visitWorryOwnWords": "Add your own words as well",
+  "visitWorryAdd": "Add to your visit",
+  "visitWorryAddedTo": "Added to your questions for {date}.",
+  "@visitWorryAddedTo": {
+    "placeholders": {
+      "date": {
+        "type": "String"
+      }
+    }
+  },
+  "visitWorryAddedNext": "Added to your questions for your next visit.",
+  "visitYourQuestions": "Your questions",
+  "visitInMyWords": "In my words: {text}",
+  "@visitInMyWords": {
+    "description": "First person: the pack is the page she hands over.",
+    "placeholders": {
+      "text": {
+        "type": "String"
+      }
+    }
+  },
+  "visitRemoveQuestion": "Remove this question",
+  "visitSecondLanguage": "Add the page in a second language for the clinic",
+  "visitNoSecondLanguage": "None",
+  "visitShare": "Share",
+  "visitMadeOn": "Made on {date} from what I logged in femio. It is not a diagnosis.",
+  "@visitMadeOn": {
+    "placeholders": {
+      "date": {
+        "type": "String"
+      }
+    }
+  },
+  "askVisitPack": "Prepare a visit pack",
+  "@askVisitPack": {
+    "description": "R8.27: on the not-covered card, opens the visit summary with her question as the worry."
+  }
 }

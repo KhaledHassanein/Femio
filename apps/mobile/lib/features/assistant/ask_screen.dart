@@ -36,6 +36,7 @@ import 'answer_card.dart';
 import 'assistant_scope.dart';
 import 'safety_notice.dart';
 import 'stage_hints.dart';
+import 'visit_summary_screen.dart';
 
 enum _Stage { asking, confirming, working, answered }
 
@@ -278,6 +279,24 @@ class _AskScreenState extends State<AskScreen> {
             if (_stage == _Stage.answered && found != null && found.notCovered) ...[
               const SizedBox(height: space4),
               NoticeCard(tone: NoticeTone.caution, heading: l.askNotCoveredHeading, body: l.askNotCovered),
+              // R8.27: what femio cannot answer is often worth asking at a visit.
+              if (widget.controller.profile != null) ...[
+                const SizedBox(height: space2),
+                Align(
+                  alignment: AlignmentDirectional.centerStart,
+                  child: OutlinedButton.icon(
+                    onPressed: () => Navigator.of(context).push(MaterialPageRoute<void>(
+                      builder: (_) => VisitSummaryScreen(
+                        controller: widget.controller,
+                        today: widget.today,
+                        initialWorry: _question.text.trim(),
+                      ),
+                    )),
+                    icon: const Icon(Icons.assignment_outlined),
+                    label: Text(l.askVisitPack),
+                  ),
+                ),
+              ],
             ],
             if (_stage == _Stage.answered && found != null && !found.notCovered)
               AnswerCard(answer: found, summary: _summary, origin: _origin),

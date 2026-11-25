@@ -1635,7 +1635,7 @@ class L10nEn extends L10n {
 
   @override
   String get visitIntro =>
-      'A page to show your clinician, made from what you logged. It stays on your phone unless you copy it.';
+      'A page to show your clinician, made from what you logged. It stays on your phone unless you share or copy it.';
 
   @override
   String visitCycles(int count, int longest, int shortest) {
@@ -2962,4 +2962,65 @@ class L10nEn extends L10n {
 
   @override
   String get predictionWhy => 'Why?';
+
+  @override
+  String get visitWorryTitle => 'What do you want to raise at this visit?';
+
+  @override
+  String get visitWorryHint =>
+      'In your own words, for example: my period pain is getting worse';
+
+  @override
+  String get visitWorryFind => 'Find questions';
+
+  @override
+  String get visitWorrySuggested => 'Questions that fit what you wrote';
+
+  @override
+  String get visitWorryNone =>
+      'No question in femio\'s list fits this yet. Your own words will be added as you wrote them.';
+
+  @override
+  String get visitWorryOwnWords => 'Add your own words as well';
+
+  @override
+  String get visitWorryAdd => 'Add to your visit';
+
+  @override
+  String visitWorryAddedTo(String date) {
+    return 'Added to your questions for $date.';
+  }
+
+  @override
+  String get visitWorryAddedNext =>
+      'Added to your questions for your next visit.';
+
+  @override
+  String get visitYourQuestions => 'Your questions';
+
+  @override
+  String visitInMyWords(String text) {
+    return 'In my words: $text';
+  }
+
+  @override
+  String get visitRemoveQuestion => 'Remove this question';
+
+  @override
+  String get visitSecondLanguage =>
+      'Add the page in a second language for the clinic';
+
+  @override
+  String get visitNoSecondLanguage => 'None';
+
+  @override
+  String get visitShare => 'Share';
+
+  @override
+  String visitMadeOn(String date) {
+    return 'Made on $date from what I logged in femio. It is not a diagnosis.';
+  }
+
+  @override
+  String get askVisitPack => 'Prepare a visit pack';
 }

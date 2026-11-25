@@ -1651,7 +1651,7 @@ class L10nFr extends L10n {
 
   @override
   String get visitIntro =>
-      'Une page à montrer à votre professionnel de santé, faite à partir de votre journal. Elle reste sur votre téléphone, sauf si vous la copiez.';
+      'Une page à montrer à votre professionnel de santé, faite à partir de votre journal. Elle reste sur votre téléphone, sauf si vous la partagez ou la copiez.';
 
   @override
   String visitCycles(int count, int longest, int shortest) {
@@ -2988,4 +2988,67 @@ class L10nFr extends L10n {
 
   @override
   String get predictionWhy => 'Pourquoi ?';
+
+  @override
+  String get visitWorryTitle =>
+      'Qu\'aimeriez-vous aborder lors de cette consultation ?';
+
+  @override
+  String get visitWorryHint =>
+      'Avec vos mots, par exemple : mes douleurs de règles sont plus fortes';
+
+  @override
+  String get visitWorryFind => 'Trouver des questions';
+
+  @override
+  String get visitWorrySuggested =>
+      'Des questions qui correspondent à ce que vous avez écrit';
+
+  @override
+  String get visitWorryNone =>
+      'Aucune question de la liste de femio ne correspond encore. Vos mots seront ajoutés tels que vous les avez écrits.';
+
+  @override
+  String get visitWorryOwnWords => 'Ajouter aussi vos propres mots';
+
+  @override
+  String get visitWorryAdd => 'Ajouter à votre consultation';
+
+  @override
+  String visitWorryAddedTo(String date) {
+    return 'Ajouté à vos questions pour le $date.';
+  }
+
+  @override
+  String get visitWorryAddedNext =>
+      'Ajouté à vos questions pour votre prochaine consultation.';
+
+  @override
+  String get visitYourQuestions => 'Vos questions';
+
+  @override
+  String visitInMyWords(String text) {
+    return 'Avec mes mots : $text';
+  }
+
+  @override
+  String get visitRemoveQuestion => 'Retirer cette question';
+
+  @override
+  String get visitSecondLanguage =>
+      'Ajouter la page dans une deuxième langue pour le cabinet';
+
+  @override
+  String get visitNoSecondLanguage => 'Aucune';
+
+  @override
+  String get visitShare => 'Partager';
+
+  @override
+  String visitMadeOn(String date) {
+    return 'Faite le $date à partir de ce que j\'ai noté dans femio. Ce n\'est pas un diagnostic.';
+  }
+
+  @override
+  String get askVisitPack => 'Préparer un dossier de consultation';
 }

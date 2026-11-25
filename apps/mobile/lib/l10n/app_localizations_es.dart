@@ -1646,7 +1646,7 @@ class L10nEs extends L10n {
 
   @override
   String get visitIntro =>
-      'Una página para mostrar a tu profesional sanitario, hecha con lo que registraste. Se queda en tu teléfono salvo que la copies.';
+      'Una página para mostrar a tu profesional sanitario, hecha con lo que registraste. Se queda en tu teléfono salvo que la compartas o la copies.';
 
   @override
   String visitCycles(int count, int longest, int shortest) {
@@ -2978,4 +2978,66 @@ class L10nEs extends L10n {
 
   @override
   String get predictionWhy => '¿Por qué?';
+
+  @override
+  String get visitWorryTitle => '¿Qué quieres comentar en esta consulta?';
+
+  @override
+  String get visitWorryHint =>
+      'Con tus palabras, por ejemplo: mi dolor de regla es más fuerte';
+
+  @override
+  String get visitWorryFind => 'Buscar preguntas';
+
+  @override
+  String get visitWorrySuggested =>
+      'Preguntas que encajan con lo que escribiste';
+
+  @override
+  String get visitWorryNone =>
+      'Ninguna pregunta de la lista de femio encaja todavía. Tus palabras se añadirán tal como las escribiste.';
+
+  @override
+  String get visitWorryOwnWords => 'Añadir también tus propias palabras';
+
+  @override
+  String get visitWorryAdd => 'Añadir a tu consulta';
+
+  @override
+  String visitWorryAddedTo(String date) {
+    return 'Añadido a tus preguntas para el $date.';
+  }
+
+  @override
+  String get visitWorryAddedNext =>
+      'Añadido a tus preguntas para tu próxima consulta.';
+
+  @override
+  String get visitYourQuestions => 'Tus preguntas';
+
+  @override
+  String visitInMyWords(String text) {
+    return 'Con mis palabras: $text';
+  }
+
+  @override
+  String get visitRemoveQuestion => 'Quitar esta pregunta';
+
+  @override
+  String get visitSecondLanguage =>
+      'Añadir la página en un segundo idioma para la consulta';
+
+  @override
+  String get visitNoSecondLanguage => 'Ninguno';
+
+  @override
+  String get visitShare => 'Compartir';
+
+  @override
+  String visitMadeOn(String date) {
+    return 'Hecha el $date con lo que registré en femio. No es un diagnóstico.';
+  }
+
+  @override
+  String get askVisitPack => 'Preparar un resumen para la consulta';
 }

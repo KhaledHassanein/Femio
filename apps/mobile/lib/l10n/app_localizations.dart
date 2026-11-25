@@ -2858,7 +2858,7 @@ abstract class L10n {
   /// No description provided for @visitIntro.
   ///
   /// In en, this message translates to:
-  /// **'A page to show your clinician, made from what you logged. It stays on your phone unless you copy it.'**
+  /// **'A page to show your clinician, made from what you logged. It stays on your phone unless you share or copy it.'**
   String get visitIntro;
 
   /// No description provided for @visitCycles.
@@ -4846,6 +4846,108 @@ abstract class L10n {
   /// In en, this message translates to:
   /// **'Why?'**
   String get predictionWhy;
+
+  /// R10.2: she writes what she wants to raise; the rules suggest reviewed questions.
+  ///
+  /// In en, this message translates to:
+  /// **'What do you want to raise at this visit?'**
+  String get visitWorryTitle;
+
+  /// No description provided for @visitWorryHint.
+  ///
+  /// In en, this message translates to:
+  /// **'In your own words, for example: my period pain is getting worse'**
+  String get visitWorryHint;
+
+  /// No description provided for @visitWorryFind.
+  ///
+  /// In en, this message translates to:
+  /// **'Find questions'**
+  String get visitWorryFind;
+
+  /// No description provided for @visitWorrySuggested.
+  ///
+  /// In en, this message translates to:
+  /// **'Questions that fit what you wrote'**
+  String get visitWorrySuggested;
+
+  /// No description provided for @visitWorryNone.
+  ///
+  /// In en, this message translates to:
+  /// **'No question in femio\'s list fits this yet. Your own words will be added as you wrote them.'**
+  String get visitWorryNone;
+
+  /// No description provided for @visitWorryOwnWords.
+  ///
+  /// In en, this message translates to:
+  /// **'Add your own words as well'**
+  String get visitWorryOwnWords;
+
+  /// No description provided for @visitWorryAdd.
+  ///
+  /// In en, this message translates to:
+  /// **'Add to your visit'**
+  String get visitWorryAdd;
+
+  /// No description provided for @visitWorryAddedTo.
+  ///
+  /// In en, this message translates to:
+  /// **'Added to your questions for {date}.'**
+  String visitWorryAddedTo(String date);
+
+  /// No description provided for @visitWorryAddedNext.
+  ///
+  /// In en, this message translates to:
+  /// **'Added to your questions for your next visit.'**
+  String get visitWorryAddedNext;
+
+  /// No description provided for @visitYourQuestions.
+  ///
+  /// In en, this message translates to:
+  /// **'Your questions'**
+  String get visitYourQuestions;
+
+  /// First person: the pack is the page she hands over.
+  ///
+  /// In en, this message translates to:
+  /// **'In my words: {text}'**
+  String visitInMyWords(String text);
+
+  /// No description provided for @visitRemoveQuestion.
+  ///
+  /// In en, this message translates to:
+  /// **'Remove this question'**
+  String get visitRemoveQuestion;
+
+  /// No description provided for @visitSecondLanguage.
+  ///
+  /// In en, this message translates to:
+  /// **'Add the page in a second language for the clinic'**
+  String get visitSecondLanguage;
+
+  /// No description provided for @visitNoSecondLanguage.
+  ///
+  /// In en, this message translates to:
+  /// **'None'**
+  String get visitNoSecondLanguage;
+
+  /// No description provided for @visitShare.
+  ///
+  /// In en, this message translates to:
+  /// **'Share'**
+  String get visitShare;
+
+  /// No description provided for @visitMadeOn.
+  ///
+  /// In en, this message translates to:
+  /// **'Made on {date} from what I logged in femio. It is not a diagnosis.'**
+  String visitMadeOn(String date);
+
+  /// R8.27: on the not-covered card, opens the visit summary with her question as the worry.
+  ///
+  /// In en, this message translates to:
+  /// **'Prepare a visit pack'**
+  String get askVisitPack;
 }
 
 class _L10nDelegate extends LocalizationsDelegate<L10n> {
