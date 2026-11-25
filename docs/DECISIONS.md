@@ -1013,3 +1013,24 @@ replies its own way. The owner wants the AI everywhere as a companion, kept apar
 and cannot see more than its factory takes. Later R10.1 slices add typed contexts with manifests,
 an on-phone ledger of AI calls, a master switch in Settings, and the shared draft-and-confirm
 sheet. The AI view toggle for calculators and insights (R10.18) plugs into the same gateway.
+
+**Addendum 2026-11-25 (R10.1 closed).** What the remaining slices became, so a later session does
+not rebuild them:
+- *Typed contexts with manifests* are the prompt factories themselves: each `PrivatePrompt` or
+  `CloudPrompt` factory takes only its use's inputs, and `usePolicies` names those inputs
+  (`AssistantInput`), which "What the AI can see" lists for her. No separate context layer.
+- *Parsers* stay in `prompts.dart` beside the prompts they read. Each keeps only what was offered:
+  reviewed ids, cited passage numbers that exist, and (since this addendum) log keys, flow levels
+  and test results from the vocabulary. A reply of invented keys counts as unusable, so the
+  circuit breaker sees it.
+- *Drafts and the confirm step* stay per use: Say it shows one card per day and saves only on her
+  tap (R10.7); the visit worry saves only the questions she ticks (R10.2). A generic shared sheet
+  would add a layer without a second user; it is built when a third use needs one.
+- *The gate* is the gateway's `_open` check (build switch, her master switch, the use's policy,
+  consent, circuit breaker). Any bridge failure, not only a timeout, now returns the rules answer.
+- *The ledger* records every call (R10.3).
+- *Enforced by tests:* `test/assistant_boundary_test.dart` fuzzes the parsers with 1,500 random
+  replies, runs every use against a failing bridge and with the AI off (offline parity: rules answer,
+  no call, nothing logged), and fails if the gateway or any file in `lib/domain/assistant/` imports
+  the store, the controller, the backup, the key vault or a screen: the AI code cannot reach her
+  record, so it cannot write to it.

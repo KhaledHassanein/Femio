@@ -94,7 +94,8 @@ class AssistantGateway {
     String? reply;
     try {
       reply = await _bridge.runPrivate(prompt).timeout(assistantCallTimeout);
-    } on TimeoutException {
+    } on Object {
+      // A timeout or any bridge failure leaves the rules answer standing.
       reply = null;
     }
     _log(prompt.use, cloud: false, answered: reply != null);
@@ -107,7 +108,7 @@ class AssistantGateway {
     HybridReply? reply;
     try {
       reply = await _bridge.runHybrid(prompt).timeout(assistantCallTimeout);
-    } on TimeoutException {
+    } on Object {
       reply = null;
     }
     // Without a reply femio cannot know where the call ran, so it keeps the receipt.

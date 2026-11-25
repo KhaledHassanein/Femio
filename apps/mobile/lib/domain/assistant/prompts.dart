@@ -13,12 +13,16 @@ import 'log_phrases.dart';
 /// Output budget for on-device calls; Google advises staying under 256 tokens.
 const onDeviceMaxOutputTokens = 200;
 
+/// The log keys a model may suggest from a note: every term except intercourse, which she
+/// only ever logs herself.
+final Set<String> modelLogKeys = {
+  for (final t in logTerms)
+    if (t.dimension != LogDimension.intercourse) t.key,
+};
+
 /// Instruction for turning her note into log keys. Runs only on the phone.
 String extractionPrompt(String note) {
-  final keys = [
-    for (final t in logTerms)
-      if (t.dimension != LogDimension.intercourse) t.key,
-  ].join(', ');
+  final keys = modelLogKeys.join(', ');
   return '''
 You convert a short personal health note into tracker entries.
 The note may be in English, Arabic (including Egyptian or Gulf dialect), French or Spanish.
@@ -40,21 +44,24 @@ class ModelLogSuggestion {
   final String? opk;
 }
 
-/// Reads the model's JSON reply to [extractionPrompt]. Returns an empty suggestion for
-/// anything that is not the expected shape, so a bad reply can only add nothing.
+/// Reads the model's JSON reply to [extractionPrompt], keeping only values that were offered
+/// ([modelLogKeys], [flowLevels], [phraseOpkResults]). Returns an empty suggestion for anything
+/// else, so a bad reply can only add nothing, and a reply of invented keys counts as unusable.
 ModelLogSuggestion parseExtraction(String reply) {
   final json = _firstJsonObject(reply);
   if (json == null) return const ModelLogSuggestion();
   final terms = json['terms'];
+  final flow = json['flow'];
+  final opk = json['opk'];
   return ModelLogSuggestion(
     terms: terms is List
-        ? [
+        ? <String>{
             for (final t in terms)
-              if (t is String) t,
-          ]
+              if (t is String && modelLogKeys.contains(t)) t,
+          }.toList()
         : const [],
-    flow: json['flow'] is String ? json['flow'] as String : null,
-    opk: json['opk'] is String ? json['opk'] as String : null,
+    flow: flow is String && flowLevels.contains(flow) ? flow : null,
+    opk: opk is String && phraseOpkResults.contains(opk) ? opk : null,
   );
 }
 
