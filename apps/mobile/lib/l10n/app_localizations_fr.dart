@@ -1154,6 +1154,55 @@ class L10nFr extends L10n {
       'Les rappels que vous avez activés dans femio. Ils ne mentionnent jamais votre santé.';
 
   @override
+  String get reminderAppointment => 'Rappel de rendez-vous';
+
+  @override
+  String get reminderAppointmentNote =>
+      'Une notification la veille d\'un rendez-vous enregistré avec une date.';
+
+  @override
+  String get notifConsentTitle =>
+      'Les notifications, seulement si vous le souhaitez';
+
+  @override
+  String get notifConsentIntro =>
+      'femio peut vous envoyer des rappels sur ce téléphone. Choisissez ce que vous voulez recevoir. Rien n\'est activé tant que vous ne l\'avez pas autorisé.';
+
+  @override
+  String get notifConsentNeutral =>
+      'Chaque notification dit seulement « femio » et « Ouvrez l\'application ». Aucun mot sur votre santé n\'apparaît sur votre écran de verrouillage.';
+
+  @override
+  String get notifConsentLocal =>
+      'Les notifications sont programmées sur votre téléphone même. Rien n\'est envoyé nulle part, et femio n\'a ni compte ni serveur pour les envoyer.';
+
+  @override
+  String get notifKindMedicine => 'Rappel de médicament';
+
+  @override
+  String get notifKindDigest => 'Résumé hebdomadaire';
+
+  @override
+  String get notifComingSoon => 'Bientôt dans une mise à jour';
+
+  @override
+  String get notifConsentAllow => 'Autoriser les notifications';
+
+  @override
+  String get notifConsentNotNow => 'Pas maintenant';
+
+  @override
+  String get notifConsentPickOne => 'Activez au moins un type pour continuer.';
+
+  @override
+  String get notifConsentDeniedTitle =>
+      'Les notifications sont désactivées sur ce téléphone';
+
+  @override
+  String get notifConsentDeniedBody =>
+      'Votre téléphone n\'a pas autorisé les notifications, donc femio n\'a rien programmé. Pour changer cela, ouvrez les Paramètres du téléphone, puis Applications, femio, Notifications, et autorisez-les. Revenez ensuite à Rappels dans les réglages de femio.';
+
+  @override
   String calendarDayLabel(String gregorian, String hijri) {
     return '$gregorian, $hijri';
   }

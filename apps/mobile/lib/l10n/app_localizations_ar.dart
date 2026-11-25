@@ -1176,6 +1176,53 @@ class L10nAr extends L10n {
       'تذكيرات فعّلتِها في femio. ولا تذكر صحتكِ أبدًا.';
 
   @override
+  String get reminderAppointment => 'تذكير بالموعد';
+
+  @override
+  String get reminderAppointmentNote =>
+      'إشعار واحد في اليوم السابق لموعد حفظتِه مع تاريخه.';
+
+  @override
+  String get notifConsentTitle => 'الإشعارات، فقط إذا أردتِ';
+
+  @override
+  String get notifConsentIntro =>
+      'يمكن لـ femio أن يرسل لكِ تنبيهات على هذا الهاتف. اختاري ما تودّين تلقّيه. لا يُفعَّل شيء حتى تسمحي بذلك.';
+
+  @override
+  String get notifConsentNeutral =>
+      'كل إشعار يقول فقط «femio» و«افتحي التطبيق». ولا تظهر أي كلمة عن صحتكِ على شاشة القفل.';
+
+  @override
+  String get notifConsentLocal =>
+      'تُجدوَل الإشعارات على هاتفكِ نفسه. ولا يُرسَل شيء إلى أي مكان، وليس لدى femio حساب أو خادم ترسلها منه.';
+
+  @override
+  String get notifKindMedicine => 'تذكير بالدواء';
+
+  @override
+  String get notifKindDigest => 'الملخص الأسبوعي';
+
+  @override
+  String get notifComingSoon => 'قريبًا في تحديث';
+
+  @override
+  String get notifConsentAllow => 'السماح بالإشعارات';
+
+  @override
+  String get notifConsentNotNow => 'ليس الآن';
+
+  @override
+  String get notifConsentPickOne => 'فعّلي نوعًا واحدًا على الأقل للمتابعة.';
+
+  @override
+  String get notifConsentDeniedTitle => 'الإشعارات متوقفة على هذا الهاتف';
+
+  @override
+  String get notifConsentDeniedBody =>
+      'لم يسمح هاتفكِ بالإشعارات، لذلك لم يجدول femio أي شيء. لتغيير ذلك، افتحي إعدادات الهاتف ثم التطبيقات ثم femio ثم الإشعارات واسمحي بها. بعدها عودي إلى التذكيرات في إعدادات femio.';
+
+  @override
   String calendarDayLabel(String gregorian, String hijri) {
     return '$gregorian، $hijri';
   }

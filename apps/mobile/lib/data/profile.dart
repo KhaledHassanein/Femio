@@ -31,10 +31,16 @@ Map<String, Object?> migrateRecord(Map<String, Object?> json) {
 /// Minutes after local midnight for the daily log reminder until she picks a time: 20:00.
 const defaultLogReminderMinutes = 20 * 60;
 
+/// Stands in for the date of a notification consent given before R12.1 had a consent
+/// screen: a record with a reminder switch already on was switched on after the phone's own
+/// permission prompt (R4.4), but no date was kept. Not a date; it only means "consented".
+const legacyNotificationConsent = 'before-r12';
+
 /// Her preferences, kept with the record so a backup carries them.
 ///
 /// The reminder fields are absent in records written before R4.4, and absent means off,
-/// so the schema version stays 2.
+/// so the schema version stays 2. The same holds for R12.1's appointment reminder and
+/// consent date: absent means off and not yet consented.
 class AppSettings {
   const AppSettings({
     this.showHijri = false,
@@ -42,6 +48,8 @@ class AppSettings {
     this.logReminder = false,
     this.logReminderMinutes = defaultLogReminderMinutes,
     this.periodReminder = false,
+    this.appointmentReminder = false,
+    this.notificationConsentAt,
     this.cloud = const CloudConsent(),
     this.usageDays = 0,
     this.lastUsageDay,
@@ -66,6 +74,17 @@ class AppSettings {
 
   /// One notification the day before her predicted period window opens. Off by default.
   final bool periodReminder;
+
+  /// One notification the day before each saved appointment that has a date. Off by default.
+  final bool appointmentReminder;
+
+  /// When she said yes on the notification consent screen (ISO timestamp, local phone time),
+  /// or [legacyNotificationConsent] for a record that predates the screen. Null means she
+  /// has not consented, and nothing is ever scheduled (`planReminders`).
+  final String? notificationConsentAt;
+
+  /// Whether she has consented to notifications (R12.1).
+  bool get hasNotificationConsent => notificationConsentAt != null;
 
   /// Cloud boost consent with its receipts (ADR-079, ADR-080): which purposes she agreed to,
   /// when, and on which consent text. Nothing is allowed by default; only the consent screen
@@ -101,6 +120,8 @@ class AppSettings {
     bool? logReminder,
     int? logReminderMinutes,
     bool? periodReminder,
+    bool? appointmentReminder,
+    String? notificationConsentAt,
     CloudConsent? cloud,
     int? usageDays,
     String? lastUsageDay,
@@ -114,6 +135,8 @@ class AppSettings {
         logReminder: logReminder ?? this.logReminder,
         logReminderMinutes: logReminderMinutes ?? this.logReminderMinutes,
         periodReminder: periodReminder ?? this.periodReminder,
+        appointmentReminder: appointmentReminder ?? this.appointmentReminder,
+        notificationConsentAt: notificationConsentAt ?? this.notificationConsentAt,
         cloud: cloud ?? this.cloud,
         usageDays: usageDays ?? this.usageDays,
         lastUsageDay: lastUsageDay ?? this.lastUsageDay,
@@ -128,6 +151,8 @@ class AppSettings {
         'logReminder': logReminder,
         'logReminderMinutes': logReminderMinutes,
         'periodReminder': periodReminder,
+        'appointmentReminder': appointmentReminder,
+        'notificationConsentAt': notificationConsentAt,
         'cloudConsent': cloud.toJson(),
         'usageDays': usageDays,
         'lastUsageDay': lastUsageDay,
@@ -138,13 +163,20 @@ class AppSettings {
 
   static AppSettings fromJson(Map<String, Object?>? j) {
     final minutes = (j?['logReminderMinutes'] as num?)?.toInt();
+    final logOn = j?['logReminder'] as bool? ?? false;
+    final periodOn = j?['periodReminder'] as bool? ?? false;
+    final consent = j?['notificationConsentAt'];
     return AppSettings(
       showHijri: j?['showHijri'] as bool? ?? false,
       storageNoticeSeen: j?['storageNoticeSeen'] as bool? ?? false,
-      logReminder: j?['logReminder'] as bool? ?? false,
+      logReminder: logOn,
       // A time outside the clock (a damaged or hand-edited backup) falls back to the default.
       logReminderMinutes: minutes != null && minutes >= 0 && minutes < 24 * 60 ? minutes : defaultLogReminderMinutes,
-      periodReminder: j?['periodReminder'] as bool? ?? false,
+      periodReminder: periodOn,
+      appointmentReminder: j?['appointmentReminder'] as bool? ?? false,
+      // A record written before R12.1 with a switch already on keeps working: she turned it
+      // on after the phone's own permission prompt. With no switch on, she is asked.
+      notificationConsentAt: consent is String && consent.isNotEmpty ? consent : (logOn || periodOn ? legacyNotificationConsent : null),
       // Only a receipt on today's consent text counts; the bare `cloudBoost: true` of the
       // hackathon build carried no receipt, so it reads as no consent and she is asked again.
       cloud: CloudConsent.fromJson(j?['cloudConsent']),

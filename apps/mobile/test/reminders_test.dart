@@ -25,6 +25,9 @@ Profile _regular({AppSettings settings = const AppSettings(), Goal goal = Goal.p
 
 final _now = DateTime(2026, 10, 28, 10, 0);
 
+/// A consent record, so the plan is allowed to schedule (R12.1 gates everything on it).
+const _consented = '2026-10-01T09:00:00.000';
+
 void main() {
   group('planReminders', () {
     test('both off: nothing is scheduled', () {
@@ -32,7 +35,7 @@ void main() {
     });
 
     test('daily reminder: today at the chosen time, then one a day, for 30 days', () {
-      final plan = planReminders(_regular(settings: const AppSettings(logReminder: true)), now: _now);
+      final plan = planReminders(_regular(settings: const AppSettings(notificationConsentAt: _consented, logReminder: true)), now: _now);
       expect(plan.length, logReminderHorizonDays);
       expect(plan.first, PlannedReminder(ReminderKind.log, DateTime(2026, 10, 28, 20, 0)));
       expect(plan.last.at, DateTime(2026, 11, 26, 20, 0));
@@ -40,44 +43,44 @@ void main() {
     });
 
     test('a moment already past is skipped: after 20:00 the first one is tomorrow', () {
-      final plan = planReminders(_regular(settings: const AppSettings(logReminder: true)), now: DateTime(2026, 10, 28, 21, 15));
+      final plan = planReminders(_regular(settings: const AppSettings(notificationConsentAt: _consented, logReminder: true)), now: DateTime(2026, 10, 28, 21, 15));
       expect(plan.first.at, DateTime(2026, 10, 29, 20, 0));
       expect(plan.length, logReminderHorizonDays - 1);
     });
 
     test('she picks the time: 07:30 has passed today, so the first is tomorrow morning', () {
-      final plan = planReminders(_regular(settings: const AppSettings(logReminder: true, logReminderMinutes: 7 * 60 + 30)), now: _now);
+      final plan = planReminders(_regular(settings: const AppSettings(notificationConsentAt: _consented, logReminder: true, logReminderMinutes: 7 * 60 + 30)), now: _now);
       expect(plan.first.at, DateTime(2026, 10, 29, 7, 30));
     });
 
     test('today is skipped once she has logged today', () {
-      final p = _regular(settings: const AppSettings(logReminder: true)).withDayLog('2026-10-28', const DayLog(terms: ['cramps']));
+      final p = _regular(settings: const AppSettings(notificationConsentAt: _consented, logReminder: true)).withDayLog('2026-10-28', const DayLog(terms: ['cramps']));
       expect(planReminders(p, now: _now).first.at, DateTime(2026, 10, 29, 20, 0));
     });
 
     test('a log from another day does not suppress today', () {
-      final p = _regular(settings: const AppSettings(logReminder: true)).withDayLog('2026-10-27', const DayLog(terms: ['cramps']));
+      final p = _regular(settings: const AppSettings(notificationConsentAt: _consented, logReminder: true)).withDayLog('2026-10-27', const DayLog(terms: ['cramps']));
       expect(planReminders(p, now: _now).first.at, DateTime(2026, 10, 28, 20, 0));
     });
 
     test('period reminder: one, 09:00 the day before the predicted window opens', () {
-      final plan = planReminders(_regular(settings: const AppSettings(periodReminder: true)), now: _now);
+      final plan = planReminders(_regular(settings: const AppSettings(notificationConsentAt: _consented, periodReminder: true)), now: _now);
       expect(plan, [PlannedReminder(ReminderKind.period, DateTime(2026, 11, 15, 9, 0))]);
     });
 
     test('the same works when trying to conceive', () {
-      final plan = planReminders(_regular(goal: Goal.ttc, settings: const AppSettings(periodReminder: true)), now: _now);
+      final plan = planReminders(_regular(goal: Goal.ttc, settings: const AppSettings(notificationConsentAt: _consented, periodReminder: true)), now: _now);
       expect(plan.single.at, DateTime(2026, 11, 15, 9, 0));
     });
 
     test('no period reminder when she is pregnant or in menopause', () {
       for (final goal in [Goal.pregnant, Goal.menopause]) {
-        expect(planReminders(_regular(goal: goal, settings: const AppSettings(periodReminder: true)), now: _now), isEmpty);
+        expect(planReminders(_regular(goal: goal, settings: const AppSettings(notificationConsentAt: _consented, periodReminder: true)), now: _now), isEmpty);
       }
     });
 
     test('no period reminder when she said her cycles are irregular', () {
-      expect(planReminders(_regular(irregular: true, settings: const AppSettings(periodReminder: true)), now: _now), isEmpty);
+      expect(planReminders(_regular(irregular: true, settings: const AppSettings(notificationConsentAt: _consented, periodReminder: true)), now: _now), isEmpty);
     });
 
     test('no period reminder when logged cycles vary too much to give a confident window', () {
@@ -85,19 +88,19 @@ void main() {
         goal: Goal.period,
         locale: 'en',
         periodStarts: const ['2026-05-01', '2026-05-25', '2026-07-10', '2026-08-02', '2026-09-30'],
-        settings: const AppSettings(periodReminder: true),
+        settings: const AppSettings(notificationConsentAt: _consented, periodReminder: true),
       );
       expect(planReminders(wild, now: _now), isEmpty);
     });
 
     test('no period reminder with no prediction at all, and none once its moment has passed', () {
-      final none = Profile(goal: Goal.period, locale: 'en', settings: const AppSettings(periodReminder: true));
+      final none = Profile(goal: Goal.period, locale: 'en', settings: const AppSettings(notificationConsentAt: _consented, periodReminder: true));
       expect(planReminders(none, now: _now), isEmpty);
-      expect(planReminders(_regular(settings: const AppSettings(periodReminder: true)), now: DateTime(2026, 11, 15, 9, 30)), isEmpty);
+      expect(planReminders(_regular(settings: const AppSettings(notificationConsentAt: _consented, periodReminder: true)), now: DateTime(2026, 11, 15, 9, 30)), isEmpty);
     });
 
     test('both switches on: the daily ones plus the one period reminder', () {
-      final plan = planReminders(_regular(settings: const AppSettings(logReminder: true, periodReminder: true)), now: _now);
+      final plan = planReminders(_regular(settings: const AppSettings(notificationConsentAt: _consented, logReminder: true, periodReminder: true)), now: _now);
       expect(plan.where((r) => r.kind == ReminderKind.period).length, 1);
       expect(plan.length, logReminderHorizonDays + 1);
     });
@@ -110,7 +113,7 @@ void main() {
     });
 
     test('reminder settings survive a save and load', () {
-      const s = AppSettings(logReminder: true, logReminderMinutes: 450, periodReminder: true);
+      const s = AppSettings(notificationConsentAt: _consented, logReminder: true, logReminderMinutes: 450, periodReminder: true);
       final back = AppSettings.fromJson(s.toJson());
       expect((back.logReminder, back.logReminderMinutes, back.periodReminder), (true, 450, true));
     });
@@ -143,7 +146,7 @@ void main() {
   group('FemioController', () {
     test('turning a reminder on asks for permission; a refusal changes nothing', () async {
       final fake = _Recorder(permission: false);
-      final c = FemioController(MemoryStore(_regular()), reminders: fake, clock: () => _now);
+      final c = FemioController(MemoryStore(_regular(settings: const AppSettings(notificationConsentAt: _consented))), reminders: fake, clock: () => _now);
       await c.load();
       fake.reset();
 
@@ -155,7 +158,7 @@ void main() {
 
     test('granted: saves the switch and schedules the plan in her language', () async {
       final fake = _Recorder();
-      final c = FemioController(MemoryStore(_regular()), reminders: fake, clock: () => _now);
+      final c = FemioController(MemoryStore(_regular(settings: const AppSettings(notificationConsentAt: _consented))), reminders: fake, clock: () => _now);
       await c.load();
       fake.reset();
 
@@ -167,7 +170,7 @@ void main() {
 
     test('turning one off needs no permission and cancels', () async {
       final fake = _Recorder();
-      final c = FemioController(MemoryStore(_regular(settings: const AppSettings(logReminder: true))), reminders: fake, clock: () => _now);
+      final c = FemioController(MemoryStore(_regular(settings: const AppSettings(notificationConsentAt: _consented, logReminder: true))), reminders: fake, clock: () => _now);
       await c.load();
       fake.reset();
 
@@ -178,7 +181,7 @@ void main() {
 
     test('moving the time reschedules without asking again', () async {
       final fake = _Recorder();
-      final c = FemioController(MemoryStore(_regular(settings: const AppSettings(logReminder: true))), reminders: fake, clock: () => _now);
+      final c = FemioController(MemoryStore(_regular(settings: const AppSettings(notificationConsentAt: _consented, logReminder: true))), reminders: fake, clock: () => _now);
       await c.load();
       fake.reset();
 
@@ -189,7 +192,7 @@ void main() {
 
     test('a save that leaves the plan unchanged does not reschedule', () async {
       final fake = _Recorder();
-      final c = FemioController(MemoryStore(_regular(settings: const AppSettings(logReminder: true))), reminders: fake, clock: () => _now);
+      final c = FemioController(MemoryStore(_regular(settings: const AppSettings(notificationConsentAt: _consented, logReminder: true))), reminders: fake, clock: () => _now);
       await c.load();
       fake.reset();
 
@@ -199,7 +202,7 @@ void main() {
 
     test('logging today rebuilds the plan: today is no longer nudged', () async {
       final fake = _Recorder();
-      final c = FemioController(MemoryStore(_regular(settings: const AppSettings(logReminder: true))), reminders: fake, clock: () => _now);
+      final c = FemioController(MemoryStore(_regular(settings: const AppSettings(notificationConsentAt: _consented, logReminder: true))), reminders: fake, clock: () => _now);
       await c.load();
       fake.reset();
 
@@ -209,7 +212,7 @@ void main() {
 
     test('delete everything cancels every pending reminder', () async {
       final fake = _Recorder();
-      final c = FemioController(MemoryStore(_regular(settings: const AppSettings(logReminder: true))), reminders: fake, clock: () => _now);
+      final c = FemioController(MemoryStore(_regular(settings: const AppSettings(notificationConsentAt: _consented, logReminder: true))), reminders: fake, clock: () => _now);
       await c.load();
       fake.reset();
 
@@ -223,7 +226,7 @@ void main() {
       final c = FemioController(store, reminders: fake, clock: () => _now);
       await c.load();
 
-      await c.save(c.profile!.copyWith(settings: const AppSettings(logReminder: true)));
+      await c.save(c.profile!.copyWith(settings: const AppSettings(notificationConsentAt: _consented, logReminder: true)));
       expect(c.profile!.settings.logReminder, isTrue);
       expect((await store.load() as Loaded).profile.settings.logReminder, isTrue);
     });
