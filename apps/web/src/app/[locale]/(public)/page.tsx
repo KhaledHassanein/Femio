@@ -19,6 +19,7 @@ import { Link } from "@/i18n/navigation";
 import { APP_PAGE } from "@/lib/site";
 import { PhoneMock } from "@/components/site/phone-mock";
 import { Bloom, Moon, Petal, Spark } from "@/components/site/motifs";
+import { AppTourSection } from "@/components/demos/demo-sections";
 
 type PageProps = { params: Promise<{ locale: string }> };
 
@@ -29,8 +30,8 @@ type PageProps = { params: Promise<{ locale: string }> };
  * app. So the page follows what women come for, in the order competitors have taught
  * them (Flo, Clue: product in the hero, goals, tools), then says what only Femio says:
  *
- *   hero (the app) → goals → free calculators → honesty shown → every stage →
- *   private by design → trust → library → close
+ *   hero (the app) → goals → the app, screen by screen → free calculators →
+ *   honesty shown → every stage → private by design → trust → library → close
  *
  * - **Goals are the first question**, as in every tracker's onboarding (spec §2):
  *   period, pregnant-soon, pregnant, menopause. Each leads to the tool for it.
@@ -125,6 +126,7 @@ export default async function HomePage({ params }: PageProps) {
   const t = await getTranslations("home");
   const tc = await getTranslations("calculators");
   const tApp = await getTranslations("getApp");
+  const tDemo = await getTranslations("appDemo");
 
   return (
     <main className="flex w-full flex-1 flex-col">
@@ -209,6 +211,9 @@ export default async function HomePage({ params }: PageProps) {
           ))}
         </ul>
       </section>
+
+      {/* ── The app, screen by screen (R2.10): real screens, sample data ────── */}
+      <AppTourSection locale={locale} />
 
       {/* ── Free calculators: how women find a period app ───────────────────── */}
       <Section>
@@ -349,6 +354,12 @@ export default async function HomePage({ params }: PageProps) {
               </li>
             ))}
           </ul>
+          <Link
+            href={{ pathname: APP_PAGE, hash: "what-can-leave" }}
+            className="mt-1 self-start text-sm font-semibold underline underline-offset-4"
+          >
+            {tDemo("privacy.homeLink")}
+          </Link>
         </div>
       </section>
 

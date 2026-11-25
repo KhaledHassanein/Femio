@@ -117,9 +117,9 @@
       "uncertainty": "Incertidumbre"
     },
     "hero": {
-      "eyebrow": "Buscar un embarazo · Embarazo · Privacidad",
+      "eyebrow": "Salud y bienestar de la mujer, con ayuda de IA",
       "title": "femio es la compañera privada para buscar un embarazo y vivirlo.",
-      "body": "Rangos honestos en lugar de promesas, guías que muestran sus fuentes y registros que nunca salen de tu teléfono. Sin cuenta, sin nube, sin anuncios cerca de tus registros.",
+      "body": "Rangos honestos en lugar de promesas, guías que muestran sus fuentes, un asistente que funciona en tu teléfono y registros que nunca salen de él. Sin cuenta y sin anuncios en la app.",
       "cta": "Descargar la app",
       "ctaSecondary": "Probar la calculadora de ovulación"
     },
@@ -1544,38 +1544,50 @@
   },
   "getApp": {
     "metaTitle": "Descarga la app de femio",
-    "eyebrow": "femio para Android",
+    "eyebrow": "Salud y bienestar de la mujer, con ayuda de IA",
     "title": "Tus registros nunca salen de tu teléfono.",
-    "body": "Una app de Android privada para buscar un embarazo y vivirlo, en cuatro idiomas. Tu calendario, tus registros y tus herramientas de embarazo se quedan en tu teléfono, tras un PIN si lo eliges. Sin cuenta, sin nube. Muy pronto en Google Play.",
+    "body": "Una app de Android privada para buscar un embarazo y vivirlo, con un asistente que funciona en tu teléfono. Tu calendario, tus registros y tus herramientas de embarazo se quedan en tu teléfono, tras un PIN si lo eliges. Sin cuenta, y nada va a la nube salvo que actives Cloud boost. Muy pronto en Google Play.",
     "android": "Google Play",
     "androidStatus": "Muy pronto",
     "ios": "iPhone",
     "iosStatus": "Muy pronto",
     "featuresTitle": "Qué hace la app",
     "features": {
-      "period": {
-        "title": "Rangos honestos",
-        "body": "Tu próxima regla y tus días fértiles como rangos que se ajustan a medida que registras, con «sin ventana fiable» cuando tus ciclos varían demasiado."
+      "today": {
+        "title": "Hoy, de un vistazo",
+        "body": "Tu ventana fértil y tu próxima regla como rangos con un nivel de confianza, cuándo hacer la prueba y tus temperaturas."
       },
-      "fertile": {
-        "title": "Registro de ovulación y temperatura",
-        "body": "Anota tus pruebas de ovulación y tu temperatura al despertar junto a tu calendario."
+      "calendar": {
+        "title": "Las tres próximas reglas",
+        "body": "Cada regla posterior es un rango más amplio, con «sin ventana fiable» cuando tus ciclos varían demasiado."
+      },
+      "ask": {
+        "title": "Pregunta a femio",
+        "body": "Respuestas de salud solo de fuentes fiables guardadas en tu teléfono, cada frase numerada con su fuente."
+      },
+      "sayIt": {
+        "title": "Dilo para registrar",
+        "body": "Escribe cómo te sientes con tus palabras, y femio lo convierte en registros que tú confirmas."
+      },
+      "tips": {
+        "title": "Consejos para ti",
+        "body": "Frases revisadas con su fuente, elegidas en tu teléfono a partir de lo que registras."
+      },
+      "visit": {
+        "title": "Resumen para la consulta",
+        "body": "Una página para tu médica: tus ciclos, lo que más registraste y preguntas que podrías hacer."
       },
       "pregnancy": {
         "title": "Herramientas de embarazo",
-        "body": "Tu semana y tu fecha probable de parto, un contador de patadas, un cronómetro de contracciones y un registro de peso."
+        "body": "Tu semana y tu fecha probable de parto, un contador de movimientos, un cronómetro de contracciones y un registro de peso."
       },
       "private": {
         "title": "Privada por diseño",
-        "body": "Tus registros se guardan en tu teléfono, no en nuestros servidores. Añade un bloqueo con PIN y guarda tú misma un archivo de copia de seguridad."
+        "body": "Tus registros se guardan en tu teléfono, no en nuestros servidores. Añade un PIN y guarda tú misma una copia de seguridad."
       },
-      "arabic": {
+      "languages": {
         "title": "Cuatro idiomas",
-        "body": "Árabe, inglés, francés y español, con el árabe de derecha a izquierda desde la primera línea."
-      },
-      "doctor": {
-        "title": "Citas",
-        "body": "Guarda tus citas y las preguntas que quieres hacer en un solo lugar."
+        "body": "Inglés, árabe, francés y español, cada uno en su sentido de lectura."
       }
     },
     "meanwhileTitle": "Mientras tanto",
@@ -1589,6 +1601,187 @@
       "range": "Hoy – en 4 días",
       "note": "Estimación · confianza media",
       "period": "Próxima regla en 15–18 días"
+    },
+    "companion": "El asistente es un acompañante, no el motor: cada función sirve con él apagado, y nunca añade nada a tu registro sin ti."
+  },
+  "appDemo": {
+    "tour": {
+      "eyebrow": "Mira la app",
+      "heading": "femio, pantalla a pantalla.",
+      "sub": "Pantallas reales de la app, con datos de ejemplo. Elige una pantalla o deja que avancen solas.",
+      "pause": "Pausar el recorrido",
+      "play": "Iniciar el recorrido",
+      "languagesNote": "Pantallas en inglés; la app está en inglés, árabe, francés y español.",
+      "synthetic": "Datos de ejemplo, no de una persona real.",
+      "steps": {
+        "today": {
+          "label": "Hoy",
+          "title": "Hoy, como panel",
+          "body": "Tu ventana fértil y tu próxima regla como rangos con un nivel de confianza, cuándo hacer la prueba, tus temperaturas y consejos elegidos en tu teléfono. Los avisos van al final.",
+          "alt": "La pantalla Hoy de femio: un rango de ventana fértil, una tarjeta sobre cuándo hacer la prueba, botones para registrar y tres consejos con sus fuentes."
+        },
+        "calendar": {
+          "label": "Calendario",
+          "title": "Las tres próximas reglas",
+          "body": "Cada regla posterior es un rango más amplio, y la de baja confianza se dibuja con trazos. Cuando tus ciclos varían, solo se muestra la próxima.",
+          "alt": "El calendario de femio con los días previstos en contorno y una tarjeta con las tres próximas reglas, cada una con su nivel de confianza."
+        },
+        "ask": {
+          "label": "Pregunta a femio",
+          "title": "Respuestas que muestran sus fuentes",
+          "body": "femio responde solo con fuentes de salud que guarda en tu teléfono y numera cada una. Cuando no cubren una pregunta, lo dice en lugar de adivinar.",
+          "alt": "Pregunta a femio respondiendo sobre los cólicos menstruales, con fuentes de MedlinePlus numeradas."
+        },
+        "boost": {
+          "label": "Cloud boost",
+          "title": "Cloud boost sigue apagado salvo que aceptes",
+          "body": "Para teléfonos sin IA integrada. Aceptas cada uso por separado y ves exactamente qué se enviaría antes de que se envíe nada.",
+          "alt": "La pantalla Cloud boost con dos casillas de consentimiento separadas y los cuatro datos generales que pueden enviarse."
+        },
+        "visit": {
+          "label": "Resumen para la consulta",
+          "title": "Una página para tu médica",
+          "body": "Hecha con lo que registraste, con preguntas que podrías hacer. Se queda en tu teléfono salvo que la copies.",
+          "alt": "El resumen para la consulta: ciclos registrados, lo más registrado en 90 días y preguntas para hacer."
+        }
+      }
+    },
+    "periods": {
+      "eyebrow": "Pruébalo",
+      "heading": "Honesta sobre hasta dónde puede ver.",
+      "body": "Elige un patrón. Las próximas reglas se calculan con la misma regla que usa la app.",
+      "patternsLabel": "Patrón de ejemplo",
+      "patterns": {
+        "regular": "Ciclos regulares",
+        "varies": "Ciclos que varían",
+        "new": "Recién empiezo"
+      },
+      "notes": {
+        "regular": "Cuatro reglas registradas, con 28 o 29 días entre ellas.",
+        "varies": "Cuatro reglas registradas, con entre 24 y 35 días entre ellas.",
+        "new": "Una sola regla registrada y un ciclo habitual de 28 días."
+      },
+      "lastLogged": "Última regla registrada: {date}",
+      "caption": "Fechas de ejemplo. Nada de lo que toques aquí se guarda ni se envía."
+    },
+    "sayIt": {
+      "eyebrow": "Pruébalo",
+      "heading": "Dilo, y queda en tu registro.",
+      "body": "Escribe cómo te sientes con tus palabras. femio lo convierte en las mismas opciones que habrías tocado, y desmarcas lo que no sea correcto.",
+      "samplesLabel": "Elige una frase",
+      "samples": {
+        "cramps": "Muchos cólicos y dolor de cabeza hoy, muy cansada",
+        "bloated": "Me siento hinchada y con náuseas esta mañana",
+        "back": "Dolor de espalda y me siento ansiosa"
+      },
+      "demoNote": "Una demo con frases de ejemplo. Funciona en tu navegador y no guarda nada.",
+      "again": "Probar otra frase"
+    },
+    "ask": {
+      "eyebrow": "Pruébalo",
+      "heading": "Pregunta a femio y mira de dónde sale cada frase.",
+      "questionsLabel": "Elige una pregunta",
+      "questions": {
+        "cramps": "¿Qué alivia los cólicos menstruales?",
+        "bleeding": "Sangrado abundante y me siento mareada",
+        "uncovered": "¿Cuál es la capital de Francia?"
+      },
+      "crampsAnswer": "El calor en la parte baja del vientre y algo de ejercicio pueden aliviar el dolor menstrual [1]. Consulta a un médico si el autocuidado no ayuda y el dolor afecta tu vida [2].",
+      "sourceTitle": "Period Pain",
+      "rulesFirst": "Las reglas de seguridad van antes que cualquier IA. Aquí femio ni siquiera consultó a la IA: las señales de peligro abren primero la ayuda.",
+      "demoNote": "Una demo con una respuesta de ejemplo. En la app, Gemini Nano la redacta en tu teléfono a partir de los textos que lleva femio."
+    },
+    "privacy": {
+      "eyebrow": "Lo que puede salir de este teléfono",
+      "heading": "Tus registros se quedan en tu teléfono. Esto es todo lo demás.",
+      "body": "La app no tiene anuncios, ni analítica, ni herramientas de rastreo. Esta es la lista completa de lo que puede salir de tu teléfono, y cuándo.",
+      "items": {
+        "cloud": {
+          "title": "Cloud boost, solo si aceptas",
+          "body": "En un teléfono sin IA integrada, y solo para los usos que marcaste: una pregunta general que apruebas, después de que femio quite números, fechas, nombres y contactos, enviada con las fuentes públicas que encontró; o cuatro datos generales que ves antes: tu etapa de vida, si tus ciclos son regulares, los tipos de síntoma que registraste y desde cuándo registras."
+        },
+        "check": {
+          "title": "Una comprobación de autenticidad, con cada petición de Cloud boost",
+          "body": "Google Play confirma que la petición viene de la app femio real en un teléfono real. Como cualquier conexión a internet, la petición muestra a Google la dirección de internet de tu teléfono."
+        },
+        "model": {
+          "title": "El modelo de IA del teléfono",
+          "body": "Si tocas Descargar, el servicio de IA de Android (AICore, gestionado por Google) descarga Gemini Nano y lo mantiene al día. El software de IA de Google también puede enviar a Google información técnica, como errores y rendimiento. femio no le añade ninguno de tus registros."
+        },
+        "play": {
+          "title": "Google Play",
+          "body": "Instalas femio desde Google Play, que nos da totales como instalaciones y fallos. Si compras femio Plus, Google Play gestiona el pago."
+        },
+        "links": {
+          "title": "Los enlaces que abres",
+          "body": "Un enlace a una fuente o a ayuda se abre en tu navegador, bajo la política de ese sitio."
+        },
+        "backup": {
+          "title": "Copias de seguridad que guardas tú",
+          "body": "Un archivo de copia está cifrado con una frase de acceso que eliges, y solo va adonde tú lo pongas."
+        }
+      },
+      "policyLink": "Leer la política de privacidad completa",
+      "homeLink": "Mira lo que puede salir de este teléfono"
+    },
+    "app": {
+      "todayTitle": "Hoy",
+      "calendarTitle": "Calendario",
+      "predictionNote": "Las predicciones son estimaciones, no garantías, y no deben usarse para evitar un embarazo.",
+      "privacyLine": "Guardado solo en este teléfono.",
+      "legendPredicted": "La regla puede empezar",
+      "legendPossible": "Regla posible (confianza baja)",
+      "confidenceHigh": "Confianza alta",
+      "confidenceMedium": "Confianza media",
+      "confidenceLowShort": "Confianza baja",
+      "upcomingPeriodsTitle": "Próximas reglas",
+      "upcomingPeriodsWider": "Cada regla siguiente tiene un margen más amplio: cuanto más lejos, menos certeza.",
+      "upcomingPeriodsOnlyNext": "Solo se muestra la próxima regla: tus ciclos registrados varían demasiado, o todavía son pocos, para llegar más lejos.",
+      "askTitle": "Pregunta a femio",
+      "askIntro": "Haz una pregunta de salud. femio responde solo con fuentes de salud fiables que lleva en tu teléfono, como los CDC, MedlinePlus y la Office on Women’s Health, y muestra de dónde viene cada frase.",
+      "askAction": "Preguntar",
+      "askSearching": "Leyendo fuentes fiables…",
+      "askAnswerOnPhone": "Resumido en tu teléfono por Gemini Nano, con las fuentes de abajo",
+      "askClinicianLine": "Esto es información general, no un consejo para ti. Para tu situación, habla con tu médico o matrona.",
+      "askSourcesTitle": "Fuentes",
+      "askSourceReviewed": "{publisher} · revisado el {date}",
+      "askNotCoveredHeading": "Aún no cubierto",
+      "askNotCovered": "Las fuentes fiables de femio no responden a esto, así que femio no adivina. Prueba con otras palabras, lee los enlaces de abajo o pregunta a tu médico.",
+      "askSearchAgain": "Hacer otra pregunta",
+      "safetyHeavyBleedingHeading": "Sangrado abundante con mareo",
+      "safetyHeavyBleedingBody": "El ACOG (colegio estadounidense de ginecólogos y obstetras) dice: «Si cambias de compresa o tampón cada hora durante más de 2 horas seguidas, y además tienes dolor en el pecho, falta de aire y te sientes aturdida o mareada, busca atención médica de urgencia de inmediato». (Traducción de femio.) Si es tu caso, llama ahora al número de emergencias. Si un sangrado abundante te preocupa, habla con tu médico.",
+      "helpNowLauncher": "¿Necesitas ayuda ahora?",
+      "sayItButton": "Dilo con tus palabras",
+      "sayItTitle": "¿Cómo te sientes?",
+      "sayItAction": "Convertir en registro",
+      "sayItFound": "femio encontró esto. Desmarca lo que no sea correcto.",
+      "sayItAdd": "Añadir al registro de este día",
+      "sayItAdded": "Añadido a tu registro.",
+      "assistantPrivateNote": "Esto ocurre en tu teléfono. Tus palabras no se guardan ni se envían.",
+      "logCramps": "Cólicos",
+      "logHeadache": "Dolor de cabeza",
+      "logFatigue": "Fatiga",
+      "logBloating": "Hinchazón",
+      "logNausea": "Náuseas",
+      "logBackache": "Dolor de espalda",
+      "logAnxious": "Ansiosa",
+      "tipsTitle": "Para ti",
+      "tipsChosenOnPhone": "Elegidos en tu teléfono a partir de tu registro. Cada consejo es una frase revisada, con su fuente.",
+      "tip_folicAcidBeforePregnancy": "El ácido fólico, una vitamina B, se aconseja desde al menos un mes antes del embarazo. Pregunta a un profesional de la salud cómo obtener lo suficiente.",
+      "tip_regularSexTakesTime": "La mayoría de las parejas en las que la mujer tiene menos de 40 años logra el embarazo en un año con relaciones regulares cada 2 o 3 días. Puede llevar tiempo.",
+      "tip_testingTooEarly": "Hacer la prueba demasiado pronto puede dar un falso negativo, porque la hormona del embarazo quizá aún no haya aumentado. Sigue las instrucciones de la prueba.",
+      "visitTitle": "Resumen para la consulta",
+      "visitIntro": "Una página para mostrar a tu médico, hecha con lo que registraste. Se queda en tu teléfono salvo que la copies.",
+      "boostTitle": "Cloud boost",
+      "boostIntro": "Algunos teléfonos no tienen IA integrada. En esos teléfonos, Cloud boost permite que la IA en la nube de Google resuma fuentes fiables para una pregunta que apruebes, u ordene tus consejos. Es opcional y sigue desactivado salvo que aceptes abajo. Todo lo demás de femio funciona sin él.",
+      "boostStageLabel": "Etapa de vida",
+      "boostRegularityLabel": "Regularidad del ciclo",
+      "boostCategoriesLabel": "Tipos de síntomas registrados el último mes",
+      "boostStreakLabel": "Registro continuo",
+      "boostNeverHeading": "Qué no se envía nunca",
+      "boostNever": "Tus notas, fechas, registros, duración de ciclos, tu nombre, tu correo, tus contactos ni tu ID de publicidad.",
+      "boostAlsoSeen": "Como en cualquier conexión a internet, Google también ve la dirección de internet de tu teléfono y una comprobación de Google Play de que la solicitud viene de la app femio auténtica.",
+      "boostWithdrawEffect": "Desactivarlo impide nuevos envíos. No puede recuperar lo que ya se envió."
     }
   },
   "helpNow": {
