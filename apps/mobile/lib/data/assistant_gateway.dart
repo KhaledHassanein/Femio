@@ -44,16 +44,23 @@ class AssistantResult<T> {
 
 /// The only caller of [AssistantBridge.runPrivate] and [AssistantBridge.runHybrid].
 class AssistantGateway {
-  AssistantGateway(this._bridge);
+  /// [enabled] reads her master switch (kill switch 3) at each call; absent means on.
+  AssistantGateway(this._bridge, {bool Function()? enabled}) : _enabled = enabled ?? _always;
+
+  static bool _always() => true;
 
   final AssistantBridge _bridge;
+  final bool Function() _enabled;
   final _unusable = <AssistantUse, int>{};
 
-  /// What the assistant can do on this phone; offline when the build switch is off.
-  Future<AssistantStatus> status() async => assistantBuildEnabled ? _bridge.status() : AssistantStatus.offline;
+  /// What the assistant can do on this phone; offline when the build switch or her master
+  /// switch is off.
+  Future<AssistantStatus> status() async =>
+      assistantBuildEnabled && _enabled() ? _bridge.status() : AssistantStatus.offline;
 
   bool _open(AssistantUse use) =>
       assistantBuildEnabled &&
+      _enabled() &&
       (usePolicies[use]?.enabled ?? false) &&
       (_unusable[use] ?? 0) < assistantCircuitBreakerLimit;
 

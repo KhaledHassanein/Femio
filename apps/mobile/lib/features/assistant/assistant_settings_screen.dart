@@ -68,6 +68,23 @@ class _AssistantSettingsScreenState extends State<AssistantSettingsScreen> {
                 space8,
               ),
               children: [
+                ListenableBuilder(
+                  listenable: widget.controller,
+                  builder: (context, _) {
+                    final settings = widget.controller.profile?.settings;
+                    final on = settings?.assistantOn ?? true;
+                    return SwitchListTile(
+                      contentPadding: EdgeInsets.zero,
+                      secondary: Icon(Icons.auto_awesome_rounded, color: p.primary),
+                      title: Text(l.assistantMasterTitle),
+                      subtitle: Text(on ? l.assistantMasterOn : l.assistantMasterOff),
+                      value: on,
+                      onChanged: settings == null
+                          ? null
+                          : (value) => widget.controller.setSettings(settings.copyWith(assistantOn: value)),
+                    );
+                  },
+                ),
                 ListTile(
                   contentPadding: EdgeInsets.zero,
                   leading: Icon(Icons.phone_android_rounded, color: p.primary),

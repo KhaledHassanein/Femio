@@ -129,4 +129,24 @@ void main() {
     expect(r.ranOn, RanOn.rules);
     expect(b.hybrid, isEmpty);
   });
+
+  test('her master switch off: no model call anywhere, rules answer, offline status', () async {
+    var on = false;
+    final b = _Bridge(nano: false, privateReply: '{"terms":["cramps"]}', hybridReply: '{"ids":["${_ids[0]}"]}');
+    final g = AssistantGateway(b, enabled: () => on);
+    expect((await g.status()).canRunPrivate, isFalse);
+    expect((await g.readNote('cramps today')).ranOn, RanOn.rules);
+    expect((await g.orderTips(_bands, _ids, 2, _tipsConsent)).ranOn, RanOn.rules);
+    expect(b.private, isEmpty);
+    expect(b.hybrid, isEmpty);
+    on = true;
+    expect((await g.orderTips(_bands, _ids, 2, _tipsConsent)).ranOn, RanOn.cloud);
+  });
+
+  test('the master switch is saved with her settings and defaults to on', () {
+    expect(const AppSettings().assistantOn, isTrue);
+    expect(AppSettings.fromJson(const {}).assistantOn, isTrue);
+    expect(AppSettings.fromJson(const AppSettings(assistantOn: false).toJson()).assistantOn, isFalse);
+  });
 }
+

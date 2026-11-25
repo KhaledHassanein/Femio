@@ -2625,4 +2625,15 @@ class L10nEs extends L10n {
   @override
   String get leaveSettingsSub =>
       'Todas las formas en que algo llega a internet';
+
+  @override
+  String get assistantMasterTitle => 'Usar el asistente';
+
+  @override
+  String get assistantMasterOff =>
+      'Desactivado: femio responde solo con sus reglas y guías. No funciona ninguna IA, ni en el teléfono ni en la nube.';
+
+  @override
+  String get assistantMasterOn =>
+      'Activado: la IA añade explicaciones junto a las respuestas de femio. Todo funciona sin ella.';
 }

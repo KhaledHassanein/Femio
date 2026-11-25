@@ -2612,4 +2612,15 @@ class L10nEn extends L10n {
 
   @override
   String get leaveSettingsSub => 'Every way anything reaches the internet';
+
+  @override
+  String get assistantMasterTitle => 'Use the assistant';
+
+  @override
+  String get assistantMasterOff =>
+      'Off: femio answers from its rules and guides only. No AI runs, on the phone or in the cloud.';
+
+  @override
+  String get assistantMasterOn =>
+      'On: the AI adds explanations beside femio\'s own answers. Everything works without it.';
 }

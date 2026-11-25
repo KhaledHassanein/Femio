@@ -371,6 +371,7 @@ class _FemioAppState extends State<FemioApp> with WidgetsBindingObserver {
           // phone went to sleep; swapping `home` alone would leave pushed routes on top.
           builder: (context, child) => AssistantScope(
               bridge: widget.assistant,
+              enabled: () => controller.profile?.settings.assistantOn ?? true,
               child: Stack(
               children: [
                 // Kept mounted under the lock so she returns exactly where she was;

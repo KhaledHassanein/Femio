@@ -1135,5 +1135,11 @@
   "leaveLinksHeading": "Links you open",
   "leaveLinksBody": "Sources and pages you open go to your browser, which visits that website.",
   "leaveNever": "Nothing else leaves. femio has no ads, no analytics, no tracking tools and no account.",
-  "leaveSettingsSub": "Every way anything reaches the internet"
+  "leaveSettingsSub": "Every way anything reaches the internet",
+  "assistantMasterTitle": "Use the assistant",
+  "assistantMasterOff": "Off: femio answers from its rules and guides only. No AI runs, on the phone or in the cloud.",
+  "assistantMasterOn": "On: the AI adds explanations beside femio's own answers. Everything works without it.",
+  "@assistantMasterTitle": {
+    "description": "Settings › Assistant master switch for every AI use (ADR-081 kill switch 3)."
+  }
 }

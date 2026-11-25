@@ -34,9 +34,12 @@ class OfflineAssistant implements AssistantBridge {
 
 /// Provides the [AssistantBridge] to the app.
 class AssistantScope extends InheritedWidget {
-  const AssistantScope({super.key, required this.bridge, required super.child});
+  const AssistantScope({super.key, required this.bridge, this.enabled, required super.child});
 
   final AssistantBridge bridge;
+
+  /// Reads her master AI switch; null means always on (tests, onboarding).
+  final bool Function()? enabled;
 
   /// The bridge in scope, or [OfflineAssistant] when there is none.
   static AssistantBridge of(BuildContext context) =>
@@ -47,8 +50,9 @@ class AssistantScope extends InheritedWidget {
   /// The gateway for the bridge in scope: the only way a screen reaches the model (ADR-081).
   /// One per bridge, so its circuit breaker lasts the session.
   static AssistantGateway gatewayOf(BuildContext context) {
-    final bridge = of(context);
-    return _gateways[bridge] ??= AssistantGateway(bridge);
+    final scope = context.dependOnInheritedWidgetOfExactType<AssistantScope>();
+    final bridge = scope?.bridge ?? const OfflineAssistant();
+    return _gateways[bridge] ??= AssistantGateway(bridge, enabled: scope?.enabled);
   }
 
   @override

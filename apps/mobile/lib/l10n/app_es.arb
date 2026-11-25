@@ -727,5 +727,8 @@
   "leaveLinksHeading": "Los enlaces que abres",
   "leaveLinksBody": "Las fuentes y páginas que abres van a tu navegador, que visita ese sitio web.",
   "leaveNever": "No sale nada más. femio no tiene anuncios, ni analíticas, ni herramientas de seguimiento, ni cuenta.",
-  "leaveSettingsSub": "Todas las formas en que algo llega a internet"
+  "leaveSettingsSub": "Todas las formas en que algo llega a internet",
+  "assistantMasterTitle": "Usar el asistente",
+  "assistantMasterOff": "Desactivado: femio responde solo con sus reglas y guías. No funciona ninguna IA, ni en el teléfono ni en la nube.",
+  "assistantMasterOn": "Activado: la IA añade explicaciones junto a las respuestas de femio. Todo funciona sin ella."
 }

@@ -2631,4 +2631,15 @@ class L10nFr extends L10n {
   @override
   String get leaveSettingsSub =>
       'Toutes les façons dont quelque chose atteint Internet';
+
+  @override
+  String get assistantMasterTitle => 'Utiliser l\'assistant';
+
+  @override
+  String get assistantMasterOff =>
+      'Désactivé : femio répond seulement à partir de ses règles et de ses guides. Aucune IA ne fonctionne, ni sur le téléphone ni dans le cloud.';
+
+  @override
+  String get assistantMasterOn =>
+      'Activé : l\'IA ajoute des explications à côté des réponses de femio. Tout fonctionne sans elle.';
 }

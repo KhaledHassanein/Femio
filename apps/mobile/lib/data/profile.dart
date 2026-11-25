@@ -46,6 +46,7 @@ class AppSettings {
     this.usageDays = 0,
     this.lastUsageDay,
     this.reviewAskedBuild,
+    this.assistantOn = true,
   });
 
   /// Show Hijri dates beside Gregorian ones (on by default in Arabic, see
@@ -79,6 +80,10 @@ class AppSettings {
   /// The app build that last asked Google Play for a rating; null when never (R12.2).
   final int? reviewAskedBuild;
 
+  /// Her master switch for every AI use (ADR-081 kill switch 3). On by default; off means
+  /// rules and guides only, with no model call on the phone or in the cloud.
+  final bool assistantOn;
+
   /// Whether Cloud boost is on for any purpose.
   bool get cloudBoost => cloud.any;
 
@@ -95,6 +100,7 @@ class AppSettings {
     int? usageDays,
     String? lastUsageDay,
     int? reviewAskedBuild,
+    bool? assistantOn,
   }) =>
       AppSettings(
         showHijri: showHijri ?? this.showHijri,
@@ -106,6 +112,7 @@ class AppSettings {
         usageDays: usageDays ?? this.usageDays,
         lastUsageDay: lastUsageDay ?? this.lastUsageDay,
         reviewAskedBuild: reviewAskedBuild ?? this.reviewAskedBuild,
+        assistantOn: assistantOn ?? this.assistantOn,
       );
 
   Map<String, Object?> toJson() => {
@@ -118,6 +125,7 @@ class AppSettings {
         'usageDays': usageDays,
         'lastUsageDay': lastUsageDay,
         'reviewAskedBuild': reviewAskedBuild,
+        'assistantOn': assistantOn,
       };
 
   static AppSettings fromJson(Map<String, Object?>? j) {
@@ -135,6 +143,7 @@ class AppSettings {
       usageDays: ((j?['usageDays'] as num?)?.toInt() ?? 0).clamp(0, 1 << 20),
       lastUsageDay: j?['lastUsageDay'] as String?,
       reviewAskedBuild: (j?['reviewAskedBuild'] as num?)?.toInt(),
+      assistantOn: j?['assistantOn'] as bool? ?? true,
     );
   }
 }

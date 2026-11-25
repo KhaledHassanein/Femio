@@ -581,7 +581,7 @@ void main() {
         findsOneWidget,
       );
       await _shoot('en_light_assistant_settings');
-      await tester.tap(find.byType(Switch));
+      await tester.tap(find.byType(Switch).last); // the first is her master switch
       await tester.pumpAndSettle();
       expect(
         c.profile!.settings.cloudBoost,
@@ -613,7 +613,7 @@ void main() {
       expect(consent.allows(CloudPurpose.tips), isFalse, reason: 'each purpose is its own choice');
       expect(consent.current!.version, cloudConsentVersion);
       expect(DateTime.tryParse(consent.grantedAt!), isNotNull, reason: 'the receipt is dated');
-      await tester.tap(find.byType(Switch));
+      await tester.tap(find.byType(Switch).last);
       await tester.pumpAndSettle();
       expect(
         c.profile!.settings.cloudBoost,

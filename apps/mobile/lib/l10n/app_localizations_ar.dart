@@ -2635,4 +2635,15 @@ class L10nAr extends L10n {
 
   @override
   String get leaveSettingsSub => 'كل طريقة يصل بها أي شيء إلى الإنترنت';
+
+  @override
+  String get assistantMasterTitle => 'استخدام المساعد';
+
+  @override
+  String get assistantMasterOff =>
+      'متوقّف: يجيب femio من قواعده وأدلته فقط. لا يعمل أي ذكاء اصطناعي، لا على الهاتف ولا في السحابة.';
+
+  @override
+  String get assistantMasterOn =>
+      'مفعّل: يضيف الذكاء الاصطناعي شروحًا بجانب إجابات femio نفسها. وكل شيء يعمل بدونه.';
 }

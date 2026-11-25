@@ -4324,6 +4324,24 @@ abstract class L10n {
   /// In en, this message translates to:
   /// **'Every way anything reaches the internet'**
   String get leaveSettingsSub;
+
+  /// Settings › Assistant master switch for every AI use (ADR-081 kill switch 3).
+  ///
+  /// In en, this message translates to:
+  /// **'Use the assistant'**
+  String get assistantMasterTitle;
+
+  /// No description provided for @assistantMasterOff.
+  ///
+  /// In en, this message translates to:
+  /// **'Off: femio answers from its rules and guides only. No AI runs, on the phone or in the cloud.'**
+  String get assistantMasterOff;
+
+  /// No description provided for @assistantMasterOn.
+  ///
+  /// In en, this message translates to:
+  /// **'On: the AI adds explanations beside femio\'s own answers. Everything works without it.'**
+  String get assistantMasterOn;
 }
 
 class _L10nDelegate extends LocalizationsDelegate<L10n> {
