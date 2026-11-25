@@ -1,0 +1,177 @@
+// The assistant's front door: a floating "Ask femio" pill on every main tab (R8.3).
+//
+// Why it exists: the assistant was two buttons deep on Today, so most people would never
+// meet it. The pill opens three doors (ask a question, say how today went, questions for a
+// visit). The first tap shows one sheet saying what runs on the phone and offering Cloud boost
+// as a choice, through its own consent screen with nothing ticked (ADR-079, ADR-080). Every
+// door also works with the AI unavailable: the rules and guides answer (product rule 7).
+
+import 'package:flutter/material.dart';
+
+import '../../app.dart';
+import '../../data/library.dart';
+import '../../l10n/app_localizations.dart';
+import '../../theme/femio_theme.dart';
+import '../../theme/spacing.dart';
+import 'ask_screen.dart';
+import 'cloud_boost_screen.dart';
+import 'say_it_sheet.dart';
+import 'visit_summary_screen.dart';
+
+/// The floating pill. [today] is the day Say it logs to.
+class AssistantPill extends StatelessWidget {
+  const AssistantPill({super.key, required this.controller, required this.today, this.library});
+  final FemioController controller;
+  final String today;
+  final Library? library;
+
+  @override
+  Widget build(BuildContext context) {
+    final l = L10n.of(context);
+    return FloatingActionButton.extended(
+      heroTag: 'assistant-pill',
+      onPressed: () => openAssistant(context, controller: controller, today: today, library: library),
+      icon: const Icon(Icons.auto_awesome_rounded),
+      label: Text(l.askTitle),
+    );
+  }
+}
+
+/// Shows the first-use sheet once, then the three doors.
+Future<void> openAssistant(
+  BuildContext context, {
+  required FemioController controller,
+  required String today,
+  Library? library,
+}) async {
+  final settings = controller.profile?.settings;
+  if (settings != null && !settings.assistantIntroSeen) {
+    final go = await showModalBottomSheet<bool>(
+      context: context,
+      isScrollControlled: true,
+      showDragHandle: true,
+      builder: (_) => AssistantIntroSheet(controller: controller),
+    );
+    // Seen means shown: closing it by swiping counts too, so it never nags.
+    final now = controller.profile?.settings;
+    if (now != null) await controller.setSettings(now.copyWith(assistantIntroSeen: true));
+    if (go != true || !context.mounted) return;
+  }
+  if (!context.mounted) return;
+  final door = await showModalBottomSheet<_Door>(
+    context: context,
+    showDragHandle: true,
+    builder: (_) => const AssistantDoorsSheet(),
+  );
+  if (door == null || !context.mounted) return;
+  final nav = Navigator.of(context);
+  switch (door) {
+    case _Door.ask:
+      await nav.push(MaterialPageRoute<void>(
+        builder: (_) => AskScreen(controller: controller, library: library, today: today),
+      ));
+    case _Door.sayIt:
+      await showSayItSheet(context, controller: controller, date: today);
+    case _Door.visit:
+      await nav.push(MaterialPageRoute<void>(
+        builder: (_) => VisitSummaryScreen(controller: controller, today: today),
+      ));
+  }
+}
+
+enum _Door { ask, sayIt, visit }
+
+/// The first-use sheet: what runs on the phone, what never happens, and Cloud boost as an
+/// option she has to choose. Pops `true` to continue to the doors. Public for screenshots.
+class AssistantIntroSheet extends StatelessWidget {
+  const AssistantIntroSheet({super.key, required this.controller});
+  final FemioController controller;
+
+  @override
+  Widget build(BuildContext context) {
+    final l = L10n.of(context);
+    final p = context.palette;
+    final t = Theme.of(context).textTheme;
+    return SafeArea(
+      child: SingleChildScrollView(
+        padding: const EdgeInsets.fromLTRB(space5, 0, space5, space5),
+        child: Column(crossAxisAlignment: CrossAxisAlignment.stretch, children: [
+          Text(l.assistIntroTitle, style: t.titleLarge),
+          const SizedBox(height: space3),
+          _Point(icon: Icons.phone_android_rounded, text: l.assistIntroPhone),
+          _Point(icon: Icons.health_and_safety_outlined, text: l.assistIntroRules),
+          _Point(icon: Icons.cloud_outlined, title: l.assistIntroCloudTitle, text: l.assistIntroCloudBody),
+          const SizedBox(height: space2),
+          Text(l.assistIntroSettings, style: t.bodySmall?.copyWith(color: p.textMuted)),
+          const SizedBox(height: space4),
+          FilledButton(
+            onPressed: () => Navigator.of(context).pop(true),
+            child: Text(l.assistIntroContinue),
+          ),
+          const SizedBox(height: space2),
+          OutlinedButton(
+            onPressed: () async {
+              final nav = Navigator.of(context);
+              await nav.push(MaterialPageRoute<void>(builder: (_) => CloudBoostScreen(controller: controller)));
+              nav.pop(true);
+            },
+            child: Text(l.assistIntroCloudAction),
+          ),
+        ]),
+      ),
+    );
+  }
+}
+
+class _Point extends StatelessWidget {
+  const _Point({required this.icon, required this.text, this.title});
+  final IconData icon;
+  final String text;
+  final String? title;
+
+  @override
+  Widget build(BuildContext context) {
+    final p = context.palette;
+    final t = Theme.of(context).textTheme;
+    return Padding(
+      padding: const EdgeInsets.only(bottom: space3),
+      child: Row(crossAxisAlignment: CrossAxisAlignment.start, children: [
+        Icon(icon, color: p.primary),
+        const SizedBox(width: space3),
+        Expanded(
+          child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+            if (title != null) Text(title!, style: t.titleSmall),
+            Text(text, style: t.bodyMedium),
+          ]),
+        ),
+      ]),
+    );
+  }
+}
+
+/// The three doors. Pops the chosen one. Public for screenshots.
+class AssistantDoorsSheet extends StatelessWidget {
+  const AssistantDoorsSheet({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    final l = L10n.of(context);
+    final p = context.palette;
+    Widget door(_Door d, IconData icon, String title, String sub) => ListTile(
+          leading: Icon(icon, color: p.primary),
+          title: Text(title),
+          subtitle: Text(sub),
+          onTap: () => Navigator.of(context).pop(d),
+        );
+    return SafeArea(
+      child: Padding(
+        padding: const EdgeInsets.only(bottom: space3),
+        child: Column(mainAxisSize: MainAxisSize.min, children: [
+          door(_Door.ask, Icons.travel_explore_rounded, l.assistDoorAsk, l.assistDoorAskSub),
+          door(_Door.sayIt, Icons.edit_note_rounded, l.assistDoorSayIt, l.assistDoorSayItSub),
+          door(_Door.visit, Icons.event_note_outlined, l.visitQuestionsTitle, l.assistDoorVisitSub),
+        ]),
+      ),
+    );
+  }
+}

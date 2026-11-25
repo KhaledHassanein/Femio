@@ -748,5 +748,18 @@
   "aiSeesBands": "Cuatro datos generales: etapa de vida, regularidad del ciclo, tipos de síntoma y racha de registro",
   "aiSeesIds": "Los consejos o preguntas revisados de femio, para ordenarlos",
   "aiSeesVisitFacts": "Tu resumen de consulta: objetivo, ciclos contados, ciclo más corto y más largo, fecha de la última regla, regularidad",
-  "aiSeesApprovedQuestion": "Tu pregunta; en la nube, solo la versión que aprobaste, sin números, fechas ni nombres"
+  "aiSeesApprovedQuestion": "Tu pregunta; en la nube, solo la versión que aprobaste, sin números, fechas ni nombres",
+  "assistIntroTitle": "Conoce el asistente de femio",
+  "assistIntroPhone": "Funciona en este teléfono. Responde con las fuentes de confianza de femio, convierte una frase en registros y sugiere preguntas para tus consultas. Tus registros se quedan aquí.",
+  "assistIntroRules": "Nunca diagnostica. Las reglas de seguridad de femio siempre responden primero, y no se guarda nada hasta que lo confirmes.",
+  "assistIntroCloudTitle": "Cloud boost, solo si lo eliges",
+  "assistIntroCloudBody": "Si este teléfono no puede ejecutar la IA por sí mismo, puedes dejar que una pregunta general que apruebes, o cuatro datos generales, vayan a la IA en la nube de Google. Sigue desactivado salvo que lo actives.",
+  "assistIntroCloudAction": "Elegir Cloud boost",
+  "assistIntroContinue": "Continuar en este teléfono",
+  "assistIntroSettings": "Puedes cambiarlo, o desactivar el asistente, en Ajustes › Asistente.",
+  "assistDoorAsk": "Haz una pregunta",
+  "assistDoorAskSub": "Respuestas de fuentes de confianza, con enlaces",
+  "assistDoorSayIt": "Cuenta cómo fue hoy",
+  "assistDoorSayItSub": "Una frase se convierte en el registro de hoy; lo revisas primero",
+  "assistDoorVisitSub": "Un resumen de tu registro y preguntas para llevar"
 }

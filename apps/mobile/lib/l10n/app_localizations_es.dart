@@ -2699,4 +2699,50 @@ class L10nEs extends L10n {
   @override
   String get aiSeesApprovedQuestion =>
       'Tu pregunta; en la nube, solo la versión que aprobaste, sin números, fechas ni nombres';
+
+  @override
+  String get assistIntroTitle => 'Conoce el asistente de femio';
+
+  @override
+  String get assistIntroPhone =>
+      'Funciona en este teléfono. Responde con las fuentes de confianza de femio, convierte una frase en registros y sugiere preguntas para tus consultas. Tus registros se quedan aquí.';
+
+  @override
+  String get assistIntroRules =>
+      'Nunca diagnostica. Las reglas de seguridad de femio siempre responden primero, y no se guarda nada hasta que lo confirmes.';
+
+  @override
+  String get assistIntroCloudTitle => 'Cloud boost, solo si lo eliges';
+
+  @override
+  String get assistIntroCloudBody =>
+      'Si este teléfono no puede ejecutar la IA por sí mismo, puedes dejar que una pregunta general que apruebes, o cuatro datos generales, vayan a la IA en la nube de Google. Sigue desactivado salvo que lo actives.';
+
+  @override
+  String get assistIntroCloudAction => 'Elegir Cloud boost';
+
+  @override
+  String get assistIntroContinue => 'Continuar en este teléfono';
+
+  @override
+  String get assistIntroSettings =>
+      'Puedes cambiarlo, o desactivar el asistente, en Ajustes › Asistente.';
+
+  @override
+  String get assistDoorAsk => 'Haz una pregunta';
+
+  @override
+  String get assistDoorAskSub =>
+      'Respuestas de fuentes de confianza, con enlaces';
+
+  @override
+  String get assistDoorSayIt => 'Cuenta cómo fue hoy';
+
+  @override
+  String get assistDoorSayItSub =>
+      'Una frase se convierte en el registro de hoy; lo revisas primero';
+
+  @override
+  String get assistDoorVisitSub =>
+      'Un resumen de tu registro y preguntas para llevar';
 }

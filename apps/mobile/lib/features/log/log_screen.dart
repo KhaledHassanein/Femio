@@ -93,7 +93,7 @@ class LogScreen extends StatelessWidget {
 
         return SafeArea(
           child: ListView(
-            padding: const EdgeInsets.fromLTRB(space5, space4, space5, space8),
+            padding: const EdgeInsets.fromLTRB(space5, space4, space5, fabClearance),
             children: [
               TabHeader(title: l.logTitle),
               const SizedBox(height: space3),

@@ -748,5 +748,18 @@
   "aiSeesBands": "Quatre informations générales : étape de vie, régularité du cycle, types de symptômes, régularité de saisie",
   "aiSeesIds": "Les conseils ou questions vérifiés de femio, à mettre dans l'ordre",
   "aiSeesVisitFacts": "Votre résumé de consultation : objectif, cycles comptés, cycle le plus court et le plus long, date des dernières règles, régularité",
-  "aiSeesApprovedQuestion": "Votre question ; dans le cloud, uniquement la version que vous avez approuvée, sans chiffres, dates ni noms"
+  "aiSeesApprovedQuestion": "Votre question ; dans le cloud, uniquement la version que vous avez approuvée, sans chiffres, dates ni noms",
+  "assistIntroTitle": "Découvrez l'assistant de femio",
+  "assistIntroPhone": "Il fonctionne sur ce téléphone. Il répond à partir des sources fiables de femio, transforme une phrase en notes de suivi et propose des questions pour vos consultations. Vos données restent ici.",
+  "assistIntroRules": "Il ne pose jamais de diagnostic. Les règles de sécurité de femio répondent toujours en premier, et rien n'est enregistré sans votre accord.",
+  "assistIntroCloudTitle": "Cloud boost, seulement si vous le choisissez",
+  "assistIntroCloudBody": "Si ce téléphone ne peut pas faire fonctionner l'IA lui-même, vous pouvez laisser une question générale que vous approuvez, ou quatre informations générales, partir vers l'IA cloud de Google. Désactivé tant que vous ne l'activez pas.",
+  "assistIntroCloudAction": "Choisir Cloud boost",
+  "assistIntroContinue": "Continuer sur ce téléphone",
+  "assistIntroSettings": "Vous pouvez modifier ce choix, ou désactiver l'assistant, dans Réglages › Assistant.",
+  "assistDoorAsk": "Poser une question",
+  "assistDoorAskSub": "Des réponses issues de sources fiables, avec les liens",
+  "assistDoorSayIt": "Dire comment s'est passée la journée",
+  "assistDoorSayItSub": "Une phrase devient le suivi du jour ; vous le vérifiez d'abord",
+  "assistDoorVisitSub": "Un résumé de votre suivi et des questions à emporter"
 }

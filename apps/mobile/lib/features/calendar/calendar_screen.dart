@@ -221,7 +221,7 @@ class _CalendarScreenState extends State<CalendarScreen> {
 
         return SafeArea(
           child: ListView(
-            padding: const EdgeInsets.fromLTRB(space5, space4, space5, space6),
+            padding: const EdgeInsets.fromLTRB(space5, space4, space5, fabClearance),
             children: [
               TabHeader(title: l.calendarTitle),
               const SizedBox(height: space4),

@@ -1162,5 +1162,21 @@
   "@aiSeesTitle": {
     "description": "Settings › Assistant screen generated from usePolicies (R10.3, ADR-081)."
   },
-  "aiSeesApprovedQuestion": "Your question; in the cloud, only the version you approved, with numbers, dates and names removed"
+  "aiSeesApprovedQuestion": "Your question; in the cloud, only the version you approved, with numbers, dates and names removed",
+  "assistIntroTitle": "Meet femio's assistant",
+  "assistIntroPhone": "It works on this phone. It answers from femio's trusted sources, turns a sentence into log entries, and suggests questions for your visits. Your records stay here.",
+  "assistIntroRules": "It never diagnoses. femio's safety rules always answer first, and nothing is saved until you confirm it.",
+  "assistIntroCloudTitle": "Cloud boost, only if you choose it",
+  "assistIntroCloudBody": "If this phone cannot run the AI itself, you can let a general question you approve, or four broad facts, go to Google's cloud AI. It stays off unless you turn it on.",
+  "assistIntroCloudAction": "Choose Cloud boost",
+  "assistIntroContinue": "Continue on this phone",
+  "assistIntroSettings": "You can change this, or turn the assistant off, in Settings › Assistant.",
+  "assistDoorAsk": "Ask a question",
+  "assistDoorAskSub": "Answers from trusted sources, with links",
+  "assistDoorSayIt": "Say how today went",
+  "assistDoorSayItSub": "One sentence becomes today's log; you check it first",
+  "assistDoorVisitSub": "A summary of your log and questions to take along",
+  "@assistIntroTitle": {
+    "description": "R8.3 first-use sheet before the assistant's doors (ADR-079/080)."
+  }
 }

@@ -32,6 +32,10 @@ const double space10 = 40;
 /// 48px. `--space-12`. Also the minimum comfortable touch target.
 const double space12 = 48;
 
+/// 88px: the bottom padding a main tab needs so its last item can scroll clear of the
+/// floating Ask femio pill (Material's 56px button, its 16px margin, and one space4).
+const double fabClearance = 56 + 16 + space4;
+
 // Off-grid steps. The screens were drawn with these before the scale existed; they are
 // named, not rounded, so that moving to the grid is one deliberate visual change in a
 // design pass rather than a side effect of a refactor. "h" reads as "half a step".

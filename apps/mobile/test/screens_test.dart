@@ -10,6 +10,7 @@ import 'package:femio/domain/hijri.dart';
 import 'package:femio/domain/movements.dart';
 import 'package:femio/domain/store_prompts.dart';
 import 'package:femio/domain/weight.dart';
+import 'package:femio/features/assistant/assistant_pill.dart';
 import 'package:femio/features/lock/pin_field.dart';
 import 'package:femio/features/onboarding/widgets.dart';
 import 'package:femio/features/settings/leaving_phone_screen.dart';
@@ -338,6 +339,44 @@ void main() {
       });
     }
   }
+
+  group('Assistant front door (R8.3)', () {
+    for (final (lang, b) in [('en', Brightness.light), ('en', Brightness.dark), ('ar', Brightness.light), ('ar', Brightness.dark)]) {
+      testWidgets('the pill, the first-use sheet once, then the doors ($lang, ${b.name})', (tester) async {
+        final p = Profile(goal: Goal.ttc, locale: lang, birthYear: 1994, periodStarts: const ['2026-09-10'], cycleLength: 28);
+        final c = FemioController(MemoryStore(p));
+        await _pump(tester, c, b);
+        final pill = find.byIcon(Icons.auto_awesome_rounded);
+        expect(pill, findsOneWidget, reason: 'on Today');
+        await tester.tap(find.byIcon(Icons.calendar_month_outlined));
+        await tester.pumpAndSettle();
+        expect(pill, findsOneWidget, reason: 'on every main tab');
+        await tester.tap(pill);
+        await tester.pumpAndSettle();
+        expect(find.byType(AssistantIntroSheet), findsOneWidget);
+        await _shoot(tester, '${lang}_${b.name}_17_assistant_intro');
+        expect(c.profile!.settings.cloudBoost, isFalse, reason: 'the sheet offers Cloud boost; it never turns it on');
+        await tester.tap(find.byType(FilledButton).last);
+        await tester.pumpAndSettle();
+        expect(c.profile!.settings.assistantIntroSeen, isTrue);
+        expect(find.byType(AssistantDoorsSheet), findsOneWidget);
+        await _shoot(tester, '${lang}_${b.name}_18_assistant_doors');
+        await tester.tapAt(const Offset(10, 10)); // close the doors
+        await tester.pumpAndSettle();
+        await tester.tap(pill);
+        await tester.pumpAndSettle();
+        expect(find.byType(AssistantIntroSheet), findsNothing, reason: 'the first-use sheet shows once');
+        expect(find.byType(AssistantDoorsSheet), findsOneWidget);
+      });
+    }
+
+    testWidgets('her master switch off hides the pill', (tester) async {
+      final p = Profile(goal: Goal.ttc, locale: 'en', birthYear: 1994, periodStarts: const ['2026-09-10'], cycleLength: 28);
+      final c = FemioController(MemoryStore(p.copyWith(settings: p.settings.copyWith(assistantOn: false))));
+      await _pump(tester, c, Brightness.light);
+      expect(find.byIcon(Icons.auto_awesome_rounded), findsNothing);
+    });
+  });
 }
 
 /// Play reports a normal-priority update, so the quiet card shows.

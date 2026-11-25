@@ -73,7 +73,7 @@ class TodayScreen extends StatelessWidget {
     return Scaffold(
       body: SafeArea(
         child: ListView(
-          padding: const EdgeInsets.fromLTRB(space5, space3, space5, space8),
+          padding: const EdgeInsets.fromLTRB(space5, space3, space5, fabClearance),
           children: [
             Row(
               children: [

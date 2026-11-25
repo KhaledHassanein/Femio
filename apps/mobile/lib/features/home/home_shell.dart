@@ -14,6 +14,7 @@ import '../calendar/calendar_screen.dart';
 import '../learn/learn_screen.dart';
 import '../log/log_screen.dart';
 import '../today/today_screen.dart';
+import '../assistant/assistant_pill.dart';
 import 'update_card.dart';
 
 /// The app once she is set up: Today, Calendar, Log and Learn (spec §4). Tools joins
@@ -87,6 +88,13 @@ class _HomeShellState extends State<HomeShell> {
           ),
         ),
       ]),
+      // R8.3: the assistant's door on every tab, unless her master switch is off.
+      floatingActionButton: ListenableBuilder(
+        listenable: widget.controller,
+        builder: (context, _) => (widget.controller.profile?.settings.assistantOn ?? true)
+            ? AssistantPill(controller: widget.controller, library: _library, today: today)
+            : const SizedBox.shrink(),
+      ),
       bottomNavigationBar: NavigationBar(
         selectedIndex: _tab,
         onDestinationSelected: (i) => setState(() {

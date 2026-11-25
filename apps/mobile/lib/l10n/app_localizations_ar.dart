@@ -2707,4 +2707,48 @@ class L10nAr extends L10n {
   @override
   String get aiSeesApprovedQuestion =>
       'سؤالكِ؛ وفي السحابة، النسخة التي وافقتِ عليها فقط، بعد حذف الأرقام والتواريخ والأسماء';
+
+  @override
+  String get assistIntroTitle => 'تعرّفي على مساعد femio';
+
+  @override
+  String get assistIntroPhone =>
+      'يعمل على هذا الهاتف. يجيب من مصادر femio الموثوقة، ويحوّل جملة إلى عناصر في سجلكِ، ويقترح أسئلة لزياراتكِ. تبقى سجلاتكِ هنا.';
+
+  @override
+  String get assistIntroRules =>
+      'لا يشخّص أبدًا. تجيب قواعد السلامة في femio أولًا دائمًا، ولا يُحفظ شيء حتى تؤكديه.';
+
+  @override
+  String get assistIntroCloudTitle => 'Cloud boost، فقط إن اخترتِه';
+
+  @override
+  String get assistIntroCloudBody =>
+      'إذا لم يستطع هذا الهاتف تشغيل الذكاء الاصطناعي بنفسه، يمكنكِ السماح بإرسال سؤال عام توافقين عليه، أو أربع معلومات عامة، إلى ذكاء Google الاصطناعي السحابي. يبقى متوقّفًا ما لم تشغّليه.';
+
+  @override
+  String get assistIntroCloudAction => 'اختيار Cloud boost';
+
+  @override
+  String get assistIntroContinue => 'المتابعة على هذا الهاتف';
+
+  @override
+  String get assistIntroSettings =>
+      'يمكنكِ تغيير ذلك، أو إيقاف المساعد، من الإعدادات › المساعد.';
+
+  @override
+  String get assistDoorAsk => 'اطرحي سؤالًا';
+
+  @override
+  String get assistDoorAskSub => 'إجابات من مصادر موثوقة، مع الروابط';
+
+  @override
+  String get assistDoorSayIt => 'قولي كيف كان يومكِ';
+
+  @override
+  String get assistDoorSayItSub =>
+      'تتحول جملة واحدة إلى سجل اليوم؛ وتراجعينه أولًا';
+
+  @override
+  String get assistDoorVisitSub => 'ملخص لسجلكِ وأسئلة تأخذينها معكِ';
 }

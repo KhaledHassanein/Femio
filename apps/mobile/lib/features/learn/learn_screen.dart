@@ -49,7 +49,7 @@ class _LearnScreenState extends State<LearnScreen> {
                 ? all
                 : all.where((a) => a.title.toLowerCase().contains(q) || a.excerpt.toLowerCase().contains(q)).toList();
             return ListView(
-              padding: const EdgeInsets.fromLTRB(space5, space3, space5, space8),
+              padding: const EdgeInsets.fromLTRB(space5, space3, space5, fabClearance),
               children: [
                 TabHeader(title: l.learnTitle),
                 const SizedBox(height: space1),

@@ -47,6 +47,7 @@ class AppSettings {
     this.lastUsageDay,
     this.reviewAskedBuild,
     this.assistantOn = true,
+    this.assistantIntroSeen = false,
   });
 
   /// Show Hijri dates beside Gregorian ones (on by default in Arabic, see
@@ -84,6 +85,10 @@ class AppSettings {
   /// rules and guides only, with no model call on the phone or in the cloud.
   final bool assistantOn;
 
+  /// The first-use sheet (what runs on the phone, Cloud boost as an option) has been shown
+  /// (R8.3). Absent in older records: false, so she sees it once.
+  final bool assistantIntroSeen;
+
   /// Whether Cloud boost is on for any purpose.
   bool get cloudBoost => cloud.any;
 
@@ -101,6 +106,7 @@ class AppSettings {
     String? lastUsageDay,
     int? reviewAskedBuild,
     bool? assistantOn,
+    bool? assistantIntroSeen,
   }) =>
       AppSettings(
         showHijri: showHijri ?? this.showHijri,
@@ -113,6 +119,7 @@ class AppSettings {
         lastUsageDay: lastUsageDay ?? this.lastUsageDay,
         reviewAskedBuild: reviewAskedBuild ?? this.reviewAskedBuild,
         assistantOn: assistantOn ?? this.assistantOn,
+        assistantIntroSeen: assistantIntroSeen ?? this.assistantIntroSeen,
       );
 
   Map<String, Object?> toJson() => {
@@ -126,6 +133,7 @@ class AppSettings {
         'lastUsageDay': lastUsageDay,
         'reviewAskedBuild': reviewAskedBuild,
         'assistantOn': assistantOn,
+        'assistantIntroSeen': assistantIntroSeen,
       };
 
   static AppSettings fromJson(Map<String, Object?>? j) {
@@ -144,6 +152,7 @@ class AppSettings {
       lastUsageDay: j?['lastUsageDay'] as String?,
       reviewAskedBuild: (j?['reviewAskedBuild'] as num?)?.toInt(),
       assistantOn: j?['assistantOn'] as bool? ?? true,
+      assistantIntroSeen: j?['assistantIntroSeen'] as bool? ?? false,
     );
   }
 }

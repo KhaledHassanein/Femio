@@ -4450,6 +4450,84 @@ abstract class L10n {
   /// In en, this message translates to:
   /// **'Your question; in the cloud, only the version you approved, with numbers, dates and names removed'**
   String get aiSeesApprovedQuestion;
+
+  /// R8.3 first-use sheet before the assistant's doors (ADR-079/080).
+  ///
+  /// In en, this message translates to:
+  /// **'Meet femio\'s assistant'**
+  String get assistIntroTitle;
+
+  /// No description provided for @assistIntroPhone.
+  ///
+  /// In en, this message translates to:
+  /// **'It works on this phone. It answers from femio\'s trusted sources, turns a sentence into log entries, and suggests questions for your visits. Your records stay here.'**
+  String get assistIntroPhone;
+
+  /// No description provided for @assistIntroRules.
+  ///
+  /// In en, this message translates to:
+  /// **'It never diagnoses. femio\'s safety rules always answer first, and nothing is saved until you confirm it.'**
+  String get assistIntroRules;
+
+  /// No description provided for @assistIntroCloudTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Cloud boost, only if you choose it'**
+  String get assistIntroCloudTitle;
+
+  /// No description provided for @assistIntroCloudBody.
+  ///
+  /// In en, this message translates to:
+  /// **'If this phone cannot run the AI itself, you can let a general question you approve, or four broad facts, go to Google\'s cloud AI. It stays off unless you turn it on.'**
+  String get assistIntroCloudBody;
+
+  /// No description provided for @assistIntroCloudAction.
+  ///
+  /// In en, this message translates to:
+  /// **'Choose Cloud boost'**
+  String get assistIntroCloudAction;
+
+  /// No description provided for @assistIntroContinue.
+  ///
+  /// In en, this message translates to:
+  /// **'Continue on this phone'**
+  String get assistIntroContinue;
+
+  /// No description provided for @assistIntroSettings.
+  ///
+  /// In en, this message translates to:
+  /// **'You can change this, or turn the assistant off, in Settings › Assistant.'**
+  String get assistIntroSettings;
+
+  /// No description provided for @assistDoorAsk.
+  ///
+  /// In en, this message translates to:
+  /// **'Ask a question'**
+  String get assistDoorAsk;
+
+  /// No description provided for @assistDoorAskSub.
+  ///
+  /// In en, this message translates to:
+  /// **'Answers from trusted sources, with links'**
+  String get assistDoorAskSub;
+
+  /// No description provided for @assistDoorSayIt.
+  ///
+  /// In en, this message translates to:
+  /// **'Say how today went'**
+  String get assistDoorSayIt;
+
+  /// No description provided for @assistDoorSayItSub.
+  ///
+  /// In en, this message translates to:
+  /// **'One sentence becomes today\'s log; you check it first'**
+  String get assistDoorSayItSub;
+
+  /// No description provided for @assistDoorVisitSub.
+  ///
+  /// In en, this message translates to:
+  /// **'A summary of your log and questions to take along'**
+  String get assistDoorVisitSub;
 }
 
 class _L10nDelegate extends LocalizationsDelegate<L10n> {

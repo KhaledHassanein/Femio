@@ -2685,4 +2685,49 @@ class L10nEn extends L10n {
   @override
   String get aiSeesApprovedQuestion =>
       'Your question; in the cloud, only the version you approved, with numbers, dates and names removed';
+
+  @override
+  String get assistIntroTitle => 'Meet femio\'s assistant';
+
+  @override
+  String get assistIntroPhone =>
+      'It works on this phone. It answers from femio\'s trusted sources, turns a sentence into log entries, and suggests questions for your visits. Your records stay here.';
+
+  @override
+  String get assistIntroRules =>
+      'It never diagnoses. femio\'s safety rules always answer first, and nothing is saved until you confirm it.';
+
+  @override
+  String get assistIntroCloudTitle => 'Cloud boost, only if you choose it';
+
+  @override
+  String get assistIntroCloudBody =>
+      'If this phone cannot run the AI itself, you can let a general question you approve, or four broad facts, go to Google\'s cloud AI. It stays off unless you turn it on.';
+
+  @override
+  String get assistIntroCloudAction => 'Choose Cloud boost';
+
+  @override
+  String get assistIntroContinue => 'Continue on this phone';
+
+  @override
+  String get assistIntroSettings =>
+      'You can change this, or turn the assistant off, in Settings › Assistant.';
+
+  @override
+  String get assistDoorAsk => 'Ask a question';
+
+  @override
+  String get assistDoorAskSub => 'Answers from trusted sources, with links';
+
+  @override
+  String get assistDoorSayIt => 'Say how today went';
+
+  @override
+  String get assistDoorSayItSub =>
+      'One sentence becomes today\'s log; you check it first';
+
+  @override
+  String get assistDoorVisitSub =>
+      'A summary of your log and questions to take along';
 }

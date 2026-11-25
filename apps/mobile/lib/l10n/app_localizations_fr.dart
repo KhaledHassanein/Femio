@@ -2706,4 +2706,51 @@ class L10nFr extends L10n {
   @override
   String get aiSeesApprovedQuestion =>
       'Votre question ; dans le cloud, uniquement la version que vous avez approuvée, sans chiffres, dates ni noms';
+
+  @override
+  String get assistIntroTitle => 'Découvrez l\'assistant de femio';
+
+  @override
+  String get assistIntroPhone =>
+      'Il fonctionne sur ce téléphone. Il répond à partir des sources fiables de femio, transforme une phrase en notes de suivi et propose des questions pour vos consultations. Vos données restent ici.';
+
+  @override
+  String get assistIntroRules =>
+      'Il ne pose jamais de diagnostic. Les règles de sécurité de femio répondent toujours en premier, et rien n\'est enregistré sans votre accord.';
+
+  @override
+  String get assistIntroCloudTitle =>
+      'Cloud boost, seulement si vous le choisissez';
+
+  @override
+  String get assistIntroCloudBody =>
+      'Si ce téléphone ne peut pas faire fonctionner l\'IA lui-même, vous pouvez laisser une question générale que vous approuvez, ou quatre informations générales, partir vers l\'IA cloud de Google. Désactivé tant que vous ne l\'activez pas.';
+
+  @override
+  String get assistIntroCloudAction => 'Choisir Cloud boost';
+
+  @override
+  String get assistIntroContinue => 'Continuer sur ce téléphone';
+
+  @override
+  String get assistIntroSettings =>
+      'Vous pouvez modifier ce choix, ou désactiver l\'assistant, dans Réglages › Assistant.';
+
+  @override
+  String get assistDoorAsk => 'Poser une question';
+
+  @override
+  String get assistDoorAskSub =>
+      'Des réponses issues de sources fiables, avec les liens';
+
+  @override
+  String get assistDoorSayIt => 'Dire comment s\'est passée la journée';
+
+  @override
+  String get assistDoorSayItSub =>
+      'Une phrase devient le suivi du jour ; vous le vérifiez d\'abord';
+
+  @override
+  String get assistDoorVisitSub =>
+      'Un résumé de votre suivi et des questions à emporter';
 }
