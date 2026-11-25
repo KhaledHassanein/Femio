@@ -3040,4 +3040,99 @@ class L10nEs extends L10n {
 
   @override
   String get askVisitPack => 'Preparar un resumen para la consulta';
+
+  @override
+  String get tipWhyAction => '¿Por qué veo esto?';
+
+  @override
+  String get tipWhyTitle => 'Por qué este consejo';
+
+  @override
+  String tipWhyStage(String stage) {
+    String _temp0 = intl.Intl.selectLogic(stage, {
+      'period': 'Estás siguiendo tus reglas.',
+      'ttc': 'Estás intentando concebir.',
+      'pregnant': 'Estás embarazada.',
+      'postpartum': 'Registraste el nacimiento de tu bebé.',
+      'menopause': 'Estás siguiendo la perimenopausia o la menopausia.',
+      'other': 'Elegiste esta etapa.',
+    });
+    return '$_temp0';
+  }
+
+  @override
+  String tipWhyTerm(String term, String days, String window) {
+    return 'Registraste «$term» en $days durante los últimos $window.';
+  }
+
+  @override
+  String tipWhyPregnancyWeek(int week) {
+    return 'Estás de $week semanas, según tu fecha probable de parto.';
+  }
+
+  @override
+  String tipWhyPostpartumWeeks(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: 'Tu bebé nació hace $count semanas.',
+      one: 'Tu bebé nació hace 1 semana.',
+      zero: 'Tu bebé nació hace menos de una semana.',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String tipWhyTryingFor(String label) {
+    return 'Cuánto tiempo llevas intentándolo: $label.';
+  }
+
+  @override
+  String get tipWhyIrregular => 'Tus ciclos están marcados como irregulares.';
+
+  @override
+  String get tipWhyRegular => 'Tus ciclos no están marcados como irregulares.';
+
+  @override
+  String tipWhyAge(int age) {
+    return 'Tienes $age años o más este año.';
+  }
+
+  @override
+  String get tipWhyFootnote =>
+      'Estos datos se leyeron en tu teléfono, de tu propio registro. Son las únicas razones por las que se eligió este consejo.';
+
+  @override
+  String get aiLedgerTitle => 'Lo que hizo la IA';
+
+  @override
+  String get aiLedgerSub =>
+      'Cada vez que femio usó un modelo, guardado en este teléfono';
+
+  @override
+  String get aiLedgerIntro =>
+      'Cada vez que femio usó un modelo aparece aquí, de la más reciente a la más antigua. Con Cloud boost se guarda el texto exacto que se envió, como tu recibo. Esta lista se queda en este teléfono: no está en tu copia de seguridad y «Borrar todo» la elimina.';
+
+  @override
+  String get aiLedgerEmpty => 'femio todavía no ha usado ningún modelo.';
+
+  @override
+  String get aiLedgerOnPhone => 'En este teléfono (Gemini Nano)';
+
+  @override
+  String get aiLedgerInCloud => 'Enviado con Cloud boost';
+
+  @override
+  String get aiLedgerNoReply =>
+      'No llegó ninguna respuesta a tiempo, así que femio usó sus reglas.';
+
+  @override
+  String get aiLedgerSent => 'Exactamente lo que se envió';
+
+  @override
+  String get aiLedgerClear => 'Borrar esta lista';
+
+  @override
+  String get aiLedgerClearConfirm =>
+      '¿Borrar esta lista? Tu registro no cambia.';
 }

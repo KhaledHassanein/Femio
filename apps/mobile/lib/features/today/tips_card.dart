@@ -7,7 +7,8 @@
 //   - Gemini Nano on the phone (ONLY_ON_DEVICE), given her bands and the fitting tips; or
 //   - with Cloud boost on and no Nano, the hybrid call, given only her PseudonymisedProfile and
 //     every tip for her life stage (CloudPrompt.tips), never the subset that fits her.
-// Without either, the most specific tips come first. No model can add a tip.
+// Without either, the most specific tips come first. No model can add a tip. Each tip has a
+// "Why am I seeing this?" link that lists the facts from her record that made it fit (R10.3).
 
 import 'package:flutter/material.dart';
 
@@ -25,6 +26,7 @@ import '../../theme/spacing.dart';
 import '../../theme/type_sizes.dart';
 import '../assistant/assistant_scope.dart';
 import '../assistant/catalogue_text.g.dart';
+import 'tip_why_sheet.dart';
 
 /// How many tips the card shows.
 const tipsShown = 3;
@@ -43,6 +45,7 @@ class TipsCard extends StatefulWidget {
 
 class _TipsCardState extends State<TipsCard> {
   List<PersonalItem> _fits = const [];
+  TriggerContext? _context;
   List<String>? _order;
   bool _cloudOrdered = false;
   String? _orderedFor;
@@ -64,7 +67,8 @@ class _TipsCardState extends State<TipsCard> {
   void _refresh() {
     final profile = widget.controller.profile;
     if (profile == null) return;
-    _fits = fitting(tipCatalogue, triggerContext(profile, widget.today));
+    final facts = _context = triggerContext(profile, widget.today);
+    _fits = fitting(tipCatalogue, facts);
     final key =
         '${widget.today}|${_fits.map((f) => f.id).join(',')}|${profile.settings.cloud.allows(CloudPurpose.tips)}';
     if (key == _orderedFor) return;
@@ -132,18 +136,18 @@ class _TipsCardState extends State<TipsCard> {
           const SizedBox(height: space2),
           for (final tip in shown) ...[
             Text(tipText(l, tip.id) ?? '', style: t.bodyMedium),
-            InkWell(
-              onTap: () => AssistantScope.of(context).openSource(tip.url),
-              child: Padding(
-                padding: const EdgeInsets.symmetric(vertical: space1h),
-                child: Text(
-                  l.tipsSource(tip.publisher),
-                  style: t.labelMedium?.copyWith(
-                    color: p.primary,
-                    decoration: TextDecoration.underline,
-                  ),
+            Wrap(
+              spacing: space4,
+              children: [
+                _Link(
+                  text: l.tipsSource(tip.publisher),
+                  onTap: () => AssistantScope.of(context).openSource(tip.url),
                 ),
-              ),
+                _Link(
+                  text: l.tipWhyAction,
+                  onTap: () => showTipWhySheet(context, tip, _context!, cloudOrdered: _cloudOrdered),
+                ),
+              ],
             ),
             const SizedBox(height: space2),
           ],
@@ -152,6 +156,28 @@ class _TipsCardState extends State<TipsCard> {
             style: t.bodySmall?.copyWith(color: p.textMuted),
           ),
         ],
+      ),
+    );
+  }
+}
+
+/// A small underlined link under a tip.
+class _Link extends StatelessWidget {
+  const _Link({required this.text, required this.onTap});
+  final String text;
+  final VoidCallback onTap;
+
+  @override
+  Widget build(BuildContext context) {
+    final p = context.palette;
+    return InkWell(
+      onTap: onTap,
+      child: Padding(
+        padding: const EdgeInsets.symmetric(vertical: space1h),
+        child: Text(
+          text,
+          style: Theme.of(context).textTheme.labelMedium?.copyWith(color: p.primary, decoration: TextDecoration.underline),
+        ),
       ),
     );
   }

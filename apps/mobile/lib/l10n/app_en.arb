@@ -1445,5 +1445,81 @@
   "askVisitPack": "Prepare a visit pack",
   "@askVisitPack": {
     "description": "R8.27: on the not-covered card, opens the visit summary with her question as the worry."
-  }
+  },
+  "tipWhyAction": "Why am I seeing this?",
+  "@tipWhyAction": {
+    "description": "R10.3 / U12: opens the reasons a tip was chosen, read from her own record."
+  },
+  "tipWhyTitle": "Why this tip",
+  "tipWhyStage": "{stage, select, period{You are tracking your periods.} ttc{You are trying to conceive.} pregnant{You are pregnant.} postpartum{You have recorded your baby's birth.} menopause{You are tracking perimenopause or menopause.} other{You chose this stage.}}",
+  "@tipWhyStage": {
+    "placeholders": {
+      "stage": {
+        "type": "String"
+      }
+    }
+  },
+  "tipWhyTerm": "You logged \"{term}\" on {days} in the last {window}.",
+  "@tipWhyTerm": {
+    "description": "term is the log label; days and window are daysValue phrases.",
+    "placeholders": {
+      "term": {
+        "type": "String"
+      },
+      "days": {
+        "type": "String"
+      },
+      "window": {
+        "type": "String"
+      }
+    }
+  },
+  "tipWhyPregnancyWeek": "You are {week} weeks pregnant, counted from your due date.",
+  "@tipWhyPregnancyWeek": {
+    "placeholders": {
+      "week": {
+        "type": "int"
+      }
+    }
+  },
+  "tipWhyPostpartumWeeks": "{count, plural, =0{Your baby was born less than a week ago.} =1{Your baby was born 1 week ago.} other{Your baby was born {count} weeks ago.}}",
+  "@tipWhyPostpartumWeeks": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "tipWhyTryingFor": "How long you have been trying: {label}.",
+  "@tipWhyTryingFor": {
+    "placeholders": {
+      "label": {
+        "type": "String"
+      }
+    }
+  },
+  "tipWhyIrregular": "Your cycles are marked as irregular.",
+  "tipWhyRegular": "Your cycles are not marked as irregular.",
+  "tipWhyAge": "You are {age} or older this year.",
+  "@tipWhyAge": {
+    "placeholders": {
+      "age": {
+        "type": "int"
+      }
+    }
+  },
+  "tipWhyFootnote": "These facts were read on your phone, from your own record. They are the only reasons this tip was chosen.",
+  "aiLedgerTitle": "What the AI did",
+  "@aiLedgerTitle": {
+    "description": "R10.3 / U34: the on-phone list of every model call."
+  },
+  "aiLedgerSub": "Each time femio used a model, kept on this phone",
+  "aiLedgerIntro": "Each time femio used a model, it is listed here, newest first. For Cloud boost, the exact text that was sent is kept as your receipt. This list stays on this phone: it is not in your backup, and \"Delete everything\" removes it.",
+  "aiLedgerEmpty": "femio has not used a model yet.",
+  "aiLedgerOnPhone": "On this phone (Gemini Nano)",
+  "aiLedgerInCloud": "Sent with Cloud boost",
+  "aiLedgerNoReply": "No answer came back in time, so femio used its rules.",
+  "aiLedgerSent": "Exactly what was sent",
+  "aiLedgerClear": "Clear this list",
+  "aiLedgerClearConfirm": "Clear this list? Your record is not changed."
 }

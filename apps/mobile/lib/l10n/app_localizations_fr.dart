@@ -3051,4 +3051,100 @@ class L10nFr extends L10n {
 
   @override
   String get askVisitPack => 'Préparer un dossier de consultation';
+
+  @override
+  String get tipWhyAction => 'Pourquoi je vois ceci ?';
+
+  @override
+  String get tipWhyTitle => 'Pourquoi ce conseil';
+
+  @override
+  String tipWhyStage(String stage) {
+    String _temp0 = intl.Intl.selectLogic(stage, {
+      'period': 'Vous suivez vos règles.',
+      'ttc': 'Vous essayez de concevoir.',
+      'pregnant': 'Vous êtes enceinte.',
+      'postpartum': 'Vous avez noté la naissance de votre bébé.',
+      'menopause': 'Vous suivez la périménopause ou la ménopause.',
+      'other': 'Vous avez choisi cette étape.',
+    });
+    return '$_temp0';
+  }
+
+  @override
+  String tipWhyTerm(String term, String days, String window) {
+    return 'Vous avez noté « $term » sur $days au cours des $window derniers.';
+  }
+
+  @override
+  String tipWhyPregnancyWeek(int week) {
+    return 'Vous êtes enceinte de $week semaines, d\'après votre date prévue d\'accouchement.';
+  }
+
+  @override
+  String tipWhyPostpartumWeeks(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: 'Votre bébé est né il y a $count semaines.',
+      one: 'Votre bébé est né il y a 1 semaine.',
+      zero: 'Votre bébé est né il y a moins d\'une semaine.',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String tipWhyTryingFor(String label) {
+    return 'Depuis combien de temps vous essayez : $label.';
+  }
+
+  @override
+  String get tipWhyIrregular => 'Vos cycles sont indiqués comme irréguliers.';
+
+  @override
+  String get tipWhyRegular =>
+      'Vos cycles ne sont pas indiqués comme irréguliers.';
+
+  @override
+  String tipWhyAge(int age) {
+    return 'Vous avez $age ans ou plus cette année.';
+  }
+
+  @override
+  String get tipWhyFootnote =>
+      'Ces éléments ont été lus sur votre téléphone, dans votre propre journal. Ce sont les seules raisons du choix de ce conseil.';
+
+  @override
+  String get aiLedgerTitle => 'Ce qu\'a fait l\'IA';
+
+  @override
+  String get aiLedgerSub =>
+      'Chaque fois que femio a utilisé un modèle, gardé sur ce téléphone';
+
+  @override
+  String get aiLedgerIntro =>
+      'Chaque utilisation d\'un modèle par femio apparaît ici, de la plus récente à la plus ancienne. Pour Cloud boost, le texte exact envoyé est gardé comme reçu. Cette liste reste sur ce téléphone : elle n\'est pas dans votre sauvegarde, et « Tout supprimer » l\'efface.';
+
+  @override
+  String get aiLedgerEmpty => 'femio n\'a encore utilisé aucun modèle.';
+
+  @override
+  String get aiLedgerOnPhone => 'Sur ce téléphone (Gemini Nano)';
+
+  @override
+  String get aiLedgerInCloud => 'Envoyé avec Cloud boost';
+
+  @override
+  String get aiLedgerNoReply =>
+      'Aucune réponse n\'est arrivée à temps : femio a utilisé ses règles.';
+
+  @override
+  String get aiLedgerSent => 'Exactement ce qui a été envoyé';
+
+  @override
+  String get aiLedgerClear => 'Effacer cette liste';
+
+  @override
+  String get aiLedgerClearConfirm =>
+      'Effacer cette liste ? Votre journal ne change pas.';
 }

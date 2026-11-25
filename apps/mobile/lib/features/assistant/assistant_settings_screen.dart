@@ -12,6 +12,7 @@ import '../../data/assistant_channel.dart';
 import '../../l10n/app_localizations.dart';
 import '../../theme/femio_theme.dart';
 import '../../theme/spacing.dart';
+import 'ai_ledger_screen.dart';
 import 'ai_sees_screen.dart';
 import 'assistant_scope.dart';
 import 'cloud_boost_screen.dart';
@@ -150,6 +151,18 @@ class _AssistantSettingsScreenState extends State<AssistantSettingsScreen> {
                   onTap: () => Navigator.of(context).push(
                     MaterialPageRoute<void>(
                       builder: (_) => AiSeesScreen(controller: widget.controller),
+                    ),
+                  ),
+                ),
+                ListTile(
+                  contentPadding: EdgeInsets.zero,
+                  leading: Icon(Icons.receipt_long_outlined, color: p.primary),
+                  title: Text(l.aiLedgerTitle),
+                  subtitle: Text(l.aiLedgerSub),
+                  trailing: const Icon(Icons.chevron_right_rounded),
+                  onTap: () => Navigator.of(context).push(
+                    MaterialPageRoute<void>(
+                      builder: (_) => AiLedgerScreen(controller: widget.controller),
                     ),
                   ),
                 ),

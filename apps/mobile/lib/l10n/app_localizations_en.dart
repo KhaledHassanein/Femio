@@ -3023,4 +3023,98 @@ class L10nEn extends L10n {
 
   @override
   String get askVisitPack => 'Prepare a visit pack';
+
+  @override
+  String get tipWhyAction => 'Why am I seeing this?';
+
+  @override
+  String get tipWhyTitle => 'Why this tip';
+
+  @override
+  String tipWhyStage(String stage) {
+    String _temp0 = intl.Intl.selectLogic(stage, {
+      'period': 'You are tracking your periods.',
+      'ttc': 'You are trying to conceive.',
+      'pregnant': 'You are pregnant.',
+      'postpartum': 'You have recorded your baby\'s birth.',
+      'menopause': 'You are tracking perimenopause or menopause.',
+      'other': 'You chose this stage.',
+    });
+    return '$_temp0';
+  }
+
+  @override
+  String tipWhyTerm(String term, String days, String window) {
+    return 'You logged \"$term\" on $days in the last $window.';
+  }
+
+  @override
+  String tipWhyPregnancyWeek(int week) {
+    return 'You are $week weeks pregnant, counted from your due date.';
+  }
+
+  @override
+  String tipWhyPostpartumWeeks(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: 'Your baby was born $count weeks ago.',
+      one: 'Your baby was born 1 week ago.',
+      zero: 'Your baby was born less than a week ago.',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String tipWhyTryingFor(String label) {
+    return 'How long you have been trying: $label.';
+  }
+
+  @override
+  String get tipWhyIrregular => 'Your cycles are marked as irregular.';
+
+  @override
+  String get tipWhyRegular => 'Your cycles are not marked as irregular.';
+
+  @override
+  String tipWhyAge(int age) {
+    return 'You are $age or older this year.';
+  }
+
+  @override
+  String get tipWhyFootnote =>
+      'These facts were read on your phone, from your own record. They are the only reasons this tip was chosen.';
+
+  @override
+  String get aiLedgerTitle => 'What the AI did';
+
+  @override
+  String get aiLedgerSub => 'Each time femio used a model, kept on this phone';
+
+  @override
+  String get aiLedgerIntro =>
+      'Each time femio used a model, it is listed here, newest first. For Cloud boost, the exact text that was sent is kept as your receipt. This list stays on this phone: it is not in your backup, and \"Delete everything\" removes it.';
+
+  @override
+  String get aiLedgerEmpty => 'femio has not used a model yet.';
+
+  @override
+  String get aiLedgerOnPhone => 'On this phone (Gemini Nano)';
+
+  @override
+  String get aiLedgerInCloud => 'Sent with Cloud boost';
+
+  @override
+  String get aiLedgerNoReply =>
+      'No answer came back in time, so femio used its rules.';
+
+  @override
+  String get aiLedgerSent => 'Exactly what was sent';
+
+  @override
+  String get aiLedgerClear => 'Clear this list';
+
+  @override
+  String get aiLedgerClearConfirm =>
+      'Clear this list? Your record is not changed.';
 }

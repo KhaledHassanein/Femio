@@ -11,6 +11,7 @@ import 'dart:typed_data';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 
+import 'data/ai_ledger_store.dart';
 import 'data/app_lock.dart';
 import 'data/assistant_channel.dart';
 import 'data/backup.dart';
@@ -22,6 +23,7 @@ import 'data/safety_session.dart';
 import 'data/store.dart';
 import 'features/assistant/assistant_scope.dart';
 import 'features/home/home_shell.dart';
+import 'domain/assistant/ai_ledger.dart';
 import 'domain/dates.dart';
 import 'domain/store_prompts.dart';
 import 'features/lock/lock_screen.dart';
@@ -45,7 +47,7 @@ class FemioController extends ChangeNotifier {
   /// in tests); [initialLocale] is the language to start in before she has chosen one;
   /// [reminders] shows her reminders (none in tests); [clock] reads "now" for the
   /// reminder plan (fixed in tests); [playStore] is Google Play's rating and update
-  /// services (none in tests).
+  /// services (none in tests); [ledger] keeps the AI ledger (memory in tests).
   FemioController(
     this.store, {
     KeyVault? vault,
@@ -53,7 +55,9 @@ class FemioController extends ChangeNotifier {
     ReminderScheduler? reminders,
     DateTime Function()? clock,
     this.playStore = const NoPlayStore(),
+    AiLedgerStore? ledger,
   })  : _lock = AppLock(vault ?? MemoryKeyVault()),
+        _ledgerStore = ledger ?? MemoryLedgerStore(),
         _locale = initialLocale,
         _reminders = reminders ?? const NoReminderScheduler(),
         _clock = clock ?? DateTime.now;
@@ -64,6 +68,7 @@ class FemioController extends ChangeNotifier {
   /// Google Play's rating dialog and in-app updates (R12.2, R12.3).
   final PlayStore playStore;
   final AppLock _lock;
+  final AiLedgerStore _ledgerStore;
   final ReminderScheduler _reminders;
   final DateTime Function() _clock;
 
@@ -73,6 +78,9 @@ class FemioController extends ChangeNotifier {
 
   /// Her record, or null before she finishes onboarding (or after she starts over).
   Profile? profile;
+
+  /// Every model call, newest first (R10.3). Kept beside her record, never inside it.
+  List<LedgerEntry> aiLedger = const [];
 
   /// Whether the record loaded, is still loading, or was quarantined.
   RecordState state = RecordState.loading;
@@ -115,6 +123,7 @@ class FemioController extends ChangeNotifier {
         this.quarantinedPath = quarantinedPath;
         state = RecordState.corrupt;
     }
+    aiLedger = await _ledgerStore.load();
     await _syncReminders(force: true);
     notifyListeners();
     await _countUsageDay();
@@ -125,6 +134,20 @@ class FemioController extends ChangeNotifier {
   void setLanguage(String code) {
     _locale = code;
     if (profile != null) profile = profile!.copyWith(locale: code);
+    notifyListeners();
+  }
+
+  /// Adds one model call to the AI ledger and saves it. Called by the assistant gateway.
+  Future<void> recordAiCall(LedgerEntry entry) async {
+    aiLedger = addToLedger(aiLedger, entry);
+    notifyListeners();
+    await _ledgerStore.save(aiLedger);
+  }
+
+  /// Empties the AI ledger (her choice in Settings, or "delete everything").
+  Future<void> clearAiLedger() async {
+    aiLedger = const [];
+    await _ledgerStore.clear();
     notifyListeners();
   }
 
@@ -231,6 +254,7 @@ class FemioController extends ChangeNotifier {
   /// Settings confirms first; this method does not ask. Pending reminders go too.
   Future<void> deleteEverything() async {
     await store.clear();
+    await clearAiLedger();
     await _lock.clear();
     try {
       await _reminders.cancelAll();
@@ -372,6 +396,7 @@ class _FemioAppState extends State<FemioApp> with WidgetsBindingObserver {
           builder: (context, child) => AssistantScope(
               bridge: widget.assistant,
               enabled: () => controller.profile?.settings.assistantOn ?? true,
+              record: controller.recordAiCall,
               child: Stack(
               children: [
                 // Kept mounted under the lock so she returns exactly where she was;

@@ -3044,4 +3044,101 @@ class L10nAr extends L10n {
 
   @override
   String get askVisitPack => 'جهّزي ملف الزيارة';
+
+  @override
+  String get tipWhyAction => 'لماذا أرى هذا؟';
+
+  @override
+  String get tipWhyTitle => 'لماذا هذه النصيحة';
+
+  @override
+  String tipWhyStage(String stage) {
+    String _temp0 = intl.Intl.selectLogic(stage, {
+      'period': 'أنتِ تتابعين دورتكِ الشهرية.',
+      'ttc': 'أنتِ تحاولين الحمل.',
+      'pregnant': 'أنتِ حامل.',
+      'postpartum': 'سجّلتِ ولادة طفلكِ.',
+      'menopause': 'أنتِ تتابعين ما حول انقطاع الطمث أو انقطاعه.',
+      'other': 'اخترتِ هذه المرحلة.',
+    });
+    return '$_temp0';
+  }
+
+  @override
+  String tipWhyTerm(String term, String days, String window) {
+    return 'سجّلتِ «$term» في $days خلال آخر $window.';
+  }
+
+  @override
+  String tipWhyPregnancyWeek(int week) {
+    return 'أنتِ في الأسبوع $week من الحمل، محسوبًا من موعد الولادة المتوقع.';
+  }
+
+  @override
+  String tipWhyPostpartumWeeks(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: 'وُلد طفلكِ منذ $count أسبوع.',
+      many: 'وُلد طفلكِ منذ $count أسبوعًا.',
+      few: 'وُلد طفلكِ منذ $count أسابيع.',
+      two: 'وُلد طفلكِ منذ أسبوعين.',
+      one: 'وُلد طفلكِ منذ أسبوع واحد.',
+      zero: 'وُلد طفلكِ منذ أقل من أسبوع.',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String tipWhyTryingFor(String label) {
+    return 'مدة محاولتكِ للحمل: $label.';
+  }
+
+  @override
+  String get tipWhyIrregular => 'دوراتكِ مسجّلة على أنها غير منتظمة.';
+
+  @override
+  String get tipWhyRegular => 'دوراتكِ غير مسجّلة على أنها غير منتظمة.';
+
+  @override
+  String tipWhyAge(int age) {
+    return 'عمركِ $age عامًا أو أكثر هذا العام.';
+  }
+
+  @override
+  String get tipWhyFootnote =>
+      'قُرئت هذه المعلومات على هاتفكِ، من سجلّكِ أنتِ. وهي الأسباب الوحيدة لاختيار هذه النصيحة.';
+
+  @override
+  String get aiLedgerTitle => 'ما الذي فعله الذكاء الاصطناعي';
+
+  @override
+  String get aiLedgerSub =>
+      'كل مرة استخدم فيها femio نموذجًا، محفوظة على هذا الهاتف';
+
+  @override
+  String get aiLedgerIntro =>
+      'كل مرة استخدم فيها femio نموذجًا تظهر هنا، الأحدث أولًا. وفي التعزيز السحابي يُحفظ النص الذي أُرسل كما هو، كإيصال لكِ. تبقى هذه القائمة على هذا الهاتف: ليست في نسختكِ الاحتياطية، ويحذفها «حذف كل شيء».';
+
+  @override
+  String get aiLedgerEmpty => 'لم يستخدم femio أي نموذج بعد.';
+
+  @override
+  String get aiLedgerOnPhone => 'على هذا الهاتف (Gemini Nano)';
+
+  @override
+  String get aiLedgerInCloud => 'أُرسل بالتعزيز السحابي';
+
+  @override
+  String get aiLedgerNoReply =>
+      'لم تصل إجابة في الوقت المحدد، فاستخدم femio قواعده.';
+
+  @override
+  String get aiLedgerSent => 'ما أُرسل بالضبط';
+
+  @override
+  String get aiLedgerClear => 'امسحي هذه القائمة';
+
+  @override
+  String get aiLedgerClearConfirm => 'هل تمسحين هذه القائمة؟ لن يتغيّر سجلّكِ.';
 }

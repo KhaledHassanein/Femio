@@ -58,7 +58,8 @@ List<VisitLine> visitLinesFromPrep(L10n mine, List<String> prep) {
   ];
 }
 
-String _tryingLabel(L10n l, TryingFor f) => switch (f) {
+/// How long she has been trying, in her words from onboarding.
+String tryingForLabel(L10n l, TryingFor f) => switch (f) {
       TryingFor.justStarted => l.tryingJustStarted,
       TryingFor.under6 => l.tryingUnder6,
       TryingFor.sixTo12 => l.trying6to12,
@@ -72,7 +73,7 @@ List<String> visitFactLines(L10n l, VisitSummary s, String locale) => [
           : l.visitCycles(s.cyclesObserved, s.longestCycle!, s.shortestCycle!),
       if (s.lastPeriodStart != null) l.visitLastPeriod(DateFormat.yMMMd(locale).format(fromISO(s.lastPeriodStart!))),
       if (s.irregular) l.visitIrregular,
-      if (s.tryingFor != null) '${l.visitTryingFor}: ${_tryingLabel(l, s.tryingFor!)}',
+      if (s.tryingFor != null) '${l.visitTryingFor}: ${tryingForLabel(l, s.tryingFor!)}',
       if (s.heavyDays > 0) '${l.visitHeavyDays}: ${s.heavyDays}',
       if (s.positiveOvulationTests > 0) '${l.visitOpkPositive}: ${s.positiveOvulationTests}',
       if (s.temperatureDays > 0) '${l.visitTemperatureDays}: ${s.temperatureDays}',

@@ -8,6 +8,7 @@ import 'package:flutter/material.dart';
 import 'package:intl/intl.dart' show DateFormat;
 
 import 'app.dart';
+import 'data/ai_ledger_store.dart';
 import 'data/assistant_channel.dart';
 import 'data/key_vault.dart';
 import 'data/play_store.dart';
@@ -19,7 +20,7 @@ Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   configureFormatting();
   final vault = SecureKeyVault();
-  final controller = FemioController(EncryptedFileStore(vault: vault), vault: vault, reminders: LocalNotificationScheduler(), playStore: const GooglePlayStore());
+  final controller = FemioController(EncryptedFileStore(vault: vault), vault: vault, reminders: LocalNotificationScheduler(), playStore: const GooglePlayStore(), ledger: EncryptedLedgerStore(vault: vault));
   await controller.load();
   runApp(FemioApp(controller: controller, assistant: const MethodChannelAssistant()));
 }

@@ -15,8 +15,7 @@ import '../../domain/dates.dart';
 import '../../domain/fertility.dart';
 import '../../domain/prediction_explain.dart';
 import '../../l10n/app_localizations.dart';
-import '../../theme/femio_theme.dart';
-import '../../theme/spacing.dart';
+import '../../widgets/lines_sheet.dart';
 import '../today/hero_card.dart' show IsoRangeFormatter;
 
 /// The confidence word the calendar uses, for one line in a sheet.
@@ -93,37 +92,6 @@ String? predictionChangeText(L10n l, PredictionChange? c, IsoRangeFormatter rang
   return before == null ? l.predictionNew(after) : l.predictionMoved(after, range(before.windowStart, before.windowEnd));
 }
 
-Future<void> _sheet(BuildContext context, String title, List<String> lines, {Widget? action}) {
-  return showModalBottomSheet<void>(
-    context: context,
-    isScrollControlled: true,
-    showDragHandle: true,
-    builder: (context) {
-      final t = Theme.of(context).textTheme;
-      final p = context.palette;
-      return SafeArea(
-        child: ConstrainedBox(
-          constraints: BoxConstraints(maxHeight: MediaQuery.sizeOf(context).height * 0.8),
-          child: ListView(
-            shrinkWrap: true,
-            padding: const EdgeInsets.fromLTRB(space5, 0, space5, space5),
-            children: [
-              Semantics(header: true, child: Text(title, style: t.titleLarge)),
-              const SizedBox(height: space3),
-              for (final line in lines)
-                Padding(
-                  padding: const EdgeInsets.only(bottom: space3),
-                  child: Text(line, style: t.bodyMedium?.copyWith(color: p.text)),
-                ),
-              if (action != null) Align(alignment: AlignmentDirectional.centerStart, child: action),
-            ],
-          ),
-        ),
-      );
-    },
-  );
-}
-
 /// Opens "Why this range?" for [profile]. Does nothing when there is no prediction.
 Future<void> showWhyRangeSheet(BuildContext context, {required Profile profile, required IsoRangeFormatter range}) async {
   final e = explainRange(profile);
@@ -135,7 +103,7 @@ Future<void> showWhyRangeSheet(BuildContext context, {required Profile profile, 
     ...whyRangeLines(l, e),
     l.predictionNote,
   ];
-  await _sheet(context, l.whyRangeTitle, lines);
+  await showLinesSheet(context, l.whyRangeTitle, lines);
 }
 
 /// Opens "Explain this day" for [day]. [onLog] opens the Log on that day; it is offered only
@@ -153,7 +121,7 @@ Future<void> showDaySheet(
   final locale = Localizations.localeOf(context).toLanguageTag();
   final title = DateFormat.yMMMMEEEEd(locale).format(fromISO(day));
   final canLog = !e.future && onLog != null;
-  await _sheet(
+  await showLinesSheet(
     context,
     title,
     dayLines(l, e, range),

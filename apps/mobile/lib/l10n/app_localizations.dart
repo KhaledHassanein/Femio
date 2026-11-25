@@ -4948,6 +4948,132 @@ abstract class L10n {
   /// In en, this message translates to:
   /// **'Prepare a visit pack'**
   String get askVisitPack;
+
+  /// R10.3 / U12: opens the reasons a tip was chosen, read from her own record.
+  ///
+  /// In en, this message translates to:
+  /// **'Why am I seeing this?'**
+  String get tipWhyAction;
+
+  /// No description provided for @tipWhyTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Why this tip'**
+  String get tipWhyTitle;
+
+  /// No description provided for @tipWhyStage.
+  ///
+  /// In en, this message translates to:
+  /// **'{stage, select, period{You are tracking your periods.} ttc{You are trying to conceive.} pregnant{You are pregnant.} postpartum{You have recorded your baby\'s birth.} menopause{You are tracking perimenopause or menopause.} other{You chose this stage.}}'**
+  String tipWhyStage(String stage);
+
+  /// term is the log label; days and window are daysValue phrases.
+  ///
+  /// In en, this message translates to:
+  /// **'You logged \"{term}\" on {days} in the last {window}.'**
+  String tipWhyTerm(String term, String days, String window);
+
+  /// No description provided for @tipWhyPregnancyWeek.
+  ///
+  /// In en, this message translates to:
+  /// **'You are {week} weeks pregnant, counted from your due date.'**
+  String tipWhyPregnancyWeek(int week);
+
+  /// No description provided for @tipWhyPostpartumWeeks.
+  ///
+  /// In en, this message translates to:
+  /// **'{count, plural, =0{Your baby was born less than a week ago.} =1{Your baby was born 1 week ago.} other{Your baby was born {count} weeks ago.}}'**
+  String tipWhyPostpartumWeeks(int count);
+
+  /// No description provided for @tipWhyTryingFor.
+  ///
+  /// In en, this message translates to:
+  /// **'How long you have been trying: {label}.'**
+  String tipWhyTryingFor(String label);
+
+  /// No description provided for @tipWhyIrregular.
+  ///
+  /// In en, this message translates to:
+  /// **'Your cycles are marked as irregular.'**
+  String get tipWhyIrregular;
+
+  /// No description provided for @tipWhyRegular.
+  ///
+  /// In en, this message translates to:
+  /// **'Your cycles are not marked as irregular.'**
+  String get tipWhyRegular;
+
+  /// No description provided for @tipWhyAge.
+  ///
+  /// In en, this message translates to:
+  /// **'You are {age} or older this year.'**
+  String tipWhyAge(int age);
+
+  /// No description provided for @tipWhyFootnote.
+  ///
+  /// In en, this message translates to:
+  /// **'These facts were read on your phone, from your own record. They are the only reasons this tip was chosen.'**
+  String get tipWhyFootnote;
+
+  /// R10.3 / U34: the on-phone list of every model call.
+  ///
+  /// In en, this message translates to:
+  /// **'What the AI did'**
+  String get aiLedgerTitle;
+
+  /// No description provided for @aiLedgerSub.
+  ///
+  /// In en, this message translates to:
+  /// **'Each time femio used a model, kept on this phone'**
+  String get aiLedgerSub;
+
+  /// No description provided for @aiLedgerIntro.
+  ///
+  /// In en, this message translates to:
+  /// **'Each time femio used a model, it is listed here, newest first. For Cloud boost, the exact text that was sent is kept as your receipt. This list stays on this phone: it is not in your backup, and \"Delete everything\" removes it.'**
+  String get aiLedgerIntro;
+
+  /// No description provided for @aiLedgerEmpty.
+  ///
+  /// In en, this message translates to:
+  /// **'femio has not used a model yet.'**
+  String get aiLedgerEmpty;
+
+  /// No description provided for @aiLedgerOnPhone.
+  ///
+  /// In en, this message translates to:
+  /// **'On this phone (Gemini Nano)'**
+  String get aiLedgerOnPhone;
+
+  /// No description provided for @aiLedgerInCloud.
+  ///
+  /// In en, this message translates to:
+  /// **'Sent with Cloud boost'**
+  String get aiLedgerInCloud;
+
+  /// No description provided for @aiLedgerNoReply.
+  ///
+  /// In en, this message translates to:
+  /// **'No answer came back in time, so femio used its rules.'**
+  String get aiLedgerNoReply;
+
+  /// No description provided for @aiLedgerSent.
+  ///
+  /// In en, this message translates to:
+  /// **'Exactly what was sent'**
+  String get aiLedgerSent;
+
+  /// No description provided for @aiLedgerClear.
+  ///
+  /// In en, this message translates to:
+  /// **'Clear this list'**
+  String get aiLedgerClear;
+
+  /// No description provided for @aiLedgerClearConfirm.
+  ///
+  /// In en, this message translates to:
+  /// **'Clear this list? Your record is not changed.'**
+  String get aiLedgerClearConfirm;
 }
 
 class _L10nDelegate extends LocalizationsDelegate<L10n> {

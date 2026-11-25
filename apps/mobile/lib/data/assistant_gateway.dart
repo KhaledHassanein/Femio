@@ -11,6 +11,7 @@
 
 import 'dart:async';
 
+import '../domain/assistant/ai_ledger.dart';
 import '../domain/assistant/cloud_consent.dart';
 import '../domain/assistant/cloud_prompt.dart';
 import '../domain/assistant/private_prompt.dart';
@@ -45,12 +46,24 @@ class AssistantResult<T> {
 /// The only caller of [AssistantBridge.runPrivate] and [AssistantBridge.runHybrid].
 class AssistantGateway {
   /// [enabled] reads her master switch (kill switch 3) at each call; absent means on.
-  AssistantGateway(this._bridge, {bool Function()? enabled}) : _enabled = enabled ?? _always;
+  /// [record] keeps each call in her AI ledger (R10.3); [clock] reads "now" (fixed in tests).
+  AssistantGateway(
+    this._bridge, {
+    bool Function()? enabled,
+    Future<void> Function(LedgerEntry entry)? record,
+    DateTime Function()? clock,
+  })  : _enabled = enabled ?? _always,
+        _record = record,
+        _clock = clock ?? DateTime.now;
 
+  // Named parameters cannot be private, so these are assigned in the initializer list.
+  // ignore_for_file: prefer_initializing_formals
   static bool _always() => true;
 
   final AssistantBridge _bridge;
   final bool Function() _enabled;
+  final Future<void> Function(LedgerEntry entry)? _record;
+  final DateTime Function() _clock;
   final _unusable = <AssistantUse, int>{};
 
   /// What the assistant can do on this phone; offline when the build switch or her master
@@ -70,23 +83,37 @@ class AssistantGateway {
     return parsed;
   }
 
+  /// Writes one ledger entry. A ledger that cannot be saved never stops the answer.
+  void _log(AssistantUse use, {required bool cloud, required bool answered, String? sent}) {
+    final at = _clock().toUtc().toIso8601String();
+    unawaited(_record?.call(LedgerEntry(at: at, use: use, cloud: cloud, answered: answered, sent: sent)).catchError((_) {}));
+  }
+
   Future<String?> _private(PrivatePrompt prompt) async {
     if (!_open(prompt.use)) return null;
+    String? reply;
     try {
-      return await _bridge.runPrivate(prompt).timeout(assistantCallTimeout);
+      reply = await _bridge.runPrivate(prompt).timeout(assistantCallTimeout);
     } on TimeoutException {
-      return null;
+      reply = null;
     }
+    _log(prompt.use, cloud: false, answered: reply != null);
+    return reply;
   }
 
   Future<HybridReply?> _hybrid(AssistantUse use, CloudPrompt prompt, CloudConsent consent) async {
     final purpose = usePolicies[use]?.consent;
     if (!_open(use) || purpose == null || !consent.allows(purpose)) return null;
+    HybridReply? reply;
     try {
-      return await _bridge.runHybrid(prompt).timeout(assistantCallTimeout);
+      reply = await _bridge.runHybrid(prompt).timeout(assistantCallTimeout);
     } on TimeoutException {
-      return null;
+      reply = null;
     }
+    // Without a reply femio cannot know where the call ran, so it keeps the receipt.
+    final cloud = reply == null || !reply.onDevice;
+    _log(use, cloud: cloud, answered: reply != null, sent: cloud ? prompt.text : null);
+    return reply;
   }
 
   /// Ask femio on the phone: a cited summary of [passages] for her [question].
