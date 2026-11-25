@@ -80,7 +80,7 @@ class _Shot {
 // changed: the app's calendar does not draw a due date, so the listing's wording
 // ("Due date on a calendar, with Hijri dates") would promise what the screen does not show.
 const _shots = [
-  _Shot('01-private', 'Your records never leave your phone', 'سجلاتكِ لا تغادر هاتفكِ'),
+  _Shot('01-private', 'Your records stay on your phone', 'سجلاتكِ تبقى على هاتفكِ'),
   _Shot('02-fertile-range', 'Your fertile days as an honest range', 'أيام خصوبتكِ كنطاق صادق، لا يوم واحد'),
   _Shot('03-irregular', 'Irregular cycles or PCOS? No "late" counter', 'دورة غير منتظمة أو تكيس مبايض؟ بلا عدّاد للتأخير'),
   _Shot('04-pregnancy', 'Your pregnancy, week by week', 'حملكِ أسبوعًا بأسبوع'),

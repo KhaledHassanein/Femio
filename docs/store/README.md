@@ -5,6 +5,9 @@
 | `play-listing.en.md` | Title, short and full description, screenshot captions, feature graphic line (English, the default listing) |
 | `play-listing.ar.md` | The same in Arabic (the primary listing for Egypt and Saudi Arabia via custom store listings) |
 | `play-listing.fr.md`, `play-listing.es.md` | French and Spanish, drafted from the English on 2026-11-01 (session drafts until a native reader checks them; `pnpm store-lint` measures them too) |
+| `aso-keywords.md` | Target keywords per language, competitor title patterns, placement (researched 2026-11-25; volumes are estimates) |
+| `release-notes-1.0.0.md` | "What's new" for the initial release, four languages, 500-character limit |
+| `graphics-brief.md` | Play's icon, feature-graphic and screenshot specs, and which screenshots fit |
 | `data-safety-and-declarations.md` | Data safety answers, Health apps declaration, disclaimer, audience, content rating, closed-test rule, each tied to the build |
 
 `pnpm store-lint` (`scripts/store/listing-check.mjs`) measures every field against Play's limits, checks the

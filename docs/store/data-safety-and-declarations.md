@@ -1,45 +1,56 @@
-# Google Play: Data safety, Health apps declaration, content rating — answers for the build on `main`
+# Google Play: Data safety, Health apps declaration, content rating — answers for the initial release (1.0.0, build 1)
 
-Source of the reasoning: `docs/33_REBUILD_V3/03_LEGAL_PACK.md` §4 (Google pages P1–P9 read 2026-10-27).
-This file states the answers for the **actual build** and the evidence that makes them true.
-Re-check the Console's wording on the day; Google changes the form.
+Source of the reasoning: `docs/33_REBUILD_V3/03_LEGAL_PACK.md` §4 and ADR-079/080 (`docs/DECISIONS.md`).
+This file states the answers for the **build as it is on 2026-11-25** and the evidence that makes each true.
+Anything not checked against the running build or the live Console is marked **not verified**.
+Re-check the Console's wording on submission day; Google changes the form.
 
-## What the build does (evidence, ADR-080, 2026-11-24)
+## What the build does (evidence)
 
-| Fact | Evidence |
-|---|---|
-| No ads, analytics, crash-reporting, attribution or tracking SDK | `pubspec.yaml`: no `google_mobile_ads`; `scripts/analytics-lint.mjs` fails on any ads/analytics/attribution package, on `lib/features/ads`, and on `AD_ID` / `ACCESS_ADSERVICES_*` in the source or merged manifest |
-| Network: Firebase AI Logic only (Cloud boost) | `INTERNET` declared in `AndroidManifest.xml` for the Kotlin assistant; no HTTP client, socket or WebSocket under `lib/` (tripwire) |
-| What Cloud boost sends, only with consent per purpose | A redacted general question she approves, with public passages; or four coarse bands (life stage, cycle regularity, symptom kinds, logging streak). Plus request metadata: IP address, App Check (Play Integrity) token, Firebase heartbeat header. No Firebase installation ID |
-| Records encrypted at rest | AES-GCM sealed file, key in the Android Keystore |
-| Backups | Passphrase-sealed file she saves herself; `allowBackup=false` and `dataExtractionRules` |
-| Deletion | Settings → "Delete everything on this phone"; Cloud boost data at Google is deleted by Google within 55 days and carries no identifier femio could match |
-| Permissions (merged debug manifest, 2026-11-24) | `INTERNET`, `ACCESS_NETWORK_STATE` (Firebase), `POST_NOTIFICATIONS`, `RECEIVE_BOOT_COMPLETED`, `VIBRATE`, `BILLING`, `aicore BIND_SERVICE`; ad-ID permissions removed with `tools:node="remove"` |
-| Accounts | None |
+| Fact | Evidence | Status |
+|---|---|---|
+| No ads, analytics, crash-reporting, attribution or tracking SDK | `apps/mobile/pubspec.yaml` lists only cryptography, file_picker, flutter_local_notifications, flutter_secure_storage, in_app_purchase, in_app_review, in_app_update, intl, path_provider, timezone; `scripts/analytics-lint.mjs` fails on ads/analytics packages and on `AD_ID` / `ACCESS_ADSERVICES_*`; `AndroidManifest.xml` removes those four permissions with `tools:node="remove"` | verified in source 2026-11-25 |
+| Network: Firebase AI Logic only (Cloud boost) | `INTERNET` in `AndroidManifest.xml`; Kotlin deps `firebase-ai:18.2.0`, `firebase-ai-ondevice`, `firebase-appcheck-playintegrity:20.1.0` in `android/app/build.gradle*`; tripwire forbids HTTP clients and sockets under `lib/` | verified in source |
+| Cloud boost is off by default, consent per purpose, dated receipt | ADR-080 §3; consent strings `boostAgreeQuestions`, `boostAgreeTips`, `boostWho`, `boostKept` in `lib/l10n/app_en.arb` | verified in source; not re-run on a device |
+| What Cloud boost sends | A redacted general question she approves, with public passages; or four coarse bands (life stage, cycle regularity, symptom kinds in the last month, logging streak). Never notes, dates, entries, cycle lengths, name, email, contacts or advertising ID (`boostNever`). Google also sees her IP address and a Play Integrity check (`boostAlsoSeen`) | verified in source |
+| Retention at Google | Paid tier: up to 55 days for abuse monitoring, no product improvement (`boostKept`; ADR-080) | per ADR; Google's current terms **not verified** |
+| Records encrypted at rest | AES-GCM sealed file, key in the Android Keystore (`flutter_secure_storage`, `cryptography`) | verified in source |
+| Backups | Passphrase-sealed file she saves herself; `allowBackup="false"` plus `fullBackupContent` and `dataExtractionRules` | verified in source |
+| Deletion | Settings: "Delete everything on this phone" (`deleteConfirmTitle`) | verified in source |
+| Google Play rating and in-app updates | `apps/mobile/lib/data/play_store.dart`: `in_app_review` and `in_app_update` talk to the Play Store app on the phone (Play Core); femio passes no data of hers; every failure is swallowed. The rating request follows 6 days of use (PROGRESS R12.2). Play, not femio, decides whether the dialog appears | verified in source; Play's own handling is Google's, so femio declares nothing for it |
+| Reminders | Local notifications only; `POST_NOTIFICATIONS` asked at run time on Android 13+ when she turns one on; `RECEIVE_BOOT_COMPLETED`; no exact-alarm permission. Text is "femio: Open the app" | verified in source |
+| Permissions in the **release** merged manifest | Debug merge (2026-11-24) showed `INTERNET`, `ACCESS_NETWORK_STATE`, `POST_NOTIFICATIONS`, `RECEIVE_BOOT_COMPLETED`, `VIBRATE`, `BILLING`, aicore `BIND_SERVICE` | **not verified** for the release bundle: inspect the AAB before submission |
+| Accounts | None | verified in source |
+| In-app purchases | None sold. `in_app_purchase` is present for a billing probe shown in test builds only (`plusProbeTitle`); `BILLING` comes with it | **not verified** that the probe is absent from the release build |
 
 ## Data safety form
 
 | Console question | Answer | Why |
 |---|---|---|
-| Does your app collect or share any of the required user data types? | **Yes** | Cloud boost transmits data off the device when she agrees |
-| Is all of the user data collected by your app encrypted in transit? | **Yes** | Firebase AI Logic uses TLS |
-| Do you provide a way for users to request that their data is deleted? | **Yes** | Settings → Delete everything; Cloud boost data is deleted by Google within 55 days |
-| Data types | **Health and fitness → Health info** (the four bands; questions about her health) and **App activity → Other user-generated content** (the approved question). For each: Collected **Yes**, Shared **No** (Google is a service provider processing for femio), Processed ephemerally **No** (Google keeps up to 55 days), **Optional** (she chooses), Purpose **App functionality** and **Personalization** (tips) | Google counts an SDK's transmission as collection; transfers to a service provider are not sharing (Play help 10787469) |
-| Device or other IDs / Approximate location | **No** `[NEEDS CHECK on the day]`: femio derives no location and sends no device ID; confirm Google's guidance on App Check / Play Integrity tokens and IP addresses before submitting | |
+| Does your app collect or share any of the required user data types? | **Yes** | Cloud boost transmits data off the phone when she agrees. Google counts data an SDK sends as collected (Play help 10787469) |
+| Is all of the user data collected by your app encrypted in transit? | **Yes** | Firebase states it encrypts this data in transit using HTTPS ([Firebase data disclosure](https://firebase.google.com/docs/android/play-data-disclosure)) |
+| Do you provide a way for users to request that data be deleted? | **Yes** | Settings: Delete everything on this phone (local data). Cloud boost content at Google is deleted by Google after up to 55 days and carries no identifier femio could match. Add the privacy-policy deletion route when the form asks for a URL |
+| Health and fitness → **Health info** | Collected **Yes**; shared **No** (Google acts as a service provider under femio's instructions, an exemption in Play help 10787469); processed ephemerally **No** (up to 55 days); collection **optional** (she chooses); purposes **App functionality** and **Personalization** | The four bands, and any health question she approves |
+| App activity → **Other user-generated content** | Same flags as above | The approved question text |
+| Device or other IDs | **Not verified.** femio sends no advertising ID and no ID of its own. Firebase's disclosure page says App Check sends a Play Integrity token and a user agent with device metadata "never linked to a user or device identifier", and that the Firebase installations SDK creates a per-installation ID. ADR-080 records "no Firebase installation ID". Confirm with the release dependency tree (`gradlew :app:dependencies`, search for `firebase-installations`) and, if present, declare **Device or other IDs** (optional, app functionality, not shared) | open |
+| Approximate location (IP address) | **Not verified.** femio derives no location. Her IP address reaches Google as in any connection. Play's form does not list IP address as a type; decide on the day, conservatively, with the privacy lawyer already booked (owner actions 29 to 36) | open |
 | Independent security review | **No** | None done |
-| Privacy policy URL | `https://femioapp.com/en/privacy` | Also linked on the Cloud boost screen |
+| Privacy policy URL | `https://femioapp.com/en/privacy` | Also linked on the Cloud boost screen (`boostReadNotice`). Confirm the page names the in-app rating and update prompts as Google Play features that carry none of her data **(not verified)** |
 
-Validity: true while the tripwire holds and Cloud boost sends only a `CloudPrompt`. Re-read Google's Data safety guidance for Firebase AI Logic and App Check before each submission.
+Validity: true while the tripwire holds and Cloud boost sends only a `CloudPrompt`. The data practices of the release differ from the 24 November text in one way: the Play rating and update prompts were added; they send nothing from femio.
 
 ## Health apps declaration
 
-Select the features femio really has (under-declaring is the risk):
+Select the features femio really has (under-declaring is the risk). The names below are from the earlier file; the help page for the form (answer 16679511) does not list the options, so **the exact option names are not verified**: read them in the Console on the day.
 - Health and fitness → **Period tracking**
 - Medical → **Reproductive and sexual health** (fertile window, contraction timer, baby-movement log) and **Medical reference and education** (the Learn library)
-- Do **not** select Medical device apps, Clinical decision support, or Disease prevention. Intended use is wellness, education and tracking (`01_PRODUCT_SCOPE.md` rule 1).
+- Do **not** select Medical device apps, Clinical decision support, or Disease prevention. Intended use is wellness, education and tracking (`01_PRODUCT_SCOPE.md` rule 1). The assistant answers only from the bundled trusted-source registry with citations, and rules (red flags, contraception refusal) run before any model.
 - Do **not** use "My app doesn't provide any health features".
+- No Health Connect access (`pubspec.yaml` and manifest carry none).
 
-## The disclaimer Google requires (already in both full descriptions)
+## The disclaimer Google requires (already in all four full descriptions)
+
+Google's required wording: the app is "not a medical device and does not diagnose, treat, cure, or prevent any medical condition", with a reminder to consult a healthcare professional ([Health apps policy page](https://support.google.com/googleplay/android-developer/answer/16679511)).
 
 EN: "femio is for education and tracking. It is not a medical device and does not diagnose, treat, cure or prevent any medical condition. Predictions are estimates, not guarantees, and are not a method of birth control. Always talk to your doctor or midwife about your health."
 
@@ -49,15 +60,16 @@ The Google sentence contains words the claims guard bans on purpose; it lives on
 
 | Item | Answer |
 |---|---|
-| Target age group | **18 and over only**; tick "restrict minor access" |
+| Target age group | **18 and over only**; tick "restrict minor access". The first run asks "Has your 18th birthday passed?" (`eighteenTitle`) |
 | Appeals to children | No |
-| Ads | **No, does not contain ads** (ADR-080) |
-| App access | All features available without sign-in (no credentials needed for review) |
-| Content rating (IARC) | Answer literally: no violence, no gambling, no purchases yet (femio Plus comes later), **contains ads: no**, no user-generated content, no location sharing, no chat. The sexual-content question is about reproductive-health education, not entertainment. The resulting rating is whatever the questionnaire gives; do not steer it `[NEEDS CHECK on the day]` |
+| Ads | **No, does not contain ads** (ADR-080; `AD_ID` permission removed) |
+| App access | All features available without sign-in; no credentials needed for review. Assistant features work without Cloud boost (rules and registry on the phone); Gemini Nano depends on the reviewer's device, so tell the reviewer in the access notes that the assistant has a built-in fallback |
+| Content rating (IARC) | Answer literally: no violence, no gambling, no in-app purchases, no ads, no user-to-user content or chat, no location sharing. The sexual-content question is about reproductive-health education, not entertainment. Take whatever rating the questionnaire gives; do not steer it. Exact question wording **not verified** (Console, on the day) |
+| Contains AI-generated content / generative AI | The assistant uses Gemini Nano on the phone and, optionally, Google's cloud model. Console may ask; answer yes and name the safeguards (citations, rules first, no writing to her record without confirmation). Form wording **not verified** |
 | Government / news / financial app | No |
 | Category | Health & Fitness |
 | Tags | Period tracker, Pregnancy, Fertility, Women's health, Health tracking (pick from Play's fixed list on the day) |
 
 ## Closed testing (personal developer account)
 
-At least **12 testers opted in continuously for 14 days** before applying for production access; a tester who leaves and rejoins restarts the clock (P9). Recruitment message and tester brief: `docs/33_REBUILD_V3/06_LAUNCH_GUIDE_A_TO_Z.md`.
+At least **12 testers opted in continuously for 14 days** before applying for production access; a tester who leaves and rejoins restarts the clock. Recruitment message and tester brief: `docs/33_REBUILD_V3/06_LAUNCH_GUIDE_A_TO_Z.md`. The figures come from the earlier file (Play help P9, read 2026-10-27); **re-read on the day**.
