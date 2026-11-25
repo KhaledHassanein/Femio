@@ -45,6 +45,6 @@
   },
   "devDependencies": {
     "sharp": "0.35.5",
-    "marked": "14.0.0"
+    "marked": "14.1.4"
   }
 }
