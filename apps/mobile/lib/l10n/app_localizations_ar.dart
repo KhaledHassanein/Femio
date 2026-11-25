@@ -1527,6 +1527,13 @@ class L10nAr extends L10n {
       'femio ليس وسيلة لمنع الحمل ولا يقدّم نصائح لتجنّب الحمل. يمكن للطبيب أو الصيدلي أو عيادة تنظيم الأسرة مساعدتكِ في اختيار وسيلة.';
 
   @override
+  String get askDiagnosisHeading => 'الطبيب وحده يستطيع أن يحدّد';
+
+  @override
+  String get askDiagnosisBody =>
+      'femio لا يستطيع أن يحدّد إن كانت لديكِ حالة صحية. الطبيب يستطيع ذلك بعد الحديث معكِ، وبالفحص أو التحاليل إن لزم. هذا ما تقوله المصادر الموثوقة عنها.';
+
+  @override
   String get safetyHeavyBleedingHeading => 'نزيف شديد مع دوخة';
 
   @override

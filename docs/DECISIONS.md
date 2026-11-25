@@ -928,6 +928,19 @@ to 2 points for uncommon words it shares with her question; topics still decide 
 question reaches the registry. A future session must not lower these floors to pass; widen the
 registry or fix ranking instead.
 
+**Addendum 2026-11-25 (R7.14, owner: "do not leave anything open").** (e) "Do I have X?" questions
+get a fixed "only a clinician can tell" sentence before the passages (MR-52); unlike birth control
+the search still runs, because a sourced answer about the condition helps her and says nothing
+about her. (f) Two Arabic false alarms closed without weakening a sign (MR-50 note). (g) Ranking:
+a passage that names her topic in its own text or section heading gains a point, two-digit numbers
+count as rare words, finer topics (IUI, trimesters, caffeine, milk storage, perimenopause, GSM,
+mammogram and others). (h) Floors raised to 95% strong and 2% not covered; a held-out set written after tuning scored
+90% on its first run (the honest estimate), its misses were then fixed and it now guards regressions. (i) `alsoAccept` in the
+question set lists passages the lead read and judged to answer a question without its stem (3
+questions); that is hand grading and the report says so. Three questions stay unanswered by design:
+no allowed publisher has a passage on hair loss after birth, adenomyosis, or how to talk to a
+daughter about her first period; she gets "Not covered yet" and the NHS link.
+
 ## ADR-080
 **Date:** 2026-11-24 · **Status:** accepted 2026-11-24 (owner, in chat, answering three questions: website "Remove both, use Vercel"; app ads "Remove in-app ads (Recommended)"; Cloud boost "in play, it can be opt-in after a comprehensive consent that is recorded according to the laws") · **Area:** privacy, app, website, legal · **Reverses:** ADR-076 · **Amends:** ADR-075 §2, ADR-079 §3
 

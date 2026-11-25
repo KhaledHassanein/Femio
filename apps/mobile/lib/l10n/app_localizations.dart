@@ -2639,6 +2639,18 @@ abstract class L10n {
   /// **'femio is not a way to avoid pregnancy and can\'t advise on it. A doctor, pharmacist or family-planning clinic can help you choose a method.'**
   String get safetyBirthControl;
 
+  /// No description provided for @askDiagnosisHeading.
+  ///
+  /// In en, this message translates to:
+  /// **'Only a clinician can tell'**
+  String get askDiagnosisHeading;
+
+  /// No description provided for @askDiagnosisBody.
+  ///
+  /// In en, this message translates to:
+  /// **'femio can\'t tell whether you have a condition. A doctor can, after talking with you and, if needed, an examination or tests. Here is what trusted sources say about it.'**
+  String get askDiagnosisBody;
+
   /// No description provided for @safetyHeavyBleedingHeading.
   ///
   /// In en, this message translates to:

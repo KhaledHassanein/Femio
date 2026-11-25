@@ -17,7 +17,7 @@ const topics = <Topic>[
   ]),
   Topic('heavyBleeding', [
     'heavy bleeding', 'heavy period', 'heavy menstrual bleeding', 'heavy flow', 'menorrhagia', 'soaking', 'clots',
-    'نزيف', 'دوره غزيره', 'دم كتير', 'نزيف شديد', 'جلطات', 'نزيف حاد',
+    'نزيف', 'دوره غزيره', 'غزيره', 'دم كتير', 'نزيف شديد', 'جلطات', 'نزيف حاد',
     'regles abondantes', 'saignement abondant', 'saignements abondants', 'caillots', 'hemorragie',
     'sangrado abundante', 'regla abundante', 'coagulos', 'hemorragia',
   ]),
@@ -28,7 +28,7 @@ const topics = <Topic>[
     'colicos', 'dolor menstrual', 'dolor de regla', 'calambres', 'dolor pelvico',
   ]),
   Topic('irregular', [
-    'period late', 'period is late', 'periods late', 'period stopped', 'period stop', 'stop my period', 'periods stop', 'not had a period', 'no period yet', 'الدوره وقفت', 'توقف الدوره', 'مجتليش الدوره', 'regles en retard', 'pas encore eu mes regles', 'se me retrasa', 'se me fue la regla',
+    'period late', 'period is late', 'periods late', 'period stopped', 'period stop', 'stop my period', 'periods stop', 'not had a period', 'no period yet', 'الدوره وقفت', 'توقف الدوره', 'مجتليش الدوره', 'regles en retard', 'en retard', 'retard de regles', 'pas encore eu mes regles', 'se me retrasa', 'se me fue la regla',
     'irregular periods', 'periods change', 'مش منتظمه', 'عدم انتظام', 'عدم انتظام الدوره', 'irregulieres',
     'irregular', 'missed period', 'late period', 'no period', 'absent periods', 'amenorrhea',
     'غير منتظمه', 'متاخره', 'اتاخرت', 'انقطاع الدوره', 'مش منتظمه', 'ما جت', 'مجتش',
@@ -45,7 +45,7 @@ const topics = <Topic>[
     'sopk', 'ovaires polykystiques', 'sop', 'ovario poliquistico', 'ovarios poliquisticos',
   ]),
   Topic('endometriosis', [
-    'endometriosis', 'endometrioma', 'بطانه الرحم المهاجره', 'الانتباذ البطاني', 'اندومتريوزس',
+    'endometriosis', 'endometrioma', 'بطانه الرحم المهاجره', 'بطانه رحم مهاجره', 'الانتباذ البطاني', 'اندومتريوزس',
     'endometriose', 'endometriosis',
   ]),
   Topic('fibroids', [
@@ -57,25 +57,24 @@ const topics = <Topic>[
   Topic('fertility', [
     'infertile', 'fertilidad', 'tomber enceinte',
     'fertility', 'conceive', 'conceiving', 'trying to conceive', 'ttc', 'get pregnant', 'getting pregnant',
-    'infertility', 'infertile', 'trying for a baby',
+    'infertility', 'infertile', 'trying for a baby', 'مفيش حمل', 'مش بيحصل حمل', 'تاخر الحمل', 'الحمل اتاخر',
     'خصوبه', 'احمل', 'تاخر الحمل', 'عقم', 'تاخر الانجاب', 'الانجاب', 'نحاول نحمل', 'ابغى احمل', 'عايزه احمل',
     'fertilite', 'concevoir', 'tomber enceinte', 'infertilite',
     'fertilidad', 'concebir', 'quedar embarazada', 'infertilidad', 'embarazarme',
   ]),
   Topic('ovulation', [
     'ovulation test', 'ovulation kit', 'ovulation predictor', 'lh surge', 'signs of ovulation', 'اختبار التبويض', 'اختبارات التبويض', 'شرايط التبويض', 'test d ovulation', 'prueba de ovulacion',
-    'ovulation', 'ovulate', 'fertile window', 'fertile days', 'تبويض', 'التبويض', 'ايام التبويض',
+    'ovulation', 'ovulate', 'ovulating', 'ovulated', 'fertile window', 'fertile days', 'تبويض', 'التبويض', 'ايام التبويض',
     'periode fertile', 'ovulacion', 'dias fertiles',
   ]),
   Topic('ivf', [
-    'insemination', 'intrauterine insemination',
-    'ivf', 'in vitro', 'assisted reproduction', 'iui', 'fertility treatment',
-    'اطفال انابيب', 'حقن مجهري', 'الحقن المجهري', 'تلقيح صناعي',
+    'ivf', 'in vitro', 'assisted reproduction', 'fertility treatment',
+    'اطفال انابيب', 'حقن مجهري', 'الحقن المجهري',
     'fiv', 'fecondation in vitro', 'fecundacion in vitro', 'reproduccion asistida',
   ]),
   Topic('maleFactor', [
     'sperm health', 'sperm count', 'خصوبه الراجل', 'خصوبه الرجل', 'الحيوانات المنويه', 'calidad del esperma',
-    'sperm', 'semen', 'male infertility', 'الحيوانات المنويه', 'السائل المنوي', 'عقم الرجال',
+    'sperm', 'semen', 'male infertility', 'husband', 'جوزي', 'زوجي', 'mon mari', 'mi marido', 'mi esposo', 'الحيوانات المنويه', 'السائل المنوي', 'عقم الرجال',
     'sperme', 'infertilite masculine', 'esperma', 'infertilidad masculina',
   ]),
   Topic('pregnancy', [
@@ -83,7 +82,7 @@ const topics = <Topic>[
     'حامل', 'حمل', 'الحوامل', 'enceinte', 'grossesse', 'embarazada', 'embarazo',
   ]),
   Topic('preconception', [
-    'preconception', 'before pregnancy', 'folic acid', 'folate', 'prenatal vitamin',
+    'preconception', 'before pregnancy', 'folic acid', 'folate', 'prenatal vitamin', 'vitamins', 'فيتامينات', 'vitamines', 'vitaminas',
     'قبل الحمل', 'حمض الفوليك', 'فوليك', 'acide folique', 'avant la grossesse', 'acido folico', 'antes del embarazo',
   ]),
   Topic('nutrition', [
@@ -96,14 +95,14 @@ const topics = <Topic>[
   Topic('exercise', [
     'excessive exercise', 'too much exercise', 'training hard', 'الرياضه الكتير', 'اتمرن جامد',
     'training', 'train', 'athlete', 'athletes', 'اتمرن', 'تمرين', 'entrainement', 'entrenar', 'entrenamiento',
-    'exercise', 'physical activity', 'workout', 'رياضه', 'تمارين', 'نشاط بدني',
+    'exercise', 'exercising', 'physical activity', 'workout', 'رياضه', 'تمارين', 'نشاط بدني',
     'exercice', 'activite physique', 'ejercicio', 'actividad fisica',
   ]),
   Topic('weight', [
     'losing weight', 'lose weight', 'body mass index', 'خساره الوزن', 'مؤشر كتله الجسم', 'كيلو', 'perdre du poids', 'bajar de peso','weight', 'weight gain', 'bmi', 'وزن', 'زياده الوزن', 'سمنه', 'poids', 'prise de poids', 'peso']),
   Topic('diabetes', [
     'insulin', 'insulin resistance', 'انسولين', 'مقاومه الانسولين', 'سكر الحمل', 'تحليل السكر', 'insuline', 'insulina',
-    'gestational diabetes', 'diabetes', 'blood sugar', 'glucose', 'سكر الحمل', 'السكر', 'سكري',
+    'gestational diabetes', 'diabetes', 'سكر حمل', 'blood sugar', 'glucose', 'سكر الحمل', 'السكر', 'سكري',
     'diabete', 'diabete gestationnel', 'glycemie', 'diabetes gestacional', 'azucar en la sangre',
   ]),
   Topic('bloodPressure', [
@@ -142,7 +141,7 @@ const topics = <Topic>[
   Topic('menopause', [
     'early menopause', 'premature menopause', 'انقطاع الطمث المبكر',
     'menopause', 'perimenopause', 'postmenopause', 'menopausal', 'سن الياس', 'انقطاع الطمث', 'سن انقطاع الطمث',
-    'menopause', 'perimenopause', 'menopausia', 'perimenopausia',
+    'menopause', 'perimenopause', 'menopausee', 'menopausique', 'menopausia', 'perimenopausia', 'menopausica',
   ]),
   Topic('hotFlashes', [
     'hot flashes', 'hot flushes', 'hot flash', 'night sweats', 'هبات ساخنه', 'الهبات', 'عرق بالليل', 'تعرق ليلي',
@@ -166,7 +165,7 @@ const topics = <Topic>[
   ]),
   Topic('fatigue', ['tired', 'fatigue', 'exhausted', 'تعب', 'ارهاق', 'تعبانه', 'fatigue', 'cansancio', 'agotada']),
   Topic('sleep', [
-    'sleeping', 'انام', 'ينام', 'النوم', 'dormir', 'dormir mejor','sleep', 'insomnia', 'نوم', 'ارق', 'sommeil', 'insomnie', 'sueno', 'insomnio']),
+    'sleeping', 'انام', 'ينام', 'يناموا', 'تنام', 'ننام', 'ساعات نوم', 'النوم', 'dormir', 'dormir mejor','sleep', 'insomnia', 'نوم', 'ارق', 'sommeil', 'insomnie', 'sueno', 'insomnio']),
   Topic('headache', [
     'migraine', 'headache', 'صداع', 'صداع نصفي', 'شقيقه', 'migraine', 'mal de tete', 'migrana', 'dolor de cabeza',
   ]),
@@ -177,7 +176,7 @@ const topics = <Topic>[
   ]),
   Topic('bones', [
     'vitamin d', 'فيتامين د', 'هشاشه العظام', 'vitamine d', 'vitamina d',
-    'osteoporosis', 'bone health', 'bones', 'calcium', 'vitamin d', 'هشاشه العظام', 'العظام', 'كالسيوم',
+    'osteoporosis', 'bone health', 'bones', 'العضم', 'عضم', 'calcium', 'vitamin d', 'هشاشه العظام', 'العظام', 'كالسيوم',
     'osteoporose', 'calcium', 'osteoporosis', 'huesos', 'calcio',
   ]),
   Topic('urinary', [
@@ -191,7 +190,7 @@ const topics = <Topic>[
   ], broad: true),
   Topic('howLong', [
     'how long', 'how many months', 'months', 'one year', '12 months', '6 months', 'a year',
-    'قد ايه', 'كام شهر', 'سنه', 'مده', 'شهور', 'combien de temps', 'mois', 'un an', 'cuanto tiempo', 'meses', 'un ano',
+    'قد ايه', 'لحد امتى', 'كام يوم', 'how many days', 'combien de jours', 'cuantos dias', 'كام شهر', 'سنه', 'مده', 'شهور', 'combien de temps', 'mois', 'un an', 'cuanto tiempo', 'meses', 'un ano',
   ], broad: true),
 
   Topic('babyBlues', ['baby blues', 'البيبي بلوز', 'كابه ما بعد الولاده', 'baby blues', 'tristeza posparto']),
@@ -200,6 +199,19 @@ const topics = <Topic>[
     'الثلث الاول', 'الثلث التاني', 'الثلث الثاني', 'الثلث الاخير', 'الثلث الثالث',
     'premier trimestre', 'deuxieme trimestre', 'troisieme trimestre', 'trimestre',
     'primer trimestre', 'segundo trimestre', 'tercer trimestre',
+  ]),
+  // Which trimester, so an Arabic question finds the same section as the English one (R7.14).
+  // OWH counts week 1 to week 12 as the first trimester.
+  Topic('firstTrimester', [
+    'first trimester', 'week 12', '12 weeks', 'الثلث الاول', 'الاسبوع 12', 'premier trimestre', 'semaine 12',
+    '12 semaines', 'primer trimestre', 'semana 12', '12 semanas',
+  ]),
+  Topic('secondTrimester', [
+    'second trimester', 'الثلث التاني', 'الثلث الثاني', 'deuxieme trimestre', 'segundo trimestre',
+  ]),
+  Topic('thirdTrimester', [
+    'third trimester', 'last trimester', 'الثلث الاخير', 'الثلث الثالث', 'troisieme trimestre', 'dernier trimestre',
+    'tercer trimestre', 'ultimo trimestre',
   ]),
   Topic('fetalGrowth', [
     'fetal development', 'baby developing', 'baby development', 'week by week', 'fetus', 'how big is the baby',
@@ -282,8 +294,10 @@ const topics = <Topic>[
   Topic('pregnancyTest', [
     'pregnancy test', 'home pregnancy test', 'hcg', 'اختبار حمل', 'اختبار الحمل', 'تحليل حمل', 'تحليل الحمل',
     'test de grossesse', 'prueba de embarazo',
+    // A chemical pregnancy is a very early loss found by a positive test (R7.14).
+    'chemical pregnancy', 'حمل كيميائي', 'الحمل الكيميائي', 'grossesse chimique', 'embarazo quimico',
   ]),
-  Topic('stress', ['stress', 'stressed', 'stressful', 'توتر', 'التوتر', 'ضغط نفسي', 'stress', 'estres']),
+  Topic('stress', ['stress', 'stressed', 'stressful', 'anxious', 'anxiety', 'worried', 'قلقانه', 'قلق', 'anxieuse', 'ansiosa', 'ansiedad', 'توتر', 'التوتر', 'ضغط نفسي', 'stress', 'estres']),
   Topic('poi', [
     'primary ovarian insufficiency', 'ovarian insufficiency', 'premature ovarian failure', 'poi',
     'قصور المبيض', 'قصور المبايض', 'فشل المبيض المبكر', 'insuffisance ovarienne', 'insuficiencia ovarica',
@@ -361,6 +375,44 @@ const topics = <Topic>[
   Topic('age', [
     'age', 'ages', 'older', 'over 35', 'after 35', 'age 35', 'advanced maternal age',
     'سن', 'السن', 'العمر', 'age', 'edad', 'mayor',
+  ], broad: true),
+  // Coverage pass 2 (R7.14): finer topics so an Arabic, French or Spanish question finds the
+  // same passage as the English one, which also shares rarer words with it.
+  Topic('hyperemesis', [
+    'hyperemesis', 'hyperemesis gravidarum', 'severe nausea', 'severe vomiting', 'القيء المفرط', 'قيء شديد',
+    'ترجيع شديد', 'ترجيع جامد', 'غثيان شديد', 'hyperemese', 'vomissements severes', 'hiperemesis', 'vomitos severos',
+  ]),
+  Topic('caffeine', ['caffeine', 'coffee', 'كافيين', 'الكافيين', 'قهوه', 'القهوه', 'cafeine', 'cafe', 'cafeina']),
+  Topic('checkup', [
+    'checkup', 'check up', 'postpartum visit', 'postpartum checkup', 'زياره المتابعه', 'زياره متابعه', 'كشف المتابعه',
+    'متابعه بعد الولاده', 'visite postnatale', 'visite de controle', 'revision posparto', 'consulta posparto',
+  ]),
+  Topic('milkStorage', [
+    'store', 'storing', 'storage', 'fridge', 'refrigerator', 'freezer', 'thaw', 'احفظ', 'حفظ', 'تخزين', 'اخزن',
+    'التلاجه', 'الفريزر', 'conserver', 'conservation', 'congelateur', 'guardar', 'guardo', 'almacenar', 'congelador',
+  ]),
+  Topic('bacterialVaginosis', [
+    'bacterial vaginosis', 'bv', 'التهاب المهبل البكتيري', 'البكتيريا المهبليه', 'vaginose bacterienne', 'vaginosis bacteriana',
+  ]),
+  Topic('perimenopause', [
+    'perimenopause', 'menopause transition', 'ما قبل انقطاع الطمث', 'قبل انقطاع الطمث', 'ما قبل سن الياس', 'قبل سن الياس',
+    'perimenopause', 'perimenopausia',
+  ]),
+  Topic('gsm', [
+    'genitourinary syndrome', 'genitourinary syndrome of menopause', 'vaginal atrophy', 'المتلازمه البوليه التناسليه',
+    'ضمور المهبل', 'syndrome genito urinaire', 'atrophie vaginale', 'sindrome genitourinario', 'atrofia vaginal',
+  ]),
+  Topic('iui', [
+    'iui', 'insemination', 'intrauterine insemination', 'artificial insemination', 'تلقيح صناعي', 'التلقيح الصناعي',
+    'الحقن داخل الرحم', 'insemination artificielle', 'iiu', 'inseminacion artificial', 'inseminacion intrauterina',
+  ]),
+  Topic('mammogram', ['mammogram', 'mammography', 'ماموجرام', 'الماموجرام', 'اشعه الثدي', 'mammographie', 'mamografia']),
+  Topic('ultrasound', [
+    'ultrasound', 'anatomy scan', 'sonogram', 'سونار', 'السونار', 'الموجات الصوتيه', 'echographie', 'ecografia',
+  ]),
+  Topic('howOften', [
+    'how often', 'how many times', 'every', 'كل قد ايه', 'كام مره', 'a quelle frequence', 'combien de fois',
+    'cada cuanto', 'cuantas veces',
   ], broad: true),
   Topic('testing', ['test', 'tests', 'testing', 'تحليل', 'تحاليل', 'فحص', 'examen', 'analyse', 'prueba', 'analisis'], broad: true),
   Topic('parenting', [

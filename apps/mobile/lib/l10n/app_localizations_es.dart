@@ -1514,6 +1514,14 @@ class L10nEs extends L10n {
       'femio no es un método anticonceptivo y no aconseja sobre cómo evitar un embarazo. Un médico, farmacéutico o centro de planificación familiar puede ayudarte a elegir.';
 
   @override
+  String get askDiagnosisHeading =>
+      'Solo un profesional sanitario puede saberlo';
+
+  @override
+  String get askDiagnosisBody =>
+      'femio no puede decir si tienes una enfermedad. Un médico sí puede, después de hablar contigo y, si hace falta, de una exploración o unas pruebas. Esto es lo que dicen fuentes fiables al respecto.';
+
+  @override
   String get safetyHeavyBleedingHeading => 'Sangrado abundante con mareo';
 
   @override

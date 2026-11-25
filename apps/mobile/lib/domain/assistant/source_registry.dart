@@ -57,6 +57,7 @@ class SourceEntry {
     required this.goals,
     required this.lang,
     required this.vocabulary,
+    required this.textTopicIds,
   });
 
   /// Reads one entry. Throws [FormatException] when a field is missing, the link is not https,
@@ -101,6 +102,7 @@ class SourceEntry {
       goals: {for (final g in (j['goals'] as List?) ?? const []) '$g'},
       lang: lang,
       vocabulary: {...words('${req('title')} ${topicWords.join(' ')} $text')},
+      textTopicIds: topicsOf('${_sectionOf(req('title'))} $text'),
     );
   }
 
@@ -130,6 +132,12 @@ class SourceEntry {
 
   /// The entry's normalised words (title, keywords, text), for the same-word ranking bonus.
   final Set<String> vocabulary;
+
+  /// Topic ids named in [text] itself or in its section heading (the part of [title] after
+  /// " — "), not only in the page title or keywords. A passage that says
+  /// the thing she asked about ranks above one that is merely filed under it (R7.14: "Do I have
+  /// PCOS?" should open with the passage that names PCOS, not the one about insulin).
+  final Set<String> textTopicIds;
 }
 
 /// The whole registry, with the version shown in Settings and in every answer's footer.
@@ -176,8 +184,21 @@ const _commonWords = {
 };
 
 /// Her words that count for the same-word bonus: five letters or more and not in [_commonWords].
-Set<String> _uncommonWords(String question) =>
-    {for (final w in words(question)) if (w.length >= 5 && !_commonWords.contains(w)) w};
+Set<String> _uncommonWords(String question) => {
+  for (final w in words(question))
+    if ((w.length >= 5 && !_commonWords.contains(w)) || _number.hasMatch(w)) w,
+};
+
+/// A number of two digits or more ("12" weeks, "35" years) is as telling as a rare word; Arabic
+/// digits are already folded to Western ones by `normalise`.
+final _number = RegExp(r'^\d{2,}$');
+
+/// The section heading in a title written "Page — Section", or empty. The heading is the
+/// passage's own label on the page ("Stages of pregnancy — Third trimester (week 29–week 40)").
+String _sectionOf(String title) {
+  final i = title.indexOf(' — ');
+  return i < 0 ? '' : title.substring(i + 3);
+}
 
 /// How many specific topics a passage must share with the question to count as answering it:
 /// all of them when she named one, at least two when she named more.
@@ -213,6 +234,7 @@ RegistryAnswer searchRegistry(String question, SourceRegistry registry, {String?
     for (final t in shared) {
       score += isBroadTopic(t) ? 1 : _specificTopicWeight;
     }
+    if (shared.where(specific.contains).every(e.textTopicIds.contains)) score += 1;
     final same = ownWords.where(e.vocabulary.contains).length;
     score += same < _maxSameWordBonus ? same : _maxSameWordBonus;
     if (goal != null && e.goals.contains(goal)) score += 1;

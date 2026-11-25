@@ -1518,6 +1518,14 @@ class L10nFr extends L10n {
       'femio n’est pas une méthode de contraception et ne conseille pas sur la façon d’éviter une grossesse. Un médecin, un pharmacien ou un centre de planification peut vous aider à choisir.';
 
   @override
+  String get askDiagnosisHeading =>
+      'Seul un professionnel de santé peut le dire';
+
+  @override
+  String get askDiagnosisBody =>
+      'femio ne peut pas dire si vous avez une maladie. Un médecin le peut, après avoir parlé avec vous et, si besoin, après un examen ou des analyses. Voici ce qu’en disent des sources fiables.';
+
+  @override
   String get safetyHeavyBleedingHeading => 'Saignement abondant avec vertiges';
 
   @override

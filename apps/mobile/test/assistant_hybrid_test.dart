@@ -241,6 +241,28 @@ void main() {
         SafetySignal.none,
       );
     });
+    test('asking how long bleeding after birth lasts is not a warning; heavy bleeding still is', () {
+      final p = _profile(Goal.pregnant, birthDate: '2026-09-01');
+      for (final q in ['النزيف بعد الولادة بيستمر قد ايه؟', 'النزيف بعد الولادة طبيعي؟', 'hemorragia despues del parto cuanto dura']) {
+        expect(safetySignalFor(q, p, _today), SafetySignal.none, reason: q);
+      }
+      for (final q in [
+        'عندي نزيف بعد الولادة',
+        'نزيف جامد بعد الولادة بيستمر قد ايه',
+        'بغير الفوطة كل ساعة',
+        'I am soaking a pad every hour, how long will this last?',
+      ]) {
+        expect(safetySignalFor(q, p, _today), SafetySignal.postpartumWarning, reason: q);
+      }
+    });
+    test('blood type is not bleeding in pregnancy; blood still is', () {
+      for (final q in ['يعني ايه فصيلة الدم سالب في الحمل؟', 'What does a negative blood type mean in pregnancy?', 'tipo de sangre negativo embarazo']) {
+        expect(safetySignal(q, pregnant: true), SafetySignal.none, reason: q);
+      }
+      for (final q in ['نزل مني دم', 'blood when I wipe', 'blood test showed low iron and I see blood']) {
+        expect(safetySignal(q, pregnant: true), SafetySignal.pregnancyWarning, reason: q);
+      }
+    });
     test('thoughts of harming the baby are a crisis', () {
       expect(
         safetySignal('I am scared I might hurt my baby', pregnant: false),

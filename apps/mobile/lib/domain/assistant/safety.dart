@@ -12,6 +12,8 @@
 //   emergency sentence word for word and Help now (MR-49, owner 2026-11-24; NHS "Heavy
 //   periods" has no urgent wording, ACOG "Abnormal Uterine Bleeding" does).
 // - In the year after birth, CDC's Hear Her urgent maternal warning signs open Help now.
+// - "Blood type" and similar words are not bleeding; a question about how long the bleeding
+//   after birth lasts is not a warning unless it names heavy bleeding (R7.14).
 // - A birth-control question gets the fixed sentence "femio is not a way to avoid pregnancy"
 //   and never reaches a model (product rule 1).
 
@@ -86,6 +88,13 @@ const _heavyBleedingPhrases = [
   'a lot of blood',
   'soaking',
   'soaked through',
+  'pad every hour',
+  'pads every hour',
+  'فوطه كل ساعه',
+  'الفوطه كل ساعه',
+  'serviette toutes les heures',
+  'compresa cada hora',
+  'toalla cada hora',
   'نزيف',
   'نزيف جامد',
   'نزيف شديد',
@@ -99,6 +108,56 @@ const _heavyBleedingPhrases = [
   'sangro mucho',
   'mucha sangre',
   'hemorragia',
+];
+
+/// Single words for bleeding that Arabic, French and Spanish speakers also use for the ordinary
+/// bleeding after birth ("النزيف بعد الولادة" is how many women name lochia). After birth they
+/// count as a warning unless she is only asking how long it lasts or whether it is normal; any
+/// other heavy-bleeding phrase still counts (coverage pass 2026-11-24, R7.14).
+const _ambiguousBleedingWords = ['نزيف', 'hemorragie', 'hemorragia'];
+
+/// "How long does it last?", "is it normal?" in the four languages.
+const _askingWhatIsNormal = [
+  'how long',
+  'is it normal',
+  'قد ايه',
+  'كام يوم',
+  'كام اسبوع',
+  'لحد امتى',
+  'امتى يقف',
+  'امتى يخلص',
+  'طبيعي',
+  'combien de temps',
+  'est ce normal',
+  'cuanto tiempo',
+  'cuanto dura',
+  'es normal',
+];
+
+/// Ordinary words that contain "blood" but name a test or a measure, not bleeding ("blood
+/// type", "فصيلة الدم"). Removed before the pregnancy check so that asking about Rh-negative
+/// blood is not read as bleeding (coverage pass 2026-11-24, R7.14).
+const _bloodCompounds = [
+  'blood type',
+  'blood group',
+  'blood test',
+  'blood tests',
+  'blood work',
+  'blood sugar',
+  'blood pressure',
+  'فصيله الدم',
+  'فصيله دم',
+  'تحليل الدم',
+  'تحليل دم',
+  'ضغط الدم',
+  'سكر الدم',
+  'سكر في الدم',
+  'prise de sang',
+  'analyse de sang',
+  'tipo de sangre',
+  'grupo sanguineo',
+  'analisis de sangre',
+  'azucar en la sangre',
 ];
 
 /// Dizziness or light-headedness, which with heavy bleeding makes ACOG's emergency sentence
@@ -331,10 +390,35 @@ SafetySignal safetySignal(String text, {required bool pregnant, bool postpartum 
   if (any(_crisisPhrases)) return SafetySignal.crisis;
   if (any(_urgentPhrases)) return SafetySignal.urgent;
   if (any(_heavyBleedingPhrases) && any(_dizzyPhrases)) return SafetySignal.heavyBleeding;
-  if (pregnant && any(_pregnancyPhrases)) return SafetySignal.pregnancyWarning;
-  if (postpartum && (any(_postpartumPhrases) || any(_heavyBleedingPhrases))) return SafetySignal.postpartumWarning;
+  if (pregnant && _pregnancyPhrases.any((p) => findPhrase(_without(w, _bloodCompounds), words(p)) >= 0)) {
+    return SafetySignal.pregnancyWarning;
+  }
+  if (postpartum && (any(_postpartumPhrases) || _heavyAfterBirth(w))) return SafetySignal.postpartumWarning;
   if (any(_birthControlPhrases)) return SafetySignal.birthControl;
   return SafetySignal.none;
+}
+
+/// [words] with every occurrence of [phrases] blanked out, so a shorter phrase inside them no
+/// longer matches.
+List<String> _without(List<String> w, List<String> phrases) {
+  final out = [...w];
+  for (final p in phrases) {
+    final pw = words(p);
+    for (var i = findPhrase(out, pw); i >= 0; i = findPhrase(out, pw)) {
+      for (var j = 0; j < pw.length; j++) {
+        out[i + j] = '';
+      }
+    }
+  }
+  return out;
+}
+
+/// Heavy bleeding after birth: any heavy-bleeding phrase, except a lone ambiguous word in a
+/// question about how long bleeding lasts or whether it is normal.
+bool _heavyAfterBirth(List<String> w) {
+  bool has(String p) => findPhrase(w, words(p)) >= 0;
+  if (_heavyBleedingPhrases.where((p) => !_ambiguousBleedingWords.contains(p)).any(has)) return true;
+  return _ambiguousBleedingWords.any(has) && !_askingWhatIsNormal.any(has);
 }
 
 /// [safetySignal] with the life stage read from her [profile] as of [today] (yyyy-mm-dd):

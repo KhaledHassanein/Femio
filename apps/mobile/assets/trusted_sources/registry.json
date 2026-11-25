@@ -1,5 +1,5 @@
 {
-  "version": "2026-11-24.3",
+  "version": "2026-11-24.4",
   "note": "Merged by scripts/registry-merge.py; passages verbatim from US federal public-domain pages (CDC, MedlinePlus, OWH, NIH institutes and offices); links are WHO/NHS/ACOG/RCOG/NICE/Saudi MOH pages Femio does not copy, described in Femio's own words.",
   "entries": [
     {
@@ -3502,7 +3502,7 @@
       "id": "owh-stages-first-trimester",
       "kind": "passage",
       "publisher": "Office on Women's Health (womenshealth.gov)",
-      "title": "Stages of pregnancy",
+      "title": "Stages of pregnancy — First trimester (week 1–week 12)",
       "url": "https://womenshealth.gov/pregnancy/youre-pregnant-now-what/stages-pregnancy",
       "retrieved": "2026-11-24",
       "reviewed": "2025-09-26",
@@ -3527,7 +3527,7 @@
       "id": "owh-stages-second-trimester",
       "kind": "passage",
       "publisher": "Office on Women's Health (womenshealth.gov)",
-      "title": "Stages of pregnancy",
+      "title": "Stages of pregnancy — Second trimester (week 13–week 28)",
       "url": "https://womenshealth.gov/pregnancy/youre-pregnant-now-what/stages-pregnancy",
       "retrieved": "2026-11-24",
       "reviewed": "2025-09-26",
@@ -3551,7 +3551,7 @@
       "id": "owh-stages-baby-movement",
       "kind": "passage",
       "publisher": "Office on Women's Health (womenshealth.gov)",
-      "title": "Stages of pregnancy",
+      "title": "Stages of pregnancy — Second trimester (week 13–week 28)",
       "url": "https://womenshealth.gov/pregnancy/youre-pregnant-now-what/stages-pregnancy",
       "retrieved": "2026-11-24",
       "reviewed": "2025-09-26",
@@ -3576,7 +3576,7 @@
       "id": "owh-stages-third-trimester",
       "kind": "passage",
       "publisher": "Office on Women's Health (womenshealth.gov)",
-      "title": "Stages of pregnancy",
+      "title": "Stages of pregnancy — Third trimester (week 29–week 40)",
       "url": "https://womenshealth.gov/pregnancy/youre-pregnant-now-what/stages-pregnancy",
       "retrieved": "2026-11-24",
       "reviewed": "2025-09-26",
@@ -3601,7 +3601,7 @@
       "id": "owh-stages-baby-12-weeks",
       "kind": "passage",
       "publisher": "Office on Women's Health (womenshealth.gov)",
-      "title": "Stages of pregnancy",
+      "title": "Stages of pregnancy — First trimester (week 1–week 12)",
       "url": "https://womenshealth.gov/pregnancy/youre-pregnant-now-what/stages-pregnancy",
       "retrieved": "2026-11-24",
       "reviewed": "2025-09-26",
@@ -3619,7 +3619,7 @@
       "personas": [
         "D1"
       ],
-      "text": "The nerves and muscles begin to work together. Your baby can make a fist. The external sex organs show if your baby is a boy or girl."
+      "text": "At 12 weeks: The nerves and muscles begin to work together. Your baby can make a fist. The external sex organs show if your baby is a boy or girl."
     },
     {
       "id": "owh-prenatal-movement-count",
@@ -4997,7 +4997,7 @@
       "id": "owh-challenges-mastitis-vs-plugged-duct",
       "kind": "passage",
       "publisher": "Office on Women's Health (womenshealth.gov)",
-      "title": "Common breastfeeding challenges",
+      "title": "Common breastfeeding challenges — Breast infection (mastitis)",
       "url": "https://womenshealth.gov/breastfeeding/breastfeeding-challenges/common-breastfeeding-challenges",
       "retrieved": "2026-11-24",
       "reviewed": "2025-10-23",
@@ -5020,7 +5020,7 @@
       "id": "owh-challenges-mastitis-when-to-call",
       "kind": "passage",
       "publisher": "Office on Women's Health (womenshealth.gov)",
-      "title": "Common breastfeeding challenges",
+      "title": "Common breastfeeding challenges — Breast infection (mastitis)",
       "url": "https://womenshealth.gov/breastfeeding/breastfeeding-challenges/common-breastfeeding-challenges",
       "retrieved": "2026-11-24",
       "reviewed": "2025-10-23",
@@ -7394,6 +7394,285 @@
         "F1"
       ],
       "summaryEn": "WHO fact sheet on physical activity: recommended weekly amounts for adults and others, benefits and risks of inactivity."
+    },
+    {
+      "id": "medlineplus-icp-what-is",
+      "kind": "passage",
+      "publisher": "MedlinePlus (NLM)",
+      "title": "Intrahepatic cholestasis of pregnancy",
+      "url": "https://medlineplus.gov/genetics/condition/intrahepatic-cholestasis-of-pregnancy/",
+      "retrieved": "2026-11-24",
+      "reviewed": "2026-11-24",
+      "lang": "en",
+      "licence": "US federal government work, public domain (17 U.S.C. §105)",
+      "topics": [
+        "cholestasis of pregnancy",
+        "ICP",
+        "liver disorder",
+        "bile"
+      ],
+      "goals": [
+        "pregnant"
+      ],
+      "personas": [],
+      "text": "Intrahepatic cholestasis of pregnancy (also called ICP) is a liver disorder that typically occurs during the second half of pregnancy. Cholestasis is a condition that impairs the release of a digestive fluid called bile, which is made and released by the liver."
+    },
+    {
+      "id": "medlineplus-icp-itch",
+      "kind": "passage",
+      "publisher": "MedlinePlus (NLM)",
+      "title": "Intrahepatic cholestasis of pregnancy",
+      "url": "https://medlineplus.gov/genetics/condition/intrahepatic-cholestasis-of-pregnancy/",
+      "retrieved": "2026-11-24",
+      "reviewed": "2026-11-24",
+      "lang": "en",
+      "licence": "US federal government work, public domain (17 U.S.C. §105)",
+      "topics": [
+        "cholestasis",
+        "itching",
+        "pruritus",
+        "pregnancy symptoms"
+      ],
+      "goals": [
+        "pregnant"
+      ],
+      "personas": [],
+      "text": "Severe itchiness (pruritus) is typically one of the first symptoms of intrahepatic cholestasis of pregnancy. The itchiness usually begins on the palms of the hands and the soles of the feet before spreading to other parts of the body."
+    },
+    {
+      "id": "owh-infertility-emotional-process",
+      "kind": "passage",
+      "publisher": "Office on Women's Health (womenshealth.gov)",
+      "title": "Infertility",
+      "url": "https://womenshealth.gov/a-z-topics/infertility",
+      "retrieved": "2026-11-24",
+      "reviewed": "2026-06-04",
+      "lang": "en",
+      "licence": "US federal government work, public domain (17 U.S.C. §105)",
+      "topics": [
+        "infertility tests",
+        "emotional process",
+        "finding the cause"
+      ],
+      "goals": [
+        "ttc"
+      ],
+      "personas": [],
+      "text": "Finding the cause of infertility can be a long and emotional process. It may take time to complete all the needed tests. So don't worry if the problem is not found right away."
+    },
+    {
+      "id": "nichd-pregnancy-loss-early",
+      "kind": "passage",
+      "publisher": "NICHD (NIH)",
+      "title": "About Pregnancy Loss (Before 20 Weeks of Pregnancy)",
+      "url": "https://www.nichd.nih.gov/health/topics/pregnancyloss/conditioninfo",
+      "retrieved": "2026-11-24",
+      "reviewed": "2026-11-24",
+      "lang": "en",
+      "licence": "US federal government work, public domain (17 U.S.C. §105)",
+      "topics": [
+        "pregnancy loss",
+        "early pregnancy loss",
+        "miscarriage"
+      ],
+      "goals": [
+        "ttc",
+        "pregnant"
+      ],
+      "personas": [],
+      "text": "Pregnancy loss may occur so early that a woman may not know she was pregnant. Researchers can only estimate the number of women who experience pregnancy loss, because some losses occur before a woman's pregnancy is confirmed by a health care provider or pregnancy test."
+    },
+    {
+      "id": "nichd-amenorrhea-exercise-stress",
+      "kind": "passage",
+      "publisher": "NICHD (NIH)",
+      "title": "What causes amenorrhea?",
+      "url": "https://www.nichd.nih.gov/health/topics/amenorrhea/conditioninfo/causes",
+      "retrieved": "2026-11-24",
+      "reviewed": "2017-01-31",
+      "lang": "en",
+      "licence": "US federal government work, public domain (17 U.S.C. §105)",
+      "topics": [
+        "amenorrhea",
+        "excessive exercise",
+        "stress",
+        "eating disorders",
+        "hypothalamus"
+      ],
+      "goals": [
+        "period"
+      ],
+      "personas": [],
+      "text": "Problems with the hypothalamus or pituitary gland in the brain can cause an imbalance of hormones that can prevent periods from starting. Conditions such as eating disorders, excessive exercise, and extreme physical or psychological stress or a combination of these factors can also disrupt the normal functioning of the hypothalamus or pituitary gland, delaying the onset of menstruation."
+    },
+    {
+      "id": "owh-healthy-eating-what-is",
+      "kind": "passage",
+      "publisher": "Office on Women's Health (womenshealth.gov)",
+      "title": "Healthy eating and women",
+      "url": "https://www.womenshealth.gov/healthy-eating/healthy-eating-and-women",
+      "retrieved": "2026-11-24",
+      "reviewed": "2025-10-23",
+      "lang": "en",
+      "licence": "US federal government work, public domain (17 U.S.C. §105)",
+      "topics": [
+        "healthy eating",
+        "food groups",
+        "fruits",
+        "vegetables"
+      ],
+      "goals": [],
+      "personas": [],
+      "text": "Healthy eating is a way of eating that improves your health and helps prevent disease. It means choosing different types of healthy food from all of the food groups (fruits, vegetables, grains, dairy, and proteins), most of the time, in the correct amounts for you."
+    },
+    {
+      "id": "owh-healthy-eating-simple-tips",
+      "kind": "passage",
+      "publisher": "Office on Women's Health (womenshealth.gov)",
+      "title": "Healthy eating and women",
+      "url": "https://www.womenshealth.gov/healthy-eating/healthy-eating-and-women",
+      "retrieved": "2026-11-24",
+      "reviewed": "2025-10-23",
+      "lang": "en",
+      "licence": "US federal government work, public domain (17 U.S.C. §105)",
+      "topics": [
+        "healthy eating tips",
+        "vegetables",
+        "fruit",
+        "cooking at home"
+      ],
+      "goals": [],
+      "personas": [],
+      "text": "Some simple tips to improve your eating habits are to eat more vegetables, snack on fruit more often, and cook at home more each week."
+    },
+    {
+      "id": "owh-period-problems-eating-disorders-missed",
+      "kind": "passage",
+      "publisher": "Office on Women's Health (womenshealth.gov)",
+      "title": "Period problems",
+      "url": "https://womenshealth.gov/menstrual-cycle/period-problems",
+      "retrieved": "2026-11-24",
+      "reviewed": "2025-09-26",
+      "lang": "en",
+      "licence": "US federal government work, public domain (17 U.S.C. §105)",
+      "topics": [
+        "irregular periods",
+        "missed periods",
+        "eating disorders"
+      ],
+      "goals": [
+        "period"
+      ],
+      "personas": [],
+      "text": "Irregular or missed periods can be signs of eating disorders, most often anorexia nervosa. But any eating disorder, including bulimia nervosa and binge eating disorder, can cause irregular periods."
+    },
+    {
+      "id": "medlineplus-menstruation-length",
+      "kind": "passage",
+      "publisher": "MedlinePlus (NLM)",
+      "title": "Menstruation",
+      "url": "https://medlineplus.gov/menstruation.html",
+      "retrieved": "2026-11-24",
+      "reviewed": "2026-11-24",
+      "lang": "en",
+      "licence": "US federal government work, public domain (17 U.S.C. §105)",
+      "topics": [
+        "period length",
+        "how long periods last",
+        "first period",
+        "menstruation"
+      ],
+      "goals": [
+        "period"
+      ],
+      "personas": [],
+      "text": "Most girls start having a period between ages 9 and 15, but some may start earlier or later. A period usually lasts three to seven days and can be light or heavy. It may take a few years to become regular."
+    },
+    {
+      "id": "cdc-hmb-period-length",
+      "kind": "passage",
+      "publisher": "CDC",
+      "title": "About Heavy Menstrual Bleeding",
+      "url": "https://www.cdc.gov/female-blood-disorders/about/heavy-menstrual-bleeding.html",
+      "retrieved": "2026-11-24",
+      "reviewed": "2024-05-16",
+      "lang": "en",
+      "licence": "US federal government work, public domain (17 U.S.C. §105)",
+      "topics": [
+        "period length",
+        "normal period",
+        "heavy menstrual bleeding",
+        "4 to 5 days"
+      ],
+      "goals": [
+        "period"
+      ],
+      "personas": [],
+      "text": "Usually, menstrual bleeding lasts about 4 to 5 days and the amount of blood lost is small (2 to 3 tablespoons). However, women who have heavy menstrual bleeding usually bleed for more than 7 days and lose twice as much blood."
+    },
+    {
+      "id": "cdc-breastfeeding-feeds-per-day",
+      "kind": "passage",
+      "publisher": "CDC",
+      "title": "How Much and How Often to Breastfeed",
+      "url": "https://www.cdc.gov/infant-toddler-nutrition/breastfeeding/how-much-and-how-often.html",
+      "retrieved": "2026-11-24",
+      "reviewed": "2026-04-16",
+      "lang": "en",
+      "licence": "US federal government work, public domain (17 U.S.C. §105)",
+      "topics": [
+        "how often to breastfeed",
+        "newborn feeding",
+        "waking baby",
+        "enough"
+      ],
+      "goals": [],
+      "personas": [],
+      "text": "At first, babies need to eat every 2 to 4 hours to help them get enough nutrition and to grow. You may need to wake your baby to feed."
+    },
+    {
+      "id": "nci-cervical-screening-over-65",
+      "kind": "passage",
+      "publisher": "NCI (NIH)",
+      "title": "Cervical Cancer Screening",
+      "url": "https://www.cancer.gov/types/cervical/screening",
+      "retrieved": "2026-11-24",
+      "reviewed": "2026-11-24",
+      "lang": "en",
+      "licence": "US federal government work, public domain (17 U.S.C. §105)",
+      "topics": [
+        "screening after 65",
+        "cervical cancer screening",
+        "stop screening",
+        "after menopause"
+      ],
+      "goals": [
+        "menopause"
+      ],
+      "personas": [],
+      "text": "If you have been screened regularly and had normal test results, your health care provider will probably advise you that you no longer need screening. However, if your recent test results were abnormal or you have not been screened regularly, you may need to continue screening beyond age 65."
+    },
+    {
+      "id": "cdc-teens-heavy-periods",
+      "kind": "passage",
+      "publisher": "CDC",
+      "title": "Bleeding Disorders in Tweens and Teens",
+      "url": "https://www.cdc.gov/female-blood-disorders/about/information-for-adolescents.html",
+      "retrieved": "2026-11-24",
+      "reviewed": "2024-12-03",
+      "lang": "en",
+      "licence": "US federal government work, public domain (17 U.S.C. §105)",
+      "topics": [
+        "heavy periods",
+        "teens",
+        "bleeding disorder",
+        "adolescent"
+      ],
+      "goals": [
+        "period"
+      ],
+      "personas": [],
+      "text": "Heavy bleeding during periods (also called heavy menstrual bleeding) is often one of the most noticeable symptoms of a bleeding disorder. Yet it can be hard for tweens and teens to know whether their periods are heavy, especially if they feel that is normal for their bodies."
     }
   ]
 }
