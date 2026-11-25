@@ -70,10 +70,7 @@ femio est créé par KM Digital Labs, fondé par un médecin au Caire. Questions
 | 5 | Calendrier avec le calendrier hégirien activé | Votre calendrier, avec la date hégirienne à côté de chaque jour |
 | 6 | « Apprendre » : un article avec ses sources | Guides rédigés par un médecin, avec leurs sources |
 | 7 | « Aujourd'hui » : la liste des outils de grossesse (journal des mouvements, minuteur des contractions) | Journal des mouvements et minuteur des contractions, sans jugement |
-| 8 | Réglages : verrouillage et sauvegarde | Verrouillage de l'application, et une sauvegarde que vous gardez |
-| 9 (nouvelle, à photographier) | Réponse de « Demander à femio » avec sources | Demander à femio : des réponses avec leurs sources |
-
-Play autorise 8 captures d'écran de téléphone au maximum : la ligne 9 remplace la ligne 8 (voir `graphics-brief.md`).
+| 8 | Demandez à femio : une question sur la conception, avec la réponse de sa source fiable | Posez une question, obtenez une réponse avec sa source |
 
 ## Image de présentation (1024×500)
 

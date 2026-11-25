@@ -20,6 +20,9 @@ import 'package:femio/app.dart';
 import 'package:femio/data/library.dart';
 import 'package:femio/data/profile.dart';
 import 'package:femio/data/store.dart';
+import 'package:femio/domain/assistant/source_registry.dart';
+import 'package:femio/features/assistant/ask_screen.dart';
+import 'package:femio/features/assistant/assistant_scope.dart';
 import 'package:femio/features/learn/article_screen.dart';
 import 'package:femio/l10n/app_localizations.dart';
 import 'package:femio/main.dart' show configureFormatting;
@@ -59,12 +62,11 @@ const _today = '2026-10-08';
 
 /// Extra scroll after a heading is brought near the top, in the phone's own pixels, so
 /// the heading sits just under the app bar and the previous section's tail is out of view.
-/// Found by looking at the renders; the two lists have different padding above a heading.
-const _settingsNudge = 88.0;
+/// Found by looking at the renders.
 const _toolsNudge = 57.0;
 
-/// The pregnancy-tools and Settings frames use a shorter phone so their lists can scroll
-/// far enough to start at the wanted heading (a tall phone runs out of list in Arabic).
+/// The pregnancy-tools frame uses a shorter phone so its list can scroll far enough to
+/// start at the wanted heading (a tall phone runs out of list in Arabic).
 const _shortPhoneHeight = 600.0;
 
 // ---- the eight screens and their captions --------------------------------------------
@@ -76,7 +78,7 @@ class _Shot {
   final String ar;
 }
 
-// Captions 1-4 and 6-8 are the ones in docs/store/play-listing.{en,ar}.md. Caption 5 is
+// Captions 1-7 are the ones in docs/store/play-listing.{en,ar}.md, except caption 5, which is
 // changed: the app's calendar does not draw a due date, so the listing's wording
 // ("Due date on a calendar, with Hijri dates") would promise what the screen does not show.
 const _shots = [
@@ -87,8 +89,20 @@ const _shots = [
   _Shot('05-hijri', 'Your calendar, with Hijri dates beside each day', 'تقويمكِ، والتاريخ الهجري بجانب كل يوم'),
   _Shot('06-learn', 'Physician-written guides, with sources', 'مقالات كتبها طبيب، مع مصادرها'),
   _Shot('07-tools', 'Movement log and contraction timer, no verdicts', 'سجل حركة الجنين ومؤقّت الانقباضات، بلا أحكام'),
-  _Shot('08-settings', 'App lock, and a backup you keep', 'قفل للتطبيق، ونسخة احتياطية بين يديكِ'),
+  _Shot('08-ask', 'Ask a question, get an answer with its source', 'اسألي، وتأتيكِ الإجابة مع مصدرها'),
 ];
+
+/// The question shown on screenshot 8, one common trying-to-conceive question. The passages
+/// under it are whatever the bundled registry returns for it; nothing is written by hand.
+const _askQuestion = (
+  en: 'How long should we try to conceive before seeing a doctor?',
+  ar: 'كم أنتظر قبل أن أزور الطبيب لتأخر الحمل؟',
+);
+
+/// The trusted-source registry the app ships.
+SourceRegistry _registry() => SourceRegistry.fromJson(
+      jsonDecode(File('assets/trusted_sources/registry.json').readAsStringSync()) as Map<String, Object?>,
+    );
 
 // ---- harness (fonts copied from screens_test.dart) ------------------------------------
 
@@ -250,14 +264,15 @@ Profile _profile(String lang, int index) {
       );
     case 6: // 37 weeks: the pregnancy tools
       return Profile(goal: Goal.pregnant, locale: lang, birthYear: 1993, edd: '2026-10-28', settings: _settings(lang, hijri: false));
-    default: // settings
+    default: // Ask femio: trying to conceive, so the trying-to-conceive passages rank first
       return Profile(
         goal: Goal.ttc,
         locale: lang,
-        birthYear: 1994,
+        birthYear: 1992,
         periodStarts: const ['2026-09-10'],
         cycleLength: 28,
-        settings: _settings(lang),
+        tryingFor: TryingFor.sixTo12,
+        settings: _settings(lang, hijri: false),
       );
   }
 }
@@ -313,7 +328,7 @@ Future<void> _shoot(WidgetTester tester, String lang, _Shot shot, int index) asy
     await c.load();
     if (pin) await tester.runAsync(() => c.setPin('2468'));
     await tester.pumpWidget(_frame(lang, caption, FemioApp(controller: c, today: _today),
-        phoneHeight: index >= 6 ? _shortPhoneHeight : _phoneHeight));
+        phoneHeight: index == 6 ? _shortPhoneHeight : _phoneHeight));
     await tester.pumpAndSettle();
     return c;
   }
@@ -355,12 +370,37 @@ Future<void> _shoot(WidgetTester tester, String lang, _Shot shot, int index) asy
       await _scrollTo(tester, find.text(l.pregnancyToolsTitle), nudge: _toolsNudge);
       expect(find.text(l.movementsHeading), findsOneWidget);
       expect(find.text(l.contractionsHeading), findsOneWidget);
-    default: // Settings: lock and backup
-      await start(pin: true);
-      await tester.tap(find.byIcon(Icons.settings_outlined));
+    default: // Ask femio: a real registry answer, word for word, with its source
+      final c = FemioController(MemoryStore(_profile(lang, index)), initialLocale: lang);
+      await c.load();
+      await tester.pumpWidget(_frame(
+        lang,
+        caption,
+        MaterialApp(
+          debugShowCheckedModeBanner: false,
+          theme: FemioTheme.light(),
+          locale: Locale(lang),
+          supportedLocales: const [Locale('en'), Locale('ar')],
+          localizationsDelegates: const [
+            L10n.delegate,
+            GlobalMaterialLocalizations.delegate,
+            GlobalWidgetsLocalizations.delegate,
+            GlobalCupertinoLocalizations.delegate,
+          ],
+          // No model on the phone: the rules path shows the registry passage itself.
+          builder: (context, child) => AssistantScope(bridge: const OfflineAssistant(), child: child!),
+          home: AskScreen(controller: c, registry: _registry(), today: _today),
+        ),
+      ));
       await tester.pumpAndSettle();
-      await _scrollTo(tester, find.text(l.settingsPrivacy), nudge: _settingsNudge);
-      expect(find.text(l.settingsLock), findsOneWidget);
+      await tester.enterText(find.byType(TextField).first, lang == 'ar' ? _askQuestion.ar : _askQuestion.en);
+      await tester.tap(find.byIcon(Icons.search_rounded));
+      await tester.pumpAndSettle();
+      expect(find.text(l.askVerbatimLabel), findsOneWidget);
+      // Scroll the intro away so the answer and its source list are what the frame shows.
+      Scrollable.ensureVisible(tester.element(find.byType(TextField).first), alignment: 0.0);
+      await tester.pumpAndSettle();
+      expect(find.text(l.askNotCoveredHeading), findsNothing);
   }
 
   if (!autoUpdateGoldenFiles) return;
