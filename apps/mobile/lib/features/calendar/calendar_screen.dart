@@ -7,15 +7,20 @@ import 'package:flutter/material.dart';
 import 'package:intl/intl.dart' show DateFormat;
 
 import '../../app.dart';
+import '../../domain/cycle_prediction.dart';
 import '../../domain/dates.dart';
 import '../../domain/day_marks.dart';
 import '../../domain/hijri.dart';
+import '../../domain/upcoming_periods.dart';
+import '../../data/profile.dart';
 import '../../l10n/app_localizations.dart';
 import '../../theme/femio_theme.dart';
 import '../../theme/radii.dart';
 import '../../theme/spacing.dart';
 import '../../theme/type_sizes.dart';
+import '../../widgets/dashed_ring.dart';
 import '../../widgets/tab_header.dart';
+import 'upcoming_periods_card.dart';
 
 /// Month calendar. What she logged is drawn filled; what Femio estimates is drawn in
 /// outline or tint, never the same way (rule 3). Tapping a day opens its log.
@@ -23,7 +28,12 @@ import '../../widgets/tab_header.dart';
 /// [today] is an ISO day (future days cannot be opened); [onDay] receives the ISO day
 /// she taps. Needs a loaded [controller].
 class CalendarScreen extends StatefulWidget {
-  const CalendarScreen({super.key, required this.controller, required this.today, required this.onDay});
+  const CalendarScreen({
+    super.key,
+    required this.controller,
+    required this.today,
+    required this.onDay,
+  });
   final FemioController controller;
   final String today;
   final ValueChanged<String> onDay;
@@ -33,9 +43,13 @@ class CalendarScreen extends StatefulWidget {
 }
 
 class _CalendarScreenState extends State<CalendarScreen> {
-  late DateTime _month = DateTime.utc(fromISO(widget.today).year, fromISO(widget.today).month);
+  late DateTime _month = DateTime.utc(
+    fromISO(widget.today).year,
+    fromISO(widget.today).month,
+  );
 
-  void _shift(int by) => setState(() => _month = DateTime.utc(_month.year, _month.month + by));
+  void _shift(int by) =>
+      setState(() => _month = DateTime.utc(_month.year, _month.month + by));
 
   @override
   Widget build(BuildContext context) {
@@ -52,10 +66,26 @@ class _CalendarScreenState extends State<CalendarScreen> {
         final first = toISO(_month);
         final daysInMonth = DateTime.utc(_month.year, _month.month + 1, 0).day;
         final last = addDays(first, daysInMonth - 1);
-        final marks = dayMarks(profile, today: widget.today, from: first, to: last);
+        final marks = dayMarks(
+          profile,
+          today: widget.today,
+          from: first,
+          to: last,
+        );
+        String range(String a, String b) => l.rangeValue(
+          DateFormat.MMMd(locale).format(fromISO(a)),
+          DateFormat.MMMd(locale).format(fromISO(b)),
+        );
+        final upcoming = profile.goal == Goal.period || profile.goal == Goal.ttc
+            ? upcomingPeriods(
+                predictNextPeriod(profile.periodStarts, profile.cycleLength),
+              )
+            : const <UpcomingPeriod>[];
         final firstWeekday = ml.firstDayOfWeekIndex; // 0 = Sunday
         final lead = (_month.weekday % 7 - firstWeekday + 7) % 7;
-        final headers = [for (var i = 0; i < 7; i++) ml.narrowWeekdays[(firstWeekday + i) % 7]];
+        final headers = [
+          for (var i = 0; i < 7; i++) ml.narrowWeekdays[(firstWeekday + i) % 7],
+        ];
         final showHijri = profile.settings.showHijri;
         final hijriLine = showHijri ? hijriMonthLine(first, last, locale) : '';
 
@@ -67,6 +97,7 @@ class _CalendarScreenState extends State<CalendarScreen> {
           Color? fill;
           Color text = future ? p.textSubtle : p.text;
           Border? border;
+          var dashed = false;
           if (m?.bleed ?? false) {
             fill = p.logPeriod;
             text = Colors.white;
@@ -74,6 +105,8 @@ class _CalendarScreenState extends State<CalendarScreen> {
             fill = p.successSoft;
             border = Border.all(color: p.successSolid, width: 2);
             text = p.successText;
+          } else if (m?.possible ?? false) {
+            dashed = true;
           } else if (m?.predicted ?? false) {
             fill = p.predictionBand.withValues(alpha: 0.14);
             border = Border.all(color: p.predictionBand, width: 1.5);
@@ -83,7 +116,9 @@ class _CalendarScreenState extends State<CalendarScreen> {
           } else if (m?.spotting ?? false) {
             border = Border.all(color: p.logPeriod, width: 1.5);
           }
-          if (isToday && border == null) border = Border.all(color: p.primarySolid, width: 2);
+          if (isToday && border == null && !dashed) {
+            border = Border.all(color: p.primarySolid, width: 2);
+          }
 
           final hijri = showHijri ? hijriDay(iso) : '';
           // Without Hijri the circle fills its square cell; with it, a fixed circle leaves
@@ -92,13 +127,26 @@ class _CalendarScreenState extends State<CalendarScreen> {
           final number = Container(
             width: size,
             height: size,
-            decoration: BoxDecoration(color: fill, shape: BoxShape.circle, border: border),
+            decoration: BoxDecoration(
+              color: fill,
+              shape: BoxShape.circle,
+              border: border,
+            ),
             child: Stack(
               alignment: Alignment.center,
               children: [
+                if (dashed)
+                  Positioned.fill(
+                    child: CustomPaint(
+                      painter: DashedRingPainter(color: p.predictionBand),
+                    ),
+                  ),
                 Text(
                   '$day',
-                  style: t.bodyMedium?.copyWith(color: text, fontWeight: isToday ? FontWeight.w700 : FontWeight.w500),
+                  style: t.bodyMedium?.copyWith(
+                    color: text,
+                    fontWeight: isToday ? FontWeight.w700 : FontWeight.w500,
+                  ),
                 ),
                 if (m?.logged ?? false)
                   Positioned(
@@ -107,7 +155,9 @@ class _CalendarScreenState extends State<CalendarScreen> {
                       width: 5,
                       height: 5,
                       decoration: BoxDecoration(
-                        color: (m?.bleed ?? false) ? Colors.white : p.logSymptom,
+                        color: (m?.bleed ?? false)
+                            ? Colors.white
+                            : p.logSymptom,
                         shape: BoxShape.circle,
                       ),
                     ),
@@ -119,10 +169,14 @@ class _CalendarScreenState extends State<CalendarScreen> {
 
           return Semantics(
             button: !future,
-            label: hijri.isEmpty ? label : l.calendarDayLabel(label, hijriFullDate(iso, locale)),
+            label: hijri.isEmpty
+                ? label
+                : l.calendarDayLabel(label, hijriFullDate(iso, locale)),
             child: InkWell(
               customBorder: hijri.isEmpty ? const CircleBorder() : null,
-              borderRadius: hijri.isEmpty ? null : BorderRadius.circular(radiusMd),
+              borderRadius: hijri.isEmpty
+                  ? null
+                  : BorderRadius.circular(radiusMd),
               onTap: future ? null : () => widget.onDay(iso),
               child: hijri.isEmpty
                   ? Padding(padding: const EdgeInsets.all(3), child: number)
@@ -134,7 +188,11 @@ class _CalendarScreenState extends State<CalendarScreen> {
                         ExcludeSemantics(
                           child: Text(
                             hijri,
-                            style: t.labelSmall?.copyWith(fontSize: fontSizeHijriDay, color: p.textSubtle, height: 1),
+                            style: t.labelSmall?.copyWith(
+                              fontSize: fontSizeHijriDay,
+                              color: p.textSubtle,
+                              height: 1,
+                            ),
                           ),
                         ),
                       ],
@@ -168,7 +226,12 @@ class _CalendarScreenState extends State<CalendarScreen> {
               TabHeader(title: l.calendarTitle),
               const SizedBox(height: space4),
               Container(
-                padding: const EdgeInsets.fromLTRB(space3, space2, space3, space4),
+                padding: const EdgeInsets.fromLTRB(
+                  space3,
+                  space2,
+                  space3,
+                  space4,
+                ),
                 decoration: BoxDecoration(
                   color: p.surface,
                   borderRadius: BorderRadius.circular(radiusLg),
@@ -196,7 +259,10 @@ class _CalendarScreenState extends State<CalendarScreen> {
                                 Text(
                                   hijriLine,
                                   textAlign: TextAlign.center,
-                                  style: t.labelSmall?.copyWith(fontSize: fontSizeHijriDay, color: p.textSubtle),
+                                  style: t.labelSmall?.copyWith(
+                                    fontSize: fontSizeHijriDay,
+                                    color: p.textSubtle,
+                                  ),
                                 ),
                             ],
                           ),
@@ -214,12 +280,15 @@ class _CalendarScreenState extends State<CalendarScreen> {
                       // under the number (spec 2.3).
                       gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                         crossAxisCount: 7,
-                        mainAxisExtent: showHijri ? calendarRowHeightWithHijri : null,
+                        mainAxisExtent: showHijri
+                            ? calendarRowHeightWithHijri
+                            : null,
                       ),
                       shrinkWrap: true,
                       physics: const NeverScrollableScrollPhysics(),
                       children: [
-                        for (final h in headers) Center(child: Text(h, style: t.labelMedium)),
+                        for (final h in headers)
+                          Center(child: Text(h, style: t.labelMedium)),
                         for (var i = 0; i < lead; i++) const SizedBox.shrink(),
                         for (var d = 1; d <= daysInMonth; d++) cell(d),
                       ],
@@ -233,20 +302,49 @@ class _CalendarScreenState extends State<CalendarScreen> {
                 runSpacing: space2h,
                 children: [
                   legend(dot(p.logPeriod), l.legendPeriod),
-                  legend(dot(Colors.transparent, ring: p.logPeriod), l.legendSpotting),
-                  legend(dot(p.predictionBand.withValues(alpha: 0.14), ring: p.predictionBand), l.legendPredicted),
+                  legend(
+                    dot(Colors.transparent, ring: p.logPeriod),
+                    l.legendSpotting,
+                  ),
+                  legend(
+                    dot(
+                      p.predictionBand.withValues(alpha: 0.14),
+                      ring: p.predictionBand,
+                    ),
+                    l.legendPredicted,
+                  ),
+                  legend(
+                    SizedBox(
+                      width: 14,
+                      height: 14,
+                      child: CustomPaint(
+                        painter: DashedRingPainter(color: p.predictionBand),
+                      ),
+                    ),
+                    l.legendPossible,
+                  ),
                   legend(dot(p.successSoft), l.legendFertile),
-                  legend(dot(p.successSoft, ring: p.successSolid), l.legendOvulation),
+                  legend(
+                    dot(p.successSoft, ring: p.successSolid),
+                    l.legendOvulation,
+                  ),
                   legend(
                     Container(
                       width: 6,
                       height: 6,
-                      decoration: BoxDecoration(color: p.logSymptom, shape: BoxShape.circle),
+                      decoration: BoxDecoration(
+                        color: p.logSymptom,
+                        shape: BoxShape.circle,
+                      ),
                     ),
                     l.legendLogged,
                   ),
                 ],
               ),
+              if (upcoming.isNotEmpty) ...[
+                const SizedBox(height: space4),
+                UpcomingPeriodsCard(periods: upcoming, range: range),
+              ],
               const SizedBox(height: space3h),
               Text(l.calendarHint, style: t.bodySmall),
             ],

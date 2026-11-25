@@ -47,7 +47,9 @@ for (const file of ARB_FILES) {
     if (key.startsWith("@") || typeof value !== "string") continue;
     scanned += 1;
     for (const re of BANNED) {
-      if (re.test(value)) findings.push(`${file} → ${key}: "${value}" matches ${re}`);
+      const m = value.match(re);
+      // Same shape as the web findings below, so the report names the file and key.
+      if (m) findings.push({ locale: file, path: key, term: m[0], value });
     }
   }
 }

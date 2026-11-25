@@ -154,7 +154,7 @@ export default async function HomePage({ params }: PageProps) {
             <p className="text-sm leading-relaxed opacity-95">{t("hero.body")}</p>
             <div className="mt-2 flex flex-col gap-3 sm:flex-row">
               <Button asChild variant="accent" size="lg" className="w-full sm:w-auto">
-                <Link href={APP_PAGE} data-track="get_app_click" data-placement="hero">
+                <Link href={APP_PAGE}>
                   {t("hero.cta")}
                 </Link>
               </Button>
@@ -411,7 +411,7 @@ export default async function HomePage({ params }: PageProps) {
           <Bloom id="close-bloom" className="size-14" />
           <h2 className="font-display text-lg text-text rtl:font-bold">{t("close.heading")}</h2>
           <Button asChild variant="accent" size="lg" className="w-full sm:w-auto">
-            <Link href={APP_PAGE} data-track="get_app_click" data-placement="footer">
+            <Link href={APP_PAGE}>
               {t("hero.cta")}
             </Link>
           </Button>

@@ -57,7 +57,7 @@ class _HomeShellState extends State<HomeShell> {
             date: _logDate,
             onDateChanged: (d) => setState(() => _logDate = d),
           ),
-          if (_learnOpened) LearnScreen(library: _library) else const SizedBox.shrink(),
+          if (_learnOpened) LearnScreen(library: _library, controller: widget.controller) else const SizedBox.shrink(),
         ],
       ),
       bottomNavigationBar: NavigationBar(

@@ -1,0 +1,106 @@
+<title>femio build order</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,500&family=Plus+Jakarta+Sans:wght@400;600&display=swap">
+<style>
+/* Layout: one reading column; three waves as ruled lists, a decisions panel, sources at the foot. Dusk Bloom tokens. */
+:root{
+  --ground:#FBF7F3; --surface:#FFFFFF; --ink:#201A1D; --muted:#584B52; --line:#E6DBE1;
+  --plum:#6B2558; --rose:#BF2F59; --sage:#2F7163; --sage-soft:#E3F0EC; --amber:#8A5A00; --amber-soft:#FBF0DC;
+  --display:"Newsreader",Georgia,serif; --body:"Plus Jakarta Sans",system-ui,sans-serif;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --ground:#140D14; --surface:#1E151D; --ink:#F0E8EE; --muted:#C9B9C3; --line:#3A2C37;
+  --plum:#E8A6D4; --rose:#FF9FB5; --sage:#8CCBBC; --sage-soft:#1D2D29; --amber:#F2C574; --amber-soft:#2E2416; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --ground:#140D14; --surface:#1E151D; --ink:#F0E8EE; --muted:#C9B9C3; --line:#3A2C37;
+  --plum:#E8A6D4; --rose:#FF9FB5; --sage:#8CCBBC; --sage-soft:#1D2D29; --amber:#F2C574; --amber-soft:#2E2416; color-scheme:dark}
+body{background:var(--ground);color:var(--ink);font:15px/1.6 var(--body);
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:32px 56px}
+main{max-width:720px;margin:0 auto;display:grid;gap:36px}
+h1,h2{font-family:var(--display);font-weight:500;text-wrap:balance;margin:0}
+h1{font-size:2.1rem;color:var(--plum)}
+h2{font-size:1.4rem}
+.lede{color:var(--muted);margin:.4rem 0 0;max-width:62ch}
+.wave{display:grid;gap:10px}
+.wave p.note{margin:0;color:var(--muted);font-size:.92rem}
+ol{margin:0;padding:0;list-style:none;display:grid;border-top:1px solid var(--line)}
+li{display:grid;grid-template-columns:5.2rem 1fr;gap:12px;padding:11px 0;border-bottom:1px solid var(--line)}
+li .id{font-variant-numeric:tabular-nums;font-size:.8rem;letter-spacing:.03em;color:var(--plum);font-weight:600;padding-top:2px}
+li .what{min-width:0}
+li .what b{font-weight:600}
+li .why{display:block;color:var(--muted);font-size:.88rem}
+.tag{display:inline-block;font-size:.72rem;letter-spacing:.04em;text-transform:uppercase;padding:1px 8px;border-radius:999px;margin-left:6px;vertical-align:1px}
+.done{background:var(--sage-soft);color:var(--sage)}
+.ask{background:var(--amber-soft);color:var(--amber)}
+.panel{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:18px 20px;display:grid;gap:10px}
+.panel ul{margin:0;padding-inline-start:1.1rem;display:grid;gap:6px}
+.src{color:var(--muted);font-size:.88rem;display:grid;gap:4px}
+a{color:var(--plum)}
+a:focus-visible{outline:2px solid var(--rose);outline-offset:2px}
+</style>
+
+<main>
+  <header>
+    <h1>What we build next, in order</h1>
+    <p class="lede">One list from four inputs: your Stitch mockups, the persona review, the three competitor apps and the AI companion study. Each line is a task in the plan; the code is the proof when it is done.</p>
+  </header>
+
+  <section class="wave">
+    <h2>Done today</h2>
+    <ol>
+      <li><span class="id">R8.9</span><span class="what"><b>Ovulation always inside the fertile window</b><span class="tag done">done</span><span class="why">Checked for every cycle length from 21 to 35 days, in the app and on the website.</span></span></li>
+      <li><span class="id">R8.10</span><span class="what"><b>Next three periods on the calendar</b><span class="tag done">done</span><span class="why">Each later one is a wider range; the least certain is dashed. Only the next one when cycles vary a lot. Competitors show one date and a "late" counter.</span></span></li>
+      <li><span class="id">R8.2</span><span class="what"><b>Today: dashboard on top, notices at the bottom</b><span class="tag done">done</span><span class="why">Help now stays in the header on every tab.</span></span></li>
+    </ol>
+  </section>
+
+  <section class="wave">
+    <h2>Wave 1 · your requests and the AI foundation</h2>
+    <p class="note">Mostly your own asks. The AI boundary comes first because every AI feature after it plugs into it.</p>
+    <ol>
+      <li><span class="id">R10.1</span><span class="what"><b>The AI boundary ("surgical")</b><span class="why">Each AI use gets a narrow, typed window into the app; nothing passes it the whole record; anything it suggests for her log waits for her yes; one switch turns each use off. Today four screens can hand the phone's AI any text.</span></span></li>
+      <li><span class="id">R8.3</span><span class="what"><b>Ask femio up front, then the consent screen, then Settings</b><span class="why">The floating Ask femio and mic, the "Meet femio's assistant" sheet, and the per-purpose consent with its dated receipt.</span></span></li>
+      <li><span class="id">R8.7 · R8.6</span><span class="what"><b>Pregnancy mode, properly</b><span class="why">One week count everywhere (the mockups disagreed with themselves), no period or ovulation items, the calendar with the current week ringed and rows that start on her turnover day, and the "This week" page for mum and baby.</span></span></li>
+      <li><span class="id">R9.1</span><span class="what"><b>A daily line in pregnancy</b><span class="why">One short line a day from the reviewed week guide: the habit the competitors build, with sources they lack.</span></span></li>
+      <li><span class="id">R8.4</span><span class="what"><b>Words that fit her stage</b><span class="why">Hints, placeholders and empty states change with the mode, in all four languages.</span></span></li>
+      <li><span class="id">R9.6 · R10.13</span><span class="what"><b>"Why this range?" and "Explain this day"</b><span class="why">Built from her own numbers by rules, so they work on every phone.</span></span></li>
+      <li><span class="id">R10.2 · R8.27</span><span class="what"><b>Visit companion</b><span class="why">Her worry in her own words becomes reviewed questions for the doctor; the visit pack can print in her language plus one she picks for the clinic.</span></span></li>
+      <li><span class="id">R10.3</span><span class="what"><b>See what the AI can see</b><span class="why">"Why am I seeing this?" on tips, a Settings page listing what each AI use reads, and a log on her phone of every AI call.</span></span></li>
+      <li><span class="id">R10.7</span><span class="what"><b>Say it, several days at once</b><span class="why">"Cramps Monday, spotting yesterday" becomes two drafts she confirms; voice through her keyboard's own dictation.</span></span></li>
+    </ol>
+  </section>
+
+  <section class="wave">
+    <h2>Wave 2 · depth</h2>
+    <ol>
+      <li><span class="id">R8.5 · R10.4</span><span class="what"><b>Patterns, and Patterns in plain words</b><span class="why">"Seen in 4 of 6 cycles", never "abnormal"; the competitors label.</span></span></li>
+      <li><span class="id">R8.8</span><span class="what"><b>Signs this cycle side by side</b><span class="why">Temperature, ovulation test and fluid per cycle, never "you ovulated".</span></span></li>
+      <li><span class="id">R8.19 · R8.20</span><span class="what"><b>Postpartum and perimenopause views</b><span class="why">All three competitor apps simply stop after birth.</span></span></li>
+      <li><span class="id">R10.5 · R10.6</span><span class="what"><b>Weekly digests and Learn helpers</b><span class="why">Built on the phone; glossary on tap; a reviewed "In short" for each guide.</span></span></li>
+      <li><span class="id">R8.21</span><span class="what"><b>"What can leave this phone"</b><span class="why">Their apps carry two, eight and seven ad networks; ours lists one opt-in path.</span></span></li>
+      <li><span class="id">R9.4 · R9.8 · R9.10 · R9.11</span><span class="what"><b>Reminders, day notes, spreadsheet export, a discreet widget</b></span></li>
+    </ol>
+  </section>
+
+  <section class="wave">
+    <h2>Wave 3 · later</h2>
+    <p class="note">R8.11–R8.18 (health switch, two-week wait, labs, pregnancy ended, checklists), R9.3, R9.5, R9.9, R9.12, R9.13, and R10.8–R10.16. Each waits on a source, a review or one of your decisions below.</p>
+  </section>
+
+  <section class="panel">
+    <h2>Only you can decide</h2>
+    <ul>
+      <li><b>"N days past your due date"</b> (R9.2): replace the number with an estimate sentence and the warning-signs link? <span class="tag ask">recommended</span></li>
+      <li><b>What femio Plus sells</b> (R8.24): convenience only, such as PDF export, the widget, themes and extra reminders.</li>
+      <li><b>A private journal</b> (R10.15): needs a new field in her record.</li>
+      <li><b>femio's own microphone</b> (R10.17): needs a decision record; until then, the keyboard's dictation.</li>
+      <li><b>Clinician wording</b> for "do I have X?" (R7.14) and the two-week-wait lines.</li>
+      <li><b>Baby feeding log</b>: your Stitch prompt shows it; the plan defers it. Move it up?</li>
+    </ul>
+  </section>
+
+  <section class="src">
+    <span>Inputs: Stitch round 2 review (99 screens, 0 text-contrast failures) · persona review · <a href="https://claude.ai/artifact/ByzRH6dzJtFJq9TpHwMNuM">competitor app teardown</a> · AI companion study (36 uses). One limit we checked: the phone's built-in AI is officially validated for English and Korean only, so Arabic text always comes from femio's reviewed content, never written by the AI on the fly.</span>
+    <span>Prepared 24 November 2026.</span>
+  </section>
+</main>

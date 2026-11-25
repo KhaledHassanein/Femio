@@ -428,10 +428,10 @@
         },
         {
           "id": "ga4",
-          "title": "Create the Google Analytics 4 property and web data stream",
+          "title": "Not needed (ADR-080, 2026-11-24): Create the Google Analytics 4 property and web data stream",
           "owner": "owner",
           "time": "20 min · free",
-          "why": "GA4 counts visits to the site (only after consent). Its id is carried by Tag Manager, not pasted into the site.",
+          "why": "Skip this step. ADR-080 removed GA4, Tag Manager and the Meta pixel from the website (Vercel Web Analytics counts visits instead) and all ads from the app. If you already created this account, retire it as described in OWNER_ACTIONS rows 31-32. Old reason: GA4 counts visits to the site (only after consent). Its id is carried by Tag Manager, not pasted into the site.",
           "steps": [
             "Open analytics.google.com, Admin (gear, bottom left), Create, Account. Name it KM Digital Labs. Untick every data-sharing box except 'Technical support'. Next. [verify in console]",
             "Property: name 'femio website', time zone (GMT+02:00) Cairo, currency US Dollar. Next. [verify in console]",
@@ -454,10 +454,10 @@
         },
         {
           "id": "ga4-privacy",
-          "title": "Turn off Google signals, set retention, filter your own visits",
+          "title": "Not needed (ADR-080, 2026-11-24): Turn off Google signals, set retention, filter your own visits",
           "owner": "owner",
           "time": "10 min · free",
-          "why": "This is a health site: no cross-device profiles, shortest sensible retention, and your own visits kept out of the numbers.",
+          "why": "Skip this step. ADR-080 removed GA4, Tag Manager and the Meta pixel from the website (Vercel Web Analytics counts visits instead) and all ads from the app. If you already created this account, retire it as described in OWNER_ACTIONS rows 31-32. Old reason: This is a health site: no cross-device profiles, shortest sensible retention, and your own visits kept out of the numbers.",
           "steps": [
             "Admin, Data settings, Data collection: turn OFF 'Google signals'. [verify in console]",
             "Data retention: set 14 months. [verify in console]",
@@ -475,10 +475,10 @@
         },
         {
           "id": "gtm",
-          "title": "Create the Google Tag Manager account and container",
+          "title": "Not needed (ADR-080, 2026-11-24): Create the Google Tag Manager account and container",
           "owner": "owner",
           "time": "10 min · free",
-          "why": "One Tag Manager script on the site carries every other tag, and consent decides when each tag may fire.",
+          "why": "Skip this step. ADR-080 removed GA4, Tag Manager and the Meta pixel from the website (Vercel Web Analytics counts visits instead) and all ads from the app. If you already created this account, retire it as described in OWNER_ACTIONS rows 31-32. Old reason: One Tag Manager script on the site carries every other tag, and consent decides when each tag may fire.",
           "steps": [
             "Open tagmanager.google.com and click 'Create account': name KM Digital Labs, country Egypt. [verify in console]",
             "Container name femioapp.com, platform Web. Create and accept the terms.",
@@ -500,10 +500,10 @@
         },
         {
           "id": "gtm-import",
-          "title": "Import the ready-made container (GA4, seven events, consent rules)",
+          "title": "Not needed (ADR-080, 2026-11-24): Import the ready-made container (GA4, seven events, consent rules)",
           "owner": "owner",
           "time": "10 min · free",
-          "why": "The file holds the GA4 tag, seven event tags, triggers, variables and consent settings, so you do not type 20 things by hand. It contains none of your ids.",
+          "why": "Skip this step. ADR-080 removed GA4, Tag Manager and the Meta pixel from the website (Vercel Web Analytics counts visits instead) and all ads from the app. If you already created this account, retire it as described in OWNER_ACTIONS rows 31-32. Old reason: The file holds the GA4 tag, seven event tags, triggers, variables and consent settings, so you do not type 20 things by hand. It contains none of your ids.",
           "steps": [
             "In Tag Manager open Admin, then Import Container.",
             "Download the file again from the repository (docs/34_GROWTH_OPS/gtm/femio-container.json, version of 2026-10-30 or later): the 2026-10-28 file fails Tag Manager's validator. If you edited your copy, discard it; the file must not hold your G- id.",
@@ -559,10 +559,10 @@
         },
         {
           "id": "gtm-vercel",
-          "title": "Put the Tag Manager id into Vercel yourself",
+          "title": "Not needed (ADR-080, 2026-11-24): Put the Tag Manager id into Vercel yourself",
           "owner": "owner",
           "time": "5 min · free",
-          "why": "The site sends nothing to Tag Manager until this variable exists. You do it so the id never travels through chat.",
+          "why": "Skip this step. ADR-080 removed GA4, Tag Manager and the Meta pixel from the website (Vercel Web Analytics counts visits instead) and all ads from the app. If you already created this account, retire it as described in OWNER_ACTIONS rows 31-32. Old reason: The site sends nothing to Tag Manager until this variable exists. You do it so the id never travels through chat.",
           "steps": [
             "Open vercel.com, project femio-web, Settings, Environment Variables.",
             "Add a variable named NEXT_PUBLIC_GTM_ID with your GTM- id as the value. Tick Production and Preview. Save.",
@@ -589,10 +589,10 @@
         },
         {
           "id": "gtm-preview",
-          "title": "Prove consent works with Tag Manager Preview",
+          "title": "Not needed (ADR-080, 2026-11-24): Prove consent works with Tag Manager Preview",
           "owner": "owner",
           "time": "10 min · free",
-          "why": "This is the one test that shows no tag fires before the visitor agrees. Do it yourself once so you understand it.",
+          "why": "Skip this step. ADR-080 removed GA4, Tag Manager and the Meta pixel from the website (Vercel Web Analytics counts visits instead) and all ads from the app. If you already created this account, retire it as described in OWNER_ACTIONS rows 31-32. Old reason: This is the one test that shows no tag fires before the visitor agrees. Do it yourself once so you understand it.",
           "steps": [
             "In Tag Manager press Preview, enter https://femioapp.com/ar and click Connect.",
             "A new tab opens with a 'Tag Assistant connected' badge. In the Tag Assistant window open the Consent tab: every type must read Denied on load.",
@@ -611,10 +611,10 @@
         },
         {
           "id": "gtm-publish",
-          "title": "Publish the Tag Manager version and see your first visit in GA4",
+          "title": "Not needed (ADR-080, 2026-11-24): Publish the Tag Manager version and see your first visit in GA4",
           "owner": "owner",
           "time": "5 min · free",
-          "why": "Until you publish, the container does nothing on the live site.",
+          "why": "Skip this step. ADR-080 removed GA4, Tag Manager and the Meta pixel from the website (Vercel Web Analytics counts visits instead) and all ads from the app. If you already created this account, retire it as described in OWNER_ACTIONS rows 31-32. Old reason: Until you publish, the container does nothing on the live site.",
           "steps": [
             "In Tag Manager click Submit. Version name: v1 consent + GA4. Publish.",
             "Open analytics.google.com, Reports, Realtime.",
@@ -637,10 +637,10 @@
         },
         {
           "id": "meta",
-          "title": "Set up the Meta business portfolio, Facebook Page and Pixel dataset",
+          "title": "Not needed (ADR-080, 2026-11-24): Set up the Meta business portfolio, Facebook Page and Pixel dataset",
           "owner": "owner",
           "time": "30 min · free",
-          "why": "A pixel shows which Facebook and Instagram posts bring readers and builds an audience for organic reach. Meta may restrict a health domain to Core Setup; the plan already assumes it.",
+          "why": "Skip this step. ADR-080 removed GA4, Tag Manager and the Meta pixel from the website (Vercel Web Analytics counts visits instead) and all ads from the app. If you already created this account, retire it as described in OWNER_ACTIONS rows 31-32. Old reason: A pixel shows which Facebook and Instagram posts bring readers and builds an audience for organic reach. Meta may restrict a health domain to Core Setup; the plan already assumes it.",
           "steps": [
             "Open business.facebook.com and 'Create a business portfolio': name KM Digital Labs, your name, your business email. Confirm the email. [verify in console]",
             "Settings, Business assets, Pages: add or create the Facebook Page named femio, category 'Health & wellness website'. Use the bio from 04_GROWTH_PACK.md section 1, Arabic first. [verify in console]",
@@ -664,10 +664,10 @@
         },
         {
           "id": "meta-pixel-tags",
-          "title": "Add the three Meta Pixel tags in Tag Manager",
+          "title": "Not needed (ADR-080, 2026-11-24): Add the three Meta Pixel tags in Tag Manager",
           "owner": "owner",
           "time": "20 min · free",
-          "why": "The pixel fires only three simple events and only after the visitor allows advertising storage.",
+          "why": "Skip this step. ADR-080 removed GA4, Tag Manager and the Meta pixel from the website (Vercel Web Analytics counts visits instead) and all ads from the app. If you already created this account, retire it as described in OWNER_ACTIONS rows 31-32. Old reason: The pixel fires only three simple events and only after the visitor allows advertising storage.",
           "steps": [
             "In Tag Manager, Tags, New. Search the Community Template Gallery for the Facebook Pixel template (by Meta) or the official Meta Pixel template. [verify in console]",
             "Tag 1: Pixel ID = yours, event PageView, trigger All Pages. Consent settings: require ad_storage and ad_user_data.",
@@ -921,10 +921,10 @@
         },
         {
           "id": "admob-account",
-          "title": "Create the AdMob account and add the app",
+          "title": "Not needed (ADR-080, 2026-11-24): Create the AdMob account and add the app",
           "owner": "owner",
           "time": "15 min · free",
-          "why": "The app's ads (ADR-076) are served by Google AdMob, a separate console from AdSense. The account, the app entry and the ad units are yours.",
+          "why": "Skip this step. ADR-080 removed GA4, Tag Manager and the Meta pixel from the website (Vercel Web Analytics counts visits instead) and all ads from the app. If you already created this account, retire it as described in OWNER_ACTIONS rows 31-32. Old reason: The app's ads (ADR-076) are served by Google AdMob, a separate console from AdSense. The account, the app entry and the ad units are yours.",
           "steps": [
             "Open admob.google.com and sign in with the same Google account as Play Console.",
             "Accept the terms; country Egypt; payments details later (AdMob pays like AdSense: threshold $100).",
@@ -946,10 +946,10 @@
         },
         {
           "id": "admob-units",
-          "title": "Create the two banner ad units",
+          "title": "Not needed (ADR-080, 2026-11-24): Create the two banner ad units",
           "owner": "owner",
           "time": "10 min · free",
-          "why": "One unit per guide surface, so each can be switched off alone and reads separately in reports.",
+          "why": "Skip this step. ADR-080 removed GA4, Tag Manager and the Meta pixel from the website (Vercel Web Analytics counts visits instead) and all ads from the app. If you already created this account, retire it as described in OWNER_ACTIONS rows 31-32. Old reason: One unit per guide surface, so each can be switched off alone and reads separately in reports.",
           "steps": [
             "AdMob, Apps, femio, Ad units, Add ad unit, Banner, name femio-article, Create. [verify in console]",
             "Repeat with the name femio-learn.",
@@ -966,10 +966,10 @@
         },
         {
           "id": "ads-env",
-          "title": "Put the AdMob ids into the git-ignored ads.env file",
+          "title": "Not needed (ADR-080, 2026-11-24): Put the AdMob ids into the git-ignored ads.env file",
           "owner": "owner",
           "time": "5 min · free",
-          "why": "The build reads the app id and the two unit ids from apps/mobile/ads.env. Without it a build shows Google's test ads, which is right on your phone and wrong on Play.",
+          "why": "Skip this step. ADR-080 removed GA4, Tag Manager and the Meta pixel from the website (Vercel Web Analytics counts visits instead) and all ads from the app. If you already created this account, retire it as described in OWNER_ACTIONS rows 31-32. Old reason: The build reads the app id and the two unit ids from apps/mobile/ads.env. Without it a build shows Google's test ads, which is right on your phone and wrong on Play.",
           "steps": [
             "Copy apps/mobile/ads.env.example to apps/mobile/ads.env (same folder).",
             "Replace the three test values with the App ID and the two Ad unit IDs from AdMob. Keep the variable names.",
@@ -997,10 +997,10 @@
         },
         {
           "id": "app-ads-txt",
-          "title": "Put the AdMob publisher id into Vercel and verify app-ads.txt",
+          "title": "Not needed (ADR-080, 2026-11-24): Put the AdMob publisher id into Vercel and verify app-ads.txt",
           "owner": "owner",
           "time": "10 min + a day · free",
-          "why": "AdMob reads femioapp.com/app-ads.txt (the website named in the Play listing) before it serves most ads. The route is built; it needs the pub- id.",
+          "why": "Skip this step. ADR-080 removed GA4, Tag Manager and the Meta pixel from the website (Vercel Web Analytics counts visits instead) and all ads from the app. If you already created this account, retire it as described in OWNER_ACTIONS rows 31-32. Old reason: AdMob reads femioapp.com/app-ads.txt (the website named in the Play listing) before it serves most ads. The route is built; it needs the pub- id.",
           "steps": [
             "vercel.com, Settings, Environment Variables: NEXT_PUBLIC_ADMOB_PUBLISHER = pub-… (digits only after pub-). Save, Redeploy.",
             "Open femioapp.com/app-ads.txt: it must show 'google.com, pub-…, DIRECT, f08c47fec0942fa0'.",

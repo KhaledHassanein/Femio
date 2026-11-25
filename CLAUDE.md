@@ -16,8 +16,9 @@ else and proceed on the recommended default.
    Every page sends her to the app for the full product.
 3. **One content source** (`docs/content/articles/*.md` → `packages/content` JSON) read by both.
 
-**Wedge:** Arabic-first, **trying to conceive → pregnancy**, with **PCOS** depth, **Saudi Arabia +
-Egypt**. Four UI languages (EN/AR/FR/ES, RTL-native); new content ships EN + AR. The long-term
+**Wedge:** **trying to conceive → pregnancy**, with **PCOS** depth, **Saudi Arabia + Egypt**
+(owner 2026-11-24: never pitch Femio as "Arabic-first"; languages are one line; no Ramadan content). **Positioning (ADR-078 §8, 2026-11-24):** "femio: AI-assisted women's health &
+wellness" across every life stage; the wedge is the build order, not the limit. Four UI languages (EN/AR/FR/ES, RTL-native); new content ships EN + AR. The long-term
 ambition (one record for her whole health life) stays the direction, not the launch scope.
 
 ## Non-negotiable product rules (these gate every feature)
@@ -28,15 +29,31 @@ ambition (one record for her whole health life) stays the direction, not the lau
    stays reachable.
 3. **Uncertainty-honest predictions.** Ranges + confidence, never a single certain date, never a
    "late" counter in irregular modes, "no confident window" when cycles vary too much.
-4. **Privacy by design.** Health data never leaves the phone. The website measures visits only
-   after consent and never what she typed (ADR-075). The app has no analytics and no network
-   code of its own; its only ads are Google's banners on the guide screens, non-personalised,
-   fed nothing about her (ADR-076), and femio Plus removes them.
+4. **Privacy by design.** Her records never leave the phone. The app has no ads, no analytics,
+   no tracking SDK and no network code of its own (ADR-080). The website counts visits with
+   cookieless Vercel Web Analytics only (no GA4, no Tag Manager, no Meta pixel) and shows AdSense
+   on content pages only after consent; it never records what she typed. Every privacy sentence
+   must match what the code sends: the notice lists everything that can leave the phone. The assistant (ADR-078,
+   ADR-079) runs on the phone (Gemini Nano, `ONLY_ON_DEVICE`) for anything that touches her
+   record, and answers only from the bundled trusted-source registry, with citations. Only if
+   she agrees to **Cloud boost** (off by default; explicit consent per purpose, stored as a dated,
+   versioned receipt, ADR-080) may a phone without Nano send
+   a `CloudPrompt` to Google's cloud model through Firebase AI Logic on the paid tier: a
+   redacted general question she approved, or her four-band `PseudonymisedProfile`, nothing
+   else. Rules (red flags, contraception refusal) always run before the model and always win.
 5. **One constant record, additive layers.** A life-stage change re-layers the experience over an
    unchanged record; never rebuilds or deletes.
 6. **Arabic and RTL are first-class.** Western digits in Arabic (ADR-069); Hijri shown beside
    Gregorian where dates appear (stored Gregorian); the wordmark is always the Latin **femio**, also
    inside Arabic prose.
+7. **The AI is a companion, never the engine (owner 2026-11-24).**
+   - Hybrid AI exists *for* privacy. It brings personalised help to every surface, Learn included; be creative.
+   - It never touches core functions, and it never sees the sensitive record or the whole context.
+   - Every feature works with AI off.
+   - The AI reads only through a narrow, typed context: on the phone for anything from her record; Cloud boost only with a question she approved or the four bands (ADR-079/080).
+   - It never writes to her record without her confirming.
+   - Rules always run first.
+   - Every agent keeps looking for new companion uses and pain points (plan: PROGRESS R10).
 
 ## The architecture rule (ADR-070)
 **The specification owns decisions; the clients run it.** Every medical threshold, wording rule and

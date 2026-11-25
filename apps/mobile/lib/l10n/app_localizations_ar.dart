@@ -1476,9 +1476,862 @@ class L10nAr extends L10n {
       'المنتج femio_plus غير موجود بعد (متوقع حتى يُنشأ في Play Console)';
 
   @override
-  String get adLabel => 'إعلان';
+  String get assistantPrivateNote =>
+      'يتم هذا على هاتفك. كلماتك لا تُحفظ ولا تُرسل إلى أي مكان.';
 
   @override
-  String get adsNotice =>
-      'تظهر الإعلانات في شاشات الدلائل فقط. لا تطّلع أبدًا على سجلاتكِ، وسيزيلها femio Plus.';
+  String get assistantModelNote =>
+      'ساعد في ذلك Gemini Nano، الذكاء الاصطناعي الموجود على هاتفك.';
+
+  @override
+  String get sayItButton => 'قوليها بكلماتك';
+
+  @override
+  String get sayItTitle => 'بماذا تشعرين؟';
+
+  @override
+  String get sayItHint => 'مثلاً: مغص جامد ونزول خفيف وتعبانة جداً';
+
+  @override
+  String get sayItAction => 'حوّليها إلى تسجيل';
+
+  @override
+  String get sayItNothing =>
+      'لم يجد femio شيئاً لتسجيله. جرّبي كلمات أخرى أو اختاري من شاشة التسجيل.';
+
+  @override
+  String get sayItFound => 'وجد femio هذه. ألغي اختيار أي شيء غير صحيح.';
+
+  @override
+  String get sayItAdd => 'أضيفي إلى تسجيل هذا اليوم';
+
+  @override
+  String get sayItAdded => 'تمت الإضافة إلى تسجيلك.';
+
+  @override
+  String get safetyCrisisHeading => 'لستِ وحدكِ في هذا';
+
+  @override
+  String get safetyCrisisBody =>
+      'إذا كنتِ تفكرين في إيذاء نفسكِ، تواصلي مع أحد الآن. صفحة المساعدة فيها أرقام الدعم في بلدكِ.';
+
+  @override
+  String get safetyUrgentHeading => 'قد يحتاج هذا إلى رعاية عاجلة';
+
+  @override
+  String get safetyUrgentBody =>
+      'ألم الصدر أو صعوبة التنفس أو الإغماء أو التشنج تحتاج إلى مساعدة طبية الآن. اتصلي برقم الطوارئ في بلدكِ.';
+
+  @override
+  String get safetyBirthControl =>
+      'femio ليس وسيلة لمنع الحمل ولا يقدّم نصائح لتجنّب الحمل. يمكن للطبيب أو الصيدلي أو عيادة تنظيم الأسرة مساعدتكِ في اختيار وسيلة.';
+
+  @override
+  String get safetyHeavyBleedingHeading => 'نزيف شديد مع دوخة';
+
+  @override
+  String get safetyHeavyBleedingBody =>
+      'تقول الكلية الأمريكية لأطباء النساء والتوليد (ACOG): «إذا كنتِ تغيّرين الفوط أو السدادات كل ساعة لأكثر من ساعتين متتاليتين، وتشعرين أيضاً بألم في الصدر وضيق في التنفس ودوار أو دوخة، فاطلبي رعاية طبية طارئة فوراً». (ترجمة femio.) إن كان هذا حالكِ فاتصلي برقم الطوارئ الآن. وإن كان النزيف الشديد يقلقكِ فتحدّثي مع طبيبكِ.';
+
+  @override
+  String get safetyPostpartumHeading => 'علامة تحذير بعد الولادة';
+
+  @override
+  String get safetyPostpartumBody =>
+      'في السنة التي تلي الولادة، تقول حملة Hear Her التابعة لـ CDC: اطلبي رعاية طبية فوراً عند أي علامة تحذير عاجلة، مثل النزيف الشديد أو الحمّى أو صداع لا يزول أو تورّم الساق. اتصلي بطبيبكِ أو قابلتكِ الآن، أو برقم الطوارئ.';
+
+  @override
+  String get askTitle => 'اسألي femio';
+
+  @override
+  String get askIntro =>
+      'اسألي سؤالاً صحياً. يجيب femio فقط من مصادر صحية موثوقة يحملها على هاتفكِ، مثل CDC وMedlinePlus ومكتب صحة المرأة الأمريكي، ويُريكِ مصدر كل جملة.';
+
+  @override
+  String get askHint => 'مثلاً: ما الذي يخفف مغص الدورة؟';
+
+  @override
+  String get askAction => 'اسألي';
+
+  @override
+  String get askWillSend =>
+      'هذا هو السؤال الذي سيُرسل بالضبط، مع المصادر العامة:';
+
+  @override
+  String get askSend => 'لخّصي بـ Cloud boost';
+
+  @override
+  String get askStillPersonal =>
+      'ما زال هذا يتحدث عنكِ. احذفي كلمات مثل «أنا» أو «عندي» وأي تفاصيل شخصية.';
+
+  @override
+  String get askCloudPrivacy =>
+      'يُرسل هذا السؤال والمصادر العامة فقط. لا شيء من تسجيلاتكِ.';
+
+  @override
+  String get askSearching => 'يقرأ المصادر الموثوقة…';
+
+  @override
+  String get askSourcesTitle => 'المصادر';
+
+  @override
+  String get askClinicianLine =>
+      'هذه معلومات عامة وليست نصيحة خاصة بكِ. لحالتكِ أنتِ، تحدّثي مع طبيبكِ أو قابلتكِ.';
+
+  @override
+  String get askRelatedGuides => 'أدلة femio عن هذا';
+
+  @override
+  String get askSearchAgain => 'اسألي سؤالاً آخر';
+
+  @override
+  String get askAboutYouStays =>
+      'سؤالكِ عنكِ، لذلك يبقى على هذا الهاتف. إليكِ المصادر كما هي.';
+
+  @override
+  String get askModelFellBack =>
+      'لم يستطع الذكاء الاصطناعي كتابة إجابة تذكر مصادرها، فإليكِ المصادر كما هي.';
+
+  @override
+  String get askBoostHeading => 'Cloud boost';
+
+  @override
+  String get askBoostConfirm =>
+      'لا يوجد ذكاء اصطناعي على هذا الهاتف. مع Cloud boost يمكن لذكاء Google السحابي تلخيص هذه المصادر العامة لكِ. راجعي السؤال أولاً.';
+
+  @override
+  String get askReadSourcesInstead => 'اقرئي المصادر بدلاً من ذلك';
+
+  @override
+  String get askNotCoveredHeading => 'غير مشمول بعد';
+
+  @override
+  String get askNotCovered =>
+      'مصادر femio الموثوقة لا تجيب عن هذا، لذلك لن يُخمّن femio. جرّبي كلمات أخرى، أو اقرئي الروابط أدناه، أو اسألي طبيبكِ.';
+
+  @override
+  String askRegistryVersion(String version) {
+    return 'مكتبة المصادر الموثوقة $version';
+  }
+
+  @override
+  String get askAnswerOnPhone =>
+      'لخّصه Gemini Nano على هاتفكِ، من المصادر أدناه';
+
+  @override
+  String get askAnswerCloud =>
+      'لخّصه ذكاء Google السحابي (Cloud boost)، من المصادر أدناه';
+
+  @override
+  String get askVerbatimLabel => 'كما هو من المصادر الموثوقة';
+
+  @override
+  String get askEnglishNote =>
+      'هذه المصادر باللغة الإنجليزية. يعرضها femio كما هي حتى لا يضيع شيء في الترجمة.';
+
+  @override
+  String get askReadMore => 'اقرئي المزيد من منظمات موثوقة';
+
+  @override
+  String askSourceCopied(String publisher, String date) {
+    return '$publisher · نُسخ في $date';
+  }
+
+  @override
+  String askSourceReviewed(String publisher, String date) {
+    return '$publisher · رُوجع في $date';
+  }
+
+  @override
+  String get visitButton => 'ملخص للزيارة';
+
+  @override
+  String get visitTitle => 'ملخص للزيارة';
+
+  @override
+  String get visitIntro =>
+      'صفحة تعرضينها على طبيبكِ، من تسجيلاتكِ أنتِ. تبقى على هاتفكِ إلا إذا نسختِها.';
+
+  @override
+  String visitCycles(int count, int longest, int shortest) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count دورة مسجّلة: من $shortest إلى $longest يوماً',
+      many: '$count دورة مسجّلة: من $shortest إلى $longest يوماً',
+      few: '$count دورات مسجّلة: من $shortest إلى $longest يوماً',
+      two: 'دورتان مسجّلتان: من $shortest إلى $longest يوماً',
+      one: 'دورة واحدة مسجّلة: $shortest يوماً',
+      zero: 'لا توجد دورة كاملة مسجّلة بعد',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String visitLastPeriod(String date) {
+    return 'بدأت آخر دورة في $date';
+  }
+
+  @override
+  String get visitIrregular => 'الدورات موصوفة بأنها غير منتظمة';
+
+  @override
+  String get visitTopTerms => 'الأكثر تسجيلاً في آخر 90 يوماً';
+
+  @override
+  String visitDays(int days) {
+    String _temp0 = intl.Intl.pluralLogic(
+      days,
+      locale: localeName,
+      other: '$days يوم',
+      many: '$days يوماً',
+      few: '$days أيام',
+      two: 'يومان',
+      one: 'يوم واحد',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get visitHeavyDays => 'أيام النزول الغزير';
+
+  @override
+  String get visitOpkPositive => 'اختبارات تبويض إيجابية';
+
+  @override
+  String get visitTemperatureDays => 'أيام مسجّل فيها حرارة الاستيقاظ';
+
+  @override
+  String get visitTryingFor => 'محاولة الحمل';
+
+  @override
+  String get visitQuestionsTitle => 'أسئلة يمكنكِ طرحها';
+
+  @override
+  String get visitCopy => 'انسخي كنص';
+
+  @override
+  String get visitCopied => 'تم النسخ. الصقيه في رسالة أو في ملاحظاتكِ.';
+
+  @override
+  String get visitQ_cycleSpread => 'أطوال دوراتي تتغير. هل يستحق ذلك الفحص؟';
+
+  @override
+  String get visitQ_ttcTests =>
+      'بالنظر إلى مدة محاولتنا، ما الفحوصات التي تقترحها؟';
+
+  @override
+  String get visitQ_ovulation => 'كيف نعرف إن كنت أبيض؟';
+
+  @override
+  String get visitQ_folicAcid => 'هل يجب أن آخذ حمض الفوليك الآن؟';
+
+  @override
+  String get visitQ_painfulPeriods =>
+      'ألم الدورة يؤثر على يومي. ما الذي يمكن أن يساعد؟';
+
+  @override
+  String get visitQ_heavyPeriods => 'دورتي غزيرة. هل يستحق الأمر تحليل دم؟';
+
+  @override
+  String get visitQ_moodCycle =>
+      'مزاجي يتغير كثيراً حول موعد الدورة. هل يمكن أن نتحدث عن ذلك؟';
+
+  @override
+  String get visitQ_skinHair =>
+      'عندي تغيّرات في البشرة أو الشعر مع دورات غير منتظمة. هل يجب فحصها معاً؟';
+
+  @override
+  String get visitQ_tiredness => 'أشعر بالتعب كثيراً. هل هناك ما يستحق الفحص؟';
+
+  @override
+  String get visitQ_menopause =>
+      'هل يمكن أن تكون أعراضي مرتبطة بما قبل انقطاع الطمث، وما خياراتي؟';
+
+  @override
+  String get visitQ_pregnancyNext =>
+      'ما الذي يجب أن أنتبه له قبل زيارتنا القادمة؟';
+
+  @override
+  String get visitQ_pregnancyMovements => 'متى أبدأ في الانتباه لحركات الجنين؟';
+
+  @override
+  String get visitQ_anythingElse =>
+      'هل في تسجيلاتي شيء تودّ النظر إليه عن قرب؟';
+
+  @override
+  String get assistantSettingsTitle => 'المساعد';
+
+  @override
+  String get assistantSettingsSub =>
+      'الذكاء الاصطناعي على هاتفكِ والمصادر الموثوقة وCloud boost';
+
+  @override
+  String get assistantOnDeviceTitle =>
+      'الذكاء الاصطناعي على هاتفكِ (Gemini Nano)';
+
+  @override
+  String get assistantOnDeviceAvailable =>
+      'جاهز. يقرأ ملاحظاتكِ على الهاتف، ولا يُرسل شيئاً.';
+
+  @override
+  String get assistantOnDeviceDownloadable => 'يمكن تنزيله على هذا الهاتف.';
+
+  @override
+  String get assistantOnDeviceDownloading => 'جارٍ التنزيل…';
+
+  @override
+  String get assistantOnDeviceUnavailable =>
+      'غير متاح على هذا الهاتف. يستخدم femio قائمة كلماته الخاصة بدلاً منه، على الهاتف أيضاً.';
+
+  @override
+  String get assistantDownload => 'تنزيل';
+
+  @override
+  String get assistantCloudTitle => 'Cloud boost';
+
+  @override
+  String get assistantCloudOn =>
+      'مُفعّل. يُستخدم فقط إن لم يكن على الهاتف ذكاء اصطناعي.';
+
+  @override
+  String get assistantCloudOff => 'متوقف. كل شيء يتم على هذا الهاتف.';
+
+  @override
+  String get assistantHowItWorks =>
+      'تبقى تسجيلاتكِ على هاتفكِ. تقرأ قواعد femio ملاحظاتكِ وتسجيلاتكِ، ويساعد Gemini Nano على الهاتف إن كان متاحاً. قواعد السلامة تأتي أولاً دائماً: علامات الخطر تفتح صفحة المساعدة، ولا يقدّم femio نصائح عن تجنّب الحمل. يجيب «اسألي femio» فقط من مصادر صحية موثوقة يحملها التطبيق، ويعرضها مع كل إجابة. Cloud boost متوقف ما لم توافقي عليه؛ وعندها لا يُرسَل إلى Google إلا ما تذكره شاشته.';
+
+  @override
+  String get assistantCloudNotBuilt => 'غير متاح في هذه النسخة من التطبيق.';
+
+  @override
+  String get boostTitle => 'Cloud boost';
+
+  @override
+  String get boostIntro =>
+      'بعض الهواتف ليس عليها ذكاء اصطناعي. على هذه الهواتف، يسمح Cloud boost لذكاء Google السحابي بتلخيص المصادر الموثوقة لسؤال توافقين عليه، أو بترتيب نصائحكِ. هو اختياري، ويبقى متوقفاً ما لم توافقي أدناه. وكل ما عداه في femio يعمل من دونه.';
+
+  @override
+  String get boostSendsHeading => 'ما قد يُرسل';
+
+  @override
+  String get boostStageLabel => 'المرحلة';
+
+  @override
+  String boostStage(String value) {
+    String _temp0 = intl.Intl.selectLogic(value, {
+      'period': 'متابعة الدورة',
+      'ttc': 'محاولة الحمل',
+      'pregnant': 'حامل',
+      'postpartum': 'بعد الولادة',
+      'menopause': 'انقطاع الطمث',
+      'other': 'غير محدد',
+    });
+    return '$_temp0';
+  }
+
+  @override
+  String get boostRegularityLabel => 'انتظام الدورة';
+
+  @override
+  String boostRegularity(String value) {
+    String _temp0 = intl.Intl.selectLogic(value, {
+      'regular': 'منتظمة',
+      'variable': 'متغيّرة',
+      'unknown': 'غير معروف بعد',
+      'notApplicable': 'لا تُتابع الآن',
+      'other': 'غير معروف بعد',
+    });
+    return '$_temp0';
+  }
+
+  @override
+  String get boostCategoriesLabel => 'أنواع الأعراض المسجّلة في الشهر الماضي';
+
+  @override
+  String boostCategory(String value) {
+    String _temp0 = intl.Intl.selectLogic(value, {
+      'pain': 'ألم',
+      'mood': 'مزاج',
+      'digestion': 'هضم',
+      'sleepAndEnergy': 'نوم وطاقة',
+      'skinAndHair': 'بشرة وشعر',
+      'hotFlashes': 'هبّات ساخنة',
+      'bladder': 'مثانة',
+      'other': 'أخرى',
+    });
+    return '$_temp0';
+  }
+
+  @override
+  String get boostNone => 'لا شيء';
+
+  @override
+  String get boostStreakLabel => 'مدة التسجيل المتواصل';
+
+  @override
+  String boostStreak(String value) {
+    String _temp0 = intl.Intl.selectLogic(value, {
+      'none': 'لا شيء',
+      'underAWeek': 'أقل من أسبوع',
+      'weeks': 'بضعة أسابيع',
+      'overAMonth': 'أكثر من شهر',
+      'other': 'لا شيء',
+    });
+    return '$_temp0';
+  }
+
+  @override
+  String get boostNeverHeading => 'ما لا يُرسل أبداً';
+
+  @override
+  String get boostNever =>
+      'ملاحظاتكِ، والتواريخ، والتسجيلات، وأطوال الدورات، واسمكِ، وبريدكِ الإلكتروني، وجهات اتصالكِ، ومعرّف الإعلانات.';
+
+  @override
+  String get boostTurnOff => 'أوقفي Cloud boost';
+
+  @override
+  String get boostNotNow => 'ليس الآن';
+
+  @override
+  String get boostAgreeQuestions =>
+      'أوافق على أن يرسل femio سؤالاً عاماً أوافق عليه، سؤالاً واحداً في كل مرة، مع المصادر العامة التي وجدها، ليلخّصها ذكاء Google السحابي. يحذف femio الأرقام والتواريخ والأسماء وبيانات الاتصال أولاً، وأرى النص كما هو قبل إرساله.';
+
+  @override
+  String get boostAgreeTips =>
+      'أوافق على أن يرسل femio هذه الحقائق العامة الأربع عن صحتي، كما تظهر هنا تماماً، ليرتّب ذكاء Google السحابي نصائحي. يحدث ذلك في الخلفية ما دام Cloud boost مفعّلاً.';
+
+  @override
+  String get boostPurposeQuestions => 'الأسئلة العامة';
+
+  @override
+  String get boostPurposeTips => 'النصائح من أربع حقائق عامة';
+
+  @override
+  String get boostWhoHeading => 'من يستلمها، وأين';
+
+  @override
+  String get boostWho =>
+      'تعالجها Google لصالح femio عبر Firebase AI Logic (واجهة Gemini Developer API، الفئة المدفوعة). وقد تعالجها Google في الولايات المتحدة أو في دول أخرى لديها فيها خوادم، وفق شروطها لمعالجة البيانات. ويحدّد femio (KM Digital Labs، القاهرة، مصر) ما يُرسَل، وهو المسؤول عنه.';
+
+  @override
+  String get boostKeptHeading => 'كم تُحفظ';
+
+  @override
+  String get boostKept =>
+      'ليس لدى femio خادم، ولا يحتفظ بشيء منها. وبموجب الشروط المدفوعة التي يستخدمها femio، لا تستخدمها Google لتحسين منتجاتها. وتحتفظ بها Google مدة أقصاها 55 يوماً لكشف إساءة الاستخدام، وقد يراجع موظفون في Google المحتوى الذي تعلّمه أنظمتها على أنه إساءة استخدام.';
+
+  @override
+  String get boostAlsoSeen =>
+      'وكأي اتصال بالإنترنت، ترى Google أيضاً عنوان الإنترنت لهاتفكِ، وفحصاً من Google Play يؤكد أن الطلب صادر من تطبيق femio الحقيقي.';
+
+  @override
+  String get boostChoiceHeading => 'اختياركِ';
+
+  @override
+  String get boostChoice =>
+      'الموافقة اختيارية، ويمكنكِ الموافقة على استخدام واحد دون الآخر. ويمكنكِ إيقاف Cloud boost في أي وقت، هنا أو في الإعدادات › المساعد، بالسهولة نفسها التي فعّلتِه بها. ويسألكِ كل هاتف من جديد: النسخة الاحتياطية المستعادة لا تنقل موافقتكِ.';
+
+  @override
+  String get boostReadNotice => 'اقرئي إشعار الخصوصية';
+
+  @override
+  String get boostExplicit =>
+      'هذه الحقائق والأسئلة تخص صحتكِ. بوضع علامة في خانة والضغط على «أوافق»، تمنحين موافقتكِ الصريحة على ذلك الاستخدام وحده. ويحتفظ femio على هذا الهاتف بسجل مؤرّخ لاختياركِ، يمكنكِ رؤيته هنا.';
+
+  @override
+  String get boostAgree => 'أوافق';
+
+  @override
+  String get boostReceiptHeading => 'موافقتكِ';
+
+  @override
+  String boostReceipt(String date, String purposes) {
+    return 'وافقتِ في $date على: $purposes.';
+  }
+
+  @override
+  String get boostWithdrawEffect =>
+      'إيقافه يمنع إرسال أي شيء جديد، لكنه لا يستعيد ما أُرسل من قبل.';
+
+  @override
+  String get tip_trackDatesHelps =>
+      'تسجيل مواعيد دورتك الشهرية في التطبيق يساعدك على رؤية نمطك الخاص، ويمنح الطبيب أو الطبيبة معلومات واضحة.';
+
+  @override
+  String get tip_periodLongerThanSeven =>
+      'الدورة الشهرية التي تستمر أكثر من 7 أيام تستحق أن تخبري بها الطبيب أو الطبيبة.';
+
+  @override
+  String get tip_bleedingBetweenPeriods =>
+      'النزف بين الدورات الشهرية يستحق أن تخبري به الطبيب أو الطبيبة ليُبحث عن سببه.';
+
+  @override
+  String get tip_irregularCheckIn =>
+      'تُسمّى الدورات التي تقل عن 21 يومًا أو تزيد على 35 يومًا دورات غير منتظمة. أخبري الطبيب أو الطبيبة بذلك ليراجع مواعيدك معك.';
+
+  @override
+  String get tip_stoppedThreeMonths =>
+      'انقطاع الدورة الشهرية أكثر من ثلاثة أشهر دون سبب واضح يستحق فحص الطبيب أو الطبيبة، مهما كان عمرك.';
+
+  @override
+  String get tip_irregularWithOtherSigns =>
+      'الدورة غير المنتظمة مع تغيّرات أخرى، مثل حب الشباب أو زيادة نمو الشعر، تستحق أن تخبري بها الطبيب أو الطبيبة.';
+
+  @override
+  String get tip_periodPainSeeClinician =>
+      'ألم الدورة الشهرية الذي يمنعك من ممارسة أنشطتك اليومية المعتادة سبب لمراجعة الطبيب أو الطبيبة.';
+
+  @override
+  String get tip_severePainUrgent =>
+      'إذا كان ألم الحوض أو الدورة شديدًا أو أسوأ من المعتاد ولم تُخفّفه المسكّنات، فاطلبي مشورة طبية عاجلة.';
+
+  @override
+  String get tip_symptomDiaryBeforeVisit =>
+      'قبل زيارة بسبب مشكلات الدورة الشهرية، يمنح سجلّ أعراضك على مدار الدورة كلها الطبيبَ أو الطبيبة صورة مفصّلة عمّا يحدث ومتى.';
+
+  @override
+  String get tip_heavyOrTired =>
+      'الدورات التي تعيقك عن أنشطتك اليومية أو تتركك متعبة أو ضيقة النَّفَس كثيرًا قد تكون علامة على غزارة الطمث. يستطيع الطبيب أو الطبيبة مساعدتك.';
+
+  @override
+  String get tip_pmsDiary =>
+      'تسجيل أعراضك يوميًا لدورتين على الأقل يساعد الطبيب أو الطبيبة على معرفة ما إذا كانت ترتبط بدورتك الشهرية.';
+
+  @override
+  String get tip_headachesAroundPeriod =>
+      'الصداع الذي يتكرر قبل الدورة الشهرية أو خلالها يستحق أن تخبري به الطبيب أو الطبيبة. ويساعد تسجيل الصداع بجانب مواعيد دورتك.';
+
+  @override
+  String get tip_urineInfectionSeeClinician =>
+      'إذا ظننتِ أنك مصابة بالتهاب في المسالك البولية فمن المهم مراجعة الطبيب أو الطبيبة. يمكن لفحص البول أن يوضّح ذلك.';
+
+  @override
+  String get tip_leakingUrineTellClinician =>
+      'إذا كنتِ تعانين من تسرّب البول فمن المفيد إخبار الطبيب أو الطبيبة، أيًّا كان نوعه أو سببه.';
+
+  @override
+  String get tip_cervicalScreeningTip =>
+      'فحص عنق الرحم يبحث عن تغيّرات مبكرة في خلايا عنق الرحم. اسألي عيادتكِ إن كان موعد فحصكِ قد حان.';
+
+  @override
+  String get tip_ttcOneYear =>
+      'إذا مرّت سنة وأنتما تحاولان دون حدوث حمل، فمن الأفضل مراجعة الطبيب أو الطبيبة لفحص الأسباب الشائعة.';
+
+  @override
+  String get tip_ttcAgeSixMonths =>
+      'في سن 35 فما فوق يُنصح بمراجعة الطبيب أو الطبيبة بعد ستة أشهر من المحاولة، لا بعد اثني عشر شهرًا.';
+
+  @override
+  String get tip_ttcIrregularNoWait =>
+      'مع الدورات غير المنتظمة أو غيابها، من المفيد التحدث إلى الطبيب أو الطبيبة بشأن محاولة الحمل دون انتظار سنة كاملة.';
+
+  @override
+  String get tip_regularSexTakesTime =>
+      'تحمل أغلب الأزواج الذين تقل عمر الزوجة لديهم عن 40 سنة خلال سنة من الجماع المنتظم كل 2 إلى 3 أيام. وقد يستغرق الأمر وقتًا.';
+
+  @override
+  String get tip_testingTooEarly =>
+      'قد يعطي الفحص المبكر جدًا نتيجة سلبية كاذبة لأن هرمون الحمل قد لا يكون قد ارتفع بعد. اتبعي تعليمات الاختبار نفسه.';
+
+  @override
+  String get tip_folicAcidBeforePregnancy =>
+      'حمض الفوليك، وهو أحد فيتامينات ب، يُنصح به قبل الحمل بشهر على الأقل. اسألي الطبيب أو الطبيبة عن أفضل طريقة للحصول على ما يكفيك.';
+
+  @override
+  String get tip_talkBeforeTrying =>
+      'من الجيد التحدث إلى الطبيب أو الطبيبة قبل محاولة الحمل، فيمكنه مساعدتك على تهيئة جسمك.';
+
+  @override
+  String get tip_tryingIsStressful =>
+      'قد تكون محاولة الحمل مُجهِدة. قد تساعدك الاستشارة النفسية ومجموعات الدعم على التأقلم، ويمكنك سؤال الطبيب أو الطبيبة عنها.';
+
+  @override
+  String get tip_movementsChangeCallNow =>
+      'إذا قلّت حركة طفلك عن المعتاد أو تغيّر نمطها المعتاد، فاتصلي بالقابلة أو وحدة الولادة فورًا، حتى في منتصف الليل.';
+
+  @override
+  String get tip_firstMovementsBy24 =>
+      'يُفترض أن تشعري بحركة طفلك بين الأسبوع 16 والأسبوع 24. إذا لم تشعري بأي حركة بحلول الأسبوع 24 فأخبري القابلة.';
+
+  @override
+  String get tip_preeclampsiaSigns =>
+      'الصداع الشديد الذي لا تُخفّفه المسكّنات، أو مشكلات الرؤية، أو الألم تحت الأضلاع، أو التورّم المفاجئ تحتاج إلى فحص فوري. اتصلي بوحدة الولادة.';
+
+  @override
+  String get tip_antenatalChecksMatter =>
+      'تكشف فحوص ضغط الدم والبول في زيارات متابعة الحمل تغيّرات لا تشعرين بها، لذا حاولي ألا تفوّتي أي موعد.';
+
+  @override
+  String get tip_screeningVersusDiagnostic =>
+      'يُعرض على كل امرأة حامل نوعان من الفحوص: فحوص مسح تُظهر الاحتمال، وفحوص متابعة تعطي إجابة أوضح. اسألي أيها يناسبكِ.';
+
+  @override
+  String get tip_glucoseScreening =>
+      'ينبغي إجراء فحص الكشف عن سكري الحمل لكل امرأة حامل. اسألي القابلة أو الطبيب عن موعد فحصك.';
+
+  @override
+  String get tip_rhBloodGroup =>
+      'يُظهر فحص دم بسيط فصيلة دمك والعامل الريصي، وغالبًا في أول زيارة لمتابعة الحمل. اسألي عن نتيجتك وهل تؤثر في رعايتك.';
+
+  @override
+  String get tip_mainScanBetween18And21 =>
+      'يُجرى عادةً فحص تفصيلي بالموجات فوق الصوتية بين الأسبوع 18 والأسبوع 21. يتحقق من نمو طفلك ويبحث عن حالات معيّنة.';
+
+  @override
+  String get tip_severeSicknessTellEarly =>
+      'إذا كنتِ تتقيئين كثيراً ولا تستطيعين الاحتفاظ بالطعام، أخبري القابلة أو الطبيب في أسرع وقت، ليساعدوكِ على الاحتفاظ بالسوائل.';
+
+  @override
+  String get tip_itchTellMidwife =>
+      'الحكّة شائعة في الحمل وغالبًا لا تكون خطيرة. ومع ذلك أخبري القابلة أو الطبيب بها ليجري فحصها.';
+
+  @override
+  String get tip_pretermLabourSigns =>
+      'من علامات الولادة المبكرة انقباضات كل 10 دقائق أو أقل، أو تسرّب سائل أو نزف، أو ضغط في الحوض، أو ألم ظهر خفيف في أسفله. اتصلي بمقدّم الرعاية.';
+
+  @override
+  String get tip_tirednessInPregnancy =>
+      'للتعب في الحمل أسباب كثيرة، منها فقر الدم. أخبري القابلة أو الطبيب إذا استمر التعب.';
+
+  @override
+  String get tip_lowMoodPerinatal =>
+      'الشعور بالحزن شائع أثناء الحمل وبعد الولادة، والدعم متاح. أخبري القابلة أو الطبيب أو الزائرة الصحية حتى لو كانت لديك بعض العلامات فقط.';
+
+  @override
+  String get tip_anxietyInPregnancy =>
+      'يمكن في كثير من الأحيان تخفيف القلق أثناء الحمل بالعلاج الحواري. أخبري القابلة أو الطبيب بما تشعرين به فعلًا.';
+
+  @override
+  String get tip_warningSignsPregnancyAndYear =>
+      'بعض علامات الخطر تستدعي رعاية فورية أثناء الحمل وخلال سنة بعد الولادة: صداع لا يزول، أو تغيّر في الرؤية، أو حمّى، أو صعوبة في التنفس، أو ألم شديد في البطن.';
+
+  @override
+  String get tip_postnatalCheckSixToEight =>
+      'يهدف فحص ما بعد الولادة بعد نحو 6 إلى 8 أسابيع إلى التأكد من أنك بخير وتتعافين جيدًا. دوّني أسئلتك لتأخذيها معك.';
+
+  @override
+  String get tip_painfulFeedsGetHelp =>
+      'إذا كنتِ تؤجّلين الرضعات لأن الرضاعة مؤلمة، فاطلبي مساعدة استشارية رضاعة.';
+
+  @override
+  String get tip_tirednessAfterBirthThyroid =>
+      'للتعب بعد الولادة أسباب كثيرة. يصيب التهاب الغدة الدرقية نحو امرأة من كل 20 في السنة الأولى بعد الولادة، لذا أخبري الطبيب أو الطبيبة إن استمر التعب.';
+
+  @override
+  String get tip_bleedingUpToSixWeeks =>
+      'قد يستمر التبقّع أو النزف الشبيه بالدورة الشهرية، بشكل متقطع، حتى ستة أسابيع بعد الولادة. أخبري الطبيب أو الطبيبة إذا كنتِ قلقة.';
+
+  @override
+  String get tip_babyBluesPassing =>
+      'الشعور بالحزن أو القلق أو التوتر لبضعة أيام بعد الولادة شائع جدًا وعادةً يزول خلال أسبوعين. إذا استمر أطول فأخبري الطبيب أو الطبيبة.';
+
+  @override
+  String get tip_periodChangesFirstSign =>
+      'تغيّر الدورة الشهرية عادةً من أولى علامات مرحلة ما قبل انقطاع الطمث. قد تأتي أكثر أو أقل تكرارًا، وقد تصبح أغزر أو أخف.';
+
+  @override
+  String get tip_twelveMonthsMeansMenopause =>
+      'يُقصد بانقطاع الطمث مرور 12 شهرًا بلا دورة. وفي السنوات التي تسبقه كثيرًا ما تتفاوت الدورات بفواصل أطول أو أقصر.';
+
+  @override
+  String get tip_bleedingAfterMenopause =>
+      'النزف بعد انقطاع الطمث، أي بعد 12 شهرًا بلا دورة، من المهم إخبار الطبيب أو الطبيبة به ليُعرف سببه.';
+
+  @override
+  String get tip_hotFlushesTalkOptions =>
+      'إذا لم تكفِ تغييرات نمط الحياة لتخفيف الهبّات الساخنة، فتواصلي مع الطبيب أو الطبيبة. سيناقش معك أعراضك وتاريخك الصحي وتفضيلاتك.';
+
+  @override
+  String get tip_boneStrengthMenopause =>
+      'فقدان كثافة العظام أكثر احتمالًا في فترة انقطاع الطمث. اسألي الطبيب أو الطبيبة عن صحة العظام وما يناسبك.';
+
+  @override
+  String get tip_drynessManyTreatments =>
+      'هناك علاجات كثيرة لجفاف المهبل. من المفيد سؤال الطبيب أو الطبيبة عمّا قد يناسبك.';
+
+  @override
+  String get tip_heartbeatAroundMenopause =>
+      'قد يكون تسارع نبضات القلب أو الإحساس بها جزءًا من مرحلة ما قبل انقطاع الطمث وانقطاعه. دوّني متى يحدث وأخبري الطبيب أو الطبيبة.';
+
+  @override
+  String get tip_lowMoodMenopause =>
+      'قد يكون انخفاض المزاج والقلق جزءًا من مرحلة انقطاع الطمث. إذا صعُب التعامل معهما فتحدثي إلى الطبيب أو الطبيبة.';
+
+  @override
+  String get visitQ_periodsStoppedChecks =>
+      'أصبحت دورتي الشهرية متباعدة جدًا أو توقفت. ما الفحوصات التي يمكن أن تكشف السبب؟';
+
+  @override
+  String get visitQ_irregularCauses =>
+      'ما الذي قد يفسّر عدم انتظام دوراتي، وهل ستفيد بعض الفحوصات أو الأشعة؟';
+
+  @override
+  String get visitQ_irregularAcneChecks =>
+      'دورتي غير منتظمة ولديّ حب شباب. ما الفحوصات التي يمكن أن تبحث عن السبب؟';
+
+  @override
+  String get visitQ_painCauseChecks =>
+      'ألم دورتي الشهرية يعطّل أيامي باستمرار. ما الفحوصات التي يمكن أن تكشف السبب؟';
+
+  @override
+  String get visitQ_heavyAndTiredBloodTest =>
+      'قد تكون دورتي غزيرة وأشعر بالتعب كثيرًا. هل أحتاج إلى فحوصات دم، مثل فحص الحديد؟';
+
+  @override
+  String get visitQ_diaryReviewCycle =>
+      'هل يمكننا مراجعة سجلّ أعراضي لنرى إن كانت ترتبط بدورتي الشهرية؟';
+
+  @override
+  String get visitQ_headacheDiaryReview =>
+      'يأتيني الصداع كثيرًا حول موعد دورتي. هل يمكننا النظر في سجلّي معًا؟';
+
+  @override
+  String get visitQ_cervicalScreeningDue =>
+      'هل فحص عنق الرحم الدوري لديّ محدّث، وأي اختبار تستخدمه عيادتكم؟';
+
+  @override
+  String get visitQ_checksForCouple =>
+      'ما فحوصات الخصوبة التي تقترحونها لي، ولشريك إن كان لديّ؟';
+
+  @override
+  String get visitQ_ttcOverThirtyFiveSooner =>
+      'عمري 35 سنة فأكثر ونحاول منذ نحو ستة أشهر أو أكثر. هل نبدأ فحوصات الخصوبة الآن؟';
+
+  @override
+  String get visitQ_irregularTryingNow =>
+      'دوراتي غير منتظمة ونحاول الحمل. هل نتحدث عن المساعدة الآن بدل انتظار سنة؟';
+
+  @override
+  String get visitQ_preconceptionReview =>
+      'نخطط لحمل. هل هناك شيء في صحتي أو أدويتي يجب مراجعته أولًا؟';
+
+  @override
+  String get visitQ_ttcSupportOptions =>
+      'محاولة الحمل تثقل عليّ. أين أجد استشارة نفسية أو دعمًا؟';
+
+  @override
+  String get visitQ_pregnancyTestsOffered =>
+      'ما فحوص المسح وفحوص المتابعة المعروضة في حملي، وماذا يخبرني كل منها؟';
+
+  @override
+  String get visitQ_glucoseTestWhen =>
+      'متى سيُجرى لي فحص سكري الحمل، وهل يمكن أن يكون أبكر في حالتي؟';
+
+  @override
+  String get visitQ_movementsCallWho =>
+      'بمن أتصل إذا تغيّرت حركة طفلي، بما في ذلك ليلًا؟';
+
+  @override
+  String get visitQ_sameDayWarningSigns =>
+      'ما العلامات التي تستدعي أن أتصل بوحدة الولادة في اليوم نفسه؟';
+
+  @override
+  String get visitQ_rhFactorChecked =>
+      'هل فُحصت فصيلة دمي والعامل الريصي، وهل يغيّر ذلك شيئًا في رعايتي؟';
+
+  @override
+  String get visitQ_pregnancyLowMoodSupport =>
+      'أشعر بالحزن أو القلق الشديد منذ مدة. ما الدعم المتاح لي؟';
+
+  @override
+  String get visitQ_severeSicknessHelp =>
+      'الغثيان والقيء يصعّبان عليّ الاحتفاظ بالطعام والشراب. ما المساعدة المتاحة؟';
+
+  @override
+  String get visitQ_itchBloodTests =>
+      'أعاني من حكّة في الحمل. هل أحتاج إلى فحوصات دم لفحص الكبد؟';
+
+  @override
+  String get visitQ_pretermSignsPlan =>
+      'ما علامات الولادة المبكرة التي تستدعي أن أتصل أو أحضر، وإلى أين أذهب خارج ساعات العمل؟';
+
+  @override
+  String get visitQ_postnatalCheckTalk =>
+      'هل يمكننا مراجعة كيف أتعافى، بما في ذلك النزف والألم والمزاج وتغيّرات المثانة؟';
+
+  @override
+  String get visitQ_postnatalMoodHelp =>
+      'أشعر بالحزن أو القلق منذ الولادة. ما المساعدة المتاحة؟';
+
+  @override
+  String get visitQ_latchCheck =>
+      'الرضاعة مؤلمة. هل يمكن لأحد أن يراقب رضعة ويتحقق من كيفية التقام طفلي للثدي؟';
+
+  @override
+  String get visitQ_warningSignsYearAfter =>
+      'ما الأعراض في السنة التي تلي الولادة التي تستدعي طلب الرعاية فورًا؟';
+
+  @override
+  String get visitQ_thyroidAfterBirth =>
+      'أشعر بتعب شديد منذ الولادة. هل يُفحص أداء الغدة الدرقية بتحليل دم؟';
+
+  @override
+  String get visitQ_urineLeaksHelp =>
+      'يتسرّب مني البول. ما الذي يمكن أن يساعد، وهل تناسبني تمارين قاع الحوض؟';
+
+  @override
+  String get visitQ_hotFlushOptions =>
+      'الهبّات الساخنة أو التعرّق الليلي تؤثر في أيامي. ما الخيارات التي يمكن أن نناقشها؟';
+
+  @override
+  String get visitQ_changedBleedingChecks =>
+      'تغيّر نمط نزفي. ما الفحوصات التي تستحق الإجراء؟';
+
+  @override
+  String get visitQ_bleedingAfterMenopauseChecks =>
+      'حدث لديّ نزف أو تبقّع في هذه المرحلة. ما الفحوصات التي أحتاجها، وخلال كم من الوقت؟';
+
+  @override
+  String get visitQ_boneAndHeartHealth =>
+      'ماذا يمكنني أن أفعل لحماية صحة عظامي وقلبي في هذه المرحلة؟';
+
+  @override
+  String get visitQ_drynessWhatHelps =>
+      'أعاني من جفاف أو انزعاج في المهبل. ما الذي يمكن أن يساعد، وما الذي يحتاج إلى فحص؟';
+
+  @override
+  String get visitQ_urineTestAgain =>
+      'أعراض البول تعود إليّ باستمرار. هل أحتاج إلى فحص بول، وكيف نجد السبب؟';
+
+  @override
+  String get visitQ_thyroidCheckIrregular =>
+      'دورتي غير منتظمة وشعري يتساقط. هل يجب فحص الغدة الدرقية بتحليل دم؟';
+
+  @override
+  String get tipsTitle => 'لكِ';
+
+  @override
+  String tipsSource(String publisher) {
+    return 'المصدر: $publisher';
+  }
+
+  @override
+  String get tipsChosenOnPhone =>
+      'اختيرت على هاتفكِ من تسجيلاتكِ. كل نصيحة جملة مُراجعة مع مصدرها.';
+
+  @override
+  String get tipsOrderedCloud => 'رُتّبت بـ Cloud boost، من معلومات عامة فقط.';
+
+  @override
+  String get legendPossible => 'دورة محتملة (ثقة منخفضة)';
+
+  @override
+  String get confidenceLowShort => 'ثقة منخفضة';
+
+  @override
+  String get upcomingPeriodsTitle => 'الدورات القادمة';
+
+  @override
+  String get upcomingPeriodsWider =>
+      'كل دورة لاحقة نطاقها أوسع: كلما ابتعد الموعد قلّ اليقين.';
+
+  @override
+  String get upcomingPeriodsOnlyNext =>
+      'تظهر الدورة القادمة فقط: دوراتك المسجّلة تتفاوت كثيرًا، أو ما زالت قليلة، فلا يمكن التقدير لأبعد من ذلك.';
+
+  @override
+  String get todayUrgentBody =>
+      'إذا شعرتِ بشيء شديد أو مفاجئ، اطلبي الرعاية الآن. أرقام الطوارئ في بلدك على بُعد لمسة واحدة.';
 }

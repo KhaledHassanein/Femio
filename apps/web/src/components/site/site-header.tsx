@@ -63,8 +63,6 @@ export async function SiteHeader({ locale }: { locale: string }) {
         {/* One action: the app (D8). */}
         <Link
           href={APP_PAGE}
-          data-track="get_app_click"
-          data-placement="header"
           className="inline-flex h-9 items-center whitespace-nowrap rounded-pill bg-primary-solid px-3 text-sm font-semibold text-primary-fg-solid hover:bg-primary-hover sm:px-4"
         >
           {t("getApp")}

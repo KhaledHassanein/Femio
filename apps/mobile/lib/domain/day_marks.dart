@@ -2,6 +2,7 @@ import '../data/profile.dart';
 import 'cycle_prediction.dart';
 import 'dates.dart';
 import 'fertility.dart';
+import 'upcoming_periods.dart';
 
 /// What a calendar day shows. Logged facts (bleed, spotting, something logged) and
 /// estimates (predicted period, fertile window) are separate fields so the calendar
@@ -11,13 +12,21 @@ class DayMark {
   bool spotting = false;
   bool logged = false;
   bool predicted = false;
+
+  /// A predicted day drawn from a low-confidence range (dashed, "possible").
+  bool possible = false;
   bool fertile = false;
   bool ovulation = false;
 }
 
 /// Marks for every day from [from] to [to] inclusive. Estimates are drawn only from
 /// today forward: a prediction for a day already lived is not information.
-Map<String, DayMark> dayMarks(Profile p, {required String today, required String from, required String to}) {
+Map<String, DayMark> dayMarks(
+  Profile p, {
+  required String today,
+  required String from,
+  required String to,
+}) {
   final marks = <String, DayMark>{};
   DayMark at(String d) => marks.putIfAbsent(d, DayMark.new);
 
@@ -35,11 +44,21 @@ Map<String, DayMark> dayMarks(Profile p, {required String today, required String
     if (prediction != null) {
       void range(String a, String b, void Function(DayMark) set) {
         for (var d = a; d.compareTo(b) <= 0; d = addDays(d, 1)) {
-          if (d.compareTo(today) >= 0 && d.compareTo(from) >= 0 && d.compareTo(to) <= 0) set(at(d));
+          if (d.compareTo(today) >= 0 &&
+              d.compareTo(from) >= 0 &&
+              d.compareTo(to) <= 0) {
+            set(at(d));
+          }
         }
       }
 
-      range(prediction.windowStart, prediction.windowEnd, (m) => m.predicted = true);
+      // The next periods (MR-51): widening ranges, only the first when irregular or learning.
+      for (final u in upcomingPeriods(prediction)) {
+        range(u.windowStart, u.windowEnd, (m) {
+          m.predicted = true;
+          if (u.confidence == Confidence.low) m.possible = true;
+        });
+      }
       // No window is drawn when none can be named honestly (MR-06/08).
       final fertile = fertileWindowBefore(
         prediction.predictedStart,

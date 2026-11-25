@@ -1,0 +1,115 @@
+{
+  "$comment": "MR-51 (01_PRODUCT_SCOPE §4.1). The next three periods after her entries, each a range with a confidence word. Period k starts k average lengths after her last start; its half-width is ceil(margin x sqrt(k)) (the spread of a sum of k cycles grows with the square root of k); confidence drops one level per period after the first, never below low. Only the next period is shown when her cycles are irregular or still being learned (MR-06). Expected values were computed independently in Python, not by either implementation. Shared by apps/web/src/lib/cycle/upcoming.ts and apps/mobile/lib/domain/upcoming_periods.dart.",
+  "cases": [
+    {
+      "input": {
+        "starts": [
+          "2026-01-01",
+          "2026-01-29",
+          "2026-02-26",
+          "2026-03-26",
+          "2026-04-23",
+          "2026-05-21",
+          "2026-06-18"
+        ]
+      },
+      "expected": [
+        {
+          "predictedStart": "2026-07-16",
+          "windowStart": "2026-07-14",
+          "windowEnd": "2026-07-18",
+          "confidence": "high"
+        },
+        {
+          "predictedStart": "2026-08-13",
+          "windowStart": "2026-08-10",
+          "windowEnd": "2026-08-16",
+          "confidence": "medium"
+        },
+        {
+          "predictedStart": "2026-09-10",
+          "windowStart": "2026-09-06",
+          "windowEnd": "2026-09-14",
+          "confidence": "low"
+        }
+      ],
+      "note": "6 intervals, spread 0: high, then medium, then low; half-widths 2, 3, 4"
+    },
+    {
+      "input": {
+        "starts": [
+          "2026-03-01",
+          "2026-03-31",
+          "2026-04-26",
+          "2026-05-28"
+        ]
+      },
+      "expected": [
+        {
+          "predictedStart": "2026-06-26",
+          "windowStart": "2026-06-23",
+          "windowEnd": "2026-06-29",
+          "confidence": "medium"
+        },
+        {
+          "predictedStart": "2026-07-25",
+          "windowStart": "2026-07-20",
+          "windowEnd": "2026-07-30",
+          "confidence": "low"
+        },
+        {
+          "predictedStart": "2026-08-23",
+          "windowStart": "2026-08-17",
+          "windowEnd": "2026-08-29",
+          "confidence": "low"
+        }
+      ],
+      "note": "3 intervals, spread 6, average 29: medium then low; half-widths 3, 5, 6"
+    },
+    {
+      "input": {
+        "starts": [
+          "2026-03-01",
+          "2026-03-27",
+          "2026-05-04",
+          "2026-06-02"
+        ]
+      },
+      "expected": [
+        {
+          "predictedStart": "2026-07-03",
+          "windowStart": "2026-06-27",
+          "windowEnd": "2026-07-09",
+          "confidence": "low"
+        }
+      ],
+      "note": "spread 12 (irregular): the next period only, as its own range"
+    },
+    {
+      "input": {
+        "starts": [
+          "2026-10-01"
+        ],
+        "statedCycleLength": 30
+      },
+      "expected": [
+        {
+          "predictedStart": "2026-10-31",
+          "windowStart": "2026-10-27",
+          "windowEnd": "2026-11-04",
+          "confidence": "low"
+        }
+      ],
+      "note": "one start and a stated length (learning): the next period only"
+    },
+    {
+      "input": {
+        "starts": [
+          "2026-10-01"
+        ]
+      },
+      "expected": [],
+      "note": "nothing to predict from"
+    }
+  ]
+}

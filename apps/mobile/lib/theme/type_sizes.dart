@@ -30,3 +30,6 @@ const double calendarDayDiameter = 36;
 
 /// Calendar row height when the Hijri day is shown: number 36 + Hijri 12 + breathing room.
 const double calendarRowHeightWithHijri = 52;
+
+/// Diameter of the numbered source badge beside an Ask femio answer.
+const double sourceBadgeDiameter = 28;

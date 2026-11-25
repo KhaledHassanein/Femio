@@ -4,31 +4,32 @@ Source of the reasoning: `docs/33_REBUILD_V3/03_LEGAL_PACK.md` §4 (Google pages
 This file states the answers for the **actual build** and the evidence that makes them true.
 Re-check the Console's wording on the day; Google changes the form.
 
-## What the build does (evidence)
+## What the build does (evidence, ADR-080, 2026-11-24)
 
 | Fact | Evidence |
 |---|---|
-| Network: the ads SDK only | `INTERNET` and `ACCESS_NETWORK_STATE` come from Google's ads SDK (`google_mobile_ads`, ADR-076); the app's own manifest asks for neither, and `scripts/analytics-lint.mjs` fails the gate if any code under `lib/` opens a connection (HTTP client, socket, WebSocket) or if the ads SDK is imported outside `lib/features/ads/` |
-| No analytics, crash-reporting, attribution, mediation or database SDK | `pubspec.yaml` carries `google_mobile_ads` (ads on guide screens, non-personalised, no keywords, no events) and `in_app_purchase` (Play Billing); the privacy tripwire names the forbidden packages |
-| What the ads SDK sends | Advertising ID, app-set ID, IP address, ad interactions, diagnostics, to Google, TLS-encrypted (Google's disclosure page for the SDK, read 2026-10-29). Never her records: the SDK receives no keywords, no content URL, no events |
-| Records encrypted at rest | AES-GCM sealed file, key in the Android Keystore (`lib/data/crypto/envelope.dart`, `lib/data/key_vault.dart`) |
-| Backups | A passphrase-sealed file she saves herself (`lib/data/backup.dart`); `allowBackup=false` and `dataExtractionRules` keep the record out of Google backup and device transfer |
-| Deletion | Settings → "Delete everything on this phone" (no server copy exists) |
-| Permissions requested | `POST_NOTIFICATIONS` (asked only when she turns a reminder on), `RECEIVE_BOOT_COMPLETED` (re-schedules reminders after a restart), `VIBRATE`; from the ads SDK: `INTERNET`, `ACCESS_NETWORK_STATE`, `AD_ID`, `ACCESS_ADSERVICES_AD_ID`, `WAKE_LOCK`, `FOREGROUND_SERVICE`; from Play Billing: `BILLING`. Topics and Attribution ad-services permissions are removed in the manifest. No exact-alarm permission: reminders are inexact. Full dump: `testing-results/2026-10-29-app-ads/` |
-| Accounts | None. No sign-in anywhere |
+| No ads, analytics, crash-reporting, attribution or tracking SDK | `pubspec.yaml`: no `google_mobile_ads`; `scripts/analytics-lint.mjs` fails on any ads/analytics/attribution package, on `lib/features/ads`, and on `AD_ID` / `ACCESS_ADSERVICES_*` in the source or merged manifest |
+| Network: Firebase AI Logic only (Cloud boost) | `INTERNET` declared in `AndroidManifest.xml` for the Kotlin assistant; no HTTP client, socket or WebSocket under `lib/` (tripwire) |
+| What Cloud boost sends, only with consent per purpose | A redacted general question she approves, with public passages; or four coarse bands (life stage, cycle regularity, symptom kinds, logging streak). Plus request metadata: IP address, App Check (Play Integrity) token, Firebase heartbeat header. No Firebase installation ID |
+| Records encrypted at rest | AES-GCM sealed file, key in the Android Keystore |
+| Backups | Passphrase-sealed file she saves herself; `allowBackup=false` and `dataExtractionRules` |
+| Deletion | Settings → "Delete everything on this phone"; Cloud boost data at Google is deleted by Google within 55 days and carries no identifier femio could match |
+| Permissions (merged debug manifest, 2026-11-24) | `INTERNET`, `ACCESS_NETWORK_STATE` (Firebase), `POST_NOTIFICATIONS`, `RECEIVE_BOOT_COMPLETED`, `VIBRATE`, `BILLING`, `aicore BIND_SERVICE`; ad-ID permissions removed with `tools:node="remove"` |
+| Accounts | None |
 
 ## Data safety form
 
 | Console question | Answer | Why |
 |---|---|---|
-| Does your app collect or share any of the required user data types? | **Yes** | Google's ads SDK transmits device identifiers and ad interactions; Google counts an SDK's transmission as collection. Her health entries are processed on the device only and are never given to the SDK |
-| Is all of the user data collected by your app encrypted in transit? | **Yes** | The only transmission is the ads SDK's, which Google documents as TLS-encrypted |
-| Do you provide a way for users to request that their data is deleted? | **Yes** | Settings → Delete everything. No account exists, so account-deletion rules do not apply |
-| Data types | **Device or other IDs** (advertising ID, app-set ID) · **Location → Approximate location** (inferred from the IP address; Play requires inferred location to be disclosed) · **App activity → App interactions** · **App info and performance → Diagnostics**. For each: Collected **Yes**, Shared **Yes** (Google serves the ads for its own purposes), Processed ephemerally **No**, Required (not optional), Purposes: **Advertising or marketing**; for App interactions and Diagnostics also **Analytics** and **Fraud prevention, security and compliance** | Exactly what Google's disclosure page lists for the ads SDK. **Do not tick Health and fitness or Personal info**: her entries are never transmitted; the gate forbids any network code of our own |
+| Does your app collect or share any of the required user data types? | **Yes** | Cloud boost transmits data off the device when she agrees |
+| Is all of the user data collected by your app encrypted in transit? | **Yes** | Firebase AI Logic uses TLS |
+| Do you provide a way for users to request that their data is deleted? | **Yes** | Settings → Delete everything; Cloud boost data is deleted by Google within 55 days |
+| Data types | **Health and fitness → Health info** (the four bands; questions about her health) and **App activity → Other user-generated content** (the approved question). For each: Collected **Yes**, Shared **No** (Google is a service provider processing for femio), Processed ephemerally **No** (Google keeps up to 55 days), **Optional** (she chooses), Purpose **App functionality** and **Personalization** (tips) | Google counts an SDK's transmission as collection; transfers to a service provider are not sharing (Play help 10787469) |
+| Device or other IDs / Approximate location | **No** `[NEEDS CHECK on the day]`: femio derives no location and sends no device ID; confirm Google's guidance on App Check / Play Integrity tokens and IP addresses before submitting | |
 | Independent security review | **No** | None done |
-| Privacy policy URL | `https://femioapp.com/en/privacy` (Arabic: `/ar/privacy`) | Live web page, readable worldwide, also linked inside the app (Settings) |
+| Privacy policy URL | `https://femioapp.com/en/privacy` | Also linked on the Cloud boost screen |
 
-Validity: these answers describe one SDK, Google's ads SDK, and nothing else. They stay true while the gate holds: no analytics, crash, attribution or mediation package, no network code under `lib/`, the SDK imported only under `lib/features/ads/`, and no personal permission in the merged manifest. Re-read Google's disclosure page for the SDK version in `pubspec.lock` before each submission; it changes.
+Validity: true while the tripwire holds and Cloud boost sends only a `CloudPrompt`. Re-read Google's Data safety guidance for Firebase AI Logic and App Check before each submission.
 
 ## Health apps declaration
 
@@ -50,9 +51,9 @@ The Google sentence contains words the claims guard bans on purpose; it lives on
 |---|---|
 | Target age group | **18 and over only**; tick "restrict minor access" |
 | Appeals to children | No |
-| Ads | **Yes, contains ads** (Google AdMob banners on the guide screens only; non-personalised; femio Plus removes them) |
+| Ads | **No, does not contain ads** (ADR-080) |
 | App access | All features available without sign-in (no credentials needed for review) |
-| Content rating (IARC) | Answer literally: no violence, no gambling, no purchases yet (femio Plus comes later), **contains ads: yes**, no user-generated content, no location sharing, no chat. The sexual-content question is about reproductive-health education, not entertainment. The resulting rating is whatever the questionnaire gives; do not steer it `[NEEDS CHECK on the day]` |
+| Content rating (IARC) | Answer literally: no violence, no gambling, no purchases yet (femio Plus comes later), **contains ads: no**, no user-generated content, no location sharing, no chat. The sexual-content question is about reproductive-health education, not entertainment. The resulting rating is whatever the questionnaire gives; do not steer it `[NEEDS CHECK on the day]` |
 | Government / news / financial app | No |
 | Category | Health & Fitness |
 | Tags | Period tracker, Pregnancy, Fertility, Women's health, Health tracking (pick from Play's fixed list on the day) |

@@ -1,0 +1,490 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>femio hackathon: owner guide</title>
+<!--
+  What this is: Khaled's step-by-step guide to finish the femio #BuildHybridAI entry.
+  Why it exists: the remaining work is console clicks, one config file, a build, a video and a form.
+  One offline file: inline CSS, inline SVG, one tiny inline script (search box). No network.
+  Colours come from assets/brand/tokens/femio.tokens.css (Dusk Bloom), light and dark.
+  Contains no real key, id or token. Never paste those into chat.
+-->
+<style>
+:root{
+  --bg:#FBF7F3; --surface:#FFFFFF; --sunken:#F4EDE8; --text:#24141F; --muted:#5E4D57;
+  --border:#E9DFD9; --primary:#8A3572; --primary-soft:#F5E3EF; --primary-text:#6B2558;
+  --accent:#BF2F59; --ok:#2F7163; --ok-soft:#D7ECE5; --ok-text:#214841;
+  --warn-soft:#FEF3C7; --warn-text:#92400E; --bad-soft:#FEF2F2; --bad-text:#B42318; --bad-border:#FBD5D5;
+  --saffron:#D9A446; --code-bg:#24141F; --code-text:#F6EEF2;
+}
+@media (prefers-color-scheme:dark){
+  :root{
+    --bg:#140D14; --surface:#1E1520; --sunken:#19111A; --text:#F6EEF2; --muted:#C9B8C2;
+    --border:#3A2A37; --primary:#DDA2C8; --primary-soft:#2E1B2D; --primary-text:#EBC6DE;
+    --accent:#EE6A8C; --ok:#7FBFAD; --ok-soft:#173129; --ok-text:#AFD8CB;
+    --warn-soft:#3A2A10; --warn-text:#FDE68A; --bad-soft:#341617; --bad-text:#FCA5A5; --bad-border:#5A2326;
+    --saffron:#E5BC6B; --code-bg:#0E080E; --code-text:#F6EEF2;
+  }
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--text);
+  font:16px/1.6 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+.wrap{max-width:860px;margin:0 auto;padding:16px}
+h1{font-family:Georgia,serif;font-size:28px;line-height:1.2;margin:8px 0 6px}
+h2{font-family:Georgia,serif;font-size:22px;line-height:1.25;margin:0 0 12px;scroll-margin-top:12px}
+h3{font-size:17px;line-height:1.3;margin:0 0 10px;display:flex;gap:10px;align-items:flex-start}
+p{margin:0 0 12px}
+a{color:var(--primary);word-break:break-word}
+.lead{color:var(--muted);margin-bottom:16px}
+section{background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:18px 16px;margin:16px 0}
+.breath{background:var(--primary-soft);color:var(--primary-text);border-radius:12px;padding:10px 14px;margin:0 0 14px;font-weight:600}
+.breath::before{content:"In one breath: ";font-weight:700}
+.deadline{border:2px solid var(--accent);background:var(--surface);border-radius:16px;padding:14px 16px;margin:12px 0}
+.deadline b{color:var(--accent)}
+table{width:100%;border-collapse:collapse;font-size:15px}
+th,td{border-bottom:1px solid var(--border);padding:8px 6px;text-align:start;vertical-align:top}
+th{background:var(--sunken);font-size:13px;text-transform:uppercase;letter-spacing:.04em}
+.tablewrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
+code,pre{font-family:ui-monospace,"Cascadia Mono",Consolas,monospace;font-size:14px}
+code{background:var(--sunken);padding:1px 5px;border-radius:6px;word-break:break-word}
+pre{background:var(--code-bg);color:var(--code-text);padding:12px 14px;border-radius:12px;overflow-x:auto;margin:6px 0 10px;white-space:pre}
+pre code{background:none;padding:0;color:inherit}
+.step{border:1px solid var(--border);border-radius:14px;padding:14px;margin:12px 0;background:var(--bg)}
+.n{flex:none;width:28px;height:28px;border-radius:50%;background:var(--primary);color:#fff;
+  display:inline-flex;align-items:center;justify-content:center;font-size:14px;font-weight:700}
+.row{display:grid;grid-template-columns:minmax(0,1fr);gap:2px;margin:0 0 10px}
+.row>div{min-width:0;overflow-wrap:anywhere}
+.row:last-child{margin-bottom:0}
+.lbl{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--muted)}
+.row.see{background:var(--ok-soft);color:var(--ok-text);border-radius:10px;padding:8px 10px}
+.row.see .lbl{color:var(--ok-text)}
+.row.fail{background:var(--bad-soft);color:var(--bad-text);border:1px solid var(--bad-border);border-radius:10px;padding:8px 10px}
+.row.fail .lbl{color:var(--bad-text)}
+@media (min-width:640px){
+  .wrap{padding:24px}
+  h1{font-size:34px}
+  section{padding:24px}
+  .row{grid-template-columns:130px minmax(0,1fr);gap:12px}
+  .row.see,.row.fail{grid-template-columns:130px minmax(0,1fr)}
+}
+.note{background:var(--warn-soft);color:var(--warn-text);border-radius:12px;padding:10px 14px;margin:10px 0}
+.secret{background:var(--bad-soft);color:var(--bad-text);border:1px solid var(--bad-border);border-radius:12px;padding:10px 14px;margin:10px 0;font-weight:600}
+.check{list-style:none;padding:0;margin:8px 0}
+.check li{display:flex;gap:10px;align-items:flex-start;padding:8px 0;border-bottom:1px solid var(--border)}
+.check input{margin-top:5px;width:18px;height:18px;flex:none;accent-color:var(--primary)}
+.check .t{margin-inline-start:auto;color:var(--muted);font-size:14px;white-space:nowrap;padding-inline-start:8px}
+.badge{display:inline-block;font-size:12px;font-weight:700;padding:2px 8px;border-radius:999px;background:var(--warn-soft);color:var(--warn-text)}
+#q{width:100%;padding:12px 14px;font-size:16px;border:1px solid var(--border);border-radius:12px;background:var(--surface);color:var(--text)}
+nav.toc{display:flex;flex-wrap:wrap;gap:6px;margin:10px 0 0}
+nav.toc a{font-size:14px;background:var(--surface);border:1px solid var(--border);border-radius:999px;padding:4px 10px;text-decoration:none}
+svg{max-width:100%;height:auto;display:block;margin:10px auto}
+.s-box{fill:var(--surface);stroke:var(--border);stroke-width:2}
+.s-phone{fill:var(--primary-soft);stroke:var(--primary);stroke-width:3}
+.s-in{fill:var(--surface);stroke:var(--primary);stroke-width:1.5}
+.s-cloud{fill:var(--sunken);stroke:var(--saffron);stroke-width:2;stroke-dasharray:6 4}
+.s-t{fill:var(--text);font:600 14px system-ui,sans-serif}
+.s-m{fill:var(--muted);font:12px system-ui,sans-serif}
+.s-a{stroke:var(--accent);stroke-width:2.5;fill:none}
+.s-ah{fill:var(--accent)}
+details{margin:6px 0}
+summary{cursor:pointer;font-weight:600}
+.hide{display:none}
+@media print{
+  body{background:#fff;color:#000} section,.step{break-inside:avoid;border-color:#bbb}
+  #q,nav.toc{display:none} pre{white-space:pre-wrap}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <h1>Finish the femio hackathon entry</h1>
+  <p class="lead">A step-by-step guide for Khaled. Everything here is something only you can do (your accounts, your phone, your voice). Work top to bottom. Each step says what to do, where to click or what to type, what you should see, and what to do if it fails.</p>
+
+  <div class="deadline">
+    <p><b>Deadline: 30 November 2026, 2:00 PM Pacific time.</b></p>
+    <p>In Cairo that is <b>00:00 (midnight) at the start of 1 December</b>. Check: Pacific time in winter is UTC minus 8, so 2:00 PM is 22:00 UTC; Cairo in winter is UTC plus 2, so 22:00 UTC is 00:00 Cairo.</p>
+    <p class="note" style="margin-bottom:0">30 November 2026 is a <b>Monday</b>, so the deadline is the midnight between Monday and Tuesday in Cairo. Confirm the time on the Devpost page, and aim to submit by <b>Sunday evening Cairo time</b> to leave a day for surprises.</p>
+  </div>
+
+  <h2 style="margin-top:18px">Checklist</h2>
+  <ul class="check">
+    <li><input type="checkbox" id="c2"><label for="c2"><a href="#s2">2</a> Firebase project, Blaze plan, $10 budget alert</label><span class="t">15 min</span></li>
+    <li><input type="checkbox" id="c3"><label for="c3"><a href="#s3">3</a> Register the Android app, add the SHA-256 fingerprint</label><span class="t">10 min</span></li>
+    <li><input type="checkbox" id="c4"><label for="c4"><a href="#s4">4</a> Fill <code>assistant.env</code></label><span class="t">5 min</span></li>
+    <li><input type="checkbox" id="c5"><label for="c5"><a href="#s5">5</a> Build and install the debug APK</label><span class="t">15 min</span></li>
+    <li><input type="checkbox" id="c6"><label for="c6"><a href="#s6">6</a> App Check: debug token first, then enforcement</label><span class="t">10 min</span></li>
+    <li><input type="checkbox" id="c7"><label for="c7"><a href="#s7">7</a> Gemini Nano on your test phone</label><span class="t">5 min</span></li>
+    <li><input type="checkbox" id="c8"><label for="c8"><a href="#s8">8</a> Try every feature once</label><span class="t">20 min</span></li>
+    <li><input type="checkbox" id="c10"><label for="c10"><a href="#s10">10</a> Release APK</label><span class="t">15 min</span></li>
+    <li><input type="checkbox" id="c11"><label for="c11"><a href="#s11">11</a> Say "make it public"</label><span class="t">2 min</span></li>
+    <li><input type="checkbox" id="c12"><label for="c12"><a href="#s12">12</a> Record and upload the 3-minute video</label><span class="t">60 min</span></li>
+    <li><input type="checkbox" id="c13"><label for="c13"><a href="#s13">13</a> Fill the Devpost form and submit</label><span class="t">30 min</span></li>
+  </ul>
+  <p class="lead">About 3 hours in total. Sections 9, 14 and 15 are to read, not to do (14 matters before any Play release, not for Devpost).</p>
+
+  <div class="secret">Never paste a key, an app id, a project id or a token into chat. They go only into the file <code>apps/mobile/assistant.env</code> on your computer. If a step fails, describe the error in words.</div>
+
+  <input id="q" type="search" placeholder="Search this guide (for example: logcat, fingerprint, budget)" aria-label="Search this guide">
+  <nav class="toc" aria-label="Sections">
+    <a href="#s1">1</a><a href="#s2">2</a><a href="#s3">3</a><a href="#s4">4</a><a href="#s5">5</a><a href="#s6">6</a><a href="#s7">7</a><a href="#s8">8</a><a href="#s9">9</a><a href="#s10">10</a><a href="#s11">11</a><a href="#s12">12</a><a href="#s13">13</a><a href="#s14">14</a><a href="#s15">15</a>
+  </nav>
+</header>
+
+<!-- 1 -->
+<section id="s1">
+  <h2>1 &middot; What you are finishing</h2>
+  <p class="breath">femio's assistant is built and tested; what is left is connecting your own Firebase project, proving it on a phone, and submitting.</p>
+  <p>femio is a private women's-health app: her records stay on her phone. The hackathon entry shows <b>hybrid AI</b> (some work on the phone, some in the cloud) using <b>Firebase AI Logic</b> (Google's toolkit that lets an app call Gemini models, on the phone or in the cloud, from one piece of code). Inside the app, a bundled registry of 89 trusted sources (passages from CDC, MedlinePlus, Office on Women's Health, NICHD, NIDDK and NCI, plus links to WHO, NHS, ACOG, RCOG and NICE) answers her questions offline, numbers each source, and says "Not covered yet" when it has nothing. <b>Gemini Nano</b> (Google's small AI model that runs on supported phones) writes a cited summary on the phone. The <b>Cloud boost</b> is an optional switch, off by default, used only when her phone has no Nano. Safety rules (danger signs, heavy bleeding, birth-control questions) always run before any model and always win.</p>
+  <svg viewBox="0 0 720 330" role="img" aria-label="Diagram: inside her phone are her record, the trusted-source registry, the safety rules and Gemini Nano. An optional dashed arrow goes to the cloud model through Firebase AI Logic, carrying only a redacted question and four broad bands.">
+    <rect class="s-phone" x="20" y="20" width="400" height="290" rx="26"/>
+    <text class="s-t" x="40" y="50">Her phone (everything private stays here)</text>
+    <rect class="s-in" x="40" y="66" width="170" height="52" rx="10"/><text class="s-t" x="54" y="90">Her record</text><text class="s-m" x="54" y="108">never leaves</text>
+    <rect class="s-in" x="230" y="66" width="170" height="52" rx="10"/><text class="s-t" x="244" y="90">Safety rules</text><text class="s-m" x="244" y="108">run first, always win</text>
+    <rect class="s-in" x="40" y="136" width="360" height="62" rx="10"/><text class="s-t" x="54" y="160">Trusted-source registry (89 entries)</text><text class="s-m" x="54" y="180">offline, numbered sources, "Not covered yet" if none</text>
+    <rect class="s-in" x="40" y="214" width="360" height="80" rx="10"/><text class="s-t" x="54" y="238">Gemini Nano (on the phone)</text><text class="s-m" x="54" y="258">writes the cited summary, turns a sentence into log entries,</text><text class="s-m" x="54" y="276">orders the visit-summary questions</text>
+    <path class="s-a" d="M420 170 H500" stroke-dasharray="7 5"/><polygon class="s-ah" points="500,162 516,170 500,178"/>
+    <text class="s-m" x="424" y="150">only if Cloud</text><text class="s-m" x="424" y="164" >boost is on</text>
+    <rect class="s-cloud" x="520" y="60" width="180" height="220" rx="18"/>
+    <text class="s-t" x="540" y="92">Firebase AI Logic</text>
+    <text class="s-m" x="540" y="114">App Check guards it</text>
+    <text class="s-t" x="540" y="150">Cloud Gemini model</text>
+    <text class="s-m" x="540" y="172">Gemini Developer API,</text><text class="s-m" x="540" y="188">paid tier</text>
+    <text class="s-m" x="540" y="224">receives: a redacted</text><text class="s-m" x="540" y="240">question + 4 broad bands</text>
+  </svg>
+</section>
+
+<!-- 2 -->
+<section id="s2">
+  <h2>2 &middot; Firebase project, Blaze and budget alert</h2>
+  <p class="breath">Create a Firebase project called femio on the paid (Blaze) plan with a $10 budget alert, so cost can never surprise you.</p>
+  <p><b>Blaze</b> is Firebase's pay-as-you-go plan (a free allowance, then you pay for what you use). The cloud model needs it, and the paid tier is also the one that keeps her questions out of Google's model training. You need a billing account of your own.</p>
+
+  <div class="step"><h3><span class="n">1</span>Create the project and switch on AI Logic</h3>
+    <div class="row"><div class="lbl">Do</div><div>Create a project named <code>femio</code>, with Google Analytics off. Then open AI Logic and choose the Gemini Developer API.</div></div>
+    <div class="row"><div class="lbl">Where</div><div>Go to <a href="https://console.firebase.google.com">console.firebase.google.com</a> &rarr; Add project &rarr; name <code>femio</code> &rarr; turn Google Analytics off. Then Build &rarr; AI Logic &rarr; Get started &rarr; <b>Gemini Developer API</b>. (Menu names change; look for "AI Logic" in the Build list. Official steps: <a href="https://firebase.google.com/docs/ai-logic">firebase.google.com/docs/ai-logic</a>.)</div></div>
+    <div class="row see"><div class="lbl">You should see</div><div>The AI Logic page with the Gemini Developer API enabled for your project.</div></div>
+    <div class="row fail"><div class="lbl">If it fails</div><div>If "Get started" is missing, use the search box at the top of the console for "AI Logic", or follow the docs link above.</div></div>
+  </div>
+
+  <div class="step"><h3><span class="n">2</span>Upgrade to Blaze</h3>
+    <div class="row"><div class="lbl">Do</div><div>Upgrade the project to the Blaze plan and attach your billing account.</div></div>
+    <div class="row"><div class="lbl">Where</div><div>The console offers an "Upgrade" button on the AI Logic page, or look for the plan name (Spark) at the bottom left of the console. Follow the prompts.</div></div>
+    <div class="row see"><div class="lbl">You should see</div><div>The plan shows <b>Blaze</b>.</div></div>
+    <div class="row fail"><div class="lbl">If it fails</div><div>A card or billing problem is between you and your bank or Google Cloud Billing; fix it there, then retry. Nothing in femio can work around it.</div></div>
+  </div>
+
+  <div class="step"><h3><span class="n">3</span>Set the $10 budget alert</h3>
+    <div class="row"><div class="lbl">Do</div><div>Create a budget of $10 with email alerts.</div></div>
+    <div class="row"><div class="lbl">Where</div><div>Google Cloud console &rarr; Billing &rarr; Budgets &amp; alerts &rarr; Create budget. Pick the billing account used by <code>femio</code>, amount <b>$10</b>, keep the default alert levels.</div></div>
+    <div class="row see"><div class="lbl">You should see</div><div>The budget listed with a $10 amount. You get an email if spending nears it.</div></div>
+    <div class="row fail"><div class="lbl">If it fails</div><div>Make sure you chose the billing account of this project. A budget alert warns you; it does not stop spending by itself, so also keep Cloud boost off by default (section 15).</div></div>
+  </div>
+</section>
+
+<!-- 3 -->
+<section id="s3">
+  <h2>3 &middot; Register the app and SHA fingerprint</h2>
+  <p class="breath">Tell Firebase which app is allowed to call it: the package name <code>com.femioapp.femio</code> and its SHA-256 fingerprint.</p>
+  <p>A <b>SHA-256 fingerprint</b> is a long code made from the key that signs an app. It is how Google recognises "this is really your app". It is not a secret, but it is long, so copy it with the mouse.</p>
+
+  <div class="step"><h3><span class="n">1</span>Register the Android app</h3>
+    <div class="row"><div class="lbl">Do</div><div>Add an Android app with the package name below. Skip the step that offers <code>google-services.json</code>; femio does not use that file.</div></div>
+    <div class="row"><div class="lbl">Where</div><div>Firebase console &rarr; Project settings (gear icon) &rarr; Your apps &rarr; Add app &rarr; Android. Package name: <code>com.femioapp.femio</code>. Give it any nickname. Click through, skipping the download.</div></div>
+    <div class="row see"><div class="lbl">You should see</div><div>Under Your apps, an Android app named after you with the package <code>com.femioapp.femio</code>, and an "App ID" field.</div></div>
+    <div class="row fail"><div class="lbl">If it fails</div><div>If it says the package is already used, you probably registered it before in another project; open that project instead, or use the one you already have.</div></div>
+  </div>
+
+  <div class="step"><h3><span class="n">2</span>Get the debug SHA-256</h3>
+    <div class="row"><div class="lbl">Do</div><div>Ask the build tool to print the fingerprints.</div></div>
+    <div class="row"><div class="lbl">Where</div><div>In PowerShell:
+<pre><code>cd E:\Femio\.claude\worktrees\firebase-hackathon-eligibility-833c52\apps\mobile\android
+.\gradlew signingReport</code></pre>
+In Git Bash use <code>./gradlew signingReport</code>. (Use the folder where your working copy of the repo lives; the path above is the normal one.)</div></div>
+    <div class="row see"><div class="lbl">You should see</div><div>A long printout. Find the block headed <code>Variant: debug</code> and the line starting <code>SHA-256:</code> (colon-separated pairs of letters and digits).</div></div>
+    <div class="row fail"><div class="lbl">If it fails</div><div>Run <code>flutter doctor</code> in <code>apps/mobile</code>; Java and the Android tools must show a tick. If it still stops, run <code>flutter clean</code>, then <code>flutter pub get</code>, and try again.</div></div>
+  </div>
+
+  <div class="step"><h3><span class="n">3</span>Add the fingerprint in Firebase</h3>
+    <div class="row"><div class="lbl">Do</div><div>Paste the SHA-256 value into the app's fingerprint list.</div></div>
+    <div class="row"><div class="lbl">Where</div><div>Project settings &rarr; Your apps &rarr; your Android app &rarr; <b>Add fingerprint</b> &rarr; paste &rarr; Save.</div></div>
+    <div class="row see"><div class="lbl">You should see</div><div>The fingerprint listed under the app with type SHA-256.</div></div>
+    <div class="row fail"><div class="lbl">If it fails</div><div>A fingerprint with the wrong format is rejected; copy only the value after <code>SHA-256:</code>. Later, the Play Console app signing key adds a second fingerprint; that is for the Play release, not the demo (see the App Check Play Integrity page: <a href="https://firebase.google.com/docs/app-check/android/play-integrity-provider">firebase.google.com/docs/app-check/android/play-integrity-provider</a>).</div></div>
+  </div>
+</section>
+
+<!-- 4 -->
+<section id="s4">
+  <h2>4 &middot; Fill assistant.env</h2>
+  <p class="breath">Copy the example file, fill in three ids from Firebase, and the app is configured; no <code>google-services.json</code> is needed.</p>
+  <div class="secret">The values go only into this file. The file is git-ignored, so it is never uploaded. Do not paste them into chat, a document or a screenshot you share.</div>
+
+  <div class="step"><h3><span class="n">1</span>Make your copy of the example</h3>
+    <div class="row"><div class="lbl">Do</div><div>Copy <code>assistant.env.example</code> to <code>assistant.env</code> in the same folder.</div></div>
+    <div class="row"><div class="lbl">Where</div><div>
+<pre><code>cd E:\Femio\.claude\worktrees\firebase-hackathon-eligibility-833c52\apps\mobile
+copy assistant.env.example assistant.env</code></pre>
+(Git Bash: <code>cp assistant.env.example assistant.env</code>.)</div></div>
+    <div class="row see"><div class="lbl">You should see</div><div>A new file <code>apps/mobile/assistant.env</code> next to the example.</div></div>
+    <div class="row fail"><div class="lbl">If it fails</div><div>Check you are in <code>apps/mobile</code>, not the repo root. The file must sit exactly there.</div></div>
+  </div>
+
+  <div class="step"><h3><span class="n">2</span>Fill in the four lines</h3>
+    <div class="row"><div class="lbl">Do</div><div>Open <code>assistant.env</code> in Notepad. After each <code>=</code>, paste the value, with no spaces and no quotes.</div></div>
+    <div class="row"><div class="lbl">Where</div><div>Values come from Firebase console &rarr; Project settings &rarr; Your apps &rarr; your Android app:
+<table><tr><th>Line</th><th>Where the value is</th></tr>
+<tr><td><code>FEMIO_FIREBASE_APP_ID</code></td><td>"App ID" on the app card</td></tr>
+<tr><td><code>FEMIO_FIREBASE_API_KEY</code></td><td>Project settings &rarr; General, "Web API Key", or the API key shown for the app (look for "API key")</td></tr>
+<tr><td><code>FEMIO_FIREBASE_PROJECT_ID</code></td><td>Project settings &rarr; General, "Project ID"</td></tr>
+<tr><td><code>FEMIO_AI_CLOUD_MODEL</code></td><td>Already filled in the example; leave it as it is</td></tr></table></div></div>
+    <div class="row see"><div class="lbl">You should see</div><div>Four lines, none empty after the <code>=</code>. Lines starting with <code>#</code> are comments and can stay.</div></div>
+    <div class="row fail"><div class="lbl">If it fails</div><div>If you cannot find the API key, open the same Project settings page and search the page for "key". Official help: <a href="https://firebase.google.com/docs/ai-logic">firebase.google.com/docs/ai-logic</a>.</div></div>
+  </div>
+</section>
+
+<!-- 5 -->
+<section id="s5">
+  <h2>5 &middot; Build and install the debug APK</h2>
+  <p class="breath">Build the test version of the app, plug in the phone, and install it.</p>
+  <p>An <b>APK</b> is the Android app as a single file. <b>adb</b> is the small tool that talks to a phone over a USB cable. Before this, enable Developer options on the phone (Settings &rarr; About phone &rarr; tap Build number seven times), then turn on USB debugging in Developer options, and accept the prompt when you plug the phone in.</p>
+
+  <div class="step"><h3><span class="n">1</span>Build</h3>
+    <div class="row"><div class="lbl">Do</div><div>
+<pre><code>cd E:\Femio\.claude\worktrees\firebase-hackathon-eligibility-833c52\apps\mobile
+flutter build apk --debug</code></pre></div></div>
+    <div class="row see"><div class="lbl">You should see</div><div>"Built build/app/outputs/flutter-apk/app-debug.apk" (full path: <code>apps/mobile/build/app/outputs/flutter-apk/app-debug.apk</code>) at the end.</div></div>
+    <div class="row fail"><div class="lbl">If it fails</div><div>Run <code>flutter clean</code>, then build again. Still failing: run <code>flutter doctor</code> and fix what it flags with a cross.</div></div>
+  </div>
+
+  <div class="step"><h3><span class="n">2</span>Install on the phone</h3>
+    <div class="row"><div class="lbl">Do</div><div>
+<pre><code>adb devices
+adb install -r build/app/outputs/flutter-apk/app-debug.apk</code></pre>
+<code>-r</code> means "replace the old copy and keep its data".</div></div>
+    <div class="row see"><div class="lbl">You should see</div><div><code>adb devices</code> lists one device ending in "device"; the install prints <code>Success</code>. femio appears on the phone.</div></div>
+    <div class="row fail"><div class="lbl">If it fails</div><div>If the list says "unauthorized", unlock the phone and accept the USB-debugging prompt. If the list is empty, try another cable or port. If <code>adb</code> is not found, it lives in the Android SDK "platform-tools" folder; Android Studio's SDK Manager installs it.</div></div>
+  </div>
+
+  <div class="step"><h3><span class="n">3</span>Open Settings &rarr; Assistant</h3>
+    <div class="row"><div class="lbl">Do</div><div>Open femio, then Settings &rarr; Assistant.</div></div>
+    <div class="row see"><div class="lbl">You should see</div><div>The Cloud boost row says <b>Off. Everything is done on this phone.</b> with a switch.</div></div>
+    <div class="row fail"><div class="lbl">If it fails</div><div>If the Cloud boost row says "Not available in this version of the app", the build has no Firebase settings: <code>assistant.env</code> is missing, in the wrong folder or has an empty line. Fix the file, then rebuild (section 15).</div></div>
+  </div>
+</section>
+
+<!-- 6 -->
+<section id="s6">
+  <h2>6 &middot; App Check: debug token first, then enforcement</h2>
+  <p class="breath">Add the debug token to Firebase first; only after that switch enforcement on, never the other way round.</p>
+  <p><b>App Check</b> is Firebase's guard that answers "is this request really from my app?" before it lets the call use your quota. <b>Enforcement</b> means Firebase refuses calls that fail that check. A <b>debug token</b> is a one-off code a test build prints so Firebase will trust it. If you switch enforcement on before adding the token, your own test calls are refused (403 errors).</p>
+  <svg viewBox="0 0 720 110" role="img" aria-label="Order of steps: 1 open Ask femio once, 2 copy the token from logcat, 3 add it in Firebase, 4 turn enforcement on.">
+    <g><rect class="s-box" x="10" y="20" width="150" height="70" rx="12"/><text class="s-t" x="24" y="50">1 Open Ask</text><text class="s-m" x="24" y="70">on the phone</text></g>
+    <g><rect class="s-box" x="190" y="20" width="150" height="70" rx="12"/><text class="s-t" x="204" y="50">2 Copy token</text><text class="s-m" x="204" y="70">from logcat</text></g>
+    <g><rect class="s-box" x="370" y="20" width="150" height="70" rx="12"/><text class="s-t" x="384" y="50">3 Add token</text><text class="s-m" x="384" y="70">in Firebase</text></g>
+    <g><rect class="s-phone" x="550" y="20" width="160" height="70" rx="12"/><text class="s-t" x="564" y="50">4 Enforce ON</text><text class="s-m" x="564" y="70">only now</text></g>
+    <path class="s-a" d="M160 55H188"/><path class="s-a" d="M340 55H368"/><path class="s-a" d="M520 55H548"/>
+  </svg>
+
+  <div class="step"><h3><span class="n">1</span>Make the app print its token</h3>
+    <div class="row"><div class="lbl">Do</div><div>Start a log stream on your computer, then on the phone open Settings &rarr; Assistant (that starts Firebase and App Check), or Today &rarr; Ask femio and ask any question.
+<pre><code>adb logcat</code></pre>
+<code>logcat</code> is the phone's running diary. Leave it running while you use the app.</div></div>
+    <div class="row see"><div class="lbl">You should see</div><div>Many lines scroll past. Stop it with Ctrl+C after you have used Ask.</div></div>
+    <div class="row fail"><div class="lbl">If it fails</div><div>No lines at all: re-check <code>adb devices</code> (section 5).</div></div>
+  </div>
+
+  <div class="step"><h3><span class="n">2</span>Find the token line</h3>
+    <div class="row"><div class="lbl">Do</div><div>Filter the diary for the App Check line.
+<pre><code>adb logcat -d | findstr /i /c:"debug secret"</code></pre>
+(Git Bash: <code>adb logcat -d | grep -i "debug secret"</code>. <code>-d</code> prints what is stored, then stops.)</div></div>
+    <div class="row see"><div class="lbl">You should see</div><div>A line from App Check that tells you to enter a debug secret in the Firebase console, followed by a long code (letters, digits, dashes). That code is the token. Treat it like a password: use it only in the next step.</div></div>
+    <div class="row fail"><div class="lbl">If it fails</div><div>No such line: open Ask femio again, ask another question, and repeat. Exact wording can differ by version; the official page is <a href="https://firebase.google.com/docs/app-check/android/debug-provider">firebase.google.com/docs/app-check/android/debug-provider</a>. If you still cannot find it, tell a Claude session "no token line in logcat" without pasting the log.</div></div>
+  </div>
+
+  <div class="step"><h3><span class="n">3</span>Add the token in Firebase</h3>
+    <div class="row"><div class="lbl">Do</div><div>Firebase console &rarr; App Check &rarr; Apps &rarr; your Android app &rarr; the three-dot menu &rarr; <b>Manage debug tokens</b> &rarr; Add debug token &rarr; paste &rarr; Save. Also make sure the Play Integrity provider is set up for the app (look for "Play Integrity" on the same page; docs link in section 3).</div></div>
+    <div class="row see"><div class="lbl">You should see</div><div>Your token listed under Manage debug tokens.</div></div>
+    <div class="row fail"><div class="lbl">If it fails</div><div>If you cannot see "Manage debug tokens", look for the app row's menu or settings icon; the console moves things. The official page above shows the current layout.</div></div>
+  </div>
+
+  <div class="step"><h3><span class="n">4</span>Turn enforcement on, then re-test</h3>
+    <div class="row"><div class="lbl">Do</div><div>In App Check, open the list of products (APIs) and switch enforcement on for <b>Firebase AI Logic</b> (look for it by that name, or by "Gemini Developer API"). Then use Ask femio again with Cloud boost on (section 8).</div></div>
+    <div class="row see"><div class="lbl">You should see</div><div>The product shows "Enforced", and the app still answers.</div></div>
+    <div class="row fail"><div class="lbl">If it fails</div><div>If the app now shows errors or 403, switch enforcement back off, check the token was saved, use the app once more and try again. See section 15.</div></div>
+  </div>
+
+  <div class="step"><h3><span class="n">!</span>Decided: enforcement stays on (24 Nov)</h3>
+    <div class="row"><div class="lbl">Know</div><div><span class="badge">not verified</span> A judge who installs your APK file (not from Google Play) cannot pass Play Integrity, and their phone's debug token is not in your list. With enforcement <b>on</b>, Cloud boost will fail on their phone; Ask femio from the trusted sources, Gemini Nano, tips, visit summary and the safety rules still work. With enforcement <b>off</b> during judging, their Cloud boost may work, but anyone who copies the key could spend your quota up to the budget alert.</div></div>
+    <div class="row"><div class="lbl">Recommended</div><div>Keep enforcement <b>on</b> and keep the Devpost testing text as it is: it says the cloud path needs Cloud boost on a phone without Nano. You chose this on 24 November; the Devpost testing text already says it.</div></div>
+  </div>
+</section>
+
+<!-- 7 -->
+<section id="s7">
+  <h2>7 &middot; Gemini Nano on your test phone</h2>
+  <p class="breath">The demo phone must support Android AICore; femio's Settings &rarr; Assistant tells you at once.</p>
+  <p><b>AICore</b> is the Android service that runs Gemini Nano on a phone. Only some phones have it. Check yours against the list at <a href="https://developer.android.com/ai/gemini-nano">developer.android.com/ai/gemini-nano</a>.</p>
+  <div class="step"><h3><span class="n">1</span>Read the Nano status</h3>
+    <div class="row"><div class="lbl">Do</div><div>In femio open Settings &rarr; Assistant and read the line "AI on your phone (Gemini Nano)".</div></div>
+    <div class="row see"><div class="lbl">You should see</div><div>One of three states: <b>Ready</b> (use this phone for the video), <b>Can be downloaded</b> (tap the Download button, keep Wi-Fi on, wait until it says Ready), or <b>Not available</b>.</div></div>
+    <div class="row fail"><div class="lbl">If it fails</div><div>"Not available" means the phone is not on the AICore list. Cloud boost still covers questions on that phone, but for the video and for judges you want a phone that says Ready. Try a second phone, or ask someone with a recent Pixel.</div></div>
+  </div>
+</section>
+
+<!-- 8 -->
+<section id="s8">
+  <h2>8 &middot; Turn on every feature</h2>
+  <p class="breath">Try each feature once on the debug build and check it shows what the table says.</p>
+  <p>Do the first row of each feature on the phone with Nano Ready. The Cloud boost row needs the internet.</p>
+  <div class="tablewrap"><table>
+    <tr><th>Feature</th><th>How to turn it on or reach it</th><th>What it should show</th></tr>
+    <tr><td>Ask femio</td><td>Today &rarr; Ask femio. Ask "How long should we try to conceive before seeing a doctor?"</td><td>A short answer built only from trusted sources, each numbered with its source; works offline. A question the registry cannot answer says "Not covered yet". With Nano Ready, the summary is written on the phone.</td></tr>
+    <tr><td>Safety rules</td><td>In Ask femio type "heavy bleeding and dizzy"; then "safe days to avoid pregnancy"</td><td>Heavy bleeding with dizziness shows ACOG's emergency sentence; danger signs open Help now; after birth, the CDC Hear Her warning signs; the birth-control question gets a fixed answer. No model runs first.</td></tr>
+    <tr><td>Cloud boost</td><td>Settings &rarr; Assistant &rarr; switch Cloud boost on (it is off by default)</td><td>A consent screen opens showing the four broad facts that may be sent (life stage, cycle regularity, kinds of symptom logged in the last month, logging streak) and a "what is never sent" list. Tick one or both boxes (general questions, tips), then tap I agree; the screen then shows the date you agreed. It is used only when the phone has no Nano. A general question is sent only after she approves its exact text.</td></tr>
+    <tr><td>"For you" tips</td><td>Today screen</td><td>Short reviewed sentences, each with a source, chosen on the phone.</td></tr>
+    <tr><td>Visit summary</td><td>Today &rarr; Visit summary</td><td>A page for her doctor counted from her own log, with questions in order. Copy works.</td></tr>
+    <tr><td>Say it in your words</td><td>Log &rarr; Say it in your words. Type "bad cramps, light bleeding and so tired", tap Turn into log entries</td><td>Log entries she can check, then tap Add. The sentence itself is not saved or sent.</td></tr>
+  </table></div>
+  <div class="step" style="margin-top:12px"><h3><span class="n">!</span>If a feature does not behave</h3>
+    <div class="row fail"><div class="lbl">If it fails</div><div>Note which row, and what the screen said, in words. Section 15 covers the usual causes (no Firebase settings in the build, App Check, Nano not available).</div></div>
+  </div>
+</section>
+
+<!-- 9 -->
+<section id="s9">
+  <h2>9 &middot; Remote Config</h2>
+  <p class="breath">Remote Config is not built in this version; there is nothing to set up.</p>
+  <p><b>Remote Config</b> is a Firebase feature that changes an app's settings from the console without a new release. femio does not use it in this version. Do not enable it, and do not mention it in the Devpost form as a feature.</p>
+</section>
+
+<!-- 10 -->
+<section id="s10">
+  <h2>10 &middot; Release APK</h2>
+  <p class="breath">The release build is the one you give testers and link on Devpost; it needs your signing key file.</p>
+  <p>A <b>release</b> build is the final, signed version (the debug one is only for testing). It is signed with your <b>upload keystore</b>, a key file you made once. The steps for creating it are in <code>docs/33_REBUILD_V3/05_RELEASE_RUNBOOK.md</code> (section 2).</p>
+  <div class="step"><h3><span class="n">1</span>Check the signing file exists</h3>
+    <div class="row"><div class="lbl">Do</div><div>Look for <code>apps/mobile/android/key.properties</code> (copy of <code>key.properties.example</code>, with the path and passwords of your keystore). Never put it in chat or git.</div></div>
+    <div class="row see"><div class="lbl">You should see</div><div>The file exists and its path line points to your keystore file.</div></div>
+    <div class="row fail"><div class="lbl">If it fails</div><div>No keystore yet: follow section 2 of the release runbook once, then come back.</div></div>
+  </div>
+  <div class="step"><h3><span class="n">2</span>Build the release APK</h3>
+    <div class="row"><div class="lbl">Do</div><div>
+<pre><code>cd E:\Femio\.claude\worktrees\firebase-hackathon-eligibility-833c52\apps\mobile
+flutter build apk --release --dart-define-from-file=ads.env</code></pre>
+<code>ads.env</code> holds the ads ids (copy of <code>ads.env.example</code>; see the runbook section 3 for what happens without it).</div></div>
+    <div class="row see"><div class="lbl">You should see</div><div><code>apps/mobile/build/app/outputs/flutter-apk/app-release.apk</code>.</div></div>
+    <div class="row fail"><div class="lbl">If it fails</div><div><code>flutter clean</code>, then build again; <code>flutter doctor</code> for tool problems.</div></div>
+  </div>
+  <div class="step"><h3><span class="n">3</span>Install and test it</h3>
+    <div class="row"><div class="lbl">Do</div><div>
+<pre><code>adb install -r build/app/outputs/flutter-apk/app-release.apk</code></pre>
+Repeat the quick checks from section 8, especially Ask femio and Cloud boost.</div></div>
+    <div class="row see"><div class="lbl">You should see</div><div>The same behaviour as the debug build.</div></div>
+    <div class="row fail"><div class="lbl">If it fails</div><div>If install says the signatures differ, uninstall the debug app first (this deletes its test data), then install. <span class="badge">not verified</span> A release APK installed outside Google Play may be refused by App Check's Play Integrity check, so the cloud path could fail for people who install your APK file; the registry and Nano parts do not depend on it. Test it on your own phone and, if cloud answers fail there, say so in a Claude session before you write the Devpost testing text.</div></div>
+  </div>
+</section>
+
+<!-- 11 -->
+<section id="s11">
+  <h2>11 &middot; Make the repo public</h2>
+  <p class="breath">You say "make it public" to a Claude session; it publishes an app-only public copy, and you only approve.</p>
+  <div class="step"><h3><span class="n">1</span>Ask, then approve</h3>
+    <div class="row"><div class="lbl">Do</div><div>Type: <code>make it public</code>. The session runs <code>scripts/hackathon/export-public-app.mjs</code> and creates the Apache-2.0 repository <code>femio-app</code> on GitHub (the app only; your private monorepo stays private). Approve when asked.</div></div>
+    <div class="row see"><div class="lbl">You should see</div><div>A GitHub link to the new public repository with a LICENSE file shown in its About section. Open it in a private window and check it has no <code>assistant.env</code> and no keys.</div></div>
+    <div class="row fail"><div class="lbl">If it fails</div><div>Tell the session what it printed. Do not make a repo public by hand.</div></div>
+  </div>
+</section>
+
+<!-- 12 -->
+<section id="s12">
+  <h2>12 &middot; Record the 3-minute video</h2>
+  <p class="breath">One take of the phone screen with your voice, under 3 minutes, in English, uploaded to YouTube.</p>
+  <p>Record on the phone that says Nano Ready: pull down quick settings and use Screen record. Source: <code>docs/hackathon/VIDEO_SCRIPT.md</code> (rewritten 24 November for the current build). Before recording, set up a profile trying to conceive for 6 to 12 months, log a few days of cramps and tiredness, and keep Cloud boost off.</p>
+  <div class="tablewrap"><table>
+    <tr><th>Time</th><th>On screen</th><th>What to say (gist)</th></tr>
+    <tr><td>0:00&ndash;0:15</td><td>Today, scrolled to the For you card</td><td>femio keeps her record on her phone; hybrid AI makes it more useful without breaking that promise.</td></tr>
+    <tr><td>0:15&ndash;0:25</td><td>Settings &rarr; Assistant: Nano Ready, Cloud boost Off</td><td>Gemini Nano runs on this phone through Firebase AI Logic; the cloud is off unless she turns it on.</td></tr>
+    <tr><td>0:25&ndash;0:50</td><td>Log &rarr; Say it in your words; type "bad cramps, light bleeding and so tired"; Turn into log entries; Add</td><td>One sentence instead of forty taps; the rules and Nano on the phone make entries she confirms; the sentence is never saved or sent.</td></tr>
+    <tr><td>0:50&ndash;1:10</td><td>Today &rarr; For you card; tap one Source link</td><td>Tips chosen on her phone from her stage and what she logs; each is a reviewed sentence with its source; Nano only orders them.</td></tr>
+    <tr><td>1:10&ndash;1:25</td><td>Today &rarr; Visit summary</td><td>A page for her doctor, counted from her own log, with sourced questions for her stage.</td></tr>
+    <tr><td>1:25&ndash;2:00</td><td>Today &rarr; Ask femio; type "I'm 34 and my cramps are awful, what can I do?"; Ask; scroll to Sources</td><td>A personal question stays on the phone; femio finds passages in its trusted-source library; Nano summarises with numbered citations; no source, no answer.</td></tr>
+    <tr><td>2:00&ndash;2:15</td><td>Ask femio; type "heavy bleeding and dizzy"</td><td>Safety rules run before any model; ACOG's emergency guidance and the help page appear.</td></tr>
+    <tr><td>2:15&ndash;2:40</td><td>Settings &rarr; Assistant &rarr; tap the Cloud boost switch; show the consent screen; tap Not now</td><td>On a phone without Nano she can choose Cloud boost; the screen shows exactly what could be sent: four broad facts and general questions she approves.</td></tr>
+    <tr><td>2:40&ndash;2:55</td><td>Back to Today</td><td>On the phone for her data, sourced answers, rules above both; four languages. That is femio.</td></tr>
+  </table></div>
+  <div class="step" style="margin-top:12px"><h3><span class="n">1</span>Record, upload, copy the link</h3>
+    <div class="row"><div class="lbl">Do</div><div>Record, check it is under 3:00, upload to YouTube as Public or Unlisted (YouTube Studio &rarr; Create &rarr; Upload videos), and copy the video link for the Devpost form.</div></div>
+    <div class="row see"><div class="lbl">You should see</div><div>The link opens in a private window and plays with sound.</div></div>
+    <div class="row fail"><div class="lbl">If it fails</div><div>If YouTube is "processing" for long, wait; it plays at low quality first. If the video runs over 3:00, trim your speech rather than speeding up.</div></div>
+  </div>
+</section>
+
+<!-- 13 -->
+<section id="s13">
+  <h2>13 &middot; Fill the Devpost form</h2>
+  <p class="breath">Every field has a ready text in <code>docs/hackathon/DEVPOST_SUBMISSION.md</code>; paste from the named section.</p>
+  <div class="tablewrap"><table>
+    <tr><th>Devpost field</th><th>Paste from section of the file</th></tr>
+    <tr><td>Project name</td><td>"Project name"</td></tr>
+    <tr><td>Elevator pitch</td><td>"Elevator pitch"</td></tr>
+    <tr><td>About the project (the long story)</td><td>"About the project": The problem, What Femio does, How Femio uses Firebase AI Logic, How I built it, Challenges, What I learned, What's next</td></tr>
+    <tr><td>Built with</td><td>"Built with"</td></tr>
+    <tr><td>Try it out links, video link, submitter details</td><td>"Other fields" (fill in your public repo link, APK link and YouTube link where it shows placeholders)</td></tr>
+    <tr><td>What existed versus what you built</td><td>"What existed vs what I built"</td></tr>
+    <tr><td>Main technology requirement</td><td>"Main technology requirement"</td></tr>
+    <tr><td>Testing instructions</td><td>"Testing instructions" (step 5 is Settings &rarr; Assistant &rarr; Cloud boost)</td></tr>
+    <tr><td>License</td><td>"License" (Apache-2.0, link to the LICENSE file in the public repo)</td></tr>
+  </table></div>
+  <p class="note" style="margin-top:12px">The file's own rule: anything not working by the deadline must be cut from the text, never faked. Remote Config is not built (section 9), so do not claim it.</p>
+  <div class="step"><h3><span class="n">1</span>Submit</h3>
+    <div class="row"><div class="lbl">Do</div><div>Open the hackathon page on Devpost, start your submission, paste each field, replace every <code>&lt;placeholder&gt;</code> with a real link, preview, then submit. Submit before the deadline in section 0 above.</div></div>
+    <div class="row see"><div class="lbl">You should see</div><div>The project page shows "Submitted" (not "Draft") and a confirmation email arrives.</div></div>
+    <div class="row fail"><div class="lbl">If it fails</div><div>If a field has a character limit, shorten from the end; the elevator pitch is a fixed length. If Devpost refuses a link, open it in a private window to make sure it is public.</div></div>
+  </div>
+</section>
+
+<!-- 14 -->
+<section id="s14">
+  <h2>14 &middot; Privacy notice and Play Data safety</h2>
+  <p class="breath">Before any Google Play release, the privacy notice and the Data safety form must describe Cloud boost; the hackathon submission does not need this.</p>
+  <p>What has to be said: only when she turns Cloud boost on, a redacted question and four coarse bands may be processed by Google (Firebase AI Logic, Gemini Developer API, paid tier). Both the in-app and web privacy notice and the Play Data safety form must say so truthfully before the app goes to Play. The notice lives in <code>docs/33_REBUILD_V3/03_LEGAL_PACK.md</code> (privacy policy in section 2, Play pack in section 4). A Claude session can prepare the change; you approve it. This guide does not draft legal text.</p>
+</section>
+
+<!-- 15 -->
+<section id="s15">
+  <h2>15 &middot; Troubleshooting</h2>
+  <p class="breath">Most problems are one of five causes; find yours below.</p>
+  <div class="tablewrap"><table>
+    <tr><th>You see</th><th>Likely cause</th><th>What to do</th></tr>
+    <tr><td>Cloud boost row says "Not available in this version of the app"</td><td><code>assistant.env</code> is missing, in the wrong place or has an empty line</td><td>Check it is <code>apps/mobile/assistant.env</code> with all four lines filled, then rebuild (<code>flutter build apk --debug</code>) and reinstall. The file is read at build time.</td></tr>
+    <tr><td>App Check errors, or 403 from the cloud</td><td>Debug token not added, or enforcement switched on before the token</td><td>Section 6: add the token first (Manage debug tokens), then enforce. To recover, turn enforcement off, add the token, use the app once, turn it on again.</td></tr>
+    <tr><td>Nano shows "Not available"</td><td>The phone is not on the AICore supported list</td><td>Use a phone that is (<a href="https://developer.android.com/ai/gemini-nano">list</a>). On this phone, Cloud boost covers questions; everything else still works on rules.</td></tr>
+    <tr><td>Worried about cost</td><td>Cloud model is pay-as-you-go</td><td>Check the $10 budget alert exists (section 2). Cloud boost is off by default and used only when the phone has no Nano. You can also turn enforcement on so only your app can spend.</td></tr>
+    <tr><td>The build fails</td><td>Stale build files or a missing tool</td><td>Run <code>flutter clean</code>, then build again. Then <code>flutter doctor</code> and fix anything flagged.</td></tr>
+    <tr><td><code>adb</code> not found, or phone not listed</td><td>Platform-tools not installed, or USB debugging not accepted</td><td>Section 5, step 2.</td></tr>
+  </table></div>
+  <p style="margin-top:12px">Anything else: describe it in words to a Claude session. Do not paste keys, ids, tokens or the full log.</p>
+</section>
+
+<p class="lead" style="text-align:center;font-size:14px">femio hackathon owner guide &middot; written 24 November 2026 &middot; console menus change; where a path says "look for", the linked official page is the authority.</p>
+</div>
+
+<script>
+/* Search box: hides sections that do not contain the typed words. Offline, no libraries. */
+(function(){
+  var q=document.getElementById('q'); if(!q) return;
+  var secs=[].slice.call(document.querySelectorAll('section'));
+  q.addEventListener('input',function(){
+    var v=q.value.trim().toLowerCase();
+    secs.forEach(function(s){
+      s.classList.toggle('hide', v.length>1 && s.textContent.toLowerCase().indexOf(v)<0);
+    });
+  });
+})();
+</script>
+</body>
+</html>

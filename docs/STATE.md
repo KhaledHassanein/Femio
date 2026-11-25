@@ -1,6 +1,6 @@
 # Femio — current state (living document)
 
-**Last updated: 2026-10-30.** Rewrite in place; never add a dated copy. Older versions are in git
+**Last updated: 2026-11-24.** Rewrite in place; never add a dated copy. Older versions are in git
 history and `docs/archive/`.
 
 ## ▶ Resume prompt
@@ -15,6 +15,14 @@ history and `docs/archive/`.
 > First, run `git branch --list "wip/*"`. A branch there means the last session stopped mid-item.
 
 ## Where things stand (2026-10-28)
+
+- **Persona feature review (2026-11-24).** Market researcher + business development + lead synthesis in `docs/33_REBUILD_V3/research/PERSONA_FEATURES_2026-11.md` (owner page https://claude.ai/artifact/6debjUMkBygKcNuQntDW8T). 23 accepted features are `R8.1`–`R8.23` in PROGRESS (waves A/B/C; wave A = the owner's ten requests); R8.24 = the femio Plus decision (feeds R7.12). Key finding: the 37 week-by-week pregnancy guides already exist in four languages with fixed sections, so the weekly view is assembly. No code changed.
+
+- **Ask femio coverage (R7.13, 2026-11-24).** Registry 89 → 286 entries, every passage checked word for word; on a synthetic set of 419 questions strong answers went 45% → 87%, "not covered" 82 → 8. Report: `docs/33_REBUILD_V3/research/REGISTRY_COVERAGE_2026-11.md`. Next: a rule for "do I have X?" questions (R7.14).
+
+- **Privacy hardening (ADR-080, 2026-11-24).** No ads in the app (AdMob removed, ad-ID permissions removed); no GTM/GA4/Meta on the website (Vercel Web Analytics instead; AdSense stays after consent); Cloud boost ships opt-in with per-purpose explicit consent and a dated, versioned receipt; privacy policy and consumer health data policy rewritten ×4; review and DPIA in `docs/compliance/PRIVACY_REVIEW_2026-11-24.md`. Owner actions 29–36 (lawyer review before the Play release).
+
+- **Hybrid AI assistant for #BuildHybridAI (ADR-078, 2026-11-24; deadline 2026-11-30).** On branch `claude/firebase-hackathon-eligibility-833c52`, not merged. Built: domain core (`lib/domain/assistant/`), Kotlin bridge to Firebase AI Logic with App Check, Say it / Ask femio / Visit summary / Settings → Assistant in four languages, tripwire rules, public export script, Devpost texts. **ADR-079 (2026-11-24):** Ask femio answers only from a bundled trusted-source registry (offline, cited, "not covered" when no passage); Google Search grounding removed; Cloud boost is opt-in with a consent screen and sends only a `CloudPrompt`; personal tips and persona visit questions come from a reviewed catalogue; red flags MR-49/MR-50. 630 tests, gate green, debug APK builds. Owner guide: `docs/hackathon/OWNER_GUIDE.html`. Persona gaps: R7.9. Positioning is now "AI-assisted women's health & wellness" across life stages (ADR-078 §8, R7.7). **Not yet run against real Firebase or Gemini Nano:** owner actions 23–28 first.
 
 - **Sign-off pass 2026-10-30 (ADR-077).** All 121 guides are published and name Dr. Khaled M. as reviewer; no `[NEEDS SOURCE]` remains; the legal pages name the sole proprietorship and register number. Owner actions 3, 7 and 9 are closed. **Library parity 2026-10-30:** 110 guides in each of EN, AR, FR and ES, plus the five condition pages and the author bio in all four; glossary and FAQ pages are still hidden (R3.9). Live on femioapp.com since 2026-10-30 (`73cb541`, checked: register number on `/en/privacy`, reviewer line and no "review pending" on five sampled guides).
 

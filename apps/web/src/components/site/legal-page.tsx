@@ -1,21 +1,30 @@
 import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { TrustPage, type TrustPoint } from "@/components/site/trust-page";
-import { LEGAL_VALUES } from "@/lib/legal/placeholders";
+import { LEGAL_EDITIONS, LEGAL_VALUES } from "@/lib/legal/placeholders";
 import { localizedAlternates } from "@/lib/seo/metadata";
 
 /**
- * The privacy policy and the terms of use (docs/33_REBUILD_V3/03_LEGAL_PACK.md §2-3).
+ * The privacy policy, the terms of use and the consumer health data policy
+ * (ADR-080; Washington RCW 19.373.020 asks for that last one as its own page).
  *
- * Both pages have the same shape in the catalogs (`privacy` and `terms` namespaces):
+ * All three have the same shape in the catalogs (`privacy`, `terms`, `healthData`):
  * title, intro, an effective-date line, optional "in short" box, and a list of
  * heading + body (or heading + bullets) sections. This one component reads either, so
  * the two route files stay a few lines long and cannot drift apart.
  *
- * Company name, mailbox and date are ICU arguments filled from `LEGAL_VALUES`; until
- * the owner sets them they render as highlighted [ENTITY] / [EMAIL] / [DATE] markers.
+ * Company name and mailbox are ICU arguments filled from `LEGAL_VALUES`, and each page's
+ * own date and version from `LEGAL_EDITIONS`; an unknown value renders as a highlighted
+ * [ENTITY] / [EMAIL] / [DATE] marker.
  */
-type LegalNamespace = "privacy" | "terms";
+export type LegalNamespace = keyof typeof LEGAL_EDITIONS;
+
+/** URL path of each legal page (the namespace name is not always the path). */
+export const LEGAL_PATHS: Record<LegalNamespace, string> = {
+  privacy: "/privacy",
+  terms: "/terms",
+  healthData: "/consumer-health-data",
+};
 type Translator = {
   (key: string, values?: Record<string, string>): string;
   raw(key: string): unknown;
@@ -32,7 +41,7 @@ export async function legalMetadata(locale: string, namespace: LegalNamespace): 
   return {
     title: t("title"),
     description: t("intro"),
-    alternates: localizedAlternates(locale, `/${namespace}`),
+    alternates: localizedAlternates(locale, LEGAL_PATHS[namespace]),
   };
 }
 
@@ -47,7 +56,7 @@ export async function LegalPage({
 }) {
   setRequestLocale(locale);
   const t = await translator(locale, namespace);
-  const values = { ...LEGAL_VALUES };
+  const values = { ...LEGAL_VALUES, ...LEGAL_EDITIONS[namespace] };
 
   const raw = t.raw("points") as { items?: unknown[] }[];
   const points: TrustPoint[] = raw.map((p, i) => ({

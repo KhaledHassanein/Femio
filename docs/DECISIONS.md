@@ -815,3 +815,188 @@ a drafted pack, not a lawyer's opinion; that stays true and is stated in its fir
 1. The conservative Arabic scope (decision 3) and the lay term **تكيّس المبايض** stand; the glossary keeps المبيض المتعدد الكيسات as headword with the lay term as alias.
 2. In the Ramadan guide the person she asks about fasting is **أهل العلم الشرعي** ("من تثقين به من أهل العلم الشرعي"), **not** "المرجع الديني". The owner answered the dashboard's question 9c after the blanket sign-off of 00:55 that took the default, so this later, specific answer wins; the Dar al-Ifta sourcing from decision 2 is kept.
 3. `scripts/content-lint.mjs` and the content brief keep these as the house rule.
+
+
+## ADR-078
+**Date:** 2026-11-24 · **Status:** accepted 2026-11-24 (owner, in chat: "Yes, start", accepting the five recommended decisions on the review page https://claude.ai/artifact/XvN1K1NWw2YvP17LjKtndP) · **Area:** app, privacy, AI
+
+**Context.** The owner entered Femio in Google's #BuildHybridAI hackathon (Firebase AI Logic hybrid
+inference; deadline 2026-11-30) and asked for an assistant that makes the app useful rather than
+informative only. OD-9 (2026-08-23) put any AI assistant after V1; rule 4 and ADR-076 say the app has no
+network code of its own. Both are reversed in part here, so the line is drawn explicitly.
+
+**Facts the design rests on** (Firebase docs read 2026-11-24): on-device inference through
+`firebase-ai-ondevice` (beta) is single-turn, about 4,000 tokens in, short output recommended,
+foreground only, on supported phones only, and **validated for English and Korean only**. On the
+Gemini Developer API's unpaid tier Google may use prompts to improve products and human reviewers may
+read them; on the paid tier prompts are not used for training and are logged for a limited time for
+abuse checks.
+
+**Decision.**
+1. **The model reads; Femio speaks** for everything built from her record: the model classifies,
+   extracts and picks (log terms, question ids) and what she reads is Femio's reviewed text in four
+   languages. **"Ask femio" answers from trusted health sources, not from Femio's guides** (owner,
+   2026-11-24: "I need the AI to get from trusted sources and not the 110 cited articles"): the cloud
+   model answers with Grounding with Google Search, steered to Tier 1 and Tier 2 sources
+   (docs/15 §4, docs/04), and the phone shows the answer only when at least one grounding source is
+   on the allowlist in `lib/domain/assistant/trusted_sources.dart`; otherwise she sees "no trusted
+   source found". Every source is listed, trusted ones marked, with Google's search suggestions, as
+   the grounding terms require. Femio's own guides appear under the answer as related reading.
+2. **Anything that touches her record runs `ONLY_ON_DEVICE`.** If Nano is absent the feature falls
+   back to rules on the phone, never to the cloud.
+3. **Only a question with no personal details may use the cloud** (`ONLY_IN_CLOUD` with Google
+   Search grounding). A question about her is first rewritten as a general one by Gemini Nano on the
+   phone (or by her, where Nano is absent); she sees the exact text that will be sent and can edit or
+   cancel it. The phone then strips numbers, dates, contacts and links and refuses any first-person
+   wording. Nothing from her record is ever attached. The Dart type `CloudSafeText` can only be made
+   by that step, so no other code path can reach the cloud call.
+4. **Rules always first:** red-flag wording opens Help now; birth-control questions get the fixed
+   "femio is not a method of birth control" answer; neither ever reaches a model.
+5. **Firebase lives in Kotlin only** (`android/app/src/main/kotlin/.../assistant/`), called over one
+   method channel; no Firebase package in `pubspec.yaml`, no network code under `lib/` (the tripwire
+   checks both). App Check is on: the debug provider in debug builds, Play Integrity in release.
+   Config ids live in git-ignored `apps/mobile/assistant.env`; without it the assistant reports
+   "not set up" and every feature runs on rules.
+6. **Paid tier only for cloud calls** (Blaze plan with a budget alert, owner action).
+7. **Open source for the hackathon:** a public copy of the app (`apps/mobile` plus what it needs to
+   build) under Apache-2.0; the monorepo stays private.
+
+8. **Positioning** (owner, 2026-11-24: "I need the app to be Femio: AI Assisted Female Health &
+   Wellness App - comprehensively"): the store title and listing become "femio: AI-assisted women's
+   health & wellness" in four languages, covering every life stage (periods, trying to conceive,
+   pregnancy, postpartum, perimenopause and menopause, general wellness), not the conceive-and-pregnancy
+   wedge alone. The wedge stays the build order of the rebuild phases (R1-R4); the wordmark stays the
+   Latin lowercase **femio**. Rule 1 is unchanged: education and tracking only.
+
+**Consequences.** The Data safety form gains "App activity / other user-generated content: questions
+she types into Ask femio may be processed by Google to answer them, not stored by femio, not linked to
+her"; the privacy notice ×4 and the store listing change before a release that enables the cloud path
+(R7.6). OD-9 is lifted for the assistant described here; free chat and community stay deferred (OD-8).
+The app's minimum Android version rises to 8.0 (API 26), which `firebase-ai-ondevice` requires.
+
+## ADR-079
+**Date:** 2026-11-24 · **Status:** accepted 2026-11-24 (owner, in chat, answering four questions: "Yes, opt-in, off by default (Recommended)", "Bundled registry (Recommended)", "NHS Heavy periods page (Recommended)", "Keep notifications neutral, cut medication (Recommended)") · **Area:** app, privacy, AI, medical content · **Amends:** ADR-078 §1, §2, §3
+
+**Context.** ADR-078 answered Ask femio with Grounding with Google Search, filtered by a host allowlist.
+That shows whatever the search returns, needs the network for every answer, and puts a third party's
+ranking between her and the source. The owner also asked for the assistant to serve all 73 personas,
+not one or two, and for an opt-in way to personalise on phones without Gemini Nano.
+
+**Decision.**
+1. **Answers come only from a bundled registry** (`apps/mobile/assets/trusted_sources/registry.json`,
+   versioned): verbatim passages copied only from US federal public-domain publishers (CDC,
+   MedlinePlus/NLM, Office on Women's Health, NICHD, NIDDK, NCI; enforced in `SourceEntry.fromJson`), and
+   link-only entries for WHO, NHS, ACOG, RCOG and NICE, whose text Femio does not copy. Retrieval is a
+   four-language topic lexicon on the phone. No passage, no answer: she sees "Not covered yet", links and
+   guides. It works offline. Google Search grounding is removed (the tripwire forbids it).
+2. **Gemini Nano summarises on the phone** (`ONLY_ON_DEVICE`), even for a question about her. The
+   summary must cite passage numbers; a reply that cites nothing, or a passage that does not exist, is
+   discarded and the passages are shown word for word.
+3. **Cloud boost: opt-in, off by default.** Only on a phone without Nano, and only after she agrees on a
+   consent screen that shows her own values, the hybrid call (`PREFER_ON_DEVICE`) may receive either a
+   `CloudSafeText` general question she approved, with the public passages, or her
+   `PseudonymisedProfile`: four coarse bands (life stage, cycle regularity, kinds of symptom logged on
+   two or more days in 30, logging streak), no dates, no free text, no identifier, intimate terms
+   excluded. The channel accepts only a `CloudPrompt`, whose factories take only those two types; for
+   tips the cloud is offered every tip for her life stage, never the subset that fits her. One tap
+   turns it off.
+4. **The model reads; Femio speaks**, extended to personal tips and persona visit questions: 51 tips and
+   35 questions, each a reviewed sentence in four languages with its source, kept in
+   `docs/content/assistant/catalogue.json` and generated into code. On-device triggers (stage, logged
+   terms, pregnancy or postpartum week, time trying, irregular, age) choose them; a model may only order
+   ids. Notifications stay neutral; medication logging is not added.
+5. **Two red flags added** (register MR-49, MR-50): heavy bleeding with dizziness shows ACOG's emergency
+   sentence word for word (the NHS "Heavy periods" page has no urgent wording, so the owner's first
+   choice could not be used); in the year after birth, CDC Hear Her urgent warning signs open Help now,
+   and thoughts of harming the baby are a crisis.
+
+**Consequences.** Rule 4 in CLAUDE.md is reworded. The privacy notice ×4 and the Play Data safety form
+must describe Cloud boost before any Play release that ships it (owner action). The registry needs a
+dated refresh and a clinician sample review before release. Persona gaps that need new record state
+(diagnoses, loss history, minors, partner modes) are listed in `docs/hackathon/persona_coverage/` and
+stay out of scope.
+
+**Addendum 2026-11-24 (R7.13, registry coverage).** The owner reported that many questions got no
+answer. Measured on a synthetic set of 419 question runs, strong answers rose from 45% to 87% and
+"not covered" fell from 82 to 8 (`docs/33_REBUILD_V3/research/REGISTRY_COVERAGE_2026-11.md`).
+(a) NIA, NIMH, NHLBI, NIH ODS and NIAMS join the public-domain passage publishers (NIH institutes, US
+federal works); MedlinePlus `/ency/` stays banned (A.D.A.M., copyrighted). Saudi MOH joins the
+link-only publishers. (b) Every entry has a `lang` (missing means `en`); a link in her language ranks
+first. (c) Ranking: ties go to the entry with fewer topics she did not ask about, and an entry gains up
+to 2 points for uncommon words it shares with her question; topics still decide relevance. (d)
+`registry_coverage_test.dart` fails below 85% strong, above 8% "not covered", or if any birth-control
+question reaches the registry. A future session must not lower these floors to pass; widen the
+registry or fix ranking instead.
+
+## ADR-080
+**Date:** 2026-11-24 · **Status:** accepted 2026-11-24 (owner, in chat, answering three questions: website "Remove both, use Vercel"; app ads "Remove in-app ads (Recommended)"; Cloud boost "in play, it can be opt-in after a comprehensive consent that is recorded according to the laws") · **Area:** privacy, app, website, legal · **Reverses:** ADR-076 · **Amends:** ADR-075 §2, ADR-079 §3
+
+**Context.** The owner asked for the privacy notice and every related item to be made safe for GDPR
+and similar laws, citing the Flo case: an app promised privacy while SDK events told ad and
+analytics companies about pregnancies (FTC, 2021). A code audit (2026-11-24) found the notice
+false in places ("the app uses the internet for those ads and for nothing else"; "femio never
+sends your records to Google") once Cloud boost existed; the website sent health page addresses
+and article and calculator slugs to GA4 and, by design, page views to a Meta pixel; the app's
+ad requests carried the advertising ID from a fertility app. Research with primary sources
+(GDPR Arts. 7, 9, 13, 27, 35; EDPB 05/2020; CJEU C-252/21; FTC HBNR 16 CFR 318 and the Flo,
+GoodRx, Premom and BetterHelp cases; RCW 19.373; Saudi PDPL and its Implementing and Transfer
+Regulations; Egypt Law 151/2020) is summarised in `docs/compliance/PRIVACY_REVIEW_2026-11-24.md`.
+
+**Decision.**
+1. **No ads in the app.** `google_mobile_ads`, the ads feature and the ads policy are deleted; the
+   manifest removes `AD_ID` and the `ACCESS_ADSERVICES_*` permissions; the tripwire fails on any
+   ads, analytics or attribution package or on an ad-ID permission in the merged manifest.
+   `INTERNET` is declared for Firebase AI Logic only. femio Plus stays a Play Billing probe with
+   no features until the owner decides what it sells.
+2. **No Google Analytics, Tag Manager or Meta pixel on the website.** Visits are counted with
+   Vercel Web Analytics (cookieless, aggregate, page path without query). AdSense stays on content
+   pages behind Consent Mode defaults and Google's certified consent message.
+3. **Cloud boost ships in the Play release, opt-in, with recorded explicit consent.** One unticked
+   box per purpose (general questions; tips from four bands), an "I agree" button, the screen
+   naming Google as processor, the United States as a possible location, Google's paid-tier
+   retention (up to 55 days, abuse monitoring, no product improvement), what is never sent and what
+   Google still sees (internet address, Play Integrity check). The choice is stored as a receipt
+   in her record (`CloudConsent`: purposes, UTC time, consent-text version, at most 20 entries,
+   withdrawals included), shown on the screen, invalid when the consent text version changes, and
+   not carried by a restored backup.
+4. **One honest notice.** The privacy policy (four languages) lists everything that can leave the
+   phone; a separate consumer health data policy covers Washington's My Health My Data Act.
+   Play Data safety declares Health info and user content for Cloud boost.
+
+**Consequences.** The owner must: switch off Gemini request logging and Firebase AI monitoring
+prompts, untick Firebase data sharing, enable Vercel Web Analytics, delete the GTM container,
+the GA4 property link and the Meta pixel, and get one privacy-lawyer review before the Play
+release, including whether an EU and UK representative (GDPR Art. 27) and an Egypt PDPC licence
+for sensitive data (Law 151 Art. 12) are needed for Cloud boost (owner actions 29 to 36). Revenue
+from in-app ads is gone; website ads remain.
+
+## ADR-081
+**Date:** 2026-11-24 · **Status:** accepted 2026-11-24 (owner rule 7 in `CLAUDE.md`, given in chat the same day: "the AI works as a companion but without touching the main functionality, sections or getting the sensitive data and whole context") · **Area:** app, assistant, privacy · **Builds on:** ADR-078, ADR-079, ADR-080
+
+**Context.** The AI companion study (`docs/33_REBUILD_V3/research/AI_COMPANION_2026-11.md`)
+found that four screens (Ask femio, Say it, Tips, Visit pack) each built their own prompt and
+called the on-phone model with any string. Her data stayed on the phone, but nothing stopped a
+screen from handing the model more than its use needed, and each screen handled timeouts and bad
+replies its own way. The owner wants the AI everywhere as a companion, kept apart from the core
+"like a surgical operation".
+
+**Decision. The companion boundary.**
+1. **One table of uses** (`lib/domain/assistant/uses.dart`): each use names where it may run
+   (phone, or hybrid under Cloud boost), the consent purpose it needs, whether it may offer a
+   draft for her record (only Say it, and only as a draft she ticks), and an off switch.
+2. **Typed prompts only.** The on-phone call takes a `PrivatePrompt`, made only by factories
+   that receive the narrow inputs their use needs (her question and registry passages; her note;
+   four bands and reviewed tip ids; the visit summary's facts and reviewed question ids). The
+   cloud call keeps taking only a `CloudPrompt` (ADR-079).
+3. **One gateway** (`lib/data/assistant_gateway.dart`) is the only caller of the model. It checks
+   the build switch (`FEMIO_ASSISTANT`), the use's policy and consent, waits at most 20 seconds,
+   parses replies against the ids that were offered, and after three unusable replies in a row
+   runs that use on rules for the rest of the session. Every failure returns the rules answer.
+4. **The tripwire enforces it** (`scripts/analytics-lint.mjs` §3c): no `runPrivate`/`runHybrid`
+   call outside the gateway, no `PrivatePrompt` built outside its file, no prompt builder called
+   from a screen.
+
+**Consequences.** A new AI use costs a policy row, a prompt factory, a gateway method and a test,
+and cannot see more than its factory takes. Later R10.1 slices add typed contexts with manifests,
+an on-phone ledger of AI calls, a master switch in Settings, and the shared draft-and-confirm
+sheet. The AI view toggle for calculators and insights (R10.18) plugs into the same gateway.

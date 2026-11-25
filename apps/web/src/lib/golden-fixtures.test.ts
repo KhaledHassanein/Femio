@@ -2,7 +2,8 @@ import { describe, expect, it } from "vitest";
 import { readFileSync, readdirSync } from "node:fs";
 import { join } from "node:path";
 import { predictNextPeriod } from "./cycle/predict";
-import { fertileWindow } from "./calculators";
+import { upcomingPeriods } from "./cycle/upcoming";
+import { fertileWindow, REGULAR_CYCLE_MAX, REGULAR_CYCLE_MIN } from "./calculators";
 import { addDays } from "./calculators/dates";
 import { ttcGuidance, type TryingFor } from "./fertility/guidance";
 import { bbtChart, type FertilityEntry } from "./fertility";
@@ -91,6 +92,8 @@ const RUNNERS: Record<string, (input: never) => unknown> = {
       daysUntil: Object.fromEntries(i.appointments.map((a) => [a.id, daysUntil(a, i.today)])),
     };
   },
+  "upcoming-periods": (i: { starts: string[]; statedCycleLength?: number }) =>
+    upcomingPeriods(predictNextPeriod(i.starts, i.statedCycleLength)),
   "fertile-window": (i: { nextPeriod: string; cycleLength: number | null; irregular: boolean; learning: boolean }) => {
     if (i.irregular || i.learning || i.cycleLength === null) return null;
     const lmp = addDays(i.nextPeriod, -i.cycleLength);
@@ -143,4 +146,24 @@ describe("golden fixtures", () => {
       });
     });
   }
+});
+
+// R8.9 (owner 2026-11-24): the likely ovulation day is always inside the fertile
+// window, in the recorded answers and for every cycle length the calculator names one for.
+describe("fertile-window invariant", () => {
+  it("every recorded window contains its ovulation day", () => {
+    for (const c of load("fertile-window").cases) {
+      const e = c.expected as { ovulation: string; windowStart: string; windowEnd: string } | null;
+      if (e === null) continue;
+      expect(e.windowStart <= e.ovulation && e.ovulation <= e.windowEnd).toBe(true);
+    }
+  });
+
+  it("the calculator's window contains ovulation for every named cycle length", () => {
+    for (let len = REGULAR_CYCLE_MIN; len <= REGULAR_CYCLE_MAX; len += 1) {
+      const w = fertileWindow("2027-02-01", len)?.window;
+      expect(w, `cycle length ${len}`).toBeDefined();
+      expect(w!.start <= w!.ovulation && w!.ovulation <= w!.end, `cycle length ${len}`).toBe(true);
+    }
+  });
 });

@@ -1,11 +1,15 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
     <!-- Her record never leaves the phone: no Google backup, no device transfer
-         (both rule files under res/xml). INTERNET and ACCESS_NETWORK_STATE arrive in the
-         merged manifest only because Google's ads SDK (google_mobile_ads, ADR-076) needs
-         them to request a banner on the guide screens; the app's own code opens no
-         connection (the privacy tripwire in scripts/analytics-lint.mjs forbids http, dio
-         and sockets in lib/). Nothing about her record is ever passed to the SDK. -->
+         (both rule files under res/xml). The app carries no ads SDK (ADR-076 was reversed
+         on 2026-11-24) and no analytics. -->
+
+    <!-- INTERNET: needed in release builds only by Firebase AI Logic, the assistant's
+         opt-in Cloud boost (ADR-079); debug and profile builds already get it from their
+         own manifests. The app's Dart code opens no connection of its own (the privacy
+         tripwire in scripts/analytics-lint.mjs forbids http, dio and sockets in lib/); the
+         only caller is the Kotlin assistant package, and only behind a CloudPrompt. -->
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <!-- Reminders (R4.4). POST_NOTIFICATIONS comes from the notifications plugin and is
          asked for at run time on Android 13+, only when she turns a reminder on.
@@ -15,10 +19,11 @@
          declaration. -->
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
 
-    <!-- Ads SDK permissions we decline (ADR-076): Topics and Attribution are Android's
-         personalised-advertising APIs, and femio asks for non-personalised ads only, so
-         the SDK gets neither. AD_ID stays (frequency capping and fraud checks; she can
-         reset or delete it in Android settings, and the Data safety form declares it). -->
+    <!-- The app has no ads and reads no advertising ID. Some Google libraries declare these
+         permissions transitively, so they are removed explicitly: the merged manifest must
+         never carry the ad ID or Android's ad-services APIs (the privacy tripwire checks it). -->
+    <uses-permission android:name="com.google.android.gms.permission.AD_ID" tools:node="remove" />
+    <uses-permission android:name="android.permission.ACCESS_ADSERVICES_AD_ID" tools:node="remove" />
     <uses-permission android:name="android.permission.ACCESS_ADSERVICES_TOPICS" tools:node="remove" />
     <uses-permission android:name="android.permission.ACCESS_ADSERVICES_ATTRIBUTION" tools:node="remove" />
 
@@ -56,14 +61,6 @@
         <meta-data
             android:name="flutterEmbedding"
             android:value="2" />
-        <!-- The AdMob app id (ADR-076). Not a secret, but it is the owner's account, so it
-             is not written here: build.gradle.kts fills ${admobAppId} from FEMIO_ADMOB_APP_ID
-             in the git-ignored apps/mobile/ads.env, and falls back to Google's published
-             TEST app id when that file is absent. The ads SDK crashes the app at start-up
-             without this entry. -->
-        <meta-data
-            android:name="com.google.android.gms.ads.APPLICATION_ID"
-            android:value="${admobAppId}" />
         <!-- The plugin's alarm receivers: one shows a due reminder, one re-schedules after
              a restart or an app update. Not exported: only the system may call them. -->
         <receiver android:exported="false" android:name="com.dexterous.flutterlocalnotifications.ScheduledNotificationReceiver" />

@@ -19,12 +19,22 @@ export const LEGAL_VALUES = {
   registration: "682-374-954",
   /** The one contact mailbox for the whole site (owner, 2026-10-29; the owner confirmed it receives mail, 2026-10-30). */
   email: "info@femioapp.com",
-  /** Effective date of the current version: the day the notice went live. */
-  date: "2026-10-29",
   /** Address of the privacy policy. Not printed in the text today. */
   url: "https://femioapp.com/privacy",
-  /** Policy and terms version. */
-  version: "1",
+} as const;
+
+/**
+ * Edition of each legal page: its own effective date and version.
+ *
+ * The privacy policy was rewritten for ADR-080 (no app ads, no GA4/Meta, Cloud boost
+ * consent) and the consumer health data policy is new, while the terms did not change,
+ * so a shared date would misstate when the terms took effect. The owner sets the
+ * privacy and health-data date to the day this version is deployed (OWNER_ACTIONS 31).
+ */
+export const LEGAL_EDITIONS = {
+  privacy: { date: "2026-11-30", version: "2" },
+  terms: { date: "2026-10-29", version: "1" },
+  healthData: { date: "2026-11-30", version: "1" },
 } as const;
 
 /** Matches any of the unfilled markers, so the page can highlight them. */

@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "type": "module",
-  "description": "Femio web PWA \u2014 Next.js 15 App Router (EN/AR/FR/ES, RTL).",
+  "description": "Femio web PWA — Next.js 15 App Router (EN/AR/FR/ES, RTL).",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
@@ -17,6 +17,7 @@
   "dependencies": {
     "@femio/tokens": "workspace:*",
     "@radix-ui/react-slot": "^1.1.1",
+    "@vercel/analytics": "2.0.1",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "lucide-react": "^0.469.0",

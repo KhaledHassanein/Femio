@@ -623,6 +623,320 @@
   "plusProbeUnavailable": "Play Billing reachable: no (no Play Store on this device, or not signed in)",
   "plusProbeProductFound": "Product femio_plus found in Play Console",
   "plusProbeProductMissing": "Product femio_plus not found yet (expected until it is created in Play Console)",
-  "adLabel": "Advertisement",
-  "adsNotice": "Ads appear on guide screens only. They never see your records, and femio Plus will remove them."
+  "assistantPrivateNote": "This runs on your phone. Your words are not saved or sent anywhere.",
+  "assistantModelNote": "Gemini Nano, the AI on your phone, helped with this.",
+  "sayItButton": "Say it in your words",
+  "sayItTitle": "How are you feeling?",
+  "sayItHint": "For example: bad cramps, light bleeding and so tired",
+  "sayItAction": "Turn into log entries",
+  "sayItNothing": "femio found nothing to log in that. Try other words, or tap the chips on the Log screen.",
+  "sayItFound": "femio found these. Untick anything that is wrong.",
+  "sayItAdd": "Add to this day's log",
+  "sayItAdded": "Added to your log.",
+  "safetyCrisisHeading": "You don't have to face this alone",
+  "safetyCrisisBody": "If you are thinking about harming yourself, please reach out now. The help page lists crisis lines for your country.",
+  "safetyUrgentHeading": "This may need urgent care",
+  "safetyUrgentBody": "Chest pain, trouble breathing, fainting or a seizure need medical help now. Call your local emergency number.",
+  "safetyBirthControl": "femio is not a way to avoid pregnancy and can't advise on it. A doctor, pharmacist or family-planning clinic can help you choose a method.",
+  "safetyHeavyBleedingHeading": "Heavy bleeding with dizziness",
+  "safetyHeavyBleedingBody": "ACOG says: “If you are changing pads or tampons every hour for more than 2 hours in a row, and you also have chest pain, have shortness of breath, and are lightheaded or dizzy, seek emergency medical care right away.” If that is you, call your local emergency number now. If heavy bleeding worries you, talk to your doctor.",
+  "safetyPostpartumHeading": "A warning sign after birth",
+  "safetyPostpartumBody": "In the year after birth, CDC's Hear Her campaign says to get medical care immediately for an urgent warning sign, such as heavy bleeding, a fever, a headache that won't go away or a swollen leg. Call your doctor or midwife now, or your local emergency number.",
+  "askTitle": "Ask femio",
+  "askIntro": "Ask a health question. femio answers only from trusted health sources it carries on your phone, such as CDC, MedlinePlus and the Office on Women's Health, and shows where every sentence came from.",
+  "askHint": "For example: what helps with period cramps?",
+  "askAction": "Ask",
+  "askWillSend": "This is exactly the question that will be sent, with the public sources:",
+  "askSend": "Summarise with Cloud boost",
+  "askStillPersonal": "This still mentions you. Remove words like “I” or “my” and any personal details.",
+  "askCloudPrivacy": "Only this question and the public sources are sent. Nothing from your log is.",
+  "askSearching": "Reading trusted sources…",
+  "askSourcesTitle": "Sources",
+  "askClinicianLine": "This is general information, not advice for you. For your own situation, talk to your doctor or midwife.",
+  "askRelatedGuides": "femio guides on this",
+  "askSearchAgain": "Ask another question",
+  "askAboutYouStays": "Your question is about you, so it stays on this phone. Here are the sources word for word.",
+  "askModelFellBack": "The AI could not write an answer that cites its sources, so here they are word for word.",
+  "askBoostHeading": "Cloud boost",
+  "askBoostConfirm": "This phone has no on-phone AI. With Cloud boost, Google's cloud AI can summarise these public sources for you. Check the question first.",
+  "askReadSourcesInstead": "Read the sources instead",
+  "askNotCoveredHeading": "Not covered yet",
+  "askNotCovered": "femio's trusted sources don't answer this, so femio won't guess. Try other words, read the links below, or ask your doctor.",
+  "askRegistryVersion": "Trusted sources library {version}",
+  "@askRegistryVersion": {
+    "placeholders": {
+      "version": {
+        "type": "String"
+      }
+    }
+  },
+  "askAnswerOnPhone": "Summarised on your phone by Gemini Nano, from the sources below",
+  "askAnswerCloud": "Summarised by Google's cloud AI (Cloud boost), from the sources below",
+  "askVerbatimLabel": "Word for word from trusted sources",
+  "askEnglishNote": "These sources are in English. femio shows them word for word so nothing is lost in translation.",
+  "askReadMore": "Read more from trusted organisations",
+  "askSourceCopied": "{publisher} · copied {date}",
+  "@askSourceCopied": {
+    "placeholders": {
+      "publisher": {
+        "type": "String"
+      },
+      "date": {
+        "type": "String"
+      }
+    }
+  },
+  "askSourceReviewed": "{publisher} · reviewed {date}",
+  "@askSourceReviewed": {
+    "placeholders": {
+      "publisher": {
+        "type": "String"
+      },
+      "date": {
+        "type": "String"
+      }
+    }
+  },
+  "visitButton": "Visit summary",
+  "visitTitle": "Visit summary",
+  "visitIntro": "A page to show your doctor, made from what you logged. It stays on your phone unless you copy it.",
+  "visitCycles": "{count, plural, =0{No complete cycle logged yet} =1{1 cycle logged: {shortest} days} other{{count} cycles logged: {shortest} to {longest} days}}",
+  "@visitCycles": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      },
+      "longest": {
+        "type": "int"
+      },
+      "shortest": {
+        "type": "int"
+      }
+    }
+  },
+  "visitLastPeriod": "Last period started {date}",
+  "@visitLastPeriod": {
+    "placeholders": {
+      "date": {
+        "type": "String"
+      }
+    }
+  },
+  "visitIrregular": "Cycles described as irregular",
+  "visitTopTerms": "Logged most in the last 90 days",
+  "visitDays": "{days, plural, =1{1 day} other{{days} days}}",
+  "@visitDays": {
+    "placeholders": {
+      "days": {
+        "type": "int"
+      }
+    }
+  },
+  "visitHeavyDays": "Days with heavy flow",
+  "visitOpkPositive": "Positive ovulation tests",
+  "visitTemperatureDays": "Days with a waking temperature",
+  "visitTryingFor": "Trying to conceive",
+  "visitQuestionsTitle": "Questions you could ask",
+  "visitCopy": "Copy as text",
+  "visitCopied": "Copied. Paste it into a message or your notes.",
+  "visitQ_cycleSpread": "My cycle lengths vary. Is that worth looking into?",
+  "visitQ_ttcTests": "Given how long we have been trying, which checks would you suggest?",
+  "visitQ_ovulation": "How can we find out whether I am ovulating?",
+  "visitQ_folicAcid": "Should I be taking folic acid now?",
+  "visitQ_painfulPeriods": "My period pain affects my days. What can help?",
+  "visitQ_heavyPeriods": "My periods are heavy. Is a blood test worth doing?",
+  "visitQ_moodCycle": "My mood changes a lot around my period. Can we talk about it?",
+  "visitQ_skinHair": "I have skin or hair changes along with irregular cycles. Should these be checked together?",
+  "visitQ_tiredness": "I often feel tired. Is anything worth checking?",
+  "visitQ_menopause": "Could my symptoms be linked to perimenopause, and what are my options?",
+  "visitQ_pregnancyNext": "What should I look out for before our next visit?",
+  "visitQ_pregnancyMovements": "When should I start paying attention to the baby's movements?",
+  "visitQ_anythingElse": "Is there anything in my log you would like to look at more closely?",
+  "assistantSettingsTitle": "Assistant",
+  "assistantSettingsSub": "AI on your phone, trusted sources and Cloud boost",
+  "assistantOnDeviceTitle": "AI on your phone (Gemini Nano)",
+  "assistantOnDeviceAvailable": "Ready. It reads your notes on the phone; nothing is sent.",
+  "assistantOnDeviceDownloadable": "Can be downloaded to this phone.",
+  "assistantOnDeviceDownloading": "Downloading…",
+  "assistantOnDeviceUnavailable": "Not available on this phone. femio uses its own word list instead, also on the phone.",
+  "assistantDownload": "Download",
+  "assistantCloudTitle": "Cloud boost",
+  "assistantCloudOn": "On. Used only when this phone has no on-phone AI.",
+  "assistantCloudOff": "Off. Everything is done on this phone.",
+  "assistantHowItWorks": "Your log stays on your phone. Your notes and your log are read by femio's rules and, where your phone has it, by Gemini Nano on the phone. Safety rules always come first: signs of danger open the help page, and femio never advises on avoiding pregnancy. Ask femio answers only from trusted health sources carried in the app and shows them with every answer. Cloud boost is off unless you agree to it; then only what its screen lists is sent to Google.",
+  "assistantCloudNotBuilt": "Not available in this version of the app.",
+  "boostTitle": "Cloud boost",
+  "boostIntro": "Some phones have no on-phone AI. On those phones, Cloud boost lets Google's cloud AI summarise trusted sources for a question you approve, or put your tips in order. It is optional and stays off unless you agree below. Everything else in femio works without it.",
+  "boostSendsHeading": "What may be sent",
+  "boostStageLabel": "Life stage",
+  "boostStage": "{value, select, period{Tracking periods} ttc{Trying to conceive} pregnant{Pregnant} postpartum{After birth} menopause{Menopause} other{Not set}}",
+  "@boostStage": {
+    "placeholders": {
+      "value": {
+        "type": "String"
+      }
+    }
+  },
+  "boostRegularityLabel": "Cycle regularity",
+  "boostRegularity": "{value, select, regular{Regular} variable{Varies} unknown{Not known yet} notApplicable{Not tracked now} other{Not known yet}}",
+  "@boostRegularity": {
+    "placeholders": {
+      "value": {
+        "type": "String"
+      }
+    }
+  },
+  "boostCategoriesLabel": "Kinds of symptom logged in the last month",
+  "boostCategory": "{value, select, pain{Pain} mood{Mood} digestion{Digestion} sleepAndEnergy{Sleep and energy} skinAndHair{Skin and hair} hotFlashes{Hot flashes} bladder{Bladder} other{Other}}",
+  "@boostCategory": {
+    "placeholders": {
+      "value": {
+        "type": "String"
+      }
+    }
+  },
+  "boostNone": "None",
+  "boostStreakLabel": "Logging streak",
+  "boostStreak": "{value, select, none{None} underAWeek{Under a week} weeks{A few weeks} overAMonth{Over a month} other{None}}",
+  "@boostStreak": {
+    "placeholders": {
+      "value": {
+        "type": "String"
+      }
+    }
+  },
+  "boostNeverHeading": "What is never sent",
+  "boostNever": "Your notes, dates, log entries, cycle lengths, name, email, contacts or advertising ID.",
+  "boostTurnOff": "Turn off Cloud boost",
+  "boostNotNow": "Not now",
+  "boostAgreeQuestions": "I agree that femio may send a general question I approve, one at a time, with the public sources it found, so Google's cloud AI can summarise them. femio removes numbers, dates, names and contacts first, and I see the exact text before it goes.",
+  "boostAgreeTips": "I agree that femio may send these four broad facts about my health, exactly as shown, so Google's cloud AI can put my tips in order. This happens in the background while Cloud boost is on.",
+  "boostPurposeQuestions": "General questions",
+  "boostPurposeTips": "Tips from four broad facts",
+  "boostWhoHeading": "Who receives it, and where",
+  "boostWho": "Google processes it for femio through Firebase AI Logic (the Gemini Developer API, paid tier). Google may process it in the United States or other countries where it has servers, under its data processing terms. femio (KM Digital Labs, Cairo, Egypt) decides what is sent and is responsible for it.",
+  "boostKeptHeading": "How long it is kept",
+  "boostKept": "femio has no server and keeps none of it. Under the paid terms femio uses, Google does not use it to improve its products. Google keeps it for up to 55 days to detect misuse, and people at Google may review content that its systems flag as misuse.",
+  "boostAlsoSeen": "Like any internet connection, Google also sees your phone's internet address, and a check from Google Play that the request comes from the real femio app.",
+  "boostChoiceHeading": "Your choice",
+  "boostChoice": "Agreeing is optional, and you can agree to one use and not the other. You can turn Cloud boost off at any time, here or in Settings › Assistant, as easily as you turned it on. Each phone asks again: a restored backup does not carry your agreement.",
+  "boostReadNotice": "Read the privacy notice",
+  "boostExplicit": "These facts and questions are about your health. By ticking a box and pressing I agree, you give your explicit consent to that use only. femio keeps a dated record of your choice on this phone, which you can see here.",
+  "boostAgree": "I agree",
+  "boostReceiptHeading": "Your agreement",
+  "boostReceipt": "You agreed on {date} to: {purposes}.",
+  "@boostReceipt": {
+    "placeholders": {
+      "date": {
+        "type": "String"
+      },
+      "purposes": {
+        "type": "String"
+      }
+    }
+  },
+  "boostWithdrawEffect": "Turning it off stops anything new being sent. It cannot recall what was already sent.",
+  "tip_trackDatesHelps": "Noting your period dates in the app helps you see your own pattern and gives a clinician clear facts.",
+  "tip_periodLongerThanSeven": "A period that lasts longer than 7 days is worth mentioning to a clinician.",
+  "tip_bleedingBetweenPeriods": "Bleeding between periods is worth mentioning to a clinician, so the cause can be looked into.",
+  "tip_irregularCheckIn": "Cycles shorter than 21 or longer than 35 days are called irregular. Mention this to a clinician, who can look at your dates with you.",
+  "tip_stoppedThreeMonths": "A period that stops for more than three months without a clear reason is worth a clinician's check, whatever your age.",
+  "tip_irregularWithOtherSigns": "Irregular periods together with other changes, such as acne or extra hair growth, are worth mentioning to a clinician.",
+  "tip_periodPainSeeClinician": "Period pain that stops you doing your usual daily activities is a reason to see a clinician.",
+  "tip_severePainUrgent": "If pelvic or period pain is severe or worse than usual and painkillers have not helped, ask for urgent medical advice.",
+  "tip_symptomDiaryBeforeVisit": "Before a visit about period problems, a diary of your symptoms across the whole cycle gives your clinician a detailed picture of what happens and when.",
+  "tip_heavyOrTired": "Periods that keep you from daily activities, or leave you tired or short of breath a lot, can be signs of heavy periods. A clinician can help.",
+  "tip_pmsDiary": "Keeping a diary of your symptoms for at least two cycles helps a clinician see whether they follow your period.",
+  "tip_headachesAroundPeriod": "Headaches that come regularly before or during your period are worth mentioning to a clinician. A headache diary next to your period dates helps.",
+  "tip_urineInfectionSeeClinician": "If you think you may have a urine infection, it is important to see a clinician. A urine test can tell.",
+  "tip_leakingUrineTellClinician": "If you leak urine, it is worth telling a clinician, whatever the type or cause.",
+  "tip_cervicalScreeningTip": "Cervical screening looks for early cell changes in the cervix. Ask your clinic whether you are due.",
+  "tip_ttcOneYear": "If a year of trying has passed without a pregnancy, it is a good idea to see a clinician and have the common causes checked.",
+  "tip_ttcAgeSixMonths": "At 35 or older, it is advised to see a clinician after six months of trying, not twelve.",
+  "tip_ttcIrregularNoWait": "With irregular or no periods, it is worth talking to a clinician about trying to conceive without waiting a full year.",
+  "tip_regularSexTakesTime": "Most couples where the woman is under 40 conceive within a year of regular sex every 2 to 3 days. It can take time.",
+  "tip_testingTooEarly": "Testing very early can give a false negative, because the pregnancy hormone may not have built up yet. Follow the test's own instructions.",
+  "tip_folicAcidBeforePregnancy": "Folic acid, a B vitamin, is advised from at least a month before pregnancy. Ask a clinician how to get enough.",
+  "tip_talkBeforeTrying": "It is a good idea to talk to a clinician before trying to get pregnant. They can help you get your body ready.",
+  "tip_tryingIsStressful": "Trying to conceive can be stressful. Counselling and support groups may help you cope; you can ask a clinician about them.",
+  "tip_movementsChangeCallNow": "If your baby moves less than usual or the usual pattern changes, call your midwife or maternity unit at once, even in the middle of the night.",
+  "tip_firstMovementsBy24": "You should start to feel your baby move between 16 and 24 weeks. If there has been no movement by 24 weeks, tell your midwife.",
+  "tip_preeclampsiaSigns": "A severe headache that painkillers do not ease, vision problems, pain below the ribs or sudden swelling need checking at once. Call your maternity unit.",
+  "tip_antenatalChecksMatter": "Blood pressure and urine checks at antenatal visits can find changes you cannot feel, so try to keep every appointment.",
+  "tip_screeningVersusDiagnostic": "Two kinds of tests are offered to every pregnant woman: screening tests, which show a chance, and follow-up tests, which give a firmer answer. Ask which suit you.",
+  "tip_glucoseScreening": "All pregnant women should be screened for gestational diabetes. Ask your midwife or doctor when yours is planned.",
+  "tip_rhBloodGroup": "A simple blood test shows your blood type and Rh status, usually at your first antenatal visit. Ask what yours is and whether it matters for your care.",
+  "tip_mainScanBetween18And21": "A detailed scan is usually done between 18 and 21 weeks. It checks your baby's growth and looks for certain conditions.",
+  "tip_severeSicknessTellEarly": "If you are being sick often and cannot keep food down, tell your midwife or doctor as soon as you can, so they can help you keep fluids down.",
+  "tip_itchTellMidwife": "Itching is common in pregnancy and is usually not serious. Still, tell your midwife or doctor about it so it can be checked.",
+  "tip_pretermLabourSigns": "Signs of early labour include contractions every 10 minutes or more often, leaking fluid or bleeding, pelvic pressure and a low, dull backache. Contact your provider.",
+  "tip_tirednessInPregnancy": "Tiredness in pregnancy has many causes, and anaemia is one of them. Mention ongoing tiredness to your midwife or doctor.",
+  "tip_lowMoodPerinatal": "Feeling low is common in pregnancy and after birth, and support is available. Tell your midwife, doctor or health visitor, even if you only have some of the signs.",
+  "tip_anxietyInPregnancy": "Anxiety in pregnancy can often be helped with talking therapy. Tell your midwife or doctor how you really feel.",
+  "tip_warningSignsPregnancyAndYear": "Some warning signs need care at once, in pregnancy and for a year after birth: a headache that will not go away, vision changes, fever, trouble breathing, severe belly pain.",
+  "tip_postnatalCheckSixToEight": "A postnatal check around 6 to 8 weeks after birth makes sure you feel well and are recovering. Write down your questions to take along.",
+  "tip_painfulFeedsGetHelp": "If you are putting off feeds because breastfeeding hurts, get help from a lactation consultant.",
+  "tip_tirednessAfterBirthThyroid": "Tiredness after birth has many causes. Thyroid inflammation affects about 1 in 20 women in the first year after birth, so mention lasting tiredness to a clinician.",
+  "tip_bleedingUpToSixWeeks": "Spotting or bleeding like a period, on and off, can last up to six weeks after birth. Tell a clinician if you are worried.",
+  "tip_babyBluesPassing": "Feeling down, anxious or irritable for a few days after birth is very common and usually passes within 2 weeks. If it lasts longer, tell a clinician.",
+  "tip_periodChangesFirstSign": "A change in your periods is usually one of the first signs of perimenopause. They may come more or less often, and be heavier or lighter.",
+  "tip_twelveMonthsMeansMenopause": "Menopause means 12 months without a period. In the years before, cycles often vary, with longer or shorter gaps.",
+  "tip_bleedingAfterMenopause": "Bleeding after menopause, meaning 12 months with no period, is important to tell a clinician about, so the cause can be found.",
+  "tip_hotFlushesTalkOptions": "If lifestyle changes are not enough for hot flushes, contact a clinician. They will talk through your symptoms, history and preferences.",
+  "tip_boneStrengthMenopause": "Loss of bone density is more likely around menopause. Ask a clinician about bone health and what suits you.",
+  "tip_drynessManyTreatments": "There are many treatments for vaginal dryness. It is worth asking a clinician what could suit you.",
+  "tip_heartbeatAroundMenopause": "A faster or more noticeable heartbeat can be part of perimenopause and menopause. Note when it happens and tell a clinician.",
+  "tip_lowMoodMenopause": "Low mood and anxiety can be part of the menopause transition. If they are hard to manage, talk to a clinician.",
+  "visitQ_periodsStoppedChecks": "My periods have become very infrequent or have stopped. Which checks could find out why?",
+  "visitQ_irregularCauses": "What could explain my irregular cycles, and would any tests or scans help?",
+  "visitQ_irregularAcneChecks": "I have irregular periods and acne. Which checks could look for a cause?",
+  "visitQ_painCauseChecks": "My period pain keeps getting in the way of my days. Which checks could find out why?",
+  "visitQ_heavyAndTiredBloodTest": "My periods may be heavy and I feel tired a lot. Should I have blood tests, for example for iron?",
+  "visitQ_diaryReviewCycle": "Can we go through my symptom diary to see whether my symptoms follow my cycle?",
+  "visitQ_headacheDiaryReview": "My headaches often come around my period. Can we look at my diary together?",
+  "visitQ_cervicalScreeningDue": "Am I up to date with cervical screening, and which test does your clinic use?",
+  "visitQ_checksForCouple": "Which fertility checks do you suggest for me, and for a partner if I have one?",
+  "visitQ_ttcOverThirtyFiveSooner": "I am 35 or older and we have been trying for about six months or more. Should we start fertility checks now?",
+  "visitQ_irregularTryingNow": "My cycles are irregular and we are trying to conceive. Should we talk about help now rather than waiting a year?",
+  "visitQ_preconceptionReview": "We are planning a pregnancy. Is there anything in my health or medicines to review first?",
+  "visitQ_ttcSupportOptions": "Trying to conceive is weighing on me. Where can I find counselling or support?",
+  "visitQ_pregnancyTestsOffered": "Which screening tests and follow-up tests are offered in my pregnancy, and what does each one tell me?",
+  "visitQ_glucoseTestWhen": "When will I be tested for gestational diabetes, and could it be earlier for me?",
+  "visitQ_movementsCallWho": "Who do I call if my baby's movements change, including at night?",
+  "visitQ_sameDayWarningSigns": "Which signs should make me call the maternity unit the same day?",
+  "visitQ_rhFactorChecked": "Has my blood group and Rh factor been checked, and does it change anything in my care?",
+  "visitQ_pregnancyLowMoodSupport": "I have felt low or very worried for a while. What support is available?",
+  "visitQ_severeSicknessHelp": "My sickness makes it hard to keep food and drink down. What help is available?",
+  "visitQ_itchBloodTests": "I have had itching in pregnancy. Should I have blood tests to check my liver?",
+  "visitQ_pretermSignsPlan": "Which signs of early labour should make me call or come in, and where do I go out of hours?",
+  "visitQ_postnatalCheckTalk": "Can we go through how I am recovering, including bleeding, pain, mood and bladder changes?",
+  "visitQ_postnatalMoodHelp": "I have felt low or anxious since the birth. What help is there?",
+  "visitQ_latchCheck": "Feeding hurts. Could someone watch a feed and check how my baby latches?",
+  "visitQ_warningSignsYearAfter": "Which symptoms in the year after birth should make me seek care at once?",
+  "visitQ_thyroidAfterBirth": "I have felt very tired since the birth. Should my thyroid be checked with a blood test?",
+  "visitQ_urineLeaksHelp": "I leak urine. What can help, and would pelvic floor exercises suit me?",
+  "visitQ_hotFlushOptions": "Hot flushes or night sweats are affecting my days. What options could we talk through?",
+  "visitQ_changedBleedingChecks": "My bleeding pattern has changed. Which checks are worth doing?",
+  "visitQ_bleedingAfterMenopauseChecks": "I have had bleeding or spotting at this stage. What checks do I need, and how soon?",
+  "visitQ_boneAndHeartHealth": "What can I do to protect my bone and heart health at this stage?",
+  "visitQ_drynessWhatHelps": "I have vaginal dryness or discomfort. What can help, and what needs checking?",
+  "visitQ_urineTestAgain": "My urine symptoms keep coming back. Should I have a urine test, and how can we find the cause?",
+  "visitQ_thyroidCheckIrregular": "My periods are irregular and my hair is thinning. Should my thyroid be checked with a blood test?",
+  "tipsTitle": "For you",
+  "tipsSource": "Source: {publisher}",
+  "tipsChosenOnPhone": "Chosen on your phone from your log. Each tip is a reviewed sentence with its source.",
+  "tipsOrderedCloud": "Put in order with Cloud boost, from broad facts only.",
+  "@tipsSource": {
+    "placeholders": {
+      "publisher": {
+        "type": "String"
+      }
+    }
+  },
+  "legendPossible": "Period possible (low confidence)",
+  "confidenceLowShort": "Low confidence",
+  "upcomingPeriodsTitle": "Next periods",
+  "upcomingPeriodsWider": "Each later period is a wider range: the further ahead, the less certain.",
+  "upcomingPeriodsOnlyNext": "Only the next period is shown: your logged cycles vary too much, or there are too few yet, to reach further ahead.",
+  "todayUrgentBody": "If something feels severe or sudden, get care now. The emergency numbers for your country are one tap away."
 }

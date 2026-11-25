@@ -1,3 +1,5 @@
+> **Retired 2026-11-24:** Google Tag Manager, GA4 and the Meta pixel were removed from the website (visits are now counted with Vercel Web Analytics); this folder is kept for the record only.
+
 # Tag Manager container export (owner guide part D, step 6)
 
 `femio-container.json` is a Google Tag Manager **container export** that holds everything

@@ -50,7 +50,11 @@ Future<Profile> decodeBackup(List<int> bytes, String passphrase) async {
   try {
     final json = jsonDecode(utf8.decode(clear)) as Map<String, Object?>;
     if (json['kind'] != 'femio-backup') throw const BackupError(BackupFailure.notAFemioFile);
-    return Profile.fromJson(migrateRecord(Map<String, Object?>.from(json['record'] as Map)));
+    final restored = Profile.fromJson(migrateRecord(Map<String, Object?>.from(json['record'] as Map)));
+    // Consent to Cloud boost belongs to the phone she gave it on: a restored record keeps the
+    // receipts but allows nothing until she agrees again here (ADR-080).
+    final at = DateTime.now().toUtc().toIso8601String();
+    return restored.copyWith(settings: restored.settings.copyWith(cloud: restored.settings.cloud.afterRestore(at)));
   } on BackupError {
     rethrow;
   } catch (_) {

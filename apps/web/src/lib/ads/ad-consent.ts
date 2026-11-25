@@ -3,7 +3,7 @@
  * whether an ad unit may be filled.
  *
  * Consent Mode v2 is the signal. The page starts with every signal denied
- * (`lib/consent/consent-default.ts`); when the visitor taps Allow, the consent tool calls
+ * (`./consent-mode-default.ts`); when the visitor taps Allow, the consent tool calls
  * `gtag('consent', 'update', { ad_storage: 'granted', … })`, which lands in `dataLayer`.
  * This module only READS that queue: it never pushes, so the tripwire's allow-list for
  * `dataLayer.push` stays as it is. A unit is filled when, and only when, an update that

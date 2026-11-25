@@ -18,6 +18,7 @@ import '../../theme/spacing.dart';
 import '../../theme/radii.dart';
 import '../../theme/type_sizes.dart';
 import '../../widgets/tab_header.dart';
+import '../assistant/say_it_sheet.dart';
 import 'widgets/log_chip.dart';
 import 'widgets/temperature_field.dart';
 
@@ -125,6 +126,13 @@ class LogScreen extends StatelessWidget {
                     ),
                   ],
                 ),
+              ),
+              const SizedBox(height: space3),
+              // ADR-078: one sentence instead of forty taps, read on the phone.
+              OutlinedButton.icon(
+                onPressed: () => showSayItSheet(context, controller: controller, date: date),
+                icon: const Icon(Icons.auto_awesome_rounded),
+                label: Text(l.sayItButton),
               ),
               section(l.sectionPeriod, [
                 LogChip(

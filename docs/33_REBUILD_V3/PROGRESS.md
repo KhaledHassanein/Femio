@@ -99,6 +99,82 @@ Opened 2026-10-28 on the owner's finalization brief. The gate for R6.4–R6.5 an
 - [x] R6.18 · Dashboard audit (2026-11-01, owner: "double check the artifact, archive what is done, do what a session can, leave me the rest"): every ticked step checked against the repository, Vercel and the live site (a Sonnet agent re-ran the nine live checks: all pass); 18 ticked steps now carry a `verified` note in the dashboard's database and sit in a collapsed archive block at the foot of their phase (`template.html`: `isArchived`, the Done filter still shows them). Session-doable steps done: store listing (support email filled in AR/EN, FR and ES drafted by Haiku from the English, `store-lint` now measures four languages), the sixteen Play screenshots rendered from the real screens (`apps/mobile/test/store_screenshots_test.dart`, `docs/store/screenshots/`, un-ignored in git), the release candidate built and signed with the upload key (0.5.0+5; APK `apps/mobile/build/app/outputs/flutter-apk/app-release.apk`, bundle `…/bundle/release/app-release.aab`, Google test ads since `ads.env` is absent). Findings for the owner (dashboard requests): NVDA ticked but no notes file; Tag Manager container to re-import; install the release candidate; branch protection stays deferred (plan); routines wait on the owner's word (a recurring cost). The Ramadan guide's "who to ask" wording clash was found earlier and is ADR-077 addendum 2
 - [ ] R3.9 · Load the glossary (131 terms in `GLOSSARY_TERMS.md`) and FAQs into the snapshot in four languages, then remove `/glossary` and `/faq` from `unpublished-sections.ts`
 
+## R7 · Hybrid assistant (#BuildHybridAI, deadline 2026-11-30) — ADR-078, review https://claude.ai/artifact/XvN1K1NWw2YvP17LjKtndP
+
+- [x] R7.1 · Assistant core in `lib/domain/assistant/`: phrase lexicon (EN/AR incl. Egyptian and Gulf, FR, ES) → log terms, safety rules (red flags, birth control), redaction into `CloudSafeText`, trusted-source allowlist, prompts, related-guide search, visit summary and question bank; unit tests
+- [x] R7.2 · Kotlin bridge (`assistant/FemioAssistant.kt`): Firebase AI Logic hybrid, `ONLY_ON_DEVICE` for private calls, `ONLY_IN_CLOUD` + Google Search grounding for redacted questions (returns sources and search suggestions), App Check (debug / Play Integrity), model status and download; config from git-ignored `assistant.env`; tripwire updated
+- [x] R7.3 · Screens: "Say it in your words" on Log, "Ask femio" from Today and Learn, "Visit summary" from Today, assistant status in Settings; four locales
+- [x] R7.4 · Gate green, screenshots 390×844 light/dark/Arabic, debug APK (flutter analyze clean, 569 tests; 13 screenshots in `testing-results/2026-11-24-r7-assistant/` from a fake bridge, synthetic; debug APK builds; not yet run against real Firebase or Nano: owner actions 23–26)
+- [~] R7.5 · Public repo (Apache-2.0), Devpost write-up, 3-minute video script; owner records the video on a Nano phone. Done: `scripts/hackathon/export-public-app.mjs`, `docs/hackathon/DEVPOST_SUBMISSION.md` (aligned with the build 2026-11-24; `DEVPOST.md` superseded), `docs/hackathon/VIDEO_SCRIPT.md` (rewritten for ADR-079), owner guide `docs/hackathon/OWNER_GUIDE.html`. Open: owner actions 23–28
+- [x] R7.8 · ADR-079: Ask femio answers only from a bundled trusted-source registry (89 entries; passages from CDC, MedlinePlus, OWH, NICHD, NIDDK, NCI; WHO/NHS/ACOG/RCOG/NICE as links), offline, cited, "not covered" when no passage; Google Search grounding removed; Cloud boost opt-in with consent screen and `PseudonymisedProfile`; `CloudPrompt` the only cloud input; 51 tips + 35 persona visit questions with sources in four languages, chosen on the phone; red flags MR-49 (ACOG heavy bleeding with dizziness) and MR-50 (CDC Hear Her, 365 days after birth); phrase lexicon for all 73 personas; tripwire section 3c (ac3d2e0, a690ae1, ad68987, bb8f4d3, d39e1ae; flutter analyze clean, 630 tests, `pnpm gate` exit 0, debug APK builds; synthetic fixtures and a fake bridge, not yet run on real Firebase or Nano)
+- [ ] R7.9 · Persona gaps from `docs/hackathon/persona_coverage/`: C15 (fertility preservation) and D7 (thyroid in pregnancy) have no items; 220 catalogue candidates need record state femio does not keep (diagnoses, loss history, twins, BMI, caesarean); 73 candidates cite sources not yet verified (ASRM, HFEA, cancer.gov); A1–A6 (under 18), X1–X2 (partner/parent modes), B12 (sexual wellness) out of scope by rule; E5 conflicts with the contraception rule
+- [ ] R7.10 · Registry upkeep before release: dated refresh of every passage, clinician sample review, licence note for the CDC Hear Her list (AIM attribution)
+- [~] R7.11 · Privacy hardening (ADR-080): AdMob removed from the app (ad-ID permissions removed, tripwire forbids ads/analytics/attribution); website GTM/GA4/Meta removed, Vercel Web Analytics added; Cloud boost consent per purpose with a dated, versioned receipt (`CloudConsent`), not carried by a restored backup; privacy policy rewritten ×4 and a consumer health data policy page ×4; Play Data safety rewritten; review + DPIA in `docs/compliance/PRIVACY_REVIEW_2026-11-24.md`. Owner actions 29–36
+- [x] R7.13 · Ask femio coverage (owner 2026-11-24: "many are not answered"): registry 89 → 286 entries (163 verbatim passages from OWH, CDC, NICHD, NIA, NIMH, MedlinePlus, NIDDK, NIH ODS; 34 links incl. NHS and Saudi MOH in Arabic), each checked word for word against its live page; ~60 new lexicon topics; `lang` per entry; ranking tie-breaks. Synthetic set of 419 runs: strong 45% → 87%, not covered 82 → 8 (`research/REGISTRY_COVERAGE_2026-11.md`, `registry_coverage_test.dart` floors 85%/8%). Open: diagnosis questions have no rule (R7.14); two Arabic false alarms; gaps listed in the report (commit "feat(mobile): R7.13 …"; 24 Nov 2026)
+- [ ] R7.14 · A rule for "do I have X?" questions (fixed wording before any lookup), with the clinician; two Arabic false alarms (Rh-negative, bleeding after birth) reviewed in R7.10
+- [ ] R7.12 · femio Plus: decide what it sells now that it no longer removes ads (owner); until then it stays a test-only Play Billing probe
+- [ ] R7.6 · Before a store release with the cloud path on: privacy notice ×4, Data safety row, listing (ADR-078 consequences)
+- [ ] R7.7 · Listing and in-app positioning "femio: AI-assisted women's health & wellness" across every life stage, four languages (ADR-078 §8, owner 2026-11-24)
+
+## Build order 2026-11-24 (R8 + R9 + R10; owner page https://claude.ai/artifact/5Ygqh8JKgxeQN2buhTjbAe)
+Wave 1: R10.1 boundary → R8.3 AI front door → R8.7 + R8.6 pregnancy → R9.1 daily line → R8.4 stage wording → R9.6 + R10.13 explainers → R10.2 + R8.27 visit companion → R10.3 transparency → R10.7 Say it multi-day.
+Wave 2: R8.5 + R10.4, R8.8, R8.19 + R8.20, R10.5 + R10.6, R8.21, R9.4 / R9.8 / R9.10 / R9.11.
+Added 2026-11-25: R12.2 rating prompt and R12.3 update prompt at the end of wave 1 (small); R11.0–R11.2 record, documents and timeline, plus R11.6 medicines, in wave 2; R11.3–R11.5 and R11.7 scan, chat-to-record, charts and visit PDF after the R10.1 slices; R12.1 notification consent with R11.6, remote push deferred.
+Wave 3: the rest of R8.11–R8.18, R9, R10, each waiting on a source, a review or an owner decision (R9.2, R8.24, R10.15, R10.17, R7.14, feeding log).
+
+## R8 · Persona views and the AI front door (owner 2026-11-24) — `research/PERSONA_FEATURES_2026-11.md`; Stitch prompts `docs/design/STITCH_PROMPTS_2026-11-24.md`; round 1 comparison `testing-results/2026-11-24-stitch-compare/` (https://claude.ai/artifact/2wbNyvPh6eVLDkUUoMpvRT)
+
+Accepted features from the persona-driven review (market researcher + business development + lead synthesis; owner's requests O1–O10). Waves: A = owner requests, mostly reuse; B = record state; C = depth. Each line names its rules; medical content only from reviewed guides or the register, otherwise `[NEEDS SOURCE]`.
+
+- [x] R8.0 · Persona feature review: `research/2026-11-persona-review/01_MARKET_RESEARCH.md` (22 pages read, 14 not verified), `02_BUSINESS_DEVELOPMENT.md` (~20 claims verified, ~20 hypotheses), lead synthesis `research/PERSONA_FEATURES_2026-11.md`; lead spot-checks: Clue Plus page, Sahiba and Flo KSA App Store listings match; Luni price mis-cited (not verified)
+- [ ] R8.1 · (B) View registry per stage (cycle, TTC, pregnancy, postpartum, loss, perimenopause) + overlays (PCOS); "All tools" sheet keeps every block reachable (rule 2, 5; owner O1)
+- [x] R8.2 · (A) Today order: dashboard blocks → "Tips for you" → privacy and emergency notices at the bottom; Help now stays in every header (MR-38; owner O9) — done 2026-11-24: hero and dashboard blocks → quick log → Ask femio / visit summary → Tips for you → urgent-care notice (pregnancy keeps its full red-flag list; other modes a short card to Help now) → privacy line; Help now icon stays in the header; the one-time storage notice stays on top until dismissed (it replaces a consent step, 03_LEGAL_PACK §5). Screenshots `testing-results/2026-11-24-r8-today/` (TTC and pregnancy × EN light, AR light, AR dark)
+- [ ] R8.3 · (A) AI prominence: entry card on Today and a floating Ask femio / Say it pill on every main tab, mic field on Log; first-use sheet says what runs on the phone and offers Cloud boost through the ADR-080 consent (boxes unticked); choice mirrored in Settings > Assistant (owner O10; ADR-079/080)
+- [ ] R8.4 · (A) Mode-aware placeholders for Say it, Ask femio, log fields, hints and empty states, four locales (owner O6)
+- [ ] R8.5 · (B) Patterns screen: cycle-length history with range, symptoms by phase "seen in N of M cycles", per-cycle BBT/OPK/mucus, pregnancy weight and movements, menopause symptom frequency; counts only, no verdicts, free; the minimum-cycles rule goes in the medical rules register first (rule 1, 3; Stitch gap)
+- [ ] R8.6 · (A) Pregnancy weekly view: calendar by week with the current week ringed; "This week" card with Baby / Your body / What you may notice / Care around now / Tip taken verbatim from the 37 reviewed week guides in her language (owner O2, O3)
+- [ ] R8.7 · (A) Pregnancy mode cleanup: one week function on every surface with a fixture (turnover on the LMP weekday); no fertile, OPK, BBT or period items; "bleeding or spotting" links to the warning signs (MR-29); hidden items under "All log items" (owner O4, O5). APK teardown: the competitor counts weeks the same way (completed weeks, turnover on the last-period weekday); the fixture must also pin which week guide shows at 4w0d and the week label in each language
+- [ ] R8.8 · (B) Signs this cycle: BBT shift, OPK and mucus side by side per cycle, never "you ovulated" (MR-16/17/18)
+- [x] R8.9 · (A) Fertile-window invariant in `fixtures/domain/fertile-window.json` (window contains ovulation, every case) + calendar and website-calculator screenshot audit (MR-07; owner O7) — done 2026-11-24: invariant asserted on every recorded case and for every cycle length 21–35 in both Dart and TS; one ovulation function per client (`fertility.dart`, `calculators/index.ts`). Not verified: website calculator screenshot
+- [x] R8.10 · (A) Next 3 predicted periods as widening ranges after every log; none when irregular or no confident window (MR-01, MR-06; owner O8) — done 2026-11-24: MR-51 + `fixtures/domain/upcoming-periods.json` (expected values computed independently), `upcomingPeriods` in Dart and TS, calendar draws all three (low confidence dashed) + "Next periods" card ×4 locales; screenshots `testing-results/2026-11-24-r8-calendar/`. The website calculators do not use it yet (R8.10a)
+- [ ] R8.10a · Website period calculator: show the next three periods with `upcomingPeriods` (same rule as the app)
+- [ ] R8.11 · (B) "My health" switch (PCOS, irregular cycles, thyroid, endometriosis; self-reported): window and seek-help rules (MR-14), tips triggers, Patterns emphasis, B6 overlay with no TTC nudges (scope A-05)
+- [ ] R8.12 · (C) Two-week-wait card: days since her logged signs, test-day rule (MR-21), no counter on an assumed ovulation (MR-20)
+- [ ] R8.13 · (C) Lab entries in the lab's units (progesterone, PdG, HbA1c, AMH, TSH), never labelled, never "day 21" (MR-18)
+- [ ] R8.14 · (B) Pregnancy ended: "I had my baby" → postpartum view; "My pregnancy has ended" → her own words, kind screen, reminders stopped, data kept (MR-35, scope A-07). APK teardown: one competitor already offers a delivery-or-miscarriage end choice, so femio leads on how it is done, not on having it (corrects PERSONA_FEATURES §3.2/§3.3)
+- [ ] R8.15 · (C) Weekly pregnancy reminder, neutral text (scope A-11; ADR-079 §4)
+- [ ] R8.16 · (C) Pregnancy checklists: hospital bag, birth-plan questions, questions for this visit from the catalogue (items `[NEEDS SOURCE]`); APK teardown: never affiliate or shop links (a competitor embeds them in its lists)
+- [ ] R8.17 · (C) Baby size by week: only what the reviewed week guide states, drawn object, no photos of people (`[NEEDS SOURCE]` otherwise); APK teardown: if lengths are shown, the crown-to-rump → head-to-toe switch at week 20 needs saying, sourced
+- [ ] R8.18 · (C) Ultrasound dating overrides other methods when her clinician gave it (MR-27)
+- [ ] R8.19 · (B) Postpartum view: onboarding "I recently had a baby" (writes `birthDate`), weeks since birth, recovery guide of the week, after-birth warning signs (MR-50), mood check-in, bleeding log; first period after birth restarts ranges (no ovulation-return detection)
+- [ ] R8.20 · (C) Perimenopause view: irregular cycles stay visible as ranges, monthly symptom frequency, visit pack ≥ Balance's free report, add "palpitations" to the vocabulary (four locales, sync script)
+- [ ] R8.21 · (A) "What can leave this phone" page in Settings: every network path listed (Cloud boost only), link to the privacy policy (rule 4)
+- [ ] R8.22 · (C) "What you usually notice in this phase" card from her own logs, worded as past pattern (rule 3)
+- [ ] R8.23 · (C) Custom tags, local, mappable by Say it (MR-47 register check)
+- [ ] R8.24 · Owner decision (feeds R7.12; owner 2026-11-25: the visit-pack PDF is free at launch, Plus features come later): femio Plus sells convenience, never access — PDF export of visit pack and Patterns, widget, themes and discreet icon, extra reminders, Cloud boost above a free allowance; price test yearly SAR 49.99 / EGP 249.99 or lifetime SAR 99 / EGP 399 (hypotheses). APK teardown: all three competitors ship widgets, themes and a lock; the builds are R9.4, R9.11, R9.13
+- [DEFERRED] R8.25 · Partner follow-along (no-server design), wearable/Health Connect import, LH photo reading, bump diary, baby feeding log, BP log (v1.1 order), teen mode (MR-48, owner + legal). APK teardown: the competitor's partner mode needs an account and pushes her phases, logs and a late period to the partner; a no-server design stays the only option
+- [x] R8.26 · Stitch round 2 (owner export 2026-11-24, 99 screens): reviewed, `testing-results/2026-11-24-stitch-compare/round2/FINDINGS.md` (adopt table mapped to R8 lines, 7 fixes, 0 text-contrast failures); built through R8.2–R8.27
+- [ ] R8.27 · Stitch round 1 small wins: ovulation-evidence card (TTC), Say it as a sheet with a counted save, refusal card with "Prepare doctor-visit pack", next-appointment card (pregnancy), visit pack as a one-page document with the system share sheet
+- [x] R8.28 · Competitor APK teardown (bf7db98): `com.easymobs.pregnancy` 1.4.75, `com.popularapp.periodcalendar` 1.80.370, `periodtracker.pregnancy.ovulationtracker` 1.122 decompiled with jadx, never run; doc `research/APK_TEARDOWN_2026-11.md` (inventory, gap table, top 15, privacy contrast; claims marked code / inferred / not verified); evidence outside the repo in `E:\re\2026-11-apk\`; owner page https://claude.ai/artifact/ByzRH6dzJtFJq9TpHwMNuM; new lines R9.1–R9.13
+
+## R9 · Competitor APK teardown (2026-11-24) — `research/APK_TEARDOWN_2026-11.md`
+
+Only items no R8 line covers; notes on R8.7, R8.14, R8.16, R8.17, R8.24 and R8.25 carry the rest. Nothing from the three apps is copied; medical content only from reviewed guides or the register, otherwise `[NEEDS SOURCE]`.
+
+- [ ] R9.1 · (A) Pregnancy daily line: one short line a day inside the "This week" card, drawn in turn from that week's reviewed guide sections (no new medical text), changing on the last-period weekday through the R8.7 week function; four locales (rule 1, 2; builds on R8.6)
+- [ ] R9.2 · (A) Owner decision, then build: replace the "N days past your due date" counter (`pregOverdue`) with an estimate sentence and the red-flag entry, no number; register row first (rule 3)
+- [ ] R9.3 · (C) Pregnancy weight: a reference band by pre-pregnancy BMI on the weight screen, only after a register row cites the source `[NEEDS SOURCE]`; band shown as a range, no verdict colour (rule 1, 3)
+- [ ] R9.4 · (B) Reminders: a saved appointment can remind her; a supplement or own-medicine reminder with her own label; neutral notification text; never a contraceptive schedule (rule 1, 4; free vs Plus per R8.24)
+- [ ] R9.5 · (C) Pelvic-floor (Kegel) guided timer from a sourced instruction set `[NEEDS SOURCE]`; no levels, streaks or birth promises (rule 1)
+- [ ] R9.6 · (A) "Why this range / why no window" sheet from her own prediction evidence (cycles used, spread, rule); sits beside R8.10 on the calendar and Today (rule 3)
+- [ ] R9.7 · (B) Register check: a cycle-variability seek-help wording with its source, used by R8.5 Patterns; no "abnormal" label (rule 1, 3)
+- [ ] R9.8 · (B) Free-text note on a day, stored in the sealed record and backup, readable by Say it on the phone (rule 4)
+- [ ] R9.9 · (C) Content: a breast-awareness guide (EN + AR first) instead of a self-exam tracker `[NEEDS SOURCE]` (rule 1)
+- [ ] R9.10 · (B) Spreadsheet (CSV) export of her own logs through the system share sheet, beside the sealed backup; she chooses where it goes (rule 4)
+- [ ] R9.11 · (B) Home-screen widget: neutral by default (no health words on the home or lock screen until she turns them on); pregnancy week or cycle range (rule 3, 4; Plus or free per R8.24)
+- [ ] R9.12 · (C) Feedback path: "this was unclear" on guides and "report a wording problem" for translations, opened in her mail app; no network code (rule 4). The "no rating nag" clause is superseded by R12.2 (owner 2026-11-25)
+- [ ] R9.13 · (C) Fingerprint unlock beside the PIN (rule 4)
+
 ## Session log
 
 | When | What | Commit |
@@ -114,3 +190,120 @@ Opened 2026-10-28 on the owner's finalization brief. The gate for R6.4–R6.5 an
 | 2026-10-30 (evening) | R6.16 done: help-now lists sixteen countries with official sources; R6.17 (app mirror) opened; main had moved meanwhile (73cb541, 79b0f20, c6b20cd from the sign-off session), so the branch merged main; the one decision clash (Ramadan wording) resolved for the owner's later dashboard answer, ADR-077 addendum 2; **main deployed at `c5a3a17`** (owner: "Yes, deploy"; Vercel `dpl_8AgkR2SSLRMfofZjw18j4TwvPjfM` READY; `/en/help-now` and `/ar/help-now` checked live) |
 | 2026-11-01 | Dashboard audit (R6.18): 18 ticked steps verified and archived; store listing in four languages; sixteen store screenshots; the release candidate built and signed with the upload key (0.5.0+5; APK `apps/mobile/build/app/outputs/flutter-apk/app-release.apk`, bundle `…/bundle/release/app-release.aab`, Google test ads since `ads.env` is absent); four owner requests posted on the dashboard; **main fast-forwarded to `0d2bf25` and deployed** (owner: "Yes, deploy"; Vercel `dpl_A4VaNqccj2yWUPKGN3SjLh6HKJur` READY, femioapp.com 200; no visible site change in this commit) | `docs/store/screenshots/`, dashboard db `verified` fields |
 | 2026-10-30 (night) | R6.17 (app help screen, sixteen countries, drift guard) and R4.14 (red-flag card: bleeding and movements) done; **main deployed at `0442199`** (owner: "Yes, deploy"; Vercel `dpl_48oj2B9yzdPb6LUFqWaW2bM2RHdF` READY; the calculator sentence checked live in EN and AR) | `testing-results/2026-10-30-help-now-app/`, `testing-results/2026-10-30-red-flags-r414/` | `pnpm gate` 688+ tests, see `testing-results/2026-10-30-help-now-countries/` |
+
+## R10 · AI companion (owner 2026-11-24: "a surgical operation") — `research/AI_COMPANION_2026-11.md`
+
+The companion picks, orders, extracts and cites; femio speaks. Every use works with AI off, reads one
+typed context, writes only through a confirmed draft, and runs the safety rules first (ADR-078/079/080).
+
+- [~] R10.1 · Boundary (slice 1 done 2026-11-24: `uses.dart`, `PrivatePrompt`, `assistant_gateway.dart` with build switch, consent, timeout and circuit breaker; four screens moved to the gateway; tripwire §3c; ADR-081; `test/assistant_gateway_test.dart`. Next: typed contexts with manifests, ledger, master switch, drafts + confirm sheet, `gate.dart`, fuzz and offline-parity tests): `uses.dart` policy table, typed contexts with manifests, `PrivatePrompt` (runPrivate no longer takes a String), `outputs.dart` parsers, `drafts.dart` + confirm sheet, `gate.dart`, `assistant_gateway.dart` (switch, build flag, consent, timeout, BUSY retry, circuit breaker), ledger; prompts moved out of tips_card/ask/say-it/visit screens; tripwire §3c extended; manifest, fuzz, drafts and offline-parity tests (needs an ADR: "the companion boundary")
+- [ ] R10.2 · (A) Visit companion: her worry → catalogue question ids + her own sentence (confirmed into `Appointment.prep`); visit pack in two languages chosen by her, shared via the system sheet (U25, U26; ADR-069)
+- [ ] R10.3 · (A) Transparency: "Why am I seeing this?" on tips, digests and reading suggestions; Settings > "What the AI can see" generated from the manifest; local AI ledger (cloud text kept as her receipt; cleared by delete-everything; not restored from backup) (U12, U34; folds into R8.21)
+- [ ] R10.4 · (B) Patterns in plain words: template statements "seen in N of M cycles", top 3 picked on the phone; "Ask my patterns" answers with one statement or "not in your log"; no cause words; after R8.5 and its register row (U22, U23)
+- [ ] R10.5 · (B) Weekly digests built on the phone: pregnancy (R8.6 sections verbatim + her week's counts + saved questions + red-flag entry, stops on loss MR-35) and cycle (counts, next-period range MR-51); neutral notification (U13, U14)
+- [ ] R10.6 · (A) Learn helpers: glossary on tap from the reviewed glossary (needs R3.9), "In short" three lines per guide drafted at authoring time and reviewed, ×4 languages, reading-level gate (U01, U02)
+- [ ] R10.7 · (A) Say it, several days in one note (each day a draft) + keyboard-dictation hint; four locales; synthetic phrase tests incl. Egyptian and Gulf Arabic (U18, U19)
+- [ ] R10.8 · (C) Two-week-wait companion lines and cycle-end kindness, reviewed and sourced, MR-20/21, no counter on assumed ovulation; with R8.12 (U29, U30) — lines `[NEEDS SOURCE]` until sourced
+- [ ] R10.9 · (A) Question generaliser: topic → reviewed general question ×4 languages; she approves the exact text before Cloud boost; fixes the ADR-078 §3 path on phones without Nano (U09)
+- [ ] R10.10 · (A) Myth check in Ask femio: "What trusted sources say", cited or "not covered", no verdict words (U07)
+- [ ] R10.11 · (C) After-visit capture into appointment date, results-due date and follow-up questions; never a result or diagnosis; draft and confirm (U27)
+- [ ] R10.12 · (B) "Your next read": trigger-ordered guides; on-device order; Cloud boost order over the whole stage list only after a consent-text version bump (U06)
+- [ ] R10.13 · (A) Calendar explainers: "Explain this day" and "What changed after my log", rules only (U16, U17)
+- [ ] R10.14 · (C) Guide follow-ups: three reviewed questions per guide → Ask femio; "Ask about this guide" uses the guide's topics as a retrieval hint and answers from the registry (U04, U05)
+- [ ] R10.15 · (C) Reflective journal: reviewed prompt bank; new encrypted note field (schema v3, migration, backup); never read by a model unless she asks for log entries; Help now on crisis words (U37) — owner check on scope
+- [ ] R10.16 · (C) Reminder wording coach for custom reminders (after R8.24), postpartum check-in (after R8.19), perimenopause monthly story (after R8.20), quiet mode on loss (with R8.14) (U35, U31, U32, U33)
+- [ ] R10.18 · AI view toggle (owner 2026-11-24): on calculators, predictions, insights and explanations, a switch from the normal view to an "AI view" that adds an explanation or insight beside the rules result, never replacing it. A clear way back; every refresh or reopen starts in the normal view (the toggle is never saved). While on, an "AI can make mistakes" note is always visible. Runs through the gateway (ADR-081): on the phone from typed context; Cloud boost only with consent and the four bands. Arabic text from reviewed templates (on-device model validated for English and Korean only). Web calculators: rules-only explanations until an ADR allows a web model call
+- [DEFERRED] R10.17 · femio's own on-device speech (ML Kit GenAI; RECORD_AUDIO needs an ADR and a scoped tripwire exception), "Explain simpler" (English only), onboarding in her words, partner card, website AI (U20, U03, U36, U38)
+- [x] R10.0 · Research: `research/AI_COMPANION_2026-11.md` (36 uses, boundary architecture, rejected list; lead checked the `runPrivate(String)` call sites and the Firebase "English and Korean only" on-device limit, 2026-11-24)
+
+## R11 · Her health record (owner 2026-11-25)
+Her own medical file, kept like a professional record, on her phone only. The rules for every line:
+- Every entry carries two times: when it happened (the date printed on the report, or the day of the visit) and when it entered femio. It also carries its source (typed, scanned, from Ask femio, imported) and an edit trail.
+- She can add, edit or remove anything by hand.
+- The AI only drafts; she confirms each line (rule 7, ADR-081).
+- Hybrid AI (owner 2026-11-25): the phone does the work (scanning, reading, filing, charts, drafts, answers about her record). The cloud may answer only an abstract question the phone builds, which carries nothing about her (R11.10). Scanning never leaves the phone.
+- femio stores, dates and draws her data. It never interprets: no "normal" or "abnormal", and a reference range only as printed on her own report (rule 1).
+- [ ] R11.0 · ADR-082 "her health record". Contents:
+  - schema v3: typed entries with happened-on and added-on, source and edit history;
+  - attachments encrypted in app storage and inside the sealed backup, with size limits;
+  - migration from v2;
+  - the medical-device check (stores and displays her own documents; no interpretation, no dose or interaction advice);
+  - the privacy notice line.
+  Owner check on scope. Shares the schema bump with R10.15.
+- [ ] R11.1 · "My record" screen.
+  - Sections: visits, labs, imaging, prescriptions and medicines, conditions and history, allergies, procedures, pregnancies, documents.
+  - A timeline sorted by happened-on, each row showing added-on, its source and an "edited" mark.
+  - Add, edit and remove by hand, with a calendar you tap for dates.
+  - Takes over R8.13 lab entries: the lab's units, never labelled.
+- [ ] R11.2 · Documents: attach a PDF or a photo through the system document picker or the system camera intent. No CAMERA or storage permission; the tripwire checks. Each file is stored encrypted, shown as a thumbnail, and can be opened, renamed, linked to entries, shared through the share sheet or deleted.
+- [ ] R11.3 · Scan with AI.
+  - On-phone text recognition (ML Kit, bundled model, offline), then extraction through the gateway:
+    - with Gemini Nano: a new use `scanDocument`, phone tier, draft she confirms;
+    - without it: a rules parser.
+  - It reads test name, value, unit, the report's own range, and the collection or report date. Never a guessed date: if none is printed, she picks it.
+  - Result: a draft table beside the photo, checked line by line before anything is saved.
+  - Never sent to the cloud.
+  - To verify first: which scripts ML Kit text recognition reads (Arabic-script reports), and whether Nano takes an image on her phone.
+- [ ] R11.4 · "Add to my record" from Ask femio.
+  - When her own message holds a fact ("my TSH was 3.1 on 2 November"), the answer shows a button that opens the confirm sheet, with the date it happened (read or asked) and added-on stamped now.
+  - Registry text is general information and is never filed as her data.
+  - Builds on R10.7 multi-day drafts.
+- [ ] R11.5 · Charts built from what she has, appearing only when there are at least two readings.
+  - Readings: blood pressure, glucose (fasting or after a meal, as she entered it), weight, temperature, HbA1c, and hormones (LH, FSH, estradiol, progesterone, AMH, TSH, prolactin, testosterone, an hCG series).
+  - The x-axis is happened-on. The lab's own printed range is drawn as a band.
+  - Units stay as entered, converted only with a cited factor and a fixture.
+  - No verdict words and no good/bad arrows.
+  - In pregnancy, blood pressure and glucose come first. Any seek-help line comes only from a register rule with a citation, through the warning-signs entry, never as a chart label [NEEDS SOURCE per threshold].
+- [ ] R11.6 · Medicines and prescriptions.
+  - Typed or scanned prescription → a medicine list: name, dose as written, how often, start and end, prescriber, the linked document.
+  - Pill tracker: taken, skipped or late, each with its time.
+  - An end-date and refill note.
+  - Reminders through local notifications with neutral text she can label.
+  - Never a contraceptive schedule or missed-pill advice (rule 1). No dose advice and no interaction checker (owner check; recommended no).
+  - Takes over R9.4's medicine reminder.
+- [ ] R11.7 · Prepare the next visit, print and share.
+  - The visit pack draws from the record: she picks entries, a date range and documents.
+  - A PDF made on the phone, in her language plus one for the clinic (R8.27), with the date it was made and each entry's dates.
+  - Print or share through the system sheet; nothing is uploaded.
+  - Free at launch (owner 2026-11-25). A femio Plus split comes later, with R8.24.
+- [ ] R11.8 · Time awareness everywhere.
+  - Logs, notes, entries and AI drafts show "happened on" and "added on".
+  - The AI's replies that use her record name each entry's date and age ("your TSH from 2 November, 23 days ago").
+  - An older entry is shown with its date, never hidden or judged.
+  - Hijri beside Gregorian as elsewhere.
+- [ ] R11.10 · Cloud help for a test, knowing nothing about her (owner 2026-11-25).
+  - When the phone has no Nano, or she asks "what does this test mean?", the phone builds an abstract question: the test name from a reviewed list, the value and unit, and the range printed on the report.
+  - It never carries: a date, her name, age, stage or any other entry, the document or photo, or free text from her record.
+  - She sees the exact text and approves it before it is sent.
+  - The answer comes only from the trusted-source registry, with citations. It explains what the test measures and what sources say. It never gives a verdict on her result or a diagnosis ("discuss with your clinician"; rule 1). Rules run first.
+  - Built as:
+    - a new `CloudPrompt` factory taking only an `AbstractLabQuestion`, a typed value made on the phone (redaction strips numbers today, so the existing question path cannot carry a value);
+    - a new Cloud boost purpose, "questions about a test result", with a consent-text version bump (ADR-080 §3);
+    - a tripwire update to the allowed factory set;
+    - an amendment in ADR-082.
+  - Fuzz test: no date, name or extra entry can reach the prompt.
+- [ ] R11.9 · Guards and tests:
+  - `scanDocument` is phone-only in `usePolicies`;
+  - tripwire: attachments and record entries can never reach a `CloudPrompt`;
+  - a backup round trip with attachments;
+  - unit-conversion fixtures in Dart;
+  - screenshots at 390×844 in light, dark and Arabic.
+
+## R12 · App lifecycle (owner 2026-11-25)
+- [ ] R12.1 · Notifications with consent.
+  - One screen before the first notification says what she will receive. It asks for the Android 13+ notification permission, with a switch for each kind (log, period range, medicine, appointment, weekly digest).
+  - Today every notification is scheduled on the phone (R4.4).
+  - Remote push is prepared but not built: a `NotificationPort` seam, so a later ADR can add Firebase Cloud Messaging. That needs a device token to leave the phone, which ADR-080 does not allow today.
+  - DEFERRED half: remote push.
+- [ ] R12.2 · Rating prompt.
+  - After she has opened femio on 6 different days (counted on the phone), one Google Play in-app review request (`in_app_review`).
+  - Only at a calm moment, after a save. Never after a warning sign, Help now, a loss, or within a session that showed a safety notice.
+  - At most once per app version; Play decides whether it shows.
+  - Privacy notice line: Google Play handles the review, femio sends nothing.
+  - Supersedes R9.12's "no rating nag".
+- [ ] R12.3 · Update prompt through Google Play in-app updates (`in_app_update`).
+  - A quiet banner with "Update" when Play reports a newer version.
+  - A full-screen update only for a release given high priority in the Play Console.
+  - No server of our own.
+  - Owner action: set update priority when uploading a release (05_RELEASE_RUNBOOK).
+

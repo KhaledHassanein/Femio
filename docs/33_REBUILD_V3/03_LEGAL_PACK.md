@@ -55,6 +55,8 @@ It is **not a new licensing law starting that day.** Law 151/2020 already prohib
 
 ## 2 · Privacy policy
 
+> **Superseded 2026-11-24 (ADR-080).** The live text is `apps/web/messages/*.json` keys `privacy` and `healthData` (four languages); the review behind it is `docs/compliance/PRIVACY_REVIEW_2026-11-24.md`. The drafts below are kept for the record.
+
 *Publish at `[URL]` as an ordinary web page (Play rejects PDFs and geo-blocked pages) [P1]. Also link it inside the app (Settings). Opening a link in the phone's browser needs no `INTERNET` permission in the app.* Ready for `apps/web/messages/en.json` / `ar.json` under `privacy` once reshaped into heading/body pairs; sentences are full and ICU-safe.
 
 ### 2.1 English
@@ -196,6 +198,8 @@ Because your records are only on your phone, you hold them. In the app you can l
 ## 4 · Google Play pack
 
 ### 4.1 Data safety form, line by line
+
+> **Superseded 2026-11-24 (ADR-080):** current answers are in `docs/store/data-safety-and-declarations.md`.
 
 Definitions (Google): to **collect** is to transmit data off the device, including by SDKs; **sharing** is transferring collected data to a third party; data processed only on the device and never sent off it need not be disclosed [P2].
 
