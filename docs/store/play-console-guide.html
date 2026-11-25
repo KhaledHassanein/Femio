@@ -1,0 +1,470 @@
+<title>femio on Google Play</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,500;6..72,600&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=IBM+Plex+Sans+Arabic:wght@400;500&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<!-- Generated 2026-11-25 from docs/store/play-listing.*.md, release-notes-1.0.0.md and
+     data-safety-and-declarations.md. Owner walk-through for Google Play, step by step. -->
+<style>
+/* Layout: one reading column; each step is a numbered block with tick boxes, copy-ready fields in panels. */
+:root{
+  --bg:#FBF7F3; --surface:#FFFFFF; --sunken:#F4EDE8; --line:#E9DFD9;
+  --text:#2A1A26; --muted:#6E5D67; --accent:#8A3572; --accent-soft:#F6E4F0;
+  --warn:#9E2449; --warn-soft:#FFE0E7; --ok:#2F6B4F; --ok-soft:#E3F1EA;
+  --display:"Newsreader",Georgia,serif; --body:"Plus Jakarta Sans","IBM Plex Sans Arabic",system-ui,sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,Consolas,monospace;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#140D14; --surface:#1E1520; --sunken:#19111A; --line:#3A2A37;
+  --text:#F6EEF2; --muted:#C9B8C2; --accent:#DDA2C8; --accent-soft:#3A2035;
+  --warn:#F996AE; --warn-soft:#3D1422; --ok:#8FD3B0; --ok-soft:#173226; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#140D14; --surface:#1E1520; --sunken:#19111A; --line:#3A2A37;
+  --text:#F6EEF2; --muted:#C9B8C2; --accent:#DDA2C8; --accent-soft:#3A2035;
+  --warn:#F996AE; --warn-soft:#3D1422; --ok:#8FD3B0; --ok-soft:#173226; color-scheme:dark}
+body{background:var(--bg);color:var(--text);font:16px/1.6 var(--body)}
+.wrap{max-width:760px;margin:0 auto;padding-block:32px 64px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));display:flex;flex-direction:column;gap:28px}
+h1,h2,h3{font-family:var(--display);font-weight:600;line-height:1.2;text-wrap:balance;margin:0}
+h1{font-size:2.2rem} h2{font-size:1.5rem} h3{font-size:1.1rem;font-family:var(--body);font-weight:700}
+p{margin:0} .muted{color:var(--muted)} .small{font-size:.88rem}
+.eyebrow{font-size:.75rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--accent)}
+header{display:flex;flex-direction:column;gap:10px}
+.facts{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.4fr);border:1px solid var(--line);border-radius:10px;overflow:hidden;background:var(--surface)}
+.facts div{padding:9px 12px;border-bottom:1px solid var(--line);min-width:0;overflow-wrap:anywhere}
+.facts div:nth-child(odd){color:var(--muted);font-size:.9rem;background:var(--sunken)}
+.facts div:nth-last-child(-n+2){border-bottom:0}
+code,.mono{font-family:var(--mono);font-size:.9em}
+.step{display:flex;flex-direction:column;gap:14px;background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:20px}
+.step-head{display:flex;gap:14px;align-items:baseline}
+.num{flex:none;font-family:var(--display);font-size:1.6rem;color:var(--accent);min-width:1.6em}
+.time{font-size:.8rem;color:var(--muted);font-weight:500}
+ol.do{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:10px;counter-reset:s}
+ol.do>li{display:grid;grid-template-columns:22px minmax(0,1fr);gap:10px;align-items:start}
+ol.do>li>input{margin-top:5px;width:18px;height:18px;accent-color:var(--accent)}
+ol.do>li>div{min-width:0;display:flex;flex-direction:column;gap:8px}
+.path{font-weight:600}
+.copy{position:relative;background:var(--sunken);border:1px solid var(--line);border-radius:8px;padding:10px 74px 10px 12px;font-family:var(--mono);font-size:.86rem;white-space:pre-wrap;overflow-wrap:anywhere;max-height:260px;overflow:auto}
+.copy[dir="rtl"]{font-family:"IBM Plex Sans Arabic",var(--body);padding:10px 12px 10px 74px}
+.copy button{position:absolute;top:8px;inset-inline-end:8px;font:600 .78rem var(--body);background:var(--accent);color:var(--surface);border:0;border-radius:6px;padding:5px 10px;cursor:pointer}
+.copy[dir="rtl"] button{inset-inline-end:auto;left:8px}
+.copy button:focus-visible,summary:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.note{border-radius:8px;padding:10px 12px;font-size:.92rem}
+.note.warn{background:var(--warn-soft);color:var(--text);border-inline-start:3px solid var(--warn)}
+.note.ok{background:var(--ok-soft);border-inline-start:3px solid var(--ok)}
+.note.info{background:var(--accent-soft);border-inline-start:3px solid var(--accent)}
+table{border-collapse:collapse;width:100%;font-size:.92rem}
+.tbl{overflow-x:auto;border:1px solid var(--line);border-radius:8px}
+th,td{text-align:start;padding:8px 10px;border-bottom:1px solid var(--line);vertical-align:top}
+th{background:var(--sunken);font-weight:600}
+tr:last-child td{border-bottom:0}
+.ans{font-weight:700;color:var(--accent)}
+details{border:1px solid var(--line);border-radius:8px;background:var(--surface)}
+summary{cursor:pointer;padding:10px 12px;font-weight:600}
+details>div{padding:0 12px 12px;display:flex;flex-direction:column;gap:10px}
+dl.gloss{display:grid;grid-template-columns:minmax(0,10em) minmax(0,1fr);gap:8px 14px;margin:0}
+dl.gloss dt{font-weight:700} dl.gloss dd{margin:0;color:var(--muted)}
+@media (max-width:560px){dl.gloss,.facts{grid-template-columns:minmax(0,1fr)} .facts div:nth-child(odd){border-bottom:0;padding-bottom:0} h1{font-size:1.8rem}}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+
+<div class="wrap">
+<header>
+  <p class="eyebrow">Owner guide · release 1.0.0</p>
+  <h1>femio on Google Play</h1>
+  <p class="muted">Every click and every answer, in order. Tick each box as you go; the ticks stay in this browser only. Copy buttons put the exact text on your clipboard. Nothing here asks you to paste a password into chat.</p>
+</header>
+
+<section style="display:flex;flex-direction:column;gap:12px">
+  <h2>The fixed facts</h2>
+  <div class="facts">
+    <div>Package name (permanent)</div><div><code>com.femioapp.femio</code></div>
+    <div>Version</div><div>1.0.0 (build 1)</div>
+    <div>App name in the store</div><div>femio: Ovulation &amp; Pregnancy</div>
+    <div>Default language</div><div>English (United States) – en-US</div>
+    <div>App or game · price</div><div>App · Free (a free app can never become paid)</div>
+    <div>Category</div><div>Health &amp; Fitness</div>
+    <div>Contact email</div><div>info@femioapp.com</div>
+    <div>Website</div><div>https://femioapp.com</div>
+    <div>Privacy policy</div><div>https://femioapp.com/en/privacy</div>
+    <div>Who it is for</div><div>18 and over only</div>
+    <div>Ads</div><div>None</div>
+    <div>Runs on</div><div>Android 8.0 and newer; built for Android 16 (target API 36)</div>
+  </div>
+</section>
+
+<section style="display:flex;flex-direction:column;gap:12px">
+  <h2>Words you will meet</h2>
+  <dl class="gloss">
+    <dt>Package name</dt><dd>The app's permanent ID on Play. Google reads it from the first file you upload. It can never change.</dd>
+    <dt>App bundle (.aab)</dt><dd>The file you upload. Claude builds it; Google turns it into the install for each phone.</dd>
+    <dt>Upload key</dt><dd>A file on your PC that signs every bundle so Google knows it came from you. Step 1 makes it.</dd>
+    <dt>Play App Signing</dt><dd>Google keeps the final signing key. If your upload key is ever lost, you ask Google to reset it (a few days' delay, not a lost app).</dd>
+    <dt>Track</dt><dd>Who gets a release: internal (you and up to 100), closed (invited testers), open (anyone who joins), production (everyone).</dd>
+    <dt>Opt-in link</dt><dd>The link a tester opens once to join a track, then installs from Play as normal.</dd>
+  </dl>
+</section>
+
+<div class="note info"><strong>Is the release build broken?</strong> No. It is ready except for one thing only you can make: the upload key (Step 1). Without it the build signs itself with a test key, and Play refuses that on purpose, so nothing wrong can be uploaded by mistake. Claude built a test release bundle on 25 November (60 MB) and read what is inside: the permissions are internet, network state, notifications, start-after-restart, vibrate, Google Play billing and the on-phone AI service; there is no advertising ID, and Firebase's installation-ID library is not in it.</div>
+
+<section class="step" id="s1">
+  <div class="step-head"><span class="num">1</span><div><h2>Make your upload key</h2><p class="time">Once · about 10 minutes · on this PC</p></div></div>
+  <ol class="do">
+    <li><input type="checkbox" id="s1a"><div><p>Open your password manager and create an entry called <strong>femio upload key</strong> with a long new password. You will type it twice below.</p></div></li>
+    <li><input type="checkbox" id="s1b"><div><p>Press Start, type <strong>PowerShell</strong>, press Enter. Paste this line and press Enter (it makes a private folder):</p><div class="copy">New-Item -ItemType Directory -Force E:\_Private</div></div></li>
+    <li><input type="checkbox" id="s1c"><div><p>Paste this line and press Enter. It uses the key tool that came with Android Studio:</p><div class="copy">&amp; "C:\Program Files\Android\Android Studio\jbr\bin\keytool.exe" -genkey -v -keystore E:\_Private\femio-upload-keystore.jks -storetype JKS -keyalg RSA -keysize 2048 -validity 10000 -alias upload</div></div></li>
+    <li><input type="checkbox" id="s1d"><div><p>It asks for a keystore password. Paste your new password and press Enter. <strong>Nothing appears while you type; that is normal.</strong> Paste it again when asked.</p></div></li>
+    <li><input type="checkbox" id="s1e"><div><p>Answer the questions, pressing Enter after each:</p>
+      <div class="tbl"><table><tr><th>Question</th><th>Type</th></tr>
+      <tr><td>What is your first and last name?</td><td>Khaled Hassanein</td></tr>
+      <tr><td>Organizational unit?</td><td>(just press Enter)</td></tr>
+      <tr><td>Organization?</td><td>KM Digital Labs</td></tr>
+      <tr><td>City or Locality?</td><td>Cairo</td></tr>
+      <tr><td>State or Province?</td><td>Cairo</td></tr>
+      <tr><td>Two-letter country code?</td><td>EG</td></tr>
+      <tr><td>Is CN=... correct?</td><td>yes</td></tr>
+      <tr><td>Key password for &lt;upload&gt;</td><td>press Enter (same as the keystore password)</td></tr></table></div>
+      <p class="small muted">You should see "Storing E:\_Private\femio-upload-keystore.jks". If PowerShell says the file cannot be found, Android Studio is installed somewhere else: tell Claude what the error says.</p></div></li>
+    <li><input type="checkbox" id="s1f"><div><p>Paste this line to open a new, empty settings file in Notepad. Click <strong>Yes</strong> when it asks to create the file:</p><div class="copy">notepad E:\Femio\apps\mobile\android\key.properties</div>
+      <p>Paste these four lines into Notepad, replace both <code>YOUR_PASSWORD</code> with your password, then File → Save and close Notepad:</p>
+      <div class="copy">storeFile=E:/_Private/femio-upload-keystore.jks
+storePassword=YOUR_PASSWORD
+keyAlias=upload
+keyPassword=YOUR_PASSWORD</div>
+      <p class="small muted">Git is set to ignore this file, so it never goes into the code history. Claude copies it into the build folder without opening it.</p></div></li>
+    <li><input type="checkbox" id="s1g"><div><p>Make two backups of <code>E:\_Private\femio-upload-keystore.jks</code>: attach it to the password-manager entry, and copy it to a USB drive you keep offline.</p></div></li>
+    <li><input type="checkbox" id="s1h"><div><p>Type <strong>keystore ready</strong> in the Claude session. Never paste the password there.</p></div></li>
+  </ol>
+</section>
+
+<section class="step" id="s2">
+  <div class="step-head"><span class="num">2</span><div><h2>Finish "Set up your app" in Play Console</h2><p class="time">Once · about 45 minutes · play.google.com/console → femio → Dashboard</p></div></div>
+  <p class="muted small">You already created the app. The Dashboard shows a list called "Set up your app". Open each item, answer, and press <strong>Save</strong>. Play changes its wording now and then; if a question here does not match the screen, choose the closest and tell Claude.</p>
+  <ol class="do">
+    <li><input type="checkbox" id="s2a"><div><p class="path">Privacy policy</p><p>Paste and Save:</p><div class="copy">https://femioapp.com/en/privacy</div></div></li>
+    <li><input type="checkbox" id="s2b"><div><p class="path">App access</p><p>Choose <span class="ans">All functionality in my app is available without any access restrictions</span>. Save.</p></div></li>
+    <li><input type="checkbox" id="s2c"><div><p class="path">Ads</p><p>Choose <span class="ans">No, my app does not contain ads</span>. Save.</p></div></li>
+    <li><input type="checkbox" id="s2d"><div><p class="path">Content rating</p><p>Start questionnaire. Email: <code>info@femioapp.com</code>. Category: <span class="ans">All Other App Types</span> (the closest; there is no health category). Then answer each question <span class="ans">No</span>: violence, fear, sexuality or nudity, bad language, drugs, alcohol or tobacco, gambling, crude humour.</p>
+      <p>For "Does the app allow users to interact or exchange content?": <span class="ans">No</span>. "Shares the user's current location?": <span class="ans">No</span>. "Allows users to purchase digital goods?": <span class="ans">No</span>. "Unrestricted internet access (a browser)?": <span class="ans">No</span>.</p>
+      <p class="small muted">Reproductive-health education is not sexual content. Accept the rating it gives; do not try to steer it. Save → Submit.</p></div></li>
+    <li><input type="checkbox" id="s2e"><div><p class="path">Target audience and content</p><p>Age groups: tick <span class="ans">18 and over</span> only. "Could your store listing unintentionally appeal to children?": <span class="ans">No</span>. Save.</p></div></li>
+    <li><input type="checkbox" id="s2f"><div><p class="path">News apps</p><p><span class="ans">No</span>. Save.</p></div></li>
+    <li><input type="checkbox" id="s2g"><div><p class="path">Advertising ID</p><p>"Does your app use advertising ID?": <span class="ans">No</span>. Save.</p></div></li>
+    <li><input type="checkbox" id="s2h"><div><p class="path">Government apps</p><p><span class="ans">No</span>. Save.</p></div></li>
+    <li><input type="checkbox" id="s2i"><div><p class="path">Financial features</p><p>Tick <span class="ans">My app doesn't provide any financial features</span>. Save.</p></div></li>
+    <li><input type="checkbox" id="s2j"><div><p class="path">Health apps</p><p>Tick only what femio really does:</p>
+      <ul><li><span class="ans">Period tracking</span> (under Health and fitness)</li><li><span class="ans">Reproductive and sexual health</span> (fertile window, contraction timer, baby-movement log)</li><li><span class="ans">Medical reference and education</span> (the Learn library)</li></ul>
+      <p>Do <strong>not</strong> tick medical device, clinical decision support or disease prevention, and do not choose "My app doesn't provide any health features". Save.</p></div></li>
+    <li><input type="checkbox" id="s2k"><div><p class="path">Data safety</p><p>Five pages. Answers below.</p></div></li>
+  </ol>
+
+  <div class="tbl"><table>
+    <tr><th>Data safety page and question</th><th>Answer</th></tr>
+    <tr><td>Overview</td><td>Next</td></tr>
+    <tr><td>Does your app collect or share any of the required user data types?</td><td class="ans">Yes</td></tr>
+    <tr><td>Is all of the user data collected by your app encrypted in transit?</td><td class="ans">Yes</td></tr>
+    <tr><td>Account creation</td><td class="ans">My app does not allow users to create an account</td></tr>
+    <tr><td>Do you provide a way for users to request that their data is deleted?</td><td class="ans">Yes</td></tr>
+    <tr><td>Data types: tick these</td><td>Health and fitness → <span class="ans">Health info</span><br>App activity → <span class="ans">Other user-generated content</span><br>Device or other IDs → <span class="ans">leave unticked</span> (checked in the bundle: Firebase's installation-ID library is not included; your phone traffic check, board card #33, confirms it)</td></tr>
+    <tr><td>For each ticked type: collected or shared?</td><td><span class="ans">Collected</span> only (Google processes it for femio; that is not "sharing")</td></tr>
+    <tr><td>Processed ephemerally?</td><td class="ans">No</td></tr>
+    <tr><td>Required or optional?</td><td class="ans">Users can choose whether this data is collected</td></tr>
+    <tr><td>Why is it collected?</td><td class="ans">App functionality, Personalization</td></tr>
+    <tr><td>Independent security review</td><td class="ans">No</td></tr>
+  </table></div>
+  <p class="small muted">Why "Yes" at all: when she switches on Cloud boost, an approved question or four broad facts go to Google's AI. Everything else stays on the phone.</p>
+</section>
+
+<section class="step" id="s3">
+  <div class="step-head"><span class="num">3</span><div><h2>Store listing</h2><p class="time">Once · about 30 minutes · Grow users → Store presence → Store listings</p></div></div>
+  <ol class="do">
+    <li><input type="checkbox" id="s3a"><div><p>Open the <strong>Default store listing</strong> (English). Paste the three texts:</p>
+      <p class="path">App name <span class="small muted">(28 characters)</span></p><div class="copy">femio: Ovulation &amp; Pregnancy</div>
+<p class="path">Short description <span class="small muted">(71 characters)</span></p><div class="copy">Period, ovulation &amp; pregnancy tracker. Your records stay on your phone.</div>
+<p class="path">Full description <span class="small muted">(3982 characters)</span></p><div class="copy">femio: AI-assisted women&#x27;s health &amp; wellness. A private tracker for your period, ovulation, trying to conceive and pregnancy. See your next period and fertile window as an honest range, then follow your pregnancy week by week. Your records stay on your phone: no account, no ads, no analytics.
+
+WHY FEMIO
+• Private by design. No account, no sign-up, no ads and no analytics. Your log is stored encrypted on your phone, behind an app lock you choose. You decide when to save a backup file, and where.
+• Honest predictions. femio shows your next period and fertile window as a range with a confidence level, never one &quot;certain&quot; date. If your cycles are irregular or you have PCOS, there is no &quot;late&quot; counter and no false precision.
+• An assistant that respects your privacy. Ask femio answers only from trusted sources, with citations. Say it turns &quot;yesterday cramps, today spotting&quot;, even several days in one note, into entries you check first; nothing is saved until you tap. For you suggests tips, and &quot;Why am I seeing this?&quot; shows the facts behind each one. &quot;What the AI did&quot; lists every time femio used a model. It all runs on your phone where your phone supports Gemini Nano, and femio&#x27;s own word list is used otherwise.
+• Written by a physician, with sources. The library in the app explains ovulation, PCOS, early pregnancy and every week of pregnancy, and each article lists its sources.
+• Everything stays open to you. femio adapts its home screen to where you are (period tracking, trying to conceive, pregnant or PCOS), and every article and tool stays one tap away.
+• One record that grows with you. When you move from trying to pregnant, femio adds pregnancy to the same record. Nothing is deleted.
+• English, Arabic, French and Spanish, with right-to-left layout and Hijri dates beside Gregorian.
+
+TRYING TO CONCEIVE
+• Period and ovulation tracking on a calendar
+• Your fertile window as a range, updated from your own cycles
+• Log symptoms, ovulation tests and cervical mucus
+• &quot;Signs you logged this cycle&quot;: your latest discharge, ovulation test and temperature, as you logged them, with no verdict
+• Clear guidance on when to talk to a doctor
+
+PCOS AND IRREGULAR CYCLES
+• A mode built for long or unpredictable cycles
+• Track what matters to your doctor: cycle length, skin, hair and weight
+• Sourced articles on PCOS and fertility
+
+PREGNANCY
+• Due date, pregnancy week and trimester
+• A week-by-week guide from week 4 to week 40
+• Due date calculator, pregnancy calendar and weight-gain range that save nothing
+• Baby-movement log and contraction timer that never give a verdict and point you to care when something needs checking
+• Your appointments kept on your phone, with a reminder the day before if you want one
+
+PRIVATE BY DESIGN
+• A visit pack with your own questions, in a second language if the clinic needs one, shared through your phone&#x27;s share sheet
+• Reminders ask first: you pick the daily log, period-range or appointment reminder. They only say &quot;femio: Open the app&quot;
+• App lock and encrypted storage on your phone
+• Backup and restore from a file you save yourself
+• Delete everything in one step
+• Cloud boost is off unless you turn it on. Only for phones without on-phone AI, and only if you agree, it sends a general question you approve (numbers, dates and names removed first) or four broad facts, to Google&#x27;s AI. Never your log, notes or dates.
+• Google Play handles the occasional rating request and app updates. femio sends nothing of yours for either.
+
+IMPORTANT
+femio is for education and tracking. It is not a medical device and does not diagnose, treat, cure or prevent any medical condition. Predictions are estimates, not guarantees, and are not a method of birth control. Always talk to your doctor or midwife about your health. If you have heavy bleeding, severe pain or fewer baby movements, seek medical care right away.
+
+femio is made by KM Digital Labs, founded by a physician in Cairo. Questions or feedback: info@femioapp.com.</div>
+    </div></li>
+    <li><input type="checkbox" id="s3b"><div><p>Graphics, from the femio folder on this PC:</p>
+      <div class="tbl"><table><tr><th>Field</th><th>File</th></tr>
+      <tr><td>App icon (512×512)</td><td><code>E:\Femio\assets\brand\logo\femio-app-icon-dusk-512.png</code></td></tr>
+      <tr><td>Feature graphic (1024×500)</td><td><code>E:\Femio\docs\store\graphics\feature-graphic-en.png</code></td></tr>
+      <tr><td>Phone screenshots (all 8, in order 01 to 08)</td><td><code>E:\Femio\docs\store\screenshots\en\</code></td></tr></table></div>
+      <p class="small muted">These files are on Claude's branch until it is merged into E:\Femio; Claude tells you when they are there.</p></div></li>
+    <li><input type="checkbox" id="s3c"><div><p>Press <strong>Save</strong>. Then <strong>Manage translations → Add your own translations</strong>: tick <strong>Arabic – ar</strong>, <strong>French – fr-FR</strong>, <strong>Spanish – es-ES</strong>. In each language, upload its own feature graphic (<code>feature-graphic-ar.png</code>, <code>-fr.png</code>, <code>-es.png</code>). Arabic also gets the 8 screenshots in <code>screenshots\ar\</code>; French and Spanish use the English screenshots.</p>
+      <details><summary>Arabic texts</summary><div><p class="path">App name <span class="small muted">(29 characters)</span></p><div class="copy" dir="rtl">femio: الدورة والتبويض والحمل</div>
+<p class="path">Short description <span class="small muted">(65 characters)</span></p><div class="copy" dir="rtl">تتبّعي الدورة والتبويض والحمل. سجلاتكِ تبقى على هاتفكِ وبلا حساب.</div>
+<p class="path">Full description <span class="small muted">(3577 characters)</span></p><div class="copy" dir="rtl">femio: صحة المرأة وعافيتها بمساعدة الذكاء الاصطناعي. تطبيق خاص لتتبّع الدورة الشهرية والتبويض ومحاولة الحمل ثم الحمل. اعرفي موعد دورتكِ القادمة وأيام الخصوبة كنطاق صادق، ثم تابعي حملكِ أسبوعًا بأسبوع. سجلاتكِ تبقى على هاتفكِ: بلا حساب ولا إعلانات ولا أدوات تحليل.
+
+لماذا femio؟
+• خصوصية في التصميم: بلا حساب ولا تسجيل ولا إعلانات ولا أدوات تحليل. تُحفظ بياناتكِ مشفّرة على هاتفكِ خلف قفل تختارينه أنتِ، وأنتِ من تقرّر متى تحفظين ملف نسخة احتياطية وأين.
+• توقعات أمينة: يعرض femio موعد دورتكِ القادمة وأيام الخصوبة كنطاق مع درجة ثقة، لا كيوم واحد &quot;مؤكد&quot;. وإن كانت دورتكِ غير منتظمة أو لديكِ تكيس المبايض، فلا عدّاد للتأخير ولا دقة زائفة.
+• مساعد يحترم خصوصيتكِ: «اسألي femio» يجيب من المصادر الموثوقة وحدها، مع ذكر المصدر. و«قوليها بكلماتكِ» يحوّل &quot;أمس تقلصات واليوم تنقيط&quot;، حتى لو شملت عدة أيام في ملاحظة واحدة، إلى سجلات تراجعينها أولًا؛ ولا يُحفظ شيء حتى تضغطي الزر الذي يذكر عدد ما سيُحفظ. وقسم «لكِ» يقترح نصائح، و«لماذا أرى هذا؟» يعرض المعطيات وراء كل نصيحة، و«ماذا فعل الذكاء الاصطناعي» يسرد كل مرة استخدم فيها femio نموذجًا. كل ذلك يعمل على هاتفكِ حيث يدعم Gemini Nano، وإلا يستخدم femio قائمة كلماته الخاصة.
+• معلومات كتبها طبيب، مع مصادرها: مكتبة داخل التطبيق تشرح التبويض وتكيس المبايض وبداية الحمل وكل أسبوع من أسابيعه، وكل مقال يذكر مصادره.
+• كل شيء متاح لكِ: تتكيّف الشاشة الرئيسية مع مرحلتكِ (متابعة الدورة أو محاولة الحمل أو الحمل أو تكيس المبايض)، ويبقى كل مقال وكل أداة على بُعد لمسة.
+• سجل واحد يكبر معكِ: حين تنتقلين من محاولة الحمل إلى الحمل، يضيف femio الحمل إلى السجل نفسه، ولا يُحذف شيء.
+• العربية والإنجليزية والفرنسية والإسبانية، بتخطيط من اليمين إلى اليسار، مع التاريخ الهجري إلى جانب الميلادي.
+
+محاولة الحمل
+• متابعة الدورة والتبويض (الإباضة) على تقويم واضح
+• حاسبة أيام الخصوبة كنطاق يتجدد من أطوال دوراتكِ أنتِ
+• تسجيل الأعراض واختبارات التبويض وإفرازات عنق الرحم
+• «علامات سجّلتِها في هذه الدورة»: آخر إفرازات واختبار تبويض ودرجة حرارة، كما سجّلتِها، دون أي حكم
+• إرشاد واضح عن الوقت المناسب للحديث مع الطبيب
+
+تكيس المبايض والدورة غير المنتظمة
+• وضع مخصص للدورات الطويلة أو غير المتوقعة
+• تابعي ما يهم طبيبتكِ: طول الدورة والبشرة والشعر والوزن
+• مقالات موثّقة عن تكيس المبايض والحمل
+
+الحمل
+• موعد الولادة المتوقع وأسبوع الحمل والثلث الذي أنتِ فيه
+• دليل أسبوعي من الأسبوع 4 حتى الأسبوع 40
+• حاسبة موعد الولادة وتقويم الحمل ونطاق زيادة الوزن، بلا حفظ لأي شيء
+• سجل لحركة الجنين ومؤقّت للانقباضات، لا يُصدران حكمًا، ويوجّهانكِ إلى الرعاية حين يلزم
+• مواعيدكِ محفوظة على هاتفكِ، مع تذكير قبلها بيوم إن رغبتِ
+
+خصوصية في التصميم
+• ملف زيارة بأسئلتكِ أنتِ، بلغة ثانية إن احتاجت العيادة، تشاركينه عبر قائمة المشاركة في هاتفكِ
+• التذكيرات تسأل أولًا: تختارين تذكير التسجيل اليومي أو نطاق الدورة أو الموعد. ولا تقول إلا &quot;femio: افتحي التطبيق&quot;
+• قفل للتطبيق وتخزين مشفّر على هاتفكِ
+• نسخة احتياطية واستعادتها من ملف تحفظينه بنفسكِ
+• حذف كل شيء بخطوة واحدة
+• «Cloud boost» متوقف ما لم تفعّليه. وللهواتف التي لا تحمل ذكاءً اصطناعيًا على الجهاز فقط، ولا يعمل إلا بموافقتكِ: يرسل سؤالًا عامًا توافقين عليه (بعد حذف الأرقام والتواريخ والأسماء منه) أو أربع معلومات عامة إلى ذكاء Google الاصطناعي. لا يرسل سجلّكِ ولا ملاحظاتكِ ولا تواريخكِ أبدًا.
+• يتولى Google Play طلب التقييم العارض وتحديثات التطبيق، ولا يرسل femio أي شيء من بياناتكِ في الحالتين.
+
+تنبيه مهم
+femio للتثقيف والمتابعة فقط. ليس جهازًا طبيًا، ولا يشخّص أي حالة صحية ولا يعالجها ولا يشفيها ولا يقي منها. التوقعات تقديرات وليست ضمانات، ولا تصلح وسيلةً لمنع الحمل. استشيري طبيبتكِ أو طبيبكِ دائمًا في ما يخص صحتكِ. وإن لاحظتِ نزيفًا شديدًا أو ألمًا قويًا أو قلّة في حركة الجنين، فاطلبي الرعاية الطبية فورًا.
+
+femio من KM Digital Labs، وقد أسّسها طبيب في القاهرة. للأسئلة والملاحظات: info@femioapp.com.</div></div></details>
+      <details><summary>French texts</summary><div><p class="path">App name <span class="small muted">(30 characters)</span></p><div class="copy">femio : ovulation et grossesse</div>
+<p class="path">Short description <span class="small muted">(70 characters)</span></p><div class="copy">Règles, ovulation, grossesse. Vos données restent sur votre téléphone.</div>
+<p class="path">Full description <span class="small muted">(3994 characters)</span></p><div class="copy">femio : santé et bien-être des femmes, assistés par l&#x27;IA. Une application privée pour suivre vos règles, votre ovulation, votre projet de bébé et votre grossesse. Voyez vos prochaines règles et vos jours fertiles en fourchette, puis suivez votre grossesse semaine après semaine. Vos données restent sur votre téléphone : pas de compte, de publicité ni d&#x27;analyse.
+
+POURQUOI femio
+• Confidentialité dès la conception. Ni compte, ni publicité, ni analyse. Journal chiffré sur votre téléphone, derrière un verrouillage de votre choix. Vous décidez quand enregistrer une sauvegarde, et où.
+• Des prévisions réalistes. femio affiche vos prochaines règles et votre fenêtre de fertilité sous forme de fourchette avec un niveau de confiance, jamais une date « certaine ». Cycles irréguliers ou SOPK (syndrome des ovaires polykystiques) : pas de compteur de retard ni de fausse précision.
+• Un assistant respectueux de votre vie privée. « Demander à femio » répond uniquement à partir de sources fiables, avec références. « Dites-le avec vos mots » transforme « hier crampes, aujourd&#x27;hui spotting », même sur plusieurs jours, en entrées à vérifier ; rien n&#x27;est enregistré avant votre appui. « Pour vous » propose des conseils, et « Pourquoi je vois ça ? » montre les faits derrière chacun. « Ce que l&#x27;IA a fait » liste chaque usage d&#x27;un modèle. Tout fonctionne sur votre téléphone s&#x27;il prend en charge Gemini Nano ; sinon, femio utilise sa propre liste de mots.
+• Rédigé par un médecin, avec les sources. Chaque article de la bibliothèque cite ses sources.
+• Un seul dossier qui évolue avec vous : la grossesse s&#x27;ajoute au même dossier, rien n&#x27;est supprimé.
+• Anglais, arabe, français, espagnol ; de droite à gauche ; dates hégiriennes et grégoriennes.
+
+PROJET DE BÉBÉ
+• Suivi des règles et de l&#x27;ovulation sur un calendrier
+• Votre fenêtre de fertilité sous forme de fourchette, mise à jour d&#x27;après vos propres cycles
+• Notez symptômes, tests d&#x27;ovulation et glaire cervicale
+• « Signes notés ce cycle » : sécrétions, test d&#x27;ovulation et température tels que notés, sans verdict
+
+SOPK ET CYCLES IRRÉGULIERS
+• Un mode conçu pour les cycles longs ou imprévisibles
+• Suivez ce qui compte pour votre médecin : cycle, peau, poids
+
+GROSSESSE
+• Date prévue d&#x27;accouchement, semaine de grossesse et trimestre
+• Guide semaine par semaine, des semaines 4 à 40
+• Calculateur de date d&#x27;accouchement, calendrier de grossesse, prise de poids : rien n&#x27;est enregistré
+• Journal des mouvements du bébé et minuteur de contractions, sans verdict, qui vous orientent vers des soins au besoin
+• Rendez-vous sur votre téléphone, avec rappel la veille si vous le souhaitez
+
+CONFIDENTIALITÉ DÈS LA CONCEPTION
+• Dossier de consultation avec vos questions, en deuxième langue si besoin, partagé via le menu de partage
+• Rappels après accord : journal, règles ou rendez-vous. Ils disent seulement « femio : Ouvrez l&#x27;application »
+• Sauvegarde et restauration depuis un fichier que vous enregistrez
+• Tout supprimer en une seule étape
+• Cloud boost est désactivé tant que vous ne l&#x27;activez pas. Pour les téléphones sans IA embarquée, et avec votre accord seulement, il envoie à l&#x27;IA de Google une question générale que vous approuvez (sans chiffres, dates ni noms) ou quatre informations générales. Jamais votre journal, vos notes ni vos dates.
+• Google Play gère la demande d&#x27;avis et les mises à jour. femio n&#x27;envoie rien de vos données pour cela.
+
+IMPORTANT
+femio est destiné à l&#x27;éducation et au suivi uniquement. Ce n&#x27;est pas un dispositif médical : il ne diagnostique, ne traite, ne guérit ni ne prévient aucune affection médicale. Les prévisions sont des estimations, non des garanties, et ne constituent pas un moyen de contraception. Parlez toujours de votre santé à votre médecin ou à votre sage-femme. En cas de saignements abondants, de douleur intense ou de moins de mouvements du bébé, consultez immédiatement.
+
+femio est créé par KM Digital Labs, fondé par un médecin au Caire. Questions ou remarques : info@femioapp.com.</div></div></details>
+      <details><summary>Spanish texts</summary><div><p class="path">App name <span class="small muted">(27 characters)</span></p><div class="copy">femio: ovulación y embarazo</div>
+<p class="path">Short description <span class="small muted">(68 characters)</span></p><div class="copy">Regla, ovulación y embarazo. Tus registros se quedan en tu teléfono.</div>
+<p class="path">Full description <span class="small muted">(3964 characters)</span></p><div class="copy">femio: salud y bienestar de la mujer, con ayuda de IA. Una aplicación privada para seguir tu regla (período), tu ovulación, la búsqueda de embarazo y el embarazo. Ve tu próxima regla y tu ventana fértil como un rango realista y sigue después tu embarazo semana a semana. Tus registros se quedan en tu teléfono: sin cuenta, sin anuncios, sin herramientas de analítica.
+
+POR QUÉ femio
+• Privacidad desde el diseño. Sin cuenta, sin anuncios, sin analítica. Diario cifrado en tu teléfono, tras un bloqueo que tú eliges. Tú decides cuándo guardar un archivo de copia de seguridad, y dónde.
+• Predicciones realistas. femio muestra tu próxima regla y tu ventana fértil como un rango con un nivel de confianza, nunca una fecha «segura». Si tus ciclos son irregulares o tienes SOP (síndrome de ovario poliquístico), no hay contador de retraso ni falsa precisión.
+• Un asistente que respeta tu privacidad. «Pregunta a femio» responde solo con fuentes fiables y las cita. «Dilo con tus palabras» convierte «ayer cólicos, hoy manchado», incluso de varios días, en entradas que revisas; no se guarda nada hasta que tocas el botón. «Para ti» sugiere consejos, y «¿Por qué veo esto?» muestra los datos detrás de cada uno. «Lo que hizo la IA» lista cada uso de un modelo. Todo funciona en tu teléfono si admite Gemini Nano; si no, femio usa su propia lista de palabras.
+• Escrito por un médico. Cada artículo de la biblioteca enumera sus fuentes.
+• Todo sigue a tu alcance, en un solo registro que crece contigo: cuando pasas de buscar embarazo a estar embarazada, femio añade el embarazo al mismo registro. No se borra nada.
+• Inglés, árabe, francés y español, con diseño de derecha a izquierda y fechas hiyrí junto a las gregorianas.
+
+BÚSQUEDA DE EMBARAZO
+• Seguimiento de la regla y la ovulación en un calendario
+• Tu ventana fértil como un rango, actualizada con tus propios ciclos
+• Registra síntomas, pruebas de ovulación y moco cervical
+• «Señales de este ciclo»: tu último flujo, prueba de ovulación y temperatura, tal como los registraste, sin veredicto
+• Cuándo hablar con un médico, con claridad
+
+SOP Y CICLOS IRREGULARES
+• Un modo pensado para ciclos largos o imprevisibles
+• Sigue lo que le importa a tu médico: duración del ciclo, piel, cabello y peso
+
+EMBARAZO
+• Fecha probable de parto, semana de embarazo y trimestre
+• Una guía semana a semana, de la semana 4 a la 40
+• Calculadora de fecha de parto, calendario del embarazo y rango de aumento de peso, sin guardar nada
+• Registro de movimientos del bebé y temporizador de contracciones que nunca dan un veredicto y te indican cuándo buscar atención
+• Tus citas en tu teléfono, con aviso el día anterior si quieres
+
+PRIVACIDAD DESDE EL DISEÑO
+• Carpeta de consulta con tus propias preguntas, en un segundo idioma si hace falta, compartida con el menú de compartir
+• Los recordatorios preguntan primero: registro diario, rango de la regla o cita. Solo dicen «femio: Abre la app»
+• Copia de seguridad y restauración desde un archivo que tú guardas
+• Borra todo en un solo paso
+• Cloud boost está desactivado salvo que tú lo actives. Solo para teléfonos sin IA integrada, y solo si tú lo aceptas, envía a la IA de Google una pregunta general que tú apruebas (sin números, fechas ni nombres) o cuatro datos generales. Nunca tu diario, tus notas ni tus fechas.
+• Google Play gestiona la solicitud ocasional de valoración y las actualizaciones. femio no envía nada tuyo en ninguno de los dos casos.
+
+IMPORTANTE
+femio es solo para educación y seguimiento. No es un producto sanitario y no diagnostica, trata, cura ni previene ninguna afección médica. Las predicciones son estimaciones, no garantías, y no sirven como método anticonceptivo. Consulta siempre a tu médico o matrona sobre tu salud. Si notas sangrado abundante, dolor intenso o menos movimientos del bebé, busca atención médica de inmediato.
+
+femio lo desarrolla KM Digital Labs, fundado por un médico en El Cairo. Preguntas o comentarios: info@femioapp.com.</div></div></details></div></li>
+    <li><input type="checkbox" id="s3d"><div><p class="path">Store settings (left menu: Grow users → Store presence → Store settings)</p><p>App category: <span class="ans">Health &amp; Fitness</span>. Tags: pick up to five from Play's list, closest to Period tracker, Pregnancy, Fertility, Women's health. Contact email <code>info@femioapp.com</code>, website <code>https://femioapp.com</code>, phone empty. Save.</p></div></li>
+  </ol>
+</section>
+
+<section class="step" id="s4">
+  <div class="step-head"><span class="num">4</span><div><h2>Internal test: femio on your own phone from Play</h2><p class="time">After Step 1 · about 15 minutes · Test and release → Testing → Internal testing</p></div></div>
+  <ol class="do">
+    <li><input type="checkbox" id="s4a"><div><p><strong>Testers</strong> tab → Create email list → name it <code>femio owner</code> → add your own Gmail → Save.</p></div></li>
+    <li><input type="checkbox" id="s4b"><div><p><strong>Releases</strong> → Create new release. If Play asks about app signing, keep <span class="ans">Use Google-generated key</span>.</p></div></li>
+    <li><input type="checkbox" id="s4c"><div><p>Upload the file Claude sends you: <code>app-release.aab</code>. Play reads the package name <code>com.femioapp.femio</code> from it and locks it.</p></div></li>
+    <li><input type="checkbox" id="s4d"><div><p>Release name: leave what Play fills in ("1 (1.0.0)"). Release notes: delete what is in the box and paste this whole block (the tags tell Play which language each part is):</p>
+      <div class="copy">&lt;en-US&gt;
+Welcome to femio, a private tracker for your period, ovulation and pregnancy.
+• Next period and fertile window as an honest range
+• Pregnancy guide, week by week
+• Ask femio: answers from trusted sources, with citations
+• Say it in your own words and confirm the log entry
+• Records stay encrypted on your phone: no account, no ads
+• English, Arabic, French and Spanish
+femio is for education and tracking, not a medical device.
+&lt;/en-US&gt;
+&lt;ar&gt;
+أهلًا بكِ في femio، تطبيق خاص لتتبّع الدورة والتبويض والحمل.
+• موعد دورتكِ القادمة وأيام الخصوبة كنطاق صادق
+• دليل الحمل أسبوعًا بأسبوع
+• اسألي femio: إجابات من مصادر موثوقة مع ذكرها
+• قوليها بكلماتكِ وأكّدي ما يُسجَّل
+• سجلاتكِ مشفّرة على هاتفكِ: بلا حساب ولا إعلانات
+• العربية والإنجليزية والفرنسية والإسبانية
+femio للتثقيف والمتابعة وليس جهازًا طبيًا.
+&lt;/ar&gt;
+&lt;fr-FR&gt;
+Bienvenue sur femio, l&#x27;application privée pour vos règles, votre ovulation et votre grossesse.
+• Prochaines règles et jours fertiles sous forme de fourchette
+• Guide de grossesse, semaine par semaine
+• Demander à femio : réponses sourcées
+• Dites-le avec vos mots, puis confirmez l&#x27;entrée du journal
+• Données chiffrées sur votre téléphone : ni compte, ni publicité
+• Anglais, arabe, français et espagnol
+femio : éducation et suivi, pas un dispositif médical.
+&lt;/fr-FR&gt;
+&lt;es-ES&gt;
+Te damos la bienvenida a femio, una aplicación privada para seguir tu regla, tu ovulación y tu embarazo.
+• Próxima regla y ventana fértil como un rango realista
+• Guía del embarazo, semana a semana
+• Pregunta a femio: respuestas de fuentes fiables, con citas
+• «Dilo con tus palabras»: tú confirmas la entrada del diario
+• Registros cifrados en tu teléfono: sin cuenta ni anuncios
+• Inglés, árabe, francés y español
+femio es para educación y seguimiento, no es un producto sanitario.
+&lt;/es-ES&gt;</div></div></li>
+    <li><input type="checkbox" id="s4e"><div><p>Next → Save → <strong>Start rollout to Internal testing</strong>.</p></div></li>
+    <li><input type="checkbox" id="s4f"><div><p>Back on <strong>Testers</strong>, press <strong>Copy link</strong>. Open the link on your phone (signed in with the same Gmail) → Accept → Download it on Google Play.</p></div></li>
+  </ol>
+</section>
+
+<section class="step" id="s5">
+  <div class="step-head"><span class="num">5</span><div><h2>Connect App Check to the Play signing key</h2><p class="time">Right after Step 4 · 10 minutes</p></div></div>
+  <ol class="do">
+    <li><input type="checkbox" id="s5a"><div><p>Play Console → <strong>Test and release → App integrity → App signing</strong>. Under "App signing key certificate", copy the <strong>SHA-256</strong> line.</p></div></li>
+    <li><input type="checkbox" id="s5b"><div><p>console.firebase.google.com → femio → gear → <strong>Project settings</strong> → Your apps → the Android app → <strong>Add fingerprint</strong> → paste → Save.</p></div></li>
+    <li><input type="checkbox" id="s5c"><div><p>Firebase → <strong>App Check</strong> → Apps → the Android app → <strong>Play Integrity</strong> → Register. Then App Check → APIs → <strong>Firebase AI Logic</strong> → Enforce.</p></div></li>
+  </ol>
+  <p class="small muted">This stops anyone using femio's Cloud boost with a copied key. Without it, Cloud boost answers fail and femio falls back to its rules, as designed.</p>
+</section>
+
+<section class="step" id="s6">
+  <div class="step-head"><span class="num">6</span><div><h2>Closed test: 12 testers for 14 days</h2><p class="time">Starts after Step 4 · 14 days, mostly waiting</p></div></div>
+  <div class="note info small">A personal developer account cannot publish until at least 12 testers have stayed opted in for 14 days in a row. If the count drops below 12, the 14 days start again. Invite 15 to 20 to be safe.</div>
+  <ol class="do">
+    <li><input type="checkbox" id="s6a"><div><p>groups.google.com → Create group → name <code>femio-testers</code> → "Who can join": anyone with the link → Create. Copy the group email.</p></div></li>
+    <li><input type="checkbox" id="s6b"><div><p>Play Console → <strong>Test and release → Testing → Closed testing → Create track</strong> → name <code>femio closed</code> → Testers → Google Groups → paste the group email → Save.</p></div></li>
+    <li><input type="checkbox" id="s6c"><div><p>Create new release → <strong>Add from library</strong> → pick the same bundle (1.0.0) → paste the same release notes → Start rollout. Choose countries: Saudi Arabia, Egypt, and any where your testers live.</p></div></li>
+    <li><input type="checkbox" id="s6d"><div><p>Send the invitation from the tester kit (<code>docs\store\testers\tester-kit.html</code>, copy buttons inside) with the group link and the opt-in link.</p></div></li>
+    <li><input type="checkbox" id="s6e"><div><p>Write the start date on the launch board card "Closed test". Claude watches the count with you.</p></div></li>
+  </ol>
+</section>
+
+<section class="step" id="s7">
+  <div class="step-head"><span class="num">7</span><div><h2>Apply for production, then roll out</h2><p class="time">After day 14 · Google's review usually takes up to 7 days</p></div></div>
+  <ol class="do">
+    <li><input type="checkbox" id="s7a"><div><p>Dashboard → <strong>Apply for production</strong>. Claude drafts the answers from the testers' feedback and posts them on the board; paste them and Submit.</p></div></li>
+    <li><input type="checkbox" id="s7b"><div><p>When approved: <strong>Production → Countries</strong>: Saudi Arabia and Egypt first → Create release → promote the tested release → staged rollout <strong>20%</strong>.</p></div></li>
+    <li><input type="checkbox" id="s7c"><div><p>Watch Android vitals and reviews for 3 days, then raise to 100%.</p></div></li>
+  </ol>
+</section>
+
+<p class="small muted">Answers checked against the build on 25 November 2026. Play's own wording is read on the day; where this page says "closest", that is a judgement, not a quote.</p>
+</div>
+
+<script>
+(function(){
+  var KEY='femio-play-guide-ticks';
+  var saved={};
+  try{saved=JSON.parse(localStorage.getItem(KEY)||'{}')}catch(e){}
+  document.querySelectorAll('ol.do input[type=checkbox]').forEach(function(b){
+    if(saved[b.id])b.checked=true;
+    b.addEventListener('change',function(){saved[b.id]=b.checked;try{localStorage.setItem(KEY,JSON.stringify(saved))}catch(e){}});
+  });
+  document.querySelectorAll('.copy').forEach(function(box){
+    var btn=document.createElement('button');btn.type='button';btn.textContent='Copy';
+    box.appendChild(btn);
+    btn.addEventListener('click',function(){
+      var text=Array.prototype.filter.call(box.childNodes,function(n){return n!==btn}).map(function(n){return n.textContent}).join('');
+      function done(){btn.textContent='Copied';setTimeout(function(){btn.textContent='Copy'},1500)}
+      function fallback(){var r=document.createRange();r.selectNodeContents(box.firstChild||box);var s=getSelection();s.removeAllRanges();s.addRange(r);btn.textContent='Press Ctrl+C'}
+      try{navigator.clipboard.writeText(text).then(done,fallback)}catch(e){fallback()}
+    });
+  });
+})();
+</script>

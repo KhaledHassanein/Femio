@@ -1,4 +1,4 @@
-// Renders the Google Play feature graphic (1024 × 500) in English and Arabic.
+// Renders the Google Play feature graphic (1024 × 500) in English, Arabic, French and Spanish.
 //
 // Why it exists: the store graphic should be drawn from the same tokens, fonts and bloom as
 // the app, and re-rendered in one command when the wording changes. Run
@@ -25,6 +25,8 @@ const _copy = {
     'Period  ·  Ovulation  ·  Pregnancy',
   ),
   'ar': ('سجلاتكِ تبقى على هاتفكِ.', 'الدورة  ·  التبويض  ·  الحمل'),
+  'fr': ('Vos données restent sur votre téléphone.', 'Règles  ·  Ovulation  ·  Grossesse'),
+  'es': ('Tus registros se quedan en tu teléfono.', 'Regla  ·  Ovulación  ·  Embarazo'),
 };
 
 Future<void> _loadFonts() async {
