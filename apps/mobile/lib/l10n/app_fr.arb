@@ -712,5 +712,20 @@
   "toolGainOutOfRange": "Saisissez un poids de {minW} à {maxW} kg et une taille de {minH} à {maxH} cm.",
   "toolNothingSaved": "Rien de ce que vous saisissez ici n'est enregistré.",
   "updateBannerBody": "Une nouvelle version de femio est prête.",
-  "updateBannerAction": "Mettre à jour"
+  "updateBannerAction": "Mettre à jour",
+  "leaveTitle": "Ce qui peut quitter ce téléphone",
+  "leaveIntro": "Vos données restent sur ce téléphone. Voici les seuls cas où femio, ou les services Google dont il dépend, utilisent Internet.",
+  "leaveBoostOff": "Désactivé",
+  "leaveBoostOn": "Activé pour : {purposes}",
+  "leaveBoostBody": "Seulement si vous l'acceptez : une question générale que vous approuvez, ou quatre informations générales, est envoyée à l'IA cloud de Google. Google Play vérifie aussi que la demande vient de la vraie application femio.",
+  "leaveModelHeading": "Le modèle d'IA sur le téléphone",
+  "leaveModelBody": "Si vous touchez Télécharger, le service d'IA d'Android (AICore, géré par Google) télécharge Gemini Nano et le tient à jour. Le logiciel d'IA de Google peut aussi envoyer à Google des informations techniques, comme les erreurs et les performances. femio n'y ajoute aucune de vos données.",
+  "leavePlayHeading": "Google Play",
+  "leavePlayBody": "Google Play installe et met à jour femio, peut afficher sa demande d'avis et gère les paiements de femio Plus. Il ne nous communique que des totaux, comme les installations et les plantages. femio n'envoie rien de vos données à Google Play.",
+  "leaveBackupHeading": "Votre sauvegarde",
+  "leaveBackupBody": "Une sauvegarde va uniquement là où vous choisissez de l'enregistrer, scellée par votre phrase secrète.",
+  "leaveLinksHeading": "Les liens que vous ouvrez",
+  "leaveLinksBody": "Les sources et pages que vous ouvrez s'affichent dans votre navigateur, qui visite ce site.",
+  "leaveNever": "Rien d'autre ne sort. femio n'a ni publicité, ni statistiques, ni outil de suivi, ni compte.",
+  "leaveSettingsSub": "Toutes les façons dont quelque chose atteint Internet"
 }

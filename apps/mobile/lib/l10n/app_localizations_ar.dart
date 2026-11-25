@@ -2581,4 +2581,58 @@ class L10nAr extends L10n {
 
   @override
   String get updateBannerAction => 'تحديث';
+
+  @override
+  String get leaveTitle => 'ما الذي قد يغادر هذا الهاتف';
+
+  @override
+  String get leaveIntro =>
+      'تبقى سجلاتكِ على هذا الهاتف. هذه هي المرات الوحيدة التي يستخدم فيها femio، أو خدمات Google التي يعتمد عليها، الإنترنت.';
+
+  @override
+  String get leaveBoostOff => 'متوقّف';
+
+  @override
+  String leaveBoostOn(String purposes) {
+    return 'مفعّل لـ: $purposes';
+  }
+
+  @override
+  String get leaveBoostBody =>
+      'فقط إن وافقتِ: يُرسَل سؤال عام توافقين عليه، أو أربع معلومات عامة، إلى ذكاء Google الاصطناعي السحابي. ويتحقق Google Play أيضًا من أن الطلب صادر عن تطبيق femio الحقيقي.';
+
+  @override
+  String get leaveModelHeading => 'نموذج الذكاء الاصطناعي على الهاتف';
+
+  @override
+  String get leaveModelBody =>
+      'إذا ضغطتِ على تنزيل، تنزّل خدمة الذكاء الاصطناعي في Android (‏AICore، تديرها Google) نموذج Gemini Nano وتحدّثه. وقد يرسل برنامج Google للذكاء الاصطناعي أيضًا معلومات تقنية إلى Google، مثل الأخطاء والأداء. لا يضيف femio إليها أيًّا من سجلاتكِ.';
+
+  @override
+  String get leavePlayHeading => 'Google Play';
+
+  @override
+  String get leavePlayBody =>
+      'يثبّت Google Play تطبيق femio ويحدّثه، وقد يعرض طلب التقييم الخاص به، ويتولى مدفوعات femio Plus. ولا يُطلعنا إلا على إجماليات، مثل عدد مرات التثبيت والأعطال. لا يرسل femio إلى Google Play شيئًا من بياناتكِ.';
+
+  @override
+  String get leaveBackupHeading => 'نسختكِ الاحتياطية';
+
+  @override
+  String get leaveBackupBody =>
+      'لا تذهب النسخة الاحتياطية إلا إلى حيث تختارين حفظها، مقفلة بعبارة المرور الخاصة بكِ.';
+
+  @override
+  String get leaveLinksHeading => 'الروابط التي تفتحينها';
+
+  @override
+  String get leaveLinksBody =>
+      'تُفتح المصادر والصفحات التي تختارينها في متصفحكِ، الذي يزور ذلك الموقع.';
+
+  @override
+  String get leaveNever =>
+      'لا يغادر أي شيء آخر. لا إعلانات في femio، ولا تحليلات، ولا أدوات تتبّع، ولا حساب.';
+
+  @override
+  String get leaveSettingsSub => 'كل طريقة يصل بها أي شيء إلى الإنترنت';
 }

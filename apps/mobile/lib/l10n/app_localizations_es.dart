@@ -2570,4 +2570,59 @@ class L10nEs extends L10n {
 
   @override
   String get updateBannerAction => 'Actualizar';
+
+  @override
+  String get leaveTitle => 'Qué puede salir de este teléfono';
+
+  @override
+  String get leaveIntro =>
+      'Tus registros se quedan en este teléfono. Estas son las únicas veces que femio, o los servicios de Google de los que depende, usan internet.';
+
+  @override
+  String get leaveBoostOff => 'Desactivado';
+
+  @override
+  String leaveBoostOn(String purposes) {
+    return 'Activado para: $purposes';
+  }
+
+  @override
+  String get leaveBoostBody =>
+      'Solo si aceptas: una pregunta general que apruebas, o cuatro datos generales, se envía a la IA en la nube de Google. Google Play también comprueba que la solicitud viene de la app femio auténtica.';
+
+  @override
+  String get leaveModelHeading => 'El modelo de IA del teléfono';
+
+  @override
+  String get leaveModelBody =>
+      'Si tocas Descargar, el servicio de IA de Android (AICore, gestionado por Google) descarga Gemini Nano y lo mantiene actualizado. El software de IA de Google también puede enviar a Google información técnica, como errores y rendimiento. femio no añade ninguno de tus registros.';
+
+  @override
+  String get leavePlayHeading => 'Google Play';
+
+  @override
+  String get leavePlayBody =>
+      'Google Play instala y actualiza femio, puede mostrar su solicitud de valoración y gestiona los pagos de femio Plus. Solo nos da totales, como instalaciones y fallos. femio no envía a Google Play nada tuyo.';
+
+  @override
+  String get leaveBackupHeading => 'Tu copia de seguridad';
+
+  @override
+  String get leaveBackupBody =>
+      'Una copia de seguridad va solo donde eliges guardarla, sellada con tu frase de contraseña.';
+
+  @override
+  String get leaveLinksHeading => 'Los enlaces que abres';
+
+  @override
+  String get leaveLinksBody =>
+      'Las fuentes y páginas que abres van a tu navegador, que visita ese sitio web.';
+
+  @override
+  String get leaveNever =>
+      'No sale nada más. femio no tiene anuncios, ni analíticas, ni herramientas de seguimiento, ni cuenta.';
+
+  @override
+  String get leaveSettingsSub =>
+      'Todas las formas en que algo llega a internet';
 }

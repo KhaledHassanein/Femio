@@ -151,7 +151,7 @@ Accepted features from the persona-driven review (market researcher + business d
 - [ ] R8.18 · (C) Ultrasound dating overrides other methods when her clinician gave it (MR-27)
 - [ ] R8.19 · (B) Postpartum view: onboarding "I recently had a baby" (writes `birthDate`), weeks since birth, recovery guide of the week, after-birth warning signs (MR-50), mood check-in, bleeding log; first period after birth restarts ranges (no ovulation-return detection)
 - [ ] R8.20 · (C) Perimenopause view: irregular cycles stay visible as ranges, monthly symptom frequency, visit pack ≥ Balance's free report, add "palpitations" to the vocabulary (four locales, sync script)
-- [ ] R8.21 · (A) "What can leave this phone" page in Settings: every network path listed (Cloud boost only), link to the privacy policy (rule 4)
+- [x](NEXT) R8.21 · (A) "What can leave this phone" page (done 2026-11-25: `features/settings/leaving_phone_screen.dart`, Cloud boost state from her consent, four locales; screenshots `*_16_leaving_phone.png`) in Settings: every network path listed (Cloud boost only), link to the privacy policy (rule 4)
 - [ ] R8.22 · (C) "What you usually notice in this phase" card from her own logs, worded as past pattern (rule 3)
 - [ ] R8.23 · (C) Custom tags, local, mappable by Say it (MR-47 register check)
 - [BLOCKED] R8.24 · Owner decision (feeds R7.12; owner 2026-11-25: the visit-pack PDF is free at launch, Plus features come later): femio Plus sells convenience, never access — PDF export of visit pack and Patterns, widget, themes and discreet icon, extra reminders, Cloud boost above a free allowance; price test yearly SAR 49.99 / EGP 249.99 or lifetime SAR 99 / EGP 399 (hypotheses). APK teardown: all three competitors ship widgets, themes and a lock; the builds are R9.4, R9.11, R9.13 — owner decision (status 2026-11-25)
@@ -298,13 +298,13 @@ Her own medical file, kept like a professional record, on her phone only. The ru
   - Today every notification is scheduled on the phone (R4.4).
   - Remote push is prepared but not built: a `NotificationPort` seam, so a later ADR can add Firebase Cloud Messaging. That needs a device token to leave the phone, which ADR-080 does not allow today.
   - DEFERRED half: remote push.
-- [ ] R12.2 · Rating prompt.
+- [x](f400bd0) R12.2 · Rating prompt (done 2026-11-25: `domain/store_prompts.dart`, `data/play_store.dart`, `SafetySession`; `test/store_prompts_test.dart`).
   - After she has opened femio on 6 different days (counted on the phone), one Google Play in-app review request (`in_app_review`).
   - Only at a calm moment, after a save. Never after a warning sign, Help now, a loss, or within a session that showed a safety notice.
   - At most once per app version; Play decides whether it shows.
   - Privacy notice line: Google Play handles the review, femio sends nothing.
   - Supersedes R9.12's "no rating nag".
-- [ ] R12.3 · Update prompt through Google Play in-app updates (`in_app_update`).
+- [x](f400bd0) R12.3 · Update prompt (done 2026-11-25: quiet `UpdateCard`, full screen at priority ≥ 4; screenshots `test/screenshots/*_15_update_card.png`) through Google Play in-app updates (`in_app_update`).
   - A quiet banner with "Update" when Play reports a newer version.
   - A full-screen update only for a release given high priority in the Play Console.
   - No server of our own.

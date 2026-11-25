@@ -16,6 +16,7 @@ import '../lock/pin_field.dart';
 import '../plus/billing_probe_tile.dart';
 import 'backup_actions.dart';
 import 'delete_dialog.dart';
+import 'leaving_phone_screen.dart';
 import 'reminders_section.dart';
 
 /// The language names, in their own language, so each reader finds hers.
@@ -79,6 +80,12 @@ class SettingsScreen extends StatelessWidget {
           ),
           if (controller.lockEnabled)
             ListTile(leading: const Icon(Icons.pin_outlined), title: Text(l.changePin), onTap: () => _changePin(context)),
+          ListTile(
+            leading: const Icon(Icons.wifi_tethering_rounded),
+            title: Text(l.leaveTitle),
+            subtitle: Text(l.leaveSettingsSub, style: t.bodySmall?.copyWith(color: p.textMuted)),
+            onTap: () => Navigator.of(context).push(MaterialPageRoute<void>(builder: (_) => LeavingPhoneScreen(controller: controller))),
+          ),
           if (profile != null) ...[
             _Section(title: l.backupSection),
             ListTile(

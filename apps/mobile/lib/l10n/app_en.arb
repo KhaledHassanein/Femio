@@ -1109,5 +1109,31 @@
   },
   "@updateBannerAction": {
     "description": "Button on the update card; starts Google Play's update."
-  }
+  },
+  "leaveTitle": "What can leave this phone",
+  "@leaveTitle": {
+    "description": "Settings › Privacy screen listing every network path (R8.21, rule 4)."
+  },
+  "leaveIntro": "Your records stay on this phone. These are the only times femio, or the Google services it relies on, use the internet.",
+  "leaveBoostOff": "Off",
+  "leaveBoostOn": "On for: {purposes}",
+  "@leaveBoostOn": {
+    "description": "Cloud boost status; purposes is a comma-separated list of the consented uses.",
+    "placeholders": {
+      "purposes": {
+        "type": "String"
+      }
+    }
+  },
+  "leaveBoostBody": "Only if you agree: a general question you approve, or four broad facts, goes to Google's cloud AI. Google Play also confirms the request comes from the real femio app.",
+  "leaveModelHeading": "The on-phone AI model",
+  "leaveModelBody": "If you tap Download, Android's AI service (AICore, run by Google) downloads Gemini Nano and keeps it up to date. Google's AI software may also send Google technical information, such as errors and performance. femio adds none of your records to it.",
+  "leavePlayHeading": "Google Play",
+  "leavePlayBody": "Google Play installs and updates femio, may show its rating request, and handles femio Plus payments. It tells us only totals, such as installs and crashes. femio sends Google Play nothing of yours.",
+  "leaveBackupHeading": "Your backup",
+  "leaveBackupBody": "A backup goes only where you choose to save it, sealed with your passphrase.",
+  "leaveLinksHeading": "Links you open",
+  "leaveLinksBody": "Sources and pages you open go to your browser, which visits that website.",
+  "leaveNever": "Nothing else leaves. femio has no ads, no analytics, no tracking tools and no account.",
+  "leaveSettingsSub": "Every way anything reaches the internet"
 }

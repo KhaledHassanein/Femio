@@ -2576,4 +2576,59 @@ class L10nFr extends L10n {
 
   @override
   String get updateBannerAction => 'Mettre à jour';
+
+  @override
+  String get leaveTitle => 'Ce qui peut quitter ce téléphone';
+
+  @override
+  String get leaveIntro =>
+      'Vos données restent sur ce téléphone. Voici les seuls cas où femio, ou les services Google dont il dépend, utilisent Internet.';
+
+  @override
+  String get leaveBoostOff => 'Désactivé';
+
+  @override
+  String leaveBoostOn(String purposes) {
+    return 'Activé pour : $purposes';
+  }
+
+  @override
+  String get leaveBoostBody =>
+      'Seulement si vous l\'acceptez : une question générale que vous approuvez, ou quatre informations générales, est envoyée à l\'IA cloud de Google. Google Play vérifie aussi que la demande vient de la vraie application femio.';
+
+  @override
+  String get leaveModelHeading => 'Le modèle d\'IA sur le téléphone';
+
+  @override
+  String get leaveModelBody =>
+      'Si vous touchez Télécharger, le service d\'IA d\'Android (AICore, géré par Google) télécharge Gemini Nano et le tient à jour. Le logiciel d\'IA de Google peut aussi envoyer à Google des informations techniques, comme les erreurs et les performances. femio n\'y ajoute aucune de vos données.';
+
+  @override
+  String get leavePlayHeading => 'Google Play';
+
+  @override
+  String get leavePlayBody =>
+      'Google Play installe et met à jour femio, peut afficher sa demande d\'avis et gère les paiements de femio Plus. Il ne nous communique que des totaux, comme les installations et les plantages. femio n\'envoie rien de vos données à Google Play.';
+
+  @override
+  String get leaveBackupHeading => 'Votre sauvegarde';
+
+  @override
+  String get leaveBackupBody =>
+      'Une sauvegarde va uniquement là où vous choisissez de l\'enregistrer, scellée par votre phrase secrète.';
+
+  @override
+  String get leaveLinksHeading => 'Les liens que vous ouvrez';
+
+  @override
+  String get leaveLinksBody =>
+      'Les sources et pages que vous ouvrez s\'affichent dans votre navigateur, qui visite ce site.';
+
+  @override
+  String get leaveNever =>
+      'Rien d\'autre ne sort. femio n\'a ni publicité, ni statistiques, ni outil de suivi, ni compte.';
+
+  @override
+  String get leaveSettingsSub =>
+      'Toutes les façons dont quelque chose atteint Internet';
 }

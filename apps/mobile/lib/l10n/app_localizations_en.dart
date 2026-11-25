@@ -2558,4 +2558,58 @@ class L10nEn extends L10n {
 
   @override
   String get updateBannerAction => 'Update';
+
+  @override
+  String get leaveTitle => 'What can leave this phone';
+
+  @override
+  String get leaveIntro =>
+      'Your records stay on this phone. These are the only times femio, or the Google services it relies on, use the internet.';
+
+  @override
+  String get leaveBoostOff => 'Off';
+
+  @override
+  String leaveBoostOn(String purposes) {
+    return 'On for: $purposes';
+  }
+
+  @override
+  String get leaveBoostBody =>
+      'Only if you agree: a general question you approve, or four broad facts, goes to Google\'s cloud AI. Google Play also confirms the request comes from the real femio app.';
+
+  @override
+  String get leaveModelHeading => 'The on-phone AI model';
+
+  @override
+  String get leaveModelBody =>
+      'If you tap Download, Android\'s AI service (AICore, run by Google) downloads Gemini Nano and keeps it up to date. Google\'s AI software may also send Google technical information, such as errors and performance. femio adds none of your records to it.';
+
+  @override
+  String get leavePlayHeading => 'Google Play';
+
+  @override
+  String get leavePlayBody =>
+      'Google Play installs and updates femio, may show its rating request, and handles femio Plus payments. It tells us only totals, such as installs and crashes. femio sends Google Play nothing of yours.';
+
+  @override
+  String get leaveBackupHeading => 'Your backup';
+
+  @override
+  String get leaveBackupBody =>
+      'A backup goes only where you choose to save it, sealed with your passphrase.';
+
+  @override
+  String get leaveLinksHeading => 'Links you open';
+
+  @override
+  String get leaveLinksBody =>
+      'Sources and pages you open go to your browser, which visits that website.';
+
+  @override
+  String get leaveNever =>
+      'Nothing else leaves. femio has no ads, no analytics, no tracking tools and no account.';
+
+  @override
+  String get leaveSettingsSub => 'Every way anything reaches the internet';
 }

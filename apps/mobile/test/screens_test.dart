@@ -1,15 +1,18 @@
 import 'dart:io';
 
 import 'package:femio/app.dart';
+import 'package:femio/data/play_store.dart';
 import 'package:femio/data/profile.dart';
 import 'package:femio/data/store.dart';
 import 'package:femio/domain/appointments.dart';
 import 'package:femio/domain/contractions.dart';
 import 'package:femio/domain/hijri.dart';
 import 'package:femio/domain/movements.dart';
+import 'package:femio/domain/store_prompts.dart';
 import 'package:femio/domain/weight.dart';
 import 'package:femio/features/lock/pin_field.dart';
 import 'package:femio/features/onboarding/widgets.dart';
+import 'package:femio/features/settings/leaving_phone_screen.dart';
 import 'package:femio/main.dart' show configureFormatting;
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -316,4 +319,30 @@ void main() {
       });
     }
   }
+
+  for (final b in Brightness.values) {
+    for (final lang in ['en', 'ar']) {
+      testWidgets('what can leave this phone and the update card ($lang, ${b.name})', (tester) async {
+        final p = Profile(goal: Goal.ttc, locale: lang, birthYear: 1994, periodStarts: const ['2026-09-10'], cycleLength: 28);
+        final c = FemioController(MemoryStore(p), playStore: const _BannerPlay());
+        await _pump(tester, c, b);
+        await _shoot(tester, '${lang}_${b.name}_15_update_card');
+        expect(find.byIcon(Icons.system_update_rounded), findsOneWidget);
+        await tester.tap(find.byIcon(Icons.settings_outlined));
+        await tester.pumpAndSettle();
+        await tester.scrollUntilVisible(find.byIcon(Icons.wifi_tethering_rounded), 200);
+        await tester.tap(find.byIcon(Icons.wifi_tethering_rounded));
+        await tester.pumpAndSettle();
+        expect(find.byType(LeavingPhoneScreen), findsOneWidget);
+        await _shoot(tester, '${lang}_${b.name}_16_leaving_phone');
+      });
+    }
+  }
+}
+
+/// Play reports a normal-priority update, so the quiet card shows.
+class _BannerPlay extends NoPlayStore {
+  const _BannerPlay();
+  @override
+  Future<UpdatePrompt> checkUpdate() async => UpdatePrompt.banner;
 }

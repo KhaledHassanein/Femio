@@ -4234,6 +4234,96 @@ abstract class L10n {
   /// In en, this message translates to:
   /// **'Update'**
   String get updateBannerAction;
+
+  /// Settings › Privacy screen listing every network path (R8.21, rule 4).
+  ///
+  /// In en, this message translates to:
+  /// **'What can leave this phone'**
+  String get leaveTitle;
+
+  /// No description provided for @leaveIntro.
+  ///
+  /// In en, this message translates to:
+  /// **'Your records stay on this phone. These are the only times femio, or the Google services it relies on, use the internet.'**
+  String get leaveIntro;
+
+  /// No description provided for @leaveBoostOff.
+  ///
+  /// In en, this message translates to:
+  /// **'Off'**
+  String get leaveBoostOff;
+
+  /// Cloud boost status; purposes is a comma-separated list of the consented uses.
+  ///
+  /// In en, this message translates to:
+  /// **'On for: {purposes}'**
+  String leaveBoostOn(String purposes);
+
+  /// No description provided for @leaveBoostBody.
+  ///
+  /// In en, this message translates to:
+  /// **'Only if you agree: a general question you approve, or four broad facts, goes to Google\'s cloud AI. Google Play also confirms the request comes from the real femio app.'**
+  String get leaveBoostBody;
+
+  /// No description provided for @leaveModelHeading.
+  ///
+  /// In en, this message translates to:
+  /// **'The on-phone AI model'**
+  String get leaveModelHeading;
+
+  /// No description provided for @leaveModelBody.
+  ///
+  /// In en, this message translates to:
+  /// **'If you tap Download, Android\'s AI service (AICore, run by Google) downloads Gemini Nano and keeps it up to date. Google\'s AI software may also send Google technical information, such as errors and performance. femio adds none of your records to it.'**
+  String get leaveModelBody;
+
+  /// No description provided for @leavePlayHeading.
+  ///
+  /// In en, this message translates to:
+  /// **'Google Play'**
+  String get leavePlayHeading;
+
+  /// No description provided for @leavePlayBody.
+  ///
+  /// In en, this message translates to:
+  /// **'Google Play installs and updates femio, may show its rating request, and handles femio Plus payments. It tells us only totals, such as installs and crashes. femio sends Google Play nothing of yours.'**
+  String get leavePlayBody;
+
+  /// No description provided for @leaveBackupHeading.
+  ///
+  /// In en, this message translates to:
+  /// **'Your backup'**
+  String get leaveBackupHeading;
+
+  /// No description provided for @leaveBackupBody.
+  ///
+  /// In en, this message translates to:
+  /// **'A backup goes only where you choose to save it, sealed with your passphrase.'**
+  String get leaveBackupBody;
+
+  /// No description provided for @leaveLinksHeading.
+  ///
+  /// In en, this message translates to:
+  /// **'Links you open'**
+  String get leaveLinksHeading;
+
+  /// No description provided for @leaveLinksBody.
+  ///
+  /// In en, this message translates to:
+  /// **'Sources and pages you open go to your browser, which visits that website.'**
+  String get leaveLinksBody;
+
+  /// No description provided for @leaveNever.
+  ///
+  /// In en, this message translates to:
+  /// **'Nothing else leaves. femio has no ads, no analytics, no tracking tools and no account.'**
+  String get leaveNever;
+
+  /// No description provided for @leaveSettingsSub.
+  ///
+  /// In en, this message translates to:
+  /// **'Every way anything reaches the internet'**
+  String get leaveSettingsSub;
 }
 
 class _L10nDelegate extends LocalizationsDelegate<L10n> {

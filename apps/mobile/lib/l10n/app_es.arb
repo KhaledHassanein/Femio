@@ -712,5 +712,20 @@
   "toolGainOutOfRange": "Introduce un peso de {minW} a {maxW} kg y una estatura de {minH} a {maxH} cm.",
   "toolNothingSaved": "No se guarda nada de lo que introduces aquí.",
   "updateBannerBody": "Hay una nueva versión de femio lista.",
-  "updateBannerAction": "Actualizar"
+  "updateBannerAction": "Actualizar",
+  "leaveTitle": "Qué puede salir de este teléfono",
+  "leaveIntro": "Tus registros se quedan en este teléfono. Estas son las únicas veces que femio, o los servicios de Google de los que depende, usan internet.",
+  "leaveBoostOff": "Desactivado",
+  "leaveBoostOn": "Activado para: {purposes}",
+  "leaveBoostBody": "Solo si aceptas: una pregunta general que apruebas, o cuatro datos generales, se envía a la IA en la nube de Google. Google Play también comprueba que la solicitud viene de la app femio auténtica.",
+  "leaveModelHeading": "El modelo de IA del teléfono",
+  "leaveModelBody": "Si tocas Descargar, el servicio de IA de Android (AICore, gestionado por Google) descarga Gemini Nano y lo mantiene actualizado. El software de IA de Google también puede enviar a Google información técnica, como errores y rendimiento. femio no añade ninguno de tus registros.",
+  "leavePlayHeading": "Google Play",
+  "leavePlayBody": "Google Play instala y actualiza femio, puede mostrar su solicitud de valoración y gestiona los pagos de femio Plus. Solo nos da totales, como instalaciones y fallos. femio no envía a Google Play nada tuyo.",
+  "leaveBackupHeading": "Tu copia de seguridad",
+  "leaveBackupBody": "Una copia de seguridad va solo donde eliges guardarla, sellada con tu frase de contraseña.",
+  "leaveLinksHeading": "Los enlaces que abres",
+  "leaveLinksBody": "Las fuentes y páginas que abres van a tu navegador, que visita ese sitio web.",
+  "leaveNever": "No sale nada más. femio no tiene anuncios, ni analíticas, ni herramientas de seguimiento, ni cuenta.",
+  "leaveSettingsSub": "Todas las formas en que algo llega a internet"
 }
