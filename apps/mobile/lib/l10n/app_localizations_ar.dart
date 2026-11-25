@@ -3141,4 +3141,35 @@ class L10nAr extends L10n {
 
   @override
   String get aiLedgerClearConfirm => 'هل تمسحين هذه القائمة؟ لن يتغيّر سجلّكِ.';
+
+  @override
+  String get signsTitle => 'العلامات التي سجّلتِها في هذه الدورة';
+
+  @override
+  String signsValueOn(String value, String date) {
+    return '$value، $date';
+  }
+
+  @override
+  String signsTempCount(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count قياس في هذه الدورة',
+      many: '$count قياسًا في هذه الدورة',
+      few: '$count قياسات في هذه الدورة',
+      two: 'قياسان في هذه الدورة',
+      one: 'قياس واحد في هذه الدورة',
+      zero: 'لا قياسات في هذه الدورة',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get signsStripLine =>
+      'شريط اختبار التبويض يُظهر ارتفاع هرمون، لا دليلًا على حدوث التبويض. ارتفاع حرارة جسمكِ عند الاستيقاظ بعد ذلك علامة أفضل.';
+
+  @override
+  String get signsNote =>
+      'تظهر كل علامة كما سجّلتِها. لا يقول femio هل حدث التبويض أو متى؛ فهذا حديثٌ بينكِ وبين طبيبكِ.';
 }

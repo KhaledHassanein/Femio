@@ -9,12 +9,14 @@ import 'package:flutter/material.dart';
 import '../../data/profile.dart';
 import '../../domain/bbt.dart';
 import '../../domain/cycle_prediction.dart';
+import '../../domain/cycle_signs.dart';
 import '../../domain/dates.dart';
 import '../../domain/fertility.dart';
 import '../../domain/guidance.dart';
 import '../../l10n/app_localizations.dart';
 import '../../widgets/bbt_chart.dart';
 import '../calendar/prediction_sheets.dart';
+import 'cycle_signs_card.dart';
 import 'hero_card.dart';
 import 'hero_meters.dart';
 import 'test_timing_card.dart';
@@ -99,19 +101,23 @@ class PeriodHero extends StatelessWidget {
         }),
       const SizedBox(height: space3),
       TestTimingCard(prediction: prediction, date: date),
+      if (cycleSigns(profile.logs, profile.periodStarts, today) case final signs when !signs.isEmpty) ...[
+        const SizedBox(height: space3),
+        CycleSignsCard(signs: signs, date: date),
+      ],
       const SizedBox(height: space3),
-      BbtChartCard(chart: _cycleBbt(profile)),
+      BbtChartCard(chart: _cycleBbt(profile, today)),
     ]);
   }
 }
 
-/// Temperatures since her last period started: the current cycle's chart.
-BbtChart? _cycleBbt(Profile profile) {
-  final starts = bleedStarts(profile.periodStarts);
+/// Temperatures since her last period started, up to [today]: the current cycle's chart.
+BbtChart? _cycleBbt(Profile profile, String today) {
+  final starts = [for (final s in bleedStarts(profile.periodStarts)) if (s.compareTo(today) <= 0) s];
   final since = starts.isEmpty ? null : starts.last;
   return bbtChart([
     for (final e in profile.logs.entries)
-      if (e.value.bbt != null && (since == null || e.key.compareTo(since) >= 0))
+      if (e.value.bbt != null && e.key.compareTo(today) <= 0 && (since == null || e.key.compareTo(since) >= 0))
         BbtEntry(e.key, e.key, e.value.bbt!),
   ], since);
 }

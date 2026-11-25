@@ -3117,4 +3117,31 @@ class L10nEn extends L10n {
   @override
   String get aiLedgerClearConfirm =>
       'Clear this list? Your record is not changed.';
+
+  @override
+  String get signsTitle => 'Signs you logged this cycle';
+
+  @override
+  String signsValueOn(String value, String date) {
+    return '$value, $date';
+  }
+
+  @override
+  String signsTempCount(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count readings this cycle',
+      one: '1 reading this cycle',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get signsStripLine =>
+      'An ovulation test strip shows a hormone surge, not proof that you ovulated. A rise in your waking temperature afterwards is a better sign.';
+
+  @override
+  String get signsNote =>
+      'Each sign is shown as you logged it. femio does not say whether or when you ovulated; that is a conversation for you and your clinician.';
 }

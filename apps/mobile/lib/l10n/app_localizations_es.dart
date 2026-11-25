@@ -3135,4 +3135,31 @@ class L10nEs extends L10n {
   @override
   String get aiLedgerClearConfirm =>
       '¿Borrar esta lista? Tu registro no cambia.';
+
+  @override
+  String get signsTitle => 'Las señales que anotaste este ciclo';
+
+  @override
+  String signsValueOn(String value, String date) {
+    return '$value, $date';
+  }
+
+  @override
+  String signsTempCount(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count mediciones este ciclo',
+      one: '1 medición este ciclo',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get signsStripLine =>
+      'Una tira de ovulación muestra una subida hormonal, no una prueba de que ovulaste. Una subida de tu temperatura al despertar después es una mejor señal.';
+
+  @override
+  String get signsNote =>
+      'Cada señal aparece tal como la anotaste. femio no dice si ovulaste ni cuándo; eso se habla contigo y tu profesional.';
 }

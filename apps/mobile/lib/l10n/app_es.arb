@@ -852,5 +852,10 @@
   "aiLedgerNoReply": "No llegó ninguna respuesta a tiempo, así que femio usó sus reglas.",
   "aiLedgerSent": "Exactamente lo que se envió",
   "aiLedgerClear": "Borrar esta lista",
-  "aiLedgerClearConfirm": "¿Borrar esta lista? Tu registro no cambia."
+  "aiLedgerClearConfirm": "¿Borrar esta lista? Tu registro no cambia.",
+  "signsTitle": "Las señales que anotaste este ciclo",
+  "signsValueOn": "{value}, {date}",
+  "signsTempCount": "{count, plural, =1{1 medición este ciclo} other{{count} mediciones este ciclo}}",
+  "signsStripLine": "Una tira de ovulación muestra una subida hormonal, no una prueba de que ovulaste. Una subida de tu temperatura al despertar después es una mejor señal.",
+  "signsNote": "Cada señal aparece tal como la anotaste. femio no dice si ovulaste ni cuándo; eso se habla contigo y tu profesional."
 }

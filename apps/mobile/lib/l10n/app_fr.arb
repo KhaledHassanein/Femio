@@ -852,5 +852,10 @@
   "aiLedgerNoReply": "Aucune réponse n'est arrivée à temps : femio a utilisé ses règles.",
   "aiLedgerSent": "Exactement ce qui a été envoyé",
   "aiLedgerClear": "Effacer cette liste",
-  "aiLedgerClearConfirm": "Effacer cette liste ? Votre journal ne change pas."
+  "aiLedgerClearConfirm": "Effacer cette liste ? Votre journal ne change pas.",
+  "signsTitle": "Les signes notés ce cycle",
+  "signsValueOn": "{value}, {date}",
+  "signsTempCount": "{count, plural, =1{1 mesure ce cycle} other{{count} mesures ce cycle}}",
+  "signsStripLine": "Un test d'ovulation montre une poussée hormonale, pas la preuve d'une ovulation. Une hausse de votre température au réveil ensuite est un meilleur signe.",
+  "signsNote": "Chaque signe s'affiche tel que vous l'avez noté. femio ne dit pas si ni quand vous avez ovulé ; cela se discute avec votre clinicien·ne."
 }

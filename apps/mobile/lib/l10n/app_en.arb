@@ -1521,5 +1521,12 @@
   "aiLedgerNoReply": "No answer came back in time, so femio used its rules.",
   "aiLedgerSent": "Exactly what was sent",
   "aiLedgerClear": "Clear this list",
-  "aiLedgerClearConfirm": "Clear this list? Your record is not changed."
+  "aiLedgerClearConfirm": "Clear this list? Your record is not changed.",
+  "signsTitle": "Signs you logged this cycle",
+  "signsValueOn": "{value}, {date}",
+  "@signsValueOn": {"placeholders": {"value": {"type": "String"}, "date": {"type": "String"}}},
+  "signsTempCount": "{count, plural, =1{1 reading this cycle} other{{count} readings this cycle}}",
+  "@signsTempCount": {"placeholders": {"count": {"type": "int"}}},
+  "signsStripLine": "An ovulation test strip shows a hormone surge, not proof that you ovulated. A rise in your waking temperature afterwards is a better sign.",
+  "signsNote": "Each sign is shown as you logged it. femio does not say whether or when you ovulated; that is a conversation for you and your clinician."
 }

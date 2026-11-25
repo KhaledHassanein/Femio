@@ -5074,6 +5074,36 @@ abstract class L10n {
   /// In en, this message translates to:
   /// **'Clear this list? Your record is not changed.'**
   String get aiLedgerClearConfirm;
+
+  /// No description provided for @signsTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Signs you logged this cycle'**
+  String get signsTitle;
+
+  /// No description provided for @signsValueOn.
+  ///
+  /// In en, this message translates to:
+  /// **'{value}, {date}'**
+  String signsValueOn(String value, String date);
+
+  /// No description provided for @signsTempCount.
+  ///
+  /// In en, this message translates to:
+  /// **'{count, plural, =1{1 reading this cycle} other{{count} readings this cycle}}'**
+  String signsTempCount(int count);
+
+  /// No description provided for @signsStripLine.
+  ///
+  /// In en, this message translates to:
+  /// **'An ovulation test strip shows a hormone surge, not proof that you ovulated. A rise in your waking temperature afterwards is a better sign.'**
+  String get signsStripLine;
+
+  /// No description provided for @signsNote.
+  ///
+  /// In en, this message translates to:
+  /// **'Each sign is shown as you logged it. femio does not say whether or when you ovulated; that is a conversation for you and your clinician.'**
+  String get signsNote;
 }
 
 class _L10nDelegate extends LocalizationsDelegate<L10n> {

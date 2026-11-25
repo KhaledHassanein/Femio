@@ -22,6 +22,7 @@ const ALLOWED = {
     "reminderTitle", // the notification title is only the wordmark
     "rangeValue", // two placeholders and a dash; nothing to translate
     "calendarDayLabel", // two placeholders and a comma
+    "signsValueOn", // two placeholders and a comma
     // "Cloud boost" is a feature name kept in Latin script, like Gemini Nano (ADR-079).
     "askBoostHeading", "assistantCloudTitle", "boostTitle",
     "leavePlayHeading", // "Google Play" is a store name, the same in every language

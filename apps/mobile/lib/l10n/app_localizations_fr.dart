@@ -3147,4 +3147,31 @@ class L10nFr extends L10n {
   @override
   String get aiLedgerClearConfirm =>
       'Effacer cette liste ? Votre journal ne change pas.';
+
+  @override
+  String get signsTitle => 'Les signes notés ce cycle';
+
+  @override
+  String signsValueOn(String value, String date) {
+    return '$value, $date';
+  }
+
+  @override
+  String signsTempCount(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count mesures ce cycle',
+      one: '1 mesure ce cycle',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get signsStripLine =>
+      'Un test d\'ovulation montre une poussée hormonale, pas la preuve d\'une ovulation. Une hausse de votre température au réveil ensuite est un meilleur signe.';
+
+  @override
+  String get signsNote =>
+      'Chaque signe s\'affiche tel que vous l\'avez noté. femio ne dit pas si ni quand vous avez ovulé ; cela se discute avec votre clinicien·ne.';
 }
