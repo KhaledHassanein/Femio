@@ -10,6 +10,8 @@
  * a typo. Out-of-range input returns `null` rather than a silently clamped answer
  * (§5: "a cycle length outside the range silently clamped" is a must-not).
  */
+import { MIN_WINDOW_MARGIN_DAYS } from "@/lib/cycle/predict";
+
 import { addDays, diffDays, isValidISODate } from "./dates";
 import { eddFromConception, eddFromLmp, eddFromScan, eddFromTransfer, GESTATION_DAYS } from "@/lib/pregnancy";
 
@@ -229,9 +231,11 @@ export type PeriodForecast = {
 
 /**
  * The next `count` periods, each as a range (rule 3: never one certain date). The
- * range comes from her own shortest and longest cycle, so it is exactly as wide as
- * her cycles vary and widens with each cycle ahead. `null` when a bound is outside
- * the accepted range: the stepper never lets that happen, and a silent clamp would.
+ * range comes from her own shortest and longest cycle and widens with each cycle
+ * ahead. It is never narrower than the tracker's floor (MR-56): period n spans at
+ * least ceil(2 x sqrt(n)) days either side, so "my cycle is always 28 days" still
+ * gives a range. `null` when a bound is outside the accepted range: the stepper
+ * never lets that happen, and a silent clamp would.
  */
 export function periodForecast(
   lmpISO: string,
@@ -247,8 +251,11 @@ export function periodForecast(
   const len = Math.min(MAX_PERIOD, Math.max(MIN_PERIOD, Math.round(periodLength) || DEFAULT_PERIOD_DAYS));
   const out: PeriodForecast[] = [];
   for (let n = 1; n <= count; n += 1) {
-    const earliest = addDays(lmpISO, n * a);
-    out.push({ earliest, latest: addDays(lmpISO, n * b), endIfEarliest: addDays(earliest, len - 1) });
+    // Widen both sides equally until the range reaches the floor for period n.
+    const floorWidth = 2 * Math.ceil(MIN_WINDOW_MARGIN_DAYS * Math.sqrt(n));
+    const pad = Math.max(0, Math.ceil((floorWidth - n * (b - a)) / 2));
+    const earliest = addDays(lmpISO, n * a - pad);
+    out.push({ earliest, latest: addDays(lmpISO, n * b + pad), endIfEarliest: addDays(earliest, len - 1) });
   }
   return out;
 }

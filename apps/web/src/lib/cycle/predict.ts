@@ -103,6 +103,9 @@ export type PredictionEvidence = {
  * 28 days" is a rounder fact than three measured intervals, and the picture should
  * say so before she has logged anything.
  */
+/** The narrowest a predicted period window may be, either side of the date (MR-04, MR-56). */
+export const MIN_WINDOW_MARGIN_DAYS = 2;
+
 const STATED_MARGIN_DAYS = 4;
 
 function mean(values: number[]): number {
@@ -305,7 +308,7 @@ export function predictNextPeriod(
   const predictedStart = addDays(last, averageLength);
 
   // Window widens with variability; never tighter than ±2 days (honest floor).
-  const margin = Math.max(2, Math.ceil(spread / 2));
+  const margin = Math.max(MIN_WINDOW_MARGIN_DAYS, Math.ceil(spread / 2));
 
   // Two questions, deliberately not one: "do her cycles vary" and "have we seen
   // enough to say". `spread` over a single interval is always 0, so the first is

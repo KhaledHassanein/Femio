@@ -149,9 +149,20 @@ describe("periodForecast", () => {
     expect(diffDays(r[0]!.earliest, r[0]!.endIfEarliest)).toBe(4);
   });
 
-  it("collapses to one day only when she says her cycles do not vary", () => {
-    const [first] = periodForecast(LMP, 28, 28)!;
-    expect(first!.earliest).toBe(first!.latest);
+  it("never shows one exact day: a cycle that does not vary still gets the floor (MR-56)", () => {
+    const r = periodForecast(LMP, 28, 28)!;
+    expect(r.map((p) => [diffDays(LMP, p.earliest), diffDays(LMP, p.latest)])).toEqual([
+      [26, 30],
+      [53, 59],
+      [80, 88],
+    ]);
+  });
+
+  it("widens a narrow spread up to the floor, and leaves a wide one as it is", () => {
+    const [first] = periodForecast(LMP, 28, 29)!;
+    expect([diffDays(LMP, first!.earliest), diffDays(LMP, first!.latest)]).toEqual([26, 31]);
+    const [wide] = periodForecast(LMP, 25, 31)!;
+    expect([diffDays(LMP, wide!.earliest), diffDays(LMP, wide!.latest)]).toEqual([25, 31]);
   });
 
   it("accepts the bounds in either order and refuses an out-of-range bound", () => {
