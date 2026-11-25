@@ -442,6 +442,29 @@
   "sayItFound": "وجد femio هذه. ألغي اختيار أي شيء غير صحيح.",
   "sayItAdd": "أضيفي إلى تسجيل هذا اليوم",
   "sayItAdded": "تمت الإضافة إلى تسجيلك.",
+  "sayItDictationHint": "نصيحة: اضغطي على الميكروفون في لوحة المفاتيح لتتحدثي بدل الكتابة.",
+  "sayItFoundDays": "وجد femio هذه الأيام. ألغي اختيار أي شيء غير صحيح، أو أزيلي يومًا كاملًا. لا يُحفظ شيء حتى تضغطي على الزر أدناه.",
+  "sayItRemoveDay": "إزالة هذا اليوم",
+  "sayItSaveCount": "احفظي {entries, plural, zero{لا إدخالات} one{إدخالًا واحدًا} two{إدخالين} few{{entries} إدخالات} many{{entries} إدخالًا} other{{entries} إدخال}} في {days, plural, zero{لا أيام} one{يوم واحد} two{يومين} few{{days} أيام} many{{days} يومًا} other{{days} يوم}}",
+  "@sayItSaveCount": {
+    "placeholders": {
+      "entries": {
+        "type": "int"
+      },
+      "days": {
+        "type": "int"
+      }
+    }
+  },
+  "sayItFuture": "لا يستطيع femio تسجيل يوم لم يأتِ بعد، لذلك تُرك هذا الجزء من ملاحظتك.",
+  "sayItTooOld": "يستطيع femio تسجيل ما حدث خلال آخر {days, plural, zero{{days} يوم} one{يوم واحد} two{يومين} few{{days} أيام} many{{days} يومًا} other{{days} يوم}} فقط، لذلك تُركت الأيام الأقدم في ملاحظتك.",
+  "@sayItTooOld": {
+    "placeholders": {
+      "days": {
+        "type": "int"
+      }
+    }
+  },
   "safetyCrisisHeading": "لستِ وحدكِ في هذا",
   "safetyCrisisBody": "إذا كنتِ تفكرين في إيذاء نفسكِ، تواصلي مع أحد الآن. صفحة المساعدة فيها أرقام الدعم في بلدكِ.",
   "safetyUrgentHeading": "قد يحتاج هذا إلى رعاية عاجلة",

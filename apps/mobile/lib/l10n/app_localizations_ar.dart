@@ -1508,6 +1508,61 @@ class L10nAr extends L10n {
   String get sayItAdded => 'تمت الإضافة إلى تسجيلك.';
 
   @override
+  String get sayItDictationHint =>
+      'نصيحة: اضغطي على الميكروفون في لوحة المفاتيح لتتحدثي بدل الكتابة.';
+
+  @override
+  String get sayItFoundDays =>
+      'وجد femio هذه الأيام. ألغي اختيار أي شيء غير صحيح، أو أزيلي يومًا كاملًا. لا يُحفظ شيء حتى تضغطي على الزر أدناه.';
+
+  @override
+  String get sayItRemoveDay => 'إزالة هذا اليوم';
+
+  @override
+  String sayItSaveCount(int entries, int days) {
+    String _temp0 = intl.Intl.pluralLogic(
+      entries,
+      locale: localeName,
+      other: '$entries إدخال',
+      many: '$entries إدخالًا',
+      few: '$entries إدخالات',
+      two: 'إدخالين',
+      one: 'إدخالًا واحدًا',
+      zero: 'لا إدخالات',
+    );
+    String _temp1 = intl.Intl.pluralLogic(
+      days,
+      locale: localeName,
+      other: '$days يوم',
+      many: '$days يومًا',
+      few: '$days أيام',
+      two: 'يومين',
+      one: 'يوم واحد',
+      zero: 'لا أيام',
+    );
+    return 'احفظي $_temp0 في $_temp1';
+  }
+
+  @override
+  String get sayItFuture =>
+      'لا يستطيع femio تسجيل يوم لم يأتِ بعد، لذلك تُرك هذا الجزء من ملاحظتك.';
+
+  @override
+  String sayItTooOld(int days) {
+    String _temp0 = intl.Intl.pluralLogic(
+      days,
+      locale: localeName,
+      other: '$days يوم',
+      many: '$days يومًا',
+      few: '$days أيام',
+      two: 'يومين',
+      one: 'يوم واحد',
+      zero: '$days يوم',
+    );
+    return 'يستطيع femio تسجيل ما حدث خلال آخر $_temp0 فقط، لذلك تُركت الأيام الأقدم في ملاحظتك.';
+  }
+
+  @override
   String get safetyCrisisHeading => 'لستِ وحدكِ في هذا';
 
   @override

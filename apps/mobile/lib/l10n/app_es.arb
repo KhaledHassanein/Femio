@@ -442,6 +442,29 @@
   "sayItFound": "femio encontró esto. Desmarca lo que no sea correcto.",
   "sayItAdd": "Añadir al registro de este día",
   "sayItAdded": "Añadido a tu registro.",
+  "sayItDictationHint": "Consejo: toca el micrófono de tu teclado para dictar en lugar de escribir.",
+  "sayItFoundDays": "femio encontró estos días. Desmarca lo que no sea correcto o quita un día entero. No se guarda nada hasta que toques el botón de abajo.",
+  "sayItRemoveDay": "Quitar este día",
+  "sayItSaveCount": "Guardar {entries, plural, one{1 entrada} other{{entries} entradas}} en {days, plural, one{1 día} other{{days} días}}",
+  "@sayItSaveCount": {
+    "placeholders": {
+      "entries": {
+        "type": "int"
+      },
+      "days": {
+        "type": "int"
+      }
+    }
+  },
+  "sayItFuture": "femio no puede registrar un día que aún no ha pasado, así que esa parte de tu nota se dejó fuera.",
+  "sayItTooOld": "femio registra hasta {days, plural, one{1 día} other{{days} días}} atrás, así que se dejaron fuera los días más antiguos de tu nota.",
+  "@sayItTooOld": {
+    "placeholders": {
+      "days": {
+        "type": "int"
+      }
+    }
+  },
   "safetyCrisisHeading": "No tienes que pasar por esto sola",
   "safetyCrisisBody": "Si piensas en hacerte daño, busca ayuda ahora. La página de ayuda muestra las líneas de crisis de tu país.",
   "safetyUrgentHeading": "Esto puede necesitar atención urgente",

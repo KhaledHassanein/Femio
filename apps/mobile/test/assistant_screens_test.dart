@@ -399,7 +399,7 @@ void main() {
             b,
             bridge,
             Scaffold(
-              body: SayItSheet(controller: c, date: _today),
+              body: SayItSheet(controller: c, date: _today, today: _today),
             ),
           ),
         );
@@ -429,7 +429,7 @@ void main() {
           Brightness.light,
           FakeAssistant(),
           Scaffold(
-            body: SayItSheet(controller: c, date: _today),
+            body: SayItSheet(controller: c, date: _today, today: _today),
           ),
         ),
       );

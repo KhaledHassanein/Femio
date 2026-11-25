@@ -205,7 +205,7 @@ void main() {
       _size(tester, b);
       final bridge = _FakeAssistant(privateReply: '{"terms":["bloating"],"flow":null,"opk":null}');
       final c = await _controller(_ttcRegular(lang), lang);
-      await tester.pumpWidget(_wrap(lang, b, bridge, Scaffold(body: SayItSheet(controller: c, date: _today))));
+      await tester.pumpWidget(_wrap(lang, b, bridge, Scaffold(body: SayItSheet(controller: c, date: _today, today: _today))));
       await tester.enterText(
         find.byType(TextField),
         lang == 'ar' ? 'عندي مغص جامد وصداع وتعبانة' : 'Bad cramps and a headache today, so tired',

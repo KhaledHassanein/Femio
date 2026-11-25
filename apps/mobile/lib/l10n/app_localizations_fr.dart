@@ -1500,6 +1500,49 @@ class L10nFr extends L10n {
   String get sayItAdded => 'Ajouté à votre journal.';
 
   @override
+  String get sayItDictationHint =>
+      'Astuce : touchez le micro de votre clavier pour dicter au lieu de taper.';
+
+  @override
+  String get sayItFoundDays =>
+      'femio a trouvé ces jours. Décochez ce qui est faux ou retirez un jour entier. Rien n’est enregistré tant que vous ne touchez pas le bouton ci-dessous.';
+
+  @override
+  String get sayItRemoveDay => 'Retirer ce jour';
+
+  @override
+  String sayItSaveCount(int entries, int days) {
+    String _temp0 = intl.Intl.pluralLogic(
+      entries,
+      locale: localeName,
+      other: '$entries éléments',
+      one: '1 élément',
+    );
+    String _temp1 = intl.Intl.pluralLogic(
+      days,
+      locale: localeName,
+      other: '$days jours',
+      one: '1 jour',
+    );
+    return 'Enregistrer $_temp0 sur $_temp1';
+  }
+
+  @override
+  String get sayItFuture =>
+      'femio ne peut pas noter un jour qui n’est pas encore arrivé ; cette partie de votre note a été laissée de côté.';
+
+  @override
+  String sayItTooOld(int days) {
+    String _temp0 = intl.Intl.pluralLogic(
+      days,
+      locale: localeName,
+      other: '$days jours',
+      one: '1 jour',
+    );
+    return 'femio note jusqu’à $_temp0 en arrière ; les jours plus anciens de votre note ont été laissés de côté.';
+  }
+
+  @override
   String get safetyCrisisHeading => 'Vous n’avez pas à traverser cela seule';
 
   @override

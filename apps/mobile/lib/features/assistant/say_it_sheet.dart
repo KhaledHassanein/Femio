@@ -1,9 +1,10 @@
-// "Say it in your words": a sentence becomes log entries, on the phone (ADR-078, R7.3).
+// "Say it in your words": a note becomes log drafts, one per day, on the phone (ADR-078, R7.3, R10.7).
 //
 // Why it exists: tapping through forty chips is the reason people stop logging. She types (or
-// dictates with her keyboard) one sentence in any of the four languages; femio's phrase rules
-// read it, Gemini Nano adds what the rules missed when the phone has it, and she confirms the
-// chips before anything is saved. Her sentence itself is never stored or sent.
+// dictates with her keyboard) a note in any of the four languages, perhaps naming several days
+// ("yesterday cramps, today spotting"); femio's phrase rules read it day by day, Gemini Nano
+// adds what the rules missed when the phone has it, and she confirms every day's chips before
+// anything is saved, in one counted save. Her note itself is never stored or sent.
 
 import 'package:flutter/material.dart';
 
@@ -11,14 +12,15 @@ import '../../app.dart';
 import '../../data/profile.dart';
 import '../../domain/assistant/log_phrases.dart';
 import '../../domain/assistant/safety.dart';
+import '../../domain/assistant/say_it_days.dart';
 import '../../domain/dates.dart';
 import '../../l10n/app_localizations.dart';
-import '../../l10n/log_labels.g.dart';
 import '../../theme/femio_theme.dart';
 import '../../theme/spacing.dart';
 import '../../theme/type_sizes.dart';
 import 'assistant_scope.dart';
 import 'safety_notice.dart';
+import 'say_it_day_card.dart';
 
 /// Opens the sheet for the day [date] in [controller]'s record.
 Future<void> showSayItSheet(BuildContext context, {required FemioController controller, required String date}) =>
@@ -29,23 +31,34 @@ Future<void> showSayItSheet(BuildContext context, {required FemioController cont
       builder: (_) => SayItSheet(controller: controller, date: date),
     );
 
-/// The sheet's content. Public for widget tests and screenshots.
+/// The sheet's content. [date] is the day she has selected: words with no day word go there.
+/// [today] is for tests; it defaults to the phone's date. Public for widget tests and screenshots.
 class SayItSheet extends StatefulWidget {
-  const SayItSheet({super.key, required this.controller, required this.date});
+  const SayItSheet({super.key, required this.controller, required this.date, this.today});
   final FemioController controller;
   final String date;
+  final String? today;
 
   @override
   State<SayItSheet> createState() => _SayItSheetState();
+}
+
+/// One day's draft while she is checking it.
+class _DayDraft {
+  _DayDraft(this.date, this.draft);
+  final String date;
+  final LogDraft draft;
+  final Set<String> unticked = {};
 }
 
 class _SayItSheetState extends State<SayItSheet> {
   final _text = TextEditingController();
   bool _busy = false;
   bool _usedModel = false;
+  bool _read = false;
   SafetySignal _signal = SafetySignal.none;
-  LogDraft? _draft;
-  final Set<String> _unticked = {};
+  Set<SayItRefusal> _refused = const {};
+  final List<_DayDraft> _days = [];
 
   @override
   void dispose() {
@@ -53,47 +66,61 @@ class _SayItSheetState extends State<SayItSheet> {
     super.dispose();
   }
 
-  Future<void> _read() async {
+  Future<void> _readNote() async {
     final note = _text.text.trim();
     if (note.isEmpty) return;
-    final profile = widget.controller.profile;
+    final gateway = AssistantScope.gatewayOf(context);
+    final reading = readSayItNote(
+      note,
+      profile: widget.controller.profile,
+      today: widget.today ?? todayISO(),
+      selectedDate: widget.date,
+    );
     setState(() {
       _busy = true;
-      _signal = profile == null ? safetySignal(note, pregnant: false) : safetySignalFor(note, profile, todayISO());
-      _draft = null;
-      _unticked.clear();
+      _signal = reading.signal;
+      _refused = reading.refused;
+      _days.clear();
+      _read = false;
       _usedModel = false;
     });
-    var draft = draftFromNote(note);
-    final s = (await AssistantScope.gatewayOf(context).readNote(note)).value;
-    {
+    final drafts = <_DayDraft>[];
+    var usedModel = false;
+    for (final day in reading.days) {
+      var draft = day.draft;
+      // The model reads only this day's own words, and only ever adds to the rules' draft.
+      final s = (await gateway.readNote(day.text)).value;
       if (s != null) {
         final merged = mergeDrafts(draft, modelTerms: s.terms, modelFlow: s.flow, modelOpk: s.opk);
-        _usedModel = merged.terms.length != draft.terms.length || merged.flow != draft.flow || merged.opk != draft.opk;
+        if (merged.terms.length != draft.terms.length || merged.flow != draft.flow || merged.opk != draft.opk) {
+          usedModel = true;
+        }
         draft = merged;
       }
+      if (!draft.isEmpty) drafts.add(_DayDraft(day.date, draft));
     }
     if (!mounted) return;
     setState(() {
       _busy = false;
-      _draft = draft;
+      _read = true;
+      _usedModel = usedModel;
+      _days.addAll(drafts);
     });
   }
 
-  Future<void> _add() async {
-    final d = _draft!;
-    final profile = widget.controller.profile!;
-    final log = profile.logs[widget.date] ?? const DayLog();
-    final keep = [
-      for (final t in d.terms)
-        if (!_unticked.contains(t)) t,
-    ];
-    final flow = d.flow != null && !_unticked.contains('flow:${d.flow}') ? d.flow : log.flow;
-    final opk = d.opk != null && !_unticked.contains('opk:${d.opk}') ? d.opk : log.opk;
-    await widget.controller.setDayLog(
-      widget.date,
-      log.copyWith(terms: {...log.terms, ...keep}.toList(), flow: flow, opk: opk),
-    );
+  /// What a save would write: each day's ticked chips only.
+  List<(String, LogDraft)> get _kept => [
+    for (final d in _days)
+      if (entryCount(draftWithout(d.draft, d.unticked)) > 0) (d.date, draftWithout(d.draft, d.unticked)),
+  ];
+
+  /// Merges every kept day into her record in one save; nothing already there is removed.
+  Future<void> _save() async {
+    var profile = widget.controller.profile!;
+    for (final (date, kept) in _kept) {
+      profile = profile.withDayLog(date, mergeIntoDayLog(profile.logs[date] ?? const DayLog(), kept));
+    }
+    await widget.controller.save(profile);
     if (!mounted) return;
     final messenger = ScaffoldMessenger.of(context);
     final added = L10n.of(context).sayItAdded;
@@ -106,13 +133,9 @@ class _SayItSheetState extends State<SayItSheet> {
     final l = L10n.of(context);
     final p = context.palette;
     final t = Theme.of(context).textTheme;
-    final d = _draft;
-
-    Widget chip(String id, String label) => FilterChip(
-      label: Text(label),
-      selected: !_unticked.contains(id),
-      onSelected: (on) => setState(() => on ? _unticked.remove(id) : _unticked.add(id)),
-    );
+    final kept = _kept;
+    final entries = kept.fold<int>(0, (n, e) => n + entryCount(e.$2));
+    final showHijri = widget.controller.profile?.settings.showHijri ?? false;
 
     return Padding(
       padding: EdgeInsets.fromLTRB(space5, 0, space5, MediaQuery.viewInsetsOf(context).bottom + space5),
@@ -129,34 +152,60 @@ class _SayItSheetState extends State<SayItSheet> {
               maxLines: 4,
               autofocus: true,
               textInputAction: TextInputAction.done,
-              onSubmitted: (_) => _read(),
+              onSubmitted: (_) => _readNote(),
               decoration: InputDecoration(hintText: l.sayItHint, border: const OutlineInputBorder()),
+            ),
+            const SizedBox(height: space2),
+            Row(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Icon(Icons.mic_none_rounded, size: iconSizeInline, color: p.textSubtle),
+                const SizedBox(width: space1h),
+                Expanded(child: Text(l.sayItDictationHint, style: t.bodySmall?.copyWith(color: p.textSubtle))),
+              ],
             ),
             const SizedBox(height: space3),
             FilledButton.icon(
-              onPressed: _busy ? null : _read,
+              onPressed: _busy ? null : _readNote,
               icon: _busy
                   ? const SizedBox.square(dimension: iconSizeInline, child: CircularProgressIndicator(strokeWidth: 2))
                   : const Icon(Icons.auto_awesome_rounded),
               label: Text(l.sayItAction),
             ),
             if (_signal != SafetySignal.none) ...[const SizedBox(height: space4), SafetyNotice(signal: _signal)],
-            if (d != null && d.isEmpty) ...[const SizedBox(height: space4), Text(l.sayItNothing, style: t.bodyMedium)],
-            if (d != null && !d.isEmpty) ...[
-              const SizedBox(height: space4),
-              Text(l.sayItFound, style: t.bodyMedium),
-              const SizedBox(height: space2),
-              Wrap(
-                spacing: space2,
-                runSpacing: space2,
-                children: [
-                  if (d.flow != null) chip('flow:${d.flow}', flowLabel(l, d.flow!)),
-                  for (final term in d.terms) chip(term, logLabel(l, term)),
-                  if (d.opk != null) chip('opk:${d.opk}', opkLabel(l, d.opk!)),
-                ],
-              ),
+            if (_refused.contains(SayItRefusal.future)) ...[
               const SizedBox(height: space3),
-              FilledButton(onPressed: _add, child: Text(l.sayItAdd)),
+              Text(l.sayItFuture, style: t.bodyMedium),
+            ],
+            if (_refused.contains(SayItRefusal.tooOld)) ...[
+              const SizedBox(height: space3),
+              Text(l.sayItTooOld(sayItMaxDaysBack), style: t.bodyMedium),
+            ],
+            if (_read && _days.isEmpty && _refused.isEmpty) ...[
+              const SizedBox(height: space4),
+              Text(l.sayItNothing, style: t.bodyMedium),
+            ],
+            if (_days.isNotEmpty) ...[
+              const SizedBox(height: space4),
+              Text(_days.length == 1 ? l.sayItFound : l.sayItFoundDays, style: t.bodyMedium),
+              const SizedBox(height: space2),
+              for (final d in _days) ...[
+                SayItDayCard(
+                  key: ValueKey(d.date),
+                  date: d.date,
+                  draft: d.draft,
+                  unticked: d.unticked,
+                  showHijri: showHijri,
+                  onToggle: (id) => setState(() => d.unticked.contains(id) ? d.unticked.remove(id) : d.unticked.add(id)),
+                  onRemove: () => setState(() => _days.remove(d)),
+                ),
+                const SizedBox(height: space2),
+              ],
+              const SizedBox(height: space1),
+              FilledButton(
+                onPressed: entries == 0 ? null : _save,
+                child: Text(l.sayItSaveCount(entries, kept.length)),
+              ),
             ],
             const SizedBox(height: space4),
             Row(
