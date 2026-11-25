@@ -77,6 +77,17 @@ const _sameBleedWithinDays = 10;
 const _recentCycles = 6;
 const _maxPlausibleCycleDays = 90;
 
+/// Cycles whose shortest and longest differ by more than this many days count as irregular.
+/// Named so the explainer (`prediction_explain.dart`) quotes the same numbers the rule uses.
+const irregularSpreadDays = 9;
+
+/// High confidence: at least this many cycles, varying by at most [highConfidenceSpreadDays].
+const highConfidenceCycles = 6;
+const highConfidenceSpreadDays = 4;
+
+/// Medium confidence: at least this many cycles, varying by at most [irregularSpreadDays].
+const mediumConfidenceCycles = 3;
+
 /// Logged dates collapsed to one start per bleed (consecutive days are one period).
 List<String> bleedStarts(List<String> dates) {
   final sorted = dates.where(isValidISODate).toSet().toList()..sort();
@@ -138,12 +149,12 @@ CyclePrediction? predictNextPeriod(List<String> starts, [int? statedCycleLength]
   final predictedStart = addDays(sorted.last, averageLength);
   final margin = math.max(2, (spread / 2).ceil());
   final learning = lengths.length < 2;
-  final irregular = !learning && spread > 9;
+  final irregular = !learning && spread > irregularSpreadDays;
 
   final Confidence confidence;
-  if (lengths.length >= 6 && spread <= 4) {
+  if (lengths.length >= highConfidenceCycles && spread <= highConfidenceSpreadDays) {
     confidence = Confidence.high;
-  } else if (lengths.length >= 3 && spread <= 9) {
+  } else if (lengths.length >= mediumConfidenceCycles && spread <= irregularSpreadDays) {
     confidence = Confidence.medium;
   } else {
     confidence = Confidence.low;

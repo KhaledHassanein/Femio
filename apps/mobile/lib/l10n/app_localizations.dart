@@ -4672,6 +4672,180 @@ abstract class L10n {
   /// In en, this message translates to:
   /// **'Tap a day to log it. Days you logged are filled in.'**
   String get calendarHintNoEstimates;
+
+  /// R9.6: opens the sheet that explains the next-period range from her own log.
+  ///
+  /// In en, this message translates to:
+  /// **'Why this range?'**
+  String get whyRangeAction;
+
+  /// No description provided for @whyRangeTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Why this range'**
+  String get whyRangeTitle;
+
+  /// No description provided for @whyRangeStated.
+  ///
+  /// In en, this message translates to:
+  /// **'femio cannot measure a cycle from your log yet, so it starts from the cycle length you gave: {length}. The range is {margin} either side.'**
+  String whyRangeStated(String length, String margin);
+
+  /// No description provided for @whyRangeCycles.
+  ///
+  /// In en, this message translates to:
+  /// **'{count, plural, =1{femio measured 1 cycle from the periods you logged.} other{femio measured {count} cycles from the periods you logged.}}'**
+  String whyRangeCycles(int count);
+
+  /// No description provided for @whyRangeAverage.
+  ///
+  /// In en, this message translates to:
+  /// **'Your recent cycles average {length}, so the middle of the range is {length} after your last period started.'**
+  String whyRangeAverage(String length);
+
+  /// No description provided for @whyRangeSpread.
+  ///
+  /// In en, this message translates to:
+  /// **'Your shortest and longest cycles are {spread} apart, so the range is {margin} either side of the middle.'**
+  String whyRangeSpread(String spread, String margin);
+
+  /// No description provided for @whyRangeSpreadNone.
+  ///
+  /// In en, this message translates to:
+  /// **'Your cycles have all been the same length, so the range is the narrowest femio shows: {margin} either side.'**
+  String whyRangeSpreadNone(String margin);
+
+  /// No description provided for @whyRangeIrregular.
+  ///
+  /// In en, this message translates to:
+  /// **'Your cycles differ by more than {limit}, so femio shows only the next period, as a wider range, and never counts days late.'**
+  String whyRangeIrregular(String limit);
+
+  /// No description provided for @whyRangeNextMedium.
+  ///
+  /// In en, this message translates to:
+  /// **'{count, plural, =1{One more logged cycle that stays as steady would raise this to medium confidence.} other{{count} more logged cycles that stay as steady would raise this to medium confidence.}}'**
+  String whyRangeNextMedium(int count);
+
+  /// No description provided for @whyRangeNextHigh.
+  ///
+  /// In en, this message translates to:
+  /// **'{count, plural, =1{One more logged cycle that stays as steady would raise this to high confidence.} other{{count} more logged cycles that stay as steady would raise this to high confidence.}}'**
+  String whyRangeNextHigh(int count);
+
+  /// No description provided for @whyRangeHighNeedsSteady.
+  ///
+  /// In en, this message translates to:
+  /// **'High confidence needs cycles that vary by {limit} or less.'**
+  String whyRangeHighNeedsSteady(String limit);
+
+  /// No description provided for @whyRangeWindowShown.
+  ///
+  /// In en, this message translates to:
+  /// **'The fertile window is counted back from the middle of this range, so it moves when the range moves.'**
+  String get whyRangeWindowShown;
+
+  /// No description provided for @whyRangeWindowIrregular.
+  ///
+  /// In en, this message translates to:
+  /// **'No fertile window is named because your cycles vary too much to count back from one date.'**
+  String get whyRangeWindowIrregular;
+
+  /// No description provided for @whyRangeWindowLearning.
+  ///
+  /// In en, this message translates to:
+  /// **'No fertile window is named yet: femio needs at least two cycles from your log to count back from.'**
+  String get whyRangeWindowLearning;
+
+  /// MR-08: min and max are fertility.dart regularCycleMin/Max.
+  ///
+  /// In en, this message translates to:
+  /// **'No fertile window is named because your cycle length is outside {min} to {max} days, where counting back from one date is not reliable.'**
+  String whyRangeWindowOutside(int min, int max);
+
+  /// R10.13: opens the day explainer (long-press a day, or tap a future day).
+  ///
+  /// In en, this message translates to:
+  /// **'Explain this day'**
+  String get dayExplainLink;
+
+  /// No description provided for @dayFactBleed.
+  ///
+  /// In en, this message translates to:
+  /// **'You logged bleeding on this day.'**
+  String get dayFactBleed;
+
+  /// No description provided for @dayFactSpotting.
+  ///
+  /// In en, this message translates to:
+  /// **'You logged spotting on this day.'**
+  String get dayFactSpotting;
+
+  /// No description provided for @dayFactLogged.
+  ///
+  /// In en, this message translates to:
+  /// **'You logged symptoms or mood on this day.'**
+  String get dayFactLogged;
+
+  /// No description provided for @dayFactNextPeriod.
+  ///
+  /// In en, this message translates to:
+  /// **'This day is inside the range when your next period may start: {range}.'**
+  String dayFactNextPeriod(String range);
+
+  /// No description provided for @dayFactLaterPeriod.
+  ///
+  /// In en, this message translates to:
+  /// **'This day is inside the range for a later period: {range}. The further ahead, the less certain.'**
+  String dayFactLaterPeriod(String range);
+
+  /// No description provided for @dayFactFertile.
+  ///
+  /// In en, this message translates to:
+  /// **'This day is inside your estimated fertile window: {range}.'**
+  String dayFactFertile(String range);
+
+  /// MR-07 estimate; the second sentence mirrors noConfidentWindowBody.
+  ///
+  /// In en, this message translates to:
+  /// **'femio estimates ovulation around this day, counted back from your next period. Ovulation tests and waking temperature can help you tell whether you ovulated.'**
+  String get dayFactOvulation;
+
+  /// No description provided for @dayFactNothingFuture.
+  ///
+  /// In en, this message translates to:
+  /// **'Nothing is estimated for this day.'**
+  String get dayFactNothingFuture;
+
+  /// No description provided for @dayFactNothingPast.
+  ///
+  /// In en, this message translates to:
+  /// **'Nothing is logged for this day. femio does not draw estimates on days already past.'**
+  String get dayFactNothingPast;
+
+  /// No description provided for @dayLogAction.
+  ///
+  /// In en, this message translates to:
+  /// **'Log this day'**
+  String get dayLogAction;
+
+  /// R10.13 / U17: shown after a logged period moves the estimate. Ranges only.
+  ///
+  /// In en, this message translates to:
+  /// **'Next period now around {after}. It was {before}.'**
+  String predictionMoved(String after, String before);
+
+  /// No description provided for @predictionNew.
+  ///
+  /// In en, this message translates to:
+  /// **'Next period around {after}.'**
+  String predictionNew(String after);
+
+  /// No description provided for @predictionWhy.
+  ///
+  /// In en, this message translates to:
+  /// **'Why?'**
+  String get predictionWhy;
 }
 
 class _L10nDelegate extends LocalizationsDelegate<L10n> {

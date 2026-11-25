@@ -60,12 +60,7 @@ Map<String, DayMark> dayMarks(
         });
       }
       // No window is drawn when none can be named honestly (MR-06/08).
-      final fertile = fertileWindowBefore(
-        prediction.predictedStart,
-        cycleLength: p.cycleLength ?? prediction.averageLength,
-        irregular: prediction.irregular || p.irregular,
-        learning: prediction.learning && prediction.basis != 'stated',
-      );
+      final fertile = fertileWindowFor(p, prediction);
       if (fertile != null) {
         range(fertile.windowStart, fertile.windowEnd, (m) => m.fertile = true);
         range(fertile.ovulation, fertile.ovulation, (m) => m.ovulation = true);

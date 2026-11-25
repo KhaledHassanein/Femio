@@ -2837,4 +2837,153 @@ class L10nAr extends L10n {
   @override
   String get calendarHintNoEstimates =>
       'اضغطي على أي يوم لتسجيله. الأيام التي سجّلتِها تظهر ممتلئة.';
+
+  @override
+  String get whyRangeAction => 'لماذا هذا النطاق؟';
+
+  @override
+  String get whyRangeTitle => 'لماذا هذا النطاق';
+
+  @override
+  String whyRangeStated(String length, String margin) {
+    return 'لا يستطيع femio قياس دورة من سجلّكِ بعد، لذلك يبدأ من طول الدورة الذي أدخلتِه: $length. والنطاق $margin قبل الموعد وبعده.';
+  }
+
+  @override
+  String whyRangeCycles(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: 'قاس femio $count دورة من الدورات التي سجّلتِها.',
+      few: 'قاس femio $count دورات من الدورات التي سجّلتِها.',
+      two: 'قاس femio دورتين من الدورات التي سجّلتِها.',
+      one: 'قاس femio دورة واحدة من الدورات التي سجّلتِها.',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String whyRangeAverage(String length) {
+    return 'متوسط دوراتكِ الأخيرة $length، لذلك يقع منتصف النطاق بعد $length من بداية آخر دورة.';
+  }
+
+  @override
+  String whyRangeSpread(String spread, String margin) {
+    return 'الفرق بين أقصر دوراتكِ وأطولها $spread، لذلك يمتد النطاق $margin قبل المنتصف وبعده.';
+  }
+
+  @override
+  String whyRangeSpreadNone(String margin) {
+    return 'كانت دوراتكِ كلها بالطول نفسه، لذلك هذا أضيق نطاق يعرضه femio: $margin قبل المنتصف وبعده.';
+  }
+
+  @override
+  String whyRangeIrregular(String limit) {
+    return 'تختلف دوراتكِ بأكثر من $limit، لذلك يعرض femio الدورة التالية فقط بنطاق أوسع، ولا يعدّ أيام تأخير أبدًا.';
+  }
+
+  @override
+  String whyRangeNextMedium(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other:
+          '$count دورة إضافية تسجّلينها بالانتظام نفسه ترفع الثقة إلى متوسطة.',
+      few:
+          '$count دورات إضافية تسجّلينها بالانتظام نفسه ترفع الثقة إلى متوسطة.',
+      two: 'دورتان إضافيتان تسجّلينهما بالانتظام نفسه ترفعان الثقة إلى متوسطة.',
+      one: 'دورة إضافية واحدة تسجّلينها بالانتظام نفسه ترفع الثقة إلى متوسطة.',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String whyRangeNextHigh(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other:
+          '$count دورة إضافية تسجّلينها بالانتظام نفسه ترفع الثقة إلى عالية.',
+      few: '$count دورات إضافية تسجّلينها بالانتظام نفسه ترفع الثقة إلى عالية.',
+      two: 'دورتان إضافيتان تسجّلينهما بالانتظام نفسه ترفعان الثقة إلى عالية.',
+      one: 'دورة إضافية واحدة تسجّلينها بالانتظام نفسه ترفع الثقة إلى عالية.',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String whyRangeHighNeedsSteady(String limit) {
+    return 'الثقة العالية تحتاج إلى دورات لا يزيد اختلافها عن $limit.';
+  }
+
+  @override
+  String get whyRangeWindowShown =>
+      'تُحسب نافذة الخصوبة بالرجوع من منتصف هذا النطاق، لذلك تتحرك عندما يتحرك النطاق.';
+
+  @override
+  String get whyRangeWindowIrregular =>
+      'لا تُحدَّد نافذة خصوبة لأن دوراتكِ تختلف كثيرًا بحيث لا يمكن الحساب بالرجوع من تاريخ واحد.';
+
+  @override
+  String get whyRangeWindowLearning =>
+      'لا تُحدَّد نافذة خصوبة بعد: يحتاج femio إلى دورتين على الأقل من سجلّكِ ليحسب بالرجوع منهما.';
+
+  @override
+  String whyRangeWindowOutside(int min, int max) {
+    return 'لا تُحدَّد نافذة خصوبة لأن طول دورتكِ خارج $min إلى $max يومًا، وفيه لا يُعتمد على الحساب بالرجوع من تاريخ واحد.';
+  }
+
+  @override
+  String get dayExplainLink => 'اشرحي هذا اليوم';
+
+  @override
+  String get dayFactBleed => 'سجّلتِ نزيفًا في هذا اليوم.';
+
+  @override
+  String get dayFactSpotting => 'سجّلتِ تبقّعًا في هذا اليوم.';
+
+  @override
+  String get dayFactLogged => 'سجّلتِ أعراضًا أو مزاجًا في هذا اليوم.';
+
+  @override
+  String dayFactNextPeriod(String range) {
+    return 'هذا اليوم داخل النطاق الذي قد تبدأ فيه دورتكِ التالية: $range.';
+  }
+
+  @override
+  String dayFactLaterPeriod(String range) {
+    return 'هذا اليوم داخل نطاق دورة لاحقة: $range. كلما ابتعد الموعد قلّ اليقين.';
+  }
+
+  @override
+  String dayFactFertile(String range) {
+    return 'هذا اليوم داخل نافذة الخصوبة المقدَّرة: $range.';
+  }
+
+  @override
+  String get dayFactOvulation =>
+      'يقدّر femio الإباضة في هذا اليوم تقريبًا، بالحساب رجوعًا من دورتكِ التالية. اختبارات التبويض ودرجة الحرارة عند الاستيقاظ تساعدكِ على معرفة ما إذا حدثت الإباضة.';
+
+  @override
+  String get dayFactNothingFuture => 'لا يوجد تقدير لهذا اليوم.';
+
+  @override
+  String get dayFactNothingPast =>
+      'لم يُسجَّل شيء لهذا اليوم. لا يرسم femio تقديرات على أيام مضت.';
+
+  @override
+  String get dayLogAction => 'سجّلي هذا اليوم';
+
+  @override
+  String predictionMoved(String after, String before) {
+    return 'الدورة التالية الآن نحو $after. كانت $before.';
+  }
+
+  @override
+  String predictionNew(String after) {
+    return 'الدورة التالية نحو $after.';
+  }
+
+  @override
+  String get predictionWhy => 'لماذا؟';
 }

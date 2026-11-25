@@ -18,7 +18,9 @@ import '../../theme/spacing.dart';
 import '../../theme/radii.dart';
 import '../../theme/type_sizes.dart';
 import '../../widgets/tab_header.dart';
+import '../../domain/prediction_explain.dart';
 import '../assistant/say_it_sheet.dart';
+import '../calendar/prediction_sheets.dart';
 import '../help/red_flags_screen.dart';
 import 'widgets/log_chip.dart';
 import 'widgets/temperature_field.dart';
@@ -57,7 +59,30 @@ class LogScreen extends StatelessWidget {
             profile.logs[date] ?? (profile.periodStarts.contains(date) ? const DayLog(flow: 'medium') : const DayLog());
 
         void save(DayLog next) => controller.setDayLog(date, next);
-        void setFlow(String? flow) => save(log.copyWith(flow: flow));
+        // R10.13 / U17: when a logged period moves the next-period estimate, say so, as
+        // ranges, with a way to ask why.
+        Future<void> setFlow(String? flow) async {
+          final before = profile;
+          await controller.setDayLog(date, log.copyWith(flow: flow));
+          final after = controller.profile;
+          if (after == null || !context.mounted) return;
+          String range(String a, String b) => l.rangeValue(
+                DateFormat.MMMd(locale).format(fromISO(a)),
+                DateFormat.MMMd(locale).format(fromISO(b)),
+              );
+          final text = predictionChangeText(l, predictionChange(before, after), range);
+          if (text == null) return;
+          ScaffoldMessenger.maybeOf(context)
+            ?..hideCurrentSnackBar()
+            ..showSnackBar(SnackBar(
+              content: Text(text),
+              action: SnackBarAction(
+                label: l.predictionWhy,
+                onPressed: () => showWhyRangeSheet(context, profile: after, range: range),
+              ),
+            ));
+        }
+
         void toggle(String key) {
           final terms = [...log.terms];
           terms.contains(key) ? terms.remove(key) : terms.add(key);

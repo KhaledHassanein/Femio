@@ -2820,4 +2820,146 @@ class L10nEn extends L10n {
   @override
   String get calendarHintNoEstimates =>
       'Tap a day to log it. Days you logged are filled in.';
+
+  @override
+  String get whyRangeAction => 'Why this range?';
+
+  @override
+  String get whyRangeTitle => 'Why this range';
+
+  @override
+  String whyRangeStated(String length, String margin) {
+    return 'femio cannot measure a cycle from your log yet, so it starts from the cycle length you gave: $length. The range is $margin either side.';
+  }
+
+  @override
+  String whyRangeCycles(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: 'femio measured $count cycles from the periods you logged.',
+      one: 'femio measured 1 cycle from the periods you logged.',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String whyRangeAverage(String length) {
+    return 'Your recent cycles average $length, so the middle of the range is $length after your last period started.';
+  }
+
+  @override
+  String whyRangeSpread(String spread, String margin) {
+    return 'Your shortest and longest cycles are $spread apart, so the range is $margin either side of the middle.';
+  }
+
+  @override
+  String whyRangeSpreadNone(String margin) {
+    return 'Your cycles have all been the same length, so the range is the narrowest femio shows: $margin either side.';
+  }
+
+  @override
+  String whyRangeIrregular(String limit) {
+    return 'Your cycles differ by more than $limit, so femio shows only the next period, as a wider range, and never counts days late.';
+  }
+
+  @override
+  String whyRangeNextMedium(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other:
+          '$count more logged cycles that stay as steady would raise this to medium confidence.',
+      one: 'One more logged cycle that stays as steady would raise this to medium confidence.',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String whyRangeNextHigh(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other:
+          '$count more logged cycles that stay as steady would raise this to high confidence.',
+      one: 'One more logged cycle that stays as steady would raise this to high confidence.',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String whyRangeHighNeedsSteady(String limit) {
+    return 'High confidence needs cycles that vary by $limit or less.';
+  }
+
+  @override
+  String get whyRangeWindowShown =>
+      'The fertile window is counted back from the middle of this range, so it moves when the range moves.';
+
+  @override
+  String get whyRangeWindowIrregular =>
+      'No fertile window is named because your cycles vary too much to count back from one date.';
+
+  @override
+  String get whyRangeWindowLearning =>
+      'No fertile window is named yet: femio needs at least two cycles from your log to count back from.';
+
+  @override
+  String whyRangeWindowOutside(int min, int max) {
+    return 'No fertile window is named because your cycle length is outside $min to $max days, where counting back from one date is not reliable.';
+  }
+
+  @override
+  String get dayExplainLink => 'Explain this day';
+
+  @override
+  String get dayFactBleed => 'You logged bleeding on this day.';
+
+  @override
+  String get dayFactSpotting => 'You logged spotting on this day.';
+
+  @override
+  String get dayFactLogged => 'You logged symptoms or mood on this day.';
+
+  @override
+  String dayFactNextPeriod(String range) {
+    return 'This day is inside the range when your next period may start: $range.';
+  }
+
+  @override
+  String dayFactLaterPeriod(String range) {
+    return 'This day is inside the range for a later period: $range. The further ahead, the less certain.';
+  }
+
+  @override
+  String dayFactFertile(String range) {
+    return 'This day is inside your estimated fertile window: $range.';
+  }
+
+  @override
+  String get dayFactOvulation =>
+      'femio estimates ovulation around this day, counted back from your next period. Ovulation tests and waking temperature can help you tell whether you ovulated.';
+
+  @override
+  String get dayFactNothingFuture => 'Nothing is estimated for this day.';
+
+  @override
+  String get dayFactNothingPast =>
+      'Nothing is logged for this day. femio does not draw estimates on days already past.';
+
+  @override
+  String get dayLogAction => 'Log this day';
+
+  @override
+  String predictionMoved(String after, String before) {
+    return 'Next period now around $after. It was $before.';
+  }
+
+  @override
+  String predictionNew(String after) {
+    return 'Next period around $after.';
+  }
+
+  @override
+  String get predictionWhy => 'Why?';
 }

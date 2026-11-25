@@ -8,6 +8,8 @@
 // `fixtures/domain/fertile-window.json`. Awareness only (product rule 1): never a
 // way to avoid pregnancy.
 
+import '../data/profile.dart';
+import 'cycle_prediction.dart';
 import 'dates.dart';
 
 /// The six-day window and the day it ends on.
@@ -44,4 +46,26 @@ FertileWindow? fertileWindowBefore(
   if (cycleLength < regularCycleMin || cycleLength > regularCycleMax) return null;
   final ovulation = addDays(nextPeriodISO, -lutealPhaseDays);
   return FertileWindow(ovulation, addDays(ovulation, -(fertileWindowDays - 1)), ovulation);
+}
+
+// App-only glue (no TypeScript twin): the inputs the calendar, Today and the explainers
+// pass to [fertileWindowBefore], so all three agree on when a window is named.
+
+/// Whether a fertile window is named, and if not, which rule withheld it (MR-06, MR-08).
+enum WindowStatus { shown, irregular, learning, outsideRange }
+
+/// The fertile window the app shows for [profile] and [prediction], or null when none can
+/// be named. The one place the calendar, Today and the explainers ask (MR-06..08).
+FertileWindow? fertileWindowFor(Profile profile, CyclePrediction prediction) => fertileWindowBefore(
+      prediction.predictedStart,
+      cycleLength: profile.cycleLength ?? prediction.averageLength,
+      irregular: prediction.irregular || profile.irregular,
+      learning: prediction.learning && prediction.basis != 'stated',
+    );
+
+/// Why [fertileWindowFor] returned what it did, in the order the rule checks.
+WindowStatus windowStatusFor(Profile profile, CyclePrediction prediction) {
+  if (prediction.irregular || profile.irregular) return WindowStatus.irregular;
+  if (prediction.learning && prediction.basis != 'stated') return WindowStatus.learning;
+  return fertileWindowFor(profile, prediction) == null ? WindowStatus.outsideRange : WindowStatus.shown;
 }

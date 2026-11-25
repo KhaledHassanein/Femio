@@ -2844,4 +2844,148 @@ class L10nFr extends L10n {
   @override
   String get calendarHintNoEstimates =>
       'Touchez un jour pour le noter. Les jours notés sont remplis.';
+
+  @override
+  String get whyRangeAction => 'Pourquoi cette plage ?';
+
+  @override
+  String get whyRangeTitle => 'Pourquoi cette plage';
+
+  @override
+  String whyRangeStated(String length, String margin) {
+    return 'femio ne peut pas encore mesurer un cycle à partir de votre suivi : il part de la durée de cycle que vous avez indiquée, $length. La plage est de $margin de chaque côté.';
+  }
+
+  @override
+  String whyRangeCycles(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other:
+          'femio a mesuré $count cycles à partir des règles que vous avez notées.',
+      one: 'femio a mesuré 1 cycle à partir des règles que vous avez notées.',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String whyRangeAverage(String length) {
+    return 'Vos derniers cycles durent en moyenne $length : le milieu de la plage tombe $length après le début de vos dernières règles.';
+  }
+
+  @override
+  String whyRangeSpread(String spread, String margin) {
+    return 'Votre cycle le plus court et le plus long ont $spread d\'écart : la plage est de $margin de chaque côté du milieu.';
+  }
+
+  @override
+  String whyRangeSpreadNone(String margin) {
+    return 'Vos cycles ont tous eu la même durée : c\'est la plage la plus étroite que femio affiche, $margin de chaque côté.';
+  }
+
+  @override
+  String whyRangeIrregular(String limit) {
+    return 'Vos cycles varient de plus de $limit : femio n\'affiche que les prochaines règles, sur une plage plus large, et ne compte jamais de jours de retard.';
+  }
+
+  @override
+  String whyRangeNextMedium(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other:
+          'Encore $count cycles notés, aussi réguliers, feraient passer la confiance à moyenne.',
+      one: 'Encore 1 cycle noté, aussi régulier, ferait passer la confiance à moyenne.',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String whyRangeNextHigh(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other:
+          'Encore $count cycles notés, aussi réguliers, feraient passer la confiance à élevée.',
+      one: 'Encore 1 cycle noté, aussi régulier, ferait passer la confiance à élevée.',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String whyRangeHighNeedsSteady(String limit) {
+    return 'Une confiance élevée demande des cycles qui varient de $limit ou moins.';
+  }
+
+  @override
+  String get whyRangeWindowShown =>
+      'La fenêtre fertile est comptée à rebours depuis le milieu de cette plage : elle bouge quand la plage bouge.';
+
+  @override
+  String get whyRangeWindowIrregular =>
+      'Aucune fenêtre fertile n\'est indiquée : vos cycles varient trop pour compter à rebours depuis une seule date.';
+
+  @override
+  String get whyRangeWindowLearning =>
+      'Pas encore de fenêtre fertile : femio a besoin d\'au moins deux cycles notés pour compter à rebours.';
+
+  @override
+  String whyRangeWindowOutside(int min, int max) {
+    return 'Aucune fenêtre fertile n\'est indiquée : la durée de votre cycle sort de $min à $max jours, où compter à rebours depuis une date n\'est pas fiable.';
+  }
+
+  @override
+  String get dayExplainLink => 'Expliquer ce jour';
+
+  @override
+  String get dayFactBleed => 'Vous avez noté des saignements ce jour-là.';
+
+  @override
+  String get dayFactSpotting => 'Vous avez noté du spotting ce jour-là.';
+
+  @override
+  String get dayFactLogged =>
+      'Vous avez noté des symptômes ou l\'humeur ce jour-là.';
+
+  @override
+  String dayFactNextPeriod(String range) {
+    return 'Ce jour est dans la plage où vos prochaines règles peuvent commencer : $range.';
+  }
+
+  @override
+  String dayFactLaterPeriod(String range) {
+    return 'Ce jour est dans la plage de règles plus lointaines : $range. Plus c\'est loin, moins c\'est sûr.';
+  }
+
+  @override
+  String dayFactFertile(String range) {
+    return 'Ce jour est dans votre fenêtre fertile estimée : $range.';
+  }
+
+  @override
+  String get dayFactOvulation =>
+      'femio estime l\'ovulation autour de ce jour, en comptant à rebours depuis vos prochaines règles. Les tests d\'ovulation et la température au réveil peuvent vous aider à savoir si vous avez ovulé.';
+
+  @override
+  String get dayFactNothingFuture => 'Rien n\'est estimé pour ce jour.';
+
+  @override
+  String get dayFactNothingPast =>
+      'Rien n\'est noté pour ce jour. femio n\'affiche pas d\'estimation sur les jours passés.';
+
+  @override
+  String get dayLogAction => 'Noter ce jour';
+
+  @override
+  String predictionMoved(String after, String before) {
+    return 'Prochaines règles maintenant vers $after. C\'était $before.';
+  }
+
+  @override
+  String predictionNew(String after) {
+    return 'Prochaines règles vers $after.';
+  }
+
+  @override
+  String get predictionWhy => 'Pourquoi ?';
 }

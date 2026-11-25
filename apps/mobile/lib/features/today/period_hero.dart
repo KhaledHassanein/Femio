@@ -14,6 +14,7 @@ import '../../domain/fertility.dart';
 import '../../domain/guidance.dart';
 import '../../l10n/app_localizations.dart';
 import '../../widgets/bbt_chart.dart';
+import '../calendar/prediction_sheets.dart';
 import 'hero_card.dart';
 import 'hero_meters.dart';
 import 'test_timing_card.dart';
@@ -62,16 +63,14 @@ class PeriodHero extends StatelessWidget {
       CycleBand(lastStart: profile.periodStarts.last, prediction: prediction, today: today),
     ];
     if (profile.goal == Goal.period) {
-      return HeroCard(eyebrow: l.predictionPeriodTitle, headline: period, extra: extra);
+      return Column(children: [
+        HeroCard(eyebrow: l.predictionPeriodTitle, headline: period, extra: extra),
+        WhyRangeButton(profile: profile, range: range),
+      ]);
     }
     // The window and the seek-help clock are domain rules with fixtures (MR-06..08,
     // MR-13/14); this screen only draws what they return.
-    final fertile = fertileWindowBefore(
-      prediction.predictedStart,
-      cycleLength: profile.cycleLength ?? prediction.averageLength,
-      irregular: prediction.irregular || profile.irregular,
-      learning: prediction.learning && prediction.basis != 'stated',
-    );
+    final fertile = fertileWindowFor(profile, prediction);
     final age = profile.birthYear == null ? null : fromISO(today).year - profile.birthYear!;
     final guidance = ttcGuidance(tryingFor: profile.tryingFor, age: age, irregular: profile.irregular || prediction.irregular);
     return Column(children: [
@@ -92,6 +91,7 @@ class PeriodHero extends StatelessWidget {
           extra: [HeroLine(l.noConfidentWindowBody), HeroLine(l.predictionNextPeriod(period)), ...extra],
         ),
       HeroNote(l.predictionNote),
+      WhyRangeButton(profile: profile, range: range),
       if (guidance.suggestClinician)
         HeroNote(switch (guidance.reason!) {
           GuidanceReason.irregularCycles => l.seeClinicianIrregular,

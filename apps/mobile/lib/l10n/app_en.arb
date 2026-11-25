@@ -1243,5 +1243,162 @@
   "calendarHintNoEstimates": "Tap a day to log it. Days you logged are filled in.",
   "@calendarHintNoEstimates": {
     "description": "R8.4: Calendar hint in pregnancy and menopause, where the calendar shows no estimates."
-  }
+  },
+  "whyRangeAction": "Why this range?",
+  "@whyRangeAction": {
+    "description": "R9.6: opens the sheet that explains the next-period range from her own log."
+  },
+  "whyRangeTitle": "Why this range",
+  "whyRangeStated": "femio cannot measure a cycle from your log yet, so it starts from the cycle length you gave: {length}. The range is {margin} either side.",
+  "@whyRangeStated": {
+    "placeholders": {
+      "length": {
+        "type": "String"
+      },
+      "margin": {
+        "type": "String"
+      }
+    }
+  },
+  "whyRangeCycles": "{count, plural, =1{femio measured 1 cycle from the periods you logged.} other{femio measured {count} cycles from the periods you logged.}}",
+  "@whyRangeCycles": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "whyRangeAverage": "Your recent cycles average {length}, so the middle of the range is {length} after your last period started.",
+  "@whyRangeAverage": {
+    "placeholders": {
+      "length": {
+        "type": "String"
+      }
+    }
+  },
+  "whyRangeSpread": "Your shortest and longest cycles are {spread} apart, so the range is {margin} either side of the middle.",
+  "@whyRangeSpread": {
+    "placeholders": {
+      "spread": {
+        "type": "String"
+      },
+      "margin": {
+        "type": "String"
+      }
+    }
+  },
+  "whyRangeSpreadNone": "Your cycles have all been the same length, so the range is the narrowest femio shows: {margin} either side.",
+  "@whyRangeSpreadNone": {
+    "placeholders": {
+      "margin": {
+        "type": "String"
+      }
+    }
+  },
+  "whyRangeIrregular": "Your cycles differ by more than {limit}, so femio shows only the next period, as a wider range, and never counts days late.",
+  "@whyRangeIrregular": {
+    "placeholders": {
+      "limit": {
+        "type": "String"
+      }
+    }
+  },
+  "whyRangeNextMedium": "{count, plural, =1{One more logged cycle that stays as steady would raise this to medium confidence.} other{{count} more logged cycles that stay as steady would raise this to medium confidence.}}",
+  "@whyRangeNextMedium": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "whyRangeNextHigh": "{count, plural, =1{One more logged cycle that stays as steady would raise this to high confidence.} other{{count} more logged cycles that stay as steady would raise this to high confidence.}}",
+  "@whyRangeNextHigh": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "whyRangeHighNeedsSteady": "High confidence needs cycles that vary by {limit} or less.",
+  "@whyRangeHighNeedsSteady": {
+    "placeholders": {
+      "limit": {
+        "type": "String"
+      }
+    }
+  },
+  "whyRangeWindowShown": "The fertile window is counted back from the middle of this range, so it moves when the range moves.",
+  "whyRangeWindowIrregular": "No fertile window is named because your cycles vary too much to count back from one date.",
+  "whyRangeWindowLearning": "No fertile window is named yet: femio needs at least two cycles from your log to count back from.",
+  "whyRangeWindowOutside": "No fertile window is named because your cycle length is outside {min} to {max} days, where counting back from one date is not reliable.",
+  "@whyRangeWindowOutside": {
+    "description": "MR-08: min and max are fertility.dart regularCycleMin/Max.",
+    "placeholders": {
+      "min": {
+        "type": "int"
+      },
+      "max": {
+        "type": "int"
+      }
+    }
+  },
+  "dayExplainLink": "Explain this day",
+  "@dayExplainLink": {
+    "description": "R10.13: opens the day explainer (long-press a day, or tap a future day)."
+  },
+  "dayFactBleed": "You logged bleeding on this day.",
+  "dayFactSpotting": "You logged spotting on this day.",
+  "dayFactLogged": "You logged symptoms or mood on this day.",
+  "dayFactNextPeriod": "This day is inside the range when your next period may start: {range}.",
+  "@dayFactNextPeriod": {
+    "placeholders": {
+      "range": {
+        "type": "String"
+      }
+    }
+  },
+  "dayFactLaterPeriod": "This day is inside the range for a later period: {range}. The further ahead, the less certain.",
+  "@dayFactLaterPeriod": {
+    "placeholders": {
+      "range": {
+        "type": "String"
+      }
+    }
+  },
+  "dayFactFertile": "This day is inside your estimated fertile window: {range}.",
+  "@dayFactFertile": {
+    "placeholders": {
+      "range": {
+        "type": "String"
+      }
+    }
+  },
+  "dayFactOvulation": "femio estimates ovulation around this day, counted back from your next period. Ovulation tests and waking temperature can help you tell whether you ovulated.",
+  "@dayFactOvulation": {
+    "description": "MR-07 estimate; the second sentence mirrors noConfidentWindowBody."
+  },
+  "dayFactNothingFuture": "Nothing is estimated for this day.",
+  "dayFactNothingPast": "Nothing is logged for this day. femio does not draw estimates on days already past.",
+  "dayLogAction": "Log this day",
+  "predictionMoved": "Next period now around {after}. It was {before}.",
+  "@predictionMoved": {
+    "description": "R10.13 / U17: shown after a logged period moves the estimate. Ranges only.",
+    "placeholders": {
+      "after": {
+        "type": "String"
+      },
+      "before": {
+        "type": "String"
+      }
+    }
+  },
+  "predictionNew": "Next period around {after}.",
+  "@predictionNew": {
+    "placeholders": {
+      "after": {
+        "type": "String"
+      }
+    }
+  },
+  "predictionWhy": "Why?"
 }

@@ -22,6 +22,7 @@ import '../../theme/type_sizes.dart';
 import '../../widgets/dashed_ring.dart';
 import '../../widgets/tab_header.dart';
 import '../pregnancy/week_strip.dart';
+import 'prediction_sheets.dart';
 import 'upcoming_periods_card.dart';
 
 /// Month calendar. What she logged is drawn filled; what Femio estimates is drawn in
@@ -176,8 +177,18 @@ class _CalendarScreenState extends State<CalendarScreen> {
           );
           final label = DateFormat.yMMMMd(locale).format(fromISO(iso));
 
+          // R10.13: a future day explains its estimate; a long press explains any day.
+          void explain() => showDaySheet(
+                context,
+                profile: profile,
+                day: iso,
+                today: widget.today,
+                range: range,
+                onLog: widget.onDay,
+              );
           return Semantics(
-            button: !future,
+            button: !future || predicts,
+            onLongPressHint: l.dayExplainLink,
             label: hijri.isEmpty
                 ? label
                 : l.calendarDayLabel(label, hijriFullDate(iso, locale)),
@@ -186,7 +197,8 @@ class _CalendarScreenState extends State<CalendarScreen> {
               borderRadius: hijri.isEmpty
                   ? null
                   : BorderRadius.circular(radiusMd),
-              onTap: future ? null : () => widget.onDay(iso),
+              onTap: future ? (predicts ? explain : null) : () => widget.onDay(iso),
+              onLongPress: explain,
               child: hijri.isEmpty
                   ? Padding(padding: const EdgeInsets.all(3), child: number)
                   : Column(
@@ -359,6 +371,7 @@ class _CalendarScreenState extends State<CalendarScreen> {
               if (upcoming.isNotEmpty) ...[
                 const SizedBox(height: space4),
                 UpcomingPeriodsCard(periods: upcoming, range: range),
+                WhyRangeButton(profile: profile, range: range),
               ],
               const SizedBox(height: space3h),
               // R8.4: only period and TTC modes draw estimates, so only they mention outlines.
