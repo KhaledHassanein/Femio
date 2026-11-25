@@ -2786,4 +2786,38 @@ class L10nEn extends L10n {
   @override
   String get logAllItemsSub =>
       'Ovulation test and temperature, hidden in pregnancy';
+
+  @override
+  String get sayItHintTtc =>
+      'For example: positive ovulation test, mild cramps and bloating';
+
+  @override
+  String get sayItHintPregnant =>
+      'For example: morning sickness, backache and so tired';
+
+  @override
+  String get sayItHintPostpartum =>
+      'For example: poor sleep, back pain and feeling low';
+
+  @override
+  String get sayItHintMenopause =>
+      'For example: hot flushes, night sweats and poor sleep';
+
+  @override
+  String get askHintTtc => 'For example: when is my fertile window?';
+
+  @override
+  String get askHintPregnant =>
+      'For example: what helps with heartburn in pregnancy?';
+
+  @override
+  String get askHintPostpartum =>
+      'For example: what helps with sore nipples when breastfeeding?';
+
+  @override
+  String get askHintMenopause => 'For example: what helps with hot flushes?';
+
+  @override
+  String get calendarHintNoEstimates =>
+      'Tap a day to log it. Days you logged are filled in.';
 }

@@ -361,7 +361,8 @@ class _CalendarScreenState extends State<CalendarScreen> {
                 UpcomingPeriodsCard(periods: upcoming, range: range),
               ],
               const SizedBox(height: space3h),
-              Text(l.calendarHint, style: t.bodySmall),
+              // R8.4: only period and TTC modes draw estimates, so only they mention outlines.
+              Text(predicts ? l.calendarHint : l.calendarHintNoEstimates, style: t.bodySmall),
             ],
           ),
         );

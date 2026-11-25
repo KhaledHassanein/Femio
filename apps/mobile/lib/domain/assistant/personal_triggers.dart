@@ -9,7 +9,7 @@
 import '../../data/profile.dart';
 import '../dates.dart';
 import '../pregnancy.dart';
-import 'pseudonymised_profile.dart' show StageBand;
+import 'pseudonymised_profile.dart' show StageBand, stageBandOf;
 
 /// A term logged on at least [minDays] days within the last [windowDays] days.
 class TermRule {
@@ -93,12 +93,7 @@ class TriggerContext {
 /// Reads her record into a [TriggerContext] as of [today] (yyyy-mm-dd). Never fails.
 TriggerContext triggerContext(Profile profile, String today) {
   final birth = profile.birthDate;
-  final stage = switch (profile.goal) {
-    Goal.period => StageBand.period,
-    Goal.ttc => StageBand.ttc,
-    Goal.pregnant => birth == null ? StageBand.pregnant : StageBand.postpartum,
-    Goal.menopause => StageBand.menopause,
-  };
+  final stage = stageBandOf(profile);
   final edd = profile.edd;
   return TriggerContext(
     stage: stage,

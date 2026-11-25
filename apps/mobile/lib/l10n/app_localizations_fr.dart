@@ -2809,4 +2809,39 @@ class L10nFr extends L10n {
   @override
   String get logAllItemsSub =>
       'Test d\'ovulation et température, masqués pendant la grossesse';
+
+  @override
+  String get sayItHintTtc =>
+      'Par exemple : test d\'ovulation positif, petites crampes, ballonnements';
+
+  @override
+  String get sayItHintPregnant =>
+      'Par exemple : nausées du matin, mal de dos, très fatiguée';
+
+  @override
+  String get sayItHintPostpartum =>
+      'Par exemple : insomnie, mal de dos, moral en baisse';
+
+  @override
+  String get sayItHintMenopause =>
+      'Par exemple : bouffées de chaleur, sueurs nocturnes, insomnie';
+
+  @override
+  String get askHintTtc => 'Par exemple : quand est ma période fertile ?';
+
+  @override
+  String get askHintPregnant =>
+      'Par exemple : qu\'est-ce qui soulage les brûlures d\'estomac pendant la grossesse ?';
+
+  @override
+  String get askHintPostpartum =>
+      'Par exemple : qu\'est-ce qui soulage les mamelons douloureux pendant l\'allaitement ?';
+
+  @override
+  String get askHintMenopause =>
+      'Par exemple : qu\'est-ce qui soulage les bouffées de chaleur ?';
+
+  @override
+  String get calendarHintNoEstimates =>
+      'Touchez un jour pour le noter. Les jours notés sont remplis.';
 }

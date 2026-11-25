@@ -2807,4 +2807,34 @@ class L10nAr extends L10n {
   @override
   String get logAllItemsSub =>
       'اختبار التبويض ودرجة الحرارة، مخفيّان أثناء الحمل';
+
+  @override
+  String get sayItHintTtc =>
+      'مثلًا: اختبار التبويض إيجابي، تقلصات خفيفة وانتفاخ';
+
+  @override
+  String get sayItHintPregnant => 'مثلًا: غثيان الصباح، ألم الظهر وتعب شديد';
+
+  @override
+  String get sayItHintPostpartum => 'مثلًا: أرق، ألم الظهر ومزاج حزين';
+
+  @override
+  String get sayItHintMenopause => 'مثلًا: هبات ساخنة، تعرق ليلي وأرق';
+
+  @override
+  String get askHintTtc => 'مثلًا: متى تكون فترة الخصوبة؟';
+
+  @override
+  String get askHintPregnant => 'مثلًا: ما الذي يخفف حرقة المعدة أثناء الحمل؟';
+
+  @override
+  String get askHintPostpartum =>
+      'مثلًا: ما الذي يخفف ألم الحلمات أثناء الرضاعة؟';
+
+  @override
+  String get askHintMenopause => 'مثلًا: ما الذي يخفف الهبات الساخنة؟';
+
+  @override
+  String get calendarHintNoEstimates =>
+      'اضغطي على أي يوم لتسجيله. الأيام التي سجّلتِها تظهر ممتلئة.';
 }

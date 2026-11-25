@@ -776,5 +776,14 @@
   "sectionBleedingPregnant": "Sangrado o manchado",
   "bleedingPregnantNote": "El sangrado en el embarazo es frecuente, pero puede ser señal de algo grave. Cuéntale cualquier sangrado a tu matrona o a tu médico.",
   "logAllItems": "Todos los elementos del registro",
-  "logAllItemsSub": "Test de ovulación y temperatura, ocultos en el embarazo"
+  "logAllItemsSub": "Test de ovulación y temperatura, ocultos en el embarazo",
+  "sayItHintTtc": "Por ejemplo: test de ovulación positivo, cólicos leves e hinchazón",
+  "sayItHintPregnant": "Por ejemplo: náuseas por la mañana, dolor de espalda y mucho cansancio",
+  "sayItHintPostpartum": "Por ejemplo: insomnio, dolor de espalda y ánimo bajo",
+  "sayItHintMenopause": "Por ejemplo: sofocos, sudores nocturnos e insomnio",
+  "askHintTtc": "Por ejemplo: ¿cuáles son mis días fértiles?",
+  "askHintPregnant": "Por ejemplo: ¿qué alivia la acidez en el embarazo?",
+  "askHintPostpartum": "Por ejemplo: ¿qué alivia los pezones doloridos al dar el pecho?",
+  "askHintMenopause": "Por ejemplo: ¿qué alivia los sofocos?",
+  "calendarHintNoEstimates": "Toca un día para registrarlo. Los días registrados aparecen rellenos."
 }

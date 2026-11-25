@@ -2801,4 +2801,38 @@ class L10nEs extends L10n {
   @override
   String get logAllItemsSub =>
       'Test de ovulación y temperatura, ocultos en el embarazo';
+
+  @override
+  String get sayItHintTtc =>
+      'Por ejemplo: test de ovulación positivo, cólicos leves e hinchazón';
+
+  @override
+  String get sayItHintPregnant =>
+      'Por ejemplo: náuseas por la mañana, dolor de espalda y mucho cansancio';
+
+  @override
+  String get sayItHintPostpartum =>
+      'Por ejemplo: insomnio, dolor de espalda y ánimo bajo';
+
+  @override
+  String get sayItHintMenopause =>
+      'Por ejemplo: sofocos, sudores nocturnos e insomnio';
+
+  @override
+  String get askHintTtc => 'Por ejemplo: ¿cuáles son mis días fértiles?';
+
+  @override
+  String get askHintPregnant =>
+      'Por ejemplo: ¿qué alivia la acidez en el embarazo?';
+
+  @override
+  String get askHintPostpartum =>
+      'Por ejemplo: ¿qué alivia los pezones doloridos al dar el pecho?';
+
+  @override
+  String get askHintMenopause => 'Por ejemplo: ¿qué alivia los sofocos?';
+
+  @override
+  String get calendarHintNoEstimates =>
+      'Toca un día para registrarlo. Los días registrados aparecen rellenos.';
 }

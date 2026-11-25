@@ -4618,6 +4618,60 @@ abstract class L10n {
   /// In en, this message translates to:
   /// **'Ovulation test and temperature, hidden in pregnancy'**
   String get logAllItemsSub;
+
+  /// R8.4: Say it example for trying to conceive. Every phrase must be one the Say it rules can log (stage_hints_test).
+  ///
+  /// In en, this message translates to:
+  /// **'For example: positive ovulation test, mild cramps and bloating'**
+  String get sayItHintTtc;
+
+  /// No description provided for @sayItHintPregnant.
+  ///
+  /// In en, this message translates to:
+  /// **'For example: morning sickness, backache and so tired'**
+  String get sayItHintPregnant;
+
+  /// No description provided for @sayItHintPostpartum.
+  ///
+  /// In en, this message translates to:
+  /// **'For example: poor sleep, back pain and feeling low'**
+  String get sayItHintPostpartum;
+
+  /// No description provided for @sayItHintMenopause.
+  ///
+  /// In en, this message translates to:
+  /// **'For example: hot flushes, night sweats and poor sleep'**
+  String get sayItHintMenopause;
+
+  /// R8.4: Ask femio example for trying to conceive. Must find a passage in the registry and trip no safety rule (stage_hints_test).
+  ///
+  /// In en, this message translates to:
+  /// **'For example: when is my fertile window?'**
+  String get askHintTtc;
+
+  /// No description provided for @askHintPregnant.
+  ///
+  /// In en, this message translates to:
+  /// **'For example: what helps with heartburn in pregnancy?'**
+  String get askHintPregnant;
+
+  /// No description provided for @askHintPostpartum.
+  ///
+  /// In en, this message translates to:
+  /// **'For example: what helps with sore nipples when breastfeeding?'**
+  String get askHintPostpartum;
+
+  /// No description provided for @askHintMenopause.
+  ///
+  /// In en, this message translates to:
+  /// **'For example: what helps with hot flushes?'**
+  String get askHintMenopause;
+
+  /// R8.4: Calendar hint in pregnancy and menopause, where the calendar shows no estimates.
+  ///
+  /// In en, this message translates to:
+  /// **'Tap a day to log it. Days you logged are filled in.'**
+  String get calendarHintNoEstimates;
 }
 
 class _L10nDelegate extends LocalizationsDelegate<L10n> {

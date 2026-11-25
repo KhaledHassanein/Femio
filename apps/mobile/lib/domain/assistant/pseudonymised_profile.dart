@@ -16,6 +16,15 @@ import '../log_vocabulary.g.dart';
 /// Her life stage, as the app already layers it (rule 5): after birth is its own band.
 enum StageBand { period, ttc, pregnant, postpartum, menopause }
 
+/// Her [StageBand]: her goal, with pregnancy split at the birth date (rule 5). The one
+/// place the app derives it; tips, hints and the cloud bands all read this.
+StageBand stageBandOf(Profile profile) => switch (profile.goal) {
+      Goal.period => StageBand.period,
+      Goal.ttc => StageBand.ttc,
+      Goal.pregnant => profile.birthDate == null ? StageBand.pregnant : StageBand.postpartum,
+      Goal.menopause => StageBand.menopause,
+    };
+
 /// How regular her cycles look from her own log; unknown until there is enough to say.
 enum RegularityBand { regular, variable, unknown, notApplicable }
 
@@ -88,12 +97,7 @@ class PseudonymisedProfile {
 /// Builds her [PseudonymisedProfile] from [profile] as of [today] (yyyy-mm-dd). Never fails;
 /// an empty record gives the "unknown" and "none" bands.
 PseudonymisedProfile pseudonymise(Profile profile, String today) {
-  final stage = switch (profile.goal) {
-    Goal.period => StageBand.period,
-    Goal.ttc => StageBand.ttc,
-    Goal.pregnant => profile.birthDate == null ? StageBand.pregnant : StageBand.postpartum,
-    Goal.menopause => StageBand.menopause,
-  };
+  final stage = stageBandOf(profile);
   final regularity = switch (stage) {
     StageBand.pregnant || StageBand.postpartum || StageBand.menopause => RegularityBand.notApplicable,
     _ => _regularity(profile),

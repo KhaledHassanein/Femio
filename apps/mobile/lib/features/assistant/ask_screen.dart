@@ -35,6 +35,7 @@ import '../learn/article_screen.dart';
 import 'answer_card.dart';
 import 'assistant_scope.dart';
 import 'safety_notice.dart';
+import 'stage_hints.dart';
 
 enum _Stage { asking, confirming, working, answered }
 
@@ -226,7 +227,7 @@ class _AskScreenState extends State<AskScreen> {
               enabled: _stage == _Stage.asking,
               textInputAction: TextInputAction.search,
               onSubmitted: (_) => _ask(),
-              decoration: InputDecoration(hintText: l.askHint, border: const OutlineInputBorder()),
+              decoration: InputDecoration(hintText: askHintFor(l, hintStage(_profile)), border: const OutlineInputBorder()),
             ),
             if (_stage == _Stage.asking) ...[
               const SizedBox(height: space3),

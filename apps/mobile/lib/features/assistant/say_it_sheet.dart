@@ -19,6 +19,7 @@ import '../../theme/spacing.dart';
 import '../../theme/type_sizes.dart';
 import 'assistant_scope.dart';
 import 'safety_notice.dart';
+import 'stage_hints.dart';
 
 /// Opens the sheet for the day [date] in [controller]'s record.
 Future<void> showSayItSheet(BuildContext context, {required FemioController controller, required String date}) =>
@@ -130,7 +131,10 @@ class _SayItSheetState extends State<SayItSheet> {
               autofocus: true,
               textInputAction: TextInputAction.done,
               onSubmitted: (_) => _read(),
-              decoration: InputDecoration(hintText: l.sayItHint, border: const OutlineInputBorder()),
+              decoration: InputDecoration(
+                hintText: sayItHintFor(l, hintStage(widget.controller.profile)),
+                border: const OutlineInputBorder(),
+              ),
             ),
             const SizedBox(height: space3),
             FilledButton.icon(

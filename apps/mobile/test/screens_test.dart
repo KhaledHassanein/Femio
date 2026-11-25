@@ -365,6 +365,9 @@ void main() {
         await tester.pumpAndSettle();
         expect(find.byType(PregnancyWeekStrip), findsOneWidget);
         expect(find.bySemanticsLabel(l.pregWeekCurrentLabel(22)), findsOneWidget, reason: 'her week is marked');
+        // R8.4: no estimates are drawn in pregnancy, so the hint does not mention them.
+        expect(find.text(l.calendarHintNoEstimates, skipOffstage: false), findsOneWidget);
+        expect(find.text(l.calendarHint, skipOffstage: false), findsNothing);
         await _shoot(tester, '${lang}_${b.name}_20_pregnancy_weeks');
         await tester.tap(find.byIcon(Icons.edit_note_outlined));
         await tester.pumpAndSettle();
@@ -372,6 +375,14 @@ void main() {
         expect(find.text(l.sectionPeriod), findsNothing);
         expect(find.text(l.sectionOvulationTest, skipOffstage: false), findsNothing, reason: 'folded under All log items');
         await _shoot(tester, '${lang}_${b.name}_22_log_pregnant');
+        // R8.4: Say it offers a pregnancy example, not the period one.
+        await tester.tap(find.text(l.sayItButton));
+        await tester.pumpAndSettle();
+        expect(find.text(l.sayItHintPregnant), findsOneWidget);
+        expect(find.text(l.sayItHint), findsNothing);
+        await _shoot(tester, '${lang}_${b.name}_23_say_it_pregnant');
+        await tester.tapAt(const Offset(20, 20));
+        await tester.pumpAndSettle();
         await tester.scrollUntilVisible(find.text(l.logAllItems, skipOffstage: false), 300, scrollable: listOf(LogScreen));
         await tester.ensureVisible(find.text(l.logAllItems, skipOffstage: false));
         await tester.pumpAndSettle();
