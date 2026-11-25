@@ -16,6 +16,8 @@ history and `docs/archive/`.
 
 ## Where things stand (2026-10-28)
 
+- **Wave 1 for the initial release 1.0.0 (2026-11-25, branch `claude/firebase-hackathon-eligibility-833c52`, not merged).** Owner: ship 1.0.0 with wave 1, the rest as updates. Done: R10.3 "What the AI can see" (04c4333), web launch SEO pass R12.4 (9450300), R8.3 Ask femio pill (eb088c7), R8.6/R8.7/R9.1 pregnancy by week (356b4a2), R8.4 stage examples (b52590f). App gate: analyze clean, 829 tests. Next in order: R9.6 + R10.13 explainers, R10.2 + R8.27 visit companion, R10.3 rest (tip "why", AI ledger), R10.7, R12.1, R10.1 rest; R8.10b blocked on a source. Owner/agent board: https://claude.ai/artifact/4BNRwtG7FspkAWsem7AwvB (`items` collection; writes need `if_version`).
+
 - **Deploy 2026-11-25 (main 2bdbe7c).** The registry (R7.14), content revision (R3.10) and calculators (R13) branches merged on top of the website upgrade; gate green (app 735 tests, web 751 + all guards); live on femioapp.com: home, /app and the four new calculator pages return 200 in en, ar, fr and es (24 pages checked). Renumbered on merge: calculators R11→R13, MR-52..54→MR-53..55, content owner action 37→39.
 
 - **Website shows the app as it stands (R2.10, 2026-11-25).** Merged into `main` with the hackathon branch (b09bf3f, owner's go-ahead) and live on femioapp.com since 2026-11-25 (dpl_8U7STc8dKH3SCBcLnX7s6wYbkvJp). `/app` and home gain a tour of real app screens, three demos on synthetic data (next periods, Say it, Ask femio) and "what can leave this phone"; app sentences are synced from the ARB (`app-strings-lint` in the gate). Until owner action 31 (enable Vercel Web Analytics) is done, pages log a 404 for the analytics script.
