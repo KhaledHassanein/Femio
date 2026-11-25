@@ -4,7 +4,7 @@ import { getTranslations, setRequestLocale } from "next-intl/server";
 import { availableLocales, getContentBySlug, allSlugs } from "@/lib/cms/client";
 import { metaDescription } from "@/lib/cms/format";
 import { ContentArticle } from "@/components/cms/content-article";
-import { localizedAlternates, socialMetadata } from "@/lib/seo/metadata";
+import { fitTitle, localizedAlternates, socialMetadata } from "@/lib/seo/metadata";
 
 type PageProps = { params: Promise<{ locale: string; slug: string }> };
 
@@ -37,7 +37,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const available = await availableLocales("articles", slug);
   const translated = available.includes(locale);
   return {
-    title: seo.seoTitle || doc.title,
+    title: fitTitle(seo.seoTitle || doc.title),
     description: seo.metaDescription || metaDescription(doc),
     alternates: seo.canonicalOverride
       ? { canonical: seo.canonicalOverride }

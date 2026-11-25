@@ -1,7 +1,7 @@
 {
   "meta": {
-    "title": "femio",
-    "description": "La compañera privada para buscar un embarazo y vivirlo, en inglés, árabe, francés y español. Guías con fuentes, calculadoras y registros que nunca salen de tu teléfono."
+    "title": "femio: ciclo, fertilidad y embarazo en privado",
+    "description": "La compañera privada para buscar un embarazo y vivirlo. Guías con fuentes, calculadoras y registros que nunca salen de tu teléfono."
   },
   "home": {
     "rail": {
@@ -1169,7 +1169,7 @@
           },
           {
             "lead": "Compras en Google Play.",
-            "body": "Instalas femio desde Google Play, que nos da totales, como instalaciones y fallos, según su propia política. Si compras femio Plus, Google Play gestiona el pago; femio solo sabe si tienes Plus."
+            "body": "Instalas femio desde Google Play, que nos da totales, como instalaciones y fallos, según su propia política. Si compras femio Plus, Google Play gestiona el pago; femio solo sabe si tienes Plus. Google Play también busca actualizaciones de femio y, de vez en cuando, puede mostrar su propia ventana para que valores la app; femio no envía nada tuyo con ninguna de las dos."
           },
           {
             "lead": "Enlaces que abres.",
@@ -1685,6 +1685,8 @@
     "body": "Una app de Android privada para buscar un embarazo y vivirlo, con un asistente que funciona en tu teléfono. Tu calendario, tus registros y tus herramientas de embarazo se quedan en tu teléfono, tras un PIN si lo eliges. Sin cuenta, y nada va a la nube salvo que actives Cloud boost. Muy pronto en Google Play.",
     "android": "Google Play",
     "androidStatus": "Muy pronto",
+    "androidLive": "Disponible en Google Play",
+    "bodyLive": "Una app de Android privada para buscar un embarazo y vivirlo, con un asistente que funciona en tu teléfono. Tu calendario, tus registros y tus herramientas de embarazo se quedan en tu teléfono, tras un PIN si lo eliges. Sin cuenta, y nada va a la nube salvo que actives Cloud boost.",
     "ios": "iPhone",
     "iosStatus": "Muy pronto",
     "featuresTitle": "Qué hace la app",

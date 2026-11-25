@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { listPeople } from "@/lib/cms/client";
 import { Link } from "@/i18n/navigation";
-import { localizedAlternates } from "@/lib/seo/metadata";
+import { pageMetadata } from "@/lib/seo/metadata";
 
 type PageProps = { params: Promise<{ locale: string }> };
 
@@ -11,11 +11,7 @@ export const revalidate = 3600; // content changes only with a deploy now (repo 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "authors" });
-  return {
-    title: t("title"),
-    description: t("subtitle"),
-    alternates: localizedAlternates(locale, "/authors"),
-  };
+  return pageMetadata({ locale, path: "/authors", title: t("title"), description: t("subtitle") });
 }
 
 // Authors & medical reviewers index (P1.9b.3b). Empty until the first bios are

@@ -36,12 +36,18 @@ export function localizedAlternates(
  * Twitter card falls back to the site title. Every page that sets social copy goes
  * through here so the per-locale image and the card type always come with it.
  */
-export function socialMetadata(locale: string, path: string, title: string, description: string): Pick<Metadata, "openGraph" | "twitter"> {
+export function socialMetadata(
+  locale: string,
+  path: string,
+  title: string,
+  description: string,
+  type: "article" | "website" = "article",
+): Pick<Metadata, "openGraph" | "twitter"> {
   const image = `/og/${locale}.png`;
   const clean = path === "/" ? "" : path.replace(/\/$/, "");
   return {
     openGraph: {
-      type: "article",
+      type,
       siteName: siteConfig.name,
       title,
       description,
@@ -50,5 +56,62 @@ export function socialMetadata(locale: string, path: string, title: string, desc
       images: [{ url: image, width: 1200, height: 630, alt: title }],
     },
     twitter: { card: "summary_large_image", title, description, images: [image] },
+  };
+}
+
+/** Longest meta description Google shows in full; beyond this it truncates or rewrites. */
+export const META_DESCRIPTION_MAX = 160;
+/** Longest title that fits a results page before an ellipsis, wordmark suffix included. */
+export const TITLE_MAX = 60;
+
+/**
+ * A search description of at most `max` characters taken from longer page copy.
+ * It cuts at the last full sentence that fits (so the snippet reads as finished text),
+ * and falls back to the last whole word plus an ellipsis when no sentence is short enough.
+ * Text already short enough is returned unchanged.
+ */
+export function fitDescription(text: string, max = META_DESCRIPTION_MAX): string {
+  const clean = text.replace(/\s+/g, " ").trim();
+  if (clean.length <= max) return clean;
+  const head = clean.slice(0, max);
+  // Sentence enders in Latin and Arabic script ("." "!" "?" "؟").
+  const ends = [...head.matchAll(/[.!?؟](?=\s|$)/g)];
+  const lastEnd = ends.length > 0 ? (ends[ends.length - 1]!.index ?? -1) : -1;
+  if (lastEnd >= 60) return head.slice(0, lastEnd + 1);
+  const room = clean.slice(0, max - 1);
+  const lastSpace = room.lastIndexOf(" ");
+  return `${(lastSpace > 40 ? room.slice(0, lastSpace) : room).replace(/[\s,;:.،-]+$/, "")}…`;
+}
+
+/**
+ * The page title for the root layout's `%s — femio` template. When the suffixed title
+ * would pass `TITLE_MAX` the wordmark is dropped for that page (`absolute`), so the
+ * words that describe the page are never the ones cut off in results.
+ */
+export function fitTitle(title: string): NonNullable<Metadata["title"]> {
+  return `${title} — ${siteConfig.name}`.length > TITLE_MAX ? { absolute: title } : title;
+}
+
+/**
+ * Full metadata for a page with its own title and description: fitted title and
+ * description, self-referencing canonical + hreflang, and its own Open Graph and
+ * Twitter blocks. Without the last one a page inherits the home page's `og:title`,
+ * `og:url` and `og:description` from the layout, so a shared link to /about
+ * previews as the home page (found in the 2026-11 SEO audit).
+ */
+export function pageMetadata(args: {
+  locale: string;
+  /** Locale-less path, e.g. "/about". */
+  path: string;
+  title: string;
+  description: string;
+  available?: readonly string[];
+}): Metadata {
+  const description = fitDescription(args.description);
+  return {
+    title: fitTitle(args.title),
+    description,
+    alternates: localizedAlternates(args.locale, args.path, args.available),
+    ...socialMetadata(args.locale, args.path, args.title, description, "website"),
   };
 }

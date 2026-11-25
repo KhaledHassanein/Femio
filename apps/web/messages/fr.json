@@ -1,7 +1,7 @@
 {
   "meta": {
-    "title": "femio",
-    "description": "Le compagnon privé du projet de grossesse et de la grossesse, en anglais, arabe, français et espagnol. Des guides sourcés, des calculateurs et des données qui ne quittent jamais votre téléphone."
+    "title": "femio : cycle, fertilité et grossesse en privé",
+    "description": "Le compagnon privé du projet de grossesse et de la grossesse. Guides sourcés, calculateurs et données qui ne quittent jamais votre téléphone."
   },
   "home": {
     "rail": {
@@ -1169,7 +1169,7 @@
           },
           {
             "lead": "Achats sur Google Play.",
-            "body": "Vous installez femio depuis Google Play, qui nous communique des totaux, par exemple le nombre d’installations et de plantages, selon sa propre politique. Si vous achetez femio Plus, Google Play gère le paiement ; femio sait seulement si vous avez Plus."
+            "body": "Vous installez femio depuis Google Play, qui nous communique des totaux, par exemple le nombre d’installations et de plantages, selon sa propre politique. Si vous achetez femio Plus, Google Play gère le paiement ; femio sait seulement si vous avez Plus. Google Play vérifie aussi les mises à jour de femio et peut parfois afficher sa propre fenêtre vous invitant à noter l’application ; femio n’y joint rien de vos données."
           },
           {
             "lead": "Les liens que vous ouvrez.",
@@ -1685,6 +1685,8 @@
     "body": "Une application Android privée pour le projet de grossesse et la grossesse, avec un assistant qui fonctionne sur votre téléphone. Votre calendrier, vos notes et vos outils de grossesse restent sur votre téléphone, derrière un code PIN si vous le souhaitez. Sans compte, et rien ne part dans le cloud sauf si vous activez Cloud boost. Bientôt sur Google Play.",
     "android": "Google Play",
     "androidStatus": "Bientôt",
+    "androidLive": "Disponible sur Google Play",
+    "bodyLive": "Une application Android privée pour le projet de grossesse et la grossesse, avec un assistant qui fonctionne sur votre téléphone. Votre calendrier, vos notes et vos outils de grossesse restent sur votre téléphone, derrière un code PIN si vous le souhaitez. Sans compte, et rien ne part dans le cloud sauf si vous activez Cloud boost.",
     "ios": "iPhone",
     "iosStatus": "Bientôt",
     "featuresTitle": "Ce que fait l'application",

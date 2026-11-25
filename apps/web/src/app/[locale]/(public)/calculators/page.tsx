@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { Baby, CalendarDays, CalendarHeart, CalendarRange, Flower2, Hourglass, Ruler, Scale, TestTube, Timer } from "lucide-react";
 import { Link } from "@/i18n/navigation";
-import { localizedAlternates } from "@/lib/seo/metadata";
+import { pageMetadata } from "@/lib/seo/metadata";
 
 type PageProps = { params: Promise<{ locale: string }> };
 
@@ -24,11 +24,7 @@ const TOOLS = [
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "calculators" });
-  return {
-    title: t("title"),
-    description: t("subtitle"),
-    alternates: localizedAlternates(locale, "/calculators"),
-  };
+  return pageMetadata({ locale, path: "/calculators", title: t("title"), description: t("subtitle") });
 }
 
 export default async function CalculatorsPage({ params }: PageProps) {

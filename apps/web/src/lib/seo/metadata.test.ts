@@ -1,5 +1,6 @@
 import { describe, expect, it } from "vitest";
-import { localizedAlternates, socialMetadata } from "./metadata";
+import { siteConfig } from "./config";
+import { fitDescription, fitTitle, localizedAlternates, pageMetadata, socialMetadata } from "./metadata";
 
 describe("localizedAlternates", () => {
   it("advertises every locale for a fully translated UI page", () => {
@@ -52,5 +53,49 @@ describe("socialMetadata", () => {
       images: [expect.objectContaining({ url: "/og/ar.png", width: 1200, height: 630 })],
     });
     expect(m.twitter).toMatchObject({ card: "summary_large_image", title: "عنوان", images: ["/og/ar.png"] });
+  });
+});
+
+describe("fitDescription", () => {
+  it("returns short copy unchanged", () => {
+    expect(fitDescription("A short line.")).toBe("A short line.");
+  });
+
+  it("cuts at the last whole sentence that fits", () => {
+    const first = "Cited guides, calculators and records that never leave your phone, for every stage.";
+    const text = `${first} ${"More words follow here and keep going. ".repeat(6)}`;
+    const out = fitDescription(text);
+    expect(out.length).toBeLessThanOrEqual(160);
+    expect(out.endsWith(".")).toBe(true);
+    expect(text.startsWith(out)).toBe(true);
+  });
+
+  it("falls back to a whole word and an ellipsis when no sentence is short enough", () => {
+    const out = fitDescription("word ".repeat(80));
+    expect(out.length).toBeLessThanOrEqual(160);
+    expect(out.endsWith("…")).toBe(true);
+  });
+});
+
+describe("fitTitle", () => {
+  it("keeps the wordmark suffix when the whole title fits", () => {
+    expect(fitTitle("About femio")).toBe("About femio");
+  });
+
+  it("drops the suffix for a title that would pass 60 characters with it", () => {
+    const long = "Saignements après l’accouchement : normal ou alerte ?";
+    expect(fitTitle(long)).toEqual({ absolute: long });
+  });
+});
+
+describe("pageMetadata", () => {
+  it("gives a page its own canonical, hreflang, Open Graph URL and title", () => {
+    // The regression: pages that set only title/description inherited the home page's
+    // og:url and og:title, so a shared /about link previewed as the home page.
+    const m = pageMetadata({ locale: "ar", path: "/about", title: "About", description: "Who we are." });
+    expect(m.alternates?.canonical).toBe("/ar/about");
+    expect(m.alternates?.languages?.["x-default"]).toBe("/en/about");
+    expect(m.openGraph).toMatchObject({ url: `${siteConfig.baseUrl}/ar/about`, title: "About", type: "website" });
+    expect(m.twitter).toMatchObject({ card: "summary_large_image", title: "About" });
   });
 });

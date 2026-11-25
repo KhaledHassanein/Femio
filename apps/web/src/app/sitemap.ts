@@ -44,7 +44,6 @@ const STATIC_PATHS = [
 export const revalidate = 3600;
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const now = new Date();
   const entries: MetadataRoute.Sitemap = [];
 
   /**
@@ -54,20 +53,27 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
    * three duplicate English pages per article and claimed hreflang alternates that do
    * not exist (P1.6.15). Content passes the locales it is actually written in.
    */
-  const add = (path: string, lastModified: Date, locales: readonly string[] = routing.locales) => {
+  const add = (path: string, lastModified: Date | undefined, locales: readonly string[] = routing.locales) => {
     if (locales.length === 0) return;
     const languages: Record<string, string> = {};
     for (const l of locales) languages[l] = `${siteConfig.baseUrl}/${l}${path}`;
+    // x-default mirrors the on-page hreflang cluster (see localizedAlternates): the
+    // default locale when it is in the set, else the first one that is.
+    const fallback = locales.includes(routing.defaultLocale) ? routing.defaultLocale : locales[0];
+    if (fallback) languages["x-default"] = `${siteConfig.baseUrl}/${fallback}${path}`;
     for (const locale of locales) {
       entries.push({
         url: `${siteConfig.baseUrl}/${locale}${path}`,
-        lastModified,
+        ...(lastModified ? { lastModified } : {}),
         alternates: { languages },
       });
     }
   };
 
-  for (const path of STATIC_PATHS.filter((p) => !isUnpublishedSection(p))) add(path, now);
+  // No `lastmod` for static pages: their copy changes with deploys, not on a date we
+  // track, and stamping "now" on every hourly regeneration teaches Google to ignore
+  // `lastmod` for the whole site. Content pages below carry their real `updatedAt`.
+  for (const path of STATIC_PATHS.filter((p) => !isUnpublishedSection(p))) add(path, undefined);
 
   // Published content (slugs shared across locales). Graceful if the CMS is unset.
   for (const { collection, base } of [
@@ -84,15 +90,25 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     });
     // One lookup for the whole collection, not one per document — see translatedSlugs.
     const byLocale = await translatedSlugs(collection, { throwOnFailure: true });
+    // A page marked `noindex` (a draft, or a hub that duplicates its article) must not be
+    // submitted: Search Console reports "Submitted URL marked 'noindex'" for each one, and
+    // an hreflang alternate that points at a noindex page is ignored. `seo.noIndex` is
+    // per locale, so each locale's own document decides.
+    const hidden = new Set<string>();
+    for (const l of routing.locales) {
+      for (const d of await listContent(collection, l, { fields: [...LIST_FIELDS, "seo"] })) {
+        if (d.seo?.noIndex) hidden.add(`${l}/${d.slug}`);
+      }
+    }
     for (const d of docs) {
-      const locales = routing.locales.filter((l) => byLocale[l]?.has(d.slug));
-      add(`${base}/${d.slug}`, d.updatedAt ? new Date(d.updatedAt) : now, locales);
+      const locales = routing.locales.filter((l) => byLocale[l]?.has(d.slug) && !hidden.has(`${l}/${d.slug}`));
+      add(`${base}/${d.slug}`, d.updatedAt ? new Date(d.updatedAt) : undefined, locales);
     }
   }
 
   // Published author/reviewer bios (E-E-A-T surfaces, so they should be indexed).
   for (const p of await listPeople(routing.defaultLocale, { throwOnFailure: true })) {
-    add(`/authors/${p.slug}`, p.updatedAt ? new Date(p.updatedAt) : now);
+    add(`/authors/${p.slug}`, p.updatedAt ? new Date(p.updatedAt) : undefined);
   }
 
   return entries;

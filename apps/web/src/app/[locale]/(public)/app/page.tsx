@@ -17,18 +17,15 @@ import { AppTourSection, TryDemosSection, WhatCanLeaveSection } from "@/componen
 import { PhoneMock } from "@/components/site/phone-mock";
 import { Button } from "@/components/ui/button";
 import { Link } from "@/i18n/navigation";
-import { localizedAlternates } from "@/lib/seo/metadata";
+import { pageMetadata } from "@/lib/seo/metadata";
+import { PLAY_STORE_URL } from "@/lib/site";
 
 type PageProps = { params: Promise<{ locale: string }> };
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "getApp" });
-  return {
-    title: t("metaTitle"),
-    description: t("body"),
-    alternates: localizedAlternates(locale, "/app"),
-  };
+  return pageMetadata({ locale, path: "/app", title: t("metaTitle"), description: t("body") });
 }
 
 const FEATURES = [
@@ -71,14 +68,24 @@ export default async function GetAppPage({ params }: PageProps) {
             <h1 className="font-display text-2xl leading-tight sm:text-3xl rtl:font-bold rtl:leading-relaxed">
               {t("title")}
             </h1>
-            <p className="text-sm leading-relaxed opacity-95">{t("body")}</p>
+            <p className="text-sm leading-relaxed opacity-95">{PLAY_STORE_URL ? t("bodyLive") : t("body")}</p>
 
             <ul className="mt-2 flex flex-wrap gap-3">
               <li className="flex items-center gap-3 rounded-lg bg-white/10 px-4 py-3 ring-1 ring-white/30 backdrop-blur-sm">
                 <span className="text-sm font-semibold">{t("android")}</span>
-                <span className="rounded-pill bg-white px-2.5 py-0.5 text-2xs font-semibold text-primary-solid">
-                  {t("androidStatus")}
-                </span>
+                {PLAY_STORE_URL ? (
+                  <a
+                    href={PLAY_STORE_URL}
+                    rel="noopener"
+                    className="rounded-pill bg-white px-2.5 py-0.5 text-2xs font-semibold text-primary-solid underline-offset-2 hover:underline"
+                  >
+                    {t("androidLive")}
+                  </a>
+                ) : (
+                  <span className="rounded-pill bg-white px-2.5 py-0.5 text-2xs font-semibold text-primary-solid">
+                    {t("androidStatus")}
+                  </span>
+                )}
               </li>
               <li className="flex items-center gap-3 rounded-lg px-4 py-3 ring-1 ring-white/25">
                 <span className="text-sm font-semibold opacity-90">{t("ios")}</span>

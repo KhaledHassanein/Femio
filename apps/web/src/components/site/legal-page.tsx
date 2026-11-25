@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { TrustPage, type TrustPoint } from "@/components/site/trust-page";
 import { LEGAL_EDITIONS, LEGAL_VALUES } from "@/lib/legal/placeholders";
-import { localizedAlternates } from "@/lib/seo/metadata";
+import { pageMetadata } from "@/lib/seo/metadata";
 
 /**
  * The privacy policy, the terms of use and the consumer health data policy
@@ -38,11 +38,7 @@ async function translator(locale: string, namespace: LegalNamespace): Promise<Tr
 /** Search metadata. Indexable: these pages are public and linked from the stores. */
 export async function legalMetadata(locale: string, namespace: LegalNamespace): Promise<Metadata> {
   const t = await translator(locale, namespace);
-  return {
-    title: t("title"),
-    description: t("intro"),
-    alternates: localizedAlternates(locale, LEGAL_PATHS[namespace]),
-  };
+  return pageMetadata({ locale, path: LEGAL_PATHS[namespace], title: t("title"), description: t("intro") });
 }
 
 export async function LegalPage({

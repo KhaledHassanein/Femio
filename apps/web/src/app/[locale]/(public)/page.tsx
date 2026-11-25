@@ -16,7 +16,7 @@ import { Button } from "@/components/ui/button";
 import { JsonLd } from "@/components/seo/json-ld";
 import { organizationJsonLd, websiteJsonLd } from "@/lib/seo/jsonld";
 import { Link } from "@/i18n/navigation";
-import { APP_PAGE } from "@/lib/site";
+import { APP_PAGE, PLAY_STORE_URL } from "@/lib/site";
 import { PhoneMock } from "@/components/site/phone-mock";
 import { Bloom, Moon, Petal, Spark } from "@/components/site/motifs";
 import { AppTourSection } from "@/components/demos/demo-sections";
@@ -170,7 +170,15 @@ export default async function HomePage({ params }: PageProps) {
               </Button>
             </div>
             <p className="text-2xs opacity-85">
-              {tApp("android")} · {tApp("androidStatus")} &nbsp;·&nbsp; {tApp("ios")} ·{" "}
+              {tApp("android")} ·{" "}
+              {PLAY_STORE_URL ? (
+                <a href={PLAY_STORE_URL} rel="noopener" className="underline underline-offset-2">
+                  {tApp("androidLive")}
+                </a>
+              ) : (
+                tApp("androidStatus")
+              )}{" "}
+              &nbsp;·&nbsp; {tApp("ios")} ·{" "}
               {tApp("iosStatus")}
             </p>
           </div>

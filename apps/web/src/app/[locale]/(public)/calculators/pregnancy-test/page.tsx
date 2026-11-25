@@ -3,7 +3,7 @@ import { getTranslations, setRequestLocale } from "next-intl/server";
 import { CalculatorLayout } from "@/components/calculators/calculator-layout";
 import { PregnancyTestCalculator } from "@/components/calculators/pregnancy-test-calculator";
 import { readFaqMessages } from "@/lib/calculators/faq";
-import { localizedAlternates } from "@/lib/seo/metadata";
+import { pageMetadata } from "@/lib/seo/metadata";
 
 type PageProps = { params: Promise<{ locale: string }> };
 const PATH = "/calculators/pregnancy-test";
@@ -11,11 +11,7 @@ const PATH = "/calculators/pregnancy-test";
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "calculators" });
-  return {
-    title: t("pregnancyTest.metaTitle"),
-    description: t("pregnancyTest.intro"),
-    alternates: localizedAlternates(locale, PATH),
-  };
+  return pageMetadata({ locale, path: PATH, title: t("pregnancyTest.metaTitle"), description: t("pregnancyTest.intro") });
 }
 
 export default async function Page({ params }: PageProps) {

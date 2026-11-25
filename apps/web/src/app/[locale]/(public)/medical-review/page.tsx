@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { TrustPage } from "@/components/site/trust-page";
-import { localizedAlternates } from "@/lib/seo/metadata";
+import { pageMetadata } from "@/lib/seo/metadata";
 
 type PageProps = { params: Promise<{ locale: string }> };
 type Point = { heading: string; body: string };
@@ -9,7 +9,7 @@ type Point = { heading: string; body: string };
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "medicalReview" });
-  return { title: t("title"), description: t("intro"), alternates: localizedAlternates(locale, "/medical-review") };
+  return pageMetadata({ locale, path: "/medical-review", title: t("title"), description: t("intro") });
 }
 
 export default async function MedicalReviewPage({ params }: PageProps) {

@@ -4,7 +4,7 @@ import { listContent } from "@/lib/cms/client";
 import { RichText, lexicalToPlainText } from "@/lib/cms/lexical";
 import { JsonLd } from "@/components/seo/json-ld";
 import { faqPageJsonLd } from "@/lib/seo/jsonld";
-import { localizedAlternates } from "@/lib/seo/metadata";
+import { pageMetadata } from "@/lib/seo/metadata";
 
 type PageProps = { params: Promise<{ locale: string }> };
 
@@ -13,7 +13,7 @@ export const revalidate = 3600; // content changes only with a deploy now (repo 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "faq" });
-  return { title: t("title"), description: t("subtitle"), alternates: localizedAlternates(locale, "/faq") };
+  return pageMetadata({ locale, path: "/faq", title: t("title"), description: t("subtitle") });
 }
 
 export default async function FaqPage({ params }: PageProps) {

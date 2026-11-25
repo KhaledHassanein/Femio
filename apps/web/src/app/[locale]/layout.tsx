@@ -8,7 +8,7 @@ import { pickClientMessages } from "@/i18n/client-namespaces";
 import { ThemeProvider } from "@/components/theme-provider";
 import { CrisisHelpProvider } from "@/components/crisis/crisis-help-provider";
 import { ogLocale, siteConfig } from "@/lib/seo/config";
-import { localizedAlternates } from "@/lib/seo/metadata";
+import { fitDescription, localizedAlternates } from "@/lib/seo/metadata";
 import { env } from "@/lib/env";
 import { VisitMeasurement } from "@/lib/analytics/visit-measurement";
 import "@femio/tokens/tokens.css";
@@ -68,7 +68,7 @@ export async function generateMetadata({
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "meta" });
   const title = t("title");
-  const description = t("description");
+  const description = fitDescription(t("description"));
 
   return {
     metadataBase: new URL(siteConfig.baseUrl),
@@ -98,8 +98,15 @@ export async function generateMetadata({
       apple: [{ url: "/icons/icon-180.png", sizes: "180x180", type: "image/png" }],
       shortcut: ["/favicon.ico"],
     },
-    ...(env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION
-      ? { verification: { google: env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION } }
+    ...(env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION || env.NEXT_PUBLIC_BING_SITE_VERIFICATION
+      ? {
+          verification: {
+            ...(env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION ? { google: env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION } : {}),
+            ...(env.NEXT_PUBLIC_BING_SITE_VERIFICATION
+              ? { other: { "msvalidate.01": env.NEXT_PUBLIC_BING_SITE_VERIFICATION } }
+              : {}),
+          },
+        }
       : {}),
   };
 }

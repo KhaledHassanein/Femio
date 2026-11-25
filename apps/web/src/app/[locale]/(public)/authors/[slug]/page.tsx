@@ -8,7 +8,7 @@ import { JsonLd } from "@/components/seo/json-ld";
 import { Badge } from "@/components/ui/badge";
 import { breadcrumbJsonLd, personJsonLd } from "@/lib/seo/jsonld";
 import { siteConfig } from "@/lib/seo/config";
-import { localizedAlternates } from "@/lib/seo/metadata";
+import { pageMetadata } from "@/lib/seo/metadata";
 
 type PageProps = { params: Promise<{ locale: string; slug: string }> };
 
@@ -40,11 +40,12 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const { locale, slug } = await params;
   const person = await getPersonBySlug(locale, slug);
   if (!person) return { title: "Not found", robots: { index: false, follow: false } };
-  return {
+  return pageMetadata({
+    locale,
+    path: `/authors/${slug}`,
     title: person.credentials ? `${person.name}, ${person.credentials}` : person.name,
     description: summarize(person),
-    alternates: localizedAlternates(locale, `/authors/${slug}`),
-  };
+  });
 }
 
 // Author / medical-reviewer bio page carrying Person schema (doc 15 §7/§8, P1.9b.3b).

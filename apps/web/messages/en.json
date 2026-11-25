@@ -1,7 +1,7 @@
 {
   "meta": {
-    "title": "femio",
-    "description": "The private companion for trying to conceive and pregnancy, in English, Arabic, French and Spanish. Cited guides, calculators, and records that never leave your phone."
+    "title": "femio: private period, fertility & pregnancy guide",
+    "description": "The private companion for trying to conceive and pregnancy. Cited guides, calculators, and records that never leave your phone."
   },
   "home": {
     "rail": {
@@ -1169,7 +1169,7 @@
           },
           {
             "lead": "Google Play.",
-            "body": "You install femio from Google Play, which tells us totals such as installs and crashes, under Google’s own policy. If you buy femio Plus, Google Play handles the payment; femio learns only whether you have Plus."
+            "body": "You install femio from Google Play, which tells us totals such as installs and crashes, under Google’s own policy. If you buy femio Plus, Google Play handles the payment; femio learns only whether you have Plus. Google Play also checks for femio updates, and now and then may show Google’s own box asking you to rate the app; femio sends nothing of yours with either."
           },
           {
             "lead": "Links you open.",
@@ -1685,6 +1685,8 @@
     "body": "A private Android app for trying to conceive and pregnancy, with an assistant that runs on your phone. Your calendar, logs and pregnancy tools stay on your phone, behind a PIN if you choose. No account, and nothing goes to the cloud unless you turn on Cloud boost. Coming to Google Play.",
     "android": "Google Play",
     "androidStatus": "Coming soon",
+    "androidLive": "Get it on Google Play",
+    "bodyLive": "A private Android app for trying to conceive and pregnancy, with an assistant that runs on your phone. Your calendar, logs and pregnancy tools stay on your phone, behind a PIN if you choose. No account, and nothing goes to the cloud unless you turn on Cloud boost.",
     "ios": "iPhone",
     "iosStatus": "Coming soon",
     "featuresTitle": "What the app does",
