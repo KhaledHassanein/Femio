@@ -16,12 +16,13 @@ import 'data/assistant_channel.dart';
 import 'data/backup.dart';
 import 'data/key_vault.dart';
 import 'data/profile.dart';
-import 'data/reminder_scheduler.dart';
+import 'data/notification_port.dart';
 import 'data/store.dart';
 import 'features/assistant/assistant_scope.dart';
 import 'features/home/home_shell.dart';
 import 'features/lock/lock_screen.dart';
 import 'features/onboarding/onboarding_flow.dart';
+import 'domain/notification_kinds.dart';
 import 'domain/reminders.dart';
 import 'features/settings/corrupt_record_screen.dart';
 import 'l10n/app_localizations.dart';
@@ -45,17 +46,17 @@ class FemioController extends ChangeNotifier {
     this.store, {
     KeyVault? vault,
     String? initialLocale,
-    ReminderScheduler? reminders,
+    NotificationPort? reminders,
     DateTime Function()? clock,
   })  : _lock = AppLock(vault ?? MemoryKeyVault()),
         _locale = initialLocale,
-        _reminders = reminders ?? const NoReminderScheduler(),
+        _reminders = reminders ?? const NoNotificationPort(),
         _clock = clock ?? DateTime.now;
 
   /// Where her record is saved. Swappable, so tests use memory and the app uses a file.
   final FemioStore store;
   final AppLock _lock;
-  final ReminderScheduler _reminders;
+  final NotificationPort _reminders;
   final DateTime Function() _clock;
 
   /// What was last handed to the scheduler, so an unchanged plan is not rescheduled on
@@ -134,16 +135,41 @@ class FemioController extends ChangeNotifier {
   /// Updates her preferences and saves.
   Future<void> setSettings(AppSettings settings) => save(profile!.copyWith(settings: settings));
 
+  /// Whether she still has to see the notification consent screen before any reminder can
+  /// be switched on (R12.1). False without a record.
+  bool get needsNotificationConsent => profile != null && !profile!.settings.hasNotificationConsent;
+
   /// Turns reminders on or off, or moves the daily time, then saves and reschedules.
-  /// A null argument leaves that setting alone. Turning one ON first asks the phone for
-  /// notification permission; when she refuses, nothing changes and this returns false
-  /// so Settings can say why. Requires a loaded [profile].
-  Future<bool> updateReminders({bool? log, bool? period, int? logMinutes}) async {
+  /// A null argument leaves that setting alone. Turning one ON needs consent first
+  /// ([grantNotificationConsent]) and then the phone's notification permission; when either
+  /// is missing, nothing changes and this returns false so Settings can say why. Turning
+  /// one off or moving the time never asks. Requires a loaded [profile].
+  Future<bool> updateReminders({bool? log, bool? period, bool? appointment, int? logMinutes}) async {
     final s = profile!.settings;
-    final turningOn = (log == true && !s.logReminder) || (period == true && !s.periodReminder);
-    if (turningOn && !await _reminders.requestPermission()) return false;
-    await setSettings(s.copyWith(logReminder: log, periodReminder: period, logReminderMinutes: logMinutes));
+    final turningOn = (log == true && !s.logReminder) || (period == true && !s.periodReminder) || (appointment == true && !s.appointmentReminder);
+    if (turningOn) {
+      if (!s.hasNotificationConsent) return false;
+      if (!await _reminders.requestPermission()) return false;
+    }
+    await setSettings(s.copyWith(logReminder: log, periodReminder: period, appointmentReminder: appointment, logReminderMinutes: logMinutes));
     return true;
+  }
+
+  /// The consent screen's "Allow": asks the phone for notification permission and, only if
+  /// she gives it, records the date and her per-kind [choice] and schedules. Refusal or an
+  /// empty choice saves nothing and schedules nothing (the screen explains). Requires a
+  /// loaded [profile].
+  Future<NotificationConsentResult> grantNotificationConsent(NotificationChoice choice) async {
+    if (!choice.any) return NotificationConsentResult.nothingChosen;
+    if (!await _reminders.requestPermission()) return NotificationConsentResult.permissionDenied;
+    final s = profile!.settings;
+    await setSettings(s.copyWith(
+      notificationConsentAt: _clock().toIso8601String(),
+      logReminder: choice.log,
+      periodReminder: choice.period,
+      appointmentReminder: choice.appointment,
+    ));
+    return NotificationConsentResult.granted;
   }
 
   /// Makes the scheduler match [planReminders] for the current record. A failure in the

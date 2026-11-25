@@ -15,59 +15,19 @@ import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:timezone/timezone.dart' as tz;
 
 import '../domain/reminders.dart';
+import 'notification_port.dart';
 
-/// The words on a reminder and on its Android channel, already in her language.
-class ReminderTexts {
-  const ReminderTexts({
-    required this.title,
-    required this.body,
-    required this.channelName,
-    required this.channelDescription,
-  });
-  final String title;
-  final String body;
-  final String channelName;
-  final String channelDescription;
+export 'notification_port.dart';
 
-  @override
-  bool operator ==(Object other) =>
-      other is ReminderTexts &&
-      other.title == title &&
-      other.body == body &&
-      other.channelName == channelName &&
-      other.channelDescription == channelDescription;
+/// Older name of [NotificationPort], kept so existing call sites and tests compile.
+typedef ReminderScheduler = NotificationPort;
 
-  @override
-  int get hashCode => Object.hash(title, body, channelName, channelDescription);
-}
+/// Older name of [NoNotificationPort].
+typedef NoReminderScheduler = NoNotificationPort;
 
-/// What the controller needs from the notification system. Swappable so tests use a
-/// recording fake and never the plugin.
-abstract interface class ReminderScheduler {
-  /// Asks the phone for permission to show notifications (Android 13+ shows a system
-  /// prompt; older versions allow them already). True when reminders can be shown.
-  Future<bool> requestPermission();
-
-  /// Replaces every pending reminder with [plan]. An empty plan cancels them all.
-  Future<void> replaceAll(List<PlannedReminder> plan, ReminderTexts texts);
-
-  /// Cancels every pending reminder and removes any already shown.
-  Future<void> cancelAll();
-}
-
-/// Does nothing. The default for tests and for platforms without notifications.
-class NoReminderScheduler implements ReminderScheduler {
-  const NoReminderScheduler();
-  @override
-  Future<bool> requestPermission() async => false;
-  @override
-  Future<void> replaceAll(List<PlannedReminder> plan, ReminderTexts texts) async {}
-  @override
-  Future<void> cancelAll() async {}
-}
-
-/// The Android implementation, over `flutter_local_notifications`.
-class LocalNotificationScheduler implements ReminderScheduler {
+/// The Android implementation of [NotificationPort], over `flutter_local_notifications`.
+/// The only implementation today; remote push is deliberately absent (see the port).
+class LocalNotificationScheduler implements NotificationPort {
   LocalNotificationScheduler([FlutterLocalNotificationsPlugin? plugin]) : _plugin = plugin ?? FlutterLocalNotificationsPlugin();
 
   final FlutterLocalNotificationsPlugin _plugin;

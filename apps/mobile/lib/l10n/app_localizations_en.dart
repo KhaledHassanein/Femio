@@ -1146,6 +1146,53 @@ class L10nEn extends L10n {
       'Reminders you turned on in femio. They never mention your health.';
 
   @override
+  String get reminderAppointment => 'Appointment reminder';
+
+  @override
+  String get reminderAppointmentNote =>
+      'One notification the day before an appointment you saved with a date.';
+
+  @override
+  String get notifConsentTitle => 'Notifications, only if you want them';
+
+  @override
+  String get notifConsentIntro =>
+      'femio can nudge you on this phone. Choose what you would like to receive. Nothing is switched on until you allow it.';
+
+  @override
+  String get notifConsentNeutral =>
+      'Every notification says only \"femio\" and \"Open the app\". No health words ever appear on your lock screen.';
+
+  @override
+  String get notifConsentLocal =>
+      'Notifications are scheduled on your phone itself. Nothing is sent anywhere, and femio has no account or server to send them from.';
+
+  @override
+  String get notifKindMedicine => 'Medicine reminder';
+
+  @override
+  String get notifKindDigest => 'Weekly digest';
+
+  @override
+  String get notifComingSoon => 'Coming in an update';
+
+  @override
+  String get notifConsentAllow => 'Allow notifications';
+
+  @override
+  String get notifConsentNotNow => 'Not now';
+
+  @override
+  String get notifConsentPickOne => 'Switch on at least one kind to continue.';
+
+  @override
+  String get notifConsentDeniedTitle => 'Notifications are off on this phone';
+
+  @override
+  String get notifConsentDeniedBody =>
+      'Your phone did not allow notifications, so femio has scheduled nothing. To change this, open your phone\'s Settings, then Apps, femio, Notifications, and allow them. Then come back to Reminders in femio\'s Settings.';
+
+  @override
   String calendarDayLabel(String gregorian, String hijri) {
     return '$gregorian, $hijri';
   }

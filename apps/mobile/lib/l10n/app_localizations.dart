@@ -2009,6 +2009,90 @@ abstract class L10n {
   /// **'Reminders you turned on in femio. They never mention your health.'**
   String get reminderChannelDescription;
 
+  /// No description provided for @reminderAppointment.
+  ///
+  /// In en, this message translates to:
+  /// **'Appointment reminder'**
+  String get reminderAppointment;
+
+  /// No description provided for @reminderAppointmentNote.
+  ///
+  /// In en, this message translates to:
+  /// **'One notification the day before an appointment you saved with a date.'**
+  String get reminderAppointmentNote;
+
+  /// No description provided for @notifConsentTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Notifications, only if you want them'**
+  String get notifConsentTitle;
+
+  /// No description provided for @notifConsentIntro.
+  ///
+  /// In en, this message translates to:
+  /// **'femio can nudge you on this phone. Choose what you would like to receive. Nothing is switched on until you allow it.'**
+  String get notifConsentIntro;
+
+  /// No description provided for @notifConsentNeutral.
+  ///
+  /// In en, this message translates to:
+  /// **'Every notification says only \"femio\" and \"Open the app\". No health words ever appear on your lock screen.'**
+  String get notifConsentNeutral;
+
+  /// No description provided for @notifConsentLocal.
+  ///
+  /// In en, this message translates to:
+  /// **'Notifications are scheduled on your phone itself. Nothing is sent anywhere, and femio has no account or server to send them from.'**
+  String get notifConsentLocal;
+
+  /// No description provided for @notifKindMedicine.
+  ///
+  /// In en, this message translates to:
+  /// **'Medicine reminder'**
+  String get notifKindMedicine;
+
+  /// No description provided for @notifKindDigest.
+  ///
+  /// In en, this message translates to:
+  /// **'Weekly digest'**
+  String get notifKindDigest;
+
+  /// No description provided for @notifComingSoon.
+  ///
+  /// In en, this message translates to:
+  /// **'Coming in an update'**
+  String get notifComingSoon;
+
+  /// No description provided for @notifConsentAllow.
+  ///
+  /// In en, this message translates to:
+  /// **'Allow notifications'**
+  String get notifConsentAllow;
+
+  /// No description provided for @notifConsentNotNow.
+  ///
+  /// In en, this message translates to:
+  /// **'Not now'**
+  String get notifConsentNotNow;
+
+  /// No description provided for @notifConsentPickOne.
+  ///
+  /// In en, this message translates to:
+  /// **'Switch on at least one kind to continue.'**
+  String get notifConsentPickOne;
+
+  /// No description provided for @notifConsentDeniedTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Notifications are off on this phone'**
+  String get notifConsentDeniedTitle;
+
+  /// No description provided for @notifConsentDeniedBody.
+  ///
+  /// In en, this message translates to:
+  /// **'Your phone did not allow notifications, so femio has scheduled nothing. To change this, open your phone\'s Settings, then Apps, femio, Notifications, and allow them. Then come back to Reminders in femio\'s Settings.'**
+  String get notifConsentDeniedBody;
+
   /// Accessible label of a calendar day when Hijri dates are shown: the Gregorian date, then the Hijri date.
   ///
   /// In en, this message translates to:

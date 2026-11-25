@@ -1,18 +1,21 @@
 // The Reminders block of Settings: two switches and a time.
 //
 // Why it exists: reminders are an offer, never a score (product rule 2), so they live in
-// one quiet place and start off. Turning one on is the moment the phone asks for
-// notification permission, in context, not at install. All the scheduling logic is in
-// `domain/reminders.dart`; this file only reads and writes her settings.
+// one quiet place and start off. The first switch she turns on opens the consent screen
+// (R12.1), which asks for the phone's notification permission in context, not at install;
+// the switches here and the ones on that screen are the same settings. All the scheduling
+// logic is in `domain/reminders.dart`; this file only reads and writes her settings.
 
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart' show DateFormat;
 
 import '../../app.dart';
 import '../../data/profile.dart';
+import '../../domain/notification_kinds.dart';
 import '../../l10n/app_localizations.dart';
 import '../../theme/femio_theme.dart';
 import '../../theme/spacing.dart';
+import 'notification_consent_screen.dart';
 
 /// Section header, log-reminder switch with its time, period-reminder switch (only for
 /// the goals that have a period to expect), and the two honest notes.
@@ -22,10 +25,16 @@ class RemindersSection extends StatelessWidget {
   final Profile profile;
 
   /// Applies a change and, when the phone refused permission, says so in one line.
-  Future<void> _apply(BuildContext context, {bool? log, bool? period, int? logMinutes}) async {
+  Future<void> _apply(BuildContext context, {bool? log, bool? period, bool? appointment, int? logMinutes}) async {
     final l = L10n.of(context);
     final messenger = ScaffoldMessenger.of(context);
-    final ok = await controller.updateReminders(log: log, period: period, logMinutes: logMinutes);
+    if (controller.needsNotificationConsent && (log == true || period == true || appointment == true)) {
+      // First reminder ever: the consent screen asks, ticks this kind, and does the rest.
+      final kind = log == true ? NotificationKind.log : (period == true ? NotificationKind.period : NotificationKind.appointment);
+      await showNotificationConsent(context, controller, initial: kind);
+      return;
+    }
+    final ok = await controller.updateReminders(log: log, period: period, appointment: appointment, logMinutes: logMinutes);
     if (!ok) messenger.showSnackBar(SnackBar(content: Text(l.reminderPermissionDenied)));
   }
 
@@ -73,6 +82,12 @@ class RemindersSection extends StatelessWidget {
             subtitle: Text(l.reminderPeriodNote),
             onChanged: (on) => _apply(context, period: on),
           ),
+        SwitchListTile(
+          value: settings.appointmentReminder,
+          title: Text(l.reminderAppointment),
+          subtitle: Text(l.reminderAppointmentNote),
+          onChanged: (on) => _apply(context, appointment: on),
+        ),
         Padding(
           padding: const EdgeInsets.fromLTRB(space4, space2, space4, 0),
           child: Text(l.remindersPrivacyNote, style: t.bodySmall?.copyWith(color: p.textMuted)),

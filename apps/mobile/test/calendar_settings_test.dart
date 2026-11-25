@@ -141,7 +141,12 @@ void main() {
           expect(find.text(l.reminderPeriod), findsOneWidget); // trying to conceive has a period to expect
           expect(find.text(l.reminderLogTime), findsNothing); // the time only appears once the nudge is on
 
+          // The first switch ever opens the consent screen (R12.1); Allow asks the phone.
           await tester.tap(find.text(l.reminderLog));
+          await tester.pumpAndSettle();
+          expect(find.text(l.notifConsentTitle), findsOneWidget);
+          await tester.scrollUntilVisible(find.text(l.notifConsentAllow), 200, scrollable: find.byType(Scrollable).first);
+          await tester.tap(find.text(l.notifConsentAllow));
           await tester.pumpAndSettle();
           expect(recorder.asked, 1);
           expect(c.profile!.settings.logReminder, isTrue);
@@ -162,8 +167,11 @@ void main() {
       await tester.scrollUntilVisible(find.text(l.reminderLog), 200, scrollable: find.byType(Scrollable).first);
       await tester.tap(find.text(l.reminderLog));
       await tester.pumpAndSettle();
+      await tester.scrollUntilVisible(find.text(l.notifConsentAllow), 200, scrollable: find.byType(Scrollable).first);
+      await tester.tap(find.text(l.notifConsentAllow));
+      await tester.pumpAndSettle();
       expect(c.profile!.settings.logReminder, isFalse);
-      expect(find.text(l.reminderPermissionDenied), findsOneWidget);
+      expect(find.text(l.notifConsentDeniedTitle), findsOneWidget);
     });
 
     testWidgets('no period switch for a pregnant record', (tester) async {

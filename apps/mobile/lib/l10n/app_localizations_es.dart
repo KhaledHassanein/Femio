@@ -1148,6 +1148,54 @@ class L10nEs extends L10n {
       'Recordatorios que activaste en femio. Nunca mencionan tu salud.';
 
   @override
+  String get reminderAppointment => 'Recordatorio de cita';
+
+  @override
+  String get reminderAppointmentNote =>
+      'Una notificación el día antes de una cita que guardaste con fecha.';
+
+  @override
+  String get notifConsentTitle => 'Notificaciones, solo si tú quieres';
+
+  @override
+  String get notifConsentIntro =>
+      'femio puede enviarte avisos en este teléfono. Elige lo que quieres recibir. No se activa nada hasta que lo permitas.';
+
+  @override
+  String get notifConsentNeutral =>
+      'Cada notificación dice solo «femio» y «Abre la app». Ninguna palabra sobre tu salud aparece en la pantalla de bloqueo.';
+
+  @override
+  String get notifConsentLocal =>
+      'Las notificaciones se programan en tu propio teléfono. No se envía nada a ninguna parte, y femio no tiene cuenta ni servidor desde donde enviarlas.';
+
+  @override
+  String get notifKindMedicine => 'Recordatorio de medicina';
+
+  @override
+  String get notifKindDigest => 'Resumen semanal';
+
+  @override
+  String get notifComingSoon => 'Próximamente en una actualización';
+
+  @override
+  String get notifConsentAllow => 'Permitir notificaciones';
+
+  @override
+  String get notifConsentNotNow => 'Ahora no';
+
+  @override
+  String get notifConsentPickOne => 'Activa al menos un tipo para continuar.';
+
+  @override
+  String get notifConsentDeniedTitle =>
+      'Las notificaciones están desactivadas en este teléfono';
+
+  @override
+  String get notifConsentDeniedBody =>
+      'Tu teléfono no permitió las notificaciones, así que femio no ha programado nada. Para cambiarlo, abre los Ajustes del teléfono, luego Aplicaciones, femio, Notificaciones, y permítelas. Después vuelve a Recordatorios en los ajustes de femio.';
+
+  @override
   String calendarDayLabel(String gregorian, String hijri) {
     return '$gregorian, $hijri';
   }
