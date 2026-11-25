@@ -1,0 +1,853 @@
+{
+ "meta": {
+  "release": "Initial release 1.0.0 (build 1)",
+  "headline": "Everything left before femio's first Google Play release and the website launch. Your cards carry the exact steps. Change a status, tick steps, or leave Claude a message on any card; Claude reads the board at the start of each session.",
+  "syncedAt": "2026-11-25T16:00:00Z"
+ },
+ "items": [
+  {
+   "id": "k-27-public",
+   "phase": "now",
+   "order": 1,
+   "owner": "khaled",
+   "ref": "#27",
+   "status": "todo",
+   "title": "Say \"make it public\" for the hackathon repository",
+   "why": "Devpost needs a public code link. Deadline: Monday 30 November, 2 pm Pacific (midnight Cairo, Tuesday 1 December).",
+   "steps": [
+    "Type \"make it public\" in the Claude session.",
+    "Claude creates the public GitHub repository femio-app (app code only, Apache-2.0) and sends you the link.",
+    "Open the link once and check the README shows."
+   ],
+   "stepsDone": [
+    false,
+    false,
+    false
+   ]
+  },
+  {
+   "id": "k-28-devpost",
+   "phase": "now",
+   "order": 2,
+   "owner": "khaled",
+   "ref": "#28",
+   "status": "todo",
+   "title": "Record the demo video and submit on Devpost",
+   "why": "The hackathon entry. Texts are ready in docs/hackathon/DEVPOST_SUBMISSION.md.",
+   "steps": [
+    "Open docs/hackathon/OWNER_GUIDE.html and follow the video script (about 3 minutes).",
+    "Record the phone screen (Android: Quick settings → Screen record, with audio).",
+    "Upload to YouTube as Public or Unlisted; copy the link.",
+    "Devpost → the #BuildHybridAI challenge → Enter a submission.",
+    "Paste the texts from DEVPOST_SUBMISSION.md, the repository link and the video link.",
+    "Submit before Monday 30 November, 2 pm Pacific."
+   ],
+   "stepsDone": [
+    false,
+    false,
+    false,
+    false,
+    false,
+    false
+   ]
+  },
+  {
+   "id": "k-decide-account",
+   "phase": "now",
+   "order": 3,
+   "owner": "khaled",
+   "ref": "decision",
+   "status": "todo",
+   "title": "Choose the Play account type: personal or organization (KM Digital Labs)",
+   "why": "Google's rule: a new PERSONAL account must run a closed test with 12 testers for 14 days, and open testing only unlocks after production access. An ORGANIZATION account skips both, so closed and open testing can run together from day one. Organization needs a free D-U-N-S number, which can take days to weeks. Claude's recommendation: organization, if the D-U-N-S arrives within about two weeks; otherwise personal and start the 12 testers now.",
+   "steps": [
+    "Request a free D-U-N-S number for KM Digital Labs at dnb.com (D-U-N-S Number → Get a D-U-N-S Number); use the exact legal name and address on the commercial register.",
+    "Write the expected date on this card.",
+    "If no number within two weeks, choose personal and say so here."
+   ],
+   "stepsDone": [
+    false,
+    false,
+    false
+   ]
+  },
+  {
+   "id": "k-01-play",
+   "phase": "now",
+   "order": 4,
+   "owner": "khaled",
+   "ref": "#1",
+   "status": "todo",
+   "title": "Create the Google Play Console account ($25 once)",
+   "why": "Nothing can be uploaded before this. Google verifies your identity, which can take a few days.",
+   "steps": [
+    "Open play.google.com/console and sign in with the Google account that will own femio (use 2-step verification).",
+    "Choose Organization (with the D-U-N-S number) or Yourself, per the decision card.",
+    "Developer name: KM Digital Labs. Contact email: info@femioapp.com. Website: https://femioapp.com.",
+    "Pay the $25 fee and upload the ID document Google asks for.",
+    "Verify the contact phone and email when the codes arrive.",
+    "When the account says verified, set this card to Done."
+   ],
+   "stepsDone": [
+    false,
+    false,
+    false,
+    false,
+    false,
+    false
+   ]
+  },
+  {
+   "id": "k-02-keystore",
+   "phase": "accounts",
+   "order": 1,
+   "owner": "khaled",
+   "ref": "#2",
+   "status": "todo",
+   "title": "Create the upload key and keep two backups",
+   "why": "Signs every file you send to Google. Losing it means a new app listing. Never paste the passwords into chat.",
+   "steps": [
+    "Open PowerShell and run: keytool -genkey -v -keystore E:/_Private/femio-upload-keystore.jks -storetype JKS -keyalg RSA -keysize 2048 -validity 10000 -alias upload",
+    "Answer the questions (name: Khaled Hassanein, organization: KM Digital Labs, country code: EG) and choose a strong password.",
+    "Copy apps/mobile/android/key.properties.example to key.properties in the same folder and fill in the path and passwords.",
+    "Back up the .jks file and the password in two places (password manager and an offline drive).",
+    "Tell Claude here \"keystore ready\" (no passwords)."
+   ],
+   "stepsDone": [
+    false,
+    false,
+    false,
+    false,
+    false
+   ]
+  },
+  {
+   "id": "k-23-firebase",
+   "phase": "accounts",
+   "order": 2,
+   "owner": "khaled",
+   "ref": "#23",
+   "status": "todo",
+   "title": "Firebase project on the paid plan with a $10 budget alert",
+   "why": "Unlocks Cloud boost for phones without Gemini Nano. The paid tier keeps her questions out of Google's training.",
+   "steps": [
+    "Open console.firebase.google.com → Add project → name femio → turn Google Analytics OFF → Create.",
+    "Build → AI Logic → Get started → choose Gemini Developer API.",
+    "Upgrade to the Blaze plan when asked.",
+    "Google Cloud console → Billing → Budgets & alerts → Create budget → $10 → alerts at 50%, 90%, 100%."
+   ],
+   "stepsDone": [
+    false,
+    false,
+    false,
+    false
+   ]
+  },
+  {
+   "id": "k-24-register",
+   "phase": "accounts",
+   "order": 3,
+   "owner": "khaled",
+   "ref": "#24",
+   "status": "todo",
+   "title": "Register the Android app in Firebase and fill assistant.env",
+   "why": "Gives the release build its live Firebase IDs.",
+   "steps": [
+    "Firebase → Project settings → Your apps → Add app → Android → package com.femioapp.femio → Register (skip google-services.json).",
+    "Copy apps/mobile/assistant.env.example to apps/mobile/assistant.env.",
+    "Paste the App ID, API key and project ID into it (never into chat).",
+    "Tell Claude here \"assistant.env filled\"."
+   ],
+   "stepsDone": [
+    false,
+    false,
+    false,
+    false
+   ]
+  },
+  {
+   "id": "k-25-appcheck",
+   "phase": "accounts",
+   "order": 4,
+   "owner": "khaled",
+   "ref": "#25",
+   "status": "todo",
+   "title": "App Check: debug token now, Play Integrity for the release",
+   "why": "Stops anyone using femio's AI service from a copied key.",
+   "steps": [
+    "Install the debug build Claude sends, open Ask femio once.",
+    "In PowerShell: adb logcat | Select-String \"App Check debug token\"; copy the token.",
+    "Firebase → App Check → Apps → femio → Manage debug tokens → add it.",
+    "After the first Play upload: Play Console → Test and release → App integrity → copy the App signing key SHA-256.",
+    "Firebase → Project settings → Your apps → femio → Add fingerprint → paste the SHA-256.",
+    "Firebase → App Check → Apps → femio → Play Integrity → Register.",
+    "App Check → APIs → Firebase AI Logic → Enforce."
+   ],
+   "stepsDone": [
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false
+   ]
+  },
+  {
+   "id": "k-29-30-privacy",
+   "phase": "accounts",
+   "order": 5,
+   "owner": "khaled",
+   "ref": "#29 #30",
+   "status": "todo",
+   "title": "Turn off Gemini logging and Firebase data sharing",
+   "why": "The privacy notice promises both (ADR-080).",
+   "steps": [
+    "Google AI Studio → choose the femio project → Logs (or Settings → Logging) → switch request logging OFF; never join the data-sharing tier.",
+    "Firebase → AI Logic → Monitoring: leave off, or untick \"include prompts and responses\".",
+    "Firebase → gear → Project settings → Data privacy (or Integrations) → untick every data-sharing box → Save."
+   ],
+   "stepsDone": [
+    false,
+    false,
+    false
+   ]
+  },
+  {
+   "id": "k-play-app",
+   "phase": "accounts",
+   "order": 6,
+   "owner": "khaled",
+   "ref": "Play setup",
+   "status": "todo",
+   "title": "Create the femio app in Play Console and paste the App content answers",
+   "why": "Play will not accept an upload until these forms are done. Claude prepares every answer in docs/store; you paste.",
+   "steps": [
+    "Play Console → Create app → name femio → default language English (United States) → App → Free → tick the declarations → Create.",
+    "Set up your app → Privacy policy: https://femioapp.com/en/privacy",
+    "App access: all functions available without special access.",
+    "Ads: No, the app contains no ads.",
+    "Content rating: start the questionnaire, category Health; answer from docs/store/data-safety-and-declarations.md.",
+    "Target audience: 18 and over.",
+    "Data safety: paste the answers from docs/store (Claude updates them for Cloud boost first; wait for the card \"Data safety answers updated\").",
+    "Health apps declaration: tick the categories listed in docs/store.",
+    "Government apps: No. Financial features: None. News: No."
+   ],
+   "stepsDone": [
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false
+   ]
+  },
+  {
+   "id": "k-05-install",
+   "phase": "testing",
+   "order": 1,
+   "owner": "khaled",
+   "ref": "#5",
+   "status": "todo",
+   "title": "Install the release candidate on your phone and report problems",
+   "why": "A real phone in Arabic and English is the last check before testers see it.",
+   "steps": [
+    "Install the APK Claude sends (or join the internal testing track below).",
+    "Run the checklist: onboarding in Arabic, a prediction, PIN lock, backup and restore, airplane mode, both themes.",
+    "Write each problem as a message on this card, Arabic or English."
+   ],
+   "stepsDone": [
+    false,
+    false,
+    false
+   ]
+  },
+  {
+   "id": "k-internal",
+   "phase": "testing",
+   "order": 2,
+   "owner": "khaled",
+   "ref": "internal",
+   "status": "todo",
+   "title": "Start the internal testing track (you and up to 100 people)",
+   "why": "Available at once, even before the closed test. Updates reach testers within minutes.",
+   "steps": [
+    "Play Console → Test and release → Testing → Internal testing → Testers → Create email list (your own Gmail first).",
+    "Releases → Create new release → upload the .aab Claude builds → release notes EN + AR from docs/store → Save → Review → Start rollout.",
+    "Copy the opt-in link; open it on your phone and install from Play."
+   ],
+   "stepsDone": [
+    false,
+    false,
+    false
+   ]
+  },
+  {
+   "id": "k-06-closed",
+   "phase": "testing",
+   "order": 3,
+   "owner": "khaled",
+   "ref": "#6",
+   "status": "todo",
+   "title": "Closed test: 12 testers opted in for 14 days in a row",
+   "why": "Required for a personal account before production. Start now: building continues during the 14 days. Not needed for an organization account, but still a good test.",
+   "steps": [
+    "Create a Google Group (groups.google.com) femio-testers, open to join by link.",
+    "Play Console → Closed testing → Create track \"femio closed\" → Testers → add the Google Group email.",
+    "Upload the same .aab to this track and start rollout.",
+    "Send the recruitment message (Arabic and English, docs/33_REBUILD_V3/04_GROWTH_PACK.md §5) with the group link and the opt-in link; aim for 15 to 20 people.",
+    "Write the start date here. The 14 days restart if fewer than 12 stay opted in."
+   ],
+   "stepsDone": [
+    false,
+    false,
+    false,
+    false,
+    false
+   ]
+  },
+  {
+   "id": "k-prod-access",
+   "phase": "testing",
+   "order": 4,
+   "owner": "khaled",
+   "ref": "Play",
+   "status": "todo",
+   "title": "Apply for production access after the 14 days",
+   "why": "Google asks about the test, the app and readiness; review usually takes seven days or less. Claude drafts the answers from tester feedback.",
+   "steps": [
+    "Play Console → Dashboard → Apply for production (appears after day 14).",
+    "Paste Claude's drafted answers (it posts them on this card).",
+    "Submit; when approved, open testing also unlocks."
+   ],
+   "stepsDone": [
+    false,
+    false,
+    false
+   ]
+  },
+  {
+   "id": "k-open",
+   "phase": "testing",
+   "order": 5,
+   "owner": "khaled",
+   "ref": "Play",
+   "status": "todo",
+   "title": "Open testing track",
+   "why": "Anyone can join from the store listing. For a personal account it unlocks only after production access; for an organization account it is available at once.",
+   "steps": [
+    "Play Console → Open testing → Countries: Saudi Arabia and Egypt first → Testers: unlimited.",
+    "Create release from the same .aab → Start rollout to Open testing."
+   ],
+   "stepsDone": [
+    false,
+    false
+   ]
+  },
+  {
+   "id": "k-31-analytics",
+   "phase": "web",
+   "order": 1,
+   "owner": "khaled",
+   "ref": "#31 #21",
+   "status": "todo",
+   "title": "Turn on Vercel Web Analytics and clear old variables",
+   "why": "The site already loads Vercel's script; until you turn it on, that script returns 404.",
+   "steps": [
+    "vercel.com → project femio-web → Analytics → Enable Web Analytics.",
+    "Settings → Environment Variables → delete NEXT_PUBLIC_GTM_ID, NEXT_PUBLIC_BETA_INVITE_CODE and NEXT_PUBLIC_ENABLE_GOOGLE_AUTH.",
+    "tagmanager.google.com → delete the femio container.",
+    "Meta Events Manager → the femio dataset → Settings → remove the pixel."
+   ],
+   "stepsDone": [
+    false,
+    false,
+    false,
+    false
+   ]
+  },
+  {
+   "id": "k-gsc",
+   "phase": "web",
+   "order": 2,
+   "owner": "khaled",
+   "ref": "SEO",
+   "status": "todo",
+   "title": "Google Search Console and Bing Webmaster Tools",
+   "why": "Lets Google and Bing index all 4 languages and tells you which searches bring readers.",
+   "steps": [
+    "search.google.com/search-console → Add property → Domain → femioapp.com.",
+    "Copy the TXT record → add it at your domain registrar's DNS → Verify (can take up to an hour).",
+    "Sitemaps → submit https://femioapp.com/sitemap.xml",
+    "bing.com/webmasters → Sign in → Import from Google Search Console → choose femioapp.com.",
+    "Tell Claude here when both say verified."
+   ],
+   "stepsDone": [
+    false,
+    false,
+    false,
+    false,
+    false
+   ]
+  },
+  {
+   "id": "k-38-arabic",
+   "phase": "web",
+   "order": 3,
+   "owner": "khaled",
+   "ref": "#38",
+   "status": "todo",
+   "title": "Read the Arabic wording on the four new calculators",
+   "why": "Clinical Arabic register is your call.",
+   "steps": [
+    "Open femioapp.com/ar/calculators/due-date, /pregnancy-calendar, /pregnancy-weight-gain and /contraction-timer on your phone.",
+    "Write any line to change as a message here (quote it and give the new wording)."
+   ],
+   "stepsDone": [
+    false,
+    false
+   ]
+  },
+  {
+   "id": "k-39-clinical",
+   "phase": "web",
+   "order": 4,
+   "owner": "khaled",
+   "ref": "#39",
+   "status": "todo",
+   "title": "Clinical sign-off of the content revision",
+   "why": "Medical changes need your approval before launch.",
+   "steps": [
+    "Open docs/33_REBUILD_V3/research/CONTENT_REVISION_2026-11.md.",
+    "Read the items marked for you.",
+    "Write \"approved\" here, or list the lines to revert."
+   ],
+   "stepsDone": [
+    false,
+    false,
+    false
+   ]
+  },
+  {
+   "id": "k-37-pcos",
+   "phase": "web",
+   "order": 5,
+   "owner": "khaled",
+   "ref": "#37",
+   "status": "todo",
+   "title": "PCOS visit checklist: yes or no",
+   "why": "A symptom-and-questions list for her clinician visit, no score. Yes means Claude builds it from the cited PCOS guide.",
+   "steps": [
+    "Write yes or no here."
+   ],
+   "stepsDone": [
+    false
+   ]
+  },
+  {
+   "id": "k-08-nvda",
+   "phase": "web",
+   "order": 6,
+   "owner": "khaled",
+   "ref": "#8",
+   "status": "todo",
+   "title": "One screen-reader pass with NVDA (or say skip)",
+   "why": "Checks the calendar reads correctly for blind users.",
+   "steps": [
+    "Install NVDA from nvaccess.org.",
+    "Open femioapp.com/ar/calculators/fertile-window, press Tab until a day is read, use the arrows, press Enter.",
+    "Write here whether it read the full date, the result sentence, and nothing twice. Or write \"skip NVDA\"."
+   ],
+   "stepsDone": [
+    false,
+    false,
+    false
+   ]
+  },
+  {
+   "id": "k-04-supabase",
+   "phase": "web",
+   "order": 7,
+   "owner": "khaled",
+   "ref": "#4",
+   "status": "todo",
+   "title": "Pause the old Supabase project and delete femio-cms on Vercel",
+   "why": "Old services cost money and are a liability.",
+   "steps": [
+    "supabase.com → the femio project → Settings → General → Pause project.",
+    "vercel.com → femio-cms → Settings → Delete project."
+   ],
+   "stepsDone": [
+    false,
+    false
+   ]
+  },
+  {
+   "id": "k-15-adsense",
+   "phase": "web",
+   "order": 8,
+   "owner": "khaled",
+   "ref": "#15",
+   "status": "todo",
+   "title": "Apply to AdSense once readers are steady (after launch)",
+   "why": "Ads on article pages only, after consent. Not needed for launch.",
+   "steps": [
+    "adsense.google.com → Get started → site femioapp.com.",
+    "Put NEXT_PUBLIC_ADSENSE_CLIENT and the three slot variables into Vercel.",
+    "Tell Claude here; it checks the consent banner first."
+   ],
+   "stepsDone": [
+    false,
+    false,
+    false
+   ]
+  },
+  {
+   "id": "k-listing",
+   "phase": "store",
+   "order": 1,
+   "owner": "khaled",
+   "ref": "ASO",
+   "status": "todo",
+   "title": "Approve the store listing and paste it into Play",
+   "why": "Claude writes the title, short and full description in English and Arabic (French and Spanish too), screenshots and the feature graphic.",
+   "steps": [
+    "Wait for the card \"Store listing pack\" to show Done.",
+    "Read the English and Arabic texts in docs/store and write changes here.",
+    "Play Console → Grow users → Store presence → Main store listing → paste title, short and full description, upload icon, feature graphic and screenshots.",
+    "Translations → Add language → Arabic (and French, Spanish) → paste each.",
+    "Store settings → App category: Health & Fitness. Email info@femioapp.com, website https://femioapp.com."
+   ],
+   "stepsDone": [
+    false,
+    false,
+    false,
+    false,
+    false
+   ]
+  },
+  {
+   "id": "k-33-traffic",
+   "phase": "legal",
+   "order": 1,
+   "owner": "khaled",
+   "ref": "#33",
+   "status": "todo",
+   "title": "Traffic check on a real phone",
+   "why": "Proves the privacy notice lists everything that leaves the phone.",
+   "steps": [
+    "Install PCAPdroid from Play.",
+    "Start capture → open femio → use it for 5 minutes, including one Cloud boost question.",
+    "Stop and export the capture as PCAP; put it in testing-results/ and tell Claude here."
+   ],
+   "stepsDone": [
+    false,
+    false,
+    false
+   ]
+  },
+  {
+   "id": "k-36-lawyer",
+   "phase": "legal",
+   "order": 2,
+   "owner": "khaled",
+   "ref": "#34 #35 #36",
+   "status": "todo",
+   "title": "Privacy-lawyer review, EU/UK representative, Egypt licence",
+   "why": "One review before production. The lawyer also answers the EU/UK representative and the Egypt sensitive-data licence questions.",
+   "steps": [
+    "Send the lawyer docs/compliance/PRIVACY_REVIEW_2026-11-24.md and the privacy and consumer-health-data pages.",
+    "Ask the two questions in rows #34 and #35 of the runbook.",
+    "Write the answers here."
+   ],
+   "stepsDone": [
+    false,
+    false,
+    false
+   ]
+  },
+  {
+   "id": "k-decisions",
+   "phase": "legal",
+   "order": 3,
+   "owner": "khaled",
+   "ref": "decisions",
+   "status": "todo",
+   "title": "Six product decisions",
+   "why": "Each has a recommended default; Claude proceeds on it unless you answer.",
+   "steps": [
+    "\"Days past due date\" counter (R9.2): recommended no counter, a calm line instead.",
+    "What femio Plus sells (R8.24): recommended decide after launch.",
+    "Private journal (R10.15): recommended later.",
+    "femio's own microphone (R10.17): recommended keep the keyboard mic only.",
+    "Baby feeding log: recommended later.",
+    "Health record scope (ADR-082): recommended after launch, as planned."
+   ],
+   "stepsDone": [
+    false,
+    false,
+    false,
+    false,
+    false,
+    false
+   ]
+  },
+  {
+   "id": "k-rollout",
+   "phase": "prod",
+   "order": 1,
+   "owner": "khaled",
+   "ref": "Play",
+   "status": "todo",
+   "title": "Production rollout",
+   "why": "Only after testing passes and production access is granted.",
+   "steps": [
+    "Play Console → Production → Countries: start with Saudi Arabia and Egypt, then all.",
+    "Create release → promote the tested release → staged rollout 20%.",
+    "Watch Android vitals and reviews for 3 days; then 100%.",
+    "Each later release: set the in-app update priority (4 or 5 only for urgent fixes)."
+   ],
+   "stepsDone": [
+    false,
+    false,
+    false,
+    false
+   ]
+  },
+  {
+   "id": "k-32-admob",
+   "phase": "prod",
+   "order": 2,
+   "owner": "khaled",
+   "ref": "#32",
+   "status": "todo",
+   "title": "Archive the femio app in AdMob",
+   "why": "The app has no ads (ADR-080).",
+   "steps": [
+    "admob.google.com → Apps → femio → App settings → Archive app."
+   ],
+   "stepsDone": [
+    false
+   ]
+  },
+  {
+   "id": "c-r12",
+   "phase": "build",
+   "order": 1,
+   "owner": "claude",
+   "ref": "R12.2 R12.3",
+   "status": "done",
+   "title": "Rating prompt after 6 days and in-app update prompt",
+   "why": "Committed f400bd0; 743 app tests pass.",
+   "steps": [],
+   "stepsDone": []
+  },
+  {
+   "id": "c-version",
+   "phase": "build",
+   "order": 2,
+   "owner": "claude",
+   "ref": "1.0.0+1",
+   "status": "done",
+   "title": "Version set to the initial release 1.0.0 (build 1)",
+   "why": "First published release; the build number rises with every upload.",
+   "steps": [],
+   "stepsDone": []
+  },
+  {
+   "id": "c-r10-1",
+   "phase": "build",
+   "order": 3,
+   "owner": "claude",
+   "ref": "R10.1",
+   "status": "doing",
+   "title": "AI boundary: master switch, AI ledger, draft-and-confirm sheet, offline-parity tests",
+   "why": "Keeps the AI a companion that never touches her record without her confirming.",
+   "steps": [],
+   "stepsDone": []
+  },
+  {
+   "id": "c-r8-3",
+   "phase": "build",
+   "order": 4,
+   "owner": "claude",
+   "ref": "R8.3",
+   "status": "todo",
+   "title": "Ask femio up front: Today card, floating pill, first-use consent sheet",
+   "why": "",
+   "steps": [],
+   "stepsDone": []
+  },
+  {
+   "id": "c-preg",
+   "phase": "build",
+   "order": 5,
+   "owner": "claude",
+   "ref": "R8.6 R8.7 R9.1",
+   "status": "todo",
+   "title": "Pregnancy: one week function, weekly view, daily line",
+   "why": "",
+   "steps": [],
+   "stepsDone": []
+  },
+  {
+   "id": "c-r8-4",
+   "phase": "build",
+   "order": 6,
+   "owner": "claude",
+   "ref": "R8.4",
+   "status": "todo",
+   "title": "Stage-aware wording for placeholders, hints and empty states",
+   "why": "",
+   "steps": [],
+   "stepsDone": []
+  },
+  {
+   "id": "c-explain",
+   "phase": "build",
+   "order": 7,
+   "owner": "claude",
+   "ref": "R9.6 R10.13",
+   "status": "todo",
+   "title": "\"Why this range?\" and \"Explain this day\" on the calendar",
+   "why": "",
+   "steps": [],
+   "stepsDone": []
+  },
+  {
+   "id": "c-visit",
+   "phase": "build",
+   "order": 8,
+   "owner": "claude",
+   "ref": "R10.2 R8.27",
+   "status": "todo",
+   "title": "Visit companion and one-page visit pack",
+   "why": "",
+   "steps": [],
+   "stepsDone": []
+  },
+  {
+   "id": "c-transp",
+   "phase": "build",
+   "order": 9,
+   "owner": "claude",
+   "ref": "R10.3 R8.21",
+   "status": "todo",
+   "title": "\"What can leave this phone\" and \"What the AI can see\" in Settings",
+   "why": "",
+   "steps": [],
+   "stepsDone": []
+  },
+  {
+   "id": "c-sayit",
+   "phase": "build",
+   "order": 10,
+   "owner": "claude",
+   "ref": "R10.7",
+   "status": "todo",
+   "title": "Say it: several days in one note",
+   "why": "",
+   "steps": [],
+   "stepsDone": []
+  },
+  {
+   "id": "c-notif",
+   "phase": "build",
+   "order": 11,
+   "owner": "claude",
+   "ref": "R12.1",
+   "status": "todo",
+   "title": "Notification consent screen (remote push prepared, not built)",
+   "why": "",
+   "steps": [],
+   "stepsDone": []
+  },
+  {
+   "id": "c-period-range",
+   "phase": "build",
+   "order": 12,
+   "owner": "claude",
+   "ref": "R8.10b",
+   "status": "blocked",
+   "title": "Website period calculator: a range even for regular cycles",
+   "why": "Needs a sourced minimum range before coding.",
+   "steps": [],
+   "stepsDone": []
+  },
+  {
+   "id": "c-release-build",
+   "phase": "accounts",
+   "order": 7,
+   "owner": "claude",
+   "ref": "05_RELEASE",
+   "status": "todo",
+   "title": "Release build ready for Play: signing, App Check Play Integrity, target API 36, runbook refresh",
+   "why": "Target API 36 is already set by Flutter 3.47. The runbook still mentions app ads; it gets rewritten.",
+   "steps": [],
+   "stepsDone": []
+  },
+  {
+   "id": "c-datasafety",
+   "phase": "accounts",
+   "order": 8,
+   "owner": "claude",
+   "ref": "docs/store",
+   "status": "todo",
+   "title": "Data safety answers updated",
+   "why": "Must reflect Cloud boost, Play review and updates, no ads.",
+   "steps": [],
+   "stepsDone": []
+  },
+  {
+   "id": "c-listing",
+   "phase": "store",
+   "order": 2,
+   "owner": "claude",
+   "ref": "ASO",
+   "status": "todo",
+   "title": "Store listing pack",
+   "why": "Title, short and full descriptions in EN, AR, FR, ES; keyword research for Saudi Arabia and Egypt; 8 screenshots per language; feature graphic 1024×500; release notes.",
+   "steps": [],
+   "stepsDone": []
+  },
+  {
+   "id": "c-seo",
+   "phase": "web",
+   "order": 9,
+   "owner": "claude",
+   "ref": "SEO",
+   "status": "todo",
+   "title": "Website launch SEO audit and fixes",
+   "why": "Sitemap, hreflang, structured data, Open Graph, robots, page speed, Google Play badge and link once live.",
+   "steps": [],
+   "stepsDone": []
+  },
+  {
+   "id": "c-testers",
+   "phase": "testing",
+   "order": 6,
+   "owner": "claude",
+   "ref": "#6",
+   "status": "todo",
+   "title": "Tester kit: recruitment message, test plan, feedback form text",
+   "why": "",
+   "steps": [],
+   "stepsDone": []
+  },
+  {
+   "id": "c-privacy-text",
+   "phase": "legal",
+   "order": 4,
+   "owner": "claude",
+   "ref": "R12",
+   "status": "todo",
+   "title": "Privacy notice: add Play review and update lines",
+   "why": "Google Play handles both; femio sends nothing.",
+   "steps": [],
+   "stepsDone": []
+  }
+ ]
+}
