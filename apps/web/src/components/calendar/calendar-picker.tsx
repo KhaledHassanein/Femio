@@ -44,6 +44,7 @@ export function CalendarPicker({
   resultEnd,
   prompt,
   resultSentence,
+  futureDays = 0,
 }: {
   mode: PickerMode;
   selection: PickerSelection;
@@ -56,6 +57,11 @@ export function CalendarPicker({
   prompt: string;
   /** Accessible summary of the result, announced once per change. */
   resultSentence: string | null;
+  /**
+   * How many days after today may be tapped (single mode): 0 for a past date such as a
+   * last period; a due date lies ahead (R13.2). The month strip then runs forward.
+   */
+  futureDays?: number;
 }) {
   const locale = useLocale();
   // The language part decides direction, week start and the Hijri line; splitting
@@ -69,7 +75,7 @@ export function CalendarPicker({
   const today = localTodayISO();
   const lookback = mode === "single" ? TERM_END_DAYS : CYCLE_LOOKBACK_DAYS;
   const minISO = addDays(today, -lookback);
-  const maxISO = today;
+  const maxISO = addDays(today, futureDays);
 
   const [viewMonth, setViewMonth] = useState(() => monthStart(selection.start ?? today));
   const [focusedISO, setFocusedISO] = useState(selection.start ?? today);
@@ -82,7 +88,10 @@ export function CalendarPicker({
     return monthsSpanning(viewMonth, resultEnd, MAX_MONTHS);
   }, [viewMonth, resultEnd]);
 
-  const stripMonths = useMemo(() => (mode === "single" ? recentMonths(today, MONTH_STRIP_COUNT) : []), [mode, today]);
+  const stripMonths = useMemo(() => {
+    if (mode !== "single") return [];
+    return futureDays > 0 ? monthsSpanning(today, maxISO, MONTH_STRIP_COUNT) : recentMonths(today, MONTH_STRIP_COUNT);
+  }, [mode, today, futureDays, maxISO]);
 
   const say = (text: string | null) => setMessage(text);
 

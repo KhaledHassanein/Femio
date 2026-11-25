@@ -243,7 +243,9 @@ class NumberStepper extends StatelessWidget {
 
 /// A month calendar in a card. Nothing is selected until she taps a day.
 ///
-/// Days from [first] to [last] can be picked; [last] is also drawn as today.
+/// Days from [first] to [last] can be picked. [today] is drawn as today; it defaults
+/// to [last], which suits a past date (a last period). A future date (a due date)
+/// passes a [last] after today.
 class DateCard extends StatelessWidget {
   const DateCard({
     super.key,
@@ -251,12 +253,14 @@ class DateCard extends StatelessWidget {
     required this.last,
     required this.selected,
     required this.onChanged,
+    this.today,
   });
 
   final DateTime first;
   final DateTime last;
   final DateTime? selected;
   final ValueChanged<DateTime> onChanged;
+  final DateTime? today;
 
   @override
   Widget build(BuildContext context) {
@@ -269,7 +273,7 @@ class DateCard extends StatelessWidget {
       ),
       child: CalendarDatePicker(
         initialDate: selected,
-        currentDate: last,
+        currentDate: today ?? last,
         firstDate: first,
         lastDate: last,
         initialCalendarMode: DatePickerMode.day,

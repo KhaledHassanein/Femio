@@ -27,6 +27,13 @@ Added 2026-11-24 (ADR-078). Steps 23 to 25 unlock the AI; without them the app s
 | 35 | **Egypt PDPC licence** (Law 151 Art. 12): ask the lawyer whether Cloud boost needs the sensitive-data licence and a transfer permit; the grace period ended about 1 Nov 2026 | Your decision | — |
 | 36 | **One privacy-lawyer review before the Play release**, with `docs/compliance/PRIVACY_REVIEW_2026-11-24.md`, the privacy policy and the consumer health data policy pages | Paid, yours | 1–2 h |
 
+## Calculators (R13, 2026-11-25)
+
+| # | What | Why only you | Time |
+|---|---|---|---|
+| 37 | **PCOS visit checklist: yes or no?** A page or app tool that lists PCOS symptoms and questions to bring to a clinician, with no score and no "you may have PCOS" (D-04 bars a screener in v1). Say yes and a session builds it from the cited PCOS guide (PROGRESS R13.6) | A product and regulatory call | 2 min |
+| 38 | **Read the new Arabic calculator wording** on `/ar/calculators/due-date`, `/pregnancy-calendar`, `/pregnancy-weight-gain`, `/contraction-timer` (screenshots in `testing-results/2026-11-25-r11-calculators/`); note any line to change (PROGRESS R13.7) | Clinical Arabic register | 15 min |
+
 ## Now (before the release candidate)
 
 | # | What | Why only you | Time |
@@ -35,7 +42,7 @@ Added 2026-11-24 (ADR-078). Steps 23 to 25 unlock the AI; without them the app s
 | 2 | **Create the upload keystore** and keep it outside the repo: run the command in `docs/33_REBUILD_V3/05_RELEASE_RUNBOOK.md` §2, then copy `apps/mobile/android/key.properties.example` to `key.properties` and fill it in. Back the `.jks` file up somewhere safe: losing it means a new app listing | A signing key is an identity | 10 min |
 | 3 | ~~Fill the three legal placeholders~~ **Done 2026-10-30**: `info@femioapp.com` (receives mail, you tested it), KM Digital Labs, sole proprietorship, commercial register no. 682-374-954 | | |
 | 4 | **Pause the Supabase project** (Settings → General → Pause) and **delete the `femio-cms` Vercel project**. Before pausing, if you ever edited translations in the old CMS translation portal, export them first: SQL editor → `select key, locale, value from ui_strings where status = 'human_reviewed' and locale <> 'en'` → CSV → send to a session to merge | Account owner only | 10 min |
-| 37 | **Clinical read of the content revision (R3.10)**: the medical changes are listed in the commit messages `d83c7c1` (guides) and `114b2a2` (app and website strings), and the items left for you in `docs/33_REBUILD_V3/research/CONTENT_REVISION_2026-11.md`. Approve, or name the lines to revert | Medical sign-off is yours | 30–45 min |
+| 39 | **Clinical read of the content revision (R3.10)**: the medical changes are listed in the commit messages `d83c7c1` (guides) and `114b2a2` (app and website strings), and the items left for you in `docs/33_REBUILD_V3/research/CONTENT_REVISION_2026-11.md`. Approve, or name the lines to revert | Medical sign-off is yours | 30–45 min |
 
 ## When a session sends a build
 

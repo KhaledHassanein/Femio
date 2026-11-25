@@ -38,7 +38,7 @@ const TOOLS: readonly ToolEntry[] = [
   {
     key: "calculators",
     href: "/calculators",
-    keywords: ["due date", "cycle length", "ovulation date", "bmi", "period calculator", "pregnancy test"],
+    keywords: ["due date", "cycle length", "ovulation date", "bmi", "period calculator", "pregnancy test", "pregnancy calendar", "pregnancy weight gain", "contraction timer", "ivf due date"],
   },
 ];
 

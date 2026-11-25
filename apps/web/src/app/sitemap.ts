@@ -34,6 +34,9 @@ const STATIC_PATHS = [
   "/calculators/due-date",
   "/calculators/fertile-window",
   "/calculators/gestational-age",
+  "/calculators/pregnancy-calendar",
+  "/calculators/pregnancy-weight-gain",
+  "/calculators/contraction-timer",
   "/calculators/bmi",
   "/calculators/cycle-length",
 ];

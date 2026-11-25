@@ -3,7 +3,7 @@ import { readFileSync, readdirSync } from "node:fs";
 import { join } from "node:path";
 import { predictNextPeriod } from "./cycle/predict";
 import { upcomingPeriods } from "./cycle/upcoming";
-import { fertileWindow, REGULAR_CYCLE_MAX, REGULAR_CYCLE_MIN } from "./calculators";
+import { estimateDueDateFrom, fertileWindow, REGULAR_CYCLE_MAX, REGULAR_CYCLE_MIN, type DueMethod } from "./calculators";
 import { addDays } from "./calculators/dates";
 import { ttcGuidance, type TryingFor } from "./fertility/guidance";
 import { bbtChart, type FertilityEntry } from "./fertility";
@@ -18,7 +18,9 @@ import {
   type Appointment,
 } from "./appointments";
 import { hijriDay, hijriMonthLine, hijriMonthYear } from "./calendar/grid";
-import { eddFromConception, eddFromLmp, eddFromTransfer, pregnancyProgress } from "./pregnancy";
+import { eddFromConception, eddFromLmp, eddFromScan, eddFromTransfer, pregnancyProgress } from "./pregnancy";
+import { pregnancyCalendar } from "./pregnancy/calendar";
+import { weightGainRange } from "./vitals/weight-gain";
 import { pregnancyTestDay, pregnancyToolOrder } from "./pregnancy/tools";
 import { ageGate } from "./age/gate";
 
@@ -104,12 +106,18 @@ const RUNNERS: Record<string, (input: never) => unknown> = {
   "pregnancy-tools": (i: { weeks: number | null }) => pregnancyToolOrder(i.weeks),
   "age-gate": (i: { birthYear: number; todayYear: number }) => ageGate(i.birthYear, i.todayYear),
   "test-timing": (i: { windowEnd: string; irregular: boolean }) => pregnancyTestDay(i.windowEnd, i.irregular),
-  "edd-from": (i: { method: "lmp" | "conception" | "transfer3" | "transfer5"; date: string }) =>
+  "edd-from": (i: { method: "lmp" | "conception" | "transfer3" | "transfer5" | "scan"; date: string; gaWeeks?: number; gaDays?: number }) =>
     i.method === "lmp"
       ? eddFromLmp(i.date)
       : i.method === "conception"
         ? eddFromConception(i.date)
-        : eddFromTransfer(i.date, i.method === "transfer3" ? 3 : 5),
+        : i.method === "scan"
+          ? eddFromScan(i.date, i.gaWeeks ?? -1, i.gaDays ?? -1)
+          : eddFromTransfer(i.date, i.method === "transfer3" ? 3 : 5),
+  "due-date": (i: { method: DueMethod; date: string; cycleLength?: number; scanWeeks?: number; scanDays?: number }) =>
+    estimateDueDateFrom(i.method, i.date, { cycleLength: i.cycleLength, scanWeeks: i.scanWeeks, scanDays: i.scanDays }),
+  "pregnancy-calendar": (i: { edd: string; today: string }) => pregnancyCalendar(i.edd, i.today),
+  "weight-gain": (i: { weightKg: number; heightCm: number; babies: number }) => weightGainRange(i.weightKg, i.heightCm, i.babies),
   "gestational-age": (i: { edd: string; today: string }) => pregnancyProgress(i.edd, i.today),
   // Two kinds of case share the file: an ISO date (day, month index, year) and a
   // Gregorian span (the Arabic month line under the month title).

@@ -3862,6 +3862,366 @@ abstract class L10n {
   /// In en, this message translates to:
   /// **'If something feels severe or sudden, get care now. The emergency numbers for your country are one tap away.'**
   String get todayUrgentBody;
+
+  /// No description provided for @toolsTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Calculators'**
+  String get toolsTitle;
+
+  /// No description provided for @toolsSub.
+  ///
+  /// In en, this message translates to:
+  /// **'These calculators give general estimates for learning and planning, not medical advice. Talk to your clinician about your health.'**
+  String get toolsSub;
+
+  /// No description provided for @toolDueTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Due date calculator'**
+  String get toolDueTitle;
+
+  /// No description provided for @toolDueDesc.
+  ///
+  /// In en, this message translates to:
+  /// **'From your last period, conception, an IVF transfer or a scan.'**
+  String get toolDueDesc;
+
+  /// No description provided for @toolCalTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Pregnancy calendar'**
+  String get toolCalTitle;
+
+  /// No description provided for @toolCalDesc.
+  ///
+  /// In en, this message translates to:
+  /// **'The dates of every pregnancy week, with each week\'s guide.'**
+  String get toolCalDesc;
+
+  /// No description provided for @toolGainTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Pregnancy weight gain'**
+  String get toolGainTitle;
+
+  /// No description provided for @toolGainDesc.
+  ///
+  /// In en, this message translates to:
+  /// **'The reference range for your BMI before pregnancy.'**
+  String get toolGainDesc;
+
+  /// No description provided for @toolDueMethodLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'How do you know the date?'**
+  String get toolDueMethodLabel;
+
+  /// No description provided for @toolDueMethodLmp.
+  ///
+  /// In en, this message translates to:
+  /// **'Last period'**
+  String get toolDueMethodLmp;
+
+  /// No description provided for @toolDueMethodConception.
+  ///
+  /// In en, this message translates to:
+  /// **'Conception'**
+  String get toolDueMethodConception;
+
+  /// No description provided for @toolDueMethodTransfer.
+  ///
+  /// In en, this message translates to:
+  /// **'IVF transfer'**
+  String get toolDueMethodTransfer;
+
+  /// No description provided for @toolDueMethodScan.
+  ///
+  /// In en, this message translates to:
+  /// **'Dating scan'**
+  String get toolDueMethodScan;
+
+  /// No description provided for @toolEmbryoLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Embryo age at transfer'**
+  String get toolEmbryoLabel;
+
+  /// No description provided for @toolEmbryo3.
+  ///
+  /// In en, this message translates to:
+  /// **'Day 3'**
+  String get toolEmbryo3;
+
+  /// No description provided for @toolEmbryo5.
+  ///
+  /// In en, this message translates to:
+  /// **'Day 5'**
+  String get toolEmbryo5;
+
+  /// No description provided for @toolPromptLmp.
+  ///
+  /// In en, this message translates to:
+  /// **'Tap the day your last period started'**
+  String get toolPromptLmp;
+
+  /// No description provided for @toolPromptConception.
+  ///
+  /// In en, this message translates to:
+  /// **'Tap the day you conceived'**
+  String get toolPromptConception;
+
+  /// No description provided for @toolPromptTransfer.
+  ///
+  /// In en, this message translates to:
+  /// **'Tap the day of the embryo transfer'**
+  String get toolPromptTransfer;
+
+  /// No description provided for @toolPromptScan.
+  ///
+  /// In en, this message translates to:
+  /// **'Tap the day of your scan'**
+  String get toolPromptScan;
+
+  /// No description provided for @toolCycleLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Cycle length'**
+  String get toolCycleLabel;
+
+  /// No description provided for @toolDays.
+  ///
+  /// In en, this message translates to:
+  /// **'{count, plural, one {{count} day} other {{count} days}}'**
+  String toolDays(int count);
+
+  /// No description provided for @toolScanWeeksLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Weeks on the scan report'**
+  String get toolScanWeeksLabel;
+
+  /// No description provided for @toolScanDaysLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Extra days on the report'**
+  String get toolScanDaysLabel;
+
+  /// No description provided for @toolWeeks.
+  ///
+  /// In en, this message translates to:
+  /// **'{count, plural, one {{count} week} other {{count} weeks}}'**
+  String toolWeeks(int count);
+
+  /// No description provided for @toolTermWindow.
+  ///
+  /// In en, this message translates to:
+  /// **'Most babies arrive between {start} and {end}.'**
+  String toolTermWindow(String start, String end);
+
+  /// No description provided for @toolScanNote.
+  ///
+  /// In en, this message translates to:
+  /// **'This uses the weeks and days on your scan report as written. If your clinician has given you a due date, follow theirs.'**
+  String get toolScanNote;
+
+  /// No description provided for @toolEstimateNote.
+  ///
+  /// In en, this message translates to:
+  /// **'These dates are estimates based on the date you entered. Every body is different.'**
+  String get toolEstimateNote;
+
+  /// No description provided for @toolClinicianAdjust.
+  ///
+  /// In en, this message translates to:
+  /// **'Your clinician may adjust the date after a scan.'**
+  String get toolClinicianAdjust;
+
+  /// No description provided for @toolCalMethodLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Which date do you know?'**
+  String get toolCalMethodLabel;
+
+  /// No description provided for @toolCalMethodEdd.
+  ///
+  /// In en, this message translates to:
+  /// **'Due date'**
+  String get toolCalMethodEdd;
+
+  /// No description provided for @toolCalMethodLmp.
+  ///
+  /// In en, this message translates to:
+  /// **'Last period'**
+  String get toolCalMethodLmp;
+
+  /// No description provided for @toolCalPromptEdd.
+  ///
+  /// In en, this message translates to:
+  /// **'Tap your due date'**
+  String get toolCalPromptEdd;
+
+  /// No description provided for @toolCalEyebrow.
+  ///
+  /// In en, this message translates to:
+  /// **'Your pregnancy, week by week'**
+  String get toolCalEyebrow;
+
+  /// No description provided for @toolCalTrimesterLine.
+  ///
+  /// In en, this message translates to:
+  /// **'Second trimester from {second}; third trimester from {third}.'**
+  String toolCalTrimesterLine(String second, String third);
+
+  /// No description provided for @toolCalWeek.
+  ///
+  /// In en, this message translates to:
+  /// **'Week {week}'**
+  String toolCalWeek(String week);
+
+  /// No description provided for @toolCalCurrent.
+  ///
+  /// In en, this message translates to:
+  /// **'This week'**
+  String get toolCalCurrent;
+
+  /// No description provided for @toolCalReadGuide.
+  ///
+  /// In en, this message translates to:
+  /// **'Read the week {week} guide'**
+  String toolCalReadGuide(String week);
+
+  /// No description provided for @toolGainIntro.
+  ///
+  /// In en, this message translates to:
+  /// **'Enter your weight before pregnancy and your height to see the reference range for total weight gain over the pregnancy, from the Institute of Medicine (2009). Nothing is stored.'**
+  String get toolGainIntro;
+
+  /// No description provided for @toolGainWeight.
+  ///
+  /// In en, this message translates to:
+  /// **'Weight before pregnancy (kg)'**
+  String get toolGainWeight;
+
+  /// No description provided for @toolGainHeight.
+  ///
+  /// In en, this message translates to:
+  /// **'Height (cm)'**
+  String get toolGainHeight;
+
+  /// No description provided for @toolGainBabiesLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'How many babies?'**
+  String get toolGainBabiesLabel;
+
+  /// No description provided for @toolGainBabiesOne.
+  ///
+  /// In en, this message translates to:
+  /// **'One'**
+  String get toolGainBabiesOne;
+
+  /// No description provided for @toolGainBabiesTwo.
+  ///
+  /// In en, this message translates to:
+  /// **'Twins'**
+  String get toolGainBabiesTwo;
+
+  /// No description provided for @toolGainBabiesMore.
+  ///
+  /// In en, this message translates to:
+  /// **'Three or more'**
+  String get toolGainBabiesMore;
+
+  /// No description provided for @toolGainBmiLine.
+  ///
+  /// In en, this message translates to:
+  /// **'BMI before pregnancy: {value} ({band})'**
+  String toolGainBmiLine(String value, String band);
+
+  /// No description provided for @toolBandUnderweight.
+  ///
+  /// In en, this message translates to:
+  /// **'Underweight'**
+  String get toolBandUnderweight;
+
+  /// No description provided for @toolBandNormal.
+  ///
+  /// In en, this message translates to:
+  /// **'Healthy range'**
+  String get toolBandNormal;
+
+  /// No description provided for @toolBandOverweight.
+  ///
+  /// In en, this message translates to:
+  /// **'Overweight'**
+  String get toolBandOverweight;
+
+  /// No description provided for @toolBandObese.
+  ///
+  /// In en, this message translates to:
+  /// **'Obese'**
+  String get toolBandObese;
+
+  /// No description provided for @toolGainEyebrow.
+  ///
+  /// In en, this message translates to:
+  /// **'Reference range for total gain over the whole pregnancy'**
+  String get toolGainEyebrow;
+
+  /// No description provided for @toolGainRangeKg.
+  ///
+  /// In en, this message translates to:
+  /// **'{low} to {high} kg'**
+  String toolGainRangeKg(String low, String high);
+
+  /// No description provided for @toolGainRangeLb.
+  ///
+  /// In en, this message translates to:
+  /// **'{low} to {high} lb'**
+  String toolGainRangeLb(String low, String high);
+
+  /// No description provided for @toolGainOtherUnit.
+  ///
+  /// In en, this message translates to:
+  /// **'That is {range}.'**
+  String toolGainOtherUnit(String range);
+
+  /// No description provided for @toolGainNoRangeTwins.
+  ///
+  /// In en, this message translates to:
+  /// **'The Institute of Medicine gives no range for twins when BMI before pregnancy is under 18.5. Your clinician will advise.'**
+  String get toolGainNoRangeTwins;
+
+  /// No description provided for @toolGainNoRangeMultiples.
+  ///
+  /// In en, this message translates to:
+  /// **'The Institute of Medicine gives no range for three or more babies. Your clinician will advise.'**
+  String get toolGainNoRangeMultiples;
+
+  /// No description provided for @toolGainNote.
+  ///
+  /// In en, this message translates to:
+  /// **'This is a reference range for your BMI band before pregnancy, not a target or a judgement. Your clinician may suggest a different range for you.'**
+  String get toolGainNote;
+
+  /// No description provided for @toolGainSource.
+  ///
+  /// In en, this message translates to:
+  /// **'Source: Institute of Medicine (2009), \"Weight Gain During Pregnancy\"; the same ranges are used by CDC and ACOG.'**
+  String get toolGainSource;
+
+  /// No description provided for @toolGainOutOfRange.
+  ///
+  /// In en, this message translates to:
+  /// **'Enter a weight from {minW} to {maxW} kg and a height from {minH} to {maxH} cm.'**
+  String toolGainOutOfRange(String minW, String maxW, String minH, String maxH);
+
+  /// No description provided for @toolNothingSaved.
+  ///
+  /// In en, this message translates to:
+  /// **'Nothing you enter here is saved.'**
+  String get toolNothingSaved;
 }
 
 class _L10nDelegate extends LocalizationsDelegate<L10n> {

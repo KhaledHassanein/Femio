@@ -940,5 +940,166 @@
   "upcomingPeriodsTitle": "Next periods",
   "upcomingPeriodsWider": "Each later period is a wider range: the further ahead, the less certain.",
   "upcomingPeriodsOnlyNext": "Only the next period is shown: your logged cycles vary too much, or there are too few yet, to reach further ahead.",
-  "todayUrgentBody": "If something feels severe or sudden, get care now. The emergency numbers for your country are one tap away."
+  "todayUrgentBody": "If something feels severe or sudden, get care now. The emergency numbers for your country are one tap away.",
+  "toolsTitle": "Calculators",
+  "toolsSub": "These calculators give general estimates for learning and planning, not medical advice. Talk to your clinician about your health.",
+  "toolDueTitle": "Due date calculator",
+  "toolDueDesc": "From your last period, conception, an IVF transfer or a scan.",
+  "toolCalTitle": "Pregnancy calendar",
+  "toolCalDesc": "The dates of every pregnancy week, with each week's guide.",
+  "toolGainTitle": "Pregnancy weight gain",
+  "toolGainDesc": "The reference range for your BMI before pregnancy.",
+  "toolDueMethodLabel": "How do you know the date?",
+  "toolDueMethodLmp": "Last period",
+  "toolDueMethodConception": "Conception",
+  "toolDueMethodTransfer": "IVF transfer",
+  "toolDueMethodScan": "Dating scan",
+  "toolEmbryoLabel": "Embryo age at transfer",
+  "toolEmbryo3": "Day 3",
+  "toolEmbryo5": "Day 5",
+  "toolPromptLmp": "Tap the day your last period started",
+  "toolPromptConception": "Tap the day you conceived",
+  "toolPromptTransfer": "Tap the day of the embryo transfer",
+  "toolPromptScan": "Tap the day of your scan",
+  "toolCycleLabel": "Cycle length",
+  "toolDays": "{count, plural, one {{count} day} other {{count} days}}",
+  "@toolDays": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "toolScanWeeksLabel": "Weeks on the scan report",
+  "toolScanDaysLabel": "Extra days on the report",
+  "toolWeeks": "{count, plural, one {{count} week} other {{count} weeks}}",
+  "@toolWeeks": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "toolTermWindow": "Most babies arrive between {start} and {end}.",
+  "@toolTermWindow": {
+    "placeholders": {
+      "start": {
+        "type": "String"
+      },
+      "end": {
+        "type": "String"
+      }
+    }
+  },
+  "toolScanNote": "This uses the weeks and days on your scan report as written. If your clinician has given you a due date, follow theirs.",
+  "toolEstimateNote": "These dates are estimates based on the date you entered. Every body is different.",
+  "toolClinicianAdjust": "Your clinician may adjust the date after a scan.",
+  "toolCalMethodLabel": "Which date do you know?",
+  "toolCalMethodEdd": "Due date",
+  "toolCalMethodLmp": "Last period",
+  "toolCalPromptEdd": "Tap your due date",
+  "toolCalEyebrow": "Your pregnancy, week by week",
+  "toolCalTrimesterLine": "Second trimester from {second}; third trimester from {third}.",
+  "@toolCalTrimesterLine": {
+    "placeholders": {
+      "second": {
+        "type": "String"
+      },
+      "third": {
+        "type": "String"
+      }
+    }
+  },
+  "toolCalWeek": "Week {week}",
+  "@toolCalWeek": {
+    "placeholders": {
+      "week": {
+        "type": "String"
+      }
+    }
+  },
+  "toolCalCurrent": "This week",
+  "toolCalReadGuide": "Read the week {week} guide",
+  "@toolCalReadGuide": {
+    "placeholders": {
+      "week": {
+        "type": "String"
+      }
+    }
+  },
+  "toolGainIntro": "Enter your weight before pregnancy and your height to see the reference range for total weight gain over the pregnancy, from the Institute of Medicine (2009). Nothing is stored.",
+  "toolGainWeight": "Weight before pregnancy (kg)",
+  "toolGainHeight": "Height (cm)",
+  "toolGainBabiesLabel": "How many babies?",
+  "toolGainBabiesOne": "One",
+  "toolGainBabiesTwo": "Twins",
+  "toolGainBabiesMore": "Three or more",
+  "toolGainBmiLine": "BMI before pregnancy: {value} ({band})",
+  "@toolGainBmiLine": {
+    "placeholders": {
+      "value": {
+        "type": "String"
+      },
+      "band": {
+        "type": "String"
+      }
+    }
+  },
+  "toolBandUnderweight": "Underweight",
+  "toolBandNormal": "Healthy range",
+  "toolBandOverweight": "Overweight",
+  "toolBandObese": "Obese",
+  "toolGainEyebrow": "Reference range for total gain over the whole pregnancy",
+  "toolGainRangeKg": "{low} to {high} kg",
+  "@toolGainRangeKg": {
+    "placeholders": {
+      "low": {
+        "type": "String"
+      },
+      "high": {
+        "type": "String"
+      }
+    }
+  },
+  "toolGainRangeLb": "{low} to {high} lb",
+  "@toolGainRangeLb": {
+    "placeholders": {
+      "low": {
+        "type": "String"
+      },
+      "high": {
+        "type": "String"
+      }
+    }
+  },
+  "toolGainOtherUnit": "That is {range}.",
+  "@toolGainOtherUnit": {
+    "placeholders": {
+      "range": {
+        "type": "String"
+      }
+    }
+  },
+  "toolGainNoRangeTwins": "The Institute of Medicine gives no range for twins when BMI before pregnancy is under 18.5. Your clinician will advise.",
+  "toolGainNoRangeMultiples": "The Institute of Medicine gives no range for three or more babies. Your clinician will advise.",
+  "toolGainNote": "This is a reference range for your BMI band before pregnancy, not a target or a judgement. Your clinician may suggest a different range for you.",
+  "toolGainSource": "Source: Institute of Medicine (2009), \"Weight Gain During Pregnancy\"; the same ranges are used by CDC and ACOG.",
+  "toolGainOutOfRange": "Enter a weight from {minW} to {maxW} kg and a height from {minH} to {maxH} cm.",
+  "@toolGainOutOfRange": {
+    "placeholders": {
+      "minW": {
+        "type": "String"
+      },
+      "maxW": {
+        "type": "String"
+      },
+      "minH": {
+        "type": "String"
+      },
+      "maxH": {
+        "type": "String"
+      }
+    }
+  },
+  "toolNothingSaved": "Nothing you enter here is saved."
 }

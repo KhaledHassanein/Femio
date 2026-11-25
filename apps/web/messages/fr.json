@@ -185,7 +185,7 @@
     "list": {
       "dueDate": {
         "name": "Calculateur de date d'accouchement",
-        "desc": "Estimez votre date d'accouchement à partir de vos dernières règles."
+        "desc": "D'après vos dernières règles, la conception, un transfert de FIV ou une échographie."
       },
       "ovulation": {
         "name": "Calculateur d'ovulation",
@@ -210,11 +210,23 @@
       "pregnancyTest": {
         "name": "Calculateur de test de grossesse",
         "desc": "Le premier jour où un test à domicile devrait être clair."
+      },
+      "pregnancyCalendar": {
+        "name": "Calendrier de grossesse",
+        "desc": "Les dates de chaque semaine de grossesse, avec le guide de la semaine."
+      },
+      "weightGain": {
+        "name": "Prise de poids pendant la grossesse",
+        "desc": "La fourchette de référence selon votre IMC avant la grossesse."
+      },
+      "contractionTimer": {
+        "name": "Minuteur de contractions",
+        "desc": "Chronométrez vos contractions et lisez les chiffres à la maternité."
       }
     },
     "dueDate": {
       "title": "Calculateur de date d'accouchement",
-      "intro": "Touchez le premier jour de vos dernières règles pour voir votre date d'accouchement estimée, votre semaine et votre trimestre sur un seul calendrier. Rien n'est enregistré.",
+      "intro": "Touchez le premier jour de vos dernières règles, ou choisissez la conception, un transfert de FIV ou une échographie de datation, pour voir votre date prévue et votre semaine sur un même calendrier. Rien n'est enregistré.",
       "eddLabel": "Date d'accouchement estimée",
       "termWindowLabel": "La plupart des bébés arrivent entre le {start} et le {end}.",
       "sentence": "Terme autour du {date}. La plupart des bébés naissent entre le {start} et le {end}.",
@@ -231,9 +243,35 @@
         },
         {
           "q": "La date de l'échographie remplace-t-elle celle-ci ?",
-          "a": "Si un clinicien vous a donné une date d'accouchement d'après une échographie, suivez la sienne. Ce calculateur n'utilise que la date que vous saisissez, et votre clinicien peut ajuster la date après une échographie."
+          "a": "Si un soignant vous a donné une date prévue d'après une échographie, suivez la sienne. Vous pouvez aussi choisir « Échographie de datation » et saisir les semaines et les jours de votre compte rendu ; le calculateur les reprend tels quels et ne les compare pas à vos règles."
         }
-      ]
+      ],
+      "methodLabel": "D'où vient votre date ?",
+      "method": {
+        "lmp": "Dernières règles",
+        "conception": "Conception",
+        "transfer": "Transfert FIV",
+        "scan": "Échographie de datation"
+      },
+      "embryoLabel": "Âge de l'embryon au transfert",
+      "embryo": {
+        "day3": "Jour 3",
+        "day5": "Jour 5"
+      },
+      "prompt": {
+        "conception": "Touchez le jour de la conception",
+        "transfer": "Touchez le jour du transfert d'embryon",
+        "scan": "Touchez le jour de votre échographie"
+      },
+      "scanWeeksLabel": "Semaines sur le compte rendu",
+      "scanDaysLabel": "Jours en plus sur le compte rendu",
+      "weeksUnit": "semaines",
+      "weeks": "{count, plural, one {# semaine} other {# semaines}}",
+      "fewerWeeks": "Moins de semaines",
+      "moreWeeks": "Plus de semaines",
+      "fewerDays": "Moins de jours",
+      "moreDays": "Plus de jours",
+      "scanNote": "Le calcul reprend les semaines et les jours de votre compte rendu tels quels. Si votre soignant vous a donné une date prévue, suivez la sienne."
     },
     "ovulation": {
       "title": "Calculateur d'ovulation et de fenêtre fertile",
@@ -430,7 +468,11 @@
       "cycleSpan": "Jours entre deux règles",
       "lmp": "Premier jour de vos dernières règles",
       "sexDay": "Le jour touché",
-      "periodStart": "Début des règles"
+      "periodStart": "Début des règles",
+      "conception": "Le jour de la conception",
+      "transfer": "Jour du transfert",
+      "scan": "Jour de l'échographie",
+      "due": "Date prévue"
     },
     "stepper": {
       "cycleLabel": "Durée du cycle",
@@ -480,7 +522,101 @@
       "getTheApp": "Obtenir l'application",
       "whatItDoes": "Ce que fait l'application"
     },
-    "faqTitle": "Questions fréquentes"
+    "faqTitle": "Questions fréquentes",
+    "pregnancyCalendar": {
+      "title": "Calendrier de grossesse, semaine par semaine",
+      "intro": "Touchez votre date prévue ou le premier jour de vos dernières règles pour voir les dates de chaque semaine de grossesse, les trimestres et le guide de chaque semaine. Rien n'est enregistré.",
+      "metaTitle": "Calendrier de grossesse : votre grossesse semaine par semaine, avec les dates",
+      "methodLabel": "Quelle date connaissez-vous ?",
+      "method": {
+        "edd": "Date prévue",
+        "lmp": "Dernières règles"
+      },
+      "promptEdd": "Touchez votre date prévue",
+      "eyebrow": "Votre grossesse, semaine par semaine",
+      "headline": "Date prévue vers le {date}",
+      "trimesterLine": "Deuxième trimestre à partir du {second} ; troisième trimestre à partir du {third}.",
+      "week": "Semaine {week}",
+      "current": "Cette semaine",
+      "readGuide": "Lire le guide de la semaine {week}",
+      "noGuide": "Pas de guide séparé pour cette semaine",
+      "faq": [
+        {
+          "q": "Comment compte-t-on les semaines de grossesse ?",
+          "a": "À partir du premier jour des dernières règles, soit 280 jours (40 semaines) avant la date prévue. « 24 semaines » signifie 24 semaines révolues : de 24 semaines et 0 jour à 24 semaines et 6 jours."
+        },
+        {
+          "q": "Quand change-t-on de trimestre ?",
+          "a": "Le deuxième trimestre commence à 14 semaines et le troisième à 28 semaines. Le calendrier montre la date de début de chacun pour votre date prévue."
+        },
+        {
+          "q": "Mon échographie donne une autre date. Laquelle utiliser ?",
+          "a": "Utilisez la date prévue que votre soignant vous donne. Choisissez « Date prévue » et touchez-la : toutes les semaines suivent cette date."
+        }
+      ]
+    },
+    "weightGain": {
+      "title": "Calculateur de prise de poids pendant la grossesse",
+      "intro": "Saisissez votre poids avant la grossesse et votre taille pour voir la fourchette de référence de prise de poids totale pendant la grossesse, selon l'Institute of Medicine (2009). Rien n'est enregistré.",
+      "metaTitle": "Prise de poids pendant la grossesse : la fourchette de l'IOM selon l'IMC",
+      "weightMetric": "Poids avant la grossesse (kg)",
+      "weightImperial": "Poids avant la grossesse (lb)",
+      "babiesLabel": "Combien de bébés ?",
+      "babies": {
+        "one": "Un",
+        "two": "Des jumeaux",
+        "more": "Trois ou plus"
+      },
+      "bmiLine": "IMC avant la grossesse : {value} ({band})",
+      "eyebrow": "Fourchette de référence pour la prise totale sur toute la grossesse",
+      "rangeKg": "De {low} à {high} kg",
+      "rangeLb": "De {low} à {high} lb",
+      "otherUnit": "Soit {range}.",
+      "noRangeTwinsUnderweight": "L'Institute of Medicine ne donne pas de fourchette pour des jumeaux quand l'IMC avant la grossesse est inférieur à 18,5. Votre soignant vous conseillera.",
+      "noRangeMultiples": "L'Institute of Medicine ne donne pas de fourchette pour trois bébés ou plus. Votre soignant vous conseillera.",
+      "note": "C'est une fourchette de référence pour votre catégorie d'IMC avant la grossesse, pas un objectif ni un jugement. Votre soignant peut vous proposer une autre fourchette.",
+      "source": "Source : Institute of Medicine (2009), « Weight Gain During Pregnancy » ; les CDC et l'ACOG utilisent les mêmes fourchettes.",
+      "outOfRange": "Saisissez un poids de {minW} à {maxW} kg et une taille de {minH} à {maxH} cm.",
+      "faq": [
+        {
+          "q": "Comment la fourchette est-elle choisie ?",
+          "a": "Elle dépend de votre IMC avant la grossesse, selon les fourchettes publiées en 2009 par l'Institute of Medicine américain. Les CDC et l'ACOG utilisent les mêmes."
+        },
+        {
+          "q": "Et si j'attends des jumeaux ?",
+          "a": "L'Institute of Medicine donne des fourchettes provisoires pour des jumeaux quand l'IMC avant la grossesse était d'au moins 18,5. En dessous, ou pour trois bébés ou plus, il n'en donne pas, et votre soignant vous conseillera."
+        },
+        {
+          "q": "Mon soignant peut-il proposer une autre fourchette ?",
+          "a": "Oui. Ce sont des fourchettes de référence pour des groupes de femmes. Votre soignant connaît votre santé et peut vous proposer une autre fourchette."
+        }
+      ]
+    },
+    "contractionTimer": {
+      "title": "Minuteur de contractions",
+      "intro": "Appuyez sur démarrer quand une contraction commence et sur arrêter quand elle s'apaise. Vous obtenez la durée de chacune et le temps qui les sépare, prêts à lire quand vous appelez.",
+      "metaTitle": "Minuteur de contractions : chronométrez gratuitement, sans inscription",
+      "sessionNote": "Rien n'est enregistré : fermer ou actualiser cette page efface les temps.",
+      "clear": "Effacer ces temps",
+      "listHeading": "Vos temps",
+      "length": "Durée",
+      "apart": "Écart",
+      "startedAt": "Début {time}",
+      "faq": [
+        {
+          "q": "Que mesure le minuteur ?",
+          "a": "La durée de chaque contraction et le temps entre le début de l'une et le début de la suivante, avec la moyenne de vos cinq dernières."
+        },
+        {
+          "q": "Me dit-il quand partir à la maternité ?",
+          "a": "Non. Il affiche vos temps pour que vous les lisiez à la maternité, qui vous dira quoi faire. Appelez dès que vous êtes inquiète ; vous n'avez pas à atteindre un chiffre d'abord."
+        },
+        {
+          "q": "Mes temps sont-ils enregistrés ?",
+          "a": "Non. Ils restent sur cette page tant qu'elle est ouverte. L'application femio les garde sur votre téléphone."
+        }
+      ]
+    }
   },
   "track": {
     "loadError": "Impossible de charger votre historique. Vous pouvez quand même enregistrer ci-dessous.",

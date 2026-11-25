@@ -2340,4 +2340,239 @@ class L10nAr extends L10n {
   @override
   String get todayUrgentBody =>
       'إذا شعرتِ بشيء شديد أو مفاجئ، اطلبي الرعاية الآن. أرقام الطوارئ في بلدك على بُعد لمسة واحدة.';
+
+  @override
+  String get toolsTitle => 'الحاسبات';
+
+  @override
+  String get toolsSub =>
+      'تقدّم هذه الحاسبات تقديرات عامة للتعلّم والتخطيط، وليست نصيحة طبية. تحدّثي مع طبيبتكِ حول صحتكِ.';
+
+  @override
+  String get toolDueTitle => 'حاسبة موعد الولادة';
+
+  @override
+  String get toolDueDesc => 'من آخر دورة أو الإخصاب أو نقل الأجنة أو السونار.';
+
+  @override
+  String get toolCalTitle => 'تقويم الحمل';
+
+  @override
+  String get toolCalDesc => 'تواريخ كل أسبوع من الحمل، مع دليل كل أسبوع.';
+
+  @override
+  String get toolGainTitle => 'زيادة الوزن في الحمل';
+
+  @override
+  String get toolGainDesc => 'النطاق المرجعي حسب مؤشر كتلة جسمكِ قبل الحمل.';
+
+  @override
+  String get toolDueMethodLabel => 'كيف تعرفين التاريخ؟';
+
+  @override
+  String get toolDueMethodLmp => 'آخر دورة';
+
+  @override
+  String get toolDueMethodConception => 'الإخصاب';
+
+  @override
+  String get toolDueMethodTransfer => 'نقل الأجنة';
+
+  @override
+  String get toolDueMethodScan => 'سونار تحديد العمر';
+
+  @override
+  String get toolEmbryoLabel => 'عمر الجنين عند النقل';
+
+  @override
+  String get toolEmbryo3 => 'اليوم الثالث';
+
+  @override
+  String get toolEmbryo5 => 'اليوم الخامس';
+
+  @override
+  String get toolPromptLmp => 'اضغطي على أول يوم في آخر دورة لكِ';
+
+  @override
+  String get toolPromptConception => 'اضغطي على يوم الإخصاب';
+
+  @override
+  String get toolPromptTransfer => 'اضغطي على يوم نقل الأجنة';
+
+  @override
+  String get toolPromptScan => 'اضغطي على يوم السونار';
+
+  @override
+  String get toolCycleLabel => 'طول الدورة';
+
+  @override
+  String toolDays(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count يوم',
+      many: '$count يومًا',
+      few: '$count أيام',
+      two: 'يومان',
+      one: 'يوم واحد',
+      zero: '$count يوم',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get toolScanWeeksLabel => 'الأسابيع في تقرير السونار';
+
+  @override
+  String get toolScanDaysLabel => 'الأيام الزائدة في التقرير';
+
+  @override
+  String toolWeeks(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count أسبوع',
+      many: '$count أسبوعًا',
+      few: '$count أسابيع',
+      two: 'أسبوعان',
+      one: 'أسبوع واحد',
+      zero: '$count أسبوع',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String toolTermWindow(String start, String end) {
+    return 'يصل معظم المواليد بين $start و$end.';
+  }
+
+  @override
+  String get toolScanNote =>
+      'تُستخدم الأسابيع والأيام كما وردت في تقرير السونار. إذا أعطتكِ طبيبتكِ موعدًا للولادة فاعتمدي موعدها.';
+
+  @override
+  String get toolEstimateNote =>
+      'هذه التواريخ تقديرات مبنية على التاريخ الذي أدخلتِه. كل جسم مختلف.';
+
+  @override
+  String get toolClinicianAdjust => 'قد تعدّل طبيبتكِ الموعد بعد السونار.';
+
+  @override
+  String get toolCalMethodLabel => 'أي تاريخ تعرفين؟';
+
+  @override
+  String get toolCalMethodEdd => 'موعد الولادة';
+
+  @override
+  String get toolCalMethodLmp => 'آخر دورة';
+
+  @override
+  String get toolCalPromptEdd => 'اضغطي على موعد ولادتكِ المتوقع';
+
+  @override
+  String get toolCalEyebrow => 'حملكِ أسبوعًا بأسبوع';
+
+  @override
+  String toolCalTrimesterLine(String second, String third) {
+    return 'الثلث الثاني من $second، والثلث الثالث من $third.';
+  }
+
+  @override
+  String toolCalWeek(String week) {
+    return 'الأسبوع $week';
+  }
+
+  @override
+  String get toolCalCurrent => 'هذا الأسبوع';
+
+  @override
+  String toolCalReadGuide(String week) {
+    return 'اقرئي دليل الأسبوع $week';
+  }
+
+  @override
+  String get toolGainIntro =>
+      'أدخلي وزنكِ قبل الحمل وطولكِ لتري النطاق المرجعي لإجمالي زيادة الوزن طوال الحمل، حسب معهد الطب الأمريكي (2009)، دون حفظ أي بيانات.';
+
+  @override
+  String get toolGainWeight => 'الوزن قبل الحمل (كغ)';
+
+  @override
+  String get toolGainHeight => 'الطول (سم)';
+
+  @override
+  String get toolGainBabiesLabel => 'كم عدد الأجنّة؟';
+
+  @override
+  String get toolGainBabiesOne => 'جنين واحد';
+
+  @override
+  String get toolGainBabiesTwo => 'توأمان';
+
+  @override
+  String get toolGainBabiesMore => 'ثلاثة أو أكثر';
+
+  @override
+  String toolGainBmiLine(String value, String band) {
+    return 'مؤشر كتلة الجسم قبل الحمل: $value ($band)';
+  }
+
+  @override
+  String get toolBandUnderweight => 'نقص الوزن';
+
+  @override
+  String get toolBandNormal => 'النطاق الصحي';
+
+  @override
+  String get toolBandOverweight => 'زيادة الوزن';
+
+  @override
+  String get toolBandObese => 'السمنة';
+
+  @override
+  String get toolGainEyebrow => 'النطاق المرجعي لإجمالي الزيادة طوال الحمل';
+
+  @override
+  String toolGainRangeKg(String low, String high) {
+    return 'من $low إلى $high كغ';
+  }
+
+  @override
+  String toolGainRangeLb(String low, String high) {
+    return 'من $low إلى $high رطل';
+  }
+
+  @override
+  String toolGainOtherUnit(String range) {
+    return 'أي $range.';
+  }
+
+  @override
+  String get toolGainNoRangeTwins =>
+      'لا يحدّد معهد الطب الأمريكي نطاقًا للتوأم إذا كان مؤشر كتلة الجسم قبل الحمل أقل من 18.5. ستنصحكِ طبيبتكِ.';
+
+  @override
+  String get toolGainNoRangeMultiples =>
+      'لا يحدّد معهد الطب الأمريكي نطاقًا لثلاثة أجنّة أو أكثر. ستنصحكِ طبيبتكِ.';
+
+  @override
+  String get toolGainNote =>
+      'هذا نطاق مرجعي لفئة مؤشر كتلة جسمكِ قبل الحمل، وليس هدفًا ولا حكمًا. وقد تقترح طبيبتكِ نطاقًا مختلفًا لكِ.';
+
+  @override
+  String get toolGainSource =>
+      'المصدر: معهد الطب الأمريكي (2009)، «زيادة الوزن أثناء الحمل»؛ وتعتمد المراكز الأمريكية لمكافحة الأمراض (CDC) والكلية الأمريكية لأطباء النساء والتوليد (ACOG) النطاقات نفسها.';
+
+  @override
+  String toolGainOutOfRange(
+    String minW,
+    String maxW,
+    String minH,
+    String maxH,
+  ) {
+    return 'أدخلي وزنًا من $minW إلى $maxW كغ وطولًا من $minH إلى $maxH سم.';
+  }
+
+  @override
+  String get toolNothingSaved => 'لا يُحفظ شيء مما تُدخلينه هنا.';
 }

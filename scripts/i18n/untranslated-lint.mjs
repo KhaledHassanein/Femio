@@ -49,6 +49,7 @@ const ALLOWED = {
   ar: [],
   fr: [
     "search.kinds.article", // "Articles" is the French word too
+    "calculators.dueDate.method.conception", // R13: "Conception" is the French word too
     "home.chips.accent",
     "home.chips.fertile",
     "symptoms.items.constipation",

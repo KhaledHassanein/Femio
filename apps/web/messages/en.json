@@ -185,7 +185,7 @@
     "list": {
       "dueDate": {
         "name": "Due date calculator",
-        "desc": "Estimate your due date from your last period."
+        "desc": "From your last period, conception, an IVF transfer or a scan."
       },
       "ovulation": {
         "name": "Ovulation calculator",
@@ -210,11 +210,23 @@
       "pregnancyTest": {
         "name": "Pregnancy test calculator",
         "desc": "The earliest day a home test is likely to be clear."
+      },
+      "pregnancyCalendar": {
+        "name": "Pregnancy calendar",
+        "desc": "The dates of every pregnancy week, with each week's guide."
+      },
+      "weightGain": {
+        "name": "Pregnancy weight gain",
+        "desc": "The reference range for your BMI before pregnancy."
+      },
+      "contractionTimer": {
+        "name": "Contraction timer",
+        "desc": "Time contractions and read the numbers to your maternity unit."
       }
     },
     "dueDate": {
       "title": "Due date calculator",
-      "intro": "Tap the first day of your last period to see your estimated due date, your week and your trimester on one calendar. Nothing is stored.",
+      "intro": "Tap the first day of your last period, or choose conception, IVF transfer or a dating scan, to see your estimated due date and your week on one calendar. Nothing is stored.",
       "eddLabel": "Estimated due date",
       "termWindowLabel": "Most babies arrive between {start} and {end}.",
       "sentence": "Due date around {date}. Most babies arrive between {start} and {end}.",
@@ -231,9 +243,35 @@
         },
         {
           "q": "Does the ultrasound date replace this one?",
-          "a": "If a clinician has given you a due date from a scan, follow theirs. This calculator uses only the date you enter, and your clinician may adjust the date after a scan."
+          "a": "If a clinician has given you a due date from a scan, follow theirs. You can also choose \"Dating scan\" and enter the weeks and days from your report; the calculator takes them as written and does not compare them with your period."
         }
-      ]
+      ],
+      "methodLabel": "How do you know the date?",
+      "method": {
+        "lmp": "Last period",
+        "conception": "Conception",
+        "transfer": "IVF transfer",
+        "scan": "Dating scan"
+      },
+      "embryoLabel": "Embryo age at transfer",
+      "embryo": {
+        "day3": "Day 3",
+        "day5": "Day 5"
+      },
+      "prompt": {
+        "conception": "Tap the day you conceived",
+        "transfer": "Tap the day of the embryo transfer",
+        "scan": "Tap the day of your scan"
+      },
+      "scanWeeksLabel": "Weeks on the scan report",
+      "scanDaysLabel": "Extra days on the report",
+      "weeksUnit": "weeks",
+      "weeks": "{count, plural, one {# week} other {# weeks}}",
+      "fewerWeeks": "Fewer weeks",
+      "moreWeeks": "More weeks",
+      "fewerDays": "Fewer days",
+      "moreDays": "More days",
+      "scanNote": "This uses the weeks and days on your scan report as written. If your clinician has given you a due date, follow theirs."
     },
     "ovulation": {
       "title": "Ovulation and fertile window calculator",
@@ -430,7 +468,11 @@
       "cycleSpan": "Days between periods",
       "lmp": "First day of your last period",
       "sexDay": "The day you tapped",
-      "periodStart": "Period start"
+      "periodStart": "Period start",
+      "conception": "The day you conceived",
+      "transfer": "Transfer day",
+      "scan": "Scan day",
+      "due": "Due date"
     },
     "stepper": {
       "cycleLabel": "Cycle length",
@@ -480,7 +522,101 @@
       "getTheApp": "Get the app",
       "whatItDoes": "What the app does"
     },
-    "faqTitle": "Common questions"
+    "faqTitle": "Common questions",
+    "pregnancyCalendar": {
+      "title": "Pregnancy calendar, week by week",
+      "intro": "Tap your due date or the first day of your last period to see the dates of every pregnancy week, the trimesters, and each week's guide. Nothing is stored.",
+      "metaTitle": "Pregnancy Calendar: Your Pregnancy Week by Week, with Dates",
+      "methodLabel": "Which date do you know?",
+      "method": {
+        "edd": "Due date",
+        "lmp": "Last period"
+      },
+      "promptEdd": "Tap your due date",
+      "eyebrow": "Your pregnancy, week by week",
+      "headline": "Due date around {date}",
+      "trimesterLine": "Second trimester from {second}; third trimester from {third}.",
+      "week": "Week {week}",
+      "current": "This week",
+      "readGuide": "Read the week {week} guide",
+      "noGuide": "No separate guide for this week",
+      "faq": [
+        {
+          "q": "How are pregnancy weeks counted?",
+          "a": "From the first day of your last period, which is 280 days (40 weeks) before the due date. \"24 weeks\" means 24 completed weeks: from 24 weeks and 0 days to 24 weeks and 6 days."
+        },
+        {
+          "q": "When do the trimesters change?",
+          "a": "The second trimester starts at 14 weeks and the third at 28 weeks. The calendar shows the date each one starts for your due date."
+        },
+        {
+          "q": "My scan gave a different date. Which should I use?",
+          "a": "Use the due date your clinician gives you. Choose \"Due date\" and tap it, and every week follows that date."
+        }
+      ]
+    },
+    "weightGain": {
+      "title": "Pregnancy weight gain calculator",
+      "intro": "Enter your weight before pregnancy and your height to see the reference range for total weight gain over the pregnancy, from the Institute of Medicine (2009). Nothing is stored.",
+      "metaTitle": "Pregnancy Weight Gain Calculator: IOM Range by BMI",
+      "weightMetric": "Weight before pregnancy (kg)",
+      "weightImperial": "Weight before pregnancy (lb)",
+      "babiesLabel": "How many babies?",
+      "babies": {
+        "one": "One",
+        "two": "Twins",
+        "more": "Three or more"
+      },
+      "bmiLine": "BMI before pregnancy: {value} ({band})",
+      "eyebrow": "Reference range for total gain over the whole pregnancy",
+      "rangeKg": "{low} to {high} kg",
+      "rangeLb": "{low} to {high} lb",
+      "otherUnit": "That is {range}.",
+      "noRangeTwinsUnderweight": "The Institute of Medicine gives no range for twins when BMI before pregnancy is under 18.5. Your clinician will advise.",
+      "noRangeMultiples": "The Institute of Medicine gives no range for three or more babies. Your clinician will advise.",
+      "note": "This is a reference range for your BMI band before pregnancy, not a target or a judgement. Your clinician may suggest a different range for you.",
+      "source": "Source: Institute of Medicine (2009), \"Weight Gain During Pregnancy\"; the same ranges are used by CDC and ACOG.",
+      "outOfRange": "Enter a weight from {minW} to {maxW} kg and a height from {minH} to {maxH} cm.",
+      "faq": [
+        {
+          "q": "How is the range chosen?",
+          "a": "It depends on your BMI before pregnancy, using the ranges the US Institute of Medicine published in 2009. CDC and ACOG use the same ranges."
+        },
+        {
+          "q": "What if I am expecting twins?",
+          "a": "The Institute of Medicine gives provisional ranges for twins when BMI before pregnancy was 18.5 or more. For a lower BMI, or for three or more babies, it gives no range, and your clinician will advise."
+        },
+        {
+          "q": "Can my clinician suggest a different range?",
+          "a": "Yes. These are reference ranges for groups of women. Your clinician knows your health and may suggest a different range for you."
+        }
+      ]
+    },
+    "contractionTimer": {
+      "title": "Contraction timer",
+      "intro": "Press start when a contraction begins and stop when it eases. You get each one's length and the time between them, ready to read out when you call.",
+      "metaTitle": "Contraction Timer: Time Contractions Free, No Sign-up",
+      "sessionNote": "Nothing is saved: closing or refreshing this page clears the times.",
+      "clear": "Clear these times",
+      "listHeading": "Your times",
+      "length": "Length",
+      "apart": "Apart",
+      "startedAt": "Started {time}",
+      "faq": [
+        {
+          "q": "What does the timer measure?",
+          "a": "How long each contraction lasts, and the time from the start of one to the start of the next, with averages over your last five."
+        },
+        {
+          "q": "Does it tell me when to go to hospital?",
+          "a": "No. It shows your times so you can read them to your maternity unit, who will tell you what to do. Call whenever you are worried; you do not need to reach a certain number first."
+        },
+        {
+          "q": "Are my times saved?",
+          "a": "No. They stay on this page only while it is open. The femio app keeps them on your phone."
+        }
+      ]
+    }
   },
   "track": {
     "loadError": "We couldn't load your history. You can still log below.",

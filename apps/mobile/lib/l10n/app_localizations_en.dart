@@ -2320,4 +2320,236 @@ class L10nEn extends L10n {
   @override
   String get todayUrgentBody =>
       'If something feels severe or sudden, get care now. The emergency numbers for your country are one tap away.';
+
+  @override
+  String get toolsTitle => 'Calculators';
+
+  @override
+  String get toolsSub =>
+      'These calculators give general estimates for learning and planning, not medical advice. Talk to your clinician about your health.';
+
+  @override
+  String get toolDueTitle => 'Due date calculator';
+
+  @override
+  String get toolDueDesc =>
+      'From your last period, conception, an IVF transfer or a scan.';
+
+  @override
+  String get toolCalTitle => 'Pregnancy calendar';
+
+  @override
+  String get toolCalDesc =>
+      'The dates of every pregnancy week, with each week\'s guide.';
+
+  @override
+  String get toolGainTitle => 'Pregnancy weight gain';
+
+  @override
+  String get toolGainDesc =>
+      'The reference range for your BMI before pregnancy.';
+
+  @override
+  String get toolDueMethodLabel => 'How do you know the date?';
+
+  @override
+  String get toolDueMethodLmp => 'Last period';
+
+  @override
+  String get toolDueMethodConception => 'Conception';
+
+  @override
+  String get toolDueMethodTransfer => 'IVF transfer';
+
+  @override
+  String get toolDueMethodScan => 'Dating scan';
+
+  @override
+  String get toolEmbryoLabel => 'Embryo age at transfer';
+
+  @override
+  String get toolEmbryo3 => 'Day 3';
+
+  @override
+  String get toolEmbryo5 => 'Day 5';
+
+  @override
+  String get toolPromptLmp => 'Tap the day your last period started';
+
+  @override
+  String get toolPromptConception => 'Tap the day you conceived';
+
+  @override
+  String get toolPromptTransfer => 'Tap the day of the embryo transfer';
+
+  @override
+  String get toolPromptScan => 'Tap the day of your scan';
+
+  @override
+  String get toolCycleLabel => 'Cycle length';
+
+  @override
+  String toolDays(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count days',
+      one: '$count day',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get toolScanWeeksLabel => 'Weeks on the scan report';
+
+  @override
+  String get toolScanDaysLabel => 'Extra days on the report';
+
+  @override
+  String toolWeeks(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count weeks',
+      one: '$count week',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String toolTermWindow(String start, String end) {
+    return 'Most babies arrive between $start and $end.';
+  }
+
+  @override
+  String get toolScanNote =>
+      'This uses the weeks and days on your scan report as written. If your clinician has given you a due date, follow theirs.';
+
+  @override
+  String get toolEstimateNote =>
+      'These dates are estimates based on the date you entered. Every body is different.';
+
+  @override
+  String get toolClinicianAdjust =>
+      'Your clinician may adjust the date after a scan.';
+
+  @override
+  String get toolCalMethodLabel => 'Which date do you know?';
+
+  @override
+  String get toolCalMethodEdd => 'Due date';
+
+  @override
+  String get toolCalMethodLmp => 'Last period';
+
+  @override
+  String get toolCalPromptEdd => 'Tap your due date';
+
+  @override
+  String get toolCalEyebrow => 'Your pregnancy, week by week';
+
+  @override
+  String toolCalTrimesterLine(String second, String third) {
+    return 'Second trimester from $second; third trimester from $third.';
+  }
+
+  @override
+  String toolCalWeek(String week) {
+    return 'Week $week';
+  }
+
+  @override
+  String get toolCalCurrent => 'This week';
+
+  @override
+  String toolCalReadGuide(String week) {
+    return 'Read the week $week guide';
+  }
+
+  @override
+  String get toolGainIntro =>
+      'Enter your weight before pregnancy and your height to see the reference range for total weight gain over the pregnancy, from the Institute of Medicine (2009). Nothing is stored.';
+
+  @override
+  String get toolGainWeight => 'Weight before pregnancy (kg)';
+
+  @override
+  String get toolGainHeight => 'Height (cm)';
+
+  @override
+  String get toolGainBabiesLabel => 'How many babies?';
+
+  @override
+  String get toolGainBabiesOne => 'One';
+
+  @override
+  String get toolGainBabiesTwo => 'Twins';
+
+  @override
+  String get toolGainBabiesMore => 'Three or more';
+
+  @override
+  String toolGainBmiLine(String value, String band) {
+    return 'BMI before pregnancy: $value ($band)';
+  }
+
+  @override
+  String get toolBandUnderweight => 'Underweight';
+
+  @override
+  String get toolBandNormal => 'Healthy range';
+
+  @override
+  String get toolBandOverweight => 'Overweight';
+
+  @override
+  String get toolBandObese => 'Obese';
+
+  @override
+  String get toolGainEyebrow =>
+      'Reference range for total gain over the whole pregnancy';
+
+  @override
+  String toolGainRangeKg(String low, String high) {
+    return '$low to $high kg';
+  }
+
+  @override
+  String toolGainRangeLb(String low, String high) {
+    return '$low to $high lb';
+  }
+
+  @override
+  String toolGainOtherUnit(String range) {
+    return 'That is $range.';
+  }
+
+  @override
+  String get toolGainNoRangeTwins =>
+      'The Institute of Medicine gives no range for twins when BMI before pregnancy is under 18.5. Your clinician will advise.';
+
+  @override
+  String get toolGainNoRangeMultiples =>
+      'The Institute of Medicine gives no range for three or more babies. Your clinician will advise.';
+
+  @override
+  String get toolGainNote =>
+      'This is a reference range for your BMI band before pregnancy, not a target or a judgement. Your clinician may suggest a different range for you.';
+
+  @override
+  String get toolGainSource =>
+      'Source: Institute of Medicine (2009), \"Weight Gain During Pregnancy\"; the same ranges are used by CDC and ACOG.';
+
+  @override
+  String toolGainOutOfRange(
+    String minW,
+    String maxW,
+    String minH,
+    String maxH,
+  ) {
+    return 'Enter a weight from $minW to $maxW kg and a height from $minH to $maxH cm.';
+  }
+
+  @override
+  String get toolNothingSaved => 'Nothing you enter here is saved.';
 }

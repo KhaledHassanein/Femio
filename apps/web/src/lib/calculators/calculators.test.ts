@@ -4,6 +4,7 @@ import {
   bmi,
   cycleStats,
   estimateDueDate,
+  estimateDueDateFrom,
   fertileWindow,
   gestationalAge,
   periodForecast,
@@ -181,5 +182,25 @@ describe("pregnancy test timing (NHS)", () => {
 describe("trimesterOf", () => {
   it("uses ACOG's 14 and 28 week boundaries", () => {
     expect([0, 13, 14, 27, 28, 41].map(trimesterOf)).toEqual([1, 1, 2, 2, 3, 3]);
+  });
+});
+
+describe("estimateDueDateFrom (R13.1)", () => {
+  it("agrees with every method on one pregnancy and keeps the 37w0d-42w0d window", () => {
+    const byLmp = estimateDueDateFrom("lmp", "2026-01-01")!;
+    const byConception = estimateDueDateFrom("conception", "2026-01-15")!;
+    const byDay5 = estimateDueDateFrom("transfer5", "2026-01-20")!;
+    const byDay3 = estimateDueDateFrom("transfer3", "2026-01-18")!;
+    const byScan = estimateDueDateFrom("scan", "2026-03-26", { scanWeeks: 12, scanDays: 0 })!;
+    for (const r of [byConception, byDay5, byDay3, byScan]) expect(r).toEqual(byLmp);
+    expect(diffDays(byLmp.termStart, byLmp.edd)).toBe(21);
+    expect(diffDays(byLmp.edd, byLmp.termEnd)).toBe(14);
+    expect(byLmp.lmp).toBe("2026-01-01");
+  });
+
+  it("refuses a scan gestation outside 4w0d-41w6d rather than computing it", () => {
+    expect(estimateDueDateFrom("scan", "2026-03-26", { scanWeeks: 3, scanDays: 6 })).toBeNull();
+    expect(estimateDueDateFrom("scan", "2026-03-26", { scanWeeks: 42, scanDays: 0 })).toBeNull();
+    expect(estimateDueDateFrom("scan", "2026-03-26")).toBeNull();
   });
 });
