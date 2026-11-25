@@ -12,7 +12,7 @@ secondary_topics:
   - "schéma des symptômes du SPM"
   - "quand demander de l’aide pour le TDPM"
 excerpt: "Apprenez à tenir un relevé quotidien des symptômes du SPM ou du TDPM, à repérer leur moment dans le cycle, à résumer leur impact au quotidien, et à savoir quand demander de l’aide."
-meta_title: "Comment suivre les symptômes du SPM et du TDPM | Femio"
+meta_title: "Comment suivre les symptômes du SPM et du TDPM | femio"
 meta_description: "Suivre chaque jour les symptômes du SPM et du TDPM, comparer leur moment avec les règles, préparer un résumé pour le rendez-vous et savoir demander de l’aide."
 canonical_url: "https://femioapp.com/fr/learn/track-pms-pmdd-symptoms"
 robots_while_draft: "noindex,nofollow"
@@ -24,7 +24,7 @@ open_graph_image_alt: "Journal quotidien des symptômes d’humeur et du corps a
 written_by: "PENDING"
 medically_reviewed_by: "Dr. Khaled M."
 date_published: "2026-10-30"
-date_modified: "2026-10-30"
+date_modified: "2026-11-24"
 last_reviewed: "2026-10-30"
 next_review_due: "2027-10-30"
 reading_level_ok: false
@@ -134,7 +134,7 @@ Apportez le journal quotidien et un résumé d’une page. Incluez :
 
 Demandez quels schémas correspondent au SPM ou au TDPM, et ce qui doit encore être évalué. Demandez comment chaque option de prise en charge pourrait aider, quels risques vous concernent, et quand revoir les progrès. Le [guide principal sur le SPM et le TDPM](/fr/conditions/pms-pmdd) explique les options de prise en charge courantes.
 
-La [page de relecture médicale](/fr/medical-review) de Femio explique comment nos contenus de santé sont vérifiés.
+La [page de relecture médicale](/fr/medical-review) de femio explique comment nos contenus de santé sont vérifiés.
 
 ## Construire un plan de sécurité pour les symptômes d’humeur sévères
 
@@ -142,7 +142,7 @@ Ne vous fiez pas à une application seule lorsque les symptômes incluent un sen
 
 Un plan de sécurité personnel peut lister les signes d’alerte, les gestes apaisants, les personnes que vous pouvez contacter, les lieux sûrs, et les moyens de réduire l’accès à tout ce que vous pourriez utiliser pour vous faire du mal. Idéalement, élaborez-le avec un professionnel qualifié.
 
-Utilisez [la page d’aide immédiate](/fr/help-now) de Femio pour trouver des ressources de soutien immédiat. Le suivi peut attendre que vous soyez en sécurité.
+Utilisez [la page d’aide immédiate](/fr/help-now) de femio pour trouver des ressources de soutien immédiat. Le suivi peut attendre que vous soyez en sécurité.
 
 ## Quand consulter
 
@@ -166,6 +166,6 @@ Au moins deux cycles peuvent aider à voir un schéma, mais ne retardez pas les 
 
 Parlez-en à un clinicien. Une autre préoccupation de santé, ou une préoccupation supplémentaire, peut nécessiter une évaluation.
 
-### Femio peut-il confirmer un TDPM ?
+### femio peut-il confirmer un TDPM ?
 
-Non. Femio peut organiser un relevé de symptômes, mais un clinicien qualifié doit évaluer l’ensemble du schéma.
+Non. femio peut organiser un relevé de symptômes, mais un clinicien qualifié doit évaluer l’ensemble du schéma.

@@ -24,7 +24,7 @@ open_graph_image_alt: "Une personne qui fait doucement des exercices sur un tapi
 written_by: "PENDING"
 medically_reviewed_by: "Dr. Khaled M."
 date_published: "2026-10-30"
-date_modified: "2026-10-30"
+date_modified: "2026-11-24"
 last_reviewed: "2026-10-30"
 next_review_due: "2027-10-30"
 reading_level_ok: false
@@ -114,7 +114,7 @@ Reprenez la course et les sauts progressivement et après avis, surtout si vous 
 
 Noter les fuites, les envies urgentes, la lourdeur et la douleur vous donne quelque chose de précis à décrire. « Je fuis la plupart des jours à la toux, six semaines après » permet d'obtenir une orientation plus vite que « ça ne va pas très bien ».
 
-Femio n'évalue pas la force du plancher pelvien et ne peut pas vous dire si vous avez un prolapsus, ce qui nécessite un examen. Voir [les six premières semaines après l'accouchement](/fr/learn/postpartum-recovery-first-six-weeks) pour ce qui se passe aussi pendant cette période.
+femio n'évalue pas la force du plancher pelvien et ne peut pas vous dire si vous avez un prolapsus, ce qui nécessite un examen. Voir [les six premières semaines après l'accouchement](/fr/learn/postpartum-recovery-first-six-weeks) pour ce qui se passe aussi pendant cette période.
 
 ## Quand consulter
 

@@ -12,7 +12,7 @@ secondary_topics:
   - "menopause care options"
   - "bleeding after menopause"
 excerpt: "Learn what menopause means, which changes may occur, how clinicians assess symptoms, and when bleeding or other symptoms need medical care."
-meta_title: "What Is Menopause? Symptoms and Changes | Femio"
+meta_title: "What Is Menopause? Symptoms and Changes | femio"
 meta_description: "Understand menopause, common symptoms, clinical assessment, care options, daily tracking, and when to seek medical advice."
 canonical_url: "https://femioapp.com/en/learn/menopause-explained"
 robots_while_draft: "noindex,nofollow"
@@ -24,7 +24,7 @@ open_graph_image_alt: "Woman reviewing a menopause symptom record with a healthc
 written_by: "Dr. Khaled M."
 medically_reviewed_by: "Dr. Khaled M."
 date_published: "2026-08-15"
-date_modified: "2026-08-15"
+date_modified: "2026-11-24"
 last_reviewed: "2026-08-04"
 next_review_due: null
 reading_level_ok: true
@@ -146,7 +146,7 @@ Useful notes can include:
 - Any bleeding or spotting.
 - How symptoms affect work, home, or relationships.
 
-Ask what else could explain the changes. Ask what each option may help, what risks apply to you, and when the plan should be reviewed. Femio explains how health content is checked on the [clinician review page](/en/medical-review).
+Ask what else could explain the changes. Ask what each option may help, what risks apply to you, and when the plan should be reviewed. femio explains how health content is checked on the [clinician review page](/en/medical-review).
 
 ## Living with menopause day to day
 
@@ -158,7 +158,7 @@ Vaginal dryness and painful sex deserve care. Lubricants or moisturisers may hel
 
 Mood changes can affect confidence and relationships. Ask for help when low mood, anxiety, or irritability is hard to manage. Practical changes at work may include breaks, ventilation, flexible hours, or written notes after meetings.
 
-## How to track menopause symptoms in Femio
+## How to track menopause symptoms in femio
 
 Track only details that are useful to you. You might record sleep, hot flushes, mood, headaches, vaginal or bladder symptoms, and the effect on daily tasks.
 

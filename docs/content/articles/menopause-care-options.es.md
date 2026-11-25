@@ -12,7 +12,7 @@ secondary_topics:
   - "opciones no hormonales para la menopausia"
   - "sequedad vaginal en la menopausia"
 excerpt: "Descubre qué opciones de atención para la menopausia puede comentar el profesional sanitario, como la terapia hormonal (HRT), los enfoques no hormonales, el cuidado vaginal, las decisiones compartidas y el seguimiento."
-meta_title: "Opciones de atención para la menopausia a comentar | Femio"
+meta_title: "Opciones de atención para la menopausia a comentar | femio"
 meta_description: "Opciones de atención para la menopausia que puede comentar el profesional, cómo varían según síntomas e historial de salud, y qué preguntas ayudan a decidir."
 canonical_url: "https://femioapp.com/es/learn/menopause-care-options"
 robots_while_draft: "noindex,nofollow"
@@ -24,7 +24,7 @@ open_graph_image_alt: "Profesional sanitaria y paciente comparando opciones de a
 written_by: "PENDING"
 medically_reviewed_by: "Dr. Khaled M."
 date_published: "2026-10-30"
-date_modified: "2026-10-30"
+date_modified: "2026-11-25"
 last_reviewed: "2026-10-30"
 next_review_due: "2027-10-30"
 reading_level_ok: false
@@ -52,7 +52,7 @@ internal_links:
 
 # ¿Qué opciones de atención para la menopausia puede comentar el profesional sanitario?
 
-La atención a la menopausia puede incluir terapia hormonal (HRT) o medicamentos no hormonales. Un enfoque estructurado puede ayudar con los pensamientos, las conductas y el afrontamiento. Las cremas hidratantes vaginales, los lubricantes o el estrógeno local también pueden ayudar. El apoyo puede abarcar el sueño, el ánimo, la vida sexual, la salud de la vejiga o los huesos. Las opciones deben encajar con tus síntomas, tu salud, tus objetivos y tus deseos.
+La atención a la menopausia puede incluir terapia hormonal para la menopausia (HRT) o medicamentos no hormonales. Un enfoque estructurado puede ayudar con los pensamientos, las conductas y el afrontamiento. Las cremas hidratantes vaginales, los lubricantes o el estrógeno local también pueden ayudar. El apoyo puede abarcar el sueño, el ánimo, la vida sexual, la salud de la vejiga o los huesos. Las opciones deben encajar con tus síntomas, tu salud, tus objetivos y tus deseos.
 
 No existe un plan único que sirva para todas las personas. Un profesional sanitario debe explicarte los beneficios, los riesgos, los límites y cuándo conviene revisarlo.
 
@@ -131,7 +131,7 @@ Lleva un registro breve de síntomas y la lista de medicamentos. Pregunta:
 - ¿Qué alternativas son razonables?
 - ¿Cuándo revisaremos el plan?
 
-El [proceso de revisión clínica de Femio](/es/medical-review) explica cómo se revisa este contenido de salud.
+El [proceso de revisión clínica de femio](/es/medical-review) explica cómo se revisa este contenido de salud.
 
 ## Cuándo consultar
 

@@ -22,7 +22,7 @@ open_graph_image_alt: "Una almohada colocada entre las rodillas dobladas sobre u
 written_by: "PENDING"
 medically_reviewed_by: "Dr. Khaled M."
 date_published: "2026-10-30"
-date_modified: "2026-10-30"
+date_modified: "2026-11-25"
 last_reviewed: "2026-10-30"
 next_review_due: "2027-10-30"
 reading_level_ok: false
@@ -48,6 +48,7 @@ internal_links:
   - "/es/learn/pregnancy-week-20"
   - "/es/learn/pregnancy-warning-signs"
   - "/es/calculators/gestational-age"
+  - "/es/help-now"
 ---
 
 # Semana 19 del embarazo: qué esperar
@@ -88,7 +89,7 @@ Pon una almohada entre las rodillas esta noche. Es la intervención más barata 
 
 Informa de sangrado, dolor intenso, fiebre o un dolor de cabeza con cambios en la visión. El dolor pélvico que limita al caminar debe comentarse en tu próxima cita, en lugar de soportarse. La [lista de signos de alarma del embarazo](/es/learn/pregnancy-warning-signs) tiene el conjunto completo.
 
-> **Busca atención ya:** Contacta a los servicios de emergencia de tu zona o acude al servicio de urgencias más cercano si tienes sangrado abundante, dolor intenso o de un solo lado en el vientre, un dolor de cabeza intenso con cambios en la visión, hinchazón repentina de la cara o las manos, fiebre, pérdida de líquido por la vagina, dolor en el pecho, dificultad para respirar, desmayo o convulsión. Femio no puede evaluar un embarazo.
+> **Busca atención ya:** Contacta a los servicios de emergencia de tu zona o acude al servicio de urgencias más cercano si tienes sangrado abundante, dolor intenso o de un solo lado en el vientre, un dolor de cabeza intenso con cambios en la visión, hinchazón repentina de la cara o las manos, fiebre, pérdida de líquido por la vagina, dolor en el pecho, dificultad para respirar, desmayo, convulsión o pensamientos de hacerte daño a ti misma o a tu bebé ([ayuda ahora](/es/help-now)). femio no puede evaluar un embarazo.
 
 ## Preguntas frecuentes
 

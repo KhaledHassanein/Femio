@@ -44,7 +44,8 @@ class L10nEs extends L10n {
   String get goalPeriod => 'Seguir mi regla';
 
   @override
-  String get goalPeriodDesc => 'Saber cuándo llega y qué es normal para ti.';
+  String get goalPeriodDesc =>
+      'Un rango para cuándo llega y qué es normal para ti.';
 
   @override
   String get goalTtc => 'Quedarme embarazada';
@@ -560,7 +561,7 @@ class L10nEs extends L10n {
 
   @override
   String testTimingBody(String date) {
-    return 'Si para el $date tu regla aún no ha empezado, una prueba de embarazo casera es fiable desde ese día.';
+    return 'Si para el $date tu regla aún no ha empezado, una prueba de embarazo casera es más fiable desde ese día.';
   }
 
   @override
@@ -872,7 +873,7 @@ class L10nEs extends L10n {
   }
 
   @override
-  String get apptFormType => 'Qué es';
+  String get apptFormType => 'Tipo de cita';
 
   @override
   String get apptFormTypePlaceholder => 'Ecografía, análisis, revisión…';
@@ -1159,7 +1160,7 @@ class L10nEs extends L10n {
 
   @override
   String get learnSub =>
-      'Guías con fuentes, en palabras sencillas. Primero concebir y el embarazo; todo se queda aquí.';
+      'Guías con fuentes, en palabras sencillas. Primero, la búsqueda del embarazo y el embarazo.';
 
   @override
   String get learnSearchHint => 'Buscar en las guías';
@@ -1203,7 +1204,7 @@ class L10nEs extends L10n {
 
   @override
   String get noConfidentWindowBody =>
-      'Tus ciclos varían demasiado para nombrar días fértiles a partir de una fecha. Registrar tus reglas, tus tests de ovulación y tu temperatura al despertar es cómo saberlo después.';
+      'Tus ciclos varían demasiado para nombrar días fértiles a partir de una fecha. Registrar tus reglas, tus pruebas de ovulación y tu temperatura al despertar te ayuda a saber después si ovulaste.';
 
   @override
   String get seeClinicianIrregular =>
@@ -1483,7 +1484,7 @@ class L10nEs extends L10n {
 
   @override
   String get sayItNothing =>
-      'femio no encontró nada que registrar. Prueba otras palabras o toca las opciones de la pantalla Registro.';
+      'femio no encontró nada que registrar. Prueba otras palabras o toca los síntomas de la pantalla Registro.';
 
   @override
   String get sayItFound =>
@@ -1571,7 +1572,7 @@ class L10nEs extends L10n {
 
   @override
   String get askClinicianLine =>
-      'Esto es información general, no un consejo para ti. Para tu situación, habla con tu médico o matrona.';
+      'Esto es información general, no un consejo para ti. Para tu situación, habla con tu profesional sanitario.';
 
   @override
   String get askRelatedGuides => 'Guías de femio sobre esto';
@@ -1602,7 +1603,7 @@ class L10nEs extends L10n {
 
   @override
   String get askNotCovered =>
-      'Las fuentes fiables de femio no responden a esto, así que femio no adivina. Prueba con otras palabras, lee los enlaces de abajo o pregunta a tu médico.';
+      'Las fuentes fiables de femio no responden a esto, así que femio no adivina. Prueba con otras palabras, lee los enlaces de abajo o pregunta a tu profesional sanitario.';
 
   @override
   String askRegistryVersion(String version) {
@@ -1645,7 +1646,7 @@ class L10nEs extends L10n {
 
   @override
   String get visitIntro =>
-      'Una página para mostrar a tu médico, hecha con lo que registraste. Se queda en tu teléfono salvo que la copies.';
+      'Una página para mostrar a tu profesional sanitario, hecha con lo que registraste. Se queda en tu teléfono salvo que la copies.';
 
   @override
   String visitCycles(int count, int longest, int shortest) {
@@ -1708,10 +1709,10 @@ class L10nEs extends L10n {
 
   @override
   String get visitQ_ttcTests =>
-      'Por el tiempo que llevamos intentándolo, ¿qué pruebas sugerirías?';
+      'Por el tiempo que llevo intentándolo, ¿qué pruebas sugerirías?';
 
   @override
-  String get visitQ_ovulation => '¿Cómo podemos saber si estoy ovulando?';
+  String get visitQ_ovulation => '¿Cómo puedo saber si estoy ovulando?';
 
   @override
   String get visitQ_folicAcid => '¿Debería tomar ácido fólico ahora?';
@@ -1775,7 +1776,7 @@ class L10nEs extends L10n {
 
   @override
   String get assistantOnDeviceUnavailable =>
-      'No disponible en este teléfono. femio usa su propia lista de palabras, también en el teléfono.';
+      'No disponible en este teléfono. femio usa en su lugar su propia lista de palabras, también en el teléfono.';
 
   @override
   String get assistantDownload => 'Descargar';
@@ -1972,7 +1973,7 @@ class L10nEs extends L10n {
 
   @override
   String get tip_irregularWithOtherSigns =>
-      'Las reglas irregulares junto con otros cambios, como acné o más vello, merecen comentarse con un profesional de la salud.';
+      'Las reglas irregulares junto con otros cambios, como aumento de peso, más vello en la cara o piel seca o grasa, merecen comentarse con un profesional de la salud.';
 
   @override
   String get tip_periodPainSeeClinician =>
@@ -1996,7 +1997,7 @@ class L10nEs extends L10n {
 
   @override
   String get tip_headachesAroundPeriod =>
-      'Los dolores de cabeza que aparecen con regularidad antes o durante la regla merecen comentarse con un profesional de la salud. Un diario de cefaleas junto a las fechas de tu regla ayuda.';
+      'Las migrañas que aparecen con regularidad antes o durante la regla merecen comentarse con un profesional de la salud. Un diario junto a las fechas de tu regla ayuda.';
 
   @override
   String get tip_urineInfectionSeeClinician =>
@@ -2008,7 +2009,7 @@ class L10nEs extends L10n {
 
   @override
   String get tip_cervicalScreeningTip =>
-      'El cribado de cuello uterino busca cambios tempranos en las células del cuello del útero. Pregunta en tu centro si te toca.';
+      'La OMS recomienda hacer el cribado de cuello uterino cada 5 a 10 años a partir de los 30 años; los programas locales varían. Pregunta en tu centro si te toca.';
 
   @override
   String get tip_ttcOneYear =>
@@ -2028,7 +2029,7 @@ class L10nEs extends L10n {
 
   @override
   String get tip_testingTooEarly =>
-      'Hacer la prueba demasiado pronto puede dar un falso negativo, porque la hormona del embarazo quizá aún no haya aumentado. Sigue las instrucciones de la prueba.';
+      'Hacer la prueba demasiado pronto puede dar un falso negativo. Sigue las instrucciones de la prueba.';
 
   @override
   String get tip_folicAcidBeforePregnancy =>
@@ -2080,11 +2081,11 @@ class L10nEs extends L10n {
 
   @override
   String get tip_itchTellMidwife =>
-      'El picor es frecuente en el embarazo y casi siempre no es grave. Aun así, cuéntaselo a tu matrona o médico para que lo revisen.';
+      'El picor es frecuente en el embarazo, pero puede ser el primer signo de una afección del hígado llamada colestasis intrahepática del embarazo. Cuéntaselo a tu matrona o médico para que lo revisen.';
 
   @override
   String get tip_pretermLabourSigns =>
-      'Los signos de parto prematuro incluyen contracciones cada 10 minutos o menos, pérdida de líquido o sangrado, presión pélvica y un dolor sordo en la parte baja de la espalda. Contacta con tu profesional.';
+      'Los signos de parto prematuro incluyen contracciones cada 10 minutos o con más frecuencia, pérdida de líquido o sangrado, presión pélvica y un dolor sordo en la parte baja de la espalda. Contacta con tu matrona, tu médico o la unidad de maternidad.';
 
   @override
   String get tip_tirednessInPregnancy =>
@@ -2092,7 +2093,7 @@ class L10nEs extends L10n {
 
   @override
   String get tip_lowMoodPerinatal =>
-      'Sentirse decaída es frecuente en el embarazo y tras el parto, y hay apoyo disponible. Díselo a tu matrona, médico o enfermera, aunque solo tengas algunos de los signos.';
+      'Sentirse decaída es frecuente en el embarazo y tras el parto, y hay apoyo disponible. Díselo a tu matrona o médico, aunque solo tengas algunos de los signos.';
 
   @override
   String get tip_anxietyInPregnancy =>
@@ -2180,7 +2181,7 @@ class L10nEs extends L10n {
 
   @override
   String get visitQ_headacheDiaryReview =>
-      'Mis dolores de cabeza aparecen a menudo alrededor de mi regla. ¿Podemos mirar mi diario juntos?';
+      'Mis migrañas aparecen a menudo alrededor de mi regla. ¿Podemos mirar mi diario juntos?';
 
   @override
   String get visitQ_cervicalScreeningDue =>
@@ -2192,11 +2193,11 @@ class L10nEs extends L10n {
 
   @override
   String get visitQ_ttcOverThirtyFiveSooner =>
-      'Tengo 35 años o más y llevamos unos seis meses o más intentándolo. ¿Empezamos ya las pruebas de fertilidad?';
+      'Tengo 35 años o más y llevo unos seis meses o más intentándolo. ¿Empiezo ya las pruebas de fertilidad?';
 
   @override
   String get visitQ_irregularTryingNow =>
-      'Mis ciclos son irregulares y estamos intentando el embarazo. ¿Hablamos de ayuda ya, en lugar de esperar un año?';
+      'Mis ciclos son irregulares y estoy intentando el embarazo. ¿Hablamos de ayuda ya, en lugar de esperar un año?';
 
   @override
   String get visitQ_preconceptionReview =>

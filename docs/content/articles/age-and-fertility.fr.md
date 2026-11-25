@@ -24,7 +24,7 @@ open_graph_image_alt: "Une femme de fin de trentaine regardant un calendrier che
 written_by: "PENDING"
 medically_reviewed_by: "Dr. Khaled M."
 date_published: "2026-10-30"
-date_modified: "2026-10-30"
+date_modified: "2026-11-25"
 last_reviewed: "2026-10-30"
 next_review_due: "2027-10-30"
 reading_level_ok: false
@@ -78,15 +78,15 @@ Deux personnes du même âge peuvent se trouver dans des situations très diffé
 
 ## La seule chose que cette page ne fera pas
 
-Elle ne vous dira pas quelles sont vos chances. Femio ne calcule pas de probabilité personnelle de concevoir, et aucune application honnête ne peut le faire à partir des informations qu’elle détient.
+Elle ne vous dira pas quelles sont vos chances. femio ne calcule pas de probabilité personnelle de concevoir, et aucune application honnête ne peut le faire à partir des informations qu’elle détient.
 
-Un chiffre rattaché à *vous* serait une prédiction individuelle faite à partir de données de groupe. C’est la même raison pour laquelle Femio affiche une fenêtre plutôt qu’une date pour les règles, et refuse de porter un jugement à partir d’une température corporelle relevée à la maison. Ce qu’il peut faire, c’est conserver vos cycles et vos notes, pour qu’un clinicien qui vous examine dispose de véritables informations plutôt que de souvenirs.
+Un chiffre rattaché à *vous* serait une prédiction individuelle faite à partir de données de groupe. C’est la même raison pour laquelle femio affiche une fenêtre plutôt qu’une date pour les règles, et refuse de porter un jugement à partir d’une température corporelle relevée à la maison. Ce qu’il peut faire, c’est conserver vos cycles et vos notes, pour qu’un clinicien qui vous examine dispose de véritables informations plutôt que de souvenirs.
 
 ## Ce qui change réellement avec l’âge : le moment de demander de l’aide
 
 C’est la partie utile, et elle est concrète.
 
-[Les recommandations du NICE sur la fertilité](https://www.nice.org.uk/guidance/cg156) et l’ACOG raccourcissent toutes deux le délai à environ 35 ans : **six mois** d’essais, au lieu de douze, avant qu’un bilan soit généralement proposé. Il faut consulter plus tôt encore si vos règles sont irrégulières ou absentes, si vous avez une pathologie connue touchant le bassin, ou si votre partenaire présente un problème connu.
+L’ACOG raccourcit le délai à partir d’environ 35 ans : **six mois** d’essais, au lieu de douze, avant qu’un bilan soit généralement proposé. [Les recommandations du NICE sur la fertilité](https://www.nice.org.uk/guidance/cg156) conseillent aussi un bilan plus tôt pour les femmes plus âgées. Il faut consulter plus tôt encore si vos règles sont irrégulières ou absentes, si vous avez une pathologie connue touchant le bassin, ou si votre partenaire présente un problème connu.
 
 Ce n’est pas une date limite. C’est le moment à partir duquel savoir devient plus utile qu’attendre. [Ce que comporte un bilan de fertilité](/fr/learn/fertility-tests-what-to-expect) décrit la suite.
 
@@ -106,9 +106,9 @@ Le soutien psychologique fait partie de la prise en charge de la fertilité dans
 
 ## Quand consulter
 
-Consultez votre médecin après douze mois d’essais, ou **six mois à partir d’environ 35 ans**, et plus tôt à tout âge si vos règles sont irrégulières ou absentes, si vous avez des douleurs pelviennes, si vous avez subi une intervention ou une infection pelvienne, ou si votre partenaire présente un problème connu. Demandez un rendez-vous de préconception avant de commencer si vous avez une pathologie ou si vous prenez un traitement régulier.
+Consultez votre médecin après douze mois d’essais, ou **six mois à partir d’environ 35 ans**. Consultez plus tôt à tout âge si vos règles sont irrégulières ou absentes, si vous avez des douleurs pelviennes, si vous avez subi une intervention ou une infection pelvienne, ou si votre partenaire présente un problème connu. Demandez un rendez-vous de préconception avant de commencer si vous avez une pathologie ou si vous prenez un traitement régulier.
 
-Demandez une orientation plutôt que d’attendre qu’elle vous soit proposée. Le délai utilisé par les recommandations commence au moment où vous avez commencé à essayer.
+Demandez une orientation plutôt que d’attendre qu’elle vous soit proposée. Le décompte commence à partir du moment où vous avez commencé à essayer.
 
 ## Questions fréquentes
 
@@ -118,7 +118,7 @@ Non. La baisse est progressive et s’accentue entre le milieu et la fin de la t
 
 ### Un test peut-il me dire combien de temps il me reste ?
 
-Aucun test ne prédit cela. Certains tests décrivent des aspects de la réserve ovarienne, et un clinicien les interprète avec tout le reste. Aucun n’est un compte à rebours.
+Aucun test ne prédit cela. Certains tests décrivent des aspects de la réserve ovarienne (en gros, le nombre d’ovocytes restants), et un clinicien les interprète avec tout le reste. Aucun n’est un compte à rebours.
 
 ### Dois-je essayer un an d’abord si j’ai 38 ans ?
 
@@ -128,6 +128,6 @@ Les recommandations suggèrent généralement six mois à cet âge, et plus tôt
 
 Oui, mais plus progressivement. Les deux partenaires sont évalués dans tout bilan de fertilité.
 
-### Femio peut-il estimer mes chances ?
+### femio peut-il estimer mes chances ?
 
 Non. Il conserve ce que vos cycles ont réellement donné, pour qu’un clinicien dispose d’informations fiables, et il ne transforme pas des statistiques de groupe en chiffre vous concernant.

@@ -12,7 +12,7 @@ secondary_topics:
   - "blood tests for anaemia"
   - "when heavy bleeding is urgent"
 excerpt: "Learn how heavy periods can lead to iron-deficiency anaemia, which symptoms to notice, what tests may be discussed, and when to seek care."
-meta_title: "Heavy Periods and Iron-Deficiency Anaemia | Femio"
+meta_title: "Heavy Periods and Iron-Deficiency Anaemia | femio"
 meta_description: "Learn how heavy periods can lead to low iron and anaemia, which symptoms to track, what blood tests may be used, and when to seek care."
 canonical_url: "https://femioapp.com/en/learn/heavy-periods-iron-deficiency-anaemia"
 robots_while_draft: "noindex,nofollow"
@@ -24,7 +24,7 @@ open_graph_image_alt: "Menstrual flow record beside notes about tiredness and a 
 written_by: "Dr. Khaled M."
 medically_reviewed_by: "Dr. Khaled M."
 date_published: "2026-08-15"
-date_modified: "2026-08-15"
+date_modified: "2026-11-24"
 last_reviewed: "2026-08-04"
 next_review_due: null
 reading_level_ok: true
@@ -98,7 +98,7 @@ Chest pain, fainting, severe breathlessness, or marked weakness need urgent care
 
 A clinician may suggest a full blood count. This measures haemoglobin and other blood-cell details. Ferritin, a marker of stored iron, may be checked based on symptoms, results, and local guidance.
 
-Low haemoglobin can show anaemia, but the cause still needs assessment. Swelling in the body can affect ferritin, so context matters. A clinician may consider pregnancy, food, gut symptoms, or medicine effects. Bleeding from another site or a blood condition may also need a check.
+Low haemoglobin can show anaemia, but the cause still needs assessment. Inflammation in the body can affect ferritin results, so context matters. A clinician may consider pregnancy, food, gut symptoms, or medicine effects. Bleeding from another site or a blood condition may also need a check.
 
 Ask what each result means, what caused the low iron, and when it should be checked again. Use the [glossary](/en/glossary) for plain definitions of health terms.
 
@@ -138,7 +138,7 @@ Useful questions include:
 - How will we know whether iron stores recover?
 - Which bleeding changes need urgent care?
 
-Femio's [clinician review page](/en/medical-review) explains how our health content is checked. Femio cannot measure blood loss or iron levels.
+femio's [clinician review page](/en/medical-review) explains how our health content is checked. femio cannot measure blood loss or iron levels.
 
 ## When to see a doctor
 

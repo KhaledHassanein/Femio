@@ -38,3 +38,8 @@ test("prose extraction drops front matter, headings, tables and link targets", (
   const md = "---\ntitle: x\n---\n# Heading\n\nA [link](https://a.b) here.\n\n| a | b |\n|---|---|\n\n- A bullet.\n";
   assert.equal(proseOf(md), "A link here. A bullet.");
 });
+
+test("a sentence that starts with the lowercase wordmark is still a sentence", () => {
+  const r = fleschKincaidGrade("Log your period. femio shows a range. It is an estimate.");
+  assert.equal(r.sentences, 3);
+});

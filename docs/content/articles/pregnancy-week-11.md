@@ -9,7 +9,7 @@ primary_query: "11 weeks pregnant"
 secondary_topics:
   - "dating scan week 11"
   - "nuchal translucency screening"
-excerpt: "Week 11 usually opens the dating scan window, and with it the first real screening choices of the pregnancy."
+excerpt: "Week 11 is when most women have the dating scan, and with it the first real screening choices of the pregnancy."
 meta_title: "11 Weeks Pregnant: The Dating Scan Window Opens"
 meta_description: "The dating scan window opens around week 11, bringing the first screening choices. What the scan measures, and what a screening result is and is not."
 canonical_url: "https://femioapp.com/en/learn/pregnancy-week-11"
@@ -22,7 +22,7 @@ open_graph_image_alt: "An ultrasound room with a screen turned towards a chair"
 written_by: "PENDING"
 medically_reviewed_by: "Dr. Khaled M."
 date_published: "2026-08-19"
-date_modified: "2026-08-19"
+date_modified: "2026-11-24"
 last_reviewed: "2026-10-30"
 next_review_due: "2027-10-30"
 reading_level_ok: true
@@ -44,6 +44,7 @@ sources:
     url: "https://www.acog.org/womens-health/faqs/prenatal-genetic-screening-tests"
     tier: "1"
 internal_links:
+  - "/en/help-now"
   - "/en/learn/pregnancy-week-10"
   - "/en/learn/pregnancy-week-12"
   - "/en/learn/pregnancy-warning-signs"
@@ -52,7 +53,7 @@ internal_links:
 
 # Week 11 of Pregnancy: What to Expect
 
-Week 11 usually opens the dating scan window, and with it the first screening choices anyone offers you. There is a lot of paperwork attached to a week in which you still do not look pregnant. It is worth reading before the appointment rather than in the waiting room.
+Week 11 is when most women have the dating scan, and with it the first screening choices anyone offers you. There is a lot of paperwork attached to a week in which you still do not look pregnant. It is worth reading before the appointment rather than in the waiting room.
 
 ## Your body this week
 
@@ -88,7 +89,7 @@ Decide, before the scan, whether you want screening — and talk it through with
 
 Report bleeding, severe or one-sided pain, or pain around the bump that is more than an ache. Dizziness that comes with a headache or vision changes needs care today. [Pregnancy warning signs](/en/learn/pregnancy-warning-signs) has the list.
 
-> **Seek care now:** Contact your local emergency services or go to your nearest emergency department if you have heavy bleeding, severe or one-sided tummy pain, pain in the tip of your shoulder, a severe headache with vision changes, sudden swelling of the face or hands, a fever, chest pain, trouble breathing, fainting, or a seizure. Femio cannot assess a pregnancy.
+> **Seek care now:** Contact your local emergency services or go to your nearest emergency department if you have heavy bleeding, severe or one-sided tummy pain, pain in the tip of your shoulder, a severe headache with vision changes, sudden swelling of the face or hands, a fever, chest pain, trouble breathing, fainting, a seizure, or thoughts of harming yourself or the baby ([help now](/en/help-now)). femio cannot assess a pregnancy.
 
 ## Frequently asked questions
 

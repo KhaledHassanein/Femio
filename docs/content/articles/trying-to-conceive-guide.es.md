@@ -12,7 +12,7 @@ secondary_topics:
   - "cuándo buscar ayuda para la fertilidad"
   - "seguimiento del ciclo mientras se intenta"
 excerpt: "Empieza a intentar concebir con pasos claros sobre la salud previa al embarazo, el momento del ciclo, los medicamentos, las pruebas y cuándo pedir apoyo para la fertilidad."
-meta_title: "Intentar concebir: por dónde empezar | Femio"
+meta_title: "Intentar concebir: por dónde empezar | femio"
 meta_description: "¿Planificas un embarazo? Conoce los primeros pasos de salud, cómo funciona el momento del ciclo, qué registrar y cuándo pedir apoyo para la fertilidad."
 canonical_url: "https://femioapp.com/es/learn/trying-to-conceive-guide"
 robots_while_draft: "noindex,nofollow"
@@ -24,7 +24,7 @@ open_graph_image_alt: "Calendario, notas de salud y preguntas preparadas para un
 written_by: "PENDING"
 medically_reviewed_by: "Dr. Khaled M."
 date_published: "2026-10-30"
-date_modified: "2026-10-30"
+date_modified: "2026-11-24"
 last_reviewed: "2026-10-30"
 next_review_due: "2027-10-30"
 reading_level_ok: false
@@ -93,7 +93,7 @@ La ventana fértil es la parte del ciclo en la que las relaciones sexuales o la 
 
 Las fechas del ciclo pueden ofrecer una estimación, pero la ovulación no siempre ocurre el mismo día del ciclo. **Estas fechas apoyan la planificación de la concepción y la conciencia del ciclo. Son estimaciones, no una forma fiable de evitar el embarazo.**
 
-Lee [qué significa la ventana fértil](/es/learn/fertile-window-explained), o usa la [calculadora de ventana fértil](/es/calculators/fertile-window) de Femio como herramienta general de planificación.
+Lee [qué significa la ventana fértil](/es/learn/fertile-window-explained), o usa la [calculadora de ventana fértil](/es/calculators/fertile-window) de femio como herramienta general de planificación.
 
 Si el momento se está volviendo estresante, tener relaciones con regularidad a lo largo del ciclo puede resultar más llevadero que apuntar a una sola fecha. Las vías con donante o en clínica usan planes de momento distintos; sigue las instrucciones del servicio que te apoya.
 
@@ -166,11 +166,11 @@ Intentar concebir puede traer esperanza, presión, duelo o conflicto. No hay una
 
 Las parejas pueden afrontarlo de forma distinta. Acordad cómo y cuándo hablar del proceso, en lugar de dejar que cada día se convierta en una conversación sobre fertilidad. Pregunta a tu clínico por asesoramiento o apoyo entre pares si lo quieres.
 
-## Cómo puede apoyar Femio la planificación de la concepción
+## Cómo puede apoyar femio la planificación de la concepción
 
-Femio te permite registrar ciclos, síntomas y notas, y después ver rangos de fechas estimados. Puedes imprimir un resumen para la visita al clínico y elegir qué detalles compartir.
+femio te permite registrar ciclos, síntomas y notas, y después ver rangos de fechas estimados. Puedes imprimir un resumen para la visita al clínico y elegir qué detalles compartir.
 
-Femio no confirma la ovulación, no explica una preocupación sobre la fertilidad ni promete un embarazo. Las estimaciones deben seguir siendo una parte de la planificación, no una prueba de si tu cuerpo funciona correctamente.
+femio no confirma la ovulación, no explica una preocupación sobre la fertilidad ni promete un embarazo. Las estimaciones deben seguir siendo una parte de la planificación, no una prueba de si tu cuerpo funciona correctamente.
 
 ## Preguntas frecuentes
 

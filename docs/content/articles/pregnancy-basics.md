@@ -12,7 +12,7 @@ secondary_topics:
   - "routine pregnancy changes"
   - "pregnancy warning signs"
 excerpt: "Learn what may happen across the three trimesters, what prenatal care involves, and which pregnancy warning signs need urgent help."
-meta_title: "What to Expect During Pregnancy: A Clear Guide | Femio"
+meta_title: "What to Expect During Pregnancy: A Clear Guide | femio"
 meta_description: "Understand pregnancy trimesters, common changes, prenatal visits and tests, and the warning signs that need urgent medical care."
 canonical_url: "https://femioapp.com/en/learn/pregnancy-basics"
 robots_while_draft: "noindex,nofollow"
@@ -24,7 +24,7 @@ open_graph_image_alt: "Pregnancy timeline showing three trimesters and prenatal 
 written_by: "Dr. Khaled M."
 medically_reviewed_by: "Dr. Khaled M."
 date_published: "2026-08-15"
-date_modified: "2026-08-15"
+date_modified: "2026-11-24"
 last_reviewed: "2026-08-04"
 next_review_due: null
 reading_level_ok: true
@@ -64,7 +64,7 @@ Pregnancy begins when a fertilised egg implants in the lining of the womb (uteru
 
 Gestational age is the way clinicians date a pregnancy. It is usually counted from the first day of the last menstrual period, so the count begins before conception. This is an estimate, and an ultrasound may adjust the date.
 
-You can use Femio's [due-date calculator](/en/calculators/due-date) for a general estimate. A clinician or maternity team confirms which date to use for care.
+You can use femio's [due-date calculator](/en/calculators/due-date) for a general estimate. A clinician or maternity team confirms which date to use for care.
 
 ## What may happen in the first trimester?
 
@@ -143,13 +143,13 @@ Pregnancy nutrition does not need to be perfect. Aim for varied foods that are s
 
 Movement is often safe in a straightforward pregnancy, but the right type and level depend on health, symptoms, and prior activity. Ask your clinician if you have pain, bleeding, dizziness, a heart or lung condition, or another concern.
 
-Do not use medicine, supplements, or herbal products simply because they are labelled “natural.” A pharmacist, doctor, or midwife can check them. Femio does not provide medicine doses.
+Do not use medicine, supplements, or herbal products simply because they are labelled “natural.” A pharmacist, doctor, or midwife can check them. femio does not provide medicine doses.
 
 ## Emotional well-being during pregnancy
 
 Pregnancy can bring joy, worry, mixed feelings, or distress. Mood and anxiety concerns can begin during pregnancy, not only after birth. Tell your care team if low mood, fear, intrusive thoughts, or sleep problems are affecting daily life.
 
-> **Seek care now:** If you may harm yourself or someone else, feel unable to stay safe, or are in immediate danger, contact local emergency services or go to the nearest emergency department. Femio's global [Need help now](/en/help-now) page can help you find the next safe step.
+> **Seek care now:** If you may harm yourself or someone else, feel unable to stay safe, or are in immediate danger, contact local emergency services or go to the nearest emergency department. femio's global [Need help now](/en/help-now) page can help you find the next safe step.
 
 ## When to see a doctor
 
@@ -161,9 +161,9 @@ Contact your maternity team the same day for symptoms that worry you, even when 
 
 This list cannot cover every urgent problem. If something feels seriously wrong, seek care rather than waiting for an app entry or the next appointment.
 
-## How Femio can support pregnancy planning
+## How femio can support pregnancy planning
 
-Femio's current public calculators can estimate due date and gestational age. These tools use the dates entered and cannot confirm how a pregnancy is progressing.
+femio's current public calculators can estimate due date and gestational age. These tools use the dates entered and cannot confirm how a pregnancy is progressing.
 
 The fuller pregnancy-tracking experience is planned for a later release. Do not rely on an app in place of maternity care, fetal-movement advice, or urgent assessment.
 

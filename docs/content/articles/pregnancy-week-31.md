@@ -22,7 +22,7 @@ open_graph_image_alt: "A midwife's tape measure on a clinic desk"
 written_by: "PENDING"
 medically_reviewed_by: "Dr. Khaled M."
 date_published: "2026-08-19"
-date_modified: "2026-08-19"
+date_modified: "2026-11-24"
 last_reviewed: "2026-10-30"
 next_review_due: "2027-10-30"
 reading_level_ok: true
@@ -44,6 +44,7 @@ sources:
     url: "https://www.acog.org/womens-health/faqs/breastfeeding-your-baby"
     tier: "1"
 internal_links:
+  - "/en/help-now"
   - "/en/learn/pregnancy-week-30"
   - "/en/learn/pregnancy-week-32"
   - "/en/learn/breastfeeding-first-two-weeks"
@@ -79,7 +80,7 @@ There is a lot of activity — moving, finger-sucking, the occasional somersault
 
 In the UK, women expecting a first baby are usually offered an appointment at around 31 weeks: blood pressure, urine, bump measurement, and the results of any tests from the 28-week visit. Women who have had a baby before typically go from 28 weeks to 34.
 
-This is also when feeding usually gets discussed. ACOG and the NHS both describe the benefits of breastfeeding, and both are clear that not everyone can or will, and that formula feeding with plenty of contact is a good start too. [Breastfeeding in the first two weeks](/en/learn/breastfeeding-first-two-weeks) covers the practical side. Schedules and antenatal classes differ between countries.
+This is also when feeding usually gets discussed. ACOG and the NHS both describe the benefits of breastfeeding, and both acknowledge that not everyone can or chooses to breastfeed. Your midwife can talk through feeding options with you. [Breastfeeding in the first two weeks](/en/learn/breastfeeding-first-two-weeks) covers the practical side. Schedules and antenatal classes differ between countries.
 
 ## This week's tip
 
@@ -87,9 +88,9 @@ Ask what your bump measurement was, in centimetres, and write it down. It is mea
 
 ## When to see a doctor
 
-Contact your maternity service the same day for reduced movements, leaking fluid, painful or regular tightenings, or bleeding. [Pregnancy warning signs](/en/learn/pregnancy-warning-signs) has the full list.
+Contact your maternity service straight away for reduced movements, leaking fluid, painful or regular tightenings, or bleeding. [Pregnancy warning signs](/en/learn/pregnancy-warning-signs) has the full list.
 
-> **Seek care now:** Contact your local emergency services or go to your nearest emergency department if you have heavy bleeding, severe or one-sided tummy pain, a severe headache with vision changes, sudden swelling of the face or hands, a fever, fluid leaking from the vagina, chest pain, trouble breathing, fainting, or a seizure. Contact your maternity service the same day for any reduction in your baby's usual pattern of movement. Femio cannot assess a pregnancy.
+> **Seek care now:** Contact your local emergency services or go to your nearest emergency department if you have heavy bleeding, severe or one-sided tummy pain, a severe headache with vision changes, sudden swelling of the face or hands, a fever, fluid leaking from the vagina, chest pain, trouble breathing, fainting, a seizure, or thoughts of harming yourself or the baby ([help now](/en/help-now)). Contact your maternity service straight away if your baby's movements slow down, stop or change. femio cannot assess a pregnancy.
 
 ## Frequently asked questions
 

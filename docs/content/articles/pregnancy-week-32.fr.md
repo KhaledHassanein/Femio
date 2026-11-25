@@ -22,7 +22,7 @@ open_graph_image_alt: "Un sac de maternité préparé à côté d'une chaise"
 written_by: "PENDING"
 medically_reviewed_by: "Dr. Khaled M."
 date_published: "2026-10-30"
-date_modified: "2026-10-30"
+date_modified: "2026-11-25"
 last_reviewed: "2026-10-30"
 next_review_due: "2027-10-30"
 reading_level_ok: false
@@ -48,6 +48,7 @@ internal_links:
   - "/fr/learn/pregnancy-week-33"
   - "/fr/learn/pregnancy-warning-signs"
   - "/fr/calculators/gestational-age"
+  - "/fr/help-now"
 ---
 
 # Semaine 32 de grossesse : à quoi s'attendre
@@ -76,9 +77,9 @@ Sur le plan structurel, le développement est pour l'essentiel achevé. Ce que l
 
 ## Quels soins sont généralement prévus à ce moment
 
-La semaine 32 clôt la fenêtre au Royaume-Uni pour la vaccination contre la coqueluche, qui est généralement proposée à partir de la semaine 16 et est plus utile avant la semaine 33.
+La semaine 32 marque la fin de la fenêtre habituelle au Royaume-Uni pour la vaccination contre la coqueluche, qui est proposée à partir de la semaine 16. Elle peut encore être faite après, mais la protection du bébé peut être moindre.
 
-La vitamine K est généralement expliquée vers cette période. Le NHS indique qu'elle est proposée à tous les bébés dans les 24 heures suivant la naissance, par injection ou par voie orale, et que c'est un choix qui vous appartient. Il est bien plus facile d'y réfléchir maintenant que dans l'heure qui suit une naissance.
+La vitamine K est généralement expliquée vers cette période. Le NHS indique qu'elle est proposée à tous les bébés peu après la naissance, par injection ou par voie orale, et que c'est un choix qui vous appartient. Il est bien plus facile d'y réfléchir maintenant que dans l'heure qui suit une naissance.
 
 Si une césarienne est prévue, c'est aussi le moment où les dispositions pratiques sont généralement discutées, y compris la durée habituelle d'un séjour à l'hôpital. Tout cela varie selon les pays et les services.
 
@@ -88,9 +89,9 @@ Décidez au sujet de la vitamine K cette semaine, avec la personne qui sera à v
 
 ## Quand consulter
 
-Contactez votre service de maternité le jour même pour tout changement dans les mouvements, toute perte de liquide, des contractions régulières ou douloureuses, ou des saignements. Les [signes d'alerte pendant la grossesse](/fr/learn/pregnancy-warning-signs) donnent la liste complète.
+Contactez votre service de maternité sans attendre pour tout changement dans les mouvements, toute perte de liquide, des contractions régulières ou douloureuses, ou des saignements. Les [signes d'alerte pendant la grossesse](/fr/learn/pregnancy-warning-signs) donnent la liste complète.
 
-> **Consultez sans attendre :** Contactez les services d'urgence locaux ou rendez-vous au service d'urgences le plus proche si vous avez des saignements abondants, une douleur abdominale intense ou d'un seul côté, un mal de tête sévère avec troubles de la vision, un gonflement soudain du visage ou des mains, de la fièvre, une perte de liquide par le vagin, une douleur thoracique, des difficultés respiratoires, un malaise ou une convulsion. Contactez votre service de maternité le jour même pour toute diminution du rythme habituel des mouvements de votre bébé. femio ne peut pas évaluer une grossesse.
+> **Consultez sans attendre :** Contactez les services d'urgence locaux ou rendez-vous au service d'urgences le plus proche si vous avez des saignements abondants, une douleur abdominale intense ou d'un seul côté, un mal de tête sévère avec troubles de la vision, un gonflement soudain du visage ou des mains, de la fièvre, une perte de liquide par le vagin, une douleur thoracique, des difficultés respiratoires, un malaise, une convulsion ou des pensées de vous faire du mal ou de faire du mal à votre bébé ([aide immédiate](/fr/help-now)). Contactez votre service de maternité sans attendre si les mouvements de votre bébé ralentissent, s’arrêtent ou changent. femio ne peut pas évaluer une grossesse.
 
 ## Questions fréquentes
 

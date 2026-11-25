@@ -11,7 +11,7 @@ secondary_topics:
   - "problemas respiratorios del recién nacido"
   - "signos de un bebé gravemente enfermo"
 excerpt: "Los signos en un recién nacido que requieren atención de urgencia, por qué la fiebre antes de los tres meses es diferente y qué decir al pedir ayuda."
-meta_title: "Signos de alarma del recién nacido | Femio"
+meta_title: "Signos de alarma del recién nacido | femio"
 meta_description: "Signos del recién nacido que requieren urgencias: fiebre antes de los tres meses, respiración con esfuerzo, cambios de color, flacidez y rechazo de las tomas."
 canonical_url: "https://femioapp.com/es/learn/newborn-warning-signs"
 robots_while_draft: "noindex,nofollow"
@@ -23,7 +23,7 @@ open_graph_image_alt: "Una persona sosteniendo a un recién nacido mientras habl
 written_by: "PENDING"
 medically_reviewed_by: "Dr. Khaled M."
 date_published: "2026-10-30"
-date_modified: "2026-10-30"
+date_modified: "2026-11-24"
 last_reviewed: "2026-10-30"
 next_review_due: "2027-10-30"
 reading_level_ok: false
@@ -131,7 +131,7 @@ Busca atención urgente ante cualquier signo de la caja siguiente. Busca consejo
 
 Tus propios signos de alarma son aparte y igual de urgentes. Consulta [los signos de alarma tras el parto](/es/learn/postpartum-warning-signs) para los tuyos, y [tu recién nacido en las dos primeras semanas](/es/learn/newborn-first-two-weeks) para saber qué es lo habitual.
 
-> **Busca atención ya:** Contacta con los servicios de emergencia de tu zona o acude al servicio de urgencias más cercano si un bebé menor de tres meses tiene una temperatura de 38 °C o más, respira deprisa, se esfuerza para respirar o emite gruñidos, tiene la piel azulada, grisácea, pálida o moteada, está flácido, cuesta despertarlo, rechaza las tomas, tiene muchos menos pañales mojados o ninguno en las últimas 12 horas, tiene la fontanela abultada o hundida, tiene una erupción que no desaparece al presionarla o sufre una convulsión. Femio no puede evaluar a un bebé.
+> **Busca atención ya:** Contacta con los servicios de emergencia de tu zona o acude al servicio de urgencias más cercano si un bebé menor de tres meses tiene una temperatura de 38 °C o más, respira deprisa, se esfuerza para respirar o emite gruñidos, tiene la piel azulada, grisácea, pálida o moteada, está flácido, cuesta despertarlo, rechaza las tomas, tiene muchos menos pañales mojados o ninguno en las últimas 12 horas, tiene la fontanela abultada o hundida, tiene una erupción que no desaparece al presionarla o sufre una convulsión. femio no puede evaluar a un bebé.
 
 ## Preguntas frecuentes
 

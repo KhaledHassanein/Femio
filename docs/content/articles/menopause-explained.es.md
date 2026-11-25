@@ -12,7 +12,7 @@ secondary_topics:
   - "opciones de atención en la menopausia"
   - "sangrado después de la menopausia"
 excerpt: "Conoce qué significa la menopausia, qué cambios pueden aparecer, cómo valoran los profesionales los síntomas y cuándo un sangrado u otro síntoma necesita atención médica."
-meta_title: "¿Qué es la menopausia? Síntomas y cambios | Femio"
+meta_title: "¿Qué es la menopausia? Síntomas y cambios | femio"
 meta_description: "Entiende la menopausia, los síntomas más comunes, la valoración clínica, las opciones de atención, el seguimiento diario y cuándo pedir consejo médico."
 canonical_url: "https://femioapp.com/es/learn/menopause-explained"
 robots_while_draft: "noindex,nofollow"
@@ -24,7 +24,7 @@ open_graph_image_alt: "Mujer revisando un registro de síntomas de la menopausia
 written_by: "PENDING"
 medically_reviewed_by: "Dr. Khaled M."
 date_published: "2026-10-30"
-date_modified: "2026-10-30"
+date_modified: "2026-11-24"
 last_reviewed: "2026-10-30"
 next_review_due: "2027-10-30"
 reading_level_ok: false
@@ -146,7 +146,7 @@ Las notas útiles pueden incluir:
 - Cualquier sangrado o manchado.
 - Cómo afectan los síntomas al trabajo, a la casa o a las relaciones.
 
-Pregunta qué más podría explicar los cambios. Pregunta para qué sirve cada opción, qué riesgos te aplican a ti y cuándo debe revisarse el plan. Femio explica cómo se revisa el contenido sanitario en la [página de revisión clínica](/es/medical-review).
+Pregunta qué más podría explicar los cambios. Pregunta para qué sirve cada opción, qué riesgos te aplican a ti y cuándo debe revisarse el plan. femio explica cómo se revisa el contenido sanitario en la [página de revisión clínica](/es/medical-review).
 
 ## Vivir con la menopausia día a día
 
@@ -158,7 +158,7 @@ La sequedad vaginal y el dolor durante las relaciones merecen atención. Los lub
 
 Los cambios de ánimo pueden afectar a la confianza y a las relaciones. Pide ayuda cuando el estado de ánimo bajo, la ansiedad o la irritabilidad sean difíciles de manejar. Los cambios prácticos en el trabajo pueden incluir pausas, buena ventilación, horarios flexibles o notas escritas tras las reuniones.
 
-## Cómo registrar los síntomas de la menopausia en Femio
+## Cómo registrar los síntomas de la menopausia en femio
 
 Registra solo los datos que te resulten útiles. Puedes anotar el sueño, los sofocos, el estado de ánimo, los dolores de cabeza, los síntomas vaginales o de la vejiga, y cómo afectan a tus tareas diarias.
 

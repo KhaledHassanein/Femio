@@ -12,7 +12,7 @@ secondary_topics:
   - "PCOS ultrasound"
   - "conditions similar to PCOS"
 excerpt: "Learn how clinicians assess possible PCOS, which criteria and checks may be used, what other causes are considered, and how to prepare."
-meta_title: "How Is PCOS Assessed? Criteria and Checks | Femio"
+meta_title: "How Is PCOS Assessed? Criteria and Checks | femio"
 meta_description: "Learn how clinicians assess possible PCOS, including cycle history, androgen signs, blood tests, ultrasound, and checks for other causes."
 canonical_url: "https://femioapp.com/en/learn/how-pcos-is-assessed"
 robots_while_draft: "noindex,nofollow"
@@ -24,7 +24,7 @@ open_graph_image_alt: "Clinician reviewing a menstrual history and lab notes dur
 written_by: "Dr. Khaled M."
 medically_reviewed_by: "Dr. Khaled M."
 date_published: "2026-08-15"
-date_modified: "2026-08-15"
+date_modified: "2026-11-24"
 last_reviewed: "2026-08-04"
 next_review_due: null
 reading_level_ok: true
@@ -141,7 +141,7 @@ Useful questions include:
 - Which long-term health checks are relevant to me?
 - When will we review the findings?
 
-If fertility is a goal, read [PCOS and fertility](/en/learn/pcos-and-fertility) and mention your timeline. Femio's [clinician review process](/en/medical-review) explains how our health content is checked.
+If fertility is a goal, read [PCOS and fertility](/en/learn/pcos-and-fertility) and mention your timeline. femio's [clinician review process](/en/medical-review) explains how our health content is checked.
 
 ## When to see a doctor
 

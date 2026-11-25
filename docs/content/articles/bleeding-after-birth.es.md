@@ -24,7 +24,7 @@ open_graph_image_alt: "Compresas de maternidad y un calendario que marca las sem
 written_by: "PENDING"
 medically_reviewed_by: "Dr. Khaled M."
 date_published: "2026-10-30"
-date_modified: "2026-10-30"
+date_modified: "2026-11-25"
 last_reviewed: "2026-10-30"
 next_review_due: "2027-10-30"
 reading_level_ok: false
@@ -54,7 +54,7 @@ internal_links:
 
 # Sangrado después del parto: qué es normal y qué no
 
-El sangrado después del parto, llamado loquios, es más abundante en los primeros días y después va disminuyendo a lo largo de varias semanas. Suele pasar de rojo vivo a rosa o marrón, y por último a una secreción pálida. El sangrado que aumenta en lugar de disminuir, que empapa una compresa en menos de una hora o que tiene mal olor no forma parte de ese patrón y necesita consejo urgente. Esta información sirve para que notes los cambios, pero no sustituye a tu matrona o partera ni a tu médico.
+El sangrado después del parto, llamado loquios, es más abundante en los primeros días y después va disminuyendo a lo largo de varias semanas. Suele pasar de rojo vivo a rosa o marrón, y por último a una secreción pálida. El sangrado que aumenta en lugar de disminuir, o que tiene mal olor, no forma parte de ese patrón y necesita consejo urgente. El sangrado que empapa una compresa en menos de una hora necesita atención de emergencia. Esta información sirve para que notes los cambios, pero no sustituye a tu matrona o partera ni a tu médico.
 
 ## Qué es el sangrado
 

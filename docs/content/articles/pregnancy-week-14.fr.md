@@ -10,7 +10,7 @@ secondary_topics:
   - "retour de l'appétit pendant la grossesse"
   - "colostrum au deuxième trimestre"
 excerpt: "L'appétit revient souvent à la semaine 14, et c'est désormais le placenta qui assure l'essentiel du travail. Certaines femmes remarquent les premières traces de colostrum."
-meta_title: "14 semaines de grossesse : le retour de l'appétit | Femio"
+meta_title: "14 semaines de grossesse : le retour de l'appétit | femio"
 meta_description: "L'énergie et l'appétit reviennent souvent vers la semaine 14. Ce que fait le placenta, pourquoi le colostrum peut apparaître, et combien manger."
 canonical_url: "https://femioapp.com/fr/learn/pregnancy-week-14"
 robots_while_draft: "noindex,nofollow"
@@ -22,7 +22,7 @@ open_graph_image_alt: "Une assiette de fruits et de yaourt sur une table de cuis
 written_by: "PENDING"
 medically_reviewed_by: "Dr. Khaled M."
 date_published: "2026-10-30"
-date_modified: "2026-10-30"
+date_modified: "2026-11-25"
 last_reviewed: "2026-10-30"
 next_review_due: "2027-10-30"
 reading_level_ok: false
@@ -48,6 +48,7 @@ internal_links:
   - "/fr/learn/pregnancy-week-15"
   - "/fr/learn/pregnancy-warning-signs"
   - "/fr/calculators/gestational-age"
+  - "/fr/help-now"
 ---
 
 # Semaine 14 de grossesse : à quoi s'attendre
@@ -58,7 +59,7 @@ La semaine 14 est souvent celle où le brouillard se dissipe un peu. La fatigue 
 
 Le placenta fait désormais son travail : il transfère les nutriments, l'oxygène et les hormones, et évacue les déchets. Il est solidement attaché à l'utérus et relié à la grossesse par le cordon ombilical.
 
-Votre sang et celui du bébé se trouvent en contact étroit à l'intérieur du placenta, sans se mélanger. Cette séparation a une importance clinique, et c'est la raison pour laquelle le groupe sanguin est vérifié tôt pendant la grossesse.
+Votre sang et celui du bébé se trouvent en contact étroit à l'intérieur du placenta, sans se mélanger. Le groupe sanguin est vérifié tôt pendant la grossesse afin que les soins puissent être planifiés si les groupes sanguins de la mère et du bébé diffèrent.
 
 Certaines femmes remarquent vers cette période des taches jaunes à l'intérieur du soutien-gorge. Il s'agit généralement de colostrum, le premier lait, qui peut apparaître des semaines ou des mois avant l'accouchement. Il vaut la peine d'en parler à une sage-femme si un changement de vos seins vous inquiète, mais son apparition n'a rien d'inhabituel.
 
@@ -80,7 +81,7 @@ La tête s'arrondit et prend ses proportions. Une sage-femme peut parfois entend
 
 Pour les femmes qui ont manqué la période de dépistage du premier trimestre, le test sanguin de dépistage du deuxième trimestre est proposé au Royaume-Uni à partir d'environ 14 semaines et jusqu'à 20 semaines. Il ne dépiste que la trisomie 21 (syndrome de Down), contrairement au test combiné qui couvre les trois affections.
 
-Aucun autre examen n'est systématiquement prévu cette semaine au Royaume-Uni. Les calendriers prénataux diffèrent d'un pays à l'autre, et un pays qui prévoit des consultations plus fréquentes n'offre pas de meilleurs soins, seulement un schéma différent.
+Aucun autre examen n'est systématiquement prévu cette semaine au Royaume-Uni. Les calendriers prénataux diffèrent d'un pays à l'autre, et certains pays proposent des consultations plus fréquentes : il s'agit d'un schéma différent, et non d'une mesure de la qualité.
 
 ## Le conseil de cette semaine
 
@@ -90,7 +91,7 @@ Oubliez « manger pour deux » et modifiez plutôt ce qui est à portée de main
 
 Signalez tout saignement, toute douleur intense, toute fièvre, une sensation de brûlure en urinant, ou un mal de tête accompagné de troubles de la vue. [Les signes d'alerte pendant la grossesse](/fr/learn/pregnancy-warning-signs) donnent la liste complète.
 
-> **Consultez sans attendre :** Contactez les services d'urgence de votre région ou rendez-vous au service des urgences le plus proche si vous avez des saignements abondants, une douleur abdominale intense ou d'un seul côté, un mal de tête intense accompagné de troubles de la vue, un gonflement soudain du visage ou des mains, de la fièvre, une perte de liquide par le vagin, une douleur thoracique, des difficultés respiratoires, un malaise ou une crise convulsive. Femio ne peut pas évaluer une grossesse.
+> **Consultez sans attendre :** Contactez les services d'urgence de votre région ou rendez-vous au service des urgences le plus proche si vous avez des saignements abondants, une douleur abdominale intense ou d'un seul côté, un mal de tête intense accompagné de troubles de la vue, un gonflement soudain du visage ou des mains, de la fièvre, une perte de liquide par le vagin, une douleur thoracique, des difficultés respiratoires, un malaise, une crise convulsive ou des pensées de vous faire du mal ou de faire du mal à votre bébé ([aide immédiate](/fr/help-now)). femio ne peut pas évaluer une grossesse.
 
 ## Questions fréquentes
 

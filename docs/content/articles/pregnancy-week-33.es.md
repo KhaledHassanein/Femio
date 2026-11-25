@@ -10,7 +10,7 @@ secondary_topics:
   - "preparar la maleta del hospital"
   - "estreptococo del grupo B en el embarazo"
 excerpt: "La semana 33 es la semana de preparar la maleta y de preguntar por el estreptococo del grupo B. Solo uno de cada veinte bebés llega en la fecha prevista."
-meta_title: "33 semanas: maleta y estreptococo del grupo B | Femio"
+meta_title: "33 semanas: maleta y estreptococo del grupo B | femio"
 meta_description: "La semana 33 es el momento de preparar la maleta y de preguntar por el estreptococo del grupo B. Qué poner en ella y por qué la fecha prevista dice tan poco."
 canonical_url: "https://femioapp.com/es/learn/pregnancy-week-33"
 robots_while_draft: "noindex,nofollow"
@@ -22,7 +22,7 @@ open_graph_image_alt: "Una maleta de hospital preparada junto a una puerta de en
 written_by: "PENDING"
 medically_reviewed_by: "Dr. Khaled M."
 date_published: "2026-10-30"
-date_modified: "2026-10-30"
+date_modified: "2026-11-25"
 last_reviewed: "2026-10-30"
 next_review_due: "2027-10-30"
 reading_level_ok: false
@@ -48,6 +48,7 @@ internal_links:
   - "/es/learn/pregnancy-week-34"
   - "/es/learn/pregnancy-warning-signs"
   - "/es/calculators/gestational-age"
+  - "/es/help-now"
 ---
 
 # Semana 33 del embarazo: qué esperar
@@ -72,7 +73,7 @@ Los movimientos no deberían disminuir. Un cambio en tu propio patrón es motivo
 
 Alrededor de la semana 33, la longitud que se da es de unos 43,7 cm de la cabeza a los talones, que el NHS compara con una piña. Son promedios que describen a una población, no una medida de un embarazo individual.
 
-El cerebro y el sistema nervioso están completamente desarrollados. Los huesos se están endureciendo, salvo los del cráneo, que siguen blandos y separados hasta alrededor de los 12 a 18 meses de edad: esa flexibilidad es la que hace posible el paso por el canal del parto.
+El cerebro y el sistema nervioso están bien desarrollados, y siguen madurando después del parto. Los huesos se están endureciendo, salvo los del cráneo, que siguen blandos y separados hasta alrededor de los 12 a 18 meses de edad: esa flexibilidad es la que hace posible el paso por el canal del parto.
 
 ## Qué atención suele darse por estas fechas
 
@@ -86,9 +87,9 @@ Guarda en el móvil el número de la unidad de maternidad, el número de referen
 
 ## Cuándo consultar
 
-Contacta con tu servicio de maternidad el mismo día ante cualquier cambio en los movimientos, pérdida de líquido, contracciones regulares o dolorosas, o sangrado. [Señales de alarma en el embarazo](/es/learn/pregnancy-warning-signs) tiene la lista completa.
+Contacta con tu servicio de maternidad el mismo día ante pérdida de líquido, contracciones regulares o dolorosas, o sangrado. [Señales de alarma en el embarazo](/es/learn/pregnancy-warning-signs) tiene la lista completa.
 
-> **Busca atención ya:** Contacta con los servicios de emergencia locales o ve al servicio de urgencias más cercano si tienes sangrado abundante, dolor abdominal intenso o de un solo lado, dolor de cabeza intenso con alteraciones de la visión, hinchazón repentina de la cara o las manos, fiebre, pérdida de líquido por la vagina, dolor de pecho, dificultad para respirar, desmayo o convulsión. Contacta con tu servicio de maternidad el mismo día ante cualquier disminución del patrón habitual de movimientos del bebé. Femio no puede valorar un embarazo.
+> **Busca atención ya:** Contacta con los servicios de emergencia locales o ve al servicio de urgencias más cercano si tienes sangrado abundante, dolor abdominal intenso o de un solo lado, dolor de cabeza intenso con alteraciones de la visión, hinchazón repentina de la cara o las manos, fiebre, pérdida de líquido por la vagina, dolor de pecho, dificultad para respirar, desmayo, convulsión o pensamientos de hacerte daño a ti misma o a tu bebé ([ayuda ahora](/es/help-now)). Contacta con tu servicio de maternidad de inmediato si los movimientos de tu bebé se vuelven más lentos, se detienen o cambian. femio no puede valorar un embarazo.
 
 ## Preguntas frecuentes
 

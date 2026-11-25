@@ -22,7 +22,7 @@ open_graph_image_alt: "A pillow placed between bent knees on a bed"
 written_by: "PENDING"
 medically_reviewed_by: "Dr. Khaled M."
 date_published: "2026-08-19"
-date_modified: "2026-08-19"
+date_modified: "2026-11-24"
 last_reviewed: "2026-10-30"
 next_review_due: "2027-10-30"
 reading_level_ok: true
@@ -44,6 +44,7 @@ sources:
     url: "https://www.acog.org/womens-health/faqs/exercise-during-pregnancy"
     tier: "1"
 internal_links:
+  - "/en/help-now"
   - "/en/learn/pregnancy-week-18"
   - "/en/learn/pregnancy-week-20"
   - "/en/learn/pregnancy-warning-signs"
@@ -88,7 +89,7 @@ Put a pillow between your knees tonight. It is the cheapest intervention in this
 
 Report bleeding, severe pain, a fever, or a headache with vision changes. Pelvic pain that limits walking should be raised at your next appointment rather than endured. [Pregnancy warning signs](/en/learn/pregnancy-warning-signs) has the full list.
 
-> **Seek care now:** Contact your local emergency services or go to your nearest emergency department if you have heavy bleeding, severe or one-sided tummy pain, a severe headache with vision changes, sudden swelling of the face or hands, a fever, fluid leaking from the vagina, chest pain, trouble breathing, fainting, or a seizure. Femio cannot assess a pregnancy.
+> **Seek care now:** Contact your local emergency services or go to your nearest emergency department if you have heavy bleeding, severe or one-sided tummy pain, a severe headache with vision changes, sudden swelling of the face or hands, a fever, fluid leaking from the vagina, chest pain, trouble breathing, fainting, a seizure, or thoughts of harming yourself or the baby ([help now](/en/help-now)). femio cannot assess a pregnancy.
 
 ## Frequently asked questions
 

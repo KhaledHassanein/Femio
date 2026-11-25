@@ -22,7 +22,7 @@ open_graph_image_alt: "Une brosse à dents souple et un verre d'eau sur une éta
 written_by: "PENDING"
 medically_reviewed_by: "Dr. Khaled M."
 date_published: "2026-10-30"
-date_modified: "2026-10-30"
+date_modified: "2026-11-25"
 last_reviewed: "2026-10-30"
 next_review_due: "2027-10-30"
 reading_level_ok: false
@@ -48,6 +48,7 @@ internal_links:
   - "/fr/learn/pregnancy-week-14"
   - "/fr/learn/pregnancy-warning-signs"
   - "/fr/calculators/gestational-age"
+  - "/fr/help-now"
 ---
 
 # Semaine 13 de grossesse : à quoi s'attendre
@@ -74,7 +75,7 @@ Une brûlure en urinant, ou un besoin urgent et fréquent d'uriner, est une rais
 
 Vers la semaine 13, la taille donnée est d'environ 7,4 cm, de la taille d'une pêche selon la comparaison du NHS. Il s'agit d'une moyenne pour une population, et aucune grossesse n'a à correspondre exactement à ce chiffre.
 
-Il y a du mouvement : d'abord saccadé et aléatoire, puis plus délibéré. La plupart des femmes ne sentent rien avant environ la semaine 17 ou plus tard. Certains bébés sucent leur pouce à ce stade, ce qui développe le réflexe de succion nécessaire à l'alimentation après la naissance.
+Il y a du mouvement : d'abord saccadé et aléatoire, puis plus délibéré. La plupart des femmes ne sentent pas les mouvements avant une période comprise entre les semaines 17 et 24. Certains bébés sucent leur pouce à ce stade, ce qui développe le réflexe de succion nécessaire à l'alimentation après la naissance.
 
 ## Quels soins sont généralement prévus à ce moment
 
@@ -90,7 +91,7 @@ Prenez rendez-vous pour un contrôle dentaire cette semaine. La grossesse rend l
 
 Signalez tout saignement, toute douleur intense, une brûlure en urinant, de la fièvre ou un mal de tête avec troubles de la vision. Les [signes d'alerte pendant la grossesse](/fr/learn/pregnancy-warning-signs) couvrent l'ensemble, et il vaut la peine de les lire attentivement une fois au début de ce trimestre.
 
-> **Consultez sans attendre :** Contactez les services d'urgence locaux ou rendez-vous au service d'urgences le plus proche si vous avez des saignements abondants, une douleur abdominale intense ou d'un seul côté, un mal de tête sévère avec troubles de la vision, un gonflement soudain du visage ou des mains, de la fièvre, une perte de liquide par le vagin, une douleur thoracique, des difficultés respiratoires, un malaise ou une convulsion. femio ne peut pas évaluer une grossesse.
+> **Consultez sans attendre :** Contactez les services d'urgence locaux ou rendez-vous au service d'urgences le plus proche si vous avez des saignements abondants, une douleur abdominale intense ou d'un seul côté, un mal de tête sévère avec troubles de la vision, un gonflement soudain du visage ou des mains, de la fièvre, une perte de liquide par le vagin, une douleur thoracique, des difficultés respiratoires, un malaise, une convulsion ou des pensées de vous faire du mal ou de faire du mal à votre bébé ([aide immédiate](/fr/help-now)). femio ne peut pas évaluer une grossesse.
 
 ## Questions fréquentes
 

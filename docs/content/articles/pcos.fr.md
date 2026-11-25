@@ -12,7 +12,7 @@ secondary_topics:
   - "options de prise en charge du SOPK"
   - "SOPK et règles irrégulières"
 excerpt: "Comprendre ce qu'est le SOPK, les signes qu'il peut provoquer, la façon dont les professionnels l'évaluent, et les options de prise en charge dont ils peuvent discuter avec vous."
-meta_title: "Qu'est-ce que le SOPK ? Signes, évaluation et soins | Femio"
+meta_title: "Qu'est-ce que le SOPK ? Signes, évaluation et soins | femio"
 meta_description: "Comprendre le SOPK, ses signes fréquents, son évaluation, les options de prise en charge et ce qu'il faut suivre avant un rendez-vous."
 canonical_url: "https://femioapp.com/fr/conditions/pcos"
 robots_while_draft: "noindex,nofollow"
@@ -24,7 +24,7 @@ open_graph_image_alt: "Illustration présentant les signes fréquents du SOPK et
 written_by: "PENDING"
 medically_reviewed_by: "Dr. Khaled M."
 date_published: "2026-10-30"
-date_modified: "2026-10-30"
+date_modified: "2026-11-24"
 last_reviewed: "2026-10-30"
 next_review_due: "2027-10-30"
 reading_level_ok: false
@@ -136,11 +136,11 @@ Notez vos questions avant un rendez-vous. Demandez ce que le professionnel pense
 
 Évitez de comparer votre corps à des photos avant-après ou à des plans stricts trouvés en ligne. Le SOPK varie beaucoup d'une personne à l'autre, et un plan adapté à quelqu'un d'autre peut ne pas convenir à votre santé, à votre culture, à votre budget ou à vos objectifs.
 
-## Comment suivre le SOPK dans Femio
+## Comment suivre le SOPK dans femio
 
 Notez les dates de début et de fin des règles, l'abondance des saignements, les symptômes et de courtes notes. Des éléments de contexte utiles peuvent inclure les changements d'acné, la pilosité indésirable, les changements des cheveux du cuir chevelu, le sommeil, l'humeur, ou les moments où les symptômes affectent la vie quotidienne. Vous choisissez ce que vous enregistrez.
 
-Femio peut afficher les estimations du cycle sous forme de plages et créer un résumé de visite à partir de vos saisies. Un journal peut montrer le calendrier et les tendances, mais il ne peut ni confirmer le SOPK ni choisir une prise en charge médicale.
+femio peut afficher les estimations du cycle sous forme de plages et créer un résumé de visite à partir de vos saisies. Un journal peut montrer le calendrier et les tendances, mais il ne peut ni confirmer le SOPK ni choisir une prise en charge médicale.
 
 Pour en savoir plus, consultez [le fonctionnement du cycle menstruel](/fr/learn/menstrual-cycle-basics). Les guides associés portent sur les [signes fréquents du SOPK](/fr/learn/pcos-signs), [la façon dont le SOPK est évalué](/fr/learn/how-pcos-is-assessed) et [le SOPK et la fertilité](/fr/learn/pcos-and-fertility).
 

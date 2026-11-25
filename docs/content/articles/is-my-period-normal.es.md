@@ -22,7 +22,7 @@ open_graph_image_alt: "Dibujo lineal sencillo de una banda ancha y suave, sin bo
 written_by: "PENDING"
 medically_reviewed_by: "Dr. Khaled M."
 date_published: "2026-10-30"
-date_modified: "2026-10-30"
+date_modified: "2026-11-24"
 last_reviewed: "2026-10-30"
 next_review_due: "2027-10-30"
 reading_level_ok: false
@@ -74,7 +74,7 @@ Ninguna de las dos cosas.
 
 Una aplicación calcula su estimación a partir de los ciclos que ya has registrado. Cuando esos ciclos varían, algo que es exactamente lo que deben hacer ahora, la respuesta honesta es un margen amplio en lugar de un día concreto. Cualquier aplicación que te muestre una única fecha segura a esta edad te está diciendo algo que en realidad no sabe.
 
-Por eso Femio muestra una ventana en lugar de una fecha, y por eso la ventana es amplia para las usuarias más jóvenes. Una ventana amplia es la aplicación siendo honesta contigo, no la aplicación fallando. Hay más información sobre esto en [seguir tu ciclo sin estrés](/es/learn/tracking-your-cycle-as-a-teen).
+Por eso femio muestra una ventana en lugar de una fecha, y por eso la ventana es amplia para las usuarias más jóvenes. Una ventana amplia es la aplicación siendo honesta contigo, no la aplicación fallando. Hay más información sobre esto en [seguir tu ciclo sin estrés](/es/learn/tracking-your-cycle-as-a-teen).
 
 No llevas retraso. «Retraso» solo tiene sentido frente a una fecha que era segura, y en esta etapa no hay ninguna fecha segura con la que compararse.
 

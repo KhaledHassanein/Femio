@@ -12,7 +12,7 @@ secondary_topics:
   - "PCOS fertility assessment"
   - "when to seek fertility help"
 excerpt: "Learn how PCOS may affect ovulation and fertility, what to track while trying to conceive, and when a clinical fertility review may help."
-meta_title: "PCOS and Fertility: Ovulation and Support | Femio"
+meta_title: "PCOS and Fertility: Ovulation and Support | femio"
 meta_description: "Learn how PCOS can affect ovulation and fertility, what to track when trying to conceive, and when to ask a clinician for support."
 canonical_url: "https://femioapp.com/en/learn/pcos-and-fertility"
 robots_while_draft: "noindex,nofollow"
@@ -24,7 +24,7 @@ open_graph_image_alt: "Person reviewing a cycle calendar while planning a fertil
 written_by: "Dr. Khaled M."
 medically_reviewed_by: "Dr. Khaled M."
 date_published: "2026-08-15"
-date_modified: "2026-08-15"
+date_modified: "2026-11-24"
 last_reviewed: "2026-08-04"
 next_review_due: null
 reading_level_ok: true

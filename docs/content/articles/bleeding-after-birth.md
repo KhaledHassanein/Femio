@@ -24,7 +24,7 @@ open_graph_image_alt: "Maternity pads and a calendar marking the weeks after bir
 written_by: "PENDING"
 medically_reviewed_by: "Dr. Khaled M."
 date_published: "2026-08-19"
-date_modified: "2026-08-19"
+date_modified: "2026-11-24"
 last_reviewed: "2026-10-30"
 next_review_due: "2027-10-30"
 reading_level_ok: true
@@ -54,7 +54,7 @@ internal_links:
 
 # Bleeding After Birth: What Is Normal and What Is Not
 
-Bleeding after birth, called lochia, is heaviest in the first few days and then fades over several weeks. It usually moves from bright red to pink or brown, and finally to a pale discharge. Bleeding that gets heavier instead of lighter, soaks a maternity pad within an hour, or smells offensive is not part of that pattern and needs urgent advice. This is health information to help you notice changes, not a substitute for your midwife or doctor.
+Bleeding after birth, called lochia, is heaviest in the first few days and then fades over several weeks. It usually moves from bright red to pink or brown, and finally to a pale discharge. Bleeding that gets heavier instead of lighter, or smells offensive, is not part of that pattern and needs urgent advice. Bleeding that soaks a maternity pad within an hour needs emergency care. This is health information to help you notice changes, not a substitute for your midwife or doctor.
 
 ## What the bleeding is
 
@@ -74,7 +74,7 @@ Bleeding often increases briefly when you stand up after lying down, after feedi
 
 ## Clots, colour and smell
 
-Small clots in the first days are usual. A clot larger than a plum, or several large clots, needs urgent advice.
+Small clots in the first days are usual. A clot larger than a plum, or several large clots, needs urgent advice. A clot the size of an egg or larger needs emergency care.
 
 Lochia has a smell, usually described as similar to a period. A strong or foul smell, especially with a fever or tummy pain, can point to an infection and needs same-day care.
 
@@ -102,7 +102,7 @@ Read [when your periods come back](/en/learn/periods-after-birth) for what to ex
 
 Logging pads used, colour, and any clots gives you something concrete to show. A note that says "four pads on Tuesday, two clots, felt dizzy" is far more useful at an appointment than a memory.
 
-Femio can hold that record. Femio cannot examine you and does not assess how much blood loss is safe, which is a judgement your clinician makes with you in front of them.
+femio can hold that record. femio cannot examine you and does not assess how much blood loss is safe, which is a judgement your clinician makes with you in front of them.
 
 ## When to see a doctor
 

@@ -12,7 +12,7 @@ secondary_topics:
   - "pain during sex"
   - "when to seek care"
 excerpt: "Learn about common endometriosis signs, how symptoms can vary, what details are useful to track, and when to seek medical care."
-meta_title: "Common Signs of Endometriosis | Femio"
+meta_title: "Common Signs of Endometriosis | femio"
 meta_description: "Learn about possible endometriosis signs, including pelvic pain, painful periods, bowel or bladder symptoms, and when to seek medical advice."
 canonical_url: "https://femioapp.com/en/learn/endometriosis-signs"
 robots_while_draft: "noindex,nofollow"
@@ -24,7 +24,7 @@ open_graph_image_alt: "Pelvic pain and menstrual symptom notes on a calendar"
 written_by: "Dr. Khaled M."
 medically_reviewed_by: "Dr. Khaled M."
 date_published: "2026-08-15"
-date_modified: "2026-08-15"
+date_modified: "2026-11-24"
 last_reviewed: "2026-08-04"
 next_review_due: null
 reading_level_ok: true

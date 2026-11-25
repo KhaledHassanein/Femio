@@ -22,7 +22,7 @@ open_graph_image_alt: "An open notebook and pen on a bedside table at night"
 written_by: "PENDING"
 medically_reviewed_by: "Dr. Khaled M."
 date_published: "2026-08-19"
-date_modified: "2026-08-19"
+date_modified: "2026-11-25"
 last_reviewed: "2026-10-30"
 next_review_due: "2027-10-30"
 reading_level_ok: true
@@ -44,6 +44,7 @@ sources:
     url: "https://www.nhs.uk/pregnancy/labour-and-birth/signs-that-labour-has-begun/"
     tier: "1"
 internal_links:
+  - "/en/help-now"
   - "/en/learn/pregnancy-week-29"
   - "/en/learn/pregnancy-week-31"
   - "/en/learn/pregnancy-warning-signs"
@@ -86,9 +87,9 @@ Read about the three stages of labour this week, and read it with whoever will b
 
 ## When to see a doctor
 
-Contact your maternity service the same day for reduced movements, leaking fluid, regular tightenings, or bleeding. Say so if you are not coping. [Pregnancy warning signs](/en/learn/pregnancy-warning-signs) has the full list.
+Contact your maternity service the same day for leaking fluid, regular tightenings, or bleeding. Say so if you are not coping. [Pregnancy warning signs](/en/learn/pregnancy-warning-signs) has the full list.
 
-> **Seek care now:** Contact your local emergency services or go to your nearest emergency department if you have heavy bleeding, severe or one-sided tummy pain, a severe headache with vision changes, sudden swelling of the face or hands, a fever, fluid leaking from the vagina, chest pain, trouble breathing, fainting, or a seizure. Contact your maternity service the same day for any reduction in your baby's usual pattern of movement. Femio cannot assess a pregnancy.
+> **Seek care now:** Contact your local emergency services or go to your nearest emergency department if you have heavy bleeding, severe or one-sided tummy pain, a severe headache with vision changes, sudden swelling of the face or hands, a fever, fluid leaking from the vagina, chest pain, trouble breathing, fainting, a seizure, or thoughts of harming yourself or the baby ([help now](/en/help-now)). Contact your maternity service straight away if your baby's movements slow down, stop or change. femio cannot assess a pregnancy.
 
 ## Frequently asked questions
 

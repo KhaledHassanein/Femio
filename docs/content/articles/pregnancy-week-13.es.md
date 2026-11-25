@@ -22,7 +22,7 @@ open_graph_image_alt: "Un cepillo de dientes suave y un vaso de agua en un estan
 written_by: "PENDING"
 medically_reviewed_by: "Dr. Khaled M."
 date_published: "2026-10-30"
-date_modified: "2026-10-30"
+date_modified: "2026-11-25"
 last_reviewed: "2026-10-30"
 next_review_due: "2027-10-30"
 reading_level_ok: false
@@ -48,6 +48,7 @@ internal_links:
   - "/es/learn/pregnancy-week-14"
   - "/es/learn/pregnancy-warning-signs"
   - "/es/calculators/gestational-age"
+  - "/es/help-now"
 ---
 
 # Semana 13 del embarazo: qué esperar
@@ -74,7 +75,7 @@ Sentir ardor al orinar, o necesitar ir con urgencia y con frecuencia, es motivo 
 
 Alrededor de la semana 13, la cifra que se menciona es de unos 7,4 cm, del tamaño de un durazno, según la comparación del NHS. Describe a una población, y ningún embarazo individual tiene que coincidir con ella.
 
-Ya hay movimiento: al principio es brusco y aleatorio, y después más deliberado. La mayoría de las mujeres no siente nada hasta alrededor de la semana 17 o más tarde. Algunos bebés se chupan el pulgar en esta etapa, lo que desarrolla el reflejo de succión necesario para alimentarse después del nacimiento.
+Ya hay movimiento: al principio es brusco y aleatorio, y después más deliberado. La mayoría de las mujeres no siente el movimiento hasta algún momento entre las semanas 17 y 24. Algunos bebés se chupan el pulgar en esta etapa, lo que desarrolla el reflejo de succión necesario para alimentarse después del nacimiento.
 
 ## Qué atención suele ocurrir en esta etapa
 
@@ -90,7 +91,7 @@ Reserva una revisión dental esta semana. El embarazo hace más probables los pr
 
 Informa de cualquier sangrado, dolor intenso, ardor al orinar, fiebre o un dolor de cabeza con cambios en la visión. Los [signos de alarma del embarazo](/es/learn/pregnancy-warning-signs) cubren el conjunto completo, y vale la pena leer esa guía con calma una vez al inicio de este trimestre.
 
-> **Busca atención ya:** Contacta a los servicios de emergencia de tu zona o acude al servicio de urgencias más cercano si tienes sangrado abundante, dolor intenso o de un solo lado en el vientre, un dolor de cabeza intenso con cambios en la visión, hinchazón repentina de la cara o las manos, fiebre, pérdida de líquido por la vagina, dolor en el pecho, dificultad para respirar, desmayo o convulsión. Femio no puede evaluar un embarazo.
+> **Busca atención ya:** Contacta a los servicios de emergencia de tu zona o acude al servicio de urgencias más cercano si tienes sangrado abundante, dolor intenso o de un solo lado en el vientre, un dolor de cabeza intenso con cambios en la visión, hinchazón repentina de la cara o las manos, fiebre, pérdida de líquido por la vagina, dolor en el pecho, dificultad para respirar, desmayo, convulsión o pensamientos de hacerte daño a ti misma o a tu bebé ([ayuda ahora](/es/help-now)). femio no puede evaluar un embarazo.
 
 ## Preguntas frecuentes
 

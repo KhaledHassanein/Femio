@@ -24,7 +24,7 @@ open_graph_image_alt: "A newborn feeding while the mother sits supported by cush
 written_by: "PENDING"
 medically_reviewed_by: "Dr. Khaled M."
 date_published: "2026-08-19"
-date_modified: "2026-08-19"
+date_modified: "2026-11-24"
 last_reviewed: "2026-10-30"
 next_review_due: "2027-10-30"
 reading_level_ok: true
@@ -96,7 +96,7 @@ After a feed the nipple should look round, not flattened, creased or wedge-shape
 
 ## Sore nipples
 
-Some tenderness in the first days is common. Cracked, bleeding or severely painful nipples are a latch problem, and they are the reason many people stop feeding before they wanted to.
+Some tenderness in the first days is common. Cracked, bleeding or severely painful nipples are often caused by a latch problem, and they are a common reason people stop feeding earlier than they wanted to.
 
 Ask for a feed to be watched by someone skilled — a midwife, health visitor, feeding specialist or peer supporter. [NICE's postnatal guidance](https://www.nice.org.uk/guidance/ng194) expects feeding support to be available rather than something you have to chase.
 
@@ -116,15 +116,15 @@ Set up a spot with cushions, a drink and a charger. You will spend a lot of hour
 - The baby will not latch, or falls asleep at every feed without feeding.
 - Nappies are fewer than expected, or the baby is very sleepy and hard to rouse.
 - A breast is red, hot and painful, or you have a fever.
-- The baby has not returned to birth weight by around two weeks.
+- The baby is not back to birth weight when your midwife or health visitor expected.
 
 A red, hot, painful breast with fever needs same-day advice, and [postpartum warning signs](/en/learn/postpartum-warning-signs) covers the wider list.
 
-## What Femio can hold
+## What femio can hold
 
 Logging feeds, side, and how it felt gives you something concrete to bring to a feeding assessment, and it helps you see that the shape of a day is changing even when it does not feel like it.
 
-Femio does not assess a latch or judge whether a baby is getting enough, which needs a person watching a feed and weighing the baby. If feeding is not working, read [when breastfeeding is not working](/en/learn/when-breastfeeding-is-not-working), and see [the first six weeks after birth](/en/learn/postpartum-recovery-first-six-weeks) for everything else happening at once.
+femio does not assess a latch or judge whether a baby is getting enough, which needs a person watching a feed and weighing the baby. If feeding is not working, read [when breastfeeding is not working](/en/learn/when-breastfeeding-is-not-working), and see [the first six weeks after birth](/en/learn/postpartum-recovery-first-six-weeks) for everything else happening at once.
 
 ## When to see a doctor
 
@@ -132,7 +132,7 @@ Contact your midwife, health visitor or feeding service for pain through the who
 
 Ask for a feed to be observed. Descriptions of feeding are much less useful than someone watching one.
 
-> **Seek care now:** Get urgent help if your baby is floppy, very hard to wake, breathing fast or with difficulty, has a fever, or is refusing feeds. For yourself, seek urgent care for a high fever, a breast that is red and hot with feeling very unwell, or severe pain. Femio cannot assess a baby.
+> **Seek care now:** Get urgent help if your baby is floppy, very hard to wake, breathing fast or with difficulty, has a fever, or is refusing feeds. For yourself, seek urgent care for a high fever, a breast that is red and hot with feeling very unwell, or severe pain. femio cannot assess a baby.
 
 ## Frequently asked questions
 

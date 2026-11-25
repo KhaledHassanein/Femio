@@ -22,7 +22,7 @@ open_graph_image_alt: "Simple line drawing of a soft band with faded edges"
 written_by: "PENDING"
 medically_reviewed_by: "Dr. Khaled M."
 date_published: "2026-08-19"
-date_modified: "2026-08-19"
+date_modified: "2026-11-24"
 last_reviewed: "2026-10-30"
 next_review_due: "2027-10-30"
 reading_level_ok: true
@@ -65,7 +65,7 @@ An app works out its guess from the cycles you have already recorded. If those c
 
 At your age the cycles are supposed to vary. For teenagers, anywhere from about 21 to 45 days apart is within the usual range [ACOG]. A wide window is the app telling you the truth about what it knows.
 
-That is why Femio shows a range instead of a date, and why the range is wider for younger users and gets narrower only when your own record supports it. It is also why there is no countdown and no "you are late" message anywhere in the app for you. Late only means something against a date that was certain, and there is no certain date here to be late against.
+That is why femio shows a range instead of a date, and why the range is wider for younger users and gets narrower only when your own record supports it. It is also why there is no countdown and no "you are late" message anywhere in the app for you. Late only means something against a date that was certain, and there is no certain date here to be late against.
 
 If your period does not arrive in the window, the app was not broken and neither were you. Read [is my period normal](/en/learn/is-my-period-normal) for what the first years actually look like.
 

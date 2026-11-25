@@ -22,7 +22,7 @@ open_graph_image_alt: "Una matrona palpando la posición de la barriga en una ci
 written_by: "PENDING"
 medically_reviewed_by: "Dr. Khaled M."
 date_published: "2026-10-30"
-date_modified: "2026-10-30"
+date_modified: "2026-11-25"
 last_reviewed: "2026-10-30"
 next_review_due: "2027-10-30"
 reading_level_ok: false
@@ -48,6 +48,7 @@ internal_links:
   - "/es/learn/pregnancy-week-37"
   - "/es/learn/pregnancy-warning-signs"
   - "/es/calculators/gestational-age"
+  - "/es/help-now"
 ---
 
 # Semana 36 de embarazo: posición, giro y opciones
@@ -72,7 +73,7 @@ Los movimientos no deberían estar disminuyendo. Este es el momento del embarazo
 
 Hacia la semana 36, la cifra que se indica es de unos 47,4 cm de la cabeza al talón, comparable a una lechuga romana según la comparación del NHS. Es un promedio de población, no una medición de tu embarazo.
 
-Los pulmones suelen estar ya lo bastante maduros para respirar sin ayuda, y la succión y la digestión están listas para la alimentación.
+Los pulmones ya están bien desarrollados, aunque algunos bebés nacidos antes de las 37 semanas todavía necesitan ayuda para respirar, y la succión y la digestión están listas para la alimentación.
 
 ## ¿Qué cuidados suelen producirse por estas fechas?
 
@@ -86,9 +87,9 @@ Acude a esta cita aunque te sientas bien, y sobre todo si llegar te supone una m
 
 ## Cuándo consultar
 
-Contacta con tu servicio de maternidad el mismo día ante cualquier cambio en los movimientos, pérdida de líquido, contracciones regulares o dolorosas, o sangrado. [Señales de alarma en el embarazo](/es/learn/pregnancy-warning-signs) tiene la lista completa.
+Contacta con tu servicio de maternidad el mismo día ante pérdida de líquido, contracciones regulares o dolorosas, o sangrado. [Señales de alarma en el embarazo](/es/learn/pregnancy-warning-signs) tiene la lista completa.
 
-> **Busca atención ya:** Contacta con los servicios de emergencia de tu zona o acude al servicio de urgencias más cercano si tienes sangrado abundante, dolor intenso o de un solo lado en el abdomen, dolor justo debajo de las costillas, un dolor de cabeza intenso con alteraciones de la visión, hinchazón repentina de la cara o las manos, fiebre, pérdida de líquido por la vagina, dolor en el pecho, dificultad para respirar, desmayo o convulsión. Contacta con tu servicio de maternidad el mismo día ante cualquier reducción del patrón habitual de movimientos de tu bebé. Femio no puede valorar un embarazo.
+> **Busca atención ya:** Contacta con los servicios de emergencia de tu zona o acude al servicio de urgencias más cercano si tienes sangrado abundante, dolor intenso o de un solo lado en el abdomen, dolor justo debajo de las costillas, un dolor de cabeza intenso con alteraciones de la visión, hinchazón repentina de la cara o las manos, fiebre, pérdida de líquido por la vagina, dolor en el pecho, dificultad para respirar, desmayo, convulsión o pensamientos de hacerte daño a ti misma o a tu bebé ([ayuda ahora](/es/help-now)). Contacta con tu servicio de maternidad de inmediato si los movimientos de tu bebé se vuelven más lentos, se detienen o cambian. femio no puede valorar un embarazo.
 
 ## Preguntas frecuentes
 

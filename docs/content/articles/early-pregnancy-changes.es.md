@@ -12,7 +12,7 @@ secondary_topics:
   - "náuseas al inicio del embarazo"
   - "señales de alarma al inicio del embarazo"
 excerpt: "Conoce los cambios comunes al inicio del embarazo, por qué los síntomas varían, cómo se confirma el embarazo y qué dolor, sangrado o malestar necesita atención."
-meta_title: "Cambios comunes al inicio del embarazo | Femio"
+meta_title: "Cambios comunes al inicio del embarazo | femio"
 meta_description: "Retraso de la menstruación, náuseas, cansancio y cambios en senos y vejiga al inicio del embarazo, con los límites de las pruebas y las señales de alarma."
 canonical_url: "https://femioapp.com/es/learn/early-pregnancy-changes"
 robots_while_draft: "noindex,nofollow"
@@ -24,7 +24,7 @@ open_graph_image_alt: "Calendario y notas que muestran cambios comunes al inicio
 written_by: "PENDING"
 medically_reviewed_by: "Dr. Khaled M."
 date_published: "2026-10-30"
-date_modified: "2026-10-30"
+date_modified: "2026-11-24"
 last_reviewed: "2026-10-30"
 next_review_due: "2027-10-30"
 reading_level_ok: false

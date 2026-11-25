@@ -11,7 +11,7 @@ secondary_topics:
   - "couches mouillées et selles du nouveau-né"
   - "contrôles de poids du nouveau-né"
 excerpt: "À quelle fréquence les nouveau-nés se nourrissent, à quoi ressemblent leurs signes de faim, et ce qu'une sage-femme ou une infirmière de santé publique vérifie lorsque l'alimentation est évaluée."
-meta_title: "À quelle fréquence alimenter un nouveau-né | Femio"
+meta_title: "À quelle fréquence alimenter un nouveau-né | femio"
 meta_description: "À quelle fréquence les nouveau-nés tètent, à quoi ressemblent leurs signes de faim, et ce que vérifient les professionnels."
 canonical_url: "https://femioapp.com/fr/learn/feeding-your-newborn"
 robots_while_draft: "noindex,nofollow"
@@ -23,7 +23,7 @@ open_graph_image_alt: "Un parent qui allaite un nouveau-né serré contre lui"
 written_by: "PENDING"
 medically_reviewed_by: "Dr. Khaled M."
 date_published: "2026-10-30"
-date_modified: "2026-10-30"
+date_modified: "2026-11-24"
 last_reviewed: "2026-10-30"
 next_review_due: "2027-10-30"
 reading_level_ok: false
@@ -109,7 +109,7 @@ Consultez sans attendre pour un nouveau-né qui refuse de téter, qui est diffic
 
 Demandez un bilan de l'alimentation dans la même semaine en cas de tétée douloureuse, de bébé qui tète sans cesse sans se calmer, ou d'inquiétude concernant le poids. [Signes d'alerte chez le nouveau-né](/fr/learn/newborn-warning-signs) énumère les signes qui nécessitent des soins d'urgence, et [votre nouveau-né pendant les deux premières semaines](/fr/learn/newborn-first-two-weeks) décrit ce qui est habituel.
 
-> **Consultez sans attendre :** Contactez les services d'urgence de votre région ou rendez-vous au service des urgences le plus proche si un bébé de moins de trois mois a une température de 38 °C ou plus, respire vite, fait des efforts respiratoires ou gémit en respirant, a la peau bleue, grise, pâle ou marbrée, est mou, est difficile à réveiller, refuse de téter, a nettement moins de couches mouillées, ou n'en a aucune depuis 12 heures, a une fontanelle bombée ou creusée, a une éruption qui ne disparaît pas à la pression, ou a une crise convulsive. Femio ne peut pas évaluer un bébé.
+> **Consultez sans attendre :** Contactez les services d'urgence de votre région ou rendez-vous au service des urgences le plus proche si un bébé de moins de trois mois a une température de 38 °C ou plus, respire vite, fait des efforts respiratoires ou gémit en respirant, a la peau bleue, grise, pâle ou marbrée, est mou, est difficile à réveiller, refuse de téter, a nettement moins de couches mouillées, ou n'en a aucune depuis 12 heures, a une fontanelle bombée ou creusée, a une éruption qui ne disparaît pas à la pression, ou a une crise convulsive. femio ne peut pas évaluer un bébé.
 
 ## Questions fréquentes
 

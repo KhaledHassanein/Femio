@@ -11,7 +11,7 @@ secondary_topics:
   - "partage de la chambre et partage du lit"
   - "réduction du risque de mort subite du nourrisson"
 excerpt: "Ce que couvrent les recommandations de sommeil sûr, les points sur lesquels elles s'accordent, leurs divergences sur le partage du lit, et comment trouver les conseils qui s'appliquent là où vous vivez."
-meta_title: "Un sommeil plus sûr pour votre bébé | Femio"
+meta_title: "Un sommeil plus sûr pour votre bébé | femio"
 meta_description: "Dormir sur le dos, sur une surface ferme, et partager la chambre font consensus. Le partage du lit diffère selon les pays. Que lire chez vous."
 canonical_url: "https://femioapp.com/fr/learn/safer-sleep-for-your-baby"
 robots_while_draft: "noindex,nofollow"
@@ -23,7 +23,7 @@ open_graph_image_alt: "Bébé couché sur le dos dans un lit vide, sur un drap-h
 written_by: "PENDING"
 medically_reviewed_by: "Dr. Khaled M."
 date_published: "2026-10-30"
-date_modified: "2026-10-30"
+date_modified: "2026-11-25"
 last_reviewed: "2026-10-30"
 next_review_due: "2027-10-30"
 reading_level_ok: false
@@ -57,7 +57,7 @@ internal_links:
 
 # Un sommeil plus sûr pour votre bébé
 
-Les recommandations de sommeil sûr dans le monde s'accordent sur l'essentiel : les bébés dorment sur le dos, sur une surface plane et ferme, dans leur propre espace de sommeil dégagé, et dans la même pièce qu'un adulte pendant les premiers mois. Les pays divergent sur le partage du lit, et cette différence est réelle et non un problème de traduction. Cette page présente donc les deux positions et vous oriente vers les conseils en vigueur là où vous vivez. Il s'agit d'informations de santé à titre éducatif, et non d'un avis médical sur votre bébé. Tout ce qui concerne le sommeil, la respiration ou la santé de votre propre bébé relève d'une infirmière de suivi de l'enfant, d'un pédiatre ou des services d'urgence.
+Les recommandations de sommeil sûr dans le monde s'accordent sur l'essentiel : les bébés dorment sur le dos, sur une surface plane et ferme, dans leur propre espace de sommeil dégagé, et dans la même pièce qu'un adulte pendant les premiers mois. Les pays divergent sur le partage du lit. Cette page présente donc les deux positions et vous oriente vers les conseils en vigueur là où vous vivez. Il s'agit d'informations de santé à titre éducatif, et non d'un avis médical sur votre bébé. Tout ce qui concerne le sommeil, la respiration ou la santé de votre propre bébé relève d'une infirmière de suivi de l'enfant, d'un pédiatre ou des services d'urgence.
 
 ## À quoi servent ces recommandations
 
@@ -109,7 +109,7 @@ Consultez en urgence pour tout signe présenté dans l'encadré ci-dessous, à t
 
 Demandez l'avis d'une infirmière de suivi de l'enfant ou d'un médecin sur le sommeil si votre bébé ne dort qu'en position verticale, si la respiration pendant le sommeil vous inquiète, ou si votre bébé est né prématurément ou présente une affection de santé et que vous ne savez pas quel conseil s'applique. Voir [votre nouveau-né pendant les deux premières semaines](/fr/learn/newborn-first-two-weeks) pour ce qui est habituel, et [les signes d'alerte chez le nouveau-né](/fr/learn/newborn-warning-signs) pour ce qui ne l'est pas.
 
-> **Consultez sans attendre :** Contactez les services d'urgence de votre région ou rendez-vous au service des urgences le plus proche si un bébé de moins de trois mois a une température de 38 °C ou plus, respire vite, fait des efforts respiratoires importants ou émet des gémissements, a la peau bleue, grise, pâle ou marbrée, est mou, est difficile à réveiller, refuse les tétées, a beaucoup moins de couches mouillées ou aucune au cours des 12 dernières heures, a la fontanelle bombée ou creusée, a une éruption qui ne s'efface pas quand on appuie dessus, ou a une crise convulsive. Femio ne peut pas évaluer un bébé.
+> **Consultez sans attendre :** Contactez les services d'urgence de votre région ou rendez-vous au service des urgences le plus proche si un bébé de moins de trois mois a une température de 38 °C ou plus, respire vite, fait des efforts respiratoires importants ou émet des gémissements, a la peau bleue, grise, pâle ou marbrée, est mou, est difficile à réveiller, refuse les tétées, a beaucoup moins de couches mouillées ou aucune au cours des 12 dernières heures, a la fontanelle bombée ou creusée, a une éruption qui ne s'efface pas quand on appuie dessus, ou a une crise convulsive. femio ne peut pas évaluer un bébé.
 
 ## Questions fréquentes
 

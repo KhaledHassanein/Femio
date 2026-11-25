@@ -2,7 +2,7 @@
 title: "Puis-je jeûner pendant le Ramadan pendant la grossesse ?"
 slug: "ramadan-fasting-pregnancy"
 locale: "fr"
-status: "published"
+status: "draft"
 content_type: "pregnancy cluster"
 search_intent: "aide à la décision sur le jeûne pendant la grossesse"
 primary_query: "jeûne pendant le Ramadan pendant la grossesse"
@@ -23,11 +23,11 @@ open_graph_description: "Les données et leurs lacunes, les questions à poser �
 open_graph_image: "PENDING"
 open_graph_image_alt: "Femme enceinte assise calmement à une table, tôt le matin, avec un verre d'eau"
 written_by: "PENDING"
-medically_reviewed_by: "Dr. Khaled M."
-date_published: "2026-10-30"
-date_modified: "2026-10-30"
-last_reviewed: "2026-10-30"
-next_review_due: "2027-10-30"
+medically_reviewed_by: "PENDING"
+date_published: null
+date_modified: null
+last_reviewed: null
+next_review_due: null
 reading_level_ok: false
 reading_level_method: "Not checked. Translation of the English guide; readability formula applied to the English source only."
 disclaimer_type: "emergency"
@@ -150,7 +150,7 @@ Contactez votre sage-femme ou votre médecin avant le Ramadan si vous avez un do
 >
 > En cas de confusion, de crise convulsive, si vous n'arrivez pas à rester éveillée, ou si vous ne pouvez pas joindre votre équipe, contactez les services d'urgence locaux ou rendez-vous au service des urgences le plus proche. N'attendez pas que femio ou un autre service en ligne vous réponde.
 
-Femio ne peut pas évaluer une urgence. Lisez-en davantage sur [les signes d'alerte de la grossesse qui nécessitent des soins urgents](/fr/learn/pregnancy-warning-signs). Découvrez comment le contenu de santé de femio est vérifié sur la [page de relecture clinique](/fr/medical-review) et dans la [politique éditoriale](/fr/editorial-policy). Les termes comme « hypo » sont expliqués dans le [lexique](/fr/glossary). Si vous vous sentez en danger, utilisez la [page d'aide immédiate](/fr/help-now).
+femio ne peut pas évaluer une urgence. Lisez-en davantage sur [les signes d'alerte de la grossesse qui nécessitent des soins urgents](/fr/learn/pregnancy-warning-signs). Découvrez comment le contenu de santé de femio est vérifié sur la [page de relecture clinique](/fr/medical-review) et dans la [politique éditoriale](/fr/editorial-policy). Les termes comme « hypo » sont expliqués dans le [lexique](/fr/glossary). Si vous vous sentez en danger, utilisez la [page d'aide immédiate](/fr/help-now).
 
 ## Questions fréquentes
 

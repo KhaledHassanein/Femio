@@ -11,7 +11,7 @@ secondary_topics:
   - "room sharing and bed sharing"
   - "sudden infant death syndrome risk reduction"
 excerpt: "What safer sleep guidance covers, where national guidance agrees, where it differs on bed sharing, and how to find the advice that applies where you live."
-meta_title: "Safer Sleep for Your Baby: What Guidance Says | Femio"
+meta_title: "Safer Sleep for Your Baby: What Guidance Says | femio"
 meta_description: "Back sleeping, a clear firm surface and room sharing are agreed everywhere. Bed sharing advice differs by country. What to read where you live."
 canonical_url: "https://femioapp.com/en/learn/safer-sleep-for-your-baby"
 robots_while_draft: "noindex,nofollow"
@@ -23,7 +23,7 @@ open_graph_image_alt: "A baby sleeping on their back in an empty cot with a fitt
 written_by: "PENDING"
 medically_reviewed_by: "Dr. Khaled M."
 date_published: "2026-08-19"
-date_modified: "2026-08-19"
+date_modified: "2026-11-24"
 last_reviewed: "2026-10-30"
 next_review_due: "2027-10-30"
 reading_level_ok: true
@@ -57,7 +57,7 @@ internal_links:
 
 # Safer Sleep for Your Baby
 
-Safer sleep guidance around the world agrees on the core: babies sleep on their backs, on a firm flat surface, in their own clear sleep space, in the same room as an adult for the early months. Countries differ on bed sharing, and that difference is real rather than a translation problem, so this page describes both positions and points you to the advice where you live. This is health information for learning and it is not medical advice about your baby. Anything about your own baby's sleep, breathing or health belongs with a health visitor, paediatrician or emergency service.
+Safer sleep guidance around the world agrees on the core: babies sleep on their backs, on a firm flat surface, in their own clear sleep space, in the same room as an adult for the early months. Countries differ on bed sharing, so this page describes both positions and points you to the advice where you live. This is health information for learning and it is not medical advice about your baby. Anything about your own baby's sleep, breathing or health belongs with a health visitor, paediatrician or emergency service.
 
 ## What the guidance is for
 
@@ -109,7 +109,7 @@ Seek urgent care for any sign in the box below, at any hour. Sleep advice never 
 
 Ask a health visitor or doctor about sleep if your baby will only sleep upright, if breathing during sleep worries you, or if your baby was born early or has a health condition and you are unsure which advice applies. See [your newborn in the first two weeks](/en/learn/newborn-first-two-weeks) for what is usual, and [newborn warning signs](/en/learn/newborn-warning-signs) for what is not.
 
-> **Seek care now:** Contact your local emergency services or go to your nearest emergency department if a baby under three months old has a temperature of 38C or higher, is breathing fast, working hard to breathe or grunting, has blue, grey, pale or mottled skin, is floppy, is difficult to wake, is refusing feeds, has far fewer wet nappies or none in the past 12 hours, has a bulging or sunken soft spot on the head, has a rash that does not fade when you press it, or has a fit. Femio cannot assess a baby.
+> **Seek care now:** Contact your local emergency services or go to your nearest emergency department if a baby under three months old has a temperature of 38C or higher, is breathing fast, working hard to breathe or grunting, has blue, grey, pale or mottled skin, is floppy, is difficult to wake, is refusing feeds, has far fewer wet nappies or none in the past 12 hours, has a bulging or sunken soft spot on the head, has a rash that does not fade when you press it, or has a fit. femio cannot assess a baby.
 
 ## Frequently asked questions
 

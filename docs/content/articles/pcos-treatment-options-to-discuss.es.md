@@ -26,7 +26,7 @@ open_graph_image_alt: "Lista de verificación sencilla junto a una libreta y un 
 written_by: "PENDING"
 medically_reviewed_by: "Dr. Khaled M."
 date_published: "2026-10-30"
-date_modified: "2026-10-30"
+date_modified: "2026-11-25"
 last_reviewed: "2026-10-30"
 next_review_due: "2027-10-30"
 reading_level_ok: false
@@ -132,7 +132,7 @@ No empieces un suplemento por un artículo de internet. Habla antes con tu clín
 
 Si tus periodos son irregulares o no llegan y quieres quedarte embarazada, no hace falta que esperes un año. La Sociedad Estadounidense de Medicina Reproductiva (ASRM) dice que las pruebas de fertilidad deben empezar sin demora en caso de ciclos irregulares o periodos ausentes. Consulta [cuándo buscar ayuda para la fertilidad](/es/learn/when-to-seek-fertility-help).
 
-Considera una revisión clínica si llevas 3 meses sin periodo. Si tus ciclos ya eran irregulares, la guía también define 6 meses sin periodo como algo que necesita revisión. Busca consejo antes si es posible un embarazo o si los síntomas te preocupan.
+Considera una revisión clínica si llevas 3 meses sin periodo después de haber tenido ciclos regulares, o 6 meses si tus ciclos ya eran irregulares. Busca consejo antes si es posible un embarazo o si los síntomas te preocupan.
 
 Pide cita si el acné, los cambios de pelo o el estado de ánimo afectan a tu vida diaria, a tu trabajo o a tus relaciones. El NHS usa esta misma prueba para saber cuándo acudir al médico de cabecera.
 

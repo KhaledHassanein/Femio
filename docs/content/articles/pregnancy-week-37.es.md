@@ -9,20 +9,20 @@ primary_query: "37 semanas de embarazo"
 secondary_topics:
   - "término completo a las 37 semanas"
   - "señales de que empieza el parto"
-excerpt: "La semana 37 es ya a término. Un parto a partir de aquí no es prematuro, y conviene conocer de memoria las señales de que el parto ha empezado."
+excerpt: "Desde la semana 37 un parto se describe como a término, y conviene saberse de memoria las señales de que el parto ha empezado."
 meta_title: "37 semanas de embarazo: aquí empieza el término"
-meta_description: "A partir de las 37 semanas el parto no es prematuro. Señales de que empieza el parto, qué es el tapón mucoso y por qué el término es un margen de cinco semanas."
+meta_description: "Desde las 37 semanas un parto es a término. Las señales del inicio del parto, qué es el tapón mucoso y por qué el término es un margen de cinco semanas."
 canonical_url: "https://femioapp.com/es/learn/pregnancy-week-37"
 robots_while_draft: "noindex,nofollow"
 robots_when_published: "index,follow,max-image-preview:large"
 open_graph_title: "Semana 37 de embarazo"
-open_graph_description: "Empieza el término completo, y las señales del parto conviene conocerlas de memoria."
+open_graph_description: "Empieza el término, y conviene saberse de memoria las señales del parto."
 open_graph_image: "PENDING"
 open_graph_image_alt: "Silla de bebé para el coche y una bolsa preparadas junto a la puerta de casa"
 written_by: "PENDING"
 medically_reviewed_by: "Dr. Khaled M."
 date_published: "2026-10-30"
-date_modified: "2026-10-30"
+date_modified: "2026-11-25"
 last_reviewed: "2026-10-30"
 next_review_due: "2027-10-30"
 reading_level_ok: false
@@ -49,11 +49,12 @@ internal_links:
   - "/es/learn/mood-after-birth"
   - "/es/learn/pregnancy-warning-signs"
   - "/es/calculators/gestational-age"
+  - "/es/help-now"
 ---
 
 # Semana 37 de embarazo: qué esperar
 
-La semana 37 es ya a término. Un parto a partir de esta semana no se considera prematuro, y el término abarca un margen de cinco semanas y no una única fecha. Es la semana para conocer bien las señales del parto, lo suficiente como para no tener que buscarlas.
+La semana 37 es ya a término. A partir de esta semana, un parto se describe como a término, y el término abarca un margen de cinco semanas y no una única fecha. Es la semana para conocer bien las señales del parto, lo suficiente como para no tener que buscarlas.
 
 ## Tu cuerpo esta semana
 
@@ -61,7 +62,7 @@ Hacia la semana 37, alrededor del 95 % de los bebés están ya con la cabeza aba
 
 Suele haber más flujo vaginal, y contracciones de Braxton Hicks que pueden resultar incómodas sin ser dolorosas. El impulso repentino de limpiar la casa es el instinto de anidación, y la respuesta sensata es no excederse.
 
-El estado de ánimo merece una mención ahora y no más tarde. El bajón tras el parto es frecuente, y es una enfermedad, no un fracaso personal. [El estado de ánimo tras el parto](/es/learn/mood-after-birth) explica cómo se reconoce y a quién avisar. Leerlo antes del parto es más fácil que leerlo después.
+El estado de ánimo merece una mención ahora y no más tarde. El bajón tras el parto es frecuente, y cuando dura o es intenso puede ser depresión posparto, una enfermedad y no un fracaso personal. [El estado de ánimo tras el parto](/es/learn/mood-after-birth) explica cómo se reconoce y a quién avisar. Leerlo antes del parto es más fácil que leerlo después.
 
 ## Lo que podrías notar
 
@@ -87,9 +88,9 @@ Llama a tu unidad de maternidad ante cualquier duda, y hazlo sin ensayar antes l
 
 ## Cuándo consultar
 
-Contacta con tu servicio de maternidad el mismo día ante cualquier cambio en los movimientos, pérdida de líquido, contracciones regulares o dolorosas, o sangrado. [Señales de alarma en el embarazo](/es/learn/pregnancy-warning-signs) tiene la lista completa.
+Contacta con tu servicio de maternidad el mismo día ante pérdida de líquido, contracciones regulares o dolorosas, o sangrado. [Señales de alarma en el embarazo](/es/learn/pregnancy-warning-signs) tiene la lista completa.
 
-> **Busca atención ya:** Contacta con los servicios de emergencia de tu zona o acude al servicio de urgencias más cercano si tienes sangrado abundante, dolor intenso o de un solo lado en el abdomen, dolor justo debajo de las costillas, un dolor de cabeza intenso con alteraciones de la visión, hinchazón repentina de la cara o las manos, fiebre, pérdida de líquido por la vagina, dolor en el pecho, dificultad para respirar, desmayo o convulsión. Contacta con tu servicio de maternidad el mismo día ante cualquier reducción del patrón habitual de movimientos de tu bebé. Femio no puede valorar un embarazo.
+> **Busca atención ya:** Contacta con los servicios de emergencia de tu zona o acude al servicio de urgencias más cercano si tienes sangrado abundante, dolor intenso o de un solo lado en el abdomen, dolor justo debajo de las costillas, un dolor de cabeza intenso con alteraciones de la visión, hinchazón repentina de la cara o las manos, fiebre, pérdida de líquido por la vagina, dolor en el pecho, dificultad para respirar, desmayo, convulsión o pensamientos de hacerte daño a ti misma o a tu bebé ([ayuda ahora](/es/help-now)). Contacta con tu servicio de maternidad de inmediato si los movimientos de tu bebé se vuelven más lentos, se detienen o cambian. femio no puede valorar un embarazo.
 
 ## Preguntas frecuentes
 

@@ -12,7 +12,7 @@ secondary_topics:
   - "menstruaciones irregulares y ayuda para la fertilidad"
   - "qué ocurre en una cita de fertilidad"
 excerpt: "Cuándo pedir apoyo para la fertilidad, qué factores pueden justificar una revisión más temprana, qué puede implicar una evaluación inicial y cómo prepararse."
-meta_title: "¿Cuándo buscar ayuda para la fertilidad? | Femio"
+meta_title: "¿Cuándo buscar ayuda para la fertilidad? | femio"
 meta_description: "Cuándo pedir apoyo para la fertilidad, qué preocupaciones justifican una revisión más temprana, qué incluye una evaluación inicial y cómo prepararse."
 canonical_url: "https://femioapp.com/es/learn/when-to-seek-fertility-help"
 robots_while_draft: "noindex,nofollow"
@@ -24,7 +24,7 @@ open_graph_image_alt: "Pareja revisando un registro del ciclo antes de una cita 
 written_by: "PENDING"
 medically_reviewed_by: "Dr. Khaled M."
 date_published: "2026-10-30"
-date_modified: "2026-10-30"
+date_modified: "2026-11-24"
 last_reviewed: "2026-10-30"
 next_review_due: "2027-10-30"
 reading_level_ok: false

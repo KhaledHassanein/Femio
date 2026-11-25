@@ -26,7 +26,7 @@ open_graph_image_alt: "Simple checklist beside a notebook and a calendar, with n
 written_by: "PENDING"
 medically_reviewed_by: "Dr. Khaled M."
 date_published: "2026-10-30"
-date_modified: "2026-10-30"
+date_modified: "2026-11-24"
 last_reviewed: "2026-10-30"
 next_review_due: "2027-10-30"
 reading_level_ok: true
@@ -132,7 +132,7 @@ Do not start a supplement because of an online article. Talk to your clinician f
 
 If your periods are irregular or missing and you want to get pregnant, you do not need to wait a year. The American Society for Reproductive Medicine (ASRM) says fertility tests should start without delay for irregular cycles or missing periods. See [when to seek fertility help](/en/learn/when-to-seek-fertility-help).
 
-Consider a clinical review if you have gone 3 months without a period. If your cycles were already irregular, guidance also defines 6 months without a period as needing a check. Seek advice sooner if pregnancy is possible or symptoms worry you.
+Consider a clinical review if you have gone 3 months without a period after having regular cycles, or 6 months if your cycles were already irregular. Seek advice sooner if pregnancy is possible or symptoms worry you.
 
 Book a visit if acne, hair changes or mood affect your daily life, work or relationships. The NHS uses this same test for when to see a GP.
 

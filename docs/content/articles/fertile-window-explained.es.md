@@ -12,7 +12,7 @@ secondary_topics:
   - "límites de las calculadoras de ventana fértil"
   - "planificación de la concepción"
 excerpt: "Descubre qué significa la ventana fértil, por qué abarca varios días, cómo se hacen las estimaciones y por qué las fechas del calendario no garantizan la ovulación."
-meta_title: "¿Qué es la ventana fértil? Momento explicado | Femio"
+meta_title: "¿Qué es la ventana fértil? Momento explicado | femio"
 meta_description: "Descubre qué es la ventana fértil, cómo se estima el momento de la ovulación, qué puede cambiarlo y los límites de las predicciones basadas en el calendario."
 canonical_url: "https://femioapp.com/es/learn/fertile-window-explained"
 robots_while_draft: "noindex,nofollow"
@@ -24,7 +24,7 @@ open_graph_image_alt: "Calendario del ciclo que muestra un intervalo fértil est
 written_by: "PENDING"
 medically_reviewed_by: "Dr. Khaled M."
 date_published: "2026-10-30"
-date_modified: "2026-10-30"
+date_modified: "2026-11-24"
 last_reviewed: "2026-10-30"
 next_review_due: "2027-10-30"
 reading_level_ok: false
@@ -76,7 +76,7 @@ Una calculadora de calendario suele pedir el primer día de la última menstruac
 
 Puede resultar útil para planificar, pero el resultado depende de la información introducida y de suposiciones sobre el momento futuro. Un promedio oculta la variación entre ciclos.
 
-La [calculadora de ventana fértil de Femio](/es/calculators/fertile-window) muestra una estimación general. Si registras varios ciclos, compara el resultado con cuánto varía la duración de tus ciclos.
+La [calculadora de ventana fértil de femio](/es/calculators/fertile-window) muestra una estimación general. Si registras varios ciclos, compara el resultado con cuánto varía la duración de tus ciclos.
 
 **Estas fechas sirven para planificar la concepción y para conocer mejor el ciclo. Son estimaciones, no una forma fiable de evitar el embarazo.**
 
@@ -132,11 +132,11 @@ No tienes que registrar en una aplicación las fechas de las relaciones sexuales
 
 Aprende [a contar los días del ciclo](/es/learn/menstrual-cycle-basics) antes de confiar en un promedio.
 
-## ¿Cómo estima Femio una ventana fértil?
+## ¿Cómo estima femio una ventana fértil?
 
-Femio usa las fechas de ciclo que introduces para crear un intervalo estimado. Puede ampliar el intervalo cuando tus ciclos registrados varían y puede mostrar un nivel de confianza cuando hay datos suficientes.
+femio usa las fechas de ciclo que introduces para crear un intervalo estimado. Puede ampliar el intervalo cuando tus ciclos registrados varían y puede mostrar un nivel de confianza cuando hay datos suficientes.
 
-Femio no puede confirmar la ovulación ni identificar un día en el que el embarazo sea imposible. No sustituye a un profesional sanitario ni a un servicio de fertilidad.
+femio no puede confirmar la ovulación ni identificar un día en el que el embarazo sea imposible. No sustituye a un profesional sanitario ni a un servicio de fertilidad.
 
 ## Preguntas frecuentes
 

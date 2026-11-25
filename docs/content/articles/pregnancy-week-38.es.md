@@ -10,7 +10,7 @@ secondary_topics:
   - "la conversación sobre la inducción"
   - "el aburrimiento al final del embarazo"
 excerpt: "La semana 38 es cuando suele hablarse de qué ocurre si el embarazo supera las 41 semanas, y cuando esperar se convierte en el principal síntoma."
-meta_title: "38 semanas de embarazo: la espera y la conversación | Femio"
+meta_title: "38 semanas de embarazo: la espera y la conversación | femio"
 meta_description: "Hacia la semana 38 suele hablarse de qué ocurre si el embarazo supera las 41 semanas. En qué consiste la inducción y por qué esperar es la parte difícil."
 canonical_url: "https://femioapp.com/es/learn/pregnancy-week-38"
 robots_while_draft: "noindex,nofollow"
@@ -22,7 +22,7 @@ open_graph_image_alt: "Un reloj de pared sobre una silla vacía"
 written_by: "PENDING"
 medically_reviewed_by: "Dr. Khaled M."
 date_published: "2026-10-30"
-date_modified: "2026-10-30"
+date_modified: "2026-11-25"
 last_reviewed: "2026-10-30"
 next_review_due: "2027-10-30"
 reading_level_ok: false
@@ -48,6 +48,7 @@ internal_links:
   - "/es/learn/pregnancy-week-39"
   - "/es/learn/pregnancy-warning-signs"
   - "/es/calculators/gestational-age"
+  - "/es/help-now"
 ---
 
 # Semana 38 de embarazo: qué esperar
@@ -86,9 +87,9 @@ Pregunta ahora qué hace tu servicio a las 41 y a las 42 semanas, y qué pasa si
 
 ## Cuándo consultar
 
-Contacta con tu servicio de maternidad el mismo día ante cualquier cambio en los movimientos, pérdida de líquido, contracciones regulares o dolorosas, o sangrado. [Señales de alarma en el embarazo](/es/learn/pregnancy-warning-signs) tiene la lista completa.
+Contacta con tu servicio de maternidad el mismo día ante pérdida de líquido, contracciones regulares o dolorosas, o sangrado. [Señales de alarma en el embarazo](/es/learn/pregnancy-warning-signs) tiene la lista completa.
 
-> **Busca atención ya:** Contacta con los servicios de emergencia de tu zona o acude al servicio de urgencias más cercano si tienes sangrado abundante, dolor abdominal intenso o de un solo lado, dolor justo debajo de las costillas, dolor de cabeza fuerte con alteraciones visuales, hinchazón repentina de la cara o las manos, fiebre, pérdida de líquido por la vagina, dolor en el pecho, dificultad para respirar, desmayo o convulsión. Contacta con tu servicio de maternidad el mismo día ante cualquier reducción del patrón habitual de movimientos de tu bebé. Femio no puede evaluar un embarazo.
+> **Busca atención ya:** Contacta con los servicios de emergencia de tu zona o acude al servicio de urgencias más cercano si tienes sangrado abundante, dolor abdominal intenso o de un solo lado, dolor justo debajo de las costillas, dolor de cabeza fuerte con alteraciones visuales, hinchazón repentina de la cara o las manos, fiebre, pérdida de líquido por la vagina, dolor en el pecho, dificultad para respirar, desmayo, convulsión o pensamientos de hacerte daño a ti misma o a tu bebé ([ayuda ahora](/es/help-now)). Contacta con tu servicio de maternidad de inmediato si los movimientos de tu bebé se vuelven más lentos, se detienen o cambian. femio no puede evaluar un embarazo.
 
 ## Preguntas frecuentes
 

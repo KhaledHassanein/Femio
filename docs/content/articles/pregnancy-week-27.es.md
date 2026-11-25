@@ -22,7 +22,7 @@ open_graph_image_alt: "Un pasaporte y una tarjeta de embarque sobre una mesa"
 written_by: "PENDING"
 medically_reviewed_by: "Dr. Khaled M."
 date_published: "2026-10-30"
-date_modified: "2026-10-30"
+date_modified: "2026-11-25"
 last_reviewed: "2026-10-30"
 next_review_due: "2027-10-30"
 reading_level_ok: false
@@ -48,6 +48,7 @@ internal_links:
   - "/es/learn/pregnancy-week-28"
   - "/es/learn/pregnancy-warning-signs"
   - "/es/calculators/gestational-age"
+  - "/es/help-now"
 ---
 
 # Semana 27 de embarazo: qué esperar
@@ -72,7 +73,7 @@ En la mayoría de las mujeres, los movimientos son fuertes y regulares. Cualquie
 
 Hacia la semana 27, la longitud que se indica es de unos 36,6 cm de la cabeza al talón; el NHS la compara con una cabeza de coliflor. Son promedios de población, y no una descripción de ningún embarazo en particular.
 
-Los pulmones ya son capaces de respirar, y la grasa va llenando los pliegues de piel que hace unas semanas se veían arrugados. Los órganos siguen madurando.
+Los pulmones están madurando; un bebé nacido ahora necesitaría ayuda especializada para respirar, y la grasa va llenando los pliegues de piel que hace unas semanas se veían arrugados. Los órganos siguen madurando.
 
 ## Qué cuidados suelen producirse por estas fechas
 
@@ -82,13 +83,13 @@ Sobre los viajes: el NHS indica que suele ser la última semana en la que puedes
 
 ## El consejo de esta semana
 
-Si vas a volar, consigue la carta ahora y pide por escrito el límite de tu aerolínea. Las aerolíneas niegan el embarque según sus propias normas, no según cómo te sientas ni según las semanas que digas tener, y una carta obtenida a las 27 semanas es sencilla, mientras que una a las 34 semanas puede ser imposible.
+Si vas a volar, consigue la carta ahora y pide por escrito el límite de tu aerolínea. Las aerolíneas niegan el embarque según sus propias normas, no según cómo te sientas ni según las semanas que digas tener, y conseguir la carta antes deja tiempo para resolver cualquier duda con la aerolínea.
 
 ## Cuándo consultar
 
-Contacta con tu servicio de maternidad el mismo día ante cualquier cambio en los movimientos. Comunica el sangrado, el dolor intenso, la fiebre o un dolor de cabeza con alteraciones visuales. [Señales de alarma en el embarazo](/es/learn/pregnancy-warning-signs) tiene la lista completa.
+Contacta con tu servicio de maternidad de inmediato ante cualquier cambio en los movimientos. Comunica el sangrado, el dolor intenso, la fiebre o un dolor de cabeza con alteraciones visuales. [Señales de alarma en el embarazo](/es/learn/pregnancy-warning-signs) tiene la lista completa.
 
-> **Busca atención ya:** Contacta con los servicios de emergencia de tu zona o acude al servicio de urgencias más cercano si tienes sangrado abundante, dolor abdominal intenso o de un solo lado, un dolor de cabeza fuerte con alteraciones visuales, hinchazón repentina de la cara o las manos, fiebre, pérdida de líquido por la vagina, dolor en el pecho, dificultad para respirar, desmayo o convulsión. Contacta con tu servicio de maternidad el mismo día ante cualquier reducción del patrón habitual de movimiento de tu bebé. femio no puede evaluar un embarazo.
+> **Busca atención ya:** Contacta con los servicios de emergencia de tu zona o acude al servicio de urgencias más cercano si tienes sangrado abundante, dolor abdominal intenso o de un solo lado, un dolor de cabeza fuerte con alteraciones visuales, hinchazón repentina de la cara o las manos, fiebre, pérdida de líquido por la vagina, dolor en el pecho, dificultad para respirar, desmayo, convulsión o pensamientos de hacerte daño a ti misma o a tu bebé ([ayuda ahora](/es/help-now)). Contacta con tu servicio de maternidad de inmediato si los movimientos de tu bebé se vuelven más lentos, se detienen o cambian. femio no puede evaluar un embarazo.
 
 ## Preguntas frecuentes
 

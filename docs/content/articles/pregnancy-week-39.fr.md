@@ -22,7 +22,7 @@ open_graph_image_alt: "Un téléphone posé sur une table à côté d'un dossier
 written_by: "PENDING"
 medically_reviewed_by: "Dr. Khaled M."
 date_published: "2026-10-30"
-date_modified: "2026-10-30"
+date_modified: "2026-11-25"
 last_reviewed: "2026-10-30"
 next_review_due: "2027-10-30"
 reading_level_ok: false
@@ -48,11 +48,12 @@ internal_links:
   - "/fr/learn/pregnancy-week-40"
   - "/fr/learn/pregnancy-warning-signs"
   - "/fr/calculators/gestational-age"
+  - "/fr/help-now"
 ---
 
 # Semaine 39 de grossesse : à quoi s'attendre
 
-La semaine 39 est celle où la plupart des femmes entrent en travail dans la semaine qui précède ou suit leur date prévue. La poche des eaux peut se rompre à tout moment, et presque jamais de la façon dont le cinéma la montre. Ce qu'il vaut la peine de savoir précisément cette semaine, c'est quand décrocher le téléphone.
+Le travail commence souvent autour de la date prévue, mais celle-ci est une estimation : il peut donc arriver plus tôt ou plus tard. La poche des eaux peut se rompre à tout moment, et presque jamais de la façon dont le cinéma la montre. Ce qu'il vaut la peine de savoir précisément cette semaine, c'est quand décrocher le téléphone.
 
 ## Votre corps cette semaine
 
@@ -78,7 +79,7 @@ La peau a développé une couche externe plus résistante qui la protège et aid
 
 Rien n'est systématiquement programmé cette semaine pour la plupart des femmes, et les rendez-vous reprennent à 40 et 41 semaines au Royaume-Uni pour un premier bébé.
 
-Deux listes sont à lire avant la naissance plutôt qu'après. Le NHS en cite neuf signes à traiter comme une urgence à ce stade : tout saignement, des pertes brunes ou roses, des démangeaisons intenses surtout la nuit, un mal de tête qui ne passe pas, des troubles de la vision, une douleur juste sous les côtes, un gonflement extrême des pieds, des chevilles, des mains et du visage, des douleurs persistantes au ventre, et une température supérieure à 37,5 °C sans symptômes de rhume ou de grippe. La seconde liste concerne ce à quoi ressemble réellement un nouveau-né pendant les premières minutes : souvent calme avant de pleurer, mains et pieds bleus, respiration irrégulière. Le savoir à l'avance évite beaucoup de frayeurs.
+Deux listes sont à lire avant la naissance plutôt qu'après. Le NHS en cite neuf signes qui nécessitent de contacter votre service de maternité sans attendre à ce stade : tout saignement, des pertes brunes ou roses, des démangeaisons intenses surtout la nuit, un mal de tête qui ne passe pas, des troubles de la vision, une douleur juste sous les côtes, un gonflement extrême des pieds, des chevilles, des mains et du visage, des douleurs persistantes au ventre, et une température supérieure à 37,5 °C sans symptômes de rhume ou de grippe. La seconde liste concerne ce à quoi ressemble réellement un nouveau-né pendant les premières minutes : souvent calme avant de pleurer, mains et pieds bleus, respiration irrégulière. Le savoir à l'avance évite beaucoup de frayeurs.
 
 ## Le conseil de cette semaine
 
@@ -88,7 +89,7 @@ Convenez ce soir avec votre accompagnant qui appelle la maternité et qui condui
 
 Appelez votre maternité lorsque les contractions durent 60 secondes et reviennent toutes les cinq minutes, ou à tout moment si la poche des eaux se rompt, si les mouvements changent, ou si vous avez des saignements. [Les signes d'alerte pendant la grossesse](/fr/learn/pregnancy-warning-signs) donnent la liste complète.
 
-> **Consultez sans attendre :** Contactez les services d'urgence de votre région ou rendez-vous au service des urgences le plus proche si vous avez un saignement abondant, une douleur intense ou d'un seul côté du ventre, une douleur juste sous les côtes, un mal de tête intense avec troubles de la vision, un gonflement soudain du visage ou des mains, de la fièvre, une perte de liquide par le vagin, une douleur thoracique, des difficultés à respirer, un malaise ou une crise convulsive. Contactez votre service de maternité le jour même pour toute diminution du rythme habituel des mouvements de votre bébé. Femio ne peut pas évaluer une grossesse.
+> **Consultez sans attendre :** Contactez les services d'urgence de votre région ou rendez-vous au service des urgences le plus proche si vous avez un saignement abondant, une douleur intense ou d'un seul côté du ventre, une douleur juste sous les côtes, un mal de tête intense avec troubles de la vision, un gonflement soudain du visage ou des mains, de la fièvre, une perte de liquide par le vagin, une douleur thoracique, des difficultés à respirer, un malaise, une crise convulsive ou des pensées de vous faire du mal ou de faire du mal à votre bébé ([aide immédiate](/fr/help-now)). Contactez votre service de maternité sans attendre si les mouvements de votre bébé ralentissent, s’arrêtent ou changent. femio ne peut pas évaluer une grossesse.
 
 ## Questions fréquentes
 

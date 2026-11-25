@@ -10,7 +10,7 @@ secondary_topics:
   - "prueba de embarazo positiva en la semana 5"
   - "cansancio al inicio del embarazo"
 excerpt: "La semana 5 es cuando la mayoría de las mujeres lo descubren. El cansancio suele llegar primero, y el corazón y el sistema nervioso empiezan a formarse."
-meta_title: "5 semanas de embarazo: la semana en que se descubre | Femio"
+meta_title: "5 semanas de embarazo: la semana en que se descubre | femio"
 meta_description: "A las 5 semanas una prueba suele ser fiable y el cansancio llega primero. Qué se forma esta semana y qué puede significar un sangrado temprano."
 canonical_url: "https://femioapp.com/es/learn/pregnancy-week-5"
 robots_while_draft: "noindex,nofollow"
@@ -22,7 +22,7 @@ open_graph_image_alt: "Una mujer sentada al borde de una cama con luz de la mañ
 written_by: "PENDING"
 medically_reviewed_by: "Dr. Khaled M."
 date_published: "2026-10-30"
-date_modified: "2026-10-30"
+date_modified: "2026-11-25"
 last_reviewed: "2026-10-30"
 next_review_due: "2027-10-30"
 reading_level_ok: false
@@ -49,6 +49,7 @@ internal_links:
   - "/es/learn/early-pregnancy-changes"
   - "/es/learn/pregnancy-warning-signs"
   - "/es/calculators/gestational-age"
+  - "/es/help-now"
 ---
 
 # Semana 5 de embarazo: qué esperar
@@ -61,7 +62,7 @@ Todavía no hay nada que ver. Lo que hay es cansancio: el tipo de cansancio que 
 
 Los niveles hormonales suben con rapidez, y están detrás de la mayoría de las sensaciones. Algunas mujeres notan un sangrado leve por estas fechas y suponen que es la menstruación con retraso. También puede ser un sangrado de implantación, cuando el embrión se fija al revestimiento del útero.
 
-La preocupación es lo bastante común como para mencionarla. La guía del NHS señala que alrededor de una de cada cinco mujeres se siente ansiosa o estresada durante el embarazo, y aconseja hablarlo con una matrona o con un médico en lugar de aguantarlo en silencio. No es señal de que se afronte mal. Es el sentimiento más comunicado del primer trimestre después del cansancio.
+La preocupación es lo bastante común como para mencionarla. La guía del NHS señala que alrededor de una de cada cinco mujeres se siente ansiosa o estresada durante el embarazo, y aconseja hablarlo con una matrona o con un médico en lugar de aguantarlo en silencio. No es señal de que se afronte mal.
 
 ## Lo que puedes notar
 
@@ -91,7 +92,7 @@ Pide cita con la matrona o con el médico de cabecera hoy, no después del fin d
 
 Cualquier sangrado debe comunicarse, incluso si cesa. Lo mismo con dolor intenso, dolor de un solo lado, dolor en la punta del hombro o sensación de desmayo. [Cambios al inicio del embarazo](/es/learn/early-pregnancy-changes) explica lo que es normal en esta etapa, y [señales de alarma en el embarazo](/es/learn/pregnancy-warning-signs) explica lo que no lo es.
 
-> **Busca atención ya:** Contacta con los servicios de emergencia de tu zona o acude al servicio de urgencias más cercano si tienes sangrado abundante, dolor abdominal intenso o de un solo lado, dolor en la punta del hombro, dolor de cabeza intenso con alteraciones de la visión, hinchazón repentina de la cara o las manos, fiebre, dolor en el pecho, dificultad para respirar, desmayo o convulsión. Femio no puede evaluar un embarazo.
+> **Busca atención ya:** Contacta con los servicios de emergencia de tu zona o acude al servicio de urgencias más cercano si tienes sangrado abundante, dolor abdominal intenso o de un solo lado, dolor en la punta del hombro, dolor de cabeza intenso con alteraciones de la visión, hinchazón repentina de la cara o las manos, fiebre, dolor en el pecho, dificultad para respirar, desmayo, convulsión o pensamientos de hacerte daño a ti misma o a tu bebé ([ayuda ahora](/es/help-now)). femio no puede evaluar un embarazo.
 
 ## Preguntas frecuentes
 

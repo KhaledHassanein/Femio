@@ -22,7 +22,7 @@ open_graph_image_alt: "Pillows stacked on a bed in low evening light"
 written_by: "PENDING"
 medically_reviewed_by: "Dr. Khaled M."
 date_published: "2026-08-19"
-date_modified: "2026-08-19"
+date_modified: "2026-11-24"
 last_reviewed: "2026-10-30"
 next_review_due: "2027-10-30"
 reading_level_ok: true
@@ -44,6 +44,7 @@ sources:
     url: "https://www.nhs.uk/pregnancy/keeping-well/vaccinations/"
     tier: "1"
 internal_links:
+  - "/en/help-now"
   - "/en/learn/pregnancy-week-28"
   - "/en/learn/pregnancy-week-30"
   - "/en/learn/pregnancy-warning-signs"
@@ -76,7 +77,7 @@ Development is largely complete in structure now; the remaining weeks are about 
 
 ## What care usually happens around now
 
-Nothing is routinely scheduled for most women in the UK this week. The whooping cough vaccination is best given before week 33 for the protection to reach a baby, and the RSV vaccination can be given from around week 28 up until labour.
+Nothing is routinely scheduled for most women in the UK this week. The whooping cough vaccination is usually offered up to week 32 for the protection to reach a baby, and can still be given later, and the RSV vaccination can be given from around week 28 up until labour.
 
 The NHS also lists what cannot tell you the sex of a baby, which is worth reading before someone at work insists otherwise: the position or shape of the bump, the heart rate, home prediction kits, and a wedding ring on a string. Bump shape reflects your height, your muscles, how many babies you have had, and what you have eaten.
 
@@ -86,9 +87,9 @@ Put a pillow under the bump as well as between your knees. Most women use one an
 
 ## When to see a doctor
 
-Contact your maternity service the same day for reduced or changed movements, leaking fluid, regular tightenings, or bleeding. Breathlessness that comes on suddenly, or with chest pain, needs emergency care. [Pregnancy warning signs](/en/learn/pregnancy-warning-signs) has the full list.
+Contact your maternity service straight away for reduced or changed movements, leaking fluid, regular tightenings, or bleeding. Breathlessness that comes on suddenly, or with chest pain, needs emergency care. [Pregnancy warning signs](/en/learn/pregnancy-warning-signs) has the full list.
 
-> **Seek care now:** Contact your local emergency services or go to your nearest emergency department if you have heavy bleeding, severe or one-sided tummy pain, a severe headache with vision changes, sudden swelling of the face or hands, a fever, fluid leaking from the vagina, chest pain, trouble breathing, fainting, or a seizure. Contact your maternity service the same day for any reduction in your baby's usual pattern of movement. Femio cannot assess a pregnancy.
+> **Seek care now:** Contact your local emergency services or go to your nearest emergency department if you have heavy bleeding, severe or one-sided tummy pain, a severe headache with vision changes, sudden swelling of the face or hands, a fever, fluid leaking from the vagina, chest pain, trouble breathing, fainting, a seizure, or thoughts of harming yourself or the baby ([help now](/en/help-now)). Contact your maternity service straight away if your baby's movements slow down, stop or change. femio cannot assess a pregnancy.
 
 ## Frequently asked questions
 

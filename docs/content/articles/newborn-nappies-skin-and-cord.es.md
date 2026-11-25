@@ -11,7 +11,7 @@ secondary_topics:
   - "cuidado de la dermatitis del pañal"
   - "cuidado del muñón del cordón umbilical"
 excerpt: "Qué suelen contener los pañales del recién nacido, cómo se trata la dermatitis del pañal, cómo se cuida el muñón del cordón y las señales que hay que consultar."
-meta_title: "Pañales, piel y cordón del recién nacido | Femio"
+meta_title: "Pañales, piel y cordón del recién nacido | femio"
 meta_description: "Cambios de pañal, color de las heces, dermatitis del pañal, cuidado seco del cordón y de la piel del recién nacido, y señales de atención urgente."
 canonical_url: "https://femioapp.com/es/learn/newborn-nappies-skin-and-cord"
 robots_while_draft: "noindex,nofollow"
@@ -23,7 +23,7 @@ open_graph_image_alt: "Un recién nacido tumbado sobre la mesa de cambio durante
 written_by: "PENDING"
 medically_reviewed_by: "Dr. Khaled M."
 date_published: "2026-10-30"
-date_modified: "2026-10-30"
+date_modified: "2026-11-24"
 last_reviewed: "2026-10-30"
 next_review_due: "2027-10-30"
 reading_level_ok: false
@@ -109,7 +109,7 @@ Busca atención urgente ante cualquier signo del recuadro de abajo, y también s
 
 Pide consejo el mismo día o en la misma semana si el muñón huele, supura o tiene la piel enrojecida alrededor, si la dermatitis del pañal se extiende o no mejora, si las heces son duras o hay sangre en el pañal, y ante cualquier erupción que no puedas explicar. [Tu recién nacido en las dos primeras semanas](/es/learn/newborn-first-two-weeks) explica qué es lo habitual, y [las primeras revisiones y vacunas de tu bebé](/es/learn/newborn-checks-and-vaccinations) indica cuándo le mirará un profesional de todos modos.
 
-> **Busca atención ya:** Contacta con los servicios de emergencia de tu zona o acude al servicio de urgencias más cercano si un bebé menor de tres meses tiene una temperatura de 38 °C o más, respira rápido, se esfuerza mucho para respirar o emite quejidos, tiene la piel azulada, grisácea, pálida o con manchas, está flácido, cuesta despertarlo, rechaza las tomas, tiene muchos menos pañales mojados o ninguno en las últimas 12 horas, tiene la fontanela abultada o hundida, tiene una erupción que no desaparece al presionarla o sufre una convulsión. Femio no puede evaluar a un bebé.
+> **Busca atención ya:** Contacta con los servicios de emergencia de tu zona o acude al servicio de urgencias más cercano si un bebé menor de tres meses tiene una temperatura de 38 °C o más, respira rápido, se esfuerza mucho para respirar o emite quejidos, tiene la piel azulada, grisácea, pálida o con manchas, está flácido, cuesta despertarlo, rechaza las tomas, tiene muchos menos pañales mojados o ninguno en las últimas 12 horas, tiene la fontanela abultada o hundida, tiene una erupción que no desaparece al presionarla o sufre una convulsión. femio no puede evaluar a un bebé.
 
 ## Preguntas frecuentes
 

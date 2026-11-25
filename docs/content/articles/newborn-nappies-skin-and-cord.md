@@ -11,7 +11,7 @@ secondary_topics:
   - "nappy rash care"
   - "umbilical cord stump care"
 excerpt: "What newborn nappies usually contain, how nappy rash is handled, how the cord stump is cared for, and the signs that need to be seen."
-meta_title: "Newborn Nappies, Skin and Cord Care | Femio"
+meta_title: "Newborn Nappies, Skin and Cord Care | femio"
 meta_description: "Newborn nappy changes, poo colour, nappy rash advice, dry cord care and newborn skin, plus the signs that need same-day or urgent care."
 canonical_url: "https://femioapp.com/en/learn/newborn-nappies-skin-and-cord"
 robots_while_draft: "noindex,nofollow"
@@ -23,7 +23,7 @@ open_graph_image_alt: "A newborn baby lying on a changing mat during a nappy cha
 written_by: "PENDING"
 medically_reviewed_by: "Dr. Khaled M."
 date_published: "2026-08-19"
-date_modified: "2026-08-19"
+date_modified: "2026-11-24"
 last_reviewed: "2026-10-30"
 next_review_due: "2027-10-30"
 reading_level_ok: true
@@ -109,7 +109,7 @@ Seek urgent care for any sign in the box below, and for a cord that bleeds activ
 
 Seek same-day or same-week advice for a cord stump that smells, leaks or has red skin around it, for nappy rash that is spreading or not settling, for a hard poo or blood in the nappy, and for any rash you cannot explain. [Your newborn in the first two weeks](/en/learn/newborn-first-two-weeks) sets out what is usual, and [your baby's first checks and vaccinations](/en/learn/newborn-checks-and-vaccinations) covers when a clinician will be looking anyway.
 
-> **Seek care now:** Contact your local emergency services or go to your nearest emergency department if a baby under three months old has a temperature of 38C or higher, is breathing fast, working hard to breathe or grunting, has blue, grey, pale or mottled skin, is floppy, is difficult to wake, is refusing feeds, has far fewer wet nappies or none in the past 12 hours, has a bulging or sunken soft spot on the head, has a rash that does not fade when you press it, or has a fit. Femio cannot assess a baby.
+> **Seek care now:** Contact your local emergency services or go to your nearest emergency department if a baby under three months old has a temperature of 38C or higher, is breathing fast, working hard to breathe or grunting, has blue, grey, pale or mottled skin, is floppy, is difficult to wake, is refusing feeds, has far fewer wet nappies or none in the past 12 hours, has a bulging or sunken soft spot on the head, has a rash that does not fade when you press it, or has a fit. femio cannot assess a baby.
 
 ## Frequently asked questions
 

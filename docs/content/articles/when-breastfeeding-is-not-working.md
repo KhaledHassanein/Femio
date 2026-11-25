@@ -24,7 +24,7 @@ open_graph_image_alt: "A woman holding a bottle and a baby, looking calm"
 written_by: "PENDING"
 medically_reviewed_by: "Dr. Khaled M."
 date_published: "2026-08-19"
-date_modified: "2026-08-19"
+date_modified: "2026-11-24"
 last_reviewed: "2026-10-30"
 next_review_due: "2027-10-30"
 reading_level_ok: true
@@ -58,7 +58,7 @@ If feeding hurts, if you are worried about supply, or if you have had enough, th
 
 ## First: get a feed watched
 
-Almost every early feeding problem is assessed by someone watching a whole feed. That is the step that is worth chasing.
+Almost every early feeding problem is best assessed by someone watching a whole feed. That is the step that is worth chasing.
 
 Ask your midwife, health visitor, an infant feeding specialist, a lactation consultant, or a peer support service. [NICE's postnatal guidance](https://www.nice.org.uk/guidance/ng194) expects feeding support to be offered as part of postnatal care.
 
@@ -66,7 +66,7 @@ Bring specifics: what hurts, when, what the nipple looks like afterwards, how lo
 
 ## Pain
 
-Pain through the whole feed usually means the latch needs adjusting, and the nipple's shape after a feed is the tell. Flattened, creased or wedge-shaped means the baby is not taking in enough breast tissue.
+Pain through the whole feed usually means the latch needs adjusting, and the nipple's shape after a feed is the tell. Flattened, creased or wedge-shaped can mean the baby is not taking in enough breast tissue.
 
 Other causes exist and need looking at rather than guessing: damaged skin, thrush, vasospasm, or the baby's tongue movement. Deep shooting pain after feeds, or nipples that blanch white and then hurt, is worth describing exactly.
 
@@ -74,7 +74,7 @@ Do not push through cracked, bleeding nipples for weeks. That is not commitment,
 
 ## Worries about supply
 
-Most people worried about supply have enough, and the reassuring measures are nappies, stool colour and weight gain rather than how full the breast feels or how much a pump gets. A pump is not a measure of supply.
+Many people worried about supply have enough, and the reassuring measures are nappies, stool colour and weight gain rather than how full the breast feels or how much a pump gets. A pump is not a measure of supply.
 
 Genuinely low supply happens too. It can follow difficult births, heavy blood loss, thyroid problems, some medicines, retained placenta, or breast surgery, and it deserves an assessment rather than more effort.
 
@@ -104,7 +104,7 @@ Stopping is a legitimate decision, and the reason does not have to be medical. M
 
 **Expect a mood dip.** Some people feel low for a few days as feeding ends, and knowing it may happen makes it easier. If low mood persists, read [your mood after birth](/en/learn/mood-after-birth).
 
-**Expect your cycle to change.** Periods often return within weeks of reducing feeds — see [when your periods come back](/en/learn/periods-after-birth).
+**Expect your cycle to change.** Periods may return sooner when you reduce feeds — see [when your periods come back](/en/learn/periods-after-birth).
 
 ## Guilt, and who it belongs to
 
@@ -120,7 +120,7 @@ Contact your midwife, health visitor or doctor for pain through feeds, damaged n
 
 Seek urgent advice about your baby for floppiness, difficulty waking, fast or laboured breathing, fever, or refusing feeds.
 
-> **Seek care now:** Get urgent care for a high fever with a red, hot, painful breast and feeling very unwell, for a breast abscess or a spreading red area, or for any baby who is floppy, hard to wake, breathing with difficulty or refusing feeds. Femio cannot assess a breast or a baby.
+> **Seek care now:** Get urgent care for a high fever with a red, hot, painful breast and feeling very unwell, for a breast abscess or a spreading red area, or for any baby who is floppy, hard to wake, breathing with difficulty or refusing feeds. femio cannot assess a breast or a baby.
 
 ## Frequently asked questions
 
@@ -142,4 +142,4 @@ Gradually, dropping one feed every few days where possible, so the breasts adjus
 
 ### Will stopping bring my periods back?
 
-Often, within weeks of feeds reducing. Cycles are usually irregular at first.
+It can happen, sometimes within weeks of feeds reducing. Cycles are usually irregular at first.

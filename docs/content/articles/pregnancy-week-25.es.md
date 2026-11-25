@@ -22,7 +22,7 @@ open_graph_image_alt: "Pies hinchados apoyados sobre un cojín"
 written_by: "PENDING"
 medically_reviewed_by: "Dr. Khaled M."
 date_published: "2026-10-30"
-date_modified: "2026-10-30"
+date_modified: "2026-11-25"
 last_reviewed: "2026-10-30"
 next_review_due: "2027-10-30"
 reading_level_ok: false
@@ -48,6 +48,7 @@ internal_links:
   - "/es/learn/pregnancy-week-26"
   - "/es/learn/pregnancy-warning-signs"
   - "/es/calculators/gestational-age"
+  - "/es/help-now"
 ---
 
 # Semana 25 del embarazo: qué esperar
@@ -58,7 +59,7 @@ La semana 25 suele traer algo de hinchazón en la cara, las manos y los pies. La
 
 La hinchazón es frecuente y suele deberse a retención de líquido. El NHS aconseja mencionarla de todos modos, porque la presión arterial debe revisarse junto con ella.
 
-La preeclampsia es una afección de la segunda mitad del embarazo, y tanto el NHS como ACOG describen los signos a los que hay que actuar: un dolor de cabeza intenso que no se va, problemas de visión como visión borrosa o destellos de luz, dolor justo debajo de las costillas, vómitos y hinchazón repentina de la cara, las manos o los pies. Juntos son una emergencia, y una mujer puede sentirse bien justo antes de que aparezcan.
+La preeclampsia es una afección de la segunda mitad del embarazo, y tanto el NHS como ACOG describen los signos a los que hay que actuar: un dolor de cabeza intenso que no se va, problemas de visión como visión borrosa o destellos de luz, dolor justo debajo de las costillas, vómitos y hinchazón repentina de la cara, las manos o los pies. Cualquiera de estos signos necesita consejo urgente, y una mujer puede sentirse bien poco antes de que aparezcan.
 
 Esa es la razón por la que la presión arterial y la orina se controlan en cada cita a partir de ahora. Se detecta con un aparato mucho antes de que se note.
 
@@ -88,7 +89,7 @@ Quítate los anillos ahora en lugar de más tarde. Los dedos se hinchan poco a p
 
 Menciona cualquier hinchazón en tu próxima cita. Contacta hoy con un servicio si tienes un dolor de cabeza intenso, cambios en la visión, dolor debajo de las costillas, vómitos con hinchazón, o hinchazón repentina de la cara y las manos. [Los signos de alarma en el embarazo](/es/learn/pregnancy-warning-signs) tienen la lista completa.
 
-> **Busca atención ya:** Contacta con los servicios de emergencia de tu zona o acude al servicio de urgencias más cercano si tienes un sangrado abundante, dolor abdominal intenso o de un solo lado, dolor de cabeza intenso con cambios en la visión, hinchazón repentina de la cara o las manos, fiebre, pérdida de líquido por la vagina, dolor en el pecho, dificultad para respirar, desmayo o convulsión. Contacta con tu servicio de maternidad el mismo día ante cualquier disminución en el patrón de movimiento habitual de tu bebé. Femio no puede evaluar un embarazo.
+> **Busca atención ya:** Contacta con los servicios de emergencia de tu zona o acude al servicio de urgencias más cercano si tienes un sangrado abundante, dolor abdominal intenso o de un solo lado, dolor de cabeza intenso con cambios en la visión, hinchazón repentina de la cara o las manos, fiebre, pérdida de líquido por la vagina, dolor en el pecho, dificultad para respirar, desmayo, convulsión o pensamientos de hacerte daño a ti misma o a tu bebé ([ayuda ahora](/es/help-now)). Contacta con tu servicio de maternidad de inmediato si los movimientos de tu bebé se vuelven más lentos, se detienen o cambian. femio no puede evaluar un embarazo.
 
 ## Preguntas frecuentes
 

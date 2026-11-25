@@ -9,20 +9,20 @@ primary_query: "24 semanas de embarazo"
 secondary_topics:
   - "viabilidad a las 24 semanas"
   - "patrones de movimiento desde la semana 24"
-excerpt: "La semana 24 es el punto a partir del cual un bebé puede sobrevivir con cuidados especializados, y la semana en que los patrones de movimiento empiezan a importar desde el punto de vista clínico."
+excerpt: "Hacia la semana 24, un bebé que nace antes puede sobrevivir con atención especializada, y es la semana en que el patrón de movimientos empieza a importar clínicamente."
 meta_title: "24 semanas de embarazo: viabilidad y movimiento"
-meta_description: "A partir de la semana 24 un bebé puede sobrevivir con cuidados neonatales, y los patrones de movimiento empiezan a importar. No hay un número fijo de patadas."
+meta_description: "Hacia la semana 24, un bebé nacido antes puede sobrevivir con cuidados neonatales. Su patrón de movimientos importa, pero no hay un número correcto de patadas."
 canonical_url: "https://femioapp.com/es/learn/pregnancy-week-24"
 robots_while_draft: "noindex,nofollow"
 robots_when_published: "index,follow,max-image-preview:large"
 open_graph_title: "Semana 24 del embarazo"
-open_graph_description: "El umbral de viabilidad, y la semana en que los patrones de movimiento empiezan a importar."
+open_graph_description: "Un punto de referencia para sobrevivir con atención especializada, y la semana en que el patrón de movimientos empieza a importar."
 open_graph_image: "PENDING"
 open_graph_image_alt: "Un pasillo de hospital con un cartel de unidad neonatal"
 written_by: "PENDING"
 medically_reviewed_by: "Dr. Khaled M."
 date_published: "2026-10-30"
-date_modified: "2026-10-30"
+date_modified: "2026-11-25"
 last_reviewed: "2026-10-30"
 next_review_due: "2027-10-30"
 reading_level_ok: false
@@ -48,11 +48,12 @@ internal_links:
   - "/es/learn/pregnancy-week-25"
   - "/es/learn/pregnancy-warning-signs"
   - "/es/calculators/gestational-age"
+  - "/es/help-now"
 ---
 
 # Semana 24 del embarazo: qué esperar
 
-La semana 24 es una semana umbral. A partir de más o menos este momento, un bebé que nace antes de tiempo puede sobrevivir con cuidados neonatales especializados, por eso los servicios tratan esta semana como una línea. También es la semana en que el movimiento deja de ser una curiosidad y empieza a ser información.
+La semana 24 es una semana umbral. Los bebés que nacen antes de tiempo pueden sobrevivir con cuidados neonatales especializados, y las probabilidades mejoran con cada semana de embarazo. Los servicios usan alrededor de la semana 24 como punto de referencia, pero la supervivencia depende de cada bebé. También es la semana en que el movimiento deja de ser una curiosidad y empieza a ser información.
 
 ## Tu cuerpo esta semana
 
@@ -86,9 +87,9 @@ Guarda en tu teléfono el número de 24 horas de tu unidad de maternidad esta se
 
 ## Cuándo consultar
 
-Contacta con tu servicio de maternidad el mismo día ante cualquier disminución o cambio en los movimientos. Llama por contracciones regulares, pérdida de líquido, dolor lumbar bajo con presión, sangrado o fiebre. [Los signos de alarma en el embarazo](/es/learn/pregnancy-warning-signs) tienen la lista completa.
+Contacta con tu servicio de maternidad de inmediato ante cualquier disminución o cambio en los movimientos. Llama por contracciones regulares, pérdida de líquido, dolor lumbar bajo con presión, sangrado o fiebre. [Los signos de alarma en el embarazo](/es/learn/pregnancy-warning-signs) tienen la lista completa.
 
-> **Busca atención ya:** Contacta con los servicios de emergencia de tu zona o acude al servicio de urgencias más cercano si tienes un sangrado abundante, dolor abdominal intenso o de un solo lado, dolor de cabeza intenso con cambios en la visión, hinchazón repentina de la cara o las manos, fiebre, pérdida de líquido por la vagina, dolor en el pecho, dificultad para respirar, desmayo o convulsión. Contacta con tu servicio de maternidad el mismo día ante cualquier disminución en el patrón de movimiento habitual de tu bebé. Femio no puede evaluar un embarazo.
+> **Busca atención ya:** Contacta con los servicios de emergencia de tu zona o acude al servicio de urgencias más cercano si tienes un sangrado abundante, dolor abdominal intenso o de un solo lado, dolor de cabeza intenso con cambios en la visión, hinchazón repentina de la cara o las manos, fiebre, pérdida de líquido por la vagina, dolor en el pecho, dificultad para respirar, desmayo, convulsión o pensamientos de hacerte daño a ti misma o a tu bebé ([ayuda ahora](/es/help-now)). Contacta con tu servicio de maternidad de inmediato si los movimientos de tu bebé se vuelven más lentos, se detienen o cambian. femio no puede evaluar un embarazo.
 
 ## Preguntas frecuentes
 

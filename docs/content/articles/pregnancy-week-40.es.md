@@ -22,7 +22,7 @@ open_graph_image_alt: "Una hoja de calendario sin ninguna fecha marcada"
 written_by: "PENDING"
 medically_reviewed_by: "Dr. Khaled M."
 date_published: "2026-10-30"
-date_modified: "2026-10-30"
+date_modified: "2026-11-25"
 last_reviewed: "2026-10-30"
 next_review_due: "2027-10-30"
 reading_level_ok: false
@@ -48,11 +48,12 @@ internal_links:
   - "/es/learn/postpartum-recovery-first-six-weeks"
   - "/es/learn/pregnancy-warning-signs"
   - "/es/calculators/gestational-age"
+  - "/es/help-now"
 ---
 
 # Semana 40 del embarazo: qué esperar
 
-La semana 40 contiene la fecha probable de parto, y esa fecha es una estimación y no un plazo. El embarazo a término va de la semana 37 a la 42, lo que significa que un parto en cualquier punto de esa franja de cinco semanas está dentro de lo previsto. Nada de la semana 41 hace que un embarazo sea tardío.
+La semana 40 contiene la fecha probable de parto, y esa fecha es una estimación y no un plazo. El embarazo a término va de la semana 37 a la 42, lo que significa que un parto en cualquier punto de esa franja de cinco semanas está dentro de lo previsto. Un parto entre las semanas 37 y 42 está dentro del término, aunque a partir de la semana 41 tu servicio hablará de la inducción del parto y de una vigilancia reforzada.
 
 ## Tu cuerpo esta semana
 
@@ -60,7 +61,7 @@ En un primer embarazo suele haber una cita prenatal esta semana: presión arteri
 
 Las contracciones de Braxton Hicks (de práctica) son frecuentes y no deberían doler. Las contracciones reales sí duelen: la barriga se pone dura y dolorosa, y luego el dolor desaparece cuando los músculos se relajan.
 
-El NHS describe el parto en tres etapas: las contracciones que dilatan el cuello uterino hasta unos 10 cm, el parto en sí y la expulsión de la placenta. Sitúa la primera etapa en unas 6 a 12 horas, y a menudo menos en mujeres que ya han dado a luz antes.
+El NHS describe el parto en tres etapas: las contracciones que dilatan el cuello uterino hasta unos 10 cm, el parto en sí y la expulsión de la placenta. Dice que la primera etapa puede durar muchas horas, y suele ser más corta en mujeres que ya han dado a luz antes.
 
 ## Lo que puedes notar
 
@@ -90,13 +91,13 @@ Deja de contar los días pasados la fecha probable de parto y empieza a contar s
 
 Llama a la unidad de maternidad por contracciones que duren 60 segundos cada cinco minutos, por rotura de aguas, por sangrado o por cualquier cambio en los movimientos. [Los signos de alarma en el embarazo](/es/learn/pregnancy-warning-signs) tienen la lista completa, y [la recuperación posparto en las primeras seis semanas](/es/learn/postpartum-recovery-first-six-weeks) explica lo que viene después.
 
-> **Busca atención ya:** Contacta con los servicios de emergencia de tu zona o acude al servicio de urgencias más cercano si tienes un sangrado abundante, dolor abdominal intenso o de un solo lado, dolor justo debajo de las costillas, dolor de cabeza intenso con cambios en la visión, hinchazón repentina de la cara o las manos, fiebre, pérdida de líquido por la vagina, dolor en el pecho, dificultad para respirar, desmayo o convulsión. Contacta con tu servicio de maternidad el mismo día ante cualquier disminución en el patrón de movimiento habitual de tu bebé. Femio no puede evaluar un embarazo.
+> **Busca atención ya:** Contacta con los servicios de emergencia de tu zona o acude al servicio de urgencias más cercano si tienes un sangrado abundante, dolor abdominal intenso o de un solo lado, dolor justo debajo de las costillas, dolor de cabeza intenso con cambios en la visión, hinchazón repentina de la cara o las manos, fiebre, pérdida de líquido por la vagina, dolor en el pecho, dificultad para respirar, desmayo, convulsión o pensamientos de hacerte daño a ti misma o a tu bebé ([ayuda ahora](/es/help-now)). Contacta con tu servicio de maternidad de inmediato si los movimientos de tu bebé se vuelven más lentos, se detienen o cambian. femio no puede evaluar un embarazo.
 
 ## Preguntas frecuentes
 
 ### ¿Mi bebé viene tarde?
 
-No. El término va de la semana 37 a la 42, y una fecha probable es un único punto estimado dentro de una franja de cinco semanas. La mayoría de las mujeres dan a luz en la semana anterior o posterior a ella.
+No necesariamente. El término va de la semana 37 a la 42, y una fecha probable es un único punto estimado dentro de una franja de cinco semanas; si pasas de las 41 semanas, tu servicio hablará de los siguientes pasos.
 
 ### ¿Puedo hacer algo para provocar el parto?
 

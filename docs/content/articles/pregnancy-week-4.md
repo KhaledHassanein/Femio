@@ -22,7 +22,7 @@ open_graph_image_alt: "A calendar with a date circled beside a cup of tea"
 written_by: "PENDING"
 medically_reviewed_by: "Dr. Khaled M."
 date_published: "2026-08-19"
-date_modified: "2026-08-19"
+date_modified: "2026-11-24"
 last_reviewed: "2026-10-30"
 next_review_due: "2027-10-30"
 reading_level_ok: true
@@ -44,6 +44,7 @@ sources:
     url: "https://www.nhs.uk/pregnancy/your-pregnancy-care/your-antenatal-care-and-appointments/"
     tier: "1"
 internal_links:
+  - "/en/help-now"
   - "/en/learn/when-to-take-pregnancy-test"
   - "/en/learn/pregnancy-week-5"
   - "/en/learn/pregnancy-warning-signs"
@@ -92,7 +93,7 @@ Write down the first day of your last period, and keep it somewhere you will not
 
 Contact a midwife, GP or maternity service if you have any bleeding, if pain is severe or one-sided, or if you feel faint. [Pregnancy warning signs](/en/learn/pregnancy-warning-signs) covers the full list. If a positive test has not been confirmed yet, [when to take a pregnancy test](/en/learn/when-to-take-pregnancy-test) explains the timing.
 
-> **Seek care now:** Contact your local emergency services or go to your nearest emergency department if you have heavy bleeding, severe or one-sided tummy pain, pain in the tip of your shoulder, a severe headache with vision changes, sudden swelling of the face or hands, a fever, chest pain, trouble breathing, fainting, or a seizure. Femio cannot assess a pregnancy.
+> **Seek care now:** Contact your local emergency services or go to your nearest emergency department if you have heavy bleeding, severe or one-sided tummy pain, pain in the tip of your shoulder, a severe headache with vision changes, sudden swelling of the face or hands, a fever, chest pain, trouble breathing, fainting, a seizure, or thoughts of harming yourself or the baby ([help now](/en/help-now)). femio cannot assess a pregnancy.
 
 ## Frequently asked questions
 

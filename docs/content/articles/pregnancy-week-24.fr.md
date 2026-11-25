@@ -9,20 +9,20 @@ primary_query: "24 semaines de grossesse"
 secondary_topics:
   - "viabilité à 24 semaines"
   - "profils de mouvements à partir de 24 semaines"
-excerpt: "La semaine 24 est le seuil à partir duquel un bébé peut survivre avec des soins néonatals spécialisés, et la semaine où les profils de mouvements commencent à avoir une importance clinique."
+excerpt: "Vers la semaine 24, un bébé né tôt peut survivre avec des soins spécialisés, et c'est la semaine où le rythme des mouvements commence à compter sur le plan clinique."
 meta_title: "24 semaines de grossesse : viabilité et mouvements"
-meta_description: "Dès la semaine 24, un bébé peut survivre avec des soins néonatals, et les mouvements comptent. Pourquoi il n’existe aucun nombre de coups à compter."
+meta_description: "Vers 24 semaines, un bébé né tôt peut survivre avec des soins néonatals. Le rythme des mouvements compte, mais il n'y a pas de bon nombre de coups."
 canonical_url: "https://femioapp.com/fr/learn/pregnancy-week-24"
 robots_while_draft: "noindex,nofollow"
 robots_when_published: "index,follow,max-image-preview:large"
 open_graph_title: "Semaine 24 de grossesse"
-open_graph_description: "Le seuil de viabilité, et la semaine où les profils de mouvements commencent à compter."
+open_graph_description: "Un repère pour la survie avec des soins spécialisés, et la semaine où le rythme des mouvements commence à compter."
 open_graph_image: "PENDING"
 open_graph_image_alt: "Un couloir d’hôpital avec une enseigne de néonatologie"
 written_by: "PENDING"
 medically_reviewed_by: "Dr. Khaled M."
 date_published: "2026-10-30"
-date_modified: "2026-10-30"
+date_modified: "2026-11-25"
 last_reviewed: "2026-10-30"
 next_review_due: "2027-10-30"
 reading_level_ok: false
@@ -48,11 +48,12 @@ internal_links:
   - "/fr/learn/pregnancy-week-25"
   - "/fr/learn/pregnancy-warning-signs"
   - "/fr/calculators/gestational-age"
+  - "/fr/help-now"
 ---
 
 # Semaine 24 de grossesse : à quoi s’attendre
 
-La semaine 24 est une semaine charnière. À partir de cette période environ, un bébé né prématurément peut survivre avec des soins néonatals spécialisés, ce qui explique que les services considèrent cette semaine comme une limite. C’est aussi la semaine où les mouvements cessent d’être une curiosité pour devenir une information.
+La semaine 24 est une semaine charnière. Un bébé né prématurément peut survivre avec des soins néonatals spécialisés, et les chances s’améliorent à chaque semaine de grossesse. Les services utilisent environ 24 semaines comme repère, mais la survie dépend de chaque bébé. C’est aussi la semaine où les mouvements cessent d’être une curiosité pour devenir une information.
 
 ## Votre corps cette semaine
 
@@ -86,9 +87,9 @@ Cette semaine, enregistrez dans votre téléphone le numéro de la maternité, j
 
 ## Quand consulter
 
-Contactez votre service de maternité le jour même pour toute diminution ou tout changement des mouvements. Appelez pour des contractions régulières, une perte de liquide, une lombalgie basse avec pression, des saignements, ou de la fièvre. [Les signes d’alerte pendant la grossesse](/fr/learn/pregnancy-warning-signs) donne la liste complète.
+Contactez votre service de maternité sans attendre pour toute diminution ou tout changement des mouvements. Appelez pour des contractions régulières, une perte de liquide, une lombalgie basse avec pression, des saignements, ou de la fièvre. [Les signes d’alerte pendant la grossesse](/fr/learn/pregnancy-warning-signs) donne la liste complète.
 
-> **Consultez sans attendre :** Contactez les services d’urgence de votre région ou rendez-vous au service des urgences le plus proche si vous avez des saignements abondants, une douleur abdominale intense ou unilatérale, un mal de tête intense accompagné de troubles de la vision, un gonflement soudain du visage ou des mains, de la fièvre, une perte de liquide par le vagin, une douleur thoracique, une difficulté à respirer, un malaise ou une crise convulsive. Contactez votre service de maternité le jour même pour toute diminution de la séquence habituelle des mouvements de votre bébé. Femio ne peut pas évaluer une grossesse.
+> **Consultez sans attendre :** Contactez les services d’urgence de votre région ou rendez-vous au service des urgences le plus proche si vous avez des saignements abondants, une douleur abdominale intense ou unilatérale, un mal de tête intense accompagné de troubles de la vision, un gonflement soudain du visage ou des mains, de la fièvre, une perte de liquide par le vagin, une douleur thoracique, une difficulté à respirer, un malaise, une crise convulsive ou des pensées de vous faire du mal ou de faire du mal à votre bébé ([aide immédiate](/fr/help-now)). Contactez votre service de maternité sans attendre si les mouvements de votre bébé ralentissent, s’arrêtent ou changent. femio ne peut pas évaluer une grossesse.
 
 ## Questions fréquentes
 

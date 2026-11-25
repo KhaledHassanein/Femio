@@ -12,7 +12,7 @@ secondary_topics:
   - "severe headache in pregnancy"
   - "when to call emergency services in pregnancy"
 excerpt: "Learn which pregnancy symptoms need urgent medical care, including severe pain, bleeding, breathing trouble, headache, reduced movement, and safety concerns."
-meta_title: "Pregnancy Warning Signs That Need Urgent Care | Femio"
+meta_title: "Pregnancy Warning Signs That Need Urgent Care | femio"
 meta_description: "Learn which pregnancy symptoms need urgent medical care, including severe pain, bleeding, breathing trouble, headache, fever, and reduced movement."
 canonical_url: "https://femioapp.com/en/learn/pregnancy-warning-signs"
 robots_while_draft: "noindex,nofollow"
@@ -24,7 +24,7 @@ open_graph_image_alt: "Pregnant person calling for urgent medical help after not
 written_by: "Dr. Khaled M."
 medically_reviewed_by: "Dr. Khaled M."
 date_published: "2026-08-15"
-date_modified: "2026-08-15"
+date_modified: "2026-11-24"
 last_reviewed: "2026-08-04"
 next_review_due: null
 reading_level_ok: true
@@ -117,7 +117,7 @@ Do not wait until the next day. A cold drink is not a substitute for advice. Do 
 
 Thoughts of self-harm or harming the baby need immediate support. They are a health emergency, not a personal failure.
 
-Use Femio's [help-now page](/en/help-now) to find immediate support options. If you may act now or cannot stay safe, contact local emergency services or go to the nearest emergency department. If possible, stay with a trusted person while help is arranged.
+Use femio's [help-now page](/en/help-now) to find immediate support options. If you may act now or cannot stay safe, contact local emergency services or go to the nearest emergency department. If possible, stay with a trusted person while help is arranged.
 
 ## How to communicate the concern
 
@@ -127,13 +127,13 @@ Bring your pregnancy notes and medicine list if they are easy to reach. Do not d
 
 [ACOG](https://www.acog.org/womens-health/faqs/prenatal-care) explains why care should fit your health and pregnancy risk. After urgent care, read [pregnancy basics](/en/learn/pregnancy-basics). The [first pregnancy appointment guide](/en/learn/first-pregnancy-appointment) explains routine care.
 
-How is this safety content checked? See Femio's [clinician review page](/en/medical-review). Femio cannot assess an emergency.
+How is this safety content checked? See femio's [clinician review page](/en/medical-review). femio cannot assess an emergency.
 
 ## When to see a doctor
 
 Contact a pregnancy-care professional when a new symptom worries you. Seek same-day care for bleeding or fever. Repeat vomiting, fluid loss, reduced movement, or a lasting headache also need care. Use emergency services for severe symptoms or immediate danger.
 
-> **Seek care now:** Contact local emergency services or go to the nearest emergency department for severe pain, heavy bleeding, fainting, seizures, chest pain, trouble breathing, severe headache with vision changes, or thoughts of harming yourself or the baby. Do not wait for Femio or another online service to respond.
+> **Seek care now:** Contact local emergency services or go to the nearest emergency department for severe pain, heavy bleeding, fainting, seizures, chest pain, trouble breathing, severe headache with vision changes, or thoughts of harming yourself or the baby. Do not wait for femio or another online service to respond.
 
 ## Frequently asked questions
 

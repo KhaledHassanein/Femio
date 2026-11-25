@@ -22,7 +22,7 @@ open_graph_image_alt: "Un bol de hummus con palitos de zanahoria sobre una encim
 written_by: "PENDING"
 medically_reviewed_by: "Dr. Khaled M."
 date_published: "2026-10-30"
-date_modified: "2026-10-30"
+date_modified: "2026-11-25"
 last_reviewed: "2026-10-30"
 next_review_due: "2027-10-30"
 reading_level_ok: false
@@ -48,6 +48,7 @@ internal_links:
   - "/es/learn/pregnancy-week-10"
   - "/es/learn/pregnancy-warning-signs"
   - "/es/calculators/gestational-age"
+  - "/es/help-now"
 ---
 
 # Semana 9 de embarazo: qué esperar
@@ -56,7 +57,7 @@ Para muchas mujeres, la semana 9 es el punto más bajo. Los niveles de las hormo
 
 ## Tu cuerpo esta semana
 
-La gonadotropina coriónica humana (hCG) se ha ido duplicando aproximadamente cada dos o tres días, y el NHS sitúa su pico hacia la semana 9. Los estrógenos y la progesterona también están altos, y juntos aumentan el suministro de sangre al útero.
+La gonadotropina coriónica humana (hCG) ha subido con rapidez en las primeras semanas, y el NHS sitúa su pico hacia la semana 9. Los estrógenos y la progesterona también están altos, y juntos aumentan el suministro de sangre al útero.
 
 Los senos están más grandes y la cintura puede engrosarse un poco, aunque nada parezca obviamente embarazado todavía. Algunas mujeres describen este periodo como una montaña rusa emocional, que es una descripción y no un diagnóstico, y es algo que el NHS repite porque se informa mucho.
 
@@ -88,7 +89,7 @@ Pon tres tentempiés que puedas comer sin cocinar en un lugar donde los veas: la
 
 Contacta con una matrona o con tu médico de cabecera si no puedes retener líquidos, si estás perdiendo peso, si orinas muy poco o si te sientes mareada al ponerte de pie. Cualquier sangrado debe comunicarse. [Señales de alarma en el embarazo](/es/learn/pregnancy-warning-signs) recoge la lista completa.
 
-> **Busca atención ya:** Contacta con los servicios de emergencia de tu zona o acude al servicio de urgencias más cercano si tienes sangrado abundante, dolor abdominal intenso o de un solo lado, dolor en la punta del hombro, un dolor de cabeza fuerte con alteraciones de la visión, hinchazón repentina de la cara o las manos, fiebre, dolor en el pecho, dificultad para respirar, desmayo o convulsión. femio no puede evaluar un embarazo.
+> **Busca atención ya:** Contacta con los servicios de emergencia de tu zona o acude al servicio de urgencias más cercano si tienes sangrado abundante, dolor abdominal intenso o de un solo lado, dolor en la punta del hombro, un dolor de cabeza fuerte con alteraciones de la visión, hinchazón repentina de la cara o las manos, fiebre, dolor en el pecho, dificultad para respirar, desmayo, convulsión o pensamientos de hacerte daño a ti misma o a tu bebé ([ayuda ahora](/es/help-now)). femio no puede evaluar un embarazo.
 
 ## Preguntas frecuentes
 

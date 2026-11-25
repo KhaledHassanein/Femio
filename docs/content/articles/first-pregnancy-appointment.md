@@ -12,7 +12,7 @@ secondary_topics:
   - "early pregnancy blood tests"
   - "what to bring to pregnancy appointment"
 excerpt: "Learn what may happen at a first pregnancy appointment, which questions and checks may be discussed, what to bring, and how to speak up about your needs."
-meta_title: "Your First Pregnancy Appointment | Femio"
+meta_title: "Your First Pregnancy Appointment | femio"
 meta_description: "Learn what may happen at your first pregnancy appointment, what health information to bring, which checks may be offered, and questions to ask."
 canonical_url: "https://femioapp.com/en/learn/first-pregnancy-appointment"
 robots_while_draft: "noindex,nofollow"
@@ -24,7 +24,7 @@ open_graph_image_alt: "Pregnant person discussing health records and questions w
 written_by: "Dr. Khaled M."
 medically_reviewed_by: "Dr. Khaled M."
 date_published: "2026-08-15"
-date_modified: "2026-08-15"
+date_modified: "2026-11-24"
 last_reviewed: "2026-08-04"
 next_review_due: null
 reading_level_ok: true
@@ -60,7 +60,7 @@ Bring questions and records if you have them, but missing information should not
 
 Contact local pregnancy services after a positive test or when you think you may be pregnant. Some systems begin with a phone or online intake before an in-person visit.
 
-The [ACOG prenatal-care guide](https://www.acog.org/womens-health/faqs/prenatal-care) recommends starting care in the first trimester. ACOG notes that before 10 weeks from the last period is ideal when possible, though access and personal needs vary.
+The [ACOG prenatal-care guide](https://www.acog.org/womens-health/faqs/prenatal-care) recommends starting care in the first trimester. ACOG notes that ideally the first visit happens before 10 weeks of pregnancy, counted from the last period, though access and personal needs vary.
 
 Do not wait for a routine visit when you have urgent symptoms or a medicine that needs prompt review.
 
@@ -114,7 +114,7 @@ You have the right to clear information and time to decide when timing allows.
 
 The first day of the last period is often used to estimate how many weeks pregnant you are and a due date. This may be less certain with irregular cycles, recent hormone use, or unclear dates.
 
-Femio's [due-date calculator](/en/calculators/due-date) gives an estimate. A clinician may revise it after reviewing dates or an ultrasound.
+femio's [due-date calculator](/en/calculators/due-date) gives an estimate. A clinician may revise it after reviewing dates or an ultrasound.
 
 ## What should you bring?
 

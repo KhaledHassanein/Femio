@@ -12,7 +12,7 @@ secondary_topics:
   - "endometriosis care options"
   - "endometriosis tracking"
 excerpt: "Learn what endometriosis is, the signs it may cause, how clinicians assess it, and what care and day-to-day support can involve."
-meta_title: "What Is Endometriosis? Signs & Care | Femio"
+meta_title: "What Is Endometriosis? Signs & Care | femio"
 meta_description: "Understand endometriosis signs, clinical assessment, care options, fertility questions, and what to track before an appointment."
 canonical_url: "https://femioapp.com/en/conditions/endometriosis"
 robots_while_draft: "noindex,nofollow"
@@ -24,7 +24,7 @@ open_graph_image_alt: "Anatomical illustration showing areas where endometriosis
 written_by: "PENDING"
 medically_reviewed_by: "Dr. Khaled M."
 date_published: "2026-10-30"
-date_modified: "2026-10-30"
+date_modified: "2026-11-24"
 last_reviewed: "2026-10-30"
 next_review_due: "2027-10-30"
 reading_level_ok: true
@@ -154,13 +154,13 @@ Your pain still matters.
 
 Keep asking for help.
 
-## How to track endometriosis in Femio
+## How to track endometriosis in femio
 
 Record period dates, flow, pain, bowel or bladder symptoms, pain during sex, tiredness, and short notes about daily impact. Track only what feels useful and safe.
 
-Look for timing, not a verdict. A repeating pattern can help you describe symptoms, but Femio cannot confirm endometriosis or judge how severe it is. Export or print a summary if you want to share it with a clinician.
+Look for timing, not a verdict. A repeating pattern can help you describe symptoms, but femio cannot confirm endometriosis or judge how severe it is. Export or print a summary if you want to share it with a clinician.
 
-Related Femio guides cover [painful periods](/en/conditions/painful-periods), [heavy periods](/en/conditions/heavy-periods), [common endometriosis signs](/en/learn/endometriosis-signs), [how endometriosis is assessed](/en/learn/how-endometriosis-is-assessed), and [endometriosis and fertility](/en/learn/endometriosis-and-fertility).
+Related femio guides cover [painful periods](/en/conditions/painful-periods), [heavy periods](/en/conditions/heavy-periods), [common endometriosis signs](/en/learn/endometriosis-signs), [how endometriosis is assessed](/en/learn/how-endometriosis-is-assessed), and [endometriosis and fertility](/en/learn/endometriosis-and-fertility).
 
 ## Frequently asked questions
 

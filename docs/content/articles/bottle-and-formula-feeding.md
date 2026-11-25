@@ -11,7 +11,7 @@ secondary_topics:
   - "powdered formula hygiene"
   - "responsive bottle feeding"
 excerpt: "Why powdered formula is not sterile, what preparation guidance covers, where countries differ on water temperature, and how bottle feeds are given safely."
-meta_title: "Preparing Formula and Bottle Feeding Safely | Femio"
+meta_title: "Preparing Formula and Bottle Feeding Safely | femio"
 meta_description: "Powdered formula is not sterile. What cleaning, sterilising and preparation guidance covers, where countries differ, and safer bottle feeding."
 canonical_url: "https://femioapp.com/en/learn/bottle-and-formula-feeding"
 robots_while_draft: "noindex,nofollow"
@@ -23,7 +23,7 @@ open_graph_image_alt: "Clean baby bottles and teats drying beside a kettle on a 
 written_by: "PENDING"
 medically_reviewed_by: "Dr. Khaled M."
 date_published: "2026-08-19"
-date_modified: "2026-08-19"
+date_modified: "2026-11-24"
 last_reviewed: "2026-10-30"
 next_review_due: "2027-10-30"
 reading_level_ok: true
@@ -56,7 +56,7 @@ internal_links:
 
 # Bottles and Formula: Preparing and Feeding Safely
 
-Powdered infant formula is not a sterile product, which is why every national guideline spends most of its words on cleaning, water and timing rather than on brands. The steps that matter are washing and sterilising the bottle and teat, making feeds one at a time, following the manufacturer's instructions on the tin exactly, and cooling the feed before it is given. This page is health information for learning and it is not medical advice about your baby. How much your own baby needs, and any concern about feeding, belongs with a midwife, health visitor or doctor.
+Powdered infant formula is not a sterile product, which is why guidance focuses on cleaning, water and timing rather than on brands. The steps that matter are washing and sterilising the bottle and teat, making feeds one at a time, following the manufacturer's instructions on the tin exactly, and cooling the feed before it is given. This page is health information for learning and it is not medical advice about your baby. How much your own baby needs, and any concern about feeding, belongs with a midwife, health visitor or doctor.
 
 ## Why preparation matters at all
 
@@ -118,7 +118,7 @@ Seek urgent care for any sign in the box below, and for a baby who refuses feeds
 
 Ask a midwife, health visitor or doctor about feeds that are consistently distressing, about a baby who is very unsettled after feeds, and about any change of formula, which is a clinical decision rather than a shopping one. [Your newborn in the first two weeks](/en/learn/newborn-first-two-weeks) sets out what is usual, and [newborn warning signs](/en/learn/newborn-warning-signs) sets out what is not.
 
-> **Seek care now:** Contact your local emergency services or go to your nearest emergency department if a baby under three months old has a temperature of 38C or higher, is breathing fast, working hard to breathe or grunting, has blue, grey, pale or mottled skin, is floppy, is difficult to wake, is refusing feeds, has far fewer wet nappies or none in the past 12 hours, has a bulging or sunken soft spot on the head, has a rash that does not fade when you press it, or has a fit. Femio cannot assess a baby.
+> **Seek care now:** Contact your local emergency services or go to your nearest emergency department if a baby under three months old has a temperature of 38C or higher, is breathing fast, working hard to breathe or grunting, has blue, grey, pale or mottled skin, is floppy, is difficult to wake, is refusing feeds, has far fewer wet nappies or none in the past 12 hours, has a bulging or sunken soft spot on the head, has a rash that does not fade when you press it, or has a fit. femio cannot assess a baby.
 
 ## Frequently asked questions
 

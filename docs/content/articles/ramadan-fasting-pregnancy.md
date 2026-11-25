@@ -2,7 +2,7 @@
 title: "Can I Fast in Ramadan While Pregnant?"
 slug: "ramadan-fasting-pregnancy"
 locale: "en"
-status: "published"
+status: "draft"
 content_type: "pregnancy cluster"
 search_intent: "pregnancy fasting decision support"
 primary_query: "fasting in Ramadan while pregnant"
@@ -23,11 +23,11 @@ open_graph_description: "The evidence and its gaps, questions for your clinician
 open_graph_image: "PENDING"
 open_graph_image_alt: "Pregnant woman sitting quietly at a table in the early morning with a glass of water"
 written_by: "PENDING"
-medically_reviewed_by: "Dr. Khaled M."
-date_published: "2026-10-30"
-date_modified: "2026-10-30"
-last_reviewed: "2026-10-30"
-next_review_due: "2027-10-30"
+medically_reviewed_by: "PENDING"
+date_published: null
+date_modified: null
+last_reviewed: null
+next_review_due: null
 reading_level_ok: true
 reading_level_method: "Approximate Flesch-Kincaid grade 7.2 by script on body text, 2026-10-08 (heuristic syllable count, not a validated tool; clinician and editor to confirm)"
 disclaimer_type: "emergency"
@@ -148,9 +148,9 @@ Contact your midwife or doctor before Ramadan if you are unsure whether fasting 
 > - Vomiting so that you cannot keep food or fluids down for 24 hours, or no pee for more than 8 hours. [NHS: vomiting and morning sickness](https://www.nhs.uk/pregnancy/common-symptoms/vomiting-and-morning-sickness/)
 > - New or worse thirst, frequent peeing, dry mouth, or blurred eyesight with high blood sugar. [NHS: gestational diabetes](https://www.nhs.uk/conditions/gestational-diabetes/)
 >
-> If you are confused, cannot stay awake, have a seizure, or cannot reach your team, contact local emergency services or go to the nearest emergency department. Do not wait for Femio or another online service to respond.
+> If you are confused, cannot stay awake, have a seizure, or cannot reach your team, contact local emergency services or go to the nearest emergency department. Do not wait for femio or another online service to respond.
 
-Femio cannot assess an emergency. Read more about [pregnancy warning signs that need urgent care](/en/learn/pregnancy-warning-signs). See how Femio's health content is checked on the [clinician review page](/en/medical-review) and the [editorial policy](/en/editorial-policy). Terms like "hypo" are explained in the [glossary](/en/glossary). If you feel unsafe, use the [help-now page](/en/help-now).
+femio cannot assess an emergency. Read more about [pregnancy warning signs that need urgent care](/en/learn/pregnancy-warning-signs). See how femio's health content is checked on the [clinician review page](/en/medical-review) and the [editorial policy](/en/editorial-policy). Terms like "hypo" are explained in the [glossary](/en/glossary). If you feel unsafe, use the [help-now page](/en/help-now).
 
 ## Frequently asked questions
 

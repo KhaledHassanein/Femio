@@ -12,7 +12,7 @@ secondary_topics:
   - "préparation du rendez-vous postnatal"
   - "bilan maternel à six semaines"
 excerpt: "À quoi sert le bilan postnatal, ce qui s'y passe habituellement, et comment faire en sorte que votre propre santé soit à l'ordre du jour, et pas seulement celle du bébé."
-meta_title: "Bilan postnatal de six semaines : préparation | Femio"
+meta_title: "Bilan postnatal de six semaines : préparation | femio"
 meta_description: "Ce qui se passe au bilan postnatal de six semaines, ce qu'il faut aborder, et comment faire en sorte que ce rendez-vous porte aussi sur votre propre santé."
 canonical_url: "https://femioapp.com/fr/learn/six-week-postnatal-check"
 robots_while_draft: "noindex,nofollow"
@@ -24,7 +24,7 @@ open_graph_image_alt: "Une femme avec des notes lors d'un rendez-vous postnatal 
 written_by: "PENDING"
 medically_reviewed_by: "Dr. Khaled M."
 date_published: "2026-10-30"
-date_modified: "2026-10-30"
+date_modified: "2026-11-24"
 last_reviewed: "2026-10-30"
 next_review_due: "2027-10-30"
 reading_level_ok: false
@@ -100,7 +100,7 @@ Abordez ces sujets vous-même. Ce sont les plus souvent oubliés :
 
 Notez les trois choses qui comptent le plus pour vous, dans l'ordre, et dites-les au début du rendez-vous. Les consultations dérivent, et le dernier point d'une liste n'est souvent pas abordé.
 
-Apportez des notes sur vos symptômes, vos saignements, votre humeur et votre sommeil. Si vous les avez notés dans Femio, apportez-les. Un relevé de trois semaines difficiles est bien plus parlant que d'essayer de vous rappeler un mardi difficile.
+Apportez des notes sur vos symptômes, vos saignements, votre humeur et votre sommeil. Si vous les avez notés dans femio, apportez-les. Un relevé de trois semaines difficiles est bien plus parlant que d'essayer de vous rappeler un mardi difficile.
 
 Venez accompagnée si vous le pouvez, surtout pour une conversation difficile. Et prenez rendez-vous à un moment où le bébé est généralement calme, ou venez avec quelqu'un qui peut le garder.
 
@@ -118,7 +118,7 @@ Six semaines ne marquent pas la fin de la récupération. La force du plancher p
 
 ## Quand consulter
 
-N'attendez pas le bilan de six semaines pour un saignement qui s'intensifie, une plaie plus douloureuse ou rouge, une fièvre, une douleur ou un gonflement du mollet, un mal de tête intense, un état d'abattement qui dure plus de deux semaines, ou toute pensée de vous faire du mal ou de faire du mal à votre bébé. Demandez des soins urgents pour les signes d'urgence décrits dans le guide des signes d'alerte, et utilisez la page [Besoin d'aide maintenant](/fr/help-now) de Femio si vous vous sentez incapable de rester en sécurité.
+N'attendez pas le bilan de six semaines pour un saignement qui s'intensifie, une plaie plus douloureuse ou rouge, une fièvre, une douleur ou un gonflement du mollet, un mal de tête intense, un état d'abattement qui dure plus de deux semaines, ou toute pensée de vous faire du mal ou de faire du mal à votre bébé. Demandez des soins urgents pour les signes d'urgence décrits dans le guide des signes d'alerte, et utilisez la page [Besoin d'aide maintenant](/fr/help-now) de femio si vous vous sentez incapable de rester en sécurité.
 
 Demandez un rendez-vous plus tôt si votre accouchement a été compliqué, si votre tension était élevée, si vous aviez un diabète gestationnel, si vous avez beaucoup saigné, ou si vous avez déjà eu un problème de santé mentale.
 

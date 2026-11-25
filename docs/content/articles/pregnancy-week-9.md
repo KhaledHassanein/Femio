@@ -22,7 +22,7 @@ open_graph_image_alt: "A bowl of hummus and carrot sticks on a kitchen counter"
 written_by: "PENDING"
 medically_reviewed_by: "Dr. Khaled M."
 date_published: "2026-08-19"
-date_modified: "2026-08-19"
+date_modified: "2026-11-24"
 last_reviewed: "2026-10-30"
 next_review_due: "2027-10-30"
 reading_level_ok: true
@@ -44,6 +44,7 @@ sources:
     url: "https://www.nhs.uk/pregnancy/common-symptoms/"
     tier: "1"
 internal_links:
+  - "/en/help-now"
   - "/en/learn/pregnancy-week-8"
   - "/en/learn/pregnancy-week-10"
   - "/en/learn/pregnancy-warning-signs"
@@ -56,7 +57,7 @@ Week 9 is, for a lot of women, the low point. Pregnancy hormone levels peak arou
 
 ## Your body this week
 
-Human chorionic gonadotrophin has been roughly doubling every two to three days, and the NHS puts its peak at around week 9. Oestrogen and progesterone are high too, and together they are increasing the blood supply to the womb.
+Human chorionic gonadotrophin rose steeply in the first weeks, and the NHS puts its peak at around week 9. Oestrogen and progesterone are high too, and together they are increasing the blood supply to the womb.
 
 Breasts are bigger and the waist may be thickening a little, though nothing looks obviously pregnant yet. Some women describe this stretch as an emotional rollercoaster, which is a description rather than a diagnosis, and it is one the NHS repeats because it is so widely reported.
 
@@ -88,7 +89,7 @@ Put three snacks you can eat without cooking somewhere you will see them — the
 
 Contact a midwife or GP if you cannot keep fluids down, if you are losing weight, if you are passing very little urine, or if you feel faint on standing. Any bleeding should be reported. [Pregnancy warning signs](/en/learn/pregnancy-warning-signs) covers the full set.
 
-> **Seek care now:** Contact your local emergency services or go to your nearest emergency department if you have heavy bleeding, severe or one-sided tummy pain, pain in the tip of your shoulder, a severe headache with vision changes, sudden swelling of the face or hands, a fever, chest pain, trouble breathing, fainting, or a seizure. Femio cannot assess a pregnancy.
+> **Seek care now:** Contact your local emergency services or go to your nearest emergency department if you have heavy bleeding, severe or one-sided tummy pain, pain in the tip of your shoulder, a severe headache with vision changes, sudden swelling of the face or hands, a fever, chest pain, trouble breathing, fainting, a seizure, or thoughts of harming yourself or the baby ([help now](/en/help-now)). femio cannot assess a pregnancy.
 
 ## Frequently asked questions
 

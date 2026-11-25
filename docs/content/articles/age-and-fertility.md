@@ -24,7 +24,7 @@ open_graph_image_alt: "A woman in her late thirties looking at a calendar at hom
 written_by: "PENDING"
 medically_reviewed_by: "Dr. Khaled M."
 date_published: "2026-08-19"
-date_modified: "2026-08-19"
+date_modified: "2026-11-24"
 last_reviewed: "2026-10-30"
 next_review_due: "2027-10-30"
 reading_level_ok: true
@@ -78,15 +78,15 @@ Two people the same age can be in very different positions, and nothing about a 
 
 ## The one thing this page will not do
 
-It will not tell you your chances. Femio does not calculate a personal likelihood of conceiving, and no honest product can from the information an app holds.
+It will not tell you your chances. femio does not calculate a personal likelihood of conceiving, and no honest product can from the information an app holds.
 
-A number attached to *you* would be a prediction about an individual made from group data — the same reason Femio shows a window rather than a date for a period, and refuses a verdict on a home temperature reading. What it can do is hold your cycles and your logs so a clinician who examines you has real information rather than recollection.
+A number attached to *you* would be a prediction about an individual made from group data — the same reason femio shows a window rather than a date for a period, and refuses a verdict on a home temperature reading. What it can do is hold your cycles and your logs so a clinician who examines you has real information rather than recollection.
 
 ## What actually changes with age: the timing of asking
 
 This is the useful part, and it is concrete.
 
-[NICE's fertility guidance](https://www.nice.org.uk/guidance/cg156) and ACOG both shorten the clock at around 35: **six months** of trying rather than twelve before an assessment is usually offered. Sooner still if your periods are irregular or absent, you have a known condition affecting the pelvis, or a partner has a known problem.
+ACOG shortens the clock from around age 35: **six months** of trying rather than twelve before an assessment is usually offered. [NICE's fertility guidance](https://www.nice.org.uk/guidance/cg156) also advises earlier assessment for older women. Sooner still if your periods are irregular or absent, you have a known condition affecting the pelvis, or a partner has a known problem.
 
 That is not a deadline. It is the point at which finding out becomes more useful than waiting, and [what a fertility assessment involves](/en/learn/fertility-tests-what-to-expect) describes what happens next.
 
@@ -106,9 +106,9 @@ Counselling is part of fertility care in many services and is not a sign that an
 
 ## When to see a doctor
 
-Contact your doctor after twelve months of trying, or **six months from around 35**, and sooner at any age if your periods are irregular or absent, you have pelvic pain, you have had pelvic surgery or an infection, or a partner has a known issue. Ask about a preconception appointment before you start if you have a condition or take regular medicine.
+Contact your doctor after twelve months of trying, or **six months from around 35**. Go sooner at any age if your periods are irregular or absent, you have pelvic pain, you have had pelvic surgery or an infection, or a partner has a known issue. Ask about a preconception appointment before you start if you have a condition or take regular medicine.
 
-Ask for a referral rather than waiting to be offered one. The clock guidance uses starts when you started trying.
+Ask for a referral rather than waiting to be offered one. The count starts from when you began trying.
 
 ## Frequently asked questions
 
@@ -118,7 +118,7 @@ No. The decline is gradual and becomes steeper through the mid-to-late thirties.
 
 ### Can a test tell me how long I have?
 
-No test predicts that. Some tests describe aspects of ovarian reserve, and a clinician interprets them alongside everything else — none of them is a countdown.
+No test predicts that. Some tests describe aspects of ovarian reserve (roughly, how many eggs remain), and a clinician interprets them alongside everything else — none of them is a countdown.
 
 ### Should I try for a year first if I am 38?
 
@@ -128,6 +128,6 @@ Guidance generally suggests six months at that age, and sooner if there is a kno
 
 Yes, more gradually. Both partners are assessed in any fertility work-up.
 
-### Can Femio estimate my chances?
+### Can femio estimate my chances?
 
 No. It holds what your cycles have actually done so a clinician has real information, and it does not turn group statistics into a number about you.

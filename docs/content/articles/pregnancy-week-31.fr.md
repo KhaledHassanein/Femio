@@ -22,7 +22,7 @@ open_graph_image_alt: "Un mètre ruban de sage-femme sur un bureau de consultati
 written_by: "PENDING"
 medically_reviewed_by: "Dr. Khaled M."
 date_published: "2026-10-30"
-date_modified: "2026-10-30"
+date_modified: "2026-11-25"
 last_reviewed: "2026-10-30"
 next_review_due: "2027-10-30"
 reading_level_ok: false
@@ -49,6 +49,7 @@ internal_links:
   - "/fr/learn/breastfeeding-first-two-weeks"
   - "/fr/learn/pregnancy-warning-signs"
   - "/fr/calculators/gestational-age"
+  - "/fr/help-now"
 ---
 
 # Semaine 31 de grossesse : à quoi s'attendre
@@ -79,7 +80,7 @@ Il y a beaucoup d'activité : mouvements, succion des doigts, parfois une culbut
 
 Au Royaume-Uni, les femmes qui attendent un premier bébé ont en général un rendez-vous vers 31 semaines : tension artérielle, analyse d'urine, mesure du ventre, et résultats des examens éventuels de la visite des 28 semaines. Les femmes qui ont déjà eu un bébé passent en général de 28 à 34 semaines.
 
-C'est aussi le moment où l'alimentation du bébé est habituellement abordée. L'ACOG et le NHS décrivent tous deux les bénéfices de l'allaitement, et précisent tous deux que tout le monde ne peut pas ou ne veut pas allaiter, et qu'une alimentation au lait infantile avec beaucoup de contact est aussi un bon début. [L'allaitement pendant les deux premières semaines](/fr/learn/breastfeeding-first-two-weeks) couvre les aspects pratiques. Les calendriers et les cours prénataux diffèrent selon les pays.
+C'est aussi le moment où l'alimentation du bébé est habituellement abordée. L'ACOG et le NHS décrivent tous deux les bénéfices de l'allaitement, et reconnaissent tous deux que tout le monde ne peut pas allaiter ou ne choisit pas de le faire. Votre sage-femme peut discuter avec vous des options d'alimentation. [L'allaitement pendant les deux premières semaines](/fr/learn/breastfeeding-first-two-weeks) couvre les aspects pratiques. Les calendriers et les cours prénataux diffèrent selon les pays.
 
 ## L'astuce de cette semaine
 
@@ -87,9 +88,9 @@ Demandez quelle était votre mesure du ventre, en centimètres, et notez-la. Ell
 
 ## Quand consulter
 
-Contactez votre service de maternité le jour même en cas de mouvements réduits, de perte de liquide, de contractions douloureuses ou régulières, ou de saignement. [Les signes d'alerte de la grossesse](/fr/learn/pregnancy-warning-signs) donnent la liste complète.
+Contactez votre service de maternité sans attendre en cas de mouvements réduits, de perte de liquide, de contractions douloureuses ou régulières, ou de saignement. [Les signes d'alerte de la grossesse](/fr/learn/pregnancy-warning-signs) donnent la liste complète.
 
-> **Consultez sans attendre :** Contactez les services d'urgence locaux ou rendez-vous au service des urgences le plus proche en cas de saignement abondant, de douleur ventrale intense ou d'un seul côté, de maux de tête violents avec troubles de la vision, de gonflement soudain du visage ou des mains, de fièvre, de perte de liquide par le vagin, de douleur thoracique, de difficultés respiratoires, d'évanouissement ou de crise convulsive. Contactez votre service de maternité le jour même pour toute diminution du schéma habituel de mouvements de votre bébé. Femio ne peut pas évaluer une grossesse.
+> **Consultez sans attendre :** Contactez les services d'urgence locaux ou rendez-vous au service des urgences le plus proche en cas de saignement abondant, de douleur ventrale intense ou d'un seul côté, de maux de tête violents avec troubles de la vision, de gonflement soudain du visage ou des mains, de fièvre, de perte de liquide par le vagin, de douleur thoracique, de difficultés respiratoires, d'évanouissement, de crise convulsive ou de pensées de vous faire du mal ou de faire du mal à votre bébé ([aide immédiate](/fr/help-now)). Contactez votre service de maternité sans attendre si les mouvements de votre bébé ralentissent, s’arrêtent ou changent. femio ne peut pas évaluer une grossesse.
 
 ## Questions fréquentes
 

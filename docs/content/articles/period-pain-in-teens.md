@@ -22,7 +22,7 @@ open_graph_image_alt: "Simple line drawing of a warm circle over a curved line"
 written_by: "PENDING"
 medically_reviewed_by: "Dr. Khaled M."
 date_published: "2026-08-19"
-date_modified: "2026-08-19"
+date_modified: "2026-11-24"
 last_reviewed: "2026-10-30"
 next_review_due: "2027-10-30"
 reading_level_ok: true
@@ -74,7 +74,7 @@ Nothing on this list is a cure and none of it is guaranteed. Trying two or three
 
 ## What does not help, whatever you have been told
 
-Skipping meals, "sweating it out" beyond what is comfortable, or waiting until the pain is unbearable before doing anything. Pain is easier to settle early than late.
+Waiting until the pain is unbearable before doing anything. Pain is often easier to settle early than late.
 
 Missing school repeatedly and saying nothing does not help either. It is very common, and it is exactly the situation that gets better once an adult knows.
 

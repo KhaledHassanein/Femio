@@ -22,7 +22,7 @@ open_graph_image_alt: "Une valise de maternité prête près d'une porte d'entr�
 written_by: "PENDING"
 medically_reviewed_by: "Dr. Khaled M."
 date_published: "2026-10-30"
-date_modified: "2026-10-30"
+date_modified: "2026-11-25"
 last_reviewed: "2026-10-30"
 next_review_due: "2027-10-30"
 reading_level_ok: false
@@ -48,6 +48,7 @@ internal_links:
   - "/fr/learn/pregnancy-week-34"
   - "/fr/learn/pregnancy-warning-signs"
   - "/fr/calculators/gestational-age"
+  - "/fr/help-now"
 ---
 
 # Semaine 33 de grossesse : à quoi s'attendre
@@ -72,7 +73,7 @@ Les mouvements ne devraient pas diminuer. Tout changement dans votre propre ryth
 
 Vers la semaine 33, la longueur indiquée est d'environ 43,7 cm de la tête aux talons ; le NHS la compare à un ananas. Ce sont des moyennes décrivant une population, et non une mesure d'une grossesse individuelle.
 
-Le cerveau et le système nerveux sont entièrement développés. Les os durcissent, à l'exception des os du crâne, qui restent souples et séparés jusque vers 12 à 18 mois : cette souplesse rend possible le passage par le canal de l'accouchement.
+Le cerveau et le système nerveux sont bien développés, et ils continuent de mûrir après la naissance. Les os durcissent, à l'exception des os du crâne, qui restent souples et séparés jusque vers 12 à 18 mois : cette souplesse rend possible le passage par le canal de l'accouchement.
 
 ## Quels soins ont généralement lieu à cette période
 
@@ -86,9 +87,9 @@ Enregistrez dans votre téléphone le numéro de la maternité, votre numéro de
 
 ## Quand consulter
 
-Contactez votre service de maternité le jour même pour tout changement de mouvements, toute fuite de liquide, des contractions régulières ou douloureuses, ou tout saignement. [Les signes d'alerte pendant la grossesse](/fr/learn/pregnancy-warning-signs) donnent la liste complète.
+Contactez votre service de maternité le jour même pour toute fuite de liquide, des contractions régulières ou douloureuses, ou tout saignement. [Les signes d'alerte pendant la grossesse](/fr/learn/pregnancy-warning-signs) donnent la liste complète.
 
-> **Consultez sans attendre :** Contactez les services d'urgence de votre région ou rendez-vous au service des urgences le plus proche si vous avez un saignement abondant, une douleur intense ou d'un seul côté du ventre, un mal de tête intense avec troubles de la vision, un gonflement soudain du visage ou des mains, de la fièvre, une perte de liquide par le vagin, une douleur thoracique, des difficultés à respirer, un malaise ou une crise convulsive. Contactez votre service de maternité le jour même pour toute diminution du rythme habituel des mouvements de votre bébé. Femio ne peut pas évaluer une grossesse.
+> **Consultez sans attendre :** Contactez les services d'urgence de votre région ou rendez-vous au service des urgences le plus proche si vous avez un saignement abondant, une douleur intense ou d'un seul côté du ventre, un mal de tête intense avec troubles de la vision, un gonflement soudain du visage ou des mains, de la fièvre, une perte de liquide par le vagin, une douleur thoracique, des difficultés à respirer, un malaise, une crise convulsive ou des pensées de vous faire du mal ou de faire du mal à votre bébé ([aide immédiate](/fr/help-now)). Contactez votre service de maternité sans attendre si les mouvements de votre bébé ralentissent, s’arrêtent ou changent. femio ne peut pas évaluer une grossesse.
 
 ## Questions fréquentes
 

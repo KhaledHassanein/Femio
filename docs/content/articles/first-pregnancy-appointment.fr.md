@@ -12,7 +12,7 @@ secondary_topics:
   - "analyses de sang en début de grossesse"
   - "quoi apporter au rendez-vous de grossesse"
 excerpt: "Découvrez ce qui peut se passer lors d'un premier rendez-vous de grossesse, quelles questions et quels contrôles peuvent être abordés, quoi apporter, et comment exprimer vos besoins."
-meta_title: "Votre premier rendez-vous de grossesse | Femio"
+meta_title: "Votre premier rendez-vous de grossesse | femio"
 meta_description: "Découvrez ce qui peut se passer lors de votre premier rendez-vous de grossesse, quoi apporter, quels contrôles sont proposés et quelles questions poser."
 canonical_url: "https://femioapp.com/fr/learn/first-pregnancy-appointment"
 robots_while_draft: "noindex,nofollow"
@@ -24,7 +24,7 @@ open_graph_image_alt: "Personne enceinte discutant de ses dossiers de santé et 
 written_by: "PENDING"
 medically_reviewed_by: "Dr. Khaled M."
 date_published: "2026-10-30"
-date_modified: "2026-10-30"
+date_modified: "2026-11-25"
 last_reviewed: "2026-10-30"
 next_review_due: "2027-10-30"
 reading_level_ok: false
@@ -60,7 +60,7 @@ Apportez vos questions et vos documents si vous les avez, mais l'absence d'une i
 
 Contactez les services de suivi de grossesse de votre région après un test positif, ou lorsque vous pensez être enceinte. Certains systèmes commencent par un entretien téléphonique ou en ligne avant la consultation en personne.
 
-Le [guide de l'ACOG sur le suivi prénatal](https://www.acog.org/womens-health/faqs/prenatal-care) recommande de commencer le suivi au cours du premier trimestre. L'ACOG indique qu'idéalement, il faut consulter avant 10 semaines à compter des dernières règles lorsque c'est possible, même si l'accès et les besoins personnels varient.
+Le [guide de l'ACOG sur le suivi prénatal](https://www.acog.org/womens-health/faqs/prenatal-care) recommande de commencer le suivi au cours du premier trimestre. L'ACOG indique qu'idéalement, la première consultation a lieu avant 10 semaines de grossesse, comptées à partir des dernières règles, même si l'accès et les besoins personnels varient.
 
 N'attendez pas une consultation de routine si vous avez des symptômes urgents ou un médicament qui nécessite un examen rapide.
 
@@ -114,7 +114,7 @@ Vous avez le droit à des informations claires et au temps de décider lorsque l
 
 Le premier jour des dernières règles est souvent utilisé pour estimer le nombre de semaines de grossesse et la date prévue d'accouchement. Cette estimation peut être moins certaine en cas de cycles irréguliers, d'utilisation récente d'hormones, ou de dates peu claires.
 
-Le [calculateur de date prévue d'accouchement](/fr/calculators/due-date) de Femio donne une estimation. Un clinicien peut la réviser après avoir examiné les dates ou une échographie.
+Le [calculateur de date prévue d'accouchement](/fr/calculators/due-date) de femio donne une estimation. Un clinicien peut la réviser après avoir examiné les dates ou une échographie.
 
 ## Que faut-il apporter ?
 

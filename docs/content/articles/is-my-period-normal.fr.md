@@ -22,7 +22,7 @@ open_graph_image_alt: "Dessin au trait simple d'une large bande douce sans bords
 written_by: "PENDING"
 medically_reviewed_by: "Dr. Khaled M."
 date_published: "2026-10-30"
-date_modified: "2026-10-30"
+date_modified: "2026-11-24"
 last_reviewed: "2026-10-30"
 next_review_due: "2027-10-30"
 reading_level_ok: false
@@ -74,7 +74,7 @@ Ni l'un ni l'autre.
 
 Une application établit son estimation à partir des cycles que vous avez déjà enregistrés. Lorsque ces cycles varient, ce qui est précisément ce qu'ils doivent faire en ce moment, la réponse honnête est une plage large plutôt qu'un jour unique. Toute application qui vous affiche une date unique et certaine à cet âge vous indique quelque chose qu'elle ne sait pas réellement.
 
-C'est pourquoi Femio affiche une fenêtre plutôt qu'une date, et pourquoi la fenêtre est plus large pour les plus jeunes utilisatrices. Une fenêtre large est la preuve que l'application est honnête, et non qu'elle dysfonctionne. Vous trouverez davantage d'explications dans [suivre votre cycle sans stress](/fr/learn/tracking-your-cycle-as-a-teen).
+C'est pourquoi femio affiche une fenêtre plutôt qu'une date, et pourquoi la fenêtre est plus large pour les plus jeunes utilisatrices. Une fenêtre large est la preuve que l'application est honnête, et non qu'elle dysfonctionne. Vous trouverez davantage d'explications dans [suivre votre cycle sans stress](/fr/learn/tracking-your-cycle-as-a-teen).
 
 Vous n'êtes pas en retard. Le mot « en retard » n'a de sens que par rapport à une date certaine, et à ce stade il n'existe pas de date certaine par rapport à laquelle être en retard.
 

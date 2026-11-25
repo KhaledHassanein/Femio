@@ -24,7 +24,7 @@ open_graph_image_alt: "A calendar with cycle days marked at uneven intervals"
 written_by: "PENDING"
 medically_reviewed_by: "Dr. Khaled M."
 date_published: "2026-08-19"
-date_modified: "2026-08-19"
+date_modified: "2026-11-24"
 last_reviewed: "2026-10-30"
 next_review_due: "2027-10-30"
 reading_level_ok: true
@@ -54,13 +54,13 @@ internal_links:
 
 # Trying to Conceive With Irregular Cycles
 
-Almost every piece of timing advice quietly assumes a 28-day cycle, and it stops being useful the moment yours varies. If your cycles are long, unpredictable, or sometimes absent, the honest answer is that no app can tell you which day matters — and the practical answer is to have sex regularly through the cycle rather than aiming at a date. Irregular cycles are also a reason to ask for help sooner rather than waiting out a full year. This is health information for planning, not a substitute for your own clinician.
+Almost every piece of timing advice quietly assumes a 28-day cycle, and it stops being useful the moment yours varies. If your cycles are long, unpredictable, or sometimes absent, no app can honestly tell you which day matters. The practical answer is to have sex regularly through the cycle rather than aiming at a date. Irregular cycles are also a reason to ask for help sooner rather than waiting out a full year. This is health information for planning, not a substitute for your own clinician.
 
 ## Why the usual advice does not fit
 
 Standard advice works backwards from a predictable period: if the next one is due on a known day, the days before it can be estimated. When cycle length swings by a week or more, that arithmetic has nothing stable to stand on.
 
-Femio widens its prediction window when your cycles vary, and stops showing one entirely when there is nothing honest to predict from. That is not the app failing; a confident date built on unstable data would be an invention, and acting on it is what wastes months.
+femio widens its prediction window when your cycles vary, and stops showing one entirely when there is nothing honest to predict from. That is not the app failing; a confident date built on unstable data would be an invention, and acting on it is what wastes months.
 
 ## What actually helps
 
@@ -74,17 +74,17 @@ Femio widens its prediction window when your cycles vary, and stops showing one 
 
 ## If you have PCOS
 
-PCOS is one of the most common reasons for irregular or absent ovulation, and it is also one of the most manageable. [ACOG](https://www.acog.org/womens-health/faqs/polycystic-ovary-syndrome-pcos) and the [NHS](https://www.nhs.uk/conditions/polycystic-ovary-syndrome-pcos/) both describe medicines that a clinician may discuss to encourage ovulation, alongside other approaches.
+PCOS is one of the most common reasons for irregular or absent ovulation, and there are care options a clinician can discuss. [ACOG](https://www.acog.org/womens-health/faqs/polycystic-ovary-syndrome-pcos) and the [NHS](https://www.nhs.uk/conditions/polycystic-ovary-syndrome-pcos/) both describe medicines that a clinician may discuss to encourage ovulation, alongside other approaches.
 
 Two things worth knowing before that appointment. Many people with PCOS conceive, with or without help. And ovulation can happen unpredictably, which means cycles that look silent are not always silent.
 
-[PCOS and fertility](/en/learn/pcos-and-fertility) covers the condition side in more depth. Nothing on this page is a way of finding out whether you have it — that is an assessment, and Femio does not make one.
+[PCOS and fertility](/en/learn/pcos-and-fertility) covers the condition side in more depth. Nothing on this page is a way of finding out whether you have it — that is an assessment, and femio does not make one.
 
 ## When cycles are absent rather than long
 
 Periods that have stopped, or that come only a few times a year, are a reason to be seen rather than a pattern to track harder. So are periods that were regular and became irregular, and any bleeding between periods or after sex.
 
-There are several possible reasons and they are distinguished by tests, not by symptoms. Waiting twelve months to raise it costs the twelve months.
+There are several possible reasons, and a clinician tells them apart with an assessment and tests, not from symptoms alone. Waiting twelve months to raise it costs the twelve months.
 
 ## When to stop waiting and ask
 
@@ -94,15 +94,15 @@ Bring your cycle record. [What a fertility assessment involves](/en/learn/fertil
 
 Ask for a referral rather than waiting to be offered one.
 
-## What Femio can and cannot do here
+## What femio can and cannot do here
 
 It can hold every bleed, symptom and log in one place, show you the range your cycles actually fall in, and hand a clinician real dates instead of a recollection.
 
-It cannot tell you when you ovulated, and it will not pretend to. There is no ovulation day in Femio's logic and there is not going to be one: reading a shift from a home measurement is a clinical inference, and the feature built on top of one is always "days you could avoid" — which is a line this product does not cross.
+It cannot tell you when you ovulated, and it will not pretend to. femio shows a range from your logged dates, never a single ovulation day, and it never marks days when pregnancy cannot happen.
 
 ## When to see a doctor
 
-Contact your doctor if your periods are irregular, absent, or have changed; if you have been trying for six months and cannot identify any pattern; or at twelve months of trying regardless. Ask sooner at any age if you have pelvic pain, bleeding between periods or after sex, or a known condition. Seek prompt advice for severe pelvic pain or heavy bleeding.
+Contact your doctor if your periods are irregular, absent, or have changed; or if you have been trying for twelve months, or six months if you are around 35 or older. Ask sooner at any age if you have pelvic pain, bleeding between periods or after sex, or a known condition. Seek prompt advice for severe pelvic pain or heavy bleeding.
 
 Say plainly how variable your cycles are and over how long. "Between 24 and 61 days across the last six months" is a sentence that changes an appointment.
 

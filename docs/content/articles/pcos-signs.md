@@ -12,7 +12,7 @@ secondary_topics:
   - "androgen signs"
   - "when to seek care for PCOS"
 excerpt: "Learn about common PCOS signs, why they vary, what details may help at an appointment, and when changes need medical care."
-meta_title: "Common Signs of PCOS and When to Seek Care | Femio"
+meta_title: "Common Signs of PCOS and When to Seek Care | femio"
 meta_description: "Learn about common PCOS signs, including cycle, skin, hair, and fertility changes, plus what to track and when to seek medical advice."
 canonical_url: "https://femioapp.com/en/learn/pcos-signs"
 robots_while_draft: "noindex,nofollow"
@@ -24,7 +24,7 @@ open_graph_image_alt: "Calendar and health notes showing several possible signs 
 written_by: "Dr. Khaled M."
 medically_reviewed_by: "Dr. Khaled M."
 date_published: "2026-08-15"
-date_modified: "2026-08-15"
+date_modified: "2026-11-24"
 last_reviewed: "2026-08-04"
 next_review_due: null
 reading_level_ok: true

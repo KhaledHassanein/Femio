@@ -9,20 +9,20 @@ primary_query: "24 weeks pregnant"
 secondary_topics:
   - "viability at 24 weeks"
   - "movement patterns from 24 weeks"
-excerpt: "Week 24 is the point from which a baby may survive with specialist care, and the week movement patterns start to matter clinically."
+excerpt: "Around week 24, a baby born early may survive with specialist care, and this is the week movement patterns start to matter clinically."
 meta_title: "24 Weeks Pregnant: Viability and Movement"
-meta_description: "From week 24 a baby may survive with neonatal care, and movement patterns start to matter. Why there is no correct number of kicks to count."
+meta_description: "Around week 24 a baby born early may survive with neonatal care, and movement patterns start to matter. Why there is no correct number of kicks to count."
 canonical_url: "https://femioapp.com/en/learn/pregnancy-week-24"
 robots_while_draft: "noindex,nofollow"
 robots_when_published: "index,follow,max-image-preview:large"
 open_graph_title: "Week 24 of Pregnancy"
-open_graph_description: "The viability threshold, and the week movement patterns start to matter."
+open_graph_description: "A reference point for survival with specialist care, and the week movement patterns start to matter."
 open_graph_image: "PENDING"
 open_graph_image_alt: "A hospital corridor with a neonatal unit sign"
 written_by: "PENDING"
 medically_reviewed_by: "Dr. Khaled M."
 date_published: "2026-08-19"
-date_modified: "2026-08-19"
+date_modified: "2026-11-24"
 last_reviewed: "2026-10-30"
 next_review_due: "2027-10-30"
 reading_level_ok: true
@@ -44,6 +44,7 @@ sources:
     url: "https://www.acog.org/womens-health/faqs/preterm-labor-and-birth"
     tier: "1"
 internal_links:
+  - "/en/help-now"
   - "/en/learn/pregnancy-week-23"
   - "/en/learn/pregnancy-week-25"
   - "/en/learn/pregnancy-warning-signs"
@@ -52,7 +53,7 @@ internal_links:
 
 # Week 24 of Pregnancy: What to Expect
 
-Week 24 is a threshold week. From around here a baby born early may survive with specialist neonatal care, which is why services treat this week as a line. It is also the week movement stops being a curiosity and starts being information.
+Week 24 is a threshold week. Babies born early may survive with specialist neonatal care, and the chances improve with each week of pregnancy. Services use around 24 weeks as a reference point, but survival depends on the individual baby. It is also the week movement stops being a curiosity and starts being information.
 
 ## Your body this week
 
@@ -86,9 +87,9 @@ Save your maternity unit's 24-hour number in your phone this week, under a name 
 
 ## When to see a doctor
 
-Contact your maternity service the same day for any reduction or change in movement. Call for regular tightenings, leaking fluid, low backache with pressure, bleeding, or a fever. [Pregnancy warning signs](/en/learn/pregnancy-warning-signs) has the full list.
+Contact your maternity service straight away for any reduction or change in movement. Call for regular tightenings, leaking fluid, low backache with pressure, bleeding, or a fever. [Pregnancy warning signs](/en/learn/pregnancy-warning-signs) has the full list.
 
-> **Seek care now:** Contact your local emergency services or go to your nearest emergency department if you have heavy bleeding, severe or one-sided tummy pain, a severe headache with vision changes, sudden swelling of the face or hands, a fever, fluid leaking from the vagina, chest pain, trouble breathing, fainting, or a seizure. Contact your maternity service the same day for any reduction in your baby's usual pattern of movement. Femio cannot assess a pregnancy.
+> **Seek care now:** Contact your local emergency services or go to your nearest emergency department if you have heavy bleeding, severe or one-sided tummy pain, a severe headache with vision changes, sudden swelling of the face or hands, a fever, fluid leaking from the vagina, chest pain, trouble breathing, fainting, a seizure, or thoughts of harming yourself or the baby ([help now](/en/help-now)). Contact your maternity service straight away if your baby's movements slow down, stop or change. femio cannot assess a pregnancy.
 
 ## Frequently asked questions
 

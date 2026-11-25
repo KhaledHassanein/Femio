@@ -22,7 +22,7 @@ open_graph_image_alt: "Un bol de houmous et des bâtonnets de carotte sur un pla
 written_by: "PENDING"
 medically_reviewed_by: "Dr. Khaled M."
 date_published: "2026-10-30"
-date_modified: "2026-10-30"
+date_modified: "2026-11-25"
 last_reviewed: "2026-10-30"
 next_review_due: "2027-10-30"
 reading_level_ok: false
@@ -48,6 +48,7 @@ internal_links:
   - "/fr/learn/pregnancy-week-10"
   - "/fr/learn/pregnancy-warning-signs"
   - "/fr/calculators/gestational-age"
+  - "/fr/help-now"
 ---
 
 # Semaine 9 de grossesse : à quoi s'attendre
@@ -56,7 +57,7 @@ La semaine 9 est, pour beaucoup de femmes, le point bas. Les taux d'hormones de 
 
 ## Votre corps cette semaine
 
-La gonadotrophine chorionique humaine (hCG) double environ tous les deux à trois jours, et le NHS situe son pic vers la semaine 9. Les œstrogènes et la progestérone sont également élevés, et ensemble ils augmentent l'apport sanguin à l'utérus.
+La gonadotrophine chorionique humaine (hCG) augmente fortement pendant les premières semaines, et le NHS situe son pic vers la semaine 9. Les œstrogènes et la progestérone sont également élevés, et ensemble ils augmentent l'apport sanguin à l'utérus.
 
 Les seins sont plus gros et la taille s'épaissit peut-être un peu, même si rien n'est encore visiblement celui d'une grossesse. Certaines femmes décrivent cette période comme des montagnes russes émotionnelles ; c'est une description, non un diagnostic, et le NHS la reprend car elle est très souvent rapportée.
 
@@ -88,7 +89,7 @@ Placez trois collations que vous pouvez manger sans cuisiner à un endroit où v
 
 Contactez une sage-femme ou votre médecin généraliste si vous ne parvenez pas à garder les liquides, si vous perdez du poids, si vous urinez très peu, ou si vous vous sentez près de vous évanouir en vous levant. Tout saignement doit être signalé. [Les signes d'alerte de la grossesse](/fr/learn/pregnancy-warning-signs) détaillent l'ensemble.
 
-> **Consultez sans attendre :** Contactez les services d'urgence locaux ou rendez-vous au service des urgences le plus proche en cas de saignement abondant, de douleur ventrale intense ou d'un seul côté, de douleur à la pointe de l'épaule, de maux de tête violents avec troubles de la vision, de gonflement soudain du visage ou des mains, de fièvre, de douleur thoracique, de difficultés respiratoires, d'évanouissement ou de crise convulsive. Femio ne peut pas évaluer une grossesse.
+> **Consultez sans attendre :** Contactez les services d'urgence locaux ou rendez-vous au service des urgences le plus proche en cas de saignement abondant, de douleur ventrale intense ou d'un seul côté, de douleur à la pointe de l'épaule, de maux de tête violents avec troubles de la vision, de gonflement soudain du visage ou des mains, de fièvre, de douleur thoracique, de difficultés respiratoires, d'évanouissement, de crise convulsive ou de pensées de vous faire du mal ou de faire du mal à votre bébé ([aide immédiate](/fr/help-now)). femio ne peut pas évaluer une grossesse.
 
 ## Questions fréquentes
 

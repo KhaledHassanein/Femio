@@ -9,7 +9,7 @@ primary_query: "11 semanas de embarazo"
 secondary_topics:
   - "ecografía de datación en la semana 11"
   - "cribado de translucencia nucal"
-excerpt: "La semana 11 suele abrir la ventana de la ecografía de datación y, con ella, las primeras decisiones de cribado del embarazo."
+excerpt: "La semana 11 es cuando la mayoría de las mujeres se hacen la ecografía de datación y, con ella, llegan las primeras decisiones de cribado del embarazo."
 meta_title: "11 semanas de embarazo: se abre la ecografía de datación"
 meta_description: "La ventana de la ecografía de datación se abre hacia la semana 11, con las primeras opciones de cribado. Qué mide la ecografía y qué significa un resultado."
 canonical_url: "https://femioapp.com/es/learn/pregnancy-week-11"
@@ -22,7 +22,7 @@ open_graph_image_alt: "Sala de ecografías con la pantalla orientada hacia una s
 written_by: "PENDING"
 medically_reviewed_by: "Dr. Khaled M."
 date_published: "2026-10-30"
-date_modified: "2026-10-30"
+date_modified: "2026-11-25"
 last_reviewed: "2026-10-30"
 next_review_due: "2027-10-30"
 reading_level_ok: false
@@ -48,11 +48,12 @@ internal_links:
   - "/es/learn/pregnancy-week-12"
   - "/es/learn/pregnancy-warning-signs"
   - "/es/calculators/gestational-age"
+  - "/es/help-now"
 ---
 
 # Semana 11 de embarazo: qué esperar
 
-La semana 11 suele abrir la ventana de la ecografía de datación y, con ella, las primeras decisiones de cribado que te ofrecen. Hay mucho papeleo asociado a una semana en la que todavía no se te nota el embarazo. Merece la pena leerlo antes de la cita y no en la sala de espera.
+La semana 11 es cuando la mayoría de las mujeres tiene la ecografía de datación y, con ella, las primeras decisiones de cribado que te ofrecen. Hay mucho papeleo asociado a una semana en la que todavía no se te nota el embarazo. Merece la pena leerlo antes de la cita y no en la sala de espera.
 
 ## Tu cuerpo esta semana
 
@@ -88,7 +89,7 @@ Antes de la ecografía, decide si quieres hacerte el cribado, y coméntalo con l
 
 Comunica cualquier sangrado, dolor intenso o de un solo lado, o un dolor en la barriga que sea más que una molestia. El mareo que va acompañado de dolor de cabeza o de alteraciones de la visión requiere atención hoy mismo. [Señales de alarma en el embarazo](/es/learn/pregnancy-warning-signs) recoge la lista.
 
-> **Busca atención ya:** Contacta con los servicios de emergencia de tu zona o acude al servicio de urgencias más cercano si tienes sangrado abundante, dolor intenso o de un solo lado en el abdomen, dolor en la punta del hombro, un dolor de cabeza intenso con alteraciones de la visión, hinchazón repentina de la cara o las manos, fiebre, dolor en el pecho, dificultad para respirar, desmayo o convulsión. Femio no puede valorar un embarazo.
+> **Busca atención ya:** Contacta con los servicios de emergencia de tu zona o acude al servicio de urgencias más cercano si tienes sangrado abundante, dolor intenso o de un solo lado en el abdomen, dolor en la punta del hombro, un dolor de cabeza intenso con alteraciones de la visión, hinchazón repentina de la cara o las manos, fiebre, dolor en el pecho, dificultad para respirar, desmayo, convulsión o pensamientos de hacerte daño a ti misma o a tu bebé ([ayuda ahora](/es/help-now)). femio no puede valorar un embarazo.
 
 ## Preguntas frecuentes
 

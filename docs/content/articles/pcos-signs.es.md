@@ -12,7 +12,7 @@ secondary_topics:
   - "signos de andrógenos"
   - "cuándo buscar atención por el SOP"
 excerpt: "Conoce los signos habituales del SOP, por qué varían, qué datos pueden ayudar en una cita y cuándo los cambios requieren atención médica."
-meta_title: "Signos habituales del SOP y cuándo buscar atención | Femio"
+meta_title: "Signos habituales del SOP y cuándo buscar atención | femio"
 meta_description: "Conoce los signos habituales del SOP, como los cambios en el ciclo, la piel, el vello y la fertilidad, qué registrar y cuándo consultar."
 canonical_url: "https://femioapp.com/es/learn/pcos-signs"
 robots_while_draft: "noindex,nofollow"
@@ -24,7 +24,7 @@ open_graph_image_alt: "Calendario y notas de salud que muestran varios posibles 
 written_by: "PENDING"
 medically_reviewed_by: "Dr. Khaled M."
 date_published: "2026-10-30"
-date_modified: "2026-10-30"
+date_modified: "2026-11-24"
 last_reviewed: "2026-10-30"
 next_review_due: "2027-10-30"
 reading_level_ok: false

@@ -12,7 +12,7 @@ secondary_topics:
   - "positive pregnancy test next steps"
   - "home pregnancy test accuracy"
 excerpt: "Learn when a home pregnancy test is most useful, why an early result may be negative, how to follow the instructions, and what to do next."
-meta_title: "When Should You Take a Pregnancy Test? | Femio"
+meta_title: "When Should You Take a Pregnancy Test? | femio"
 meta_description: "Learn when to use a home pregnancy test, why testing early may give a negative result, how to read results, and when to seek medical advice."
 canonical_url: "https://femioapp.com/en/learn/when-to-take-pregnancy-test"
 robots_while_draft: "noindex,nofollow"
@@ -24,7 +24,7 @@ open_graph_image_alt: "Home pregnancy test beside a calendar showing a missed pe
 written_by: "Dr. Khaled M."
 medically_reviewed_by: "Dr. Khaled M."
 date_published: "2026-08-05"
-date_modified: "2026-08-04"
+date_modified: "2026-11-24"
 last_reviewed: "2026-08-05"
 next_review_due: null
 reading_level_ok: true
@@ -68,7 +68,7 @@ Check the package because brands differ. In general, testing on or after the exp
 
 If cycles are irregular, the expected period may be hard to judge. Think about the date of sex that could lead to pregnancy and follow the test instructions or advice from a pharmacist or clinician.
 
-Femio's date estimates cannot know when ovulation or conception happened. Do not use an app's “late” label as proof of pregnancy.
+femio's date estimates cannot know when ovulation or conception happened. Do not use an app's “late” label as proof of pregnancy.
 
 ## Does the time of day matter?
 
@@ -82,7 +82,7 @@ A positive home result usually means pregnancy when the test was used and read c
 
 Review all medicines and supplements with a clinician or pharmacist. Do not stop prescribed medicine suddenly. Arrange care sooner if you have a long-term condition or a medicine that may need prompt review.
 
-Read [pregnancy basics](/en/learn/pregnancy-basics). Then learn what may happen at the [first pregnancy appointment](/en/learn/first-pregnancy-appointment). Femio's [due-date calculator](/en/calculators/due-date) gives an estimate, not a firm date.
+Read [pregnancy basics](/en/learn/pregnancy-basics). Then learn what may happen at the [first pregnancy appointment](/en/learn/first-pregnancy-appointment). femio's [due-date calculator](/en/calculators/due-date) gives an estimate, not a firm date.
 
 ## What does a negative result mean?
 
@@ -130,6 +130,6 @@ It may help when testing early. Follow your product's directions.
 
 Not always. Repeat the test after the advised interval if pregnancy is still possible.
 
-### Can Femio confirm pregnancy?
+### Can femio confirm pregnancy?
 
-No. Femio organises dates and estimates; it cannot confirm pregnancy.
+No. femio organises dates and estimates; it cannot confirm pregnancy.

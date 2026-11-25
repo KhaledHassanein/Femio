@@ -24,7 +24,7 @@ open_graph_image_alt: "Una mujer de unos treinta y tantos años mirando un calen
 written_by: "PENDING"
 medically_reviewed_by: "Dr. Khaled M."
 date_published: "2026-10-30"
-date_modified: "2026-10-30"
+date_modified: "2026-11-25"
 last_reviewed: "2026-10-30"
 next_review_due: "2027-10-30"
 reading_level_ok: false
@@ -78,15 +78,15 @@ Dos personas de la misma edad pueden estar en situaciones muy distintas, y nada 
 
 ## Lo que la página no hará
 
-No te dirá tus probabilidades. Femio no calcula la probabilidad personal de concebir, y ninguna aplicación honesta puede hacerlo con la información que maneja.
+No te dirá tus probabilidades. femio no calcula la probabilidad personal de concebir, y ninguna aplicación honesta puede hacerlo con la información que maneja.
 
-Una cifra asociada a *ti* sería una predicción sobre una persona hecha a partir de datos de grupo, la misma razón por la que Femio muestra una ventana y no una fecha para la menstruación, y se niega a emitir un veredicto con una lectura de temperatura hecha en casa. Lo que sí puede hacer es guardar tus ciclos y tus registros para que el profesional sanitario que te examine tenga información real y no solo recuerdos.
+Una cifra asociada a *ti* sería una predicción sobre una persona hecha a partir de datos de grupo, la misma razón por la que femio muestra una ventana y no una fecha para la menstruación, y se niega a emitir un veredicto con una lectura de temperatura hecha en casa. Lo que sí puede hacer es guardar tus ciclos y tus registros para que el profesional sanitario que te examine tenga información real y no solo recuerdos.
 
 ## Lo que realmente cambia con la edad: el momento de pedir ayuda
 
 Esta es la parte útil, y es concreta.
 
-[Las guías de fertilidad del NICE](https://www.nice.org.uk/guidance/cg156) y ACOG acortan el plazo alrededor de los 35 años: normalmente se ofrece una evaluación tras **seis meses** de intentarlo, en lugar de doce. Antes aún si tus menstruaciones son irregulares o no aparecen, si tienes una afección conocida que afecta a la pelvis, o si tu pareja tiene un problema conocido.
+ACOG acorta el plazo a partir de los 35 años aproximadamente: normalmente se ofrece una evaluación tras **seis meses** de intentarlo, en lugar de doce. [Las guías de fertilidad del NICE](https://www.nice.org.uk/guidance/cg156) también aconsejan una evaluación más temprana a las mujeres de más edad. Antes aún si tus menstruaciones son irregulares o no aparecen, si tienes una afección conocida que afecta a la pelvis, o si tu pareja tiene un problema conocido.
 
 Eso no es una fecha límite. Es el punto en el que averiguarlo resulta más útil que esperar, y [qué implica una evaluación de fertilidad](/es/learn/fertility-tests-what-to-expect) describe lo que ocurre a continuación.
 
@@ -106,9 +106,9 @@ El asesoramiento forma parte de la atención a la fertilidad en muchos servicios
 
 ## Cuándo consultar
 
-Contacta con tu médico tras doce meses de intentarlo, o **seis meses a partir de los 35 años**, y antes a cualquier edad si tus menstruaciones son irregulares o no aparecen, si tienes dolor pélvico, si has tenido una cirugía o una infección pélvica, o si tu pareja tiene un problema conocido. Pregunta por una cita preconcepcional antes de empezar si tienes una afección o tomas medicación de forma habitual.
+Contacta con tu médico tras doce meses de intentarlo, o **seis meses a partir de los 35 años**. Consulta antes a cualquier edad si tus menstruaciones son irregulares o no aparecen, si tienes dolor pélvico, si has tenido una cirugía o una infección pélvica, o si tu pareja tiene un problema conocido. Pregunta por una cita preconcepcional antes de empezar si tienes una afección o tomas medicación de forma habitual.
 
-Pide una derivación en lugar de esperar a que te la ofrezcan. El cómputo de las guías empieza desde que empezaste a intentarlo.
+Pide una derivación en lugar de esperar a que te la ofrezcan. El cómputo empieza desde que empezaste a intentarlo.
 
 ## Preguntas frecuentes
 
@@ -118,7 +118,7 @@ No. La disminución es gradual y se acentúa a lo largo de la segunda mitad de l
 
 ### ¿Una prueba puede decirme cuánto tiempo me queda?
 
-Ninguna prueba predice eso. Algunas pruebas describen aspectos de la reserva ovárica, y un profesional sanitario las interpreta junto con todo lo demás; ninguna es una cuenta atrás.
+Ninguna prueba predice eso. Algunas pruebas describen aspectos de la reserva ovárica (aproximadamente, cuántos óvulos quedan), y un profesional sanitario las interpreta junto con todo lo demás; ninguna es una cuenta atrás.
 
 ### Si tengo 38 años, ¿debería intentarlo durante un año antes de consultar?
 
@@ -128,6 +128,6 @@ Las guías generalmente sugieren seis meses a esa edad, y antes si hay un motivo
 
 Sí, de forma más gradual. Ambos miembros de la pareja se evalúan en cualquier estudio de fertilidad.
 
-### ¿Puede Femio estimar mis probabilidades?
+### ¿Puede femio estimar mis probabilidades?
 
 No. Guarda lo que tus ciclos han hecho realmente para que un profesional sanitario tenga información real, y no convierte estadísticas de grupo en una cifra sobre ti.

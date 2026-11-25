@@ -24,7 +24,7 @@ open_graph_image_alt: "Un nouveau-né tète pendant que sa mère est assise, sou
 written_by: "PENDING"
 medically_reviewed_by: "Dr. Khaled M."
 date_published: "2026-10-30"
-date_modified: "2026-10-30"
+date_modified: "2026-11-25"
 last_reviewed: "2026-10-30"
 next_review_due: "2027-10-30"
 reading_level_ok: false
@@ -96,7 +96,7 @@ Après une tétée, le mamelon doit avoir une forme ronde, et non aplatie, pliss
 
 ## Mamelons douloureux
 
-Une certaine sensibilité pendant les premiers jours est courante. Des mamelons fissurés, qui saignent ou sont très douloureux, relèvent d’un problème de prise du sein ; c’est la raison pour laquelle beaucoup de personnes arrêtent d’allaiter plus tôt qu’elles ne l’auraient souhaité.
+Une certaine sensibilité pendant les premiers jours est courante. Des mamelons fissurés, qui saignent ou sont très douloureux, sont souvent dus à un problème de prise du sein ; c’est une raison fréquente pour laquelle des personnes arrêtent d’allaiter plus tôt qu’elles ne l’auraient souhaité.
 
 Demandez qu’une tétée soit observée par une personne qualifiée : sage-femme, puéricultrice, spécialiste de l’allaitement ou pair-aidant. Les [recommandations postnatales du NICE](https://www.nice.org.uk/guidance/ng194) prévoient que l’accompagnement à l’allaitement soit disponible, et non qu’il faille le réclamer.
 
@@ -116,7 +116,7 @@ Aménagez un coin avec des coussins, une boisson et un chargeur. Vous y passerez
 - Le bébé ne parvient pas à se fixer, ou s’endort à chaque tétée sans téter.
 - Les couches sont moins nombreuses que prévu, ou le bébé est très somnolent et difficile à réveiller.
 - Un sein est rouge, chaud et douloureux, ou vous avez de la fièvre.
-- Le bébé n’a pas retrouvé son poids de naissance vers deux semaines environ.
+- Le bébé n’a pas retrouvé son poids de naissance au moment où votre sage-femme ou votre puéricultrice l’attendait.
 
 Un sein rouge, chaud et douloureux accompagné de fièvre nécessite un avis le jour même ; les [signes d’alerte du post-partum](/fr/learn/postpartum-warning-signs) donnent la liste complète.
 

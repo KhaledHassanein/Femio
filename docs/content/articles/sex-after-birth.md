@@ -24,7 +24,7 @@ open_graph_image_alt: "A couple sitting together at home with a baby asleep near
 written_by: "PENDING"
 medically_reviewed_by: "Dr. Khaled M."
 date_published: "2026-08-19"
-date_modified: "2026-08-19"
+date_modified: "2026-11-24"
 last_reviewed: "2026-10-30"
 next_review_due: "2027-10-30"
 reading_level_ok: true
@@ -55,19 +55,19 @@ internal_links:
 
 # Sex After Birth: What to Expect
 
-There is no fixed date when sex after birth becomes allowed. Most guidance suggests waiting until bleeding has stopped and any stitches or wounds have healed, and beyond that it is about whether you want to and whether it is comfortable. Dryness, tightness and scar pain are extremely common at first, and there are things that help. This is health information for planning, not a substitute for advice from your own clinician.
+There is no fixed date when sex after birth becomes allowed. Many clinicians suggest waiting until bleeding has stopped and any stitches or wounds have healed, and beyond that it is about whether you want to and whether it is comfortable. Dryness, tightness and scar pain are extremely common at first, and there are things that help. This is health information for planning, not a substitute for advice from your own clinician.
 
 ## The six-week rule is not a rule
 
 Six weeks is the usual figure because it lines up with the postnatal check, not because something changes on that day. Some people feel ready earlier and many feel ready much later.
 
-Waiting until bleeding has stopped and wounds have healed lowers the chance of infection and discomfort. Beyond that, readiness is yours to judge — including emotionally.
+Waiting until bleeding has stopped and wounds have healed may lower the chance of infection and discomfort. Beyond that, readiness is yours to judge — including emotionally.
 
 Pregnancy is possible before your first period, so the contraception conversation comes before the sex one. See [contraception after birth](/en/learn/contraception-after-birth).
 
 ## Why it often hurts at first
 
-**Dryness.** Oestrogen is low after birth, and lower still while breastfeeding, which makes the vaginal tissue thinner and drier. This is the single most common cause of pain, and it is temporary.
+**Dryness.** Oestrogen is low after birth, and lower still while breastfeeding, which makes the vaginal tissue thinner and drier. This is a very common cause of pain, and it usually improves with time.
 
 **Scar tissue.** A perineal tear, an episiotomy, or a caesarean scar can feel tight or tender for months. See [wound healing after birth](/en/learn/postpartum-wound-healing).
 
@@ -123,7 +123,7 @@ Seek urgent care for heavy bleeding, severe pain, or a wound that seems to have 
 
 ### How long should I wait before sex after birth?
 
-Most guidance suggests waiting until bleeding has stopped and any wounds have healed. After that, it depends on comfort and on whether you want to.
+Many clinicians suggest waiting until bleeding has stopped and any wounds have healed. After that, it depends on comfort and on whether you want to.
 
 ### Why is it so dry?
 

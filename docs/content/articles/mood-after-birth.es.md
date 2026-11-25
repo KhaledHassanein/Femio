@@ -24,7 +24,7 @@ open_graph_image_alt: "Una mujer sentada en silencio junto a una ventana, con su
 written_by: "PENDING"
 medically_reviewed_by: "Dr. Khaled M."
 date_published: "2026-10-30"
-date_modified: "2026-10-30"
+date_modified: "2026-11-25"
 last_reviewed: "2026-10-30"
 next_review_due: "2027-10-30"
 reading_level_ok: false
@@ -85,7 +85,7 @@ Dos semanas es el criterio habitual. No tienes que esperar dos semanas para pedi
 
 ## Ansiedad después del parto
 
-La ansiedad es al menos tan frecuente como el bajo estado de ánimo, y se habla de ella menos. Puede parecer una preocupación constante por la respiración del bebé, comprobaciones repetidas durante la noche, taquicardia, opresión en el pecho, náuseas o no poder dejar que nadie más sostenga al bebé.
+La ansiedad es frecuente después del parto, y se habla de ella menos. Puede parecer una preocupación constante por la respiración del bebé, comprobaciones repetidas durante la noche, taquicardia, opresión en el pecho, náuseas o no poder dejar que nadie más sostenga al bebé.
 
 Los ataques de pánico pueden aparecer por primera vez después del parto. También pueden aparecer comprobaciones obsesivas o contar de forma obsesiva.
 
@@ -123,7 +123,7 @@ Cuéntaselo a tu matrona, a tu enfermera de familia, a tu médico o al servicio 
 
 El apoyo va desde la ayuda práctica y las terapias de conversación hasta los medicamentos, y hay opciones compatibles con la lactancia. Pregunta específicamente por ello si te importa.
 
-[El sueño y el agotamiento después del parto](/es/learn/sleep-and-exhaustion-after-birth) trata la parte de esto que es realmente sueño, y [tu revisión de las seis semanas](/es/learn/six-week-postnatal-check) es un momento garantizado para plantear el estado de ánimo.
+[El sueño y el agotamiento después del parto](/es/learn/sleep-and-exhaustion-after-birth) trata la parte de esto que es realmente sueño, y [tu revisión de las seis semanas](/es/learn/six-week-postnatal-check) es un buen momento para plantear el estado de ánimo.
 
 ## Lo que femio puede registrar
 
@@ -135,7 +135,7 @@ femio no diagnostica nada y no puede decirte qué tienes. Lo que sí puede hacer
 
 Contacta con un clínico si el bajo estado de ánimo, la ansiedad o el embotamiento duran más de dos semanas, si no puedes funcionar, si te sientes desconectada de tu bebé o si la ansiedad marca tus días. Pide ayuda antes si lo deseas. Busca atención urgente si tienes pensamientos de hacerte daño a ti misma o al bebé, si sientes que no puedes mantenerte a salvo, si estás confundida o agitada, o si ves u oyes cosas que otras personas no ven ni oyen.
 
-No estás exagerando, y no te quitarán a tu bebé por decir que lo estás pasando mal. Preguntar por el estado de ánimo es rutina después del parto.
+No estás exagerando. Pedir ayuda no es señal de que estés fallando como madre o padre. Preguntar por el estado de ánimo es rutina después del parto.
 
 > **Busca atención ya:** Si tienes pensamientos de hacerte daño a ti misma o a tu bebé, sientes que no puedes mantenerte a salvo, o estás confundida, agitada, o ves u oyes cosas que otras personas no ven ni oyen, contacta con los servicios de emergencia de tu zona o acude al servicio de urgencias más cercano. La página de ayuda global de femio, [Pedir ayuda ahora](/es/help-now), puede ayudarte a encontrar el siguiente paso seguro. Quédate con alguien de confianza mientras se organiza la ayuda.
 

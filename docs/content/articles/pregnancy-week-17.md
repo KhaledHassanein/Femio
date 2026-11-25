@@ -22,7 +22,7 @@ open_graph_image_alt: "A woman resting a hand on her lower abdomen"
 written_by: "PENDING"
 medically_reviewed_by: "Dr. Khaled M."
 date_published: "2026-08-19"
-date_modified: "2026-08-19"
+date_modified: "2026-11-24"
 last_reviewed: "2026-10-30"
 next_review_due: "2027-10-30"
 reading_level_ok: true
@@ -44,6 +44,7 @@ sources:
     url: "https://www.rcog.org.uk/for-the-public/browse-our-patient-information/your-babys-movements-in-pregnancy/"
     tier: "1"
 internal_links:
+  - "/en/help-now"
   - "/en/learn/pregnancy-week-16"
   - "/en/learn/pregnancy-week-18"
   - "/en/learn/pregnancy-warning-signs"
@@ -88,7 +89,7 @@ Do not start counting movements yet — instead, notice when you feel them. Earl
 
 Report bleeding, severe pain, a fever, or a headache with vision changes. If movements have started and then clearly change or reduce, contact your maternity service — not an app, and not a chart. [Pregnancy warning signs](/en/learn/pregnancy-warning-signs) covers the rest.
 
-> **Seek care now:** Contact your local emergency services or go to your nearest emergency department if you have heavy bleeding, severe or one-sided tummy pain, a severe headache with vision changes, sudden swelling of the face or hands, a fever, fluid leaking from the vagina, chest pain, trouble breathing, fainting, or a seizure. Femio cannot assess a pregnancy.
+> **Seek care now:** Contact your local emergency services or go to your nearest emergency department if you have heavy bleeding, severe or one-sided tummy pain, a severe headache with vision changes, sudden swelling of the face or hands, a fever, fluid leaking from the vagina, chest pain, trouble breathing, fainting, a seizure, or thoughts of harming yourself or the baby ([help now](/en/help-now)). femio cannot assess a pregnancy.
 
 ## Frequently asked questions
 

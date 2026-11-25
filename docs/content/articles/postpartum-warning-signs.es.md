@@ -12,7 +12,7 @@ secondary_topics:
   - "signos de coágulos sanguíneos después del parto"
   - "cuándo llamar a los servicios de maternidad después del parto"
 excerpt: "Los síntomas que requieren atención urgente en las semanas posteriores al parto, por qué se pasan por alto las señales tardías y qué decir exactamente al llamar."
-meta_title: "Señales de alarma posparto: cuándo es urgente | Femio"
+meta_title: "Señales de alarma posparto: cuándo es urgente | femio"
 meta_description: "Síntomas posparto que requieren atención urgente: sangrado abundante, dolor de pecho, dolor de cabeza intenso, fiebre, dolor de pantorrilla y autolesión."
 canonical_url: "https://femioapp.com/es/learn/postpartum-warning-signs"
 robots_while_draft: "noindex,nofollow"
@@ -24,7 +24,7 @@ open_graph_image_alt: "Una madre recién parida llamando a un servicio de matern
 written_by: "PENDING"
 medically_reviewed_by: "Dr. Khaled M."
 date_published: "2026-10-30"
-date_modified: "2026-10-30"
+date_modified: "2026-11-24"
 last_reviewed: "2026-10-30"
 next_review_due: "2027-10-30"
 reading_level_ok: false
@@ -116,7 +116,7 @@ Una lectura en casa que parece normal no anula los síntomas graves. [La guía p
 
 Los pensamientos de hacerte daño a ti o al bebé, oír o ver cosas que otros no perciben, o sentirte confundida, agitada o incapaz de dormir en absoluto pueden ser una emergencia de salud mental después del parto. Esto necesita atención hoy, no en la próxima cita.
 
-La [página de ayuda global de Femio](/es/help-now) puede ayudarte a encontrar el siguiente paso seguro. Si podrías actuar sobre estos pensamientos ya, llama a los servicios de emergencia locales o ve al servicio de urgencias más cercano, y quédate con alguien de confianza mientras se organiza la ayuda.
+La [página de ayuda global de femio](/es/help-now) puede ayudarte a encontrar el siguiente paso seguro. Si podrías actuar sobre estos pensamientos ya, llama a los servicios de emergencia locales o ve al servicio de urgencias más cercano, y quédate con alguien de confianza mientras se organiza la ayuda.
 
 [Tu estado de ánimo después del parto](/es/learn/mood-after-birth) abarca el panorama completo, incluida la diferencia entre las primeras semanas habituales y algo que necesita tratamiento.
 
@@ -132,7 +132,7 @@ Busca atención urgente ante cualquiera de las señales de emergencia anteriores
 
 Equivocarse con un síntoma cuesta una cita. Esperar ante uno grave cuesta mucho más. Consulta [las primeras seis semanas después del parto](/es/learn/postpartum-recovery-first-six-weeks) para la versión habitual de la recuperación.
 
-> **Busca atención ya:** Llama a los servicios de emergencia locales o ve al servicio de urgencias más cercano si tienes sangrado abundante, dolor de pecho, dificultad para respirar, desmayo, convulsiones, un dolor de cabeza intenso con alteraciones de la visión, dolor intenso en una pierna o hinchazón de una pierna, o pensamientos de hacerte daño a ti o al bebé. Femio no puede valorar una emergencia.
+> **Busca atención ya:** Llama a los servicios de emergencia locales o ve al servicio de urgencias más cercano si tienes sangrado abundante, dolor de pecho, dificultad para respirar, desmayo, convulsiones, un dolor de cabeza intenso con alteraciones de la visión, dolor intenso en una pierna o hinchazón de una pierna, o pensamientos de hacerte daño a ti o al bebé. femio no puede valorar una emergencia.
 
 ## Preguntas frecuentes
 

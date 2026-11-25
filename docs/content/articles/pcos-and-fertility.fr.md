@@ -12,7 +12,7 @@ secondary_topics:
   - "bilan de fertilité pour le SOPK"
   - "quand demander de l’aide pour la fertilité"
 excerpt: "Découvrez comment le SOPK peut affecter l’ovulation et la fertilité, ce qu’il faut suivre pendant les essais de conception, et quand un bilan clinique de la fertilité peut être utile."
-meta_title: "SOPK et fertilité : ovulation et soutien | Femio"
+meta_title: "SOPK et fertilité : ovulation et soutien | femio"
 meta_description: "Comment le SOPK peut affecter l’ovulation et la fertilité, ce qu’il faut suivre en essayant de concevoir, et quand demander un accompagnement."
 canonical_url: "https://femioapp.com/fr/learn/pcos-and-fertility"
 robots_while_draft: "noindex,nofollow"
@@ -24,7 +24,7 @@ open_graph_image_alt: "Une personne consultant un calendrier de cycle en prépar
 written_by: "PENDING"
 medically_reviewed_by: "Dr. Khaled M."
 date_published: "2026-10-30"
-date_modified: "2026-10-30"
+date_modified: "2026-11-24"
 last_reviewed: "2026-10-30"
 next_review_due: "2027-10-30"
 reading_level_ok: false

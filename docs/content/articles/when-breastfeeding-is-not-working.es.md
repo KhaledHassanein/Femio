@@ -12,7 +12,7 @@ secondary_topics:
   - "alimentación combinada"
   - "dejar la lactancia"
 excerpt: "Qué hacer cuando la toma duele, la producción parece baja o quieres dejarlo: qué ayuda existe, cómo es la mastitis y cómo cambiar la forma de alimentar."
-meta_title: "Cuando la lactancia materna no funciona: qué hacer | Femio"
+meta_title: "Cuando la lactancia materna no funciona: qué hacer | femio"
 meta_description: "Dolor, producción baja, mastitis, alimentación mixta y dejar la lactancia: ayuda práctica cuando la lactancia no funciona, y cómo decidir sin culpa."
 canonical_url: "https://femioapp.com/es/learn/when-breastfeeding-is-not-working"
 robots_while_draft: "noindex,nofollow"
@@ -24,7 +24,7 @@ open_graph_image_alt: "Una mujer sosteniendo un biberón y a su bebé, con gesto
 written_by: "PENDING"
 medically_reviewed_by: "Dr. Khaled M."
 date_published: "2026-10-30"
-date_modified: "2026-10-30"
+date_modified: "2026-11-25"
 last_reviewed: "2026-10-30"
 next_review_due: "2027-10-30"
 reading_level_ok: false
@@ -58,7 +58,7 @@ Si la toma duele, si te preocupa la producción de leche o si ya has tenido bast
 
 ## Primero: que observen una toma
 
-Casi todos los problemas tempranos de alimentación se valoran observando una toma completa. Es el paso que vale la pena reclamar.
+Casi todos los problemas tempranos de alimentación se valoran mejor observando una toma completa. Es el paso que vale la pena reclamar.
 
 Pídelo a tu matrona, a tu enfermera de salud infantil, a un especialista en alimentación infantil, a una consultora de lactancia o a un servicio de apoyo entre iguales. [La guía postnatal del NICE](https://www.nice.org.uk/guidance/ng194) espera que el apoyo a la alimentación se ofrezca como parte de la atención posparto.
 
@@ -66,7 +66,7 @@ Lleva datos concretos: qué duele, cuándo, cómo queda el pezón después, cuá
 
 ## Dolor
 
-El dolor durante toda la toma suele indicar que hay que ajustar el agarre, y la forma del pezón después de una toma lo delata. Si queda aplanado, arrugado o en forma de cuña, significa que el bebé no está tomando suficiente tejido mamario.
+El dolor durante toda la toma suele indicar que hay que ajustar el agarre, y la forma del pezón después de una toma lo delata. Si queda aplanado, arrugado o en forma de cuña, puede significar que el bebé no está tomando suficiente tejido mamario.
 
 Existen otras causas que hay que observar en lugar de adivinar: piel dañada, candidiasis, vasoespasmo o el movimiento de la lengua del bebé. El dolor punzante y profundo tras las tomas, o pezones que se vuelven blancos y luego duelen, merece describirse con exactitud.
 
@@ -74,7 +74,7 @@ No aguantes pezones agrietados o sangrantes durante semanas. Eso no es compromis
 
 ## Preocupaciones sobre la producción de leche
 
-La mayoría de las personas preocupadas por la producción tienen suficiente leche. Las medidas que tranquilizan son los pañales, el color de las deposiciones y el aumento de peso, no lo lleno que se siente el pecho ni cuánto saca un sacaleches. Un sacaleches no es una medida de la producción.
+Muchas personas preocupadas por la producción tienen suficiente leche. Las medidas que tranquilizan son los pañales, el color de las deposiciones y el aumento de peso, no lo lleno que se siente el pecho ni cuánto saca un sacaleches. Un sacaleches no es una medida de la producción.
 
 La producción realmente baja también existe. Puede seguir a partos difíciles, a una pérdida importante de sangre, a problemas de tiroides, a algunos medicamentos, a la retención de la placenta o a una cirugía de mama, y merece una valoración en lugar de más esfuerzo.
 
@@ -104,7 +104,7 @@ Dejar la lactancia es una decisión legítima, y el motivo no tiene por qué ser
 
 **Espera un bajón de ánimo.** Algunas personas se sienten decaídas unos días cuando termina la lactancia, y saber que puede pasar lo hace más fácil. Si el ánimo bajo persiste, lee [tu estado de ánimo después del parto](/es/learn/mood-after-birth).
 
-**Espera que cambie tu ciclo.** Las menstruaciones suelen volver en semanas tras reducir las tomas. Consulta [cuándo vuelven las menstruaciones](/es/learn/periods-after-birth).
+**Espera que cambie tu ciclo.** Las menstruaciones pueden volver antes al reducir las tomas. Consulta [cuándo vuelven las menstruaciones](/es/learn/periods-after-birth).
 
 ## La culpa, y a quién pertenece
 
@@ -120,7 +120,7 @@ Contacta con tu matrona, tu enfermera de salud infantil o tu médico por dolor d
 
 Pide atención urgente sobre tu bebé si está flácido, cuesta despertarlo, respira rápido o con esfuerzo, tiene fiebre o rechaza las tomas.
 
-> **Busca atención ya:** Pide atención urgente si tienes fiebre alta con un pecho rojo, caliente y doloroso y te sientes muy mal, un absceso mamario o una zona roja que se extiende, o si tu bebé está flácido, cuesta despertarlo, respira con dificultad o rechaza las tomas. Femio no puede evaluar un pecho ni a un bebé.
+> **Busca atención ya:** Pide atención urgente si tienes fiebre alta con un pecho rojo, caliente y doloroso y te sientes muy mal, un absceso mamario o una zona roja que se extiende, o si tu bebé está flácido, cuesta despertarlo, respira con dificultad o rechaza las tomas. femio no puede evaluar un pecho ni a un bebé.
 
 ## Preguntas frecuentes
 
@@ -142,4 +142,4 @@ De forma gradual, quitando una toma cada pocos días siempre que sea posible, pa
 
 ### ¿Dejar la lactancia hará que vuelvan las menstruaciones?
 
-A menudo, en semanas tras reducir las tomas. Los ciclos suelen ser irregulares al principio.
+Puede ocurrir, a veces en semanas tras reducir las tomas. Los ciclos suelen ser irregulares al principio.

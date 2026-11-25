@@ -3,6 +3,9 @@ All notable changes to Femio V2.
 
 ## [Unreleased]
 ### Changed
+- **Clearer, safer wording across the guides and the app, in four languages.** The 37 week-by-week pregnancy guides now list thoughts of harming yourself or the baby as an emergency sign and say to call straight away (not the same day) if the baby's movements slow down, stop or change. After birth, soaking a pad in an hour or an egg-sized clot is marked as emergency care. Unsourced numbers are hedged rather than stated, and the wordmark is written "femio" everywhere.
+- **"Meet femio" describes the app as it is**: a private Android app with no account, records kept on your phone, a PIN lock and your own backup file. The old page still described a web app with accounts and sync.
+- **The guide on fasting in Ramadan during pregnancy is withdrawn** in all four languages; its address now opens the pregnancy basics guide.
 - **Ask femio answers far more questions.** Its library of trusted sources grew from 89 to 286 entries: more passages from the US Office on Women's Health, CDC and NIH on trying to conceive, each stage of pregnancy, breastfeeding and the months after birth, periods, menopause and everyday health, plus NHS reading and Saudi Ministry of Health pages in Arabic. It also understands more ways of asking, in all four languages. More birth-control phrasings in Egyptian Arabic, French and Spanish now get the fixed answer.
 - **"Do I have…?" questions get an honest first line.** When you ask Ask femio whether you have a condition, it first says that only a doctor can tell, then shows what trusted sources say about it.
 - **Fewer false alarms in Arabic.** Asking about a negative blood type in pregnancy, or how long bleeding lasts after birth, no longer opens a warning card; heavy bleeding, soaking a pad every hour and every other warning sign still do.

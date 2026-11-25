@@ -12,7 +12,7 @@ secondary_topics:
   - "changements des règles pendant la périménopause"
   - "résumé à présenter lors d’un rendez-vous pour la périménopause"
 excerpt: "Apprenez à suivre les changements de règles, les bouffées de chaleur, le sommeil, l’humeur et l’impact au quotidien pendant la périménopause, sans prendre les estimations d’une application pour des conclusions médicales."
-meta_title: "Comment suivre les symptômes de la périménopause | Femio"
+meta_title: "Comment suivre les symptômes de la périménopause | femio"
 meta_description: "Suivre règles, bouffées de chaleur, sommeil et humeur pendant la périménopause, préparer un résumé utile et savoir quand consulter."
 canonical_url: "https://femioapp.com/fr/learn/track-perimenopause-symptoms"
 robots_while_draft: "noindex,nofollow"
@@ -24,7 +24,7 @@ open_graph_image_alt: "Journal des symptômes de la périménopause avec notes s
 written_by: "PENDING"
 medically_reviewed_by: "Dr. Khaled M."
 date_published: "2026-10-30"
-date_modified: "2026-10-30"
+date_modified: "2026-11-25"
 last_reviewed: "2026-10-30"
 next_review_due: "2027-10-30"
 reading_level_ok: false
@@ -122,9 +122,9 @@ Conservez le relevé complet, mais rédigez un résumé d’une page comprenant 
 
 [Les recommandations du NICE sur la ménopause](https://www.nice.org.uk/guidance/ng23/chapter/Recommendations) indiquent que les soins doivent être adaptés à la personne et ajustés à mesure que les symptômes évoluent. Votre résumé doit montrer ce qui compte pour vous, et pas seulement une liste de scores.
 
-## Comment les estimations de Femio peuvent-elles changer ?
+## Comment les estimations de femio peuvent-elles changer ?
 
-Les estimations de cycle deviennent moins certaines lorsque les règles varient. Femio doit afficher une fourchette plutôt que d’affirmer une date future exacte. Une étiquette « en retard » ne peut pas expliquer pourquoi les règles ne sont pas arrivées.
+Les estimations de cycle deviennent moins certaines lorsque les règles varient. femio affiche une fourchette plutôt que d’affirmer une date future exacte. Une étiquette « en retard » ne peut pas expliquer pourquoi les règles ne sont pas arrivées.
 
 Une grossesse reste possible pendant la périménopause. Un calendrier ne peut pas confirmer si une ovulation a eu lieu.
 

@@ -10,8 +10,8 @@ secondary_topics:
   - "ecografía de las 12 semanas"
   - "final del primer trimestre"
 excerpt: "La semana 12 cierra el primer trimestre para la mayoría de las mujeres, y es la semana en que suelen llegar juntas la ecografía y la pregunta de a quién contárselo."
-meta_title: "12 semanas de embarazo: la ecografía y el anuncio | Femio"
-meta_description: "La semana 12 suele traer la ecografía y la pregunta de a quién contárselo. Qué significa la placenta para los síntomas y por qué la barriga no indica nada."
+meta_title: "12 semanas de embarazo: la ecografía y el anuncio | femio"
+meta_description: "La semana 12 suele traer la ecografía y la duda de a quién contarlo. Por qué las náuseas suelen aliviarse y por qué el tamaño de la tripa no prueba nada."
 canonical_url: "https://femioapp.com/es/learn/pregnancy-week-12"
 robots_while_draft: "noindex,nofollow"
 robots_when_published: "index,follow,max-image-preview:large"
@@ -22,7 +22,7 @@ open_graph_image_alt: "Dos personas mirando juntas una foto de ecografía"
 written_by: "PENDING"
 medically_reviewed_by: "Dr. Khaled M."
 date_published: "2026-10-30"
-date_modified: "2026-10-30"
+date_modified: "2026-11-25"
 last_reviewed: "2026-10-30"
 next_review_due: "2027-10-30"
 reading_level_ok: false
@@ -49,6 +49,7 @@ internal_links:
   - "/es/learn/pregnancy-basics"
   - "/es/learn/pregnancy-warning-signs"
   - "/es/calculators/gestational-age"
+  - "/es/help-now"
 ---
 
 # Semana 12 de embarazo: qué esperar
@@ -57,7 +58,7 @@ La semana 12 cierra el primer trimestre para la mayoría de las mujeres, y suele
 
 ## Tu cuerpo esta semana
 
-Es probable que la placenta ya esté nutriendo el embarazo, después de haber tomado el relevo del saco vitelino, y los niveles hormonales se estabilizan en cierta medida una vez que eso ocurre. Esa es la razón por la que las náuseas suelen aliviarse en las semanas siguientes.
+Es probable que la placenta ya esté nutriendo el embarazo, después de haber tomado el relevo del saco vitelino, y los niveles hormonales se estabilizan en cierta medida una vez que eso ocurre. Las náuseas suelen aliviarse en las semanas siguientes, aunque la razón exacta no es segura.
 
 La cintura se va engrosando y los senos están más grandes. A medida que las náuseas desaparecen, el apetito suele volver, y con él la preocupación por si comes lo suficiente o demasiado.
 
@@ -89,7 +90,7 @@ Pide una fotografía impresa de la ecografía y pregunta cuáles fueron las medi
 
 Cualquier sangrado, dolor intenso, fiebre o dolor de cabeza con alteraciones de la visión requiere contacto el mismo día. [Lo básico del embarazo](/es/learn/pregnancy-basics) explica la forma de todo el embarazo, y [señales de alarma en el embarazo](/es/learn/pregnancy-warning-signs) explica lo que no conviene esperar.
 
-> **Busca atención ya:** Contacta con los servicios de emergencia de tu zona o acude al servicio de urgencias más cercano si tienes sangrado abundante, dolor abdominal intenso o de un solo lado, dolor en la punta del hombro, dolor de cabeza fuerte con alteraciones de la visión, hinchazón repentina de la cara o las manos, fiebre, dolor en el pecho, dificultad para respirar, desmayo o convulsión. Femio no puede evaluar un embarazo.
+> **Busca atención ya:** Contacta con los servicios de emergencia de tu zona o acude al servicio de urgencias más cercano si tienes sangrado abundante, dolor abdominal intenso o de un solo lado, dolor en la punta del hombro, dolor de cabeza fuerte con alteraciones de la visión, hinchazón repentina de la cara o las manos, fiebre, dolor en el pecho, dificultad para respirar, desmayo, convulsión o pensamientos de hacerte daño a ti misma o a tu bebé ([ayuda ahora](/es/help-now)). femio no puede evaluar un embarazo.
 
 ## Preguntas frecuentes
 

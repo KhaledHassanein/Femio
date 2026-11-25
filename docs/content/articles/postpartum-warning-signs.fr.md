@@ -24,7 +24,7 @@ open_graph_image_alt: "Une jeune mère appelant un service de maternité au suje
 written_by: "PENDING"
 medically_reviewed_by: "Dr. Khaled M."
 date_published: "2026-10-30"
-date_modified: "2026-10-30"
+date_modified: "2026-11-24"
 last_reviewed: "2026-10-30"
 next_review_due: "2027-10-30"
 reading_level_ok: false
@@ -116,7 +116,7 @@ Une mesure à domicile normale n'annule pas des symptômes graves. [Les recomman
 
 Des pensées de vous faire du mal ou de faire du mal à votre bébé, le fait d'entendre ou de voir des choses que les autres ne perçoivent pas, un état de confusion, d'agitation, ou une insomnie totale peuvent constituer une urgence de santé mentale après l'accouchement. Cela nécessite des soins aujourd'hui, et non au prochain rendez-vous.
 
-La page internationale [Besoin d'aide maintenant](/fr/help-now) de Femio peut vous aider à trouver la prochaine étape sûre. Si vous risquez d'agir dès maintenant, contactez les services d'urgence de votre région ou rendez-vous au service des urgences le plus proche, et restez avec une personne de confiance pendant que l'aide est organisée.
+La page internationale [Besoin d'aide maintenant](/fr/help-now) de femio peut vous aider à trouver la prochaine étape sûre. Si vous risquez d'agir dès maintenant, contactez les services d'urgence de votre région ou rendez-vous au service des urgences le plus proche, et restez avec une personne de confiance pendant que l'aide est organisée.
 
 [Votre humeur après l'accouchement](/fr/learn/mood-after-birth) présente le tableau d'ensemble, y compris la différence entre les premières semaines courantes et une situation qui nécessite un traitement.
 
@@ -132,7 +132,7 @@ Consultez en urgence pour l'un des signes d'urgence ci-dessus. Demandez un avis 
 
 Se tromper au sujet d'un symptôme coûte un rendez-vous. Attendre pour un symptôme grave coûte beaucoup plus. Voir [les six premières semaines après l'accouchement](/fr/learn/postpartum-recovery-first-six-weeks) pour la version ordinaire de la récupération.
 
-> **Consultez sans attendre :** Contactez les services d'urgence de votre région ou rendez-vous au service des urgences le plus proche pour un saignement abondant, une douleur thoracique, des difficultés à respirer, un malaise, une crise convulsive, un mal de tête intense avec troubles de la vision, une douleur ou un gonflement intense d'une seule jambe, ou des pensées de vous faire du mal ou de faire du mal à votre bébé. Femio ne peut pas évaluer une urgence.
+> **Consultez sans attendre :** Contactez les services d'urgence de votre région ou rendez-vous au service des urgences le plus proche pour un saignement abondant, une douleur thoracique, des difficultés à respirer, un malaise, une crise convulsive, un mal de tête intense avec troubles de la vision, une douleur ou un gonflement intense d'une seule jambe, ou des pensées de vous faire du mal ou de faire du mal à votre bébé. femio ne peut pas évaluer une urgence.
 
 ## Questions fréquentes
 

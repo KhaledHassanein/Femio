@@ -12,7 +12,7 @@ secondary_topics:
   - "nausea in early pregnancy"
   - "early pregnancy warning signs"
 excerpt: "Learn about common early pregnancy changes, why symptoms differ, how pregnancy is confirmed, and which pain, bleeding, or sickness needs care."
-meta_title: "Common Early Pregnancy Changes | Femio"
+meta_title: "Common Early Pregnancy Changes | femio"
 meta_description: "Learn about missed periods, nausea, tiredness, breast and bladder changes in early pregnancy, plus testing limits and warning signs."
 canonical_url: "https://femioapp.com/en/learn/early-pregnancy-changes"
 robots_while_draft: "noindex,nofollow"
@@ -24,7 +24,7 @@ open_graph_image_alt: "Calendar and notes showing common changes in early pregna
 written_by: "Dr. Khaled M."
 medically_reviewed_by: "Dr. Khaled M."
 date_published: "2026-08-15"
-date_modified: "2026-08-15"
+date_modified: "2026-11-24"
 last_reviewed: "2026-08-04"
 next_review_due: null
 reading_level_ok: true

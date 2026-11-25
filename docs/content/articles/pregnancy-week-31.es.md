@@ -22,7 +22,7 @@ open_graph_image_alt: "Cinta métrica de una matrona sobre un escritorio de cons
 written_by: "PENDING"
 medically_reviewed_by: "Dr. Khaled M."
 date_published: "2026-10-30"
-date_modified: "2026-10-30"
+date_modified: "2026-11-25"
 last_reviewed: "2026-10-30"
 next_review_due: "2027-10-30"
 reading_level_ok: false
@@ -49,6 +49,7 @@ internal_links:
   - "/es/learn/breastfeeding-first-two-weeks"
   - "/es/learn/pregnancy-warning-signs"
   - "/es/calculators/gestational-age"
+  - "/es/help-now"
 ---
 
 # Semana 31 de embarazo: qué esperar
@@ -79,7 +80,7 @@ Hay mucha actividad: se mueve, se chupa el dedo y, de vez en cuando, da algún v
 
 En el Reino Unido, a las mujeres que esperan un primer bebé se les suele ofrecer una cita hacia las 31 semanas: presión arterial, orina, medida de la barriga y los resultados de las pruebas de la visita de las 28 semanas. Las mujeres que ya han tenido un bebé suelen pasar de las 28 semanas a las 34.
 
-Esta también es la época en que suele hablarse de la alimentación. ACOG y el NHS describen los beneficios de la lactancia materna, y ambos dejan claro que no todas las personas pueden o quieren hacerlo, y que la alimentación con fórmula y mucho contacto también es un buen comienzo. [La lactancia en las primeras dos semanas](/es/learn/breastfeeding-first-two-weeks) explica el lado práctico. Los calendarios y las clases prenatales varían entre países.
+Esta también es la época en que suele hablarse de la alimentación. ACOG y el NHS describen los beneficios de la lactancia materna, y ambos reconocen que no todas las personas pueden o eligen amamantar. Tu matrona puede hablar contigo sobre las opciones de alimentación. [La lactancia en las primeras dos semanas](/es/learn/breastfeeding-first-two-weeks) explica el lado práctico. Los calendarios y las clases prenatales varían entre países.
 
 ## El consejo de esta semana
 
@@ -87,9 +88,9 @@ Pregunta cuánto midió tu barriga, en centímetros, y anótalo. Se mide en la m
 
 ## Cuándo consultar
 
-Contacta con tu servicio de maternidad el mismo día si notas menos movimientos, pérdida de líquido, contracciones dolorosas o regulares, o sangrado. [Señales de alarma en el embarazo](/es/learn/pregnancy-warning-signs) incluye la lista completa.
+Contacta con tu servicio de maternidad de inmediato si notas menos movimientos, pérdida de líquido, contracciones dolorosas o regulares, o sangrado. [Señales de alarma en el embarazo](/es/learn/pregnancy-warning-signs) incluye la lista completa.
 
-> **Busca atención ya:** Contacta con los servicios de emergencia de tu zona o acude al servicio de urgencias más cercano si tienes sangrado abundante, dolor abdominal intenso o de un solo lado, un dolor de cabeza fuerte con alteraciones de la visión, hinchazón repentina de la cara o las manos, fiebre, pérdida de líquido por la vagina, dolor en el pecho, dificultad para respirar, desmayo o convulsión. Contacta con tu servicio de maternidad el mismo día si hay cualquier reducción en el patrón habitual de movimientos de tu bebé. femio no puede evaluar un embarazo.
+> **Busca atención ya:** Contacta con los servicios de emergencia de tu zona o acude al servicio de urgencias más cercano si tienes sangrado abundante, dolor abdominal intenso o de un solo lado, un dolor de cabeza fuerte con alteraciones de la visión, hinchazón repentina de la cara o las manos, fiebre, pérdida de líquido por la vagina, dolor en el pecho, dificultad para respirar, desmayo, convulsión o pensamientos de hacerte daño a ti misma o a tu bebé ([ayuda ahora](/es/help-now)). Contacta con tu servicio de maternidad de inmediato si los movimientos de tu bebé se vuelven más lentos, se detienen o cambian. femio no puede evaluar un embarazo.
 
 ## Preguntas frecuentes
 

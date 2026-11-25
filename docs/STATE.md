@@ -1,6 +1,6 @@
 # Femio — current state (living document)
 
-**Last updated: 2026-11-24.** Rewrite in place; never add a dated copy. Older versions are in git
+**Last updated: 2026-11-25.** Rewrite in place; never add a dated copy. Older versions are in git
 history and `docs/archive/`.
 
 ## ▶ Resume prompt
@@ -17,6 +17,8 @@ history and `docs/archive/`.
 ## Where things stand (2026-10-28)
 
 - **Website shows the app as it stands (R2.10, 2026-11-25).** Merged into `main` with the hackathon branch (b09bf3f, owner's go-ahead) and live on femioapp.com since 2026-11-25 (dpl_8U7STc8dKH3SCBcLnX7s6wYbkvJp). `/app` and home gain a tour of real app screens, three demos on synthetic data (next periods, Say it, Ask femio) and "what can leave this phone"; app sentences are synced from the ARB (`app-strings-lint` in the gate). Until owner action 31 (enable Vercel Web Analytics) is done, pages log a 404 for the analytics script.
+
+- **Content revision (R3.10, 2026-11-25).** Merged 2026-11-25 from `claude/content-revision-i18n-9938ae`. Every guide and UI string revised in English (plain words, wellness-only, femio wordmark, Ramadan guide withdrawn, stricter safety boxes) and carried into AR/FR/ES; no catalogue keys changed. Record and the owner's clinical list: `docs/33_REBUILD_V3/research/CONTENT_REVISION_2026-11.md` (owner action 37).
 
 - **Persona feature review (2026-11-24).** Market researcher + business development + lead synthesis in `docs/33_REBUILD_V3/research/PERSONA_FEATURES_2026-11.md` (owner page https://claude.ai/artifact/6debjUMkBygKcNuQntDW8T). 23 accepted features are `R8.1`–`R8.23` in PROGRESS (waves A/B/C; wave A = the owner's ten requests); R8.24 = the femio Plus decision (feeds R7.12). Key finding: the 37 week-by-week pregnancy guides already exist in four languages with fixed sections, so the weekly view is assembly. No code changed.
 

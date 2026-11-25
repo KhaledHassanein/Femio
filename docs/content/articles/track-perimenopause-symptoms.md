@@ -12,7 +12,7 @@ secondary_topics:
   - "perimenopause period changes"
   - "appointment summary for perimenopause"
 excerpt: "Learn how to track period changes, hot flushes, sleep, mood, and daily impact during perimenopause without treating app estimates as medical conclusions."
-meta_title: "How to Track Perimenopause Symptoms | Femio"
+meta_title: "How to Track Perimenopause Symptoms | femio"
 meta_description: "Learn how to track periods, hot flushes, sleep, mood, and other perimenopause changes, prepare a useful summary, and know when to seek care."
 canonical_url: "https://femioapp.com/en/learn/track-perimenopause-symptoms"
 robots_while_draft: "noindex,nofollow"
@@ -24,7 +24,7 @@ open_graph_image_alt: "Perimenopause symptom diary with period, sleep, mood, and
 written_by: "Dr. Khaled M."
 medically_reviewed_by: "Dr. Khaled M."
 date_published: "2026-08-15"
-date_modified: "2026-08-15"
+date_modified: "2026-11-24"
 last_reviewed: "2026-08-04"
 next_review_due: null
 reading_level_ok: true
@@ -122,9 +122,9 @@ Keep the full record, but make a one-page summary with:
 
 The [NICE menopause guidance](https://www.nice.org.uk/guidance/ng23/chapter/Recommendations) says care should be tailored to the person and adapted as symptoms change. Your summary should show what matters to you, not just a list of scores.
 
-## How can Femio estimates change?
+## How can femio estimates change?
 
-Cycle estimates become less certain when periods vary. Femio should show a range rather than claim one exact future date. A “late” label cannot explain why a period did not arrive.
+Cycle estimates become less certain when periods vary. femio shows a range rather than claiming one exact future date. A “late” label cannot explain why a period did not arrive.
 
 Pregnancy can still occur during perimenopause. A calendar cannot confirm whether ovulation happened.
 

@@ -9,7 +9,7 @@ primary_query: "11 semaines de grossesse"
 secondary_topics:
   - "échographie de datation semaine 11"
   - "dépistage par mesure de la clarté nucale"
-excerpt: "La semaine 11 ouvre généralement la période de l'échographie de datation, et avec elle les premiers choix de dépistage de la grossesse."
+excerpt: "La semaine 11 est le moment où la plupart des femmes passent l'échographie de datation, et avec elle les premiers choix de dépistage de la grossesse."
 meta_title: "11 semaines de grossesse : échographie de datation"
 meta_description: "La période de l'échographie de datation s'ouvre vers la semaine 11, avec les premiers choix de dépistage et ce qu'un résultat signifie vraiment."
 canonical_url: "https://femioapp.com/fr/learn/pregnancy-week-11"
@@ -22,7 +22,7 @@ open_graph_image_alt: "Une salle d'échographie avec un écran tourné vers une 
 written_by: "PENDING"
 medically_reviewed_by: "Dr. Khaled M."
 date_published: "2026-10-30"
-date_modified: "2026-10-30"
+date_modified: "2026-11-25"
 last_reviewed: "2026-10-30"
 next_review_due: "2027-10-30"
 reading_level_ok: false
@@ -48,11 +48,12 @@ internal_links:
   - "/fr/learn/pregnancy-week-12"
   - "/fr/learn/pregnancy-warning-signs"
   - "/fr/calculators/gestational-age"
+  - "/fr/help-now"
 ---
 
 # Semaine 11 de grossesse : à quoi s'attendre
 
-La semaine 11 ouvre généralement la période de l'échographie de datation, et avec elle les premiers choix de dépistage qui vous sont proposés. Cette semaine comporte beaucoup de formalités, alors que l'on ne se voit pas encore enceinte. Il vaut la peine de la lire avant le rendez-vous plutôt que dans la salle d'attente.
+La semaine 11 est celle où la plupart des femmes ont l'échographie de datation, et avec elle les premiers choix de dépistage qui vous sont proposés. Cette semaine comporte beaucoup de formalités, alors que l'on ne se voit pas encore enceinte. Il vaut la peine de la lire avant le rendez-vous plutôt que dans la salle d'attente.
 
 ## Votre corps cette semaine
 
@@ -88,7 +89,7 @@ Avant l'échographie, décidez si vous souhaitez un dépistage, et parlez-en ave
 
 Signalez tout saignement, toute douleur forte ou d'un seul côté, ou une douleur autour du ventre qui va au-delà d'une simple courbature. Des vertiges accompagnés de maux de tête ou de troubles de la vision nécessitent une prise en charge le jour même. [Les signes d'alerte de la grossesse](/fr/learn/pregnancy-warning-signs) donnent la liste complète.
 
-> **Consultez sans attendre :** Contactez les services d'urgence de votre région ou rendez-vous au service des urgences le plus proche en cas de saignement abondant, de douleur abdominale intense ou d'un seul côté, de douleur à la pointe de l'épaule, de mal de tête sévère avec troubles de la vision, de gonflement soudain du visage ou des mains, de fièvre, de douleur thoracique, de difficultés à respirer, de malaise ou de crise convulsive. Femio ne peut pas évaluer une grossesse.
+> **Consultez sans attendre :** Contactez les services d'urgence de votre région ou rendez-vous au service des urgences le plus proche en cas de saignement abondant, de douleur abdominale intense ou d'un seul côté, de douleur à la pointe de l'épaule, de mal de tête sévère avec troubles de la vision, de gonflement soudain du visage ou des mains, de fièvre, de douleur thoracique, de difficultés à respirer, de malaise, de crise convulsive ou de pensées de vous faire du mal ou de faire du mal à votre bébé ([aide immédiate](/fr/help-now)). femio ne peut pas évaluer une grossesse.
 
 ## Questions fréquentes
 

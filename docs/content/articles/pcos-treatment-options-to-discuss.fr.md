@@ -26,7 +26,7 @@ open_graph_image_alt: "Liste de contrôle simple à côté d'un carnet et d'un c
 written_by: "PENDING"
 medically_reviewed_by: "Dr. Khaled M."
 date_published: "2026-10-30"
-date_modified: "2026-10-30"
+date_modified: "2026-11-25"
 last_reviewed: "2026-10-30"
 next_review_due: "2027-10-30"
 reading_level_ok: false
@@ -132,7 +132,7 @@ Ne commencez pas un complément à cause d'un article en ligne. Parlez-en d'abor
 
 Si vos règles sont irrégulières ou absentes et que vous souhaitez tomber enceinte, vous n'avez pas à attendre un an. L'American Society for Reproductive Medicine (ASRM) indique que les examens de fertilité doivent commencer sans délai pour des cycles irréguliers ou des règles absentes. Voir [quand demander une aide à la fertilité](/fr/learn/when-to-seek-fertility-help).
 
-Envisagez un bilan clinique si vous êtes restée 3 mois sans règles. Si vos cycles étaient déjà irréguliers, les recommandations définissent également 6 mois sans règles comme nécessitant un contrôle. Demandez conseil plus tôt si une grossesse est possible ou si des symptômes vous inquiètent.
+Envisagez un bilan clinique si vous êtes restée 3 mois sans règles après avoir eu des cycles réguliers, ou 6 mois si vos cycles étaient déjà irréguliers. Demandez conseil plus tôt si une grossesse est possible ou si des symptômes vous inquiètent.
 
 Prenez rendez-vous si l'acné, les changements capillaires ou l'humeur perturbent votre vie quotidienne, votre travail ou vos relations. Le NHS utilise ce même critère pour consulter un médecin généraliste.
 

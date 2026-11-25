@@ -45,7 +45,7 @@ class L10nEn extends L10n {
 
   @override
   String get goalPeriodDesc =>
-      'Know when it\'s coming, and what\'s usual for you.';
+      'A range for when it\'s coming, and what\'s usual for you.';
 
   @override
   String get goalTtc => 'Get pregnant';
@@ -562,7 +562,7 @@ class L10nEn extends L10n {
 
   @override
   String testTimingBody(String date) {
-    return 'If your period hasn\'t started by $date, a home pregnancy test is reliable from that day.';
+    return 'If your period hasn\'t started by $date, a home pregnancy test is most reliable from that day.';
   }
 
   @override
@@ -626,7 +626,7 @@ class L10nEn extends L10n {
 
   @override
   String pregTermFrom(String date) {
-    return 'Full term from $date';
+    return 'Term from $date';
   }
 
   @override
@@ -871,7 +871,7 @@ class L10nEn extends L10n {
   }
 
   @override
-  String get apptFormType => 'What is it';
+  String get apptFormType => 'Type of appointment';
 
   @override
   String get apptFormTypePlaceholder => 'Scan, blood test, check-up…';
@@ -1158,7 +1158,7 @@ class L10nEn extends L10n {
 
   @override
   String get learnSub =>
-      'Cited guides, in plain words. Trying to conceive and pregnancy first; everything stays here.';
+      'Cited guides, in plain words. Trying to conceive and pregnancy first.';
 
   @override
   String get learnSearchHint => 'Search the guides';
@@ -1201,7 +1201,7 @@ class L10nEn extends L10n {
 
   @override
   String get noConfidentWindowBody =>
-      'Your cycles vary too much to name fertile days from one date. Logging your periods, ovulation tests and waking temperature is how to tell afterwards.';
+      'Your cycles vary too much to name fertile days from one date. Logging your periods, ovulation tests and waking temperature helps you tell afterwards whether you ovulated.';
 
   @override
   String get seeClinicianIrregular =>
@@ -1475,7 +1475,7 @@ class L10nEn extends L10n {
 
   @override
   String get sayItNothing =>
-      'femio found nothing to log in that. Try other words, or tap the chips on the Log screen.';
+      'femio found nothing to log in that. Try other words, or tap the symptoms on the Log screen.';
 
   @override
   String get sayItFound => 'femio found these. Untick anything that is wrong.';
@@ -1561,7 +1561,7 @@ class L10nEn extends L10n {
 
   @override
   String get askClinicianLine =>
-      'This is general information, not advice for you. For your own situation, talk to your doctor or midwife.';
+      'This is general information, not advice for you. For your own situation, talk to your clinician.';
 
   @override
   String get askRelatedGuides => 'femio guides on this';
@@ -1592,7 +1592,7 @@ class L10nEn extends L10n {
 
   @override
   String get askNotCovered =>
-      'femio\'s trusted sources don\'t answer this, so femio won\'t guess. Try other words, read the links below, or ask your doctor.';
+      'femio\'s trusted sources don\'t answer this, so femio won\'t guess. Try other words, read the links below, or ask your clinician.';
 
   @override
   String askRegistryVersion(String version) {
@@ -1635,7 +1635,7 @@ class L10nEn extends L10n {
 
   @override
   String get visitIntro =>
-      'A page to show your doctor, made from what you logged. It stays on your phone unless you copy it.';
+      'A page to show your clinician, made from what you logged. It stays on your phone unless you copy it.';
 
   @override
   String visitCycles(int count, int longest, int shortest) {
@@ -1698,10 +1698,10 @@ class L10nEn extends L10n {
 
   @override
   String get visitQ_ttcTests =>
-      'Given how long we have been trying, which checks would you suggest?';
+      'Given how long I have been trying, which checks would you suggest?';
 
   @override
-  String get visitQ_ovulation => 'How can we find out whether I am ovulating?';
+  String get visitQ_ovulation => 'How can I find out whether I am ovulating?';
 
   @override
   String get visitQ_folicAcid => 'Should I be taking folic acid now?';
@@ -1765,7 +1765,7 @@ class L10nEn extends L10n {
 
   @override
   String get assistantOnDeviceUnavailable =>
-      'Not available on this phone. femio uses its own word list instead, also on the phone.';
+      'Not available on this phone. femio uses its own word list on the phone instead.';
 
   @override
   String get assistantDownload => 'Download';
@@ -1841,7 +1841,7 @@ class L10nEn extends L10n {
       'digestion': 'Digestion',
       'sleepAndEnergy': 'Sleep and energy',
       'skinAndHair': 'Skin and hair',
-      'hotFlashes': 'Hot flashes',
+      'hotFlashes': 'Hot flushes',
       'bladder': 'Bladder',
       'other': 'Other',
     });
@@ -1962,7 +1962,7 @@ class L10nEn extends L10n {
 
   @override
   String get tip_irregularWithOtherSigns =>
-      'Irregular periods together with other changes, such as acne or extra hair growth, are worth mentioning to a clinician.';
+      'Irregular periods together with other changes, such as weight gain, extra hair on your face, or dry or oily skin, are worth mentioning to a clinician.';
 
   @override
   String get tip_periodPainSeeClinician =>
@@ -1986,7 +1986,7 @@ class L10nEn extends L10n {
 
   @override
   String get tip_headachesAroundPeriod =>
-      'Headaches that come regularly before or during your period are worth mentioning to a clinician. A headache diary next to your period dates helps.';
+      'Migraines that come regularly before or during your period are worth mentioning to a clinician. A diary next to your period dates helps.';
 
   @override
   String get tip_urineInfectionSeeClinician =>
@@ -1998,7 +1998,7 @@ class L10nEn extends L10n {
 
   @override
   String get tip_cervicalScreeningTip =>
-      'Cervical screening looks for early cell changes in the cervix. Ask your clinic whether you are due.';
+      'WHO advises cervical screening every 5 to 10 years from age 30; local programmes vary. Ask your clinic whether you are due.';
 
   @override
   String get tip_ttcOneYear =>
@@ -2018,7 +2018,7 @@ class L10nEn extends L10n {
 
   @override
   String get tip_testingTooEarly =>
-      'Testing very early can give a false negative, because the pregnancy hormone may not have built up yet. Follow the test\'s own instructions.';
+      'Testing very early can give a false negative. Follow the test\'s own instructions.';
 
   @override
   String get tip_folicAcidBeforePregnancy =>
@@ -2070,11 +2070,11 @@ class L10nEn extends L10n {
 
   @override
   String get tip_itchTellMidwife =>
-      'Itching is common in pregnancy and is usually not serious. Still, tell your midwife or doctor about it so it can be checked.';
+      'Itching is common in pregnancy, but it can be the first sign of a liver condition called ICP. Tell your midwife or doctor so it can be checked.';
 
   @override
   String get tip_pretermLabourSigns =>
-      'Signs of early labour include contractions every 10 minutes or more often, leaking fluid or bleeding, pelvic pressure and a low, dull backache. Contact your provider.';
+      'Signs of early labour include contractions every 10 minutes or more often, leaking fluid or bleeding, pelvic pressure and a low, dull backache. Contact your midwife, doctor or maternity unit.';
 
   @override
   String get tip_tirednessInPregnancy =>
@@ -2082,7 +2082,7 @@ class L10nEn extends L10n {
 
   @override
   String get tip_lowMoodPerinatal =>
-      'Feeling low is common in pregnancy and after birth, and support is available. Tell your midwife, doctor or health visitor, even if you only have some of the signs.';
+      'Feeling low is common in pregnancy and after birth, and support is available. Tell your midwife or doctor, even if you only have some of the signs.';
 
   @override
   String get tip_anxietyInPregnancy =>
@@ -2170,7 +2170,7 @@ class L10nEn extends L10n {
 
   @override
   String get visitQ_headacheDiaryReview =>
-      'My headaches often come around my period. Can we look at my diary together?';
+      'My migraines often come around my period. Can we look at my diary together?';
 
   @override
   String get visitQ_cervicalScreeningDue =>
@@ -2182,11 +2182,11 @@ class L10nEn extends L10n {
 
   @override
   String get visitQ_ttcOverThirtyFiveSooner =>
-      'I am 35 or older and we have been trying for about six months or more. Should we start fertility checks now?';
+      'I am 35 or older and have been trying for about six months or more. Should I start fertility checks now?';
 
   @override
   String get visitQ_irregularTryingNow =>
-      'My cycles are irregular and we are trying to conceive. Should we talk about help now rather than waiting a year?';
+      'My cycles are irregular and I am trying to conceive. Should we talk about help now rather than waiting a year?';
 
   @override
   String get visitQ_preconceptionReview =>

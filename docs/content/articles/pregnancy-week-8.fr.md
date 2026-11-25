@@ -10,7 +10,7 @@ secondary_topics:
   - "fenêtre du rendez-vous de déclaration de grossesse"
   - "humeur en début de grossesse"
 excerpt: "La semaine 8 ouvre généralement la fenêtre du rendez-vous de déclaration de grossesse, et c'est souvent la semaine où les sautes d'humeur deviennent le symptôme le plus bruyant."
-meta_title: "8 semaines de grossesse : rendez-vous de déclaration | Femio"
+meta_title: "8 semaines de grossesse : rendez-vous de déclaration | femio"
 meta_description: "La semaine 8 ouvre souvent le rendez-vous de déclaration. Ce qu'il couvre, pourquoi l'humeur culmine à ce stade, et quoi dire si vous allez mal."
 canonical_url: "https://femioapp.com/fr/learn/pregnancy-week-8"
 robots_while_draft: "noindex,nofollow"
@@ -22,7 +22,7 @@ open_graph_image_alt: "Les notes d'une sage-femme et un brassard de tensiomètre
 written_by: "PENDING"
 medically_reviewed_by: "Dr. Khaled M."
 date_published: "2026-10-30"
-date_modified: "2026-10-30"
+date_modified: "2026-11-25"
 last_reviewed: "2026-10-30"
 next_review_due: "2027-10-30"
 reading_level_ok: false
@@ -49,6 +49,7 @@ internal_links:
   - "/fr/learn/first-pregnancy-appointment"
   - "/fr/learn/pregnancy-warning-signs"
   - "/fr/calculators/gestational-age"
+  - "/fr/help-now"
 ---
 
 # Semaine 8 de grossesse : à quoi s'attendre
@@ -73,9 +74,9 @@ Un saignement, une douleur intense ou une douleur d'un seul côté relèvent enc
 
 ## Votre bébé cette semaine
 
-Vers la semaine 8, la mesure indiquée est d'environ 16 mm du sommet de la tête au siège : la taille d'une framboise sur l'illustration du NHS, et l'on s'attend à ce qu'elle double à peu près la semaine suivante. Il s'agit de moyennes de population, et non d'une description d'une grossesse en particulier.
+Vers la semaine 8, la mesure indiquée est d'environ 16 mm du sommet de la tête au siège : la taille d'une framboise sur l'illustration du NHS, et elle grandit vite au cours des semaines suivantes. Il s'agit de moyennes de population, et non d'une description d'une grossesse en particulier.
 
-La tête commence à se redresser. Les bras s'allongent plus vite que les jambes, car le haut du corps se développe en premier. À ce stade environ, l'embryon commence à être appelé fœtus.
+La tête commence à se redresser. Les bras s'allongent plus vite que les jambes, car le haut du corps se développe en premier. Plus tard au premier trimestre, l'embryon commence à être appelé fœtus.
 
 ## Les soins habituellement prévus à cette période
 
@@ -91,7 +92,7 @@ Notez vos questions avant le rendez-vous de déclaration et emportez la liste av
 
 Contactez une sage-femme ou un médecin généraliste pour tout saignement, une douleur intense ou d'un seul côté, une incapacité à garder les liquides, ou une fièvre. Si vous vous sentez incapable de faire face, dites-le aussi. [Ce qui se passe au premier rendez-vous de grossesse](/fr/learn/first-pregnancy-appointment) explique la consultation elle-même.
 
-> **Consultez sans attendre :** Contactez les services d'urgence de votre région ou rendez-vous au service des urgences le plus proche si vous avez un saignement abondant, une douleur intense ou d'un seul côté du ventre, une douleur au bout de l'épaule, un mal de tête sévère avec troubles de la vision, un gonflement soudain du visage ou des mains, une fièvre, une douleur thoracique, des difficultés à respirer, un malaise, ou une crise convulsive. Femio ne peut pas évaluer une grossesse.
+> **Consultez sans attendre :** Contactez les services d'urgence de votre région ou rendez-vous au service des urgences le plus proche si vous avez un saignement abondant, une douleur intense ou d'un seul côté du ventre, une douleur au bout de l'épaule, un mal de tête sévère avec troubles de la vision, un gonflement soudain du visage ou des mains, une fièvre, une douleur thoracique, des difficultés à respirer, un malaise,, une crise convulsive ou des pensées de vous faire du mal ou de faire du mal à votre bébé ([aide immédiate](/fr/help-now)). femio ne peut pas évaluer une grossesse.
 
 ## Questions fréquentes
 

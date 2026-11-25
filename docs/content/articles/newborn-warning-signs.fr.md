@@ -11,7 +11,7 @@ secondary_topics:
   - "problèmes respiratoires du nouveau-né"
   - "signes d’un bébé gravement malade"
 excerpt: "Les signes chez le nouveau-né qui nécessitent des soins d’urgence, pourquoi la fièvre avant trois mois est différente, et que dire lorsque vous demandez de l’aide."
-meta_title: "Signes d’alerte du nouveau-né : soins urgents | Femio"
+meta_title: "Signes d’alerte du nouveau-né : soins urgents | femio"
 meta_description: "Signes chez le nouveau-né nécessitant des soins d’urgence : fièvre avant trois mois, respiration difficile, couleur de la peau, mollesse, refus de téter."
 canonical_url: "https://femioapp.com/fr/learn/newborn-warning-signs"
 robots_while_draft: "noindex,nofollow"
@@ -23,7 +23,7 @@ open_graph_image_alt: "Un parent tenant un nouveau-né tout en parlant à un cli
 written_by: "PENDING"
 medically_reviewed_by: "Dr. Khaled M."
 date_published: "2026-10-30"
-date_modified: "2026-10-30"
+date_modified: "2026-11-25"
 last_reviewed: "2026-10-30"
 next_review_due: "2027-10-30"
 reading_level_ok: false
@@ -131,7 +131,7 @@ Demandez des soins urgents pour tout signe figurant dans l’encadré ci-dessous
 
 Vos propres signes d’alerte sont distincts et tout aussi urgents. Consultez [les signes d’alerte après l’accouchement](/fr/learn/postpartum-warning-signs) pour les vôtres, et [votre nouveau-né pendant les deux premières semaines](/fr/learn/newborn-first-two-weeks) pour ce qui est habituel.
 
-> **Consultez sans attendre :** Contactez les services d’urgence de votre région ou rendez-vous au service des urgences le plus proche si un bébé de moins de trois mois a une température de 38 °C ou plus, respire vite, fournit un effort important pour respirer ou geint, a la peau bleutée, grise, pâle ou marbrée, est mou, est difficile à réveiller, refuse les tétées, a beaucoup moins de couches mouillées, voire aucune depuis 12 heures, présente une fontanelle bombée ou creusée, a une éruption cutanée qui ne disparaît pas à la pression, ou fait une crise convulsive. Femio ne peut pas évaluer un bébé.
+> **Consultez sans attendre :** Contactez les services d’urgence de votre région ou rendez-vous au service des urgences le plus proche si un bébé de moins de trois mois a une température de 38 °C ou plus, respire vite, fournit un effort important pour respirer ou geint, a la peau bleutée, grise, pâle ou marbrée, est mou, est difficile à réveiller, refuse les tétées, a beaucoup moins de couches mouillées, voire aucune depuis 12 heures, présente une fontanelle bombée ou creusée, a une éruption cutanée qui ne disparaît pas à la pression, a une température inférieure à 36 °C, a des pleurs faibles, aigus ou continus qui ne sont pas ses pleurs habituels, ou fait une crise convulsive. femio ne peut pas évaluer un bébé.
 
 ## Questions fréquentes
 

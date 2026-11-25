@@ -2,7 +2,7 @@
 title: "هل يمكنني الصيام في رمضان وأنا حامل؟"
 slug: "ramadan-fasting-pregnancy"
 locale: "ar"
-status: "published"
+status: "draft"
 content_type: "pregnancy cluster"
 search_intent: "قرار الصيام أثناء الحمل"
 primary_query: "الصيام في رمضان أثناء الحمل"
@@ -23,11 +23,11 @@ open_graph_description: "الأدلة وحدودها، وأسئلة لطبيبت
 open_graph_image: "PENDING"
 open_graph_image_alt: "امرأة حامل تجلس بهدوء إلى طاولة في الصباح الباكر ومعها كوب ماء"
 written_by: "PENDING"
-medically_reviewed_by: "Dr. Khaled M."
-date_published: "2026-10-30"
-date_modified: "2026-10-30"
-last_reviewed: "2026-10-30"
-next_review_due: "2027-10-30"
+medically_reviewed_by: "PENDING"
+date_published: null
+date_modified: null
+last_reviewed: null
+next_review_due: null
 reading_level_ok: false
 reading_level_method: "Not checked. No Arabic readability formula applied. Needs a native editor's check against grade 6 to 8 level."
 disclaimer_type: "emergency"

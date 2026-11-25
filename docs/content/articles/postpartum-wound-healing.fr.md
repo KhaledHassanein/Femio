@@ -12,7 +12,7 @@ secondary_topics:
   - "récupération après une déchirure périnéale"
   - "signes d'infection de plaie après l'accouchement"
 excerpt: "Comment les points de suture périnéaux et les plaies de césarienne cicatrisent habituellement, ce qui aide au quotidien, et les signes qui indiquent qu'une plaie doit être examinée."
-meta_title: "Points de suture et césarienne : cicatrisation | Femio"
+meta_title: "Points de suture et césarienne : cicatrisation | femio"
 meta_description: "Cicatrisation semaine par semaine des points périnéaux et des plaies de césarienne, soins du quotidien, et signes qui demandent un contrôle de la plaie."
 canonical_url: "https://femioapp.com/fr/learn/postpartum-wound-healing"
 robots_while_draft: "noindex,nofollow"
@@ -24,7 +24,7 @@ open_graph_image_alt: "Une personne au repos, entourée de coussins, qui récup�
 written_by: "PENDING"
 medically_reviewed_by: "Dr. Khaled M."
 date_published: "2026-10-30"
-date_modified: "2026-10-30"
+date_modified: "2026-11-24"
 last_reviewed: "2026-10-30"
 next_review_due: "2027-10-30"
 reading_level_ok: false
@@ -114,7 +114,7 @@ Contactez votre sage-femme, votre médecin ou votre maternité pour une plaie pl
 
 Prenez une photo si vous ne voyez pas la zone vous-même. C'est beaucoup plus facile que de la décrire.
 
-> **Consultez sans attendre :** Contactez les services d'urgence de votre région ou rendez-vous au service des urgences le plus proche pour une douleur abdominale ou de plaie sévère, une plaie qui s'est ouverte, un saignement abondant provenant d'une plaie, ou une fièvre avec confusion, un cœur qui s'emballe ou un grand malaise. Femio ne peut pas examiner une plaie.
+> **Consultez sans attendre :** Contactez les services d'urgence de votre région ou rendez-vous au service des urgences le plus proche pour une douleur abdominale ou de plaie sévère, une plaie qui s'est ouverte, un saignement abondant provenant d'une plaie, ou une fièvre avec confusion, un cœur qui s'emballe ou un grand malaise. femio ne peut pas examiner une plaie.
 
 ## Questions fréquentes
 

@@ -22,7 +22,7 @@ open_graph_image_alt: "Dibujo sencillo de línea de un círculo cálido sobre un
 written_by: "PENDING"
 medically_reviewed_by: "Dr. Khaled M."
 date_published: "2026-10-30"
-date_modified: "2026-10-30"
+date_modified: "2026-11-25"
 last_reviewed: "2026-10-30"
 next_review_due: "2027-10-30"
 reading_level_ok: false
@@ -74,7 +74,7 @@ Ninguna de estas cosas es una cura, y ninguna está garantizada. Probar dos o tr
 
 ## Lo que no ayuda, aunque te hayan dicho lo contrario
 
-Saltarte comidas, aguantarlo a base de esfuerzo más allá de lo que resulta soportable, o esperar a que el dolor sea insoportable antes de hacer algo. El dolor se calma más fácilmente cuanto antes se atiende.
+Esperar a que el dolor sea insoportable antes de hacer algo. El dolor suele calmarse más fácilmente cuanto antes se atiende.
 
 Faltar al colegio repetidamente sin decir nada tampoco ayuda. Es algo muy frecuente, y justo esa situación mejora cuando un adulto lo sabe.
 

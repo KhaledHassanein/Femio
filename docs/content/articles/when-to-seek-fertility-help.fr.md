@@ -12,7 +12,7 @@ secondary_topics:
   - "règles irrégulières et aide à la fertilité"
   - "ce qui se passe lors d'un rendez-vous de fertilité"
 excerpt: "Apprenez quand demander un soutien pour la fertilité, quels facteurs peuvent justifier un examen plus précoce, ce que peut comprendre un bilan initial, et comment vous préparer."
-meta_title: "Quand demander de l'aide pour la fertilité ? | Femio"
+meta_title: "Quand demander de l'aide pour la fertilité ? | femio"
 meta_description: "Quelles préoccupations justifient un examen de fertilité plus tôt, ce que peut inclure un bilan initial, et comment vous y préparer."
 canonical_url: "https://femioapp.com/fr/learn/when-to-seek-fertility-help"
 robots_while_draft: "noindex,nofollow"
@@ -24,7 +24,7 @@ open_graph_image_alt: "Un couple examinant un relevé de cycle avant un rendez-v
 written_by: "PENDING"
 medically_reviewed_by: "Dr. Khaled M."
 date_published: "2026-10-30"
-date_modified: "2026-10-30"
+date_modified: "2026-11-24"
 last_reviewed: "2026-10-30"
 next_review_due: "2027-10-30"
 reading_level_ok: false

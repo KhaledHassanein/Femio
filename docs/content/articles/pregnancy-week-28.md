@@ -22,7 +22,7 @@ open_graph_image_alt: "Blood sample tubes on a clinic tray"
 written_by: "PENDING"
 medically_reviewed_by: "Dr. Khaled M."
 date_published: "2026-08-19"
-date_modified: "2026-08-19"
+date_modified: "2026-11-24"
 last_reviewed: "2026-10-30"
 next_review_due: "2027-10-30"
 reading_level_ok: true
@@ -44,6 +44,7 @@ sources:
     url: "https://www.acog.org/womens-health/faqs/gestational-diabetes"
     tier: "1"
 internal_links:
+  - "/en/help-now"
   - "/en/learn/pregnancy-week-27"
   - "/en/learn/pregnancy-week-29"
   - "/en/learn/pregnancy-warning-signs"
@@ -72,7 +73,7 @@ Movements should be as strong and as regular as they have been. Any reduction is
 
 Around week 28, the length given is about 37.6cm from head to heel, which the NHS compares to an aubergine. Averages across a population, not a measurement of your own pregnancy.
 
-Heart rate changes across pregnancy: the NHS describes around 110 beats per minute when a heartbeat is first detectable, around 170 at weeks 9 and 10, roughly 140 by now, and around 130 at birth — all faster than an adult's, because small hearts pump less per beat.
+Heart rate changes across pregnancy: the NHS describes around 110 beats per minute when a heartbeat is first detectable, around 170 to 180 at weeks 9 and 10, roughly 140 by now, and around 130 at birth — all faster than an adult's.
 
 ## What care usually happens around now
 
@@ -86,9 +87,9 @@ Ask at this appointment whether you are rhesus D negative, and what that means f
 
 ## When to see a doctor
 
-Contact your maternity service the same day for reduced movements, leaking fluid, tightenings that become regular, or bleeding. A headache with vision changes or sudden swelling needs emergency care. [Pregnancy warning signs](/en/learn/pregnancy-warning-signs) has the list.
+Contact your maternity service straight away for reduced movements, leaking fluid, tightenings that become regular, or bleeding. A headache with vision changes or sudden swelling needs emergency care. [Pregnancy warning signs](/en/learn/pregnancy-warning-signs) has the list.
 
-> **Seek care now:** Contact your local emergency services or go to your nearest emergency department if you have heavy bleeding, severe or one-sided tummy pain, a severe headache with vision changes, sudden swelling of the face or hands, a fever, fluid leaking from the vagina, chest pain, trouble breathing, fainting, or a seizure. Contact your maternity service the same day for any reduction in your baby's usual pattern of movement. Femio cannot assess a pregnancy.
+> **Seek care now:** Contact your local emergency services or go to your nearest emergency department if you have heavy bleeding, severe or one-sided tummy pain, a severe headache with vision changes, sudden swelling of the face or hands, a fever, fluid leaking from the vagina, chest pain, trouble breathing, fainting, a seizure, or thoughts of harming yourself or the baby ([help now](/en/help-now)). Contact your maternity service straight away if your baby's movements slow down, stop or change. femio cannot assess a pregnancy.
 
 ## Frequently asked questions
 

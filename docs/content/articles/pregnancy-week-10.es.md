@@ -10,7 +10,7 @@ secondary_topics:
   - "hinchazón y acidez en el embarazo"
   - "cita de inscripción prenatal en la semana 10"
 excerpt: "En la semana 10 el útero tiene aproximadamente el tamaño de una naranja grande, y los músculos digestivos más relajados están detrás de la hinchazón y la acidez."
-meta_title: "10 semanas de embarazo: hinchazón, eructos y acidez | Femio"
+meta_title: "10 semanas de embarazo: hinchazón, eructos y acidez | femio"
 meta_description: "La progesterona relaja el tubo digestivo, por eso la semana 10 trae hinchazón y acidez. También la cita de inscripción y lo que se está formando."
 canonical_url: "https://femioapp.com/es/learn/pregnancy-week-10"
 robots_while_draft: "noindex,nofollow"
@@ -22,7 +22,7 @@ open_graph_image_alt: "Una mujer abrochándose un pantalón holgado en un dormit
 written_by: "PENDING"
 medically_reviewed_by: "Dr. Khaled M."
 date_published: "2026-10-30"
-date_modified: "2026-10-30"
+date_modified: "2026-11-25"
 last_reviewed: "2026-10-30"
 next_review_due: "2027-10-30"
 reading_level_ok: false
@@ -49,6 +49,7 @@ internal_links:
   - "/es/learn/first-pregnancy-appointment"
   - "/es/learn/pregnancy-warning-signs"
   - "/es/calculators/gestational-age"
+  - "/es/help-now"
 ---
 
 # Semana 10 del embarazo: qué esperar
@@ -89,7 +90,7 @@ Compra o pide prestado un pantalón que te quede bien ahora: no ropa de embaraza
 
 Contacta con una matrona o con tu médico de cabecera por cualquier sangrado, dolor intenso o de un solo lado, mareos que no ceden, o acidez tan fuerte que te impida comer o dormir. [Señales de alarma en el embarazo](/es/learn/pregnancy-warning-signs) tiene la lista completa, y [la primera cita](/es/learn/first-pregnancy-appointment) explica qué incluye la inscripción.
 
-> **Busca atención ya:** Contacta con los servicios de emergencia locales o ve al servicio de urgencias más cercano si tienes sangrado abundante, dolor abdominal intenso o de un solo lado, dolor en la punta del hombro, dolor de cabeza intenso con alteraciones de la visión, hinchazón repentina de la cara o las manos, fiebre, dolor de pecho, dificultad para respirar, desmayo o convulsión. Femio no puede valorar un embarazo.
+> **Busca atención ya:** Contacta con los servicios de emergencia locales o ve al servicio de urgencias más cercano si tienes sangrado abundante, dolor abdominal intenso o de un solo lado, dolor en la punta del hombro, dolor de cabeza intenso con alteraciones de la visión, hinchazón repentina de la cara o las manos, fiebre, dolor de pecho, dificultad para respirar, desmayo, convulsión o pensamientos de hacerte daño a ti misma o a tu bebé ([ayuda ahora](/es/help-now)). femio no puede valorar un embarazo.
 
 ## Preguntas frecuentes
 

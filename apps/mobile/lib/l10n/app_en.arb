@@ -11,7 +11,7 @@
   "goalTitle": "What brings you to femio?",
   "goalSub": "You can change this any time.",
   "goalPeriod": "Track my period",
-  "goalPeriodDesc": "Know when it's coming, and what's usual for you.",
+  "goalPeriodDesc": "A range for when it's coming, and what's usual for you.",
   "goalTtc": "Get pregnant",
   "goalTtcDesc": "Your fertile window and likely ovulation.",
   "goalPregnant": "I'm pregnant",
@@ -239,7 +239,7 @@
   "temperatureSave": "Save",
   "temperatureClear": "Clear",
   "testTimingTitle": "When to test",
-  "testTimingBody": "If your period hasn't started by {date}, a home pregnancy test is reliable from that day.",
+  "testTimingBody": "If your period hasn't started by {date}, a home pregnancy test is most reliable from that day.",
   "@testTimingBody": {
     "placeholders": {
       "date": {
@@ -274,7 +274,7 @@
       }
     }
   },
-  "pregTermFrom": "Full term from {date}",
+  "pregTermFrom": "Term from {date}",
   "@pregTermFrom": {
     "placeholders": {
       "date": {
@@ -401,7 +401,7 @@
       }
     }
   },
-  "apptFormType": "What is it",
+  "apptFormType": "Type of appointment",
   "apptFormTypePlaceholder": "Scan, blood test, check-up…",
   "apptFormClinician": "Who with",
   "apptFormWhen": "When",
@@ -519,7 +519,7 @@
   },
   "navLearn": "Learn",
   "learnTitle": "Learn",
-  "learnSub": "Cited guides, in plain words. Trying to conceive and pregnancy first; everything stays here.",
+  "learnSub": "Cited guides, in plain words. Trying to conceive and pregnancy first.",
   "learnSearchHint": "Search the guides",
   "learnNoResults": "No guide matches that yet.",
   "learnReviewedBy": "Reviewed by {name}",
@@ -548,7 +548,7 @@
   "learnSources": "Sources",
   "learnLinkCopied": "Link copied. Paste it in your browser.",
   "noConfidentWindowTitle": "No confident window this cycle",
-  "noConfidentWindowBody": "Your cycles vary too much to name fertile days from one date. Logging your periods, ovulation tests and waking temperature is how to tell afterwards.",
+  "noConfidentWindowBody": "Your cycles vary too much to name fertile days from one date. Logging your periods, ovulation tests and waking temperature helps you tell afterwards whether you ovulated.",
   "seeClinicianIrregular": "Because your cycles are irregular, it is reasonable to talk to a clinician now rather than wait a year.",
   "helpNowLauncher": "Need help now?",
   "helpNowDialogTitle": "Need help now?",
@@ -629,7 +629,7 @@
   "sayItTitle": "How are you feeling?",
   "sayItHint": "For example: bad cramps, light bleeding and so tired",
   "sayItAction": "Turn into log entries",
-  "sayItNothing": "femio found nothing to log in that. Try other words, or tap the chips on the Log screen.",
+  "sayItNothing": "femio found nothing to log in that. Try other words, or tap the symptoms on the Log screen.",
   "sayItFound": "femio found these. Untick anything that is wrong.",
   "sayItAdd": "Add to this day's log",
   "sayItAdded": "Added to your log.",
@@ -654,7 +654,7 @@
   "askCloudPrivacy": "Only this question and the public sources are sent. Nothing from your log is.",
   "askSearching": "Reading trusted sources…",
   "askSourcesTitle": "Sources",
-  "askClinicianLine": "This is general information, not advice for you. For your own situation, talk to your doctor or midwife.",
+  "askClinicianLine": "This is general information, not advice for you. For your own situation, talk to your clinician.",
   "askRelatedGuides": "femio guides on this",
   "askSearchAgain": "Ask another question",
   "askAboutYouStays": "Your question is about you, so it stays on this phone. Here are the sources word for word.",
@@ -663,7 +663,7 @@
   "askBoostConfirm": "This phone has no on-phone AI. With Cloud boost, Google's cloud AI can summarise these public sources for you. Check the question first.",
   "askReadSourcesInstead": "Read the sources instead",
   "askNotCoveredHeading": "Not covered yet",
-  "askNotCovered": "femio's trusted sources don't answer this, so femio won't guess. Try other words, read the links below, or ask your doctor.",
+  "askNotCovered": "femio's trusted sources don't answer this, so femio won't guess. Try other words, read the links below, or ask your clinician.",
   "askRegistryVersion": "Trusted sources library {version}",
   "@askRegistryVersion": {
     "placeholders": {
@@ -701,7 +701,7 @@
   },
   "visitButton": "Visit summary",
   "visitTitle": "Visit summary",
-  "visitIntro": "A page to show your doctor, made from what you logged. It stays on your phone unless you copy it.",
+  "visitIntro": "A page to show your clinician, made from what you logged. It stays on your phone unless you copy it.",
   "visitCycles": "{count, plural, =0{No complete cycle logged yet} =1{1 cycle logged: {shortest} days} other{{count} cycles logged: {shortest} to {longest} days}}",
   "@visitCycles": {
     "placeholders": {
@@ -742,8 +742,8 @@
   "visitCopy": "Copy as text",
   "visitCopied": "Copied. Paste it into a message or your notes.",
   "visitQ_cycleSpread": "My cycle lengths vary. Is that worth looking into?",
-  "visitQ_ttcTests": "Given how long we have been trying, which checks would you suggest?",
-  "visitQ_ovulation": "How can we find out whether I am ovulating?",
+  "visitQ_ttcTests": "Given how long I have been trying, which checks would you suggest?",
+  "visitQ_ovulation": "How can I find out whether I am ovulating?",
   "visitQ_folicAcid": "Should I be taking folic acid now?",
   "visitQ_painfulPeriods": "My period pain affects my days. What can help?",
   "visitQ_heavyPeriods": "My periods are heavy. Is a blood test worth doing?",
@@ -760,7 +760,7 @@
   "assistantOnDeviceAvailable": "Ready. It reads your notes on the phone; nothing is sent.",
   "assistantOnDeviceDownloadable": "Can be downloaded to this phone.",
   "assistantOnDeviceDownloading": "Downloading…",
-  "assistantOnDeviceUnavailable": "Not available on this phone. femio uses its own word list instead, also on the phone.",
+  "assistantOnDeviceUnavailable": "Not available on this phone. femio uses its own word list on the phone instead.",
   "assistantDownload": "Download",
   "assistantCloudTitle": "Cloud boost",
   "assistantCloudOn": "On. Used only when this phone has no on-phone AI.",
@@ -789,7 +789,7 @@
     }
   },
   "boostCategoriesLabel": "Kinds of symptom logged in the last month",
-  "boostCategory": "{value, select, pain{Pain} mood{Mood} digestion{Digestion} sleepAndEnergy{Sleep and energy} skinAndHair{Skin and hair} hotFlashes{Hot flashes} bladder{Bladder} other{Other}}",
+  "boostCategory": "{value, select, pain{Pain} mood{Mood} digestion{Digestion} sleepAndEnergy{Sleep and energy} skinAndHair{Skin and hair} hotFlashes{Hot flushes} bladder{Bladder} other{Other}}",
   "@boostCategory": {
     "placeholders": {
       "value": {
@@ -843,21 +843,21 @@
   "tip_bleedingBetweenPeriods": "Bleeding between periods is worth mentioning to a clinician, so the cause can be looked into.",
   "tip_irregularCheckIn": "Cycles shorter than 21 or longer than 35 days are called irregular. Mention this to a clinician, who can look at your dates with you.",
   "tip_stoppedThreeMonths": "A period that stops for more than three months without a clear reason is worth a clinician's check, whatever your age.",
-  "tip_irregularWithOtherSigns": "Irregular periods together with other changes, such as acne or extra hair growth, are worth mentioning to a clinician.",
+  "tip_irregularWithOtherSigns": "Irregular periods together with other changes, such as weight gain, extra hair on your face, or dry or oily skin, are worth mentioning to a clinician.",
   "tip_periodPainSeeClinician": "Period pain that stops you doing your usual daily activities is a reason to see a clinician.",
   "tip_severePainUrgent": "If pelvic or period pain is severe or worse than usual and painkillers have not helped, ask for urgent medical advice.",
   "tip_symptomDiaryBeforeVisit": "Before a visit about period problems, a diary of your symptoms across the whole cycle gives your clinician a detailed picture of what happens and when.",
   "tip_heavyOrTired": "Periods that keep you from daily activities, or leave you tired or short of breath a lot, can be signs of heavy periods. A clinician can help.",
   "tip_pmsDiary": "Keeping a diary of your symptoms for at least two cycles helps a clinician see whether they follow your period.",
-  "tip_headachesAroundPeriod": "Headaches that come regularly before or during your period are worth mentioning to a clinician. A headache diary next to your period dates helps.",
+  "tip_headachesAroundPeriod": "Migraines that come regularly before or during your period are worth mentioning to a clinician. A diary next to your period dates helps.",
   "tip_urineInfectionSeeClinician": "If you think you may have a urine infection, it is important to see a clinician. A urine test can tell.",
   "tip_leakingUrineTellClinician": "If you leak urine, it is worth telling a clinician, whatever the type or cause.",
-  "tip_cervicalScreeningTip": "Cervical screening looks for early cell changes in the cervix. Ask your clinic whether you are due.",
+  "tip_cervicalScreeningTip": "WHO advises cervical screening every 5 to 10 years from age 30; local programmes vary. Ask your clinic whether you are due.",
   "tip_ttcOneYear": "If a year of trying has passed without a pregnancy, it is a good idea to see a clinician and have the common causes checked.",
   "tip_ttcAgeSixMonths": "At 35 or older, it is advised to see a clinician after six months of trying, not twelve.",
   "tip_ttcIrregularNoWait": "With irregular or no periods, it is worth talking to a clinician about trying to conceive without waiting a full year.",
   "tip_regularSexTakesTime": "Most couples where the woman is under 40 conceive within a year of regular sex every 2 to 3 days. It can take time.",
-  "tip_testingTooEarly": "Testing very early can give a false negative, because the pregnancy hormone may not have built up yet. Follow the test's own instructions.",
+  "tip_testingTooEarly": "Testing very early can give a false negative. Follow the test's own instructions.",
   "tip_folicAcidBeforePregnancy": "Folic acid, a B vitamin, is advised from at least a month before pregnancy. Ask a clinician how to get enough.",
   "tip_talkBeforeTrying": "It is a good idea to talk to a clinician before trying to get pregnant. They can help you get your body ready.",
   "tip_tryingIsStressful": "Trying to conceive can be stressful. Counselling and support groups may help you cope; you can ask a clinician about them.",
@@ -870,10 +870,10 @@
   "tip_rhBloodGroup": "A simple blood test shows your blood type and Rh status, usually at your first antenatal visit. Ask what yours is and whether it matters for your care.",
   "tip_mainScanBetween18And21": "A detailed scan is usually done between 18 and 21 weeks. It checks your baby's growth and looks for certain conditions.",
   "tip_severeSicknessTellEarly": "If you are being sick often and cannot keep food down, tell your midwife or doctor as soon as you can, so they can help you keep fluids down.",
-  "tip_itchTellMidwife": "Itching is common in pregnancy and is usually not serious. Still, tell your midwife or doctor about it so it can be checked.",
-  "tip_pretermLabourSigns": "Signs of early labour include contractions every 10 minutes or more often, leaking fluid or bleeding, pelvic pressure and a low, dull backache. Contact your provider.",
+  "tip_itchTellMidwife": "Itching is common in pregnancy, but it can be the first sign of a liver condition called ICP. Tell your midwife or doctor so it can be checked.",
+  "tip_pretermLabourSigns": "Signs of early labour include contractions every 10 minutes or more often, leaking fluid or bleeding, pelvic pressure and a low, dull backache. Contact your midwife, doctor or maternity unit.",
   "tip_tirednessInPregnancy": "Tiredness in pregnancy has many causes, and anaemia is one of them. Mention ongoing tiredness to your midwife or doctor.",
-  "tip_lowMoodPerinatal": "Feeling low is common in pregnancy and after birth, and support is available. Tell your midwife, doctor or health visitor, even if you only have some of the signs.",
+  "tip_lowMoodPerinatal": "Feeling low is common in pregnancy and after birth, and support is available. Tell your midwife or doctor, even if you only have some of the signs.",
   "tip_anxietyInPregnancy": "Anxiety in pregnancy can often be helped with talking therapy. Tell your midwife or doctor how you really feel.",
   "tip_warningSignsPregnancyAndYear": "Some warning signs need care at once, in pregnancy and for a year after birth: a headache that will not go away, vision changes, fever, trouble breathing, severe belly pain.",
   "tip_postnatalCheckSixToEight": "A postnatal check around 6 to 8 weeks after birth makes sure you feel well and are recovering. Write down your questions to take along.",
@@ -895,11 +895,11 @@
   "visitQ_painCauseChecks": "My period pain keeps getting in the way of my days. Which checks could find out why?",
   "visitQ_heavyAndTiredBloodTest": "My periods may be heavy and I feel tired a lot. Should I have blood tests, for example for iron?",
   "visitQ_diaryReviewCycle": "Can we go through my symptom diary to see whether my symptoms follow my cycle?",
-  "visitQ_headacheDiaryReview": "My headaches often come around my period. Can we look at my diary together?",
+  "visitQ_headacheDiaryReview": "My migraines often come around my period. Can we look at my diary together?",
   "visitQ_cervicalScreeningDue": "Am I up to date with cervical screening, and which test does your clinic use?",
   "visitQ_checksForCouple": "Which fertility checks do you suggest for me, and for a partner if I have one?",
-  "visitQ_ttcOverThirtyFiveSooner": "I am 35 or older and we have been trying for about six months or more. Should we start fertility checks now?",
-  "visitQ_irregularTryingNow": "My cycles are irregular and we are trying to conceive. Should we talk about help now rather than waiting a year?",
+  "visitQ_ttcOverThirtyFiveSooner": "I am 35 or older and have been trying for about six months or more. Should I start fertility checks now?",
+  "visitQ_irregularTryingNow": "My cycles are irregular and I am trying to conceive. Should we talk about help now rather than waiting a year?",
   "visitQ_preconceptionReview": "We are planning a pregnancy. Is there anything in my health or medicines to review first?",
   "visitQ_ttcSupportOptions": "Trying to conceive is weighing on me. Where can I find counselling or support?",
   "visitQ_pregnancyTestsOffered": "Which screening tests and follow-up tests are offered in my pregnancy, and what does each one tell me?",

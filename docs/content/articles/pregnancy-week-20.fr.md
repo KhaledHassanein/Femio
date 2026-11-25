@@ -10,7 +10,7 @@ secondary_topics:
   - "mi-parcours de la grossesse"
   - "vaccination contre la coqueluche pendant la grossesse"
 excerpt: "La semaine 20 marque la moitié de la grossesse. L'échographie morphologique a souvent lieu à cette période, et le vaccin contre la coqueluche est généralement proposé autour de maintenant."
-meta_title: "20 semaines de grossesse : mi-parcours | Femio"
+meta_title: "20 semaines de grossesse : mi-parcours | femio"
 meta_description: "La semaine 20 marque la moitié de la grossesse, et souvent le moment du vaccin contre la coqueluche. Les mesures passent aussi de la tête au siège aux talons."
 canonical_url: "https://femioapp.com/fr/learn/pregnancy-week-20"
 robots_while_draft: "noindex,nofollow"
@@ -22,7 +22,7 @@ open_graph_image_alt: "Une carte de rendez-vous de vaccination posée sur une ta
 written_by: "PENDING"
 medically_reviewed_by: "Dr. Khaled M."
 date_published: "2026-10-30"
-date_modified: "2026-10-30"
+date_modified: "2026-11-25"
 last_reviewed: "2026-10-30"
 next_review_due: "2027-10-30"
 reading_level_ok: false
@@ -48,6 +48,7 @@ internal_links:
   - "/fr/learn/pregnancy-week-21"
   - "/fr/learn/pregnancy-warning-signs"
   - "/fr/calculators/gestational-age"
+  - "/fr/help-now"
 ---
 
 # Semaine 20 de grossesse : à quoi s'attendre
@@ -86,7 +87,7 @@ Demandez votre formulaire MAT B1 lors de votre prochain rendez-vous, ou l'équiv
 
 Signalez un saignement, une douleur intense, une fièvre, ou un mal de tête accompagné de troubles de la vision. Un gonflement soudain du visage ou des mains nécessite des soins le jour même. [Les signes d'alerte de la grossesse](/fr/learn/pregnancy-warning-signs) donnent la liste complète.
 
-> **Consultez sans attendre :** Contactez les services d'urgence de votre région ou rendez-vous au service des urgences le plus proche si vous avez un saignement abondant, une douleur intense ou d'un seul côté du ventre, un mal de tête sévère avec troubles de la vision, un gonflement soudain du visage ou des mains, une fièvre, un liquide qui s'écoule du vagin, une douleur thoracique, des difficultés à respirer, un malaise, ou une crise convulsive. Femio ne peut pas évaluer une grossesse.
+> **Consultez sans attendre :** Contactez les services d'urgence de votre région ou rendez-vous au service des urgences le plus proche si vous avez un saignement abondant, une douleur intense ou d'un seul côté du ventre, un mal de tête sévère avec troubles de la vision, un gonflement soudain du visage ou des mains, une fièvre, un liquide qui s'écoule du vagin, une douleur thoracique, des difficultés à respirer, un malaise,, une crise convulsive ou des pensées de vous faire du mal ou de faire du mal à votre bébé ([aide immédiate](/fr/help-now)). femio ne peut pas évaluer une grossesse.
 
 ## Questions fréquentes
 

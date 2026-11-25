@@ -24,7 +24,7 @@ open_graph_image_alt: "Une personne prenant un rendez-vous médical sur son tél
 written_by: "PENDING"
 medically_reviewed_by: "Dr. Khaled M."
 date_published: "2026-10-30"
-date_modified: "2026-10-30"
+date_modified: "2026-11-25"
 last_reviewed: "2026-10-30"
 next_review_due: "2027-10-30"
 reading_level_ok: false
@@ -86,7 +86,7 @@ Un clinicien tiendra compte de plusieurs éléments. Cette liste est là pour qu
 - certains médicaments, notamment des anticoagulants
 - un cancer de la muqueuse utérine, ou plus rarement du col
 
-Femio n'évalue aucune de ces causes et ne peut pas vous dire laquelle s'applique. Ce qu'il peut faire, c'est conserver les dates et les détails que vous avez remarqués, afin que la personne qui vous examine dispose d'un récit clair plutôt que d'un souvenir flou.
+femio n'évalue aucune de ces causes et ne peut pas vous dire laquelle s'applique. Ce qu'il peut faire, c'est conserver les dates et les détails que vous avez remarqués, afin que la personne qui vous examine dispose d'un récit clair plutôt que d'un souvenir flou.
 
 ## Si vous suivez un traitement hormonal
 
@@ -109,7 +109,7 @@ Le prélèvement et la caméra peuvent être inconfortables, et vous pouvez le d
 
 ## Quoi dire lorsque vous prenez rendez-vous
 
-Dites : **« J'ai eu un saignement après la ménopause. »** Cette phrase fait avancer un rendez-vous à elle seule, car les services sont organisés pour la traiter en priorité.
+Dites : **« J'ai eu un saignement après la ménopause. »** Dire cette phrase clairement aide la personne qui prend le rendez-vous à comprendre qu'une consultation rapide est nécessaire.
 
 Ajoutez quand vos règles se sont arrêtées, quand le saignement est survenu, sa quantité, s'il s'est déjà produit auparavant et tout traitement hormonal que vous prenez.
 

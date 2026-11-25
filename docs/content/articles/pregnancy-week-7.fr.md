@@ -22,7 +22,7 @@ open_graph_image_alt: "Un grand verre d'eau sur un bureau à côté d'un carnet"
 written_by: "PENDING"
 medically_reviewed_by: "Dr. Khaled M."
 date_published: "2026-10-30"
-date_modified: "2026-10-30"
+date_modified: "2026-11-25"
 last_reviewed: "2026-10-30"
 next_review_due: "2027-10-30"
 reading_level_ok: false
@@ -49,6 +49,7 @@ internal_links:
   - "/fr/learn/first-pregnancy-appointment"
   - "/fr/learn/pregnancy-warning-signs"
   - "/fr/calculators/gestational-age"
+  - "/fr/help-now"
 ---
 
 # Semaine 7 de grossesse : à quoi s'attendre
@@ -91,7 +92,7 @@ Remplissez une bouteille le matin et finissez-la le soir. La soif en début de g
 
 Signalez tout saignement, toute douleur intense ou d'un seul côté, des démangeaisons sur tout le corps, ou des vertiges qui ne disparaissent pas quand vous vous asseyez. [Les signes d'alerte de la grossesse](/fr/learn/pregnancy-warning-signs) présentent le reste.
 
-> **Consultez sans attendre :** Contactez les services d'urgence locaux ou rendez-vous au service des urgences le plus proche en cas de saignement abondant, de douleur ventrale intense ou d'un seul côté, de douleur à la pointe de l'épaule, de maux de tête violents avec troubles de la vision, de gonflement soudain du visage ou des mains, de fièvre, de douleur thoracique, de difficultés respiratoires, d'évanouissement ou de crise convulsive. Femio ne peut pas évaluer une grossesse.
+> **Consultez sans attendre :** Contactez les services d'urgence locaux ou rendez-vous au service des urgences le plus proche en cas de saignement abondant, de douleur ventrale intense ou d'un seul côté, de douleur à la pointe de l'épaule, de maux de tête violents avec troubles de la vision, de gonflement soudain du visage ou des mains, de fièvre, de douleur thoracique, de difficultés respiratoires, d'évanouissement, de crise convulsive ou de pensées de vous faire du mal ou de faire du mal à votre bébé ([aide immédiate](/fr/help-now)). femio ne peut pas évaluer une grossesse.
 
 ## Questions fréquentes
 

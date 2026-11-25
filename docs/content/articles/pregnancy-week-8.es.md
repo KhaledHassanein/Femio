@@ -10,7 +10,7 @@ secondary_topics:
   - "el periodo para la cita de inscripción"
   - "estado de ánimo al inicio del embarazo"
 excerpt: "La semana 8 suele abrir el periodo para la cita de inscripción, y a menudo es la semana en que los cambios de humor se vuelven el síntoma más intenso."
-meta_title: "8 semanas de embarazo: la cita de inscripción | Femio"
+meta_title: "8 semanas de embarazo: la cita de inscripción | femio"
 meta_description: "La semana 8 suele abrir la cita de inscripción. Qué incluye esa hora, por qué el ánimo suele alterarse ahora y qué decir si lo estás pasando mal."
 canonical_url: "https://femioapp.com/es/learn/pregnancy-week-8"
 robots_while_draft: "noindex,nofollow"
@@ -22,7 +22,7 @@ open_graph_image_alt: "Notas de una matrona y un tensiómetro sobre un escritori
 written_by: "PENDING"
 medically_reviewed_by: "Dr. Khaled M."
 date_published: "2026-10-30"
-date_modified: "2026-10-30"
+date_modified: "2026-11-25"
 last_reviewed: "2026-10-30"
 next_review_due: "2027-10-30"
 reading_level_ok: false
@@ -49,6 +49,7 @@ internal_links:
   - "/es/learn/first-pregnancy-appointment"
   - "/es/learn/pregnancy-warning-signs"
   - "/es/calculators/gestational-age"
+  - "/es/help-now"
 ---
 
 # Semana 8 de embarazo: qué esperar
@@ -73,9 +74,9 @@ El sangrado, el dolor intenso o el dolor de un solo lado siguen siendo asuntos d
 
 ## Tu bebé esta semana
 
-Hacia la semana 8, la medida que se da es de unos 16 mm de cabeza a nalgas, del tamaño de una frambuesa en la ilustración del NHS, y se espera que se duplique aproximadamente en la semana siguiente. Son promedios de población, no una descripción de un embarazo concreto.
+Hacia la semana 8, la medida que se da es de unos 16 mm de cabeza a nalgas, del tamaño de una frambuesa en la ilustración del NHS, y crece con rapidez en las semanas siguientes. Son promedios de población, no una descripción de un embarazo concreto.
 
-La cabeza empieza a desenrollarse. Los brazos crecen más deprisa que las piernas, porque la parte superior del cuerpo se desarrolla primero. Hacia este momento, el embrión empieza a llamarse feto.
+La cabeza empieza a desenrollarse. Los brazos crecen más deprisa que las piernas, porque la parte superior del cuerpo se desarrolla primero. Más adelante en el primer trimestre, el embrión empieza a llamarse feto.
 
 ## Qué cuidados suelen producirse por estas fechas
 
@@ -91,7 +92,7 @@ Escribe tus preguntas antes de la cita de inscripción y llévalas contigo. Una 
 
 Contacta con una matrona o con tu médico de cabecera por cualquier sangrado, dolor intenso o de un solo lado, imposibilidad de retener líquidos o fiebre. Si sientes que no puedes con todo, dilo también. [Qué ocurre en la primera cita del embarazo](/es/learn/first-pregnancy-appointment) explica la visita en sí.
 
-> **Busca atención ya:** Contacta con los servicios de emergencia de tu zona o acude al servicio de urgencias más cercano si tienes sangrado abundante, dolor abdominal intenso o de un solo lado, dolor en la punta del hombro, dolor de cabeza fuerte con alteraciones visuales, hinchazón repentina de la cara o las manos, fiebre, dolor en el pecho, dificultad para respirar, desmayo o convulsión. Femio no puede evaluar un embarazo.
+> **Busca atención ya:** Contacta con los servicios de emergencia de tu zona o acude al servicio de urgencias más cercano si tienes sangrado abundante, dolor abdominal intenso o de un solo lado, dolor en la punta del hombro, dolor de cabeza fuerte con alteraciones visuales, hinchazón repentina de la cara o las manos, fiebre, dolor en el pecho, dificultad para respirar, desmayo, convulsión o pensamientos de hacerte daño a ti misma o a tu bebé ([ayuda ahora](/es/help-now)). femio no puede evaluar un embarazo.
 
 ## Preguntas frecuentes
 

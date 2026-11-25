@@ -10,8 +10,8 @@ secondary_topics:
   - "échographie des 12 semaines"
   - "fin du premier trimestre"
 excerpt: "La semaine 12 clôt le premier trimestre pour la plupart des femmes, et c'est la semaine où l'échographie et la question de l'annonce aux proches arrivent généralement ensemble."
-meta_title: "12 semaines de grossesse : échographie et annonce | Femio"
-meta_description: "La semaine 12 apporte souvent l'échographie et la question de l'annonce. Ce que signifie le relais du placenta, et pourquoi la taille du ventre ne prouve rien."
+meta_title: "12 semaines de grossesse : échographie et annonce | femio"
+meta_description: "Semaine 12 : souvent l'échographie et la question de l'annonce. Pourquoi les nausées s'atténuent souvent, et pourquoi la taille du ventre ne prouve rien."
 canonical_url: "https://femioapp.com/fr/learn/pregnancy-week-12"
 robots_while_draft: "noindex,nofollow"
 robots_when_published: "index,follow,max-image-preview:large"
@@ -22,7 +22,7 @@ open_graph_image_alt: "Deux personnes regardant ensemble une image d'échographi
 written_by: "PENDING"
 medically_reviewed_by: "Dr. Khaled M."
 date_published: "2026-10-30"
-date_modified: "2026-10-30"
+date_modified: "2026-11-25"
 last_reviewed: "2026-10-30"
 next_review_due: "2027-10-30"
 reading_level_ok: false
@@ -49,6 +49,7 @@ internal_links:
   - "/fr/learn/pregnancy-basics"
   - "/fr/learn/pregnancy-warning-signs"
   - "/fr/calculators/gestational-age"
+  - "/fr/help-now"
 ---
 
 # Semaine 12 de grossesse : à quoi s'attendre
@@ -57,7 +58,7 @@ La semaine 12 clôt le premier trimestre pour la plupart des femmes, et elle app
 
 ## Votre corps cette semaine
 
-Le placenta assure probablement déjà l'apport nutritif de la grossesse, ayant pris le relais de la vésicule vitelline, et les taux hormonaux se stabilisent quelque peu une fois que cela s'est produit. C'est la raison pour laquelle les nausées s'atténuent généralement dans les semaines qui suivent.
+Le placenta assure probablement déjà l'apport nutritif de la grossesse, ayant pris le relais de la vésicule vitelline, et les taux hormonaux se stabilisent quelque peu une fois que cela s'est produit. Les nausées s'atténuent généralement dans les semaines qui suivent, bien que la raison exacte ne soit pas certaine.
 
 Votre taille s'épaissit et vos seins grossissent. Lorsque les nausées disparaissent, l'appétit revient souvent, avec lui l'inquiétude de savoir si vous mangez trop ou pas assez.
 
@@ -89,7 +90,7 @@ Demandez une photo imprimée de l'échographie et demandez quelles étaient les 
 
 Tout saignement, toute douleur intense, toute fièvre, ou tout mal de tête accompagné de troubles de la vue nécessite un contact le jour même. [Les bases de la grossesse](/fr/learn/pregnancy-basics) présente l'ensemble de la grossesse, et [les signes d'alerte pendant la grossesse](/fr/learn/pregnancy-warning-signs) indique ce qu'il ne faut pas attendre.
 
-> **Consultez sans attendre :** Contactez les services d'urgence de votre région ou rendez-vous au service des urgences le plus proche si vous avez des saignements abondants, une douleur abdominale intense ou d'un seul côté, une douleur au bout de l'épaule, un mal de tête intense accompagné de troubles de la vue, un gonflement soudain du visage ou des mains, de la fièvre, une douleur thoracique, des difficultés respiratoires, un malaise ou une crise convulsive. Femio ne peut pas évaluer une grossesse.
+> **Consultez sans attendre :** Contactez les services d'urgence de votre région ou rendez-vous au service des urgences le plus proche si vous avez des saignements abondants, une douleur abdominale intense ou d'un seul côté, une douleur au bout de l'épaule, un mal de tête intense accompagné de troubles de la vue, un gonflement soudain du visage ou des mains, de la fièvre, une douleur thoracique, des difficultés respiratoires, un malaise, une crise convulsive ou des pensées de vous faire du mal ou de faire du mal à votre bébé ([aide immédiate](/fr/help-now)). femio ne peut pas évaluer une grossesse.
 
 ## Questions fréquentes
 

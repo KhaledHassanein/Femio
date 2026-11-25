@@ -12,7 +12,7 @@ secondary_topics:
   - "evaluación de la perimenopausia"
   - "opciones de atención en la perimenopausia"
 excerpt: "Conoce qué es la perimenopausia, cómo pueden cambiar las menstruaciones y los síntomas, cómo la evalúan los profesionales y qué sangrado necesita atención médica."
-meta_title: "¿Qué es la perimenopausia? Síntomas y cambios | Femio"
+meta_title: "¿Qué es la perimenopausia? Síntomas y cambios | femio"
 meta_description: "Qué es la perimenopausia, cómo cambian las menstruaciones y los síntomas, cómo se evalúa, qué opciones de atención existen y cuándo consultar."
 canonical_url: "https://femioapp.com/es/learn/perimenopause-explained"
 robots_while_draft: "noindex,nofollow"
@@ -24,7 +24,7 @@ open_graph_image_alt: "Calendario y notas de síntomas que muestran ciclos cambi
 written_by: "PENDING"
 medically_reviewed_by: "Dr. Khaled M."
 date_published: "2026-10-30"
-date_modified: "2026-10-30"
+date_modified: "2026-11-25"
 last_reviewed: "2026-10-30"
 next_review_due: "2027-10-30"
 reading_level_ok: false
@@ -164,11 +164,11 @@ Los cambios de humor o de concentración pueden afectar la confianza en el traba
 
 Si los cambios de humor son parte del cuadro, incluye su momento y su impacto diario en tus notas.
 
-## Cómo registrar la perimenopausia en Femio
+## Cómo registrar la perimenopausia en femio
 
 Registra las fechas de la menstruación, el flujo, los sofocos, los sudores nocturnos, el sueño, el estado de ánimo, los dolores de cabeza, los síntomas vaginales o urinarios, y notas sobre el impacto diario. Elige solo los detalles que te sean útiles.
 
-Las estimaciones del ciclo son menos seguras cuando las menstruaciones varían. Femio debe mostrar rangos más amplios en lugar de un día exacto previsto o un contador de «retraso».
+Las estimaciones del ciclo son menos seguras cuando las menstruaciones varían. femio muestra rangos más amplios en lugar de un día exacto previsto o un contador de «retraso».
 
 El registro no puede confirmar la perimenopausia ni descartar otra causa. La guía sobre [seguimiento de los síntomas de la perimenopausia](/es/learn/track-perimenopause-symptoms) muestra cómo hacer un resumen útil. Lee la [guía de menstruaciones abundantes](/es/conditions/heavy-periods) cuando el sangrado sea la preocupación principal. También puedes aprender [qué significa la menopausia](/es/learn/menopause-explained) y qué [opciones de atención para la menopausia](/es/learn/menopause-care-options) pueden analizarse.
 

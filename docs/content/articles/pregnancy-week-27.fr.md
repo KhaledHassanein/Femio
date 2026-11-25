@@ -22,7 +22,7 @@ open_graph_image_alt: "Un passeport et une carte d’embarquement posés sur une
 written_by: "PENDING"
 medically_reviewed_by: "Dr. Khaled M."
 date_published: "2026-10-30"
-date_modified: "2026-10-30"
+date_modified: "2026-11-25"
 last_reviewed: "2026-10-30"
 next_review_due: "2027-10-30"
 reading_level_ok: false
@@ -48,6 +48,7 @@ internal_links:
   - "/fr/learn/pregnancy-week-28"
   - "/fr/learn/pregnancy-warning-signs"
   - "/fr/calculators/gestational-age"
+  - "/fr/help-now"
 ---
 
 # Semaine 27 de grossesse : à quoi s’attendre
@@ -72,7 +73,7 @@ Les mouvements sont forts et réguliers chez la plupart des femmes. Tout changem
 
 Vers la semaine 27, la taille indiquée est d’environ 36,6 cm de la tête au talon ; le NHS la compare à une tête de chou-fleur. Ce sont des moyennes de population, et non la description d’une grossesse en particulier.
 
-Les poumons sont désormais capables de respirer, et la graisse comble les plis de peau qui paraissaient ridés quelques semaines plus tôt. Les organes poursuivent leur maturation.
+Les poumons sont en cours de maturation ; un bébé né à ce stade aurait besoin d’une aide spécialisée pour respirer, et la graisse comble les plis de peau qui paraissaient ridés quelques semaines plus tôt. Les organes poursuivent leur maturation.
 
 ## Quels soins sont généralement prévus à cette période
 
@@ -82,13 +83,13 @@ Concernant les voyages : le NHS indique qu’il s’agit généralement de la de
 
 ## Conseil de la semaine
 
-Si vous voyagez, obtenez l’attestation dès maintenant et vérifiez par écrit le seuil de votre compagnie. Les compagnies refusent l’embarquement selon leurs propres règles, et non selon votre ressenti ou le stade de grossesse que vous annoncez ; une attestation obtenue à 27 semaines est simple à obtenir, alors qu’à 34 semaines elle peut être impossible.
+Si vous voyagez, obtenez l’attestation dès maintenant et vérifiez par écrit le seuil de votre compagnie. Les compagnies refusent l’embarquement selon leurs propres règles, et non selon votre ressenti ou le stade de grossesse que vous annoncez ; obtenir l’attestation plus tôt laisse le temps de régler d’éventuelles questions avec la compagnie.
 
 ## Quand consulter
 
-Contactez votre service de maternité le jour même pour tout changement des mouvements. Signalez tout saignement, douleur intense, fièvre, ou maux de tête accompagnés de troubles de la vision. Les [signes d’alerte de la grossesse](/fr/learn/pregnancy-warning-signs) donnent la liste complète.
+Contactez votre service de maternité sans attendre pour tout changement des mouvements. Signalez tout saignement, douleur intense, fièvre, ou maux de tête accompagnés de troubles de la vision. Les [signes d’alerte de la grossesse](/fr/learn/pregnancy-warning-signs) donnent la liste complète.
 
-> **Consultez sans attendre :** Contactez les services d’urgence locaux ou rendez-vous au service des urgences le plus proche en cas de saignement abondant, de douleur intense ou située d’un seul côté du ventre, de maux de tête violents accompagnés de troubles de la vision, de gonflement soudain du visage ou des mains, de fièvre, de fuite de liquide par le vagin, de douleur thoracique, de difficultés respiratoires, d’évanouissement ou de crise convulsive. Contactez votre service de maternité le jour même pour toute diminution du rythme habituel des mouvements de votre bébé. femio ne peut pas évaluer une grossesse.
+> **Consultez sans attendre :** Contactez les services d’urgence locaux ou rendez-vous au service des urgences le plus proche en cas de saignement abondant, de douleur intense ou située d’un seul côté du ventre, de maux de tête violents accompagnés de troubles de la vision, de gonflement soudain du visage ou des mains, de fièvre, de fuite de liquide par le vagin, de douleur thoracique, de difficultés respiratoires, d’évanouissement, de crise convulsive ou de pensées de vous faire du mal ou de faire du mal à votre bébé ([aide immédiate](/fr/help-now)). Contactez votre service de maternité sans attendre si les mouvements de votre bébé ralentissent, s’arrêtent ou changent. femio ne peut pas évaluer une grossesse.
 
 ## Questions fréquentes
 

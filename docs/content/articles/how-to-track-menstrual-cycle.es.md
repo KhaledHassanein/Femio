@@ -24,7 +24,7 @@ open_graph_image_alt: "Calendario con fechas de la menstruación y notas de sín
 written_by: "PENDING"
 medically_reviewed_by: "Dr. Khaled M."
 date_published: "2026-10-30"
-date_modified: "2026-10-30"
+date_modified: "2026-11-25"
 last_reviewed: "2026-10-30"
 next_review_due: "2027-10-30"
 reading_level_ok: false
@@ -109,7 +109,7 @@ La duración adecuada depende de la pregunta. Unos pocos ciclos pueden mostrar u
 
 Si el sangrado es nuevo, muy abundante, aparece entre menstruaciones, ocurre después de tener relaciones sexuales o sigue a la menopausia, empieza a registrarlo y busca consejo pronto. La [guía de ACOG sobre sangrado anormal](https://www.acog.org/womens-health/faqs/abnormal-uterine-bleeding) describe patrones que vale la pena comentar con un profesional sanitario.
 
-Para los síntomas relacionados con las semanas previas a la menstruación, las notas diarias durante al menos dos ciclos pueden ayudar a un profesional a comparar el momento en que aparecen. La guía sobre [cómo registrar los síntomas del SPM y el TDPM](/es/learn/track-pms-pmdd-symptoms) explica un enfoque centrado en ello.
+Para los síntomas relacionados con las semanas previas a la menstruación, las notas diarias durante unos pocos ciclos pueden ayudar a un profesional a comparar el momento en que aparecen. La guía sobre [cómo registrar los síntomas del SPM y el TDPM](/es/learn/track-pms-pmdd-symptoms) explica un enfoque centrado en ello.
 
 ## Cómo revisar un patrón del ciclo
 

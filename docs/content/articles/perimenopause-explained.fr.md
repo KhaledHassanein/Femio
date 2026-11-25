@@ -24,7 +24,7 @@ open_graph_image_alt: "Calendrier et notes de symptômes montrant des cycles qui
 written_by: "PENDING"
 medically_reviewed_by: "Dr. Khaled M."
 date_published: "2026-10-30"
-date_modified: "2026-10-30"
+date_modified: "2026-11-25"
 last_reviewed: "2026-10-30"
 next_review_due: "2027-10-30"
 reading_level_ok: false
@@ -168,7 +168,7 @@ Si les changements d'humeur font partie du tableau, notez leur moment et leur ef
 
 Notez les dates de règles, le flux, les bouffées de chaleur, les sueurs nocturnes, le sommeil, l'humeur, les maux de tête, les symptômes vaginaux ou urinaires et l'effet au quotidien. Ne retenez que les détails utiles pour vous.
 
-Les estimations de cycle deviennent moins certaines lorsque les règles varient. femio doit afficher des fourchettes plus larges plutôt qu'un jour précis prévu ou un compteur de « retard ».
+Les estimations de cycle deviennent moins certaines lorsque les règles varient. femio affiche des fourchettes plus larges plutôt qu'un jour précis prévu ou un compteur de « retard ».
 
 Le suivi ne peut ni confirmer la périménopause ni écarter une autre cause. Le guide sur [le suivi des symptômes de la périménopause](/fr/learn/track-perimenopause-symptoms) montre comment établir un résumé utile. Lisez le [guide sur les règles abondantes](/fr/conditions/heavy-periods) lorsque les saignements sont la préoccupation principale. Vous pouvez aussi découvrir [ce que signifie la ménopause](/fr/learn/menopause-explained) et les [options de prise en charge de la ménopause](/fr/learn/menopause-care-options) qui peuvent être discutées.
 

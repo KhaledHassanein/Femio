@@ -22,7 +22,7 @@ open_graph_image_alt: "A large glass of water on a desk beside a notebook"
 written_by: "PENDING"
 medically_reviewed_by: "Dr. Khaled M."
 date_published: "2026-08-19"
-date_modified: "2026-08-19"
+date_modified: "2026-11-24"
 last_reviewed: "2026-10-30"
 next_review_due: "2027-10-30"
 reading_level_ok: true
@@ -44,6 +44,7 @@ sources:
     url: "https://www.nichd.nih.gov/health/topics/pregnancy/conditioninfo"
     tier: "1"
 internal_links:
+  - "/en/help-now"
   - "/en/learn/pregnancy-week-6"
   - "/en/learn/pregnancy-week-8"
   - "/en/learn/first-pregnancy-appointment"
@@ -91,7 +92,7 @@ Fill a bottle in the morning and finish it by evening. Thirst in early pregnancy
 
 Report any bleeding, severe or one-sided pain, itching all over, or dizziness that does not settle when you sit. [Pregnancy warning signs](/en/learn/pregnancy-warning-signs) lists the rest.
 
-> **Seek care now:** Contact your local emergency services or go to your nearest emergency department if you have heavy bleeding, severe or one-sided tummy pain, pain in the tip of your shoulder, a severe headache with vision changes, sudden swelling of the face or hands, a fever, chest pain, trouble breathing, fainting, or a seizure. Femio cannot assess a pregnancy.
+> **Seek care now:** Contact your local emergency services or go to your nearest emergency department if you have heavy bleeding, severe or one-sided tummy pain, pain in the tip of your shoulder, a severe headache with vision changes, sudden swelling of the face or hands, a fever, chest pain, trouble breathing, fainting, a seizure, or thoughts of harming yourself or the baby ([help now](/en/help-now)). femio cannot assess a pregnancy.
 
 ## Frequently asked questions
 

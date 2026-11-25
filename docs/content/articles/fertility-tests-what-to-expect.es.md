@@ -12,7 +12,7 @@ secondary_topics:
   - "prueba de permeabilidad de las trompas"
   - "preparación para una cita de fertilidad"
 excerpt: "Qué suele incluir una evaluación de fertilidad, por qué se revisa a ambos miembros de la pareja, cuánto tardan los resultados y qué preguntar antes de empezar."
-meta_title: "Pruebas de fertilidad: qué incluye una evaluación | Femio"
+meta_title: "Pruebas de fertilidad: qué incluye una evaluación | femio"
 meta_description: "Qué incluye una evaluación de fertilidad para ambos miembros de la pareja, en qué orden se hacen las pruebas, cuánto tardan los resultados y qué preguntar."
 canonical_url: "https://femioapp.com/es/learn/fertility-tests-what-to-expect"
 robots_while_draft: "noindex,nofollow"
@@ -24,7 +24,7 @@ open_graph_image_alt: "Una pareja hablando con un profesional de la salud en una
 written_by: "PENDING"
 medically_reviewed_by: "Dr. Khaled M."
 date_published: "2026-10-30"
-date_modified: "2026-10-30"
+date_modified: "2026-11-25"
 last_reviewed: "2026-10-30"
 next_review_due: "2027-10-30"
 reading_level_ok: false
@@ -54,7 +54,7 @@ internal_links:
 
 # Pruebas de fertilidad: qué suele incluir una evaluación
 
-Una evaluación de fertilidad es un conjunto de pruebas habituales, que suelen repartirse en uno o dos ciclos: análisis de sangre para ti, un análisis de semen para tu pareja masculina, y una ecografía o una comprobación de que las trompas de Falopio están permeables. **Siempre se evalúa a ambos miembros de la pareja**, porque la causa se encuentra en un lado o en el otro, o en ambos, con una frecuencia aproximadamente igual. Que te deriven a una evaluación no es un veredicto sobre si tendrás un bebé. Esta página explica la forma habitual de la evaluación para que la primera cita resulte menos desconocida, y no sustituye a tu propio profesional de la salud.
+Una evaluación de fertilidad es un conjunto de pruebas habituales, que suelen repartirse en uno o dos ciclos: análisis de sangre para ti, un análisis de semen para tu pareja masculina, y una ecografía o una comprobación de que las trompas de Falopio están permeables. **Normalmente se evalúa a ambos miembros de la pareja**, porque la causa se encuentra en un lado o en el otro, o en ambos, con una frecuencia aproximadamente igual. Que te deriven a una evaluación no es un veredicto sobre si tendrás un bebé. Esta página explica la forma habitual de la evaluación para que la primera cita resulte menos desconocida, y no sustituye a tu propio profesional de la salud.
 
 ## Cuándo suele ofrecerse una evaluación
 
@@ -90,11 +90,11 @@ Esa espera es lo que más cuesta a la mayoría de las personas, y rara vez se ex
 
 ## Qué dicen y qué no dicen los resultados
 
-Las pruebas describen lo que ocurre ahora. No predicen si tendrás un bebé, y un resultado fuera de un rango de referencia es un hallazgo que un profesional debe interpretar junto con todo lo demás, nunca una conclusión por sí solo.
+Las pruebas describen lo que ocurre ahora. No predicen si tendrás un bebé, y un resultado fuera del rango habitual es un hallazgo que un profesional debe interpretar junto con todo lo demás, nunca una conclusión por sí solo.
 
 A veces no se encuentra nada anormal en ninguno de los dos. Eso es un resultado reconocido y no un fallo de las pruebas, y aún se analizan las opciones.
 
-Femio no interpreta nada de esto. Guarda tus ciclos, tus registros y tus preguntas para que quien pueda interpretarlos tenga el cuadro completo delante.
+femio no interpreta nada de esto. Guarda tus ciclos, tus registros y tus preguntas para que quien pueda interpretarlos tenga el cuadro completo delante.
 
 ## Qué preguntar en la primera cita
 
@@ -136,6 +136,6 @@ No necesariamente. A veces no se encuentra ninguna causa en ninguno de los dos, 
 
 Puede causar calambres y es breve. Pregunta por el alivio del dolor antes, y puedes pedir detenerte.
 
-### ¿Femio puede decirme si necesito pruebas?
+### ¿femio puede decirme si necesito pruebas?
 
 No. Puede mostrar a tu profesional de la salud lo que tus ciclos han hecho en realidad, que suele ser lo más útil que llevas.

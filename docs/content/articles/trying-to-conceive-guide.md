@@ -12,7 +12,7 @@ secondary_topics:
   - "when to seek fertility help"
   - "tracking cycles while trying"
 excerpt: "Start trying to conceive with clear steps on prepregnancy health, cycle timing, medicines, testing, and when to ask for fertility support."
-meta_title: "Trying to Conceive: Where to Start | Femio"
+meta_title: "Trying to Conceive: Where to Start | femio"
 meta_description: "Planning a pregnancy? Learn the first health steps, how cycle timing works, what to track, and when to ask a clinician for fertility support."
 canonical_url: "https://femioapp.com/en/learn/trying-to-conceive-guide"
 robots_while_draft: "noindex,nofollow"
@@ -24,7 +24,7 @@ open_graph_image_alt: "Calendar, health notes, and questions prepared for a preg
 written_by: "Dr. Khaled M."
 medically_reviewed_by: "Dr. Khaled M."
 date_published: "2026-08-15"
-date_modified: "2026-08-15"
+date_modified: "2026-11-24"
 last_reviewed: "2026-08-04"
 next_review_due: null
 reading_level_ok: true
@@ -93,7 +93,7 @@ The fertile window is the part of the cycle when sex or insemination may lead to
 
 Cycle dates can offer an estimate, but ovulation does not always happen on the same cycle day. **These dates support conception planning and awareness. They are estimates, not a reliable way to avoid pregnancy.**
 
-Read [what the fertile window means](/en/learn/fertile-window-explained), or use Femio's [fertile-window calculator](/en/calculators/fertile-window) as a general planning tool.
+Read [what the fertile window means](/en/learn/fertile-window-explained), or use femio's [fertile-window calculator](/en/calculators/fertile-window) as a general planning tool.
 
 If timing is becoming stressful, regular sex across the cycle may feel more manageable than aiming for one date. Donor or clinic pathways use different timing plans; follow the instructions from the service supporting you.
 
@@ -166,11 +166,11 @@ Trying to conceive can bring hope, pressure, grief, or conflict. There is no cor
 
 Partners may cope differently. Agree on how and when to talk about the process rather than letting every day become a fertility discussion. Ask your clinician about counselling or peer support if you want it.
 
-## How Femio can support conception planning
+## How femio can support conception planning
 
-Femio lets you record cycles, symptoms, and notes, then view estimated date ranges. You can print a summary for a clinician visit and choose which details to share.
+femio lets you record cycles, symptoms, and notes, then view estimated date ranges. You can print a summary for a clinician visit and choose which details to share.
 
-Femio does not confirm ovulation, explain a fertility concern, or promise pregnancy. Estimates should remain one part of planning, not a test of whether your body is working correctly.
+femio does not confirm ovulation, explain a fertility concern, or promise pregnancy. Estimates should remain one part of planning, not a test of whether your body is working correctly.
 
 ## Frequently asked questions
 

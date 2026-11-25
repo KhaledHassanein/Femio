@@ -22,7 +22,7 @@ open_graph_image_alt: "Dibujo lineal sencillo de cuatro formas pequeñas juntas"
 written_by: "PENDING"
 medically_reviewed_by: "Dr. Khaled M."
 date_published: "2026-10-30"
-date_modified: "2026-10-30"
+date_modified: "2026-11-25"
 last_reviewed: "2026-10-30"
 next_review_due: "2027-10-30"
 reading_level_ok: false
@@ -76,7 +76,7 @@ Las recomendaciones sobre los tampones para adolescentes más jóvenes varían s
 
 Una copa es un recipiente pequeño y flexible de silicona o caucho que se coloca dentro de la vagina y **recoge** la sangre en lugar de absorberla. La vacías, la enjuagas y la vuelves a colocar.
 
-Dura años, por lo que a la larga sale mucho más barata, y normalmente puede quedarse puesta más tiempo que un tampón. Los inconvenientes son reales: hace falta práctica para doblarla y colocarla, vaciarla necesita un lavabo o al menos algo de intimidad, y supone un gasto inicial. Un baño compartido o del colegio sin lavabo dentro del cubículo lo complica.
+Dura años, por lo que a la larga sale mucho más barata. Las instrucciones del fabricante indican cuánto tiempo puede quedarse puesta, así que síguelas. Los inconvenientes son reales: hace falta práctica para doblarla y colocarla, vaciarla necesita un lavabo o al menos algo de intimidad, y supone un gasto inicial. Un baño compartido o del colegio sin lavabo dentro del cubículo lo complica.
 
 ## Ropa interior menstrual
 
@@ -103,4 +103,4 @@ Elegir un producto no requiere médico. Tú, o una persona adulta de confianza, 
 - no puedes sacar un tampón, o no encuentras el hilo
 - la sangre empapa la compresa o el tampón más grande cada hora o dos
 
-Si de repente te encuentras muy mal, con fiebre alta, sarpullido, vómitos o sensación de desmayo mientras tienes un tampón puesto, sácalo y acude a que te vea alguien ese mismo día [NHS].
+Si de repente te encuentras muy mal, con fiebre alta, sarpullido, vómitos o sensación de desmayo mientras tienes un tampón puesto, sácalo y busca ayuda médica urgente de inmediato [NHS].

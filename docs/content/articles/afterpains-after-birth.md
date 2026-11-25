@@ -12,7 +12,7 @@ secondary_topics:
   - "cramping while breastfeeding"
   - "how long afterpains last"
 excerpt: "Why the womb cramps in the days after birth, why feeding makes it worse, how long it lasts, and the pain that is not afterpains."
-meta_title: "Afterpains: Cramps in the Days After Birth | Femio"
+meta_title: "Afterpains: Cramps in the Days After Birth | femio"
 meta_description: "Why cramping happens after birth, why it is stronger while feeding and after a second baby, how long it lasts, and when pain needs checking."
 canonical_url: "https://femioapp.com/en/learn/afterpains-after-birth"
 robots_while_draft: "noindex,nofollow"
@@ -24,7 +24,7 @@ open_graph_image_alt: "A woman holding her lower abdomen while feeding her newbo
 written_by: "PENDING"
 medically_reviewed_by: "Dr. Khaled M."
 date_published: "2026-08-19"
-date_modified: "2026-08-19"
+date_modified: "2026-11-24"
 last_reviewed: "2026-10-30"
 next_review_due: "2027-10-30"
 reading_level_ok: true
@@ -67,7 +67,7 @@ This surprises people, and it can make early feeds harder than expected. It usua
 
 ## Why they are worse after a second baby
 
-A womb that has stretched before tends to contract in stronger waves rather than a steady tightening. Many people describe first-baby afterpains as mild and second-baby afterpains as genuinely painful.
+Afterpains are commonly reported as stronger after a second or later birth. Many people describe first-baby afterpains as mild and second-baby afterpains as genuinely painful.
 
 If nobody warned you, that is a gap in what people are told, not a sign that something is wrong.
 
@@ -106,7 +106,7 @@ Pain around a caesarean wound is a different question, and increasing wound pain
 
 Note when the cramps come, how long they last, whether feeding sets them off, and whether they are easing day by day. Note bleeding alongside them.
 
-Femio can hold that record so a pattern is visible. Femio does not assess pain and cannot tell you what is causing it — that judgement belongs to a clinician who can examine you. See [bleeding after birth](/en/learn/bleeding-after-birth) and [the first six weeks](/en/learn/postpartum-recovery-first-six-weeks) for what else is happening at the same time.
+femio can hold that record so a pattern is visible. femio does not assess pain and cannot tell you what is causing it — that judgement belongs to a clinician who can examine you. See [bleeding after birth](/en/learn/bleeding-after-birth) and [the first six weeks](/en/learn/postpartum-recovery-first-six-weeks) for what else is happening at the same time.
 
 ## When to see a doctor
 
@@ -128,7 +128,7 @@ Feeding releases a hormone that makes the womb contract, so cramps often begin a
 
 ### Are they worse with each baby?
 
-Often, yes. A womb that has been stretched before tends to contract in stronger waves.
+Often, yes. Afterpains are commonly reported as stronger after a second or later birth.
 
 ### How long should they last?
 

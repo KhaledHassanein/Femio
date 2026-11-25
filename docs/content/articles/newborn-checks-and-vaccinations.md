@@ -11,7 +11,7 @@ secondary_topics:
   - "newborn blood spot and hearing screening"
   - "baby vaccination schedules by country"
 excerpt: "The checks usually offered to a newborn baby, what each one looks at, and why vaccination schedules differ between countries."
-meta_title: "Newborn Checks and Vaccinations Explained | Femio"
+meta_title: "Newborn Checks and Vaccinations Explained | femio"
 meta_description: "The newborn examination, hearing screening, blood spot test and early vaccinations: what is usually offered, and why schedules differ by country."
 canonical_url: "https://femioapp.com/en/learn/newborn-checks-and-vaccinations"
 robots_while_draft: "noindex,nofollow"
@@ -23,7 +23,7 @@ open_graph_image_alt: "A clinician examining a newborn baby on a hospital cot"
 written_by: "PENDING"
 medically_reviewed_by: "Dr. Khaled M."
 date_published: "2026-08-19"
-date_modified: "2026-08-19"
+date_modified: "2026-11-24"
 last_reviewed: "2026-10-30"
 next_review_due: "2027-10-30"
 reading_level_ok: true
@@ -88,7 +88,7 @@ Screening is not the same as a diagnostic test. A result that needs following up
 
 ## Vitamin K
 
-NICE's postnatal care guideline recommends that parents are offered vitamin K for their baby to protect against vitamin K deficiency bleeding, which is rare and serious. Practice varies between countries in how it is given.
+Newborns are usually offered vitamin K to protect against vitamin K deficiency bleeding, which is rare and serious. Practice varies between countries in how it is given.
 
 You can ask what your service offers, and ask questions before you decide. This is a discussion with a clinician, not a form to sign quickly.
 
@@ -102,7 +102,7 @@ Take that record to every appointment if you are given one, and add to it yourse
 
 Routine immunisation schedules are set nationally, using WHO's recommendations as a base and then adapting them to the diseases that are common locally. WHO publishes summary tables of routine immunisation recommendations that national programmes build on.
 
-The differences are real. The NHS schedule gives the first routine baby vaccines at eight weeks, and offers BCG for tuberculosis and hepatitis B vaccination to babies at higher risk rather than to everyone. CDC's schedule for the United States begins at birth, with a first hepatitis B dose given before a baby leaves hospital.
+The differences are real. The NHS schedule gives the first routine baby vaccines at eight weeks, including hepatitis B protection in the combined vaccine, and offers BCG for tuberculosis and an earlier hepatitis B dose to babies at higher risk rather than to everyone. CDC's schedule for the United States begins at birth, with a first hepatitis B dose given before a baby leaves hospital.
 
 So a schedule from one country is not advice for another. Ask your own service for its schedule, keep the record, and ask about catch-up if an appointment is missed.
 
@@ -120,7 +120,7 @@ Seek urgent care for any sign in the box below, whatever is scheduled next. A bo
 
 Contact your midwife, health visitor or doctor if a check has not been offered when you expected it, if you were not given a result, or if you have a question about vaccination. [Your newborn in the first two weeks](/en/learn/newborn-first-two-weeks) covers what is usual, and [newborn warning signs](/en/learn/newborn-warning-signs) covers what is not.
 
-> **Seek care now:** Contact your local emergency services or go to your nearest emergency department if a baby under three months old has a temperature of 38C or higher, is breathing fast, working hard to breathe or grunting, has blue, grey, pale or mottled skin, is floppy, is difficult to wake, is refusing feeds, has far fewer wet nappies or none in the past 12 hours, has a bulging or sunken soft spot on the head, has a rash that does not fade when you press it, or has a fit. Femio cannot assess a baby.
+> **Seek care now:** Contact your local emergency services or go to your nearest emergency department if a baby under three months old has a temperature of 38C or higher, is breathing fast, working hard to breathe or grunting, has blue, grey, pale or mottled skin, is floppy, is difficult to wake, is refusing feeds, has far fewer wet nappies or none in the past 12 hours, has a bulging or sunken soft spot on the head, has a rash that does not fade when you press it, or has a fit. femio cannot assess a baby.
 
 ## Frequently asked questions
 

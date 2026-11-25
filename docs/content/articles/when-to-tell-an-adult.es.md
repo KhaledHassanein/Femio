@@ -10,7 +10,7 @@ secondary_topics:
   - "sin menstruación a los 15 años"
   - "a quién contárselo si hay problemas con la menstruación"
 excerpt: "Qué cosas merecen contárselas a una persona adulta, cuáles merecen una cita médica y a quién acudir si en casa no es fácil preguntar."
-meta_title: "Cuándo contárselo a un adulto sobre tu menstruación | Femio"
+meta_title: "Cuándo contárselo a un adulto sobre tu menstruación | femio"
 meta_description: "Qué cambios de la menstruación merecen contárselos a un adulto, cuáles una cita médica y a quién acudir si en casa no es fácil preguntar."
 canonical_url: "https://femioapp.com/es/learn/when-to-tell-an-adult"
 robots_while_draft: "noindex,nofollow"
@@ -22,7 +22,7 @@ open_graph_image_alt: "Dibujo sencillo de dos líneas curvas que se encuentran s
 written_by: "PENDING"
 medically_reviewed_by: "Dr. Khaled M."
 date_published: "2026-10-30"
-date_modified: "2026-10-30"
+date_modified: "2026-11-24"
 last_reviewed: "2026-10-30"
 next_review_due: "2027-10-30"
 reading_level_ok: false

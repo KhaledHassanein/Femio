@@ -12,7 +12,7 @@ secondary_topics:
   - "cœlioscopie pour l'endométriose"
   - "évaluation des douleurs pelviennes"
 excerpt: "Découvrez comment les cliniciens évaluent une possible endométriose à partir de l'historique des symptômes, des examens, de l'imagerie et, parfois, de la cœlioscopie, et comment vous y préparer."
-meta_title: "Comment l'endométriose est-elle évaluée ? | Femio"
+meta_title: "Comment l'endométriose est-elle évaluée ? | femio"
 meta_description: "Découvrez comment les cliniciens évaluent une possible endométriose : historique des symptômes, examens, échographie, IRM et, parfois, cœlioscopie."
 canonical_url: "https://femioapp.com/fr/learn/how-endometriosis-is-assessed"
 robots_while_draft: "noindex,nofollow"
@@ -24,7 +24,7 @@ open_graph_image_alt: "Un clinicien et une patiente examinent des notes sur des 
 written_by: "PENDING"
 medically_reviewed_by: "Dr. Khaled M."
 date_published: "2026-10-30"
-date_modified: "2026-10-30"
+date_modified: "2026-11-24"
 last_reviewed: "2026-10-30"
 next_review_due: "2027-10-30"
 reading_level_ok: false
@@ -132,7 +132,7 @@ Questions utiles :
 - Comment mes projets de fertilité influencent-ils le plan ?
 - Quand devons-nous faire le point sur l'évolution ?
 
-Un projet de grossesse ? Lisez [endométriose et fertilité](/fr/learn/endometriosis-and-fertility). Le [guide principal sur l'endométriose](/fr/conditions/endometriosis) présente les choix de prise en charge. Comment ce contenu est-il vérifié ? Consultez la [page de relecture clinique](/fr/medical-review) de Femio.
+Un projet de grossesse ? Lisez [endométriose et fertilité](/fr/learn/endometriosis-and-fertility). Le [guide principal sur l'endométriose](/fr/conditions/endometriosis) présente les choix de prise en charge. Comment ce contenu est-il vérifié ? Consultez la [page de relecture clinique](/fr/medical-review) de femio.
 
 ## Quand consulter
 

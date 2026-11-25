@@ -24,7 +24,7 @@ open_graph_image_alt: "A tired parent resting on a sofa in daylight while the ba
 written_by: "PENDING"
 medically_reviewed_by: "Dr. Khaled M."
 date_published: "2026-08-19"
-date_modified: "2026-08-19"
+date_modified: "2026-11-24"
 last_reviewed: "2026-10-30"
 next_review_due: "2027-10-30"
 reading_level_ok: true
@@ -66,7 +66,7 @@ Pain, wound healing, and the sheer mental load of being responsible for a new pe
 
 ## What actually helps
 
-Most sleep advice for new parents is unrealistic. These are the things that make a measurable difference:
+Most sleep advice for new parents is unrealistic. These are the things that often help:
 
 - **Sleep when you can, not when it is night.** A 40-minute daytime sleep is real sleep.
 - **Split the night if there are two of you.** One person takes the first stretch, the other the second, so each gets one unbroken block.
@@ -88,13 +88,13 @@ Some exhaustion is not about sleep at all. Tell a clinician if you have:
 - Sleeping and waking unrefreshed for weeks.
 - Being unable to sleep even when the baby sleeps.
 
-Low iron after a heavy blood loss is common and treatable, and a blood test settles it. [Heavy periods and iron-deficiency anaemia](/en/learn/heavy-periods-iron-deficiency-anaemia) explains what low iron feels like.
+Low iron after a heavy blood loss is common and treatable, and a blood test can check it. [Heavy periods and iron-deficiency anaemia](/en/learn/heavy-periods-iron-deficiency-anaemia) explains what low iron feels like.
 
 Thyroid problems can appear in the months after birth and cause exhaustion, and [ACOG's postpartum care guidance](https://www.acog.org/clinical/clinical-guidance/committee-opinion/articles/2018/05/optimizing-postpartum-care) frames the postnatal period as ongoing care rather than one visit, which is the point at which these things get picked up.
 
 ## Exhaustion and mood
 
-Not sleeping and low mood feed each other, and they are hard to pull apart from the inside. One useful signal: being unable to sleep when the baby is asleep, night after night, points towards mood or anxiety rather than sleep deprivation alone.
+Not sleeping and low mood feed each other, and they are hard to pull apart from the inside. One useful signal: being unable to sleep when the baby is asleep, night after night, can be a sign of anxiety or low mood as well as tiredness, so it is worth telling a clinician.
 
 If you are lying awake checking the baby is breathing, or dread the night, read [your mood after birth](/en/learn/mood-after-birth). That is worth raising with a clinician.
 
@@ -110,11 +110,11 @@ Many people find the tiredness peaks again around returning to work, when the da
 
 [NICE's postnatal guidance](https://www.nice.org.uk/guidance/ng194) expects wellbeing to be asked about at postnatal contacts, so use them. Bring it up at [your six-week check](/en/learn/six-week-postnatal-check) even if it feels like complaining about something ordinary.
 
-## What Femio can hold
+## What femio can hold
 
 Logging sleep, mood and energy for a week gives you a real picture instead of an impression. "Longest stretch was 90 minutes, five nights running, and I am breathless on the stairs" is a sentence that gets a blood test.
 
-Femio does not diagnose anaemia, thyroid problems or anything else. It holds what you noticed so someone qualified can act on it. See also [the first six weeks after birth](/en/learn/postpartum-recovery-first-six-weeks).
+femio does not diagnose anaemia, thyroid problems or anything else. It holds what you noticed so someone qualified can act on it. See also [the first six weeks after birth](/en/learn/postpartum-recovery-first-six-weeks).
 
 ## When to see a doctor
 
@@ -126,7 +126,7 @@ Ask for a blood test if you had heavy bleeding at birth and still feel wiped out
 
 ### How long does newborn exhaustion last?
 
-Feeds usually spread out over the first months, and most people notice real improvement in the second half of the first year.
+Feeds usually spread out over the first months, and tiredness often eases as sleep becomes less broken, though how long this takes varies a lot.
 
 ### Is it normal to feel breathless from tiredness?
 
@@ -142,4 +142,4 @@ No. Frequent feeding at this age is normal, and approaches that promise otherwis
 
 ### Why am I awake even when the baby is asleep?
 
-That pattern points towards anxiety or low mood rather than sleep deprivation alone, and it is worth telling a clinician.
+That pattern can be a sign of anxiety or low mood as well as tiredness, and it is worth telling a clinician.

@@ -22,7 +22,7 @@ open_graph_image_alt: "Une page de calendrier sans date entourée"
 written_by: "PENDING"
 medically_reviewed_by: "Dr. Khaled M."
 date_published: "2026-10-30"
-date_modified: "2026-10-30"
+date_modified: "2026-11-25"
 last_reviewed: "2026-10-30"
 next_review_due: "2027-10-30"
 reading_level_ok: false
@@ -48,11 +48,12 @@ internal_links:
   - "/fr/learn/postpartum-recovery-first-six-weeks"
   - "/fr/learn/pregnancy-warning-signs"
   - "/fr/calculators/gestational-age"
+  - "/fr/help-now"
 ---
 
 # Semaine 40 de grossesse : la date prévue n’est qu’une estimation
 
-La semaine 40 contient la date prévue, et cette date est une estimation et non une échéance. Le terme s’étend de 37 à 42 semaines, ce qui signifie qu’une naissance dans cette fourchette de cinq semaines se situe dans les délais. Rien, à la semaine 41, ne rend une grossesse en retard.
+La semaine 40 contient la date prévue, et cette date est une estimation et non une échéance. Le terme s’étend de 37 à 42 semaines, ce qui signifie qu’une naissance dans cette fourchette de cinq semaines se situe dans les délais. Une naissance entre 37 et 42 semaines se situe dans le terme, même si à partir de 41 semaines votre service discutera du déclenchement et d’une surveillance renforcée.
 
 ## Votre corps cette semaine
 
@@ -60,7 +61,7 @@ Lors d’une première grossesse, il y a généralement une consultation prénat
 
 Les contractions d’entraînement (Braxton-Hicks) sont fréquentes et ne devraient pas faire mal. Les contractions réelles, elles, font mal : le ventre se durcit et la douleur apparaît, puis disparaît lorsque les muscles se relâchent.
 
-Le NHS décrit le travail en trois phases — les contractions qui ouvrent le col jusqu’à environ 10 cm, la naissance elle-même, puis l’expulsion du placenta — et situe la première phase à environ 6 à 12 heures, souvent moins pour les femmes ayant déjà accouché.
+Le NHS décrit le travail en trois phases — les contractions qui ouvrent le col jusqu’à environ 10 cm, la naissance elle-même, puis l’expulsion du placenta — et indique que la première phase peut durer plusieurs heures, et qu’elle est souvent plus courte pour les femmes ayant déjà accouché.
 
 ## Ce que vous pourriez remarquer
 
@@ -90,13 +91,13 @@ Arrêtez de compter les jours après la date prévue, et commencez à compter le
 
 Appelez la maternité pour des contractions durant 60 secondes et revenant toutes les cinq minutes, pour une rupture de la poche des eaux, pour des saignements, ou pour tout changement des mouvements. [Les signes d’alerte pendant la grossesse](/fr/learn/pregnancy-warning-signs) donne la liste complète, et [la récupération après l’accouchement pendant les six premières semaines](/fr/learn/postpartum-recovery-first-six-weeks) couvre la suite.
 
-> **Consultez sans attendre :** Contactez les services d’urgence de votre région ou rendez-vous au service des urgences le plus proche si vous avez des saignements abondants, une douleur abdominale intense ou unilatérale, une douleur juste sous les côtes, un mal de tête intense accompagné de troubles de la vision, un gonflement soudain du visage ou des mains, de la fièvre, une perte de liquide par le vagin, une douleur thoracique, une difficulté à respirer, un malaise ou une crise convulsive. Contactez votre service de maternité le jour même pour toute diminution de la séquence habituelle des mouvements de votre bébé. Femio ne peut pas évaluer une grossesse.
+> **Consultez sans attendre :** Contactez les services d’urgence de votre région ou rendez-vous au service des urgences le plus proche si vous avez des saignements abondants, une douleur abdominale intense ou unilatérale, une douleur juste sous les côtes, un mal de tête intense accompagné de troubles de la vision, un gonflement soudain du visage ou des mains, de la fièvre, une perte de liquide par le vagin, une douleur thoracique, une difficulté à respirer, un malaise, une crise convulsive ou des pensées de vous faire du mal ou de faire du mal à votre bébé ([aide immédiate](/fr/help-now)). Contactez votre service de maternité sans attendre si les mouvements de votre bébé ralentissent, s’arrêtent ou changent. femio ne peut pas évaluer une grossesse.
 
 ## Questions fréquentes
 
 ### Mon bébé est-il en retard ?
 
-Non. Le terme se situe entre 37 et 42 semaines, et la date prévue est un seul point estimé à l’intérieur d’une fourchette de cinq semaines. La plupart des femmes accouchent dans la semaine qui précède ou suit cette date.
+Pas nécessairement. Le terme se situe entre 37 et 42 semaines, et la date prévue est un seul point estimé à l’intérieur d’une fourchette de cinq semaines ; si vous dépassez 41 semaines, votre service discutera des étapes suivantes.
 
 ### Puis-je faire quelque chose pour déclencher le travail ?
 

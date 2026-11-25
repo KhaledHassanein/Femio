@@ -12,7 +12,7 @@ secondary_topics:
   - "perineal tear recovery"
   - "wound infection signs after birth"
 excerpt: "How perineal stitches and caesarean wounds usually heal, what helps day to day, and the signs that mean a wound needs checking."
-meta_title: "Healing After Stitches or a Caesarean | Femio"
+meta_title: "Healing After Stitches or a Caesarean | femio"
 meta_description: "How perineal stitches and caesarean wounds heal week by week, what helps with pain and hygiene, and the signs of a wound that needs checking."
 canonical_url: "https://femioapp.com/en/learn/postpartum-wound-healing"
 robots_while_draft: "noindex,nofollow"
@@ -24,7 +24,7 @@ open_graph_image_alt: "A person resting with cushions while recovering from birt
 written_by: "PENDING"
 medically_reviewed_by: "Dr. Khaled M."
 date_published: "2026-08-19"
-date_modified: "2026-08-19"
+date_modified: "2026-11-24"
 last_reviewed: "2026-10-30"
 next_review_due: "2027-10-30"
 reading_level_ok: true
@@ -114,7 +114,7 @@ Contact your midwife, doctor or maternity unit for a wound that is more painful,
 
 Take a photograph if you cannot see the area yourself. It is much easier than describing it.
 
-> **Seek care now:** Contact local emergency services or go to the nearest emergency department for severe tummy or wound pain, a wound that has opened, heavy bleeding from a wound, or fever with confusion, a racing heart or feeling very unwell. Femio cannot examine a wound.
+> **Seek care now:** Contact local emergency services or go to the nearest emergency department for severe tummy or wound pain, a wound that has opened, heavy bleeding from a wound, or fever with confusion, a racing heart or feeling very unwell. femio cannot examine a wound.
 
 ## Frequently asked questions
 

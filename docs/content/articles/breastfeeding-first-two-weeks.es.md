@@ -24,7 +24,7 @@ open_graph_image_alt: "Un recién nacido mamando mientras su madre está sentada
 written_by: "PENDING"
 medically_reviewed_by: "Dr. Khaled M."
 date_published: "2026-10-30"
-date_modified: "2026-10-30"
+date_modified: "2026-11-25"
 last_reviewed: "2026-10-30"
 next_review_due: "2027-10-30"
 reading_level_ok: false
@@ -96,7 +96,7 @@ Después de una toma, el pezón debe verse redondo, no aplastado, arrugado ni en
 
 ## Pezones doloridos
 
-Es habitual sentir algo de sensibilidad en los primeros días. Los pezones agrietados, que sangran o con dolor intenso son un problema de agarre, y son la razón por la que muchas personas dejan de dar de mamar antes de lo que querían.
+Es habitual sentir algo de sensibilidad en los primeros días. Los pezones agrietados, que sangran o con dolor intenso suelen tener como causa un problema de agarre, y son un motivo frecuente por el que las personas dejan de dar de mamar antes de lo que querían.
 
 Pide que alguien con experiencia observe una toma: una matrona, una enfermera de salud infantil, un especialista en lactancia o una persona de apoyo entre iguales. [La guía postnatal del NICE](https://www.nice.org.uk/guidance/ng194) espera que el apoyo a la lactancia esté disponible, y no que tengas que buscarlo tú.
 
@@ -116,7 +116,7 @@ Prepara un rincón con cojines, una bebida y un cargador. Pasarás muchas horas 
 - El bebé no se prende, o se duerme en cada toma sin llegar a mamar.
 - Hay menos pañales de lo esperado, o el bebé está muy somnoliento y cuesta despertarlo.
 - Un pecho está rojo, caliente y doloroso, o tienes fiebre.
-- El bebé no ha recuperado el peso al nacer hacia las dos semanas.
+- El bebé no ha recuperado el peso al nacer en el plazo que esperan tu matrona o la enfermera de salud infantil.
 
 Un pecho rojo, caliente y doloroso con fiebre necesita consejo el mismo día, y [las señales de alarma posparto](/es/learn/postpartum-warning-signs) recoge la lista completa.
 

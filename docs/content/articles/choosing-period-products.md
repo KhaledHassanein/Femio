@@ -22,7 +22,7 @@ open_graph_image_alt: "Simple line drawing of four small shapes side by side"
 written_by: "PENDING"
 medically_reviewed_by: "Dr. Khaled M."
 date_published: "2026-08-19"
-date_modified: "2026-08-19"
+date_modified: "2026-11-24"
 last_reviewed: "2026-10-30"
 next_review_due: "2027-10-30"
 reading_level_ok: true
@@ -76,7 +76,7 @@ Guidance about tampons for younger teenagers differs between countries. Some nat
 
 A cup is a small, flexible silicone or rubber cup that sits inside the vagina and **collects** the blood rather than absorbing it. You empty it, rinse it, and put it back in.
 
-It lasts for years, which makes it much cheaper over time, and it can usually stay in longer than a tampon. The trade-offs are real: it takes practice to fold and place, emptying it needs a sink or at least some privacy, and it costs money up front. A shared or school toilet with no basin in the cubicle makes it harder.
+It lasts for years, which makes it much cheaper over time. The maker's instructions say how long it can stay in, so follow them. The trade-offs are real: it takes practice to fold and place, emptying it needs a sink or at least some privacy, and it costs money up front. A shared or school toilet with no basin in the cubicle makes it harder.
 
 ## Period underwear
 
@@ -92,7 +92,7 @@ They work well on their own for lighter days, and as a backup under a pad or tam
 - **No private bathroom?** Pads and period underwear need the least privacy.
 - **Worried about leaks overnight?** A longer pad, or period underwear, or both together.
 
-You can mix them. Most people do, and change what they use from day to day. Femio does not recommend a product or sell one, and nothing here is a brand. Words like vulva and vagina are explained in the [glossary](/en/glossary), and [period myths, checked](/en/learn/period-myths-checked) covers the things people get told that are not true.
+You can mix them. Most people do, and change what they use from day to day. femio does not recommend a product or sell one, and nothing here is a brand. Words like vulva and vagina are explained in the [glossary](/en/glossary), and [period myths, checked](/en/learn/period-myths-checked) covers the things people get told that are not true.
 
 ## When to see a doctor
 
@@ -103,4 +103,4 @@ Choosing a product does not need a doctor. You or a trusted adult can arrange to
 - you cannot get a tampon out, or you cannot find the string
 - bleeding soaks through the biggest pad or tampon every hour or two
 
-If you feel suddenly very unwell with a high temperature, a rash, being sick or feeling faint while a tampon is in, take it out and get seen the same day [NHS].
+If you feel suddenly very unwell with a high temperature, a rash, being sick or feeling faint while a tampon is in, take it out and get urgent medical help straight away [NHS].

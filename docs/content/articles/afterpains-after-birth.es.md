@@ -24,7 +24,7 @@ open_graph_image_alt: "Una mujer con la mano en el bajo vientre mientras amamant
 written_by: "PENDING"
 medically_reviewed_by: "Dr. Khaled M."
 date_published: "2026-10-30"
-date_modified: "2026-10-30"
+date_modified: "2026-11-25"
 last_reviewed: "2026-10-30"
 next_review_due: "2027-10-30"
 reading_level_ok: false
@@ -67,7 +67,7 @@ Esto sorprende a mucha gente y puede hacer que las primeras tomas sean más dif�
 
 ## Por qué son peores tras un segundo bebé
 
-Un útero que ya se ha estirado antes tiende a contraerse en oleadas más fuertes, en lugar de en una contracción constante. Muchas personas describen los entuertos del primer bebé como leves y los del segundo como de verdad dolorosos.
+Los entuertos suelen describirse como más fuertes tras un segundo parto o uno posterior. Muchas personas describen los entuertos del primer bebé como leves y los del segundo como de verdad dolorosos.
 
 Si nadie te lo advirtió, eso es un vacío en lo que se les cuenta a las personas, no una señal de que algo va mal.
 
@@ -128,7 +128,7 @@ Al amamantar se libera una hormona que hace que el útero se contraiga, así que
 
 ### ¿Son peores con cada bebé?
 
-A menudo, sí. Un útero que ya se ha estirado antes tiende a contraerse en oleadas más fuertes.
+A menudo, sí. Se suelen describir como más fuertes tras un segundo parto o los siguientes.
 
 ### ¿Cuánto deberían durar?
 

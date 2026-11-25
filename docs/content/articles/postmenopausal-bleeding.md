@@ -24,7 +24,7 @@ open_graph_image_alt: "A woman booking a doctor's appointment on her phone"
 written_by: "PENDING"
 medically_reviewed_by: "Dr. Khaled M."
 date_published: "2026-08-19"
-date_modified: "2026-08-19"
+date_modified: "2026-11-24"
 last_reviewed: "2026-10-30"
 next_review_due: "2027-10-30"
 reading_level_ok: true
@@ -86,7 +86,7 @@ A clinician will consider several things, and this list is here so the appointme
 - Some medicines, including blood thinners.
 - Cancer of the womb lining or, less often, the cervix.
 
-Femio does not assess any of these and cannot tell you which applies. What it can do is hold the dates and details you noticed, so the person examining you has a clear account instead of a memory.
+femio does not assess any of these and cannot tell you which applies. What it can do is hold the dates and details you noticed, so the person examining you has a clear account instead of a memory.
 
 ## If you are on hormone therapy
 
@@ -109,7 +109,7 @@ The sample and the camera can be uncomfortable, and you can say so. Ask what pai
 
 ## What to say when you book
 
-Say: **"I have had bleeding after menopause."** That sentence moves an appointment on its own, because services are set up to prioritise it.
+Say: **"I have had bleeding after menopause."** Saying it plainly helps the person booking see that you need to be seen promptly.
 
 Add when your periods stopped, when the bleeding happened, how much, whether it has happened before, and any hormone therapy you take.
 

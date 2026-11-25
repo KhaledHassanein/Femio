@@ -1,7 +1,7 @@
 {
   "meta": {
     "title": "femio",
-    "description": "Le compagnon privé du projet de grossesse et de la grossesse, en arabe, anglais, français et espagnol. Des guides sourcés, des calculateurs, et des données qui ne quittent jamais votre téléphone."
+    "description": "Le compagnon privé du projet de grossesse et de la grossesse, en anglais, arabe, français et espagnol. Des guides sourcés, des calculateurs et des données qui ne quittent jamais votre téléphone."
   },
   "home": {
     "rail": {
@@ -48,11 +48,11 @@
       "late": {
         "title": "Pas de « 4 jours de retard »",
         "body": "Les cycles se décalent pour des dizaines de raisons ordinaires. Si la fenêtre passe, femio le dit et s'arrête — elle ne fait pas défiler un compteur devant vous.",
-        "notice": "Votre fenêtre est passée. Les cycles se décalent — c'est fréquent et généralement sans gravité."
+        "notice": "Votre fenêtre est passée. Les cycles se décalent pour de nombreuses raisons ordinaires."
       },
       "pattern": {
         "title": "Votre propre rythme, pas une moyenne",
-        "body": "Tout est comparé à votre historique — y compris quand vos cycles sont irréguliers, c'est-à-dire exactement là où les autres applications abandonnent."
+        "body": "Tout est comparé à votre historique, y compris quand vos cycles sont irréguliers."
       }
     },
     "trust": {
@@ -69,7 +69,7 @@
         },
         "languages": {
           "claim": "Anglais, arabe, français et espagnol",
-          "detail": "— l'arabe de droite à gauche dès la première ligne de code, pas une couche ajoutée après."
+          "detail": "— avec une mise en page de droite à gauche intégrée pour l’arabe."
         },
         "reviewed": {
           "claim": "Chaque guide indique si un clinicien l'a relu",
@@ -84,7 +84,7 @@
     "close": {
       "heading": "Vos données ne quittent jamais votre téléphone."
     },
-    "disclaimer": "femio sert à s'informer et à suivre — ce n'est pas un avis médical, ni un moyen fiable d'éviter une grossesse. Parlez toujours de vos soins à votre clinicien.",
+    "disclaimer": "femio sert à s’informer et à suivre — ce n’est pas un avis médical, ni un moyen d’éviter une grossesse. Parlez toujours de vos soins à votre professionnel de santé.",
     "sections": {
       "learn": {
         "name": "Apprendre",
@@ -127,11 +127,11 @@
       "heading": "Qu'est-ce qui vous amène ?",
       "period": {
         "title": "Suivre mes règles",
-        "body": "Sachez quand arrivent vos prochaines règles."
+        "body": "Voyez une fourchette pour le moment où vos prochaines règles pourraient commencer."
       },
       "ttc": {
         "title": "Tomber enceinte",
-        "body": "Trouvez vos jours les plus fertiles."
+        "body": "Voyez vos jours de fertilité probables."
       },
       "pregnant": {
         "title": "Je suis enceinte",
@@ -150,7 +150,7 @@
     "privacy": {
       "eyebrow": "Privée par conception",
       "heading": "Vos données restent sur votre téléphone.",
-      "body": "L'application femio garde ce que vous notez sur votre appareil. Nous ne le voyons jamais : il n'y a donc rien à vendre, à partager ou à perdre.",
+      "body": "L’application femio garde ce que vous notez sur votre appareil. Nous ne le voyons jamais : nous n’avons donc rien à vendre ni à partager.",
       "points": {
         "account": {
           "title": "Aucun compte",
@@ -254,7 +254,7 @@
         },
         {
           "q": "Quels signes indiquent que l'ovulation approche ?",
-          "a": "Beaucoup de femmes suivent les changements de la glaire cervicale, une bandelette d'ovulation positive (un pic hormonal, pas la preuve d'une ovulation) et leur température au réveil, qui confirme l'ovulation après coup mais ne la prédit pas. Ces signes fonctionnent mieux avec l'estimation du calendrier."
+          "a": "Beaucoup de femmes suivent les changements de la glaire cervicale, une bandelette d'ovulation positive (un pic hormonal, pas la preuve d'une ovulation) et leur température au réveil, qui peut montrer après coup qu'une ovulation a probablement eu lieu, mais ne la prédit pas. Ces signes fonctionnent mieux avec l'estimation du calendrier."
         }
       ]
     },
@@ -475,7 +475,7 @@
     },
     "handoff": {
       "title": "Suivez cela automatiquement dans l'application femio.",
-      "body": "Tout reste sur votre téléphone, l'application apprend votre vrai cycle au fil de vos saisies, et rien n'est envoyé. Android seulement pour l'instant.",
+      "body": "Tout reste sur votre téléphone, l'application apprend votre vrai cycle au fil de vos saisies, et vos données ne sont jamais envoyées. Android seulement pour l'instant.",
       "getOnPlay": "Disponible sur Google Play",
       "getTheApp": "Obtenir l'application",
       "whatItDoes": "Ce que fait l'application"
@@ -502,7 +502,7 @@
       "legendFertile": "Fenêtre de fertilité",
       "legendOvulation": "Ovulation estimée",
       "legendToday": "Aujourd’hui",
-      "awarenessNote": "Les dates de la fenêtre de fertilité servent uniquement à la planification et à la sensibilisation à la conception — ce sont des estimations, pas un moyen fiable d’éviter une grossesse."
+      "awarenessNote": "Les dates de la fenêtre de fertilité servent uniquement à la planification et à la sensibilisation à la conception — ce sont des estimations, pas un moyen d’éviter une grossesse."
     },
     "title": "Votre cycle",
     "dateStripLabel": "Choisissez un jour à enregistrer",
@@ -630,9 +630,9 @@
     "subtitle": "Des guides sourcés, à commencer par le projet de grossesse, le SOPK et la grossesse. Chacun liste ses sources et indique si un clinicien l'a relu.",
     "empty": "De nouveaux guides arrivent — revenez bientôt.",
     "sources": "Sources",
-    "footerNote": "Ceci est une information de bien-être générale, pas un substitut à un avis médical professionnel.",
+    "footerNote": "Il s’agit d’une information de bien-être générale, et non d’un avis médical. Elle ne remplace pas l’avis de votre professionnel de santé.",
     "disclaimer": {
-      "general": "Information de bien-être générale — pas un substitut aux soins médicaux professionnels.",
+      "general": "Information de bien-être générale — ni un avis médical, ni un substitut à l’avis de votre professionnel de santé.",
       "screening": "Information de dépistage uniquement. Discutez de toute préoccupation et des prochaines étapes avec votre clinicien.",
       "emergency": "En cas de signes d’alerte sévères ou soudains, consultez en urgence."
     },
@@ -715,7 +715,7 @@
       "body": "{count, plural, one {Vous attendiez un résultat pour l’un d’entre eux.} other {Vous attendiez un résultat pour # d’entre eux.}} Cela vaut peut-être la peine de relancer — un résultat peut tarder pour des raisons tout à fait ordinaires."
     },
     "form": {
-      "type": "De quoi s’agit-il",
+      "type": "Type de rendez-vous",
       "typePlaceholder": "Échographie, prise de sang, contrôle…",
       "clinician": "Avec qui",
       "datetime": "Quand",
@@ -736,7 +736,7 @@
     "loading": "Chargement de vos courbes",
     "loadError": "Nous n’avons pas pu charger vos saisies.",
     "retry": "Réessayer",
-    "boundary": "Les courbes vous aident à comprendre votre propre rythme et à préparer vos échanges avec un·e clinicien·ne. Ce n’est pas un moyen fiable d’éviter une grossesse, et femio ne le présente jamais comme tel.",
+    "boundary": "Les courbes vous aident à comprendre votre propre rythme et à préparer vos échanges avec un·e clinicien·ne. Ce n’est pas un moyen d’éviter une grossesse, et femio ne le présente jamais comme tel.",
     "invalidBbt": "Cela ne ressemble pas à une mesure de thermomètre. Vérifiez le nombre et réessayez.",
     "nothingToSave": "Ajoutez au moins un élément avant d’enregistrer.",
     "saveFailed": "L’enregistrement a échoué. Vérifiez votre connexion et réessayez.",
@@ -926,14 +926,14 @@
         "body": "Vos données de santé vous appartiennent — jamais vendues, jamais partagées avec des annonceurs. Vous pouvez les exporter ou les supprimer à tout moment."
       },
       {
-        "heading": "Arabe et RTL de premier plan",
-        "body": "femio est conçu pour l’anglais, l’arabe, le français et l’espagnol, avec une prise en charge native de la lecture de droite à gauche."
+        "heading": "Quatre langues",
+        "body": "femio est disponible en anglais, en arabe, en français et en espagnol, avec une mise en page de droite à gauche intégrée."
       }
     ]
   },
   "editorialPolicy": {
     "title": "Politique éditoriale",
-    "intro": "Chaque guide de femio cite ses sources et fait l'objet d'une vérification éditoriale. En octobre 2026, 25 de nos 100 guides nomment le clinicien qui les a relus ; les autres indiquent « relecture clinique en attente » tant qu'aucun clinicien ne l'a fait.",
+    "intro": "Chaque guide de femio cite ses sources et fait l’objet d’une vérification éditoriale. Un guide ne nomme son relecteur clinicien qu’après sa relecture par un clinicien ; les autres indiquent « relecture clinique en attente » tant qu’un clinicien ne l’a pas relu.",
     "points": [
       {
         "heading": "La preuve avant l’opinion",
@@ -975,7 +975,7 @@
       },
       {
         "heading": "Des relecteurs nommés, là où il y en a",
-        "body": "Quand un clinicien a relu un guide, son nom, ses titres et la date de relecture figurent sur cette page. En octobre 2026, c'est le cas de 25 guides sur 100."
+        "body": "Quand un clinicien a relu un guide, son nom, ses titres et la date de relecture figurent sur cette page."
       },
       {
         "heading": "Les autres le disent",
@@ -983,7 +983,7 @@
       },
       {
         "heading": "Les autres langues",
-        "body": "La bibliothèque de guides est en anglais aujourd'hui, et des guides en arabe sont en préparation. Les écrans et les outils du site existent en anglais, arabe, français et espagnol. Un guide traduit aura son propre statut de relecture, jamais celui du guide anglais."
+        "body": "Les guides sont publiés en anglais, arabe, français et espagnol, et les écrans et les outils du site existent dans les quatre langues. Un guide traduit porte son propre statut de relecture, jamais celui du guide anglais."
       }
     ]
   },
@@ -1198,7 +1198,7 @@
     "points": [
       {
         "heading": "Ce qu’est femio",
-        "body": "femio vous donne des informations et des outils pour enregistrer et comprendre votre propre santé : un suivi du cycle et de la grossesse, et une bibliothèque d’articles et de calculateurs. Il relève du bien-être, de l’éducation et du suivi."
+        "body": "femio vous donne des informations et des outils pour enregistrer et comprendre votre propre santé : un suivi du cycle et de la grossesse, et une bibliothèque de guides et de calculateurs. Il relève du bien-être, de l’éducation et du suivi."
       },
       {
         "heading": "Ce que femio n’est pas",
@@ -1210,7 +1210,7 @@
       },
       {
         "heading": "Des estimations, avec des plages",
-        "body": "Les prévisions sont présentées sous forme de plages parce que les corps varient et que vos saisies peuvent être incomplètes. Une prévision peut être fausse. Un retard ou des cycles irréguliers peuvent avoir de nombreuses causes ; parlez-en à un professionnel de santé si vous êtes inquiète."
+        "body": "Les prévisions sont présentées sous forme de plages parce que les corps varient et que vos saisies peuvent être incomplètes. Une prévision peut être fausse. Des changements dans le moment de vos règles peuvent avoir de nombreuses causes ; parlez-en à un professionnel de santé si vous êtes inquiète."
       },
       {
         "heading": "Urgences",
@@ -1218,7 +1218,7 @@
       },
       {
         "heading": "Qui peut utiliser l’application",
-        "body": "Vous devez avoir 18 ans ou plus pour utiliser le suivi. Les articles du site sont ouverts à tout le monde."
+        "body": "Vous devez avoir 18 ans ou plus pour utiliser le suivi. Les guides du site sont ouverts à tout le monde."
       },
       {
         "heading": "Vos responsabilités",
@@ -1230,7 +1230,7 @@
       },
       {
         "heading": "Ce qui nous appartient",
-        "body": "Le nom femio, le logo, le logiciel, la conception et les articles originaux appartiennent à {entity}. Les recommandations que nous citons, issues d’organismes médicaux, leur appartiennent et leur sont attribuées. Vous pouvez lire et utiliser femio pour vous-même ; vous ne pouvez pas copier notre contenu à des fins commerciales sans autorisation écrite."
+        "body": "Le nom femio, le logo, le logiciel, la conception et les guides originaux appartiennent à {entity}. Les recommandations que nous citons, issues d’organismes médicaux, leur appartiennent et leur sont attribuées. Vous pouvez lire et utiliser femio pour vous-même ; vous ne pouvez pas copier notre contenu à des fins commerciales sans autorisation écrite."
       },
       {
         "heading": "Limites",
@@ -1263,7 +1263,7 @@
   "notFound": {
     "code": "404",
     "title": "Page introuvable",
-    "body": "Le lien est peut-être ancien, ou la page a été déplacée. La bibliothèque santé et votre suivi sont toujours là.",
+    "body": "Le lien est peut-être ancien, ou la page a été déplacée. Les guides et les calculateurs sont toujours là.",
     "home": "Aller à l’accueil",
     "learn": "Parcourir la bibliothèque"
   },
@@ -1271,7 +1271,7 @@
     "englishFallback": "Résultats de la bibliothèque anglaise — ces pages ne sont pas encore traduites.",
     "title": "Recherche",
     "label": "Rechercher dans femio",
-    "placeholder": "Rechercher articles, affections et outils",
+    "placeholder": "Rechercher guides, affections et outils",
     "hint": "Les résultats apparaissent au fil de la saisie. Essayez une affection, un symptôme, ou ce que vous voulez faire.",
     "searching": "Recherche en cours",
     "failed": "La recherche n'a pas pu aboutir. Réessayez.",
@@ -1279,7 +1279,7 @@
     "noResultsHint": "Essayez un mot plus court, ou le nom d'un symptôme ou d'une affection.",
     "kinds": {
       "condition": "Affections ({count})",
-      "article": "Articles ({count})",
+      "article": "Guides ({count})",
       "glossary": "Glossaire ({count})",
       "calculator": "Outils ({count})"
     }
@@ -1426,7 +1426,7 @@
       "note": "Choisissez exactement ce qu'une autre personne peut voir"
     },
     "summary": {
-      "label": "Résumé pour le médecin",
+      "label": "Résumé de consultation",
       "note": "Une page imprimable de votre dossier, avec vos questions"
     },
     "track": {
@@ -1459,7 +1459,7 @@
     },
     "learn": {
       "label": "Guides",
-      "note": "Articles sourcés ; chacun indique où en est sa relecture"
+      "note": "Guides sourcés ; chacun indique où en est sa relecture"
     }
   },
   "patterns": {
@@ -1579,7 +1579,7 @@
       },
       "pregnancy": {
         "title": "Outils de grossesse",
-        "body": "Votre semaine et votre date prévue d'accouchement, un compteur de mouvements, un minuteur de contractions et un suivi du poids."
+        "body": "Votre semaine et votre date prévue, un journal des mouvements, un minuteur de contractions et un suivi du poids."
       },
       "private": {
         "title": "Confidentiel par conception",
@@ -1587,14 +1587,18 @@
       },
       "languages": {
         "title": "Quatre langues",
-        "body": "Anglais, arabe, français et espagnol, chacune mise en page dans son sens de lecture."
+        "body": "Anglais, arabe, français et espagnol, avec une mise en page de droite à gauche intégrée pour l’arabe."
+      },
+      "doctor": {
+        "title": "Rendez-vous",
+        "body": "Gardez vos rendez-vous et les questions que vous voulez poser au même endroit."
       }
     },
     "meanwhileTitle": "En attendant",
     "meanwhileBody": "Tout ce site est gratuit et ne demande aucun compte.",
     "meanwhileCalculators": "Essayer les calculateurs",
     "meanwhileLearn": "Lire la bibliothèque",
-    "notMedical": "femio sert au suivi et à l'information, pas aux conseils médicaux, et ses estimations ne sont pas un moyen fiable d'éviter une grossesse. Parlez de votre santé avec votre soignant.",
+    "notMedical": "femio sert au suivi et à l’information, pas aux conseils médicaux, et ses estimations ne sont pas un moyen d’éviter une grossesse. Parlez de votre santé avec votre professionnel de santé.",
     "mock": {
       "day": "Jour 12 du cycle",
       "title": "Fenêtre de fertilité",

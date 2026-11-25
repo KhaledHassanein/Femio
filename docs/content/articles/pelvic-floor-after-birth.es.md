@@ -24,7 +24,7 @@ open_graph_image_alt: "Una mujer haciendo ejercicios suaves en una esterilla en 
 written_by: "PENDING"
 medically_reviewed_by: "Dr. Khaled M."
 date_published: "2026-10-30"
-date_modified: "2026-10-30"
+date_modified: "2026-11-24"
 last_reviewed: "2026-10-30"
 next_review_due: "2027-10-30"
 reading_level_ok: false
@@ -110,11 +110,11 @@ Sujeta la parte baja del abdomen cuando toses o estornudas. Divide los levantami
 
 Vuelve a correr y a saltar de forma gradual y siguiendo consejo, sobre todo si tienes pérdidas o pesadez. [La cicatrización después del parto](/es/learn/postpartum-wound-healing) explica las cicatrices y los puntos, y [las relaciones sexuales después del parto](/es/learn/sex-after-birth) explica las molestias que a menudo están relacionadas con el suelo pélvico.
 
-## Lo que Femio puede registrar
+## Lo que femio puede registrar
 
 Anotar las pérdidas, la urgencia, la pesadez y el dolor te da algo concreto que describir. «Pierdo orina casi todos los días al toser, seis semanas después» consigue una derivación más rápida que «las cosas van algo mal».
 
-Femio no evalúa la fuerza del suelo pélvico y no puede decirte si tienes un prolapso, lo que requiere una exploración. Consulta [las primeras seis semanas después del parto](/es/learn/postpartum-recovery-first-six-weeks) para ver qué más está pasando.
+femio no evalúa la fuerza del suelo pélvico y no puede decirte si tienes un prolapso, lo que requiere una exploración. Consulta [las primeras seis semanas después del parto](/es/learn/postpartum-recovery-first-six-weeks) para ver qué más está pasando.
 
 ## Cuándo consultar
 

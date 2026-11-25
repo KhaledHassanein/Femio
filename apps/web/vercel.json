@@ -6,6 +6,11 @@
   ],
   "redirects": [
     {
+      "source": "/:locale(en|ar|fr|es)/learn/ramadan-fasting-pregnancy",
+      "destination": "/:locale/learn/pregnancy-basics",
+      "permanent": true
+    },
+    {
       "source": "/:locale(en|ar|fr|es)/:segment(sign-in|welcome|reset-password|dashboard|track|calendar|log|fertility|patterns|screeners|settings|sharing|shared-with-me|summary|tools|medications|appointments|admin|mfa)/:rest*",
       "destination": "/:locale/app",
       "permanent": false

@@ -22,7 +22,7 @@ open_graph_image_alt: "A woman sitting on the edge of a bed in morning light"
 written_by: "PENDING"
 medically_reviewed_by: "Dr. Khaled M."
 date_published: "2026-08-19"
-date_modified: "2026-08-19"
+date_modified: "2026-11-24"
 last_reviewed: "2026-10-30"
 next_review_due: "2027-10-30"
 reading_level_ok: true
@@ -44,6 +44,7 @@ sources:
     url: "https://www.nichd.nih.gov/health/topics/pregnancy/conditioninfo"
     tier: "1"
 internal_links:
+  - "/en/help-now"
   - "/en/learn/pregnancy-week-4"
   - "/en/learn/pregnancy-week-6"
   - "/en/learn/early-pregnancy-changes"
@@ -61,7 +62,7 @@ There is still nothing to see. What there is, is tiredness — the kind the NHS 
 
 Hormone levels are climbing steeply, and they are behind most of what you feel. Some women notice light bleeding around this time and assume it is a period arriving late. It can also be implantation bleeding, when the embryo attaches to the lining of the womb.
 
-Worry is common enough to be worth naming. NHS guidance points out that around one in five women feel anxious or stressed during pregnancy, and it advises talking to a midwife or doctor rather than sitting with it. That is not a sign of coping badly. It is the most-reported feeling of the first trimester after tiredness.
+Worry is common enough to be worth naming. NHS guidance points out that around one in five women feel anxious or stressed during pregnancy, and it advises talking to a midwife or doctor rather than sitting with it. That is not a sign of coping badly.
 
 ## What you may notice
 
@@ -91,7 +92,7 @@ Book the midwife or GP appointment today rather than after the weekend. Waiting 
 
 Any bleeding should be reported, even if it settles. So should severe pain, one-sided pain, pain at the tip of the shoulder, or feeling faint. [Early pregnancy changes](/en/learn/early-pregnancy-changes) covers what is ordinary this early, and [pregnancy warning signs](/en/learn/pregnancy-warning-signs) covers what is not.
 
-> **Seek care now:** Contact your local emergency services or go to your nearest emergency department if you have heavy bleeding, severe or one-sided tummy pain, pain in the tip of your shoulder, a severe headache with vision changes, sudden swelling of the face or hands, a fever, chest pain, trouble breathing, fainting, or a seizure. Femio cannot assess a pregnancy.
+> **Seek care now:** Contact your local emergency services or go to your nearest emergency department if you have heavy bleeding, severe or one-sided tummy pain, pain in the tip of your shoulder, a severe headache with vision changes, sudden swelling of the face or hands, a fever, chest pain, trouble breathing, fainting, a seizure, or thoughts of harming yourself or the baby ([help now](/en/help-now)). femio cannot assess a pregnancy.
 
 ## Frequently asked questions
 

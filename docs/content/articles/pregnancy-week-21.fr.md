@@ -22,7 +22,7 @@ open_graph_image_alt: "Une main courante d’escalier en pleine lumière du jour
 written_by: "PENDING"
 medically_reviewed_by: "Dr. Khaled M."
 date_published: "2026-10-30"
-date_modified: "2026-10-30"
+date_modified: "2026-11-25"
 last_reviewed: "2026-10-30"
 next_review_due: "2027-10-30"
 reading_level_ok: false
@@ -48,6 +48,7 @@ internal_links:
   - "/fr/learn/pregnancy-week-22"
   - "/fr/learn/pregnancy-warning-signs"
   - "/fr/calculators/gestational-age"
+  - "/fr/help-now"
 ---
 
 # Semaine 21 de grossesse : à quoi s’attendre
@@ -82,13 +83,13 @@ Si l’échographie morphologique a révélé quelque chose d’inattendu, cette
 
 ## Conseil de la semaine
 
-Montez les escaliers une marche à la fois, et tenez la rampe — à chaque fois, et pas seulement lorsque vous vous sentez instable. Les chutes pendant la grossesse surviennent en général dans des escaliers ordinaires, lors d’une journée ordinaire, et ce réflexe doit devenir automatique pour être utile.
+Montez les escaliers une marche à la fois, et tenez la rampe — à chaque fois, et pas seulement lorsque vous vous sentez instable. Les escaliers sont un lieu fréquent de chutes, et tenir la rampe à chaque fois est une bonne habitude.
 
 ## Quand consulter
 
 Prévenez votre sage-femme de toute chute, même légère. Signalez un saignement, une douleur intense, de la fièvre, ou un mal de tête accompagné de troubles de la vue. La page [signes d’alerte de la grossesse](/fr/learn/pregnancy-warning-signs) contient la liste complète.
 
-> **Consultez sans attendre :** Contactez les services d’urgence locaux ou rendez-vous aux urgences les plus proches si vous avez un saignement abondant, une douleur intense ou d’un seul côté du ventre, un mal de tête sévère avec troubles de la vue, un gonflement soudain du visage ou des mains, une fièvre, un écoulement de liquide par le vagin, une douleur thoracique, des difficultés respiratoires, un malaise ou une crise convulsive. femio ne peut pas évaluer une grossesse.
+> **Consultez sans attendre :** Contactez les services d’urgence locaux ou rendez-vous aux urgences les plus proches si vous avez un saignement abondant, une douleur intense ou d’un seul côté du ventre, un mal de tête sévère avec troubles de la vue, un gonflement soudain du visage ou des mains, une fièvre, un écoulement de liquide par le vagin, une douleur thoracique, des difficultés respiratoires, un malaise, une crise convulsive ou des pensées de vous faire du mal ou de faire du mal à votre bébé ([aide immédiate](/fr/help-now)). femio ne peut pas évaluer une grossesse.
 
 ## Questions fréquentes
 

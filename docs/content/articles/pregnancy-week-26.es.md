@@ -10,7 +10,7 @@ secondary_topics:
   - "calambres en las piernas por la noche"
   - "olvidos durante el embarazo (llamados «cerebro de bebé»)"
 excerpt: "Los calambres nocturnos en las piernas y los olvidos definen la semana 26, y los ojos del bebé se abren por primera vez."
-meta_title: "26 semanas de embarazo: calambres y olvidos | Femio"
+meta_title: "26 semanas de embarazo: calambres y olvidos | femio"
 meta_description: "Calambres nocturnos en las piernas, olvidos y apertura de los ojos del bebé hacia la semana 26. Qué alivia los calambres y qué esperar esta semana."
 canonical_url: "https://femioapp.com/es/learn/pregnancy-week-26"
 robots_while_draft: "noindex,nofollow"
@@ -22,7 +22,7 @@ open_graph_image_alt: "Una lámpara de mesita encendida tarde por la noche"
 written_by: "PENDING"
 medically_reviewed_by: "Dr. Khaled M."
 date_published: "2026-10-30"
-date_modified: "2026-10-30"
+date_modified: "2026-11-25"
 last_reviewed: "2026-10-30"
 next_review_due: "2027-10-30"
 reading_level_ok: false
@@ -48,6 +48,7 @@ internal_links:
   - "/es/learn/pregnancy-week-27"
   - "/es/learn/pregnancy-warning-signs"
   - "/es/calculators/gestational-age"
+  - "/es/help-now"
 ---
 
 # Semana 26 del embarazo: qué esperar
@@ -60,7 +61,7 @@ Cargar peso extra con un centro de gravedad distinto afecta al equilibrio y a la
 
 Los calambres en las piernas suelen empeorar por la noche. El NHS sugiere ejercicios de pies y tobillos, llevar los dedos de los pies hacia arriba y frotar el músculo donde duele.
 
-Los olvidos se comentan mucho y a menudo se llaman «cerebro de bebé». El NHS es cuidadoso con esto: no es una afección médica y no está científicamente establecido, y el cansancio junto con tener mucho en la cabeza explica la mayor parte. Eso no es restar importancia: es la diferencia entre una experiencia real y un diagnóstico, y solo uno de los dos se está afirmando.
+Los olvidos se comentan mucho y a menudo se llaman «cerebro de bebé». El NHS es cuidadoso con esto: no es una afección médica, y el cansancio junto con tener mucho en la cabeza explica la mayor parte. Eso no es restar importancia: es la diferencia entre una experiencia real y un diagnóstico, y solo uno de los dos se está afirmando.
 
 ## Lo que quizá notes
 
@@ -82,13 +83,13 @@ Si no se ha puesto la vacuna contra la tos ferina, el plazo en el Reino Unido ll
 
 ## El consejo de esta semana
 
-Haz círculos con los tobillos y estira los dedos de los pies hacia ti antes de meterte en la cama. Diez de cada movimiento, en ambos pies. Es lo único que reduce los calambres nocturnos para muchas mujeres, cuesta un minuto y, a diferencia de la mayoría de consejos para calambres, puede hacerse en el momento en que más importa, en lugar de en plena noche, de pie sobre una sola pierna.
+Haz círculos con los tobillos y estira los dedos de los pies hacia ti antes de meterte en la cama. Repítelos unas cuantas veces en cada pie, lo que puede ayudar. Es uno de los consejos que el NHS sugiere para los calambres nocturnos, cuesta un minuto y, a diferencia de la mayoría de consejos para calambres, puede hacerse en el momento en que más importa, en lugar de en plena noche, de pie sobre una sola pierna.
 
 ## Cuándo consultar
 
 Contacta de inmediato con tu servicio de maternidad si los movimientos se hacen más lentos o se detienen. Comunica cualquier sangrado, dolor intenso, fiebre o dolor de cabeza con alteraciones de la visión. [Señales de alarma en el embarazo](/es/learn/pregnancy-warning-signs) tiene la lista.
 
-> **Busca atención ya:** Contacta con los servicios de emergencia locales o ve al servicio de urgencias más cercano si tienes sangrado abundante, dolor abdominal intenso o de un solo lado, dolor de cabeza intenso con alteraciones de la visión, hinchazón repentina de la cara o las manos, fiebre, pérdida de líquido por la vagina, dolor de pecho, dificultad para respirar, desmayo o convulsión. Contacta con tu servicio de maternidad el mismo día ante cualquier disminución del patrón habitual de movimientos del bebé. Femio no puede valorar un embarazo.
+> **Busca atención ya:** Contacta con los servicios de emergencia locales o ve al servicio de urgencias más cercano si tienes sangrado abundante, dolor abdominal intenso o de un solo lado, dolor de cabeza intenso con alteraciones de la visión, hinchazón repentina de la cara o las manos, fiebre, pérdida de líquido por la vagina, dolor de pecho, dificultad para respirar, desmayo, convulsión o pensamientos de hacerte daño a ti misma o a tu bebé ([ayuda ahora](/es/help-now)). Contacta con tu servicio de maternidad de inmediato si los movimientos de tu bebé se vuelven más lentos, se detienen o cambian. femio no puede valorar un embarazo.
 
 ## Preguntas frecuentes
 

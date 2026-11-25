@@ -12,7 +12,7 @@ secondary_topics:
   - "non-hormonal menopause options"
   - "vaginal dryness menopause care"
 excerpt: "Learn which menopause care options a clinician may discuss, including HRT, non-hormonal approaches, vaginal care, shared decisions, and review."
-meta_title: "Menopause Care Options to Discuss | Femio"
+meta_title: "Menopause Care Options to Discuss | femio"
 meta_description: "Learn which menopause care options a clinician may discuss, how choices vary by symptom and health history, and which questions support shared decisions."
 canonical_url: "https://femioapp.com/en/learn/menopause-care-options"
 robots_while_draft: "noindex,nofollow"
@@ -24,7 +24,7 @@ open_graph_image_alt: "Clinician and patient comparing menopause care choices an
 written_by: "Dr. Khaled M."
 medically_reviewed_by: "Dr. Khaled M."
 date_published: "2026-08-15"
-date_modified: "2026-08-15"
+date_modified: "2026-11-24"
 last_reviewed: "2026-08-04"
 next_review_due: null
 reading_level_ok: true
@@ -52,7 +52,7 @@ internal_links:
 
 # What Menopause Care Options Can a Clinician Discuss?
 
-Menopause care may include HRT or non-hormonal medicines. A structured approach may help with thoughts, actions, and coping. Vaginal moisturisers, lubricants, or local oestrogen may also help. Support can cover sleep, mood, sex, bladder health, or bones. Choices should fit your symptoms, health, goals, and wishes.
+Menopause care may include hormone replacement therapy (HRT) or non-hormonal medicines. A structured approach may help with thoughts, actions, and coping. Vaginal moisturisers, lubricants, or local oestrogen may also help. Support can cover sleep, mood, sex, bladder health, or bones. Choices should fit your symptoms, health, goals, and wishes.
 
 No single plan is best for everyone. A clinician should explain benefits, risks, limits, and review timing.
 
@@ -131,7 +131,7 @@ Bring a short symptom record and medicine list. Ask:
 - What alternatives are reasonable?
 - When will we review the plan?
 
-Femio's [clinician review process](/en/medical-review) explains how this health content is checked.
+femio's [clinician review process](/en/medical-review) explains how this health content is checked.
 
 ## When to see a doctor
 

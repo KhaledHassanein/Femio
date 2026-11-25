@@ -10,7 +10,7 @@ secondary_topics:
   - "almorranas en el embarazo"
   - "los pulmones se desarrollan en el útero"
 excerpt: "Las almorranas y las estrías son las molestias de la semana 22, mientras los pulmones practican y se forman las papilas gustativas."
-meta_title: "22 semanas de embarazo: almorranas y estrías | Femio"
+meta_title: "22 semanas de embarazo: almorranas y estrías | femio"
 meta_description: "La semana 22 trae almorranas y estrías, y empieza la práctica respiratoria. Qué alivia las almorranas y cuándo un dolor abdominal no es normal."
 canonical_url: "https://femioapp.com/es/learn/pregnancy-week-22"
 robots_while_draft: "noindex,nofollow"
@@ -22,7 +22,7 @@ open_graph_image_alt: "Un frutero y una jarra de agua sobre una mesa"
 written_by: "PENDING"
 medically_reviewed_by: "Dr. Khaled M."
 date_published: "2026-10-30"
-date_modified: "2026-10-30"
+date_modified: "2026-11-25"
 last_reviewed: "2026-10-30"
 next_review_due: "2027-10-30"
 reading_level_ok: false
@@ -48,6 +48,7 @@ internal_links:
   - "/es/learn/pregnancy-week-23"
   - "/es/learn/pregnancy-warning-signs"
   - "/es/calculators/gestational-age"
+  - "/es/help-now"
 ---
 
 # Semana 22 de embarazo: qué esperar
@@ -82,13 +83,13 @@ Es también el momento en que muchos servicios esperan que comience una conversa
 
 ## El consejo de esta semana
 
-No hagas fuerza al ir al baño y pon un taburete bajo los pies. Es un consejo poco vistoso, y es el que de verdad evita que las almorranas empeoren, porque el esfuerzo es el mecanismo y la postura es lo que elimina la necesidad de hacerlo.
+No hagas fuerza al ir al baño y pon un taburete bajo los pies. Es un consejo poco vistoso, y puede ayudar a reducir el esfuerzo, que puede empeorar las almorranas.
 
 ## Cuándo consultar
 
 Contacta con una matrona o con tu médico de cabecera por cualquier sangrado, dolor intenso, fiebre, o almorranas que sangren o duelan mucho. Un dolor de cabeza con alteraciones de la visión, o una hinchazón repentina, requiere atención hoy mismo. [Señales de alarma en el embarazo](/es/learn/pregnancy-warning-signs) tiene la lista.
 
-> **Busca atención ya:** Contacta con los servicios de emergencia de tu zona o acude al servicio de urgencias más cercano si tienes sangrado abundante, dolor abdominal intenso o de un solo lado, dolor de cabeza intenso con alteraciones de la visión, hinchazón repentina de la cara o las manos, fiebre, pérdida de líquido por la vagina, dolor en el pecho, dificultad para respirar, desmayo o convulsión. Femio no puede evaluar un embarazo.
+> **Busca atención ya:** Contacta con los servicios de emergencia de tu zona o acude al servicio de urgencias más cercano si tienes sangrado abundante, dolor abdominal intenso o de un solo lado, dolor de cabeza intenso con alteraciones de la visión, hinchazón repentina de la cara o las manos, fiebre, pérdida de líquido por la vagina, dolor en el pecho, dificultad para respirar, desmayo, convulsión o pensamientos de hacerte daño a ti misma o a tu bebé ([ayuda ahora](/es/help-now)). femio no puede evaluar un embarazo.
 
 ## Preguntas frecuentes
 

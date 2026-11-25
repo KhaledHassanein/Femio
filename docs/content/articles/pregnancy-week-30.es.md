@@ -22,7 +22,7 @@ open_graph_image_alt: "Un cuaderno abierto y un bolígrafo sobre una mesita de n
 written_by: "PENDING"
 medically_reviewed_by: "Dr. Khaled M."
 date_published: "2026-10-30"
-date_modified: "2026-10-30"
+date_modified: "2026-11-25"
 last_reviewed: "2026-10-30"
 next_review_due: "2027-10-30"
 reading_level_ok: false
@@ -48,6 +48,7 @@ internal_links:
   - "/es/learn/pregnancy-week-31"
   - "/es/learn/pregnancy-warning-signs"
   - "/es/calculators/gestational-age"
+  - "/es/help-now"
 ---
 
 # Semana 30 de embarazo: qué esperar
@@ -86,9 +87,9 @@ Lee esta semana sobre las tres etapas del parto, y léelo con quien vaya a estar
 
 ## Cuándo consultar
 
-Contacta con tu servicio de maternidad el mismo día si hay disminución de movimientos, pérdida de líquido, contracciones regulares o sangrado. Di si no estás llevándolo bien. [Señales de alarma en el embarazo](/es/learn/pregnancy-warning-signs) tiene la lista completa.
+Contacta con tu servicio de maternidad el mismo día si hay pérdida de líquido, contracciones regulares o sangrado. Di si no estás llevándolo bien. [Señales de alarma en el embarazo](/es/learn/pregnancy-warning-signs) tiene la lista completa.
 
-> **Busca atención ya:** Contacta con los servicios de emergencia de tu zona o acude al servicio de urgencias más cercano si tienes sangrado abundante, dolor intenso de barriga o de un solo lado, un dolor de cabeza fuerte con cambios en la visión, hinchazón repentina de la cara o las manos, fiebre, pérdida de líquido por la vagina, dolor en el pecho, dificultad para respirar, desmayo o una convulsión. Contacta con tu servicio de maternidad el mismo día ante cualquier disminución del patrón habitual de movimientos de tu bebé. Femio no puede evaluar un embarazo.
+> **Busca atención ya:** Contacta con los servicios de emergencia de tu zona o acude al servicio de urgencias más cercano si tienes sangrado abundante, dolor intenso de barriga o de un solo lado, un dolor de cabeza fuerte con cambios en la visión, hinchazón repentina de la cara o las manos, fiebre, pérdida de líquido por la vagina, dolor en el pecho, dificultad para respirar, desmayo, una convulsión o pensamientos de hacerte daño a ti misma o a tu bebé ([ayuda ahora](/es/help-now)). Contacta con tu servicio de maternidad de inmediato si los movimientos de tu bebé se vuelven más lentos, se detienen o cambian. femio no puede evaluar un embarazo.
 
 ## Preguntas frecuentes
 

@@ -12,7 +12,7 @@ secondary_topics:
   - "healing after childbirth"
   - "first weeks with a newborn"
 excerpt: "What changes in the first six weeks after birth: bleeding, cramps, healing wounds, breasts, bladder, mood and sleep, and the signs that need care."
-meta_title: "Your Body in the First Six Weeks After Birth | Femio"
+meta_title: "Your Body in the First Six Weeks After Birth | femio"
 meta_description: "A plain guide to the first six weeks after birth: bleeding, afterpains, wound healing, breasts, bladder, mood and sleep, and when to get help."
 canonical_url: "https://femioapp.com/en/learn/postpartum-recovery-first-six-weeks"
 robots_while_draft: "noindex,nofollow"
@@ -24,7 +24,7 @@ open_graph_image_alt: "A woman resting at home in the weeks after giving birth"
 written_by: "PENDING"
 medically_reviewed_by: "Dr. Khaled M."
 date_published: "2026-08-19"
-date_modified: "2026-08-19"
+date_modified: "2026-11-24"
 last_reviewed: "2026-10-30"
 next_review_due: "2027-10-30"
 reading_level_ok: true
@@ -80,7 +80,7 @@ Hair shedding, night sweats, sore wrists, and feet that no longer fit old shoes 
 
 Bleeding after birth is called lochia. It changes colour from red to pink to brown to pale over days and weeks, and it can pause and restart.
 
-Soaking a maternity pad in an hour, passing clots larger than a plum, or bleeding that suddenly becomes heavier again all need urgent advice. [CDC](https://www.cdc.gov/hearher/maternal-warning-signs/index.html) lists heavy bleeding among the signs that need immediate care after birth.
+Soaking a maternity pad in an hour, or passing clots the size of an egg or larger, needs emergency help. Clots larger than a plum, or bleeding that suddenly becomes heavier again, need same-day advice. [CDC](https://www.cdc.gov/hearher/maternal-warning-signs/index.html) lists heavy bleeding among the signs that need immediate care after birth.
 
 Read [bleeding after birth](/en/learn/bleeding-after-birth) for what each stage usually looks like.
 
@@ -96,7 +96,7 @@ Feeling weepy, raw and easily overwhelmed in the first two weeks is very common.
 
 There is no prize for coping quietly. [Your mood after birth](/en/learn/mood-after-birth) explains what to look for and who to tell.
 
-If you have thoughts of harming yourself or the baby, treat it as an emergency. Femio's global [Need help now](/en/help-now) page can help you find the next safe step.
+If you have thoughts of harming yourself or the baby, treat it as an emergency. femio's global [Need help now](/en/help-now) page can help you find the next safe step.
 
 ## Eating, moving and lifting
 
@@ -104,9 +104,9 @@ Eat and drink to appetite. There is no recovery diet to follow, and this is not 
 
 Gentle walking is usually fine early on if it feels fine. [NICE's postnatal guidance](https://www.nice.org.uk/guidance/ng194) directs questions about returning to exercise, lifting and driving to your own care team, because the answer depends on how you gave birth and how healing is going.
 
-## What Femio can and cannot do here
+## What femio can and cannot do here
 
-Femio can hold what you notice — bleeding, pain, mood, feeding, sleep — so the pattern is in front of you and in front of your clinician at the next appointment. Femio cannot examine you, cannot confirm what is causing a symptom, and cannot tell you whether something is serious.
+femio can hold what you notice — bleeding, pain, mood, feeding, sleep — so the pattern is in front of you and in front of your clinician at the next appointment. femio cannot examine you, cannot confirm what is causing a symptom, and cannot tell you whether something is serious.
 
 Bring what you have logged to [your six-week check](/en/learn/six-week-postnatal-check). A written note of a bad week is much easier to explain than a memory of it.
 

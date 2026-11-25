@@ -22,7 +22,7 @@ open_graph_image_alt: "Un plan de parto impreso sobre una mesa, junto a un bolí
 written_by: "PENDING"
 medically_reviewed_by: "Dr. Khaled M."
 date_published: "2026-10-30"
-date_modified: "2026-10-30"
+date_modified: "2026-11-25"
 last_reviewed: "2026-10-30"
 next_review_due: "2027-10-30"
 reading_level_ok: false
@@ -49,6 +49,7 @@ internal_links:
   - "/es/learn/breastfeeding-first-two-weeks"
   - "/es/learn/pregnancy-warning-signs"
   - "/es/calculators/gestational-age"
+  - "/es/help-now"
 ---
 
 # Semana 35 de embarazo: qué esperar
@@ -85,9 +86,9 @@ Anota dos cosas sobre el alivio del dolor: lo que te gustaría probar primero, y
 
 ## Cuándo consultar
 
-Contacta con tu servicio de maternidad el mismo día ante cualquier cambio en los movimientos, pérdida de líquido, contracciones regulares o dolorosas, o sangrado. El dolor debajo de las costillas, un dolor de cabeza intenso o las alteraciones visuales necesitan atención ahora. [Señales de alarma en el embarazo](/es/learn/pregnancy-warning-signs) tiene la lista completa, y [la lactancia materna en las dos primeras semanas](/es/learn/breastfeeding-first-two-weeks) explica lo que viene después.
+Contacta con tu servicio de maternidad el mismo día ante pérdida de líquido, contracciones regulares o dolorosas, o sangrado. El dolor debajo de las costillas, un dolor de cabeza intenso o las alteraciones visuales necesitan atención ahora. [Señales de alarma en el embarazo](/es/learn/pregnancy-warning-signs) tiene la lista completa, y [la lactancia materna en las dos primeras semanas](/es/learn/breastfeeding-first-two-weeks) explica lo que viene después.
 
-> **Busca atención ya:** Contacta con los servicios de emergencia de tu zona o acude al servicio de urgencias más cercano si tienes sangrado abundante, dolor abdominal intenso o de un solo lado, dolor justo debajo de las costillas, un dolor de cabeza fuerte con alteraciones visuales, hinchazón repentina de la cara o las manos, fiebre, pérdida de líquido por la vagina, dolor en el pecho, dificultad para respirar, desmayo o convulsión. Contacta con tu servicio de maternidad el mismo día ante cualquier reducción del patrón habitual de movimiento de tu bebé. femio no puede evaluar un embarazo.
+> **Busca atención ya:** Contacta con los servicios de emergencia de tu zona o acude al servicio de urgencias más cercano si tienes sangrado abundante, dolor abdominal intenso o de un solo lado, dolor justo debajo de las costillas, un dolor de cabeza fuerte con alteraciones visuales, hinchazón repentina de la cara o las manos, fiebre, pérdida de líquido por la vagina, dolor en el pecho, dificultad para respirar, desmayo, convulsión o pensamientos de hacerte daño a ti misma o a tu bebé ([ayuda ahora](/es/help-now)). Contacta con tu servicio de maternidad de inmediato si los movimientos de tu bebé se vuelven más lentos, se detienen o cambian. femio no puede evaluar un embarazo.
 
 ## Preguntas frecuentes
 

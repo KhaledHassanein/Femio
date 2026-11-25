@@ -12,7 +12,7 @@ secondary_topics:
   - "quand demander de l'aide pour la fertilité"
   - "suivre les cycles pendant les essais"
 excerpt: "Commencez à essayer d'avoir un enfant avec des étapes claires sur la santé avant la grossesse, le calendrier du cycle, les médicaments, les examens et le moment où demander un soutien pour la fertilité."
-meta_title: "Essayer d'avoir un enfant : par où commencer | Femio"
+meta_title: "Essayer d'avoir un enfant : par où commencer | femio"
 meta_description: "Vous planifiez une grossesse ? Premières étapes de santé, fonctionnement du cycle, suivi utile, et quand demander un soutien pour la fertilité."
 canonical_url: "https://femioapp.com/fr/learn/trying-to-conceive-guide"
 robots_while_draft: "noindex,nofollow"
@@ -24,7 +24,7 @@ open_graph_image_alt: "Calendrier, notes de santé et questions préparées pour
 written_by: "PENDING"
 medically_reviewed_by: "Dr. Khaled M."
 date_published: "2026-10-30"
-date_modified: "2026-10-30"
+date_modified: "2026-11-24"
 last_reviewed: "2026-10-30"
 next_review_due: "2027-10-30"
 reading_level_ok: false
@@ -93,7 +93,7 @@ La fenêtre de fertilité est la partie du cycle pendant laquelle des rapports s
 
 Les dates du cycle peuvent offrir une estimation, mais l'ovulation ne survient pas toujours le même jour du cycle. **Ces dates soutiennent la planification de la conception et la prise de conscience du cycle. Ce sont des estimations, et non un moyen fiable d'éviter une grossesse.**
 
-Lisez [ce qu'est la fenêtre de fertilité](/fr/learn/fertile-window-explained), ou utilisez le [calculateur de fenêtre de fertilité](/fr/calculators/fertile-window) de Femio comme outil général de planification.
+Lisez [ce qu'est la fenêtre de fertilité](/fr/learn/fertile-window-explained), ou utilisez le [calculateur de fenêtre de fertilité](/fr/calculators/fertile-window) de femio comme outil général de planification.
 
 Si le calendrier devient stressant, des rapports sexuels réguliers tout au long du cycle peuvent sembler plus gérables que de viser une date unique. Les parcours avec donneur ou en clinique utilisent des plans de calendrier différents ; suivez les instructions du service qui vous accompagne.
 
@@ -166,11 +166,11 @@ Essayer d'avoir un enfant peut apporter de l'espoir, de la pression, du deuil ou
 
 Les partenaires peuvent réagir différemment. Convenez de la manière et du moment d'aborder le processus, plutôt que de laisser chaque journée devenir une discussion sur la fertilité. Demandez à votre clinicien un accompagnement psychologique ou un soutien entre pairs si vous le souhaitez.
 
-## Comment Femio peut soutenir la planification de la conception
+## Comment femio peut soutenir la planification de la conception
 
-Femio vous permet d'enregistrer cycles, symptômes et notes, puis de consulter des plages de dates estimées. Vous pouvez imprimer un résumé pour une consultation et choisir les détails à partager.
+femio vous permet d'enregistrer cycles, symptômes et notes, puis de consulter des plages de dates estimées. Vous pouvez imprimer un résumé pour une consultation et choisir les détails à partager.
 
-Femio ne confirme pas l'ovulation, n'explique pas un problème de fertilité, et ne promet pas de grossesse. Les estimations ne doivent rester qu'une partie de la planification, et non un test du bon fonctionnement de votre corps.
+femio ne confirme pas l'ovulation, n'explique pas un problème de fertilité, et ne promet pas de grossesse. Les estimations ne doivent rester qu'une partie de la planification, et non un test du bon fonctionnement de votre corps.
 
 ## Questions fréquentes
 

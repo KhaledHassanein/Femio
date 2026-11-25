@@ -10,7 +10,7 @@ secondary_topics:
   - "rotura de aguas"
   - "cuándo llamar a la unidad de maternidad"
 excerpt: "En la semana 39 pueden romperse las aguas, y saber exactamente cuándo llamar a la unidad de maternidad importa más que cualquier otra cosa."
-meta_title: "39 semanas: aguas, tapón mucoso y cuándo llamar | Femio"
+meta_title: "39 semanas: aguas, tapón mucoso y cuándo llamar | femio"
 meta_description: "Las aguas pueden romperse desde la semana 39, casi nunca de forma abundante. Cuándo llamar a maternidad, qué es el tapón mucoso y qué esperar."
 canonical_url: "https://femioapp.com/es/learn/pregnancy-week-39"
 robots_while_draft: "noindex,nofollow"
@@ -22,7 +22,7 @@ open_graph_image_alt: "Un teléfono sobre una mesa junto a un conjunto de histor
 written_by: "PENDING"
 medically_reviewed_by: "Dr. Khaled M."
 date_published: "2026-10-30"
-date_modified: "2026-10-30"
+date_modified: "2026-11-25"
 last_reviewed: "2026-10-30"
 next_review_due: "2027-10-30"
 reading_level_ok: false
@@ -48,11 +48,12 @@ internal_links:
   - "/es/learn/pregnancy-week-40"
   - "/es/learn/pregnancy-warning-signs"
   - "/es/calculators/gestational-age"
+  - "/es/help-now"
 ---
 
 # Semana 39 del embarazo: qué esperar
 
-La semana 39 es cuando la mayoría de las mujeres entran en parto dentro de una semana antes o después de la fecha prevista. Las aguas pueden romperse en cualquier momento, y casi nunca de la forma que muestran las películas. Lo que conviene saber con precisión esta semana es cuándo descolgar el teléfono.
+El trabajo de parto suele empezar alrededor de la fecha probable de parto, pero esa fecha es una estimación, así que el parto puede llegar antes o después. Las aguas pueden romperse en cualquier momento, y casi nunca de la forma que muestran las películas. Lo que conviene saber con precisión esta semana es cuándo descolgar el teléfono.
 
 ## Tu cuerpo esta semana
 
@@ -78,7 +79,7 @@ La piel ha desarrollado una capa externa más resistente que la protege y ayuda 
 
 Nada se programa de forma rutinaria para la mayoría de las mujeres esta semana, y las citas se reanudan a las 40 y 41 semanas en el Reino Unido para un primer bebé.
 
-Hay dos listas que conviene leer antes del parto y no después. El NHS señala nueve signos que deben tratarse como una emergencia en esta etapa: cualquier sangrado, flujo marrón o rosado, picor intenso sobre todo por la noche, un dolor de cabeza que no cede, problemas de visión, dolor justo debajo de las costillas, hinchazón extrema de los pies, tobillos, manos y cara, dolores de estómago persistentes, y una temperatura superior a 37,5 °C sin síntomas de resfriado ni gripe. La segunda lista describe cómo es realmente un recién nacido en los primeros minutos —a menudo silencioso antes de llorar, con manos y pies azulados y respiración irregular—, porque saberlo de antemano evita un gran susto.
+Hay dos listas que conviene leer antes del parto y no después. El NHS señala nueve signos que requieren contactar con tu unidad de maternidad de inmediato en esta etapa: cualquier sangrado, flujo marrón o rosado, picor intenso sobre todo por la noche, un dolor de cabeza que no cede, problemas de visión, dolor justo debajo de las costillas, hinchazón extrema de los pies, tobillos, manos y cara, dolores de estómago persistentes, y una temperatura superior a 37,5 °C sin síntomas de resfriado ni gripe. La segunda lista describe cómo es realmente un recién nacido en los primeros minutos —a menudo silencioso antes de llorar, con manos y pies azulados y respiración irregular—, porque saberlo de antemano evita un gran susto.
 
 ## El consejo de esta semana
 
@@ -88,7 +89,7 @@ Acuerda esta noche con quien te acompañe al parto quién llama a la unidad y qu
 
 Llama a tu unidad de maternidad cuando las contracciones duren 60 segundos y se repitan cada cinco minutos, o en cualquier momento si se rompen las aguas, cambian los movimientos o tienes sangrado. [Señales de alarma en el embarazo](/es/learn/pregnancy-warning-signs) tiene la lista completa.
 
-> **Busca atención ya:** Contacta con los servicios de emergencia locales o ve al servicio de urgencias más cercano si tienes sangrado abundante, dolor abdominal intenso o de un solo lado, dolor justo debajo de las costillas, dolor de cabeza intenso con alteraciones de la visión, hinchazón repentina de la cara o las manos, fiebre, pérdida de líquido por la vagina, dolor de pecho, dificultad para respirar, desmayo o convulsión. Contacta con tu servicio de maternidad el mismo día ante cualquier disminución del patrón habitual de movimientos del bebé. Femio no puede valorar un embarazo.
+> **Busca atención ya:** Contacta con los servicios de emergencia locales o ve al servicio de urgencias más cercano si tienes sangrado abundante, dolor abdominal intenso o de un solo lado, dolor justo debajo de las costillas, dolor de cabeza intenso con alteraciones de la visión, hinchazón repentina de la cara o las manos, fiebre, pérdida de líquido por la vagina, dolor de pecho, dificultad para respirar, desmayo, convulsión o pensamientos de hacerte daño a ti misma o a tu bebé ([ayuda ahora](/es/help-now)). Contacta con tu servicio de maternidad de inmediato si los movimientos de tu bebé se vuelven más lentos, se detienen o cambian. femio no puede valorar un embarazo.
 
 ## Preguntas frecuentes
 

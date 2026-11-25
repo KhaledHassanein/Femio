@@ -24,7 +24,7 @@ open_graph_image_alt: "قائمة أدوية وملاحظات صحية جُهّ�
 written_by: "PENDING"
 medically_reviewed_by: "Dr. Khaled M."
 date_published: "2026-10-30"
-date_modified: "2026-10-30"
+date_modified: "2026-11-25"
 last_reviewed: "2026-10-30"
 next_review_due: "2027-10-30"
 reading_level_ok: false
@@ -36,6 +36,9 @@ structured_data_required:
   - "BreadcrumbList"
   - "FAQPage"
 sources:
+  - title: "WHO: Periconceptional folic acid supplementation to prevent neural tube defects"
+    url: "https://www.who.int/tools/elena/interventions/folate-periconceptional"
+    tier: "1"
   - title: "ACOG: Good Health Before Pregnancy: Prepregnancy Care"
     url: "https://www.acog.org/womens-health/faqs/good-health-before-pregnancy-prepregnancy-care"
     tier: "1"
@@ -90,7 +93,7 @@ internal_links:
 
 ## ماذا قد يُناقش بشأن حمض الفوليك؟
 
-حمض الفوليك فيتامين من مجموعة ب، يلزم في مرحلة مبكرة من نمو الجنين. وتنصح [مراكز مكافحة الأمراض والوقاية منها (CDC)](https://www.cdc.gov/pregnancy/about/index.html) بتناول 400 ميكروغرام يوميًا لمعظم النساء اللواتي قد يحملن. وتنصح بالبدء قبل الحمل بشهر واحد على الأقل.
+حمض الفوليك فيتامين من مجموعة ب، يلزم في مرحلة مبكرة من نمو الجنين. وتنصح [مراكز مكافحة الأمراض والوقاية منها (CDC)](https://www.cdc.gov/pregnancy/about/index.html) بتناول 400 ميكروغرام يوميًا لمعظم النساء اللواتي قد يحملن. وتنصح بالبدء قبل الحمل بشهر واحد على الأقل. وتنصح [منظمة الصحة العالمية](https://www.who.int/tools/elena/interventions/folate-periconceptional) بتناول 400 ميكروغرام يوميًا من وقت بدء محاولة الحمل وحتى الأسبوع 12 من الحمل.
 
 قد تحتاج بعض النساء إلى خطة مختلفة بحسب الأدوية أو التاريخ الصحي أو حمل سابق. اسألي طبيبة أو طبيبًا عن الخطة المناسبة لكِ. واتبعي النصيحة الشخصية بدل تناول جرعة إضافية من تلقاء نفسكِ.
 

@@ -22,7 +22,7 @@ open_graph_image_alt: "Un calendrier avec une date entourée à côté d'une tas
 written_by: "PENDING"
 medically_reviewed_by: "Dr. Khaled M."
 date_published: "2026-10-30"
-date_modified: "2026-10-30"
+date_modified: "2026-11-25"
 last_reviewed: "2026-10-30"
 next_review_due: "2027-10-30"
 reading_level_ok: false
@@ -48,6 +48,7 @@ internal_links:
   - "/fr/learn/pregnancy-week-5"
   - "/fr/learn/pregnancy-warning-signs"
   - "/fr/calculators/gestational-age"
+  - "/fr/help-now"
 ---
 
 # Semaine 4 de grossesse : à quoi s'attendre
@@ -92,7 +93,7 @@ Notez la date du premier jour de vos dernières règles, et conservez-la à un e
 
 Contactez une sage-femme, un médecin généraliste ou un service de maternité si vous avez le moindre saignement, si la douleur est intense ou d'un seul côté, ou si vous vous sentez défaillante. [Les signes d'alerte de la grossesse](/fr/learn/pregnancy-warning-signs) donnent la liste complète. Si un test positif n'a pas encore été confirmé, [quand faire un test de grossesse](/fr/learn/when-to-take-pregnancy-test) explique le bon moment.
 
-> **Consultez sans attendre :** Contactez les services d'urgence de votre région ou rendez-vous au service des urgences le plus proche en cas de saignement abondant, de douleur abdominale intense ou d'un seul côté, de douleur à la pointe de l'épaule, de mal de tête sévère avec troubles de la vision, de gonflement soudain du visage ou des mains, de fièvre, de douleur thoracique, de difficultés à respirer, de malaise ou de crise convulsive. Femio ne peut pas évaluer une grossesse.
+> **Consultez sans attendre :** Contactez les services d'urgence de votre région ou rendez-vous au service des urgences le plus proche en cas de saignement abondant, de douleur abdominale intense ou d'un seul côté, de douleur à la pointe de l'épaule, de mal de tête sévère avec troubles de la vision, de gonflement soudain du visage ou des mains, de fièvre, de douleur thoracique, de difficultés à respirer, de malaise, de crise convulsive ou de pensées de vous faire du mal ou de faire du mal à votre bébé ([aide immédiate](/fr/help-now)). femio ne peut pas évaluer une grossesse.
 
 ## Questions fréquentes
 

@@ -12,7 +12,7 @@ secondary_topics:
   - "limites du calculateur de fenêtre de fertilité"
   - "planification de la conception"
 excerpt: "Découvrez ce que signifie la fenêtre de fertilité, pourquoi elle couvre plusieurs jours, comment les estimations sont faites, et pourquoi les dates du calendrier ne peuvent pas garantir l'ovulation."
-meta_title: "Fenêtre de fertilité : timing et limites | Femio"
+meta_title: "Fenêtre de fertilité : timing et limites | femio"
 meta_description: "Découvrez ce que signifie la fenêtre de fertilité, comment l'ovulation est estimée, ce qui peut la modifier et les limites des prévisions par calendrier."
 canonical_url: "https://femioapp.com/fr/learn/fertile-window-explained"
 robots_while_draft: "noindex,nofollow"
@@ -24,7 +24,7 @@ open_graph_image_alt: "Calendrier du cycle montrant une fourchette fertile estim
 written_by: "PENDING"
 medically_reviewed_by: "Dr. Khaled M."
 date_published: "2026-10-30"
-date_modified: "2026-10-30"
+date_modified: "2026-11-24"
 last_reviewed: "2026-10-30"
 next_review_due: "2027-10-30"
 reading_level_ok: false
@@ -76,7 +76,7 @@ Un calculateur fondé sur le calendrier demande généralement le premier jour d
 
 Cela peut être utile pour planifier, mais le résultat dépend des informations saisies et des hypothèses sur le moment des prochaines règles. Une moyenne masque les variations d'un cycle à l'autre.
 
-Le [calculateur de fenêtre de fertilité](/fr/calculators/fertile-window) de Femio affiche une estimation générale. Si vous suivez plusieurs cycles, comparez le résultat avec l'ampleur des variations de la durée de vos cycles.
+Le [calculateur de fenêtre de fertilité](/fr/calculators/fertile-window) de femio affiche une estimation générale. Si vous suivez plusieurs cycles, comparez le résultat avec l'ampleur des variations de la durée de vos cycles.
 
 **Ces dates servent à planifier la conception et à mieux connaître votre cycle. Ce sont des estimations, et non un moyen fiable d'éviter une grossesse.**
 
@@ -132,11 +132,11 @@ Vous n'avez pas besoin d'enregistrer les dates de rapports sexuels ou d'insémin
 
 Apprenez [comment compter les jours du cycle](/fr/learn/menstrual-cycle-basics) avant de vous fier à une moyenne.
 
-## Comment Femio estime une fenêtre de fertilité
+## Comment femio estime une fenêtre de fertilité
 
-Femio utilise les dates de cycle que vous saisissez pour créer une fourchette estimée. Il peut élargir la fourchette lorsque vos cycles enregistrés varient, et peut afficher un niveau de confiance lorsque les données sont suffisantes.
+femio utilise les dates de cycle que vous saisissez pour créer une fourchette estimée. Il peut élargir la fourchette lorsque vos cycles enregistrés varient, et peut afficher un niveau de confiance lorsque les données sont suffisantes.
 
-Femio ne peut pas confirmer l'ovulation ni identifier un jour où une grossesse serait impossible. Il ne remplace pas un clinicien ni un service de fertilité.
+femio ne peut pas confirmer l'ovulation ni identifier un jour où une grossesse serait impossible. Il ne remplace pas un clinicien ni un service de fertilité.
 
 ## Questions fréquentes
 
