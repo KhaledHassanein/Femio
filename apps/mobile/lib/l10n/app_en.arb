@@ -1101,5 +1101,13 @@
       }
     }
   },
-  "toolNothingSaved": "Nothing you enter here is saved."
+  "toolNothingSaved": "Nothing you enter here is saved.",
+  "updateBannerBody": "A new version of femio is ready.",
+  "updateBannerAction": "Update",
+  "@updateBannerBody": {
+    "description": "Quiet card on the home screen when Google Play has a newer femio (R12.3)."
+  },
+  "@updateBannerAction": {
+    "description": "Button on the update card; starts Google Play's update."
+  }
 }

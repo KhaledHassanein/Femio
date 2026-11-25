@@ -15,11 +15,15 @@ import 'data/app_lock.dart';
 import 'data/assistant_channel.dart';
 import 'data/backup.dart';
 import 'data/key_vault.dart';
+import 'data/play_store.dart';
 import 'data/profile.dart';
 import 'data/reminder_scheduler.dart';
+import 'data/safety_session.dart';
 import 'data/store.dart';
 import 'features/assistant/assistant_scope.dart';
 import 'features/home/home_shell.dart';
+import 'domain/dates.dart';
+import 'domain/store_prompts.dart';
 import 'features/lock/lock_screen.dart';
 import 'features/onboarding/onboarding_flow.dart';
 import 'domain/reminders.dart';
@@ -40,13 +44,15 @@ class FemioController extends ChangeNotifier {
   /// [store] is where her record lives; [vault] holds the lock PIN (a memory vault
   /// in tests); [initialLocale] is the language to start in before she has chosen one;
   /// [reminders] shows her reminders (none in tests); [clock] reads "now" for the
-  /// reminder plan (fixed in tests).
+  /// reminder plan (fixed in tests); [playStore] is Google Play's rating and update
+  /// services (none in tests).
   FemioController(
     this.store, {
     KeyVault? vault,
     String? initialLocale,
     ReminderScheduler? reminders,
     DateTime Function()? clock,
+    this.playStore = const NoPlayStore(),
   })  : _lock = AppLock(vault ?? MemoryKeyVault()),
         _locale = initialLocale,
         _reminders = reminders ?? const NoReminderScheduler(),
@@ -54,6 +60,9 @@ class FemioController extends ChangeNotifier {
 
   /// Where her record is saved. Swappable, so tests use memory and the app uses a file.
   final FemioStore store;
+
+  /// Google Play's rating dialog and in-app updates (R12.2, R12.3).
+  final PlayStore playStore;
   final AppLock _lock;
   final ReminderScheduler _reminders;
   final DateTime Function() _clock;
@@ -108,6 +117,7 @@ class FemioController extends ChangeNotifier {
     }
     await _syncReminders(force: true);
     notifyListeners();
+    await _countUsageDay();
   }
 
   /// Switches the app to [code] at once. Only codes in [supportedLanguages] take
@@ -129,7 +139,32 @@ class FemioController extends ChangeNotifier {
 
   /// Writes one day's log (flow and terms) and saves. [date] is an ISO day. Requires
   /// a loaded [profile].
-  Future<void> setDayLog(String date, DayLog log) => save(profile!.withDayLog(date, log));
+  Future<void> setDayLog(String date, DayLog log) async {
+    await save(profile!.withDayLog(date, log));
+    await _maybeAskForReview();
+  }
+
+  /// Counts today as a day of use (R12.2); saves only when the day is new.
+  Future<void> _countUsageDay() async {
+    final p = profile;
+    if (p == null) return;
+    final today = todayISO(_clock());
+    if (p.settings.lastUsageDay == today) return;
+    final next = countUsageDay(p.settings.usageDays, p.settings.lastUsageDay, today);
+    await save(p.copyWith(settings: p.settings.copyWith(usageDays: next.days, lastUsageDay: next.lastDay)));
+  }
+
+  /// After a saved log, the one calm moment for the rating request: at most once per
+  /// build, after six days of use, never in a session that showed a safety screen. The
+  /// build is recorded before Play is asked, so a failing dialog never asks twice.
+  Future<void> _maybeAskForReview() async {
+    final s = profile!.settings;
+    if (!shouldAskForReview(usageDays: s.usageDays, askedForBuild: s.reviewAskedBuild, safetyShownThisSession: SafetySession.shown)) {
+      return;
+    }
+    await setSettings(s.copyWith(reviewAskedBuild: appBuild));
+    await playStore.requestReview();
+  }
 
   /// Updates her preferences and saves.
   Future<void> setSettings(AppSettings settings) => save(profile!.copyWith(settings: settings));
@@ -243,7 +278,10 @@ class FemioController extends ChangeNotifier {
   /// [relockAfter] in the background, and the reminders are topped up on return.
   void onLifecycle(AppLifecycleState lifecycle) {
     // The reminder plan covers a rolling month; each return to the app tops it up.
-    if (lifecycle == AppLifecycleState.resumed && profile != null) unawaited(_syncReminders());
+    if (lifecycle == AppLifecycleState.resumed && profile != null) {
+      unawaited(_syncReminders());
+      unawaited(_countUsageDay());
+    }
     if (!lockEnabled) return;
     if (lifecycle == AppLifecycleState.paused || lifecycle == AppLifecycleState.hidden) {
       _backgroundedAt ??= DateTime.now();

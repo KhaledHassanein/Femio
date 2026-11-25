@@ -2570,4 +2570,10 @@ class L10nFr extends L10n {
   @override
   String get toolNothingSaved =>
       'Rien de ce que vous saisissez ici n\'est enregistré.';
+
+  @override
+  String get updateBannerBody => 'Une nouvelle version de femio est prête.';
+
+  @override
+  String get updateBannerAction => 'Mettre à jour';
 }

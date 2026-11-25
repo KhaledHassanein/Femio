@@ -2552,4 +2552,10 @@ class L10nEn extends L10n {
 
   @override
   String get toolNothingSaved => 'Nothing you enter here is saved.';
+
+  @override
+  String get updateBannerBody => 'A new version of femio is ready.';
+
+  @override
+  String get updateBannerAction => 'Update';
 }

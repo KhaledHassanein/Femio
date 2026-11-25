@@ -4222,6 +4222,18 @@ abstract class L10n {
   /// In en, this message translates to:
   /// **'Nothing you enter here is saved.'**
   String get toolNothingSaved;
+
+  /// Quiet card on the home screen when Google Play has a newer femio (R12.3).
+  ///
+  /// In en, this message translates to:
+  /// **'A new version of femio is ready.'**
+  String get updateBannerBody;
+
+  /// Button on the update card; starts Google Play's update.
+  ///
+  /// In en, this message translates to:
+  /// **'Update'**
+  String get updateBannerAction;
 }
 
 class _L10nDelegate extends LocalizationsDelegate<L10n> {

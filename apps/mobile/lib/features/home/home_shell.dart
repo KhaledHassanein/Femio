@@ -7,12 +7,14 @@ import 'package:flutter/material.dart';
 
 import '../../app.dart';
 import '../../domain/dates.dart';
+import '../../domain/store_prompts.dart';
 import '../../l10n/app_localizations.dart';
 import '../../data/library.dart';
 import '../calendar/calendar_screen.dart';
 import '../learn/learn_screen.dart';
 import '../log/log_screen.dart';
 import '../today/today_screen.dart';
+import 'update_card.dart';
 
 /// The app once she is set up: Today, Calendar, Log and Learn (spec §4). Tools joins
 /// as its screen lands; nothing is a dead tab.
@@ -36,6 +38,30 @@ class _HomeShellState extends State<HomeShell> {
   bool _learnOpened = false;
   late String _logDate = widget.today ?? todayISO();
 
+  /// What Google Play said about a newer femio at this app start (R12.3).
+  UpdatePrompt _update = UpdatePrompt.none;
+
+  @override
+  void initState() {
+    super.initState();
+    _checkForUpdate();
+  }
+
+  /// Asks Play once per app start. A high-priority release opens Play's full-screen update
+  /// at once; any other shows the quiet card.
+  Future<void> _checkForUpdate() async {
+    final store = widget.controller.playStore;
+    final mode = await store.checkUpdate();
+    if (!mounted || mode == UpdatePrompt.none) return;
+    if (mode == UpdatePrompt.immediate && await store.startUpdate(mode)) return;
+    if (mounted) setState(() => _update = UpdatePrompt.banner);
+  }
+
+  Future<void> _startUpdate() async {
+    setState(() => _update = UpdatePrompt.none);
+    await widget.controller.playStore.startUpdate(UpdatePrompt.banner);
+  }
+
   void _openLog(String date) => setState(() {
         _logDate = date;
         _tab = 2;
@@ -46,20 +72,21 @@ class _HomeShellState extends State<HomeShell> {
     final l = L10n.of(context);
     final today = widget.today ?? todayISO();
     return Scaffold(
-      body: IndexedStack(
-        index: _tab,
-        children: [
-          TodayScreen(controller: widget.controller, today: today, onLog: () => _openLog(today), library: _library),
-          CalendarScreen(controller: widget.controller, today: today, onDay: _openLog),
-          LogScreen(
-            controller: widget.controller,
-            today: today,
-            date: _logDate,
-            onDateChanged: (d) => setState(() => _logDate = d),
+      body: Column(children: [
+        if (_update == UpdatePrompt.banner)
+          SafeArea(
+            bottom: false,
+            child: UpdateCard(onUpdate: _startUpdate, onDismiss: () => setState(() => _update = UpdatePrompt.none)),
           ),
-          if (_learnOpened) LearnScreen(library: _library, controller: widget.controller) else const SizedBox.shrink(),
-        ],
-      ),
+        // The card already sits below the status bar, so the tabs must not pad for it again.
+        Expanded(
+          child: MediaQuery.removePadding(
+            context: context,
+            removeTop: _update == UpdatePrompt.banner,
+            child: _tabs(today),
+          ),
+        ),
+      ]),
       bottomNavigationBar: NavigationBar(
         selectedIndex: _tab,
         onDestinationSelected: (i) => setState(() {
@@ -76,4 +103,20 @@ class _HomeShellState extends State<HomeShell> {
       ),
     );
   }
+
+  /// The four tabs, kept alive behind the navigation bar.
+  Widget _tabs(String today) => IndexedStack(
+        index: _tab,
+        children: [
+          TodayScreen(controller: widget.controller, today: today, onLog: () => _openLog(today), library: _library),
+          CalendarScreen(controller: widget.controller, today: today, onDay: _openLog),
+          LogScreen(
+            controller: widget.controller,
+            today: today,
+            date: _logDate,
+            onDateChanged: (d) => setState(() => _logDate = d),
+          ),
+          if (_learnOpened) LearnScreen(library: _library, controller: widget.controller) else const SizedBox.shrink(),
+        ],
+      );
 }

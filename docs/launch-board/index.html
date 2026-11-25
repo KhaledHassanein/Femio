@@ -1,0 +1,282 @@
+<title>femio Launch Board</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,500;6..72,600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap">
+<style>
+/* Layout: one column of phase bands; each band holds task cards; a sticky filter bar on top. */
+:root {
+  --bg: #fbf7f6; --surface: #ffffff; --sunk: #f3ecea; --border: #e6dad7; --text: #2b1d24; --muted: #6f5e66;
+  --accent: #8a3d62; --accent-soft: #f4e4ec; --accent-text: #6e2b4c;
+  --ok: #2f6b4f; --ok-soft: #e3f1e9; --warn: #8a5a12; --warn-soft: #fbefd9; --bad: #9b2c2c; --bad-soft: #fbe5e3;
+  --you: #6e2b4c; --you-soft: #f4e4ec; --me: #24566e; --me-soft: #e1eef4;
+  --font-display: "Newsreader", Georgia, "Times New Roman", serif;
+  --font-body: "Plus Jakarta Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --radius: 14px;
+}
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
+  --bg: #1a1317; --surface: #241b20; --sunk: #2d2328; --border: #3d3036; --text: #f3e9ec; --muted: #b9a7af;
+  --accent: #e3a0c0; --accent-soft: #3d2332; --accent-text: #f0bcd4;
+  --ok: #8fd1ad; --ok-soft: #1f3529; --warn: #f0c27a; --warn-soft: #3a2e17; --bad: #f2a29a; --bad-soft: #3d2120;
+  --you: #f0bcd4; --you-soft: #3d2332; --me: #9fd0e6; --me-soft: #1d3340; color-scheme: dark } }
+:root[data-theme="dark"] {
+  --bg: #1a1317; --surface: #241b20; --sunk: #2d2328; --border: #3d3036; --text: #f3e9ec; --muted: #b9a7af;
+  --accent: #e3a0c0; --accent-soft: #3d2332; --accent-text: #f0bcd4;
+  --ok: #8fd1ad; --ok-soft: #1f3529; --warn: #f0c27a; --warn-soft: #3a2e17; --bad: #f2a29a; --bad-soft: #3d2120;
+  --you: #f0bcd4; --you-soft: #3d2332; --me: #9fd0e6; --me-soft: #1d3340; color-scheme: dark }
+* { box-sizing: border-box }
+body { background: var(--bg); color: var(--text); font: 15px/1.55 var(--font-body);
+  padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); padding-block: 24px 64px }
+.wrap { max-width: 920px; margin: 0 auto; display: grid; gap: 24px }
+h1, h2 { font-family: var(--font-display); font-weight: 600; text-wrap: balance; margin: 0 }
+h1 { font-size: clamp(30px, 6vw, 42px); line-height: 1.1 }
+h2 { font-size: 22px }
+.eyebrow { font-size: 12px; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); font-weight: 600 }
+.lede { color: var(--muted); max-width: 65ch; margin: 6px 0 0 }
+header { display: grid; gap: 10px }
+.release { display: flex; flex-wrap: wrap; gap: 8px; align-items: center }
+.tag { font-size: 13px; padding: 3px 10px; border-radius: 99px; background: var(--accent-soft); color: var(--accent-text); font-weight: 600 }
+.summary { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 12px }
+.stat { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 14px 16px; display: grid; gap: 8px }
+.stat b { font: 600 26px/1 var(--font-display); font-variant-numeric: tabular-nums }
+.bar { height: 6px; border-radius: 99px; background: var(--sunk); overflow: hidden }
+.bar i { display: block; height: 100%; background: var(--accent) }
+.filters { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 5; background: var(--bg); padding-block: 10px; display: flex; flex-wrap: wrap; gap: 8px; border-bottom: 1px solid var(--border) }
+body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 10; background: var(--bg) }
+.chip { font: 500 13px var(--font-body); border: 1px solid var(--border); background: var(--surface); color: var(--text); border-radius: 99px; padding: 6px 12px; cursor: pointer }
+.chip[aria-pressed="true"] { background: var(--text); color: var(--bg); border-color: var(--text) }
+.chip:focus-visible, button:focus-visible, select:focus-visible, textarea:focus-visible, input:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px }
+.phase { display: grid; gap: 12px }
+.phase-head { display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap }
+.phase-head span { color: var(--muted); font-size: 13px }
+.card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 14px 16px; display: grid; gap: 10px; min-width: 0 }
+.card.done { opacity: .72 }
+.row { display: flex; gap: 8px; align-items: center; flex-wrap: wrap }
+.title { font-weight: 600; flex: 1 1 260px; min-width: 0 }
+.who { font-size: 12px; font-weight: 700; padding: 2px 9px; border-radius: 99px }
+.who.khaled { background: var(--you-soft); color: var(--you) }
+.who.claude { background: var(--me-soft); color: var(--me) }
+.who.both { background: var(--sunk); color: var(--text) }
+.ref { font-size: 12px; color: var(--muted); font-variant-numeric: tabular-nums }
+select.status { font: 600 12px var(--font-body); border-radius: 99px; padding: 4px 8px; border: 1px solid var(--border); background: var(--sunk); color: var(--text) }
+select.status[data-s="done"] { background: var(--ok-soft); color: var(--ok) }
+select.status[data-s="doing"] { background: var(--accent-soft); color: var(--accent-text) }
+select.status[data-s="blocked"] { background: var(--bad-soft); color: var(--bad) }
+select.status[data-s="waiting"] { background: var(--warn-soft); color: var(--warn) }
+.why { color: var(--muted); margin: 0; font-size: 14px }
+details summary { cursor: pointer; font-size: 14px; font-weight: 600; color: var(--accent-text) }
+ol.steps { margin: 8px 0 0; padding-inline-start: 0; list-style: none; display: grid; gap: 6px; counter-reset: s }
+ol.steps li { display: grid; grid-template-columns: auto 1fr; gap: 10px; align-items: start; counter-increment: s }
+ol.steps label { display: flex; gap: 8px; align-items: baseline; font-size: 14px; min-width: 0; overflow-wrap: anywhere }
+ol.steps label::before { content: counter(s) "."; color: var(--muted); font-variant-numeric: tabular-nums; min-width: 1.4em }
+ol.steps input { margin-top: 3px; accent-color: var(--accent) }
+ol.steps li.ticked label { text-decoration: line-through; color: var(--muted) }
+.note { display: grid; gap: 6px }
+.note textarea { width: 100%; min-height: 56px; resize: vertical; font: 14px var(--font-body); border: 1px solid var(--border); border-radius: 10px; padding: 8px 10px; background: var(--bg); color: var(--text) }
+.note .meta { font-size: 12px; color: var(--muted) }
+.reply { font-size: 14px; background: var(--me-soft); color: var(--text); border-radius: 10px; padding: 8px 10px }
+.reply b { color: var(--me) }
+button.save { justify-self: start; font: 600 13px var(--font-body); border: 0; border-radius: 99px; padding: 6px 14px; background: var(--accent); color: var(--bg); cursor: pointer }
+.empty, .notice { background: var(--surface); border: 1px dashed var(--border); border-radius: var(--radius); padding: 18px; color: var(--muted) }
+.notice[hidden] { display: none }
+form.add { display: grid; gap: 8px; background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 14px 16px }
+form.add input, form.add select { font: 14px var(--font-body); border: 1px solid var(--border); border-radius: 10px; padding: 8px 10px; background: var(--bg); color: var(--text); min-width: 0 }
+form.add .row > * { flex: 1 1 160px }
+footer { color: var(--muted); font-size: 13px }
+@media (prefers-reduced-motion: no-preference) { .bar i { transition: width .4s ease } }
+</style>
+
+<div class="wrap">
+  <header>
+    <div class="eyebrow">femio · shared tracker</div>
+    <h1>Launch board</h1>
+    <div class="release"><span class="tag" id="release">Initial release 1.0.0</span><span class="ref" id="updated">Loading…</span></div>
+    <p class="lede" id="headline">Everything left before femio's first release on Google Play and the website launch: what Claude builds, what only you can do, and the exact steps for yours. Change a status, tick steps, or leave Claude a message on any card; Claude reads the board at the start of each session.</p>
+  </header>
+
+  <section class="summary" aria-label="Progress">
+    <div class="stat"><span class="eyebrow">Your actions</span><b id="s-you">–</b><div class="bar"><i id="b-you" style="width:0"></i></div></div>
+    <div class="stat"><span class="eyebrow">Claude's build</span><b id="s-me">–</b><div class="bar"><i id="b-me" style="width:0"></i></div></div>
+    <div class="stat"><span class="eyebrow">Waiting on you now</span><b id="s-next">–</b><span class="ref" id="s-next-sub">open items you can start</span></div>
+  </section>
+
+  <nav class="filters" aria-label="Filter">
+    <button class="chip" data-f="who" data-v="all" aria-pressed="true">Everyone</button>
+    <button class="chip" data-f="who" data-v="khaled" aria-pressed="false">Mine (Khaled)</button>
+    <button class="chip" data-f="who" data-v="claude" aria-pressed="false">Claude's</button>
+    <button class="chip" data-f="open" data-v="open" aria-pressed="true">Hide done</button>
+  </nav>
+
+  <p class="notice" id="notice" hidden></p>
+  <main id="board" class="wrap" style="gap:28px">
+    <div class="empty" id="empty">The task list is loading. If it stays empty, Claude has not filled the board yet; ask in the session to sync it.</div>
+  </main>
+
+  <form class="add" id="add" hidden>
+    <h2 style="font-size:18px">Add a task</h2>
+    <div class="row">
+      <input id="add-title" placeholder="What needs doing" required>
+      <select id="add-who"><option value="claude">For Claude</option><option value="khaled">For me</option></select>
+      <select id="add-phase"></select>
+    </div>
+    <button class="save" type="submit">Add</button>
+  </form>
+
+  <footer>Statuses: To do · Doing · Waiting (on someone else, e.g. Google review) · Blocked · Done. Numbers like #23 are rows in the owner-actions runbook; R-numbers are plan items.</footer>
+</div>
+
+<script>
+const PHASES = [
+  ["now", "This week", "Hackathon deadline and the accounts everything else needs"],
+  ["build", "Build the release", "Code and content for femio 1.0.0"],
+  ["accounts", "Accounts and live IDs", "Google Play, Firebase, signing: what makes the build real"],
+  ["testing", "Testing tracks", "Internal, closed and open testing on Google Play"],
+  ["web", "Website launch", "Search, analytics, ads and checks for femioapp.com"],
+  ["store", "Store listing and ASO", "What people see on Google Play"],
+  ["legal", "Legal and privacy", "Reviews that must pass before production"],
+  ["prod", "Production", "Rollout once testing passes"],
+];
+const STATUS = [["todo","To do"],["doing","Doing"],["waiting","Waiting"],["blocked","Blocked"],["done","Done"]];
+const WHO = { khaled: "You", claude: "Claude", both: "Both" };
+const state = { items: [], meta: null, who: "all", open: true, canWrite: false, db: null, me: null };
+const $ = (id) => document.getElementById(id);
+
+function el(tag, attrs = {}, kids = []) {
+  const n = document.createElement(tag);
+  for (const [k, v] of Object.entries(attrs)) {
+    if (k === "text") n.textContent = v; else if (k === "cls") n.className = v; else n.setAttribute(k, v);
+  }
+  for (const c of [].concat(kids)) if (c) n.append(c);
+  return n;
+}
+function when(iso) {
+  if (!iso) return "";
+  const d = new Date(iso); if (isNaN(d)) return "";
+  return d.toLocaleString(undefined, { day: "numeric", month: "short", hour: "2-digit", minute: "2-digit" });
+}
+
+function card(it) {
+  const steps = Array.isArray(it.steps) ? it.steps : [];
+  const ticks = Array.isArray(it.stepsDone) ? it.stepsDone : [];
+  const c = el("article", { cls: "card" + (it.status === "done" ? " done" : ""), id: "item-" + it.id });
+  const sel = el("select", { cls: "status", "aria-label": "Status of " + (it.title || "task"), "data-s": it.status || "todo", id: "st-" + it.id });
+  for (const [v, t] of STATUS) { const o = el("option", { value: v, text: t }); if (v === (it.status || "todo")) o.selected = true; sel.append(o); }
+  sel.disabled = !state.canWrite;
+  sel.addEventListener("change", () => write(it.id, { status: sel.value }));
+  c.append(el("div", { cls: "row" }, [
+    el("span", { cls: "title", text: it.title || "Untitled" }),
+    el("span", { cls: "who " + (it.owner || "both"), text: WHO[it.owner] || "Both" }),
+    it.ref ? el("span", { cls: "ref", text: it.ref }) : null,
+    sel,
+  ]));
+  if (it.why) c.append(el("p", { cls: "why", text: it.why }));
+  if (steps.length) {
+    const done = steps.filter((_, i) => ticks[i]).length;
+    const det = el("details", it.owner === "khaled" && it.status !== "done" ? { open: "" } : {});
+    det.append(el("summary", { text: `Steps (${done} of ${steps.length})` }));
+    const ol = el("ol", { cls: "steps" });
+    steps.forEach((s, i) => {
+      const id = `step-${it.id}-${i}`;
+      const box = el("input", { type: "checkbox", id });
+      box.checked = !!ticks[i]; box.disabled = !state.canWrite;
+      box.addEventListener("change", () => {
+        const next = steps.map((_, j) => (j === i ? box.checked : !!ticks[j]));
+        write(it.id, { stepsDone: next });
+      });
+      ol.append(el("li", { cls: ticks[i] ? "ticked" : "" }, [box, el("label", { for: id, text: String(s) })]));
+    });
+    det.append(ol);
+    c.append(det);
+  }
+  if (it.reply) c.append(el("div", { cls: "reply" }, [el("b", { text: "Claude: " }), document.createTextNode(String(it.reply))]));
+  const note = el("div", { cls: "note" });
+  const ta = el("textarea", { id: "note-" + it.id, placeholder: "Message to Claude (a question, a value you set, what went wrong)" });
+  ta.value = it.note || ""; ta.disabled = !state.canWrite;
+  const save = el("button", { cls: "save", type: "button", text: "Save message" });
+  save.hidden = !state.canWrite;
+  save.addEventListener("click", () => write(it.id, { note: ta.value.trim(), noteAt: new Date().toISOString() }));
+  note.append(ta);
+  const meta = it.noteAt ? el("span", { cls: "meta", text: "Saved " + when(it.noteAt) }) : null;
+  note.append(el("div", { cls: "row" }, [save, meta]));
+  c.append(note);
+  return c;
+}
+
+function render() {
+  const items = state.items;
+  const mine = items.filter((i) => i.owner === "khaled");
+  const ours = items.filter((i) => i.owner === "claude");
+  const pct = (a) => (a.length ? Math.round((100 * a.filter((i) => i.status === "done").length) / a.length) : 0);
+  $("s-you").textContent = `${mine.filter((i) => i.status === "done").length} / ${mine.length}`;
+  $("s-me").textContent = `${ours.filter((i) => i.status === "done").length} / ${ours.length}`;
+  $("b-you").style.width = pct(mine) + "%"; $("b-me").style.width = pct(ours) + "%";
+  const next = mine.filter((i) => i.status === "todo" || i.status === "doing");
+  $("s-next").textContent = String(next.length);
+  if (state.meta) {
+    if (state.meta.release) $("release").textContent = String(state.meta.release);
+    if (state.meta.headline) $("headline").textContent = String(state.meta.headline);
+    $("updated").textContent = state.meta.syncedAt ? "Claude last synced " + when(state.meta.syncedAt) : "";
+  }
+  const board = $("board");
+  board.replaceChildren();
+  const shown = items.filter((i) => (state.who === "all" || i.owner === state.who || i.owner === "both") && (!state.open || i.status !== "done"));
+  if (!items.length) { board.append(el("div", { cls: "empty", text: "No tasks yet. Claude fills this board from the plan; ask in the session to sync it." })); return; }
+  if (!shown.length) { board.append(el("div", { cls: "empty", text: "Nothing open for this filter. Turn off “Hide done” to see finished tasks." })); return; }
+  for (const [key, name, sub] of PHASES) {
+    const list = shown.filter((i) => (i.phase || "build") === key).sort((a, b) => (a.order ?? 99) - (b.order ?? 99));
+    if (!list.length) continue;
+    const sec = el("section", { cls: "phase", "aria-label": name });
+    sec.append(el("div", { cls: "phase-head" }, [el("h2", { text: name }), el("span", { text: sub })]));
+    list.forEach((it) => sec.append(card(it)));
+    board.append(sec);
+  }
+}
+
+async function write(id, patch) {
+  if (!state.db) return;
+  try {
+    await state.db.collection("items").doc(id).update({ ...patch, updatedAt: new Date().toISOString(), updatedBy: "khaled" });
+  } catch (e) {
+    showNotice(e && e.code === "invalid_argument" ? "You can view this board but not change it." : "That change did not save. Check your connection and try again.");
+  }
+}
+function showNotice(t) { const n = $("notice"); n.textContent = t; n.hidden = !t; }
+
+document.querySelectorAll(".chip").forEach((b) => b.addEventListener("click", () => {
+  if (b.dataset.f === "who") {
+    state.who = b.dataset.v;
+    document.querySelectorAll('.chip[data-f="who"]').forEach((x) => x.setAttribute("aria-pressed", String(x === b)));
+  } else {
+    state.open = !state.open; b.setAttribute("aria-pressed", String(state.open));
+  }
+  render();
+}));
+
+for (const [k, n] of PHASES) $("add-phase").append(el("option", { value: k, text: n }));
+$("add").addEventListener("submit", async (e) => {
+  e.preventDefault();
+  const title = $("add-title").value.trim();
+  if (!title || !state.db) return;
+  try {
+    await state.db.collection("items").add({ title, owner: $("add-who").value, phase: $("add-phase").value, status: "todo", order: 50,
+      steps: [], stepsDone: [], addedBy: "khaled", updatedAt: new Date().toISOString(), updatedBy: "khaled" });
+    $("add-title").value = "";
+  } catch { showNotice("The task did not save. Try again."); }
+});
+
+(async () => {
+  const db = await window.claude?.use?.("db");
+  const user = await window.claude?.use?.("user");
+  if (!db) { $("empty").textContent = "This board needs you signed in to claude.ai to load its tasks."; return; }
+  state.db = db;
+  const can = user ? await user.can("data.write") : null;
+  state.canWrite = can !== false;
+  $("add").hidden = !state.canWrite;
+  const timer = setTimeout(() => showNotice("The board can't be reached yet. What you see may be out of date."), 10000);
+  db.collection("items").onSnapshot((snap) => {
+    if (!snap.metadata.fromCache) { clearTimeout(timer); showNotice(""); }
+    state.items = snap.docs.map((d) => ({ id: d.id, ...d.data() }));
+    render();
+  }, () => { clearTimeout(timer); showNotice("The board stopped updating. Reload the page to reconnect."); });
+  db.doc("meta/board").onSnapshot((d) => { state.meta = d.exists ? d.data() : null; render(); }, () => {});
+})();
+</script>

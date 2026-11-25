@@ -2564,4 +2564,10 @@ class L10nEs extends L10n {
 
   @override
   String get toolNothingSaved => 'No se guarda nada de lo que introduces aquí.';
+
+  @override
+  String get updateBannerBody => 'Hay una nueva versión de femio lista.';
+
+  @override
+  String get updateBannerAction => 'Actualizar';
 }

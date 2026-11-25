@@ -43,6 +43,9 @@ class AppSettings {
     this.logReminderMinutes = defaultLogReminderMinutes,
     this.periodReminder = false,
     this.cloud = const CloudConsent(),
+    this.usageDays = 0,
+    this.lastUsageDay,
+    this.reviewAskedBuild,
   });
 
   /// Show Hijri dates beside Gregorian ones (on by default in Arabic, see
@@ -67,6 +70,15 @@ class AppSettings {
   /// grants, and an older consent text or a restored backup allows nothing.
   final CloudConsent cloud;
 
+  /// How many different days she has opened femio (R12.2). Absent in older records: 0.
+  final int usageDays;
+
+  /// The last ISO day counted in [usageDays].
+  final String? lastUsageDay;
+
+  /// The app build that last asked Google Play for a rating; null when never (R12.2).
+  final int? reviewAskedBuild;
+
   /// Whether Cloud boost is on for any purpose.
   bool get cloudBoost => cloud.any;
 
@@ -80,6 +92,9 @@ class AppSettings {
     int? logReminderMinutes,
     bool? periodReminder,
     CloudConsent? cloud,
+    int? usageDays,
+    String? lastUsageDay,
+    int? reviewAskedBuild,
   }) =>
       AppSettings(
         showHijri: showHijri ?? this.showHijri,
@@ -88,6 +103,9 @@ class AppSettings {
         logReminderMinutes: logReminderMinutes ?? this.logReminderMinutes,
         periodReminder: periodReminder ?? this.periodReminder,
         cloud: cloud ?? this.cloud,
+        usageDays: usageDays ?? this.usageDays,
+        lastUsageDay: lastUsageDay ?? this.lastUsageDay,
+        reviewAskedBuild: reviewAskedBuild ?? this.reviewAskedBuild,
       );
 
   Map<String, Object?> toJson() => {
@@ -97,6 +115,9 @@ class AppSettings {
         'logReminderMinutes': logReminderMinutes,
         'periodReminder': periodReminder,
         'cloudConsent': cloud.toJson(),
+        'usageDays': usageDays,
+        'lastUsageDay': lastUsageDay,
+        'reviewAskedBuild': reviewAskedBuild,
       };
 
   static AppSettings fromJson(Map<String, Object?>? j) {
@@ -111,6 +132,9 @@ class AppSettings {
       // Only a receipt on today's consent text counts; the bare `cloudBoost: true` of the
       // hackathon build carried no receipt, so it reads as no consent and she is asked again.
       cloud: CloudConsent.fromJson(j?['cloudConsent']),
+      usageDays: ((j?['usageDays'] as num?)?.toInt() ?? 0).clamp(0, 1 << 20),
+      lastUsageDay: j?['lastUsageDay'] as String?,
+      reviewAskedBuild: (j?['reviewAskedBuild'] as num?)?.toInt(),
     );
   }
 }

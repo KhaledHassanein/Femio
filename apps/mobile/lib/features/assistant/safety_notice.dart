@@ -4,6 +4,7 @@
 // sign or a birth-control question, with reviewed words and a way to help, before any model
 // runs. One widget keeps the two screens from drifting apart.
 
+import '../../data/safety_session.dart';
 import 'package:flutter/material.dart';
 
 import '../../data/library.dart';
@@ -24,6 +25,7 @@ class SafetyNotice extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    SafetySession.mark(); // no rating request this session (R12.2)
     final l = L10n.of(context);
     void open(Widget screen) => Navigator.of(context).push(MaterialPageRoute<void>(builder: (_) => screen));
     Widget withAction(NoticeCard card, String label, VoidCallback onTap) => Column(

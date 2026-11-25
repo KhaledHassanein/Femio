@@ -11,6 +11,7 @@
 // scroll so that every listed country is visible at once; a country with no verified
 // official page is not listed (the directory on the website covers it).
 
+import '../../data/safety_session.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
@@ -37,6 +38,7 @@ class _HelpNowScreenState extends State<HelpNowScreen> {
   Widget build(BuildContext context) {
     final l = L10n.of(context);
     final p = context.palette;
+    SafetySession.mark(); // no rating request this session (R12.2)
     final t = Theme.of(context).textTheme;
     final numbers = _country == null ? const <CrisisNumber>[] : crisisNumbers[_country]!;
     return Scaffold(

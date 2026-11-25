@@ -2575,4 +2575,10 @@ class L10nAr extends L10n {
 
   @override
   String get toolNothingSaved => 'لا يُحفظ شيء مما تُدخلينه هنا.';
+
+  @override
+  String get updateBannerBody => 'إصدار جديد من femio جاهز.';
+
+  @override
+  String get updateBannerAction => 'تحديث';
 }

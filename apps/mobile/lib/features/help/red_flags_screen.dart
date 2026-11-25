@@ -8,6 +8,7 @@
 // lib/domain/red_flags.dart, never from this file. The app opens nothing: a long press
 // on a source copies its address for her browser, as the guides do.
 
+import '../../data/safety_session.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
@@ -30,6 +31,7 @@ class RedFlagsScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    SafetySession.mark(); // no rating request this session (R12.2)
     final l = L10n.of(context);
     final t = Theme.of(context).textTheme;
     return Scaffold(
