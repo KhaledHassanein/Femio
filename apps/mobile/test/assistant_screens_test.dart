@@ -18,6 +18,8 @@ import 'package:femio/domain/assistant/cloud_consent.dart';
 import 'package:femio/domain/assistant/cloud_prompt.dart';
 import 'package:femio/domain/assistant/private_prompt.dart';
 import 'package:femio/domain/assistant/source_registry.dart';
+import 'package:femio/domain/assistant/uses.dart';
+import 'package:femio/features/assistant/ai_sees_screen.dart';
 import 'package:femio/features/assistant/ask_screen.dart';
 import 'package:femio/features/assistant/assistant_scope.dart';
 import 'package:femio/features/assistant/assistant_settings_screen.dart';
@@ -516,6 +518,41 @@ void main() {
         );
       },
     );
+  });
+
+  group('What the AI can see', () {
+    for (final (lang, b) in [
+      ('en', Brightness.light),
+      ('en', Brightness.dark),
+      ('ar', Brightness.light),
+      ('ar', Brightness.dark),
+    ]) {
+      testWidgets('one card per use, from the policy table ($lang, ${b.name})', (tester) async {
+        await _size(tester);
+        final c = await _controller(_ttc(lang));
+        await tester.pumpWidget(_app(lang, b, FakeAssistant(), AiSeesScreen(controller: c)));
+        await tester.pumpAndSettle();
+        await _shoot('${lang}_${b.name}_ai_sees');
+        final l = await L10n.delegate.load(Locale(lang));
+        for (final MapEntry(key: use, value: policy) in usePolicies.entries) {
+          final name = find.text(aiUseName(l, use));
+          await tester.scrollUntilVisible(name, 200);
+          expect(name, findsOneWidget, reason: '$use');
+          for (final input in policy.sees) {
+            expect(find.text(aiInputText(l, input), skipOffstage: false), findsWidgets, reason: '$use $input');
+          }
+        }
+      });
+    }
+
+    testWidgets('her master switch off says none of it runs', (tester) async {
+      await _size(tester);
+      final p = _ttc('en');
+      final c = await _controller(p.copyWith(settings: p.settings.copyWith(assistantOn: false)));
+      await tester.pumpWidget(_app('en', Brightness.light, FakeAssistant(), AiSeesScreen(controller: c)));
+      await tester.pumpAndSettle();
+      expect(find.text('The assistant is off, so none of these run.'), findsOneWidget);
+    });
   });
 
   group('Visit summary', () {

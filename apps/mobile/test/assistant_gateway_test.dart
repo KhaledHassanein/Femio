@@ -58,6 +58,21 @@ void main() {
     }
   });
 
+  test('every use names what it sees; a use that may reach the cloud never sees her note or visit facts', () {
+    const cloudSafe = {
+      AssistantInput.approvedQuestion,
+      AssistantInput.trustedPassages,
+      AssistantInput.fourBands,
+      AssistantInput.reviewedIds,
+    };
+    for (final MapEntry(:key, :value) in usePolicies.entries) {
+      expect(value.sees, isNotEmpty, reason: '$key');
+      if (value.tier == AssistantTier.hybrid) {
+        expect(cloudSafe.containsAll(value.sees), isTrue, reason: '$key');
+      }
+    }
+  });
+
   test('a phone without the model gets the rules answer and the model is never called', () async {
     final b = _Bridge(nano: false, configured: false, privateReply: '{"terms":["cramps"]}');
     final r = await AssistantGateway(b).readNote('cramps today');

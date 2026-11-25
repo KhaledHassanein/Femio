@@ -12,6 +12,7 @@ import '../../data/assistant_channel.dart';
 import '../../l10n/app_localizations.dart';
 import '../../theme/femio_theme.dart';
 import '../../theme/spacing.dart';
+import 'ai_sees_screen.dart';
 import 'assistant_scope.dart';
 import 'cloud_boost_screen.dart';
 
@@ -139,6 +140,18 @@ class _AssistantSettingsScreenState extends State<AssistantSettingsScreen> {
                                   ),
                     );
                   },
+                ),
+                ListTile(
+                  contentPadding: EdgeInsets.zero,
+                  leading: Icon(Icons.visibility_outlined, color: p.primary),
+                  title: Text(l.aiSeesTitle),
+                  subtitle: Text(l.aiSeesSub),
+                  trailing: const Icon(Icons.chevron_right_rounded),
+                  onTap: () => Navigator.of(context).push(
+                    MaterialPageRoute<void>(
+                      builder: (_) => AiSeesScreen(controller: widget.controller),
+                    ),
+                  ),
                 ),
                 const SizedBox(height: space4),
                 Text(l.assistantHowItWorks, style: t.bodyMedium),

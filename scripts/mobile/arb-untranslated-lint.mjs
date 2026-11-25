@@ -24,6 +24,7 @@ const ALLOWED = {
     "calendarDayLabel", // two placeholders and a comma
     // "Cloud boost" is a feature name kept in Latin script, like Gemini Nano (ADR-079).
     "askBoostHeading", "assistantCloudTitle", "boostTitle",
+    "leavePlayHeading", // "Google Play" is a store name, the same in every language
   ],
   ar: [],
   fr: [

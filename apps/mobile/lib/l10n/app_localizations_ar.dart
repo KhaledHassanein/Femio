@@ -2646,4 +2646,65 @@ class L10nAr extends L10n {
   @override
   String get assistantMasterOn =>
       'مفعّل: يضيف الذكاء الاصطناعي شروحًا بجانب إجابات femio نفسها. وكل شيء يعمل بدونه.';
+
+  @override
+  String get aiSeesTitle => 'ما الذي يراه الذكاء الاصطناعي';
+
+  @override
+  String get aiSeesSub => 'كل ميزة ذكاء اصطناعي، وأين تعمل، وما الذي تتلقاه';
+
+  @override
+  String get aiSeesIntro =>
+      'لا يرى الذكاء الاصطناعي سجلكِ كاملًا أبدًا. تتلقى كل ميزة العناصر المذكورة تحتها فقط، وتجيب قواعد السلامة في femio أولًا دائمًا.';
+
+  @override
+  String get aiSeesOff => 'المساعد متوقّف، لذا لا تعمل أيٌّ من هذه الميزات.';
+
+  @override
+  String get aiUseAskInCloud => 'اسألي femio مع Cloud boost';
+
+  @override
+  String get aiUseTips => 'نصائح لكِ';
+
+  @override
+  String get aiWherePhone => 'يعمل على هذا الهاتف فقط';
+
+  @override
+  String get aiWhereHybrid =>
+      'على هذا الهاتف، أو في سحابة Google فقط إن وافقتِ على Cloud boost';
+
+  @override
+  String get aiWriteNone => 'لا يغيّر سجلكِ أبدًا';
+
+  @override
+  String get aiWriteDraft =>
+      'يقترح مسودة؛ لا يُحفظ شيء حتى تراجعيها وتضغطي على حفظ';
+
+  @override
+  String get aiSeesLabel => 'ما الذي يتلقاه';
+
+  @override
+  String get aiSeesHerQuestion => 'السؤال الذي كتبتِه';
+
+  @override
+  String get aiSeesPassages =>
+      'مقاطع من مصادر femio الموثوقة (نص عام، وليس من بياناتكِ)';
+
+  @override
+  String get aiSeesNote => 'الملاحظة التي كتبتِها';
+
+  @override
+  String get aiSeesBands =>
+      'أربع معلومات عامة: المرحلة الحياتية، وانتظام الدورة، وأنواع الأعراض، ومدة التسجيل المتواصل';
+
+  @override
+  String get aiSeesIds => 'نصائح femio أو أسئلته المراجَعة، لترتيبها';
+
+  @override
+  String get aiSeesVisitFacts =>
+      'ملخص زيارتكِ: الهدف، وعدد الدورات، وأقصر دورة وأطولها، وتاريخ آخر دورة، والانتظام';
+
+  @override
+  String get aiSeesApprovedQuestion =>
+      'سؤالكِ؛ وفي السحابة، النسخة التي وافقتِ عليها فقط، بعد حذف الأرقام والتواريخ والأسماء';
 }

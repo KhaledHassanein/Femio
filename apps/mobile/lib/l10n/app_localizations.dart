@@ -4342,6 +4342,114 @@ abstract class L10n {
   /// In en, this message translates to:
   /// **'On: the AI adds explanations beside femio\'s own answers. Everything works without it.'**
   String get assistantMasterOn;
+
+  /// Settings › Assistant screen generated from usePolicies (R10.3, ADR-081).
+  ///
+  /// In en, this message translates to:
+  /// **'What the AI can see'**
+  String get aiSeesTitle;
+
+  /// No description provided for @aiSeesSub.
+  ///
+  /// In en, this message translates to:
+  /// **'Each AI feature, where it runs and what it receives'**
+  String get aiSeesSub;
+
+  /// No description provided for @aiSeesIntro.
+  ///
+  /// In en, this message translates to:
+  /// **'The AI never sees your whole record. Each feature receives only the items listed under it, and femio\'s own safety rules always answer first.'**
+  String get aiSeesIntro;
+
+  /// No description provided for @aiSeesOff.
+  ///
+  /// In en, this message translates to:
+  /// **'The assistant is off, so none of these run.'**
+  String get aiSeesOff;
+
+  /// No description provided for @aiUseAskInCloud.
+  ///
+  /// In en, this message translates to:
+  /// **'Ask femio with Cloud boost'**
+  String get aiUseAskInCloud;
+
+  /// No description provided for @aiUseTips.
+  ///
+  /// In en, this message translates to:
+  /// **'Tips for you'**
+  String get aiUseTips;
+
+  /// No description provided for @aiWherePhone.
+  ///
+  /// In en, this message translates to:
+  /// **'Runs on this phone only'**
+  String get aiWherePhone;
+
+  /// No description provided for @aiWhereHybrid.
+  ///
+  /// In en, this message translates to:
+  /// **'On this phone, or in Google\'s cloud only if you agreed to Cloud boost'**
+  String get aiWhereHybrid;
+
+  /// No description provided for @aiWriteNone.
+  ///
+  /// In en, this message translates to:
+  /// **'Never changes your record'**
+  String get aiWriteNone;
+
+  /// No description provided for @aiWriteDraft.
+  ///
+  /// In en, this message translates to:
+  /// **'Suggests a draft; nothing is saved until you check it and tap Save'**
+  String get aiWriteDraft;
+
+  /// No description provided for @aiSeesLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'What it receives'**
+  String get aiSeesLabel;
+
+  /// No description provided for @aiSeesHerQuestion.
+  ///
+  /// In en, this message translates to:
+  /// **'The question you typed'**
+  String get aiSeesHerQuestion;
+
+  /// No description provided for @aiSeesPassages.
+  ///
+  /// In en, this message translates to:
+  /// **'Passages from femio\'s trusted sources (public text, not yours)'**
+  String get aiSeesPassages;
+
+  /// No description provided for @aiSeesNote.
+  ///
+  /// In en, this message translates to:
+  /// **'The note you typed'**
+  String get aiSeesNote;
+
+  /// No description provided for @aiSeesBands.
+  ///
+  /// In en, this message translates to:
+  /// **'Four broad facts: life stage, cycle regularity, kinds of symptom, logging streak'**
+  String get aiSeesBands;
+
+  /// No description provided for @aiSeesIds.
+  ///
+  /// In en, this message translates to:
+  /// **'femio\'s own reviewed tips or questions, to put in order'**
+  String get aiSeesIds;
+
+  /// No description provided for @aiSeesVisitFacts.
+  ///
+  /// In en, this message translates to:
+  /// **'Your visit summary: goal, cycles counted, shortest and longest cycle, last period date, regularity'**
+  String get aiSeesVisitFacts;
+
+  /// No description provided for @aiSeesApprovedQuestion.
+  ///
+  /// In en, this message translates to:
+  /// **'Your question; in the cloud, only the version you approved, with numbers, dates and names removed'**
+  String get aiSeesApprovedQuestion;
 }
 
 class _L10nDelegate extends LocalizationsDelegate<L10n> {

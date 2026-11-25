@@ -2642,4 +2642,68 @@ class L10nFr extends L10n {
   @override
   String get assistantMasterOn =>
       'Activé : l\'IA ajoute des explications à côté des réponses de femio. Tout fonctionne sans elle.';
+
+  @override
+  String get aiSeesTitle => 'Ce que l\'IA peut voir';
+
+  @override
+  String get aiSeesSub =>
+      'Chaque fonction d\'IA, où elle s\'exécute et ce qu\'elle reçoit';
+
+  @override
+  String get aiSeesIntro =>
+      'L\'IA ne voit jamais l\'ensemble de vos données. Chaque fonction reçoit uniquement les éléments listés en dessous, et les règles de sécurité de femio répondent toujours en premier.';
+
+  @override
+  String get aiSeesOff =>
+      'L\'assistant est désactivé : aucune de ces fonctions ne s\'exécute.';
+
+  @override
+  String get aiUseAskInCloud => 'Demander à femio avec Cloud boost';
+
+  @override
+  String get aiUseTips => 'Conseils pour vous';
+
+  @override
+  String get aiWherePhone => 'S\'exécute uniquement sur ce téléphone';
+
+  @override
+  String get aiWhereHybrid =>
+      'Sur ce téléphone, ou dans le cloud de Google uniquement si vous avez accepté Cloud boost';
+
+  @override
+  String get aiWriteNone => 'Ne modifie jamais vos données';
+
+  @override
+  String get aiWriteDraft =>
+      'Propose un brouillon ; rien n\'est enregistré tant que vous ne l\'avez pas vérifié et touché Enregistrer';
+
+  @override
+  String get aiSeesLabel => 'Ce qu\'elle reçoit';
+
+  @override
+  String get aiSeesHerQuestion => 'La question que vous avez saisie';
+
+  @override
+  String get aiSeesPassages =>
+      'Des extraits des sources fiables de femio (texte public, pas vos données)';
+
+  @override
+  String get aiSeesNote => 'La note que vous avez saisie';
+
+  @override
+  String get aiSeesBands =>
+      'Quatre informations générales : étape de vie, régularité du cycle, types de symptômes, régularité de saisie';
+
+  @override
+  String get aiSeesIds =>
+      'Les conseils ou questions vérifiés de femio, à mettre dans l\'ordre';
+
+  @override
+  String get aiSeesVisitFacts =>
+      'Votre résumé de consultation : objectif, cycles comptés, cycle le plus court et le plus long, date des dernières règles, régularité';
+
+  @override
+  String get aiSeesApprovedQuestion =>
+      'Votre question ; dans le cloud, uniquement la version que vous avez approuvée, sans chiffres, dates ni noms';
 }

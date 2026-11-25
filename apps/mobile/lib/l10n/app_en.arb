@@ -1141,5 +1141,26 @@
   "assistantMasterOn": "On: the AI adds explanations beside femio's own answers. Everything works without it.",
   "@assistantMasterTitle": {
     "description": "Settings › Assistant master switch for every AI use (ADR-081 kill switch 3)."
-  }
+  },
+  "aiSeesTitle": "What the AI can see",
+  "aiSeesSub": "Each AI feature, where it runs and what it receives",
+  "aiSeesIntro": "The AI never sees your whole record. Each feature receives only the items listed under it, and femio's own safety rules always answer first.",
+  "aiSeesOff": "The assistant is off, so none of these run.",
+  "aiUseAskInCloud": "Ask femio with Cloud boost",
+  "aiUseTips": "Tips for you",
+  "aiWherePhone": "Runs on this phone only",
+  "aiWhereHybrid": "On this phone, or in Google's cloud only if you agreed to Cloud boost",
+  "aiWriteNone": "Never changes your record",
+  "aiWriteDraft": "Suggests a draft; nothing is saved until you check it and tap Save",
+  "aiSeesLabel": "What it receives",
+  "aiSeesHerQuestion": "The question you typed",
+  "aiSeesPassages": "Passages from femio's trusted sources (public text, not yours)",
+  "aiSeesNote": "The note you typed",
+  "aiSeesBands": "Four broad facts: life stage, cycle regularity, kinds of symptom, logging streak",
+  "aiSeesIds": "femio's own reviewed tips or questions, to put in order",
+  "aiSeesVisitFacts": "Your visit summary: goal, cycles counted, shortest and longest cycle, last period date, regularity",
+  "@aiSeesTitle": {
+    "description": "Settings › Assistant screen generated from usePolicies (R10.3, ADR-081)."
+  },
+  "aiSeesApprovedQuestion": "Your question; in the cloud, only the version you approved, with numbers, dates and names removed"
 }

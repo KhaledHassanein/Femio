@@ -2636,4 +2636,67 @@ class L10nEs extends L10n {
   @override
   String get assistantMasterOn =>
       'Activado: la IA añade explicaciones junto a las respuestas de femio. Todo funciona sin ella.';
+
+  @override
+  String get aiSeesTitle => 'Qué puede ver la IA';
+
+  @override
+  String get aiSeesSub => 'Cada función de IA, dónde se ejecuta y qué recibe';
+
+  @override
+  String get aiSeesIntro =>
+      'La IA nunca ve tu registro completo. Cada función recibe solo los elementos indicados debajo, y las reglas de seguridad de femio siempre responden primero.';
+
+  @override
+  String get aiSeesOff =>
+      'El asistente está desactivado, así que ninguna de estas funciones se ejecuta.';
+
+  @override
+  String get aiUseAskInCloud => 'Pregunta a femio con Cloud boost';
+
+  @override
+  String get aiUseTips => 'Consejos para ti';
+
+  @override
+  String get aiWherePhone => 'Se ejecuta solo en este teléfono';
+
+  @override
+  String get aiWhereHybrid =>
+      'En este teléfono, o en la nube de Google solo si aceptaste Cloud boost';
+
+  @override
+  String get aiWriteNone => 'Nunca cambia tu registro';
+
+  @override
+  String get aiWriteDraft =>
+      'Sugiere un borrador; no se guarda nada hasta que lo revises y toques Guardar';
+
+  @override
+  String get aiSeesLabel => 'Qué recibe';
+
+  @override
+  String get aiSeesHerQuestion => 'La pregunta que escribiste';
+
+  @override
+  String get aiSeesPassages =>
+      'Fragmentos de las fuentes de confianza de femio (texto público, no tuyo)';
+
+  @override
+  String get aiSeesNote => 'La nota que escribiste';
+
+  @override
+  String get aiSeesBands =>
+      'Cuatro datos generales: etapa de vida, regularidad del ciclo, tipos de síntoma y racha de registro';
+
+  @override
+  String get aiSeesIds =>
+      'Los consejos o preguntas revisados de femio, para ordenarlos';
+
+  @override
+  String get aiSeesVisitFacts =>
+      'Tu resumen de consulta: objetivo, ciclos contados, ciclo más corto y más largo, fecha de la última regla, regularidad';
+
+  @override
+  String get aiSeesApprovedQuestion =>
+      'Tu pregunta; en la nube, solo la versión que aprobaste, sin números, fechas ni nombres';
 }

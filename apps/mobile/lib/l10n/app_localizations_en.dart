@@ -2623,4 +2623,66 @@ class L10nEn extends L10n {
   @override
   String get assistantMasterOn =>
       'On: the AI adds explanations beside femio\'s own answers. Everything works without it.';
+
+  @override
+  String get aiSeesTitle => 'What the AI can see';
+
+  @override
+  String get aiSeesSub => 'Each AI feature, where it runs and what it receives';
+
+  @override
+  String get aiSeesIntro =>
+      'The AI never sees your whole record. Each feature receives only the items listed under it, and femio\'s own safety rules always answer first.';
+
+  @override
+  String get aiSeesOff => 'The assistant is off, so none of these run.';
+
+  @override
+  String get aiUseAskInCloud => 'Ask femio with Cloud boost';
+
+  @override
+  String get aiUseTips => 'Tips for you';
+
+  @override
+  String get aiWherePhone => 'Runs on this phone only';
+
+  @override
+  String get aiWhereHybrid =>
+      'On this phone, or in Google\'s cloud only if you agreed to Cloud boost';
+
+  @override
+  String get aiWriteNone => 'Never changes your record';
+
+  @override
+  String get aiWriteDraft =>
+      'Suggests a draft; nothing is saved until you check it and tap Save';
+
+  @override
+  String get aiSeesLabel => 'What it receives';
+
+  @override
+  String get aiSeesHerQuestion => 'The question you typed';
+
+  @override
+  String get aiSeesPassages =>
+      'Passages from femio\'s trusted sources (public text, not yours)';
+
+  @override
+  String get aiSeesNote => 'The note you typed';
+
+  @override
+  String get aiSeesBands =>
+      'Four broad facts: life stage, cycle regularity, kinds of symptom, logging streak';
+
+  @override
+  String get aiSeesIds =>
+      'femio\'s own reviewed tips or questions, to put in order';
+
+  @override
+  String get aiSeesVisitFacts =>
+      'Your visit summary: goal, cycles counted, shortest and longest cycle, last period date, regularity';
+
+  @override
+  String get aiSeesApprovedQuestion =>
+      'Your question; in the cloud, only the version you approved, with numbers, dates and names removed';
 }
