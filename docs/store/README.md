@@ -26,4 +26,5 @@ The growth pack marked lines `†` to be deleted if the release candidate lacked
 ## Owner placeholders (do not paste before filling)
 
 - ~~`[SUPPORT EMAIL: owner action 3]`~~ filled 2026-11-01 with info@femioapp.com (owner action 3, done 2026-10-30) in the EN, AR, FR and ES descriptions.
+- Screenshot 8 (updated 2026-11-25) is Ask femio: a real registry answer to "How long should we try to conceive before seeing a doctor?" (Office on Women's Health passage, cited [1]), shown word for word as on a phone without a model; it replaced the Settings frame. In the Arabic frame the passage text stays English because the bundled passages are English.
 - Screenshots (8 per language, 1080×1920) live in `screenshots/{ar,en}/` and are rendered from the real app screens with synthetic data by `flutter test --update-goldens test/store_screenshots_test.dart` (decided 2026-11-01: a render stays in step with the code; a plain run of the test fails if a screen drifts). A real-phone check of two of them is part of owner action 5.

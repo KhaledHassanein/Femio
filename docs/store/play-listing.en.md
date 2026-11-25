@@ -70,7 +70,7 @@ femio is made by KM Digital Labs, founded by a physician in Cairo. Questions or 
 | 5 | Calendar with Hijri on | Your calendar, with Hijri dates beside each day |
 | 6 | Learn: an article with its sources | Physician-written guides, with sources |
 | 7 | Today: the pregnancy tools list (movement log, contraction timer) | Movement log and contraction timer, no verdicts |
-| 8 | Settings: lock and backup | App lock, and a backup you keep |
+| 8 | Ask femio: a trying-to-conceive question answered from a trusted source, with its citation | Ask a question, get an answer with its source |
 
 ## Feature graphic (1024×500)
 

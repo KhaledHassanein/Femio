@@ -67,7 +67,7 @@ femio lo desarrolla KM Digital Labs, fundado por un médico en El Cairo. Pregunt
 | 5 | Calendario con fechas hiyrí activadas | Su calendario, con la fecha hiyrí junto a cada día |
 | 6 | «Aprender»: un artículo con sus fuentes | Guías escritas por un médico, con fuentes |
 | 7 | «Hoy»: la lista de herramientas del embarazo (registro de movimientos, temporizador de contracciones) | Registro de movimientos y temporizador de contracciones, sin veredictos |
-| 8 | Ajustes: bloqueo y copia de seguridad | Bloqueo de la aplicación y una copia de seguridad que usted guarda |
+| 8 | Pregunte a femio: una duda sobre la búsqueda de embarazo, con la respuesta de su fuente fiable | Haga una pregunta y reciba una respuesta con su fuente |
 
 ## Gráfico de funciones (1024×500)
 
