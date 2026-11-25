@@ -1195,7 +1195,7 @@
             "store-listing",
             "screenshots-make"
           ],
-          "guide": "docs/33_REBUILD_V3/06_LAUNCH_GUIDE_A_TO_Z.md D2; 04_GROWTH_PACK.md section 4.5",
+          "guide": "Screenshots: docs/store/screenshots/{ar,en}/01..08.png. Icon: docs/store/graphics/icon-512.png. Feature graphic: docs/store/graphics/feature-graphic-en.png and feature-graphic-ar.png (all measured against Google's spec, 2026-11-01). docs/33_REBUILD_V3/06_LAUNCH_GUIDE_A_TO_Z.md D2; 04_GROWTH_PACK.md section 4.5",
           "risk": "Play may crop the feature graphic's edges or overlay a play button if a video is attached; keep text central. Exact image size rules: [verify in console]."
         },
         {
@@ -1224,7 +1224,7 @@
             "create-app",
             "merge-main"
           ],
-          "guide": "docs/33_REBUILD_V3/06_LAUNCH_GUIDE_A_TO_Z.md D3; docs/store/data-safety-and-declarations.md",
+          "guide": "Paste-ready answers, each with its Google source: docs/store/PLAY_POLICY_CHECK_2026-11.md §4.1–4.5, 4.7, 4.9 (checked 2026-11-01). docs/33_REBUILD_V3/06_LAUNCH_GUIDE_A_TO_Z.md D3; docs/store/data-safety-and-declarations.md",
           "risk": "Re-read each question in the Console: Google changes the wording."
         },
         {
@@ -1243,12 +1243,12 @@
           "dependsOn": [
             "create-app"
           ],
-          "guide": "docs/33_REBUILD_V3/06_LAUNCH_GUIDE_A_TO_Z.md D3; docs/store/data-safety-and-declarations.md; 03_LEGAL_PACK.md section 4.4",
+          "guide": "Paste-ready answers, each with its Google source: docs/store/PLAY_POLICY_CHECK_2026-11.md §4.4 (checked 2026-11-01). docs/33_REBUILD_V3/06_LAUNCH_GUIDE_A_TO_Z.md D3; docs/store/data-safety-and-declarations.md; 03_LEGAL_PACK.md section 4.4",
           "risk": "The expected rating is not verified [NEEDS CHECK on the day]. Never guess answers to get a lower rating."
         },
         {
           "id": "data-safety",
-          "title": "Fill the Data safety form: the ads SDK's data, and nothing about her",
+          "title": "Fill the Data safety form from the rewritten answers (no ads SDK since ADR-080)",
           "owner": "owner",
           "time": "15 min · free",
           "why": "Her records never leave the phone, but Google's ads SDK transmits device identifiers and ad interactions, and Google counts that as collection. The answers are written row by row in the store file; copy them exactly.",
@@ -1269,8 +1269,8 @@
           "dependsOn": [
             "create-app"
           ],
-          "guide": "docs/33_REBUILD_V3/06_LAUNCH_GUIDE_A_TO_Z.md D3; docs/store/data-safety-and-declarations.md; 03_LEGAL_PACK.md section 4.1",
-          "risk": "Under-declaring is the rejection risk. Re-read Google's disclosure page for the ads SDK version in pubspec.lock before each submission."
+          "guide": "docs/store/data-safety-and-declarations.md (rewritten for ADR-080, 2026-11-24); docs/compliance/PRIVACY_REVIEW_2026-11-24.md. Older answers: docs/store/PLAY_POLICY_CHECK_2026-11.md §4.6 (ads SDK, no longer applies).",
+          "risk": "Changed 2026-11-24 (ADR-080): the app has no ads SDK, so the 2026-11-01 answer ('collected through Google's ads SDK') no longer applies. Use the rewritten answers in docs/store/data-safety-and-declarations.md, and confirm them against the real-phone traffic capture in request privacy-adr080 before you submit."
         },
         {
           "id": "health-apps",
@@ -1302,8 +1302,8 @@
             "create-app",
             "store-listing"
           ],
-          "guide": "docs/33_REBUILD_V3/06_LAUNCH_GUIDE_A_TO_Z.md D3; docs/store/data-safety-and-declarations.md; 04_GROWTH_PACK.md section 4.6",
-          "risk": "Play rejects with 'Health apps declaration' if a feature is missing: reopen and tick the three."
+          "guide": "Paste-ready answers, each with its Google source: docs/store/PLAY_POLICY_CHECK_2026-11.md §4.8 (checked 2026-11-01). docs/33_REBUILD_V3/06_LAUNCH_GUIDE_A_TO_Z.md D3; docs/store/data-safety-and-declarations.md; 04_GROWTH_PACK.md section 4.6",
+          "risk": "Tick Period tracking, Reproductive and sexual health, Medical reference and education, and Emergency and first aid (Help now lists emergency numbers). Never Medical device."
         }
       ]
     },
@@ -1346,7 +1346,7 @@
             "merge-main"
           ],
           "guide": "docs/33_REBUILD_V3/06_LAUNCH_GUIDE_A_TO_Z.md C1; 05_RELEASE_RUNBOOK.md sections 1 and 3",
-          "risk": "Without key.properties the release signs with the debug key: a test APK works, but Play will not accept the bundle."
+          "risk": "0.5.0+5 passed every test and crashed at launch: R8 (the release shrinker) removed a class the ads SDK creates by name. Fixed in 0.5.1 (R4.15). Every release build now goes through `pnpm mobile-release-smoke`, which installs it on an emulator and fails on any crash, before it reaches you. Without key.properties the release signs with the debug key."
         },
         {
           "id": "install-apk",
@@ -1465,7 +1465,7 @@
             "testers"
           ],
           "guide": "docs/33_REBUILD_V3/06_LAUNCH_GUIDE_A_TO_Z.md D5; 05_RELEASE_RUNBOOK.md section 5",
-          "risk": "The opt-in link only appears when the app status is Published. Group members must join the group before opting in. If a tester sees 'not available in your country', add the country under Testing, Countries.",
+          "risk": "Set Countries to Egypt and Saudi Arabia only first (owner actions row 24; the AdMob consent reason is gone since ADR-080, but the EU/UK representative question in request privacy-adr080 still stands). Recruit testers inside those two countries. The opt-in link only appears when the app status is Published. Group members must join the group before opting in. If a tester sees 'not available in your country', add the country under Testing, Countries.",
           "sources": [
             "https://support.google.com/googleplay/android-developer/answer/9845334"
           ]
