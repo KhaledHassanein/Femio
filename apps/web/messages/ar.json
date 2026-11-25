@@ -1897,7 +1897,7 @@
       "sayItTitle": "بماذا تشعرين؟",
       "sayItAction": "حوّليها إلى تسجيل",
       "sayItFound": "وجد femio هذه. ألغي اختيار أي شيء غير صحيح.",
-      "sayItAdd": "أضيفي إلى تسجيل هذا اليوم",
+      "sayItSaveCount": "احفظي {entries, plural, zero{لا إدخالات} one{إدخالًا واحدًا} two{إدخالين} few{{entries} إدخالات} many{{entries} إدخالًا} other{{entries} إدخال}} في {days, plural, zero{لا أيام} one{يوم واحد} two{يومين} few{{days} أيام} many{{days} يومًا} other{{days} يوم}}",
       "sayItAdded": "تمت الإضافة إلى تسجيلك.",
       "assistantPrivateNote": "يتم هذا على هاتفك. كلماتك لا تُحفظ ولا تُرسل إلى أي مكان.",
       "logCramps": "تقلّصات",

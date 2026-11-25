@@ -3,6 +3,10 @@
   "appTitle": "femio",
   "welcomeTitle": "Your cycle, your plans, your pregnancy.",
   "welcomeBody": "Your records stay on this phone. No account, and femio never sees them.",
+  "welcomeTagline": "AI-assisted women's health & wellness",
+  "@welcomeTagline": {
+    "description": "Positioning line on the welcome screen (ADR-078 section 8). Must match the website hero eyebrow word for word."
+  },
   "language": "Language",
   "getStarted": "Get started",
   "continueLabel": "Continue",
@@ -1202,7 +1206,7 @@
   "aiSeesApprovedQuestion": "Your question; in the cloud, only the version you approved, with numbers, dates and names removed",
   "assistIntroTitle": "Meet femio's assistant",
   "assistIntroPhone": "It works on this phone. It answers from femio's trusted sources, turns a sentence into log entries, and suggests questions for your visits. Your records stay here.",
-  "assistIntroRules": "It never diagnoses. femio's safety rules always answer first, and nothing is saved until you confirm it.",
+  "assistIntroRules": "It never tells you what condition you have. femio's safety rules always answer first, and nothing is saved until you confirm it.",
   "assistIntroCloudTitle": "Cloud boost, only if you choose it",
   "assistIntroCloudBody": "If this phone cannot run the AI itself, you can let a general question you approve, or four broad facts, go to Google's cloud AI. It stays off unless you turn it on.",
   "assistIntroCloudAction": "Choose Cloud boost",
@@ -1471,7 +1475,7 @@
   "visitSecondLanguage": "Add the page in a second language for the clinic",
   "visitNoSecondLanguage": "None",
   "visitShare": "Share",
-  "visitMadeOn": "Made on {date} from what I logged in femio. It is not a diagnosis.",
+  "visitMadeOn": "Made on {date} from what I logged in femio. It is my own record, for us to discuss.",
   "@visitMadeOn": {
     "placeholders": {
       "date": {
@@ -1561,11 +1565,36 @@
   "aiLedgerClearConfirm": "Clear this list? Your record is not changed.",
   "signsTitle": "Signs you logged this cycle",
   "signsValueOn": "{value}, {date}",
-  "@signsValueOn": {"placeholders": {"value": {"type": "String"}, "date": {"type": "String"}}},
+  "@signsValueOn": {
+    "placeholders": {
+      "value": {
+        "type": "String"
+      },
+      "date": {
+        "type": "String"
+      }
+    }
+  },
   "signsTempCount": "{count, plural, =1{1 reading this cycle} other{{count} readings this cycle}}",
-  "@signsTempCount": {"placeholders": {"count": {"type": "int"}}},
+  "@signsTempCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
   "signsStripLine": "An ovulation test strip shows a hormone surge, not proof that you ovulated. A rise in your waking temperature afterwards is a better sign.",
   "signsNote": "Each sign is shown as you logged it. femio does not say whether or when you ovulated; that is a conversation for you and your clinician.",
   "sayItChipWithSection": "{section}: {value}",
-  "@sayItChipWithSection": {"description": "A Say it chip for a period flow or a test result, so \"Light\" or \"High\" says what it is.", "placeholders": {"section": {"type": "String"}, "value": {"type": "String"}}}
+  "@sayItChipWithSection": {
+    "description": "A Say it chip for a period flow or a test result, so \"Light\" or \"High\" says what it is.",
+    "placeholders": {
+      "section": {
+        "type": "String"
+      },
+      "value": {
+        "type": "String"
+      }
+    }
+  }
 }

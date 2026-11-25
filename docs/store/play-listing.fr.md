@@ -17,38 +17,37 @@ Règles, ovulation, grossesse. Vos données restent sur votre téléphone.
 ## Description complète (3995 / 4 000)
 
 ```
-femio est une application privée pour suivre vos règles, votre ovulation, votre projet de bébé et votre grossesse. Voyez vos prochaines règles et vos jours fertiles sous forme de fourchette, puis suivez votre grossesse semaine après semaine. Vos données restent sur votre téléphone : pas de compte, pas de publicité, pas d'outil d'analyse.
+femio : santé et bien-être des femmes, assistés par l'IA. Une application privée pour suivre vos règles, votre ovulation, votre projet de bébé et votre grossesse. Voyez vos prochaines règles et vos jours fertiles en fourchette, puis suivez votre grossesse semaine après semaine. Vos données restent sur votre téléphone : pas de compte, de publicité ni d'analyse.
 
 POURQUOI femio
-• Confidentialité dès la conception. Ni compte, ni publicité, ni outil d'analyse. Votre journal est enregistré sous forme chiffrée sur votre téléphone, derrière un verrouillage que vous choisissez. Vous décidez quand enregistrer une sauvegarde, et où.
-• Des prévisions réalistes. femio affiche vos prochaines règles et votre fenêtre de fertilité sous forme de fourchette avec un niveau de confiance, jamais une date « certaine ». Si vos cycles sont irréguliers ou si vous avez un SOPK (syndrome des ovaires polykystiques), pas de compteur de retard ni de fausse précision.
-• Un assistant respectueux de votre vie privée. « Demander à femio » répond depuis des sources fiables, avec références. « Dites-le avec vos mots » transforme « fortes crampes, fatiguée » en entrée de journal que vous confirmez. « Pour vous » propose des conseils, et des questions préparent votre consultation. Tout fonctionne sur votre téléphone s'il prend en charge Gemini Nano ; sinon, femio utilise sa propre liste de mots.
-• Rédigé par un médecin, avec les sources. La bibliothèque explique l'ovulation, le SOPK, le début de grossesse et chaque semaine, et chaque article cite ses sources.
-• Tout reste accessible : l'accueil s'adapte à votre situation, mais chaque article et chaque outil reste à un geste.
-• Un seul dossier qui évolue avec vous. Quand vous êtes enceinte, femio ajoute la grossesse au même dossier. Rien n'est supprimé.
-• Anglais, arabe, français, espagnol ; mise en page de droite à gauche ; dates hégiriennes et grégoriennes.
+• Confidentialité dès la conception. Ni compte, ni publicité, ni analyse. Journal chiffré sur votre téléphone, derrière un verrouillage de votre choix. Vous décidez quand enregistrer une sauvegarde, et où.
+• Des prévisions réalistes. femio affiche vos prochaines règles et votre fenêtre de fertilité sous forme de fourchette avec un niveau de confiance, jamais une date « certaine ». Cycles irréguliers ou SOPK (syndrome des ovaires polykystiques) : pas de compteur de retard ni de fausse précision.
+• Un assistant respectueux de votre vie privée. « Demander à femio » répond uniquement à partir de sources fiables, avec références. « Dites-le avec vos mots » transforme « hier crampes, aujourd'hui spotting », même sur plusieurs jours, en entrées à vérifier ; rien n'est enregistré avant votre appui. « Pour vous » propose des conseils, et « Pourquoi je vois ça ? » montre les faits derrière chacun. « Ce que l'IA a fait » liste chaque usage d'un modèle. Tout fonctionne sur votre téléphone s'il prend en charge Gemini Nano ; sinon, femio utilise sa propre liste de mots.
+• Rédigé par un médecin, avec les sources. Chaque article de la bibliothèque cite ses sources.
+• Un seul dossier qui évolue avec vous : la grossesse s'ajoute au même dossier, rien n'est supprimé.
+• Anglais, arabe, français, espagnol ; de droite à gauche ; dates hégiriennes et grégoriennes.
 
 PROJET DE BÉBÉ
 • Suivi des règles et de l'ovulation sur un calendrier
 • Votre fenêtre de fertilité sous forme de fourchette, mise à jour d'après vos propres cycles
 • Notez symptômes, tests d'ovulation et glaire cervicale
-• Quand parler à un médecin : repères clairs
+• « Signes notés ce cycle » : sécrétions, test d'ovulation et température tels que notés, sans verdict
 
 SOPK ET CYCLES IRRÉGULIERS
 • Un mode conçu pour les cycles longs ou imprévisibles
-• Suivez ce qui compte pour votre médecin : cycle, peau, cheveux, poids
+• Suivez ce qui compte pour votre médecin : cycle, peau, poids
 
 GROSSESSE
 • Date prévue d'accouchement, semaine de grossesse et trimestre
 • Guide semaine par semaine, des semaines 4 à 40
 • Calculateur de date d'accouchement, calendrier de grossesse, prise de poids : rien n'est enregistré
-• Journal des mouvements du bébé et minuteur de contractions, sans verdict, qui vous orientent vers des soins quand il faut vérifier
-• Rendez-vous et questions à poser, sur votre téléphone
+• Journal des mouvements du bébé et minuteur de contractions, sans verdict, qui vous orientent vers des soins au besoin
+• Rendez-vous sur votre téléphone, avec rappel la veille si vous le souhaitez
 
 CONFIDENTIALITÉ DÈS LA CONCEPTION
-• Rappels facultatifs : « femio : Ouvrez l'application »
-• Verrouillage de l'application et stockage chiffré sur votre téléphone
-• Sauvegarde et restauration depuis un fichier que vous enregistrez vous-même
+• Dossier de consultation avec vos questions, en deuxième langue si besoin, partagé via le menu de partage
+• Rappels après accord : journal, règles ou rendez-vous. Ils disent seulement « femio : Ouvrez l'application »
+• Sauvegarde et restauration depuis un fichier que vous enregistrez
 • Tout supprimer en une seule étape
 • Cloud boost est désactivé tant que vous ne l'activez pas. Pour les téléphones sans IA embarquée, et avec votre accord seulement, il envoie à l'IA de Google une question générale que vous approuvez (sans chiffres, dates ni noms) ou quatre informations générales. Jamais votre journal, vos notes ni vos dates.
 • Google Play gère la demande d'avis et les mises à jour. femio n'envoie rien de vos données pour cela.

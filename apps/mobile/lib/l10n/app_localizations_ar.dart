@@ -20,6 +20,9 @@ class L10nAr extends L10n {
       'تبقى سجلاتكِ على هذا الهاتف. لا حساب، ولا يرى femio سجلاتكِ أبدًا.';
 
   @override
+  String get welcomeTagline => 'صحة المرأة وعافيتها بمساعدة الذكاء الاصطناعي';
+
+  @override
   String get language => 'اللغة';
 
   @override
@@ -2819,7 +2822,7 @@ class L10nAr extends L10n {
 
   @override
   String get assistIntroRules =>
-      'لا يشخّص أبدًا. تجيب قواعد السلامة في femio أولًا دائمًا، ولا يُحفظ شيء حتى تؤكديه.';
+      'لا يخبركِ أبدًا بما لديكِ من حالة. تجيب قواعد السلامة في femio أولًا دائمًا، ولا يُحفظ شيء حتى تؤكديه.';
 
   @override
   String get assistIntroCloudTitle => 'Cloud boost، فقط إن اخترتِه';
@@ -3141,7 +3144,7 @@ class L10nAr extends L10n {
 
   @override
   String visitMadeOn(String date) {
-    return 'أُعدّت في $date مما سجّلته في femio. وهي ليست تشخيصًا.';
+    return 'أُعدّت في $date مما سجّلته في femio. هي سجلّي الخاص، لنناقشه معًا.';
   }
 
   @override

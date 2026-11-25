@@ -17,6 +17,7 @@ import {
   PERIOD_PATTERNS,
   periodDemo,
   periodTimeline,
+  SAY_IT_TERMS,
   TOUR_SCREEN_WIDTH,
   TOUR_SCREENS,
   tourImage,
@@ -27,6 +28,9 @@ import { AppTour } from "./app-tour";
 import { AskDemo } from "./ask-demo";
 import { PeriodsDemo, type PeriodView } from "./periods-demo";
 import { SayItDemo } from "./say-it-demo";
+
+/** The most words one Say it sample can find, so the save button has a label for each count. */
+const maxSayItTerms = Math.max(...Object.values(SAY_IT_TERMS).map((terms) => terms.length));
 
 /** A stored day (YYYY-MM-DD) as a Date at UTC midnight, for formatting with timeZone UTC. */
 function utcDay(iso: string): Date {
@@ -136,7 +140,10 @@ export async function TryDemosSection({ locale }: { locale: string }) {
               title: t("app.sayItTitle"),
               action: t("app.sayItAction"),
               found: t("app.sayItFound"),
-              add: t("app.sayItAdd"),
+              // The app's counted save button, worded for each possible number of ticked words.
+              add: Object.fromEntries(
+                Array.from({ length: maxSayItTerms }, (_, i) => [i + 1, t("app.sayItSaveCount", { entries: i + 1, days: 1 })]),
+              ),
               added: t("app.sayItAdded"),
               privateNote: t("app.assistantPrivateNote"),
               demoNote: t("sayIt.demoNote"),

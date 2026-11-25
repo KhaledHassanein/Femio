@@ -56,6 +56,11 @@ class WelcomeStep extends StatelessWidget {
                     textAlign: TextAlign.center,
                     textDirection: TextDirection.ltr,
                     style: t.displaySmall?.copyWith(color: Colors.white, fontSize: fontSizeWordmark)),
+                const SizedBox(height: space2),
+                // The positioning line (ADR-078 section 8), the same words as the website hero.
+                Text(l.welcomeTagline,
+                    textAlign: TextAlign.center,
+                    style: t.labelLarge?.copyWith(color: Colors.white.withValues(alpha: 0.9))),
                 const SizedBox(height: space4),
                 Text(l.welcomeTitle,
                     textAlign: TextAlign.center,

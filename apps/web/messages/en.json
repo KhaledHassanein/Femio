@@ -1897,7 +1897,7 @@
       "sayItTitle": "How are you feeling?",
       "sayItAction": "Turn into log entries",
       "sayItFound": "femio found these. Untick anything that is wrong.",
-      "sayItAdd": "Add to this day's log",
+      "sayItSaveCount": "Save {entries, plural, one{1 entry} other{{entries} entries}} on {days, plural, one{1 day} other{{days} days}}",
       "sayItAdded": "Added to your log.",
       "assistantPrivateNote": "This runs on your phone. Your words are not saved or sent anywhere.",
       "logCramps": "Cramps",

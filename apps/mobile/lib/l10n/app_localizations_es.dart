@@ -20,6 +20,9 @@ class L10nEs extends L10n {
       'Tus registros se quedan en este teléfono. Sin cuenta, y femio nunca los ve.';
 
   @override
+  String get welcomeTagline => 'Salud y bienestar de la mujer, con ayuda de IA';
+
+  @override
   String get language => 'Idioma';
 
   @override
@@ -2800,7 +2803,7 @@ class L10nEs extends L10n {
 
   @override
   String get assistIntroRules =>
-      'Nunca diagnostica. Las reglas de seguridad de femio siempre responden primero, y no se guarda nada hasta que lo confirmes.';
+      'Nunca te dice qué afección tienes. Las reglas de seguridad de femio siempre responden primero, y no se guarda nada hasta que lo confirmes.';
 
   @override
   String get assistIntroCloudTitle => 'Cloud boost, solo si lo eliges';
@@ -3126,7 +3129,7 @@ class L10nEs extends L10n {
 
   @override
   String visitMadeOn(String date) {
-    return 'Hecha el $date con lo que registré en femio. No es un diagnóstico.';
+    return 'Hecha el $date con lo que registré en femio. Es mi propio registro, para comentarlo juntos.';
   }
 
   @override

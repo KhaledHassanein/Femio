@@ -1897,7 +1897,7 @@
       "sayItTitle": "¿Cómo te sientes?",
       "sayItAction": "Convertir en registro",
       "sayItFound": "femio encontró esto. Desmarca lo que no sea correcto.",
-      "sayItAdd": "Añadir al registro de este día",
+      "sayItSaveCount": "Guardar {entries, plural, one{1 entrada} other{{entries} entradas}} en {days, plural, one{1 día} other{{days} días}}",
       "sayItAdded": "Añadido a tu registro.",
       "assistantPrivateNote": "Esto ocurre en tu teléfono. Tus palabras no se guardan ni se envían.",
       "logCramps": "Cólicos",

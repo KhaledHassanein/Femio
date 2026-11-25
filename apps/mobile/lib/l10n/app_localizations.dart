@@ -119,6 +119,12 @@ abstract class L10n {
   /// **'Your records stay on this phone. No account, and femio never sees them.'**
   String get welcomeBody;
 
+  /// Positioning line on the welcome screen (ADR-078 section 8). Must match the website hero eyebrow word for word.
+  ///
+  /// In en, this message translates to:
+  /// **'AI-assisted women\'s health & wellness'**
+  String get welcomeTagline;
+
   /// No description provided for @language.
   ///
   /// In en, this message translates to:
@@ -4586,7 +4592,7 @@ abstract class L10n {
   /// No description provided for @assistIntroRules.
   ///
   /// In en, this message translates to:
-  /// **'It never diagnoses. femio\'s safety rules always answer first, and nothing is saved until you confirm it.'**
+  /// **'It never tells you what condition you have. femio\'s safety rules always answer first, and nothing is saved until you confirm it.'**
   String get assistIntroRules;
 
   /// No description provided for @assistIntroCloudTitle.
@@ -5060,7 +5066,7 @@ abstract class L10n {
   /// No description provided for @visitMadeOn.
   ///
   /// In en, this message translates to:
-  /// **'Made on {date} from what I logged in femio. It is not a diagnosis.'**
+  /// **'Made on {date} from what I logged in femio. It is my own record, for us to discuss.'**
   String visitMadeOn(String date);
 
   /// R8.27: on the not-covered card, opens the visit summary with her question as the worry.

@@ -3,6 +3,7 @@ All notable changes to Femio V2.
 
 ## [Unreleased]
 ### Changed
+- The welcome screen and the four Play listings now open with "AI-assisted women's health & wellness", the same words as the website. Ask femio's intro and the visit summary say what they are without clinical wording (R7.7).
 - **Clearer, safer wording across the guides and the app, in four languages.** The 37 week-by-week pregnancy guides now list thoughts of harming yourself or the baby as an emergency sign and say to call straight away (not the same day) if the baby's movements slow down, stop or change. After birth, soaking a pad in an hour or an egg-sized clot is marked as emergency care. Unsourced numbers are hedged rather than stated, and the wordmark is written "femio" everywhere.
 - **"Meet femio" describes the app as it is**: a private Android app with no account, records kept on your phone, a PIN lock and your own backup file. The old page still described a web app with accounts and sync.
 - **The guide on fasting in Ramadan during pregnancy is withdrawn** in all four languages; its address now opens the pregnancy basics guide.

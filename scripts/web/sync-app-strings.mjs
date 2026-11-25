@@ -58,7 +58,7 @@ export const APP_KEYS = [
   "sayItTitle",
   "sayItAction",
   "sayItFound",
-  "sayItAdd",
+  "sayItSaveCount",
   "sayItAdded",
   "assistantPrivateNote",
   "logCramps",

@@ -14,41 +14,40 @@ femio: ovulación y embarazo
 Regla, ovulación y embarazo. Tus registros se quedan en tu teléfono.
 ```
 
-## Descripción completa (3981 / 4.000)
+## Descripción completa (3979 / 4.000)
 
 ```
-femio es una aplicación privada para seguir tu regla (período), tu ovulación, la búsqueda de embarazo y el embarazo. Ve tu próxima regla y tu ventana fértil como un rango realista y sigue después tu embarazo semana a semana. Tus registros se quedan en tu teléfono: sin cuenta, sin anuncios, sin herramientas de analítica.
+femio: salud y bienestar de la mujer, con ayuda de IA. Una aplicación privada para seguir tu regla (período), tu ovulación, la búsqueda de embarazo y el embarazo. Ve tu próxima regla y tu ventana fértil como un rango realista y sigue después tu embarazo semana a semana. Tus registros se quedan en tu teléfono: sin cuenta, sin anuncios, sin herramientas de analítica.
 
 POR QUÉ femio
-• Privacidad desde el diseño. Sin cuenta, sin registro, sin anuncios y sin analítica. Tu diario se guarda cifrado en tu teléfono, tras un bloqueo de la aplicación que tú eliges. Tú decides cuándo guardar un archivo de copia de seguridad, y dónde.
+• Privacidad desde el diseño. Sin cuenta, sin anuncios, sin analítica. Diario cifrado en tu teléfono, tras un bloqueo que tú eliges. Tú decides cuándo guardar un archivo de copia de seguridad, y dónde.
 • Predicciones realistas. femio muestra tu próxima regla y tu ventana fértil como un rango con un nivel de confianza, nunca una fecha «segura». Si tus ciclos son irregulares o tienes SOP (síndrome de ovario poliquístico), no hay contador de retraso ni falsa precisión.
-• Un asistente que respeta tu privacidad. «Pregunta a femio» responde a tus dudas con fuentes fiables y las cita. «Dilo con tus palabras» convierte «cólicos fuertes y mucho cansancio» en una entrada del diario que tú confirmas. «Para ti» sugiere consejos, y las preguntas para la consulta te ayudan a preparar la cita. Todo funciona en tu teléfono si admite Gemini Nano; si no, femio usa su propia lista de palabras.
-• Escrito por un médico, con fuentes. La biblioteca de la aplicación explica la ovulación, el SOP, el inicio del embarazo y cada semana del embarazo, y cada artículo enumera sus fuentes.
-• Todo sigue a tu alcance. femio adapta la pantalla de inicio a tu momento (seguimiento de la regla, búsqueda de embarazo, embarazo o SOP), y cada artículo y herramienta queda a un toque.
-• Un solo registro que crece contigo. Cuando pasas de buscar embarazo a estar embarazada, femio añade el embarazo al mismo registro. No se borra nada.
+• Un asistente que respeta tu privacidad. «Pregunta a femio» responde solo con fuentes fiables y las cita. «Dilo con tus palabras» convierte «ayer cólicos, hoy manchado», incluso de varios días, en entradas que revisas; no se guarda nada hasta que tocas el botón. «Para ti» sugiere consejos, y «¿Por qué veo esto?» muestra los datos detrás de cada uno. «Lo que hizo la IA» lista cada uso de un modelo. Todo funciona en tu teléfono si admite Gemini Nano; si no, femio usa su propia lista de palabras.
+• Escrito por un médico. Cada artículo de la biblioteca enumera sus fuentes.
+• Todo sigue a tu alcance, en un solo registro que crece contigo: cuando pasas de buscar embarazo a estar embarazada, femio añade el embarazo al mismo registro. No se borra nada.
 • Inglés, árabe, francés y español, con diseño de derecha a izquierda y fechas hiyrí junto a las gregorianas.
 
 BÚSQUEDA DE EMBARAZO
 • Seguimiento de la regla y la ovulación en un calendario
 • Tu ventana fértil como un rango, actualizada con tus propios ciclos
 • Registra síntomas, pruebas de ovulación y moco cervical
+• «Señales de este ciclo»: tu último flujo, prueba de ovulación y temperatura, tal como los registraste, sin veredicto
 • Cuándo hablar con un médico, con claridad
 
 SOP Y CICLOS IRREGULARES
 • Un modo pensado para ciclos largos o imprevisibles
 • Sigue lo que le importa a tu médico: duración del ciclo, piel, cabello y peso
-• Artículos con fuentes sobre el SOP y la fertilidad
 
 EMBARAZO
 • Fecha probable de parto, semana de embarazo y trimestre
 • Una guía semana a semana, de la semana 4 a la 40
 • Calculadora de fecha de parto, calendario del embarazo y rango de aumento de peso, sin guardar nada
 • Registro de movimientos del bebé y temporizador de contracciones que nunca dan un veredicto y te indican cuándo buscar atención
-• Tus citas y preguntas para la consulta, guardadas en tu teléfono
+• Tus citas en tu teléfono, con aviso el día anterior si quieres
 
 PRIVACIDAD DESDE EL DISEÑO
-• Recordatorios opcionales que solo dicen «femio: Abre la app»
-• Bloqueo de la aplicación y almacenamiento cifrado en tu teléfono
+• Carpeta de consulta con tus propias preguntas, en un segundo idioma si hace falta, compartida con el menú de compartir
+• Los recordatorios preguntan primero: registro diario, rango de la regla o cita. Solo dicen «femio: Abre la app»
 • Copia de seguridad y restauración desde un archivo que tú guardas
 • Borra todo en un solo paso
 • Cloud boost está desactivado salvo que tú lo actives. Solo para teléfonos sin IA integrada, y solo si tú lo aceptas, envía a la IA de Google una pregunta general que tú apruebas (sin números, fechas ni nombres) o cuatro datos generales. Nunca tu diario, tus notas ni tus fechas.

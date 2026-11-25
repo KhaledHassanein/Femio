@@ -23,7 +23,8 @@ export type SayItDemoStrings = {
   title: string;
   action: string;
   found: string;
-  add: string;
+  /** The save button by number of ticked words (1..max), as the app counts it. */
+  add: Record<number, string>;
   added: string;
   privateNote: string;
   demoNote: string;
@@ -139,7 +140,7 @@ export function SayItDemo({ strings }: { strings: SayItDemoStrings }) {
             </ul>
             {stage === "found" ? (
               <Button type="button" onClick={() => setStage("added")} disabled={ticked.size === 0} className="w-full">
-                {strings.add}
+                {strings.add[ticked.size] ?? strings.add[1]}
               </Button>
             ) : (
               <>
