@@ -1,6 +1,7 @@
 import 'dart:convert';
 import 'dart:io';
 
+import 'package:femio/domain/absent_period.dart';
 import 'package:femio/data/profile.dart';
 import 'package:femio/domain/age_gate.dart';
 import 'package:femio/domain/appointments.dart';
@@ -169,6 +170,12 @@ final runners = <String, Object? Function(Map<String, dynamic>)>{
     birthYear: i['birthYear'] as int,
     todayYear: i['todayYear'] as int,
   ).name,
+  'absent-period': (i) => periodAbsent(
+    goal: Goal.values.byName(i['goal'] as String),
+    starts: List<String>.from(i['starts'] as List),
+    birthDate: i['birthDate'] as String?,
+    today: i['today'] as String,
+  ),
   'test-timing': (i) => pregnancyTestDay(
     windowEnd: i['windowEnd'] as String,
     irregular: i['irregular'] as bool,

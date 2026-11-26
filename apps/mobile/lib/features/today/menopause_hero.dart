@@ -35,7 +35,8 @@ class MenopauseHero extends StatelessWidget {
     if (profile.periodStarts.isEmpty) {
       return HeroCard(
         eyebrow: l.goalMenopause,
-        headline: l.menoMonths(profile.lastPeriodOverYear ? _monthsWhenOverYear : 0),
+        // CLIN-13: "Not sure" gives no date, so no month count is claimed.
+        headline: profile.lastPeriodOverYear ? l.menoMonths(_monthsWhenOverYear) : l.menoNoDate,
         extra: [HeroLine(l.menoUnknown)],
       );
     }

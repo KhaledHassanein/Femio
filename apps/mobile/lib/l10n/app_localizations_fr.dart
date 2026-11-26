@@ -281,6 +281,10 @@ class L10nFr extends L10n {
       'Notez les saignements ou symptômes : femio garde le suivi pour votre soignant.';
 
   @override
+  String get menoNoDate =>
+      'Aucune date de dernières règles notée pour l’instant';
+
+  @override
   String get awarenessNote =>
       'Des estimations pour s\'informer et planifier, pas un moyen d\'éviter une grossesse.';
 
@@ -647,7 +651,7 @@ class L10nFr extends L10n {
 
   @override
   String get pregRedFlagsBody =>
-      'Consultez sans attendre en cas de maux de tête sévères, de troubles de la vision, de douleur en haut de l\'abdomen, de gonflement du visage ou des mains, de difficulté à respirer, de saignements vaginaux, ou si les mouvements de votre bébé ont ralenti, cessé ou changé. Contactez votre maternité ou les services d\'urgence locaux. Si vous ne les joignez pas, rendez-vous aux urgences les plus proches.';
+      'Consultez sans attendre en cas de maux de tête sévères, de troubles de la vision, de vertiges ou d\'évanouissement, de fièvre de 38 °C ou plus, de gonflement du visage ou des mains, de difficulté à respirer, de douleur dans la poitrine ou de cœur qui bat vite, de nausées et vomissements sévères, de douleur en haut de l\'abdomen ou de douleur intense au ventre qui ne passe pas, de saignements vaginaux ou de perte de liquide, de gonflement, rougeur ou douleur dans une jambe ou un bras, de fatigue écrasante, de pensées de vous faire du mal ou de faire du mal à votre bébé, ou si les mouvements de votre bébé ont ralenti, cessé ou changé. Contactez votre maternité ou les services d\'urgence locaux. Si vous ne les joignez pas, rendez-vous aux urgences les plus proches.';
 
   @override
   String get pregRedFlagsMore => 'Voir la liste complète et ses sources';
@@ -677,6 +681,37 @@ class L10nFr extends L10n {
   @override
   String get redFlagMovements =>
       'Un ralentissement, un arrêt ou un changement des mouvements de votre bébé';
+
+  @override
+  String get redFlagDizziness => 'Des vertiges ou un évanouissement';
+
+  @override
+  String get redFlagFever => 'Une fièvre de 38 °C ou plus';
+
+  @override
+  String get redFlagChestPain =>
+      'Une douleur dans la poitrine ou un cœur qui bat vite';
+
+  @override
+  String get redFlagNausea => 'Des nausées et vomissements sévères';
+
+  @override
+  String get redFlagBellyPain =>
+      'Une douleur intense au ventre qui ne passe pas';
+
+  @override
+  String get redFlagFluid => 'Une perte de liquide par le vagin';
+
+  @override
+  String get redFlagLimb =>
+      'Un gonflement, une rougeur ou une douleur dans une jambe ou un bras';
+
+  @override
+  String get redFlagTiredness => 'Une fatigue écrasante';
+
+  @override
+  String get redFlagHarmThoughts =>
+      'Des pensées de vous faire du mal ou de faire du mal à votre bébé';
 
   @override
   String get contractionsHeading => 'Minuteur de contractions';
@@ -1634,7 +1669,7 @@ class L10nFr extends L10n {
 
   @override
   String get safetyPostpartumBody =>
-      'Dans l’année qui suit l’accouchement, la campagne Hear Her des CDC dit de consulter immédiatement en cas de signe d’alerte urgent, comme un saignement abondant, de la fièvre, un mal de tête qui ne passe pas ou une jambe gonflée. Appelez votre médecin ou votre sage-femme maintenant, ou le numéro d’urgence local.';
+      'Dans l’année qui suit l’accouchement, la campagne Hear Her des CDC dit de consulter immédiatement en cas de signe d’alerte urgent, comme un saignement abondant, de la fièvre, un mal de tête qui ne passe pas, une jambe gonflée ou des pensées de vous faire du mal ou de faire du mal à votre bébé. Appelez votre médecin ou votre sage-femme maintenant, ou le numéro d’urgence local.';
 
   @override
   String get askTitle => 'Demander à femio';
@@ -3958,6 +3993,10 @@ class L10nFr extends L10n {
       'Avoir les larmes faciles les deux premières semaines est fréquent et passe en général. Une humeur basse, de l\'anxiété ou un engourdissement qui dure plus de deux semaines mérite d\'être signalé à votre soignant, et vous pouvez en parler plus tôt.';
 
   @override
+  String get ppMoodCrisis =>
+      'Si vous avez des pensées de vous faire du mal ou de faire du mal à votre bébé, demandez de l’aide maintenant.';
+
+  @override
   String get ppMoodGuide => 'L\'humeur après la naissance';
 
   @override
@@ -4042,6 +4081,17 @@ class L10nFr extends L10n {
       'Si vos règles ont commencé, notez-les et femio montrera les suivantes. Si elles ne sont pas venues et qu’une grossesse est possible, un test de grossesse peut vous le dire.';
 
   @override
+  String get absentTitle => 'Vos règles ne sont pas venues depuis un moment';
+
+  @override
+  String get absentBody =>
+      'Si vous pouvez être enceinte, un test de grossesse est la première étape. Après 3 mois sans règles, pensez à consulter un professionnel de santé. Si vos cycles étaient déjà irréguliers, les recommandations parlent de 6 mois. Consultez plus tôt si des symptômes vous inquiètent ou si vous ne vous sentez pas bien.';
+
+  @override
+  String get absentSource =>
+      'Source : ASRM, Current evaluation of amenorrhea (2024).';
+
+  @override
   String get gapAddLength => 'Ajouter ma durée de cycle habituelle';
 
   @override
@@ -4090,4 +4140,8 @@ class L10nFr extends L10n {
   @override
   String get settingsStageSub =>
       'Changez d’étape, de date prévue d’accouchement ou vos réponses sur le cycle. Tout ce que vous avez noté est conservé.';
+
+  @override
+  String get testTimingUnknown =>
+      'Si vous ne savez pas quand vos règles sont attendues, faites le test au moins 21 jours après votre dernier rapport non protégé.';
 }

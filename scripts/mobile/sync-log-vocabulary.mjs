@@ -33,6 +33,8 @@ const SHARED = {
   bbtChartNote: "fertility.chart.note",
   invalidBbt: "fertility.invalidBbt",
   testTimingGeneral: "calculators.pregnancyTest.notePeriod",
+  // MR-21 / CLIN-8: when her next period cannot be named, the NHS 21-day rule.
+  testTimingUnknown: "calculators.pregnancyTest.noteSex",
   testTimingSource: "calculators.pregnancyTest.source",
   // Pregnancy (P3.6): the website's reviewed contraction timer, movement log and
   // red-flag wording, so the app says exactly what the clinician-reviewed site says.

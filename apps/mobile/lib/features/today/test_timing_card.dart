@@ -48,7 +48,8 @@ class TestTimingCard extends StatelessWidget {
           const SizedBox(height: space2),
           Text(switch (pregnancyTestDay(windowEnd: prediction.windowEnd, irregular: prediction.irregular)) {
             final day? => l.testTimingBody(date(day)),
-            null => l.testTimingGeneral,
+            // MR-21 (CLIN-8): with no day to name, the rule that fits irregular cycles too.
+            null => '${l.testTimingGeneral} ${l.testTimingUnknown}',
           }, style: t.bodyMedium),
           const SizedBox(height: space1h),
           Text(l.testTimingSource, style: t.bodySmall),

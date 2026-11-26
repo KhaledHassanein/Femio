@@ -19,6 +19,8 @@ import '../../theme/radii.dart';
 import '../../theme/type_sizes.dart';
 import '../../widgets/tab_header.dart';
 import '../../domain/prediction_explain.dart';
+import '../../domain/assistant/safety.dart';
+import '../assistant/safety_notice.dart';
 import '../assistant/assistant_pill.dart' show AssistantDoor, openAssistantDoor;
 import '../calendar/prediction_sheets.dart';
 import '../help/red_flags_screen.dart';
@@ -254,6 +256,14 @@ class LogScreen extends StatelessWidget {
                   reassurance: l.logNoteSaved,
                   onSave: (v) => save(log.copyWith(note: v)),
                 ),
+                // CLIN-12: the note runs the same rules as Say it (ADR-078 §4). Birth-control
+                // questions are for Ask; a diary line such as "took my pill" is not one.
+                if (log.note case final note?)
+                  if (safetySignalFor(note, profile, today) case final signal
+                      when signal != SafetySignal.none && signal != SafetySignal.birthControl) ...[
+                    const SizedBox(height: space3),
+                    SafetyNotice(signal: signal),
+                  ],
               ]),
               const SizedBox(height: space6),
               Row(

@@ -275,6 +275,9 @@ class L10nEs extends L10n {
       'Registra cualquier sangrado o síntoma y femio guarda el registro para tu profesional sanitario.';
 
   @override
+  String get menoNoDate => 'Aún no hay fecha de tu última regla';
+
+  @override
   String get awarenessNote =>
       'Estimaciones para informarte y planificar, no una forma de evitar el embarazo.';
 
@@ -641,7 +644,7 @@ class L10nEs extends L10n {
 
   @override
   String get pregRedFlagsBody =>
-      'Busca atención ahora si tienes dolor de cabeza intenso, cambios en la visión, dolor en la parte alta del abdomen, hinchazón de la cara o las manos, dificultad para respirar, sangrado vaginal, o si los movimientos de tu bebé han disminuido, se han detenido o han cambiado. Contacta con tu unidad de maternidad o los servicios de emergencia locales. Si no puedes contactarlos, acude al servicio de urgencias más cercano.';
+      'Busca atención ahora si tienes dolor de cabeza intenso, cambios en la visión, mareo o desmayo, fiebre de 38 °C o más, hinchazón de la cara o las manos, dificultad para respirar, dolor en el pecho o el corazón acelerado, náuseas y vómitos intensos, dolor en la parte alta del abdomen o dolor intenso de barriga que no se quita, sangrado vaginal o pérdida de líquido, hinchazón, enrojecimiento o dolor en una pierna o un brazo, un cansancio abrumador, pensamientos de hacerte daño o de hacerle daño a tu bebé, o si los movimientos de tu bebé han disminuido, se han detenido o han cambiado. Contacta con tu unidad de maternidad o los servicios de emergencia locales. Si no puedes contactarlos, acude al servicio de urgencias más cercano.';
 
   @override
   String get pregRedFlagsMore => 'Ver la lista completa y sus fuentes';
@@ -671,6 +674,35 @@ class L10nEs extends L10n {
   @override
   String get redFlagMovements =>
       'Movimientos de tu bebé que disminuyen, se detienen o cambian';
+
+  @override
+  String get redFlagDizziness => 'Mareo o desmayo';
+
+  @override
+  String get redFlagFever => 'Fiebre de 38 °C o más';
+
+  @override
+  String get redFlagChestPain => 'Dolor en el pecho o el corazón acelerado';
+
+  @override
+  String get redFlagNausea => 'Náuseas y vómitos intensos';
+
+  @override
+  String get redFlagBellyPain => 'Dolor intenso de barriga que no se quita';
+
+  @override
+  String get redFlagFluid => 'Pérdida de líquido por la vagina';
+
+  @override
+  String get redFlagLimb =>
+      'Hinchazón, enrojecimiento o dolor en una pierna o un brazo';
+
+  @override
+  String get redFlagTiredness => 'Un cansancio abrumador';
+
+  @override
+  String get redFlagHarmThoughts =>
+      'Pensamientos de hacerte daño o de hacerle daño a tu bebé';
 
   @override
   String get contractionsHeading => 'Cronómetro de contracciones';
@@ -1628,7 +1660,7 @@ class L10nEs extends L10n {
 
   @override
   String get safetyPostpartumBody =>
-      'En el año después del parto, la campaña Hear Her de los CDC dice que busques atención médica de inmediato ante una señal de alerta urgente, como sangrado abundante, fiebre, un dolor de cabeza que no se quita o una pierna hinchada. Llama ahora a tu médico o matrona, o al número de emergencias.';
+      'En el año después del parto, la campaña Hear Her de los CDC dice que busques atención médica de inmediato ante una señal de alerta urgente, como sangrado abundante, fiebre, un dolor de cabeza que no se quita, una pierna hinchada o pensamientos de hacerte daño o de hacerle daño a tu bebé. Llama ahora a tu médico o matrona, o al número de emergencias.';
 
   @override
   String get askTitle => 'Pregunta a femio';
@@ -3941,6 +3973,10 @@ class L10nEs extends L10n {
       'Tener ganas de llorar las dos primeras semanas es frecuente y suele pasar. El ánimo bajo, la ansiedad o la sensación de vacío que dura más de dos semanas merece contárselo a tu profesional de salud, y puedes preguntar antes.';
 
   @override
+  String get ppMoodCrisis =>
+      'Si tienes pensamientos de hacerte daño o de hacerle daño a tu bebé, pide ayuda ahora.';
+
+  @override
   String get ppMoodGuide => 'El ánimo después del parto';
 
   @override
@@ -4025,6 +4061,17 @@ class L10nEs extends L10n {
       'Si tu regla ya empezó, regístrala y femio mostrará las siguientes. Si no ha llegado y podrías estar embarazada, una prueba de embarazo te lo puede decir.';
 
   @override
+  String get absentTitle => 'Hace tiempo que no te viene la regla';
+
+  @override
+  String get absentBody =>
+      'Si puedes estar embarazada, una prueba de embarazo es el primer paso. Si llevas 3 meses sin regla, plantéate una revisión con un profesional sanitario. Si tus ciclos ya eran irregulares, las guías hablan de 6 meses. Consulta antes si algún síntoma te preocupa o no te encuentras bien.';
+
+  @override
+  String get absentSource =>
+      'Fuente: ASRM, Current evaluation of amenorrhea (2024).';
+
+  @override
   String get gapAddLength => 'Añadir la duración habitual de mi ciclo';
 
   @override
@@ -4072,4 +4119,8 @@ class L10nEs extends L10n {
   @override
   String get settingsStageSub =>
       'Cambia tu etapa, tu fecha probable de parto o tus respuestas sobre el ciclo. Todo lo que registraste se conserva.';
+
+  @override
+  String get testTimingUnknown =>
+      'Si no sabes cuándo te toca la regla, haz la prueba al menos 21 días después de tu última relación sin protección.';
 }

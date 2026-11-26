@@ -13,6 +13,7 @@ import '../../data/profile.dart';
 import '../../domain/dates.dart';
 import '../../domain/pregnancy.dart';
 import '../../domain/pregnancy_calendar.dart' show firstGuideWeek, lastGuideWeek;
+import '../../domain/absent_period.dart';
 import '../../l10n/app_localizations.dart';
 import '../../theme/femio_theme.dart';
 import '../../theme/spacing.dart';
@@ -146,6 +147,11 @@ class TodayScreen extends StatelessWidget {
               date: date,
               onAddLength: () => showCycleLengthSheet(context, controller),
             ),
+            // MR-10 (CLIN-9): a long gap gets a calm next step, never a count.
+            if (periodAbsentFor(profile, now)) ...[
+              const SizedBox(height: space3),
+              NoticeCard(tone: NoticeTone.caution, heading: l.absentTitle, body: '${l.absentBody}\n\n${l.absentSource}'),
+            ],
             if (profile.goal == Goal.pregnant && profile.birthDate == null) ...[
               const SizedBox(height: space3),
               Text(l.pregEstimateNote, style: t.bodySmall),

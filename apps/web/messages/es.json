@@ -506,7 +506,7 @@
       "estimateNote": "Estas fechas son estimaciones basadas en la fecha que introdujiste. Cada cuerpo es distinto.",
       "clinicianAdjust": "Tu profesional de salud puede ajustar la fecha tras una ecografía.",
       "overTerm": "Esta fecha es de hace más de 42 semanas, así que no se puede contar una semana desde ella. Si estás embarazada, habla de tus fechas con tu matrona o tu médica.",
-      "redFlag": "Busca atención ahora si tienes dolor de cabeza intenso, cambios en la visión, dolor en la parte alta del abdomen, hinchazón de la cara o las manos, dificultad para respirar, sangrado vaginal, o si los movimientos de tu bebé han disminuido, se han detenido o han cambiado. Contacta con tu unidad de maternidad o los servicios de emergencia locales. Si no puedes contactarlos, acude al servicio de urgencias más cercano."
+      "redFlag": "Busca atención ahora si tienes dolor de cabeza intenso, cambios en la visión, mareo o desmayo, fiebre de 38 °C o más, hinchazón de la cara o las manos, dificultad para respirar, dolor en el pecho o el corazón acelerado, náuseas y vómitos intensos, dolor en la parte alta del abdomen o dolor intenso de barriga que no se quita, sangrado vaginal o pérdida de líquido, hinchazón, enrojecimiento o dolor en una pierna o un brazo, un cansancio abrumador, pensamientos de hacerte daño o de hacerle daño a tu bebé, o si los movimientos de tu bebé han disminuido, se han detenido o han cambiado. Contacta con tu unidad de maternidad o los servicios de emergencia locales. Si no puedes contactarlos, acude al servicio de urgencias más cercano."
     },
     "termBar": {
       "here": "Semana {weeks} + {days} días",

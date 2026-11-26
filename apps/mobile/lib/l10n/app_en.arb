@@ -75,6 +75,7 @@
   "postpartumWeeks": "{weeks, plural, =0{Your baby is less than a week old} =1{1 week since your baby was born} other{{weeks} weeks since your baby was born}}",
   "menoMonths": "{months, plural, =0{Your last period was less than a month ago} =1{1 month since your last period} other{{months} months since your last period}}",
   "menoUnknown": "Log any bleeding or symptoms and femio keeps the record for your clinician.",
+  "menoNoDate": "No last period recorded yet",
   "awarenessNote": "Estimates for awareness and planning, not a way to avoid pregnancy.",
   "seeClinicianTtc": "Trying for over a year (or six months if you are 35 or older) is a good time to talk to a clinician.",
   "privacyLine": "Stored on this phone only.",
@@ -261,6 +262,7 @@
   "bbtChartNote": "These are your readings, drawn as they are. femio does not mark a shift or name a day — what a chart means is a conversation for you and your clinician.",
   "invalidBbt": "That does not look like a thermometer reading. Check the number and try again.",
   "testTimingGeneral": "Most home tests work from the first day of a missed period. Testing earlier can give a negative result even if you are pregnant.",
+  "testTimingUnknown": "If you do not know when your period is due, test at least 21 days after you last had unprotected sex.",
   "testTimingSource": "Source: NHS, Doing a pregnancy test.",
   "pregDaysToGo": "{days, plural, one {{days} day to go} other {{days} days to go}}",
   "@pregDaysToGo": {
@@ -288,7 +290,7 @@
   },
   "pregEstimateNote": "These dates are estimates based on the due date you entered. Your clinician may adjust it after a scan.",
   "pregRedFlagsHeading": "Some symptoms need urgent care",
-  "pregRedFlagsBody": "Seek care now if you have a severe headache, changes in your vision, pain in the upper abdomen, swelling of the face or hands, difficulty breathing, vaginal bleeding, or if your baby's movements have slowed down, stopped or changed. Contact your maternity unit or local emergency services. If you cannot reach them, go to the nearest emergency department.",
+  "pregRedFlagsBody": "Seek care now if you have a severe headache, changes in your vision, dizziness or fainting, a fever of 38°C or higher, swelling of the face or hands, difficulty breathing, chest pain or a fast-beating heart, severe nausea and vomiting, pain in the upper abdomen or severe belly pain that doesn't go away, vaginal bleeding or fluid leaking, swelling, redness or pain in a leg or arm, overwhelming tiredness, thoughts of harming yourself or your baby, or if your baby's movements have slowed down, stopped or changed. Contact your maternity unit or local emergency services. If you cannot reach them, go to the nearest emergency department.",
   "pregRedFlagsMore": "See the full list and its sources",
   "redFlagsListHeading": "Seek care now for any of these",
   "redFlagHeadache": "A severe headache",
@@ -298,6 +300,15 @@
   "redFlagBreathing": "Difficulty breathing",
   "redFlagBleeding": "Vaginal bleeding",
   "redFlagMovements": "Your baby's movements slowing down, stopping or changing",
+  "redFlagDizziness": "Dizziness or fainting",
+  "redFlagFever": "A fever of 38°C or higher",
+  "redFlagChestPain": "Chest pain or a fast-beating heart",
+  "redFlagNausea": "Severe nausea and vomiting",
+  "redFlagBellyPain": "Severe belly pain that doesn't go away",
+  "redFlagFluid": "Fluid leaking from your vagina",
+  "redFlagLimb": "Swelling, redness or pain in a leg or arm",
+  "redFlagTiredness": "Overwhelming tiredness",
+  "redFlagHarmThoughts": "Thoughts of harming yourself or your baby",
   "contractionsHeading": "Contraction timer",
   "contractionsIntro": "Press start when one begins and stop when it eases. femio keeps the times so you have them when you call.",
   "contractionsStart": "Start a contraction",
@@ -684,7 +695,7 @@
   "safetyHeavyBleedingHeading": "Heavy bleeding with dizziness",
   "safetyHeavyBleedingBody": "ACOG says: “If you are changing pads or tampons every hour for more than 2 hours in a row, and you also have chest pain, have shortness of breath, and are lightheaded or dizzy, seek emergency medical care right away.” If that is you, call your local emergency number now. If heavy bleeding worries you, talk to your doctor.",
   "safetyPostpartumHeading": "A warning sign after birth",
-  "safetyPostpartumBody": "In the year after birth, CDC's Hear Her campaign says to get medical care immediately for an urgent warning sign, such as heavy bleeding, a fever, a headache that won't go away or a swollen leg. Call your doctor or midwife now, or your local emergency number.",
+  "safetyPostpartumBody": "In the year after birth, CDC's Hear Her campaign says to get medical care immediately for an urgent warning sign, such as heavy bleeding, a fever, a headache that won't go away, a swollen leg or thoughts of harming yourself or your baby. Call your doctor or midwife now, or your local emergency number.",
   "askTitle": "Ask femio",
   "askIntro": "Ask a health question. femio answers only from trusted health sources it carries on your phone, such as CDC, MedlinePlus and the Office on Women's Health, and shows where every sentence came from.",
   "askHint": "For example: what helps with period cramps?",
@@ -2497,6 +2508,7 @@
     "description": "After birth (R8.19)."
   },
   "ppMoodNote": "Feeling weepy in the first two weeks is common and usually passes. Low mood, anxiety or numbness that lasts longer than two weeks is worth telling your clinician, and you can ask sooner.",
+  "ppMoodCrisis": "If you have thoughts of harming yourself or your baby, get help now.",
   "@ppMoodNote": {
     "description": "After birth (R8.19)."
   },
@@ -2589,6 +2601,9 @@
   "gapNeedAnotherBody": "You said your cycles vary, or the gaps you logged are too long to count as cycles. When your next period starts, log it and femio will show a range from your own dates.",
   "gapPassedTitle": "The range femio showed has passed",
   "gapPassedBody": "If your period has started, log it and femio will show the next ones. If it has not come and you could be pregnant, a pregnancy test can tell you.",
+  "absentTitle": "Your period hasn't come for a while",
+  "absentBody": "If you could be pregnant, a pregnancy test is the first step. If you have gone 3 months without a period, consider a check with a clinician. If your cycles were already irregular, guidance gives 6 months. Seek advice sooner if symptoms worry you or you feel unwell.",
+  "absentSource": "Source: ASRM, Current evaluation of amenorrhea (2024).",
   "@gapPassedBody": {
     "description": "Every predicted range has passed with no new start logged; MR-21 test line, never a count (R14.7)."
   },

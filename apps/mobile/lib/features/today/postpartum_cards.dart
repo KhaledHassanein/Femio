@@ -14,6 +14,7 @@ import '../../data/profile.dart';
 import '../../domain/dates.dart';
 import '../../domain/log_vocabulary.g.dart';
 import '../../domain/postpartum.dart';
+import '../help/help_now_screen.dart';
 import '../../l10n/app_localizations.dart';
 import '../../l10n/log_labels.g.dart';
 import '../../theme/femio_theme.dart';
@@ -184,6 +185,16 @@ class _MoodCard extends StatelessWidget {
       ]),
       const SizedBox(height: space3),
       Text(l.ppMoodNote, style: t.bodySmall),
+      // CLIN-11 / MR-50: the mood check-in names the one sign that needs help now.
+      const SizedBox(height: space2),
+      Text(l.ppMoodCrisis, style: t.bodySmall?.copyWith(color: context.palette.dangerText)),
+      Align(
+        alignment: AlignmentDirectional.centerStart,
+        child: TextButton(
+          onPressed: () => Navigator.of(context).push(MaterialPageRoute<void>(builder: (_) => const HelpNowScreen())),
+          child: Text(l.helpNowLauncher),
+        ),
+      ),
       Align(
         alignment: AlignmentDirectional.centerStart,
         child: TextButton(onPressed: () => openGuide(context, library, postpartumMoodGuide), child: Text(l.ppMoodGuide)),

@@ -1,0 +1,104 @@
+{
+  "$comment": "MR-10 (ASRM 2024 via docs/compliance/MENSTRUAL_SAFETY_THRESHOLDS.md): the calm 'pregnancy test first, then a clinician' prompt shows from 90 days after her last logged bleed, in the period and trying goals only, never in the year after a birth. Shared by apps/mobile/lib/domain/absent_period.dart and apps/web/src/lib/cycle/absent.ts.",
+  "cases": [
+    {
+      "input": {
+        "goal": "period",
+        "starts": [
+          "2026-08-01"
+        ],
+        "birthDate": null,
+        "today": "2026-10-29"
+      },
+      "expected": false
+    },
+    {
+      "input": {
+        "goal": "period",
+        "starts": [
+          "2026-08-01"
+        ],
+        "birthDate": null,
+        "today": "2026-10-30"
+      },
+      "expected": true
+    },
+    {
+      "input": {
+        "goal": "ttc",
+        "starts": [
+          "2026-08-01",
+          "2026-06-20"
+        ],
+        "birthDate": null,
+        "today": "2026-11-26"
+      },
+      "expected": true
+    },
+    {
+      "input": {
+        "goal": "period",
+        "starts": [
+          "2026-11-20",
+          "2026-08-01"
+        ],
+        "birthDate": null,
+        "today": "2026-11-26"
+      },
+      "expected": false
+    },
+    {
+      "input": {
+        "goal": "period",
+        "starts": [],
+        "birthDate": null,
+        "today": "2026-11-26"
+      },
+      "expected": false
+    },
+    {
+      "input": {
+        "goal": "pregnant",
+        "starts": [
+          "2026-01-01"
+        ],
+        "birthDate": null,
+        "today": "2026-11-26"
+      },
+      "expected": false
+    },
+    {
+      "input": {
+        "goal": "menopause",
+        "starts": [
+          "2026-01-01"
+        ],
+        "birthDate": null,
+        "today": "2026-11-26"
+      },
+      "expected": false
+    },
+    {
+      "input": {
+        "goal": "period",
+        "starts": [
+          "2026-01-01"
+        ],
+        "birthDate": "2026-03-01",
+        "today": "2026-11-26"
+      },
+      "expected": false
+    },
+    {
+      "input": {
+        "goal": "period",
+        "starts": [
+          "2025-01-01"
+        ],
+        "birthDate": "2025-03-01",
+        "today": "2026-11-26"
+      },
+      "expected": true
+    }
+  ]
+}

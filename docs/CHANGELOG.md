@@ -3,6 +3,7 @@ All notable changes to Femio V2.
 
 ## [Unreleased]
 ### Changed
+- **Safer by default.** A note you type in Log now gets the same safety check as "Tell femio anything". After birth, the mood check-in says to get help now for thoughts of harming yourself or your baby. The pregnancy warning signs now list all of CDC Hear Her's signs. If your period has not come for 90 days, Today suggests a pregnancy test first, then a clinician. The pregnancy-test card gives the 21-day rule when your next period cannot be predicted. Perimenopause no longer says your last period was "less than a month ago" when you answered "Not sure".
 - **Change what femio helps with.** Settings → "What femio helps with" lets you switch between tracking your period, trying to get pregnant, pregnancy (with a due date from any method, including after a scan) and perimenopause, or correct your cycle answers. Everything you logged stays.
 - **See where femio's AI runs.** Today now opens with a small line saying whether Gemini Nano runs on your phone, femio's own rules answer, or the AI is off, and whether Cloud boost is on. Under it, "Tell femio anything" logs your day from one sentence. Ask femio and Questions for my visit sit higher on Today and still work with the AI off. When Gemini Nano helped (reading your words, ordering tips or visit questions), femio says so.
 - **The "not a way to avoid pregnancy" sentence** now appears under the calendar whenever it shows a fertile window, in "Track my period" mode too.

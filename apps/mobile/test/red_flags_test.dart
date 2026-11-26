@@ -1,4 +1,4 @@
-// The pregnancy warning-signs screen (MR-29): the sourced sentence, the seven symptoms
+// The pregnancy warning-signs screen (MR-29): the sourced sentence, the sixteen symptoms
 // as a list, the four sources, and the link to the guide when the library has it.
 
 import 'dart:convert';
@@ -35,7 +35,7 @@ Widget _app(String locale, {Library? library}) => MaterialApp(
 
 /// A phone-shaped, tall viewport so the whole list is built (the ListView is lazy).
 Future<void> _pump(WidgetTester tester, Widget app) async {
-  tester.view.physicalSize = const Size(1170, 6000);
+  tester.view.physicalSize = const Size(1170, 12000);
   tester.view.devicePixelRatio = 3;
   addTearDown(tester.view.reset);
   await tester.pumpWidget(app);
@@ -43,9 +43,9 @@ Future<void> _pump(WidgetTester tester, Widget app) async {
 }
 
 void main() {
-  testWidgets('English: the sourced sentence, seven symptoms and four sources', (tester) async {
+  testWidgets('English: the sourced sentence, sixteen symptoms and four sources', (tester) async {
     await _pump(tester, _app('en'));
-    expect(find.textContaining('vaginal bleeding, or if your baby\'s movements have slowed down, stopped or changed'), findsOneWidget);
+    expect(find.textContaining('thoughts of harming yourself or your baby, or if your baby\'s movements have slowed down, stopped or changed'), findsOneWidget);
     for (final s in [
       'A severe headache',
       'Changes in your vision',

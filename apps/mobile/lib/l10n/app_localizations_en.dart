@@ -276,6 +276,9 @@ class L10nEn extends L10n {
       'Log any bleeding or symptoms and femio keeps the record for your clinician.';
 
   @override
+  String get menoNoDate => 'No last period recorded yet';
+
+  @override
   String get awarenessNote =>
       'Estimates for awareness and planning, not a way to avoid pregnancy.';
 
@@ -641,7 +644,7 @@ class L10nEn extends L10n {
 
   @override
   String get pregRedFlagsBody =>
-      'Seek care now if you have a severe headache, changes in your vision, pain in the upper abdomen, swelling of the face or hands, difficulty breathing, vaginal bleeding, or if your baby\'s movements have slowed down, stopped or changed. Contact your maternity unit or local emergency services. If you cannot reach them, go to the nearest emergency department.';
+      'Seek care now if you have a severe headache, changes in your vision, dizziness or fainting, a fever of 38°C or higher, swelling of the face or hands, difficulty breathing, chest pain or a fast-beating heart, severe nausea and vomiting, pain in the upper abdomen or severe belly pain that doesn\'t go away, vaginal bleeding or fluid leaking, swelling, redness or pain in a leg or arm, overwhelming tiredness, thoughts of harming yourself or your baby, or if your baby\'s movements have slowed down, stopped or changed. Contact your maternity unit or local emergency services. If you cannot reach them, go to the nearest emergency department.';
 
   @override
   String get pregRedFlagsMore => 'See the full list and its sources';
@@ -670,6 +673,33 @@ class L10nEn extends L10n {
   @override
   String get redFlagMovements =>
       'Your baby\'s movements slowing down, stopping or changing';
+
+  @override
+  String get redFlagDizziness => 'Dizziness or fainting';
+
+  @override
+  String get redFlagFever => 'A fever of 38°C or higher';
+
+  @override
+  String get redFlagChestPain => 'Chest pain or a fast-beating heart';
+
+  @override
+  String get redFlagNausea => 'Severe nausea and vomiting';
+
+  @override
+  String get redFlagBellyPain => 'Severe belly pain that doesn\'t go away';
+
+  @override
+  String get redFlagFluid => 'Fluid leaking from your vagina';
+
+  @override
+  String get redFlagLimb => 'Swelling, redness or pain in a leg or arm';
+
+  @override
+  String get redFlagTiredness => 'Overwhelming tiredness';
+
+  @override
+  String get redFlagHarmThoughts => 'Thoughts of harming yourself or your baby';
 
   @override
   String get contractionsHeading => 'Contraction timer';
@@ -1616,7 +1646,7 @@ class L10nEn extends L10n {
 
   @override
   String get safetyPostpartumBody =>
-      'In the year after birth, CDC\'s Hear Her campaign says to get medical care immediately for an urgent warning sign, such as heavy bleeding, a fever, a headache that won\'t go away or a swollen leg. Call your doctor or midwife now, or your local emergency number.';
+      'In the year after birth, CDC\'s Hear Her campaign says to get medical care immediately for an urgent warning sign, such as heavy bleeding, a fever, a headache that won\'t go away, a swollen leg or thoughts of harming yourself or your baby. Call your doctor or midwife now, or your local emergency number.';
 
   @override
   String get askTitle => 'Ask femio';
@@ -3919,6 +3949,10 @@ class L10nEn extends L10n {
       'Feeling weepy in the first two weeks is common and usually passes. Low mood, anxiety or numbness that lasts longer than two weeks is worth telling your clinician, and you can ask sooner.';
 
   @override
+  String get ppMoodCrisis =>
+      'If you have thoughts of harming yourself or your baby, get help now.';
+
+  @override
   String get ppMoodGuide => 'About mood after birth';
 
   @override
@@ -4003,6 +4037,17 @@ class L10nEn extends L10n {
       'If your period has started, log it and femio will show the next ones. If it has not come and you could be pregnant, a pregnancy test can tell you.';
 
   @override
+  String get absentTitle => 'Your period hasn\'t come for a while';
+
+  @override
+  String get absentBody =>
+      'If you could be pregnant, a pregnancy test is the first step. If you have gone 3 months without a period, consider a check with a clinician. If your cycles were already irregular, guidance gives 6 months. Seek advice sooner if symptoms worry you or you feel unwell.';
+
+  @override
+  String get absentSource =>
+      'Source: ASRM, Current evaluation of amenorrhea (2024).';
+
+  @override
   String get gapAddLength => 'Add my usual cycle length';
 
   @override
@@ -4050,4 +4095,8 @@ class L10nEn extends L10n {
   @override
   String get settingsStageSub =>
       'Change your stage, your due date or your cycle answers. Everything you logged stays.';
+
+  @override
+  String get testTimingUnknown =>
+      'If you do not know when your period is due, test at least 21 days after you last had unprotected sex.';
 }

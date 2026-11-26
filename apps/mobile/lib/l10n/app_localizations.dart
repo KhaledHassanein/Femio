@@ -533,6 +533,12 @@ abstract class L10n {
   /// **'Log any bleeding or symptoms and femio keeps the record for your clinician.'**
   String get menoUnknown;
 
+  /// No description provided for @menoNoDate.
+  ///
+  /// In en, this message translates to:
+  /// **'No last period recorded yet'**
+  String get menoNoDate;
+
   /// No description provided for @awarenessNote.
   ///
   /// In en, this message translates to:
@@ -1190,7 +1196,7 @@ abstract class L10n {
   /// No description provided for @pregRedFlagsBody.
   ///
   /// In en, this message translates to:
-  /// **'Seek care now if you have a severe headache, changes in your vision, pain in the upper abdomen, swelling of the face or hands, difficulty breathing, vaginal bleeding, or if your baby\'s movements have slowed down, stopped or changed. Contact your maternity unit or local emergency services. If you cannot reach them, go to the nearest emergency department.'**
+  /// **'Seek care now if you have a severe headache, changes in your vision, dizziness or fainting, a fever of 38°C or higher, swelling of the face or hands, difficulty breathing, chest pain or a fast-beating heart, severe nausea and vomiting, pain in the upper abdomen or severe belly pain that doesn\'t go away, vaginal bleeding or fluid leaking, swelling, redness or pain in a leg or arm, overwhelming tiredness, thoughts of harming yourself or your baby, or if your baby\'s movements have slowed down, stopped or changed. Contact your maternity unit or local emergency services. If you cannot reach them, go to the nearest emergency department.'**
   String get pregRedFlagsBody;
 
   /// No description provided for @pregRedFlagsMore.
@@ -1246,6 +1252,60 @@ abstract class L10n {
   /// In en, this message translates to:
   /// **'Your baby\'s movements slowing down, stopping or changing'**
   String get redFlagMovements;
+
+  /// No description provided for @redFlagDizziness.
+  ///
+  /// In en, this message translates to:
+  /// **'Dizziness or fainting'**
+  String get redFlagDizziness;
+
+  /// No description provided for @redFlagFever.
+  ///
+  /// In en, this message translates to:
+  /// **'A fever of 38°C or higher'**
+  String get redFlagFever;
+
+  /// No description provided for @redFlagChestPain.
+  ///
+  /// In en, this message translates to:
+  /// **'Chest pain or a fast-beating heart'**
+  String get redFlagChestPain;
+
+  /// No description provided for @redFlagNausea.
+  ///
+  /// In en, this message translates to:
+  /// **'Severe nausea and vomiting'**
+  String get redFlagNausea;
+
+  /// No description provided for @redFlagBellyPain.
+  ///
+  /// In en, this message translates to:
+  /// **'Severe belly pain that doesn\'t go away'**
+  String get redFlagBellyPain;
+
+  /// No description provided for @redFlagFluid.
+  ///
+  /// In en, this message translates to:
+  /// **'Fluid leaking from your vagina'**
+  String get redFlagFluid;
+
+  /// No description provided for @redFlagLimb.
+  ///
+  /// In en, this message translates to:
+  /// **'Swelling, redness or pain in a leg or arm'**
+  String get redFlagLimb;
+
+  /// No description provided for @redFlagTiredness.
+  ///
+  /// In en, this message translates to:
+  /// **'Overwhelming tiredness'**
+  String get redFlagTiredness;
+
+  /// No description provided for @redFlagHarmThoughts.
+  ///
+  /// In en, this message translates to:
+  /// **'Thoughts of harming yourself or your baby'**
+  String get redFlagHarmThoughts;
 
   /// No description provided for @contractionsHeading.
   ///
@@ -2798,7 +2858,7 @@ abstract class L10n {
   /// No description provided for @safetyPostpartumBody.
   ///
   /// In en, this message translates to:
-  /// **'In the year after birth, CDC\'s Hear Her campaign says to get medical care immediately for an urgent warning sign, such as heavy bleeding, a fever, a headache that won\'t go away or a swollen leg. Call your doctor or midwife now, or your local emergency number.'**
+  /// **'In the year after birth, CDC\'s Hear Her campaign says to get medical care immediately for an urgent warning sign, such as heavy bleeding, a fever, a headache that won\'t go away, a swollen leg or thoughts of harming yourself or your baby. Call your doctor or midwife now, or your local emergency number.'**
   String get safetyPostpartumBody;
 
   /// No description provided for @askTitle.
@@ -6341,6 +6401,12 @@ abstract class L10n {
   /// **'Feeling weepy in the first two weeks is common and usually passes. Low mood, anxiety or numbness that lasts longer than two weeks is worth telling your clinician, and you can ask sooner.'**
   String get ppMoodNote;
 
+  /// No description provided for @ppMoodCrisis.
+  ///
+  /// In en, this message translates to:
+  /// **'If you have thoughts of harming yourself or your baby, get help now.'**
+  String get ppMoodCrisis;
+
   /// After birth (R8.19).
   ///
   /// In en, this message translates to:
@@ -6485,6 +6551,24 @@ abstract class L10n {
   /// **'If your period has started, log it and femio will show the next ones. If it has not come and you could be pregnant, a pregnancy test can tell you.'**
   String get gapPassedBody;
 
+  /// No description provided for @absentTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Your period hasn\'t come for a while'**
+  String get absentTitle;
+
+  /// No description provided for @absentBody.
+  ///
+  /// In en, this message translates to:
+  /// **'If you could be pregnant, a pregnancy test is the first step. If you have gone 3 months without a period, consider a check with a clinician. If your cycles were already irregular, guidance gives 6 months. Seek advice sooner if symptoms worry you or you feel unwell.'**
+  String get absentBody;
+
+  /// No description provided for @absentSource.
+  ///
+  /// In en, this message translates to:
+  /// **'Source: ASRM, Current evaluation of amenorrhea (2024).'**
+  String get absentSource;
+
   /// No description provided for @gapAddLength.
   ///
   /// In en, this message translates to:
@@ -6568,6 +6652,12 @@ abstract class L10n {
   /// In en, this message translates to:
   /// **'Change your stage, your due date or your cycle answers. Everything you logged stays.'**
   String get settingsStageSub;
+
+  /// No description provided for @testTimingUnknown.
+  ///
+  /// In en, this message translates to:
+  /// **'If you do not know when your period is due, test at least 21 days after you last had unprotected sex.'**
+  String get testTimingUnknown;
 }
 
 class _L10nDelegate extends LocalizationsDelegate<L10n> {

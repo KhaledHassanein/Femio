@@ -7,9 +7,30 @@
 // Bleeding and a change in the baby's movements joined the list on 2026-10-30 (R4.14)
 // once the register named their NHS pages (MR-29, owner's go-ahead).
 
-/// The seven symptoms of the sourced list, in the order the sentence names them. The
-/// screen looks each one's label up in the ARB files.
-enum RedFlagSymptom { headache, vision, upperAbdomen, swelling, breathing, bleeding, movements }
+/// The symptoms of the sourced list, in the order the sentence names them. The screen
+/// looks each one's label up in the ARB files. CDC Hear Her's pregnancy signs joined on
+/// 2026-11-27 (R14.11, CLIN-10, owner row 44): dizziness or fainting, fever 38 °C or more,
+/// chest pain or a fast heartbeat, severe nausea and vomiting, severe belly pain, fluid
+/// leaking, a swollen or painful leg or arm, overwhelming tiredness, and thoughts of
+/// harming herself or her baby (CDC page read 2026-11-27, reviewed by CDC 2023-12-15).
+enum RedFlagSymptom {
+  headache,
+  vision,
+  dizziness,
+  fever,
+  swelling,
+  breathing,
+  chestPain,
+  nausea,
+  upperAbdomen,
+  bellyPain,
+  bleeding,
+  fluid,
+  limb,
+  tiredness,
+  harmThoughts,
+  movements,
+}
 
 /// Where the list comes from. [title] is the document's own (English) title; [host]
 /// is shown so she can find the page herself, since the app opens nothing.
