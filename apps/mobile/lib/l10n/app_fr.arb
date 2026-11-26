@@ -276,6 +276,22 @@
   "enterCurrentPin": "Saisissez votre code PIN actuel",
   "pinMismatch": "Les deux codes ne correspondent pas. Réessayez.",
   "wrongPin": "Ce code PIN est incorrect.",
+  "pinWaitSeconds": "{count, plural, one {Trop de tentatives. Réessayez dans {count} seconde.} other {Trop de tentatives. Réessayez dans {count} secondes.}}",
+  "@pinWaitSeconds": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "pinWaitMinutes": "{count, plural, one {Trop de tentatives. Réessayez dans {count} minute.} other {Trop de tentatives. Réessayez dans {count} minutes.}}",
+  "@pinWaitMinutes": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
   "lockTitle": "Bon retour",
   "lockHint": "Saisissez votre code PIN pour ouvrir vos données.",
   "forgotPin": "Code PIN oublié ? Il ne peut pas être récupéré : femio n'a pas de compte. Supprimez tout de ce téléphone et recommencez, ou restaurez un fichier de sauvegarde.",
@@ -294,6 +310,7 @@
     }
   },
   "backupPassphraseMismatch": "Les deux phrases secrètes ne correspondent pas.",
+  "backupWorking": "Préparation du fichier de sauvegarde. Cela peut prendre quelques secondes.",
   "backupSaved": "Sauvegarde enregistrée.",
   "backupImported": "Vos données ont été restaurées.",
   "backupWrongPassphrase": "Cette phrase secrète n'ouvre pas ce fichier.",

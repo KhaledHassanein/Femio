@@ -276,6 +276,22 @@
   "enterCurrentPin": "Introduce tu PIN actual",
   "pinMismatch": "Los dos PIN no coinciden. Inténtalo de nuevo.",
   "wrongPin": "Ese PIN no es correcto.",
+  "pinWaitSeconds": "{count, plural, one {Demasiados intentos. Vuelve a intentarlo en {count} segundo.} other {Demasiados intentos. Vuelve a intentarlo en {count} segundos.}}",
+  "@pinWaitSeconds": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "pinWaitMinutes": "{count, plural, one {Demasiados intentos. Vuelve a intentarlo en {count} minuto.} other {Demasiados intentos. Vuelve a intentarlo en {count} minutos.}}",
+  "@pinWaitMinutes": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
   "lockTitle": "Bienvenida de nuevo",
   "lockHint": "Introduce tu PIN para abrir tus registros.",
   "forgotPin": "¿Olvidaste el PIN? No se puede recuperar: femio no tiene cuenta. Borra todo de este teléfono y empieza de nuevo, o restaura un archivo de copia de seguridad.",
@@ -294,6 +310,7 @@
     }
   },
   "backupPassphraseMismatch": "Las dos frases no coinciden.",
+  "backupWorking": "Preparando el archivo de copia de seguridad. Puede tardar unos segundos.",
   "backupSaved": "Copia de seguridad guardada.",
   "backupImported": "Tus registros se han restaurado.",
   "backupWrongPassphrase": "Esa frase no abre este archivo.",

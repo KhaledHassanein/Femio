@@ -25,13 +25,19 @@
  *   4. the app's own code can open a connection (http, dio, sockets): INTERNET is declared
  *      in the app's manifest only for Firebase AI Logic (ADR-079); the merged manifest must
  *      carry no ad-ID or ad-services permission (AD_ID, ACCESS_ADSERVICES_*) and no
- *      location, phone, contacts, camera, microphone or storage permission.
+ *      location, phone, contacts, camera, microphone or storage permission;
+ *   5. native code under apps/mobile/android can reach the network outside the assistant
+ *      package, the app module declares a Gradle dependency or plugin not on the reviewed
+ *      list, or a current merged manifest carries ad or analytics metadata or an unreviewed
+ *      component (scripts/lib/android-tripwire.mjs, R14.14).
  *
  * Adding any of these is a decision for docs/DECISIONS.md and a change to the
  * privacy policy, never a dependency bump.
  */
 import { existsSync, readFileSync, readdirSync, statSync } from "node:fs";
 import { join, relative } from "node:path";
+
+import { checkAndroid } from "./lib/android-tripwire.mjs";
 
 const findings = [];
 const fail = (file, message) => findings.push(`${file}: ${message}`);
@@ -318,28 +324,21 @@ try {
   fail(MANIFEST, `cannot read: ${error.message}`);
 }
 
-// 4b. The merged release and debug manifests, when built locally: what the libraries add.
-// The ad-ID and ad-services permissions and the personal permissions are forbidden from any
-// library. (INTERNET is expected: Firebase AI Logic, ADR-079.)
-const MERGED_MANIFESTS = [
-  "apps/mobile/build/app/intermediates/merged_manifests/release/processReleaseManifest/AndroidManifest.xml",
-  "apps/mobile/build/app/intermediates/merged_manifests/debug/processDebugManifest/AndroidManifest.xml",
-  "apps/mobile/build/app/intermediates/merged_manifests/debug/AndroidManifest.xml",
-];
-for (const MERGED of MERGED_MANIFESTS) {
-  let merged;
-  try {
-    merged = readFileSync(MERGED, "utf8");
-  } catch {
-    continue; // Not built locally; the source checks above still ran.
-  }
-  for (const id of AD_PERMISSIONS) {
-    if (merged.includes(id)) fail(MERGED, `the MERGED manifest contains ${id}; a library added it (the app has no ads)`);
-  }
-  for (const re of PERSONAL_PERMISSIONS) {
-    if (re.test(merged)) fail(MERGED, `the MERGED manifest requests a permission that reads the person (${re.source}); a library added it`);
-  }
-}
+// 4b. Android native code, Gradle and the merged manifests (R14.14, PRIV-11, SEC-16): no
+// network code outside the assistant package, only reviewed Gradle dependencies and plugins,
+// and, when a current build exists, no ad-ID or personal permission, no ad or analytics
+// metadata and only reviewed components in what the libraries add. INTERNET is expected:
+// Firebase AI Logic, ADR-079. Details and how to run the merged-manifest part:
+// scripts/lib/android-tripwire.mjs and docs/runbooks/TOOLS.md.
+const warnings = [];
+const mergedChecked = checkAndroid({
+  fail,
+  warn: (message) => warnings.push(message),
+  requireMerged: process.env.FEMIO_REQUIRE_MERGED_MANIFEST === "1" || process.argv.includes("--require-merged-manifest"),
+  adPermissions: AD_PERMISSIONS,
+  personalPermissions: PERSONAL_PERMISSIONS,
+});
+for (const w of warnings) console.warn(`  ⚠ ${w}`);
 
 if (findings.length > 0) {
   console.error("privacy tripwire FAILED:\n");
@@ -347,4 +346,4 @@ if (findings.length > 0) {
   console.error(`\n${findings.length} finding(s). See docs/33_REBUILD_V3/03_LEGAL_PACK.md.`);
   process.exit(1);
 }
-console.log(`✓ privacy tripwire: no analytics, error-reporting or database client in either product; website: no Tag Manager, GA4 or Meta pixel, Vercel Web Analytics (cookieless, path only) the only measurement, AdSense host inside lib/ads only, ad units only in the article and hub; app: no ads, analytics or attribution package and no ad-ID permission (source and merged manifest), no network code of its own, Firebase AI Logic only inside the Kotlin assistant behind CloudPrompt (CloudSafeText or PseudonymisedProfile only), no search grounding, no personal permission (source and merged manifest, when built).`);
+console.log(`✓ privacy tripwire: no analytics, error-reporting or database client in either product; website: no Tag Manager, GA4 or Meta pixel, Vercel Web Analytics (cookieless, path only) the only measurement, AdSense host inside lib/ads only, ad units only in the article and hub; app: no ads, analytics or attribution package and no ad-ID permission (source and merged manifest), no network code of its own, Firebase AI Logic only inside the Kotlin assistant behind CloudPrompt (CloudSafeText or PseudonymisedProfile only), no search grounding, no personal permission; native: no network code outside the assistant package, only reviewed Gradle dependencies and plugins, merged manifest ${mergedChecked > 0 ? `checked (${mergedChecked} file(s): permissions, ad/analytics metadata, reviewed components)` : "not checked (no current build)"}.`);

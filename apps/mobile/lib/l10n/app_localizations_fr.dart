@@ -1010,6 +1010,28 @@ class L10nFr extends L10n {
   String get wrongPin => 'Ce code PIN est incorrect.';
 
   @override
+  String pinWaitSeconds(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: 'Trop de tentatives. Réessayez dans $count secondes.',
+      one: 'Trop de tentatives. Réessayez dans $count seconde.',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String pinWaitMinutes(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: 'Trop de tentatives. Réessayez dans $count minutes.',
+      one: 'Trop de tentatives. Réessayez dans $count minute.',
+    );
+    return '$_temp0';
+  }
+
+  @override
   String get lockTitle => 'Bon retour';
 
   @override
@@ -1046,6 +1068,10 @@ class L10nFr extends L10n {
   @override
   String get backupPassphraseMismatch =>
       'Les deux phrases secrètes ne correspondent pas.';
+
+  @override
+  String get backupWorking =>
+      'Préparation du fichier de sauvegarde. Cela peut prendre quelques secondes.';
 
   @override
   String get backupSaved => 'Sauvegarde enregistrée.';

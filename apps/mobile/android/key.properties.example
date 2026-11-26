@@ -1,7 +1,10 @@
 # Copy to android/key.properties (git-ignored) and point it at the upload keystore
 # you created with keytool (docs/33_REBUILD_V3/05_RELEASE_RUNBOOK.md). Never commit
 # the keystore or this file with real values.
-storeFile=../upload-keystore.jks
+# Keep the keystore OUTSIDE the repository and give an absolute path (SEC-10): a relative
+# path such as ../upload-keystore.jks lands in apps/mobile/, which no .gitignore covers.
+# Without this file a release build fails on purpose (SEC-9); see build.gradle.kts.
+storeFile=/absolute/path/outside/the/repo/upload-keystore.jks
 storePassword=CHANGE_ME
 keyAlias=upload
 keyPassword=CHANGE_ME

@@ -8,10 +8,13 @@
 // Pure Dart, no platform code, so every path is unit-tested.
 
 import 'dart:convert';
+import 'dart:isolate';
 import 'dart:math';
 import 'dart:typed_data';
 
 import 'package:cryptography/cryptography.dart';
+
+import 'pbkdf2.dart';
 
 /// Marks a sealed record file. Four bytes of ASCII, then a version byte.
 const recordMagic = 'FMR1';
@@ -28,11 +31,22 @@ const macLength = 16;
 /// Salt length for a passphrase-derived key, in bytes.
 const saltLength = 16;
 
-/// PBKDF2-HMAC-SHA256 rounds for a backup passphrase. Pure-Dart PBKDF2 runs at
-/// roughly 100k rounds a second on a mid-range phone, so 120k keeps a backup
-/// export under two seconds while making a guessed passphrase expensive.
-/// Raising it only affects new backups: each file records the count it used.
-const backupIterations = 120000;
+/// PBKDF2-HMAC-SHA256 rounds for a NEW backup: OWASP's 2023 floor for this hash (Password
+/// Storage Cheat Sheet). The fast PBKDF2 in `pbkdf2.dart` takes about 0.9 s for this on a
+/// desktop CPU, measured 2026-11-27 (ADR-085); a mid-range phone is slower, and only a
+/// backup export or import waits for it, off the UI isolate. Each file records the count it
+/// used, so raising this only affects new backups: files made at the old 120,000 still open.
+const backupIterations = 600000;
+
+/// The fewest rounds a backup file may declare. Old femio files used 120,000; the floor
+/// only refuses a file that is plainly not ours.
+const minBackupIterations = 1000;
+
+/// The most rounds a backup file may declare (SEC-11). The count is read from the file
+/// before the passphrase is checked, so without a ceiling a hostile file could keep the
+/// phone deriving a key for minutes. About three times today's count leaves room for one
+/// future raise; a file above it is refused as "not a femio file" without any key work.
+const maxBackupIterations = 2000000;
 
 /// Key length for AES-256, in bytes.
 const keyLength = 32;
@@ -77,11 +91,16 @@ Future<Uint8List> open(List<int> key, List<int> sealed, {String magic = recordMa
   }
 }
 
-/// Derives a 32-byte key from a passphrase with PBKDF2-HMAC-SHA256.
-Future<Uint8List> deriveKey(String passphrase, List<int> salt, {int iterations = backupIterations}) async {
-  final pbkdf2 = Pbkdf2(macAlgorithm: Hmac.sha256(), iterations: iterations, bits: keyLength * 8);
-  final key = await pbkdf2.deriveKeyFromPassword(password: passphrase, nonce: salt);
-  return Uint8List.fromList(await key.extractBytes());
+/// Derives a 32-byte key from a passphrase with PBKDF2-HMAC-SHA256 (password as UTF-8).
+///
+/// Runs on a short-lived background isolate, so a 600,000-round backup key never freezes
+/// the screen. The result is byte-for-byte the standard PBKDF2 the `cryptography` package
+/// computed before ADR-085, so existing PIN hashes and backups still match.
+/// Throws [ArgumentError] for [iterations] below 1.
+Future<Uint8List> deriveKey(String passphrase, List<int> salt, {int iterations = backupIterations}) {
+  if (iterations < 1) throw ArgumentError.value(iterations, 'iterations', 'must be at least 1');
+  final saltCopy = Uint8List.fromList(salt);
+  return Isolate.run(() => pbkdf2HmacSha256(passphrase, saltCopy, iterations: iterations, length: keyLength));
 }
 
 /// Seals [plaintext] under a passphrase: magic, salt, iterations (4 bytes, big
@@ -106,7 +125,10 @@ Future<Uint8List> openWithPassphrase(String passphrase, List<int> sealed) async 
   }
   final salt = sealed.sublist(head.length, head.length + saltLength);
   final iterations = ByteData.sublistView(Uint8List.fromList(sealed.sublist(head.length + saltLength, prefix))).getUint32(0);
-  if (iterations < 1000 || iterations > 10000000) throw const EnvelopeError(EnvelopeFailure.notOurs);
+  // Cheap checks first: the declared count and the minimum envelope size are refused before
+  // any key is derived, so a hostile or truncated file costs nothing (SEC-11).
+  if (iterations < minBackupIterations || iterations > maxBackupIterations) throw const EnvelopeError(EnvelopeFailure.notOurs);
+  if (sealed.length < prefix + head.length + nonceLength + macLength) throw const EnvelopeError(EnvelopeFailure.notOurs);
   final key = await deriveKey(passphrase, salt, iterations: iterations);
   return open(key, sealed.sublist(prefix), magic: backupMagic);
 }

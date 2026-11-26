@@ -23,6 +23,11 @@ const attachmentMagic = 'FMA1';
 /// The folder, inside the app's support directory, that holds the sealed documents.
 const attachmentFolder = 'documents';
 
+/// True when [id] has the shape of a token femio made (8 to 64 URL-safe characters).
+/// Anything else could name a path outside the folder, so it is refused everywhere: when a
+/// file is written, read or deleted, and when a backup is checked before a restore (SEC-11).
+bool isSafeAttachmentId(String id) => RegExp(r'^[A-Za-z0-9_-]{8,64}$').hasMatch(id);
+
 /// Reads and writes the sealed bytes of her documents.
 abstract class AttachmentStore {
   /// Seals [bytes] and stores them under [id], replacing any file with that id.
@@ -55,8 +60,7 @@ class EncryptedAttachmentStore implements AttachmentStore {
     return dir;
   }
 
-  /// An id is only ever a random token femio made; anything else could reach outside the folder.
-  static bool _safe(String id) => RegExp(r'^[A-Za-z0-9_-]{8,64}$').hasMatch(id);
+  static bool _safe(String id) => isSafeAttachmentId(id);
 
   @override
   Future<void> put(String id, List<int> bytes) async {
