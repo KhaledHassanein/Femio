@@ -1,70 +1,19 @@
-# #BuildHybridAI submission: femio (SUPERSEDED)
+# #BuildHybridAI submission: femio (SUPERSEDED, pointer only)
 
-> **Superseded 2026-11-24 by `DEVPOST_SUBMISSION.md`** (ADR-079: registry answers replaced Google Search
-> grounding, Cloud boost added). Do not paste from this file; it is kept for the record only.
+> **Do not paste from this file.** The text to submit is `DEVPOST_SUBMISSION.md` (truth pass
+> 2026-11-27). The demo video is `VIDEO_SCRIPT.md`; publishing the repo and the APK is
+> `RELEASE_STEPS.md`.
 
-Agent doc: the owner reads these through the hackathon pack page; a session keeps them in step
-with the code. Every claim below is checked against the repository at the commit named in the
-PROGRESS line R7.5. Nothing here is a medical claim.
+This file held the first draft (2026-11-24, before ADR-079). Its body was removed on 2026-11-27
+because it described a design the app no longer has, and a judge comparing it with the code would
+find contradictions. It is in git history (`git log -- docs/hackathon/DEVPOST.md`). What it got
+wrong, so no later draft brings it back:
 
-## Project name
-femio: AI-assisted women's health and wellness
-
-## Tagline (under 200 characters)
-A private period, fertility, pregnancy and menopause companion: Gemini Nano reads her own words
-on her phone; the cloud answers only general questions, from trusted health sources.
-
-## What it does
-femio is a women's health and wellness app in English, Arabic, French and Spanish. Her record
-(cycles, symptoms, moods, ovulation tests, temperatures, pregnancy logs) lives only on her phone:
-no account, no server.
-
-The hybrid assistant adds three things:
-- **Say it in your words.** She types or dictates one sentence ("bad cramps, light bleeding, so
-  tired", or the same in Egyptian Arabic) and it becomes log entries. femio's phrase rules read it
-  on the phone, and Gemini Nano (`ONLY_ON_DEVICE`) adds what the rules missed. She confirms the
-  chips before anything is saved; the sentence itself is never stored or sent.
-- **Visit summary.** One page for her doctor, counted from her own log (cycle range, the symptoms
-  she logged most, heavy-flow days, ovulation tests), with questions picked from a reviewed bank.
-  Gemini Nano orders the questions for her, on the phone; it can never add one.
-- **Ask femio.** A health question answered from trusted sources. A personal question ("I'm 34 and
-  my cramps are awful") is first rewritten on the phone by Gemini Nano into a general one ("What
-  helps with period cramps?"). She sees and can edit the exact text before it leaves. Only then is
-  it sent to the cloud model with Grounding with Google Search, and the answer is shown only when at
-  least one source is on femio's trusted list (WHO, NHS, CDC, NIH, ACOG, RCOG, NICE, ASRM, ESHRE,
-  and the Saudi and Egyptian health ministries). Every source and Google's search suggestions are
-  shown with the answer.
-
-## How we built it
-- Flutter app; Firebase AI Logic (`firebase-ai` 18.2.0, `firebase-ai-ondevice` 16.0.0-beta08)
-  called from Kotlin behind one method channel, so the Dart code holds no network client.
-- **Private by type.** The cloud call accepts only a `CloudSafeText`, a Dart type whose constructor
-  is private to the redaction step (first-person wording refused, numbers, links and contacts
-  stripped). A privacy tripwire in CI fails the build if Firebase appears outside the Kotlin
-  assistant package or if the cloud call stops requiring `CloudSafeText`.
-- **Rules before models.** Safety rules in four languages run first: crisis and urgent signs open
-  the help page with local crisis lines, pregnancy warning signs open the warning-signs screen,
-  and birth-control questions get a fixed answer. None of these reach a model.
-- **Works without AI.** With no Gemini Nano on the phone, the rules still turn sentences into log
-  entries and the visit summary still works; with no cloud config, Ask femio shows femio's guides.
-- App Check: the debug provider in debug builds, Play Integrity in release.
-- 46 new tests (31 domain, 15 widget) plus screenshots at 390×844 in light, dark and Arabic.
-
-## Challenges
-- Gemini Nano is validated for English and Korean; our users write Arabic dialects. The model gets
-  short English instructions and returns keys from a fixed vocabulary, and a four-language phrase
-  lexicon is the floor it builds on.
-- Health data and the cloud: we drew the line in code, not in a policy.
-
-## What's next
-Postpartum and perimenopause depth, iOS, and a reviewed Arabic evaluation set for the on-device
-extraction.
-
-## What was built in the hackathon period (since 11 November 2026)
-The whole hybrid assistant: the on-device and cloud paths, the Kotlin bridge, the redaction type,
-the trusted-source allowlist, the safety rules, the three screens in four languages, and their
-tests. Before the period femio was an unreleased offline tracker with no AI.
-
-## Built with
-flutter, dart, kotlin, firebase-ai-logic, gemini-nano, gemini, google-search-grounding,
-firebase-app-check, android
+| The old draft said | The code does (ADR-079, ADR-080, ADR-081) |
+|---|---|
+| Ask femio sends a rewritten question to the cloud with Google Search grounding (`ONLY_IN_CLOUD`), filtered by a trusted-host list | Answers come only from the bundled trusted-source registry; Gemini Nano summarises on the phone (`ONLY_ON_DEVICE`); Cloud boost is opt-in, off by default, and uses `PREFER_ON_DEVICE` with no tools; the tripwire forbids search grounding |
+| WHO, NHS, CDC, ACOG and others are answer sources | Passages are copied only from US federal public-domain publishers (CDC, MedlinePlus, Office on Women's Health, NIH institutes); WHO, NHS, ACOG, RCOG and NICE are further-reading links |
+| The cloud call accepts a `CloudSafeText` | It accepts only a `CloudPrompt`, built from a `CloudSafeText` question or a `PseudonymisedProfile` |
+| Redaction strips names and dates | It removes numbers, e-mail addresses and links; she sees and edits the exact text before it is sent |
+| Before the period, femio was an offline tracker with no network code | The app had no AI and no network code of its own, but carried an ad SDK from 29 Oct to 24 Nov 2026 (removed by ADR-080) |
+| "46 new tests" | 812 tests pass in the public export (2026-11-27); the count grows with every change |
