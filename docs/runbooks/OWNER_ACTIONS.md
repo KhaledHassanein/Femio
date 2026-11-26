@@ -27,6 +27,19 @@ Added 2026-11-24 (ADR-078). Steps 23 to 25 unlock the AI; without them the app s
 | 35 | **Egypt PDPC licence** (Law 151 Art. 12): ask the lawyer whether Cloud boost needs the sensitive-data licence and a transfer permit; the grace period ended about 1 Nov 2026 | Your decision | — |
 | 36 | **One privacy-lawyer review before the Play release**, with `docs/compliance/PRIVACY_REVIEW_2026-11-24.md`, the privacy policy and the consumer health data policy pages | Paid, yours | 1–2 h |
 
+## Judge audit (2026-11-26): decisions and the real-phone run
+
+Plan: `docs/33_REBUILD_V3/audit-2026-11-26/00-FINISHING-PLAN.md` (PROGRESS R14). Rows 40-42 are one-word answers; a session builds the rest.
+
+| # | What | Why only you | Time |
+|---|---|---|---|
+| 40 | **Calendar rule: keep her stated cycle length until three periods are logged?** Today, logging her second period removes two of the three ranges and the fertile window, because femio switches to "learning from your log" and ignores the length she gave (reproduced; PROGRESS R14.8). Recommended: yes, keep the stated length (low confidence, dashed) until three starts, then use her own cycles | A medical-rules decision | 2 min |
+| 41 | **Fertile window in "Track my period" mode: show it (with the sentence that it is not a way to avoid pregnancy, MR-15) or show it only in "Trying to conceive"?** Today it is drawn in both modes without that sentence on the calendar (R14.9). Recommended: show it in both, always with the MR-15 sentence | Product and safety call | 2 min |
+| 42 | **App Check while judges test.** A sideloaded APK cannot pass Play Integrity, so with enforcement on, Cloud boost is refused for judges (on-device and rules still work). Recommended: keep enforcement on, say so in the testing steps, and show a real cloud run in the video. The alternative (enforcement off until judging ends) weakens the security story | Your console and your risk | 2 min |
+| 43 | **Real-phone proof run** (this is rows 25 and 26 in practice). Install the build a session sends, register its App Check debug token, then: Settings → Assistant (status), "+" → Tell femio anything (Say it), Ask femio one question, switch Cloud boost on and ask one general question, then Settings → Assistant → What the AI did. Send the screenshots and say whether the phone shows "Ready". Nothing has run against real Gemini Nano or Firebase yet, and the submission's main claim depends on it | Your phone and console | 30 min |
+| 44 | **Pregnancy warning-sign list (MR-29).** The card lists 7 signs and cites CDC Hear Her, which lists more (fever, fainting, thoughts of harming yourself or the baby, chest pain, severe vomiting, fluid leaking, leg swelling, overwhelming tiredness). Approve adding them, or name the ones to leave out (R14.11) | Clinical sign-off | 10 min |
+| 45 | **Website deploy for the truth fixes.** When R14.2 and R14.4 are built, say "deploy" so the live privacy pages stop promising that names are removed and the site links the test build | Production deploy | 1 min |
+
 ## Calculators (R13, 2026-11-25)
 
 | # | What | Why only you | Time |
@@ -39,7 +52,7 @@ Added 2026-11-24 (ADR-078). Steps 23 to 25 unlock the AI; without them the app s
 | # | What | Why only you | Time |
 |---|---|---|---|
 | 1 | **Create the Google Play Console account** ($25, one-off) at play.google.com/console | Google verifies your identity | 20 min |
-| 2 | **Create the upload keystore** and keep it outside the repo: run the command in `docs/33_REBUILD_V3/05_RELEASE_RUNBOOK.md` §2, then copy `apps/mobile/android/key.properties.example` to `key.properties` and fill it in. Back the `.jks` file up somewhere safe: losing it means a new app listing | A signing key is an identity | 10 min |
+| 2 | **Probably done; please confirm (audit 2026-11-26, REL-6):** `E:\_Private\femio-upload-keystore.jks` (29 Oct) and a git-ignored `key.properties` exist in the main checkout. Confirm that the keystore has a backup copy. Original step: **Create the upload keystore** and keep it outside the repo: run the command in `docs/33_REBUILD_V3/05_RELEASE_RUNBOOK.md` §2, then copy `apps/mobile/android/key.properties.example` to `key.properties` and fill it in. Back the `.jks` file up somewhere safe: losing it means a new app listing | A signing key is an identity | 10 min |
 | 3 | ~~Fill the three legal placeholders~~ **Done 2026-10-30**: `info@femioapp.com` (receives mail, you tested it), KM Digital Labs, sole proprietorship, commercial register no. 682-374-954 | | |
 | 4 | **Pause the Supabase project** (Settings → General → Pause) and **delete the `femio-cms` Vercel project**. Before pausing, if you ever edited translations in the old CMS translation portal, export them first: SQL editor → `select key, locale, value from ui_strings where status = 'human_reviewed' and locale <> 'en'` → CSV → send to a session to merge | Account owner only | 10 min |
 | 39 | **Clinical read of the content revision (R3.10)**: the medical changes are listed in the commit messages `d83c7c1` (guides) and `114b2a2` (app and website strings), and the items left for you in `docs/33_REBUILD_V3/research/CONTENT_REVISION_2026-11.md`. Approve, or name the lines to revert | Medical sign-off is yours | 30–45 min |

@@ -1,0 +1,213 @@
+<title>femio Finishing Plan</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,500&family=Plus+Jakarta+Sans:wght@400;600;700&display=swap">
+<style>
+/* Layout: one reading column; a sticky section bar; tables scroll inside their own box on phones. Tokens are femio's Dusk Bloom. */
+:root { --bg:#FBF7F3; --surface:#FFFFFF; --soft:#F3ECE6; --fg:#21191E; --muted:#6E6068; --line:#E4D9DE;
+  --plum:#6B2558; --rose:#BF2F59; --sage:#2F7163; --amber:#8A5A00;
+  --p0bg:#FBE4EA; --p1bg:#FBF0DC; --okbg:#E2F1EC;
+  --display:"Newsreader", Georgia, serif; --body:"Plus Jakarta Sans", system-ui, sans-serif; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) { --bg:#140D14; --surface:#1E151D; --soft:#261B25; --fg:#F1E6EC; --muted:#B9A8B2; --line:#3A2C37; --plum:#E7A6D3; --rose:#FF8FAE; --sage:#8FD3BF; --amber:#F2C46B; --p0bg:#3A1622; --p1bg:#33270F; --okbg:#12302A; color-scheme:dark; } }
+:root[data-theme="dark"] { --bg:#140D14; --surface:#1E151D; --soft:#261B25; --fg:#F1E6EC; --muted:#B9A8B2; --line:#3A2C37; --plum:#E7A6D3; --rose:#FF8FAE; --sage:#8FD3BF; --amber:#F2C46B; --p0bg:#3A1622; --p1bg:#33270F; --okbg:#12302A; color-scheme:dark; }
+body { background:var(--bg); color:var(--fg); font:15px/1.6 var(--body); }
+body::before { content:""; position:fixed; inset:0 0 auto; height:env(safe-area-inset-top, 0px); z-index:10; background:var(--bg); }
+.wrap { max-width:980px; margin:0 auto; padding-block:36px 64px; padding-left:max(16px, env(safe-area-inset-left, 0px)); padding-right:max(16px, env(safe-area-inset-right, 0px)); display:flex; flex-direction:column; gap:40px; }
+h1, h2, h3 { font-family:var(--display); font-weight:500; text-wrap:balance; margin:0; }
+h1 { font-size:clamp(30px, 5vw, 42px); line-height:1.1; color:var(--plum); }
+h2 { font-size:26px; }
+h3 { font-size:19px; }
+p { margin:0; max-width:70ch; }
+.lede { color:var(--muted); margin-top:10px; }
+.meta { font-size:13px; color:var(--muted); margin-top:8px; }
+code { font-size:12.5px; overflow-wrap:anywhere; }
+section { display:flex; flex-direction:column; gap:14px; }
+nav { position:sticky; top:env(safe-area-inset-top, 0px); z-index:5; background:var(--bg); border-bottom:1px solid var(--line); padding-block:10px; display:flex; gap:8px; flex-wrap:wrap; }
+nav a { font:600 13px var(--body); color:var(--fg); text-decoration:none; border:1px solid var(--line); background:var(--surface); border-radius:999px; padding:6px 12px; }
+nav a:focus-visible { outline:2px solid var(--rose); outline-offset:2px; }
+.deadline { background:var(--soft); border-radius:16px; padding:16px 20px; display:grid; grid-template-columns:repeat(auto-fit, minmax(200px, 1fr)); gap:12px; }
+.deadline div { min-width:0; }
+.deadline b { display:block; font-family:var(--display); font-size:22px; font-weight:500; color:var(--plum); }
+.deadline span { font-size:13px; color:var(--muted); }
+.scroll { overflow-x:auto; border:1px solid var(--line); border-radius:14px; background:var(--surface); }
+table { border-collapse:collapse; width:100%; font-size:14px; }
+th, td { text-align:start; vertical-align:top; padding:10px 12px; border-bottom:1px solid var(--line); }
+th { font-size:12px; letter-spacing:.05em; text-transform:uppercase; color:var(--muted); font-weight:600; }
+tr:last-child td { border-bottom:0; }
+td.n { font-variant-numeric:tabular-nums; white-space:nowrap; font-weight:600; }
+.pill { display:inline-block; font-size:12px; font-weight:700; border-radius:999px; padding:2px 9px; white-space:nowrap; }
+.p0 { background:var(--p0bg); color:var(--rose); }
+.p1 { background:var(--p1bg); color:var(--amber); }
+.ok { background:var(--okbg); color:var(--sage); }
+ol.todo { list-style:none; padding:0; margin:0; display:flex; flex-direction:column; gap:10px; }
+ol.todo li { background:var(--surface); border:1px solid var(--line); border-radius:14px; padding:14px 16px; display:grid; grid-template-columns:auto minmax(0, 1fr) auto; gap:4px 14px; align-items:start; }
+ol.todo .row { font-family:var(--display); font-size:20px; color:var(--plum); line-height:1.2; }
+ol.todo .when { font-size:12px; font-weight:600; color:var(--sage); white-space:nowrap; }
+ol.todo p { color:var(--muted); font-size:14px; grid-column:2 / 4; }
+ol.todo strong { grid-column:2; }
+@media (max-width:560px) { ol.todo li { grid-template-columns:auto minmax(0, 1fr); } ol.todo .when { grid-column:2; } ol.todo p { grid-column:1 / 3; } }
+.tier { display:flex; flex-direction:column; gap:10px; }
+.item { border-inline-start:3px solid var(--line); padding:4px 0 4px 14px; display:flex; flex-direction:column; gap:3px; }
+.item.t0 { border-color:var(--rose); }
+.item.t1 { border-color:var(--amber); }
+.item .hd { font-weight:600; display:flex; gap:10px; flex-wrap:wrap; align-items:baseline; }
+.item .id { font-size:12px; color:var(--muted); font-weight:600; font-variant-numeric:tabular-nums; }
+.item p { color:var(--muted); font-size:14px; }
+.two { display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1fr); gap:16px; }
+@media (max-width:760px) { .two { grid-template-columns:minmax(0,1fr); } }
+.box { background:var(--surface); border:1px solid var(--line); border-radius:16px; padding:16px 18px; display:flex; flex-direction:column; gap:10px; min-width:0; }
+.box ul { margin:0; padding-inline-start:18px; display:flex; flex-direction:column; gap:6px; }
+.foot { font-size:13px; color:var(--muted); }
+a { color:var(--plum); }
+</style>
+
+<div class="wrap">
+<header>
+  <h1>femio finishing plan</h1>
+  <p class="lede">Six reviewers (security, privacy lawyer, Play release manager, clinician, designer, hackathon judge) went through the app and the website the way #BuildHybridAI judges will. Below is what they found, what is ranked first, and the six things only you can do.</p>
+  <p class="meta">26 November 2026 · checked at commit fb45488 · app tests: 1185 passing, no analyzer issues</p>
+</header>
+
+<nav aria-label="Sections">
+  <a href="#you">Your steps</a><a href="#scores">Scores</a><a href="#reports">Your two reports</a><a href="#plan">The plan</a><a href="#claims">Wrong sentences</a><a href="#checked">What was checked</a>
+</nav>
+
+<section class="deadline" aria-label="Deadline">
+  <div><b>Mon 30 Nov, 2 pm PT</b><span>Devpost deadline = Tue 1 Dec, 00:00 Cairo</span></div>
+  <div><b>4 days</b><span>Thu 26 to Mon 30. Anything not working by then is cut from the text, never faked</span></div>
+  <div><b>Stage One is pass/fail</b><span>Public repo with a licence, a YouTube video of 3 minutes or less, testing access. Any one missing scores zero</span></div>
+</section>
+
+<section id="you">
+  <h2>What only you can do</h2>
+  <p>The first three are one-word answers. Reply in chat with the row number and your answer. Full wording: OWNER_ACTIONS rows 40 to 45.</p>
+  <ol class="todo">
+    <li><span class="row">40</span><strong>Calendar: keep the cycle length she gave until three periods are logged?</strong><span class="when">today · 2 min</span><p>Right now, logging her second period makes the calendar show less: two of three ranges and the fertile window disappear. Recommended: yes.</p></li>
+    <li><span class="row">41</span><strong>Fertile window in "Track my period" mode: keep it, always with the "not a way to avoid pregnancy" sentence?</strong><span class="when">today · 2 min</span><p>Today the calendar draws it in that mode without the sentence. Recommended: keep it, add the sentence.</p></li>
+    <li><span class="row">42</span><strong>App Check while judges test: keep enforcement on?</strong><span class="when">today · 2 min</span><p>A downloaded APK can't pass Play Integrity, so judges won't reach Cloud boost. On-device AI and the rules still work. Recommended: keep it on, say so in the testing steps, and show a real cloud answer in the video.</p></li>
+    <li><span class="row">43</span><strong>Real-phone proof run</strong><span class="when">Fri 27 · 30 min</span><p>The AI has never run against real Gemini Nano or your Firebase project. A session will send you a build. You register its debug token, then do five taps (Assistant status, Say it, Ask femio, one Cloud boost question, "What the AI did") and send the screenshots. The whole entry rests on this.</p></li>
+    <li><span class="row">27</span><strong>Say "make it public"</strong><span class="when">Sat 28 · 1 min</span><p>Only after the exporter is fixed. As it stands it would copy local files (a crash log with your Windows user name, 92 test images) and a README that describes the old cloud design.</p></li>
+    <li><span class="row">28</span><strong>Record the video and submit</strong><span class="when">Sun 29 to Mon 30 · 1 hour</span><p>A new script will show the real phone: the split diagram, Gemini Nano working, one real cloud answer, and the "What the AI did" log.</p></li>
+    <li><span class="row">44</span><strong>Pregnancy warning signs: add the rest of CDC Hear Her?</strong><span class="when">after the deadline · 10 min</span><p>The card lists 7 signs and cites CDC, which lists more (fever, fainting, thoughts of harming yourself or the baby, chest pain and others).</p></li>
+    <li><span class="row">45</span><strong>Say "deploy" for the website fixes</strong><span class="when">Sat 28 · 1 min</span><p>The live privacy pages promise that names are removed from Cloud boost questions. They aren't (see below).</p></li>
+    <li><span class="row">2</span><strong>Confirm the upload keystore has a backup</strong><span class="when">any time · 2 min</span><p>The key file from 29 October exists in E:\_Private, so this row looks done.</p></li>
+  </ol>
+</section>
+
+<section id="scores">
+  <h2>Scores, the way a judge would give them</h2>
+  <div class="scroll"><table>
+    <thead><tr><th>Area</th><th>Score</th><th>Why, in one line</th></tr></thead>
+    <tbody>
+      <tr><td>Security</td><td class="n">7/10</td><td>Strong encryption, backups and website headers. Weak spots: screenshots of her record are allowed, PIN guesses are unlimited, and the backup key setting is light.</td></tr>
+      <tr><td>Privacy</td><td class="n">7/10</td><td>The cloud boundary is enforced in code and consent is done right. But one live sentence is false (names), and the policies don't yet name documents, medicines and labs.</td></tr>
+      <tr><td>Launch readiness</td><td class="n">5/10</td><td>The listing, icons and target SDK are ready. There is nothing a judge can install yet, the APK is debug-signed, and the closed-test clock has not started.</td></tr>
+      <tr><td>Feature maturity</td><td class="n">5/10</td><td>Cycle 6, trying to conceive 5, PCOS 3, pregnancy 6, after birth 6.5, loss 1, perimenopause 6. She cannot change her life stage after onboarding.</td></tr>
+      <tr><td>Hybrid-AI showcase</td><td class="n">4/10</td><td>No AI on Today's first screen. "Gemini Nano" appears only in Settings. A judge without Nano sees no AI output.</td></tr>
+      <tr><td>Presentation and polish</td><td class="n">6/10</td><td>Calm and consistent, with Arabic done properly. The AI screenshots come from test fakes, and the thumbnail contradicts the text.</td></tr>
+      <tr><td>Official criteria (4 × 25%)</td><td class="n">7.0/10</td><td>Technology 6, Design 8, Impact 7, Idea 7, if Stage One passes. About 8.3 with Tier 0 and Tier 1 done.</td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<section id="reports">
+  <h2>Your two reports</h2>
+  <div class="two">
+    <div class="box">
+      <h3>"The calendar showed only my past period"</h3>
+      <p>Reproduced on test profiles (today = 26 Nov):</p>
+      <div class="scroll"><table>
+        <thead><tr><th>She did this</th><th>Future days</th><th>Fertile days</th></tr></thead>
+        <tbody>
+          <tr><td>Said 28 days, one period</td><td class="n">35</td><td class="n">18</td></tr>
+          <tr><td><b>Then logged her next period</b></td><td class="n">8</td><td class="n">0</td></tr>
+          <tr><td>Said "not sure"</td><td class="n">0</td><td class="n">0</td></tr>
+          <tr><td>Three regular periods</td><td class="n">15</td><td class="n">18</td></tr>
+        </tbody>
+      </table></div>
+      <p>Logging more makes the calendar show less, because femio switches to "learning from your log" and drops the length she gave (row 40 fixes this). In four other cases the calendar stays empty and never says why. A stated 36–45 days is accepted, then ignored.</p>
+    </div>
+    <div class="box">
+      <h3>"AI isn't prominent enough"</h3>
+      <p>Confirmed. From a cold start it takes 9 taps to reach the first AI button. On Today, Ask femio sits 550 to 1,250 pixels down, below the first screen. Nothing says "Gemini Nano" or "on this phone" outside Settings.</p>
+      <ul>
+        <li>A "Say it" row under the Today card, with a chip: <i>Gemini Nano · on this phone</i>, <i>rules on this phone</i> or <i>+ Cloud boost</i>.</li>
+        <li>The assistant intro as the last onboarding step.</li>
+        <li>Ask femio and Visit summary moved up, and Assistant first in Settings.</li>
+        <li>"Ordered by Gemini Nano" shown on tips and questions whenever it really ran.</li>
+      </ul>
+      <p>Each change keeps the AI a companion: everything still works with AI off.</p>
+    </div>
+  </div>
+  <p class="foot">The screen-by-screen review with all twelve calendar states is in the <a href="https://claude.ai/artifact/2wbNyvPh6eVLDkUUoMpvRT">femio Stitch Review</a>.</p>
+</section>
+
+<section id="plan">
+  <h2>The plan, ranked</h2>
+  <p>Tier 0 decides whether the entry counts. Tier 1 raises the score. Tier 2 waits until after the deadline unless a session is free.</p>
+
+  <div class="tier">
+    <h3>Tier 0 · must be done to submit</h3>
+    <div class="item t0"><div class="hd"><span class="pill p0">Fri 27</span>Prove the hybrid AI on a real phone<span class="id">R14.1</span></div><p>A build with your Firebase settings, your proof run (row 43), and fixes for anything that breaks.</p></div>
+    <div class="item t0"><div class="hd"><span class="pill p0">Thu–Fri</span>Fix every sentence that isn't true<span class="id">R14.2</span></div><p>In the app (four languages), the website, the Play listing and Devpost. Testing steps for judges who download the APK.</p></div>
+    <div class="item t0"><div class="hd"><span class="pill p0">Fri–Sat</span>Fix the public-repo exporter<span class="id">R14.3</span></div><p>Copy from git only, a true README, the privacy guard included, and tests that pass inside the public copy.</p></div>
+    <div class="item t0"><div class="hd"><span class="pill p0">Sat 28</span>Give judges something to install<span class="id">R14.4</span></div><p>An APK on a GitHub release, linked from Devpost and the website. When no AI is available, the message says so plainly and doesn't blame the AI.</p></div>
+    <div class="item t0"><div class="hd"><span class="pill p0">Sat–Mon</span>Video, screenshots and Devpost text from the real phone<span class="id">R14.5</span></div><p>Includes the newer strengths the text doesn't mention yet: the "What the AI did" log and "What the AI sees".</p></div>
+  </div>
+
+  <div class="tier">
+    <h3>Tier 1 · raises the score</h3>
+    <div class="item t1"><div class="hd"><span class="pill p1">Fri–Sat</span>Make the hybrid AI visible<span class="id">R14.6</span></div><p>The Today row and chip, the onboarding intro, buttons moved up, and Nano credited where it ran.</p></div>
+    <div class="item t1"><div class="hd"><span class="pill p1">Fri</span>Calendar fixes that need no rule change<span class="id">R14.7</span></div><p>Say why it's empty, keep the range for 36–45 days, point to next month, no past range in the card, and respect "irregular".</p></div>
+    <div class="item t1"><div class="hd"><span class="pill p1">after row 40</span>Keep her stated cycle length until three periods<span class="id">R14.8</span></div><p>Changes a medical rule, so it waits for your yes.</p></div>
+    <div class="item t1"><div class="hd"><span class="pill p1">after row 41</span>The birth-control sentence wherever a fertile window is drawn<span class="id">R14.9</span></div><p>A safety rule (MR-15).</p></div>
+    <div class="item t1"><div class="hd"><span class="pill p1">Sat</span>Change life stage, and correct onboarding answers<span class="id">R14.10</span></div><p>Today, a woman who gets pregnant can't switch from "trying to conceive" to "pregnant", and she can't enter a due date from a scan. Changing stage keeps her record (rule 5).</p></div>
+  </div>
+
+  <div class="tier">
+    <h3>Tier 2 · before the Play release</h3>
+    <div class="item"><div class="hd">Clinical fixes<span class="id">R14.11–12</span></div><p>The day note checks for danger words, a crisis route after birth, one false line in the menopause setup, a 90-day "no period" prompt, and the warning-sign list (row 44).</p></div>
+    <div class="item"><div class="hd">Security fixes<span class="id">R14.13</span></div><p>Block screenshots after the video is recorded, slow down PIN guessing, and strengthen the backup key.</p></div>
+    <div class="item"><div class="hd">Privacy wording and the privacy guard<span class="id">R14.14</span></div><p>The policies name documents, medicines and labs. A phone traffic capture (row 33) settles what Google's on-device AI library sends.</p></div>
+    <div class="item"><div class="hd">Play release<span class="id">R14.15–16</span></div><p>Start the closed test (12 testers for 14 days, so production is mid-December at the earliest), an upload-signed bundle, and a merge and deploy on your word.</p></div>
+  </div>
+</section>
+
+<section id="claims">
+  <h2>Three sentences that are wrong today</h2>
+  <div class="scroll"><table>
+    <thead><tr><th>Where</th><th>What it says</th><th>What is true</th></tr></thead>
+    <tbody>
+      <tr><td>Consent screen, live privacy pages, Play listing, Devpost</td><td>Names and dates are removed from a Cloud boost question</td><td>Only numbers, e-mail addresses and links are removed. She sees and edits the exact text before it is sent.</td></tr>
+      <tr><td>Devpost, "what existed"</td><td>The prototype had no network code</td><td>An ad SDK was in the app from 29 Oct to 24 Nov.</td></tr>
+      <tr><td>Public repo README (from the exporter)</td><td>Cloud only, with Google Search grounding</td><td>The cloud model is used only when the phone can't answer, with no web search, and only from the bundled sources (decided 24 Nov).</td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<section id="checked">
+  <h2>What was checked, and what wasn't</h2>
+  <div class="two">
+    <div class="box">
+      <h3><span class="pill ok">checked</span> by the lead</h3>
+      <ul>
+        <li>All 1185 app tests pass and the analyzer is clean (this branch).</li>
+        <li>The calendar results above, on test profiles.</li>
+        <li>Each reviewer's main claims, re-run against the code.</li>
+        <li>The phone APK from 26 Nov 14:44 carries your Firebase settings and is debug-signed.</li>
+        <li>Live website: pages load in four languages, the security headers are strong, and "Get the app" says "Coming soon".</li>
+      </ul>
+    </div>
+    <div class="box">
+      <h3><span class="pill p1">not checked</span> yet</h3>
+      <ul>
+        <li>The AI on a real phone or your real Firebase project (row 43).</li>
+        <li>What the release build sends over the network (row 33).</li>
+        <li>Console settings: paid tier, logging off, data sharing off (rows 29 to 31).</li>
+        <li>Which commit the live website serves. It is behind this branch.</li>
+        <li>Whether your phone had the build from before this morning's calendar fix.</li>
+      </ul>
+    </div>
+  </div>
+  <p class="foot">Agent records: docs/33_REBUILD_V3/audit-2026-11-26/ (six reports and the plan). Task list: PROGRESS section R14.</p>
+</section>
+</div>
