@@ -38,13 +38,16 @@ class UpcomingPeriod {
 /// Period k starts k average lengths after her last start, with a half-width of
 /// `ceil(margin × √k)`; confidence drops one level per later period, never below
 /// low. Returns only the first when her cycles are irregular or still being learned
-/// (MR-06), and an empty list when [prediction] is null.
+/// from too few logs (MR-06); a regular length she stated counts as known (MR-57).
+/// An empty list when [prediction] is null.
 List<UpcomingPeriod> upcomingPeriods(
   CyclePrediction? prediction, {
   int count = upcomingPeriodCount,
 }) {
   if (prediction == null || count < 1) return const [];
-  final total = prediction.irregular || prediction.learning ? 1 : count;
+  final onlyNext =
+      prediction.irregular || (prediction.learning && prediction.basis != 'stated');
+  final total = onlyNext ? 1 : count;
   final first = prediction.confidence.index;
   return [
     for (var k = 1; k <= total; k++)

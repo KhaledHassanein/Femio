@@ -25,10 +25,11 @@ describe("period demo (synthetic samples, MR-51)", () => {
     expect(demo.periods).toHaveLength(1);
   });
 
-  it("shows only the next period while still learning", () => {
+  it("a stated regular length shows three periods, all low confidence (MR-57)", () => {
     const demo = periodDemo("new");
     expect(demo.prediction?.learning).toBe(true);
-    expect(demo.periods).toHaveLength(1);
+    expect(demo.periods).toHaveLength(3);
+    expect(demo.periods.every((p) => p.confidence === "low")).toBe(true);
   });
 
   it("never draws a single date: every range spans days", () => {

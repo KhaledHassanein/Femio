@@ -1,5 +1,7 @@
 import 'package:femio/data/profile.dart';
+import 'package:femio/domain/cycle_prediction.dart';
 import 'package:femio/domain/day_marks.dart';
+import 'package:femio/domain/fertility.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 void main() {
@@ -37,15 +39,66 @@ void main() {
     expect(m['2026-10-15']!.ovulation, isTrue);
   });
 
-  test('no estimate is drawn on a day already lived', () {
+  // MR-57 (owner 2026-11-26): this cycle's window stays visible after it passes;
+  // a past range for a period that has not come is not drawn (no "late" counter).
+  test("this cycle's window stays after it passes; past period ranges do not", () {
     final m = dayMarks(
       base,
       today: '2026-10-20',
       from: '2026-10-01',
       to: '2026-10-31',
     );
-    expect(m['2026-10-15']?.ovulation ?? false, isFalse);
+    expect(m['2026-10-15']!.ovulation, isTrue);
+    expect(m['2026-10-10']!.fertile, isTrue);
     expect(m['2026-10-27']!.predicted, isTrue);
+    final late = dayMarks(base, today: '2026-11-03', from: '2026-10-20', to: '2026-11-10');
+    expect(late['2026-10-28']?.predicted ?? false, isFalse);
+  });
+
+  test('a window from a cycle before her last period is not drawn', () {
+    final p = base.withDayLog('2026-10-29', const DayLog(flow: 'heavy'));
+    final m = dayMarks(p, today: '2026-11-02', from: '2026-10-01', to: '2026-10-31');
+    expect(m['2026-10-15']?.ovulation ?? false, isFalse);
+  });
+
+  // Owner 2026-11-26: a new user saw only one marked day. She gave a start, a period
+  // length and a regular cycle length, so her month should show all of it.
+  test('a new user sees her period days, this window, and three periods ahead', () {
+    const p = Profile(
+      goal: Goal.ttc,
+      locale: 'en',
+      periodStarts: ['2026-11-05'],
+      periodLength: 5,
+      cycleLength: 28,
+    );
+    final m = dayMarks(p, today: '2026-11-26', from: '2026-11-01', to: '2027-02-28');
+    for (final d in ['2026-11-05', '2026-11-07', '2026-11-09']) {
+      expect(m[d]!.bleed, isTrue, reason: d);
+    }
+    expect(m['2026-11-10']?.bleed ?? false, isFalse);
+    // 3 Dec ± 4; ovulation 14 days before, window the six days ending on it.
+    expect(m['2026-11-19']!.ovulation, isTrue);
+    expect(m['2026-11-14']!.fertile, isTrue);
+    expect(m['2026-12-03']!.predicted, isTrue);
+    final ovulation = [for (final e in m.entries) if (e.value.ovulation) e.key]..sort();
+    expect(ovulation, ['2026-11-19', '2026-12-17', '2027-01-14']);
+    expect(m['2027-01-28']!.possible, isTrue, reason: 'the third period is low confidence');
+  });
+
+  test('period days still ahead are expected, and a logged flow keeps its word', () {
+    final p = const Profile(
+      goal: Goal.period,
+      locale: 'en',
+      periodStarts: ['2026-11-24'],
+      periodLength: 5,
+      cycleLength: 28,
+    ).withDayLog('2026-11-25', const DayLog(flow: 'spotting'));
+    final m = dayMarks(p, today: '2026-11-26', from: '2026-11-20', to: '2026-11-30');
+    expect(m['2026-11-25']!.bleed, isFalse);
+    expect(m['2026-11-25']!.spotting, isTrue);
+    expect(m['2026-11-26']!.bleed, isTrue);
+    expect(m['2026-11-28']!.bleed, isFalse);
+    expect(m['2026-11-28']!.predicted, isTrue);
   });
 
   test('logging a bleed adds it to the prediction; clearing it removes it', () {
@@ -106,7 +159,8 @@ void main() {
         .where((e) => e.value.ovulation)
         .map((e) => e.key)
         .toList();
-    expect(ovulation, ['2026-07-02']);
+    // MR-57: a window before each of the three periods.
+    expect(ovulation, ['2026-07-02', '2026-07-30', '2026-08-27']);
     expect(
       m['2026-07-02']!.fertile,
       isTrue,
@@ -133,5 +187,12 @@ void main() {
       ),
       isEmpty,
     );
+  });
+
+  test('Today headlines the next window once this one has passed', () {
+    const p = Profile(goal: Goal.ttc, locale: 'en', periodStarts: ['2026-11-05'], cycleLength: 28);
+    final prediction = predictNextPeriod(p.periodStarts, p.cycleLength)!;
+    expect(currentOrNextFertileWindow(p, prediction, '2026-11-16')!.ovulation, '2026-11-19');
+    expect(currentOrNextFertileWindow(p, prediction, '2026-11-26')!.ovulation, '2026-12-17');
   });
 }

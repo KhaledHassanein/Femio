@@ -11,6 +11,7 @@
 import '../data/profile.dart';
 import 'cycle_prediction.dart';
 import 'dates.dart';
+import 'upcoming_periods.dart';
 
 /// The six-day window and the day it ends on.
 class FertileWindow {
@@ -56,8 +57,32 @@ enum WindowStatus { shown, irregular, learning, outsideRange }
 
 /// The fertile window the app shows for [profile] and [prediction], or null when none can
 /// be named. The one place the calendar, Today and the explainers ask (MR-06..08).
-FertileWindow? fertileWindowFor(Profile profile, CyclePrediction prediction) => fertileWindowBefore(
-      prediction.predictedStart,
+FertileWindow? fertileWindowFor(Profile profile, CyclePrediction prediction) =>
+    _windowBefore(profile, prediction, prediction.predictedStart);
+
+/// One window before each predicted period the calendar draws (MR-57): this cycle's
+/// first, then one per later period. Empty when the rule withholds a window. Each is
+/// MR-07's six days before that period's middle date; the period range around it
+/// already widens with distance, so the window is not drawn as more certain than it is.
+List<FertileWindow> fertileWindowsFor(Profile profile, CyclePrediction prediction) => [
+      for (final u in upcomingPeriods(prediction))
+        ?_windowBefore(profile, prediction, u.predictedStart),
+    ];
+
+/// The window Today headlines: the first that has not ended by [today] (this cycle's, or
+/// the next once it has passed), or null when the rule withholds a window. Owner
+/// 2026-11-26: a window already lived is history for the calendar, not news for Today.
+FertileWindow? currentOrNextFertileWindow(Profile profile, CyclePrediction prediction, String today) {
+  final windows = fertileWindowsFor(profile, prediction);
+  for (final w in windows) {
+    if (w.windowEnd.compareTo(today) >= 0) return w;
+  }
+  return windows.isEmpty ? null : windows.last;
+}
+
+FertileWindow? _windowBefore(Profile profile, CyclePrediction prediction, String nextStart) =>
+    fertileWindowBefore(
+      nextStart,
       cycleLength: profile.cycleLength ?? prediction.averageLength,
       irregular: prediction.irregular || profile.irregular,
       learning: prediction.learning && prediction.basis != 'stated',

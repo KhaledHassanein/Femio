@@ -32,15 +32,18 @@ export type UpcomingPeriod = {
  * @param prediction - from `predictNextPeriod`; null gives an empty list.
  * @param count - how many periods; defaults to {@link UPCOMING_PERIOD_COUNT}.
  * @returns the ranges in date order. Only the first when her cycles are irregular
- *   or still being learned (MR-06): a third range drawn from two data points would
- *   look like knowledge it is not.
+ *   or still being learned from her logs (MR-06): a third range drawn from two data
+ *   points would look like knowledge it is not. A regular length she stated is
+ *   treated as known (MR-57), as the website period calculator does.
  */
 export function upcomingPeriods(
   prediction: CyclePrediction | null,
   count: number = UPCOMING_PERIOD_COUNT,
 ): UpcomingPeriod[] {
   if (prediction === null || count < 1) return [];
-  const total = prediction.irregular || prediction.learning ? 1 : count;
+  // MR-57: a regular length she stated counts as known, like the period calculator.
+  const onlyNext = prediction.irregular || (prediction.learning && prediction.basis !== "stated");
+  const total = onlyNext ? 1 : count;
   const first = LEVELS.indexOf(prediction.confidence);
   const out: UpcomingPeriod[] = [];
   for (let k = 1; k <= total; k += 1) {

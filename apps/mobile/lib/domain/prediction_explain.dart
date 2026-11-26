@@ -122,7 +122,15 @@ DayExplanation explainDay(Profile profile, {required String day, required String
           break;
         }
       }
-      if (mark.fertile || mark.ovulation) fertile = fertileWindowFor(profile, prediction);
+      if (mark.fertile || mark.ovulation) {
+        // The window this day sits in: this cycle's or a later one (MR-57).
+        for (final w in fertileWindowsFor(profile, prediction)) {
+          if (day.compareTo(w.windowStart) >= 0 && day.compareTo(w.windowEnd) <= 0) {
+            fertile = w;
+            break;
+          }
+        }
+      }
     }
   }
   return DayExplanation(
