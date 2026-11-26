@@ -1,4 +1,4 @@
-// Screen protection that follows her app lock (SEC-1, SEC-14, ADR-085).
+// Screen protection that follows her app lock (SEC-1, SEC-14, ADR-083).
 //
 // Why it exists: while a PIN is set, Android must not keep a picture of her record. With
 // FLAG_SECURE on, the recent-apps thumbnail is blank and screenshots and screen recordings

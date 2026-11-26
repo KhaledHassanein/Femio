@@ -20,7 +20,7 @@ import '../../theme/spacing.dart';
 
 /// Asks for a passphrase (twice when [confirm]); null when she cancels. A new passphrase
 /// ([confirm]) needs [minNewPassphraseLength] characters; opening an existing file accepts
-/// the older, shorter floor so backups made before ADR-085 still open.
+/// the older, shorter floor so backups made before ADR-083 still open.
 Future<String?> askPassphrase(BuildContext context, {required String title, required bool confirm}) async {
   final l = L10n.of(context);
   final minLength = confirm ? minNewPassphraseLength : minPassphraseLength;
@@ -64,7 +64,7 @@ Future<String?> askPassphrase(BuildContext context, {required String title, requ
 }
 
 /// Runs [work] (the passphrase key derivation and the sealing) behind a small modal
-/// "working" dialog, so the few seconds a 600,000-round key takes on a phone (ADR-085) never
+/// "working" dialog, so the few seconds a 600,000-round key takes on a phone (ADR-083) never
 /// look like a frozen app, and nothing else can be tapped meanwhile. Rethrows what [work] throws.
 Future<T> _whileWorking<T>(BuildContext context, Future<T> Function() work) async {
   final l = L10n.of(context);

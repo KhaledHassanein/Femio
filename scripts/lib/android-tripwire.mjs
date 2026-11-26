@@ -1,5 +1,5 @@
 /**
- * The Android half of the privacy tripwire (R14.14, PRIV-11, SEC-16; ADR-085).
+ * The Android half of the privacy tripwire (R14.14, PRIV-11, SEC-16; ADR-083).
  *
  * Why it exists: the Dart checks in scripts/analytics-lint.mjs stop the app's Dart code from
  * opening a connection, but INTERNET is declared for Firebase AI Logic, so native code and

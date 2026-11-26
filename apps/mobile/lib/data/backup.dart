@@ -17,11 +17,11 @@ import 'profile.dart';
 /// the magic bytes inside the file are what [decodeBackup] trusts.
 const backupExtension = 'femio';
 
-/// Shortest passphrase that may OPEN a backup. Files made before ADR-085 allowed 6
+/// Shortest passphrase that may OPEN a backup. Files made before ADR-083 allowed 6
 /// characters, and a backup she cannot open is a lost record, so opening keeps that floor.
 const minPassphraseLength = 6;
 
-/// Shortest passphrase for a NEW backup (SEC-4, ADR-085). A backup travels and can be
+/// Shortest passphrase for a NEW backup (SEC-4, ADR-083). A backup travels and can be
 /// attacked offline, where only length and the key-derivation cost slow a guesser down.
 /// Length, not character classes: a sentence she remembers beats symbols she forgets.
 const minNewPassphraseLength = 10;

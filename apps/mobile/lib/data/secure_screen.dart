@@ -1,4 +1,4 @@
-// The Dart end of the "secure screen" switch (SEC-1, ADR-085).
+// The Dart end of the "secure screen" switch (SEC-1, ADR-083).
 //
 // Why it exists: while her app lock (PIN) is on, Android must not keep a picture of her
 // record. FLAG_SECURE hides the app from the recent-apps thumbnail, screenshots and screen

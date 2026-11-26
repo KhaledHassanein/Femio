@@ -33,7 +33,7 @@ const saltLength = 16;
 
 /// PBKDF2-HMAC-SHA256 rounds for a NEW backup: OWASP's 2023 floor for this hash (Password
 /// Storage Cheat Sheet). The fast PBKDF2 in `pbkdf2.dart` takes about 0.9 s for this on a
-/// desktop CPU, measured 2026-11-27 (ADR-085); a mid-range phone is slower, and only a
+/// desktop CPU, measured 2026-11-27 (ADR-083); a mid-range phone is slower, and only a
 /// backup export or import waits for it, off the UI isolate. Each file records the count it
 /// used, so raising this only affects new backups: files made at the old 120,000 still open.
 const backupIterations = 600000;
@@ -95,7 +95,7 @@ Future<Uint8List> open(List<int> key, List<int> sealed, {String magic = recordMa
 ///
 /// Runs on a short-lived background isolate, so a 600,000-round backup key never freezes
 /// the screen. The result is byte-for-byte the standard PBKDF2 the `cryptography` package
-/// computed before ADR-085, so existing PIN hashes and backups still match.
+/// computed before ADR-083, so existing PIN hashes and backups still match.
 /// Throws [ArgumentError] for [iterations] below 1.
 Future<Uint8List> deriveKey(String passphrase, List<int> salt, {int iterations = backupIterations}) {
   if (iterations < 1) throw ArgumentError.value(iterations, 'iterations', 'must be at least 1');

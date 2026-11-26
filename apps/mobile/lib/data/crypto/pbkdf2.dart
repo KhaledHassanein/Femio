@@ -1,4 +1,4 @@
-// PBKDF2-HMAC-SHA256 in plain Dart, written for speed (SEC-4, ADR-085).
+// PBKDF2-HMAC-SHA256 in plain Dart, written for speed (SEC-4, ADR-083).
 //
 // Why it exists: a backup file travels (Drive, WhatsApp, email), so its passphrase must cost
 // an attacker as much as the phone can afford. OWASP's floor for PBKDF2-HMAC-SHA256 is 600,000

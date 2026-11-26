@@ -8,7 +8,7 @@ plugins {
 
 // Release signing (R4.11). The upload key never enters git: `android/key.properties`
 // (ignored) names a keystore the owner keeps outside the repository. Without that file a
-// release build FAILS (SEC-9, ADR-085): a debug-signed "release" APK fails Play Integrity
+// release build FAILS (SEC-9, ADR-083): a debug-signed "release" APK fails Play Integrity
 // (Cloud boost then breaks) and can never be upgraded by the Play build, so it must not be
 // produced by accident. A tester who knowingly wants one passes
 // `flutter build apk --release -P allowDebugSigning=true` (or sets FEMIO_ALLOW_DEBUG_SIGNING=1).

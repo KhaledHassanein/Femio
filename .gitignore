@@ -86,3 +86,8 @@ docs/34_GROWTH_OPS/reports/gsc/
 docs/34_GROWTH_OPS/reports/ga4/
 # Playwright MCP output (screenshots, snapshots, console logs); evidence is copied into testing-results/
 .playwright-mcp/
+
+# Signing keys never enter git, wherever they are dropped (SEC-10)
+*.jks
+*.keystore
+key.properties

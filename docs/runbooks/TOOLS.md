@@ -43,7 +43,7 @@ still needs the token pass and the logical-property pass (`ms-`/`me-`, never `le
 
 ### Privacy tripwire (`analytics-lint.mjs` + `lib/android-tripwire.mjs`)
 `pnpm analytics-lint` (or `node scripts/analytics-lint.mjs`) runs in the gate. Besides the web and
-Dart checks it covers the Android side (R14.14, ADR-085):
+Dart checks it covers the Android side (R14.14, ADR-083):
 - **Native network code:** any `.kt`/`.java` under `apps/mobile/android` that imports `java.net` or
   `javax.net`, opens a URL connection or socket, or uses OkHttp, Ktor, Retrofit, Volley, Cronet,
   gRPC, a WebView or DownloadManager fails, except in `kotlin/com/femioapp/femio/assistant/`

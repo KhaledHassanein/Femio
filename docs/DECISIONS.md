@@ -1097,7 +1097,7 @@ later session could undo by accident:
   says why; it stays in the record. Rule 1: femio is never a way to avoid pregnancy, so it keeps
   no pill schedule and gives no missed-pill advice.
 
-## ADR-085
+## ADR-083
 **Date:** 2026-11-27 · **Status:** accepted 2026-11-27 (standing owner delegation for R14.13 and the
 tripwire part of R14.14; the recommended defaults were taken) · **Area:** app security, privacy
 guard, website headers (recorded only) · **Builds on:** ADR-070, ADR-078, ADR-080, ADR-082 ·
@@ -1124,7 +1124,7 @@ current merged manifest. None was an exploitable remote exposure.
    The lock screen shows the time left. PIN rounds stay at 30,000: the count is not stored with
    the hash, so changing it would lock out every existing PIN.
 3. **The PIN still guards the screen, not the key (SEC-3).** Unchanged on purpose days before the
-   deadline: changing how the record key is stored risks data loss. ADR-086 proposes the change.
+   deadline: changing how the record key is stored risks data loss. ADR-084 proposes the change.
    No copy may say the PIN encrypts her record.
 4. **Backup passphrase stretching (SEC-4): PBKDF2-HMAC-SHA256, 600,000 rounds** (OWASP Password
    Storage Cheat Sheet, 2023 figure). The `cryptography` package's pure-Dart PBKDF2 was too slow
@@ -1203,14 +1203,14 @@ backups open. A forgotten PIN is still "delete everything"; a mistyped one now c
 four tries. Release builds from a checkout without the key fail with a message that says why. A
 new native library or component fails the gate until someone states why it is safe.
 
-## ADR-086
+## ADR-084
 **Date:** 2026-11-27 · **Status:** proposed (not built; follow-up after the hackathon) ·
-**Area:** app security, record storage · **Builds on:** ADR-070, ADR-085 · **Finding:** SEC-3
+**Area:** app security, record storage · **Builds on:** ADR-070, ADR-083 · **Finding:** SEC-3
 
 **Context.** The record, documents and AI ledger are sealed under `record-key-v1`, a random key in
 Keystore-backed secure storage. The app lock compares a PIN hash but never takes part in
 decryption, so anyone who can run code as the app (a rooted phone, a forensic image of an unlocked
-phone) can decrypt without the PIN. ADR-085 left this unchanged because a key-storage change days
+phone) can decrypt without the PIN. ADR-083 left this unchanged because a key-storage change days
 before the deadline risks losing her record.
 
 **Proposal.**

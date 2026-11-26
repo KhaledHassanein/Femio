@@ -1,4 +1,4 @@
-// R14.13 security hardening (SEC-1, SEC-2, SEC-4, SEC-11; ADR-085), each tested the way it
+// R14.13 security hardening (SEC-1, SEC-2, SEC-4, SEC-11; ADR-083), each tested the way it
 // can fail:
 // - the fast PBKDF2 must give exactly the bytes of the `cryptography` package and of the
 //   published test vectors, or every existing PIN and backup would stop opening;
@@ -45,7 +45,7 @@ Profile _profile({List<RecordAttachment> attachments = const []}) => Profile(
       attachments: attachments,
     );
 
-/// A backup file written the way femio did before ADR-085: the package's PBKDF2 at
+/// A backup file written the way femio did before ADR-083: the package's PBKDF2 at
 /// [iterations], so the test proves old files still open under the new code.
 Future<Uint8List> _oldStyleBackup(String passphrase, Map<String, Object?> body, int iterations) async {
   final salt = envelope.randomBytes(envelope.saltLength);

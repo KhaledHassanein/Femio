@@ -6,12 +6,12 @@
 // There is no recovery; a forgotten PIN means "delete everything and start over",
 // and the lock screen says so plainly.
 //
-// Two protections ride on the lock (SEC-1, SEC-2, ADR-085):
+// Two protections ride on the lock (SEC-1, SEC-2, ADR-083):
 // - wrong PINs cost time: after [freePinTries] misses each further miss doubles a wait,
 //   kept in the vault so a restart does not reset it;
 // - while a PIN is set, the screen is protected (no recent-apps picture, no capture).
 // The PIN guards the screen, not the encryption: the record key is in the Keystore and
-// does not depend on the PIN (SEC-3; a PIN-wrapped key is proposed in ADR-086).
+// does not depend on the PIN (SEC-3; a PIN-wrapped key is proposed in ADR-084).
 
 import 'dart:convert';
 import 'dart:math' show min;

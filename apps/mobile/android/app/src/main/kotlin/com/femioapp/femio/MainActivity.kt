@@ -2,7 +2,7 @@
 // the assistant (ADR-078), so model calls stay in Kotlin and out of the Dart code; the
 // share sheet (R10.2), so she can send her visit pack with the app she picks; the
 // home-screen widget's two-string channel (R9.11); her documents' PDF pages and file
-// sharing (R11.2); and the screen protection that follows her app lock (SEC-1, ADR-085).
+// sharing (R11.2); and the screen protection that follows her app lock (SEC-1, ADR-083).
 // None opens a network connection.
 
 package com.femioapp.femio

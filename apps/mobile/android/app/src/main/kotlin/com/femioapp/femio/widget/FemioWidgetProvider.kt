@@ -6,7 +6,7 @@
 // record: Dart decides the words (domain/home_widget.dart) and hands over two finished
 // strings, which are stored here and drawn as they are. A tap opens the app.
 // While her app lock is set the widget shows only the neutral words, whatever was stored
-// (SEC-14, ADR-085): a PIN means the phone may be in other hands.
+// (SEC-14, ADR-083): a PIN means the phone may be in other hands.
 
 package com.femioapp.femio.widget
 
