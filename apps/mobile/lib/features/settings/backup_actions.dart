@@ -5,6 +5,7 @@
 // file) and the passphrase rules live here once. Nothing is written anywhere she
 // did not pick, and the passphrase is never stored.
 
+import 'dart:async';
 import 'dart:typed_data';
 
 import 'package:file_picker/file_picker.dart';
@@ -12,12 +13,17 @@ import 'package:flutter/material.dart';
 
 import '../../app.dart';
 import '../../data/backup.dart';
+import '../../data/document_source.dart' show clearPickerCopies;
 import '../../data/record_documents.dart';
 import '../../l10n/app_localizations.dart';
+import '../../theme/spacing.dart';
 
-/// Asks for a passphrase (twice when [confirm]); null when she cancels.
+/// Asks for a passphrase (twice when [confirm]); null when she cancels. A new passphrase
+/// ([confirm]) needs [minNewPassphraseLength] characters; opening an existing file accepts
+/// the older, shorter floor so backups made before ADR-083 still open.
 Future<String?> askPassphrase(BuildContext context, {required String title, required bool confirm}) async {
   final l = L10n.of(context);
+  final minLength = confirm ? minNewPassphraseLength : minPassphraseLength;
   final first = TextEditingController();
   final second = TextEditingController();
   String? error;
@@ -39,8 +45,8 @@ Future<String?> askPassphrase(BuildContext context, {required String title, requ
           TextButton(onPressed: () => Navigator.of(context).pop(null), child: Text(l.back)),
           FilledButton(
             onPressed: () {
-              if (first.text.length < minPassphraseLength) {
-                setState(() => error = l.backupPassphraseShort(minPassphraseLength));
+              if (first.text.length < minLength) {
+                setState(() => error = l.backupPassphraseShort(minLength));
                 return;
               }
               if (confirm && first.text != second.text) {
@@ -57,6 +63,34 @@ Future<String?> askPassphrase(BuildContext context, {required String title, requ
   );
 }
 
+/// Runs [work] (the passphrase key derivation and the sealing) behind a small modal
+/// "working" dialog, so the few seconds a 600,000-round key takes on a phone (ADR-083) never
+/// look like a frozen app, and nothing else can be tapped meanwhile. Rethrows what [work] throws.
+Future<T> _whileWorking<T>(BuildContext context, Future<T> Function() work) async {
+  final l = L10n.of(context);
+  final navigator = Navigator.of(context, rootNavigator: true);
+  var open = true;
+  unawaited(showDialog<void>(
+    context: context,
+    barrierDismissible: false,
+    builder: (context) => PopScope(
+      canPop: false,
+      child: AlertDialog(
+        content: Row(children: [
+          const CircularProgressIndicator(),
+          const SizedBox(width: space4),
+          Expanded(child: Text(l.backupWorking)),
+        ]),
+      ),
+    ),
+  ).whenComplete(() => open = false));
+  try {
+    return await work();
+  } finally {
+    if (open) navigator.pop();
+  }
+}
+
 /// Seals the record and lets her save the file where she chooses.
 Future<void> exportBackupFlow(BuildContext context, FemioController controller) async {
   final l = L10n.of(context);
@@ -64,7 +98,7 @@ Future<void> exportBackupFlow(BuildContext context, FemioController controller) 
   if (passphrase == null || !context.mounted) return;
   final Uint8List bytes;
   try {
-    bytes = await controller.exportBackup(passphrase);
+    bytes = await _whileWorking(context, () => controller.exportBackup(passphrase));
   } on BackupTooLargeError {
     // Her documents are over what one backup carries (ADR-082 §2): say so, never cut silently.
     if (context.mounted) ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(l.backupTooLarge)));
@@ -87,12 +121,20 @@ Future<void> importBackupFlow(BuildContext context, FemioController controller) 
   final l = L10n.of(context);
   final picked = await FilePicker.pickFiles(dialogTitle: l.importBackup);
   if (picked.isEmpty) return;
-  final bytes = await picked.single.readAsBytes();
+  // Size first (SEC-11): a file bigger than any backup femio writes is refused unread.
+  final length = await picked.single.length();
+  final bytes = length != null && length > maxBackupFileBytes ? null : await picked.single.readAsBytes();
+  // The picker copied the file into the app's cache; the bytes are in memory now (SEC-15).
+  await clearPickerCopies();
   if (!context.mounted) return;
+  if (bytes == null) {
+    ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(l.backupNotFemio)));
+    return;
+  }
   final passphrase = await askPassphrase(context, title: l.importBackup, confirm: false);
   if (passphrase == null || !context.mounted) return;
   try {
-    await controller.importBackup(bytes, passphrase);
+    await _whileWorking(context, () => controller.importBackup(bytes, passphrase));
     if (context.mounted) ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(l.backupImported)));
   } on BackupError catch (e) {
     if (!context.mounted) return;

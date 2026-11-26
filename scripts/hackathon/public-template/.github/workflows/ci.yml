@@ -1,0 +1,51 @@
+# CI for the public femio app repository (R14.3, JUDGE-7).
+#
+# Three checks on every push and pull request:
+#   1. secret scan: no secret-shaped file or key-shaped string anywhere in the repository;
+#   2. privacy tripwire: no analytics, ads or network code in the app, Firebase only in the Kotlin
+#      assistant package, the cloud call takes only a CloudPrompt, no Google Search grounding;
+#   3. flutter analyze and flutter test (screenshot tests are skipped here; see README).
+# A release build needs the owner's signing key and Firebase config, which never live in CI.
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  privacy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 22
+      - name: Secret scan
+        run: node scripts/secret-scan.mjs .
+      - name: Privacy tripwire
+        run: node scripts/privacy-tripwire.mjs
+
+  app:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: apps/mobile
+    steps:
+      - uses: actions/checkout@v7
+      - uses: subosito/flutter-action@v2
+        with:
+          flutter-version: 3.47.8
+          channel: stable
+          cache: true
+      - name: Dependencies
+        run: flutter pub get
+      - name: Analyze
+        run: flutter analyze
+      - name: Test (domain, golden fixtures, assistant boundary, widgets)
+        run: flutter test

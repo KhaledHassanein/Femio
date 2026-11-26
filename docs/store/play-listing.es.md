@@ -14,15 +14,15 @@ femio: ovulación y embarazo
 Regla, ovulación y embarazo. Tus registros se quedan en tu teléfono.
 ```
 
-## Descripción completa (3979 / 4.000)
+## Descripción completa (3975 / 4.000)
 
 ```
-femio: salud y bienestar de la mujer, con ayuda de IA. Una aplicación privada para seguir tu regla (período), tu ovulación, la búsqueda de embarazo y el embarazo. Ve tu próxima regla y tu ventana fértil como un rango realista y sigue después tu embarazo semana a semana. Tus registros se quedan en tu teléfono: sin cuenta, sin anuncios, sin herramientas de analítica.
+femio: salud y bienestar de la mujer, con ayuda de IA. Una aplicación privada para seguir tu regla (período), tu ovulación, la búsqueda de embarazo y el embarazo. Ve tu próxima regla y tu ventana fértil como un rango realista y sigue después tu embarazo semana a semana. Tus registros se quedan en tu teléfono: sin cuenta, sin anuncios, sin analítica propia.
 
 POR QUÉ femio
-• Privacidad desde el diseño. Sin cuenta, sin anuncios, sin analítica. Diario cifrado en tu teléfono, tras un bloqueo que tú eliges. Tú decides cuándo guardar un archivo de copia de seguridad, y dónde.
+• Privacidad desde el diseño. Sin cuenta, sin anuncios, sin analítica propia. Diario cifrado en tu teléfono, tras un bloqueo que tú eliges. Tú decides cuándo guardar un archivo de copia de seguridad, y dónde.
 • Predicciones realistas. femio muestra tu próxima regla y tu ventana fértil como un rango con un nivel de confianza, nunca una fecha «segura». Si tus ciclos son irregulares o tienes SOP (síndrome de ovario poliquístico), no hay contador de retraso ni falsa precisión.
-• Un asistente que respeta tu privacidad. «Pregunta a femio» responde solo con fuentes fiables y las cita. «Dilo con tus palabras» convierte «ayer cólicos, hoy manchado», incluso de varios días, en entradas que revisas; no se guarda nada hasta que tocas el botón. «Para ti» sugiere consejos, y «¿Por qué veo esto?» muestra los datos detrás de cada uno. «Lo que hizo la IA» lista cada uso de un modelo. Todo funciona en tu teléfono si admite Gemini Nano; si no, femio usa su propia lista de palabras.
+• Un asistente que respeta tu privacidad. «Pregunta a femio» responde solo con fuentes fiables y las cita. «Dilo con tus palabras» convierte «ayer cólicos, hoy manchado» en entradas que revisas; no se guarda nada hasta que tocas el botón. «Para ti» sugiere consejos, y «¿Por qué veo esto?» muestra los datos detrás de cada uno. «Lo que hizo la IA» lista cada uso de un modelo. Todo funciona en tu teléfono si admite Gemini Nano; si no, femio usa su propia lista de palabras.
 • Escrito por un médico. Cada artículo de la biblioteca enumera sus fuentes.
 • Todo sigue a tu alcance, en un solo registro que crece contigo: cuando pasas de buscar embarazo a estar embarazada, femio añade el embarazo al mismo registro. No se borra nada.
 • Inglés, árabe, francés y español, con diseño de derecha a izquierda y fechas hiyrí junto a las gregorianas.
@@ -47,11 +47,11 @@ EMBARAZO
 
 PRIVACIDAD DESDE EL DISEÑO
 • Carpeta de consulta con tus propias preguntas, en un segundo idioma si hace falta, compartida con el menú de compartir
-• Los recordatorios preguntan primero: registro diario, rango de la regla o cita. Solo dicen «femio: Abre la app»
+• Los recordatorios preguntan primero. Solo dicen «femio: Abre la app», salvo que escribas tus palabras para un recordatorio de medicamento
 • Copia de seguridad y restauración desde un archivo que tú guardas
 • Borra todo en un solo paso
-• Cloud boost está desactivado salvo que tú lo actives. Solo para teléfonos sin IA integrada, y solo si tú lo aceptas, envía a la IA de Google una pregunta general que tú apruebas (sin números, fechas ni nombres) o cuatro datos generales. Nunca tu diario, tus notas ni tus fechas.
-• Google Play gestiona la solicitud ocasional de valoración y las actualizaciones. femio no envía nada tuyo en ninguno de los dos casos.
+• Cloud boost está desactivado salvo que tú lo actives. Solo para teléfonos sin IA integrada, y solo si tú lo aceptas, envía a la IA de Google una pregunta general que tú apruebas (sin números, correos ni enlaces; ves y editas el texto exacto antes) o cuatro datos generales. Nunca tu diario, tus notas ni tus fechas.
+• Google Play gestiona las actualizaciones y la solicitud ocasional de valoración; femio no le envía nada tuyo.
 
 IMPORTANTE
 femio es solo para educación y seguimiento. No es un producto sanitario y no diagnostica, trata, cura ni previene ninguna afección médica. Las predicciones son estimaciones, no garantías, y no sirven como método anticonceptivo. Consulta siempre a tu médico o matrona sobre tu salud. Si notas sangrado abundante, dolor intenso o menos movimientos del bebé, busca atención médica de inmediato.

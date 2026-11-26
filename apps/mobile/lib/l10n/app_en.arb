@@ -23,7 +23,7 @@
   "goalMenopause": "Perimenopause & menopause",
   "goalMenopauseDesc": "Changing cycles and symptoms.",
   "birthYearTitle": "What year were you born?",
-  "birthYearSub": "Cycles change with age, so this shapes what femio expects. Only the year.",
+  "birthYearSub": "Cycles change with age, so this shapes what femio expects. It also helps check that you are 18 or over. Only the year.",
   "under18Title": "The tracker is for adults, for now",
   "under18Body": "femio's tracker is for women aged 18 and over in this first version. Every guide on femioapp.com is open to you, with no account.",
   "eighteenTitle": "Has your 18th birthday passed?",
@@ -470,6 +470,22 @@
   "enterCurrentPin": "Enter your current PIN",
   "pinMismatch": "The two PINs did not match. Try again.",
   "wrongPin": "That PIN is not right.",
+  "pinWaitSeconds": "{count, plural, one {Too many tries. Try again in {count} second.} other {Too many tries. Try again in {count} seconds.}}",
+  "@pinWaitSeconds": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "pinWaitMinutes": "{count, plural, one {Too many tries. Try again in {count} minute.} other {Too many tries. Try again in {count} minutes.}}",
+  "@pinWaitMinutes": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
   "lockTitle": "Welcome back",
   "lockHint": "Enter your PIN to open your records.",
   "forgotPin": "Forgot your PIN? There is no way to recover it: femio has no account. Delete everything from this phone and start again, or restore a backup file.",
@@ -488,6 +504,7 @@
     }
   },
   "backupPassphraseMismatch": "The two passphrases did not match.",
+  "backupWorking": "Working on your backup file. This can take a few seconds.",
   "backupSaved": "Backup saved.",
   "backupImported": "Your records were restored.",
   "backupWrongPassphrase": "That passphrase does not open this file.",
@@ -519,7 +536,7 @@
   "reminderTitle": "femio",
   "reminderBody": "Open the app",
   "reminderChannelName": "Reminders",
-  "reminderChannelDescription": "Reminders you turned on in femio. They never mention your health.",
+  "reminderChannelDescription": "Reminders you turned on in femio. They say only \"Open the app\", unless you wrote your own words for a medicine reminder.",
   "reminderAppointment": "Appointment reminder",
   "reminderAppointmentNote": "One notification the day before an appointment you saved with a date.",
   "notifConsentTitle": "Notifications, only if you want them",
@@ -652,7 +669,7 @@
   "plusProbeUnavailable": "Play Billing reachable: no (no Play Store on this device, or not signed in)",
   "plusProbeProductFound": "Product femio_plus found in Play Console",
   "plusProbeProductMissing": "Product femio_plus not found yet (expected until it is created in Play Console)",
-  "assistantPrivateNote": "This runs on your phone. Your words are not saved or sent anywhere.",
+  "assistantPrivateNote": "This runs on your phone. femio does not send your words anywhere.",
   "assistantModelNote": "Gemini Nano, the AI on your phone, helped with this.",
   "sayItButton": "Say it in your words",
   "sayItTitle": "How are you feeling?",
@@ -703,7 +720,7 @@
   "askWillSend": "This is exactly the question that will be sent, with the public sources:",
   "askSend": "Summarise with Cloud boost",
   "askStillPersonal": "This still mentions you. Remove words like “I” or “my” and any personal details.",
-  "askCloudPrivacy": "Only this question and the public sources are sent. Nothing from your log is.",
+  "askCloudPrivacy": "Only this question, the public sources and the language to answer in are sent. Nothing from your log is.",
   "askSearching": "Reading trusted sources…",
   "askSourcesTitle": "Sources",
   "askClinicianLine": "This is general information, not advice for you. For your own situation, talk to your clinician.",
@@ -809,7 +826,7 @@
   "assistantSettingsTitle": "Assistant",
   "assistantSettingsSub": "AI on your phone, trusted sources and Cloud boost",
   "assistantOnDeviceTitle": "AI on your phone (Gemini Nano)",
-  "assistantOnDeviceAvailable": "Ready. It reads your notes on the phone; nothing is sent.",
+  "assistantOnDeviceAvailable": "Ready. It reads your notes on the phone, and your words are not sent.",
   "assistantOnDeviceDownloadable": "Can be downloaded to this phone.",
   "assistantOnDeviceDownloading": "Downloading…",
   "assistantOnDeviceUnavailable": "Not available on this phone. femio uses its own word list on the phone instead.",
@@ -860,10 +877,10 @@
     }
   },
   "boostNeverHeading": "What is never sent",
-  "boostNever": "Your notes, dates, log entries, cycle lengths, name, email, contacts or advertising ID.",
+  "boostNever": "Nothing else from your record: not your log, notes, dates, cycle lengths, medicines, lab results, visits, documents, photos or birth year. Never your contacts or advertising ID.",
   "boostTurnOff": "Turn off Cloud boost",
   "boostNotNow": "Not now",
-  "boostAgreeQuestions": "I agree that femio may send a general question I approve, one at a time, with the public sources it found, so Google's cloud AI can summarise them. femio removes numbers, dates, names and contacts first, and I see the exact text before it goes.",
+  "boostAgreeQuestions": "I agree that femio may send a general question I approve, one at a time, with the public sources it found and the language to answer in, so Google's cloud AI can summarise them. femio removes numbers, e-mail addresses and links first, and I see and can edit the exact text before anything is sent.",
   "boostAgreeTips": "I agree that femio may send these four broad facts about my health, exactly as shown, so Google's cloud AI can put my tips in order. This happens in the background while Cloud boost is on.",
   "boostPurposeQuestions": "General questions",
   "boostPurposeTips": "Tips from four broad facts",
@@ -1166,7 +1183,7 @@
   "@leaveTitle": {
     "description": "Settings › Privacy screen listing every network path (R8.21, rule 4)."
   },
-  "leaveIntro": "Your records stay on this phone. These are the only times femio, or the Google services it relies on, use the internet.",
+  "leaveIntro": "Your records stay on this phone: your cycle and pregnancy log, notes, health record (visits, lab results, medicines and more), documents and photos, and your birth year. femio asks your birth year to check you are 18 or over and to fit what it expects to your age. Below is every way anything can leave this phone.",
   "leaveBoostOff": "Off",
   "leaveBoostOn": "On for: {purposes}",
   "@leaveBoostOn": {
@@ -1179,14 +1196,14 @@
   },
   "leaveBoostBody": "Only if you agree: a general question you approve, or four broad facts, goes to Google's cloud AI. Google Play also confirms the request comes from the real femio app.",
   "leaveModelHeading": "The on-phone AI model",
-  "leaveModelBody": "If you tap Download, Android's AI service (AICore, run by Google) downloads Gemini Nano and keeps it up to date. Google's AI software may also send Google technical information, such as errors and performance. femio adds none of your records to it.",
+  "leaveModelBody": "If you tap Download, Android's AI service (AICore, run by Google) downloads Gemini Nano and keeps it up to date. Whenever the on-phone AI runs, Google's AI software may send Google technical usage information, such as an identifier for this installation, device and app details, errors, speed and the size of a request. It does not include your words, and femio adds none of your records to it.",
   "leavePlayHeading": "Google Play",
   "leavePlayBody": "Google Play installs and updates femio, may show its rating request, and handles femio Plus payments. It tells us only totals, such as installs and crashes. femio sends Google Play nothing of yours.",
   "leaveBackupHeading": "Your backup",
   "leaveBackupBody": "A backup, with the documents and photos you added, goes only where you choose to save it, sealed with your passphrase.",
   "leaveLinksHeading": "Links you open",
   "leaveLinksBody": "Sources and pages you open go to your browser, which visits that website.",
-  "leaveNever": "Nothing else leaves. femio has no ads, no analytics, no tracking tools and no account.",
+  "leaveNever": "Nothing else leaves. femio has no ads, no account, and no analytics or tracking tools of its own. On the phone itself, words you write for a medicine reminder show on your lock screen, and widget details you turn on show on your home screen; femio keeps that short text unencrypted so Android can show it.",
   "leaveSettingsSub": "Every way anything reaches the internet",
   "assistantMasterTitle": "Use the assistant",
   "assistantMasterOff": "Off: femio answers from its rules and guides only. No AI runs, on the phone or in the cloud.",
@@ -1214,7 +1231,7 @@
   "@aiSeesTitle": {
     "description": "Settings › Assistant screen generated from usePolicies (R10.3, ADR-081)."
   },
-  "aiSeesApprovedQuestion": "Your question; in the cloud, only the version you approved, with numbers, dates and names removed",
+  "aiSeesApprovedQuestion": "Your question; in the cloud, only the version you approved, with numbers, e-mail addresses and links removed",
   "assistIntroTitle": "Meet femio's assistant",
   "assistIntroPhone": "It works on this phone. It answers from femio's trusted sources, turns a sentence into log entries, and suggests questions for your visits. Your records stay here.",
   "assistIntroRules": "It never tells you what condition you have. femio's safety rules always answer first, and nothing is saved until you confirm it.",
@@ -2014,11 +2031,11 @@
   "@backupTooLarge": {
     "description": "Snackbar when her documents are over 100 MB together, too much for one backup."
   },
-  "leaveShareHeading": "What you share",
+  "leaveShareHeading": "What you share or export",
   "@leaveShareHeading": {
     "description": "What can leave this phone: heading for things she shares herself."
   },
-  "leaveShareBody": "When you share a document or your visit notes, they go only to the app you pick in the share sheet.",
+  "leaveShareBody": "When you share a document or your visit notes, they go only to the app you pick in the share sheet. If you copy your visit notes, your phone's clipboard holds them. A spreadsheet (CSV) you export goes where you choose to save it, which can be a cloud drive, and it is not encrypted.",
   "@leaveShareBody": {
     "description": "What can leave this phone: sharing a document or the visit pack."
   },

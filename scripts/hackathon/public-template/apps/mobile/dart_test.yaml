@@ -1,0 +1,11 @@
+# Test configuration for the public, app-only femio repository (R14.3, JUDGE-6).
+#
+# Screenshot tests compare the app against reference images (goldens) that live in femio's
+# private monorepo (testing-results/ and docs/store/), and that were rendered on Windows; font
+# rasterising differs by operating system, so they would fail on any other machine anyway. The
+# exporter tags every test file that calls `matchesGoldenFile` with `screenshots`, and this file
+# marks that tag as skipped, so `flutter test` reports them as skipped instead of failing.
+# Logic, domain, golden-fixture and widget tests without a screenshot all run.
+tags:
+  screenshots:
+    skip: "Screenshot goldens live in femio's private monorepo; see README.md, Tests."

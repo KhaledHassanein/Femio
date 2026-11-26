@@ -224,7 +224,7 @@ abstract class L10n {
   /// No description provided for @birthYearSub.
   ///
   /// In en, this message translates to:
-  /// **'Cycles change with age, so this shapes what femio expects. Only the year.'**
+  /// **'Cycles change with age, so this shapes what femio expects. It also helps check that you are 18 or over. Only the year.'**
   String get birthYearSub;
 
   /// No description provided for @under18Title.
@@ -1157,6 +1157,12 @@ abstract class L10n {
   /// **'Most home tests work from the first day of a missed period. Testing earlier can give a negative result even if you are pregnant.'**
   String get testTimingGeneral;
 
+  /// No description provided for @testTimingUnknown.
+  ///
+  /// In en, this message translates to:
+  /// **'If you do not know when your period is due, test at least 21 days after you last had unprotected sex.'**
+  String get testTimingUnknown;
+
   /// No description provided for @testTimingSource.
   ///
   /// In en, this message translates to:
@@ -1817,6 +1823,18 @@ abstract class L10n {
   /// **'That PIN is not right.'**
   String get wrongPin;
 
+  /// No description provided for @pinWaitSeconds.
+  ///
+  /// In en, this message translates to:
+  /// **'{count, plural, one {Too many tries. Try again in {count} second.} other {Too many tries. Try again in {count} seconds.}}'**
+  String pinWaitSeconds(int count);
+
+  /// No description provided for @pinWaitMinutes.
+  ///
+  /// In en, this message translates to:
+  /// **'{count, plural, one {Too many tries. Try again in {count} minute.} other {Too many tries. Try again in {count} minutes.}}'**
+  String pinWaitMinutes(int count);
+
   /// No description provided for @lockTitle.
   ///
   /// In en, this message translates to:
@@ -1882,6 +1900,12 @@ abstract class L10n {
   /// In en, this message translates to:
   /// **'The two passphrases did not match.'**
   String get backupPassphraseMismatch;
+
+  /// No description provided for @backupWorking.
+  ///
+  /// In en, this message translates to:
+  /// **'Working on your backup file. This can take a few seconds.'**
+  String get backupWorking;
 
   /// No description provided for @backupSaved.
   ///
@@ -2072,7 +2096,7 @@ abstract class L10n {
   /// No description provided for @reminderChannelDescription.
   ///
   /// In en, this message translates to:
-  /// **'Reminders you turned on in femio. They never mention your health.'**
+  /// **'Reminders you turned on in femio. They say only \"Open the app\", unless you wrote your own words for a medicine reminder.'**
   String get reminderChannelDescription;
 
   /// No description provided for @reminderAppointment.
@@ -2702,7 +2726,7 @@ abstract class L10n {
   /// No description provided for @assistantPrivateNote.
   ///
   /// In en, this message translates to:
-  /// **'This runs on your phone. Your words are not saved or sent anywhere.'**
+  /// **'This runs on your phone. femio does not send your words anywhere.'**
   String get assistantPrivateNote;
 
   /// No description provided for @assistantModelNote.
@@ -2906,7 +2930,7 @@ abstract class L10n {
   /// No description provided for @askCloudPrivacy.
   ///
   /// In en, this message translates to:
-  /// **'Only this question and the public sources are sent. Nothing from your log is.'**
+  /// **'Only this question, the public sources and the language to answer in are sent. Nothing from your log is.'**
   String get askCloudPrivacy;
 
   /// No description provided for @askSearching.
@@ -3218,7 +3242,7 @@ abstract class L10n {
   /// No description provided for @assistantOnDeviceAvailable.
   ///
   /// In en, this message translates to:
-  /// **'Ready. It reads your notes on the phone; nothing is sent.'**
+  /// **'Ready. It reads your notes on the phone, and your words are not sent.'**
   String get assistantOnDeviceAvailable;
 
   /// No description provided for @assistantOnDeviceDownloadable.
@@ -3356,7 +3380,7 @@ abstract class L10n {
   /// No description provided for @boostNever.
   ///
   /// In en, this message translates to:
-  /// **'Your notes, dates, log entries, cycle lengths, name, email, contacts or advertising ID.'**
+  /// **'Nothing else from your record: not your log, notes, dates, cycle lengths, medicines, lab results, visits, documents, photos or birth year. Never your contacts or advertising ID.'**
   String get boostNever;
 
   /// No description provided for @boostTurnOff.
@@ -3374,7 +3398,7 @@ abstract class L10n {
   /// No description provided for @boostAgreeQuestions.
   ///
   /// In en, this message translates to:
-  /// **'I agree that femio may send a general question I approve, one at a time, with the public sources it found, so Google\'s cloud AI can summarise them. femio removes numbers, dates, names and contacts first, and I see the exact text before it goes.'**
+  /// **'I agree that femio may send a general question I approve, one at a time, with the public sources it found and the language to answer in, so Google\'s cloud AI can summarise them. femio removes numbers, e-mail addresses and links first, and I see and can edit the exact text before anything is sent.'**
   String get boostAgreeQuestions;
 
   /// No description provided for @boostAgreeTips.
@@ -4430,7 +4454,7 @@ abstract class L10n {
   /// No description provided for @leaveIntro.
   ///
   /// In en, this message translates to:
-  /// **'Your records stay on this phone. These are the only times femio, or the Google services it relies on, use the internet.'**
+  /// **'Your records stay on this phone: your cycle and pregnancy log, notes, health record (visits, lab results, medicines and more), documents and photos, and your birth year. femio asks your birth year to check you are 18 or over and to fit what it expects to your age. Below is every way anything can leave this phone.'**
   String get leaveIntro;
 
   /// No description provided for @leaveBoostOff.
@@ -4460,7 +4484,7 @@ abstract class L10n {
   /// No description provided for @leaveModelBody.
   ///
   /// In en, this message translates to:
-  /// **'If you tap Download, Android\'s AI service (AICore, run by Google) downloads Gemini Nano and keeps it up to date. Google\'s AI software may also send Google technical information, such as errors and performance. femio adds none of your records to it.'**
+  /// **'If you tap Download, Android\'s AI service (AICore, run by Google) downloads Gemini Nano and keeps it up to date. Whenever the on-phone AI runs, Google\'s AI software may send Google technical usage information, such as an identifier for this installation, device and app details, errors, speed and the size of a request. It does not include your words, and femio adds none of your records to it.'**
   String get leaveModelBody;
 
   /// No description provided for @leavePlayHeading.
@@ -4502,7 +4526,7 @@ abstract class L10n {
   /// No description provided for @leaveNever.
   ///
   /// In en, this message translates to:
-  /// **'Nothing else leaves. femio has no ads, no analytics, no tracking tools and no account.'**
+  /// **'Nothing else leaves. femio has no ads, no account, and no analytics or tracking tools of its own. On the phone itself, words you write for a medicine reminder show on your lock screen, and widget details you turn on show on your home screen; femio keeps that short text unencrypted so Android can show it.'**
   String get leaveNever;
 
   /// No description provided for @leaveSettingsSub.
@@ -4634,7 +4658,7 @@ abstract class L10n {
   /// No description provided for @aiSeesApprovedQuestion.
   ///
   /// In en, this message translates to:
-  /// **'Your question; in the cloud, only the version you approved, with numbers, dates and names removed'**
+  /// **'Your question; in the cloud, only the version you approved, with numbers, e-mail addresses and links removed'**
   String get aiSeesApprovedQuestion;
 
   /// R8.3 first-use sheet before the assistant's doors (ADR-079/080).
@@ -5864,13 +5888,13 @@ abstract class L10n {
   /// What can leave this phone: heading for things she shares herself.
   ///
   /// In en, this message translates to:
-  /// **'What you share'**
+  /// **'What you share or export'**
   String get leaveShareHeading;
 
   /// What can leave this phone: sharing a document or the visit pack.
   ///
   /// In en, this message translates to:
-  /// **'When you share a document or your visit notes, they go only to the app you pick in the share sheet.'**
+  /// **'When you share a document or your visit notes, they go only to the app you pick in the share sheet. If you copy your visit notes, your phone\'s clipboard holds them. A spreadsheet (CSV) you export goes where you choose to save it, which can be a cloud drive, and it is not encrypted.'**
   String get leaveShareBody;
 
   /// A small document's size; {size} is a whole number of kilobytes.
@@ -6652,12 +6676,6 @@ abstract class L10n {
   /// In en, this message translates to:
   /// **'Change your stage, your due date or your cycle answers. Everything you logged stays.'**
   String get settingsStageSub;
-
-  /// No description provided for @testTimingUnknown.
-  ///
-  /// In en, this message translates to:
-  /// **'If you do not know when your period is due, test at least 21 days after you last had unprotected sex.'**
-  String get testTimingUnknown;
 }
 
 class _L10nDelegate extends LocalizationsDelegate<L10n> {

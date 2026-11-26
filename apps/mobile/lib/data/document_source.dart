@@ -7,6 +7,8 @@
 // read; and sharing is her own act through the system sheet. An interface so tests and
 // screenshots run without a phone.
 
+import 'dart:io';
+
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter/services.dart';
 import 'package:image_picker/image_picker.dart';
@@ -26,6 +28,28 @@ const maxPdfPages = 40;
 /// readable report well under [maxAttachmentBytes].
 const cameraMaxWidth = 2400.0;
 const cameraQuality = 85;
+
+/// Deletes the plain copies the file picker leaves in the app's cache (SEC-15). The picker
+/// copies every file she chooses there; once the bytes are in memory (and sealed, for a
+/// document) the copy is only a readable duplicate of her health file. A failure is ignored:
+/// the copy is inside the app's private storage, and the next pick tries again.
+Future<void> clearPickerCopies() async {
+  try {
+    await FilePicker.clearTemporaryFiles();
+  } catch (_) {
+    // No picker on this platform (tests), or the folder was already gone.
+  }
+}
+
+/// Deletes the camera's plain photo file at [path] once its bytes are read (SEC-15).
+Future<void> _deletePhotoCopy(String path) async {
+  try {
+    final file = File(path);
+    if (await file.exists()) await file.delete();
+  } catch (_) {
+    // The camera app kept the file elsewhere or it is already gone; nothing to clean.
+  }
+}
 
 /// A file she picked or a photo she took.
 class PickedDocument {
@@ -77,8 +101,10 @@ class SystemDocumentSource implements DocumentSource {
     if (picked.isEmpty) return null;
     final file = picked.single;
     final length = await file.length();
-    if (length != null && length > maxAttachmentBytes) return const PickedDocument.tooLarge();
-    return PickedDocument(await file.readAsBytes(), file.name);
+    final bytes = length != null && length > maxAttachmentBytes ? null : await file.readAsBytes();
+    await clearPickerCopies();
+    if (bytes == null) return const PickedDocument.tooLarge();
+    return PickedDocument(bytes, file.name);
   }
 
   @override
@@ -91,6 +117,7 @@ class SystemDocumentSource implements DocumentSource {
     );
     if (photo == null) return null;
     final bytes = await photo.readAsBytes();
+    await _deletePhotoCopy(photo.path);
     if (bytes.length > maxAttachmentBytes) return const PickedDocument.tooLarge();
     return PickedDocument(bytes, '', mime: 'image/jpeg');
   }

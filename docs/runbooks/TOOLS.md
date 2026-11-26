@@ -41,6 +41,30 @@ still needs the token pass and the logical-property pass (`ms-`/`me-`, never `le
 - Line endings are LF everywhere (`.gitattributes`); if a generator guard fails with no visible
   diff, check for CRLF first.
 
+### Privacy tripwire (`analytics-lint.mjs` + `lib/android-tripwire.mjs`)
+`pnpm analytics-lint` (or `node scripts/analytics-lint.mjs`) runs in the gate. Besides the web and
+Dart checks it covers the Android side (R14.14, ADR-083):
+- **Native network code:** any `.kt`/`.java` under `apps/mobile/android` that imports `java.net` or
+  `javax.net`, opens a URL connection or socket, or uses OkHttp, Ktor, Retrofit, Volley, Cronet,
+  gRPC, a WebView or DownloadManager fails, except in `kotlin/com/femioapp/femio/assistant/`
+  (the Firebase AI Logic bridge). Comments are ignored.
+- **Gradle:** every dependency the app module declares must be on `ALLOWED_GRADLE_DEPENDENCIES`
+  and every plugin on `ALLOWED_GRADLE_PLUGINS`; analytics, ads, attribution and crash-reporting
+  coordinates fail in any Gradle file. A dependency written as a version-catalog alias fails
+  until it is a literal `"group:artifact:version"`. Plugins pulled in through pub packages are
+  not Gradle lines here: the pubspec check and the merged manifest cover them.
+- **Merged manifest:** read from `apps/mobile/build/app/intermediates/merged_manifest*/**/AndroidManifest.xml`
+  when it is newer than the source manifest, `build.gradle.kts` and `pubspec.lock`. It fails on
+  an ad-ID or personal permission, ad or analytics `<meta-data>`, or a component not on
+  `ALLOWED_COMPONENTS` (each can use INTERNET). Google's `datatransport` components are a
+  warning, not a failure, until the device traffic capture settles them (SEC-5).
+  To run it: `cd apps/mobile && flutter build apk --debug`, then the tripwire. A stale or missing
+  merged manifest is a warning locally; a release job sets `FEMIO_REQUIRE_MERGED_MANIFEST=1` (or
+  passes `--require-merged-manifest`) so it fails instead.
+- **Release signing:** `flutter build apk --release` / `appbundle` fails without
+  `android/key.properties`. For a local debug-signed release only:
+  `flutter build apk --release -P allowDebugSigning=true` (or `FEMIO_ALLOW_DEBUG_SIGNING=1`).
+
 ## Flutter on this PC
 `C:\src\flutter\flutter` (3.47.8 stable on 2026-10-27). The app needs Dart ≥ 3.13.4; if `flutter pub
 get` fails on the SDK constraint, run `flutter upgrade`. No emulator is required for the gate:

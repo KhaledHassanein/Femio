@@ -7,14 +7,34 @@ plugins {
 }
 
 // Release signing (R4.11). The upload key never enters git: `android/key.properties`
-// (ignored) names a keystore the owner keeps outside the repository. When the file is
-// absent the release build falls back to the debug key so `flutter build apk --release`
-// still produces a testable APK; Play rejects that APK, which is the intended reminder.
+// (ignored) names a keystore the owner keeps outside the repository. Without that file a
+// release build FAILS (SEC-9, ADR-083): a debug-signed "release" APK fails Play Integrity
+// (Cloud boost then breaks) and can never be upgraded by the Play build, so it must not be
+// produced by accident. A tester who knowingly wants one passes
+// `flutter build apk --release -P allowDebugSigning=true` (or sets FEMIO_ALLOW_DEBUG_SIGNING=1).
+// Debug and profile builds are unaffected.
 val keyProperties = Properties().apply {
     val file = rootProject.file("key.properties")
     if (file.exists()) file.inputStream().use { load(it) }
 }
 val hasReleaseKey = keyProperties.getProperty("storeFile") != null
+val allowDebugSigning = (findProperty("allowDebugSigning")?.toString() == "true") ||
+    System.getenv("FEMIO_ALLOW_DEBUG_SIGNING") == "1"
+
+// Checked once the task graph is known, so only a build that would package a release fails;
+// configuring the project (debug builds, IDE sync, `flutter test`) never needs the key.
+gradle.taskGraph.whenReady {
+    val packagesRelease = allTasks.any { task ->
+        task.project == project && Regex("^(assemble|bundle|package|sign)\\w*Release\\w*$").matches(task.name)
+    }
+    if (packagesRelease && !hasReleaseKey && !allowDebugSigning) {
+        throw GradleException(
+            "Release signing key missing: android/key.properties was not found (see key.properties.example). " +
+                "Refusing to sign a release with the debug key. To build a debug-signed release for local " +
+                "testing only, pass -P allowDebugSigning=true.",
+        )
+    }
+}
 
 // Firebase AI Logic config for the assistant (ADR-078). `apps/mobile/assistant.env` (git-ignored,
 // shape in assistant.env.example) holds the owner's Firebase ids. Without it the fields are empty
@@ -80,6 +100,7 @@ android {
 
     buildTypes {
         release {
+            // The debug key is reachable only with allowDebugSigning (see the check at the top).
             signingConfig = if (hasReleaseKey) signingConfigs.getByName("release") else signingConfigs.getByName("debug")
             isMinifyEnabled = true
             isShrinkResources = true

@@ -8,6 +8,8 @@ test("home leads to the app page and to the tool for each goal", async ({ page }
   await page.getByRole("link", { name: /^get the app$/i }).first().click();
   await expect(page).toHaveURL(/\/en\/app$/);
   await expect(page.getByText(/coming soon/i).first()).toBeVisible();
+  // R14.4: a tester or judge finds the test build card, never a dead download button.
+  await expect(page.getByRole("heading", { name: /early test build/i })).toBeVisible();
 
   await page.goto("/en");
   await page.getByRole("link", { name: /track my period/i }).click();

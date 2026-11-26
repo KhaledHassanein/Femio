@@ -1096,3 +1096,142 @@ later session could undo by accident:
   birth-control phrases, or a short list of pill words, gets no times, marks or reminders and
   says why; it stays in the record. Rule 1: femio is never a way to avoid pregnancy, so it keeps
   no pill schedule and gives no missed-pill advice.
+
+## ADR-083
+**Date:** 2026-11-27 · **Status:** accepted 2026-11-27 (standing owner delegation for R14.13 and the
+tripwire part of R14.14; the recommended defaults were taken) · **Area:** app security, privacy
+guard, website headers (recorded only) · **Builds on:** ADR-070, ADR-078, ADR-080, ADR-082 ·
+**Findings:** SEC-1 to SEC-4, SEC-8 to SEC-17, PRIV-11 (`docs/33_REBUILD_V3/audit-2026-11-26/`)
+
+**Context.** The 2026-11-26 judge-style audit scored security 7/10. It found what a security judge
+tests first: the recent-apps thumbnail showed her record, the PIN allowed unlimited guesses, the
+backup passphrase was stretched with 120,000 PBKDF2 rounds (a fifth of OWASP's floor), an imported
+file was trusted too early, and the privacy tripwire did not look at native code, Gradle or a
+current merged manifest. None was an exploitable remote exposure.
+
+**Decision.**
+1. **Screen protection follows the app lock (SEC-1).** While a PIN is set, `FLAG_SECURE` is on: the
+   recent-apps thumbnail is blank and screenshots and recordings are black. With no PIN it is off,
+   so the owner can record the demo video and she can screenshot a screen for her clinician by
+   turning the lock off. No new setting. Dart (`lib/data/secure_screen.dart`) reports the lock on
+   start, on set and on removal; `MainActivity` applies it and remembers one boolean
+   (`femio_lock_state`, no PIN, nothing from her record) so a cold start is covered before the
+   first frame.
+2. **Wrong PINs cost time (SEC-2).** Four misses are free; the fifth starts a 30-second wait, and
+   each further miss doubles it up to 30 minutes. The count and the end of the wait live in the
+   key vault, so a restart does not reset them; a guess during a wait is refused without being
+   checked; a wait that reaches further than 30 minutes (the clock was set back) is pulled in.
+   The lock screen shows the time left. PIN rounds stay at 30,000: the count is not stored with
+   the hash, so changing it would lock out every existing PIN.
+3. **The PIN still guards the screen, not the key (SEC-3).** Unchanged on purpose days before the
+   deadline: changing how the record key is stored risks data loss. ADR-084 proposes the change.
+   No copy may say the PIN encrypts her record.
+4. **Backup passphrase stretching (SEC-4): PBKDF2-HMAC-SHA256, 600,000 rounds** (OWASP Password
+   Storage Cheat Sheet, 2023 figure). The `cryptography` package's pure-Dart PBKDF2 was too slow
+   for that, so `lib/data/crypto/pbkdf2.dart` computes the same standard function with the HMAC
+   pad states pre-computed and no allocation per round. It is checked byte for byte against the
+   package (random passwords, Arabic text, keys over 64 bytes, multi-block output) and against
+   published vectors, so every existing PIN hash and backup still matches. It runs on a
+   background isolate. Measured on the development PC (Windows, `dart compile exe`, AOT, the same
+   compiler mode as a release app), 2026-11-27:
+
+   | Rounds | package PBKDF2 | fast PBKDF2 |
+   |---|---|---|
+   | 30,000 (PIN) | 0.23 s | 0.04 s |
+   | 120,000 (old backups) | 0.95 s | 0.16 s |
+   | 600,000 (new backups) | 4.9 to 5.2 s | 0.88 to 1.2 s |
+
+   A mid-range phone was **not measured**; expect it several times slower than the PC, a few
+   seconds per export or import, shown behind a "working on your backup" dialog. If a phone run
+   shows more than about 5 s, lower `backupIterations` (the format allows any count) and record
+   the figure here. Each file already stores its own count, so the format (`FMB1`) is unchanged
+   and an old file opens at the count it recorded; a declared count below 1,000 or above
+   2,000,000 is refused before any key work. A new passphrase needs 10 characters; opening a file
+   still accepts 6, so older backups open. Argon2id was not chosen now: it needs a new file magic
+   and memory-hard work in pure Dart whose phone cost is unmeasured; revisit after the hackathon.
+5. **Import order and caps (SEC-11).** Cheapest checks first: the picked file's size (150 MiB at
+   most: 100 MiB of documents in base64 plus the record) before it is read, then the magic, the
+   declared round count and the minimum envelope size, and only then the key derivation and
+   decryption. Then every document is checked before the caller clears her current documents:
+   at most 2,000, an id of femio's own shape, at most 10 MiB each and 100 MiB together; a document
+   the restored record does not describe is left out. **Not done:** the controller still clears
+   her documents and then writes the restored ones (`lib/app.dart`, outside this change), so a
+   full disk during the restore could leave her without them; staging and swapping is follow-up.
+6. **A release build needs the release key (SEC-9).** Without `android/key.properties` a release
+   APK or bundle fails to build instead of silently using the debug key. A tester who knowingly
+   wants a debug-signed release passes `-P allowDebugSigning=true` (or
+   `FEMIO_ALLOW_DEBUG_SIGNING=1`). `key.properties.example` now points outside the repository
+   (SEC-10); the root `.gitignore` should also gain `*.jks` and `*.keystore` (outside this
+   change's files).
+7. **The widget respects the lock (SEC-14).** While a PIN is set the widget shows only the
+   wordmark and "Open femio" in the phone's language. The detail line she allowed is still stored
+   in the widget's private preferences so it returns when she removes the PIN; the privacy notice
+   should say widget text she turns on is stored unencrypted (PRIV-14).
+8. **Plain copies are cleaned up (SEC-15).** A shared document copy older than ten minutes is
+   deleted when femio returns to the front and before each new share (and all of them at start).
+   The file picker's cache copy is cleared as soon as the bytes are read (documents and backup
+   import), and the camera's photo file is deleted once read.
+9. **The native assistant call has its own 20-second timeout (SEC-12, partly).** The coroutine,
+   and with it the SDK request, is cancelled when Dart stops waiting. A native consent flag set
+   only by the consent screen is follow-up: it needs a change in `lib/features`.
+10. **The tripwire covers native code (PRIV-11 a to c, SEC-16).** `scripts/lib/android-tripwire.mjs`,
+    run by `analytics-lint`: network code in Kotlin or Java outside the assistant package fails;
+    the app module's Gradle dependencies and plugins must be on a reviewed list, and tracking SDK
+    coordinates fail anywhere; a current merged manifest is checked for ad-ID and personal
+    permissions, ad or analytics metadata and unreviewed components. Google's `datatransport`
+    components warn until the traffic capture (SEC-5) settles them. A stale merged manifest is
+    skipped with a warning; `FEMIO_REQUIRE_MERGED_MANIFEST=1` makes it a failure for a release job.
+11. **Website header trade-offs, recorded and unchanged (SEC-17).**
+    - `'unsafe-inline'` in `script-src`: the static export inlines Next's bootstrap scripts.
+      Nonces need a server per request, which a static site does not have; per-page hashes would
+      need a build step that hashes every inline script. The risk is bounded: no third-party
+      script, `connect-src 'self'`, `object-src 'none'`, `base-uri 'self'`, and no HTML from
+      visitors. Revisit if Next supports static hashes.
+    - `NEXT_LOCALE` without `Secure`: a session cookie that only remembers the language
+      (`SameSite=Lax`, no identifier). HSTS keeps every visit after the first on https. Add
+      `Secure` when the locale configuration allows it.
+    - No HSTS preload: preload is slow to undo and binds every subdomain. Revisit after a year of
+      https-only subdomains.
+    - `Access-Control-Allow-Origin: *` on static public HTML is Vercel's default and exposes
+      nothing a visitor could not read anyway.
+12. **Left to others:** SEC-8 (restrict the Firebase API key to the package and signing SHA-1, and
+    enforce App Check) is an owner console action; SEC-13 (redaction) lives in `lib/domain`; SEC-5,
+    SEC-6 and SEC-7 were outside this change.
+
+**Consequences.** Backup export and import take a few seconds on a phone, behind a dialog. Old
+backups open. A forgotten PIN is still "delete everything"; a mistyped one now costs time after
+four tries. Release builds from a checkout without the key fail with a message that says why. A
+new native library or component fails the gate until someone states why it is safe.
+
+## ADR-084
+**Date:** 2026-11-27 · **Status:** proposed (not built; follow-up after the hackathon) ·
+**Area:** app security, record storage · **Builds on:** ADR-070, ADR-083 · **Finding:** SEC-3
+
+**Context.** The record, documents and AI ledger are sealed under `record-key-v1`, a random key in
+Keystore-backed secure storage. The app lock compares a PIN hash but never takes part in
+decryption, so anyone who can run code as the app (a rooted phone, a forensic image of an unlocked
+phone) can decrypt without the PIN. ADR-083 left this unchanged because a key-storage change days
+before the deadline risks losing her record.
+
+**Proposal.**
+1. **Bind the key to user authentication, not to a PIN-derived key.** A key derived from a 4-digit
+   PIN can be brute-forced offline in 10,000 tries, so it adds little. Instead create a Keystore
+   AES key with `setUserAuthenticationRequired(true)` (device credential or strong biometric
+   through `BiometricPrompt`, with an authentication window of a few minutes) and use it to wrap
+   `record-key-v1`. The phone's secure hardware then enforces the guess limit.
+2. **Only when she turns the lock on.** Without a lock, nothing changes. Turning it on wraps the
+   key; turning it off unwraps it back into secure storage. Both are atomic: write the new form,
+   verify it decrypts, then delete the old form.
+3. **What has to move.** Today the controller loads her record at start, under the lock screen,
+   and tops up reminders and the widget before she unlocks. With a wrapped key, the record cannot
+   be read until she authenticates, so reminder planning, the widget sync and the storage notice
+   must wait for unlock, and pending reminders must already carry neutral text (they do).
+4. **Failure cases to design and test first:** biometric enrolment changes (Keystore invalidates
+   the key: she needs the backup file or her device credential path); OS upgrades; restore from a
+   backup onto a phone with the lock on; a crash between wrap and delete; "delete everything".
+5. **Copy.** Until this ships, Settings and the privacy notice say the PIN hides the app and the
+   phone's keystore encrypts the record (SEC-3 wording).
+
+**Why not now.** It changes when and how her record can be read, which is the one thing that must
+never lose data. It needs device testing on several Android versions, which this change could not
+do.
