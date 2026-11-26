@@ -140,10 +140,8 @@ class TodayScreen extends StatelessWidget {
               FilledButton.icon(
                 onPressed: () async {
                   final existing = profile.logs[now];
-                  await controller.setDayLog(
-                    now,
-                    DayLog(flow: 'medium', terms: existing?.terms ?? const []),
-                  );
+                  // copyWith keeps the rest of the day (temperature, test, note).
+                  await controller.setDayLog(now, (existing ?? const DayLog()).copyWith(flow: 'medium'));
                   if (context.mounted) {
                     ScaffoldMessenger.of(context)
                         .showSnackBar(SnackBar(content: Text(l.loggedToday)));

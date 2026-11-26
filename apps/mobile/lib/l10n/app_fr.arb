@@ -710,5 +710,14 @@
   "toolGainNote": "C'est une fourchette de référence pour votre catégorie d'IMC avant la grossesse, pas un objectif ni un jugement. Votre soignant peut vous proposer une autre fourchette.",
   "toolGainSource": "Source : Institute of Medicine (2009), « Weight Gain During Pregnancy » ; les CDC et l'ACOG utilisent les mêmes fourchettes.",
   "toolGainOutOfRange": "Saisissez un poids de {minW} à {maxW} kg et une taille de {minH} à {maxH} cm.",
-  "toolNothingSaved": "Rien de ce que vous saisissez ici n'est enregistré."
+  "toolNothingSaved": "Rien de ce que vous saisissez ici n'est enregistré.",
+  "logNoteSection": "Note",
+  "logNoteHint": "Tout ce que vous voulez retenir de ce jour",
+  "logNoteSaved": "Enregistrée sur ce téléphone avec le reste de vos données.",
+  "csvColumnDate": "Date",
+  "csvColumnOther": "Autre",
+  "exportCsv": "Exporter en tableur (CSV)",
+  "csvNotEncrypted": "Contrairement à la sauvegarde, ce fichier n’est pas chiffré : gardez-le dans un endroit privé.",
+  "csvSaved": "Tableur enregistré.",
+  "csvNothingToExport": "Rien n’est encore noté, il n’y a donc rien à exporter."
 }

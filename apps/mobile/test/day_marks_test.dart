@@ -134,4 +134,13 @@ void main() {
       isEmpty,
     );
   });
+
+  test('a day with only a note is logged; a blank note is not', () {
+    final p = base
+        .withDayLog('2026-10-05', const DayLog(note: 'new tablets today'))
+        .withDayLog('2026-10-06', const DayLog(note: '   '));
+    final m = dayMarks(p, today: '2026-10-14', from: '2026-10-01', to: '2026-10-31');
+    expect(m['2026-10-05']!.logged, isTrue);
+    expect(m['2026-10-06']?.logged ?? false, isFalse);
+  });
 }

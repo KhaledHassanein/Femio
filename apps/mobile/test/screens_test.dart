@@ -172,11 +172,11 @@ void main() {
         await tester.drag(find.byType(ListView).last, const Offset(0, -2400));
         await _shoot(tester, '${lang}_${b.name}_12_log_ttc');
         // Typing a temperature saves it; a typo is refused rather than recorded.
-        await tester.enterText(find.byType(TextField), '365');
+        await tester.enterText(find.byType(TextField).first, '365');
         await tester.tap(find.byType(FilledButton).last);
         await tester.pumpAndSettle();
         expect(c.profile!.logs[today]?.bbt, isNull);
-        await tester.enterText(find.byType(TextField), '36.52');
+        await tester.enterText(find.byType(TextField).first, '36.52');
         await tester.tap(find.byType(FilledButton).last);
         await tester.pumpAndSettle();
         expect(c.profile!.logs[today]!.bbt, 36.52);

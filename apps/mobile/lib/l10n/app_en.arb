@@ -1101,5 +1101,41 @@
       }
     }
   },
-  "toolNothingSaved": "Nothing you enter here is saved."
+  "toolNothingSaved": "Nothing you enter here is saved.",
+  "logNoteSection": "Note",
+  "@logNoteSection": {
+    "description": "Heading of the free-text note section on the Log screen."
+  },
+  "logNoteHint": "Anything you want to remember about this day",
+  "@logNoteHint": {
+    "description": "Placeholder inside the empty note field on the Log screen."
+  },
+  "logNoteSaved": "Saved on this phone with the rest of your record.",
+  "@logNoteSaved": {
+    "description": "Reassurance under the note field: the note is stored on the phone only."
+  },
+  "csvColumnDate": "Date",
+  "@csvColumnDate": {
+    "description": "First column header of the spreadsheet export: the day of the log."
+  },
+  "csvColumnOther": "Other",
+  "@csvColumnOther": {
+    "description": "Spreadsheet column header for log terms that are not mood, symptom or discharge (for example intercourse)."
+  },
+  "exportCsv": "Export as spreadsheet (CSV)",
+  "@exportCsv": {
+    "description": "Settings row that saves her logs as a spreadsheet (CSV) file."
+  },
+  "csvNotEncrypted": "Unlike the backup, this file is not encrypted, so keep it somewhere private.",
+  "@csvNotEncrypted": {
+    "description": "One-sentence warning under the CSV export row: unlike the sealed backup the spreadsheet has no passphrase."
+  },
+  "csvSaved": "Spreadsheet saved.",
+  "@csvSaved": {
+    "description": "Snackbar after the spreadsheet file was saved."
+  },
+  "csvNothingToExport": "Nothing logged yet, so there is nothing to export.",
+  "@csvNothingToExport": {
+    "description": "Snackbar when she taps the CSV export but has logged no day yet."
+  }
 }

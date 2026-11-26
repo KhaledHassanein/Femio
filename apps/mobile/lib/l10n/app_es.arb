@@ -710,5 +710,14 @@
   "toolGainNote": "Es un rango de referencia para tu categoría de IMC antes del embarazo, no un objetivo ni un juicio. Tu profesional sanitario puede proponerte un rango distinto.",
   "toolGainSource": "Fuente: Institute of Medicine (2009), «Weight Gain During Pregnancy»; los CDC y el ACOG usan los mismos rangos.",
   "toolGainOutOfRange": "Introduce un peso de {minW} a {maxW} kg y una estatura de {minH} a {maxH} cm.",
-  "toolNothingSaved": "No se guarda nada de lo que introduces aquí."
+  "toolNothingSaved": "No se guarda nada de lo que introduces aquí.",
+  "logNoteSection": "Nota",
+  "logNoteHint": "Lo que quieras recordar de este día",
+  "logNoteSaved": "Se guarda en este teléfono junto con el resto de tus registros.",
+  "csvColumnDate": "Fecha",
+  "csvColumnOther": "Otros",
+  "exportCsv": "Exportar como hoja de cálculo (CSV)",
+  "csvNotEncrypted": "A diferencia de la copia de seguridad, este archivo no está cifrado, así que guárdalo en un lugar privado.",
+  "csvSaved": "Hoja de cálculo guardada.",
+  "csvNothingToExport": "Aún no hay nada registrado, así que no hay nada que exportar."
 }

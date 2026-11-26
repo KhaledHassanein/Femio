@@ -36,7 +36,7 @@ Map<String, DayMark> dayMarks(
   for (final e in p.logs.entries) {
     if (e.key.compareTo(from) < 0 || e.key.compareTo(to) > 0) continue;
     if (e.value.flow == 'spotting') at(e.key).spotting = true;
-    if (e.value.terms.isNotEmpty) at(e.key).logged = true;
+    if (e.value.terms.isNotEmpty || e.value.hasNote) at(e.key).logged = true;
   }
 
   if (p.goal == Goal.period || p.goal == Goal.ttc) {
