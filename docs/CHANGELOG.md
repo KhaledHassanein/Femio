@@ -3,6 +3,7 @@ All notable changes to Femio V2.
 
 ## [Unreleased]
 ### Changed
+- **A home-screen widget for Android.** Add femio to your home screen and it shows only the name and "Open femio", with no health words, so anyone who sees your phone learns nothing. If you want more, turn on "Show details on the home-screen widget" in Settings: it then shows your pregnancy week, or your next period as a range of days. Turn the switch off and the widget goes back to the name at once. The widget holds only those two lines, never your records, and nothing is sent anywhere.
 - **Clearer, safer wording across the guides and the app, in four languages.** The 37 week-by-week pregnancy guides now list thoughts of harming yourself or the baby as an emergency sign and say to call straight away (not the same day) if the baby's movements slow down, stop or change. After birth, soaking a pad in an hour or an egg-sized clot is marked as emergency care. Unsourced numbers are hedged rather than stated, and the wordmark is written "femio" everywhere.
 - **"Meet femio" describes the app as it is**: a private Android app with no account, records kept on your phone, a PIN lock and your own backup file. The old page still described a web app with accounts and sync.
 - **The guide on fasting in Ramadan during pregnancy is withdrawn** in all four languages; its address now opens the pregnancy basics guide.
