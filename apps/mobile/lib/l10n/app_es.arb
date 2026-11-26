@@ -960,5 +960,10 @@
   "exportCsv": "Exportar como hoja de cálculo (CSV)",
   "csvNotEncrypted": "A diferencia de la copia de seguridad, este archivo no está cifrado, así que guárdalo en un lugar privado.",
   "csvSaved": "Hoja de cálculo guardada.",
-  "csvNothingToExport": "Aún no hay nada registrado, así que no hay nada que exportar."
+  "csvNothingToExport": "Aún no hay nada registrado, así que no hay nada que exportar.",
+  "widgetNeutralLine": "Abrir femio",
+  "widgetWeek": "Semana {weeks}",
+  "widgetNextPeriod": "Próxima regla {range}",
+  "settingsWidgetDetails": "Mostrar detalles en el widget de la pantalla de inicio",
+  "settingsWidgetDetailsNote": "Cualquiera que vea tu teléfono podrá verlos. Hasta que lo actives, el widget solo muestra femio."
 }

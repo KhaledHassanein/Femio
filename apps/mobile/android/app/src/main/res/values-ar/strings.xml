@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="widget_neutral_line">افتحي femio</string>
+    <string name="widget_description">افتحي femio من شاشتكِ الرئيسية. يعرض الاسم فقط ما لم تختاري المزيد من الإعدادات.</string>
+</resources>

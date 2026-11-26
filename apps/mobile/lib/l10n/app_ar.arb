@@ -960,5 +960,10 @@
   "exportCsv": "تصدير كجدول بيانات (CSV)",
   "csvNotEncrypted": "على عكس النسخة الاحتياطية، هذا الملف غير مشفَّر، فاحفظيه في مكان خاص.",
   "csvSaved": "تم حفظ جدول البيانات.",
-  "csvNothingToExport": "لم تسجّلي شيئاً بعد، فلا يوجد ما يُصدَّر."
+  "csvNothingToExport": "لم تسجّلي شيئاً بعد، فلا يوجد ما يُصدَّر.",
+  "widgetNeutralLine": "افتحي femio",
+  "widgetWeek": "الأسبوع {weeks}",
+  "widgetNextPeriod": "الدورة القادمة {range}",
+  "settingsWidgetDetails": "إظهار التفاصيل على ويدجت الشاشة الرئيسية",
+  "settingsWidgetDetailsNote": "أي شخص يرى هاتفكِ سيراها. وحتى تفعّلي هذا الخيار، يعرض الويدجت اسم femio فقط."
 }

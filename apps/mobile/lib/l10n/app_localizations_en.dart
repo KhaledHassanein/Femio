@@ -3445,4 +3445,24 @@ class L10nEn extends L10n {
   @override
   String get csvNothingToExport =>
       'Nothing logged yet, so there is nothing to export.';
+
+  @override
+  String get widgetNeutralLine => 'Open femio';
+
+  @override
+  String widgetWeek(int weeks) {
+    return 'Week $weeks';
+  }
+
+  @override
+  String widgetNextPeriod(String range) {
+    return 'Next period $range';
+  }
+
+  @override
+  String get settingsWidgetDetails => 'Show details on the home-screen widget';
+
+  @override
+  String get settingsWidgetDetailsNote =>
+      'Anyone who sees your phone will see them. Until you turn this on, the widget shows only femio.';
 }

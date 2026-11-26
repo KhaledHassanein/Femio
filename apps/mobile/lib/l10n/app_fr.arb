@@ -960,5 +960,10 @@
   "exportCsv": "Exporter en tableur (CSV)",
   "csvNotEncrypted": "Contrairement à la sauvegarde, ce fichier n’est pas chiffré : gardez-le dans un endroit privé.",
   "csvSaved": "Tableur enregistré.",
-  "csvNothingToExport": "Rien n’est encore noté, il n’y a donc rien à exporter."
+  "csvNothingToExport": "Rien n’est encore noté, il n’y a donc rien à exporter.",
+  "widgetNeutralLine": "Ouvrir femio",
+  "widgetWeek": "Semaine {weeks}",
+  "widgetNextPeriod": "Prochaines règles {range}",
+  "settingsWidgetDetails": "Afficher les détails sur le widget de l'écran d'accueil",
+  "settingsWidgetDetailsNote": "Toute personne qui voit votre téléphone les verra. Tant que vous ne l'activez pas, le widget n'affiche que femio."
 }

@@ -338,6 +338,9 @@ void main() {
         await tester.tap(find.byIcon(Icons.settings_outlined));
         await tester.pumpAndSettle();
         await tester.scrollUntilVisible(find.byIcon(Icons.wifi_tethering_rounded), 200);
+        // Settings grew (widget switch, CSV row): bring the row fully on screen before the tap.
+        await tester.ensureVisible(find.byIcon(Icons.wifi_tethering_rounded));
+        await tester.pumpAndSettle();
         await tester.tap(find.byIcon(Icons.wifi_tethering_rounded));
         await tester.pumpAndSettle();
         expect(find.byType(LeavingPhoneScreen), findsOneWidget);

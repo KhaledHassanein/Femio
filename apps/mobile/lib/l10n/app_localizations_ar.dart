@@ -3482,4 +3482,25 @@ class L10nAr extends L10n {
 
   @override
   String get csvNothingToExport => 'لم تسجّلي شيئاً بعد، فلا يوجد ما يُصدَّر.';
+
+  @override
+  String get widgetNeutralLine => 'افتحي femio';
+
+  @override
+  String widgetWeek(int weeks) {
+    return 'الأسبوع $weeks';
+  }
+
+  @override
+  String widgetNextPeriod(String range) {
+    return 'الدورة القادمة $range';
+  }
+
+  @override
+  String get settingsWidgetDetails =>
+      'إظهار التفاصيل على ويدجت الشاشة الرئيسية';
+
+  @override
+  String get settingsWidgetDetailsNote =>
+      'أي شخص يرى هاتفكِ سيراها. وحتى تفعّلي هذا الخيار، يعرض الويدجت اسم femio فقط.';
 }

@@ -1,6 +1,6 @@
 # Femio — current state (living document)
 
-**Last updated: 2026-11-25.** Rewrite in place; never add a dated copy. Older versions are in git
+**Last updated: 2026-11-26.** Rewrite in place; never add a dated copy. Older versions are in git
 history and `docs/archive/`.
 
 ## ▶ Resume prompt
@@ -15,6 +15,8 @@ history and `docs/archive/`.
 > First, run `git branch --list "wip/*"`. A branch there means the last session stopped mid-item.
 
 ## Where things stand (2026-10-28)
+
+- **Wave 2 started (2026-11-26, same branch).** Done: the calendar shows the whole cycle (R8.10c, MR-57), a "+" in the bottom bar (R8.29), My health record with schema v3 (R11.0/R11.1, ADR-082), day note (R9.8), CSV export (R9.10), home-screen widget (R9.11, neutral by default). Next: R11.2 documents, R11.6 medicines, R8.30 store screenshots with the new bar. Text she types is isolated with `domain/bidi_text.dart` so ranges never turn around in Arabic.
 
 - **Wave 1 for the initial release 1.0.0 is built (2026-11-25, branch `claude/firebase-hackathon-eligibility-833c52`, not merged).** Owner: ship 1.0.0 with wave 1, the rest as updates. Done: R10.1 boundary closed (693ff35, ADR-081 addendum), R10.2 visit companion, R10.3 transparency and AI ledger, R10.7 Say it over several days (agent branch, merged 1e4fdec), R8.27 signs card (61eadb5) and counted save, R12.1 notification consent (agent branch, merged; remote push deferred), R12.2/R12.3 rating and update prompts, R12.4 SEO, store screenshot 8 = Ask femio, tester kit `docs/store/testers/tester-kit.html`. App gate: analyze clean, 990 tests. Agent worktrees fork from an older commit (4136d24), so merge their branches here and re-render their shots on the merged code. Never run the whole suite (or any older dated test) with `--update-goldens`: run only the new test file. Left for release: the signed .aab (owner's upload key, R4.12), owner actions on the board, then R5.4 closed test. Wave 2 starts at R11.0. Owner/agent board: https://claude.ai/artifact/4BNRwtG7FspkAWsem7AwvB (`items` collection; writes need `if_version`).
 

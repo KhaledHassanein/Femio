@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Home-screen widget sizes. -->
+<resources>
+    <dimen name="widget_corner">20dp</dimen>
+    <dimen name="widget_padding">16dp</dimen>
+    <dimen name="widget_title_size">22sp</dimen>
+    <dimen name="widget_line_size">14sp</dimen>
+</resources>

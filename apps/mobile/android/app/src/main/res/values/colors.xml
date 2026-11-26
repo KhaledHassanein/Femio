@@ -1,7 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Platform colours that cannot read the token CSS: the adaptive-icon
-     background and the splash. Both are plum-900 from femio.tokens.css. -->
+     background, the splash and the home-screen widget. Values come from
+     assets/brand/tokens/femio.tokens.css: plum-900 for the icon and splash; the
+     widget ground runs plum-800 to plum-600 (the cycle hero gradient) with white
+     and plum-100 text. -->
 <resources>
     <color name="ic_launcher_background">#3F1534</color>
     <color name="splash_background">#3F1534</color>
+    <color name="widget_ground_start">#551D46</color>
+    <color name="widget_ground_end">#8A3572</color>
+    <color name="widget_title">#FFFFFF</color>
+    <color name="widget_line">#F5E3EF</color>
 </resources>

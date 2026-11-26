@@ -51,6 +51,7 @@ class AppSettings {
     this.periodReminder = false,
     this.appointmentReminder = false,
     this.notificationConsentAt,
+    this.widgetDetails = false,
     this.cloud = const CloudConsent(),
     this.usageDays = 0,
     this.lastUsageDay,
@@ -86,6 +87,11 @@ class AppSettings {
 
   /// Whether she has consented to notifications (R12.1).
   bool get hasNotificationConsent => notificationConsentAt != null;
+
+  /// The home-screen widget shows the pregnancy week or the next-period range (R9.11).
+  /// Off, or absent from an older file, means the widget stays neutral: the wordmark and
+  /// "Open femio", no health word.
+  final bool widgetDetails;
 
   /// Cloud boost consent with its receipts (ADR-079, ADR-080): which purposes she agreed to,
   /// when, and on which consent text. Nothing is allowed by default; only the consent screen
@@ -123,6 +129,7 @@ class AppSettings {
     bool? periodReminder,
     bool? appointmentReminder,
     String? notificationConsentAt,
+    bool? widgetDetails,
     CloudConsent? cloud,
     int? usageDays,
     String? lastUsageDay,
@@ -138,6 +145,7 @@ class AppSettings {
         periodReminder: periodReminder ?? this.periodReminder,
         appointmentReminder: appointmentReminder ?? this.appointmentReminder,
         notificationConsentAt: notificationConsentAt ?? this.notificationConsentAt,
+        widgetDetails: widgetDetails ?? this.widgetDetails,
         cloud: cloud ?? this.cloud,
         usageDays: usageDays ?? this.usageDays,
         lastUsageDay: lastUsageDay ?? this.lastUsageDay,
@@ -154,6 +162,7 @@ class AppSettings {
         'periodReminder': periodReminder,
         'appointmentReminder': appointmentReminder,
         'notificationConsentAt': notificationConsentAt,
+        'widgetDetails': widgetDetails,
         'cloudConsent': cloud.toJson(),
         'usageDays': usageDays,
         'lastUsageDay': lastUsageDay,
@@ -178,6 +187,7 @@ class AppSettings {
       // A record written before R12.1 with a switch already on keeps working: she turned it
       // on after the phone's own permission prompt. With no switch on, she is asked.
       notificationConsentAt: consent is String && consent.isNotEmpty ? consent : (logOn || periodOn ? legacyNotificationConsent : null),
+      widgetDetails: j?['widgetDetails'] as bool? ?? false,
       // Only a receipt on today's consent text counts; the bare `cloudBoost: true` of the
       // hackathon build carried no receipt, so it reads as no consent and she is asked again.
       cloud: CloudConsent.fromJson(j?['cloudConsent']),

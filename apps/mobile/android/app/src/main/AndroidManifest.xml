@@ -32,6 +32,7 @@
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher"
         android:allowBackup="false"
+        android:supportsRtl="true"
         android:fullBackupContent="@xml/backup_rules"
         android:dataExtractionRules="@xml/data_extraction_rules">
         <activity
@@ -71,6 +72,17 @@
                 <action android:name="android.intent.action.QUICKBOOT_POWERON" />
                 <action android:name="com.htc.intent.action.QUICKBOOT_POWERON" />
             </intent-filter>
+        </receiver>
+        <!-- The home-screen widget (R9.11): neutral until she turns details on in Settings.
+             Exported because the launcher must be able to update it; it takes no input
+             beyond the system's APPWIDGET_UPDATE and holds only two display strings. -->
+        <receiver android:name=".widget.FemioWidgetProvider" android:exported="true">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/femio_widget_info" />
         </receiver>
     </application>
     <!-- Required to query activities that can process text, see:
