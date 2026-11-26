@@ -406,6 +406,45 @@ class Profile {
         settings: settings ?? this.settings,
       );
 
+  /// The same record with new onboarding answers (R14.10: change her stage, or correct an
+  /// answer such as her cycle length or a due date after a scan). Only the answers change;
+  /// every log, record entry, document, medicine and setting is kept (product rule 5).
+  /// [addStarts] are period starts she gave while answering, merged with the ones she has.
+  Profile withAnswers({
+    required Goal goal,
+    required int? periodLength,
+    required int? cycleLength,
+    required bool irregular,
+    required TryingFor? tryingFor,
+    required String? edd,
+    required String? birthDate,
+    required bool lastPeriodOverYear,
+    List<String> addStarts = const [],
+  }) =>
+      Profile(
+        goal: goal,
+        locale: locale,
+        birthYear: birthYear,
+        periodStarts: ({...periodStarts, ...addStarts}.toList()..sort()),
+        periodLength: periodLength,
+        cycleLength: cycleLength,
+        irregular: irregular,
+        tryingFor: tryingFor,
+        edd: edd,
+        birthDate: birthDate,
+        lastPeriodOverYear: lastPeriodOverYear,
+        logs: logs,
+        contractions: contractions,
+        movements: movements,
+        weights: weights,
+        appointments: appointments,
+        record: record,
+        attachments: attachments,
+        medicinePlans: medicinePlans,
+        doses: doses,
+        settings: settings,
+      );
+
   /// Set or clear one day's log, keeping [periodStarts] in step with its flow.
   Profile withDayLog(String date, DayLog log) {
     final nextLogs = {...logs};

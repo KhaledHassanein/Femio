@@ -1116,5 +1116,7 @@
   "aiChipHint": "Cómo funciona la IA de femio. Abre los ajustes del asistente.",
   "tipsOrderedNano": "Ordenados por Gemini Nano en este teléfono, a partir de tu registro. Cada consejo es una frase revisada, con su fuente.",
   "sayItCheckedNano": "Gemini Nano, en este teléfono, también leyó tus palabras y no encontró nada más que añadir.",
-  "visitOrderedNano": "Ordenadas por Gemini Nano en este teléfono."
+  "visitOrderedNano": "Ordenadas por Gemini Nano en este teléfono.",
+  "settingsStageTitle": "En qué te ayuda femio",
+  "settingsStageSub": "Cambia tu etapa, tu fecha probable de parto o tus respuestas sobre el ciclo. Todo lo que registraste se conserva."
 }

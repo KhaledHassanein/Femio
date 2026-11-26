@@ -2611,5 +2611,7 @@
   "aiChipHint": "How femio's AI runs. Opens the assistant settings.",
   "tipsOrderedNano": "Put in order by Gemini Nano on this phone, from your log. Each tip is a reviewed sentence with its source.",
   "sayItCheckedNano": "Gemini Nano on this phone read your words too and found nothing more to add.",
-  "visitOrderedNano": "Put in order by Gemini Nano on this phone."
+  "visitOrderedNano": "Put in order by Gemini Nano on this phone.",
+  "settingsStageTitle": "What femio helps with",
+  "settingsStageSub": "Change your stage, your due date or your cycle answers. Everything you logged stays."
 }

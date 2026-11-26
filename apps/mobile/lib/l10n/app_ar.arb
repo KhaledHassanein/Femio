@@ -1116,5 +1116,7 @@
   "aiChipHint": "كيف يعمل الذكاء الاصطناعي في femio. يفتح إعدادات المساعد.",
   "tipsOrderedNano": "رتّبها Gemini Nano على هذا الهاتف من تسجيلاتكِ. كل نصيحة جملة مُراجعة مع مصدرها.",
   "sayItCheckedNano": "قرأ Gemini Nano على هذا الهاتف كلماتكِ أيضًا ولم يجد ما يضيفه.",
-  "visitOrderedNano": "رتّبها Gemini Nano على هذا الهاتف."
+  "visitOrderedNano": "رتّبها Gemini Nano على هذا الهاتف.",
+  "settingsStageTitle": "ما يساعدكِ فيه femio",
+  "settingsStageSub": "غيّري مرحلتكِ أو موعد الولادة أو إجاباتكِ عن الدورة. يبقى كل ما سجّلتِه."
 }

@@ -3,6 +3,7 @@ All notable changes to Femio V2.
 
 ## [Unreleased]
 ### Changed
+- **Change what femio helps with.** Settings → "What femio helps with" lets you switch between tracking your period, trying to get pregnant, pregnancy (with a due date from any method, including after a scan) and perimenopause, or correct your cycle answers. Everything you logged stays.
 - **See where femio's AI runs.** Today now opens with a small line saying whether Gemini Nano runs on your phone, femio's own rules answer, or the AI is off, and whether Cloud boost is on. Under it, "Tell femio anything" logs your day from one sentence. Ask femio and Questions for my visit sit higher on Today and still work with the AI off. When Gemini Nano helped (reading your words, ordering tips or visit questions), femio says so.
 - **The "not a way to avoid pregnancy" sentence** now appears under the calendar whenever it shows a fertile window, in "Track my period" mode too.
 - **Your calendar keeps its forecast.** Logging your second period no longer hides the next periods and your fertile window: femio keeps using the cycle length you gave until you have logged three periods. A cycle of 36 to 45 days now gets a period range too (no fertile window, since counting back is not reliable there). If you said your cycles are irregular, only the next period is shown. A range that has already passed is no longer listed, and Today and the calendar show the same next range.

@@ -4083,4 +4083,11 @@ class L10nFr extends L10n {
   @override
   String get visitOrderedNano =>
       'Mises en ordre par Gemini Nano sur ce téléphone.';
+
+  @override
+  String get settingsStageTitle => 'Ce que femio suit pour vous';
+
+  @override
+  String get settingsStageSub =>
+      'Changez d’étape, de date prévue d’accouchement ou vos réponses sur le cycle. Tout ce que vous avez noté est conservé.';
 }

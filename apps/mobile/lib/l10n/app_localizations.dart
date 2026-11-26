@@ -6556,6 +6556,18 @@ abstract class L10n {
   /// In en, this message translates to:
   /// **'Put in order by Gemini Nano on this phone.'**
   String get visitOrderedNano;
+
+  /// No description provided for @settingsStageTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'What femio helps with'**
+  String get settingsStageTitle;
+
+  /// No description provided for @settingsStageSub.
+  ///
+  /// In en, this message translates to:
+  /// **'Change your stage, your due date or your cycle answers. Everything you logged stays.'**
+  String get settingsStageSub;
 }
 
 class _L10nDelegate extends LocalizationsDelegate<L10n> {

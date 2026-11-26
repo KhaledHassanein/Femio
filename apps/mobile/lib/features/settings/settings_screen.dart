@@ -8,6 +8,7 @@ import 'package:flutter/foundation.dart' show TargetPlatform, defaultTargetPlatf
 import 'package:flutter/material.dart';
 
 import '../../app.dart';
+import '../onboarding/onboarding_flow.dart';
 import '../assistant/assistant_settings_screen.dart';
 import '../../data/app_lock.dart';
 import '../../l10n/app_localizations.dart';
@@ -52,6 +53,18 @@ class SettingsScreen extends StatelessWidget {
             subtitle: Text(l.assistantSettingsSub, style: t.bodySmall?.copyWith(color: p.textMuted)),
             onTap: () => Navigator.of(context).push(MaterialPageRoute<void>(builder: (_) => AssistantSettingsScreen(controller: controller))),
           ),
+          // R14.10: change her stage or correct an answer; everything she logged stays.
+          if (profile != null) ...[
+          _Section(title: l.settingsStageTitle),
+          ListTile(
+            leading: const Icon(Icons.tune_rounded),
+            title: Text(l.settingsStageTitle),
+            subtitle: Text(l.settingsStageSub, style: t.bodySmall?.copyWith(color: p.textMuted)),
+            onTap: () => Navigator.of(context).push(MaterialPageRoute<void>(
+              builder: (_) => OnboardingFlow(controller: controller, editing: true),
+            )),
+          ),
+          ],
           _Section(title: l.settingsLanguage),
           RadioGroup<String>(
             groupValue: current,

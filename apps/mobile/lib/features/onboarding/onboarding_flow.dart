@@ -48,18 +48,21 @@ enum _Step {
 /// asked here; they are offered later, where they help.
 ///
 /// [controller] receives the finished profile. [today] fixes the date in tests; the
-/// real app reads the clock.
+/// real app reads the clock. With [editing] (R14.10, Settings → What femio helps with) the
+/// flow starts at the goal with her answers filled in, skips the age questions she already
+/// answered, keeps everything she logged ([Profile.withAnswers]) and closes when done.
 class OnboardingFlow extends StatefulWidget {
-  const OnboardingFlow({super.key, required this.controller, this.today});
+  const OnboardingFlow({super.key, required this.controller, this.today, this.editing = false});
   final FemioController controller;
   final String? today;
+  final bool editing;
 
   @override
   State<OnboardingFlow> createState() => _OnboardingFlowState();
 }
 
 class _OnboardingFlowState extends State<OnboardingFlow> {
-  final _history = <_Step>[_Step.welcome];
+  late final _history = <_Step>[widget.editing ? _Step.goal : _Step.welcome];
   _Step get _step => _history.last;
 
   Goal? _goal;
@@ -83,13 +86,35 @@ class _OnboardingFlowState extends State<OnboardingFlow> {
   static const _youngestAge = 10;
   static const _oldestAge = 75;
 
+  @override
+  void initState() {
+    super.initState();
+    final p = widget.controller.profile;
+    if (!widget.editing || p == null) return;
+    _goal = p.goal;
+    _birthYear = p.birthYear;
+    _periodLength = p.periodLength ?? _periodLength;
+    _periodLengthKnown = p.periodLength != null;
+    _cycleLength = p.cycleLength ?? _cycleLength;
+    _cycleKnown = p.cycleLength != null;
+    _irregular = p.irregular;
+    _trying = p.tryingFor;
+    if (p.periodStarts.isNotEmpty) _lastPeriod = fromISO(p.periodStarts.last);
+  }
+
   String get _todayISO => widget.today ?? todayISO();
   DateTime get _today => fromISO(_todayISO);
 
   void _go(_Step next) => setState(() => _history.add(next));
-  void _back() => setState(() {
-        if (_history.length > 1) _history.removeLast();
-      });
+  void _back() {
+    if (widget.editing && _history.length <= 1) {
+      Navigator.of(context).maybePop();
+      return;
+    }
+    setState(() {
+      if (_history.length > 1) _history.removeLast();
+    });
+  }
 
   /// The questions on her path, for an honest progress bar.
   List<_Step> get _path => switch (_goal) {
@@ -146,6 +171,26 @@ class _OnboardingFlowState extends State<OnboardingFlow> {
     final goal = _goal!;
     final locale = Localizations.localeOf(context).languageCode;
     final born = _dueMethod == DueMethod.born && _dueInput != null;
+    final old = widget.controller.profile;
+    if (widget.editing && old != null) {
+      final cycle = goal == Goal.period || goal == Goal.ttc;
+      await widget.controller.save(old.withAnswers(
+        goal: goal,
+        periodLength: cycle ? (_periodLengthKnown ? _periodLength : null) : old.periodLength,
+        cycleLength: cycle ? (_cycleKnown && !_irregular ? _cycleLength : null) : old.cycleLength,
+        irregular: cycle ? _irregular : old.irregular,
+        tryingFor: goal == Goal.ttc ? _trying : old.tryingFor,
+        edd: goal == Goal.pregnant && !born ? (_computedEdd ?? old.edd) : old.edd,
+        birthDate: born ? toISO(_dueInput!) : old.birthDate,
+        lastPeriodOverYear: goal == Goal.menopause ? _menoOverYear : old.lastPeriodOverYear,
+        addStarts: [
+          if (cycle && _lastPeriod != null) toISO(_lastPeriod!),
+          if (goal == Goal.menopause && _menoLast != null) toISO(_menoLast!),
+        ],
+      ));
+      if (mounted) Navigator.of(context).pop();
+      return;
+    }
     await widget.controller.save(Profile(
       goal: goal,
       locale: locale,
@@ -192,7 +237,12 @@ class _OnboardingFlowState extends State<OnboardingFlow> {
           selected: _goal,
           onPick: (g) {
             setState(() => _goal = g);
-            _go(_Step.birthYear);
+            // Editing: her age was settled at first onboarding (MR-48), so it is not asked again.
+            if (widget.editing && _birthYear != null) {
+              _afterAge();
+            } else {
+              _go(_Step.birthYear);
+            }
           },
         );
 

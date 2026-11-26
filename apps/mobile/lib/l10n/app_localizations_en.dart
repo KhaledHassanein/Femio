@@ -4043,4 +4043,11 @@ class L10nEn extends L10n {
 
   @override
   String get visitOrderedNano => 'Put in order by Gemini Nano on this phone.';
+
+  @override
+  String get settingsStageTitle => 'What femio helps with';
+
+  @override
+  String get settingsStageSub =>
+      'Change your stage, your due date or your cycle answers. Everything you logged stays.';
 }

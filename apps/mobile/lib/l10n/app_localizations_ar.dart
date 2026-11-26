@@ -4099,4 +4099,11 @@ class L10nAr extends L10n {
 
   @override
   String get visitOrderedNano => 'رتّبها Gemini Nano على هذا الهاتف.';
+
+  @override
+  String get settingsStageTitle => 'ما يساعدكِ فيه femio';
+
+  @override
+  String get settingsStageSub =>
+      'غيّري مرحلتكِ أو موعد الولادة أو إجاباتكِ عن الدورة. يبقى كل ما سجّلتِه.';
 }
