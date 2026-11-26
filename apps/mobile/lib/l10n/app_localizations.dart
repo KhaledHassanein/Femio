@@ -6406,6 +6406,54 @@ abstract class L10n {
   /// In en, this message translates to:
   /// **'femio keeps your pregnancy record and moves to the after-birth view.'**
   String get ppHadBabyNote;
+
+  /// Perimenopause and menopause (R8.20).
+  ///
+  /// In en, this message translates to:
+  /// **'If another period comes, it may start around {range}.'**
+  String menoNextRange(String range);
+
+  /// Perimenopause and menopause (R8.20).
+  ///
+  /// In en, this message translates to:
+  /// **'Cycles often change in the years before menopause, so this range is wide. Menopause is identified after 12 months without a period.'**
+  String get menoRangeNote;
+
+  /// Perimenopause and menopause (R8.20).
+  ///
+  /// In en, this message translates to:
+  /// **'Bleeding after a year without periods'**
+  String get menoBleedHeading;
+
+  /// Perimenopause and menopause (R8.20).
+  ///
+  /// In en, this message translates to:
+  /// **'You logged bleeding after 12 months or more without a period. Bleeding after menopause should always be checked by a doctor, even if it happens once. Book an appointment soon.'**
+  String get menoBleedBody;
+
+  /// Perimenopause and menopause (R8.20).
+  ///
+  /// In en, this message translates to:
+  /// **'Bleeding after 12 months without a period should always be checked by a doctor, even once.'**
+  String get menoBleedLogNote;
+
+  /// Perimenopause and menopause (R8.20).
+  ///
+  /// In en, this message translates to:
+  /// **'About bleeding after menopause'**
+  String get menoBleedMore;
+
+  /// Perimenopause and menopause (R8.20).
+  ///
+  /// In en, this message translates to:
+  /// **'Days logged each month'**
+  String get patMonthly;
+
+  /// Perimenopause and menopause (R8.20).
+  ///
+  /// In en, this message translates to:
+  /// **'Medicines I take now'**
+  String get visitMedicines;
 }
 
 class _L10nDelegate extends LocalizationsDelegate<L10n> {

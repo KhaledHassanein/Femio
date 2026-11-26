@@ -32,6 +32,6 @@ class TodayHero extends StatelessWidget {
   Widget build(BuildContext context) => switch (profile.goal) {
         Goal.period || Goal.ttc => PeriodHero(profile: profile, today: today, range: range, date: date),
         Goal.pregnant => PregnancyHero(profile: profile, today: today, date: date),
-        Goal.menopause => MenopauseHero(profile: profile, today: today),
+        Goal.menopause => MenopauseHero(profile: profile, today: today, range: range),
       };
 }

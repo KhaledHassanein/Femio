@@ -14,6 +14,8 @@ import '../../domain/assistant/visit_summary.dart';
 import '../../domain/dates.dart';
 import '../../l10n/app_localizations.dart';
 import '../../l10n/log_labels.g.dart';
+import '../../widgets/monthly_terms_table.dart' show monthShort;
+import '../record/record_labels.dart' show recordSummary;
 import 'catalogue_text.g.dart';
 
 /// The reviewed wording of question [id] in [l]'s language.
@@ -68,6 +70,7 @@ String tryingForLabel(L10n l, TryingFor f) => switch (f) {
 
 /// The facts as lines, in [l]'s language, dates written for [locale].
 List<String> visitFactLines(L10n l, VisitSummary s, String locale) => [
+      if (s.monthsSinceLastPeriod case final m?) l.menoMonths(m),
       s.cyclesObserved == 0
           ? l.visitCycles(0, 0, 0)
           : l.visitCycles(s.cyclesObserved, s.longestCycle!, s.shortestCycle!),
@@ -78,6 +81,22 @@ List<String> visitFactLines(L10n l, VisitSummary s, String locale) => [
       if (s.positiveOvulationTests > 0) '${l.visitOpkPositive}: ${s.positiveOvulationTests}',
       if (s.temperatureDays > 0) '${l.visitTemperatureDays}: ${s.temperatureDays}',
     ];
+
+/// Her current medicines as lines: the name, then what she wrote about the dose.
+List<String> visitMedicineLines(VisitSummary s) => [
+      for (final e in s.currentMedicines)
+        if (recordSummary(e) case final d when d.isNotEmpty) '${e.title} · $d' else e.title,
+    ];
+
+/// The menopause monthly counts as lines, one per term: each month's short name and days.
+List<String> visitMonthlyLines(L10n l, VisitSummary s, String locale) {
+  final m = s.monthly;
+  if (m == null || m.isEmpty) return const [];
+  return [
+    for (final r in m.rows)
+      '${logLabel(l, r.term)}: ${[for (final (i, month) in m.months.indexed) '${monthShort(month, locale)} ${r.days[i]}'].join(l.listSeparator)}',
+  ];
+}
 
 /// The suggested question ids not already in her own list.
 List<String> suggestedNotListed(List<String> suggested, List<VisitLine> mine) {
@@ -104,6 +123,16 @@ String visitPackText(
       '',
       l.visitTopTerms,
       for (final term in summary.topTerms) '- ${logLabel(l, term.key)}: ${l.visitDays(term.days)}',
+    ],
+    if (visitMonthlyLines(l, summary, locale) case final lines when lines.isNotEmpty) ...[
+      '',
+      l.patMonthly,
+      for (final line in lines) '- $line',
+    ],
+    if (visitMedicineLines(summary) case final lines when lines.isNotEmpty) ...[
+      '',
+      l.visitMedicines,
+      for (final line in lines) '- $line',
     ],
     if (mine.isNotEmpty) ...[
       '',

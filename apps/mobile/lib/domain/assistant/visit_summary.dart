@@ -10,10 +10,13 @@
 // prediction's own flag.
 
 import '../../data/profile.dart';
+import '../health_record.dart' show RecordEntry;
 import '../cycle_prediction.dart';
 import '../dates.dart';
 import '../guidance.dart';
 import '../log_vocabulary.g.dart';
+import '../medicines.dart' show medicinesByStatus;
+import '../perimenopause.dart';
 import 'personal_triggers.dart';
 import 'tip_catalogue.g.dart';
 
@@ -95,6 +98,9 @@ class VisitSummary {
     required this.temperatureDays,
     required this.tryingFor,
     required this.questionIds,
+    this.currentMedicines = const [],
+    this.monthsSinceLastPeriod,
+    this.monthly,
   });
 
   final Goal goal;
@@ -124,6 +130,16 @@ class VisitSummary {
   /// Suggested question ids from either bank (see [questionEnglish]), at most
   /// [maxVisitQuestions].
   final List<String> questionIds;
+
+  /// The medicines in her record she has not marked as finished (R8.20). Kept out of
+  /// [factsInEnglish]: the model never sees her record.
+  final List<RecordEntry> currentMedicines;
+
+  /// Menopause stage only: whole months since her last logged period.
+  final int? monthsSinceLastPeriod;
+
+  /// Menopause stage only: days each term was logged in each recent month.
+  final MonthlyTerms? monthly;
 
   /// The facts as short English lines, for the on-device model that orders the questions.
   /// Counts and keys only; no date, no name.
@@ -250,6 +266,9 @@ VisitSummary visitSummary(Profile profile, String today) {
     temperatureDays: temps,
     tryingFor: profile.tryingFor,
     questionIds: questions,
+    currentMedicines: medicinesByStatus(profile.record, today).current,
+    monthsSinceLastPeriod: profile.goal == Goal.menopause ? monthsSinceLastPeriod(profile, today) : null,
+    monthly: profile.goal == Goal.menopause ? monthlyTermDays(profile, today) : null,
   );
 }
 

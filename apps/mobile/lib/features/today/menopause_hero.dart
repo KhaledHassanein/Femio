@@ -7,7 +7,8 @@
 import 'package:flutter/material.dart';
 
 import '../../data/profile.dart';
-import '../../domain/dates.dart';
+import '../../domain/cycle_prediction.dart';
+import '../../domain/perimenopause.dart';
 import '../../l10n/app_localizations.dart';
 import 'hero_card.dart';
 
@@ -17,9 +18,13 @@ import 'hero_card.dart';
 /// said her last period was over a year ago, and zero otherwise. Months are counted in
 /// 30-day steps, which is a display approximation, not a clinical measurement.
 class MenopauseHero extends StatelessWidget {
-  const MenopauseHero({super.key, required this.profile, required this.today});
+  const MenopauseHero({super.key, required this.profile, required this.today, this.range});
   final Profile profile;
   final String today;
+
+  /// Formats a day range in her language; with it, a wide next-period range is shown while
+  /// her periods still come (R8.20, MR-61).
+  final IsoRangeFormatter? range;
 
   /// The over-a-year answer is shown as the twelve months that define it.
   static const _monthsWhenOverYear = 12;
@@ -34,7 +39,16 @@ class MenopauseHero extends StatelessWidget {
         extra: [HeroLine(l.menoUnknown)],
       );
     }
-    final months = diffDays(profile.periodStarts.last, today) ~/ 30;
-    return HeroCard(eyebrow: l.goalMenopause, headline: l.menoMonths(months), extra: [HeroLine(l.menoUnknown)]);
+    final months = monthsSinceLastPeriod(profile, today) ?? 0;
+    final next = range != null && menopauseShowsRanges(profile, today)
+        ? predictNextPeriod(profile.cycleStarts, profile.cycleLength)
+        : null;
+    return HeroCard(eyebrow: l.goalMenopause, headline: l.menoMonths(months), extra: [
+      if (next != null) ...[
+        HeroLine(l.menoNextRange(range!(next.windowStart, next.windowEnd))),
+        HeroLine(l.menoRangeNote),
+      ],
+      HeroLine(l.menoUnknown),
+    ]);
   }
 }

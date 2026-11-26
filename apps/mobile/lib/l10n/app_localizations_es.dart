@@ -3975,4 +3975,33 @@ class L10nEs extends L10n {
   @override
   String get ppHadBabyNote =>
       'femio conserva tu registro del embarazo y pasa a la vista después del parto.';
+
+  @override
+  String menoNextRange(String range) {
+    return 'Si llega otra regla, podría empezar hacia $range.';
+  }
+
+  @override
+  String get menoRangeNote =>
+      'Los ciclos suelen cambiar en los años antes de la menopausia, así que este rango es amplio. La menopausia se identifica tras 12 meses sin regla.';
+
+  @override
+  String get menoBleedHeading => 'Sangrado tras un año sin regla';
+
+  @override
+  String get menoBleedBody =>
+      'Registraste un sangrado tras 12 meses o más sin regla. El sangrado después de la menopausia siempre debe revisarlo un médico, aunque ocurra una sola vez. Pide cita pronto.';
+
+  @override
+  String get menoBleedLogNote =>
+      'Cualquier sangrado tras 12 meses sin regla siempre debe revisarlo un médico, aunque sea una vez.';
+
+  @override
+  String get menoBleedMore => 'El sangrado después de la menopausia';
+
+  @override
+  String get patMonthly => 'Días registrados cada mes';
+
+  @override
+  String get visitMedicines => 'Medicamentos que tomo ahora';
 }

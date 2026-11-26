@@ -1091,5 +1091,13 @@
   "ppBleedingNote": "Es el sangrado de recuperación después del parto, no una regla. femio lo deja fuera de tus rangos de ciclo. Un sangrado muy abundante o coágulos grandes necesitan atención de inmediato.",
   "ppWarnMore": "Ver todas las señales de alarma después del parto",
   "ppHadBaby": "Ya nació mi bebé",
-  "ppHadBabyNote": "femio conserva tu registro del embarazo y pasa a la vista después del parto."
+  "ppHadBabyNote": "femio conserva tu registro del embarazo y pasa a la vista después del parto.",
+  "menoNextRange": "Si llega otra regla, podría empezar hacia {range}.",
+  "menoRangeNote": "Los ciclos suelen cambiar en los años antes de la menopausia, así que este rango es amplio. La menopausia se identifica tras 12 meses sin regla.",
+  "menoBleedHeading": "Sangrado tras un año sin regla",
+  "menoBleedBody": "Registraste un sangrado tras 12 meses o más sin regla. El sangrado después de la menopausia siempre debe revisarlo un médico, aunque ocurra una sola vez. Pide cita pronto.",
+  "menoBleedLogNote": "Cualquier sangrado tras 12 meses sin regla siempre debe revisarlo un médico, aunque sea una vez.",
+  "menoBleedMore": "El sangrado después de la menopausia",
+  "patMonthly": "Días registrados cada mes",
+  "visitMedicines": "Medicamentos que tomo ahora"
 }

@@ -3953,4 +3953,33 @@ class L10nEn extends L10n {
   @override
   String get ppHadBabyNote =>
       'femio keeps your pregnancy record and moves to the after-birth view.';
+
+  @override
+  String menoNextRange(String range) {
+    return 'If another period comes, it may start around $range.';
+  }
+
+  @override
+  String get menoRangeNote =>
+      'Cycles often change in the years before menopause, so this range is wide. Menopause is identified after 12 months without a period.';
+
+  @override
+  String get menoBleedHeading => 'Bleeding after a year without periods';
+
+  @override
+  String get menoBleedBody =>
+      'You logged bleeding after 12 months or more without a period. Bleeding after menopause should always be checked by a doctor, even if it happens once. Book an appointment soon.';
+
+  @override
+  String get menoBleedLogNote =>
+      'Bleeding after 12 months without a period should always be checked by a doctor, even once.';
+
+  @override
+  String get menoBleedMore => 'About bleeding after menopause';
+
+  @override
+  String get patMonthly => 'Days logged each month';
+
+  @override
+  String get visitMedicines => 'Medicines I take now';
 }

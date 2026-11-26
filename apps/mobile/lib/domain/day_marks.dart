@@ -1,3 +1,4 @@
+import 'perimenopause.dart';
 import '../data/profile.dart';
 import 'cycle_prediction.dart';
 import 'dates.dart';
@@ -69,7 +70,10 @@ Map<String, DayMark> dayMarks(
     }
   }
 
-  if (p.goal == Goal.period || p.goal == Goal.ttc) {
+  // R8.20: in perimenopause the next periods stay drawn while they still come (MR-61);
+  // a fertile window never is.
+  final cycleGoal = p.goal == Goal.period || p.goal == Goal.ttc;
+  if (cycleGoal || menopauseShowsRanges(p, today)) {
     final prediction = predictNextPeriod(p.cycleStarts, p.cycleLength);
     if (prediction != null) {
       void range(String a, String b, String floor, void Function(DayMark) set) {
@@ -88,7 +92,7 @@ Map<String, DayMark> dayMarks(
       }
       // No window is drawn when none can be named honestly (MR-06/08).
       final cycleStart = starts.isEmpty ? today : starts.last;
-      for (final w in fertileWindowsFor(p, prediction)) {
+      for (final w in cycleGoal ? fertileWindowsFor(p, prediction) : const <FertileWindow>[]) {
         range(w.windowStart, w.windowEnd, cycleStart, (m) => m.fertile = true);
         range(w.ovulation, w.ovulation, cycleStart, (m) => m.ovulation = true);
       }

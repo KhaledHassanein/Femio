@@ -4009,4 +4009,33 @@ class L10nAr extends L10n {
   @override
   String get ppHadBabyNote =>
       'يحتفظ femio بسجلّ حملكِ وينتقل إلى عرض ما بعد الولادة.';
+
+  @override
+  String menoNextRange(String range) {
+    return 'إذا جاءت دورة أخرى، فقد تبدأ في حدود $range.';
+  }
+
+  @override
+  String get menoRangeNote =>
+      'كثيرًا ما تتغير الدورات في السنوات التي تسبق انقطاع الطمث، لذا فهذا النطاق واسع. يُحدَّد انقطاع الطمث بعد 12 شهرًا دون دورة.';
+
+  @override
+  String get menoBleedHeading => 'نزيف بعد عام دون دورة';
+
+  @override
+  String get menoBleedBody =>
+      'سجّلتِ نزيفًا بعد 12 شهرًا أو أكثر دون دورة. يجب أن يفحص الطبيب أي نزيف بعد انقطاع الطمث دائمًا، حتى لو حدث مرة واحدة. احجزي موعدًا قريبًا.';
+
+  @override
+  String get menoBleedLogNote =>
+      'أي نزيف بعد 12 شهرًا دون دورة يجب أن يفحصه الطبيب دائمًا، حتى لو مرة واحدة.';
+
+  @override
+  String get menoBleedMore => 'عن النزيف بعد انقطاع الطمث';
+
+  @override
+  String get patMonthly => 'أيام التسجيل في كل شهر';
+
+  @override
+  String get visitMedicines => 'الأدوية التي أتناولها الآن';
 }

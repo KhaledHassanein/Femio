@@ -3992,4 +3992,33 @@ class L10nFr extends L10n {
   @override
   String get ppHadBabyNote =>
       'femio garde votre suivi de grossesse et passe à la vue après la naissance.';
+
+  @override
+  String menoNextRange(String range) {
+    return 'Si d\'autres règles arrivent, elles pourraient commencer vers $range.';
+  }
+
+  @override
+  String get menoRangeNote =>
+      'Les cycles changent souvent dans les années avant la ménopause, cette fourchette est donc large. La ménopause est retenue après 12 mois sans règles.';
+
+  @override
+  String get menoBleedHeading => 'Saignement après un an sans règles';
+
+  @override
+  String get menoBleedBody =>
+      'Vous avez noté un saignement après 12 mois ou plus sans règles. Un saignement après la ménopause doit toujours être examiné par un médecin, même s\'il n\'arrive qu\'une fois. Prenez rendez-vous rapidement.';
+
+  @override
+  String get menoBleedLogNote =>
+      'Tout saignement après 12 mois sans règles doit toujours être examiné par un médecin, même une seule fois.';
+
+  @override
+  String get menoBleedMore => 'Le saignement après la ménopause';
+
+  @override
+  String get patMonthly => 'Jours notés chaque mois';
+
+  @override
+  String get visitMedicines => 'Médicaments que je prends';
 }

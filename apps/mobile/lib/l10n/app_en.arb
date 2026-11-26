@@ -2543,5 +2543,42 @@
   "ppHadBabyNote": "femio keeps your pregnancy record and moves to the after-birth view.",
   "@ppHadBabyNote": {
     "description": "After birth (R8.19)."
+  },
+  "menoNextRange": "If another period comes, it may start around {range}.",
+  "@menoNextRange": {
+    "description": "Perimenopause and menopause (R8.20).",
+    "placeholders": {
+      "range": {
+        "type": "String"
+      }
+    }
+  },
+  "menoRangeNote": "Cycles often change in the years before menopause, so this range is wide. Menopause is identified after 12 months without a period.",
+  "@menoRangeNote": {
+    "description": "Perimenopause and menopause (R8.20)."
+  },
+  "menoBleedHeading": "Bleeding after a year without periods",
+  "@menoBleedHeading": {
+    "description": "Perimenopause and menopause (R8.20)."
+  },
+  "menoBleedBody": "You logged bleeding after 12 months or more without a period. Bleeding after menopause should always be checked by a doctor, even if it happens once. Book an appointment soon.",
+  "@menoBleedBody": {
+    "description": "Perimenopause and menopause (R8.20)."
+  },
+  "menoBleedLogNote": "Bleeding after 12 months without a period should always be checked by a doctor, even once.",
+  "@menoBleedLogNote": {
+    "description": "Perimenopause and menopause (R8.20)."
+  },
+  "menoBleedMore": "About bleeding after menopause",
+  "@menoBleedMore": {
+    "description": "Perimenopause and menopause (R8.20)."
+  },
+  "patMonthly": "Days logged each month",
+  "@patMonthly": {
+    "description": "Perimenopause and menopause (R8.20)."
+  },
+  "visitMedicines": "Medicines I take now",
+  "@visitMedicines": {
+    "description": "Perimenopause and menopause (R8.20)."
   }
 }

@@ -12,11 +12,13 @@ import '../../app.dart';
 import '../../data/profile.dart';
 import '../../domain/dates.dart';
 import '../../domain/patterns.dart';
+import '../../domain/perimenopause.dart';
 import '../../l10n/app_localizations.dart';
 import '../../l10n/log_labels.g.dart';
 import '../../theme/femio_theme.dart';
 import '../../theme/radii.dart';
 import '../../theme/spacing.dart';
+import '../../widgets/monthly_terms_table.dart';
 import '../../widgets/notice_card.dart';
 import 'signs_by_day_screen.dart';
 
@@ -74,7 +76,12 @@ class PatternsScreen extends StatelessWidget {
             children: [
               Text(l.patIntro, style: t.bodyMedium),
               const SizedBox(height: space4),
-              if (cycleGoal) ..._cycleSections(context, cyclePatterns(profile)) else ..._recent(context, profile),
+              if (cycleGoal)
+                ..._cycleSections(context, cyclePatterns(profile))
+              else if (profile.goal == Goal.menopause)
+                ..._monthly(context, profile)
+              else
+                ..._recent(context, profile),
               const SizedBox(height: space6),
               Text(l.patNoVerdict, style: t.bodySmall),
             ],
@@ -132,6 +139,18 @@ class PatternsScreen extends StatelessWidget {
             onTap: () => openSignsByDay(context, controller.profile!, today, day: d.span.start),
           ),
       ],
+    ];
+  }
+
+  /// Menopause (R8.20): days per term in each of the last months.
+  List<Widget> _monthly(BuildContext context, Profile profile) {
+    final l = L10n.of(context);
+    final t = Theme.of(context).textTheme;
+    final data = monthlyTermDays(profile, today);
+    return [
+      Text(l.patMonthly, style: t.titleSmall),
+      const SizedBox(height: space2),
+      if (data.isEmpty) Text(l.patEmpty, style: t.bodyMedium) else MonthlyTermsTable(data: data),
     ];
   }
 

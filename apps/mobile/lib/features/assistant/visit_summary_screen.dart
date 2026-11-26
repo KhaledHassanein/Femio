@@ -24,6 +24,7 @@ import '../../theme/femio_theme.dart';
 import '../../theme/radii.dart';
 import '../../theme/spacing.dart';
 import '../../theme/type_sizes.dart';
+import '../../widgets/monthly_terms_table.dart';
 import 'assistant_scope.dart';
 import 'visit_pack.dart';
 import 'visit_worry_card.dart';
@@ -174,6 +175,17 @@ class _VisitSummaryScreenState extends State<VisitSummaryScreen> {
                       Text(l.visitDays(term.days), style: t.bodyMedium),
                     ]),
                   ),
+              ]),
+            ],
+            if (_summary.monthly case final monthly? when !monthly.isEmpty) ...[
+              heading(l.patMonthly),
+              MonthlyTermsTable(data: monthly),
+            ],
+            if (visitMedicineLines(_summary) case final meds when meds.isNotEmpty) ...[
+              heading(l.visitMedicines),
+              card([
+                for (final m in meds)
+                  Padding(padding: const EdgeInsets.only(bottom: space2), child: Text(m, style: t.bodyLarge)),
               ]),
             ],
             if (mine.isNotEmpty) ...[

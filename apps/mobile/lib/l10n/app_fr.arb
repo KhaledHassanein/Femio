@@ -1091,5 +1091,13 @@
   "ppBleedingNote": "C'est le saignement de cicatrisation après la naissance, pas des règles. femio le garde hors de vos fourchettes de cycle. Un saignement très abondant ou de gros caillots demandent des soins immédiats.",
   "ppWarnMore": "Voir tous les signes d'alerte après la naissance",
   "ppHadBaby": "J'ai accouché",
-  "ppHadBabyNote": "femio garde votre suivi de grossesse et passe à la vue après la naissance."
+  "ppHadBabyNote": "femio garde votre suivi de grossesse et passe à la vue après la naissance.",
+  "menoNextRange": "Si d'autres règles arrivent, elles pourraient commencer vers {range}.",
+  "menoRangeNote": "Les cycles changent souvent dans les années avant la ménopause, cette fourchette est donc large. La ménopause est retenue après 12 mois sans règles.",
+  "menoBleedHeading": "Saignement après un an sans règles",
+  "menoBleedBody": "Vous avez noté un saignement après 12 mois ou plus sans règles. Un saignement après la ménopause doit toujours être examiné par un médecin, même s'il n'arrive qu'une fois. Prenez rendez-vous rapidement.",
+  "menoBleedLogNote": "Tout saignement après 12 mois sans règles doit toujours être examiné par un médecin, même une seule fois.",
+  "menoBleedMore": "Le saignement après la ménopause",
+  "patMonthly": "Jours notés chaque mois",
+  "visitMedicines": "Médicaments que je prends"
 }

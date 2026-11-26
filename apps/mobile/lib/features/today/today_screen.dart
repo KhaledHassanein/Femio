@@ -28,6 +28,7 @@ import '../settings/settings_screen.dart';
 import '../../widgets/tab_header.dart';
 import '../record/medicines_screen.dart';
 import '../../domain/assistant/safety.dart' show postpartumWarningDays;
+import '../../domain/perimenopause.dart';
 import 'postpartum_cards.dart';
 import 'pregnancy_tools.dart';
 import 'tips_card.dart';
@@ -154,6 +155,23 @@ class TodayScreen extends StatelessWidget {
               // R8.19: the way into the after-birth stage.
               const SizedBox(height: space2),
               HadBabyButton(controller: controller, today: now),
+            ],
+            // R8.20, MR-61: bleeding after a year without periods always needs a doctor.
+            if (bleedAfterYear(profile, now) != null) ...[
+              const SizedBox(height: space4),
+              NoticeCard(
+                tone: NoticeTone.caution,
+                heading: l.menoBleedHeading,
+                body: l.menoBleedBody,
+                icon: Icons.medical_services_outlined,
+              ),
+              Align(
+                alignment: AlignmentDirectional.centerEnd,
+                child: TextButton(
+                  onPressed: () => openGuide(context, library ?? Library(), postmenopausalBleedingGuide),
+                  child: Text(l.menoBleedMore),
+                ),
+              ),
             ],
             // R8.19: the after-birth stage follows her weeks since the birth.
             if (profile.isPostpartum) PostpartumToday(controller: controller, library: library ?? Library(), today: now),

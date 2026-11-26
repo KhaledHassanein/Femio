@@ -11,6 +11,7 @@ import '../../domain/cycle_prediction.dart';
 import '../../domain/dates.dart';
 import '../../domain/day_marks.dart';
 import '../../domain/hijri.dart';
+import '../../domain/perimenopause.dart';
 import '../../domain/upcoming_periods.dart';
 import '../../data/library.dart';
 import '../../data/profile.dart';
@@ -84,7 +85,8 @@ class _CalendarScreenState extends State<CalendarScreen> {
           DateFormat.MMMd(locale).format(fromISO(a)),
           DateFormat.MMMd(locale).format(fromISO(b)),
         );
-        final predicts = profile.goal == Goal.period || profile.goal == Goal.ttc;
+        // R8.20: in perimenopause a wide range stays while her periods still come (MR-61).
+        final predicts = profile.goal == Goal.period || profile.goal == Goal.ttc || menopauseShowsRanges(profile, widget.today);
         // R8.6/R8.7: in pregnancy the week is the unit; nothing about periods or fertility.
         final pregnant = profile.goal == Goal.pregnant && profile.birthDate == null && profile.edd != null;
         final upcoming = predicts

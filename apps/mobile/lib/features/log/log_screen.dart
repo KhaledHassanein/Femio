@@ -206,6 +206,11 @@ class LogScreen extends StatelessWidget {
                     onTap: () => setFlow(f),
                   ),
               ]),
+              // R8.20, MR-61: any bleeding after a year without periods needs a doctor.
+              if (profile.goal == Goal.menopause) ...[
+                const SizedBox(height: space2),
+                Text(l.menoBleedLogNote, style: t.bodySmall),
+              ],
               // R8.19, MR-60: after birth the bleed is healing, not a period.
               if (profile.isPostpartum) ...[
                 const SizedBox(height: space2),
