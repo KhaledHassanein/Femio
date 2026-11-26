@@ -118,8 +118,8 @@
     },
     "hero": {
       "eyebrow": "Salud y bienestar de la mujer, con ayuda de IA",
-      "title": "femio es la compañera privada para buscar un embarazo y vivirlo.",
-      "body": "Rangos honestos en lugar de promesas, guías que muestran sus fuentes, un asistente que funciona en tu teléfono y registros que nunca salen de él. Sin cuenta y sin anuncios en la app.",
+      "title": "femio es tu compañera privada con IA para buscar un embarazo y vivirlo.",
+      "body": "Su IA funciona en tu teléfono; la nube solo se usa si aceptas Cloud boost. Rangos honestos en lugar de promesas, guías que muestran sus fuentes y registros que nunca salen de tu teléfono. Sin cuenta y sin anuncios en la app.",
       "cta": "Descargar la app",
       "ctaSecondary": "Probar la calculadora de ovulación"
     },
@@ -1132,10 +1132,10 @@
       "title": "En resumen",
       "items": [
         "La app femio guarda tus registros solo en tu teléfono, en un archivo cifrado con una clave que guarda el hardware de seguridad de tu teléfono. No hay cuenta ni servidor de femio. No podemos ver tus registros ni podemos recuperarlos por ti.",
-        "La app no tiene anuncios, ni analítica, ni herramientas de rastreo. Usa internet solo para sus funciones de IA: para descargar el modelo de IA de Google que funciona en el teléfono, y para Cloud boost si lo aceptas.",
+        "La app no tiene anuncios, ni analítica propia, ni herramientas de rastreo. Usa internet solo para la IA de Google (descargar el modelo que funciona en el teléfono, y Cloud boost si lo aceptas) y para Google Play (instalación, actualizaciones, valoraciones y pagos). El software de IA de Google puede enviar a Google datos técnicos de uso; femio no les añade ninguno de tus registros.",
         "Cloud boost está desactivado salvo que lo aceptes. Si lo aceptas, una pregunta general que apruebas, o cuatro datos generales sobre tu salud que se te muestran antes, se envían para femio a la IA en la nube de Google. La app guarda un registro con fecha de tu elección, y puedes desactivarlo en cualquier momento.",
         "El sitio web cuenta las visitas sin cookies y sin Google Analytics ni Meta. Los anuncios aparecen solo en las páginas de artículos y de temas, y solo después de que los permitas.",
-        "femio es para mujeres de 18 años o más. Puedes ver, copiar y borrar tú misma, dentro de la app, todo lo que contiene."
+        "femio es para mujeres de 18 años o más. Puedes ver, copiar y borrar tú misma, dentro de la app, todo lo que contiene. Un archivo que eliges compartir o exportar solo va adonde tú lo envíes."
       ]
     },
     "points": [
@@ -1145,11 +1145,11 @@
       },
       {
         "heading": "Qué guarda la app, en tu teléfono",
-        "body": "Al usar la app puedes introducir: tu año de nacimiento (solo para comprobar que tienes 18 años o más), tu idioma, las fechas de tu regla y de tus ciclos, síntomas, estado de ánimo, notas que escribas, peso, citas, registros de embarazo y de movimientos del bebé, y sesiones del cronómetro de contracciones. Es información de salud. Se guarda en un archivo privado que solo la app femio puede abrir, cifrado con una clave que guarda el hardware de seguridad de tu teléfono (el Android Keystore). También puedes activar un bloqueo de la app con un PIN. Nada de este archivo se envía a nosotros ni a nadie más."
+        "body": "Al usar la app puedes introducir: tu año de nacimiento, tu idioma, las fechas de tu regla y de tus ciclos y la cantidad de sangrado, síntomas, estado de ánimo, flujo vaginal, actividad sexual, temperatura basal, resultados de pruebas de ovulación, notas que escribas, peso, citas, registros de embarazo y de movimientos del bebé, sesiones del cronómetro de contracciones, y tu historial de salud: visitas, resultados de análisis, pruebas de imagen, medicamentos con las tomas que marcas y sus recordatorios, enfermedades, alergias, intervenciones, y los documentos y fotos que añades. Es información de salud. Tu año de nacimiento sirve para comprobar que tienes 18 años o más, y tu edad orienta algunas pautas, como cuándo la app sugiere hablar con un profesional sanitario mientras buscas embarazo, qué consejos ves y las preguntas de tu resumen de visita. Todo se guarda en un archivo privado que solo la app femio puede abrir, cifrado con una clave que guarda el hardware de seguridad de tu teléfono (el Android Keystore); los documentos y fotos se sellan con la misma clave, cada uno en su propio archivo. También puedes activar un bloqueo de la app con un PIN. femio no envía nada de este archivo ni a nosotros ni a nadie más; las únicas excepciones son los archivos que eliges compartir o exportar, y Cloud boost si lo aceptas (más abajo)."
       },
       {
         "heading": "Lo que la app nunca hace",
-        "body": "Ninguna cuenta, ningún inicio de sesión, ningún nombre, correo ni número de teléfono. Ningún contacto, foto, ubicación ni archivo. Ningún anuncio y ningún identificador publicitario. Ninguna analítica, ninguna herramienta propia de informes de fallos, ningún píxel de rastreo y ningún corredor de datos. No vendemos tu información ni la compartimos con fines publicitarios, y nunca usamos información de salud para publicidad."
+        "body": "Ninguna cuenta, ningún inicio de sesión, ningún nombre, correo ni número de teléfono. La app no lee tus contactos, tu ubicación ni las fotos y archivos de tu teléfono: solo ve una foto o un archivo que eliges añadir, y no pide permiso para usar la cámara, porque es la propia app de cámara de Android la que hace la foto. Ningún anuncio y ningún identificador publicitario. Ninguna herramienta propia de analítica ni de informes de fallos, ningún píxel de rastreo y ningún corredor de datos. No vendemos tu información ni la compartimos con fines publicitarios, y nunca usamos información de salud para publicidad."
       },
       {
         "heading": "Todo lo que puede salir de tu teléfono",
@@ -1157,15 +1157,15 @@
         "items": [
           {
             "lead": "Cloud boost, solo si lo aceptas.",
-            "body": "En un teléfono sin IA integrada, y solo para los usos que marcaste: una pregunta general que apruebas, con los pasajes de fuentes públicas que se encontraron, después de que femio quite números, fechas, nombres y contactos; o cuatro datos generales sobre ti, que se te muestran antes de que aceptes: tu etapa de vida (por ejemplo, buscar embarazo o estar embarazada), si tus ciclos son regulares, los tipos de síntoma que registraste en dos o más días del último mes, y cuánto tiempo llevas registrando. Los detalles están en la sección siguiente."
+            "body": "En un teléfono sin IA integrada, y solo para los usos que marcaste: una pregunta general que apruebas, con los pasajes de fuentes públicas que se encontraron; o cuatro datos generales sobre ti, que se te muestran antes de que aceptes: tu etapa de vida (por ejemplo, buscar embarazo o estar embarazada), si tus ciclos son regulares, los tipos de síntoma que registraste en dos o más días del último mes, y cuánto tiempo llevas registrando. En una pregunta se quitan los números, las direcciones de correo y los enlaces, y ves y editas el texto exacto antes de que se envíe nada. femio no quita nombres ni otras palabras, así que borra tú lo que no quieras enviar. Una pregunta sobre ti, por ejemplo con «yo» o «mi», se queda en el teléfono. Los detalles están en la sección siguiente."
           },
           {
             "lead": "Una comprobación de autenticidad, con cada solicitud de Cloud boost.",
             "body": "Google Play comprueba que la solicitud viene de la app femio real en un teléfono real (Firebase App Check con Play Integrity), para que nadie pueda usar el servicio de IA de femio con una clave copiada. El software de Google también añade a la solicitud los nombres y las versiones de sus propias bibliotecas. Como cualquier conexión a internet, la solicitud muestra a Google la dirección de internet de tu teléfono."
           },
           {
-            "lead": "El modelo de IA del teléfono.",
-            "body": "Si tu teléfono admite Gemini Nano y pulsas Descargar, el servicio de IA de Android (AICore, gestionado por Google) descarga el modelo y lo mantiene actualizado, según las condiciones de Google. El software de IA de Google en la app también puede enviar a Google información técnica sobre cómo funciona el servicio de IA, como errores y rendimiento. femio no le añade tus registros."
+            "lead": "La IA de Google en el teléfono.",
+            "body": "Si tu teléfono admite Gemini Nano y pulsas Descargar, el servicio de IA de Android (AICore, gestionado por Google) descarga el modelo y lo mantiene actualizado, según las condiciones de Google. Siempre que la app usa el software de IA de Google, incluso con Cloud boost desactivado, ese software puede enviar a Google datos técnicos de uso. Según Google, pueden incluir datos del dispositivo y de la app, identificadores de esta instalación, cuánto tardó una petición, el tamaño de lo que entró y salió, y códigos de error. femio no le añade tus registros."
           },
           {
             "lead": "Compras en Google Play.",
@@ -1174,6 +1174,10 @@
           {
             "lead": "Enlaces que abres.",
             "body": "Cuando pulsas un enlace a una fuente o a ayuda, se abre en tu navegador, y se aplica la política propia de ese sitio."
+          },
+          {
+            "lead": "Archivos que compartes o exportas, solo cuando tú eliges.",
+            "body": "Cuando compartes un documento o tu resumen de visita, el menú para compartir de Android entrega una copia normal, sin cifrar, a la app que eliges; si en lugar de eso copias el resumen, va al portapapeles de tu teléfono. Cuando guardas una hoja de cálculo (CSV) de tus registros, es un archivo normal, sin cifrar, guardado donde eliges, que puede ser una nube. femio no envía ninguno por su cuenta; después, la copia está en tus manos, y la app o el servicio que elegiste aplica su propia política."
           }
         ]
       },
@@ -1194,7 +1198,7 @@
           },
           {
             "lead": "Tu registro de consentimiento.",
-            "body": "La app guarda en tu teléfono un registro con fecha de lo que aceptaste y de la versión de la pantalla de consentimiento. Puedes verlo en la pantalla de Cloud boost. Una copia de seguridad restaurada conserva el registro pero no traslada el acuerdo: cada teléfono te lo vuelve a preguntar."
+            "body": "La app guarda un registro con fecha de lo que aceptaste y de la versión de la pantalla de consentimiento, dentro de tu archivo cifrado en tu teléfono; femio no tiene ninguna copia. Puedes verlo en la pantalla de Cloud boost, y va en tu copia de seguridad con el resto de tus registros. Una copia de seguridad restaurada conserva el registro pero no traslada el acuerdo: cada teléfono te lo vuelve a preguntar."
           },
           {
             "lead": "Desactivarlo.",
@@ -1207,8 +1211,8 @@
         "body": "femio puede guardar un archivo de copia de seguridad cuando se lo pidas. Está cifrado con una frase de contraseña que eliges tú; sin ella nadie, tampoco nosotros, puede abrirlo ni recuperarlo. Tú eliges dónde va: los archivos del teléfono, una unidad en la nube, un correo. Después, el archivo está en tus manos, no en las nuestras. Hemos desactivado la copia de seguridad automática de Android en la nube y la transferencia de teléfono a teléfono para femio, de modo que Google no copia tus registros. Si pierdes el teléfono o lo restableces y no tienes un archivo de copia, tus registros se pierden. No podemos recuperarlos."
       },
       {
-        "heading": "Recordatorios",
-        "body": "Los recordatorios se crean en tu teléfono. Ningún servidor los envía, y una notificación solo muestra «femio»."
+        "heading": "Recordatorios, notificaciones y widget",
+        "body": "Los recordatorios se crean en tu teléfono; ningún servidor los envía. Una notificación solo muestra «femio» y «Abre la app», salvo que escribas tus propias palabras para un recordatorio de medicamento: esas palabras aparecen en la notificación, también en la pantalla de bloqueo. El widget de la pantalla de inicio solo muestra «femio» y «Abrir femio» hasta que activas los detalles en Ajustes; entonces muestra tu semana de embarazo o el rango de tu próxima regla. Para poder mostrarlos, las palabras de los recordatorios y las líneas del widget se guardan en tu teléfono fuera de tu archivo cifrado, así que ahí no están cifradas. Usa palabras poco concretas en los recordatorios si otras personas ven tu teléfono."
       },
       {
         "heading": "El sitio web (femioapp.com)",
@@ -1226,8 +1230,8 @@
             "body": "Algunas páginas de artículos, páginas de afecciones y el índice de guías pueden mostrar anuncios de Google AdSense. El mensaje de consentimiento de Google te pregunta primero; hasta que permitas los anuncios, no se muestra ningún anuncio y no se coloca ninguna cookie publicitaria, aunque tu navegador sigue cargando el script de anuncios de Google y por tanto muestra a Google tu dirección de internet. Si permites los anuncios, Google actúa como responsable independiente según su propia política. Pedimos a Google que bloquee los anuncios de categorías sensibles, y nunca ponemos anuncios en las calculadoras, la página de ayuda ni estas páginas legales. Puedes cambiar tu elección en cualquier momento desde el enlace de ajustes de privacidad que Google muestra en la página."
           },
           {
-            "lead": "La memoria de tu navegador.",
-            "body": "El sitio puede recordar en tu navegador tu idioma y tu elección de modo claro u oscuro. No te sigue."
+            "lead": "La memoria de tu navegador, y una cookie.",
+            "body": "El sitio pone una sola cookie, NEXT_LOCALE. Solo guarda el idioma de las páginas que lees (por ejemplo «es»), para que el sitio te mantenga en tu idioma. Es una cookie de sesión: tu navegador la borra cuando lo cierras. El sitio también puede recordar tu elección de modo claro u oscuro en el almacenamiento de tu navegador. Ninguna de las dos se usa para seguirte."
           },
           {
             "lead": "Las calculadoras y la búsqueda funcionan en tu navegador.",
@@ -1249,7 +1253,7 @@
       },
       {
         "heading": "Edad",
-        "body": "El seguimiento de femio y Cloud boost son para mujeres de 18 años o más. La app pregunta una vez tu año de nacimiento y se detiene si tienes menos de 18. No recogemos a sabiendas información de nadie menor de 18 años."
+        "body": "El seguimiento de femio y Cloud boost son para mujeres de 18 años o más. La app pregunta tu año de nacimiento; si el año no basta, una pregunta de sí o no te pide confirmar si ya has cumplido 18 años, y esa respuesta no se guarda. Si tienes menos de 18, el seguimiento no se abre, y todas las guías del sitio siguen abiertas para ti. No recogemos a sabiendas información de nadie menor de 18 años."
       },
       {
         "heading": "Tus derechos y cómo ejercerlos",
@@ -1293,11 +1297,11 @@
         "items": [
           {
             "lead": "En la app, en tu teléfono.",
-            "body": "Fechas de la regla y del ciclo, síntomas, estado de ánimo, notas, peso, registros de embarazo y de movimientos del bebé, duración de las contracciones, citas, tu etapa de vida (como buscar embarazo o estar embarazada) y tu año de nacimiento. Finalidad: mostrarte tu propio seguimiento, predicciones en forma de rangos, consejos, resúmenes de visita y respuestas. Se guardan cifrados en tu teléfono; nunca los recibimos."
+            "body": "Fechas de la regla y del ciclo, cantidad de sangrado, síntomas, estado de ánimo, flujo vaginal, actividad sexual, temperatura basal, resultados de pruebas de ovulación, notas, peso, registros de embarazo y de movimientos del bebé, duración de las contracciones, citas, tu etapa de vida (como buscar embarazo o estar embarazada), tu año de nacimiento, y tu historial de salud: visitas, resultados de análisis, pruebas de imagen, medicamentos con las tomas que marcas, enfermedades, alergias, intervenciones, y los documentos y fotos que añades. Finalidad: mostrarte tu propio seguimiento, predicciones en forma de rangos, consejos, resúmenes de visita y respuestas. Se guardan cifrados en tu teléfono; nunca los recibimos."
           },
           {
             "lead": "A través de Cloud boost, solo con tu consentimiento.",
-            "body": "Una pregunta general que apruebas, sin números, fechas, nombres ni contactos; o cuatro datos generales: etapa de vida, regularidad del ciclo, tipos de síntoma registrados en el último mes, y cuánto tiempo llevas registrando. Finalidad: resumir fuentes fiables y ordenar tus consejos en teléfonos sin IA integrada."
+            "body": "Una pregunta general que apruebas, sin números, direcciones de correo ni enlaces; ves y editas el texto exacto antes de que se envíe nada, y femio no quita nombres. O cuatro datos generales: etapa de vida, regularidad del ciclo, tipos de síntoma registrados en el último mes, y cuánto tiempo llevas registrando. Finalidad: resumir fuentes fiables y ordenar tus consejos en teléfonos sin IA integrada."
           }
         ]
       },
@@ -1307,7 +1311,7 @@
       },
       {
         "heading": "Quién los recibe",
-        "body": "Nadie, salvo en Cloud boost: Google LLC, a través de Firebase AI Logic (Gemini Developer API, nivel de pago), como nuestro encargado del tratamiento, solo después de tu consentimiento y solo para los usos que marcaste. Contacto de privacidad de Google: policies.google.com/privacy. No tenemos filiales que los reciban. No los vendemos, y no los compartimos con anunciantes, corredores de datos ni empresas de analítica. Las solicitudes enviadas a Google no llevan nombre ni cuenta, por lo que una solicitud de borrado no se puede asociar a ellas; Google las borra en 55 días."
+        "body": "Nadie, salvo en Cloud boost: Google LLC, a través de Firebase AI Logic (Gemini Developer API, nivel de pago), como nuestro encargado del tratamiento, solo después de tu consentimiento y solo para los usos que marcaste. Contacto de privacidad de Google: policies.google.com/privacy. No tenemos filiales que los reciban. No los vendemos, y no los compartimos con anunciantes, corredores de datos ni empresas de analítica. Las solicitudes enviadas a Google no llevan nombre ni cuenta, por lo que una solicitud de borrado no se puede asociar a ellas; Google las borra en 55 días. Cuando compartes o exportas tú misma un archivo, como un documento, tu resumen de visita o una hoja de cálculo de tus registros, va a la app o al lugar que eliges; femio no lo envía."
       },
       {
         "heading": "Tu consentimiento",
@@ -1682,11 +1686,11 @@
     "metaTitle": "Descarga la app de femio",
     "eyebrow": "Salud y bienestar de la mujer, con ayuda de IA",
     "title": "Tus registros nunca salen de tu teléfono.",
-    "body": "Una app de Android privada para buscar un embarazo y vivirlo, con un asistente que funciona en tu teléfono. Tu calendario, tus registros y tus herramientas de embarazo se quedan en tu teléfono, tras un PIN si lo eliges. Sin cuenta, y nada va a la nube salvo que actives Cloud boost. Muy pronto en Google Play.",
+    "body": "Una app de Android privada para buscar un embarazo y vivirlo, con un asistente que funciona en tu teléfono. Tu calendario, tus registros y tus herramientas de embarazo se quedan en tu teléfono, tras un PIN si lo eliges. Sin cuenta, y nada de tus registros va a la nube salvo que actives Cloud boost. Muy pronto en Google Play.",
     "android": "Google Play",
-    "androidStatus": "Muy pronto",
+    "androidStatus": "Prueba cerrada más adelante",
     "androidLive": "Disponible en Google Play",
-    "bodyLive": "Una app de Android privada para buscar un embarazo y vivirlo, con un asistente que funciona en tu teléfono. Tu calendario, tus registros y tus herramientas de embarazo se quedan en tu teléfono, tras un PIN si lo eliges. Sin cuenta, y nada va a la nube salvo que actives Cloud boost.",
+    "bodyLive": "Una app de Android privada para buscar un embarazo y vivirlo, con un asistente que funciona en tu teléfono. Tu calendario, tus registros y tus herramientas de embarazo se quedan en tu teléfono, tras un PIN si lo eliges. Sin cuenta, y nada de tus registros va a la nube salvo que actives Cloud boost.",
     "ios": "iPhone",
     "iosStatus": "Muy pronto",
     "featuresTitle": "Qué hace la app",
@@ -1744,7 +1748,20 @@
       "note": "Estimación · confianza media",
       "period": "Próxima regla en 15–18 días"
     },
-    "companion": "El asistente es un acompañante, no el motor: cada función sirve con él apagado, y nunca añade nada a tu registro sin ti."
+    "companion": "El asistente es un acompañante, no el motor: cada función sirve con él apagado, y nunca añade nada a tu registro sin ti.",
+    "testBuild": {
+      "title": "Versión de prueba anticipada (APK)",
+      "body": "Para quienes prueban o evalúan femio: una versión de Android que instalas por tu cuenta, antes de que femio llegue a Google Play. La prueba cerrada en Google Play llegará más adelante.",
+      "soon": "Enlace de descarga muy pronto",
+      "soonBody": "El enlace a la versión de prueba aparecerá aquí en cuanto se publique. Mientras tanto, todo este sitio es gratuito.",
+      "download": "Descargar el APK",
+      "stepsTitle": "Cómo instalarla",
+      "steps": {
+        "download": "En tu teléfono Android, toca «Descargar el APK».",
+        "allow": "Si Android te lo pide, permite instalar desde esta fuente: tu navegador o tu app de Archivos.",
+        "open": "Abre el APK descargado y toca Instalar. Después puedes volver a desactivar ese permiso."
+      }
+    }
   },
   "appDemo": {
     "tour": {
@@ -1836,19 +1853,19 @@
     "privacy": {
       "eyebrow": "Lo que puede salir de este teléfono",
       "heading": "Tus registros se quedan en tu teléfono. Esto es todo lo demás.",
-      "body": "La app no tiene anuncios, ni analítica, ni herramientas de rastreo. Esta es la lista completa de lo que puede salir de tu teléfono, y cuándo.",
+      "body": "La app no tiene anuncios, ni analítica propia, ni herramientas de rastreo. Esta es la lista completa de lo que puede salir de tu teléfono, y cuándo.",
       "items": {
         "cloud": {
           "title": "Cloud boost, solo si aceptas",
-          "body": "En un teléfono sin IA integrada, y solo para los usos que marcaste: una pregunta general que apruebas, después de que femio quite números, fechas, nombres y contactos, enviada con las fuentes públicas que encontró; o cuatro datos generales que ves antes: tu etapa de vida, si tus ciclos son regulares, los tipos de síntoma que registraste y desde cuándo registras."
+          "body": "En un teléfono sin IA integrada, y solo para los usos que marcaste: una pregunta general que apruebas, enviada con las fuentes públicas que encontró, después de quitar números, direcciones de correo y enlaces, y de que hayas visto y editado el texto exacto; o cuatro datos generales que ves antes: tu etapa de vida, si tus ciclos son regulares, los tipos de síntoma que registraste y desde cuándo registras."
         },
         "check": {
           "title": "Una comprobación de autenticidad, con cada petición de Cloud boost",
           "body": "Google Play confirma que la petición viene de la app femio real en un teléfono real. Como cualquier conexión a internet, la petición muestra a Google la dirección de internet de tu teléfono."
         },
         "model": {
-          "title": "El modelo de IA del teléfono",
-          "body": "Si tocas Descargar, el servicio de IA de Android (AICore, gestionado por Google) descarga Gemini Nano y lo mantiene al día. El software de IA de Google también puede enviar a Google información técnica, como errores y rendimiento. femio no le añade ninguno de tus registros."
+          "title": "La IA de Google en el teléfono",
+          "body": "Siempre que la app usa el software de IA de Google, incluso con Cloud boost desactivado, puede enviar a Google datos técnicos de uso, como datos del dispositivo, un identificador de esta instalación, errores y rendimiento. Si tocas Descargar, el servicio de IA de Android (AICore, gestionado por Google) descarga Gemini Nano y lo mantiene al día. femio no le añade ninguno de tus registros."
         },
         "play": {
           "title": "Google Play",
@@ -1857,6 +1874,10 @@
         "links": {
           "title": "Los enlaces que abres",
           "body": "Un enlace a una fuente o a ayuda se abre en tu navegador, bajo la política de ese sitio."
+        },
+        "share": {
+          "title": "Archivos que compartes o exportas",
+          "body": "Un documento, tu resumen de visita o una hoja de cálculo de tus registros va como copia normal, sin cifrar, solo a la app o al lugar que elijas."
         },
         "backup": {
           "title": "Copias de seguridad que guardas tú",

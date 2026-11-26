@@ -57,6 +57,18 @@ It is **not a new licensing law starting that day.** Law 151/2020 already prohib
 
 > **Superseded 2026-11-24 (ADR-080).** The live text is `apps/web/messages/*.json` keys `privacy` and `healthData` (four languages); the review behind it is `docs/compliance/PRIVACY_REVIEW_2026-11-24.md`. The drafts below are kept for the record.
 
+> **R14 truth pass, 2026-11-27** (audit `docs/33_REBUILD_V3/audit-2026-11-26/02-privacy.md`; R14.2 and R14.14). Changed in all four catalogues (`privacy`, `healthData`, `appDemo.privacy`), each sentence checked against the file named:
+> - **Redaction (PRIV-1, JUDGE-3).** "Removes numbers, dates, names and contacts" is gone. Now: numbers, e-mail addresses and links are removed, she sees and edits the exact text before anything is sent, femio does not remove names, and a question about herself stays on the phone. Proof: `apps/mobile/lib/domain/assistant/redaction.dart` (`_email`, `_url`, `_digits`, `isAboutHer`); `ask_screen.dart` (editable text before send).
+> - **What the record holds (PRIV-3).** Adds flow, discharge, sexual activity, basal body temperature, ovulation tests, and the health record (visits, labs, scans, medicines with dose marks and reminders, conditions, allergies, procedures, documents and photos). "No photos or files" becomes "sees only a photo or file you choose to add; no camera permission". Proof: `lib/domain/health_record.dart` (`RecordKind`), `log_vocabulary.g.dart` (`LogDimension`), `medicines.dart`, `record_attachment.dart`, `data/attachment_store.dart` (sealed with the record key), `AndroidManifest.xml` (no CAMERA permission).
+> - **Birth year (PRIV-4).** It checks 18+ and shapes age-based guidance (TTC seek-help timing, tips, visit questions); a separate yes/no question, not saved, settles the edge year. Proof: `lib/domain/age_gate.dart`, `features/today/period_hero.dart`, `domain/assistant/personal_triggers.dart`, `domain/assistant/visit_summary.dart`; `app_en.arb` `eighteenSub`.
+> - **Lock screen and widget (PRIV-5, PRIV-14).** Medicine-reminder words she writes show on the notification and lock screen; the widget shows the pregnancy week or next-period range once she turns details on; both are kept outside the encrypted file. Proof: `data/reminder_scheduler.dart` (`body: plan[i].label`), `android/.../widget/FemioWidgetProvider.kt` (plain `SharedPreferences`).
+> - **Share and export (PRIV-7).** New list item: sharing a document or visit summary (plain copy to the app she picks, or the clipboard) and the unencrypted CSV saved where she chooses. Proof: `data/share_channel.dart`, `FilesChannel.kt` (`share`), `features/settings/csv_actions.dart`.
+> - **Google's AI telemetry (PRIV-2, C2-C3).** "No analytics" becomes "no analytics of its own"; the technical-usage line now covers every use of Google's AI software, Cloud boost off included, with Google's own list of data types. Traffic is still **not verified** (owner action 33).
+> - **Google Play in the summary (PRIV-8).** The summary names Google Play (installs, updates, ratings, payments) beside the AI.
+> - **Consent receipt.** Stored inside her encrypted file on the phone, no femio copy, included in her backup. Proof: `data/profile.dart` (`cloudConsent`), `domain/assistant/cloud_consent.dart`.
+> - **Cookie (PRIV-10).** Names `NEXT_LOCALE`, the next-intl session cookie holding only the language code. Proof: `apps/web/src/middleware.ts` (next-intl middleware); live header `Set-Cookie: NEXT_LOCALE=en; Path=/; SameSite=lax` (audit §6).
+> - **Left for the owner:** console facts (paid tier, logging off; PRIV-6, owner actions 29-30), Vercel Analytics switched on and the effective date (PRIV-9, owner action 31). `apps/web/src/lib/legal/policy-truth.test.ts` now fails if a catalogue claims name removal again, drops `NEXT_LOCALE`, or loses a section the English text has.
+
 *Publish at `[URL]` as an ordinary web page (Play rejects PDFs and geo-blocked pages) [P1]. Also link it inside the app (Settings). Opening a link in the phone's browser needs no `INTERNET` permission in the app.* Ready for `apps/web/messages/en.json` / `ar.json` under `privacy` once reshaped into heading/body pairs; sentences are full and ICU-safe.
 
 ### 2.1 English
@@ -358,7 +370,7 @@ A privacy policy that is wrong is worse than none (the FTC's Flo and Premom matt
 | "Delete everything" works | Widget test: confirm dialog, then store empty, then app returns to onboarding | `clear()` exists; UI unchecked |
 | "Backups are files you save yourself" | Export and import round trip test; file carries no account or device identifier | Not built |
 | "Calculators and search run in your browser" | Playwright guard: zero network requests to non-origin hosts while using a calculator | Planned in R2 |
-| "No tracking cookies" | Crawl the built site and assert no `Set-Cookie`; check next-intl does not set `NEXT_LOCALE` | Not checked |
+| "No tracking cookies" | Crawl the built site and assert no `Set-Cookie` other than `NEXT_LOCALE` | next-intl sets the session cookie `NEXT_LOCALE` (live header, 2026-11-26); the policy names it since 2026-11-27 (R14.14) |
 | "Help link does not tell the other site where you came from" | `rel="noopener noreferrer"`, `referrerPolicy="no-referrer"`, no query string (existing `directory.ts` build check) | Exists for the web (report 10 §3.8) |
 | Host keeps logs "for a short period" | Read the retention for the Vercel plan in the dashboard and state the figure | Unknown; Vercel's pages conflict [V1] |
 
@@ -368,7 +380,7 @@ All fields: purpose = the feature the woman uses; lawful basis = not applicable 
 
 | Field | Where it appears | Note |
 |---|---|---|
-| Birth year | Onboarding | Age gate only; no full date of birth |
+| Birth year | Onboarding | Age gate, and age-based guidance (TTC seek-help timing, tips, visit questions); no full date of birth (corrected 2026-11-27, PRIV-4) |
 | Language | Onboarding / Settings | Not health data |
 | Life-stage flag (e.g. after birth) | Profile | Health data |
 | Cycle and period dates, flow | Log, Calendar | Health data |
@@ -377,6 +389,11 @@ All fields: purpose = the feature the woman uses; lawful basis = not applicable 
 | Appointments and visit questions | Appointments | Free text |
 | Pregnancy logs, baby movements, contraction sessions | Pregnancy tools | Health data; no verdicts |
 | App lock settings (R4) | Settings | Security setting |
+| Discharge, sexual activity, basal temperature, ovulation tests | Log, Say it | Health data; sexual activity is "sex life" data (GDPR Art. 9) (added 2026-11-27) |
+| Health record: visits, labs, scans, medicines with dose marks, conditions, allergies, procedures | My record (R11) | Health data; free text (added 2026-11-27) |
+| Documents and photos | My record (R11.2) | Each file sealed with the record key; no camera permission (added 2026-11-27) |
+| Medicine-reminder words, widget lines | Medicines, Settings | Opt-in; kept outside the encrypted file so Android can show them, so not encrypted (added 2026-11-27) |
+| Cloud boost consent receipt | Settings, Assistant | Inside the encrypted record; travels in her backup (added 2026-11-27) |
 
 ### 8.3 Processor and recipient register for v1
 
