@@ -75,7 +75,7 @@ class L10nFr extends L10n {
 
   @override
   String get birthYearSub =>
-      'Les cycles changent avec l\'âge : cela aide femio à savoir à quoi s\'attendre. L\'année seulement.';
+      'Les cycles changent avec l\'âge : cela aide femio à savoir à quoi s\'attendre. Cela aide aussi à vérifier que vous avez 18 ans ou plus. L\'année seulement.';
 
   @override
   String get under18Title =>
@@ -1155,7 +1155,7 @@ class L10nFr extends L10n {
 
   @override
   String get reminderChannelDescription =>
-      'Les rappels que vous avez activés dans femio. Ils ne mentionnent jamais votre santé.';
+      'Les rappels que vous avez activés dans femio. Ils disent seulement « Ouvrez l\'application », sauf si vous avez écrit vos propres mots pour un rappel de médicament.';
 
   @override
   String get reminderAppointment => 'Rappel de rendez-vous';
@@ -1520,7 +1520,7 @@ class L10nFr extends L10n {
 
   @override
   String get assistantPrivateNote =>
-      'Cela se passe sur votre téléphone. Vos mots ne sont ni enregistrés ni envoyés.';
+      'Cela se passe sur votre téléphone. femio n\'envoie vos mots nulle part.';
 
   @override
   String get assistantModelNote =>
@@ -1663,7 +1663,7 @@ class L10nFr extends L10n {
 
   @override
   String get askCloudPrivacy =>
-      'Seules cette question et les sources publiques sont envoyées. Rien de votre journal.';
+      'Seules cette question, les sources publiques et la langue de la réponse sont envoyées. Rien de votre journal.';
 
   @override
   String get askSearching => 'Lecture des sources fiables…';
@@ -1867,7 +1867,7 @@ class L10nFr extends L10n {
 
   @override
   String get assistantOnDeviceAvailable =>
-      'Prête. Elle lit vos notes sur le téléphone ; rien n’est envoyé.';
+      'Prête. Elle lit vos notes sur le téléphone ; vos mots ne sont pas envoyés.';
 
   @override
   String get assistantOnDeviceDownloadable =>
@@ -1983,7 +1983,7 @@ class L10nFr extends L10n {
 
   @override
   String get boostNever =>
-      'Vos notes, dates, entrées du journal, durées de cycle, votre nom, votre e-mail, vos contacts ou votre identifiant publicitaire.';
+      'Rien d’autre de votre dossier : ni votre journal, ni vos notes, dates, durées de cycle, médicaments, résultats d’analyses, rendez-vous, documents, photos ou année de naissance. Jamais vos contacts ni votre identifiant publicitaire.';
 
   @override
   String get boostTurnOff => 'Désactiver Cloud boost';
@@ -1993,7 +1993,7 @@ class L10nFr extends L10n {
 
   @override
   String get boostAgreeQuestions =>
-      'J’accepte que femio envoie une question générale que j’approuve, une à la fois, avec les sources publiques trouvées, pour que l’IA cloud de Google les résume. femio retire d’abord les nombres, les dates, les noms et les coordonnées, et je vois le texte exact avant son envoi.';
+      'J’accepte que femio envoie une question générale que j’approuve, une à la fois, avec les sources publiques trouvées et la langue de la réponse, pour que l’IA cloud de Google les résume. femio retire d’abord les nombres, les adresses e-mail et les liens, et je vois et peux modifier le texte exact avant tout envoi.';
 
   @override
   String get boostAgreeTips =>
@@ -2678,7 +2678,7 @@ class L10nFr extends L10n {
 
   @override
   String get leaveIntro =>
-      'Vos données restent sur ce téléphone. Voici les seuls cas où femio, ou les services Google dont il dépend, utilisent Internet.';
+      'Vos données restent sur ce téléphone : votre journal de cycle et de grossesse, vos notes, votre dossier de santé (rendez-vous, résultats d\'analyses, médicaments, etc.), vos documents et photos, et votre année de naissance. femio demande votre année de naissance pour vérifier que vous avez 18 ans ou plus et adapter à votre âge ce qu\'il attend. Voici toutes les façons dont quelque chose peut quitter ce téléphone.';
 
   @override
   String get leaveBoostOff => 'Désactivé';
@@ -2697,7 +2697,7 @@ class L10nFr extends L10n {
 
   @override
   String get leaveModelBody =>
-      'Si vous touchez Télécharger, le service d\'IA d\'Android (AICore, géré par Google) télécharge Gemini Nano et le tient à jour. Le logiciel d\'IA de Google peut aussi envoyer à Google des informations techniques, comme les erreurs et les performances. femio n\'y ajoute aucune de vos données.';
+      'Si vous touchez Télécharger, le service d\'IA d\'Android (AICore, géré par Google) télécharge Gemini Nano et le tient à jour. Chaque fois que l\'IA du téléphone fonctionne, le logiciel d\'IA de Google peut envoyer à Google des informations techniques d\'utilisation, comme un identifiant de cette installation, des détails sur l\'appareil et l\'application, les erreurs, la vitesse et la taille d\'une demande. Elles ne contiennent pas vos mots, et femio n\'y ajoute aucune de vos données.';
 
   @override
   String get leavePlayHeading => 'Google Play';
@@ -2722,7 +2722,7 @@ class L10nFr extends L10n {
 
   @override
   String get leaveNever =>
-      'Rien d\'autre ne sort. femio n\'a ni publicité, ni statistiques, ni outil de suivi, ni compte.';
+      'Rien d\'autre ne sort. femio n\'a ni publicité, ni compte, ni outil de statistiques ou de suivi qui lui soit propre. Sur le téléphone lui-même, les mots que vous écrivez pour un rappel de médicament s\'affichent sur l\'écran verrouillé, et les détails du widget que vous activez s\'affichent sur l\'écran d\'accueil ; femio garde ce court texte non chiffré pour qu\'Android puisse l\'afficher.';
 
   @override
   String get leaveSettingsSub =>
@@ -2801,7 +2801,7 @@ class L10nFr extends L10n {
 
   @override
   String get aiSeesApprovedQuestion =>
-      'Votre question ; dans le cloud, uniquement la version que vous avez approuvée, sans chiffres, dates ni noms';
+      'Votre question ; dans le cloud, uniquement la version que vous avez approuvée, sans nombres, adresses e-mail ni liens';
 
   @override
   String get assistIntroTitle => 'Découvrez l\'assistant de femio';
@@ -3599,11 +3599,11 @@ class L10nFr extends L10n {
       'Vos documents dépassent 100 Mo, plus qu\'une sauvegarde ne peut contenir. Supprimez-en quelques gros dans Mes documents, puis enregistrez à nouveau la sauvegarde.';
 
   @override
-  String get leaveShareHeading => 'Ce que vous partagez';
+  String get leaveShareHeading => 'Ce que vous partagez ou exportez';
 
   @override
   String get leaveShareBody =>
-      'Quand vous partagez un document ou vos notes de rendez-vous, ils vont uniquement à l\'application que vous choisissez dans le menu de partage.';
+      'Quand vous partagez un document ou vos notes de rendez-vous, ils vont uniquement à l\'application que vous choisissez dans le menu de partage. Si vous copiez vos notes de rendez-vous, le presse-papiers du téléphone les garde. Un tableur (CSV) que vous exportez va là où vous choisissez de l\'enregistrer, ce qui peut être un stockage en ligne, et il n\'est pas chiffré.';
 
   @override
   String recDocSizeKb(String size) {

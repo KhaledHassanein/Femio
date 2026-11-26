@@ -73,7 +73,7 @@ class L10nEn extends L10n {
 
   @override
   String get birthYearSub =>
-      'Cycles change with age, so this shapes what femio expects. Only the year.';
+      'Cycles change with age, so this shapes what femio expects. It also helps check that you are 18 or over. Only the year.';
 
   @override
   String get under18Title => 'The tracker is for adults, for now';
@@ -1146,7 +1146,7 @@ class L10nEn extends L10n {
 
   @override
   String get reminderChannelDescription =>
-      'Reminders you turned on in femio. They never mention your health.';
+      'Reminders you turned on in femio. They say only \"Open the app\", unless you wrote your own words for a medicine reminder.';
 
   @override
   String get reminderAppointment => 'Appointment reminder';
@@ -1504,7 +1504,7 @@ class L10nEn extends L10n {
 
   @override
   String get assistantPrivateNote =>
-      'This runs on your phone. Your words are not saved or sent anywhere.';
+      'This runs on your phone. femio does not send your words anywhere.';
 
   @override
   String get assistantModelNote =>
@@ -1644,7 +1644,7 @@ class L10nEn extends L10n {
 
   @override
   String get askCloudPrivacy =>
-      'Only this question and the public sources are sent. Nothing from your log is.';
+      'Only this question, the public sources and the language to answer in are sent. Nothing from your log is.';
 
   @override
   String get askSearching => 'Reading trusted sources…';
@@ -1847,7 +1847,7 @@ class L10nEn extends L10n {
 
   @override
   String get assistantOnDeviceAvailable =>
-      'Ready. It reads your notes on the phone; nothing is sent.';
+      'Ready. It reads your notes on the phone, and your words are not sent.';
 
   @override
   String get assistantOnDeviceDownloadable =>
@@ -1964,7 +1964,7 @@ class L10nEn extends L10n {
 
   @override
   String get boostNever =>
-      'Your notes, dates, log entries, cycle lengths, name, email, contacts or advertising ID.';
+      'Nothing else from your record: not your log, notes, dates, cycle lengths, medicines, lab results, visits, documents, photos or birth year. Never your contacts or advertising ID.';
 
   @override
   String get boostTurnOff => 'Turn off Cloud boost';
@@ -1974,7 +1974,7 @@ class L10nEn extends L10n {
 
   @override
   String get boostAgreeQuestions =>
-      'I agree that femio may send a general question I approve, one at a time, with the public sources it found, so Google\'s cloud AI can summarise them. femio removes numbers, dates, names and contacts first, and I see the exact text before it goes.';
+      'I agree that femio may send a general question I approve, one at a time, with the public sources it found and the language to answer in, so Google\'s cloud AI can summarise them. femio removes numbers, e-mail addresses and links first, and I see and can edit the exact text before anything is sent.';
 
   @override
   String get boostAgreeTips =>
@@ -2657,7 +2657,7 @@ class L10nEn extends L10n {
 
   @override
   String get leaveIntro =>
-      'Your records stay on this phone. These are the only times femio, or the Google services it relies on, use the internet.';
+      'Your records stay on this phone: your cycle and pregnancy log, notes, health record (visits, lab results, medicines and more), documents and photos, and your birth year. femio asks your birth year to check you are 18 or over and to fit what it expects to your age. Below is every way anything can leave this phone.';
 
   @override
   String get leaveBoostOff => 'Off';
@@ -2676,7 +2676,7 @@ class L10nEn extends L10n {
 
   @override
   String get leaveModelBody =>
-      'If you tap Download, Android\'s AI service (AICore, run by Google) downloads Gemini Nano and keeps it up to date. Google\'s AI software may also send Google technical information, such as errors and performance. femio adds none of your records to it.';
+      'If you tap Download, Android\'s AI service (AICore, run by Google) downloads Gemini Nano and keeps it up to date. Whenever the on-phone AI runs, Google\'s AI software may send Google technical usage information, such as an identifier for this installation, device and app details, errors, speed and the size of a request. It does not include your words, and femio adds none of your records to it.';
 
   @override
   String get leavePlayHeading => 'Google Play';
@@ -2701,7 +2701,7 @@ class L10nEn extends L10n {
 
   @override
   String get leaveNever =>
-      'Nothing else leaves. femio has no ads, no analytics, no tracking tools and no account.';
+      'Nothing else leaves. femio has no ads, no account, and no analytics or tracking tools of its own. On the phone itself, words you write for a medicine reminder show on your lock screen, and widget details you turn on show on your home screen; femio keeps that short text unencrypted so Android can show it.';
 
   @override
   String get leaveSettingsSub => 'Every way anything reaches the internet';
@@ -2777,7 +2777,7 @@ class L10nEn extends L10n {
 
   @override
   String get aiSeesApprovedQuestion =>
-      'Your question; in the cloud, only the version you approved, with numbers, dates and names removed';
+      'Your question; in the cloud, only the version you approved, with numbers, e-mail addresses and links removed';
 
   @override
   String get assistIntroTitle => 'Meet femio\'s assistant';
@@ -3562,11 +3562,11 @@ class L10nEn extends L10n {
       'Your documents come to more than 100 MB, more than one backup can carry. Delete some large ones in My documents, then save the backup again.';
 
   @override
-  String get leaveShareHeading => 'What you share';
+  String get leaveShareHeading => 'What you share or export';
 
   @override
   String get leaveShareBody =>
-      'When you share a document or your visit notes, they go only to the app you pick in the share sheet.';
+      'When you share a document or your visit notes, they go only to the app you pick in the share sheet. If you copy your visit notes, your phone\'s clipboard holds them. A spreadsheet (CSV) you export goes where you choose to save it, which can be a cloud drive, and it is not encrypted.';
 
   @override
   String recDocSizeKb(String size) {

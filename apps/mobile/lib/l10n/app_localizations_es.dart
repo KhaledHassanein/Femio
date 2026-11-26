@@ -73,7 +73,7 @@ class L10nEs extends L10n {
 
   @override
   String get birthYearSub =>
-      'Los ciclos cambian con la edad, así femio sabe qué esperar. Solo el año.';
+      'Los ciclos cambian con la edad, así femio sabe qué esperar. También ayuda a comprobar que tienes 18 años o más. Solo el año.';
 
   @override
   String get under18Title => 'El seguimiento es para adultas, por ahora';
@@ -1148,7 +1148,7 @@ class L10nEs extends L10n {
 
   @override
   String get reminderChannelDescription =>
-      'Recordatorios que activaste en femio. Nunca mencionan tu salud.';
+      'Recordatorios que activaste en femio. Solo dicen «Abre la app», salvo que escribieras tus propias palabras para un recordatorio de medicamento.';
 
   @override
   String get reminderAppointment => 'Recordatorio de cita';
@@ -1514,7 +1514,7 @@ class L10nEs extends L10n {
 
   @override
   String get assistantPrivateNote =>
-      'Esto ocurre en tu teléfono. Tus palabras no se guardan ni se envían.';
+      'Esto ocurre en tu teléfono. femio no envía tus palabras a ningún sitio.';
 
   @override
   String get assistantModelNote =>
@@ -1656,7 +1656,7 @@ class L10nEs extends L10n {
 
   @override
   String get askCloudPrivacy =>
-      'Solo se envían esta pregunta y las fuentes públicas. Nada de tu registro.';
+      'Solo se envían esta pregunta, las fuentes públicas y el idioma de la respuesta. Nada de tu registro.';
 
   @override
   String get askSearching => 'Leyendo fuentes fiables…';
@@ -1859,7 +1859,7 @@ class L10nEs extends L10n {
 
   @override
   String get assistantOnDeviceAvailable =>
-      'Lista. Lee tus notas en el teléfono; no se envía nada.';
+      'Lista. Lee tus notas en el teléfono; tus palabras no se envían.';
 
   @override
   String get assistantOnDeviceDownloadable =>
@@ -1976,7 +1976,7 @@ class L10nEs extends L10n {
 
   @override
   String get boostNever =>
-      'Tus notas, fechas, registros, duración de ciclos, tu nombre, tu correo, tus contactos ni tu ID de publicidad.';
+      'Nada más de tu historial: ni tus registros, notas, fechas, duración de ciclos, medicamentos, resultados de análisis, consultas, documentos, fotos o año de nacimiento. Nunca tus contactos ni tu ID de publicidad.';
 
   @override
   String get boostTurnOff => 'Desactivar Cloud boost';
@@ -1986,7 +1986,7 @@ class L10nEs extends L10n {
 
   @override
   String get boostAgreeQuestions =>
-      'Acepto que femio envíe una pregunta general que yo apruebe, una cada vez, con las fuentes públicas que encontró, para que la IA en la nube de Google las resuma. femio quita antes los números, las fechas, los nombres y los contactos, y veo el texto exacto antes de que se envíe.';
+      'Acepto que femio envíe una pregunta general que yo apruebe, una cada vez, con las fuentes públicas que encontró y el idioma de la respuesta, para que la IA en la nube de Google las resuma. femio quita antes los números, las direcciones de correo y los enlaces, y veo y puedo editar el texto exacto antes de que se envíe nada.';
 
   @override
   String get boostAgreeTips =>
@@ -2670,7 +2670,7 @@ class L10nEs extends L10n {
 
   @override
   String get leaveIntro =>
-      'Tus registros se quedan en este teléfono. Estas son las únicas veces que femio, o los servicios de Google de los que depende, usan internet.';
+      'Tus registros se quedan en este teléfono: tu registro del ciclo y del embarazo, notas, historial de salud (consultas, resultados de análisis, medicamentos y más), documentos y fotos, y tu año de nacimiento. femio pregunta tu año de nacimiento para comprobar que tienes 18 años o más y ajustar a tu edad lo que espera. Estas son todas las formas en que algo puede salir de este teléfono.';
 
   @override
   String get leaveBoostOff => 'Desactivado';
@@ -2689,7 +2689,7 @@ class L10nEs extends L10n {
 
   @override
   String get leaveModelBody =>
-      'Si tocas Descargar, el servicio de IA de Android (AICore, gestionado por Google) descarga Gemini Nano y lo mantiene actualizado. El software de IA de Google también puede enviar a Google información técnica, como errores y rendimiento. femio no añade ninguno de tus registros.';
+      'Si tocas Descargar, el servicio de IA de Android (AICore, gestionado por Google) descarga Gemini Nano y lo mantiene actualizado. Cada vez que funciona la IA del teléfono, el software de IA de Google puede enviar a Google información técnica de uso, como un identificador de esta instalación, datos del dispositivo y de la app, errores, velocidad y el tamaño de una solicitud. No incluye tus palabras, y femio no añade ninguno de tus registros.';
 
   @override
   String get leavePlayHeading => 'Google Play';
@@ -2714,7 +2714,7 @@ class L10nEs extends L10n {
 
   @override
   String get leaveNever =>
-      'No sale nada más. femio no tiene anuncios, ni analíticas, ni herramientas de seguimiento, ni cuenta.';
+      'No sale nada más. femio no tiene anuncios, ni cuenta, ni herramientas de analítica o seguimiento propias. En el propio teléfono, las palabras que escribes para un recordatorio de medicamento se ven en la pantalla de bloqueo, y los detalles del widget que activas se ven en la pantalla de inicio; femio guarda ese texto corto sin cifrar para que Android pueda mostrarlo.';
 
   @override
   String get leaveSettingsSub =>
@@ -2792,7 +2792,7 @@ class L10nEs extends L10n {
 
   @override
   String get aiSeesApprovedQuestion =>
-      'Tu pregunta; en la nube, solo la versión que aprobaste, sin números, fechas ni nombres';
+      'Tu pregunta; en la nube, solo la versión que aprobaste, sin números, direcciones de correo ni enlaces';
 
   @override
   String get assistIntroTitle => 'Conoce el asistente de femio';
@@ -3583,11 +3583,11 @@ class L10nEs extends L10n {
       'Tus documentos superan los 100 MB, más de lo que cabe en una copia de seguridad. Elimina algunos grandes en Mis documentos y vuelve a guardar la copia.';
 
   @override
-  String get leaveShareHeading => 'Lo que compartes';
+  String get leaveShareHeading => 'Lo que compartes o exportas';
 
   @override
   String get leaveShareBody =>
-      'Cuando compartes un documento o tus notas de la consulta, solo van a la aplicación que eliges en el menú para compartir.';
+      'Cuando compartes un documento o tus notas de la consulta, solo van a la aplicación que eliges en el menú para compartir. Si copias tus notas de la consulta, las guarda el portapapeles del teléfono. Una hoja de cálculo (CSV) que exportas va donde elijas guardarla, que puede ser una nube, y no está cifrada.';
 
   @override
   String recDocSizeKb(String size) {
