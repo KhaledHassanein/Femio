@@ -2725,7 +2725,7 @@ class L10nAr extends L10n {
 
   @override
   String get leaveBackupBody =>
-      'لا تذهب النسخة الاحتياطية إلا إلى حيث تختارين حفظها، مقفلة بعبارة المرور الخاصة بكِ.';
+      'تذهب النسخة الاحتياطية، مع المستندات والصور التي أضفتِها، فقط إلى حيث تختارين حفظها، مشفّرة بعبارة المرور الخاصة بكِ.';
 
   @override
   String get leaveLinksHeading => 'الروابط التي تفتحينها';
@@ -3503,4 +3503,115 @@ class L10nAr extends L10n {
   @override
   String get settingsWidgetDetailsNote =>
       'أي شخص يرى هاتفكِ سيراها. وحتى تفعّلي هذا الخيار، يعرض الويدجت اسم femio فقط.';
+
+  @override
+  String get recDocsHeading => 'المستندات والصور';
+
+  @override
+  String get recDocsAddFile => 'إضافة ملف';
+
+  @override
+  String get recDocsTakePhoto => 'التقاط صورة';
+
+  @override
+  String get recDocsFromMine => 'من مستنداتي';
+
+  @override
+  String get recDocsNote =>
+      'ملف PDF أو صورة، حتى 10 ميغابايت لكل ملف. يُحفظ مشفّرًا على هذا الهاتف مع بقية سجلّكِ.';
+
+  @override
+  String get recDocsTooLarge =>
+      'حجم هذا الملف أكبر من 10 ميغابايت. جرّبي نسخة أصغر، أو صورة للصفحة.';
+
+  @override
+  String get recDocsUnsupported =>
+      'يحفظ femio ملفات PDF والصور (JPG أو PNG أو WebP).';
+
+  @override
+  String recDocsPhotoName(String date) {
+    return 'صورة $date';
+  }
+
+  @override
+  String get recDocsLibrary => 'مستنداتي';
+
+  @override
+  String get recDocsLibraryEmpty =>
+      'لا توجد مستندات بعد. أضيفي ملف PDF أو صورة من أي إدخال في سجلّكِ.';
+
+  @override
+  String get recDocsChoose => 'اختاري مستندًا';
+
+  @override
+  String recDocsCount(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count مستند',
+      many: '$count مستندًا',
+      few: '$count مستندات',
+      two: 'مستندان',
+      one: 'مستند واحد',
+      zero: 'لا مستندات',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get recDocRename => 'إعادة التسمية';
+
+  @override
+  String get recDocRenameLabel => 'الاسم';
+
+  @override
+  String get recDocShare => 'مشاركة';
+
+  @override
+  String get recDocShareFailed => 'تعذّر فتح قائمة المشاركة.';
+
+  @override
+  String get recDocUnlink => 'إزالته من هذا الإدخال';
+
+  @override
+  String get recDocDelete => 'حذف المستند';
+
+  @override
+  String get recDocDeleteTitle => 'حذف هذا المستند؟';
+
+  @override
+  String get recDocDeleteBody =>
+      'سيُحذف من femio ومن كل إدخال أُرفق به. لا يمكن التراجع عن ذلك، إلا من نسخة احتياطية حفظتِها من قبل.';
+
+  @override
+  String get recDocUnreadable => 'تعذّر فتح هذا المستند.';
+
+  @override
+  String get recDocPdfUnreadable =>
+      'لا يمكن عرض ملف PDF هذا هنا. ربما هو محمي بكلمة مرور. لا يزال بإمكانكِ مشاركته لفتحه في تطبيق آخر.';
+
+  @override
+  String recDocSizeMb(String size) {
+    return '$size ميغابايت';
+  }
+
+  @override
+  String get recDocPrivate =>
+      'المستندات والصور التي تضيفينها تبقى على هاتفكِ، مشفّرة مثل بقية سجلّكِ، ولا تنتقل إلا داخل ملف النسخة الاحتياطية الذي تحفظينه.';
+
+  @override
+  String get backupTooLarge =>
+      'مستنداتكِ تتجاوز 100 ميغابايت، وهذا أكثر مما تحمله نسخة احتياطية واحدة. احذفي بعض الملفات الكبيرة من «مستنداتي»، ثم احفظي النسخة الاحتياطية مرة أخرى.';
+
+  @override
+  String get leaveShareHeading => 'ما تشاركينه';
+
+  @override
+  String get leaveShareBody =>
+      'عندما تشاركين مستندًا أو ملاحظات زيارتكِ، يذهب فقط إلى التطبيق الذي تختارينه من قائمة المشاركة.';
+
+  @override
+  String recDocSizeKb(String size) {
+    return '$size كيلوبايت';
+  }
 }

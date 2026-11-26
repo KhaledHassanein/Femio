@@ -103,6 +103,8 @@ dependencies {
     // App Check: the debug provider in debug builds only, Play Integrity in store builds.
     debugImplementation("com.google.firebase:firebase-appcheck-debug:20.1.0")
     implementation("com.google.firebase:firebase-appcheck-playintegrity:20.1.0")
+    // FileProvider for sharing a document she chooses to send (R11.2).
+    implementation("androidx.core:core:1.13.1")
 }
 
 flutter {

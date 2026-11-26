@@ -2703,7 +2703,7 @@ class L10nEs extends L10n {
 
   @override
   String get leaveBackupBody =>
-      'Una copia de seguridad va solo donde eliges guardarla, sellada con tu frase de contraseña.';
+      'Una copia de seguridad, con los documentos y fotos que has añadido, solo va donde decides guardarla, cifrada con tu frase de contraseña.';
 
   @override
   String get leaveLinksHeading => 'Los enlaces que abres';
@@ -3486,4 +3486,111 @@ class L10nEs extends L10n {
   @override
   String get settingsWidgetDetailsNote =>
       'Cualquiera que vea tu teléfono podrá verlos. Hasta que lo actives, el widget solo muestra femio.';
+
+  @override
+  String get recDocsHeading => 'Documentos y fotos';
+
+  @override
+  String get recDocsAddFile => 'Añadir un archivo';
+
+  @override
+  String get recDocsTakePhoto => 'Hacer una foto';
+
+  @override
+  String get recDocsFromMine => 'De mis documentos';
+
+  @override
+  String get recDocsNote =>
+      'Un PDF o una foto, de hasta 10 MB cada uno. Se guarda cifrado en este teléfono con el resto de tu historial.';
+
+  @override
+  String get recDocsTooLarge =>
+      'Este archivo supera los 10 MB. Prueba con una copia más pequeña o con una foto de la página.';
+
+  @override
+  String get recDocsUnsupported =>
+      'femio puede guardar PDF y fotos (JPG, PNG o WebP).';
+
+  @override
+  String recDocsPhotoName(String date) {
+    return 'Foto del $date';
+  }
+
+  @override
+  String get recDocsLibrary => 'Mis documentos';
+
+  @override
+  String get recDocsLibraryEmpty =>
+      'Todavía no hay documentos. Añade un PDF o una foto desde cualquier entrada de tu historial.';
+
+  @override
+  String get recDocsChoose => 'Elige un documento';
+
+  @override
+  String recDocsCount(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count documentos',
+      one: '1 documento',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get recDocRename => 'Cambiar el nombre';
+
+  @override
+  String get recDocRenameLabel => 'Nombre';
+
+  @override
+  String get recDocShare => 'Compartir';
+
+  @override
+  String get recDocShareFailed => 'No se pudo abrir el menú para compartir.';
+
+  @override
+  String get recDocUnlink => 'Quitar de esta entrada';
+
+  @override
+  String get recDocDelete => 'Eliminar el documento';
+
+  @override
+  String get recDocDeleteTitle => '¿Eliminar este documento?';
+
+  @override
+  String get recDocDeleteBody =>
+      'Se elimina de femio y de todas las entradas a las que está adjunto. No se puede deshacer, salvo desde una copia de seguridad guardada antes.';
+
+  @override
+  String get recDocUnreadable => 'No se pudo abrir este documento.';
+
+  @override
+  String get recDocPdfUnreadable =>
+      'Este PDF no se puede mostrar aquí. Puede que esté protegido con contraseña. Puedes compartirlo para abrirlo en otra aplicación.';
+
+  @override
+  String recDocSizeMb(String size) {
+    return '$size MB';
+  }
+
+  @override
+  String get recDocPrivate =>
+      'Los documentos y fotos que añades se quedan en tu teléfono, cifrados como el resto de tu historial, y solo viajan dentro del archivo de copia de seguridad que guardas.';
+
+  @override
+  String get backupTooLarge =>
+      'Tus documentos superan los 100 MB, más de lo que cabe en una copia de seguridad. Elimina algunos grandes en Mis documentos y vuelve a guardar la copia.';
+
+  @override
+  String get leaveShareHeading => 'Lo que compartes';
+
+  @override
+  String get leaveShareBody =>
+      'Cuando compartes un documento o tus notas de la consulta, solo van a la aplicación que eliges en el menú para compartir.';
+
+  @override
+  String recDocSizeKb(String size) {
+    return '$size KB';
+  }
 }

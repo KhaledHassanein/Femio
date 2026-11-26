@@ -50,6 +50,17 @@ abstract class FemioStore {
 /// The vault key under which the record's encryption key is kept.
 const recordKeyName = 'record-key-v1';
 
+/// The record's encryption key from [vault], created on first use. Her documents are sealed
+/// with the same key (ADR-082 §2), so "delete everything" removes one key for both.
+Future<List<int>> recordKey(KeyVault vault) async {
+  var stored = await vault.read(recordKeyName);
+  if (stored == null) {
+    stored = envelope.newRecordKey();
+    await vault.write(recordKeyName, stored);
+  }
+  return base64Decode(stored);
+}
+
 /// The sealed record file and the plaintext file it replaces.
 const recordFileName = 'femio-record.v2';
 const legacyFileName = 'femio-record.json';
@@ -77,14 +88,7 @@ class EncryptedFileStore implements FemioStore {
 
   Future<File> _file() async => File('${(await _dir()).path}/$recordFileName');
 
-  Future<List<int>> _key() async {
-    var stored = await _vault.read(recordKeyName);
-    if (stored == null) {
-      stored = envelope.newRecordKey();
-      await _vault.write(recordKeyName, stored);
-    }
-    return base64Decode(stored);
-  }
+  Future<List<int>> _key() => recordKey(_vault);
 
   @override
   Future<LoadOutcome> load() async {

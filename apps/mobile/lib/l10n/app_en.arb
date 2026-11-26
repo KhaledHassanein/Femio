@@ -1172,7 +1172,7 @@
   "leavePlayHeading": "Google Play",
   "leavePlayBody": "Google Play installs and updates femio, may show its rating request, and handles femio Plus payments. It tells us only totals, such as installs and crashes. femio sends Google Play nothing of yours.",
   "leaveBackupHeading": "Your backup",
-  "leaveBackupBody": "A backup goes only where you choose to save it, sealed with your passphrase.",
+  "leaveBackupBody": "A backup, with the documents and photos you added, goes only where you choose to save it, sealed with your passphrase.",
   "leaveLinksHeading": "Links you open",
   "leaveLinksBody": "Sources and pages you open go to your browser, which visits that website.",
   "leaveNever": "Nothing else leaves. femio has no ads, no analytics, no tracking tools and no account.",
@@ -1887,5 +1887,137 @@
   "settingsWidgetDetailsNote": "Anyone who sees your phone will see them. Until you turn this on, the widget shows only femio.",
   "@settingsWidgetDetailsNote": {
     "description": "One sentence under the widget switch: anyone who sees her phone will see the details. Says the widget is neutral until she turns it on."
+  },
+  "recDocsHeading": "Documents and photos",
+  "@recDocsHeading": {
+    "description": "Heading of the documents part of a record entry's editor."
+  },
+  "recDocsAddFile": "Add a file",
+  "@recDocsAddFile": {
+    "description": "Button: pick a PDF or photo with the system file picker."
+  },
+  "recDocsTakePhoto": "Take a photo",
+  "@recDocsTakePhoto": {
+    "description": "Button: open the phone's camera app to photograph a report."
+  },
+  "recDocsFromMine": "From my documents",
+  "@recDocsFromMine": {
+    "description": "Button: attach a document she already added to another entry."
+  },
+  "recDocsNote": "A PDF or a photo, up to 10 MB each. Kept sealed on this phone with the rest of your record.",
+  "@recDocsNote": {
+    "description": "Small print under the document buttons."
+  },
+  "recDocsTooLarge": "This file is over 10 MB. Try a smaller copy, or a photo of the page.",
+  "@recDocsTooLarge": {
+    "description": "Snackbar when a picked file is over 10 MB."
+  },
+  "recDocsUnsupported": "femio can keep PDFs and photos (JPG, PNG or WebP).",
+  "@recDocsUnsupported": {
+    "description": "Snackbar when the picked file is not a PDF or a photo."
+  },
+  "recDocsPhotoName": "Photo {date}",
+  "@recDocsPhotoName": {
+    "description": "Default name of a camera photo; {date} is the date and time it was taken.",
+    "placeholders": {
+      "date": {
+        "type": "String"
+      }
+    }
+  },
+  "recDocsLibrary": "My documents",
+  "@recDocsLibrary": {
+    "description": "Title of the screen listing all her documents."
+  },
+  "recDocsLibraryEmpty": "No documents yet. Add a PDF or a photo from any entry in your record.",
+  "@recDocsLibraryEmpty": {
+    "description": "Empty state of My documents."
+  },
+  "recDocsChoose": "Choose a document",
+  "@recDocsChoose": {
+    "description": "Title when choosing one of her documents to attach."
+  },
+  "recDocsCount": "{count, plural, =1{1 document} other{{count} documents}}",
+  "@recDocsCount": {
+    "description": "On a record row: how many documents are attached.",
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "recDocRename": "Rename",
+  "@recDocRename": {
+    "description": "Menu item and dialog title: rename a document."
+  },
+  "recDocRenameLabel": "Name",
+  "@recDocRenameLabel": {
+    "description": "Label of the name field when renaming a document."
+  },
+  "recDocShare": "Share",
+  "@recDocShare": {
+    "description": "Tooltip: share this document through the system share sheet."
+  },
+  "recDocShareFailed": "The share sheet could not open.",
+  "@recDocShareFailed": {
+    "description": "Snackbar when the system share sheet could not open."
+  },
+  "recDocUnlink": "Remove from this entry",
+  "@recDocUnlink": {
+    "description": "Menu item: detach this document from the entry, keeping it in My documents."
+  },
+  "recDocDelete": "Delete document",
+  "@recDocDelete": {
+    "description": "Menu item: delete the document from femio."
+  },
+  "recDocDeleteTitle": "Delete this document?",
+  "@recDocDeleteTitle": {
+    "description": "Confirm dialog title before deleting a document."
+  },
+  "recDocDeleteBody": "It is removed from femio and from every entry it is attached to. This cannot be undone, except from a backup you saved before.",
+  "@recDocDeleteBody": {
+    "description": "Confirm dialog body before deleting a document."
+  },
+  "recDocUnreadable": "This document could not be opened.",
+  "@recDocUnreadable": {
+    "description": "When a document's file cannot be opened."
+  },
+  "recDocPdfUnreadable": "This PDF cannot be shown here. It may be protected by a password. You can still share it to open it in another app.",
+  "@recDocPdfUnreadable": {
+    "description": "When a PDF cannot be drawn on the phone (damaged or password-protected)."
+  },
+  "recDocSizeMb": "{size} MB",
+  "@recDocSizeMb": {
+    "description": "A document's size; {size} is a number such as 2.3.",
+    "placeholders": {
+      "size": {
+        "type": "String"
+      }
+    }
+  },
+  "recDocPrivate": "Documents and photos you add stay on your phone, sealed like the rest of your record, and travel only inside the backup file you save.",
+  "@recDocPrivate": {
+    "description": "Privacy line under a document and in My documents (ADR-082 §6)."
+  },
+  "backupTooLarge": "Your documents come to more than 100 MB, more than one backup can carry. Delete some large ones in My documents, then save the backup again.",
+  "@backupTooLarge": {
+    "description": "Snackbar when her documents are over 100 MB together, too much for one backup."
+  },
+  "leaveShareHeading": "What you share",
+  "@leaveShareHeading": {
+    "description": "What can leave this phone: heading for things she shares herself."
+  },
+  "leaveShareBody": "When you share a document or your visit notes, they go only to the app you pick in the share sheet.",
+  "@leaveShareBody": {
+    "description": "What can leave this phone: sharing a document or the visit pack."
+  },
+  "recDocSizeKb": "{size} KB",
+  "@recDocSizeKb": {
+    "description": "A small document's size; {size} is a whole number of kilobytes.",
+    "placeholders": {
+      "size": {
+        "type": "String"
+      }
+    }
   }
 }

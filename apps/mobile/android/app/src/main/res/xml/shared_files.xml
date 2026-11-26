@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- The only folder another app may read, and only the one file she chose to share, through
+     the FileProvider in AndroidManifest.xml (R11.2). Emptied each time femio starts. -->
+<paths>
+    <cache-path name="shared" path="shared/" />
+</paths>

@@ -14,11 +14,14 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 import 'data/ai_ledger_store.dart';
 import 'data/app_lock.dart';
 import 'data/assistant_channel.dart';
+import 'data/attachment_store.dart';
 import 'data/backup.dart';
+import 'data/document_source.dart';
 import 'data/home_widget_bridge.dart';
 import 'data/key_vault.dart';
 import 'data/play_store.dart';
 import 'data/profile.dart';
+import 'data/record_documents.dart';
 import 'domain/health_record.dart';
 import 'data/notification_port.dart';
 import 'data/reminder_scheduler.dart';
@@ -53,7 +56,9 @@ class FemioController extends ChangeNotifier {
   /// [reminders] shows her reminders (none in tests); [clock] reads "now" for the
   /// reminder plan (fixed in tests); [playStore] is Google Play's rating and update
   /// services (none in tests); [ledger] keeps the AI ledger (memory in tests);
-  /// [homeWidget] feeds the home-screen widget (none in tests).
+  /// [homeWidget] feeds the home-screen widget (none in tests); [files] holds the sealed
+  /// bytes of her documents (memory in tests); [deviceFiles] is the phone's picker, camera,
+  /// PDF renderer and share sheet (a fake in tests).
   FemioController(
     this.store, {
     KeyVault? vault,
@@ -63,15 +68,25 @@ class FemioController extends ChangeNotifier {
     DateTime Function()? clock,
     this.playStore = const NoPlayStore(),
     AiLedgerStore? ledger,
+    AttachmentStore? files,
+    this.deviceFiles = const SystemDocumentSource(),
   })  : _lock = AppLock(vault ?? MemoryKeyVault()),
         _ledgerStore = ledger ?? MemoryLedgerStore(),
         _locale = initialLocale,
         _reminders = reminders ?? const NoNotificationPort(),
         _homeWidget = homeWidget ?? const NoHomeWidgetBridge(),
-        _clock = clock ?? DateTime.now;
+        _clock = clock ?? DateTime.now {
+    documents = RecordDocuments(files ?? MemoryAttachmentStore(), read: () => profile, save: save, clock: _clock);
+  }
 
   /// Where her record is saved. Swappable, so tests use memory and the app uses a file.
   final FemioStore store;
+
+  /// Her attached documents and photos (R11.2): descriptions in the record, sealed bytes beside it.
+  late final RecordDocuments documents;
+
+  /// The phone's own ways in and out for documents (R11.2).
+  final DocumentSource deviceFiles;
 
   /// Google Play's rating dialog and in-app updates (R12.2, R12.3).
   final PlayStore playStore;
@@ -327,6 +342,7 @@ class FemioController extends ChangeNotifier {
   /// Deletes her record and the lock from the phone and returns to onboarding.
   /// Settings confirms first; this method does not ask. Pending reminders go too.
   Future<void> deleteEverything() async {
+    await documents.clear();
     await store.clear();
     await clearAiLedger();
     await _lock.clear();
@@ -397,14 +413,19 @@ class FemioController extends ChangeNotifier {
 
   // ---- backup -------------------------------------------------------------------
 
-  /// Her record as a passphrase-sealed file. Requires a loaded [profile].
-  Future<Uint8List> exportBackup(String passphrase) => encodeBackup(profile!, passphrase);
+  /// Her record and her documents as one passphrase-sealed file. Requires a loaded [profile].
+  /// Throws [BackupTooLargeError] when her documents are over the backup limit.
+  Future<Uint8List> exportBackup(String passphrase) async =>
+      encodeBackup(profile!, passphrase, documents: await documents.forBackup());
 
   /// Replaces her record with the one in a backup file. Throws [BackupError]
   /// for a foreign file or a wrong passphrase; the current record is untouched then.
   Future<void> importBackup(List<int> bytes, String passphrase) async {
-    final restored = await decodeBackup(bytes, passphrase);
-    await save(restored);
+    final restored = await decodeBackupWithDocuments(bytes, passphrase);
+    // The file opened: only now do her current documents give way to the backup's.
+    await documents.clear();
+    await documents.restore(restored.documents);
+    await save(restored.profile);
   }
 }
 

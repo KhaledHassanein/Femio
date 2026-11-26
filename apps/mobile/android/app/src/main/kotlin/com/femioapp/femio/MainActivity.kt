@@ -1,12 +1,14 @@
 // The app's only Android activity. It hosts Flutter and registers femio's native bridges:
 // the assistant (ADR-078), so model calls stay in Kotlin and out of the Dart code; the
-// share sheet (R10.2), so she can send her visit pack with the app she picks; and the
-// home-screen widget's two-string channel (R9.11). None opens a network connection.
+// share sheet (R10.2), so she can send her visit pack with the app she picks; the
+// home-screen widget's two-string channel (R9.11); and her documents' PDF pages and file
+// sharing (R11.2). None opens a network connection.
 
 package com.femioapp.femio
 
 import android.content.Intent
 import com.femioapp.femio.assistant.FemioAssistant
+import com.femioapp.femio.files.FilesChannel
 import com.femioapp.femio.widget.HomeWidgetChannel
 import io.flutter.embedding.android.FlutterActivity
 import io.flutter.embedding.engine.FlutterEngine
@@ -15,6 +17,7 @@ import io.flutter.plugin.common.MethodChannel
 class MainActivity : FlutterActivity() {
     private var assistant: FemioAssistant? = null
     private var widget: HomeWidgetChannel? = null
+    private var files: FilesChannel? = null
 
     override fun configureFlutterEngine(flutterEngine: FlutterEngine) {
         super.configureFlutterEngine(flutterEngine)
@@ -32,6 +35,7 @@ class MainActivity : FlutterActivity() {
             result.success(true)
         }
         widget = HomeWidgetChannel(applicationContext, flutterEngine.dartExecutor.binaryMessenger)
+        files = FilesChannel(applicationContext, flutterEngine.dartExecutor.binaryMessenger) { startActivity(it) }
     }
 
     override fun cleanUpFlutterEngine(flutterEngine: FlutterEngine) {
@@ -39,6 +43,8 @@ class MainActivity : FlutterActivity() {
         assistant = null
         widget?.dispose()
         widget = null
+        files?.dispose()
+        files = null
         super.cleanUpFlutterEngine(flutterEngine)
     }
 }

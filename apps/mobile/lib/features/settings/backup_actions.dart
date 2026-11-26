@@ -5,11 +5,14 @@
 // file) and the passphrase rules live here once. Nothing is written anywhere she
 // did not pick, and the passphrase is never stored.
 
+import 'dart:typed_data';
+
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
 
 import '../../app.dart';
 import '../../data/backup.dart';
+import '../../data/record_documents.dart';
 import '../../l10n/app_localizations.dart';
 
 /// Asks for a passphrase (twice when [confirm]); null when she cancels.
@@ -59,7 +62,15 @@ Future<void> exportBackupFlow(BuildContext context, FemioController controller) 
   final l = L10n.of(context);
   final passphrase = await askPassphrase(context, title: l.exportBackup, confirm: true);
   if (passphrase == null || !context.mounted) return;
-  final bytes = await controller.exportBackup(passphrase);
+  final Uint8List bytes;
+  try {
+    bytes = await controller.exportBackup(passphrase);
+  } on BackupTooLargeError {
+    // Her documents are over what one backup carries (ADR-082 §2): say so, never cut silently.
+    if (context.mounted) ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(l.backupTooLarge)));
+    return;
+  }
+  if (!context.mounted) return;
   final saved = await FilePicker.saveFile(
     dialogTitle: l.exportBackup,
     fileName: backupFileName(DateTime.now()),

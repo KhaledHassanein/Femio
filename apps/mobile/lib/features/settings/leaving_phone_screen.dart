@@ -48,6 +48,7 @@ class LeavingPhoneScreen extends StatelessWidget {
           _Path(icon: Icons.memory_rounded, heading: l.leaveModelHeading, body: l.leaveModelBody),
           _Path(icon: Icons.shop_outlined, heading: l.leavePlayHeading, body: l.leavePlayBody),
           _Path(icon: Icons.save_alt_rounded, heading: l.leaveBackupHeading, body: l.leaveBackupBody),
+          _Path(icon: Icons.ios_share_rounded, heading: l.leaveShareHeading, body: l.leaveShareBody),
           _Path(icon: Icons.open_in_new_rounded, heading: l.leaveLinksHeading, body: l.leaveLinksBody),
           const SizedBox(height: space2),
           Text(l.leaveNever, style: t.bodyMedium),

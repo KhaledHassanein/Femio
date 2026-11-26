@@ -16,6 +16,7 @@ import '../../theme/femio_theme.dart';
 import '../../theme/radii.dart';
 import '../../theme/spacing.dart';
 import '../../widgets/notice_card.dart';
+import 'documents_section.dart';
 import 'record_editor.dart';
 import 'record_labels.dart';
 
@@ -53,7 +54,15 @@ class _RecordScreenState extends State<RecordScreen> {
         final shown = _kind == null ? timeline(all) : ofKind(all, _kind!);
         final present = {for (final e in all) e.kind};
         return Scaffold(
-          appBar: AppBar(title: Text(l.recTitle)),
+          appBar: AppBar(title: Text(l.recTitle), actions: [
+            IconButton(
+              tooltip: l.recDocsLibrary,
+              icon: const Icon(Icons.folder_outlined),
+              onPressed: () => Navigator.of(context).push(MaterialPageRoute<void>(
+                builder: (_) => DocumentsLibraryScreen(controller: widget.controller),
+              )),
+            ),
+          ]),
           floatingActionButton: FloatingActionButton.extended(
             onPressed: _open,
             icon: const Icon(Icons.add_rounded),
@@ -147,6 +156,7 @@ class _Row extends StatelessWidget {
                       l.recRowAdded(added),
                       recordSourceLabel(l, entry.source),
                       if (entry.edited) l.recEdited,
+                      if (entry.attachmentIds.isNotEmpty) l.recDocsCount(entry.attachmentIds.length),
                     ].join(' · '),
                     style: t.bodySmall?.copyWith(color: p.textSubtle),
                   ),

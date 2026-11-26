@@ -2,7 +2,10 @@
 //
 // Why it exists: every entry needs the day it happened (picked on a calendar, never
 // guessed), her own title and the fields for its kind, typed as the report wrote them.
-// Saving stamps added-on for a new entry and an edit trail for a changed one.
+// Saving stamps added-on for a new entry and an edit trail for a changed one. Documents and
+// photos are attached here too (R11.2); one added and then abandoned is deleted on the way out.
+
+import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart' show DateFormat;
@@ -15,6 +18,7 @@ import '../../l10n/app_localizations.dart';
 import '../../theme/femio_theme.dart';
 import '../../theme/radii.dart';
 import '../../theme/spacing.dart';
+import 'documents_section.dart';
 import 'record_labels.dart';
 
 /// How far back an entry's day may go: a lifetime of history, not a typo guard.
@@ -49,10 +53,15 @@ class _RecordEditorState extends State<RecordEditor> {
   late final Map<String, String?> _dates = {
     for (final k in recordDateFields) k: widget.existing?.fields[k],
   };
+  late List<String> _attachmentIds = [...?widget.existing?.attachmentIds];
+
+  /// Documents added while this editor was open; any still unlinked on the way out are deleted.
+  final _addedHere = <String>{};
   bool _tried = false;
 
   @override
   void dispose() {
+    unawaited(widget.controller.documents.dropUnlinked(_addedHere));
     _title.dispose();
     for (final c in _text.values) {
       c.dispose();
@@ -90,8 +99,9 @@ class _RecordEditorState extends State<RecordEditor> {
             happenedOn: _happenedOn!,
             addedOn: now,
             fields: _fields(),
+            attachmentIds: _attachmentIds,
           )
-        : old.edit(at: now, title: title, happenedOn: _happenedOn, fields: _fields());
+        : old.edit(at: now, title: title, happenedOn: _happenedOn, fields: _fields(), attachmentIds: _attachmentIds);
     await widget.controller.saveRecordEntry(entry);
     if (mounted) Navigator.of(context).pop();
   }
@@ -229,6 +239,13 @@ class _RecordEditorState extends State<RecordEditor> {
                 decoration: deco(recordFieldLabel(l, k)),
               ),
           ],
+          const SizedBox(height: space5),
+          DocumentsSection(
+            controller: widget.controller,
+            ids: _attachmentIds,
+            onChanged: (ids) => setState(() => _attachmentIds = ids),
+            onAdded: _addedHere.add,
+          ),
           const SizedBox(height: space6),
           FilledButton(onPressed: _save, child: Text(l.recSave)),
           const SizedBox(height: space2),

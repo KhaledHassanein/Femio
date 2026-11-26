@@ -10,6 +10,7 @@ import '../domain/appointments.dart';
 import '../domain/assistant/cloud_consent.dart';
 import '../domain/contractions.dart';
 import '../domain/health_record.dart';
+import '../domain/record_attachment.dart';
 import '../domain/movements.dart';
 import '../domain/weight.dart';
 
@@ -280,6 +281,7 @@ class Profile {
     this.weights = const [],
     this.appointments = const [],
     this.record = const [],
+    this.attachments = const [],
     this.settings = const AppSettings(),
   });
 
@@ -311,6 +313,10 @@ class Profile {
   /// [timeline] sorts them.
   final List<RecordEntry> record;
 
+  /// What describes each document or photo she attached (R11.2); the bytes are sealed in
+  /// their own files, named by [RecordAttachment.id]. Entries link to them by id.
+  final List<RecordAttachment> attachments;
+
   /// Her preferences (Hijri display, dismissed notices).
   final AppSettings settings;
   final int? periodLength;
@@ -338,6 +344,7 @@ class Profile {
     List<WeightEntry>? weights,
     List<Appointment>? appointments,
     List<RecordEntry>? record,
+    List<RecordAttachment>? attachments,
     AppSettings? settings,
   }) =>
       Profile(
@@ -358,6 +365,7 @@ class Profile {
         weights: weights ?? this.weights,
         appointments: appointments ?? this.appointments,
         record: record ?? this.record,
+        attachments: attachments ?? this.attachments,
         settings: settings ?? this.settings,
       );
 
@@ -397,6 +405,7 @@ class Profile {
         'weights': [for (final w in weights) w.toJson()],
         'appointments': [for (final a in appointments) a.toJson()],
         if (record.isNotEmpty) 'record': [for (final e in record) e.toJson()],
+        if (attachments.isNotEmpty) 'attachments': [for (final a in attachments) a.toJson()],
         'settings': settings.toJson(),
       };
 
@@ -442,6 +451,9 @@ class Profile {
         ],
         record: [
           for (final e in (j['record'] as List?) ?? const []) RecordEntry.fromJson(Map<String, Object?>.from(e as Map)),
+        ],
+        attachments: [
+          for (final a in (j['attachments'] as List?) ?? const []) RecordAttachment.fromJson(Map<String, Object?>.from(a as Map)),
         ],
         settings: AppSettings.fromJson(j['settings'] == null ? null : Map<String, Object?>.from(j['settings'] as Map)),
       );

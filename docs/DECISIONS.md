@@ -1057,6 +1057,10 @@ say when something happened as opposed to when it was typed.
    Per file at most 10 MB; the sealed backup carries them, at most 100 MB in total, and says
    so before writing. They arrive only through the system document picker or the system
    camera intent: no CAMERA or storage permission (the tripwire checks the manifest).
+   *Built 2026-11-26:* the camera intent comes from `image_picker` (flutter.dev, adds no
+   permission); a PDF is drawn in the app by Android's PdfRenderer from a plain copy in the
+   private cache that is deleted at once; sharing writes a plain copy to `cache/shared/`,
+   readable only by the app she picks through a FileProvider, and emptied at each start.
 3. **Migration.** v2 → v3 adds an empty `record`; absent means empty, so a v2 file and a v2
    backup load unchanged. A file written by a newer femio (a higher `v`) is refused with a
    FormatException rather than read without its new parts. That check was added with v3

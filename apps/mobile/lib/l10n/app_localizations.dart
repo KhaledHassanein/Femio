@@ -4424,7 +4424,7 @@ abstract class L10n {
   /// No description provided for @leaveBackupBody.
   ///
   /// In en, this message translates to:
-  /// **'A backup goes only where you choose to save it, sealed with your passphrase.'**
+  /// **'A backup, with the documents and photos you added, goes only where you choose to save it, sealed with your passphrase.'**
   String get leaveBackupBody;
 
   /// No description provided for @leaveLinksHeading.
@@ -5650,6 +5650,174 @@ abstract class L10n {
   /// In en, this message translates to:
   /// **'Anyone who sees your phone will see them. Until you turn this on, the widget shows only femio.'**
   String get settingsWidgetDetailsNote;
+
+  /// Heading of the documents part of a record entry's editor.
+  ///
+  /// In en, this message translates to:
+  /// **'Documents and photos'**
+  String get recDocsHeading;
+
+  /// Button: pick a PDF or photo with the system file picker.
+  ///
+  /// In en, this message translates to:
+  /// **'Add a file'**
+  String get recDocsAddFile;
+
+  /// Button: open the phone's camera app to photograph a report.
+  ///
+  /// In en, this message translates to:
+  /// **'Take a photo'**
+  String get recDocsTakePhoto;
+
+  /// Button: attach a document she already added to another entry.
+  ///
+  /// In en, this message translates to:
+  /// **'From my documents'**
+  String get recDocsFromMine;
+
+  /// Small print under the document buttons.
+  ///
+  /// In en, this message translates to:
+  /// **'A PDF or a photo, up to 10 MB each. Kept sealed on this phone with the rest of your record.'**
+  String get recDocsNote;
+
+  /// Snackbar when a picked file is over 10 MB.
+  ///
+  /// In en, this message translates to:
+  /// **'This file is over 10 MB. Try a smaller copy, or a photo of the page.'**
+  String get recDocsTooLarge;
+
+  /// Snackbar when the picked file is not a PDF or a photo.
+  ///
+  /// In en, this message translates to:
+  /// **'femio can keep PDFs and photos (JPG, PNG or WebP).'**
+  String get recDocsUnsupported;
+
+  /// Default name of a camera photo; {date} is the date and time it was taken.
+  ///
+  /// In en, this message translates to:
+  /// **'Photo {date}'**
+  String recDocsPhotoName(String date);
+
+  /// Title of the screen listing all her documents.
+  ///
+  /// In en, this message translates to:
+  /// **'My documents'**
+  String get recDocsLibrary;
+
+  /// Empty state of My documents.
+  ///
+  /// In en, this message translates to:
+  /// **'No documents yet. Add a PDF or a photo from any entry in your record.'**
+  String get recDocsLibraryEmpty;
+
+  /// Title when choosing one of her documents to attach.
+  ///
+  /// In en, this message translates to:
+  /// **'Choose a document'**
+  String get recDocsChoose;
+
+  /// On a record row: how many documents are attached.
+  ///
+  /// In en, this message translates to:
+  /// **'{count, plural, =1{1 document} other{{count} documents}}'**
+  String recDocsCount(int count);
+
+  /// Menu item and dialog title: rename a document.
+  ///
+  /// In en, this message translates to:
+  /// **'Rename'**
+  String get recDocRename;
+
+  /// Label of the name field when renaming a document.
+  ///
+  /// In en, this message translates to:
+  /// **'Name'**
+  String get recDocRenameLabel;
+
+  /// Tooltip: share this document through the system share sheet.
+  ///
+  /// In en, this message translates to:
+  /// **'Share'**
+  String get recDocShare;
+
+  /// Snackbar when the system share sheet could not open.
+  ///
+  /// In en, this message translates to:
+  /// **'The share sheet could not open.'**
+  String get recDocShareFailed;
+
+  /// Menu item: detach this document from the entry, keeping it in My documents.
+  ///
+  /// In en, this message translates to:
+  /// **'Remove from this entry'**
+  String get recDocUnlink;
+
+  /// Menu item: delete the document from femio.
+  ///
+  /// In en, this message translates to:
+  /// **'Delete document'**
+  String get recDocDelete;
+
+  /// Confirm dialog title before deleting a document.
+  ///
+  /// In en, this message translates to:
+  /// **'Delete this document?'**
+  String get recDocDeleteTitle;
+
+  /// Confirm dialog body before deleting a document.
+  ///
+  /// In en, this message translates to:
+  /// **'It is removed from femio and from every entry it is attached to. This cannot be undone, except from a backup you saved before.'**
+  String get recDocDeleteBody;
+
+  /// When a document's file cannot be opened.
+  ///
+  /// In en, this message translates to:
+  /// **'This document could not be opened.'**
+  String get recDocUnreadable;
+
+  /// When a PDF cannot be drawn on the phone (damaged or password-protected).
+  ///
+  /// In en, this message translates to:
+  /// **'This PDF cannot be shown here. It may be protected by a password. You can still share it to open it in another app.'**
+  String get recDocPdfUnreadable;
+
+  /// A document's size; {size} is a number such as 2.3.
+  ///
+  /// In en, this message translates to:
+  /// **'{size} MB'**
+  String recDocSizeMb(String size);
+
+  /// Privacy line under a document and in My documents (ADR-082 §6).
+  ///
+  /// In en, this message translates to:
+  /// **'Documents and photos you add stay on your phone, sealed like the rest of your record, and travel only inside the backup file you save.'**
+  String get recDocPrivate;
+
+  /// Snackbar when her documents are over 100 MB together, too much for one backup.
+  ///
+  /// In en, this message translates to:
+  /// **'Your documents come to more than 100 MB, more than one backup can carry. Delete some large ones in My documents, then save the backup again.'**
+  String get backupTooLarge;
+
+  /// What can leave this phone: heading for things she shares herself.
+  ///
+  /// In en, this message translates to:
+  /// **'What you share'**
+  String get leaveShareHeading;
+
+  /// What can leave this phone: sharing a document or the visit pack.
+  ///
+  /// In en, this message translates to:
+  /// **'When you share a document or your visit notes, they go only to the app you pick in the share sheet.'**
+  String get leaveShareBody;
+
+  /// A small document's size; {size} is a whole number of kilobytes.
+  ///
+  /// In en, this message translates to:
+  /// **'{size} KB'**
+  String recDocSizeKb(String size);
 }
 
 class _L10nDelegate extends LocalizationsDelegate<L10n> {

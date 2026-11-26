@@ -11,6 +11,7 @@ import 'package:intl/intl.dart' show DateFormat;
 import 'app.dart';
 import 'data/ai_ledger_store.dart';
 import 'data/assistant_channel.dart';
+import 'data/attachment_store.dart';
 import 'data/home_widget_bridge.dart';
 import 'data/key_vault.dart';
 import 'data/play_store.dart';
@@ -25,7 +26,7 @@ Future<void> main() async {
   // The data is bundled with intl; nothing is fetched.
   await initializeDateFormatting();
   final vault = SecureKeyVault();
-  final controller = FemioController(EncryptedFileStore(vault: vault), vault: vault, reminders: LocalNotificationScheduler(), playStore: const GooglePlayStore(), ledger: EncryptedLedgerStore(vault: vault), homeWidget: const MethodChannelHomeWidget());
+  final controller = FemioController(EncryptedFileStore(vault: vault), vault: vault, reminders: LocalNotificationScheduler(), playStore: const GooglePlayStore(), ledger: EncryptedLedgerStore(vault: vault), homeWidget: const MethodChannelHomeWidget(), files: EncryptedAttachmentStore(vault: vault));
   await controller.load();
   runApp(FemioApp(controller: controller, assistant: const MethodChannelAssistant()));
 }

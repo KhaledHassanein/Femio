@@ -19,11 +19,24 @@ const backupExtension = 'femio';
 /// remembers beats symbols she forgets, and a lost passphrase loses the backup.
 const minPassphraseLength = 6;
 
-/// Builds a backup file for [profile].
-Future<Uint8List> encodeBackup(Profile profile, String passphrase) {
+/// Builds a backup file for [profile], carrying the bytes of her attached [documents] by id
+/// (R11.2). The caller keeps their total under `maxBackupAttachmentBytes` and says so first.
+Future<Uint8List> encodeBackup(Profile profile, String passphrase, {Map<String, List<int>> documents = const {}}) {
   if (passphrase.length < minPassphraseLength) throw ArgumentError('passphrase too short');
-  final body = jsonEncode({'kind': 'femio-backup', 'exportedAt': DateTime.now().toUtc().toIso8601String(), 'record': profile.toJson()});
+  final body = jsonEncode({
+    'kind': 'femio-backup',
+    'exportedAt': DateTime.now().toUtc().toIso8601String(),
+    'record': profile.toJson(),
+    if (documents.isNotEmpty) 'documents': {for (final e in documents.entries) e.key: base64Encode(e.value)},
+  });
   return envelope.sealWithPassphrase(passphrase, utf8.encode(body));
+}
+
+/// What a backup file holds: her record and the bytes of her documents by id.
+class RestoredBackup {
+  const RestoredBackup(this.profile, this.documents);
+  final Profile profile;
+  final Map<String, Uint8List> documents;
 }
 
 /// Why a backup could not be read.
@@ -38,9 +51,13 @@ class BackupError implements Exception {
   String toString() => 'BackupError(${failure.name})';
 }
 
-/// Reads a file written by [encodeBackup]. A newer schema is migrated the same way
-/// a saved record is.
-Future<Profile> decodeBackup(List<int> bytes, String passphrase) async {
+/// Reads a file written by [encodeBackup]: her record only. See [decodeBackupWithDocuments].
+Future<Profile> decodeBackup(List<int> bytes, String passphrase) async =>
+    (await decodeBackupWithDocuments(bytes, passphrase)).profile;
+
+/// Reads a file written by [encodeBackup], with her documents. A newer schema is migrated
+/// the same way a saved record is. Throws [BackupError].
+Future<RestoredBackup> decodeBackupWithDocuments(List<int> bytes, String passphrase) async {
   final Uint8List clear;
   try {
     clear = await envelope.openWithPassphrase(passphrase, bytes);
@@ -54,7 +71,13 @@ Future<Profile> decodeBackup(List<int> bytes, String passphrase) async {
     // Consent to Cloud boost belongs to the phone she gave it on: a restored record keeps the
     // receipts but allows nothing until she agrees again here (ADR-080).
     final at = DateTime.now().toUtc().toIso8601String();
-    return restored.copyWith(settings: restored.settings.copyWith(cloud: restored.settings.cloud.afterRestore(at)));
+    final documents = <String, Uint8List>{
+      for (final e in ((json['documents'] as Map?) ?? const {}).entries) e.key as String: base64Decode(e.value as String),
+    };
+    return RestoredBackup(
+      restored.copyWith(settings: restored.settings.copyWith(cloud: restored.settings.cloud.afterRestore(at))),
+      documents,
+    );
   } on BackupError {
     rethrow;
   } catch (_) {

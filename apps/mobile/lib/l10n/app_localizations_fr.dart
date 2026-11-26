@@ -2711,7 +2711,7 @@ class L10nFr extends L10n {
 
   @override
   String get leaveBackupBody =>
-      'Une sauvegarde va uniquement là où vous choisissez de l\'enregistrer, scellée par votre phrase secrète.';
+      'Une sauvegarde, avec les documents et photos que vous avez ajoutés, va uniquement là où vous choisissez de l\'enregistrer, chiffrée avec votre phrase secrète.';
 
   @override
   String get leaveLinksHeading => 'Les liens que vous ouvrez';
@@ -3502,4 +3502,111 @@ class L10nFr extends L10n {
   @override
   String get settingsWidgetDetailsNote =>
       'Toute personne qui voit votre téléphone les verra. Tant que vous ne l\'activez pas, le widget n\'affiche que femio.';
+
+  @override
+  String get recDocsHeading => 'Documents et photos';
+
+  @override
+  String get recDocsAddFile => 'Ajouter un fichier';
+
+  @override
+  String get recDocsTakePhoto => 'Prendre une photo';
+
+  @override
+  String get recDocsFromMine => 'Depuis mes documents';
+
+  @override
+  String get recDocsNote =>
+      'Un PDF ou une photo, jusqu\'à 10 Mo chacun. Conservé chiffré sur ce téléphone avec le reste de votre dossier.';
+
+  @override
+  String get recDocsTooLarge =>
+      'Ce fichier dépasse 10 Mo. Essayez une copie plus légère, ou une photo de la page.';
+
+  @override
+  String get recDocsUnsupported =>
+      'femio peut conserver les PDF et les photos (JPG, PNG ou WebP).';
+
+  @override
+  String recDocsPhotoName(String date) {
+    return 'Photo du $date';
+  }
+
+  @override
+  String get recDocsLibrary => 'Mes documents';
+
+  @override
+  String get recDocsLibraryEmpty =>
+      'Aucun document pour l\'instant. Ajoutez un PDF ou une photo depuis n\'importe quelle entrée de votre dossier.';
+
+  @override
+  String get recDocsChoose => 'Choisir un document';
+
+  @override
+  String recDocsCount(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count documents',
+      one: '1 document',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get recDocRename => 'Renommer';
+
+  @override
+  String get recDocRenameLabel => 'Nom';
+
+  @override
+  String get recDocShare => 'Partager';
+
+  @override
+  String get recDocShareFailed => 'Le menu de partage n\'a pas pu s\'ouvrir.';
+
+  @override
+  String get recDocUnlink => 'Retirer de cette entrée';
+
+  @override
+  String get recDocDelete => 'Supprimer le document';
+
+  @override
+  String get recDocDeleteTitle => 'Supprimer ce document ?';
+
+  @override
+  String get recDocDeleteBody =>
+      'Il est retiré de femio et de toutes les entrées auxquelles il est joint. C\'est définitif, sauf depuis une sauvegarde enregistrée avant.';
+
+  @override
+  String get recDocUnreadable => 'Ce document n\'a pas pu être ouvert.';
+
+  @override
+  String get recDocPdfUnreadable =>
+      'Ce PDF ne peut pas être affiché ici. Il est peut-être protégé par un mot de passe. Vous pouvez le partager pour l\'ouvrir dans une autre application.';
+
+  @override
+  String recDocSizeMb(String size) {
+    return '$size Mo';
+  }
+
+  @override
+  String get recDocPrivate =>
+      'Les documents et photos que vous ajoutez restent sur votre téléphone, chiffrés comme le reste de votre dossier, et ne voyagent que dans le fichier de sauvegarde que vous enregistrez.';
+
+  @override
+  String get backupTooLarge =>
+      'Vos documents dépassent 100 Mo, plus qu\'une sauvegarde ne peut contenir. Supprimez-en quelques gros dans Mes documents, puis enregistrez à nouveau la sauvegarde.';
+
+  @override
+  String get leaveShareHeading => 'Ce que vous partagez';
+
+  @override
+  String get leaveShareBody =>
+      'Quand vous partagez un document ou vos notes de rendez-vous, ils vont uniquement à l\'application que vous choisissez dans le menu de partage.';
+
+  @override
+  String recDocSizeKb(String size) {
+    return '$size Ko';
+  }
 }

@@ -25,7 +25,7 @@
  *   4. the app's own code can open a connection (http, dio, sockets): INTERNET is declared
  *      in the app's manifest only for Firebase AI Logic (ADR-079); the merged manifest must
  *      carry no ad-ID or ad-services permission (AD_ID, ACCESS_ADSERVICES_*) and no
- *      location, phone, contacts, camera or microphone permission.
+ *      location, phone, contacts, camera, microphone or storage permission.
  *
  * Adding any of these is a decision for docs/DECISIONS.md and a change to the
  * privacy policy, never a dependency bump.
@@ -300,6 +300,8 @@ const AD_PERMISSIONS = [
 const PERSONAL_PERMISSIONS = [
   /ACCESS_FINE_LOCATION/, /ACCESS_COARSE_LOCATION/, /ACCESS_BACKGROUND_LOCATION/, /READ_PHONE_STATE/, /READ_CONTACTS/,
   /CAMERA/, /RECORD_AUDIO/, /READ_SMS/, /READ_CALL_LOG/, /GET_ACCOUNTS/, /BLUETOOTH_SCAN/, /ACTIVITY_RECOGNITION/,
+  // Documents (R11.2, ADR-082 §2) arrive only through the system picker and camera intent.
+  /READ_EXTERNAL_STORAGE/, /WRITE_EXTERNAL_STORAGE/, /MANAGE_EXTERNAL_STORAGE/, /READ_MEDIA_/,
 ];
 try {
   const manifest = readFileSync(MANIFEST, "utf8");

@@ -73,6 +73,17 @@
                 <action android:name="com.htc.intent.action.QUICKBOOT_POWERON" />
             </intent-filter>
         </receiver>
+        <!-- Her documents (R11.2): the one file she chooses to share is readable by the app she
+             picks, through this provider and only from cache/shared/. Not exported. -->
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="${applicationId}.files"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/shared_files" />
+        </provider>
         <!-- The home-screen widget (R9.11): neutral until she turns details on in Settings.
              Exported because the launcher must be able to update it; it takes no input
              beyond the system's APPWIDGET_UPDATE and holds only two display strings. -->

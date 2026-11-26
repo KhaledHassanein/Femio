@@ -2690,7 +2690,7 @@ class L10nEn extends L10n {
 
   @override
   String get leaveBackupBody =>
-      'A backup goes only where you choose to save it, sealed with your passphrase.';
+      'A backup, with the documents and photos you added, goes only where you choose to save it, sealed with your passphrase.';
 
   @override
   String get leaveLinksHeading => 'Links you open';
@@ -3465,4 +3465,111 @@ class L10nEn extends L10n {
   @override
   String get settingsWidgetDetailsNote =>
       'Anyone who sees your phone will see them. Until you turn this on, the widget shows only femio.';
+
+  @override
+  String get recDocsHeading => 'Documents and photos';
+
+  @override
+  String get recDocsAddFile => 'Add a file';
+
+  @override
+  String get recDocsTakePhoto => 'Take a photo';
+
+  @override
+  String get recDocsFromMine => 'From my documents';
+
+  @override
+  String get recDocsNote =>
+      'A PDF or a photo, up to 10 MB each. Kept sealed on this phone with the rest of your record.';
+
+  @override
+  String get recDocsTooLarge =>
+      'This file is over 10 MB. Try a smaller copy, or a photo of the page.';
+
+  @override
+  String get recDocsUnsupported =>
+      'femio can keep PDFs and photos (JPG, PNG or WebP).';
+
+  @override
+  String recDocsPhotoName(String date) {
+    return 'Photo $date';
+  }
+
+  @override
+  String get recDocsLibrary => 'My documents';
+
+  @override
+  String get recDocsLibraryEmpty =>
+      'No documents yet. Add a PDF or a photo from any entry in your record.';
+
+  @override
+  String get recDocsChoose => 'Choose a document';
+
+  @override
+  String recDocsCount(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count documents',
+      one: '1 document',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get recDocRename => 'Rename';
+
+  @override
+  String get recDocRenameLabel => 'Name';
+
+  @override
+  String get recDocShare => 'Share';
+
+  @override
+  String get recDocShareFailed => 'The share sheet could not open.';
+
+  @override
+  String get recDocUnlink => 'Remove from this entry';
+
+  @override
+  String get recDocDelete => 'Delete document';
+
+  @override
+  String get recDocDeleteTitle => 'Delete this document?';
+
+  @override
+  String get recDocDeleteBody =>
+      'It is removed from femio and from every entry it is attached to. This cannot be undone, except from a backup you saved before.';
+
+  @override
+  String get recDocUnreadable => 'This document could not be opened.';
+
+  @override
+  String get recDocPdfUnreadable =>
+      'This PDF cannot be shown here. It may be protected by a password. You can still share it to open it in another app.';
+
+  @override
+  String recDocSizeMb(String size) {
+    return '$size MB';
+  }
+
+  @override
+  String get recDocPrivate =>
+      'Documents and photos you add stay on your phone, sealed like the rest of your record, and travel only inside the backup file you save.';
+
+  @override
+  String get backupTooLarge =>
+      'Your documents come to more than 100 MB, more than one backup can carry. Delete some large ones in My documents, then save the backup again.';
+
+  @override
+  String get leaveShareHeading => 'What you share';
+
+  @override
+  String get leaveShareBody =>
+      'When you share a document or your visit notes, they go only to the app you pick in the share sheet.';
+
+  @override
+  String recDocSizeKb(String size) {
+    return '$size KB';
+  }
 }

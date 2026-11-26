@@ -17,6 +17,8 @@ environment:
 #   timezone               the TZDateTime type the notification plugin schedules with (no database loaded)
 #   in_app_purchase        Google Play Billing for femio Plus (R6.9): talks to the Play Store app on the
 #                          device, never to the network
+#   image_picker           the system camera for a photo of a report (R11.2): opens her own camera
+#                          app through the system intent, so femio needs no CAMERA permission
 dependencies:
   cryptography: 2.9.0
   file_picker: 13.3.0
@@ -26,6 +28,7 @@ dependencies:
   flutter_localizations:
     sdk: flutter
   flutter_secure_storage: 11.2.0
+  image_picker: 1.2.2
   in_app_purchase: 3.3.1
   in_app_review: 2.0.12
   in_app_update: 5.0.0
