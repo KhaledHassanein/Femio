@@ -1,7 +1,10 @@
 # femio for Android (Flutter)
 
-The product (D7, D8, ADR-070): a private app. Her records live on the phone; nothing
-here makes a network request. Spec: `docs/30_REVAMP/04_ANDROID_APP_SPEC.md`.
+The product (D7, D8, ADR-070): a private app. Her records live on the phone, and femio has
+no network code of its own (ADR-080). The only traffic is Google's: the Gemini Nano model
+download through Android's AICore, and Cloud boost through Firebase AI Logic, which sends
+only a question she approved or her four-band profile, and only after she agrees (ADR-079,
+ADR-080). Spec: `docs/30_REVAMP/04_ANDROID_APP_SPEC.md`.
 
 - **Application ID `com.femioapp.femio`.** Permanent once on Google Play: changing it
   publishes a different app and strands every install. Do not rename it.
