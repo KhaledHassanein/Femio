@@ -38,6 +38,42 @@ void main() {
     expect(old.any, isFalse);
   });
 
+  test('a consent given on the version 1 text (which promised names were removed) lapses', () {
+    // Version 2 corrected the redaction sentence (PRIV-1); she must agree again to the new text.
+    expect(cloudConsentVersion, 2);
+    final v1 = CloudConsent.fromJson([
+      {'purposes': ['questions', 'tips'], 'at': at, 'version': 1},
+    ]);
+    expect(v1.allows(CloudPurpose.questions), isFalse);
+    expect(v1.allows(CloudPurpose.tips), isFalse);
+    expect(v1.log, hasLength(1), reason: 'the old receipt is kept as history, it just no longer counts');
+  });
+
+  test('the receipt records the language the consent text was shown in', () {
+    final c = const CloudConsent().grant({CloudPurpose.questions}, at, lang: 'ar');
+    expect(c.current!.lang, 'ar');
+    expect(c.current!.toJson()['lang'], 'ar');
+    final back = AppSettings.fromJson(AppSettings(cloud: c).toJson()).cloud;
+    expect(back.current!.lang, 'ar');
+    expect(back.allows(CloudPurpose.questions), isTrue);
+    final off = c.withdraw('2026-11-25T08:00:00Z', lang: 'fr');
+    expect(off.current!.lang, 'fr');
+  });
+
+  test('receipts written before the language field still parse; a bad language is unknown', () {
+    final old = CloudConsent.fromJson([
+      {'purposes': ['tips'], 'at': at, 'version': cloudConsentVersion},
+    ]);
+    expect(old.allows(CloudPurpose.tips), isTrue);
+    expect(old.current!.lang, isNull);
+    expect(old.current!.toJson().containsKey('lang'), isFalse);
+    final odd = CloudConsent.fromJson([
+      {'purposes': ['tips'], 'at': at, 'version': cloudConsentVersion, 'lang': 7},
+    ]);
+    expect(odd.allows(CloudPurpose.tips), isTrue);
+    expect(odd.current!.lang, isNull);
+  });
+
   test('a damaged log can only mean no consent', () {
     expect(CloudConsent.fromJson('yes').any, isFalse);
     expect(CloudConsent.fromJson([{'purposes': 'tips', 'at': at, 'version': 1}]).any, isFalse);
