@@ -342,12 +342,12 @@ adb install -r build/app/outputs/flutter-apk/app-debug.apk</code></pre>
   <p>Do the first row of each feature on the phone with Nano Ready. The Cloud boost row needs the internet.</p>
   <div class="tablewrap"><table>
     <tr><th>Feature</th><th>How to turn it on or reach it</th><th>What it should show</th></tr>
-    <tr><td>Ask femio</td><td>Today &rarr; Ask femio. Ask "How long should we try to conceive before seeing a doctor?"</td><td>A short answer built only from trusted sources, each numbered with its source; works offline. A question the registry cannot answer says "Not covered yet". With Nano Ready, the summary is written on the phone.</td></tr>
+    <tr><td>Ask femio</td><td>Today &rarr; Ask femio. Ask "When should a couple see a doctor about getting pregnant?"</td><td>A short answer built only from trusted sources, each numbered with its source; works offline. A question the registry cannot answer says "Not covered yet". With Nano Ready, the summary is written on the phone.</td></tr>
     <tr><td>Safety rules</td><td>In Ask femio type "heavy bleeding and dizzy"; then "safe days to avoid pregnancy"</td><td>Heavy bleeding with dizziness shows ACOG's emergency sentence; danger signs open Help now; after birth, the CDC Hear Her warning signs; the birth-control question gets a fixed answer. No model runs first.</td></tr>
     <tr><td>Cloud boost</td><td>Settings &rarr; Assistant &rarr; switch Cloud boost on (it is off by default)</td><td>A consent screen opens showing the four broad facts that may be sent (life stage, cycle regularity, kinds of symptom logged in the last month, logging streak) and a "what is never sent" list. Tick one or both boxes (general questions, tips), then tap I agree; the screen then shows the date you agreed. It is used only when the phone has no Nano. A general question is sent only after she approves its exact text.</td></tr>
     <tr><td>"For you" tips</td><td>Today screen</td><td>Short reviewed sentences, each with a source, chosen on the phone.</td></tr>
     <tr><td>Visit summary</td><td>Today &rarr; Visit summary</td><td>A page for her doctor counted from her own log, with questions in order. Copy works.</td></tr>
-    <tr><td>Say it in your words</td><td>Log &rarr; Say it in your words. Type "bad cramps, light bleeding and so tired", tap Turn into log entries</td><td>Log entries she can check, then tap Add. The sentence itself is not saved or sent.</td></tr>
+    <tr><td>Say it in your words</td><td>Log &rarr; Say it in your words. Type "bad cramps, light bleeding and so tired", tap Turn into log entries</td><td>Log entries she can check, then tap Save. The sentence itself is not saved or sent.</td></tr>
   </table></div>
   <div class="step" style="margin-top:12px"><h3><span class="n">!</span>If a feature does not behave</h3>
     <div class="row fail"><div class="lbl">If it fails</div><div>Note which row, and what the screen said, in words. Section 15 covers the usual causes (no Firebase settings in the build, App Check, Nano not available).</div></div>
@@ -373,9 +373,10 @@ adb install -r build/app/outputs/flutter-apk/app-debug.apk</code></pre>
   </div>
   <div class="step"><h3><span class="n">2</span>Build the release APK</h3>
     <div class="row"><div class="lbl">Do</div><div>
-<pre><code>cd E:\Femio\.claude\worktrees\firebase-hackathon-eligibility-833c52\apps\mobile
-flutter build apk --release --dart-define-from-file=ads.env</code></pre>
-<code>ads.env</code> holds the ads ids (copy of <code>ads.env.example</code>; see the runbook section 3 for what happens without it).</div></div>
+<pre><code>cd E:\Femio\apps\mobile
+flutter clean
+flutter build apk --release</code></pre>
+Build in the checkout that holds both <code>apps/mobile/assistant.env</code> and <code>android/key.properties</code> (copy <code>assistant.env</code> in if needed; never add it to git). The app has no ads, so there is no <code>ads.env</code> any more. Full steps, including the signer check: <code>docs/hackathon/RELEASE_STEPS.md</code> part B.</div></div>
     <div class="row see"><div class="lbl">You should see</div><div><code>apps/mobile/build/app/outputs/flutter-apk/app-release.apk</code>.</div></div>
     <div class="row fail"><div class="lbl">If it fails</div><div><code>flutter clean</code>, then build again; <code>flutter doctor</code> for tool problems.</div></div>
   </div>
@@ -384,7 +385,7 @@ flutter build apk --release --dart-define-from-file=ads.env</code></pre>
 <pre><code>adb install -r build/app/outputs/flutter-apk/app-release.apk</code></pre>
 Repeat the quick checks from section 8, especially Ask femio and Cloud boost.</div></div>
     <div class="row see"><div class="lbl">You should see</div><div>The same behaviour as the debug build.</div></div>
-    <div class="row fail"><div class="lbl">If it fails</div><div>If install says the signatures differ, uninstall the debug app first (this deletes its test data), then install. <span class="badge">not verified</span> A release APK installed outside Google Play may be refused by App Check's Play Integrity check, so the cloud path could fail for people who install your APK file; the registry and Nano parts do not depend on it. Test it on your own phone and, if cloud answers fail there, say so in a Claude session before you write the Devpost testing text.</div></div>
+    <div class="row fail"><div class="lbl">If it fails</div><div>If install says the signatures differ, uninstall the debug app first (this deletes its test data), then install. <span class="badge">not verified</span> With App Check enforcement on (your choice, row 42), a release APK installed outside Google Play is expected to fail Play Integrity, so Cloud boost is refused for judges who sideload it; Say it, Ask femio, Nano and the rules do not depend on it. The Devpost testing steps already say so, and the video shows a real cloud run from the debug build.</div></div>
   </div>
 </section>
 
@@ -393,7 +394,7 @@ Repeat the quick checks from section 8, especially Ask femio and Cloud boost.</d
   <h2>11 &middot; Make the repo public</h2>
   <p class="breath">You say "make it public" to a Claude session; it publishes an app-only public copy, and you only approve.</p>
   <div class="step"><h3><span class="n">1</span>Ask, then approve</h3>
-    <div class="row"><div class="lbl">Do</div><div>Type: <code>make it public</code>. The session runs <code>scripts/hackathon/export-public-app.mjs</code> and creates the Apache-2.0 repository <code>femio-app</code> on GitHub (the app only; your private monorepo stays private). Approve when asked.</div></div>
+    <div class="row"><div class="lbl">Do</div><div>Type: <code>make it public</code>, or run it yourself: the exact commands are in <code>docs/hackathon/RELEASE_STEPS.md</code> part A (export from the final commit, check, <code>gh repo create KhaledHassanein/femio-app --public --source . --push</code>), then part B for the GitHub Release with the APK. The export takes only committed files, refuses any secret-shaped file or key-shaped string, and ships the Apache-2.0 LICENSE, the privacy tripwire and a CI workflow.</div></div>
     <div class="row see"><div class="lbl">You should see</div><div>A GitHub link to the new public repository with a LICENSE file shown in its About section. Open it in a private window and check it has no <code>assistant.env</code> and no keys.</div></div>
     <div class="row fail"><div class="lbl">If it fails</div><div>Tell the session what it printed. Do not make a repo public by hand.</div></div>
   </div>
@@ -403,21 +404,21 @@ Repeat the quick checks from section 8, especially Ask femio and Cloud boost.</d
 <section id="s12">
   <h2>12 &middot; Record the 3-minute video</h2>
   <p class="breath">One take of the phone screen with your voice, under 3 minutes, in English, uploaded to YouTube.</p>
-  <p>Record on the phone that says Nano Ready: pull down quick settings and use Screen record. Source: <code>docs/hackathon/VIDEO_SCRIPT.md</code> (rewritten 24 November for the current build). Before recording, set up a profile trying to conceive for 6 to 12 months, log a few days of cramps and tiredness, and keep Cloud boost off.</p>
+  <p>Two phones: phone A says Nano "Ready"; phone B has no Nano and runs the debug build with its App Check debug token registered (for the one real Cloud boost run). Record each with quick settings &rarr; Screen record. Source: <code>docs/hackathon/VIDEO_SCRIPT.md</code> (rewritten 27 November). Before recording, set up a profile trying to conceive for 6 to 12 months and log a few days of cramps and tiredness; agree to Cloud boost only on camera, on phone B. Try the Say it sentence on phone A first: the rules find Cramps, and Nano should add Bloating.</p>
   <div class="tablewrap"><table>
     <tr><th>Time</th><th>On screen</th><th>What to say (gist)</th></tr>
-    <tr><td>0:00&ndash;0:15</td><td>Today, scrolled to the For you card</td><td>femio keeps her record on her phone; hybrid AI makes it more useful without breaking that promise.</td></tr>
-    <tr><td>0:15&ndash;0:25</td><td>Settings &rarr; Assistant: Nano Ready, Cloud boost Off</td><td>Gemini Nano runs on this phone through Firebase AI Logic; the cloud is off unless she turns it on.</td></tr>
-    <tr><td>0:25&ndash;0:50</td><td>Log &rarr; Say it in your words; type "bad cramps, light bleeding and so tired"; Turn into log entries; Add</td><td>One sentence instead of forty taps; the rules and Nano on the phone make entries she confirms; the sentence is never saved or sent.</td></tr>
-    <tr><td>0:50&ndash;1:10</td><td>Today &rarr; For you card; tap one Source link</td><td>Tips chosen on her phone from her stage and what she logs; each is a reviewed sentence with its source; Nano only orders them.</td></tr>
-    <tr><td>1:10&ndash;1:25</td><td>Today &rarr; Visit summary</td><td>A page for her doctor, counted from her own log, with sourced questions for her stage.</td></tr>
-    <tr><td>1:25&ndash;2:00</td><td>Today &rarr; Ask femio; type "I'm 34 and my cramps are awful, what can I do?"; Ask; scroll to Sources</td><td>A personal question stays on the phone; femio finds passages in its trusted-source library; Nano summarises with numbered citations; no source, no answer.</td></tr>
-    <tr><td>2:00&ndash;2:15</td><td>Ask femio; type "heavy bleeding and dizzy"</td><td>Safety rules run before any model; ACOG's emergency guidance and the help page appear.</td></tr>
-    <tr><td>2:15&ndash;2:40</td><td>Settings &rarr; Assistant &rarr; tap the Cloud boost switch; show the consent screen; tap Not now</td><td>On a phone without Nano she can choose Cloud boost; the screen shows exactly what could be sent: four broad facts and general questions she approves.</td></tr>
-    <tr><td>2:40&ndash;2:55</td><td>Back to Today</td><td>On the phone for her data, sourced answers, rules above both; four languages. That is femio.</td></tr>
+    <tr><td>0:00&ndash;0:12</td><td>Split diagram: on this phone (Gemini Nano, ONLY_ON_DEVICE) | Cloud boost (opt-in, PREFER_ON_DEVICE); "Safety rules first" on top</td><td>Firebase AI Logic splits the AI by how sensitive the data is: her record on Nano, on the phone; the cloud only by choice, for things that say nothing about her.</td></tr>
+    <tr><td>0:12&ndash;0:22</td><td>Phone A, Today: the status chip; tap it to Settings &rarr; Assistant ("Ready", Cloud boost Off)</td><td>The chip always says where the AI runs.</td></tr>
+    <tr><td>0:22&ndash;0:52</td><td>Phone A: + &rarr; "Tell femio anything"; type "cramps since this morning and my jeans will not button, I feel like a balloon"; Turn into log entries; chips Cramps and Bloating; Save 2 entries on 1 day</td><td>The rules found cramps; Nano, on the phone, adds bloating; nothing is saved until she taps Save. It also reads "yesterday&hellip; today&hellip;" into separate days.</td></tr>
+    <tr><td>0:52&ndash;1:20</td><td>Phone A: Today &rarr; Ask femio; "I'm 34 and my cramps are awful, what can I do?"; Ask; label "Summarised on your phone by Gemini Nano"; Sources</td><td>A personal question stays on the phone; Nano may only summarise trusted passages and must cite them.</td></tr>
+    <tr><td>1:20&ndash;1:30</td><td>Phone A: Ask "heavy bleeding and dizzy"</td><td>Rules run before any model: ACOG's emergency guidance and the help page.</td></tr>
+    <tr><td>1:30&ndash;2:12</td><td>Phone B: Settings &rarr; Assistant &rarr; Cloud boost; consent screen; tick "General questions"; I agree; receipt; Ask "What helps with period cramps?"; the exact text to approve; Summarise with Cloud boost; label "Summarised by Google's cloud AI (Cloud boost)"</td><td>No Nano here: she opts in, sees her own values and a dated receipt; femio removes numbers, e-mail addresses and links, she approves the exact text, and the cloud answer still cites its sources.</td></tr>
+    <tr><td>2:12&ndash;2:32</td><td>Phone B: Settings &rarr; Assistant &rarr; What the AI did ("Sent with Cloud boost", Exactly what was sent); then What the AI can see</td><td>Every model call is listed on her phone, with a receipt of exactly what was sent.</td></tr>
+    <tr><td>2:32&ndash;2:52</td><td>Phone A: Use the assistant off; Log &rarr; Say it in your words (Cramps only); Ask femio ("Word for word from trusted sources")</td><td>AI off: nothing runs anywhere, and every feature still works. The AI is a companion, never the engine.</td></tr>
+    <tr><td>2:52&ndash;2:58</td><td>Today</td><td>femio. Private by design, hybrid by choice.</td></tr>
   </table></div>
   <div class="step" style="margin-top:12px"><h3><span class="n">1</span>Record, upload, copy the link</h3>
-    <div class="row"><div class="lbl">Do</div><div>Record, check it is under 3:00, upload to YouTube as Public or Unlisted (YouTube Studio &rarr; Create &rarr; Upload videos), and copy the video link for the Devpost form.</div></div>
+    <div class="row"><div class="lbl">Do</div><div>Record, check it is under 3:00, upload to YouTube as Public (the rules ask for a public video) (YouTube Studio &rarr; Create &rarr; Upload videos), and copy the video link for the Devpost form.</div></div>
     <div class="row see"><div class="lbl">You should see</div><div>The link opens in a private window and plays with sound.</div></div>
     <div class="row fail"><div class="lbl">If it fails</div><div>If YouTube is "processing" for long, wait; it plays at low quality first. If the video runs over 3:00, trim your speech rather than speeding up.</div></div>
   </div>
@@ -436,7 +437,7 @@ Repeat the quick checks from section 8, especially Ask femio and Cloud boost.</d
     <tr><td>Try it out links, video link, submitter details</td><td>"Other fields" (fill in your public repo link, APK link and YouTube link where it shows placeholders)</td></tr>
     <tr><td>What existed versus what you built</td><td>"What existed vs what I built"</td></tr>
     <tr><td>Main technology requirement</td><td>"Main technology requirement"</td></tr>
-    <tr><td>Testing instructions</td><td>"Testing instructions" (step 5 is Settings &rarr; Assistant &rarr; Cloud boost)</td></tr>
+    <tr><td>Testing instructions</td><td>"Testing instructions" (step 7 is Cloud boost; it says plainly that a sideloaded APK cannot reach the cloud)</td></tr>
     <tr><td>License</td><td>"License" (Apache-2.0, link to the LICENSE file in the public repo)</td></tr>
   </table></div>
   <p class="note" style="margin-top:12px">The file's own rule: anything not working by the deadline must be cut from the text, never faked. Remote Config is not built (section 9), so do not claim it.</p>
