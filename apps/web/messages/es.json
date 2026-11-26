@@ -1920,7 +1920,7 @@
       "sayItFound": "femio encontró esto. Desmarca lo que no sea correcto.",
       "sayItSaveCount": "Guardar {entries, plural, one{1 entrada} other{{entries} entradas}} en {days, plural, one{1 día} other{{days} días}}",
       "sayItAdded": "Añadido a tu registro.",
-      "assistantPrivateNote": "Esto ocurre en tu teléfono. Tus palabras no se guardan ni se envían.",
+      "assistantPrivateNote": "Esto ocurre en tu teléfono. femio no envía tus palabras a ningún sitio.",
       "logCramps": "Cólicos",
       "logHeadache": "Dolor de cabeza",
       "logFatigue": "Fatiga",
@@ -1942,7 +1942,7 @@
       "boostCategoriesLabel": "Tipos de síntomas registrados el último mes",
       "boostStreakLabel": "Registro continuo",
       "boostNeverHeading": "Qué no se envía nunca",
-      "boostNever": "Tus notas, fechas, registros, duración de ciclos, tu nombre, tu correo, tus contactos ni tu ID de publicidad.",
+      "boostNever": "Nada más de tu historial: ni tus registros, notas, fechas, duración de ciclos, medicamentos, resultados de análisis, consultas, documentos, fotos o año de nacimiento. Nunca tus contactos ni tu ID de publicidad.",
       "boostAlsoSeen": "Como en cualquier conexión a internet, Google también ve la dirección de internet de tu teléfono y una comprobación de Google Play de que la solicitud viene de la app femio auténtica.",
       "boostWithdrawEffect": "Desactivarlo impide nuevos envíos. No puede recuperar lo que ya se envió."
     }

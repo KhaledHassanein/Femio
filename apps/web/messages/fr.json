@@ -1920,7 +1920,7 @@
       "sayItFound": "femio a trouvé ceci. Décochez ce qui est faux.",
       "sayItSaveCount": "Enregistrer {entries, plural, one{1 élément} other{{entries} éléments}} sur {days, plural, one{1 jour} other{{days} jours}}",
       "sayItAdded": "Ajouté à votre journal.",
-      "assistantPrivateNote": "Cela se passe sur votre téléphone. Vos mots ne sont ni enregistrés ni envoyés.",
+      "assistantPrivateNote": "Cela se passe sur votre téléphone. femio n'envoie vos mots nulle part.",
       "logCramps": "Crampes",
       "logHeadache": "Mal de tête",
       "logFatigue": "Fatigue",
@@ -1942,7 +1942,7 @@
       "boostCategoriesLabel": "Types de symptômes notés le mois dernier",
       "boostStreakLabel": "Suivi continu",
       "boostNeverHeading": "Ce qui n’est jamais envoyé",
-      "boostNever": "Vos notes, dates, entrées du journal, durées de cycle, votre nom, votre e-mail, vos contacts ou votre identifiant publicitaire.",
+      "boostNever": "Rien d’autre de votre dossier : ni votre journal, ni vos notes, dates, durées de cycle, médicaments, résultats d’analyses, rendez-vous, documents, photos ou année de naissance. Jamais vos contacts ni votre identifiant publicitaire.",
       "boostAlsoSeen": "Comme pour toute connexion à Internet, Google voit aussi l’adresse Internet de votre téléphone, et une vérification de Google Play confirmant que la demande vient de la vraie application femio.",
       "boostWithdrawEffect": "La désactiver arrête tout nouvel envoi. Cela ne peut pas rappeler ce qui a déjà été envoyé."
     }

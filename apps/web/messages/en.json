@@ -1920,7 +1920,7 @@
       "sayItFound": "femio found these. Untick anything that is wrong.",
       "sayItSaveCount": "Save {entries, plural, one{1 entry} other{{entries} entries}} on {days, plural, one{1 day} other{{days} days}}",
       "sayItAdded": "Added to your log.",
-      "assistantPrivateNote": "This runs on your phone. Your words are not saved or sent anywhere.",
+      "assistantPrivateNote": "This runs on your phone. femio does not send your words anywhere.",
       "logCramps": "Cramps",
       "logHeadache": "Headache",
       "logFatigue": "Fatigue",
@@ -1942,7 +1942,7 @@
       "boostCategoriesLabel": "Kinds of symptom logged in the last month",
       "boostStreakLabel": "Logging streak",
       "boostNeverHeading": "What is never sent",
-      "boostNever": "Your notes, dates, log entries, cycle lengths, name, email, contacts or advertising ID.",
+      "boostNever": "Nothing else from your record: not your log, notes, dates, cycle lengths, medicines, lab results, visits, documents, photos or birth year. Never your contacts or advertising ID.",
       "boostAlsoSeen": "Like any internet connection, Google also sees your phone's internet address, and a check from Google Play that the request comes from the real femio app.",
       "boostWithdrawEffect": "Turning it off stops anything new being sent. It cannot recall what was already sent."
     }
