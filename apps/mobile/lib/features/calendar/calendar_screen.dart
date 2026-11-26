@@ -22,6 +22,7 @@ import '../../theme/type_sizes.dart';
 import '../../widgets/dashed_ring.dart';
 import '../../widgets/tab_header.dart';
 import '../pregnancy/week_strip.dart';
+import 'patterns_screen.dart';
 import 'prediction_sheets.dart';
 import 'upcoming_periods_card.dart';
 
@@ -373,6 +374,7 @@ class _CalendarScreenState extends State<CalendarScreen> {
                 UpcomingPeriodsCard(periods: upcoming, range: range),
                 WhyRangeButton(profile: profile, range: range),
               ],
+              PatternsButton(controller: widget.controller, today: widget.today),
               const SizedBox(height: space3h),
               // R8.4: only period and TTC modes draw estimates, so only they mention outlines.
               Text(predicts ? l.calendarHint : l.calendarHintNoEstimates, style: t.bodySmall),

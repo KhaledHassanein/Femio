@@ -3772,4 +3772,135 @@ class L10nAr extends L10n {
   @override
   String get reminderMedicineNote =>
       'في الأوقات التي حددتِها لكل دواء، وفي اليوم السابق لإعادة الصرف.';
+
+  @override
+  String get patTitle => 'أنماطي';
+
+  @override
+  String get patOpen => 'عرض أنماطي';
+
+  @override
+  String get patIntro =>
+      'أعداد مما سجّلتِه. يعرض femio كم مرة، ولا يفسّر ما يعنيه ذلك.';
+
+  @override
+  String get patCycleLength => 'طول الدورة';
+
+  @override
+  String patNeedCycles(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other:
+          'تظهر أطوال الدورات بعد دورتين كاملتين. اكتملت $count دورة حتى الآن.',
+      many:
+          'تظهر أطوال الدورات بعد دورتين كاملتين. اكتملت $count دورة حتى الآن.',
+      few:
+          'تظهر أطوال الدورات بعد دورتين كاملتين. اكتملت $count دورات حتى الآن.',
+      two: 'تظهر أطوال الدورات بعد دورتين كاملتين. اكتملت دورتان حتى الآن.',
+      one: 'تظهر أطوال الدورات بعد دورتين كاملتين. اكتملت دورة واحدة حتى الآن.',
+      zero: 'تظهر أطوال الدورات بعد دورتين كاملتين. لم تكتمل أي دورة بعد.',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String patRange(int count, int shortest, int longest) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: 'آخر $count دورة: من $shortest إلى $longest يومًا',
+      many: 'آخر $count دورة: من $shortest إلى $longest يومًا',
+      few: 'آخر $count دورات: من $shortest إلى $longest يومًا',
+      two: 'آخر دورتين: من $shortest إلى $longest يومًا',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String patDays(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count يوم',
+      many: '$count يومًا',
+      few: '$count أيام',
+      two: 'يومان',
+      one: 'يوم واحد',
+      zero: '0 يوم',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get patVaries =>
+      'تختلف أطوال دوراتكِ بأكثر من 9 أيام، أو كانت إحداها أقصر من 24 يومًا أو أطول من 38 يومًا. قد يفيد ذكر ذلك في زيارتكِ القادمة.';
+
+  @override
+  String get patVariesSource => 'الحدود المعتادة: FIGO 2018.';
+
+  @override
+  String get patNoticed => 'أكثر ما سجّلتِه';
+
+  @override
+  String get patNeedLogged =>
+      'تظهر الأعداد بعد 3 دورات كاملة سجّلتِ فيها شيئًا.';
+
+  @override
+  String patSeen(String term, String phase, int seen, int cycles) {
+    return '$term $phase: عدد الدورات $seen من $cycles';
+  }
+
+  @override
+  String get patPhasePeriod => 'أثناء الدورة';
+
+  @override
+  String get patPhaseBefore => 'في الأيام الخمسة قبل الدورة';
+
+  @override
+  String get patByPhase => 'حسب المرحلة';
+
+  @override
+  String get patPhasePeriodShort => 'أثناء الدورة';
+
+  @override
+  String get patPhaseBeforeShort => '5 أيام قبلها';
+
+  @override
+  String patOf(int seen, int cycles) {
+    return '$seen من $cycles';
+  }
+
+  @override
+  String get patEachCycle => 'كل دورة';
+
+  @override
+  String patCycleFrom(String date) {
+    return 'من $date';
+  }
+
+  @override
+  String patDaysLogged(int count) {
+    return 'أيام مسجّلة: $count';
+  }
+
+  @override
+  String patOpkDays(int count) {
+    return 'اختبار الإباضة مرتفع أو إيجابي: $count';
+  }
+
+  @override
+  String patTemps(int count) {
+    return 'قراءات الحرارة: $count';
+  }
+
+  @override
+  String get patRecent => 'آخر 90 يومًا';
+
+  @override
+  String get patEmpty => 'لم تسجّلي شيئًا بعد. تنمو الأنماط من سجلّكِ.';
+
+  @override
+  String get patNoVerdict =>
+      'هذه أعداد لما سجّلتِه. لا تقول ما السبب ولا إن كان هناك خطب ما. يمكنكِ عرضها على طبيبكِ إن أفادت.';
 }

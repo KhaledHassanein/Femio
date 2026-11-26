@@ -2231,5 +2231,172 @@
   "reminderMedicineNote": "At the times you set on each medicine, and the day before a refill.",
   "@reminderMedicineNote": {
     "description": "Medicines (R11.6)."
+  },
+  "patTitle": "Patterns",
+  "@patTitle": {
+    "description": "Patterns (R8.5, R10.4)."
+  },
+  "patOpen": "See my patterns",
+  "@patOpen": {
+    "description": "Patterns (R8.5, R10.4)."
+  },
+  "patIntro": "Counts from what you logged. femio shows how often, never what it means.",
+  "@patIntro": {
+    "description": "Patterns (R8.5, R10.4)."
+  },
+  "patCycleLength": "Cycle length",
+  "@patCycleLength": {
+    "description": "Patterns (R8.5, R10.4)."
+  },
+  "patNeedCycles": "{count, plural, =0{Cycle lengths appear after 2 full cycles. None is complete yet.} =1{Cycle lengths appear after 2 full cycles. 1 is complete so far.} other{Cycle lengths appear after 2 full cycles. {count} are complete so far.}}",
+  "@patNeedCycles": {
+    "description": "Patterns (R8.5, R10.4).",
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "patRange": "{count, plural, other{Your last {count} cycles: {shortest} to {longest} days}}",
+  "@patRange": {
+    "description": "Patterns (R8.5, R10.4).",
+    "placeholders": {
+      "count": {
+        "type": "int"
+      },
+      "shortest": {
+        "type": "int"
+      },
+      "longest": {
+        "type": "int"
+      }
+    }
+  },
+  "patDays": "{count, plural, =1{1 day} other{{count} days}}",
+  "@patDays": {
+    "description": "Patterns (R8.5, R10.4).",
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "patVaries": "Your cycle lengths vary by more than 9 days, or one was shorter than 24 or longer than 38 days. That can be worth mentioning at your next visit.",
+  "@patVaries": {
+    "description": "Patterns (R8.5, R10.4)."
+  },
+  "patVariesSource": "Usual limits: FIGO 2018.",
+  "@patVariesSource": {
+    "description": "Patterns (R8.5, R10.4)."
+  },
+  "patNoticed": "What you logged most",
+  "@patNoticed": {
+    "description": "Patterns (R8.5, R10.4)."
+  },
+  "patNeedLogged": "Counts appear after 3 full cycles with something logged in them.",
+  "@patNeedLogged": {
+    "description": "Patterns (R8.5, R10.4)."
+  },
+  "patSeen": "{term} {phase}: {seen} of {cycles} cycles",
+  "@patSeen": {
+    "description": "Patterns (R8.5, R10.4).",
+    "placeholders": {
+      "term": {
+        "type": "String"
+      },
+      "phase": {
+        "type": "String"
+      },
+      "seen": {
+        "type": "int"
+      },
+      "cycles": {
+        "type": "int"
+      }
+    }
+  },
+  "patPhasePeriod": "during your period",
+  "@patPhasePeriod": {
+    "description": "Patterns (R8.5, R10.4)."
+  },
+  "patPhaseBefore": "in the 5 days before your period",
+  "@patPhaseBefore": {
+    "description": "Patterns (R8.5, R10.4)."
+  },
+  "patByPhase": "By phase",
+  "@patByPhase": {
+    "description": "Patterns (R8.5, R10.4)."
+  },
+  "patPhasePeriodShort": "During period",
+  "@patPhasePeriodShort": {
+    "description": "Patterns (R8.5, R10.4)."
+  },
+  "patPhaseBeforeShort": "5 days before",
+  "@patPhaseBeforeShort": {
+    "description": "Patterns (R8.5, R10.4)."
+  },
+  "patOf": "{seen} of {cycles}",
+  "@patOf": {
+    "description": "Patterns (R8.5, R10.4).",
+    "placeholders": {
+      "seen": {
+        "type": "int"
+      },
+      "cycles": {
+        "type": "int"
+      }
+    }
+  },
+  "patEachCycle": "Each cycle",
+  "@patEachCycle": {
+    "description": "Patterns (R8.5, R10.4)."
+  },
+  "patCycleFrom": "From {date}",
+  "@patCycleFrom": {
+    "description": "Patterns (R8.5, R10.4).",
+    "placeholders": {
+      "date": {
+        "type": "String"
+      }
+    }
+  },
+  "patDaysLogged": "Days logged: {count}",
+  "@patDaysLogged": {
+    "description": "Patterns (R8.5, R10.4).",
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "patOpkDays": "Ovulation test high or positive: {count}",
+  "@patOpkDays": {
+    "description": "Patterns (R8.5, R10.4).",
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "patTemps": "Temperatures: {count}",
+  "@patTemps": {
+    "description": "Patterns (R8.5, R10.4).",
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "patRecent": "Last 90 days",
+  "@patRecent": {
+    "description": "Patterns (R8.5, R10.4)."
+  },
+  "patEmpty": "Nothing logged yet. Patterns grow from your log.",
+  "@patEmpty": {
+    "description": "Patterns (R8.5, R10.4)."
+  },
+  "patNoVerdict": "These are counts of what you logged. They don't say what causes anything or whether something is wrong. Bring them to your clinician if they help.",
+  "@patNoVerdict": {
+    "description": "Patterns (R8.5, R10.4)."
   }
 }

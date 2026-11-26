@@ -104,6 +104,8 @@ void main() {
 
       // July holds the next period (around 16 July); a tap on that future day explains it.
       await tester.scrollUntilVisible(find.byIcon(Icons.chevron_right_rounded), -300, scrollable: find.byType(Scrollable).first);
+      await tester.ensureVisible(find.byIcon(Icons.chevron_right_rounded));
+      await tester.pumpAndSettle();
       await tester.tap(find.byIcon(Icons.chevron_right_rounded));
       await tester.pumpAndSettle();
       final next = predictNextPeriod(_starts)!;

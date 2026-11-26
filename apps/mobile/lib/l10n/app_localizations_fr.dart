@@ -3765,4 +3765,124 @@ class L10nFr extends L10n {
   @override
   String get reminderMedicineNote =>
       'Aux heures fixées pour chaque médicament, et la veille d\'un renouvellement.';
+
+  @override
+  String get patTitle => 'Tendances';
+
+  @override
+  String get patOpen => 'Voir mes tendances';
+
+  @override
+  String get patIntro =>
+      'Des comptes tirés de ce que vous avez noté. femio montre à quelle fréquence, jamais ce que cela signifie.';
+
+  @override
+  String get patCycleLength => 'Durée du cycle';
+
+  @override
+  String patNeedCycles(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other:
+          'Les durées apparaissent après 2 cycles complets. $count sont complets pour l\'instant.',
+      one: 'Les durées apparaissent après 2 cycles complets. 1 est complet pour l\'instant.',
+      zero: 'Les durées apparaissent après 2 cycles complets. Aucun n\'est encore complet.',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String patRange(int count, int shortest, int longest) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: 'Vos $count derniers cycles : de $shortest à $longest jours',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String patDays(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count jours',
+      one: '1 jour',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get patVaries =>
+      'La durée de vos cycles varie de plus de 9 jours, ou l\'un d\'eux a duré moins de 24 ou plus de 38 jours. Cela peut valoir la peine d\'en parler lors de votre prochaine consultation.';
+
+  @override
+  String get patVariesSource => 'Limites habituelles : FIGO 2018.';
+
+  @override
+  String get patNoticed => 'Ce que vous notez le plus';
+
+  @override
+  String get patNeedLogged =>
+      'Les comptes apparaissent après 3 cycles complets où vous avez noté quelque chose.';
+
+  @override
+  String patSeen(String term, String phase, int seen, int cycles) {
+    return '$term $phase : $seen cycles sur $cycles';
+  }
+
+  @override
+  String get patPhasePeriod => 'pendant les règles';
+
+  @override
+  String get patPhaseBefore => 'dans les 5 jours avant les règles';
+
+  @override
+  String get patByPhase => 'Par phase';
+
+  @override
+  String get patPhasePeriodShort => 'Pendant les règles';
+
+  @override
+  String get patPhaseBeforeShort => '5 jours avant';
+
+  @override
+  String patOf(int seen, int cycles) {
+    return '$seen sur $cycles';
+  }
+
+  @override
+  String get patEachCycle => 'Chaque cycle';
+
+  @override
+  String patCycleFrom(String date) {
+    return 'Depuis le $date';
+  }
+
+  @override
+  String patDaysLogged(int count) {
+    return 'Jours notés : $count';
+  }
+
+  @override
+  String patOpkDays(int count) {
+    return 'Test d\'ovulation élevé ou positif : $count';
+  }
+
+  @override
+  String patTemps(int count) {
+    return 'Températures : $count';
+  }
+
+  @override
+  String get patRecent => '90 derniers jours';
+
+  @override
+  String get patEmpty =>
+      'Rien de noté pour l\'instant. Les tendances viennent de votre journal.';
+
+  @override
+  String get patNoVerdict =>
+      'Ce sont des comptes de ce que vous avez noté. Ils ne disent ni la cause ni si quelque chose ne va pas. Montrez-les à votre soignant si cela aide.';
 }

@@ -6064,6 +6064,162 @@ abstract class L10n {
   /// In en, this message translates to:
   /// **'At the times you set on each medicine, and the day before a refill.'**
   String get reminderMedicineNote;
+
+  /// Patterns (R8.5, R10.4).
+  ///
+  /// In en, this message translates to:
+  /// **'Patterns'**
+  String get patTitle;
+
+  /// Patterns (R8.5, R10.4).
+  ///
+  /// In en, this message translates to:
+  /// **'See my patterns'**
+  String get patOpen;
+
+  /// Patterns (R8.5, R10.4).
+  ///
+  /// In en, this message translates to:
+  /// **'Counts from what you logged. femio shows how often, never what it means.'**
+  String get patIntro;
+
+  /// Patterns (R8.5, R10.4).
+  ///
+  /// In en, this message translates to:
+  /// **'Cycle length'**
+  String get patCycleLength;
+
+  /// Patterns (R8.5, R10.4).
+  ///
+  /// In en, this message translates to:
+  /// **'{count, plural, =0{Cycle lengths appear after 2 full cycles. None is complete yet.} =1{Cycle lengths appear after 2 full cycles. 1 is complete so far.} other{Cycle lengths appear after 2 full cycles. {count} are complete so far.}}'**
+  String patNeedCycles(int count);
+
+  /// Patterns (R8.5, R10.4).
+  ///
+  /// In en, this message translates to:
+  /// **'{count, plural, other{Your last {count} cycles: {shortest} to {longest} days}}'**
+  String patRange(int count, int shortest, int longest);
+
+  /// Patterns (R8.5, R10.4).
+  ///
+  /// In en, this message translates to:
+  /// **'{count, plural, =1{1 day} other{{count} days}}'**
+  String patDays(int count);
+
+  /// Patterns (R8.5, R10.4).
+  ///
+  /// In en, this message translates to:
+  /// **'Your cycle lengths vary by more than 9 days, or one was shorter than 24 or longer than 38 days. That can be worth mentioning at your next visit.'**
+  String get patVaries;
+
+  /// Patterns (R8.5, R10.4).
+  ///
+  /// In en, this message translates to:
+  /// **'Usual limits: FIGO 2018.'**
+  String get patVariesSource;
+
+  /// Patterns (R8.5, R10.4).
+  ///
+  /// In en, this message translates to:
+  /// **'What you logged most'**
+  String get patNoticed;
+
+  /// Patterns (R8.5, R10.4).
+  ///
+  /// In en, this message translates to:
+  /// **'Counts appear after 3 full cycles with something logged in them.'**
+  String get patNeedLogged;
+
+  /// Patterns (R8.5, R10.4).
+  ///
+  /// In en, this message translates to:
+  /// **'{term} {phase}: {seen} of {cycles} cycles'**
+  String patSeen(String term, String phase, int seen, int cycles);
+
+  /// Patterns (R8.5, R10.4).
+  ///
+  /// In en, this message translates to:
+  /// **'during your period'**
+  String get patPhasePeriod;
+
+  /// Patterns (R8.5, R10.4).
+  ///
+  /// In en, this message translates to:
+  /// **'in the 5 days before your period'**
+  String get patPhaseBefore;
+
+  /// Patterns (R8.5, R10.4).
+  ///
+  /// In en, this message translates to:
+  /// **'By phase'**
+  String get patByPhase;
+
+  /// Patterns (R8.5, R10.4).
+  ///
+  /// In en, this message translates to:
+  /// **'During period'**
+  String get patPhasePeriodShort;
+
+  /// Patterns (R8.5, R10.4).
+  ///
+  /// In en, this message translates to:
+  /// **'5 days before'**
+  String get patPhaseBeforeShort;
+
+  /// Patterns (R8.5, R10.4).
+  ///
+  /// In en, this message translates to:
+  /// **'{seen} of {cycles}'**
+  String patOf(int seen, int cycles);
+
+  /// Patterns (R8.5, R10.4).
+  ///
+  /// In en, this message translates to:
+  /// **'Each cycle'**
+  String get patEachCycle;
+
+  /// Patterns (R8.5, R10.4).
+  ///
+  /// In en, this message translates to:
+  /// **'From {date}'**
+  String patCycleFrom(String date);
+
+  /// Patterns (R8.5, R10.4).
+  ///
+  /// In en, this message translates to:
+  /// **'Days logged: {count}'**
+  String patDaysLogged(int count);
+
+  /// Patterns (R8.5, R10.4).
+  ///
+  /// In en, this message translates to:
+  /// **'Ovulation test high or positive: {count}'**
+  String patOpkDays(int count);
+
+  /// Patterns (R8.5, R10.4).
+  ///
+  /// In en, this message translates to:
+  /// **'Temperatures: {count}'**
+  String patTemps(int count);
+
+  /// Patterns (R8.5, R10.4).
+  ///
+  /// In en, this message translates to:
+  /// **'Last 90 days'**
+  String get patRecent;
+
+  /// Patterns (R8.5, R10.4).
+  ///
+  /// In en, this message translates to:
+  /// **'Nothing logged yet. Patterns grow from your log.'**
+  String get patEmpty;
+
+  /// Patterns (R8.5, R10.4).
+  ///
+  /// In en, this message translates to:
+  /// **'These are counts of what you logged. They don\'t say what causes anything or whether something is wrong. Bring them to your clinician if they help.'**
+  String get patNoVerdict;
 }
 
 class _L10nDelegate extends LocalizationsDelegate<L10n> {

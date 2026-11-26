@@ -3749,4 +3749,124 @@ class L10nEs extends L10n {
   @override
   String get reminderMedicineNote =>
       'A las horas que fijaste para cada medicamento, y el día antes de reponerlo.';
+
+  @override
+  String get patTitle => 'Patrones';
+
+  @override
+  String get patOpen => 'Ver mis patrones';
+
+  @override
+  String get patIntro =>
+      'Recuentos de lo que registraste. femio muestra con qué frecuencia, nunca qué significa.';
+
+  @override
+  String get patCycleLength => 'Duración del ciclo';
+
+  @override
+  String patNeedCycles(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other:
+          'Las duraciones aparecen tras 2 ciclos completos. Por ahora hay $count completos.',
+      one: 'Las duraciones aparecen tras 2 ciclos completos. Por ahora hay 1 completo.',
+      zero: 'Las duraciones aparecen tras 2 ciclos completos. Aún no hay ninguno completo.',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String patRange(int count, int shortest, int longest) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: 'Tus últimos $count ciclos: de $shortest a $longest días',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String patDays(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count días',
+      one: '1 día',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get patVaries =>
+      'La duración de tus ciclos varía más de 9 días, o uno duró menos de 24 o más de 38 días. Puede valer la pena mencionarlo en tu próxima consulta.';
+
+  @override
+  String get patVariesSource => 'Límites habituales: FIGO 2018.';
+
+  @override
+  String get patNoticed => 'Lo que más registras';
+
+  @override
+  String get patNeedLogged =>
+      'Los recuentos aparecen tras 3 ciclos completos en los que registraste algo.';
+
+  @override
+  String patSeen(String term, String phase, int seen, int cycles) {
+    return '$term $phase: $seen de $cycles ciclos';
+  }
+
+  @override
+  String get patPhasePeriod => 'durante la regla';
+
+  @override
+  String get patPhaseBefore => 'en los 5 días antes de la regla';
+
+  @override
+  String get patByPhase => 'Por fase';
+
+  @override
+  String get patPhasePeriodShort => 'Durante la regla';
+
+  @override
+  String get patPhaseBeforeShort => '5 días antes';
+
+  @override
+  String patOf(int seen, int cycles) {
+    return '$seen de $cycles';
+  }
+
+  @override
+  String get patEachCycle => 'Cada ciclo';
+
+  @override
+  String patCycleFrom(String date) {
+    return 'Desde el $date';
+  }
+
+  @override
+  String patDaysLogged(int count) {
+    return 'Días registrados: $count';
+  }
+
+  @override
+  String patOpkDays(int count) {
+    return 'Prueba de ovulación alta o positiva: $count';
+  }
+
+  @override
+  String patTemps(int count) {
+    return 'Temperaturas: $count';
+  }
+
+  @override
+  String get patRecent => 'Últimos 90 días';
+
+  @override
+  String get patEmpty =>
+      'Aún no has registrado nada. Los patrones salen de tu registro.';
+
+  @override
+  String get patNoVerdict =>
+      'Son recuentos de lo que registraste. No dicen la causa ni si algo va mal. Llévalos a tu profesional de salud si te sirven.';
 }
