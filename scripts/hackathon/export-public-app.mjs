@@ -1,88 +1,209 @@
 #!/usr/bin/env node
 /**
- * Exports the public, app-only copy of femio for #BuildHybridAI (ADR-078 §7).
+ * Exports the public, app-only copy of femio for #BuildHybridAI (ADR-078 §7, R14.3).
  *
  * Why it exists: the hackathon needs a public repository under an open-source licence, but the
- * monorepo (website, growth plans, legal drafts, owner runbooks) stays private. This copies only
+ * monorepo (website, growth plans, legal drafts, owner runbooks) stays private. This writes only
  * what builds and tests the Android app, keeping the monorepo's relative paths so the golden
- * fixtures test still finds `fixtures/domain/`, and refuses to copy any secret.
+ * fixtures test still finds `fixtures/domain/`.
+ *
+ * Safety (SEC-6): every file comes from `git archive HEAD`, so only committed files can be
+ * exported; untracked or ignored files (`assistant.env`, `key.properties`, crash logs, local
+ * build files) cannot reach the copy whatever the working tree holds. A second lock,
+ * `public-export-secrets.mjs`, then scans the result for secret-shaped names and key-shaped
+ * strings and deletes nothing: it fails the export, naming file and rule but never the value.
+ *
+ * What it writes into the empty target folder:
+ *   - apps/mobile/ and fixtures/domain/ as committed at HEAD;
+ *   - scripts/analytics-lint.mjs (the privacy tripwire, byte for byte from HEAD), its wrapper
+ *     and the secret scan, plus a GitHub Actions workflow running them with flutter analyze/test;
+ *   - README.md, LICENSE (Apache-2.0, GitHub's copy) and apps/mobile/dart_test.yaml from
+ *     scripts/hackathon/public-template/ at HEAD;
+ *   - HISTORY.md, generated from `git log` (JUDGE-14);
+ *   - the tag `screenshots` on each test file that compares a screenshot golden, because the
+ *     goldens stay in the monorepo (JUDGE-6). Nothing else in the app is changed.
  *
  * Usage: node scripts/hackathon/export-public-app.mjs <empty target folder>
- * The licence file itself is added by GitHub when the repository is created with
- * `gh repo create --license apache-2.0`, so the full Apache-2.0 text is GitHub's own copy.
+ * Owner steps to publish: docs/hackathon/RELEASE_STEPS.md.
  */
-import { cpSync, existsSync, mkdirSync, readdirSync, statSync, writeFileSync } from "node:fs";
-import { basename, join, relative } from "node:path";
+import { execFileSync } from "node:child_process";
+import { chmodSync, existsSync, mkdirSync, readdirSync, readFileSync, writeFileSync } from "node:fs";
+import { dirname, join, resolve, sep } from "node:path";
+import { describeFindings, scanForSecrets } from "./public-export-secrets.mjs";
 
-const target = process.argv[2];
-if (!target) {
-  console.error("usage: export-public-app.mjs <empty target folder>");
-  process.exit(2);
+/** Where each archived path lands in the export. Order matters: the first matching prefix wins. */
+const PATH_MAP = [
+  ["scripts/hackathon/public-template/", ""],
+  ["scripts/hackathon/public-export-secrets.mjs", "scripts/secret-scan.mjs"],
+  ["scripts/analytics-lint.mjs", "scripts/analytics-lint.mjs"],
+  ["apps/mobile/", "apps/mobile/"],
+  ["fixtures/domain/", "fixtures/domain/"],
+];
+const ARCHIVE_PATHS = [
+  "apps/mobile",
+  "fixtures/domain",
+  "scripts/analytics-lint.mjs",
+  "scripts/hackathon/public-export-secrets.mjs",
+  "scripts/hackathon/public-template",
+];
+
+/** The hackathon submission period opened on this date (rules §4); HISTORY.md starts here. */
+const PERIOD_START = "2026-11-11";
+
+/** Tag added to screenshot test files; `apps/mobile/dart_test.yaml` marks it as skipped. */
+const SCREENSHOT_TAG = "@Tags(['screenshots'])";
+
+const git = (...args) => execFileSync("git", args, { maxBuffer: 256 * 1024 * 1024 });
+
+/**
+ * Reads a POSIX tar stream (as written by `git archive`) and returns its regular files.
+ * Handles pax headers for long paths; refuses links, so nothing can point outside the target.
+ *
+ * @param {Buffer} tar the archive bytes
+ * @returns {{path: string, mode: number, data: Buffer}[]}
+ */
+function readTar(tar) {
+  const files = [];
+  let pending = {};
+  for (let at = 0; at + 512 <= tar.length; ) {
+    const head = tar.subarray(at, at + 512);
+    if (head.every((b) => b === 0)) break;
+    const field = (from, len) => head.subarray(from, from + len).toString("utf8").replace(/\0.*$/s, "");
+    const size = parseInt(field(124, 12).trim() || "0", 8);
+    const type = String.fromCharCode(head[156] || 48);
+    const prefix = field(345, 155);
+    let path = pending.path ?? (prefix ? `${prefix}/${field(0, 100)}` : field(0, 100));
+    const mode = parseInt(field(100, 8).trim() || "644", 8);
+    const body = tar.subarray(at + 512, at + 512 + size);
+    at += 512 + Math.ceil(size / 512) * 512;
+    if (type === "x") {
+      const m = body.toString("utf8").match(/^\d+ path=(.*)$/m);
+      pending = m ? { path: m[1] } : {};
+      continue;
+    }
+    pending = {};
+    if (type === "g" || type === "5") continue; // global header (commit id), directory
+    if (type !== "0") throw new Error(`refusing: ${path} is not a regular file (tar type ${type})`);
+    path = path.replace(/\\/g, "/");
+    if (path.startsWith("/") || path.split("/").includes("..")) throw new Error(`refusing: unsafe path ${path}`);
+    files.push({ path, mode, data: Buffer.from(body) });
+  }
+  return files;
 }
-if (existsSync(target) && readdirSync(target).length > 0) {
-  console.error(`refusing: ${target} is not empty`);
-  process.exit(2);
+
+/** Maps an archived path to its place in the export, or null when it is not exported. */
+function exportPath(path) {
+  for (const [from, to] of PATH_MAP) {
+    if (path === from || (from.endsWith("/") && path.startsWith(from))) return to + path.slice(from.length);
+  }
+  return null;
 }
 
-/** Folders and files that never leave the private repo: build output, local config, secrets. */
-const SKIP_DIRS = new Set(["build", ".dart_tool", ".gradle", ".idea", ".kotlin", "Pods", ".symlinks", "ephemeral"]);
-const SKIP_FILES = [/^ads\.env$/, /^assistant\.env$/, /^key\.properties$/, /^local\.properties$/, /\.jks$/, /\.keystore$/, /^\.env/, /google-services\.json$/];
+/**
+ * Adds the `screenshots` tag to a test file that compares a golden, so `dart_test.yaml` can
+ * skip it. Returns the file unchanged when it compares none.
+ */
+function tagScreenshotTest(path, text) {
+  if (!path.startsWith("apps/mobile/test/") || !text.includes("matchesGoldenFile(")) return text;
+  if (/^library\b/m.test(text) || text.includes(SCREENSHOT_TAG)) {
+    throw new Error(`cannot tag ${path}: it already has a library directive; tag it by hand`);
+  }
+  const firstImport = text.search(/^import /m);
+  if (firstImport < 0) throw new Error(`cannot tag ${path}: no import line`);
+  return `${text.slice(0, firstImport)}${SCREENSHOT_TAG}\nlibrary;\n\n${text.slice(firstImport)}`;
+}
 
-const copied = [];
-function copyTree(from, to) {
-  mkdirSync(to, { recursive: true });
-  for (const entry of readdirSync(from)) {
-    const src = join(from, entry);
-    const dst = join(to, entry);
-    if (statSync(src).isDirectory()) {
-      if (!SKIP_DIRS.has(entry)) copyTree(src, dst);
-    } else if (!SKIP_FILES.some((re) => re.test(entry)) || entry.endsWith(".example")) {
-      cpSync(src, dst);
-      copied.push(relative(target, dst));
+/** HISTORY.md: the app commits of the submission period, read from git, so it cannot drift. */
+function historyFile(commit) {
+  const log = git("log", `--since=${PERIOD_START}`, "--date=short", "--format=%h%x09%ad%x09%s", "--no-merges", "HEAD", "--", "apps/mobile")
+    .toString("utf8")
+    .trim()
+    .split("\n")
+    .filter(Boolean)
+    .map((line) => line.split("\t"));
+  const first = git("log", "--reverse", "--date=short", "--format=%h%x09%ad", "HEAD", "--", "apps/mobile")
+    .toString("utf8")
+    .split("\n")[0]
+    .split("\t");
+  const rows = log.map(([hash, date, subject]) => `| ${date} | \`${hash}\` | ${subject.replace(/\|/g, "\\|")} |`);
+  return `# History of this export
+
+This repository is a one-commit export of femio's private monorepo, made from commit
+\`${commit.slice(0, 7)}\` by \`scripts/hackathon/export-public-app.mjs\`. The table below is generated
+from that monorepo's \`git log\`: every non-merge commit that changed \`apps/mobile\` since the
+#BuildHybridAI submission period opened on ${PERIOD_START}, newest first (${rows.length} commits).
+The app's first commit was \`${first[0]}\` on ${first[1]}; the full history is available on request.
+
+| Date | Commit | Change |
+|---|---|---|
+${rows.join("\n")}
+`;
+}
+
+function main() {
+  const target = process.argv[2];
+  if (!target) {
+    console.error("usage: export-public-app.mjs <empty target folder>");
+    process.exit(2);
+  }
+  const root = git("rev-parse", "--show-toplevel").toString("utf8").trim();
+  const out = resolve(target);
+  if (out === resolve(root) || out.startsWith(resolve(root) + sep)) {
+    console.error("refusing: the target must be outside the monorepo");
+    process.exit(2);
+  }
+  if (existsSync(out) && readdirSync(out).length > 0) {
+    console.error(`refusing: ${out} is not empty`);
+    process.exit(2);
+  }
+  process.chdir(root);
+  const commit = git("rev-parse", "HEAD").toString("utf8").trim();
+  const dirty = git("status", "--porcelain", "--", ...ARCHIVE_PATHS).toString("utf8").trim();
+  if (dirty) console.warn("note: uncommitted changes in exported paths are NOT exported (HEAD only)");
+
+  const files = readTar(git("archive", "--format=tar", "HEAD", "--", ...ARCHIVE_PATHS));
+  let tagged = 0;
+  let written = 0;
+  for (const file of files) {
+    const dest = exportPath(file.path);
+    if (dest === null) continue;
+    let data = file.data;
+    if (dest.endsWith(".dart")) {
+      const text = data.toString("utf8");
+      const next = tagScreenshotTest(dest, text);
+      if (next !== text) {
+        tagged++;
+        data = Buffer.from(next, "utf8");
+      }
+    }
+    const full = join(out, dest);
+    mkdirSync(dirname(full), { recursive: true });
+    writeFileSync(full, data);
+    if (file.mode & 0o111) chmodSync(full, 0o755);
+    written++;
+  }
+  writeFileSync(join(out, "HISTORY.md"), historyFile(commit));
+  written++;
+
+  for (const must of ["README.md", "LICENSE", "apps/mobile/pubspec.yaml", "scripts/analytics-lint.mjs", ".github/workflows/ci.yml"]) {
+    if (!existsSync(join(out, must))) {
+      console.error(`refusing: ${must} is missing from the export (is it committed?)`);
+      process.exit(1);
     }
   }
+  const tripwire = readFileSync(join(out, "scripts/analytics-lint.mjs"));
+  if (!tripwire.equals(git("show", "HEAD:scripts/analytics-lint.mjs"))) {
+    console.error("refusing: the exported tripwire differs from HEAD");
+    process.exit(1);
+  }
+
+  const findings = scanForSecrets(out);
+  if (findings.length > 0) {
+    console.error(`refusing: secret scan found ${findings.length} problem(s); the export folder must not be published.\n${describeFindings(findings)}`);
+    process.exit(1);
+  }
+  console.log(`exported ${written} files from ${commit.slice(0, 7)} to ${out}`);
+  console.log(`tagged ${tagged} screenshot test file(s) as skipped; secret scan clean`);
 }
 
-copyTree("apps/mobile", join(target, "apps/mobile"));
-copyTree("fixtures/domain", join(target, "fixtures/domain"));
-
-const leaked = copied.filter((f) => SKIP_FILES.some((re) => re.test(basename(f))) && !f.endsWith(".example"));
-if (leaked.length > 0) {
-  console.error(`refusing: secret-shaped files copied: ${leaked.join(", ")}`);
-  process.exit(1);
-}
-
-writeFileSync(
-  join(target, "README.md"),
-  `# femio: AI-assisted women's health and wellness (Android)
-
-femio is a private period, fertility, pregnancy and menopause companion. Her record lives only on
-her phone: no account, no server, no analytics. This repository is the Android app, entered in
-Google's #BuildHybridAI hackathon. Licence: Apache-2.0.
-
-## Hybrid AI, drawn on one line
-
-| Runs on the phone (Gemini Nano, \`ONLY_ON_DEVICE\`) | May use the cloud (\`ONLY_IN_CLOUD\`, Google Search grounding) |
-|---|---|
-| "Say it in your words": a sentence becomes log entries | "Ask femio": a general health question she approves |
-| Visit summary: orders the doctor questions from her log | Answers shown only when a source is on a trusted list (WHO, NHS, CDC, ACOG...) |
-| Rewrites a personal question as a general one | Every source and Google's search suggestions shown |
-
-- Safety rules run before any model, in four languages: danger signs open help, and femio never
-  advises on birth control (\`lib/domain/assistant/safety.dart\`).
-- The only door to the cloud is the \`CloudSafeText\` type, made only by
-  \`lib/domain/assistant/redaction.dart\`.
-- Firebase lives in Kotlin only (\`android/app/src/main/kotlin/com/femioapp/femio/assistant/\`),
-  with App Check (debug provider in debug builds, Play Integrity in release).
-- Without Gemini Nano or without Firebase config, every feature still works on rules.
-
-## Build
-
-1. Flutter 3.47 or later, Android SDK, JDK 17.
-2. Copy \`apps/mobile/assistant.env.example\` to \`apps/mobile/assistant.env\` and fill in your
-   Firebase project's Android app ids (Firebase AI Logic enabled, Gemini Developer API).
-3. \`cd apps/mobile && flutter test && flutter run\`. In debug builds, register the App Check
-   debug token printed in logcat in the Firebase console.
-`,
-);
-console.log(`exported ${copied.length} files to ${target}`);
+main();
