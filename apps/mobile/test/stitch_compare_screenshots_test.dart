@@ -156,7 +156,8 @@ Profile _pregnant(String lang) =>
     Profile(goal: Goal.pregnant, locale: lang, birthYear: 1993, edd: '2027-03-10', settings: _settings(lang));
 
 Future<void> _openTab(WidgetTester tester, int index) async {
-  tester.widget<NavigationBar>(find.byType(NavigationBar)).onDestinationSelected!(index);
+  // The "+" takes bar slot 2 (R8.29); tabs from Log on move one along.
+  tester.widget<NavigationBar>(find.byType(NavigationBar)).onDestinationSelected!(index < 2 ? index : index + 1);
   await tester.pumpAndSettle();
 }
 

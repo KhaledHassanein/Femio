@@ -1596,5 +1596,29 @@
         "type": "String"
       }
     }
+  },
+  "navAdd": "Add",
+  "@navAdd": {
+    "description": "Short label under the + button in the middle of the bottom navigation bar."
+  },
+  "addSheetTitle": "Add to today",
+  "@addSheetTitle": {
+    "description": "Title of the sheet the + button opens: log anything or ask femio."
+  },
+  "addSayItPrompt": "Tell femio anything, like “cramps since this morning”",
+  "@addSayItPrompt": {
+    "description": "Tappable prompt that opens Say it (free-text logging) from the + sheet."
+  },
+  "addMoreToLog": "Symptoms, discharge, tests and more",
+  "@addMoreToLog": {
+    "description": "Row in the + sheet that opens the full Log for today."
+  },
+  "addAsk": "Ask femio",
+  "@addAsk": {
+    "description": "Short button in the + sheet that opens Ask femio (questions answered from trusted sources)."
+  },
+  "addVisit": "For my visit",
+  "@addVisit": {
+    "description": "Short button in the + sheet that opens the questions-for-a-visit summary."
   }
 }

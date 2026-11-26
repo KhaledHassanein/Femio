@@ -1,8 +1,8 @@
-// The assistant's front door: a floating "Ask femio" pill on every main tab (R8.3).
+// The assistant's doors: ask a question, say how today went, questions for a visit (R8.3).
 //
 // Why it exists: the assistant was two buttons deep on Today, so most people would never
-// meet it. The pill opens three doors (ask a question, say how today went, questions for a
-// visit). The first tap shows one sheet saying what runs on the phone and offering Cloud boost
+// meet it. Since R8.29 the doors open from the "+" in the navigation bar (`add_sheet.dart`);
+// the floating pill stays available for screens that want it. The first tap shows one sheet saying what runs on the phone and offering Cloud boost
 // as a choice, through its own consent screen with nothing ticked (ADR-079, ADR-080). Every
 // door also works with the AI unavailable: the rules and guides answer (product rule 7).
 
@@ -44,6 +44,31 @@ Future<void> openAssistant(
   required String today,
   Library? library,
 }) async {
+  if (!await _introDone(context, controller) || !context.mounted) return;
+  final door = await showModalBottomSheet<AssistantDoor>(
+    context: context,
+    showDragHandle: true,
+    builder: (_) => const AssistantDoorsSheet(),
+  );
+  if (door == null || !context.mounted) return;
+  await _open(context, door, controller: controller, today: today, library: library);
+}
+
+/// Opens one door directly (from the "+" sheet), after the first-use sheet if she has not
+/// seen it. Returns when the door's screen or sheet closes.
+Future<void> openAssistantDoor(
+  BuildContext context,
+  AssistantDoor door, {
+  required FemioController controller,
+  required String today,
+  Library? library,
+}) async {
+  if (!await _introDone(context, controller) || !context.mounted) return;
+  await _open(context, door, controller: controller, today: today, library: library);
+}
+
+/// True when she may go on: the intro was seen before, or she chose to continue now.
+Future<bool> _introDone(BuildContext context, FemioController controller) async {
   final settings = controller.profile?.settings;
   if (settings != null && !settings.assistantIntroSeen) {
     final go = await showModalBottomSheet<bool>(
@@ -55,31 +80,35 @@ Future<void> openAssistant(
     // Seen means shown: closing it by swiping counts too, so it never nags.
     final now = controller.profile?.settings;
     if (now != null) await controller.setSettings(now.copyWith(assistantIntroSeen: true));
-    if (go != true || !context.mounted) return;
+    return go == true;
   }
-  if (!context.mounted) return;
-  final door = await showModalBottomSheet<_Door>(
-    context: context,
-    showDragHandle: true,
-    builder: (_) => const AssistantDoorsSheet(),
-  );
-  if (door == null || !context.mounted) return;
+  return true;
+}
+
+Future<void> _open(
+  BuildContext context,
+  AssistantDoor door, {
+  required FemioController controller,
+  required String today,
+  Library? library,
+}) async {
   final nav = Navigator.of(context);
   switch (door) {
-    case _Door.ask:
+    case AssistantDoor.ask:
       await nav.push(MaterialPageRoute<void>(
         builder: (_) => AskScreen(controller: controller, library: library, today: today),
       ));
-    case _Door.sayIt:
+    case AssistantDoor.sayIt:
       await showSayItSheet(context, controller: controller, date: today);
-    case _Door.visit:
+    case AssistantDoor.visit:
       await nav.push(MaterialPageRoute<void>(
         builder: (_) => VisitSummaryScreen(controller: controller, today: today),
       ));
   }
 }
 
-enum _Door { ask, sayIt, visit }
+/// The three ways into the assistant.
+enum AssistantDoor { ask, sayIt, visit }
 
 /// The first-use sheet: what runs on the phone, what never happens, and Cloud boost as an
 /// option she has to choose. Pops `true` to continue to the doors. Public for screenshots.
@@ -157,7 +186,7 @@ class AssistantDoorsSheet extends StatelessWidget {
   Widget build(BuildContext context) {
     final l = L10n.of(context);
     final p = context.palette;
-    Widget door(_Door d, IconData icon, String title, String sub) => ListTile(
+    Widget door(AssistantDoor d, IconData icon, String title, String sub) => ListTile(
           leading: Icon(icon, color: p.primary),
           title: Text(title),
           subtitle: Text(sub),
@@ -167,9 +196,9 @@ class AssistantDoorsSheet extends StatelessWidget {
       child: Padding(
         padding: const EdgeInsets.only(bottom: space3),
         child: Column(mainAxisSize: MainAxisSize.min, children: [
-          door(_Door.ask, Icons.travel_explore_rounded, l.assistDoorAsk, l.assistDoorAskSub),
-          door(_Door.sayIt, Icons.edit_note_rounded, l.assistDoorSayIt, l.assistDoorSayItSub),
-          door(_Door.visit, Icons.event_note_outlined, l.visitQuestionsTitle, l.assistDoorVisitSub),
+          door(AssistantDoor.ask, Icons.travel_explore_rounded, l.assistDoorAsk, l.assistDoorAskSub),
+          door(AssistantDoor.sayIt, Icons.edit_note_rounded, l.assistDoorSayIt, l.assistDoorSayItSub),
+          door(AssistantDoor.visit, Icons.event_note_outlined, l.visitQuestionsTitle, l.assistDoorVisitSub),
         ]),
       ),
     );

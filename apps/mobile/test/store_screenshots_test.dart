@@ -312,7 +312,8 @@ Future<void> _scrollTo(WidgetTester tester, Finder target, {required double nudg
 /// Opens tab [index] of the bottom bar. The bar sits below the crop, so it is driven
 /// through its own callback rather than by a tap that would land outside the frame.
 Future<void> _openTab(WidgetTester tester, int index) async {
-  tester.widget<NavigationBar>(find.byType(NavigationBar)).onDestinationSelected!(index);
+  // The "+" takes bar slot 2 (R8.29); tabs from Log on move one along.
+  tester.widget<NavigationBar>(find.byType(NavigationBar)).onDestinationSelected!(index < 2 ? index : index + 1);
   await tester.pumpAndSettle();
 }
 

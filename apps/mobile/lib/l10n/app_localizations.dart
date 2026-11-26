@@ -5236,6 +5236,42 @@ abstract class L10n {
   /// In en, this message translates to:
   /// **'{section}: {value}'**
   String sayItChipWithSection(String section, String value);
+
+  /// Short label under the + button in the middle of the bottom navigation bar.
+  ///
+  /// In en, this message translates to:
+  /// **'Add'**
+  String get navAdd;
+
+  /// Title of the sheet the + button opens: log anything or ask femio.
+  ///
+  /// In en, this message translates to:
+  /// **'Add to today'**
+  String get addSheetTitle;
+
+  /// Tappable prompt that opens Say it (free-text logging) from the + sheet.
+  ///
+  /// In en, this message translates to:
+  /// **'Tell femio anything, like “cramps since this morning”'**
+  String get addSayItPrompt;
+
+  /// Row in the + sheet that opens the full Log for today.
+  ///
+  /// In en, this message translates to:
+  /// **'Symptoms, discharge, tests and more'**
+  String get addMoreToLog;
+
+  /// Short button in the + sheet that opens Ask femio (questions answered from trusted sources).
+  ///
+  /// In en, this message translates to:
+  /// **'Ask femio'**
+  String get addAsk;
+
+  /// Short button in the + sheet that opens the questions-for-a-visit summary.
+  ///
+  /// In en, this message translates to:
+  /// **'For my visit'**
+  String get addVisit;
 }
 
 class _L10nDelegate extends LocalizationsDelegate<L10n> {

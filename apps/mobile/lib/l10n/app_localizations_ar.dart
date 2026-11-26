@@ -3282,4 +3282,22 @@ class L10nAr extends L10n {
   String sayItChipWithSection(String section, String value) {
     return '$section: $value';
   }
+
+  @override
+  String get navAdd => 'إضافة';
+
+  @override
+  String get addSheetTitle => 'أضيفي ليومكِ';
+
+  @override
+  String get addSayItPrompt => 'اكتبي لـ femio أي شيء، مثل «مغص من الصبح»';
+
+  @override
+  String get addMoreToLog => 'الأعراض والإفرازات والاختبارات والمزيد';
+
+  @override
+  String get addAsk => 'اسألي femio';
+
+  @override
+  String get addVisit => 'لزيارة الطبيب';
 }

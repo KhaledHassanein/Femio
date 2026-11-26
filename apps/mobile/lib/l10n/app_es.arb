@@ -896,5 +896,11 @@
   "signsTempCount": "{count, plural, =1{1 medición este ciclo} other{{count} mediciones este ciclo}}",
   "signsStripLine": "Una tira de ovulación muestra una subida hormonal, no una prueba de que ovulaste. Una subida de tu temperatura al despertar después es una mejor señal.",
   "signsNote": "Cada señal aparece tal como la anotaste. femio no dice si ovulaste ni cuándo; eso se habla contigo y tu profesional.",
-  "sayItChipWithSection": "{section}: {value}"
+  "sayItChipWithSection": "{section}: {value}",
+  "navAdd": "Añadir",
+  "addSheetTitle": "Añadir a hoy",
+  "addSayItPrompt": "Cuéntale lo que sea a femio, como «cólicos desde esta mañana»",
+  "addMoreToLog": "Síntomas, flujo, pruebas y más",
+  "addAsk": "Preguntar a femio",
+  "addVisit": "Para mi consulta"
 }

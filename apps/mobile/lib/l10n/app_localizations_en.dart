@@ -3242,4 +3242,23 @@ class L10nEn extends L10n {
   String sayItChipWithSection(String section, String value) {
     return '$section: $value';
   }
+
+  @override
+  String get navAdd => 'Add';
+
+  @override
+  String get addSheetTitle => 'Add to today';
+
+  @override
+  String get addSayItPrompt =>
+      'Tell femio anything, like “cramps since this morning”';
+
+  @override
+  String get addMoreToLog => 'Symptoms, discharge, tests and more';
+
+  @override
+  String get addAsk => 'Ask femio';
+
+  @override
+  String get addVisit => 'For my visit';
 }

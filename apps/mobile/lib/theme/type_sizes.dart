@@ -33,3 +33,6 @@ const double calendarRowHeightWithHijri = 52;
 
 /// Diameter of the numbered source badge beside an Ask femio answer.
 const double sourceBadgeDiameter = 28;
+
+/// The "+" circle in the navigation bar (R8.29): larger than a tab icon, inside the bar's height.
+const double addButtonSize = 44;

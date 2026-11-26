@@ -3,6 +3,9 @@ All notable changes to Femio V2.
 
 ## [Unreleased]
 ### Changed
+- **A "+" in the middle of the bottom bar.** One tap opens a sheet to log your flow or mood right there, tell femio anything in your own words, ask femio a question or prepare questions for a visit; everything else is one more tap into the full log. It replaces the floating Ask femio button.
+- **Today shows the fertile window that is coming**, not one that has already ended.
+- **The calendar shows your whole cycle.** Your period now fills the days you said it lasts, this cycle's fertile window and likely ovulation day stay on the calendar after they pass, and each predicted period has its fertile window before it. If you told femio a regular cycle length, you see the next three periods (dashed, as estimates) instead of one.
 - The welcome screen and the four Play listings now open with "AI-assisted women's health & wellness", the same words as the website. Ask femio's intro and the visit summary say what they are without clinical wording (R7.7).
 - **Clearer, safer wording across the guides and the app, in four languages.** The 37 week-by-week pregnancy guides now list thoughts of harming yourself or the baby as an emergency sign and say to call straight away (not the same day) if the baby's movements slow down, stop or change. After birth, soaking a pad in an hour or an egg-sized clot is marked as emergency care. Unsourced numbers are hedged rather than stated, and the wordmark is written "femio" everywhere.
 - **"Meet femio" describes the app as it is**: a private Android app with no account, records kept on your phone, a PIN lock and your own backup file. The old page still described a web app with accounts and sync.

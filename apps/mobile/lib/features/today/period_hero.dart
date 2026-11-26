@@ -72,7 +72,7 @@ class PeriodHero extends StatelessWidget {
     }
     // The window and the seek-help clock are domain rules with fixtures (MR-06..08,
     // MR-13/14); this screen only draws what they return.
-    final fertile = fertileWindowFor(profile, prediction);
+    final fertile = currentOrNextFertileWindow(profile, prediction, today);
     final age = profile.birthYear == null ? null : fromISO(today).year - profile.birthYear!;
     final guidance = ttcGuidance(tryingFor: profile.tryingFor, age: age, irregular: profile.irregular || prediction.irregular);
     return Column(children: [

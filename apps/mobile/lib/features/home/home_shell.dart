@@ -9,16 +9,18 @@ import '../../app.dart';
 import '../../domain/dates.dart';
 import '../../domain/store_prompts.dart';
 import '../../l10n/app_localizations.dart';
+import '../../theme/femio_theme.dart';
+import '../../theme/type_sizes.dart';
 import '../../data/library.dart';
 import '../calendar/calendar_screen.dart';
 import '../learn/learn_screen.dart';
 import '../log/log_screen.dart';
 import '../today/today_screen.dart';
-import '../assistant/assistant_pill.dart';
+import 'add_sheet.dart';
 import 'update_card.dart';
 
-/// The app once she is set up: Today, Calendar, Log and Learn (spec §4). Tools joins
-/// as its screen lands; nothing is a dead tab.
+/// The app once she is set up: Today, Calendar, Log and Learn (spec §4), with the "+"
+/// in the middle of the bar (R8.29): it is an action, not a tab, so it never stays selected.
 ///
 /// [controller] must be loaded with a profile. [today] fixes the date in tests.
 class HomeShell extends StatefulWidget {
@@ -88,23 +90,32 @@ class _HomeShellState extends State<HomeShell> {
           ),
         ),
       ]),
-      // R8.3: the assistant's door on every tab, unless her master switch is off.
-      floatingActionButton: ListenableBuilder(
-        listenable: widget.controller,
-        builder: (context, _) => (widget.controller.profile?.settings.assistantOn ?? true)
-            ? AssistantPill(controller: widget.controller, library: _library, today: today)
-            : const SizedBox.shrink(),
-      ),
+      // R8.29: the "+" sits in the middle of the bar (slot [addSlot]); the tabs keep their
+      // own indices around it. The assistant's doors live in its sheet (R8.3).
       bottomNavigationBar: NavigationBar(
-        selectedIndex: _tab,
-        onDestinationSelected: (i) => setState(() {
-          _tab = i;
-          if (i == 3) _learnOpened = true;
-          if (i == 2 && _logDate.compareTo(today) > 0) _logDate = today;
-        }),
+        selectedIndex: _tab < addSlot ? _tab : _tab + 1,
+        onDestinationSelected: (i) {
+          if (i == addSlot) {
+            showAddSheet(
+              context,
+              controller: widget.controller,
+              today: today,
+              library: _library,
+              onOpenLog: () => _openLog(today),
+            );
+            return;
+          }
+          final tab = i < addSlot ? i : i - 1;
+          setState(() {
+            _tab = tab;
+            if (tab == 3) _learnOpened = true;
+            if (tab == 2 && _logDate.compareTo(today) > 0) _logDate = today;
+          });
+        },
         destinations: [
           NavigationDestination(icon: const Icon(Icons.wb_sunny_outlined), selectedIcon: const Icon(Icons.wb_sunny_rounded), label: l.navToday),
           NavigationDestination(icon: const Icon(Icons.calendar_month_outlined), selectedIcon: const Icon(Icons.calendar_month_rounded), label: l.navCalendar),
+          NavigationDestination(icon: const _AddButton(), label: l.navAdd, tooltip: l.addSheetTitle),
           NavigationDestination(icon: const Icon(Icons.edit_note_outlined), selectedIcon: const Icon(Icons.edit_note_rounded), label: l.navLog),
           NavigationDestination(icon: const Icon(Icons.menu_book_outlined), selectedIcon: const Icon(Icons.menu_book_rounded), label: l.navLearn),
         ],
@@ -127,4 +138,23 @@ class _HomeShellState extends State<HomeShell> {
           if (_learnOpened) LearnScreen(library: _library, controller: widget.controller) else const SizedBox.shrink(),
         ],
       );
+}
+
+/// The bar position of the "+" (R8.29). Tests drive the bar by position, so they skip it.
+const addSlot = 2;
+
+/// The raised plum circle the "+" is drawn as, so it reads as the one action in the bar.
+class _AddButton extends StatelessWidget {
+  const _AddButton();
+
+  @override
+  Widget build(BuildContext context) {
+    final p = context.palette;
+    return Container(
+      width: addButtonSize,
+      height: addButtonSize,
+      decoration: BoxDecoration(color: p.primarySolid, shape: BoxShape.circle),
+      child: Icon(Icons.add_rounded, color: p.onPrimarySolid),
+    );
+  }
 }

@@ -896,5 +896,11 @@
   "signsTempCount": "{count, plural, =1{1 mesure ce cycle} other{{count} mesures ce cycle}}",
   "signsStripLine": "Un test d'ovulation montre une poussée hormonale, pas la preuve d'une ovulation. Une hausse de votre température au réveil ensuite est un meilleur signe.",
   "signsNote": "Chaque signe s'affiche tel que vous l'avez noté. femio ne dit pas si ni quand vous avez ovulé ; cela se discute avec votre clinicien·ne.",
-  "sayItChipWithSection": "{section} : {value}"
+  "sayItChipWithSection": "{section} : {value}",
+  "navAdd": "Ajouter",
+  "addSheetTitle": "Ajouter à aujourd'hui",
+  "addSayItPrompt": "Dites n'importe quoi à femio, comme « crampes depuis ce matin »",
+  "addMoreToLog": "Symptômes, pertes, tests et plus",
+  "addAsk": "Demander à femio",
+  "addVisit": "Pour ma consultation"
 }

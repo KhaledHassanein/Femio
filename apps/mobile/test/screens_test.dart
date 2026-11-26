@@ -11,6 +11,7 @@ import 'package:femio/domain/movements.dart';
 import 'package:femio/domain/store_prompts.dart';
 import 'package:femio/domain/weight.dart';
 import 'package:femio/features/assistant/assistant_pill.dart';
+import 'package:femio/features/assistant/ask_screen.dart';
 import 'package:femio/features/log/log_screen.dart';
 import 'package:femio/features/pregnancy/this_week_card.dart';
 import 'package:femio/features/today/today_screen.dart';
@@ -393,40 +394,48 @@ void main() {
     }
   });
 
-  group('Assistant front door (R8.3)', () {
+  // R8.3 doors, reached since R8.29 through the "+" in the navigation bar.
+  group('Assistant front door (R8.3, R8.29)', () {
     for (final (lang, b) in [('en', Brightness.light), ('en', Brightness.dark), ('ar', Brightness.light), ('ar', Brightness.dark)]) {
-      testWidgets('the pill, the first-use sheet once, then the doors ($lang, ${b.name})', (tester) async {
+      testWidgets('the +, the first-use sheet once, then Ask femio ($lang, ${b.name})', (tester) async {
         final p = Profile(goal: Goal.ttc, locale: lang, birthYear: 1994, periodStarts: const ['2026-09-10'], cycleLength: 28);
         final c = FemioController(MemoryStore(p));
         await _pump(tester, c, b);
-        final pill = find.byIcon(Icons.auto_awesome_rounded);
-        expect(pill, findsOneWidget, reason: 'on Today');
+        final l = lookupL10n(Locale(lang));
+        Future<void> openAsk() async {
+          await tester.tap(find.text(l.navAdd));
+          await tester.pumpAndSettle();
+          await tester.tap(find.text(l.addAsk));
+          await tester.pumpAndSettle();
+        }
+
         await tester.tap(find.byIcon(Icons.calendar_month_outlined));
         await tester.pumpAndSettle();
-        expect(pill, findsOneWidget, reason: 'on every main tab');
-        await tester.tap(pill);
-        await tester.pumpAndSettle();
+        expect(find.text(l.navAdd), findsOneWidget, reason: 'the + is on every main tab');
+        await openAsk();
         expect(find.byType(AssistantIntroSheet), findsOneWidget);
         await _shoot(tester, '${lang}_${b.name}_17_assistant_intro');
         expect(c.profile!.settings.cloudBoost, isFalse, reason: 'the sheet offers Cloud boost; it never turns it on');
         await tester.tap(find.byType(FilledButton).last);
         await tester.pumpAndSettle();
         expect(c.profile!.settings.assistantIntroSeen, isTrue);
-        expect(find.byType(AssistantDoorsSheet), findsOneWidget);
-        await _shoot(tester, '${lang}_${b.name}_18_assistant_doors');
-        await tester.tapAt(const Offset(10, 10)); // close the doors
+        expect(find.byType(AskScreen), findsOneWidget);
+        tester.state<NavigatorState>(find.byType(Navigator).first).pop();
         await tester.pumpAndSettle();
-        await tester.tap(pill);
-        await tester.pumpAndSettle();
+        await openAsk();
         expect(find.byType(AssistantIntroSheet), findsNothing, reason: 'the first-use sheet shows once');
-        expect(find.byType(AssistantDoorsSheet), findsOneWidget);
+        expect(find.byType(AskScreen), findsOneWidget);
       });
     }
 
-    testWidgets('her master switch off hides the pill', (tester) async {
+    testWidgets('her master switch off hides the assistant doors', (tester) async {
       final p = Profile(goal: Goal.ttc, locale: 'en', birthYear: 1994, periodStarts: const ['2026-09-10'], cycleLength: 28);
       final c = FemioController(MemoryStore(p.copyWith(settings: p.settings.copyWith(assistantOn: false))));
       await _pump(tester, c, Brightness.light);
+      final l = lookupL10n(const Locale('en'));
+      await tester.tap(find.text(l.navAdd));
+      await tester.pumpAndSettle();
+      expect(find.text(l.addAsk), findsNothing);
       expect(find.byIcon(Icons.auto_awesome_rounded), findsNothing);
     });
   });
