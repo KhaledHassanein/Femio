@@ -18,16 +18,16 @@ femio: Ovulation & Pregnancy
 Period, ovulation & pregnancy tracker. Your records stay on your phone.
 ```
 
-## Full description (3991 / 4,000)
+## Full description (3995 / 4,000)
 
 ```
-femio: AI-assisted women's health & wellness. A private tracker for your period, ovulation, trying to conceive and pregnancy. See your next period and fertile window as an honest range, then follow your pregnancy week by week. Your records stay on your phone: no account, no ads, no analytics.
+femio: AI-assisted women's health & wellness. A private tracker for your period, ovulation, trying to conceive and pregnancy. See your next period and fertile window as an honest range, then follow your pregnancy week by week. Your records stay on your phone: no account, no ads, no analytics of our own.
 
 WHY FEMIO
-• Private by design. No account, no sign-up, no ads and no analytics. Your log is stored encrypted on your phone, behind an app lock you choose. You decide when to save a backup file, and where.
+• Private by design. No account, no sign-up, no ads and no analytics of our own. Your log is stored encrypted on your phone, behind an app lock you choose. You decide when to save a backup file, and where.
 • Honest predictions. femio shows your next period and fertile window as a range with a confidence level, never one "certain" date. If your cycles are irregular or you have PCOS, there is no "late" counter and no false precision.
 • An assistant that respects your privacy. Ask femio answers only from trusted sources, with citations. Say it turns "yesterday cramps, today spotting", even several days in one note, into entries you check first; nothing is saved until you tap. For you suggests tips, and "Why am I seeing this?" shows the facts behind each one. "What the AI did" lists every time femio used a model. It all runs on your phone where your phone supports Gemini Nano, and femio's own word list is used otherwise.
-• Written by a physician, with sources. The library in the app explains ovulation, PCOS, early pregnancy and every week of pregnancy, and each article lists its sources.
+• Written by a physician, with sources. The in-app library explains ovulation, PCOS, early pregnancy and every week of pregnancy.
 • Everything stays open to you. femio adapts its home screen to where you are (period tracking, trying to conceive, pregnant or PCOS), and every article and tool stays one tap away.
 • One record that grows with you. When you move from trying to pregnant, femio adds pregnancy to the same record. Nothing is deleted.
 • English, Arabic, French and Spanish, with right-to-left layout and Hijri dates beside Gregorian.
@@ -53,12 +53,12 @@ PREGNANCY
 
 PRIVATE BY DESIGN
 • A visit pack with your own questions, in a second language if the clinic needs one, shared through your phone's share sheet
-• Reminders ask first: you pick the daily log, period-range or appointment reminder. They only say "femio: Open the app"
+• Reminders ask first. They say only "femio: Open the app", unless you write your own words for a medicine reminder
 • App lock and encrypted storage on your phone
 • Backup and restore from a file you save yourself
 • Delete everything in one step
-• Cloud boost is off unless you turn it on. Only for phones without on-phone AI, and only if you agree, it sends a general question you approve (numbers, dates and names removed first) or four broad facts, to Google's AI. Never your log, notes or dates.
-• Google Play handles the occasional rating request and app updates. femio sends nothing of yours for either.
+• Cloud boost is off unless you turn it on. Only for phones without on-phone AI, and only if you agree, it sends a general question you approve (numbers, e-mail addresses and links removed; you see and edit the exact text first) or four broad facts, to Google's AI. Never your log, notes or dates.
+• Google Play handles app updates and the occasional rating request; femio sends it nothing of yours.
 
 IMPORTANT
 femio is for education and tracking. It is not a medical device and does not diagnose, treat, cure or prevent any medical condition. Predictions are estimates, not guarantees, and are not a method of birth control. Always talk to your doctor or midwife about your health. If you have heavy bleeding, severe pain or fewer baby movements, seek medical care right away.
