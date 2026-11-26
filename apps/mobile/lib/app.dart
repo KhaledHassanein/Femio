@@ -23,6 +23,7 @@ import 'data/play_store.dart';
 import 'data/profile.dart';
 import 'data/record_documents.dart';
 import 'domain/health_record.dart';
+import 'domain/medicines.dart';
 import 'data/notification_port.dart';
 import 'data/reminder_scheduler.dart';
 import 'data/safety_session.dart';
@@ -228,9 +229,39 @@ class FemioController extends ChangeNotifier {
         entry,
       ]));
 
-  /// Removes the entry with [id] from her health record; nothing happens if there is none.
-  Future<void> deleteRecordEntry(String id) =>
-      save(profile!.copyWith(record: [for (final e in profile!.record) if (e.id != id) e]));
+  /// Removes the entry with [id] from her health record, with its medicine plan and dose
+  /// marks if it was a medicine; nothing happens if there is none.
+  Future<void> deleteRecordEntry(String id) => save(profile!.copyWith(
+        record: [for (final e in profile!.record) if (e.id != id) e],
+        medicinePlans: [for (final m in profile!.medicinePlans) if (m.entryId != id) m],
+        doses: [for (final d in profile!.doses) if (d.entryId != id) d],
+      ));
+
+  /// Saves her times, reminder, label and refill day for one medicine (R11.6), replacing the
+  /// plan for the same entry. Reminders are rescheduled by [save].
+  Future<void> setMedicinePlan(MedicinePlan plan) => save(profile!.copyWith(medicinePlans: [
+        for (final m in profile!.medicinePlans)
+          if (m.entryId != plan.entryId) m,
+        plan,
+      ]));
+
+  /// Marks one dose of medicine [entryId] on [day]: [slot] is its planned time in minutes,
+  /// or null for a dose taken as needed. [status] null clears the mark of a planned time.
+  /// [at] is when she says it happened (now by default). A contraceptive is never marked.
+  Future<void> markDose({required String entryId, required String day, int? slot, DoseStatus? status, DateTime? at}) async {
+    final p = profile!;
+    final entry = p.record.where((e) => e.id == entryId).firstOrNull;
+    if (entry == null || scheduleBlocked(entry)) return;
+    final when = (at ?? _clock()).toIso8601String().substring(0, 19);
+    final mark = status == null ? null : DoseMark(entryId: entryId, day: day, slot: slot, status: status, at: when);
+    await save(p.copyWith(doses: withMark(p.doses, entryId: entryId, day: day, slot: slot, mark: mark)));
+  }
+
+  /// Removes one dose she took as needed (a mark with no planned time).
+  Future<void> removeDose(DoseMark mark) => save(profile!.copyWith(doses: [
+        for (final d in profile!.doses)
+          if (!(d.entryId == mark.entryId && d.day == mark.day && d.slot == mark.slot && d.at == mark.at)) d,
+      ]));
 
   /// Whether she still has to see the notification consent screen before any reminder can
   /// be switched on (R12.1). False without a record.
@@ -241,14 +272,23 @@ class FemioController extends ChangeNotifier {
   /// ([grantNotificationConsent]) and then the phone's notification permission; when either
   /// is missing, nothing changes and this returns false so Settings can say why. Turning
   /// one off or moving the time never asks. Requires a loaded [profile].
-  Future<bool> updateReminders({bool? log, bool? period, bool? appointment, int? logMinutes}) async {
+  Future<bool> updateReminders({bool? log, bool? period, bool? appointment, bool? medicine, int? logMinutes}) async {
     final s = profile!.settings;
-    final turningOn = (log == true && !s.logReminder) || (period == true && !s.periodReminder) || (appointment == true && !s.appointmentReminder);
+    final turningOn = (log == true && !s.logReminder) ||
+        (period == true && !s.periodReminder) ||
+        (appointment == true && !s.appointmentReminder) ||
+        (medicine == true && !s.medicineReminder);
     if (turningOn) {
       if (!s.hasNotificationConsent) return false;
       if (!await _reminders.requestPermission()) return false;
     }
-    await setSettings(s.copyWith(logReminder: log, periodReminder: period, appointmentReminder: appointment, logReminderMinutes: logMinutes));
+    await setSettings(s.copyWith(
+      logReminder: log,
+      periodReminder: period,
+      appointmentReminder: appointment,
+      medicineReminder: medicine,
+      logReminderMinutes: logMinutes,
+    ));
     return true;
   }
 
@@ -265,6 +305,7 @@ class FemioController extends ChangeNotifier {
       logReminder: choice.log,
       periodReminder: choice.period,
       appointmentReminder: choice.appointment,
+      medicineReminder: choice.medicine,
     ));
     return NotificationConsentResult.granted;
   }

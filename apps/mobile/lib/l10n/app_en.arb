@@ -502,7 +502,7 @@
   "reminderLogTime": "Reminder time",
   "reminderPeriod": "Period expected",
   "reminderPeriodNote": "One notification the day before your expected window opens. Only when your cycles are regular enough to estimate.",
-  "remindersPrivacyNote": "A reminder only says \"femio: Open the app\". Nothing about your health appears on your lock screen.",
+  "remindersPrivacyNote": "A reminder only says \"femio: Open the app\", unless you write your own words for a medicine reminder. Nothing else about your health appears on your lock screen.",
   "remindersTimingNote": "Reminders can arrive a few minutes late, and some phones hold them back to save battery.",
   "reminderPermissionDenied": "Notifications are turned off for femio. You can allow them in your phone's settings.",
   "reminderTitle": "femio",
@@ -513,7 +513,7 @@
   "reminderAppointmentNote": "One notification the day before an appointment you saved with a date.",
   "notifConsentTitle": "Notifications, only if you want them",
   "notifConsentIntro": "femio can nudge you on this phone. Choose what you would like to receive. Nothing is switched on until you allow it.",
-  "notifConsentNeutral": "Every notification says only \"femio\" and \"Open the app\". No health words ever appear on your lock screen.",
+  "notifConsentNeutral": "Every notification says only \"femio\" and \"Open the app\", unless you write your own words for a medicine reminder. No other health words appear on your lock screen.",
   "notifConsentLocal": "Notifications are scheduled on your phone itself. Nothing is sent anywhere, and femio has no account or server to send them from.",
   "notifKindMedicine": "Medicine reminder",
   "notifKindDigest": "Weekly digest",
@@ -2019,5 +2019,217 @@
         "type": "String"
       }
     }
+  },
+  "medTitle": "My medicines",
+  "@medTitle": {
+    "description": "Medicines (R11.6)."
+  },
+  "medIntro": "Your medicines as you wrote them, the times you take them, and what you marked. femio gives no dose advice and does not check interactions: ask your pharmacist or doctor.",
+  "@medIntro": {
+    "description": "Medicines (R11.6)."
+  },
+  "medAdd": "Add a medicine",
+  "@medAdd": {
+    "description": "Medicines (R11.6)."
+  },
+  "medEmptyHeading": "No medicines yet",
+  "@medEmptyHeading": {
+    "description": "Medicines (R11.6)."
+  },
+  "medEmptyBody": "Add one from a prescription or a box. You choose the times; femio can remind you.",
+  "@medEmptyBody": {
+    "description": "Medicines (R11.6)."
+  },
+  "medCurrent": "Taking now",
+  "@medCurrent": {
+    "description": "Medicines (R11.6)."
+  },
+  "medFinished": "Finished",
+  "@medFinished": {
+    "description": "Medicines (R11.6)."
+  },
+  "medToday": "Today",
+  "@medToday": {
+    "description": "Medicines (R11.6)."
+  },
+  "medAsNeeded": "When needed",
+  "@medAsNeeded": {
+    "description": "Medicines (R11.6)."
+  },
+  "medLogDose": "I took one",
+  "@medLogDose": {
+    "description": "Medicines (R11.6)."
+  },
+  "medTakenAt": "Taken {time}",
+  "@medTakenAt": {
+    "description": "Medicines (R11.6).",
+    "placeholders": {
+      "time": {
+        "type": "String"
+      }
+    }
+  },
+  "medTakenLater": "Taken {time}, later than planned",
+  "@medTakenLater": {
+    "description": "Medicines (R11.6).",
+    "placeholders": {
+      "time": {
+        "type": "String"
+      }
+    }
+  },
+  "medSkippedAt": "Not taken",
+  "@medSkippedAt": {
+    "description": "Medicines (R11.6)."
+  },
+  "medNotMarked": "Not marked",
+  "@medNotMarked": {
+    "description": "Medicines (R11.6)."
+  },
+  "medMarkTaken": "Taken now",
+  "@medMarkTaken": {
+    "description": "Medicines (R11.6)."
+  },
+  "medMarkTakenAt": "Taken at another time",
+  "@medMarkTakenAt": {
+    "description": "Medicines (R11.6)."
+  },
+  "medMarkSkipped": "Not taken",
+  "@medMarkSkipped": {
+    "description": "Medicines (R11.6)."
+  },
+  "medMarkClear": "Clear the mark",
+  "@medMarkClear": {
+    "description": "Medicines (R11.6)."
+  },
+  "medDoseTitle": "{name} at {time}",
+  "@medDoseTitle": {
+    "description": "Medicines (R11.6).",
+    "placeholders": {
+      "name": {
+        "type": "String"
+      },
+      "time": {
+        "type": "String"
+      }
+    }
+  },
+  "medTimes": "Times you take it",
+  "@medTimes": {
+    "description": "Medicines (R11.6)."
+  },
+  "medTimesNone": "No set times. You can still mark a dose when you take one.",
+  "@medTimesNone": {
+    "description": "Medicines (R11.6)."
+  },
+  "medAddTime": "Add a time",
+  "@medAddTime": {
+    "description": "Medicines (R11.6)."
+  },
+  "medRemoveTime": "Remove {time}",
+  "@medRemoveTime": {
+    "description": "Medicines (R11.6).",
+    "placeholders": {
+      "time": {
+        "type": "String"
+      }
+    }
+  },
+  "medRemind": "Remind me at these times",
+  "@medRemind": {
+    "description": "Medicines (R11.6)."
+  },
+  "medRemindNote": "A notification at each time, and one the day before your refill day. It says \"Open the app\" unless you write your own words below.",
+  "@medRemindNote": {
+    "description": "Medicines (R11.6)."
+  },
+  "medLabel": "Words on the reminder (optional)",
+  "@medLabel": {
+    "description": "Medicines (R11.6)."
+  },
+  "medLabelNote": "These words show on your notification. Keep them vague if others see your phone.",
+  "@medLabelNote": {
+    "description": "Medicines (R11.6)."
+  },
+  "medRefill": "Refill by",
+  "@medRefill": {
+    "description": "Medicines (R11.6)."
+  },
+  "medRefillNone": "Not set",
+  "@medRefillNone": {
+    "description": "Medicines (R11.6)."
+  },
+  "medRefillClear": "Clear the refill day",
+  "@medRefillClear": {
+    "description": "Medicines (R11.6)."
+  },
+  "medRefillSoon": "Refill by {date}",
+  "@medRefillSoon": {
+    "description": "Medicines (R11.6).",
+    "placeholders": {
+      "date": {
+        "type": "String"
+      }
+    }
+  },
+  "medHistory": "Last 14 days",
+  "@medHistory": {
+    "description": "Medicines (R11.6)."
+  },
+  "medHistoryEmpty": "Nothing marked yet.",
+  "@medHistoryEmpty": {
+    "description": "Medicines (R11.6)."
+  },
+  "medEdit": "Edit details",
+  "@medEdit": {
+    "description": "Medicines (R11.6)."
+  },
+  "medBlocked": "femio is not a way to avoid pregnancy, so it keeps no times, marks or reminders for this medicine. It stays in your record as you wrote it.",
+  "@medBlocked": {
+    "description": "Medicines (R11.6)."
+  },
+  "medSince": "Since {date}",
+  "@medSince": {
+    "description": "Medicines (R11.6).",
+    "placeholders": {
+      "date": {
+        "type": "String"
+      }
+    }
+  },
+  "medUntil": "Until {date}",
+  "@medUntil": {
+    "description": "Medicines (R11.6).",
+    "placeholders": {
+      "date": {
+        "type": "String"
+      }
+    }
+  },
+  "medEnded": "Ended {date}",
+  "@medEnded": {
+    "description": "Medicines (R11.6).",
+    "placeholders": {
+      "date": {
+        "type": "String"
+      }
+    }
+  },
+  "medNoAdviceNote": "femio keeps what you write. It gives no dose, catch-up or interaction advice: ask your pharmacist or doctor.",
+  "@medNoAdviceNote": {
+    "description": "Medicines (R11.6)."
+  },
+  "medTodayCount": "{count, plural, =0{All marked for today} =1{1 dose to mark today} other{{count} doses to mark today}}",
+  "@medTodayCount": {
+    "description": "Medicines (R11.6).",
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "reminderMedicineNote": "At the times you set on each medicine, and the day before a refill.",
+  "@reminderMedicineNote": {
+    "description": "Medicines (R11.6)."
   }
 }

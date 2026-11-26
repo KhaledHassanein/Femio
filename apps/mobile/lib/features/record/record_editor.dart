@@ -24,6 +24,9 @@ import 'record_labels.dart';
 /// How far back an entry's day may go: a lifetime of history, not a typo guard.
 const recordEarliestYear = 1900;
 
+/// How many years ahead a planned end day may go (a medicine course that ends later).
+const recordFutureYears = 5;
+
 /// The editor. [existing] null means a new entry of [initialKind].
 class RecordEditor extends StatefulWidget {
   const RecordEditor({
@@ -69,13 +72,16 @@ class _RecordEditorState extends State<RecordEditor> {
     super.dispose();
   }
 
-  Future<String?> _pickDay(String? current) async {
+  /// A day on the calendar. [future] allows days after today (a medicine's planned end).
+  Future<String?> _pickDay(String? current, {bool future = false}) async {
+    final today = fromISO(widget.today);
+    final last = future ? DateTime(today.year + recordFutureYears, today.month, today.day) : today;
     final initial = fromISO(current ?? widget.today);
     final date = await showDatePicker(
       context: context,
-      initialDate: initial,
+      initialDate: initial.isAfter(last) ? last : initial,
       firstDate: DateTime(recordEarliestYear),
-      lastDate: fromISO(widget.today),
+      lastDate: last,
     );
     return date == null ? null : toISO(date);
   }
@@ -225,7 +231,7 @@ class _RecordEditorState extends State<RecordEditor> {
             const SizedBox(height: space3),
             if (recordDateFields.contains(k))
               dayRow(recordFieldLabel(l, k), _dates[k], () async {
-                final d = await _pickDay(_dates[k]);
+                final d = await _pickDay(_dates[k], future: k == RecordField.endedOn);
                 if (d != null) setState(() => _dates[k] = d);
               })
             else

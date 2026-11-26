@@ -1082,3 +1082,17 @@ say when something happened as opposed to when it was typed.
 this one list. The backup format grows and needs a size warning. Golden fixtures for the record
 JSON keep the TypeScript side honest if the website ever reads a backup (it does not today).
 
+
+*Medicines, built 2026-11-26 (R11.6).* Her times, reminder switch, reminder words and refill
+day live in a separate `medicinePlans` list and her dose marks in `doses`, both keyed by the
+medicine entry's id, so the entry itself stays exactly as she wrote it (rule 5). Two choices a
+later session could undo by accident:
+- **Her own words may appear on a medicine notification.** Every other notification stays
+  "femio / Open the app". A label is optional, capped at 40 characters, shown only on that
+  medicine's notifications, with a note under the field to keep it vague; the reminder and
+  consent privacy lines now say so in four languages. Owner direction: "neutral text she can
+  label" (R11.6).
+- **No schedule for a contraceptive.** A medicine whose title or fields match the assistant's
+  birth-control phrases, or a short list of pill words, gets no times, marks or reminders and
+  says why; it stays in the record. Rule 1: femio is never a way to avoid pregnancy, so it keeps
+  no pill schedule and gives no missed-pill advice.

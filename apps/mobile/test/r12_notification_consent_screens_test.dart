@@ -83,12 +83,13 @@ void main() {
         for (final text in [l.notifConsentTitle, l.notifConsentIntro, l.notifConsentNeutral, l.notifConsentLocal]) {
           expect(find.text(text), findsOneWidget);
         }
-        // Three real switches (period shows for trying to conceive) and two honest "coming" rows.
+        // Four real switches (period shows for trying to conceive; medicine since R11.6) and one
+        // honest "coming" row.
         expect(find.byType(Switch, skipOffstage: false), findsNWidgets(5));
-        expect(find.text(l.notifComingSoon, skipOffstage: false), findsNWidgets(2));
+        expect(find.text(l.notifComingSoon, skipOffstage: false), findsOneWidget);
         expect(find.text(l.notifKindMedicine, skipOffstage: false), findsOneWidget);
         expect(find.text(l.notifKindDigest, skipOffstage: false), findsOneWidget);
-        expect(tester.widgetList<Switch>(find.byType(Switch, skipOffstage: false)).where((s) => s.onChanged == null).length, 2);
+        expect(tester.widgetList<Switch>(find.byType(Switch, skipOffstage: false)).where((s) => s.onChanged == null).length, 1);
         await _shoot('${tag}_consent');
       });
 

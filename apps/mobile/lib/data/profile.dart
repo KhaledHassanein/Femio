@@ -10,6 +10,7 @@ import '../domain/appointments.dart';
 import '../domain/assistant/cloud_consent.dart';
 import '../domain/contractions.dart';
 import '../domain/health_record.dart';
+import '../domain/medicines.dart';
 import '../domain/record_attachment.dart';
 import '../domain/movements.dart';
 import '../domain/weight.dart';
@@ -51,6 +52,7 @@ class AppSettings {
     this.logReminderMinutes = defaultLogReminderMinutes,
     this.periodReminder = false,
     this.appointmentReminder = false,
+    this.medicineReminder = false,
     this.notificationConsentAt,
     this.widgetDetails = false,
     this.cloud = const CloudConsent(),
@@ -80,6 +82,10 @@ class AppSettings {
 
   /// One notification the day before each saved appointment that has a date. Off by default.
   final bool appointmentReminder;
+
+  /// Reminders for the medicines she set to remind her (R11.6). Off by default; each
+  /// medicine also has its own switch ([MedicinePlan.remind]).
+  final bool medicineReminder;
 
   /// When she said yes on the notification consent screen (ISO timestamp, local phone time),
   /// or [legacyNotificationConsent] for a record that predates the screen. Null means she
@@ -129,6 +135,7 @@ class AppSettings {
     int? logReminderMinutes,
     bool? periodReminder,
     bool? appointmentReminder,
+    bool? medicineReminder,
     String? notificationConsentAt,
     bool? widgetDetails,
     CloudConsent? cloud,
@@ -145,6 +152,7 @@ class AppSettings {
         logReminderMinutes: logReminderMinutes ?? this.logReminderMinutes,
         periodReminder: periodReminder ?? this.periodReminder,
         appointmentReminder: appointmentReminder ?? this.appointmentReminder,
+        medicineReminder: medicineReminder ?? this.medicineReminder,
         notificationConsentAt: notificationConsentAt ?? this.notificationConsentAt,
         widgetDetails: widgetDetails ?? this.widgetDetails,
         cloud: cloud ?? this.cloud,
@@ -162,6 +170,7 @@ class AppSettings {
         'logReminderMinutes': logReminderMinutes,
         'periodReminder': periodReminder,
         'appointmentReminder': appointmentReminder,
+        'medicineReminder': medicineReminder,
         'notificationConsentAt': notificationConsentAt,
         'widgetDetails': widgetDetails,
         'cloudConsent': cloud.toJson(),
@@ -185,6 +194,7 @@ class AppSettings {
       logReminderMinutes: minutes != null && minutes >= 0 && minutes < 24 * 60 ? minutes : defaultLogReminderMinutes,
       periodReminder: periodOn,
       appointmentReminder: j?['appointmentReminder'] as bool? ?? false,
+      medicineReminder: j?['medicineReminder'] as bool? ?? false,
       // A record written before R12.1 with a switch already on keeps working: she turned it
       // on after the phone's own permission prompt. With no switch on, she is asked.
       notificationConsentAt: consent is String && consent.isNotEmpty ? consent : (logOn || periodOn ? legacyNotificationConsent : null),
@@ -282,6 +292,8 @@ class Profile {
     this.appointments = const [],
     this.record = const [],
     this.attachments = const [],
+    this.medicinePlans = const [],
+    this.doses = const [],
     this.settings = const AppSettings(),
   });
 
@@ -317,6 +329,12 @@ class Profile {
   /// their own files, named by [RecordAttachment.id]. Entries link to them by id.
   final List<RecordAttachment> attachments;
 
+  /// Her times, reminder and refill day for each medicine entry (R11.6), by entry id.
+  final List<MedicinePlan> medicinePlans;
+
+  /// Every dose she marked taken or skipped (R11.6), in the order she marked them.
+  final List<DoseMark> doses;
+
   /// Her preferences (Hijri display, dismissed notices).
   final AppSettings settings;
   final int? periodLength;
@@ -345,6 +363,8 @@ class Profile {
     List<Appointment>? appointments,
     List<RecordEntry>? record,
     List<RecordAttachment>? attachments,
+    List<MedicinePlan>? medicinePlans,
+    List<DoseMark>? doses,
     AppSettings? settings,
   }) =>
       Profile(
@@ -366,6 +386,8 @@ class Profile {
         appointments: appointments ?? this.appointments,
         record: record ?? this.record,
         attachments: attachments ?? this.attachments,
+        medicinePlans: medicinePlans ?? this.medicinePlans,
+        doses: doses ?? this.doses,
         settings: settings ?? this.settings,
       );
 
@@ -406,6 +428,8 @@ class Profile {
         'appointments': [for (final a in appointments) a.toJson()],
         if (record.isNotEmpty) 'record': [for (final e in record) e.toJson()],
         if (attachments.isNotEmpty) 'attachments': [for (final a in attachments) a.toJson()],
+        if (medicinePlans.isNotEmpty) 'medicinePlans': [for (final m in medicinePlans) m.toJson()],
+        if (doses.isNotEmpty) 'doses': [for (final d in doses) d.toJson()],
         'settings': settings.toJson(),
       };
 
@@ -454,6 +478,12 @@ class Profile {
         ],
         attachments: [
           for (final a in (j['attachments'] as List?) ?? const []) RecordAttachment.fromJson(Map<String, Object?>.from(a as Map)),
+        ],
+        medicinePlans: [
+          for (final m in (j['medicinePlans'] as List?) ?? const []) MedicinePlan.fromJson(Map<String, Object?>.from(m as Map)),
+        ],
+        doses: [
+          for (final d in (j['doses'] as List?) ?? const []) DoseMark.fromJson(Map<String, Object?>.from(d as Map)),
         ],
         settings: AppSettings.fromJson(j['settings'] == null ? null : Map<String, Object?>.from(j['settings'] as Map)),
       );

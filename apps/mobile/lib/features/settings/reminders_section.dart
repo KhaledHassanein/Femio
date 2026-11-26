@@ -25,16 +25,22 @@ class RemindersSection extends StatelessWidget {
   final Profile profile;
 
   /// Applies a change and, when the phone refused permission, says so in one line.
-  Future<void> _apply(BuildContext context, {bool? log, bool? period, bool? appointment, int? logMinutes}) async {
+  Future<void> _apply(BuildContext context, {bool? log, bool? period, bool? appointment, bool? medicine, int? logMinutes}) async {
     final l = L10n.of(context);
     final messenger = ScaffoldMessenger.of(context);
-    if (controller.needsNotificationConsent && (log == true || period == true || appointment == true)) {
+    if (controller.needsNotificationConsent && (log == true || period == true || appointment == true || medicine == true)) {
       // First reminder ever: the consent screen asks, ticks this kind, and does the rest.
-      final kind = log == true ? NotificationKind.log : (period == true ? NotificationKind.period : NotificationKind.appointment);
+      final kind = log == true
+          ? NotificationKind.log
+          : period == true
+              ? NotificationKind.period
+              : appointment == true
+                  ? NotificationKind.appointment
+                  : NotificationKind.medicine;
       await showNotificationConsent(context, controller, initial: kind);
       return;
     }
-    final ok = await controller.updateReminders(log: log, period: period, appointment: appointment, logMinutes: logMinutes);
+    final ok = await controller.updateReminders(log: log, period: period, appointment: appointment, medicine: medicine, logMinutes: logMinutes);
     if (!ok) messenger.showSnackBar(SnackBar(content: Text(l.reminderPermissionDenied)));
   }
 
@@ -87,6 +93,12 @@ class RemindersSection extends StatelessWidget {
           title: Text(l.reminderAppointment),
           subtitle: Text(l.reminderAppointmentNote),
           onChanged: (on) => _apply(context, appointment: on),
+        ),
+        SwitchListTile(
+          value: settings.medicineReminder,
+          title: Text(l.notifKindMedicine),
+          subtitle: Text(l.reminderMedicineNote),
+          onChanged: (on) => _apply(context, medicine: on),
         ),
         Padding(
           padding: const EdgeInsets.fromLTRB(space4, space2, space4, 0),

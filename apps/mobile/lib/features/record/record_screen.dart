@@ -3,7 +3,7 @@
 // Why it exists: the owner wants femio to keep her medical file "like a professional
 // record" on her phone. Each row shows when it happened, when it was added, where it came
 // from and whether it was edited. femio shows entries as written and never judges them
-// (rule 1); the editor lives in record_editor.dart.
+// (rule 1); the editor lives in record_editor.dart, her medicines in medicines_screen.dart.
 
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart' show DateFormat;
@@ -17,6 +17,7 @@ import '../../theme/radii.dart';
 import '../../theme/spacing.dart';
 import '../../widgets/notice_card.dart';
 import 'documents_section.dart';
+import 'medicines_screen.dart';
 import 'record_editor.dart';
 import 'record_labels.dart';
 
@@ -55,6 +56,11 @@ class _RecordScreenState extends State<RecordScreen> {
         final present = {for (final e in all) e.kind};
         return Scaffold(
           appBar: AppBar(title: Text(l.recTitle), actions: [
+            IconButton(
+              tooltip: l.medTitle,
+              icon: const Icon(Icons.medication_outlined),
+              onPressed: () => openMedicines(context, widget.controller, widget.today),
+            ),
             IconButton(
               tooltip: l.recDocsLibrary,
               icon: const Icon(Icons.folder_outlined),

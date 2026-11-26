@@ -82,7 +82,7 @@ class _NotificationConsentScreenState extends State<NotificationConsentScreen> {
       l.reminderAppointment,
       l.reminderAppointmentNote,
     ),
-    NotificationKind.medicine => (l.notifKindMedicine, null),
+    NotificationKind.medicine => (l.notifKindMedicine, l.reminderMedicineNote),
     NotificationKind.digest => (l.notifKindDigest, null),
   };
 

@@ -1155,7 +1155,7 @@ class L10nAr extends L10n {
 
   @override
   String get remindersPrivacyNote =>
-      'يقول التذكير فقط: «femio: افتحي التطبيق». ولا يظهر على شاشة القفل أي شيء عن صحتكِ.';
+      'يقول التذكير فقط: «femio: افتحي التطبيق»، إلا إذا كتبتِ كلماتكِ لتذكير دواء. ولا يظهر على شاشة القفل أي شيء آخر عن صحتكِ.';
 
   @override
   String get remindersTimingNote =>
@@ -1194,7 +1194,7 @@ class L10nAr extends L10n {
 
   @override
   String get notifConsentNeutral =>
-      'كل إشعار يقول فقط «femio» و«افتحي التطبيق». ولا تظهر أي كلمة عن صحتكِ على شاشة القفل.';
+      'كل إشعار يقول فقط «femio» و«افتحي التطبيق»، إلا إذا كتبتِ كلماتكِ لتذكير دواء. ولا تظهر أي كلمة أخرى عن صحتكِ على شاشة القفل.';
 
   @override
   String get notifConsentLocal =>
@@ -3614,4 +3614,162 @@ class L10nAr extends L10n {
   String recDocSizeKb(String size) {
     return '$size كيلوبايت';
   }
+
+  @override
+  String get medTitle => 'أدويتي';
+
+  @override
+  String get medIntro =>
+      'أدويتكِ كما كتبتِها، والأوقات التي تأخذينها فيها، وما سجّلتِه. لا يقدّم femio نصيحة عن الجرعات ولا يفحص التداخلات الدوائية: اسألي الصيدلي أو الطبيب.';
+
+  @override
+  String get medAdd => 'إضافة دواء';
+
+  @override
+  String get medEmptyHeading => 'لا أدوية بعد';
+
+  @override
+  String get medEmptyBody =>
+      'أضيفي دواءً من وصفة أو من العلبة. أنتِ تختارين الأوقات، ويمكن لـ femio أن يذكّركِ.';
+
+  @override
+  String get medCurrent => 'أتناوله الآن';
+
+  @override
+  String get medFinished => 'انتهى';
+
+  @override
+  String get medToday => 'اليوم';
+
+  @override
+  String get medAsNeeded => 'عند الحاجة';
+
+  @override
+  String get medLogDose => 'أخذتُ جرعة';
+
+  @override
+  String medTakenAt(String time) {
+    return 'أُخذت $time';
+  }
+
+  @override
+  String medTakenLater(String time) {
+    return 'أُخذت $time، بعد الموعد المحدد';
+  }
+
+  @override
+  String get medSkippedAt => 'لم تُؤخذ';
+
+  @override
+  String get medNotMarked => 'لم تُسجَّل';
+
+  @override
+  String get medMarkTaken => 'أخذتها الآن';
+
+  @override
+  String get medMarkTakenAt => 'أخذتها في وقت آخر';
+
+  @override
+  String get medMarkSkipped => 'لم آخذها';
+
+  @override
+  String get medMarkClear => 'إزالة التسجيل';
+
+  @override
+  String medDoseTitle(String name, String time) {
+    return '$name الساعة $time';
+  }
+
+  @override
+  String get medTimes => 'أوقات تناوله';
+
+  @override
+  String get medTimesNone => 'لا أوقات محددة. يمكنكِ تسجيل الجرعة متى أخذتِها.';
+
+  @override
+  String get medAddTime => 'إضافة وقت';
+
+  @override
+  String medRemoveTime(String time) {
+    return 'حذف $time';
+  }
+
+  @override
+  String get medRemind => 'ذكّريني في هذه الأوقات';
+
+  @override
+  String get medRemindNote =>
+      'إشعار في كل وقت، وإشعار في اليوم السابق لموعد إعادة الصرف. يقول «افتحي التطبيق» إلا إذا كتبتِ كلماتكِ أدناه.';
+
+  @override
+  String get medLabel => 'كلمات التذكير (اختياري)';
+
+  @override
+  String get medLabelNote =>
+      'تظهر هذه الكلمات في الإشعار. اجعليها عامة إن كان غيركِ يرى هاتفكِ.';
+
+  @override
+  String get medRefill => 'إعادة الصرف قبل';
+
+  @override
+  String get medRefillNone => 'غير محدد';
+
+  @override
+  String get medRefillClear => 'إزالة موعد إعادة الصرف';
+
+  @override
+  String medRefillSoon(String date) {
+    return 'إعادة الصرف قبل $date';
+  }
+
+  @override
+  String get medHistory => 'آخر 14 يومًا';
+
+  @override
+  String get medHistoryEmpty => 'لم تسجّلي شيئًا بعد.';
+
+  @override
+  String get medEdit => 'تعديل التفاصيل';
+
+  @override
+  String get medBlocked =>
+      'femio ليس وسيلة لتجنّب الحمل، لذلك لا يحفظ أوقاتًا أو تسجيلات أو تذكيرات لهذا الدواء. يبقى في سجلّكِ كما كتبتِه.';
+
+  @override
+  String medSince(String date) {
+    return 'منذ $date';
+  }
+
+  @override
+  String medUntil(String date) {
+    return 'حتى $date';
+  }
+
+  @override
+  String medEnded(String date) {
+    return 'انتهى في $date';
+  }
+
+  @override
+  String get medNoAdviceNote =>
+      'يحفظ femio ما تكتبينه فقط. لا يقدّم نصيحة عن الجرعة أو تعويض جرعة فائتة أو التداخلات: اسألي الصيدلي أو الطبيب.';
+
+  @override
+  String medTodayCount(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count جرعة لتسجيلها اليوم',
+      many: '$count جرعة لتسجيلها اليوم',
+      few: '$count جرعات لتسجيلها اليوم',
+      two: 'جرعتان لتسجيلهما اليوم',
+      one: 'جرعة واحدة لتسجيلها اليوم',
+      zero: 'سجّلتِ كل جرعات اليوم',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get reminderMedicineNote =>
+      'في الأوقات التي حددتِها لكل دواء، وفي اليوم السابق لإعادة الصرف.';
 }

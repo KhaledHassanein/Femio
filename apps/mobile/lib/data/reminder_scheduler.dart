@@ -7,7 +7,8 @@
 ///
 /// Notification text is private by design: the title is the wordmark and the body is a
 /// plain "Open the app". Nothing names a period, fertility, a window or a date, so a
-/// glance at her lock screen reveals nothing. The scheduling is inexact (no exact-alarm
+/// glance at her lock screen reveals nothing. The one exception is her own choice: a
+/// medicine reminder she gave her own words shows those words (R11.6). The scheduling is inexact (no exact-alarm
 /// permission): a reminder may arrive a few minutes late, never early.
 library;
 
@@ -69,7 +70,7 @@ class LocalNotificationScheduler implements NotificationPort {
       await _plugin.zonedSchedule(
         id: i,
         title: texts.title,
-        body: texts.body,
+        body: plan[i].label.isEmpty ? texts.body : plan[i].label,
         // The planned moment is the phone's own wall clock; expressing it as the same
         // instant in UTC needs no time-zone database and cannot drift across daylight
         // saving, because every reminder is a single future instant (no repeat).

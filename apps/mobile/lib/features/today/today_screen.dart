@@ -26,6 +26,7 @@ import '../help/red_flags_screen.dart';
 import '../pregnancy/this_week_card.dart';
 import '../settings/settings_screen.dart';
 import '../../widgets/tab_header.dart';
+import '../record/medicines_screen.dart';
 import 'pregnancy_tools.dart';
 import 'tips_card.dart';
 import 'today_hero.dart';
@@ -181,6 +182,8 @@ class TodayScreen extends StatelessWidget {
                 style: t.bodySmall,
               ),
             ),
+            // R11.6: the doses still to mark today, only when she set times on a medicine.
+            MedicinesTodayCard(controller: controller, today: now),
             const SizedBox(height: space4),
             // ADR-078: the assistant's two doors from Today.
             Row(

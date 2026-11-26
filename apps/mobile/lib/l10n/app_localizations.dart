@@ -1976,7 +1976,7 @@ abstract class L10n {
   /// No description provided for @remindersPrivacyNote.
   ///
   /// In en, this message translates to:
-  /// **'A reminder only says \"femio: Open the app\". Nothing about your health appears on your lock screen.'**
+  /// **'A reminder only says \"femio: Open the app\", unless you write your own words for a medicine reminder. Nothing else about your health appears on your lock screen.'**
   String get remindersPrivacyNote;
 
   /// No description provided for @remindersTimingNote.
@@ -2042,7 +2042,7 @@ abstract class L10n {
   /// No description provided for @notifConsentNeutral.
   ///
   /// In en, this message translates to:
-  /// **'Every notification says only \"femio\" and \"Open the app\". No health words ever appear on your lock screen.'**
+  /// **'Every notification says only \"femio\" and \"Open the app\", unless you write your own words for a medicine reminder. No other health words appear on your lock screen.'**
   String get notifConsentNeutral;
 
   /// No description provided for @notifConsentLocal.
@@ -5818,6 +5818,252 @@ abstract class L10n {
   /// In en, this message translates to:
   /// **'{size} KB'**
   String recDocSizeKb(String size);
+
+  /// Medicines (R11.6).
+  ///
+  /// In en, this message translates to:
+  /// **'My medicines'**
+  String get medTitle;
+
+  /// Medicines (R11.6).
+  ///
+  /// In en, this message translates to:
+  /// **'Your medicines as you wrote them, the times you take them, and what you marked. femio gives no dose advice and does not check interactions: ask your pharmacist or doctor.'**
+  String get medIntro;
+
+  /// Medicines (R11.6).
+  ///
+  /// In en, this message translates to:
+  /// **'Add a medicine'**
+  String get medAdd;
+
+  /// Medicines (R11.6).
+  ///
+  /// In en, this message translates to:
+  /// **'No medicines yet'**
+  String get medEmptyHeading;
+
+  /// Medicines (R11.6).
+  ///
+  /// In en, this message translates to:
+  /// **'Add one from a prescription or a box. You choose the times; femio can remind you.'**
+  String get medEmptyBody;
+
+  /// Medicines (R11.6).
+  ///
+  /// In en, this message translates to:
+  /// **'Taking now'**
+  String get medCurrent;
+
+  /// Medicines (R11.6).
+  ///
+  /// In en, this message translates to:
+  /// **'Finished'**
+  String get medFinished;
+
+  /// Medicines (R11.6).
+  ///
+  /// In en, this message translates to:
+  /// **'Today'**
+  String get medToday;
+
+  /// Medicines (R11.6).
+  ///
+  /// In en, this message translates to:
+  /// **'When needed'**
+  String get medAsNeeded;
+
+  /// Medicines (R11.6).
+  ///
+  /// In en, this message translates to:
+  /// **'I took one'**
+  String get medLogDose;
+
+  /// Medicines (R11.6).
+  ///
+  /// In en, this message translates to:
+  /// **'Taken {time}'**
+  String medTakenAt(String time);
+
+  /// Medicines (R11.6).
+  ///
+  /// In en, this message translates to:
+  /// **'Taken {time}, later than planned'**
+  String medTakenLater(String time);
+
+  /// Medicines (R11.6).
+  ///
+  /// In en, this message translates to:
+  /// **'Not taken'**
+  String get medSkippedAt;
+
+  /// Medicines (R11.6).
+  ///
+  /// In en, this message translates to:
+  /// **'Not marked'**
+  String get medNotMarked;
+
+  /// Medicines (R11.6).
+  ///
+  /// In en, this message translates to:
+  /// **'Taken now'**
+  String get medMarkTaken;
+
+  /// Medicines (R11.6).
+  ///
+  /// In en, this message translates to:
+  /// **'Taken at another time'**
+  String get medMarkTakenAt;
+
+  /// Medicines (R11.6).
+  ///
+  /// In en, this message translates to:
+  /// **'Not taken'**
+  String get medMarkSkipped;
+
+  /// Medicines (R11.6).
+  ///
+  /// In en, this message translates to:
+  /// **'Clear the mark'**
+  String get medMarkClear;
+
+  /// Medicines (R11.6).
+  ///
+  /// In en, this message translates to:
+  /// **'{name} at {time}'**
+  String medDoseTitle(String name, String time);
+
+  /// Medicines (R11.6).
+  ///
+  /// In en, this message translates to:
+  /// **'Times you take it'**
+  String get medTimes;
+
+  /// Medicines (R11.6).
+  ///
+  /// In en, this message translates to:
+  /// **'No set times. You can still mark a dose when you take one.'**
+  String get medTimesNone;
+
+  /// Medicines (R11.6).
+  ///
+  /// In en, this message translates to:
+  /// **'Add a time'**
+  String get medAddTime;
+
+  /// Medicines (R11.6).
+  ///
+  /// In en, this message translates to:
+  /// **'Remove {time}'**
+  String medRemoveTime(String time);
+
+  /// Medicines (R11.6).
+  ///
+  /// In en, this message translates to:
+  /// **'Remind me at these times'**
+  String get medRemind;
+
+  /// Medicines (R11.6).
+  ///
+  /// In en, this message translates to:
+  /// **'A notification at each time, and one the day before your refill day. It says \"Open the app\" unless you write your own words below.'**
+  String get medRemindNote;
+
+  /// Medicines (R11.6).
+  ///
+  /// In en, this message translates to:
+  /// **'Words on the reminder (optional)'**
+  String get medLabel;
+
+  /// Medicines (R11.6).
+  ///
+  /// In en, this message translates to:
+  /// **'These words show on your notification. Keep them vague if others see your phone.'**
+  String get medLabelNote;
+
+  /// Medicines (R11.6).
+  ///
+  /// In en, this message translates to:
+  /// **'Refill by'**
+  String get medRefill;
+
+  /// Medicines (R11.6).
+  ///
+  /// In en, this message translates to:
+  /// **'Not set'**
+  String get medRefillNone;
+
+  /// Medicines (R11.6).
+  ///
+  /// In en, this message translates to:
+  /// **'Clear the refill day'**
+  String get medRefillClear;
+
+  /// Medicines (R11.6).
+  ///
+  /// In en, this message translates to:
+  /// **'Refill by {date}'**
+  String medRefillSoon(String date);
+
+  /// Medicines (R11.6).
+  ///
+  /// In en, this message translates to:
+  /// **'Last 14 days'**
+  String get medHistory;
+
+  /// Medicines (R11.6).
+  ///
+  /// In en, this message translates to:
+  /// **'Nothing marked yet.'**
+  String get medHistoryEmpty;
+
+  /// Medicines (R11.6).
+  ///
+  /// In en, this message translates to:
+  /// **'Edit details'**
+  String get medEdit;
+
+  /// Medicines (R11.6).
+  ///
+  /// In en, this message translates to:
+  /// **'femio is not a way to avoid pregnancy, so it keeps no times, marks or reminders for this medicine. It stays in your record as you wrote it.'**
+  String get medBlocked;
+
+  /// Medicines (R11.6).
+  ///
+  /// In en, this message translates to:
+  /// **'Since {date}'**
+  String medSince(String date);
+
+  /// Medicines (R11.6).
+  ///
+  /// In en, this message translates to:
+  /// **'Until {date}'**
+  String medUntil(String date);
+
+  /// Medicines (R11.6).
+  ///
+  /// In en, this message translates to:
+  /// **'Ended {date}'**
+  String medEnded(String date);
+
+  /// Medicines (R11.6).
+  ///
+  /// In en, this message translates to:
+  /// **'femio keeps what you write. It gives no dose, catch-up or interaction advice: ask your pharmacist or doctor.'**
+  String get medNoAdviceNote;
+
+  /// Medicines (R11.6).
+  ///
+  /// In en, this message translates to:
+  /// **'{count, plural, =0{All marked for today} =1{1 dose to mark today} other{{count} doses to mark today}}'**
+  String medTodayCount(int count);
+
+  /// Medicines (R11.6).
+  ///
+  /// In en, this message translates to:
+  /// **'At the times you set on each medicine, and the day before a refill.'**
+  String get reminderMedicineNote;
 }
 
 class _L10nDelegate extends LocalizationsDelegate<L10n> {

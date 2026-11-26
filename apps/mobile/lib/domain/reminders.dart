@@ -15,26 +15,33 @@ library;
 import '../data/profile.dart';
 import 'cycle_prediction.dart';
 import 'dates.dart';
+import 'health_record.dart';
+import 'medicines.dart';
 
-/// What a planned notification is for. The text is the same for all (see the scheduler).
-enum ReminderKind { log, period, appointment }
+/// What a planned notification is for. The text is the same neutral line for all, except a
+/// medicine or refill reminder she gave her own words (see the scheduler).
+enum ReminderKind { log, period, appointment, medicine, refill }
 
 /// One notification to show at a local wall-clock moment.
 class PlannedReminder {
-  const PlannedReminder(this.kind, this.at);
+  const PlannedReminder(this.kind, this.at, {this.label = ''});
   final ReminderKind kind;
 
   /// Local date and time, as the phone's clock will read it.
   final DateTime at;
 
-  @override
-  bool operator ==(Object other) => other is PlannedReminder && other.kind == kind && other.at == at;
+  /// Her own words for this notification (a medicine's label); empty means the neutral text.
+  final String label;
 
   @override
-  int get hashCode => Object.hash(kind, at);
+  bool operator ==(Object other) =>
+      other is PlannedReminder && other.kind == kind && other.at == at && other.label == label;
 
   @override
-  String toString() => '${kind.name}@$at';
+  int get hashCode => Object.hash(kind, at, label);
+
+  @override
+  String toString() => '${kind.name}@$at${label.isEmpty ? '' : ' "$label"'}';
 }
 
 /// How many days ahead daily reminders are scheduled. The plan is rebuilt whenever she
@@ -51,6 +58,17 @@ const appointmentReminderMinutes = 9 * 60;
 /// At most this many appointment reminders are pending at once (a bound, not a promise
 /// about how many appointments she can save).
 const maxAppointmentReminders = 20;
+
+/// How many days ahead medicine reminders are scheduled. Rebuilt on every open and save, so
+/// a mark she makes today removes that dose's reminder at once.
+const medicineReminderHorizonDays = 7;
+
+/// At most this many medicine and refill reminders are pending at once, soonest first (with
+/// the log reminders this stays far below Android's alarm limits).
+const maxMedicineReminders = 150;
+
+/// The refill reminder fires at 09:00 local on the day before her refill day.
+const refillReminderMinutes = 9 * 60;
 
 /// Notifications to schedule for [profile], from [now] (local time) onward.
 ///
@@ -70,6 +88,12 @@ const maxAppointmentReminders = 20;
 /// Appointment reminder: one per saved appointment that has a date, 09:00 the day before,
 /// only while that moment and the appointment are still ahead (at most
 /// [maxAppointmentReminders], one per moment).
+///
+/// Medicine reminders (R11.6), only when the medicine switch is on: for each medicine whose
+/// own reminder is on and that is not a contraceptive ([scheduleBlocked]), one per planned
+/// time on each of the next [medicineReminderHorizonDays] days she takes it ([takenOn]),
+/// skipping a moment already past and a dose she already marked; plus one 09:00 the day
+/// before her refill day. Each carries her label. At most [maxMedicineReminders], soonest first.
 List<PlannedReminder> planReminders(Profile profile, {required DateTime now}) {
   final settings = profile.settings;
   if (!settings.hasNotificationConsent) return const [];
@@ -106,7 +130,33 @@ List<PlannedReminder> planReminders(Profile profile, {required DateTime now}) {
       plan.add(PlannedReminder(ReminderKind.appointment, at));
     }
   }
+
+  if (settings.medicineReminder) plan.addAll(_medicineReminders(profile, now, today));
   return plan;
+}
+
+List<PlannedReminder> _medicineReminders(Profile profile, DateTime now, String today) {
+  final out = <PlannedReminder>[];
+  for (final entry in profile.record) {
+    if (entry.kind != RecordKind.medicine || scheduleBlocked(entry)) continue;
+    final plan = planFor(profile.medicinePlans, entry.id);
+    if (!plan.remind) continue;
+    for (var n = 0; n < medicineReminderHorizonDays; n++) {
+      final day = addDays(today, n);
+      if (!takenOn(entry, day)) continue;
+      for (final slot in slotsOn(plan, profile.doses, day)) {
+        final at = _at(day, slot.minutes);
+        if (slot.mark == null && at.isAfter(now)) out.add(PlannedReminder(ReminderKind.medicine, at, label: plan.label));
+      }
+    }
+    final refill = plan.refillOn;
+    if (refill != null && !finished(entry, today)) {
+      final at = _at(addDays(refill, -1), refillReminderMinutes);
+      if (at.isAfter(now)) out.add(PlannedReminder(ReminderKind.refill, at, label: plan.label));
+    }
+  }
+  out.sort((a, b) => a.at.compareTo(b.at));
+  return out.take(maxMedicineReminders).toList();
 }
 
 DateTime _at(String iso, int minutes) {

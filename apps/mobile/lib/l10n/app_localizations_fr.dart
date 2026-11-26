@@ -1134,7 +1134,7 @@ class L10nFr extends L10n {
 
   @override
   String get remindersPrivacyNote =>
-      'Un rappel dit seulement « femio : Ouvrez l\'application ». Rien sur votre santé n\'apparaît sur l\'écran verrouillé.';
+      'Un rappel dit seulement « femio : Ouvrez l\'application », sauf si vous écrivez vos propres mots pour un rappel de médicament. Rien d\'autre sur votre santé n\'apparaît sur l\'écran verrouillé.';
 
   @override
   String get remindersTimingNote =>
@@ -1174,7 +1174,7 @@ class L10nFr extends L10n {
 
   @override
   String get notifConsentNeutral =>
-      'Chaque notification dit seulement « femio » et « Ouvrez l\'application ». Aucun mot sur votre santé n\'apparaît sur votre écran de verrouillage.';
+      'Chaque notification dit seulement « femio » et « Ouvrez l\'application », sauf si vous écrivez vos propres mots pour un rappel de médicament. Aucun autre mot sur votre santé n\'apparaît sur votre écran de verrouillage.';
 
   @override
   String get notifConsentLocal =>
@@ -3609,4 +3609,160 @@ class L10nFr extends L10n {
   String recDocSizeKb(String size) {
     return '$size Ko';
   }
+
+  @override
+  String get medTitle => 'Mes médicaments';
+
+  @override
+  String get medIntro =>
+      'Vos médicaments tels que vous les avez écrits, les heures où vous les prenez et ce que vous avez noté. femio ne donne aucun conseil de dose et ne vérifie pas les interactions : demandez à votre pharmacien ou à votre médecin.';
+
+  @override
+  String get medAdd => 'Ajouter un médicament';
+
+  @override
+  String get medEmptyHeading => 'Aucun médicament pour l\'instant';
+
+  @override
+  String get medEmptyBody =>
+      'Ajoutez-en un depuis une ordonnance ou une boîte. Vous choisissez les heures ; femio peut vous le rappeler.';
+
+  @override
+  String get medCurrent => 'En cours';
+
+  @override
+  String get medFinished => 'Terminés';
+
+  @override
+  String get medToday => 'Aujourd\'hui';
+
+  @override
+  String get medAsNeeded => 'Au besoin';
+
+  @override
+  String get medLogDose => 'J\'en ai pris un';
+
+  @override
+  String medTakenAt(String time) {
+    return 'Pris à $time';
+  }
+
+  @override
+  String medTakenLater(String time) {
+    return 'Pris à $time, plus tard que prévu';
+  }
+
+  @override
+  String get medSkippedAt => 'Non pris';
+
+  @override
+  String get medNotMarked => 'Non noté';
+
+  @override
+  String get medMarkTaken => 'Pris maintenant';
+
+  @override
+  String get medMarkTakenAt => 'Pris à une autre heure';
+
+  @override
+  String get medMarkSkipped => 'Pas pris';
+
+  @override
+  String get medMarkClear => 'Effacer la note';
+
+  @override
+  String medDoseTitle(String name, String time) {
+    return '$name à $time';
+  }
+
+  @override
+  String get medTimes => 'Heures de prise';
+
+  @override
+  String get medTimesNone =>
+      'Pas d\'heures fixes. Vous pouvez quand même noter une prise quand vous en prenez une.';
+
+  @override
+  String get medAddTime => 'Ajouter une heure';
+
+  @override
+  String medRemoveTime(String time) {
+    return 'Retirer $time';
+  }
+
+  @override
+  String get medRemind => 'Me le rappeler à ces heures';
+
+  @override
+  String get medRemindNote =>
+      'Une notification à chaque heure, et une la veille du jour de renouvellement. Elle dit « Ouvrez l\'application », sauf si vous écrivez vos propres mots ci-dessous.';
+
+  @override
+  String get medLabel => 'Mots du rappel (facultatif)';
+
+  @override
+  String get medLabelNote =>
+      'Ces mots s\'affichent dans la notification. Restez vague si d\'autres voient votre téléphone.';
+
+  @override
+  String get medRefill => 'À renouveler avant le';
+
+  @override
+  String get medRefillNone => 'Non défini';
+
+  @override
+  String get medRefillClear => 'Effacer la date de renouvellement';
+
+  @override
+  String medRefillSoon(String date) {
+    return 'À renouveler avant le $date';
+  }
+
+  @override
+  String get medHistory => '14 derniers jours';
+
+  @override
+  String get medHistoryEmpty => 'Rien de noté pour l\'instant.';
+
+  @override
+  String get medEdit => 'Modifier les détails';
+
+  @override
+  String get medBlocked =>
+      'femio n\'est pas un moyen d\'éviter une grossesse : il ne garde ni heures, ni notes, ni rappels pour ce médicament. Il reste dans votre dossier tel que vous l\'avez écrit.';
+
+  @override
+  String medSince(String date) {
+    return 'Depuis le $date';
+  }
+
+  @override
+  String medUntil(String date) {
+    return 'Jusqu\'au $date';
+  }
+
+  @override
+  String medEnded(String date) {
+    return 'Terminé le $date';
+  }
+
+  @override
+  String get medNoAdviceNote =>
+      'femio garde ce que vous écrivez. Il ne donne aucun conseil de dose, de rattrapage ou d\'interaction : demandez à votre pharmacien ou à votre médecin.';
+
+  @override
+  String medTodayCount(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count prises à noter aujourd\'hui',
+      one: '1 prise à noter aujourd\'hui',
+      zero: 'Tout est noté pour aujourd\'hui',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get reminderMedicineNote =>
+      'Aux heures fixées pour chaque médicament, et la veille d\'un renouvellement.';
 }

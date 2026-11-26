@@ -379,6 +379,14 @@ const _birthControlPhrases = [
   'pildora del dia despues',
 ];
 
+/// Whether [text] speaks of birth control in any of the four languages (the same phrases the
+/// assistant refuses on). Used beyond the assistant, for example to keep a contraceptive
+/// out of the medicine schedule (R11.6).
+bool mentionsBirthControl(String text) {
+  final w = words(text);
+  return w.isNotEmpty && _birthControlPhrases.any((p) => findPhrase(w, words(p)) >= 0);
+}
+
 /// Checks [text] against the safety rules. Crisis wins over urgent, urgent over heavy bleeding,
 /// heavy bleeding over a pregnancy or after-birth sign, any danger sign over a birth-control
 /// question. Pregnancy signs count only when [pregnant] is true (outside pregnancy "bleeding"

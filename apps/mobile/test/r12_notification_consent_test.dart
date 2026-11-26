@@ -146,12 +146,13 @@ void main() {
   });
 
   group('kinds', () {
-    test('the medicine reminder and the weekly digest are not built and are never on', () {
-      expect({for (final k in NotificationKind.values) if (!k.available) k}, {NotificationKind.medicine, NotificationKind.digest});
-      const all = AppSettings(logReminder: true, periodReminder: true, appointmentReminder: true);
-      expect(NotificationKind.medicine.isOn(all), isFalse);
+    test('the weekly digest is not built and is never on; the medicine reminder is built (R11.6)', () {
+      expect({for (final k in NotificationKind.values) if (!k.available) k}, {NotificationKind.digest});
+      const all = AppSettings(logReminder: true, periodReminder: true, appointmentReminder: true, medicineReminder: true);
+      expect(NotificationKind.medicine.isOn(all), isTrue);
       expect(NotificationKind.digest.isOn(all), isFalse);
-      expect(const NotificationChoice().toggled(NotificationKind.medicine, true).any, isFalse);
+      expect(const NotificationChoice().toggled(NotificationKind.medicine, true).any, isTrue);
+      expect(const NotificationChoice().toggled(NotificationKind.digest, true).any, isFalse);
     });
   });
 

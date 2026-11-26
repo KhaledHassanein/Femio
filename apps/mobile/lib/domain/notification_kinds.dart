@@ -16,7 +16,7 @@ enum NotificationKind {
   /// One notification the day before her expected window opens (R4.4).
   period,
 
-  /// A medicine reminder. Not built: it waits for the medicines record (R11.6).
+  /// Reminders at the times she set for a medicine, and before its refill day (R11.6).
   medicine,
 
   /// One notification the day before an appointment she saved (R12.1).
@@ -32,8 +32,9 @@ extension NotificationKindInfo on NotificationKind {
   bool get available => switch (this) {
     NotificationKind.log ||
     NotificationKind.period ||
-    NotificationKind.appointment => true,
-    NotificationKind.medicine || NotificationKind.digest => false,
+    NotificationKind.appointment ||
+    NotificationKind.medicine => true,
+    NotificationKind.digest => false,
   };
 
   /// Whether this kind is switched on in [settings]. A kind that is not built is never on.
@@ -41,7 +42,8 @@ extension NotificationKindInfo on NotificationKind {
     NotificationKind.log => settings.logReminder,
     NotificationKind.period => settings.periodReminder,
     NotificationKind.appointment => settings.appointmentReminder,
-    NotificationKind.medicine || NotificationKind.digest => false,
+    NotificationKind.medicine => settings.medicineReminder,
+    NotificationKind.digest => false,
   };
 }
 
@@ -51,6 +53,7 @@ class NotificationChoice {
     this.log = false,
     this.period = false,
     this.appointment = false,
+    this.medicine = false,
   });
 
   /// A choice with only [kind] on (what Settings passes when she turns that one switch on).
@@ -59,21 +62,24 @@ class NotificationChoice {
     log: kind == NotificationKind.log,
     period: kind == NotificationKind.period,
     appointment: kind == NotificationKind.appointment,
+    medicine: kind == NotificationKind.medicine,
   );
 
   final bool log;
   final bool period;
   final bool appointment;
+  final bool medicine;
 
   /// Whether at least one kind is ticked; consent needs something to consent to.
-  bool get any => log || period || appointment;
+  bool get any => log || period || appointment || medicine;
 
   /// Whether [kind] is ticked.
   bool has(NotificationKind kind) => switch (kind) {
     NotificationKind.log => log,
     NotificationKind.period => period,
     NotificationKind.appointment => appointment,
-    NotificationKind.medicine || NotificationKind.digest => false,
+    NotificationKind.medicine => medicine,
+    NotificationKind.digest => false,
   };
 
   /// This choice with [kind] set to [on]. A kind that is not built is left alone.
@@ -82,6 +88,7 @@ class NotificationChoice {
         log: kind == NotificationKind.log ? on : log,
         period: kind == NotificationKind.period ? on : period,
         appointment: kind == NotificationKind.appointment ? on : appointment,
+        medicine: kind == NotificationKind.medicine ? on : medicine,
       );
 }
 
