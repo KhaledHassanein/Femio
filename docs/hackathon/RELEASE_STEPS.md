@@ -74,14 +74,55 @@ Deadline: 30 Nov 2026, 2:00 PM PT (midnight Cairo, 1 Dec). Commits pushed after 
    ```sh
    gh release create v1.0.0-hackathon /e/femio-hackathon.apk -R KhaledHassanein/femio-app \
      --title "femio 1.0.0 for #BuildHybridAI" \
-     --notes "Android 8.0 or later, 64-bit. Install: allow your browser to install unknown apps, open the APK, and if Play Protect warns, choose More details, then Install anyway. SHA-256: <paste>. Cloud boost uses Firebase App Check with Play Integrity; on an APK installed outside Google Play it is expected to be refused, and Ask femio then shows its sources word for word."
+     --notes "Android 8.0 or later, 64-bit. Install: allow your browser to install unknown apps, open the APK, and if Play Protect warns, choose More details, then Install anyway. SHA-256: <paste>. Cloud boost uses Firebase App Check with Play Integrity and needs a real phone with Google Play services (not rooted, not an emulator). If the check fails, Ask femio shows its sources word for word."
    ```
 6. Copy these two links into `DEVPOST_SUBMISSION.md` ("Try it out") and the Devpost form:
    - release page: https://github.com/KhaledHassanein/femio-app/releases/tag/v1.0.0-hackathon
    - direct download: https://github.com/KhaledHassanein/femio-app/releases/download/v1.0.0-hackathon/femio-hackathon.apk
 
+## C · App Check while judges test (row 42: enforcement stays on; about 10 minutes)
+
+Decided under the owner's delegation of 27 Nov: Firebase AI Logic keeps App Check enforcement
+**on**. Firebase's Play Integrity page
+(https://firebase.google.com/docs/app-check/android/play-integrity-provider, read 2026-11-27)
+says the provider supports apps published outside Google Play, but by default App Check asks for
+the `PLAY_RECOGNIZED` label, which an app not on Google Play cannot get. So a judge's sideloaded
+copy is refused **unless** the verdict settings are changed to Firebase's row for an app
+distributed only outside Google Play. Do this before you publish the release:
+
+1. Firebase console → Project settings → the Android app → **Add fingerprint**: paste the
+   SHA-256 of your upload key (from step B2, `apksigner verify --print-certs`, the
+   "SHA-256 digest" line). Without it Play Integrity cannot match the release APK.
+2. Firebase console → App Check → Apps → the Android app → **Play Integrity** → its settings.
+   Set the verdict requirements to Firebase's "Exclusively outside Google Play" row:
+   - app recognition (`PLAY_RECOGNIZED`): **not required**;
+   - licensing (`LICENSED`): **not required**;
+   - minimum device integrity: **Device integrity** (a real, unrooted Android phone with Google
+     Play services).
+   The exact labels in the console may differ from these words (not verified).
+3. App Check → APIs → **Firebase AI Logic**: leave it **Enforced**.
+4. Test on a second phone that never had the debug build: install the GitHub APK (step B4),
+   Settings → Assistant → Cloud boost → agree to General questions, then ask "What helps with
+   period cramps?" in Ask femio and tap "Summarise with Cloud boost". Then open Settings →
+   Assistant → "What the AI did" and check the cloud entry.
+5. When femio goes live on Google Play (after judging), add the Play app signing key's SHA-256
+   too and switch to the row "On Google Play and outside Google Play" (`PLAY_RECOGNIZED`
+   required): sideloaded copies are then refused again, which is the safer default.
+
+**What a judge sees** on the sideloaded release APK:
+- On a real phone with Google Play services, with the settings above: Cloud boost is expected to
+  return a summary (not verified until step 4 passes).
+- If the settings are left at the default, or the phone fails device integrity (rooted, custom
+  ROM, an emulator without Google Play): Firebase refuses the call. Ask femio then shows the
+  trusted passages word for word with the line "No on-phone or Cloud boost summary was available
+  this time, so here are the trusted passages word for word." Nothing from her record was sent;
+  Say it, Ask femio, Gemini Nano, tips and the safety rules all keep working.
+- Gemini Nano runs on the phone and never needs App Check.
+
 ## Not verified
 
-- That the release APK's Cloud boost is refused when sideloaded (Play Integrity), and what the
-  screen says then. Check it on a second phone in step B4.
+- That the sideloaded release APK passes App Check once the section C settings are saved, and
+  what the screen and the "What the AI did" ledger show when it does not. Check both on a second
+  phone in step C4.
+- The console labels in section C, which follow Firebase's documentation, not a screenshot.
 - That the CI workflow passes on GitHub's Linux runners; it passed locally on Windows only.

@@ -13,8 +13,8 @@ YouTube and show the app working on Android.
   to conceive for 6 to 12 months, with a few days of cramps and tiredness logged.
 - **Phone B (no Nano, or the emulator):** the **debug** build with `assistant.env`, its App Check
   debug token registered in the Firebase console (OWNER_ACTIONS row 25), Cloud boost not yet agreed.
-  A release APK installed outside Google Play is expected to fail Play Integrity, so do not use it
-  for the cloud shot.
+  Use the debug build for the cloud shot: the release APK's Play Integrity path is set up in
+  `RELEASE_STEPS.md` section C but has not been tested on a phone yet.
 - Record each phone with Android's Screen record (quick settings). Use only real captures: no
   synthetic test render anywhere in the video (UX-10).
 - Device-test the two sentences below on Phone A first. Checked on 2026-11-27 against femio's

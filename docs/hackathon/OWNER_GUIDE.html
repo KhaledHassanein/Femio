@@ -318,8 +318,10 @@ adb install -r build/app/outputs/flutter-apk/app-debug.apk</code></pre>
   </div>
 
   <div class="step"><h3><span class="n">!</span>Decided: enforcement stays on (24 Nov)</h3>
-    <div class="row"><div class="lbl">Know</div><div><span class="badge">not verified</span> A judge who installs your APK file (not from Google Play) cannot pass Play Integrity, and their phone's debug token is not in your list. With enforcement <b>on</b>, Cloud boost will fail on their phone; Ask femio from the trusted sources, Gemini Nano, tips, visit summary and the safety rules still work. With enforcement <b>off</b> during judging, their Cloud boost may work, but anyone who copies the key could spend your quota up to the budget alert.</div></div>
-    <div class="row"><div class="lbl">Recommended</div><div>Keep enforcement <b>on</b> and keep the Devpost testing text as it is: it says the cloud path needs Cloud boost on a phone without Nano. You chose this on 24 November; the Devpost testing text already says it.</div></div>
+    <div class="row"><div class="lbl">Know</div><div>By default App Check wants the "recognised by Google Play" label, which an APK from GitHub cannot get, so a judge's Cloud boost would be refused. Firebase lets an app sold outside Google Play turn that requirement off and check only that the phone is genuine (Firebase's Play Integrity page, read 27 Nov).</div></div>
+    <div class="row"><div class="lbl">Do</div><div>Before you publish the GitHub Release: Project settings &rarr; Android app &rarr; add your upload key's SHA-256. Then App Check &rarr; Apps &rarr; Android app &rarr; Play Integrity settings: app recognition <b>not required</b>, licensing <b>not required</b>, minimum device integrity <b>Device integrity</b>. Leave Firebase AI Logic <b>Enforced</b>. Full steps: <code>docs/hackathon/RELEASE_STEPS.md</code> section C.</div></div>
+    <div class="row see"><div class="lbl">You should see</div><div><span class="badge">not verified</span> On a second phone with the GitHub APK, Cloud boost returns a summary and "What the AI did" lists the cloud call. If it is refused, Ask femio shows the trusted passages word for word; nothing from her record was sent.</div></div>
+    <div class="row"><div class="lbl">Later</div><div>When femio is live on Google Play, add the Play signing key's SHA-256 and require "recognised by Google Play" again, so copied APKs are refused.</div></div>
   </div>
 </section>
 
@@ -385,7 +387,7 @@ Build in the checkout that holds both <code>apps/mobile/assistant.env</code> and
 <pre><code>adb install -r build/app/outputs/flutter-apk/app-release.apk</code></pre>
 Repeat the quick checks from section 8, especially Ask femio and Cloud boost.</div></div>
     <div class="row see"><div class="lbl">You should see</div><div>The same behaviour as the debug build.</div></div>
-    <div class="row fail"><div class="lbl">If it fails</div><div>If install says the signatures differ, uninstall the debug app first (this deletes its test data), then install. <span class="badge">not verified</span> With App Check enforcement on (your choice, row 42), a release APK installed outside Google Play is expected to fail Play Integrity, so Cloud boost is refused for judges who sideload it; Say it, Ask femio, Nano and the rules do not depend on it. The Devpost testing steps already say so, and the video shows a real cloud run from the debug build.</div></div>
+    <div class="row fail"><div class="lbl">If it fails</div><div>If install says the signatures differ, uninstall the debug app first (this deletes its test data), then install. <span class="badge">not verified</span> If Cloud boost is refused on this release APK, check the Play Integrity settings in section 6 (app recognition not required, your upload key's SHA-256 added). Say it, Ask femio, Nano and the rules do not depend on it, and the video shows a real cloud run from the debug build.</div></div>
   </div>
 </section>
 
