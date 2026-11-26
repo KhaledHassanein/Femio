@@ -3982,4 +3982,38 @@ class L10nEn extends L10n {
 
   @override
   String get visitMedicines => 'Medicines I take now';
+
+  @override
+  String get gapNoPeriodBody =>
+      'When your period starts, tap that day on the calendar to log it. femio then shows when the next ones may come.';
+
+  @override
+  String get gapNeedLengthBody =>
+      'You chose “Not sure” for your cycle length, so femio has nothing to count from yet. Add your usual length, or log your next period and femio will learn it from your dates.';
+
+  @override
+  String get gapNeedAnotherBody =>
+      'You said your cycles vary, or the gaps you logged are too long to count as cycles. When your next period starts, log it and femio will show a range from your own dates.';
+
+  @override
+  String get gapPassedTitle => 'The range femio showed has passed';
+
+  @override
+  String get gapPassedBody =>
+      'If your period has started, log it and femio will show the next ones. If it has not come and you could be pregnant, a pregnancy test can tell you.';
+
+  @override
+  String get gapAddLength => 'Add my usual cycle length';
+
+  @override
+  String get gapSaveLength => 'Save';
+
+  @override
+  String get upcomingPeriodsOnlyNextStated =>
+      'Only the next period is shown because you said your cycles are irregular.';
+
+  @override
+  String calendarNextPeriodLink(String range) {
+    return 'Next period: $range';
+  }
 }

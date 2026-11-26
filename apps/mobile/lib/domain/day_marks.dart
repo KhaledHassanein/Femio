@@ -3,7 +3,7 @@ import '../data/profile.dart';
 import 'cycle_prediction.dart';
 import 'dates.dart';
 import 'fertility.dart';
-import 'upcoming_periods.dart';
+import 'forecast.dart';
 
 /// What a calendar day shows. Logged facts (bleed, spotting, something logged) and
 /// estimates (predicted period, fertile window) are separate fields so the calendar
@@ -83,8 +83,8 @@ Map<String, DayMark> dayMarks(
       }
 
       // The next periods (MR-51, MR-57): widening ranges, only the first when irregular
-      // or still being learned from her logs.
-      for (final u in upcomingPeriods(prediction)) {
+      // (her answer or her logs) or still being learned from her logs.
+      for (final u in upcomingFor(p, prediction)) {
         range(u.windowStart, u.windowEnd, today, (m) {
           m.predicted = true;
           if (u.confidence == Confidence.low) m.possible = true;

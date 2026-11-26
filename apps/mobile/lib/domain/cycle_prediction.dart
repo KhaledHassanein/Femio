@@ -73,6 +73,16 @@ class CyclePrediction {
 }
 
 const _statedMarginDays = 4;
+
+/// MR-03: the stated cycle lengths that earn a period range. 36-45 gets a low-confidence
+/// range; the fertile window stays withheld outside 21-35 (MR-08). Onboarding's stepper
+/// offers exactly this span.
+const statedCycleMinDays = 21;
+const statedCycleMaxDays = 45;
+
+/// MR-57 (owner 2026-11-26): her stated length stands in until she has logged this many
+/// starts, so logging a second period never makes the calendar show less.
+const statedUntilStarts = 3;
 const _sameBleedWithinDays = 10;
 const _recentCycles = 6;
 const _maxPlausibleCycleDays = 90;
@@ -125,13 +135,14 @@ CyclePrediction? predictNextPeriod(List<String> starts, [int? statedCycleLength]
   final sorted = bleedStarts(starts);
   if (sorted.isEmpty) return null;
 
-  final stated = statedCycleLength != null && statedCycleLength >= 21 && statedCycleLength <= 35
+  final stated = statedCycleLength != null &&
+          statedCycleLength >= statedCycleMinDays &&
+          statedCycleLength <= statedCycleMaxDays
       ? statedCycleLength
       : null;
 
-  if (sorted.length < 2) {
-    return stated == null ? null : _fromStated(sorted.first, stated);
-  }
+  if (sorted.length == 1 && stated == null) return null;
+  if (sorted.length < statedUntilStarts && stated != null) return _fromStated(sorted.last, stated);
 
   final lengths = <int>[
     for (var i = 1; i < sorted.length; i++) diffDays(sorted[i - 1], sorted[i]),

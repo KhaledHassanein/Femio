@@ -18,15 +18,18 @@ import '../today/hero_card.dart' show IsoRangeFormatter;
 
 /// Lists [periods] (from `upcomingPeriods`) with a ring that matches the calendar:
 /// solid for likely, dashed for possible (low confidence). [range] formats two ISO
-/// days in her language. Says why only one period is shown when that is the case.
+/// days in her language. [footnote] says why the list is as long as it is (wider ranges,
+/// or why only one), or nothing when ranges already past were left out.
 class UpcomingPeriodsCard extends StatelessWidget {
   const UpcomingPeriodsCard({
     super.key,
     required this.periods,
     required this.range,
+    this.footnote,
   });
   final List<UpcomingPeriod> periods;
   final IsoRangeFormatter range;
+  final String? footnote;
 
   @override
   Widget build(BuildContext context) {
@@ -86,13 +89,10 @@ class UpcomingPeriodsCard extends StatelessWidget {
                 ],
               ),
             ),
-          const SizedBox(height: space2),
-          Text(
-            periods.length > 1
-                ? l.upcomingPeriodsWider
-                : l.upcomingPeriodsOnlyNext,
-            style: t.bodySmall?.copyWith(color: p.textSubtle),
-          ),
+          if (footnote case final note?) ...[
+            const SizedBox(height: space2),
+            Text(note, style: t.bodySmall?.copyWith(color: p.textSubtle)),
+          ],
         ],
       ),
     );

@@ -122,6 +122,65 @@
       },
       "expected": [],
       "note": "nothing to predict from"
+    },
+    {
+      "input": {
+        "starts": [
+          "2026-10-01",
+          "2026-10-29"
+        ],
+        "statedCycleLength": 30
+      },
+      "expected": [
+        {
+          "predictedStart": "2026-11-28",
+          "windowStart": "2026-11-24",
+          "windowEnd": "2026-12-02",
+          "confidence": "low"
+        },
+        {
+          "predictedStart": "2026-12-28",
+          "windowStart": "2026-12-22",
+          "windowEnd": "2027-01-03",
+          "confidence": "low"
+        },
+        {
+          "predictedStart": "2027-01-27",
+          "windowStart": "2027-01-20",
+          "windowEnd": "2027-02-03",
+          "confidence": "low"
+        }
+      ],
+      "note": "two starts and a stated length: still three periods from her latest start, all low (MR-57, owner 2026-11-26)"
+    },
+    {
+      "input": {
+        "starts": [
+          "2026-10-01"
+        ],
+        "statedCycleLength": 40
+      },
+      "expected": [
+        {
+          "predictedStart": "2026-11-10",
+          "windowStart": "2026-11-06",
+          "windowEnd": "2026-11-14",
+          "confidence": "low"
+        },
+        {
+          "predictedStart": "2026-12-20",
+          "windowStart": "2026-12-14",
+          "windowEnd": "2026-12-26",
+          "confidence": "low"
+        },
+        {
+          "predictedStart": "2027-01-29",
+          "windowStart": "2027-01-22",
+          "windowEnd": "2027-02-05",
+          "confidence": "low"
+        }
+      ],
+      "note": "a stated 40-day cycle: three low-confidence periods (MR-03)"
     }
   ]
 }

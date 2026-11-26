@@ -32,6 +32,7 @@ import '../../domain/perimenopause.dart';
 import 'postpartum_cards.dart';
 import 'pregnancy_tools.dart';
 import 'tips_card.dart';
+import '../calendar/forecast_gap.dart' show showCycleLengthSheet;
 import 'today_hero.dart';
 
 /// Today, v0: her first prediction, the moment onboarding ends (spec §3 step 5), and
@@ -128,7 +129,13 @@ class TodayScreen extends StatelessWidget {
               ),
               const SizedBox(height: space2),
             ],
-            TodayHero(profile: profile, today: now, range: range, date: date),
+            TodayHero(
+              profile: profile,
+              today: now,
+              range: range,
+              date: date,
+              onAddLength: () => showCycleLengthSheet(context, controller),
+            ),
             if (profile.goal == Goal.pregnant && profile.birthDate == null) ...[
               const SizedBox(height: space3),
               Text(l.pregEstimateNote, style: t.bodySmall),

@@ -1099,5 +1099,14 @@
   "menoBleedLogNote": "Cualquier sangrado tras 12 meses sin regla siempre debe revisarlo un médico, aunque sea una vez.",
   "menoBleedMore": "El sangrado después de la menopausia",
   "patMonthly": "Días registrados cada mes",
-  "visitMedicines": "Medicamentos que tomo ahora"
+  "visitMedicines": "Medicamentos que tomo ahora",
+  "gapNoPeriodBody": "Cuando empiece tu regla, toca ese día en el calendario para registrarlo. Después, femio muestra cuándo podrían llegar las siguientes.",
+  "gapNeedLengthBody": "Elegiste «No estoy segura» para la duración de tu ciclo, así que femio todavía no tiene desde dónde contar. Añade tu duración habitual o registra tu próxima regla y femio la aprenderá de tus fechas.",
+  "gapNeedAnotherBody": "Dijiste que tus ciclos varían, o los intervalos que registraste son demasiado largos para ser ciclos. Cuando empiece tu próxima regla, regístrala y femio mostrará un rango a partir de tus propias fechas.",
+  "gapPassedTitle": "El rango que mostró femio ya pasó",
+  "gapPassedBody": "Si tu regla ya empezó, regístrala y femio mostrará las siguientes. Si no ha llegado y podrías estar embarazada, una prueba de embarazo te lo puede decir.",
+  "gapAddLength": "Añadir la duración habitual de mi ciclo",
+  "gapSaveLength": "Guardar",
+  "upcomingPeriodsOnlyNextStated": "Solo se muestra la próxima regla porque dijiste que tus ciclos son irregulares.",
+  "calendarNextPeriodLink": "Próxima regla: {range}"
 }

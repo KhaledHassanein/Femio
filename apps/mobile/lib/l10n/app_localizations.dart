@@ -6454,6 +6454,60 @@ abstract class L10n {
   /// In en, this message translates to:
   /// **'Medicines I take now'**
   String get visitMedicines;
+
+  /// Calendar/Today when no period start is logged (R14.7).
+  ///
+  /// In en, this message translates to:
+  /// **'When your period starts, tap that day on the calendar to log it. femio then shows when the next ones may come.'**
+  String get gapNoPeriodBody;
+
+  /// No description provided for @gapNeedLengthBody.
+  ///
+  /// In en, this message translates to:
+  /// **'You chose “Not sure” for your cycle length, so femio has nothing to count from yet. Add your usual length, or log your next period and femio will learn it from your dates.'**
+  String get gapNeedLengthBody;
+
+  /// No description provided for @gapNeedAnotherBody.
+  ///
+  /// In en, this message translates to:
+  /// **'You said your cycles vary, or the gaps you logged are too long to count as cycles. When your next period starts, log it and femio will show a range from your own dates.'**
+  String get gapNeedAnotherBody;
+
+  /// No description provided for @gapPassedTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'The range femio showed has passed'**
+  String get gapPassedTitle;
+
+  /// Every predicted range has passed with no new start logged; MR-21 test line, never a count (R14.7).
+  ///
+  /// In en, this message translates to:
+  /// **'If your period has started, log it and femio will show the next ones. If it has not come and you could be pregnant, a pregnancy test can tell you.'**
+  String get gapPassedBody;
+
+  /// No description provided for @gapAddLength.
+  ///
+  /// In en, this message translates to:
+  /// **'Add my usual cycle length'**
+  String get gapAddLength;
+
+  /// No description provided for @gapSaveLength.
+  ///
+  /// In en, this message translates to:
+  /// **'Save'**
+  String get gapSaveLength;
+
+  /// No description provided for @upcomingPeriodsOnlyNextStated.
+  ///
+  /// In en, this message translates to:
+  /// **'Only the next period is shown because you said your cycles are irregular.'**
+  String get upcomingPeriodsOnlyNextStated;
+
+  /// Link under the month grid to the month holding the next predicted period (R14.7).
+  ///
+  /// In en, this message translates to:
+  /// **'Next period: {range}'**
+  String calendarNextPeriodLink(String range);
 }
 
 class _L10nDelegate extends LocalizationsDelegate<L10n> {

@@ -380,6 +380,7 @@ class Profile {
     List<MedicinePlan>? medicinePlans,
     List<DoseMark>? doses,
     AppSettings? settings,
+    int? cycleLength,
   }) =>
       Profile(
         goal: goal ?? this.goal,
@@ -387,7 +388,7 @@ class Profile {
         birthYear: birthYear,
         periodStarts: periodStarts ?? this.periodStarts,
         periodLength: periodLength,
-        cycleLength: cycleLength,
+        cycleLength: cycleLength ?? this.cycleLength,
         irregular: irregular,
         tryingFor: tryingFor,
         edd: edd,

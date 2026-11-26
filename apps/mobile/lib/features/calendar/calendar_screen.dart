@@ -10,6 +10,8 @@ import '../../app.dart';
 import '../../domain/cycle_prediction.dart';
 import '../../domain/dates.dart';
 import '../../domain/day_marks.dart';
+import '../../domain/fertility.dart';
+import '../../domain/forecast.dart';
 import '../../domain/hijri.dart';
 import '../../domain/perimenopause.dart';
 import '../../domain/upcoming_periods.dart';
@@ -23,6 +25,8 @@ import '../../theme/type_sizes.dart';
 import '../../widgets/dashed_ring.dart';
 import '../../widgets/tab_header.dart';
 import '../pregnancy/week_strip.dart';
+import 'calendar_legend.dart';
+import 'forecast_gap.dart';
 import 'patterns_screen.dart';
 import 'prediction_sheets.dart';
 import 'upcoming_periods_card.dart';
@@ -89,11 +93,30 @@ class _CalendarScreenState extends State<CalendarScreen> {
         final predicts = profile.goal == Goal.period || profile.goal == Goal.ttc || menopauseShowsRanges(profile, widget.today);
         // R8.6/R8.7: in pregnancy the week is the unit; nothing about periods or fertility.
         final pregnant = profile.goal == Goal.pregnant && profile.birthDate == null && profile.edd != null;
-        final upcoming = predicts
-            ? upcomingPeriods(
-                predictNextPeriod(profile.cycleStarts, profile.cycleLength),
-              )
-            : const <UpcomingPeriod>[];
+        final cycleGoal = profile.goal == Goal.period || profile.goal == Goal.ttc;
+        final prediction = predicts ? predictNextPeriod(profile.cycleStarts, profile.cycleLength) : null;
+        // R14.7: no range already past (rule 3); only the next when she said irregular (MR-51).
+        final upcoming = predicts ? upcomingAhead(profile, widget.today) : const <UpcomingPeriod>[];
+        final gap = cycleGoal ? forecastGap(profile, widget.today) : null;
+        // When this month draws no estimate, point to the month that does.
+        final nextLater = marks.values.any((m) => m.predicted)
+            ? null
+            : upcoming.where((u) => u.windowStart.compareTo(last) > 0).firstOrNull;
+        final String? windowNote = cycleGoal && prediction != null
+            ? switch (windowStatusFor(profile, prediction)) {
+                WindowStatus.shown => null,
+                WindowStatus.irregular => l.whyRangeWindowIrregular,
+                WindowStatus.learning => l.whyRangeWindowLearning,
+                WindowStatus.outsideRange => l.whyRangeWindowOutside(regularCycleMin, regularCycleMax),
+              }
+            : null;
+        final String? footnote = upcoming.length > 1
+            ? l.upcomingPeriodsWider
+            : profile.irregular
+                ? l.upcomingPeriodsOnlyNextStated
+                : upcomingFor(profile, prediction).length == 1
+                    ? l.upcomingPeriodsOnlyNext
+                    : null;
         final firstWeekday = ml.firstDayOfWeekIndex; // 0 = Sunday
         final lead = (_month.weekday % 7 - firstWeekday + 7) % 7;
         final headers = [
@@ -225,24 +248,6 @@ class _CalendarScreenState extends State<CalendarScreen> {
           );
         }
 
-        Widget legend(Widget swatch, String label) => Row(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            swatch,
-            const SizedBox(width: space1h),
-            Text(label, style: t.bodySmall),
-          ],
-        );
-        Widget dot(Color fill, {Color? ring}) => Container(
-          width: 14,
-          height: 14,
-          decoration: BoxDecoration(
-            color: fill,
-            shape: BoxShape.circle,
-            border: ring == null ? null : Border.all(color: ring, width: 1.5),
-          ),
-        );
-
         return SafeArea(
           child: ListView(
             padding: const EdgeInsets.fromLTRB(space5, space4, space5, fabClearance),
@@ -324,62 +329,34 @@ class _CalendarScreenState extends State<CalendarScreen> {
                   ],
                 ),
               ),
+              if (nextLater != null)
+                Align(
+                  alignment: AlignmentDirectional.centerEnd,
+                  child: TextButton.icon(
+                    onPressed: () => setState(() {
+                      final d = fromISO(nextLater.windowStart);
+                      _month = DateTime.utc(d.year, d.month);
+                    }),
+                    iconAlignment: IconAlignment.end,
+                    icon: const Icon(Icons.arrow_forward_rounded),
+                    label: Text(l.calendarNextPeriodLink(range(nextLater.windowStart, nextLater.windowEnd))),
+                  ),
+                ),
               const SizedBox(height: space4),
-              Wrap(
-                spacing: space4,
-                runSpacing: space2h,
-                children: [
-                  legend(dot(p.logPeriod), l.legendPeriod),
-                  legend(
-                    dot(Colors.transparent, ring: p.logPeriod),
-                    l.legendSpotting,
-                  ),
-                  if (predicts) ...[
-                  legend(
-                    dot(
-                      p.predictionBand.withValues(alpha: 0.14),
-                      ring: p.predictionBand,
-                    ),
-                    l.legendPredicted,
-                  ),
-                  legend(
-                    SizedBox(
-                      width: 14,
-                      height: 14,
-                      child: CustomPaint(
-                        painter: DashedRingPainter(color: p.predictionBand),
-                      ),
-                    ),
-                    l.legendPossible,
-                  ),
-                  legend(dot(p.successSoft), l.legendFertile),
-                  legend(
-                    dot(p.successSoft, ring: p.successSolid),
-                    l.legendOvulation,
-                  ),
-                  ],
-                  legend(
-                    Container(
-                      width: 6,
-                      height: 6,
-                      decoration: BoxDecoration(
-                        color: p.logSymptom,
-                        shape: BoxShape.circle,
-                      ),
-                    ),
-                    l.legendLogged,
-                  ),
-                ],
-              ),
+              CalendarLegend(marks: marks, windowNote: windowNote),
+              if (gap != null) ...[
+                const SizedBox(height: space4),
+                ForecastGapCard(gap: gap, onAddLength: () => showCycleLengthSheet(context, widget.controller)),
+              ],
               if (upcoming.isNotEmpty) ...[
                 const SizedBox(height: space4),
-                UpcomingPeriodsCard(periods: upcoming, range: range),
+                UpcomingPeriodsCard(periods: upcoming, range: range, footnote: footnote),
                 WhyRangeButton(profile: profile, range: range),
               ],
               PatternsButton(controller: widget.controller, today: widget.today),
               const SizedBox(height: space3h),
-              // R8.4: only period and TTC modes draw estimates, so only they mention outlines.
-              Text(predicts ? l.calendarHint : l.calendarHintNoEstimates, style: t.bodySmall),
+              // R8.4/R14.7: only a month with estimates ahead mentions outlines.
+              Text(upcoming.isNotEmpty ? l.calendarHint : l.calendarHintNoEstimates, style: t.bodySmall),
             ],
           ),
         );

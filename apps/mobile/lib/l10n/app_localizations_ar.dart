@@ -4038,4 +4038,38 @@ class L10nAr extends L10n {
 
   @override
   String get visitMedicines => 'الأدوية التي أتناولها الآن';
+
+  @override
+  String get gapNoPeriodBody =>
+      'عندما تبدأ دورتك، اضغطي على ذلك اليوم في التقويم لتسجيله. بعدها يعرض femio متى قد تأتي الدورات التالية.';
+
+  @override
+  String get gapNeedLengthBody =>
+      'اخترتِ «لست متأكدة» لطول دورتك، لذلك لا يجد femio بعدُ ما يحسب منه. أضيفي طول دورتك المعتاد، أو سجّلي دورتك القادمة وسيتعلّمه femio من تواريخك.';
+
+  @override
+  String get gapNeedAnotherBody =>
+      'ذكرتِ أن دوراتك غير منتظمة، أو أن الفترات التي سجّلتِها أطول من أن تُحسب دورات. عندما تبدأ دورتك القادمة سجّليها، وسيعرض femio نطاقًا من تواريخك أنتِ.';
+
+  @override
+  String get gapPassedTitle => 'انقضى النطاق الذي عرضه femio';
+
+  @override
+  String get gapPassedBody =>
+      'إذا بدأت دورتك فسجّليها، وسيعرض femio الدورات التالية. وإذا لم تأتِ وكان الحمل ممكنًا، فاختبار الحمل يمكن أن يخبرك.';
+
+  @override
+  String get gapAddLength => 'إضافة طول دورتي المعتاد';
+
+  @override
+  String get gapSaveLength => 'حفظ';
+
+  @override
+  String get upcomingPeriodsOnlyNextStated =>
+      'تظهر الدورة القادمة فقط لأنك ذكرتِ أن دوراتك غير منتظمة.';
+
+  @override
+  String calendarNextPeriodLink(String range) {
+    return 'الدورة القادمة: $range';
+  }
 }

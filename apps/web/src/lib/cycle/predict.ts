@@ -108,6 +108,22 @@ export const MIN_WINDOW_MARGIN_DAYS = 2;
 
 const STATED_MARGIN_DAYS = 4;
 
+/**
+ * The stated cycle lengths that earn a period range (MR-03, owner 2026-11-26). Onboarding
+ * offers 21-45; a long cycle of 36-45 days still gets a low-confidence range, and the
+ * fertile window stays withheld outside 21-35 (MR-08), which is where the clinical caution
+ * belongs. Dropping 36-45 silently left exactly the PCOS wedge with an empty calendar.
+ */
+export const STATED_CYCLE_MIN_DAYS = 21;
+export const STATED_CYCLE_MAX_DAYS = 45;
+
+/**
+ * Her stated length stands in until she has logged this many starts (MR-57 extension,
+ * owner ruling 2026-11-26). With two starts there is one interval, too little to replace
+ * what she told us: switching then made the calendar show *less* after she logged more.
+ */
+export const STATED_UNTIL_STARTS = 3;
+
 function mean(values: number[]): number {
   return values.reduce((a, b) => a + b, 0) / values.length;
 }
@@ -188,21 +204,24 @@ export function predictNextPeriod(
   if (sorted.length === 0) return null;
 
   const stated =
-    typeof statedCycleLength === "number" && statedCycleLength >= 21 && statedCycleLength <= 35
+    typeof statedCycleLength === "number" &&
+    statedCycleLength >= STATED_CYCLE_MIN_DAYS &&
+    statedCycleLength <= STATED_CYCLE_MAX_DAYS
       ? statedCycleLength
       : null;
 
   // One logged start plus a stated length is enough to say something honest. One
   // start and no stated length is not, and inventing 28 there would be a number she
-  // never gave us presented as though she had.
-  if (sorted.length < 2) {
-    if (stated === null) return null;
-    const last = sorted[0]!;
+  // never gave us presented as though she had. Her stated length keeps standing in,
+  // from her latest start, until STATED_UNTIL_STARTS starts are logged (MR-57).
+  if (sorted.length === 1 && stated === null) return null;
+  if (sorted.length < STATED_UNTIL_STARTS && stated !== null) {
+    const last = sorted[sorted.length - 1]!;
     const predictedStart = addDays(last, stated);
     return {
-      // One start and a number she gave us. `cyclesUsed: 0` is the honest count —
-      // there is no interval yet, so nothing has been measured, and the explanation
-      // must not imply otherwise (D3).
+      // A number she gave us. `cyclesUsed: 0` is the honest count: no interval is
+      // used, so nothing has been measured, and the explanation must not imply
+      // otherwise (D3).
       evidence: {
         cyclesUsed: 0,
         spread: 0,

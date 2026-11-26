@@ -11,6 +11,7 @@ import '../data/profile.dart';
 import 'cycle_prediction.dart';
 import 'day_marks.dart';
 import 'fertility.dart';
+import 'forecast.dart';
 import 'upcoming_periods.dart';
 
 /// Everything the "Why this range?" sheet says, read from her own prediction.
@@ -113,7 +114,7 @@ DayExplanation explainDay(Profile profile, {required String day, required String
   if (mark.predicted || mark.fertile || mark.ovulation) {
     final prediction = predictNextPeriod(profile.cycleStarts, profile.cycleLength);
     if (prediction != null) {
-      final periods = upcomingPeriods(prediction);
+      final periods = upcomingFor(profile, prediction);
       for (var i = 0; i < periods.length; i++) {
         final u = periods[i];
         if (day.compareTo(u.windowStart) >= 0 && day.compareTo(u.windowEnd) <= 0) {
@@ -162,7 +163,7 @@ PredictionChange? predictionChange(Profile before, Profile after) {
   UpcomingPeriod? next(Profile p) {
     final prediction = predictNextPeriod(p.cycleStarts, p.cycleLength);
     if (prediction == null) return null;
-    final periods = upcomingPeriods(prediction);
+    final periods = upcomingFor(p, prediction);
     return periods.isEmpty ? null : periods.first;
   }
 

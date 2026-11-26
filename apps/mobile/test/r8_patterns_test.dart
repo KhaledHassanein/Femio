@@ -253,6 +253,8 @@ void main() {
           (c) => Scaffold(body: CalendarScreen(controller: c, today: _today, onDay: (_) {})));
       final l = lookupL10n(const Locale('en'));
       await tester.scrollUntilVisible(find.text(l.patOpen), 300, scrollable: find.byType(Scrollable).first);
+      await tester.ensureVisible(find.text(l.patOpen));
+      await tester.pumpAndSettle();
       await tester.tap(find.text(l.patOpen));
       await tester.pumpAndSettle();
       expect(find.byType(PatternsScreen), findsOneWidget);

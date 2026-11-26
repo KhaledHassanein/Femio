@@ -11,7 +11,7 @@
 import '../data/profile.dart';
 import 'cycle_prediction.dart';
 import 'dates.dart';
-import 'upcoming_periods.dart';
+import 'forecast.dart';
 
 /// The six-day window and the day it ends on.
 class FertileWindow {
@@ -65,7 +65,7 @@ FertileWindow? fertileWindowFor(Profile profile, CyclePrediction prediction) =>
 /// MR-07's six days before that period's middle date; the period range around it
 /// already widens with distance, so the window is not drawn as more certain than it is.
 List<FertileWindow> fertileWindowsFor(Profile profile, CyclePrediction prediction) => [
-      for (final u in upcomingPeriods(prediction))
+      for (final u in upcomingFor(profile, prediction))
         ?_windowBefore(profile, prediction, u.predictedStart),
     ];
 

@@ -6,6 +6,7 @@
 
 import 'package:flutter/material.dart';
 
+import '../../../domain/cycle_prediction.dart' show statedCycleMaxDays, statedCycleMinDays;
 import '../../../l10n/app_localizations.dart';
 import '../widgets.dart';
 
@@ -32,8 +33,9 @@ class CycleLengthStep extends StatelessWidget {
   final VoidCallback onIrregular;
   final VoidCallback onNotSure;
 
-  static const minDays = 21;
-  static const maxDays = 45;
+  /// The span the prediction accepts (MR-03), so nothing she can pick is dropped.
+  static const minDays = statedCycleMinDays;
+  static const maxDays = statedCycleMaxDays;
 
   @override
   Widget build(BuildContext context) {

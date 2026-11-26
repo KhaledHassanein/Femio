@@ -4021,4 +4021,38 @@ class L10nFr extends L10n {
 
   @override
   String get visitMedicines => 'Médicaments que je prends';
+
+  @override
+  String get gapNoPeriodBody =>
+      'Quand vos règles commencent, touchez ce jour dans le calendrier pour le noter. femio montre ensuite quand les suivantes pourraient venir.';
+
+  @override
+  String get gapNeedLengthBody =>
+      'Vous avez choisi « Je ne sais pas » pour la durée de votre cycle : femio n’a donc encore rien à partir de quoi compter. Ajoutez votre durée habituelle, ou notez vos prochaines règles et femio l’apprendra de vos dates.';
+
+  @override
+  String get gapNeedAnotherBody =>
+      'Vous avez indiqué que vos cycles varient, ou les écarts notés sont trop longs pour être des cycles. Quand vos prochaines règles commencent, notez-les et femio montrera une plage tirée de vos propres dates.';
+
+  @override
+  String get gapPassedTitle => 'La plage indiquée par femio est passée';
+
+  @override
+  String get gapPassedBody =>
+      'Si vos règles ont commencé, notez-les et femio montrera les suivantes. Si elles ne sont pas venues et qu’une grossesse est possible, un test de grossesse peut vous le dire.';
+
+  @override
+  String get gapAddLength => 'Ajouter ma durée de cycle habituelle';
+
+  @override
+  String get gapSaveLength => 'Enregistrer';
+
+  @override
+  String get upcomingPeriodsOnlyNextStated =>
+      'Seules les prochaines règles sont affichées, car vous avez indiqué que vos cycles sont irréguliers.';
+
+  @override
+  String calendarNextPeriodLink(String range) {
+    return 'Prochaines règles : $range';
+  }
 }

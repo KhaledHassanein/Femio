@@ -109,10 +109,21 @@ describe("a stated baseline (R3.1b)", () => {
     expect(daysUntilPredicted(p, "2026-09-01")).toBeNull();
   });
 
-  it("hands over to her own cycles as soon as there are two", () => {
+  it("keeps her stated length with two starts, from the latest one (MR-57, owner 2026-11-26)", () => {
     const p = predictNextPeriod(["2026-07-08", "2026-08-05"], 30)!;
+    expect(p.basis).toBe("stated");
+    expect(p.predictedStart).toBe("2026-09-04"); // 30 days from 5 Aug, not from 8 Jul
+  });
+
+  it("hands over to her own cycles at three starts", () => {
+    const p = predictNextPeriod(["2026-06-10", "2026-07-08", "2026-08-05"], 30)!;
     expect(p.basis).toBe("observed");
     expect(p.averageLength).toBe(28); // hers, not the 30 she guessed
+  });
+
+  it("accepts a stated 36-45 for a range (MR-03), not above 45", () => {
+    expect(predictNextPeriod(["2026-08-05"], 40)?.predictedStart).toBe("2026-09-14");
+    expect(predictNextPeriod(["2026-08-05"], 46)).toBeNull();
   });
 
   it("refuses to invent a length when she skipped the question", () => {
@@ -163,7 +174,7 @@ describe("consecutive logged days are one period (R3.1.9)", () => {
   it("keeps a short cycle separate rather than swallowing it", () => {
     // 21 days apart is a real cycle at the low end of the NHS range, not one long
     // bleed, and the collapse threshold must not eat it.
-    const p = predictNextPeriod(["2026-08-01", "2026-08-22"], 28)!;
+    const p = predictNextPeriod(["2026-08-01", "2026-08-22"])!;
     expect(p.averageLength).toBe(21);
     expect(p.basis).toBe("observed");
   });

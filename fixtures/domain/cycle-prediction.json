@@ -127,6 +127,97 @@
           "rule": "observed"
         }
       }
+    },
+    {
+      "input": {
+        "starts": [
+          "2026-10-01",
+          "2026-10-29"
+        ],
+        "statedCycleLength": 30
+      },
+      "expected": {
+        "averageLength": 30,
+        "basis": "stated",
+        "predictedStart": "2026-11-28",
+        "windowStart": "2026-11-24",
+        "windowEnd": "2026-12-02",
+        "confidence": "low",
+        "irregular": false,
+        "learning": true,
+        "evidence": {
+          "cyclesUsed": 0,
+          "spread": 0,
+          "margin": 4,
+          "recentWindow": 0,
+          "rule": "stated"
+        }
+      },
+      "note": "two starts and a stated length: the stated length still stands in, from her latest start (MR-57, owner 2026-11-26)"
+    },
+    {
+      "input": {
+        "starts": [
+          "2026-09-01",
+          "2026-09-29",
+          "2026-10-29"
+        ],
+        "statedCycleLength": 30
+      },
+      "expected": {
+        "averageLength": 29,
+        "basis": "observed",
+        "predictedStart": "2026-11-27",
+        "windowStart": "2026-11-25",
+        "windowEnd": "2026-11-29",
+        "confidence": "low",
+        "irregular": false,
+        "learning": false,
+        "evidence": {
+          "cyclesUsed": 2,
+          "spread": 2,
+          "margin": 2,
+          "recentWindow": 2,
+          "rule": "observed"
+        }
+      },
+      "note": "three starts: her own cycles take over (lengths 28 and 30, average 29, margin floor 2)"
+    },
+    {
+      "input": {
+        "starts": [
+          "2026-10-01"
+        ],
+        "statedCycleLength": 40
+      },
+      "expected": {
+        "averageLength": 40,
+        "basis": "stated",
+        "predictedStart": "2026-11-10",
+        "windowStart": "2026-11-06",
+        "windowEnd": "2026-11-14",
+        "confidence": "low",
+        "irregular": false,
+        "learning": true,
+        "evidence": {
+          "cyclesUsed": 0,
+          "spread": 0,
+          "margin": 4,
+          "recentWindow": 0,
+          "rule": "stated"
+        }
+      },
+      "note": "a stated 36-45 earns a low-confidence range (MR-03, owner 2026-11-26); the window stays withheld (MR-08)"
+    },
+    {
+      "input": {
+        "starts": [
+          "2026-10-01"
+        ],
+        "statedCycleLength": 46
+      },
+      "expected": null,
+      "note": "above the 45 days onboarding offers: not used"
     }
   ]
 }

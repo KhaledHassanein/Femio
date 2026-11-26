@@ -4004,4 +4004,38 @@ class L10nEs extends L10n {
 
   @override
   String get visitMedicines => 'Medicamentos que tomo ahora';
+
+  @override
+  String get gapNoPeriodBody =>
+      'Cuando empiece tu regla, toca ese día en el calendario para registrarlo. Después, femio muestra cuándo podrían llegar las siguientes.';
+
+  @override
+  String get gapNeedLengthBody =>
+      'Elegiste «No estoy segura» para la duración de tu ciclo, así que femio todavía no tiene desde dónde contar. Añade tu duración habitual o registra tu próxima regla y femio la aprenderá de tus fechas.';
+
+  @override
+  String get gapNeedAnotherBody =>
+      'Dijiste que tus ciclos varían, o los intervalos que registraste son demasiado largos para ser ciclos. Cuando empiece tu próxima regla, regístrala y femio mostrará un rango a partir de tus propias fechas.';
+
+  @override
+  String get gapPassedTitle => 'El rango que mostró femio ya pasó';
+
+  @override
+  String get gapPassedBody =>
+      'Si tu regla ya empezó, regístrala y femio mostrará las siguientes. Si no ha llegado y podrías estar embarazada, una prueba de embarazo te lo puede decir.';
+
+  @override
+  String get gapAddLength => 'Añadir la duración habitual de mi ciclo';
+
+  @override
+  String get gapSaveLength => 'Guardar';
+
+  @override
+  String get upcomingPeriodsOnlyNextStated =>
+      'Solo se muestra la próxima regla porque dijiste que tus ciclos son irregulares.';
+
+  @override
+  String calendarNextPeriodLink(String range) {
+    return 'Próxima regla: $range';
+  }
 }

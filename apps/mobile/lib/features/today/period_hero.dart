@@ -12,9 +12,11 @@ import '../../domain/cycle_prediction.dart';
 import '../../domain/cycle_signs.dart';
 import '../../domain/dates.dart';
 import '../../domain/fertility.dart';
+import '../../domain/forecast.dart';
 import '../../domain/guidance.dart';
 import '../../l10n/app_localizations.dart';
 import '../../widgets/bbt_chart.dart';
+import '../calendar/forecast_gap.dart' show forecastGapText;
 import '../calendar/prediction_sheets.dart';
 import '../calendar/signs_by_day_screen.dart';
 import 'cycle_signs_card.dart';
@@ -26,8 +28,8 @@ import '../../theme/spacing.dart';
 /// Hero for [Goal.period] and [Goal.ttc].
 ///
 /// [today] is an ISO day; [range] and [date] format days in her language. Every number
-/// is a range with a confidence (rule 3). With no prediction yet it says so and, when
-/// she called her cycles irregular, explains why.
+/// is a range with a confidence (rule 3). With nothing ahead it says why, from the same
+/// reasons the calendar uses (R14.7), and offers [onAddLength] when her length is the fix.
 class PeriodHero extends StatelessWidget {
   const PeriodHero({
     super.key,
@@ -35,11 +37,15 @@ class PeriodHero extends StatelessWidget {
     required this.today,
     required this.range,
     required this.date,
+    this.onAddLength,
   });
   final Profile profile;
   final String today;
   final IsoRangeFormatter range;
   final IsoDateFormatter date;
+
+  /// Opens the cycle-length question again; shown only when "Not sure" withheld the range.
+  final VoidCallback? onAddLength;
 
 
   @override
@@ -52,13 +58,25 @@ class PeriodHero extends StatelessWidget {
         };
 
     final prediction = predictNextPeriod(profile.cycleStarts, profile.cycleLength);
-    if (prediction == null) {
-      return Column(children: [
-        HeroCard(eyebrow: l.predictionPeriodTitle, headline: l.noPredictionTitle, extra: [HeroLine(l.noPredictionBody)]),
-        if (profile.irregular) HeroNote(l.irregularNote),
+    final gap = forecastGap(profile, today);
+    Widget gapCard() {
+      final (headline, body) = forecastGapText(l, gap!);
+      return HeroCard(eyebrow: l.predictionPeriodTitle, headline: headline, extra: [
+        HeroLine(body),
+        if (gap == ForecastGap.needLength && onAddLength != null)
+          Align(
+            alignment: AlignmentDirectional.centerStart,
+            child: TextButton(onPressed: onAddLength, child: Text(l.gapAddLength)),
+          ),
       ]);
     }
-    final period = range(prediction.windowStart, prediction.windowEnd);
+
+    if (prediction == null) {
+      return Column(children: [gapCard(), if (profile.irregular) HeroNote(l.irregularNote)]);
+    }
+    // The first range not yet over, as the calendar draws it (R14.7: never a past range).
+    final ahead = upcomingAhead(profile, today);
+    final period = ahead.isEmpty ? null : range(ahead.first.windowStart, ahead.first.windowEnd);
     final extra = <Widget>[
       HeroLine(confidence(prediction.confidence)),
       if (prediction.basis == 'stated') HeroLine(l.basisStated),
@@ -67,7 +85,7 @@ class PeriodHero extends StatelessWidget {
     ];
     if (profile.goal == Goal.period) {
       return Column(children: [
-        HeroCard(eyebrow: l.predictionPeriodTitle, headline: period, extra: extra),
+        if (period == null) gapCard() else HeroCard(eyebrow: l.predictionPeriodTitle, headline: period, extra: extra),
         WhyRangeButton(profile: profile, range: range),
       ]);
     }
@@ -83,10 +101,12 @@ class PeriodHero extends StatelessWidget {
           headline: range(fertile.windowStart, fertile.windowEnd),
           extra: [
             HeroLine(l.predictionOvulation(date(fertile.ovulation))),
-            HeroLine(l.predictionNextPeriod(period)),
+            if (period != null) HeroLine(l.predictionNextPeriod(period)),
             ...extra,
           ],
         )
+      else if (period == null)
+        gapCard()
       else
         HeroCard(
           eyebrow: l.predictionFertileTitle,

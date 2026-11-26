@@ -1099,5 +1099,14 @@
   "menoBleedLogNote": "Tout saignement après 12 mois sans règles doit toujours être examiné par un médecin, même une seule fois.",
   "menoBleedMore": "Le saignement après la ménopause",
   "patMonthly": "Jours notés chaque mois",
-  "visitMedicines": "Médicaments que je prends"
+  "visitMedicines": "Médicaments que je prends",
+  "gapNoPeriodBody": "Quand vos règles commencent, touchez ce jour dans le calendrier pour le noter. femio montre ensuite quand les suivantes pourraient venir.",
+  "gapNeedLengthBody": "Vous avez choisi « Je ne sais pas » pour la durée de votre cycle : femio n’a donc encore rien à partir de quoi compter. Ajoutez votre durée habituelle, ou notez vos prochaines règles et femio l’apprendra de vos dates.",
+  "gapNeedAnotherBody": "Vous avez indiqué que vos cycles varient, ou les écarts notés sont trop longs pour être des cycles. Quand vos prochaines règles commencent, notez-les et femio montrera une plage tirée de vos propres dates.",
+  "gapPassedTitle": "La plage indiquée par femio est passée",
+  "gapPassedBody": "Si vos règles ont commencé, notez-les et femio montrera les suivantes. Si elles ne sont pas venues et qu’une grossesse est possible, un test de grossesse peut vous le dire.",
+  "gapAddLength": "Ajouter ma durée de cycle habituelle",
+  "gapSaveLength": "Enregistrer",
+  "upcomingPeriodsOnlyNextStated": "Seules les prochaines règles sont affichées, car vous avez indiqué que vos cycles sont irréguliers.",
+  "calendarNextPeriodLink": "Prochaines règles : {range}"
 }
