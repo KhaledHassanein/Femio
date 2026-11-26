@@ -54,7 +54,9 @@ export const SECRET_TEXT_RULES = [
   ["Slack token", /\bxox[abprs]-[0-9A-Za-z-]{10,}\b/],
   ["Supabase secret", /\bsb_secret_(?!x+\b)[A-Za-z0-9_-]{20,}\b/],
   ["JSON web token", /\beyJ[A-Za-z0-9_-]{10,}\.eyJ[A-Za-z0-9_-]{10,}\.[A-Za-z0-9_-]{10,}/],
-  ["signing password with a value", /\b(storePassword|keyPassword)\s*=\s*(?!CHANGE_ME\b|YOUR_|<)[^\s#]{4,}/],
+  // properties-file style only (`storePassword=…` on its own line); code that reads the value,
+  // such as `storePassword = keyProperties.getProperty(…)`, has brackets and does not match.
+  ["signing password with a value", /^\s*(storePassword|keyPassword)\s*=\s*(?!CHANGE_ME\b|YOUR_|<)[^\s#()"'$]{4,}\s*$/],
   ["local Windows user path", /\b[A-Za-z]:[\\/]+Users[\\/]+[^\\/\s"']+/],
   ["private owner folder", /[\\/]_Private[\\/]/],
 ];
