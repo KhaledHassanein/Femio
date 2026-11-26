@@ -459,6 +459,22 @@
   "enterCurrentPin": "Enter your current PIN",
   "pinMismatch": "The two PINs did not match. Try again.",
   "wrongPin": "That PIN is not right.",
+  "pinWaitSeconds": "{count, plural, one {Too many tries. Try again in {count} second.} other {Too many tries. Try again in {count} seconds.}}",
+  "@pinWaitSeconds": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "pinWaitMinutes": "{count, plural, one {Too many tries. Try again in {count} minute.} other {Too many tries. Try again in {count} minutes.}}",
+  "@pinWaitMinutes": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
   "lockTitle": "Welcome back",
   "lockHint": "Enter your PIN to open your records.",
   "forgotPin": "Forgot your PIN? There is no way to recover it: femio has no account. Delete everything from this phone and start again, or restore a backup file.",
@@ -477,6 +493,7 @@
     }
   },
   "backupPassphraseMismatch": "The two passphrases did not match.",
+  "backupWorking": "Working on your backup file. This can take a few seconds.",
   "backupSaved": "Backup saved.",
   "backupImported": "Your records were restored.",
   "backupWrongPassphrase": "That passphrase does not open this file.",

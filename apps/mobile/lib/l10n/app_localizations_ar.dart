@@ -1033,6 +1033,36 @@ class L10nAr extends L10n {
   String get wrongPin => 'هذا الرمز غير صحيح.';
 
   @override
+  String pinWaitSeconds(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: 'محاولات كثيرة. حاولي مرة أخرى بعد $count ثانية.',
+      many: 'محاولات كثيرة. حاولي مرة أخرى بعد $count ثانية.',
+      few: 'محاولات كثيرة. حاولي مرة أخرى بعد $count ثوانٍ.',
+      two: 'محاولات كثيرة. حاولي مرة أخرى بعد ثانيتين.',
+      one: 'محاولات كثيرة. حاولي مرة أخرى بعد ثانية واحدة.',
+      zero: 'محاولات كثيرة. حاولي مرة أخرى الآن.',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String pinWaitMinutes(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: 'محاولات كثيرة. حاولي مرة أخرى بعد $count دقيقة.',
+      many: 'محاولات كثيرة. حاولي مرة أخرى بعد $count دقيقة.',
+      few: 'محاولات كثيرة. حاولي مرة أخرى بعد $count دقائق.',
+      two: 'محاولات كثيرة. حاولي مرة أخرى بعد دقيقتين.',
+      one: 'محاولات كثيرة. حاولي مرة أخرى بعد دقيقة واحدة.',
+      zero: 'محاولات كثيرة. حاولي مرة أخرى الآن.',
+    );
+    return '$_temp0';
+  }
+
+  @override
   String get lockTitle => 'أهلًا بعودتكِ';
 
   @override
@@ -1068,6 +1098,10 @@ class L10nAr extends L10n {
 
   @override
   String get backupPassphraseMismatch => 'عبارتا المرور غير متطابقتين.';
+
+  @override
+  String get backupWorking =>
+      'جارٍ تجهيز ملف النسخة الاحتياطية. قد يستغرق ذلك بضع ثوانٍ.';
 
   @override
   String get backupSaved => 'تم حفظ النسخة الاحتياطية.';

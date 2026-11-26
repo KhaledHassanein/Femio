@@ -1757,6 +1757,18 @@ abstract class L10n {
   /// **'That PIN is not right.'**
   String get wrongPin;
 
+  /// No description provided for @pinWaitSeconds.
+  ///
+  /// In en, this message translates to:
+  /// **'{count, plural, one {Too many tries. Try again in {count} second.} other {Too many tries. Try again in {count} seconds.}}'**
+  String pinWaitSeconds(int count);
+
+  /// No description provided for @pinWaitMinutes.
+  ///
+  /// In en, this message translates to:
+  /// **'{count, plural, one {Too many tries. Try again in {count} minute.} other {Too many tries. Try again in {count} minutes.}}'**
+  String pinWaitMinutes(int count);
+
   /// No description provided for @lockTitle.
   ///
   /// In en, this message translates to:
@@ -1822,6 +1834,12 @@ abstract class L10n {
   /// In en, this message translates to:
   /// **'The two passphrases did not match.'**
   String get backupPassphraseMismatch;
+
+  /// No description provided for @backupWorking.
+  ///
+  /// In en, this message translates to:
+  /// **'Working on your backup file. This can take a few seconds.'**
+  String get backupWorking;
 
   /// No description provided for @backupSaved.
   ///
