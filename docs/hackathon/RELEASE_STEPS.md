@@ -26,7 +26,8 @@ Deadline: 30 Nov 2026, 2:00 PM PT (midnight Cairo, 1 Dec). Commits pushed after 
    ```sh
    git init -b main
    git add README.md LICENSE HISTORY.md .github scripts apps fixtures
-   git status --short | grep -v "^A " || echo "only new files staged"
+   git ls-files | grep -E "assistant\.env$|key\.properties$|local\.properties$|Generated\.xcconfig$|\.dart_tool/" \
+     && echo "STOP: a local file is staged" || echo "clean: only exported files staged"
    git commit -m "femio app: public export for #BuildHybridAI"
    ```
 4. Create the public repository and push in one step (the licence comes from the `LICENSE` file):
