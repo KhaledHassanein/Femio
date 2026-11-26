@@ -1034,3 +1034,45 @@ not rebuild them:
   no call, nothing logged), and fails if the gateway or any file in `lib/domain/assistant/` imports
   the store, the controller, the backup, the key vault or a screen: the AI code cannot reach her
   record, so it cannot write to it.
+
+## ADR-082
+**Date:** 2026-11-26 · **Status:** accepted 2026-11-26 (owner put R11.0–R11.2 and R11.6 in wave 2 on 2026-11-25 and said "start wave2" on 2026-11-26; scope below is the plan's R11 list, unchanged) · **Area:** app, record, privacy · **Builds on:** ADR-070, ADR-080, ADR-081
+
+**Context.** The owner wants femio to keep her own medical file "like a professional record",
+on her phone only (PROGRESS R11). Today the record holds cycle logs, weights and appointments;
+there is no place for a visit, a lab result, a prescription or a scanned report, and no way to
+say when something happened as opposed to when it was typed.
+
+**Decision. Her health record, schema v3.**
+1. **Typed entries.** `Profile.record` is a list of `RecordEntry`: an id, a kind (visit, lab,
+   imaging, medicine, condition, allergy, procedure, pregnancy, document, note), her own title,
+   **happened-on** (an ISO day, required: the date printed on the report or the day of the
+   visit; never guessed), **added-on** (the moment it entered femio), a **source** (typed,
+   scanned, Ask femio, Say it, imported), named text fields as she or the report wrote them
+   (value, unit, the report's printed range, dose as written, how often, prescriber), the ids of
+   linked attachments, and an **edit trail** (time and which fields changed, never the old
+   health values in plain words outside the sealed record).
+2. **Attachments** (R11.2) are separate files in app support storage, each sealed with the
+   record key (same envelope as the record), named by a random id, never by her file name.
+   Per file at most 10 MB; the sealed backup carries them, at most 100 MB in total, and says
+   so before writing. They arrive only through the system document picker or the system
+   camera intent: no CAMERA or storage permission (the tripwire checks the manifest).
+3. **Migration.** v2 → v3 adds an empty `record`; absent means empty, so a v2 file and a v2
+   backup load unchanged. A v3 file opened by an older build is refused loudly, as today.
+   The day note (R9.8) and the journal (R10.15) share this bump.
+4. **Not a medical device.** femio stores, dates and draws what she enters or attaches. It
+   never interprets: no "normal" or "abnormal", no reference range except the one printed on
+   her own report, no dose advice, no interaction checker, never a contraceptive schedule
+   (rule 1). Charts (R11.5) carry no verdict words.
+5. **The AI only drafts** (rule 7, ADR-081): a scan or an Ask femio answer may propose
+   entries through the gateway; nothing enters the record until she confirms each line, and
+   the entry's source says where the draft came from. The record is never handed to a model
+   whole; uses take typed slices.
+6. **Privacy notice line** (four languages, with the release that ships R11.2): "Documents and
+   photos you add stay on your phone, sealed like the rest of your record, and travel only
+   inside the backup file you save."
+
+**Consequences.** Every later R11 item (scan, charts, medicines, visit pack) reads and writes
+this one list. The backup format grows and needs a size warning. Golden fixtures for the record
+JSON keep the TypeScript side honest if the website ever reads a backup (it does not today).
+
