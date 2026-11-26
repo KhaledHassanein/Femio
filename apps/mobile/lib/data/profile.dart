@@ -194,7 +194,7 @@ enum TryingFor { justStarted, under6, sixTo12, over12 }
 
 /// One day's log. Terms are keys from the shared vocabulary (`log_vocabulary.g.dart`).
 class DayLog {
-  const DayLog({this.flow, this.terms = const [], this.opk, this.bbt});
+  const DayLog({this.flow, this.terms = const [], this.opk, this.bbt, this.note});
 
   /// `spotting`, `light`, `medium`, `heavy`, or null for no bleeding logged.
   final String? flow;
@@ -206,30 +206,46 @@ class DayLog {
   /// Waking temperature, in the unit she typed (°C or °F, guessed from magnitude).
   final double? bbt;
 
-  bool get isEmpty => flow == null && terms.isEmpty && opk == null && bbt == null;
+  /// Her own words about the day (R9.8). Optional and absent in older records, so the
+  /// schema version does not change. Stored with the sealed record and so in the backup.
+  final String? note;
+
+  /// A note holding only spaces or line breaks is no note.
+  bool get hasNote => note != null && note!.trim().isNotEmpty;
+
+  bool get isEmpty => flow == null && terms.isEmpty && opk == null && bbt == null && !hasNote;
 
   DayLog copyWith({
     Object? flow = _keep,
     List<String>? terms,
     Object? opk = _keep,
     Object? bbt = _keep,
+    Object? note = _keep,
   }) =>
       DayLog(
         flow: identical(flow, _keep) ? this.flow : flow as String?,
         terms: terms ?? this.terms,
         opk: identical(opk, _keep) ? this.opk : opk as String?,
         bbt: identical(bbt, _keep) ? this.bbt : bbt as double?,
+        note: identical(note, _keep) ? this.note : note as String?,
       );
 
   /// Spotting is logged but is not a period: it never starts a cycle.
   bool get isBleed => flow != null && flow != 'spotting';
 
-  Map<String, Object?> toJson() => {'flow': flow, 'terms': terms, 'opk': opk, 'bbt': bbt};
+  Map<String, Object?> toJson() => {
+        'flow': flow,
+        'terms': terms,
+        'opk': opk,
+        'bbt': bbt,
+        if (note != null) 'note': note,
+      };
   static DayLog fromJson(Map<String, Object?> j) => DayLog(
         flow: j['flow'] as String?,
         terms: List<String>.from((j['terms'] as List?) ?? const []),
         opk: j['opk'] as String?,
         bbt: (j['bbt'] as num?)?.toDouble(),
+        note: j['note'] as String?,
       );
 }
 

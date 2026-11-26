@@ -951,5 +951,14 @@
   "recSourceImported": "Importée",
   "recNoVerdictNote": "femio garde et affiche vos entrées telles que vous les avez écrites. Il ne dit jamais si un résultat est normal : c'est à voir avec votre soignant.",
   "addRecord": "Mon dossier santé",
-  "addRecordSub": "Consultations, résultats, médicaments et documents"
+  "addRecordSub": "Consultations, résultats, médicaments et documents",
+  "logNoteSection": "Note",
+  "logNoteHint": "Tout ce que vous voulez retenir de ce jour",
+  "logNoteSaved": "Enregistrée sur ce téléphone avec le reste de vos données.",
+  "csvColumnDate": "Date",
+  "csvColumnOther": "Autre",
+  "exportCsv": "Exporter en tableur (CSV)",
+  "csvNotEncrypted": "Contrairement à la sauvegarde, ce fichier n’est pas chiffré : gardez-le dans un endroit privé.",
+  "csvSaved": "Tableur enregistré.",
+  "csvNothingToExport": "Rien n’est encore noté, il n’y a donc rien à exporter."
 }

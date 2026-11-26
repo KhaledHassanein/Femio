@@ -3435,4 +3435,34 @@ class L10nEs extends L10n {
 
   @override
   String get addRecordSub => 'Consultas, resultados, medicamentos y documentos';
+
+  @override
+  String get logNoteSection => 'Nota';
+
+  @override
+  String get logNoteHint => 'Lo que quieras recordar de este día';
+
+  @override
+  String get logNoteSaved =>
+      'Se guarda en este teléfono junto con el resto de tus registros.';
+
+  @override
+  String get csvColumnDate => 'Fecha';
+
+  @override
+  String get csvColumnOther => 'Otros';
+
+  @override
+  String get exportCsv => 'Exportar como hoja de cálculo (CSV)';
+
+  @override
+  String get csvNotEncrypted =>
+      'A diferencia de la copia de seguridad, este archivo no está cifrado, así que guárdalo en un lugar privado.';
+
+  @override
+  String get csvSaved => 'Hoja de cálculo guardada.';
+
+  @override
+  String get csvNothingToExport =>
+      'Aún no hay nada registrado, así que no hay nada que exportar.';
 }

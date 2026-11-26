@@ -3454,4 +3454,32 @@ class L10nAr extends L10n {
 
   @override
   String get addRecordSub => 'الزيارات والنتائج والأدوية والمستندات';
+
+  @override
+  String get logNoteSection => 'ملاحظة';
+
+  @override
+  String get logNoteHint => 'أي شيء تودّين تذكّره عن هذا اليوم';
+
+  @override
+  String get logNoteSaved => 'تُحفظ على هذا الهاتف مع بقية سجلّكِ.';
+
+  @override
+  String get csvColumnDate => 'التاريخ';
+
+  @override
+  String get csvColumnOther => 'أخرى';
+
+  @override
+  String get exportCsv => 'تصدير كجدول بيانات (CSV)';
+
+  @override
+  String get csvNotEncrypted =>
+      'على عكس النسخة الاحتياطية، هذا الملف غير مشفَّر، فاحفظيه في مكان خاص.';
+
+  @override
+  String get csvSaved => 'تم حفظ جدول البيانات.';
+
+  @override
+  String get csvNothingToExport => 'لم تسجّلي شيئاً بعد، فلا يوجد ما يُصدَّر.';
 }

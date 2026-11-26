@@ -1,4 +1,4 @@
-// The Log tab: one day's flow, mood, symptoms, discharge, ovulation test, temperature.
+// The Log tab: one day's flow, mood, symptoms, discharge, ovulation test, temperature, note.
 //
 // Why it exists: logging must take seconds, so every tap saves at once (no save button
 // to forget). The chip and the temperature field are widgets under widgets/; this file
@@ -23,6 +23,7 @@ import '../assistant/say_it_sheet.dart';
 import '../calendar/prediction_sheets.dart';
 import '../help/red_flags_screen.dart';
 import 'widgets/log_chip.dart';
+import 'widgets/note_field.dart';
 import 'widgets/temperature_field.dart';
 
 /// One day's log. Every tap saves (no save button to forget); the vocabulary is the
@@ -235,6 +236,15 @@ class LogScreen extends StatelessWidget {
                     children: fertilityItems,
                   ),
                 ),
+              section(l.logNoteSection, [
+                NoteField(
+                  key: ValueKey('note-$date'),
+                  initial: log.note,
+                  hint: l.logNoteHint,
+                  reassurance: l.logNoteSaved,
+                  onSave: (v) => save(log.copyWith(note: v)),
+                ),
+              ]),
               const SizedBox(height: space6),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,

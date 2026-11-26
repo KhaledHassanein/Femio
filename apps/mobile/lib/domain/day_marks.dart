@@ -45,7 +45,7 @@ Map<String, DayMark> dayMarks(
   for (final e in p.logs.entries) {
     if (!inView(e.key)) continue;
     if (e.value.flow == 'spotting') at(e.key).spotting = true;
-    if (e.value.terms.isNotEmpty) at(e.key).logged = true;
+    if (e.value.terms.isNotEmpty || e.value.hasNote) at(e.key).logged = true;
   }
 
   final starts = bleedStarts(p.periodStarts);

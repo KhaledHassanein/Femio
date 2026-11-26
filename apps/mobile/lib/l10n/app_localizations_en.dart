@@ -3415,4 +3415,34 @@ class L10nEn extends L10n {
 
   @override
   String get addRecordSub => 'Visits, results, medicines and documents';
+
+  @override
+  String get logNoteSection => 'Note';
+
+  @override
+  String get logNoteHint => 'Anything you want to remember about this day';
+
+  @override
+  String get logNoteSaved =>
+      'Saved on this phone with the rest of your record.';
+
+  @override
+  String get csvColumnDate => 'Date';
+
+  @override
+  String get csvColumnOther => 'Other';
+
+  @override
+  String get exportCsv => 'Export as spreadsheet (CSV)';
+
+  @override
+  String get csvNotEncrypted =>
+      'Unlike the backup, this file is not encrypted, so keep it somewhere private.';
+
+  @override
+  String get csvSaved => 'Spreadsheet saved.';
+
+  @override
+  String get csvNothingToExport =>
+      'Nothing logged yet, so there is nothing to export.';
 }

@@ -5566,6 +5566,60 @@ abstract class L10n {
   /// In en, this message translates to:
   /// **'Visits, results, medicines and documents'**
   String get addRecordSub;
+
+  /// Heading of the free-text note section on the Log screen.
+  ///
+  /// In en, this message translates to:
+  /// **'Note'**
+  String get logNoteSection;
+
+  /// Placeholder inside the empty note field on the Log screen.
+  ///
+  /// In en, this message translates to:
+  /// **'Anything you want to remember about this day'**
+  String get logNoteHint;
+
+  /// Reassurance under the note field: the note is stored on the phone only.
+  ///
+  /// In en, this message translates to:
+  /// **'Saved on this phone with the rest of your record.'**
+  String get logNoteSaved;
+
+  /// First column header of the spreadsheet export: the day of the log.
+  ///
+  /// In en, this message translates to:
+  /// **'Date'**
+  String get csvColumnDate;
+
+  /// Spreadsheet column header for log terms that are not mood, symptom or discharge (for example intercourse).
+  ///
+  /// In en, this message translates to:
+  /// **'Other'**
+  String get csvColumnOther;
+
+  /// Settings row that saves her logs as a spreadsheet (CSV) file.
+  ///
+  /// In en, this message translates to:
+  /// **'Export as spreadsheet (CSV)'**
+  String get exportCsv;
+
+  /// One-sentence warning under the CSV export row: unlike the sealed backup the spreadsheet has no passphrase.
+  ///
+  /// In en, this message translates to:
+  /// **'Unlike the backup, this file is not encrypted, so keep it somewhere private.'**
+  String get csvNotEncrypted;
+
+  /// Snackbar after the spreadsheet file was saved.
+  ///
+  /// In en, this message translates to:
+  /// **'Spreadsheet saved.'**
+  String get csvSaved;
+
+  /// Snackbar when she taps the CSV export but has logged no day yet.
+  ///
+  /// In en, this message translates to:
+  /// **'Nothing logged yet, so there is nothing to export.'**
+  String get csvNothingToExport;
 }
 
 class _L10nDelegate extends LocalizationsDelegate<L10n> {
