@@ -36,6 +36,8 @@ const ALLOWED = {
     "helpNowCountry_canada", "helpNowCountry_france", "helpNowCountry_oman", "helpNowCountry_qatar", "helpNowNumber_fr_3919", "helpNowNumber_ma_police",
     // Assistant (R7.3): the same word in French.
     "askSourcesTitle", "assistantSettingsTitle",
+    // Health record, day note and CSV (R11.1, R9.8, R9.10): the same words in French.
+    "recKindDocument", "recKindNote", "recFormKind", "logNoteSection", "csvColumnDate",
   ],
   es: ["logIrritable", "weightUnitKg", "weightUnitLb", "enterPin", "helpNowCountry_kuwait"],
 };
