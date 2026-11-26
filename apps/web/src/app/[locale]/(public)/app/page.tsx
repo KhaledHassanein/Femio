@@ -15,10 +15,11 @@ import {
 import { AppTourSection, TryDemosSection, WhatCanLeaveSection } from "@/components/demos/demo-sections";
 
 import { PhoneMock } from "@/components/site/phone-mock";
+import { TestBuildCard } from "@/components/site/test-build-card";
 import { Button } from "@/components/ui/button";
 import { Link } from "@/i18n/navigation";
 import { pageMetadata } from "@/lib/seo/metadata";
-import { PLAY_STORE_URL } from "@/lib/site";
+import { APK_DOWNLOAD_URL, PLAY_STORE_URL } from "@/lib/site";
 
 type PageProps = { params: Promise<{ locale: string }> };
 
@@ -50,6 +51,9 @@ const FEATURES = [
  * R2.10 (2026-11-24): the page shows the app as built: the feature list follows the app's
  * screens, a tour of real app screens, three demos on sample data, and "what can leave
  * this phone", which restates the privacy policy's complete list.
+ *
+ * R14.4 (2026-11-27): right under the hero, the early test build card gives a tester or a
+ * judge an install path (`APK_DOWNLOAD_URL`), or says honestly that the link is coming.
  */
 export default async function GetAppPage({ params }: PageProps) {
   const { locale } = await params;
@@ -104,6 +108,19 @@ export default async function GetAppPage({ params }: PageProps) {
           />
         </div>
       </section>
+
+      <TestBuildCard
+        url={APK_DOWNLOAD_URL}
+        strings={{
+          title: t("testBuild.title"),
+          body: t("testBuild.body"),
+          soon: t("testBuild.soon"),
+          soonBody: t("testBuild.soonBody"),
+          download: t("testBuild.download"),
+          stepsTitle: t("testBuild.stepsTitle"),
+          steps: [t("testBuild.steps.download"), t("testBuild.steps.allow"), t("testBuild.steps.open")],
+        }}
+      />
 
       <section className="mx-auto flex w-full max-w-5xl flex-col gap-6 px-6 py-14">
         <h2 className="font-display text-xl text-text rtl:font-bold">{t("featuresTitle")}</h2>

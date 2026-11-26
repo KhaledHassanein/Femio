@@ -13,3 +13,14 @@
 export const APP_PAGE = "/app";
 
 export const PLAY_STORE_URL: string | null = null;
+
+/**
+ * The early test build (APK) for testers and hackathon judges (R14.4, REL-2, UX-1).
+ *
+ * `null` until the build is published as a GitHub Release; while null, `/app` shows an
+ * honest "download link coming soon" card instead of a button that leads nowhere. Once
+ * the release exists, its asset URL goes here and `/app` shows the download with the
+ * sideload steps. Google Play closed testing is separate and comes later
+ * (`PLAY_STORE_URL`).
+ */
+export const APK_DOWNLOAD_URL: string | null = null;
