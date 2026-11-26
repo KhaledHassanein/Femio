@@ -17,7 +17,7 @@ Audited at commit `fb45488` (branch `claude/firebase-hackathon-eligibility-833c5
 | `04-clinical-maturity.md` | Clinician reviewer | Opus | 5/10 (cycle 6, TTC 5, PCOS 3, pregnancy 6, after birth 6.5, loss 1, perimenopause 6) |
 | `05-ux-ai-showcase.md` | UX critic and demo coach | Opus | hybrid-AI showcase 4/10; presentation and polish 6/10 |
 | `06-judge-criteria.md` | Hackathon judge | Opus | 7.0/10 (3.5/5) **if** Stage One passes; 0 if any required item is missing |
-| Stitch Review artifact (parent session) | per-screen review, 12 calendar states, AI placement | — | https://claude.ai/artifact/2wbNyvPh6eVLDkUUoMpvRT ("Top 10 fixes") |
+| Stitch Review artifact (parent session) | per-screen review, 12 calendar states, AI placement | — | https://claude.ai/artifact/2wbNyvPh6eVLDkUUoMpvRT ("Top 10 fixes"; v2 read 2026-11-26). Fixes 1, 3-7 → R14.7; fix 2 → R14.8 (owner row 40); fixes 8-10 → R14.6. Renders and `calendar_facts.json`: `testing-results/2026-11-26-stitch-review-all/` in the hackathon worktree |
 | `evidence/calendar_repro.dart` | lead | — | owner's calendar report reproduced (below) |
 
 Official judging (https://firebasehybridaihackathon.devpost.com/rules §8): Stage One pass/fail on
