@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="widget_neutral_line">Abrir femio</string>
+    <string name="widget_description">Abre femio desde tu pantalla de inicio. Solo muestra el nombre, salvo que elijas más en Ajustes.</string>
+</resources>

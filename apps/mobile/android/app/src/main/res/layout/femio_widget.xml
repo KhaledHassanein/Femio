@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- The home-screen widget: wordmark above one line. Text direction follows the text itself
+     (firstStrong) and alignment its start, so an Arabic line reads right to left even when
+     the phone is set to English. Tapping anywhere opens the app. -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/widget_root"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/widget_background"
+    android:gravity="center_vertical"
+    android:orientation="vertical"
+    android:padding="@dimen/widget_padding">
+
+    <TextView
+        android:id="@+id/widget_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="sans-serif-medium"
+        android:maxLines="1"
+        android:text="@string/widget_wordmark"
+        android:textAlignment="textStart"
+        android:textColor="@color/widget_title"
+        android:textDirection="firstStrong"
+        android:textSize="@dimen/widget_title_size" />
+
+    <TextView
+        android:id="@+id/widget_line"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ellipsize="end"
+        android:maxLines="2"
+        android:text="@string/widget_neutral_line"
+        android:textAlignment="textStart"
+        android:textColor="@color/widget_line"
+        android:textDirection="firstStrong"
+        android:textSize="@dimen/widget_line_size" />
+</LinearLayout>

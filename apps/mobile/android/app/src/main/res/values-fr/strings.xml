@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="widget_neutral_line">Ouvrir femio</string>
+    <string name="widget_description">Ouvrez femio depuis votre écran d\'accueil. N\'affiche que le nom, sauf si vous en choisissez plus dans les réglages.</string>
+</resources>

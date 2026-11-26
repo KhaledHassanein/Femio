@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Words the home-screen widget shows before the app has pushed any, and its picker text.
+     Neutral on purpose: no health word. Phone language (the app's own language arrives
+     from Dart once the app has run). -->
+<resources>
+    <string name="widget_wordmark" translatable="false">femio</string>
+    <string name="widget_neutral_line">Open femio</string>
+    <string name="widget_description">Open femio from your home screen. Shows only the name unless you choose more in Settings.</string>
+</resources>
