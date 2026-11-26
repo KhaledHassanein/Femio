@@ -246,14 +246,14 @@ Her own medical file, kept like a professional record, on her phone only. The ru
 - The AI only drafts; she confirms each line (rule 7, ADR-081).
 - Hybrid AI (owner 2026-11-25): the phone does the work (scanning, reading, filing, charts, drafts, answers about her record). The cloud may answer only an abstract question the phone builds, which carries nothing about her (R11.10). Scanning never leaves the phone.
 - femio stores, dates and draws her data. It never interprets: no "normal" or "abnormal", and a reference range only as printed on her own report (rule 1).
-- [ ] R11.0 · ADR-082 "her health record". Contents:
+- [x] R11.0 · ADR-082 "her health record" (ADR in c93bb94; schema v3 in the R11.1 commit). Done: typed entries, happened-on/added-on, source, edit history, v2→v3 migration, newer-file refusal (`test/r11_record_test.dart`, `test/health_record_test.dart`). Attachments and the privacy-notice line move to R11.2, where documents first exist. Contents:
   - schema v3: typed entries with happened-on and added-on, source and edit history;
   - attachments encrypted in app storage and inside the sealed backup, with size limits;
   - migration from v2;
   - the medical-device check (stores and displays her own documents; no interpretation, no dose or interaction advice);
   - the privacy notice line.
   Owner check on scope. Shares the schema bump with R10.15.
-- [ ] R11.1 · "My record" screen.
+- [x] R11.1 · "My record" screen. Reached from the "+" sheet ("My health record"). Filter chips per kind, timeline by happened-on, added-on + source + "Edited", editor with tap-a-calendar dates and delete-with-confirm. Her typed values keep their own direction in Arabic (`domain/bidi_text.dart`: "0.4 - 4.0" no longer turns around). Evidence: full `flutter test` 1030 pass; shots `testing-results/2026-11-26-r11-record/` (record_/editor_ × EN/AR × light/dark, synthetic fixture).
   - Sections: visits, labs, imaging, prescriptions and medicines, conditions and history, allergies, procedures, pregnancies, documents.
   - A timeline sorted by happened-on, each row showing added-on, its source and an "edited" mark.
   - Add, edit and remove by hand, with a calendar you tap for dates.

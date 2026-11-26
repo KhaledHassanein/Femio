@@ -9,6 +9,7 @@ library;
 import '../domain/appointments.dart';
 import '../domain/assistant/cloud_consent.dart';
 import '../domain/contractions.dart';
+import '../domain/health_record.dart';
 import '../domain/movements.dart';
 import '../domain/weight.dart';
 
@@ -16,15 +17,15 @@ enum Goal { period, ttc, pregnant, menopause }
 
 /// The record's schema version, written as `v`. Bump it when a field changes
 /// meaning; [migrateRecord] carries older files forward.
-const schemaVersion = 2;
+const schemaVersion = 3;
 
 /// Brings a record written by an older build up to [schemaVersion]. Unknown
 /// future versions are returned untouched so [Profile.fromJson] can refuse them
-/// loudly rather than guess. v1 → v2 added `settings`; its absence is the
-/// default, so nothing to rewrite.
+/// loudly rather than guess. v1 → v2 added `settings`; v2 → v3 added `record`, her
+/// health record (ADR-082). Both are absent-means-empty, so only the version moves.
 Map<String, Object?> migrateRecord(Map<String, Object?> json) {
   final v = (json['v'] as num?)?.toInt() ?? 1;
-  if (v < 2) return {...json, 'v': 2};
+  if (v < schemaVersion) return {...json, 'v': schemaVersion};
   return json;
 }
 
@@ -252,6 +253,7 @@ class Profile {
     this.movements = const [],
     this.weights = const [],
     this.appointments = const [],
+    this.record = const [],
     this.settings = const AppSettings(),
   });
 
@@ -279,6 +281,10 @@ class Profile {
   /// Appointments: when, with whom, what to ask. Never a result.
   final List<Appointment> appointments;
 
+  /// Her health record (ADR-082): visits, results, medicines, documents, in any order;
+  /// [timeline] sorts them.
+  final List<RecordEntry> record;
+
   /// Her preferences (Hijri display, dismissed notices).
   final AppSettings settings;
   final int? periodLength;
@@ -305,6 +311,7 @@ class Profile {
     List<MovementSession>? movements,
     List<WeightEntry>? weights,
     List<Appointment>? appointments,
+    List<RecordEntry>? record,
     AppSettings? settings,
   }) =>
       Profile(
@@ -324,6 +331,7 @@ class Profile {
         movements: movements ?? this.movements,
         weights: weights ?? this.weights,
         appointments: appointments ?? this.appointments,
+        record: record ?? this.record,
         settings: settings ?? this.settings,
       );
 
@@ -362,10 +370,20 @@ class Profile {
         'movements': [for (final m in movements) m.toJson()],
         'weights': [for (final w in weights) w.toJson()],
         'appointments': [for (final a in appointments) a.toJson()],
+        if (record.isNotEmpty) 'record': [for (final e in record) e.toJson()],
         'settings': settings.toJson(),
       };
 
-  static Profile fromJson(Map<String, Object?> j) => Profile(
+  /// Reads a record. Throws [FormatException] for a file written by a newer femio, so it
+  /// is kept aside rather than read without the parts this build does not know and then
+  /// saved over (ADR-082).
+  static Profile fromJson(Map<String, Object?> j) {
+    final v = (j['v'] as num?)?.toInt() ?? 1;
+    if (v > schemaVersion) throw FormatException('record schema v$v is newer than this build (v$schemaVersion)');
+    return _fromJson(j);
+  }
+
+  static Profile _fromJson(Map<String, Object?> j) => Profile(
         goal: Goal.values.byName(j['goal'] as String),
         locale: j['locale'] as String? ?? 'en',
         birthYear: j['birthYear'] as int?,
@@ -395,6 +413,9 @@ class Profile {
         appointments: [
           for (final a in (j['appointments'] as List?) ?? const [])
             Appointment.fromJson(Map<String, Object?>.from(a as Map)),
+        ],
+        record: [
+          for (final e in (j['record'] as List?) ?? const []) RecordEntry.fromJson(Map<String, Object?>.from(e as Map)),
         ],
         settings: AppSettings.fromJson(j['settings'] == null ? null : Map<String, Object?>.from(j['settings'] as Map)),
       );

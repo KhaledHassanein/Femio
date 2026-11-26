@@ -123,8 +123,9 @@ void main() {
       expect(AppSettings.fromJson({'logReminderMinutes': -3}).logReminderMinutes, defaultLogReminderMinutes);
     });
 
-    test('the schema stays at version 2', () {
-      expect(_regular().toJson()['v'], 2);
+    // Reminders added no schema version: absent means off. v3 is ADR-082's record.
+    test('reminders need no schema bump of their own', () {
+      expect(_regular().toJson()['v'], 3);
     });
   });
 

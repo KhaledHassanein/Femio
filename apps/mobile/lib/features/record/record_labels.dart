@@ -1,0 +1,94 @@
+// Words and icons for the health record's kinds, sources and fields (R11.1).
+//
+// Why it exists: the list, the editor and later the visit pack all name a kind or a field
+// the same way; one place keeps the four languages in step.
+
+import 'package:flutter/material.dart';
+
+import '../../domain/bidi_text.dart';
+import '../../domain/health_record.dart';
+import '../../l10n/app_localizations.dart';
+
+/// The name of [k] in her language.
+String recordKindLabel(L10n l, RecordKind k) => switch (k) {
+      RecordKind.visit => l.recKindVisit,
+      RecordKind.lab => l.recKindLab,
+      RecordKind.imaging => l.recKindImaging,
+      RecordKind.medicine => l.recKindMedicine,
+      RecordKind.condition => l.recKindCondition,
+      RecordKind.allergy => l.recKindAllergy,
+      RecordKind.procedure => l.recKindProcedure,
+      RecordKind.pregnancy => l.recKindPregnancy,
+      RecordKind.document => l.recKindDocument,
+      RecordKind.note => l.recKindNote,
+    };
+
+/// The icon drawn beside entries of kind [k].
+IconData recordKindIcon(RecordKind k) => switch (k) {
+      RecordKind.visit => Icons.event_note_outlined,
+      RecordKind.lab => Icons.science_outlined,
+      RecordKind.imaging => Icons.monitor_heart_outlined,
+      RecordKind.medicine => Icons.medication_outlined,
+      RecordKind.condition => Icons.history_edu_outlined,
+      RecordKind.allergy => Icons.warning_amber_rounded,
+      RecordKind.procedure => Icons.healing_outlined,
+      RecordKind.pregnancy => Icons.pregnant_woman_rounded,
+      RecordKind.document => Icons.description_outlined,
+      RecordKind.note => Icons.sticky_note_2_outlined,
+    };
+
+/// Where an entry came from, in her language.
+String recordSourceLabel(L10n l, RecordSource s) => switch (s) {
+      RecordSource.typed => l.recSourceTyped,
+      RecordSource.scanned => l.recSourceScanned,
+      RecordSource.askFemio => l.recSourceAsk,
+      RecordSource.sayIt => l.recSourceSayIt,
+      RecordSource.imported => l.recSourceImported,
+    };
+
+/// The label of field [name] in the editor.
+String recordFieldLabel(L10n l, String name) => switch (name) {
+      RecordField.value => l.recFieldValue,
+      RecordField.unit => l.recFieldUnit,
+      RecordField.printedRange => l.recFieldPrintedRange,
+      RecordField.dose => l.recFieldDose,
+      RecordField.frequency => l.recFieldFrequency,
+      RecordField.startedOn => l.recFieldStartedOn,
+      RecordField.endedOn => l.recFieldEndedOn,
+      RecordField.prescriber => l.recFieldPrescriber,
+      RecordField.place => l.recFieldPlace,
+      _ => l.recFieldDetails,
+    };
+
+/// The fields the editor offers for [k], beyond the title and the day it happened.
+List<String> recordFieldsFor(RecordKind k) => switch (k) {
+      RecordKind.lab => const [RecordField.value, RecordField.unit, RecordField.printedRange, RecordField.details],
+      RecordKind.medicine => const [
+          RecordField.dose,
+          RecordField.frequency,
+          RecordField.startedOn,
+          RecordField.endedOn,
+          RecordField.prescriber,
+          RecordField.details,
+        ],
+      RecordKind.visit || RecordKind.imaging || RecordKind.procedure => const [RecordField.place, RecordField.details],
+      _ => const [RecordField.details],
+    };
+
+/// Fields stored as ISO days and picked on a calendar, never typed.
+const recordDateFields = {RecordField.startedOn, RecordField.endedOn};
+
+/// One line under the title: the value and unit, or the dose and how often, as written.
+/// Each piece is isolated so "0.4 - 4.0" or "400 mcg" never turns around in Arabic.
+String recordSummary(RecordEntry e) {
+  String f(String k) => e.fields[k] ?? '';
+  final parts = switch (e.kind) {
+    RecordKind.lab => [
+        [f(RecordField.value), f(RecordField.unit)].where((s) => s.isNotEmpty).join(' '),
+        if (f(RecordField.printedRange).isNotEmpty) '(${f(RecordField.printedRange)})',
+      ],
+    RecordKind.medicine => [f(RecordField.dose), f(RecordField.frequency)],
+    _ => [f(RecordField.place)],
+  };
+  return [for (final s in parts) if (s.isNotEmpty) isolateText(s)].join(' · ');
+}

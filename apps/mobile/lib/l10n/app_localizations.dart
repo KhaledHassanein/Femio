@@ -5272,6 +5272,300 @@ abstract class L10n {
   /// In en, this message translates to:
   /// **'For my visit'**
   String get addVisit;
+
+  /// Title of the screen that holds her own health file (visits, results, medicines, documents).
+  ///
+  /// In en, this message translates to:
+  /// **'My health record'**
+  String get recTitle;
+
+  /// One-line explanation at the top of My health record.
+  ///
+  /// In en, this message translates to:
+  /// **'Your own health file, kept on this phone. Each entry shows the day it happened and the day you added it, exactly as you wrote it.'**
+  String get recIntro;
+
+  /// Filter chip showing every kind of record entry.
+  ///
+  /// In en, this message translates to:
+  /// **'All'**
+  String get recAll;
+
+  /// Kind of record entry: a clinic or doctor visit.
+  ///
+  /// In en, this message translates to:
+  /// **'Visit'**
+  String get recKindVisit;
+
+  /// Kind of record entry: a laboratory test result.
+  ///
+  /// In en, this message translates to:
+  /// **'Lab result'**
+  String get recKindLab;
+
+  /// Kind of record entry: ultrasound, X-ray, MRI and similar.
+  ///
+  /// In en, this message translates to:
+  /// **'Scan or imaging'**
+  String get recKindImaging;
+
+  /// Kind of record entry: a medicine or prescription.
+  ///
+  /// In en, this message translates to:
+  /// **'Medicine'**
+  String get recKindMedicine;
+
+  /// Kind of record entry: a health condition or past history she wants to keep.
+  ///
+  /// In en, this message translates to:
+  /// **'Condition or history'**
+  String get recKindCondition;
+
+  /// Kind of record entry: an allergy.
+  ///
+  /// In en, this message translates to:
+  /// **'Allergy'**
+  String get recKindAllergy;
+
+  /// Kind of record entry: a surgery or procedure.
+  ///
+  /// In en, this message translates to:
+  /// **'Procedure'**
+  String get recKindProcedure;
+
+  /// Kind of record entry: a past or current pregnancy.
+  ///
+  /// In en, this message translates to:
+  /// **'Pregnancy'**
+  String get recKindPregnancy;
+
+  /// Kind of record entry: a report or other document.
+  ///
+  /// In en, this message translates to:
+  /// **'Document'**
+  String get recKindDocument;
+
+  /// Kind of record entry: a free note.
+  ///
+  /// In en, this message translates to:
+  /// **'Note'**
+  String get recKindNote;
+
+  /// Heading when the health record is empty.
+  ///
+  /// In en, this message translates to:
+  /// **'Nothing here yet'**
+  String get recEmptyHeading;
+
+  /// Body when the health record is empty.
+  ///
+  /// In en, this message translates to:
+  /// **'Add a visit, a lab result, a medicine or anything you want to keep. Entries stay on this phone and go into the backup file you save.'**
+  String get recEmptyBody;
+
+  /// Button and screen title for adding a record entry.
+  ///
+  /// In en, this message translates to:
+  /// **'Add an entry'**
+  String get recAdd;
+
+  /// Screen title when editing a record entry.
+  ///
+  /// In en, this message translates to:
+  /// **'Edit entry'**
+  String get recEdit;
+
+  /// Button that saves a record entry.
+  ///
+  /// In en, this message translates to:
+  /// **'Save to my record'**
+  String get recSave;
+
+  /// Cancel button in the record editor and delete dialog.
+  ///
+  /// In en, this message translates to:
+  /// **'Cancel'**
+  String get recCancel;
+
+  /// Button that deletes a record entry.
+  ///
+  /// In en, this message translates to:
+  /// **'Delete'**
+  String get recDelete;
+
+  /// Title of the confirm dialog before deleting a record entry.
+  ///
+  /// In en, this message translates to:
+  /// **'Delete this entry?'**
+  String get recDeleteTitle;
+
+  /// Body of the delete confirm dialog.
+  ///
+  /// In en, this message translates to:
+  /// **'It is removed from this phone. A backup file you saved earlier still has it.'**
+  String get recDeleteBody;
+
+  /// Label above the kind chips in the record editor.
+  ///
+  /// In en, this message translates to:
+  /// **'Type'**
+  String get recFormKind;
+
+  /// Label of the title field in the record editor.
+  ///
+  /// In en, this message translates to:
+  /// **'Title'**
+  String get recFormTitle;
+
+  /// Hint for the title field.
+  ///
+  /// In en, this message translates to:
+  /// **'In your words, like “TSH” or “12-week scan”'**
+  String get recFormTitleHint;
+
+  /// Label of the date the entry happened (picked on a calendar).
+  ///
+  /// In en, this message translates to:
+  /// **'Day it happened'**
+  String get recFormHappened;
+
+  /// Hint under the happened-on date.
+  ///
+  /// In en, this message translates to:
+  /// **'The date printed on the report, or the day of the visit.'**
+  String get recFormHappenedHint;
+
+  /// Error when the record entry has no title.
+  ///
+  /// In en, this message translates to:
+  /// **'Add a title'**
+  String get recNeedTitle;
+
+  /// Error when the record entry has no happened-on date.
+  ///
+  /// In en, this message translates to:
+  /// **'Pick the day it happened'**
+  String get recNeedDate;
+
+  /// Record field: a lab value as written on the report.
+  ///
+  /// In en, this message translates to:
+  /// **'Result'**
+  String get recFieldValue;
+
+  /// Record field: the unit as written on the report.
+  ///
+  /// In en, this message translates to:
+  /// **'Unit'**
+  String get recFieldUnit;
+
+  /// Record field: the reference range exactly as printed on her own report.
+  ///
+  /// In en, this message translates to:
+  /// **'Range printed on the report'**
+  String get recFieldPrintedRange;
+
+  /// Record field: medicine dose as written on the prescription.
+  ///
+  /// In en, this message translates to:
+  /// **'Dose as written'**
+  String get recFieldDose;
+
+  /// Record field: how often the medicine is taken, as written.
+  ///
+  /// In en, this message translates to:
+  /// **'How often'**
+  String get recFieldFrequency;
+
+  /// Record field: the day a medicine was started.
+  ///
+  /// In en, this message translates to:
+  /// **'Started'**
+  String get recFieldStartedOn;
+
+  /// Record field: the day a medicine was stopped.
+  ///
+  /// In en, this message translates to:
+  /// **'Ended'**
+  String get recFieldEndedOn;
+
+  /// Record field: who prescribed the medicine.
+  ///
+  /// In en, this message translates to:
+  /// **'Prescribed by'**
+  String get recFieldPrescriber;
+
+  /// Record field: clinic, hospital or doctor.
+  ///
+  /// In en, this message translates to:
+  /// **'Where'**
+  String get recFieldPlace;
+
+  /// Record field: free details.
+  ///
+  /// In en, this message translates to:
+  /// **'Details'**
+  String get recFieldDetails;
+
+  /// Line on a record row: the day the entry was added to femio.
+  ///
+  /// In en, this message translates to:
+  /// **'Added {date}'**
+  String recRowAdded(String date);
+
+  /// Mark on a record row that was changed after it was added.
+  ///
+  /// In en, this message translates to:
+  /// **'Edited'**
+  String get recEdited;
+
+  /// Record entry source: typed by her.
+  ///
+  /// In en, this message translates to:
+  /// **'Typed'**
+  String get recSourceTyped;
+
+  /// Record entry source: scanned from a document.
+  ///
+  /// In en, this message translates to:
+  /// **'Scanned'**
+  String get recSourceScanned;
+
+  /// Record entry source: confirmed from an Ask femio draft.
+  ///
+  /// In en, this message translates to:
+  /// **'From Ask femio'**
+  String get recSourceAsk;
+
+  /// Record entry source: confirmed from a Say it draft.
+  ///
+  /// In en, this message translates to:
+  /// **'From Say it'**
+  String get recSourceSayIt;
+
+  /// Record entry source: imported from a file.
+  ///
+  /// In en, this message translates to:
+  /// **'Imported'**
+  String get recSourceImported;
+
+  /// Note under the record list and editor (no interpretation, product rule 1).
+  ///
+  /// In en, this message translates to:
+  /// **'femio keeps and shows your entries as written. It never says whether a result is normal: that is for you and your clinician.'**
+  String get recNoVerdictNote;
+
+  /// Row in the + sheet that opens My health record.
+  ///
+  /// In en, this message translates to:
+  /// **'My health record'**
+  String get addRecord;
+
+  /// Subtitle of the My health record row in the + sheet.
+  ///
+  /// In en, this message translates to:
+  /// **'Visits, results, medicines and documents'**
+  String get addRecordSub;
 }
 
 class _L10nDelegate extends LocalizationsDelegate<L10n> {

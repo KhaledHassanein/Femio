@@ -22,9 +22,10 @@ import '../../theme/spacing.dart';
 import '../../theme/type_sizes.dart';
 import '../assistant/assistant_pill.dart';
 import '../log/widgets/log_chip.dart';
+import '../record/record_screen.dart';
 
 /// What the sheet asks the shell to do after it closes.
-enum AddChoice { fullLog }
+enum AddChoice { fullLog, record }
 
 /// Opens the sheet for [today]. When she picks "more to log", [onOpenLog] opens the Log
 /// tab on today. The assistant doors open after the sheet has closed, so their own
@@ -45,6 +46,10 @@ Future<void> showAddSheet(
   if (!context.mounted) return;
   if (choice == AddChoice.fullLog) {
     onOpenLog();
+  } else if (choice == AddChoice.record) {
+    await Navigator.of(context).push(MaterialPageRoute<void>(
+      builder: (_) => RecordScreen(controller: controller, today: today),
+    ));
   } else if (choice is AssistantDoor) {
     await openAssistantDoor(context, choice, controller: controller, today: today, library: library);
   }
@@ -176,6 +181,15 @@ class AddSheet extends StatelessWidget {
                 title: Text(l.addMoreToLog),
                 trailing: const Icon(Icons.chevron_right_rounded),
                 onTap: () => pop(AddChoice.fullLog),
+              ),
+              // R11.1: her own health file, one tap from every tab.
+              ListTile(
+                contentPadding: EdgeInsets.zero,
+                leading: Icon(Icons.folder_shared_outlined, color: p.primary),
+                title: Text(l.addRecord),
+                subtitle: Text(l.addRecordSub),
+                trailing: const Icon(Icons.chevron_right_rounded),
+                onTap: () => pop(AddChoice.record),
               ),
               Row(mainAxisAlignment: MainAxisAlignment.center, children: [
                 Icon(Icons.lock_outline_rounded, size: iconSizeInline, color: p.textSubtle),

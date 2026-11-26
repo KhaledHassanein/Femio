@@ -3276,8 +3276,163 @@ class L10nEs extends L10n {
   String get addMoreToLog => 'Síntomas, flujo, pruebas y más';
 
   @override
-  String get addAsk => 'Preguntar a femio';
+  String get addAsk => 'Pregunta a femio';
 
   @override
   String get addVisit => 'Para mi consulta';
+
+  @override
+  String get recTitle => 'Mi historial de salud';
+
+  @override
+  String get recIntro =>
+      'Tu propio historial de salud, guardado en este teléfono. Cada entrada muestra el día en que ocurrió y el día en que la añadiste, tal como la escribiste.';
+
+  @override
+  String get recAll => 'Todo';
+
+  @override
+  String get recKindVisit => 'Consulta';
+
+  @override
+  String get recKindLab => 'Resultado de laboratorio';
+
+  @override
+  String get recKindImaging => 'Ecografía o imagen';
+
+  @override
+  String get recKindMedicine => 'Medicamento';
+
+  @override
+  String get recKindCondition => 'Afección o antecedente';
+
+  @override
+  String get recKindAllergy => 'Alergia';
+
+  @override
+  String get recKindProcedure => 'Procedimiento';
+
+  @override
+  String get recKindPregnancy => 'Embarazo';
+
+  @override
+  String get recKindDocument => 'Documento';
+
+  @override
+  String get recKindNote => 'Nota';
+
+  @override
+  String get recEmptyHeading => 'Aún no hay nada';
+
+  @override
+  String get recEmptyBody =>
+      'Añade una consulta, un resultado, un medicamento o lo que quieras guardar. Las entradas se quedan en este teléfono y van en el archivo de copia que guardes.';
+
+  @override
+  String get recAdd => 'Añadir una entrada';
+
+  @override
+  String get recEdit => 'Editar la entrada';
+
+  @override
+  String get recSave => 'Guardar en mi historial';
+
+  @override
+  String get recCancel => 'Cancelar';
+
+  @override
+  String get recDelete => 'Eliminar';
+
+  @override
+  String get recDeleteTitle => '¿Eliminar esta entrada?';
+
+  @override
+  String get recDeleteBody =>
+      'Se quita de este teléfono. Una copia que guardaste antes todavía la tiene.';
+
+  @override
+  String get recFormKind => 'Tipo';
+
+  @override
+  String get recFormTitle => 'Título';
+
+  @override
+  String get recFormTitleHint =>
+      'Con tus palabras, como «TSH» o «ecografía de la semana 12»';
+
+  @override
+  String get recFormHappened => 'Día en que ocurrió';
+
+  @override
+  String get recFormHappenedHint =>
+      'La fecha impresa en el informe, o el día de la consulta.';
+
+  @override
+  String get recNeedTitle => 'Añade un título';
+
+  @override
+  String get recNeedDate => 'Elige el día en que ocurrió';
+
+  @override
+  String get recFieldValue => 'Resultado';
+
+  @override
+  String get recFieldUnit => 'Unidad';
+
+  @override
+  String get recFieldPrintedRange => 'Rango impreso en el informe';
+
+  @override
+  String get recFieldDose => 'Dosis tal como está escrita';
+
+  @override
+  String get recFieldFrequency => 'Con qué frecuencia';
+
+  @override
+  String get recFieldStartedOn => 'Inicio';
+
+  @override
+  String get recFieldEndedOn => 'Fin';
+
+  @override
+  String get recFieldPrescriber => 'Recetado por';
+
+  @override
+  String get recFieldPlace => 'Dónde';
+
+  @override
+  String get recFieldDetails => 'Detalles';
+
+  @override
+  String recRowAdded(String date) {
+    return 'Añadido el $date';
+  }
+
+  @override
+  String get recEdited => 'Editada';
+
+  @override
+  String get recSourceTyped => 'Escrita';
+
+  @override
+  String get recSourceScanned => 'Escaneada';
+
+  @override
+  String get recSourceAsk => 'Desde Pregunta a femio';
+
+  @override
+  String get recSourceSayIt => 'Desde lo que contaste';
+
+  @override
+  String get recSourceImported => 'Importada';
+
+  @override
+  String get recNoVerdictNote =>
+      'femio guarda y muestra tus entradas tal como las escribiste. Nunca dice si un resultado es normal: eso lo ves con tu profesional de salud.';
+
+  @override
+  String get addRecord => 'Mi historial de salud';
+
+  @override
+  String get addRecordSub => 'Consultas, resultados, medicamentos y documentos';
 }

@@ -3261,4 +3261,158 @@ class L10nEn extends L10n {
 
   @override
   String get addVisit => 'For my visit';
+
+  @override
+  String get recTitle => 'My health record';
+
+  @override
+  String get recIntro =>
+      'Your own health file, kept on this phone. Each entry shows the day it happened and the day you added it, exactly as you wrote it.';
+
+  @override
+  String get recAll => 'All';
+
+  @override
+  String get recKindVisit => 'Visit';
+
+  @override
+  String get recKindLab => 'Lab result';
+
+  @override
+  String get recKindImaging => 'Scan or imaging';
+
+  @override
+  String get recKindMedicine => 'Medicine';
+
+  @override
+  String get recKindCondition => 'Condition or history';
+
+  @override
+  String get recKindAllergy => 'Allergy';
+
+  @override
+  String get recKindProcedure => 'Procedure';
+
+  @override
+  String get recKindPregnancy => 'Pregnancy';
+
+  @override
+  String get recKindDocument => 'Document';
+
+  @override
+  String get recKindNote => 'Note';
+
+  @override
+  String get recEmptyHeading => 'Nothing here yet';
+
+  @override
+  String get recEmptyBody =>
+      'Add a visit, a lab result, a medicine or anything you want to keep. Entries stay on this phone and go into the backup file you save.';
+
+  @override
+  String get recAdd => 'Add an entry';
+
+  @override
+  String get recEdit => 'Edit entry';
+
+  @override
+  String get recSave => 'Save to my record';
+
+  @override
+  String get recCancel => 'Cancel';
+
+  @override
+  String get recDelete => 'Delete';
+
+  @override
+  String get recDeleteTitle => 'Delete this entry?';
+
+  @override
+  String get recDeleteBody =>
+      'It is removed from this phone. A backup file you saved earlier still has it.';
+
+  @override
+  String get recFormKind => 'Type';
+
+  @override
+  String get recFormTitle => 'Title';
+
+  @override
+  String get recFormTitleHint => 'In your words, like “TSH” or “12-week scan”';
+
+  @override
+  String get recFormHappened => 'Day it happened';
+
+  @override
+  String get recFormHappenedHint =>
+      'The date printed on the report, or the day of the visit.';
+
+  @override
+  String get recNeedTitle => 'Add a title';
+
+  @override
+  String get recNeedDate => 'Pick the day it happened';
+
+  @override
+  String get recFieldValue => 'Result';
+
+  @override
+  String get recFieldUnit => 'Unit';
+
+  @override
+  String get recFieldPrintedRange => 'Range printed on the report';
+
+  @override
+  String get recFieldDose => 'Dose as written';
+
+  @override
+  String get recFieldFrequency => 'How often';
+
+  @override
+  String get recFieldStartedOn => 'Started';
+
+  @override
+  String get recFieldEndedOn => 'Ended';
+
+  @override
+  String get recFieldPrescriber => 'Prescribed by';
+
+  @override
+  String get recFieldPlace => 'Where';
+
+  @override
+  String get recFieldDetails => 'Details';
+
+  @override
+  String recRowAdded(String date) {
+    return 'Added $date';
+  }
+
+  @override
+  String get recEdited => 'Edited';
+
+  @override
+  String get recSourceTyped => 'Typed';
+
+  @override
+  String get recSourceScanned => 'Scanned';
+
+  @override
+  String get recSourceAsk => 'From Ask femio';
+
+  @override
+  String get recSourceSayIt => 'From Say it';
+
+  @override
+  String get recSourceImported => 'Imported';
+
+  @override
+  String get recNoVerdictNote =>
+      'femio keeps and shows your entries as written. It never says whether a result is normal: that is for you and your clinician.';
+
+  @override
+  String get addRecord => 'My health record';
+
+  @override
+  String get addRecordSub => 'Visits, results, medicines and documents';
 }

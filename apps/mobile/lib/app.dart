@@ -18,6 +18,7 @@ import 'data/backup.dart';
 import 'data/key_vault.dart';
 import 'data/play_store.dart';
 import 'data/profile.dart';
+import 'domain/health_record.dart';
 import 'data/notification_port.dart';
 import 'data/reminder_scheduler.dart';
 import 'data/safety_session.dart';
@@ -193,6 +194,17 @@ class FemioController extends ChangeNotifier {
 
   /// Updates her preferences and saves.
   Future<void> setSettings(AppSettings settings) => save(profile!.copyWith(settings: settings));
+
+  /// Adds [entry] to her health record, or replaces the entry with the same id (ADR-082).
+  Future<void> saveRecordEntry(RecordEntry entry) => save(profile!.copyWith(record: [
+        for (final e in profile!.record)
+          if (e.id != entry.id) e,
+        entry,
+      ]));
+
+  /// Removes the entry with [id] from her health record; nothing happens if there is none.
+  Future<void> deleteRecordEntry(String id) =>
+      save(profile!.copyWith(record: [for (final e in profile!.record) if (e.id != id) e]));
 
   /// Whether she still has to see the notification consent screen before any reminder can
   /// be switched on (R12.1). False without a record.

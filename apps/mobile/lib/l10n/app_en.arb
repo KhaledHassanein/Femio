@@ -1620,5 +1620,206 @@
   "addVisit": "For my visit",
   "@addVisit": {
     "description": "Short button in the + sheet that opens the questions-for-a-visit summary."
+  },
+  "recTitle": "My health record",
+  "@recTitle": {
+    "description": "Title of the screen that holds her own health file (visits, results, medicines, documents)."
+  },
+  "recIntro": "Your own health file, kept on this phone. Each entry shows the day it happened and the day you added it, exactly as you wrote it.",
+  "@recIntro": {
+    "description": "One-line explanation at the top of My health record."
+  },
+  "recAll": "All",
+  "@recAll": {
+    "description": "Filter chip showing every kind of record entry."
+  },
+  "recKindVisit": "Visit",
+  "@recKindVisit": {
+    "description": "Kind of record entry: a clinic or doctor visit."
+  },
+  "recKindLab": "Lab result",
+  "@recKindLab": {
+    "description": "Kind of record entry: a laboratory test result."
+  },
+  "recKindImaging": "Scan or imaging",
+  "@recKindImaging": {
+    "description": "Kind of record entry: ultrasound, X-ray, MRI and similar."
+  },
+  "recKindMedicine": "Medicine",
+  "@recKindMedicine": {
+    "description": "Kind of record entry: a medicine or prescription."
+  },
+  "recKindCondition": "Condition or history",
+  "@recKindCondition": {
+    "description": "Kind of record entry: a health condition or past history she wants to keep."
+  },
+  "recKindAllergy": "Allergy",
+  "@recKindAllergy": {
+    "description": "Kind of record entry: an allergy."
+  },
+  "recKindProcedure": "Procedure",
+  "@recKindProcedure": {
+    "description": "Kind of record entry: a surgery or procedure."
+  },
+  "recKindPregnancy": "Pregnancy",
+  "@recKindPregnancy": {
+    "description": "Kind of record entry: a past or current pregnancy."
+  },
+  "recKindDocument": "Document",
+  "@recKindDocument": {
+    "description": "Kind of record entry: a report or other document."
+  },
+  "recKindNote": "Note",
+  "@recKindNote": {
+    "description": "Kind of record entry: a free note."
+  },
+  "recEmptyHeading": "Nothing here yet",
+  "@recEmptyHeading": {
+    "description": "Heading when the health record is empty."
+  },
+  "recEmptyBody": "Add a visit, a lab result, a medicine or anything you want to keep. Entries stay on this phone and go into the backup file you save.",
+  "@recEmptyBody": {
+    "description": "Body when the health record is empty."
+  },
+  "recAdd": "Add an entry",
+  "@recAdd": {
+    "description": "Button and screen title for adding a record entry."
+  },
+  "recEdit": "Edit entry",
+  "@recEdit": {
+    "description": "Screen title when editing a record entry."
+  },
+  "recSave": "Save to my record",
+  "@recSave": {
+    "description": "Button that saves a record entry."
+  },
+  "recCancel": "Cancel",
+  "@recCancel": {
+    "description": "Cancel button in the record editor and delete dialog."
+  },
+  "recDelete": "Delete",
+  "@recDelete": {
+    "description": "Button that deletes a record entry."
+  },
+  "recDeleteTitle": "Delete this entry?",
+  "@recDeleteTitle": {
+    "description": "Title of the confirm dialog before deleting a record entry."
+  },
+  "recDeleteBody": "It is removed from this phone. A backup file you saved earlier still has it.",
+  "@recDeleteBody": {
+    "description": "Body of the delete confirm dialog."
+  },
+  "recFormKind": "Type",
+  "@recFormKind": {
+    "description": "Label above the kind chips in the record editor."
+  },
+  "recFormTitle": "Title",
+  "@recFormTitle": {
+    "description": "Label of the title field in the record editor."
+  },
+  "recFormTitleHint": "In your words, like “TSH” or “12-week scan”",
+  "@recFormTitleHint": {
+    "description": "Hint for the title field."
+  },
+  "recFormHappened": "Day it happened",
+  "@recFormHappened": {
+    "description": "Label of the date the entry happened (picked on a calendar)."
+  },
+  "recFormHappenedHint": "The date printed on the report, or the day of the visit.",
+  "@recFormHappenedHint": {
+    "description": "Hint under the happened-on date."
+  },
+  "recNeedTitle": "Add a title",
+  "@recNeedTitle": {
+    "description": "Error when the record entry has no title."
+  },
+  "recNeedDate": "Pick the day it happened",
+  "@recNeedDate": {
+    "description": "Error when the record entry has no happened-on date."
+  },
+  "recFieldValue": "Result",
+  "@recFieldValue": {
+    "description": "Record field: a lab value as written on the report."
+  },
+  "recFieldUnit": "Unit",
+  "@recFieldUnit": {
+    "description": "Record field: the unit as written on the report."
+  },
+  "recFieldPrintedRange": "Range printed on the report",
+  "@recFieldPrintedRange": {
+    "description": "Record field: the reference range exactly as printed on her own report."
+  },
+  "recFieldDose": "Dose as written",
+  "@recFieldDose": {
+    "description": "Record field: medicine dose as written on the prescription."
+  },
+  "recFieldFrequency": "How often",
+  "@recFieldFrequency": {
+    "description": "Record field: how often the medicine is taken, as written."
+  },
+  "recFieldStartedOn": "Started",
+  "@recFieldStartedOn": {
+    "description": "Record field: the day a medicine was started."
+  },
+  "recFieldEndedOn": "Ended",
+  "@recFieldEndedOn": {
+    "description": "Record field: the day a medicine was stopped."
+  },
+  "recFieldPrescriber": "Prescribed by",
+  "@recFieldPrescriber": {
+    "description": "Record field: who prescribed the medicine."
+  },
+  "recFieldPlace": "Where",
+  "@recFieldPlace": {
+    "description": "Record field: clinic, hospital or doctor."
+  },
+  "recFieldDetails": "Details",
+  "@recFieldDetails": {
+    "description": "Record field: free details."
+  },
+  "recRowAdded": "Added {date}",
+  "@recRowAdded": {
+    "description": "Line on a record row: the day the entry was added to femio.",
+    "placeholders": {
+      "date": {
+        "type": "String"
+      }
+    }
+  },
+  "recEdited": "Edited",
+  "@recEdited": {
+    "description": "Mark on a record row that was changed after it was added."
+  },
+  "recSourceTyped": "Typed",
+  "@recSourceTyped": {
+    "description": "Record entry source: typed by her."
+  },
+  "recSourceScanned": "Scanned",
+  "@recSourceScanned": {
+    "description": "Record entry source: scanned from a document."
+  },
+  "recSourceAsk": "From Ask femio",
+  "@recSourceAsk": {
+    "description": "Record entry source: confirmed from an Ask femio draft."
+  },
+  "recSourceSayIt": "From Say it",
+  "@recSourceSayIt": {
+    "description": "Record entry source: confirmed from a Say it draft."
+  },
+  "recSourceImported": "Imported",
+  "@recSourceImported": {
+    "description": "Record entry source: imported from a file."
+  },
+  "recNoVerdictNote": "femio keeps and shows your entries as written. It never says whether a result is normal: that is for you and your clinician.",
+  "@recNoVerdictNote": {
+    "description": "Note under the record list and editor (no interpretation, product rule 1)."
+  },
+  "addRecord": "My health record",
+  "@addRecord": {
+    "description": "Row in the + sheet that opens My health record."
+  },
+  "addRecordSub": "Visits, results, medicines and documents",
+  "@addRecordSub": {
+    "description": "Subtitle of the My health record row in the + sheet."
   }
 }

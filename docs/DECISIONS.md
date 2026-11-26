@@ -1058,7 +1058,9 @@ say when something happened as opposed to when it was typed.
    so before writing. They arrive only through the system document picker or the system
    camera intent: no CAMERA or storage permission (the tripwire checks the manifest).
 3. **Migration.** v2 → v3 adds an empty `record`; absent means empty, so a v2 file and a v2
-   backup load unchanged. A v3 file opened by an older build is refused loudly, as today.
+   backup load unchanged. A file written by a newer femio (a higher `v`) is refused with a
+   FormatException rather than read without its new parts. That check was added with v3
+   (26 Nov 2026), before the first public release, so no build in her hands drops a field silently.
    The day note (R9.8) and the journal (R10.15) share this bump.
 4. **Not a medical device.** femio stores, dates and draws what she enters or attaches. It
    never interprets: no "normal" or "abnormal", no reference range except the one printed on

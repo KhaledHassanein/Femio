@@ -3300,4 +3300,158 @@ class L10nAr extends L10n {
 
   @override
   String get addVisit => 'لزيارة الطبيب';
+
+  @override
+  String get recTitle => 'سجلّي الصحي';
+
+  @override
+  String get recIntro =>
+      'ملفكِ الصحي الخاص، محفوظ على هذا الهاتف. يظهر كل إدخال بتاريخ حدوثه وتاريخ إضافتكِ له، كما كتبتِه تمامًا.';
+
+  @override
+  String get recAll => 'الكل';
+
+  @override
+  String get recKindVisit => 'زيارة';
+
+  @override
+  String get recKindLab => 'نتيجة تحليل';
+
+  @override
+  String get recKindImaging => 'أشعة أو سونار';
+
+  @override
+  String get recKindMedicine => 'دواء';
+
+  @override
+  String get recKindCondition => 'حالة أو تاريخ مرضي';
+
+  @override
+  String get recKindAllergy => 'حساسية';
+
+  @override
+  String get recKindProcedure => 'إجراء طبي';
+
+  @override
+  String get recKindPregnancy => 'حمل';
+
+  @override
+  String get recKindDocument => 'مستند';
+
+  @override
+  String get recKindNote => 'ملاحظة';
+
+  @override
+  String get recEmptyHeading => 'لا شيء هنا بعد';
+
+  @override
+  String get recEmptyBody =>
+      'أضيفي زيارة أو نتيجة تحليل أو دواءً أو أي شيء تريدين الاحتفاظ به. تبقى الإدخالات على هذا الهاتف وتُحفظ في ملف النسخة الاحتياطية الذي تحفظينه.';
+
+  @override
+  String get recAdd => 'إضافة إدخال';
+
+  @override
+  String get recEdit => 'تعديل الإدخال';
+
+  @override
+  String get recSave => 'حفظ في سجلّي';
+
+  @override
+  String get recCancel => 'إلغاء';
+
+  @override
+  String get recDelete => 'حذف';
+
+  @override
+  String get recDeleteTitle => 'حذف هذا الإدخال؟';
+
+  @override
+  String get recDeleteBody =>
+      'سيُحذف من هذا الهاتف. يبقى موجودًا في أي نسخة احتياطية حفظتِها من قبل.';
+
+  @override
+  String get recFormKind => 'النوع';
+
+  @override
+  String get recFormTitle => 'العنوان';
+
+  @override
+  String get recFormTitleHint => 'بكلماتكِ، مثل «TSH» أو «سونار الأسبوع 12»';
+
+  @override
+  String get recFormHappened => 'تاريخ الحدوث';
+
+  @override
+  String get recFormHappenedHint =>
+      'التاريخ المطبوع على التقرير، أو يوم الزيارة.';
+
+  @override
+  String get recNeedTitle => 'أضيفي عنوانًا';
+
+  @override
+  String get recNeedDate => 'اختاري تاريخ الحدوث';
+
+  @override
+  String get recFieldValue => 'النتيجة';
+
+  @override
+  String get recFieldUnit => 'الوحدة';
+
+  @override
+  String get recFieldPrintedRange => 'المعدل المطبوع على التقرير';
+
+  @override
+  String get recFieldDose => 'الجرعة كما كُتبت';
+
+  @override
+  String get recFieldFrequency => 'كم مرة';
+
+  @override
+  String get recFieldStartedOn => 'تاريخ البدء';
+
+  @override
+  String get recFieldEndedOn => 'تاريخ التوقف';
+
+  @override
+  String get recFieldPrescriber => 'وصفه';
+
+  @override
+  String get recFieldPlace => 'المكان';
+
+  @override
+  String get recFieldDetails => 'تفاصيل';
+
+  @override
+  String recRowAdded(String date) {
+    return 'أُضيف $date';
+  }
+
+  @override
+  String get recEdited => 'معدَّل';
+
+  @override
+  String get recSourceTyped => 'مكتوب';
+
+  @override
+  String get recSourceScanned => 'ممسوح ضوئيًا';
+
+  @override
+  String get recSourceAsk => 'من اسألي femio';
+
+  @override
+  String get recSourceSayIt => 'من وصفكِ ليومكِ';
+
+  @override
+  String get recSourceImported => 'مستورد';
+
+  @override
+  String get recNoVerdictNote =>
+      'يحفظ femio إدخالاتكِ ويعرضها كما كتبتِها. لا يقول أبدًا إن كانت النتيجة طبيعية أم لا: هذا حديث بينكِ وبين طبيبكِ.';
+
+  @override
+  String get addRecord => 'سجلّي الصحي';
+
+  @override
+  String get addRecordSub => 'الزيارات والنتائج والأدوية والمستندات';
 }
