@@ -9,7 +9,7 @@
  * app sentence each demo quotes. `/app` and the home page share these sections.
  */
 import { getFormatter, getTranslations } from "next-intl/server";
-import { CloudCog, Link2, Save, ShieldCheck, Smartphone, Store } from "lucide-react";
+import { CloudCog, Link2, Save, Share2, ShieldCheck, Smartphone, Store } from "lucide-react";
 
 import { Link } from "@/i18n/navigation";
 import {
@@ -198,6 +198,7 @@ const LEAVE_ITEMS = [
   { key: "model", Icon: Smartphone },
   { key: "play", Icon: Store },
   { key: "links", Icon: Link2 },
+  { key: "share", Icon: Share2 },
   { key: "backup", Icon: Save },
 ] as const;
 

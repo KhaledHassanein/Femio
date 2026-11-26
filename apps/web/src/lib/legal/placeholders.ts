@@ -30,11 +30,16 @@ export const LEGAL_VALUES = {
  * consent) and the consumer health data policy is new, while the terms did not change,
  * so a shared date would misstate when the terms took effect. The owner sets the
  * privacy and health-data date to the day this version is deployed (OWNER_ACTIONS 31).
+ *
+ * 2026-11-27 (R14.2, R14.14): the privacy policy moved to version 3 and the health data
+ * policy to version 2 after the audit's truth pass (redaction wording, the full health
+ * record, birth-year purpose, lock-screen words, sharing and export, the NEXT_LOCALE
+ * cookie). The dates still wait for the deploy day.
  */
 export const LEGAL_EDITIONS = {
-  privacy: { date: "2026-11-30", version: "2" },
+  privacy: { date: "2026-11-30", version: "3" },
   terms: { date: "2026-10-29", version: "1" },
-  healthData: { date: "2026-11-30", version: "1" },
+  healthData: { date: "2026-11-30", version: "2" },
 } as const;
 
 /** Matches any of the unfilled markers, so the page can highlight them. */
