@@ -110,7 +110,7 @@ List<PlannedReminder> planReminders(Profile profile, {required DateTime now}) {
   }
 
   if (settings.periodReminder && (profile.goal == Goal.period || profile.goal == Goal.ttc)) {
-    final prediction = predictNextPeriod(profile.periodStarts, profile.cycleLength);
+    final prediction = predictNextPeriod(profile.cycleStarts, profile.cycleLength);
     if (prediction != null && !prediction.irregular && !profile.irregular) {
       final at = _at(addDays(prediction.windowStart, -1), periodReminderMinutes);
       if (at.isAfter(now)) plan.add(PlannedReminder(ReminderKind.period, at));

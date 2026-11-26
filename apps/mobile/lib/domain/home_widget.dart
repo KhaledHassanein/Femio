@@ -89,7 +89,7 @@ HomeWidgetContent homeWidgetContent(
       return HomeWidgetContent(title: homeWidgetWordmark, line: texts.week(progress.weeks));
     case Goal.period:
     case Goal.ttc:
-      final prediction = predictNextPeriod(profile.periodStarts, profile.cycleLength);
+      final prediction = predictNextPeriod(profile.cycleStarts, profile.cycleLength);
       if (prediction == null || prediction.irregular || profile.irregular) return neutral;
       final next = upcomingPeriods(prediction).first;
       // A range that has already ended would read as "late" on her home screen: neutral

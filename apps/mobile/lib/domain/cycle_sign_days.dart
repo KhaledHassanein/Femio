@@ -80,7 +80,7 @@ final _dischargeKeys = [
 /// Her cycles up to [today], oldest first: the complete ones and the one still running,
 /// at most [patternRecentCycles] + 1. Empty with no period start logged.
 List<SignCycle> signCycles(Profile profile, String today) {
-  final starts = [for (final s in bleedStarts(profile.periodStarts)) if (s.compareTo(today) <= 0) s];
+  final starts = [for (final s in bleedStarts(profile.cycleStarts)) if (s.compareTo(today) <= 0) s];
   final out = [
     for (var i = 0; i < starts.length; i++)
       i + 1 < starts.length

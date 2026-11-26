@@ -3904,4 +3904,53 @@ class L10nEn extends L10n {
 
   @override
   String get listSeparator => ', ';
+
+  @override
+  String get ppGuideEyebrow => 'This week\'s recovery guide';
+
+  @override
+  String get ppRead => 'Read the guide';
+
+  @override
+  String get ppMoodTitle => 'How are you feeling today?';
+
+  @override
+  String get ppMoodNote =>
+      'Feeling weepy in the first two weeks is common and usually passes. Low mood, anxiety or numbness that lasts longer than two weeks is worth telling your clinician, and you can ask sooner.';
+
+  @override
+  String get ppMoodGuide => 'About mood after birth';
+
+  @override
+  String get ppPeriodBack => 'Has your period come back?';
+
+  @override
+  String get ppPeriodBackBody =>
+      'femio does not guess when periods return. When yours comes back, tell femio the first day and your cycle ranges start again from it.';
+
+  @override
+  String get ppPeriodBackAction => 'My period came back';
+
+  @override
+  String get ppPeriodBackPick => 'First day of your period';
+
+  @override
+  String get ppNextGoal => 'What should femio help with now?';
+
+  @override
+  String get ppBleedingSection => 'Bleeding after birth';
+
+  @override
+  String get ppBleedingNote =>
+      'This is the healing bleed after birth, not a period. femio keeps it out of your cycle ranges. Very heavy bleeding or large clots need care right away.';
+
+  @override
+  String get ppWarnMore => 'See all warning signs after birth';
+
+  @override
+  String get ppHadBaby => 'I had my baby';
+
+  @override
+  String get ppHadBabyNote =>
+      'femio keeps your pregnancy record and moves to the after-birth view.';
 }

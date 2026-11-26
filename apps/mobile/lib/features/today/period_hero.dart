@@ -51,7 +51,7 @@ class PeriodHero extends StatelessWidget {
           Confidence.high => l.confidenceHigh,
         };
 
-    final prediction = predictNextPeriod(profile.periodStarts, profile.cycleLength);
+    final prediction = predictNextPeriod(profile.cycleStarts, profile.cycleLength);
     if (prediction == null) {
       return Column(children: [
         HeroCard(eyebrow: l.predictionPeriodTitle, headline: l.noPredictionTitle, extra: [HeroLine(l.noPredictionBody)]),
@@ -63,7 +63,7 @@ class PeriodHero extends StatelessWidget {
       HeroLine(confidence(prediction.confidence)),
       if (prediction.basis == 'stated') HeroLine(l.basisStated),
       const SizedBox(height: space4h),
-      CycleBand(lastStart: profile.periodStarts.last, prediction: prediction, today: today),
+      CycleBand(lastStart: profile.cycleStarts.last, prediction: prediction, today: today),
     ];
     if (profile.goal == Goal.period) {
       return Column(children: [
@@ -102,7 +102,7 @@ class PeriodHero extends StatelessWidget {
         }),
       const SizedBox(height: space3),
       TestTimingCard(prediction: prediction, date: date),
-      if (cycleSigns(profile.logs, profile.periodStarts, today) case final signs when !signs.isEmpty) ...[
+      if (cycleSigns(profile.logs, profile.cycleStarts, today) case final signs when !signs.isEmpty) ...[
         const SizedBox(height: space3),
         CycleSignsCard(signs: signs, date: date, onOpenDays: () => openSignsByDay(context, profile, today)),
       ],
@@ -114,7 +114,7 @@ class PeriodHero extends StatelessWidget {
 
 /// Temperatures since her last period started, up to [today]: the current cycle's chart.
 BbtChart? _cycleBbt(Profile profile, String today) {
-  final starts = [for (final s in bleedStarts(profile.periodStarts)) if (s.compareTo(today) <= 0) s];
+  final starts = [for (final s in bleedStarts(profile.cycleStarts)) if (s.compareTo(today) <= 0) s];
   final since = starts.isEmpty ? null : starts.last;
   return bbtChart([
     for (final e in profile.logs.entries)

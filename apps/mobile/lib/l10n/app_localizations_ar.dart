@@ -3960,4 +3960,53 @@ class L10nAr extends L10n {
 
   @override
   String get listSeparator => '، ';
+
+  @override
+  String get ppGuideEyebrow => 'دليل التعافي لهذا الأسبوع';
+
+  @override
+  String get ppRead => 'اقرئي الدليل';
+
+  @override
+  String get ppMoodTitle => 'كيف تشعرين اليوم؟';
+
+  @override
+  String get ppMoodNote =>
+      'الشعور بالرغبة في البكاء في أول أسبوعين شائع وعادةً ما يزول. أما الحزن أو القلق أو الخدر الذي يستمر أكثر من أسبوعين فيستحق أن تخبري به طبيبكِ، ويمكنكِ السؤال قبل ذلك.';
+
+  @override
+  String get ppMoodGuide => 'عن المزاج بعد الولادة';
+
+  @override
+  String get ppPeriodBack => 'هل عادت دورتكِ؟';
+
+  @override
+  String get ppPeriodBackBody =>
+      'لا يخمّن femio موعد عودة الدورة. عندما تعود دورتكِ، أخبري femio بأول يوم لها وستبدأ نطاقات دورتكِ من جديد منه.';
+
+  @override
+  String get ppPeriodBackAction => 'عادت دورتي';
+
+  @override
+  String get ppPeriodBackPick => 'أول يوم من دورتكِ';
+
+  @override
+  String get ppNextGoal => 'بماذا تريدين أن يساعدكِ femio الآن؟';
+
+  @override
+  String get ppBleedingSection => 'النزيف بعد الولادة';
+
+  @override
+  String get ppBleedingNote =>
+      'هذا هو نزيف التعافي بعد الولادة وليس دورة. يُبقيه femio خارج نطاقات دورتكِ. النزيف الغزير جدًا أو الجلطات الكبيرة تحتاج إلى رعاية فورية.';
+
+  @override
+  String get ppWarnMore => 'عرض كل علامات الخطر بعد الولادة';
+
+  @override
+  String get ppHadBaby => 'أنجبتُ طفلي';
+
+  @override
+  String get ppHadBabyNote =>
+      'يحتفظ femio بسجلّ حملكِ وينتقل إلى عرض ما بعد الولادة.';
 }

@@ -3926,4 +3926,53 @@ class L10nEs extends L10n {
 
   @override
   String get listSeparator => ', ';
+
+  @override
+  String get ppGuideEyebrow => 'La guía de recuperación de esta semana';
+
+  @override
+  String get ppRead => 'Leer la guía';
+
+  @override
+  String get ppMoodTitle => '¿Cómo te sientes hoy?';
+
+  @override
+  String get ppMoodNote =>
+      'Tener ganas de llorar las dos primeras semanas es frecuente y suele pasar. El ánimo bajo, la ansiedad o la sensación de vacío que dura más de dos semanas merece contárselo a tu profesional de salud, y puedes preguntar antes.';
+
+  @override
+  String get ppMoodGuide => 'El ánimo después del parto';
+
+  @override
+  String get ppPeriodBack => '¿Te ha vuelto la regla?';
+
+  @override
+  String get ppPeriodBackBody =>
+      'femio no adivina cuándo vuelve la regla. Cuando vuelva la tuya, indica a femio el primer día y tus rangos de ciclo empezarán de nuevo desde ahí.';
+
+  @override
+  String get ppPeriodBackAction => 'Me ha vuelto la regla';
+
+  @override
+  String get ppPeriodBackPick => 'Primer día de tu regla';
+
+  @override
+  String get ppNextGoal => '¿Con qué quieres que te ayude femio ahora?';
+
+  @override
+  String get ppBleedingSection => 'Sangrado después del parto';
+
+  @override
+  String get ppBleedingNote =>
+      'Es el sangrado de recuperación después del parto, no una regla. femio lo deja fuera de tus rangos de ciclo. Un sangrado muy abundante o coágulos grandes necesitan atención de inmediato.';
+
+  @override
+  String get ppWarnMore => 'Ver todas las señales de alarma después del parto';
+
+  @override
+  String get ppHadBaby => 'Ya nació mi bebé';
+
+  @override
+  String get ppHadBabyNote =>
+      'femio conserva tu registro del embarazo y pasa a la vista después del parto.';
 }

@@ -27,6 +27,8 @@ import '../pregnancy/this_week_card.dart';
 import '../settings/settings_screen.dart';
 import '../../widgets/tab_header.dart';
 import '../record/medicines_screen.dart';
+import '../../domain/assistant/safety.dart' show postpartumWarningDays;
+import 'postpartum_cards.dart';
 import 'pregnancy_tools.dart';
 import 'tips_card.dart';
 import 'today_hero.dart';
@@ -149,7 +151,12 @@ class TodayScreen extends StatelessWidget {
                     totalDays: progress.totalDays,
                   ),
                 ],
+              // R8.19: the way into the after-birth stage.
+              const SizedBox(height: space2),
+              HadBabyButton(controller: controller, today: now),
             ],
+            // R8.19: the after-birth stage follows her weeks since the birth.
+            if (profile.isPostpartum) PostpartumToday(controller: controller, library: library ?? Library(), today: now),
             if (canLog) ...[
               const SizedBox(height: space4),
               FilledButton.icon(
@@ -243,11 +250,15 @@ class TodayScreen extends StatelessWidget {
                 ),
               ),
             ] else ...[
-              NoticeCard(
-                tone: NoticeTone.urgent,
-                heading: l.pregRedFlagsHeading,
-                body: l.todayUrgentBody,
-              ),
+              // MR-50: in the year after a recorded birth, the after-birth warning signs.
+              if (profile.birthDate != null && diffDays(profile.birthDate!, now) <= postpartumWarningDays)
+                PostpartumWarningCard(library: library ?? Library())
+              else
+                NoticeCard(
+                  tone: NoticeTone.urgent,
+                  heading: l.pregRedFlagsHeading,
+                  body: l.todayUrgentBody,
+                ),
               Align(
                 alignment: AlignmentDirectional.centerEnd,
                 child: TextButton(

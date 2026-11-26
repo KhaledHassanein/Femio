@@ -45,6 +45,8 @@ Map<String, DayMark> dayMarks(
   for (final e in p.logs.entries) {
     if (!inView(e.key)) continue;
     if (e.value.flow == 'spotting') at(e.key).spotting = true;
+    // After birth the bleed is logged but kept out of periodStarts (MR-60); it is still drawn.
+    if (e.value.isBleed) at(e.key).bleed = true;
     if (e.value.terms.isNotEmpty || e.value.hasNote) at(e.key).logged = true;
   }
 
@@ -68,7 +70,7 @@ Map<String, DayMark> dayMarks(
   }
 
   if (p.goal == Goal.period || p.goal == Goal.ttc) {
-    final prediction = predictNextPeriod(p.periodStarts, p.cycleLength);
+    final prediction = predictNextPeriod(p.cycleStarts, p.cycleLength);
     if (prediction != null) {
       void range(String a, String b, String floor, void Function(DayMark) set) {
         for (var d = a; d.compareTo(b) <= 0; d = addDays(d, 1)) {

@@ -2483,5 +2483,65 @@
   "listSeparator": ", ",
   "@listSeparator": {
     "description": "Between words in a short list she chose (Arabic uses its own comma)."
+  },
+  "ppGuideEyebrow": "This week's recovery guide",
+  "@ppGuideEyebrow": {
+    "description": "After birth (R8.19)."
+  },
+  "ppRead": "Read the guide",
+  "@ppRead": {
+    "description": "After birth (R8.19)."
+  },
+  "ppMoodTitle": "How are you feeling today?",
+  "@ppMoodTitle": {
+    "description": "After birth (R8.19)."
+  },
+  "ppMoodNote": "Feeling weepy in the first two weeks is common and usually passes. Low mood, anxiety or numbness that lasts longer than two weeks is worth telling your clinician, and you can ask sooner.",
+  "@ppMoodNote": {
+    "description": "After birth (R8.19)."
+  },
+  "ppMoodGuide": "About mood after birth",
+  "@ppMoodGuide": {
+    "description": "After birth (R8.19)."
+  },
+  "ppPeriodBack": "Has your period come back?",
+  "@ppPeriodBack": {
+    "description": "After birth (R8.19)."
+  },
+  "ppPeriodBackBody": "femio does not guess when periods return. When yours comes back, tell femio the first day and your cycle ranges start again from it.",
+  "@ppPeriodBackBody": {
+    "description": "After birth (R8.19)."
+  },
+  "ppPeriodBackAction": "My period came back",
+  "@ppPeriodBackAction": {
+    "description": "After birth (R8.19)."
+  },
+  "ppPeriodBackPick": "First day of your period",
+  "@ppPeriodBackPick": {
+    "description": "After birth (R8.19)."
+  },
+  "ppNextGoal": "What should femio help with now?",
+  "@ppNextGoal": {
+    "description": "After birth (R8.19)."
+  },
+  "ppBleedingSection": "Bleeding after birth",
+  "@ppBleedingSection": {
+    "description": "After birth (R8.19)."
+  },
+  "ppBleedingNote": "This is the healing bleed after birth, not a period. femio keeps it out of your cycle ranges. Very heavy bleeding or large clots need care right away.",
+  "@ppBleedingNote": {
+    "description": "After birth (R8.19)."
+  },
+  "ppWarnMore": "See all warning signs after birth",
+  "@ppWarnMore": {
+    "description": "After birth (R8.19)."
+  },
+  "ppHadBaby": "I had my baby",
+  "@ppHadBaby": {
+    "description": "After birth (R8.19)."
+  },
+  "ppHadBabyNote": "femio keeps your pregnancy record and moves to the after-birth view.",
+  "@ppHadBabyNote": {
+    "description": "After birth (R8.19)."
   }
 }

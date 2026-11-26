@@ -124,7 +124,7 @@ class CyclePatterns {
 /// [patternRecentCycles]. The cycle still running is not complete and is left out.
 List<CycleSpan> completeCycles(Profile profile) {
   final bleeds = profile.periodStarts.toSet();
-  final starts = bleedStarts(profile.periodStarts);
+  final starts = bleedStarts(profile.cycleStarts);
   final out = <CycleSpan>[];
   for (var i = 0; i + 1 < starts.length; i++) {
     var run = 0;

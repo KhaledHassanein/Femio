@@ -89,7 +89,7 @@ class _CalendarScreenState extends State<CalendarScreen> {
         final pregnant = profile.goal == Goal.pregnant && profile.birthDate == null && profile.edd != null;
         final upcoming = predicts
             ? upcomingPeriods(
-                predictNextPeriod(profile.periodStarts, profile.cycleLength),
+                predictNextPeriod(profile.cycleStarts, profile.cycleLength),
               )
             : const <UpcomingPeriod>[];
         final firstWeekday = ml.firstDayOfWeekIndex; // 0 = Sunday

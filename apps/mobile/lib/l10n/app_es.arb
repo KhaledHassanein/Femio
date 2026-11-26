@@ -1076,5 +1076,20 @@
   "signsDaysEmpty": "Aún no has registrado nada en este ciclo. Las temperaturas, pruebas de ovulación y flujo que registres aparecen aquí día a día.",
   "signsDaysNoCycle": "Registra el primer día de tu regla y tus signos se ordenarán aquí por día del ciclo.",
   "signsDaysFill": "Cuanto más llena la marca, más avanzada tu elección en la lista: de negativa a positiva en las pruebas, de seco a clara de huevo en el flujo.",
-  "listSeparator": ", "
+  "listSeparator": ", ",
+  "ppGuideEyebrow": "La guía de recuperación de esta semana",
+  "ppRead": "Leer la guía",
+  "ppMoodTitle": "¿Cómo te sientes hoy?",
+  "ppMoodNote": "Tener ganas de llorar las dos primeras semanas es frecuente y suele pasar. El ánimo bajo, la ansiedad o la sensación de vacío que dura más de dos semanas merece contárselo a tu profesional de salud, y puedes preguntar antes.",
+  "ppMoodGuide": "El ánimo después del parto",
+  "ppPeriodBack": "¿Te ha vuelto la regla?",
+  "ppPeriodBackBody": "femio no adivina cuándo vuelve la regla. Cuando vuelva la tuya, indica a femio el primer día y tus rangos de ciclo empezarán de nuevo desde ahí.",
+  "ppPeriodBackAction": "Me ha vuelto la regla",
+  "ppPeriodBackPick": "Primer día de tu regla",
+  "ppNextGoal": "¿Con qué quieres que te ayude femio ahora?",
+  "ppBleedingSection": "Sangrado después del parto",
+  "ppBleedingNote": "Es el sangrado de recuperación después del parto, no una regla. femio lo deja fuera de tus rangos de ciclo. Un sangrado muy abundante o coágulos grandes necesitan atención de inmediato.",
+  "ppWarnMore": "Ver todas las señales de alarma después del parto",
+  "ppHadBaby": "Ya nació mi bebé",
+  "ppHadBabyNote": "femio conserva tu registro del embarazo y pasa a la vista después del parto."
 }

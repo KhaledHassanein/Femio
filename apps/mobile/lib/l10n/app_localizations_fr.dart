@@ -3943,4 +3943,53 @@ class L10nFr extends L10n {
 
   @override
   String get listSeparator => ', ';
+
+  @override
+  String get ppGuideEyebrow => 'Le guide de récupération de la semaine';
+
+  @override
+  String get ppRead => 'Lire le guide';
+
+  @override
+  String get ppMoodTitle => 'Comment vous sentez-vous aujourd\'hui ?';
+
+  @override
+  String get ppMoodNote =>
+      'Avoir les larmes faciles les deux premières semaines est fréquent et passe en général. Une humeur basse, de l\'anxiété ou un engourdissement qui dure plus de deux semaines mérite d\'être signalé à votre soignant, et vous pouvez en parler plus tôt.';
+
+  @override
+  String get ppMoodGuide => 'L\'humeur après la naissance';
+
+  @override
+  String get ppPeriodBack => 'Vos règles sont-elles revenues ?';
+
+  @override
+  String get ppPeriodBackBody =>
+      'femio ne devine pas quand les règles reviennent. Quand les vôtres reviennent, indiquez le premier jour à femio et vos fourchettes de cycle repartent de là.';
+
+  @override
+  String get ppPeriodBackAction => 'Mes règles sont revenues';
+
+  @override
+  String get ppPeriodBackPick => 'Premier jour de vos règles';
+
+  @override
+  String get ppNextGoal => 'Sur quoi femio doit-il vous aider maintenant ?';
+
+  @override
+  String get ppBleedingSection => 'Saignements après la naissance';
+
+  @override
+  String get ppBleedingNote =>
+      'C\'est le saignement de cicatrisation après la naissance, pas des règles. femio le garde hors de vos fourchettes de cycle. Un saignement très abondant ou de gros caillots demandent des soins immédiats.';
+
+  @override
+  String get ppWarnMore => 'Voir tous les signes d\'alerte après la naissance';
+
+  @override
+  String get ppHadBaby => 'J\'ai accouché';
+
+  @override
+  String get ppHadBabyNote =>
+      'femio garde votre suivi de grossesse et passe à la vue après la naissance.';
 }

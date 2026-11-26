@@ -143,12 +143,12 @@ class VisitSummary {
 
 /// Builds the summary from [profile] as of [today] (ISO date).
 VisitSummary visitSummary(Profile profile, String today) {
-  final starts = bleedStarts(profile.periodStarts);
+  final starts = bleedStarts(profile.cycleStarts);
   final lengths = <int>[
     for (var i = 1; i < starts.length; i++) diffDays(starts[i - 1], starts[i]),
   ].where((d) => d > 0).toList();
   final prediction = predictNextPeriod(
-    profile.periodStarts,
+    profile.cycleStarts,
     profile.cycleLength,
   );
   final irregular = profile.irregular || (prediction?.irregular ?? false);

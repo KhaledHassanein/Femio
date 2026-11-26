@@ -350,10 +350,24 @@ class Profile {
   /// Set when she has had her baby; the app is then in its after-birth stage.
   final String? birthDate;
 
+  /// The after-birth stage (R8.19): pregnant goal with a recorded birth. Bleeding logged now
+  /// is the healing bleed after birth, not a period, so it stays out of [periodStarts].
+  bool get isPostpartum => goal == Goal.pregnant && birthDate != null;
+
+  /// The bleeding days the cycle tools read: after a recorded birth, only the days from the
+  /// birth on, so the first period after birth starts her ranges again (MR-60). The full
+  /// [periodStarts] stays untouched (rule 5).
+  List<String> get cycleStarts {
+    final b = birthDate;
+    return b == null ? periodStarts : [for (final d in periodStarts) if (d.compareTo(b) >= 0) d];
+  }
+
   /// Menopause only: her last period was over a year ago and she does not know when.
   final bool lastPeriodOverYear;
 
   Profile copyWith({
+    Goal? goal,
+    String? birthDate,
     List<String>? periodStarts,
     String? locale,
     Map<String, DayLog>? logs,
@@ -368,7 +382,7 @@ class Profile {
     AppSettings? settings,
   }) =>
       Profile(
-        goal: goal,
+        goal: goal ?? this.goal,
         locale: locale ?? this.locale,
         birthYear: birthYear,
         periodStarts: periodStarts ?? this.periodStarts,
@@ -377,7 +391,7 @@ class Profile {
         irregular: irregular,
         tryingFor: tryingFor,
         edd: edd,
-        birthDate: birthDate,
+        birthDate: birthDate ?? this.birthDate,
         lastPeriodOverYear: lastPeriodOverYear,
         logs: logs ?? this.logs,
         contractions: contractions ?? this.contractions,
@@ -400,7 +414,7 @@ class Profile {
       nextLogs[date] = log;
     }
     final bleeds = {...periodStarts};
-    if (log.isBleed) {
+    if (log.isBleed && !isPostpartum) {
       bleeds.add(date);
     } else {
       bleeds.remove(date);

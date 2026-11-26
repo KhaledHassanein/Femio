@@ -41,7 +41,7 @@ class RangeExplanation {
 /// her goal draws none (pregnancy, menopause). Never fails.
 RangeExplanation? explainRange(Profile profile) {
   if (profile.goal != Goal.period && profile.goal != Goal.ttc) return null;
-  final prediction = predictNextPeriod(profile.periodStarts, profile.cycleLength);
+  final prediction = predictNextPeriod(profile.cycleStarts, profile.cycleLength);
   if (prediction == null) return null;
   final cycles = prediction.evidence.cyclesUsed;
   final spread = prediction.evidence.spread;
@@ -111,7 +111,7 @@ DayExplanation explainDay(Profile profile, {required String day, required String
   int? index;
   FertileWindow? fertile;
   if (mark.predicted || mark.fertile || mark.ovulation) {
-    final prediction = predictNextPeriod(profile.periodStarts, profile.cycleLength);
+    final prediction = predictNextPeriod(profile.cycleStarts, profile.cycleLength);
     if (prediction != null) {
       final periods = upcomingPeriods(prediction);
       for (var i = 0; i < periods.length; i++) {
@@ -160,7 +160,7 @@ class PredictionChange {
 PredictionChange? predictionChange(Profile before, Profile after) {
   if (after.goal != Goal.period && after.goal != Goal.ttc) return null;
   UpcomingPeriod? next(Profile p) {
-    final prediction = predictNextPeriod(p.periodStarts, p.cycleLength);
+    final prediction = predictNextPeriod(p.cycleStarts, p.cycleLength);
     if (prediction == null) return null;
     final periods = upcomingPeriods(prediction);
     return periods.isEmpty ? null : periods.first;

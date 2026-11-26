@@ -197,6 +197,18 @@ class FemioController extends ChangeNotifier {
     await _maybeAskForReview();
   }
 
+  /// Records the birth on [day] (R8.19): the pregnancy record stays, the app moves to its
+  /// after-birth stage.
+  Future<void> recordBirth(String day) => save(profile!.copyWith(birthDate: day));
+
+  /// Her period came back on [day] (R8.19, MR-60): she picks what femio helps with now
+  /// ([goal], period or trying to conceive) and [day] becomes the first period her ranges
+  /// read. The birth date stays, so bleeding before it never counts.
+  Future<void> periodCameBack(String day, Goal goal) async {
+    final p = profile!.copyWith(goal: goal);
+    await save(p.withDayLog(day, (p.logs[day] ?? const DayLog()).copyWith(flow: 'medium')));
+  }
+
   /// Counts today as a day of use (R12.2); saves only when the day is new.
   Future<void> _countUsageDay() async {
     final p = profile;

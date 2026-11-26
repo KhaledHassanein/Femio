@@ -188,7 +188,7 @@ class LogScreen extends StatelessWidget {
                 icon: const Icon(Icons.auto_awesome_rounded),
                 label: Text(l.sayItButton),
               ),
-              section(pregnant ? l.sectionBleedingPregnant : l.sectionPeriod, [
+              section(pregnant ? l.sectionBleedingPregnant : (profile.isPostpartum ? l.ppBleedingSection : l.sectionPeriod), [
                 LogChip(
                   label: l.flowNone,
                   selected: log.flow == null,
@@ -206,6 +206,11 @@ class LogScreen extends StatelessWidget {
                     onTap: () => setFlow(f),
                   ),
               ]),
+              // R8.19, MR-60: after birth the bleed is healing, not a period.
+              if (profile.isPostpartum) ...[
+                const SizedBox(height: space2),
+                Text(l.ppBleedingNote, style: t.bodySmall),
+              ],
               if (pregnant) ...[
                 const SizedBox(height: space2),
                 Text(l.bleedingPregnantNote, style: t.bodySmall),

@@ -6316,6 +6316,96 @@ abstract class L10n {
   /// In en, this message translates to:
   /// **', '**
   String get listSeparator;
+
+  /// After birth (R8.19).
+  ///
+  /// In en, this message translates to:
+  /// **'This week\'s recovery guide'**
+  String get ppGuideEyebrow;
+
+  /// After birth (R8.19).
+  ///
+  /// In en, this message translates to:
+  /// **'Read the guide'**
+  String get ppRead;
+
+  /// After birth (R8.19).
+  ///
+  /// In en, this message translates to:
+  /// **'How are you feeling today?'**
+  String get ppMoodTitle;
+
+  /// After birth (R8.19).
+  ///
+  /// In en, this message translates to:
+  /// **'Feeling weepy in the first two weeks is common and usually passes. Low mood, anxiety or numbness that lasts longer than two weeks is worth telling your clinician, and you can ask sooner.'**
+  String get ppMoodNote;
+
+  /// After birth (R8.19).
+  ///
+  /// In en, this message translates to:
+  /// **'About mood after birth'**
+  String get ppMoodGuide;
+
+  /// After birth (R8.19).
+  ///
+  /// In en, this message translates to:
+  /// **'Has your period come back?'**
+  String get ppPeriodBack;
+
+  /// After birth (R8.19).
+  ///
+  /// In en, this message translates to:
+  /// **'femio does not guess when periods return. When yours comes back, tell femio the first day and your cycle ranges start again from it.'**
+  String get ppPeriodBackBody;
+
+  /// After birth (R8.19).
+  ///
+  /// In en, this message translates to:
+  /// **'My period came back'**
+  String get ppPeriodBackAction;
+
+  /// After birth (R8.19).
+  ///
+  /// In en, this message translates to:
+  /// **'First day of your period'**
+  String get ppPeriodBackPick;
+
+  /// After birth (R8.19).
+  ///
+  /// In en, this message translates to:
+  /// **'What should femio help with now?'**
+  String get ppNextGoal;
+
+  /// After birth (R8.19).
+  ///
+  /// In en, this message translates to:
+  /// **'Bleeding after birth'**
+  String get ppBleedingSection;
+
+  /// After birth (R8.19).
+  ///
+  /// In en, this message translates to:
+  /// **'This is the healing bleed after birth, not a period. femio keeps it out of your cycle ranges. Very heavy bleeding or large clots need care right away.'**
+  String get ppBleedingNote;
+
+  /// After birth (R8.19).
+  ///
+  /// In en, this message translates to:
+  /// **'See all warning signs after birth'**
+  String get ppWarnMore;
+
+  /// After birth (R8.19).
+  ///
+  /// In en, this message translates to:
+  /// **'I had my baby'**
+  String get ppHadBaby;
+
+  /// After birth (R8.19).
+  ///
+  /// In en, this message translates to:
+  /// **'femio keeps your pregnancy record and moves to the after-birth view.'**
+  String get ppHadBabyNote;
 }
 
 class _L10nDelegate extends LocalizationsDelegate<L10n> {

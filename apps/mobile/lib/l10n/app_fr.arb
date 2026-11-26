@@ -1076,5 +1076,20 @@
   "signsDaysEmpty": "Rien de noté dans ce cycle pour l'instant. Les températures, tests d'ovulation et pertes que vous notez s'affichent ici jour par jour.",
   "signsDaysNoCycle": "Notez le premier jour de vos règles et vos signes s'aligneront ici par jour du cycle.",
   "signsDaysFill": "Plus la marque est pleine, plus votre choix est loin dans la liste : de négatif à positif pour les tests, de sec à blanc d'œuf pour les pertes.",
-  "listSeparator": ", "
+  "listSeparator": ", ",
+  "ppGuideEyebrow": "Le guide de récupération de la semaine",
+  "ppRead": "Lire le guide",
+  "ppMoodTitle": "Comment vous sentez-vous aujourd'hui ?",
+  "ppMoodNote": "Avoir les larmes faciles les deux premières semaines est fréquent et passe en général. Une humeur basse, de l'anxiété ou un engourdissement qui dure plus de deux semaines mérite d'être signalé à votre soignant, et vous pouvez en parler plus tôt.",
+  "ppMoodGuide": "L'humeur après la naissance",
+  "ppPeriodBack": "Vos règles sont-elles revenues ?",
+  "ppPeriodBackBody": "femio ne devine pas quand les règles reviennent. Quand les vôtres reviennent, indiquez le premier jour à femio et vos fourchettes de cycle repartent de là.",
+  "ppPeriodBackAction": "Mes règles sont revenues",
+  "ppPeriodBackPick": "Premier jour de vos règles",
+  "ppNextGoal": "Sur quoi femio doit-il vous aider maintenant ?",
+  "ppBleedingSection": "Saignements après la naissance",
+  "ppBleedingNote": "C'est le saignement de cicatrisation après la naissance, pas des règles. femio le garde hors de vos fourchettes de cycle. Un saignement très abondant ou de gros caillots demandent des soins immédiats.",
+  "ppWarnMore": "Voir tous les signes d'alerte après la naissance",
+  "ppHadBaby": "J'ai accouché",
+  "ppHadBabyNote": "femio garde votre suivi de grossesse et passe à la vue après la naissance."
 }

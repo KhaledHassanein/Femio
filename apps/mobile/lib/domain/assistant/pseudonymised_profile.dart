@@ -130,7 +130,7 @@ PseudonymisedProfile pseudonymise(Profile profile, String today) {
 
 RegularityBand _regularity(Profile profile) {
   if (profile.irregular) return RegularityBand.variable;
-  final prediction = predictNextPeriod(profile.periodStarts, profile.cycleLength);
+  final prediction = predictNextPeriod(profile.cycleStarts, profile.cycleLength);
   if (prediction == null || prediction.learning) return RegularityBand.unknown;
   return prediction.irregular || prediction.confidence == Confidence.low ? RegularityBand.variable : RegularityBand.regular;
 }
