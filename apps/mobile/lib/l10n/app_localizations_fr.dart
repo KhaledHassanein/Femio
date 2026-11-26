@@ -2570,4 +2570,25 @@ class L10nFr extends L10n {
   @override
   String get toolNothingSaved =>
       'Rien de ce que vous saisissez ici n\'est enregistré.';
+
+  @override
+  String get widgetNeutralLine => 'Ouvrir femio';
+
+  @override
+  String widgetWeek(int weeks) {
+    return 'Semaine $weeks';
+  }
+
+  @override
+  String widgetNextPeriod(String range) {
+    return 'Prochaines règles $range';
+  }
+
+  @override
+  String get settingsWidgetDetails =>
+      'Afficher les détails sur le widget de l\'écran d\'accueil';
+
+  @override
+  String get settingsWidgetDetailsNote =>
+      'Toute personne qui voit votre téléphone les verra. Tant que vous ne l\'activez pas, le widget n\'affiche que femio.';
 }

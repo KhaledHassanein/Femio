@@ -42,6 +42,7 @@ class AppSettings {
     this.logReminder = false,
     this.logReminderMinutes = defaultLogReminderMinutes,
     this.periodReminder = false,
+    this.widgetDetails = false,
     this.cloud = const CloudConsent(),
   });
 
@@ -62,6 +63,11 @@ class AppSettings {
   /// One notification the day before her predicted period window opens. Off by default.
   final bool periodReminder;
 
+  /// The home-screen widget shows the pregnancy week or the next-period range (R9.11).
+  /// Off, or absent from an older file, means the widget stays neutral: the wordmark and
+  /// "Open femio", no health word.
+  final bool widgetDetails;
+
   /// Cloud boost consent with its receipts (ADR-079, ADR-080): which purposes she agreed to,
   /// when, and on which consent text. Nothing is allowed by default; only the consent screen
   /// grants, and an older consent text or a restored backup allows nothing.
@@ -79,6 +85,7 @@ class AppSettings {
     bool? logReminder,
     int? logReminderMinutes,
     bool? periodReminder,
+    bool? widgetDetails,
     CloudConsent? cloud,
   }) =>
       AppSettings(
@@ -87,6 +94,7 @@ class AppSettings {
         logReminder: logReminder ?? this.logReminder,
         logReminderMinutes: logReminderMinutes ?? this.logReminderMinutes,
         periodReminder: periodReminder ?? this.periodReminder,
+        widgetDetails: widgetDetails ?? this.widgetDetails,
         cloud: cloud ?? this.cloud,
       );
 
@@ -96,6 +104,7 @@ class AppSettings {
         'logReminder': logReminder,
         'logReminderMinutes': logReminderMinutes,
         'periodReminder': periodReminder,
+        'widgetDetails': widgetDetails,
         'cloudConsent': cloud.toJson(),
       };
 
@@ -108,6 +117,7 @@ class AppSettings {
       // A time outside the clock (a damaged or hand-edited backup) falls back to the default.
       logReminderMinutes: minutes != null && minutes >= 0 && minutes < 24 * 60 ? minutes : defaultLogReminderMinutes,
       periodReminder: j?['periodReminder'] as bool? ?? false,
+      widgetDetails: j?['widgetDetails'] as bool? ?? false,
       // Only a receipt on today's consent text counts; the bare `cloudBoost: true` of the
       // hackathon build carried no receipt, so it reads as no consent and she is asked again.
       cloud: CloudConsent.fromJson(j?['cloudConsent']),

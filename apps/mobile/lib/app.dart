@@ -14,6 +14,7 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 import 'data/app_lock.dart';
 import 'data/assistant_channel.dart';
 import 'data/backup.dart';
+import 'data/home_widget_bridge.dart';
 import 'data/key_vault.dart';
 import 'data/profile.dart';
 import 'data/reminder_scheduler.dart';
@@ -22,6 +23,8 @@ import 'features/assistant/assistant_scope.dart';
 import 'features/home/home_shell.dart';
 import 'features/lock/lock_screen.dart';
 import 'features/onboarding/onboarding_flow.dart';
+import 'domain/dates.dart';
+import 'domain/home_widget.dart';
 import 'domain/reminders.dart';
 import 'features/settings/corrupt_record_screen.dart';
 import 'l10n/app_localizations.dart';
@@ -40,27 +43,33 @@ class FemioController extends ChangeNotifier {
   /// [store] is where her record lives; [vault] holds the lock PIN (a memory vault
   /// in tests); [initialLocale] is the language to start in before she has chosen one;
   /// [reminders] shows her reminders (none in tests); [clock] reads "now" for the
-  /// reminder plan (fixed in tests).
+  /// reminder plan (fixed in tests); [homeWidget] feeds the home-screen widget (none in tests).
   FemioController(
     this.store, {
     KeyVault? vault,
     String? initialLocale,
     ReminderScheduler? reminders,
+    HomeWidgetBridge? homeWidget,
     DateTime Function()? clock,
   })  : _lock = AppLock(vault ?? MemoryKeyVault()),
         _locale = initialLocale,
         _reminders = reminders ?? const NoReminderScheduler(),
+        _homeWidget = homeWidget ?? const NoHomeWidgetBridge(),
         _clock = clock ?? DateTime.now;
 
   /// Where her record is saved. Swappable, so tests use memory and the app uses a file.
   final FemioStore store;
   final AppLock _lock;
   final ReminderScheduler _reminders;
+  final HomeWidgetBridge _homeWidget;
   final DateTime Function() _clock;
 
   /// What was last handed to the scheduler, so an unchanged plan is not rescheduled on
   /// every save. Null forces the next sync (app start, after a failure).
   ({List<PlannedReminder> plan, ReminderTexts texts})? _scheduled;
+
+  /// What the widget was last given, so an unchanged text is not sent again. Null forces a send.
+  HomeWidgetContent? _widgetSent;
 
   /// Her record, or null before she finishes onboarding (or after she starts over).
   Profile? profile;
@@ -107,6 +116,7 @@ class FemioController extends ChangeNotifier {
         state = RecordState.corrupt;
     }
     await _syncReminders(force: true);
+    await _syncHomeWidget();
     notifyListeners();
   }
 
@@ -124,6 +134,7 @@ class FemioController extends ChangeNotifier {
     state = RecordState.ready;
     await store.save(p);
     await _syncReminders();
+    await _syncHomeWidget();
     notifyListeners();
   }
 
@@ -192,6 +203,30 @@ class FemioController extends ChangeNotifier {
     );
   }
 
+  /// Pushes the home-screen widget's two display strings (R9.11): neutral unless she turned
+  /// details on. Runs on app start, on every save (so turning the switch off writes the
+  /// neutral words back at once) and when the app returns to the front. A failure is
+  /// swallowed: the widget is a convenience and must never cost her a saved record.
+  Future<void> _syncHomeWidget() async {
+    try {
+      final p = profile;
+      final code = supportedLanguages.contains(p?.locale ?? _locale) ? (p?.locale ?? _locale)! : 'en';
+      final l = lookupL10n(Locale(code));
+      final content = homeWidgetContent(
+        p,
+        todayISO(_clock()),
+        homeWidgetTexts(l, code),
+        showDetails: p?.settings.widgetDetails ?? false,
+      );
+      if (content == _widgetSent) return;
+      await _homeWidget.update(content);
+      _widgetSent = content;
+    } catch (error) {
+      _widgetSent = null;
+      debugPrint('The home-screen widget could not be updated: $error');
+    }
+  }
+
   /// Deletes her record and the lock from the phone and returns to onboarding.
   /// Settings confirms first; this method does not ask. Pending reminders go too.
   Future<void> deleteEverything() async {
@@ -205,6 +240,7 @@ class FemioController extends ChangeNotifier {
     _scheduled = null;
     profile = null;
     quarantinedPath = null;
+    await _syncHomeWidget();
     state = RecordState.ready;
     lockEnabled = false;
     locked = false;
@@ -243,7 +279,10 @@ class FemioController extends ChangeNotifier {
   /// [relockAfter] in the background, and the reminders are topped up on return.
   void onLifecycle(AppLifecycleState lifecycle) {
     // The reminder plan covers a rolling month; each return to the app tops it up.
-    if (lifecycle == AppLifecycleState.resumed && profile != null) unawaited(_syncReminders());
+    if (lifecycle == AppLifecycleState.resumed && profile != null) {
+      unawaited(_syncReminders());
+      unawaited(_syncHomeWidget());
+    }
     if (!lockEnabled) return;
     if (lifecycle == AppLifecycleState.paused || lifecycle == AppLifecycleState.hidden) {
       _backgroundedAt ??= DateTime.now();

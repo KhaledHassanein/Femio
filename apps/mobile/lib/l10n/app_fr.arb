@@ -710,5 +710,10 @@
   "toolGainNote": "C'est une fourchette de référence pour votre catégorie d'IMC avant la grossesse, pas un objectif ni un jugement. Votre soignant peut vous proposer une autre fourchette.",
   "toolGainSource": "Source : Institute of Medicine (2009), « Weight Gain During Pregnancy » ; les CDC et l'ACOG utilisent les mêmes fourchettes.",
   "toolGainOutOfRange": "Saisissez un poids de {minW} à {maxW} kg et une taille de {minH} à {maxH} cm.",
-  "toolNothingSaved": "Rien de ce que vous saisissez ici n'est enregistré."
+  "toolNothingSaved": "Rien de ce que vous saisissez ici n'est enregistré.",
+  "widgetNeutralLine": "Ouvrir femio",
+  "widgetWeek": "Semaine {weeks}",
+  "widgetNextPeriod": "Prochaines règles {range}",
+  "settingsWidgetDetails": "Afficher les détails sur le widget de l'écran d'accueil",
+  "settingsWidgetDetailsNote": "Toute personne qui voit votre téléphone les verra. Tant que vous ne l'activez pas, le widget n'affiche que femio."
 }

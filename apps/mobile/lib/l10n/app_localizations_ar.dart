@@ -2575,4 +2575,25 @@ class L10nAr extends L10n {
 
   @override
   String get toolNothingSaved => 'لا يُحفظ شيء مما تُدخلينه هنا.';
+
+  @override
+  String get widgetNeutralLine => 'افتحي femio';
+
+  @override
+  String widgetWeek(int weeks) {
+    return 'الأسبوع $weeks';
+  }
+
+  @override
+  String widgetNextPeriod(String range) {
+    return 'الدورة القادمة $range';
+  }
+
+  @override
+  String get settingsWidgetDetails =>
+      'إظهار التفاصيل على ويدجت الشاشة الرئيسية';
+
+  @override
+  String get settingsWidgetDetailsNote =>
+      'أي شخص يرى هاتفكِ سيراها. وحتى تفعّلي هذا الخيار، يعرض الويدجت اسم femio فقط.';
 }

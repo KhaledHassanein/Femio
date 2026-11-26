@@ -4222,6 +4222,36 @@ abstract class L10n {
   /// In en, this message translates to:
   /// **'Nothing you enter here is saved.'**
   String get toolNothingSaved;
+
+  /// The neutral line on the home-screen widget, shown until she turns details on. No health word. The wordmark femio stays Latin.
+  ///
+  /// In en, this message translates to:
+  /// **'Open femio'**
+  String get widgetNeutralLine;
+
+  /// Home-screen widget line in pregnancy, when she turned details on. {weeks} is the completed weeks of pregnancy.
+  ///
+  /// In en, this message translates to:
+  /// **'Week {weeks}'**
+  String widgetWeek(int weeks);
+
+  /// Home-screen widget line: the next period as a range (never one date). {range} is like "Nov 16 – Nov 20".
+  ///
+  /// In en, this message translates to:
+  /// **'Next period {range}'**
+  String widgetNextPeriod(String range);
+
+  /// Settings switch title: the home-screen widget shows the pregnancy week or the next-period range instead of only the wordmark. Off by default.
+  ///
+  /// In en, this message translates to:
+  /// **'Show details on the home-screen widget'**
+  String get settingsWidgetDetails;
+
+  /// One sentence under the widget switch: anyone who sees her phone will see the details. Says the widget is neutral until she turns it on.
+  ///
+  /// In en, this message translates to:
+  /// **'Anyone who sees your phone will see them. Until you turn this on, the widget shows only femio.'**
+  String get settingsWidgetDetailsNote;
 }
 
 class _L10nDelegate extends LocalizationsDelegate<L10n> {

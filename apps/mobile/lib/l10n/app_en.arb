@@ -1101,5 +1101,35 @@
       }
     }
   },
-  "toolNothingSaved": "Nothing you enter here is saved."
+  "toolNothingSaved": "Nothing you enter here is saved.",
+  "widgetNeutralLine": "Open femio",
+  "@widgetNeutralLine": {
+    "description": "The neutral line on the home-screen widget, shown until she turns details on. No health word. The wordmark femio stays Latin."
+  },
+  "widgetWeek": "Week {weeks}",
+  "@widgetWeek": {
+    "description": "Home-screen widget line in pregnancy, when she turned details on. {weeks} is the completed weeks of pregnancy.",
+    "placeholders": {
+      "weeks": {
+        "type": "int"
+      }
+    }
+  },
+  "widgetNextPeriod": "Next period {range}",
+  "@widgetNextPeriod": {
+    "description": "Home-screen widget line: the next period as a range (never one date). {range} is like \"Nov 16 – Nov 20\".",
+    "placeholders": {
+      "range": {
+        "type": "String"
+      }
+    }
+  },
+  "settingsWidgetDetails": "Show details on the home-screen widget",
+  "@settingsWidgetDetails": {
+    "description": "Settings switch title: the home-screen widget shows the pregnancy week or the next-period range instead of only the wordmark. Off by default."
+  },
+  "settingsWidgetDetailsNote": "Anyone who sees your phone will see them. Until you turn this on, the widget shows only femio.",
+  "@settingsWidgetDetailsNote": {
+    "description": "One sentence under the widget switch: anyone who sees her phone will see the details. Says the widget is neutral until she turns it on."
+  }
 }

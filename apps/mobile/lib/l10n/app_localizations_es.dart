@@ -2564,4 +2564,25 @@ class L10nEs extends L10n {
 
   @override
   String get toolNothingSaved => 'No se guarda nada de lo que introduces aquí.';
+
+  @override
+  String get widgetNeutralLine => 'Abrir femio';
+
+  @override
+  String widgetWeek(int weeks) {
+    return 'Semana $weeks';
+  }
+
+  @override
+  String widgetNextPeriod(String range) {
+    return 'Próxima regla $range';
+  }
+
+  @override
+  String get settingsWidgetDetails =>
+      'Mostrar detalles en el widget de la pantalla de inicio';
+
+  @override
+  String get settingsWidgetDetailsNote =>
+      'Cualquiera que vea tu teléfono podrá verlos. Hasta que lo actives, el widget solo muestra femio.';
 }

@@ -1,9 +1,10 @@
-// Settings: language, Hijri dates, reminders, the app lock, backup, and deleting everything.
+// Settings: language, Hijri dates, reminders, the widget switch, the app lock, backup, and deleting everything.
 //
 // Why it exists: the app promised "change this any time" with nowhere to do it
 // (study report 04). Everything here is about her phone and her record; nothing
 // here talks to a server, because there is none.
 
+import 'package:flutter/foundation.dart' show TargetPlatform, defaultTargetPlatform;
 import 'package:flutter/material.dart';
 
 import '../../app.dart';
@@ -71,6 +72,14 @@ class SettingsScreen extends StatelessWidget {
           ],
           if (profile != null) RemindersSection(controller: controller, profile: profile),
           _Section(title: l.settingsPrivacy),
+          // The widget exists on Android only; it stays neutral until she turns this on (R9.11).
+          if (settings != null && defaultTargetPlatform == TargetPlatform.android)
+            SwitchListTile(
+              value: settings.widgetDetails,
+              title: Text(l.settingsWidgetDetails),
+              subtitle: Text(l.settingsWidgetDetailsNote),
+              onChanged: (v) => controller.setSettings(settings.copyWith(widgetDetails: v)),
+            ),
           SwitchListTile(
             value: controller.lockEnabled,
             title: Text(l.settingsLock),

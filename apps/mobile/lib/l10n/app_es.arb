@@ -710,5 +710,10 @@
   "toolGainNote": "Es un rango de referencia para tu categoría de IMC antes del embarazo, no un objetivo ni un juicio. Tu profesional sanitario puede proponerte un rango distinto.",
   "toolGainSource": "Fuente: Institute of Medicine (2009), «Weight Gain During Pregnancy»; los CDC y el ACOG usan los mismos rangos.",
   "toolGainOutOfRange": "Introduce un peso de {minW} a {maxW} kg y una estatura de {minH} a {maxH} cm.",
-  "toolNothingSaved": "No se guarda nada de lo que introduces aquí."
+  "toolNothingSaved": "No se guarda nada de lo que introduces aquí.",
+  "widgetNeutralLine": "Abrir femio",
+  "widgetWeek": "Semana {weeks}",
+  "widgetNextPeriod": "Próxima regla {range}",
+  "settingsWidgetDetails": "Mostrar detalles en el widget de la pantalla de inicio",
+  "settingsWidgetDetailsNote": "Cualquiera que vea tu teléfono podrá verlos. Hasta que lo actives, el widget solo muestra femio."
 }
