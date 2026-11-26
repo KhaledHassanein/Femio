@@ -15,6 +15,7 @@ import '../../theme/spacing.dart';
 import '../lock/pin_field.dart';
 import '../plus/billing_probe_tile.dart';
 import 'backup_actions.dart';
+import 'csv_actions.dart';
 import 'delete_dialog.dart';
 import 'reminders_section.dart';
 
@@ -88,6 +89,12 @@ class SettingsScreen extends StatelessWidget {
               onTap: () => exportBackupFlow(context, controller),
             ),
             ListTile(leading: const Icon(Icons.restore_rounded), title: Text(l.importBackup), onTap: () => importBackupFlow(context, controller)),
+            ListTile(
+              leading: const Icon(Icons.table_chart_outlined),
+              title: Text(l.exportCsv),
+              subtitle: Text(l.csvNotEncrypted, style: t.bodySmall?.copyWith(color: p.textMuted)),
+              onTap: () => exportCsvFlow(context, profile),
+            ),
           ],
           _Section(title: l.assistantSettingsTitle),
           ListTile(

@@ -11,6 +11,7 @@ All notable changes to Femio V2.
 - **Fewer false alarms in Arabic.** Asking about a negative blood type in pregnancy, or how long bleeding lasts after birth, no longer opens a warning card; heavy bleeding, soaking a pad every hour and every other warning sign still do.
 - **No ads in the app, and no Google Analytics or Meta pixel on the website** (ADR-080). The app no longer contains an ads SDK or uses the advertising ID. The website counts visits with Vercel Web Analytics, which sets no cookie and stores no internet address; ads on article and topic pages still appear only after you allow them.
 - **Cloud boost asks for consent per use and keeps a dated record.** One box for general questions and one for tips from four broad facts, nothing pre-ticked; the screen says who receives the information, where, for how long, and what Google still sees. The app keeps the date and the version of what you agreed to, shows it, and records when you turn it off. A restored backup asks again.
+- **Write a note on any day, and take your logs out as a spreadsheet.** The Log screen has a Note box that saves as you type and stays on your phone, in your backup too; a day with only a note now shows as logged on the calendar. In Settings, "Export as spreadsheet (CSV)" saves one row per logged day, in your language, to the place you choose. Unlike the backup, that file is not encrypted.
 - **A rewritten privacy policy and a new consumer health data policy**, in four languages, listing everything that can leave your phone.
 
 ### Added
