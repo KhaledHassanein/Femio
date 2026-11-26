@@ -113,7 +113,7 @@ void main() {
       await tester.tap(find.text('16'));
       await tester.pumpAndSettle();
       expect(find.text(l.dayLogAction), findsNothing, reason: 'a future day cannot be logged');
-      expect(find.text(l.predictionNote), findsOneWidget, reason: 'an estimate always says it is one');
+      expect(find.text(l.predictionNote), findsWidgets, reason: 'an estimate always says it is one (sheet, and the legend since R14.9)');
       await _shoot('${tag}_explain_day');
     });
 

@@ -303,7 +303,7 @@
   "aboutSection": "Acerca de",
   "wellnessDisclaimer": "femio es una herramienta de bienestar e información para seguir tu propia salud. No es un producto sanitario y no sustituye a tu profesional de salud.",
   "predictionNote": "Las predicciones son estimaciones, no garantías, y no deben usarse para evitar un embarazo.",
-  "firstRunStorageNotice": "Tus registros se quedan en este teléfono. femio no tiene cuenta ni servidor, y no puede ver lo que introduces.",
+  "firstRunStorageNotice": "Tus registros se quedan en este teléfono. femio no tiene cuenta ni servidor, y no puede ver lo que introduces. Su IA funciona en este teléfono; la nube solo se usa si activas Cloud boost.",
   "firstRunStorageTitle": "Privada por diseño",
   "dismiss": "Entendido",
   "deleteEverything": "Borrar todo de este teléfono",
@@ -505,7 +505,7 @@
   "askRelatedGuides": "Guías de femio sobre esto",
   "askSearchAgain": "Hacer otra pregunta",
   "askAboutYouStays": "Tu pregunta habla de ti, así que se queda en este teléfono. Aquí tienes las fuentes palabra por palabra.",
-  "askModelFellBack": "La IA no pudo escribir una respuesta que cite sus fuentes, así que aquí están palabra por palabra.",
+  "askModelFellBack": "Esta vez no hubo resumen en el teléfono ni con Cloud boost, así que aquí están los pasajes de confianza palabra por palabra.",
   "askBoostHeading": "Cloud boost",
   "askBoostConfirm": "Este teléfono no tiene IA integrada. Con Cloud boost, la IA en la nube de Google puede resumirte estas fuentes públicas. Revisa primero la pregunta.",
   "askReadSourcesInstead": "Leer las fuentes en su lugar",
@@ -1108,5 +1108,13 @@
   "gapAddLength": "Añadir la duración habitual de mi ciclo",
   "gapSaveLength": "Guardar",
   "upcomingPeriodsOnlyNextStated": "Solo se muestra la próxima regla porque dijiste que tus ciclos son irregulares.",
-  "calendarNextPeriodLink": "Próxima regla: {range}"
+  "calendarNextPeriodLink": "Próxima regla: {range}",
+  "aiChipNano": "Gemini Nano · en este teléfono",
+  "aiChipRules": "En este teléfono · reglas de femio",
+  "aiChipOff": "IA desactivada · reglas y guías activas",
+  "aiChipCloud": "Cloud boost activado",
+  "aiChipHint": "Cómo funciona la IA de femio. Abre los ajustes del asistente.",
+  "tipsOrderedNano": "Ordenados por Gemini Nano en este teléfono, a partir de tu registro. Cada consejo es una frase revisada, con su fuente.",
+  "sayItCheckedNano": "Gemini Nano, en este teléfono, también leyó tus palabras y no encontró nada más que añadir.",
+  "visitOrderedNano": "Ordenadas por Gemini Nano en este teléfono."
 }

@@ -86,6 +86,8 @@ class PeriodHero extends StatelessWidget {
     if (profile.goal == Goal.period) {
       return Column(children: [
         if (period == null) gapCard() else HeroCard(eyebrow: l.predictionPeriodTitle, headline: period, extra: extra),
+        // R14.9: the calendar draws her window in this mode too, so the MR-15 sentence is here.
+        if (currentOrNextFertileWindow(profile, prediction, today) != null) HeroNote(l.predictionNote),
         WhyRangeButton(profile: profile, range: range),
       ]);
     }

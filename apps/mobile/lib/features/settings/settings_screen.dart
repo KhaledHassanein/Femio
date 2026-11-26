@@ -45,6 +45,13 @@ class SettingsScreen extends StatelessWidget {
       body: ListView(
         padding: const EdgeInsets.symmetric(vertical: space2),
         children: [
+          _Section(title: l.assistantSettingsTitle),
+          ListTile(
+            leading: const Icon(Icons.auto_awesome_rounded),
+            title: Text(l.assistantSettingsTitle),
+            subtitle: Text(l.assistantSettingsSub, style: t.bodySmall?.copyWith(color: p.textMuted)),
+            onTap: () => Navigator.of(context).push(MaterialPageRoute<void>(builder: (_) => AssistantSettingsScreen(controller: controller))),
+          ),
           _Section(title: l.settingsLanguage),
           RadioGroup<String>(
             groupValue: current,
@@ -112,13 +119,6 @@ class SettingsScreen extends StatelessWidget {
               onTap: () => exportCsvFlow(context, profile),
             ),
           ],
-          _Section(title: l.assistantSettingsTitle),
-          ListTile(
-            leading: const Icon(Icons.auto_awesome_rounded),
-            title: Text(l.assistantSettingsTitle),
-            subtitle: Text(l.assistantSettingsSub, style: t.bodySmall?.copyWith(color: p.textMuted)),
-            onTap: () => Navigator.of(context).push(MaterialPageRoute<void>(builder: (_) => AssistantSettingsScreen(controller: controller))),
-          ),
           _Section(title: l.aboutSection),
           // R6.9 spike: visible in debug and profile builds only; a release build renders nothing.
           const BillingProbeTile(),

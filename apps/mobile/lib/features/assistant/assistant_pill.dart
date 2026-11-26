@@ -2,7 +2,7 @@
 //
 // Why it exists: the assistant was two buttons deep on Today, so most people would never
 // meet it. Since R8.29 the doors open from the "+" in the navigation bar (`add_sheet.dart`);
-// the floating pill stays available for screens that want it. The first tap shows one sheet saying what runs on the phone and offering Cloud boost
+// Today, Learn and Log open the same doors (R14.6). The first tap shows one sheet saying what runs on the phone and offering Cloud boost
 // as a choice, through its own consent screen with nothing ticked (ADR-079, ADR-080). Every
 // door also works with the AI unavailable: the rules and guides answer (product rule 7).
 
@@ -17,25 +17,6 @@ import 'ask_screen.dart';
 import 'cloud_boost_screen.dart';
 import 'say_it_sheet.dart';
 import 'visit_summary_screen.dart';
-
-/// The floating pill. [today] is the day Say it logs to.
-class AssistantPill extends StatelessWidget {
-  const AssistantPill({super.key, required this.controller, required this.today, this.library});
-  final FemioController controller;
-  final String today;
-  final Library? library;
-
-  @override
-  Widget build(BuildContext context) {
-    final l = L10n.of(context);
-    return FloatingActionButton.extended(
-      heroTag: 'assistant-pill',
-      onPressed: () => openAssistant(context, controller: controller, today: today, library: library),
-      icon: const Icon(Icons.auto_awesome_rounded),
-      label: Text(l.askTitle),
-    );
-  }
-}
 
 /// Shows the first-use sheet once, then the three doors.
 Future<void> openAssistant(

@@ -19,8 +19,8 @@ import '../../theme/spacing.dart';
 import '../../theme/type_sizes.dart';
 import '../../widgets/bloom.dart';
 import '../../widgets/notice_card.dart';
-import '../assistant/ask_screen.dart';
-import '../assistant/visit_summary_screen.dart';
+import '../assistant/ai_status_chip.dart';
+import '../assistant/assistant_pill.dart' show AssistantDoor, openAssistantDoor;
 import '../help/help_now_screen.dart';
 import '../help/red_flags_screen.dart';
 import '../pregnancy/this_week_card.dart';
@@ -109,6 +109,16 @@ class TodayScreen extends StatelessWidget {
               header: true,
               child: Text(l.todayTitle, style: t.headlineMedium),
             ),
+            // R14.6: where the AI runs, and the one-sentence log, in the first screen.
+            const SizedBox(height: space2),
+            AiStatusChip(controller: controller),
+            if (profile.settings.assistantOn && canLog) ...[
+              const SizedBox(height: space3),
+              SayItBar(
+                onTap: () => openAssistantDoor(context, AssistantDoor.sayIt,
+                    controller: controller, today: now, library: library),
+              ),
+            ],
             const SizedBox(height: space4),
             if (!profile.settings.storageNoticeSeen) ...[
               // Shown once, instead of a consent step: there is nothing to consent to
@@ -214,44 +224,33 @@ class TodayScreen extends StatelessWidget {
                 style: t.bodySmall,
               ),
             ),
-            // R11.6: the doses still to mark today, only when she set times on a medicine.
-            MedicinesTodayCard(controller: controller, today: now),
+            // ADR-078, R14.6: the assistant's doors, through the same first-use sheet as "+".
+            // Both work with the AI off (rules and guides answer, product rule 7).
             const SizedBox(height: space4),
-            // ADR-078: the assistant's two doors from Today.
             Row(
               children: [
                 Expanded(
                   child: OutlinedButton.icon(
-                    onPressed: () => Navigator.of(context).push(
-                      MaterialPageRoute<void>(
-                        builder: (_) => AskScreen(
-                          controller: controller,
-                          library: library,
-                          today: now,
-                        ),
-                      ),
-                    ),
-                    icon: const Icon(Icons.travel_explore_rounded),
+                    onPressed: () => openAssistantDoor(context, AssistantDoor.ask,
+                        controller: controller, today: now, library: library),
+                    icon: const Icon(Icons.auto_stories_rounded),
                     label: Text(l.askTitle),
                   ),
                 ),
                 const SizedBox(width: space2),
                 Expanded(
                   child: OutlinedButton.icon(
-                    onPressed: () => Navigator.of(context).push(
-                      MaterialPageRoute<void>(
-                        builder: (_) => VisitSummaryScreen(
-                          controller: controller,
-                          today: now,
-                        ),
-                      ),
-                    ),
+                    onPressed: () => openAssistantDoor(context, AssistantDoor.visit,
+                        controller: controller, today: now, library: library),
                     icon: const Icon(Icons.assignment_outlined),
                     label: Text(l.visitButton),
                   ),
                 ),
               ],
             ),
+            // R11.6: the doses still to mark today, only when she set times on a medicine.
+            MedicinesTodayCard(controller: controller, today: now),
+            const SizedBox(height: space4),
             TipsCard(controller: controller, today: now),
             const SizedBox(height: space7),
             // R8.2 (owner 2026-11-24): the two notices sit at the bottom, under the dashboard,

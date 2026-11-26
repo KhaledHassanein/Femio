@@ -303,7 +303,7 @@
   "aboutSection": "حول التطبيق",
   "wellnessDisclaimer": "femio أداة للتوعية والمتابعة الصحية الشخصية، وليست جهازًا طبيًا ولا تغني عن استشارة الطبيبة أو الطبيب.",
   "predictionNote": "التوقعات تقديرات وليست ضمانات، ولا يجوز الاعتماد عليها لتجنّب الحمل.",
-  "firstRunStorageNotice": "تبقى سجلاتكِ على هذا الهاتف. لا يوجد في femio حساب ولا خادم، ولا يستطيع أن يرى ما تُدخلينه.",
+  "firstRunStorageNotice": "تبقى سجلاتكِ على هذا الهاتف. لا يوجد في femio حساب ولا خادم، ولا يستطيع أن يرى ما تُدخلينه. يعمل ذكاؤه الاصطناعي على هذا الهاتف، ولا تُستخدم السحابة إلا إذا شغّلتِ Cloud boost.",
   "firstRunStorageTitle": "خصوصية بالتصميم",
   "dismiss": "فهمت",
   "deleteEverything": "حذف كل شيء من هذا الهاتف",
@@ -505,7 +505,7 @@
   "askRelatedGuides": "أدلة femio عن هذا",
   "askSearchAgain": "اسألي سؤالاً آخر",
   "askAboutYouStays": "سؤالكِ عنكِ، لذلك يبقى على هذا الهاتف. إليكِ المصادر كما هي.",
-  "askModelFellBack": "لم يستطع الذكاء الاصطناعي كتابة إجابة تذكر مصادرها، فإليكِ المصادر كما هي.",
+  "askModelFellBack": "لم يتوفر هذه المرة ملخص على الهاتف أو عبر Cloud boost، فإليكِ المقاطع الموثوقة كما هي.",
   "askBoostHeading": "Cloud boost",
   "askBoostConfirm": "لا يوجد ذكاء اصطناعي على هذا الهاتف. مع Cloud boost يمكن لذكاء Google السحابي تلخيص هذه المصادر العامة لكِ. راجعي السؤال أولاً.",
   "askReadSourcesInstead": "اقرئي المصادر بدلاً من ذلك",
@@ -1108,5 +1108,13 @@
   "gapAddLength": "إضافة طول دورتي المعتاد",
   "gapSaveLength": "حفظ",
   "upcomingPeriodsOnlyNextStated": "تظهر الدورة القادمة فقط لأنك ذكرتِ أن دوراتك غير منتظمة.",
-  "calendarNextPeriodLink": "الدورة القادمة: {range}"
+  "calendarNextPeriodLink": "الدورة القادمة: {range}",
+  "aiChipNano": "Gemini Nano · على هذا الهاتف",
+  "aiChipRules": "على هذا الهاتف · قواعد femio",
+  "aiChipOff": "الذكاء الاصطناعي متوقف · القواعد والأدلة تعمل",
+  "aiChipCloud": "Cloud boost مفعّل",
+  "aiChipHint": "كيف يعمل الذكاء الاصطناعي في femio. يفتح إعدادات المساعد.",
+  "tipsOrderedNano": "رتّبها Gemini Nano على هذا الهاتف من تسجيلاتكِ. كل نصيحة جملة مُراجعة مع مصدرها.",
+  "sayItCheckedNano": "قرأ Gemini Nano على هذا الهاتف كلماتكِ أيضًا ولم يجد ما يضيفه.",
+  "visitOrderedNano": "رتّبها Gemini Nano على هذا الهاتف."
 }

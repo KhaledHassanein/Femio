@@ -382,6 +382,11 @@ void main() {
         // R8.4: Say it offers a pregnancy example, not the period one.
         await tester.tap(find.text(l.sayItButton));
         await tester.pumpAndSettle();
+        // R14.6: every door shows the assistant's first-use sheet once.
+        if (find.text(l.assistIntroContinue).evaluate().isNotEmpty) {
+          await tester.tap(find.text(l.assistIntroContinue));
+          await tester.pumpAndSettle();
+        }
         expect(find.text(l.sayItHintPregnant), findsOneWidget);
         expect(find.text(l.sayItHint), findsNothing);
         await _shoot(tester, '${lang}_${b.name}_23_say_it_pregnant');

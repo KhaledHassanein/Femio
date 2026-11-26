@@ -1102,7 +1102,7 @@ class L10nAr extends L10n {
 
   @override
   String get firstRunStorageNotice =>
-      'تبقى سجلاتكِ على هذا الهاتف. لا يوجد في femio حساب ولا خادم، ولا يستطيع أن يرى ما تُدخلينه.';
+      'تبقى سجلاتكِ على هذا الهاتف. لا يوجد في femio حساب ولا خادم، ولا يستطيع أن يرى ما تُدخلينه. يعمل ذكاؤه الاصطناعي على هذا الهاتف، ولا تُستخدم السحابة إلا إذا شغّلتِ Cloud boost.';
 
   @override
   String get firstRunStorageTitle => 'خصوصية بالتصميم';
@@ -1701,7 +1701,7 @@ class L10nAr extends L10n {
 
   @override
   String get askModelFellBack =>
-      'لم يستطع الذكاء الاصطناعي كتابة إجابة تذكر مصادرها، فإليكِ المصادر كما هي.';
+      'لم يتوفر هذه المرة ملخص على الهاتف أو عبر Cloud boost، فإليكِ المقاطع الموثوقة كما هي.';
 
   @override
   String get askBoostHeading => 'Cloud boost';
@@ -4072,4 +4072,31 @@ class L10nAr extends L10n {
   String calendarNextPeriodLink(String range) {
     return 'الدورة القادمة: $range';
   }
+
+  @override
+  String get aiChipNano => 'Gemini Nano · على هذا الهاتف';
+
+  @override
+  String get aiChipRules => 'على هذا الهاتف · قواعد femio';
+
+  @override
+  String get aiChipOff => 'الذكاء الاصطناعي متوقف · القواعد والأدلة تعمل';
+
+  @override
+  String get aiChipCloud => 'Cloud boost مفعّل';
+
+  @override
+  String get aiChipHint =>
+      'كيف يعمل الذكاء الاصطناعي في femio. يفتح إعدادات المساعد.';
+
+  @override
+  String get tipsOrderedNano =>
+      'رتّبها Gemini Nano على هذا الهاتف من تسجيلاتكِ. كل نصيحة جملة مُراجعة مع مصدرها.';
+
+  @override
+  String get sayItCheckedNano =>
+      'قرأ Gemini Nano على هذا الهاتف كلماتكِ أيضًا ولم يجد ما يضيفه.';
+
+  @override
+  String get visitOrderedNano => 'رتّبها Gemini Nano على هذا الهاتف.';
 }

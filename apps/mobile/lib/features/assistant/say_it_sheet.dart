@@ -9,6 +9,7 @@
 import 'package:flutter/material.dart';
 
 import '../../app.dart';
+import '../../data/assistant_gateway.dart' show RanOn;
 import '../../data/profile.dart';
 import '../../domain/assistant/log_phrases.dart';
 import '../../domain/assistant/safety.dart';
@@ -56,6 +57,9 @@ class _SayItSheetState extends State<SayItSheet> {
   final _text = TextEditingController();
   bool _busy = false;
   bool _usedModel = false;
+
+  /// Gemini Nano read her words on this phone, even if it added nothing (UX-6).
+  bool _ranModel = false;
   bool _read = false;
   SafetySignal _signal = SafetySignal.none;
   Set<SayItRefusal> _refused = const {};
@@ -84,13 +88,17 @@ class _SayItSheetState extends State<SayItSheet> {
       _days.clear();
       _read = false;
       _usedModel = false;
+      _ranModel = false;
     });
     final drafts = <_DayDraft>[];
     var usedModel = false;
+    var ranModel = false;
     for (final day in reading.days) {
       var draft = day.draft;
       // The model reads only this day's own words, and only ever adds to the rules' draft.
-      final s = (await gateway.readNote(day.text)).value;
+      final result = await gateway.readNote(day.text);
+      final s = result.value;
+      if (result.ranOn == RanOn.phone) ranModel = true;
       if (s != null) {
         final merged = mergeDrafts(draft, modelTerms: s.terms, modelFlow: s.flow, modelOpk: s.opk);
         if (merged.terms.length != draft.terms.length || merged.flow != draft.flow || merged.opk != draft.opk) {
@@ -105,6 +113,7 @@ class _SayItSheetState extends State<SayItSheet> {
       _busy = false;
       _read = true;
       _usedModel = usedModel;
+      _ranModel = ranModel;
       _days.addAll(drafts);
     });
   }
@@ -218,7 +227,11 @@ class _SayItSheetState extends State<SayItSheet> {
                 const SizedBox(width: space1h),
                 Expanded(
                   child: Text(
-                    _usedModel ? '${l.assistantPrivateNote} ${l.assistantModelNote}' : l.assistantPrivateNote,
+                    _usedModel
+                        ? '${l.assistantPrivateNote} ${l.assistantModelNote}'
+                        : _ranModel
+                            ? '${l.assistantPrivateNote} ${l.sayItCheckedNano}'
+                            : l.assistantPrivateNote,
                     style: t.bodySmall,
                   ),
                 ),

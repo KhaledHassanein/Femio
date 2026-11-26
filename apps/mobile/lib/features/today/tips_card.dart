@@ -48,6 +48,7 @@ class _TipsCardState extends State<TipsCard> {
   TriggerContext? _context;
   List<String>? _order;
   bool _cloudOrdered = false;
+  bool _phoneOrdered = false;
   String? _orderedFor;
 
   @override
@@ -75,6 +76,7 @@ class _TipsCardState extends State<TipsCard> {
     _orderedFor = key;
     _order = null;
     _cloudOrdered = false;
+    _phoneOrdered = false;
     if (_fits.length > tipsShown) _orderWithModel(profile, key);
   }
 
@@ -91,6 +93,7 @@ class _TipsCardState extends State<TipsCard> {
     setState(() {
       _order = order;
       _cloudOrdered = cloud;
+      _phoneOrdered = result.ranOn == RanOn.phone;
     });
   }
 
@@ -152,7 +155,7 @@ class _TipsCardState extends State<TipsCard> {
             const SizedBox(height: space2),
           ],
           Text(
-            _cloudOrdered ? l.tipsOrderedCloud : l.tipsChosenOnPhone,
+            _cloudOrdered ? l.tipsOrderedCloud : (_phoneOrdered ? l.tipsOrderedNano : l.tipsChosenOnPhone),
             style: t.bodySmall?.copyWith(color: p.textMuted),
           ),
         ],

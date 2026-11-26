@@ -18,7 +18,9 @@ const _swatch = 14.0;
 
 /// The legend for [marks] (one month from `dayMarks`). The period swatch always shows, as
 /// the anchor of the key; every other swatch only when the month draws it. [windowNote] is
-/// the MR-06/08 sentence, shown when a cycle goal has a forecast but no window.
+/// the MR-06/08 sentence, shown when a cycle goal has a forecast but no window. Whenever the
+/// month draws a fertile window or ovulation day, the MR-15 sentence follows (R14.9, owner
+/// row 41: windows in both cycle modes, always with it).
 class CalendarLegend extends StatelessWidget {
   const CalendarLegend({super.key, required this.marks, this.windowNote});
   final Map<String, DayMark> marks;
@@ -78,6 +80,10 @@ class CalendarLegend extends StatelessWidget {
               ),
           ],
         ),
+        if (any((m) => m.fertile || m.ovulation)) ...[
+          const SizedBox(height: space2h),
+          Text(l.predictionNote, style: t.bodySmall?.copyWith(color: p.textSubtle)),
+        ],
         if (windowNote case final note?) ...[
           const SizedBox(height: space2h),
           Text(note, style: t.bodySmall?.copyWith(color: p.textSubtle)),

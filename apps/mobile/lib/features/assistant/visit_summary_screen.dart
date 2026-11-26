@@ -45,6 +45,9 @@ class _VisitSummaryScreenState extends State<VisitSummaryScreen> {
   late final String _today = widget.today ?? todayISO();
   late final VisitSummary _summary = visitSummary(widget.controller.profile!, _today);
   late List<String> _questions = _summary.questionIds;
+
+  /// Gemini Nano put the suggested questions in order on this phone (UX-7).
+  bool _nanoOrdered = false;
   bool _ordered = false;
 
   /// The second language for the clinic, or null for her language only.
@@ -60,7 +63,10 @@ class _VisitSummaryScreenState extends State<VisitSummaryScreen> {
     _ordered = true;
     final order = (await AssistantScope.gatewayOf(context).orderVisitQuestions(_summary)).value;
     if (order == null || !mounted) return;
-    setState(() => _questions = reorderQuestions(_summary.questionIds, order));
+    setState(() {
+      _questions = reorderQuestions(_summary.questionIds, order);
+      _nanoOrdered = true;
+    });
   }
 
   Future<void> _add(List<String> lines, L10n l, String locale) async {
@@ -206,6 +212,11 @@ class _VisitSummaryScreenState extends State<VisitSummaryScreen> {
             if (others.isNotEmpty) ...[
               heading(l.visitQuestionsTitle),
               card([for (final (i, id) in others.indexed) numbered(i, visitQuestionText(l, id))]),
+              if (_nanoOrdered)
+                Padding(
+                  padding: const EdgeInsets.only(top: space2),
+                  child: Text(l.visitOrderedNano, style: t.bodySmall),
+                ),
             ],
             heading(l.visitSecondLanguage),
             Wrap(

@@ -40,7 +40,7 @@ void main() {
   for (final (slug, make) in [('ttc', _ttc), ('pregnant', _pregnant)]) {
     for (final (lang, b) in const [('en', Brightness.light), ('ar', Brightness.light), ('ar', Brightness.dark)]) {
       testWidgets('today $slug ($lang ${b.name})', (tester) async {
-        tester.view.physicalSize = const Size(780, 4200);
+        tester.view.physicalSize = const Size(780, 4800);
         tester.view.devicePixelRatio = 2;
         tester.platformDispatcher.platformBrightnessTestValue = b;
         addTearDown(tester.view.reset);

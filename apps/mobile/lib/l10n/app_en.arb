@@ -486,7 +486,7 @@
   "aboutSection": "About",
   "wellnessDisclaimer": "femio is a wellness and education tool for tracking your own health. It is not a medical device and does not replace your clinician.",
   "predictionNote": "Predictions are estimates, not guarantees, and must not be relied on to avoid pregnancy.",
-  "firstRunStorageNotice": "Your records stay on this phone. femio has no account and no server, and cannot see what you enter.",
+  "firstRunStorageNotice": "Your records stay on this phone. femio has no account and no server, and cannot see what you enter. Its AI runs on this phone; the cloud is used only if you switch on Cloud boost.",
   "firstRunStorageTitle": "Private by design",
   "dismiss": "Got it",
   "deleteEverything": "Delete everything on this phone",
@@ -699,7 +699,7 @@
   "askRelatedGuides": "femio guides on this",
   "askSearchAgain": "Ask another question",
   "askAboutYouStays": "Your question is about you, so it stays on this phone. Here are the sources word for word.",
-  "askModelFellBack": "The AI could not write an answer that cites its sources, so here they are word for word.",
+  "askModelFellBack": "No on-phone or Cloud boost summary was available this time, so here are the trusted passages word for word.",
   "askBoostHeading": "Cloud boost",
   "askBoostConfirm": "This phone has no on-phone AI. With Cloud boost, Google's cloud AI can summarise these public sources for you. Check the question first.",
   "askReadSourcesInstead": "Read the sources instead",
@@ -2603,5 +2603,13 @@
         "type": "String"
       }
     }
-  }
+  },
+  "aiChipNano": "Gemini Nano · on this phone",
+  "aiChipRules": "On this phone · femio's rules",
+  "aiChipOff": "AI off · rules and guides still work",
+  "aiChipCloud": "Cloud boost on",
+  "aiChipHint": "How femio's AI runs. Opens the assistant settings.",
+  "tipsOrderedNano": "Put in order by Gemini Nano on this phone, from your log. Each tip is a reviewed sentence with its source.",
+  "sayItCheckedNano": "Gemini Nano on this phone read your words too and found nothing more to add.",
+  "visitOrderedNano": "Put in order by Gemini Nano on this phone."
 }

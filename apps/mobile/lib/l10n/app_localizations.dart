@@ -1880,7 +1880,7 @@ abstract class L10n {
   /// No description provided for @firstRunStorageNotice.
   ///
   /// In en, this message translates to:
-  /// **'Your records stay on this phone. femio has no account and no server, and cannot see what you enter.'**
+  /// **'Your records stay on this phone. femio has no account and no server, and cannot see what you enter. Its AI runs on this phone; the cloud is used only if you switch on Cloud boost.'**
   String get firstRunStorageNotice;
 
   /// No description provided for @firstRunStorageTitle.
@@ -2888,7 +2888,7 @@ abstract class L10n {
   /// No description provided for @askModelFellBack.
   ///
   /// In en, this message translates to:
-  /// **'The AI could not write an answer that cites its sources, so here they are word for word.'**
+  /// **'No on-phone or Cloud boost summary was available this time, so here are the trusted passages word for word.'**
   String get askModelFellBack;
 
   /// No description provided for @askBoostHeading.
@@ -6508,6 +6508,54 @@ abstract class L10n {
   /// In en, this message translates to:
   /// **'Next period: {range}'**
   String calendarNextPeriodLink(String range);
+
+  /// No description provided for @aiChipNano.
+  ///
+  /// In en, this message translates to:
+  /// **'Gemini Nano · on this phone'**
+  String get aiChipNano;
+
+  /// No description provided for @aiChipRules.
+  ///
+  /// In en, this message translates to:
+  /// **'On this phone · femio\'s rules'**
+  String get aiChipRules;
+
+  /// No description provided for @aiChipOff.
+  ///
+  /// In en, this message translates to:
+  /// **'AI off · rules and guides still work'**
+  String get aiChipOff;
+
+  /// No description provided for @aiChipCloud.
+  ///
+  /// In en, this message translates to:
+  /// **'Cloud boost on'**
+  String get aiChipCloud;
+
+  /// No description provided for @aiChipHint.
+  ///
+  /// In en, this message translates to:
+  /// **'How femio\'s AI runs. Opens the assistant settings.'**
+  String get aiChipHint;
+
+  /// No description provided for @tipsOrderedNano.
+  ///
+  /// In en, this message translates to:
+  /// **'Put in order by Gemini Nano on this phone, from your log. Each tip is a reviewed sentence with its source.'**
+  String get tipsOrderedNano;
+
+  /// No description provided for @sayItCheckedNano.
+  ///
+  /// In en, this message translates to:
+  /// **'Gemini Nano on this phone read your words too and found nothing more to add.'**
+  String get sayItCheckedNano;
+
+  /// No description provided for @visitOrderedNano.
+  ///
+  /// In en, this message translates to:
+  /// **'Put in order by Gemini Nano on this phone.'**
+  String get visitOrderedNano;
 }
 
 class _L10nDelegate extends LocalizationsDelegate<L10n> {

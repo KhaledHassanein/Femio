@@ -1081,7 +1081,7 @@ class L10nFr extends L10n {
 
   @override
   String get firstRunStorageNotice =>
-      'Vos données restent sur ce téléphone. femio n\'a ni compte ni serveur, et ne peut pas voir ce que vous saisissez.';
+      'Vos données restent sur ce téléphone. femio n\'a ni compte ni serveur, et ne peut pas voir ce que vous saisissez. Son IA fonctionne sur ce téléphone ; le cloud n’est utilisé que si vous activez Cloud boost.';
 
   @override
   String get firstRunStorageTitle => 'Privé par conception';
@@ -1687,7 +1687,7 @@ class L10nFr extends L10n {
 
   @override
   String get askModelFellBack =>
-      'L’IA n’a pas pu écrire une réponse qui cite ses sources ; les voici mot pour mot.';
+      'Aucun résumé sur le téléphone ni avec Cloud boost n’était disponible cette fois ; voici les passages fiables mot pour mot.';
 
   @override
   String get askBoostHeading => 'Cloud boost';
@@ -4055,4 +4055,32 @@ class L10nFr extends L10n {
   String calendarNextPeriodLink(String range) {
     return 'Prochaines règles : $range';
   }
+
+  @override
+  String get aiChipNano => 'Gemini Nano · sur ce téléphone';
+
+  @override
+  String get aiChipRules => 'Sur ce téléphone · règles de femio';
+
+  @override
+  String get aiChipOff => 'IA désactivée · règles et guides actifs';
+
+  @override
+  String get aiChipCloud => 'Cloud boost activé';
+
+  @override
+  String get aiChipHint =>
+      'Comment fonctionne l’IA de femio. Ouvre les réglages de l’assistant.';
+
+  @override
+  String get tipsOrderedNano =>
+      'Mis en ordre par Gemini Nano sur ce téléphone, à partir de votre journal. Chaque conseil est une phrase relue, avec sa source.';
+
+  @override
+  String get sayItCheckedNano =>
+      'Gemini Nano, sur ce téléphone, a lu vos mots aussi et n’a rien trouvé à ajouter.';
+
+  @override
+  String get visitOrderedNano =>
+      'Mises en ordre par Gemini Nano sur ce téléphone.';
 }

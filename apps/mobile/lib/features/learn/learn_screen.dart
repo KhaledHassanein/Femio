@@ -13,7 +13,8 @@ import '../../theme/radii.dart';
 import '../../theme/spacing.dart';
 import '../../widgets/tab_header.dart';
 import '../../app.dart';
-import '../assistant/ask_screen.dart';
+import '../../domain/dates.dart' show todayISO;
+import '../assistant/assistant_pill.dart' show AssistantDoor, openAssistantDoor;
 import '../tools/tools_screen.dart';
 import 'article_screen.dart';
 
@@ -69,12 +70,9 @@ class _LearnScreenState extends State<LearnScreen> {
                     if (widget.controller != null)
                       // ADR-078: an answer from trusted sources when no guide fits.
                       TextButton.icon(
-                        onPressed: () => Navigator.of(context).push(
-                          MaterialPageRoute<void>(
-                            builder: (_) => AskScreen(controller: widget.controller!, library: widget.library),
-                          ),
-                        ),
-                        icon: const Icon(Icons.travel_explore_rounded),
+                        onPressed: () => openAssistantDoor(context, AssistantDoor.ask,
+                            controller: widget.controller!, today: todayISO(), library: widget.library),
+                        icon: const Icon(Icons.auto_stories_rounded),
                         label: Text(l.askTitle),
                       ),
                     // R13.5: the calculators that save nothing, open to everyone.

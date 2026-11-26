@@ -19,7 +19,7 @@ import '../../theme/radii.dart';
 import '../../theme/type_sizes.dart';
 import '../../widgets/tab_header.dart';
 import '../../domain/prediction_explain.dart';
-import '../assistant/say_it_sheet.dart';
+import '../assistant/assistant_pill.dart' show AssistantDoor, openAssistantDoor;
 import '../calendar/prediction_sheets.dart';
 import '../help/red_flags_screen.dart';
 import 'widgets/log_chip.dart';
@@ -184,7 +184,7 @@ class LogScreen extends StatelessWidget {
               const SizedBox(height: space3),
               // ADR-078: one sentence instead of forty taps, read on the phone.
               OutlinedButton.icon(
-                onPressed: () => showSayItSheet(context, controller: controller, date: date),
+                onPressed: () => openAssistantDoor(context, AssistantDoor.sayIt, controller: controller, today: date),
                 icon: const Icon(Icons.auto_awesome_rounded),
                 label: Text(l.sayItButton),
               ),

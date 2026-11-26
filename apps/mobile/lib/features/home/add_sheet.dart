@@ -17,9 +17,9 @@ import '../../domain/log_vocabulary.g.dart';
 import '../../l10n/app_localizations.dart';
 import '../../l10n/log_labels.g.dart';
 import '../../theme/femio_theme.dart';
-import '../../theme/radii.dart';
 import '../../theme/spacing.dart';
 import '../../theme/type_sizes.dart';
+import '../assistant/ai_status_chip.dart' show SayItBar;
 import '../assistant/assistant_pill.dart';
 import '../log/widgets/log_chip.dart';
 import '../record/record_screen.dart';
@@ -103,29 +103,13 @@ class AddSheet extends StatelessWidget {
               if (assistantOn) ...[
                 const SizedBox(height: space4),
                 // Say it first: one sentence instead of many taps (ADR-078).
-                Material(
-                  color: p.surfaceSunken,
-                  borderRadius: BorderRadius.circular(radiusPill),
-                  child: InkWell(
-                    borderRadius: BorderRadius.circular(radiusPill),
-                    onTap: () => pop(AssistantDoor.sayIt),
-                    child: Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: space4, vertical: space3),
-                      child: Row(children: [
-                        Icon(Icons.auto_awesome_rounded, color: p.primary),
-                        const SizedBox(width: space3),
-                        Expanded(child: Text(l.addSayItPrompt, style: t.bodyMedium?.copyWith(color: p.textMuted))),
-                        Icon(Icons.mic_none_rounded, color: p.primary),
-                      ]),
-                    ),
-                  ),
-                ),
+                SayItBar(onTap: () => pop(AssistantDoor.sayIt)),
                 const SizedBox(height: space2),
                 Row(children: [
                   Expanded(
                     child: FilledButton.tonalIcon(
                       onPressed: () => pop(AssistantDoor.ask),
-                      icon: const Icon(Icons.travel_explore_rounded),
+                      icon: const Icon(Icons.auto_stories_rounded),
                       label: Text(l.addAsk, maxLines: 1, overflow: TextOverflow.ellipsis),
                     ),
                   ),
