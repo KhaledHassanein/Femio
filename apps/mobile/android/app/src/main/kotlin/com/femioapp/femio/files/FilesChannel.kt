@@ -4,7 +4,10 @@
 // hands it to another app. The plain copy PdfRenderer needs lives a moment in the app's private
 // cache and is deleted at once. Sharing is her own act through the system sheet: the plain
 // copy goes to a private cache folder that only the app she picks may read, through a
-// FileProvider, and the folder is emptied each time the app starts. No network, no permission.
+// FileProvider. The folder is emptied each time the app starts, and a copy older than a few
+// minutes is deleted whenever she returns to femio or shares again (SEC-15): long enough for
+// the app she picked to read it, short enough that a plain copy does not linger for days.
+// No network, no permission.
 
 package com.femioapp.femio.files
 
@@ -97,6 +100,7 @@ class FilesChannel(private val context: Context, messenger: BinaryMessenger, pri
 
     /** Writes a plain copy to the private share folder and opens the system share sheet. */
     private fun share(bytes: ByteArray, name: String, mime: String): Boolean {
+        clearStaleShares()
         val dir = File(context.cacheDir, SHARE_DIR).apply { mkdirs() }
         val safe = name.replace(Regex("[^\\p{L}\\p{N} ._-]"), "_").take(MAX_NAME).ifBlank { "document" }
         val file = File(dir, safe)
@@ -117,6 +121,17 @@ class FilesChannel(private val context: Context, messenger: BinaryMessenger, pri
         File(context.cacheDir, RENDER_DIR).deleteRecursively()
     }
 
+    /**
+     * Deletes shared copies older than [SHARE_KEEP_MS]. Called when femio returns to the front
+     * and before each new share. A receiving app reads the file through the FileProvider while
+     * the share sheet is open or soon after; a fresh copy is kept so a slow upload is not cut.
+     */
+    fun clearStaleShares() {
+        val cutoff = System.currentTimeMillis() - SHARE_KEEP_MS
+        File(context.cacheDir, SHARE_DIR).listFiles()?.forEach { if (it.lastModified() < cutoff) it.delete() }
+        File(context.cacheDir, RENDER_DIR).listFiles()?.forEach { if (it.lastModified() < cutoff) it.delete() }
+    }
+
     fun dispose() {
         channel.setMethodCallHandler(null)
         worker.shutdown()
@@ -130,5 +145,7 @@ class FilesChannel(private val context: Context, messenger: BinaryMessenger, pri
         private const val DEFAULT_MAX_PAGES = 40
         private const val JPEG_QUALITY = 88
         private const val MAX_NAME = 80
+        // Ten minutes: how long a shared plain copy may wait for the app she picked.
+        private const val SHARE_KEEP_MS = 10 * 60 * 1000L
     }
 }

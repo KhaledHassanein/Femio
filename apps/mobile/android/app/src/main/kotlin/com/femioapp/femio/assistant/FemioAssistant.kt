@@ -43,6 +43,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.SupervisorJob
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
+import kotlinx.coroutines.withTimeout
 
 /** Channel name shared with `lib/data/assistant_channel.dart`. */
 const val ASSISTANT_CHANNEL = "com.femioapp.femio/assistant"
@@ -52,6 +53,14 @@ private const val ON_DEVICE_MAX_OUTPUT_TOKENS = 200
 
 /** Output budget for a cloud answer (about 120 words in any of the four languages). */
 private const val CLOUD_MAX_OUTPUT_TOKENS = 400
+
+/**
+ * The longest a model call may run, matching `assistantCallTimeout` in
+ * lib/data/assistant_gateway.dart (SEC-12). Dart stops waiting at 20 s; without this the
+ * native call would carry on, and a cloud request could still complete after she was told
+ * the rules answer stands. Cancelling the coroutine cancels the SDK's request.
+ */
+private const val CALL_TIMEOUT_MS = 20_000L
 
 /** Name of the Firebase app instance, so it never clashes with a default app. */
 private const val FIREBASE_APP_NAME = "femio-assistant"
@@ -116,7 +125,7 @@ class FemioAssistant(private val context: Context, messenger: BinaryMessenger) :
     /** Runs [prompt] on the phone only. Returns the text and where it ran. */
     private suspend fun private(prompt: String): Map<String, Any?> {
         val model = model(InferenceMode.ONLY_ON_DEVICE)
-        val response = withContext(Dispatchers.IO) { model.generateContent(prompt) }
+        val response = withTimeout(CALL_TIMEOUT_MS) { withContext(Dispatchers.IO) { model.generateContent(prompt) } }
         return mapOf("text" to response.text, "source" to sourceName(response))
     }
 
@@ -127,7 +136,7 @@ class FemioAssistant(private val context: Context, messenger: BinaryMessenger) :
      */
     private suspend fun hybrid(prompt: String): Map<String, Any?> {
         val model = model(InferenceMode.PREFER_ON_DEVICE)
-        val response = withContext(Dispatchers.IO) { model.generateContent(prompt) }
+        val response = withTimeout(CALL_TIMEOUT_MS) { withContext(Dispatchers.IO) { model.generateContent(prompt) } }
         return mapOf("text" to response.text, "source" to sourceName(response))
     }
 
