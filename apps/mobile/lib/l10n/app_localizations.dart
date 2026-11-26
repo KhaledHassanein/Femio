@@ -6220,6 +6220,102 @@ abstract class L10n {
   /// In en, this message translates to:
   /// **'These are counts of what you logged. They don\'t say what causes anything or whether something is wrong. Bring them to your clinician if they help.'**
   String get patNoVerdict;
+
+  /// Signs by cycle day (R8.8).
+  ///
+  /// In en, this message translates to:
+  /// **'Signs by cycle day'**
+  String get signsDaysTitle;
+
+  /// Signs by cycle day (R8.8).
+  ///
+  /// In en, this message translates to:
+  /// **'See by cycle day'**
+  String get signsDaysOpen;
+
+  /// Signs by cycle day (R8.8).
+  ///
+  /// In en, this message translates to:
+  /// **'This cycle, from {date}'**
+  String signsDaysCurrent(String date);
+
+  /// Signs by cycle day (R8.8).
+  ///
+  /// In en, this message translates to:
+  /// **'Cycle from {date}, {days}'**
+  String signsDaysPast(String date, String days);
+
+  /// Signs by cycle day (R8.8).
+  ///
+  /// In en, this message translates to:
+  /// **'Earlier cycle'**
+  String get signsDaysEarlier;
+
+  /// Signs by cycle day (R8.8).
+  ///
+  /// In en, this message translates to:
+  /// **'Later cycle'**
+  String get signsDaysLater;
+
+  /// Signs by cycle day (R8.8).
+  ///
+  /// In en, this message translates to:
+  /// **'Bleeding'**
+  String get signsDaysBleeding;
+
+  /// Signs by cycle day (R8.8).
+  ///
+  /// In en, this message translates to:
+  /// **'Logged'**
+  String get signsDaysLogged;
+
+  /// Signs by cycle day (R8.8).
+  ///
+  /// In en, this message translates to:
+  /// **'Cycle day'**
+  String get signsDaysCycleDay;
+
+  /// Signs by cycle day (R8.8).
+  ///
+  /// In en, this message translates to:
+  /// **'Cycle day {day}, {date}'**
+  String signsDaysDay(int day, String date);
+
+  /// Signs by cycle day (R8.8).
+  ///
+  /// In en, this message translates to:
+  /// **'Nothing logged this day.'**
+  String get signsDaysNothing;
+
+  /// Signs by cycle day (R8.8).
+  ///
+  /// In en, this message translates to:
+  /// **'Tap a day to see what you logged.'**
+  String get signsDaysHint;
+
+  /// Signs by cycle day (R8.8).
+  ///
+  /// In en, this message translates to:
+  /// **'Nothing logged in this cycle yet. Temperatures, ovulation tests and discharge you log show here day by day.'**
+  String get signsDaysEmpty;
+
+  /// Signs by cycle day (R8.8).
+  ///
+  /// In en, this message translates to:
+  /// **'Log the first day of a period and your signs line up here by cycle day.'**
+  String get signsDaysNoCycle;
+
+  /// Signs by cycle day (R8.8).
+  ///
+  /// In en, this message translates to:
+  /// **'A fuller mark is further along the list you chose from: negative to positive for tests, dry to egg white for discharge.'**
+  String get signsDaysFill;
+
+  /// Between words in a short list she chose (Arabic uses its own comma).
+  ///
+  /// In en, this message translates to:
+  /// **', '**
+  String get listSeparator;
 }
 
 class _L10nDelegate extends LocalizationsDelegate<L10n> {

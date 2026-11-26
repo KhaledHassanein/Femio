@@ -18,6 +18,7 @@ import '../../theme/femio_theme.dart';
 import '../../theme/radii.dart';
 import '../../theme/spacing.dart';
 import '../../widgets/notice_card.dart';
+import 'signs_by_day_screen.dart';
 
 /// The most terms the "By phase" table lists (the rest stay in her log).
 const patternTableRows = 12;
@@ -125,7 +126,11 @@ class PatternsScreen extends StatelessWidget {
         const SizedBox(height: space6),
         Text(l.patEachCycle, style: t.titleSmall),
         const SizedBox(height: space2),
-        for (final d in c.details) _CycleRow(detail: d),
+        for (final d in c.details)
+          _CycleRow(
+            detail: d,
+            onTap: () => openSignsByDay(context, controller.profile!, today, day: d.span.start),
+          ),
       ],
     ];
   }
@@ -245,8 +250,11 @@ class _PhaseTable extends StatelessWidget {
 
 /// One complete cycle: when it began, its length, and what she logged in it.
 class _CycleRow extends StatelessWidget {
-  const _CycleRow({required this.detail});
+  const _CycleRow({required this.detail, required this.onTap});
   final CycleDetail detail;
+
+  /// Opens this cycle in "Signs by cycle day".
+  final VoidCallback onTap;
 
   @override
   Widget build(BuildContext context) {
@@ -255,26 +263,40 @@ class _CycleRow extends StatelessWidget {
     final t = Theme.of(context).textTheme;
     final locale = Localizations.localeOf(context).toLanguageTag();
     final d = detail;
-    return Container(
-      margin: const EdgeInsets.only(bottom: space2),
-      padding: const EdgeInsets.all(space3),
-      decoration: BoxDecoration(
+    return Padding(
+      padding: const EdgeInsets.only(bottom: space2),
+      child: Material(
         color: p.surface,
-        borderRadius: BorderRadius.circular(radiusMd),
-        border: Border.all(color: p.border),
-      ),
-      child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-        Row(children: [
-          Expanded(
-            child: Text(l.patCycleFrom(DateFormat.yMMMd(locale).format(fromISO(d.span.start))), style: t.titleSmall),
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(radiusMd), side: BorderSide(color: p.border)),
+        child: InkWell(
+          borderRadius: BorderRadius.circular(radiusMd),
+          onTap: onTap,
+          child: Padding(
+            padding: const EdgeInsets.all(space3),
+            child: Row(children: [
+              Expanded(
+                child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+                  Row(children: [
+                    Expanded(
+                      child: Text(
+                        l.patCycleFrom(DateFormat.yMMMd(locale).format(fromISO(d.span.start))),
+                        style: t.titleSmall,
+                      ),
+                    ),
+                    Text(l.patDays(d.span.length), style: t.bodyMedium),
+                  ]),
+                  const SizedBox(height: space1),
+                  Text(l.patDaysLogged(d.daysLogged), style: t.bodySmall),
+                  if (d.opkPositiveDays > 0) Text(l.patOpkDays(d.opkPositiveDays), style: t.bodySmall),
+                  if (d.temperatures > 0) Text(l.patTemps(d.temperatures), style: t.bodySmall),
+                ]),
+              ),
+              const SizedBox(width: space2),
+              Icon(Icons.chevron_right_rounded, color: p.textSubtle),
+            ]),
           ),
-          Text(l.patDays(d.span.length), style: t.bodyMedium),
-        ]),
-        const SizedBox(height: space1),
-        Text(l.patDaysLogged(d.daysLogged), style: t.bodySmall),
-        if (d.opkPositiveDays > 0) Text(l.patOpkDays(d.opkPositiveDays), style: t.bodySmall),
-        if (d.temperatures > 0) Text(l.patTemps(d.temperatures), style: t.bodySmall),
-      ]),
+        ),
+      ),
     );
   }
 }

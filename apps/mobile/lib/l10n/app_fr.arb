@@ -1060,5 +1060,21 @@
   "patTemps": "Températures : {count}",
   "patRecent": "90 derniers jours",
   "patEmpty": "Rien de noté pour l'instant. Les tendances viennent de votre journal.",
-  "patNoVerdict": "Ce sont des comptes de ce que vous avez noté. Ils ne disent ni la cause ni si quelque chose ne va pas. Montrez-les à votre soignant si cela aide."
+  "patNoVerdict": "Ce sont des comptes de ce que vous avez noté. Ils ne disent ni la cause ni si quelque chose ne va pas. Montrez-les à votre soignant si cela aide.",
+  "signsDaysTitle": "Signes par jour du cycle",
+  "signsDaysOpen": "Voir par jour du cycle",
+  "signsDaysCurrent": "Ce cycle, depuis le {date}",
+  "signsDaysPast": "Cycle du {date}, {days}",
+  "signsDaysEarlier": "Cycle précédent",
+  "signsDaysLater": "Cycle suivant",
+  "signsDaysBleeding": "Saignement",
+  "signsDaysLogged": "Noté",
+  "signsDaysCycleDay": "Jour du cycle",
+  "signsDaysDay": "Jour {day} du cycle, {date}",
+  "signsDaysNothing": "Rien de noté ce jour-là.",
+  "signsDaysHint": "Touchez un jour pour voir ce que vous avez noté.",
+  "signsDaysEmpty": "Rien de noté dans ce cycle pour l'instant. Les températures, tests d'ovulation et pertes que vous notez s'affichent ici jour par jour.",
+  "signsDaysNoCycle": "Notez le premier jour de vos règles et vos signes s'aligneront ici par jour du cycle.",
+  "signsDaysFill": "Plus la marque est pleine, plus votre choix est loin dans la liste : de négatif à positif pour les tests, de sec à blanc d'œuf pour les pertes.",
+  "listSeparator": ", "
 }

@@ -16,6 +16,7 @@ import '../../domain/guidance.dart';
 import '../../l10n/app_localizations.dart';
 import '../../widgets/bbt_chart.dart';
 import '../calendar/prediction_sheets.dart';
+import '../calendar/signs_by_day_screen.dart';
 import 'cycle_signs_card.dart';
 import 'hero_card.dart';
 import 'hero_meters.dart';
@@ -103,7 +104,7 @@ class PeriodHero extends StatelessWidget {
       TestTimingCard(prediction: prediction, date: date),
       if (cycleSigns(profile.logs, profile.periodStarts, today) case final signs when !signs.isEmpty) ...[
         const SizedBox(height: space3),
-        CycleSignsCard(signs: signs, date: date),
+        CycleSignsCard(signs: signs, date: date, onOpenDays: () => openSignsByDay(context, profile, today)),
       ],
       const SizedBox(height: space3),
       BbtChartCard(chart: _cycleBbt(profile, today)),

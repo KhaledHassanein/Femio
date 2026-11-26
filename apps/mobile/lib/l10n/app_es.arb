@@ -1060,5 +1060,21 @@
   "patTemps": "Temperaturas: {count}",
   "patRecent": "Últimos 90 días",
   "patEmpty": "Aún no has registrado nada. Los patrones salen de tu registro.",
-  "patNoVerdict": "Son recuentos de lo que registraste. No dicen la causa ni si algo va mal. Llévalos a tu profesional de salud si te sirven."
+  "patNoVerdict": "Son recuentos de lo que registraste. No dicen la causa ni si algo va mal. Llévalos a tu profesional de salud si te sirven.",
+  "signsDaysTitle": "Signos por día del ciclo",
+  "signsDaysOpen": "Ver por día del ciclo",
+  "signsDaysCurrent": "Este ciclo, desde el {date}",
+  "signsDaysPast": "Ciclo desde el {date}, {days}",
+  "signsDaysEarlier": "Ciclo anterior",
+  "signsDaysLater": "Ciclo siguiente",
+  "signsDaysBleeding": "Sangrado",
+  "signsDaysLogged": "Registrado",
+  "signsDaysCycleDay": "Día del ciclo",
+  "signsDaysDay": "Día {day} del ciclo, {date}",
+  "signsDaysNothing": "No registraste nada este día.",
+  "signsDaysHint": "Toca un día para ver lo que registraste.",
+  "signsDaysEmpty": "Aún no has registrado nada en este ciclo. Las temperaturas, pruebas de ovulación y flujo que registres aparecen aquí día a día.",
+  "signsDaysNoCycle": "Registra el primer día de tu regla y tus signos se ordenarán aquí por día del ciclo.",
+  "signsDaysFill": "Cuanto más llena la marca, más avanzada tu elección en la lista: de negativa a positiva en las pruebas, de seco a clara de huevo en el flujo.",
+  "listSeparator": ", "
 }

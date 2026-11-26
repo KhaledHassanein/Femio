@@ -3885,4 +3885,62 @@ class L10nFr extends L10n {
   @override
   String get patNoVerdict =>
       'Ce sont des comptes de ce que vous avez noté. Ils ne disent ni la cause ni si quelque chose ne va pas. Montrez-les à votre soignant si cela aide.';
+
+  @override
+  String get signsDaysTitle => 'Signes par jour du cycle';
+
+  @override
+  String get signsDaysOpen => 'Voir par jour du cycle';
+
+  @override
+  String signsDaysCurrent(String date) {
+    return 'Ce cycle, depuis le $date';
+  }
+
+  @override
+  String signsDaysPast(String date, String days) {
+    return 'Cycle du $date, $days';
+  }
+
+  @override
+  String get signsDaysEarlier => 'Cycle précédent';
+
+  @override
+  String get signsDaysLater => 'Cycle suivant';
+
+  @override
+  String get signsDaysBleeding => 'Saignement';
+
+  @override
+  String get signsDaysLogged => 'Noté';
+
+  @override
+  String get signsDaysCycleDay => 'Jour du cycle';
+
+  @override
+  String signsDaysDay(int day, String date) {
+    return 'Jour $day du cycle, $date';
+  }
+
+  @override
+  String get signsDaysNothing => 'Rien de noté ce jour-là.';
+
+  @override
+  String get signsDaysHint =>
+      'Touchez un jour pour voir ce que vous avez noté.';
+
+  @override
+  String get signsDaysEmpty =>
+      'Rien de noté dans ce cycle pour l\'instant. Les températures, tests d\'ovulation et pertes que vous notez s\'affichent ici jour par jour.';
+
+  @override
+  String get signsDaysNoCycle =>
+      'Notez le premier jour de vos règles et vos signes s\'aligneront ici par jour du cycle.';
+
+  @override
+  String get signsDaysFill =>
+      'Plus la marque est pleine, plus votre choix est loin dans la liste : de négatif à positif pour les tests, de sec à blanc d\'œuf pour les pertes.';
+
+  @override
+  String get listSeparator => ', ';
 }

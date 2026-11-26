@@ -3869,4 +3869,61 @@ class L10nEs extends L10n {
   @override
   String get patNoVerdict =>
       'Son recuentos de lo que registraste. No dicen la causa ni si algo va mal. Llévalos a tu profesional de salud si te sirven.';
+
+  @override
+  String get signsDaysTitle => 'Signos por día del ciclo';
+
+  @override
+  String get signsDaysOpen => 'Ver por día del ciclo';
+
+  @override
+  String signsDaysCurrent(String date) {
+    return 'Este ciclo, desde el $date';
+  }
+
+  @override
+  String signsDaysPast(String date, String days) {
+    return 'Ciclo desde el $date, $days';
+  }
+
+  @override
+  String get signsDaysEarlier => 'Ciclo anterior';
+
+  @override
+  String get signsDaysLater => 'Ciclo siguiente';
+
+  @override
+  String get signsDaysBleeding => 'Sangrado';
+
+  @override
+  String get signsDaysLogged => 'Registrado';
+
+  @override
+  String get signsDaysCycleDay => 'Día del ciclo';
+
+  @override
+  String signsDaysDay(int day, String date) {
+    return 'Día $day del ciclo, $date';
+  }
+
+  @override
+  String get signsDaysNothing => 'No registraste nada este día.';
+
+  @override
+  String get signsDaysHint => 'Toca un día para ver lo que registraste.';
+
+  @override
+  String get signsDaysEmpty =>
+      'Aún no has registrado nada en este ciclo. Las temperaturas, pruebas de ovulación y flujo que registres aparecen aquí día a día.';
+
+  @override
+  String get signsDaysNoCycle =>
+      'Registra el primer día de tu regla y tus signos se ordenarán aquí por día del ciclo.';
+
+  @override
+  String get signsDaysFill =>
+      'Cuanto más llena la marca, más avanzada tu elección en la lista: de negativa a positiva en las pruebas, de seco a clara de huevo en el flujo.';
+
+  @override
+  String get listSeparator => ', ';
 }

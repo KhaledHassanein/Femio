@@ -19,8 +19,11 @@ import 'hero_card.dart' show IsoDateFormatter;
 /// The card, or nothing when she has logged none of the three signs this cycle (Today
 /// stays short; the Log tab is where she adds them).
 class CycleSignsCard extends StatelessWidget {
-  const CycleSignsCard({super.key, required this.signs, required this.date});
+  const CycleSignsCard({super.key, required this.signs, required this.date, this.onOpenDays});
   final CycleSigns signs;
+
+  /// Opens "Signs by cycle day" (R8.8); no link when null.
+  final VoidCallback? onOpenDays;
 
   /// Formats an ISO day in her language.
   final IsoDateFormatter date;
@@ -54,7 +57,7 @@ class CycleSignsCard extends StatelessWidget {
           _Row(
             icon: Icons.water_drop_outlined,
             label: l.sectionDischarge,
-            value: l.signsValueOn(discharge.value.map((k) => logLabel(l, k)).join(', '), date(discharge.day)),
+            value: l.signsValueOn(discharge.value.map((k) => logLabel(l, k)).join(l.listSeparator), date(discharge.day)),
           ),
         if (opk != null)
           _Row(
@@ -75,6 +78,15 @@ class CycleSignsCard extends StatelessWidget {
           const SizedBox(height: space1h),
         ],
         Text(l.signsNote, style: t.bodySmall?.copyWith(color: p.textMuted)),
+        if (onOpenDays != null)
+          Align(
+            alignment: AlignmentDirectional.centerStart,
+            child: TextButton.icon(
+              onPressed: onOpenDays,
+              icon: const Icon(Icons.view_week_outlined, size: 18),
+              label: Text(l.signsDaysOpen),
+            ),
+          ),
       ]),
     );
   }

@@ -2398,5 +2398,90 @@
   "patNoVerdict": "These are counts of what you logged. They don't say what causes anything or whether something is wrong. Bring them to your clinician if they help.",
   "@patNoVerdict": {
     "description": "Patterns (R8.5, R10.4)."
+  },
+  "signsDaysTitle": "Signs by cycle day",
+  "@signsDaysTitle": {
+    "description": "Signs by cycle day (R8.8)."
+  },
+  "signsDaysOpen": "See by cycle day",
+  "@signsDaysOpen": {
+    "description": "Signs by cycle day (R8.8)."
+  },
+  "signsDaysCurrent": "This cycle, from {date}",
+  "@signsDaysCurrent": {
+    "description": "Signs by cycle day (R8.8).",
+    "placeholders": {
+      "date": {
+        "type": "String"
+      }
+    }
+  },
+  "signsDaysPast": "Cycle from {date}, {days}",
+  "@signsDaysPast": {
+    "description": "Signs by cycle day (R8.8).",
+    "placeholders": {
+      "date": {
+        "type": "String"
+      },
+      "days": {
+        "type": "String"
+      }
+    }
+  },
+  "signsDaysEarlier": "Earlier cycle",
+  "@signsDaysEarlier": {
+    "description": "Signs by cycle day (R8.8)."
+  },
+  "signsDaysLater": "Later cycle",
+  "@signsDaysLater": {
+    "description": "Signs by cycle day (R8.8)."
+  },
+  "signsDaysBleeding": "Bleeding",
+  "@signsDaysBleeding": {
+    "description": "Signs by cycle day (R8.8)."
+  },
+  "signsDaysLogged": "Logged",
+  "@signsDaysLogged": {
+    "description": "Signs by cycle day (R8.8)."
+  },
+  "signsDaysCycleDay": "Cycle day",
+  "@signsDaysCycleDay": {
+    "description": "Signs by cycle day (R8.8)."
+  },
+  "signsDaysDay": "Cycle day {day}, {date}",
+  "@signsDaysDay": {
+    "description": "Signs by cycle day (R8.8).",
+    "placeholders": {
+      "day": {
+        "type": "int"
+      },
+      "date": {
+        "type": "String"
+      }
+    }
+  },
+  "signsDaysNothing": "Nothing logged this day.",
+  "@signsDaysNothing": {
+    "description": "Signs by cycle day (R8.8)."
+  },
+  "signsDaysHint": "Tap a day to see what you logged.",
+  "@signsDaysHint": {
+    "description": "Signs by cycle day (R8.8)."
+  },
+  "signsDaysEmpty": "Nothing logged in this cycle yet. Temperatures, ovulation tests and discharge you log show here day by day.",
+  "@signsDaysEmpty": {
+    "description": "Signs by cycle day (R8.8)."
+  },
+  "signsDaysNoCycle": "Log the first day of a period and your signs line up here by cycle day.",
+  "@signsDaysNoCycle": {
+    "description": "Signs by cycle day (R8.8)."
+  },
+  "signsDaysFill": "A fuller mark is further along the list you chose from: negative to positive for tests, dry to egg white for discharge.",
+  "@signsDaysFill": {
+    "description": "Signs by cycle day (R8.8)."
+  },
+  "listSeparator": ", ",
+  "@listSeparator": {
+    "description": "Between words in a short list she chose (Arabic uses its own comma)."
   }
 }

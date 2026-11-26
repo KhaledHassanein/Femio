@@ -3903,4 +3903,61 @@ class L10nAr extends L10n {
   @override
   String get patNoVerdict =>
       'هذه أعداد لما سجّلتِه. لا تقول ما السبب ولا إن كان هناك خطب ما. يمكنكِ عرضها على طبيبكِ إن أفادت.';
+
+  @override
+  String get signsDaysTitle => 'العلامات حسب يوم الدورة';
+
+  @override
+  String get signsDaysOpen => 'عرضها حسب يوم الدورة';
+
+  @override
+  String signsDaysCurrent(String date) {
+    return 'الدورة الحالية، من $date';
+  }
+
+  @override
+  String signsDaysPast(String date, String days) {
+    return 'الدورة من $date، $days';
+  }
+
+  @override
+  String get signsDaysEarlier => 'الدورة السابقة';
+
+  @override
+  String get signsDaysLater => 'الدورة التالية';
+
+  @override
+  String get signsDaysBleeding => 'النزيف';
+
+  @override
+  String get signsDaysLogged => 'مسجّل';
+
+  @override
+  String get signsDaysCycleDay => 'يوم الدورة';
+
+  @override
+  String signsDaysDay(int day, String date) {
+    return 'اليوم $day من الدورة، $date';
+  }
+
+  @override
+  String get signsDaysNothing => 'لم تسجّلي شيئًا في هذا اليوم.';
+
+  @override
+  String get signsDaysHint => 'اضغطي على يوم لعرض ما سجّلتِه.';
+
+  @override
+  String get signsDaysEmpty =>
+      'لم تسجّلي شيئًا في هذه الدورة بعد. تظهر هنا يومًا بيوم درجات الحرارة واختبارات الإباضة والإفرازات التي تسجّلينها.';
+
+  @override
+  String get signsDaysNoCycle =>
+      'سجّلي أول يوم من دورتكِ وستظهر علاماتكِ هنا مرتّبة حسب يوم الدورة.';
+
+  @override
+  String get signsDaysFill =>
+      'كلما امتلأت العلامة كان اختياركِ أبعد في القائمة: من سلبي إلى إيجابي للاختبار، ومن جاف إلى بياض البيض للإفرازات.';
+
+  @override
+  String get listSeparator => '، ';
 }

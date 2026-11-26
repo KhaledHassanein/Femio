@@ -3847,4 +3847,61 @@ class L10nEn extends L10n {
   @override
   String get patNoVerdict =>
       'These are counts of what you logged. They don\'t say what causes anything or whether something is wrong. Bring them to your clinician if they help.';
+
+  @override
+  String get signsDaysTitle => 'Signs by cycle day';
+
+  @override
+  String get signsDaysOpen => 'See by cycle day';
+
+  @override
+  String signsDaysCurrent(String date) {
+    return 'This cycle, from $date';
+  }
+
+  @override
+  String signsDaysPast(String date, String days) {
+    return 'Cycle from $date, $days';
+  }
+
+  @override
+  String get signsDaysEarlier => 'Earlier cycle';
+
+  @override
+  String get signsDaysLater => 'Later cycle';
+
+  @override
+  String get signsDaysBleeding => 'Bleeding';
+
+  @override
+  String get signsDaysLogged => 'Logged';
+
+  @override
+  String get signsDaysCycleDay => 'Cycle day';
+
+  @override
+  String signsDaysDay(int day, String date) {
+    return 'Cycle day $day, $date';
+  }
+
+  @override
+  String get signsDaysNothing => 'Nothing logged this day.';
+
+  @override
+  String get signsDaysHint => 'Tap a day to see what you logged.';
+
+  @override
+  String get signsDaysEmpty =>
+      'Nothing logged in this cycle yet. Temperatures, ovulation tests and discharge you log show here day by day.';
+
+  @override
+  String get signsDaysNoCycle =>
+      'Log the first day of a period and your signs line up here by cycle day.';
+
+  @override
+  String get signsDaysFill =>
+      'A fuller mark is further along the list you chose from: negative to positive for tests, dry to egg white for discharge.';
+
+  @override
+  String get listSeparator => ', ';
 }
