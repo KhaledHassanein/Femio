@@ -1,6 +1,6 @@
 # Femio — current state (living document)
 
-**Last updated: 2026-11-27.** Rewrite in place; never add a dated copy. Older versions are in git
+**Last updated: 2026-11-28.** Rewrite in place; never add a dated copy. Older versions are in git
 history and `docs/archive/`.
 
 ## ▶ Resume prompt
@@ -16,7 +16,7 @@ history and `docs/archive/`.
 
 ## Where things stand (2026-10-28)
 
-- **After Lab 0 (R14.25–R14.31, ADR-086).** Ask's freeze (an ANR: Firebase set-up on Android's main thread) and the App Check failure (no project number for Play Integrity) are fixed in code; femio says why the AI did not run and pauses a failing Cloud boost for 10 minutes. New: an on-device-only mic on Ask and Say it (`RECORD_AUDIO`, tripwire-guarded), "Open settings" when notifications or the mic are off, lab/scan/document in the + sheet, symptoms folded to five plus "Other", plain-words AI descriptions, Play links behind `PLAY_LISTING_LIVE`. Lab 6 answered (rows 36–39, 46). **Open:** real-phone check of Ask and Check Cloud boost on the rebuilt APK; the PCOS visit checklist (R13.6); which repo is public (owner action 47, R14.32).
+- **After Lab 0 (R14.25–R14.31, ADR-086).** Ask's freeze (an ANR: Firebase set-up on Android's main thread) and the App Check failure (no project number for Play Integrity) are fixed in code; femio says why the AI did not run and pauses a failing Cloud boost for 10 minutes. New: an on-device-only mic on Ask and Say it (`RECORD_AUDIO`, tripwire-guarded), "Open settings" when notifications or the mic are off, lab/scan/document in the + sheet, symptoms folded to five plus "Other", plain-words AI descriptions, Play links behind `PLAY_LISTING_LIVE`. Lab 6 answered (rows 36–39, 46). **Open:** real-phone check of Ask and Check Cloud boost on the rebuilt APK; the PCOS visit checklist (R13.6, built on `claude/sleepy-jones-7653ff`, waits for the lead's wording review and merge); which repo is public (owner action 47, R14.32).
 
 - **Re-score fixes of 27 Nov (R14.24).** Fable's re-score of eca4eaa: Security 8, Privacy 8, Launch 6, Stages 6.5 (loss 5), AI showcase 6, Polish 7, Devpost 7.5 if Stage One passes. Its six lead-verified findings are fixed (one-step withdrawal from Cloud boost, honest seal and App Check wording, unticked save box, no pregnancy-test prompt after a loss, loss path from Change, judge text naming the current UI and the check call; tripwire covers the check). Still open, owner-only: Lab 0 code from the real phone, Stage One (public repo, APK link, video, submission). Chrome web companion: feasibility given (Option C, 18-28 h), waiting for the owner's choice.
 
