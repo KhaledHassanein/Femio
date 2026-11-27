@@ -50,6 +50,26 @@ val assistantEnv = mutableMapOf<String, String>().apply {
 }
 fun assistantField(key: String, fallback: String = "") = "\"" + (assistantEnv[key] ?: fallback) + "\""
 
+// A release without the Firebase ids ships an assistant that says "not configured" and a Cloud
+// boost that can never work (found 2026-11-27: a signed build made from a checkout with no
+// assistant.env). Like the signing key, a release that would package without them FAILS; a
+// tester who wants a rules-only build passes `-P allowNoAssistant=true`.
+val allowNoAssistant = findProperty("allowNoAssistant")?.toString() == "true"
+gradle.taskGraph.whenReady {
+    val packagesRelease = allTasks.any { task ->
+        task.project == project && Regex("^(assemble|bundle|package|sign)\\w*Release\\w*$").matches(task.name)
+    }
+    val missing = listOf("FEMIO_FIREBASE_APP_ID", "FEMIO_FIREBASE_API_KEY", "FEMIO_FIREBASE_PROJECT_ID")
+        .filter { assistantEnv[it].isNullOrBlank() }
+    if (packagesRelease && missing.isNotEmpty() && !allowNoAssistant) {
+        throw GradleException(
+            "Firebase AI Logic ids missing from apps/mobile/assistant.env: ${missing.joinToString()}. " +
+                "Copy assistant.env.example and fill it (git-ignored). For a rules-only release, pass " +
+                "-P allowNoAssistant=true.",
+        )
+    }
+}
+
 android {
     namespace = "com.femioapp.femio"
     compileSdk = flutter.compileSdkVersion
