@@ -2,8 +2,8 @@
 // the assistant (ADR-078), so model calls stay in Kotlin and out of the Dart code; the
 // share sheet (R10.2), so she can send her visit pack with the app she picks; the
 // home-screen widget's two-string channel (R9.11); her documents' PDF pages and file
-// sharing (R11.2); and the screen protection that follows her app lock (SEC-1, ADR-083).
-// None opens a network connection.
+// sharing (R11.2); the screen protection that follows her app lock (SEC-1, ADR-083); and
+// speech to text on the phone only (ADR-086). None opens a network connection.
 
 package com.femioapp.femio
 
@@ -13,6 +13,7 @@ import com.femioapp.femio.assistant.FemioAssistant
 import com.femioapp.femio.files.FilesChannel
 import com.femioapp.femio.lock.LockState
 import com.femioapp.femio.lock.SecureScreenChannel
+import com.femioapp.femio.speech.SpeechChannel
 import com.femioapp.femio.widget.HomeWidgetChannel
 import io.flutter.embedding.android.FlutterActivity
 import io.flutter.embedding.engine.FlutterEngine
@@ -23,6 +24,7 @@ class MainActivity : FlutterActivity() {
     private var widget: HomeWidgetChannel? = null
     private var files: FilesChannel? = null
     private var secure: SecureScreenChannel? = null
+    private var speech: SpeechChannel? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         // Before the first frame: with a PIN set, not even the launch picture may be captured
@@ -57,6 +59,13 @@ class MainActivity : FlutterActivity() {
         widget = HomeWidgetChannel(applicationContext, flutterEngine.dartExecutor.binaryMessenger)
         files = FilesChannel(applicationContext, flutterEngine.dartExecutor.binaryMessenger) { startActivity(it) }
         secure = SecureScreenChannel(this, flutterEngine.dartExecutor.binaryMessenger)
+        speech = SpeechChannel(this, flutterEngine.dartExecutor.binaryMessenger)
+    }
+
+    override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<out String>, grantResults: IntArray) {
+        // Plugins (notifications) hear every answer through super; the mic answer is femio's own.
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
+        speech?.onPermissionResult(requestCode, grantResults)
     }
 
     override fun cleanUpFlutterEngine(flutterEngine: FlutterEngine) {
@@ -68,6 +77,8 @@ class MainActivity : FlutterActivity() {
         files = null
         secure?.dispose()
         secure = null
+        speech?.dispose()
+        speech = null
         super.cleanUpFlutterEngine(flutterEngine)
     }
 }

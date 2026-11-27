@@ -20,6 +20,7 @@ import '../../theme/femio_theme.dart';
 import '../../theme/spacing.dart';
 import '../../theme/type_sizes.dart';
 import 'assistant_scope.dart';
+import 'mic_button.dart';
 import 'safety_notice.dart';
 import 'say_it_day_card.dart';
 import 'stage_hints.dart';
@@ -166,6 +167,7 @@ class _SayItSheetState extends State<SayItSheet> {
               decoration: InputDecoration(
                 hintText: sayItHintFor(l, hintStage(widget.controller.profile)),
                 border: const OutlineInputBorder(),
+                suffixIcon: MicButton(controller: _text),
               ),
             ),
             const SizedBox(height: space2),

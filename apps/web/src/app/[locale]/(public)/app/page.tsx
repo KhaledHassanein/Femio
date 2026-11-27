@@ -12,7 +12,11 @@ import {
   ShieldCheck,
 } from "lucide-react";
 
-import { AppTourSection, TryDemosSection, WhatCanLeaveSection } from "@/components/demos/demo-sections";
+import {
+  AppTourSection,
+  TryDemosSection,
+  WhatCanLeaveSection,
+} from "@/components/demos/demo-sections";
 
 import { PhoneMock } from "@/components/site/phone-mock";
 import { TestBuildCard } from "@/components/site/test-build-card";
@@ -52,8 +56,9 @@ const FEATURES = [
  * screens, a tour of real app screens, three demos on sample data, and "what can leave
  * this phone", which restates the privacy policy's complete list.
  *
- * R14.4 (2026-11-27): right under the hero, the early test build card gives a tester or a
- * judge an install path (`APK_DOWNLOAD_URL`), or says honestly that the link is coming.
+ * R14.4 (2026-11-27): an APK card for judges shows only if `APK_DOWNLOAD_URL` is set; the
+ * owner ruled the same day that femio ships through Google Play, so by default it is hidden
+ * and the store row follows `PLAY_STORE_URL` (`PLAY_LISTING_LIVE` in lib/site.ts).
  */
 export default async function GetAppPage({ params }: PageProps) {
   const { locale } = await params;
@@ -62,7 +67,6 @@ export default async function GetAppPage({ params }: PageProps) {
 
   return (
     <main className="flex w-full flex-1 flex-col">
-
       <section className="aurora text-text-on-brand">
         <div className="mx-auto flex w-full max-w-5xl flex-col items-center gap-10 px-6 pb-16 pt-12 md:flex-row md:items-center">
           <div className="flex flex-1 flex-col gap-4">
@@ -72,7 +76,9 @@ export default async function GetAppPage({ params }: PageProps) {
             <h1 className="font-display text-2xl leading-tight sm:text-3xl rtl:font-bold rtl:leading-relaxed">
               {t("title")}
             </h1>
-            <p className="text-sm leading-relaxed opacity-95">{PLAY_STORE_URL ? t("bodyLive") : t("body")}</p>
+            <p className="text-sm leading-relaxed opacity-95">
+              {PLAY_STORE_URL ? t("bodyLive") : t("body")}
+            </p>
 
             <ul className="mt-2 flex flex-wrap gap-3">
               <li className="flex items-center gap-3 rounded-lg bg-white/10 px-4 py-3 ring-1 ring-white/30 backdrop-blur-sm">
@@ -109,18 +115,26 @@ export default async function GetAppPage({ params }: PageProps) {
         </div>
       </section>
 
-      <TestBuildCard
-        url={APK_DOWNLOAD_URL}
-        strings={{
-          title: t("testBuild.title"),
-          body: t("testBuild.body"),
-          soon: t("testBuild.soon"),
-          soonBody: t("testBuild.soonBody"),
-          download: t("testBuild.download"),
-          stepsTitle: t("testBuild.stepsTitle"),
-          steps: [t("testBuild.steps.download"), t("testBuild.steps.allow"), t("testBuild.steps.open")],
-        }}
-      />
+      {/* Owner 2026-11-27: femio ships through Google Play; an APK card shows only if a
+          judge-only build is ever published (APK_DOWNLOAD_URL). */}
+      {APK_DOWNLOAD_URL && (
+        <TestBuildCard
+          url={APK_DOWNLOAD_URL}
+          strings={{
+            title: t("testBuild.title"),
+            body: t("testBuild.body"),
+            soon: t("testBuild.soon"),
+            soonBody: t("testBuild.soonBody"),
+            download: t("testBuild.download"),
+            stepsTitle: t("testBuild.stepsTitle"),
+            steps: [
+              t("testBuild.steps.download"),
+              t("testBuild.steps.allow"),
+              t("testBuild.steps.open"),
+            ],
+          }}
+        />
+      )}
 
       <section className="mx-auto flex w-full max-w-5xl flex-col gap-6 px-6 py-14">
         <h2 className="font-display text-xl text-text rtl:font-bold">{t("featuresTitle")}</h2>

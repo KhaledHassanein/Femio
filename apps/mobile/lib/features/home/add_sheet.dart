@@ -5,7 +5,9 @@
 // common things (flow, mood) save with one tap, right here; the AI is two equal choices on
 // top, "Ask femio" (a question) and "Log with femio" (say it in her words), with the visit
 // summary as a small link; everything else is one more tap into the full Log. Every tap saves at once, as on
-// the Log screen, and the assistant doors follow her master switch (product rule 7).
+// the Log screen, and the assistant doors follow her master switch (product rule 7). A lab
+// result, scan or report is one tap away too, straight to a photo or file (owner 2026-11-27),
+// and so are the guides.
 
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart' show DateFormat;
@@ -14,6 +16,7 @@ import '../../app.dart';
 import '../../data/library.dart';
 import '../../data/profile.dart';
 import '../../domain/dates.dart';
+import '../../domain/health_record.dart';
 import '../../domain/log_vocabulary.g.dart';
 import '../../l10n/app_localizations.dart';
 import '../../l10n/log_labels.g.dart';
@@ -23,19 +26,26 @@ import '../../theme/spacing.dart';
 import '../../theme/type_sizes.dart';
 import '../assistant/assistant_pill.dart';
 import '../log/widgets/log_chip.dart';
+import '../record/record_editor.dart';
+import '../record/record_labels.dart';
 import '../record/record_screen.dart';
 
-/// What the sheet asks the shell to do after it closes.
-enum AddChoice { fullLog, record }
+/// What the sheet asks the shell to do after it closes. A [RecordKind] opens a new entry of
+/// that kind, where she adds a photo or file.
+enum AddChoice { fullLog, record, learn }
+
+/// The entries offered for a result or report she wants to keep.
+const addSheetRecordKinds = [RecordKind.lab, RecordKind.imaging, RecordKind.document];
 
 /// Opens the sheet for [today]. When she picks "more to log", [onOpenLog] opens the Log
-/// tab on today. The assistant doors open after the sheet has closed, so their own
-/// sheets and screens stack on the shell, not on this one.
+/// tab on today; "Browse the guides" calls [onOpenLearn]. The assistant doors open after the
+/// sheet has closed, so their own sheets and screens stack on the shell, not on this one.
 Future<void> showAddSheet(
   BuildContext context, {
   required FemioController controller,
   required String today,
   required VoidCallback onOpenLog,
+  VoidCallback? onOpenLearn,
   Library? library,
 }) async {
   final choice = await showModalBottomSheet<Object>(
@@ -50,6 +60,12 @@ Future<void> showAddSheet(
   } else if (choice == AddChoice.record) {
     await Navigator.of(context).push(MaterialPageRoute<void>(
       builder: (_) => RecordScreen(controller: controller, today: today),
+    ));
+  } else if (choice == AddChoice.learn) {
+    onOpenLearn?.call();
+  } else if (choice is RecordKind) {
+    await Navigator.of(context).push(MaterialPageRoute<void>(
+      builder: (_) => RecordEditor(controller: controller, today: today, initialKind: choice),
     ));
   } else if (choice is AssistantDoor) {
     await openAssistantDoor(context, choice, controller: controller, today: today, library: library);
@@ -186,6 +202,27 @@ class AddSheet extends StatelessWidget {
                 subtitle: Text(l.addRecordSub),
                 trailing: const Icon(Icons.chevron_right_rounded),
                 onTap: () => pop(AddChoice.record),
+              ),
+              heading(l.addResultHeading),
+              Wrap(spacing: space2, runSpacing: space2, children: [
+                for (final kind in addSheetRecordKinds)
+                  ActionChip(
+                    avatar: Icon(recordKindIcon(kind), size: iconSizeInline, color: p.primary),
+                    label: Text(recordKindLabel(l, kind)),
+                    onPressed: () => pop(kind),
+                  ),
+              ]),
+              Padding(
+                padding: const EdgeInsets.only(top: space1),
+                child: Text(l.addResultHint, style: t.bodySmall?.copyWith(color: p.textMuted)),
+              ),
+              const SizedBox(height: space2),
+              ListTile(
+                contentPadding: EdgeInsets.zero,
+                leading: Icon(Icons.menu_book_outlined, color: p.primary),
+                title: Text(l.addBrowseGuides),
+                trailing: const Icon(Icons.chevron_right_rounded),
+                onTap: () => pop(AddChoice.learn),
               ),
               Row(mainAxisAlignment: MainAxisAlignment.center, children: [
                 Icon(Icons.lock_outline_rounded, size: iconSizeInline, color: p.textSubtle),

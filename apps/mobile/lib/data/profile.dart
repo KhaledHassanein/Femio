@@ -215,7 +215,7 @@ enum TryingFor { justStarted, under6, sixTo12, over12 }
 
 /// One day's log. Terms are keys from the shared vocabulary (`log_vocabulary.g.dart`).
 class DayLog {
-  const DayLog({this.flow, this.terms = const [], this.opk, this.bbt, this.note});
+  const DayLog({this.flow, this.terms = const [], this.opk, this.bbt, this.note, this.otherSymptoms});
 
   /// `spotting`, `light`, `medium`, `heavy`, or null for no bleeding logged.
   final String? flow;
@@ -231,10 +231,17 @@ class DayLog {
   /// schema version does not change. Stored with the sealed record and so in the backup.
   final String? note;
 
+  /// A symptom in her own words, from "Other" on the Log screen (owner 2026-11-27).
+  /// Optional and absent in older records, like [note], so the schema version does not change.
+  final String? otherSymptoms;
+
   /// A note holding only spaces or line breaks is no note.
   bool get hasNote => note != null && note!.trim().isNotEmpty;
 
-  bool get isEmpty => flow == null && terms.isEmpty && opk == null && bbt == null && !hasNote;
+  /// Whether "Other" holds any words.
+  bool get hasOtherSymptoms => otherSymptoms != null && otherSymptoms!.trim().isNotEmpty;
+
+  bool get isEmpty => flow == null && terms.isEmpty && opk == null && bbt == null && !hasNote && !hasOtherSymptoms;
 
   DayLog copyWith({
     Object? flow = _keep,
@@ -242,6 +249,7 @@ class DayLog {
     Object? opk = _keep,
     Object? bbt = _keep,
     Object? note = _keep,
+    Object? otherSymptoms = _keep,
   }) =>
       DayLog(
         flow: identical(flow, _keep) ? this.flow : flow as String?,
@@ -249,6 +257,7 @@ class DayLog {
         opk: identical(opk, _keep) ? this.opk : opk as String?,
         bbt: identical(bbt, _keep) ? this.bbt : bbt as double?,
         note: identical(note, _keep) ? this.note : note as String?,
+        otherSymptoms: identical(otherSymptoms, _keep) ? this.otherSymptoms : otherSymptoms as String?,
       );
 
   /// Spotting is logged but is not a period: it never starts a cycle.
@@ -260,6 +269,7 @@ class DayLog {
         'opk': opk,
         'bbt': bbt,
         if (note != null) 'note': note,
+        if (otherSymptoms != null) 'otherSymptoms': otherSymptoms,
       };
   static DayLog fromJson(Map<String, Object?> j) => DayLog(
         flow: j['flow'] as String?,
@@ -267,6 +277,7 @@ class DayLog {
         opk: j['opk'] as String?,
         bbt: (j['bbt'] as num?)?.toDouble(),
         note: j['note'] as String?,
+        otherSymptoms: j['otherSymptoms'] as String?,
       );
 }
 

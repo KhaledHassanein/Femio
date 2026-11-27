@@ -3,6 +3,7 @@
 
 import 'package:femio/data/assistant_channel.dart';
 import 'package:femio/data/assistant_gateway.dart';
+import 'package:femio/domain/assistant/redaction.dart';
 import 'package:femio/data/profile.dart';
 import 'package:femio/domain/assistant/ai_ledger.dart';
 import 'package:femio/domain/assistant/cloud_consent.dart';
@@ -51,6 +52,12 @@ class _Checker extends _Bridge implements CloudChecker {
   _Checker(this.result) : super(nano: false);
   final CloudCheck? result;
   int calls = 0;
+
+  /// What the native side reports for the last failed hybrid call.
+  String? failure;
+
+  @override
+  String? get lastHybridFailure => failure;
 
   @override
   Future<CloudCheck> checkCloud() async {
@@ -205,6 +212,30 @@ void main() {
       final r = await AssistantGateway(_Checker(null)).checkCloud(questions);
       expect(r!.ok, isFalse);
       expect(r.reason, 'timeout');
+    });
+
+    test('after a lasting failure Cloud boost pauses and names why; a passing check ends it', () async {
+      var now = DateTime.utc(2026, 11, 27, 20);
+      final b = _Checker(const CloudCheck(ok: true, ms: 900))..failure = 'app_check';
+      final g = AssistantGateway(b, clock: () => now);
+      final q = toCloudSafe('What helps with period cramps?')!;
+      expect((await g.answerWithBoost(q, const [], 'en', questions)).value, isNull);
+      expect(b.hybrid, hasLength(1));
+      expect(g.cloudPaused, 'app_check');
+      expect((await g.answerWithBoost(q, const [], 'en', questions)).value, isNull);
+      expect(b.hybrid, hasLength(1), reason: 'nothing is sent while paused, so she does not wait again');
+      expect(g.lastCloudFailure, 'app_check');
+      await g.checkCloud(questions);
+      expect(g.cloudPaused, isNull, reason: 'a passing check ends the pause');
+      await g.answerWithBoost(q, const [], 'en', questions);
+      expect(b.hybrid, hasLength(2));
+      expect(g.cloudPaused, 'app_check');
+      now = now.add(cloudPauseAfterLastingFailure + const Duration(minutes: 1));
+      expect(g.cloudPaused, isNull, reason: 'the pause ends by itself');
+      b.failure = 'network';
+      await g.answerWithBoost(q, const [], 'en', questions);
+      expect(g.cloudPaused, isNull, reason: 'a passing network problem does not pause Cloud boost');
+      expect(g.lastCloudFailure, 'network');
     });
   });
 

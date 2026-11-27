@@ -1152,7 +1152,7 @@
       },
       {
         "heading": "What the app never does",
-        "body": "No account, no sign-in, no name, email or phone number. The app does not read your contacts, your location, or the photos and files on your phone: it sees only a photo or file you choose to add, and it does not ask for permission to use your camera, because Android’s own camera app takes the photo. No ads and no advertising ID. No analytics or crash-report tool of its own, no tracking pixel and no data broker. We do not sell or share your information for advertising, and we never use health information for advertising."
+        "body": "No account, no sign-in, no name, email or phone number. The app does not read your contacts, your location, or the photos and files on your phone: it sees only a photo or file you choose to add, and it does not ask for permission to use your camera, because Android’s own camera app takes the photo. If you tap the microphone, the app asks once for permission to use it: your phone’s own speech recognition turns your voice into text on the phone, and the app never records, keeps or sends your voice. No ads and no advertising ID. No analytics or crash-report tool of its own, no tracking pixel and no data broker. We do not sell or share your information for advertising, and we never use health information for advertising."
       },
       {
         "heading": "Everything that can leave your phone",

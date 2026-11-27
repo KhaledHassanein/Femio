@@ -48,6 +48,10 @@ abstract interface class NotificationPort {
   /// false when she refused or the platform has none.
   Future<bool> requestPermission();
 
+  /// Opens the phone's notification settings for femio, where she can allow them again
+  /// after refusing (Android shows no second prompt, and none at all before Android 13).
+  Future<void> openSettings();
+
   /// Replaces every pending notification with [plan]. An empty plan cancels them all.
   Future<void> replaceAll(List<PlannedReminder> plan, ReminderTexts texts);
 
@@ -60,6 +64,8 @@ class NoNotificationPort implements NotificationPort {
   const NoNotificationPort();
   @override
   Future<bool> requestPermission() async => false;
+  @override
+  Future<void> openSettings() async {}
   @override
   Future<void> replaceAll(
     List<PlannedReminder> plan,

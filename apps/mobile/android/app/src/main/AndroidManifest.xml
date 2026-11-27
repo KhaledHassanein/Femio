@@ -18,6 +18,11 @@
          (they may arrive a few minutes late), which needs no special access and no Play
          declaration. -->
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <!-- The mic on Ask femio and Say it (ADR-086): speech is turned into text by Android's
+         on-device recognizer only; femio never records, keeps or sends audio. Asked the first
+         time she taps the mic. The privacy tripwire allows this one personal permission only
+         while the speech package uses the on-device recognizer and nothing else. -->
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
 
     <!-- The app has no ads and reads no advertising ID. Some Google libraries declare these
          permissions transitively, so they are removed explicitly: the merged manifest must
@@ -102,6 +107,10 @@
 
          In particular, this is used by the Flutter engine in io.flutter.plugin.text.ProcessTextPlugin. -->
     <queries>
+        <!-- Lets the on-device speech recognizer service be found (Android 11+ package visibility). -->
+        <intent>
+            <action android:name="android.speech.RecognitionService"/>
+        </intent>
         <intent>
             <action android:name="android.intent.action.PROCESS_TEXT"/>
             <data android:mimeType="text/plain"/>

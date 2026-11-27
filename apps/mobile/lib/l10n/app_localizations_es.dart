@@ -518,6 +518,18 @@ class L10nEs extends L10n {
   String get sectionSymptoms => 'Síntomas';
 
   @override
+  String get symptomOther => 'Otro';
+
+  @override
+  String get symptomOtherHint => 'Otro síntoma, con tus palabras';
+
+  @override
+  String get symptomsShowAll => 'Ver todos los síntomas';
+
+  @override
+  String get symptomsShowFewer => 'Ver menos';
+
+  @override
   String get sectionDischarge => 'Flujo vaginal';
 
   @override
@@ -1277,6 +1289,9 @@ class L10nEs extends L10n {
       'Tu teléfono no permitió las notificaciones, así que femio no ha programado nada. Para cambiarlo, abre los Ajustes del teléfono, luego Aplicaciones, femio, Notificaciones, y permítelas. Después vuelve a Recordatorios en los ajustes de femio.';
 
   @override
+  String get notifOpenSettings => 'Abrir ajustes';
+
+  @override
   String calendarDayLabel(String gregorian, String hijri) {
     return '$gregorian, $hijri';
   }
@@ -1627,7 +1642,45 @@ class L10nEs extends L10n {
 
   @override
   String get sayItDictationHint =>
-      'Consejo: toca el micrófono de tu teclado para dictar en lugar de escribir.';
+      'Toca el micrófono para hablar. Tus palabras se convierten en texto en este teléfono; no se graba ni se envía nada.';
+
+  @override
+  String get micStart => 'Hablar en lugar de escribir';
+
+  @override
+  String get micStop => 'Dejar de escuchar';
+
+  @override
+  String get micOldAndroid =>
+      'Hablar con femio requiere Android 12 o posterior, para que el texto se quede en este teléfono. Puedes usar el micrófono de tu teclado.';
+
+  @override
+  String get micNotAvailable =>
+      'Este teléfono no puede convertir la voz en texto sin internet, así que el micrófono de femio no funciona aquí. Puedes usar el micrófono de tu teclado; entonces se aplican las normas de privacidad de tu teclado.';
+
+  @override
+  String get micNoPermission =>
+      'femio necesita tu permiso para usar el micrófono. Tu voz se convierte en texto en este teléfono y nunca se graba ni se envía.';
+
+  @override
+  String get micNoPermissionSettings =>
+      'El micrófono está desactivado para femio. Para hablar en lugar de escribir, abre los ajustes y permite el micrófono.';
+
+  @override
+  String get micLanguage =>
+      'Este teléfono no tiene un paquete de voz sin conexión para este idioma. Puedes añadir uno en los ajustes del teléfono o usar el micrófono de tu teclado.';
+
+  @override
+  String get micNoSpeech =>
+      'femio no captó ninguna palabra. Toca el micrófono e inténtalo de nuevo.';
+
+  @override
+  String get micBusy =>
+      'Otra aplicación está usando el micrófono. Inténtalo de nuevo en un momento.';
+
+  @override
+  String get micOther =>
+      'No se pudo iniciar el micrófono. Inténtalo de nuevo o usa el micrófono de tu teclado.';
 
   @override
   String get sayItFoundDays =>
@@ -1805,6 +1858,23 @@ class L10nEs extends L10n {
   @override
   String get askModelFellBack =>
       'Esta vez no hubo resumen en el teléfono ni con Cloud boost, así que aquí están los pasajes de confianza palabra por palabra.';
+
+  @override
+  String askCloudUnavailable(String why) {
+    return '$why Por eso femio muestra las fuentes de confianza palabra por palabra.';
+  }
+
+  @override
+  String get askNoAiHere =>
+      'La IA no está disponible en este teléfono: Gemini Nano solo funciona en teléfonos cuyo fabricante lo incluye, y Cloud boost está desactivado. femio muestra las fuentes de confianza palabra por palabra. Para usar la IA en la nube de Google en preguntas generales, activa Cloud boost en Ajustes → Asistente.';
+
+  @override
+  String get askNanoNotReady =>
+      'Gemini Nano aún no está listo en este teléfono; puedes descargarlo en Ajustes → Asistente. Mientras tanto, femio muestra las fuentes de confianza palabra por palabra.';
+
+  @override
+  String get askAiOffNote =>
+      'La IA está desactivada, así que femio muestra las fuentes de confianza palabra por palabra. Puedes activarla en Ajustes → Asistente.';
 
   @override
   String get askBoostHeading => 'Cloud boost';
@@ -3093,6 +3163,26 @@ class L10nEs extends L10n {
   String get aiUseTips => 'Consejos para ti';
 
   @override
+  String get aiHelpsAsk =>
+      'Convierte las fuentes de confianza en una respuesta breve y clara a tu pregunta, con las fuentes enlazadas. Sin ella, lees los fragmentos de las fuentes.';
+
+  @override
+  String get aiHelpsAskCloud =>
+      'Para teléfonos sin IA integrada: después de que apruebes tu pregunta, sin nada personal, la IA de Google escribe la respuesta breve con las mismas fuentes de confianza.';
+
+  @override
+  String get aiHelpsSayIt =>
+      'Convierte una frase, como «calambres desde esta mañana, cansada», en el registro de hoy; tú marcas lo que guardas. Sin ella, femio reconoce las palabras por sí mismo.';
+
+  @override
+  String get aiHelpsTips =>
+      'Pone arriba los consejos más útiles para tu momento actual. Sin ella, mantienen el orden de femio.';
+
+  @override
+  String get aiHelpsVisit =>
+      'Pone arriba las preguntas más importantes para tu próxima visita médica. Sin ella, mantienen el orden de femio.';
+
+  @override
   String get aiWherePhone => 'Se ejecuta solo en este teléfono';
 
   @override
@@ -3823,6 +3913,16 @@ class L10nEs extends L10n {
 
   @override
   String get addRecordSub => 'Consultas, resultados, medicamentos y documentos';
+
+  @override
+  String get addResultHeading => 'Añadir un resultado o informe';
+
+  @override
+  String get addResultHint =>
+      'Haz una foto o elige un archivo: análisis, pruebas de imagen, informes. Se queda en este teléfono.';
+
+  @override
+  String get addBrowseGuides => 'Explorar las guías';
 
   @override
   String get logNoteSection => 'Nota';

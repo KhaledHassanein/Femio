@@ -224,6 +224,22 @@
   "flowNone": "None",
   "sectionMood": "Mood",
   "sectionSymptoms": "Symptoms",
+  "symptomOther": "Other",
+  "@symptomOther": {
+    "description": "Log screen: chip that opens a field for a symptom in her own words."
+  },
+  "symptomOtherHint": "Another symptom, in your words",
+  "@symptomOtherHint": {
+    "description": "Hint in the Other symptom field."
+  },
+  "symptomsShowAll": "Show all symptoms",
+  "@symptomsShowAll": {
+    "description": "Log screen: unfolds the full symptom list."
+  },
+  "symptomsShowFewer": "Show fewer",
+  "@symptomsShowFewer": {
+    "description": "Log screen: folds the symptom list back."
+  },
   "sectionDischarge": "Discharge",
   "sectionMore": "More",
   "previousDay": "Previous day",
@@ -555,6 +571,10 @@
   "notifConsentPickOne": "Switch on at least one kind to continue.",
   "notifConsentDeniedTitle": "Notifications are off on this phone",
   "notifConsentDeniedBody": "Your phone did not allow notifications, so femio has scheduled nothing. To change this, open your phone's Settings, then Apps, femio, Notifications, and allow them. Then come back to Reminders in femio's Settings.",
+  "notifOpenSettings": "Open settings",
+  "@notifOpenSettings": {
+    "description": "Button that opens the phone's notification settings for femio after notifications were refused."
+  },
   "calendarDayLabel": "{gregorian}, {hijri}",
   "@calendarDayLabel": {
     "description": "Accessible label of a calendar day when Hijri dates are shown: the Gregorian date, then the Hijri date.",
@@ -683,7 +703,47 @@
   "sayItFound": "femio found these. Untick anything that is wrong.",
   "sayItAdd": "Add to this day's log",
   "sayItAdded": "Added to your log.",
-  "sayItDictationHint": "Tip: tap the microphone on your keyboard to speak instead of typing.",
+  "sayItDictationHint": "Tap the mic to speak. Your words become text on this phone; nothing is recorded or sent.",
+  "micStart": "Speak instead of typing",
+  "@micStart": {
+    "description": "Tooltip of the mic button on Ask femio and Say it."
+  },
+  "micStop": "Stop listening",
+  "@micStop": {
+    "description": "Tooltip of the mic button while it listens."
+  },
+  "micOldAndroid": "Speaking to femio needs Android 12 or newer, so the text stays on this phone. You can use your keyboard's mic instead.",
+  "@micOldAndroid": {
+    "description": "Mic problem: Android older than 12."
+  },
+  "micNotAvailable": "This phone cannot turn speech into text without the internet, so femio's mic cannot run here. You can use your keyboard's mic instead; your keyboard's own privacy rules then apply.",
+  "@micNotAvailable": {
+    "description": "Mic problem: no on-device speech recognizer on this phone."
+  },
+  "micNoPermission": "femio needs your permission to use the microphone. Your voice is turned into text on this phone and is never recorded or sent.",
+  "@micNoPermission": {
+    "description": "Mic problem: she refused the microphone permission."
+  },
+  "micNoPermissionSettings": "The microphone is turned off for femio. To speak instead of typing, open settings and allow Microphone.",
+  "@micNoPermissionSettings": {
+    "description": "Mic problem: microphone refused for good; shown with an Open settings button."
+  },
+  "micLanguage": "This phone has no offline speech pack for this language. You can add one in your phone's settings, or use your keyboard's mic.",
+  "@micLanguage": {
+    "description": "Mic problem: no on-device speech pack for the language."
+  },
+  "micNoSpeech": "femio did not catch any words. Tap the mic and try again.",
+  "@micNoSpeech": {
+    "description": "Mic problem: heard nothing."
+  },
+  "micBusy": "The microphone is busy with another app. Try again in a moment.",
+  "@micBusy": {
+    "description": "Mic problem: microphone or recognizer busy."
+  },
+  "micOther": "The microphone could not start. Try again, or use your keyboard's mic.",
+  "@micOther": {
+    "description": "Mic problem: any other failure."
+  },
   "sayItFoundDays": "femio found these days. Untick anything that is wrong, or remove a whole day. Nothing is saved until you tap the button below.",
   "sayItRemoveDay": "Remove this day",
   "sayItSaveCount": "Save {entries, plural, one{1 entry} other{{entries} entries}} on {days, plural, one{1 day} other{{days} days}}",
@@ -772,6 +832,27 @@
   "askSearchAgain": "Ask another question",
   "askAboutYouStays": "Your question is about you, so it stays on this phone. Here are the sources word for word.",
   "askModelFellBack": "No on-phone or Cloud boost summary was available this time, so here are the trusted passages word for word.",
+  "askCloudUnavailable": "{why} femio shows the trusted sources word for word instead.",
+  "@askCloudUnavailable": {
+    "description": "Ask femio note when Cloud boost could not run; {why} is the reason sentence from cloudCheckFailed.",
+    "placeholders": {
+      "why": {
+        "type": "String"
+      }
+    }
+  },
+  "askNoAiHere": "AI is not available on this phone: Gemini Nano runs only on phones whose maker includes it, and Cloud boost is off. femio shows the trusted sources word for word. To use Google's cloud AI for general questions, turn on Cloud boost in Settings → Assistant.",
+  "@askNoAiHere": {
+    "description": "Ask femio note: no Gemini Nano on this phone and Cloud boost off."
+  },
+  "askNanoNotReady": "Gemini Nano is not ready on this phone yet; you can download it in Settings → Assistant. Until then femio shows the trusted sources word for word.",
+  "@askNanoNotReady": {
+    "description": "Ask femio note: Gemini Nano can be downloaded but is not ready."
+  },
+  "askAiOffNote": "The AI is off, so femio shows the trusted sources word for word. You can turn it on in Settings → Assistant.",
+  "@askAiOffNote": {
+    "description": "Ask femio note when she turned the AI off."
+  },
   "askBoostHeading": "Cloud boost",
   "askBoostConfirm": "This phone has no on-phone AI. With Cloud boost, Google's cloud AI can summarise these public sources for you. Check the question first.",
   "askReadSourcesInstead": "Read the sources instead",
@@ -1417,6 +1498,26 @@
   "aiSeesOff": "The assistant is off, so none of these run.",
   "aiUseAskInCloud": "Ask femio with Cloud boost",
   "aiUseTips": "Tips for you",
+  "aiHelpsAsk": "Turns the trusted sources into a short, plain answer to your question, with the sources linked. Without it, you read the source passages themselves.",
+  "@aiHelpsAsk": {
+    "description": "AI choices list: what Ask femio's AI does for her."
+  },
+  "aiHelpsAskCloud": "For phones without AI built in: after you approve your question, with anything personal taken out, Google's AI writes the short answer from the same trusted sources.",
+  "@aiHelpsAskCloud": {
+    "description": "AI choices list: what Cloud boost does for her."
+  },
+  "aiHelpsSayIt": "Turns one sentence, like “cramps since this morning, tired”, into today's log; you tick what to keep. Without it, femio matches the words itself.",
+  "@aiHelpsSayIt": {
+    "description": "AI choices list: what Say it's AI does for her."
+  },
+  "aiHelpsTips": "Puts the tips most useful for where you are now at the top. Without it, they keep femio's own order.",
+  "@aiHelpsTips": {
+    "description": "AI choices list: what tip ordering does for her."
+  },
+  "aiHelpsVisit": "Puts the questions that matter most for your next doctor visit at the top. Without it, they keep femio's own order.",
+  "@aiHelpsVisit": {
+    "description": "AI choices list: what visit question ordering does for her."
+  },
   "aiWherePhone": "Runs on this phone only",
   "aiWhereHybrid": "On this phone, or in Google's cloud only if you agreed to Cloud boost",
   "aiWriteNone": "Never changes your record",
@@ -2110,6 +2211,18 @@
     "description": "Row in the + sheet that opens My health record."
   },
   "addRecordSub": "Visits, results, medicines and documents",
+  "addResultHeading": "Add a result or report",
+  "@addResultHeading": {
+    "description": "Heading in the + sheet above lab result, scan and document chips."
+  },
+  "addResultHint": "Take a photo or choose a file: lab results, scans, reports. It stays on this phone.",
+  "@addResultHint": {
+    "description": "Hint under the result chips in the + sheet."
+  },
+  "addBrowseGuides": "Browse the guides",
+  "@addBrowseGuides": {
+    "description": "+ sheet row that opens the Learn tab."
+  },
   "@addRecordSub": {
     "description": "Subtitle of the My health record row in the + sheet."
   },

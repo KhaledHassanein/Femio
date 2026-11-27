@@ -54,6 +54,12 @@ class LocalNotificationScheduler implements NotificationPort {
   }
 
   @override
+  Future<void> openSettings() async {
+    await _init();
+    await _plugin.resolvePlatformSpecificImplementation<AndroidFlutterLocalNotificationsPlugin>()?.openAppNotificationSettings();
+  }
+
+  @override
   Future<void> replaceAll(List<PlannedReminder> plan, ReminderTexts texts) async {
     await _init();
     await _plugin.cancelAll();

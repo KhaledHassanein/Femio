@@ -1152,7 +1152,7 @@
       },
       {
         "heading": "Lo que la app nunca hace",
-        "body": "Ninguna cuenta, ningún inicio de sesión, ningún nombre, correo ni número de teléfono. La app no lee tus contactos, tu ubicación ni las fotos y archivos de tu teléfono: solo ve una foto o un archivo que eliges añadir, y no pide permiso para usar la cámara, porque es la propia app de cámara de Android la que hace la foto. Ningún anuncio y ningún identificador publicitario. Ninguna herramienta propia de analítica ni de informes de fallos, ningún píxel de rastreo y ningún corredor de datos. No vendemos tu información ni la compartimos con fines publicitarios, y nunca usamos información de salud para publicidad."
+        "body": "Ninguna cuenta, ningún inicio de sesión, ningún nombre, correo ni número de teléfono. La app no lee tus contactos, tu ubicación ni las fotos y archivos de tu teléfono: solo ve una foto o un archivo que eliges añadir, y no pide permiso para usar la cámara, porque es la propia app de cámara de Android la que hace la foto. Si tocas el micrófono, la app pide una vez permiso para usarlo: el reconocimiento de voz de tu teléfono convierte tu voz en texto en el teléfono, y la app nunca graba, guarda ni envía tu voz. Ningún anuncio y ningún identificador publicitario. Ninguna herramienta propia de analítica ni de informes de fallos, ningún píxel de rastreo y ningún corredor de datos. No vendemos tu información ni la compartimos con fines publicitarios, y nunca usamos información de salud para publicidad."
       },
       {
         "heading": "Todo lo que puede salir de tu teléfono",

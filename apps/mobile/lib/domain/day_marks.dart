@@ -48,7 +48,7 @@ Map<String, DayMark> dayMarks(
     if (e.value.flow == 'spotting') at(e.key).spotting = true;
     // After birth the bleed is logged but kept out of periodStarts (MR-60); it is still drawn.
     if (e.value.isBleed) at(e.key).bleed = true;
-    if (e.value.terms.isNotEmpty || e.value.hasNote) at(e.key).logged = true;
+    if (e.value.terms.isNotEmpty || e.value.hasNote || e.value.hasOtherSymptoms) at(e.key).logged = true;
   }
 
   final starts = bleedStarts(p.periodStarts);

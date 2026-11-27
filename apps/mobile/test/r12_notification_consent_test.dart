@@ -204,6 +204,8 @@ void main() {
 }
 
 class _FakePort implements NotificationPort {
+  @override
+  Future<void> openSettings() async {}
   _FakePort({this.permission = true});
   final bool permission;
   int permissionAsked = 0;

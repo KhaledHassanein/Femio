@@ -23,6 +23,15 @@ String aiUseName(L10n l, AssistantUse use) => switch (use) {
   AssistantUse.visitQuestions => l.visitQuestionsTitle,
 };
 
+/// What the use does for her, and what happens without it, in plain words (owner 2026-11-27).
+String aiUseHelps(L10n l, AssistantUse use) => switch (use) {
+  AssistantUse.askOnPhone => l.aiHelpsAsk,
+  AssistantUse.askInCloud => l.aiHelpsAskCloud,
+  AssistantUse.sayItToLog => l.aiHelpsSayIt,
+  AssistantUse.tipsOrder => l.aiHelpsTips,
+  AssistantUse.visitQuestions => l.aiHelpsVisit,
+};
+
 /// One input in plain words.
 String aiInputText(L10n l, AssistantInput input) => switch (input) {
   AssistantInput.herQuestion => l.aiSeesHerQuestion,
@@ -97,6 +106,8 @@ class _UseCard extends StatelessWidget {
         ),
         child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
           Text(aiUseName(l, use), style: t.titleMedium),
+          const SizedBox(height: space1),
+          Text(aiUseHelps(l, use), style: t.bodyMedium),
           line(phone ? Icons.phone_android_rounded : Icons.cloud_outlined,
               phone ? l.aiWherePhone : l.aiWhereHybrid),
           line(draft ? Icons.edit_note_rounded : Icons.lock_outline_rounded,

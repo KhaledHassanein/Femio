@@ -324,6 +324,44 @@ const PERSONAL_PERMISSIONS = [
   // Documents (R11.2, ADR-082 §2) arrive only through the system picker and camera intent.
   /READ_EXTERNAL_STORAGE/, /WRITE_EXTERNAL_STORAGE/, /MANAGE_EXTERNAL_STORAGE/, /READ_MEDIA_/,
 ];
+
+// RECORD_AUDIO has one allowed use: the mic on Ask femio and Say it, where Android's on-device
+// recognizer turns speech into text on the phone (ADR-086). It is allowed only while all of
+// this holds; otherwise it counts as a personal permission like the rest.
+const SPEECH_DIR = "apps/mobile/android/app/src/main/kotlin/com/femioapp/femio/speech";
+const ANDROID_SRC = "apps/mobile/android/app/src/main";
+function speechProblems() {
+  const problems = [];
+  const speechFile = join(SPEECH_DIR, "SpeechChannel.kt");
+  if (!existsSync(speechFile)) return ["the speech package is missing"];
+  const speech = readFileSync(speechFile, "utf8");
+  if (!/SpeechRecognizer\.createOnDeviceSpeechRecognizer\(/.test(speech)) problems.push("the speech package does not use the on-device recognizer");
+  const native = [];
+  (function walkNative(dir) {
+    for (const entry of readdirSync(dir)) {
+      const full = join(dir, entry);
+      if (statSync(full).isDirectory()) walkNative(full);
+      else if (/\.(kt|java)$/.test(entry)) native.push(full);
+    }
+  })(ANDROID_SRC);
+  for (const file of native) {
+    const code = readFileSync(file, "utf8").replace(/\/\/.*$/gm, "");
+    const path = relative(".", file).replaceAll("\\", "/");
+    if (/createSpeechRecognizer\(|ACTION_RECOGNIZE_SPEECH[^\n]*startActivity|RecognizerIntent\.ACTION_WEB_SEARCH/.test(code)) {
+      problems.push(`${path} can use a recognizer that may send audio to a server`);
+    }
+    if (/\bAudioRecord\b|\bMediaRecorder\b/.test(code)) problems.push(`${path} records audio`);
+    if (/RECORD_AUDIO/.test(code) && !path.startsWith(SPEECH_DIR)) problems.push(`${path} uses the microphone outside the speech package`);
+  }
+  return problems;
+}
+const speechIssues = speechProblems();
+for (const issue of speechIssues) {
+  if (existsSync(MANIFEST) && /RECORD_AUDIO/.test(readFileSync(MANIFEST, "utf8"))) {
+    fail(MANIFEST, `RECORD_AUDIO is allowed only for on-device speech to text (ADR-086): ${issue}`);
+  }
+}
+const REVIEWED_PERSONAL = speechIssues.length === 0 ? PERSONAL_PERMISSIONS.filter((re) => re.source !== "RECORD_AUDIO") : PERSONAL_PERMISSIONS;
 try {
   const manifest = readFileSync(MANIFEST, "utf8");
   const requested = manifest.split("\n").filter((line) => !/tools:node="remove"/.test(line)).join("\n");
@@ -332,7 +370,7 @@ try {
       fail(MANIFEST, `does not remove ${id} with tools:node="remove"; the app has no ads`);
     }
   }
-  for (const re of PERSONAL_PERMISSIONS) {
+  for (const re of REVIEWED_PERSONAL) {
     if (re.test(requested)) fail(MANIFEST, `requests a permission that reads the person (${re.source})`);
   }
 } catch (error) {
@@ -351,7 +389,7 @@ const mergedChecked = checkAndroid({
   warn: (message) => warnings.push(message),
   requireMerged: process.env.FEMIO_REQUIRE_MERGED_MANIFEST === "1" || process.argv.includes("--require-merged-manifest"),
   adPermissions: AD_PERMISSIONS,
-  personalPermissions: PERSONAL_PERMISSIONS,
+  personalPermissions: REVIEWED_PERSONAL,
 });
 for (const w of warnings) console.warn(`  ⚠ ${w}`);
 
@@ -361,4 +399,4 @@ if (findings.length > 0) {
   console.error(`\n${findings.length} finding(s). See docs/33_REBUILD_V3/03_LEGAL_PACK.md.`);
   process.exit(1);
 }
-console.log(`✓ privacy tripwire: no analytics, error-reporting or database client in either product; website: no Tag Manager, GA4 or Meta pixel, Vercel Web Analytics (cookieless, path only) the only measurement, AdSense host inside lib/ads only, ad units only in the article and hub; app: no ads, analytics or attribution package and no ad-ID permission (source and merged manifest), no network code of its own, Firebase AI Logic only inside the Kotlin assistant behind CloudPrompt (CloudSafeText or PseudonymisedProfile only) plus one fixed check sentence, no search grounding, no personal permission; native: no network code outside the assistant package, only reviewed Gradle dependencies and plugins, merged manifest ${mergedChecked > 0 ? `checked (${mergedChecked} file(s): permissions, ad/analytics metadata, reviewed components)` : "not checked (no current build)"}.`);
+console.log(`✓ privacy tripwire: no analytics, error-reporting or database client in either product; website: no Tag Manager, GA4 or Meta pixel, Vercel Web Analytics (cookieless, path only) the only measurement, AdSense host inside lib/ads only, ad units only in the article and hub; app: no ads, analytics or attribution package and no ad-ID permission (source and merged manifest), no network code of its own, Firebase AI Logic only inside the Kotlin assistant behind CloudPrompt (CloudSafeText or PseudonymisedProfile only) plus one fixed check sentence, no search grounding, no personal permission except the microphone for on-device speech to text (ADR-086); native: no network code outside the assistant package, only reviewed Gradle dependencies and plugins, merged manifest ${mergedChecked > 0 ? `checked (${mergedChecked} file(s): permissions, ad/analytics metadata, reviewed components)` : "not checked (no current build)"}.`);

@@ -25,8 +25,11 @@ class _Port implements NotificationPort {
   _Port(this.permission);
   final bool permission;
   int plans = 0;
+  int settingsOpened = 0;
   @override
   Future<bool> requestPermission() async => permission;
+  @override
+  Future<void> openSettings() async => settingsOpened++;
   @override
   Future<void> replaceAll(List<PlannedReminder> plan, ReminderTexts texts) async => plans++;
   @override
@@ -102,6 +105,9 @@ void main() {
         expect(c.profile!.settings.hasNotificationConsent, isFalse);
         expect(port.plans, 0);
         await _shoot('${tag}_denied');
+        // Android asks only once (and not at all before 13): one tap opens the settings.
+        await tester.tap(find.text(l.notifOpenSettings));
+        expect(port.settingsOpened, 1);
       });
     }
   }

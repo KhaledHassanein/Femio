@@ -62,6 +62,10 @@ const cloudCheckPrompt = 'Reply with the single word OK.';
 abstract interface class CloudChecker {
   /// Sends [cloudCheckPrompt] to the cloud model only and reports what happened.
   Future<CloudCheck> checkCloud();
+
+  /// The reason code of the last failed [AssistantBridge.runHybrid] call (for example
+  /// `app_check`), or null after a call that answered. Never her text.
+  String? get lastHybridFailure;
 }
 
 /// The channel, behind an interface so tests and screenshots can use a fake.
@@ -87,6 +91,12 @@ class MethodChannelAssistant implements AssistantBridge, CloudChecker {
   const MethodChannelAssistant();
 
   static const _channel = MethodChannel('com.femioapp.femio/assistant');
+
+  // Static because the bridge is const; one engine, one bridge.
+  static String? _lastHybridFailure;
+
+  @override
+  String? get lastHybridFailure => _lastHybridFailure;
 
   @override
   Future<AssistantStatus> status() async {
@@ -128,12 +138,21 @@ class MethodChannelAssistant implements AssistantBridge, CloudChecker {
 
   @override
   Future<HybridReply?> runHybrid(CloudPrompt prompt) async {
+    _lastHybridFailure = null;
     try {
       final m = await _channel.invokeMapMethod<String, Object?>('hybrid', {'prompt': prompt.text});
       final text = m?['text'] as String?;
-      if (m == null || text == null || text.trim().isEmpty) return null;
+      if (m == null || text == null || text.trim().isEmpty) {
+        _lastHybridFailure = 'empty';
+        return null;
+      }
       return HybridReply(text: text.trim(), onDevice: m['source'] == 'ON_DEVICE');
+    } on PlatformException catch (e) {
+      final details = e.details;
+      _lastHybridFailure = details is String ? details : 'other';
+      return null;
     } on Object {
+      _lastHybridFailure = 'other';
       return null;
     }
   }

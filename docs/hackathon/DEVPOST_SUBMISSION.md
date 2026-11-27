@@ -41,6 +41,30 @@ One app for her whole health life. It adapts its emphasis to her life stage with
 - **Safety before AI.** Red-flag wording (heavy bleeding with dizziness, reduced fetal movement, warning signs in the year after birth, thoughts of self-harm) opens emergency guidance and local help numbers before any model runs. femio educates and tracks; it never diagnoses and never replaces a clinician.
 - **Private by design.** No account, no ads, no analytics or tracking SDK in the app. Backup is a file she saves herself. The app has no network code of its own: it reaches the internet only through Firebase AI Logic and App Check, Android's AICore (to download Gemini Nano), and Google Play (updates, ratings, purchases). Available in English, Arabic, French and Spanish.
 
+## Where the AI helps her, in plain words
+
+femio never asks her to "chat with the AI". The AI shows up inside things she already does, and
+every one of them still works when the AI is off.
+
+- **She says her day in one sentence.** "Cramps since this morning, tired, didn't sleep" becomes
+  today's log, ready for her to tick and save, instead of hunting through forty buttons. She can
+  type it or tap the mic, and her voice is turned into text on the phone.
+- **She asks a question and gets a short answer she can trust.** Instead of a wall of search
+  results, she reads two or three plain sentences built only from the trusted medical sources
+  bundled in femio, with each source linked. Red-flag questions get the safety message first,
+  always, AI or not.
+- **Before a doctor visit**, the questions that matter most for her situation rise to the top of
+  her visit sheet, so the short appointment goes to what counts.
+- **Her tips follow where she is** (trying to conceive, pregnant, after birth, perimenopause, how
+  regular her cycles are, what she logs), so the first tip she sees fits her, not everyone.
+- **On a phone without built-in AI**, she can choose Cloud boost: her question, with anything
+  personal taken out and approved by her, goes to Google's AI, which writes the same kind of
+  short, sourced answer. Without Cloud boost she reads the sources word for word, and femio says
+  why the AI did not run.
+
+What the AI never does: diagnose, predict her dates, see her whole record, or change her record
+without her tick.
+
 ## How femio uses Firebase AI Logic: hybrid inference with privacy built into the code
 1. **Her record stays on the phone.** Logging from her words, answers to questions about her, and the order of her tips and visit questions run with `ONLY_ON_DEVICE` on Gemini Nano. If Nano isn't available, the feature falls back to deterministic rules on the phone, never silently to the cloud; a private reply that did not run on the device is discarded.
 2. **Opt-in Cloud boost, pseudonymised only.** Only on a phone without Nano, and only if she agrees, the hybrid call (`PREFER_ON_DEVICE`, cloud Gemini model) may receive her `PseudonymisedProfile`: four coarse bands (life stage, cycle regularity, kinds of symptom, logging streak). No dates, no free text, intimate terms excluded, and femio attaches no account or identifier; like any connection, Google still sees the phone's internet address and an App Check token. The consent screen shows her own values, names Google as processor, where and how long, and asks per purpose (one unticked box for general questions, one for tips), then "Confirm my choice" and a confirmation dialog; every choice is kept on the phone as a dated, versioned receipt she can read under "My AI choices". The cloud is offered every tip for her life stage, never the subset that fits her. She can step down or switch the AI off at any time with no boxes to tick, and that is recorded too.

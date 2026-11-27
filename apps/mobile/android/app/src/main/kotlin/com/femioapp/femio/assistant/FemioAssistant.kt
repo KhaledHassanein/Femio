@@ -106,15 +106,25 @@ class FemioAssistant(private val context: Context, messenger: BinaryMessenger) :
     override fun onMethodCall(call: MethodCall, result: MethodChannel.Result) {
         scope.launch {
             try {
-                when (call.method) {
-                    "status" -> result.success(status())
-                    "download" -> result.success(download())
-                    "open" -> result.success(openInBrowser(context, call.argument<String>("url").orEmpty()))
-                    "private" -> result.success(private(call.argument<String>("prompt").orEmpty()))
-                    "hybrid" -> result.success(hybrid(call.argument<String>("prompt").orEmpty()))
-                    "check" -> result.success(check())
-                    else -> result.notImplemented()
+                // Everything except opening a page runs off the main thread: building the
+                // Firebase app, App Check and the model can block, and a blocked main thread
+                // froze femio's screen until Android offered to close it (ANR, 27 Nov).
+                // The result is still answered on the main thread, as Flutter requires.
+                val value: Any? = if (call.method == "open") {
+                    openInBrowser(context, call.argument<String>("url").orEmpty())
+                } else {
+                    withContext(Dispatchers.Default) {
+                        when (call.method) {
+                            "status" -> status()
+                            "download" -> download()
+                            "private" -> private(call.argument<String>("prompt").orEmpty())
+                            "hybrid" -> hybrid(call.argument<String>("prompt").orEmpty())
+                            "check" -> check()
+                            else -> NotImplemented
+                        }
+                    }
                 }
+                if (value === NotImplemented) result.notImplemented() else result.success(value)
             } catch (e: Exception) {
                 // The message is a class name and a reason code, never her text.
                 val reason = failureReason(e)
@@ -209,11 +219,14 @@ class FemioAssistant(private val context: Context, messenger: BinaryMessenger) :
     private fun firebase(): FirebaseApp? {
         app?.let { return it }
         if (BuildConfig.FEMIO_FIREBASE_APP_ID.isBlank() || BuildConfig.FEMIO_FIREBASE_API_KEY.isBlank()) return null
-        val options = FirebaseOptions.Builder()
+        val builder = FirebaseOptions.Builder()
             .setApplicationId(BuildConfig.FEMIO_FIREBASE_APP_ID)
             .setApiKey(BuildConfig.FEMIO_FIREBASE_API_KEY)
             .setProjectId(BuildConfig.FEMIO_FIREBASE_PROJECT_ID)
-            .build()
+        // Play Integrity reads the project number from the sender ID; without it App Check
+        // failed with NumberFormatException and every cloud call was refused (Lab 0, 27 Nov).
+        projectNumber(BuildConfig.FEMIO_FIREBASE_APP_ID)?.let { builder.setGcmSenderId(it) }
+        val options = builder.build()
         val created = FirebaseApp.getApps(context).firstOrNull { it.name == FIREBASE_APP_NAME }
             ?: FirebaseApp.initializeApp(context, options, FIREBASE_APP_NAME)
         AppCheckInstaller.install(created)
@@ -221,6 +234,16 @@ class FemioAssistant(private val context: Context, messenger: BinaryMessenger) :
         return created
     }
 }
+
+/** Marks a method femio's bridge does not know, so the channel answers notImplemented. */
+private object NotImplemented
+
+/**
+ * The Cloud project number inside a Firebase app ID ("1:<number>:android:<hash>"), or null
+ * when the ID does not have that shape. App Check's Play Integrity provider needs it.
+ */
+internal fun projectNumber(appId: String): String? =
+    appId.split(":").getOrNull(1)?.takeIf { it.isNotEmpty() && it.all(Char::isDigit) }
 
 /**
  * Names why a model call failed, as a short code Dart turns into words: `app_check`,

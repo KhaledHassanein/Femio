@@ -349,6 +349,9 @@ class FemioController extends ChangeNotifier {
     return NotificationConsentResult.granted;
   }
 
+  /// Opens the phone's notification settings for femio, after she refused or turned them off.
+  Future<void> openNotificationSettings() => _reminders.openSettings();
+
   /// Makes the scheduler match [planReminders] for the current record. A failure in the
   /// notification system must never cost her a saved record, so it is swallowed here
   /// and retried at the next save or app start.

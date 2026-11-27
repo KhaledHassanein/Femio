@@ -32,6 +32,14 @@ const assistantCallTimeout = Duration(seconds: 20);
 /// Unusable replies in a row after which a use runs on rules for the rest of the session.
 const assistantCircuitBreakerLimit = 3;
 
+/// Cloud failures that will not fix themselves in a few seconds: after one, femio stops
+/// sending for [cloudPauseAfterLastingFailure] and says why at once, instead of making her
+/// wait for the same failure on every question (owner 2026-11-27).
+const cloudLastingFailures = {'app_check', 'not_configured', 'service_disabled', 'api_key', 'permission', 'location'};
+
+/// How long femio skips Cloud boost after a lasting failure; a passing check ends it sooner.
+const cloudPauseAfterLastingFailure = Duration(minutes: 10);
+
 /// Where an answer came from, so a screen can say so.
 enum RanOn { rules, phone, cloud }
 
@@ -65,6 +73,33 @@ class AssistantGateway {
   final Future<void> Function(LedgerEntry entry)? _record;
   final DateTime Function() _clock;
   final _unusable = <AssistantUse, int>{};
+  String? _cloudPaused;
+  DateTime? _cloudPausedAt;
+  String? _lastCloudFailure;
+
+  /// The reason code while Cloud boost is paused after a lasting failure, else null.
+  String? get cloudPaused {
+    final at = _cloudPausedAt;
+    if (_cloudPaused == null || at == null) return null;
+    if (_clock().difference(at) > cloudPauseAfterLastingFailure) {
+      _cloudPaused = null;
+      return null;
+    }
+    return _cloudPaused;
+  }
+
+  /// The reason code of the last Cloud boost call that gave no answer, or null.
+  String? get lastCloudFailure => _lastCloudFailure;
+
+  void _noteCloud(String? reason) {
+    _lastCloudFailure = reason;
+    if (reason == null) {
+      _cloudPaused = null;
+    } else if (cloudLastingFailures.contains(reason)) {
+      _cloudPaused = reason;
+      _cloudPausedAt = _clock();
+    }
+  }
 
   /// What the assistant can do on this phone; offline when the build switch or her master
   /// switch is off.
@@ -105,12 +140,24 @@ class AssistantGateway {
   Future<HybridReply?> _hybrid(AssistantUse use, CloudPrompt prompt, CloudConsent consent) async {
     final purpose = usePolicies[use]?.consent;
     if (!_open(use) || purpose == null || !consent.allows(purpose)) return null;
-    HybridReply? reply;
-    try {
-      reply = await _bridge.runHybrid(prompt).timeout(assistantCallTimeout);
-    } on Object {
-      reply = null;
+    final paused = cloudPaused;
+    if (paused != null) {
+      // Nothing is sent, so nothing goes in the ledger; the screen says why.
+      _lastCloudFailure = paused;
+      return null;
     }
+    HybridReply? reply;
+    String? failure;
+    final bridge = _bridge;
+    try {
+      reply = await bridge.runHybrid(prompt).timeout(assistantCallTimeout);
+      if (reply == null) failure = bridge is CloudChecker ? (bridge as CloudChecker).lastHybridFailure ?? 'other' : 'other';
+    } on TimeoutException {
+      failure = 'timeout';
+    } on Object {
+      failure = 'other';
+    }
+    _noteCloud(reply == null ? failure : null);
     // Without a reply femio cannot know where the call ran, so it keeps the receipt.
     final cloud = reply == null || !reply.onDevice;
     _log(use, cloud: cloud, answered: reply != null, sent: cloud ? prompt.text : null);
@@ -131,6 +178,7 @@ class AssistantGateway {
     } on Object {
       result = const CloudCheck(ok: false, reason: 'timeout');
     }
+    _noteCloud(result.ok ? null : result.reason ?? 'other');
     _log(AssistantUse.askInCloud, cloud: true, answered: result.ok, sent: cloudCheckPrompt);
     return result;
   }

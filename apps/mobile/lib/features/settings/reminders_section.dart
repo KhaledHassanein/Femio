@@ -41,7 +41,12 @@ class RemindersSection extends StatelessWidget {
       return;
     }
     final ok = await controller.updateReminders(log: log, period: period, appointment: appointment, medicine: medicine, logMinutes: logMinutes);
-    if (!ok) messenger.showSnackBar(SnackBar(content: Text(l.reminderPermissionDenied)));
+    if (!ok) {
+      messenger.showSnackBar(SnackBar(
+        content: Text(l.reminderPermissionDenied),
+        action: SnackBarAction(label: l.notifOpenSettings, onPressed: controller.openNotificationSettings),
+      ));
+    }
   }
 
   Future<void> _pickTime(BuildContext context, AppSettings settings) async {

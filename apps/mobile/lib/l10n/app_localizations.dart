@@ -1013,6 +1013,30 @@ abstract class L10n {
   /// **'Symptoms'**
   String get sectionSymptoms;
 
+  /// Log screen: chip that opens a field for a symptom in her own words.
+  ///
+  /// In en, this message translates to:
+  /// **'Other'**
+  String get symptomOther;
+
+  /// Hint in the Other symptom field.
+  ///
+  /// In en, this message translates to:
+  /// **'Another symptom, in your words'**
+  String get symptomOtherHint;
+
+  /// Log screen: unfolds the full symptom list.
+  ///
+  /// In en, this message translates to:
+  /// **'Show all symptoms'**
+  String get symptomsShowAll;
+
+  /// Log screen: folds the symptom list back.
+  ///
+  /// In en, this message translates to:
+  /// **'Show fewer'**
+  String get symptomsShowFewer;
+
   /// No description provided for @sectionDischarge.
   ///
   /// In en, this message translates to:
@@ -2207,6 +2231,12 @@ abstract class L10n {
   /// **'Your phone did not allow notifications, so femio has scheduled nothing. To change this, open your phone\'s Settings, then Apps, femio, Notifications, and allow them. Then come back to Reminders in femio\'s Settings.'**
   String get notifConsentDeniedBody;
 
+  /// Button that opens the phone's notification settings for femio after notifications were refused.
+  ///
+  /// In en, this message translates to:
+  /// **'Open settings'**
+  String get notifOpenSettings;
+
   /// Accessible label of a calendar day when Hijri dates are shown: the Gregorian date, then the Hijri date.
   ///
   /// In en, this message translates to:
@@ -2810,8 +2840,68 @@ abstract class L10n {
   /// No description provided for @sayItDictationHint.
   ///
   /// In en, this message translates to:
-  /// **'Tip: tap the microphone on your keyboard to speak instead of typing.'**
+  /// **'Tap the mic to speak. Your words become text on this phone; nothing is recorded or sent.'**
   String get sayItDictationHint;
+
+  /// Tooltip of the mic button on Ask femio and Say it.
+  ///
+  /// In en, this message translates to:
+  /// **'Speak instead of typing'**
+  String get micStart;
+
+  /// Tooltip of the mic button while it listens.
+  ///
+  /// In en, this message translates to:
+  /// **'Stop listening'**
+  String get micStop;
+
+  /// Mic problem: Android older than 12.
+  ///
+  /// In en, this message translates to:
+  /// **'Speaking to femio needs Android 12 or newer, so the text stays on this phone. You can use your keyboard\'s mic instead.'**
+  String get micOldAndroid;
+
+  /// Mic problem: no on-device speech recognizer on this phone.
+  ///
+  /// In en, this message translates to:
+  /// **'This phone cannot turn speech into text without the internet, so femio\'s mic cannot run here. You can use your keyboard\'s mic instead; your keyboard\'s own privacy rules then apply.'**
+  String get micNotAvailable;
+
+  /// Mic problem: she refused the microphone permission.
+  ///
+  /// In en, this message translates to:
+  /// **'femio needs your permission to use the microphone. Your voice is turned into text on this phone and is never recorded or sent.'**
+  String get micNoPermission;
+
+  /// Mic problem: microphone refused for good; shown with an Open settings button.
+  ///
+  /// In en, this message translates to:
+  /// **'The microphone is turned off for femio. To speak instead of typing, open settings and allow Microphone.'**
+  String get micNoPermissionSettings;
+
+  /// Mic problem: no on-device speech pack for the language.
+  ///
+  /// In en, this message translates to:
+  /// **'This phone has no offline speech pack for this language. You can add one in your phone\'s settings, or use your keyboard\'s mic.'**
+  String get micLanguage;
+
+  /// Mic problem: heard nothing.
+  ///
+  /// In en, this message translates to:
+  /// **'femio did not catch any words. Tap the mic and try again.'**
+  String get micNoSpeech;
+
+  /// Mic problem: microphone or recognizer busy.
+  ///
+  /// In en, this message translates to:
+  /// **'The microphone is busy with another app. Try again in a moment.'**
+  String get micBusy;
+
+  /// Mic problem: any other failure.
+  ///
+  /// In en, this message translates to:
+  /// **'The microphone could not start. Try again, or use your keyboard\'s mic.'**
+  String get micOther;
 
   /// No description provided for @sayItFoundDays.
   ///
@@ -3076,6 +3166,30 @@ abstract class L10n {
   /// In en, this message translates to:
   /// **'No on-phone or Cloud boost summary was available this time, so here are the trusted passages word for word.'**
   String get askModelFellBack;
+
+  /// Ask femio note when Cloud boost could not run; {why} is the reason sentence from cloudCheckFailed.
+  ///
+  /// In en, this message translates to:
+  /// **'{why} femio shows the trusted sources word for word instead.'**
+  String askCloudUnavailable(String why);
+
+  /// Ask femio note: no Gemini Nano on this phone and Cloud boost off.
+  ///
+  /// In en, this message translates to:
+  /// **'AI is not available on this phone: Gemini Nano runs only on phones whose maker includes it, and Cloud boost is off. femio shows the trusted sources word for word. To use Google\'s cloud AI for general questions, turn on Cloud boost in Settings → Assistant.'**
+  String get askNoAiHere;
+
+  /// Ask femio note: Gemini Nano can be downloaded but is not ready.
+  ///
+  /// In en, this message translates to:
+  /// **'Gemini Nano is not ready on this phone yet; you can download it in Settings → Assistant. Until then femio shows the trusted sources word for word.'**
+  String get askNanoNotReady;
+
+  /// Ask femio note when she turned the AI off.
+  ///
+  /// In en, this message translates to:
+  /// **'The AI is off, so femio shows the trusted sources word for word. You can turn it on in Settings → Assistant.'**
+  String get askAiOffNote;
 
   /// No description provided for @askBoostHeading.
   ///
@@ -4991,6 +5105,36 @@ abstract class L10n {
   /// **'Tips for you'**
   String get aiUseTips;
 
+  /// AI choices list: what Ask femio's AI does for her.
+  ///
+  /// In en, this message translates to:
+  /// **'Turns the trusted sources into a short, plain answer to your question, with the sources linked. Without it, you read the source passages themselves.'**
+  String get aiHelpsAsk;
+
+  /// AI choices list: what Cloud boost does for her.
+  ///
+  /// In en, this message translates to:
+  /// **'For phones without AI built in: after you approve your question, with anything personal taken out, Google\'s AI writes the short answer from the same trusted sources.'**
+  String get aiHelpsAskCloud;
+
+  /// AI choices list: what Say it's AI does for her.
+  ///
+  /// In en, this message translates to:
+  /// **'Turns one sentence, like “cramps since this morning, tired”, into today\'s log; you tick what to keep. Without it, femio matches the words itself.'**
+  String get aiHelpsSayIt;
+
+  /// AI choices list: what tip ordering does for her.
+  ///
+  /// In en, this message translates to:
+  /// **'Puts the tips most useful for where you are now at the top. Without it, they keep femio\'s own order.'**
+  String get aiHelpsTips;
+
+  /// AI choices list: what visit question ordering does for her.
+  ///
+  /// In en, this message translates to:
+  /// **'Puts the questions that matter most for your next doctor visit at the top. Without it, they keep femio\'s own order.'**
+  String get aiHelpsVisit;
+
   /// No description provided for @aiWherePhone.
   ///
   /// In en, this message translates to:
@@ -6130,6 +6274,24 @@ abstract class L10n {
   /// In en, this message translates to:
   /// **'Visits, results, medicines and documents'**
   String get addRecordSub;
+
+  /// Heading in the + sheet above lab result, scan and document chips.
+  ///
+  /// In en, this message translates to:
+  /// **'Add a result or report'**
+  String get addResultHeading;
+
+  /// Hint under the result chips in the + sheet.
+  ///
+  /// In en, this message translates to:
+  /// **'Take a photo or choose a file: lab results, scans, reports. It stays on this phone.'**
+  String get addResultHint;
+
+  /// + sheet row that opens the Learn tab.
+  ///
+  /// In en, this message translates to:
+  /// **'Browse the guides'**
+  String get addBrowseGuides;
 
   /// Heading of the free-text note section on the Log screen.
   ///

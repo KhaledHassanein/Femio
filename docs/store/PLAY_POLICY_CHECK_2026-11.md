@@ -77,6 +77,7 @@ build must be re-checked).
 | `INTERNET`, `ACCESS_NETWORK_STATE` | Firebase AI Logic, App Check | Cloud boost (only with consent), App Check, Gemini Nano model download through AICore |
 | `com.google.android.apps.aicore.service.BIND_SERVICE` | `firebase-ai-ondevice` | talking to Android's AICore to run Gemini Nano |
 | `POST_NOTIFICATIONS`, `RECEIVE_BOOT_COMPLETED`, `VIBRATE` | `flutter_local_notifications` | reminders she turns on |
+| `RECORD_AUDIO` | femio (`speech/SpeechChannel.kt`, ADR-086) | the mic on Ask femio and Say it: asked the first time she taps it; Android's on-device recognizer turns speech into text on the phone; no audio is recorded, kept or sent |
 | `com.android.vending.BILLING` | `in_app_purchase` | femio Plus later; nothing sold in 1.0.0 |
 | `com.femioapp.femio.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION` | AndroidX | the app's own receivers |
 

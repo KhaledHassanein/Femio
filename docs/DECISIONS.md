@@ -1317,3 +1317,19 @@ never "changed outside femio". (c) "Check Cloud boost" is the one cloud call out
 `CloudPrompt`: it sends only `CLOUD_CHECK_PROMPT` ("Reply with the single word OK."). The privacy
 tripwire now fails if any model call sends anything but the prompt from Dart or that constant, if
 `ONLY_IN_CLOUD` is used for anything else, or if the sentence changes.
+
+## ADR-086 · The mic uses Android's on-device recognizer only (2026-11-27)
+
+**Context.** The owner asked for a microphone on Ask femio and Say it ("speech to text"). Android
+offers two recognizers: the ordinary one, which may send audio to a server, and the on-device one
+(`SpeechRecognizer.createOnDeviceSpeechRecognizer`, Android 12+, source:
+https://developer.android.com/reference/android/speech/SpeechRecognizer#createOnDeviceSpeechRecognizer(android.content.Context)).
+**Decision.** femio requests `RECORD_AUDIO` and uses only the on-device recognizer, asked the first
+time she taps the mic. No fallback to the ordinary recognizer: on a phone without it (or before
+Android 12, or without the language pack) femio says why and suggests the keyboard's own mic. No
+audio is recorded, kept or sent; the words only fill the field. The privacy tripwire allows
+`RECORD_AUDIO` only while the speech package uses the on-device recognizer, no native code calls
+`createSpeechRecognizer`, `AudioRecord` or `MediaRecorder`, and no other package touches the
+microphone (fault injected 2026-11-27: 3 findings, restored).
+**Cost.** One personal permission in the manifest and a Data safety line; some phones (many
+Samsung models without Google's on-device speech service) get the explanation instead of the mic.

@@ -69,6 +69,8 @@ const _plans = [
 ];
 
 class _Port implements NotificationPort {
+  @override
+  Future<void> openSettings() async {}
   final plans = <List<PlannedReminder>>[];
   @override
   Future<bool> requestPermission() async => true;

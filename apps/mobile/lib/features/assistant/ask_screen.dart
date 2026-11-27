@@ -14,6 +14,7 @@
 import 'package:flutter/material.dart';
 
 import '../../app.dart';
+import '../../data/assistant_channel.dart' show AssistantStatus, OnDeviceModel;
 import '../../data/assistant_gateway.dart';
 import '../../data/guide_text.dart';
 import '../../data/library.dart';
@@ -34,6 +35,7 @@ import '../../widgets/notice_card.dart';
 import '../learn/article_screen.dart';
 import 'answer_card.dart';
 import 'assistant_scope.dart';
+import 'mic_button.dart';
 import 'safety_notice.dart';
 import 'save_to_record_card.dart';
 import 'stage_hints.dart';
@@ -137,14 +139,20 @@ class _AskScreenState extends State<AskScreen> {
     }
     final boost = profile?.settings.cloud.allows(CloudPurpose.questions) ?? false;
     final safe = toCloudSafe(q);
+    final paused = gateway.cloudPaused;
     if (!mounted) return;
     setState(() {
       _found = found;
-      if (boost && status.canRunHybrid && safe != null) {
+      if (boost && status.canRunHybrid && safe != null && paused == null) {
         _outgoing.text = safe.value;
         _stage = _Stage.confirming;
       } else {
-        if (boost && safe == null) _note = l.askAboutYouStays;
+        // Owner 2026-11-27: she is told why the AI did not run, never left guessing.
+        _note = boost && safe == null
+            ? l.askAboutYouStays
+            : boost && paused != null
+                ? l.askCloudUnavailable(l.cloudCheckFailed(paused))
+                : _whyNoAi(l, status, profile?.settings.assistantOn ?? true);
         _stage = _Stage.answered;
       }
     });
@@ -179,9 +187,24 @@ class _AskScreenState extends State<AskScreen> {
       _origin = parsed == null
           ? AnswerOrigin.verbatim
           : (result.ranOn == RanOn.cloud ? AnswerOrigin.cloud : AnswerOrigin.onPhone);
-      if (parsed == null) _note = l.askModelFellBack;
+      final why = gateway.lastCloudFailure;
+      if (parsed == null) {
+        _note = why == null || why == 'other' || why == 'empty'
+            ? l.askModelFellBack
+            : l.askCloudUnavailable(l.cloudCheckFailed(why));
+      }
       _stage = _Stage.answered;
     });
+  }
+
+  /// Why no model summarised this answer, in her words: the AI is off, Gemini Nano is not
+  /// on this phone (or not downloaded yet), or Cloud boost is off.
+  String _whyNoAi(L10n l, AssistantStatus status, bool aiOn) {
+    if (!aiOn) return l.askAiOffNote;
+    return switch (status.onDevice) {
+      OnDeviceModel.downloadable || OnDeviceModel.downloading => l.askNanoNotReady,
+      _ => l.askNoAiHere,
+    };
   }
 
   /// Shows the passages word for word instead of sending anything.
@@ -238,7 +261,11 @@ class _AskScreenState extends State<AskScreen> {
               style: t.bodyLarge?.copyWith(color: p.text),
               textInputAction: TextInputAction.search,
               onSubmitted: (_) => _ask(),
-              decoration: InputDecoration(hintText: askHintFor(l, hintStage(_profile)), border: const OutlineInputBorder()),
+              decoration: InputDecoration(
+                hintText: askHintFor(l, hintStage(_profile)),
+                border: const OutlineInputBorder(),
+                suffixIcon: MicButton(controller: _question, enabled: _stage == _Stage.asking),
+              ),
             ),
             if (_stage == _Stage.asking) ...[
               const SizedBox(height: space3),

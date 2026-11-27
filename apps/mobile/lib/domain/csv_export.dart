@@ -96,7 +96,11 @@ String logsToCsv(Profile profile, CsvLabels labels) {
       date,
       log.flow == null ? '' : labels.flow(log.flow!),
       names(log, (d) => d == LogDimension.mood),
-      names(log, (d) => d == LogDimension.symptom),
+      // Her own "Other" words follow the ticked symptoms in the same column.
+      [
+        if (names(log, (d) => d == LogDimension.symptom) case final n when n.isNotEmpty) n,
+        if (log.hasOtherSymptoms) log.otherSymptoms!.trim(),
+      ].join(csvTermSeparator),
       names(log, (d) => d == LogDimension.discharge),
       // Intercourse terms and any key this build does not know land here, never lost.
       names(log, (d) => d != LogDimension.mood && d != LogDimension.symptom && d != LogDimension.discharge),

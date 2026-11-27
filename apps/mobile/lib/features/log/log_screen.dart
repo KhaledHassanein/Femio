@@ -26,6 +26,7 @@ import '../calendar/prediction_sheets.dart';
 import '../help/red_flags_screen.dart';
 import 'widgets/log_chip.dart';
 import 'widgets/note_field.dart';
+import 'widgets/symptoms_section.dart';
 import 'widgets/temperature_field.dart';
 
 /// One day's log. Every tap saves (no save button to forget); the vocabulary is the
@@ -232,7 +233,26 @@ class LogScreen extends StatelessWidget {
                 ),
               ],
               section(l.sectionMood, [termChips(LogDimension.mood, p.logMoodAlt, p.logMood)]),
-              section(l.sectionSymptoms, [termChips(LogDimension.symptom, p.logSymptomAlt, p.logSymptom)]),
+              // Owner 2026-11-27: folded to a few, with "Other" in her words and "Show all".
+              section(l.sectionSymptoms, [
+                SymptomsSection(
+                  key: ValueKey('symptoms-$date'),
+                  logs: profile.logs,
+                  day: log,
+                  onToggle: toggle,
+                  onOther: (v) => save(controller.profile!.logs[date]?.copyWith(otherSymptoms: v) ?? log.copyWith(otherSymptoms: v)),
+                  below: switch (log.otherSymptoms) {
+                    final words? => switch (safetySignalFor(words, profile, today)) {
+                        final signal when signal != SafetySignal.none && signal != SafetySignal.birthControl => Padding(
+                            padding: const EdgeInsets.only(top: space3),
+                            child: SafetyNotice(signal: signal),
+                          ),
+                        _ => null,
+                      },
+                    null => null,
+                  },
+                ),
+              ]),
               section(l.sectionDischarge, [termChips(LogDimension.discharge, p.logDischargeAlt, p.logDischarge)]),
               if (!pregnant) ...fertilityItems,
               section(l.sectionMore, [termChips(LogDimension.intercourse, p.surfaceSunken, p.text)]),

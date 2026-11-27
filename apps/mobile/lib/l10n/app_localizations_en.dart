@@ -519,6 +519,18 @@ class L10nEn extends L10n {
   String get sectionSymptoms => 'Symptoms';
 
   @override
+  String get symptomOther => 'Other';
+
+  @override
+  String get symptomOtherHint => 'Another symptom, in your words';
+
+  @override
+  String get symptomsShowAll => 'Show all symptoms';
+
+  @override
+  String get symptomsShowFewer => 'Show fewer';
+
+  @override
   String get sectionDischarge => 'Discharge';
 
   @override
@@ -1270,6 +1282,9 @@ class L10nEn extends L10n {
       'Your phone did not allow notifications, so femio has scheduled nothing. To change this, open your phone\'s Settings, then Apps, femio, Notifications, and allow them. Then come back to Reminders in femio\'s Settings.';
 
   @override
+  String get notifOpenSettings => 'Open settings';
+
+  @override
   String calendarDayLabel(String gregorian, String hijri) {
     return '$gregorian, $hijri';
   }
@@ -1612,7 +1627,45 @@ class L10nEn extends L10n {
 
   @override
   String get sayItDictationHint =>
-      'Tip: tap the microphone on your keyboard to speak instead of typing.';
+      'Tap the mic to speak. Your words become text on this phone; nothing is recorded or sent.';
+
+  @override
+  String get micStart => 'Speak instead of typing';
+
+  @override
+  String get micStop => 'Stop listening';
+
+  @override
+  String get micOldAndroid =>
+      'Speaking to femio needs Android 12 or newer, so the text stays on this phone. You can use your keyboard\'s mic instead.';
+
+  @override
+  String get micNotAvailable =>
+      'This phone cannot turn speech into text without the internet, so femio\'s mic cannot run here. You can use your keyboard\'s mic instead; your keyboard\'s own privacy rules then apply.';
+
+  @override
+  String get micNoPermission =>
+      'femio needs your permission to use the microphone. Your voice is turned into text on this phone and is never recorded or sent.';
+
+  @override
+  String get micNoPermissionSettings =>
+      'The microphone is turned off for femio. To speak instead of typing, open settings and allow Microphone.';
+
+  @override
+  String get micLanguage =>
+      'This phone has no offline speech pack for this language. You can add one in your phone\'s settings, or use your keyboard\'s mic.';
+
+  @override
+  String get micNoSpeech =>
+      'femio did not catch any words. Tap the mic and try again.';
+
+  @override
+  String get micBusy =>
+      'The microphone is busy with another app. Try again in a moment.';
+
+  @override
+  String get micOther =>
+      'The microphone could not start. Try again, or use your keyboard\'s mic.';
 
   @override
   String get sayItFoundDays =>
@@ -1789,6 +1842,23 @@ class L10nEn extends L10n {
   @override
   String get askModelFellBack =>
       'No on-phone or Cloud boost summary was available this time, so here are the trusted passages word for word.';
+
+  @override
+  String askCloudUnavailable(String why) {
+    return '$why femio shows the trusted sources word for word instead.';
+  }
+
+  @override
+  String get askNoAiHere =>
+      'AI is not available on this phone: Gemini Nano runs only on phones whose maker includes it, and Cloud boost is off. femio shows the trusted sources word for word. To use Google\'s cloud AI for general questions, turn on Cloud boost in Settings → Assistant.';
+
+  @override
+  String get askNanoNotReady =>
+      'Gemini Nano is not ready on this phone yet; you can download it in Settings → Assistant. Until then femio shows the trusted sources word for word.';
+
+  @override
+  String get askAiOffNote =>
+      'The AI is off, so femio shows the trusted sources word for word. You can turn it on in Settings → Assistant.';
 
   @override
   String get askBoostHeading => 'Cloud boost';
@@ -3071,6 +3141,26 @@ class L10nEn extends L10n {
   String get aiUseTips => 'Tips for you';
 
   @override
+  String get aiHelpsAsk =>
+      'Turns the trusted sources into a short, plain answer to your question, with the sources linked. Without it, you read the source passages themselves.';
+
+  @override
+  String get aiHelpsAskCloud =>
+      'For phones without AI built in: after you approve your question, with anything personal taken out, Google\'s AI writes the short answer from the same trusted sources.';
+
+  @override
+  String get aiHelpsSayIt =>
+      'Turns one sentence, like “cramps since this morning, tired”, into today\'s log; you tick what to keep. Without it, femio matches the words itself.';
+
+  @override
+  String get aiHelpsTips =>
+      'Puts the tips most useful for where you are now at the top. Without it, they keep femio\'s own order.';
+
+  @override
+  String get aiHelpsVisit =>
+      'Puts the questions that matter most for your next doctor visit at the top. Without it, they keep femio\'s own order.';
+
+  @override
   String get aiWherePhone => 'Runs on this phone only';
 
   @override
@@ -3794,6 +3884,16 @@ class L10nEn extends L10n {
 
   @override
   String get addRecordSub => 'Visits, results, medicines and documents';
+
+  @override
+  String get addResultHeading => 'Add a result or report';
+
+  @override
+  String get addResultHint =>
+      'Take a photo or choose a file: lab results, scans, reports. It stays on this phone.';
+
+  @override
+  String get addBrowseGuides => 'Browse the guides';
 
   @override
   String get logNoteSection => 'Note';

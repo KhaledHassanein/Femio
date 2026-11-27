@@ -186,6 +186,8 @@ void main() {
 }
 
 class _Granting implements ReminderScheduler {
+  @override
+  Future<void> openSettings() async {}
   _Granting({this.grant = true});
   final bool grant;
   int asked = 0;

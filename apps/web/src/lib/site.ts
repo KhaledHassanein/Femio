@@ -12,15 +12,21 @@
  */
 export const APP_PAGE = "/app";
 
-export const PLAY_STORE_URL: string | null = null;
+/**
+ * femio's Google Play listing (owner 2026-11-27: the app is distributed through Play, and
+ * every download link on the site goes to this listing). Play serves the page only once a
+ * production or open-testing release is approved; before that it answers "not found". So
+ * the links follow it only when `PLAY_LISTING_LIVE` is true: flip that one line on the day
+ * Play shows the listing, and the hand-off card, the /app badge and the home line all switch.
+ */
+export const PLAY_LISTING_URL = "https://play.google.com/store/apps/details?id=com.femioapp.femio";
+export const PLAY_LISTING_LIVE = false;
+
+export const PLAY_STORE_URL: string | null = PLAY_LISTING_LIVE ? PLAY_LISTING_URL : null;
 
 /**
- * The early test build (APK) for testers and hackathon judges (R14.4, REL-2, UX-1).
- *
- * `null` until the build is published as a GitHub Release; while null, `/app` shows an
- * honest "download link coming soon" card instead of a button that leads nowhere. Once
- * the release exists, its asset URL goes here and `/app` shows the download with the
- * sideload steps. Google Play closed testing is separate and comes later
- * (`PLAY_STORE_URL`).
+ * An early test build (APK) for hackathon judges only (R14.4, REL-2, UX-1). The owner ruled
+ * on 2026-11-27 that femio is distributed through Google Play, not as an APK: while this is
+ * `null`, `/app` shows no APK card at all. Set it only if a judge-only build is published.
  */
 export const APK_DOWNLOAD_URL: string | null = null;

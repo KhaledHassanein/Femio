@@ -530,6 +530,18 @@ class L10nAr extends L10n {
   String get sectionSymptoms => 'الأعراض';
 
   @override
+  String get symptomOther => 'غير ذلك';
+
+  @override
+  String get symptomOtherHint => 'عرض آخر، بكلماتكِ';
+
+  @override
+  String get symptomsShowAll => 'عرض كل الأعراض';
+
+  @override
+  String get symptomsShowFewer => 'عرض أقل';
+
+  @override
   String get sectionDischarge => 'الإفرازات';
 
   @override
@@ -1309,6 +1321,9 @@ class L10nAr extends L10n {
       'لم يسمح هاتفكِ بالإشعارات، لذلك لم يجدول femio أي شيء. لتغيير ذلك، افتحي إعدادات الهاتف ثم التطبيقات ثم femio ثم الإشعارات واسمحي بها. بعدها عودي إلى التذكيرات في إعدادات femio.';
 
   @override
+  String get notifOpenSettings => 'فتح الإعدادات';
+
+  @override
   String calendarDayLabel(String gregorian, String hijri) {
     return '$gregorian، $hijri';
   }
@@ -1642,7 +1657,44 @@ class L10nAr extends L10n {
 
   @override
   String get sayItDictationHint =>
-      'نصيحة: اضغطي على الميكروفون في لوحة المفاتيح لتتحدثي بدل الكتابة.';
+      'اضغطي على الميكروفون لتتحدثي. تتحول كلماتك إلى نص على هذا الهاتف؛ لا يُسجَّل شيء ولا يُرسَل.';
+
+  @override
+  String get micStart => 'تحدّثي بدل الكتابة';
+
+  @override
+  String get micStop => 'إيقاف الاستماع';
+
+  @override
+  String get micOldAndroid =>
+      'يحتاج التحدث إلى femio إلى Android 12 أو أحدث حتى يبقى النص على هذا الهاتف. يمكنكِ استخدام ميكروفون لوحة المفاتيح بدلًا من ذلك.';
+
+  @override
+  String get micNotAvailable =>
+      'لا يستطيع هذا الهاتف تحويل الكلام إلى نص دون الإنترنت، لذا لا يعمل ميكروفون femio هنا. يمكنكِ استخدام ميكروفون لوحة المفاتيح بدلًا من ذلك، وتنطبق حينها قواعد الخصوصية الخاصة بلوحة المفاتيح.';
+
+  @override
+  String get micNoPermission =>
+      'يحتاج femio إلى إذنكِ لاستخدام الميكروفون. يتحول صوتكِ إلى نص على هذا الهاتف ولا يُسجَّل أو يُرسَل أبدًا.';
+
+  @override
+  String get micNoPermissionSettings =>
+      'الميكروفون مطفأ لـ femio. لتتحدثي بدل الكتابة، افتحي الإعدادات واسمحي بالميكروفون.';
+
+  @override
+  String get micLanguage =>
+      'لا توجد على هذا الهاتف حزمة كلام دون إنترنت لهذه اللغة. يمكنكِ إضافتها من إعدادات الهاتف، أو استخدام ميكروفون لوحة المفاتيح.';
+
+  @override
+  String get micNoSpeech =>
+      'لم يلتقط femio أي كلمات. اضغطي على الميكروفون وحاولي مرة أخرى.';
+
+  @override
+  String get micBusy => 'الميكروفون مشغول بتطبيق آخر. حاولي مرة أخرى بعد لحظة.';
+
+  @override
+  String get micOther =>
+      'تعذّر تشغيل الميكروفون. حاولي مرة أخرى، أو استخدمي ميكروفون لوحة المفاتيح.';
 
   @override
   String get sayItFoundDays =>
@@ -1831,6 +1883,23 @@ class L10nAr extends L10n {
   @override
   String get askModelFellBack =>
       'لم يتوفر هذه المرة ملخص على الهاتف أو عبر Cloud boost، فإليكِ المقاطع الموثوقة كما هي.';
+
+  @override
+  String askCloudUnavailable(String why) {
+    return '$why لذا يعرض femio المصادر الموثوقة كما هي حرفيًا.';
+  }
+
+  @override
+  String get askNoAiHere =>
+      'الذكاء الاصطناعي غير متاح على هذا الهاتف: يعمل Gemini Nano فقط على الهواتف التي يضمّنه صانعها، وCloud boost مطفأ. يعرض femio المصادر الموثوقة كما هي حرفيًا. لاستخدام ذكاء Google السحابي في الأسئلة العامة، فعّلي Cloud boost من الإعدادات ← المساعد.';
+
+  @override
+  String get askNanoNotReady =>
+      'Gemini Nano غير جاهز على هذا الهاتف بعد؛ يمكنكِ تنزيله من الإعدادات ← المساعد. وحتى ذلك الحين يعرض femio المصادر الموثوقة كما هي حرفيًا.';
+
+  @override
+  String get askAiOffNote =>
+      'الذكاء الاصطناعي مطفأ، لذا يعرض femio المصادر الموثوقة كما هي حرفيًا. يمكنكِ تشغيله من الإعدادات ← المساعد.';
 
   @override
   String get askBoostHeading => 'Cloud boost';
@@ -3117,6 +3186,26 @@ class L10nAr extends L10n {
   String get aiUseTips => 'نصائح لكِ';
 
   @override
+  String get aiHelpsAsk =>
+      'يحوّل المصادر الموثوقة إلى إجابة قصيرة وواضحة عن سؤالكِ، مع روابط المصادر. ومن دونه، تقرئين مقاطع المصادر نفسها.';
+
+  @override
+  String get aiHelpsAskCloud =>
+      'للهواتف التي لا تتضمن ذكاءً اصطناعيًا: بعد أن توافقي على سؤالكِ، مع حذف أي شيء شخصي، يكتب ذكاء Google الإجابة القصيرة من المصادر الموثوقة نفسها.';
+
+  @override
+  String get aiHelpsSayIt =>
+      'يحوّل جملة واحدة، مثل «تقلصات منذ الصباح، تعب»، إلى سجل اليوم؛ وتختارين ما تحتفظين به. ومن دونه، يطابق femio الكلمات بنفسه.';
+
+  @override
+  String get aiHelpsTips =>
+      'يضع النصائح الأكثر فائدة لمرحلتكِ الحالية في الأعلى. ومن دونه، تبقى بترتيب femio.';
+
+  @override
+  String get aiHelpsVisit =>
+      'يضع الأسئلة الأهم لزيارتكِ القادمة للطبيب في الأعلى. ومن دونه، تبقى بترتيب femio.';
+
+  @override
   String get aiWherePhone => 'يعمل على هذا الهاتف فقط';
 
   @override
@@ -3843,6 +3932,16 @@ class L10nAr extends L10n {
 
   @override
   String get addRecordSub => 'الزيارات والنتائج والأدوية والمستندات';
+
+  @override
+  String get addResultHeading => 'إضافة نتيجة أو تقرير';
+
+  @override
+  String get addResultHint =>
+      'التقطي صورة أو اختاري ملفًا: نتائج التحاليل والأشعة والتقارير. يبقى على هذا الهاتف.';
+
+  @override
+  String get addBrowseGuides => 'تصفّحي الأدلة';
 
   @override
   String get logNoteSection => 'ملاحظة';

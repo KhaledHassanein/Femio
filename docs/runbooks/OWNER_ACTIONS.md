@@ -1,5 +1,7 @@
 # Owner actions: only what Khaled must do by hand
 
+> **The one owner page** (steps as labs, built from this file): https://claude.ai/artifact/VENwUASzWVAY6oxQiLQFuD. Every earlier femio page is retired.
+
 **Rewritten 2026-10-28 for v3.** The 2026-10-27 version (four items) is in git history. The rule
 is unchanged: Khaled is the only person in every role; sessions do everything else and proceed on
 the recommended default. Do not add a line here unless only a human with Khaled's identity can do it.
@@ -16,7 +18,7 @@ Added 2026-11-24 (ADR-078). Steps 23 to 25 unlock the AI; without them the app s
 | 24 | **Register the Android app** in that project: package `com.femioapp.femio`. Copy the three ids (App ID, API key, project ID) from Project settings → Your apps into `apps/mobile/assistant.env` inside the branch folder `E:\Femio\.claude\worktrees\firebase-hackathon-eligibility-833c52` until it is merged (copy of `assistant.env.example`, git-ignored; never into chat). Skip google-services.json | Console access | 5 min |
 | 25 | **App Check.** Install the debug build (a session builds it), open Ask femio once, then in `adb logcat` find the line with the debug token, and add it at App Check → Apps → Manage debug tokens. Then turn **enforcement on** for AI Logic and leave it on through judging (owner 2026-11-24: judges who sideload the APK may not reach Cloud boost; the rest works) | Console access | 10 min |
 | 26 | **Name the demo phone.** It must be on Google's AICore supported-device list (Gemini Nano); Settings → Assistant in femio says "Ready" when it is. Without Nano the demo still works: turn on Cloud boost there | Your phone | 2 min |
-| 27 | **Say "make it public"** and a session creates the public GitHub repository `femio-app` (Apache-2.0, app only, made by `scripts/hackathon/export-public-app.mjs`; the monorepo stays private) | Publishing is yours to approve | 1 min |
+| 27 | **Say "make it public"** and a session creates the public GitHub repository `femio-app` (Apache-2.0, app only, made by `scripts/hackathon/export-public-app.mjs`; the monorepo stays private) **Done differently 2026-11-27:** the owner made the monorepo `KhaledHassanein/Femio` public instead; see row 47 | Publishing is yours to approve | Done |
 | 28 | **Record the video** (script on the hackathon pack page), upload it to YouTube (public or unlisted), then **submit on Devpost** with the texts in `docs/hackathon/DEVPOST_SUBMISSION.md`, the repo link and the video link | Your account and voice | 1 hour |
 | 29 | **Gemini logging off.** In Google AI Studio for the femio project, open Logs (or Settings → Logging) and switch request logging **off**; never join the "Contributor" data-sharing tier. In Firebase console → AI Logic → Monitoring, leave it off, or turn off "include prompts and responses". The privacy notice promises this (ADR-080) | Your console | 5 min |
 | 30 | **Firebase data sharing off.** Firebase console → gear icon → Project settings → **Data privacy** (on some layouts: Integrations or "Data sharing settings") → untick every box that lets Google use your Firebase data for other Google services, then Save. Google Analytics is already unlinked (you did it 2026-11-24) | Your console | 3 min |
@@ -25,7 +27,7 @@ Added 2026-11-24 (ADR-078). Steps 23 to 25 unlock the AI; without them the app s
 | 33 | **Traffic check on a real phone** (before the Play release): install the release build, use Cloud boost once, and capture traffic with HTTP Toolkit or PCAPdroid; a session reads the capture to confirm the notice lists everything Google receives (ML Kit telemetry is still unverified) | Your phone | 30 min |
 | 34 | **EU and UK representative** (GDPR Art. 27): decide with the lawyer whether to appoint one (services cost roughly a few hundred euros a year) or to switch Cloud boost off for EEA/UK phones | Your decision | — |
 | 35 | **Egypt PDPC licence** (Law 151 Art. 12): ask the lawyer whether Cloud boost needs the sensitive-data licence and a transfer permit; the grace period ended about 1 Nov 2026 | Your decision | — |
-| 36 | **One privacy-lawyer review before the Play release**, with `docs/compliance/PRIVACY_REVIEW_2026-11-24.md`, the privacy policy and the consumer health data policy pages | Paid, yours | 1–2 h |
+| 36 | **One privacy-lawyer review before the Play release**, with `docs/compliance/PRIVACY_REVIEW_2026-11-24.md`, the privacy policy and the consumer health data policy pages Sent to the lawyer 27 Nov 2026. **Decided 2026-11-27 (owner, verbatim): "lawyer sent on 27/11/2026, proceed as we are you have the greenlight."** | Paid, yours | Done |
 
 ## Judge audit (2026-11-26): decisions and the real-phone run
 
@@ -39,24 +41,26 @@ Plan: `docs/33_REBUILD_V3/audit-2026-11-26/00-FINISHING-PLAN.md` (PROGRESS R14).
 | 43 | **Real-phone proof run** (this is rows 25 and 26 in practice). Install the build a session sends, register its App Check debug token, then: Settings → Assistant (status), "+" → Tell femio anything (Say it), Ask femio one question, switch Cloud boost on and ask one general question, then Settings → Assistant → What the AI did. Send the screenshots and say whether the phone shows "Ready". Nothing has run against real Gemini Nano or Firebase yet, and the submission's main claim depends on it | Your phone and console | 30 min |
 | 44 | **Pregnancy warning-sign list (MR-29).** The card lists 7 signs and cites CDC Hear Her, which lists more (fever, fainting, thoughts of harming yourself or the baby, chest pain, severe vomiting, fluid leaking, leg swelling, overwhelming tiredness). Approve adding them, or name the ones to leave out (R14.11) | Clinical sign-off | 10 min |
 | 45 | **Website deploy for the truth fixes.** When R14.2 and R14.4 are built, say "deploy" so the live privacy pages stop promising that names are removed and the site links the test build | Production deploy | 1 min |
-| 46 | **Movement log, clinician check (CLIN-20, MR-30).** The log counts movements and times each session; the 1.5x flag is a design heuristic, and some UK guidance prefers "know your baby's usual pattern" to counting [NEEDS SOURCE: RCOG / NHS reduced fetal movements]. The urgent line ("contact your maternity team now, do not wait") is correct. Recommended: you read MR-30 against the NHS page and say "keep" or "switch to pattern wording"; until then it ships as is | Clinical review | 10 min |
+| 46 | **Movement log, clinician check (CLIN-20, MR-30).** The log counts movements and times each session; the 1.5x flag is a design heuristic, and some UK guidance prefers "know your baby's usual pattern" to counting [NEEDS SOURCE: RCOG / NHS reduced fetal movements]. The urgent line ("contact your maternity team now, do not wait") is correct. Recommended: you read MR-30 against the NHS page and say "keep" or "switch to pattern wording"; until then it ships as is **Decided 2026-11-27 (owner, verbatim): "keep."** MR-30 wording stays as it ships | Clinical review | Done |
+
+| 47 | **Which repo is public?** The repo you made public is `KhaledHassanein/Femio`, the whole monorepo; the app-only `femio-app` was never created. No keys, keystore, `assistant.env` or `key.properties` are in its history (audited 2026-11-27), but it shows your personal email (docs and every commit's author line) and the internal plans. Recommended: make `Femio` private again (Settings → General → Danger Zone → Change visibility), and let a session publish the app-only template as `femio-app` for the judges. Also turn on Dependabot alerts and add a licence for the public repo (PROGRESS R14.32) | Your account | 5 min |
 
 ## Calculators (R13, 2026-11-25)
 
 | # | What | Why only you | Time |
 |---|---|---|---|
-| 37 | **PCOS visit checklist: yes or no?** A page or app tool that lists PCOS symptoms and questions to bring to a clinician, with no score and no "you may have PCOS" (D-04 bars a screener in v1). Say yes and a session builds it from the cited PCOS guide (PROGRESS R13.6) | A product and regulatory call | 2 min |
-| 38 | **Read the new Arabic calculator wording** on `/ar/calculators/due-date`, `/pregnancy-calendar`, `/pregnancy-weight-gain`, `/contraction-timer` (screenshots in `testing-results/2026-11-25-r11-calculators/`); note any line to change (PROGRESS R13.7) | Clinical Arabic register | 15 min |
+| 37 | **PCOS visit checklist: yes or no?** A page or app tool that lists PCOS symptoms and questions to bring to a clinician, with no score and no "you may have PCOS" (D-04 bars a screener in v1). Say yes and a session builds it from the cited PCOS guide (PROGRESS R13.6) **Decided 2026-11-27 (owner, verbatim): "yes."** Build it with no score and no verdict (PROGRESS R13.6, now open) | A product and regulatory call | Done |
+| 38 | **Read the new Arabic calculator wording** on `/ar/calculators/due-date`, `/pregnancy-calendar`, `/pregnancy-weight-gain`, `/contraction-timer` (screenshots in `testing-results/2026-11-25-r11-calculators/`); note any line to change (PROGRESS R13.7) **Decided 2026-11-27 (owner, verbatim): "change nothing all approved."** (PROGRESS R13.7) | Clinical Arabic register | Done |
 
 ## Now (before the release candidate)
 
 | # | What | Why only you | Time |
 |---|---|---|---|
-| 1 | **Create the Google Play Console account** ($25, one-off) at play.google.com/console | Google verifies your identity | 20 min |
+| 1 | ~~Create the Google Play Console account~~ **Done 2026-11-27: account and the femio app created.** Next: upload to Internal testing (owner page Lab 1) | | Done |
 | 2 | **Probably done; please confirm (audit 2026-11-26, REL-6):** `E:\_Private\femio-upload-keystore.jks` (29 Oct) and a git-ignored `key.properties` exist in the main checkout. Confirm that the keystore has a backup copy. Original step: **Create the upload keystore** and keep it outside the repo: run the command in `docs/33_REBUILD_V3/05_RELEASE_RUNBOOK.md` §2, then copy `apps/mobile/android/key.properties.example` to `key.properties` and fill it in. Back the `.jks` file up somewhere safe: losing it means a new app listing | A signing key is an identity | 10 min |
 | 3 | ~~Fill the three legal placeholders~~ **Done 2026-10-30**: `info@femioapp.com` (receives mail, you tested it), KM Digital Labs, sole proprietorship, commercial register no. 682-374-954 | | |
 | 4 | **Pause the Supabase project** (Settings → General → Pause) and **delete the `femio-cms` Vercel project**. Before pausing, if you ever edited translations in the old CMS translation portal, export them first: SQL editor → `select key, locale, value from ui_strings where status = 'human_reviewed' and locale <> 'en'` → CSV → send to a session to merge | Account owner only | 10 min |
-| 39 | **Clinical read of the content revision (R3.10)**: the medical changes are listed in the commit messages `d83c7c1` (guides) and `114b2a2` (app and website strings), and the items left for you in `docs/33_REBUILD_V3/research/CONTENT_REVISION_2026-11.md`. Approve, or name the lines to revert | Medical sign-off is yours | 30–45 min |
+| 39 | **Clinical read of the content revision (R3.10)**: the medical changes are listed in the commit messages `d83c7c1` (guides) and `114b2a2` (app and website strings), and the items left for you in `docs/33_REBUILD_V3/research/CONTENT_REVISION_2026-11.md`. Approve, or name the lines to revert **Decided 2026-11-27 (owner, verbatim): "approved."** | Medical sign-off is yours | Done |
 
 ## When a session sends a build
 

@@ -235,6 +235,8 @@ void main() {
 }
 
 class _Recorder implements ReminderScheduler {
+  @override
+  Future<void> openSettings() async {}
   _Recorder({this.permission = true, this.throwOnSchedule = false});
   final bool permission;
   final bool throwOnSchedule;

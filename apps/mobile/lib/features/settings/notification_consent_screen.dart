@@ -115,6 +115,8 @@ class _NotificationConsentScreenState extends State<NotificationConsentScreen> {
                     _DeniedCard(
                       title: l.notifConsentDeniedTitle,
                       body: l.notifConsentDeniedBody,
+                      action: l.notifOpenSettings,
+                      onAction: widget.controller.openNotificationSettings,
                     ),
                     const SizedBox(height: space3),
                   ],
@@ -225,9 +227,11 @@ class _Fact extends StatelessWidget {
 
 /// The plain statement after the phone refused permission, with how to allow it later.
 class _DeniedCard extends StatelessWidget {
-  const _DeniedCard({required this.title, required this.body});
+  const _DeniedCard({required this.title, required this.body, required this.action, required this.onAction});
   final String title;
   final String body;
+  final String action;
+  final VoidCallback onAction;
 
   @override
   Widget build(BuildContext context) {
@@ -254,6 +258,12 @@ class _DeniedCard extends StatelessWidget {
                   Text(title, style: t.titleSmall),
                   const SizedBox(height: space1),
                   Text(body, style: t.bodyMedium),
+                  const SizedBox(height: space2),
+                  OutlinedButton.icon(
+                    onPressed: onAction,
+                    icon: const Icon(Icons.settings_outlined),
+                    label: Text(action),
+                  ),
                 ],
               ),
             ),

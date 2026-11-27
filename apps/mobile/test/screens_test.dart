@@ -157,7 +157,14 @@ void main() {
         expect(find.text(hijriMonthLine('2026-10-01', '2026-10-31', 'ar')), lang == 'ar' ? findsOneWidget : findsNothing);
         await tester.tap(find.byIcon(Icons.edit_note_outlined));
         await _shoot(tester, '${lang}_${b.name}_10_log');
-        // Logging from the screen saves to the record.
+        // Logging from the screen saves to the record. Acne is past the folded five, so the
+        // list opens first (owner 2026-11-27: folded symptoms, every one still one tap away).
+        final showAll = find.text(lang == 'en' ? 'Show all symptoms' : 'عرض كل الأعراض');
+        expect(find.text(lang == 'en' ? 'Acne' : 'حبّ الشباب'), findsNothing);
+        await tester.ensureVisible(showAll);
+        await tester.pumpAndSettle();
+        await tester.tap(showAll);
+        await tester.pumpAndSettle();
         final acne = find.text(lang == 'en' ? 'Acne' : 'حبّ الشباب');
         await tester.ensureVisible(acne);
         await tester.pumpAndSettle();

@@ -98,7 +98,10 @@ class _MedicinePageState extends State<MedicinePage> {
         if (!await showNotificationConsent(context, c, initial: NotificationKind.medicine)) return;
       } else if (!c.profile!.settings.medicineReminder) {
         if (!await c.updateReminders(medicine: true)) {
-          messenger.showSnackBar(SnackBar(content: Text(l.reminderPermissionDenied)));
+          messenger.showSnackBar(SnackBar(
+            content: Text(l.reminderPermissionDenied),
+            action: SnackBarAction(label: l.notifOpenSettings, onPressed: c.openNotificationSettings),
+          ));
           return;
         }
       }

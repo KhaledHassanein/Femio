@@ -24,6 +24,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:femio/features/assistant/mic_button.dart';
 
 const _out = '../../../testing-results/2026-11-25-r10-say-it-days';
 const _today = '2026-11-25';
@@ -237,11 +238,12 @@ void main() {
     expect(c.profile!.logs[_yesterday]!.terms, ['bloating']);
   });
 
-  testWidgets('the keyboard-dictation hint sits under the field and needs no permission', (tester) async {
+  testWidgets('the mic sits in the field, and the hint says the voice stays on the phone (ADR-086)', (tester) async {
     await _size(tester);
     final c = await _controller('en');
     await _open(tester, c, 'en', Brightness.light);
-    expect(find.textContaining('microphone on your keyboard'), findsOneWidget);
+    expect(find.byType(MicButton), findsOneWidget);
+    expect(find.textContaining('nothing is recorded or sent'), findsOneWidget);
   });
 
   testWidgets('the on-phone model is asked about one day\'s words at a time', (tester) async {

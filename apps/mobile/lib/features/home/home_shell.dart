@@ -109,6 +109,10 @@ class _HomeShellState extends State<HomeShell> {
               today: today,
               library: _library,
               onOpenLog: () => _openLog(today),
+              onOpenLearn: () => setState(() {
+                _tab = 3;
+                _learnOpened = true;
+              }),
             );
             return;
           }

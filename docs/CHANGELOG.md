@@ -3,6 +3,12 @@ All notable changes to Femio V2.
 
 ## [Unreleased]
 ### Changed
+- **Ask no longer freezes.** The assistant now works in the background, and when the AI cannot run femio tells you why: the AI is off, this phone has no built-in AI, or Cloud boost is off or not working right now.
+- **Speak instead of typing.** A mic on Ask femio and Say it turns your voice into text on the phone itself; nothing is recorded or sent. If your phone cannot do that, femio says why.
+- **Add a lab result, scan or report from the + button**, and open the guides from there.
+- **Shorter symptom list.** Your usual symptoms first, then "Other" for your own words, then "Show all symptoms".
+- **"Open settings" when notifications or the microphone are turned off** for femio.
+- **Each AI feature says what it does for you** in "What the AI can see".
 - **Using less of the AI is always one step.** Going from Cloud boost back to AI on this phone, like turning the AI off, asks you to confirm but not to tick anything.
 - **Nothing is ticked for you in "Save this to your record?".** You tick what to keep.
 - **No pregnancy-test reminder right after a pregnancy ends.** The "your period has not come for a while" prompt now counts from the day the pregnancy ended, and "Change" in a pregnancy offers "My pregnancy has ended" first.
