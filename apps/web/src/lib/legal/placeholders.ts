@@ -35,11 +35,15 @@ export const LEGAL_VALUES = {
  * policy to version 2 after the audit's truth pass (redaction wording, the full health
  * record, birth-year purpose, lock-screen words, sharing and export, the NEXT_LOCALE
  * cookie). The dates still wait for the deploy day.
+ *
+ * 2026-11-27 (re-score PRIV-N2-1, PRIV-9): health data policy version 3 names Google's AI
+ * usage data and reports about AI answers under "Who receives it"; both dates set to the
+ * deploy day, 27 Nov (v3 privacy was deployed that morning).
  */
 export const LEGAL_EDITIONS = {
-  privacy: { date: "2026-11-30", version: "3" },
+  privacy: { date: "2026-11-27", version: "3" },
   terms: { date: "2026-10-29", version: "1" },
-  healthData: { date: "2026-11-30", version: "2" },
+  healthData: { date: "2026-11-27", version: "3" },
 } as const;
 
 /** Matches any of the unfilled markers, so the page can highlight them. */

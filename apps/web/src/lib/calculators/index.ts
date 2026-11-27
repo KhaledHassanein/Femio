@@ -173,15 +173,20 @@ export function gestationalAge(lmpISO: string, atISO: string): GestationalAge | 
   return { weeks: Math.floor(totalDays / 7), days: totalDays % 7, totalDays };
 }
 
+/** WHO adult BMI cut-offs (MR-55): each band starts at the previous one's upper limit. */
+export const BMI_UNDERWEIGHT_BELOW = 18.5;
+export const BMI_NORMAL_BELOW = 25;
+export const BMI_OVERWEIGHT_BELOW = 30;
+
 /** BMI (metric). Category uses WHO adult cut-offs: general information, never a verdict on a person. */
 export function bmi(weightKg: number, heightCm: number): { value: number; category: BmiCategory } | null {
   if (!(weightKg > 0) || !(heightCm > 0)) return null;
   const meters = heightCm / 100;
   const value = Math.round((weightKg / (meters * meters)) * 10) / 10;
   let category: BmiCategory;
-  if (value < 18.5) category = "underweight";
-  else if (value < 25) category = "normal";
-  else if (value < 30) category = "overweight";
+  if (value < BMI_UNDERWEIGHT_BELOW) category = "underweight";
+  else if (value < BMI_NORMAL_BELOW) category = "normal";
+  else if (value < BMI_OVERWEIGHT_BELOW) category = "overweight";
   else category = "obese";
   return { value, category };
 }

@@ -568,6 +568,9 @@
         "more": "Tres o más"
       },
       "bmiLine": "IMC antes del embarazo: {value} ({band})",
+      "bandUnder": "menos de {limit}",
+      "bandBetween": "de {low} a menos de {high}",
+      "bandFrom": "{limit} o más",
       "eyebrow": "Rango de referencia del aumento total durante todo el embarazo",
       "rangeKg": "De {low} a {high} kg",
       "rangeLb": "De {low} a {high} lb",
@@ -1311,7 +1314,7 @@
       },
       {
         "heading": "Quién los recibe",
-        "body": "Nadie, salvo en Cloud boost: Google LLC, a través de Firebase AI Logic (Gemini Developer API, nivel de pago), como nuestro encargado del tratamiento, solo después de tu consentimiento y solo para los usos que marcaste. Contacto de privacidad de Google: policies.google.com/privacy. No tenemos filiales que los reciban. No los vendemos, y no los compartimos con anunciantes, corredores de datos ni empresas de analítica. Las solicitudes enviadas a Google no llevan nombre ni cuenta, por lo que una solicitud de borrado no se puede asociar a ellas; Google las borra en 55 días. Cuando compartes o exportas tú misma un archivo, como un documento, tu resumen de visita o una hoja de cálculo de tus registros, va a la app o al lugar que eliges; femio no lo envía."
+        "body": "Cloud boost: Google LLC, a través de Firebase AI Logic (Gemini Developer API, nivel de pago), como nuestro encargado del tratamiento, solo después de tu consentimiento y solo para los usos que marcaste. Contacto de privacidad de Google: policies.google.com/privacy. No tenemos filiales que los reciban. No los vendemos, y no los compartimos con anunciantes, corredores de datos ni empresas de analítica. Las solicitudes enviadas a Google no llevan nombre ni cuenta, por lo que una solicitud de borrado no se puede asociar a ellas; Google las borra en 55 días. Aparte, siempre que la app usa el software de IA de Google, incluso con Cloud boost desactivado, ese software puede enviar a Google datos técnicos de uso (detalles del dispositivo y de la app, un identificador de esta instalación, errores y tiempos); femio no le añade ninguno de tus datos de salud. Cuando compartes o exportas tú misma un archivo, como un documento, tu resumen de visita, una hoja de cálculo de tus registros o un informe sobre una respuesta de la IA, va a la app o al lugar que eliges; femio no lo envía."
       },
       {
         "heading": "Tu consentimiento",

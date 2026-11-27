@@ -568,6 +568,9 @@
         "more": "Three or more"
       },
       "bmiLine": "BMI before pregnancy: {value} ({band})",
+      "bandUnder": "under {limit}",
+      "bandBetween": "{low} to under {high}",
+      "bandFrom": "{limit} or more",
       "eyebrow": "Reference range for total gain over the whole pregnancy",
       "rangeKg": "{low} to {high} kg",
       "rangeLb": "{low} to {high} lb",
@@ -1311,7 +1314,7 @@
       },
       {
         "heading": "Who receives it",
-        "body": "Nobody, except Cloud boost: Google LLC, through Firebase AI Logic (Gemini Developer API, paid tier), as our processor, only after your consent and only for the uses you ticked. Google’s privacy contact: policies.google.com/privacy. We have no affiliates that receive it. We do not sell it, and we do not share it with advertisers, data brokers or analytics companies. Requests sent to Google carry no name or account, so a deletion request cannot be matched to them; Google deletes them within 55 days. When you share or export a file yourself, such as a document, your visit summary or a spreadsheet of your logs, it goes to the app or place you pick; femio does not send it."
+        "body": "Cloud boost: Google LLC, through Firebase AI Logic (Gemini Developer API, paid tier), as our processor, only after your consent and only for the uses you ticked. Google’s privacy contact: policies.google.com/privacy. We have no affiliates that receive it. We do not sell it, and we do not share it with advertisers, data brokers or analytics companies. Requests sent to Google carry no name or account, so a deletion request cannot be matched to them; Google deletes them within 55 days. Separately, whenever the app uses Google’s AI software, even with Cloud boost off, that software may send Google technical usage data (device and app details, an identifier for this installation, errors and timings); femio adds none of your health data to it. When you share or export a file yourself, such as a document, your visit summary, a spreadsheet of your logs or a report about an AI answer, it goes to the app or place you pick; femio does not send it."
       },
       {
         "heading": "Your consent",

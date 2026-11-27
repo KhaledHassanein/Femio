@@ -3,6 +3,12 @@
 import { useState } from "react";
 import { useFormatter, useTranslations } from "next-intl";
 import {
+  BMI_NORMAL_BELOW,
+  BMI_OVERWEIGHT_BELOW,
+  BMI_UNDERWEIGHT_BELOW,
+  type BmiCategory,
+} from "@/lib/calculators";
+import {
   CM_PER_INCH,
   KG_PER_LB,
   MAX_HEIGHT_CM,
@@ -36,6 +42,20 @@ const BABY_CHOICES: readonly { value: Babies; key: "one" | "two" | "more" }[] = 
 export function WeightGainCalculator() {
   const t = useTranslations("calculators");
   const format = useFormatter();
+  // CLIN-N2-4 / MR-55: the band by its numbers, never "underweight" or "obese" (as the app).
+  const cut = (v: number) => format.number(v, { maximumFractionDigits: 1 });
+  const bandText = (band: BmiCategory): string => {
+    switch (band) {
+      case "underweight":
+        return t("weightGain.bandUnder", { limit: cut(BMI_UNDERWEIGHT_BELOW) });
+      case "normal":
+        return t("weightGain.bandBetween", { low: cut(BMI_UNDERWEIGHT_BELOW), high: cut(BMI_NORMAL_BELOW) });
+      case "overweight":
+        return t("weightGain.bandBetween", { low: cut(BMI_NORMAL_BELOW), high: cut(BMI_OVERWEIGHT_BELOW) });
+      case "obese":
+        return t("weightGain.bandFrom", { limit: cut(BMI_OVERWEIGHT_BELOW) });
+    }
+  };
   const [unit, setUnit] = useState<Unit>("metric");
   const [weight, setWeight] = useState("");
   const [height, setHeight] = useState("");
@@ -98,7 +118,7 @@ export function WeightGainCalculator() {
           headline={headline ?? t(result.noRangeReason === "multiples" ? "weightGain.noRangeMultiples" : "weightGain.noRangeTwinsUnderweight")}
           lines={[
             ...(other ? [t("weightGain.otherUnit", { range: other })] : []),
-            t("weightGain.bmiLine", { value: num(result.bmi), band: t(`bmi.categories.${result.band}`) }),
+            t("weightGain.bmiLine", { value: num(result.bmi), band: bandText(result.band) }),
           ]}
         >
           <RuleLine>{t("weightGain.note")}</RuleLine>

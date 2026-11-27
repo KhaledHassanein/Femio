@@ -3,6 +3,7 @@ All notable changes to Femio V2.
 
 ## [Unreleased]
 ### Changed
+- **A second pregnancy is a pregnancy.** If you recorded a birth in femio and later change your stage to pregnant with a new due date, femio now shows the pregnancy view with the week guide and the pregnancy warning signs, instead of the after-birth view. The website's weight-gain calculator now names your BMI group by its numbers, like the app. The consumer health data policy (version 3) now also names the technical usage data Google's AI software may send and reports you send about an AI answer.
 - **Report an AI answer.** Every answer femio's AI writes now has "Report this answer". Pick a reason and your phone's share sheet sends only that answer to femio's support address, never your question or your records.
 - **Help now works on the lock screen.** You can open the crisis numbers without your PIN. If a change cannot be saved (for example, a full phone), femio now tells you, keeps what you typed and lets you try again. The last step of setup introduces femio's assistant.
 - **Fewer false readings.** A long period logged day by day no longer counts as a new cycle on day 11. The fertile window now checks the cycle length you actually have, not the one you first entered. Ovulation shows as "around" a date. The weight-gain tool names your BMI group by its numbers, not with words like "obese".

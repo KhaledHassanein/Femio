@@ -568,6 +568,9 @@
         "more": "Trois ou plus"
       },
       "bmiLine": "IMC avant la grossesse : {value} ({band})",
+      "bandUnder": "moins de {limit}",
+      "bandBetween": "de {low} à moins de {high}",
+      "bandFrom": "{limit} ou plus",
       "eyebrow": "Fourchette de référence pour la prise totale sur toute la grossesse",
       "rangeKg": "De {low} à {high} kg",
       "rangeLb": "De {low} à {high} lb",
@@ -1311,7 +1314,7 @@
       },
       {
         "heading": "Qui les reçoit",
-        "body": "Personne, sauf pour Cloud boost : Google LLC, via Firebase AI Logic (Gemini Developer API, offre payante), en tant que notre sous-traitant, seulement après votre consentement et seulement pour les usages que vous avez cochés. Contact de Google pour la confidentialité : policies.google.com/privacy. Aucune société affiliée ne les reçoit. Nous ne les vendons pas, et nous ne les partageons ni avec des annonceurs, ni avec des courtiers en données, ni avec des sociétés d’analyse. Les demandes envoyées à Google ne portent ni nom ni compte, donc une demande de suppression ne peut pas leur être associée ; Google les supprime sous 55 jours. Quand vous partagez ou exportez vous-même un fichier, comme un document, votre résumé de consultation ou un tableur de vos saisies, il va vers l’application ou l’endroit que vous choisissez ; femio ne l’envoie pas."
+        "body": "Cloud boost : Google LLC, via Firebase AI Logic (Gemini Developer API, offre payante), en tant que notre sous-traitant, seulement après votre consentement et seulement pour les usages que vous avez cochés. Contact de Google pour la confidentialité : policies.google.com/privacy. Aucune société affiliée ne les reçoit. Nous ne les vendons pas, et nous ne les partageons ni avec des annonceurs, ni avec des courtiers en données, ni avec des sociétés d’analyse. Les demandes envoyées à Google ne portent ni nom ni compte, donc une demande de suppression ne peut pas leur être associée ; Google les supprime sous 55 jours. Par ailleurs, chaque fois que l’application utilise le logiciel d’IA de Google, même sans Cloud boost, ce logiciel peut envoyer à Google des données techniques d’utilisation (détails de l’appareil et de l’application, un identifiant de cette installation, erreurs et durées) ; femio n’y ajoute aucune de vos données de santé. Quand vous partagez ou exportez vous-même un fichier, comme un document, votre résumé de consultation, un tableur de vos saisies ou un signalement sur une réponse de l’IA, il va vers l’application ou l’endroit que vous choisissez ; femio ne l’envoie pas."
       },
       {
         "heading": "Votre consentement",
