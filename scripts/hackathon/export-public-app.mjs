@@ -36,6 +36,8 @@ const PATH_MAP = [
   ["scripts/hackathon/public-template/", ""],
   ["scripts/hackathon/public-export-secrets.mjs", "scripts/secret-scan.mjs"],
   ["scripts/analytics-lint.mjs", "scripts/analytics-lint.mjs"],
+  // The native half of the tripwire (Kotlin, Gradle, merged manifests); analytics-lint imports it.
+  ["scripts/lib/android-tripwire.mjs", "scripts/lib/android-tripwire.mjs"],
   ["apps/mobile/", "apps/mobile/"],
   ["fixtures/domain/", "fixtures/domain/"],
 ];
@@ -43,6 +45,7 @@ const ARCHIVE_PATHS = [
   "apps/mobile",
   "fixtures/domain",
   "scripts/analytics-lint.mjs",
+  "scripts/lib/android-tripwire.mjs",
   "scripts/hackathon/public-export-secrets.mjs",
   "scripts/hackathon/public-template",
 ];
@@ -191,10 +194,14 @@ function main() {
       process.exit(1);
     }
   }
-  const tripwire = readFileSync(join(out, "scripts/analytics-lint.mjs"));
-  if (!tripwire.equals(git("show", "HEAD:scripts/analytics-lint.mjs"))) {
-    console.error("refusing: the exported tripwire differs from HEAD");
-    process.exit(1);
+  // Every tripwire file must be byte-identical to HEAD; a missing import made the public CI
+  // red on 27 Nov (JUDGE-N2-1), so the list covers what analytics-lint imports.
+  for (const file of ["scripts/analytics-lint.mjs", "scripts/lib/android-tripwire.mjs"]) {
+    const path = join(out, file);
+    if (!existsSync(path) || !readFileSync(path).equals(git("show", `HEAD:${file}`))) {
+      console.error(`refusing: the exported tripwire file ${file} is missing or differs from HEAD`);
+      process.exit(1);
+    }
   }
 
   const findings = scanForSecrets(out);
