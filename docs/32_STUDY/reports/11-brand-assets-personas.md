@@ -89,7 +89,7 @@ Status key: live = used by product or gate; app-only = closed web tracker only (
 
 | path | lines | one-line purpose | status |
 |---|---|---|---|
-| docs/12_BRAND_DESIGN_TOKENS.md | 77 | Brand rationale. Values are still v2 (violet #7C3AED, Inter, Fraunces, dark #17151F) and it names Capacitor (R11) | live |
+| docs/archive/2026-11/12_BRAND_DESIGN_TOKENS.md | 77 | Brand rationale. Values are still v2 (violet #7C3AED, Inter, Fraunces, dark #17151F) and it names Capacitor (R11) | live |
 | docs/archive/plans-2026-08/25_DESIGN_DIRECTION_BRIEF.md | 255 | R1.2 visual language. §5a (lines 173–241) holds the rejected patterns and is still used as the rule set | dead |
 | docs/08_PERSONA_TAXONOMY_AND_ADAPTIVE_UX.md | 73 | Persona taxonomy: 73 persona files plus the Z1 fallback, the A–K schema, research waves | live |
 | docs/09_MASTER_ADAPTATION_MODEL.md | not read | Master model that the persona specs inherit from | unknown |
@@ -259,7 +259,7 @@ Out of the wedge, read for context only: A2 teen (295 lines; teen mode, no ads, 
 - launch_background.xml: **rebuild** to Dusk (R4).
 - art/*.svg and generate-topic-art.mjs: **keep**; the most Dusk-faithful assets in the set.
 - Persona specs (73): **keep**. Re-check the six read in full against the registry before the wedge build.
-- docs/12_BRAND_DESIGN_TOKENS.md: **rebuild** against the CSS (R11), otherwise it misleads the next reader.
+- docs/archive/2026-11/12_BRAND_DESIGN_TOKENS.md: **rebuild** against the CSS (R11), otherwise it misleads the next reader.
 - docs/25 §5a: **keep the rules, move them to a live doc**; fix the Fraunces rule (R21).
 - registry track files: **keep**; **extend** for C5, C10, D5, D6 and the missing C and D records, and for the C6 hero (R16, R17).
 - lib/fertility and its test: **keep** the boundary until the owner decides §10 Q2.

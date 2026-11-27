@@ -3821,7 +3821,7 @@
    "id": "doc-14-architecture",
    "label": "14_SYSTEM_ARCHITECTURE.md",
    "type": "doc",
-   "path": "docs/14_SYSTEM_ARCHITECTURE.md",
+   "path": "docs/archive/2026-11/14_SYSTEM_ARCHITECTURE.md",
    "status": "live",
    "area": "05-data-cms"
   },
@@ -3829,7 +3829,7 @@
    "id": "doc-18-rbac",
    "label": "18_RBAC_MODEL.md",
    "type": "doc",
-   "path": "docs/18_RBAC_MODEL.md",
+   "path": "docs/archive/2026-11/18_RBAC_MODEL.md",
    "status": "live",
    "area": "05-data-cms"
   },
@@ -4909,7 +4909,7 @@
    "id": "docs-16-condition-library-ia",
    "label": "doc 16: condition library IA (8 categories)",
    "type": "doc",
-   "path": "docs/16_CONDITION_LIBRARY_IA.md",
+   "path": "docs/archive/2026-11/16_CONDITION_LIBRARY_IA.md",
    "status": "live",
    "area": "07-content"
   },
@@ -5133,7 +5133,7 @@
    "id": "docs-30-revamp-benchmark",
    "label": "Competitor benchmark (content gaps, 5.2)",
    "type": "doc",
-   "path": "docs/30_REVAMP/delegated/2026-10-08-competitor-benchmark.md",
+   "path": "docs/archive/2026-11/30_REVAMP/delegated/2026-10-08-competitor-benchmark.md",
    "status": "live",
    "area": "07-content"
   },
@@ -5141,7 +5141,7 @@
    "id": "docs-30-revamp-app-strings-qa",
    "label": "App strings QA (AR, FR, ES UI)",
    "type": "doc",
-   "path": "docs/30_REVAMP/delegated/2026-10-08-app-strings-qa.md",
+   "path": "docs/archive/2026-11/30_REVAMP/delegated/2026-10-08-app-strings-qa.md",
    "status": "live",
    "area": "07-content"
   },
@@ -5149,7 +5149,7 @@
    "id": "docs-30-revamp-fr-register",
    "label": "FR register proposal (applied 99 of 101)",
    "type": "doc",
-   "path": "docs/30_REVAMP/delegated/2026-10-08-fr-register.md",
+   "path": "docs/archive/2026-11/30_REVAMP/delegated/2026-10-08-fr-register.md",
    "status": "live",
    "area": "07-content"
   },
@@ -5269,7 +5269,7 @@
    "id": "dec-store-shopify-phase3",
    "label": "Headless Shopify store in Phase 3",
    "type": "doc",
-   "path": "docs/06_TECH_STACK_SKILLS_CHECKLIST.md",
+   "path": "docs/archive/2026-11/06_TECH_STACK_SKILLS_CHECKLIST.md",
    "status": "unknown",
    "area": "08-strategy-market"
   },
@@ -5277,7 +5277,7 @@
    "id": "dec-store-affiliate-only",
    "label": "E-commerce affiliate-only (Mumzworld owns rail)",
    "type": "doc",
-   "path": "docs/30_REVAMP/02_MARKET_RESEARCH_2026-10.md",
+   "path": "docs/archive/2026-11/30_REVAMP/02_MARKET_RESEARCH_2026-10.md",
    "status": "live",
    "area": "08-strategy-market"
   },
@@ -5285,7 +5285,7 @@
    "id": "dec-legal-lawyer-gate",
    "label": "Counsel review is launch-blocking",
    "type": "doc",
-   "path": "docs/30_REVAMP/02_MARKET_RESEARCH_2026-10.md",
+   "path": "docs/archive/2026-11/30_REVAMP/02_MARKET_RESEARCH_2026-10.md",
    "status": "unknown",
    "area": "08-strategy-market"
   },
@@ -5301,7 +5301,7 @@
    "id": "dec-monetisation-freemium",
    "label": "Freemium in principle; model later (OD-7)",
    "type": "doc",
-   "path": "docs/30_REVAMP/03_REVAMP_PLAN.md",
+   "path": "docs/archive/2026-11/30_REVAMP/03_REVAMP_PLAN.md",
    "status": "live",
    "area": "08-strategy-market"
   },
@@ -5317,7 +5317,7 @@
    "id": "dec-payments-stripe-primary",
    "label": "Stripe primary, Paddle or LemonSqueezy (06)",
    "type": "doc",
-   "path": "docs/06_TECH_STACK_SKILLS_CHECKLIST.md",
+   "path": "docs/archive/2026-11/06_TECH_STACK_SKILLS_CHECKLIST.md",
    "status": "dead",
    "area": "08-strategy-market"
   },
@@ -5477,7 +5477,7 @@
    "id": "mkt-saudi-arabia",
    "label": "Market: Saudi Arabia (revenue first)",
    "type": "module",
-   "path": "docs/30_REVAMP/02_MARKET_RESEARCH_2026-10.md",
+   "path": "docs/archive/2026-11/30_REVAMP/02_MARKET_RESEARCH_2026-10.md",
    "status": "live",
    "area": "08-strategy-market"
   },
@@ -5485,7 +5485,7 @@
    "id": "mkt-egypt",
    "label": "Market: Egypt (volume, content, clinicians)",
    "type": "module",
-   "path": "docs/30_REVAMP/02_MARKET_RESEARCH_2026-10.md",
+   "path": "docs/archive/2026-11/30_REVAMP/02_MARKET_RESEARCH_2026-10.md",
    "status": "live",
    "area": "08-strategy-market"
   },
@@ -5493,7 +5493,7 @@
    "id": "mkt-uae",
    "label": "Market: UAE (fast follower)",
    "type": "module",
-   "path": "docs/30_REVAMP/02_MARKET_RESEARCH_2026-10.md",
+   "path": "docs/archive/2026-11/30_REVAMP/02_MARKET_RESEARCH_2026-10.md",
    "status": "live",
    "area": "08-strategy-market"
   },
@@ -5501,7 +5501,7 @@
    "id": "mkt-eu-global-web",
    "label": "Market: EU and global, web only",
    "type": "module",
-   "path": "docs/30_REVAMP/02_MARKET_RESEARCH_2026-10.md",
+   "path": "docs/archive/2026-11/30_REVAMP/02_MARKET_RESEARCH_2026-10.md",
    "status": "live",
    "area": "08-strategy-market"
   },
@@ -5509,7 +5509,7 @@
    "id": "mkt-mena-overall",
    "label": "Market: MENA overall (low-confidence sizing)",
    "type": "module",
-   "path": "docs/30_REVAMP/02_MARKET_RESEARCH_2026-10.md",
+   "path": "docs/archive/2026-11/30_REVAMP/02_MARKET_RESEARCH_2026-10.md",
    "status": "unknown",
    "area": "08-strategy-market"
   },
@@ -5517,7 +5517,7 @@
    "id": "mkt-us-context",
    "label": "Market: US (leaders' home, context)",
    "type": "module",
-   "path": "docs/30_REVAMP/02_MARKET_RESEARCH_2026-10.md",
+   "path": "docs/archive/2026-11/30_REVAMP/02_MARKET_RESEARCH_2026-10.md",
    "status": "live",
    "area": "08-strategy-market"
   },
@@ -5525,7 +5525,7 @@
    "id": "comp-flo",
    "label": "Flo (no Arabic in listing)",
    "type": "service",
-   "path": "docs/30_REVAMP/02_MARKET_RESEARCH_2026-10.md",
+   "path": "docs/archive/2026-11/30_REVAMP/02_MARKET_RESEARCH_2026-10.md",
    "status": "live",
    "area": "08-strategy-market"
   },
@@ -5533,7 +5533,7 @@
    "id": "comp-clue",
    "label": "Clue (Arabic among 27 languages)",
    "type": "service",
-   "path": "docs/30_REVAMP/02_MARKET_RESEARCH_2026-10.md",
+   "path": "docs/archive/2026-11/30_REVAMP/02_MARKET_RESEARCH_2026-10.md",
    "status": "live",
    "area": "08-strategy-market"
   },
@@ -5541,7 +5541,7 @@
    "id": "comp-stardust",
    "label": "Stardust (privacy damaged, Oct 2026)",
    "type": "service",
-   "path": "docs/03_COMPETITOR_ANALYSIS.md",
+   "path": "docs/archive/2026-11/03_COMPETITOR_ANALYSIS.md",
    "status": "unknown",
    "area": "08-strategy-market"
   },
@@ -5549,7 +5549,7 @@
    "id": "comp-natural-cycles",
    "label": "Natural Cycles (regulated contraceptive)",
    "type": "service",
-   "path": "docs/30_REVAMP/02_MARKET_RESEARCH_2026-10.md",
+   "path": "docs/archive/2026-11/30_REVAMP/02_MARKET_RESEARCH_2026-10.md",
    "status": "live",
    "area": "08-strategy-market"
   },
@@ -5557,7 +5557,7 @@
    "id": "comp-premom",
    "label": "Premom (OPK photo, Arabic listed)",
    "type": "service",
-   "path": "docs/30_REVAMP/delegated/2026-10-08-competitor-benchmark.md",
+   "path": "docs/archive/2026-11/30_REVAMP/delegated/2026-10-08-competitor-benchmark.md",
    "status": "live",
    "area": "08-strategy-market"
   },
@@ -5565,7 +5565,7 @@
    "id": "comp-fertility-friend",
    "label": "Fertility Friend (BBT depth)",
    "type": "service",
-   "path": "docs/03_COMPETITOR_ANALYSIS.md",
+   "path": "docs/archive/2026-11/03_COMPETITOR_ANALYSIS.md",
    "status": "live",
    "area": "08-strategy-market"
   },
@@ -5573,7 +5573,7 @@
    "id": "comp-ovia",
    "label": "Ovia (lifecycle concept, employer model)",
    "type": "service",
-   "path": "docs/03_COMPETITOR_ANALYSIS.md",
+   "path": "docs/archive/2026-11/03_COMPETITOR_ANALYSIS.md",
    "status": "live",
    "area": "08-strategy-market"
   },
@@ -5581,7 +5581,7 @@
    "id": "comp-pregnancy-plus",
    "label": "Pregnancy+ (Philips, polish)",
    "type": "service",
-   "path": "docs/30_REVAMP/02_MARKET_RESEARCH_2026-10.md",
+   "path": "docs/archive/2026-11/30_REVAMP/02_MARKET_RESEARCH_2026-10.md",
    "status": "live",
    "area": "08-strategy-market"
   },
@@ -5589,7 +5589,7 @@
    "id": "comp-babycenter-wte",
    "label": "BabyCenter and What to Expect (ad-funded)",
    "type": "service",
-   "path": "docs/03_COMPETITOR_ANALYSIS.md",
+   "path": "docs/archive/2026-11/03_COMPETITOR_ANALYSIS.md",
    "status": "unknown",
    "area": "08-strategy-market"
   },
@@ -5597,7 +5597,7 @@
    "id": "comp-balance",
    "label": "Balance (named clinician, menopause)",
    "type": "service",
-   "path": "docs/30_REVAMP/02_MARKET_RESEARCH_2026-10.md",
+   "path": "docs/archive/2026-11/30_REVAMP/02_MARKET_RESEARCH_2026-10.md",
    "status": "live",
    "area": "08-strategy-market"
   },
@@ -5605,7 +5605,7 @@
    "id": "comp-caria",
    "label": "Caria (CBT menopause)",
    "type": "service",
-   "path": "docs/03_COMPETITOR_ANALYSIS.md",
+   "path": "docs/archive/2026-11/03_COMPETITOR_ANALYSIS.md",
    "status": "unknown",
    "area": "08-strategy-market"
   },
@@ -5613,7 +5613,7 @@
    "id": "comp-stella",
    "label": "Stella (HRT pathway, Discovery bundle)",
    "type": "service",
-   "path": "docs/30_REVAMP/02_MARKET_RESEARCH_2026-10.md",
+   "path": "docs/archive/2026-11/30_REVAMP/02_MARKET_RESEARCH_2026-10.md",
    "status": "live",
    "area": "08-strategy-market"
   },
@@ -5621,7 +5621,7 @@
    "id": "comp-midday",
    "label": "Midday (Lisa Health, Mayo)",
    "type": "service",
-   "path": "docs/30_REVAMP/02_MARKET_RESEARCH_2026-10.md",
+   "path": "docs/archive/2026-11/30_REVAMP/02_MARKET_RESEARCH_2026-10.md",
    "status": "unknown",
    "area": "08-strategy-market"
   },
@@ -5629,7 +5629,7 @@
    "id": "comp-midi-health",
    "label": "Midi Health (care delivery, $150M run-rate)",
    "type": "service",
-   "path": "docs/30_REVAMP/02_MARKET_RESEARCH_2026-10.md",
+   "path": "docs/archive/2026-11/30_REVAMP/02_MARKET_RESEARCH_2026-10.md",
    "status": "live",
    "area": "08-strategy-market"
   },
@@ -5637,7 +5637,7 @@
    "id": "comp-oura-whoop",
    "label": "Oura and Whoop (wearable insight layer)",
    "type": "service",
-   "path": "docs/30_REVAMP/02_MARKET_RESEARCH_2026-10.md",
+   "path": "docs/archive/2026-11/30_REVAMP/02_MARKET_RESEARCH_2026-10.md",
    "status": "unknown",
    "area": "08-strategy-market"
   },
@@ -5645,7 +5645,7 @@
    "id": "comp-apple-samsung-os",
    "label": "Apple Health and Samsung Health (free floor)",
    "type": "service",
-   "path": "docs/30_REVAMP/02_MARKET_RESEARCH_2026-10.md",
+   "path": "docs/archive/2026-11/30_REVAMP/02_MARKET_RESEARCH_2026-10.md",
    "status": "live",
    "area": "08-strategy-market"
   },
@@ -5653,7 +5653,7 @@
    "id": "comp-al-malika",
    "label": "Al-Malika (Arabic tracking plus OB-GYN consult)",
    "type": "service",
-   "path": "docs/30_REVAMP/02_MARKET_RESEARCH_2026-10.md",
+   "path": "docs/archive/2026-11/30_REVAMP/02_MARKET_RESEARCH_2026-10.md",
    "status": "live",
    "area": "08-strategy-market"
   },
@@ -5661,7 +5661,7 @@
    "id": "comp-hawaa",
    "label": "Hawaa (Arabic period tracker)",
    "type": "service",
-   "path": "docs/30_REVAMP/02_MARKET_RESEARCH_2026-10.md",
+   "path": "docs/archive/2026-11/30_REVAMP/02_MARKET_RESEARCH_2026-10.md",
    "status": "live",
    "area": "08-strategy-market"
   },
@@ -5669,7 +5669,7 @@
    "id": "comp-pregnancy-calculator-hayah",
    "label": "Arabic pregnancy calculator (2.5M downloads, ad-funded)",
    "type": "service",
-   "path": "docs/30_REVAMP/02_MARKET_RESEARCH_2026-10.md",
+   "path": "docs/archive/2026-11/30_REVAMP/02_MARKET_RESEARCH_2026-10.md",
    "status": "live",
    "area": "08-strategy-market"
   },
@@ -5677,7 +5677,7 @@
    "id": "comp-altibbi",
    "label": "Altibbi (Arabic telehealth and search)",
    "type": "service",
-   "path": "docs/30_REVAMP/02_MARKET_RESEARCH_2026-10.md",
+   "path": "docs/archive/2026-11/30_REVAMP/02_MARKET_RESEARCH_2026-10.md",
    "status": "live",
    "area": "08-strategy-market"
   },
@@ -5685,7 +5685,7 @@
    "id": "comp-sehhaty",
    "label": "Sehhaty (Saudi MoH app, 27M)",
    "type": "service",
-   "path": "docs/30_REVAMP/02_MARKET_RESEARCH_2026-10.md",
+   "path": "docs/archive/2026-11/30_REVAMP/02_MARKET_RESEARCH_2026-10.md",
    "status": "live",
    "area": "08-strategy-market"
   },
@@ -5693,7 +5693,7 @@
    "id": "comp-vezeeta",
    "label": "Vezeeta (booking rail, Egypt)",
    "type": "service",
-   "path": "docs/30_REVAMP/02_MARKET_RESEARCH_2026-10.md",
+   "path": "docs/archive/2026-11/30_REVAMP/02_MARKET_RESEARCH_2026-10.md",
    "status": "unknown",
    "area": "08-strategy-market"
   },
@@ -5701,7 +5701,7 @@
    "id": "comp-nabta-health",
    "label": "Nabta Health (UAE, hybrid women's health)",
    "type": "service",
-   "path": "docs/30_REVAMP/02_MARKET_RESEARCH_2026-10.md",
+   "path": "docs/archive/2026-11/30_REVAMP/02_MARKET_RESEARCH_2026-10.md",
    "status": "live",
    "area": "08-strategy-market"
   },
@@ -5709,7 +5709,7 @@
    "id": "comp-mumzworld",
    "label": "Mumzworld (mother and baby commerce)",
    "type": "service",
-   "path": "docs/30_REVAMP/02_MARKET_RESEARCH_2026-10.md",
+   "path": "docs/archive/2026-11/30_REVAMP/02_MARKET_RESEARCH_2026-10.md",
    "status": "live",
    "area": "08-strategy-market"
   },
@@ -5717,7 +5717,7 @@
    "id": "comp-muslim-cycle-apps",
    "label": "Muslim cycle apps (Sila, Nisa Care, Tuhr, Afifa, others)",
    "type": "service",
-   "path": "docs/30_REVAMP/02_MARKET_RESEARCH_2026-10.md",
+   "path": "docs/archive/2026-11/30_REVAMP/02_MARKET_RESEARCH_2026-10.md",
    "status": "live",
    "area": "08-strategy-market"
   },
@@ -5725,7 +5725,7 @@
    "id": "comp-maven-clinic",
    "label": "Maven Clinic (US employer care)",
    "type": "service",
-   "path": "docs/30_REVAMP/02_MARKET_RESEARCH_2026-10.md",
+   "path": "docs/archive/2026-11/30_REVAMP/02_MARKET_RESEARCH_2026-10.md",
    "status": "unknown",
    "area": "08-strategy-market"
   },
@@ -5733,7 +5733,7 @@
    "id": "comp-glow-eve",
    "label": "Glow and Eve (2024 breach, aging)",
    "type": "service",
-   "path": "docs/03_COMPETITOR_ANALYSIS.md",
+   "path": "docs/archive/2026-11/03_COMPETITOR_ANALYSIS.md",
    "status": "unknown",
    "area": "08-strategy-market"
   },
@@ -5741,7 +5741,7 @@
    "id": "comp-peanut",
    "label": "Peanut (community, scale unverified)",
    "type": "service",
-   "path": "docs/30_REVAMP/02_MARKET_RESEARCH_2026-10.md",
+   "path": "docs/archive/2026-11/30_REVAMP/02_MARKET_RESEARCH_2026-10.md",
    "status": "unknown",
    "area": "08-strategy-market"
   },
@@ -5749,7 +5749,7 @@
    "id": "comp-imc-hospital",
    "label": "IMC Women's Health (Jeddah hospital app)",
    "type": "service",
-   "path": "docs/30_REVAMP/02_MARKET_RESEARCH_2026-10.md",
+   "path": "docs/archive/2026-11/30_REVAMP/02_MARKET_RESEARCH_2026-10.md",
    "status": "live",
    "area": "08-strategy-market"
   },
@@ -5757,7 +5757,7 @@
    "id": "comp-content-sites",
    "label": "Healthline, WebMD, Mayo, NHS (SEO content)",
    "type": "service",
-   "path": "docs/03_COMPETITOR_ANALYSIS.md",
+   "path": "docs/archive/2026-11/03_COMPETITOR_ANALYSIS.md",
    "status": "live",
    "area": "08-strategy-market"
   },
@@ -5781,7 +5781,7 @@
    "id": "reg-egypt-pdpl-31-oct-2026",
    "label": "Egypt PDPL enforcement from 31 Oct 2026",
    "type": "module",
-   "path": "docs/30_REVAMP/02_MARKET_RESEARCH_2026-10.md",
+   "path": "docs/archive/2026-11/30_REVAMP/02_MARKET_RESEARCH_2026-10.md",
    "status": "live",
    "area": "08-strategy-market"
   },
@@ -5789,7 +5789,7 @@
    "id": "doc-00-executive-summary",
    "label": "July exec summary (web-first, Capacitor)",
    "type": "doc",
-   "path": "docs/00_EXECUTIVE_SUMMARY.md",
+   "path": "docs/archive/2026-11/00_EXECUTIVE_SUMMARY.md",
    "status": "dead",
    "area": "08-strategy-market"
   },
@@ -5797,7 +5797,7 @@
    "id": "doc-01-v1-lessons",
    "label": "V1 lessons learned",
    "type": "doc",
-   "path": "docs/01_V1_LESSONS_LEARNED.md",
+   "path": "docs/archive/2026-11/01_V1_LESSONS_LEARNED.md",
    "status": "live",
    "area": "08-strategy-market"
   },
@@ -5805,7 +5805,7 @@
    "id": "doc-02-market-jul",
    "label": "July market and user research",
    "type": "doc",
-   "path": "docs/02_MARKET_USER_RESEARCH.md",
+   "path": "docs/archive/2026-11/02_MARKET_USER_RESEARCH.md",
    "status": "unknown",
    "area": "08-strategy-market"
   },
@@ -5813,7 +5813,7 @@
    "id": "doc-03-competitor-analysis",
    "label": "Competitor analysis (July tables, Aug craft)",
    "type": "doc",
-   "path": "docs/03_COMPETITOR_ANALYSIS.md",
+   "path": "docs/archive/2026-11/03_COMPETITOR_ANALYSIS.md",
    "status": "unknown",
    "area": "08-strategy-market"
   },
@@ -5821,7 +5821,7 @@
    "id": "doc-05-product-strategy-plan",
    "label": "July product strategy and phases",
    "type": "doc",
-   "path": "docs/05_PRODUCT_STRATEGY_PLAN.md",
+   "path": "docs/archive/2026-11/05_PRODUCT_STRATEGY_PLAN.md",
    "status": "dead",
    "area": "08-strategy-market"
   },
@@ -5829,7 +5829,7 @@
    "id": "doc-30-revamp-00-readme",
    "label": "Revamp index",
    "type": "doc",
-   "path": "docs/30_REVAMP/00_README.md",
+   "path": "docs/archive/2026-11/30_REVAMP/00_README.md",
    "status": "unknown",
    "area": "08-strategy-market"
   },
@@ -5837,7 +5837,7 @@
    "id": "doc-30-revamp-01-audit",
    "label": "Agency audit and critique (7 Oct)",
    "type": "doc",
-   "path": "docs/30_REVAMP/01_AUDIT_AND_CRITIQUE.md",
+   "path": "docs/archive/2026-11/30_REVAMP/01_AUDIT_AND_CRITIQUE.md",
    "status": "live",
    "area": "08-strategy-market"
   },
@@ -5845,7 +5845,7 @@
    "id": "doc-30-revamp-02-market-research",
    "label": "Market research, Oct 2026 (SWOT, wedge)",
    "type": "doc",
-   "path": "docs/30_REVAMP/02_MARKET_RESEARCH_2026-10.md",
+   "path": "docs/archive/2026-11/30_REVAMP/02_MARKET_RESEARCH_2026-10.md",
    "status": "live",
    "area": "08-strategy-market"
   },
@@ -5853,7 +5853,7 @@
    "id": "doc-30-revamp-03-revamp-plan",
    "label": "Revamp plan (wedge, Dusk Bloom, phases)",
    "type": "doc",
-   "path": "docs/30_REVAMP/03_REVAMP_PLAN.md",
+   "path": "docs/archive/2026-11/30_REVAMP/03_REVAMP_PLAN.md",
    "status": "unknown",
    "area": "08-strategy-market"
   },
@@ -5869,7 +5869,7 @@
    "id": "doc-30-revamp-delegated-benchmark",
    "label": "Competitor benchmark, Arabic wedge (8 Oct)",
    "type": "doc",
-   "path": "docs/30_REVAMP/delegated/2026-10-08-competitor-benchmark.md",
+   "path": "docs/archive/2026-11/30_REVAMP/delegated/2026-10-08-competitor-benchmark.md",
    "status": "live",
    "area": "08-strategy-market"
   },
@@ -5885,7 +5885,7 @@
    "id": "doc-28-index",
    "label": "Teardown index",
    "type": "doc",
-   "path": "docs/28_TEARDOWN/00_INDEX.md",
+   "path": "docs/archive/2026-11/28_TEARDOWN/00_INDEX.md",
    "status": "live",
    "area": "08-strategy-market"
   },
@@ -5893,7 +5893,7 @@
    "id": "doc-28-build-plan",
    "label": "Old teardown build plan",
    "type": "doc",
-   "path": "docs/28_TEARDOWN/09_BUILD_PLAN.md",
+   "path": "docs/archive/2026-11/28_TEARDOWN/09_BUILD_PLAN.md",
    "status": "dead",
    "area": "08-strategy-market"
   },
@@ -5901,7 +5901,7 @@
    "id": "doc-28-comparison-matrices",
    "label": "Comparison matrices (August counts)",
    "type": "doc",
-   "path": "docs/28_TEARDOWN/06_COMPARISON_MATRICES.md",
+   "path": "docs/archive/2026-11/28_TEARDOWN/06_COMPARISON_MATRICES.md",
    "status": "unknown",
    "area": "08-strategy-market"
   },
@@ -5909,7 +5909,7 @@
    "id": "doc-29-sequence",
    "label": "Rebuild sequence (Phases A to G)",
    "type": "doc",
-   "path": "docs/29_REBUILD/07_SEQUENCE.md",
+   "path": "docs/archive/2026-11/29_REBUILD/07_SEQUENCE.md",
    "status": "dead",
    "area": "08-strategy-market"
   },
@@ -5917,7 +5917,7 @@
    "id": "doc-31-reset-01-inventory",
    "label": "Reset inventory (27 Oct)",
    "type": "doc",
-   "path": "docs/31_RESET/01_INVENTORY.md",
+   "path": "docs/archive/2026-11/31_RESET/01_INVENTORY.md",
    "status": "live",
    "area": "08-strategy-market"
   },
@@ -5965,7 +5965,7 @@
    "id": "doc-06-tech-stack",
    "label": "Tech stack and payments checklist",
    "type": "doc",
-   "path": "docs/06_TECH_STACK_SKILLS_CHECKLIST.md",
+   "path": "docs/archive/2026-11/06_TECH_STACK_SKILLS_CHECKLIST.md",
    "status": "unknown",
    "area": "08-strategy-market"
   },
@@ -6005,7 +6005,7 @@
    "id": "doc-30-readme",
    "label": "Revamp README",
    "type": "doc",
-   "path": "docs/30_REVAMP/00_README.md",
+   "path": "docs/archive/2026-11/30_REVAMP/00_README.md",
    "status": "live",
    "area": "09-plans-architecture"
   },
@@ -6013,7 +6013,7 @@
    "id": "doc-03-revamp-plan",
    "label": "Revamp plan (strategy, Dusk Bloom)",
    "type": "doc",
-   "path": "docs/30_REVAMP/03_REVAMP_PLAN.md",
+   "path": "docs/archive/2026-11/30_REVAMP/03_REVAMP_PLAN.md",
    "status": "live",
    "area": "09-plans-architecture"
   },
@@ -6029,7 +6029,7 @@
    "id": "doc-progress",
    "label": "Revamp PROGRESS ledger",
    "type": "doc",
-   "path": "docs/30_REVAMP/PROGRESS.md",
+   "path": "docs/archive/2026-11/30_REVAMP/PROGRESS.md",
    "status": "live",
    "area": "09-plans-architecture"
   },
@@ -6037,7 +6037,7 @@
    "id": "doc-31-inventory",
    "label": "Reset inventory 27 Oct",
    "type": "doc",
-   "path": "docs/31_RESET/01_INVENTORY.md",
+   "path": "docs/archive/2026-11/31_RESET/01_INVENTORY.md",
    "status": "live",
    "area": "09-plans-architecture"
   },
@@ -6045,7 +6045,7 @@
    "id": "doc-31-spec-v1-draft",
    "label": "V1 scope lock (DRAFT)",
    "type": "doc",
-   "path": "docs/31_RESET/02_SPEC_V1_DRAFT.md",
+   "path": "docs/archive/2026-11/31_RESET/02_SPEC_V1_DRAFT.md",
    "status": "unknown",
    "area": "09-plans-architecture"
   },
@@ -6069,7 +6069,7 @@
    "id": "doc-24-revamp-plan",
    "label": "Experience engine + two-client architecture",
    "type": "doc",
-   "path": "docs/24_REVAMP_PLAN.md",
+   "path": "docs/archive/2026-11/24_REVAMP_PLAN.md",
    "status": "app-only",
    "area": "09-plans-architecture"
   },
@@ -6077,7 +6077,7 @@
    "id": "doc-22-app-ui",
    "label": "App UI architecture (web tracker)",
    "type": "doc",
-   "path": "docs/22_APP_UI_ARCHITECTURE.md",
+   "path": "docs/archive/2026-11/22_APP_UI_ARCHITECTURE.md",
    "status": "app-only",
    "area": "09-plans-architecture"
   },
@@ -6085,7 +6085,7 @@
    "id": "doc-14-system-architecture",
    "label": "System architecture (ERD, RLS)",
    "type": "doc",
-   "path": "docs/14_SYSTEM_ARCHITECTURE.md",
+   "path": "docs/archive/2026-11/14_SYSTEM_ARCHITECTURE.md",
    "status": "app-only",
    "area": "09-plans-architecture"
   },
@@ -6093,7 +6093,7 @@
    "id": "doc-12-brand-tokens",
    "label": "Brand tokens v2 (violet)",
    "type": "doc",
-   "path": "docs/12_BRAND_DESIGN_TOKENS.md",
+   "path": "docs/archive/2026-11/12_BRAND_DESIGN_TOKENS.md",
    "status": "dead",
    "area": "09-plans-architecture"
   },
@@ -6109,7 +6109,7 @@
    "id": "doc-state-machine-mermaid",
    "label": "State machine (mermaid copy)",
    "type": "doc",
-   "path": "docs/femio_state_machine.mermaid",
+   "path": "docs/archive/2026-11/femio_state_machine.mermaid",
    "status": "duplicate",
    "area": "09-plans-architecture"
   },
@@ -6117,7 +6117,7 @@
    "id": "doc-07-master-todo",
    "label": "Master TODO (historical queue)",
    "type": "doc",
-   "path": "docs/07_MASTER_TODO.md",
+   "path": "docs/archive/2026-11/07_MASTER_TODO.md",
    "status": "live",
    "area": "09-plans-architecture"
   },
@@ -6141,7 +6141,7 @@
    "id": "doc-29-rebuild-progress",
    "label": "Aug web rebuild ledger",
    "type": "doc",
-   "path": "docs/29_REBUILD/PROGRESS.md",
+   "path": "docs/archive/2026-11/29_REBUILD/PROGRESS.md",
    "status": "dead",
    "area": "09-plans-architecture"
   },
@@ -6581,7 +6581,7 @@
    "id": "phase-p0-stabilise",
    "label": "Phase 0 stabilise and clean (done)",
    "type": "doc",
-   "path": "docs/30_REVAMP/PROGRESS.md",
+   "path": "docs/archive/2026-11/30_REVAMP/PROGRESS.md",
    "status": "live",
    "area": "09-plans-architecture"
   },
@@ -6589,7 +6589,7 @@
    "id": "phase-p1-dusk-bloom",
    "label": "Phase 1 Dusk Bloom (done, owner review D-1 pending)",
    "type": "doc",
-   "path": "docs/30_REVAMP/PROGRESS.md",
+   "path": "docs/archive/2026-11/30_REVAMP/PROGRESS.md",
    "status": "live",
    "area": "09-plans-architecture"
   },
@@ -6597,7 +6597,7 @@
    "id": "phase-p2-public-site",
    "label": "Phase 2 public site (mostly done)",
    "type": "doc",
-   "path": "docs/30_REVAMP/PROGRESS.md",
+   "path": "docs/archive/2026-11/30_REVAMP/PROGRESS.md",
    "status": "live",
    "area": "09-plans-architecture"
   },
@@ -6605,7 +6605,7 @@
    "id": "phase-p3-android-app",
    "label": "Phase 3 Android app (in progress)",
    "type": "doc",
-   "path": "docs/30_REVAMP/PROGRESS.md",
+   "path": "docs/archive/2026-11/30_REVAMP/PROGRESS.md",
    "status": "live",
    "area": "09-plans-architecture"
   },
@@ -6613,7 +6613,7 @@
    "id": "phase-p4-launch",
    "label": "Phase 4 launch (open)",
    "type": "doc",
-   "path": "docs/30_REVAMP/PROGRESS.md",
+   "path": "docs/archive/2026-11/30_REVAMP/PROGRESS.md",
    "status": "live",
    "area": "09-plans-architecture"
   },
@@ -6621,7 +6621,7 @@
    "id": "phase-p5-native-ios",
    "label": "Phase 5 iOS / native (after signal)",
    "type": "doc",
-   "path": "docs/30_REVAMP/PROGRESS.md",
+   "path": "docs/archive/2026-11/30_REVAMP/PROGRESS.md",
    "status": "live",
    "area": "09-plans-architecture"
   },
@@ -6629,7 +6629,7 @@
    "id": "v1-05-backup-and-lock",
    "label": "V1-05 backup export/import + app lock (P3.8)",
    "type": "doc",
-   "path": "docs/31_RESET/02_SPEC_V1_DRAFT.md",
+   "path": "docs/archive/2026-11/31_RESET/02_SPEC_V1_DRAFT.md",
    "status": "unknown",
    "area": "09-plans-architecture"
   },
@@ -6637,7 +6637,7 @@
    "id": "v1-06-articles-in-app",
    "label": "V1-06 articles in the app (P3.7)",
    "type": "doc",
-   "path": "docs/31_RESET/02_SPEC_V1_DRAFT.md",
+   "path": "docs/archive/2026-11/31_RESET/02_SPEC_V1_DRAFT.md",
    "status": "unknown",
    "area": "09-plans-architecture"
   },
@@ -6645,7 +6645,7 @@
    "id": "v1-07-reminders-crash",
    "label": "V1-07 reminders + crash reporting (P3.8)",
    "type": "doc",
-   "path": "docs/31_RESET/02_SPEC_V1_DRAFT.md",
+   "path": "docs/archive/2026-11/31_RESET/02_SPEC_V1_DRAFT.md",
    "status": "unknown",
    "area": "09-plans-architecture"
   },
@@ -6653,7 +6653,7 @@
    "id": "v1-08-legal-pages",
    "label": "V1-08 legal pages + Play answers (P4.1)",
    "type": "doc",
-   "path": "docs/31_RESET/02_SPEC_V1_DRAFT.md",
+   "path": "docs/archive/2026-11/31_RESET/02_SPEC_V1_DRAFT.md",
    "status": "unknown",
    "area": "09-plans-architecture"
   },
@@ -6661,7 +6661,7 @@
    "id": "ms-rc-9-nov",
    "label": "9 Nov release-candidate APK + Play account",
    "type": "doc",
-   "path": "docs/31_RESET/02_SPEC_V1_DRAFT.md",
+   "path": "docs/archive/2026-11/31_RESET/02_SPEC_V1_DRAFT.md",
    "status": "unknown",
    "area": "09-plans-architecture"
   },
@@ -6669,7 +6669,7 @@
    "id": "ms-closed-test-start-11-nov",
    "label": "11 Nov Play closed test starts (12 testers)",
    "type": "doc",
-   "path": "docs/31_RESET/02_SPEC_V1_DRAFT.md",
+   "path": "docs/archive/2026-11/31_RESET/02_SPEC_V1_DRAFT.md",
    "status": "unknown",
    "area": "09-plans-architecture"
   },
@@ -6677,7 +6677,7 @@
    "id": "ms-closed-test-end-25-nov",
    "label": "25 Nov closed test ends",
    "type": "doc",
-   "path": "docs/31_RESET/02_SPEC_V1_DRAFT.md",
+   "path": "docs/archive/2026-11/31_RESET/02_SPEC_V1_DRAFT.md",
    "status": "unknown",
    "area": "09-plans-architecture"
   },
@@ -6685,7 +6685,7 @@
    "id": "ms-soft-launch-30-nov",
    "label": "Week of 30 Nov soft launch, 50-100 women",
    "type": "doc",
-   "path": "docs/31_RESET/02_SPEC_V1_DRAFT.md",
+   "path": "docs/archive/2026-11/31_RESET/02_SPEC_V1_DRAFT.md",
    "status": "unknown",
    "area": "09-plans-architecture"
   },
@@ -6693,7 +6693,7 @@
    "id": "ms-ramadan-2027",
    "label": "~8 Feb 2027 Ramadan content due",
    "type": "doc",
-   "path": "docs/31_RESET/02_SPEC_V1_DRAFT.md",
+   "path": "docs/archive/2026-11/31_RESET/02_SPEC_V1_DRAFT.md",
    "status": "unknown",
    "area": "09-plans-architecture"
   },
@@ -6701,7 +6701,7 @@
    "id": "ms-egypt-licensing-31-oct",
    "label": "31 Oct 2026 Egypt licensing enforced (unverified)",
    "type": "doc",
-   "path": "docs/31_RESET/02_SPEC_V1_DRAFT.md",
+   "path": "docs/archive/2026-11/31_RESET/02_SPEC_V1_DRAFT.md",
    "status": "unknown",
    "area": "09-plans-architecture"
   },
@@ -6885,7 +6885,7 @@
    "id": "docs-13-legal-compliance",
    "label": "Legal and compliance foundation",
    "type": "doc",
-   "path": "docs/13_LEGAL_COMPLIANCE.md",
+   "path": "docs/archive/2026-11/13_LEGAL_COMPLIANCE.md",
    "status": "live",
    "area": "compliance-legal-safety"
   },
@@ -6893,7 +6893,7 @@
    "id": "docs-18-rbac-model",
    "label": "RBAC model (staff roles)",
    "type": "doc",
-   "path": "docs/18_RBAC_MODEL.md",
+   "path": "docs/archive/2026-11/18_RBAC_MODEL.md",
    "status": "app-only",
    "area": "compliance-legal-safety"
   },
@@ -6901,7 +6901,7 @@
    "id": "docs-19-analytics-event-schema",
    "label": "Analytics event schema",
    "type": "doc",
-   "path": "docs/19_ANALYTICS_EVENT_SCHEMA.md",
+   "path": "docs/archive/2026-11/19_ANALYTICS_EVENT_SCHEMA.md",
    "status": "live",
    "area": "compliance-legal-safety"
   },
@@ -7789,7 +7789,7 @@
    "id": "docs-12-brand-design-tokens-md",
    "label": "docs/12 brand and design tokens (v2 values)",
    "type": "doc",
-   "path": "docs/12_BRAND_DESIGN_TOKENS.md",
+   "path": "docs/archive/2026-11/12_BRAND_DESIGN_TOKENS.md",
    "status": "live",
    "area": "brand-assets-personas"
   },

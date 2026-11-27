@@ -1,7 +1,7 @@
 # Femio — Data Map (per-field processing record)
 
 Status: **living** · Owner: Khaled + DPO · Source schema: `supabase/migrations/` (schema v1, P1.3)
-Ties to `docs/13_LEGAL_COMPLIANCE.md` §8. **Rule: every new field is added here in the
+Ties to `docs/archive/2026-11/13_LEGAL_COMPLIANCE.md` §8. **Rule: every new field is added here in the
 same PR that introduces it** (CI checklist item). Labels must match Play Data-Safety /
 Apple nutrition labels at store submission.
 
@@ -65,7 +65,7 @@ That prohibition is now **enforced in code**, not just stated: the event catalog
 number or date, a runtime guard drops any payload that deviates, and `pnpm analytics-lint`
 fails CI if the schema drifts. The full catalog and the deliberate exclusions (article
 slugs, calculator identity, life-stage mode, condition/persona tags, age bands, the crisis
-surface) are documented in `docs/19_ANALYTICS_EVENT_SCHEMA.md`. Analytics consent is a
+surface) are documented in `docs/archive/2026-11/19_ANALYTICS_EVENT_SCHEMA.md`. Analytics consent is a
 distinct opt-in purpose (`consent_records.purpose = 'analytics'`, migration 0005) — **not**
 `insights`, which is first-party pattern processing of the user's own data.
 

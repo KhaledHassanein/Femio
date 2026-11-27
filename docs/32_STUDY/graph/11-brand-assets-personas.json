@@ -50,7 +50,7 @@
 {"id":"apps-mobile-android-launch-background-xml","label":"launch_background.xml (plain white)","type":"asset","path":"apps/mobile/android/app/src/main/res/drawable/launch_background.xml","status":"live"},
 {"id":"apps-mobile-ios-appicon-set","label":"iOS AppIcon set (Flutter template icon)","type":"asset","path":"apps/mobile/ios/Runner/Assets.xcassets/AppIcon.appiconset","status":"live"},
 {"id":"apps-mobile-test-theme-gap","label":"no Flutter theme or token test","type":"fixture","path":"apps/mobile/test","status":"unknown"},
-{"id":"docs-12-brand-design-tokens-md","label":"docs/12 brand and design tokens (v2 values)","type":"doc","path":"docs/12_BRAND_DESIGN_TOKENS.md","status":"live"},
+{"id":"docs-12-brand-design-tokens-md","label":"docs/12 brand and design tokens (v2 values)","type":"doc","path":"docs/archive/2026-11/12_BRAND_DESIGN_TOKENS.md","status":"live"},
 {"id":"docs-archive-25-design-direction-brief-md","label":"docs/25 design direction brief (section 5a rules)","type":"doc","path":"docs/archive/plans-2026-08/25_DESIGN_DIRECTION_BRIEF.md","status":"dead"},
 {"id":"docs-08-persona-taxonomy-md","label":"docs/08 persona taxonomy and A-K schema","type":"doc","path":"docs/08_PERSONA_TAXONOMY_AND_ADAPTIVE_UX.md","status":"live"},
 {"id":"docs-09-master-adaptation-model-md","label":"docs/09 master adaptation model (not read)","type":"doc","path":"docs/09_MASTER_ADAPTATION_MODEL.md","status":"unknown"},

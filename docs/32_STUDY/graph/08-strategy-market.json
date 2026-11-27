@@ -103,21 +103,21 @@
       "id": "dec-store-shopify-phase3",
       "label": "Headless Shopify store in Phase 3",
       "type": "doc",
-      "path": "docs/06_TECH_STACK_SKILLS_CHECKLIST.md",
+      "path": "docs/archive/2026-11/06_TECH_STACK_SKILLS_CHECKLIST.md",
       "status": "unknown"
     },
     {
       "id": "dec-store-affiliate-only",
       "label": "E-commerce affiliate-only (Mumzworld owns rail)",
       "type": "doc",
-      "path": "docs/30_REVAMP/02_MARKET_RESEARCH_2026-10.md",
+      "path": "docs/archive/2026-11/30_REVAMP/02_MARKET_RESEARCH_2026-10.md",
       "status": "live"
     },
     {
       "id": "dec-legal-lawyer-gate",
       "label": "Counsel review is launch-blocking",
       "type": "doc",
-      "path": "docs/30_REVAMP/02_MARKET_RESEARCH_2026-10.md",
+      "path": "docs/archive/2026-11/30_REVAMP/02_MARKET_RESEARCH_2026-10.md",
       "status": "unknown"
     },
     {
@@ -131,7 +131,7 @@
       "id": "dec-monetisation-freemium",
       "label": "Freemium in principle; model later (OD-7)",
       "type": "doc",
-      "path": "docs/30_REVAMP/03_REVAMP_PLAN.md",
+      "path": "docs/archive/2026-11/30_REVAMP/03_REVAMP_PLAN.md",
       "status": "live"
     },
     {
@@ -145,7 +145,7 @@
       "id": "dec-payments-stripe-primary",
       "label": "Stripe primary, Paddle or LemonSqueezy (06)",
       "type": "doc",
-      "path": "docs/06_TECH_STACK_SKILLS_CHECKLIST.md",
+      "path": "docs/archive/2026-11/06_TECH_STACK_SKILLS_CHECKLIST.md",
       "status": "dead"
     },
     {
@@ -285,252 +285,252 @@
       "id": "mkt-saudi-arabia",
       "label": "Market: Saudi Arabia (revenue first)",
       "type": "module",
-      "path": "docs/30_REVAMP/02_MARKET_RESEARCH_2026-10.md",
+      "path": "docs/archive/2026-11/30_REVAMP/02_MARKET_RESEARCH_2026-10.md",
       "status": "live"
     },
     {
       "id": "mkt-egypt",
       "label": "Market: Egypt (volume, content, clinicians)",
       "type": "module",
-      "path": "docs/30_REVAMP/02_MARKET_RESEARCH_2026-10.md",
+      "path": "docs/archive/2026-11/30_REVAMP/02_MARKET_RESEARCH_2026-10.md",
       "status": "live"
     },
     {
       "id": "mkt-uae",
       "label": "Market: UAE (fast follower)",
       "type": "module",
-      "path": "docs/30_REVAMP/02_MARKET_RESEARCH_2026-10.md",
+      "path": "docs/archive/2026-11/30_REVAMP/02_MARKET_RESEARCH_2026-10.md",
       "status": "live"
     },
     {
       "id": "mkt-eu-global-web",
       "label": "Market: EU and global, web only",
       "type": "module",
-      "path": "docs/30_REVAMP/02_MARKET_RESEARCH_2026-10.md",
+      "path": "docs/archive/2026-11/30_REVAMP/02_MARKET_RESEARCH_2026-10.md",
       "status": "live"
     },
     {
       "id": "mkt-mena-overall",
       "label": "Market: MENA overall (low-confidence sizing)",
       "type": "module",
-      "path": "docs/30_REVAMP/02_MARKET_RESEARCH_2026-10.md",
+      "path": "docs/archive/2026-11/30_REVAMP/02_MARKET_RESEARCH_2026-10.md",
       "status": "unknown"
     },
     {
       "id": "mkt-us-context",
       "label": "Market: US (leaders' home, context)",
       "type": "module",
-      "path": "docs/30_REVAMP/02_MARKET_RESEARCH_2026-10.md",
+      "path": "docs/archive/2026-11/30_REVAMP/02_MARKET_RESEARCH_2026-10.md",
       "status": "live"
     },
     {
       "id": "comp-flo",
       "label": "Flo (no Arabic in listing)",
       "type": "service",
-      "path": "docs/30_REVAMP/02_MARKET_RESEARCH_2026-10.md",
+      "path": "docs/archive/2026-11/30_REVAMP/02_MARKET_RESEARCH_2026-10.md",
       "status": "live"
     },
     {
       "id": "comp-clue",
       "label": "Clue (Arabic among 27 languages)",
       "type": "service",
-      "path": "docs/30_REVAMP/02_MARKET_RESEARCH_2026-10.md",
+      "path": "docs/archive/2026-11/30_REVAMP/02_MARKET_RESEARCH_2026-10.md",
       "status": "live"
     },
     {
       "id": "comp-stardust",
       "label": "Stardust (privacy damaged, Oct 2026)",
       "type": "service",
-      "path": "docs/03_COMPETITOR_ANALYSIS.md",
+      "path": "docs/archive/2026-11/03_COMPETITOR_ANALYSIS.md",
       "status": "unknown"
     },
     {
       "id": "comp-natural-cycles",
       "label": "Natural Cycles (regulated contraceptive)",
       "type": "service",
-      "path": "docs/30_REVAMP/02_MARKET_RESEARCH_2026-10.md",
+      "path": "docs/archive/2026-11/30_REVAMP/02_MARKET_RESEARCH_2026-10.md",
       "status": "live"
     },
     {
       "id": "comp-premom",
       "label": "Premom (OPK photo, Arabic listed)",
       "type": "service",
-      "path": "docs/30_REVAMP/delegated/2026-10-08-competitor-benchmark.md",
+      "path": "docs/archive/2026-11/30_REVAMP/delegated/2026-10-08-competitor-benchmark.md",
       "status": "live"
     },
     {
       "id": "comp-fertility-friend",
       "label": "Fertility Friend (BBT depth)",
       "type": "service",
-      "path": "docs/03_COMPETITOR_ANALYSIS.md",
+      "path": "docs/archive/2026-11/03_COMPETITOR_ANALYSIS.md",
       "status": "live"
     },
     {
       "id": "comp-ovia",
       "label": "Ovia (lifecycle concept, employer model)",
       "type": "service",
-      "path": "docs/03_COMPETITOR_ANALYSIS.md",
+      "path": "docs/archive/2026-11/03_COMPETITOR_ANALYSIS.md",
       "status": "live"
     },
     {
       "id": "comp-pregnancy-plus",
       "label": "Pregnancy+ (Philips, polish)",
       "type": "service",
-      "path": "docs/30_REVAMP/02_MARKET_RESEARCH_2026-10.md",
+      "path": "docs/archive/2026-11/30_REVAMP/02_MARKET_RESEARCH_2026-10.md",
       "status": "live"
     },
     {
       "id": "comp-babycenter-wte",
       "label": "BabyCenter and What to Expect (ad-funded)",
       "type": "service",
-      "path": "docs/03_COMPETITOR_ANALYSIS.md",
+      "path": "docs/archive/2026-11/03_COMPETITOR_ANALYSIS.md",
       "status": "unknown"
     },
     {
       "id": "comp-balance",
       "label": "Balance (named clinician, menopause)",
       "type": "service",
-      "path": "docs/30_REVAMP/02_MARKET_RESEARCH_2026-10.md",
+      "path": "docs/archive/2026-11/30_REVAMP/02_MARKET_RESEARCH_2026-10.md",
       "status": "live"
     },
     {
       "id": "comp-caria",
       "label": "Caria (CBT menopause)",
       "type": "service",
-      "path": "docs/03_COMPETITOR_ANALYSIS.md",
+      "path": "docs/archive/2026-11/03_COMPETITOR_ANALYSIS.md",
       "status": "unknown"
     },
     {
       "id": "comp-stella",
       "label": "Stella (HRT pathway, Discovery bundle)",
       "type": "service",
-      "path": "docs/30_REVAMP/02_MARKET_RESEARCH_2026-10.md",
+      "path": "docs/archive/2026-11/30_REVAMP/02_MARKET_RESEARCH_2026-10.md",
       "status": "live"
     },
     {
       "id": "comp-midday",
       "label": "Midday (Lisa Health, Mayo)",
       "type": "service",
-      "path": "docs/30_REVAMP/02_MARKET_RESEARCH_2026-10.md",
+      "path": "docs/archive/2026-11/30_REVAMP/02_MARKET_RESEARCH_2026-10.md",
       "status": "unknown"
     },
     {
       "id": "comp-midi-health",
       "label": "Midi Health (care delivery, $150M run-rate)",
       "type": "service",
-      "path": "docs/30_REVAMP/02_MARKET_RESEARCH_2026-10.md",
+      "path": "docs/archive/2026-11/30_REVAMP/02_MARKET_RESEARCH_2026-10.md",
       "status": "live"
     },
     {
       "id": "comp-oura-whoop",
       "label": "Oura and Whoop (wearable insight layer)",
       "type": "service",
-      "path": "docs/30_REVAMP/02_MARKET_RESEARCH_2026-10.md",
+      "path": "docs/archive/2026-11/30_REVAMP/02_MARKET_RESEARCH_2026-10.md",
       "status": "unknown"
     },
     {
       "id": "comp-apple-samsung-os",
       "label": "Apple Health and Samsung Health (free floor)",
       "type": "service",
-      "path": "docs/30_REVAMP/02_MARKET_RESEARCH_2026-10.md",
+      "path": "docs/archive/2026-11/30_REVAMP/02_MARKET_RESEARCH_2026-10.md",
       "status": "live"
     },
     {
       "id": "comp-al-malika",
       "label": "Al-Malika (Arabic tracking plus OB-GYN consult)",
       "type": "service",
-      "path": "docs/30_REVAMP/02_MARKET_RESEARCH_2026-10.md",
+      "path": "docs/archive/2026-11/30_REVAMP/02_MARKET_RESEARCH_2026-10.md",
       "status": "live"
     },
     {
       "id": "comp-hawaa",
       "label": "Hawaa (Arabic period tracker)",
       "type": "service",
-      "path": "docs/30_REVAMP/02_MARKET_RESEARCH_2026-10.md",
+      "path": "docs/archive/2026-11/30_REVAMP/02_MARKET_RESEARCH_2026-10.md",
       "status": "live"
     },
     {
       "id": "comp-pregnancy-calculator-hayah",
       "label": "Arabic pregnancy calculator (2.5M downloads, ad-funded)",
       "type": "service",
-      "path": "docs/30_REVAMP/02_MARKET_RESEARCH_2026-10.md",
+      "path": "docs/archive/2026-11/30_REVAMP/02_MARKET_RESEARCH_2026-10.md",
       "status": "live"
     },
     {
       "id": "comp-altibbi",
       "label": "Altibbi (Arabic telehealth and search)",
       "type": "service",
-      "path": "docs/30_REVAMP/02_MARKET_RESEARCH_2026-10.md",
+      "path": "docs/archive/2026-11/30_REVAMP/02_MARKET_RESEARCH_2026-10.md",
       "status": "live"
     },
     {
       "id": "comp-sehhaty",
       "label": "Sehhaty (Saudi MoH app, 27M)",
       "type": "service",
-      "path": "docs/30_REVAMP/02_MARKET_RESEARCH_2026-10.md",
+      "path": "docs/archive/2026-11/30_REVAMP/02_MARKET_RESEARCH_2026-10.md",
       "status": "live"
     },
     {
       "id": "comp-vezeeta",
       "label": "Vezeeta (booking rail, Egypt)",
       "type": "service",
-      "path": "docs/30_REVAMP/02_MARKET_RESEARCH_2026-10.md",
+      "path": "docs/archive/2026-11/30_REVAMP/02_MARKET_RESEARCH_2026-10.md",
       "status": "unknown"
     },
     {
       "id": "comp-nabta-health",
       "label": "Nabta Health (UAE, hybrid women's health)",
       "type": "service",
-      "path": "docs/30_REVAMP/02_MARKET_RESEARCH_2026-10.md",
+      "path": "docs/archive/2026-11/30_REVAMP/02_MARKET_RESEARCH_2026-10.md",
       "status": "live"
     },
     {
       "id": "comp-mumzworld",
       "label": "Mumzworld (mother and baby commerce)",
       "type": "service",
-      "path": "docs/30_REVAMP/02_MARKET_RESEARCH_2026-10.md",
+      "path": "docs/archive/2026-11/30_REVAMP/02_MARKET_RESEARCH_2026-10.md",
       "status": "live"
     },
     {
       "id": "comp-muslim-cycle-apps",
       "label": "Muslim cycle apps (Sila, Nisa Care, Tuhr, Afifa, others)",
       "type": "service",
-      "path": "docs/30_REVAMP/02_MARKET_RESEARCH_2026-10.md",
+      "path": "docs/archive/2026-11/30_REVAMP/02_MARKET_RESEARCH_2026-10.md",
       "status": "live"
     },
     {
       "id": "comp-maven-clinic",
       "label": "Maven Clinic (US employer care)",
       "type": "service",
-      "path": "docs/30_REVAMP/02_MARKET_RESEARCH_2026-10.md",
+      "path": "docs/archive/2026-11/30_REVAMP/02_MARKET_RESEARCH_2026-10.md",
       "status": "unknown"
     },
     {
       "id": "comp-glow-eve",
       "label": "Glow and Eve (2024 breach, aging)",
       "type": "service",
-      "path": "docs/03_COMPETITOR_ANALYSIS.md",
+      "path": "docs/archive/2026-11/03_COMPETITOR_ANALYSIS.md",
       "status": "unknown"
     },
     {
       "id": "comp-peanut",
       "label": "Peanut (community, scale unverified)",
       "type": "service",
-      "path": "docs/30_REVAMP/02_MARKET_RESEARCH_2026-10.md",
+      "path": "docs/archive/2026-11/30_REVAMP/02_MARKET_RESEARCH_2026-10.md",
       "status": "unknown"
     },
     {
       "id": "comp-imc-hospital",
       "label": "IMC Women's Health (Jeddah hospital app)",
       "type": "service",
-      "path": "docs/30_REVAMP/02_MARKET_RESEARCH_2026-10.md",
+      "path": "docs/archive/2026-11/30_REVAMP/02_MARKET_RESEARCH_2026-10.md",
       "status": "live"
     },
     {
       "id": "comp-content-sites",
       "label": "Healthline, WebMD, Mayo, NHS (SEO content)",
       "type": "service",
-      "path": "docs/03_COMPETITOR_ANALYSIS.md",
+      "path": "docs/archive/2026-11/03_COMPETITOR_ANALYSIS.md",
       "status": "live"
     },
     {
@@ -551,70 +551,70 @@
       "id": "reg-egypt-pdpl-31-oct-2026",
       "label": "Egypt PDPL enforcement from 31 Oct 2026",
       "type": "module",
-      "path": "docs/30_REVAMP/02_MARKET_RESEARCH_2026-10.md",
+      "path": "docs/archive/2026-11/30_REVAMP/02_MARKET_RESEARCH_2026-10.md",
       "status": "live"
     },
     {
       "id": "doc-00-executive-summary",
       "label": "July exec summary (web-first, Capacitor)",
       "type": "doc",
-      "path": "docs/00_EXECUTIVE_SUMMARY.md",
+      "path": "docs/archive/2026-11/00_EXECUTIVE_SUMMARY.md",
       "status": "dead"
     },
     {
       "id": "doc-01-v1-lessons",
       "label": "V1 lessons learned",
       "type": "doc",
-      "path": "docs/01_V1_LESSONS_LEARNED.md",
+      "path": "docs/archive/2026-11/01_V1_LESSONS_LEARNED.md",
       "status": "live"
     },
     {
       "id": "doc-02-market-jul",
       "label": "July market and user research",
       "type": "doc",
-      "path": "docs/02_MARKET_USER_RESEARCH.md",
+      "path": "docs/archive/2026-11/02_MARKET_USER_RESEARCH.md",
       "status": "unknown"
     },
     {
       "id": "doc-03-competitor-analysis",
       "label": "Competitor analysis (July tables, Aug craft)",
       "type": "doc",
-      "path": "docs/03_COMPETITOR_ANALYSIS.md",
+      "path": "docs/archive/2026-11/03_COMPETITOR_ANALYSIS.md",
       "status": "unknown"
     },
     {
       "id": "doc-05-product-strategy-plan",
       "label": "July product strategy and phases",
       "type": "doc",
-      "path": "docs/05_PRODUCT_STRATEGY_PLAN.md",
+      "path": "docs/archive/2026-11/05_PRODUCT_STRATEGY_PLAN.md",
       "status": "dead"
     },
     {
       "id": "doc-30-revamp-00-readme",
       "label": "Revamp index",
       "type": "doc",
-      "path": "docs/30_REVAMP/00_README.md",
+      "path": "docs/archive/2026-11/30_REVAMP/00_README.md",
       "status": "unknown"
     },
     {
       "id": "doc-30-revamp-01-audit",
       "label": "Agency audit and critique (7 Oct)",
       "type": "doc",
-      "path": "docs/30_REVAMP/01_AUDIT_AND_CRITIQUE.md",
+      "path": "docs/archive/2026-11/30_REVAMP/01_AUDIT_AND_CRITIQUE.md",
       "status": "live"
     },
     {
       "id": "doc-30-revamp-02-market-research",
       "label": "Market research, Oct 2026 (SWOT, wedge)",
       "type": "doc",
-      "path": "docs/30_REVAMP/02_MARKET_RESEARCH_2026-10.md",
+      "path": "docs/archive/2026-11/30_REVAMP/02_MARKET_RESEARCH_2026-10.md",
       "status": "live"
     },
     {
       "id": "doc-30-revamp-03-revamp-plan",
       "label": "Revamp plan (wedge, Dusk Bloom, phases)",
       "type": "doc",
-      "path": "docs/30_REVAMP/03_REVAMP_PLAN.md",
+      "path": "docs/archive/2026-11/30_REVAMP/03_REVAMP_PLAN.md",
       "status": "unknown"
     },
     {
@@ -628,7 +628,7 @@
       "id": "doc-30-revamp-delegated-benchmark",
       "label": "Competitor benchmark, Arabic wedge (8 Oct)",
       "type": "doc",
-      "path": "docs/30_REVAMP/delegated/2026-10-08-competitor-benchmark.md",
+      "path": "docs/archive/2026-11/30_REVAMP/delegated/2026-10-08-competitor-benchmark.md",
       "status": "live"
     },
     {
@@ -642,35 +642,35 @@
       "id": "doc-28-index",
       "label": "Teardown index",
       "type": "doc",
-      "path": "docs/28_TEARDOWN/00_INDEX.md",
+      "path": "docs/archive/2026-11/28_TEARDOWN/00_INDEX.md",
       "status": "live"
     },
     {
       "id": "doc-28-build-plan",
       "label": "Old teardown build plan",
       "type": "doc",
-      "path": "docs/28_TEARDOWN/09_BUILD_PLAN.md",
+      "path": "docs/archive/2026-11/28_TEARDOWN/09_BUILD_PLAN.md",
       "status": "dead"
     },
     {
       "id": "doc-28-comparison-matrices",
       "label": "Comparison matrices (August counts)",
       "type": "doc",
-      "path": "docs/28_TEARDOWN/06_COMPARISON_MATRICES.md",
+      "path": "docs/archive/2026-11/28_TEARDOWN/06_COMPARISON_MATRICES.md",
       "status": "unknown"
     },
     {
       "id": "doc-29-sequence",
       "label": "Rebuild sequence (Phases A to G)",
       "type": "doc",
-      "path": "docs/29_REBUILD/07_SEQUENCE.md",
+      "path": "docs/archive/2026-11/29_REBUILD/07_SEQUENCE.md",
       "status": "dead"
     },
     {
       "id": "doc-31-reset-01-inventory",
       "label": "Reset inventory (27 Oct)",
       "type": "doc",
-      "path": "docs/31_RESET/01_INVENTORY.md",
+      "path": "docs/archive/2026-11/31_RESET/01_INVENTORY.md",
       "status": "live"
     },
     {
@@ -712,7 +712,7 @@
       "id": "doc-06-tech-stack",
       "label": "Tech stack and payments checklist",
       "type": "doc",
-      "path": "docs/06_TECH_STACK_SKILLS_CHECKLIST.md",
+      "path": "docs/archive/2026-11/06_TECH_STACK_SKILLS_CHECKLIST.md",
       "status": "unknown"
     },
     {

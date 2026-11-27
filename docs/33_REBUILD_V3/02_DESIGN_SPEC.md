@@ -3,7 +3,7 @@
 **Owner:** Product designer (Opus 5.5), 2026-10-27. **Status:** ready to build; the lead reviews before merge.
 **Binding sources, in order:** `CLAUDE.md` (six product rules) → `00_PLAN.md` → `docs/32_STUDY/reports/09-plans-architecture.md` §7
 (Dusk Bloom: palette, type, motion, rejected patterns) → `assets/brand/tokens/femio.tokens.css` (canonical values; where a doc and
-the CSS disagree, the CSS wins) → `docs/22_APP_UI_ARCHITECTURE.md` (controls, dates, bottom bars).
+the CSS disagree, the CSS wins) → `docs/archive/2026-11/22_APP_UI_ARCHITECTURE.md` (controls, dates, bottom bars).
 **Sketch:** `design/calendar-calculator-390-en-light.svg` (the calculator at 390×844, EN, light; resolved hex values for viewing only).
 **How to read token names.** `--name` is a CSS custom property from `femio.tokens.css`; the Tailwind class is the same name through the
 preset (`bg-success-soft`, `text-log-period`); the Dart name is its camelCase on `context.palette` (`p.successSoft`). Components use

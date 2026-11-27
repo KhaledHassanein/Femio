@@ -14,7 +14,7 @@ app cannot drift apart.
 
 **What I read:** `CLAUDE.md`, `00_PLAN.md`, `00_SYNTHESIS.md`, study reports 01, 04, 07, 08, 10, 11,
 `30_REVAMP/02` §8, §10, §11 and `04_ANDROID_APP_SPEC.md`, personas C6, C1, D1, B6,
-`31_RESET/02_SPEC_V1_DRAFT.md`, `compliance/PRIVATE_LAUNCH_V1.md`. **What I opened in code to
+`archive/2026-11/31_RESET/02_SPEC_V1_DRAFT.md`, `compliance/PRIVATE_LAUNCH_V1.md`. **What I opened in code to
 check a claim:** `apps/web/src/lib/calculators/index.ts`, the `calculators` block of `en.json`,
 `apps/mobile/lib/domain/fertility.dart` and `movements.dart`, `today_screen.dart` (lines 195-212),
 `onboarding_flow.dart` (lines 80-83), `app_en.arb`, the Android manifest.

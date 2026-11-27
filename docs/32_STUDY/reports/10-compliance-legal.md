@@ -5,7 +5,7 @@ Date: 2026-10-27. Worktree: `claude/femio-repo-study-planning-88d7c9`. This stud
 
 **How to read the labels.** **Checked** = I ran a command or read the file today. **From the docs** = a docs file states it and I did not verify it. **Hypothesis** = my reading. **[NEEDS SOURCE]** = a claim with no citation I could trace. Terms of art are explained once, on first use.
 
-**What I read in full:** all 19 markdown files in `docs/compliance/`, `docs/13_LEGAL_COMPLIANCE.md`, `docs/18_RBAC_MODEL.md`, `docs/19_ANALYTICS_EVENT_SCHEMA.md`, `docs/runbooks/OWNER_ACTIONS.md`, and `docs/archive/runbooks-2026-10/OWNER_ACTIONS_2026-10-07.md`. **Listed, not read:** `docs/compliance/NEEDS_SOURCE_TRACKER.xlsx` (binary workbook). **Read for cross-checks:** `scripts/claims-lint.mjs`, `scripts/crisis-compliance.mjs`, `apps/web/src/lib/crisis/crisis.json`, the privacy and terms pages and their message keys, the Flutter store, manifest, pubspec, onboarding and string files. **Not read, only located:** `docs/11_NEEDS_SOURCE_CHECKLIST.md`, `docs/DECISIONS.md` (ADRs are cited only through the docs), the Supabase migrations and Edge Functions, `scripts/security/rls-audit.mjs`, `scripts/dev/partner-sharing-check.mjs`, `apps/web/src/lib/analytics/events.ts`.
+**What I read in full:** all 19 markdown files in `docs/compliance/`, `docs/archive/2026-11/13_LEGAL_COMPLIANCE.md`, `docs/archive/2026-11/18_RBAC_MODEL.md`, `docs/archive/2026-11/19_ANALYTICS_EVENT_SCHEMA.md`, `docs/runbooks/OWNER_ACTIONS.md`, and `docs/archive/runbooks-2026-10/OWNER_ACTIONS_2026-10-07.md`. **Listed, not read:** `docs/compliance/NEEDS_SOURCE_TRACKER.xlsx` (binary workbook). **Read for cross-checks:** `scripts/claims-lint.mjs`, `scripts/crisis-compliance.mjs`, `apps/web/src/lib/crisis/crisis.json`, the privacy and terms pages and their message keys, the Flutter store, manifest, pubspec, onboarding and string files. **Not read, only located:** `docs/11_NEEDS_SOURCE_CHECKLIST.md`, `docs/DECISIONS.md` (ADRs are cited only through the docs), the Supabase migrations and Edge Functions, `scripts/security/rls-audit.mjs`, `scripts/dev/partner-sharing-check.mjs`, `apps/web/src/lib/analytics/events.ts`.
 
 ---
 
@@ -41,9 +41,9 @@ Every file in `docs/compliance/` is listed, plus the governing docs and runbooks
 | docs/compliance/P0_12_LEGAL_INTAKE_FORM.md | 141 | Blank questionnaire for owner and lawyer: entity, contacts, DPO, ages | live (blank) |
 | docs/compliance/NEEDS_SOURCE_REVIEW_BRIEF.md | 16 | Brief for clearing the source-check flags | live |
 | docs/compliance/NEEDS_SOURCE_TRACKER.xlsx | binary, 132 KB | Source-check workbook (not read) | unknown |
-| docs/13_LEGAL_COMPLIANCE.md | 113 | Legal foundation of 2026-07-16; drafts for counsel; partly superseded by PRIVATE_LAUNCH_V1 | live (partly superseded) |
-| docs/18_RBAC_MODEL.md | 69 | Staff roles (admin, editor, medical reviewer, translator, support) for the content and web back office | app-only (closed web tracker) |
-| docs/19_ANALYTICS_EVENT_SCHEMA.md | 144 | Closed list of allowed analytics events and the rules that enforce it | live (schema; no vendor connected) |
+| docs/archive/2026-11/13_LEGAL_COMPLIANCE.md | 113 | Legal foundation of 2026-07-16; drafts for counsel; partly superseded by PRIVATE_LAUNCH_V1 | live (partly superseded) |
+| docs/archive/2026-11/18_RBAC_MODEL.md | 69 | Staff roles (admin, editor, medical reviewer, translator, support) for the content and web back office | app-only (closed web tracker) |
+| docs/archive/2026-11/19_ANALYTICS_EVENT_SCHEMA.md | 144 | Closed list of allowed analytics events and the rules that enforce it | live (schema; no vendor connected) |
 | docs/runbooks/OWNER_ACTIONS.md | 43 | Owner's list of manual actions, rewritten 2026-10-27; drops the lawyer and DPO | live |
 | docs/archive/runbooks-2026-10/OWNER_ACTIONS_2026-10-07.md | 125 | Earlier owner runbook: lawyer brief, DPO, crisis sign-off, Egypt licensing date, purge decision | dead (superseded 2026-10-27; kept for its legal questions) |
 
@@ -134,7 +134,7 @@ Reviewer named: "Mohamed K.", reviewed 2026-07-23, next review 2027-07-23 (From 
 - **Banned by the docs** (beyond the lint list): "safe day," "infertile day," "cannot get pregnant today," efficacy of pregnancy avoidance, instructions to stop or switch contraception, "cure," "reverse," "detox," "safe for you."
 - **Medication reminders** reproduce only a schedule the user or a clinician entered. No default dose, no "safe for you."
 - **Lint.** `scripts/claims-lint.mjs` bans, as whole words: diagnose and its forms, cure(s/ing), treat(s/ing/ment), prevent(s/ing), contracept(ion/ive/ives), birth control. It scans **only** the English catalogue values in `apps/web/messages/en.json` (lines 14–18: `SCAN_LOCALES = ["en"]`). It does not scan ar, fr or es, the Flutter ARB files, `crisis.json`, or CMS content (its own header says that is pending, P1.6). Checked: it passes today.
-- **A conflict to resolve.** `docs/13_LEGAL_COMPLIANCE.md` §4 wants the terms to say "it is **not a contraceptive**", but the lint bans the word "contraceptive" in any value. Either add a reviewed exception (the lint header allows one) or reword the sentence.
+- **A conflict to resolve.** `docs/archive/2026-11/13_LEGAL_COMPLIANCE.md` §4 wants the terms to say "it is **not a contraceptive**", but the lint bans the word "contraceptive" in any value. Either add a reviewed exception (the lint header allows one) or reword the sentence.
 
 ### 3.10 Consent, sharing and analytics rules (docs/13 §3, §5b, §6; DATA_MAP; DPIA; PARTNER_SHARING_DESIGN; docs/19)
 
@@ -309,9 +309,9 @@ Judged against the direction: private Android app, records on the phone, no runt
 - **P0_12_LEGAL_INTAKE_FORM.md:** Rebuild. Shrink to the entity, contacts and the four counsel questions in PRIVATE_LAUNCH §6.
 - **NEEDS_SOURCE_REVIEW_BRIEF.md:** Keep as reference.
 - **NEEDS_SOURCE_TRACKER.xlsx:** Keep. Not read; verdict unknown.
-- **docs/13_LEGAL_COMPLIANCE.md:** Rebuild in part. §3–§4 assume cloud accounts; §5b (disclosures) still applies to partner sharing; mark the superseded parts.
-- **docs/18_RBAC_MODEL.md:** Park. Relevant only if the website and the content back office return; the Payload parts go when D3 is executed.
-- **docs/19_ANALYTICS_EVENT_SCHEMA.md:** Keep. Either add Vercel Web Analytics to the schema or state that it is out of scope for analytics.
+- **docs/archive/2026-11/13_LEGAL_COMPLIANCE.md:** Rebuild in part. §3–§4 assume cloud accounts; §5b (disclosures) still applies to partner sharing; mark the superseded parts.
+- **docs/archive/2026-11/18_RBAC_MODEL.md:** Park. Relevant only if the website and the content back office return; the Payload parts go when D3 is executed.
+- **docs/archive/2026-11/19_ANALYTICS_EVENT_SCHEMA.md:** Keep. Either add Vercel Web Analytics to the schema or state that it is out of scope for analytics.
 - **docs/runbooks/OWNER_ACTIONS.md:** Keep. Its removal of counsel conflicts with the compliance docs; the owner must decide (Q1).
 - **Archived OWNER_ACTIONS_2026-10-07.md:** Keep, archived. It holds the counsel brief and the Egypt date.
 - **scripts/claims-lint.mjs:** Keep and extend: all four locales, ARB files, the banned phrases, and a reviewed exception for "not a contraceptive" (M2, M3).
@@ -369,7 +369,7 @@ Status: **done** = verified in the repo today or fixed by a signed decision; **d
 | 8 | Delete all data on the device | drafted | apps/mobile/lib/data/store.dart (clear) | Method exists; UI not checked |
 | 9 | Privacy policy for the v1 model | drafted | apps/web/messages/en.json (privacy); privacy/page.tsx line 20 | Describes the cloud product; rewrite needed (H2) |
 | 10 | Terms of use for the v1 model | drafted | apps/web/messages/en.json (terms); terms/page.tsx line 18 | Same problem (H2) |
-| 11 | Terms state "not a contraceptive" | missing | docs/13_LEGAL_COMPLIANCE.md §4 | Absent from draft; lint conflict (3.9) |
+| 11 | Terms state "not a contraceptive" | missing | docs/archive/2026-11/13_LEGAL_COMPLIANCE.md §4 | Absent from draft; lint conflict (3.9) |
 | 12 | Teen wording removed from policies (18+ only) | missing | en.json privacy "Teens and guardians" | Contradicts 18+ launch (M6) |
 | 13 | Play Data safety form answers | missing | PRIVATE_LAUNCH_V1 §4 | Only the intended answer is written down |
 | 14 | Play Health apps declaration | missing | PRIVATE_LAUNCH_V1 §4 | Required by the docs |

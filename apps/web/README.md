@@ -38,4 +38,4 @@ messages/           # per-locale JSON (swap point for the DB portal — P1.19)
 - **RTL** — Arabic is first-class; use logical properties (`ms-`/`me-`,
   `start`/`end`), never `ml-`/`left`.
 
-See `CLAUDE.md` and `docs/14_SYSTEM_ARCHITECTURE.md` for the full picture.
+See `CLAUDE.md` and `docs/archive/2026-11/14_SYSTEM_ARCHITECTURE.md` for the full picture.

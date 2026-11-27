@@ -4,7 +4,7 @@
               (2) SEMANTIC  — role-based tokens that reference primitives.
    Components consume ONLY semantic tokens. Change a brand color in one primitive
    and it cascades everywhere. Light is default; [data-theme="dark"] remaps semantics.
-   Ref: femio-design-system skill · docs/12_BRAND_DESIGN_TOKENS.md
+   Ref: femio-design-system skill · docs/archive/2026-11/12_BRAND_DESIGN_TOKENS.md
    ========================================================================== */
 
 /* ----------------------------------------------------------------------------

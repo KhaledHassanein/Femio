@@ -107,7 +107,7 @@ common. Named, because Femio serves countries on both sides of that line.
 ## Part 2 — Handover prompt, to paste whole into a fresh chat
 
 > You are picking up **Femio** (`e:\Femio`, women's-health platform) after the newborn-basics
-> work of 2026-08-17. Read `CLAUDE.md`, then `docs/STATE.md`, then `docs/07_MASTER_TODO.md`.
+> work of 2026-08-17. Read `CLAUDE.md`, then `docs/STATE.md`, then `docs/archive/2026-11/07_MASTER_TODO.md`.
 > Assume you have this file and none of that session's conversation. Two commits carry the work:
 > `38af656` (the eight drafts) and `13a5a30` (the wiring). The full gate is green on both —
 > typecheck, 570 tests, eslint, twelve lints, and `content-lint --check-urls`.
@@ -193,7 +193,7 @@ common. Named, because Femio serves countries on both sides of that line.
 > ### What to do next
 >
 > `git branch --list "wip/*"` (expect nothing), then take the top open item in
-> `docs/07_MASTER_TODO.md` → **▶ NOW**. P2.13c stays `[~]` until the owner publishes and answers
+> `docs/archive/2026-11/07_MASTER_TODO.md` → **▶ NOW**. P2.13c stays `[~]` until the owner publishes and answers
 > the two B7 questions; nothing about it needs you. The one content set still out with another
 > agent is week-by-week (`docs/content/HANDOVER_WEEK_BY_WEEK.md`, B9 → weeks 4–40).
 >

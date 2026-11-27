@@ -19,7 +19,7 @@ You are writing production code for Femio, a women's health platform. Code must 
 9. **Tests:** every util/business-logic function gets unit tests (Vitest); every user flow touched gets/updates a Playwright e2e. Prediction/medical-logic code requires table-driven tests with edge cases (irregular cycles, missing data).
 10. **Commits:** Conventional Commits (`feat:`, `fix:`, `docs:`, `refactor:`, `test:`, `chore:`). PR description states what/why/testing done. Update `docs/DECISIONS.md` for any architectural choice.
 11. **No new dependency** without one-line justification in the PR; prefer stdlib/platform. Check bundle impact.
-12. **Master TODO discipline:** any newly discovered task gets added to `07_MASTER_TODO.md` — nothing is skipped silently.
+12. **Master TODO discipline:** any newly discovered task gets added to `archive/2026-11/07_MASTER_TODO.md` — nothing is skipped silently.
 
 ## Review checklist (run before declaring done)
 - [ ] `pnpm lint && pnpm typecheck && pnpm test` clean

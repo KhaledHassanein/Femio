@@ -28,7 +28,7 @@ Flo's help centre and independent reviews describe the same core in every mainst
 skippable, a pregnancy branch that asks the week (or computes it from the due date, last
 period or conception date), and a prediction on the first screen. Flo's long version
 (~70 screens, ~7 minutes per a published design critique; 442 steps in its onboarding
-graph per our teardown, `docs/28_TEARDOWN/02_FLO.md` §3) wraps that core in teaching cards
+graph per our teardown, `docs/archive/2026-11/28_TEARDOWN/02_FLO.md` §3) wraps that core in teaching cards
 and paywalls; reviewers cite the length as the main complaint, and the same complaint is
 made of Stardust. Clue's setup is described as under two minutes. **The core is the
 standard; the length is the mistake.** Femio takes the core, keeps it under a minute, and

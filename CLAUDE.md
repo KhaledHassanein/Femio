@@ -78,11 +78,13 @@ docs/STATE.md                 ← READ FIRST
 docs/33_REBUILD_V3/           ← THE PLAN: 00_PLAN, 01_PRODUCT_SCOPE, 02_DESIGN_SPEC, 03_LEGAL_PACK,
                                  04_GROWTH_PACK, 05_RELEASE_RUNBOOK, PROGRESS
 docs/32_STUDY/                ← the study: 12 reports, knowledge graph (graph/index.html), synthesis
-docs/30_REVAMP/ docs/31_RESET/ ← superseded plans, kept for the record (04_ANDROID_APP_SPEC still useful)
+docs/archive/2026-11/          ← superseded plans and finished reports (v2, 28_TEARDOWN, 29_REBUILD, 30_REVAMP,
+                                 31_RESET, 07_MASTER_TODO): learning sources only, never the plan
+docs/30_REVAMP/04_ANDROID_APP_SPEC.md ← the one revamp file still useful
 docs/compliance/              ← safety thresholds and wording rules (binding), legal intake
 docs/content/articles/        ← the content source (Markdown + frontmatter)
 docs/personas/                ← 73 persona specs (C6, C1, D1, B6 define the wedge)
-docs/DECISIONS.md · CHANGELOG.md · 07_MASTER_TODO.md (historical queue) · runbooks/OWNER_ACTIONS.md
+docs/DECISIONS.md · CHANGELOG.md · runbooks/OWNER_ACTIONS.md
 apps/mobile/                  ← the product (Flutter)
 apps/web/                     ← the teaser site (Next.js)
 packages/content/             ← built JSON content (generated; do not edit by hand)

@@ -208,7 +208,7 @@
       "id": "docs-16-condition-library-ia",
       "label": "doc 16: condition library IA (8 categories)",
       "type": "doc",
-      "path": "docs/16_CONDITION_LIBRARY_IA.md",
+      "path": "docs/archive/2026-11/16_CONDITION_LIBRARY_IA.md",
       "status": "live"
     },
     {
@@ -495,21 +495,21 @@
       "id": "docs-30-revamp-benchmark",
       "label": "Competitor benchmark (content gaps, 5.2)",
       "type": "doc",
-      "path": "docs/30_REVAMP/delegated/2026-10-08-competitor-benchmark.md",
+      "path": "docs/archive/2026-11/30_REVAMP/delegated/2026-10-08-competitor-benchmark.md",
       "status": "live"
     },
     {
       "id": "docs-30-revamp-app-strings-qa",
       "label": "App strings QA (AR, FR, ES UI)",
       "type": "doc",
-      "path": "docs/30_REVAMP/delegated/2026-10-08-app-strings-qa.md",
+      "path": "docs/archive/2026-11/30_REVAMP/delegated/2026-10-08-app-strings-qa.md",
       "status": "live"
     },
     {
       "id": "docs-30-revamp-fr-register",
       "label": "FR register proposal (applied 99 of 101)",
       "type": "doc",
-      "path": "docs/30_REVAMP/delegated/2026-10-08-fr-register.md",
+      "path": "docs/archive/2026-11/30_REVAMP/delegated/2026-10-08-fr-register.md",
       "status": "live"
     }
   ],

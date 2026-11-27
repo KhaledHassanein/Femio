@@ -8,7 +8,7 @@ description: Femio agency-grade documentation standard - decision logs, phase re
 We operate as an agency delivering to a client (Khaled). Every piece of work is documented as if handing off to another team tomorrow.
 
 ## The Master TODO covenant (highest rule)
-- `07_MASTER_TODO.md` is the single source of truth. The moment ANY task/need/requirement is identified — current or future phase — it gets a line with an ID (P#.#, C.#).
+- `archive/2026-11/07_MASTER_TODO.md` is the single source of truth. The moment ANY task/need/requirement is identified — current or future phase — it gets a line with an ID (P#.#, C.#).
 - **Nothing is ever skipped or deleted.** Reordering/reprioritizing allowed; removal only with Khaled's explicit approval, then marked `[DEPRECATED — approved YYYY-MM-DD, reason]` and kept in place.
 - Statuses: `[ ]` pending · `[~]` in progress · `[x] done (→ doc link, date)` · `[BLOCKED: reason]` · `[DEPRECATED …]`.
 - Phase gates (Khaled sign-off) are explicit line items; work past a gate requires the gate marked done.

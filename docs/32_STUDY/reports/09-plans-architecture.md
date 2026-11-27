@@ -4,7 +4,7 @@ Study date: 2026-10-27 · Branch `claude/femio-repo-study-planning-88d7c9` · Re
 
 Labels: **Checked** = I measured it today with a command. **From the docs** = a project file says it; I did not re-verify. **Hypothesis** = my reading. Anything about the running code beyond a few listings is **not verified**. When I wrote this, only one other study report existed (`reports/05-data-cms.md`); I used it in one place (section 5, marked "per report 05") and nothing else.
 
-Not read in full: `docs/28_TEARDOWN/11_FINDINGS_LEDGER.md` (only the OD-1..16 table), `docs/DECISIONS.md` ADR-001..059 (titles plus the bodies that matter for supersession; ADR-060..071 in full), `docs/07_MASTER_TODO.md` (structure, counts and the open sections, not every line), `docs/30_REVAMP/PROGRESS.md` (read in full except that a few very long lines, notably P3.6, were cut at 900 characters).
+Not read in full: `docs/28_TEARDOWN/11_FINDINGS_LEDGER.md` (only the OD-1..16 table), `docs/DECISIONS.md` ADR-001..059 (titles plus the bodies that matter for supersession; ADR-060..071 in full), `docs/archive/2026-11/07_MASTER_TODO.md` (structure, counts and the open sections, not every line), `docs/archive/2026-11/30_REVAMP/PROGRESS.md` (read in full except that a few very long lines, notably P3.6, were cut at 900 characters).
 
 ---
 
@@ -25,27 +25,27 @@ Status: **live** = still binding or still the working reference; **app-only (clo
 | `CLAUDE.md` | 84 | Project constitution: product rules, repo map, skills | live, but its identity and architecture paragraphs are stale (C-01 to C-04) |
 | `AGENTS.md` | 19 | Pointer to CLAUDE.md and a 4-step orientation | live (names a missing `docs/00_WHERE_WE_ARE.md`, C-37) |
 | `docs/STATE.md` | 233 | Resume prompt, working loop, gate, environment traps | live; header says updated 2026-10-07 but holds 8 Oct notes (C-23) |
-| `docs/30_REVAMP/00_README.md` | 26 | One-page revamp orientation, "three launches" | live but wrong on Android and TWA (C-05, C-06) |
-| `docs/30_REVAMP/03_REVAMP_PLAN.md` | 276 | Strategy, Dusk Bloom, infrastructure, phases 0-5 | live for strategy and design; platform order and phases 3-5 superseded by D7/D8 |
+| `docs/archive/2026-11/30_REVAMP/00_README.md` | 26 | One-page revamp orientation, "three launches" | live but wrong on Android and TWA (C-05, C-06) |
+| `docs/archive/2026-11/30_REVAMP/03_REVAMP_PLAN.md` | 276 | Strategy, Dusk Bloom, infrastructure, phases 0-5 | live for strategy and design; platform order and phases 3-5 superseded by D7/D8 |
 | `docs/30_REVAMP/04_ANDROID_APP_SPEC.md` | 96 | What Android v1 is: onboarding, tools by goal, architecture | live (newest product spec); architecture section not yet met by code (C-08) |
-| `docs/30_REVAMP/PROGRESS.md` | 70 | Checkpoint ledger P0-P4; first open line is the work | live |
-| `docs/31_RESET/01_INVENTORY.md` | 168 | 27 Oct snapshot: why work drifts, token cost, critical path | live as a snapshot; its section 7 dates were re-set the same day |
-| `docs/31_RESET/02_SPEC_V1_DRAFT.md` | 109 | Draft scope lock, launch dates, doc fixes, loop change | **DRAFT, nothing decided until the owner approves** |
+| `docs/archive/2026-11/30_REVAMP/PROGRESS.md` | 70 | Checkpoint ledger P0-P4; first open line is the work | live |
+| `docs/archive/2026-11/31_RESET/01_INVENTORY.md` | 168 | 27 Oct snapshot: why work drifts, token cost, critical path | live as a snapshot; its section 7 dates were re-set the same day |
+| `docs/archive/2026-11/31_RESET/02_SPEC_V1_DRAFT.md` | 109 | Draft scope lock, launch dates, doc fixes, loop change | **DRAFT, nothing decided until the owner approves** |
 | `docs/runbooks/OWNER_ACTIONS.md` | 43 | Rewritten 27 Oct: four manual actions; owner is every role | live (newest owner direction) |
 | `docs/archive/runbooks-2026-10/OWNER_ACTIONS_2026-10-07.md` | 125 | Original owner file; the only full text of D1-D8 | dead as a task list; **live as the only home of D1-D6 text** |
 | `docs/DECISIONS.md` | 526 | 71 ADRs (064/065 out of order; 066+ use a different format) | live |
-| `docs/24_REVAMP_PLAN.md` | 198 | Three tiers, `ExperienceConfig`, golden fixtures | live as principle; mechanism dormant after ADR-070 (C-13) |
-| `docs/22_APP_UI_ARCHITECTURE.md` | 269 | Conventions for the signed-in web tracker UI | app-only (closed web tracker); parts contradict ADR-060 (C-12) |
-| `docs/14_SYSTEM_ARCHITECTURE.md` | 105 | Phase-1 architecture: ERD, RLS, API, i18n | app-only (closed web tracker) and stale (C-11) |
-| `docs/12_BRAND_DESIGN_TOKENS.md` | 77 | v2 token rationale (violet, Fraunces, Inter) | dead for values (replaced by Dusk Bloom); live for logo rules and the contrast method (C-14) |
+| `docs/archive/2026-11/24_REVAMP_PLAN.md` | 198 | Three tiers, `ExperienceConfig`, golden fixtures | live as principle; mechanism dormant after ADR-070 (C-13) |
+| `docs/archive/2026-11/22_APP_UI_ARCHITECTURE.md` | 269 | Conventions for the signed-in web tracker UI | app-only (closed web tracker); parts contradict ADR-060 (C-12) |
+| `docs/archive/2026-11/14_SYSTEM_ARCHITECTURE.md` | 105 | Phase-1 architecture: ERD, RLS, API, i18n | app-only (closed web tracker) and stale (C-11) |
+| `docs/archive/2026-11/12_BRAND_DESIGN_TOKENS.md` | 77 | v2 token rationale (violet, Fraunces, Inter) | dead for values (replaced by Dusk Bloom); live for logo rules and the contrast method (C-14) |
 | `docs/09_MASTER_ADAPTATION_MODEL.md` | 238 | Persona "brain": invariants, wizard, Z1, events, state graph | app-only (closed web tracker); the seven invariants live on as product rules |
-| `docs/femio_state_machine.mermaid` | 55 | Stand-alone copy of the state graph | duplicate of 09 section 7 with different labels (C-10) |
-| `docs/07_MASTER_TODO.md` | 470 | Historical queue; header says new work is in PROGRESS | live as history; large parts stale (C-27) |
+| `docs/archive/2026-11/femio_state_machine.mermaid` | 55 | Stand-alone copy of the state graph | duplicate of 09 section 7 with different labels (C-10) |
+| `docs/archive/2026-11/07_MASTER_TODO.md` | 470 | Historical queue; header says new work is in PROGRESS | live as history; large parts stale (C-27) |
 | `docs/CHANGELOG.md` | 178 | One `[Unreleased]` block, 71 bullets, 2 dates in total | live but misleading (C-36) |
 | `docs/28_TEARDOWN/11_FINDINGS_LEDGER.md` | 269 | Source of OD-1..16 (only that table read) | live as evidence |
 | `docs/archive/plans-2026-08/25_DESIGN_DIRECTION_BRIEF.md` | 255 | Source of the rejected-ring rule and band/strip/stack vocabulary | archived but still cited as binding |
 | `docs/compliance/PRIVATE_LAUNCH_V1.md` | 139 | Legal reasoning for D7 (only the opening read) | live (cited by ADR-070) |
-| `docs/29_REBUILD/PROGRESS.md` | 153 | August web rebuild ledger (phases A-G; only headings and G read) | dead (sequence superseded 7 Oct); its G1 line is stale (C-33) |
+| `docs/archive/2026-11/29_REBUILD/PROGRESS.md` | 153 | August web rebuild ledger (phases A-G; only headings and G read) | dead (sequence superseded 7 Oct); its G1 line is stale (C-33) |
 
 ---
 
@@ -169,14 +169,14 @@ Severity: **H** = a session can build the wrong thing; **M** = misleading, costs
 |---|---|---|---|---|
 | C-01 | H | `CLAUDE.md` "What Femio is" vs ADR-070, D7, D8, `OWNER_ACTIONS.md` | CLAUDE: one account for a whole health life; "web is also a real product"; the public site and CMS are support functions. ADR-070: the product is a private Android app; the web tracker is closed | The product is the private Android app. Whole-life stays a long-term ambition, not the launch |
 | C-02 | H | `CLAUDE.md` architecture rule, ADR-060, `docs/24` vs ADR-070 | "The backend owns decisions; the clients render them" vs "the specification owns decisions", run on the device by TypeScript and Dart twins | ADR-070: rules live as versioned data plus golden fixtures, executed on the phone. Tier 1 (Edge Functions) returns only with sync |
-| C-03 | M | `CLAUDE.md` governance ("read STATE.md, then the TODO") vs the same file's "How to work here", `STATE.md`, the `07_MASTER_TODO` header | Two read orders in one file | Read `STATE.md` then `30_REVAMP/PROGRESS.md`. The TODO is history |
+| C-03 | M | `CLAUDE.md` governance ("read STATE.md, then the TODO") vs the same file's "How to work here", `STATE.md`, the `07_MASTER_TODO` header | Two read orders in one file | Read `STATE.md` then `archive/2026-11/30_REVAMP/PROGRESS.md`. The TODO is history |
 | C-04 | M | `CLAUDE.md` "Next up: Phase 1 ... Dusk Bloom" vs `PROGRESS.md` | Phase 1 was finished 2026-10-07 | The next work is the first open line: P3.2 (rest), P3.6 (rest), P3.7, P3.8, P3.10; then P4 |
 | C-05 | H | `03_REVAMP_PLAN` section 2.3 and phase table, D2, `00_README`, OD-16 vs D8, ADR-070, `04` | Web PWA first, Play via TWA within days, Flutter "after launch signal" vs Flutter Android app now, Play listing is the real app, no TWA | Flutter now (D8 says it "replaces D2's Play via TWA step") |
 | C-06 | M | `00_README` "Android: Not started" vs `PROGRESS`, `01_INVENTORY` | Not started vs v0.4.0 | **Checked**: `apps/mobile` has 37 Dart files, 10,519 lines in `lib/`, 4 test files, `version: 0.4.0+4` |
 | C-07 | M | `03` phases 3-4 and section 2.5, vs ADR-070 and `OWNER_ACTIONS` 27 Oct | Phase 3 builds the wedge app as a web PWA; Phase 4 has invite gate, Supabase Pro, SMTP, "analytics funnels visit to D7"; Phase 5 starts "when the beta shows retention"; premium switches on "after retention data" | Phases 3-4 are replaced by `PROGRESS` Phase 3-4. **New gap**: the app has no analytics SDK by design, so no document says how retention (the trigger for iOS and for monetisation) will be measured |
 | C-08 | M | `04` section 5 vs `PROGRESS` P3.1 and the code | Spec: SQLite encrypted with a key in the Android Keystore behind a `Store` interface. Code: **Checked** `pubspec.yaml` has only `path_provider`; P3.1 says "private-file implementation"; Keystore encryption and app lock wait for P3.8 | The spec describes the target; today's store is an unencrypted private file. Treat encryption and backup as launch blockers (02_SPEC V1-05) |
 | C-09 | H | ADR-059, OD-13, `docs/09` wizard vs `04` sections 1 and 3, PROGRESS P3.3 | ADR-059 (owner: the wizard is medical triage, "anything your clinician is watching?") vs `04`: conditions are not asked in onboarding; they are offered later; the old wizard is criticised | `04` wins for the app. ADR-059 survives only in the closed web wizard. PCOS depth (D1) is reached by choice, not by questionnaire. Nothing records that the owner's August triage instruction is now reversed for the app |
-| C-10 | L | `docs/09` section 7 and `femio_state_machine.mermaid` vs ADR-065 | Both graphs say "E1 to E3: EPDS elevated"; ADR-065 says E3 never resolves from a score. The two graph copies also differ in labels | ADR-065. Neither graph file was updated. (Dormant in the app) |
+| C-10 | L | `docs/09` section 7 and `archive/2026-11/femio_state_machine.mermaid` vs ADR-065 | Both graphs say "E1 to E3: EPDS elevated"; ADR-065 says E3 never resolves from a score. The two graph copies also differ in labels | ADR-065. Neither graph file was updated. (Dormant in the app) |
 
 ### 4.2 Architecture documents
 
@@ -400,9 +400,9 @@ Dusk Bloom for the **Android app** (Flutter) is only derivable: colours are gene
 1. `docs/runbooks/OWNER_ACTIONS.md` (27 Oct): who does what; the owner is every role.
 2. `docs/DECISIONS.md` ADR-070, ADR-071; D1-D8 (archived text).
 3. `docs/30_REVAMP/04_ANDROID_APP_SPEC.md`: what v1 is.
-4. `docs/30_REVAMP/PROGRESS.md`: the work order. `docs/31_RESET/02_SPEC_V1_DRAFT.md` sits here but is a **draft**.
+4. `docs/archive/2026-11/30_REVAMP/PROGRESS.md`: the work order. `docs/archive/2026-11/31_RESET/02_SPEC_V1_DRAFT.md` sits here but is a **draft**.
 5. `docs/STATE.md`: gate, traps, resume prompt (stale in places).
-6. `docs/30_REVAMP/03_REVAMP_PLAN.md`: strategy (wedge, markets, positioning, voice) and the design language remain current; its platform order and phases 3-5 do not.
+6. `docs/archive/2026-11/30_REVAMP/03_REVAMP_PLAN.md`: strategy (wedge, markets, positioning, voice) and the design language remain current; its platform order and phases 3-5 do not.
 7. Reference only: `docs/24`, `09`, `14`, `22`, `12` (values), `29_REBUILD`, `28_TEARDOWN`, the archive.
 
 Reading chain a new session actually follows: `AGENTS.md` to `CLAUDE.md` to `STATE.md` to `PROGRESS.md` (about 43 KB, 11,000 tokens, per `01_INVENTORY`). Two of those four files (`CLAUDE.md`, `STATE.md`) carry the stale identity paragraphs, so the first 30 KB a session reads partly describe the old product. Imports among documents: `AGENTS.md` documents `CLAUDE.md`; `00_README` documents `03`, `PROGRESS`, `OWNER_ACTIONS`; `04` depends on ADR-070 and `PRIVATE_LAUNCH_V1`; `02_SPEC` depends on `01_INVENTORY`; ADR-071 depends on ADR-070; the TODO header points to `PROGRESS`. The graph file has these edges.
@@ -417,8 +417,8 @@ Mechanically enforced facts: token parity (CSS to Tailwind preset to Dart: `toke
 
 | Source | Open | In progress | Done | Other | Note |
 |---|---|---|---|---|---|
-| `30_REVAMP/PROGRESS.md` (**Checked**, line-start markers) | **11** | **4** | **22** | 0 | The live ledger. In progress: P2.4, P3.2, P3.6, P4.0. Open: P2.5, P2.8, P3.7, P3.8, P3.9, P3.10, P4.0b, P4.1, P4.2, P4.3, P4.4 |
-| `07_MASTER_TODO.md` (**Checked**, marker occurrences) | 68 | 26 (19 at line start) | 95 | 1 BLOCKED, 3 DEFERRED, 4 DEPRECATED | Historical queue. Its own readiness header (dated 23 Aug) says 84 done, 16 in flight, 69 open, 2 deferred. A marker count is approximate: one line can carry several |
+| `archive/2026-11/30_REVAMP/PROGRESS.md` (**Checked**, line-start markers) | **11** | **4** | **22** | 0 | The live ledger. In progress: P2.4, P3.2, P3.6, P4.0. Open: P2.5, P2.8, P3.7, P3.8, P3.9, P3.10, P4.0b, P4.1, P4.2, P4.3, P4.4 |
+| `archive/2026-11/07_MASTER_TODO.md` (**Checked**, marker occurrences) | 68 | 26 (19 at line start) | 95 | 1 BLOCKED, 3 DEFERRED, 4 DEPRECATED | Historical queue. Its own readiness header (dated 23 Aug) says 84 done, 16 in flight, 69 open, 2 deferred. A marker count is approximate: one line can carry several |
 | `02_SPEC_V1_DRAFT.md` | 4 unbuilt launch blockers | | 4 built groups | 7 items proposed for v1.1 | V1-05 backup + lock, V1-06 articles in app, V1-07 reminders + crash reporting, V1-08 legal pages |
 
 **Open items relevant to the app (PROGRESS, in order):** P3.2 finish the Dart maths (period-forecast and test-timing calculators; persona/phase/experience fixtures deferred); P3.6 finish pregnancy (week-by-week content needs sourced drafting); **P3.7 articles in the app + PCOS hub**; **P3.8 backup export/import, app lock, reminders, crash reporting without content**; P3.10 Hijri dates alongside Gregorian and ultrasound dating; P3.9 owner checkpoint walk-through in Arabic (D-4); P4.1 legal pages; P4.2 Play Console listing, Data safety answer "health data not collected", Health apps declaration, 18+ audience, closed test; P4.3 soft launch; P4.4 iOS.
@@ -432,8 +432,8 @@ Mechanically enforced facts: token parity (CSS to Tailwind preset to Dart: `toke
 ## 9. Smells, risks and stale text (concrete)
 
 1. `CLAUDE.md:5-6` "What Femio is" and `CLAUDE.md:17` tech stack describe the web-first whole-life product; `CLAUDE.md:19-20` states "the backend owns decisions"; `CLAUDE.md:55` says "read STATE.md, then the TODO"; `CLAUDE.md:69-84` "Current status" and "Next up: Phase 1" are 20 days old. Every session reads this file first. (C-01 to C-04.)
-2. `docs/30_REVAMP/00_README.md:18-19` says Android "Not started" and Play "via TWA". (C-05, C-06.)
-3. `docs/30_REVAMP/03_REVAMP_PLAN.md:48-50` "OD-16 stands"; phases 3-4. (C-05, C-07, C-25.)
+2. `docs/archive/2026-11/30_REVAMP/00_README.md:18-19` says Android "Not started" and Play "via TWA". (C-05, C-06.)
+3. `docs/archive/2026-11/30_REVAMP/03_REVAMP_PLAN.md:48-50` "OD-16 stands"; phases 3-4. (C-05, C-07, C-25.)
 4. `docs/STATE.md:3` "Last updated 2026-10-07" and `docs/STATE.md:67` "Do not stop to summarise" versus the reset's proposed loop. (C-23, C-24.)
 5. **D1-D6 live only in an archived file.** If that file is ever cleaned out, the wedge, markets, launch date and look lose their record. `OWNER_ACTIONS.md` points at it by path.
 6. **Two Flutter builds in October** (the archived Codex app and `apps/mobile`) is the strongest evidence for the "one builder" rule; ADR-071 records the cost.
@@ -459,17 +459,17 @@ Judged against the current direction: a private Android app (Flutter, records on
 | `03_REVAMP_PLAN.md` | Keep sections 1, 2.1, 2.2, 2.4, 2.5, 3; mark 2.3, 4, 5 phases 3-5 superseded | Strategy and design language are current |
 | `04_ANDROID_APP_SPEC.md` | Keep | Newest product spec; add a line that storage is not yet encrypted |
 | `PROGRESS.md` | Keep | The working ledger; update P4.0/P4.1 wording for the owner-only roles |
-| `31_RESET/01_INVENTORY.md` | Keep as a dated snapshot | Honest and useful |
-| `31_RESET/02_SPEC_V1_DRAFT.md` | **Decide**, then keep or fold into PROGRESS | It is the only place the launch dates and scope lock live; it is still a draft |
+| `archive/2026-11/31_RESET/01_INVENTORY.md` | Keep as a dated snapshot | Honest and useful |
+| `archive/2026-11/31_RESET/02_SPEC_V1_DRAFT.md` | **Decide**, then keep or fold into PROGRESS | It is the only place the launch dates and scope lock live; it is still a draft |
 | `OWNER_ACTIONS.md` | Keep | Short and right; add a pointer to the archived D1-D8 text or restore the D1-D8 table in it |
 | `archive/.../OWNER_ACTIONS_2026-10-07.md` | Keep in archive | Only home of D1-D6 text (until ADRs exist) |
 | `DECISIONS.md` | Keep; add "amended by ADR-070" lines to 060 and 061; consider ADRs for D3 and D6 | Honest log; the order oddities are cosmetic |
-| `24_REVAMP_PLAN.md` | Keep as reference; add a header note | Principles (rules as data, golden fixtures, no restriction field) are the on-device design too; the tier-1 mechanism is dormant |
-| `22_APP_UI_ARCHITECTURE.md` | Keep for the closed tracker; header note | Do not use for the Flutter app; reusable rules (44px, logical properties, dates, motion) should be copied into an app UI note when the app UI is next touched |
-| `14_SYSTEM_ARCHITECTURE.md` | Archive when Supabase is paused | Schema and RLS reference for the dormant backend |
-| `12_BRAND_DESIGN_TOKENS.md` | **Rebuild** around section 7 of this report, or archive and let the CSS plus `03` section 3 be the spec | Its values are wrong; its logo rules and contrast method are right |
+| `archive/2026-11/24_REVAMP_PLAN.md` | Keep as reference; add a header note | Principles (rules as data, golden fixtures, no restriction field) are the on-device design too; the tier-1 mechanism is dormant |
+| `archive/2026-11/22_APP_UI_ARCHITECTURE.md` | Keep for the closed tracker; header note | Do not use for the Flutter app; reusable rules (44px, logical properties, dates, motion) should be copied into an app UI note when the app UI is next touched |
+| `archive/2026-11/14_SYSTEM_ARCHITECTURE.md` | Archive when Supabase is paused | Schema and RLS reference for the dormant backend |
+| `archive/2026-11/12_BRAND_DESIGN_TOKENS.md` | **Rebuild** around section 7 of this report, or archive and let the CSS plus `03` section 3 be the spec | Its values are wrong; its logo rules and contrast method are right |
 | `09_MASTER_ADAPTATION_MODEL.md` and the mermaid file | Keep the invariants; archive the rest with the closed tracker; delete the duplicate mermaid file (keep one) | Fix the EPDS label first (ADR-065) |
-| `07_MASTER_TODO.md` | Keep as history; mark the lines in 8.4 `[DEPRECATED]` | Covenant: nothing is deleted |
+| `archive/2026-11/07_MASTER_TODO.md` | Keep as history; mark the lines in 8.4 `[DEPRECATED]` | Covenant: nothing is deleted |
 | `CHANGELOG.md` | Rebuild | Cut a first real block for the Android pivot, mark web-tracker entries closed |
 | `28_TEARDOWN/11_FINDINGS_LEDGER.md` | Keep | Evidence; mark OD-16 superseded |
 | `29_REBUILD/*` | Archive | Superseded sequence; chapters 02-06 are specs for a closed product |

@@ -1,6 +1,6 @@
 # 33 — Femio v3: the rebuild plan (opened 2026-10-27)
 
-**Status: active. This supersedes `docs/30_REVAMP/03_REVAMP_PLAN.md` §5 and `docs/31_RESET/02_SPEC_V1_DRAFT.md`.**
+**Status: active. This supersedes `docs/archive/2026-11/30_REVAMP/03_REVAMP_PLAN.md` §5 and `docs/archive/2026-11/31_RESET/02_SPEC_V1_DRAFT.md`.**
 It rests on the study in `docs/32_STUDY/00_SYNTHESIS.md`. The owner's direction of 2026-10-27:
 *take over professionally, clean everything from the database to the favicon, keep the content,
 not the UI, document everything, no review gates block the build, local storage only, the website

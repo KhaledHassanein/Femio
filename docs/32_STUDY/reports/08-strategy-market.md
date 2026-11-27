@@ -4,7 +4,7 @@
 
 **Labels used throughout.** **Checked** = I measured it or read it myself in the repo. **From the docs** = a project file says it; I did not verify it. **Hypothesis** = my reading, not a fact. **[NEEDS SOURCE]** = a claim with no citation I could follow. Two external pages were opened (see section 7); no other links were opened.
 
-**What was read in full:** `docs/00`, `01`, `02`, `03`, `05`; `docs/30_REVAMP/01`, `02`, `03`, `00_README`, `PROGRESS` (first open line only), `delegated/2026-10-08-competitor-benchmark.md` (header); `docs/28_TEARDOWN/11_FINDINGS_LEDGER.md` and `00_INDEX.md`; `docs/runbooks/OWNER_ACTIONS.md`; the decision text of D1–D8 in `docs/archive/runbooks-2026-10/OWNER_ACTIONS_2026-10-07.md` §0. **Skimmed by heading:** `docs/28_TEARDOWN/01–10, 12` and `docs/29_REBUILD/00–07`. **Read in part:** `docs/31_RESET/01_INVENTORY.md` (first 50 lines and summary), `docs/STATE.md` (first 40 lines), `docs/DECISIONS.md` (ADR-012, 028, 058, 060, 070 and the ADR index). **Grep only:** `docs/06`, `docs/compliance/PROCESSOR_REGISTER.md`, `docs/compliance/PRIVATE_LAUNCH_V1.md`, `docs/04`, `docs/personas/` (file names), `docs/30_REVAMP/04_ANDROID_APP_SPEC.md`.
+**What was read in full:** `docs/00`, `01`, `02`, `03`, `05`; `docs/30_REVAMP/01`, `02`, `03`, `00_README`, `PROGRESS` (first open line only), `delegated/2026-10-08-competitor-benchmark.md` (header); `docs/28_TEARDOWN/11_FINDINGS_LEDGER.md` and `00_INDEX.md`; `docs/runbooks/OWNER_ACTIONS.md`; the decision text of D1–D8 in `docs/archive/runbooks-2026-10/OWNER_ACTIONS_2026-10-07.md` §0. **Skimmed by heading:** `docs/28_TEARDOWN/01–10, 12` and `docs/29_REBUILD/00–07`. **Read in part:** `docs/archive/2026-11/31_RESET/01_INVENTORY.md` (first 50 lines and summary), `docs/STATE.md` (first 40 lines), `docs/DECISIONS.md` (ADR-012, 028, 058, 060, 070 and the ADR index). **Grep only:** `docs/06`, `docs/compliance/PROCESSOR_REGISTER.md`, `docs/compliance/PRIVATE_LAUNCH_V1.md`, `docs/04`, `docs/personas/` (file names), `docs/30_REVAMP/04_ANDROID_APP_SPEC.md`.
 
 ---
 
@@ -20,48 +20,48 @@ This area is the reasoning behind Femio: who it is for, which market it enters f
 
 | Path | Lines | One-line purpose | Status | Still binding? |
 |---|---|---|---|---|
-| `docs/00_EXECUTIVE_SUMMARY.md` | 17 | July index of the Phase-0 pack; "web-first, Capacitor for mobile" | dead | No (Capacitor replaced by Flutter, ADR-060) |
-| `docs/01_V1_LESSONS_LEARNED.md` | 32 | Why the Flutter V1 was archived, and what to carry forward | live (as lessons) | Partly: "headless CMS, not code" is reversed by D3 |
-| `docs/02_MARKET_USER_RESEARCH.md` | 64 | July market size, user segments, pain points, sources | unknown | Partly: its market-size numbers are superseded by docs/30_REVAMP/02 |
-| `docs/03_COMPETITOR_ANALYSIS.md` | 196 | July competitor tables (A–G) plus the August craft teardown (H) | unknown | Partly: H is live evidence; A–G are July and unsourced per row |
-| `docs/05_PRODUCT_STRATEGY_PLAN.md` | 44 | July positioning, monetisation, phases (community, AI tier, Shopify) | dead | No (community, AI tier and Shopify conflict with OD-8, OD-9, D3/D7) |
-| `docs/30_REVAMP/00_README.md` | 26 | Index of the revamp; launch table | unknown | Partly: its Android row still says "Google Play via TWA" (D2), which D8 replaced |
-| `docs/30_REVAMP/01_AUDIT_AND_CRITIQUE.md` | 179 | 2026-10-07 agency audit of code, site and docs: keep, change, remove | live | Yes |
-| `docs/30_REVAMP/02_MARKET_RESEARCH_2026-10.md` | 654 | Current market research, competitor table, SWOT, ranked gaps, wedge, features, deferrals | live | Yes, with contradictions listed in section 8 |
-| `docs/30_REVAMP/03_REVAMP_PLAN.md` | 276 | Strategy (wedge, market, platform), Dusk Bloom design, architecture, phases | unknown | Partly: §2.3 (web first, TWA) is stale after D8 |
+| `docs/archive/2026-11/00_EXECUTIVE_SUMMARY.md` | 17 | July index of the Phase-0 pack; "web-first, Capacitor for mobile" | dead | No (Capacitor replaced by Flutter, ADR-060) |
+| `docs/archive/2026-11/01_V1_LESSONS_LEARNED.md` | 32 | Why the Flutter V1 was archived, and what to carry forward | live (as lessons) | Partly: "headless CMS, not code" is reversed by D3 |
+| `docs/archive/2026-11/02_MARKET_USER_RESEARCH.md` | 64 | July market size, user segments, pain points, sources | unknown | Partly: its market-size numbers are superseded by docs/30_REVAMP/02 |
+| `docs/archive/2026-11/03_COMPETITOR_ANALYSIS.md` | 196 | July competitor tables (A–G) plus the August craft teardown (H) | unknown | Partly: H is live evidence; A–G are July and unsourced per row |
+| `docs/archive/2026-11/05_PRODUCT_STRATEGY_PLAN.md` | 44 | July positioning, monetisation, phases (community, AI tier, Shopify) | dead | No (community, AI tier and Shopify conflict with OD-8, OD-9, D3/D7) |
+| `docs/archive/2026-11/30_REVAMP/00_README.md` | 26 | Index of the revamp; launch table | unknown | Partly: its Android row still says "Google Play via TWA" (D2), which D8 replaced |
+| `docs/archive/2026-11/30_REVAMP/01_AUDIT_AND_CRITIQUE.md` | 179 | 2026-10-07 agency audit of code, site and docs: keep, change, remove | live | Yes |
+| `docs/archive/2026-11/30_REVAMP/02_MARKET_RESEARCH_2026-10.md` | 654 | Current market research, competitor table, SWOT, ranked gaps, wedge, features, deferrals | live | Yes, with contradictions listed in section 8 |
+| `docs/archive/2026-11/30_REVAMP/03_REVAMP_PLAN.md` | 276 | Strategy (wedge, market, platform), Dusk Bloom design, architecture, phases | unknown | Partly: §2.3 (web first, TWA) is stale after D8 |
 | `docs/30_REVAMP/04_ANDROID_APP_SPEC.md` | 96 | Spec for the private Android app under D7/D8 | live | Yes (not studied in depth here; grep only for monetisation and accounts) |
-| `docs/30_REVAMP/PROGRESS.md` | 70 | Work queue; first open line is the work | live | Not read (outside this study's scope) |
-| `docs/30_REVAMP/delegated/2026-10-08-competitor-benchmark.md` | 326 | Sonnet desk pass on the Arabic wedge; lead review accepted it on 2026-10-08 | live | Yes (header read; body not read) |
-| `docs/28_TEARDOWN/00_INDEX.md` | 81 | Reading guide to the Flo teardown; lists the four owner directions | live | Yes |
+| `docs/archive/2026-11/30_REVAMP/PROGRESS.md` | 70 | Work queue; first open line is the work | live | Not read (outside this study's scope) |
+| `docs/archive/2026-11/30_REVAMP/delegated/2026-10-08-competitor-benchmark.md` | 326 | Sonnet desk pass on the Arabic wedge; lead review accepted it on 2026-10-08 | live | Yes (header read; body not read) |
+| `docs/archive/2026-11/28_TEARDOWN/00_INDEX.md` | 81 | Reading guide to the Flo teardown; lists the four owner directions | live | Yes |
 | `docs/28_TEARDOWN/11_FINDINGS_LEDGER.md` | 269 | Owner directions OD-1…16, corrections C-1…14, judgements, evidence index, method rules | live | Yes (binding record); its counts are stale (section 8) |
-| `docs/28_TEARDOWN/01_METHOD_AND_EVIDENCE.md` | 85 | How the teardown was done; boundary of what may be copied | live | Yes (skimmed) |
-| `docs/28_TEARDOWN/02_FLO.md` | 626 | Flo torn down: engine, onboarding graph, design, content, monetisation, privacy | live (evidence) | Yes as reference (skimmed by heading) |
-| `docs/28_TEARDOWN/03_PREGNANCY_TRACKER.md` | 213 | Pregnancy Tracker (com.teamthree) torn down | live (evidence) | Yes as reference (skimmed) |
-| `docs/28_TEARDOWN/04_GO_FLO.md` | 104 | GO Flo: ad stack, permissions, localisation claim corrected | live (evidence) | Yes as reference (skimmed) |
-| `docs/28_TEARDOWN/05_FEMIO_CURRENT_STATE.md` | 217 | Femio measured in August | unknown | Partly: counts were later corrected (C-10) |
-| `docs/28_TEARDOWN/06_COMPARISON_MATRICES.md` | 228 | Four-way comparison matrices | unknown | Partly: built on the August counts |
-| `docs/28_TEARDOWN/07_GAP_REGISTER.md` | 250 | Ranked parity gaps TD-01…16; reference only (OD-1) | live | Yes as reference |
-| `docs/28_TEARDOWN/08_DIFFERENTIATION.md` | 215 | "Beyond parity" layer D1–D9 from our own persona corpus | live | Yes (skimmed) |
-| `docs/28_TEARDOWN/09_BUILD_PLAN.md` | 160 | Old sequenced build plan | dead | No (sequence replaced by 30_REVAMP/03 §5) |
-| `docs/28_TEARDOWN/10_FLO_RUNNING.md` | 608 | Flo running on an emulator; live-vs-binary; owner directions on tone, calendar, paywall | live (evidence) | Yes (skimmed) |
-| `docs/28_TEARDOWN/12_THE_OTHER_TWO_RUNNING.md` | 145 | Petal "Safe Period" label; pregnancy tracker install failure | live (evidence) | Yes as reference (skimmed) |
-| `docs/29_REBUILD/00_INDEX.md` | 58 | Index of the rebuild plan | dead | No (its sequence is superseded; 30_REVAMP/00_README says so) |
-| `docs/29_REBUILD/01_PRINCIPLES.md` | 117 | Six product rules and architecture rule restated | live | Yes (skimmed) |
-| `docs/29_REBUILD/02_DATA_MODEL.md` | 344 | Data model spec (cycles, symptoms, predictions, patterns) | live | Yes per 30_REVAMP/03 (skimmed) |
-| `docs/29_REBUILD/03_EXPERIENCE_ENGINE.md` | 349 | ExperienceConfig and surfaces spec | live | Yes per 30_REVAMP/03 (skimmed) |
-| `docs/29_REBUILD/04_CONTENT.md` | 182 | Content and Learn surface spec (OD-12) | live | Yes per 30_REVAMP/03 (skimmed) |
-| `docs/29_REBUILD/05_DESIGN_SYSTEM.md` | 239 | Design system spec (tokens, motion, charts) | live | Yes per 30_REVAMP/03 (skimmed); Dusk Bloom replaces its palette |
-| `docs/29_REBUILD/06_SCREENS.md` | 222 | Screen specs (dashboard, calendar, log, learn, onboarding) | live | Yes per 30_REVAMP/03 (skimmed) |
-| `docs/29_REBUILD/07_SEQUENCE.md` | 194 | Phase A–G sequence | dead | No (30_REVAMP/03 §5 replaces it) |
-| `docs/29_REBUILD/PROGRESS.md` | 153 | Old progress log for the rebuild | unknown | Not read |
-| `docs/31_RESET/01_INVENTORY.md` | 168 | 2026-10-27 inventory: why work drifts, cost to resume, critical path | live (dated today) | Yes, but its "lawyer on the critical path" line conflicts with the same-day OWNER_ACTIONS |
-| `docs/31_RESET/02_SPEC_V1_DRAFT.md` | 109 | Draft v1 spec | unknown | Not read |
+| `docs/archive/2026-11/28_TEARDOWN/01_METHOD_AND_EVIDENCE.md` | 85 | How the teardown was done; boundary of what may be copied | live | Yes (skimmed) |
+| `docs/archive/2026-11/28_TEARDOWN/02_FLO.md` | 626 | Flo torn down: engine, onboarding graph, design, content, monetisation, privacy | live (evidence) | Yes as reference (skimmed by heading) |
+| `docs/archive/2026-11/28_TEARDOWN/03_PREGNANCY_TRACKER.md` | 213 | Pregnancy Tracker (com.teamthree) torn down | live (evidence) | Yes as reference (skimmed) |
+| `docs/archive/2026-11/28_TEARDOWN/04_GO_FLO.md` | 104 | GO Flo: ad stack, permissions, localisation claim corrected | live (evidence) | Yes as reference (skimmed) |
+| `docs/archive/2026-11/28_TEARDOWN/05_FEMIO_CURRENT_STATE.md` | 217 | Femio measured in August | unknown | Partly: counts were later corrected (C-10) |
+| `docs/archive/2026-11/28_TEARDOWN/06_COMPARISON_MATRICES.md` | 228 | Four-way comparison matrices | unknown | Partly: built on the August counts |
+| `docs/archive/2026-11/28_TEARDOWN/07_GAP_REGISTER.md` | 250 | Ranked parity gaps TD-01…16; reference only (OD-1) | live | Yes as reference |
+| `docs/archive/2026-11/28_TEARDOWN/08_DIFFERENTIATION.md` | 215 | "Beyond parity" layer D1–D9 from our own persona corpus | live | Yes (skimmed) |
+| `docs/archive/2026-11/28_TEARDOWN/09_BUILD_PLAN.md` | 160 | Old sequenced build plan | dead | No (sequence replaced by 30_REVAMP/03 §5) |
+| `docs/archive/2026-11/28_TEARDOWN/10_FLO_RUNNING.md` | 608 | Flo running on an emulator; live-vs-binary; owner directions on tone, calendar, paywall | live (evidence) | Yes (skimmed) |
+| `docs/archive/2026-11/28_TEARDOWN/12_THE_OTHER_TWO_RUNNING.md` | 145 | Petal "Safe Period" label; pregnancy tracker install failure | live (evidence) | Yes as reference (skimmed) |
+| `docs/archive/2026-11/29_REBUILD/00_INDEX.md` | 58 | Index of the rebuild plan | dead | No (its sequence is superseded; 30_REVAMP/00_README says so) |
+| `docs/archive/2026-11/29_REBUILD/01_PRINCIPLES.md` | 117 | Six product rules and architecture rule restated | live | Yes (skimmed) |
+| `docs/archive/2026-11/29_REBUILD/02_DATA_MODEL.md` | 344 | Data model spec (cycles, symptoms, predictions, patterns) | live | Yes per 30_REVAMP/03 (skimmed) |
+| `docs/archive/2026-11/29_REBUILD/03_EXPERIENCE_ENGINE.md` | 349 | ExperienceConfig and surfaces spec | live | Yes per 30_REVAMP/03 (skimmed) |
+| `docs/archive/2026-11/29_REBUILD/04_CONTENT.md` | 182 | Content and Learn surface spec (OD-12) | live | Yes per 30_REVAMP/03 (skimmed) |
+| `docs/archive/2026-11/29_REBUILD/05_DESIGN_SYSTEM.md` | 239 | Design system spec (tokens, motion, charts) | live | Yes per 30_REVAMP/03 (skimmed); Dusk Bloom replaces its palette |
+| `docs/archive/2026-11/29_REBUILD/06_SCREENS.md` | 222 | Screen specs (dashboard, calendar, log, learn, onboarding) | live | Yes per 30_REVAMP/03 (skimmed) |
+| `docs/archive/2026-11/29_REBUILD/07_SEQUENCE.md` | 194 | Phase A–G sequence | dead | No (30_REVAMP/03 §5 replaces it) |
+| `docs/archive/2026-11/29_REBUILD/PROGRESS.md` | 153 | Old progress log for the rebuild | unknown | Not read |
+| `docs/archive/2026-11/31_RESET/01_INVENTORY.md` | 168 | 2026-10-27 inventory: why work drifts, cost to resume, critical path | live (dated today) | Yes, but its "lawyer on the critical path" line conflicts with the same-day OWNER_ACTIONS |
+| `docs/archive/2026-11/31_RESET/02_SPEC_V1_DRAFT.md` | 109 | Draft v1 spec | unknown | Not read |
 | `docs/STATE.md` | 233 | Resume file; "direction changed (D7 + D8, ADR-070)" | live (dated 2026-10-07) | Partly: Payload and Supabase lines are stale |
 | `docs/DECISIONS.md` | 526 | ADR log | live | Yes; D3 (retire Payload) is not yet an ADR |
 | `docs/runbooks/OWNER_ACTIONS.md` | 43 | Four things only Khaled can do; rewritten 2026-10-27 | live | Yes |
 | `docs/archive/runbooks-2026-10/OWNER_ACTIONS_2026-10-07.md` | 125 | Holds D1–D8 with alternatives not taken; old owner list | dead (except §0 decisions) | §0 yes; rest no |
 | `docs/archive/plans-2026-08/23_STRATEGIC_REVIEW_2026-08-09.md` | 345 | August strategic review | dead | No (not read; grep found no SWOT in archive) |
-| `docs/06_TECH_STACK_SKILLS_CHECKLIST.md` | 70 | Stack, Shopify advice, payments advice (grep) | dead in part | No for payments (Stripe primary) and Shopify |
+| `docs/archive/2026-11/06_TECH_STACK_SKILLS_CHECKLIST.md` | 70 | Stack, Shopify advice, payments advice (grep) | dead in part | No for payments (Stripe primary) and Shopify |
 | `docs/04_MEDICAL_DATA_SOURCES.md` | 49 | Medical data sources (not in this study's scope) | unknown | Not read |
 | `docs/compliance/PRIVATE_LAUNCH_V1.md` | 139 | Why the v1 private design lowers the legal exposure (grep only) | live | Yes (grep only) |
 | `docs/compliance/PROCESSOR_REGISTER.md` | 29 | Processor list; line 16 names "Stripe / Paddle" for billing (grep) | unknown | Conflicts with owner's payment rule |
@@ -402,23 +402,23 @@ Claims that are sourced but whose source is weak (not unsourced, but the reader 
 
 Judged against the current direction: private Android app (Flutter, records on the phone, no accounts); website as a static teaser that points to the app; no Supabase at runtime; wedge = Arabic-first TTC → pregnancy with PCOS depth, Saudi and Egypt.
 
-- **`00_EXECUTIVE_SUMMARY.md`:** delete (or mark dead). Its thesis is kept in `02`; its web-first and Capacitor plan is wrong.
-- **`01_V1_LESSONS_LEARNED.md`:** keep the lessons (privacy as a headline, honest predictions, discipline rules). Rewrite lessons 1 and 2, which D7 and D3 reverse.
-- **`02_MARKET_USER_RESEARCH.md` (Jul):** delete or archive. Market size and pain-point numbers are superseded by `30_REVAMP/02`. Keep its user-segment table as a reference only.
-- **`03_COMPETITOR_ANALYSIS.md`:** keep §H (craft teardown) and §E (MENA). Rebuild §A–G from `30_REVAMP/02` §3 with a source column. Fix §G.4 and §H.4–H.5 (C-13 to C-15).
-- **`05_PRODUCT_STRATEGY_PLAN.md`:** delete. Its phases, accounts, community, AI tier and Shopify are superseded by D7, D8, OD-8, OD-9 and D3. Keep the success-metric idea but rebuild the metrics with sources.
-- **`30_REVAMP/00_README.md`:** keep and fix the Android row (D8) and the web row (closed tracker).
-- **`30_REVAMP/01_AUDIT_AND_CRITIQUE.md`:** keep. The best single document in the area: measured, dated, and it says what was stale.
-- **`30_REVAMP/02_MARKET_RESEARCH_2026-10.md`:** keep as the current research. Fix C-20 (Midi), C-19 (article count), C-22 (price ratio), C-14 (the "only company" claim), C-07 (Shopify), C-08 (paywall timing), §10.1 (platform, to match D8 wording), and add sources for U-03/U-04-type claims where missing.
-- **`30_REVAMP/03_REVAMP_PLAN.md`:** keep §1–2.2, §2.4, §3 (design), §4 (architecture). Rewrite §2.3 for D8 (no TWA; Flutter Android local-first) and §4 I-1 for the D3 decision record. §5 phase durations need the time-budget check (section 8.4).
+- **`archive/2026-11/00_EXECUTIVE_SUMMARY.md`:** delete (or mark dead). Its thesis is kept in `02`; its web-first and Capacitor plan is wrong.
+- **`archive/2026-11/01_V1_LESSONS_LEARNED.md`:** keep the lessons (privacy as a headline, honest predictions, discipline rules). Rewrite lessons 1 and 2, which D7 and D3 reverse.
+- **`archive/2026-11/02_MARKET_USER_RESEARCH.md` (Jul):** delete or archive. Market size and pain-point numbers are superseded by `30_REVAMP/02`. Keep its user-segment table as a reference only.
+- **`archive/2026-11/03_COMPETITOR_ANALYSIS.md`:** keep §H (craft teardown) and §E (MENA). Rebuild §A–G from `30_REVAMP/02` §3 with a source column. Fix §G.4 and §H.4–H.5 (C-13 to C-15).
+- **`archive/2026-11/05_PRODUCT_STRATEGY_PLAN.md`:** delete. Its phases, accounts, community, AI tier and Shopify are superseded by D7, D8, OD-8, OD-9 and D3. Keep the success-metric idea but rebuild the metrics with sources.
+- **`archive/2026-11/30_REVAMP/00_README.md`:** keep and fix the Android row (D8) and the web row (closed tracker).
+- **`archive/2026-11/30_REVAMP/01_AUDIT_AND_CRITIQUE.md`:** keep. The best single document in the area: measured, dated, and it says what was stale.
+- **`archive/2026-11/30_REVAMP/02_MARKET_RESEARCH_2026-10.md`:** keep as the current research. Fix C-20 (Midi), C-19 (article count), C-22 (price ratio), C-14 (the "only company" claim), C-07 (Shopify), C-08 (paywall timing), §10.1 (platform, to match D8 wording), and add sources for U-03/U-04-type claims where missing.
+- **`archive/2026-11/30_REVAMP/03_REVAMP_PLAN.md`:** keep §1–2.2, §2.4, §3 (design), §4 (architecture). Rewrite §2.3 for D8 (no TWA; Flutter Android local-first) and §4 I-1 for the D3 decision record. §5 phase durations need the time-budget check (section 8.4).
 - **`30_REVAMP/04_ANDROID_APP_SPEC.md`:** keep; the current spec. Not studied in depth here.
-- **`30_REVAMP/PROGRESS.md`:** keep (not studied here).
-- **`30_REVAMP/delegated/2026-10-08-competitor-benchmark.md`:** keep. The best-evidenced competitor note in the area; its Arabic-listing check should go into `03` §A.
-- **`28_TEARDOWN/00_INDEX.md`:** keep; update the counts (C-26) and point to the ledger.
+- **`archive/2026-11/30_REVAMP/PROGRESS.md`:** keep (not studied here).
+- **`archive/2026-11/30_REVAMP/delegated/2026-10-08-competitor-benchmark.md`:** keep. The best-evidenced competitor note in the area; its Arabic-listing check should go into `03` §A.
+- **`archive/2026-11/28_TEARDOWN/00_INDEX.md`:** keep; update the counts (C-26) and point to the ledger.
 - **`28_TEARDOWN/11_FINDINGS_LEDGER.md`:** keep; the binding record. Fix §7 counts (C-26), C-2 and §4 "unopposed" wording (C-12), and OD-16 status (superseded by D8).
 - **`28_TEARDOWN/01–04, 07, 08, 10, 12`:** keep as reference. `28/07` stays reference-only per OD-1.
 - **`28_TEARDOWN/05` and `06`:** rebuild on the corrected counts (C-10), or mark them as the August state.
-- **`28_TEARDOWN/09_BUILD_PLAN.md`:** delete. Superseded by `30_REVAMP/03` §5.
+- **`archive/2026-11/28_TEARDOWN/09_BUILD_PLAN.md`:** delete. Superseded by `30_REVAMP/03` §5.
 - **`29_REBUILD/00` and `07`:** delete or archive. `29/01–06`: keep as specifications (per `30_REVAMP/03`), but mark the palette in `05` as superseded by Dusk Bloom (D6).
 - **`31_RESET/01` and `02`:** keep `01` as the dated inventory. Fix the "lawyer on the critical path" line once the legal position is settled (C-23).
 - **`CLAUDE.md` (repo):** fix the stale points: Payload (D3), Supabase and accounts (D7), "backend owns decisions" (ADR-070), the `OWNER_ACTIONS §A` pointer (C-23), the Shopify Phase-3 line (C-07), and the four-language promise (C-11).
@@ -426,7 +426,7 @@ Judged against the current direction: private Android app (Flutter, records on t
 - **`docs/DECISIONS.md`:** keep; add ADRs for D3 (retire Payload, reverses ADR-012) and D5 (launch date). Consider ADR-070's relation to ADR-060 explicitly.
 - **`docs/runbooks/OWNER_ACTIONS.md`:** keep (short and current).
 - **`docs/archive/runbooks-2026-10/OWNER_ACTIONS_2026-10-07.md`:** keep §0 (the only written record of D1–D8). The rest is dead.
-- **`docs/06_TECH_STACK_SKILLS_CHECKLIST.md`:** delete or rewrite. Its payment advice conflicts with the owner's rule (C-06). Its Shopify advice is not current (C-07).
+- **`docs/archive/2026-11/06_TECH_STACK_SKILLS_CHECKLIST.md`:** delete or rewrite. Its payment advice conflicts with the owner's rule (C-06). Its Shopify advice is not current (C-07).
 - **`docs/compliance/PROCESSOR_REGISTER.md`:** fix line 16 (C-06).
 - **`docs/compliance/PRIVATE_LAUNCH_V1.md`:** keep (not read in full here; the basis of D7).
 

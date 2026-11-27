@@ -18,7 +18,7 @@ that contradicts one of these is wrong.
 
 | # | Direction (2026-08-23) | Binds |
 |---|---|---|
-| **OD-1** | The gap register stays **reference-only** — no `TD-nn` line enters `07_MASTER_TODO.md` until the study is approved. A deliberate, approved exception to the MASTER_TODO covenant. | 07, `STATE.md` |
+| **OD-1** | The gap register stays **reference-only** — no `TD-nn` line enters `archive/2026-11/07_MASTER_TODO.md` until the study is approved. A deliberate, approved exception to the MASTER_TODO covenant. | 07, `STATE.md` |
 | **OD-2** | Depth: **deep on the experience surface, inventory the plumbing.** Not exhaustive module-by-module. | 02 |
 | **OD-3** | The "beyond parity" layer comes from **our own corpus** — the 73 personas, the adaptation model, EMR-for-life, RTL, privacy — not from more teardowns. | 08 |
 | **OD-4** | Capture the visual layer by **extracting assets from the APKs**; later extended to **running the apps** on an emulator. | 10 |

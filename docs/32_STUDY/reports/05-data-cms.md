@@ -118,7 +118,7 @@ Folder-level rows where files are many; every Supabase/CMS source file is listed
 - What imports Supabase from the web app (Checked by grep): ~45 `.from()` call sites across `lib/partner`, `lib/persona`, `lib/consent`, `lib/notifications`, `lib/onboarding`, `lib/analytics/consent.ts`, `lib/auth/roles.ts`, `lib/i18n`, `lib/insights`, `lib/experience/v2/use-surface-version.ts`, and the tracker components (dashboard, calendar, track, summary, pregnancy, fertility, medications, appointments, screeners, patterns). RPCs: `delete_account` (delete-button), `insights_*` (admin insights), `redeem_partner_invite` (partner actions).
 - Web environment: `lib/env.ts:17-18` makes `NEXT_PUBLIC_SUPABASE_URL` and `_PUBLISHABLE_KEY` **required** (not optional), and `NEXT_PUBLIC_CMS_URL` optional (`env.ts:28`, `next.config.mjs:61` adds it to the CSP). Both must change on retirement.
 - CI: `.github/workflows/ci.yml:34` passes `E2E_SUPABASE_URL` (placeholder fallback); `@live` e2e hit production Supabase.
-- `docs/18_RBAC_MODEL.md` and `docs/14` §3-5 describe the model; `docs/14` still says anonymous users use `device_key` and shows `content`/`content_i18n`/`content_history`, all contradicted by 0002's header (native anonymous sign-in, ADR-010) and 0024.
+- `docs/archive/2026-11/18_RBAC_MODEL.md` and `docs/14` §3-5 describe the model; `docs/14` still says anonymous users use `device_key` and shows `content`/`content_i18n`/`content_history`, all contradicted by 0002's header (native anonymous sign-in, ADR-010) and 0024.
 
 ## 6. Strings and i18n
 

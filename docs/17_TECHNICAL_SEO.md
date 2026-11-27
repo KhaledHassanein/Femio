@@ -1,6 +1,6 @@
 # Femio V2 — Technical SEO (P1.11)
 Prepared: 2026-07-23 · Status: living · Owners: SEO + Engineering
-Basis: `femio-seo-aso`, `16_CONDITION_LIBRARY_IA.md`, `15_EDITORIAL_MEDICAL_REVIEW_POLICY.md`. Implementation in `apps/web/src/lib/seo/`, the locale layout, `sitemap.ts`, and `robots.ts`.
+Basis: `femio-seo-aso`, `archive/2026-11/16_CONDITION_LIBRARY_IA.md`, `15_EDITORIAL_MEDICAL_REVIEW_POLICY.md`. Implementation in `apps/web/src/lib/seo/`, the locale layout, `sitemap.ts`, and `robots.ts`.
 
 Femio's growth is organic search in a YMYL category, so the technical foundation must be correct before content scales. This documents what's implemented and what's left (some steps are Khaled's — Search Console, domain).
 
@@ -15,7 +15,7 @@ Femio's growth is organic search in a YMYL category, so the technical foundation
 - **Search Console hook.** `NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION` (env) renders the Google verification meta when set.
 
 ## 2. URL & i18n
-Locale-prefixed subdirectories on one domain (`/en /ar /fr /es`), per `16_CONDITION_LIBRARY_IA.md` §5. Localized slugs (translated, not transliterated) for content pages; AR renders RTL. hreflang keeps the locale cluster consolidated.
+Locale-prefixed subdirectories on one domain (`/en /ar /fr /es`), per `archive/2026-11/16_CONDITION_LIBRARY_IA.md` §5. Localized slugs (translated, not transliterated) for content pages; AR renders RTL. hreflang keeps the locale cluster consolidated.
 
 ## 3. Core Web Vitals budget
 Targets (`femio-seo-aso`): **LCP < 2.0s · CLS < 0.05 · INP < 200ms**. Current posture: self-hosted fonts via `next/font` with `display: swap`; static generation (SSG) of public pages; token-based CSS (no runtime CSS-in-JS); minimal client JS (calculators are the only interactive islands). Still to enforce: `next/image` (AVIF/WebP, dimensioned) once imagery lands, and a **Lighthouse/CWV budget check in CI** (tracked with the a11y/axe work, P1.5.2 / P1.22).

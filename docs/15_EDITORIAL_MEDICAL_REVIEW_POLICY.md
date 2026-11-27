@@ -1,6 +1,6 @@
 # Femio V2 — Editorial Policy & Medical Review Process (P1.7)
 Prepared: 2026-07-23 · Status: living · Owners: Khaled + Medical Reviewer(s) + Editorial lead
-Basis: `femio-medical-content`, `femio-seo-aso` (E-E-A-T), `04_MEDICAL_DATA_SOURCES.md`, `13_LEGAL_COMPLIANCE.md`, and the CMS review gate built in P1.6 (`apps/cms/`).
+Basis: `femio-medical-content`, `femio-seo-aso` (E-E-A-T), `04_MEDICAL_DATA_SOURCES.md`, `archive/2026-11/13_LEGAL_COMPLIANCE.md`, and the CMS review gate built in P1.6 (`apps/cms/`).
 
 This document is both an **internal standard** and the source for two **public trust pages** — `/editorial-policy` and `/medical-review` — which every article footer links to (an E-E-A-T requirement in a YMYL category). Prose over bullets where it matters; the rules are enforced, not aspirational.
 
@@ -11,7 +11,7 @@ Femio competes on trust in a category scarred by data scandals and thin, un-revi
 Applies to all user-facing health content in every locale (EN/AR/FR/ES): condition and article pages, FAQs, tips, glossary terms, screener copy, calculator explanations, coaching/insight cards, and notification text. It does **not** govern marketing copy or legal pages (separate review), though those still must not make medical claims.
 
 ## 3. Editorial principles
-1. **Wellness, education, and tracking only.** We explain, we help people track, we point to clinicians. We never diagnose, treat, prevent disease, or act as contraception (this also keeps Femio outside medical-device scope — `13_LEGAL_COMPLIANCE.md` §7). Language is "this may suggest… discuss with your clinician," never "you have."
+1. **Wellness, education, and tracking only.** We explain, we help people track, we point to clinicians. We never diagnose, treat, prevent disease, or act as contraception (this also keeps Femio outside medical-device scope — `archive/2026-11/13_LEGAL_COMPLIANCE.md` §7). Language is "this may suggest… discuss with your clinician," never "you have."
 2. **Evidence over opinion.** Every factual claim traces to a Tier-1/2 source (§4). We do not publish anecdote as fact, and we never invent statistics, dosages, or guideline positions — if a fact cannot be sourced, it is cut or flagged `[NEEDS SOURCE]` for the reviewer.
 3. **Uncertainty-honest.** Predictions and insights are ranges with context ("expected around…", "based on your last N cycles"), never guaranteed dates, and never a "late" counter in irregular modes.
 4. **Plain and warm.** Grade 6–8 reading level (§5), short sentences, second person, active voice, every medical term defined on first use. No fear-mongering and no toxic positivity.

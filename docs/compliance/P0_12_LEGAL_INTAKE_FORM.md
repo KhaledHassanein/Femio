@@ -135,7 +135,7 @@ confirm or correct, and add any I have missed (accountant, support tool, email p
 1. I replace the draft privacy and terms text with the real thing, remove the draft banner,
    un-`noindex` both, and add them to the sitemap (**P0.12.4**).
 2. I build `/contact` with the published contact points (**P1.9b.3c**).
-3. I update the data map in `docs/13_LEGAL_COMPLIANCE.md` and the processor register to match
+3. I update the data map in `docs/archive/2026-11/13_LEGAL_COMPLIANCE.md` and the processor register to match
    your answers in §8.
 4. Anything you mark "lawyer to confirm" stays visibly marked as draft until they do —
    a policy that looks final and is not is worse than one that admits it.

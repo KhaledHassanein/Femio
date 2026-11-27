@@ -62,13 +62,13 @@ Each file in the content area is listed. The 107-file drafts folder is listed as
 | `docs/content/HANDOVER_NEWBORN_BASICS.md` | 293 | Prompt for the newborn set of eight (headings only) | dead |
 | `docs/content/HANDOVER_NEWBORN_BASICS_RETURN.md` | 200 | Record for the newborn set (headings only) | dead |
 | `docs/15_EDITORIAL_MEDICAL_REVIEW_POLICY.md` | 68 | Review workflow, sourcing tiers, reading-level ceiling (grade 8), page contract, disclaimers | live |
-| `docs/16_CONDITION_LIBRARY_IA.md` | 113 | Information architecture: 8 browse categories, URL plan, cross-links, launch waves | live (slug rule partly superseded by ADR-045) |
+| `docs/archive/2026-11/16_CONDITION_LIBRARY_IA.md` | 113 | Information architecture: 8 browse categories, URL plan, cross-links, launch waves | live (slug rule partly superseded by ADR-045) |
 | `docs/04_MEDICAL_DATA_SOURCES.md` | 49 | Source catalogue in three tiers | live |
 | `docs/11_NEEDS_SOURCE_CHECKLIST.md` | 638 | 452 open `[ ]` items to verify, none ticked | live (open) |
-| `docs/30_REVAMP/delegated/2026-10-08-competitor-benchmark.md` | 326 | Lead-reviewed benchmark; source of the content-gap list | live |
-| `docs/30_REVAMP/delegated/2026-10-08-app-strings-qa.md` | 185 | QA of the app's AR, FR and ES UI strings (130 keys each) | live (applied) |
-| `docs/30_REVAMP/delegated/2026-10-08-fr-register.md` | 59 | Proposal to change French "tu" to "vous" outside teen copy (99 of 101 applied) | live (applied) |
-| `docs/30_REVAMP/delegated/2026-10-08-fr-register.json` | 405 | Machine-readable version of the French proposal | live (applied) |
+| `docs/archive/2026-11/30_REVAMP/delegated/2026-10-08-competitor-benchmark.md` | 326 | Lead-reviewed benchmark; source of the content-gap list | live |
+| `docs/archive/2026-11/30_REVAMP/delegated/2026-10-08-app-strings-qa.md` | 185 | QA of the app's AR, FR and ES UI strings (130 keys each) | live (applied) |
+| `docs/archive/2026-11/30_REVAMP/delegated/2026-10-08-fr-register.md` | 59 | Proposal to change French "tu" to "vous" outside teen copy (99 of 101 applied) | live (applied) |
+| `docs/archive/2026-11/30_REVAMP/delegated/2026-10-08-fr-register.json` | 405 | Machine-readable version of the French proposal | live (applied) |
 
 I did not run any test suite in this study. The one command I ran was the offline `node scripts/content-lint.mjs`, which printed "Content guard: 107 draft(s) conform to the authoring brief" (Checked).
 
@@ -267,7 +267,7 @@ Every article is English only; no AR, FR or ES version exists in the snapshot. "
 
 Where the terms appear: PCOS or polycystic in 11 records; insulin resistance in 2; metformin in 1 (the `pcos` pillar); inositol, letrozole, clomiphene, hirsutism and "PMOS" in none; acne in 4; ovulation in 23; "ovulation test" in 2; basal body temperature in 1; gestational diabetes in 2; IVF in 2; miscarriage in 1; ectopic in 1; hyperemesis in none; Ramadan or fasting in none; male factor in none; "pre-eclampsia" in 7; folic acid in 4; vitamin D in none.
 
-The four PCOS-specific English pieces are the `pcos` pillar (1,206 words, 2 citations, reviewed), `pcos-signs` (856 words, 2 citations, reviewed), `how-pcos-is-assessed` (897 words, 3 citations, reviewed) and `pcos-and-fertility` (825 words, 3 citations, reviewed). There is no article on PCOS lifestyle, insulin resistance, treatment options a clinician may discuss, or hirsutism and acne. The benchmark (`docs/30_REVAMP/delegated/2026-10-08-competitor-benchmark.md`, section 5.2) lists the same gaps. My term check agrees with it on every term except metformin, which the benchmark puts at 0 and I found once, in the `pcos` pillar.
+The four PCOS-specific English pieces are the `pcos` pillar (1,206 words, 2 citations, reviewed), `pcos-signs` (856 words, 2 citations, reviewed), `how-pcos-is-assessed` (897 words, 3 citations, reviewed) and `pcos-and-fertility` (825 words, 3 citations, reviewed). There is no article on PCOS lifestyle, insulin resistance, treatment options a clinician may discuss, or hirsutism and acne. The benchmark (`docs/archive/2026-11/30_REVAMP/delegated/2026-10-08-competitor-benchmark.md`, section 5.2) lists the same gaps. My term check agrees with it on every term except metformin, which the benchmark puts at 0 and I found once, in the `pcos` pillar.
 
 ## 3. Key modules and responsibilities
 
@@ -378,7 +378,7 @@ The Markdown source uses the same content in plain form: `## ` for H2, `### ` fo
 - `docs/content/CODEX_AUTHORING_BRIEF.md`: **keep** the rules; **rename** the file to drop the retired tool's name.
 - `docs/content/HANDOVER_*.md` (prompts and returns): **keep as an archive**. They are the only record of what each run produced. Do not delete.
 - `docs/15` and `docs/04`: **keep**. Either fix the tier list in doc 15 to match the snapshot, or fix the snapshot to match doc 15; the two disagree today.
-- `docs/16_CONDITION_LIBRARY_IA.md`: **keep**. Its launch waves are a checklist the snapshot can now be measured against.
+- `docs/archive/2026-11/16_CONDITION_LIBRARY_IA.md`: **keep**. Its launch waves are a checklist the snapshot can now be measured against.
 - `docs/11_NEEDS_SOURCE_CHECKLIST.md`: **keep** as the open list. Its 452 open items (by track: A 26, B 75, C 141, D 84, E 61, F 29, cross-cutting 20, X 16; counted by heading) are the main reviewer workload, and none is ticked.
 - `docs/30_REVAMP/delegated/*`: **keep** as evidence. The benchmark's content-gap list is the best guide to what to write next.
 

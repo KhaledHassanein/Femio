@@ -3,7 +3,7 @@
 Status: **engineering pass, 2026-07-24** (Claude Code) · Owner: Khaled + (future) security reviewer
 Scope: the live web app (`apps/web`, Next.js 15 PWA) + Supabase data layer (Postgres + RLS + auth, EU) + Payload CMS (`apps/cms`). This is the internal engineering security review; an independent penetration test + counsel/DPO sign-off remain a launch gate (P0.12).
 
-Ties to: `docs/13_LEGAL_COMPLIANCE.md`, `docs/14_SYSTEM_ARCHITECTURE.md`, `DPIA.md`, `supabase/migrations/0001–0003`.
+Ties to: `docs/archive/2026-11/13_LEGAL_COMPLIANCE.md`, `docs/archive/2026-11/14_SYSTEM_ARCHITECTURE.md`, `DPIA.md`, `supabase/migrations/0001–0003`.
 
 ---
 

@@ -26,14 +26,14 @@
    "id": "doc-30-readme",
    "label": "Revamp README",
    "type": "doc",
-   "path": "docs/30_REVAMP/00_README.md",
+   "path": "docs/archive/2026-11/30_REVAMP/00_README.md",
    "status": "live"
   },
   {
    "id": "doc-03-revamp-plan",
    "label": "Revamp plan (strategy, Dusk Bloom)",
    "type": "doc",
-   "path": "docs/30_REVAMP/03_REVAMP_PLAN.md",
+   "path": "docs/archive/2026-11/30_REVAMP/03_REVAMP_PLAN.md",
    "status": "live"
   },
   {
@@ -47,21 +47,21 @@
    "id": "doc-progress",
    "label": "Revamp PROGRESS ledger",
    "type": "doc",
-   "path": "docs/30_REVAMP/PROGRESS.md",
+   "path": "docs/archive/2026-11/30_REVAMP/PROGRESS.md",
    "status": "live"
   },
   {
    "id": "doc-31-inventory",
    "label": "Reset inventory 27 Oct",
    "type": "doc",
-   "path": "docs/31_RESET/01_INVENTORY.md",
+   "path": "docs/archive/2026-11/31_RESET/01_INVENTORY.md",
    "status": "live"
   },
   {
    "id": "doc-31-spec-v1-draft",
    "label": "V1 scope lock (DRAFT)",
    "type": "doc",
-   "path": "docs/31_RESET/02_SPEC_V1_DRAFT.md",
+   "path": "docs/archive/2026-11/31_RESET/02_SPEC_V1_DRAFT.md",
    "status": "unknown"
   },
   {
@@ -89,28 +89,28 @@
    "id": "doc-24-revamp-plan",
    "label": "Experience engine + two-client architecture",
    "type": "doc",
-   "path": "docs/24_REVAMP_PLAN.md",
+   "path": "docs/archive/2026-11/24_REVAMP_PLAN.md",
    "status": "app-only"
   },
   {
    "id": "doc-22-app-ui",
    "label": "App UI architecture (web tracker)",
    "type": "doc",
-   "path": "docs/22_APP_UI_ARCHITECTURE.md",
+   "path": "docs/archive/2026-11/22_APP_UI_ARCHITECTURE.md",
    "status": "app-only"
   },
   {
    "id": "doc-14-system-architecture",
    "label": "System architecture (ERD, RLS)",
    "type": "doc",
-   "path": "docs/14_SYSTEM_ARCHITECTURE.md",
+   "path": "docs/archive/2026-11/14_SYSTEM_ARCHITECTURE.md",
    "status": "app-only"
   },
   {
    "id": "doc-12-brand-tokens",
    "label": "Brand tokens v2 (violet)",
    "type": "doc",
-   "path": "docs/12_BRAND_DESIGN_TOKENS.md",
+   "path": "docs/archive/2026-11/12_BRAND_DESIGN_TOKENS.md",
    "status": "dead"
   },
   {
@@ -124,14 +124,14 @@
    "id": "doc-state-machine-mermaid",
    "label": "State machine (mermaid copy)",
    "type": "doc",
-   "path": "docs/femio_state_machine.mermaid",
+   "path": "docs/archive/2026-11/femio_state_machine.mermaid",
    "status": "duplicate"
   },
   {
    "id": "doc-07-master-todo",
    "label": "Master TODO (historical queue)",
    "type": "doc",
-   "path": "docs/07_MASTER_TODO.md",
+   "path": "docs/archive/2026-11/07_MASTER_TODO.md",
    "status": "live"
   },
   {
@@ -166,7 +166,7 @@
    "id": "doc-29-rebuild-progress",
    "label": "Aug web rebuild ledger",
    "type": "doc",
-   "path": "docs/29_REBUILD/PROGRESS.md",
+   "path": "docs/archive/2026-11/29_REBUILD/PROGRESS.md",
    "status": "dead"
   },
   {
@@ -572,112 +572,112 @@
    "id": "phase-p0-stabilise",
    "label": "Phase 0 stabilise and clean (done)",
    "type": "doc",
-   "path": "docs/30_REVAMP/PROGRESS.md",
+   "path": "docs/archive/2026-11/30_REVAMP/PROGRESS.md",
    "status": "live"
   },
   {
    "id": "phase-p1-dusk-bloom",
    "label": "Phase 1 Dusk Bloom (done, owner review D-1 pending)",
    "type": "doc",
-   "path": "docs/30_REVAMP/PROGRESS.md",
+   "path": "docs/archive/2026-11/30_REVAMP/PROGRESS.md",
    "status": "live"
   },
   {
    "id": "phase-p2-public-site",
    "label": "Phase 2 public site (mostly done)",
    "type": "doc",
-   "path": "docs/30_REVAMP/PROGRESS.md",
+   "path": "docs/archive/2026-11/30_REVAMP/PROGRESS.md",
    "status": "live"
   },
   {
    "id": "phase-p3-android-app",
    "label": "Phase 3 Android app (in progress)",
    "type": "doc",
-   "path": "docs/30_REVAMP/PROGRESS.md",
+   "path": "docs/archive/2026-11/30_REVAMP/PROGRESS.md",
    "status": "live"
   },
   {
    "id": "phase-p4-launch",
    "label": "Phase 4 launch (open)",
    "type": "doc",
-   "path": "docs/30_REVAMP/PROGRESS.md",
+   "path": "docs/archive/2026-11/30_REVAMP/PROGRESS.md",
    "status": "live"
   },
   {
    "id": "phase-p5-native-ios",
    "label": "Phase 5 iOS / native (after signal)",
    "type": "doc",
-   "path": "docs/30_REVAMP/PROGRESS.md",
+   "path": "docs/archive/2026-11/30_REVAMP/PROGRESS.md",
    "status": "live"
   },
   {
    "id": "v1-05-backup-and-lock",
    "label": "V1-05 backup export/import + app lock (P3.8)",
    "type": "doc",
-   "path": "docs/31_RESET/02_SPEC_V1_DRAFT.md",
+   "path": "docs/archive/2026-11/31_RESET/02_SPEC_V1_DRAFT.md",
    "status": "unknown"
   },
   {
    "id": "v1-06-articles-in-app",
    "label": "V1-06 articles in the app (P3.7)",
    "type": "doc",
-   "path": "docs/31_RESET/02_SPEC_V1_DRAFT.md",
+   "path": "docs/archive/2026-11/31_RESET/02_SPEC_V1_DRAFT.md",
    "status": "unknown"
   },
   {
    "id": "v1-07-reminders-crash",
    "label": "V1-07 reminders + crash reporting (P3.8)",
    "type": "doc",
-   "path": "docs/31_RESET/02_SPEC_V1_DRAFT.md",
+   "path": "docs/archive/2026-11/31_RESET/02_SPEC_V1_DRAFT.md",
    "status": "unknown"
   },
   {
    "id": "v1-08-legal-pages",
    "label": "V1-08 legal pages + Play answers (P4.1)",
    "type": "doc",
-   "path": "docs/31_RESET/02_SPEC_V1_DRAFT.md",
+   "path": "docs/archive/2026-11/31_RESET/02_SPEC_V1_DRAFT.md",
    "status": "unknown"
   },
   {
    "id": "ms-rc-9-nov",
    "label": "9 Nov release-candidate APK + Play account",
    "type": "doc",
-   "path": "docs/31_RESET/02_SPEC_V1_DRAFT.md",
+   "path": "docs/archive/2026-11/31_RESET/02_SPEC_V1_DRAFT.md",
    "status": "unknown"
   },
   {
    "id": "ms-closed-test-start-11-nov",
    "label": "11 Nov Play closed test starts (12 testers)",
    "type": "doc",
-   "path": "docs/31_RESET/02_SPEC_V1_DRAFT.md",
+   "path": "docs/archive/2026-11/31_RESET/02_SPEC_V1_DRAFT.md",
    "status": "unknown"
   },
   {
    "id": "ms-closed-test-end-25-nov",
    "label": "25 Nov closed test ends",
    "type": "doc",
-   "path": "docs/31_RESET/02_SPEC_V1_DRAFT.md",
+   "path": "docs/archive/2026-11/31_RESET/02_SPEC_V1_DRAFT.md",
    "status": "unknown"
   },
   {
    "id": "ms-soft-launch-30-nov",
    "label": "Week of 30 Nov soft launch, 50-100 women",
    "type": "doc",
-   "path": "docs/31_RESET/02_SPEC_V1_DRAFT.md",
+   "path": "docs/archive/2026-11/31_RESET/02_SPEC_V1_DRAFT.md",
    "status": "unknown"
   },
   {
    "id": "ms-ramadan-2027",
    "label": "~8 Feb 2027 Ramadan content due",
    "type": "doc",
-   "path": "docs/31_RESET/02_SPEC_V1_DRAFT.md",
+   "path": "docs/archive/2026-11/31_RESET/02_SPEC_V1_DRAFT.md",
    "status": "unknown"
   },
   {
    "id": "ms-egypt-licensing-31-oct",
    "label": "31 Oct 2026 Egypt licensing enforced (unverified)",
    "type": "doc",
-   "path": "docs/31_RESET/02_SPEC_V1_DRAFT.md",
+   "path": "docs/archive/2026-11/31_RESET/02_SPEC_V1_DRAFT.md",
    "status": "unknown"
   },
   {
