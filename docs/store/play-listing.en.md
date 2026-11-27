@@ -23,7 +23,7 @@ Period, ovulation & pregnancy tracker. Your records stay on your phone.
 ```
 femio: AI-assisted women's health & wellness. A private tracker for your period, ovulation, trying to conceive and pregnancy. See your next period and fertile window as an honest range, then follow your pregnancy week by week. Your records stay on your phone: no account, no ads, no analytics of our own.
 
-WHY FEMIO
+Why femio
 • Private by design. No account, no sign-up, no ads and no analytics of our own. Your log is stored encrypted on your phone, behind an app lock you choose. You decide when to save a backup file, and where.
 • Honest predictions. femio shows your next period and fertile window as a range with a confidence level, never one "certain" date. If your cycles are irregular or you have PCOS, there is no "late" counter and no false precision.
 • An assistant that respects your privacy. Ask femio answers only from trusted sources, with citations. Say it turns "yesterday cramps, today spotting", even several days in one note, into entries you check first; nothing is saved until you tap. For you suggests tips, and "Why am I seeing this?" shows the facts behind each one. "What the AI did" lists every time femio used a model. It all runs on your phone where your phone supports Gemini Nano, and femio's own word list is used otherwise.
@@ -32,26 +32,26 @@ WHY FEMIO
 • One record that grows with you. When you move from trying to pregnant, femio adds pregnancy to the same record. Nothing is deleted.
 • English, Arabic, French and Spanish, with right-to-left layout and Hijri dates beside Gregorian.
 
-TRYING TO CONCEIVE
+Trying to conceive
 • Period and ovulation tracking on a calendar
 • Your fertile window as a range, updated from your own cycles
 • Log symptoms, ovulation tests and cervical mucus
 • "Signs you logged this cycle": your latest discharge, ovulation test and temperature, as you logged them, with no verdict
 • Clear guidance on when to talk to a doctor
 
-PCOS AND IRREGULAR CYCLES
+PCOS and irregular cycles
 • A mode built for long or unpredictable cycles
 • Track what matters to your doctor: cycle length, skin, hair and weight
 • Sourced articles on PCOS and fertility
 
-PREGNANCY
+Pregnancy
 • Due date, pregnancy week and trimester
 • A week-by-week guide from week 4 to week 40
 • Due date calculator, pregnancy calendar and weight-gain range that save nothing
 • Baby-movement log and contraction timer that never give a verdict and point you to care when something needs checking
 • Your appointments kept on your phone, with a reminder the day before if you want one
 
-PRIVATE BY DESIGN
+Private by design
 • A visit pack with your own questions, in a second language if the clinic needs one, shared through your phone's share sheet
 • Reminders ask first. They say only "femio: Open the app", unless you write your own words for a medicine reminder
 • App lock and encrypted storage on your phone
@@ -60,7 +60,7 @@ PRIVATE BY DESIGN
 • Cloud boost is off unless you turn it on. Only for phones without on-phone AI, and only if you agree, it sends a general question you approve (numbers, e-mail addresses and links removed; you see and edit the exact text first) or four broad facts, to Google's AI. Never your log, notes or dates.
 • Google Play handles app updates and the occasional rating request; femio sends it nothing of yours.
 
-IMPORTANT
+Important
 femio is for education and tracking. It is not a medical device and does not diagnose, treat, cure or prevent any medical condition. Predictions are estimates, not guarantees, and are not a method of birth control. Always talk to your doctor or midwife about your health. If you have heavy bleeding, severe pain or fewer baby movements, seek medical care right away.
 
 femio is made by KM Digital Labs, founded by a physician in Cairo. Questions or feedback: info@femioapp.com.
