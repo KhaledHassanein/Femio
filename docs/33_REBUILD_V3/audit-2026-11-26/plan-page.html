@@ -64,11 +64,12 @@ a { color:var(--plum); }
 <header>
   <h1>femio finishing plan</h1>
   <p class="lede">Six reviewers (security, privacy lawyer, Play release manager, clinician, designer, hackathon judge) went through the app and the website the way #BuildHybridAI judges will. Below is what they found, what is ranked first, and the six things only you can do.</p>
-  <p class="meta">26 November 2026 · checked at commit fb45488 · app tests: 1185 passing, no analyzer issues</p>
+  <p class="meta">First audit 26 Nov at fb45488 · re-scored 27 Nov at 3a92a90 · <b>re-scored again 27 Nov at eca4eaa</b> (wizard, sealed receipts, Check Cloud boost, stage moves, "+" Ask or Log)</p>
+  <p class="meta">The scores and open gaps below are current. The sections after "Open gaps now" are the 26 Nov plan, kept for history. Your day-to-day page with the Labs is <a href="https://claude.ai/artifact/VENwUASzWVAY6oxQiLQFuD">femio owner page</a>.</p>
 </header>
 
 <nav aria-label="Sections">
-  <a href="#you">Your steps</a><a href="#scores">Scores</a><a href="#reports">Your two reports</a><a href="#plan">The plan</a><a href="#claims">Wrong sentences</a><a href="#checked">What was checked</a>
+  <a href="#scores">Scores</a><a href="#gaps">Open gaps now</a><a href="#you">Your steps</a><a href="#reports">Your two reports</a><a href="#plan">The plan</a><a href="#claims">Wrong sentences</a><a href="#checked">What was checked</a>
 </nav>
 
 <section class="deadline" aria-label="Deadline">
@@ -95,18 +96,46 @@ a { color:var(--plum); }
 
 <section id="scores">
   <h2>Scores, the way a judge would give them</h2>
+  <p>Out of 10. Three checks in two days: the first audit, the morning re-score, and tonight's re-score of main eca4eaa.</p>
   <div class="scroll"><table>
-    <thead><tr><th>Area</th><th>Score</th><th>Why, in one line</th></tr></thead>
+    <thead><tr><th>Area</th><th>26 Nov</th><th>27 Nov am</th><th>Now</th><th>What changed, in one line</th></tr></thead>
     <tbody>
-      <tr><td>Security</td><td class="n">7/10</td><td>Strong encryption, backups and website headers. Weak spots: screenshots of her record are allowed, PIN guesses are unlimited, and the backup key setting is light.</td></tr>
-      <tr><td>Privacy</td><td class="n">7/10</td><td>The cloud boundary is enforced in code and consent is done right. But one live sentence is false (names), and the policies don't yet name documents, medicines and labs.</td></tr>
-      <tr><td>Launch readiness</td><td class="n">5/10</td><td>The listing, icons and target SDK are ready. There is nothing a judge can install yet, the APK is debug-signed, and the closed-test clock has not started.</td></tr>
-      <tr><td>Feature maturity</td><td class="n">5/10</td><td>Cycle 6, trying to conceive 5, PCOS 3, pregnancy 6, after birth 6.5, loss 1, perimenopause 6. She cannot change her life stage after onboarding.</td></tr>
-      <tr><td>Hybrid-AI showcase</td><td class="n">4/10</td><td>No AI on Today's first screen. "Gemini Nano" appears only in Settings. A judge without Nano sees no AI output.</td></tr>
-      <tr><td>Presentation and polish</td><td class="n">6/10</td><td>Calm and consistent, with Arabic done properly. The AI screenshots come from test fakes, and the thumbnail contradicts the text.</td></tr>
-      <tr><td>Official criteria (4 × 25%)</td><td class="n">7.0/10</td><td>Technology 6, Design 8, Impact 7, Idea 7, if Stage One passes. About 8.3 with Tier 0 and Tier 1 done.</td></tr>
+      <tr><td>Security</td><td class="n">7</td><td class="n">8</td><td class="n">8</td><td>Not re-scored tonight. PIN wait, stronger backup key, signing guard.</td></tr>
+      <tr><td>Privacy</td><td class="n">7</td><td class="n">8</td><td class="n">8</td><td>The health-data page and its dates are fixed, and consent is per purpose with nothing pre-ticked. Held at 8: switching AI off still asks for ticks, and the wizard says "Nothing is sent" for on-phone AI.</td></tr>
+      <tr><td>Launch readiness</td><td class="n">5</td><td class="n">6</td><td class="n">6</td><td>The signed builds now carry your Firebase settings (checked). Still no public repo and no APK link.</td></tr>
+      <tr><td>Feature maturity</td><td class="n">5</td><td class="n">6</td><td class="n">6.5</td><td>Pregnancy loss 2 → 5: a real path now (kind wording, NHS urgent line, reminders off, data kept). Trying to conceive 7, pregnancy 7 (second-pregnancy bug fixed).</td></tr>
+      <tr><td>Hybrid-AI showcase</td><td class="n">4</td><td class="n">6</td><td class="n">6</td><td>The wizard's first step explains phone vs cloud best of anything in the app. Still never run on a real phone, and the judge steps describe screens that are gone.</td></tr>
+      <tr><td>Presentation and polish</td><td class="n">6</td><td class="n">7</td><td class="n">7</td><td>New icon, stage row on Today, dark language page. Store shots and the Devpost steps are out of date.</td></tr>
+      <tr><td>Official criteria (4 × 25%)</td><td class="n">7.0</td><td class="n">7.4</td><td class="n">7.5</td><td>Technology 7, Design 8.5, Impact 7, Idea 7.5, <b>only if Stage One passes</b>. Today it scores zero: no repo, APK link, video or submission. Ceiling about 8.4.</td></tr>
     </tbody>
   </table></div>
+  <div class="scroll"><table>
+    <thead><tr><th>Life stage</th><th>26 Nov</th><th>27 Nov am</th><th>Now</th></tr></thead>
+    <tbody>
+      <tr><td>Period</td><td class="n">6</td><td class="n">7.5</td><td class="n">7.5</td></tr>
+      <tr><td>Trying to conceive</td><td class="n">5</td><td class="n">6.5</td><td class="n">7</td></tr>
+      <tr><td>PCOS</td><td class="n">3</td><td class="n">4</td><td class="n">4</td></tr>
+      <tr><td>Pregnancy</td><td class="n">6</td><td class="n">6.5</td><td class="n">7</td></tr>
+      <tr><td>After birth</td><td class="n">6.5</td><td class="n">7.5</td><td class="n">7.5</td></tr>
+      <tr><td>Pregnancy loss</td><td class="n">1</td><td class="n">2</td><td class="n">5</td></tr>
+      <tr><td>Menopause</td><td class="n">6</td><td class="n">7</td><td class="n">7</td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<section id="gaps">
+  <h2>Open gaps now</h2>
+  <p>Ranked. Red needs you, amber a session can build tonight. Full list: <code>audit-2026-11-27-rescore/07-RESCORE-eca4eaa.md</code>.</p>
+  <div class="tier">
+    <div class="item t0"><div class="hd"><span class="pill p0">you</span>Run the AI on your phone with the new APK<span class="id">JUDGE-1</span></div><p>Your phone log from 12:41 shows femio running but no AI or Firebase lines at all, and it was taken before this build. Run "Check Cloud boost" and send the code it shows.</p></div>
+    <div class="item t0"><div class="hd"><span class="pill p0">you</span>Stage One: repo, APK release, video, submission<span class="id">REL-1</span></div><p>Each one missing scores zero. A session wires the APK link on the site once the release exists.</p></div>
+    <div class="item t1"><div class="hd"><span class="pill p1">build</span>Judge steps describe screens that are gone<span class="id">UX-N3-1</span></div><p>Devpost steps, the README and the video script still say "Use the assistant", the old "I agree" screen and "Tell femio anything". None mentions Check Cloud boost. The live site still shows the old consent screen.</p></div>
+    <div class="item t1"><div class="hd"><span class="pill p1">build</span>"One typed door" is no longer exactly true<span class="id">JUDGE-N3-2</span></div><p>Check Cloud boost is a second cloud call that sends one fixed sentence. Reword Devpost line 52 and the README, and teach the privacy guard to allow exactly that one call.</p></div>
+    <div class="item t1"><div class="hd"><span class="pill p1">build</span>Turning AI off should take no ticks<span class="id">PRIV-N3-1</span></div><p>Going from Cloud boost back to on-phone AI asks for two ticks; the live pages promise "one tap". Also, "Nothing is sent" for on-phone AI contradicts the Google usage-data disclosure.</p></div>
+    <div class="item t1"><div class="hd"><span class="pill p1">build</span>No pregnancy-test card after a loss<span class="id">CLIN-N3-1</span></div><p>After "My pregnancy has ended", the "a pregnancy test is the first step" card can appear under "We're so sorry". "Change" out of pregnancy also skips the loss path.</p></div>
+    <div class="item t1"><div class="hd"><span class="pill p1">build</span>Say what the seal proves<span class="id">PRIV-N3-2</span></div><p>The SHA-256 seal catches accidental damage only; anyone can recompute it. The screen should not say "changed outside femio" or read as proof. Devpost makes no seal claim; keep it that way.</p></div>
+    <div class="item"><div class="hd">Smaller<span class="id">various</span></div><p>Sideloading judges are told to "Install from Google Play"; the save-to-record box starts ticked; the past-due counter still ships (needs your sentence); the breastfeeding layer is two links.</p></div>
+  </div>
 </section>
 
 <section id="reports">
