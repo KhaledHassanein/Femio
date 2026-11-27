@@ -75,10 +75,11 @@ class _WeightGainScreenState extends State<WeightGainScreen> {
     );
     String fmt(num v) => v == v.roundToDouble() ? v.round().toString() : number.format(v);
     final bands = {
-      BmiBand.underweight: l.toolBandUnderweight,
-      BmiBand.normal: l.toolBandNormal,
-      BmiBand.overweight: l.toolBandOverweight,
-      BmiBand.obese: l.toolBandObese,
+      // CLIN-19 / MR-55: the band by its numbers, never "underweight" or "obese".
+      BmiBand.underweight: l.toolBandUnder(fmt(bmiUnderweightBelow)),
+      BmiBand.normal: l.toolBandBetween(fmt(bmiUnderweightBelow), fmt(bmiNormalBelow)),
+      BmiBand.overweight: l.toolBandBetween(fmt(bmiNormalBelow), fmt(bmiOverweightBelow)),
+      BmiBand.obese: l.toolBandFrom(fmt(bmiOverweightBelow)),
     };
 
     final w = parseTypedNumber(_weight.text);

@@ -136,6 +136,7 @@ class _AssistantSettingsScreenState extends State<AssistantSettingsScreen> {
                                     settings.copyWith(
                                       cloud: settings.cloud.withdraw(
                                         DateTime.now().toUtc().toIso8601String(),
+                                        lang: Localizations.localeOf(context).languageCode,
                                       ),
                                     ),
                                   ),

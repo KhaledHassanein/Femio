@@ -59,7 +59,7 @@
   "menoOverYear": "Over a year ago",
   "predictionPeriodTitle": "Your next period",
   "predictionFertileTitle": "Your fertile window",
-  "predictionOvulation": "Likely ovulation: {date}",
+  "predictionOvulation": "Likely ovulation around {date}",
   "predictionNextPeriod": "Next period around {range}",
   "rangeValue": "{start} – {end}",
   "confidenceLow": "Low confidence: it sharpens as you log your periods",
@@ -218,7 +218,7 @@
   "legendFertile": "Fertile window",
   "legendOvulation": "Likely ovulation",
   "legendLogged": "Something logged",
-  "calendarHint": "Tap a day to log it. Estimates are shown in outline; what you log is filled in.",
+  "calendarHint": "Tap a day to log it. Your period days are filled in, including the days of your usual length; predicted periods are outlined and the fertile window is shaded.",
   "logTitle": "Log",
   "sectionPeriod": "Period",
   "flowNone": "None",
@@ -1114,10 +1114,33 @@
       }
     }
   },
-  "toolBandUnderweight": "Underweight",
-  "toolBandNormal": "Healthy range",
-  "toolBandOverweight": "Overweight",
-  "toolBandObese": "Obese",
+  "toolBandUnder": "under {limit}",
+  "@toolBandUnder": {
+    "placeholders": {
+      "limit": {
+        "type": "String"
+      }
+    }
+  },
+  "toolBandBetween": "{low} to under {high}",
+  "@toolBandBetween": {
+    "placeholders": {
+      "low": {
+        "type": "String"
+      },
+      "high": {
+        "type": "String"
+      }
+    }
+  },
+  "toolBandFrom": "{limit} or more",
+  "@toolBandFrom": {
+    "placeholders": {
+      "limit": {
+        "type": "String"
+      }
+    }
+  },
   "toolGainEyebrow": "Reference range for total gain over the whole pregnancy",
   "toolGainRangeKg": "{low} to {high} kg",
   "@toolGainRangeKg": {

@@ -83,7 +83,11 @@ FertileWindow? currentOrNextFertileWindow(Profile profile, CyclePrediction predi
 FertileWindow? _windowBefore(Profile profile, CyclePrediction prediction, String nextStart) =>
     fertileWindowBefore(
       nextStart,
-      cycleLength: profile.cycleLength ?? prediction.averageLength,
+      // CLIN-17 (R14.12): once the forecast comes from her own cycles, MR-08 checks her
+      // observed length, not the one she stated at onboarding.
+      cycleLength: prediction.basis == 'observed'
+          ? prediction.averageLength
+          : (profile.cycleLength ?? prediction.averageLength),
       irregular: prediction.irregular || profile.irregular,
       learning: prediction.learning && prediction.basis != 'stated',
     );

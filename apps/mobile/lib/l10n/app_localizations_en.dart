@@ -195,7 +195,7 @@ class L10nEn extends L10n {
 
   @override
   String predictionOvulation(String date) {
-    return 'Likely ovulation: $date';
+    return 'Likely ovulation around $date';
   }
 
   @override
@@ -501,7 +501,7 @@ class L10nEn extends L10n {
 
   @override
   String get calendarHint =>
-      'Tap a day to log it. Estimates are shown in outline; what you log is filled in.';
+      'Tap a day to log it. Your period days are filled in, including the days of your usual length; predicted periods are outlined and the fertile window is shaded.';
 
   @override
   String get logTitle => 'Log';
@@ -2647,16 +2647,19 @@ class L10nEn extends L10n {
   }
 
   @override
-  String get toolBandUnderweight => 'Underweight';
+  String toolBandUnder(String limit) {
+    return 'under $limit';
+  }
 
   @override
-  String get toolBandNormal => 'Healthy range';
+  String toolBandBetween(String low, String high) {
+    return '$low to under $high';
+  }
 
   @override
-  String get toolBandOverweight => 'Overweight';
-
-  @override
-  String get toolBandObese => 'Obese';
+  String toolBandFrom(String limit) {
+    return '$limit or more';
+  }
 
   @override
   String get toolGainEyebrow =>

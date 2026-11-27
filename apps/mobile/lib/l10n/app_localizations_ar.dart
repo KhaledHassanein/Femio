@@ -195,7 +195,7 @@ class L10nAr extends L10n {
 
   @override
   String predictionOvulation(String date) {
-    return 'الإباضة المرجّحة: $date';
+    return 'الإباضة المرجّحة في حدود $date';
   }
 
   @override
@@ -512,7 +512,7 @@ class L10nAr extends L10n {
 
   @override
   String get calendarHint =>
-      'اضغطي على أي يوم لتسجيله. التقديرات تظهر بإطار فقط، وما تسجّلينه يظهر ممتلئًا.';
+      'اضغطي على يوم لتسجيله. أيام دورتكِ ملوّنة بالكامل، ومنها أيام مدّتها المعتادة؛ والدورات المتوقعة محدّدة بإطار، وأيام الخصوبة مظلّلة.';
 
   @override
   String get logTitle => 'السجل';
@@ -2691,16 +2691,19 @@ class L10nAr extends L10n {
   }
 
   @override
-  String get toolBandUnderweight => 'نقص الوزن';
+  String toolBandUnder(String limit) {
+    return 'أقل من $limit';
+  }
 
   @override
-  String get toolBandNormal => 'النطاق الصحي';
+  String toolBandBetween(String low, String high) {
+    return 'من $low إلى أقل من $high';
+  }
 
   @override
-  String get toolBandOverweight => 'زيادة الوزن';
-
-  @override
-  String get toolBandObese => 'السمنة';
+  String toolBandFrom(String limit) {
+    return '$limit أو أكثر';
+  }
 
   @override
   String get toolGainEyebrow => 'النطاق المرجعي لإجمالي الزيادة طوال الحمل';

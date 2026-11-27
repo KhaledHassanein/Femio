@@ -200,7 +200,7 @@ class L10nFr extends L10n {
 
   @override
   String predictionOvulation(String date) {
-    return 'Ovulation probable : $date';
+    return 'Ovulation probable autour du $date';
   }
 
   @override
@@ -507,7 +507,7 @@ class L10nFr extends L10n {
 
   @override
   String get calendarHint =>
-      'Touchez un jour pour le noter. Les estimations sont en contour ; ce que vous notez est rempli.';
+      'Touchez un jour pour le noter. Vos jours de règles sont remplis, y compris ceux de votre durée habituelle ; les règles prévues sont entourées et la fenêtre fertile est ombrée.';
 
   @override
   String get logTitle => 'Journal';
@@ -2672,16 +2672,19 @@ class L10nFr extends L10n {
   }
 
   @override
-  String get toolBandUnderweight => 'Insuffisance pondérale';
+  String toolBandUnder(String limit) {
+    return 'moins de $limit';
+  }
 
   @override
-  String get toolBandNormal => 'Plage saine';
+  String toolBandBetween(String low, String high) {
+    return 'de $low à moins de $high';
+  }
 
   @override
-  String get toolBandOverweight => 'Surpoids';
-
-  @override
-  String get toolBandObese => 'Obésité';
+  String toolBandFrom(String limit) {
+    return '$limit ou plus';
+  }
 
   @override
   String get toolGainEyebrow =>

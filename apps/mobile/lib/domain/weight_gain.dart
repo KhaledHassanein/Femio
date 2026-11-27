@@ -25,10 +25,14 @@ const multiples = 3;
 /// WHO adult BMI bands, the same cut-offs as the website's BMI calculator.
 enum BmiBand { underweight, normal, overweight, obese }
 
-/// WHO cut-offs on the BMI rounded to one decimal.
-const _underweightBelow = 18.5;
-const _normalBelow = 25.0;
-const _overweightBelow = 30.0;
+/// WHO cut-offs on the BMI rounded to one decimal. Public so the screen can name a band by
+/// its numbers ("18.5 to under 25") rather than a label that reads as a verdict (CLIN-19).
+const bmiUnderweightBelow = 18.5;
+const bmiNormalBelow = 25.0;
+const bmiOverweightBelow = 30.0;
+const _underweightBelow = bmiUnderweightBelow;
+const _normalBelow = bmiNormalBelow;
+const _overweightBelow = bmiOverweightBelow;
 
 /// A total-gain range in both units, as IOM states it.
 class GainRange {

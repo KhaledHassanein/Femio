@@ -139,6 +139,13 @@ function mean(values: number[]): number {
  */
 const SAME_BLEED_WITHIN_DAYS = 10;
 
+/**
+ * CLIN-14 (R14.12): a bleed still going after SAME_BLEED_WITHIN_DAYS stays the same period
+ * while the days keep coming with no more than this gap (a missed day of logging allowed).
+ * Before, day 11 of a long bleed became a phantom 11-day cycle.
+ */
+export const BLEED_CONTINUES_WITHIN_DAYS = 3;
+
 /** Sorted, de-duped, valid dates. */
 function cleanStarts(starts: string[]): string[] {
   return [...new Set(starts.filter(isValidISODate))].sort();
@@ -170,11 +177,14 @@ function cleanStarts(starts: string[]): string[] {
 export function bleedStarts(dates: string[]): string[] {
   const sorted = cleanStarts(dates);
   const starts: string[] = [];
+  let previousDay: string | undefined;
   for (const date of sorted) {
-    const previous = starts[starts.length - 1];
-    if (previous === undefined || diffDays(previous, date) > SAME_BLEED_WITHIN_DAYS) {
-      starts.push(date);
-    }
+    const start = starts[starts.length - 1];
+    const newBleed =
+      start === undefined ||
+      (diffDays(start, date) > SAME_BLEED_WITHIN_DAYS && diffDays(previousDay as string, date) > BLEED_CONTINUES_WITHIN_DAYS);
+    if (newBleed) starts.push(date);
+    previousDay = date;
   }
   return starts;
 }

@@ -95,7 +95,7 @@ class _CloudBoostScreenState extends State<CloudBoostScreen> {
               ),
               const SizedBox(height: space3),
               OutlinedButton(
-                onPressed: () => _record(consent.withdraw(_now()), close: false),
+                onPressed: () => _record(consent.withdraw(_now(), lang: Localizations.localeOf(context).languageCode), close: false),
                 child: Text(l.boostTurnOff),
               ),
               const SizedBox(height: space2),
@@ -146,7 +146,7 @@ class _CloudBoostScreenState extends State<CloudBoostScreen> {
               FilledButton(
                 onPressed: profile == null || _chosen.isEmpty
                     ? null
-                    : () => _record(consent.grant(Set.of(_chosen), _now()), close: true),
+                    : () => _record(consent.grant(Set.of(_chosen), _now(), lang: Localizations.localeOf(context).languageCode), close: true),
                 child: Text(l.boostAgree),
               ),
               const SizedBox(height: space2),

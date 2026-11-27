@@ -440,7 +440,7 @@ abstract class L10n {
   /// No description provided for @predictionOvulation.
   ///
   /// In en, this message translates to:
-  /// **'Likely ovulation: {date}'**
+  /// **'Likely ovulation around {date}'**
   String predictionOvulation(String date);
 
   /// No description provided for @predictionNextPeriod.
@@ -980,7 +980,7 @@ abstract class L10n {
   /// No description provided for @calendarHint.
   ///
   /// In en, this message translates to:
-  /// **'Tap a day to log it. Estimates are shown in outline; what you log is filled in.'**
+  /// **'Tap a day to log it. Your period days are filled in, including the days of your usual length; predicted periods are outlined and the fertile window is shaded.'**
   String get calendarHint;
 
   /// No description provided for @logTitle.
@@ -4349,29 +4349,23 @@ abstract class L10n {
   /// **'BMI before pregnancy: {value} ({band})'**
   String toolGainBmiLine(String value, String band);
 
-  /// No description provided for @toolBandUnderweight.
+  /// No description provided for @toolBandUnder.
   ///
   /// In en, this message translates to:
-  /// **'Underweight'**
-  String get toolBandUnderweight;
+  /// **'under {limit}'**
+  String toolBandUnder(String limit);
 
-  /// No description provided for @toolBandNormal.
+  /// No description provided for @toolBandBetween.
   ///
   /// In en, this message translates to:
-  /// **'Healthy range'**
-  String get toolBandNormal;
+  /// **'{low} to under {high}'**
+  String toolBandBetween(String low, String high);
 
-  /// No description provided for @toolBandOverweight.
+  /// No description provided for @toolBandFrom.
   ///
   /// In en, this message translates to:
-  /// **'Overweight'**
-  String get toolBandOverweight;
-
-  /// No description provided for @toolBandObese.
-  ///
-  /// In en, this message translates to:
-  /// **'Obese'**
-  String get toolBandObese;
+  /// **'{limit} or more'**
+  String toolBandFrom(String limit);
 
   /// No description provided for @toolGainEyebrow.
   ///

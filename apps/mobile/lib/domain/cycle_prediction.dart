@@ -84,6 +84,11 @@ const statedCycleMaxDays = 45;
 /// starts, so logging a second period never makes the calendar show less.
 const statedUntilStarts = 3;
 const _sameBleedWithinDays = 10;
+
+/// CLIN-14 (R14.12): a bleed that is still going after [_sameBleedWithinDays] stays the same
+/// period while the days keep coming with no more than this gap (a missed day of logging
+/// allowed). Before, day 11 of a long bleed became a phantom 11-day cycle.
+const bleedContinuesWithinDays = 3;
 const _recentCycles = 6;
 const _maxPlausibleCycleDays = 90;
 
@@ -102,10 +107,12 @@ const mediumConfidenceCycles = 3;
 List<String> bleedStarts(List<String> dates) {
   final sorted = dates.where(isValidISODate).toSet().toList()..sort();
   final starts = <String>[];
+  String? previous;
   for (final date in sorted) {
-    if (starts.isEmpty || diffDays(starts.last, date) > _sameBleedWithinDays) {
-      starts.add(date);
-    }
+    final newBleed = starts.isEmpty ||
+        (diffDays(starts.last, date) > _sameBleedWithinDays && diffDays(previous!, date) > bleedContinuesWithinDays);
+    if (newBleed) starts.add(date);
+    previous = date;
   }
   return starts;
 }
